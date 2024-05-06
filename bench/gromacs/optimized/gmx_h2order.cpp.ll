@@ -660,8 +660,8 @@ switch.lookup84:                                  ; preds = %102, %104
   %.sroa.0.239.us.i = phi float [ %.sroa.0.3.us.i, %239 ], [ %.sroa.0.1.us.i, %.preheader36.us.i.preheader ]
   %314 = mul nuw nsw i64 %indvars.iv55.i, 3
   %315 = getelementptr inbounds i32, ptr %84, i64 %314
-  %316 = getelementptr i8, ptr %315, i64 4
-  %317 = getelementptr i8, ptr %315, i64 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 4
+  %317 = getelementptr inbounds i8, ptr %315, i64 8
   br label %251
 
 ._crit_edge.us.i:                                 ; preds = %239

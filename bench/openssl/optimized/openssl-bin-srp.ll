@@ -117,7 +117,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.102 = private unnamed_addr constant [40 x i8] c"Internal error validating SRP verifier\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @srp_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @srp_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %passin = alloca ptr, align 8
   %passout = alloca ptr, align 8
@@ -449,7 +449,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %26 = load ptr, ptr @bio_err, align 8
   %arrayidx4.i.i = getelementptr inbounds ptr, ptr %call.i.i.i, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %arrayidx4.i.i, align 8
-  %28 = trunc i64 %indvars.iv.i.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %call5.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.91, i32 noundef %28, ptr noundef %27) #5
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
@@ -584,7 +584,7 @@ for.body26.i:                                     ; preds = %if.end.i, %for.inc4
 land.lhs.true35.i:                                ; preds = %for.body26.i
   %arrayidx36.i = getelementptr inbounds i8, ptr %call.i18.i, i64 24
   %46 = load ptr, ptr %arrayidx36.i, align 8
-  %call37.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %user.1, ptr noundef nonnull dereferenceable(1) %46) #6
+  %call37.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %user.1, ptr noundef nonnull dereferenceable(1) %46) #6
   %cmp38.i = icmp eq i32 %call37.i, 0
   br i1 %cmp38.i, label %if.then192, label %for.inc42.i
 
@@ -719,7 +719,7 @@ land.lhs.true286:                                 ; preds = %lor.lhs.false284
   br i1 %cmp289, label %if.then294, label %lor.lhs.false291
 
 lor.lhs.false291:                                 ; preds = %land.lhs.true286, %lor.lhs.false284
-  %call292 = call fastcc i32 @update_index(ptr noundef nonnull %call113, ptr noundef nonnull %row239), !range !11
+  %call292 = call fastcc i32 @update_index(ptr noundef nonnull %call113, ptr noundef nonnull %row239)
   %tobool293.not = icmp eq i32 %call292, 0
   br i1 %tobool293.not, label %if.then294, label %if.end446
 
@@ -922,7 +922,7 @@ if.end446:                                        ; preds = %for.body213, %if.th
   %incdec.ptr447 = getelementptr inbounds i8, ptr %argv.addr.1, i64 8
   %113 = load ptr, ptr %argv.addr.1, align 8
   %cmp448 = icmp eq ptr %113, null
-  br i1 %cmp448, label %while.end452, label %while.cond175, !llvm.loop !12
+  br i1 %cmp448, label %while.end452, label %while.cond175, !llvm.loop !11
 
 while.end452:                                     ; preds = %if.end446, %while.cond175
   %doupdatedb.2 = phi i32 [ %doupdatedb.1, %if.end446 ], [ %doupdatedb.0, %while.cond175 ]
@@ -969,7 +969,7 @@ for.inc478:                                       ; preds = %for.body465, %if.th
   %122 = load ptr, ptr %data461, align 8
   %call.i191 = call i32 @OPENSSL_sk_num(ptr noundef %122) #5
   %cmp463 = icmp slt i32 %inc479, %call.i191
-  br i1 %cmp463, label %for.body465, label %for.end480, !llvm.loop !13
+  br i1 %cmp463, label %for.body465, label %for.end480, !llvm.loop !12
 
 for.end480:                                       ; preds = %for.inc478, %for.cond459.preheader
   br i1 %tobool109.not, label %if.end484, label %if.end484.thread
@@ -1138,7 +1138,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %4 = load ptr, ptr @bio_err, align 8
   %arrayidx4 = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx4, align 8
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.91, i32 noundef %6, ptr noundef %5) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -1197,7 +1197,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %8 = load ptr, ptr %data, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %8) #5
   %cmp5 = icmp slt i32 %inc, %call.i
-  br i1 %cmp5, label %for.body, label %return, !llvm.loop !14
+  br i1 %cmp5, label %for.body, label %return, !llvm.loop !13
 
 for.body26:                                       ; preds = %for.cond20.preheader, %for.inc42
   %i.124 = phi i32 [ %inc43, %for.inc42 ], [ 0, %for.cond20.preheader ]
@@ -1268,7 +1268,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %8 = load ptr, ptr @bio_err, align 8
   %arrayidx4.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %indvars.iv.i
   %9 = load ptr, ptr %arrayidx4.i, align 8
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call5.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.91, i32 noundef %10, ptr noundef %9) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -1302,7 +1302,7 @@ for.body.i9:                                      ; preds = %if.end.i, %for.inc.
 land.lhs.true.i:                                  ; preds = %for.body.i9
   %arrayidx14.i = getelementptr inbounds i8, ptr %call.i16.i, i64 24
   %18 = load ptr, ptr %arrayidx14.i, align 8
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %18) #6
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %18) #6
   %cmp16.i = icmp eq i32 %call15.i, 0
   br i1 %cmp16.i, label %if.then.i16, label %for.inc.i
 
@@ -1313,7 +1313,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %20 = load ptr, ptr %data.i10, align 8
   %call.i.i11 = tail call i32 @OPENSSL_sk_num(ptr noundef %20) #5
   %cmp5.i = icmp slt i32 %inc.i, %call.i.i11
-  br i1 %cmp5.i, label %for.body.i9, label %if.end8, !llvm.loop !14
+  br i1 %cmp5.i, label %for.body.i9, label %if.end8, !llvm.loop !13
 
 if.then.i16:                                      ; preds = %land.lhs.true.i
   %21 = load ptr, ptr %db1, align 8
@@ -1331,7 +1331,7 @@ for.body.i22:                                     ; preds = %for.body.i22, %if.t
   %25 = load ptr, ptr @bio_err, align 8
   %arrayidx4.i24 = getelementptr inbounds ptr, ptr %call.i.i19, i64 %indvars.iv.i23
   %26 = load ptr, ptr %arrayidx4.i24, align 8
-  %27 = trunc i64 %indvars.iv.i23 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i23 to i32
   %call5.i25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.91, i32 noundef %27, ptr noundef %26) #5
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 6
@@ -1402,7 +1402,7 @@ if.end16:                                         ; preds = %if.end9, %if.then13
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @update_index(ptr nocapture noundef readonly %db, ptr nocapture noundef readonly %row) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @update_index(ptr nocapture noundef readonly %db, ptr nocapture noundef readonly %row) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_malloc(i64 noundef 56, ptr noundef nonnull @.str.96) #5
   br label %for.body
@@ -1415,7 +1415,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr %0, ptr %arrayidx2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body
   %arrayidx3 = getelementptr inbounds i8, ptr %call, i64 48
@@ -1570,8 +1570,7 @@ attributes #7 = { noreturn nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

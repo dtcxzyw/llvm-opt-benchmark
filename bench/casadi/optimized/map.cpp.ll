@@ -3248,7 +3248,7 @@ _ZSt6copy_nIPPymS1_ET1_T_T0_S2_.exit:             ; preds = %_ZSt6copy_nIPPKymS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi3Map10sp_reverseEPPyS2_PxS1_Pv(ptr noundef nonnull align 8 dereferenceable(1320) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi3Map10sp_reverseEPPyS2_PxS1_Pv(ptr noundef nonnull align 8 dereferenceable(1320) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 176
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %1, i64 %8
@@ -4463,9 +4463,9 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit70:              ; preds = %138, %141
 .preheader.us:                                    ; preds = %.preheader143, %._crit_edge169.us
   %149 = phi ptr [ %182, %._crit_edge169.us ], [ %146, %.preheader143 ]
   %.038170.us = phi i64 [ %184, %._crit_edge169.us ], [ 0, %.preheader143 ]
-  %150 = mul nsw i64 %.038170.us, %2
+  %150 = mul nuw nsw i64 %.038170.us, %2
   %151 = add nuw nsw i64 %150, %.039173
-  %152 = mul nsw i64 %151, %137
+  %152 = mul nuw nsw i64 %151, %137
   br label %153
 
 153:                                              ; preds = %.preheader.us, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit81.us
@@ -5442,9 +5442,9 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit70:              ; preds = %138, %141
 .preheader.us:                                    ; preds = %.preheader143, %._crit_edge169.us
   %149 = phi ptr [ %182, %._crit_edge169.us ], [ %146, %.preheader143 ]
   %.038170.us = phi i64 [ %184, %._crit_edge169.us ], [ 0, %.preheader143 ]
-  %150 = mul nsw i64 %.038170.us, %2
+  %150 = mul nuw nsw i64 %.038170.us, %2
   %151 = add nuw nsw i64 %150, %.039173
-  %152 = mul nsw i64 %151, %137
+  %152 = mul nuw nsw i64 %151, %137
   br label %153
 
 153:                                              ; preds = %.preheader.us, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit81.us

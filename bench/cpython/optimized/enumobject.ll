@@ -877,7 +877,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @reversed_new__doc__ = internal constant [91 x i8] c"reversed(sequence, /)\0A--\0A\0AReturn a reverse iterator over the values of the given sequence.\00", align 16
 @reversediter_methods = internal global [4 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str.12, ptr @reversed_len, i32 4, ptr @length_hint_doc }, %struct.PyMethodDef { ptr @.str.2, ptr @reversed_reduce, i32 4, ptr @reduce_doc }, %struct.PyMethodDef { ptr @.str.13, ptr @reversed_setstate, i32 8, ptr @setstate_doc }, %struct.PyMethodDef zeroinitializer], align 16
 @PyReversed_Type = dso_local global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr @PyType_Type }, i64 0 }, ptr @.str.1, i64 32, i64 0, ptr @reversed_dealloc, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @PyObject_GenericGetAttr, ptr null, ptr null, i64 17408, ptr @reversed_new__doc__, ptr @reversed_traverse, ptr null, ptr null, i64 0, ptr @PyObject_SelfIter, ptr @reversed_next, ptr @reversediter_methods, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr @PyType_GenericAlloc, ptr @reversed_new, ptr @PyObject_GC_Del, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr @reversed_vectorcall, i8 0 }, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.2 = private unnamed_addr constant [11 x i8] c"__reduce__\00", align 1
 @reduce_doc = internal constant [39 x i8] c"Return state information for pickling.\00", align 16
 @.str.3 = private unnamed_addr constant [18 x i8] c"__class_getitem__\00", align 1
@@ -1218,8 +1218,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end24.i:                                       ; preds = %if.end20.i
   %ob_item.i44.i = getelementptr inbounds i8, ptr %call21.i, i64 24
   store ptr %9, ptr %ob_item.i44.i, align 8
-  %arrayidx.i46.i = getelementptr i8, ptr %call21.i, i64 32
-  store ptr %call1, ptr %arrayidx.i46.i, align 8
+  %arrayidx.i47.i = getelementptr i8, ptr %call21.i, i64 32
+  store ptr %call1, ptr %arrayidx.i47.i, align 8
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -1358,8 +1358,8 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end24:                                         ; preds = %if.end20
   %ob_item.i46 = getelementptr inbounds i8, ptr %call21, i64 24
   store ptr %call7, ptr %ob_item.i46, align 8
-  %arrayidx.i48 = getelementptr i8, ptr %call21, i64 32
-  store ptr %call1, ptr %arrayidx.i48, align 8
+  %arrayidx.i49 = getelementptr i8, ptr %call21, i64 32
+  store ptr %call1, ptr %arrayidx.i49, align 8
   br label %return
 
 return:                                           ; preds = %if.end24.i, %if.then1.i.i, %if.end.i.i, %Py_DECREF.exit33.i, %if.then18.i, %Py_DECREF.exit42.i, %if.then1.i58.i, %if.end.i55.i, %if.then9.i, %if.then1.i67.i, %if.end.i64.i, %if.then4.i, %if.end.i, %if.then1.i, %Py_DECREF.exit33, %Py_DECREF.exit42, %if.then18, %if.end.i55, %if.then1.i58, %if.then9, %entry, %if.end24
@@ -1488,25 +1488,25 @@ if.end17:                                         ; preds = %if.then13
 
 if.end21:                                         ; preds = %if.then10
   %8 = load ptr, ptr %ob_item, align 8
-  %call.i30 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %8, ptr noundef nonnull @.str.7) #3
-  %tobool.not.i31 = icmp eq i32 %call.i30, 0
-  br i1 %tobool.not.i31, label %check_keyword.exit35.thread, label %lor.lhs.false
+  %call.i31 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %8, ptr noundef nonnull @.str.7) #3
+  %tobool.not.i32 = icmp eq i32 %call.i31, 0
+  br i1 %tobool.not.i32, label %check_keyword.exit36.thread, label %lor.lhs.false
 
-check_keyword.exit35.thread:                      ; preds = %if.end21
+check_keyword.exit36.thread:                      ; preds = %if.end21
   %9 = load ptr, ptr @PyExc_TypeError, align 8
-  %call1.i34 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %8) #3
+  %call1.i35 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %8) #3
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end21
-  %arrayidx.i37 = getelementptr i8, ptr %kwnames, i64 32
-  %10 = load ptr, ptr %arrayidx.i37, align 8
-  %call.i38 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %10, ptr noundef nonnull @.str.8) #3
-  %tobool.not.i39 = icmp eq i32 %call.i38, 0
-  br i1 %tobool.not.i39, label %check_keyword.exit43.thread, label %if.end29
+  %arrayidx.i38 = getelementptr i8, ptr %kwnames, i64 32
+  %10 = load ptr, ptr %arrayidx.i38, align 8
+  %call.i39 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %10, ptr noundef nonnull @.str.8) #3
+  %tobool.not.i40 = icmp eq i32 %call.i39, 0
+  br i1 %tobool.not.i40, label %check_keyword.exit44.thread, label %if.end29
 
-check_keyword.exit43.thread:                      ; preds = %lor.lhs.false
+check_keyword.exit44.thread:                      ; preds = %lor.lhs.false
   %11 = load ptr, ptr @PyExc_TypeError, align 8
-  %call1.i42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %call1.i43 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %10) #3
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false, %if.then5, %if.then3
@@ -1521,15 +1521,15 @@ if.then36:                                        ; preds = %if.end
   br i1 %cmp37, label %land.lhs.true, label %if.end41
 
 land.lhs.true:                                    ; preds = %if.then36
-  %ob_item.i44 = getelementptr inbounds i8, ptr %kwnames, i64 24
-  %14 = load ptr, ptr %ob_item.i44, align 8
-  %call.i45 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %14, ptr noundef nonnull @.str.7) #3
-  %tobool.not.i46 = icmp eq i32 %call.i45, 0
-  br i1 %tobool.not.i46, label %check_keyword.exit50.thread, label %if.end41
+  %ob_item.i45 = getelementptr inbounds i8, ptr %kwnames, i64 24
+  %14 = load ptr, ptr %ob_item.i45, align 8
+  %call.i47 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %14, ptr noundef nonnull @.str.7) #3
+  %tobool.not.i48 = icmp eq i32 %call.i47, 0
+  br i1 %tobool.not.i48, label %check_keyword.exit52.thread, label %if.end41
 
-check_keyword.exit50.thread:                      ; preds = %land.lhs.true
+check_keyword.exit52.thread:                      ; preds = %land.lhs.true
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %call1.i49 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.11, ptr noundef %14) #3
+  %call1.i51 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.11, ptr noundef %14) #3
   br label %return
 
 if.end41:                                         ; preds = %land.lhs.true, %if.then36
@@ -1550,8 +1550,8 @@ if.end47:                                         ; preds = %if.end44
   %call49 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.10, i64 noundef %add) #3
   br label %return
 
-return:                                           ; preds = %check_keyword.exit50.thread, %check_keyword.exit43.thread, %check_keyword.exit35.thread, %check_keyword.exit28.thread, %check_keyword.exit.thread, %if.end47, %if.then46, %if.end41, %if.end29, %if.end17
-  %retval.0 = phi ptr [ %call32, %if.end29 ], [ %call20, %if.end17 ], [ %call43, %if.end41 ], [ null, %if.then46 ], [ null, %if.end47 ], [ null, %check_keyword.exit.thread ], [ null, %check_keyword.exit28.thread ], [ null, %check_keyword.exit35.thread ], [ null, %check_keyword.exit43.thread ], [ null, %check_keyword.exit50.thread ]
+return:                                           ; preds = %check_keyword.exit52.thread, %check_keyword.exit44.thread, %check_keyword.exit36.thread, %check_keyword.exit28.thread, %check_keyword.exit.thread, %if.end47, %if.then46, %if.end41, %if.end29, %if.end17
+  %retval.0 = phi ptr [ %call32, %if.end29 ], [ %call20, %if.end17 ], [ %call43, %if.end41 ], [ null, %if.then46 ], [ null, %if.end47 ], [ null, %check_keyword.exit.thread ], [ null, %check_keyword.exit28.thread ], [ null, %check_keyword.exit36.thread ], [ null, %check_keyword.exit44.thread ], [ null, %check_keyword.exit52.thread ]
   ret ptr %retval.0
 }
 

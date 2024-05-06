@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [5 x i8] c"null\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_unpack_homogeneous_contig_checksum(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @opal_unpack_homogeneous_contig_checksum(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 120
@@ -243,7 +243,7 @@ define i32 @opal_unpack_homogeneous_contig_checksum(ptr noundef %0, ptr nocaptur
 declare i32 @opal_bcopy_uicsum_partial(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_generic_simple_unpack_checksum(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @opal_generic_simple_unpack_checksum(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -561,7 +561,7 @@ unpack_partial_blocklen.exit.thread162:           ; preds = %unpack_partial_bloc
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %191
-  %195 = trunc i64 %indvars.iv to i32
+  %195 = trunc nuw i64 %indvars.iv to i32
   store i32 %195, ptr %2, align 4
   br label %unpack_partial_blocklen.exit.thread
 
@@ -822,7 +822,7 @@ unpack_partial_blocklen.exit.thread:              ; preds = %158, %unpack_partia
   br i1 %329, label %41, label %._crit_edge179.loopexit, !llvm.loop !10
 
 ._crit_edge179.loopexit:                          ; preds = %322
-  %330 = trunc i64 %indvars.iv.next to i32
+  %330 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge179
 
 ._crit_edge179:                                   ; preds = %._crit_edge179.loopexit, %4
@@ -6620,7 +6620,7 @@ opal_datatype_unpack_predefined_element.exit.thread: ; preds = %.lr.ph4019.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_unpack_general_checksum(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @opal_unpack_general_checksum(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -6901,7 +6901,7 @@ unpack_predefined_heterogeneous.exit:             ; preds = %76, %.loopexit.i, %
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %172
-  %176 = trunc i64 %indvars.iv to i32
+  %176 = trunc nuw i64 %indvars.iv to i32
   store i32 %176, ptr %2, align 4
   br label %.loopexit
 
@@ -7033,7 +7033,7 @@ unpack_predefined_heterogeneous.exit:             ; preds = %76, %.loopexit.i, %
   br i1 %247, label %38, label %._crit_edge.loopexit, !llvm.loop !144
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %248 = trunc i64 %indvars.iv.next to i32
+  %248 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4

@@ -7308,7 +7308,7 @@ dissect_dch_rx_timing_deviation.exit:             ; preds = %32, %42, %62, %64
   br label %169
 
 111:                                              ; preds = %4
-  tail call fastcc void @dissect_common_ul_node_synchronisation(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_common_ul_node_synchronisation(ptr noundef nonnull readonly %1, ptr noundef %0, ptr noundef %2)
   br label %169
 
 .preheader:                                       ; preds = %4, %.preheader
@@ -8689,7 +8689,7 @@ define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr nocapture nou
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %4, ptr %1, align 8
   %9 = icmp eq i32 %6, 0
   br i1 %9, label %alloc_address_wmem.exit, label %10
@@ -8822,7 +8822,7 @@ generate_ue_id_for_heur.exit:                     ; preds = %20, %70
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds i8, ptr %1, i64 216
   %82 = load ptr, ptr %81, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
   store i32 %78, ptr %76, align 8
   %83 = icmp eq i32 %80, 0
   br i1 %83, label %copy_address_wmem.exit, label %84

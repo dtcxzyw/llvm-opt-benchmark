@@ -108,7 +108,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %4, i64 64
   %15 = load i32, ptr %14, align 8
-  %16 = tail call i32 @llvm.ctpop.i32(i32 %15), !range !7
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
   %or.cond = icmp eq i32 %16, 1
   br i1 %or.cond, label %17, label %.critedge47
 
@@ -441,7 +441,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %5, i64 64
   %16 = load i32, ptr %15, align 8
-  %17 = tail call i32 @llvm.ctpop.i32(i32 %16), !range !7
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %or.cond55 = icmp eq i32 %17, 1
   br i1 %or.cond55, label %18, label %.critedge49
 
@@ -678,7 +678,7 @@ type_flatten.exit:                                ; preds = %13
   store ptr %42, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
-  br i1 %exitcond.not, label %44, label %39, !llvm.loop !8
+  br i1 %exitcond.not, label %44, label %39, !llvm.loop !7
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %0, i64 72
@@ -712,7 +712,7 @@ type_flatten.exit:                                ; preds = %13
   store ptr %58, ptr %59, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %52
-  br i1 %exitcond62.not, label %60, label %55, !llvm.loop !10
+  br i1 %exitcond62.not, label %60, label %55, !llvm.loop !9
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %0, i64 80
@@ -753,7 +753,6 @@ attributes #5 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 33}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

@@ -160,7 +160,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_git_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_git_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i16, align 2
   %6 = tail call ptr @wmem_packet_scope() #4
   %7 = tail call ptr @tvb_get_string_enc(ptr noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #4
@@ -192,7 +192,7 @@ define internal i32 @dissect_git_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %11 = load i32, ptr @ett_git, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #4
-  %13 = call fastcc i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef nonnull %5), !range !4
+  %13 = call fastcc i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef nonnull %5)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %16, label %14
 
@@ -221,7 +221,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @wmem_packet_scope() #4
@@ -354,9 +354,9 @@ define internal fastcc i32 @dissect_http_pkt_lines(ptr noundef %0, ptr noundef %
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %16
-  %20 = call fastcc i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef nonnull %5), !range !4
+  %20 = call fastcc i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef nonnull %5)
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %16, !llvm.loop !5
+  br i1 %.not, label %21, label %16, !llvm.loop !4
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %5, align 4
@@ -387,6 +387,5 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

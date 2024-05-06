@@ -1188,7 +1188,7 @@ define void @_ZN14SyntaxLineEdit21insertFieldCompletionERK7QString(ptr noundef n
   %9 = tail call i64 @_ZN14SyntaxLineEdit19getTokenUnderCursorEv(ptr noundef nonnull align 8 dereferenceable(185) %0)
   %.sroa.0.0.extract.trunc = trunc i64 %9 to i32
   %.sroa.3.0.extract.shift = lshr i64 %9, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %10 = icmp slt i32 %.sroa.3.0.extract.trunc, 1
   br i1 %10, label %11, label %_ZN7QStringD2Ev.exit.thread
 
@@ -4278,11 +4278,11 @@ define void @_ZN14SyntaxLineEdit10paintEventEP11QPaintEvent(ptr noundef nonnull 
   %32 = extractvalue { i64, i64 } %30, 0
   %.sroa.060.0.extract.trunc = trunc i64 %32 to i32
   %.sroa.3.0.extract.shift = lshr i64 %32, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %33 = extractvalue { i64, i64 } %30, 1
   %.sroa.7.8.extract.trunc = trunc i64 %33 to i32
   %.sroa.11.8.extract.shift = lshr i64 %33, 32
-  %.sroa.11.8.extract.trunc = trunc i64 %.sroa.11.8.extract.shift to i32
+  %.sroa.11.8.extract.trunc = trunc nuw i64 %.sroa.11.8.extract.shift to i32
   %34 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %34)
           to label %35 unwind label %50
@@ -4766,11 +4766,11 @@ define i64 @_ZN14SyntaxLineEdit19getTokenUnderCursorEv(ptr noundef nonnull align
   br label %18
 
 .critedge.preheader.loopexit.split.loop.exit:     ; preds = %_ZN7QStringD2Ev.exit
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge.preheader
 
 .critedge.preheader.loopexit.split.loop.exit68:   ; preds = %27
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %29, %.critedge.preheader.loopexit.split.loop.exit, %.critedge.preheader.loopexit.split.loop.exit68, %7

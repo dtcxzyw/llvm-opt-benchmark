@@ -82,7 +82,7 @@ define void @dspsvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 52:                                               ; preds = %51
   %53 = add nuw nsw i32 %32, 1
-  %54 = mul nsw i32 %53, %32
+  %54 = mul nuw nsw i32 %53, %32
   %55 = lshr i32 %54, 1
   store i32 %55, ptr %18, align 4, !tbaa !3
   call void @dcopy_(ptr noundef nonnull %18, ptr noundef %4, ptr noundef nonnull @c__1, ptr noundef %5, ptr noundef nonnull @c__1) #4

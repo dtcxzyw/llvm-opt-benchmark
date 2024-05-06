@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [40 x i8] c"../openssl/ssl/record/methods/tls_pad.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ssl3_cbc_remove_padding_and_mac(ptr nocapture noundef %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl3_cbc_remove_padding_and_mac(ptr nocapture noundef %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %add = add i64 %mac_size, 1
   %0 = load i64, ptr %reclen, align 8
@@ -34,7 +34,7 @@ if.end:                                           ; preds = %entry
   %and5 = select i1 %and20, i64 %add2, i64 0
   %sub6 = sub i64 %0, %and5
   store i64 %sub6, ptr %reclen, align 8
-  %call7 = tail call fastcc i32 @ssl3_cbc_copy_mac(ptr noundef nonnull %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %and, ptr noundef %libctx), !range !4
+  %call7 = tail call fastcc i32 @ssl3_cbc_copy_mac(ptr noundef nonnull %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %and, ptr noundef %libctx)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -43,7 +43,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl3_cbc_copy_mac(ptr nocapture noundef %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef writeonly %mac, ptr noundef writeonly %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %good, ptr noundef %libctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr nocapture noundef %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef writeonly %mac, ptr noundef writeonly %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %good, ptr noundef %libctx) unnamed_addr #0 {
 entry:
   %rotated_mac_buf = alloca [128 x i8], align 16
   %randmac = alloca [64 x i8], align 16
@@ -158,7 +158,7 @@ for.body:                                         ; preds = %if.end50, %for.body
   %and77 = select i1 %isneg80, i64 %inc, i64 0
   %inc78 = add nuw i64 %i.082, 1
   %exitcond.not = icmp eq i64 %inc78, %origreclen
-  br i1 %exitcond.not, label %for.cond79.preheader, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.cond79.preheader, label %for.body, !llvm.loop !4
 
 for.body82:                                       ; preds = %for.cond79.preheader, %for.body82
   %rotate_offset.188 = phi i64 [ %rotate_offset.0.lcssa, %for.cond79.preheader ], [ %and100, %for.body82 ]
@@ -174,22 +174,22 @@ for.body82:                                       ; preds = %for.cond79.preheade
   %conv.i59 = select i1 %isneg, i32 255, i32 0
   %conv1.i = zext i8 %9 to i32
   %conv2.i = zext i8 %10 to i32
-  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i59) #5, !srcloc !7
+  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i59) #5, !srcloc !6
   %and.i.i60 = and i32 %11, %conv1.i
   %not.i.i61 = xor i32 %conv.i59, -1
-  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i61) #5, !srcloc !7
+  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i61) #5, !srcloc !6
   %and2.i.i = and i32 %12, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i60
   %inc92 = add i64 %rotate_offset.188, 1
   %arrayidx95 = getelementptr inbounds [64 x i8], ptr %randmac, i64 0, i64 %j.187
   %13 = load i8, ptr %arrayidx95, align 1
   %conv2.i64 = zext i8 %13 to i32
-  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i62) #5, !srcloc !7
+  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i62) #5, !srcloc !6
   %and.i.i65 = and i32 %14, %or.i.i
-  %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i66) #5, !srcloc !7
+  %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i66) #5, !srcloc !6
   %and2.i.i67 = and i32 %15, %conv2.i64
   %or.i.i68 = or i32 %and2.i.i67, %and.i.i65
-  %conv3.i69 = trunc i32 %or.i.i68 to i8
+  %conv3.i69 = trunc nuw i32 %or.i.i68 to i8
   %inc97 = add nuw i64 %j.187, 1
   %arrayidx98 = getelementptr inbounds i8, ptr %call46, i64 %j.187
   store i8 %conv3.i69, ptr %arrayidx98, align 1
@@ -199,7 +199,7 @@ for.body82:                                       ; preds = %for.cond79.preheade
   %isneg78 = icmp slt i64 %xor2.i74, 0
   %and100 = select i1 %isneg78, i64 %inc92, i64 0
   %exitcond89.not = icmp eq i64 %inc97, %umax
-  br i1 %exitcond89.not, label %return, label %for.body82, !llvm.loop !8
+  br i1 %exitcond89.not, label %return, label %for.body82, !llvm.loop !7
 
 return:                                           ; preds = %for.body82, %if.end45, %if.end28, %if.end24, %if.end19, %if.then22, %if.then6, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %., %if.then6 ], [ 1, %if.then22 ], [ 1, %if.end19 ], [ 0, %if.end24 ], [ 0, %if.end28 ], [ 0, %if.end45 ], [ 1, %for.body82 ]
@@ -207,7 +207,7 @@ return:                                           ; preds = %for.body82, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls1_cbc_remove_padding_and_mac(ptr nocapture noundef %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i32 noundef %aead, ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_cbc_remove_padding_and_mac(ptr nocapture noundef %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i32 noundef %aead, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne i64 %block_size, 1
   %conv = zext i1 %cmp to i64
@@ -291,7 +291,7 @@ for.body:                                         ; preds = %if.end11, %for.body
   %and25 = and i64 %not, %good.035
   %inc = add nuw nsw i64 %i.034, 1
   %exitcond.not = icmp eq i64 %inc, %spec.select
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.end11
   %good.0.lcssa = phi i64 [ %not.i, %if.end11 ], [ %and25, %for.body ]
@@ -302,7 +302,7 @@ for.end:                                          ; preds = %for.body, %if.end11
   %and29.neg = select i1 %8, i64 %add28.neg, i64 0
   %sub30 = add i64 %and29.neg, %0
   store i64 %sub30, ptr %reclen, align 8
-  %call3228 = tail call fastcc i32 @ssl3_cbc_copy_mac(ptr noundef nonnull %reclen, i64 noundef %origreclen, ptr noundef nonnull %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %shr.neg.i.i.i, ptr noundef %libctx), !range !4
+  %call3228 = tail call fastcc i32 @ssl3_cbc_copy_mac(ptr noundef nonnull %reclen, i64 noundef %origreclen, ptr noundef nonnull %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %shr.neg.i.i.i, ptr noundef %libctx)
   br label %return
 
 return:                                           ; preds = %if.then22.i, %if.end19.i, %if.end.split, %if.end.i, %for.end, %entry, %if.then7
@@ -339,9 +339,8 @@ attributes #5 = { nounwind memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 1576190}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i64 1576190}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

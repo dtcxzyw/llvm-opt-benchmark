@@ -58,7 +58,7 @@ if.else38:                                        ; preds = %if.end23
 
 if.then40:                                        ; preds = %if.else38
   %conv41 = zext i8 %bits to i16
-  %2 = trunc i64 %add to i16
+  %2 = trunc nuw i64 %add to i16
   %sh_prom43 = sub nuw nsw i16 8, %2
   %shl44 = shl nuw i16 %conv41, %sh_prom43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(32) %this) #4
@@ -81,7 +81,7 @@ if.else50:                                        ; preds = %if.else38
   %9 = inttoptr i64 %8 to ptr
   %incdec.ptr.i.i15 = getelementptr inbounds i8, ptr %9, i64 -1
   %10 = load i8, ptr %incdec.ptr.i.i15, align 1
-  %11 = trunc i32 %shr to i8
+  %11 = trunc nuw i32 %shr to i8
   %conv59 = or i8 %10, %11
   store i8 %conv59, ptr %incdec.ptr.i.i15, align 1
   %sh_prom63 = sub i32 16, %7
@@ -161,7 +161,7 @@ while.body:                                       ; preds = %if.else, %while.bod
 if.end:                                           ; preds = %while.body, %if.else, %entry
   %I.addr.0.lcssa.sink = phi i32 [ %I, %entry ], [ %sub6, %if.else ], [ %shr, %while.body ]
   %.sink = phi i64 [ %sub, %entry ], [ 8, %if.else ], [ 8, %while.body ]
-  %conv10 = trunc i32 %I.addr.0.lcssa.sink to i8
+  %conv10 = trunc nuw i32 %I.addr.0.lcssa.sink to i8
   tail call void @_ZN3net17HpackOutputStream10AppendBitsEhm(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 noundef zeroext %conv10, i64 noundef %.sink)
   ret void
 }

@@ -15,7 +15,7 @@ if.end:                                           ; preds = %entry
 if.end2:                                          ; preds = %if.end
   %sub = sub i64 %end_, %now_
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 2147483647)
-  %conv = trunc i64 %.sroa.speculated to i32
+  %conv = trunc nuw nsw i64 %.sroa.speculated to i32
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end2

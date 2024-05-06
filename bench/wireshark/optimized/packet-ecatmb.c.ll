@@ -1022,30 +1022,30 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
 239:                                              ; preds = %233
   %240 = zext i16 %235 to i32
   %241 = zext i8 %236 to i32
-  %242 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.369, i32 noundef 1, i32 noundef %240, i32 noundef %241) #7
+  %242 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.369, i32 noundef 1, i32 noundef %240, i32 noundef %241) #7
   br label %CANopenSdoReqFormatter.exit.i
 
 243:                                              ; preds = %233
   %244 = zext i16 %235 to i32
   %245 = zext i8 %236 to i32
-  %246 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.370, i32 noundef 2, i32 noundef %244, i32 noundef %245) #7
+  %246 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.370, i32 noundef 2, i32 noundef %244, i32 noundef %245) #7
   br label %CANopenSdoReqFormatter.exit.i
 
 247:                                              ; preds = %233
-  %248 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.371, i32 noundef 0) #7
+  %248 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.371, i32 noundef 0) #7
   br label %CANopenSdoReqFormatter.exit.i
 
 249:                                              ; preds = %233
-  %250 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.372, i32 noundef 3) #7
+  %250 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.372, i32 noundef 3) #7
   br label %CANopenSdoReqFormatter.exit.i
 
 251:                                              ; preds = %233
-  %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.373, i32 noundef 4) #7
+  %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.373, i32 noundef 4) #7
   br label %CANopenSdoReqFormatter.exit.i
 
 253:                                              ; preds = %233
   %254 = zext nneg i8 %238 to i32
-  %255 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.374, i32 noundef %254) #7
+  %255 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 199, ptr noundef nonnull @.str.374, i32 noundef %254) #7
   br label %CANopenSdoReqFormatter.exit.i
 
 CANopenSdoReqFormatter.exit.i:                    ; preds = %253, %251, %249, %247, %243, %239
@@ -1469,30 +1469,30 @@ dissect_ecat_coe.exit:                            ; preds = %227, %230, %CANopen
 514:                                              ; preds = %513
   %.not34.i.i = icmp eq ptr %.0.i.i, null
   %515 = select i1 %.not34.i.i, ptr @.str.378, ptr %.0.i.i
-  %516 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.377, i32 noundef %507, ptr noundef nonnull %515) #7
+  %516 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.377, i32 noundef %507, ptr noundef nonnull %515) #7
   br label %FoeFormatter.exit.i
 
 517:                                              ; preds = %513
   %.not33.i.i = icmp eq ptr %.0.i.i, null
   %518 = select i1 %.not33.i.i, ptr @.str.378, ptr %.0.i.i
-  %519 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.379, i32 noundef %507, ptr noundef nonnull %518) #7
+  %519 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.379, i32 noundef %507, ptr noundef nonnull %518) #7
   br label %FoeFormatter.exit.i
 
 520:                                              ; preds = %513
   %521 = and i32 %507, 65535
   %522 = add i32 %495, -6
-  %523 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.380, i32 noundef %521, i32 noundef %522) #7
+  %523 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.380, i32 noundef %521, i32 noundef %522) #7
   br label %FoeFormatter.exit.i
 
 524:                                              ; preds = %513
   %525 = and i32 %507, 65535
-  %526 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.381, i32 noundef %525) #7
+  %526 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.381, i32 noundef %525) #7
   br label %FoeFormatter.exit.i
 
 527:                                              ; preds = %513
   %.not32.i.i = icmp eq ptr %.0.i.i, null
   %528 = select i1 %.not32.i.i, ptr @.str.378, ptr %.0.i.i
-  %529 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.382, i32 noundef %507, ptr noundef nonnull %528) #7
+  %529 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.382, i32 noundef %507, ptr noundef nonnull %528) #7
   br label %FoeFormatter.exit.i
 
 530:                                              ; preds = %513
@@ -1503,15 +1503,15 @@ dissect_ecat_coe.exit:                            ; preds = %227, %230, %CANopen
   %532 = and i32 %507, 65535
   %533 = mul nuw nsw i32 %532, 100
   %534 = udiv i32 %533, %.sroa.12.4.extract.shift.i.i
-  %535 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.383, i32 noundef %534) #7
+  %535 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.383, i32 noundef %534) #7
   br label %FoeFormatter.exit.i
 
 536:                                              ; preds = %530
-  %537 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.384, i32 noundef %507, i32 noundef 0) #7
+  %537 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.384, i32 noundef %507, i32 noundef 0) #7
   br label %FoeFormatter.exit.i
 
 538:                                              ; preds = %513
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(12) @.str.385, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(12) @.str.385, i64 12, i1 false)
   br label %FoeFormatter.exit.i
 
 FoeFormatter.exit.i:                              ; preds = %538, %536, %531, %527, %524, %520, %517, %514
@@ -1650,12 +1650,12 @@ dissect_ecat_foe.exit:                            ; preds = %FoeFormatter.exit.i
 613:                                              ; preds = %611
   %614 = and i32 %612, 7
   %615 = and i32 %610, 4095
-  %616 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 49, ptr noundef nonnull @.str.404, i32 noundef %614, i32 noundef %615) #7
+  %616 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 49, ptr noundef nonnull @.str.404, i32 noundef %614, i32 noundef %615) #7
   br label %SoEIdToString.exit.i.i
 
 617:                                              ; preds = %611
   %618 = and i32 %610, 4095
-  %619 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 49, ptr noundef nonnull @.str.405, i32 noundef %612, i32 noundef %618) #7
+  %619 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 49, ptr noundef nonnull @.str.405, i32 noundef %612, i32 noundef %618) #7
   br label %SoEIdToString.exit.i.i
 
 SoEIdToString.exit.i.i:                           ; preds = %617, %613
@@ -1734,44 +1734,44 @@ SoEIdToString.exit.i.i:                           ; preds = %617, %613
   ]
 
 649:                                              ; preds = %647
-  %650 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.395, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
+  %650 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.395, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   br label %SoeFormatter.exit.i
 
 651:                                              ; preds = %647
   %652 = add i32 %596, -4
-  %653 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.396, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %652) #7
+  %653 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.396, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %652) #7
   br label %SoeFormatter.exit.i
 
 654:                                              ; preds = %647
-  %655 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.397, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
+  %655 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.397, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   br label %SoeFormatter.exit.i
 
 656:                                              ; preds = %647
   %657 = add i32 %596, -4
-  %658 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.398, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %657) #7
+  %658 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.398, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %657) #7
   br label %SoeFormatter.exit.i
 
 659:                                              ; preds = %647
   %660 = add i32 %596, -4
-  %661 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.399, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %660) #7
+  %661 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.399, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %660) #7
   br label %SoeFormatter.exit.i
 
 662:                                              ; preds = %647
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.400, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.400, i64 11, i1 false)
   br label %SoeFormatter.exit.i
 
 663:                                              ; preds = %647
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.401, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.401, i64 5, i1 false)
   br label %SoeFormatter.exit.i
 
 664:                                              ; preds = %608
-  %665 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.402, i32 noundef %610) #7
+  %665 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.402, i32 noundef %610) #7
   br label %SoeFormatter.exit.i
 
 666:                                              ; preds = %603
   %667 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 4) #7
   %668 = zext i16 %667 to i32
-  %669 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.403, i32 noundef %668) #7
+  %669 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 199, ptr noundef nonnull @.str.403, i32 noundef %668) #7
   br label %SoeFormatter.exit.i
 
 SoeFormatter.exit.i:                              ; preds = %666, %664, %663, %662, %659, %656, %654, %651, %649

@@ -13,7 +13,7 @@ define void @softfloat_shortShiftLeft64To96M(i64 noundef %0, i8 noundef zeroext 
   %8 = zext nneg i32 %7 to i64
   %9 = lshr i64 %0, %8
   %10 = lshr i64 %9, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 4
   %13 = trunc i64 %9 to i32

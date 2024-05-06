@@ -1728,12 +1728,12 @@ have_partkey_equi_join.exit.thread:               ; preds = %._crit_edge.i
 117:                                              ; preds = %114, %110, %99
   %.2.i = phi ptr [ %.163.i, %114 ], [ %.163.i, %110 ], [ %.062.i, %99 ]
   %.1.i = phi ptr [ %116, %114 ], [ %.061.i, %110 ], [ %.061.i, %99 ]
-  %118 = tail call fastcc i32 @match_expr_to_partition_keys(ptr noundef %.2.i, ptr noundef nonnull %2, i1 noundef zeroext %102), !range !5
+  %118 = tail call fastcc i32 @match_expr_to_partition_keys(ptr noundef %.2.i, ptr noundef nonnull readonly %2, i1 noundef zeroext %102)
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %144, label %120
 
 120:                                              ; preds = %117
-  %121 = tail call fastcc i32 @match_expr_to_partition_keys(ptr noundef %.1.i, ptr noundef nonnull %3, i1 noundef zeroext %102), !range !5
+  %121 = tail call fastcc i32 @match_expr_to_partition_keys(ptr noundef %.1.i, ptr noundef nonnull readonly %3, i1 noundef zeroext %102)
   %.not73.i = icmp eq i32 %118, %121
   br i1 %.not73.i, label %122, label %144
 
@@ -1783,13 +1783,13 @@ have_partkey_equi_join.exit.thread:               ; preds = %._crit_edge.i
   %indvars.iv90.i30 = phi i64 [ %indvars.iv.next91.i, %.lr.ph85.i ], [ 0, %.lr.ph85.preheader.i ]
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i30, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next91.i, %43
-  br i1 %exitcond.i, label %have_partkey_equi_join.exit, label %.lr.ph85.i, !llvm.loop !6
+  br i1 %exitcond.i, label %have_partkey_equi_join.exit, label %.lr.ph85.i, !llvm.loop !5
 
 .lr.ph85.i:                                       ; preds = %.lr.ph31
   %148 = getelementptr [32 x i8], ptr %7, i64 0, i64 %indvars.iv.next91.i
   %149 = load i8, ptr %148, align 1
   %150 = trunc i8 %149 to i1
-  br i1 %150, label %.lr.ph31, label %have_partkey_equi_join.exit, !llvm.loop !6
+  br i1 %150, label %.lr.ph31, label %have_partkey_equi_join.exit, !llvm.loop !5
 
 have_partkey_equi_join.exit:                      ; preds = %.lr.ph85.i, %.lr.ph31
   %.not37.le = icmp ult i64 %indvars.iv.next91.i, %43
@@ -1952,7 +1952,7 @@ have_partkey_equi_join.exit:                      ; preds = %.lr.ph85.i, %.lr.ph
   store ptr %.2.i22, ptr %232, align 8
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next109.i, %wide.trip.count.i21
-  br i1 %exitcond.not.i, label %set_joinrel_partition_key_exprs.exit, label %168, !llvm.loop !8
+  br i1 %exitcond.not.i, label %set_joinrel_partition_key_exprs.exit, label %168, !llvm.loop !7
 
 set_joinrel_partition_key_exprs.exit:             ; preds = %.thread.i, %151
   %233 = getelementptr inbounds i8, ptr %1, i64 337
@@ -2346,7 +2346,7 @@ find_base_rel.exit:                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %22, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 2
-  br i1 %28, label %6, label %29, !llvm.loop !9
+  br i1 %28, label %6, label %29, !llvm.loop !8
 
 29:                                               ; preds = %find_base_rel.exit
   ret ptr %15
@@ -3034,7 +3034,7 @@ declare zeroext i1 @op_strict(i32 noundef) local_unnamed_addr #1
 declare ptr @remove_nulling_relids(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 32767) i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 25
   br i1 %5, label %.lr.ph, label %.preheader
@@ -3105,7 +3105,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr noc
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next90, %38
-  br i1 %39, label %.lr.ph61.split.us, label %.loopexit, !llvm.loop !10
+  br i1 %39, label %.lr.ph61.split.us, label %.loopexit, !llvm.loop !9
 
 .lr.ph46.us:                                      ; preds = %.lr.ph61.split.us
   %40 = getelementptr inbounds i8, ptr %15, i64 4
@@ -3127,7 +3127,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr noc
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 25
-  br i1 %51, label %.lr.ph, label %.preheader, !llvm.loop !11
+  br i1 %51, label %.lr.ph, label %.preheader, !llvm.loop !10
 
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %.thread37
   %52 = phi ptr [ %68, %.thread37 ], [ %7, %.lr.ph61 ]
@@ -3171,18 +3171,18 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr noc
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next81, %71
-  br i1 %72, label %.lr.ph61.split, label %.loopexit, !llvm.loop !10
+  br i1 %72, label %.lr.ph61.split, label %.loopexit, !llvm.loop !9
 
 .loopexit.loopexit:                               ; preds = %.lr.ph56.us
-  %73 = trunc i64 %indvars.iv89 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv89 to i32
   br label %.loopexit
 
 .loopexit.loopexit72:                             ; preds = %.lr.ph49.us
-  %74 = trunc i64 %indvars.iv89 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv89 to i32
   br label %.loopexit
 
 .loopexit.loopexit74:                             ; preds = %.lr.ph49
-  %75 = trunc i64 %indvars.iv80 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv80 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread37, %.thread37.loopexit.us, %.loopexit.loopexit74, %.loopexit.loopexit72, %.loopexit.loopexit, %.preheader
@@ -3232,10 +3232,9 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 32767}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

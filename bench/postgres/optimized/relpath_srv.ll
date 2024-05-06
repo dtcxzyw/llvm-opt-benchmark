@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [26 x i8] c"pg_tblspc/%u/%s/%u/t%d_%u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @forkname_to_number(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 4) i32 @forkname_to_number(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %9
@@ -40,7 +40,7 @@ define dso_local i32 @forkname_to_number(ptr nocapture noundef readonly %0) loca
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   ret i32 %8
 
 9:                                                ; preds = %2
@@ -93,7 +93,7 @@ define dso_local i32 @forkname_chars(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not14, label %16, label %12
 
 12:                                               ; preds = %10
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.sink.split
 
 14:                                               ; preds = %3

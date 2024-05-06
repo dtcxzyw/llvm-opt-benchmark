@@ -139,7 +139,7 @@ declare ptr @blk_by_legacy_dinfo(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @qdev_realize_and_unref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @ide_get_geometry(ptr nocapture noundef readonly %bus, i32 noundef %unit, ptr nocapture noundef writeonly %cyls, ptr nocapture noundef writeonly %heads, ptr nocapture noundef writeonly %secs) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @ide_get_geometry(ptr nocapture noundef readonly %bus, i32 noundef %unit, ptr nocapture noundef writeonly %cyls, ptr nocapture noundef writeonly %heads, ptr nocapture noundef writeonly %secs) local_unnamed_addr #2 {
 entry:
   %ifs = getelementptr inbounds i8, ptr %bus, i64 136
   %idxprom = sext i32 %unit to i64

@@ -2166,7 +2166,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %2 = load i64, ptr %position, align 4, !tbaa.struct !75
   %offset.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   %offset.sroa.16.0.extract.shift = lshr i64 %2, 32
-  %offset.sroa.16.0.extract.trunc = trunc i64 %offset.sroa.16.0.extract.shift to i32
+  %offset.sroa.16.0.extract.trunc = trunc nuw i64 %offset.sroa.16.0.extract.shift to i32
   %tobool8 = icmp ne ptr %clip, null
   %or.cond = or i1 %tobool8, %vcenter
   %or.cond114 = or i1 %or.cond, %hcenter
@@ -2180,7 +2180,7 @@ if.then9:                                         ; preds = %if.end
   %call10 = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %3) #21
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %call10 to i32
   %ref.tmp.sroa.4.0.extract.shift = lshr i64 %call10, 32
-  %ref.tmp.sroa.4.0.extract.trunc = trunc i64 %ref.tmp.sroa.4.0.extract.shift to i32
+  %ref.tmp.sroa.4.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.4.0.extract.shift to i32
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.end

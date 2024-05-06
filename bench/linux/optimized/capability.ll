@@ -71,7 +71,7 @@ define internal noundef i32 @file_caps_disable(ptr nocapture readnone %0) #0 sec
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_capget(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_capget(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -81,7 +81,7 @@ define dso_local i64 @__x64_sys_capget(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_capget(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_capget(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.kernel_cap_t, align 8
   %5 = alloca %struct.kernel_cap_t, align 8
@@ -174,7 +174,7 @@ define internal fastcc i64 @__se_sys_capget(i64 noundef %0, i64 noundef %1) unna
   %55 = trunc i64 %54 to i32
   store i32 %55, ptr %7, align 16
   %56 = lshr i64 %54, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 %57, ptr %58, align 4
   %59 = load i64, ptr %6, align 8
@@ -182,7 +182,7 @@ define internal fastcc i64 @__se_sys_capget(i64 noundef %0, i64 noundef %1) unna
   %61 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %60, ptr %61, align 4
   %62 = lshr i64 %59, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   %64 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 %63, ptr %64, align 16
   %65 = load i64, ptr %5, align 8
@@ -190,7 +190,7 @@ define internal fastcc i64 @__se_sys_capget(i64 noundef %0, i64 noundef %1) unna
   %67 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %66, ptr %67, align 8
   %68 = lshr i64 %65, 32
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw i64 %68 to i32
   %70 = getelementptr inbounds i8, ptr %7, i64 20
   store i32 %69, ptr %70, align 4
   %71 = load i32, ptr %3, align 4
@@ -220,7 +220,7 @@ define internal fastcc i64 @__se_sys_capget(i64 noundef %0, i64 noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_capget(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_capget(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -232,7 +232,7 @@ define dso_local i64 @__ia32_sys_capget(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_capset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_capset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -242,7 +242,7 @@ define dso_local i64 @__x64_sys_capset(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_capset(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_capset(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca [2 x %struct.__user_cap_data_struct], align 16
   %4 = alloca i32, align 4
   %5 = alloca %struct.kernel_cap_t, align 8
@@ -381,7 +381,7 @@ define internal fastcc i64 @__se_sys_capset(i64 noundef %0, i64 noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_capset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_capset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -692,7 +692,7 @@ define dso_local zeroext i1 @ptracer_capable(ptr noundef %0, ptr noundef %1) loc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cap_validate_magic(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @cap_validate_magic(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 align 16 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = tail call i64 @llvm.read_register.i64(metadata !0)

@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__StreamDecoderErrorStatusString = external local_unnamed_addr constant [0 x ptr], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @do_shorthand_operation__add_seekpoints(ptr noundef %filename, ptr noundef %chain, ptr noundef %specification, ptr nocapture noundef writeonly %needs_write) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_shorthand_operation__add_seekpoints(ptr noundef %filename, ptr noundef %chain, ptr noundef %specification, ptr nocapture noundef writeonly %needs_write) local_unnamed_addr #0 {
 entry:
   %client_data.i = alloca %struct.ClientData, align 8
   %call = tail call ptr @FLAC__metadata_iterator_new() #5
@@ -262,7 +262,7 @@ declare i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr noundef) local_unn
 declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @write_callback_(ptr noundef %decoder, ptr nocapture noundef readonly %frame, ptr nocapture readnone %buffer, ptr noundef %client_data) #0 {
+define internal range(i32 0, 2) i32 @write_callback_(ptr noundef %decoder, ptr nocapture noundef readonly %frame, ptr nocapture readnone %buffer, ptr noundef %client_data) #0 {
 entry:
   %error_occurred = getelementptr inbounds i8, ptr %client_data, i64 36
   %0 = load i32, ptr %error_occurred, align 4

@@ -173,7 +173,7 @@ entry:
   %2 = load i32, ptr %m_count.i, align 8
   %conv5.i = sext i32 %2 to i64
   %mul6.i = shl nsw i64 %conv5.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i, ptr align 4 %0, i64 %mul6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i, ptr readonly align 4 %0, i64 %mul6.i, i1 false)
   %m_prevVertex.i = getelementptr inbounds i8, ptr %call, i64 28
   %3 = load i64, ptr %m_prevVertex, align 4
   store i64 %3, ptr %m_prevVertex.i, align 4
@@ -186,7 +186,7 @@ entry:
 declare noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK12b2ChainShape13GetChildCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) unnamed_addr #6 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK12b2ChainShape13GetChildCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) unnamed_addr #6 align 2 {
 entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_count, align 8

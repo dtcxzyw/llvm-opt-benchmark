@@ -21,7 +21,7 @@ define void @Init_arity(i64 noundef %0) local_unnamed_addr #0 {
 declare extern_weak void @rb_define_module_function(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @obj_method_arity(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i64 1, 0) i64 @obj_method_arity(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
   %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #2
@@ -33,7 +33,7 @@ define internal i64 @obj_method_arity(i64 %0, i64 noundef %1, i64 noundef %2) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @mod_method_arity(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i64 1, 0) i64 @mod_method_arity(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
   %5 = call i64 @rb_check_id(ptr noundef nonnull %4) #2

@@ -461,7 +461,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mmio_irqchip.0205 = phi ptr [ null, %for.body.lr.ph ], [ %mmio_irqchip.1182187, %for.inc ]
   %virtio_irqchip.0204 = phi ptr [ null, %for.body.lr.ph ], [ %virtio_irqchip.2188, %for.inc ]
   %pcie_irqchip.0203 = phi ptr [ null, %for.body.lr.ph ], [ %pcie_irqchip.3, %for.inc ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call8 = tail call zeroext i1 @riscv_socket_check_hartids(ptr noundef %machine, i32 noundef %2) #13
   br i1 %call8, label %if.end10, label %if.then9
 
@@ -572,7 +572,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.then.i ]
   %mul4.i = shl nuw nsw i64 %indvars.iv.i, 12
   %add5.i = add nuw nsw i64 %add.i144, %mul4.i
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add6.i = add i32 %call11, %9
   %call.i145 = tail call ptr @riscv_imsic_create(i64 noundef %add5.i, i32 noundef %add6.i, i1 noundef zeroext true, i32 noundef 1, i32 noundef 255) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -604,7 +604,7 @@ for.body17.i:                                     ; preds = %for.body17.i, %for.
   %indvars.iv6.i = phi i64 [ 0, %for.body17.lr.ph.i ], [ %indvars.iv.next7.i, %for.body17.i ]
   %mul21.i = shl i64 %indvars.iv6.i, %10
   %add22.i = add i64 %add13.i, %mul21.i
-  %11 = trunc i64 %indvars.iv6.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv6.i to i32
   %add23.i = add i32 %call11, %11
   %call25.i = tail call ptr @riscv_imsic_create(i64 noundef %add22.i, i32 noundef %add23.i, i1 noundef zeroext false, i32 noundef %add7.i, i32 noundef 255) #13
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
@@ -705,7 +705,7 @@ for.body170:                                      ; preds = %if.end154, %for.bod
   %16 = shl nuw nsw i64 %indvars.iv214, 12
   %17 = add nuw nsw i64 %16, 268439552
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %18 = trunc i64 %indvars.iv.next215 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.next215 to i32
   %call179 = tail call ptr @qdev_get_gpio_in(ptr noundef %virtio_irqchip.0.lcssa, i32 noundef %18) #13
   %call.i148 = tail call ptr (ptr, i64, ...) @sysbus_create_varargs(ptr noundef nonnull @.str.52, i64 noundef %17, ptr noundef %call179, ptr noundef null) #13
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, 8
@@ -1276,7 +1276,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %num_harts.i.i = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv.i.i, i32 1
   %9 = load i32, ptr %num_harts.i.i, align 8
   %sub15.i.i = sub i32 %phandle_pos.05.i.i, %9
-  %10 = trunc i64 %indvars.iv.i.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %call16.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.96, i32 noundef %10) #13
   %11 = load ptr, ptr %fdt.i.i, align 8
   %call18.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %11, ptr noundef %call16.i.i) #13
@@ -1305,7 +1305,7 @@ for.body.i.i.i:                                   ; preds = %if.end42.i.i.i, %fo
   %arrayidx8.i.i.i = getelementptr %struct.ArchCPU, ptr %14, i64 %indvars.iv.i.i.i
   %inc.i.i.i = add i32 %phandle.1.i, 1
   %15 = load i32, ptr %hartid_base.i.i.i, align 4
-  %16 = trunc i64 %indvars.iv.i.i.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %add.i.i.i = add i32 %15, %16
   %call12.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.97, i32 noundef %add.i.i.i) #13
   %17 = load ptr, ptr %fdt.i.i.i, align 8
@@ -1411,12 +1411,12 @@ create_fdt_socket_cpus.exit.i.i:                  ; preds = %if.end42.i.i.i, %fo
   %41 = load ptr, ptr %fdt.i78.i.i, align 8
   %call4.i.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %41, ptr noundef %call3.i.i.i) #13
   %shr.i.i.i = lshr i64 %add.i77.i.i, 32
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw i64 %shr.i.i.i to i32
   store i32 %conv.i.i.i, ptr %qdt_tmp.i.i.i, align 16
   %conv5.i.i.i = trunc i64 %add.i77.i.i to i32
   store i32 %conv5.i.i.i, ptr %arrayinit.element.i.i.i, align 4
   %shr7.i.i.i = lshr i64 %call2.i.i.i, 32
-  %conv8.i.i.i = trunc i64 %shr7.i.i.i to i32
+  %conv8.i.i.i = trunc nuw i64 %shr7.i.i.i to i32
   store i32 %conv8.i.i.i, ptr %arrayinit.element6.i.i.i, align 8
   %conv10.i.i.i = trunc i64 %call2.i.i.i to i32
   store i32 %conv10.i.i.i, ptr %arrayinit.element9.i.i.i, align 4
@@ -1732,7 +1732,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %if.th
   br i1 %cmp28.i.i, label %if.then30.i.i, label %if.end31.i.i
 
 if.then30.i.i:                                    ; preds = %for.end.i.i
-  call fastcc void @create_fdt_one_imsic(ptr noundef nonnull %add.ptr, i64 noundef 603979776, ptr noundef %call11.i.i, i32 noundef %phandle.3.i, i1 noundef zeroext true, i32 noundef 0)
+  call fastcc void @create_fdt_one_imsic(ptr noundef nonnull %add.ptr, i64 noundef 603979776, ptr noundef readonly %call11.i.i, i32 noundef %phandle.3.i, i1 noundef zeroext true, i32 noundef 0)
   %aia_guests.i.i.i = getelementptr i8, ptr %notifier, i64 3492
   %91 = load i32, ptr %aia_guests.i.i.i, align 4
   %add.i119.i.i = add i32 %91, 1
@@ -1750,7 +1750,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
 create_fdt_imsic.exit.i.i:                        ; preds = %while.cond.i.i.i.i
   %inc1.i.i.i = add i32 %phandle.3.i, 2
   %inc.i118.i.i = add i32 %phandle.3.i, 1
-  call fastcc void @create_fdt_one_imsic(ptr noundef %add.ptr, i64 noundef 671088640, ptr noundef %call11.i.i, i32 noundef %inc.i118.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
+  call fastcc void @create_fdt_one_imsic(ptr noundef %add.ptr, i64 noundef 671088640, ptr noundef readonly %call11.i.i, i32 noundef %inc.i118.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %create_fdt_imsic.exit.i.i, %for.end.i.i
@@ -1866,7 +1866,7 @@ for.end76.i.i.i:                                  ; preds = %for.body68.i.i.i
   %call78.i156.i.i = call i32 @qemu_fdt_setprop(ptr noundef %109, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i120.i.i, i32 noundef 16) #13
   %110 = load ptr, ptr %fdt.i149.i.i, align 8
   %call80.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %110, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.137, i32 noundef 95) #13
-  %111 = trunc i64 %indvars.iv14.i.i to i32
+  %111 = trunc nuw nsw i64 %indvars.iv14.i.i to i32
   call void @riscv_socket_fdt_write_id(ptr noundef %call.i.i121.i.i, ptr noundef %call38.i148.i.i, i32 noundef %111) #13
   %112 = load ptr, ptr %fdt.i149.i.i, align 8
   %call84.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %112, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.108, i32 noundef %phandle.5.i) #13
@@ -1890,10 +1890,10 @@ if.else50.i.i:                                    ; preds = %for.body38.i.i
   %inc1.i161.i.i = add i32 %phandle.5.i, 2
   %mul.i163.i.i = shl nuw nsw i64 %indvars.iv14.i.i, 15
   %add.i164.i.i = add nuw nsw i64 %mul.i163.i.i, 201326592
-  %114 = trunc i64 %indvars.iv14.i.i to i32
-  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add.i164.i.i, i32 noundef %msi_m_phandle.0.i.i, ptr noundef %arrayidx49.i.i, i32 noundef %phandle.5.i, i32 noundef %inc.i160.i.i, i1 noundef zeroext true, i32 noundef %94)
+  %114 = trunc nuw nsw i64 %indvars.iv14.i.i to i32
+  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add.i164.i.i, i32 noundef %msi_m_phandle.0.i.i, ptr noundef readonly %arrayidx49.i.i, i32 noundef %phandle.5.i, i32 noundef %inc.i160.i.i, i1 noundef zeroext true, i32 noundef %94)
   %add12.i.i.i = add nuw nsw i64 %mul.i163.i.i, 218103808
-  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add12.i.i.i, i32 noundef %msi_s_phandle.0.i.i, ptr noundef %arrayidx49.i.i, i32 noundef %inc.i160.i.i, i32 noundef 0, i1 noundef zeroext false, i32 noundef %94)
+  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add12.i.i.i, i32 noundef %msi_s_phandle.0.i.i, ptr noundef readonly %arrayidx49.i.i, i32 noundef %inc.i160.i.i, i32 noundef 0, i1 noundef zeroext false, i32 noundef %94)
   %call16.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.138, i64 noundef %add12.i.i.i) #13
   %tobool.not.i165.i.i = icmp eq i64 %indvars.iv14.i.i, 0
   br i1 %tobool.not.i165.i.i, label %if.then.i167.i.i, label %create_fdt_socket_aplic.exit.i.i
@@ -1983,7 +1983,7 @@ for.body.i9.i:                                    ; preds = %if.end.i.i, %create
   %122 = load ptr, ptr %fdt.i7.i, align 8
   %call5.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %122, ptr noundef %call2.i10.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.145) #13
   store i32 0, ptr %qdt_tmp.i.i, align 16
-  %123 = trunc i64 %120 to i32
+  %123 = trunc nuw nsw i64 %120 to i32
   store i32 %123, ptr %arrayinit.element.i.i, align 4
   store i32 0, ptr %arrayinit.element14.i.i, align 8
   store i32 4096, ptr %arrayinit.element15.i.i, align 4
@@ -2011,13 +2011,13 @@ for.end.i14.i:                                    ; preds = %for.body23.i.i
 if.then.i17.i:                                    ; preds = %for.end.i14.i
   %129 = load ptr, ptr %fdt.i7.i, align 8
   %130 = add nuw nsw i64 %indvars.iv8.i.i, 1
-  %131 = trunc i64 %130 to i32
+  %131 = trunc nuw nsw i64 %130 to i32
   %call36.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %129, ptr noundef %call2.i10.i, ptr noundef nonnull @.str.147, i32 noundef %131) #13
   br label %if.end.i.i
 
 do.body37.i.i:                                    ; preds = %for.end.i14.i
   %132 = add nuw nsw i64 %indvars.iv8.i.i, 1
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nuw nsw i64 %132 to i32
   %134 = call noundef i32 @llvm.bswap.i32(i32 %133)
   store i32 %134, ptr %qdt_tmp38.i.i, align 4
   store i32 67108864, ptr %indvars.iv5.i.sroa.gep120.i, align 4
@@ -2573,7 +2573,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.body22
   %indvars.iv = phi i64 [ 0, %for.body22.lr.ph ], [ %indvars.iv.next, %for.body22 ]
   %imsic_max_hart_per_socket.073 = phi i32 [ 0, %for.body22.lr.ph ], [ %spec.select, %for.body22 ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %mul23 = shl i32 %7, 24
   %conv26 = add i32 %mul23, %2
   %num_harts = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv, i32 1

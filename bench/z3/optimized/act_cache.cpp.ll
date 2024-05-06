@@ -428,7 +428,7 @@ while.cond:                                       ; preds = %_ZNK4cmapISt4pairIP
 while.body:                                       ; preds = %while.cond
   %arrayidx.i6 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %5, ptr %m_qhead, align 8
   %ref.tmp.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i6, align 8
   %ref.tmp.sroa.3.0.k.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i6, i64 8

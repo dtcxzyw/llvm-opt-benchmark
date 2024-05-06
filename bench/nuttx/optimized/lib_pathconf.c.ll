@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.pathconf = private unnamed_addr constant [7 x i64] [i64 8, i64 255, i64 255, i64 32, i64 256, i64 256, i64 512], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @fpathconf(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1, 513) i64 @fpathconf(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %1, -6
   %3 = icmp ult i32 %switch.tableidx, 7
   br i1 %3, label %switch.hole_check, label %4
@@ -17,7 +17,7 @@ define noundef i64 @fpathconf(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   br label %7
 
 switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 111, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %4
@@ -36,7 +36,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare ptr @__errno() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @pathconf(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1, 513) i64 @pathconf(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %1, -6
   %3 = icmp ult i32 %switch.tableidx, 7
   br i1 %3, label %switch.hole_check, label %4
@@ -47,7 +47,7 @@ define noundef i64 @pathconf(ptr nocapture noundef readnone %0, i32 noundef %1) 
   br label %fpathconf.exit
 
 switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 111, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %4

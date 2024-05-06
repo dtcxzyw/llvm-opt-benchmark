@@ -156,7 +156,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr n
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %4, i64 24
   %25 = load i32, ptr %24, align 8
-  %26 = call i32 @access(ptr noundef nonnull %1, i32 noundef 2) #11
+  %26 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 2) #11
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %31
 
@@ -166,7 +166,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %30, label %unreadable_info.exit, label %31
 
 31:                                               ; preds = %28, %23
-  %32 = call i32 @access(ptr noundef nonnull %1, i32 noundef 1) #11
+  %32 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 1) #11
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
 
@@ -371,7 +371,7 @@ define hidden i32 @magic_getflags(ptr noundef readonly %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @magic_setflags(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @magic_setflags(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -391,7 +391,7 @@ define hidden noundef i32 @magic_version() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @magic_setparam(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define hidden range(i32 -1, 1) i32 @magic_setparam(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %41, label %5
 
@@ -482,7 +482,7 @@ define hidden noundef i32 @magic_setparam(ptr noundef writeonly %0, i32 noundef 
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @magic_getparam(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define hidden range(i32 -1, 1) i32 @magic_getparam(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %41, label %5
 

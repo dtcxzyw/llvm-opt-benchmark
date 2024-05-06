@@ -96,7 +96,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ecdsa_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecdsa_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   store ptr %sig, ptr %sig.addr, align 8
@@ -128,7 +128,7 @@ declare i32 @i2d_ECDSA_SIG(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ECDSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ecdsa_deterministic_sign(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %eckey, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecdsa_deterministic_sign(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %eckey, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   %kinv = alloca ptr, align 8
@@ -137,7 +137,7 @@ entry:
   store ptr null, ptr %kinv, align 8
   store ptr null, ptr %r, align 8
   store i32 0, ptr %siglen, align 4
-  %call = call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef null, ptr noundef nonnull %kinv, ptr noundef nonnull %r, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq), !range !4
+  %call = call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef null, ptr noundef nonnull %kinv, ptr noundef nonnull %r, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -292,7 +292,7 @@ do.cond.us.us:                                    ; preds = %do.body45.us.us
   br i1 %tobool61.not.us.us, label %do.end.split.us.us, label %do.body45.us.us.backedge
 
 do.body45.us.us.backedge:                         ; preds = %do.cond.us.us, %do.cond74.us
-  br label %do.body45.us.us, !llvm.loop !5
+  br label %do.body45.us.us, !llvm.loop !4
 
 do.end.split.us.us:                               ; preds = %do.cond.us.us
   %call62.us = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
@@ -329,7 +329,7 @@ do.cond.us64.us:                                  ; preds = %do.body45.us60.us
   br i1 %tobool61.not.us66.us, label %do.end.split.split.us.us, label %do.body45.us60.us.backedge
 
 do.body45.us60.us.backedge:                       ; preds = %do.cond.us64.us, %do.cond74.us74
-  br label %do.body45.us60.us, !llvm.loop !5
+  br label %do.body45.us60.us, !llvm.loop !4
 
 do.end.split.split.us.us:                         ; preds = %do.cond.us64.us
   %call62.us77 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
@@ -347,7 +347,7 @@ do.cond:                                          ; preds = %do.body45
   br i1 %tobool61.not, label %do.end.split.split, label %do.body45.backedge
 
 do.body45.backedge:                               ; preds = %do.cond, %do.cond74
-  br label %do.body45, !llvm.loop !5
+  br label %do.body45, !llvm.loop !4
 
 do.end.split.split:                               ; preds = %do.cond
   %call62 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
@@ -421,9 +421,9 @@ return:                                           ; preds = %if.end88, %if.then1
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ecdsa_simple_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecdsa_simple_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef %kinvp, ptr noundef %rp, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef %kinvp, ptr noundef %rp, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -569,7 +569,7 @@ do.body:                                          ; preds = %if.end88, %if.end43
   br i1 %or.cond, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %do.body
-  %call49 = call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef nonnull %call22, ptr noundef nonnull %kinv, ptr noundef nonnull %call8, ptr noundef %dgst, i32 noundef %dgst_len.addr.0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null), !range !4
+  %call49 = call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef nonnull %call22, ptr noundef nonnull %kinv, ptr noundef nonnull %call8, ptr noundef %dgst, i32 noundef %dgst_len.addr.0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %if.then51, label %if.end52
 
@@ -784,7 +784,7 @@ declare i32 @ECDSA_do_verify(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ecdsa_simple_verify_sig(ptr noundef %dgst, i32 noundef %dgst_len, ptr noundef readonly %sig, ptr noundef %eckey) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_ecdsa_simple_verify_sig(ptr noundef %dgst, i32 noundef %dgst_len, ptr noundef readonly %sig, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1090,6 +1090,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -42,7 +42,7 @@ define void @Init_shift_jis() local_unnamed_addr #0 {
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
@@ -150,7 +150,7 @@ mbc_enc_len.exit:                                 ; preds = %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #4 {
+define internal range(i32 -401, 3) i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #4 {
   %3 = icmp ult i32 %0, 256
   br i1 %3, label %4, label %9
 
@@ -655,7 +655,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #7 {
+define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #7 {
   %5 = icmp ult i32 %0, 15
   br i1 %5, label %13, label %6
 
@@ -764,7 +764,7 @@ mbc_enc_len.exit:                                 ; preds = %23, %28, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 0, 2) i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %5

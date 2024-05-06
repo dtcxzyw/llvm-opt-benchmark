@@ -438,7 +438,7 @@ _ZN3dap13ContentReader5matchEPKc.exit:            ; preds = %.lr.ph.i.i, %9
   br label %.loopexit
 
 42:                                               ; preds = %2
-  %43 = tail call noundef zeroext i1 @_ZN3dap13ContentReader4scanEPKhm(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str, i64 noundef 15)
+  %43 = tail call noundef zeroext i1 @_ZN3dap13ContentReader4scanEPKhm(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull readonly @.str, i64 noundef 15)
   br i1 %43, label %_ZN3dap13ContentReader5matchEPKc.exit.thread, label %44
 
 44:                                               ; preds = %42
@@ -1816,7 +1816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = trunc i64 %.0.lcssa.i to i8
+  %55 = trunc nuw i64 %.0.lcssa.i to i8
   %56 = or disjoint i8 %55, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

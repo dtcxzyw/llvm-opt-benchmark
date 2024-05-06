@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @provider_option_given = internal unnamed_addr global i1 false, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @app_provider_load(ptr noundef %libctx, ptr noundef %provider_name) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @app_provider_load(ptr noundef %libctx, ptr noundef %provider_name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PROVIDER_load(ptr noundef %libctx, ptr noundef %provider_name) #3
   %cmp = icmp eq ptr %call, null
@@ -94,7 +94,7 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %call = tail call ptr @app_get0_libctx() #3
   %call2 = tail call ptr @opt_arg() #3
-  %call3 = tail call i32 @app_provider_load(ptr noundef %call, ptr noundef %call2), !range !5
+  %call3 = tail call i32 @app_provider_load(ptr noundef %call, ptr noundef %call2)
   br label %return
 
 sw.bb4:                                           ; preds = %entry
@@ -135,7 +135,7 @@ declare ptr @opt_arg() local_unnamed_addr #1
 declare i32 @app_set_propq(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @opt_provider_option_given() local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @opt_provider_option_given() local_unnamed_addr #2 {
 entry:
   %.b = load i1, ptr @provider_option_given, align 4
   %0 = zext i1 %.b to i32
@@ -164,4 +164,3 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

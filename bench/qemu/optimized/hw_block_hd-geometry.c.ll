@@ -253,7 +253,7 @@ trace_hd_geometry_guess.exit:                     ; preds = %if.end19, %land.lhs
 declare i32 @blk_probe_geometry(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @hd_bios_chs_auto_trans(i32 noundef %cyls, i32 noundef %heads, i32 noundef %secs) local_unnamed_addr #2 {
+define dso_local noundef range(i32 1, 3) i32 @hd_bios_chs_auto_trans(i32 noundef %cyls, i32 noundef %heads, i32 noundef %secs) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %cyls, 1025
   %cmp1 = icmp ult i32 %heads, 17

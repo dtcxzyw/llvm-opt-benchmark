@@ -178,7 +178,7 @@ define dso_local void @acpi_ps_free_op(ptr noundef %0) local_unnamed_addr #0 ali
 declare dso_local i32 @acpi_os_release_object(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i8 @acpi_ps_is_leading_char(i32 noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ps_is_leading_char(i32 noundef %0) local_unnamed_addr #4 align 16 {
   %2 = icmp eq i32 %0, 95
   %3 = add i32 %0, -65
   %4 = icmp ult i32 %3, 26

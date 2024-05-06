@@ -1724,7 +1724,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %371 = icmp eq i64 %370, -9223372036854775808
   %.0.v.i = select i1 %371, i64 8, i64 40
   %.0.i76 = getelementptr inbounds i8, ptr %369, i64 %.0.v.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %.0.i76, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %56, ptr noundef nonnull readonly align 8 dereferenceable(32) %.0.i76, i64 32, i1 false)
   store ptr %347, ptr %53, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %109, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %54, ptr nonnull align 8 @anon.5e57fe82ff1aab3e07530ed2abc6b869.17, i64 2, ptr nonnull align 8 %53, i64 1)
@@ -5800,11 +5800,11 @@ _ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.thread.i: 
 362:                                              ; preds = %359
   store i64 4, ptr %45, align 16, !alias.scope !40
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -7410,7 +7410,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$cranelift_isle..sema..TermId$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2015d02bbc67b0a2E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define hidden range(i8 -1, 2) i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2015d02bbc67b0a2E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp ult i64 %3, %4
@@ -7421,7 +7421,7 @@ define hidden noundef i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN63_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..Ord$GT$3cmp17h462961b65fb6efe5E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define hidden range(i8 -1, 2) i8 @"_ZN63_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..Ord$GT$3cmp17h462961b65fb6efe5E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp ult i64 %3, %4

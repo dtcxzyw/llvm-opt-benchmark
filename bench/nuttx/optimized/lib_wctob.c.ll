@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @wctob(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @wctob(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i8], align 1
   %3 = icmp eq i32 %0, -1
   br i1 %3, label %10, label %4

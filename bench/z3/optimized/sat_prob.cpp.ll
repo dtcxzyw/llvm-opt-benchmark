@@ -500,7 +500,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3sat4prob5checkEjPKNS_7literalEPNS_8parallelE(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %n, ptr nocapture readnone %assumptions, ptr nocapture readnone %p) unnamed_addr #6 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3sat4prob5checkEjPKNS_7literalEPNS_8parallelE(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %n, ptr nocapture readnone %assumptions, ptr nocapture readnone %p) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i32 %n, 0
   br i1 %cmp, label %if.end, label %if.then
@@ -792,8 +792,8 @@ entry:
   %6 = load i32, ptr %m_size.i.i, align 4
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 2
-  %7 = getelementptr i8, ptr %5, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %7, i64 20
+  %7 = getelementptr inbounds i8, ptr %5, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %7, i64 20
   %cmp.not29.i = icmp eq i32 %6, 0
   br i1 %cmp.not29.i, label %for.end.i, label %for.body.lr.ph.i
 
@@ -907,8 +907,8 @@ entry:
   %6 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %7 = getelementptr i8, ptr %5, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %7, i64 20
+  %7 = getelementptr inbounds i8, ptr %5, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %7, i64 20
   %cmp.not29 = icmp eq i32 %6, 0
   br i1 %cmp.not29, label %for.end, label %for.body.lr.ph
 
@@ -1583,8 +1583,8 @@ _ZN6vectorIN3sat4prob11clause_infoELb0EjE9push_backEOS2_.exit: ; preds = %lor.lh
   %14 = load i32, ptr %m_size.i, align 4
   %idx.ext.i23 = zext i32 %14 to i64
   %add.ptr.i24.idx = shl nuw nsw i64 %idx.ext.i23, 2
-  %15 = getelementptr i8, ptr %call, i64 %add.ptr.i24.idx
-  %add.ptr.i24.ptr = getelementptr i8, ptr %15, i64 20
+  %15 = getelementptr inbounds i8, ptr %call, i64 %add.ptr.i24.idx
+  %add.ptr.i24.ptr = getelementptr inbounds i8, ptr %15, i64 20
   %cmp.not158 = icmp eq i32 %14, 0
   br i1 %cmp.not158, label %for.end, label %for.body.lr.ph
 
@@ -2514,8 +2514,8 @@ for.body6:                                        ; preds = %_ZNK6vectorIN3sat4p
   %9 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %9 to i64
   %add.ptr.i19.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %10 = getelementptr i8, ptr %8, i64 %add.ptr.i19.idx
-  %add.ptr.i19.ptr = getelementptr i8, ptr %10, i64 20
+  %10 = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i19.idx
+  %add.ptr.i19.ptr = getelementptr inbounds i8, ptr %10, i64 20
   %cmp13.not29 = icmp eq i32 %9, 0
   br i1 %cmp13.not29, label %sw.bb, label %for.body14.preheader
 

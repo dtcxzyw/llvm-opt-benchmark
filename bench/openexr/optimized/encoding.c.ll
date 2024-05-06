@@ -955,7 +955,7 @@ if.end102:                                        ; preds = %if.end90
   ]
 
 if.then110:                                       ; preds = %if.end102
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = load i8, ptr %ctxt, align 8
   %cmp113 = icmp eq i8 %32, 1
   br i1 %cmp113, label %cond.true115, label %cond.end117
@@ -983,7 +983,7 @@ if.end122:                                        ; preds = %if.end102, %if.end1
   br i1 %switch137, label %if.end149, label %if.then136
 
 if.then136:                                       ; preds = %if.end122
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = load i8, ptr %ctxt, align 8
   %cmp139 = icmp eq i8 %38, 1
   br i1 %cmp139, label %cond.true141, label %cond.end143
@@ -1176,7 +1176,7 @@ declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 declare i32 @internal_encode_free_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @exr_encoding_destroy(ptr noundef %ctxt, ptr noundef %encode) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @exr_encoding_destroy(ptr noundef %ctxt, ptr noundef %encode) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

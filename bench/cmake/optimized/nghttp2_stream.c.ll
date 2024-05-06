@@ -63,7 +63,7 @@ define dso_local void @nghttp2_stream_init(ptr noundef %0, i32 noundef %1, i8 no
 declare void @nghttp2_pq_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @stream_less(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @stream_less(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 72
@@ -138,7 +138,7 @@ define dso_local void @nghttp2_stream_reschedule(ptr noundef %0) local_unnamed_a
   %17 = getelementptr inbounds i8, ptr %.01418, i64 72
   store i64 %16, ptr %17, align 8
   %18 = urem i64 %11, %14
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   store i32 %19, ptr %8, align 4
   %20 = getelementptr inbounds i8, ptr %.019, i64 80
   %21 = load i64, ptr %20, align 8
@@ -213,7 +213,7 @@ define dso_local void @nghttp2_stream_change_weight(ptr noundef %0, i32 noundef 
   %37 = add i64 %36, %33
   store i64 %37, ptr %29, align 8
   %38 = urem i64 %31, %35
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   store i32 %39, ptr %21, align 4
   %40 = getelementptr inbounds i8, ptr %8, i64 64
   %41 = load i64, ptr %40, align 8
@@ -287,7 +287,7 @@ define dso_local i32 @nghttp2_stream_attach_item(ptr noundef %0, ptr noundef %1)
   %27 = getelementptr inbounds i8, ptr %.01320.i.i, i64 72
   store i64 %26, ptr %27, align 8
   %28 = urem i64 %21, %24
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   store i32 %29, ptr %18, align 4
   %30 = getelementptr inbounds i8, ptr %.01419.i.i, i64 80
   %31 = load i64, ptr %30, align 8
@@ -493,7 +493,7 @@ define dso_local i32 @nghttp2_stream_resume_deferred_item(ptr noundef %0, i8 nou
   %28 = getelementptr inbounds i8, ptr %.01320.i.i, i64 72
   store i64 %27, ptr %28, align 8
   %29 = urem i64 %22, %25
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   store i32 %30, ptr %19, align 4
   %31 = getelementptr inbounds i8, ptr %.01419.i.i, i64 80
   %32 = load i64, ptr %31, align 8
@@ -519,7 +519,7 @@ stream_update_dep_on_attach_item.exit:            ; preds = %37, %13, %.lr.ph.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_stream_check_deferred_item(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @nghttp2_stream_check_deferred_item(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -539,7 +539,7 @@ define dso_local i32 @nghttp2_stream_check_deferred_item(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_stream_check_deferred_by_flow_control(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @nghttp2_stream_check_deferred_by_flow_control(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -559,7 +559,7 @@ define dso_local i32 @nghttp2_stream_check_deferred_by_flow_control(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @nghttp2_stream_update_remote_initial_window_size(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @nghttp2_stream_update_remote_initial_window_size(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 172
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
@@ -572,7 +572,7 @@ define dso_local noundef i32 @nghttp2_stream_update_remote_initial_window_size(p
   br i1 %or.cond.i, label %update_initial_window_size.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = trunc i64 %10 to i32
+  %13 = trunc nsw i64 %10 to i32
   store i32 %13, ptr %4, align 4
   br label %update_initial_window_size.exit
 
@@ -582,7 +582,7 @@ update_initial_window_size.exit:                  ; preds = %3, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @nghttp2_stream_update_local_initial_window_size(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @nghttp2_stream_update_local_initial_window_size(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 188
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
@@ -595,7 +595,7 @@ define dso_local noundef i32 @nghttp2_stream_update_local_initial_window_size(pt
   br i1 %or.cond.i, label %update_initial_window_size.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = trunc i64 %10 to i32
+  %13 = trunc nsw i64 %10 to i32
   store i32 %13, ptr %4, align 4
   br label %update_initial_window_size.exit
 
@@ -616,7 +616,7 @@ define dso_local void @nghttp2_stream_promise_fulfilled(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_stream_dep_find_ancestor(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @nghttp2_stream_dep_find_ancestor(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -694,7 +694,7 @@ define dso_local i32 @nghttp2_stream_dep_insert(ptr noundef %0, ptr noundef %1) 
   %31 = getelementptr inbounds i8, ptr %.01320.i.i, i64 72
   store i64 %30, ptr %31, align 8
   %32 = urem i64 %25, %28
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   store i32 %33, ptr %22, align 4
   %34 = getelementptr inbounds i8, ptr %.01419.i.i, i64 80
   %35 = load i64, ptr %34, align 8
@@ -774,7 +774,7 @@ stream_subtree_active.exit.thread:                ; preds = %stream_active.exit.
   %69 = getelementptr inbounds i8, ptr %.01320.i, i64 72
   store i64 %68, ptr %69, align 8
   %70 = urem i64 %63, %66
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw i64 %70 to i32
   store i32 %71, ptr %60, align 4
   %72 = getelementptr inbounds i8, ptr %.01419.i, i64 80
   %73 = load i64, ptr %72, align 8
@@ -904,7 +904,7 @@ define dso_local i32 @nghttp2_stream_dep_remove(ptr noundef %0) local_unnamed_ad
   %39 = getelementptr inbounds i8, ptr %.01320.i.i, i64 72
   store i64 %38, ptr %39, align 8
   %40 = urem i64 %33, %36
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   store i32 %41, ptr %30, align 4
   %42 = getelementptr inbounds i8, ptr %.01419.i.i, i64 80
   %43 = load i64, ptr %42, align 8
@@ -1205,7 +1205,7 @@ link_dep.exit47:                                  ; preds = %link_dep.exit, %lin
   %42 = getelementptr inbounds i8, ptr %.01320.i.i, i64 72
   store i64 %41, ptr %42, align 8
   %43 = urem i64 %36, %39
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   store i32 %44, ptr %33, align 4
   %45 = getelementptr inbounds i8, ptr %.01419.i.i, i64 80
   %46 = load i64, ptr %45, align 8
@@ -1285,7 +1285,7 @@ stream_subtree_active.exit.thread:                ; preds = %stream_active.exit.
   %80 = getelementptr inbounds i8, ptr %.01320.i, i64 72
   store i64 %79, ptr %80, align 8
   %81 = urem i64 %74, %77
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   store i32 %82, ptr %71, align 4
   %83 = getelementptr inbounds i8, ptr %.01419.i, i64 80
   %84 = load i64, ptr %83, align 8
@@ -1381,7 +1381,7 @@ stream_subtree_active.exit:                       ; preds = %link_dep.exit, %str
   %37 = getelementptr inbounds i8, ptr %.01320.i, i64 72
   store i64 %36, ptr %37, align 8
   %38 = urem i64 %31, %34
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   store i32 %39, ptr %28, align 4
   %40 = getelementptr inbounds i8, ptr %.01419.i, i64 80
   %41 = load i64, ptr %40, align 8
@@ -1499,7 +1499,7 @@ stream_obq_remove.exit:                           ; preds = %35, %stream_subtree
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_stream_in_dep_tree(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @nghttp2_stream_in_dep_tree(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1586,7 +1586,7 @@ stream_active.exit.thread:                        ; preds = %2, %stream_active.e
 declare ptr @nghttp2_pq_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_stream_get_state(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i32 1, 8) i32 @nghttp2_stream_get_state(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i32

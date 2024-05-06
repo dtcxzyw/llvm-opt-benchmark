@@ -46,16 +46,16 @@ declare i32 @g_random_int() local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @qemu_uuid_is_null(ptr nocapture noundef readonly %uu) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @qemu_uuid_is_null(ptr nocapture noundef readonly %uu) local_unnamed_addr #3 {
 entry:
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %uu, ptr noundef nonnull dereferenceable(16) @qemu_uuid_is_null.null_uuid, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %uu, ptr noundef nonnull readonly dereferenceable(16) @qemu_uuid_is_null.null_uuid, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   %conv.i = zext i1 %cmp.i to i32
   ret i32 %conv.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @qemu_uuid_is_equal(ptr nocapture noundef readonly %lhv, ptr nocapture noundef readonly %rhv) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @qemu_uuid_is_equal(ptr nocapture noundef readonly %lhv, ptr nocapture noundef readonly %rhv) local_unnamed_addr #4 {
 entry:
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %lhv, ptr noundef nonnull dereferenceable(16) %rhv, i64 16)
   %cmp = icmp eq i32 %bcmp, 0
@@ -177,9 +177,9 @@ entry:
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_uuid_parse(ptr nocapture noundef readonly %str, ptr noundef %uuid) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 1) i32 @qemu_uuid_parse(ptr nocapture noundef readonly %str, ptr noundef %uuid) local_unnamed_addr #5 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #13
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %str) #13
   %cmp24.not.i = icmp eq i64 %call.i, 0
   br i1 %cmp24.not.i, label %return, label %for.body.i
 
@@ -267,7 +267,7 @@ entry:
   %uuid.sroa.4.0.extract.shift = lshr i64 %uuid.coerce0, 32
   %uuid.sroa.4.0.extract.trunc = trunc i64 %uuid.sroa.4.0.extract.shift to i16
   %uuid.sroa.6.0.extract.shift = lshr i64 %uuid.coerce0, 48
-  %uuid.sroa.6.0.extract.trunc = trunc i64 %uuid.sroa.6.0.extract.shift to i16
+  %uuid.sroa.6.0.extract.trunc = trunc nuw i64 %uuid.sroa.6.0.extract.shift to i16
   %0 = tail call i32 @llvm.bswap.i32(i32 %uuid.sroa.0.0.extract.trunc)
   %1 = tail call i16 @llvm.bswap.i16(i16 %uuid.sroa.4.0.extract.trunc)
   %2 = tail call i16 @llvm.bswap.i16(i16 %uuid.sroa.6.0.extract.trunc)

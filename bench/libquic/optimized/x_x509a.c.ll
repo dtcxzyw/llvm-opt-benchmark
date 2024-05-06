@@ -280,7 +280,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_add1_trust_object(ptr noundef %x, ptr noundef %obj) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_add1_trust_object(ptr noundef %x, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_dup(ptr noundef %obj) #4
   %cmp = icmp eq ptr %call, null
@@ -335,7 +335,7 @@ declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ASN1_OBJECT_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_add1_reject_object(ptr noundef %x, ptr noundef %obj) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_add1_reject_object(ptr noundef %x, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_dup(ptr noundef %obj) #4
   %cmp = icmp eq ptr %call, null

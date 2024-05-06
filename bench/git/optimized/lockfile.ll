@@ -249,7 +249,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @commit_lock_file(ptr noundef %lk) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @commit_lock_file(ptr noundef %lk) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @get_locked_file_path(ptr noundef %lk)
   %call.i = tail call i32 @rename_tempfile(ptr noundef %lk, ptr noundef %call) #10
@@ -295,7 +295,7 @@ if.then:                                          ; preds = %entry
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end4.i, %if.then
-  %dec12.i = phi i32 [ 4, %if.then ], [ %dec.i, %if.end4.i ]
+  %dec13.i = phi i32 [ 4, %if.then ], [ %dec.i, %if.end4.i ]
   %0 = load ptr, ptr %buf.i, align 8
   %1 = load i64, ptr %len.i, align 8
   %call.i3 = call i32 @strbuf_readlink(ptr noundef nonnull @resolve_symlink.link, ptr noundef %0, i64 noundef %1) #10
@@ -393,21 +393,21 @@ if.end4.sink.split.i:                             ; preds = %if.then4.i.i.i, %if
 
 if.end4.i:                                        ; preds = %if.end4.sink.split.i, %if.end.i.i.i, %if.then3.i
   call void @strbuf_addbuf(ptr noundef nonnull %filename, ptr noundef nonnull @resolve_symlink.link) #10
-  %dec.i = add nsw i32 %dec12.i, -1
-  %tobool.not.i = icmp eq i32 %dec12.i, 0
+  %dec.i = add nsw i32 %dec13.i, -1
+  %tobool.not.i = icmp eq i32 %dec13.i, 0
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %if.end4.i, %while.body.i
   store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i64 0, i32 1), align 8
   %15 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i64 0, i32 2), align 8
-  %cmp3.not.i8.i = icmp eq ptr %15, @strbuf_slopbuf
-  br i1 %cmp3.not.i8.i, label %if.end, label %if.then4.i9.i
+  %cmp3.not.i9.i = icmp eq ptr %15, @strbuf_slopbuf
+  br i1 %cmp3.not.i9.i, label %if.end, label %if.then4.i10.i
 
-if.then4.i9.i:                                    ; preds = %while.end.i
+if.then4.i10.i:                                   ; preds = %while.end.i
   store i8 0, ptr %15, align 1
   br label %if.end
 
-if.end:                                           ; preds = %if.then4.i9.i, %while.end.i, %entry
+if.end:                                           ; preds = %if.then4.i10.i, %while.end.i, %entry
   call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef nonnull @.str.3, i64 noundef 5) #10
   %buf = getelementptr inbounds i8, ptr %filename, i64 16
   %16 = load ptr, ptr %buf, align 8

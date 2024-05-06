@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @init_counter = internal unnamed_addr global i32 0, align 4
-@stack_top = internal thread_local global ptr null, align 8
+@stack_top = internal thread_local unnamed_addr global ptr null, align 8
 @uh_catcher_ptr = internal unnamed_addr global ptr @unhandled_catcher, align 8
 @allocator = internal unnamed_addr global ptr @g_malloc, align 8
 @deallocator = internal unnamed_addr global ptr @g_free, align 8
@@ -33,7 +33,7 @@ define void @except_deinit() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @except_setup_clean(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -67,8 +67,8 @@ define void @except_setup_try(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @except_pop() local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+define noundef ptr @except_pop() local_unnamed_addr #3 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stack_top)
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
@@ -77,20 +77,20 @@ define noundef ptr @except_pop() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @except_rethrow(ptr noundef %0) local_unnamed_addr #4 {
+define void @except_rethrow(ptr noundef %0) local_unnamed_addr #5 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stack_top)
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %2, align 8
-  tail call fastcc void @do_throw(ptr noundef %0) #15
+  tail call fastcc void @do_throw(ptr noundef %0) #16
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @do_throw(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @do_throw(ptr noundef %0) unnamed_addr #5 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stack_top)
   %.02025 = load ptr, ptr %2, align 8
   %.not26 = icmp eq ptr %.02025, null
@@ -113,14 +113,14 @@ define internal fastcc void @do_throw(ptr noundef %0) unnamed_addr #4 {
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %10(ptr noundef %13) #16
+  tail call void %10(ptr noundef %13) #17
   br label %.loopexit
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %9, i64 40
   %16 = load volatile ptr, ptr %15, align 8
   %17 = load ptr, ptr @deallocator, align 8
-  tail call void %17(ptr noundef %16) #16
+  tail call void %17(ptr noundef %16) #17
   %18 = getelementptr inbounds i8, ptr %9, i64 8
   %19 = load i64, ptr %18, align 8
   %.not29 = icmp eq i64 %19, 0
@@ -160,7 +160,7 @@ match.exit:                                       ; preds = %25, %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr align 8 %0, i64 32, i1 true)
   store ptr %.02027, ptr %2, align 8
   %37 = getelementptr inbounds i8, ptr %9, i64 48
-  tail call void @longjmp(ptr noundef nonnull %37, i32 noundef 1) #17
+  tail call void @longjmp(ptr noundef nonnull %37, i32 noundef 1) #18
   unreachable
 
 38:                                               ; preds = %match.exit
@@ -177,13 +177,13 @@ match.exit:                                       ; preds = %25, %30
 ._crit_edge:                                      ; preds = %.loopexit, %1
   store ptr null, ptr %2, align 8
   %41 = load ptr, ptr @uh_catcher_ptr, align 8
-  tail call void %41(ptr noundef %0) #16
-  tail call void @abort() #17
+  tail call void %41(ptr noundef %0) #17
+  tail call void @abort() #18
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @except_throw(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @except_throw(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.except_t, align 8
   store volatile i64 %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -192,12 +192,12 @@ define void @except_throw(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_
   store volatile ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store volatile ptr null, ptr %7, align 8
-  call fastcc void @do_throw(ptr noundef nonnull %4) #15
+  call fastcc void @do_throw(ptr noundef nonnull %4) #16
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca %struct.except_t, align 8
   store volatile i64 %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -206,27 +206,27 @@ define void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   store volatile ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   store volatile ptr %3, ptr %8, align 8
-  call fastcc void @do_throw(ptr noundef nonnull %5) #15
+  call fastcc void @do_throw(ptr noundef nonnull %5) #16
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @except_vthrowf(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #4 {
+define void @except_vthrowf(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = tail call ptr @except_alloc(i64 noundef 1024)
-  %6 = tail call i32 @vsnprintf(ptr noundef %5, i64 noundef 1024, ptr noundef %2, ptr noundef %3) #16
-  tail call void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %5, ptr noundef %5) #15
+  %6 = tail call i32 @vsnprintf(ptr noundef %5, i64 noundef 1024, ptr noundef %2, ptr noundef %3) #17
+  tail call void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %5, ptr noundef %5) #16
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @except_alloc(i64 noundef %0) local_unnamed_addr #5 {
+define ptr @except_alloc(i64 noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @allocator, align 8
-  %3 = tail call ptr %2(i64 noundef %0) #16
+  %3 = tail call ptr %2(i64 noundef %0) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void @except_throw(i64 noundef 1, i64 noundef 0, ptr noundef nonnull @.str) #15
+  tail call void @except_throw(i64 noundef 1, i64 noundef 0, ptr noundef nonnull @.str) #16
   unreachable
 
 6:                                                ; preds = %1
@@ -234,18 +234,15 @@ define ptr @except_alloc(i64 noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @except_throwf(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #4 {
+define void @except_throwf(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #5 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
-  call void @except_vthrowf(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #15
+  call void @llvm.va_start.p0(ptr nonnull %4)
+  call void @except_vthrowf(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #16
   unreachable
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define ptr @except_unhandled_catcher(ptr noundef %0) local_unnamed_addr #0 {
@@ -297,9 +294,9 @@ define void @except_set_allocator(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @except_free(ptr noundef %0) local_unnamed_addr #5 {
+define void @except_free(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @deallocator, align 8
-  tail call void %2(ptr noundef %0) #16
+  tail call void %2(ptr noundef %0) #17
   ret void
 }
 
@@ -313,7 +310,7 @@ declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #12
 declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @unhandled_catcher(ptr noundef %0) #4 {
+define internal void @unhandled_catcher(ptr noundef %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -324,7 +321,7 @@ define internal void @unhandled_catcher(ptr noundef %0) #4 {
   %7 = load volatile i64, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load volatile i64, ptr %8, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, i64 noundef %7, i64 noundef %9) #18
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, i64 noundef %7, i64 noundef %9) #19
   br label %17
 
 11:                                               ; preds = %1
@@ -332,30 +329,33 @@ define internal void @unhandled_catcher(ptr noundef %0) #4 {
   %13 = load volatile i64, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load volatile i64, ptr %14, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef %12, i64 noundef %13, i64 noundef %15) #18
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef %12, i64 noundef %13, i64 noundef %15) #19
   br label %17
 
 17:                                               ; preds = %11, %6
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) #13
 
 declare void @g_free(ptr noundef) #14
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -363,10 +363,11 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { cold nounwind }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #16 = { noreturn }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

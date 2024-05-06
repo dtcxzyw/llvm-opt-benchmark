@@ -32,7 +32,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_set_ui: 
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_mpi_alloc347, ptr @__UNIQUE_ID___addressable_mpi_clear348, ptr @__UNIQUE_ID___addressable_mpi_const346, ptr @__UNIQUE_ID___addressable_mpi_free349, ptr @__UNIQUE_ID___addressable_mpi_init345, ptr @__UNIQUE_ID___addressable_mpi_set350, ptr @__UNIQUE_ID___addressable_mpi_set_ui351, ptr @__UNIQUE_ID_description352, ptr @__UNIQUE_ID_file353, ptr @__UNIQUE_ID_license354], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @mpi_init() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -14, 1) i32 @mpi_init() #0 section ".init.text" align 16 {
   br label %1
 
 1:                                                ; preds = %11, %0
@@ -204,7 +204,7 @@ define dso_local void @mpi_assign_limb_space(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mpi_resize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mpi_resize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp ult i32 %3, %1
   br i1 %4, label %5, label %22

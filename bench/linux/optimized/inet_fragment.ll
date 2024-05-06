@@ -72,7 +72,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_inet_frag_pu
 @llvm.compiler.used = appending global [18 x ptr] [ptr @__UNIQUE_ID___addressable_fqdir_exit811, ptr @__UNIQUE_ID___addressable_fqdir_init808, ptr @__UNIQUE_ID___addressable_inet_frag_destroy819, ptr @__UNIQUE_ID___addressable_inet_frag_find821, ptr @__UNIQUE_ID___addressable_inet_frag_kill813, ptr @__UNIQUE_ID___addressable_inet_frag_pull_head827, ptr @__UNIQUE_ID___addressable_inet_frag_queue_insert822, ptr @__UNIQUE_ID___addressable_inet_frag_rbtree_purge814, ptr @__UNIQUE_ID___addressable_inet_frag_reasm_finish826, ptr @__UNIQUE_ID___addressable_inet_frag_reasm_prepare825, ptr @__UNIQUE_ID___addressable_inet_frag_wq_init810, ptr @__UNIQUE_ID___addressable_inet_frags_fini807, ptr @__UNIQUE_ID___addressable_inet_frags_init806, ptr @__UNIQUE_ID___addressable_ip_frag_ecn_table805, ptr @bit_spin_lock.__UNIQUE_ID___addressable___SCK__preempt_schedule187, ptr @bit_spin_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule189, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32, ptr @rht_assign_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule517], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inet_frags_init(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @inet_frags_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -140,7 +140,7 @@ declare dso_local void @wait_for_completion(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fqdir_init(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @fqdir_init(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(320) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 320) #12
   %6 = icmp eq ptr %5, null

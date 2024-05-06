@@ -128,7 +128,7 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   %67 = load ptr, ptr %54, align 8
   %68 = load ptr, ptr %55, align 8
   call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %67, ptr noundef %68) #5
-  %.lhs.trunc.us = trunc i32 %.0104.us to i16
+  %.lhs.trunc.us = trunc nuw i32 %.0104.us to i16
   %69 = urem i16 %.lhs.trunc.us, 50
   %.not90.us = icmp eq i16 %69, 0
   br i1 %.not90.us, label %70, label %71
@@ -164,7 +164,7 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   %82 = load ptr, ptr %62, align 8
   %83 = load ptr, ptr %63, align 8
   call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %82, ptr noundef %83) #5
-  %.lhs.trunc = trunc i32 %.0104 to i16
+  %.lhs.trunc = trunc nuw i32 %.0104 to i16
   %84 = urem i16 %.lhs.trunc, 50
   %.not90 = icmp eq i16 %84, 0
   br i1 %.not90, label %85, label %94

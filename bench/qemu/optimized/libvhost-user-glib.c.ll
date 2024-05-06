@@ -273,7 +273,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vug_src_check(ptr noundef readonly %gsrc) #0 {
+define internal range(i32 0, 65536) i32 @vug_src_check(ptr noundef readonly %gsrc) #0 {
 entry:
   %tobool.not = icmp eq ptr %gsrc, null
   br i1 %tobool.not, label %if.else, label %do.end

@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__lsm_capability], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @cap_capable(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i32 %3) #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_capable(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i32 %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -116,7 +116,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_settime(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_settime(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = tail call zeroext i1 @capable(i32 noundef 25) #14
   %4 = xor i1 %3, true
   %5 = sext i1 %4 to i32
@@ -127,7 +127,7 @@ define dso_local i32 @cap_settime(ptr nocapture readnone %0, ptr nocapture readn
 declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_ptrace_access_check(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_ptrace_access_check(ptr noundef %0, i32 noundef %1) #2 align 16 {
   tail call void @__rcu_read_lock() #14
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !7
   %4 = inttoptr i64 %3 to ptr
@@ -171,7 +171,7 @@ define dso_local i32 @cap_ptrace_access_check(ptr noundef %0, i32 noundef %1) #2
 declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_ptrace_traceme(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_ptrace_traceme(ptr noundef %0) #2 align 16 {
   tail call void @__rcu_read_lock() #14
   %2 = getelementptr inbounds i8, ptr %0, i64 1776
   %3 = load volatile ptr, ptr %2, align 16
@@ -233,7 +233,7 @@ define dso_local noundef i32 @cap_capget(ptr noundef %0, ptr nocapture noundef w
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cap_capset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cap_capset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #2 align 16 {
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !7
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds i8, ptr %7, i64 1784
@@ -321,7 +321,7 @@ define dso_local noundef i32 @cap_capset(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_inode_need_killpriv(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 0, 2) i32 @cap_inode_need_killpriv(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @__vfs_getxattr(ptr noundef %0, ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0) #14
@@ -506,7 +506,7 @@ declare dso_local i32 @make_vfsuid(ptr noundef, ptr noundef, i32) local_unnamed_
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cap_convert_nscap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 25) i32 @cap_convert_nscap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -601,7 +601,7 @@ declare dso_local zeroext i1 @capable_wrt_inode_uidgid(ptr noundef, ptr noundef,
 declare dso_local i32 @from_vfsuid(ptr noundef, ptr noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @get_vfs_caps_from_disk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @get_vfs_caps_from_disk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
   %4 = alloca %struct.vfs_ns_cap_data, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -708,7 +708,7 @@ define dso_local noundef i32 @get_vfs_caps_from_disk(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca %struct.cpu_vfs_cap_data, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !7
   %5 = inttoptr i64 %4 to ptr
@@ -756,7 +756,7 @@ define dso_local i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr nocapture nou
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
   %33 = getelementptr inbounds i8, ptr %1, i64 160
   %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @get_vfs_caps_from_disk(ptr noundef %32, ptr noundef %34, ptr noundef nonnull %3), !range !17
+  %35 = call i32 @get_vfs_caps_from_disk(ptr noundef %32, ptr noundef %34, ptr noundef nonnull %3)
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %42
 
@@ -998,9 +998,9 @@ define dso_local i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr nocapture nou
   br i1 %186, label %188, label %187, !prof !8
 
 187:                                              ; preds = %174
-  tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #14, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 952, i32 2305, i64 12) #14, !srcloc !19
-  tail call void asm sideeffect "488: nop\0A\09.pushsection .discard.instr_end\0A\09.long 488b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 488) #14, !srcloc !20
+  tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #14, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 952, i32 2305, i64 12) #14, !srcloc !18
+  tail call void asm sideeffect "488: nop\0A\09.pushsection .discard.instr_end\0A\09.long 488b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 488) #14, !srcloc !19
   br label %267
 
 188:                                              ; preds = %174
@@ -1086,7 +1086,7 @@ define dso_local i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr nocapture nou
 236:                                              ; preds = %232
   %237 = load i32, ptr %234, align 4
   %238 = icmp eq i32 %237, 0
-  br i1 %238, label %239, label %.thread12, !prof !21
+  br i1 %238, label %239, label %.thread12, !prof !20
 
 239:                                              ; preds = %236
   %240 = tail call i32 @__audit_log_bprm_fcaps(ptr noundef %0, ptr noundef %9, ptr noundef %7) #14
@@ -1114,9 +1114,9 @@ define dso_local i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr nocapture nou
   br i1 %251, label %253, label %252, !prof !8
 
 252:                                              ; preds = %.thread12
-  tail call void asm sideeffect "489: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 489b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 489) #14, !srcloc !22
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 963, i32 2305, i64 12) #14, !srcloc !23
-  tail call void asm sideeffect "490: nop\0A\09.pushsection .discard.instr_end\0A\09.long 490b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 490) #14, !srcloc !24
+  tail call void asm sideeffect "489: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 489b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 489) #14, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 963, i32 2305, i64 12) #14, !srcloc !22
+  tail call void asm sideeffect "490: nop\0A\09.pushsection .discard.instr_end\0A\09.long 490b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 490) #14, !srcloc !23
   br label %267
 
 253:                                              ; preds = %.thread12
@@ -1153,7 +1153,7 @@ define dso_local i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr nocapture nou
 declare dso_local zeroext i1 @ptracer_capable(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_inode_setxattr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_inode_setxattr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1072
@@ -1182,7 +1182,7 @@ define dso_local i32 @cap_inode_setxattr(ptr nocapture noundef readonly %0, ptr 
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_inode_removexattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @cap_inode_removexattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1072
@@ -1220,7 +1220,7 @@ define dso_local i32 @cap_inode_removexattr(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @cap_task_fix_setuid(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #7 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cap_task_fix_setuid(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #7 align 16 {
   switch i32 %2, label %.thread8 [
     i32 2, label %4
     i32 1, label %4
@@ -1366,7 +1366,7 @@ define dso_local noundef i32 @cap_task_fix_setuid(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_task_setscheduler(ptr noundef %0) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_task_setscheduler(ptr noundef %0) #2 align 16 {
   tail call void @__rcu_read_lock() #14
   %2 = getelementptr inbounds i8, ptr %0, i64 1776
   %3 = load volatile ptr, ptr %2, align 16
@@ -1399,7 +1399,7 @@ define dso_local i32 @cap_task_setscheduler(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_task_setioprio(ptr noundef %0, i32 %1) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_task_setioprio(ptr noundef %0, i32 %1) #2 align 16 {
   tail call void @__rcu_read_lock() #14
   %3 = getelementptr inbounds i8, ptr %0, i64 1776
   %4 = load volatile ptr, ptr %3, align 16
@@ -1432,7 +1432,7 @@ define dso_local i32 @cap_task_setioprio(ptr noundef %0, i32 %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_task_setnice(ptr noundef %0, i32 %1) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_task_setnice(ptr noundef %0, i32 %1) #2 align 16 {
   tail call void @__rcu_read_lock() #14
   %3 = getelementptr inbounds i8, ptr %0, i64 1776
   %4 = load volatile ptr, ptr %3, align 16
@@ -1550,7 +1550,7 @@ define dso_local i32 @cap_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef
   br i1 %57, label %153, label %58
 
 58:                                               ; preds = %55
-  %59 = trunc i64 %1 to i32
+  %59 = trunc nuw nsw i64 %1 to i32
   %60 = getelementptr inbounds i8, ptr %56, i64 40
   store i32 %59, ptr %60, align 8
   %61 = tail call i32 @commit_creds(ptr noundef nonnull %56) #14
@@ -1711,7 +1711,7 @@ declare dso_local ptr @prepare_creds() local_unnamed_addr #3
 declare dso_local i32 @commit_creds(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @cap_vm_enough_memory(ptr nocapture readnone %0, i64 %1) #8 align 16 {
+define dso_local range(i32 0, 2) i32 @cap_vm_enough_memory(ptr nocapture readnone %0, i64 %1) #8 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !7
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1784
@@ -1763,7 +1763,7 @@ define dso_local i32 @cap_vm_enough_memory(ptr nocapture readnone %0, i64 %1) #8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @cap_mmap_addr(i64 noundef %0) #9 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_mmap_addr(i64 noundef %0) #9 align 16 {
   %2 = load i64, ptr @dac_mmap_min_addr, align 8
   %3 = icmp ugt i64 %2, %0
   br i1 %3, label %4, label %.critedge
@@ -1895,11 +1895,10 @@ attributes #17 = { cold nounwind }
 !14 = !{i64 2156759203, i64 2156759232, i64 2156759278, i64 2156759336, i64 2156759390, i64 2156759444, i64 2156759499, i64 2156759530, i64 2156759838, i64 2156759844, i64 2156759891, i64 2156759914, i64 2156759940}
 !15 = !{i64 2156760393, i64 2156760204, i64 2156760254, i64 2156760300, i64 2156760328}
 !16 = !{i64 2153630218}
-!17 = !{i32 -2147483648, i32 1}
-!18 = !{i64 2156761627, i64 2156761436, i64 2156761488, i64 2156761534, i64 2156761562}
-!19 = !{i64 2156761701, i64 2156761730, i64 2156761776, i64 2156761834, i64 2156761888, i64 2156761942, i64 2156761997, i64 2156762028, i64 2156762336, i64 2156762342, i64 2156762389, i64 2156762412, i64 2156762438}
-!20 = !{i64 2156762891, i64 2156762702, i64 2156762752, i64 2156762798, i64 2156762826}
-!21 = !{!"branch_weights", i32 1, i32 2000}
-!22 = !{i64 2156763742, i64 2156763551, i64 2156763603, i64 2156763649, i64 2156763677}
-!23 = !{i64 2156763816, i64 2156763845, i64 2156763891, i64 2156763949, i64 2156764003, i64 2156764057, i64 2156764112, i64 2156764143, i64 2156764451, i64 2156764457, i64 2156764504, i64 2156764527, i64 2156764553}
-!24 = !{i64 2156765006, i64 2156764817, i64 2156764867, i64 2156764913, i64 2156764941}
+!17 = !{i64 2156761627, i64 2156761436, i64 2156761488, i64 2156761534, i64 2156761562}
+!18 = !{i64 2156761701, i64 2156761730, i64 2156761776, i64 2156761834, i64 2156761888, i64 2156761942, i64 2156761997, i64 2156762028, i64 2156762336, i64 2156762342, i64 2156762389, i64 2156762412, i64 2156762438}
+!19 = !{i64 2156762891, i64 2156762702, i64 2156762752, i64 2156762798, i64 2156762826}
+!20 = !{!"branch_weights", i32 1, i32 2000}
+!21 = !{i64 2156763742, i64 2156763551, i64 2156763603, i64 2156763649, i64 2156763677}
+!22 = !{i64 2156763816, i64 2156763845, i64 2156763891, i64 2156763949, i64 2156764003, i64 2156764057, i64 2156764112, i64 2156764143, i64 2156764451, i64 2156764457, i64 2156764504, i64 2156764527, i64 2156764553}
+!23 = !{i64 2156765006, i64 2156764817, i64 2156764867, i64 2156764913, i64 2156764941}

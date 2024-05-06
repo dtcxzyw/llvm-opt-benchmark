@@ -1335,7 +1335,7 @@ define dso_local i32 @get_device_system_crosststamp(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @do_settimeofday64(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @do_settimeofday64(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca %struct.timespec64, align 8
@@ -1771,7 +1771,7 @@ define dso_local void @timekeeping_warp_clock() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @timekeeping_inject_offset(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @timekeeping_inject_offset(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca %struct.timespec64, align 8
@@ -2031,7 +2031,7 @@ tk_set_wall_to_mono.exit:                         ; preds = %123, %145
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @timekeeping_notify(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @timekeeping_notify(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1), align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %9, label %4
@@ -2280,7 +2280,7 @@ define dso_local void @ktime_get_raw_ts64(ptr nocapture noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @timekeeping_valid_for_hres() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 33) i32 @timekeeping_valid_for_hres() local_unnamed_addr #0 align 16 {
   br label %1
 
 1:                                                ; preds = %.loopexit, %0

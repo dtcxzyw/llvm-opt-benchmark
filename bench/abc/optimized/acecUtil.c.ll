@@ -39,7 +39,7 @@ Gia_ObjIsXor.exit:                                ; preds = %14
   %18 = trunc i64 %.val21 to i32
   %19 = and i32 %18, 536870911
   %20 = lshr i64 %.val21, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 536870911
   %.not32 = icmp ult i32 %19, %22
   br i1 %.not32, label %23, label %Vec_IntPushUnique.exit
@@ -63,7 +63,7 @@ Gia_ObjIsXor.exit:                                ; preds = %14
   tail call void @Gia_PolynCollectXors_rec(ptr noundef nonnull %0, i32 noundef %33, ptr noundef %2)
   %.val26 = load i64, ptr %6, align 4
   %34 = lshr i64 %.val26, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = and i32 %35, 536870911
   %37 = sub nsw i32 %1, %36
   tail call void @Gia_PolynCollectXors_rec(ptr noundef nonnull %0, i32 noundef %37, ptr noundef %2)
@@ -218,7 +218,7 @@ define noundef ptr @Gia_PolynCollectLastXor(ptr noundef %0, i32 noundef %1) loca
   %32 = load ptr, ptr %6, align 8
   %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4
-  %35 = trunc i64 %indvars.iv.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   %36 = xor i32 %35, -1
   %37 = add i32 %31, %36
   %38 = sext i32 %37 to i64
@@ -308,7 +308,7 @@ define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_
   tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #9
   tail call void @Gia_PolynCollectXors_rec(ptr noundef nonnull %0, i32 noundef %25, ptr noundef nonnull %3)
   %.val18 = load i32, ptr %4, align 4
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %26, i32 noundef %.val18)
   %.val19 = load i32, ptr %4, align 4
   %28 = add nsw i32 %.val19, %.01724

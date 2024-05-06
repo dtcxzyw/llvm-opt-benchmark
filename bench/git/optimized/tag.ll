@@ -305,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_tag_buffer(ptr noundef %r, ptr noundef %item, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_tag_buffer(ptr noundef %r, ptr noundef %item, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %type = alloca [20 x i8], align 16
@@ -570,7 +570,7 @@ return:                                           ; preds = %while.end15, %while
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_tag(ptr noundef %item) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_tag(ptr noundef %item) local_unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %size = alloca i64, align 8
@@ -605,7 +605,7 @@ if.then10:                                        ; preds = %if.end9
 if.end16:                                         ; preds = %if.end9
   %2 = load ptr, ptr @the_repository, align 8
   %3 = load i64, ptr %size, align 8
-  %call17 = call i32 @parse_tag_buffer(ptr noundef %2, ptr noundef nonnull %item, ptr noundef nonnull %call, i64 noundef %3), !range !10
+  %call17 = call i32 @parse_tag_buffer(ptr noundef %2, ptr noundef nonnull %item, ptr noundef nonnull %call, i64 noundef %3)
   call void @free(ptr noundef nonnull %call) #11
   br label %return
 
@@ -690,4 +690,3 @@ attributes #13 = { noreturn nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 1}

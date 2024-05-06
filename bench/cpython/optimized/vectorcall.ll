@@ -140,7 +140,7 @@ exit:                                             ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Vectorcall(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Vectorcall(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %m, ptr noundef nonnull @TestMethods) #5
   %cmp = icmp slt i32 %call, 0

@@ -375,11 +375,11 @@ define internal fastcc i64 @getShortest(ptr noundef %0, ptr noundef %1, ptr noun
   %31 = call fastcc i64 @getShortest(ptr noundef %28, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.sroa.018.0.extract.trunc = trunc i64 %31 to i32
   %.sroa.320.0.extract.shift = lshr i64 %31, 32
-  %.sroa.320.0.extract.trunc = trunc i64 %.sroa.320.0.extract.shift to i32
+  %.sroa.320.0.extract.trunc = trunc nuw i64 %.sroa.320.0.extract.shift to i32
   %32 = call fastcc i64 @getShortest(ptr noundef %30, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.sroa.015.0.extract.trunc = trunc i64 %32 to i32
   %.sroa.3.0.extract.shift = lshr i64 %32, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %33 = icmp eq ptr %1, null
   br i1 %33, label %39, label %34
 
@@ -737,11 +737,11 @@ define internal fastcc i64 @getLargest(ptr noundef %0, ptr noundef %1) unnamed_a
   %29 = call fastcc i64 @getLargest(ptr noundef %26, ptr noundef %1)
   %.sroa.012.0.extract.trunc = trunc i64 %29 to i32
   %.sroa.314.0.extract.shift = lshr i64 %29, 32
-  %.sroa.314.0.extract.trunc = trunc i64 %.sroa.314.0.extract.shift to i32
+  %.sroa.314.0.extract.trunc = trunc nuw i64 %.sroa.314.0.extract.shift to i32
   %30 = call fastcc i64 @getLargest(ptr noundef %28, ptr noundef %1)
   %.sroa.09.0.extract.trunc = trunc i64 %30 to i32
   %.sroa.3.0.extract.shift = lshr i64 %30, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %31 = call i32 @llvm.smin.i32(i32 %.sroa.09.0.extract.trunc, i32 %.sroa.012.0.extract.trunc)
   %32 = add nsw i32 %31, 1
   %33 = call i32 @llvm.smin.i32(i32 %.sroa.3.0.extract.trunc, i32 %.sroa.314.0.extract.trunc)
@@ -964,7 +964,7 @@ define ptr @Cudd_Increasing(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cudd_EquivDC(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Cudd_EquivDC(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %3
@@ -1113,12 +1113,12 @@ define i32 @Cudd_EquivDC(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 98:                                               ; preds = %85, %86, %91
   %.091 = phi ptr [ %94, %91 ], [ %88, %86 ], [ %3, %85 ]
   %.090 = phi ptr [ %97, %91 ], [ %90, %86 ], [ %3, %85 ]
-  %99 = tail call i32 @Cudd_EquivDC(ptr noundef nonnull %0, ptr noundef %.095, ptr noundef %.093, ptr noundef %.091), !range !11
+  %99 = tail call i32 @Cudd_EquivDC(ptr noundef nonnull %0, ptr noundef %.095, ptr noundef %.093, ptr noundef %.091)
   %.not111 = icmp eq i32 %99, 0
   br i1 %.not111, label %.thread, label %100
 
 100:                                              ; preds = %98
-  %101 = tail call i32 @Cudd_EquivDC(ptr noundef nonnull %0, ptr noundef %.094, ptr noundef %.092, ptr noundef %.090), !range !11
+  %101 = tail call i32 @Cudd_EquivDC(ptr noundef nonnull %0, ptr noundef %.094, ptr noundef %.092, ptr noundef %.090)
   %.fr = freeze i32 %101
   %.not112 = icmp eq i32 %.fr, 0
   %spec.select123 = select i1 %.not112, ptr %12, ptr %6
@@ -1390,7 +1390,7 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef %4) #1 {
+define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef %4) #1 {
   %6 = icmp eq ptr %1, %2
   br i1 %6, label %82, label %7
 
@@ -1498,12 +1498,12 @@ define noundef i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, ptr nounde
 75:                                               ; preds = %69, %70
   %.058 = phi ptr [ %72, %70 ], [ %2, %69 ]
   %.057 = phi ptr [ %74, %70 ], [ %2, %69 ]
-  %76 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.055, ptr noundef %.058, double noundef %3, i32 noundef %4), !range !11
+  %76 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.055, ptr noundef %.058, double noundef %3, i32 noundef %4)
   %.not68 = icmp eq i32 %76, 0
   br i1 %.not68, label %82, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.056, ptr noundef %.057, double noundef %3, i32 noundef %4), !range !11
+  %78 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.056, ptr noundef %.057, double noundef %3, i32 noundef %4)
   %.not69 = icmp eq i32 %78, 0
   br i1 %.not69, label %82, label %79
 
@@ -1536,7 +1536,7 @@ define ptr @Cudd_bddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %7 = tail call ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %8 = load i32, ptr %5, align 8
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %6, label %.loopexit, !llvm.loop !12
+  br i1 %9, label %6, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %6, %3
   %.0 = phi ptr [ null, %3 ], [ %7, %6 ]
@@ -1613,7 +1613,7 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %38 = inttoptr i64 %37 to ptr
   %39 = load i32, ptr %38, align 8
   %.not = icmp eq i32 %39, 2147483647
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %35, %3
   %.034.lcssa = phi ptr [ %1, %3 ], [ %.135, %35 ]
@@ -1696,6 +1696,5 @@ attributes #11 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

@@ -424,7 +424,7 @@ default.unreachable7:                             ; preds = %98
   br label %183
 
 181:                                              ; preds = %172, %.thread4
-  %182 = tail call fastcc i32 @skl_get_dram_info(ptr noundef %0), !range !10
+  %182 = tail call fastcc i32 @skl_get_dram_info(ptr noundef %0)
   br label %183
 
 183:                                              ; preds = %181, %179, %173, %170
@@ -469,7 +469,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @gen11_get_dram_info(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = tail call fastcc i32 @skl_get_dram_info(ptr noundef %0), !range !10
+  %2 = tail call fastcc i32 @skl_get_dram_info(ptr noundef %0)
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
 
@@ -483,7 +483,7 @@ define internal fastcc i32 @gen11_get_dram_info(ptr noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bxt_get_dram_info(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @bxt_get_dram_info(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7368
   %3 = getelementptr inbounds i8, ptr %0, i64 7512
   %4 = getelementptr inbounds i8, ptr %0, i64 8913
@@ -531,7 +531,7 @@ define internal fastcc noundef i32 @bxt_get_dram_info(ptr noundef %0) unnamed_ad
   %25 = lshr i32 %15, 4
   %26 = and i32 %25, 3
   %27 = shl nuw nsw i32 8, %26
-  %28 = trunc i32 %27 to i8
+  %28 = trunc nuw nsw i32 %27 to i8
   %29 = and i32 %15, 3
   switch i32 %29, label %31 [
     i32 1, label %33
@@ -721,7 +721,7 @@ define internal fastcc noundef i32 @bxt_get_dram_info(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @skl_get_dram_info(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_get_dram_info(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.dram_channel_info, align 2
   %3 = alloca %struct.dram_channel_info, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 7368
@@ -1102,12 +1102,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @skl_dram_get_channel_info(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_dram_get_channel_info(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = trunc i32 %3 to i16
   tail call fastcc void @skl_dram_get_dimm_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext 76, i16 noundef zeroext %5)
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = lshr i32 %3, 16
-  %8 = trunc i32 %7 to i16
+  %8 = trunc nuw i32 %7 to i16
   tail call fastcc void @skl_dram_get_dimm_info(ptr noundef %0, ptr noundef %6, i32 noundef %2, i8 noundef zeroext 83, i16 noundef zeroext %8)
   %9 = load i16, ptr %1, align 2
   %10 = icmp eq i16 %9, 0
@@ -1244,7 +1244,7 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly %0, ptr
 
 16:                                               ; preds = %14, %14, %14
   %17 = lshr exact i16 %15, 7
-  %18 = trunc i16 %17 to i8
+  %18 = trunc nuw nsw i16 %17 to i8
   %19 = shl nuw nsw i8 8, %18
   br label %.thread
 
@@ -1276,7 +1276,7 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly %0, ptr
 
 29:                                               ; preds = %27, %27, %27
   %30 = lshr exact i16 %28, 8
-  %31 = trunc i16 %30 to i8
+  %31 = trunc nuw nsw i16 %30 to i8
   %32 = shl nuw nsw i8 8, %31
   br label %.thread
 
@@ -1297,7 +1297,7 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly %0, ptr
   %35 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %.ph, ptr %35, align 2
   %36 = lshr i16 %4, %.ph3
-  %37 = trunc i16 %36 to i8
+  %37 = trunc nuw nsw i16 %36 to i8
   %38 = and i8 %.ph4, %37
   %39 = add nuw nsw i8 %38, 1
   br label %42

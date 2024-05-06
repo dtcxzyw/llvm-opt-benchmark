@@ -1471,7 +1471,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9precedingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10isBoundaryEi(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %offset) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator10isBoundaryEi(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %offset) unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
   %cmp = icmp slt i32 %offset, 0

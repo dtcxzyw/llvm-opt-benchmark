@@ -590,7 +590,7 @@ return:                                           ; preds = %if.end32, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_pkey_decrypt_alloc(ptr noundef %ctx, ptr nocapture noundef %outp, ptr noundef %outlenp, i64 noundef %expected_outlen, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @evp_pkey_decrypt_alloc(ptr noundef %ctx, ptr nocapture noundef %outp, ptr noundef %outlenp, i64 noundef %expected_outlen, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_PKEY_decrypt(ptr noundef %ctx, ptr noundef null, ptr noundef %outlenp, ptr noundef %in, i64 noundef %inlen)
   %cmp = icmp slt i32 %call, 1

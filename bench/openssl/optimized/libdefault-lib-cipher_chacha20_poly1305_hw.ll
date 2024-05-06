@@ -47,7 +47,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chacha20_poly1305_aead_cipher(ptr noundef %bctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, ptr noundef %in, i64 noundef %inl) #1 {
+define internal range(i32 0, 2) i32 @chacha20_poly1305_aead_cipher(ptr noundef %bctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %storage.i = alloca [160 x i8], align 16
   %temp = alloca [16 x i8], align 16
@@ -514,7 +514,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @chacha_poly1305_tls_init(ptr nocapture noundef %bctx, ptr nocapture noundef readonly %aad, i64 noundef %alen) #2 {
+define internal range(i32 0, 17) i32 @chacha_poly1305_tls_init(ptr nocapture noundef %bctx, ptr nocapture noundef readonly %aad, i64 noundef %alen) #2 {
 entry:
   %cmp.not = icmp eq i64 %alen, 13
   br i1 %cmp.not, label %if.end, label %return
@@ -543,7 +543,7 @@ if.then5:                                         ; preds = %if.end
 if.end9:                                          ; preds = %if.then5
   %sub = add nsw i32 %or, -16
   %shr = lshr i32 %sub, 8
-  %conv10 = trunc i32 %shr to i8
+  %conv10 = trunc nuw i32 %shr to i8
   %arrayidx11 = getelementptr inbounds i8, ptr %bctx, i64 791
   store i8 %conv10, ptr %arrayidx11, align 1
   %conv12 = trunc i32 %sub to i8
@@ -578,7 +578,7 @@ return:                                           ; preds = %if.then5, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @chacha_poly1305_tls_iv_set_fixed(ptr nocapture noundef writeonly %bctx, ptr nocapture noundef readonly %fixed, i64 noundef %flen) #2 {
+define internal range(i32 0, 2) i32 @chacha_poly1305_tls_iv_set_fixed(ptr nocapture noundef writeonly %bctx, ptr nocapture noundef readonly %fixed, i64 noundef %flen) #2 {
 entry:
   %cmp.not = icmp eq i64 %flen, 12
   br i1 %cmp.not, label %if.end, label %return

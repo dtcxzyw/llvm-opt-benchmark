@@ -182,7 +182,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %tls_args.i, i8 0, i64 128, i1 false)
   %7 = lshr exact i64 %bf.shl, 21
   %srt_list_seq.i = getelementptr inbounds i8, ptr %call, i64 1320
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %srt_list_seq.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %srt_list_seq.i, i8 0, i64 24, i1 false)
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @chan_reset_token_hash, ptr noundef nonnull @chan_reset_token_cmp) #14
   %srt_hash_tok.i = getelementptr inbounds i8, ptr %call, i64 1312
   store ptr %call.i.i, ptr %srt_hash_tok.i, align 8
@@ -532,7 +532,7 @@ if.end216.i:                                      ; preds = %for.end205.i
   br i1 %tobool240.not.i, label %land.lhs.true241.i, label %ch_init.exit
 
 land.lhs.true241.i:                               ; preds = %if.end216.i
-  %call242.i = call fastcc i32 @ch_generate_transport_params(ptr noundef nonnull %call), !range !8
+  %call242.i = call fastcc i32 @ch_generate_transport_params(ptr noundef nonnull %call)
   %tobool243.not.i = icmp eq i32 %call242.i, 0
   br i1 %tobool243.not.i, label %if.then9, label %ch_init.exit
 
@@ -594,7 +594,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call = tail call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %1, i32 noundef %pn_space.039) #14
   %inc = add nuw nsw i32 %pn_space.039, 1
   %exitcond.not = icmp eq i32 %inc, 3
-  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !8
 
 if.end:                                           ; preds = %for.body, %entry
   %txp = getelementptr inbounds i8, ptr %ch, i64 256
@@ -662,7 +662,7 @@ for.body19:                                       ; preds = %if.end16, %for.body
   tail call void @ossl_quic_rstream_free(ptr noundef %13) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond44.not, label %for.end24, label %for.body19, !llvm.loop !10
+  br i1 %exitcond44.not, label %for.end24, label %for.body19, !llvm.loop !9
 
 for.end24:                                        ; preds = %for.body19
   %qrx_pkt = getelementptr inbounds i8, ptr %ch, i64 1416
@@ -751,7 +751,7 @@ ossl_list_stateless_reset_tokens_remove.exit:     ; preds = %if.end17.i, %if.the
   %call.i = tail call ptr @OPENSSL_LH_delete(ptr noundef %27, ptr noundef nonnull %srte.042) #14
   tail call void @CRYPTO_free(ptr noundef nonnull %srte.042, ptr noundef nonnull @.str, i32 noundef 539) #14
   %cmp28.not = icmp eq ptr %srte.0.val, null
-  br i1 %cmp28.not, label %for.end34, label %for.body29, !llvm.loop !11
+  br i1 %cmp28.not, label %for.end34, label %for.body29, !llvm.loop !10
 
 for.end34:                                        ; preds = %ossl_list_stateless_reset_tokens_remove.exit, %for.end24
   %srt_hash_tok35 = getelementptr inbounds i8, ptr %ch, i64 1312
@@ -761,7 +761,7 @@ for.end34:                                        ; preds = %ossl_list_stateless
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_set_mutator(ptr nocapture noundef readonly %ch, ptr noundef %mutatecb, ptr noundef %finishmutatecb, ptr noundef %mutatearg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_set_mutator(ptr nocapture noundef readonly %ch, ptr noundef %mutatecb, ptr noundef %finishmutatecb, ptr noundef %mutatearg) local_unnamed_addr #0 {
 entry:
   %qtx = getelementptr inbounds i8, ptr %ch, i64 1096
   %0 = load ptr, ptr %qtx, align 8
@@ -780,7 +780,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @ossl_qtx_set_mutator(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_quic_channel_get_peer_addr(ptr nocapture noundef readonly %ch, ptr nocapture noundef writeonly %peer_addr) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_channel_get_peer_addr(ptr nocapture noundef readonly %ch, ptr nocapture noundef writeonly %peer_addr) local_unnamed_addr #2 {
 entry:
   %addressed_mode = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %addressed_mode, align 8
@@ -802,7 +802,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_set_peer_addr(ptr noundef %ch, ptr noundef %peer_addr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_set_peer_addr(ptr noundef %ch, ptr noundef %peer_addr) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %state, align 8
@@ -879,7 +879,7 @@ entry:
 declare ptr @ossl_quic_stream_map_get_by_id(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_channel_is_active(ptr noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_active(ptr noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %ch, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -898,7 +898,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_channel_is_closing(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_closing(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %state = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %state, align 8
@@ -909,7 +909,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_channel_is_terminated(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_terminated(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %state = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %state, align 8
@@ -920,7 +920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_channel_is_term_any(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_term_any(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %ch, i64 1616
   %ch.val = load i64, ptr %0, align 8
@@ -949,7 +949,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_channel_is_handshake_complete(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_handshake_complete(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %handshake_complete = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %handshake_complete, align 8
@@ -960,7 +960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_channel_is_handshake_confirmed(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_handshake_confirmed(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %handshake_confirmed = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %handshake_confirmed, align 8
@@ -987,7 +987,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_channel_has_pending(ptr nocapture noundef readonly %ch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_has_pending(ptr nocapture noundef readonly %ch) local_unnamed_addr #0 {
 entry:
   %demux = getelementptr inbounds i8, ptr %ch, i64 1088
   %0 = load ptr, ptr %demux, align 8
@@ -1029,7 +1029,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_update_poll_descriptors(ptr noundef %ch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_update_poll_descriptors(ptr noundef %ch) local_unnamed_addr #0 {
 entry:
   %d.i4 = alloca %struct.bio_poll_descriptor_st, align 8
   %d.i = alloca %struct.bio_poll_descriptor_st, align 8
@@ -1117,7 +1117,7 @@ ch_update_poll_desc.exit10:                       ; preds = %if.end10.thread25.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_set_net_rbio(ptr noundef %ch, ptr noundef %net_rbio) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_set_net_rbio(ptr noundef %ch, ptr noundef %net_rbio) local_unnamed_addr #0 {
 entry:
   %d.i = alloca %struct.bio_poll_descriptor_st, align 8
   %net_rbio1 = getelementptr inbounds i8, ptr %ch, i64 240
@@ -1174,7 +1174,7 @@ return:                                           ; preds = %ch_update_poll_desc
 declare void @ossl_quic_demux_set_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_set_net_wbio(ptr noundef %ch, ptr noundef %net_wbio) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_set_net_wbio(ptr noundef %ch, ptr noundef %net_wbio) local_unnamed_addr #0 {
 entry:
   %d.i = alloca %struct.bio_poll_descriptor_st, align 8
   %net_wbio1 = getelementptr inbounds i8, ptr %ch, i64 248
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %ch_update_poll_desc
 declare void @ossl_qtx_set_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_start(ptr noundef %ch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_start(ptr noundef %ch) local_unnamed_addr #0 {
 entry:
   %error_code.i = alloca i64, align 8
   %error_msg.i = alloca ptr, align 8
@@ -1607,7 +1607,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_on_handshake_confirmed(ptr nocapture noundef %ch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_on_handshake_confirmed(ptr nocapture noundef %ch) local_unnamed_addr #0 {
 entry:
   %handshake_confirmed = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %handshake_confirmed, align 8
@@ -1898,7 +1898,7 @@ if.end23:                                         ; preds = %if.end17
 
 if.then27:                                        ; preds = %if.end23
   %stateless_reset = getelementptr inbounds i8, ptr %f, i64 37
-  %call28 = tail call fastcc i32 @chan_add_reset_token(ptr noundef nonnull %ch, ptr noundef nonnull %stateless_reset, i64 noundef %3), !range !8
+  %call28 = tail call fastcc i32 @chan_add_reset_token(ptr noundef nonnull %ch, ptr noundef nonnull %stateless_reset, i64 noundef %3)
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %if.then30, label %if.end31
 
@@ -2000,7 +2000,7 @@ ossl_list_stateless_reset_tokens_remove.exit.i.i: ; preds = %if.then21.i.i.i, %i
 for.inc.i.i:                                      ; preds = %if.end.i.i
   %srte.0.val.i.i = load ptr, ptr %srte.012.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %srte.0.val.i.i, null
-  br i1 %cmp.not.i.i, label %chan_remove_reset_token.exit.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %chan_remove_reset_token.exit.i, label %for.body.i.i, !llvm.loop !11
 
 chan_remove_reset_token.exit.i:                   ; preds = %for.inc.i.i, %for.body.i.i, %ossl_list_stateless_reset_tokens_remove.exit.i.i, %while.body
   %call.i = call ptr @BUF_MEM_new() #14
@@ -2052,14 +2052,14 @@ if.end44:                                         ; preds = %if.end12.i
   %inc = add i64 %18, 1
   store i64 %inc, ptr %cur_retire_prior_to, align 8
   %cmp38 = icmp ugt i64 %new_retire_prior_to.0, %inc
-  br i1 %cmp38, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp38, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end44, %if.end36, %ch_enqueue_retire_conn_id.exit.thread, %ossl_quic_channel_is_active.exit, %if.then30, %if.then22, %if.then16, %if.then2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @chan_add_reset_token(ptr nocapture noundef %ch, ptr nocapture noundef readonly %new, i64 noundef %seq_num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @chan_add_reset_token(ptr nocapture noundef %ch, ptr nocapture noundef readonly %new, i64 noundef %seq_num) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 171) #14
   %cmp = icmp eq ptr %call, null
@@ -2097,7 +2097,7 @@ ossl_list_stateless_reset_tokens_insert_tail.exit: ; preds = %if.end.i, %if.then
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %num_elems.i, align 8
   %token.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %token.i, ptr noundef nonnull align 1 dereferenceable(16) %new, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %token.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %new, i64 16, i1 false)
   %seq_num2 = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %seq_num, ptr %seq_num2, align 8
   %srt_hash_tok = getelementptr inbounds i8, ptr %ch, i64 1312
@@ -2163,7 +2163,7 @@ return:                                           ; preds = %ossl_list_stateless
 declare i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_channel_net_error(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_net_error(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %net_error = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %net_error, align 8
@@ -2251,7 +2251,7 @@ if.end4:                                          ; preds = %entry
 
 if.end10:                                         ; preds = %if.end4
   %lnot.ext = zext i1 %tobool.not.i to i32
-  %call12 = tail call fastcc i32 @ch_init_new_stream(ptr noundef nonnull %ch, ptr noundef nonnull %call6, i32 noundef 1, i32 noundef %lnot.ext), !range !8
+  %call12 = tail call fastcc i32 @ch_init_new_stream(ptr noundef nonnull %ch, ptr noundef nonnull %call6, i32 noundef 1, i32 noundef %lnot.ext)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %err, label %if.end15
 
@@ -2273,7 +2273,7 @@ return:                                           ; preds = %if.end4, %entry, %e
 declare ptr @ossl_quic_stream_map_alloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ch_init_new_stream(ptr noundef %ch, ptr noundef %qs, i32 noundef %can_send, i32 noundef %can_recv) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ch_init_new_stream(ptr noundef %ch, ptr noundef %qs, i32 noundef %can_send, i32 noundef %can_recv) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %qs, i64 256
   %qs.val26 = load i64, ptr %0, align 8
@@ -2390,7 +2390,7 @@ if.end10:                                         ; preds = %if.end
   %and2 = and i64 %stream_id, 2
   %cmp3.not = icmp eq i64 %and2, 0
   %lnot.ext = zext i1 %cmp3.not to i32
-  %call12 = tail call fastcc i32 @ch_init_new_stream(ptr noundef nonnull %ch, ptr noundef nonnull %call, i32 noundef %lnot.ext, i32 noundef 1), !range !8
+  %call12 = tail call fastcc i32 @ch_init_new_stream(ptr noundef nonnull %ch, ptr noundef nonnull %call, i32 noundef %lnot.ext, i32 noundef 1)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %err, label %if.end15
 
@@ -2467,7 +2467,7 @@ declare i32 @ossl_quic_stream_map_reset_stream_send_part(ptr noundef, ptr nounde
 declare void @ossl_quic_stream_map_update_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_channel_replace_local_cid(ptr noundef %ch, ptr nocapture noundef readonly %conn_id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_replace_local_cid(ptr noundef %ch, ptr nocapture noundef readonly %conn_id) local_unnamed_addr #0 {
 entry:
   %qrx = getelementptr inbounds i8, ptr %ch, i64 1104
   %0 = load ptr, ptr %qrx, align 8
@@ -2581,7 +2581,7 @@ entry:
 declare i64 @ossl_qrx_get_key_epoch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_trigger_txku(ptr nocapture noundef %ch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_trigger_txku(ptr nocapture noundef %ch) local_unnamed_addr #0 {
 entry:
   %tx_enc_level.i = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load.i = load i64, ptr %tx_enc_level.i, align 8
@@ -2843,7 +2843,7 @@ declare ptr @ossl_quic_demux_new(ptr noundef, i64 noundef, ptr noundef, ptr noun
 declare void @ossl_quic_demux_set_stateless_reset_handler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ch_stateless_reset_token_handler(ptr nocapture noundef readonly %data, i64 noundef %datalen, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 2) i32 @ch_stateless_reset_token_handler(ptr nocapture noundef readonly %data, i64 noundef %datalen, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %srte = alloca %struct.quic_srt_elem_st, align 8
   %cmp = icmp ult i64 %datalen, 21
@@ -2860,7 +2860,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %datalen
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   %token.i = getelementptr inbounds i8, ptr %srte, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %token.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %token.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %add.ptr3, i64 16, i1 false)
   %srt_hash_tok = getelementptr inbounds i8, ptr %arg, i64 1312
   %2 = load ptr, ptr %srt_hash_tok, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %2, ptr noundef nonnull %srte) #14
@@ -2942,11 +2942,11 @@ gen_rand_conn_id.exit.thread.i:                   ; preds = %if.end.i14
 
 if.end9.i:                                        ; preds = %if.end.i14
   %cur_peer_addr.i = getelementptr inbounds i8, ptr %arg, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %cur_peer_addr.i, ptr noundef nonnull align 4 dereferenceable(112) %peer, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %cur_peer_addr.i, ptr noundef nonnull readonly align 4 dereferenceable(112) %peer, i64 112, i1 false)
   %init_dcid.i = getelementptr inbounds i8, ptr %arg, i64 1184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %init_dcid.i, ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %init_dcid.i, ptr noundef nonnull readonly align 8 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
   %cur_remote_dcid.i = getelementptr inbounds i8, ptr %arg, i64 1247
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %cur_remote_dcid.i, ptr noundef nonnull align 1 dereferenceable(21) %src_conn_id, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %cur_remote_dcid.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %src_conn_id, i64 21, i1 false)
   %txp.i = getelementptr inbounds i8, ptr %arg, i64 256
   %6 = load ptr, ptr %txp.i, align 8
   %call11.i = call i32 @ossl_quic_tx_packetiser_set_peer(ptr noundef %6, ptr noundef nonnull %cur_peer_addr.i) #14
@@ -3011,7 +3011,7 @@ declare ptr @ossl_qrx_new(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_qrx_set_late_validation_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rx_late_validate(i64 noundef %pn, i32 noundef %pn_space, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 2) i32 @rx_late_validate(i64 noundef %pn, i32 noundef %pn_space, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %ackm = getelementptr inbounds i8, ptr %arg, i64 1080
   %0 = load ptr, ptr %ackm, align 8
@@ -3230,7 +3230,7 @@ for.inc:                                          ; preds = %crypto_ensure_empty
   %4 = lshr i32 %3, 16
   %bf.cast = and i32 %4, 7
   %cmp = icmp ult i32 %inc, %bf.cast
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
   %5 = icmp ult i32 %bf.cast, 4
@@ -3305,7 +3305,7 @@ return:                                           ; preds = %if.end, %ossl_quic_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ch_on_handshake_yield_secret(i32 noundef %enc_level, i32 noundef %direction, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr nocapture noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @ch_on_handshake_yield_secret(i32 noundef %enc_level, i32 noundef %direction, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr nocapture noundef %arg) #0 {
 entry:
   %avail.i = alloca i64, align 8
   %is_fin.i = alloca i32, align 4
@@ -3403,7 +3403,7 @@ if.then23:                                        ; preds = %crypto_ensure_empty
 for.inc:                                          ; preds = %crypto_ensure_empty.exit.thread26, %crypto_ensure_empty.exit
   %inc = add nuw i32 %i.029, 1
   %exitcond.not = icmp eq i32 %inc, %enc_level
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc
   %qrx = getelementptr inbounds i8, ptr %arg, i64 1104
@@ -3428,7 +3428,7 @@ return:                                           ; preds = %if.end8, %if.end28,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ch_on_transport_params(ptr noundef %params, i64 noundef %params_len, ptr noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @ch_on_transport_params(ptr noundef %params, i64 noundef %params_len, ptr noundef %arg) #0 {
 entry:
   %pkt = alloca %struct.PACKET, align 8
   %id = alloca i64, align 8
@@ -3555,7 +3555,7 @@ if.end22:                                         ; preds = %if.end18
 
 ossl_quic_conn_id_eq.exit:                        ; preds = %if.end22
   %conv11.i = zext nneg i8 %3 to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull %id.i, ptr nonnull %id8.i85, i64 %conv11.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i85, i64 %conv11.i)
   %cmp12.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp12.i.not, label %sw.epilog, label %malformed
 
@@ -3589,7 +3589,7 @@ if.end49:                                         ; preds = %if.end45
 
 ossl_quic_conn_id_eq.exit79:                      ; preds = %if.end49
   %conv11.i74 = zext nneg i8 %7 to i64
-  %bcmp.i75 = call i32 @bcmp(ptr nonnull %id.i72, ptr nonnull %id8.i85, i64 %conv11.i74)
+  %bcmp.i75 = call i32 @bcmp(ptr nonnull readonly %id.i72, ptr nonnull readonly %id8.i85, i64 %conv11.i74)
   %cmp12.i76.not = icmp eq i32 %bcmp.i75, 0
   br i1 %cmp12.i76.not, label %sw.epilog, label %malformed
 
@@ -3612,7 +3612,7 @@ if.end61:                                         ; preds = %if.end57
 
 ossl_quic_conn_id_eq.exit91:                      ; preds = %if.end61
   %conv11.i86 = zext nneg i8 %9 to i64
-  %bcmp.i87 = call i32 @bcmp(ptr nonnull %id.i84, ptr nonnull %id8.i85, i64 %conv11.i86)
+  %bcmp.i87 = call i32 @bcmp(ptr nonnull readonly %id.i84, ptr nonnull readonly %id8.i85, i64 %conv11.i86)
   %cmp12.i88.not = icmp eq i32 %bcmp.i87, 0
   br i1 %cmp12.i88.not, label %sw.epilog, label %malformed
 
@@ -3855,7 +3855,7 @@ if.end193:                                        ; preds = %if.end185
 
 if.end201:                                        ; preds = %if.end193
   %34 = load i64, ptr %cur_remote_seq_num, align 8
-  %call202 = call fastcc i32 @chan_add_reset_token(ptr noundef nonnull %arg, ptr noundef nonnull %call194, i64 noundef %34), !range !8
+  %call202 = call fastcc i32 @chan_add_reset_token(ptr noundef nonnull %arg, ptr noundef nonnull %call194, i64 noundef %34)
   %tobool203.not = icmp eq i32 %call202, 0
   br i1 %tobool203.not, label %malformed, label %sw.epilog
 
@@ -3921,7 +3921,7 @@ sw.epilog:                                        ; preds = %if.end237, %if.end2
   %got_disable_active_migration.1 = phi i32 [ %got_disable_active_migration.0125, %sw.default ], [ %got_disable_active_migration.0125, %if.end181 ], [ %got_disable_active_migration.0125, %if.end170 ], [ %got_disable_active_migration.0125, %ch_update_idle.exit ], [ %got_disable_active_migration.0125, %if.end144 ], [ %got_disable_active_migration.0125, %if.end133 ], [ %got_disable_active_migration.0125, %if.end119 ], [ %got_disable_active_migration.0125, %if.end108 ], [ %got_disable_active_migration.0125, %if.end98 ], [ %got_disable_active_migration.0125, %if.end90 ], [ %got_disable_active_migration.0125, %if.end82 ], [ %got_disable_active_migration.0125, %if.end73 ], [ %got_disable_active_migration.0125, %ossl_quic_conn_id_eq.exit ], [ %got_disable_active_migration.0125, %ossl_quic_conn_id_eq.exit79 ], [ %got_disable_active_migration.0125, %ossl_quic_conn_id_eq.exit91 ], [ %got_disable_active_migration.0125, %if.end201 ], [ %got_disable_active_migration.0125, %if.end226 ], [ 1, %if.end237 ]
   %pkt.val = load i64, ptr %remaining.i, align 8
   %cmp.not = icmp eq i64 %pkt.val, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !16
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %sw.epilog
   %39 = icmp eq i32 %got_initial_scid.1, 0
@@ -3969,7 +3969,7 @@ if.end287:                                        ; preds = %if.end274, %if.then
   br i1 %tobool293.not, label %return, label %land.lhs.true294
 
 land.lhs.true294:                                 ; preds = %if.end287
-  %call295 = call fastcc i32 @ch_generate_transport_params(ptr noundef nonnull %arg), !range !8
+  %call295 = call fastcc i32 @ch_generate_transport_params(ptr noundef nonnull %arg)
   %tobool296.not = icmp eq i32 %call295, 0
   br i1 %tobool296.not, label %if.then297, label %return
 
@@ -3988,7 +3988,7 @@ return:                                           ; preds = %if.end287, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ch_on_handshake_complete(ptr nocapture noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr nocapture noundef %arg) #0 {
 entry:
   %handshake_complete = getelementptr inbounds i8, ptr %arg, i64 1616
   %bf.load = load i64, ptr %handshake_complete, align 8
@@ -4109,7 +4109,7 @@ declare void @ossl_ackm_set_tx_max_ack_delay(ptr noundef, i64) local_unnamed_add
 declare void @ossl_ackm_set_rx_max_ack_delay(ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ch_generate_transport_params(ptr noundef %ch) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr noundef %ch) unnamed_addr #0 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %buf_len = alloca i64, align 8
@@ -4735,7 +4735,7 @@ if.then73.i.i:                                    ; preds = %land.lhs.true66.i.i
 ossl_quic_conn_id_eq.exit.i.i:                    ; preds = %if.then73.i.i
   %id.i.i.i = getelementptr inbounds i8, ptr %.pre91.i.i, i64 30
   %conv11.i.i.i = zext nneg i8 %51 to i64
-  %bcmp.i70.i.i = call i32 @bcmp(ptr nonnull %id.i.i.i, ptr nonnull %id8.i.i.i, i64 %conv11.i.i.i)
+  %bcmp.i70.i.i = call i32 @bcmp(ptr nonnull readonly %id.i.i.i, ptr nonnull readonly %id8.i.i.i, i64 %conv11.i.i.i)
   %cmp12.i.not.i.i = icmp eq i32 %bcmp.i70.i.i, 0
   br i1 %cmp12.i.not.i.i, label %if.end82.i.i, label %ch_rx_handle_packet.exit.i
 
@@ -4814,7 +4814,7 @@ if.end150.i.i:                                    ; preds = %if.end144.i.i
 ossl_quic_conn_id_eq.exit.i45.i:                  ; preds = %if.end150.i.i
   %id8.i.i47.i = getelementptr inbounds i8, ptr %64, i64 30
   %conv11.i.i48.i = zext nneg i8 %67 to i64
-  %bcmp.i.i49.i = call i32 @bcmp(ptr nonnull %id.i.i46.i, ptr nonnull %id8.i.i47.i, i64 %conv11.i.i48.i)
+  %bcmp.i.i49.i = call i32 @bcmp(ptr nonnull readonly %id.i.i46.i, ptr nonnull readonly %id8.i.i47.i, i64 %conv11.i.i48.i)
   %cmp12.i.not.i50.i = icmp eq i32 %bcmp.i.i49.i, 0
   br i1 %cmp12.i.not.i50.i, label %ch_rx_handle_packet.exit.i, label %if.end.i51.i
 
@@ -5018,7 +5018,7 @@ if.end6.i.i:                                      ; preds = %while.cond.i.i
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %vpkt.sroa.0.1.i.i, i64 4
   %sub.i.i.i.i = add i64 %vpkt.sroa.7.1.i.i, -4
   %cmp7.i.i = icmp eq i64 %or12.i.i.i.i, 1
-  br i1 %cmp7.i.i, label %ch_rx_handle_packet.exit.i, label %while.cond.i.i, !llvm.loop !17
+  br i1 %cmp7.i.i, label %ch_rx_handle_packet.exit.i, label %while.cond.i.i, !llvm.loop !16
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tcause.i.i.i)
@@ -5072,7 +5072,7 @@ for.inc.i.i:                                      ; preds = %if.end8.i.i, %for.b
   %limit.1.i.i = phi i64 [ %limit.011.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
   %inc.i.i = add nuw nsw i32 %enc_level.012.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 4
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !17
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end.i40.i
   %limit.0.lcssa.i.i = phi i64 [ %limit.011.i.i, %if.end.i40.i ], [ %limit.1.i.i, %for.inc.i.i ]
@@ -5136,7 +5136,7 @@ do.cond:                                          ; preds = %ch_rx.exit, %ch_tic
   %bf.load40 = phi i64 [ %bf.load31, %ch_rx.exit ], [ %bf.load40.pre, %ch_tick_tls.exit ]
   %112 = and i64 %bf.load40, 33554432
   %tobool44.not = icmp eq i64 %112, 0
-  br i1 %tobool44.not, label %if.end45, label %do.body, !llvm.loop !19
+  br i1 %tobool44.not, label %if.end45, label %do.body, !llvm.loop !18
 
 if.end45:                                         ; preds = %do.cond, %if.end21
   %now_cb.i72 = getelementptr inbounds i8, ptr %arg, i64 24
@@ -5572,7 +5572,7 @@ if.then54.i:                                      ; preds = %if.end52.i
 do.cond.i:                                        ; preds = %if.end52.i
   %179 = load i64, ptr %sent_pkt.i, align 8
   %cmp57.not.i = icmp eq i64 %179, 0
-  br i1 %cmp57.not.i, label %do.end.i, label %do.body.i, !llvm.loop !20
+  br i1 %cmp57.not.i, label %do.end.i, label %do.body.i, !llvm.loop !19
 
 do.end.i:                                         ; preds = %do.cond.i, %if.then54.i
   %qtx.i = getelementptr inbounds i8, ptr %arg, i64 1096
@@ -5672,7 +5672,7 @@ for.inc:                                          ; preds = %for.body, %ossl_qui
   %deadline.sroa.0.2 = phi i64 [ %a.coerce.b.coerce.i, %ossl_quic_enc_level_to_pn_space.exit ], [ %deadline.sroa.0.133, %for.body ]
   %inc = add nuw nsw i32 %i.032, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.inc
   %ping_deadline = getelementptr inbounds i8, ptr %ch, i64 1576
@@ -6072,7 +6072,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -6085,4 +6085,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

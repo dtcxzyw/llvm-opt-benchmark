@@ -19,7 +19,7 @@ define void @lib_meminstream(ptr nocapture noundef writeonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @meminstream_getc(ptr nocapture noundef %0) #1 {
+define internal range(i32 -128, 128) i32 @meminstream_getc(ptr nocapture noundef %0) #1 {
   %2 = load i32, ptr %0, align 8
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 32

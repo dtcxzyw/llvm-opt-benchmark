@@ -150,7 +150,7 @@ define dso_local void @drm_modeset_unregister_all(ptr noundef %0) local_unnamed_
 declare dso_local void @drm_connector_unregister_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_getresources(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getresources(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.drm_connector_list_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   %5 = getelementptr inbounds i8, ptr %0, i64 48

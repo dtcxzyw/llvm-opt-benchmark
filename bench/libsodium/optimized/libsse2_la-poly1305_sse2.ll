@@ -37,7 +37,7 @@ entry:
   %st.i = alloca %struct.poly1305_state_internal_t, align 64
   %correct = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %st.i)
-  call fastcc void @poly1305_init_ext(ptr noundef nonnull %st.i, ptr noundef %k, i64 noundef %inlen)
+  call fastcc void @poly1305_init_ext(ptr noundef nonnull %st.i, ptr noundef readonly %k, i64 noundef %inlen)
   %and.i = and i64 %inlen, -32
   %cmp.not.i = icmp eq i64 %and.i, 0
   br i1 %cmp.not.i, label %crypto_onetimeauth_poly1305_sse2.exit, label %if.then.i
@@ -51,7 +51,7 @@ if.then.i:                                        ; preds = %entry
 crypto_onetimeauth_poly1305_sse2.exit:            ; preds = %entry, %if.then.i
   %inlen.addr.0.i = phi i64 [ %sub.i, %if.then.i ], [ %inlen, %entry ]
   %m.addr.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %in, %entry ]
-  call fastcc void @poly1305_finish_ext(ptr noundef nonnull %st.i, ptr noundef %m.addr.0.i, i64 noundef %inlen.addr.0.i, ptr noundef nonnull %correct)
+  call fastcc void @poly1305_finish_ext(ptr noundef nonnull %st.i, ptr noundef %m.addr.0.i, i64 noundef %inlen.addr.0.i, ptr noundef nonnull writeonly %correct)
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %st.i)
   %call2 = call i32 @crypto_verify_16(ptr noundef %h, ptr noundef nonnull %correct) #10
   ret i32 %call2
@@ -164,7 +164,7 @@ entry:
   %buffer.i = getelementptr inbounds i8, ptr %state, i64 136
   %leftover.i = getelementptr inbounds i8, ptr %state, i64 128
   %0 = load i64, ptr %leftover.i, align 8
-  tail call fastcc void @poly1305_finish_ext(ptr noundef %state, ptr noundef nonnull %buffer.i, i64 noundef %0, ptr noundef %out)
+  tail call fastcc void @poly1305_finish_ext(ptr noundef %state, ptr noundef nonnull %buffer.i, i64 noundef %0, ptr noundef writeonly %out)
   ret i32 0
 }
 
@@ -206,7 +206,7 @@ entry:
   %arrayidx28 = getelementptr i8, ptr %st, i64 52
   store i32 %and27, ptr %arrayidx28, align 4
   %shr29 = lshr i64 %and9, 16
-  %conv30 = trunc i64 %shr29 to i32
+  %conv30 = trunc nuw nsw i64 %shr29 to i32
   %arrayidx31 = getelementptr i8, ptr %st, i64 56
   store i32 %conv30, ptr %arrayidx31, align 4
   %pad = getelementptr inbounds i8, ptr %st, i64 104
@@ -271,7 +271,7 @@ if.end55:                                         ; preds = %if.then48, %if.then
   %conv101 = trunc i128 %add99 to i64
   %and102 = and i64 %conv101, 4398046511103
   %shr104 = lshr i128 %add99, 42
-  %conv105 = trunc i128 %shr104 to i64
+  %conv105 = trunc nuw nsw i128 %shr104 to i64
   %mul106 = mul nuw nsw i64 %conv105, 5
   %add107 = add nuw nsw i64 %mul106, %and84
   %shr108 = lshr i64 %add107, 44
@@ -303,7 +303,7 @@ if.end55:                                         ; preds = %if.then48, %if.then
   %arrayidx132 = getelementptr i8, ptr %R.1, i64 12
   store i32 %and131, ptr %arrayidx132, align 4
   %shr133 = lshr i64 %add113, 16
-  %conv134 = trunc i64 %shr133 to i32
+  %conv134 = trunc nuw nsw i64 %shr133 to i32
   %arrayidx135 = getelementptr i8, ptr %R.1, i64 16
   store i32 %conv134, ptr %arrayidx135, align 4
   br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !7

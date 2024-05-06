@@ -53,7 +53,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @open_console(ptr nocapture noundef readonly %ui) #3 {
+define internal range(i32 0, 2) i32 @open_console(ptr nocapture noundef readonly %ui) #3 {
 entry:
   %lock = getelementptr inbounds i8, ptr %ui, i64 48
   %0 = load ptr, ptr %lock, align 8

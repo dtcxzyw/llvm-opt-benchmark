@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @tolower(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -65
   %or.cond = icmp ult i32 %2, 26
-  %3 = add nsw i32 %0, 32
+  %3 = add nuw nsw i32 %0, 32
   %4 = select i1 %or.cond, i32 %3, i32 %0
   ret i32 %4
 }
@@ -16,7 +16,7 @@ define i32 @tolower(i32 noundef %0) local_unnamed_addr #0 {
 define i32 @tolower_l(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = add i32 %0, -65
   %or.cond.i = icmp ult i32 %3, 26
-  %4 = add nsw i32 %0, 32
+  %4 = add nuw nsw i32 %0, 32
   %5 = select i1 %or.cond.i, i32 %4, i32 %0
   ret i32 %5
 }

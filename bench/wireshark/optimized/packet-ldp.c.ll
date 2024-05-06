@@ -2734,7 +2734,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %84 = getelementptr i8, ptr %80, i64 %indvars.iv919
   store i8 %83, ptr %84, align 1
   %indvars.iv.next920 = add nuw nsw i64 %indvars.iv919, 1
-  %85 = trunc i64 %indvars.iv.next920 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv.next920 to i32
   %exitcond922.not = icmp eq i64 %indvars.iv.next920, %wide.trip.count921
   br i1 %exitcond922.not, label %._crit_edge810, label %.lr.ph809, !llvm.loop !9
 
@@ -2852,7 +2852,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %151 = getelementptr i8, ptr %147, i64 %indvars.iv
   store i8 %150, ptr %151, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %152 = trunc i64 %indvars.iv.next to i32
+  %152 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph805, !llvm.loop !10
 

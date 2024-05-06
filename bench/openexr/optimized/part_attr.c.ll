@@ -1162,7 +1162,7 @@ if.end34.if.then38_crit_edge:                     ; preds = %if.end34
 
 if.then38:                                        ; preds = %if.end34.if.then38_crit_edge, %if.else
   %13 = phi ptr [ %.pre, %if.end34.if.then38_crit_edge ], [ %8, %if.else ]
-  %conv39 = trunc i32 %lo to i8
+  %conv39 = trunc nuw nsw i32 %lo to i8
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   store i8 %conv39, ptr %14, align 8
   %lineorder = getelementptr inbounds i8, ptr %4, i64 180
@@ -3969,7 +3969,7 @@ if.then49:                                        ; preds = %if.end46
   %16 = getelementptr inbounds i8, ptr %12, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
-  %conv50 = trunc i64 %call40 to i32
+  %conv50 = trunc nuw nsw i64 %call40 to i32
   %cmp51 = icmp eq i32 %18, %conv50
   br i1 %cmp51, label %land.lhs.true, label %if.else56
 
@@ -9951,7 +9951,7 @@ if.then53:                                        ; preds = %if.end48
   %10 = load ptr, ptr %attr, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
-  %conv54 = trunc i64 %cond88 to i32
+  %conv54 = trunc nuw nsw i64 %cond88 to i32
   %call55 = call i32 @exr_attr_string_create_with_length(ptr noundef nonnull %ctxt, ptr noundef %12, ptr noundef %val, i32 noundef %conv54) #6
   br label %if.end92
 
@@ -9976,7 +9976,7 @@ if.end65:                                         ; preds = %if.then59
   %18 = getelementptr inbounds i8, ptr %13, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
-  %conv66 = trunc i64 %cond88 to i32
+  %conv66 = trunc nuw nsw i64 %cond88 to i32
   %cmp67 = icmp eq i32 %20, %conv66
   br i1 %cmp67, label %land.lhs.true69, label %if.else76
 
@@ -10359,7 +10359,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %17 = load ptr, ptr %16, align 8
   %arrayidx50 = getelementptr inbounds ptr, ptr %val, i64 %indvars.iv154
   %18 = load ptr, ptr %arrayidx50, align 8
-  %19 = trunc i64 %indvars.iv154 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv154 to i32
   %call51 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %17, i32 noundef %19, ptr noundef %18) #6
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %cmp45 = icmp eq i32 %call51, 0
@@ -10445,7 +10445,7 @@ if.end86:                                         ; preds = %for.body79
   br i1 %cmp93.not, label %if.end103, label %if.then95
 
 if.then95:                                        ; preds = %if.end86
-  %40 = trunc i64 %indvars.iv148 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv148 to i32
   %call.i114 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   %print_error96 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %41 = load ptr, ptr %print_error96, align 8
@@ -10461,8 +10461,8 @@ if.then95:                                        ; preds = %if.end86
   br label %return
 
 if.end103:                                        ; preds = %if.end86
-  %conv106 = trunc i64 %call89 to i32
-  %47 = trunc i64 %indvars.iv148 to i32
+  %conv106 = trunc nsw i64 %call89 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv148 to i32
   %call107 = call i32 @exr_attr_string_vector_set_entry_with_length(ptr noundef nonnull %ctxt, ptr noundef nonnull %37, i32 noundef %47, ptr noundef nonnull %33, i32 noundef %conv106) #6
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %cmp73 = icmp eq i32 %call107, 0
@@ -10477,7 +10477,7 @@ for.body120:                                      ; preds = %for.body120.prehead
   %51 = load ptr, ptr %50, align 8
   %arrayidx122 = getelementptr inbounds ptr, ptr %val, i64 %indvars.iv151
   %52 = load ptr, ptr %arrayidx122, align 8
-  %53 = trunc i64 %indvars.iv151 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv151 to i32
   %call123 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %51, i32 noundef %53, ptr noundef %52) #6
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %cmp114 = icmp eq i32 %call123, 0
@@ -10516,7 +10516,7 @@ for.body146:                                      ; preds = %for.body146.prehead
   %64 = load ptr, ptr %63, align 8
   %arrayidx148 = getelementptr inbounds ptr, ptr %val, i64 %indvars.iv
   %65 = load ptr, ptr %arrayidx148, align 8
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nuw nsw i64 %indvars.iv to i32
   %call149 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %64, i32 noundef %66, ptr noundef %65) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp140 = icmp eq i32 %call149, 0

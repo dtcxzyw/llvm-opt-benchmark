@@ -21,7 +21,7 @@ define zeroext i1 @_ZN4core3cmp10PartialOrd2lt17h5994ec364631801aE(ptr align 8 %
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17h904e499679438840E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17h904e499679438840E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !6, !noundef !3
   %5 = tail call i8 @"_ZN61_$LT$cranelift_isle..lexer..Pos$u20$as$u20$core..cmp..Ord$GT$3cmp17hff3025bea9511c9fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %4), !range !7
@@ -46,7 +46,7 @@ define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$R
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$U$C$T$RP$$GT$3cmp17h18795de15511c7edE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define range(i8 -1, 2) i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$U$C$T$RP$$GT$3cmp17h18795de15511c7edE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h55342696dfae50c4E"(ptr align 8 %0, ptr align 8 %1), !range !7
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %11

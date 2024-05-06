@@ -962,7 +962,7 @@ for.end38:                                        ; preds = %for.body32.lr.ph, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @can_sja_mem_read(ptr nocapture noundef %s, i64 noundef %addr, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i64 0, 256) i64 @can_sja_mem_read(ptr nocapture noundef %s, i64 noundef %addr, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %addr, 128
   br i1 %cmp, label %return, label %if.end
@@ -1188,7 +1188,7 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @can_sja_receive(ptr noundef %client, ptr nocapture noundef readonly %frames, i64 noundef %frames_cnt) #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @can_sja_receive(ptr noundef %client, ptr nocapture noundef readonly %frames, i64 noundef %frames_cnt) #0 {
 entry:
   %filter.i = alloca %struct.qemu_can_filter, align 4
   %add.ptr = getelementptr i8, ptr %client, i64 -152
@@ -1579,8 +1579,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %if.end27, label %for.body.i, !llvm.loop !9
 
 if.else.i62:                                      ; preds = %if.end15.i
-  %shr.i39.i = lshr i32 %90, 3
-  %conv47.i = trunc i32 %shr.i39.i to i8
+  %shr.i40.i = lshr i32 %90, 3
+  %conv47.i = trunc i32 %shr.i40.i to i8
   store i8 %conv47.i, ptr getelementptr inbounds ([13 x i8], ptr @can_sja_receive.rcv, i64 0, i64 1), align 1
   %96 = load i32, ptr %frames, align 8
   %97 = trunc i32 %96 to i8
@@ -1826,7 +1826,7 @@ return:                                           ; preds = %for.end, %for.end11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @can_sja_connect_to_bus(ptr noundef %s, ptr noundef %bus) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @can_sja_connect_to_bus(ptr noundef %s, ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %bus_client = getelementptr inbounds i8, ptr %s, i64 152
   store ptr @can_sja_bus_client_info, ptr %bus_client, align 8

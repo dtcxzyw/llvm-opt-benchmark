@@ -64,7 +64,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %45 = load i64, ptr %44, align 8
   %46 = icmp sgt i64 %43, %45
   %spec.select = select i1 %46, i32 1, i32 %.0453566
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   br label %48
 
 48:                                               ; preds = %41, %37
@@ -242,7 +242,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 121:                                              ; preds = %119, %114
   %122 = sext i32 %.2477580 to i64
   %123 = getelementptr inbounds i32, ptr %101, i64 %122
-  %124 = trunc i64 %indvars.iv650 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv650 to i32
   store i32 %124, ptr %123, align 4
   %125 = load i64, ptr %111, align 8
   %126 = load i64, ptr %107, align 8
@@ -462,7 +462,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %.0445 = add nuw nsw i32 %.0445.in, 1
   %230 = sext i32 %.0450590 to i64
   %231 = getelementptr inbounds i32, ptr %190, i64 %230
-  %232 = trunc i64 %indvars.iv656 to i32
+  %232 = trunc nuw nsw i64 %indvars.iv656 to i32
   store i32 %232, ptr %231, align 4
   %233 = getelementptr inbounds i32, ptr %191, i64 %230
   store i32 %.0446, ptr %233, align 4
@@ -675,7 +675,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %330 = getelementptr inbounds ptr, ptr %167, i64 %329
   %331 = call i32 @PMPI_Irecv(ptr noundef %325, i32 noundef %321, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %327, i32 noundef 0, ptr noundef %328, ptr noundef %330) #4
   %332 = getelementptr inbounds i32, ptr %188, i64 %329
-  %333 = trunc i64 %indvars.iv679 to i32
+  %333 = trunc nuw nsw i64 %indvars.iv679 to i32
   store i32 %333, ptr %332, align 4
   %334 = add nsw i32 %.0441609, 1
   br label %335
@@ -861,7 +861,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %43 = load i64, ptr %42, align 8
   %44 = icmp sgt i64 %41, %43
   %spec.select = select i1 %44, i32 1, i32 %.0424542
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   br label %46
 
 46:                                               ; preds = %39, %35
@@ -1039,7 +1039,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 119:                                              ; preds = %117, %112
   %120 = sext i32 %.2457556 to i64
   %121 = getelementptr inbounds i32, ptr %99, i64 %120
-  %122 = trunc i64 %indvars.iv606 to i32
+  %122 = trunc nuw nsw i64 %indvars.iv606 to i32
   store i32 %122, ptr %121, align 4
   %123 = load i64, ptr %109, align 8
   %124 = load i64, ptr %105, align 8
@@ -1270,7 +1270,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %.0414 = add nuw nsw i32 %.0414.in, 1
   %233 = sext i32 %.0419562 to i64
   %234 = getelementptr inbounds i32, ptr %181, i64 %233
-  %235 = trunc i64 %indvars.iv609 to i32
+  %235 = trunc nuw nsw i64 %indvars.iv609 to i32
   store i32 %235, ptr %234, align 4
   %236 = getelementptr inbounds i32, ptr %182, i64 %233
   store i32 %.0415, ptr %236, align 4

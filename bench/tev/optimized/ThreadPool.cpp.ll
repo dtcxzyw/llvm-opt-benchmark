@@ -201,7 +201,7 @@ define dso_local void @_ZN3tev10ThreadPool12startThreadsEm(ptr noundef nonnull a
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %23
-  invoke fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6threadEEEE9constructB8ne190000IS2_JZN3tev10ThreadPool12startThreadsEmE3$_0EvTnNS_9enable_ifIXntsr15__has_constructIS3_PT_DpT0_EE5valueEiE4typeELi0EEEvRS3_SB_DpOSC_"(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6threadEEEE9constructB8ne190000IS2_JZN3tev10ThreadPool12startThreadsEmE3$_0EvTnNS_9enable_ifIXntsr15__has_constructIS3_PT_DpT0_EE5valueEiE4typeELi0EEEvRS3_SB_DpOSC_"(ptr noundef %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE22__construct_one_at_endB8ne190000IJZN3tev10ThreadPool12startThreadsEmE3$_0EEEvDpOT_.exit.i" unwind label %28
 
 common.resume.i:                                  ; preds = %70, %28
@@ -266,7 +266,7 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i: ; p
   store ptr %49, ptr %22, align 8
   %50 = getelementptr inbounds %"class.std::__1::thread", ptr %storemerge.i.i.i, i64 %.0.i.i.i
   store ptr %50, ptr %19, align 8
-  invoke fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6threadEEEE9constructB8ne190000IS2_JZN3tev10ThreadPool12startThreadsEmE3$_0EvTnNS_9enable_ifIXntsr15__has_constructIS3_PT_DpT0_EE5valueEiE4typeELi0EEEvRS3_SB_DpOSC_"(ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6threadEEEE9constructB8ne190000IS2_JZN3tev10ThreadPool12startThreadsEmE3$_0EvTnNS_9enable_ifIXntsr15__has_constructIS3_PT_DpT0_EE5valueEiE4typeELi0EEEvRS3_SB_DpOSC_"(ptr noundef %49, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %51 unwind label %70
 
 51:                                               ; preds = %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i
@@ -985,7 +985,7 @@ define internal fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6thre
   store ptr null, ptr %3, align 8
   store ptr %5, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   store ptr %7, ptr %4, align 8
   %10 = tail call noundef i32 @pthread_create(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev10ThreadPool12startThreadsEmE3$_0EEEEEPvSB_", ptr noundef nonnull %7) #13
   %11 = icmp eq i32 %10, 0

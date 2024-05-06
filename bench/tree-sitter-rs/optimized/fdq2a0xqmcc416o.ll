@@ -1550,7 +1550,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %19 = getelementptr i8, ptr %15, i64 8
   %.val1 = load ptr, ptr %19, align 8, !nonnull !29, !noundef !29
   %.val2.i.i = load ptr, ptr %17, align 8, !nonnull !29, !align !276, !noundef !29
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val1, ptr nonnull %.val2.i.i, i64 %.val2), !alias.scope !277
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val1, ptr nonnull readonly %.val2.i.i, i64 %.val2), !alias.scope !277
   %.not5 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not5, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h10a06c344cfe86ddE.exit.thread"
 
@@ -1628,7 +1628,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %15 = getelementptr i8, ptr %13, i64 8
   %.val1 = load ptr, ptr %15, align 8, !nonnull !29, !noundef !29
   %.val2.i.i = load ptr, ptr %9, align 8, !nonnull !29, !align !276, !noundef !29
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val1, ptr nonnull %.val2.i.i, i64 %.val3.i.i), !alias.scope !290
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val1, ptr nonnull readonly %.val2.i.i, i64 %.val3.i.i), !alias.scope !290
   %.not5 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not5, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h10a06c344cfe86ddE.exit.thread"
 
@@ -1702,7 +1702,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h00f095ba1dc9a
   %15 = getelementptr i8, ptr %13, i64 8
   %.val1.i = load ptr, ptr %15, align 8, !noalias !303, !nonnull !29, !noundef !29
   %.val2.i.i.i = load ptr, ptr %9, align 8, !noalias !303, !nonnull !29, !align !276, !noundef !29
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val1.i, ptr nonnull %.val2.i.i.i, i64 %.val3.i.i.i), !alias.scope !307, !noalias !303
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val1.i, ptr nonnull readonly %.val2.i.i.i, i64 %.val3.i.i.i), !alias.scope !307, !noalias !303
   %.not5.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not5.i, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h10a06c344cfe86ddE.exit.thread.i"
 
@@ -1774,7 +1774,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h00f095ba1dc9a
   %39 = getelementptr i8, ptr %35, i64 8
   %.val1.i11 = load ptr, ptr %39, align 8, !noalias !320, !nonnull !29, !noundef !29
   %.val2.i.i.i12 = load ptr, ptr %37, align 8, !noalias !320, !nonnull !29, !align !276, !noundef !29
-  %bcmp.i.i.i.i.i13 = tail call i32 @bcmp(ptr nonnull %.val1.i11, ptr nonnull %.val2.i.i.i12, i64 %.val2.i4), !alias.scope !324, !noalias !320
+  %bcmp.i.i.i.i.i13 = tail call i32 @bcmp(ptr nonnull readonly %.val1.i11, ptr nonnull readonly %.val2.i.i.i12, i64 %.val2.i4), !alias.scope !324, !noalias !320
   %.not5.i14 = icmp eq i32 %bcmp.i.i.i.i.i13, 0
   br i1 %.not5.i14, label %40, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h10a06c344cfe86ddE.exit.thread.i8"
 
@@ -2309,7 +2309,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i: ; preds = %7
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit.i.i.i": ; preds = %76
   %84 = sub i64 %78, %13
   %85 = getelementptr inbounds i8, ptr %.val.i.i, i64 %84
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %85, ptr nonnull %11, i64 %13), !alias.scope !416, !noalias !404
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %85, ptr nonnull readonly %11, i64 %13), !alias.scope !416, !noalias !404
   %86 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %86, label %87, label %80
 
@@ -2460,7 +2460,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hbe45aba6a58a7ba6
   %.val4.i.i = load ptr, ptr %17, align 8, !alias.scope !442, !noalias !441, !nonnull !29, !noundef !29
   %18 = getelementptr inbounds i8, ptr %11, i64 16
   %.val2.i.i = load ptr, ptr %18, align 8, !alias.scope !441, !noalias !442, !nonnull !29, !noundef !29
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val2.i.i, ptr nonnull %.val4.i.i, i64 %.val3.i.i), !alias.scope !443, !noalias !447
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i, ptr nonnull readonly %.val4.i.i, i64 %.val3.i.i), !alias.scope !443, !noalias !447
   %19 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %19, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17he9125a441bd9b231E.exit.thread"
 
@@ -2562,7 +2562,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hbe45aba6a58a7ba6
   %.val4.i.i20 = load ptr, ptr %49, align 8, !alias.scope !475, !noalias !474, !nonnull !29, !noundef !29
   %50 = getelementptr inbounds i8, ptr %42, i64 16
   %.val2.i.i21 = load ptr, ptr %50, align 8, !alias.scope !474, !noalias !475, !nonnull !29, !noundef !29
-  %bcmp.i.i.i.i22 = tail call i32 @bcmp(ptr nonnull %.val2.i.i21, ptr nonnull %.val4.i.i20, i64 %.val3.i.i17), !alias.scope !476, !noalias !480
+  %bcmp.i.i.i.i22 = tail call i32 @bcmp(ptr nonnull readonly %.val2.i.i21, ptr nonnull readonly %.val4.i.i20, i64 %.val3.i.i17), !alias.scope !476, !noalias !480
   %51 = icmp eq i32 %bcmp.i.i.i.i22, 0
   br i1 %51, label %54, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17he9125a441bd9b231E.exit23.thread"
 
@@ -2845,7 +2845,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h627406c576405aa4E.llvm.11452206255188058866.exit": ; preds = %.lr.ph.i, %19, %2
   store i64 %8, ptr %13, align 8, !noalias !518
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !523
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !523
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !518
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
@@ -2863,7 +2863,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %5, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %5, i64 %6, i1 false)
   store i64 %8, ptr %0, align 8, !alias.scope !524, !noalias !529
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !524, !noalias !529
@@ -3328,7 +3328,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h68bee9c3787967d1E.llvm.11452206255188058866.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17he3d140f4bb8b7771E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !636
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !626
   ret void
 }
@@ -3413,7 +3413,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h90edfd03d68a19deE.llvm.11452206255188058866.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6a6148d9399fa0ceE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !652
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !642
   ret void
 }

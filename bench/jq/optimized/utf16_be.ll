@@ -29,7 +29,7 @@ define internal i32 @utf16be_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @utf16be_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1) #0 {
+define internal range(i32 0, 2) i32 @utf16be_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %5, label %11
@@ -99,7 +99,7 @@ define internal i32 @utf16be_mbc_to_code(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @utf16be_code_to_mbclen(i32 noundef %0) #1 {
+define internal noundef range(i32 -400, 5) i32 @utf16be_code_to_mbclen(i32 noundef %0) #1 {
   %2 = icmp ugt i32 %0, 65535
   %3 = icmp ugt i32 %0, 1114111
   %. = select i1 %3, i32 -400, i32 4
@@ -108,7 +108,7 @@ define internal noundef i32 @utf16be_code_to_mbclen(i32 noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @utf16be_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 2, 5) i32 @utf16be_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = icmp ugt i32 %0, 65535
   br i1 %3, label %4, label %21
 
@@ -235,7 +235,7 @@ define internal ptr @utf16be_left_adjust_char_head(ptr noundef %0, ptr noundef %
 declare i32 @onigenc_always_false_is_allowed_reverse_match(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @init() #3 {
+define internal range(i32 -2147483648, 1) i32 @init() #3 {
   %1 = alloca [4 x i32], align 16
   %2 = alloca [4 x %union.OnigValue], align 16
   %3 = tail call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingUTF16_BE, ptr noundef nonnull @.str.1) #7
@@ -313,7 +313,7 @@ define internal i32 @init() #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #5 {
+define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #5 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 

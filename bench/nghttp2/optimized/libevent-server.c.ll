@@ -215,7 +215,7 @@ declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @alpn_select_proto_cb(ptr nocapture readnone %ssl, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture readnone %arg) #0 {
+define internal range(i32 0, 4) i32 @alpn_select_proto_cb(ptr nocapture readnone %ssl, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture readnone %arg) #0 {
 entry:
   %call = tail call i32 @nghttp2_select_alpn(ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen) #22
   %cmp.not = icmp eq i32 %call, 1
@@ -578,7 +578,7 @@ declare ptr @nghttp2_strerror(i32 noundef) local_unnamed_addr #5
 declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @session_send(ptr %session_data.48.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @session_send(ptr %session_data.48.val) unnamed_addr #0 {
 entry:
   %call = tail call i32 @nghttp2_session_send(ptr noundef %session_data.48.val) #22
   %cmp.not = icmp eq i32 %call, 0
@@ -643,7 +643,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @on_frame_recv_callback(ptr noundef %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %user_data) #0 {
+define internal range(i32 -902, 1) i32 @on_frame_recv_callback(ptr noundef %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %user_data) #0 {
 entry:
   %data_prd.i.i = alloca %struct.nghttp2_data_provider, align 8
   %hdrs.i = alloca [1 x %struct.nghttp2_nv], align 16
@@ -675,7 +675,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not.i, label %if.then.i, label %if.end2.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call), !range !8
+  %call.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
   %cmp.not.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.not.i, i32 0, i32 -902
   br label %on_request_recv.exit
@@ -691,39 +691,39 @@ if.end2.i:                                        ; preds = %if.end
   br i1 %cond.i.i, label %land.lhs.true4.i.i, label %if.then8.i
 
 land.lhs.true4.i.i:                               ; preds = %if.end2.i
-  %call.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 92) #23
+  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %7, i32 noundef 92) #23
   %cmp5.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp5.i.i, label %land.lhs.true7.i.i, label %if.then8.i
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true4.i.i
-  %call8.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.24) #23
+  %call8.i.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.24) #23
   %cmp9.i.i = icmp eq ptr %call8.i.i, null
   br i1 %cmp9.i.i, label %land.lhs.true11.i.i, label %if.then8.i
 
 land.lhs.true11.i.i:                              ; preds = %land.lhs.true7.i.i
-  %call12.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.25) #23
+  %call12.i.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.25) #23
   %cmp13.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp13.i.i, label %land.lhs.true15.i.i, label %if.then8.i
 
 land.lhs.true15.i.i:                              ; preds = %land.lhs.true11.i.i
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #23
+  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #23
   %cmp.i.i.i = icmp ult i64 %call.i.i.i, 3
   br i1 %cmp.i.i.i, label %check_path.exit.i, label %ends_with.exit.i.i
 
 ends_with.exit.i.i:                               ; preds = %land.lhs.true15.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %call.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -3
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr2.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.26, i64 3)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %add.ptr2.i.i.i, ptr noundef nonnull readonly dereferenceable(3) @.str.26, i64 3)
   %cmp4.i.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp4.i.not.i.i, label %if.then8.i, label %check_path.exit.i
 
 check_path.exit.i:                                ; preds = %ends_with.exit.i.i, %land.lhs.true15.i.i
-  %call18.i.i = tail call fastcc i32 @ends_with(ptr noundef nonnull %7, ptr noundef nonnull @.str.27), !range !9
+  %call18.i.i = tail call fastcc i32 @ends_with(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.27)
   %tobool7.not.not.i = icmp eq i32 %call18.i.i, 0
   br i1 %tobool7.not.not.i, label %for.cond.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %check_path.exit.i, %ends_with.exit.i.i, %land.lhs.true11.i.i, %land.lhs.true7.i.i, %land.lhs.true4.i.i, %if.end2.i
-  %call9.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call), !range !8
+  %call9.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
   %cmp10.not.i = icmp eq i32 %call9.i, 0
   %.17.i = select i1 %cmp10.not.i, i32 0, i32 -902
   br label %on_request_recv.exit
@@ -733,7 +733,7 @@ for.cond.i:                                       ; preds = %check_path.exit.i, 
   %9 = load i8, ptr %rel_path.0.i, align 1
   %cmp15.i = icmp eq i8 %9, 47
   %incdec.ptr.i = getelementptr inbounds i8, ptr %rel_path.0.i, i64 1
-  br i1 %cmp15.i, label %for.cond.i, label %for.end.i, !llvm.loop !10
+  br i1 %cmp15.i, label %for.cond.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.cond.i
   %call17.i = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %rel_path.0.i, i32 noundef 0) #22
@@ -741,7 +741,7 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %cmp18.i, label %if.then20.i, label %if.end26.i
 
 if.then20.i:                                      ; preds = %for.end.i
-  %call21.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call), !range !8
+  %call21.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
   %cmp22.not.i = icmp eq i32 %call21.i, 0
   %.18.i = select i1 %cmp22.not.i, i32 0, i32 -902
   br label %on_request_recv.exit
@@ -878,7 +878,7 @@ land.rhs:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %land.rhs
   %inc = add nuw i64 %j.011, 1
   %exitcond.not = icmp eq i64 %inc, %valuelen
-  br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !9
 
 for.end:                                          ; preds = %land.rhs, %for.inc
   %j.0.lcssa = phi i64 [ %j.011, %land.rhs ], [ %valuelen, %for.inc ]
@@ -931,7 +931,7 @@ for.cond.backedge.i:                              ; preds = %hex_to_uint.exit40.
   %i.0.be.i = phi i64 [ %inc.i, %if.then20.i ], [ %add36.i, %hex_to_uint.exit40.i ]
   %j.0.be.i = add i64 %j.043.i, 1
   %cmp1.i = icmp ult i64 %i.0.be.i, %sub.i
-  br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !12
+  br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 if.end.i:                                         ; preds = %lor.lhs.false10.i
   %13 = add i8 %7, -48
@@ -996,7 +996,7 @@ for.end.i:                                        ; preds = %for.cond.backedge.i
 if.else.i:                                        ; preds = %for.end.thread, %for.end
   %call.i18 = phi ptr [ %call.i15, %for.end.thread ], [ %call.i, %for.end ]
   %j.0.lcssa17 = phi i64 [ 0, %for.end.thread ], [ %j.0.lcssa, %for.end ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i18, ptr align 1 %value, i64 %j.0.lcssa17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i18, ptr readonly align 1 %value, i64 %j.0.lcssa17, i1 false)
   %arrayidx41.i = getelementptr inbounds i8, ptr %call.i18, i64 %j.0.lcssa17
   br label %percent_decode.exit
 
@@ -1069,7 +1069,7 @@ declare ptr @nghttp2_session_get_stream_user_data(ptr noundef, i32 noundef) loca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @error_reply(ptr noundef %session, ptr nocapture noundef %stream_data) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @error_reply(ptr noundef %session, ptr nocapture noundef %stream_data) unnamed_addr #0 {
 entry:
   %data_prd.i = alloca %struct.nghttp2_data_provider, align 8
   %pipefd = alloca [2 x i32], align 4
@@ -1156,7 +1156,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @ends_with(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %sub) unnamed_addr #13 {
+define internal fastcc range(i32 0, 2) i32 @ends_with(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %sub) unnamed_addr #13 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #23
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sub) #23
@@ -1181,7 +1181,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @file_read_callback(ptr nocapture readnone %session, i32 %stream_id, ptr nocapture noundef %buf, i64 noundef %length, ptr nocapture noundef %data_flags, ptr nocapture noundef readonly %source, ptr nocapture readnone %user_data) #14 {
+define internal range(i64 0, -1) i64 @file_read_callback(ptr nocapture readnone %session, i32 %stream_id, ptr nocapture noundef %buf, i64 noundef %length, ptr nocapture noundef %data_flags, ptr nocapture noundef readonly %source, ptr nocapture readnone %user_data) #14 {
 entry:
   %0 = load i32, ptr %source, align 8
   br label %while.cond
@@ -1197,7 +1197,7 @@ land.rhs:                                         ; preds = %while.cond
   %call1 = tail call ptr @__errno_location() #25
   %1 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %1, 4
-  br i1 %cmp2, label %while.cond, label %return, !llvm.loop !13
+  br i1 %cmp2, label %while.cond, label %return, !llvm.loop !11
 
 if.then5:                                         ; preds = %while.cond
   %2 = load i32, ptr %data_flags, align 4
@@ -1277,9 +1277,7 @@ attributes #25 = { nounwind willreturn memory(none) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
-!9 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

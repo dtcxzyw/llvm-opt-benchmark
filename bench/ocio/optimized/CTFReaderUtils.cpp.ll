@@ -192,7 +192,7 @@ return:                                           ; preds = %entry, %entry, %sw.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev18GetInterpolation3DEPKc(ptr noundef %str) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 2, 4) i32 @_ZN19OpenColorIO_v2_4dev18GetInterpolation3DEPKc(ptr noundef %str) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

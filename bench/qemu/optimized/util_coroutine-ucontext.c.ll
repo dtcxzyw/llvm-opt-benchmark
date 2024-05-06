@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._libc_fpxreg = type { [4 x i16], i16, [3 x i16] }
 %struct._libc_xmmreg = type { [4 x i32] }
 
-@co_tls_current = internal thread_local global ptr null, align 8
+@co_tls_current = internal thread_local unnamed_addr global ptr null, align 8
 @co_tls_leader = internal thread_local global %struct.CoroutineUContext zeroinitializer, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -78,7 +78,7 @@ if.end:                                           ; preds = %entry
   %4 = ptrtoint ptr %call1 to i64
   %arg.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %arg.sroa.0.4.extract.shift = lshr i64 %4, 32
-  %arg.sroa.0.4.extract.trunc = trunc i64 %arg.sroa.0.4.extract.shift to i32
+  %arg.sroa.0.4.extract.trunc = trunc nuw i64 %arg.sroa.0.4.extract.shift to i32
   call void (ptr, ptr, i32, ...) @makecontext(ptr noundef nonnull %uc, ptr noundef nonnull @coroutine_trampoline, i32 noundef 2, i32 noundef %arg.sroa.0.0.extract.trunc, i32 noundef %arg.sroa.0.4.extract.trunc) #12
   %call19 = call i32 @__sigsetjmp(ptr noundef nonnull %old_env, i32 noundef 0) #9
   %tobool.not = icmp eq i32 %call19, 0
@@ -136,7 +136,7 @@ while.body:                                       ; preds = %while.body.preheade
   %3 = load ptr, ptr %entry_arg5, align 8
   call void %2(ptr noundef %3) #12
   %4 = load ptr, ptr %caller, align 8
-  %call6 = call i32 @qemu_coroutine_switch(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 2), !range !6
+  %call6 = call i32 @qemu_coroutine_switch(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 2)
   br label %while.body
 }
 
@@ -167,7 +167,7 @@ entry:
   store volatile i64 0, ptr %arrayidx4.i, align 16
   %arrayidx5.i = getelementptr inbounds i8, ptr %_zzq_args.i, i64 40
   store volatile i64 0, ptr %arrayidx5.i, align 8
-  %1 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %_zzq_args.i, i64 0) #12, !srcloc !7
+  %1 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %_zzq_args.i, i64 0) #12, !srcloc !6
   store volatile i64 %1, ptr %_zzq_result.i, align 8
   %_zzq_result.i.0._zzq_result.i.0._zzq_result.i.0._zzq_result.0._zzq_result.0._zzq_result.0..i = load volatile i64, ptr %_zzq_result.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %_zzq_args.i)
@@ -186,9 +186,9 @@ declare void @qemu_free_stack(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_coroutine_switch(ptr noundef %from_, ptr noundef %to_, i32 noundef %action) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @qemu_coroutine_switch(ptr noundef %from_, ptr noundef %to_, i32 noundef %action) local_unnamed_addr #0 {
 entry:
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_current)
   store ptr %to_, ptr %0, align 8
   %env = getelementptr inbounds i8, ptr %from_, i64 104
@@ -212,20 +212,20 @@ declare void @siglongjmp(ptr noundef, i32 noundef) local_unnamed_addr #2
 define dso_local ptr @qemu_coroutine_self() local_unnamed_addr #0 {
 entry:
   %ptr.i = alloca ptr, align 8
-  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
+  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_current)
   %1 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i)
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_leader)
   store ptr %2, ptr %ptr.i, align 8
-  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %2) #12, !srcloc !10
+  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %2) #12, !srcloc !9
   %3 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   store ptr %3, ptr %0, align 8
   br label %if.end
 
@@ -240,14 +240,14 @@ entry:
   %ptr = alloca ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_leader)
   store ptr %0, ptr %ptr, align 8
-  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr, ptr nonnull %0) #12, !srcloc !10
+  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr, ptr nonnull %0) #12, !srcloc !9
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qemu_in_coroutine() local_unnamed_addr #0 {
 entry:
-  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
+  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_current)
   %1 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -295,8 +295,7 @@ attributes #12 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i64 2150442122, i64 2150442158, i64 2150442226}
-!6 = !{i32 1, i32 0}
-!7 = !{i64 2150443929, i64 2150443965, i64 2150444033}
-!8 = !{i64 2150439046}
-!9 = !{i64 2150438809}
-!10 = !{i64 2150440312}
+!6 = !{i64 2150443929, i64 2150443965, i64 2150444033}
+!7 = !{i64 2150439046}
+!8 = !{i64 2150438809}
+!9 = !{i64 2150440312}

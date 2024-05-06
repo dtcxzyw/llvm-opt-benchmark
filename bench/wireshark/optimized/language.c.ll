@@ -83,7 +83,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @write_language_prefs() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @write_language_prefs() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = call i32 @create_persconffile_dir(ptr noundef nonnull %1) #6
   %3 = icmp eq i32 %2, -1

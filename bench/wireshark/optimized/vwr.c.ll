@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @vwr_eth_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @vwr_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @vwr_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   store i32 0, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -402,7 +402,7 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, 
   %177 = getelementptr inbounds i8, ptr %157, i64 160
   store i32 0, ptr %177, align 4
   %178 = getelementptr inbounds i8, ptr %157, i64 164
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %176, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %176, i8 0, i64 24, i1 false)
   store i32 1, ptr %178, align 4
   %179 = getelementptr inbounds i8, ptr %157, i64 180
   %180 = getelementptr inbounds i8, ptr %157, i64 92
@@ -498,7 +498,7 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, 
   %222 = getelementptr inbounds i8, ptr %157, i64 96
   store <4 x i32> <i32 7, i32 7, i32 64, i32 0>, ptr %221, align 4
   %223 = getelementptr inbounds i8, ptr %157, i64 164
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %222, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %222, i8 0, i64 24, i1 false)
   store i32 1, ptr %223, align 4
   %224 = getelementptr inbounds i8, ptr %157, i64 168
   store i32 2, ptr %224, align 4
@@ -595,7 +595,7 @@ setup_defaults.exit:                              ; preds = %156, %161, %186, %1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vwr_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @vwr_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -605,7 +605,7 @@ define internal noundef i32 @vwr_read(ptr nocapture noundef readonly %0, ptr noc
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
   %12 = load ptr, ptr %0, align 8
-  %13 = call fastcc i32 @vwr_read_rec_header(ptr noundef %11, ptr noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %3, ptr noundef %4), !range !10
+  %13 = call fastcc i32 @vwr_read_rec_header(ptr noundef %11, ptr noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %23, label %14
 
@@ -618,7 +618,7 @@ define internal noundef i32 @vwr_read(ptr nocapture noundef readonly %0, ptr noc
   %19 = load i32, ptr %7, align 4
   %20 = load i32, ptr %8, align 4
   %21 = load i32, ptr %9, align 4
-  %22 = tail call fastcc i32 @vwr_process_rec_data(ptr noundef %18, i32 noundef %19, ptr noundef %1, ptr noundef %2, ptr noundef %11, i32 noundef %20, i32 noundef %21, ptr noundef %3, ptr noundef %4), !range !10
+  %22 = tail call fastcc i32 @vwr_process_rec_data(ptr noundef %18, i32 noundef %19, ptr noundef %1, ptr noundef %2, ptr noundef %11, i32 noundef %20, i32 noundef %21, ptr noundef %3, ptr noundef %4)
   br label %23
 
 23:                                               ; preds = %14, %6
@@ -627,7 +627,7 @@ define internal noundef i32 @vwr_read(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vwr_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @vwr_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -643,7 +643,7 @@ define internal noundef i32 @vwr_seek_read(ptr nocapture noundef readonly %0, i6
 
 16:                                               ; preds = %6
   %17 = load ptr, ptr %12, align 8
-  %18 = call fastcc i32 @vwr_read_rec_header(ptr noundef %11, ptr noundef %17, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %5), !range !10
+  %18 = call fastcc i32 @vwr_read_rec_header(ptr noundef %11, ptr noundef %17, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %25, label %19
 
@@ -652,7 +652,7 @@ define internal noundef i32 @vwr_seek_read(ptr nocapture noundef readonly %0, i6
   %21 = load i32, ptr %7, align 4
   %22 = load i32, ptr %8, align 4
   %23 = load i32, ptr %9, align 4
-  %24 = tail call fastcc i32 @vwr_process_rec_data(ptr noundef %20, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef %22, i32 noundef %23, ptr noundef %4, ptr noundef %5), !range !10
+  %24 = tail call fastcc i32 @vwr_process_rec_data(ptr noundef %20, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef %22, i32 noundef %23, ptr noundef %4, ptr noundef %5)
   br label %25
 
 25:                                               ; preds = %16, %6, %19
@@ -680,7 +680,7 @@ declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
 declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @vwr_read_rec_header(ptr noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @vwr_read_rec_header(ptr noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [16 x i8], align 16
   store i32 0, ptr %2, align 4
   %9 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 16, ptr noundef %5, ptr noundef %6) #9
@@ -853,7 +853,7 @@ decode_msg.exit.thread:                           ; preds = %.sink.split.i.threa
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @vwr_process_rec_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @vwr_process_rec_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [4 x i8], align 4
   %11 = tail call noalias dereferenceable_or_null(32768) ptr @g_malloc(i64 noundef 32768) #10
   %12 = tail call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %11, i32 noundef %1, ptr noundef %7, ptr noundef %8) #9
@@ -1200,7 +1200,7 @@ get_ofdm_rate.exit.i:                             ; preds = %73, %switch.lookup,
 237:                                              ; preds = %226, %222, %219, %210, %205, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %find_signature.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %find_signature.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 find_signature.exit.i:                            ; preds = %237, %226, %210
   %.032.i.ph.i = phi i32 [ %197, %210 ], [ %197, %226 ], [ 42, %237 ]
@@ -1496,7 +1496,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   store i8 0, ptr %414, align 1
   %415 = getelementptr i8, ptr %267, i64 68
   %416 = zext i16 %.0372.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %415, ptr align 1 %97, i64 %416, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %415, ptr readonly align 1 %97, i64 %416, i1 false)
   br label %vwr_read_s1_W_rec.exit
 
 417:                                              ; preds = %13
@@ -2002,7 +2002,7 @@ get_legacy_rate.exit.i:                           ; preds = %625, %623, %621, %6
 771:                                              ; preds = %760, %756, %753, %744, %739, %.lr.ph.i.i56
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, %wide.trip.count.i.i55
-  br i1 %exitcond.not.i.i59, label %find_signature.exit.i46, label %.lr.ph.i.i56, !llvm.loop !11
+  br i1 %exitcond.not.i.i59, label %find_signature.exit.i46, label %.lr.ph.i.i56, !llvm.loop !10
 
 find_signature.exit.i46:                          ; preds = %771, %760, %744, %639
   %.032.i.i = phi i32 [ 42, %639 ], [ %731, %744 ], [ %731, %760 ], [ 42, %771 ]
@@ -2338,7 +2338,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %971 = zext i32 %970 to i64
   %972 = getelementptr i8, ptr %11, i64 %971
   %973 = zext nneg i32 %.0414.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %969, ptr align 1 %972, i64 %973, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %969, ptr readonly align 1 %972, i64 %973, i1 false)
   br label %vwr_read_s1_W_rec.exit
 
 974:                                              ; preds = %13
@@ -2480,7 +2480,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   store i8 %1040, ptr %1041, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.split961.us.i, label %.split.us.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.split961.us.i, label %.split.us.i, !llvm.loop !11
 
 .split961.us.i:                                   ; preds = %.split.us.i, %.split.preheader.i
   switch i32 %5, label %._crit_edge.i [
@@ -2950,7 +2950,7 @@ get_legacy_rate.exit.i71:                         ; preds = %1211, %1209, %1207,
 1363:                                             ; preds = %1352, %1348, %1345, %1336, %1331, %.lr.ph.i.i81
   %indvars.iv.next.i.i83 = add nuw nsw i64 %indvars.iv.i.i82, 1
   %exitcond.not.i.i84 = icmp eq i64 %indvars.iv.next.i.i83, %wide.trip.count.i.i80
-  br i1 %exitcond.not.i.i84, label %find_signature.exit.loopexit.i, label %.lr.ph.i.i81, !llvm.loop !11
+  br i1 %exitcond.not.i.i84, label %find_signature.exit.loopexit.i, label %.lr.ph.i.i81, !llvm.loop !10
 
 find_signature.exit.loopexit.i:                   ; preds = %1363, %1352, %1336
   %.032.i.ph.i85 = phi i32 [ %1323, %1336 ], [ %1323, %1352 ], [ 42, %1363 ]
@@ -3245,7 +3245,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next984.i = add nuw nsw i64 %indvars.iv983.i, 2
   %indvars.iv.next986.i = add nuw nsw i64 %indvars.iv985.i, 1
   %exitcond990.not.i = icmp eq i64 %indvars.iv.next986.i, 4
-  br i1 %exitcond990.not.i, label %.preheader958.i.preheader, label %1501, !llvm.loop !13
+  br i1 %exitcond990.not.i, label %.preheader958.i.preheader, label %1501, !llvm.loop !12
 
 .preheader958.i.preheader:                        ; preds = %1520
   %1521 = or disjoint i64 %1489, 20
@@ -3289,7 +3289,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next994.i = add nuw nsw i64 %indvars.iv993.i, 2
   %indvars.iv.next996.i = add nuw nsw i64 %indvars.iv995.i, 1
   %exitcond1000.not.i = icmp eq i64 %indvars.iv.next996.i, 4
-  br i1 %exitcond1000.not.i, label %.preheader957.i.preheader, label %.preheader958.i, !llvm.loop !14
+  br i1 %exitcond1000.not.i, label %.preheader957.i.preheader, label %.preheader958.i, !llvm.loop !13
 
 .preheader957.i.preheader:                        ; preds = %1541
   %1542 = or disjoint i64 %1489, 28
@@ -3333,7 +3333,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next1006.i = add nuw nsw i64 %indvars.iv1005.i, 2
   %indvars.iv.next1008.i = add nuw nsw i64 %indvars.iv1007.i, 1
   %exitcond1012.not.i = icmp eq i64 %indvars.iv.next1008.i, 4
-  br i1 %exitcond1012.not.i, label %.preheader956.i, label %.preheader957.i, !llvm.loop !15
+  br i1 %exitcond1012.not.i, label %.preheader956.i, label %.preheader957.i, !llvm.loop !14
 
 .preheader956.i:                                  ; preds = %1562, %1581
   %indvars.iv1021.i = phi i64 [ %indvars.iv.next1022.i, %1581 ], [ 0, %1562 ]
@@ -3372,7 +3372,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next1020.i = add nuw nsw i64 %indvars.iv1019.i, 2
   %indvars.iv.next1022.i = add nuw nsw i64 %indvars.iv1021.i, 1
   %exitcond1026.not.i = icmp eq i64 %indvars.iv.next1022.i, 4
-  br i1 %exitcond1026.not.i, label %.preheader955.i.preheader, label %.preheader956.i, !llvm.loop !16
+  br i1 %exitcond1026.not.i, label %.preheader955.i.preheader, label %.preheader956.i, !llvm.loop !15
 
 .preheader955.i.preheader:                        ; preds = %1581
   %1582 = add nuw nsw i64 %1489, 44
@@ -3415,7 +3415,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next1036.i = add nuw nsw i64 %indvars.iv1035.i, 2
   %indvars.iv.next1038.i = add nuw nsw i64 %indvars.iv1037.i, 1
   %exitcond1042.not.i = icmp eq i64 %indvars.iv.next1038.i, 4
-  br i1 %exitcond1042.not.i, label %.preheader954.i, label %.preheader955.i, !llvm.loop !17
+  br i1 %exitcond1042.not.i, label %.preheader954.i, label %.preheader955.i, !llvm.loop !16
 
 .preheader954.i:                                  ; preds = %1601, %1620
   %indvars.iv1055.i = phi i64 [ %indvars.iv.next1056.i, %1620 ], [ 0, %1601 ]
@@ -3454,7 +3454,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next1054.i = add nuw nsw i64 %indvars.iv1053.i, 2
   %indvars.iv.next1056.i = add nuw nsw i64 %indvars.iv1055.i, 1
   %exitcond1060.not.i = icmp eq i64 %indvars.iv.next1056.i, 4
-  br i1 %exitcond1060.not.i, label %.preheader953.i.preheader, label %.preheader954.i, !llvm.loop !18
+  br i1 %exitcond1060.not.i, label %.preheader953.i.preheader, label %.preheader954.i, !llvm.loop !17
 
 .preheader953.i.preheader:                        ; preds = %1620
   %1621 = add nuw nsw i64 %1489, 52
@@ -3497,7 +3497,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next1074.i = add nuw nsw i64 %indvars.iv1073.i, 2
   %indvars.iv.next1076.i = add nuw nsw i64 %indvars.iv1075.i, 1
   %exitcond1080.not.i = icmp eq i64 %indvars.iv.next1076.i, 4
-  br i1 %exitcond1080.not.i, label %.preheader952.i.preheader, label %.preheader953.i, !llvm.loop !19
+  br i1 %exitcond1080.not.i, label %.preheader952.i.preheader, label %.preheader953.i, !llvm.loop !18
 
 .preheader952.i.preheader:                        ; preds = %1640
   %1641 = add nuw nsw i64 %1489, 60
@@ -3540,7 +3540,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next1096.i = add nuw nsw i64 %indvars.iv1095.i, 2
   %indvars.iv.next1098.i = add nuw nsw i64 %indvars.iv1097.i, 1
   %exitcond1102.not.i = icmp eq i64 %indvars.iv.next1098.i, 4
-  br i1 %exitcond1102.not.i, label %.preheader.i.preheader, label %.preheader952.i, !llvm.loop !20
+  br i1 %exitcond1102.not.i, label %.preheader.i.preheader, label %.preheader952.i, !llvm.loop !19
 
 .preheader.i.preheader:                           ; preds = %1660
   %1661 = or disjoint i64 %1489, 68
@@ -3583,7 +3583,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %indvars.iv.next1120.i = add nuw nsw i64 %indvars.iv1119.i, 2
   %indvars.iv.next1122.i = add nuw nsw i64 %indvars.iv1121.i, 1
   %exitcond1124.not.i = icmp eq i64 %indvars.iv.next1122.i, 4
-  br i1 %exitcond1124.not.i, label %1681, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond1124.not.i, label %1681, label %.preheader.i, !llvm.loop !20
 
 1681:                                             ; preds = %1680
   %1682 = trunc nuw nsw i64 %indvars.iv.next1120.i to i32
@@ -3707,7 +3707,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1753 = zext nneg i32 %.1708836879934.i to i64
   %1754 = getelementptr i8, ptr %11, i64 %1753
   %1755 = getelementptr i8, ptr %1754, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1752, ptr noundef nonnull align 1 dereferenceable(16) %1755, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1752, ptr noundef nonnull readonly align 1 dereferenceable(16) %1755, i64 16, i1 false)
   %1756 = add i32 %.19940.i, 32
   %1757 = getelementptr i8, ptr %.0709835881933.i, i64 12
   %1758 = getelementptr i8, ptr %.0709835881933.i, i64 13
@@ -3831,7 +3831,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1840 = zext i32 %1839 to i64
   %1841 = getelementptr i8, ptr %11, i64 %1840
   %1842 = zext i32 %.3731827897925.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1836, ptr align 1 %1841, i64 %1842, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1836, ptr readonly align 1 %1841, i64 %1842, i1 false)
   br label %vwr_read_s3_W_rec.exit
 
 vwr_read_s3_W_rec.exit:                           ; preds = %978, %1001, %1008, %1065, %1225, %1390, %1681, %1811
@@ -4213,7 +4213,7 @@ vwr_read_s3_W_rec.exit:                           ; preds = %978, %1001, %1008, 
 2121:                                             ; preds = %2110, %2106, %2103, %2094, %2089, %.lr.ph.i.i112
   %indvars.iv.next.i.i114 = add nuw nsw i64 %indvars.iv.i.i113, 1
   %exitcond.not.i.i115 = icmp eq i64 %indvars.iv.next.i.i114, %wide.trip.count.i.i111
-  br i1 %exitcond.not.i.i115, label %find_signature.exit.i102, label %.lr.ph.i.i112, !llvm.loop !11
+  br i1 %exitcond.not.i.i115, label %find_signature.exit.i102, label %.lr.ph.i.i112, !llvm.loop !10
 
 find_signature.exit.i102:                         ; preds = %2121, %2110, %2094, %2070
   %.032.i.i103 = phi i32 [ %2071, %2070 ], [ %2081, %2094 ], [ %2081, %2110 ], [ %2071, %2121 ]
@@ -4466,7 +4466,7 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
   %2274 = getelementptr i8, ptr %2165, i64 60
   %2275 = zext i16 %.0355.i to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2273, i8 0, i64 6, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2274, ptr nonnull align 1 %11, i64 %2275, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2274, ptr nonnull readonly align 1 %11, i64 %2275, i1 false)
   br label %vwr_read_s1_W_rec.exit
 
 2276:                                             ; preds = %13
@@ -4543,7 +4543,7 @@ attributes #12 = { noreturn nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -4554,4 +4554,3 @@ attributes #12 = { noreturn nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

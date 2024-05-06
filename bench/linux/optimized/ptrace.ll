@@ -116,7 +116,7 @@ define dso_local void @ptrace_disable(ptr noundef %0) local_unnamed_addr #4 alig
 declare dso_local void @user_disable_single_step(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @arch_ptrace(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 align 16 {
   %5 = inttoptr i64 %3 to ptr
   switch i64 %1, label %84 [
     i64 3, label %6
@@ -460,7 +460,7 @@ declare i64 @llvm.read_register.i64(metadata) #6
 declare void @llvm.write_register.i64(metadata, i64) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @putreg(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @putreg(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 align 16 {
   %4 = add nsw i64 %1, -136
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
   switch i64 %5, label %76 [
@@ -951,7 +951,7 @@ declare dso_local i64 @do_arch_prctl_64(ptr noundef, i32 noundef, i64 noundef) l
 declare dso_local i32 @ptrace_request(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @compat_arch_ptrace(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @compat_arch_ptrace(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
   %5 = alloca i32, align 4
   %6 = zext i32 %3 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -1204,7 +1204,7 @@ declare dso_local i32 @decode_dr7(i64 noundef, i32 noundef, ptr noundef, ptr nou
 declare dso_local i64 @encode_dr7(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @getreg32(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 32
   %6 = ptrtoint ptr %5 to i64

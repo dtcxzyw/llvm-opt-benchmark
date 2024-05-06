@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [54 x i8] c"ClamSock: Could not connect to clamd on LocalSocket \0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onas_set_sock_only_once(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 15) i32 @onas_set_sock_only_once(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @onas_sock, align 4
   %.not = icmp eq i32 %2, 1
   br i1 %.not, label %18, label %3
@@ -58,7 +58,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onas_get_sockd() local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @onas_get_sockd() local_unnamed_addr #0 {
   %1 = load i32, ptr @onas_sock, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %11, label %2

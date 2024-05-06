@@ -95,7 +95,7 @@ declare void @UnregisterSnapshot(ptr noundef) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ChoosePortalStrategy(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ChoosePortalStrategy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.loopexit, label %list_length.exit
 
@@ -447,7 +447,7 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   store ptr %1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 @ChoosePortalStrategy(ptr noundef %23), !range !5
+  %24 = call i32 @ChoosePortalStrategy(ptr noundef %23)
   %25 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %24, ptr %25, align 8
   switch i32 %24, label %default.unreachable57 [
@@ -676,7 +676,7 @@ define dso_local void @PortalSetResultFormat(ptr nocapture noundef %0, i32 nound
   store i16 %26, ptr %29, align 2
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph31, !llvm.loop !6
+  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph31, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -685,7 +685,7 @@ define dso_local void @PortalSetResultFormat(ptr nocapture noundef %0, i32 nound
   store i16 0, ptr %31, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader, %25, %3, %21
   ret void
@@ -1176,7 +1176,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br label %38
 
 38:                                               ; preds = %37, %34
-  %39 = trunc i8 %.0496270 to i1
+  %39 = trunc nuw i8 %.0496270 to i1
   br i1 %39, label %45, label %40
 
 40:                                               ; preds = %38
@@ -1271,7 +1271,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br i1 %80, label %.lr.ph71, label %.thread.loopexit
 
 .thread.loopexit:                                 ; preds = %65, %77
-  %81 = trunc i8 %.2 to i1
+  %81 = trunc nuw i8 %.2 to i1
   br i1 %81, label %82, label %.thread.thread
 
 82:                                               ; preds = %.thread.loopexit
@@ -1407,7 +1407,7 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
 7:                                                ; preds = %4
   %spec.select92 = tail call i64 @llvm.abs.i64(i64 %2, i1 false)
   %.lobit = lshr i64 %2, 63
-  %spec.select93 = trunc i64 %.lobit to i8
+  %spec.select93 = trunc nuw nsw i64 %.lobit to i8
   br label %92
 
 8:                                                ; preds = %4
@@ -1616,11 +1616,11 @@ PortalRunSelect.exit:                             ; preds = %58, %60
 .thread99:                                        ; preds = %114, %113, %.thread97
   %.1.ph = phi i64 [ 0, %113 ], [ 1, %114 ], [ 0, %.thread97 ]
   %.074.ph = phi i8 [ %95, %113 ], [ 1, %114 ], [ %95, %.thread97 ]
-  %117 = trunc i8 %.074.ph to i1
+  %117 = trunc nuw i8 %.074.ph to i1
   br label %135
 
 118:                                              ; preds = %92
-  %119 = trunc i8 %93 to i1
+  %119 = trunc nuw i8 %93 to i1
   %120 = icmp ne i64 %.076, 9223372036854775807
   %or.cond.not = or i1 %120, %119
   br i1 %or.cond.not, label %135, label %121
@@ -2074,7 +2074,6 @@ attributes #13 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 5}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

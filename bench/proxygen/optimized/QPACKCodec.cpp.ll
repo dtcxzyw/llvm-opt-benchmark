@@ -3793,7 +3793,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.end.i.i.i.i
   %3 = lshr i16 %2, 8
-  %conv4.i.i.i.i = trunc i16 %3 to i8
+  %conv4.i.i.i.i = trunc nuw i16 %3 to i8
   store i8 %conv4.i.i.i.i, ptr %buffer, align 16
   br label %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit
 
@@ -3861,7 +3861,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %2 = trunc i64 %add to i8
+  %2 = trunc nuw i64 %add to i8
   %conv.i9 = sub nuw nsw i8 23, %2
   store i8 %conv.i9, ptr %arrayidx.i, align 1
   %arrayidx2.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add
@@ -3933,7 +3933,7 @@ sw.epilog.i16:                                    ; preds = %sw.bb2.i13, %cond.t
   %12 = load i64, ptr %capacity_.i.i17, align 8
   %and.i.i18 = and i64 %12, 4611686018427387903
   %13 = lshr i64 %12, 56
-  %14 = trunc i64 %13 to i8
+  %14 = trunc nuw i64 %13 to i8
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
 
 _ZNK5folly13fbstring_coreIcE8capacityEv.exit22:   ; preds = %cond.true14, %if.then.i20, %sw.epilog.i16

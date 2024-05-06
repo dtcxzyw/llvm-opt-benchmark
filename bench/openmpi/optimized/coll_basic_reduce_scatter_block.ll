@@ -168,7 +168,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store ptr %4, ptr %6, align 8
-  %10 = trunc i64 %3 to i32
+  %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
   br i1 %11, label %12, label %30

@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7522CharsetRecog_UTF_16_BE5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_UTF_16_BE5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
@@ -135,8 +135,8 @@ _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else
   ]
 
 for.inc:                                          ; preds = %_ZN6icu_75L16adjustConfidenceEDsi.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
-  %6 = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
+  %6 = trunc nuw i64 %indvars.iv.next to i32
   %cmp2 = icmp sgt i32 %sub, %6
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !4
 
@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7522CharsetRecog_UTF_16_LE5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_UTF_16_LE5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
@@ -248,8 +248,8 @@ _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else
   ]
 
 for.inc:                                          ; preds = %_ZN6icu_75L16adjustConfidenceEDsi.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
-  %8 = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
+  %8 = trunc nuw i64 %indvars.iv.next to i32
   %cmp2 = icmp sgt i32 %sub, %8
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !6
 
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7519CharsetRecog_UTF_325matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_UTF_325matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
@@ -326,7 +326,7 @@ for.end:                                          ; preds = %for.body
   br i1 %or.cond2, label %if.end44, label %if.else20
 
 if.else20:                                        ; preds = %for.end
-  %mul23 = mul nsw i32 %numInvalid.1, 10
+  %mul23 = mul nuw nsw i32 %numInvalid.1, 10
   %cmp24 = icmp ugt i32 %numValid.1, %mul23
   %cond.fr = freeze i1 %cmp24
   %or.cond26 = and i1 %cmp2, %cond.fr

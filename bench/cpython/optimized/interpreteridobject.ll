@@ -350,7 +350,7 @@ declare i64 @PyInterpreterState_GetID(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @PyInterpreterID_LookUp(ptr noundef %requested_id) local_unnamed_addr #0 {
 entry:
   %id = alloca i64, align 8
-  %call = call i32 @interp_id_converter(ptr noundef %requested_id, ptr noundef nonnull %id), !range !5
+  %call = call i32 @interp_id_converter(ptr noundef %requested_id, ptr noundef nonnull %id)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -365,7 +365,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @interp_id_converter(ptr noundef %arg, ptr nocapture noundef writeonly %ptr) #0 {
+define internal range(i32 0, 2) i32 @interp_id_converter(ptr noundef %arg, ptr nocapture noundef writeonly %ptr) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val9 = load ptr, ptr %0, align 8
@@ -487,4 +487,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

@@ -86,7 +86,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.63 = private unnamed_addr constant [7 x i8] c"(none)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_validate_cert_path(ptr noundef %ctx, ptr noundef %trusted_store, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_validate_cert_path(ptr noundef %ctx, ptr noundef %trusted_store, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %cert, null
@@ -245,7 +245,7 @@ if.then18:                                        ; preds = %sw.bb
   br label %return
 
 if.end20:                                         ; preds = %sw.bb
-  %call21 = tail call fastcc i32 @verify_PBMAC(ptr noundef nonnull %ctx, ptr noundef nonnull %msg), !range !4
+  %call21 = tail call fastcc i32 @verify_PBMAC(ptr noundef nonnull %ctx, ptr noundef nonnull %msg)
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %if.end36, label %if.then22
 
@@ -308,7 +308,7 @@ if.then44:                                        ; preds = %if.then41
   br label %return
 
 if.end46:                                         ; preds = %if.then41
-  %call47 = tail call fastcc i32 @check_msg_find_cert(ptr noundef nonnull %ctx, ptr noundef nonnull %msg), !range !4
+  %call47 = tail call fastcc i32 @check_msg_find_cert(ptr noundef nonnull %ctx, ptr noundef nonnull %msg)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %return, label %if.then49
 
@@ -317,7 +317,7 @@ if.then49:                                        ; preds = %if.end46
   br label %return
 
 if.else:                                          ; preds = %sw.default39
-  %call52 = tail call fastcc i32 @verify_signature(ptr noundef nonnull %ctx, ptr noundef nonnull %msg, ptr noundef nonnull %10), !range !4
+  %call52 = tail call fastcc i32 @verify_signature(ptr noundef nonnull %ctx, ptr noundef nonnull %msg, ptr noundef nonnull %10)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %if.end57, label %if.then54
 
@@ -343,7 +343,7 @@ declare i32 @ossl_cmp_print_log(i32 noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @ossl_cmp_hdr_get_protection_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @verify_PBMAC(ptr noundef %ctx, ptr noundef %msg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_PBMAC(ptr noundef %ctx, ptr noundef %msg) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_cmp_calc_protection(ptr noundef %ctx, ptr noundef %msg) #2
   %cmp = icmp eq ptr %call, null
@@ -404,7 +404,7 @@ declare i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_msg_find_cert(ptr noundef %ctx, ptr noundef %msg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_msg_find_cert(ptr noundef %ctx, ptr noundef %msg) unnamed_addr #0 {
 entry:
   %validatedSrvCert = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %validatedSrvCert, align 8
@@ -443,20 +443,20 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8.not, label %if.end18, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %call.i = tail call fastcc i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %msg), !range !4
+  %call.i = tail call fastcc i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull readonly %msg)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end14, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then9
   %trusted.i = getelementptr inbounds i8, ptr %ctx, i64 168
   %7 = load ptr, ptr %trusted.i, align 8
-  %call.i.i = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef %7, ptr noundef nonnull %0), !range !4
+  %call.i.i = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef %7, ptr noundef nonnull %0)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %check_msg_given_cert.exit, label %if.then11
 
 check_msg_given_cert.exit:                        ; preds = %land.rhs.i
   %call1.i.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.check_cert_path, ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.43) #2
-  %call3.i = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull %msg, ptr noundef nonnull %0), !range !4
+  %call3.i = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %msg, ptr noundef nonnull %0)
   %tobool.not = icmp eq i32 %call3.i, 0
   br i1 %tobool.not, label %if.end14, label %if.then11
 
@@ -468,20 +468,20 @@ if.then11:                                        ; preds = %land.rhs.i, %check_
 if.end14:                                         ; preds = %if.then9, %check_msg_given_cert.exit
   %call15 = tail call i32 @ossl_cmp_ctx_set1_validatedSrvCert(ptr noundef nonnull %ctx, ptr noundef null) #2
   %call16 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.check_msg_find_cert, ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.16) #2
-  %call.i44 = tail call fastcc i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %msg), !range !4
+  %call.i44 = tail call fastcc i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull readonly %msg)
   %tobool.not.i45 = icmp eq i32 %call.i44, 0
   br i1 %tobool.not.i45, label %if.end18, label %land.rhs.i46
 
 land.rhs.i46:                                     ; preds = %if.end14
   %trusted.i47 = getelementptr inbounds i8, ptr %ctx, i64 168
   %8 = load ptr, ptr %trusted.i47, align 8
-  %call.i.i48 = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef %8, ptr noundef nonnull %0), !range !4
+  %call.i.i48 = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef %8, ptr noundef nonnull %0)
   %tobool.not.i.i49 = icmp eq i32 %call.i.i48, 0
   br i1 %tobool.not.i.i49, label %lor.rhs.i51, label %if.end18
 
 lor.rhs.i51:                                      ; preds = %land.rhs.i46
   %call1.i.i52 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.check_cert_path, ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.43) #2
-  %call3.i53 = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull %msg, ptr noundef nonnull %0), !range !4
+  %call3.i53 = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %msg, ptr noundef nonnull %0)
   br label %if.end18
 
 if.end18:                                         ; preds = %lor.rhs.i51, %land.rhs.i46, %if.end14, %if.end6
@@ -582,7 +582,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @verify_signature(ptr nocapture noundef readonly %cmp_ctx, ptr nocapture noundef readonly %msg, ptr noundef %cert) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_signature(ptr nocapture noundef readonly %cmp_ctx, ptr nocapture noundef readonly %msg, ptr noundef %cert) unnamed_addr #0 {
 entry:
   %prot_part = alloca %struct.ossl_cmp_protectedpart_st, align 16
   %call = tail call ptr @BIO_s_mem() #2
@@ -659,7 +659,7 @@ return:                                           ; preds = %entry, %end
 declare i32 @ossl_cmp_ctx_set1_validatedSrvCert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_msg_check_update(ptr noundef %ctx, ptr noundef %msg, ptr noundef readonly %cb, i32 noundef %cb_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %ctx, ptr noundef %msg, ptr noundef readonly %cb, i32 noundef %cb_arg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %ctx, null
   %cmp1 = icmp ne ptr %msg, null
@@ -707,7 +707,7 @@ if.end18:                                         ; preds = %if.then15, %land.lh
   %expected_sender.0 = phi ptr [ %call17, %if.then15 ], [ null, %land.lhs.true12 ], [ %3, %if.end8 ]
   %d = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %d, align 8
-  %call20 = tail call fastcc i32 @check_name(ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef %expected_sender.0), !range !4
+  %call20 = tail call fastcc i32 @check_name(ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef %expected_sender.0)
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end23
 
@@ -803,7 +803,7 @@ if.end71:                                         ; preds = %if.end66
   %11 = load ptr, ptr %transactionID, align 8
   %transactionID72 = getelementptr inbounds i8, ptr %call, i64 56
   %12 = load ptr, ptr %transactionID72, align 8
-  %call73 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %11, ptr noundef %12, i32 noundef 152), !range !4
+  %call73 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %11, ptr noundef %12, i32 noundef 152)
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %return, label %if.end76
 
@@ -812,7 +812,7 @@ if.end76:                                         ; preds = %if.end71
   %13 = load ptr, ptr %senderNonce, align 8
   %recipNonce = getelementptr inbounds i8, ptr %call, i64 72
   %14 = load ptr, ptr %recipNonce, align 8
-  %call77 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %13, ptr noundef %14, i32 noundef 148), !range !4
+  %call77 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %13, ptr noundef %14, i32 noundef 148)
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %return, label %if.end80
 
@@ -884,7 +884,7 @@ declare ptr @OSSL_CMP_MSG_get0_header(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_name(ptr noundef %ctx, i32 noundef %log_success, ptr noundef %actual_desc, ptr noundef %actual_name, ptr noundef %expect_desc, ptr noundef %expect_name) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_name(ptr noundef %ctx, i32 noundef %log_success, ptr noundef %actual_desc, ptr noundef %actual_name, ptr noundef %expect_desc, ptr noundef %expect_name) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %expect_name, null
   br i1 %cmp, label %return, label %if.end
@@ -951,7 +951,7 @@ declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare i32 @ossl_cmp_hdr_get_pvno(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_transactionID_or_nonce(ptr noundef %expected, ptr noundef %actual, i32 noundef %reason) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_transactionID_or_nonce(ptr noundef %expected, ptr noundef %actual, i32 noundef %reason) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %expected, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -999,7 +999,7 @@ declare i32 @OSSL_CMP_CTX_set1_transactionID(ptr noundef, ptr noundef) local_unn
 declare i32 @ossl_cmp_ctx_set1_recipNonce(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_verify_popo(ptr nocapture noundef readonly %ctx, ptr noundef readonly %msg, i32 noundef %acceptRAVerified) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_verify_popo(ptr nocapture noundef readonly %ctx, ptr noundef readonly %msg, i32 noundef %acceptRAVerified) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %return, label %land.rhs
@@ -1146,7 +1146,7 @@ declare void @ERR_add_error_txt(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cert_acceptable(ptr noundef %ctx, ptr noundef %desc1, ptr noundef %desc2, ptr noundef %cert, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr nocapture noundef readonly %msg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cert_acceptable(ptr noundef %ctx, ptr noundef %desc1, ptr noundef %desc2, ptr noundef %cert, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr nocapture noundef readonly %msg) unnamed_addr #0 {
 entry:
   %trusted = getelementptr inbounds i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %trusted, align 8
@@ -1204,7 +1204,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %call3.i = tail call ptr @OPENSSL_sk_value(ptr noundef %already_checked1, i32 noundef %sub.i) #2
   %call4.i = tail call i32 @X509_cmp(ptr noundef %call3.i, ptr noundef %cert) #2
   %cmp5.i = icmp eq i32 %call4.i, 0
-  br i1 %cmp5.i, label %if.then25, label %for.cond.i, !llvm.loop !5
+  br i1 %cmp5.i, label %if.then25, label %for.cond.i, !llvm.loop !4
 
 lor.lhs.false:                                    ; preds = %for.cond.i
   %call1.i36 = tail call i32 @OPENSSL_sk_num(ptr noundef %already_checked2) #2
@@ -1220,7 +1220,7 @@ for.body.i41:                                     ; preds = %for.cond.i37
   %call3.i43 = tail call ptr @OPENSSL_sk_value(ptr noundef %already_checked2, i32 noundef %sub.i42) #2
   %call4.i44 = tail call i32 @X509_cmp(ptr noundef %call3.i43, ptr noundef %cert) #2
   %cmp5.i45 = icmp eq i32 %call4.i44, 0
-  br i1 %cmp5.i45, label %if.then25, label %for.cond.i37, !llvm.loop !5
+  br i1 %cmp5.i45, label %if.then25, label %for.cond.i37, !llvm.loop !4
 
 if.then25:                                        ; preds = %for.body.i, %for.body.i41
   %call26 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef %ctx, ptr noundef nonnull @__func__.cert_acceptable, ptr noundef nonnull @.str, i32 noundef 270, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.31) #2
@@ -1280,7 +1280,7 @@ if.end48:                                         ; preds = %if.then33, %verify_
   %3 = load ptr, ptr %sender, align 8
   %d = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %d, align 8
-  %call50 = tail call fastcc i32 @check_name(ptr noundef %ctx, i32 noundef 1, ptr noundef nonnull @.str.34, ptr noundef %call49, ptr noundef nonnull @.str.35, ptr noundef %4), !range !4
+  %call50 = tail call fastcc i32 @check_name(ptr noundef %ctx, i32 noundef 1, ptr noundef nonnull @.str.34, ptr noundef %call49, ptr noundef nonnull @.str.35, ptr noundef %4)
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %return, label %if.end53
 
@@ -1349,7 +1349,7 @@ if.then62:                                        ; preds = %if.end59
   br label %return
 
 if.end64:                                         ; preds = %if.end59
-  %call65 = tail call fastcc i32 @verify_signature(ptr noundef %ctx, ptr noundef nonnull %msg, ptr noundef %cert), !range !4
+  %call65 = tail call fastcc i32 @verify_signature(ptr noundef %ctx, ptr noundef nonnull %msg, ptr noundef %cert)
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %if.then67, label %if.end69
 
@@ -1367,7 +1367,7 @@ return:                                           ; preds = %if.end21.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_cert_path_3gpp(ptr noundef %ctx, ptr nocapture noundef readonly %msg, ptr noundef %scrt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_cert_path_3gpp(ptr noundef %ctx, ptr nocapture noundef readonly %msg, ptr noundef %scrt) unnamed_addr #0 {
 entry:
   %permitTAInExtraCertsForIR = getelementptr inbounds i8, ptr %ctx, i64 188
   %0 = load i32, ptr %permitTAInExtraCertsForIR, align 4
@@ -1387,7 +1387,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool2.not, label %err, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %call5 = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef nonnull %call, ptr noundef %scrt), !range !4
+  %call5 = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef nonnull %call, ptr noundef %scrt)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.then7, label %if.else
 
@@ -1402,7 +1402,7 @@ if.else:                                          ; preds = %if.end4
   %3 = load ptr, ptr %value, align 8
   %call9 = tail call ptr @ossl_cmp_certrepmessage_get0_certresponse(ptr noundef %3, i32 noundef 0) #2
   %call10 = tail call ptr @ossl_cmp_certresponse_get1_cert(ptr noundef nonnull %ctx, ptr noundef %call9) #2
-  %call11 = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef nonnull %call, ptr noundef %call10), !range !4
+  %call11 = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef nonnull %call, ptr noundef %call10)
   tail call void @X509_free(ptr noundef %call10) #2
   br label %err
 
@@ -1482,13 +1482,13 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp11.not.us, label %return, label %if.end18.us
 
 if.end18.us:                                      ; preds = %for.body.us
-  %call19.us = tail call fastcc i32 @cert_acceptable(ptr noundef %ctx, ptr noundef nonnull @.str.54, ptr noundef %desc, ptr noundef nonnull %call10.us, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr noundef %msg), !range !4
+  %call19.us = tail call fastcc i32 @cert_acceptable(ptr noundef %ctx, ptr noundef nonnull @.str.54, ptr noundef %desc, ptr noundef nonnull %call10.us, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr noundef %msg)
   %tobool20.not.us = icmp eq i32 %call19.us, 0
   br i1 %tobool20.not.us, label %for.inc.us, label %if.end22.us
 
 if.end22.us:                                      ; preds = %if.end18.us
   %0 = load ptr, ptr %trusted, align 8
-  %call.i.us = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef %ctx, ptr noundef %0, ptr noundef nonnull %call10.us), !range !4
+  %call.i.us = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef %ctx, ptr noundef %0, ptr noundef nonnull %call10.us)
   %tobool.not.i.us = icmp eq i32 %call.i.us, 0
   br i1 %tobool.not.i.us, label %check_cert_path.exit.thread.us, label %if.then28
 
@@ -1502,7 +1502,7 @@ for.inc.us:                                       ; preds = %check_cert_path.exi
   %inc31.us = add nuw nsw i32 %i.027.us, 1
   %call6.us = tail call i32 @OPENSSL_sk_num(ptr noundef %certs) #2
   %cmp7.us = icmp slt i32 %inc31.us, %call6.us
-  br i1 %cmp7.us, label %for.body.us, label %for.end, !llvm.loop !7
+  br i1 %cmp7.us, label %for.body.us, label %for.end, !llvm.loop !6
 
 if.then:                                          ; preds = %entry
   %call4 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef %ctx, ptr noundef nonnull @__func__.check_msg_with_certs, ptr noundef nonnull @.str, i32 noundef 393, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.53, ptr noundef %desc) #2
@@ -1516,13 +1516,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp11.not, label %return, label %if.end18
 
 if.end18:                                         ; preds = %for.body
-  %call19 = tail call fastcc i32 @cert_acceptable(ptr noundef %ctx, ptr noundef nonnull @.str.54, ptr noundef %desc, ptr noundef nonnull %call10, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr noundef %msg), !range !4
+  %call19 = tail call fastcc i32 @cert_acceptable(ptr noundef %ctx, ptr noundef nonnull @.str.54, ptr noundef %desc, ptr noundef nonnull %call10, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr noundef %msg)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %for.inc, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
   %inc = add nsw i32 %n_acceptable_certs.026, 1
-  %call24 = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef %ctx, ptr noundef %msg, ptr noundef nonnull %call10), !range !4
+  %call24 = tail call fastcc i32 @check_cert_path_3gpp(ptr noundef %ctx, ptr noundef %msg, ptr noundef nonnull %call10)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %for.inc, label %if.then28
 
@@ -1536,7 +1536,7 @@ for.inc:                                          ; preds = %if.end22, %if.end18
   %inc31 = add nuw nsw i32 %i.027, 1
   %call6 = tail call i32 @OPENSSL_sk_num(ptr noundef %certs) #2
   %cmp7 = icmp slt i32 %inc31, %call6
-  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader
   %n_acceptable_certs.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %n_acceptable_certs.1.us, %for.inc.us ], [ %n_acceptable_certs.1, %for.inc ]
@@ -1589,7 +1589,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

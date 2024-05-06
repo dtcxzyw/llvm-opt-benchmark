@@ -48,7 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @atexit_handler_done = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %ssllib.i = alloca ptr, align 8
   %cryptolib.i = alloca ptr, align 8

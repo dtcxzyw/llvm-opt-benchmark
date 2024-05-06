@@ -243,7 +243,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @fifo8_create(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sifive_spi_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 -2147483648, 4294967296) i64 @sifive_spi_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %cmp.i = icmp ugt i64 %addr, 119
   br i1 %cmp.i, label %do.body, label %if.end4

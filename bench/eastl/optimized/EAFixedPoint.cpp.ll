@@ -121,13 +121,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC10FPTemplateIjLi16ELi16ELi65536ELi65536EE8FixedModEjj(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN2EA4StdC10FPTemplateIjLi16ELi16ELi65536ELi65536EE8FixedModEjj(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 align 2 {
 entry:
   %conv = zext i32 %a to i64
   %shl = shl nuw nsw i64 %conv, 16
   %conv1 = zext i32 %b to i64
   %rem = urem i64 %shl, %conv1
-  %conv2 = trunc i64 %rem to i32
+  %conv2 = trunc nuw i64 %rem to i32
   ret i32 %conv2
 }
 
@@ -161,7 +161,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw nsw i64 %conv, 16
   %conv1 = zext i32 %b to i64
   %rem = urem i64 %shl, %conv1
-  %conv2 = trunc i64 %rem to i32
+  %conv2 = trunc nuw i64 %rem to i32
   br label %return
 
 return:                                           ; preds = %entry, %if.then

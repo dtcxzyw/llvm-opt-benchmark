@@ -187,11 +187,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %r.06.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
   %arrayidx.i4.i = getelementptr inbounds i32, ptr %.pre5, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i4.i, align 4
-  %3 = call noundef i32 @llvm.ctpop.i32(i32 %2), !range !4
+  %3 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
   %add.i = add i32 %3, %r.06.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %invoke.cont2, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %invoke.cont2, label %for.body.i, !llvm.loop !4
 
 invoke.cont2:                                     ; preds = %for.body.i, %entry.split.i, %if.end
   %.us-phi.i = phi i32 [ 0, %if.end ], [ 0, %entry.split.i ], [ %add.i, %for.body.i ]
@@ -458,7 +458,7 @@ while.body.i.i.i:                                 ; preds = %_ZNK6vectorIjLb0EjE
 
 .noexc34:                                         ; preds = %while.body.i.i.i
   %.pr.pre.i.i.i = load ptr, ptr %17, align 8
-  br label %while.cond.i.i.i, !llvm.loop !7
+  br label %while.cond.i.i.i, !llvm.loop !6
 
 while.end.i.i.i:                                  ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i
   %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %20, i64 -4
@@ -701,7 +701,7 @@ unreachable.i:                                    ; preds = %invoke.cont.i282
   %.pr.pre.i.i.i115 = phi ptr [ %.pr.pre.i.i.i115.pre, %call25.i.noexc ], [ %incdec.ptr2.i, %call.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  br label %while.cond.i.i.i90, !llvm.loop !7
+  br label %while.cond.i.i.i90, !llvm.loop !6
 
 while.end.i.i.i99:                                ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i96.thread
   %arrayidx.i4.i.i100 = getelementptr inbounds i8, ptr %46, i64 -4
@@ -765,7 +765,7 @@ for.body.i.i133:                                  ; preds = %for.body.i.i133, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i135, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i136, i64 16, i1 false)
   %indvars.iv.next.i.i137 = add nuw nsw i64 %indvars.iv.i.i134, 1
   %exitcond.not.i.i138 = icmp eq i64 %indvars.iv.next.i.i137, %wide.trip.count.i.i132
-  br i1 %exitcond.not.i.i138, label %for.end.i.i139, label %for.body.i.i133, !llvm.loop !8
+  br i1 %exitcond.not.i.i138, label %for.end.i.i139, label %for.body.i.i133, !llvm.loop !7
 
 for.end.i.i139:                                   ; preds = %for.body.i.i133, %call.i.i.noexc154
   %cmp.not.i.i.i141 = icmp eq ptr %.pre.i.i130, %7
@@ -806,7 +806,7 @@ start.backedge:                                   ; preds = %_ZN6bufferISt4pairI
 
 start.backedge447:                                ; preds = %start.backedge, %sw.epilog104
   %.be = phi i32 [ %inc.i151, %start.backedge ], [ %.pr, %sw.epilog104 ]
-  br label %start, !llvm.loop !9
+  br label %start, !llvm.loop !8
 
 sw.bb49:                                          ; preds = %if.end38
   %m_num_args.i158 = getelementptr inbounds i8, ptr %30, i64 24
@@ -907,7 +907,7 @@ for.body.i.i179:                                  ; preds = %for.body.i.i179, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i181, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i182, i64 16, i1 false)
   %indvars.iv.next.i.i183 = add nuw nsw i64 %indvars.iv.i.i180, 1
   %exitcond.not.i.i184 = icmp eq i64 %indvars.iv.next.i.i183, %wide.trip.count.i.i178
-  br i1 %exitcond.not.i.i184, label %for.end.i.i185, label %for.body.i.i179, !llvm.loop !8
+  br i1 %exitcond.not.i.i184, label %for.end.i.i185, label %for.body.i.i179, !llvm.loop !7
 
 for.end.i.i185:                                   ; preds = %for.body.i.i179, %call.i.i.noexc200
   %cmp.not.i.i.i187 = icmp eq ptr %.pre.i.i176, %7
@@ -948,7 +948,7 @@ invoke.cont64:                                    ; preds = %sw.default
 while.cond20.backedge:                            ; preds = %_ZN26pattern_validation_functorclEP3app.exit, %.noexc118, %if.end.i74, %_ZN8uint_set6insertEj.exit.i108, %invoke.cont33
   %77 = load i32, ptr %second, align 8
   %cmp21 = icmp ult i32 %77, %27
-  br i1 %cmp21, label %while.body22, label %while.end.loopexit, !llvm.loop !10
+  br i1 %cmp21, label %while.body22, label %while.end.loopexit, !llvm.loop !9
 
 while.end.loopexit:                               ; preds = %while.cond20.backedge
   %.pre358 = load i32, ptr %m_pos.i.i, align 8
@@ -1040,7 +1040,7 @@ invoke.cont87:                                    ; preds = %if.then86
   %shl.i.i.i.i222 = shl nuw i32 1, %rem.i.i.i.i221
   %and.i.i.i223 = and i32 %89, %shl.i.i.i.i222
   %cmp.i.i.i224.not = icmp eq i32 %and.i.i.i223, 0
-  br i1 %cmp.i.i.i224.not, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit238, label %while.cond74, !llvm.loop !11
+  br i1 %cmp.i.i.i224.not, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit238, label %while.cond74, !llvm.loop !10
 
 if.then.i.i.i228:                                 ; preds = %if.then86
   %add.i.i.i229 = add i32 %86, 1
@@ -1099,7 +1099,7 @@ for.body.i.i251:                                  ; preds = %for.body.i.i251, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i253, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i254, i64 16, i1 false)
   %indvars.iv.next.i.i255 = add nuw nsw i64 %indvars.iv.i.i252, 1
   %exitcond.not.i.i256 = icmp eq i64 %indvars.iv.next.i.i255, %wide.trip.count.i.i250
-  br i1 %exitcond.not.i.i256, label %for.end.i.i257, label %for.body.i.i251, !llvm.loop !8
+  br i1 %exitcond.not.i.i256, label %for.end.i.i257, label %for.body.i.i251, !llvm.loop !7
 
 for.end.i.i257:                                   ; preds = %for.body.i.i251, %call.i.i.noexc272
   %cmp.not.i.i.i259 = icmp eq ptr %.pre.i.i248, %7
@@ -1581,11 +1581,10 @@ attributes #16 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

@@ -222,7 +222,7 @@ define dso_local void @drm_self_refresh_helper_alter_state(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_self_refresh_helper_init(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_self_refresh_helper_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1640
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

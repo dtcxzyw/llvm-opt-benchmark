@@ -664,7 +664,7 @@ declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @endpwent() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pwdmodule_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @pwdmodule_exec(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %call1 = tail call ptr @PyStructSequence_NewType(ptr noundef nonnull @struct_pwd_type_desc) #4

@@ -68,7 +68,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end1
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl.i = shl nuw nsw i32 %8, 2
   br label %_ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit
 
@@ -79,7 +79,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %or.cond15.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl11.i = shl nuw nsw i32 %9, 2
   %or12.i = or disjoint i32 %shl11.i, 1
   br label %_ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit
@@ -91,7 +91,7 @@ if.end13.i:                                       ; preds = %if.end.i
   br i1 %or.cond16.i, label %if.then17.i, label %for.inc.i
 
 if.then17.i:                                      ; preds = %if.end13.i
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl18.i = shl nuw nsw i32 %10, 2
   %or19.i = or disjoint i32 %shl18.i, 2
   br label %_ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit
@@ -142,7 +142,7 @@ for.inc.i146:                                     ; preds = %for.body.i141
   br i1 %exitcond.not.i148, label %_ZN7meshoptL13getVertexFifoEPjjm.exit, label %for.body.i141, !llvm.loop !7
 
 return.split.loop.exit6.i:                        ; preds = %for.body.i141
-  %19 = trunc i64 %indvars.iv.i142 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i142 to i32
   br label %_ZN7meshoptL13getVertexFifoEPjjm.exit
 
 _ZN7meshoptL13getVertexFifoEPjjm.exit:            ; preds = %for.inc.i146, %return.split.loop.exit6.i
@@ -170,7 +170,7 @@ if.then51:                                        ; preds = %_ZN7meshoptL13getVe
   br i1 %cmp57, label %if.end60.thread, label %if.end60
 
 if.end60.thread:                                  ; preds = %if.then51
-  %retval.0.i.tr = trunc i32 %retval.0.i to i8
+  %retval.0.i.tr = trunc nuw i32 %retval.0.i to i8
   %20 = shl nuw i8 %retval.0.i.tr, 2
   %conv62295 = or i8 %20, 14
   store i8 %conv62295, ptr %code.0315, align 1
@@ -182,7 +182,7 @@ if.end60:                                         ; preds = %if.then51, %_ZN7mes
   %21 = shl nuw nsw i32 %retval.0.i, 2
   %shl = and i32 %21, 240
   %or61 = or i32 %fec.1, %shl
-  %conv62 = trunc i32 %or61 to i8
+  %conv62 = trunc nuw i32 %or61 to i8
   store i8 %conv62, ptr %code.0315, align 1
   %cmp63 = icmp eq i32 %fec.1, 15
   br i1 %cmp63, label %if.then64, label %if.end65
@@ -201,7 +201,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %cmp.inv.i.i = icmp ult i32 %v.addr.0.i.i, 128
   %cond.i.i = select i1 %cmp.inv.i.i, i32 0, i32 128
   %or.i.i = or disjoint i32 %cond.i.i, %and.i.i
-  %conv.i.i = trunc i32 %or.i.i to i8
+  %conv.i.i = trunc nuw i32 %or.i.i to i8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %data.1, i64 1
   store i8 %conv.i.i, ptr %data.1, align 1
   %shr.i.i = lshr i32 %v.addr.0.i.i, 7
@@ -278,7 +278,7 @@ for.inc.i166:                                     ; preds = %for.body.i160
   br i1 %exitcond.not.i168, label %_ZN7meshoptL13getVertexFifoEPjjm.exit171, label %for.body.i160, !llvm.loop !7
 
 return.split.loop.exit6.i170:                     ; preds = %for.body.i160
-  %30 = trunc i64 %indvars.iv.i161 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv.i161 to i32
   br label %_ZN7meshoptL13getVertexFifoEPjjm.exit171
 
 _ZN7meshoptL13getVertexFifoEPjjm.exit171:         ; preds = %for.inc.i166, %return.split.loop.exit6.i170
@@ -301,7 +301,7 @@ for.inc.i178:                                     ; preds = %for.body.i172
   br i1 %exitcond.not.i180, label %_ZN7meshoptL13getVertexFifoEPjjm.exit183, label %for.body.i172, !llvm.loop !7
 
 return.split.loop.exit6.i182:                     ; preds = %for.body.i172
-  %33 = trunc i64 %indvars.iv.i173 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.i173 to i32
   br label %_ZN7meshoptL13getVertexFifoEPjjm.exit183
 
 _ZN7meshoptL13getVertexFifoEPjjm.exit183:         ; preds = %for.inc.i178, %return.split.loop.exit6.i182
@@ -346,7 +346,7 @@ cond.end149:                                      ; preds = %cond.false142, %con
   %cond150 = phi i32 [ %add141, %cond.true140 ], [ %spec.select138, %cond.false142 ]
   %shl151 = shl nuw nsw i32 %cond135, 4
   %or152 = or i32 %cond150, %shl151
-  %conv153 = trunc i32 %or152 to i8
+  %conv153 = trunc nuw i32 %or152 to i8
   br label %for.body.i184
 
 for.body.i184:                                    ; preds = %for.inc.i188, %cond.end149
@@ -362,7 +362,7 @@ for.inc.i188:                                     ; preds = %for.body.i184
   br i1 %exitcond.not.i190, label %if.else165, label %for.body.i184, !llvm.loop !9
 
 _ZN7meshoptL15getCodeAuxIndexEhPKh.exit:          ; preds = %for.body.i184
-  %35 = trunc i64 %indvars.iv.i185 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i185 to i32
   %36 = icmp ult i32 %35, 14
   %or.cond8 = and i1 %cmp116, %36
   %or.cond8.not = xor i1 %or.cond8, true
@@ -399,7 +399,7 @@ do.body.i.i196:                                   ; preds = %do.body.i.i196, %if
   %cmp.inv.i.i199 = icmp ult i32 %v.addr.0.i.i197, 128
   %cond.i.i200 = select i1 %cmp.inv.i.i199, i32 0, i32 128
   %or.i.i201 = or disjoint i32 %cond.i.i200, %and.i.i198
-  %conv.i.i202 = trunc i32 %or.i.i201 to i8
+  %conv.i.i202 = trunc nuw i32 %or.i.i201 to i8
   %incdec.ptr.i.i203 = getelementptr inbounds i8, ptr %data.4, i64 1
   store i8 %conv.i.i202, ptr %data.4, align 1
   %shr.i.i204 = lshr i32 %v.addr.0.i.i197, 7
@@ -425,7 +425,7 @@ do.body.i.i210:                                   ; preds = %do.body.i.i210, %if
   %cmp.inv.i.i213 = icmp ult i32 %v.addr.0.i.i211, 128
   %cond.i.i214 = select i1 %cmp.inv.i.i213, i32 0, i32 128
   %or.i.i215 = or disjoint i32 %cond.i.i214, %and.i.i212
-  %conv.i.i216 = trunc i32 %or.i.i215 to i8
+  %conv.i.i216 = trunc nuw i32 %or.i.i215 to i8
   %incdec.ptr.i.i217 = getelementptr inbounds i8, ptr %data.6, i64 1
   store i8 %conv.i.i216, ptr %data.6, align 1
   %shr.i.i218 = lshr i32 %v.addr.0.i.i211, 7
@@ -451,7 +451,7 @@ do.body.i.i224:                                   ; preds = %do.body.i.i224, %if
   %cmp.inv.i.i227 = icmp ult i32 %v.addr.0.i.i225, 128
   %cond.i.i228 = select i1 %cmp.inv.i.i227, i32 0, i32 128
   %or.i.i229 = or disjoint i32 %cond.i.i228, %and.i.i226
-  %conv.i.i230 = trunc i32 %or.i.i229 to i8
+  %conv.i.i230 = trunc nuw i32 %or.i.i229 to i8
   %incdec.ptr.i.i231 = getelementptr inbounds i8, ptr %data.8, i64 1
   store i8 %conv.i.i230, ptr %data.8, align 1
   %shr.i.i232 = lshr i32 %v.addr.0.i.i225, 7
@@ -593,7 +593,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @meshopt_decodeIndexBuffer(ptr nocapture noundef writeonly %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #4 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr nocapture noundef writeonly %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #4 {
 entry:
   %edgefifo = alloca [16 x [2 x i32]], align 16
   %vertexfifo = alloca [16 x i32], align 16
@@ -1197,7 +1197,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end7
   %cmp.inv.i = icmp ult i32 %v.addr.0.i, 128
   %cond.i = select i1 %cmp.inv.i, i32 0, i32 128
   %or.i = or disjoint i32 %cond.i, %and.i
-  %conv.i = trunc i32 %or.i to i8
+  %conv.i = trunc nuw i32 %or.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.1, i64 1
   store i8 %conv.i, ptr %data.1, align 1
   %shr.i = lshr i32 %v.addr.0.i, 7
@@ -1252,7 +1252,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @meshopt_decodeIndexSequence(ptr nocapture noundef writeonly %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #4 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr nocapture noundef writeonly %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #4 {
 entry:
   %last = alloca [2 x i32], align 8
   %add1 = add i64 %index_count, 5

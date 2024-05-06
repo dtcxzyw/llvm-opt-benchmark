@@ -21,7 +21,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_p2sb_bar352, ptr @__UNIQUE_ID___addressable_p2sb_fs_init354], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @p2sb_bar(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @p2sb_bar(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = load ptr, ptr @p2sb_get_bus.p2sb_bus, align 8
   %6 = select i1 %4, ptr %5, ptr %0

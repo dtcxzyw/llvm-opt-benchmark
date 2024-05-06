@@ -9791,8 +9791,8 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %if.end4, %if.then.i
   %7 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %7 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %8 = getelementptr i8, ptr %t, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %8, i64 32
+  %8 = getelementptr inbounds i8, ptr %t, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %8, i64 32
   %cmp.not124 = icmp eq i32 %7, 0
   br i1 %cmp.not124, label %cleanup, label %for.body.lr.ph
 

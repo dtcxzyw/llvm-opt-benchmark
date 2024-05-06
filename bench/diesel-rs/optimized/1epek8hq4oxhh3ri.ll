@@ -118,21 +118,21 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h74
 .noexc:                                           ; preds = %20
   unreachable
 
-.thread68.thread:                                 ; preds = %.thread72, %40
-  %.pn49.ph = phi { ptr, i32 } [ %41, %40 ], [ %48, %.thread72 ]
+.thread60.thread:                                 ; preds = %27, %42
+  %.pn48.ph = phi { ptr, i32 } [ %43, %42 ], [ %28, %27 ]
   call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
-  br label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit57"
+  br label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit54"
 
-.thread68:                                        ; preds = %23, %51
+.thread60:                                        ; preds = %23, %52
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
-  br label %59
+  br label %61
 
 .thread:                                          ; preds = %20
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %61
 
 23:                                               ; preds = %7
   store ptr %3, ptr %18, align 8, !noalias !20
@@ -140,7 +140,7 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h74
   store ptr %4, ptr %24, align 8, !noalias !24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   invoke void @_ZN6diesel6sqlite10connection14bind_collector19SqliteBindCollector3new17hfa7ac8a5a05cc081E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %14)
-          to label %25 unwind label %.thread68
+          to label %25 unwind label %.thread60
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
@@ -153,142 +153,142 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h74
   %26 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr @anon.846bfc330393897fd77cac1813677491.1, ptr %26, align 8
   invoke void @"_ZN147_$LT$diesel..query_builder..insert_statement..InsertStatement$LT$T$C$U$C$Op$C$Ret$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0d97bc903c5ecceeE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9)
-          to label %27 unwind label %57
+          to label %29 unwind label %59
 
-27:                                               ; preds = %25
+27:                                               ; preds = %48
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread60.thread
+
+29:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %28 = load i64, ptr %13, align 8, !range !25, !noundef !10
-  %29 = icmp eq i64 %28, -9223372036854775798
-  br i1 %29, label %30, label %51
+  %30 = load i64, ptr %13, align 8, !range !25, !noundef !10
+  %31 = icmp eq i64 %30, -9223372036854775798
+  br i1 %31, label %32, label %52
 
-30:                                               ; preds = %27
+32:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
-  %31 = load i64, ptr %15, align 8, !range !26, !noundef !10
-  %32 = load ptr, ptr %16, align 8, !noundef !10
-  store i64 %31, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %12, i64 56
-  store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %12, i64 64
-  %36 = getelementptr inbounds i8, ptr %12, i64 16
-  store i64 0, ptr %36, align 8
+  %33 = load i64, ptr %15, align 8, !range !26, !noundef !10
+  %34 = load ptr, ptr %16, align 8, !noundef !10
+  store i64 %33, ptr %12, align 8
+  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %12, i64 56
+  store ptr null, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %12, i64 64
+  %38 = getelementptr inbounds i8, ptr %12, i64 16
+  store i64 0, ptr %38, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %37 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr %5, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %12, i64 48
-  store ptr %6, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %12, i64 72
-  store i8 0, ptr %39, align 8
+  %39 = getelementptr inbounds i8, ptr %12, i64 40
+  store ptr %5, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %12, i64 48
+  store ptr %6, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %12, i64 72
+  store i8 0, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   invoke void @_ZN6diesel6sqlite10connection4stmt14BoundStatement12bind_buffers17h13eac89f69c91cc3E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(80) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10)
-          to label %42 unwind label %40
+          to label %44 unwind label %42
 
-40:                                               ; preds = %30
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %32
+  %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hee53220ac20087e1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12) #16
-          to label %.thread68.thread unwind label %49
+          to label %.thread60.thread unwind label %50
 
-42:                                               ; preds = %30
+44:                                               ; preds = %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %43 = load i64, ptr %11, align 8, !range !25, !noundef !10
-  %44 = icmp eq i64 %43, -9223372036854775798
-  br i1 %44, label %45, label %46
+  %45 = load i64, ptr %11, align 8, !range !25, !noundef !10
+  %46 = icmp eq i64 %45, -9223372036854775798
+  br i1 %46, label %47, label %48
 
-45:                                               ; preds = %42
+47:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  store ptr %18, ptr %34, align 8
-  store ptr @anon.846bfc330393897fd77cac1813677491.2, ptr %35, align 8
+  store ptr %18, ptr %36, align 8
+  store ptr @anon.846bfc330393897fd77cac1813677491.2, ptr %37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %12, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit"
 
-46:                                               ; preds = %42
+48:                                               ; preds = %44
   %.sroa.430.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.238, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.430.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %43, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %45, ptr %49, align 8
   %.sroa.238.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.238.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.238, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hee53220ac20087e1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12)
-          to label %.thread81 unwind label %.thread72
+          to label %54 unwind label %27
 
-.thread72:                                        ; preds = %46
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread68.thread
-
-"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit": ; preds = %56, %53, %.thread81, %45
+"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit": ; preds = %58, %55, %54, %47
   ret void
 
-.thread81:                                        ; preds = %46
+50:                                               ; preds = %64, %59, %42
+  %51 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
+  unreachable
+
+52:                                               ; preds = %29
+  %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.424.0..sroa_idx, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %30, ptr %53, align 8
+  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226, i64 24, i1 false)
+  store i64 2, ptr %0, align 8
+  invoke void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..Vec$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$$GT$17h66858582c51b2db3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
+          to label %55 unwind label %.thread60
+
+54:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
   br label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit"
 
-49:                                               ; preds = %62, %57, %40
-  %50 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
-  unreachable
-
-51:                                               ; preds = %27
-  %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.424.0..sroa_idx, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %28, ptr %52, align 8
-  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226, i64 24, i1 false)
-  store i64 2, ptr %0, align 8
-  invoke void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..Vec$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$$GT$17h66858582c51b2db3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
-          to label %53 unwind label %.thread68
-
-53:                                               ; preds = %51
+55:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
-  %54 = load i64, ptr %15, align 8, !range !26, !alias.scope !27, !noundef !10
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %56, label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit"
+  %56 = load i64, ptr %15, align 8, !range !26, !alias.scope !27, !noundef !10
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %58, label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit"
 
-56:                                               ; preds = %53
+58:                                               ; preds = %55
   call void @"_ZN85_$LT$diesel..sqlite..connection..stmt..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5bb899a42b17ec73E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
   br label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit"
 
-57:                                               ; preds = %25
-  %58 = landingpad { ptr, i32 }
+59:                                               ; preds = %25
+  %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..Vec$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$$GT$17h66858582c51b2db3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #16
-          to label %.thread64 unwind label %49
+          to label %.thread60.thread76 unwind label %50
 
-.thread64:                                        ; preds = %57
+.thread60.thread76:                               ; preds = %59
   call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
-  br label %59
+  br label %61
 
-"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit57": ; preds = %.thread68.thread, %59, %62
-  %.pn5163 = phi { ptr, i32 } [ %.pn5162, %62 ], [ %.pn5162, %59 ], [ %.pn49.ph, %.thread68.thread ]
-  resume { ptr, i32 } %.pn5163
+"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit54": ; preds = %.thread60.thread, %61, %64
+  %.pn5058 = phi { ptr, i32 } [ %.pn5059, %64 ], [ %.pn5059, %61 ], [ %.pn48.ph, %.thread60.thread ]
+  resume { ptr, i32 } %.pn5058
 
-59:                                               ; preds = %.thread68, %.thread64, %.thread
-  %.pn5162 = phi { ptr, i32 } [ %22, %.thread ], [ %21, %.thread68 ], [ %58, %.thread64 ]
-  %60 = load i64, ptr %15, align 8, !range !26, !alias.scope !30, !noundef !10
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit57"
+61:                                               ; preds = %.thread60, %.thread60.thread76, %.thread
+  %.pn5059 = phi { ptr, i32 } [ %22, %.thread ], [ %21, %.thread60 ], [ %60, %.thread60.thread76 ]
+  %62 = load i64, ptr %15, align 8, !range !26, !alias.scope !30, !noundef !10
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit54"
 
-62:                                               ; preds = %59
+64:                                               ; preds = %61
   invoke void @"_ZN85_$LT$diesel..sqlite..connection..stmt..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5bb899a42b17ec73E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
-          to label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit57" unwind label %49
+          to label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h1dbb9fb74f197e50E.exit54" unwind label %50
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -401,7 +401,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
   %16 = getelementptr inbounds i8, ptr %15, i64 %9
   %17 = load i8, ptr %16, align 1, !noalias !46, !noundef !10
   %18 = lshr i64 %6, 57
-  %19 = trunc i64 %18 to i8
+  %19 = trunc nuw nsw i64 %18 to i8
   %20 = add i64 %9, -16
   %21 = getelementptr inbounds i8, ptr %5, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !49, !noalias !46, !noundef !10

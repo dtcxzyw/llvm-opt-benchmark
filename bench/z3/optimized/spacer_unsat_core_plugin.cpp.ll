@@ -269,8 +269,8 @@ _ZNK11ast_manager13proof_parents3endEv.exit:      ; preds = %entry, %land.rhs.i.
   %cond.i = add i32 %sub.i, %0
   %idx.ext.i = zext i32 %cond.i to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %5 = getelementptr i8, ptr %step, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %5, i64 32
+  %5 = getelementptr inbounds i8, ptr %step, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %5, i64 32
   %cmp.not8 = icmp eq i32 %cond.i, 0
   br i1 %cmp.not8, label %for.end, label %for.body.lr.ph
 
@@ -467,8 +467,8 @@ _ZNK11ast_manager13proof_parents3endEv.exit:      ; preds = %invoke.cont31, %cal
   %cond.i = add i32 %sub.i25, %20
   %idx.ext.i26 = zext i32 %cond.i to i64
   %add.ptr.i27.idx = shl nuw nsw i64 %idx.ext.i26, 3
-  %24 = getelementptr i8, ptr %2, i64 %add.ptr.i27.idx
-  %add.ptr.i27.ptr = getelementptr i8, ptr %24, i64 32
+  %24 = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i27.idx
+  %add.ptr.i27.ptr = getelementptr inbounds i8, ptr %24, i64 32
   %cmp.not72 = icmp eq i32 %cond.i, 0
   br i1 %cmp.not72, label %if.end41, label %for.body
 
@@ -5948,7 +5948,7 @@ for.cond157.preheader:                            ; preds = %invoke.cont150, %_Z
 
 for.body134:                                      ; preds = %_ZN3refI6solverEC2EPS0_.exit, %invoke.cont150
   %indvars.iv1314 = phi i64 [ %indvars.iv.next1315, %invoke.cont150 ], [ 0, %_ZN3refI6solverEC2EPS0_.exit ]
-  %95 = trunc i64 %indvars.iv1314 to i32
+  %95 = trunc nuw i64 %indvars.iv1314 to i32
   call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp136, i32 noundef %95) #18
   %call.i180 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136, i64 noundef 0, ptr noundef nonnull @.str.1)
           to label %invoke.cont138 unwind label %lpad137
@@ -6194,7 +6194,7 @@ for.cond191.preheader.preheader:                  ; preds = %for.cond191.prehead
 
 for.body161:                                      ; preds = %for.cond157.preheader, %invoke.cont181
   %indvars.iv1317 = phi i64 [ %indvars.iv.next1318, %invoke.cont181 ], [ 0, %for.cond157.preheader ]
-  %116 = trunc i64 %indvars.iv1317 to i32
+  %116 = trunc nuw i64 %indvars.iv1317 to i32
   call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp164, i32 noundef %116) #18
   %call.i199200 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164, i64 noundef 0, ptr noundef nonnull @.str.2)
           to label %invoke.cont166 unwind label %lpad165
@@ -7894,7 +7894,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -8261,8 +8261,8 @@ _ZNK11ast_manager13proof_parents3endEv.exit:      ; preds = %invoke.cont2, %call
   %cond.i = add i32 %sub.i, %1
   %idx.ext.i = zext i32 %cond.i to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %5 = getelementptr i8, ptr %step, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %5, i64 32
+  %5 = getelementptr inbounds i8, ptr %step, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %5, i64 32
   %cmp.not127 = icmp eq i32 %cond.i, 0
   br i1 %cmp.not127, label %while.cond.preheader, label %for.body.lr.ph
 
@@ -8577,8 +8577,8 @@ _ZNK11ast_manager13proof_parents3endEv.exit70:    ; preds = %invoke.cont49, %cal
   %cond.i65 = add i32 %sub.i64, %47
   %idx.ext.i66 = zext i32 %cond.i65 to i64
   %add.ptr.i67.idx = shl nuw nsw i64 %idx.ext.i66, 3
-  %51 = getelementptr i8, ptr %19, i64 %add.ptr.i67.idx
-  %add.ptr.i67.ptr = getelementptr i8, ptr %51, i64 32
+  %51 = getelementptr inbounds i8, ptr %19, i64 %add.ptr.i67.idx
+  %add.ptr.i67.ptr = getelementptr inbounds i8, ptr %51, i64 32
   %cmp54.not129 = icmp eq i32 %cond.i65, 0
   br i1 %cmp54.not129, label %if.end63thread-pre-split, label %for.body55.preheader
 

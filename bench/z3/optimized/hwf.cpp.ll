@@ -1599,8 +1599,8 @@ lpad2:                                            ; preds = %invoke.cont23, %if.
   resume { ptr, i32 } %1
 
 invoke.cont11:                                    ; preds = %invoke.cont, %invoke.cont
-  %and.i25 = and i64 %0, 4503599627370495
-  %cmp.i.i = icmp ult i64 %and.i25, 2147483647
+  %and.i27 = and i64 %0, 4503599627370495
+  %cmp.i.i = icmp ult i64 %and.i27, 2147483647
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i.invoke
 
 if.then.i.i:                                      ; preds = %invoke.cont11
@@ -1610,14 +1610,14 @@ if.then.i.i:                                      ; preds = %invoke.cont11
   br label %if.end
 
 if.else.i.i.invoke:                               ; preds = %invoke.cont11, %invoke.cont6
-  %2 = phi i64 [ %or, %invoke.cont6 ], [ %and.i25, %invoke.cont11 ]
+  %2 = phi i64 [ %or, %invoke.cont6 ], [ %and.i27, %invoke.cont11 ]
   invoke void @_ZN11mpz_managerILb0EE12set_big_ui64ER3mpzm(ptr noundef nonnull align 8 dereferenceable(600) %qm, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i, i64 noundef %2)
           to label %if.end unwind label %lpad2
 
 if.end:                                           ; preds = %if.else.i.i.invoke, %if.then.i.i
-  %n.0.copyload.i.i29 = load i64, ptr %x, align 8
-  %cmp.i30 = icmp slt i64 %n.0.copyload.i.i29, 0
-  br i1 %cmp.i30, label %if.then16, label %if.end20
+  %n.0.copyload.i.i31 = load i64, ptr %x, align 8
+  %cmp.i32 = icmp slt i64 %n.0.copyload.i.i31, 0
+  br i1 %cmp.i32, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end
   invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %qm, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
@@ -1628,9 +1628,9 @@ if.end20:                                         ; preds = %if.then16, %if.end
           to label %invoke.cont23 unwind label %lpad2
 
 invoke.cont23:                                    ; preds = %if.end20
-  %n.0.copyload.i.i37 = load i64, ptr %x, align 8
-  %and.i38 = lshr i64 %n.0.copyload.i.i37, 52
-  %3 = trunc nuw nsw i64 %and.i38 to i32
+  %n.0.copyload.i.i39 = load i64, ptr %x, align 8
+  %and.i40 = lshr i64 %n.0.copyload.i.i39, 52
+  %3 = trunc nuw nsw i64 %and.i40 to i32
   %4 = and i32 %3, 2047
   %cmp = icmp ugt i32 %4, 1022
   %sub = sub nuw nsw i32 1023, %4
@@ -1659,16 +1659,16 @@ terminate.lpad.i:                                 ; preds = %invoke.cont39
 _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %invoke.cont39
   %10 = load ptr, ptr %n, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
-          to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit46 unwind label %terminate.lpad.i45
+          to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit48 unwind label %terminate.lpad.i47
 
-terminate.lpad.i45:                               ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit
+terminate.lpad.i47:                               ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   call void @__clang_call_terminate(ptr %12) #20
   unreachable
 
-_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit46: ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit
+_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit48: ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit
   ret void
 }
 
@@ -2023,7 +2023,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN11hwf_manager17prev_power_of_twoERK3hwf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 -2147483597, -2147483648) i32 @_ZN11hwf_manager17prev_power_of_twoERK3hwf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #9 align 2 {
 entry:
   %n.0.copyload.i.i.i = load i64, ptr %a, align 8
   %cmp.i.i = icmp slt i64 %n.0.copyload.i.i.i, 0

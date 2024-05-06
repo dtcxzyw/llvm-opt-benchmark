@@ -56,7 +56,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %5 = getelementptr inbounds i8, ptr %4, i64 240
   store i64 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !7
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   invoke void @"_ZN4core3ptr53drop_in_place$LT$cranelift_isle..trie_again..Rule$GT$17hedc76a28840a8d2aE"(ptr nonnull align 8 %4)
           to label %"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.exit" unwind label %7, !noalias !7
 

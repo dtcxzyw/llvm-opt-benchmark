@@ -168,7 +168,7 @@ Sto_ManMemoryStop.exit.thread:                    ; preds = %1, %Sto_ManMemorySt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = icmp ult ptr %1, %2
   br i1 %4, label %5, label %31
 
@@ -394,7 +394,7 @@ define void @Sto_ManMarkClausesA(ptr nocapture noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Sto_ManChangeLastClause(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define range(i32 -1073741824, 1073741824) i32 @Sto_ManChangeLastClause(ptr nocapture noundef %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   br label %3
 
@@ -499,7 +499,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Sto_ManLoadNumber(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Sto_ManLoadNumber(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %2
@@ -670,8 +670,8 @@ define noundef ptr @Sto_ManLoadClauses(ptr noundef %0) local_unnamed_addr #2 {
 37:                                               ; preds = %33
   %38 = sext i32 %.045 to i64
   %39 = getelementptr inbounds i32, ptr %.041.ph, i64 %38
-  %40 = call i32 @Sto_ManAddClause(ptr noundef nonnull %calloc.i, ptr noundef %.041.ph, ptr noundef %39), !range !16
-  br label %21, !llvm.loop !17
+  %40 = call i32 @Sto_ManAddClause(ptr noundef nonnull %calloc.i, ptr noundef %.041.ph, ptr noundef %39)
+  br label %21, !llvm.loop !16
 
 41:                                               ; preds = %33
   %42 = icmp eq i32 %.045, %.043.ph
@@ -715,7 +715,7 @@ lit_read.exit:                                    ; preds = %53, %56
   %62 = sext i32 %.045 to i64
   %63 = getelementptr inbounds i32, ptr %.1, i64 %62
   store i32 %60, ptr %63, align 4
-  br label %.outer, !llvm.loop !17
+  br label %.outer, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge.i, %27
   %64 = icmp sgt i32 %.045, 0
@@ -735,7 +735,7 @@ lit_read.exit:                                    ; preds = %53, %56
   %.046 = load ptr, ptr %.046.in, align 8
   %.not51 = icmp eq ptr %.046, null
   %69 = add nuw nsw i32 %.042, 1
-  br i1 %.not51, label %70, label %68, !llvm.loop !18
+  br i1 %.not51, label %70, label %68, !llvm.loop !17
 
 70:                                               ; preds = %68
   %71 = load i32, ptr %12, align 8
@@ -846,6 +846,5 @@ attributes #17 = { nounwind allocsize(1) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 0, i32 2}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

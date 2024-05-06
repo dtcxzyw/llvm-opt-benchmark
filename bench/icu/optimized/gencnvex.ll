@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef signext i8 @CnvExtAddTable(ptr nocapture noundef %cnvData, ptr noundef %table, ptr nocapture noundef writeonly %staticData) #0 {
+define internal signext range(i8 0, 2) i8 @CnvExtAddTable(ptr nocapture noundef %cnvData, ptr noundef %table, ptr nocapture noundef writeonly %staticData) #0 {
 entry:
   %unicodeMask = getelementptr inbounds i8, ptr %table, i64 56
   %0 = load i8, ptr %unicodeMask, align 8
@@ -145,7 +145,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %makeToUTable.exit, label %for.body.i.i, !llvm.loop !5
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
-  %9 = trunc i64 %indvars.iv.i.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %for.end.i.i
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.end
@@ -192,7 +192,7 @@ makeToUTable.exit:                                ; preds = %for.inc.i.i, %for.i
   %call2.i = tail call ptr @utm_open(ptr noundef nonnull @.str.4, i32 noundef 65536, i32 noundef 262144, i32 noundef 2) #14
   %toUUChars.i = getelementptr inbounds i8, ptr %cnvData, i64 48
   store ptr %call2.i, ptr %toUUChars.i, align 8
-  %call3.i = tail call fastcc noundef signext i8 @generateToUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef 0, i32 noundef %j.0.lcssa.i.i, i32 noundef 0, i32 noundef 0), !range !8
+  %call3.i = tail call fastcc signext i8 @generateToUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef 0, i32 noundef %j.0.lcssa.i.i, i32 noundef 0, i32 noundef 0)
   %tobool3.not = icmp eq i8 %call3.i, 0
   br i1 %tobool3.not, label %return, label %land.rhs
 
@@ -261,7 +261,7 @@ for.body40.i.i:                                   ; preds = %for.inc.i.i19, %for
   br i1 %cmp43.i.i, label %if.then45.i.i, label %if.else.i.i
 
 if.then45.i.i:                                    ; preds = %for.body40.i.i
-  %conv46.i.i = trunc i32 %22 to i16
+  %conv46.i.i = trunc nuw i32 %22 to i16
   %inc47.i.i = add nsw i32 %r.041.i.i, 1
   %idxprom48.i.i = sext i32 %r.041.i.i to i64
   %arrayidx49.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i, i64 %idxprom48.i.i
@@ -289,7 +289,7 @@ for.inc.i.i19:                                    ; preds = %if.else.i.i, %if.th
   %26 = load i8, ptr %uLen.i.i, align 4
   %27 = sext i8 %26 to i64
   %cmp38.i.i = icmp slt i64 %indvars.iv.next.i.i20, %27
-  br i1 %cmp38.i.i, label %for.body40.i.i, label %for.end.i.i21, !llvm.loop !9
+  br i1 %cmp38.i.i, label %for.body40.i.i, label %for.end.i.i21, !llvm.loop !8
 
 for.end.i.i21:                                    ; preds = %for.inc.i.i19
   %conv61.i.i = trunc i32 %r.1.i.i to i8
@@ -301,7 +301,7 @@ for.inc65.i.i:                                    ; preds = %for.end.i.i21, %if.
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %m.045.i.i, i64 12
   %inc66.i.i = add nuw nsw i32 %i.044.i.i, 1
   %exitcond.not.i.i17 = icmp eq i32 %inc66.i.i, %14
-  br i1 %exitcond.not.i.i17, label %prepareFromUMappings.exit.i, label %for.body.i.i12, !llvm.loop !10
+  br i1 %exitcond.not.i.i17, label %prepareFromUMappings.exit.i, label %for.body.i.i12, !llvm.loop !9
 
 prepareFromUMappings.exit.i:                      ; preds = %for.inc65.i.i, %land.rhs
   %j.0.lcssa.i.i6 = phi i32 [ 0, %land.rhs ], [ %j.1.i.i16, %for.inc65.i.i ]
@@ -395,11 +395,11 @@ cond.end31.i.i:                                   ; preds = %cond.false26.i.i, %
   %cond32.i.i = phi ptr [ %add.ptr30.i.i, %cond.false26.i.i ], [ %add.ptr19.i.i, %while.body16.i.i ]
   %45 = load i32, ptr %cond32.i.i, align 4
   %cmp12.i.i = icmp eq i32 %45, %next.055.i.i
-  br i1 %cmp12.i.i, label %land.rhs.i.i, label %while.end.split.loop.exit.i.i, !llvm.loop !11
+  br i1 %cmp12.i.i, label %land.rhs.i.i, label %while.end.split.loop.exit.i.i, !llvm.loop !10
 
 while.end.split.loop.exit.i.i:                    ; preds = %cond.end31.i.i
-  %46 = trunc i64 %indvars.iv.next.i25.i to i32
-  %47 = trunc i64 %indvars.iv.i24.i to i32
+  %46 = trunc nsw i64 %indvars.iv.next.i25.i to i32
+  %47 = trunc nsw i64 %indvars.iv.i24.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i, %while.end.split.loop.exit.i.i
@@ -460,13 +460,13 @@ if.else.i26.i:                                    ; preds = %if.end74.i.i
   %57 = load ptr, ptr %fromUTableValues.i, align 8
   %call78.i.i = tail call i32 @utm_countItems(ptr noundef %57) #14
   tail call fastcc void @addFromUTrieEntry(ptr noundef %cnvData, i32 noundef %next.055.i.i, i32 noundef %call78.i.i)
-  %call79.i.i = tail call fastcc signext i8 @generateFromUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef %subStart.0.i.i, i32 noundef %inc.lcssa.i.i, i32 noundef 2, i32 noundef %value.0.i.i), !range !8
+  %call79.i.i = tail call fastcc signext i8 @generateFromUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef %subStart.0.i.i, i32 noundef %inc.lcssa.i.i, i32 noundef 2, i32 noundef %value.0.i.i)
   %tobool.not.i.i = icmp eq i8 %call79.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end82.i.i
 
 if.end82.i.i:                                     ; preds = %if.else.i26.i, %if.then77.i.i
   %cmp9.i.i = icmp slt i32 %inc.lcssa.i.i, %j.0.lcssa.i.i6
-  br i1 %cmp9.i.i, label %while.cond11.preheader.i.i, label %if.end.i, !llvm.loop !12
+  br i1 %cmp9.i.i, label %while.cond11.preheader.i.i, label %if.end.i, !llvm.loop !11
 
 if.end.i:                                         ; preds = %if.end82.i.i, %cond.end.i.i, %prepareFromUMappings.exit.i
   %stage19.i = getelementptr inbounds i8, ptr %cnvData, i64 80
@@ -488,7 +488,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i16 %conv12.i, ptr %arrayidx11.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i10
-  br i1 %exitcond.not.i11, label %return, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i11, label %return, label %for.body.i, !llvm.loop !12
 
 return:                                           ; preds = %if.else.i26.i, %for.body.i, %if.end.i, %if.then67.i.i, %makeToUTable.exit, %if.then
   %retval.0 = phi i8 [ 0, %if.then ], [ 0, %makeToUTable.exit ], [ 0, %if.then67.i.i ], [ 1, %if.end.i ], [ 1, %for.body.i ], [ 0, %if.else.i26.i ]
@@ -531,13 +531,13 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx = getelementptr inbounds [60 x i8], ptr %baseName4, i64 0, i64 %indvars.iv
   store i8 0, ptr %arrayidx, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nsw i64 %indvars.iv.next to i32
   %and1 = and i32 %5, 3
   %tobool2.not = icmp eq i32 %and1, 0
-  br i1 %tobool2.not, label %while.end.loopexit, label %while.body, !llvm.loop !14
+  br i1 %tobool2.not, label %while.end.loopexit, label %while.body, !llvm.loop !13
 
 while.end.loopexit:                               ; preds = %while.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.else
@@ -793,7 +793,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @utm_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef signext i8 @generateToUTable(ptr nocapture noundef %extData, ptr noundef %table, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %defaultValue) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr nocapture noundef %extData, ptr noundef %table, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %defaultValue) unnamed_addr #0 {
 entry:
   %u16Length.i = alloca i32, align 4
   %errorCode.i = alloca i32, align 4
@@ -874,7 +874,7 @@ cond.end28:                                       ; preds = %cond.false23, %cond
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %limit
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %cond.end28, %cond.end
   %uniqueCount.0.lcssa = phi i32 [ 1, %cond.end ], [ %spec.select, %cond.end28 ]
@@ -964,12 +964,12 @@ if.then80.us:                                     ; preds = %cond.end73.us
   br i1 %cmp85117.us, label %while.body.us.preheader, label %if.then80.us.if.end93.loopexit.us_crit_edge
 
 if.then80.us.if.end93.loopexit.us_crit_edge:      ; preds = %if.then80.us
-  %.pre158 = trunc i64 %indvars.iv147 to i32
+  %.pre158 = trunc nsw i64 %indvars.iv147 to i32
   br label %if.end93.loopexit.us
 
 while.body.us.preheader:                          ; preds = %if.then80.us
   %20 = sext i32 %j.0126.us to i64
-  %21 = trunc i64 %indvars.iv147 to i32
+  %21 = trunc nsw i64 %indvars.iv147 to i32
   br label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.us.preheader, %while.body.us
@@ -982,17 +982,17 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   store i32 %or88.us, ptr %arrayidx91.us, align 4
   %inc84.us = add nsw i32 %inc84119.us, 1
   %exitcond146.not = icmp eq i32 %inc84.us, %conv77.us
-  br i1 %exitcond146.not, label %if.end93.loopexit.us.loopexit, label %while.body.us, !llvm.loop !16
+  br i1 %exitcond146.not, label %if.end93.loopexit.us.loopexit, label %while.body.us, !llvm.loop !15
 
 for.inc100.us:                                    ; preds = %if.end93.loopexit.us, %cond.end73.us
   %j.3.us = phi i32 [ %inc96.us, %if.end93.loopexit.us ], [ %j.0126.us, %cond.end73.us ]
   %prev.5.us = phi i32 [ %inc84.lcssa.us, %if.end93.loopexit.us ], [ %prev.2127.us, %cond.end73.us ]
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %for.end102, label %for.body56.us, !llvm.loop !17
+  br i1 %exitcond151.not, label %for.end102, label %for.body56.us, !llvm.loop !16
 
 if.end93.loopexit.us.loopexit:                    ; preds = %while.body.us
-  %22 = trunc i64 %indvars.iv.next144 to i32
+  %22 = trunc nsw i64 %indvars.iv.next144 to i32
   br label %if.end93.loopexit.us
 
 if.end93.loopexit.us:                             ; preds = %if.then80.us.if.end93.loopexit.us_crit_edge, %if.end93.loopexit.us.loopexit
@@ -1042,7 +1042,7 @@ cond.end73:                                       ; preds = %cond.false68, %cond
 
 if.then80:                                        ; preds = %cond.end73
   %shl94 = shl nuw i32 %conv77, 24
-  %28 = trunc i64 %indvars.iv139 to i32
+  %28 = trunc nsw i64 %indvars.iv139 to i32
   %or95 = or i32 %shl94, %28
   %inc96 = add nsw i32 %j.0126, 1
   %idxprom97 = sext i32 %j.0126 to i64
@@ -1055,7 +1055,7 @@ for.inc100:                                       ; preds = %cond.end73, %if.the
   %prev.5 = phi i32 [ %conv77, %if.then80 ], [ %prev.2127, %cond.end73 ]
   %indvars.iv.next140 = add nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count150
-  br i1 %exitcond142.not, label %for.end102, label %for.body56, !llvm.loop !17
+  br i1 %exitcond142.not, label %for.end102, label %for.body56, !llvm.loop !16
 
 for.end102:                                       ; preds = %for.inc100, %for.inc100.us, %if.end49
   %cmp105128 = icmp sgt i32 %count.0105, 0
@@ -1264,13 +1264,13 @@ if.else164:                                       ; preds = %if.end157
   %62 = load i32, ptr %arrayidx120, align 4
   %or169 = or i32 %62, %call166
   store i32 %or169, ptr %arrayidx120, align 4
-  %call171 = call fastcc signext i8 @generateToUTable(ptr noundef %extData, ptr noundef nonnull %table, i32 noundef %subStart.0, i32 noundef %cond118, i32 noundef %add132, i32 noundef %defaultValue.addr.0), !range !8
+  %call171 = call fastcc signext i8 @generateToUTable(ptr noundef %extData, ptr noundef nonnull %table, i32 noundef %subStart.0, i32 noundef %cond118, i32 noundef %add132, i32 noundef %defaultValue.addr.0)
   %tobool.not = icmp eq i8 %call171, 0
   br i1 %tobool.not, label %return, label %for.inc175
 
 for.inc175:                                       ; preds = %if.then160, %if.else164, %cond.end117
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %return, label %for.body107, !llvm.loop !18
+  br i1 %exitcond156.not, label %return, label %for.body107, !llvm.loop !17
 
 return:                                           ; preds = %if.else164, %for.inc175, %for.end102, %if.then149, %if.then47
   %retval.0 = phi i8 [ 0, %if.then47 ], [ 0, %if.then149 ], [ 1, %for.end102 ], [ 0, %if.else164 ], [ 1, %for.inc175 ]
@@ -1436,7 +1436,7 @@ if.end80:                                         ; preds = %if.then76, %if.end7
   %sub83 = add nsw i32 %u16Length.0, 65535
   %add84 = add nsw i32 %sub83, %conv82.pre-phi
   %div.lhs.trunc = trunc i32 %add84 to i16
-  %div.rhs.trunc = trunc i32 %u16Length.0 to i16
+  %div.rhs.trunc = trunc nsw i32 %u16Length.0 to i16
   %div39 = sdiv i16 %div.lhs.trunc, %div.rhs.trunc
   %div.sext = sext i16 %div39 to i32
   %maxBytesPerUChar = getelementptr inbounds i8, ptr %extData, i64 917612
@@ -1501,10 +1501,10 @@ land.rhs:                                         ; preds = %while.cond
   %arrayidx13 = getelementptr inbounds [64448 x i16], ptr %stage2, i64 0, i64 %indvars.iv.next
   %5 = load i16, ptr %arrayidx13, align 2
   %cmp15 = icmp eq i16 %5, 0
-  br i1 %cmp15, label %while.cond, label %while.end.split.loop.exit83, !llvm.loop !19
+  br i1 %cmp15, label %while.cond, label %while.end.split.loop.exit83, !llvm.loop !18
 
 while.end.split.loop.exit83:                      ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit83
@@ -1558,10 +1558,10 @@ land.rhs46:                                       ; preds = %while.cond43
   %arrayidx49 = getelementptr inbounds [262144 x i16], ptr %stage3, i64 0, i64 %indvars.iv.next74
   %13 = load i16, ptr %arrayidx49, align 2
   %cmp51 = icmp eq i16 %13, 0
-  br i1 %cmp51, label %while.cond43, label %while.end56.split.loop.exit85, !llvm.loop !20
+  br i1 %cmp51, label %while.cond43, label %while.end56.split.loop.exit85, !llvm.loop !19
 
 while.end56.split.loop.exit85:                    ; preds = %land.rhs46
-  %14 = trunc i64 %indvars.iv73 to i32
+  %14 = trunc nsw i64 %indvars.iv73 to i32
   br label %while.end56
 
 while.end56:                                      ; preds = %while.cond43, %while.end56.split.loop.exit85
@@ -1613,10 +1613,10 @@ land.rhs90:                                       ; preds = %land.rhs90.preheade
 for.inc:                                          ; preds = %land.rhs90
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next78, %idxprom82
-  br i1 %exitcond.not, label %if.then100, label %land.rhs90, !llvm.loop !21
+  br i1 %exitcond.not, label %if.then100, label %land.rhs90, !llvm.loop !20
 
 for.end:                                          ; preds = %land.rhs90
-  %20 = trunc i64 %indvars.iv77 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv77 to i32
   %cmp98 = icmp eq i32 %add77, %20
   br i1 %cmp98, label %if.then100, label %if.end133
 
@@ -1673,7 +1673,7 @@ if.end133:                                        ; preds = %if.then80, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef signext i8 @generateFromUTable(ptr nocapture noundef %extData, ptr noundef %table, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %defaultValue) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @generateFromUTable(ptr nocapture noundef %extData, ptr noundef %table, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %defaultValue) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %table, align 8
   %reverseMap = getelementptr inbounds i8, ptr %table, i64 48
@@ -1742,7 +1742,7 @@ cond.end26:                                       ; preds = %for.body, %cond.fal
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %limit
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %cond.end26, %cond.end
   %uniqueCount.0.lcssa = phi i32 [ 1, %cond.end ], [ %spec.select, %cond.end26 ]
@@ -1800,7 +1800,7 @@ if.then65:                                        ; preds = %cond.end58
   %arrayidx68 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom67
   store i16 %19, ptr %arrayidx68, align 2
   %arrayidx70 = getelementptr inbounds i32, ptr %incdec.ptr38, i64 %idxprom67
-  %20 = trunc i64 %indvars.iv101 to i32
+  %20 = trunc nsw i64 %indvars.iv101 to i32
   store i32 %20, ptr %arrayidx70, align 4
   %inc71 = add nsw i32 %j.095, 1
   br label %for.inc73
@@ -1810,7 +1810,7 @@ for.inc73:                                        ; preds = %cond.end58, %if.the
   %prev.3 = phi i32 [ %conv62, %if.then65 ], [ %prev.296, %cond.end58 ]
   %indvars.iv.next102 = add nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
-  br i1 %exitcond104.not, label %for.end75, label %for.body42, !llvm.loop !23
+  br i1 %exitcond104.not, label %for.end75, label %for.body42, !llvm.loop !22
 
 for.end75:                                        ; preds = %for.inc73, %for.end
   %21 = load i32, ptr %incdec.ptr38, align 4
@@ -1894,13 +1894,13 @@ if.else:                                          ; preds = %if.end121
   %call128 = tail call i32 @utm_countItems(ptr noundef %33) #14
   %arrayidx130 = getelementptr inbounds i32, ptr %incdec.ptr38, i64 %indvars.iv105
   store i32 %call128, ptr %arrayidx130, align 4
-  %call132 = tail call fastcc signext i8 @generateFromUTable(ptr noundef %extData, ptr noundef nonnull %table, i32 noundef %subStart.0, i32 noundef %cond90, i32 noundef %add97, i32 noundef %defaultValue.addr.0), !range !8
+  %call132 = tail call fastcc signext i8 @generateFromUTable(ptr noundef %extData, ptr noundef nonnull %table, i32 noundef %subStart.0, i32 noundef %cond90, i32 noundef %add97, i32 noundef %defaultValue.addr.0)
   %tobool.not = icmp eq i8 %call132, 0
   br i1 %tobool.not, label %return, label %for.inc136
 
 for.inc136:                                       ; preds = %if.then124, %if.else
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %return, label %for.body80, !llvm.loop !24
+  br i1 %exitcond109.not, label %return, label %for.body80, !llvm.loop !23
 
 return:                                           ; preds = %for.inc136, %if.else, %if.then113
   %retval.0 = phi i8 [ 0, %if.then113 ], [ 1, %for.inc136 ], [ 0, %if.else ]
@@ -1956,7 +1956,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i8 0, i8 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
@@ -1972,4 +1972,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}

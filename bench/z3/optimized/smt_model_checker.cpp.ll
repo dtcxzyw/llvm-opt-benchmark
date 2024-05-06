@@ -1004,8 +1004,8 @@ for.body.preheader:                               ; preds = %land.lhs.true
   store i32 16, ptr %m_capacity.i.i, align 4
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %val, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %val, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %m_args.i.ptr = getelementptr inbounds i8, ptr %val, i64 32
   br label %for.body
 

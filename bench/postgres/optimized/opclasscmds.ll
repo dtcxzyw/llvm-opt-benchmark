@@ -386,7 +386,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   %83 = call fastcc { i64, i32 } @CreateOpFamily(ptr noundef nonnull %77, ptr noundef %82, i32 noundef %13, i32 noundef %35)
   %.fca.0.extract = extractvalue { i64, i32 } %83, 0
   %.sroa.1.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   br label %84
 
 84:                                               ; preds = %68, %76, %60

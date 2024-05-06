@@ -4279,13 +4279,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2203 = private unnamed_addr constant [50 x i8] c"Possible integer overflow in %s (%zu * %zu + %zu)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @php_next_utf8_char(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @get_next_char(i32 noundef 0, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3), !range !4
+define range(i32 0, 9437184) i32 @php_next_utf8_char(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+  %5 = tail call fastcc i32 @get_next_char(i32 noundef 0, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @get_next_char(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = load i64, ptr %3, align 8
   store i32 0, ptr %4, align 4
   %7 = sub i64 %2, %6
@@ -5226,7 +5226,7 @@ unescape_inverse_map.exit:                        ; preds = %69, %69, %70, %71, 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %.075.i, i64 2
   store ptr %90, ptr %7, align 8
-  %91 = call fastcc i32 @process_numeric_entity(ptr noundef nonnull %7, ptr noundef nonnull %5), !range !5
+  %91 = call fastcc i32 @process_numeric_entity(ptr noundef nonnull %7, ptr noundef nonnull %5)
   %92 = icmp eq i32 %91, -1
   br i1 %92, label %process_named_entity_html.exit.thread.i, label %93
 
@@ -5246,7 +5246,7 @@ unescape_inverse_map.exit:                        ; preds = %69, %69, %70, %71, 
   br i1 %100, label %process_named_entity_html.exit.thread.i, label %101
 
 101:                                              ; preds = %96, %93
-  %102 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %.pre.i, i32 noundef %68), !range !6
+  %102 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %.pre.i, i32 noundef %68)
   %.not51.i = icmp eq i32 %102, 0
   %103 = icmp eq i32 %.pre.i, 13
   %or.cond.i = and i1 %78, %103
@@ -5283,7 +5283,7 @@ unescape_inverse_map.exit:                        ; preds = %69, %69, %70, %71, 
   br i1 %.not.i.i85, label %113, label %process_named_entity_html.exit.thread.i
 
 113:                                              ; preds = %.critedge2.i.i
-  %114 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %.ptr69.i, i64 noundef %.idx.i, ptr noundef nonnull %.0.i, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !5
+  %114 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %.ptr69.i, i64 noundef %.idx.i, ptr noundef nonnull readonly %.0.i, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %115 = icmp eq i32 %114, -1
   br i1 %115, label %116, label %.thread-pre-split_crit_edge.i
 
@@ -5339,7 +5339,7 @@ thread-pre-split.i:                               ; preds = %132, %.thread-pre-s
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %.split.i
-  %139 = trunc i32 %133 to i8
+  %139 = trunc nuw nsw i32 %133 to i8
   store i8 %139, ptr %.04274.i, align 1
   br label %write_octet_sequence.exit.i
 
@@ -5349,7 +5349,7 @@ thread-pre-split.i:                               ; preds = %132, %.thread-pre-s
 
 142:                                              ; preds = %140
   %143 = lshr i32 %133, 6
-  %144 = trunc i32 %143 to i8
+  %144 = trunc nuw i32 %143 to i8
   %145 = or disjoint i8 %144, -64
   store i8 %145, ptr %.04274.i, align 1
   %146 = trunc i32 %133 to i8
@@ -5366,7 +5366,7 @@ thread-pre-split.i:                               ; preds = %132, %.thread-pre-s
 
 153:                                              ; preds = %150
   %154 = lshr i32 %133, 12
-  %155 = trunc i32 %154 to i8
+  %155 = trunc nuw i32 %154 to i8
   %156 = or disjoint i8 %155, -32
   store i8 %156, ptr %.04274.i, align 1
   %157 = lshr i32 %133, 6
@@ -5405,7 +5405,7 @@ thread-pre-split.i:                               ; preds = %132, %.thread-pre-s
   br label %write_octet_sequence.exit.i
 
 182:                                              ; preds = %136
-  %183 = call fastcc i32 @map_from_unicode(i32 noundef %133, i32 noundef %.077, ptr noundef nonnull %5), !range !5
+  %183 = call fastcc i32 @map_from_unicode(i32 noundef %133, i32 noundef %.077, ptr noundef nonnull %5)
   %184 = icmp eq i32 %183, -1
   %185 = load i32, ptr %6, align 4
   %186 = icmp ne i32 %185, 0
@@ -5414,7 +5414,7 @@ thread-pre-split.i:                               ; preds = %132, %.thread-pre-s
 
 .split44.i:                                       ; preds = %182
   %187 = load i32, ptr %5, align 4
-  %188 = call fastcc i64 @write_octet_sequence(ptr noundef %.04274.i, i32 noundef %.077, i32 noundef %187), !range !7
+  %188 = call fastcc i64 @write_octet_sequence(ptr noundef %.04274.i, i32 noundef %.077, i32 noundef %187)
   br label %write_octet_sequence.exit.i
 
 write_octet_sequence.exit.i:                      ; preds = %.split44.i, %165, %153, %142, %138
@@ -5425,7 +5425,7 @@ write_octet_sequence.exit.i:                      ; preds = %.split44.i, %165, %
   br i1 %.not55.i, label %194, label %191
 
 191:                                              ; preds = %write_octet_sequence.exit.i
-  %192 = call fastcc i64 @write_octet_sequence(ptr noundef %189, i32 noundef %.077, i32 noundef %190), !range !7
+  %192 = call fastcc i64 @write_octet_sequence(ptr noundef %189, i32 noundef %.077, i32 noundef %190)
   %193 = getelementptr inbounds i8, ptr %189, i64 %192
   br label %194
 
@@ -5624,7 +5624,7 @@ unescape_inverse_map.exit:                        ; preds = %64, %63, %62, %62, 
   br i1 %67, label %73, label %68
 
 68:                                               ; preds = %unescape_inverse_map.exit
-  %69 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 2) #22, !srcloc !8
+  %69 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 2) #22, !srcloc !4
   %70 = extractvalue { i64, i64 } %69, 0
   %71 = extractvalue { i64, i64 } %69, 1
   %.not344.not = icmp eq i64 %71, 0
@@ -5677,7 +5677,7 @@ unescape_inverse_map.exit:                        ; preds = %64, %63, %62, %62, 
 
 90:                                               ; preds = %87
   store i32 0, ptr %10, align 4
-  %91 = call fastcc i32 @get_next_char(i32 noundef %.016.i, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10), !range !4
+  %91 = call fastcc i32 @get_next_char(i32 noundef %.016.i, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %92 = add i64 %.1326, -40
   %93 = icmp ugt i64 %.0323.ph428, %92
   br i1 %93, label %94, label %127
@@ -5843,7 +5843,7 @@ unescape_inverse_map.exit:                        ; preds = %64, %63, %62, %62, 
   br i1 %181, label %182, label %.loopexit.i
 
 182:                                              ; preds = %180
-  %183 = call fastcc i32 @get_next_char(i32 noundef %.016.i, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %8), !range !4
+  %183 = call fastcc i32 @get_next_char(i32 noundef %.016.i, ptr noundef readonly %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %8)
   %184 = load i32, ptr %8, align 4
   %185 = icmp eq i32 %184, -1
   br i1 %185, label %.loopexit.i, label %186
@@ -5932,7 +5932,7 @@ find_entity_for_char_basic.exit.thread:           ; preds = %207, %find_entity_f
   br i1 %56, label %224, label %226
 
 224:                                              ; preds = %223
-  %225 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %.1412418, i32 noundef %44), !range !6
+  %225 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %.1412418, i32 noundef %44)
   %.not361 = icmp eq i32 %225, 0
   %spec.select365 = select i1 %.not361, ptr %.0317, ptr %139
   %spec.select366 = select i1 %.not361, i64 %.0316, i64 %141
@@ -5959,7 +5959,7 @@ find_entity_for_char_basic.exit.thread:           ; preds = %207, %find_entity_f
 
 239:                                              ; preds = %228, %227
   %.2413 = phi i32 [ %238, %228 ], [ %.1412418, %227 ]
-  %240 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %.2413, i32 noundef %44), !range !6
+  %240 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %.2413, i32 noundef %44)
   %.not360 = icmp eq i32 %240, 0
   %spec.select367 = select i1 %.not360, ptr %.0317, ptr %139
   %spec.select368 = select i1 %.not360, i64 %.0316, i64 %141
@@ -5970,7 +5970,7 @@ find_entity_for_char_basic.exit.thread:           ; preds = %207, %find_entity_f
   br i1 %242, label %243, label %245
 
 243:                                              ; preds = %241
-  %244 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %.1412418, i32 noundef %44), !range !6
+  %244 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %.1412418, i32 noundef %44)
   %.not359 = icmp eq i32 %244, 0
   %spec.select369 = select i1 %.not359, ptr %.0317, ptr %139
   %spec.select370 = select i1 %.not359, i64 %.0316, i64 %141
@@ -6016,7 +6016,7 @@ numeric_entity_is_allowed.exit.thread421:         ; preds = %.critedge2.i, %279,
 264:                                              ; preds = %260
   %265 = getelementptr i8, ptr %261, i64 1
   store ptr %265, ptr %12, align 8
-  %266 = call fastcc i32 @process_numeric_entity(ptr noundef nonnull %12, ptr noundef nonnull %11), !range !5
+  %266 = call fastcc i32 @process_numeric_entity(ptr noundef nonnull %12, ptr noundef nonnull %11)
   %267 = icmp eq i32 %266, -1
   br i1 %267, label %numeric_entity_is_allowed.exit.thread421, label %268
 
@@ -6064,7 +6064,7 @@ numeric_entity_is_allowed.exit.thread421:         ; preds = %.critedge2.i, %279,
   br label %numeric_entity_is_allowed.exit
 
 286:                                              ; preds = %269, %269
-  %287 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %270, i32 noundef %44), !range !6
+  %287 = call fastcc i32 @unicode_cp_is_allowed(i32 noundef %270, i32 noundef %44)
   br label %numeric_entity_is_allowed.exit
 
 numeric_entity_is_allowed.exit:                   ; preds = %271, %282, %286
@@ -6117,7 +6117,7 @@ process_named_entity_html.exit:                   ; preds = %.critedge2.i
   br i1 %305, label %numeric_entity_is_allowed.exit.thread421, label %306
 
 306:                                              ; preds = %process_named_entity_html.exit
-  %307 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %261, i64 noundef %304, ptr noundef %.0318, ptr noundef nonnull %13, ptr noundef nonnull %14), !range !5
+  %307 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %261, i64 noundef %304, ptr noundef %.0318, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %308 = icmp eq i32 %307, -1
   br i1 %308, label %309, label %324
 
@@ -6253,7 +6253,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @unicode_cp_is_allowed(i32 noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @unicode_cp_is_allowed(i32 noundef %0, i32 noundef %1) unnamed_addr #5 {
   %3 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 28)
   switch i32 %3, label %29 [
     i32 0, label %4
@@ -6339,7 +6339,7 @@ switch.early.test66:                              ; preds = %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef i32 @process_numeric_entity(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @process_numeric_entity(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
@@ -6416,7 +6416,7 @@ define internal fastcc noundef i32 @process_numeric_entity(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @resolve_named_entity_html(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #7 {
+define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #7 {
   %6 = icmp ugt i64 %1, 7
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -7233,7 +7233,7 @@ determine_charset.exit:                           ; preds = %46, %48, %62, %67
 
 .preheader274:                                    ; preds = %.preheader274.preheader, %157
   %.0207277 = phi i32 [ %158, %157 ], [ 0, %.preheader274.preheader ]
-  %trunc = trunc i32 %.0207277 to i8
+  %trunc = trunc nuw i32 %.0207277 to i8
   switch i8 %trunc, label %.split222 [
     i8 39, label %125
     i8 34, label %135
@@ -7305,7 +7305,7 @@ determine_charset.exit:                           ; preds = %46, %48, %62, %67
   br i1 %162, label %171, label %163
 
 163:                                              ; preds = %.preheader
-  %164 = trunc i64 %indvars.iv294 to i32
+  %164 = trunc nuw nsw i64 %indvars.iv294 to i32
   switch i32 %164, label %.sink.split304 [
     i32 39, label %165
     i32 34, label %168
@@ -7373,7 +7373,7 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %5, align 1
   br label %write_octet_sequence.exit
 
@@ -7383,7 +7383,7 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
 
 14:                                               ; preds = %12
   %15 = lshr i32 %1, 6
-  %16 = trunc i32 %15 to i8
+  %16 = trunc nuw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 1
   %18 = trunc i32 %1 to i8
@@ -7398,7 +7398,7 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
 
 23:                                               ; preds = %21
   %24 = lshr i32 %1, 12
-  %25 = trunc i32 %24 to i8
+  %25 = trunc nuw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   store i8 %26, ptr %5, align 1
   %27 = lshr i32 %1, 6
@@ -7509,7 +7509,7 @@ write_octet_sequence.exit:                        ; preds = %4, %10, %14, %23, %
   %86 = getelementptr inbounds i8, ptr %83, i64 12
   %87 = load i16, ptr %86, align 4
   %88 = zext i16 %87 to i64
-  %89 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %85), !range !7
+  %89 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %85)
   %90 = load ptr, ptr %83, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %90, i64 %88, i1 false)
   %91 = add nuw nsw i64 %88, 1
@@ -7530,14 +7530,14 @@ write_octet_sequence.exit:                        ; preds = %4, %10, %14, %23, %
   %99 = load i32, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %97, i64 12
   %101 = load i16, ptr %100, align 4
-  %102 = call fastcc i32 @map_from_unicode(i32 noundef %99, i32 noundef %2, ptr noundef nonnull %7), !range !5
+  %102 = call fastcc i32 @map_from_unicode(i32 noundef %99, i32 noundef %2, ptr noundef nonnull %7)
   %103 = icmp eq i32 %102, -1
   br i1 %103, label %113, label %104
 
 104:                                              ; preds = %.lr.ph.split
   %105 = zext i16 %101 to i64
   %106 = load i32, ptr %7, align 4
-  %107 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %106), !range !7
+  %107 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %106)
   %108 = load ptr, ptr %97, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %108, i64 %105, i1 false)
   %109 = add nuw nsw i64 %105, 1
@@ -7566,7 +7566,7 @@ declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 n
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @map_from_unicode(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #10 {
+define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #10 {
   switch i32 %1, label %unimap_bsearch.exit.thread [
     i32 1, label %4
     i32 5, label %6
@@ -7813,7 +7813,7 @@ unimap_bsearch.exit.thread:                       ; preds = %91, %61, %36, %unim
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc noundef i64 @write_octet_sequence(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #11 {
+define internal fastcc range(i64 0, 5) i64 @write_octet_sequence(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #11 {
   switch i32 %1, label %php_utf32_utf8.exit [
     i32 0, label %4
     i32 1, label %50
@@ -7836,7 +7836,7 @@ define internal fastcc noundef i64 @write_octet_sequence(ptr nocapture noundef w
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %2 to i8
+  %7 = trunc nuw nsw i32 %2 to i8
   store i8 %7, ptr %0, align 1
   br label %php_utf32_utf8.exit
 
@@ -7846,7 +7846,7 @@ define internal fastcc noundef i64 @write_octet_sequence(ptr nocapture noundef w
 
 10:                                               ; preds = %8
   %11 = lshr i32 %2, 6
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %0, align 1
   %14 = trunc i32 %2 to i8
@@ -7863,7 +7863,7 @@ define internal fastcc noundef i64 @write_octet_sequence(ptr nocapture noundef w
 
 21:                                               ; preds = %18
   %22 = lshr i32 %2, 12
-  %23 = trunc i32 %22 to i8
+  %23 = trunc nuw i32 %22 to i8
   %24 = or disjoint i8 %23, -32
   store i8 %24, ptr %0, align 1
   %25 = lshr i32 %2, 6
@@ -7994,8 +7994,4 @@ attributes #24 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 9437184}
-!5 = !{i32 -1, i32 1}
-!6 = !{i32 0, i32 2}
-!7 = !{i64 0, i64 5}
-!8 = !{i64 2764475, i64 2764496}
+!4 = !{i64 2764475, i64 2764496}

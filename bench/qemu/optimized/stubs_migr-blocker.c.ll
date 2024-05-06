@@ -4,19 +4,19 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @migrate_add_blocker(ptr nocapture noundef readnone %reasonp, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @migrate_add_blocker(ptr nocapture noundef readnone %reasonp, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @migrate_add_blocker_normal(ptr nocapture noundef readnone %reasonp, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @migrate_add_blocker_normal(ptr nocapture noundef readnone %reasonp, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @migrate_add_blocker_modes(ptr nocapture noundef readnone %reasonp, ptr nocapture noundef readnone %errp, i32 noundef %mode, ...) local_unnamed_addr #0 {
+define dso_local noundef i32 @migrate_add_blocker_modes(ptr nocapture noundef readnone %reasonp, ptr nocapture noundef readnone %errp, i32 noundef %mode, ...) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }

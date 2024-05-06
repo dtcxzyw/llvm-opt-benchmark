@@ -225,7 +225,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %vtable4 = load ptr, ptr %3, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 48
   %4 = load ptr, ptr %vfn5, align 8
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %add.ptr, ptr noundef nonnull align 4 dereferenceable(16) %xf, i32 noundef %5)
   %call7 = tail call noundef i32 @_ZN12b2BroadPhase11CreateProxyERK6b2AABBPv(ptr noundef nonnull align 8 dereferenceable(76) %broadPhase, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr, ptr noundef %add.ptr)
   %proxyId = getelementptr inbounds i8, ptr %add.ptr, i64 28
@@ -666,7 +666,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %y51 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %27 = load float, ptr %y51, align 4
   %conv52 = fpext float %27 to double
-  %28 = trunc i64 %indvars.iv41 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv41 to i32
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.20, i32 noundef %28, double noundef %conv47, double noundef %conv52)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %29 = load i32, ptr %m_count, align 8
@@ -701,7 +701,7 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %y71 = getelementptr inbounds i8, ptr %arrayidx65, i64 4
   %35 = load float, ptr %y71, align 4
   %conv72 = fpext float %35 to double
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.20, i32 noundef %36, double noundef %conv67, double noundef %conv72)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %m_count57, align 8

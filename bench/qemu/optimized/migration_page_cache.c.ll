@@ -43,7 +43,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %div), !range !5
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %div)
   %tobool1.not.i = icmp ult i64 %0, 2
   br i1 %tobool1.not.i, label %if.end2, label %if.then1
 
@@ -124,7 +124,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i64 -1, ptr %arrayidx20, align 8
   %inc = add nuw i64 %i.027, 1
   %cmp15 = icmp ult i64 %inc, %div
-  br i1 %cmp15, label %for.body, label %return, !llvm.loop !6
+  br i1 %cmp15, label %for.body, label %return, !llvm.loop !5
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %if.then12, %if.then4, %if.then1, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then12 ], [ null, %if.then4 ], [ null, %if.then1 ], [ %call3, %for.cond.preheader ], [ %call3, %for.body ]
@@ -172,7 +172,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw i64 %i.010, 1
   %4 = load i64, ptr %max_num_items, align 8
   %cmp = icmp ult i64 %inc, %4
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %cache, align 8
@@ -279,7 +279,7 @@ return:                                           ; preds = %cache_get_by_addr.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @cache_insert(ptr noundef %cache, i64 noundef %addr, ptr nocapture noundef readonly %pdata, i64 noundef %current_age) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cache_insert(ptr noundef %cache, i64 noundef %addr, ptr nocapture noundef readonly %pdata, i64 noundef %current_age) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tobool.not.i = icmp eq ptr %cache, null
@@ -440,7 +440,6 @@ attributes #11 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

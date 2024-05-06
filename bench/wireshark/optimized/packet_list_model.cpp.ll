@@ -4767,7 +4767,7 @@ _ZNK17QArrayDataPointerIP16PacketListRecordE11needsDetachEv.exit.thread.i.i.i117
   %232 = ptrtoint ptr %226 to i64
   %233 = sub i64 %231, %232
   %234 = ashr exact i64 %233, 3
-  %235 = call i64 @llvm.ctlz.i64(i64 %234, i1 true), !range !80
+  %235 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %234, i1 true)
   %236 = shl nuw nsw i64 %235, 1
   %237 = xor i64 %236, 126
   invoke void @_ZSt16__introsort_loopIN5QListIP16PacketListRecordE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_T1_(ptr %226, ptr %229, i64 noundef %237, ptr nonnull @_ZN15PacketListModel14recordLessThanEP16PacketListRecordS1_)
@@ -4809,14 +4809,14 @@ _ZN5QListIP16PacketListRecordE6resizeEx.exit:     ; preds = %.lr.ph.preheader.i.
           to label %247 unwind label %258
 
 247:                                              ; preds = %_ZN5QListIP16PacketListRecordE6resizeEx.exit
-  %248 = load ptr, ptr %21, align 8, !noalias !81
-  %249 = load ptr, ptr %209, align 8, !noalias !81
-  %250 = load i64, ptr %212, align 8, !noalias !81
+  %248 = load ptr, ptr %21, align 8, !noalias !80
+  %249 = load ptr, ptr %209, align 8, !noalias !80
+  %250 = load i64, ptr %212, align 8, !noalias !80
   %.not.i.i.i.i.i123 = icmp eq ptr %248, null
   br i1 %.not.i.i.i.i.i123, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %251
 
 251:                                              ; preds = %247
-  %252 = atomicrmw add ptr %248, i32 1 seq_cst, align 4, !noalias !81
+  %252 = atomicrmw add ptr %248, i32 1 seq_cst, align 4, !noalias !80
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %247, %251
@@ -5044,7 +5044,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
 324:                                              ; preds = %289, %320
   %325 = getelementptr i8, ptr %.sroa.9.0196, i64 8
   %.not194 = icmp eq ptr %325, %253
-  br i1 %.not194, label %._crit_edge, label %289, !llvm.loop !84
+  br i1 %.not194, label %._crit_edge, label %289, !llvm.loop !83
 
 326:                                              ; preds = %266
   %327 = landingpad { ptr, i32 }
@@ -5416,7 +5416,7 @@ define noundef zeroext i1 @_ZN15PacketListModel15isNumericColumnEi(ptr nocapture
 41:                                               ; preds = %40, %34, %34, %34, %34, %40, %40, %40, %37, %37, %37
   %42 = add nuw i32 %.03948, 1
   %exitcond.not = icmp eq i32 %42, %15
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %30, %25, %41, %34, %12, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %2, %11
   %.0 = phi i1 [ false, %11 ], [ false, %2 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %12 ], [ false, %.lr.ph ], [ false, %40 ], [ false, %30 ], [ false, %25 ], [ true, %41 ], [ false, %34 ]
@@ -6250,15 +6250,15 @@ define void @_ZN15PacketListModel16flushVisibleRowsEv(ptr noundef nonnull align 
   %15 = trunc i64 %8 to i32
   %16 = add i32 %12, %15
   call void @_ZN18QAbstractItemModel15beginInsertRowsERK11QModelIndexii(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %12, i32 noundef %16)
-  %17 = load ptr, ptr %6, align 8, !noalias !86
+  %17 = load ptr, ptr %6, align 8, !noalias !85
   %18 = getelementptr inbounds i8, ptr %0, i64 104
-  %19 = load ptr, ptr %18, align 8, !noalias !86
-  %20 = load i64, ptr %7, align 8, !noalias !86
+  %19 = load ptr, ptr %18, align 8, !noalias !85
+  %20 = load i64, ptr %7, align 8, !noalias !85
   %.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %21
 
 21:                                               ; preds = %10
-  %22 = atomicrmw add ptr %17, i32 1 seq_cst, align 4, !noalias !86
+  %22 = atomicrmw add ptr %17, i32 1 seq_cst, align 4, !noalias !85
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %10, %21
@@ -6405,7 +6405,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
   store i32 %69, ptr %68, align 4
   %70 = getelementptr i8, ptr %.sroa.9.027, i64 8
   %.not25 = icmp eq ptr %70, %23
-  br i1 %.not25, label %._crit_edge, label %39, !llvm.loop !89
+  br i1 %.not25, label %._crit_edge, label %39, !llvm.loop !88
 
 _ZN5QListIP16PacketListRecordE6resizeEx.exit:     ; preds = %.lr.ph.preheader.i.i, %31, %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit, %1
   ret void
@@ -6518,7 +6518,7 @@ _ZN15PacketListModel18ensureRowColorizedEi.exit:  ; preds = %28, %30, %_ZN5QList
   %56 = load ptr, ptr %10, align 8
   %57 = tail call noundef i64 @_ZNK13QElapsedTimer7elapsedEv(ptr noundef nonnull align 8 dereferenceable(16) %56) #27
   %58 = icmp slt i64 %57, 5
-  br i1 %58, label %23, label %.critedge, !llvm.loop !90
+  br i1 %58, label %23, label %.critedge, !llvm.loop !89
 
 .critedge:                                        ; preds = %23, %_ZN15PacketListModel18ensureRowColorizedEi.exit, %9
   %59 = load i32, ptr %13, align 8
@@ -6755,16 +6755,16 @@ declare void @_ZN16PacketListRecord15ensureColorizedEP13_capture_file(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZNK15PacketListModel14visibleIndexOfEP11_frame_data(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr noundef readnone %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !noalias !91
+  %4 = load ptr, ptr %3, align 8, !noalias !90
   %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !noalias !91
+  %6 = load ptr, ptr %5, align 8, !noalias !90
   %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = load i64, ptr %7, align 8, !noalias !91
+  %8 = load i64, ptr %7, align 8, !noalias !90
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = atomicrmw add ptr %4, i32 1 seq_cst, align 4, !noalias !91
+  %10 = atomicrmw add ptr %4, i32 1 seq_cst, align 4, !noalias !90
   br label %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit: ; preds = %2, %9
@@ -6786,7 +6786,7 @@ _ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeac
   %16 = add i32 %.0713, 1
   %17 = getelementptr i8, ptr %.sroa.7.012, i64 8
   %.not = icmp eq ptr %17, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit
   %.not.lcssa = phi i32 [ -1, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit ], [ %.0713, %.lr.ph ], [ -1, %15 ]
@@ -6962,7 +6962,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6QCacheIj5QListI7QStringEE6removeERKj
   %46 = getelementptr [128 x i8], ptr %45, i64 0, i64 %44
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, -1
-  br i1 %48, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread, label %.lr.ph.i.i, !llvm.loop !95
+  br i1 %48, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread, label %.lr.ph.i.i, !llvm.loop !94
 
 _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit.i: ; preds = %.lr.ph.i.i
   %.pre7.i = and i64 %.016.i.i, 127
@@ -7042,7 +7042,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit: ; 
   %101 = getelementptr [128 x i8], ptr %100, i64 0, i64 %99
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, -1
-  br i1 %103, label %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit, label %.lr.ph.i.i6, !llvm.loop !95
+  br i1 %103, label %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit, label %.lr.ph.i.i6, !llvm.loop !94
 
 _ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit: ; preds = %.lr.ph.i.i6, %95, %53
   %.0.lcssa.i.i = phi i64 [ %79, %53 ], [ %.016.i.i7, %.lr.ph.i.i6 ], [ %spec.store.select.i.i.i8, %95 ]
@@ -7143,7 +7143,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %62 = icmp eq i64 %61, %29
   %spec.store.select.i41 = select i1 %62, i64 0, i64 %61
   %63 = icmp eq i64 %spec.store.select.i41, %spec.store.select.i51
-  br i1 %63, label %.loopexit, label %.lr.ph, !llvm.loop !96
+  br i1 %63, label %.loopexit, label %.lr.ph, !llvm.loop !95
 
 .loopexit:                                        ; preds = %60, %23, %54, %58
   %.1 = phi i64 [ %spec.store.select.i51, %58 ], [ %spec.store.select.i51, %54 ], [ %.050, %23 ], [ %.050, %60 ]
@@ -7158,7 +7158,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %71 = getelementptr [128 x i8], ptr %70, i64 0, i64 %68
   %72 = load i8, ptr %71, align 1
   %.not = icmp eq i8 %72, -1
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !97
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   %.lcssa45 = phi i64 [ %14, %3 ], [ %65, %.loopexit ]
@@ -7194,7 +7194,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %92 = getelementptr [128 x i8], ptr %90, i64 0, i64 %91
   %93 = load i8, ptr %92, align 1
   %.not.i.i = icmp eq i8 %93, -1
-  br i1 %.not.i.i, label %83, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit, !llvm.loop !98
+  br i1 %.not.i.i, label %83, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit, !llvm.loop !97
 
 _ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit: ; preds = %87, %83, %75
   %.sroa.0.1 = phi ptr [ %1, %75 ], [ null, %83 ], [ %1, %87 ]
@@ -7509,7 +7509,7 @@ _ZN6QCacheIj5QListI7QStringEE4NodeD2Ev.exit:      ; preds = %9, %_ZN5QListI7QStr
   %46 = load i8, ptr %2, align 8
   %47 = zext i8 %46 to i64
   %48 = icmp ult i64 %45, %47
-  br i1 %48, label %9, label %.preheader.loopexit, !llvm.loop !99
+  br i1 %48, label %9, label %.preheader.loopexit, !llvm.loop !98
 
 49:                                               ; preds = %.preheader, %49
   %.018 = phi i64 [ %.lcssa, %.preheader ], [ %50, %49 ]
@@ -7518,7 +7518,7 @@ _ZN6QCacheIj5QListI7QStringEE4NodeD2Ev.exit:      ; preds = %9, %_ZN5QListI7QStr
   %52 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %7, i64 %.018
   store i8 %51, ptr %52, align 1
   %exitcond.not = icmp eq i64 %50, %.pre-phi
-  br i1 %exitcond.not, label %53, label %49, !llvm.loop !100
+  br i1 %exitcond.not, label %53, label %49, !llvm.loop !99
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %0, i64 128
@@ -7786,23 +7786,23 @@ _ZNK17QArrayDataPointerIP16PacketListRecordE14freeSpaceAtEndEv.exit.i23.i: ; pre
 46:                                               ; preds = %42
   %47 = getelementptr ptr, ptr %32, i64 %39
   %48 = icmp eq i64 %23, 0
-  br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32.i, label %49
+  br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33.i, label %49
 
 49:                                               ; preds = %46
-  %.idx.mask.i.i29.i = and i64 %39, 2305843009213693951
-  %50 = icmp eq i64 %.idx.mask.i.i29.i, 0
+  %.idx.mask.i.i30.i = and i64 %39, 2305843009213693951
+  %50 = icmp eq i64 %.idx.mask.i.i30.i, 0
   %51 = icmp eq ptr %32, null
-  %or.cond.i.i.i30.i = or i1 %51, %50
+  %or.cond.i.i.i31.i = or i1 %51, %50
   %52 = icmp eq ptr %47, null
-  %or.cond3.i.i.i31.i = or i1 %52, %or.cond.i.i.i30.i
-  br i1 %or.cond3.i.i.i31.i, label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32.i, label %53
+  %or.cond3.i.i.i32.i = or i1 %52, %or.cond.i.i.i31.i
+  br i1 %or.cond3.i.i.i32.i, label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33.i, label %53
 
 53:                                               ; preds = %49
   %54 = shl i64 %23, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %32, i64 %54, i1 false)
-  br label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32.i
+  br label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33.i
 
-_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32.i: ; preds = %53, %49, %46
+_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33.i: ; preds = %53, %49, %46
   store ptr %47, ptr %31, align 8
   br label %_ZN17QArrayDataPointerIP16PacketListRecordE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS1_PS2_.exit
 
@@ -7821,7 +7821,7 @@ _ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32.
   store i64 %1, ptr %57, align 8
   br label %_ZN17QArrayDataPointerIP16PacketListRecordE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS1_PS2_.exit
 
-_ZN17QArrayDataPointerIP16PacketListRecordE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS1_PS2_.exit: ; preds = %.critedge.i, %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32.i, %28, %27, %56, %60
+_ZN17QArrayDataPointerIP16PacketListRecordE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS1_PS2_.exit: ; preds = %.critedge.i, %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33.i, %28, %27, %56, %60
   ret void
 }
 
@@ -7849,12 +7849,12 @@ _ZNK17QArrayDataPointerIP16PacketListRecordE11needsDetachEv.exit: ; preds = %5
 ._crit_edge:                                      ; preds = %10
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre47 = ptrtoint ptr %6 to i64
-  %.pre48 = add i64 %.pre47, 23
-  %.pre50 = and i64 %.pre48, -8
-  %.pre52 = ptrtoint ptr %.pre to i64
-  %.pre54 = sub i64 %.pre52, %.pre50
-  %.pre56 = ashr exact i64 %.pre54, 3
+  %.pre49 = ptrtoint ptr %6 to i64
+  %.pre50 = add i64 %.pre49, 23
+  %.pre52 = and i64 %.pre50, -8
+  %.pre54 = ptrtoint ptr %.pre to i64
+  %.pre56 = sub i64 %.pre54, %.pre52
+  %.pre58 = ashr exact i64 %.pre56, 3
   br label %19
 
 _ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit: ; preds = %10
@@ -7870,21 +7870,21 @@ _ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit: ; preds =
   br i1 %.not16, label %19, label %_ZN17QArrayDataPointerIP16PacketListRecordE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
 19:                                               ; preds = %._crit_edge, %_ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit
-  %.pre-phi57 = phi i64 [ %.pre56, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit ]
+  %.pre-phi59 = phi i64 [ %.pre58, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %12, %_ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit ]
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %.pre-phi57
+  %26 = add i64 %25, %.pre-phi59
   %27 = sub i64 %22, %26
   %28 = icmp eq i32 %1, 1
   %.not18.i = icmp sge i64 %27, %2
-  %or.cond19.i.not60 = and i1 %28, %.not18.i
+  %or.cond19.i.not62 = and i1 %28, %.not18.i
   %29 = mul i64 %25, 3
   %30 = icmp slt i64 %29, %22
-  %or.cond = and i1 %or.cond19.i.not60, %30
+  %or.cond = and i1 %or.cond19.i.not62, %30
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
@@ -7892,7 +7892,7 @@ _ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit: ; preds =
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
-  %36 = sub i64 %2, %.pre-phi57
+  %36 = sub i64 %2, %.pre-phi59
   %37 = add i64 %36, %35
   %38 = getelementptr ptr, ptr %20, i64 %37
   %39 = icmp eq i64 %25, 0
@@ -7967,42 +7967,42 @@ _ZNK17QArrayDataPointerIP16PacketListRecordE14freeSpaceAtEndEv.exit.i23: ; preds
   %74 = sub nsw i64 0, %64
   %75 = getelementptr ptr, ptr %58, i64 %74
   %76 = icmp eq i64 %66, 0
-  br i1 %76, label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32, label %77
+  br i1 %76, label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33, label %77
 
 77:                                               ; preds = %73
-  %.idx.mask.i.i29 = and i64 %74, 2305843009213693951
-  %78 = icmp eq i64 %.idx.mask.i.i29, 0
+  %.idx.mask.i.i30 = and i64 %74, 2305843009213693951
+  %78 = icmp eq i64 %.idx.mask.i.i30, 0
   %79 = icmp eq ptr %58, null
-  %or.cond.i.i.i30 = or i1 %78, %79
+  %or.cond.i.i.i31 = or i1 %78, %79
   %80 = icmp eq ptr %75, null
-  %or.cond3.i.i.i31 = or i1 %80, %or.cond.i.i.i30
-  br i1 %or.cond3.i.i.i31, label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32, label %81
+  %or.cond3.i.i.i32 = or i1 %80, %or.cond.i.i.i31
+  br i1 %or.cond3.i.i.i32, label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33, label %81
 
 81:                                               ; preds = %77
   %82 = shl i64 %66, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %58, i64 %82, i1 false)
-  br label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32
+  br label %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33
 
-_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32: ; preds = %81, %77, %73
-  %.not.i21.i33 = icmp eq ptr %3, null
-  br i1 %.not.i21.i33, label %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i35, label %83
+_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33: ; preds = %81, %77, %73
+  %.not.i21.i34 = icmp eq ptr %3, null
+  br i1 %.not.i21.i34, label %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i36, label %83
 
-83:                                               ; preds = %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32
+83:                                               ; preds = %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33
   %84 = load ptr, ptr %3, align 8
   %85 = load ptr, ptr %57, align 8
   %86 = load i64, ptr %65, align 8
   %87 = getelementptr ptr, ptr %85, i64 %86
   %88 = icmp uge ptr %84, %85
   %89 = icmp ult ptr %84, %87
-  %spec.select.i.i.i34 = and i1 %88, %89
-  br i1 %spec.select.i.i.i34, label %90, label %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i35
+  %spec.select.i.i.i35 = and i1 %88, %89
+  br i1 %spec.select.i.i.i35, label %90, label %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i36
 
 90:                                               ; preds = %83
   %91 = getelementptr ptr, ptr %84, i64 %74
   store ptr %91, ptr %3, align 8
-  br label %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i35
+  br label %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i36
 
-_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i35: ; preds = %90, %83, %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i32
+_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i36: ; preds = %90, %83, %_ZN9QtPrivate20q_relocate_overlap_nIP16PacketListRecordxEEvPT_T0_S4_.exit.i.i33
   store ptr %75, ptr %57, align 8
   br label %_ZN17QArrayDataPointerIP16PacketListRecordE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
@@ -8010,7 +8010,7 @@ _ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i35: ; preds =
   tail call void @_ZN17QArrayDataPointerIP16PacketListRecordE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %4)
   br label %_ZN17QArrayDataPointerIP16PacketListRecordE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
-_ZN17QArrayDataPointerIP16PacketListRecordE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit: ; preds = %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i, %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i35, %9, %_ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerIP16PacketListRecordE14freeSpaceAtEndEv.exit, %.critedge
+_ZN17QArrayDataPointerIP16PacketListRecordE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit: ; preds = %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i, %_ZN17QArrayDataPointerIP16PacketListRecordE8relocateExPPKS1_.exit.i36, %9, %_ZNK17QArrayDataPointerIP16PacketListRecordE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerIP16PacketListRecordE14freeSpaceAtEndEv.exit, %.critedge
   ret void
 }
 
@@ -8512,23 +8512,23 @@ _ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i23.i: ; preds = %28
 46:                                               ; preds = %42
   %47 = getelementptr i32, ptr %32, i64 %39
   %48 = icmp eq i64 %23, 0
-  br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i, label %49
+  br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i, label %49
 
 49:                                               ; preds = %46
-  %.idx.mask.i.i29.i = and i64 %39, 4611686018427387903
-  %50 = icmp eq i64 %.idx.mask.i.i29.i, 0
+  %.idx.mask.i.i30.i = and i64 %39, 4611686018427387903
+  %50 = icmp eq i64 %.idx.mask.i.i30.i, 0
   %51 = icmp eq ptr %32, null
-  %or.cond.i.i.i30.i = or i1 %51, %50
+  %or.cond.i.i.i31.i = or i1 %51, %50
   %52 = icmp eq ptr %47, null
-  %or.cond3.i.i.i31.i = or i1 %52, %or.cond.i.i.i30.i
-  br i1 %or.cond3.i.i.i31.i, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i, label %53
+  %or.cond3.i.i.i32.i = or i1 %52, %or.cond.i.i.i31.i
+  br i1 %or.cond3.i.i.i32.i, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i, label %53
 
 53:                                               ; preds = %49
   %54 = shl i64 %23, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %32, i64 %54, i1 false)
-  br label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i
+  br label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i
 
-_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i: ; preds = %53, %49, %46
+_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i: ; preds = %53, %49, %46
   store ptr %47, ptr %31, align 8
   br label %_ZN17QArrayDataPointerIiE13detachAndGrowEN10QArrayData14GrowthPositionExPPKiPS0_.exit
 
@@ -8547,7 +8547,7 @@ _ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i: ; preds = %53, 
   store i64 %1, ptr %57, align 8
   br label %_ZN17QArrayDataPointerIiE13detachAndGrowEN10QArrayData14GrowthPositionExPPKiPS0_.exit
 
-_ZN17QArrayDataPointerIiE13detachAndGrowEN10QArrayData14GrowthPositionExPPKiPS0_.exit: ; preds = %.critedge.i, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i, %28, %27, %56, %60
+_ZN17QArrayDataPointerIiE13detachAndGrowEN10QArrayData14GrowthPositionExPPKiPS0_.exit: ; preds = %.critedge.i, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i, %28, %27, %56, %60
   ret void
 }
 
@@ -8575,12 +8575,12 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit:   ; preds = %5
 ._crit_edge:                                      ; preds = %10
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre47 = ptrtoint ptr %6 to i64
-  %.pre48 = add i64 %.pre47, 23
-  %.pre50 = and i64 %.pre48, -8
-  %.pre52 = ptrtoint ptr %.pre to i64
-  %.pre54 = sub i64 %.pre52, %.pre50
-  %.pre56 = ashr exact i64 %.pre54, 2
+  %.pre49 = ptrtoint ptr %6 to i64
+  %.pre50 = add i64 %.pre49, 23
+  %.pre52 = and i64 %.pre50, -8
+  %.pre54 = ptrtoint ptr %.pre to i64
+  %.pre56 = sub i64 %.pre54, %.pre52
+  %.pre58 = ashr exact i64 %.pre56, 2
   br label %19
 
 _ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit: ; preds = %10
@@ -8596,21 +8596,21 @@ _ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit: ; preds = %10
   br i1 %.not16, label %19, label %_ZN17QArrayDataPointerIiE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKi.exit
 
 19:                                               ; preds = %._crit_edge, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit
-  %.pre-phi57 = phi i64 [ %.pre56, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit ]
+  %.pre-phi59 = phi i64 [ %.pre58, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %12, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit ]
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %.pre-phi57
+  %26 = add i64 %25, %.pre-phi59
   %27 = sub i64 %22, %26
   %28 = icmp eq i32 %1, 1
   %.not18.i = icmp sge i64 %27, %2
-  %or.cond19.i.not60 = and i1 %28, %.not18.i
+  %or.cond19.i.not62 = and i1 %28, %.not18.i
   %29 = mul i64 %25, 3
   %30 = icmp slt i64 %29, %22
-  %or.cond = and i1 %or.cond19.i.not60, %30
+  %or.cond = and i1 %or.cond19.i.not62, %30
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
@@ -8618,7 +8618,7 @@ _ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit: ; preds = %10
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
-  %36 = sub i64 %2, %.pre-phi57
+  %36 = sub i64 %2, %.pre-phi59
   %37 = add i64 %36, %35
   %38 = getelementptr i32, ptr %20, i64 %37
   %39 = icmp eq i64 %25, 0
@@ -8693,42 +8693,42 @@ _ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i23: ; preds = %_ZNK17QArrayDa
   %74 = sub nsw i64 0, %64
   %75 = getelementptr i32, ptr %58, i64 %74
   %76 = icmp eq i64 %66, 0
-  br i1 %76, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32, label %77
+  br i1 %76, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33, label %77
 
 77:                                               ; preds = %73
-  %.idx.mask.i.i29 = and i64 %74, 4611686018427387903
-  %78 = icmp eq i64 %.idx.mask.i.i29, 0
+  %.idx.mask.i.i30 = and i64 %74, 4611686018427387903
+  %78 = icmp eq i64 %.idx.mask.i.i30, 0
   %79 = icmp eq ptr %58, null
-  %or.cond.i.i.i30 = or i1 %78, %79
+  %or.cond.i.i.i31 = or i1 %78, %79
   %80 = icmp eq ptr %75, null
-  %or.cond3.i.i.i31 = or i1 %80, %or.cond.i.i.i30
-  br i1 %or.cond3.i.i.i31, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32, label %81
+  %or.cond3.i.i.i32 = or i1 %80, %or.cond.i.i.i31
+  br i1 %or.cond3.i.i.i32, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33, label %81
 
 81:                                               ; preds = %77
   %82 = shl i64 %66, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %58, i64 %82, i1 false)
-  br label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32
+  br label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33
 
-_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32: ; preds = %81, %77, %73
-  %.not.i21.i33 = icmp eq ptr %3, null
-  br i1 %.not.i21.i33, label %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i35, label %83
+_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33: ; preds = %81, %77, %73
+  %.not.i21.i34 = icmp eq ptr %3, null
+  br i1 %.not.i21.i34, label %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i36, label %83
 
-83:                                               ; preds = %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32
+83:                                               ; preds = %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33
   %84 = load ptr, ptr %3, align 8
   %85 = load ptr, ptr %57, align 8
   %86 = load i64, ptr %65, align 8
   %87 = getelementptr i32, ptr %85, i64 %86
   %88 = icmp uge ptr %84, %85
   %89 = icmp ult ptr %84, %87
-  %spec.select.i.i.i34 = and i1 %88, %89
-  br i1 %spec.select.i.i.i34, label %90, label %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i35
+  %spec.select.i.i.i35 = and i1 %88, %89
+  br i1 %spec.select.i.i.i35, label %90, label %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i36
 
 90:                                               ; preds = %83
   %91 = getelementptr i32, ptr %84, i64 %74
   store ptr %91, ptr %3, align 8
-  br label %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i35
+  br label %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i36
 
-_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i35: ; preds = %90, %83, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32
+_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i36: ; preds = %90, %83, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33
   store ptr %75, ptr %57, align 8
   br label %_ZN17QArrayDataPointerIiE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKi.exit
 
@@ -8736,7 +8736,7 @@ _ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i35: ; preds = %90, %83, %_ZN9QtPr
   tail call void @_ZN17QArrayDataPointerIiE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %4)
   br label %_ZN17QArrayDataPointerIiE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKi.exit
 
-_ZN17QArrayDataPointerIiE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKi.exit: ; preds = %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i, %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i35, %9, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit, %.critedge
+_ZN17QArrayDataPointerIiE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKi.exit: ; preds = %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i, %_ZN17QArrayDataPointerIiE8relocateExPPKi.exit.i36, %9, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit, %.critedge
   ret void
 }
 
@@ -9243,7 +9243,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListIP16PacketListRecordE8it
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %5
   %16 = icmp sgt i64 %15, 128
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !101
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %11, %4, %10
   ret void
@@ -9292,7 +9292,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIP16PacketListReco
   store ptr %21, ptr %22, align 8
   %23 = add nsw i64 %.010.i.i.i.i.i.i, -1
   %24 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
-  br i1 %24, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !102
+  br i1 %24, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !101
 
 25:                                               ; preds = %9
   %26 = load ptr, ptr %.pn21.i, align 8
@@ -9307,14 +9307,14 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIP16PacketListReco
   %.sroa.0.0.i.i = getelementptr i8, ptr %.sroa.0.010.i.i, i64 -8
   %29 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %30 = tail call noundef zeroext i1 %2(ptr noundef %13, ptr noundef %29)
-  br i1 %30, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !103
+  br i1 %30, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !102
 
 _ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %25, %14
   %.sink.i = phi ptr [ %0, %14 ], [ %.sroa.0.022.i, %25 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
   store ptr %13, ptr %.sink.i, align 8
   %.sroa.0.0.i = getelementptr i8, ptr %.sroa.0.022.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %8
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit, label %9, !llvm.loop !104
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit, label %9, !llvm.loop !103
 
 _ZSt16__insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit: ; preds = %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i
   %.not8.i = icmp eq ptr %8, %1
@@ -9336,14 +9336,14 @@ _ZSt16__insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15
   %.sroa.0.0.i.i16 = getelementptr i8, ptr %.sroa.0.010.i.i14, i64 -8
   %35 = load ptr, ptr %.sroa.0.0.i.i16, align 8
   %36 = tail call noundef zeroext i1 %2(ptr noundef %31, ptr noundef %35)
-  br i1 %36, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i, !llvm.loop !103
+  br i1 %36, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i, !llvm.loop !102
 
 _ZSt25__unguarded_linear_insertIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i13, %.lr.ph.i11
   %.sroa.05.0.lcssa.i.i = phi ptr [ %.sroa.0.09.i, %.lr.ph.i11 ], [ %.sroa.0.010.i.i14, %.lr.ph.i.i13 ]
   store ptr %31, ptr %.sroa.05.0.lcssa.i.i, align 8
   %37 = getelementptr i8, ptr %.sroa.0.09.i, i64 8
   %.not.i12 = icmp eq ptr %37, %1
-  br i1 %.not.i12, label %_ZSt26__unguarded_insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit, label %.lr.ph.i11, !llvm.loop !105
+  br i1 %.not.i12, label %_ZSt26__unguarded_insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit, label %.lr.ph.i11, !llvm.loop !104
 
 38:                                               ; preds = %3
   %39 = icmp eq ptr %0, %1
@@ -9381,7 +9381,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cx
   store ptr %51, ptr %52, align 8
   %53 = add nsw i64 %.010.i.i.i.i.i.i33, -1
   %54 = icmp ugt i64 %.010.i.i.i.i.i.i33, 1
-  br i1 %54, label %.lr.ph.i.i.i.i.i.i32, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23, !llvm.loop !102
+  br i1 %54, label %.lr.ph.i.i.i.i.i.i32, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23, !llvm.loop !101
 
 55:                                               ; preds = %.lr.ph.i20
   %56 = load ptr, ptr %.pn21.i22, align 8
@@ -9396,14 +9396,14 @@ _ZSt25__unguarded_linear_insertIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cx
   %.sroa.0.0.i.i30 = getelementptr i8, ptr %.sroa.0.010.i.i28, i64 -8
   %59 = load ptr, ptr %.sroa.0.0.i.i30, align 8
   %60 = tail call noundef zeroext i1 %2(ptr noundef %43, ptr noundef %59)
-  br i1 %60, label %.lr.ph.i.i27, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23, !llvm.loop !103
+  br i1 %60, label %.lr.ph.i.i27, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23, !llvm.loop !102
 
 _ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23: ; preds = %.lr.ph.i.i27, %.lr.ph.i.i.i.i.i.i32, %55, %44
   %.sink.i24 = phi ptr [ %0, %44 ], [ %.sroa.0.022.i21, %55 ], [ %0, %.lr.ph.i.i.i.i.i.i32 ], [ %.sroa.0.010.i.i28, %.lr.ph.i.i27 ]
   store ptr %43, ptr %.sink.i24, align 8
   %.sroa.0.0.i25 = getelementptr i8, ptr %.sroa.0.022.i21, i64 8
   %.not.i26 = icmp eq ptr %.sroa.0.0.i25, %1
-  br i1 %.not.i26, label %_ZSt26__unguarded_insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit, label %.lr.ph.i20, !llvm.loop !104
+  br i1 %.not.i26, label %_ZSt26__unguarded_insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit, label %.lr.ph.i20, !llvm.loop !103
 
 _ZSt26__unguarded_insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit: ; preds = %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23, %_ZSt25__unguarded_linear_insertIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i, %38, %_ZSt16__insertion_sortIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_T0_.exit
   ret void
@@ -9448,7 +9448,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN5QListIP16PacketListRecordE8iter
   %28 = getelementptr ptr, ptr %0, i64 %.036.i.i.i
   store ptr %27, ptr %28, align 8
   %29 = icmp slt i64 %spec.select.i.i.i, %16
-  br i1 %29, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !106
+  br i1 %29, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !105
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.lr.ph.i
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
@@ -9490,14 +9490,14 @@ define linkonce_odr void @_ZSt14__partial_sortIN5QListIP16PacketListRecordE8iter
   %49 = getelementptr ptr, ptr %0, i64 %.019.i.i.i.i
   store ptr %48, ptr %49, align 8
   %.not.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !107
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !106
 
 _ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.i: ; preds = %47, %.lr.ph.i.i.i.i, %42
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %42 ], [ 0, %47 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
   %50 = getelementptr ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %10, ptr %50, align 8
   %51 = icmp sgt i64 %13, 8
-  br i1 %51, label %.lr.ph.i, label %_ZSt11__sort_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_RT0_.exit, !llvm.loop !108
+  br i1 %51, label %.lr.ph.i, label %_ZSt11__sort_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_RT0_.exit, !llvm.loop !107
 
 _ZSt11__sort_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_RT0_.exit: ; preds = %_ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.i, %4
   ret void
@@ -9594,7 +9594,7 @@ _ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5_
   %48 = load ptr, ptr %0, align 8
   %49 = tail call noundef zeroext i1 %2(ptr noundef %47, ptr noundef %48)
   %50 = getelementptr i8, ptr %.sroa.012.1.i, i64 8
-  br i1 %49, label %46, label %.preheader.i, !llvm.loop !109
+  br i1 %49, label %46, label %.preheader.i, !llvm.loop !108
 
 .preheader.i:                                     ; preds = %46, %.preheader.i
   %.sroa.010.0.pn.i = phi ptr [ %.sroa.010.1.i, %.preheader.i ], [ %.sroa.010.0.i, %46 ]
@@ -9602,7 +9602,7 @@ _ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5_
   %51 = load ptr, ptr %0, align 8
   %52 = load ptr, ptr %.sroa.010.1.i, align 8
   %53 = tail call noundef zeroext i1 %2(ptr noundef %51, ptr noundef %52)
-  br i1 %53, label %.preheader.i, label %54, !llvm.loop !110
+  br i1 %53, label %.preheader.i, label %54, !llvm.loop !109
 
 54:                                               ; preds = %.preheader.i
   %55 = icmp ult ptr %.sroa.012.1.i, %.sroa.010.1.i
@@ -9613,7 +9613,7 @@ _ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5_
   %58 = load ptr, ptr %.sroa.010.1.i, align 8
   store ptr %58, ptr %.sroa.012.1.i, align 8
   store ptr %57, ptr %.sroa.010.1.i, align 8
-  br label %_ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit, !llvm.loop !111
+  br label %_ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit, !llvm.loop !110
 
 _ZSt21__unguarded_partitionIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEET_SB_SB_SB_T0_.exit: ; preds = %54
   ret ptr %.sroa.012.1.i
@@ -9679,7 +9679,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN5QListIP16PacketListRecordE8itera
   %37 = getelementptr ptr, ptr %0, i64 %.036.i.i.us
   store ptr %36, ptr %37, align 8
   %38 = icmp slt i64 %spec.select.i.i.us, %12
-  br i1 %38, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !106
+  br i1 %38, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !105
 
 39:                                               ; preds = %._crit_edge.i.i.loopexit.us
   %40 = load ptr, ptr %19, align 8
@@ -9705,7 +9705,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN5QListIP16PacketListRecordE8itera
   %48 = getelementptr ptr, ptr %0, i64 %.019.i.i.i.us
   store ptr %47, ptr %48, align 8
   %.not.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
-  br i1 %.not.i.us, label %_ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !107
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !106
 
 _ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %46, %41
   %.0.lcssa.i.i.i.us = phi i64 [ %.1.i.i.us, %41 ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %46 ]
@@ -9716,7 +9716,7 @@ _ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_
 50:                                               ; preds = %_ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.us, %.lr.ph.split.us
   %51 = getelementptr i8, ptr %.sroa.0.012.us, i64 8
   %52 = icmp ult ptr %51, %2
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !112
+  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
   %53 = icmp eq i64 %spec.select.i.i.us, %17
@@ -9757,7 +9757,7 @@ _ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_
 66:                                               ; preds = %_ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.loopexit.us25.us, %.lr.ph.split.split.us.split.us
   %67 = getelementptr i8, ptr %.sroa.0.012.us13.us, i64 8
   %68 = icmp ult ptr %67, %2
-  br i1 %68, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !112
+  br i1 %68, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !111
 
 _ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_RT0_.exit.loopexit.us25.us: ; preds = %64, %._crit_edge.i.i.us14.us
   %.0.lcssa.i.i.i.ph.us26.us = phi i64 [ 1, %._crit_edge.i.i.us14.us ], [ 0, %64 ]
@@ -9783,7 +9783,7 @@ _ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_
 76:                                               ; preds = %._crit_edge.i.i.us14, %.lr.ph.split.split.us.split
   %77 = getelementptr i8, ptr %.sroa.0.012.us13, i64 8
   %78 = icmp ult ptr %77, %2
-  br i1 %78, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !112
+  br i1 %78, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !111
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %85
   %.sroa.0.012 = phi ptr [ %86, %85 ], [ %1, %.lr.ph.split ]
@@ -9803,7 +9803,7 @@ _ZSt10__pop_heapIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_
 85:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
   %86 = getelementptr i8, ptr %.sroa.0.012, i64 8
   %87 = icmp ult ptr %86, %2
-  br i1 %87, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !112
+  br i1 %87, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %85, %76, %66, %50, %4
   ret void
@@ -9859,7 +9859,7 @@ define linkonce_odr void @_ZSt11__make_heapIN5QListIP16PacketListRecordE8iterato
   %31 = getelementptr ptr, ptr %0, i64 %.036.i.us
   store ptr %30, ptr %31, align 8
   %32 = icmp slt i64 %spec.select.i.us, %12
-  br i1 %32, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !106
+  br i1 %32, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !105
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %33 = icmp sgt i64 %spec.select.i.us, %.0.us
@@ -9879,7 +9879,7 @@ define linkonce_odr void @_ZSt11__make_heapIN5QListIP16PacketListRecordE8iterato
   %39 = getelementptr ptr, ptr %0, i64 %.019.i.i.us
   store ptr %38, ptr %39, align 8
   %40 = icmp sgt i64 %.0920.i.i.us, %.0.us
-  br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit.us, !llvm.loop !107
+  br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit.us, !llvm.loop !106
 
 _ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %37, %.split.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.us, %.split.split.us ], [ %.0920.i.i.us, %37 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
@@ -9887,7 +9887,7 @@ _ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops1
   store ptr %19, ptr %41, align 8
   %42 = icmp eq i64 %.0.us, 0
   %43 = add nsw i64 %.0.us, -1
-  br i1 %42, label %.loopexit, label %.split.split.us, !llvm.loop !113
+  br i1 %42, label %.loopexit, label %.split.split.us, !llvm.loop !112
 
 .split.split:                                     ; preds = %.split.split.preheader, %_ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit
   %.0 = phi i64 [ %72, %_ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit ], [ %10, %.split.split.preheader ]
@@ -9913,7 +9913,7 @@ _ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops1
   %56 = getelementptr ptr, ptr %0, i64 %.036.i
   store ptr %55, ptr %56, align 8
   %57 = icmp slt i64 %spec.select.i, %12
-  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !106
+  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !105
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split.split
   %.0.lcssa.i = phi i64 [ %.0, %.split.split ], [ %spec.select.i, %.lr.ph.i ]
@@ -9944,7 +9944,7 @@ _ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops1
   %68 = getelementptr ptr, ptr %0, i64 %.019.i.i
   store ptr %67, ptr %68, align 8
   %69 = icmp sgt i64 %.0920.i.i, %.0
-  br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit, !llvm.loop !107
+  br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit, !llvm.loop !106
 
 _ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit: ; preds = %.lr.ph.i.i, %66, %61
   %.0.lcssa.i.i = phi i64 [ %.1.i, %61 ], [ %.0920.i.i, %66 ], [ %.019.i.i, %.lr.ph.i.i ]
@@ -9952,7 +9952,7 @@ _ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops1
   store ptr %44, ptr %70, align 8
   %71 = icmp eq i64 %.0, 0
   %72 = add nsw i64 %.0, -1
-  br i1 %71, label %.loopexit, label %.split.split, !llvm.loop !113
+  br i1 %71, label %.loopexit, label %.split.split, !llvm.loop !112
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit.us, %_ZSt13__adjust_heapIN5QListIP16PacketListRecordE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SC_T1_T2_.exit, %3
   ret void
@@ -10277,20 +10277,20 @@ attributes #31 = { nounwind willreturn memory(read) }
 !77 = distinct !{!77, !8}
 !78 = distinct !{!78, !8}
 !79 = distinct !{!79, !8}
-!80 = !{i64 0, i64 65}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
-!83 = distinct !{!83, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
+!82 = distinct !{!82, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
+!83 = distinct !{!83, !8}
 !84 = distinct !{!84, !8}
-!85 = distinct !{!85, !8}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
-!88 = distinct !{!88, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
+!87 = distinct !{!87, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
+!88 = distinct !{!88, !8}
 !89 = distinct !{!89, !8}
-!90 = distinct !{!90, !8}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_: argument 0"}
-!93 = distinct !{!93, !"_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_: argument 0"}
+!92 = distinct !{!92, !"_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_"}
+!93 = distinct !{!93, !8}
 !94 = distinct !{!94, !8}
 !95 = distinct !{!95, !8}
 !96 = distinct !{!96, !8}
@@ -10310,4 +10310,3 @@ attributes #31 = { nounwind willreturn memory(read) }
 !110 = distinct !{!110, !8}
 !111 = distinct !{!111, !8}
 !112 = distinct !{!112, !8}
-!113 = distinct !{!113, !8}

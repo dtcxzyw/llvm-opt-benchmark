@@ -57,7 +57,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %36 = sdiv i32 %34, 3600
   %.sext.i = sext i32 %36 to i64
   %37 = srem i32 %34, 3600
-  %.lhs.trunc56.i = trunc i32 %37 to i16
+  %.lhs.trunc56.i = trunc nsw i32 %37 to i16
   %38 = sdiv i16 %.lhs.trunc56.i, 60
   %.sext57.i = sext i16 %38 to i64
   %39 = load i64, ptr %28, align 8

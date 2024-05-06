@@ -23,10 +23,10 @@ define ptr @Aig_ManRemap(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #15
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #16
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #14
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #14
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -38,10 +38,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %7
   br i1 %.not.i154, label %Abc_UtilStrsav.exit155, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #15
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #15
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #16
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #14
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #14
   br label %Abc_UtilStrsav.exit155
 
 Abc_UtilStrsav.exit155:                           ; preds = %Abc_UtilStrsav.exit, %15
@@ -2847,7 +2847,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 .lr.ph224:                                        ; preds = %.lr.ph227
   %99 = getelementptr i8, ptr %96, i64 8
-  %100 = trunc i64 %indvars.iv254 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv254 to i32
   br label %101
 
 101:                                              ; preds = %.lr.ph224, %Vec_IntPush.exit
@@ -2994,7 +2994,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge4, %145
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph229, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph229
-  %158 = trunc i64 %indvars.iv257 to i32
+  %158 = trunc nuw nsw i64 %indvars.iv257 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %152
@@ -3604,7 +3604,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %105 = getelementptr i8, ptr %90, i64 152
   %.val51 = load i32, ptr %105, align 8
   %106 = add nsw i32 %.val51, %.val50
-  %107 = trunc i64 %indvars.iv61 to i32
+  %107 = trunc nuw nsw i64 %indvars.iv61 to i32
   %108 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %107, i32 noundef %.val49, i32 noundef %101, i32 noundef %102, i32 noundef %103, i32 noundef %106, i32 noundef 0, i32 noundef %98)
   call void @Aig_ManStop(ptr noundef %96) #14
   br label %109
@@ -3741,7 +3741,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %23, %16
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %31 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.i
-  %32 = trunc i64 %indvars.iv.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %32, ptr %31, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

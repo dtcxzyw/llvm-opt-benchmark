@@ -23,7 +23,7 @@ declare i64 @rb_enc_associate(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @rb_to_encoding(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @bug_str_encoding_index(i64 %0, i64 noundef %1) #0 {
+define range(i64 1, 0) i64 @bug_str_encoding_index(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i32 @rb_enc_get_index(i64 noundef %1) #2
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 1

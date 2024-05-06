@@ -222,8 +222,8 @@ declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noun
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_corosync_totemsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_corosync_totemsrp0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !4
+define internal range(i32 8, 1) i32 @dissect_corosync_totemsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_corosync_totemsrp0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }
 
@@ -233,7 +233,7 @@ define hidden void @proto_reg_handoff_corosync_totemsrp() local_unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_corosync_totemsrp0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 8, 1) i32 @dissect_corosync_totemsrp0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -432,7 +432,7 @@ dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_g
   %124 = add i32 %123, %.05.us.i
   %125 = add nuw i32 %.0794.us.i, 1
   %exitcond8.not.i = icmp eq i32 %125, %102
-  br i1 %exitcond8.not.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.us.i, !llvm.loop !5
+  br i1 %exitcond8.not.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.us.i, !llvm.loop !4
 
 dissect_corosync_totemsrp_rtr_list.exit.i:        ; preds = %corosync_totemsrp_get_guint32.exit84.thread.i, %dissect_corosync_totemsrp_rtr_list.exit.i
   %.05.i = phi i32 [ %138, %dissect_corosync_totemsrp_rtr_list.exit.i ], [ %101, %corosync_totemsrp_get_guint32.exit84.thread.i ]
@@ -458,7 +458,7 @@ dissect_corosync_totemsrp_rtr_list.exit.i:        ; preds = %corosync_totemsrp_g
   %138 = add i32 %137, %.05.i
   %139 = add nuw i32 %.0794.i, 1
   %exitcond.not.i = icmp eq i32 %139, %103
-  br i1 %exitcond.not.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.i, !llvm.loop !4
 
 dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_totemsrp_rtr_list.exit.i, %dissect_corosync_totemsrp_rtr_list.exit.us.i, %corosync_totemsrp_get_guint32.exit84.i, %corosync_totemsrp_get_guint32.exit84.thread.i
   %.0.i8312.i = phi i32 [ 0, %corosync_totemsrp_get_guint32.exit84.i ], [ 0, %corosync_totemsrp_get_guint32.exit84.thread.i ], [ %102, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ %103, %dissect_corosync_totemsrp_rtr_list.exit.i ]
@@ -483,9 +483,9 @@ dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_to
   %147 = tail call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146) #4
   %148 = load i32, ptr @hf_corosync_totemsrp_mcast_system_from, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %.not.i99 = icmp eq i32 %148, 0
+  %.not.i100 = icmp eq i32 %148, 0
   %149 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
-  %150 = select i1 %.not.i99, i32 %149, i32 %148
+  %150 = select i1 %.not.i100, i32 %149, i32 %148
   %151 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %150, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef %.0) #4
   %152 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %153 = tail call ptr @proto_item_add_subtree(ptr noundef %151, i32 noundef %152) #4
@@ -520,7 +520,7 @@ dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_to
   br i1 %177, label %178, label %181
 
 178:                                              ; preds = %143
-  %179 = call fastcc i32 @dissect_corosync_totemsrp0(ptr noundef %176, ptr noundef %1, ptr noundef %53, i32 noundef 1), !range !4
+  %179 = call fastcc i32 @dissect_corosync_totemsrp0(ptr noundef %176, ptr noundef %1, ptr noundef %53, i32 noundef 1)
   %180 = add i32 %179, %175
   br label %dissect_corosync_totemsrp_mcast.exit
 
@@ -642,7 +642,7 @@ corosync_totemsrp_get_guint32.exit66.i:           ; preds = %227, %222
   %248 = add i32 %247, %.05.i90
   %249 = add nuw i32 %.0634.i, 1
   %exitcond.not.i91 = icmp eq i32 %249, %.0.i2.i88
-  br i1 %exitcond.not.i91, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i91, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %corosync_totemsrp_get_guint32.exit66.i
   %.0.lcssa.i92 = phi i32 [ %236, %corosync_totemsrp_get_guint32.exit66.i ], [ %248, %.lr.ph.i ]
@@ -670,7 +670,7 @@ corosync_totemsrp_get_guint32.exit66.i:           ; preds = %227, %222
   %261 = add i32 %260, %.17.i
   %262 = add nuw i32 %.1646.i, 1
   %exitcond14.not.i = icmp eq i32 %262, %.0.i65.i
-  br i1 %exitcond14.not.i, label %dissect_corosync_totemsrp_memb_join.exit, label %.lr.ph9.i, !llvm.loop !8
+  br i1 %exitcond14.not.i, label %dissect_corosync_totemsrp_memb_join.exit, label %.lr.ph9.i, !llvm.loop !7
 
 dissect_corosync_totemsrp_memb_join.exit:         ; preds = %.lr.ph9.i, %._crit_edge.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i92, %._crit_edge.i ], [ %261, %.lr.ph9.i ]
@@ -744,7 +744,7 @@ corosync_totemsrp_get_guint32.exit69.i:           ; preds = %287, %285
   %299 = add i32 %298, %.02.i
   %300 = add nuw i32 %.0651.i, 1
   %exitcond.not.i95 = icmp eq i32 %300, %.0.i68.i
-  br i1 %exitcond.not.i95, label %.lr.ph5.i, label %.lr.ph.i94, !llvm.loop !9
+  br i1 %exitcond.not.i95, label %.lr.ph5.i, label %.lr.ph.i94, !llvm.loop !8
 
 .lr.ph5.i:                                        ; preds = %.lr.ph.i94, %.lr.ph5.i
   %.14.i = phi i32 [ %316, %.lr.ph5.i ], [ %299, %.lr.ph.i94 ]
@@ -768,7 +768,7 @@ corosync_totemsrp_get_guint32.exit69.i:           ; preds = %287, %285
   %316 = add i32 %315, %.14.i
   %317 = add nuw i32 %.1663.i, 1
   %exitcond9.not.i = icmp eq i32 %317, %.0.i68.i
-  br i1 %exitcond9.not.i, label %dissect_corosync_totemsrp_memb_commit_token.exit, label %.lr.ph5.i, !llvm.loop !10
+  br i1 %exitcond9.not.i, label %dissect_corosync_totemsrp_memb_commit_token.exit, label %.lr.ph5.i, !llvm.loop !9
 
 dissect_corosync_totemsrp_memb_commit_token.exit: ; preds = %.lr.ph5.i, %corosync_totemsrp_get_guint32.exit69.i
   %.1.lcssa.i97 = phi i32 [ %289, %corosync_totemsrp_get_guint32.exit69.i ], [ %316, %.lr.ph5.i ]
@@ -990,10 +990,9 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 8, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

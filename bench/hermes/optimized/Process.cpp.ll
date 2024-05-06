@@ -710,7 +710,7 @@ declare i32 @getpagesize() local_unnamed_addr #8
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN4llvh3sys7Process14GetMallocUsageEv() local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %struct.mallinfo, align 4
   call void @mallinfo(ptr nonnull sret(%struct.mallinfo) align 4 %ref.tmp) #18
@@ -996,7 +996,7 @@ entry:
 declare i32 @isatty(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh3sys7Process18StandardOutColumnsEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN4llvh3sys7Process18StandardOutColumnsEv() local_unnamed_addr #0 align 2 {
 entry:
   %ws.i = alloca %struct.winsize, align 2
   %call.i.i = tail call i32 @isatty(i32 noundef 1) #18
@@ -1034,7 +1034,7 @@ return:                                           ; preds = %entry, %_ZL10getCol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh3sys7Process18StandardErrColumnsEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN4llvh3sys7Process18StandardErrColumnsEv() local_unnamed_addr #0 align 2 {
 entry:
   %ws.i = alloca %struct.winsize, align 2
   %call.i.i = tail call i32 @isatty(i32 noundef 2) #18

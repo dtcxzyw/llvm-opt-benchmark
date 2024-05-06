@@ -343,7 +343,7 @@ define dso_local i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr nound
   store i64 0, ptr %8, align 8
   store i32 0, ptr %9, align 4
   store i64 0, ptr %10, align 8
-  %39 = call fastcc i64 @get_format_size(ptr noundef nonnull %.lcssa9295, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %5), !range !13
+  %39 = call fastcc i64 @get_format_size(ptr noundef nonnull %.lcssa9295, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %41, label %43
 
@@ -382,7 +382,7 @@ calculate_padding.exit:                           ; preds = %46, %43
   %.promoted91 = load ptr, ptr %6, align 8
   %57 = load i8, ptr %.promoted91, align 1
   %.not94 = icmp eq i8 %57, 0
-  br i1 %.not94, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not94, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .outer._crit_edge:                                ; preds = %calculate_padding.exit, %.loopexit
   %.lcssa92.lcssa = phi ptr [ %31, %.loopexit ], [ %.promoted91, %calculate_padding.exit ]
@@ -436,7 +436,7 @@ calculate_padding.exit78:                         ; preds = %59, %61
   store i64 0, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i64 0, ptr %15, align 8
-  %74 = call fastcc i64 @get_format_size(ptr noundef nonnull %73, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef null), !range !13
+  %74 = call fastcc i64 @get_format_size(ptr noundef nonnull %73, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef null)
   %75 = load i64, ptr %13, align 8
   %76 = icmp sgt i64 %75, 1
   br i1 %76, label %77, label %calculate_padding.exit81.us
@@ -506,7 +506,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %98 = load ptr, ptr %11, align 8
   %99 = load i8, ptr %98, align 1
   %.not68.us = icmp eq i8 %99, 0
-  br i1 %.not68.us, label %._crit_edge118, label %.lr.ph117.split.us, !llvm.loop !15
+  br i1 %.not68.us, label %._crit_edge118, label %.lr.ph117.split.us, !llvm.loop !14
 
 calculate_padding.exit81:                         ; preds = %.lr.ph117, %114
   %100 = phi i8 [ %119, %114 ], [ %71, %.lr.ph117 ]
@@ -516,7 +516,7 @@ calculate_padding.exit81:                         ; preds = %.lr.ph117, %114
   store i64 0, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i64 0, ptr %15, align 8
-  %102 = call fastcc i64 @get_format_size(ptr noundef nonnull %101, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef null), !range !13
+  %102 = call fastcc i64 @get_format_size(ptr noundef nonnull %101, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef null)
   %.not69 = icmp eq i8 %100, 120
   br i1 %.not69, label %calculate_padding.exit81._crit_edge, label %103
 
@@ -572,7 +572,7 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
   %118 = load ptr, ptr %11, align 8
   %119 = load i8, ptr %118, align 1
   %.not68 = icmp eq i8 %119, 0
-  br i1 %.not68, label %._crit_edge118, label %calculate_padding.exit81, !llvm.loop !15
+  br i1 %.not68, label %._crit_edge118, label %calculate_padding.exit81, !llvm.loop !14
 
 ._crit_edge118:                                   ; preds = %114, %94, %69
   store ptr %70, ptr %1, align 8
@@ -585,7 +585,7 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @get_format_size(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   store i32 0, ptr %3, align 4
   store i64 1, ptr %4, align 8
@@ -616,7 +616,7 @@ define internal fastcc noundef i64 @get_format_size(ptr noundef %0, ptr nocaptur
 
 .backedge:                                        ; preds = %15, %32
   %.058.be = add i32 %.058, 1
-  br label %10, !llvm.loop !16
+  br label %10, !llvm.loop !15
 
 16:                                               ; preds = %14
   %.not70 = icmp eq ptr %6, null
@@ -683,7 +683,7 @@ define internal fastcc noundef i64 @get_format_size(ptr noundef %0, ptr nocaptur
   %47 = load i8, ptr %46, align 1
   %48 = add i8 %47, -48
   %49 = icmp ult i8 %48, 10
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 %43, ptr %4, align 8
@@ -846,7 +846,7 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   %28 = mul i64 %27, %.069
   %29 = add nuw nsw i64 %.04968, 1
   %exitcond82.not = icmp eq i64 %29, %6
-  br i1 %exitcond82.not, label %.preheader, label %25, !llvm.loop !18
+  br i1 %exitcond82.not, label %.preheader, label %25, !llvm.loop !17
 
 30:                                               ; preds = %.lr.ph75, %30
   %.174 = phi i64 [ %28, %.lr.ph75 ], [ %33, %30 ]
@@ -861,7 +861,7 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   %37 = getelementptr i8, ptr %.05272, i64 %36
   %38 = add nuw nsw i64 %.15073, 1
   %exitcond83.not = icmp eq i64 %38, %6
-  br i1 %exitcond83.not, label %.loopexit, label %30, !llvm.loop !19
+  br i1 %exitcond83.not, label %.loopexit, label %30, !llvm.loop !18
 
 39:                                               ; preds = %16
   %40 = getelementptr inbounds i8, ptr %0, i64 88
@@ -887,7 +887,7 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   %49 = getelementptr i8, ptr %.15364, i64 %48
   %50 = add nuw nsw i64 %.265, 1
   %exitcond81.not = icmp eq i64 %50, %6
-  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph66, !llvm.loop !20
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph66, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.preheader60, %63
   %.363 = phi i64 [ %64, %63 ], [ 0, %.preheader60 ]
@@ -912,7 +912,7 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   %.355 = phi ptr [ %62, %60 ], [ %56, %.lr.ph ]
   %64 = add nuw nsw i64 %.363, 1
   %exitcond.not = icmp eq i64 %64, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %63, %.lr.ph66, %30, %17, %.preheader60, %.preheader58, %.preheader, %10
   %.051 = phi ptr [ %15, %10 ], [ %4, %.preheader ], [ %4, %.preheader58 ], [ %4, %.preheader60 ], [ %4, %17 ], [ %37, %30 ], [ %49, %.lr.ph66 ], [ %.355, %63 ]
@@ -982,7 +982,7 @@ define internal fastcc i64 @extract_item_member(ptr nocapture noundef readonly %
   br i1 %.not.i23, label %ruby_nonempty_memcpy.exit, label %28
 
 28:                                               ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %11, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %4, ptr readonly align 1 %11, i64 %9, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %27, %28
@@ -1010,13 +1010,13 @@ ruby_nonempty_memcpy.exit:                        ; preds = %27, %28
   %38 = getelementptr i8, ptr %.013.i, i64 1
   %.011.i = getelementptr i8, ptr %.01114.i, i64 -1
   %exitcond.not = icmp eq ptr %.013.i, %scevgep
-  br i1 %exitcond.not, label %switch_endianness.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not, label %switch_endianness.exit, label %.lr.ph.i, !llvm.loop !21
 
 39:                                               ; preds = %23
   br i1 %.not.i23, label %switch_endianness.exit, label %40
 
 40:                                               ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %11, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %4, ptr readonly align 1 %11, i64 %9, i1 false)
   br label %switch_endianness.exit
 
 switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39, %ruby_nonempty_memcpy.exit
@@ -1259,7 +1259,7 @@ define dso_local i64 @rb_memory_view_extract_item_members(ptr noundef readonly %
   br i1 %10, label %rb_memory_view_extract_item_member.exit, label %.preheader.preheader
 
 rb_memory_view_extract_item_member.exit:          ; preds = %7
-  %11 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
+  %11 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef 0)
   br label %.loopexit
 
 .preheader.preheader:                             ; preds = %7, %6
@@ -1281,12 +1281,12 @@ rb_memory_view_extract_item_member.exit:          ; preds = %7
   %18 = add nuw i64 %.02226, 1
   %19 = load i64, ptr %14, align 8
   %20 = icmp ult i64 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %21 = add nuw i64 %.02127, 1
   %exitcond.not = icmp eq i64 %21, %2
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %._crit_edge, %6, %3, %rb_memory_view_extract_item_member.exit
   %.0 = phi i64 [ %11, %rb_memory_view_extract_item_member.exit ], [ 4, %3 ], [ 4, %6 ], [ %12, %._crit_edge ]
@@ -1374,7 +1374,7 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   %27 = mul i64 %26, %.069.i
   %28 = add nuw nsw i64 %.04968.i, 1
   %exitcond82.not.i = icmp eq i64 %28, %7
-  br i1 %exitcond82.not.i, label %.lr.ph75.i, label %24, !llvm.loop !18
+  br i1 %exitcond82.not.i, label %.lr.ph75.i, label %24, !llvm.loop !17
 
 .lr.ph75.i:                                       ; preds = %24, %.lr.ph75.i
   %.174.i = phi i64 [ %31, %.lr.ph75.i ], [ %27, %24 ]
@@ -1389,7 +1389,7 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   %35 = getelementptr i8, ptr %.05272.i, i64 %34
   %36 = add nuw nsw i64 %.15073.i, 1
   %exitcond83.not.i = icmp eq i64 %36, %7
-  br i1 %exitcond83.not.i, label %rb_memory_view_get_item_pointer.exit, label %.lr.ph75.i, !llvm.loop !19
+  br i1 %exitcond83.not.i, label %rb_memory_view_get_item_pointer.exit, label %.lr.ph75.i, !llvm.loop !18
 
 37:                                               ; preds = %17
   %38 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1415,7 +1415,7 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   %47 = getelementptr i8, ptr %.15364.i, i64 %46
   %48 = add nuw nsw i64 %.265.i, 1
   %exitcond81.not.i = icmp eq i64 %48, %7
-  br i1 %exitcond81.not.i, label %rb_memory_view_get_item_pointer.exit, label %.lr.ph66.i, !llvm.loop !20
+  br i1 %exitcond81.not.i, label %rb_memory_view_get_item_pointer.exit, label %.lr.ph66.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %.preheader60.i, %61
   %.363.i = phi i64 [ %62, %61 ], [ 0, %.preheader60.i ]
@@ -1440,7 +1440,7 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   %.355.i = phi ptr [ %60, %58 ], [ %54, %.lr.ph.i ]
   %62 = add nuw nsw i64 %.363.i, 1
   %exitcond.not.i = icmp eq i64 %62, %7
-  br i1 %exitcond.not.i, label %rb_memory_view_get_item_pointer.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %rb_memory_view_get_item_pointer.exit, label %.lr.ph.i, !llvm.loop !20
 
 rb_memory_view_get_item_pointer.exit:             ; preds = %61, %.lr.ph66.i, %.lr.ph75.i, %11, %18, %.preheader60.i, %.preheader58.i
   %.051.i = phi ptr [ %16, %11 ], [ %5, %.preheader58.i ], [ %5, %.preheader60.i ], [ %5, %18 ], [ %35, %.lr.ph75.i ], [ %47, %.lr.ph66.i ], [ %.355.i, %61 ]
@@ -1506,7 +1506,7 @@ rb_memory_view_prepare_item_desc.exit:            ; preds = %75
   br i1 %96, label %rb_memory_view_extract_item_member.exit.i, label %.preheader.preheader.i
 
 rb_memory_view_extract_item_member.exit.i:        ; preds = %93
-  %97 = call fastcc i64 @extract_item_member(ptr noundef nonnull %.051.i, ptr noundef nonnull %87, i64 noundef 0)
+  %97 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef nonnull readonly %87, i64 noundef 0)
   br label %rb_memory_view_extract_item_members.exit
 
 .preheader.preheader.i:                           ; preds = %93, %92
@@ -1523,17 +1523,17 @@ rb_memory_view_extract_item_member.exit.i:        ; preds = %93
 
 .lr.ph.i10:                                       ; preds = %.preheader.i9, %.lr.ph.i10
   %.02226.i = phi i64 [ %104, %.lr.ph.i10 ], [ 0, %.preheader.i9 ]
-  %102 = call fastcc i64 @extract_item_member(ptr noundef nonnull %.051.i, ptr noundef %99, i64 noundef %.02226.i)
+  %102 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef readonly %99, i64 noundef %.02226.i)
   %103 = call i64 @rb_ary_push(i64 noundef %98, i64 noundef %102) #16
   %104 = add nuw i64 %.02226.i, 1
   %105 = load i64, ptr %100, align 8
   %106 = icmp ult i64 %104, %105
-  br i1 %106, label %.lr.ph.i10, label %._crit_edge.i, !llvm.loop !23
+  br i1 %106, label %.lr.ph.i10, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i10, %.preheader.i9
   %107 = add nuw i64 %.02127.i, 1
   %exitcond.not.i11 = icmp eq i64 %107, %89
-  br i1 %exitcond.not.i11, label %rb_memory_view_extract_item_members.exit, label %.preheader.i9, !llvm.loop !24
+  br i1 %exitcond.not.i11, label %rb_memory_view_extract_item_members.exit, label %.preheader.i9, !llvm.loop !23
 
 rb_memory_view_extract_item_members.exit:         ; preds = %._crit_edge.i, %rb_memory_view_extract_item_member.exit.i, %92, %86, %66
   %.0 = phi i64 [ %70, %66 ], [ %97, %rb_memory_view_extract_item_member.exit.i ], [ 4, %86 ], [ 4, %92 ], [ %98, %._crit_edge.i ]
@@ -1599,7 +1599,7 @@ rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %1
   %26 = load i64, ptr @id_memory_view, align 8
   %27 = tail call i64 @rb_ivar_lookup(i64 noundef %20, i64 noundef %26, i64 noundef 4) #16
   %28 = icmp eq i64 %27, 4
-  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %25, %rb_class_of.exit
   %.0.lcssa.i = phi i64 [ %18, %rb_class_of.exit ], [ %27, %25 ]
@@ -1685,7 +1685,7 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
   %29 = load i64, ptr @id_memory_view, align 8
   %30 = tail call i64 @rb_ivar_lookup(i64 noundef %23, i64 noundef %29, i64 noundef 4) #16
   %31 = icmp eq i64 %30, 4
-  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %28, %rb_class_of.exit
   %.0.lcssa.i = phi i64 [ %21, %rb_class_of.exit ], [ %30, %28 ]
@@ -1887,7 +1887,7 @@ define internal noundef i32 @exported_object_add_ref(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exported_object_dec_ref(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #12 {
+define internal range(i32 0, 3) i32 @exported_object_dec_ref(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #12 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %5
 
@@ -1957,7 +1957,7 @@ attributes #20 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = !{i64 -1, i64 9}
+!13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
@@ -1969,4 +1969,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !22 = distinct !{!22, !8}
 !23 = distinct !{!23, !8}
 !24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}

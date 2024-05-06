@@ -130,7 +130,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:
   store <2 x ptr> %14, ptr %12, align 8
   store ptr null, ptr %6, align 16
   %15 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
   %16 = invoke noundef ptr @_ZNK17cmGeneratorTarget17GetLocalGeneratorEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
           to label %17 unwind label %36
 
@@ -808,7 +808,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %38, %35, %27
   store ptr %.sroa.03.08, ptr %8, align 8
   store ptr %29, ptr %14, align 8
   store ptr %31, ptr %15, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %16, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %16, i8 0, i64 25, i1 false)
   %40 = invoke noundef ptr @_ZNK17cmGeneratorTarget17GetLocalGeneratorEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
           to label %41 unwind label %159
 

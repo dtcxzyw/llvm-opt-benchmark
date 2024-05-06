@@ -194,7 +194,7 @@ define hidden void @proto_reg_handoff_file_dlt() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dlt_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dlt_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @dissect_dlt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32

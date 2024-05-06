@@ -709,7 +709,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @azx_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @azx_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   %5 = alloca [5 x %struct.pci_device_id], align 8
@@ -1104,7 +1104,7 @@ define internal i32 @azx_probe(ptr noundef %0, ptr nocapture noundef readonly %1
   %242 = and i32 %240, 4096
   %243 = icmp eq i32 %242, 0
   %244 = select i1 %243, i32 %241, i32 0
-  %245 = trunc i32 %244 to i16
+  %245 = trunc nuw nsw i32 %244 to i16
   %246 = shl nuw nsw i16 %245, 5
   %247 = and i16 %246, 32
   %248 = and i16 %239, -33
@@ -2289,7 +2289,7 @@ declare dso_local zeroext i1 @cancel_work_sync(ptr noundef) local_unnamed_addr #
 declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @disable_msi_reset_irq(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -1, 1) i32 @disable_msi_reset_irq(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = tail call ptr @free_irq(i32 noundef %3, ptr noundef %0) #15
@@ -2310,7 +2310,7 @@ define internal noundef i32 @disable_msi_reset_irq(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @azx_position_check(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @azx_position_check(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @azx_position_ok(ptr noundef %0, ptr noundef %1), !range !23
   switch i32 %3, label %15 [
     i32 1, label %4
@@ -2346,7 +2346,7 @@ declare dso_local ptr @free_irq(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare dso_local void @pci_disable_msi(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @azx_acquire_irq(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @azx_acquire_irq(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1408
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 916
@@ -2415,7 +2415,7 @@ declare dso_local void @pci_intx(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @azx_position_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -1, 2) i32 @azx_position_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 192
@@ -3498,7 +3498,7 @@ define internal noundef i32 @azx_suspend(ptr nocapture noundef readonly %0) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @azx_resume(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef range(i32 -5, 1) i32 @azx_resume(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3850,7 +3850,7 @@ define internal noundef i32 @azx_runtime_resume(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @azx_runtime_idle(ptr nocapture noundef readonly %0) #10 align 16 {
+define internal range(i32 -16, 1) i32 @azx_runtime_idle(ptr nocapture noundef readonly %0) #10 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

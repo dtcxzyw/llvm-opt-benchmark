@@ -13,7 +13,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @BrotliWarmupBitReader(ptr nocapture noundef %br) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @BrotliWarmupBitReader(ptr nocapture noundef %br) local_unnamed_addr #1 {
 entry:
   %bit_pos_.i = getelementptr inbounds i8, ptr %br, i64 8
   %0 = load i64, ptr %bit_pos_.i, align 8
@@ -44,7 +44,7 @@ return:                                           ; preds = %entry, %if.end.i16,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @BrotliSafeReadBits32Slow(ptr nocapture noundef %br, i64 noundef %n_bits, ptr nocapture noundef writeonly %val) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @BrotliSafeReadBits32Slow(ptr nocapture noundef %br, i64 noundef %n_bits, ptr nocapture noundef writeonly %val) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %br, align 8
   %bit_pos_.i = getelementptr inbounds i8, ptr %br, i64 8

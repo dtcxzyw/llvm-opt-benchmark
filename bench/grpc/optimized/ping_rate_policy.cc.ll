@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [31 x i8] c", pings_before_data_required: \00", align 1
 @.str.4 = private unnamed_addr constant [25 x i8] c", last_ping_sent_time_: \00", align 1
 @_ZN9grpc_core12_GLOBAL__N_128g_default_max_inflight_pingsE = internal unnamed_addr global { { { %"struct.std::_Optional_payload_base<int>::_Empty_byte", [3 x i8] }, i8, [3 x i8] } } { { { %"struct.std::_Optional_payload_base<int>::_Empty_byte", [3 x i8] }, i8, [3 x i8] } { { %"struct.std::_Optional_payload_base<int>::_Empty_byte", [3 x i8] } undef, i8 0, [3 x i8] undef } }, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.7 = private unnamed_addr constant [12 x i8] c"SendGranted\00", align 1
 @.str.8 = private unnamed_addr constant [19 x i8] c"TooManyRecentPings\00", align 1
 @.str.9 = private unnamed_addr constant [23 x i8] c"TooSoon: next_allowed=\00", align 1
@@ -381,7 +381,7 @@ sw.bb2.i.i.i:                                     ; preds = %entry
 
 sw.bb3.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %r, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %r, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)

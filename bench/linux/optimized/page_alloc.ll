@@ -614,7 +614,7 @@ define internal fastcc void @free_the_page(ptr noundef %0, i32 noundef %1) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @split_free_page(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @split_free_page(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i64, ptr %0, align 16
   %5 = lshr i64 %4, 58
   %6 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %5
@@ -2005,7 +2005,7 @@ define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @decay_pcp_high(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 3) i32 @decay_pcp_high(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load volatile i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -10233,7 +10233,7 @@ declare dso_local void @__mod_zone_page_state(ptr noundef, i32 noundef, i64 noun
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @free_tail_page_prepare(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @free_tail_page_prepare(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @check_pages_enabled, i32 2) #22
           to label %72 [label %3], !srcloc !29
 

@@ -961,7 +961,7 @@ define dso_local zeroext i8 @i2c_smbus_pec(i8 noundef zeroext %0, ptr nocapture 
 
 22:                                               ; preds = %13
   %23 = lshr i16 %19, 8
-  %24 = trunc i16 %23 to i8
+  %24 = trunc nuw i16 %23 to i8
   %25 = add i32 %6, 1
   %26 = sext i32 %25 to i64
   %27 = icmp ult i64 %26, %2
@@ -1216,7 +1216,7 @@ define dso_local i32 @i2c_smbus_write_block_data(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_smbus_read_i2c_block_data(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3) #1 align 16 {
+define dso_local range(i32 -2147483648, 256) i32 @i2c_smbus_read_i2c_block_data(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3) #1 align 16 {
   %5 = alloca %union.i2c_smbus_data, align 2
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %5) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %5, i8 0, i64 34, i1 false), !annotation !14
@@ -1571,7 +1571,7 @@ select.unfold:                                    ; preds = %93, %81
   %159 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %158, ptr %159, align 1
   %160 = lshr i16 %157, 8
-  %161 = trunc i16 %160 to i8
+  %161 = trunc nuw i16 %160 to i8
   %162 = getelementptr inbounds i8, ptr %8, i64 2
   store i8 %161, ptr %162, align 2
   br label %270
@@ -1584,7 +1584,7 @@ select.unfold:                                    ; preds = %93, %81
   %166 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %165, ptr %166, align 1
   %167 = lshr i16 %164, 8
-  %168 = trunc i16 %167 to i8
+  %168 = trunc nuw i16 %167 to i8
   %169 = getelementptr inbounds i8, ptr %8, i64 2
   store i8 %168, ptr %169, align 2
   br label %270
@@ -1813,7 +1813,7 @@ select.unfold:                                    ; preds = %93, %81
 
 289:                                              ; preds = %.preheader40
   %290 = lshr i16 %286, 8
-  %291 = trunc i16 %290 to i8
+  %291 = trunc nuw i16 %290 to i8
   %292 = load ptr, ptr %133, align 8
   %293 = load i16, ptr %132, align 4
   %294 = icmp eq i16 %293, 0
@@ -1846,7 +1846,7 @@ select.unfold:                                    ; preds = %93, %81
 
 314:                                              ; preds = %305
   %315 = lshr i16 %311, 8
-  %316 = trunc i16 %315 to i8
+  %316 = trunc nuw i16 %315 to i8
   %317 = add nuw nsw i64 %298, 1
   %318 = icmp eq i64 %317, %296
   br i1 %318, label %.loopexit39, label %297, !llvm.loop !20
@@ -1874,7 +1874,7 @@ select.unfold:                                    ; preds = %93, %81
 
 331:                                              ; preds = %.preheader42
   %332 = lshr i16 %328, 8
-  %333 = trunc i16 %332 to i8
+  %333 = trunc nuw i16 %332 to i8
   %334 = load ptr, ptr %133, align 8
   %335 = load i16, ptr %132, align 4
   %336 = icmp eq i16 %335, 0
@@ -1907,7 +1907,7 @@ select.unfold:                                    ; preds = %93, %81
 
 356:                                              ; preds = %347
   %357 = lshr i16 %353, 8
-  %358 = trunc i16 %357 to i8
+  %358 = trunc nuw i16 %357 to i8
   %359 = add nuw nsw i64 %340, 1
   %360 = icmp eq i64 %359, %338
   br i1 %360, label %.loopexit41, label %339, !llvm.loop !20
@@ -1985,7 +1985,7 @@ select.unfold:                                    ; preds = %93, %81
 
 413:                                              ; preds = %404
   %414 = lshr i16 %410, 8
-  %415 = trunc i16 %414 to i8
+  %415 = trunc nuw i16 %414 to i8
   %416 = icmp eq i16 %393, 0
   br i1 %416, label %.loopexit, label %.preheader
 
@@ -2012,7 +2012,7 @@ select.unfold:                                    ; preds = %93, %81
 
 433:                                              ; preds = %424
   %434 = lshr i16 %430, 8
-  %435 = trunc i16 %434 to i8
+  %435 = trunc nuw i16 %434 to i8
   %436 = add nuw nsw i64 %417, 1
   %437 = icmp eq i64 %436, %394
   br i1 %437, label %.loopexit, label %.preheader, !llvm.loop !20
@@ -2296,7 +2296,7 @@ define dso_local i32 @i2c_smbus_read_i2c_block_data_or_emulated(ptr nocapture no
   %68 = getelementptr i8, ptr %3, i64 %67
   store i8 %66, ptr %68, align 1
   %69 = lshr i16 %64, 8
-  %70 = trunc i16 %69 to i8
+  %70 = trunc nuw i16 %69 to i8
   %71 = getelementptr i8, ptr %68, i64 1
   store i8 %70, ptr %71, align 1
   %72 = trunc i32 %56 to i8

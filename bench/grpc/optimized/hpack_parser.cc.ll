@@ -738,7 +738,7 @@ $_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvE6vtable = 
 @_ZTVSt18bad_variant_access = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTISt18bad_variant_access, ptr @_ZNSt18bad_variant_accessD2Ev, ptr @_ZNSt18bad_variant_accessD0Ev, ptr @_ZNKSt18bad_variant_access4whatEv] }, comdat, align 8
 @_ZZN9grpc_core10HPackTable17GetStaticMementosEvE15static_mementos = linkonce_odr global %"class.grpc_core::NoDestruct.138" zeroinitializer, comdat, align 8
 @_ZGVZN9grpc_core10HPackTable17GetStaticMementosEvE15static_mementos = linkonce_odr global i64 0, comdat, align 8
-@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
+@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local local_unnamed_addr global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
 @_ZTVN9grpc_core11HPackParser23MetadataSizesAnnotationE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core11HPackParser23MetadataSizesAnnotationE, ptr @_ZNK9grpc_core11HPackParser23MetadataSizesAnnotation8ToStringB5cxx11Ev, ptr @_ZN9grpc_core11HPackParser23MetadataSizesAnnotationD2Ev, ptr @_ZN9grpc_core11HPackParser23MetadataSizesAnnotationD0Ev] }, comdat, align 8
 @_ZTSN9grpc_core11HPackParser23MetadataSizesAnnotationE = linkonce_odr constant [51 x i8] c"N9grpc_core11HPackParser23MetadataSizesAnnotationE\00", comdat, align 1
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -8639,7 +8639,7 @@ if.then.i224:                                     ; preds = %sw.epilog
           to label %.noexc225 unwind label %lpad
 
 .noexc225:                                        ; preds = %if.then.i224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !202
   br label %invoke.cont80
 
@@ -8652,7 +8652,7 @@ if.then6.i:                                       ; preds = %sw.epilog
           to label %.noexc226 unwind label %lpad
 
 .noexc226:                                        ; preds = %if.then6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !205
   br label %invoke.cont80
 
@@ -8668,7 +8668,7 @@ if.then12.i:                                      ; preds = %sw.epilog
           to label %.noexc227 unwind label %lpad
 
 .noexc227:                                        ; preds = %if.then12.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i10.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i10.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i10.i), !noalias !208
   br label %invoke.cont80
 
@@ -19407,11 +19407,11 @@ sw.bb89.i:                                        ; preds = %sw.bb82.i
   %shr91.i = lshr i64 %conv.i219.i, 2
   %arrayidx.i221.i = getelementptr inbounds [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 0, i64 %shr.i215.i
   %149 = load ptr, ptr %arrayidx.i221.i, align 8
-  %arrayidx1.i222.i = getelementptr i8, ptr %149, i64 %shr91.i
+  %arrayidx1.i222.i = getelementptr inbounds i8, ptr %149, i64 %shr91.i
   %150 = load i8, ptr %arrayidx1.i222.i, align 1
   %this.val45.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val45.i, i8 noundef zeroext %150)
-  %arrayidx1.i226.i = getelementptr i8, ptr %arrayidx1.i222.i, i64 1
+  %arrayidx1.i226.i = getelementptr inbounds i8, ptr %arrayidx1.i222.i, i64 1
   %151 = load i8, ptr %arrayidx1.i226.i, align 1
   %this.val46.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val46.i, i8 noundef zeroext %151)
@@ -19461,11 +19461,11 @@ sw.bb118.i:                                       ; preds = %sw.bb109.i
   %shr120.i = lshr i64 %conv.i235.i, 2
   %arrayidx.i237.i = getelementptr inbounds [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 0, i64 %shr.i232.i
   %159 = load ptr, ptr %arrayidx.i237.i, align 8
-  %arrayidx1.i238.i = getelementptr i8, ptr %159, i64 %shr120.i
+  %arrayidx1.i238.i = getelementptr inbounds i8, ptr %159, i64 %shr120.i
   %160 = load i8, ptr %arrayidx1.i238.i, align 1
   %this.val48.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val48.i, i8 noundef zeroext %160)
-  %arrayidx1.i242.i = getelementptr i8, ptr %arrayidx1.i238.i, i64 1
+  %arrayidx1.i242.i = getelementptr inbounds i8, ptr %arrayidx1.i238.i, i64 1
   %161 = load i8, ptr %arrayidx1.i242.i, align 1
   %this.val49.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val49.i, i8 noundef zeroext %161)
@@ -19506,11 +19506,11 @@ sw.bb145.i:                                       ; preds = %sw.bb136.i
   %shr147.i = lshr i64 %conv.i252.i, 2
   %arrayidx.i254.i = getelementptr inbounds [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 0, i64 %shr.i248.i
   %167 = load ptr, ptr %arrayidx.i254.i, align 8
-  %arrayidx1.i255.i = getelementptr i8, ptr %167, i64 %shr147.i
+  %arrayidx1.i255.i = getelementptr inbounds i8, ptr %167, i64 %shr147.i
   %168 = load i8, ptr %arrayidx1.i255.i, align 1
   %this.val51.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val51.i, i8 noundef zeroext %168)
-  %arrayidx1.i259.i = getelementptr i8, ptr %arrayidx1.i255.i, i64 1
+  %arrayidx1.i259.i = getelementptr inbounds i8, ptr %arrayidx1.i255.i, i64 1
   %169 = load i8, ptr %arrayidx1.i259.i, align 1
   %this.val52.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val52.i, i8 noundef zeroext %169)
@@ -19556,11 +19556,11 @@ sw.bb172.i:                                       ; preds = %sw.bb163.i
   %shr174.i = lshr i64 %conv.i272.i, 2
   %arrayidx.i274.i = getelementptr inbounds [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 0, i64 %shr.i265.i
   %177 = load ptr, ptr %arrayidx.i274.i, align 8
-  %arrayidx1.i275.i = getelementptr i8, ptr %177, i64 %shr174.i
+  %arrayidx1.i275.i = getelementptr inbounds i8, ptr %177, i64 %shr174.i
   %178 = load i8, ptr %arrayidx1.i275.i, align 1
   %this.val54.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val54.i, i8 noundef zeroext %178)
-  %arrayidx1.i279.i = getelementptr i8, ptr %arrayidx1.i275.i, i64 1
+  %arrayidx1.i279.i = getelementptr inbounds i8, ptr %arrayidx1.i275.i, i64 1
   %179 = load i8, ptr %arrayidx1.i279.i, align 1
   %this.val55.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val55.i, i8 noundef zeroext %179)
@@ -19606,11 +19606,11 @@ sw.bb199.i:                                       ; preds = %sw.bb190.i
   %shr201.i = lshr i64 %conv.i292.i, 2
   %arrayidx.i294.i = getelementptr inbounds [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 0, i64 %shr.i285.i
   %187 = load ptr, ptr %arrayidx.i294.i, align 8
-  %arrayidx1.i295.i = getelementptr i8, ptr %187, i64 %shr201.i
+  %arrayidx1.i295.i = getelementptr inbounds i8, ptr %187, i64 %shr201.i
   %188 = load i8, ptr %arrayidx1.i295.i, align 1
   %this.val57.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val57.i, i8 noundef zeroext %188)
-  %arrayidx1.i299.i = getelementptr i8, ptr %arrayidx1.i295.i, i64 1
+  %arrayidx1.i299.i = getelementptr inbounds i8, ptr %arrayidx1.i295.i, i64 1
   %189 = load i8, ptr %arrayidx1.i299.i, align 1
   %this.val58.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val58.i, i8 noundef zeroext %189)
@@ -19662,7 +19662,7 @@ if.end:                                           ; preds = %"_ZN9grpc_core11Huf
 sw.bb:                                            ; preds = %if.end
   %arrayidx.i25 = getelementptr inbounds [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %shr.i21
   %199 = load ptr, ptr %arrayidx.i25, align 8
-  %arrayidx1.i = getelementptr i8, ptr %199, i64 %shr6
+  %arrayidx1.i = getelementptr inbounds i8, ptr %199, i64 %shr6
   %200 = load i8, ptr %arrayidx1.i, align 1
   %this.val = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this.val, i64 8
@@ -19732,7 +19732,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh.exit"
 
 "_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh.exit": ; preds = %if.then.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i
-  %arrayidx1.i31 = getelementptr i8, ptr %arrayidx1.i, i64 1
+  %arrayidx1.i31 = getelementptr inbounds i8, ptr %arrayidx1.i, i64 1
   %206 = load i8, ptr %arrayidx1.i31, align 1
   %this.val14 = load ptr, ptr %this, align 8
   %_M_finish.i.i33 = getelementptr inbounds i8, ptr %this.val14, i64 8
@@ -19802,7 +19802,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh.exit63"
 
 "_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh.exit63": ; preds = %if.then.i.i36, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i59
-  %arrayidx1.i66 = getelementptr i8, ptr %arrayidx1.i, i64 2
+  %arrayidx1.i66 = getelementptr inbounds i8, ptr %arrayidx1.i, i64 2
   %212 = load i8, ptr %arrayidx1.i66, align 1
   %this.val15 = load ptr, ptr %this, align 8
   %_M_finish.i.i68 = getelementptr inbounds i8, ptr %this.val15, i64 8
@@ -19874,7 +19874,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 sw.bb19:                                          ; preds = %if.end
   %arrayidx.i100 = getelementptr inbounds [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %shr.i21
   %218 = load ptr, ptr %arrayidx.i100, align 8
-  %arrayidx1.i101 = getelementptr i8, ptr %218, i64 %shr6
+  %arrayidx1.i101 = getelementptr inbounds i8, ptr %218, i64 %shr6
   %219 = load i8, ptr %arrayidx1.i101, align 1
   %this.val16 = load ptr, ptr %this, align 8
   %_M_finish.i.i103 = getelementptr inbounds i8, ptr %this.val16, i64 8
@@ -19944,7 +19944,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh.exit133"
 
 "_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh.exit133": ; preds = %if.then.i.i106, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i129
-  %arrayidx1.i136 = getelementptr i8, ptr %arrayidx1.i101, i64 1
+  %arrayidx1.i136 = getelementptr inbounds i8, ptr %arrayidx1.i101, i64 1
   %225 = load i8, ptr %arrayidx1.i136, align 1
   %this.val17 = load ptr, ptr %this, align 8
   %_M_finish.i.i138 = getelementptr inbounds i8, ptr %this.val17, i64 8
@@ -24734,10 +24734,10 @@ sw.bb89.i:                                        ; preds = %sw.bb82.i
   %shr91.i = lshr i64 %conv.i224.i, 2
   %arrayidx.i226.i = getelementptr inbounds [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 0, i64 %shr.i220.i
   %165 = load ptr, ptr %arrayidx.i226.i, align 8
-  %arrayidx1.i227.i = getelementptr i8, ptr %165, i64 %shr91.i
+  %arrayidx1.i227.i = getelementptr inbounds i8, ptr %165, i64 %shr91.i
   %166 = load i8, ptr %arrayidx1.i227.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %166)
-  %arrayidx1.i231.i = getelementptr i8, ptr %arrayidx1.i227.i, i64 1
+  %arrayidx1.i231.i = getelementptr inbounds i8, ptr %arrayidx1.i227.i, i64 1
   %167 = load i8, ptr %arrayidx1.i231.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %167)
   br label %while.end
@@ -24785,10 +24785,10 @@ sw.bb118.i:                                       ; preds = %sw.bb109.i
   %shr120.i = lshr i64 %conv.i240.i, 2
   %arrayidx.i242.i = getelementptr inbounds [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 0, i64 %shr.i237.i
   %175 = load ptr, ptr %arrayidx.i242.i, align 8
-  %arrayidx1.i243.i = getelementptr i8, ptr %175, i64 %shr120.i
+  %arrayidx1.i243.i = getelementptr inbounds i8, ptr %175, i64 %shr120.i
   %176 = load i8, ptr %arrayidx1.i243.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %176)
-  %arrayidx1.i247.i = getelementptr i8, ptr %arrayidx1.i243.i, i64 1
+  %arrayidx1.i247.i = getelementptr inbounds i8, ptr %arrayidx1.i243.i, i64 1
   %177 = load i8, ptr %arrayidx1.i247.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %177)
   br label %while.end
@@ -24827,10 +24827,10 @@ sw.bb145.i:                                       ; preds = %sw.bb136.i
   %shr147.i = lshr i64 %conv.i257.i, 2
   %arrayidx.i259.i = getelementptr inbounds [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 0, i64 %shr.i253.i
   %183 = load ptr, ptr %arrayidx.i259.i, align 8
-  %arrayidx1.i260.i = getelementptr i8, ptr %183, i64 %shr147.i
+  %arrayidx1.i260.i = getelementptr inbounds i8, ptr %183, i64 %shr147.i
   %184 = load i8, ptr %arrayidx1.i260.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %184)
-  %arrayidx1.i264.i = getelementptr i8, ptr %arrayidx1.i260.i, i64 1
+  %arrayidx1.i264.i = getelementptr inbounds i8, ptr %arrayidx1.i260.i, i64 1
   %185 = load i8, ptr %arrayidx1.i264.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %185)
   br label %while.end
@@ -24874,10 +24874,10 @@ sw.bb172.i:                                       ; preds = %sw.bb163.i
   %shr174.i = lshr i64 %conv.i277.i, 2
   %arrayidx.i279.i = getelementptr inbounds [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 0, i64 %shr.i270.i
   %193 = load ptr, ptr %arrayidx.i279.i, align 8
-  %arrayidx1.i280.i = getelementptr i8, ptr %193, i64 %shr174.i
+  %arrayidx1.i280.i = getelementptr inbounds i8, ptr %193, i64 %shr174.i
   %194 = load i8, ptr %arrayidx1.i280.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %194)
-  %arrayidx1.i284.i = getelementptr i8, ptr %arrayidx1.i280.i, i64 1
+  %arrayidx1.i284.i = getelementptr inbounds i8, ptr %arrayidx1.i280.i, i64 1
   %195 = load i8, ptr %arrayidx1.i284.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %195)
   br label %while.end
@@ -24921,10 +24921,10 @@ sw.bb199.i:                                       ; preds = %sw.bb190.i
   %shr201.i = lshr i64 %conv.i297.i, 2
   %arrayidx.i299.i = getelementptr inbounds [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 0, i64 %shr.i290.i
   %203 = load ptr, ptr %arrayidx.i299.i, align 8
-  %arrayidx1.i300.i = getelementptr i8, ptr %203, i64 %shr201.i
+  %arrayidx1.i300.i = getelementptr inbounds i8, ptr %203, i64 %shr201.i
   %204 = load i8, ptr %arrayidx1.i300.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %204)
-  %arrayidx1.i304.i = getelementptr i8, ptr %arrayidx1.i300.i, i64 1
+  %arrayidx1.i304.i = getelementptr inbounds i8, ptr %arrayidx1.i300.i, i64 1
   %205 = load i8, ptr %arrayidx1.i304.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %205)
   br label %while.end
@@ -24974,7 +24974,7 @@ if.end:                                           ; preds = %"_ZN9grpc_core11Huf
 sw.bb:                                            ; preds = %if.end
   %arrayidx.i20 = getelementptr inbounds [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %shr.i16
   %215 = load ptr, ptr %arrayidx.i20, align 8
-  %arrayidx1.i = getelementptr i8, ptr %215, i64 %shr6
+  %arrayidx1.i = getelementptr inbounds i8, ptr %215, i64 %shr6
   %216 = load i8, ptr %arrayidx1.i, align 1
   %217 = load ptr, ptr %this, align 8
   %218 = load i32, ptr %217, align 4
@@ -25062,7 +25062,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh.exit"
 
 "_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh.exit": ; preds = %if.then3.i, %if.then.i.i23, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i
-  %arrayidx1.i29 = getelementptr i8, ptr %arrayidx1.i, i64 1
+  %arrayidx1.i29 = getelementptr inbounds i8, ptr %arrayidx1.i, i64 1
   %225 = load i8, ptr %arrayidx1.i29, align 1
   %226 = load ptr, ptr %this, align 8
   %227 = load i32, ptr %226, align 4
@@ -25150,7 +25150,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh.exit67"
 
 "_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh.exit67": ; preds = %if.then3.i66, %if.then.i.i36, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i59
-  %arrayidx1.i70 = getelementptr i8, ptr %arrayidx1.i, i64 2
+  %arrayidx1.i70 = getelementptr inbounds i8, ptr %arrayidx1.i, i64 2
   %234 = load i8, ptr %arrayidx1.i70, align 1
   %235 = load ptr, ptr %this, align 8
   %236 = load i32, ptr %235, align 4
@@ -25240,7 +25240,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 sw.bb19:                                          ; preds = %if.end
   %arrayidx.i110 = getelementptr inbounds [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %shr.i16
   %243 = load ptr, ptr %arrayidx.i110, align 8
-  %arrayidx1.i111 = getelementptr i8, ptr %243, i64 %shr6
+  %arrayidx1.i111 = getelementptr inbounds i8, ptr %243, i64 %shr6
   %244 = load i8, ptr %arrayidx1.i111, align 1
   %245 = load ptr, ptr %this, align 8
   %246 = load i32, ptr %245, align 4
@@ -25328,7 +25328,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh.exit149"
 
 "_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh.exit149": ; preds = %if.then3.i148, %if.then.i.i118, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i141
-  %arrayidx1.i152 = getelementptr i8, ptr %arrayidx1.i111, i64 1
+  %arrayidx1.i152 = getelementptr inbounds i8, ptr %arrayidx1.i111, i64 1
   %253 = load i8, ptr %arrayidx1.i152, align 1
   %254 = load ptr, ptr %this, align 8
   %255 = load i32, ptr %254, align 4

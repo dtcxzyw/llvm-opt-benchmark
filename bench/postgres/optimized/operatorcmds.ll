@@ -828,7 +828,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %105 = load i32, ptr %104, align 4
   %106 = getelementptr inbounds i8, ptr %20, i64 80
   %107 = load i32, ptr %106, align 4
-  %108 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0130.lcssa, i32 noundef %105, i32 noundef %107), !range !5
+  %108 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0130.lcssa, i32 noundef %105, i32 noundef %107)
   br label %109
 
 109:                                              ; preds = %102, %103
@@ -841,7 +841,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds i8, ptr %20, i64 84
   %114 = load i32, ptr %113, align 4
-  %115 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0127.lcssa, i32 noundef %112, i32 noundef %114), !range !5
+  %115 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0127.lcssa, i32 noundef %112, i32 noundef %114)
   %116 = load i32, ptr %20, align 4
   %117 = icmp eq i32 %115, %116
   br i1 %117, label %118, label %122
@@ -905,7 +905,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %144, label %145, label %151
 
 145:                                              ; preds = %141
-  %146 = trunc i8 %.0124.lcssa to i1
+  %146 = trunc nuw i8 %.0124.lcssa to i1
   br i1 %146, label %151, label %147
 
 147:                                              ; preds = %145
@@ -926,7 +926,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %155, label %156, label %162
 
 156:                                              ; preds = %152
-  %157 = trunc i8 %.0120.lcssa to i1
+  %157 = trunc nuw i8 %.0120.lcssa to i1
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %156
@@ -946,8 +946,8 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %168 = load i32, ptr %167, align 4
   %169 = icmp ne i32 %.0112, 0
   %170 = icmp ne i32 %.0132, 0
-  %171 = trunc i8 %.0124.lcssa to i1
-  %172 = trunc i8 %.0120.lcssa to i1
+  %171 = trunc nuw i8 %.0124.lcssa to i1
+  %172 = trunc nuw i8 %.0120.lcssa to i1
   tail call void @OperatorValidateParams(i32 noundef %164, i32 noundef %166, i32 noundef %168, i1 noundef zeroext %123, i1 noundef zeroext %132, i1 noundef zeroext %169, i1 noundef zeroext %170, i1 noundef zeroext %171, i1 noundef zeroext %172) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %4, i8 0, i64 15, i1 false)
@@ -1055,7 +1055,7 @@ declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 nound
 declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ValidateOperatorReference(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @ValidateOperatorReference(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = call i32 @OperatorLookup(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -1135,4 +1135,3 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 1, i32 0}

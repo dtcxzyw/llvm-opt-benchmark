@@ -396,11 +396,11 @@ if.then198:                                       ; preds = %for.end187
   %range_bitmap199 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 8
   %41 = load i64, ptr %range_bitmap199, align 8
   %or201 = or i64 %41, %40
-  %42 = tail call i64 @llvm.cttz.i64(i64 %or201, i1 true), !range !9
-  %cast.i = trunc i64 %42 to i32
+  %42 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %or201, i1 true)
+  %cast.i = trunc nuw nsw i64 %42 to i32
   %div204124 = lshr i64 %40, %42
-  %43 = tail call i64 @llvm.ctlz.i64(i64 %or201, i1 true), !range !9
-  %cast.i126 = trunc i64 %43 to i32
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or201, i1 true)
+  %cast.i126 = trunc nuw nsw i64 %43 to i32
   %44 = add nuw nsw i32 %cast.i126, %cast.i
   %cmp207 = icmp ult i32 %44, 48
   %cmp209 = icmp ugt i64 %div204124, 65534
@@ -877,7 +877,7 @@ if.end41:                                         ; preds = %for.body
   call void @machine_set_cpu_numa_node(ptr noundef %ms, ptr noundef nonnull %props, ptr noundef nonnull %err) #11
   %12 = load ptr, ptr %err, align 8
   %tobool45.not = icmp eq ptr %12, null
-  br i1 %tobool45.not, label %for.cond, label %if.then46, !llvm.loop !10
+  br i1 %tobool45.not, label %for.cond, label %if.then46, !llvm.loop !9
 
 if.then46:                                        ; preds = %if.end41
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %12) #11
@@ -1057,7 +1057,7 @@ if.end12:                                         ; preds = %entry, %lor.lhs.fal
 
 for.cond:                                         ; preds = %for.body, %if.end12
   %indvars.iv = phi i64 [ %12, %for.body ], [ %10, %if.end12 ]
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   %cmp13 = icmp sgt i32 %11, 0
   br i1 %cmp13, label %for.body, label %for.end
 
@@ -1066,7 +1066,7 @@ for.body:                                         ; preds = %for.cond
   %present = getelementptr %struct.NodeInfo, ptr %nodes, i64 %12, i32 2
   %13 = load i8, ptr %present, align 8
   %tobool15 = trunc i8 %13 to i1
-  br i1 %tobool15, label %for.cond, label %if.then16, !llvm.loop !11
+  br i1 %tobool15, label %for.cond, label %if.then16, !llvm.loop !10
 
 if.then16:                                        ; preds = %for.body
   %14 = trunc i64 %12 to i32
@@ -1096,7 +1096,7 @@ for.body32:                                       ; preds = %if.end23, %for.body
   %add = add i64 %17, %numa_total.059
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next66, %10
-  br i1 %exitcond.not, label %for.end37, label %for.body32, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end37, label %for.body32, !llvm.loop !11
 
 for.end37:                                        ; preds = %for.body32
   %ram_size38 = getelementptr inbounds i8, ptr %ms, i64 144
@@ -1172,7 +1172,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = sext i32 %31 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %cmp.i, label %for.body.i, label %if.end55, !llvm.loop !13
+  br i1 %cmp.i, label %for.body.i, label %if.end55, !llvm.loop !12
 
 if.end55:                                         ; preds = %for.inc.i, %if.end49, %land.lhs.true44, %if.end42
   %34 = phi i32 [ %26, %if.end49 ], [ %9, %land.lhs.true44 ], [ %9, %if.end42 ], [ %31, %for.inc.i ]
@@ -1213,8 +1213,8 @@ land.lhs.true.i:                                  ; preds = %for.body4.i
   br i1 %or.cond.i, label %for.inc.i43, label %if.then19.i
 
 if.then19.i:                                      ; preds = %land.lhs.true.i
-  %39 = trunc i64 %indvars.iv.i42 to i32
-  %40 = trunc i64 %indvars.iv18.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i42 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv18.i to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, i32 noundef %39, i32 noundef %40) #11
   tail call void @exit(i32 noundef 1) #13
   unreachable
@@ -1229,12 +1229,12 @@ for.inc.i43:                                      ; preds = %land.lhs.true29.i, 
   %is_asymmetrical.2.i = phi i1 [ %spec.select.i, %land.lhs.true29.i ], [ %is_asymmetrical.15.i, %land.lhs.true.i ]
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count20.i
-  br i1 %exitcond.not.i, label %for.inc55.i, label %for.body4.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.inc55.i, label %for.body4.i, !llvm.loop !13
 
 for.inc55.i:                                      ; preds = %for.inc.i43
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %for.end57.i, label %for.cond2.preheader.i, !llvm.loop !15
+  br i1 %exitcond21.not.i, label %for.end57.i, label %for.cond2.preheader.i, !llvm.loop !14
 
 for.end57.i:                                      ; preds = %for.inc55.i
   br i1 %is_asymmetrical.2.i, label %for.cond63.preheader.us.i, label %for.cond2.preheader.i47.preheader
@@ -1260,12 +1260,12 @@ land.lhs.true69.us.i:                             ; preds = %for.body66.us.i
 for.inc80.us.i:                                   ; preds = %land.lhs.true69.us.i, %for.body66.us.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count20.i
-  br i1 %exitcond26.not.i, label %for.cond63.for.inc83_crit_edge.us.i, label %for.body66.us.i, !llvm.loop !16
+  br i1 %exitcond26.not.i, label %for.cond63.for.inc83_crit_edge.us.i, label %for.body66.us.i, !llvm.loop !15
 
 for.cond63.for.inc83_crit_edge.us.i:              ; preds = %for.inc80.us.i
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count20.i
-  br i1 %exitcond31.not.i, label %for.cond2.preheader.i47.preheader, label %for.cond63.preheader.us.i, !llvm.loop !17
+  br i1 %exitcond31.not.i, label %for.cond2.preheader.i47.preheader, label %for.cond63.preheader.us.i, !llvm.loop !16
 
 if.then78.i:                                      ; preds = %land.lhs.true69.us.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.59) #11
@@ -1312,7 +1312,7 @@ for.inc.i52:                                      ; preds = %for.inc.sink.split.
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 1
   %48 = sext i32 %47 to i64
   %cmp5.i = icmp slt i64 %indvars.iv.next.i53, %48
-  br i1 %cmp5.i, label %for.body6.i, label %for.inc30.i, !llvm.loop !18
+  br i1 %cmp5.i, label %for.body6.i, label %for.inc30.i, !llvm.loop !17
 
 for.inc30.i:                                      ; preds = %for.inc.i52, %for.cond2.preheader.for.inc30_crit_edge.i
   %49 = phi i32 [ %42, %for.cond2.preheader.for.inc30_crit_edge.i ], [ %47, %for.inc.i52 ]
@@ -1320,7 +1320,7 @@ for.inc30.i:                                      ; preds = %for.inc.i52, %for.c
   %50 = phi i32 [ %43, %for.cond2.preheader.for.inc30_crit_edge.i ], [ %47, %for.inc.i52 ]
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %cmp.i49 = icmp slt i64 %indvars.iv.next25.i, %.pre-phi.i
-  br i1 %cmp.i49, label %for.cond2.preheader.i47, label %if.end60, !llvm.loop !19
+  br i1 %cmp.i49, label %for.cond2.preheader.i47, label %if.end60, !llvm.loop !18
 
 if.end60:                                         ; preds = %for.inc30.i, %if.then58, %if.end55, %if.end23
   ret void
@@ -1349,7 +1349,7 @@ declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare ptr @qemu_find_opts(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @parse_numa(ptr noundef %opaque, ptr noundef %opts, ptr noundef %errp) #1 {
+define internal range(i32 -1, 1) i32 @parse_numa(ptr noundef %opaque, ptr noundef %opts, ptr noundef %errp) #1 {
 entry:
   %object = alloca ptr, align 8
   %err = alloca ptr, align 8
@@ -1568,7 +1568,7 @@ do.body.i:                                        ; preds = %if.then.i
 for.inc.i:                                        ; preds = %sw.bb35.i, %sw.bb22.i, %sw.bb11.i, %cond.end.i, %for.body.i
   %27 = load ptr, ptr %info.028.i, align 8
   %tobool.not.i = icmp eq ptr %27, null
-  br i1 %tobool.not.i, label %numa_stat_memory_devices.exit, label %for.body.i, !llvm.loop !21
+  br i1 %tobool.not.i, label %numa_stat_memory_devices.exit, label %for.body.i, !llvm.loop !20
 
 numa_stat_memory_devices.exit:                    ; preds = %for.inc.i, %if.end
   tail call void @qapi_free_MemoryDeviceInfoList(ptr noundef %call.i) #11
@@ -1592,7 +1592,7 @@ for.body:                                         ; preds = %numa_stat_memory_de
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %cmp5 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !22
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %numa_stat_memory_devices.exit, %entry, %lor.lhs.false
   ret void
@@ -1721,7 +1721,7 @@ if.then:                                          ; preds = %land.rhs
 
 for.inc:                                          ; preds = %land.rhs, %if.then
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !23
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -1749,7 +1749,7 @@ if.then:                                          ; preds = %land.rhs
 
 for.inc:                                          ; preds = %land.rhs, %if.then
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !24
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -1777,7 +1777,7 @@ if.then:                                          ; preds = %land.rhs
 
 for.inc:                                          ; preds = %land.rhs, %if.then
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !25
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -1874,7 +1874,7 @@ attributes #14 = { nounwind allocsize(0,1) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i64 0, i64 65}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -1883,11 +1883,10 @@ attributes #14 = { nounwind allocsize(0,1) }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6, !20}
-!20 = !{!"llvm.loop.unswitch.partial.disable"}
+!18 = distinct !{!18, !6, !19}
+!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}

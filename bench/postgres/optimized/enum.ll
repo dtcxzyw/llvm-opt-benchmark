@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.enum_cmp_internal = private unnamed_addr constant [18 x i8] c"enum_cmp_internal\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @enum_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -188,7 +188,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @enum_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -295,7 +295,7 @@ declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @enum_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -372,7 +372,7 @@ define internal fastcc i32 @enum_cmp_internal(i32 noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @enum_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -386,7 +386,7 @@ define dso_local i64 @enum_le(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @enum_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i64 0, 2) i64 @enum_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -399,7 +399,7 @@ define dso_local i64 @enum_eq(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @enum_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i64 0, 2) i64 @enum_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -412,7 +412,7 @@ define dso_local i64 @enum_ne(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @enum_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -426,7 +426,7 @@ define dso_local i64 @enum_ge(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @enum_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -440,7 +440,7 @@ define dso_local i64 @enum_gt(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_smaller(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @enum_smaller(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -455,7 +455,7 @@ define dso_local i64 @enum_smaller(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_larger(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @enum_larger(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -470,7 +470,7 @@ define dso_local i64 @enum_larger(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @enum_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -483,7 +483,7 @@ define dso_local i64 @enum_cmp(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_first(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @enum_first(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @get_fn_expr_argtype(ptr noundef %2, i32 noundef 0) #7
   %4 = icmp eq i32 %3, 0
@@ -551,7 +551,7 @@ define internal fastcc i32 @enum_endpoint(i32 noundef %0, i32 noundef %1) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @enum_last(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @enum_last(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @get_fn_expr_argtype(ptr noundef %2, i32 noundef 0) #7
   %4 = icmp eq i32 %3, 0
@@ -663,11 +663,11 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = trunc i8 %.031.us53 to i1
+  %20 = trunc nuw i8 %.031.us53 to i1
   %21 = icmp ne i32 %19, %1
   %or.cond.not.us = select i1 %20, i1 true, i1 %21
   %.132.us = select i1 %or.cond.not.us, i8 %.031.us53, i8 1
-  %22 = trunc i8 %.132.us to i1
+  %22 = trunc nuw i8 %.132.us to i1
   br i1 %22, label %23, label %34
 
 23:                                               ; preds = %.lr.ph
@@ -717,11 +717,11 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %42 = zext i8 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4
-  %45 = trunc i8 %.031 to i1
+  %45 = trunc nuw i8 %.031 to i1
   %46 = icmp ne i32 %44, %1
   %or.cond.not = select i1 %45, i1 true, i1 %46
   %.132 = select i1 %or.cond.not, i8 %.031, i8 1
-  %47 = trunc i8 %.132 to i1
+  %47 = trunc nuw i8 %.132 to i1
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %37

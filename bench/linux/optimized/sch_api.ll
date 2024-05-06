@@ -391,7 +391,7 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @qdisc_set_default(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @qdisc_set_default(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call zeroext i1 @capable(i32 noundef 12) #19
   br i1 %2, label %3, label %34
 
@@ -989,7 +989,7 @@ declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc noundef zeroext i8 @__detect_linklayer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
+define internal fastcc noundef zeroext range(i8 1, 3) i8 @__detect_linklayer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = freeze i16 %4
@@ -1482,7 +1482,7 @@ define dso_local void @qdisc_class_hash_grow(ptr noundef %0, ptr nocapture nound
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @qdisc_class_hash_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @qdisc_class_hash_init(ptr nocapture noundef writeonly %0) #0 align 16 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @kvmalloc_node(i64 noundef 32, i32 noundef 3264, i32 noundef -1) #22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.critedge, label %4
@@ -3817,7 +3817,7 @@ tc_dump_tclass_root.exit:                         ; preds = %198, %149, %70, %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @psched_net_init(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @psched_net_init(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_single_data(ptr noundef nonnull @.str.9, i16 noundef zeroext 0, ptr noundef %3, ptr noundef nonnull @psched_show, ptr noundef null) #19
@@ -4868,7 +4868,7 @@ declare dso_local void @qdisc_put(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @__nla_parse(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @check_loop_fn(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -40, 1) i32 @check_loop_fn(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca %struct.check_loop_arg, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8

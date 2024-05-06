@@ -283,7 +283,7 @@ nb_lines.exit:                                    ; preds = %18, %21
 ._crit_edge:                                      ; preds = %.lr.ph, %nb_lines.exit
   %30 = call i32 @tm_get_verbose_level() #17
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
-  %31 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #17
+  %31 = call i32 @stat(ptr noundef readonly %0, ptr noundef nonnull %2) #17
   %32 = getelementptr inbounds i8, ptr %2, i64 48
   %33 = load i64, ptr %32, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
@@ -404,11 +404,11 @@ nb_lines.exit:                                    ; preds = %18, %21
   br i1 %.not.i.i, label %._crit_edge.i.loopexit42.i, label %.preheader48.i.i, !llvm.loop !14
 
 ._crit_edge.i.loopexit.i:                         ; preds = %55
-  %72 = trunc i64 %indvars.iv.i to i32
+  %72 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.loopexit42.i:                       ; preds = %.loopexit.i.i
-  %73 = trunc i64 %indvars.iv.next.i to i32
+  %73 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit42.i, %._crit_edge.i.loopexit.i, %.lr.ph.i
@@ -423,7 +423,7 @@ nb_lines.exit:                                    ; preds = %18, %21
   br i1 %.not42.i.i, label %80, label %75
 
 75:                                               ; preds = %74
-  %76 = trunc i64 %indvars.iv54.i to i32
+  %76 = trunc nuw nsw i64 %indvars.iv54.i to i32
   %77 = load ptr, ptr @stderr, align 8
   %78 = add nuw nsw i32 %76, 1
   %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.18, i32 noundef %76, i32 noundef %.0.lcssa.i.i, i32 noundef %.0.lcssa.i.i, i32 noundef %.0.i, i32 noundef %78, ptr noundef %0) #19
@@ -573,7 +573,7 @@ define hidden void @tm_map_topology(ptr noundef %0, ptr nocapture noundef readon
   br i1 %41, label %56, label %63
 
 56:                                               ; preds = %55
-  %57 = trunc i64 %indvars.iv137 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv137 to i32
   %58 = sdiv i32 %57, %28
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i32, ptr %12, i64 %59
@@ -586,7 +586,7 @@ define hidden void @tm_map_topology(ptr noundef %0, ptr nocapture noundef readon
   br i1 %64, label %65, label %88
 
 65:                                               ; preds = %63
-  %66 = trunc i64 %indvars.iv137 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv137 to i32
   %67 = sdiv i32 %66, %28
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i32, ptr %12, i64 %68
@@ -665,7 +665,7 @@ set_val.exit:                                     ; preds = %.lr.ph.i
   br i1 %.not.us, label %109, label %97
 
 97:                                               ; preds = %.lr.ph.split.us
-  %98 = trunc i64 %indvars.iv126 to i32
+  %98 = trunc nuw nsw i64 %indvars.iv126 to i32
   %99 = sdiv i32 %98, %28
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %12, i64 %100
@@ -696,7 +696,7 @@ set_val.exit:                                     ; preds = %.lr.ph.i
   br i1 %or.cond110, label %113, label %121
 
 113:                                              ; preds = %.lr.ph.split
-  %114 = trunc i64 %indvars.iv to i32
+  %114 = trunc nuw nsw i64 %indvars.iv to i32
   %115 = sdiv i32 %114, %28
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i32, ptr %12, i64 %116
@@ -728,7 +728,7 @@ set_val.exit:                                     ; preds = %.lr.ph.i
 
 128:                                              ; preds = %.lr.ph108, %._crit_edge104
   %indvars.iv145 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next146, %._crit_edge104 ]
-  %129 = trunc i64 %indvars.iv145 to i32
+  %129 = trunc nuw nsw i64 %indvars.iv145 to i32
   %130 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %129)
   %131 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv145
   %132 = load i32, ptr %127, align 4
@@ -916,7 +916,7 @@ define hidden i32 @tm_fill_tab(ptr nocapture noundef writeonly %0, ptr nocapture
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.split.loop.exit52:                    ; preds = %.lr.ph
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %._crit_edge.split.loop.exit52

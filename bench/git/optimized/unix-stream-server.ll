@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unix_ss_create(ptr noundef %path, ptr noundef %opts, i64 noundef %timeout_ms, ptr nocapture noundef writeonly %new_server_socket) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @unix_ss_create(ptr noundef %path, ptr noundef %opts, i64 noundef %timeout_ms, ptr nocapture noundef writeonly %new_server_socket) local_unnamed_addr #0 {
 entry:
   %lock = alloca %struct.lock_file, align 8
   store i64 0, ptr %lock, align 8
@@ -145,7 +145,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @unix_ss_was_stolen(ptr noundef readonly %server_socket) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @unix_ss_was_stolen(ptr noundef readonly %server_socket) local_unnamed_addr #5 {
 entry:
   %st_now = alloca %struct.stat, align 8
   %tobool.not = icmp eq ptr %server_socket, null

@@ -368,7 +368,7 @@ for.end:                                          ; preds = %list_objects_filter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @filter_blobs_none(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr nocapture readnone %filter_data_) #0 {
+define internal range(i32 0, 4) i32 @filter_blobs_none(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr nocapture readnone %filter_data_) #0 {
 entry:
   switch i32 %filter_situation, label %sw.default [
     i32 1, label %return
@@ -402,7 +402,7 @@ return:                                           ; preds = %sw.bb4, %if.then, %
 declare i32 @oidset_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @filter_blobs_limit(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr nocapture noundef readonly %filter_data_) #0 {
+define internal range(i32 0, 4) i32 @filter_blobs_limit(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr nocapture noundef readonly %filter_data_) #0 {
 entry:
   %object_length = alloca i64, align 8
   switch i32 %filter_situation, label %sw.default [
@@ -460,7 +460,7 @@ declare i32 @oidset_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @oidmap_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @filter_trees_depth(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
+define internal range(i32 0, 5) i32 @filter_trees_depth(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
 entry:
   %current_depth = getelementptr inbounds i8, ptr %filter_data_, i64 56
   %0 = load i64, ptr %current_depth, align 8
@@ -513,7 +513,7 @@ sw.bb5:                                           ; preds = %entry
 if.end.thread:                                    ; preds = %sw.bb5
   %call8 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #11
   %oid9 = getelementptr inbounds i8, ptr %call8, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid9, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid9, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %obj, i64 36
   %2 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %call8, i64 48
@@ -630,7 +630,7 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @filter_sparse(ptr nocapture noundef readonly %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
+define internal range(i32 0, 4) i32 @filter_sparse(ptr nocapture noundef readonly %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
 entry:
   %dtype = alloca i32, align 4
   switch i32 %filter_situation, label %sw.default [
@@ -827,7 +827,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 declare void @clear_pattern_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @filter_object_type(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr nocapture readnone %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr nocapture readnone %omits, ptr nocapture noundef readonly %filter_data_) #0 {
+define internal range(i32 0, 5) i32 @filter_object_type(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr nocapture readnone %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr nocapture readnone %omits, ptr nocapture noundef readonly %filter_data_) #0 {
 entry:
   switch i32 %filter_situation, label %sw.default [
     i32 1, label %sw.bb
@@ -877,7 +877,7 @@ return:                                           ; preds = %sw.bb6, %switch.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @filter_combine(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr nocapture readnone %omits, ptr nocapture noundef readonly %filter_data) #0 {
+define internal range(i32 0, 8) i32 @filter_combine(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr nocapture readnone %omits, ptr nocapture noundef readonly %filter_data) #0 {
 entry:
   %nr = getelementptr inbounds i8, ptr %filter_data, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -931,11 +931,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid.i, ptr noundef nonnull dereferenceable(32) %skip_tree.i, i64 32)
+  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.i, ptr noundef nonnull readonly dereferenceable(32) %skip_tree.i, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid.i, ptr noundef nonnull dereferenceable(20) %skip_tree.i, i64 20)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i, ptr noundef nonnull readonly dereferenceable(20) %skip_tree.i, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i.i, %if.then.i.i.i

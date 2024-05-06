@@ -164,7 +164,7 @@ entry:
   %1 = load ptr, ptr %qts, align 8
   %conv3 = add i16 %conv, 4
   %shr = lshr i64 %val, 32
-  %conv4 = trunc i64 %shr to i32
+  %conv4 = trunc nuw i64 %shr to i32
   tail call void @qtest_outl(ptr noundef %1, i16 noundef zeroext %conv3, i32 noundef %conv4) #7
   ret void
 }

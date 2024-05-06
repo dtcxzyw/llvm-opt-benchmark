@@ -179,7 +179,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @check_signature(ptr noundef %sigc, ptr noundef %signature, i64 noundef %slen) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @check_signature(ptr noundef %sigc, ptr noundef %signature, i64 noundef %slen) local_unnamed_addr #2 {
 entry:
   %ident_len.i = alloca i64, align 8
   %ident.i = alloca %struct.ident_split, align 8
@@ -454,7 +454,7 @@ while.end:                                        ; preds = %get_format_by_sig.e
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_signature(ptr noundef %buf, i64 noundef %size, ptr noundef %payload, ptr noundef %signature) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @parse_signature(ptr noundef %buf, i64 noundef %size, ptr noundef %payload, ptr noundef %signature) local_unnamed_addr #2 {
 entry:
   %cmp15.not.i = icmp eq i64 %size, 0
   br i1 %cmp15.not.i, label %parse_signed_buffer.exit, label %while.body.i
@@ -749,7 +749,7 @@ for.body.i:                                       ; preds = %if.then8, %for.cond
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.then8 ]
   %arrayidx.i = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 16
-  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %value) #17
+  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %value) #17
   %tobool.not.i = icmp eq i32 %call.i34, 0
   br i1 %tobool.not.i, label %if.end20, label %for.cond.i
 
@@ -797,7 +797,7 @@ for.body.i37:                                     ; preds = %for.cond.i41, %if.e
   %i.04.i = phi i64 [ 0, %if.end29 ], [ %inc.i, %for.cond.i41 ]
   %arrayidx.i38 = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i
   %3 = load ptr, ptr %arrayidx.i38, align 8
-  %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %call30) #17
+  %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %call30) #17
   %tobool.not.i40 = icmp eq i32 %call.i39, 0
   br i1 %tobool.not.i40, label %parse_gpg_trust_level.exit.thread, label %for.cond.i41
 
@@ -876,7 +876,7 @@ if.end59:                                         ; preds = %if.then58, %lor.lhs
 
 for.body.i49.preheader:                           ; preds = %if.end59
   %6 = load ptr, ptr @gpg_format, align 16
-  %call.i5265 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %fmtname.2) #17
+  %call.i5265 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %fmtname.2) #17
   %tobool.not.i5366 = icmp eq i32 %call.i5265, 0
   br i1 %tobool.not.i5366, label %get_format_by_name.exit58, label %for.cond.i54
 
@@ -887,7 +887,7 @@ for.cond.i54:                                     ; preds = %for.body.i49.prehea
   tail call void @llvm.assume(i1 %exitcond.not.i56)
   %arrayidx.i51 = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.next.i55
   %7 = load ptr, ptr %arrayidx.i51, align 16
-  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %fmtname.2) #17
+  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %fmtname.2) #17
   %tobool.not.i53 = icmp eq i32 %call.i52, 0
   br i1 %tobool.not.i53, label %get_format_by_name.exit58, label %for.cond.i54
 
@@ -1004,8 +1004,8 @@ if.end11:                                         ; preds = %lor.lhs.false
   %gpg_status = getelementptr inbounds i8, ptr %sigc, i64 40
   store ptr %call24, ptr %gpg_status, align 8
   %11 = load i8, ptr %call24, align 1
-  %tobool.not111.i = icmp eq i8 %11, 0
-  br i1 %tobool.not111.i, label %parse_gpg_output.exit, label %while.cond.preheader.lr.ph.i
+  %tobool.not112.i = icmp eq i8 %11, 0
+  br i1 %tobool.not112.i, label %parse_gpg_output.exit, label %while.cond.preheader.lr.ph.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %if.end11
   %result27.i = getelementptr inbounds i8, ptr %sigc, i64 48
@@ -1013,20 +1013,20 @@ while.cond.preheader.lr.ph.i:                     ; preds = %if.end11
   %signer.i = getelementptr inbounds i8, ptr %sigc, i64 56
   %trust_level.i = getelementptr inbounds i8, ptr %sigc, i64 88
   %fingerprint.i = getelementptr inbounds i8, ptr %sigc, i64 72
-  %primary_key_fingerprint94.i = getelementptr inbounds i8, ptr %sigc, i64 80
+  %primary_key_fingerprint95.i = getelementptr inbounds i8, ptr %sigc, i64 80
   br label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %for.inc88.i, %while.cond.preheader.lr.ph.i
   %12 = phi i8 [ %11, %while.cond.preheader.lr.ph.i ], [ %31, %for.inc88.i ]
-  %seen_exclusive_status.0113.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i ], [ %seen_exclusive_status.2.i, %for.inc88.i ]
-  %storemerge112.i = phi ptr [ %call24, %while.cond.preheader.lr.ph.i ], [ %call90.i, %for.inc88.i ]
-  %scevgep.i = getelementptr i8, ptr %storemerge112.i, i64 9
+  %seen_exclusive_status.0114.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i ], [ %seen_exclusive_status.2.i, %for.inc88.i ]
+  %storemerge113.i = phi ptr [ %call24, %while.cond.preheader.lr.ph.i ], [ %call90.i, %for.inc88.i ]
+  %scevgep.i = getelementptr i8, ptr %storemerge113.i, i64 9
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
-  %indvars.iv.i = phi ptr [ %scevgep.i, %while.cond.preheader.i ], [ %scevgep122.i, %while.body.i ]
+  %indvars.iv.i = phi ptr [ %scevgep.i, %while.cond.preheader.i ], [ %scevgep123.i, %while.body.i ]
   %13 = phi i8 [ %12, %while.cond.preheader.i ], [ %.pr.i, %while.body.i ]
-  %line.0.i = phi ptr [ %storemerge112.i, %while.cond.preheader.i ], [ %incdec.ptr.i, %while.body.i ]
+  %line.0.i = phi ptr [ %storemerge113.i, %while.cond.preheader.i ], [ %incdec.ptr.i, %while.body.i ]
   switch i8 %13, label %do.body.i.i [
     i8 10, label %while.body.i
     i8 0, label %parse_gpg_output.exit
@@ -1035,7 +1035,7 @@ while.cond.i:                                     ; preds = %while.body.i, %whil
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %line.0.i, i64 1
   %.pr.i = load i8, ptr %incdec.ptr.i, align 1
-  %scevgep122.i = getelementptr i8, ptr %indvars.iv.i, i64 1
+  %scevgep123.i = getelementptr i8, ptr %indvars.iv.i, i64 1
   br label %while.cond.i, !llvm.loop !11
 
 do.body.i.i:                                      ; preds = %while.cond.i, %do.cond.i.i
@@ -1054,8 +1054,8 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %for.inc88.i, !llvm.loop !12
 
 for.body9.i:                                      ; preds = %do.body.i.i, %for.inc85.i
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next.i, %for.inc85.i ], [ 0, %do.body.i.i ]
-  %arrayidx.i = getelementptr inbounds [8 x %struct.anon], ptr @sigcheck_gpg_status, i64 0, i64 %indvars.iv124.i
+  %indvars.iv125.i = phi i64 [ %indvars.iv.next.i, %for.inc85.i ], [ 0, %do.body.i.i ]
+  %arrayidx.i = getelementptr inbounds [8 x %struct.anon], ptr @sigcheck_gpg_status, i64 0, i64 %indvars.iv125.i
   %check.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %16 = load ptr, ptr %check.i, align 8
   br label %do.body.i38.i
@@ -1082,11 +1082,11 @@ if.then11.i:                                      ; preds = %do.body.i38.i
   br i1 %tobool14.not.i, label %if.end19.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then11.i
-  %tobool16.not.i = icmp eq i32 %seen_exclusive_status.0113.i, 0
+  %tobool16.not.i = icmp eq i32 %seen_exclusive_status.0114.i, 0
   br i1 %tobool16.not.i, label %if.end19.i, label %error.i
 
 if.end19.i:                                       ; preds = %if.then15.i, %if.then11.i
-  %seen_exclusive_status.1.i = phi i32 [ 1, %if.then15.i ], [ %seen_exclusive_status.0113.i, %if.then11.i ]
+  %seen_exclusive_status.1.i = phi i32 [ 1, %if.then15.i ], [ %seen_exclusive_status.0114.i, %if.then11.i ]
   %20 = load i8, ptr %arrayidx.i, align 8
   %tobool22.not.i = icmp eq i8 %20, 0
   br i1 %tobool22.not.i, label %if.end28.i, label %if.then23.i
@@ -1121,31 +1121,31 @@ replace_cstring.exit.i:                           ; preds = %if.then.i48.i, %if.
   %tobool37.not.i = icmp eq i8 %22, 0
   %and41.i = and i32 %19, 4
   %tobool42.not.i = icmp eq i32 %and41.i, 0
-  %or.cond97.i = or i1 %tobool42.not.i, %tobool37.not.i
-  br i1 %or.cond97.i, label %if.end46.i, label %if.then43.i
+  %or.cond98.i = or i1 %tobool42.not.i, %tobool37.not.i
+  br i1 %or.cond98.i, label %if.end46.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %replace_cstring.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call35.i, i64 1
   %call44.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr.i, i32 noundef 10) #17
   %23 = load ptr, ptr %signer.i, align 8
   call void @free(ptr noundef %23) #14
-  %tobool1.i49.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool1.i49.not.i, label %replace_cstring.exit56.i, label %if.then.i51.i
+  %tobool1.i50.not.i = icmp eq ptr %call44.i, null
+  br i1 %tobool1.i50.not.i, label %replace_cstring.exit58.i, label %if.then.i53.i
 
-if.then.i51.i:                                    ; preds = %if.then43.i
-  %sub.ptr.lhs.cast.i52.i = ptrtoint ptr %call44.i to i64
-  %sub.ptr.rhs.cast.i53.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i54.i = sub i64 %sub.ptr.lhs.cast.i52.i, %sub.ptr.rhs.cast.i53.i
-  %call.i55.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.ptr.sub.i54.i) #14
-  br label %replace_cstring.exit56.i
+if.then.i53.i:                                    ; preds = %if.then43.i
+  %sub.ptr.lhs.cast.i54.i = ptrtoint ptr %call44.i to i64
+  %sub.ptr.rhs.cast.i55.i = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.sub.i56.i = sub i64 %sub.ptr.lhs.cast.i54.i, %sub.ptr.rhs.cast.i55.i
+  %call.i57.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.ptr.sub.i56.i) #14
+  br label %replace_cstring.exit58.i
 
-replace_cstring.exit56.i:                         ; preds = %if.then.i51.i, %if.then43.i
-  %storemerge.i50.i = phi ptr [ %call.i55.i, %if.then.i51.i ], [ null, %if.then43.i ]
-  store ptr %storemerge.i50.i, ptr %signer.i, align 8
+replace_cstring.exit58.i:                         ; preds = %if.then.i53.i, %if.then43.i
+  %storemerge.i52.i = phi ptr [ %call.i57.i, %if.then.i53.i ], [ null, %if.then43.i ]
+  store ptr %storemerge.i52.i, ptr %signer.i, align 8
   br label %if.end46.i
 
-if.end46.i:                                       ; preds = %replace_cstring.exit56.i, %replace_cstring.exit.i, %if.end28.i
-  %line.4.i = phi ptr [ %str.addr.0.i39.i, %if.end28.i ], [ %str.addr.0.i39.i, %replace_cstring.exit.i ], [ %add.ptr.i, %replace_cstring.exit56.i ]
+if.end46.i:                                       ; preds = %replace_cstring.exit58.i, %replace_cstring.exit.i, %if.end28.i
+  %line.4.i = phi ptr [ %str.addr.0.i39.i, %if.end28.i ], [ %str.addr.0.i39.i, %replace_cstring.exit.i ], [ %add.ptr.i, %replace_cstring.exit58.i ]
   %and50.i = and i32 %19, 16
   %tobool51.not.i = icmp eq i32 %and50.i, 0
   br i1 %tobool51.not.i, label %if.end59.i, label %if.then52.i
@@ -1164,9 +1164,9 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.t
   %i.04.i.i = phi i64 [ 0, %if.then52.i ], [ %inc.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i.i
   %24 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i57.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %call54.i) #17
-  %tobool.not.i58.i = icmp eq i32 %call.i57.i, 0
-  br i1 %tobool.not.i58.i, label %if.end58.i, label %for.cond.i.i
+  %call.i59.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %call54.i) #17
+  %tobool.not.i60.i = icmp eq i32 %call.i59.i, 0
+  br i1 %tobool.not.i60.i, label %if.end58.i, label %for.cond.i.i
 
 if.then57.i:                                      ; preds = %for.cond.i.i
   call void @free(ptr noundef %call54.i) #14
@@ -1188,19 +1188,19 @@ if.then65.i:                                      ; preds = %if.end59.i
   %call66.i = call ptr @strchrnul(ptr noundef %line.4.i, i32 noundef 32) #17
   %26 = load ptr, ptr %fingerprint.i, align 8
   call void @free(ptr noundef %26) #14
-  %tobool1.i61.not.i = icmp eq ptr %call66.i, null
-  br i1 %tobool1.i61.not.i, label %replace_cstring.exit69.i, label %if.then.i64.i
+  %tobool1.i63.not.i = icmp eq ptr %call66.i, null
+  br i1 %tobool1.i63.not.i, label %replace_cstring.exit71.i, label %if.then.i66.i
 
-if.then.i64.i:                                    ; preds = %if.then65.i
-  %sub.ptr.lhs.cast.i65.i = ptrtoint ptr %call66.i to i64
-  %sub.ptr.rhs.cast.i66.i = ptrtoint ptr %line.4.i to i64
-  %sub.ptr.sub.i67.i = sub i64 %sub.ptr.lhs.cast.i65.i, %sub.ptr.rhs.cast.i66.i
-  %call.i68.i = call ptr @xmemdupz(ptr noundef nonnull %line.4.i, i64 noundef %sub.ptr.sub.i67.i) #14
-  br label %replace_cstring.exit69.i
+if.then.i66.i:                                    ; preds = %if.then65.i
+  %sub.ptr.lhs.cast.i67.i = ptrtoint ptr %call66.i to i64
+  %sub.ptr.rhs.cast.i68.i = ptrtoint ptr %line.4.i to i64
+  %sub.ptr.sub.i69.i = sub i64 %sub.ptr.lhs.cast.i67.i, %sub.ptr.rhs.cast.i68.i
+  %call.i70.i = call ptr @xmemdupz(ptr noundef nonnull %line.4.i, i64 noundef %sub.ptr.sub.i69.i) #14
+  br label %replace_cstring.exit71.i
 
-replace_cstring.exit69.i:                         ; preds = %if.then.i64.i, %if.then65.i
-  %storemerge.i63.i = phi ptr [ %call.i68.i, %if.then.i64.i ], [ null, %if.then65.i ]
-  store ptr %storemerge.i63.i, ptr %fingerprint.i, align 8
+replace_cstring.exit71.i:                         ; preds = %if.then.i66.i, %if.then65.i
+  %storemerge.i65.i = phi ptr [ %call.i70.i, %if.then.i66.i ], [ null, %if.then65.i ]
+  store ptr %storemerge.i65.i, ptr %fingerprint.i, align 8
   %call67.i = call ptr @strchrnul(ptr noundef %line.4.i, i32 noundef 10) #17
   %27 = load i8, ptr %call66.i, align 1
   %tobool72.not.i21 = icmp ne i8 %27, 0
@@ -1209,7 +1209,7 @@ replace_cstring.exit69.i:                         ; preds = %if.then.i64.i, %if.
   br i1 %or.cond.i23, label %if.end76.i, label %if.else.i
 
 for.body71.i:                                     ; preds = %if.end76.i
-  %dec.i = add nsw i32 %j.0109.i25, -1
+  %dec.i = add nsw i32 %j.0110.i25, -1
   %call78.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr77.i, i32 noundef 32) #17
   %28 = load i8, ptr %call78.i, align 1
   %tobool72.not.i = icmp ne i8 %28, 0
@@ -1217,47 +1217,47 @@ for.body71.i:                                     ; preds = %if.end76.i
   %or.cond.i = select i1 %tobool72.not.i, i1 %cmp73.not.i, i1 false
   br i1 %or.cond.i, label %if.end76.i, label %if.else.i, !llvm.loop !13
 
-if.end76.i:                                       ; preds = %replace_cstring.exit69.i, %for.body71.i
-  %j.0109.i25 = phi i32 [ %dec.i, %for.body71.i ], [ 9, %replace_cstring.exit69.i ]
-  %next.0110.i24 = phi ptr [ %call78.i, %for.body71.i ], [ %call66.i, %replace_cstring.exit69.i ]
-  %add.ptr77.i = getelementptr inbounds i8, ptr %next.0110.i24, i64 1
-  %cmp69.i = icmp ugt i32 %j.0109.i25, 1
+if.end76.i:                                       ; preds = %replace_cstring.exit71.i, %for.body71.i
+  %j.0110.i25 = phi i32 [ %dec.i, %for.body71.i ], [ 9, %replace_cstring.exit71.i ]
+  %next.0111.i24 = phi ptr [ %call78.i, %for.body71.i ], [ %call66.i, %replace_cstring.exit71.i ]
+  %add.ptr77.i = getelementptr inbounds i8, ptr %next.0111.i24, i64 1
+  %cmp69.i = icmp ugt i32 %j.0110.i25, 1
   br i1 %cmp69.i, label %for.body71.i, label %if.then80.i, !llvm.loop !13
 
 if.then80.i:                                      ; preds = %if.end76.i
   %call81.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr77.i, i32 noundef 10) #17
-  %29 = load ptr, ptr %primary_key_fingerprint94.i, align 8
+  %29 = load ptr, ptr %primary_key_fingerprint95.i, align 8
   call void @free(ptr noundef %29) #14
-  %tobool1.i71.not.i = icmp eq ptr %call81.i, null
-  br i1 %tobool1.i71.not.i, label %for.inc88.sink.split.i, label %if.then.i74.i
+  %tobool1.i73.not.i = icmp eq ptr %call81.i, null
+  br i1 %tobool1.i73.not.i, label %for.inc88.sink.split.i, label %if.then.i76.i
 
-if.then.i74.i:                                    ; preds = %if.then80.i
-  %sub.ptr.lhs.cast.i75.i = ptrtoint ptr %call81.i to i64
-  %sub.ptr.rhs.cast.i76.i = ptrtoint ptr %add.ptr77.i to i64
-  %sub.ptr.sub.i77.i = sub i64 %sub.ptr.lhs.cast.i75.i, %sub.ptr.rhs.cast.i76.i
-  %call.i78.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr77.i, i64 noundef %sub.ptr.sub.i77.i) #14
+if.then.i76.i:                                    ; preds = %if.then80.i
+  %sub.ptr.lhs.cast.i77.i = ptrtoint ptr %call81.i to i64
+  %sub.ptr.rhs.cast.i78.i = ptrtoint ptr %add.ptr77.i to i64
+  %sub.ptr.sub.i79.i = sub i64 %sub.ptr.lhs.cast.i77.i, %sub.ptr.rhs.cast.i78.i
+  %call.i80.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr77.i, i64 noundef %sub.ptr.sub.i79.i) #14
   br label %for.inc88.sink.split.i
 
-if.else.i:                                        ; preds = %for.body71.i, %replace_cstring.exit69.i
-  %line.5108.i.lcssa = phi ptr [ %line.4.i, %replace_cstring.exit69.i ], [ %add.ptr77.i, %for.body71.i ]
-  %30 = load ptr, ptr %primary_key_fingerprint94.i, align 8
+if.else.i:                                        ; preds = %for.body71.i, %replace_cstring.exit71.i
+  %line.5109.i.lcssa = phi ptr [ %line.4.i, %replace_cstring.exit71.i ], [ %add.ptr77.i, %for.body71.i ]
+  %30 = load ptr, ptr %primary_key_fingerprint95.i, align 8
   call void @free(ptr noundef %30) #14
   br label %for.inc88.sink.split.i
 
 for.inc85.i:                                      ; preds = %do.cond.i42.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv124.i, 1
-  %exitcond126.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond126.not.i, label %for.inc88.i, label %for.body9.i, !llvm.loop !14
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv125.i, 1
+  %exitcond127.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond127.not.i, label %for.inc88.i, label %for.body9.i, !llvm.loop !14
 
-for.inc88.sink.split.i:                           ; preds = %if.else.i, %if.then.i74.i, %if.then80.i
-  %storemerge.i73.sink.i = phi ptr [ null, %if.else.i ], [ %call.i78.i, %if.then.i74.i ], [ null, %if.then80.i ]
-  %line.6.ph.i = phi ptr [ %line.5108.i.lcssa, %if.else.i ], [ %add.ptr77.i, %if.then.i74.i ], [ %add.ptr77.i, %if.then80.i ]
-  store ptr %storemerge.i73.sink.i, ptr %primary_key_fingerprint94.i, align 8
+for.inc88.sink.split.i:                           ; preds = %if.else.i, %if.then.i76.i, %if.then80.i
+  %storemerge.i75.sink.i = phi ptr [ null, %if.else.i ], [ %call.i80.i, %if.then.i76.i ], [ null, %if.then80.i ]
+  %line.6.ph.i = phi ptr [ %line.5109.i.lcssa, %if.else.i ], [ %add.ptr77.i, %if.then.i76.i ], [ %add.ptr77.i, %if.then80.i ]
+  store ptr %storemerge.i75.sink.i, ptr %primary_key_fingerprint95.i, align 8
   br label %for.inc88.i
 
 for.inc88.i:                                      ; preds = %do.cond.i.i, %for.inc85.i, %for.inc88.sink.split.i, %if.end59.i
   %line.6.i = phi ptr [ %line.4.i, %if.end59.i ], [ %line.6.ph.i, %for.inc88.sink.split.i ], [ %indvars.iv.i, %for.inc85.i ], [ %line.0.i, %do.cond.i.i ]
-  %seen_exclusive_status.2.i = phi i32 [ %seen_exclusive_status.1.i, %if.end59.i ], [ %seen_exclusive_status.1.i, %for.inc88.sink.split.i ], [ %seen_exclusive_status.0113.i, %for.inc85.i ], [ %seen_exclusive_status.0113.i, %do.cond.i.i ]
+  %seen_exclusive_status.2.i = phi i32 [ %seen_exclusive_status.1.i, %if.end59.i ], [ %seen_exclusive_status.1.i, %for.inc88.sink.split.i ], [ %seen_exclusive_status.0114.i, %for.inc85.i ], [ %seen_exclusive_status.0114.i, %do.cond.i.i ]
   %add.ptr89.i = getelementptr inbounds i8, ptr %line.6.i, i64 1
   %call90.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr89.i, i32 noundef 10) #17
   %31 = load i8, ptr %call90.i, align 1
@@ -1266,9 +1266,9 @@ for.inc88.i:                                      ; preds = %do.cond.i.i, %for.i
 
 error.i:                                          ; preds = %if.then15.i, %if.then57.i
   store i8 69, ptr %result27.i, align 8
-  %32 = load ptr, ptr %primary_key_fingerprint94.i, align 8
+  %32 = load ptr, ptr %primary_key_fingerprint95.i, align 8
   call void @free(ptr noundef %32) #14
-  store ptr null, ptr %primary_key_fingerprint94.i, align 8
+  store ptr null, ptr %primary_key_fingerprint95.i, align 8
   %33 = load ptr, ptr %fingerprint.i, align 8
   call void @free(ptr noundef %33) #14
   store ptr null, ptr %fingerprint.i, align 8
@@ -1291,7 +1291,7 @@ return:                                           ; preds = %parse_gpg_output.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sign_buffer_gpg(ptr nocapture noundef readonly %buffer, ptr noundef %signature, ptr noundef %signing_key) #2 {
+define internal range(i32 -1, 1) i32 @sign_buffer_gpg(ptr nocapture noundef readonly %buffer, ptr noundef %signature, ptr noundef %signing_key) #2 {
 entry:
   %gpg = alloca %struct.child_process, align 8
   %gpg_status = alloca %struct.strbuf, align 8

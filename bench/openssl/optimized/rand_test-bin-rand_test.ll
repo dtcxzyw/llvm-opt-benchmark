@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [2 x i8] c"j\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RAND_set_DRBG_type(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef null) #3
   %cmp = icmp ne i32 %call, 0
@@ -54,7 +54,7 @@ declare i32 @RAND_set_DRBG_type(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rand() #0 {
+define internal range(i32 0, 2) i32 @test_rand() #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %entropy1 = alloca [6 x i8], align 1
@@ -140,7 +140,7 @@ return:                                           ; preds = %lor.lhs.false47, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rand_uniform() #0 {
+define internal range(i32 0, 2) i32 @test_rand_uniform() #0 {
 entry:
   %err = alloca i32, align 4
   %ctx = alloca ptr, align 8

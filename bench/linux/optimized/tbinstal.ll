@@ -126,11 +126,11 @@ define dso_local void @acpi_tb_override_table(ptr noundef %0) local_unnamed_addr
   %33 = getelementptr inbounds i8, ptr %0, i64 20
   %34 = load i64, ptr %0, align 8
   %35 = lshr i64 %34, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = trunc i64 %34 to i32
   %38 = load i64, ptr %2, align 8
   %39 = lshr i64 %38, 32
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   %41 = trunc i64 %38 to i32
   call void (ptr, ...) @acpi_info(ptr noundef nonnull @.str.5, ptr noundef %33, i32 noundef %36, i32 noundef %37, ptr noundef nonnull %29, i32 noundef %40, i32 noundef %41) #4
   %42 = load i64, ptr %0, align 8
@@ -200,7 +200,7 @@ define dso_local i32 @acpi_tb_install_standard_table(i64 noundef %0, i8 noundef 
 
 11:                                               ; preds = %6
   %12 = lshr i64 %0, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = trunc i64 %0 to i32
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 115, ptr noundef nonnull @.str, i32 noundef %13, i32 noundef %14) #4
   br label %55
@@ -220,7 +220,7 @@ define dso_local i32 @acpi_tb_install_standard_table(i64 noundef %0, i8 noundef 
 
 24:                                               ; preds = %20
   %25 = lshr i64 %0, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = trunc i64 %0 to i32
   call void (ptr, ...) @acpi_info(ptr noundef nonnull @.str.2, ptr noundef %21, i32 noundef %26, i32 noundef %27) #4
   br label %53

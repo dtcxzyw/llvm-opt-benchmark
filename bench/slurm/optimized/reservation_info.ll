@@ -239,7 +239,7 @@ declare ptr @reservation_flags_string(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_watts_to_str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_reservations(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_reservations(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.resv_info_request_msg, align 8

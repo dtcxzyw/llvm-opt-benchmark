@@ -877,7 +877,7 @@ if.end75:                                         ; preds = %if.end68
 if.then77:                                        ; preds = %if.end75
   %sub = add nuw nsw i32 %shl, 16711680
   %shr = lshr i32 %sub, 10
-  %6 = trunc i32 %shr to i16
+  %6 = trunc nuw i32 %shr to i16
   %conv79 = or i16 %6, -10240
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16Et(ptr noundef nonnull align 8 dereferenceable(48) %this, i16 noundef zeroext %conv79)
   %7 = trunc i32 %or to i16
@@ -887,7 +887,7 @@ if.then77:                                        ; preds = %if.end75
   br label %for.inc88
 
 if.else83:                                        ; preds = %if.end75
-  %conv84 = trunc i32 %or to i16
+  %conv84 = trunc nuw i32 %or to i16
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16Et(ptr noundef nonnull align 8 dereferenceable(48) %this, i16 noundef zeroext %conv84)
   br label %for.inc88
 

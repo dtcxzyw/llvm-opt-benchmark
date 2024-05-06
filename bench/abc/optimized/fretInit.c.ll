@@ -903,7 +903,7 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds ptr, ptr %.val143.val.val.i, i64 %139
   %141 = load ptr, ptr %140, align 8
-  %142 = trunc i64 %indvars.iv208.i to i32
+  %142 = trunc nuw nsw i64 %indvars.iv208.i to i32
   %143 = tail call ptr @Cudd_bddIthVar(ptr noundef %36, i32 noundef %142) #17
   %144 = load ptr, ptr @pManMR, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 112
@@ -1445,7 +1445,7 @@ declare ptr @Abc_NtkCreateNodeAnd(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_FlowRetime_SolveBackwardInit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_FlowRetime_SolveBackwardInit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @pManMR, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 76
   %4 = load i32, ptr %3, align 4
@@ -2260,7 +2260,7 @@ declare ptr @Mio_GateReadSop(ptr noundef) local_unnamed_addr #3
 declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_FlowRetime_PartialSat(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_FlowRetime_PartialSat(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @pManMR, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -2285,7 +2285,7 @@ define i32 @Abc_FlowRetime_PartialSat(ptr nocapture noundef readonly %0, i32 nou
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = trunc i64 %indvars.iv56 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv56 to i32
   %20 = shl i32 %19, 12
   %21 = and i32 %18, 4095
   %22 = or disjoint i32 %21, %20
@@ -2578,7 +2578,7 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %68
   %.03686 = phi i32 [ %.03686., %98 ], [ %.val51, %91 ]
   %92 = add nsw i32 %.087, %.03686
   %93 = ashr i32 %92, 1
-  %94 = tail call i32 @Abc_FlowRetime_PartialSat(ptr noundef nonnull %9, i32 noundef %93), !range !26
+  %94 = tail call i32 @Abc_FlowRetime_PartialSat(ptr noundef nonnull %9, i32 noundef %93)
   %.not46 = icmp eq i32 %94, 0
   %95 = load ptr, ptr @pManMR, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 40
@@ -2598,7 +2598,7 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %68
   %100 = tail call i32 @fflush(ptr noundef %99)
   %101 = add nsw i32 %.03686., -1
   %.not42 = icmp eq i32 %..087, %101
-  br i1 %.not42, label %._crit_edge, label %.lr.ph88, !llvm.loop !27
+  br i1 %.not42, label %._crit_edge, label %.lr.ph88, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %98, %91
   %.0.lcssa = phi i32 [ 0, %91 ], [ %..087, %98 ]
@@ -2802,9 +2802,9 @@ Vec_IntPush.exit70:                               ; preds = %.Vec_IntGrow.exit10
   %199 = getelementptr inbounds i32, ptr %196, i64 %198
   store i32 %138, ptr %199, align 4
   %.val50 = load i32, ptr %10, align 4
-  %200 = tail call i32 @Abc_FlowRetime_PartialSat(ptr noundef nonnull %9, i32 noundef %.val50), !range !26
+  %200 = tail call i32 @Abc_FlowRetime_PartialSat(ptr noundef nonnull %9, i32 noundef %.val50)
   %.not45 = icmp eq i32 %200, 0
-  br i1 %.not45, label %201, label %85, !llvm.loop !28
+  br i1 %.not45, label %201, label %85, !llvm.loop !27
 
 201:                                              ; preds = %Vec_IntPush.exit70
   store ptr null, ptr %calloc, align 8
@@ -2915,7 +2915,7 @@ Vec_PtrPush.exit77:                               ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %257, align 4
   %258 = sext i32 %.val to i64
   %259 = icmp slt i64 %indvars.iv.next95, %258
-  br i1 %259, label %.lr.ph91, label %.critedge2, !llvm.loop !29
+  br i1 %259, label %.lr.ph91, label %.critedge2, !llvm.loop !28
 
 .critedge2:                                       ; preds = %253, %Vec_PtrPush.exit77
   %260 = load ptr, ptr %59, align 8
@@ -2976,7 +2976,7 @@ define void @Abc_FlowRetime_RemoveInitBias() local_unnamed_addr #0 {
   %.val = load i32, ptr %16, align 4
   %17 = sext i32 %.val to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !30
+  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %12, %0
   ret void
@@ -3265,7 +3265,7 @@ Vec_IntGrow.exit.i38:                             ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %139, align 4
   %indvars.iv.next.i43 = add nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i41
-  br i1 %exitcond.not.i44, label %._crit_edge.i39, label %137, !llvm.loop !31
+  br i1 %exitcond.not.i44, label %._crit_edge.i39, label %137, !llvm.loop !30
 
 ._crit_edge.i39:                                  ; preds = %137, %Vec_IntGrow.exit.i38
   store i32 %104, ptr %105, align 4
@@ -3291,7 +3291,7 @@ Vec_IntFillExtra.exit49:                          ; preds = %.lr.ph13.i, %._crit
 .critedge.backedge.i:                             ; preds = %201, %.critedge.backedge.loopexit.i, %Vec_IntFillExtra.exit49
   %.val.i = phi i32 [ %.val.pre.i, %.critedge.backedge.loopexit.i ], [ %92, %201 ], [ %92, %Vec_IntFillExtra.exit49 ]
   %.not.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i, label %.critedge._crit_edge.i, label %.lr.ph13.i, !llvm.loop !32
+  br i1 %.not.i, label %.critedge._crit_edge.i, label %.lr.ph13.i, !llvm.loop !31
 
 146:                                              ; preds = %Vec_IntFillExtra.exit49
   %.val48.i = load i32, ptr %102, align 8
@@ -3381,7 +3381,7 @@ Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %183, align 4
   %indvars.iv.next.i35 = add nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %181, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %181, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %181, %Vec_IntGrow.exit.i
   store i32 %148, ptr %149, align 4
@@ -3423,7 +3423,7 @@ Vec_IntFillExtra.exit:                            ; preds = %146, %._crit_edge.i
   %202 = getelementptr i8, ptr %95, i64 44
   %.val508.i = load i32, ptr %202, align 4
   %203 = icmp sgt i32 %.val508.i, 0
-  br i1 %203, label %.lr.ph.i, label %.critedge.backedge.i, !llvm.loop !32
+  br i1 %203, label %.lr.ph.i, label %.critedge.backedge.i, !llvm.loop !31
 
 .lr.ph.i:                                         ; preds = %201
   %204 = getelementptr i8, ptr %95, i64 48
@@ -3595,7 +3595,7 @@ Vec_IntPush.exit71.i:                             ; preds = %270, %Vec_IntGrow.e
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %277 = sext i32 %.val50.i to i64
   %278 = icmp slt i64 %indvars.iv.next.i, %277
-  br i1 %278, label %205, label %.critedge.backedge.loopexit.i, !llvm.loop !33
+  br i1 %278, label %205, label %.critedge.backedge.loopexit.i, !llvm.loop !32
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.backedge.i
   %.pre.i = load ptr, ptr %66, align 8
@@ -3622,7 +3622,7 @@ Abc_FlowRetime_ConnectBiasNode.exit:              ; preds = %Vec_PtrFree.exit.i,
   %.val30 = load i32, ptr %50, align 4
   %282 = sext i32 %.val30 to i64
   %283 = icmp slt i64 %indvars.iv.next, %282
-  br i1 %283, label %54, label %.critedge2, !llvm.loop !34
+  br i1 %283, label %54, label %.critedge2, !llvm.loop !33
 
 .critedge2:                                       ; preds = %Abc_FlowRetime_ConnectBiasNode.exit, %48, %42
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -3633,7 +3633,7 @@ Abc_FlowRetime_ConnectBiasNode.exit:              ; preds = %Vec_PtrFree.exit.i,
   %.val = load i32, ptr %287, align 4
   %288 = sext i32 %.val to i64
   %289 = icmp slt i64 %indvars.iv.next61, %288
-  br i1 %289, label %42, label %.critedge, !llvm.loop !35
+  br i1 %289, label %42, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %.critedge2, %35
   ret void
@@ -3727,7 +3727,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -3862,7 +3862,7 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.060, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %11, !llvm.loop !36
+  br label %11, !llvm.loop !35
 
 .critedge:                                        ; preds = %11, %11
   %.not44 = icmp eq i32 %.036, 0
@@ -3874,7 +3874,7 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
   %42 = getelementptr inbounds i8, ptr %.060, i64 %9
   %43 = load i8, ptr %42, align 1
   %.not = icmp eq i8 %43, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !37
+  br i1 %.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.critedge
   %44 = icmp eq i32 %.1, 0
@@ -4078,7 +4078,7 @@ attributes #18 = { nounwind allocsize(1) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = !{i32 0, i32 2}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
@@ -4089,4 +4089,3 @@ attributes #18 = { nounwind allocsize(1) }
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}

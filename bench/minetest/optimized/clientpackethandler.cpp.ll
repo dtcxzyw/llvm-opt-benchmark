@@ -369,7 +369,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.31 = private unnamed_addr constant [28 x i8] c"Client: received map seed: \00", align 1
 @.str.32 = private unnamed_addr constant [44 x i8] c"Client: received recommended send interval \00", align 1
 @.str.33 = private unnamed_addr constant [10 x i8] c"LANG_CODE\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.34 = private unnamed_addr constant [44 x i8] c"Client: Received TOCLIENT_ACCEPT_SUDO_MODE.\00", align 1
 @.str.35 = private unnamed_addr constant [46 x i32] [i32 80, i32 97, i32 115, i32 115, i32 119, i32 111, i32 114, i32 100, i32 32, i32 99, i32 104, i32 97, i32 110, i32 103, i32 101, i32 32, i32 100, i32 101, i32 110, i32 105, i32 101, i32 100, i32 46, i32 32, i32 80, i32 97, i32 115, i32 115, i32 119, i32 111, i32 114, i32 100, i32 32, i32 78, i32 79, i32 84, i32 32, i32 99, i32 104, i32 97, i32 110, i32 103, i32 101, i32 100, i32 46, i32 0], align 4
 @.str.37 = private unnamed_addr constant [50 x i8] c"Client: Measured time_of_day speed (old format): \00", align 1
@@ -3390,7 +3390,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.end31
 
 if.else:                                          ; preds = %if.end
-  %conv8 = uitofp i16 %2 to float
+  %conv8 = uitofp nneg i16 %2 to float
   %div = fdiv nsz float %conv8, 2.400000e+04
   %conv9 = fpext float %div to double
   %cmp10 = fcmp nsz olt double %conv9, 2.000000e-01

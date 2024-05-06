@@ -139,7 +139,7 @@ declare i32 @nxrmutex_init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @syslog_dev_putc(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i8, align 1
-  %4 = tail call fastcc i32 @syslog_dev_outputready(ptr noundef %0), !range !6
+  %4 = tail call fastcc i32 @syslog_dev_outputready(ptr noundef %0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %syslog_dev_lock.exit.thread, label %6
 
@@ -197,7 +197,7 @@ define internal noundef i32 @syslog_dev_force(ptr nocapture readnone %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @syslog_dev_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call fastcc i32 @syslog_dev_outputready(ptr noundef %0), !range !6
+  %4 = tail call fastcc i32 @syslog_dev_outputready(ptr noundef %0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %8
 
@@ -306,7 +306,7 @@ select.unfold:                                    ; preds = %30, %.thread, %34
   %42 = getelementptr inbounds i8, ptr %.255, i64 1
   %43 = add i64 %.2, -1
   %.not = icmp eq i64 %43, 0
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %41
   %.not67 = icmp eq ptr %42, %.158
@@ -340,7 +340,7 @@ select.unfold:                                    ; preds = %30, %.thread, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @syslog_dev_outputready(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @syslog_dev_outputready(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @g_current_regs, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %34
@@ -436,6 +436,5 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -2147483648, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

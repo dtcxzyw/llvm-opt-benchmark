@@ -3186,7 +3186,7 @@ define dso_local noundef i32 @rtc_irq_set_state(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rtc_irq_set_freq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rtc_irq_set_freq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = add i32 %1, -8193
   %4 = icmp ult i32 %3, -8192
   br i1 %4, label %41, label %5

@@ -329,7 +329,7 @@ define dso_local i32 @io_fixed_fd_remove(ptr nocapture noundef %0, i32 noundef %
 declare dso_local i32 @io_queue_rsrc_removal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_register_file_alloc_range(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @io_register_file_alloc_range(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.io_uring_file_index_range, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !20

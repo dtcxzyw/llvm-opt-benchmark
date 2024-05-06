@@ -322,7 +322,7 @@ register_class_stdClass.exit:                     ; preds = %2, %22, %29, %30
 declare void @zend_register_default_classes() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_startup_builtin_functions() local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_startup_builtin_functions() local_unnamed_addr #0 {
   %1 = tail call ptr @zend_register_module_ex(ptr noundef nonnull @zend_builtin_module, i32 noundef 1) #13
   store ptr %1, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 54), align 8
   %2 = icmp eq ptr %1, null

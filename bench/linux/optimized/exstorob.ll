@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_store_buffer_to_buffer(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ex_store_buffer_to_buffer(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %40, label %5
@@ -93,7 +93,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_store_string_to_string(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ex_store_string_to_string(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %49, label %5

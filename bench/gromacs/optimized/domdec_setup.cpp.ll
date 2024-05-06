@@ -1001,7 +1001,7 @@ _ZL15largest_divisori.exit:                       ; preds = %_ZNSt6vectorIiSaIiE
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %55 = mul nsw i32 %44, %44
   %56 = mul nsw i32 %55, %44
-  %57 = mul nsw i32 %.0, %.0
+  %57 = mul nuw nsw i32 %.0, %.0
   %58 = icmp sgt i32 %56, %57
   br i1 %58, label %59, label %63
 
@@ -2006,7 +2006,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit60.i: ; preds = %_ZN3gmx14L
   %307 = lshr exact i64 %306, 2
   %308 = trunc i64 %307 to i32
   %309 = load ptr, ptr %25, align 8
-  invoke fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %8, float noundef %296, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(200) %14, i32 noundef %298, ptr noundef nonnull align 8 dereferenceable(856) %10, float noundef %300, i32 noundef %223, i32 noundef %308, ptr noundef %303, ptr noundef %309, ptr noundef nonnull %26, ptr noundef nonnull %16)
+  invoke fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %8, float noundef %296, ptr noundef readonly %12, ptr noundef nonnull readonly align 4 dereferenceable(200) %14, i32 noundef %298, ptr noundef nonnull align 8 dereferenceable(856) %10, float noundef %300, i32 noundef %223, i32 noundef %308, ptr noundef %303, ptr noundef %309, ptr noundef nonnull %26, ptr noundef nonnull %16)
           to label %310 unwind label %313
 
 310:                                              ; preds = %290
@@ -2233,9 +2233,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %31, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = tail call noundef i32 @llvm.cttz.i32(i32 %6, i1 true), !range !17
+  %33 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6, i1 true)
   %34 = lshr i32 %.0.i.i, %33
-  %35 = tail call noundef i32 @llvm.cttz.i32(i32 %1, i1 true), !range !17
+  %35 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %36 = lshr i32 %.0.i4.i, %35
   %37 = tail call i32 @llvm.umin.i32(i32 %33, i32 %35)
   %spec.select3334.i.i = tail call i32 @llvm.umin.i32(i32 %34, i32 %36)
@@ -2253,11 +2253,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIiSaIiE
   %.02835.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ %36, %32 ]
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %40 = sub i32 %spec.select.i.i, %spec.select3337.i.i
-  %41 = tail call noundef i32 @llvm.cttz.i32(i32 %40, i1 true), !range !17
+  %41 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %40, i1 true)
   %42 = lshr i32 %40, %41
   %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %42)
   %43 = icmp eq i32 %spec.select3337.i.i, %42
-  br i1 %43, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %43, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %28, %30, %._crit_edge.i.i
   %.0.i5.i = phi i32 [ %39, %._crit_edge.i.i ], [ %.0.i4.i, %28 ], [ %.0.i.i, %30 ]
@@ -2311,9 +2311,9 @@ define linkonce_odr noundef i32 @_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S
   br i1 %5, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noundef i32 @llvm.cttz.i32(i32 %0, i1 true), !range !17
+  %7 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %8 = lshr i32 %.0.i, %7
-  %9 = tail call noundef i32 @llvm.cttz.i32(i32 %1, i1 true), !range !17
+  %9 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %10 = lshr i32 %.0.i4, %9
   %11 = tail call i32 @llvm.umin.i32(i32 %7, i32 %9)
   %spec.select3334.i = tail call i32 @llvm.umin.i32(i32 %8, i32 %10)
@@ -2331,11 +2331,11 @@ define linkonce_odr noundef i32 @_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S
   %.02835.i = phi i32 [ %16, %.lr.ph.i ], [ %10, %6 ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.02736.i, i32 %.02835.i)
   %14 = sub i32 %spec.select.i, %spec.select3337.i
-  %15 = tail call noundef i32 @llvm.cttz.i32(i32 %14, i1 true), !range !17
+  %15 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %14, i1 true)
   %16 = lshr i32 %14, %15
   %spec.select33.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i, i32 %16)
   %17 = icmp eq i32 %spec.select3337.i, %16
-  br i1 %17, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %17, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 _ZNSt8__detail5__gcdIjEET_S1_S1_.exit:            ; preds = %2, %4, %._crit_edge.i
   %.0.i5 = phi i32 [ %13, %._crit_edge.i ], [ %.0.i4, %2 ], [ %.0.i, %4 ]
@@ -2418,7 +2418,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   store i32 %36, ptr %11, align 4
   %37 = add nuw nsw i32 %.08391, 1
   %exitcond.not = icmp eq i32 %37, %.084107
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader90
   %38 = load i32, ptr %10, align 4
@@ -2461,7 +2461,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   store i32 %47, ptr %29, align 4
   %48 = add nuw nsw i32 %.08192, 1
   %49 = icmp slt i32 %48, %.082103
-  br i1 %49, label %.lr.ph93, label %.preheader87, !llvm.loop !20
+  br i1 %49, label %.lr.ph93, label %.preheader87, !llvm.loop !19
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %50 = phi i32 [ %52, %.lr.ph95 ], [ %.pre110, %.lr.ph95.preheader ]
@@ -2473,7 +2473,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   %54 = load i32, ptr %10, align 4
   %55 = sub i32 %54, %41
   %56 = icmp slt i32 %53, %55
-  br i1 %56, label %.lr.ph95, label %._crit_edge96, !llvm.loop !21
+  br i1 %56, label %.lr.ph95, label %._crit_edge96, !llvm.loop !20
 
 ._crit_edge96:                                    ; preds = %.lr.ph95, %.preheader87
   tail call fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %0, float noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(200) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(856) %5, float noundef %6, i32 noundef %7, i32 noundef %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef %11, ptr noundef %12)
@@ -2503,7 +2503,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   %64 = load i32, ptr %10, align 4
   %65 = sub i32 %64, %41
   %66 = icmp slt i32 %63, %65
-  br i1 %66, label %.lr.ph99, label %.preheader, !llvm.loop !22
+  br i1 %66, label %.lr.ph99, label %.preheader, !llvm.loop !21
 
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
   %67 = phi i32 [ %69, %.lr.ph101 ], [ %.pre112, %.lr.ph101.preheader ]
@@ -2513,11 +2513,11 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   store i32 %69, ptr %29, align 4
   %70 = add nuw nsw i32 %.078100, 1
   %71 = icmp slt i32 %70, %.082103
-  br i1 %71, label %.lr.ph101, label %._crit_edge102, !llvm.loop !23
+  br i1 %71, label %.lr.ph101, label %._crit_edge102, !llvm.loop !22
 
 ._crit_edge102:                                   ; preds = %.lr.ph101
   %72 = add nsw i32 %.082103, -1
-  br i1 %.not114, label %.preheader89, label %.preheader88, !llvm.loop !24
+  br i1 %.not114, label %.preheader89, label %.preheader88, !llvm.loop !23
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
   %73 = phi i32 [ %75, %.lr.ph105 ], [ %.pre113, %.lr.ph105.preheader ]
@@ -2527,11 +2527,11 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   store i32 %75, ptr %11, align 4
   %76 = add nuw nsw i32 %.0104, 1
   %exitcond108.not = icmp eq i32 %76, %.084107
-  br i1 %exitcond108.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !25
+  br i1 %exitcond108.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !24
 
 ._crit_edge106:                                   ; preds = %.lr.ph105
   %77 = add nsw i32 %.084107, -1
-  br i1 %.not, label %.loopexit, label %.preheader90, !llvm.loop !26
+  br i1 %.not, label %.loopexit, label %.preheader90, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader89, %._crit_edge106, %26, %15, %22, %25
   ret void
@@ -2618,7 +2618,7 @@ _ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split.us: ; preds = %_Z
 _ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit.us: ; preds = %66, %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split.us
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next271, 3
-  br i1 %exitcond273.not, label %.preheader, label %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split.us, !llvm.loop !27
+  br i1 %exitcond273.not, label %.preheader, label %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split.us, !llvm.loop !26
 
 .lr.ph.us:                                        ; preds = %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split.us
   %50 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv270
@@ -2651,12 +2651,12 @@ _ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit.us: ; preds = %66, %_ZL1
 66:                                               ; preds = %55, %63, %59
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
-  br i1 %exitcond269.not, label %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit.us, label %51, !llvm.loop !28
+  br i1 %exitcond269.not, label %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit.us, label %51, !llvm.loop !27
 
 _ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit: ; preds = %90, %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next260, 3
-  br i1 %exitcond262.not, label %.preheader, label %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split, !llvm.loop !27
+  br i1 %exitcond262.not, label %.preheader, label %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split, !llvm.loop !26
 
 .preheader:                                       ; preds = %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit, %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit.us
   %67 = getelementptr inbounds i8, ptr %3, i64 20
@@ -2707,7 +2707,7 @@ _ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split: ; preds = %_ZL15
 90:                                               ; preds = %79, %87, %83
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count268
-  br i1 %exitcond.not, label %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit, label %71, !llvm.loop !28
+  br i1 %exitcond.not, label %_ZL15inhomogeneous_zRK10t_inputrec.exit.thread.loopexit, label %71, !llvm.loop !27
 
 91:                                               ; preds = %.preheader, %.thread201
   %indvars.iv274 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next275, %.thread201 ]
@@ -2754,7 +2754,7 @@ _ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split: ; preds = %_ZL15
 .thread201:                                       ; preds = %.thread202, %100, %109, %111
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, 3
-  br i1 %exitcond277.not, label %117, label %91, !llvm.loop !29
+  br i1 %exitcond277.not, label %117, label %91, !llvm.loop !28
 
 117:                                              ; preds = %.thread201
   %118 = icmp sgt i32 %7, 1
@@ -2832,7 +2832,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
 .loopexit.us:                                     ; preds = %170, %.split.us
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next298, 3
-  br i1 %exitcond300.not, label %.split242.us, label %.split.us, !llvm.loop !30
+  br i1 %exitcond300.not, label %.split242.us, label %.split.us, !llvm.loop !29
 
 .lr.ph238.us:                                     ; preds = %.split.us
   %153 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %indvars.iv297
@@ -2862,12 +2862,12 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
 170:                                              ; preds = %165, %158
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond296.not = icmp eq i64 %indvars.iv.next294, 3
-  br i1 %exitcond296.not, label %.loopexit.us, label %158, !llvm.loop !31
+  br i1 %exitcond296.not, label %.loopexit.us, label %158, !llvm.loop !30
 
 .loopexit:                                        ; preds = %206, %204, %188, %183, %.lr.ph238.split.split.us, %.split
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 3
-  br i1 %exitcond290.not, label %.split242.us, label %.split, !llvm.loop !30
+  br i1 %exitcond290.not, label %.split242.us, label %.split, !llvm.loop !29
 
 .split:                                           ; preds = %147, %.loopexit
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.loopexit ], [ 0, %147 ]
@@ -2941,7 +2941,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
 206:                                              ; preds = %.lr.ph238.split.split, %196, %203
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next284, 3
-  br i1 %exitcond286.not, label %.loopexit, label %.lr.ph238.split.split, !llvm.loop !31
+  br i1 %exitcond286.not, label %.loopexit, label %.lr.ph238.split.split, !llvm.loop !30
 
 .split242.us:                                     ; preds = %.loopexit, %.loopexit.us
   %207 = tail call noundef float @_Z13comm_box_fracRKN3gmx11BasicVectorIiEEfRK11gmx_ddbox_t(ptr noundef nonnull align 4 dereferenceable(12) %8, float noundef %1, ptr noundef nonnull align 4 dereferenceable(200) %3)
@@ -3019,7 +3019,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
 
 259:                                              ; preds = %234, %236
   %.2 = phi float [ %258, %236 ], [ %.1, %234 ]
-  br i1 %215, label %214, label %260, !llvm.loop !32
+  br i1 %215, label %214, label %260, !llvm.loop !31
 
 260:                                              ; preds = %259
   %261 = load i32, ptr %211, align 8
@@ -3208,7 +3208,7 @@ attributes #23 = { nounwind willreturn memory(none) }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 0, i32 33}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
@@ -3223,4 +3223,3 @@ attributes #23 = { nounwind willreturn memory(none) }
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}

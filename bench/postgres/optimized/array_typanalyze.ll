@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.prune_element_hashtable = private unnamed_addr constant [24 x i8] c"prune_element_hashtable\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_typanalyze(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @array_typanalyze(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -816,7 +816,7 @@ define internal i32 @trackitem_compare_element(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @countitem_compare_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -1, 2) i32 @countitem_compare_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr %1, align 8

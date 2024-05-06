@@ -191,7 +191,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_test() #0 {
+define internal range(i32 0, 2) i32 @dh_test() #0 {
 entry:
   %p2 = alloca ptr, align 8
   %q2 = alloca ptr, align 8
@@ -799,7 +799,7 @@ success:                                          ; preds = %lor.lhs.false399, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_computekey_range_test() #0 {
+define internal range(i32 0, 2) i32 @dh_computekey_range_test() #0 {
 entry:
   %call = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_ffdhe2048_p) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 269, ptr noundef nonnull @.str.73, ptr noundef %call) #3
@@ -949,7 +949,7 @@ err:                                              ; preds = %lor.lhs.false86, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rfc5114_test() #0 {
+define internal range(i32 0, 2) i32 @rfc5114_test() #0 {
 entry:
   %pub_key_tmp = alloca ptr, align 8
   br label %for.body
@@ -1110,7 +1110,7 @@ bad_err:                                          ; preds = %if.end72, %if.end67
   %Z2.1 = phi ptr [ %call63, %if.end72 ], [ %call63, %if.end67 ], [ %call63, %lor.lhs.false61 ], [ null, %if.end56 ], [ null, %lor.lhs.false31 ], [ null, %lor.lhs.false26 ], [ null, %if.end21 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %for.body ]
   %priv_key.1 = phi ptr [ null, %if.end72 ], [ null, %if.end67 ], [ null, %lor.lhs.false61 ], [ null, %if.end56 ], [ %call23, %lor.lhs.false31 ], [ %call23, %lor.lhs.false26 ], [ %call23, %if.end21 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false9 ], [ %call6, %if.end ], [ null, %lor.lhs.false ], [ null, %for.body ]
   %pub_key.1 = phi ptr [ null, %if.end72 ], [ null, %if.end67 ], [ null, %lor.lhs.false61 ], [ null, %if.end56 ], [ %call28, %lor.lhs.false31 ], [ %call28, %lor.lhs.false26 ], [ %call11, %if.end21 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %for.body ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   call void @DH_free(ptr noundef %call) #3
   call void @DH_free(ptr noundef %dhB.1) #3
   call void @BN_free(ptr noundef %pub_key.1) #3
@@ -1124,7 +1124,7 @@ bad_err:                                          ; preds = %if.end72, %if.end67
 err:                                              ; preds = %if.end77, %lor.lhs.false82, %if.end38, %lor.lhs.false42, %lor.lhs.false46, %lor.lhs.false50
   %Z1.2 = phi ptr [ %call58, %lor.lhs.false82 ], [ %call58, %if.end77 ], [ null, %lor.lhs.false50 ], [ null, %lor.lhs.false46 ], [ null, %lor.lhs.false42 ], [ null, %if.end38 ]
   %Z2.2 = phi ptr [ %call63, %lor.lhs.false82 ], [ %call63, %if.end77 ], [ null, %lor.lhs.false50 ], [ null, %lor.lhs.false46 ], [ null, %lor.lhs.false42 ], [ null, %if.end38 ]
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   call void @DH_free(ptr noundef %call) #3
   call void @DH_free(ptr noundef %call3) #3
   call void @CRYPTO_free(ptr noundef %Z1.2, ptr noundef nonnull @.str.9, i32 noundef 656) #3
@@ -1139,7 +1139,7 @@ return:                                           ; preds = %if.end89, %err, %ba
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rfc7919_test() #0 {
+define internal range(i32 0, 2) i32 @rfc7919_test() #0 {
 entry:
   %apub_key = alloca ptr, align 8
   %bpub_key = alloca ptr, align 8
@@ -1287,7 +1287,7 @@ err:                                              ; preds = %lor.lhs.false87, %i
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_test_prime_groups(i32 noundef %index) #0 {
+define internal range(i32 0, 2) i32 @dh_test_prime_groups(i32 noundef %index) #0 {
 entry:
   %p = alloca ptr, align 8
   %q = alloca ptr, align 8
@@ -1340,7 +1340,7 @@ err:                                              ; preds = %if.end17, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_get_nid() #0 {
+define internal range(i32 0, 2) i32 @dh_get_nid() #0 {
 entry:
   %p = alloca ptr, align 8
   %q = alloca ptr, align 8
@@ -1486,7 +1486,7 @@ err:                                              ; preds = %if.end78, %if.end55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_load_pkcs3_namedgroup_privlen_test() #0 {
+define internal range(i32 0, 2) i32 @dh_load_pkcs3_namedgroup_privlen_test() #0 {
 entry:
   %privlen = alloca i32, align 4
   %p = alloca ptr, align 8
@@ -1519,7 +1519,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_rfc5114_fix_nid_test() #0 {
+define internal range(i32 0, 2) i32 @dh_rfc5114_fix_nid_test() #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 920, ptr noundef null) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 763, ptr noundef nonnull @.str.139, ptr noundef %call) #3
@@ -1552,7 +1552,7 @@ err:                                              ; preds = %if.end11, %if.end6,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_set_dh_nid_test() #0 {
+define internal range(i32 0, 2) i32 @dh_set_dh_nid_test() #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 28, ptr noundef null) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 787, ptr noundef nonnull @.str.139, ptr noundef %call) #3

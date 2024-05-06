@@ -28,7 +28,7 @@ define dso_local void @enable_copy_mc_fragile() local_unnamed_addr #0 align 16 {
 declare dso_local zeroext i1 @static_key_slow_inc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @copy_mc_fragile_handle_tail(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @copy_mc_fragile_handle_tail(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 

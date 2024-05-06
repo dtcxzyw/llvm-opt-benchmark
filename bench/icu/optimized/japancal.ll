@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7516JapaneseCalendar18enableTentativeEraEv() local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516JapaneseCalendar18enableTentativeEraEv() local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.2) #9
   %cmp.not = icmp eq ptr %call, null
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7516JapaneseCalendar21getDefaultMonthInYearEi(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %eyear) unnamed_addr #1 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_7516JapaneseCalendar21getDefaultMonthInYearEi(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %eyear) unnamed_addr #1 align 2 {
 entry:
   %eraStart = alloca [3 x i32], align 4
   %status = alloca i32, align 4
@@ -343,19 +343,19 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   %3 = load i32, ptr @_ZL11gCurrentEra, align 4
   %fStamp.i1 = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load i32, ptr %fStamp.i1, align 4
-  %cmp.i2 = icmp sgt i32 %4, 0
-  %fFields.i5 = getelementptr inbounds i8, ptr %this, i64 12
-  %5 = load i32, ptr %fFields.i5, align 4
-  %cond.i3 = select i1 %cmp.i2, i32 %5, i32 %3
-  %call6 = call noundef i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %cond.i3, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %arrayidx.i8 = getelementptr inbounds i8, ptr %this, i64 136
-  %6 = load i32, ptr %arrayidx.i8, align 8
-  %arrayidx3.i13 = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i32, ptr %arrayidx3.i13, align 8
-  %cmp.i9.inv = icmp slt i32 %6, 1
-  %cond.i10 = select i1 %cmp.i9.inv, i32 1, i32 %7
+  %cmp.i3 = icmp sgt i32 %4, 0
+  %fFields.i6 = getelementptr inbounds i8, ptr %this, i64 12
+  %5 = load i32, ptr %fFields.i6, align 4
+  %cond.i4 = select i1 %cmp.i3, i32 %5, i32 %3
+  %call6 = call noundef i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %cond.i4, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %this, i64 136
+  %6 = load i32, ptr %arrayidx.i10, align 8
+  %arrayidx3.i15 = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i32, ptr %arrayidx3.i15, align 8
+  %cmp.i11.inv = icmp slt i32 %6, 1
+  %cond.i12 = select i1 %cmp.i11.inv, i32 1, i32 %7
   %add = add i32 %call6, -1
-  %sub = add i32 %add, %cond.i10
+  %sub = add i32 %add, %cond.i12
   br label %if.end
 
 if.end:                                           ; preds = %cond.true.i, %if.then, %if.else
@@ -392,8 +392,8 @@ entry:
   %call5 = tail call noundef i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %call4, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %sub = add i32 %0, 1
   %add6 = sub i32 %sub, %call5
-  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %add6, ptr %arrayidx.i9, align 8
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %add6, ptr %arrayidx.i10, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 1, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 109

@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.50 = private unnamed_addr constant [67 x i8] c"parent is at 0x%lx, id = %u, ref = %u, then = 0x%lx, else = 0x%lx\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #6
@@ -102,7 +102,7 @@ define i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %19
   %29 = load ptr, ptr %10, align 8
-  %30 = trunc i64 %indvars.iv341 to i32
+  %30 = trunc nuw i64 %indvars.iv341 to i32
   %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef %30, i32 noundef %22, i32 noundef %22, i32 noundef %26) #6
   br label %32
 
@@ -486,7 +486,7 @@ define i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 268:                                              ; preds = %259
   %269 = load ptr, ptr %16, align 8
-  %270 = trunc i64 %indvars.iv349 to i32
+  %270 = trunc nuw i64 %indvars.iv349 to i32
   %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %269, ptr noundef nonnull @.str.9, i32 noundef %270, i32 noundef %262, i32 noundef %262, i32 noundef %266) #6
   br label %272
 
@@ -1204,7 +1204,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
 
 23:                                               ; preds = %7
   %24 = load ptr, ptr %6, align 8
-  %25 = trunc i64 %indvars.iv296 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv296 to i32
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.22, i32 noundef %25) #6
   %27 = load ptr, ptr %6, align 8
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.23, i32 noundef %17, i32 noundef %19) #6
@@ -1264,7 +1264,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
 
 42:                                               ; preds = %._crit_edge214
   %43 = load ptr, ptr %6, align 8
-  %44 = trunc i64 %indvars.iv296 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv296 to i32
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.24, i32 noundef %44, i32 noundef %.0166.lcssa) #6
   %46 = add nsw i32 %.0153218, 1
   br label %47
@@ -1276,7 +1276,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr %6, align 8
-  %50 = trunc i64 %indvars.iv296 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv296 to i32
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.25, i32 noundef %50, i32 noundef %.0158.lcssa) #6
   br label %52
 
@@ -1372,7 +1372,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
 
 81:                                               ; preds = %._crit_edge247
   %82 = load ptr, ptr %57, align 8
-  %83 = trunc i64 %indvars.iv306 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv306 to i32
   %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.26, i32 noundef %83, i32 noundef %.2168.lcssa) #6
   %85 = add nsw i32 %.2155251, 1
   br label %86
@@ -1384,7 +1384,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
 
 87:                                               ; preds = %86
   %88 = load ptr, ptr %57, align 8
-  %89 = trunc i64 %indvars.iv306 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv306 to i32
   %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.27, i32 noundef %89, i32 noundef %.3161.lcssa) #6
   br label %91
 
@@ -1554,7 +1554,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -1590,7 +1590,7 @@ define noundef i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #3 {
 
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %6, align 8
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.36, i32 noundef %20, i32 noundef %17) #6
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %.loopexit, label %23

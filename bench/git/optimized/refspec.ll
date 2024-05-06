@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @refspec_item_init(ptr nocapture noundef %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr nocapture noundef %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
 entry:
   %unused.i = alloca %struct.object_id, align 4
   %unused116.i = alloca %struct.object_id, align 4
@@ -307,7 +307,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @refspec_item_init_or_die(ptr nocapture noundef %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @refspec_item_init(ptr noundef %item, ptr noundef %refspec, i32 noundef %fetch), !range !5
+  %call = tail call i32 @refspec_item_init(ptr noundef %item, ptr noundef %refspec, i32 noundef %fetch)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -382,7 +382,7 @@ entry:
   %item = alloca %struct.refspec_item, align 8
   %fetch = getelementptr inbounds i8, ptr %rs, i64 32
   %0 = load i32, ptr %fetch, align 8
-  %call.i = call i32 @refspec_item_init(ptr noundef nonnull %item, ptr noundef %refspec, i32 noundef %0), !range !5
+  %call.i = call i32 @refspec_item_init(ptr noundef nonnull %item, ptr noundef %refspec, i32 noundef %0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %refspec_item_init_or_die.exit
 
@@ -516,7 +516,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call fastcc void @refspec_append_nodup(ptr noundef %rs, ptr noundef %call.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -549,7 +549,7 @@ for.body:                                         ; preds = %entry, %for.body
   %4 = load i32, ptr %nr, align 4
   %5 = sext i32 %4 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %do.body, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %do.body, !llvm.loop !7
 
 do.body:                                          ; preds = %for.body, %entry
   %6 = load ptr, ptr %rs, align 8
@@ -574,7 +574,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   %10 = load i32, ptr %raw_nr, align 4
   %11 = sext i32 %10 to i64
   %cmp5 = icmp slt i64 %indvars.iv.next24, %11
-  br i1 %cmp5, label %for.body6, label %do.body12, !llvm.loop !9
+  br i1 %cmp5, label %for.body6, label %do.body12, !llvm.loop !8
 
 do.body12:                                        ; preds = %for.body6, %do.body
   %raw13 = getelementptr inbounds i8, ptr %rs, i64 16
@@ -585,10 +585,10 @@ do.body12:                                        ; preds = %for.body6, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @valid_fetch_refspec(ptr noundef %fetch_refspec_str) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @valid_fetch_refspec(ptr noundef %fetch_refspec_str) local_unnamed_addr #0 {
 entry:
   %refspec = alloca %struct.refspec_item, align 8
-  %call = call i32 @refspec_item_init(ptr noundef nonnull %refspec, ptr noundef %fetch_refspec_str, i32 noundef 1), !range !5
+  %call = call i32 @refspec_item_init(ptr noundef nonnull %refspec, ptr noundef %fetch_refspec_str, i32 noundef 1)
   %src.i = getelementptr inbounds i8, ptr %refspec, i64 8
   %0 = load ptr, ptr %src.i, align 8
   tail call void @free(ptr noundef %0) #13
@@ -599,7 +599,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @valid_remote_name(ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @valid_remote_name(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %refspec.i = alloca %struct.refspec_item, align 8
   %refspec = alloca %struct.strbuf, align 8
@@ -608,7 +608,7 @@ entry:
   %buf = getelementptr inbounds i8, ptr %refspec, i64 16
   %0 = load ptr, ptr %buf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %refspec.i)
-  %call.i = call i32 @refspec_item_init(ptr noundef nonnull %refspec.i, ptr noundef %0, i32 noundef 1), !range !5
+  %call.i = call i32 @refspec_item_init(ptr noundef nonnull %refspec.i, ptr noundef %0, i32 noundef 1)
   %src.i.i = getelementptr inbounds i8, ptr %refspec.i, i64 8
   %1 = load ptr, ptr %src.i.i, align 8
   call void @free(ptr noundef %1) #13
@@ -689,7 +689,7 @@ for.inc:                                          ; preds = %if.then32, %if.else
   %6 = load i32, ptr %nr, align 4
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -757,9 +757,8 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

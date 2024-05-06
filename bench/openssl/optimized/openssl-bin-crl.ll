@@ -107,7 +107,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.95 = private unnamed_addr constant [21 x i8] c"unable to write CRL\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @crl_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %digest = alloca ptr, align 8
   %informat = alloca i32, align 4

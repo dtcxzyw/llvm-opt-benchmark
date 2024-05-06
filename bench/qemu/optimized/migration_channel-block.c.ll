@@ -175,7 +175,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_block_set_blocking(ptr nocapture readnone %ioc, i1 noundef zeroext %enabled, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qio_channel_block_set_blocking(ptr nocapture readnone %ioc, i1 noundef zeroext %enabled, ptr noundef %errp) #0 {
 entry:
   br i1 %enabled, label %return, label %if.then
 
@@ -224,7 +224,7 @@ return:                                           ; preds = %sw.bb, %sw.bb2, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_block_close(ptr noundef %ioc, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qio_channel_block_close(ptr noundef %ioc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BLOCK) #4
   %bs = getelementptr inbounds i8, ptr %call.i, i64 96

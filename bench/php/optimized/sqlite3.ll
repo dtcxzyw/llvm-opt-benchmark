@@ -2223,8 +2223,8 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %11, i64 -136
   %21 = load i32, ptr %20, align 8
-  %.not56 = icmp eq i32 %21, 0
-  br i1 %.not56, label %22, label %25
+  %.not55 = icmp eq i32 %21, 0
+  br i1 %.not55, label %22, label %25
 
 22:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
@@ -2235,8 +2235,8 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
 
 25:                                               ; preds = %19
   %26 = load i64, ptr %4, align 8
-  %.not57 = icmp eq i64 %26, 0
-  br i1 %.not57, label %27, label %29
+  %.not56 = icmp eq i64 %26, 0
+  br i1 %.not56, label %27, label %29
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2260,8 +2260,8 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
   %41 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %40, ptr %41, align 8
   %42 = load ptr, ptr %7, align 8
-  %.not58 = icmp eq ptr %42, null
-  br i1 %.not58, label %43, label %46
+  %.not57 = icmp eq ptr %42, null
+  br i1 %.not57, label %43, label %46
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2287,8 +2287,8 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
 54:                                               ; preds = %50, %46
   %55 = getelementptr inbounds i8, ptr %30, i64 88
   %56 = load ptr, ptr %55, align 8
-  %.not59 = icmp eq ptr %56, null
-  br i1 %.not59, label %60, label %57
+  %.not58 = icmp eq ptr %56, null
+  br i1 %.not58, label %60, label %57
 
 57:                                               ; preds = %54
   %58 = load i32, ptr %56, align 4
@@ -2299,8 +2299,8 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
 60:                                               ; preds = %57, %54
   %61 = getelementptr inbounds i8, ptr %30, i64 96
   %62 = load ptr, ptr %61, align 8
-  %.not60 = icmp eq ptr %62, null
-  br i1 %.not60, label %66, label %63
+  %.not59 = icmp eq ptr %62, null
+  br i1 %.not59, label %66, label %63
 
 63:                                               ; preds = %60
   %64 = load i32, ptr %62, align 4
@@ -2310,8 +2310,8 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
 
 66:                                               ; preds = %63, %60
   %67 = load ptr, ptr %8, align 8
-  %.not61 = icmp eq ptr %67, null
-  br i1 %.not61, label %68, label %71
+  %.not60 = icmp eq ptr %67, null
+  br i1 %.not60, label %68, label %71
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2337,8 +2337,8 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
 79:                                               ; preds = %75, %71
   %80 = getelementptr inbounds i8, ptr %30, i64 128
   %81 = load ptr, ptr %80, align 8
-  %.not62 = icmp eq ptr %81, null
-  br i1 %.not62, label %85, label %82
+  %.not61 = icmp eq ptr %81, null
+  br i1 %.not61, label %85, label %82
 
 82:                                               ; preds = %79
   %83 = load i32, ptr %81, align 4
@@ -2349,8 +2349,8 @@ define hidden void @zim_SQLite3_createAggregate(ptr nocapture noundef readonly %
 85:                                               ; preds = %82, %79
   %86 = getelementptr inbounds i8, ptr %30, i64 136
   %87 = load ptr, ptr %86, align 8
-  %.not63 = icmp eq ptr %87, null
-  br i1 %.not63, label %91, label %88
+  %.not62 = icmp eq ptr %87, null
+  br i1 %.not62, label %91, label %88
 
 88:                                               ; preds = %85
   %89 = load i32, ptr %87, align 4
@@ -2687,7 +2687,7 @@ define hidden void @zim_SQLite3_openBlob(ptr nocapture noundef readonly %0, ptr 
   %28 = load i64, ptr %10, align 8
   %29 = and i64 %28, 2
   %.lobit = lshr exact i64 %29, 1
-  %30 = trunc i64 %.lobit to i32
+  %30 = trunc nuw nsw i64 %.lobit to i32
   %31 = getelementptr inbounds i8, ptr %13, i64 -128
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %5, align 8
@@ -3230,7 +3230,7 @@ define hidden void @zim_SQLite3Stmt_close(ptr noundef %0, ptr nocapture noundef 
 declare void @zend_llist_del_element(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @php_sqlite3_compare_stmt_zval_free(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @php_sqlite3_compare_stmt_zval_free(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3563,7 +3563,7 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
   br label %67
 
 33:                                               ; preds = %28
-  %34 = call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %6), !range !5
+  %34 = call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %6)
   %35 = icmp eq i32 %34, -1
   %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %37 = icmp ne ptr %36, null
@@ -3630,7 +3630,7 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_sqlite3_bind_params(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4337,7 +4337,7 @@ define hidden void @zim_SQLite3Stmt_execute(ptr nocapture noundef readonly %0, p
 18:                                               ; preds = %12
   %19 = load ptr, ptr %5, align 8
   %20 = tail call i32 @sqlite3_reset(ptr noundef %19) #17
-  %21 = tail call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %5), !range !5
+  %21 = tail call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %5)
   %22 = icmp eq i32 %21, -1
   %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %24 = icmp ne ptr %23, null
@@ -4889,7 +4889,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %68 = load ptr, ptr %25, align 8
   %69 = load ptr, ptr %68, align 8
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   %71 = call ptr @sqlite3_column_name(ptr noundef %69, i32 noundef %70) #17
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #18
   %73 = and i64 %72, -8
@@ -4931,7 +4931,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   %indvars.iv262 = phi i64 [ 0, %.lr.ph260 ], [ %indvars.iv.next263, %132 ]
   %89 = load ptr, ptr %25, align 8
   %90 = load ptr, ptr %89, align 8
-  %91 = trunc i64 %indvars.iv262 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv262 to i32
   call fastcc void @sqlite_value_to_zval(ptr noundef %90, i32 noundef %91, ptr noundef nonnull %5)
   %92 = load i64, ptr %4, align 8
   %93 = and i64 %92, 2
@@ -8154,7 +8154,7 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   %32 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @sqlite3_value_type(ptr noundef %33) #17
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw i64 %indvars.iv to i32
   %36 = add i32 %spec.store.select, %35
   %37 = zext i32 %36 to i64
   switch i32 %34, label %50 [
@@ -8574,7 +8574,7 @@ define internal noundef i32 @php_sqlite3_stream_flush(ptr nocapture readnone %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_sqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #11 {
+define internal range(i32 -1, 1) i32 @php_sqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #11 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %2, label %57 [
@@ -8869,7 +8869,7 @@ declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @php_sqlite3_compare_stmt_free(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #6 {
+define internal range(i32 0, 2) i32 @php_sqlite3_compare_stmt_free(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -8941,4 +8941,3 @@ attributes #20 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

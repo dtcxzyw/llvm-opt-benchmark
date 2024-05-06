@@ -91,7 +91,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %31 = extractvalue { i64, ptr } %29, 1
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %26, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull readonly align 1 %26, i64 %28, i1 false)
   store i64 %30, ptr %3, align 8, !noalias !15
   store ptr %31, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !15
   store i64 %28, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !15
@@ -293,7 +293,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %17 = extractvalue { i64, ptr } %15, 1
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %.val20.i, i64 %.val21.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %.val20.i, i64 %.val21.i, i1 false)
   store i64 %16, ptr %4, align 8, !noalias !49
   store ptr %17, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !49
   store i64 %.val21.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !49
@@ -962,7 +962,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %34 = extractvalue { i64, ptr } %32, 1
   %35 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %35)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %29, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 1 %29, i64 %31, i1 false)
   store i64 %33, ptr %4, align 8, !noalias !279
   store ptr %34, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !279
   store i64 %31, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !279
@@ -1064,7 +1064,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %21 = extractvalue { i64, ptr } %19, 1
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %.val20, i64 %.val21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %.val20, i64 %.val21, i1 false)
   store i64 %20, ptr %4, align 8, !noalias !312
   store ptr %21, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !312
   store i64 %.val21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !312

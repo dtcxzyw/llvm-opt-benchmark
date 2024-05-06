@@ -95,7 +95,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21fast_rv32i_vluxei32_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vluxei32_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple", align 8
   %6 = alloca %class.target_endian.158, align 4
@@ -281,7 +281,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %107 = fcmp olt float %96, 1.000000e+00
   %108 = select i1 %107, float 1.000000e+00, float %96
   %109 = fptoui float %108 to i64
-  %110 = trunc i64 %28 to i32
+  %110 = trunc nuw nsw i64 %28 to i32
   %111 = fptoui float %96 to i32
   %.not.i = icmp eq i32 %111, 0
   %112 = add i32 %111, 31
@@ -305,7 +305,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 121:                                              ; preds = %105
   %122 = lshr i64 %1, 20
   %123 = and i64 %122, 31
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = fptoui float %97 to i32
   %.not.i252 = icmp eq i32 %125, 0
   %126 = add i32 %125, 31
@@ -1185,7 +1185,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %107 = fcmp olt float %96, 1.000000e+00
   %108 = select i1 %107, float 1.000000e+00, float %96
   %109 = fptoui float %108 to i64
-  %110 = trunc i64 %28 to i32
+  %110 = trunc nuw nsw i64 %28 to i32
   %111 = fptoui float %96 to i32
   %.not.i = icmp eq i32 %111, 0
   %112 = add i32 %111, 31
@@ -1209,7 +1209,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 121:                                              ; preds = %105
   %122 = lshr i64 %1, 20
   %123 = and i64 %122, 31
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = fptoui float %97 to i32
   %.not.i252 = icmp eq i32 %125, 0
   %126 = add i32 %125, 31
@@ -1872,7 +1872,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %279
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z23logged_rv32i_vluxei32_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vluxei32_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple", align 8
   %6 = alloca %class.target_endian.158, align 4
@@ -2058,7 +2058,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %107 = fcmp olt float %96, 1.000000e+00
   %108 = select i1 %107, float 1.000000e+00, float %96
   %109 = fptoui float %108 to i64
-  %110 = trunc i64 %28 to i32
+  %110 = trunc nuw nsw i64 %28 to i32
   %111 = fptoui float %96 to i32
   %.not.i = icmp eq i32 %111, 0
   %112 = add i32 %111, 31
@@ -2082,7 +2082,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 121:                                              ; preds = %105
   %122 = lshr i64 %1, 20
   %123 = and i64 %122, 31
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = fptoui float %97 to i32
   %.not.i252 = icmp eq i32 %125, 0
   %126 = add i32 %125, 31
@@ -2933,7 +2933,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %107 = fcmp olt float %96, 1.000000e+00
   %108 = select i1 %107, float 1.000000e+00, float %96
   %109 = fptoui float %108 to i64
-  %110 = trunc i64 %28 to i32
+  %110 = trunc nuw nsw i64 %28 to i32
   %111 = fptoui float %96 to i32
   %.not.i = icmp eq i32 %111, 0
   %112 = add i32 %111, 31
@@ -2957,7 +2957,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 121:                                              ; preds = %105
   %122 = lshr i64 %1, 20
   %123 = and i64 %122, 31
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = fptoui float %97 to i32
   %.not.i252 = icmp eq i32 %125, 0
   %126 = add i32 %125, 31
@@ -3620,7 +3620,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %279
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21fast_rv32e_vluxei32_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vluxei32_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple", align 8
   %6 = alloca %class.target_endian.158, align 4
@@ -3822,7 +3822,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %114 = fcmp olt float %103, 1.000000e+00
   %115 = select i1 %114, float 1.000000e+00, float %103
   %116 = fptoui float %115 to i64
-  %117 = trunc i64 %35 to i32
+  %117 = trunc nuw nsw i64 %35 to i32
   %118 = fptoui float %103 to i32
   %.not.i = icmp eq i32 %118, 0
   %119 = add i32 %118, 31
@@ -3846,7 +3846,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 128:                                              ; preds = %112
   %129 = lshr i64 %1, 20
   %130 = and i64 %129, 31
-  %131 = trunc i64 %130 to i32
+  %131 = trunc nuw nsw i64 %130 to i32
   %132 = fptoui float %104 to i32
   %.not.i254 = icmp eq i32 %132, 0
   %133 = add i32 %132, 31
@@ -4713,7 +4713,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %114 = fcmp olt float %103, 1.000000e+00
   %115 = select i1 %114, float 1.000000e+00, float %103
   %116 = fptoui float %115 to i64
-  %117 = trunc i64 %35 to i32
+  %117 = trunc nuw nsw i64 %35 to i32
   %118 = fptoui float %103 to i32
   %.not.i = icmp eq i32 %118, 0
   %119 = add i32 %118, 31
@@ -4737,7 +4737,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 128:                                              ; preds = %112
   %129 = lshr i64 %1, 20
   %130 = and i64 %129, 31
-  %131 = trunc i64 %130 to i32
+  %131 = trunc nuw nsw i64 %130 to i32
   %132 = fptoui float %104 to i32
   %.not.i254 = icmp eq i32 %132, 0
   %133 = add i32 %132, 31
@@ -5400,7 +5400,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %286
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z23logged_rv32e_vluxei32_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vluxei32_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple", align 8
   %6 = alloca %class.target_endian.158, align 4
@@ -5602,7 +5602,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %114 = fcmp olt float %103, 1.000000e+00
   %115 = select i1 %114, float 1.000000e+00, float %103
   %116 = fptoui float %115 to i64
-  %117 = trunc i64 %35 to i32
+  %117 = trunc nuw nsw i64 %35 to i32
   %118 = fptoui float %103 to i32
   %.not.i = icmp eq i32 %118, 0
   %119 = add i32 %118, 31
@@ -5626,7 +5626,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 128:                                              ; preds = %112
   %129 = lshr i64 %1, 20
   %130 = and i64 %129, 31
-  %131 = trunc i64 %130 to i32
+  %131 = trunc nuw nsw i64 %130 to i32
   %132 = fptoui float %104 to i32
   %.not.i254 = icmp eq i32 %132, 0
   %133 = add i32 %132, 31
@@ -6493,7 +6493,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %114 = fcmp olt float %103, 1.000000e+00
   %115 = select i1 %114, float 1.000000e+00, float %103
   %116 = fptoui float %115 to i64
-  %117 = trunc i64 %35 to i32
+  %117 = trunc nuw nsw i64 %35 to i32
   %118 = fptoui float %103 to i32
   %.not.i = icmp eq i32 %118, 0
   %119 = add i32 %118, 31
@@ -6517,7 +6517,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 128:                                              ; preds = %112
   %129 = lshr i64 %1, 20
   %130 = and i64 %129, 31
-  %131 = trunc i64 %130 to i32
+  %131 = trunc nuw nsw i64 %130 to i32
   %132 = fptoui float %104 to i32
   %.not.i254 = icmp eq i32 %132, 0
   %133 = add i32 %132, 31

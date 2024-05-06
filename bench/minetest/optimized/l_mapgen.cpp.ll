@@ -311,7 +311,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.51 = private unnamed_addr constant [5 x i8] c"prob\00", align 1
 @.str.52 = private unnamed_addr constant [7 x i8] c"param2\00", align 1
 @.str.53 = private unnamed_addr constant [12 x i8] c"force_place\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.54 = private unnamed_addr constant [83 x i8] c"read_schematic_def: incorrect number of nodes provided in raw schematic data (got \00", align 1
 @.str.55 = private unnamed_addr constant [12 x i8] c", expected \00", align 1
 @.str.56 = private unnamed_addr constant [3 x i8] c").\00", align 1
@@ -344,7 +344,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.83 = private unnamed_addr constant [13 x i8] c"node_dungeon\00", align 1
 @.str.84 = private unnamed_addr constant [17 x i8] c"node_dungeon_alt\00", align 1
 @.str.85 = private unnamed_addr constant [19 x i8] c"node_dungeon_stair\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.86 = private unnamed_addr constant [38 x i8] c"get_biome_list: failed to get biome '\00", align 1
 @.str.87 = private unnamed_addr constant [3 x i8] c"'.\00", align 1
 @.str.88 = private unnamed_addr constant [2 x i8] c"'\00", align 1
@@ -430,7 +430,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.165 = private unnamed_addr constant [10 x i8] c"write to \00", align 1
 @.str.166 = private unnamed_addr constant [4 x i8] c"pos\00", align 1
 @.str.167 = private unnamed_addr constant [51 x i8] c"create_schematic: failed to get schematic from map\00", align 1
-@actionstream = external thread_local global %class.LogStream, align 8
+@actionstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.168 = private unnamed_addr constant [41 x i8] c"create_schematic: saved schematic file '\00", align 1
 @.str.169 = private unnamed_addr constant [41 x i8] c"place_schematic: failed to get schematic\00", align 1
 @.str.170 = private unnamed_addr constant [17 x i8] c"lua_use_comments\00", align 1
@@ -5625,7 +5625,7 @@ return:                                           ; preds = %cleanup52, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen14l_get_biome_idEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen14l_get_biome_idEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5796,7 +5796,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen16l_get_biome_nameEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen16l_get_biome_nameEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 1)
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -5844,7 +5844,7 @@ declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen10l_get_heatEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen10l_get_heatEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call i48 @_Z10read_v3s16P9lua_Statei(ptr noundef %L, i32 noundef 1)
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -5930,7 +5930,7 @@ declare noundef float @_ZNK16BiomeGenOriginal15calcHeatAtPointEN3irr4core8vector
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen14l_get_humidityEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen14l_get_humidityEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call i48 @_Z10read_v3s16P9lua_Statei(ptr noundef %L, i32 noundef 1)
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -5982,7 +5982,7 @@ cleanup:                                          ; preds = %if.end, %lor.lhs.fa
 declare noundef float @_ZNK16BiomeGenOriginal19calcHumidityAtPointEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104), i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen16l_get_biome_dataEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen16l_get_biome_dataEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call i48 @_Z10read_v3s16P9lua_Statei(ptr noundef %L, i32 noundef 1)
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
@@ -6060,7 +6060,7 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen19l_get_mapgen_objectEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN12ModApiMapgen19l_get_mapgen_objectEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %mgobjint = alloca i32, align 4
@@ -6659,7 +6659,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen17l_get_spawn_levelEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen17l_get_spawn_levelEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 1)
   %conv = trunc i64 %call to i32
@@ -6693,7 +6693,7 @@ declare noundef ptr @_ZN10ModApiBase9getServerEP9lua_State(ptr noundef) local_un
 declare noundef i32 @_ZN13EmergeManager20getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr noundef nonnull align 8 dereferenceable(464), i32) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen10l_get_seedEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen10l_get_seedEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef %L)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -8140,7 +8140,7 @@ ehcleanup47:                                      ; preds = %_ZNSt7__cxx1112basi
 declare i32 @_Z16get_mapgen_edgesss(i16 noundef signext, i16 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen20l_get_mapgen_settingEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen20l_get_mapgen_settingEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %value = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8342,7 +8342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen32l_get_mapgen_setting_noiseparamsEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen32l_get_mapgen_setting_noiseparamsEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %np = alloca %struct.NoiseParams, align 16
@@ -9327,7 +9327,7 @@ declare noundef ptr @_ZN8Settings8getLayerE13SettingsLayer(i32 noundef) local_un
 declare noundef zeroext i1 @_ZN8Settings14setNoiseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK11NoiseParams(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen17l_get_noiseparamsEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen17l_get_noiseparamsEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10015,7 +10015,7 @@ declare noundef ptr @_ZN10ModApiBase15getEmergeThreadEP9lua_State(ptr noundef) l
 declare noundef zeroext i1 @_ZN16GenerateNotifier9setCustomERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen19l_get_decoration_idEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen19l_get_decoration_idEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10149,7 +10149,7 @@ cleanup18:                                        ; preds = %if.end14, %_ZNSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen16l_register_biomeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen16l_register_biomeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5)
   %call = tail call noundef ptr @_ZN10ModApiBase9getServerEP9lua_State(ptr noundef %L)
@@ -10195,7 +10195,7 @@ cleanup15:                                        ; preds = %if.end14, %delete.n
 declare noundef ptr @_ZN13EmergeManager23getWritableBiomeManagerEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen21l_register_decorationEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen21l_register_decorationEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11865,7 +11865,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare noundef zeroext i1 @_Z13read_tree_defP9lua_StateiPK14NodeDefManagerRN7treegen7TreeDefE(ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(321)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen14l_register_oreEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen14l_register_oreEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i445 = alloca i64, align 8
   %__dnew.i.i367 = alloca i64, align 8
@@ -13386,7 +13386,7 @@ declare void @_Z20warn_if_field_existsP9lua_StateiPKcRKNSt7__cxx1112basic_string
 declare noundef zeroext i1 @_Z13getfloatfieldP9lua_StateiPKcRf(ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen20l_register_schematicEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen20l_register_schematicEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %replace_names = alloca %"class.std::unordered_map", align 8
   %call = tail call noundef ptr @_ZN10ModApiBase9getServerEP9lua_State(ptr noundef %L)
@@ -14127,7 +14127,7 @@ cleanup:                                          ; preds = %invoke.cont58, %lor
 declare noundef i64 @_ZN17DecorationManager13placeAllDecosEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, i32 noundef, i48, i48) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen18l_create_schematicEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen18l_create_schematicEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15168,7 +15168,7 @@ declare noundef zeroext i1 @_ZN9Schematic19saveSchematicToFileERKNSt7__cxx1112ba
 declare void @_ZN9SchematicD1Ev(ptr noundef nonnull align 8 dereferenceable(192)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen17l_place_schematicEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen17l_place_schematicEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %rot = alloca i32, align 4
@@ -15626,7 +15626,7 @@ declare noundef nonnull align 8 dereferenceable(560) ptr @_ZN17ServerEnvironment
 declare void @_ZN9Schematic10placeOnMapEP9ServerMapN3irr4core8vector3dIsEEj8Rotationb(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, i48, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen27l_place_schematic_on_vmanipEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen27l_place_schematic_on_vmanipEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i113 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -16206,7 +16206,7 @@ ehcleanup70:                                      ; preds = %if.then.i.i167, %_Z
 declare noundef zeroext i1 @_ZN9Schematic13placeOnVManipEP8MMVManipN3irr4core8vector3dIsEEj8Rotationb(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, i48, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen21l_serialize_schematicEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen21l_serialize_schematicEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %schem_format = alloca i32, align 4
@@ -16673,7 +16673,7 @@ declare noundef zeroext i1 @_ZNK9Schematic14serializeToLuaEPSobj(ptr noundef non
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN12ModApiMapgen16l_read_schematicEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiMapgen16l_read_schematicEP9lua_State(ptr noundef %L) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write_yslice = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

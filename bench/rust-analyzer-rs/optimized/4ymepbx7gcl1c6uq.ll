@@ -749,7 +749,7 @@ _ZN17crossbeam_channel5waker5Waker10try_select17hb3b14812dad24739E.exit.i.i: ; p
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %180, ptr nonnull align 8 %181, i64 %184, i1 false), !noalias !85
   %185 = add i64 %177, -1
   store i64 %185, ptr %124, align 8, !alias.scope !80, !noalias !81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !86
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   %.pr.i.i = load ptr, ptr %15, align 8, !alias.scope !87, !noalias !45
   call void @llvm.experimental.noalias.scope.decl(metadata !87)

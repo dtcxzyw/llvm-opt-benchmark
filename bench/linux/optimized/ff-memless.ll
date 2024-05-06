@@ -366,7 +366,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   br label %284
 
 58:                                               ; preds = %55
-  %59 = trunc i32 %51 to i16
+  %59 = trunc nuw i32 %51 to i16
   store i16 %59, ptr %2, align 8
   br label %60
 
@@ -481,7 +481,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   %.cmp10 = icmp ult i16 %.fr, -16384
   %133 = select i1 %.cmp10, i32 450, i32 90
   %134 = add nuw nsw i32 %133, %103
-  %.lhs.trunc14 = trunc i32 %134 to i16
+  %.lhs.trunc14 = trunc nuw nsw i32 %134 to i16
   %135 = urem i16 %.lhs.trunc14, 360
   %.zext15 = zext nneg i16 %135 to i32
   %136 = icmp ugt i16 %135, 180
@@ -602,13 +602,13 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   store i16 %230, ptr %8, align 4
   %231 = add nuw nsw i32 %174, %181
   %232 = call i32 @llvm.umin.i32(i32 %231, i32 65535)
-  %233 = trunc i32 %232 to i16
+  %233 = trunc nuw i32 %232 to i16
   store i16 %233, ptr %7, align 8
   %234 = load i16, ptr %9, align 2
   %235 = zext i16 %234 to i32
   %236 = add nuw nsw i32 %179, %235
   %237 = call i32 @llvm.umin.i32(i32 %236, i32 65535)
-  %238 = trunc i32 %237 to i16
+  %238 = trunc nuw i32 %237 to i16
   store i16 %238, ptr %9, align 2
   br label %284
 
@@ -658,13 +658,13 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   store i16 %273, ptr %8, align 4
   %274 = add nuw nsw i32 %247, %249
   %275 = call i32 @llvm.umin.i32(i32 %274, i32 65535)
-  %276 = trunc i32 %275 to i16
+  %276 = trunc nuw i32 %275 to i16
   store i16 %276, ptr %7, align 8
   %277 = load i16, ptr %9, align 2
   %278 = zext i16 %277 to i32
   %279 = add nuw nsw i32 %247, %278
   %280 = call i32 @llvm.umin.i32(i32 %279, i32 65535)
-  %281 = trunc i32 %280 to i16
+  %281 = trunc nuw i32 %280 to i16
   store i16 %281, ptr %9, align 2
   br label %284
 

@@ -409,7 +409,7 @@ $_ZTV21ItemNotFoundException = comdat any
 @.str.17 = private unnamed_addr constant [18 x i8] c"Sequence number: \00", align 1
 @.str.18 = private unnamed_addr constant [30 x i8] c" not found in reliable buffer\00", align 1
 @.str.19 = private unnamed_addr constant [27 x i8] c"seqnum not found in buffer\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.20 = private unnamed_addr constant [70 x i8] c"ReliablePacketBuffer::insert(): Invalid data size for reliable packet\00", align 1
 @.str.21 = private unnamed_addr constant [53 x i8] c"ReliablePacketBuffer::insert(): type is not reliable\00", align 1
 @.str.22 = private unnamed_addr constant [70 x i8] c"ReliablePacketBuffer::insert(): seqnum is outside of expected window \00", align 1
@@ -434,7 +434,7 @@ $_ZTV21ItemNotFoundException = comdat any
 @.str.35 = private unnamed_addr constant [17 x i8] c" >= chunk_count=\00", align 1
 @.str.36 = private unnamed_addr constant [44 x i8] c"IncomingSplitBuffer::insert(): chunk_count=\00", align 1
 @.str.37 = private unnamed_addr constant [21 x i8] c" != sp->chunk_count=\00", align 1
-@derr_con = external thread_local global %class.LogStream, align 8
+@derr_con = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.38 = private unnamed_addr constant [31 x i8] c"Connection: WARNING: reliable=\00", align 1
 @.str.39 = private unnamed_addr constant [18 x i8] c" != sp->reliable=\00", align 1
 @.str.40 = private unnamed_addr constant [49 x i8] c"NOTE: Removing timed out unreliable split packet\00", align 1
@@ -6238,7 +6238,7 @@ if.end100:                                        ; preds = %if.then97, %if.end9
   store i32 %spec.select, ptr %rate_samples, align 4, !tbaa !203
   %sub107 = add nsw i32 %spec.select, -1
   %conv108 = uitofp i32 %sub107 to float
-  %conv110 = uitofp i32 %spec.select to float
+  %conv110 = uitofp nneg i32 %spec.select to float
   %div111 = fdiv nsz float %conv108, %conv110
   %avg_kbps = getelementptr inbounds i8, ptr %this, i64 476
   %26 = load float, ptr %avg_kbps, align 4, !tbaa !204

@@ -20,8 +20,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %rbuf = getelementptr inbounds i8, ptr %call, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rbuf, i8 0, i64 32, i1 false)
-  %call3 = tail call fastcc i32 @ring_buf_resize(ptr noundef nonnull %rbuf, i64 noundef %rbuf_size, i32 noundef 0), !range !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %rbuf, i8 0, i64 32, i1 false)
+  %call3 = tail call fastcc i32 @ring_buf_resize(ptr noundef nonnull %rbuf, i64 noundef %rbuf_size, i32 noundef 0)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then4, label %if.end5
 
@@ -45,7 +45,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ring_buf_resize(ptr nocapture noundef %r, i64 noundef %num_bytes, i32 noundef %cleanse) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr nocapture noundef %r, i64 noundef %num_bytes, i32 noundef %cleanse) unnamed_addr #0 {
 entry:
   %alloc = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load i64, ptr %alloc, align 8
@@ -253,7 +253,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_sframe_list_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_rstream_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr nocapture noundef writeonly %fin) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rstream_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr nocapture noundef writeonly %fin) local_unnamed_addr #0 {
 entry:
   %rtt_info.i = alloca %struct.ossl_rtt_info_st, align 8
   %0 = getelementptr i8, ptr %qrs, i64 56
@@ -319,7 +319,7 @@ while.cond:                                       ; preds = %if.end50
   %add.ptr52 = getelementptr inbounds i8, ptr %buf.addr.1, i64 %l.1
   %call = call i32 @ossl_sframe_list_peek(ptr noundef %qrs, ptr noundef nonnull %iter, ptr noundef nonnull %range, ptr noundef nonnull %data, ptr noundef nonnull %fin_) #9
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %readbytes_.061 = phi i64 [ 0, %while.body.lr.ph ], [ %add53, %while.cond ]
@@ -410,7 +410,7 @@ if.end50:                                         ; preds = %if.end16, %lor.lhs.
   %sub51 = sub i64 %size.addr.1, %l.1
   %add53 = add i64 %l.1, %readbytes_.1
   %cmp54 = icmp eq i64 %sub51, 0
-  br i1 %cmp54, label %while.end, label %while.cond, !llvm.loop !5
+  br i1 %cmp54, label %while.end, label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond, %if.end, %if.end50
   %readbytes_.2 = phi i64 [ %add53, %while.cond ], [ %readbytes_.061, %if.end ], [ %add53, %if.end50 ]
@@ -535,7 +535,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add = sub i64 %sub, %1
   %call = call i32 @ossl_sframe_list_peek(ptr noundef %qrs, ptr noundef nonnull %iter, ptr noundef nonnull %range, ptr noundef nonnull %data, ptr noundef %fin) #9
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %entry
   %avail_.0.lcssa = phi i64 [ 0, %entry ], [ %add, %while.body ]
@@ -546,7 +546,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare i32 @ossl_sframe_list_peek(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_rstream_get_record(ptr noundef %qrs, ptr nocapture noundef writeonly %record, ptr nocapture noundef writeonly %rec_len, ptr noundef %fin) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rstream_get_record(ptr noundef %qrs, ptr nocapture noundef writeonly %record, ptr nocapture noundef writeonly %rec_len, ptr noundef %fin) local_unnamed_addr #0 {
 entry:
   %record_ = alloca ptr, align 8
   store ptr null, ptr %record_, align 8
@@ -641,7 +641,7 @@ declare i32 @ossl_sframe_list_lock_head(ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @ossl_sframe_list_drop_frames(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_rstream_release_record(ptr noundef %qrs, i64 noundef %read_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rstream_release_record(ptr noundef %qrs, i64 noundef %read_len) local_unnamed_addr #0 {
 entry:
   %rtt_info.i = alloca %struct.ossl_rtt_info_st, align 8
   %call = tail call i32 @ossl_sframe_list_is_head_locked(ptr noundef %qrs) #9
@@ -804,7 +804,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_sframe_list_move_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @write_at_ring_buf_cb(i64 noundef %logical_offset, ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr nocapture noundef %cb_arg) #2 {
+define internal range(i32 0, 2) i32 @write_at_ring_buf_cb(i64 noundef %logical_offset, ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr nocapture noundef %cb_arg) #2 {
 entry:
   %0 = load ptr, ptr %cb_arg, align 8
   %alloc.i.i = getelementptr inbounds i8, ptr %cb_arg, i64 8
@@ -871,7 +871,7 @@ if.end21.i:                                       ; preds = %if.then18.i, %for.b
   %sub24.i = sub i64 %buf_len.addr.049.i, %spec.select.i
   %cmp10.i = icmp ne i64 %sub24.i, 0
   %15 = and i1 %cmp11.i, %cmp10.i
-  br i1 %15, label %for.body.i, label %ring_buf_write_at.exit, !llvm.loop !8
+  br i1 %15, label %for.body.i, label %ring_buf_write_at.exit, !llvm.loop !7
 
 ring_buf_write_at.exit:                           ; preds = %if.end21.i, %entry, %lor.lhs.false.i, %lor.lhs.false5.i, %safe_add_u64.exit39.i, %for.cond.preheader.i
   %retval.0.i = phi i32 [ 0, %safe_add_u64.exit39.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %lor.lhs.false5.i ], [ 1, %for.cond.preheader.i ], [ 1, %if.end21.i ]
@@ -879,7 +879,7 @@ ring_buf_write_at.exit:                           ; preds = %if.end21.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_rstream_resize_rbuf(ptr noundef %qrs, i64 noundef %rbuf_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rstream_resize_rbuf(ptr noundef %qrs, i64 noundef %rbuf_size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_sframe_list_is_head_locked(ptr noundef %qrs) #9
   %tobool.not = icmp eq i32 %call, 0
@@ -889,7 +889,7 @@ if.end:                                           ; preds = %entry
   %rbuf = getelementptr inbounds i8, ptr %qrs, i64 80
   %cleanse = getelementptr inbounds i8, ptr %qrs, i64 44
   %0 = load i32, ptr %cleanse, align 4
-  %call2 = tail call fastcc i32 @ring_buf_resize(ptr noundef nonnull %rbuf, i64 noundef %rbuf_size, i32 noundef %0), !range !4
+  %call2 = tail call fastcc i32 @ring_buf_resize(ptr noundef nonnull %rbuf, i64 noundef %rbuf_size, i32 noundef %0)
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -948,8 +948,7 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

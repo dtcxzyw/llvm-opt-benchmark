@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32i_kslra16_uP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_kslra16_uP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 1536)
@@ -131,7 +131,7 @@ define noundef i64 @_Z20fast_rv32i_kslra16_uP11processor_t6insn_tm(ptr nocapture
   %35 = ashr exact i64 %34, 59
   %36 = and i64 %35, 2147483648
   %.not = icmp eq i64 %36, 0
-  %37 = trunc i64 %35 to i32
+  %37 = trunc nsw i64 %35 to i32
   %38 = sub nsw i32 0, %37
   %39 = and i32 %38, 65535
   %40 = icmp eq i32 %39, 16
@@ -301,7 +301,7 @@ define noundef i64 @_Z20fast_rv64i_kslra16_uP11processor_t6insn_tm(ptr nocapture
   %35 = ashr exact i64 %34, 59
   %36 = and i64 %35, 2147483648
   %.not = icmp eq i64 %36, 0
-  %37 = trunc i64 %35 to i32
+  %37 = trunc nsw i64 %35 to i32
   %38 = sub nsw i32 0, %37
   %39 = and i32 %38, 65535
   %40 = icmp eq i32 %39, 16
@@ -393,7 +393,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.split71.us, %87
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32i_kslra16_uP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_kslra16_uP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 1536)
@@ -448,7 +448,7 @@ define noundef i64 @_Z22logged_rv32i_kslra16_uP11processor_t6insn_tm(ptr noundef
   %35 = ashr exact i64 %34, 59
   %36 = and i64 %35, 2147483648
   %.not = icmp eq i64 %36, 0
-  %37 = trunc i64 %35 to i32
+  %37 = trunc nsw i64 %35 to i32
   %38 = sub nsw i32 0, %37
   %39 = and i32 %38, 65535
   %40 = icmp eq i32 %39, 16
@@ -656,7 +656,7 @@ define noundef i64 @_Z22logged_rv64i_kslra16_uP11processor_t6insn_tm(ptr noundef
   %35 = ashr exact i64 %34, 59
   %36 = and i64 %35, 2147483648
   %.not = icmp eq i64 %36, 0
-  %37 = trunc i64 %35 to i32
+  %37 = trunc nsw i64 %35 to i32
   %38 = sub nsw i32 0, %37
   %39 = and i32 %38, 65535
   %40 = icmp eq i32 %39, 16
@@ -805,7 +805,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32e_kslra16_uP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_kslra16_uP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 1536)
@@ -908,7 +908,7 @@ define noundef i64 @_Z20fast_rv32e_kslra16_uP11processor_t6insn_tm(ptr nocapture
   %56 = ashr exact i64 %55, 59
   %57 = and i64 %56, 2147483648
   %.not = icmp eq i64 %57, 0
-  %58 = trunc i64 %56 to i32
+  %58 = trunc nsw i64 %56 to i32
   %59 = sub nsw i32 0, %58
   %60 = and i32 %59, 65535
   %61 = icmp eq i32 %60, 16
@@ -1107,7 +1107,7 @@ define noundef i64 @_Z20fast_rv64e_kslra16_uP11processor_t6insn_tm(ptr nocapture
   %56 = ashr exact i64 %55, 59
   %57 = and i64 %56, 2147483648
   %.not = icmp eq i64 %57, 0
-  %58 = trunc i64 %56 to i32
+  %58 = trunc nsw i64 %56 to i32
   %59 = sub nsw i32 0, %58
   %60 = and i32 %59, 65535
   %61 = icmp eq i32 %60, 16
@@ -1199,7 +1199,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.split91.us, %108
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32e_kslra16_uP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_kslra16_uP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 1536)
@@ -1302,7 +1302,7 @@ define noundef i64 @_Z22logged_rv32e_kslra16_uP11processor_t6insn_tm(ptr noundef
   %56 = ashr exact i64 %55, 59
   %57 = and i64 %56, 2147483648
   %.not = icmp eq i64 %57, 0
-  %58 = trunc i64 %56 to i32
+  %58 = trunc nsw i64 %56 to i32
   %59 = sub nsw i32 0, %58
   %60 = and i32 %59, 65535
   %61 = icmp eq i32 %60, 16
@@ -1558,7 +1558,7 @@ define noundef i64 @_Z22logged_rv64e_kslra16_uP11processor_t6insn_tm(ptr noundef
   %56 = ashr exact i64 %55, 59
   %57 = and i64 %56, 2147483648
   %.not = icmp eq i64 %57, 0
-  %58 = trunc i64 %56 to i32
+  %58 = trunc nsw i64 %56 to i32
   %59 = sub nsw i32 0, %58
   %60 = and i32 %59, 65535
   %61 = icmp eq i32 %60, 16

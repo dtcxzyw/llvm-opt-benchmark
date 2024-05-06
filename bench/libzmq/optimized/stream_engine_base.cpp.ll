@@ -2826,7 +2826,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1689) %this, ptr noundef %msg_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1689) %this, ptr noundef %msg_) #0 align 2 {
 entry:
   %_mechanism = getelementptr inbounds i8, ptr %this, i64 1408
   %0 = load ptr, ptr %_mechanism, align 8
@@ -3285,7 +3285,7 @@ declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq20stream_engine_base_t15decode_and_pushEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq20stream_engine_base_t15decode_and_pushEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %_mechanism = getelementptr inbounds i8, ptr %this, i64 1408
   %0 = load ptr, ptr %_mechanism, align 8
@@ -3667,7 +3667,7 @@ if.end19:                                         ; preds = %entry, %if.then3, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq20stream_engine_base_t4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1689) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
+define noundef range(i32 1, 0) i32 @_ZN3zmq20stream_engine_base_t4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1689) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
 entry:
   %_s = getelementptr inbounds i8, ptr %this, i64 1576
   %0 = load i32, ptr %_s, align 8

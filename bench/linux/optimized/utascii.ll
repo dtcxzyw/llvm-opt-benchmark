@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ctype = external dso_local local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef zeroext i8 @acpi_ut_valid_nameseg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_valid_nameseg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   br label %4
 
 .thread:                                          ; preds = %4, %10
@@ -42,7 +42,7 @@ define dso_local noundef zeroext i8 @acpi_ut_valid_nameseg(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i8 @acpi_ut_valid_name_char(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_valid_name_char(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = add i8 %0, -65
   %4 = icmp ult i8 %3, 26
   br i1 %4, label %15, label %5

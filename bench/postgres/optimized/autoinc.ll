@@ -186,7 +186,7 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br i1 %85, label %59, label %.outer._crit_edge, !llvm.loop !4
 
 86:                                               ; preds = %78
-  %87 = trunc i64 %indvars.iv to i32
+  %87 = trunc nsw i64 %indvars.iv to i32
   %88 = sext i32 %.0.ph105 to i64
   %89 = getelementptr i32, ptr %53, i64 %88
   store i32 %62, ptr %89, align 4

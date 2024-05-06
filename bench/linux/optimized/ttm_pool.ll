@@ -1028,7 +1028,7 @@ define dso_local void @ttm_pool_init(ptr noundef %0, ptr noundef %1, i32 noundef
 19:                                               ; preds = %37, %17
   %20 = phi i64 [ 0, %17 ], [ %38, %37 ]
   %21 = getelementptr [3 x %struct.anon], ptr %18, i64 0, i64 %20
-  %22 = trunc i64 %20 to i32
+  %22 = trunc nuw nsw i64 %20 to i32
   br label %23
 
 23:                                               ; preds = %23, %19
@@ -1241,7 +1241,7 @@ define dso_local noundef i32 @ttm_pool_debugfs(ptr noundef %0, ptr noundef %1) #
 14:                                               ; preds = %36, %12
   %15 = phi i64 [ 0, %12 ], [ %37, %36 ]
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.2) #7
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   switch i32 %16, label %default.unreachable [
     i32 2, label %19
     i32 1, label %17
@@ -1307,7 +1307,7 @@ default.unreachable:                              ; preds = %14
 declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ttm_pool_mgr_init(i64 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i64, ptr @page_pool_size, align 8
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %5
@@ -1452,7 +1452,7 @@ define internal i64 @ttm_pool_shrinker_count(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ttm_pool_shrinker_scan(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i64 0, 4294967296) i64 @ttm_pool_shrinker_scan(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %6, %2

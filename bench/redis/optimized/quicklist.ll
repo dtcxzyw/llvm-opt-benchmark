@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.2 = private unnamed_addr constant [2 x i8] c"}\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @quicklistisSetPackedThreshold(i64 noundef %sz) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @quicklistisSetPackedThreshold(i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %sz, 4293918720
   br i1 %cmp, label %return, label %if.else
@@ -268,7 +268,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__quicklistCompressNode(ptr nocapture noundef %node) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @__quicklistCompressNode(ptr nocapture noundef %node) local_unnamed_addr #1 {
 entry:
   %dont_compress = getelementptr inbounds i8, ptr %node, i64 32
   %bf.load = load i32, ptr %dont_compress, align 8
@@ -349,7 +349,7 @@ declare i64 @lzf_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) lo
 declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__quicklistDecompressNode(ptr nocapture noundef %node) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @__quicklistDecompressNode(ptr nocapture noundef %node) local_unnamed_addr #1 {
 entry:
   %recompress = getelementptr inbounds i8, ptr %node, i64 32
   %bf.load = load i32, ptr %recompress, align 8
@@ -560,7 +560,7 @@ land.lhs.true73:                                  ; preds = %while.end
   br i1 %cmp78, label %if.then80, label %do.body85
 
 if.then80:                                        ; preds = %land.lhs.true73
-  %call81 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %node), !range !9
+  %call81 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %node)
   br label %do.body85
 
 do.body85:                                        ; preds = %while.end, %land.lhs.true73, %if.then80
@@ -575,7 +575,7 @@ land.lhs.true87:                                  ; preds = %do.body85
   br i1 %cmp92, label %if.then94, label %do.body98
 
 if.then94:                                        ; preds = %land.lhs.true87
-  %call95 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %forward.0), !range !9
+  %call95 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %forward.0)
   br label %do.body98
 
 do.body98:                                        ; preds = %if.then94, %land.lhs.true87, %do.body85
@@ -590,7 +590,7 @@ land.lhs.true100:                                 ; preds = %do.body98
   br i1 %cmp105, label %if.then107, label %do.end110
 
 if.then107:                                       ; preds = %land.lhs.true100
-  %call108 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %reverse.0), !range !9
+  %call108 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %reverse.0)
   br label %do.end110
 
 do.end110:                                        ; preds = %do.end53, %lor.lhs.false63, %do.body98, %land.lhs.true100, %if.then107, %cond.end, %lor.lhs.false, %entry
@@ -692,7 +692,7 @@ land.lhs.true:                                    ; preds = %do.body
   br i1 %cmp47, label %if.then48, label %do.body54
 
 if.then48:                                        ; preds = %land.lhs.true
-  %call = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %old_node), !range !9
+  %call = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %old_node)
   br label %do.body54
 
 if.else50:                                        ; preds = %do.body
@@ -712,7 +712,7 @@ do.body61:                                        ; preds = %do.body54
   br i1 %cmp68, label %if.then69, label %do.end75
 
 if.then69:                                        ; preds = %do.body61
-  %call70 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %new_node), !range !9
+  %call70 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %new_node)
   br label %do.end75
 
 if.else73:                                        ; preds = %do.body54
@@ -764,7 +764,7 @@ if.end7:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @quicklistNodeExceedsLimit(i32 noundef %fill, i64 noundef %new_sz, i32 noundef %new_count) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @quicklistNodeExceedsLimit(i32 noundef %fill, i64 noundef %new_sz, i32 noundef %new_count) local_unnamed_addr #10 {
 entry:
   %cmp.i = icmp sgt i32 %fill, -1
   br i1 %cmp.i, label %if.else, label %if.then
@@ -792,7 +792,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @_quicklistNodeAllowInsert(ptr noundef readonly %node, i32 noundef %fill, i64 noundef %sz) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowInsert(ptr noundef readonly %node, i32 noundef %fill, i64 noundef %sz) local_unnamed_addr #11 {
 entry:
   %tobool.not = icmp eq ptr %node, null
   br i1 %tobool.not, label %return, label %if.end
@@ -844,7 +844,7 @@ return:                                           ; preds = %quicklistNodeExceed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @_quicklistNodeAllowMerge(ptr noundef readonly %a, ptr noundef readonly %b, i32 noundef %fill) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowMerge(ptr noundef readonly %a, ptr noundef readonly %b, i32 noundef %fill) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne ptr %a, null
   %tobool1 = icmp ne ptr %b, null
@@ -907,7 +907,7 @@ return:                                           ; preds = %if.end, %quicklistN
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @quicklistPushHead(ptr nocapture noundef %quicklist, ptr noundef %value, i64 noundef %sz) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistPushHead(ptr nocapture noundef %quicklist, ptr noundef %value, i64 noundef %sz) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %quicklist, align 8
   %1 = load i64, ptr @packed_threshold, align 8
@@ -924,7 +924,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, i8 0, i64 16, i1 false)
   %call1.i.i = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i.i, ptr %entry1.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i.i, align 8
   %bf.set9.i.i = or disjoint i32 %bf.clear3.i.i.i, 327681
   store i32 %bf.set9.i.i, ptr %count.i.i.i, align 8
@@ -1043,7 +1043,7 @@ declare i64 @lpBytes(ptr noundef) local_unnamed_addr #5
 declare ptr @lpNew(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @quicklistPushTail(ptr nocapture noundef %quicklist, ptr noundef %value, i64 noundef %sz) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistPushTail(ptr nocapture noundef %quicklist, ptr noundef %value, i64 noundef %sz) local_unnamed_addr #1 {
 entry:
   %tail = getelementptr inbounds i8, ptr %quicklist, i64 8
   %0 = load ptr, ptr %tail, align 8
@@ -1061,7 +1061,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, i8 0, i64 16, i1 false)
   %call1.i.i = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i.i, ptr %entry1.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i.i, align 8
   %bf.set9.i.i = or disjoint i32 %bf.clear3.i.i.i, 327681
   store i32 %bf.set9.i.i, ptr %count.i.i.i, align 8
@@ -1254,7 +1254,7 @@ for.body.preheader.i:                             ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end5, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %if.end5, label %for.body.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -1372,7 +1372,7 @@ for.body.preheader:                               ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -1413,7 +1413,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @quicklistDelIndex(ptr noundef %quicklist, ptr noundef %node, ptr noundef %p) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistDelIndex(ptr noundef %quicklist, ptr noundef %node, ptr noundef %p) local_unnamed_addr #1 {
 entry:
   %container = getelementptr inbounds i8, ptr %node, i64 32
   %bf.load = load i32, ptr %container, align 8
@@ -1593,7 +1593,7 @@ do.body23:                                        ; preds = %if.then
   br i1 %cmp30, label %if.then32, label %do.body176
 
 if.then32:                                        ; preds = %do.body23
-  %call34 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %10), !range !9
+  %call34 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %10)
   br label %do.body176
 
 if.else:                                          ; preds = %if.then
@@ -1634,7 +1634,7 @@ do.body68:                                        ; preds = %if.then50
   br i1 %cmp77, label %if.then79, label %do.body176
 
 if.then79:                                        ; preds = %do.body68
-  %call81 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %18), !range !9
+  %call81 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %18)
   br label %do.body176
 
 if.else84:                                        ; preds = %if.then50
@@ -1642,7 +1642,7 @@ if.else84:                                        ; preds = %if.then50
   br label %do.body176
 
 if.else88:                                        ; preds = %if.then47
-  tail call void @_quicklistInsert(ptr noundef nonnull %iter, ptr noundef nonnull %entry1, ptr noundef %data, i64 noundef %sz, i32 noundef 1)
+  tail call void @_quicklistInsert(ptr noundef nonnull %iter, ptr noundef nonnull readonly %entry1, ptr noundef %data, i64 noundef %sz, i32 noundef 1)
   %21 = load ptr, ptr %node, align 8
   tail call void @__quicklistDelNode(ptr noundef %0, ptr noundef %21)
   br label %do.body176
@@ -1650,7 +1650,7 @@ if.else88:                                        ; preds = %if.then47
 if.else91:                                        ; preds = %if.else39
   %bf.set = or i32 %bf.load, 4194304
   store i32 %bf.set, ptr %container, align 8
-  tail call void @_quicklistInsert(ptr noundef nonnull %iter, ptr noundef nonnull %entry1, ptr noundef %data, i64 noundef %sz, i32 noundef 1)
+  tail call void @_quicklistInsert(ptr noundef nonnull %iter, ptr noundef nonnull readonly %entry1, ptr noundef %data, i64 noundef %sz, i32 noundef 1)
   %22 = load ptr, ptr %node, align 8
   %count = getelementptr inbounds i8, ptr %22, i64 32
   %bf.load96 = load i32, ptr %count, align 8
@@ -1728,7 +1728,7 @@ do.body121:                                       ; preds = %quicklistDelIndex.e
   br i1 %cmp130, label %if.then132, label %do.body141
 
 if.then132:                                       ; preds = %do.body121
-  %call134 = call i32 @__quicklistCompressNode(ptr noundef nonnull %29), !range !9
+  %call134 = call i32 @__quicklistCompressNode(ptr noundef nonnull %29)
   br label %do.body141
 
 if.else137:                                       ; preds = %quicklistDelIndex.exit
@@ -1751,7 +1751,7 @@ do.body149:                                       ; preds = %do.body141
   br i1 %cmp160, label %if.then162, label %do.body176
 
 if.then162:                                       ; preds = %do.body149
-  %call165 = call i32 @__quicklistCompressNode(ptr noundef nonnull %33), !range !9
+  %call165 = call i32 @__quicklistCompressNode(ptr noundef nonnull %33)
   br label %do.body176
 
 if.else168:                                       ; preds = %do.body141
@@ -1779,7 +1779,7 @@ entry:
 declare ptr @lpSeek(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @quicklistReplaceAtIndex(ptr noundef %quicklist, i64 noundef %index, ptr noundef %data, i64 noundef %sz) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistReplaceAtIndex(ptr noundef %quicklist, i64 noundef %index, ptr noundef %data, i64 noundef %sz) local_unnamed_addr #1 {
 entry:
   %entry1 = alloca %struct.quicklistEntry, align 8
   %call = call ptr @quicklistGetIteratorEntryAtIdx(ptr noundef %quicklist, i64 noundef %index, ptr noundef nonnull %entry1)
@@ -1806,7 +1806,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
   br i1 %cmp.i, label %if.then13.i, label %quicklistReleaseIterator.exit
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
-  %call.i = call i32 @__quicklistCompressNode(ptr noundef nonnull %0), !range !9
+  %call.i = call i32 @__quicklistCompressNode(ptr noundef nonnull %0)
   br label %quicklistReleaseIterator.exit
 
 if.else.i:                                        ; preds = %do.body.i
@@ -1867,7 +1867,7 @@ if.else.i:                                        ; preds = %while.body.i
   %cond38.in.i = getelementptr inbounds i8, ptr %n.040.i, i64 %cond38.in.idx.i
   %n.0.i = load ptr, ptr %cond38.in.i, align 8
   %tobool18.not.i = icmp eq ptr %n.0.i, null
-  br i1 %tobool18.not.i, label %return, label %while.body.i, !llvm.loop !11
+  br i1 %tobool18.not.i, label %return, label %while.body.i, !llvm.loop !10
 
 if.end:                                           ; preds = %while.body.i
   %sub52.i = sub i64 %0, %add.i
@@ -1886,7 +1886,7 @@ if.end:                                           ; preds = %while.body.i
   %sub56.sink.i = select i1 %cmp.i, i64 %sub56.i, i64 %add60.i
   %offset.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %sub56.sink.i, ptr %offset.i, align 8
-  %call2 = tail call i32 @quicklistNext(ptr noundef nonnull %call.i.i, ptr noundef %entry1), !range !9
+  %call2 = tail call i32 @quicklistNext(ptr noundef nonnull %call.i.i, ptr noundef %entry1)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %cond.false, label %return
 
@@ -1925,7 +1925,7 @@ land.lhs.true:                                    ; preds = %do.body
   br i1 %cmp, label %if.then13, label %if.end19
 
 if.then13:                                        ; preds = %land.lhs.true
-  %call = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %0), !range !9
+  %call = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %0)
   br label %if.end19
 
 if.else:                                          ; preds = %do.body
@@ -2073,7 +2073,7 @@ do.body44:                                        ; preds = %if.end25
   br i1 %cmp51, label %if.then53, label %return
 
 if.then53:                                        ; preds = %do.body44
-  %call54 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %keep.0), !range !9
+  %call54 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %keep.0)
   br label %return
 
 if.else57:                                        ; preds = %if.end25
@@ -2435,7 +2435,7 @@ if.then7:                                         ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, i8 0, i64 16, i1 false)
   %call1.i.i = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i.i, ptr %entry1.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i.i, align 8
   %bf.set9.i.i = or disjoint i32 %bf.clear3.i.i.i, 327681
   store i32 %bf.set9.i.i, ptr %count.i.i.i, align 8
@@ -2692,7 +2692,7 @@ if.then77:                                        ; preds = %if.then64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i276, i8 0, i64 16, i1 false)
   %call1.i.i282 = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i.i282, ptr %entry1.i.i.i277, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i282, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i.i282, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i.i280, align 8
   %bf.set9.i.i283 = or disjoint i32 %bf.clear3.i.i.i281, 327681
   store i32 %bf.set9.i.i283, ptr %count.i.i.i278, align 8
@@ -2756,7 +2756,7 @@ do.end:                                           ; preds = %land.lhs.true79, %_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i, i8 0, i64 16, i1 false)
   %call1.i = tail call noalias ptr @zmalloc(i64 noundef %sz) #22
   store ptr %call1.i, ptr %entry1.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr align 1 %value, i64 %sz, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr readonly align 1 %value, i64 %sz, i1 false)
   store i64 %sz, ptr %sz.i.i, align 8
   %bf.set9.i = or disjoint i32 %bf.clear3.i.i, 327681
   store i32 %bf.set9.i, ptr %count.i.i, align 8
@@ -2834,7 +2834,7 @@ do.end118:                                        ; preds = %land.lhs.true104, %
   br i1 %or.cond208, label %if.then152, label %if.end481
 
 if.then152:                                       ; preds = %do.end118
-  %call153 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %1), !range !9
+  %call153 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %1)
   br label %if.end481
 
 if.else158:                                       ; preds = %if.end97
@@ -2903,7 +2903,7 @@ do.end179:                                        ; preds = %land.lhs.true165, %
   br i1 %or.cond209, label %if.then214, label %if.end481
 
 if.then214:                                       ; preds = %do.end179
-  %call215 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %1), !range !9
+  %call215 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %1)
   br label %if.end481
 
 if.else220:                                       ; preds = %if.else158
@@ -2926,7 +2926,7 @@ land.lhs.true232:                                 ; preds = %if.then228
   br i1 %cmp237, label %if.then239, label %do.end246
 
 if.then239:                                       ; preds = %land.lhs.true232
-  %call240 = tail call i32 @__quicklistDecompressNode(ptr noundef nonnull %52), !range !9
+  %call240 = tail call i32 @__quicklistDecompressNode(ptr noundef nonnull %52)
   %bf.load242 = load i32, ptr %encoding233, align 8
   %bf.set244 = or i32 %bf.load242, 1048576
   store i32 %bf.set244, ptr %encoding233, align 8
@@ -2955,7 +2955,7 @@ do.end246:                                        ; preds = %if.then228, %land.l
   br i1 %or.cond210, label %if.then280, label %do.body286
 
 if.then280:                                       ; preds = %do.end246
-  %call281 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %52), !range !9
+  %call281 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %52)
   br label %do.body286
 
 do.body286:                                       ; preds = %if.then280, %do.end246
@@ -2965,7 +2965,7 @@ do.body286:                                       ; preds = %if.then280, %do.end
   br i1 %or.cond211, label %if.then302, label %if.end481
 
 if.then302:                                       ; preds = %do.body286
-  %call303 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %1), !range !9
+  %call303 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %1)
   br label %if.end481
 
 if.else308:                                       ; preds = %if.else220
@@ -2988,7 +2988,7 @@ land.lhs.true320:                                 ; preds = %if.then316
   br i1 %cmp325, label %if.then327, label %do.end334
 
 if.then327:                                       ; preds = %land.lhs.true320
-  %call328 = tail call i32 @__quicklistDecompressNode(ptr noundef nonnull %58), !range !9
+  %call328 = tail call i32 @__quicklistDecompressNode(ptr noundef nonnull %58)
   %bf.load330 = load i32, ptr %encoding321, align 8
   %bf.set332 = or i32 %bf.load330, 1048576
   store i32 %bf.set332, ptr %encoding321, align 8
@@ -3017,7 +3017,7 @@ do.end334:                                        ; preds = %if.then316, %land.l
   br i1 %or.cond212, label %if.then368, label %do.body374
 
 if.then368:                                       ; preds = %do.end334
-  %call369 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %58), !range !9
+  %call369 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %58)
   br label %do.body374
 
 do.body374:                                       ; preds = %if.then368, %do.end334
@@ -3027,7 +3027,7 @@ do.body374:                                       ; preds = %if.then368, %do.end
   br i1 %or.cond213, label %if.then390, label %if.end481
 
 if.then390:                                       ; preds = %do.body374
-  %call391 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %1), !range !9
+  %call391 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %1)
   br label %if.end481
 
 if.else396:                                       ; preds = %if.else308
@@ -3067,7 +3067,7 @@ land.lhs.true434:                                 ; preds = %land.lhs.true398
   br i1 %cmp439, label %if.then441, label %do.end448
 
 if.then441:                                       ; preds = %land.lhs.true434
-  %call442 = tail call i32 @__quicklistDecompressNode(ptr noundef nonnull %1), !range !9
+  %call442 = tail call i32 @__quicklistDecompressNode(ptr noundef nonnull %1)
   %bf.load444 = load i32, ptr %container.i, align 8
   %bf.set446 = or i32 %bf.load444, 1048576
   store i32 %bf.set446, ptr %container.i, align 8
@@ -3131,7 +3131,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @quicklistDelRange(ptr noundef %quicklist, i64 noundef %start, i64 noundef %count) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistDelRange(ptr noundef %quicklist, i64 noundef %start, i64 noundef %count) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i64 %count, 1
   br i1 %cmp, label %return, label %if.end
@@ -3196,7 +3196,7 @@ if.else.i:                                        ; preds = %while.body.i
   %cond38.in.i = getelementptr inbounds i8, ptr %n.040.i, i64 %cond38.in.idx.i
   %n.0.i = load ptr, ptr %cond38.in.i, align 8
   %tobool18.not.i = icmp eq ptr %n.0.i, null
-  br i1 %tobool18.not.i, label %return, label %while.body.i, !llvm.loop !11
+  br i1 %tobool18.not.i, label %return, label %while.body.i, !llvm.loop !10
 
 do.body.i:                                        ; preds = %while.body.i
   %count24.i.le = getelementptr inbounds i8, ptr %n.040.i, i64 32
@@ -3227,7 +3227,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
   br i1 %cmp.i61, label %if.then13.i, label %quicklistReleaseIterator.exit
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
-  %call.i = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %n.040.i), !range !9
+  %call.i = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %n.040.i)
   br label %quicklistReleaseIterator.exit
 
 if.else.i62:                                      ; preds = %do.body.i
@@ -3368,14 +3368,14 @@ do.body107:                                       ; preds = %do.end
   br i1 %or.cond57, label %if.then123, label %if.end130
 
 if.then123:                                       ; preds = %do.body107
-  %call124 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %node.092), !range !9
+  %call124 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %node.092)
   br label %if.end130
 
 if.end130:                                        ; preds = %do.end104.thread, %do.body107, %if.then123, %if.then64
   %del.077 = phi i64 [ %del.0.ph, %do.body107 ], [ %del.0.ph, %if.then123 ], [ %del.078, %if.then64 ], [ %del.0.ph, %do.end104.thread ]
   %sub131 = sub i64 %extent.189, %del.077
   %tobool18.not = icmp eq i64 %sub131, 0
-  br i1 %tobool18.not, label %return, label %while.body, !llvm.loop !12
+  br i1 %tobool18.not, label %return, label %while.body, !llvm.loop !11
 
 return:                                           ; preds = %if.else.i, %if.end130, %quicklistReleaseIterator.exit, %if.end.i, %if.end14, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end14 ], [ 0, %if.end.i ], [ 1, %quicklistReleaseIterator.exit ], [ 1, %if.end130 ], [ 0, %if.else.i ]
@@ -3426,7 +3426,7 @@ if.else:                                          ; preds = %while.body
   %cond38.in = getelementptr inbounds i8, ptr %n.040, i64 %cond38.in.idx
   %n.0 = load ptr, ptr %cond38.in, align 8
   %tobool18.not = icmp eq ptr %n.0, null
-  br i1 %tobool18.not, label %return, label %while.body, !llvm.loop !11
+  br i1 %tobool18.not, label %return, label %while.body, !llvm.loop !10
 
 if.end42:                                         ; preds = %while.body
   %sub52 = sub i64 %0, %add
@@ -3524,7 +3524,7 @@ if.end5:                                          ; preds = %if.end5.sink.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @quicklistNext(ptr noundef %iter, ptr noundef %entry1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistNext(ptr noundef %iter, ptr noundef %entry1) local_unnamed_addr #1 {
 entry:
   %sz96 = alloca i32, align 4
   %value = getelementptr inbounds i8, ptr %entry1, i64 24
@@ -3634,7 +3634,7 @@ if.else53:                                        ; preds = %if.else43
   %spec.select65 = select i1 %switch, i64 1, i64 -1
   %entry65 = getelementptr inbounds i8, ptr %2, i64 16
   %15 = load ptr, ptr %entry65, align 8
-  %call67 = tail call ptr %spec.select(ptr noundef %15, ptr noundef nonnull %4) #23, !callees !13
+  %call67 = tail call ptr %spec.select(ptr noundef %15, ptr noundef nonnull %4) #23, !callees !12
   store ptr %call67, ptr %zi10, align 8
   %16 = load i64, ptr %offset70, align 8
   %add = add nsw i64 %16, %spec.select65
@@ -3685,7 +3685,7 @@ do.body112:                                       ; preds = %do.body104
   br i1 %cmp121, label %if.then123, label %do.end132
 
 if.then123:                                       ; preds = %do.body112
-  %call125 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %24), !range !9
+  %call125 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %24)
   br label %do.end132
 
 if.else128:                                       ; preds = %do.body104
@@ -3858,7 +3858,7 @@ if.end24:                                         ; preds = %for.body, %if.then1
   %next = getelementptr inbounds i8, ptr %current.030, i64 8
   %current.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %current.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end24, %entry
   ret ptr %call.i.i
@@ -3934,7 +3934,7 @@ if.end20:                                         ; preds = %if.else, %if.then14
   %10 = phi i32 [ %9, %if.then14 ], [ %call10, %if.then9 ], [ %.pre, %if.else ]
   %value.0 = phi ptr [ %call16, %if.then14 ], [ %longstr, %if.then9 ], [ %call7, %if.else ]
   %conv21 = zext i32 %10 to i64
-  %call22 = call i32 @quicklistPushHead(ptr noundef nonnull %quicklist, ptr noundef %value.0, i64 noundef %conv21), !range !9
+  %call22 = call i32 @quicklistPushHead(ptr noundef nonnull %quicklist, ptr noundef %value.0, i64 noundef %conv21)
   %len23 = getelementptr inbounds i8, ptr %quicklist, i64 24
   %11 = load i64, ptr %len23, align 8
   %cmp24 = icmp eq i64 %11, 1
@@ -4011,7 +4011,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @quicklistPopCustom(ptr noundef %quicklist, i32 noundef %where, ptr noundef writeonly %data, ptr noundef writeonly %sz, ptr noundef writeonly %sval, ptr nocapture noundef readonly %saver) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistPopCustom(ptr noundef %quicklist, i32 noundef %where, ptr noundef writeonly %data, ptr noundef writeonly %sz, ptr noundef writeonly %sval, ptr nocapture noundef readonly %saver) local_unnamed_addr #1 {
 entry:
   %p = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -4216,7 +4216,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @quicklistPop(ptr noundef %quicklist, i32 noundef %where, ptr noundef writeonly %data, ptr noundef writeonly %sz, ptr noundef writeonly %slong) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistPop(ptr noundef %quicklist, i32 noundef %where, ptr noundef writeonly %data, ptr noundef writeonly %sz, ptr noundef writeonly %slong) local_unnamed_addr #1 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i64, align 8
@@ -4230,7 +4230,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @quicklistPopCustom(ptr noundef nonnull %quicklist, i32 noundef %where, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %vlong, ptr noundef nonnull @_quicklistSaver), !range !9
+  %call = call i32 @quicklistPopCustom(ptr noundef nonnull %quicklist, i32 noundef %where, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %vlong, ptr noundef nonnull @_quicklistSaver)
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %if.end2, label %if.then1
 
@@ -4306,11 +4306,11 @@ if.end22:                                         ; preds = %if.then5, %if.end
   ]
 
 if.then25:                                        ; preds = %if.end22
-  %call = tail call i32 @quicklistPushHead(ptr noundef nonnull %quicklist, ptr noundef %value, i64 noundef %sz), !range !9
+  %call = tail call i32 @quicklistPushHead(ptr noundef nonnull %quicklist, ptr noundef %value, i64 noundef %sz)
   br label %if.end31
 
 if.then28:                                        ; preds = %if.end22
-  %call29 = tail call i32 @quicklistPushTail(ptr noundef nonnull %quicklist, ptr noundef %value, i64 noundef %sz), !range !9
+  %call29 = tail call i32 @quicklistPushTail(ptr noundef nonnull %quicklist, ptr noundef %value, i64 noundef %sz)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end22, %if.then28, %if.then25
@@ -4373,7 +4373,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %next.us = getelementptr inbounds i8, ptr %node.029.us, i64 8
   %node.0.us = load ptr, ptr %next.us, align 8
   %cmp.not.us = icmp eq ptr %node.0.us, null
-  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !15
+  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !14
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end80
   %node.029 = phi ptr [ %node.0, %if.end80 ], [ %node.026, %while.body.lr.ph ]
@@ -4460,14 +4460,14 @@ if.end57:                                         ; preds = %do.end, %if.then53,
   br i1 %or.cond, label %if.then74, label %if.end80
 
 if.then74:                                        ; preds = %if.end57
-  %call75 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %node.029), !range !9
+  %call75 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %node.029)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then74, %if.end57
   %next = getelementptr inbounds i8, ptr %node.029, i64 8
   %node.0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %node.0, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end80, %while.body.us, %entry
   ret void
@@ -4479,7 +4479,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @lpRepr(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @quicklistBookmarkCreate(ptr nocapture noundef %ql_ref, ptr noundef %name, ptr noundef %node) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistBookmarkCreate(ptr nocapture noundef %ql_ref, ptr noundef %name, ptr noundef %node) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %ql_ref, align 8
   %bookmark_count = getelementptr inbounds i8, ptr %0, i64 32
@@ -4501,14 +4501,14 @@ for.body.preheader.i:                             ; preds = %if.end
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end3, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %if.end3, label %for.body.i, !llvm.loop !15
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks.i, i64 0, i64 %indvars.iv.i
   %name1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %name1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #26
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then1, label %for.cond.i
 
@@ -4565,7 +4565,7 @@ for.body.preheader:                               ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -4601,14 +4601,14 @@ for.body.preheader.i:                             ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !15
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks.i, i64 0, i64 %indvars.iv.i
   %name1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %1 = load ptr, ptr %name1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %name) #26
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i
 
@@ -4622,7 +4622,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @quicklistBookmarkDelete(ptr noundef %ql, ptr nocapture noundef readonly %name) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistBookmarkDelete(ptr noundef %ql, ptr nocapture noundef readonly %name) local_unnamed_addr #1 {
 entry:
   %bookmarks.i = getelementptr inbounds i8, ptr %ql, i64 40
   %bookmark_count.i = getelementptr inbounds i8, ptr %ql, i64 32
@@ -4639,14 +4639,14 @@ for.body.preheader.i:                             ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !15
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks.i, i64 0, i64 %indvars.iv.i
   %name1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %1 = load ptr, ptr %name1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %name) #26
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i
 
@@ -4740,11 +4740,10 @@ attributes #26 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = !{ptr @lpNext, ptr @lpPrev}
+!12 = !{ptr @lpNext, ptr @lpPrev}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

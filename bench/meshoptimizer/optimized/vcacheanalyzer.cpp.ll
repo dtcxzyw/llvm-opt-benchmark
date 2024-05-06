@@ -270,7 +270,7 @@ for.end66:                                        ; preds = %for.body59, %for.co
 cond.false:                                       ; preds = %for.end66
   %conv73 = uitofp i32 %retval.sroa.0.sroa.0.0.lcssa to float
   %div = udiv i64 %index_count, 3
-  %conv74 = uitofp i64 %div to float
+  %conv74 = uitofp nneg i64 %div to float
   %div75 = fdiv float %conv73, %conv74
   br label %cond.end
 

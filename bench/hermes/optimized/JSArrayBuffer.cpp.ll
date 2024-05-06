@@ -54,7 +54,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN6hermes2vm13JSArrayBuffer15_mallocSizeImplEPNS0_6GCCellE(ptr nocapture noundef readonly %cell) #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN6hermes2vm13JSArrayBuffer15_mallocSizeImplEPNS0_6GCCellE(ptr nocapture noundef readonly %cell) #1 align 2 {
 entry:
   %size_ = getelementptr inbounds i8, ptr %cell, i64 32
   %0 = load i32, ptr %size_, align 8
@@ -262,7 +262,7 @@ define hidden noundef i32 @_ZN6hermes2vm13JSArrayBuffer15createDataBlockERNS0_7R
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp16 = alloca %"class.hermes::vm::TwineChar16", align 8
-  %call = tail call noundef i32 @_ZN6hermes2vm13JSArrayBuffer6detachERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce), !range !4
+  %call = tail call noundef i32 @_ZN6hermes2vm13JSArrayBuffer6detachERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -453,7 +453,7 @@ declare void @_ZN6hermes2vm6GCBase9IDTracker13untrackNativeEPKv(ptr noundef nonn
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm13JSArrayBuffer6detachERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm13JSArrayBuffer6detachERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %self.coerce, align 8
@@ -579,10 +579,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare void @_ZN6hermes2vm7HadesGC20creditExternalMemoryEPNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(8152), ptr noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm13JSArrayBuffer20setExternalDataBlockERNS0_7RuntimeENS0_6HandleIS1_EEPhjPvPFvRNS0_7HadesGCEPNS0_11NativeStateEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce, ptr noundef %data, i32 noundef %size, ptr noundef %context, ptr noundef %finalizePtr) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm13JSArrayBuffer20setExternalDataBlockERNS0_7RuntimeENS0_6HandleIS1_EEPhjPvPFvRNS0_7HadesGCEPNS0_11NativeStateEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce, ptr noundef %data, i32 noundef %size, ptr noundef %context, ptr noundef %finalizePtr) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %call = tail call noundef i32 @_ZN6hermes2vm13JSArrayBuffer6detachERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce), !range !4
+  %call = tail call noundef i32 @_ZN6hermes2vm13JSArrayBuffer6detachERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -834,4 +834,3 @@ attributes #18 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

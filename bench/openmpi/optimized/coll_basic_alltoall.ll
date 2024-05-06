@@ -78,7 +78,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8, %12
   %41 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
   %42 = mul nsw i64 %31, %indvars.iv
   %43 = getelementptr inbounds i8, ptr %3, i64 %42
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = tail call i32 %41(ptr noundef %43, i64 noundef %30, ptr noundef %5, i32 noundef %44, i32 noundef -13, ptr noundef %6, ptr noundef nonnull %.098) #2
   %.not64 = icmp eq i32 %45, 0
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
@@ -139,7 +139,7 @@ ompi_request_cancel.exit.i:                       ; preds = %55, %52
   %66 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
   %67 = mul nsw i64 %24, %indvars.iv110
   %68 = getelementptr inbounds i8, ptr %0, i64 %67
-  %69 = trunc i64 %indvars.iv110 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv110 to i32
   %70 = tail call i32 %66(ptr noundef %68, i64 noundef %23, ptr noundef %2, i32 noundef %69, i32 noundef -13, i32 noundef 4, ptr noundef %6, ptr noundef %.054100) #2
   %.not63 = icmp eq i32 %70, 0
   br i1 %.not63, label %92, label %71

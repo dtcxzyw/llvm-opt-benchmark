@@ -62,7 +62,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sm2_plaintext_size(ptr noundef %ct, i64 noundef %ct_size, ptr nocapture noundef writeonly %pt_size) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_sm2_plaintext_size(ptr noundef %ct, i64 noundef %ct_size, ptr nocapture noundef writeonly %pt_size) local_unnamed_addr #1 {
 entry:
   %ct.addr = alloca ptr, align 8
   store ptr %ct, ptr %ct.addr, align 8
@@ -97,10 +97,10 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sm2_ciphertext_size(ptr noundef %key, ptr noundef %digest, i64 noundef %msg_len, ptr nocapture noundef writeonly %ct_size) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_sm2_ciphertext_size(ptr noundef %key, ptr noundef %digest, i64 noundef %msg_len, ptr nocapture noundef writeonly %ct_size) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %key) #4
-  %call1 = tail call fastcc i64 @ec_field_size(ptr noundef %call), !range !4
+  %call1 = tail call fastcc i64 @ec_field_size(ptr noundef %call)
   %call2 = tail call i32 @EVP_MD_get_size(ptr noundef %digest) #4
   %cmp = icmp eq i64 %call1, 0
   %cmp3 = icmp slt i32 %call2, 0
@@ -108,7 +108,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = trunc i64 %call1 to i32
+  %0 = trunc nsw i64 %call1 to i32
   %conv = add nsw i32 %0, 1
   %call4 = tail call i32 @ASN1_object_size(i32 noundef 0, i32 noundef %conv, i32 noundef 2) #4
   %mul = shl nsw i32 %call4, 1
@@ -128,7 +128,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ec_field_size(ptr noundef %group) unnamed_addr #1 {
+define internal fastcc range(i64 -268435455, 268435456) i64 @ec_field_size(ptr noundef %group) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BN_new() #4
   %call1 = tail call ptr @BN_new() #4
@@ -167,7 +167,7 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_object_size(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sm2_encrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %ciphertext_buf, ptr nocapture noundef %ciphertext_len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_sm2_encrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %ciphertext_buf, ptr nocapture noundef %ciphertext_len) local_unnamed_addr #1 {
 entry:
   %ciphertext_buf.addr = alloca ptr, align 8
   %ctext_struct = alloca %struct.SM2_Ciphertext_st, align 8
@@ -194,7 +194,7 @@ if.then:                                          ; preds = %entry
   br label %done
 
 if.end:                                           ; preds = %entry
-  %call9 = tail call fastcc i64 @ec_field_size(ptr noundef %call1), !range !4
+  %call9 = tail call fastcc i64 @ec_field_size(ptr noundef %call1)
   %cmp10 = icmp eq i64 %call9, 0
   br i1 %cmp10, label %if.then11, label %if.end12
 
@@ -295,7 +295,7 @@ if.then55:                                        ; preds = %lor.lhs.false52, %l
   br label %done
 
 if.end56:                                         ; preds = %lor.lhs.false52
-  %conv57 = trunc i64 %call9 to i32
+  %conv57 = trunc nsw i64 %call9 to i32
   %call58 = tail call i32 @BN_bn2binpad(ptr noundef %call26, ptr noundef nonnull %call32, i32 noundef %conv57) #4
   %cmp59 = icmp slt i32 %call58, 0
   br i1 %cmp59, label %if.then66, label %lor.lhs.false61
@@ -342,7 +342,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i8 %xor85, ptr %arrayidx81, align 1
   %inc = add nuw i64 %i.087, 1
   %cmp78.not = icmp eq i64 %inc, %msg_len
-  br i1 %cmp78.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %cmp78.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %call84 = tail call ptr @EVP_MD_get0_name(ptr noundef %digest) #4
@@ -523,12 +523,12 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sm2_decrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %ciphertext, i64 noundef %ciphertext_len, ptr noundef %ptext_buf, ptr nocapture noundef %ptext_len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_sm2_decrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %ciphertext, i64 noundef %ciphertext_len, ptr noundef %ptext_buf, ptr nocapture noundef %ptext_len) local_unnamed_addr #1 {
 entry:
   %ciphertext.addr = alloca ptr, align 8
   store ptr %ciphertext, ptr %ciphertext.addr, align 8
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %key) #4
-  %call1 = tail call fastcc i64 @ec_field_size(ptr noundef %call), !range !4
+  %call1 = tail call fastcc i64 @ec_field_size(ptr noundef %call)
   %call2 = tail call i32 @EVP_MD_get_size(ptr noundef %digest) #4
   %call3 = tail call ptr @ossl_ec_key_get_libctx(ptr noundef %key) #4
   %call4 = tail call ptr @ossl_ec_key_get0_propq(ptr noundef %key) #4
@@ -614,7 +614,7 @@ lor.lhs.false59:                                  ; preds = %lor.lhs.false55
   br i1 %tobool61.not, label %if.then121.sink.split, label %if.end63
 
 if.end63:                                         ; preds = %lor.lhs.false59
-  %conv64 = trunc i64 %call1 to i32
+  %conv64 = trunc nsw i64 %call1 to i32
   %call65 = call i32 @BN_bn2binpad(ptr noundef %call28, ptr noundef nonnull %call36, i32 noundef %conv64) #4
   %cmp66 = icmp slt i32 %call65, 0
   br i1 %cmp66, label %if.then121.sink.split, label %lor.lhs.false68
@@ -649,7 +649,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %xor80, ptr %arrayidx88, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp80.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %cmp80.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %cmp80.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %call89 = call ptr @EVP_MD_CTX_new() #4
@@ -766,7 +766,6 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 -268435456, i64 268435456}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

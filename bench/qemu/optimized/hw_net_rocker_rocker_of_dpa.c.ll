@@ -799,7 +799,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @of_dpa_init(ptr noundef %world) #0 {
+define internal range(i32 -12, 1) i32 @of_dpa_init(ptr noundef %world) #0 {
 entry:
   %call = tail call ptr @world_private(ptr noundef %world) #18
   store ptr %world, ptr %call, align 8
@@ -954,7 +954,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %idxprom.i = ashr exact i64 %sext.i, 32
   %arrayidx62.i = getelementptr %struct.iovec, ptr %call, i64 %idxprom.i
   %arrayidx64.i = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx62.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx64.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx62.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %arrayidx64.i, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
@@ -990,7 +990,7 @@ entry:
   %call = tail call ptr @world_private(ptr noundef %world) #18
   %0 = getelementptr i8, ptr %cmd_info_tlv, i64 4
   %tlv.val.i = load i16, ptr %0, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(496) %tlvs, i8 0, i64 496, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(496) %tlvs, i8 0, i64 496, i1 false)
   %cmp.i12.i.i = icmp ugt i16 %tlv.val.i, 15
   br i1 %cmp.i12.i.i, label %land.lhs.true.i.i.preheader.i, label %rocker_tlv_parse_nested.exit
 
@@ -1082,7 +1082,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   store i64 %div.i.i.i, ptr %refresh_time.i.i.i, align 8
   %install_time.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 280
   store i64 %div.i.i.i, ptr %install_time.i.i.i, align 8
-  %call2.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef %call1.i.i.i, ptr noundef nonnull %tlvs)
+  %call2.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef %call1.i.i.i, ptr noundef nonnull readonly %tlvs)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
@@ -1106,7 +1106,7 @@ sw.bb3.i:                                         ; preds = %if.end.i
   br i1 %tobool.not.i13.i, label %return, label %if.end.i14.i
 
 if.end.i14.i:                                     ; preds = %sw.bb3.i
-  %call1.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef nonnull %call.i.i12.i, ptr noundef nonnull %tlvs)
+  %call1.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef nonnull %call.i.i12.i, ptr noundef nonnull readonly %tlvs)
   br label %return
 
 sw.bb5.i:                                         ; preds = %if.end.i
@@ -1265,7 +1265,7 @@ sw.bb.i24:                                        ; preds = %if.end.i9
 if.end.i.i28:                                     ; preds = %sw.bb.i24
   %call.i11.i.i = call noalias noundef dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #21
   store i32 %.val.i10, ptr %call.i11.i.i, align 8
-  %call2.i.i29 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i11.i.i, ptr noundef nonnull %tlvs), !range !10
+  %call2.i.i29 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull readonly %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i11.i.i, ptr noundef nonnull readonly %tlvs)
   %tobool3.not.i.i30 = icmp eq i32 %call2.i.i29, 0
   br i1 %tobool3.not.i.i30, label %if.end5.i.i31, label %err_cmd_add.i.i
 
@@ -1289,7 +1289,7 @@ sw.bb3.i19:                                       ; preds = %if.end.i9
   br i1 %tobool.not.i13.i21, label %return, label %if.end.i14.i22
 
 if.end.i14.i22:                                   ; preds = %sw.bb3.i19
-  %call1.i.i23 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i.i12.i20, ptr noundef nonnull %tlvs), !range !10
+  %call1.i.i23 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull readonly %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i.i12.i20, ptr noundef nonnull readonly %tlvs)
   br label %return
 
 sw.bb5.i11:                                       ; preds = %if.end.i9
@@ -1323,7 +1323,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @rocker_int64_equal(ptr nocapture noundef readonly %v1, ptr nocapture noundef readonly %v2) #5 {
+define internal range(i32 0, 2) i32 @rocker_int64_equal(ptr nocapture noundef readonly %v1, ptr nocapture noundef readonly %v2) #5 {
 entry:
   %0 = load i64, ptr %v1, align 8
   %1 = load i64, ptr %v2, align 8
@@ -2091,7 +2091,7 @@ for.inc.i:                                        ; preds = %sw.bb2.i, %sw.bb.i,
   %27 = load i16, ptr %14, align 8
   %28 = zext i16 %27 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %28
-  br i1 %cmp.i, label %for.body.i, label %sw.epilog, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %sw.epilog, !llvm.loop !10
 
 sw.bb21:                                          ; preds = %if.end17
   %29 = load ptr, ptr %of_dpa11, align 8
@@ -2115,22 +2115,22 @@ if.end.i28:                                       ; preds = %sw.bb21
   %ethhdr.i.i29 = getelementptr inbounds i8, ptr %fc, i64 64
   %34 = load ptr, ptr %ethhdr.i.i29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %ethhdr_rewrite.i.i, ptr noundef nonnull align 2 dereferenceable(14) %34, i64 14, i1 false)
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %src_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %src_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool4.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i28
   %h_source.i.i = getelementptr inbounds i8, ptr %fc, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i.i, ptr noundef nonnull align 1 dereferenceable(6) %src_mac.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %src_mac.i, i64 6, i1 false)
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.end.i28
-  %bcmp19.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %dst_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
+  %bcmp19.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %dst_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool10.not.i.i = icmp eq i32 %bcmp19.i.i, 0
   br i1 %tobool10.not.i.i, label %if.end14.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i.i, ptr noundef nonnull align 1 dereferenceable(6) %dst_mac.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %dst_mac.i, i64 6, i1 false)
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then11.i.i, %if.end.i.i
@@ -2292,22 +2292,22 @@ if.end:                                           ; preds = %entry
   %ethhdr.i = getelementptr inbounds i8, ptr %fc, i64 64
   %5 = load ptr, ptr %ethhdr.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %ethhdr_rewrite.i, ptr noundef nonnull align 2 dereferenceable(14) %5, i64 14, i1 false)
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %src_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %src_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool4.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool4.not.i, label %if.end.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end
   %h_source.i = getelementptr inbounds i8, ptr %fc, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i, ptr noundef nonnull align 1 dereferenceable(6) %src_mac, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %src_mac, i64 6, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %if.end
-  %bcmp19.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %dst_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
+  %bcmp19.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %dst_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool10.not.i = icmp eq i32 %bcmp19.i, 0
   br i1 %tobool10.not.i, label %if.end14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i, ptr noundef nonnull align 1 dereferenceable(6) %dst_mac, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %dst_mac, i64 6, i1 false)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %if.end.i
@@ -2391,7 +2391,7 @@ for.inc:                                          ; preds = %for.body
   %incdec.ptr21 = getelementptr i8, ptr %m.023, i64 8
   %incdec.ptr22 = getelementptr i8, ptr %v.024, i64 8
   %exitcond.not = icmp eq i32 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %if.end11
   %best = getelementptr inbounds i8, ptr %user_data, i64 112
@@ -2422,7 +2422,7 @@ if.end33:                                         ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @of_dpa_cmd_flow_add_mod(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_flow_add_mod(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %flow_tlvs, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
@@ -2484,31 +2484,31 @@ if.end25:                                         ; preds = %if.end22, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end25
-  %call26 = tail call fastcc i32 @of_dpa_cmd_add_ig_port(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs), !range !13
+  %call26 = tail call fastcc i32 @of_dpa_cmd_add_ig_port(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
   br label %return
 
 sw.bb27:                                          ; preds = %if.end25
-  %call28 = tail call fastcc i32 @of_dpa_cmd_add_vlan(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs), !range !13
+  %call28 = tail call fastcc i32 @of_dpa_cmd_add_vlan(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
   br label %return
 
 sw.bb29:                                          ; preds = %if.end25
-  %call30 = tail call fastcc i32 @of_dpa_cmd_add_term_mac(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs), !range !13
+  %call30 = tail call fastcc i32 @of_dpa_cmd_add_term_mac(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
   br label %return
 
 sw.bb31:                                          ; preds = %if.end25
-  %call32 = tail call fastcc i32 @of_dpa_cmd_add_bridging(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs), !range !13
+  %call32 = tail call fastcc i32 @of_dpa_cmd_add_bridging(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
   br label %return
 
 sw.bb33:                                          ; preds = %if.end25
-  %call34 = tail call fastcc i32 @of_dpa_cmd_add_unicast_routing(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs), !range !13
+  %call34 = tail call fastcc i32 @of_dpa_cmd_add_unicast_routing(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
   br label %return
 
 sw.bb35:                                          ; preds = %if.end25
-  %call36 = tail call fastcc i32 @of_dpa_cmd_add_multicast_routing(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs), !range !13
+  %call36 = tail call fastcc i32 @of_dpa_cmd_add_multicast_routing(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
   br label %return
 
 sw.bb37:                                          ; preds = %if.end25
-  %call38 = tail call fastcc i32 @of_dpa_cmd_add_acl(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs), !range !13
+  %call38 = tail call fastcc i32 @of_dpa_cmd_add_acl(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
   br label %return
 
 return:                                           ; preds = %if.end25, %sw.bb, %sw.bb27, %sw.bb29, %sw.bb31, %sw.bb33, %sw.bb35, %sw.bb37, %if.then13, %if.then13, %if.then13, %entry, %lor.lhs.false, %lor.lhs.false3
@@ -2520,7 +2520,7 @@ return:                                           ; preds = %if.end25, %sw.bb, %
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @of_dpa_cmd_add_ig_port(ptr nocapture noundef writeonly %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #11 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_ig_port(ptr nocapture noundef writeonly %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #11 {
 entry:
   %key1 = getelementptr inbounds i8, ptr %flow, i64 24
   %mask2 = getelementptr inbounds i8, ptr %flow, i64 132
@@ -2575,7 +2575,7 @@ return:                                           ; preds = %if.end13, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @of_dpa_cmd_add_vlan(ptr nocapture noundef writeonly %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_vlan(ptr nocapture noundef writeonly %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
 entry:
   %port = alloca i32, align 4
   %key1 = getelementptr inbounds i8, ptr %flow, i64 24
@@ -2666,7 +2666,7 @@ return:                                           ; preds = %if.end48, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @of_dpa_cmd_add_term_mac(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_term_mac(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
 entry:
   %port = alloca i32, align 4
   %key1 = getelementptr inbounds i8, ptr %flow, i64 24
@@ -2851,7 +2851,7 @@ return:                                           ; preds = %if.end142, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @of_dpa_cmd_add_bridging(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #13 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_bridging(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #13 {
 entry:
   %action3 = getelementptr inbounds i8, ptr %flow, i64 240
   %tbl_id = getelementptr inbounds i8, ptr %flow, i64 32
@@ -3055,7 +3055,7 @@ return:                                           ; preds = %if.then186, %sw.bb1
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @of_dpa_cmd_add_unicast_routing(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #15 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_unicast_routing(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #15 {
 entry:
   %action3 = getelementptr inbounds i8, ptr %flow, i64 240
   %arrayidx = getelementptr i8, ptr %flow_tlvs, i64 184
@@ -3223,7 +3223,7 @@ return:                                           ; preds = %if.end73, %if.then7
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @of_dpa_cmd_add_multicast_routing(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #12 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_multicast_routing(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #12 {
 entry:
   %action3 = getelementptr inbounds i8, ptr %flow, i64 240
   %arrayidx = getelementptr i8, ptr %flow_tlvs, i64 184
@@ -3426,7 +3426,7 @@ return:                                           ; preds = %if.end121, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @of_dpa_cmd_add_acl(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #12 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_acl(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #12 {
 entry:
   %key1 = getelementptr inbounds i8, ptr %flow, i64 24
   %mask2 = getelementptr inbounds i8, ptr %flow, i64 132
@@ -3733,7 +3733,7 @@ declare i32 @desc_set_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @of_dpa_cmd_group_do(ptr nocapture noundef readonly %of_dpa, i32 noundef %group_id, ptr nocapture noundef %group, ptr nocapture noundef readonly %group_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -95, 1) i32 @of_dpa_cmd_group_do(ptr nocapture noundef readonly %of_dpa, i32 noundef %group_id, ptr nocapture noundef %group, ptr nocapture noundef readonly %group_tlvs) unnamed_addr #0 {
 entry:
   %group_id.addr.i.i14 = alloca i32, align 4
   %group_id.addr.i.i = alloca i32, align 4
@@ -3804,7 +3804,7 @@ if.end7.i:                                        ; preds = %lor.lhs.false.i12
 if.then10.i:                                      ; preds = %if.end7.i
   %src_mac.i = getelementptr inbounds i8, ptr %group, i64 12
   %add.ptr.i.i = getelementptr i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %src_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %src_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i, i64 6, i1 false)
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then10.i, %if.end7.i
@@ -3816,7 +3816,7 @@ if.end13.i:                                       ; preds = %if.then10.i, %if.en
 if.then16.i:                                      ; preds = %if.end13.i
   %dst_mac.i = getelementptr inbounds i8, ptr %group, i64 18
   %add.ptr.i19.i = getelementptr i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %dst_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i19.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %dst_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i19.i, i64 6, i1 false)
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then16.i, %if.end13.i
@@ -3875,7 +3875,7 @@ if.end.i20:                                       ; preds = %lor.lhs.false.i17
   %add.i.i.i = shl nuw nsw i32 %conv12.i, 3
   %26 = add nuw nsw i32 %add.i.i.i, 8
   %mul.i.i.i = zext nneg i32 %26 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call6.i, i8 0, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %call6.i, i8 0, i64 %mul.i.i.i, i1 false)
   %cmp.i12.i.i.i = icmp ugt i16 %tlv.val.i.i, 15
   br i1 %cmp.i12.i.i.i, label %land.lhs.true.i.i.preheader.i.i, label %rocker_tlv_parse_nested.exit.i
 
@@ -3942,7 +3942,7 @@ for.body.i:                                       ; preds = %rocker_tlv_parse_ne
   %34 = load i16, ptr %20, align 8
   %35 = zext i16 %34 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %35
-  br i1 %cmp.i, label %for.body.i, label %for.cond23.preheader.i, !llvm.loop !14
+  br i1 %cmp.i, label %for.body.i, label %for.cond23.preheader.i, !llvm.loop !12
 
 for.body28.i:                                     ; preds = %for.inc53.i, %for.body28.lr.ph.i
   %indvars.iv38.i = phi i64 [ 0, %for.body28.lr.ph.i ], [ %indvars.iv.next39.i, %for.inc53.i ]
@@ -3981,7 +3981,7 @@ for.inc53.i:                                      ; preds = %land.lhs.true.i, %i
   %41 = load i16, ptr %20, align 8
   %42 = zext i16 %41 to i64
   %cmp26.i = icmp ult i64 %indvars.iv.next39.i, %42
-  br i1 %cmp26.i, label %for.body28.i, label %return.sink.split.i, !llvm.loop !15
+  br i1 %cmp26.i, label %for.body28.i, label %return.sink.split.i, !llvm.loop !13
 
 return.sink.split.i:                              ; preds = %for.inc53.i, %if.then46.i, %for.cond23.preheader.i, %rocker_tlv_parse_nested.exit.i
   %retval.0.ph.i = phi i32 [ -22, %if.then46.i ], [ 0, %rocker_tlv_parse_nested.exit.i ], [ 0, %for.cond23.preheader.i ], [ 0, %for.inc53.i ]
@@ -4007,7 +4007,7 @@ if.end.i28:                                       ; preds = %sw.bb6
 if.then4.i:                                       ; preds = %if.end.i28
   %src_mac.i30 = getelementptr inbounds i8, ptr %group, i64 12
   %add.ptr.i.i31 = getelementptr i8, ptr %46, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %src_mac.i30, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i31, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %src_mac.i30, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i31, i64 6, i1 false)
   br label %if.end7.i32
 
 if.end7.i32:                                      ; preds = %if.then4.i, %if.end.i28
@@ -4019,7 +4019,7 @@ if.end7.i32:                                      ; preds = %if.then4.i, %if.end
 if.then10.i35:                                    ; preds = %if.end7.i32
   %dst_mac.i36 = getelementptr inbounds i8, ptr %group, i64 18
   %add.ptr.i20.i = getelementptr i8, ptr %47, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %dst_mac.i36, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i20.i, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %dst_mac.i36, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i20.i, i64 6, i1 false)
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then10.i35, %if.end7.i32
@@ -4097,9 +4097,7 @@ attributes #21 = { nounwind allocsize(0,1) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -95, i32 1}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -22, i32 1}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!13 = distinct !{!13, !6}

@@ -533,7 +533,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca [200 x i8], align 16

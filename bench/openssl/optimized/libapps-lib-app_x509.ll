@@ -75,7 +75,7 @@ return:                                           ; preds = %entry, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_ctrl(ptr noundef %object, i32 noundef %cmd, ptr noundef %value, i64 noundef %value_n) #0 {
+define internal range(i32 -2, 2) i32 @x509_ctrl(ptr noundef %object, i32 noundef %cmd, ptr noundef %value, i64 noundef %value_n) #0 {
 entry:
   %cond = icmp eq i32 %cmd, 15
   br i1 %cond, label %sw.bb, label %return
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_req_ctrl(ptr noundef %object, i32 noundef %cmd, ptr noundef %value, i64 noundef %value_n) #0 {
+define internal range(i32 -2, 2) i32 @x509_req_ctrl(ptr noundef %object, i32 noundef %cmd, ptr noundef %value, i64 noundef %value_n) #0 {
 entry:
   %cond = icmp eq i32 %cmd, 15
   br i1 %cond, label %sw.bb, label %return

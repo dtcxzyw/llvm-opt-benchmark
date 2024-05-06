@@ -80,7 +80,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @down_interruptible(ptr noundef %0) #0 section ".sched.text" align 16 {
+define dso_local noundef range(i32 -62, 1) i32 @down_interruptible(ptr noundef %0) #0 section ".sched.text" align 16 {
   %2 = tail call i32 @__SCT__might_resched() #7
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -104,7 +104,7 @@ define dso_local noundef i32 @down_interruptible(ptr noundef %0) #0 section ".sc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @down_killable(ptr noundef %0) #0 section ".sched.text" align 16 {
+define dso_local noundef range(i32 -62, 1) i32 @down_killable(ptr noundef %0) #0 section ".sched.text" align 16 {
   %2 = tail call i32 @__SCT__might_resched() #7
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -128,7 +128,7 @@ define dso_local noundef i32 @down_killable(ptr noundef %0) #0 section ".sched.t
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @down_trylock(ptr noundef %0) #0 section ".sched.text" align 16 {
+define dso_local range(i32 0, 2) i32 @down_trylock(ptr noundef %0) #0 section ".sched.text" align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -147,7 +147,7 @@ define dso_local i32 @down_trylock(ptr noundef %0) #0 section ".sched.text" alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @down_timeout(ptr noundef %0, i64 noundef %1) #0 section ".sched.text" align 16 {
+define dso_local noundef range(i32 -62, 1) i32 @down_timeout(ptr noundef %0, i64 noundef %1) #0 section ".sched.text" align 16 {
   %3 = tail call i32 @__SCT__might_resched() #7
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -218,7 +218,7 @@ define internal fastcc void @__up(ptr nocapture noundef readonly %0) unnamed_add
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__down_common(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 section ".sched.text" align 16 {
+define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 section ".sched.text" align 16 {
   %4 = alloca %struct.semaphore_waiter, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_contention_begin, i64 0, i32 1), i32 2) #7
           to label %25 [label %5], !srcloc !9
@@ -339,10 +339,10 @@ define internal fastcc noundef i32 @__down_common(ptr noundef %0, i64 noundef %1
 64:                                               ; preds = %.split.split
   %65 = load volatile i64, ptr %32, align 8
   %66 = and i64 %65, 4
-  %.not7 = icmp eq i64 %66, 0
+  %.not8 = icmp eq i64 %66, 0
   %.lobit = lshr exact i64 %66, 2
-  %67 = trunc i64 %.lobit to i32
-  br i1 %.not7, label %73, label %68
+  %67 = trunc nuw nsw i64 %.lobit to i32
+  br i1 %.not8, label %73, label %68
 
 68:                                               ; preds = %.split.split, %64
   %69 = load i64, ptr %38, align 8

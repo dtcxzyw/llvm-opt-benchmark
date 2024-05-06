@@ -984,7 +984,7 @@ define void @N_VCompare_SensWrapper(double noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @N_VInvTest_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define range(i32 0, 2) i32 @N_VInvTest_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -1019,7 +1019,7 @@ define i32 @N_VInvTest_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @N_VConstrMask_SensWrapper(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @N_VConstrMask_SensWrapper(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8

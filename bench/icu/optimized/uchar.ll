@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.u_getNumericValue_75 = private unnamed_addr constant [4 x i32] [i32 60, i32 3600, i32 216000, i32 12960000], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_charType_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 32) i8 @u_charType_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -42,8 +42,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -93,7 +93,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL14_enumTypeValuePKvj(ptr nocapture readnone %context, i32 noundef %value) #0 {
+define internal noundef range(i32 0, 32) i32 @_ZL14_enumTypeValuePKvj(ptr nocapture readnone %context, i32 noundef %value) #0 {
 entry:
   %and = and i32 %value, 31
   ret i32 %and
@@ -111,7 +111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_islower_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_islower_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -138,8 +138,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -170,7 +170,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isupper_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isupper_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -197,8 +197,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -229,7 +229,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_istitle_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_istitle_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -256,8 +256,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -288,7 +288,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isdigit_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isdigit_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -315,8 +315,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -347,7 +347,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isxdigit_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isxdigit_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %c, -65
   %or.cond = icmp ult i32 %0, 38
@@ -390,8 +390,8 @@ cond.false26:                                     ; preds = %cond.false
 cond.false32:                                     ; preds = %cond.false26
   %shr33 = lshr i32 %c, 11
   %4 = zext nneg i32 %shr33 to i64
-  %5 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %4
-  %arrayidx36 = getelementptr i8, ptr %5, i64 4160
+  %5 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %4
+  %arrayidx36 = getelementptr inbounds i8, ptr %5, i64 4160
   %6 = load i16, ptr %arrayidx36, align 2
   %conv37 = zext i16 %6 to i32
   %shr38 = lshr i32 %c, 5
@@ -426,7 +426,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isalpha_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isalpha_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -453,8 +453,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -488,7 +488,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isUAlphabetic_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isUAlphabetic_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp1.i = icmp ult i32 %c, 55296
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
@@ -515,8 +515,8 @@ cond.false14.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr21.i to i64
-  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
-  %arrayidx24.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx24.i, align 2
   %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
@@ -582,8 +582,8 @@ cond.false14:                                     ; preds = %cond.false
 cond.false20:                                     ; preds = %cond.false14
   %shr21 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr21 to i64
-  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
-  %arrayidx24 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx24, align 2
   %conv25 = zext i16 %2 to i32
   %shr26 = lshr i32 %c, 5
@@ -620,7 +620,7 @@ return:                                           ; preds = %entry, %cond.end40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isalnum_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isalnum_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -647,8 +647,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -682,7 +682,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isalnumPOSIX_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isalnumPOSIX_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp1.i.i = icmp ult i32 %c, 55296
   br i1 %cmp1.i.i, label %cond.true.i.i, label %cond.false.i.i
@@ -709,8 +709,8 @@ cond.false14.i.i:                                 ; preds = %cond.false.i.i
 cond.false20.i.i:                                 ; preds = %cond.false14.i.i
   %shr21.i.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr21.i.i to i64
-  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
-  %arrayidx24.i.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx24.i.i, align 2
   %conv25.i.i = zext i16 %2 to i32
   %shr26.i.i = lshr i32 %c, 5
@@ -759,8 +759,8 @@ cond.true3.i:                                     ; preds = %cond.false.i
 cond.false19.i:                                   ; preds = %cond.false.i
   %shr20.i = lshr i32 %c, 11
   %8 = zext nneg i32 %shr20.i to i64
-  %9 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %8
-  %arrayidx23.i = getelementptr i8, ptr %9, i64 4160
+  %9 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %8
+  %arrayidx23.i = getelementptr inbounds i8, ptr %9, i64 4160
   %10 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %10 to i32
   %shr25.i = lshr i32 %c, 5
@@ -794,7 +794,7 @@ lor.end:                                          ; preds = %u_isdigit_75.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isdefined_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isdefined_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -821,8 +821,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -853,7 +853,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isbase_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isbase_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -880,8 +880,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -915,7 +915,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_iscntrl_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_iscntrl_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -942,8 +942,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -977,7 +977,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isISOControl_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isISOControl_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 160
   %0 = add nsw i32 %c, -127
@@ -988,7 +988,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @u_isspace_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isspace_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1015,8 +1015,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1070,7 +1070,7 @@ lor.end56:                                        ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isJavaSpaceChar_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isJavaSpaceChar_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1097,8 +1097,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1132,7 +1132,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isWhitespace_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isWhitespace_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1159,8 +1159,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1219,7 +1219,7 @@ lor.end59:                                        ; preds = %lor.rhs.thread, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isblank_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isblank_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 160
   br i1 %cmp, label %if.then, label %if.else
@@ -1256,8 +1256,8 @@ cond.false17:                                     ; preds = %cond.false
 cond.false23:                                     ; preds = %cond.false17
   %shr24 = lshr i32 %c, 11
   %1 = zext nneg i32 %shr24 to i64
-  %2 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %1
-  %arrayidx27 = getelementptr i8, ptr %2, i64 4160
+  %2 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %1
+  %arrayidx27 = getelementptr inbounds i8, ptr %2, i64 4160
   %3 = load i16, ptr %arrayidx27, align 2
   %conv28 = zext i16 %3 to i32
   %shr29 = lshr i32 %c, 5
@@ -1292,7 +1292,7 @@ return:                                           ; preds = %cond.end43, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isUWhiteSpace_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isUWhiteSpace_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp1.i = icmp ult i32 %c, 55296
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
@@ -1319,8 +1319,8 @@ cond.false14.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr21.i to i64
-  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
-  %arrayidx24.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx24.i, align 2
   %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
@@ -1354,7 +1354,7 @@ u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isprint_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isprint_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1381,8 +1381,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1416,7 +1416,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isprintPOSIX_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isprintPOSIX_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.end39.thread, label %cond.false
@@ -1432,8 +1432,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1509,8 +1509,8 @@ cond.false13.i:                                   ; preds = %cond.false.i
 cond.false19.i:                                   ; preds = %cond.false13.i
   %shr20.i = lshr i32 %c, 11
   %13 = zext nneg i32 %shr20.i to i64
-  %14 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %13
-  %arrayidx23.i = getelementptr i8, ptr %14, i64 4160
+  %14 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %13
+  %arrayidx23.i = getelementptr inbounds i8, ptr %14, i64 4160
   %15 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %15 to i32
   %shr25.i = lshr i32 %c, 5
@@ -1548,7 +1548,7 @@ lor.end:                                          ; preds = %cond.end39.thread17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isgraphPOSIX_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isgraphPOSIX_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1575,8 +1575,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1610,7 +1610,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isgraph_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isgraph_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1637,8 +1637,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1672,7 +1672,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_ispunct_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_ispunct_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1699,8 +1699,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1734,7 +1734,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isIDIgnorable_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isIDIgnorable_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %c, 160
   br i1 %cmp, label %if.then, label %if.else
@@ -1779,8 +1779,8 @@ cond.false21:                                     ; preds = %cond.false
 cond.false27:                                     ; preds = %cond.false21
   %shr28 = lshr i32 %c, 11
   %4 = zext nneg i32 %shr28 to i64
-  %5 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %4
-  %arrayidx31 = getelementptr i8, ptr %5, i64 4160
+  %5 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %4
+  %arrayidx31 = getelementptr inbounds i8, ptr %5, i64 4160
   %6 = load i16, ptr %arrayidx31, align 2
   %conv32 = zext i16 %6 to i32
   %shr33 = lshr i32 %c, 5
@@ -1815,7 +1815,7 @@ return:                                           ; preds = %if.then, %land.rhs,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isJavaIDStart_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isJavaIDStart_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1842,8 +1842,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1877,7 +1877,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isJavaIDPart_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isJavaIDPart_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1904,8 +1904,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1979,8 +1979,8 @@ cond.false21.i:                                   ; preds = %cond.false.i
 cond.false27.i:                                   ; preds = %cond.false21.i
   %shr28.i = lshr i32 %c, 11
   %11 = zext nneg i32 %shr28.i to i64
-  %12 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %11
-  %arrayidx31.i = getelementptr i8, ptr %12, i64 4160
+  %12 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %11
+  %arrayidx31.i = getelementptr inbounds i8, ptr %12, i64 4160
   %13 = load i16, ptr %arrayidx31.i, align 2
   %conv32.i = zext i16 %13 to i32
   %shr33.i = lshr i32 %c, 5
@@ -2019,7 +2019,7 @@ lor.end:                                          ; preds = %u_isIDIgnorable_75.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @u_charDigitValue_75(i32 noundef %c) local_unnamed_addr #0 {
+define range(i32 -1, 10) i32 @u_charDigitValue_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -2046,8 +2046,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -2107,8 +2107,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -2273,7 +2273,7 @@ return:                                           ; preds = %if.else119, %sw.bb,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @u_digit_75(i32 noundef %ch, i8 noundef signext %radix) local_unnamed_addr #0 {
+define range(i32 -1, 36) i32 @u_digit_75(i32 noundef %ch, i8 noundef signext %radix) local_unnamed_addr #0 {
 entry:
   %sub = add i8 %radix, -2
   %cmp = icmp ult i8 %sub, 35
@@ -2305,8 +2305,8 @@ cond.false13.i:                                   ; preds = %cond.false.i
 cond.false19.i:                                   ; preds = %cond.false13.i
   %shr20.i = lshr i32 %ch, 11
   %0 = zext nneg i32 %shr20.i to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %ch, 5
@@ -2384,7 +2384,7 @@ if.end37:                                         ; preds = %if.else25, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @u_forDigit_75(i32 noundef %digit, i8 noundef signext %radix) local_unnamed_addr #0 {
+define range(i32 -2147483600, -2147483648) i32 @u_forDigit_75(i32 noundef %digit, i8 noundef signext %radix) local_unnamed_addr #0 {
 entry:
   %0 = add i8 %radix, -2
   %cmp = icmp ult i8 %0, 35
@@ -2425,7 +2425,7 @@ if.end:                                           ; preds = %do.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @u_getMainProperties_75(i32 noundef %c) local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @u_getMainProperties_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -2452,8 +2452,8 @@ cond.false13:                                     ; preds = %cond.false
 cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL15propsTrie_index, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL15propsTrie_index, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -2482,7 +2482,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @uprv_getMaxValues_75(i32 noundef %column) local_unnamed_addr #0 {
+define noundef range(i32 0, 49764914) i32 @uprv_getMaxValues_75(i32 noundef %column) local_unnamed_addr #0 {
 entry:
   %switch.selectcmp = icmp eq i32 %column, 2
   %switch.select = select i1 %switch.selectcmp, i32 49764913, i32 0
@@ -2523,8 +2523,8 @@ cond.false14.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr21.i to i64
-  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
-  %arrayidx24.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx24.i, align 2
   %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
@@ -2610,8 +2610,8 @@ cond.true4.i:                                     ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false.i
   %shr21.i = lshr i32 %c, 11
   %1 = zext nneg i32 %shr21.i to i64
-  %2 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %1
-  %arrayidx24.i = getelementptr i8, ptr %2, i64 4160
+  %2 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %1
+  %arrayidx24.i = getelementptr inbounds i8, ptr %2, i64 4160
   %3 = load i16, ptr %arrayidx24.i, align 2
   %conv25.i = zext i16 %3 to i32
   %shr26.i = lshr i32 %c, 5
@@ -2663,7 +2663,7 @@ return:                                           ; preds = %if.else10, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uscript_hasScript_75(i32 noundef %c, i32 noundef %sc) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uscript_hasScript_75(i32 noundef %c, i32 noundef %sc) local_unnamed_addr #0 {
 entry:
   %cmp1.i = icmp ult i32 %c, 55296
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
@@ -2690,8 +2690,8 @@ cond.false14.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr21.i to i64
-  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
-  %arrayidx24.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx24.i, align 2
   %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5
@@ -2818,8 +2818,8 @@ cond.false14.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
   %1 = zext nneg i32 %shr21.i to i64
-  %2 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %1
-  %arrayidx24.i = getelementptr i8, ptr %2, i64 4160
+  %2 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %1
+  %arrayidx24.i = getelementptr inbounds i8, ptr %2, i64 4160
   %3 = load i16, ptr %arrayidx24.i, align 2
   %conv25.i = zext i16 %3 to i32
   %shr26.i = lshr i32 %c, 5
@@ -2920,7 +2920,7 @@ return:                                           ; preds = %if.end26, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ublock_getCode_75(i32 noundef %c) local_unnamed_addr #0 {
+define range(i32 0, 512) i32 @ublock_getCode_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp1.i = icmp ult i32 %c, 55296
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
@@ -2947,8 +2947,8 @@ cond.false14.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false14.i
   %shr21.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr21.i to i64
-  %1 = getelementptr i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
-  %arrayidx24.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %0
+  %arrayidx24.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx24.i, align 2
   %conv25.i = zext i16 %2 to i32
   %shr26.i = lshr i32 %c, 5

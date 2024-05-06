@@ -2264,7 +2264,7 @@ define internal fastcc void @udp6_sk_rx_dst_set(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @udp6_unicast_rcv_skb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, -2147483648) i32 @udp6_unicast_rcv_skb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 785
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
@@ -3669,7 +3669,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare dso_local i32 @udp_sendmsg(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal noundef i32 @udplite_getfrag(ptr noundef %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5) #7 align 16 {
+define internal noundef range(i32 -14, 1) i32 @udplite_getfrag(ptr noundef %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5) #7 align 16 {
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = icmp slt i32 %3, 0
@@ -4386,7 +4386,7 @@ declare dso_local void @udp_seq_stop(ptr noundef, ptr noundef) #2
 declare dso_local ptr @udp_seq_next(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @udp6_proc_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @udp6_proc_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.5, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @udp6_seq_ops, i32 noundef 16, ptr noundef nonnull @udp6_seq_afinfo) #14

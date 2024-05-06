@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @uv__io_poll.no_epoll_wait_cached = internal unnamed_addr global i1 false, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__epoll_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__epoll_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call i32 @epoll_create1(i32 noundef 524288) #7
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %11
@@ -124,7 +124,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare i32 @epoll_ctl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__io_check_fd(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__io_check_fd(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.epoll_event, align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %4, align 4

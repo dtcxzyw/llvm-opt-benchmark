@@ -365,7 +365,7 @@ define internal void @php_dom_iterator_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @php_dom_iterator_valid(ptr nocapture noundef readonly %0) #5 {
+define internal range(i32 -1, 1) i32 @php_dom_iterator_valid(ptr nocapture noundef readonly %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8
   %.not = icmp eq i8 %3, 0
@@ -443,7 +443,7 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %8, i64 -24
   %10 = load ptr, ptr %9, align 8
   %.not98 = icmp eq ptr %10, null
-  br i1 %.not98, label %php_dom_libxml_hash_iter.exit.thread118, label %11
+  br i1 %.not98, label %php_dom_libxml_hash_iter.exit.thread119, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %6, i64 24
@@ -483,8 +483,8 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   %29 = getelementptr inbounds i8, ptr %0, i64 104
   %30 = tail call i32 @zend_hash_move_forward_ex(ptr noundef %28, ptr noundef nonnull %29) #8
   %31 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %28, ptr noundef nonnull %29) #8
-  %.not106 = icmp eq ptr %31, null
-  br i1 %.not106, label %php_dom_libxml_hash_iter.exit.thread118, label %32
+  %.not107 = icmp eq ptr %31, null
+  br i1 %.not107, label %php_dom_libxml_hash_iter.exit.thread119, label %32
 
 32:                                               ; preds = %27
   tail call void @zval_ptr_dtor(ptr noundef nonnull %7) #8
@@ -496,14 +496,14 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   store ptr %34, ptr %7, align 8
   store i32 %36, ptr %33, align 8
   %37 = and i32 %36, 65280
-  %.not107 = icmp eq i32 %37, 0
-  br i1 %.not107, label %php_dom_libxml_hash_iter.exit.thread114, label %38
+  %.not108 = icmp eq i32 %37, 0
+  br i1 %.not108, label %php_dom_libxml_hash_iter.exit.thread115, label %38
 
 38:                                               ; preds = %32
   %39 = load i32, ptr %34, align 4
   %40 = add i32 %39, 1
   store i32 %40, ptr %34, align 4
-  br label %php_dom_libxml_hash_iter.exit.thread114
+  br label %php_dom_libxml_hash_iter.exit.thread115
 
 41:                                               ; preds = %11, %11
   %42 = load ptr, ptr %10, align 8
@@ -514,38 +514,38 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
 45:                                               ; preds = %11
   %46 = load ptr, ptr %6, align 8
   %47 = tail call ptr @dom_object_get_node(ptr noundef %46) #8
-  %.not = icmp eq ptr %47, null
-  br i1 %.not, label %php_dom_libxml_hash_iter.exit.thread118, label %48
+  %.not101 = icmp eq ptr %47, null
+  br i1 %.not101, label %php_dom_libxml_hash_iter.exit.thread119, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %0, i64 112
   %50 = load ptr, ptr %47, align 8
-  %.not101 = icmp eq ptr %50, null
-  br i1 %.not101, label %.critedge, label %51
+  %.not102 = icmp eq ptr %50, null
+  br i1 %.not102, label %.critedge, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %50, i64 16
   %53 = load ptr, ptr %52, align 8
-  %.not102 = icmp eq ptr %53, null
-  br i1 %.not102, label %61, label %54
+  %.not103 = icmp eq ptr %53, null
+  br i1 %.not103, label %61, label %54
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds i8, ptr %53, i64 8
   %56 = load ptr, ptr %55, align 8
-  %.not103 = icmp eq ptr %56, null
-  br i1 %.not103, label %.critedge, label %57
+  %.not104 = icmp eq ptr %56, null
+  br i1 %.not104, label %.critedge, label %57
 
 57:                                               ; preds = %54
   %58 = load i64, ptr %49, align 8
   %59 = getelementptr inbounds i8, ptr %56, i64 16
   %60 = load i64, ptr %59, align 8
-  %.not121 = icmp eq i64 %58, %60
-  br i1 %.not121, label %72, label %.thread123
+  %.not = icmp eq i64 %58, %60
+  br i1 %.not, label %72, label %.thread123
 
 61:                                               ; preds = %51
   %.pre = load ptr, ptr inttoptr (i64 8 to ptr), align 8
-  %.not105 = icmp eq ptr %.pre, null
-  br i1 %.not105, label %.critedge, label %.thread123
+  %.not106 = icmp eq ptr %.pre, null
+  br i1 %.not106, label %.critedge, label %.thread123
 
 .thread123:                                       ; preds = %57, %61
   %62 = phi ptr [ %.pre, %61 ], [ %56, %57 ]
@@ -604,7 +604,7 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   %95 = icmp sgt i32 %94, 0
   %96 = icmp sgt i32 %94, %93
   %or.cond.i = and i1 %95, %96
-  br i1 %or.cond.i, label %97, label %php_dom_libxml_hash_iter.exit.thread118
+  br i1 %or.cond.i, label %97, label %php_dom_libxml_hash_iter.exit.thread119
 
 97:                                               ; preds = %88
   %98 = tail call noalias ptr @_emalloc_16() #8
@@ -627,26 +627,26 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   %108 = tail call ptr @php_dom_libxml_notation_iter(ptr noundef %104, i32 noundef %107)
   br label %php_dom_libxml_hash_iter.exit
 
-php_dom_libxml_hash_iter.exit.thread118:          ; preds = %88, %1, %45, %27
+php_dom_libxml_hash_iter.exit.thread119:          ; preds = %88, %1, %45, %27
   tail call void @zval_ptr_dtor(ptr noundef nonnull %7) #8
   %109 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 0, ptr %109, align 8
-  br label %php_dom_libxml_hash_iter.exit.thread114
+  br label %php_dom_libxml_hash_iter.exit.thread115
 
 php_dom_libxml_hash_iter.exit:                    ; preds = %97, %102, %79, %41
   %.1.ph = phi ptr [ %101, %97 ], [ %108, %102 ], [ %87, %79 ], [ %44, %41 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #8
   %110 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 0, ptr %110, align 8
-  %.not108 = icmp eq ptr %.1.ph, null
-  br i1 %.not108, label %php_dom_libxml_hash_iter.exit.thread114, label %111
+  %.not109 = icmp eq ptr %.1.ph, null
+  br i1 %.not109, label %php_dom_libxml_hash_iter.exit.thread115, label %111
 
 111:                                              ; preds = %php_dom_libxml_hash_iter.exit
   %112 = load ptr, ptr %6, align 8
   %113 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.1.ph, ptr noundef nonnull %7, ptr noundef %112) #8
-  br label %php_dom_libxml_hash_iter.exit.thread114
+  br label %php_dom_libxml_hash_iter.exit.thread115
 
-php_dom_libxml_hash_iter.exit.thread114:          ; preds = %38, %32, %php_dom_libxml_hash_iter.exit.thread118, %111, %php_dom_libxml_hash_iter.exit
+php_dom_libxml_hash_iter.exit.thread115:          ; preds = %38, %32, %php_dom_libxml_hash_iter.exit.thread119, %111, %php_dom_libxml_hash_iter.exit
   ret void
 }
 

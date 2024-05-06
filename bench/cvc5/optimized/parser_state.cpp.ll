@@ -1211,7 +1211,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN4cvc56parser11ParserState18getKindForFunctionENS_4TermE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %this, ptr noundef nonnull %fun) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 154) i32 @_ZN4cvc56parser11ParserState18getKindForFunctionENS_4TermE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %this, ptr noundef nonnull %fun) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.cvc5::Sort", align 8
   call void @_ZNK4cvc54Term7getSortEv(ptr nonnull sret(%"class.cvc5::Sort") align 8 %t, ptr noundef nonnull align 8 dereferenceable(24) %fun)

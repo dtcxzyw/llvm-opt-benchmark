@@ -6223,7 +6223,7 @@ define internal fastcc void @tg3_init_bufmgr_config(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tg3_get_device_address(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @tg3_get_device_address(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -6702,7 +6702,7 @@ default.unreachable:                              ; preds = %18, %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_test_dma(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @tg3_test_dma(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
@@ -6902,7 +6902,7 @@ define internal fastcc noundef i32 @tg3_test_dma(ptr noundef %0) unnamed_addr #2
 
 123:                                              ; preds = %.thread8
   %124 = load i64, ptr %3, align 8
-  %125 = call fastcc i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %124, i1 noundef zeroext true), !range !20
+  %125 = call fastcc i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %124, i1 noundef zeroext true)
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %130, label %127
 
@@ -6914,7 +6914,7 @@ define internal fastcc noundef i32 @tg3_test_dma(ptr noundef %0) unnamed_addr #2
 
 130:                                              ; preds = %123
   %131 = load i64, ptr %3, align 8
-  %132 = call fastcc i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %131, i1 noundef zeroext false), !range !20
+  %132 = call fastcc i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %131, i1 noundef zeroext false)
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %.preheader, label %134
 
@@ -7649,7 +7649,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 sect
 declare dso_local void @__local_bh_enable_ip(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_poll_fw(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @tg3_poll_fw(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #26
   %3 = getelementptr inbounds i8, ptr %0, i64 4680
@@ -10441,12 +10441,12 @@ select.unfold:                                    ; preds = %840, %836, %832, %8
   %1567 = load ptr, ptr %1566, align 16
   %1568 = getelementptr inbounds i8, ptr %1567, i64 8
   %1569 = load ptr, ptr %1568, align 8
-  %1570 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 20480, i32 noundef 196608, i32 noundef 16384, ptr noundef %1569), !range !7
+  %1570 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 20480, i32 noundef 196608, i32 noundef 16384, ptr noundef %1569)
   %1571 = icmp eq i32 %1570, 0
   br i1 %1571, label %1572, label %.thread40
 
 1572:                                             ; preds = %1565
-  %1573 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 21504, i32 noundef 212992, i32 noundef 16384, ptr noundef %1569), !range !7
+  %1573 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 21504, i32 noundef 212992, i32 noundef 16384, ptr noundef %1569)
   %1574 = icmp eq i32 %1573, 0
   br i1 %1574, label %1575, label %.thread40
 
@@ -10570,7 +10570,7 @@ select.unfold:                                    ; preds = %840, %836, %832, %8
   br i1 %1646, label %1647, label %1665
 
 1647:                                             ; preds = %1644
-  %1648 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 0, i32 noundef 196608, i32 noundef 0, ptr noundef %1640), !range !7
+  %1648 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 0, i32 noundef 196608, i32 noundef 0, ptr noundef %1640)
   %1649 = load ptr, ptr %11, align 8
   call void %1649(ptr noundef %0, i32 noundef 20484, i32 noundef -1) #26
   %1650 = load volatile i64, ptr %49, align 8
@@ -10621,13 +10621,13 @@ select.unfold:                                    ; preds = %840, %836, %832, %8
   br i1 %1680, label %.split, label %.split1
 
 .split1:                                          ; preds = %1673
-  %1681 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 21504, i32 noundef 212992, i32 noundef 16384, ptr noundef %1677), !range !7
+  %1681 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 21504, i32 noundef 212992, i32 noundef 16384, ptr noundef %1677)
   br label %1685
 
 .split:                                           ; preds = %1673
   %1682 = getelementptr inbounds i8, ptr %0, i64 5368
   %1683 = load i32, ptr %1682, align 8
-  %1684 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 20480, i32 noundef 65536, i32 noundef %1683, ptr noundef %1677), !range !7
+  %1684 = call fastcc i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef 20480, i32 noundef 65536, i32 noundef %1683, ptr noundef %1677)
   br label %1685
 
 1685:                                             ; preds = %.split1, %.split
@@ -19367,7 +19367,7 @@ declare dso_local void @synchronize_irq(i32 noundef) local_unnamed_addr #1
 declare dso_local i32 @pcie_capability_write_word(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_halt_cpu(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @tg3_halt_cpu(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = icmp eq i32 %1, 21504
   br i1 %3, label %4, label %10
 
@@ -19490,7 +19490,7 @@ declare dso_local i32 @pcie_capability_clear_and_set_word_unlocked(ptr noundef, 
 declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_rxcpu_pause(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -16, 1) i32 @tg3_rxcpu_pause(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -20349,7 +20349,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #1
 declare dso_local i64 @dma_map_page_attrs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 5360
   %7 = load ptr, ptr %6, align 16
   %8 = load i64, ptr %7, align 8
@@ -20595,7 +20595,7 @@ define internal fastcc noundef i32 @tg3_load_firmware_cpu(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_pause_cpu_and_set_pc(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -16, 1) i32 @tg3_pause_cpu_and_set_pc(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = add nuw nsw i32 %1, 4
@@ -21334,7 +21334,7 @@ define internal fastcc void @tg3_phy_autoneg_cfg(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__tg3_readphy(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @__tg3_readphy(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4828
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 16
@@ -21616,7 +21616,7 @@ tg3_ape_lock.exit:                                ; preds = %67, %30, %38, %39, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @__tg3_writephy(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4908
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 64
@@ -22238,7 +22238,7 @@ define internal void @tg3_get_wol(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_set_wol(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @tg3_set_wol(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2376
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 184
@@ -22418,7 +22418,7 @@ define internal i32 @tg3_get_eeprom_len(ptr nocapture noundef readonly %0) #14 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_get_eeprom(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal range(i32 -22, 1) i32 @tg3_get_eeprom(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -22698,7 +22698,7 @@ define internal noundef i32 @tg3_get_eeprom(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_set_eeprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
+define internal i32 @tg3_set_eeprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -23539,7 +23539,7 @@ define internal noundef i32 @tg3_get_coalesce(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_set_coalesce(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @tg3_set_coalesce(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #2 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = getelementptr i8, ptr %0, i64 6992
   %7 = load volatile i64, ptr %6, align 8
@@ -25848,7 +25848,7 @@ define internal void @tg3_get_strings(ptr nocapture readnone %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_set_phys_id(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @tg3_set_phys_id(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   switch i32 %1, label %15 [
     i32 1, label %16
@@ -25906,7 +25906,7 @@ define internal void @tg3_get_ethtool_stats(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @tg3_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #9 align 16 {
+define internal noundef range(i32 -95, 73) i32 @tg3_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #9 align 16 {
   %3 = icmp eq i32 %1, 1
   %4 = select i1 %3, i32 72, i32 -95
   %5 = icmp eq i32 %1, 0
@@ -25915,7 +25915,7 @@ define internal noundef i32 @tg3_get_sset_count(ptr nocapture readnone %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal noundef i32 @tg3_get_rxnfc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #18 align 16 {
+define internal noundef range(i32 -95, 1) i32 @tg3_get_rxnfc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #18 align 16 {
   %4 = getelementptr i8, ptr %0, i64 6984
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 65536
@@ -25958,7 +25958,7 @@ define internal noundef i32 @tg3_get_rxnfc(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal i32 @tg3_get_rxfh_indir_size(ptr noundef %0) #7 align 16 {
+define internal range(i32 0, 129) i32 @tg3_get_rxfh_indir_size(ptr noundef %0) #7 align 16 {
   %2 = getelementptr i8, ptr %0, i64 6984
   %3 = load volatile i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -25996,7 +25996,7 @@ define internal noundef i32 @tg3_get_rxfh(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_set_rxfh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 align 16 {
+define internal noundef range(i32 -95, 1) i32 @tg3_set_rxfh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2304
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -26153,7 +26153,7 @@ define internal void @tg3_get_channels(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_set_channels(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -95, 1) i32 @tg3_set_channels(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = getelementptr i8, ptr %0, i64 6984
   %5 = load volatile i64, ptr %4, align 8
@@ -26240,7 +26240,7 @@ define internal noundef i32 @tg3_get_ts_info(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_get_eee(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal noundef range(i32 -95, 1) i32 @tg3_get_eee(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 7212
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 262144
@@ -26264,7 +26264,7 @@ define internal noundef i32 @tg3_get_eee(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_set_eee(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -95, 1) i32 @tg3_set_eee(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = getelementptr i8, ptr %0, i64 7212
   %5 = load i32, ptr %4, align 4
@@ -26344,7 +26344,7 @@ define internal noundef i32 @tg3_set_eee(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_get_link_ksettings(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -11, 1) i32 @tg3_get_link_ksettings(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 6984
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 4503599627370496
@@ -27142,7 +27142,7 @@ declare dso_local void @_raw_spin_lock_bh(ptr noundef) local_unnamed_addr #1 sec
 declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_nvram_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @tg3_nvram_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4680
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 8192
@@ -29256,7 +29256,7 @@ define internal fastcc void @tg3_pwrsrc_switch_to_vmain(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_ape_event_lock(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @tg3_ape_event_lock(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4680
   %4 = getelementptr inbounds i8, ptr %0, i64 4868
   %5 = getelementptr inbounds i8, ptr %0, i64 4860
@@ -29526,7 +29526,7 @@ declare dso_local ptr @pci_vpd_alloc(ptr noundef, ptr noundef) local_unnamed_add
 declare dso_local i64 @msleep_interruptible(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_run_loopback(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #26
@@ -30523,7 +30523,7 @@ declare dso_local ptr @__netdev_alloc_skb(ptr noundef, i32 noundef, i32 noundef)
 declare dso_local ptr @free_irq(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_test_isr(i32 %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @tg3_test_isr(i32 %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 400
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 408
@@ -30759,7 +30759,7 @@ define internal noundef i32 @tg3_msi_1shot(i32 %0, ptr noundef %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_interrupt(i32 %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @tg3_interrupt(i32 %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 400
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 408
@@ -30899,7 +30899,7 @@ select.unfold..thread_crit_edge:                  ; preds = %select.unfold
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_interrupt_tagged(i32 %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @tg3_interrupt_tagged(i32 %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 400
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 408
@@ -36558,7 +36558,7 @@ define internal fastcc void @tg3_ape_scratchpad_read(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @tg3_show_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @tg3_show_temp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -36827,7 +36827,7 @@ define internal i32 @tg3_open(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_close(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -11, 1) i32 @tg3_close(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2304
   %3 = getelementptr i8, ptr %0, i64 7689
   %4 = load i8, ptr %3, align 1, !range !13, !noundef !14
@@ -36921,7 +36921,7 @@ define internal void @tg3_set_rx_mode(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_set_mac_addr(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -99, 1) i32 @tg3_set_mac_addr(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = getelementptr inbounds i8, ptr %1, i64 2
   %5 = load i32, ptr %4, align 4
@@ -38660,7 +38660,7 @@ define internal fastcc noundef i32 @__tg3_start_xmit(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_tso_bug(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 17) i32 @tg3_tso_bug(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %3, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 188
@@ -39204,7 +39204,7 @@ define internal i32 @tg3_mdio_read(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_mdio_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) #2 align 16 {
+define internal noundef range(i32 -5, 1) i32 @tg3_mdio_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 4
@@ -40550,7 +40550,7 @@ define internal fastcc void @tg3_read_mgmtfw_ver(ptr noundef %0) unnamed_addr #2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_ape_otp_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @tg3_ape_otp_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4680
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 8192
@@ -40716,7 +40716,7 @@ declare dso_local i32 @eth_platform_get_mac_address(ptr noundef, ptr noundef) lo
 declare dso_local void @dev_addr_mod(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
   %4 = alloca %struct.tg3_internal_buffer_desc, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
   %5 = getelementptr inbounds i8, ptr %4, i64 12
@@ -42420,7 +42420,7 @@ define internal noundef i32 @tg3_ptp_enable(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @tg3_ptp_ts_aux_work(ptr noundef %0) #2 align 16 {
+define internal noundef range(i64 -1, 101) i64 @tg3_ptp_ts_aux_work(ptr noundef %0) #2 align 16 {
   %2 = alloca %struct.skb_shared_hwtstamps, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
   store i64 0, ptr %2, align 8, !annotation !5
@@ -42495,7 +42495,7 @@ declare dso_local void @netif_device_detach(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @pci_wake_from_d3(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_io_error_detected(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal noundef range(i32 3, 5) i32 @tg3_io_error_detected(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 2304
@@ -42611,7 +42611,7 @@ define internal noundef i32 @tg3_io_error_detected(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_io_slot_reset(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 4, 6) i32 @tg3_io_slot_reset(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 2304

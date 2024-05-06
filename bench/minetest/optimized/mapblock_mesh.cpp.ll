@@ -3545,7 +3545,7 @@ land.lhs.true:                                    ; preds = %invoke.cont13.1
 
 if.then:                                          ; preds = %land.lhs.true
   %mul.i = mul nuw nsw i32 %conv5.i, %conv5.i
-  %mul6.i = mul nsw i32 %mul.i, %conv5.i
+  %mul6.i = mul nuw nsw i32 %mul.i, %conv5.i
   %conv29 = zext nneg i32 %mul6.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #32
   store ptr null, ptr %ref.tmp, align 8, !tbaa !32
@@ -8670,7 +8670,7 @@ _ZNSt6vectorItSaItEED2Ev.exit137:                 ; preds = %if.then.i.i.i136, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_Z15get_solid_sidesP12MeshMakeData(ptr nocapture noundef readonly %data) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext range(i8 0, 64) i8 @_Z15get_solid_sidesP12MeshMakeData(ptr nocapture noundef readonly %data) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %m_blockpos = getelementptr inbounds i8, ptr %data, i64 48
   %0 = load i16, ptr %m_blockpos, align 2, !tbaa !17

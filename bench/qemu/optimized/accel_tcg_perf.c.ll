@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @perf_marker = internal unnamed_addr global ptr inttoptr (i64 -1 to ptr), align 8
 @.str.5 = private unnamed_addr constant [49 x i8] c"Could not map %s: %s, proceeding without jitdump\00", align 1
 @.str.6 = private unnamed_addr constant [29 x i8] c"%lx %zx tcg-prologue-buffer\0A\00", align 1
-@tcg_ctx = external thread_local global ptr, align 8
+@tcg_ctx = external thread_local local_unnamed_addr global ptr, align 8
 @.str.7 = private unnamed_addr constant [2 x i8] c"w\00", align 1
 @.str.8 = private unnamed_addr constant [15 x i8] c"/proc/self/exe\00", align 1
 @.str.9 = private unnamed_addr constant [2 x i8] c"r\00", align 1
@@ -41,8 +41,8 @@ entry:
   %map_file = alloca [32 x i8], align 16
   %call = tail call i32 @getpid() #13
   %call1 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %map_file, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %call) #13
-  %call.i = call i32 @unlink(ptr noundef nonnull %map_file) #13
-  %call1.i = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %map_file, i32 noundef 194, i32 noundef 384) #13
+  %call.i = call i32 @unlink(ptr noundef nonnull readonly %map_file) #13
+  %call1.i = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull readonly %map_file, i32 noundef 194, i32 noundef 384) #13
   %cmp.i = icmp eq i32 %call1.i, -1
   br i1 %cmp.i, label %entry.if.then_crit_edge, label %if.end.i
 
@@ -111,8 +111,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call i32 @getpid() #13
   %call1 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %jitdump_file, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %call) #13
-  %call.i = call i32 @unlink(ptr noundef nonnull %jitdump_file) #13
-  %call1.i = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %jitdump_file, i32 noundef 194, i32 noundef 384) #13
+  %call.i = call i32 @unlink(ptr noundef nonnull readonly %jitdump_file) #13
+  %call1.i = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull readonly %jitdump_file, i32 noundef 194, i32 noundef 384) #13
   %cmp.i = icmp eq i32 %call1.i, -1
   br i1 %cmp.i, label %if.end.if.then4_crit_edge, label %if.end.i
 

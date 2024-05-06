@@ -173,7 +173,7 @@ define dso_local noundef zeroext i1 @mc146818_does_rtc_work() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mc146818_get_time(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -110, 1) i32 @mc146818_get_time(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.mc146818_get_time_callback_param, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -309,7 +309,7 @@ define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr noca
 declare dso_local i32 @_bcd2bin(i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mc146818_set_time(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -334,11 +334,11 @@ define dso_local noundef i32 @mc146818_set_time(ptr nocapture noundef readonly %
   br i1 %20, label %.thread, label %24
 
 .thread:                                          ; preds = %15
-  %21 = trunc i32 %3 to i16
+  %21 = trunc nuw i32 %3 to i16
   %.lhs.trunc = add nuw nsw i16 %21, 1900
   %22 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %22 to i32
-  %.lhs.trunc3 = trunc i32 %3 to i8
+  %.lhs.trunc3 = trunc nuw i32 %3 to i8
   %23 = urem i8 %.lhs.trunc3, 100
   %.zext4 = zext nneg i8 %23 to i32
   br label %26

@@ -632,8 +632,8 @@ if.end141:                                        ; preds = %if.end133
   %bf.clear.i = and i32 %bf.load134, 67108863
   %6 = shl nuw nsw i32 %bf.clear.i, 3
   %add.ptr.i.idx = zext nneg i32 %6 to i64
-  %7 = getelementptr i8, ptr %nv1, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %7, i64 16
+  %7 = getelementptr inbounds i8, ptr %nv1, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %7, i64 16
   %cmp145.not126 = icmp eq i32 %bf.clear.i, 0
   br i1 %cmp145.not126, label %return, label %while.body.preheader
 
@@ -5130,8 +5130,8 @@ if.end141:                                        ; preds = %if.end133
   %bf.clear.i = and i32 %bf.load134, 67108863
   %80 = shl nuw nsw i32 %bf.clear.i, 3
   %add.ptr.i.idx = zext nneg i32 %80 to i64
-  %81 = getelementptr i8, ptr %nv1, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %81, i64 16
+  %81 = getelementptr inbounds i8, ptr %nv1, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %81, i64 16
   %cmp145.not383 = icmp eq i32 %bf.clear.i, 0
   br i1 %cmp145.not383, label %return, label %while.body.preheader
 

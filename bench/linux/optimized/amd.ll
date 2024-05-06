@@ -94,13 +94,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_amd_clear_di
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_amd_clear_divider382, ptr @__UNIQUE_ID___addressable_amd_get_dr_addr_mask380, ptr @__UNIQUE_ID___addressable_amd_get_highest_perf381, ptr @__UNIQUE_ID___addressable_amd_get_nodes_per_socket369, ptr @__cpu_dev_amd_cpu_dev, ptr @__setup_rdrand_cmdline, ptr @apic_read.__UNIQUE_ID___addressable___SCK__apic_call_read342], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @amd_get_nodes_per_socket() #0 align 16 {
+define dso_local range(i32 1, 9) i32 @amd_get_nodes_per_socket() #0 align 16 {
   %1 = load i32, ptr @nodes_per_socket, align 4
   ret i32 %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @rdrand_cmdline(ptr noundef readonly %0) #1 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @rdrand_cmdline(ptr noundef readonly %0) #1 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -256,7 +256,7 @@ define dso_local i64 @amd_get_dr_addr_mask(i32 noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local noundef i32 @amd_get_highest_perf() #0 align 16 {
+define dso_local noundef range(i32 166, 256) i32 @amd_get_highest_perf() #0 align 16 {
   %1 = load i8, ptr @boot_cpu_data, align 8
   switch i8 %1, label %15 [
     i8 23, label %2

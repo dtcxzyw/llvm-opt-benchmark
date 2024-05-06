@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriToStringCharsRequiredA(ptr noundef %uri, ptr noundef %charsRequired) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringCharsRequiredA(ptr noundef %uri, ptr noundef %charsRequired) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @uriToStringEngineA(ptr noundef null, ptr noundef %uri, i32 noundef 2147483647, ptr noundef null, ptr noundef %charsRequired), !range !4
+  %call = tail call fastcc i32 @uriToStringEngineA(ptr noundef null, ptr noundef %uri, i32 noundef 2147483647, ptr noundef null, ptr noundef %charsRequired)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriToStringEngineA(ptr noundef writeonly %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, ptr noundef %charsRequired) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef writeonly %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, ptr noundef %charsRequired) unnamed_addr #0 {
 entry:
   %text = alloca [4 x i8], align 1
   %cmp = icmp eq ptr %uri, null
@@ -260,7 +260,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   store i32 %add235.us, ptr %charsRequired, align 4
   %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
   %exitcond485.not = icmp eq i64 %indvars.iv.next483, 4
-  br i1 %exitcond485.not, label %if.end467, label %for.body.us, !llvm.loop !5
+  br i1 %exitcond485.not, label %if.end467, label %for.body.us, !llvm.loop !4
 
 if.then157:                                       ; preds = %for.body.preheader, %for.inc
   %add154581 = phi i32 [ %add154, %for.inc ], [ %add154574, %for.body.preheader ]
@@ -397,7 +397,7 @@ for.body266.us:                                   ; preds = %for.body266.us, %if
   %spec.select = add nsw i32 %add328.us471, %spec.select.v
   %inc332.us = add nuw nsw i32 %i242.0467.us, 1
   %exitcond490.not = icmp eq i32 %inc332.us, 16
-  br i1 %exitcond490.not, label %for.end333, label %for.body266.us, !llvm.loop !7
+  br i1 %exitcond490.not, label %for.end333, label %for.body266.us, !llvm.loop !6
 
 for.body266:                                      ; preds = %for.body266.preheader, %for.inc331
   %indvars.iv486 = phi i64 [ 0, %for.body266.preheader ], [ %indvars.iv.next487, %for.inc331 ]
@@ -459,7 +459,7 @@ for.inc331:                                       ; preds = %if.end303.thread, %
   %written.9 = phi i32 [ %add313, %if.then316 ], [ %add276, %if.end303.thread ]
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next487, 16
-  br i1 %exitcond489.not, label %if.then336, label %for.body266, !llvm.loop !7
+  br i1 %exitcond489.not, label %if.then336, label %for.body266, !llvm.loop !6
 
 for.end333:                                       ; preds = %for.body266.us
   store i32 %spec.select, ptr %charsRequired, align 4
@@ -771,7 +771,7 @@ if.else609.us:                                    ; preds = %do.body.us
   store i32 %add610.us, ptr %charsRequired, align 4
   %.pr.us = load ptr, ptr %next.us, align 8
   %cmp614.not.us = icmp eq ptr %.pr.us, null
-  br i1 %cmp614.not.us, label %if.end616, label %do.body.us, !llvm.loop !8
+  br i1 %cmp614.not.us, label %if.end616, label %do.body.us, !llvm.loop !7
 
 do.body:                                          ; preds = %do.body.preheader582, %if.then598
   %walker.0 = phi ptr [ %.pr, %if.then598 ], [ %walker.0.ph, %do.body.preheader582 ]
@@ -818,7 +818,7 @@ if.then598:                                       ; preds = %if.then594
   store i8 47, ptr %add.ptr600, align 1
   %.pr = load ptr, ptr %next385, align 8
   %cmp614.not = icmp eq ptr %.pr, null
-  br i1 %cmp614.not, label %if.end616, label %do.body, !llvm.loop !8
+  br i1 %cmp614.not, label %if.end616, label %do.body, !llvm.loop !7
 
 if.else602:                                       ; preds = %if.then594
   store i8 0, ptr %dest, align 1
@@ -1045,21 +1045,21 @@ return:                                           ; preds = %if.end674.thread545
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriToStringA(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringA(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @uriToStringEngineA(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten, ptr noundef null), !range !4
+  %call = tail call fastcc i32 @uriToStringEngineA(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriToStringCharsRequiredW(ptr noundef %uri, ptr noundef %charsRequired) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringCharsRequiredW(ptr noundef %uri, ptr noundef %charsRequired) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @uriToStringEngineW(ptr noundef null, ptr noundef %uri, i32 noundef 2147483647, ptr noundef null, ptr noundef %charsRequired), !range !4
+  %call = tail call fastcc i32 @uriToStringEngineW(ptr noundef null, ptr noundef %uri, i32 noundef 2147483647, ptr noundef null, ptr noundef %charsRequired)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriToStringEngineW(ptr noundef writeonly %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, ptr noundef %charsRequired) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef writeonly %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, ptr noundef %charsRequired) unnamed_addr #0 {
 entry:
   %text = alloca [4 x i32], align 16
   %cmp = icmp eq ptr %uri, null
@@ -1314,7 +1314,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   store i32 %add230.us, ptr %charsRequired, align 4
   %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next493, 4
-  br i1 %exitcond495.not, label %if.end464, label %for.body.us, !llvm.loop !9
+  br i1 %exitcond495.not, label %if.end464, label %for.body.us, !llvm.loop !8
 
 if.then158:                                       ; preds = %for.body.preheader, %for.inc
   %add155591 = phi i32 [ %add155, %for.inc ], [ %add155584, %for.body.preheader ]
@@ -1456,7 +1456,7 @@ for.body261.us:                                   ; preds = %for.body261.us, %if
   %spec.select = add nsw i32 %add323.us481, %spec.select.v
   %inc327.us = add nuw nsw i32 %i237.0477.us, 1
   %exitcond500.not = icmp eq i32 %inc327.us, 16
-  br i1 %exitcond500.not, label %for.end328, label %for.body261.us, !llvm.loop !10
+  br i1 %exitcond500.not, label %for.end328, label %for.body261.us, !llvm.loop !9
 
 for.body261:                                      ; preds = %for.body261.preheader, %for.inc326
   %indvars.iv496 = phi i64 [ 0, %for.body261.preheader ], [ %indvars.iv.next497, %for.inc326 ]
@@ -1518,7 +1518,7 @@ for.inc326:                                       ; preds = %if.end298.thread, %
   %written.9 = phi i32 [ %add308, %if.then311 ], [ %add271, %if.end298.thread ]
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond499.not = icmp eq i64 %indvars.iv.next497, 16
-  br i1 %exitcond499.not, label %if.then331, label %for.body261, !llvm.loop !10
+  br i1 %exitcond499.not, label %if.then331, label %for.body261, !llvm.loop !9
 
 for.end328:                                       ; preds = %for.body261.us
   store i32 %spec.select, ptr %charsRequired, align 4
@@ -1837,7 +1837,7 @@ if.else608.us:                                    ; preds = %do.body.us
   store i32 %add609.us, ptr %charsRequired, align 4
   %.pr.us = load ptr, ptr %next.us, align 8
   %cmp613.not.us = icmp eq ptr %.pr.us, null
-  br i1 %cmp613.not.us, label %if.end615, label %do.body.us, !llvm.loop !11
+  br i1 %cmp613.not.us, label %if.end615, label %do.body.us, !llvm.loop !10
 
 do.body:                                          ; preds = %do.body.preheader592, %if.then597
   %walker.0 = phi ptr [ %.pr, %if.then597 ], [ %walker.0.ph, %do.body.preheader592 ]
@@ -1886,7 +1886,7 @@ if.then597:                                       ; preds = %if.then593
   store i32 47, ptr %add.ptr599, align 4
   %.pr = load ptr, ptr %next387, align 8
   %cmp613.not = icmp eq ptr %.pr, null
-  br i1 %cmp613.not, label %if.end615, label %do.body, !llvm.loop !11
+  br i1 %cmp613.not, label %if.end615, label %do.body, !llvm.loop !10
 
 if.else601:                                       ; preds = %if.then593
   store i32 0, ptr %dest, align 4
@@ -2119,9 +2119,9 @@ return:                                           ; preds = %if.end674.thread555
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriToStringW(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringW(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @uriToStringEngineW(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten, ptr noundef null), !range !4
+  %call = tail call fastcc i32 @uriToStringEngineW(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten, ptr noundef null)
   ret i32 %call
 }
 
@@ -2147,11 +2147,10 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 5}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

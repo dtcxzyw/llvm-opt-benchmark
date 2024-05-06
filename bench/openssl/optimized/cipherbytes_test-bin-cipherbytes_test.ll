@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.33 = private unnamed_addr constant [18 x i8] c"TLS_FALLBACK_SCSV\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @TLS_server_method() #4
   %call1 = tail call ptr @SSL_CTX_new(ptr noundef %call) #4
@@ -84,7 +84,7 @@ declare ptr @SSL_new(ptr noundef) local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_empty() #0 {
+define internal range(i32 0, 2) i32 @test_empty() #0 {
 entry:
   %sk = alloca ptr, align 8
   %scsv = alloca ptr, align 8
@@ -121,7 +121,7 @@ err:                                              ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unsupported() #0 {
+define internal range(i32 0, 2) i32 @test_unsupported() #0 {
 entry:
   %sk = alloca ptr, align 8
   %scsv = alloca ptr, align 8
@@ -180,7 +180,7 @@ err:                                              ; preds = %lor.lhs.false17, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_v2() #0 {
+define internal range(i32 0, 2) i32 @test_v2() #0 {
 entry:
   %sk = alloca ptr, align 8
   %scsv = alloca ptr, align 8
@@ -247,7 +247,7 @@ err:                                              ; preds = %lor.lhs.false23, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_v3() #0 {
+define internal range(i32 0, 2) i32 @test_v3() #0 {
 entry:
   %sk = alloca ptr, align 8
   %scsv = alloca ptr, align 8

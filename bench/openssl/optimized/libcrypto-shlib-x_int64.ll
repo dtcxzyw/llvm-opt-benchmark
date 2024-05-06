@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uint32_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #1 {
+define internal range(i32 0, 2) i32 @uint32_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4, ptr noundef nonnull @.str.8, i32 noundef 124) #4
   store ptr %call, ptr %pval, align 8
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint32_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal range(i32 0, 2) i32 @uint32_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %cont.addr = alloca ptr, align 8
   %utmp = alloca i64, align 8
@@ -247,7 +247,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uint64_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #1 {
+define internal range(i32 0, 2) i32 @uint64_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str.8, i32 noundef 31) #4
   store ptr %call, ptr %pval, align 8
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint64_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal range(i32 0, 2) i32 @uint64_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %cont.addr = alloca ptr, align 8
   %utmp = alloca i64, align 8

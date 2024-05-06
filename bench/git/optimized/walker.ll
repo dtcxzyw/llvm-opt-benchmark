@@ -46,27 +46,21 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %1 = load ptr, ptr @stderr, align 8
   %call = call i32 @vfprintf(ptr noundef %1, ptr noundef %fmt, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
+declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @walker_targets_stdin(ptr nocapture noundef %target, ptr nocapture noundef %write_ref) local_unnamed_addr #3 {
+define dso_local i32 @walker_targets_stdin(ptr nocapture noundef %target, ptr nocapture noundef %write_ref) local_unnamed_addr #2 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.walker_fetch.err, i64 24, i1 false)
@@ -140,14 +134,14 @@ xstrdup_or_null.exit:                             ; preds = %if.end13, %cond.tru
   %6 = load ptr, ptr %write_ref, align 8
   %arrayidx17 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   store ptr %cond.i, ptr %arrayidx17, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr @stdin, align 8
   %call = call i32 @strbuf_getline_lf(ptr noundef nonnull %buf, ptr noundef %7) #14
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %while.end.loopexit, label %if.end
 
 while.end.loopexit:                               ; preds = %xstrdup_or_null.exit
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nuw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
@@ -157,21 +151,21 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-declare i32 @strbuf_getline_lf(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @strbuf_getline_lf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #5
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 
-declare void @strbuf_release(ptr noundef) local_unnamed_addr #5
+declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @walker_targets_free(i32 noundef %targets, ptr nocapture noundef readonly %target, ptr noundef readonly %write_ref) local_unnamed_addr #3 {
+define dso_local void @walker_targets_free(i32 noundef %targets, ptr nocapture noundef readonly %target, ptr noundef readonly %write_ref) local_unnamed_addr #2 {
 entry:
   %tobool.not5 = icmp eq i32 %targets, 0
   br i1 %tobool.not5, label %while.end, label %while.body.lr.ph
@@ -208,10 +202,10 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @walker_fetch(ptr noundef %walker, i32 noundef %targets, ptr nocapture noundef readonly %target, ptr noundef readonly %write_ref, ptr noundef %write_ref_log_details) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @walker_fetch(ptr noundef %walker, i32 noundef %targets, ptr nocapture noundef readonly %target, ptr noundef readonly %write_ref, ptr noundef %write_ref_log_details) local_unnamed_addr #2 {
 entry:
   %desc.i.i.i = alloca %struct.tree_desc, align 8
   %entry1.i.i.i = alloca %struct.name_entry, align 8
@@ -291,7 +285,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 interpret_target.exit.thread50:                   ; preds = %if.then3.i
   %old_oid.i = getelementptr inbounds i8, ptr %call4.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %add.ptr, ptr noundef nonnull align 4 dereferenceable(32) %old_oid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %add.ptr, ptr noundef nonnull readonly align 4 dereferenceable(32) %old_oid.i, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %call4.i, i64 40
   %4 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -474,11 +468,11 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) @current_commit_oid, ptr noundef nonnull dereferenceable(32) %call.i.i11.i, i64 32)
+  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) @current_commit_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i.i11.i, i64 32)
   br label %is_null_oid.exit.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @current_commit_oid, ptr noundef nonnull dereferenceable(20) %call.i.i11.i, i64 20)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @current_commit_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i.i11.i, i64 20)
   br label %is_null_oid.exit.i.i
 
 is_null_oid.exit.i.i:                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -554,7 +548,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 
 if.end6.i.i.i:                                    ; preds = %while.end.i.i.i
   %oid.i.i.i = getelementptr inbounds i8, ptr %18, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) @current_commit_oid, ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) @current_commit_oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i.i, i64 32, i1 false)
   %algo.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 36
   %40 = load i32, ptr %algo.i.i.i.i, align 4
   store i32 %40, ptr getelementptr inbounds (%struct.object_id, ptr @current_commit_oid, i64 0, i32 1), align 4
@@ -929,16 +923,16 @@ done:                                             ; preds = %loop.exit.thread, %
   ret i32 %ret.0
 }
 
-declare ptr @xmalloc(i64 noundef) local_unnamed_addr #5
+declare ptr @xmalloc(i64 noundef) local_unnamed_addr #4
 
-declare ptr @ref_transaction_begin(ptr noundef) local_unnamed_addr #5
+declare ptr @ref_transaction_begin(ptr noundef) local_unnamed_addr #4
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mark_complete(ptr nocapture readnone %path, ptr noundef %oid, i32 %flag, ptr nocapture readnone %cb_data) #3 {
+define internal noundef i32 @mark_complete(ptr nocapture readnone %path, ptr noundef %oid, i32 %flag, ptr nocapture readnone %cb_data) #2 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @lookup_commit_reference_gently(ptr noundef %0, ptr noundef %oid, i32 noundef 1) #14
@@ -956,22 +950,22 @@ if.end:                                           ; preds = %if.then, %entry
   ret i32 0
 }
 
-declare void @commit_list_sort_by_date(ptr noundef) local_unnamed_addr #5
+declare void @commit_list_sort_by_date(ptr noundef) local_unnamed_addr #4
 
-declare ptr @lookup_unknown_object(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @lookup_unknown_object(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #5
+declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #4
 
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @ref_transaction_update(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ref_transaction_update(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ref_transaction_commit(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ref_transaction_commit(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @ref_transaction_free(ptr noundef) local_unnamed_addr #5
+declare void @ref_transaction_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @walker_free(ptr noundef %walker) local_unnamed_addr #3 {
+define dso_local void @walker_free(ptr noundef %walker) local_unnamed_addr #2 {
 entry:
   %cleanup = getelementptr inbounds i8, ptr %walker, i64 32
   %0 = load ptr, ptr %cleanup, align 8
@@ -981,61 +975,67 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #8
+declare void @die(ptr noundef, ...) local_unnamed_addr #7
 
-declare ptr @lookup_commit_reference_gently(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @lookup_commit_reference_gently(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @commit_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @commit_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @check_refname_format(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @check_refname_format(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @alloc_ref(ptr noundef) local_unnamed_addr #5
+declare ptr @alloc_ref(ptr noundef) local_unnamed_addr #4
 
-declare i32 @repo_has_object_file(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @repo_has_object_file(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @object_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @object_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @start_delayed_progress(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @start_delayed_progress(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @parse_object(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @parse_object(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @display_progress(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @display_progress(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) local_unnamed_addr #9
+declare ptr @gettext(ptr noundef) local_unnamed_addr #8
 
-declare void @stop_progress_msg(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @stop_progress_msg(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
-declare ptr @type_name(i32 noundef) local_unnamed_addr #5
+declare ptr @type_name(i32 noundef) local_unnamed_addr #4
 
-declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #5
+declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #4
 
-declare ptr @null_oid() local_unnamed_addr #5
+declare ptr @null_oid() local_unnamed_addr #4
 
-declare ptr @pop_most_recent_commit(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @pop_most_recent_commit(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @repo_get_commit_tree(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @repo_get_commit_tree(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @repo_parse_commit_gently(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @repo_parse_commit_gently(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @init_tree_desc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @init_tree_desc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @tree_entry(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @tree_entry(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @lookup_tree(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @lookup_tree(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @lookup_blob(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @lookup_blob(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @free_tree_buffer(ptr noundef) local_unnamed_addr #5
+declare void @free_tree_buffer(ptr noundef) local_unnamed_addr #4
 
-declare i32 @parse_tree_gently(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @parse_tree_gently(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @parse_tag(ptr noundef) local_unnamed_addr #5
+declare i32 @parse_tag(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
@@ -1050,15 +1050,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

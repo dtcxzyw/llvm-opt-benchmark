@@ -11,7 +11,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_firmware_kob
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_firmware_kobj311], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @firmware_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @firmware_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str, ptr noundef null) #2
   store ptr %1, ptr @firmware_kobj, align 8
   %2 = icmp eq ptr %1, null

@@ -138,7 +138,7 @@ declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ext4_resize_begin(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -117, 1) i32 @ext4_resize_begin(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @capable(i32 noundef 24) #12
@@ -2401,13 +2401,13 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %1038 = getelementptr inbounds i8, ptr %1037, i64 56
   %1039 = load i64, ptr %1038, align 8
   %1040 = udiv i64 %1036, %1039
-  %1041 = trunc i64 %1040 to i32
+  %1041 = trunc nuw i64 %1040 to i32
   %1042 = load i32, ptr %13, align 4
   %1043 = add i32 %1035, -1
   %1044 = add i32 %1043, %1042
   %1045 = zext i32 %1044 to i64
   %1046 = udiv i64 %1045, %1039
-  %1047 = trunc i64 %1046 to i32
+  %1047 = trunc nuw i64 %1046 to i32
   %1048 = getelementptr inbounds i8, ptr %1037, i64 104
   %1049 = load ptr, ptr %1048, align 8
   %1050 = getelementptr inbounds i8, ptr %1049, i64 96
@@ -2669,7 +2669,7 @@ define internal fastcc i32 @ext4_group_extend_no_check(ptr noundef %0, i64 nound
   %36 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %35, ptr %36, align 4
   %37 = lshr i64 %34, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = getelementptr inbounds i8, ptr %7, i64 336
   store i32 %38, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %7, i64 96
@@ -2695,7 +2695,7 @@ define internal fastcc i32 @ext4_group_extend_no_check(ptr noundef %0, i64 nound
   %56 = trunc i64 %55 to i32
   store i32 %56, ptr %51, align 4
   %57 = lshr i64 %55, 32
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw i64 %57 to i32
   %59 = getelementptr inbounds i8, ptr %7, i64 344
   store i32 %58, ptr %59, align 8
   tail call void @ext4_superblock_csum_set(ptr noundef %0) #12
@@ -4287,7 +4287,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %86 = trunc i64 %85 to i32
   store i32 %86, ptr %59, align 4
   %87 = lshr i64 %85, 32
-  %88 = trunc i64 %87 to i32
+  %88 = trunc nuw i64 %87 to i32
   store i32 %88, ptr %78, align 8
   %89 = getelementptr inbounds i8, ptr %7, i64 344
   %90 = load i32, ptr %89, align 8
@@ -4302,7 +4302,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %97 = trunc i64 %96 to i32
   store i32 %97, ptr %59, align 4
   %98 = lshr i64 %96, 32
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw i64 %98 to i32
   %100 = getelementptr inbounds i8, ptr %7, i64 336
   store i32 %99, ptr %100, align 8
   br label %101
@@ -4317,7 +4317,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %108 = trunc i64 %107 to i32
   store i32 %108, ptr %103, align 4
   %109 = lshr i64 %107, 32
-  %110 = trunc i64 %109 to i32
+  %110 = trunc nuw i64 %109 to i32
   %111 = getelementptr inbounds i8, ptr %7, i64 344
   store i32 %110, ptr %111, align 8
   %112 = load ptr, ptr %4, align 8
@@ -4349,7 +4349,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %134 = getelementptr inbounds i8, ptr %133, i64 16
   %135 = load i64, ptr %134, align 16
   %136 = udiv i64 4294967295, %135
-  %137 = trunc i64 %136 to i32
+  %137 = trunc nuw i64 %136 to i32
   %138 = tail call i32 @llvm.umin.i32(i32 %132, i32 %137)
   %139 = getelementptr inbounds i8, ptr %5, i64 68
   store i32 %138, ptr %139, align 4
@@ -4374,7 +4374,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %154 = trunc i64 %153 to i32
   store i32 %154, ptr %56, align 8
   %155 = lshr i64 %153, 32
-  %156 = trunc i64 %155 to i32
+  %156 = trunc nuw i64 %155 to i32
   %157 = getelementptr inbounds i8, ptr %7, i64 340
   store i32 %156, ptr %157, align 4
   %158 = getelementptr inbounds i8, ptr %5, i64 224
@@ -4574,7 +4574,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   br label %.loopexit
 
 50:                                               ; preds = %37
-  %51 = trunc i64 %43 to i32
+  %51 = trunc nuw nsw i64 %43 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %50, %45

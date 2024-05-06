@@ -86,7 +86,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @evp_cipher_free_int(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_iv_length(ptr nocapture noundef %cipher, i32 noundef %iv_len) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_iv_length(ptr nocapture noundef %cipher, i32 noundef %iv_len) local_unnamed_addr #3 {
 entry:
   %iv_len1 = getelementptr inbounds i8, ptr %cipher, i64 12
   %0 = load i32, ptr %iv_len1, align 4
@@ -103,7 +103,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_flags(ptr nocapture noundef %cipher, i64 noundef %flags) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_flags(ptr nocapture noundef %cipher, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
   %flags1 = getelementptr inbounds i8, ptr %cipher, i64 16
   %0 = load i64, ptr %flags1, align 8
@@ -120,7 +120,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_impl_ctx_size(ptr nocapture noundef %cipher, i32 noundef %ctx_size) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_impl_ctx_size(ptr nocapture noundef %cipher, i32 noundef %ctx_size) local_unnamed_addr #3 {
 entry:
   %ctx_size1 = getelementptr inbounds i8, ptr %cipher, i64 56
   %0 = load i32, ptr %ctx_size1, align 8
@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_init(ptr nocapture noundef %cipher, ptr noundef %init) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_init(ptr nocapture noundef %cipher, ptr noundef %init) local_unnamed_addr #3 {
 entry:
   %init1 = getelementptr inbounds i8, ptr %cipher, i64 32
   %0 = load ptr, ptr %init1, align 8
@@ -154,7 +154,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_do_cipher(ptr nocapture noundef %cipher, ptr noundef %do_cipher) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_do_cipher(ptr nocapture noundef %cipher, ptr noundef %do_cipher) local_unnamed_addr #3 {
 entry:
   %do_cipher1 = getelementptr inbounds i8, ptr %cipher, i64 40
   %0 = load ptr, ptr %do_cipher1, align 8
@@ -171,7 +171,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_cleanup(ptr nocapture noundef %cipher, ptr noundef %cleanup) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_cleanup(ptr nocapture noundef %cipher, ptr noundef %cleanup) local_unnamed_addr #3 {
 entry:
   %cleanup1 = getelementptr inbounds i8, ptr %cipher, i64 48
   %0 = load ptr, ptr %cleanup1, align 8
@@ -188,7 +188,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_set_asn1_params(ptr nocapture noundef %cipher, ptr noundef %set_asn1_parameters) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_set_asn1_params(ptr nocapture noundef %cipher, ptr noundef %set_asn1_parameters) local_unnamed_addr #3 {
 entry:
   %set_asn1_parameters1 = getelementptr inbounds i8, ptr %cipher, i64 64
   %0 = load ptr, ptr %set_asn1_parameters1, align 8
@@ -205,7 +205,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_get_asn1_params(ptr nocapture noundef %cipher, ptr noundef %get_asn1_parameters) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_get_asn1_params(ptr nocapture noundef %cipher, ptr noundef %get_asn1_parameters) local_unnamed_addr #3 {
 entry:
   %get_asn1_parameters1 = getelementptr inbounds i8, ptr %cipher, i64 72
   %0 = load ptr, ptr %get_asn1_parameters1, align 8
@@ -222,7 +222,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_meth_set_ctrl(ptr nocapture noundef %cipher, ptr noundef %ctrl) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @EVP_CIPHER_meth_set_ctrl(ptr nocapture noundef %cipher, ptr noundef %ctrl) local_unnamed_addr #3 {
 entry:
   %ctrl1 = getelementptr inbounds i8, ptr %cipher, i64 80
   %0 = load ptr, ptr %ctrl1, align 8

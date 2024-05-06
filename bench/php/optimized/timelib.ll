@@ -82,7 +82,7 @@ define hidden void @timelib_time_dtor(ptr noundef %0) local_unnamed_addr #1 {
 declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @timelib_time_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden range(i32 -1, 2) i32 @timelib_time_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 192

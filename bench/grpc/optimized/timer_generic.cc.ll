@@ -54,9 +54,9 @@ $__clang_call_terminate = comdat any
 @.str.10 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @.str.11 = private unnamed_addr constant [32 x i8] c"  .. old shard min_deadline=%ld\00", align 1
 @_ZL13g_shard_queue = internal unnamed_addr global ptr null, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.12 = private unnamed_addr constant [28 x i8] c"TIMER %p: CANCEL pending=%s\00", align 1
-@_ZL21g_last_seen_min_timer = internal thread_local global i64 0, align 8
+@_ZL21g_last_seen_min_timer = internal thread_local unnamed_addr global i64 0, align 8
 @.str.13 = private unnamed_addr constant [40 x i8] c"TIMER CHECK SKIP: now=%ld min_timer=%ld\00", align 1
 @.str.14 = private unnamed_addr constant [27 x i8] c"Shutting down timer system\00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
@@ -776,7 +776,7 @@ if.then.i.i:                                      ; preds = %if.end46
 
 invoke.cont50:                                    ; preds = %if.then.i.i, %if.end46
   %call54 = invoke fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %call.i, ptr noundef %next, ptr noundef nonnull %agg.tmp48)
-          to label %invoke.cont53 unwind label %lpad52, !range !20
+          to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont50
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i18
@@ -836,7 +836,7 @@ invoke.cont67:                                    ; preds = %if.else63
   %_M_str.i.i26 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
   store ptr %digits_.i21, ptr %_M_str.i.i26, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i29)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i29) #17, !noalias !21
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i29) #17, !noalias !20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef nonnull %digits_.i21, i64 noundef %sub.ptr.sub.i25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i29)
           to label %invoke.cont68 unwind label %lpad.i31
 
@@ -985,7 +985,7 @@ _ZL20compute_min_deadlineP11timer_shard.exit:     ; preds = %cond.true.i, %if.en
   %conv8 = zext i32 %inc to i64
   %11 = load i64, ptr @_ZL12g_num_shards, align 8
   %cmp = icmp ugt i64 %11, %conv8
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %_ZL20compute_min_deadlineP11timer_shard.exit, %_ZN9grpc_core9Timestamp3NowEv.exit
   ret void
@@ -1003,7 +1003,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %call7 = invoke fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 9223372036854775807, ptr noundef null, ptr noundef nonnull %agg.tmp1)
-          to label %invoke.cont6 unwind label %lpad5, !range !20
+          to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = load i64, ptr %agg.tmp1, align 8
@@ -1080,7 +1080,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN4absl
   %inc = add nuw nsw i64 %i.06, 1
   %11 = load i64, ptr @_ZL12g_num_shards, align 8
   %cmp = icmp ult i64 %inc, %11
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 lpad:                                             ; preds = %entry
   %12 = landingpad { ptr, i32 }
@@ -1108,7 +1108,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_ZL18timer_consume_kickv() #6 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL21g_last_seen_min_timer)
@@ -1245,7 +1245,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %now.coerce, ptr noundef %next, ptr nocapture noundef readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %now.coerce, ptr noundef %next, ptr nocapture noundef readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp2.i = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1478,7 +1478,7 @@ if.end29.i.i.i:                                   ; preds = %.noexc19, %if.then2
 
 for.inc.i.i.i:                                    ; preds = %if.end29.i.i.i, %for.body.i.i.i
   %cmp.not.i.i.i = icmp eq ptr %22, %list.i.i.i
-  br i1 %cmp.not.i.i.i, label %_ZL11refill_heapP11timer_shardN9grpc_core9TimestampE.exit.i.i, label %for.body.i.i.i, !llvm.loop !26
+  br i1 %cmp.not.i.i.i, label %_ZL11refill_heapP11timer_shardN9grpc_core9TimestampE.exit.i.i, label %for.body.i.i.i, !llvm.loop !25
 
 _ZL11refill_heapP11timer_shardN9grpc_core9TimestampE.exit.i.i: ; preds = %for.inc.i.i.i, %if.end.i.i.i
   %call33.i.i.i21 = invoke noundef zeroext i1 @_Z24grpc_timer_heap_is_emptyP15grpc_timer_heap(ptr noundef nonnull %heap.i.i)
@@ -1580,7 +1580,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i11.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %if.then.i.i11.i, %invoke.cont.i
   %inc.i = add i64 %n.0.i, 1
-  br label %while.cond.i, !llvm.loop !27
+  br label %while.cond.i, !llvm.loop !26
 
 lpad.i:                                           ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
   %36 = landingpad { ptr, i32 }
@@ -1776,7 +1776,7 @@ _ZL20note_deadline_changeP11timer_shard.exit:     ; preds = %land.rhs9.i, %while
   %cmp.i9 = icmp eq i64 %66, %now.coerce
   %or.cond = and i1 %cmp.i8, %cmp.i9
   %or.cond88 = or i1 %cmp.i7, %or.cond
-  br i1 %or.cond88, label %while.body, label %while.end, !llvm.loop !28
+  br i1 %or.cond88, label %while.body, label %while.end, !llvm.loop !27
 
 while.end:                                        ; preds = %_ZL20note_deadline_changeP11timer_shard.exit, %if.end14
   %.lcssa160 = phi ptr [ %.pre, %if.end14 ], [ %47, %_ZL20note_deadline_changeP11timer_shard.exit ]
@@ -1874,7 +1874,7 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1909,12 +1909,11 @@ attributes #17 = { nounwind }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE: %agg.result"}
 !19 = distinct !{!19, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE"}
-!20 = !{i32 0, i32 3}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE: %agg.result"}
-!23 = distinct !{!23, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE: %agg.result"}
+!22 = distinct !{!22, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE"}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

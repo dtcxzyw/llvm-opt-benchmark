@@ -48,29 +48,29 @@ define void @_ZN7rocksdb21HistogramBucketMapperC2Ev(ptr nocapture noundef nonnul
 if.then.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %_M_end_of_storage.i.i14 = getelementptr inbounds i8, ptr %this, i64 16
-  %call5.i.i.i.i.i19 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
+  %call5.i.i.i.i.i20 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then.i
-  store i64 1, ptr %call5.i.i.i.i.i19, align 8
-  %ref.tmp.sroa.2.0.call5.i.i.i.i.i19.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i19, i64 8
-  store i64 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i.i19.sroa_idx, align 8
+  store i64 1, ptr %call5.i.i.i.i.i20, align 8
+  %ref.tmp.sroa.2.0.call5.i.i.i.i.i20.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i20, i64 8
+  store i64 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i.i20.sroa_idx, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %call5.i.i.i.i.i19, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i19, i64 16
+  store ptr %call5.i.i.i.i.i20, ptr %this, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i20, i64 16
   store ptr %add.ptr.i, ptr %_M_finish.i, align 8
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i14, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr.i.i3 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i19, i64 8
+  %add.ptr.i.i3 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i20, i64 8
   %0 = load i64, ptr %add.ptr.i.i3, align 8
   %conv = uitofp i64 %0 to double
-  %mul29 = fmul double %conv, 1.500000e+00
-  %cmp30 = fcmp ugt double %mul29, 0x43F0000000000000
-  br i1 %cmp30, label %while.end23, label %while.body
+  %mul31 = fmul double %conv, 1.500000e+00
+  %cmp32 = fcmp ugt double %mul31, 0x43F0000000000000
+  br i1 %cmp32, label %while.end23, label %while.body
 
 while.body:                                       ; preds = %invoke.cont, %while.end
-  %mul31 = phi double [ %mul, %while.end ], [ %mul29, %invoke.cont ]
-  %conv9 = fptoui double %mul31 to i64
+  %mul33 = phi double [ %mul, %while.end ], [ %mul31, %invoke.cont ]
+  %conv9 = fptoui double %mul33 to i64
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %_M_end_of_storage.i.i14, align 8
   %cmp.not.i.i = icmp eq ptr %1, %2
@@ -144,16 +144,16 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %if.then.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
   %6 = phi ptr [ %3, %if.then.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ]
   %7 = load i64, ptr %6, align 8
-  %cmp1424 = icmp ugt i64 %7, 109
-  br i1 %cmp1424, label %while.body15, label %while.end
+  %cmp1426 = icmp ugt i64 %7, 109
+  br i1 %cmp1426, label %while.body15, label %while.end
 
 while.body15:                                     ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit, %while.body15
   %8 = phi i64 [ %10, %while.body15 ], [ %7, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
-  %add.ptr.i.i726 = phi ptr [ %add.ptr.i.i7, %while.body15 ], [ %6, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
-  %pow_of_ten.025 = phi i64 [ %mul19, %while.body15 ], [ 1, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
+  %add.ptr.i.i728 = phi ptr [ %add.ptr.i.i7, %while.body15 ], [ %6, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
+  %pow_of_ten.027 = phi i64 [ %mul19, %while.body15 ], [ 1, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
   %div18 = udiv i64 %8, 10
-  store i64 %div18, ptr %add.ptr.i.i726, align 8
-  %mul19 = mul i64 %pow_of_ten.025, 10
+  store i64 %div18, ptr %add.ptr.i.i728, align 8
+  %mul19 = mul i64 %pow_of_ten.027, 10
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i7 = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load i64, ptr %add.ptr.i.i7, align 8
@@ -161,19 +161,19 @@ while.body15:                                     ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp14, label %while.body15, label %while.end, !llvm.loop !4
 
 lpad.loopexit:                                    ; preds = %cond.true.i.i.i.i
-  %lpad.loopexit21 = landingpad { ptr, i32 }
+  %lpad.loopexit23 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i, %if.then.i
-  %lpad.loopexit.split-lp22 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp24 = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %this, align 8
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %11 = phi ptr [ %4, %lpad.loopexit ], [ %.pre, %lpad.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit21, %lpad.loopexit ], [ %lpad.loopexit.split-lp22, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit23, %lpad.loopexit ], [ %lpad.loopexit.split-lp24, %lpad.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i
 
@@ -190,20 +190,20 @@ while.end:                                        ; preds = %while.body15, %_ZNS
   %.lcssa = phi i64 [ %7, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %10, %while.body15 ]
   %mul22 = mul i64 %.lcssa, %pow_of_ten.0.lcssa
   store i64 %mul22, ptr %add.ptr.i.i7.lcssa, align 8
-  %mul = fmul double %mul31, 1.500000e+00
+  %mul = fmul double %mul33, 1.500000e+00
   %cmp = fcmp ugt double %mul, 0x43F0000000000000
   br i1 %cmp, label %while.end23.loopexit, label %while.body, !llvm.loop !6
 
 while.end23.loopexit:                             ; preds = %while.end
-  %.pre34 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre34, i64 -8
-  %.pre35 = load i64, ptr %add.ptr.i.i13.phi.trans.insert, align 8
-  %.pre36 = load ptr, ptr %this, align 8
+  %.pre37 = load ptr, ptr %_M_finish.i.i, align 8
+  %add.ptr.i.i13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre37, i64 -8
+  %.pre38 = load i64, ptr %add.ptr.i.i13.phi.trans.insert, align 8
+  %.pre39 = load ptr, ptr %this, align 8
   br label %while.end23
 
 while.end23:                                      ; preds = %while.end23.loopexit, %invoke.cont
-  %12 = phi ptr [ %.pre36, %while.end23.loopexit ], [ %call5.i.i.i.i.i19, %invoke.cont ]
-  %13 = phi i64 [ %.pre35, %while.end23.loopexit ], [ %0, %invoke.cont ]
+  %12 = phi ptr [ %.pre39, %while.end23.loopexit ], [ %call5.i.i.i.i.i20, %invoke.cont ]
+  %13 = phi i64 [ %.pre38, %while.end23.loopexit ], [ %0, %invoke.cont ]
   %maxBucketValue_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %13, ptr %maxBucketValue_, align 8
   %14 = load i64, ptr %12, align 8

@@ -17,7 +17,7 @@ define i32 @nxsig_queue(i32 noundef %0, i32 noundef %1, ptr %2) local_unnamed_ad
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @g_readytorun, align 8
-  %8 = trunc i32 %1 to i8
+  %8 = trunc nuw nsw i32 %1 to i8
   store i8 %8, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 1, ptr %9, align 1
@@ -50,7 +50,7 @@ declare i32 @nxsig_dispatch(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @sigqueue(i32 noundef %0, i32 noundef %1, ptr %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @sigqueue(i32 noundef %0, i32 noundef %1, ptr %2) local_unnamed_addr #0 {
   %4 = alloca %struct.siginfo, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = icmp ult i32 %1, 64
@@ -62,7 +62,7 @@ nxsig_queue.exit.thread:                          ; preds = %3
 
 nxsig_queue.exit:                                 ; preds = %3
   %6 = load ptr, ptr @g_readytorun, align 8
-  %7 = trunc i32 %1 to i8
+  %7 = trunc nuw nsw i32 %1 to i8
   store i8 %7, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 1, ptr %8, align 1

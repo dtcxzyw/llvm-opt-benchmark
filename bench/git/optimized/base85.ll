@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @en85 = internal unnamed_addr constant [85 x i8] c"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @decode_85(ptr nocapture noundef writeonly %dst, ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @decode_85(ptr nocapture noundef writeonly %dst, ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds ([256 x i8], ptr @de85, i64 0, i64 90), align 2
   %tobool.not.i = icmp eq i8 %0, 0
@@ -22,7 +22,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %idxprom4.i = sext i8 %1 to i64
   %arrayidx5.i = getelementptr inbounds [256 x i8], ptr @de85, i64 0, i64 %idxprom4.i
-  %2 = trunc i64 %indvars.iv.next.i to i8
+  %2 = trunc nuw nsw i64 %indvars.iv.next.i to i8
   store i8 %2, ptr %arrayidx5.i, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 85
   br i1 %exitcond.not.i, label %prep_base85.exit, label %for.body.i, !llvm.loop !5

@@ -122,7 +122,7 @@ define internal fastcc noundef zeroext i1 @svcxdr_decode_lock(ptr noundef %0, pt
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %23
-  %28 = trunc i32 %21 to i16
+  %28 = trunc nuw nsw i32 %21 to i16
   store i16 %28, ptr %16, align 2
   %29 = getelementptr inbounds i8, ptr %1, i64 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %29, ptr nonnull align 4 %25, i64 %24, i1 false)
@@ -601,7 +601,7 @@ define dso_local noundef zeroext i1 @nlm4svc_decode_shareargs(ptr nocapture noun
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %44
-  %49 = trunc i32 %42 to i16
+  %49 = trunc nuw nsw i32 %42 to i16
   store i16 %49, ptr %37, align 2
   %50 = getelementptr inbounds i8, ptr %4, i64 54
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %50, ptr nonnull align 4 %46, i64 %45, i1 false)

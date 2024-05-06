@@ -69,7 +69,7 @@ define dso_local i32 @ss_get_location(ptr nocapture noundef readonly %0, i32 nou
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.025.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   %.sroa.025.sroa.3.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 32
-  %.sroa.025.sroa.3.0.extract.trunc.i = trunc i64 %.sroa.025.sroa.3.0.extract.shift.i to i32
+  %.sroa.025.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.025.sroa.3.0.extract.shift.i to i32
   %6 = load ptr, ptr @scan_locations, align 8
   %7 = load ptr, ptr %6, align 8
   br label %8
@@ -179,7 +179,7 @@ define dso_local void @ss_report_location(ptr nocapture noundef readonly %0, i32
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.025.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   %.sroa.025.sroa.3.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 32
-  %.sroa.025.sroa.3.0.extract.trunc.i = trunc i64 %.sroa.025.sroa.3.0.extract.shift.i to i32
+  %.sroa.025.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.025.sroa.3.0.extract.shift.i to i32
   %10 = load ptr, ptr @scan_locations, align 8
   %11 = load ptr, ptr %10, align 8
   br label %12

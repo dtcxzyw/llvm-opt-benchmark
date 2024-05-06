@@ -1275,7 +1275,7 @@ declare i32 @get_log_level() local_unnamed_addr #3
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_unpack_received_msg(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 5004) i32 @slurm_unpack_received_msg(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.slurm_protocol_header, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -1943,7 +1943,7 @@ define noundef i32 @slurm_receive_msg(i32 noundef %0, ptr noundef %1, i32 nounde
   %72 = load i64, ptr %5, align 8
   %73 = trunc i64 %72 to i32
   %74 = call ptr @create_buf(ptr noundef %71, i32 noundef %73) #21
-  %75 = call i32 @slurm_unpack_received_msg(ptr noundef nonnull %1, i32 noundef %0, ptr noundef %74), !range !16
+  %75 = call i32 @slurm_unpack_received_msg(ptr noundef nonnull %1, i32 noundef %0, ptr noundef %74)
   %76 = trunc i8 %10 to i1
   br i1 %76, label %77, label %79
 
@@ -3304,7 +3304,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #12
 declare i32 @forward_msg(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_buffers_pack_msg(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @slurm_buffers_pack_msg(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = alloca i16, align 2
   %5 = alloca %struct.slurm_protocol_header, align 8
   %6 = alloca %struct.slurm_hash_t, align 1
@@ -3720,7 +3720,7 @@ define i32 @slurm_send_node_msg(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %84
 
 42:                                               ; preds = %2
-  %43 = call i32 @slurm_buffers_pack_msg(ptr noundef nonnull %1, ptr noundef nonnull %3, i1 noundef zeroext true), !range !17
+  %43 = call i32 @slurm_buffers_pack_msg(ptr noundef nonnull %1, ptr noundef nonnull %3, i1 noundef zeroext true)
   %.not34 = icmp eq i32 %43, 0
   br i1 %.not34, label %44, label %73
 
@@ -3820,7 +3820,7 @@ declare i64 @slurm_bufs_sendto(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @fd_resolve_path(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @slurm_write_stream(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i64 -2147483648, 2147483648) i64 @slurm_write_stream(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
   %5 = zext i16 %4 to i32
   %6 = mul nuw nsw i32 %5, 1000
@@ -3832,7 +3832,7 @@ define i64 @slurm_write_stream(i32 noundef %0, ptr noundef %1, i64 noundef %2) l
 declare i32 @slurm_send_timeout(i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @slurm_read_stream(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i64 -2147483648, 2147483648) i64 @slurm_read_stream(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
   %5 = zext i16 %4 to i32
   %6 = mul nuw nsw i32 %5, 1000
@@ -3899,7 +3899,7 @@ define void @slurm_pack_addr_array(ptr noundef %0, i32 noundef %1, ptr noundef %
   tail call void @slurm_pack_addr(ptr noundef %4, ptr noundef %2) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3910,7 +3910,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare void @slurm_pack_addr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_unpack_addr_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @slurm_unpack_addr_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = tail call i32 @unpack32(ptr noundef %1, ptr noundef %2) #21
@@ -3939,7 +3939,7 @@ define noundef i32 @slurm_unpack_addr_array(ptr nocapture noundef writeonly %0, 
   %14 = load i32, ptr %1, align 4
   %15 = zext i32 %14 to i64
   %16 = icmp ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %11, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %11 ]
@@ -4071,7 +4071,7 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
 9:                                                ; preds = %2
   store i32 %1, ptr %4, align 4
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 136
@@ -4087,7 +4087,7 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
   %19 = getelementptr inbounds i8, ptr %3, i64 200
   %20 = getelementptr inbounds i8, ptr %3, i64 208
   %21 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %21, i64 64, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 272
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 272
@@ -4108,7 +4108,7 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %3, i64 280
   %36 = getelementptr inbounds i8, ptr %0, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull align 8 dereferenceable(128) %36, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull readonly align 8 dereferenceable(128) %36, i64 128, i1 false)
   %37 = getelementptr inbounds i8, ptr %0, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -4170,7 +4170,7 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %11, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 136
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 136
@@ -4186,7 +4186,7 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
   %21 = getelementptr inbounds i8, ptr %4, i64 200
   %22 = getelementptr inbounds i8, ptr %4, i64 208
   %23 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull readonly align 8 dereferenceable(64) %23, i64 64, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 272
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 272
@@ -4207,7 +4207,7 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 280
   %38 = getelementptr inbounds i8, ptr %0, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %37, ptr noundef nonnull align 8 dereferenceable(128) %38, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %37, ptr noundef nonnull readonly align 8 dereferenceable(128) %38, i64 128, i1 false)
   %39 = getelementptr inbounds i8, ptr %0, i64 148
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
@@ -4267,7 +4267,7 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
 9:                                                ; preds = %2
   store ptr %1, ptr %4, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 136
@@ -4283,7 +4283,7 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
   %19 = getelementptr inbounds i8, ptr %3, i64 200
   %20 = getelementptr inbounds i8, ptr %3, i64 208
   %21 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %21, i64 64, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 272
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 272
@@ -4304,7 +4304,7 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %3, i64 280
   %36 = getelementptr inbounds i8, ptr %0, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull align 8 dereferenceable(128) %36, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull readonly align 8 dereferenceable(128) %36, i64 128, i1 false)
   %37 = getelementptr inbounds i8, ptr %0, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -4706,7 +4706,7 @@ _remap_slurmctld_errno.exit:                      ; preds = %127, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_open_controller(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
@@ -4793,7 +4793,7 @@ define internal fastcc i32 @_open_controller(ptr nocapture noundef %0, ptr nound
   %40 = add nuw nsw i32 %.0389.us, 1
   %41 = load i32, ptr %6, align 8
   %42 = icmp ult i32 %40, %41
-  br i1 %42, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !20
+  br i1 %42, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !18
 
 43:                                               ; preds = %18
   %44 = tail call i32 @slurm_open_stream(ptr noundef nonnull %15, i1 noundef zeroext false) #21
@@ -4820,7 +4820,7 @@ define internal fastcc i32 @_open_controller(ptr nocapture noundef %0, ptr nound
   %55 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
   %56 = zext i16 %55 to i32
   %57 = icmp ult i32 %54, %56
-  br i1 %57, label %.lr.ph12.split.us, label %.loopexit36, !llvm.loop !21
+  br i1 %57, label %.lr.ph12.split.us, label %.loopexit36, !llvm.loop !19
 
 .preheader.us:                                    ; preds = %18
   %58 = load i32, ptr %6, align 8
@@ -4888,7 +4888,7 @@ define internal fastcc i32 @_open_controller(ptr nocapture noundef %0, ptr nound
   %84 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 105), align 8
   %85 = zext i16 %84 to i32
   %86 = icmp ult i32 %83, %85
-  br i1 %86, label %.lr.ph12.split, label %._crit_edge13.thread, !llvm.loop !21
+  br i1 %86, label %.lr.ph12.split, label %._crit_edge13.thread, !llvm.loop !19
 
 ._crit_edge13.thread:                             ; preds = %82, %.thread27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -5000,7 +5000,7 @@ _send_and_recv_msg.exit:                          ; preds = %27, %slurm_send_rec
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_send_only_controller_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @slurm_send_only_controller_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = call fastcc i32 @_open_controller(ptr noundef nonnull %3, ptr noundef %1)
@@ -5059,7 +5059,7 @@ _remap_slurmctld_errno.exit:                      ; preds = %.thread, %switch.lo
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_send_only_node_msg(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @slurm_send_only_node_msg(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.pollfd, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -5493,7 +5493,7 @@ define ptr @slurm_send_addr_recv_msgs(ptr noundef %0, ptr noundef %1, i32 nounde
   %54 = load i16, ptr @slurm_send_addr_recv_msgs.conn_timeout, align 2
   %55 = zext i16 %54 to i32
   %.not38.not = icmp slt i32 %.129, %55
-  br i1 %.not38.not, label %.preheader, label %56, !llvm.loop !22
+  br i1 %.not38.not, label %.preheader, label %56, !llvm.loop !20
 
 56:                                               ; preds = %52, %23
   %57 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -5630,7 +5630,7 @@ _send_and_recv_msgs.exit:                         ; preds = %77, %98
 117:                                              ; preds = %115, %.lr.ph
   %118 = tail call ptr @list_next(ptr noundef %110) #21
   %.not44 = icmp eq ptr %118, null
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %117, %109
   tail call void @list_iterator_destroy(ptr noundef %110) #21
@@ -5656,7 +5656,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #3
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #21
   %5 = getelementptr inbounds i8, ptr %0, i64 208
@@ -5756,7 +5756,7 @@ declare i32 @slurm_get_return_code(i32 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @slurm_free_msg_data(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_send_recv_controller_rc_msg(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @slurm_send_recv_controller_rc_msg(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = call i32 @slurm_send_recv_controller_msg(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
@@ -5973,7 +5973,7 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   call void @destroy_data_info(ptr noundef nonnull %27) #21
   %33 = call ptr @list_pop(ptr noundef nonnull %22) #21
   %.not36.us = icmp eq ptr %33, null
-  br i1 %.not36.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %.not36.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %47
   %34 = phi ptr [ %48, %47 ], [ %25, %.lr.ph ]
@@ -6007,7 +6007,7 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   call void @destroy_data_info(ptr noundef nonnull %34) #21
   %48 = call ptr @list_pop(ptr noundef nonnull %22) #21
   %.not36 = icmp eq ptr %48, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
+  br i1 %.not36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 .thread45:                                        ; preds = %14
   %49 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76) #21
@@ -6053,7 +6053,7 @@ declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @slurm_hex_to_char(i32 noundef %0) local_unnamed_addr #15 {
+define range(i32 -1, 103) i32 @slurm_hex_to_char(i32 noundef %0) local_unnamed_addr #15 {
   %or.cond = icmp ult i32 %0, 10
   br i1 %or.cond, label %2, label %4
 
@@ -6074,7 +6074,7 @@ define i32 @slurm_hex_to_char(i32 noundef %0) local_unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @slurm_char_to_hex(i32 noundef %0) local_unnamed_addr #16 {
+define range(i32 -1, 16) i32 @slurm_char_to_hex(i32 noundef %0) local_unnamed_addr #16 {
   %2 = tail call i32 @tolower(i32 noundef %0) #22
   %3 = add i32 %0, -48
   %or.cond = icmp ult i32 %3, 10
@@ -6090,7 +6090,7 @@ define i32 @slurm_char_to_hex(i32 noundef %0) local_unnamed_addr #16 {
 declare i32 @tolower(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_associations_get_shares(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @slurm_associations_get_shares(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #21
@@ -6237,12 +6237,10 @@ attributes #24 = { noreturn nounwind }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = !{i32 0, i32 5004}
-!17 = !{i32 -1, i32 1}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}

@@ -160,7 +160,7 @@ define void @dtpttf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 92:                                               ; preds = %92, %86
   %93 = phi i64 [ %88, %86 ], [ %100, %92 ]
   %94 = phi i64 [ %90, %86 ], [ %99, %92 ]
-  %95 = mul nsw i64 %93, %45
+  %95 = mul nuw nsw i64 %93, %45
   %96 = getelementptr inbounds double, ptr %3, i64 %94
   %97 = load double, ptr %96, align 8, !tbaa !7
   %98 = getelementptr double, ptr %91, i64 %95
@@ -251,7 +251,7 @@ define void @dtpttf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %15, label %214, label %150
 
 150:                                              ; preds = %149
-  %151 = mul nsw i32 %44, %20
+  %151 = mul nuw nsw i32 %44, %20
   %152 = add nuw nsw i32 %44, 1
   %153 = zext nneg i32 %152 to i64
   %154 = zext nneg i32 %44 to i64
@@ -473,7 +473,7 @@ define void @dtpttf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 300:                                              ; preds = %300, %295
   %301 = phi i64 [ %296, %295 ], [ %308, %300 ]
   %302 = phi i64 [ %298, %295 ], [ %307, %300 ]
-  %303 = mul nsw i64 %301, %45
+  %303 = mul nuw nsw i64 %301, %45
   %304 = getelementptr inbounds double, ptr %3, i64 %302
   %305 = load double, ptr %304, align 8, !tbaa !7
   %306 = getelementptr double, ptr %299, i64 %303
@@ -570,7 +570,7 @@ define void @dtpttf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %15, label %422, label %362
 
 362:                                              ; preds = %361
-  %363 = mul nsw i32 %44, %41
+  %363 = mul nuw nsw i32 %44, %41
   %364 = add nuw nsw i32 %44, 1
   %365 = zext nneg i32 %44 to i64
   %366 = zext nneg i32 %363 to i64
@@ -591,7 +591,7 @@ define void @dtpttf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %375 = phi i32 [ 0, %362 ], [ %370, %369 ]
   %376 = phi i32 [ 0, %362 ], [ %377, %369 ]
   %377 = add nuw nsw i32 %376, 1
-  %378 = mul nsw i32 %377, %44
+  %378 = mul nuw nsw i32 %377, %44
   %379 = add nuw nsw i32 %378, %376
   %380 = icmp slt i32 %379, %363
   br i1 %380, label %381, label %369

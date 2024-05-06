@@ -45,7 +45,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %call1, i8 0, i64 56, i1 false)
   %length.i = getelementptr inbounds i8, ptr %call1, i64 48
   store i32 -1, ptr %length.i, align 8
   %heapAllocated = getelementptr inbounds i8, ptr %call1, i64 24
@@ -134,7 +134,7 @@ if.then1:                                         ; preds = %if.then
   br label %if.end2
 
 if.else:                                          ; preds = %if.then
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %pData, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %pData, i8 0, i64 56, i1 false)
   %length.i = getelementptr inbounds i8, ptr %pData, i64 48
   store i32 -1, ptr %length.i, align 8
   br label %if.end2
@@ -173,7 +173,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare zeroext i16 @udata_getHeaderSize_75(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define i32 @udata_getLength_75(ptr noundef readonly %pData) local_unnamed_addr #4 {
+define range(i32 -65535, -2147483648) i32 @udata_getLength_75(ptr noundef readonly %pData) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %pData, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -222,7 +222,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @UDataMemory_isLoaded_75(ptr nocapture noundef readonly %This) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @UDataMemory_isLoaded_75(ptr nocapture noundef readonly %This) local_unnamed_addr #6 {
 entry:
   %pHeader = getelementptr inbounds i8, ptr %This, i64 8
   %0 = load ptr, ptr %pHeader, align 8

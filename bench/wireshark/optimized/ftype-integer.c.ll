@@ -359,7 +359,7 @@ define internal noundef i32 @uint64_val_to_uinteger64(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @uint64_val_to_sinteger64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 0, 2) i32 @uint64_val_to_sinteger64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, 0
@@ -454,7 +454,7 @@ define internal noundef i32 @uint64_bitwise_and(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint64_unary_minus(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) #0 {
+define internal range(i32 0, 4) i32 @uint64_unary_minus(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %5, 0
@@ -484,7 +484,7 @@ define internal noundef i32 @uint64_unary_minus(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint64_add(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @uint64_add(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
@@ -507,7 +507,7 @@ define internal noundef i32 @uint64_add(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint64_subtract(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @uint64_subtract(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -554,7 +554,7 @@ _sint64_subtract.exit:                            ; preds = %24, %22, %14, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint64_multiply(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @uint64_multiply(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
@@ -577,7 +577,7 @@ define internal noundef i32 @uint64_multiply(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint64_divide(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @uint64_divide(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -602,7 +602,7 @@ define internal noundef i32 @uint64_divide(ptr nocapture noundef writeonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint64_modulo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @uint64_modulo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -1208,7 +1208,7 @@ define internal ptr @sinteger64_to_repr(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @sint64_val_to_uinteger64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 0, 2) i32 @sint64_val_to_uinteger64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, 0
@@ -1324,7 +1324,7 @@ define internal noundef i32 @sint64_unary_minus(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sint64_add(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @sint64_add(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
@@ -1347,7 +1347,7 @@ define internal noundef i32 @sint64_add(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sint64_subtract(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @sint64_subtract(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
@@ -1370,7 +1370,7 @@ _sint64_subtract.exit:                            ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sint64_multiply(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @sint64_multiply(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
@@ -1393,7 +1393,7 @@ define internal noundef i32 @sint64_multiply(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sint64_divide(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @sint64_divide(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -1430,7 +1430,7 @@ psnip_safe_int64_div.exit.thread:                 ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sint64_modulo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @sint64_modulo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -2189,13 +2189,13 @@ define internal noalias ptr @eui64_to_repr(ptr noundef %0, ptr nocapture noundef
   %9 = lshr i32 %.sroa.0.0.extract.trunc, 16
   %10 = lshr i32 %.sroa.0.0.extract.trunc, 24
   %.sroa.5.0.extract.shift = lshr i64 %7, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %.sroa.6.0.extract.shift = lshr i64 %7, 40
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw nsw i64 %.sroa.6.0.extract.shift to i32
   %.sroa.7.0.extract.shift = lshr i64 %7, 48
-  %.sroa.7.0.extract.trunc = trunc i64 %.sroa.7.0.extract.shift to i32
+  %.sroa.7.0.extract.trunc = trunc nuw nsw i64 %.sroa.7.0.extract.shift to i32
   %.sroa.8.0.extract.shift = lshr i64 %7, 56
-  %.sroa.8.0.extract.trunc = trunc i64 %.sroa.8.0.extract.shift to i32
+  %.sroa.8.0.extract.trunc = trunc nuw nsw i64 %.sroa.8.0.extract.shift to i32
   %11 = and i32 %.sroa.0.0.extract.trunc, 255
   %12 = and i32 %8, 255
   %13 = and i32 %9, 255

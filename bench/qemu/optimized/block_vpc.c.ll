@@ -366,7 +366,7 @@ if.end113:                                        ; preds = %if.end108
   store i32 %22, ptr %block_size115, align 8
   %conv117 = zext i32 %22 to i64
   %tobool.not.i119 = icmp eq i32 %21, 0
-  %23 = call i64 @llvm.ctpop.i64(i64 %conv117), !range !7
+  %23 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv117)
   %tobool1.not.i = icmp ugt i64 %23, 1
   %or.cond122.not124 = select i1 %tobool.not.i119, i1 true, i1 %tobool1.not.i
   %cmp122 = icmp ult i32 %22, 512
@@ -495,7 +495,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   %42 = load i32, ptr %max_table_entries130, align 8
   %43 = sext i32 %42 to i64
   %cmp188 = icmp slt i64 %indvars.iv.next129, %43
-  br i1 %cmp188, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp188, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end181
   %44 = load ptr, ptr %file, align 8
@@ -692,7 +692,7 @@ calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.
   %mul.i = mul nuw nsw i64 %conv2.i, %conv1.i
   %mul3.i = mul nuw nsw i64 %mul.i, %conv.i
   %cmp4.i = icmp ugt i64 %cond.i, %mul3.i
-  br i1 %cmp4.i, label %for.body.i, label %if.end.loopexit.i, !llvm.loop !9
+  br i1 %cmp4.i, label %for.body.i, label %if.end.loopexit.i, !llvm.loop !8
 
 if.end.loopexit.i:                                ; preds = %calculate_geometry.exit.i
   %conv35.i.i = trunc i32 %div34.i.i to i16
@@ -948,7 +948,7 @@ calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.
   %mul.i = mul nuw nsw i64 %secs_per_cyl.2.i, %conv1.i
   %mul3.i = mul nuw nsw i64 %mul.i, %conv.i
   %cmp4.i = icmp ugt i64 %cond.i, %mul3.i
-  br i1 %cmp4.i, label %for.body.i, label %if.end.i, !llvm.loop !9
+  br i1 %cmp4.i, label %for.body.i, label %if.end.i, !llvm.loop !8
 
 if.end.i:                                         ; preds = %calculate_geometry.exit.i
   %5 = mul nuw nsw i64 %conv1.i, %conv.i
@@ -1036,7 +1036,7 @@ return:                                           ; preds = %entry, %if.then
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @vpc_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
+define internal range(i32 0, 101) i32 @vpc_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
 entry:
   %cmp = icmp sgt i32 %buf_size, 7
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -1146,7 +1146,7 @@ if.end20:                                         ; preds = %get_image_offset.ex
   %add = add i64 %cond38, %offset.addr.043
   %add22 = add i64 %cond38, %bytes_done.040
   %cmp2 = icmp sgt i64 %sub21, 0
-  br i1 %cmp2, label %while.body, label %fail, !llvm.loop !10
+  br i1 %cmp2, label %while.body, label %fail, !llvm.loop !9
 
 fail:                                             ; preds = %get_image_offset.exit, %if.end20, %if.end
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.end20 ], [ %call14, %get_image_offset.exit ]
@@ -1245,7 +1245,7 @@ if.then13:                                        ; preds = %while.body, %lor.lh
   %rem52 = srem i64 %offset.addr.060, %conv51
   %sub53 = sub nsw i64 %conv51, %rem52
   %cond54 = call i64 @llvm.smin.i64(i64 %bytes.addr.059, i64 %sub53)
-  %call14 = call i64 @alloc_block(ptr noundef %bs, i64 noundef %offset.addr.060), !range !11
+  %call14 = call i64 @alloc_block(ptr noundef %bs, i64 noundef %offset.addr.060)
   %cmp15 = icmp slt i64 %call14, 0
   br i1 %cmp15, label %if.then17, label %if.end20
 
@@ -1278,7 +1278,7 @@ if.end28:                                         ; preds = %if.end20
   %add = add i64 %cond47, %offset.addr.060
   %add30 = add i64 %cond47, %bytes_done.058
   %cmp2 = icmp sgt i64 %sub29, 0
-  br i1 %cmp2, label %while.body, label %fail, !llvm.loop !12
+  br i1 %cmp2, label %while.body, label %fail, !llvm.loop !10
 
 fail:                                             ; preds = %if.end20, %if.end28, %if.then23.i, %if.end, %if.then17
   %ret.3 = phi i32 [ %conv18, %if.then17 ], [ 0, %if.end ], [ %call23, %if.end20 ], [ 0, %if.end28 ], [ %call31.i, %if.then23.i ]
@@ -1292,7 +1292,7 @@ return:                                           ; preds = %fail, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vpc_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 2, 70) i32 @vpc_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1558,7 +1558,7 @@ if.end20:                                         ; preds = %for.body
   %inc = add i32 %i.021, 1
   %conv = sext i32 %inc to i64
   %cmp13 = icmp ugt i64 %div1219, %conv
-  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end20, %if.end8
   %0 = getelementptr inbounds i8, ptr %dyndisk_header, i64 36
@@ -1604,7 +1604,7 @@ fail:                                             ; preds = %for.body, %vpc_chec
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @create_fixed_disk(ptr noundef %blk, ptr noundef %footer, i64 noundef %total_size, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @create_fixed_disk(ptr noundef %blk, ptr noundef %footer, i64 noundef %total_size, ptr noundef %errp) #0 {
 entry:
   %add = add i64 %total_size, 512
   %call = tail call i32 @blk_co_truncate(ptr noundef %blk, i64 noundef %add, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, ptr noundef %errp) #15
@@ -1663,7 +1663,7 @@ declare void @qemu_co_mutex_lock(ptr noundef) #1
 declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @get_image_offset(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %write, ptr noundef writeonly %err) #0 {
+define internal range(i64 -2, 2207613189118) i64 @get_image_offset(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %write, ptr noundef writeonly %err) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1758,7 +1758,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_co_pwritev(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @alloc_block(ptr nocapture noundef readonly %bs, i64 noundef %offset) #0 {
+define internal range(i64 -2147483648, 2207613189118) i64 @alloc_block(ptr nocapture noundef readonly %bs, i64 noundef %offset) #0 {
 entry:
   %bat_value = alloca i32, align 4
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -1898,7 +1898,7 @@ cleanup:                                          ; preds = %if.end10.i, %lor.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rewrite_footer(ptr nocapture noundef readonly %bs) #0 {
+define internal range(i32 -2147483648, 1) i32 @rewrite_footer(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1956,10 +1956,8 @@ attributes #18 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i64 -2147483648, i64 2207613189118}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!11 = distinct !{!11, !6}

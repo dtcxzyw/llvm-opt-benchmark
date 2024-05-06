@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.1 = private unnamed_addr constant [51 x i8] c"usage: inproc_lat <message-size> <roundtrip-count>\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %local_thread = alloca i64, align 8
   %msg = alloca %struct.zmq_msg_t, align 8

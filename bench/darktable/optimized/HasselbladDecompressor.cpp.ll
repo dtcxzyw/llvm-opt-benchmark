@@ -263,7 +263,7 @@ define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rawspeed::PrefixCodeLUTDecoder", align 8
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8, !tbaa !12
@@ -279,7 +279,7 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(pt
   %14 = getelementptr inbounds i8, ptr %4, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !110, !noalias !105
   %16 = ashr i32 %15, 1
-  %17 = mul nsw i32 %16, %13
+  %17 = mul nuw nsw i32 %16, %13
   %18 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %13, -1
@@ -618,8 +618,8 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(pt
   call void @llvm.assume(i1 %213)
   %214 = add nsw i32 %202, -11
   %215 = shl i64 %204, 11
-  %216 = trunc i64 %196 to i32
-  %217 = trunc i64 %196 to i16
+  %216 = trunc nuw nsw i64 %196 to i32
+  %217 = trunc nuw nsw i64 %196 to i16
   br i1 %103, label %.preheader42, label %.loopexit43
 
 .preheader42:                                     ; preds = %212, %229
@@ -640,7 +640,7 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(pt
   %230 = icmp ne i32 %218, 0
   call void @llvm.assume(i1 %230)
   %231 = lshr i64 %219, 63
-  %232 = trunc i64 %231 to i32
+  %232 = trunc nuw nsw i64 %231 to i32
   %233 = add nsw i32 %218, -1
   %234 = shl i64 %219, 1
   %235 = shl nsw i32 %223, 1
@@ -776,8 +776,8 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(pt
   call void @llvm.assume(i1 %325)
   %326 = add nsw i32 %314, -11
   %327 = shl i64 %316, 11
-  %328 = trunc i64 %308 to i32
-  %329 = trunc i64 %308 to i16
+  %328 = trunc nuw nsw i64 %308 to i32
+  %329 = trunc nuw nsw i64 %308 to i16
   br i1 %103, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %324, %341
@@ -798,7 +798,7 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(pt
   %342 = icmp ne i32 %330, 0
   call void @llvm.assume(i1 %342)
   %343 = lshr i64 %331, 63
-  %344 = trunc i64 %343 to i32
+  %344 = trunc nuw nsw i64 %343 to i32
   %345 = add nsw i32 %330, -1
   %346 = shl i64 %331, 1
   %347 = shl nsw i32 %335, 1
@@ -917,7 +917,7 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(pt
   %424 = sub nuw nsw i32 64, %276
   %425 = zext nneg i32 %424 to i64
   %426 = lshr i64 %421, %425
-  %427 = trunc i64 %426 to i32
+  %427 = trunc nuw i64 %426 to i32
   %428 = sub nsw i32 %422, %276
   %429 = zext nneg i32 %276 to i64
   %430 = shl i64 %421, %429
@@ -1004,7 +1004,7 @@ define hidden noundef i32 @_ZN8rawspeed22HasselbladDecompressor10decompressEv(pt
   %483 = sub nuw nsw i32 64, %388
   %484 = zext nneg i32 %483 to i64
   %485 = lshr i64 %480, %484
-  %486 = trunc i64 %485 to i32
+  %486 = trunc nuw i64 %485 to i32
   %487 = sub nsw i32 %481, %388
   %488 = zext nneg i32 %388 to i64
   %489 = shl i64 %480, %488

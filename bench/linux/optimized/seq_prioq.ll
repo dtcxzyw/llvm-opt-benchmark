@@ -165,7 +165,7 @@ define dso_local ptr @snd_seq_prioq_cell_out(ptr noundef %0, ptr noundef readonl
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_prioq_cell_in(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %5 = or i1 %3, %4

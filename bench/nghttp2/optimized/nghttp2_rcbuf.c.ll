@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.nghttp2_rcbuf_decref = private unnamed_addr constant [43 x i8] c"void nghttp2_rcbuf_decref(nghttp2_rcbuf *)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_rcbuf_new(ptr nocapture noundef %rcbuf_ptr, i64 noundef %size, ptr noundef %mem) local_unnamed_addr #0 {
+define hidden range(i32 -901, 1) i32 @nghttp2_rcbuf_new(ptr nocapture noundef %rcbuf_ptr, i64 noundef %size, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %add = add i64 %size, 40
   %call = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem, i64 noundef %add) #5
@@ -44,7 +44,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @nghttp2_mem_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_rcbuf_new2(ptr nocapture noundef %rcbuf_ptr, ptr noundef %src, i64 noundef %srclen, ptr noundef %mem) local_unnamed_addr #0 {
+define hidden range(i32 -901, 1) i32 @nghttp2_rcbuf_new2(ptr nocapture noundef %rcbuf_ptr, ptr noundef %src, i64 noundef %srclen, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %add.i = add i64 %srclen, 41
   %call.i = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem, i64 noundef %add.i) #5
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nghttp2_rcbuf_is_static(ptr nocapture noundef readonly %rcbuf) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @nghttp2_rcbuf_is_static(ptr nocapture noundef readonly %rcbuf) local_unnamed_addr #4 {
 entry:
   %ref = getelementptr inbounds i8, ptr %rcbuf, i64 32
   %0 = load i32, ptr %ref, align 8

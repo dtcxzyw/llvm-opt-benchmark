@@ -2750,8 +2750,8 @@ entry:
   store i32 0, ptr %dirty, align 4
   %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
-  %cmp392 = icmp sgt i32 %0, 2
-  br i1 %cmp392, label %for.body.lr.ph, label %if.then107
+  %cmp405 = icmp sgt i32 %0, 2
+  br i1 %cmp405, label %for.body.lr.ph, label %if.then107
 
 for.body.lr.ph:                                   ; preds = %entry
   %argv = getelementptr inbounds i8, ptr %c, i64 96
@@ -2759,16 +2759,16 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %24, %for.inc ]
-  %j.0398 = phi i32 [ 2, %for.body.lr.ph ], [ %inc105, %for.inc ]
-  %numops.0397 = phi i32 [ 0, %for.body.lr.ph ], [ %numops.1, %for.inc ]
-  %ops.0396 = phi ptr [ null, %for.body.lr.ph ], [ %ops.1, %for.inc ]
-  %owtype.0395 = phi i32 [ 0, %for.body.lr.ph ], [ %owtype.1, %for.inc ]
-  %readonly.0394 = phi i32 [ 1, %for.body.lr.ph ], [ %readonly.2, %for.inc ]
-  %highest_write_offset.0393 = phi i64 [ 0, %for.body.lr.ph ], [ %highest_write_offset.3, %for.inc ]
-  %2 = xor i32 %j.0398, -1
+  %j.0411 = phi i32 [ 2, %for.body.lr.ph ], [ %inc105, %for.inc ]
+  %numops.0410 = phi i32 [ 0, %for.body.lr.ph ], [ %numops.1, %for.inc ]
+  %ops.0409 = phi ptr [ null, %for.body.lr.ph ], [ %ops.1, %for.inc ]
+  %owtype.0408 = phi i32 [ 0, %for.body.lr.ph ], [ %owtype.1, %for.inc ]
+  %readonly.0407 = phi i32 [ 1, %for.body.lr.ph ], [ %readonly.2, %for.inc ]
+  %highest_write_offset.0406 = phi i64 [ 0, %for.body.lr.ph ], [ %highest_write_offset.3, %for.inc ]
+  %2 = xor i32 %j.0411, -1
   %sub2 = add i32 %1, %2
   %3 = load ptr, ptr %argv, align 8
-  %idxprom = sext i32 %j.0398 to i64
+  %idxprom = sext i32 %j.0411 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds i8, ptr %4, i64 8
@@ -2801,7 +2801,7 @@ if.else15:                                        ; preds = %if.else9
   br i1 %or.cond3, label %if.then20, label %if.else39
 
 if.then20:                                        ; preds = %if.else15
-  %add = add nsw i32 %j.0398, 1
+  %add = add nsw i32 %j.0411, 1
   %idxprom22 = sext i32 %add to i64
   %arrayidx23 = getelementptr inbounds ptr, ptr %3, i64 %idxprom22
   %6 = load ptr, ptr %arrayidx23, align 8
@@ -2823,13 +2823,13 @@ if.else32:                                        ; preds = %if.else28
 
 if.else36:                                        ; preds = %if.else32
   call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.27) #17
-  call void @zfree(ptr noundef %ops.0396) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.else39:                                        ; preds = %if.else15
   %8 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 15), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %8) #17
-  call void @zfree(ptr noundef %ops.0396) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.end42:                                         ; preds = %if.else9, %if.else, %for.body
@@ -2864,13 +2864,13 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.end
   %cmp24.i = icmp ugt i64 %12, 63
   %or.cond2.i = select i1 %cmp21.i, i1 %cmp24.i, i1 false
   %14 = or i1 %13, %or.cond2.i
-  %or.cond365 = select i1 %cmp11.i, i1 true, i1 %14
-  br i1 %or.cond365, label %if.then49, label %if.end50
+  %or.cond378 = select i1 %cmp11.i, i1 true, i1 %14
+  br i1 %or.cond378, label %if.then49, label %if.end50
 
 if.then49:                                        ; preds = %if.end8.i, %if.end42
   call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %llbits.i)
-  call void @zfree(ptr noundef %ops.0396) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.end50:                                         ; preds = %if.end8.i
@@ -2885,7 +2885,7 @@ if.end50:                                         ; preds = %if.end8.i
   br i1 %cmp56.not, label %if.end58, label %if.then57
 
 if.then57:                                        ; preds = %if.end50
-  call void @zfree(ptr noundef %ops.0396) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.end58:                                         ; preds = %if.end50
@@ -2897,7 +2897,7 @@ if.then60:                                        ; preds = %if.end58
   %conv = ashr exact i64 %sext, 32
   %add61 = add nsw i64 %conv, -1
   %sub62 = add i64 %add61, %18
-  %spec.select = call i64 @llvm.umax.i64(i64 %highest_write_offset.0393, i64 %sub62)
+  %spec.select = call i64 @llvm.umax.i64(i64 %highest_write_offset.0406, i64 %sub62)
   %19 = load ptr, ptr %argv, align 8
   %20 = getelementptr ptr, ptr %19, i64 %idxprom
   %arrayidx73 = getelementptr i8, ptr %20, i64 24
@@ -2907,19 +2907,19 @@ if.then60:                                        ; preds = %if.end58
   br i1 %cmp75.not, label %if.end79, label %if.then77
 
 if.then77:                                        ; preds = %if.then60
-  call void @zfree(ptr noundef %ops.0396) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.end79:                                         ; preds = %if.then60, %if.end58
   %sub103 = phi i32 [ 3, %if.then60 ], [ 2, %if.end58 ]
-  %highest_write_offset.2 = phi i64 [ %spec.select, %if.then60 ], [ %highest_write_offset.0393, %if.end58 ]
-  %readonly.1 = phi i32 [ 0, %if.then60 ], [ %readonly.0394, %if.end58 ]
-  %add80 = add nsw i32 %numops.0397, 1
+  %highest_write_offset.2 = phi i64 [ %spec.select, %if.then60 ], [ %highest_write_offset.0406, %if.end58 ]
+  %readonly.1 = phi i32 [ 0, %if.then60 ], [ %readonly.0407, %if.end58 ]
+  %add80 = add nsw i32 %numops.0410, 1
   %conv81 = sext i32 %add80 to i64
   %mul = shl nsw i64 %conv81, 5
-  %call82 = call ptr @zrealloc(ptr noundef %ops.0396, i64 noundef %mul) #21
+  %call82 = call ptr @zrealloc(ptr noundef %ops.0409, i64 noundef %mul) #21
   %22 = load i64, ptr %bitoffset, align 8
-  %idxprom83 = sext i32 %numops.0397 to i64
+  %idxprom83 = sext i32 %numops.0410 to i64
   %arrayidx84 = getelementptr inbounds %struct.bitfieldOp, ptr %call82, i64 %idxprom83
   store i64 %22, ptr %arrayidx84, align 8
   %23 = load i64, ptr %i64, align 8
@@ -2928,22 +2928,22 @@ if.end79:                                         ; preds = %if.then60, %if.end5
   %opcode90 = getelementptr inbounds i8, ptr %arrayidx84, i64 16
   store i32 %opcode.0, ptr %opcode90, align 8
   %owtype93 = getelementptr inbounds i8, ptr %arrayidx84, i64 20
-  store i32 %owtype.0395, ptr %owtype93, align 4
+  store i32 %owtype.0408, ptr %owtype93, align 4
   %bits96 = getelementptr inbounds i8, ptr %arrayidx84, i64 24
   store i32 %conv28.i, ptr %bits96, align 8
   %sign99 = getelementptr inbounds i8, ptr %arrayidx84, i64 28
   store i32 %storemerge.i, ptr %sign99, align 4
-  %add104 = add nsw i32 %sub103, %j.0398
+  %add104 = add nsw i32 %sub103, %j.0411
   %.pre = load i32, ptr %argc, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else32, %if.else28, %if.then20, %if.end79
   %24 = phi i32 [ %.pre, %if.end79 ], [ %1, %if.then20 ], [ %1, %if.else28 ], [ %1, %if.else32 ]
-  %highest_write_offset.3 = phi i64 [ %highest_write_offset.2, %if.end79 ], [ %highest_write_offset.0393, %if.then20 ], [ %highest_write_offset.0393, %if.else28 ], [ %highest_write_offset.0393, %if.else32 ]
-  %readonly.2 = phi i32 [ %readonly.1, %if.end79 ], [ %readonly.0394, %if.then20 ], [ %readonly.0394, %if.else28 ], [ %readonly.0394, %if.else32 ]
-  %owtype.1 = phi i32 [ %owtype.0395, %if.end79 ], [ 0, %if.then20 ], [ 1, %if.else28 ], [ 2, %if.else32 ]
-  %ops.1 = phi ptr [ %call82, %if.end79 ], [ %ops.0396, %if.then20 ], [ %ops.0396, %if.else28 ], [ %ops.0396, %if.else32 ]
-  %numops.1 = phi i32 [ %add80, %if.end79 ], [ %numops.0397, %if.then20 ], [ %numops.0397, %if.else28 ], [ %numops.0397, %if.else32 ]
+  %highest_write_offset.3 = phi i64 [ %highest_write_offset.2, %if.end79 ], [ %highest_write_offset.0406, %if.then20 ], [ %highest_write_offset.0406, %if.else28 ], [ %highest_write_offset.0406, %if.else32 ]
+  %readonly.2 = phi i32 [ %readonly.1, %if.end79 ], [ %readonly.0407, %if.then20 ], [ %readonly.0407, %if.else28 ], [ %readonly.0407, %if.else32 ]
+  %owtype.1 = phi i32 [ %owtype.0408, %if.end79 ], [ 0, %if.then20 ], [ 1, %if.else28 ], [ 2, %if.else32 ]
+  %ops.1 = phi ptr [ %call82, %if.end79 ], [ %ops.0409, %if.then20 ], [ %ops.0409, %if.else28 ], [ %ops.0409, %if.else32 ]
+  %numops.1 = phi i32 [ %add80, %if.end79 ], [ %numops.0410, %if.then20 ], [ %numops.0410, %if.else28 ], [ %numops.0410, %if.else32 ]
   %j.1 = phi i32 [ %add104, %if.end79 ], [ %add, %if.then20 ], [ %add, %if.else28 ], [ %add, %if.else32 ]
   %inc105 = add nsw i32 %j.1, 1
   %cmp = icmp slt i32 %inc105, %24
@@ -2954,8 +2954,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %25, label %if.else118, label %if.then107
 
 if.then107:                                       ; preds = %entry, %for.end
-  %numops.0.lcssa427 = phi i32 [ %numops.1, %for.end ], [ 0, %entry ]
-  %ops.0.lcssa425 = phi ptr [ %ops.1, %for.end ], [ null, %entry ]
+  %numops.0.lcssa440 = phi i32 [ %numops.1, %for.end ], [ 0, %entry ]
+  %ops.0.lcssa438 = phi ptr [ %ops.1, %for.end ], [ null, %entry ]
   %db = getelementptr inbounds i8, ptr %c, i64 32
   %26 = load ptr, ptr %db, align 8
   %argv108 = getelementptr inbounds i8, ptr %c, i64 96
@@ -2972,7 +2972,7 @@ land.lhs.true113:                                 ; preds = %if.then107
   br i1 %tobool115.not, label %if.end127, label %if.then116
 
 if.then116:                                       ; preds = %land.lhs.true113
-  call void @zfree(ptr noundef %ops.0.lcssa425) #17
+  call void @zfree(ptr noundef %ops.0.lcssa438) #17
   br label %return
 
 if.else118:                                       ; preds = %for.end
@@ -2995,25 +2995,25 @@ if.then125:                                       ; preds = %if.end121
   br label %return
 
 if.end127:                                        ; preds = %if.end121, %if.then107, %land.lhs.true113
-  %numops.0.lcssa426 = phi i32 [ %numops.0.lcssa427, %land.lhs.true113 ], [ %numops.0.lcssa427, %if.then107 ], [ %numops.1, %if.end121 ]
-  %ops.0.lcssa424 = phi ptr [ %ops.0.lcssa425, %land.lhs.true113 ], [ %ops.0.lcssa425, %if.then107 ], [ %ops.1, %if.end121 ]
+  %numops.0.lcssa439 = phi i32 [ %numops.0.lcssa440, %land.lhs.true113 ], [ %numops.0.lcssa440, %if.then107 ], [ %numops.1, %if.end121 ]
+  %ops.0.lcssa437 = phi ptr [ %ops.0.lcssa438, %land.lhs.true113 ], [ %ops.0.lcssa438, %if.then107 ], [ %ops.1, %if.end121 ]
   %o.0 = phi ptr [ %call110, %land.lhs.true113 ], [ null, %if.then107 ], [ %call122, %if.end121 ]
-  %conv128 = sext i32 %numops.0.lcssa426 to i64
+  %conv128 = sext i32 %numops.0.lcssa439 to i64
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv128) #17
-  %cmp130403 = icmp sgt i32 %numops.0.lcssa426, 0
-  br i1 %cmp130403, label %for.body132.lr.ph, label %if.end307
+  %cmp130416 = icmp sgt i32 %numops.0.lcssa439, 0
+  br i1 %cmp130416, label %for.body132.lr.ph, label %if.end307
 
 for.body132.lr.ph:                                ; preds = %if.end127
   %cmp245.not = icmp eq ptr %o.0, null
   %ptr13.i = getelementptr inbounds i8, ptr %o.0, i64 8
-  %wide.trip.count = zext nneg i32 %numops.0.lcssa426 to i64
+  %wide.trip.count = zext nneg i32 %numops.0.lcssa439 to i64
   br label %for.body132
 
 for.body132:                                      ; preds = %for.body132.lr.ph, %for.inc294
-  %indvars.iv416 = phi i64 [ 0, %for.body132.lr.ph ], [ %indvars.iv.next417, %for.inc294 ]
-  %changes.0405 = phi i32 [ 0, %for.body132.lr.ph ], [ %changes.1, %for.inc294 ]
-  %wrapped.0404 = phi i64 [ undef, %for.body132.lr.ph ], [ %wrapped.4, %for.inc294 ]
-  %add.ptr = getelementptr inbounds %struct.bitfieldOp, ptr %ops.0.lcssa424, i64 %indvars.iv416
+  %indvars.iv429 = phi i64 [ 0, %for.body132.lr.ph ], [ %indvars.iv.next430, %for.inc294 ]
+  %changes.0418 = phi i32 [ 0, %for.body132.lr.ph ], [ %changes.1, %for.inc294 ]
+  %wrapped.0417 = phi i64 [ undef, %for.body132.lr.ph ], [ %wrapped.4, %for.inc294 ]
+  %add.ptr = getelementptr inbounds %struct.bitfieldOp, ptr %ops.0.lcssa437, i64 %indvars.iv429
   %opcode133 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %29 = load i32, ptr %opcode133, align 8
   %.off = add i32 %29, -1
@@ -3159,82 +3159,82 @@ cond.false:                                       ; preds = %lor.lhs.false28.i
   br label %if.then175
 
 if.else160:                                       ; preds = %getSignedBitfield.exit
-  %cmp6.i172 = icmp slt i64 %cond.i, %35
-  br i1 %cmp6.i172, label %if.then.i201, label %lor.lhs.false.i173
+  %cmp6.i173 = icmp slt i64 %cond.i, %35
+  br i1 %cmp6.i173, label %if.then.i207, label %lor.lhs.false.i174
 
-lor.lhs.false.i173:                               ; preds = %if.else160
-  %sub4.i174 = sub i64 %cond.i, %35
-  %cmp8.i175 = icmp slt i64 %sub4.i174, 0
-  %or.cond38.i176 = and i1 %cmp.i157, %cmp8.i175
-  br i1 %or.cond38.i176, label %if.then.i201, label %lor.lhs.false9.i177
+lor.lhs.false.i174:                               ; preds = %if.else160
+  %sub4.i175 = sub i64 %cond.i, %35
+  %cmp8.i176 = icmp slt i64 %sub4.i175, 0
+  %or.cond38.i177 = and i1 %cmp.i157, %cmp8.i176
+  br i1 %or.cond38.i177, label %if.then.i207, label %lor.lhs.false9.i178
 
-lor.lhs.false9.i177:                              ; preds = %lor.lhs.false.i173
-  %cmp23.i180 = icmp slt i64 %35, %sub3.i
-  br i1 %cmp23.i180, label %if.then34.i186, label %if.then175
+lor.lhs.false9.i178:                              ; preds = %lor.lhs.false.i174
+  %cmp23.i183 = icmp slt i64 %35, %sub3.i
+  br i1 %cmp23.i183, label %if.then34.i191, label %if.then175
 
-if.then.i201:                                     ; preds = %lor.lhs.false.i173, %if.else160
+if.then.i207:                                     ; preds = %lor.lhs.false.i174, %if.else160
   switch i32 %36, label %land.lhs.true171 [
-    i32 0, label %handle_wrap.i190
+    i32 0, label %handle_wrap.i195
     i32 1, label %if.then175
   ]
 
-if.then34.i186:                                   ; preds = %lor.lhs.false9.i177
+if.then34.i191:                                   ; preds = %lor.lhs.false9.i178
   switch i32 %36, label %land.lhs.true171 [
-    i32 0, label %handle_wrap.i190
+    i32 0, label %handle_wrap.i195
     i32 1, label %if.then175
   ]
 
-handle_wrap.i190:                                 ; preds = %if.then34.i186, %if.then.i201
-  %cmp49.i191 = icmp ult i32 %32, 64
-  br i1 %cmp49.i191, label %if.then50.i192, label %if.then175
+handle_wrap.i195:                                 ; preds = %if.then34.i191, %if.then.i207
+  %cmp49.i197 = icmp ult i32 %32, 64
+  br i1 %cmp49.i197, label %if.then50.i198, label %if.then175
 
-if.then50.i192:                                   ; preds = %handle_wrap.i190
-  %shl51.i193 = shl nsw i64 -1, %conv198
-  %and.i194 = and i64 %35, %shl.i159
-  %tobool52.not.i195 = icmp eq i64 %and.i194, 0
-  br i1 %tobool52.not.i195, label %if.else54.i198, label %if.then53.i196
+if.then50.i198:                                   ; preds = %handle_wrap.i195
+  %shl51.i199 = shl nsw i64 -1, %conv198
+  %and.i200 = and i64 %35, %shl.i159
+  %tobool52.not.i201 = icmp eq i64 %and.i200, 0
+  br i1 %tobool52.not.i201, label %if.else54.i204, label %if.then53.i202
 
-if.then53.i196:                                   ; preds = %if.then50.i192
-  %or.i197 = or i64 %35, %shl51.i193
+if.then53.i202:                                   ; preds = %if.then50.i198
+  %or.i203 = or i64 %35, %shl51.i199
   br label %if.then175
 
-if.else54.i198:                                   ; preds = %if.then50.i192
-  %not.i199 = xor i64 %shl51.i193, -1
-  %and55.i200 = and i64 %35, %not.i199
+if.else54.i204:                                   ; preds = %if.then50.i198
+  %not.i205 = xor i64 %shl51.i199, -1
+  %and55.i206 = and i64 %35, %not.i205
   br label %if.then175
 
-land.lhs.true171:                                 ; preds = %if.then34.i186, %if.then.i201, %if.then34.i, %if.then.i164
-  %retval.0.ph = phi i64 [ %wrapped.0404, %if.then.i164 ], [ %wrapped.0404, %if.then34.i ], [ %value.0.i, %if.then34.i186 ], [ %value.0.i, %if.then.i201 ]
+land.lhs.true171:                                 ; preds = %if.then34.i191, %if.then.i207, %if.then34.i, %if.then.i164
+  %retval.0.ph = phi i64 [ %wrapped.0417, %if.then.i164 ], [ %wrapped.0417, %if.then34.i ], [ %value.0.i, %if.then34.i191 ], [ %value.0.i, %if.then.i207 ]
   %cmp173 = icmp eq i32 %36, 2
   br i1 %cmp173, label %if.else187, label %if.then175
 
-if.then175:                                       ; preds = %if.then.i201, %if.then34.i186, %handle_wrap.i190, %if.then53.i196, %if.else54.i198, %if.then.i164, %if.then34.i, %handle_wrap.i, %if.then53.i, %if.else54.i, %lor.lhs.false9.i177, %cond.false, %land.lhs.true171
-  %retval.0347 = phi i64 [ %retval.0.ph, %land.lhs.true171 ], [ %add159, %cond.false ], [ %value.0.i, %lor.lhs.false9.i177 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %value.0.i, %if.else54.i198 ], [ %value.0.i, %if.then53.i196 ], [ %value.0.i, %handle_wrap.i190 ], [ %value.0.i, %if.then34.i186 ], [ %value.0.i, %if.then.i201 ]
-  %newval.1345 = phi i64 [ %wrapped.0404, %land.lhs.true171 ], [ %add159, %cond.false ], [ %35, %lor.lhs.false9.i177 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %and55.i200, %if.else54.i198 ], [ %or.i197, %if.then53.i196 ], [ %35, %handle_wrap.i190 ], [ %sub3.i, %if.then34.i186 ], [ %cond.i, %if.then.i201 ]
-  %wrapped.3343 = phi i64 [ %wrapped.0404, %land.lhs.true171 ], [ %wrapped.0404, %cond.false ], [ %wrapped.0404, %lor.lhs.false9.i177 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %and55.i200, %if.else54.i198 ], [ %or.i197, %if.then53.i196 ], [ %35, %handle_wrap.i190 ], [ %sub3.i, %if.then34.i186 ], [ %cond.i, %if.then.i201 ]
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %retval.0347) #17
+if.then175:                                       ; preds = %if.then.i207, %if.then34.i191, %handle_wrap.i195, %if.then53.i202, %if.else54.i204, %if.then.i164, %if.then34.i, %handle_wrap.i, %if.then53.i, %if.else54.i, %lor.lhs.false9.i178, %cond.false, %land.lhs.true171
+  %retval.0360 = phi i64 [ %retval.0.ph, %land.lhs.true171 ], [ %add159, %cond.false ], [ %value.0.i, %lor.lhs.false9.i178 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %value.0.i, %if.else54.i204 ], [ %value.0.i, %if.then53.i202 ], [ %value.0.i, %handle_wrap.i195 ], [ %value.0.i, %if.then34.i191 ], [ %value.0.i, %if.then.i207 ]
+  %newval.1358 = phi i64 [ %wrapped.0417, %land.lhs.true171 ], [ %add159, %cond.false ], [ %35, %lor.lhs.false9.i178 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %and55.i206, %if.else54.i204 ], [ %or.i203, %if.then53.i202 ], [ %35, %handle_wrap.i195 ], [ %sub3.i, %if.then34.i191 ], [ %cond.i, %if.then.i207 ]
+  %wrapped.3356 = phi i64 [ %wrapped.0417, %land.lhs.true171 ], [ %wrapped.0417, %cond.false ], [ %wrapped.0417, %lor.lhs.false9.i178 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %and55.i206, %if.else54.i204 ], [ %or.i203, %if.then53.i202 ], [ %35, %handle_wrap.i195 ], [ %sub3.i, %if.then34.i191 ], [ %cond.i, %if.then.i207 ]
+  call void @addReplyLongLong(ptr noundef %c, i64 noundef %retval.0360) #17
   %38 = load ptr, ptr %ptr13.i, align 8
   %39 = load i32, ptr %bits197, align 8
   %conv179 = sext i32 %39 to i64
   %cmp11.not.i.i = icmp eq i32 %39, 0
-  br i1 %cmp11.not.i.i, label %setSignedBitfield.exit, label %for.body.i.i203.preheader
+  br i1 %cmp11.not.i.i, label %setSignedBitfield.exit, label %for.body.i.i210.preheader
 
-for.body.i.i203.preheader:                        ; preds = %if.then175
+for.body.i.i210.preheader:                        ; preds = %if.then175
   %40 = load i64, ptr %add.ptr, align 8
-  br label %for.body.i.i203
+  br label %for.body.i.i210
 
-for.body.i.i203:                                  ; preds = %for.body.i.i203.preheader, %for.body.i.i203
-  %j.013.i.i = phi i64 [ %inc14.i.i, %for.body.i.i203 ], [ 0, %for.body.i.i203.preheader ]
-  %offset.addr.012.i.i = phi i64 [ %inc.i.i207, %for.body.i.i203 ], [ %40, %for.body.i.i203.preheader ]
+for.body.i.i210:                                  ; preds = %for.body.i.i210.preheader, %for.body.i.i210
+  %j.013.i.i = phi i64 [ %inc14.i.i, %for.body.i.i210 ], [ 0, %for.body.i.i210.preheader ]
+  %offset.addr.012.i.i = phi i64 [ %inc.i.i214, %for.body.i.i210 ], [ %40, %for.body.i.i210.preheader ]
   %41 = xor i64 %j.013.i.i, -1
   %sub1.i.i = add i64 %41, %conv179
-  %42 = lshr i64 %newval.1345, %sub1.i.i
+  %42 = lshr i64 %newval.1358, %sub1.i.i
   %conv3.i.i = and i64 %42, 1
-  %shr.i.i204 = lshr i64 %offset.addr.012.i.i, 3
+  %shr.i.i211 = lshr i64 %offset.addr.012.i.i, 3
   %and4.i.i = and i64 %offset.addr.012.i.i, 7
   %sub5.i.i = xor i64 %and4.i.i, 7
-  %arrayidx.i.i205 = getelementptr inbounds i8, ptr %38, i64 %shr.i.i204
-  %43 = load i8, ptr %arrayidx.i.i205, align 1
+  %arrayidx.i.i212 = getelementptr inbounds i8, ptr %38, i64 %shr.i.i211
+  %43 = load i8, ptr %arrayidx.i.i212, align 1
   %sh_prom.i.i = trunc nuw nsw i64 %sub5.i.i to i32
   %shl7.i.i = shl nuw nsw i32 1, %sh_prom.i.i
   %not.i.i = xor i32 %shl7.i.i, -1
@@ -3242,21 +3242,21 @@ for.body.i.i203:                                  ; preds = %for.body.i.i203.pre
   %45 = and i32 %not.i.i, %44
   %and9.i.i = zext nneg i32 %45 to i64
   %shl10.i.i = shl nuw nsw i64 %conv3.i.i, %sub5.i.i
-  %or.i.i206 = or i64 %shl10.i.i, %and9.i.i
-  %conv12.i.i = trunc nuw i64 %or.i.i206 to i8
-  store i8 %conv12.i.i, ptr %arrayidx.i.i205, align 1
-  %inc.i.i207 = add i64 %offset.addr.012.i.i, 1
+  %or.i.i213 = or i64 %shl10.i.i, %and9.i.i
+  %conv12.i.i = trunc nuw i64 %or.i.i213 to i8
+  store i8 %conv12.i.i, ptr %arrayidx.i.i212, align 1
+  %inc.i.i214 = add i64 %offset.addr.012.i.i, 1
   %inc14.i.i = add nuw i64 %j.013.i.i, 1
-  %exitcond.not.i.i208 = icmp eq i64 %inc14.i.i, %conv179
-  br i1 %exitcond.not.i.i208, label %setSignedBitfield.exit, label %for.body.i.i203, !llvm.loop !13
+  %exitcond.not.i.i215 = icmp eq i64 %inc14.i.i, %conv179
+  br i1 %exitcond.not.i.i215, label %setSignedBitfield.exit, label %for.body.i.i210, !llvm.loop !13
 
-setSignedBitfield.exit:                           ; preds = %for.body.i.i203, %if.then175
+setSignedBitfield.exit:                           ; preds = %for.body.i.i210, %if.then175
   %46 = load i32, ptr %dirty, align 4
   %tobool180.not = icmp ne i32 %46, 0
-  %cmp182.not = icmp ne i64 %value.0.i, %newval.1345
+  %cmp182.not = icmp ne i64 %value.0.i, %newval.1358
   %or.cond151.not = select i1 %tobool180.not, i1 true, i1 %cmp182.not
   %inc185 = zext i1 %or.cond151.not to i32
-  %spec.select155 = add nsw i32 %changes.0405, %inc185
+  %spec.select155 = add nsw i32 %changes.0418, %inc185
   br label %for.inc294
 
 if.else187:                                       ; preds = %land.lhs.true171
@@ -3271,26 +3271,26 @@ for.body.i.preheader:                             ; preds = %if.else189
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %value.08.i = phi i64 [ %or.i212, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %value.08.i = phi i64 [ %or.i219, %for.body.i ], [ 0, %for.body.i.preheader ]
   %j.07.i = phi i64 [ %inc3.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %offset.addr.06.i = phi i64 [ %inc.i, %for.body.i ], [ %47, %for.body.i.preheader ]
   %shr.i = lshr i64 %offset.addr.06.i, 3
-  %and.i209 = and i64 %offset.addr.06.i, 7
-  %sub.i210 = xor i64 %and.i209, 7
+  %and.i216 = and i64 %offset.addr.06.i, 7
+  %sub.i217 = xor i64 %and.i216, 7
   %arrayidx.i = getelementptr inbounds i8, ptr %31, i64 %shr.i
   %48 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %48 to i64
-  %shr1.i = lshr i64 %conv.i, %sub.i210
+  %shr1.i = lshr i64 %conv.i, %sub.i217
   %and2.i = and i64 %shr1.i, 1
-  %shl.i211 = shl i64 %value.08.i, 1
-  %or.i212 = or disjoint i64 %and2.i, %shl.i211
+  %shl.i218 = shl i64 %value.08.i, 1
+  %or.i219 = or disjoint i64 %and2.i, %shl.i218
   %inc.i = add i64 %offset.addr.06.i, 1
   %inc3.i = add nuw i64 %j.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc3.i, %conv198
   br i1 %exitcond.not.i, label %getUnsignedBitfield.exit, label %for.body.i, !llvm.loop !14
 
 getUnsignedBitfield.exit:                         ; preds = %for.body.i, %if.else189
-  %value.0.lcssa.i = phi i64 [ 0, %if.else189 ], [ %or.i212, %for.body.i ]
+  %value.0.lcssa.i = phi i64 [ 0, %if.else189 ], [ %or.i219, %for.body.i ]
   %cmp201 = icmp eq i32 %29, 2
   %i64204 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %49 = load i64, ptr %i64204, align 8
@@ -3300,117 +3300,117 @@ if.then203:                                       ; preds = %getUnsignedBitfield
   %add205 = add i64 %49, %value.0.lcssa.i
   %owtype209 = getelementptr inbounds i8, ptr %add.ptr, i64 20
   %50 = load i32, ptr %owtype209, align 4
-  %cmp.i213 = icmp eq i32 %32, 64
+  %cmp.i220 = icmp eq i32 %32, 64
   %notmask.i = shl nsw i64 -1, %conv198
-  %sub.i214 = xor i64 %notmask.i, -1
-  %cond.i215 = select i1 %cmp.i213, i64 -1, i64 %sub.i214
+  %sub.i221 = xor i64 %notmask.i, -1
+  %cond.i222 = select i1 %cmp.i220, i64 -1, i64 %sub.i221
   %sub2.i = sub i64 0, %value.0.lcssa.i
-  %cmp3.i = icmp ult i64 %cond.i215, %value.0.lcssa.i
-  br i1 %cmp3.i, label %if.then.i226, label %lor.lhs.false.i216
+  %cmp3.i = icmp ult i64 %cond.i222, %value.0.lcssa.i
+  br i1 %cmp3.i, label %if.then.i233, label %lor.lhs.false.i223
 
-lor.lhs.false.i216:                               ; preds = %if.then203
-  %sub1.i217 = sub i64 %cond.i215, %value.0.lcssa.i
+lor.lhs.false.i223:                               ; preds = %if.then203
+  %sub1.i224 = sub i64 %cond.i222, %value.0.lcssa.i
   %cmp4.i = icmp sgt i64 %49, 0
-  %cmp5.i = icmp slt i64 %sub1.i217, %49
-  %or.cond.i218 = and i1 %cmp4.i, %cmp5.i
-  br i1 %or.cond.i218, label %if.then.i226, label %if.else13.i
+  %cmp5.i = icmp slt i64 %sub1.i224, %49
+  %or.cond.i225 = and i1 %cmp4.i, %cmp5.i
+  br i1 %or.cond.i225, label %if.then.i233, label %if.else13.i
 
-if.then.i226:                                     ; preds = %lor.lhs.false.i216, %if.then203
+if.then.i233:                                     ; preds = %lor.lhs.false.i223, %if.then203
   switch i32 %50, label %land.lhs.true225 [
-    i32 0, label %handle_wrap.i223
+    i32 0, label %handle_wrap.i230
     i32 1, label %if.then229
   ]
 
-if.else13.i:                                      ; preds = %lor.lhs.false.i216
+if.else13.i:                                      ; preds = %lor.lhs.false.i223
   %cmp14.i = icmp slt i64 %49, 0
-  %cmp16.i219 = icmp slt i64 %49, %sub2.i
-  %or.cond20.i = and i1 %cmp14.i, %cmp16.i219
+  %cmp16.i226 = icmp slt i64 %49, %sub2.i
+  %or.cond20.i = and i1 %cmp14.i, %cmp16.i226
   br i1 %or.cond20.i, label %if.then17.i, label %if.then229
 
 if.then17.i:                                      ; preds = %if.else13.i
   switch i32 %50, label %land.lhs.true225 [
-    i32 0, label %handle_wrap.i223
+    i32 0, label %handle_wrap.i230
     i32 1, label %if.then229
   ]
 
-handle_wrap.i223:                                 ; preds = %if.then17.i, %if.then.i226
-  %and.i225 = and i64 %add205, %sub.i214
+handle_wrap.i230:                                 ; preds = %if.then17.i, %if.then.i233
+  %and.i232 = and i64 %add205, %sub.i221
   br label %if.then229
 
 if.else214:                                       ; preds = %getUnsignedBitfield.exit
-  %cmp.i228 = icmp ne i32 %32, 64
-  %notmask.i229 = shl nsw i64 -1, %conv198
-  %sub.i230 = xor i64 %notmask.i229, -1
-  %cmp3.i233363 = icmp ugt i64 %49, %sub.i230
-  %cmp3.i233 = select i1 %cmp.i228, i1 %cmp3.i233363, i1 false
-  br i1 %cmp3.i233, label %if.then.i240, label %if.then229
+  %cmp.i236 = icmp ne i32 %32, 64
+  %notmask.i237 = shl nsw i64 -1, %conv198
+  %sub.i238 = xor i64 %notmask.i237, -1
+  %cmp3.i241376 = icmp ugt i64 %49, %sub.i238
+  %cmp3.i241 = select i1 %cmp.i236, i1 %cmp3.i241376, i1 false
+  br i1 %cmp3.i241, label %if.then.i257, label %if.then229
 
-if.then.i240:                                     ; preds = %if.else214
+if.then.i257:                                     ; preds = %if.else214
   %owtype218 = getelementptr inbounds i8, ptr %add.ptr, i64 20
   %51 = load i32, ptr %owtype218, align 4
   switch i32 %51, label %land.lhs.true225 [
-    i32 0, label %handle_wrap.i245
+    i32 0, label %handle_wrap.i254
     i32 1, label %if.then229
   ]
 
-handle_wrap.i245:                                 ; preds = %if.then.i240
-  %and.i246 = and i64 %49, %sub.i230
+handle_wrap.i254:                                 ; preds = %if.then.i257
+  %and.i256 = and i64 %49, %sub.i238
   br label %if.then229
 
-land.lhs.true225:                                 ; preds = %if.then.i240, %if.then17.i, %if.then.i226
-  %52 = phi i32 [ %50, %if.then17.i ], [ %50, %if.then.i226 ], [ %51, %if.then.i240 ]
-  %retval192.0 = phi i64 [ 0, %if.then17.i ], [ 0, %if.then.i226 ], [ %value.0.lcssa.i, %if.then.i240 ]
+land.lhs.true225:                                 ; preds = %if.then.i257, %if.then17.i, %if.then.i233
+  %52 = phi i32 [ %50, %if.then17.i ], [ %50, %if.then.i233 ], [ %51, %if.then.i257 ]
+  %retval192.0 = phi i64 [ 0, %if.then17.i ], [ 0, %if.then.i233 ], [ %value.0.lcssa.i, %if.then.i257 ]
   %cmp227 = icmp eq i32 %52, 2
   br i1 %cmp227, label %if.else241, label %if.then229
 
-if.then229:                                       ; preds = %if.then.i240, %if.then.i226, %if.then17.i, %handle_wrap.i223, %handle_wrap.i245, %if.else214, %if.else13.i, %land.lhs.true225
-  %retval192.0361 = phi i64 [ %retval192.0, %land.lhs.true225 ], [ %add205, %if.else13.i ], [ %value.0.lcssa.i, %if.else214 ], [ %value.0.lcssa.i, %handle_wrap.i245 ], [ %and.i225, %handle_wrap.i223 ], [ %cond.i215, %if.then.i226 ], [ 0, %if.then17.i ], [ %value.0.lcssa.i, %if.then.i240 ]
-  %newval191.2360 = phi i64 [ 0, %land.lhs.true225 ], [ %add205, %if.else13.i ], [ %49, %if.else214 ], [ %and.i246, %handle_wrap.i245 ], [ %and.i225, %handle_wrap.i223 ], [ %cond.i215, %if.then.i226 ], [ 0, %if.then17.i ], [ %sub.i230, %if.then.i240 ]
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %retval192.0361) #17
+if.then229:                                       ; preds = %if.then.i257, %if.then.i233, %if.then17.i, %handle_wrap.i230, %handle_wrap.i254, %if.else214, %if.else13.i, %land.lhs.true225
+  %retval192.0374 = phi i64 [ %retval192.0, %land.lhs.true225 ], [ %add205, %if.else13.i ], [ %value.0.lcssa.i, %if.else214 ], [ %value.0.lcssa.i, %handle_wrap.i254 ], [ %and.i232, %handle_wrap.i230 ], [ %cond.i222, %if.then.i233 ], [ 0, %if.then17.i ], [ %value.0.lcssa.i, %if.then.i257 ]
+  %newval191.2373 = phi i64 [ 0, %land.lhs.true225 ], [ %add205, %if.else13.i ], [ %49, %if.else214 ], [ %and.i256, %handle_wrap.i254 ], [ %and.i232, %handle_wrap.i230 ], [ %cond.i222, %if.then.i233 ], [ 0, %if.then17.i ], [ %sub.i238, %if.then.i257 ]
+  call void @addReplyLongLong(ptr noundef %c, i64 noundef %retval192.0374) #17
   %53 = load ptr, ptr %ptr13.i, align 8
   %54 = load i32, ptr %bits197, align 8
   %conv233 = sext i32 %54 to i64
   %cmp11.not.i = icmp eq i32 %54, 0
-  br i1 %cmp11.not.i, label %setUnsignedBitfield.exit, label %for.body.i248.preheader
+  br i1 %cmp11.not.i, label %setUnsignedBitfield.exit, label %for.body.i261.preheader
 
-for.body.i248.preheader:                          ; preds = %if.then229
+for.body.i261.preheader:                          ; preds = %if.then229
   %55 = load i64, ptr %add.ptr, align 8
-  br label %for.body.i248
+  br label %for.body.i261
 
-for.body.i248:                                    ; preds = %for.body.i248.preheader, %for.body.i248
-  %j.013.i = phi i64 [ %inc14.i, %for.body.i248 ], [ 0, %for.body.i248.preheader ]
-  %offset.addr.012.i = phi i64 [ %inc.i255, %for.body.i248 ], [ %55, %for.body.i248.preheader ]
+for.body.i261:                                    ; preds = %for.body.i261.preheader, %for.body.i261
+  %j.013.i = phi i64 [ %inc14.i, %for.body.i261 ], [ 0, %for.body.i261.preheader ]
+  %offset.addr.012.i = phi i64 [ %inc.i268, %for.body.i261 ], [ %55, %for.body.i261.preheader ]
   %56 = xor i64 %j.013.i, -1
-  %sub1.i249 = add i64 %56, %conv233
-  %57 = lshr i64 %newval191.2360, %sub1.i249
+  %sub1.i262 = add i64 %56, %conv233
+  %57 = lshr i64 %newval191.2373, %sub1.i262
   %conv3.i = and i64 %57, 1
-  %shr.i250 = lshr i64 %offset.addr.012.i, 3
+  %shr.i263 = lshr i64 %offset.addr.012.i, 3
   %and4.i = and i64 %offset.addr.012.i, 7
-  %sub5.i251 = xor i64 %and4.i, 7
-  %arrayidx.i252 = getelementptr inbounds i8, ptr %53, i64 %shr.i250
-  %58 = load i8, ptr %arrayidx.i252, align 1
-  %sh_prom.i = trunc nuw nsw i64 %sub5.i251 to i32
+  %sub5.i264 = xor i64 %and4.i, 7
+  %arrayidx.i265 = getelementptr inbounds i8, ptr %53, i64 %shr.i263
+  %58 = load i8, ptr %arrayidx.i265, align 1
+  %sh_prom.i = trunc nuw nsw i64 %sub5.i264 to i32
   %shl7.i = shl nuw nsw i32 1, %sh_prom.i
-  %not.i253 = xor i32 %shl7.i, -1
+  %not.i266 = xor i32 %shl7.i, -1
   %59 = zext i8 %58 to i32
-  %60 = and i32 %not.i253, %59
+  %60 = and i32 %not.i266, %59
   %and9.i = zext nneg i32 %60 to i64
-  %shl10.i = shl nuw nsw i64 %conv3.i, %sub5.i251
-  %or.i254 = or i64 %shl10.i, %and9.i
-  %conv12.i = trunc nuw i64 %or.i254 to i8
-  store i8 %conv12.i, ptr %arrayidx.i252, align 1
-  %inc.i255 = add i64 %offset.addr.012.i, 1
+  %shl10.i = shl nuw nsw i64 %conv3.i, %sub5.i264
+  %or.i267 = or i64 %shl10.i, %and9.i
+  %conv12.i = trunc nuw i64 %or.i267 to i8
+  store i8 %conv12.i, ptr %arrayidx.i265, align 1
+  %inc.i268 = add i64 %offset.addr.012.i, 1
   %inc14.i = add nuw i64 %j.013.i, 1
-  %exitcond.not.i256 = icmp eq i64 %inc14.i, %conv233
-  br i1 %exitcond.not.i256, label %setUnsignedBitfield.exit, label %for.body.i248, !llvm.loop !13
+  %exitcond.not.i269 = icmp eq i64 %inc14.i, %conv233
+  br i1 %exitcond.not.i269, label %setUnsignedBitfield.exit, label %for.body.i261, !llvm.loop !13
 
-setUnsignedBitfield.exit:                         ; preds = %for.body.i248, %if.then229
+setUnsignedBitfield.exit:                         ; preds = %for.body.i261, %if.then229
   %61 = load i32, ptr %dirty, align 4
   %tobool234.not = icmp ne i32 %61, 0
-  %cmp236.not = icmp ne i64 %value.0.lcssa.i, %newval191.2360
+  %cmp236.not = icmp ne i64 %value.0.lcssa.i, %newval191.2373
   %or.cond154.not = select i1 %tobool234.not, i1 true, i1 %cmp236.not
   %inc239 = zext i1 %or.cond154.not to i32
-  %spec.select156 = add nsw i32 %changes.0405, %inc239
+  %spec.select156 = add nsw i32 %changes.0418, %inc239
   br label %for.inc294
 
 if.else241:                                       ; preds = %land.lhs.true225
@@ -3423,32 +3423,32 @@ if.else244:                                       ; preds = %for.body132
 lor.rhs.i:                                        ; preds = %if.else244
   %bf.load.i = load i32, ptr %o.0, align 8
   %bf.clear.i = and i32 %bf.load.i, 15
-  %cmp.i258 = icmp eq i32 %bf.clear.i, 0
-  br i1 %cmp.i258, label %land.lhs.true.i259, label %cond.false.i
+  %cmp.i271 = icmp eq i32 %bf.clear.i, 0
+  br i1 %cmp.i271, label %land.lhs.true.i272, label %cond.false.i
 
 cond.false.i:                                     ; preds = %lor.rhs.i
   call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 514) #17
   call void @abort() #18
   unreachable
 
-land.lhs.true.i259:                               ; preds = %lor.rhs.i
+land.lhs.true.i272:                               ; preds = %lor.rhs.i
   %62 = and i32 %bf.load.i, 240
-  %cmp6.i260 = icmp eq i32 %62, 16
+  %cmp6.i273 = icmp eq i32 %62, 16
   %63 = load ptr, ptr %ptr13.i, align 8
-  br i1 %cmp6.i260, label %if.then.i266, label %if.then12.i
+  br i1 %cmp6.i273, label %if.then.i279, label %if.then12.i
 
-if.then.i266:                                     ; preds = %land.lhs.true.i259
+if.then.i279:                                     ; preds = %land.lhs.true.i272
   %64 = ptrtoint ptr %63 to i64
-  %call.i268 = call i32 @ll2string(ptr noundef nonnull %llbuf, i64 noundef 21, i64 noundef %64) #17
-  %conv10.i = sext i32 %call.i268 to i64
+  %call.i281 = call i32 @ll2string(ptr noundef nonnull %llbuf, i64 noundef 21, i64 noundef %64) #17
+  %conv10.i = sext i32 %call.i281 to i64
   br label %lor.lhs.false258.preheader
 
-if.then12.i:                                      ; preds = %land.lhs.true.i259
-  %arrayidx.i.i261 = getelementptr inbounds i8, ptr %63, i64 -1
-  %65 = load i8, ptr %arrayidx.i.i261, align 1
-  %conv.i.i262 = zext i8 %65 to i32
-  %and.i.i263 = and i32 %conv.i.i262, 7
-  switch i32 %and.i.i263, label %lor.lhs.false258.preheader [
+if.then12.i:                                      ; preds = %land.lhs.true.i272
+  %arrayidx.i.i274 = getelementptr inbounds i8, ptr %63, i64 -1
+  %65 = load i8, ptr %arrayidx.i.i274, align 1
+  %conv.i.i275 = zext i8 %65 to i32
+  %and.i.i276 = and i32 %conv.i.i275, 7
+  switch i32 %and.i.i276, label %lor.lhs.false258.preheader [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb3.i.i
     i32 2, label %sw.bb5.i.i
@@ -3457,8 +3457,8 @@ if.then12.i:                                      ; preds = %land.lhs.true.i259
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then12.i
-  %shr.i.i265 = lshr i32 %conv.i.i262, 3
-  %conv2.i.i = zext nneg i32 %shr.i.i265 to i64
+  %shr.i.i278 = lshr i32 %conv.i.i275, 3
+  %conv2.i.i = zext nneg i32 %shr.i.i278 to i64
   br label %lor.lhs.false258.preheader
 
 sw.bb3.i.i:                                       ; preds = %if.then12.i
@@ -3476,7 +3476,7 @@ sw.bb5.i.i:                                       ; preds = %if.then12.i
 sw.bb9.i.i:                                       ; preds = %if.then12.i
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %63, i64 -9
   %68 = load i32, ptr %add.ptr10.i.i, align 1
-  %conv12.i.i264 = zext i32 %68 to i64
+  %conv12.i.i277 = zext i32 %68 to i64
   br label %lor.lhs.false258.preheader
 
 sw.bb13.i.i:                                      ; preds = %if.then12.i
@@ -3489,17 +3489,17 @@ if.end249:                                        ; preds = %if.else244
   %70 = load i64, ptr %add.ptr, align 8
   br label %for.end272
 
-lor.lhs.false258.preheader:                       ; preds = %if.then.i266, %sw.bb13.i.i, %sw.bb9.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb.i.i, %if.then12.i
-  %strlen.0.ph = phi i64 [ 0, %if.then12.i ], [ %conv2.i.i, %sw.bb.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv12.i.i264, %sw.bb9.i.i ], [ %69, %sw.bb13.i.i ], [ %conv10.i, %if.then.i266 ]
-  %src.0.ph = phi ptr [ %63, %if.then12.i ], [ %63, %sw.bb.i.i ], [ %63, %sw.bb3.i.i ], [ %63, %sw.bb5.i.i ], [ %63, %sw.bb9.i.i ], [ %63, %sw.bb13.i.i ], [ %llbuf, %if.then.i266 ]
+lor.lhs.false258.preheader:                       ; preds = %if.then.i279, %sw.bb13.i.i, %sw.bb9.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb.i.i, %if.then12.i
+  %strlen.0.ph = phi i64 [ 0, %if.then12.i ], [ %conv2.i.i, %sw.bb.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv12.i.i277, %sw.bb9.i.i ], [ %69, %sw.bb13.i.i ], [ %conv10.i, %if.then.i279 ]
+  %src.0.ph = phi ptr [ %63, %if.then12.i ], [ %63, %sw.bb.i.i ], [ %63, %sw.bb3.i.i ], [ %63, %sw.bb5.i.i ], [ %63, %sw.bb9.i.i ], [ %63, %sw.bb13.i.i ], [ %llbuf, %if.then.i279 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %buf, i8 0, i64 9, i1 false)
   %71 = load i64, ptr %add.ptr, align 8
-  %shr436 = lshr i64 %71, 3
+  %shr449 = lshr i64 %71, 3
   br label %lor.lhs.false258
 
 lor.lhs.false258:                                 ; preds = %lor.lhs.false258.preheader, %if.end264
   %indvars.iv = phi i64 [ 0, %lor.lhs.false258.preheader ], [ %indvars.iv.next, %if.end264 ]
-  %add260 = add nuw nsw i64 %shr436, %indvars.iv
+  %add260 = add nuw nsw i64 %shr449, %indvars.iv
   %cmp261.not = icmp ult i64 %add260, %strlen.0.ph
   br i1 %cmp261.not, label %if.end264, label %for.end272
 
@@ -3520,98 +3520,98 @@ for.end272:                                       ; preds = %if.end264, %lor.lhs
   %bits289 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %75 = load i32, ptr %bits289, align 8
   %conv290 = sext i32 %75 to i64
-  %cmp5.not.i299 = icmp eq i32 %75, 0
+  %cmp5.not.i312 = icmp eq i32 %75, 0
   br i1 %tobool274.not, label %if.else283, label %if.then275
 
 if.then275:                                       ; preds = %for.end272
-  br i1 %cmp5.not.i299, label %land.lhs.true.i289, label %for.body.i.i270.preheader
+  br i1 %cmp5.not.i312, label %land.lhs.true.i302, label %for.body.i.i283.preheader
 
-for.body.i.i270.preheader:                        ; preds = %if.then275
+for.body.i.i283.preheader:                        ; preds = %if.then275
   %76 = load i64, ptr %add.ptr, align 8
   %mul278 = and i64 %73, -8
   %sub279 = sub i64 %76, %mul278
-  br label %for.body.i.i270
+  br label %for.body.i.i283
 
-for.body.i.i270:                                  ; preds = %for.body.i.i270.preheader, %for.body.i.i270
-  %value.08.i.i271 = phi i64 [ %or.i.i282, %for.body.i.i270 ], [ 0, %for.body.i.i270.preheader ]
-  %j.07.i.i272 = phi i64 [ %inc3.i.i284, %for.body.i.i270 ], [ 0, %for.body.i.i270.preheader ]
-  %offset.addr.06.i.i273 = phi i64 [ %inc.i.i283, %for.body.i.i270 ], [ %sub279, %for.body.i.i270.preheader ]
-  %shr.i.i274 = lshr i64 %offset.addr.06.i.i273, 3
-  %and.i.i275 = and i64 %offset.addr.06.i.i273, 7
-  %sub.i.i276 = xor i64 %and.i.i275, 7
-  %arrayidx.i.i277 = getelementptr inbounds i8, ptr %buf, i64 %shr.i.i274
-  %77 = load i8, ptr %arrayidx.i.i277, align 1
-  %conv.i.i278 = zext i8 %77 to i64
-  %shr1.i.i279 = lshr i64 %conv.i.i278, %sub.i.i276
-  %and2.i.i280 = and i64 %shr1.i.i279, 1
-  %shl.i.i281 = shl i64 %value.08.i.i271, 1
-  %or.i.i282 = or disjoint i64 %and2.i.i280, %shl.i.i281
-  %inc.i.i283 = add i64 %offset.addr.06.i.i273, 1
-  %inc3.i.i284 = add nuw i64 %j.07.i.i272, 1
-  %exitcond.not.i.i285 = icmp eq i64 %inc3.i.i284, %conv290
-  br i1 %exitcond.not.i.i285, label %getUnsignedBitfield.exit.i286, label %for.body.i.i270, !llvm.loop !14
+for.body.i.i283:                                  ; preds = %for.body.i.i283.preheader, %for.body.i.i283
+  %value.08.i.i284 = phi i64 [ %or.i.i295, %for.body.i.i283 ], [ 0, %for.body.i.i283.preheader ]
+  %j.07.i.i285 = phi i64 [ %inc3.i.i297, %for.body.i.i283 ], [ 0, %for.body.i.i283.preheader ]
+  %offset.addr.06.i.i286 = phi i64 [ %inc.i.i296, %for.body.i.i283 ], [ %sub279, %for.body.i.i283.preheader ]
+  %shr.i.i287 = lshr i64 %offset.addr.06.i.i286, 3
+  %and.i.i288 = and i64 %offset.addr.06.i.i286, 7
+  %sub.i.i289 = xor i64 %and.i.i288, 7
+  %arrayidx.i.i290 = getelementptr inbounds i8, ptr %buf, i64 %shr.i.i287
+  %77 = load i8, ptr %arrayidx.i.i290, align 1
+  %conv.i.i291 = zext i8 %77 to i64
+  %shr1.i.i292 = lshr i64 %conv.i.i291, %sub.i.i289
+  %and2.i.i293 = and i64 %shr1.i.i292, 1
+  %shl.i.i294 = shl i64 %value.08.i.i284, 1
+  %or.i.i295 = or disjoint i64 %and2.i.i293, %shl.i.i294
+  %inc.i.i296 = add i64 %offset.addr.06.i.i286, 1
+  %inc3.i.i297 = add nuw i64 %j.07.i.i285, 1
+  %exitcond.not.i.i298 = icmp eq i64 %inc3.i.i297, %conv290
+  br i1 %exitcond.not.i.i298, label %getUnsignedBitfield.exit.i299, label %for.body.i.i283, !llvm.loop !14
 
-getUnsignedBitfield.exit.i286:                    ; preds = %for.body.i.i270
-  %cmp.i287 = icmp ult i32 %75, 64
-  br i1 %cmp.i287, label %land.lhs.true.i289, label %getSignedBitfield.exit298
+getUnsignedBitfield.exit.i299:                    ; preds = %for.body.i.i283
+  %cmp.i300 = icmp ult i32 %75, 64
+  br i1 %cmp.i300, label %land.lhs.true.i302, label %getSignedBitfield.exit311
 
-land.lhs.true.i289:                               ; preds = %getUnsignedBitfield.exit.i286, %if.then275
-  %value.0.lcssa.i8.i290 = phi i64 [ %or.i.i282, %getUnsignedBitfield.exit.i286 ], [ 0, %if.then275 ]
-  %sub.i291 = add nsw i64 %conv290, -1
-  %shl.i292 = shl nuw nsw i64 1, %sub.i291
-  %and.i293 = and i64 %value.0.lcssa.i8.i290, %shl.i292
-  %tobool.not.i294 = icmp eq i64 %and.i293, 0
-  br i1 %tobool.not.i294, label %getSignedBitfield.exit298, label %if.then.i295
+land.lhs.true.i302:                               ; preds = %getUnsignedBitfield.exit.i299, %if.then275
+  %value.0.lcssa.i8.i303 = phi i64 [ %or.i.i295, %getUnsignedBitfield.exit.i299 ], [ 0, %if.then275 ]
+  %sub.i304 = add nsw i64 %conv290, -1
+  %shl.i305 = shl nuw nsw i64 1, %sub.i304
+  %and.i306 = and i64 %value.0.lcssa.i8.i303, %shl.i305
+  %tobool.not.i307 = icmp eq i64 %and.i306, 0
+  br i1 %tobool.not.i307, label %getSignedBitfield.exit311, label %if.then.i308
 
-if.then.i295:                                     ; preds = %land.lhs.true.i289
-  %shl2.i296 = shl nsw i64 -1, %conv290
-  %or.i297 = or i64 %value.0.lcssa.i8.i290, %shl2.i296
-  br label %getSignedBitfield.exit298
+if.then.i308:                                     ; preds = %land.lhs.true.i302
+  %shl2.i309 = shl nsw i64 -1, %conv290
+  %or.i310 = or i64 %value.0.lcssa.i8.i303, %shl2.i309
+  br label %getSignedBitfield.exit311
 
-getSignedBitfield.exit298:                        ; preds = %getUnsignedBitfield.exit.i286, %land.lhs.true.i289, %if.then.i295
-  %value.0.i288 = phi i64 [ %or.i297, %if.then.i295 ], [ %value.0.lcssa.i8.i290, %land.lhs.true.i289 ], [ %or.i.i282, %getUnsignedBitfield.exit.i286 ]
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %value.0.i288) #17
+getSignedBitfield.exit311:                        ; preds = %getUnsignedBitfield.exit.i299, %land.lhs.true.i302, %if.then.i308
+  %value.0.i301 = phi i64 [ %or.i310, %if.then.i308 ], [ %value.0.lcssa.i8.i303, %land.lhs.true.i302 ], [ %or.i.i295, %getUnsignedBitfield.exit.i299 ]
+  call void @addReplyLongLong(ptr noundef %c, i64 noundef %value.0.i301) #17
   br label %for.inc294
 
 if.else283:                                       ; preds = %for.end272
-  br i1 %cmp5.not.i299, label %getUnsignedBitfield.exit317, label %for.body.i300.preheader
+  br i1 %cmp5.not.i312, label %getUnsignedBitfield.exit330, label %for.body.i313.preheader
 
-for.body.i300.preheader:                          ; preds = %if.else283
+for.body.i313.preheader:                          ; preds = %if.else283
   %78 = load i64, ptr %add.ptr, align 8
   %mul287 = and i64 %73, -8
   %sub288 = sub i64 %78, %mul287
-  br label %for.body.i300
+  br label %for.body.i313
 
-for.body.i300:                                    ; preds = %for.body.i300.preheader, %for.body.i300
-  %value.08.i301 = phi i64 [ %or.i312, %for.body.i300 ], [ 0, %for.body.i300.preheader ]
-  %j.07.i302 = phi i64 [ %inc3.i314, %for.body.i300 ], [ 0, %for.body.i300.preheader ]
-  %offset.addr.06.i303 = phi i64 [ %inc.i313, %for.body.i300 ], [ %sub288, %for.body.i300.preheader ]
-  %shr.i304 = lshr i64 %offset.addr.06.i303, 3
-  %and.i305 = and i64 %offset.addr.06.i303, 7
-  %sub.i306 = xor i64 %and.i305, 7
-  %arrayidx.i307 = getelementptr inbounds i8, ptr %buf, i64 %shr.i304
-  %79 = load i8, ptr %arrayidx.i307, align 1
-  %conv.i308 = zext i8 %79 to i64
-  %shr1.i309 = lshr i64 %conv.i308, %sub.i306
-  %and2.i310 = and i64 %shr1.i309, 1
-  %shl.i311 = shl i64 %value.08.i301, 1
-  %or.i312 = or disjoint i64 %and2.i310, %shl.i311
-  %inc.i313 = add i64 %offset.addr.06.i303, 1
-  %inc3.i314 = add nuw i64 %j.07.i302, 1
-  %exitcond.not.i315 = icmp eq i64 %inc3.i314, %conv290
-  br i1 %exitcond.not.i315, label %getUnsignedBitfield.exit317, label %for.body.i300, !llvm.loop !14
+for.body.i313:                                    ; preds = %for.body.i313.preheader, %for.body.i313
+  %value.08.i314 = phi i64 [ %or.i325, %for.body.i313 ], [ 0, %for.body.i313.preheader ]
+  %j.07.i315 = phi i64 [ %inc3.i327, %for.body.i313 ], [ 0, %for.body.i313.preheader ]
+  %offset.addr.06.i316 = phi i64 [ %inc.i326, %for.body.i313 ], [ %sub288, %for.body.i313.preheader ]
+  %shr.i317 = lshr i64 %offset.addr.06.i316, 3
+  %and.i318 = and i64 %offset.addr.06.i316, 7
+  %sub.i319 = xor i64 %and.i318, 7
+  %arrayidx.i320 = getelementptr inbounds i8, ptr %buf, i64 %shr.i317
+  %79 = load i8, ptr %arrayidx.i320, align 1
+  %conv.i321 = zext i8 %79 to i64
+  %shr1.i322 = lshr i64 %conv.i321, %sub.i319
+  %and2.i323 = and i64 %shr1.i322, 1
+  %shl.i324 = shl i64 %value.08.i314, 1
+  %or.i325 = or disjoint i64 %and2.i323, %shl.i324
+  %inc.i326 = add i64 %offset.addr.06.i316, 1
+  %inc3.i327 = add nuw i64 %j.07.i315, 1
+  %exitcond.not.i328 = icmp eq i64 %inc3.i327, %conv290
+  br i1 %exitcond.not.i328, label %getUnsignedBitfield.exit330, label %for.body.i313, !llvm.loop !14
 
-getUnsignedBitfield.exit317:                      ; preds = %for.body.i300, %if.else283
-  %value.0.lcssa.i316 = phi i64 [ 0, %if.else283 ], [ %or.i312, %for.body.i300 ]
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %value.0.lcssa.i316) #17
+getUnsignedBitfield.exit330:                      ; preds = %for.body.i313, %if.else283
+  %value.0.lcssa.i329 = phi i64 [ 0, %if.else283 ], [ %or.i325, %for.body.i313 ]
+  call void @addReplyLongLong(ptr noundef %c, i64 noundef %value.0.lcssa.i329) #17
   br label %for.inc294
 
-for.inc294:                                       ; preds = %setUnsignedBitfield.exit, %setSignedBitfield.exit, %if.else241, %if.else187, %getUnsignedBitfield.exit317, %getSignedBitfield.exit298
-  %wrapped.4 = phi i64 [ %wrapped.0404, %setUnsignedBitfield.exit ], [ %wrapped.0404, %if.else241 ], [ %wrapped.3343, %setSignedBitfield.exit ], [ %wrapped.0404, %if.else187 ], [ %wrapped.0404, %getUnsignedBitfield.exit317 ], [ %wrapped.0404, %getSignedBitfield.exit298 ]
-  %changes.1 = phi i32 [ %spec.select156, %setUnsignedBitfield.exit ], [ %changes.0405, %if.else241 ], [ %spec.select155, %setSignedBitfield.exit ], [ %changes.0405, %if.else187 ], [ %changes.0405, %getUnsignedBitfield.exit317 ], [ %changes.0405, %getSignedBitfield.exit298 ]
-  %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
-  %exitcond419.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count
-  br i1 %exitcond419.not, label %for.end296, label %for.body132, !llvm.loop !30
+for.inc294:                                       ; preds = %setUnsignedBitfield.exit, %setSignedBitfield.exit, %if.else241, %if.else187, %getUnsignedBitfield.exit330, %getSignedBitfield.exit311
+  %wrapped.4 = phi i64 [ %wrapped.0417, %setUnsignedBitfield.exit ], [ %wrapped.0417, %if.else241 ], [ %wrapped.3356, %setSignedBitfield.exit ], [ %wrapped.0417, %if.else187 ], [ %wrapped.0417, %getUnsignedBitfield.exit330 ], [ %wrapped.0417, %getSignedBitfield.exit311 ]
+  %changes.1 = phi i32 [ %spec.select156, %setUnsignedBitfield.exit ], [ %changes.0418, %if.else241 ], [ %spec.select155, %setSignedBitfield.exit ], [ %changes.0418, %if.else187 ], [ %changes.0418, %getUnsignedBitfield.exit330 ], [ %changes.0418, %getSignedBitfield.exit311 ]
+  %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
+  %exitcond432.not = icmp eq i64 %indvars.iv.next430, %wide.trip.count
+  br i1 %exitcond432.not, label %for.end296, label %for.body132, !llvm.loop !30
 
 for.end296:                                       ; preds = %for.inc294
   %tobool297.not = icmp eq i32 %changes.1, 0
@@ -3639,7 +3639,7 @@ if.then298:                                       ; preds = %for.end296
   br label %if.end307
 
 if.end307:                                        ; preds = %if.end127, %if.then298, %for.end296
-  call void @zfree(ptr noundef %ops.0.lcssa424) #17
+  call void @zfree(ptr noundef %ops.0.lcssa437) #17
   br label %return
 
 return:                                           ; preds = %if.end307, %if.then125, %if.then120, %if.then116, %if.then77, %if.then57, %if.then49, %if.else39, %if.else36

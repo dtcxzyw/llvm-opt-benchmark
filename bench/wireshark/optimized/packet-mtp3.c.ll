@@ -360,7 +360,7 @@ define internal fastcc void @mtp3_pc_to_str_buf(i32 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @mtp3_pc_structured() local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @mtp3_pc_structured() local_unnamed_addr #2 {
   %1 = load i32, ptr @mtp3_standard, align 4
   %2 = icmp eq i32 %1, 1
   %3 = load i32, ptr @itu_pc_structure, align 4
@@ -581,7 +581,7 @@ define internal void @mtp3_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mtp3_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca [6 x %struct._stat_tap_table_item_type], align 16
   %7 = alloca [256 x i8], align 16
   %8 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1013,7 +1013,7 @@ mtp3_pc_structured.exit.thread.i:                 ; preds = %113, %mtp3_pc_struc
 117:                                              ; preds = %mtp3_pc_structured.exit.thread.i
   %118 = load i32, ptr @ett_mtp3_label_dpc, align 4
   %119 = tail call ptr @proto_item_add_subtree(ptr noundef %105, i32 noundef %118) #13
-  %120 = trunc i32 %85 to i16
+  %120 = trunc nuw nsw i32 %85 to i16
   tail call void @analyze_q708_ispc(ptr noundef %0, ptr noundef %119, i32 noundef 1, i32 noundef 4, i16 noundef zeroext %120) #13
   br label %121
 
@@ -1047,7 +1047,7 @@ mtp3_pc_structured.exit102.thread.i:              ; preds = %131, %mtp3_pc_struc
 134:                                              ; preds = %mtp3_pc_structured.exit102.thread.i
   %135 = load i32, ptr @ett_mtp3_label_opc, align 4
   %136 = tail call ptr @proto_item_add_subtree(ptr noundef %123, i32 noundef %135) #13
-  %137 = trunc i32 %84 to i16
+  %137 = trunc nuw nsw i32 %84 to i16
   tail call void @analyze_q708_ispc(ptr noundef %0, ptr noundef %136, i32 noundef 1, i32 noundef 4, i16 noundef zeroext %137) #13
   br label %138
 

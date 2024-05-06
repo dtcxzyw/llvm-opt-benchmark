@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %cb.i = alloca %struct.bn_gencb_st, align 8
   %counter.i = alloca i32, align 4
@@ -206,27 +206,27 @@ lor.lhs.false:                                    ; preds = %if.end77.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %h.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %sig.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %siglen.i)
-  %call1 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig, i64 noundef 47, i32 noundef 1), !range !9
+  %call1 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig, i64 noundef 47, i32 noundef 1)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_negative, i64 noundef 46, i32 noundef -1), !range !9
+  %call4 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_negative, i64 noundef 46, i32 noundef -1)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_extra, i64 noundef 48, i32 noundef -1), !range !9
+  %call7 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_extra, i64 noundef 48, i32 noundef -1)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %call10 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_bad_length, i64 noundef 49, i32 noundef -1), !range !9
+  %call10 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_bad_length, i64 noundef 49, i32 noundef -1)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false9
-  %call13 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_bad_r, i64 noundef 47, i32 noundef 0), !range !9
+  %call13 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_bad_r, i64 noundef 47, i32 noundef 0)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.then, label %if.end
 
@@ -247,7 +247,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_verify(ptr noundef %sig, i64 noundef %sig_len, i32 noundef %expect) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_verify(ptr noundef %sig, i64 noundef %sig_len, i32 noundef %expect) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @DSA_new() #7
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -323,7 +323,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @BN_GENCB_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @dsa_cb(i32 noundef %p, i32 %n, ptr nocapture noundef readonly %arg) #3 {
+define internal range(i32 0, 2) i32 @dsa_cb(i32 noundef %p, i32 %n, ptr nocapture noundef readonly %arg) #3 {
 entry:
   switch i32 %p, label %sw.epilog [
     i32 0, label %sw.bb
@@ -434,4 +434,3 @@ attributes #8 = { cold }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 2}

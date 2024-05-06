@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [34 x i8] c"min/max version setting incorrect\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @global_init() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @global_init() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_init_ssl(i64 noundef 30272, ptr noundef null) #2
   %tobool.not = icmp ne i32 %call, 0
@@ -24,7 +24,7 @@ entry:
 declare i32 @OPENSSL_init_ssl(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @TLS_method() #2
   %call1 = tail call ptr @SSL_CTX_new(ptr noundef %call) #2
@@ -51,7 +51,7 @@ declare ptr @TLS_method() local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_func() #0 {
+define internal range(i32 0, 2) i32 @test_func() #0 {
 entry:
   %0 = load ptr, ptr @ctx, align 8
   %call = tail call i64 @SSL_CTX_ctrl(ptr noundef %0, i32 noundef 130, i64 noundef 0, ptr noundef null) #2

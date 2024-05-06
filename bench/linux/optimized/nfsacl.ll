@@ -481,7 +481,7 @@ define dso_local i32 @nfsacl_decode(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xdr_nfsace_decode(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @xdr_nfsace_decode(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -742,7 +742,7 @@ declare dso_local ptr @posix_acl_alloc(i32 noundef, i32 noundef) local_unnamed_a
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @cmp_acl_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal range(i32 -65535, 65536) i32 @cmp_acl_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = load i16, ptr %0, align 4
   %4 = load i16, ptr %1, align 4
   %5 = icmp eq i16 %3, %4

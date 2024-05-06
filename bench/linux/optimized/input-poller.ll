@@ -103,7 +103,7 @@ define dso_local void @input_dev_poller_stop(ptr noundef %0) local_unnamed_addr 
 declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @input_setup_polling(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @input_setup_polling(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 120) #11
   %5 = icmp eq ptr %4, null
@@ -302,7 +302,7 @@ declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, pt
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @input_dev_get_poll_interval(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @input_dev_get_poll_interval(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -288
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -398,7 +398,7 @@ declare dso_local zeroext i1 @input_device_enabled(ptr noundef) local_unnamed_ad
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @input_dev_get_poll_max(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @input_dev_get_poll_max(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -288
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 12
@@ -409,7 +409,7 @@ define internal noundef i64 @input_dev_get_poll_max(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @input_dev_get_poll_min(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @input_dev_get_poll_min(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -288
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16

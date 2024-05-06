@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qcrypto_ivgen_essiv = dso_local local_unnamed_addr global %struct.QCryptoIVGenDriver { ptr @qcrypto_ivgen_essiv_init, ptr @qcrypto_ivgen_essiv_calculate, ptr @qcrypto_ivgen_essiv_cleanup }, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_ivgen_essiv_init(ptr nocapture noundef %ivgen, ptr noundef %key, i64 noundef %nkey, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_ivgen_essiv_init(ptr nocapture noundef %ivgen, ptr noundef %key, i64 noundef %nkey, ptr noundef %errp) #0 {
 entry:
   %salt = alloca ptr, align 8
   %nhash = alloca i64, align 8
@@ -63,7 +63,7 @@ return:                                           ; preds = %if.end18, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_ivgen_essiv_calculate(ptr nocapture noundef readonly %ivgen, i64 noundef %sector, ptr nocapture noundef writeonly %iv, i64 noundef %niv, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_ivgen_essiv_calculate(ptr nocapture noundef readonly %ivgen, i64 noundef %sector, ptr nocapture noundef writeonly %iv, i64 noundef %niv, ptr noundef %errp) #0 {
 entry:
   %sector.addr = alloca i64, align 8
   %private = getelementptr inbounds i8, ptr %ivgen, i64 8

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._libc_fpxreg = type { [4 x i16], i16, [3 x i16] }
 %struct._libc_xmmreg = type { [4 x i32] }
 
-@_ZN6google24glog_internal_namespace_L12g_tl_enteredE = internal thread_local global i8 0, align 1
+@_ZN6google24glog_internal_namespace_L12g_tl_enteredE = internal thread_local unnamed_addr global i8 0, align 1
 @.str = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/glog/glog/src/stacktrace_libunwind-inl.h\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Check %s failed: %s\00", align 1
 @.str.2 = private unnamed_addr constant [34 x i8] c"unw_init_local(&cursor, &uc) >= 0\00", align 1

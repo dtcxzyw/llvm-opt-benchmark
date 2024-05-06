@@ -86,7 +86,7 @@ declare ptr @readdir(ptr noundef) local_unnamed_addr #4
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OPENSSL_DIR_end(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_DIR_end(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true

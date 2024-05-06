@@ -3863,8 +3863,8 @@ if.then20:                                        ; preds = %land.lhs.true18
   %24 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i.i = zext i32 %24 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %25 = getelementptr i8, ptr %a, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %25, i64 32
+  %25 = getelementptr inbounds i8, ptr %a, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %25, i64 32
   %cmp.not6.i = icmp eq i32 %24, 0
   br i1 %cmp.not6.i, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit, label %for.body.preheader.i
 
@@ -3919,8 +3919,8 @@ if.else32:                                        ; preds = %if.else24
   %31 = load i32, ptr %m_num_args.i.i36, align 8
   %idx.ext.i.i37 = zext i32 %31 to i64
   %add.ptr.i.idx.i38 = shl nuw nsw i64 %idx.ext.i.i37, 3
-  %32 = getelementptr i8, ptr %a, i64 %add.ptr.i.idx.i38
-  %add.ptr.i.ptr.i39 = getelementptr i8, ptr %32, i64 32
+  %32 = getelementptr inbounds i8, ptr %a, i64 %add.ptr.i.idx.i38
+  %add.ptr.i.ptr.i39 = getelementptr inbounds i8, ptr %32, i64 32
   %cmp.not6.i40 = icmp eq i32 %31, 0
   br i1 %cmp.not6.i40, label %_ZN12dt2bv_tactic8check_fd17args_cannot_be_fdEP3app.exit54, label %for.body.preheader.i41
 

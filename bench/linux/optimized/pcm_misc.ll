@@ -42,7 +42,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_pcm_rate
 @llvm.compiler.used = appending global [15 x ptr] [ptr @__UNIQUE_ID___addressable_snd_pcm_format_big_endian345, ptr @__UNIQUE_ID___addressable_snd_pcm_format_linear343, ptr @__UNIQUE_ID___addressable_snd_pcm_format_little_endian344, ptr @__UNIQUE_ID___addressable_snd_pcm_format_physical_width347, ptr @__UNIQUE_ID___addressable_snd_pcm_format_set_silence350, ptr @__UNIQUE_ID___addressable_snd_pcm_format_signed341, ptr @__UNIQUE_ID___addressable_snd_pcm_format_silence_64349, ptr @__UNIQUE_ID___addressable_snd_pcm_format_size348, ptr @__UNIQUE_ID___addressable_snd_pcm_format_unsigned342, ptr @__UNIQUE_ID___addressable_snd_pcm_format_width346, ptr @__UNIQUE_ID___addressable_snd_pcm_hw_limit_rates351, ptr @__UNIQUE_ID___addressable_snd_pcm_rate_bit_to_rate353, ptr @__UNIQUE_ID___addressable_snd_pcm_rate_mask_intersect354, ptr @__UNIQUE_ID___addressable_snd_pcm_rate_range_to_bits355, ptr @__UNIQUE_ID___addressable_snd_pcm_rate_to_rate_bit352], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_pcm_format_signed(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 -128, 128) i32 @snd_pcm_format_signed(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 53
   br i1 %2, label %3, label %12
 
@@ -65,7 +65,7 @@ define dso_local i32 @snd_pcm_format_signed(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_pcm_format_unsigned(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 -128, 128) i32 @snd_pcm_format_unsigned(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 53
   br i1 %2, label %3, label %.thread
 
@@ -89,7 +89,7 @@ define dso_local i32 @snd_pcm_format_unsigned(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_pcm_format_linear(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @snd_pcm_format_linear(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 53
   br i1 %2, label %3, label %12
 
@@ -112,7 +112,7 @@ define dso_local i32 @snd_pcm_format_linear(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_pcm_format_little_endian(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 -128, 128) i32 @snd_pcm_format_little_endian(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 53
   br i1 %2, label %3, label %12
 
@@ -135,7 +135,7 @@ define dso_local i32 @snd_pcm_format_little_endian(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_pcm_format_big_endian(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 -128, 128) i32 @snd_pcm_format_big_endian(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 53
   br i1 %2, label %3, label %.thread
 
@@ -159,7 +159,7 @@ define dso_local i32 @snd_pcm_format_big_endian(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_pcm_format_width(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 -22, 256) i32 @snd_pcm_format_width(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 53
   br i1 %2, label %3, label %10
 
@@ -178,7 +178,7 @@ define dso_local i32 @snd_pcm_format_width(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_pcm_format_physical_width(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 -22, 256) i32 @snd_pcm_format_physical_width(i32 noundef %0) #0 align 16 {
   %2 = icmp ult i32 %0, 53
   br i1 %2, label %3, label %12
 
@@ -201,7 +201,7 @@ define dso_local i32 @snd_pcm_format_physical_width(i32 noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i64 @snd_pcm_format_size(i32 noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local range(i64 -22, 2305843009213693952) i64 @snd_pcm_format_size(i32 noundef %0, i64 noundef %1) #0 align 16 {
   %3 = icmp ult i32 %0, 53
   br i1 %3, label %4, label %.thread
 
@@ -246,7 +246,7 @@ define dso_local ptr @snd_pcm_format_silence_64(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @snd_pcm_format_set_silence(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #1 align 16 {
   %4 = icmp ult i32 %0, 53
   br i1 %4, label %5, label %.loopexit
 
@@ -475,7 +475,7 @@ define dso_local i32 @snd_pcm_rate_bit_to_rate(i32 noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_pcm_rate_mask_intersect(i32 noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 0, -2147483647) i32 @snd_pcm_rate_mask_intersect(i32 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = and i32 %0, 1073741824
   %4 = icmp eq i32 %3, 0
   %5 = tail call i32 @llvm.umin.i32(i32 %0, i32 -2147483648)

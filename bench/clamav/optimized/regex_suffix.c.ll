@@ -85,7 +85,7 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %29 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %7, ptr %29, align 8
-  %30 = call fastcc i32 @build_suffixtree_descend(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5), !range !4
+  %30 = call fastcc i32 @build_suffixtree_descend(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %.pre = load ptr, ptr %5, align 8
   %.not35 = icmp eq ptr %.pre, null
   br i1 %.not35, label %.thread, label %.thread42
@@ -693,7 +693,7 @@ make_node.exit129.thread:                         ; preds = %make_leaf.exit, %ma
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @build_suffixtree_descend(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %.not41 = icmp eq ptr %0, null
   br i1 %.not41, label %.critedge36, label %.lr.ph
 
@@ -719,7 +719,7 @@ define internal fastcc i32 @build_suffixtree_descend(ptr noundef %0, ptr nocaptu
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %.03142, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %14, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %15 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %14, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not34 = icmp eq i32 %15, 0
   br i1 %.not34, label %16, label %.critedge36
 
@@ -727,7 +727,7 @@ define internal fastcc i32 @build_suffixtree_descend(ptr noundef %0, ptr nocaptu
   store i64 %12, ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %.03142, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %18, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %19 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %18, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not35 = icmp eq i32 %19, 0
   br i1 %.not35, label %20, label %.critedge36
 
@@ -779,7 +779,7 @@ textbuffer_putc.exit:                             ; preds = %28, %33
   br label %.critedge36
 
 41:                                               ; preds = %.lr.ph, %.lr.ph
-  %42 = tail call fastcc i32 @build_suffixtree_ascend(ptr noundef nonnull %.03142, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %42 = tail call fastcc i32 @build_suffixtree_ascend(ptr noundef nonnull %.03142, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not32 = icmp eq i32 %42, 0
   %.37 = select i1 %.not32, i32 0, i32 20
   br label %.critedge36
@@ -923,7 +923,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @build_suffixtree_ascend(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not113 = icmp eq ptr %0, null
   br i1 %.not113, label %.loopexit, label %.lr.ph
 
@@ -1141,7 +1141,7 @@ textbuffer_putc.exit90:                           ; preds = %66, %71
 
 textbuffer_putc.exit98:                           ; preds = %95, %100
   %104 = load ptr, ptr %60, align 8
-  %105 = tail call fastcc i32 @build_suffixtree_ascend(ptr noundef %104, ptr noundef nonnull %1, ptr noundef nonnull %.057115, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %105 = tail call fastcc i32 @build_suffixtree_ascend(ptr noundef %104, ptr noundef nonnull %1, ptr noundef nonnull %.057115, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not68 = icmp eq i32 %105, 0
   br i1 %.not68, label %106, label %.loopexit
 
@@ -1161,7 +1161,7 @@ textbuffer_putc.exit98:                           ; preds = %95, %100
   br i1 %.not65, label %.sink.split, label %112
 
 112:                                              ; preds = %109
-  %113 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %111, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %113 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %111, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not66 = icmp eq i32 %113, 0
   %.73 = select i1 %.not66, i32 0, i32 20
   br label %.loopexit
@@ -1245,4 +1245,3 @@ attributes #10 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 21}

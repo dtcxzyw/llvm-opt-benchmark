@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [83 x i8] c"Io_WriteCnf() warning: Generating CNF by applying heuristic AIG to CNF conversion.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_WriteCnf(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_WriteCnf(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.val = load i32, ptr %0, align 8
   %.not = icmp eq i32 %.val, 3
   %str.1.str = select i1 %.not, ptr @str.1, ptr @str

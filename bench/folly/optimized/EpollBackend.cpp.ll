@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly12EpollBackend18eb_event_base_loopEi(ptr noundef nonnull align 8 dereferenceable(352) %this, i32 noundef %flags) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN5folly12EpollBackend18eb_event_base_loopEi(ptr noundef nonnull align 8 dereferenceable(352) %this, i32 noundef %flags) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %call_time = alloca i64, align 8
@@ -428,7 +428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly12EpollBackend12eb_event_addERNS_14EventBaseEventEPK7timeval(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(160) %event, ptr noundef readonly %timeout) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN5folly12EpollBackend12eb_event_addERNS_14EventBaseEventEPK7timeval(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(160) %event, ptr noundef readonly %timeout) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 cleanup.done14:
   %ref.tmp31 = alloca %"class.google::LogMessageFatal", align 8
   %epev = alloca %struct.epoll_event, align 4
@@ -532,7 +532,7 @@ cleanup:                                          ; preds = %if.end92, %if.then6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly12EpollBackend12eb_event_delERNS_14EventBaseEventE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(160) %event) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2) i32 @_ZN5folly12EpollBackend12eb_event_delERNS_14EventBaseEventE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(160) %event) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %epev = alloca %struct.epoll_event, align 4
   %evb_.i = getelementptr inbounds i8, ptr %event, i64 120

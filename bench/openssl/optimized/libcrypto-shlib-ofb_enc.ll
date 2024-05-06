@@ -202,7 +202,7 @@ sw.epilog:                                        ; preds = %sw.bb83, %while.bod
 
 sw.bb93:                                          ; preds = %sw.epilog
   %shr = lshr i32 %and90, 24
-  %conv95 = trunc i32 %shr to i8
+  %conv95 = trunc nuw i32 %shr to i8
   %incdec.ptr96 = getelementptr inbounds i8, ptr %add.ptr92, i64 -1
   store i8 %conv95, ptr %incdec.ptr96, align 1
   br label %sw.bb97
@@ -233,7 +233,7 @@ sw.bb107:                                         ; preds = %sw.bb102, %sw.epilo
 sw.bb111:                                         ; preds = %sw.bb107, %sw.epilog
   %out.addr.4 = phi ptr [ %add.ptr92, %sw.epilog ], [ %incdec.ptr110, %sw.bb107 ]
   %shr112 = lshr i32 %and, 24
-  %conv114 = trunc i32 %shr112 to i8
+  %conv114 = trunc nuw i32 %shr112 to i8
   %incdec.ptr115 = getelementptr inbounds i8, ptr %out.addr.4, i64 -1
   store i8 %conv114, ptr %incdec.ptr115, align 1
   br label %sw.bb116
@@ -311,7 +311,7 @@ while.end:                                        ; preds = %if.end177, %if.end1
   %conv188 = trunc i32 %shr186 to i8
   store i8 %conv188, ptr %incdec.ptr19, align 1
   %shr190 = lshr i32 %v0.0.lcssa, 24
-  %conv192 = trunc i32 %shr190 to i8
+  %conv192 = trunc nuw i32 %shr190 to i8
   store i8 %conv192, ptr %incdec.ptr22, align 1
   %conv195 = trunc i32 %v1.0.lcssa to i8
   store i8 %conv195, ptr %incdec.ptr26, align 1
@@ -322,7 +322,7 @@ while.end:                                        ; preds = %if.end177, %if.end1
   %conv203 = trunc i32 %shr201 to i8
   store i8 %conv203, ptr %incdec.ptr32, align 1
   %shr205 = lshr i32 %v1.0.lcssa, 24
-  %conv207 = trunc i32 %shr205 to i8
+  %conv207 = trunc nuw i32 %shr205 to i8
   store i8 %conv207, ptr %incdec.ptr36, align 1
   br label %return
 

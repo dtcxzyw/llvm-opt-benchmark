@@ -369,7 +369,7 @@ define ptr @kvs_get(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %4, %1
   %6 = load ptr, ptr @kvs_hash, align 8
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #6
   %8 = trunc i64 %7 to i32
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.preheader.i, label %_hash.exit
@@ -456,7 +456,7 @@ define noundef i32 @kvs_put(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 6:                                                ; preds = %5, %2
   %7 = load ptr, ptr @kvs_hash, align 8
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #6
   %9 = trunc i64 %8 to i32
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.preheader.i, label %_hash.exit

@@ -208,11 +208,11 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 151:                                              ; preds = %149
   %152 = xor i1 %92, true
   %153 = or i1 %85, %152
-  %154 = mul nsw i32 %126, 6
+  %154 = mul nuw nsw i32 %126, 6
   %155 = shl nuw i32 %126, 1
   %156 = select i1 %153, i32 %154, i32 %155
   %157 = select i1 %119, i1 true, i1 %121
-  %158 = mul nsw i32 %126, 10
+  %158 = mul nuw nsw i32 %126, 10
   %159 = select i1 %157, i32 %158, i32 %156
   %160 = select i1 %123, i1 true, i1 %121
   br i1 %160, label %161, label %166

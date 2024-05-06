@@ -63,7 +63,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drbg_status() #0 {
+define internal range(i32 0, 2) i32 @drbg_status() #0 {
 entry:
   %call = tail call ptr @RAND_get0_primary(ptr noundef null) #3
   %cmp = icmp eq ptr %call, null
@@ -81,7 +81,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @RAND_OpenSSL() local_unnamed_addr #1 {
+define noundef nonnull ptr @RAND_OpenSSL() local_unnamed_addr #1 {
 entry:
   ret ptr @ossl_rand_meth
 }

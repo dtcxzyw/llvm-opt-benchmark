@@ -138,7 +138,7 @@ define dso_local void @tsc_verify_tsc_adjust(i1 noundef zeroext %0) local_unname
 31:                                               ; preds = %27
   %32 = trunc i64 %29 to i32
   %33 = lshr i64 %29, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 59, i32 %32, i32 %34) #8, !srcloc !10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #8
           to label %36 [label %35], !srcloc !9
@@ -330,7 +330,7 @@ define dso_local noundef zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef z
   %79 = load i64, ptr %74, align 8
   %80 = trunc i64 %79 to i32
   %81 = lshr i64 %79, 32
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 59, i32 %80, i32 %82) #8, !srcloc !10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #8
           to label %84 [label %83], !srcloc !9
@@ -431,7 +431,7 @@ define dso_local void @check_tsc_sync_target() local_unnamed_addr #0 align 16 {
   %53 = load i64, ptr %24, align 8
   %54 = trunc i64 %53 to i32
   %55 = lshr i64 %53, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 59, i32 %54, i32 %56) #8, !srcloc !10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #8
           to label %.backedge [label %57], !srcloc !9

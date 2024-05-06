@@ -3598,7 +3598,7 @@ fix_merged_indexes.exit.i:                        ; preds = %458, %.lr.ph56.i.i,
   br label %462
 
 462:                                              ; preds = %fix_merged_indexes.exit.i, %419
-  call fastcc void @generate_matching_part_pairs(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %.16.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @generate_matching_part_pairs(ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %.16.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %463 = load i32, ptr %16, align 8
   %464 = trunc i32 %463 to i8
   %465 = tail call fastcc ptr @build_merged_partition_bounds(i8 noundef signext %464, ptr noundef %.0129.ph.i.ph, ptr noundef null, ptr noundef %.0127.ph.i.ph, i32 noundef %.1253.i, i32 noundef %.7.i)
@@ -5400,7 +5400,7 @@ merge_default_partitions.exit.i23:                ; preds = %1175, %1174, %1173,
   br i1 %1176, label %1177, label %merge_range_bounds.exit
 
 1177:                                             ; preds = %merge_default_partitions.exit.i23
-  call fastcc void @generate_matching_part_pairs(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %.12.i24, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @generate_matching_part_pairs(ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %.12.i24, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %1178 = load i32, ptr %16, align 8
   %1179 = trunc i32 %1178 to i8
   %1180 = tail call fastcc ptr @build_merged_partition_bounds(i8 noundef signext %1179, ptr noundef %.0459.lcssa.i, ptr noundef %.0456.lcssa.i, ptr noundef %.0453.lcssa.i, i32 noundef -1, i32 noundef %.7469.i)
@@ -6978,7 +6978,7 @@ define dso_local i64 @compute_partition_hash_value(i32 noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @satisfies_hash_partition(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -7436,7 +7436,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @qsort_partition_hbound_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @qsort_partition_hbound_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4

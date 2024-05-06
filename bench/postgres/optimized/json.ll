@@ -564,7 +564,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   br i1 %.not, label %42, label %39
 
 39:                                               ; preds = %31
-  %40 = trunc i64 %33 to i32
+  %40 = trunc nuw nsw i64 %33 to i32
   %41 = call i64 @getmissingattr(ptr noundef nonnull %16, i32 noundef %40, ptr noundef nonnull %5) #9
   br label %heap_getattr.exit
 
@@ -636,13 +636,13 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   br label %heap_getattr.exit
 
 80:                                               ; preds = %46
-  %81 = trunc i64 %33 to i32
+  %81 = trunc nuw nsw i64 %33 to i32
   %82 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef %81, ptr noundef nonnull %16) #9
   br label %heap_getattr.exit
 
 83:                                               ; preds = %42
   %84 = getelementptr inbounds i8, ptr %34, i64 23
-  %85 = trunc i64 %indvars.iv to i32
+  %85 = trunc nuw nsw i64 %indvars.iv to i32
   %86 = lshr i64 %indvars.iv, 3
   %87 = getelementptr i8, ptr %84, i64 %86
   %88 = load i8, ptr %87, align 1
@@ -658,7 +658,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   br label %heap_getattr.exit
 
 94:                                               ; preds = %83
-  %95 = trunc i64 %33 to i32
+  %95 = trunc nuw nsw i64 %33 to i32
   %96 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef %95, ptr noundef nonnull %16) #9
   br label %heap_getattr.exit
 
@@ -2620,7 +2620,7 @@ define dso_local i64 @json_typeof(ptr nocapture noundef readonly %0) local_unnam
   unreachable
 
 switch.hole_check:                                ; preds = %10
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1815, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %14

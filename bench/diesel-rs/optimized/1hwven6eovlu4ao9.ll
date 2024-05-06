@@ -79,7 +79,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   store i64 %31, ptr %5, align 8, !noalias !39
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h49bb2815b4a489eeE.llvm.14530165242193695371"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8), !noalias !44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !39
-  %trunc.i.i.i = trunc i32 %30 to i1
+  %trunc.i.i.i = trunc nuw i32 %30 to i1
   br i1 %trunc.i.i.i, label %37, label %32
 
 32:                                               ; preds = %.lr.ph.i
@@ -515,7 +515,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !64, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %5 = load i64, ptr %4, align 8, !range !204, !alias.scope !201, !noalias !205, !noundef !5
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
@@ -560,7 +560,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h0a24982871c141d
   store <2 x i64> %11, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !208, !noalias !211
   store <2 x i64> %7, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !208, !noalias !211
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !208, !noalias !211
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !208, !noalias !211
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8, !range !216, !alias.scope !213, !noalias !217, !noundef !5
@@ -687,7 +687,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hd648709bd8f63c7
   store <2 x i64> %8, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !249, !noalias !252
   store <2 x i64> %4, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !249, !noalias !252
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !249, !noalias !252
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !249, !noalias !252
   call void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCacheKey$LT$DB$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h95ab783c55264a7cE.llvm.16034385991688127784"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !254
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 16, !alias.scope !257
   %.sroa.10.0.copyload.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !257
@@ -977,7 +977,7 @@ define hidden void @"_ZN6diesel10type_impls10primitives13foreign_impls1_131_$LT$
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !310, !noalias !315, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !320
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !320
   %19 = load i64, ptr %6, align 8, !alias.scope !310, !noalias !315, !noundef !5
   %20 = add i64 %19, %2
   store i64 %20, ptr %6, align 8, !alias.scope !310, !noalias !315
@@ -1910,12 +1910,12 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !508
   call void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h39d2e11dc5cf76acE.llvm.241371645245257412"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   %33 = load i8, ptr %5, align 8, !range !510, !noalias !508, !noundef !5
-  %trunc.i = trunc i8 %33 to i1
+  %trunc.i = trunc nuw i8 %33 to i1
   br i1 %trunc.i, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = load i8, ptr %30, align 1, !range !510, !noalias !508, !noundef !5
-  %trunc5.i = trunc i8 %35 to i1
+  %trunc5.i = trunc nuw i8 %35 to i1
   br i1 %trunc5.i, label %41, label %39
 
 36:                                               ; preds = %32
@@ -1949,7 +1949,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 48:                                               ; preds = %44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !512
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !512
   br label %51
 
 49:                                               ; preds = %36, %39, %46

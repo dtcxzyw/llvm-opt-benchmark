@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [18 x i8] c"!PyErr_Occurred()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Sys(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Sys(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %m, ptr noundef nonnull @test_methods) #3
   %call.lobit = ashr i32 %call, 31
@@ -31,7 +31,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_getobject(ptr nocapture readnone %_unused_module, ptr noundef %arg) #0 {
+define internal noundef ptr @sys_getobject(ptr nocapture readnone %_unused_module, ptr noundef %arg) #0 {
 entry:
   %name = alloca ptr, align 8
   %size = alloca i64, align 8

@@ -120,7 +120,7 @@ define i32 @PMPI_Startall(i32 noundef %0, ptr noundef %1) #0 {
   %44 = icmp ne ptr %.05580, null
   %45 = icmp ne i64 %indvars.iv85, 0
   %or.cond3 = and i1 %45, %44
-  %46 = trunc i64 %indvars.iv85 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv85 to i32
   br i1 %or.cond3, label %47, label %._crit_edge92
 
 47:                                               ; preds = %43

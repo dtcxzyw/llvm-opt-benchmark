@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_tasklisttable = external local_unnamed_addr constant [10 x %struct.tasklist_s], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = add i32 %1, -256
   %or.cond = icmp ult i32 %4, -255
@@ -46,7 +46,7 @@ define noundef i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %1) local_u
   br i1 %18, label %.preheader.i.preheader, label %29
 
 .preheader.i.preheader:                           ; preds = %14
-  %19 = trunc i32 %1 to i8
+  %19 = trunc nuw i32 %1 to i8
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
@@ -76,7 +76,7 @@ define noundef i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %1) local_u
   br label %nxsched_running_setpriority.exit
 
 33:                                               ; preds = %9
-  %34 = trunc i32 %1 to i8
+  %34 = trunc nuw i32 %1 to i8
   %35 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 %34, ptr %35, align 4
   br label %nxsched_running_setpriority.exit
@@ -100,7 +100,7 @@ define noundef i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %1) local_u
 
 46:                                               ; preds = %36
   %47 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef nonnull %0, i1 noundef zeroext false) #4
-  %48 = trunc i32 %1 to i8
+  %48 = trunc nuw i32 %1 to i8
   %49 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 %48, ptr %49, align 4
   %50 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %0) #4
@@ -144,7 +144,7 @@ define noundef i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %1) local_u
   %.sink31.i = select i1 %.not29.i, ptr %66, ptr %71
   %72 = getelementptr inbounds i8, ptr %.sink31.i, i64 8
   store ptr %70, ptr %72, align 8
-  %73 = trunc i32 %1 to i8
+  %73 = trunc nuw i32 %1 to i8
   %74 = getelementptr inbounds i8, ptr %0, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i8 %73, ptr %74, align 4
@@ -152,7 +152,7 @@ define noundef i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %1) local_u
   br label %nxsched_running_setpriority.exit
 
 76:                                               ; preds = %65
-  %77 = trunc i32 %1 to i8
+  %77 = trunc nuw i32 %1 to i8
   %78 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 %77, ptr %78, align 4
   br label %nxsched_running_setpriority.exit

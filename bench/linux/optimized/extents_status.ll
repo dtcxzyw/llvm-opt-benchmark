@@ -99,7 +99,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [24 x ptr] [ptr @trace_ext4_es_cache_extent.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1565, ptr @trace_ext4_es_cache_extent.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_cache_extent1564, ptr @trace_ext4_es_find_extent_range_enter.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1593, ptr @trace_ext4_es_find_extent_range_enter.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_find_extent_range_enter1592, ptr @trace_ext4_es_find_extent_range_exit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1607, ptr @trace_ext4_es_find_extent_range_exit.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_find_extent_range_exit1606, ptr @trace_ext4_es_insert_delayed_block.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1733, ptr @trace_ext4_es_insert_delayed_block.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_insert_delayed_block1732, ptr @trace_ext4_es_insert_extent.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1551, ptr @trace_ext4_es_insert_extent.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_insert_extent1550, ptr @trace_ext4_es_lookup_extent_enter.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1621, ptr @trace_ext4_es_lookup_extent_enter.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_lookup_extent_enter1620, ptr @trace_ext4_es_lookup_extent_exit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1635, ptr @trace_ext4_es_lookup_extent_exit.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_lookup_extent_exit1634, ptr @trace_ext4_es_remove_extent.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1579, ptr @trace_ext4_es_remove_extent.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_remove_extent1578, ptr @trace_ext4_es_shrink.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1719, ptr @trace_ext4_es_shrink.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_shrink1718, ptr @trace_ext4_es_shrink_count.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1649, ptr @trace_ext4_es_shrink_count.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_shrink_count1648, ptr @trace_ext4_es_shrink_scan_enter.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1663, ptr @trace_ext4_es_shrink_scan_enter.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_shrink_scan_enter1662, ptr @trace_ext4_es_shrink_scan_exit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1677, ptr @trace_ext4_es_shrink_scan_exit.__UNIQUE_ID___addressable___SCK__tp_func_ext4_es_shrink_scan_exit1676], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @ext4_init_es() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @ext4_init_es() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 40, i32 noundef 8, i32 noundef 131072, ptr noundef null) #11
   store ptr %1, ptr @ext4_es_cachep, align 8
   %2 = icmp eq ptr %1, null
@@ -1733,7 +1733,7 @@ declare dso_local void @__ext4_warning(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @_raw_write_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__es_remove_extent(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__es_remove_extent(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #2 align 16 {
   %6 = alloca %struct.extent_status, align 8
   %7 = alloca %struct.rsvd_count, align 8
   %8 = alloca %struct.extent_status, align 8
@@ -2351,7 +2351,7 @@ thread-pre-split:                                 ; preds = %205
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__es_insert_extent(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 656
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3003,7 +3003,7 @@ define dso_local void @ext4_es_cache_extent(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_es_lookup_extent(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ext4_es_lookup_extent(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 872
@@ -3516,7 +3516,7 @@ declare dso_local i32 @__percpu_counter_init_many(ptr noundef, i64 noundef, i32 
 declare dso_local ptr @shrinker_alloc(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ext4_es_scan(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ext4_es_scan(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3884,7 +3884,7 @@ define internal i64 @ext4_es_scan(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ext4_es_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i64 0, -9223372036854775808) i64 @ext4_es_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1480
@@ -4091,7 +4091,7 @@ define internal fastcc void @ext4_es_free_extent(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @ext4_init_pending() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @ext4_init_pending() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.13, i32 noundef 32, i32 noundef 8, i32 noundef 131072, ptr noundef null) #11
   store ptr %1, ptr @ext4_pending_cachep, align 8
   %2 = icmp eq ptr %1, null
@@ -4819,7 +4819,7 @@ declare dso_local i32 @_raw_write_trylock(ptr noundef) local_unnamed_addr #1 sec
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @es_do_reclaim_extents(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @es_do_reclaim_extents(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 296
   %6 = getelementptr inbounds i8, ptr %0, i64 952
   %7 = getelementptr inbounds i8, ptr %0, i64 1000

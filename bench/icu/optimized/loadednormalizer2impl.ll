@@ -89,7 +89,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZN6icu_7521LoadedNormalizer2Impl12isAcceptableEPvPKcS3_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7521LoadedNormalizer2Impl12isAcceptableEPvPKcS3_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #4 align 2 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %3, 19

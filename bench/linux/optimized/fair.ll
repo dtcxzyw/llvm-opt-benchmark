@@ -287,7 +287,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @entity_eligible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 2) i32 @entity_eligible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -981,7 +981,7 @@ define dso_local void @__update_idle_core(ptr nocapture noundef readonly %0) loc
 declare dso_local i32 @available_idle_cpu(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i64 @cpu_util_cfs(i32 noundef %0) local_unnamed_addr #12 align 16 {
+define dso_local range(i64 0, 1025) i64 @cpu_util_cfs(i32 noundef %0) local_unnamed_addr #12 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
@@ -1010,7 +1010,7 @@ define dso_local i64 @cpu_util_cfs(i32 noundef %0) local_unnamed_addr #12 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i64 @cpu_util_cfs_boost(i32 noundef %0) local_unnamed_addr #12 align 16 {
+define dso_local range(i64 0, 1025) i64 @cpu_util_cfs_boost(i32 noundef %0) local_unnamed_addr #12 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
@@ -2982,7 +2982,7 @@ define dso_local void @free_fair_sched_group(ptr nocapture noundef readonly %0) 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @alloc_fair_sched_group(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @alloc_fair_sched_group(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr @nr_cpu_ids, align 4
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 3
@@ -3414,7 +3414,7 @@ define dso_local void @unregister_fair_sched_group(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sched_group_set_shares(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sched_group_set_shares(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @shares_mutex) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 32
@@ -3435,7 +3435,7 @@ define dso_local noundef i32 @sched_group_set_shares(ptr nocapture noundef %0, i
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__sched_group_set_shares(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__sched_group_set_shares(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
@@ -3571,7 +3571,7 @@ define internal fastcc noundef i32 @__sched_group_set_shares(ptr nocapture nound
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sched_group_set_idle(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sched_group_set_idle(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, @root_task_group
   %5 = icmp ugt i64 %1, 1
@@ -5549,7 +5549,7 @@ define internal void @set_next_task_fair(ptr noundef %0, ptr noundef %1, i1 zero
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @balance_fair(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 align 16 {
+define internal range(i32 0, 2) i32 @balance_fair(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -12919,7 +12919,7 @@ can_migrate_task.exit.thread:                     ; preds = %1205, %.preheader, 
 declare dso_local i32 @_raw_spin_trylock(ptr noundef) local_unnamed_addr #10 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @need_active_balance(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @need_active_balance(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4

@@ -1724,7 +1724,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 2120, ptr nonnull %6) #23
   %189 = mul nsw i32 %186, %184
   %190 = ashr i32 %180, 1
-  %191 = mul nsw i32 %190, %182
+  %191 = mul nuw nsw i32 %190, %182
   %192 = icmp sgt i32 %189, -1
   tail call void @llvm.assume(i1 %192)
   %193 = icmp sgt i32 %182, -1
@@ -1846,7 +1846,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %268)
   %269 = icmp uge i32 %261, %262
   call void @llvm.assume(i1 %269)
-  %270 = mul nsw i32 %263, %261
+  %270 = mul nuw nsw i32 %263, %261
   %271 = icmp eq i32 %260, %270
   call void @llvm.assume(i1 %271)
   %272 = icmp ne i32 %262, 0
@@ -1875,14 +1875,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %286)
   %287 = icmp uge i32 %284, %280
   call void @llvm.assume(i1 %287)
-  %288 = mul nsw i32 %284, %282
+  %288 = mul nuw nsw i32 %284, %282
   %289 = icmp eq i32 %278, %288
   call void @llvm.assume(i1 %289)
   %290 = icmp ne i32 %280, 0
   call void @llvm.assume(i1 %290)
   %291 = icmp ugt i32 %282, 5
   call void @llvm.assume(i1 %291)
-  %292 = mul nsw i32 %284, 5
+  %292 = mul nuw nsw i32 %284, 5
   %293 = add nuw nsw i32 %292, %280
   %294 = icmp ule i32 %293, %278
   call void @llvm.assume(i1 %294)
@@ -1908,18 +1908,18 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %308)
   %309 = icmp uge i32 %306, %302
   call void @llvm.assume(i1 %309)
-  %310 = mul nsw i32 %306, %304
+  %310 = mul nuw nsw i32 %306, %304
   %311 = icmp eq i32 %300, %310
   call void @llvm.assume(i1 %311)
   %312 = icmp ne i32 %302, 0
   call void @llvm.assume(i1 %312)
-  %313 = mul nsw i32 %306, 5
+  %313 = mul nuw nsw i32 %306, 5
   %314 = add nuw nsw i32 %313, %302
   %315 = icmp ule i32 %314, %300
   call void @llvm.assume(i1 %315)
   %316 = icmp ugt i32 %304, 13
   call void @llvm.assume(i1 %316)
-  %317 = mul nsw i32 %306, 13
+  %317 = mul nuw nsw i32 %306, 13
   %318 = add nuw nsw i32 %317, %302
   %319 = icmp ule i32 %318, %300
   call void @llvm.assume(i1 %319)
@@ -1945,14 +1945,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %333)
   %334 = icmp uge i32 %331, %327
   call void @llvm.assume(i1 %334)
-  %335 = mul nsw i32 %331, %329
+  %335 = mul nuw nsw i32 %331, %329
   %336 = icmp eq i32 %325, %335
   call void @llvm.assume(i1 %336)
   %337 = icmp ne i32 %327, 0
   call void @llvm.assume(i1 %337)
   %338 = icmp ugt i32 %329, 13
   call void @llvm.assume(i1 %338)
-  %339 = mul nsw i32 %331, 13
+  %339 = mul nuw nsw i32 %331, 13
   %340 = add nuw nsw i32 %339, %327
   %341 = icmp ule i32 %340, %325
   call void @llvm.assume(i1 %341)
@@ -1973,21 +1973,21 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %354 = zext nneg i32 %351 to i64
   %355 = getelementptr i16, ptr %345, i64 %354
   store i16 %350, ptr %355, align 2, !tbaa !83
-  %356 = mul nsw i32 %331, 6
+  %356 = mul nuw nsw i32 %331, 6
   %357 = add nuw nsw i32 %356, %327
   %358 = icmp ule i32 %357, %325
   call void @llvm.assume(i1 %358)
   %359 = zext nneg i32 %356 to i64
   %360 = getelementptr i16, ptr %344, i64 %359
   %361 = load i16, ptr %360, align 2, !tbaa !83
-  %362 = mul nsw i32 %331, 7
+  %362 = mul nuw nsw i32 %331, 7
   %363 = add nuw nsw i32 %362, %327
   %364 = icmp ule i32 %363, %325
   call void @llvm.assume(i1 %364)
   %365 = zext nneg i32 %362 to i64
   %366 = getelementptr i16, ptr %345, i64 %365
   store i16 %361, ptr %366, align 2, !tbaa !83
-  %367 = mul nsw i32 %331, 14
+  %367 = mul nuw nsw i32 %331, 14
   %368 = add nuw nsw i32 %367, %327
   %369 = icmp ule i32 %368, %325
   call void @llvm.assume(i1 %369)
@@ -1996,7 +1996,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %372 = load i16, ptr %371, align 2, !tbaa !83
   %373 = icmp ugt i32 %329, 15
   call void @llvm.assume(i1 %373)
-  %374 = mul nsw i32 %331, 15
+  %374 = mul nuw nsw i32 %331, 15
   %375 = add nuw nsw i32 %374, %327
   %376 = icmp ule i32 %375, %325
   call void @llvm.assume(i1 %376)
@@ -2548,7 +2548,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %680)
   %681 = icmp uge i32 %678, %674
   call void @llvm.assume(i1 %681)
-  %682 = mul nsw i32 %678, %676
+  %682 = mul nuw nsw i32 %678, %676
   %683 = icmp eq i32 %672, %682
   call void @llvm.assume(i1 %683)
   %684 = icmp sgt i32 %669, -2
@@ -2655,7 +2655,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %753)
   %754 = icmp uge i32 %751, %747
   call void @llvm.assume(i1 %754)
-  %755 = mul nsw i32 %751, %749
+  %755 = mul nuw nsw i32 %751, %749
   %756 = icmp eq i32 %745, %755
   call void @llvm.assume(i1 %756)
   %757 = icmp sgt i32 %742, -2
@@ -3024,7 +3024,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1023)
   %1024 = icmp uge i32 %1021, %1017
   call void @llvm.assume(i1 %1024)
-  %1025 = mul nsw i32 %1021, %1019
+  %1025 = mul nuw nsw i32 %1021, %1019
   %1026 = icmp eq i32 %1015, %1025
   call void @llvm.assume(i1 %1026)
   %1027 = icmp sgt i32 %662, -1
@@ -3035,7 +3035,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1029)
   %1030 = icmp ugt i32 %1019, %.sroa.phi97.sroa.speculated
   call void @llvm.assume(i1 %1030)
-  %1031 = mul nsw i32 %1021, %.sroa.phi97.sroa.speculated
+  %1031 = mul nuw nsw i32 %1021, %.sroa.phi97.sroa.speculated
   %1032 = add nuw nsw i32 %1031, %1017
   %1033 = icmp ule i32 %1032, %1015
   call void @llvm.assume(i1 %1033)
@@ -3086,7 +3086,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1064)
   %1065 = icmp uge i32 %1051, %1053
   call void @llvm.assume(i1 %1065)
-  %1066 = mul nsw i32 %1052, %1051
+  %1066 = mul nuw nsw i32 %1052, %1051
   %1067 = icmp eq i32 %1054, %1066
   call void @llvm.assume(i1 %1067)
   %1068 = icmp sgt i32 %1061, -2
@@ -3097,7 +3097,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1070)
   %1071 = icmp ugt i32 %1052, %.sroa.phi99.sroa.speculated
   call void @llvm.assume(i1 %1071)
-  %1072 = mul nsw i32 %.sroa.phi99.sroa.speculated, %1051
+  %1072 = mul nuw nsw i32 %.sroa.phi99.sroa.speculated, %1051
   %1073 = add nuw nsw i32 %1072, %1053
   %1074 = icmp ule i32 %1073, %1054
   call void @llvm.assume(i1 %1074)
@@ -3446,14 +3446,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1324)
   %1325 = icmp uge i32 %1322, %1318
   call void @llvm.assume(i1 %1325)
-  %1326 = mul nsw i32 %1322, %1320
+  %1326 = mul nuw nsw i32 %1322, %1320
   %1327 = icmp eq i32 %1316, %1326
   call void @llvm.assume(i1 %1327)
   %1328 = icmp sgt i32 %1318, %1082
   call void @llvm.assume(i1 %1328)
   %1329 = icmp ugt i32 %1320, %.sroa.phi99.sroa.speculated
   call void @llvm.assume(i1 %1329)
-  %1330 = mul nsw i32 %1322, %.sroa.phi99.sroa.speculated
+  %1330 = mul nuw nsw i32 %1322, %.sroa.phi99.sroa.speculated
   %1331 = add nuw nsw i32 %1330, %1318
   %1332 = icmp ule i32 %1331, %1316
   call void @llvm.assume(i1 %1332)
@@ -3935,7 +3935,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1635)
   %1636 = icmp uge i32 %1620, %1622
   call void @llvm.assume(i1 %1636)
-  %1637 = mul nsw i32 %1621, %1620
+  %1637 = mul nuw nsw i32 %1621, %1620
   %1638 = icmp eq i32 %1623, %1637
   call void @llvm.assume(i1 %1638)
   %1639 = icmp sgt i32 %1631, -2
@@ -4291,14 +4291,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1893)
   %1894 = icmp uge i32 %1891, %1887
   call void @llvm.assume(i1 %1894)
-  %1895 = mul nsw i32 %1891, %1889
+  %1895 = mul nuw nsw i32 %1891, %1889
   %1896 = icmp eq i32 %1885, %1895
   call void @llvm.assume(i1 %1896)
   %1897 = icmp ugt i32 %1887, %1632
   call void @llvm.assume(i1 %1897)
   %1898 = icmp ugt i32 %1889, %.sroa.phi117.sroa.speculated
   call void @llvm.assume(i1 %1898)
-  %1899 = mul nsw i32 %1891, %.sroa.phi117.sroa.speculated
+  %1899 = mul nuw nsw i32 %1891, %.sroa.phi117.sroa.speculated
   %1900 = add nuw nsw i32 %1899, %1887
   %1901 = icmp ule i32 %1900, %1885
   call void @llvm.assume(i1 %1901)
@@ -4349,7 +4349,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1932)
   %1933 = icmp uge i32 %1919, %1921
   call void @llvm.assume(i1 %1933)
-  %1934 = mul nsw i32 %1920, %1919
+  %1934 = mul nuw nsw i32 %1920, %1919
   %1935 = icmp eq i32 %1922, %1934
   call void @llvm.assume(i1 %1935)
   %1936 = icmp sgt i32 %1929, -2
@@ -4360,7 +4360,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1938)
   %1939 = icmp ugt i32 %1920, %.sroa.phi119.sroa.speculated
   call void @llvm.assume(i1 %1939)
-  %1940 = mul nsw i32 %.sroa.phi119.sroa.speculated, %1919
+  %1940 = mul nuw nsw i32 %.sroa.phi119.sroa.speculated, %1919
   %1941 = add nuw nsw i32 %1940, %1921
   %1942 = icmp ule i32 %1941, %1922
   call void @llvm.assume(i1 %1942)
@@ -4723,14 +4723,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2194)
   %2195 = icmp uge i32 %2192, %2188
   call void @llvm.assume(i1 %2195)
-  %2196 = mul nsw i32 %2192, %2190
+  %2196 = mul nuw nsw i32 %2192, %2190
   %2197 = icmp eq i32 %2186, %2196
   call void @llvm.assume(i1 %2197)
   %2198 = icmp sgt i32 %2188, %1950
   call void @llvm.assume(i1 %2198)
   %2199 = icmp ugt i32 %2190, %.sroa.phi119.sroa.speculated
   call void @llvm.assume(i1 %2199)
-  %2200 = mul nsw i32 %2192, %.sroa.phi119.sroa.speculated
+  %2200 = mul nuw nsw i32 %2192, %.sroa.phi119.sroa.speculated
   %2201 = add nuw nsw i32 %2200, %2188
   %2202 = icmp ule i32 %2201, %2186
   call void @llvm.assume(i1 %2202)
@@ -5170,7 +5170,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2475)
   %2476 = icmp ne i32 %2469, 0
   call void @llvm.assume(i1 %2476)
-  %2477 = mul nsw i32 %2467, %2472
+  %2477 = mul nuw nsw i32 %2467, %2472
   %2478 = icmp eq i32 %2465, %2477
   call void @llvm.assume(i1 %2478)
   %2479 = zext nneg i32 %2469 to i64
@@ -5268,7 +5268,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2554 = icmp ne i32 %2553, 0
   %2555 = icmp sgt i32 %2553, -1
   %2556 = icmp uge i32 %2553, %2549
-  %2557 = mul nsw i32 %2553, %2551
+  %2557 = mul nuw nsw i32 %2553, %2551
   %2558 = icmp eq i32 %2547, %2557
   call void @llvm.assume(i1 %2548)
   call void @llvm.assume(i1 %2550)
@@ -5278,7 +5278,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2556)
   call void @llvm.assume(i1 %2558)
   %2559 = icmp ugt i32 %2551, 7
-  %2560 = mul nsw i32 %2553, 7
+  %2560 = mul nuw nsw i32 %2553, 7
   %2561 = add nuw nsw i32 %2560, %2549
   %2562 = icmp ule i32 %2561, %2547
   %2563 = zext nneg i32 %2560 to i64
@@ -5383,7 +5383,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2644)
   %2645 = icmp ugt i32 %2551, 15
   call void @llvm.assume(i1 %2645)
-  %2646 = mul nsw i32 %2553, 15
+  %2646 = mul nuw nsw i32 %2553, 15
   %2647 = add nuw nsw i32 %2646, %2549
   %2648 = icmp ule i32 %2647, %2547
   call void @llvm.assume(i1 %2648)
@@ -5408,7 +5408,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2665 = icmp ne i32 %2664, 0
   %2666 = icmp sgt i32 %2664, -1
   %2667 = icmp uge i32 %2664, %2660
-  %2668 = mul nsw i32 %2664, %2662
+  %2668 = mul nuw nsw i32 %2664, %2662
   %2669 = icmp eq i32 %2658, %2668
   call void @llvm.assume(i1 %2659)
   call void @llvm.assume(i1 %2661)
@@ -5441,7 +5441,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2684)
   %2685 = icmp ugt i32 %2662, 15
   call void @llvm.assume(i1 %2685)
-  %2686 = mul nsw i32 %2664, 15
+  %2686 = mul nuw nsw i32 %2664, 15
   %2687 = add nuw nsw i32 %2686, %2660
   %2688 = icmp ule i32 %2687, %2658
   call void @llvm.assume(i1 %2688)
@@ -5486,7 +5486,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2719 = icmp ne i32 %2718, 0
   %2720 = icmp sgt i32 %2718, -1
   %2721 = icmp uge i32 %2718, %2714
-  %2722 = mul nsw i32 %2718, %2716
+  %2722 = mul nuw nsw i32 %2718, %2716
   %2723 = icmp eq i32 %2712, %2722
   call void @llvm.assume(i1 %2713)
   call void @llvm.assume(i1 %2715)
@@ -5511,7 +5511,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %2732, ptr %2733, align 2, !tbaa !83
   %2734 = icmp ugt i32 %2714, %2615
   call void @llvm.assume(i1 %2734)
-  %2735 = mul nsw i32 %2718, 3
+  %2735 = mul nuw nsw i32 %2718, 3
   %2736 = add nuw nsw i32 %2735, %2714
   %2737 = icmp ule i32 %2736, %2712
   call void @llvm.assume(i1 %2737)
@@ -5523,7 +5523,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %2741, ptr %2742, align 2, !tbaa !83
   %2743 = icmp ugt i32 %2714, %2579
   call void @llvm.assume(i1 %2743)
-  %2744 = mul nsw i32 %2718, 9
+  %2744 = mul nuw nsw i32 %2718, 9
   %2745 = add nuw nsw i32 %2744, %2714
   %2746 = icmp ule i32 %2745, %2712
   call void @llvm.assume(i1 %2746)
@@ -5562,7 +5562,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2772 = icmp ne i32 %2771, 0
   %2773 = icmp sgt i32 %2771, -1
   %2774 = icmp uge i32 %2771, %2767
-  %2775 = mul nsw i32 %2771, %2769
+  %2775 = mul nuw nsw i32 %2771, %2769
   %2776 = icmp eq i32 %2765, %2775
   call void @llvm.assume(i1 %2766)
   call void @llvm.assume(i1 %2768)
@@ -5575,7 +5575,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2777)
   %2778 = icmp ugt i32 %2769, 10
   call void @llvm.assume(i1 %2778)
-  %2779 = mul nsw i32 %2771, 10
+  %2779 = mul nuw nsw i32 %2771, 10
   %2780 = add nuw nsw i32 %2779, %2767
   %2781 = icmp ule i32 %2780, %2765
   call void @llvm.assume(i1 %2781)
@@ -5619,7 +5619,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %2807, ptr %2808, align 2, !tbaa !83
   %2809 = icmp ugt i32 %2767, %2643
   call void @llvm.assume(i1 %2809)
-  %2810 = mul nsw i32 %2771, 3
+  %2810 = mul nuw nsw i32 %2771, 3
   %2811 = add nuw nsw i32 %2810, %2767
   %2812 = icmp ule i32 %2811, %2765
   call void @llvm.assume(i1 %2812)
@@ -5640,7 +5640,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2826 = icmp ne i32 %2825, 0
   %2827 = icmp sgt i32 %2825, -1
   %2828 = icmp uge i32 %2825, %2821
-  %2829 = mul nsw i32 %2825, %2823
+  %2829 = mul nuw nsw i32 %2825, %2823
   %2830 = icmp eq i32 %2819, %2829
   call void @llvm.assume(i1 %2820)
   call void @llvm.assume(i1 %2822)
@@ -5653,7 +5653,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2831)
   %2832 = icmp ugt i32 %2823, 11
   call void @llvm.assume(i1 %2832)
-  %2833 = mul nsw i32 %2825, 11
+  %2833 = mul nuw nsw i32 %2825, 11
   %2834 = add nuw nsw i32 %2833, %2821
   %2835 = icmp ule i32 %2834, %2819
   call void @llvm.assume(i1 %2835)
@@ -5697,7 +5697,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2862)
   %2863 = icmp ugt i32 %2823, 17
   call void @llvm.assume(i1 %2863)
-  %2864 = mul nsw i32 %2825, 17
+  %2864 = mul nuw nsw i32 %2825, 17
   %2865 = add nuw nsw i32 %2864, %2821
   %2866 = icmp ule i32 %2865, %2819
   call void @llvm.assume(i1 %2866)
@@ -5718,7 +5718,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2880 = icmp ne i32 %2879, 0
   %2881 = icmp sgt i32 %2879, -1
   %2882 = icmp uge i32 %2879, %2875
-  %2883 = mul nsw i32 %2879, %2877
+  %2883 = mul nuw nsw i32 %2879, %2877
   %2884 = icmp eq i32 %2873, %2883
   call void @llvm.assume(i1 %2874)
   call void @llvm.assume(i1 %2876)
@@ -5745,7 +5745,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2895)
   %2896 = icmp ugt i32 %2877, 17
   call void @llvm.assume(i1 %2896)
-  %2897 = mul nsw i32 %2879, 17
+  %2897 = mul nuw nsw i32 %2879, 17
   %2898 = add nuw nsw i32 %2897, %2875
   %2899 = icmp ule i32 %2898, %2873
   call void @llvm.assume(i1 %2899)
@@ -5757,7 +5757,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %2903, ptr %2904, align 2, !tbaa !83
   %2905 = icmp ugt i32 %2875, %2579
   call void @llvm.assume(i1 %2905)
-  %2906 = mul nsw i32 %2879, 12
+  %2906 = mul nuw nsw i32 %2879, 12
   %2907 = add nuw nsw i32 %2906, %2875
   %2908 = icmp ule i32 %2907, %2873
   call void @llvm.assume(i1 %2908)
@@ -5831,7 +5831,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2954)
   %2955 = icmp uge i32 %2952, %2949
   call void @llvm.assume(i1 %2955)
-  %2956 = mul nsw i32 %2946, %2952
+  %2956 = mul nuw nsw i32 %2946, %2952
   %2957 = icmp eq i32 %2944, %2956
   call void @llvm.assume(i1 %2957)
   %2958 = icmp ne i32 %2949, 0
@@ -5936,7 +5936,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3036 = icmp ne i32 %3035, 0
   %3037 = icmp sgt i32 %3035, -1
   %3038 = icmp uge i32 %3035, %3031
-  %3039 = mul nsw i32 %3035, %3033
+  %3039 = mul nuw nsw i32 %3035, %3033
   %3040 = icmp eq i32 %3029, %3039
   %3041 = zext nneg i32 %3031 to i64
   %3042 = icmp ult i64 %3014, %3041
@@ -5960,7 +5960,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %3049, ptr %3050, align 2, !tbaa !83
   %3051 = icmp ugt i32 %3033, 7
   call void @llvm.assume(i1 %3051)
-  %3052 = mul nsw i32 %3035, 7
+  %3052 = mul nuw nsw i32 %3035, 7
   %3053 = add nuw nsw i32 %3052, %3031
   %3054 = icmp ule i32 %3053, %3029
   call void @llvm.assume(i1 %3054)
@@ -5983,7 +5983,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3069 = icmp ne i32 %3068, 0
   %3070 = icmp sgt i32 %3068, -1
   %3071 = icmp uge i32 %3068, %3064
-  %3072 = mul nsw i32 %3068, %3066
+  %3072 = mul nuw nsw i32 %3068, %3066
   %3073 = icmp eq i32 %3062, %3072
   %3074 = zext nneg i32 %3064 to i64
   %3075 = icmp ult i64 %3014, %3074
@@ -6007,7 +6007,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %3082, ptr %3083, align 2, !tbaa !83
   %3084 = icmp ugt i32 %3066, 15
   call void @llvm.assume(i1 %3084)
-  %3085 = mul nsw i32 %3068, 15
+  %3085 = mul nuw nsw i32 %3068, 15
   %3086 = add nuw nsw i32 %3085, %3064
   %3087 = icmp ule i32 %3086, %3062
   call void @llvm.assume(i1 %3087)
@@ -6041,7 +6041,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3111 = icmp ne i32 %3110, 0
   %3112 = icmp sgt i32 %3110, -1
   %3113 = icmp uge i32 %3110, %3106
-  %3114 = mul nsw i32 %3110, %3108
+  %3114 = mul nuw nsw i32 %3110, %3108
   %3115 = icmp eq i32 %3104, %3114
   %3116 = zext nneg i32 %3106 to i64
   %3117 = icmp ult i64 %3014, %3116
@@ -6054,7 +6054,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %3113)
   call void @llvm.assume(i1 %3115)
   call void @llvm.assume(i1 %3117)
-  %3119 = mul nsw i32 %3110, 3
+  %3119 = mul nuw nsw i32 %3110, 3
   %3120 = add nuw nsw i32 %3119, %3106
   %3121 = icmp ule i32 %3120, %3104
   call void @llvm.assume(i1 %3121)
@@ -6065,7 +6065,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %3124, ptr %3125, align 2, !tbaa !83
   %3126 = icmp ugt i32 %3108, 9
   call void @llvm.assume(i1 %3126)
-  %3127 = mul nsw i32 %3110, 9
+  %3127 = mul nuw nsw i32 %3110, 9
   %3128 = add nuw nsw i32 %3127, %3106
   %3129 = icmp ule i32 %3128, %3104
   call void @llvm.assume(i1 %3129)
@@ -6088,7 +6088,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3144 = icmp ne i32 %3143, 0
   %3145 = icmp sgt i32 %3143, -1
   %3146 = icmp uge i32 %3143, %3139
-  %3147 = mul nsw i32 %3143, %3141
+  %3147 = mul nuw nsw i32 %3143, %3141
   %3148 = icmp eq i32 %3137, %3147
   %3149 = zext nneg i32 %3139 to i64
   %3150 = icmp ult i64 %3014, %3149
@@ -6101,7 +6101,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %3146)
   call void @llvm.assume(i1 %3148)
   call void @llvm.assume(i1 %3150)
-  %3152 = mul nsw i32 %3143, 10
+  %3152 = mul nuw nsw i32 %3143, 10
   %3153 = add nuw nsw i32 %3152, %3139
   %3154 = icmp ule i32 %3153, %3137
   call void @llvm.assume(i1 %3154)
@@ -6146,7 +6146,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3186 = icmp ne i32 %3185, 0
   %3187 = icmp sgt i32 %3185, -1
   %3188 = icmp uge i32 %3185, %3181
-  %3189 = mul nsw i32 %3185, %3183
+  %3189 = mul nuw nsw i32 %3185, %3183
   %3190 = icmp eq i32 %3179, %3189
   %3191 = zext nneg i32 %3181 to i64
   %3192 = icmp ult i64 %3014, %3191
@@ -6170,7 +6170,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %3199, ptr %3200, align 2, !tbaa !83
   %3201 = icmp ugt i32 %3183, 11
   call void @llvm.assume(i1 %3201)
-  %3202 = mul nsw i32 %3185, 11
+  %3202 = mul nuw nsw i32 %3185, 11
   %3203 = add nuw nsw i32 %3202, %3181
   %3204 = icmp ule i32 %3203, %3179
   call void @llvm.assume(i1 %3204)
@@ -6193,7 +6193,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3219 = icmp ne i32 %3218, 0
   %3220 = icmp sgt i32 %3218, -1
   %3221 = icmp uge i32 %3218, %3214
-  %3222 = mul nsw i32 %3218, %3216
+  %3222 = mul nuw nsw i32 %3218, %3216
   %3223 = icmp eq i32 %3212, %3222
   %3224 = zext nneg i32 %3214 to i64
   %3225 = icmp ult i64 %3014, %3224
@@ -6206,7 +6206,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %3221)
   call void @llvm.assume(i1 %3223)
   call void @llvm.assume(i1 %3225)
-  %3227 = mul nsw i32 %3218, 12
+  %3227 = mul nuw nsw i32 %3218, 12
   %3228 = add nuw nsw i32 %3227, %3214
   %3229 = icmp ule i32 %3228, %3212
   call void @llvm.assume(i1 %3229)
@@ -6217,7 +6217,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %3232, ptr %3233, align 2, !tbaa !83
   %3234 = icmp ugt i32 %3216, 17
   call void @llvm.assume(i1 %3234)
-  %3235 = mul nsw i32 %3218, 17
+  %3235 = mul nuw nsw i32 %3218, 17
   %3236 = add nuw nsw i32 %3235, %3214
   %3237 = icmp ule i32 %3236, %3212
   call void @llvm.assume(i1 %3237)
@@ -6254,14 +6254,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %3257)
   %3258 = icmp uge i32 %3255, %3251
   call void @llvm.assume(i1 %3258)
-  %3259 = mul nsw i32 %3255, %3253
+  %3259 = mul nuw nsw i32 %3255, %3253
   %3260 = icmp eq i32 %3249, %3259
   call void @llvm.assume(i1 %3260)
   %3261 = icmp ne i32 %3251, 0
   call void @llvm.assume(i1 %3261)
   %3262 = icmp ugt i32 %3253, 3
   call void @llvm.assume(i1 %3262)
-  %3263 = mul nsw i32 %3255, 3
+  %3263 = mul nuw nsw i32 %3255, 3
   %3264 = add nuw nsw i32 %3263, %3251
   %3265 = icmp ule i32 %3264, %3249
   call void @llvm.assume(i1 %3265)
@@ -6285,12 +6285,12 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %3277)
   %3278 = icmp uge i32 %3275, %3271
   call void @llvm.assume(i1 %3278)
-  %3279 = mul nsw i32 %3275, %3273
+  %3279 = mul nuw nsw i32 %3275, %3273
   %3280 = icmp eq i32 %3269, %3279
   call void @llvm.assume(i1 %3280)
   %3281 = icmp ne i32 %3271, 0
   call void @llvm.assume(i1 %3281)
-  %3282 = mul nsw i32 %3275, 5
+  %3282 = mul nuw nsw i32 %3275, 5
   %3283 = add nuw nsw i32 %3282, %3271
   %3284 = icmp ule i32 %3283, %3269
   call void @llvm.assume(i1 %3284)
@@ -6298,7 +6298,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3286 = getelementptr inbounds i16, ptr %3268, i64 %3285
   %3287 = icmp ugt i32 %3273, 11
   call void @llvm.assume(i1 %3287)
-  %3288 = mul nsw i32 %3275, 11
+  %3288 = mul nuw nsw i32 %3275, 11
   %3289 = add nuw nsw i32 %3288, %3271
   %3290 = icmp ule i32 %3289, %3269
   call void @llvm.assume(i1 %3290)
@@ -6322,12 +6322,12 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %3302)
   %3303 = icmp uge i32 %3300, %3296
   call void @llvm.assume(i1 %3303)
-  %3304 = mul nsw i32 %3300, %3298
+  %3304 = mul nuw nsw i32 %3300, %3298
   %3305 = icmp eq i32 %3294, %3304
   call void @llvm.assume(i1 %3305)
   %3306 = icmp ne i32 %3296, 0
   call void @llvm.assume(i1 %3306)
-  %3307 = mul nsw i32 %3300, 13
+  %3307 = mul nuw nsw i32 %3300, 13
   %3308 = add nuw nsw i32 %3307, %3296
   %3309 = icmp ule i32 %3308, %3294
   call void @llvm.assume(i1 %3309)
@@ -6359,7 +6359,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %3327)
   %3328 = icmp uge i32 %3320, %3321
   call void @llvm.assume(i1 %3328)
-  %3329 = mul nsw i32 %3322, %3320
+  %3329 = mul nuw nsw i32 %3322, %3320
   %3330 = icmp eq i32 %3319, %3329
   call void @llvm.assume(i1 %3330)
   %3331 = icmp ne i32 %3321, 0
@@ -6385,14 +6385,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %3341, ptr %3346, align 2, !tbaa !83
   %3347 = icmp ugt i32 %3322, 12
   call void @llvm.assume(i1 %3347)
-  %3348 = mul nsw i32 %3320, 6
+  %3348 = mul nuw nsw i32 %3320, 6
   %3349 = add nuw nsw i32 %3348, %3321
   %3350 = icmp ule i32 %3349, %3319
   call void @llvm.assume(i1 %3350)
   %3351 = zext nneg i32 %3348 to i64
   %3352 = getelementptr i16, ptr %3334, i64 %3351
   %3353 = load i16, ptr %3352, align 2, !tbaa !83
-  %3354 = mul nsw i32 %3320, 7
+  %3354 = mul nuw nsw i32 %3320, 7
   %3355 = add nuw nsw i32 %3354, %3321
   %3356 = icmp ule i32 %3355, %3319
   call void @llvm.assume(i1 %3356)
@@ -6401,14 +6401,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i16 %3353, ptr %3358, align 2, !tbaa !83
   %3359 = icmp ugt i32 %3322, 17
   call void @llvm.assume(i1 %3359)
-  %3360 = mul nsw i32 %3320, 14
+  %3360 = mul nuw nsw i32 %3320, 14
   %3361 = add nuw nsw i32 %3360, %3321
   %3362 = icmp ule i32 %3361, %3319
   call void @llvm.assume(i1 %3362)
   %3363 = zext nneg i32 %3360 to i64
   %3364 = getelementptr i16, ptr %3334, i64 %3363
   %3365 = load i16, ptr %3364, align 2, !tbaa !83
-  %3366 = mul nsw i32 %3320, 15
+  %3366 = mul nuw nsw i32 %3320, 15
   %3367 = add nuw nsw i32 %3366, %3321
   %3368 = icmp ule i32 %3367, %3319
   call void @llvm.assume(i1 %3368)

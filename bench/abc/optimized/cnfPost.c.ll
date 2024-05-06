@@ -275,7 +275,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
 
 32:                                               ; preds = %Aig_ManObj.exit
   %33 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %indvars.iv
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %34, ptr %33, align 4
   %35 = getelementptr i8, ptr %31, i64 24
   %.val83 = load i64, ptr %35, align 8

@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [23 x i8] c"impossible module node\00", align 1
 @.str.1 = private unnamed_addr constant [61 x i8] c"AST validator recursion depth mismatch (before=%d, after=%d)\00", align 1
 @PyUnicode_Type = external global %struct._typeobject, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyExc_ValueError = external local_unnamed_addr global ptr, align 8
 @.str.2 = private unnamed_addr constant [34 x i8] c"None disallowed in statement list\00", align 1
 @.str.3 = private unnamed_addr constant [42 x i8] c"AST node line range (%d, %d) is not valid\00", align 1
@@ -102,7 +102,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.validate_expr.4 = private unnamed_addr constant [3 x ptr] [ptr @.str.68, ptr @.str.69, ptr @.str.70], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyAST_Validate(ptr nocapture noundef readonly %mod) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyAST_Validate(ptr nocapture noundef readonly %mod) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct.validator, align 4
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -129,19 +129,19 @@ if.end:                                           ; preds = %entry
 sw.bb:                                            ; preds = %if.end
   %v = getelementptr inbounds i8, ptr %mod, i64 8
   %5 = load ptr, ptr %v, align 8
-  %call2 = call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %5), !range !5
+  %call2 = call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %5)
   br label %if.end19
 
 sw.bb3:                                           ; preds = %if.end
   %v4 = getelementptr inbounds i8, ptr %mod, i64 8
   %6 = load ptr, ptr %v4, align 8
-  %call6 = call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %6), !range !5
+  %call6 = call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %6)
   br label %if.end19
 
 sw.bb7:                                           ; preds = %if.end
   %v8 = getelementptr inbounds i8, ptr %mod, i64 8
   %7 = load ptr, ptr %v8, align 8
-  %call10 = call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %7, i32 noundef 1), !range !5
+  %call10 = call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %7, i32 noundef 1)
   br label %if.end19
 
 sw.bb11:                                          ; preds = %if.end
@@ -164,7 +164,7 @@ for.body.us9.i:                                   ; preds = %entry.split.i, %for
   br i1 %tobool.not.us11.i, label %if.then5.i, label %if.then.us12.i
 
 if.then.us12.i:                                   ; preds = %for.body.us9.i
-  %call.us13.i = call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %10, i32 noundef 1) #4, !range !5
+  %call.us13.i = call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %10, i32 noundef 1) #4
   %tobool2.not.us14.i = icmp eq i32 %call.us13.i, 0
   br i1 %tobool2.not.us14.i, label %return, label %for.inc.us16.i
 
@@ -172,7 +172,7 @@ for.inc.us16.i:                                   ; preds = %if.then.us12.i
   %inc.us17.i = add nuw nsw i64 %i.07.us.i, 1
   %11 = load i64, ptr %8, align 8
   %cmp1.us18.i = icmp slt i64 %inc.us17.i, %11
-  br i1 %cmp1.us18.i, label %for.body.us9.i, label %land.rhs, !llvm.loop !6
+  br i1 %cmp1.us18.i, label %for.body.us9.i, label %land.rhs, !llvm.loop !5
 
 if.then5.i:                                       ; preds = %for.body.us9.i
   %12 = load ptr, ptr @PyExc_ValueError, align 8
@@ -182,7 +182,7 @@ if.then5.i:                                       ; preds = %for.body.us9.i
 land.rhs:                                         ; preds = %for.inc.us16.i, %sw.bb11, %entry.split.i
   %returns = getelementptr inbounds i8, ptr %mod, i64 16
   %13 = load ptr, ptr %returns, align 8
-  %call16 = call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %13, i32 noundef 1), !range !5
+  %call16 = call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %13, i32 noundef 1)
   br label %if.end19
 
 if.then18:                                        ; preds = %if.end
@@ -211,7 +211,7 @@ return:                                           ; preds = %if.then.us12.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_stmts(ptr nocapture noundef %state, ptr noundef readonly %seq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_stmts(ptr nocapture noundef %state, ptr noundef readonly %seq) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %seq, null
   %typed_elements = getelementptr inbounds i8, ptr %seq, i64 16
@@ -356,21 +356,21 @@ validate_body.exit149.thread:                     ; preds = %cond.false.i.i140, 
   br label %validate_stmt.exit.thread212
 
 validate_body.exit149:                            ; preds = %cond.false.i.i140
-  %call1.i145 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %15), !range !5
+  %call1.i145 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %15)
   %tobool.not.i = icmp eq i32 %call1.i145, 0
   br i1 %tobool.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true36.i
 
 land.lhs.true36.i:                                ; preds = %validate_body.exit149
   %type_params.i = getelementptr inbounds i8, ptr %1, i64 56
   %19 = load ptr, ptr %type_params.i, align 8
-  %call38.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %19), !range !5
+  %call38.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %19)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true40.i
 
 land.lhs.true40.i:                                ; preds = %land.lhs.true36.i
   %args.i = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load ptr, ptr %args.i, align 8
-  %call42.i = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %20), !range !5
+  %call42.i = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %20)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true44.i
 
@@ -394,7 +394,7 @@ for.body.us9.i:                                   ; preds = %entry.split.i, %for
   br i1 %tobool.not.us11.i, label %if.then5.i, label %if.then.us12.i
 
 if.then.us12.i:                                   ; preds = %for.body.us9.i
-  %call.us13.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %23, i32 noundef 1) #4, !range !5
+  %call.us13.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %23, i32 noundef 1) #4
   %tobool2.not.us14.i = icmp eq i32 %call.us13.i, 0
   br i1 %tobool2.not.us14.i, label %validate_stmt.exit.thread212, label %for.inc.us16.i
 
@@ -402,7 +402,7 @@ for.inc.us16.i:                                   ; preds = %if.then.us12.i
   %inc.us17.i = add nuw nsw i64 %i.07.us.i, 1
   %24 = load i64, ptr %21, align 8
   %cmp1.us18.i = icmp slt i64 %inc.us17.i, %24
-  br i1 %cmp1.us18.i, label %for.body.us9.i, label %land.rhs.i, !llvm.loop !6
+  br i1 %cmp1.us18.i, label %for.body.us9.i, label %land.rhs.i, !llvm.loop !5
 
 if.then5.i:                                       ; preds = %for.body.us9.i
   %25 = load ptr, ptr @PyExc_ValueError, align 8
@@ -416,7 +416,7 @@ land.rhs.i:                                       ; preds = %for.inc.us16.i, %la
   br i1 %tobool49.not.i, label %for.inc.sink.split, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
-  %call52.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %26, i32 noundef 1), !range !5
+  %call52.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %26, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb54.i:                                        ; preds = %if.end34.i
@@ -436,14 +436,14 @@ validate_body.exit138.thread:                     ; preds = %cond.false.i.i129, 
   br label %validate_stmt.exit.thread212
 
 validate_body.exit138:                            ; preds = %cond.false.i.i129
-  %call1.i134 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %27), !range !5
+  %call1.i134 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %27)
   %tobool58.not.i = icmp eq i32 %call1.i134, 0
   br i1 %tobool58.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true59.i
 
 land.lhs.true59.i:                                ; preds = %validate_body.exit138
   %type_params61.i = getelementptr inbounds i8, ptr %1, i64 48
   %31 = load ptr, ptr %type_params61.i, align 8
-  %call62.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %31), !range !5
+  %call62.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %31)
   %tobool63.not.i = icmp eq i32 %call62.i, 0
   br i1 %tobool63.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true64.i
 
@@ -467,7 +467,7 @@ for.body.us9.i842:                                ; preds = %entry.split.i838, %
   br i1 %tobool.not.us11.i845, label %if.then5.i852, label %if.then.us12.i846
 
 if.then.us12.i846:                                ; preds = %for.body.us9.i842
-  %call.us13.i847 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %34, i32 noundef 1) #4, !range !5
+  %call.us13.i847 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %34, i32 noundef 1) #4
   %tobool2.not.us14.i848 = icmp eq i32 %call.us13.i847, 0
   br i1 %tobool2.not.us14.i848, label %validate_stmt.exit.thread212, label %for.inc.us16.i849
 
@@ -475,7 +475,7 @@ for.inc.us16.i849:                                ; preds = %if.then.us12.i846
   %inc.us17.i850 = add nuw nsw i64 %i.07.us.i843, 1
   %35 = load i64, ptr %32, align 8
   %cmp1.us18.i851 = icmp slt i64 %inc.us17.i850, %35
-  br i1 %cmp1.us18.i851, label %for.body.us9.i842, label %land.lhs.true68.i, !llvm.loop !6
+  br i1 %cmp1.us18.i851, label %for.body.us9.i842, label %land.lhs.true68.i, !llvm.loop !5
 
 if.then5.i852:                                    ; preds = %for.body.us9.i842
   %36 = load ptr, ptr @PyExc_ValueError, align 8
@@ -500,10 +500,10 @@ for.body.i858:                                    ; preds = %for.cond.i856
   %39 = load ptr, ptr %arrayidx.i859, align 8
   %value.i = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load ptr, ptr %value.i, align 8
-  %call.i860 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %40, i32 noundef 1) #4, !range !5
+  %call.i860 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %40, i32 noundef 1) #4
   %tobool.not.i861 = icmp eq i32 %call.i860, 0
   %inc.i862 = add nuw nsw i64 %i.0.i857, 1
-  br i1 %tobool.not.i861, label %validate_stmt.exit.thread212, label %for.cond.i856, !llvm.loop !8
+  br i1 %tobool.not.i861, label %validate_stmt.exit.thread212, label %for.cond.i856, !llvm.loop !7
 
 land.rhs72.i:                                     ; preds = %for.cond.i856, %land.lhs.true68.i
   %decorator_list74.i = getelementptr inbounds i8, ptr %1, i64 40
@@ -525,7 +525,7 @@ for.body.us9.i869:                                ; preds = %entry.split.i865, %
   br i1 %tobool.not.us11.i872, label %if.then5.i879, label %if.then.us12.i873
 
 if.then.us12.i873:                                ; preds = %for.body.us9.i869
-  %call.us13.i874 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %43, i32 noundef 1) #4, !range !5
+  %call.us13.i874 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %43, i32 noundef 1) #4
   %tobool2.not.us14.i875 = icmp eq i32 %call.us13.i874, 0
   br i1 %tobool2.not.us14.i875, label %validate_stmt.exit.thread912, label %for.inc.us16.i876
 
@@ -533,7 +533,7 @@ for.inc.us16.i876:                                ; preds = %if.then.us12.i873
   %inc.us17.i877 = add nuw nsw i64 %i.07.us.i870, 1
   %44 = load i64, ptr %41, align 8
   %cmp1.us18.i878 = icmp slt i64 %inc.us17.i877, %44
-  br i1 %cmp1.us18.i878, label %for.body.us9.i869, label %for.inc.sink.split, !llvm.loop !6
+  br i1 %cmp1.us18.i878, label %for.body.us9.i869, label %for.inc.sink.split, !llvm.loop !5
 
 if.then5.i879:                                    ; preds = %for.body.us9.i869
   %45 = load ptr, ptr @PyExc_ValueError, align 8
@@ -547,7 +547,7 @@ sw.bb79.i:                                        ; preds = %if.end34.i
   br i1 %tobool81.not.i, label %for.inc.sink.split, label %lor.rhs82.i
 
 lor.rhs82.i:                                      ; preds = %sw.bb79.i
-  %call85.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %46, i32 noundef 1), !range !5
+  %call85.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %46, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb88.i:                                        ; preds = %if.end34.i
@@ -579,7 +579,7 @@ for.body.us9.i.i114:                              ; preds = %entry.split.i.i110,
   br i1 %tobool.not.us11.i.i117, label %if.then5.i.i124, label %if.then.us12.i.i118
 
 if.then.us12.i.i118:                              ; preds = %for.body.us9.i.i114
-  %call.us13.i.i119 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %51, i32 noundef 3) #4, !range !5
+  %call.us13.i.i119 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %51, i32 noundef 3) #4
   %tobool2.not.us14.i.i120 = icmp eq i32 %call.us13.i.i119, 0
   br i1 %tobool2.not.us14.i.i120, label %validate_stmt.exit.thread212, label %for.inc.us16.i.i121
 
@@ -587,7 +587,7 @@ for.inc.us16.i.i121:                              ; preds = %if.then.us12.i.i118
   %inc.us17.i.i122 = add nuw nsw i64 %i.07.us.i.i115, 1
   %52 = load i64, ptr %47, align 8
   %cmp1.us18.i.i123 = icmp slt i64 %inc.us17.i.i122, %52
-  br i1 %cmp1.us18.i.i123, label %for.body.us9.i.i114, label %for.inc.sink.split, !llvm.loop !6
+  br i1 %cmp1.us18.i.i123, label %for.body.us9.i.i114, label %for.inc.sink.split, !llvm.loop !5
 
 if.then5.i.i124:                                  ; preds = %for.body.us9.i.i114
   %53 = load ptr, ptr @PyExc_ValueError, align 8
@@ -623,7 +623,7 @@ for.body.us9.i.i:                                 ; preds = %entry.split.i.i, %f
   br i1 %tobool.not.us11.i.i, label %if.then5.i.i, label %if.then.us12.i.i
 
 if.then.us12.i.i:                                 ; preds = %for.body.us9.i.i
-  %call.us13.i.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %58, i32 noundef 2) #4, !range !5
+  %call.us13.i.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %58, i32 noundef 2) #4
   %tobool2.not.us14.i.i = icmp eq i32 %call.us13.i.i, 0
   br i1 %tobool2.not.us14.i.i, label %validate_stmt.exit.thread212, label %for.inc.us16.i.i
 
@@ -631,7 +631,7 @@ for.inc.us16.i.i:                                 ; preds = %if.then.us12.i.i
   %inc.us17.i.i = add nuw nsw i64 %i.07.us.i.i, 1
   %59 = load i64, ptr %54, align 8
   %cmp1.us18.i.i = icmp slt i64 %inc.us17.i.i, %59
-  br i1 %cmp1.us18.i.i, label %for.body.us9.i.i, label %land.rhs96.i, !llvm.loop !6
+  br i1 %cmp1.us18.i.i, label %for.body.us9.i.i, label %land.rhs96.i, !llvm.loop !5
 
 if.then5.i.i:                                     ; preds = %for.body.us9.i.i
   %60 = load ptr, ptr @PyExc_ValueError, align 8
@@ -641,20 +641,20 @@ if.then5.i.i:                                     ; preds = %for.body.us9.i.i
 land.rhs96.i:                                     ; preds = %for.inc.us16.i.i, %entry.split.i.i
   %value98.i = getelementptr inbounds i8, ptr %1, i64 16
   %61 = load ptr, ptr %value98.i, align 8
-  %call99.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %61, i32 noundef 1), !range !5
+  %call99.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %61, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb103.i:                                       ; preds = %if.end34.i
   %v104.i = getelementptr inbounds i8, ptr %1, i64 8
   %62 = load ptr, ptr %v104.i, align 8
-  %call105.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %62, i32 noundef 2), !range !5
+  %call105.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %62, i32 noundef 2)
   %tobool106.not.i = icmp eq i32 %call105.i, 0
   br i1 %tobool106.not.i, label %validate_stmt.exit.thread212, label %land.rhs107.i
 
 land.rhs107.i:                                    ; preds = %sw.bb103.i
   %value109.i = getelementptr inbounds i8, ptr %1, i64 24
   %63 = load ptr, ptr %value109.i, align 8
-  %call110.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %63, i32 noundef 1), !range !5
+  %call110.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %63, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb114.i:                                       ; preds = %if.end34.i
@@ -676,7 +676,7 @@ if.then122.i:                                     ; preds = %land.lhs.true119.i
   br label %return
 
 if.end123.i:                                      ; preds = %land.lhs.true119.i, %sw.bb114.i
-  %call126.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %64, i32 noundef 2), !range !5
+  %call126.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %64, i32 noundef 2)
   %tobool127.not.i = icmp eq i32 %call126.i, 0
   br i1 %tobool127.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true128.i
 
@@ -687,14 +687,14 @@ land.lhs.true128.i:                               ; preds = %if.end123.i
   br i1 %tobool131.not.i, label %land.rhs137.i, label %lor.lhs.false132.i
 
 lor.lhs.false132.i:                               ; preds = %land.lhs.true128.i
-  %call135.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %68, i32 noundef 1), !range !5
+  %call135.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %68, i32 noundef 1)
   %tobool136.not.i = icmp eq i32 %call135.i, 0
   br i1 %tobool136.not.i, label %validate_stmt.exit.thread212, label %land.rhs137.i
 
 land.rhs137.i:                                    ; preds = %lor.lhs.false132.i, %land.lhs.true128.i
   %annotation.i = getelementptr inbounds i8, ptr %1, i64 16
   %69 = load ptr, ptr %annotation.i, align 8
-  %call139.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %69, i32 noundef 1), !range !5
+  %call139.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %69, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb143.i:                                       ; preds = %if.end34.i
@@ -710,115 +710,115 @@ if.then147.i:                                     ; preds = %sw.bb143.i
   br label %return
 
 if.end148.i:                                      ; preds = %sw.bb143.i
-  %call151.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %70, i32 noundef 2), !range !5
+  %call151.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %70, i32 noundef 2)
   %tobool152.not.i = icmp eq i32 %call151.i, 0
   br i1 %tobool152.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true153.i
 
 land.lhs.true153.i:                               ; preds = %if.end148.i
   %type_params155.i = getelementptr inbounds i8, ptr %1, i64 16
   %73 = load ptr, ptr %type_params155.i, align 8
-  %call156.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %73), !range !5
+  %call156.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %73)
   %tobool157.not.i = icmp eq i32 %call156.i, 0
   br i1 %tobool157.not.i, label %validate_stmt.exit.thread212, label %land.rhs158.i
 
 land.rhs158.i:                                    ; preds = %land.lhs.true153.i
   %value160.i = getelementptr inbounds i8, ptr %1, i64 24
   %74 = load ptr, ptr %value160.i, align 8
-  %call161.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %74, i32 noundef 1), !range !5
+  %call161.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %74, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb165.i:                                       ; preds = %if.end34.i
   %v166.i = getelementptr inbounds i8, ptr %1, i64 8
   %75 = load ptr, ptr %v166.i, align 8
-  %call168.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %75, i32 noundef 2), !range !5
+  %call168.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %75, i32 noundef 2)
   %tobool169.not.i = icmp eq i32 %call168.i, 0
   br i1 %tobool169.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true170.i
 
 land.lhs.true170.i:                               ; preds = %sw.bb165.i
   %iter.i = getelementptr inbounds i8, ptr %1, i64 16
   %76 = load ptr, ptr %iter.i, align 8
-  %call172.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %76, i32 noundef 1), !range !5
+  %call172.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %76, i32 noundef 1)
   %tobool173.not.i = icmp eq i32 %call172.i, 0
   br i1 %tobool173.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true174.i
 
 land.lhs.true174.i:                               ; preds = %land.lhs.true170.i
   %body176.i = getelementptr inbounds i8, ptr %1, i64 24
   %77 = load ptr, ptr %body176.i, align 8
-  %call177.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %77, ptr noundef nonnull @.str.11), !range !5
+  %call177.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %77, ptr noundef nonnull @.str.11)
   %tobool178.not.i = icmp eq i32 %call177.i, 0
   br i1 %tobool178.not.i, label %validate_stmt.exit.thread212, label %land.rhs179.i
 
 land.rhs179.i:                                    ; preds = %land.lhs.true174.i
   %orelse.i = getelementptr inbounds i8, ptr %1, i64 32
   %78 = load ptr, ptr %orelse.i, align 8
-  %call181.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %78), !range !5
+  %call181.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %78)
   br label %validate_stmt.exit
 
 sw.bb185.i:                                       ; preds = %if.end34.i
   %v186.i = getelementptr inbounds i8, ptr %1, i64 8
   %79 = load ptr, ptr %v186.i, align 8
-  %call188.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %79, i32 noundef 2), !range !5
+  %call188.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %79, i32 noundef 2)
   %tobool189.not.i = icmp eq i32 %call188.i, 0
   br i1 %tobool189.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true190.i
 
 land.lhs.true190.i:                               ; preds = %sw.bb185.i
   %iter192.i = getelementptr inbounds i8, ptr %1, i64 16
   %80 = load ptr, ptr %iter192.i, align 8
-  %call193.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %80, i32 noundef 1), !range !5
+  %call193.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %80, i32 noundef 1)
   %tobool194.not.i = icmp eq i32 %call193.i, 0
   br i1 %tobool194.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true195.i
 
 land.lhs.true195.i:                               ; preds = %land.lhs.true190.i
   %body197.i = getelementptr inbounds i8, ptr %1, i64 24
   %81 = load ptr, ptr %body197.i, align 8
-  %call198.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %81, ptr noundef nonnull @.str.12), !range !5
+  %call198.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %81, ptr noundef nonnull @.str.12)
   %tobool199.not.i = icmp eq i32 %call198.i, 0
   br i1 %tobool199.not.i, label %validate_stmt.exit.thread212, label %land.rhs200.i
 
 land.rhs200.i:                                    ; preds = %land.lhs.true195.i
   %orelse202.i = getelementptr inbounds i8, ptr %1, i64 32
   %82 = load ptr, ptr %orelse202.i, align 8
-  %call203.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %82), !range !5
+  %call203.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %82)
   br label %validate_stmt.exit
 
 sw.bb207.i:                                       ; preds = %if.end34.i
   %v208.i = getelementptr inbounds i8, ptr %1, i64 8
   %83 = load ptr, ptr %v208.i, align 8
-  %call209.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %83, i32 noundef 1), !range !5
+  %call209.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %83, i32 noundef 1)
   %tobool210.not.i = icmp eq i32 %call209.i, 0
   br i1 %tobool210.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true211.i
 
 land.lhs.true211.i:                               ; preds = %sw.bb207.i
   %body213.i = getelementptr inbounds i8, ptr %1, i64 16
   %84 = load ptr, ptr %body213.i, align 8
-  %call214.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %84, ptr noundef nonnull @.str.13), !range !5
+  %call214.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %84, ptr noundef nonnull @.str.13)
   %tobool215.not.i = icmp eq i32 %call214.i, 0
   br i1 %tobool215.not.i, label %validate_stmt.exit.thread212, label %land.rhs216.i
 
 land.rhs216.i:                                    ; preds = %land.lhs.true211.i
   %orelse218.i = getelementptr inbounds i8, ptr %1, i64 24
   %85 = load ptr, ptr %orelse218.i, align 8
-  %call219.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %85), !range !5
+  %call219.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %85)
   br label %validate_stmt.exit
 
 sw.bb223.i:                                       ; preds = %if.end34.i
   %v224.i = getelementptr inbounds i8, ptr %1, i64 8
   %86 = load ptr, ptr %v224.i, align 8
-  %call226.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %86, i32 noundef 1), !range !5
+  %call226.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %86, i32 noundef 1)
   %tobool227.not.i = icmp eq i32 %call226.i, 0
   br i1 %tobool227.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true228.i
 
 land.lhs.true228.i:                               ; preds = %sw.bb223.i
   %body230.i = getelementptr inbounds i8, ptr %1, i64 16
   %87 = load ptr, ptr %body230.i, align 8
-  %call231.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %87, ptr noundef nonnull @.str.14), !range !5
+  %call231.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %87, ptr noundef nonnull @.str.14)
   %tobool232.not.i = icmp eq i32 %call231.i, 0
   br i1 %tobool232.not.i, label %validate_stmt.exit.thread212, label %land.rhs233.i
 
 land.rhs233.i:                                    ; preds = %land.lhs.true228.i
   %orelse235.i = getelementptr inbounds i8, ptr %1, i64 24
   %88 = load ptr, ptr %orelse235.i, align 8
-  %call236.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %88), !range !5
+  %call236.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef %88)
   br label %validate_stmt.exit
 
 sw.bb240.i:                                       ; preds = %if.end34.i
@@ -857,7 +857,7 @@ for.body.i:                                       ; preds = %cond.end.i
   %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.0.i
   %95 = load ptr, ptr %arrayidx.i, align 8
   %96 = load ptr, ptr %95, align 8
-  %call254.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %96, i32 noundef 1), !range !5
+  %call254.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %96, i32 noundef 1)
   %tobool255.not.i = icmp eq i32 %call254.i, 0
   br i1 %tobool255.not.i, label %return, label %lor.lhs.false256.i
 
@@ -868,19 +868,19 @@ lor.lhs.false256.i:                               ; preds = %for.body.i
   br i1 %tobool257.not.i, label %for.inc.i, label %land.lhs.true258.i
 
 land.lhs.true258.i:                               ; preds = %lor.lhs.false256.i
-  %call260.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %97, i32 noundef 2), !range !5
+  %call260.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %97, i32 noundef 2)
   %tobool261.not.i = icmp eq i32 %call260.i, 0
   br i1 %tobool261.not.i, label %return, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true258.i, %lor.lhs.false256.i
   %inc264.i = add nuw nsw i64 %i.0.i, 1
   %.pre621 = load ptr, ptr %v241.i, align 8
-  br label %for.cond.i, !llvm.loop !9
+  br label %for.cond.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %cond.end.i
   %body266.i = getelementptr inbounds i8, ptr %1, i64 16
   %98 = load ptr, ptr %body266.i, align 8
-  %call267.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %98, ptr noundef nonnull @.str.16), !range !5
+  %call267.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %98, ptr noundef nonnull @.str.16)
   br label %validate_stmt.exit
 
 sw.bb268.i:                                       ; preds = %if.end34.i
@@ -919,7 +919,7 @@ for.body288.i:                                    ; preds = %cond.end285.i
   %arrayidx293.i = getelementptr [1 x ptr], ptr %typed_elements292.i, i64 0, i64 %i275.0.i
   %105 = load ptr, ptr %arrayidx293.i, align 8
   %106 = load ptr, ptr %105, align 8
-  %call295.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %106, i32 noundef 1), !range !5
+  %call295.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %106, i32 noundef 1)
   %tobool296.not.i = icmp eq i32 %call295.i, 0
   br i1 %tobool296.not.i, label %return, label %lor.lhs.false297.i
 
@@ -930,25 +930,25 @@ lor.lhs.false297.i:                               ; preds = %for.body288.i
   br i1 %tobool299.not.i, label %for.inc306.i, label %land.lhs.true300.i
 
 land.lhs.true300.i:                               ; preds = %lor.lhs.false297.i
-  %call302.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %107, i32 noundef 2), !range !5
+  %call302.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %107, i32 noundef 2)
   %tobool303.not.i = icmp eq i32 %call302.i, 0
   br i1 %tobool303.not.i, label %return, label %for.inc306.i
 
 for.inc306.i:                                     ; preds = %land.lhs.true300.i, %lor.lhs.false297.i
   %inc307.i = add nuw nsw i64 %i275.0.i, 1
   %.pre620 = load ptr, ptr %v269.i, align 8
-  br label %for.cond276.i, !llvm.loop !10
+  br label %for.cond276.i, !llvm.loop !9
 
 for.end308.i:                                     ; preds = %cond.end285.i
   %body310.i = getelementptr inbounds i8, ptr %1, i64 16
   %108 = load ptr, ptr %body310.i, align 8
-  %call311.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %108, ptr noundef nonnull @.str.17), !range !5
+  %call311.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %108, ptr noundef nonnull @.str.17)
   br label %validate_stmt.exit
 
 sw.bb312.i:                                       ; preds = %if.end34.i
   %v313.i = getelementptr inbounds i8, ptr %1, i64 8
   %109 = load ptr, ptr %v313.i, align 8
-  %call314.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %109, i32 noundef 1), !range !5
+  %call314.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %109, i32 noundef 1)
   %tobool315.not.i = icmp eq i32 %call314.i, 0
   br i1 %tobool315.not.i, label %return, label %lor.lhs.false316.i
 
@@ -993,7 +993,7 @@ for.body335.i:                                    ; preds = %cond.end332.i
   %arrayidx339.i = getelementptr [1 x ptr], ptr %typed_elements338.i, i64 0, i64 %i322.0.i
   %116 = load ptr, ptr %arrayidx339.i, align 8
   %117 = load ptr, ptr %116, align 8
-  %call340.i = tail call fastcc i32 @validate_pattern(ptr noundef nonnull %state, ptr noundef %117, i32 noundef 0), !range !5
+  %call340.i = tail call fastcc i32 @validate_pattern(ptr noundef nonnull %state, ptr noundef %117, i32 noundef 0)
   %tobool341.not.i = icmp eq i32 %call340.i, 0
   br i1 %tobool341.not.i, label %return, label %lor.lhs.false342.i
 
@@ -1004,7 +1004,7 @@ lor.lhs.false342.i:                               ; preds = %for.body335.i
   br i1 %tobool343.not.i, label %lor.lhs.false348.i, label %land.lhs.true344.i
 
 land.lhs.true344.i:                               ; preds = %lor.lhs.false342.i
-  %call346.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %118, i32 noundef 1), !range !5
+  %call346.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %118, i32 noundef 1)
   %tobool347.not.i = icmp eq i32 %call346.i, 0
   br i1 %tobool347.not.i, label %return, label %lor.lhs.false348.i
 
@@ -1025,9 +1025,9 @@ validate_body.exit85.thread:                      ; preds = %cond.false.i.i76, %
   br label %return
 
 validate_body.exit85:                             ; preds = %cond.false.i.i76
-  %call1.i81 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %119), !range !5
+  %call1.i81 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %119)
   %tobool351.not.i = icmp eq i32 %call1.i81, 0
-  br i1 %tobool351.not.i, label %return, label %for.cond323.ithread-pre-split, !llvm.loop !11
+  br i1 %tobool351.not.i, label %return, label %for.cond323.ithread-pre-split, !llvm.loop !10
 
 sw.bb357.i:                                       ; preds = %if.end34.i
   %v358.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -1036,7 +1036,7 @@ sw.bb357.i:                                       ; preds = %if.end34.i
   br i1 %tobool359.not.i, label %if.end377.i, label %if.then360.i
 
 if.then360.i:                                     ; preds = %sw.bb357.i
-  %call363.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %123, i32 noundef 1), !range !5
+  %call363.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %123, i32 noundef 1)
   %tobool364.not.i = icmp eq i32 %call363.i, 0
   br i1 %tobool364.not.i, label %validate_stmt.exit.thread212, label %land.rhs365.i
 
@@ -1047,7 +1047,7 @@ land.rhs365.i:                                    ; preds = %if.then360.i
   br i1 %tobool367.not.i, label %for.inc.sink.split, label %lor.rhs368.i
 
 lor.rhs368.i:                                     ; preds = %land.rhs365.i
-  %call371.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %124, i32 noundef 1), !range !5
+  %call371.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %124, i32 noundef 1)
   br label %validate_stmt.exit
 
 if.end377.i:                                      ; preds = %sw.bb357.i
@@ -1078,7 +1078,7 @@ validate_body.exit74.thread:                      ; preds = %cond.false.i.i65, %
   br label %return
 
 validate_body.exit74:                             ; preds = %cond.false.i.i65
-  %call1.i70 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %127), !range !5
+  %call1.i70 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %127)
   %tobool387.not.i = icmp eq i32 %call1.i70, 0
   br i1 %tobool387.not.i, label %return, label %if.end389.i
 
@@ -1217,7 +1217,7 @@ if.end496.i:                                      ; preds = %land.lhs.true487.i,
   br i1 %tobool498.not.i, label %lor.lhs.false504.i, label %land.lhs.true499.i
 
 land.lhs.true499.i:                               ; preds = %if.end496.i
-  %call502.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %151, i32 noundef 1), !range !5
+  %call502.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %151, i32 noundef 1)
   %tobool503.not.i = icmp eq i32 %call502.i, 0
   br i1 %tobool503.not.i, label %return, label %lor.lhs.false504.i
 
@@ -1238,10 +1238,10 @@ validate_body.exit63.thread:                      ; preds = %cond.false.i.i54, %
   br label %return
 
 validate_body.exit63:                             ; preds = %cond.false.i.i54
-  %call1.i59 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %152), !range !5
+  %call1.i59 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %152)
   %tobool508.not.i = icmp eq i32 %call1.i59, 0
   %inc512.i = add nuw nsw i64 %i438.0.i, 1
-  br i1 %tobool508.not.i, label %return, label %for.cond439.i, !llvm.loop !12
+  br i1 %tobool508.not.i, label %return, label %for.cond439.i, !llvm.loop !11
 
 for.end513.i:                                     ; preds = %cond.end448.i
   %finalbody515.i = getelementptr inbounds i8, ptr %1, i64 32
@@ -1255,7 +1255,7 @@ cond.false518.i:                                  ; preds = %for.end513.i
   br i1 %158, label %land.rhs530.i, label %lor.lhs.false525.i
 
 lor.lhs.false525.i:                               ; preds = %cond.false518.i
-  %call528.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %156), !range !5
+  %call528.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %156)
   %tobool529.not.i = icmp eq i32 %call528.i, 0
   br i1 %tobool529.not.i, label %validate_stmt.exit.thread212, label %land.rhs530.i
 
@@ -1271,7 +1271,7 @@ cond.false535.i:                                  ; preds = %land.rhs530.i
   br i1 %161, label %for.inc.sink.split, label %lor.rhs542.i
 
 lor.rhs542.i:                                     ; preds = %cond.false535.i
-  %call545.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %159), !range !5
+  %call545.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %159)
   br label %validate_stmt.exit
 
 sw.bb551.i:                                       ; preds = %if.end34.i
@@ -1291,7 +1291,7 @@ validate_body.exit52.thread:                      ; preds = %cond.false.i.i43, %
   br label %return
 
 validate_body.exit52:                             ; preds = %cond.false.i.i43
-  %call1.i48 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %162), !range !5
+  %call1.i48 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %162)
   %tobool555.not.i = icmp eq i32 %call1.i48, 0
   br i1 %tobool555.not.i, label %return, label %if.end557.i
 
@@ -1374,7 +1374,7 @@ for.body621.i:                                    ; preds = %cond.end618.i
   br i1 %tobool629.not.i, label %lor.lhs.false635.i, label %land.lhs.true630.i
 
 land.lhs.true630.i:                               ; preds = %for.body621.i
-  %call633.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %180, i32 noundef 1), !range !5
+  %call633.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %180, i32 noundef 1)
   %tobool634.not.i = icmp eq i32 %call633.i, 0
   br i1 %tobool634.not.i, label %return, label %lor.lhs.false635.i
 
@@ -1395,10 +1395,10 @@ validate_body.exit41.thread:                      ; preds = %cond.false.i.i32, %
   br label %return
 
 validate_body.exit41:                             ; preds = %cond.false.i.i32
-  %call1.i37 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %181), !range !5
+  %call1.i37 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %181)
   %tobool639.not.i = icmp eq i32 %call1.i37, 0
   %inc643.i = add nuw nsw i64 %i608.0.i, 1
-  br i1 %tobool639.not.i, label %return, label %for.cond609.i, !llvm.loop !13
+  br i1 %tobool639.not.i, label %return, label %for.cond609.i, !llvm.loop !12
 
 for.end644.i:                                     ; preds = %cond.end618.i
   %finalbody646.i = getelementptr inbounds i8, ptr %1, i64 32
@@ -1412,7 +1412,7 @@ cond.false649.i:                                  ; preds = %for.end644.i
   br i1 %187, label %land.rhs661.i, label %lor.lhs.false656.i
 
 lor.lhs.false656.i:                               ; preds = %cond.false649.i
-  %call659.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %185), !range !5
+  %call659.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %185)
   %tobool660.not.i = icmp eq i32 %call659.i, 0
   br i1 %tobool660.not.i, label %validate_stmt.exit.thread212, label %land.rhs661.i
 
@@ -1428,13 +1428,13 @@ cond.false666.i:                                  ; preds = %land.rhs661.i
   br i1 %190, label %for.inc.sink.split, label %lor.rhs673.i
 
 lor.rhs673.i:                                     ; preds = %cond.false666.i
-  %call676.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %188), !range !5
+  %call676.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %188)
   br label %validate_stmt.exit
 
 sw.bb682.i:                                       ; preds = %if.end34.i
   %v683.i = getelementptr inbounds i8, ptr %1, i64 8
   %191 = load ptr, ptr %v683.i, align 8
-  %call685.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %191, i32 noundef 1), !range !5
+  %call685.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %191, i32 noundef 1)
   %tobool686.not.i = icmp eq i32 %call685.i, 0
   br i1 %tobool686.not.i, label %validate_stmt.exit.thread212, label %land.rhs687.i
 
@@ -1445,7 +1445,7 @@ land.rhs687.i:                                    ; preds = %sw.bb682.i
   br i1 %tobool689.not.i, label %for.inc.sink.split, label %lor.rhs690.i
 
 lor.rhs690.i:                                     ; preds = %land.rhs687.i
-  %call693.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %192, i32 noundef 1), !range !5
+  %call693.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %192, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb699.i:                                       ; preds = %if.end34.i
@@ -1526,7 +1526,7 @@ if.end.i11:                                       ; preds = %cond.false.i9, %sw.
 sw.bb718.i:                                       ; preds = %if.end34.i
   %v719.i = getelementptr inbounds i8, ptr %1, i64 8
   %211 = load ptr, ptr %v719.i, align 8
-  %call721.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %211, i32 noundef 1), !range !5
+  %call721.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %211, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb722.i:                                       ; preds = %if.end34.i
@@ -1546,21 +1546,21 @@ validate_body.exit.thread:                        ; preds = %cond.false.i.i, %sw
   br label %validate_stmt.exit.thread212
 
 validate_body.exit:                               ; preds = %cond.false.i.i
-  %call1.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %212), !range !5
+  %call1.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %212)
   %tobool726.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool726.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true727.i
 
 land.lhs.true727.i:                               ; preds = %validate_body.exit
   %type_params729.i = getelementptr inbounds i8, ptr %1, i64 56
   %216 = load ptr, ptr %type_params729.i, align 8
-  %call730.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %216), !range !5
+  %call730.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %216)
   %tobool731.not.i = icmp eq i32 %call730.i, 0
   br i1 %tobool731.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true732.i
 
 land.lhs.true732.i:                               ; preds = %land.lhs.true727.i
   %args734.i = getelementptr inbounds i8, ptr %1, i64 16
   %217 = load ptr, ptr %args734.i, align 8
-  %call735.i = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %217), !range !5
+  %call735.i = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %217)
   %tobool736.not.i = icmp eq i32 %call735.i, 0
   br i1 %tobool736.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true737.i
 
@@ -1584,7 +1584,7 @@ for.body.us9.i887:                                ; preds = %entry.split.i883, %
   br i1 %tobool.not.us11.i890, label %if.then5.i897, label %if.then.us12.i891
 
 if.then.us12.i891:                                ; preds = %for.body.us9.i887
-  %call.us13.i892 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %220, i32 noundef 1) #4, !range !5
+  %call.us13.i892 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %220, i32 noundef 1) #4
   %tobool2.not.us14.i893 = icmp eq i32 %call.us13.i892, 0
   br i1 %tobool2.not.us14.i893, label %validate_stmt.exit.thread212, label %for.inc.us16.i894
 
@@ -1592,7 +1592,7 @@ for.inc.us16.i894:                                ; preds = %if.then.us12.i891
   %inc.us17.i895 = add nuw nsw i64 %i.07.us.i888, 1
   %221 = load i64, ptr %218, align 8
   %cmp1.us18.i896 = icmp slt i64 %inc.us17.i895, %221
-  br i1 %cmp1.us18.i896, label %for.body.us9.i887, label %land.rhs742.i, !llvm.loop !6
+  br i1 %cmp1.us18.i896, label %for.body.us9.i887, label %land.rhs742.i, !llvm.loop !5
 
 if.then5.i897:                                    ; preds = %for.body.us9.i887
   %222 = load ptr, ptr @PyExc_ValueError, align 8
@@ -1606,7 +1606,7 @@ land.rhs742.i:                                    ; preds = %for.inc.us16.i894, 
   br i1 %tobool745.not.i, label %for.inc.sink.split, label %lor.rhs746.i
 
 lor.rhs746.i:                                     ; preds = %land.rhs742.i
-  %call749.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %223, i32 noundef 1), !range !5
+  %call749.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %223, i32 noundef 1)
   br label %validate_stmt.exit
 
 validate_stmt.exit.thread207:                     ; preds = %if.end34.i
@@ -1650,7 +1650,7 @@ for.inc.sink.split:                               ; preds = %cond.end332.i, %for
 
 for.inc:                                          ; preds = %for.inc.sink.split, %validate_stmt.exit
   %inc = add nuw i64 %i.0, 1
-  br label %for.cond, !llvm.loop !14
+  br label %for.cond, !llvm.loop !13
 
 return:                                           ; preds = %validate_body.exit52, %validate_body.exit74, %sw.bb312.i, %cond.end, %validate_stmt.exit, %land.lhs.true630.i, %validate_body.exit41, %land.lhs.true499.i, %validate_body.exit63, %for.body335.i, %land.lhs.true344.i, %validate_body.exit85, %for.body288.i, %land.lhs.true300.i, %for.body.i, %land.lhs.true258.i, %validate_stmt.exit.thread912, %validate_body.exit41.thread, %validate_body.exit52.thread, %validate_body.exit63.thread, %validate_body.exit74.thread, %validate_body.exit85.thread, %_validate_nonempty_seq.exit91.thread, %_validate_nonempty_seq.exit97.thread, %_validate_nonempty_seq.exit103.thread, %if.then122.i, %if.then147.i, %if.then381.i, %if.then411.i, %if.then436.i, %if.then491.i, %if.then477.i, %if.then459.i, %if.then581.i, %if.then606.i, %if.then705.i, %if.then33.i, %if.then26.i, %if.then12.i, %if.then.i, %validate_stmt.exit.thread212, %validate_stmt.exit.thread207, %if.else
   %retval.0 = phi i32 [ 0, %if.else ], [ 0, %validate_stmt.exit.thread207 ], [ 0, %validate_stmt.exit.thread212 ], [ 0, %if.then.i ], [ 0, %if.then12.i ], [ 0, %if.then26.i ], [ 0, %if.then33.i ], [ 0, %if.then705.i ], [ 0, %if.then606.i ], [ 0, %if.then581.i ], [ 0, %if.then459.i ], [ 0, %if.then477.i ], [ 0, %if.then491.i ], [ 0, %if.then436.i ], [ 0, %if.then411.i ], [ 0, %if.then381.i ], [ 0, %if.then147.i ], [ 0, %if.then122.i ], [ 0, %_validate_nonempty_seq.exit103.thread ], [ 0, %_validate_nonempty_seq.exit97.thread ], [ 0, %_validate_nonempty_seq.exit91.thread ], [ 0, %validate_body.exit85.thread ], [ 0, %validate_body.exit74.thread ], [ 0, %validate_body.exit63.thread ], [ 0, %validate_body.exit52.thread ], [ 0, %validate_body.exit41.thread ], [ 0, %validate_stmt.exit.thread912 ], [ 0, %land.lhs.true258.i ], [ 0, %for.body.i ], [ 0, %land.lhs.true300.i ], [ 0, %for.body288.i ], [ 0, %validate_body.exit85 ], [ 0, %land.lhs.true344.i ], [ 0, %for.body335.i ], [ 0, %validate_body.exit63 ], [ 0, %land.lhs.true499.i ], [ 0, %validate_body.exit41 ], [ 0, %land.lhs.true630.i ], [ 0, %validate_stmt.exit ], [ 1, %cond.end ], [ 0, %sw.bb312.i ], [ 0, %validate_body.exit74 ], [ 0, %validate_body.exit52 ]
@@ -1658,7 +1658,7 @@ return:                                           ; preds = %validate_body.exit5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_expr(ptr nocapture noundef %state, ptr noundef readonly %exp, i32 noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_expr(ptr nocapture noundef %state, ptr noundef readonly %exp, i32 noundef %ctx) unnamed_addr #0 {
 entry:
   %lineno = getelementptr inbounds i8, ptr %exp, i64 32
   %0 = load i32, ptr %lineno, align 8
@@ -1746,7 +1746,7 @@ sw.bb39:                                          ; preds = %if.end34
 sw.bb42:                                          ; preds = %if.end34
   %v43 = getelementptr inbounds i8, ptr %exp, i64 8
   %13 = load ptr, ptr %v43, align 8
-  %call44 = tail call fastcc i32 @validate_name(ptr noundef %13), !range !5
+  %call44 = tail call fastcc i32 @validate_name(ptr noundef %13)
   %tobool.not = icmp eq i32 %call44, 0
   br i1 %tobool.not, label %return, label %sw.epilog
 
@@ -1840,59 +1840,59 @@ if.then75:                                        ; preds = %sw.bb69, %cond.fals
   br label %return
 
 if.end76:                                         ; preds = %cond.false
-  %call79 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef nonnull %19, i32 noundef 1, i32 noundef 0), !range !5
+  %call79 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef nonnull %19, i32 noundef 1, i32 noundef 0)
   br label %if.end371
 
 sw.bb80:                                          ; preds = %if.end67
   %v81 = getelementptr inbounds i8, ptr %exp, i64 8
   %23 = load ptr, ptr %v81, align 8
-  %call82 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %23, i32 noundef 1), !range !5
+  %call82 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %23, i32 noundef 1)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %if.end371, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.bb80
   %right = getelementptr inbounds i8, ptr %exp, i64 24
   %24 = load ptr, ptr %right, align 8
-  %call85 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %24, i32 noundef 1), !range !5
+  %call85 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %24, i32 noundef 1)
   br label %if.end371
 
 sw.bb87:                                          ; preds = %if.end67
   %operand = getelementptr inbounds i8, ptr %exp, i64 16
   %25 = load ptr, ptr %operand, align 8
-  %call89 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %25, i32 noundef 1), !range !5
+  %call89 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %25, i32 noundef 1)
   br label %if.end371
 
 sw.bb90:                                          ; preds = %if.end67
   %v91 = getelementptr inbounds i8, ptr %exp, i64 8
   %26 = load ptr, ptr %v91, align 8
-  %call92 = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %26), !range !5
+  %call92 = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %26)
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %if.end371, label %land.rhs94
 
 land.rhs94:                                       ; preds = %sw.bb90
   %body = getelementptr inbounds i8, ptr %exp, i64 16
   %27 = load ptr, ptr %body, align 8
-  %call96 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %27, i32 noundef 1), !range !5
+  %call96 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %27, i32 noundef 1)
   br label %if.end371
 
 sw.bb100:                                         ; preds = %if.end67
   %v101 = getelementptr inbounds i8, ptr %exp, i64 8
   %28 = load ptr, ptr %v101, align 8
-  %call102 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %28, i32 noundef 1), !range !5
+  %call102 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %28, i32 noundef 1)
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %if.end371, label %land.lhs.true104
 
 land.lhs.true104:                                 ; preds = %sw.bb100
   %body106 = getelementptr inbounds i8, ptr %exp, i64 16
   %29 = load ptr, ptr %body106, align 8
-  %call107 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %29, i32 noundef 1), !range !5
+  %call107 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %29, i32 noundef 1)
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %if.end371, label %land.rhs109
 
 land.rhs109:                                      ; preds = %land.lhs.true104
   %orelse = getelementptr inbounds i8, ptr %exp, i64 24
   %30 = load ptr, ptr %orelse, align 8
-  %call111 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %30, i32 noundef 1), !range !5
+  %call111 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %30, i32 noundef 1)
   br label %if.end371
 
 sw.bb115:                                         ; preds = %if.end67
@@ -1927,78 +1927,78 @@ if.then136:                                       ; preds = %cond.end133
   br label %return
 
 if.end137:                                        ; preds = %cond.end133
-  %call140 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %31, i32 noundef 1, i32 noundef 1), !range !5
+  %call140 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %31, i32 noundef 1, i32 noundef 1)
   %tobool141.not = icmp eq i32 %call140, 0
   br i1 %tobool141.not, label %if.end371, label %land.rhs142
 
 land.rhs142:                                      ; preds = %if.end137
   %36 = load ptr, ptr %values126, align 8
-  %call145 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %36, i32 noundef 1, i32 noundef 0), !range !5
+  %call145 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %36, i32 noundef 1, i32 noundef 0)
   br label %if.end371
 
 sw.bb149:                                         ; preds = %if.end67
   %v150 = getelementptr inbounds i8, ptr %exp, i64 8
   %37 = load ptr, ptr %v150, align 8
-  %call151 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %37, i32 noundef 1, i32 noundef 0), !range !5
+  %call151 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %37, i32 noundef 1, i32 noundef 0)
   br label %if.end371
 
 sw.bb152:                                         ; preds = %if.end67
   %generators = getelementptr inbounds i8, ptr %exp, i64 16
   %38 = load ptr, ptr %generators, align 8
-  %call154 = tail call fastcc i32 @validate_comprehension(ptr noundef nonnull %state, ptr noundef %38), !range !5
+  %call154 = tail call fastcc i32 @validate_comprehension(ptr noundef nonnull %state, ptr noundef %38)
   %tobool155.not = icmp eq i32 %call154, 0
   br i1 %tobool155.not, label %if.end371, label %land.rhs156
 
 land.rhs156:                                      ; preds = %sw.bb152
   %v153 = getelementptr inbounds i8, ptr %exp, i64 8
   %39 = load ptr, ptr %v153, align 8
-  %call158 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %39, i32 noundef 1), !range !5
+  %call158 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %39, i32 noundef 1)
   br label %if.end371
 
 sw.bb162:                                         ; preds = %if.end67
   %generators164 = getelementptr inbounds i8, ptr %exp, i64 16
   %40 = load ptr, ptr %generators164, align 8
-  %call165 = tail call fastcc i32 @validate_comprehension(ptr noundef nonnull %state, ptr noundef %40), !range !5
+  %call165 = tail call fastcc i32 @validate_comprehension(ptr noundef nonnull %state, ptr noundef %40)
   %tobool166.not = icmp eq i32 %call165, 0
   br i1 %tobool166.not, label %if.end371, label %land.rhs167
 
 land.rhs167:                                      ; preds = %sw.bb162
   %v163 = getelementptr inbounds i8, ptr %exp, i64 8
   %41 = load ptr, ptr %v163, align 8
-  %call170 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %41, i32 noundef 1), !range !5
+  %call170 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %41, i32 noundef 1)
   br label %if.end371
 
 sw.bb174:                                         ; preds = %if.end67
   %generators176 = getelementptr inbounds i8, ptr %exp, i64 16
   %42 = load ptr, ptr %generators176, align 8
-  %call177 = tail call fastcc i32 @validate_comprehension(ptr noundef nonnull %state, ptr noundef %42), !range !5
+  %call177 = tail call fastcc i32 @validate_comprehension(ptr noundef nonnull %state, ptr noundef %42)
   %tobool178.not = icmp eq i32 %call177, 0
   br i1 %tobool178.not, label %if.end371, label %land.rhs179
 
 land.rhs179:                                      ; preds = %sw.bb174
   %v175 = getelementptr inbounds i8, ptr %exp, i64 8
   %43 = load ptr, ptr %v175, align 8
-  %call182 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %43, i32 noundef 1), !range !5
+  %call182 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %43, i32 noundef 1)
   br label %if.end371
 
 sw.bb186:                                         ; preds = %if.end67
   %generators188 = getelementptr inbounds i8, ptr %exp, i64 24
   %44 = load ptr, ptr %generators188, align 8
-  %call189 = tail call fastcc i32 @validate_comprehension(ptr noundef nonnull %state, ptr noundef %44), !range !5
+  %call189 = tail call fastcc i32 @validate_comprehension(ptr noundef nonnull %state, ptr noundef %44)
   %tobool190.not = icmp eq i32 %call189, 0
   br i1 %tobool190.not, label %if.end371, label %land.lhs.true191
 
 land.lhs.true191:                                 ; preds = %sw.bb186
   %v187 = getelementptr inbounds i8, ptr %exp, i64 8
   %45 = load ptr, ptr %v187, align 8
-  %call193 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %45, i32 noundef 1), !range !5
+  %call193 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %45, i32 noundef 1)
   %tobool194.not = icmp eq i32 %call193, 0
   br i1 %tobool194.not, label %if.end371, label %land.rhs195
 
 land.rhs195:                                      ; preds = %land.lhs.true191
   %value = getelementptr inbounds i8, ptr %exp, i64 16
   %46 = load ptr, ptr %value, align 8
-  %call197 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %46, i32 noundef 1), !range !5
+  %call197 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %46, i32 noundef 1)
   br label %if.end371
 
 sw.bb201:                                         ; preds = %if.end67
@@ -2008,19 +2008,19 @@ sw.bb201:                                         ; preds = %if.end67
   br i1 %tobool204.not, label %if.end371, label %lor.rhs
 
 lor.rhs:                                          ; preds = %sw.bb201
-  %call207 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %47, i32 noundef 1), !range !5
+  %call207 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %47, i32 noundef 1)
   br label %if.end371
 
 sw.bb209:                                         ; preds = %if.end67
   %v210 = getelementptr inbounds i8, ptr %exp, i64 8
   %48 = load ptr, ptr %v210, align 8
-  %call212 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %48, i32 noundef 1), !range !5
+  %call212 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %48, i32 noundef 1)
   br label %if.end371
 
 sw.bb213:                                         ; preds = %if.end67
   %v214 = getelementptr inbounds i8, ptr %exp, i64 8
   %49 = load ptr, ptr %v214, align 8
-  %call216 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %49, i32 noundef 1), !range !5
+  %call216 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %49, i32 noundef 1)
   br label %if.end371
 
 sw.bb217:                                         ; preds = %if.end67
@@ -2057,52 +2057,52 @@ if.then250:                                       ; preds = %cond.end238, %cond.
   br label %return
 
 if.end251:                                        ; preds = %cond.end247
-  %call254 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef nonnull %50, i32 noundef 1, i32 noundef 0), !range !5
+  %call254 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef nonnull %50, i32 noundef 1, i32 noundef 0)
   %tobool255.not = icmp eq i32 %call254, 0
   br i1 %tobool255.not, label %if.end371, label %land.rhs256
 
 land.rhs256:                                      ; preds = %if.end251
   %57 = load ptr, ptr %v218, align 8
-  %call259 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %57, i32 noundef 1), !range !5
+  %call259 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %57, i32 noundef 1)
   br label %if.end371
 
 sw.bb263:                                         ; preds = %if.end67
   %v264 = getelementptr inbounds i8, ptr %exp, i64 8
   %58 = load ptr, ptr %v264, align 8
-  %call265 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %58, i32 noundef 1), !range !5
+  %call265 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %58, i32 noundef 1)
   %tobool266.not = icmp eq i32 %call265, 0
   br i1 %tobool266.not, label %if.end371, label %land.lhs.true267
 
 land.lhs.true267:                                 ; preds = %sw.bb263
   %args269 = getelementptr inbounds i8, ptr %exp, i64 16
   %59 = load ptr, ptr %args269, align 8
-  %call270 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %59, i32 noundef 1, i32 noundef 0), !range !5
+  %call270 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %59, i32 noundef 1, i32 noundef 0)
   %tobool271.not = icmp eq i32 %call270, 0
   br i1 %tobool271.not, label %if.end371, label %land.rhs272
 
 land.rhs272:                                      ; preds = %land.lhs.true267
   %keywords = getelementptr inbounds i8, ptr %exp, i64 24
   %60 = load ptr, ptr %keywords, align 8
-  %call274 = tail call fastcc i32 @validate_keywords(ptr noundef nonnull %state, ptr noundef %60), !range !5
+  %call274 = tail call fastcc i32 @validate_keywords(ptr noundef nonnull %state, ptr noundef %60)
   br label %if.end371
 
 sw.bb278:                                         ; preds = %if.end67
   %v279 = getelementptr inbounds i8, ptr %exp, i64 8
   %61 = load ptr, ptr %v279, align 8
-  %call281 = tail call fastcc i32 @validate_constant(ptr noundef nonnull %state, ptr noundef %61), !range !5
+  %call281 = tail call fastcc i32 @validate_constant(ptr noundef nonnull %state, ptr noundef %61)
   %tobool282.not = icmp eq i32 %call281, 0
   br i1 %tobool282.not, label %return, label %if.end371
 
 sw.bb285:                                         ; preds = %if.end67
   %v286 = getelementptr inbounds i8, ptr %exp, i64 8
   %62 = load ptr, ptr %v286, align 8
-  %call288 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %62, i32 noundef 1, i32 noundef 0), !range !5
+  %call288 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %62, i32 noundef 1, i32 noundef 0)
   br label %if.end371
 
 sw.bb289:                                         ; preds = %if.end67
   %v290 = getelementptr inbounds i8, ptr %exp, i64 8
   %63 = load ptr, ptr %v290, align 8
-  %call292 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %63, i32 noundef 1), !range !5
+  %call292 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %63, i32 noundef 1)
   %cmp293 = icmp eq i32 %call292, 0
   br i1 %cmp293, label %return, label %if.end295
 
@@ -2113,32 +2113,32 @@ if.end295:                                        ; preds = %sw.bb289
   br i1 %tobool297.not, label %if.end371, label %if.then298
 
 if.then298:                                       ; preds = %if.end295
-  %call301 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %64, i32 noundef 1), !range !5
+  %call301 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %64, i32 noundef 1)
   br label %if.end371
 
 sw.bb303:                                         ; preds = %if.end67
   %v304 = getelementptr inbounds i8, ptr %exp, i64 8
   %65 = load ptr, ptr %v304, align 8
-  %call306 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %65, i32 noundef 1), !range !5
+  %call306 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %65, i32 noundef 1)
   br label %if.end371
 
 sw.bb307:                                         ; preds = %if.end67
   %slice = getelementptr inbounds i8, ptr %exp, i64 16
   %66 = load ptr, ptr %slice, align 8
-  %call309 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %66, i32 noundef 1), !range !5
+  %call309 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %66, i32 noundef 1)
   %tobool310.not = icmp eq i32 %call309, 0
   br i1 %tobool310.not, label %if.end371, label %land.rhs311
 
 land.rhs311:                                      ; preds = %sw.bb307
   %v308 = getelementptr inbounds i8, ptr %exp, i64 8
   %67 = load ptr, ptr %v308, align 8
-  %call314 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %67, i32 noundef 1), !range !5
+  %call314 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %67, i32 noundef 1)
   br label %if.end371
 
 sw.bb318:                                         ; preds = %if.end67
   %v319 = getelementptr inbounds i8, ptr %exp, i64 8
   %68 = load ptr, ptr %v319, align 8
-  %call321 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %68, i32 noundef %ctx), !range !5
+  %call321 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %68, i32 noundef %ctx)
   br label %if.end371
 
 sw.bb322:                                         ; preds = %if.end67
@@ -2148,7 +2148,7 @@ sw.bb322:                                         ; preds = %if.end67
   br i1 %tobool324.not, label %land.lhs.true330, label %lor.lhs.false325
 
 lor.lhs.false325:                                 ; preds = %sw.bb322
-  %call328 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %69, i32 noundef 1), !range !5
+  %call328 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %69, i32 noundef 1)
   %tobool329.not = icmp eq i32 %call328, 0
   br i1 %tobool329.not, label %if.end371, label %land.lhs.true330
 
@@ -2159,7 +2159,7 @@ land.lhs.true330:                                 ; preds = %lor.lhs.false325, %
   br i1 %tobool332.not, label %land.rhs338, label %lor.lhs.false333
 
 lor.lhs.false333:                                 ; preds = %land.lhs.true330
-  %call336 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %70, i32 noundef 1), !range !5
+  %call336 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %70, i32 noundef 1)
   %tobool337.not = icmp eq i32 %call336, 0
   br i1 %tobool337.not, label %if.end371, label %land.rhs338
 
@@ -2170,19 +2170,19 @@ land.rhs338:                                      ; preds = %lor.lhs.false333, %
   br i1 %tobool340.not, label %if.end371, label %lor.rhs341
 
 lor.rhs341:                                       ; preds = %land.rhs338
-  %call344 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %71, i32 noundef 1), !range !5
+  %call344 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %71, i32 noundef 1)
   br label %if.end371
 
 sw.bb350:                                         ; preds = %if.end67
   %v351 = getelementptr inbounds i8, ptr %exp, i64 8
   %72 = load ptr, ptr %v351, align 8
-  %call353 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %72, i32 noundef %ctx, i32 noundef 0), !range !5
+  %call353 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %72, i32 noundef %ctx, i32 noundef 0)
   br label %if.end371
 
 sw.bb354:                                         ; preds = %if.end67
   %v355 = getelementptr inbounds i8, ptr %exp, i64 8
   %73 = load ptr, ptr %v355, align 8
-  %call357 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %73, i32 noundef %ctx, i32 noundef 0), !range !5
+  %call357 = tail call fastcc i32 @validate_exprs(ptr noundef nonnull %state, ptr noundef %73, i32 noundef %ctx, i32 noundef 0)
   br label %if.end371
 
 sw.bb358:                                         ; preds = %if.end67
@@ -2200,7 +2200,7 @@ if.then362:                                       ; preds = %sw.bb358
 if.end363:                                        ; preds = %sw.bb358
   %value365 = getelementptr inbounds i8, ptr %exp, i64 16
   %77 = load ptr, ptr %value365, align 8
-  %call366 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %77, i32 noundef 1), !range !5
+  %call366 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %77, i32 noundef 1)
   br label %if.end371
 
 if.then370:                                       ; preds = %if.end67
@@ -2221,7 +2221,7 @@ return:                                           ; preds = %sw.bb289, %sw.bb278
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_exprs(ptr nocapture noundef %state, ptr noundef readonly %exprs, i32 noundef %ctx, i32 noundef %null_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_exprs(ptr nocapture noundef %state, ptr noundef readonly %exprs, i32 noundef %ctx, i32 noundef %null_ok) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %exprs, null
   %typed_elements = getelementptr inbounds i8, ptr %exprs, i64 16
@@ -2244,7 +2244,7 @@ for.body.us9:                                     ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not.us11, label %if.then5, label %if.then.us12
 
 if.then.us12:                                     ; preds = %for.body.us9
-  %call.us13 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %1, i32 noundef %ctx), !range !5
+  %call.us13 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %1, i32 noundef %ctx)
   %tobool2.not.us14 = icmp eq i32 %call.us13, 0
   br i1 %tobool2.not.us14, label %return, label %for.inc.us16
 
@@ -2252,7 +2252,7 @@ for.inc.us16:                                     ; preds = %if.then.us12
   %inc.us17 = add nuw nsw i64 %i.07.us, 1
   %2 = load i64, ptr %exprs, align 8
   %cmp1.us18 = icmp slt i64 %inc.us17, %2
-  br i1 %cmp1.us18, label %for.body.us9, label %return, !llvm.loop !6
+  br i1 %cmp1.us18, label %for.body.us9, label %return, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %3 = phi i64 [ %6, %for.inc ], [ %0, %for.body.lr.ph ]
@@ -2263,7 +2263,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %4, i32 noundef %ctx), !range !5
+  %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %4, i32 noundef %ctx)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %return, label %if.then.for.inc_crit_edge
 
@@ -2280,7 +2280,7 @@ for.inc:                                          ; preds = %if.then.for.inc_cri
   %6 = phi i64 [ %.pre, %if.then.for.inc_crit_edge ], [ %3, %for.body ]
   %inc = add nuw nsw i64 %i.07, 1
   %cmp1 = icmp slt i64 %inc, %6
-  br i1 %cmp1, label %for.body, label %return, !llvm.loop !6
+  br i1 %cmp1, label %for.body, label %return, !llvm.loop !5
 
 return:                                           ; preds = %for.inc, %if.then, %for.inc.us16, %if.then.us12, %entry, %entry.split, %if.then5
   %retval.0 = phi i32 [ 0, %if.then5 ], [ 1, %entry ], [ 1, %entry.split ], [ 0, %if.then.us12 ], [ 1, %for.inc.us16 ], [ 0, %if.then ], [ 1, %for.inc ]
@@ -2334,7 +2334,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_body(ptr nocapture noundef %state, ptr noundef %body, ptr noundef %owner) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_body(ptr nocapture noundef %state, ptr noundef %body, ptr noundef %owner) unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %body, null
   br i1 %cmp.i, label %_validate_nonempty_seq.exit.thread, label %cond.false.i
@@ -2350,7 +2350,7 @@ _validate_nonempty_seq.exit.thread:               ; preds = %entry, %cond.false.
   br label %land.end
 
 land.rhs:                                         ; preds = %cond.false.i
-  %call1 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %body), !range !5
+  %call1 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %body)
   br label %land.end
 
 land.end:                                         ; preds = %_validate_nonempty_seq.exit.thread, %land.rhs
@@ -2359,7 +2359,7 @@ land.end:                                         ; preds = %_validate_nonempty_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_type_params(ptr nocapture noundef %state, ptr noundef readonly %tps) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_type_params(ptr nocapture noundef %state, ptr noundef readonly %tps) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %tps, null
   %typed_elements = getelementptr inbounds i8, ptr %tps, i64 16
@@ -2456,7 +2456,7 @@ sw.bb.i:                                          ; preds = %if.end31.i
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %cmp.not.i.i, label %land.rhs.i, label %for.body.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i, label %land.rhs.i, label %for.body.i.i, !llvm.loop !14
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %sw.bb.i
   %indvars.iv.i.i = phi i64 [ 0, %sw.bb.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
@@ -2485,7 +2485,7 @@ sw.bb39.i:                                        ; preds = %if.end31.i
 for.cond.i42.i:                                   ; preds = %for.body.i34.i
   %indvars.iv.next.i43.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %cmp.not.i44.i = icmp eq i64 %indvars.iv.next.i43.i, 3
-  br i1 %cmp.not.i44.i, label %for.inc, label %for.body.i34.i, !llvm.loop !15
+  br i1 %cmp.not.i44.i, label %for.inc, label %for.body.i34.i, !llvm.loop !14
 
 for.body.i34.i:                                   ; preds = %for.cond.i42.i, %sw.bb39.i
   %indvars.iv.i35.i = phi i64 [ 0, %sw.bb39.i ], [ %indvars.iv.next.i43.i, %for.cond.i42.i ]
@@ -2508,7 +2508,7 @@ sw.bb43.i:                                        ; preds = %if.end31.i
 for.cond.i54.i:                                   ; preds = %for.body.i46.i
   %indvars.iv.next.i55.i = add nuw nsw i64 %indvars.iv.i47.i, 1
   %cmp.not.i56.i = icmp eq i64 %indvars.iv.next.i55.i, 3
-  br i1 %cmp.not.i56.i, label %for.inc, label %for.body.i46.i, !llvm.loop !15
+  br i1 %cmp.not.i56.i, label %for.inc, label %for.body.i46.i, !llvm.loop !14
 
 for.body.i46.i:                                   ; preds = %for.cond.i54.i, %sw.bb43.i
   %indvars.iv.i47.i = phi i64 [ 0, %sw.bb43.i ], [ %indvars.iv.next.i55.i, %for.cond.i54.i ]
@@ -2524,13 +2524,13 @@ if.then.i51.i:                                    ; preds = %for.body.i46.i
   br label %return
 
 validate_typeparam.exit:                          ; preds = %land.rhs.i
-  %call37.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %15, i32 noundef 1), !range !5
+  %call37.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %15, i32 noundef 1)
   %tobool2.not = icmp eq i32 %call37.i, 0
   br i1 %tobool2.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.cond.i54.i, %for.cond.i42.i, %land.rhs.i, %if.end31.i, %for.body, %validate_typeparam.exit
   %inc = add nuw i64 %i.0, 1
-  br label %for.cond, !llvm.loop !16
+  br label %for.cond, !llvm.loop !15
 
 return:                                           ; preds = %cond.end, %validate_typeparam.exit, %if.then.i51.i, %if.then.i39.i, %validate_name.exit.thread.i, %if.then26.i, %if.then12.i, %if.then.i
   %retval.0 = phi i32 [ 0, %if.then.i ], [ 0, %if.then12.i ], [ 0, %if.then26.i ], [ 0, %validate_name.exit.thread.i ], [ 0, %if.then.i39.i ], [ 0, %if.then.i51.i ], [ 1, %cond.end ], [ 0, %validate_typeparam.exit ]
@@ -2538,17 +2538,17 @@ return:                                           ; preds = %cond.end, %validate
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_arguments(ptr nocapture noundef %state, ptr nocapture noundef readonly %args) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_arguments(ptr nocapture noundef %state, ptr nocapture noundef readonly %args) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
-  %call = tail call fastcc i32 @validate_args(ptr noundef %state, ptr noundef %0), !range !5
+  %call = tail call fastcc i32 @validate_args(ptr noundef %state, ptr noundef %0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %args1 = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load ptr, ptr %args1, align 8
-  %call2 = tail call fastcc i32 @validate_args(ptr noundef %state, ptr noundef %1), !range !5
+  %call2 = tail call fastcc i32 @validate_args(ptr noundef %state, ptr noundef %1)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end
 
@@ -2565,14 +2565,14 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool6.not, label %if.end13, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %call10 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %3, i32 noundef 1), !range !5
+  %call10 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %3, i32 noundef 1)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %land.lhs.true7, %land.lhs.true, %if.end
   %kwonlyargs = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %kwonlyargs, align 8
-  %call14 = tail call fastcc i32 @validate_args(ptr noundef %state, ptr noundef %4), !range !5
+  %call14 = tail call fastcc i32 @validate_args(ptr noundef %state, ptr noundef %4)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end17
 
@@ -2589,7 +2589,7 @@ land.lhs.true19:                                  ; preds = %if.end17
   br i1 %tobool22.not, label %if.end29, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %land.lhs.true19
-  %call26 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %6, i32 noundef 1), !range !5
+  %call26 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %6, i32 noundef 1)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %if.end29
 
@@ -2671,10 +2671,10 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i, label %return.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %call.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %18, i32 noundef 1), !range !5
+  %call.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %18, i32 noundef 1)
   %tobool2.not.i = icmp eq i32 %call.i, 0
   %inc.i = add nuw nsw i64 %i.0.i, 1
-  br i1 %tobool2.not.i, label %return, label %for.cond.i, !llvm.loop !6
+  br i1 %tobool2.not.i, label %return, label %for.cond.i, !llvm.loop !5
 
 land.rhs.loopexit:                                ; preds = %for.cond.i
   %.pre = load ptr, ptr %kw_defaults, align 8
@@ -2700,7 +2700,7 @@ for.body.i43:                                     ; preds = %land.rhs.split57, %
   br i1 %tobool.not.i46, label %for.inc.i50, label %if.then.i47
 
 if.then.i47:                                      ; preds = %for.body.i43
-  %call.i48 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %22, i32 noundef 1), !range !5
+  %call.i48 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %22, i32 noundef 1)
   %tobool2.not.i49 = icmp eq i32 %call.i48, 0
   br i1 %tobool2.not.i49, label %return, label %if.then.i47.for.inc.i50_crit_edge
 
@@ -2712,7 +2712,7 @@ for.inc.i50:                                      ; preds = %if.then.i47.for.inc
   %23 = phi i64 [ %.pre66, %if.then.i47.for.inc.i50_crit_edge ], [ %21, %for.body.i43 ]
   %inc.i51 = add nuw nsw i64 %i.0.i3659, 1
   %cmp1.i41 = icmp slt i64 %inc.i51, %23
-  br i1 %cmp1.i41, label %for.body.i43, label %return, !llvm.loop !6
+  br i1 %cmp1.i41, label %for.body.i43, label %return, !llvm.loop !5
 
 return.sink.split:                                ; preds = %for.body.i, %cond.end63, %cond.end45
   %.str.73.sink = phi ptr [ @.str.42, %cond.end45 ], [ @.str.43, %cond.end63 ], [ @.str.73, %for.body.i ]
@@ -2726,7 +2726,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_keywords(ptr nocapture noundef %state, ptr noundef readonly %keywords) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_keywords(ptr nocapture noundef %state, ptr noundef readonly %keywords) unnamed_addr #0 {
 entry:
   %typed_elements = getelementptr inbounds i8, ptr %keywords, i64 16
   %cmp = icmp eq ptr %keywords, null
@@ -2743,10 +2743,10 @@ for.body:                                         ; preds = %for.cond
   %1 = load ptr, ptr %arrayidx, align 8
   %value = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %value, align 8
-  %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %2, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %2, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   %inc = add nuw nsw i64 %i.0, 1
-  br i1 %tobool.not, label %return, label %for.cond, !llvm.loop !8
+  br i1 %tobool.not, label %return, label %for.cond, !llvm.loop !7
 
 return:                                           ; preds = %for.body, %for.cond, %entry
   %.us-phi = phi i32 [ 1, %entry ], [ 0, %for.body ], [ 1, %for.cond ]
@@ -2754,7 +2754,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_pattern(ptr nocapture noundef %state, ptr nocapture noundef readonly %p, i32 noundef %star_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr nocapture noundef %state, ptr nocapture noundef readonly %p, i32 noundef %star_ok) unnamed_addr #0 {
 entry:
   %lineno = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %lineno, align 8
@@ -2841,7 +2841,7 @@ if.end34:                                         ; preds = %if.end31
 sw.bb:                                            ; preds = %if.end34
   %v = getelementptr inbounds i8, ptr %p, i64 8
   %13 = load ptr, ptr %v, align 8
-  %call35 = tail call fastcc i32 @validate_pattern_match_value(ptr noundef nonnull %state, ptr noundef %13), !range !5
+  %call35 = tail call fastcc i32 @validate_pattern_match_value(ptr noundef nonnull %state, ptr noundef %13)
   br label %if.end245
 
 sw.bb36:                                          ; preds = %if.end34
@@ -2864,7 +2864,7 @@ if.then44:                                        ; preds = %lor.end
 sw.bb46:                                          ; preds = %if.end34
   %v47 = getelementptr inbounds i8, ptr %p, i64 8
   %17 = load ptr, ptr %v47, align 8
-  %call48 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef %17, i32 noundef 1), !range !5
+  %call48 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef %17, i32 noundef 1)
   br label %if.end245
 
 sw.bb49:                                          ; preds = %if.end34
@@ -2905,7 +2905,7 @@ if.end66:                                         ; preds = %cond.end62
   br i1 %tobool68.not, label %if.end75, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.end66
-  %call72 = tail call fastcc i32 @validate_capture(ptr noundef nonnull %23), !range !5
+  %call72 = tail call fastcc i32 @validate_capture(ptr noundef nonnull %23)
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %if.end245, label %land.lhs.true69.if.end75_crit_edge
 
@@ -2946,7 +2946,7 @@ lor.lhs.false92:                                  ; preds = %if.then88
   br i1 %cmp.i103.not, label %for.inc, label %if.end97
 
 if.end97:                                         ; preds = %lor.lhs.false92, %for.body
-  %call98 = tail call fastcc i32 @validate_pattern_match_value(ptr noundef nonnull %state, ptr noundef nonnull %27), !range !5
+  %call98 = tail call fastcc i32 @validate_pattern_match_value(ptr noundef nonnull %state, ptr noundef nonnull %27)
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %if.end245, label %if.end97.for.inc_crit_edge
 
@@ -2958,11 +2958,11 @@ for.inc:                                          ; preds = %if.end97.for.inc_cr
   %31 = phi i64 [ %.pre117, %if.end97.for.inc_crit_edge ], [ %26, %if.then88 ], [ %26, %lor.lhs.false92 ]
   %inc102 = add nuw nsw i64 %i.0112, 1
   %cmp85 = icmp slt i64 %inc102, %31
-  br i1 %cmp85, label %for.body, label %if.end105, !llvm.loop !17
+  br i1 %cmp85, label %for.body, label %if.end105, !llvm.loop !16
 
 if.end105:                                        ; preds = %for.inc, %if.end75.split, %if.end75
   %32 = load ptr, ptr %patterns55, align 8
-  %call108 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef %32, i32 noundef 0), !range !5
+  %call108 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef %32, i32 noundef 0)
   br label %if.end245
 
 sw.bb109:                                         ; preds = %if.end34
@@ -2999,7 +2999,7 @@ if.then129:                                       ; preds = %cond.end126
 
 if.end130:                                        ; preds = %cond.end126
   %38 = load ptr, ptr %v110, align 8
-  %call132 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %38, i32 noundef 1), !range !5
+  %call132 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %38, i32 noundef 1)
   %tobool133.not = icmp eq i32 %call132, 0
   br i1 %tobool133.not, label %if.end245, label %while.body
 
@@ -3045,7 +3045,7 @@ for.body164:                                      ; preds = %cond.end161
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %cmp.not.i, label %for.inc173, label %for.body.i, !llvm.loop !15
+  br i1 %cmp.not.i, label %for.inc173, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body164
   %indvars.iv.i = phi i64 [ 0, %for.body164 ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -3057,7 +3057,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 
 for.inc173:                                       ; preds = %for.cond.i
   %inc174 = add nuw nsw i64 %i151.0, 1
-  br label %for.cond152, !llvm.loop !18
+  br label %for.cond152, !llvm.loop !17
 
 for.end175:                                       ; preds = %for.body.i
   %45 = load ptr, ptr @PyExc_ValueError, align 8
@@ -3067,13 +3067,13 @@ for.end175:                                       ; preds = %for.body.i
 if.end178:                                        ; preds = %cond.end161
   %patterns180 = getelementptr inbounds i8, ptr %p, i64 16
   %46 = load ptr, ptr %patterns180, align 8
-  %call181 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef %46, i32 noundef 0), !range !5
+  %call181 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef %46, i32 noundef 0)
   %tobool182.not = icmp eq i32 %call181, 0
   br i1 %tobool182.not, label %if.end245, label %if.end184
 
 if.end184:                                        ; preds = %if.end178
   %47 = load ptr, ptr %kwd_patterns, align 8
-  %call187 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef %47, i32 noundef 0), !range !5
+  %call187 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef %47, i32 noundef 0)
   br label %if.end245
 
 sw.bb188:                                         ; preds = %if.end34
@@ -3092,7 +3092,7 @@ if.end191:                                        ; preds = %sw.bb188
   br i1 %cmp193, label %if.end245, label %lor.rhs194
 
 lor.rhs194:                                       ; preds = %if.end191
-  %call197 = tail call fastcc i32 @validate_capture(ptr noundef nonnull %49), !range !5
+  %call197 = tail call fastcc i32 @validate_capture(ptr noundef nonnull %49)
   br label %if.end245
 
 sw.bb201:                                         ; preds = %if.end34
@@ -3103,7 +3103,7 @@ sw.bb201:                                         ; preds = %if.end34
   br i1 %tobool204.not, label %if.end211, label %land.lhs.true205
 
 land.lhs.true205:                                 ; preds = %sw.bb201
-  %call208 = tail call fastcc i32 @validate_capture(ptr noundef nonnull %50), !range !5
+  %call208 = tail call fastcc i32 @validate_capture(ptr noundef nonnull %50)
   %tobool209.not = icmp eq i32 %call208, 0
   br i1 %tobool209.not, label %if.end245, label %if.end211
 
@@ -3123,7 +3123,7 @@ if.then219:                                       ; preds = %if.else215
   br label %if.end245
 
 if.else220:                                       ; preds = %if.else215
-  %call223 = tail call fastcc i32 @validate_pattern(ptr noundef nonnull %state, ptr noundef nonnull %51, i32 noundef 0), !range !5
+  %call223 = tail call fastcc i32 @validate_pattern(ptr noundef nonnull %state, ptr noundef nonnull %51, i32 noundef 0)
   br label %if.end245
 
 sw.bb226:                                         ; preds = %if.end34
@@ -3143,7 +3143,7 @@ if.then238:                                       ; preds = %sw.bb226, %cond.fal
   br label %if.end245
 
 if.end239:                                        ; preds = %cond.false231
-  %call242 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef nonnull %54, i32 noundef 0), !range !5
+  %call242 = tail call fastcc i32 @validate_patterns(ptr noundef nonnull %state, ptr noundef nonnull %54, i32 noundef 0)
   br label %if.end245
 
 if.then244:                                       ; preds = %if.end34
@@ -3164,14 +3164,14 @@ return:                                           ; preds = %if.end245, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_name(ptr noundef %name) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_name(ptr noundef %name) unnamed_addr #0 {
 entry:
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !15
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !14
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
@@ -3194,7 +3194,7 @@ return:                                           ; preds = %for.cond, %if.then
 declare i32 @_PyUnicode_EqualToASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_args(ptr nocapture noundef %state, ptr noundef readonly %args) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_args(ptr nocapture noundef %state, ptr noundef readonly %args) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %args, null
   %typed_elements = getelementptr inbounds i8, ptr %args, i64 16
@@ -3272,7 +3272,7 @@ if.end33:                                         ; preds = %land.lhs.true24, %i
   br i1 %tobool.not, label %for.inc, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end33
-  %call36 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %12, i32 noundef 1), !range !5
+  %call36 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %12, i32 noundef 1)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %land.lhs.true34.for.inc_crit_edge
 
@@ -3284,7 +3284,7 @@ for.inc:                                          ; preds = %land.lhs.true34.for
   %13 = phi i64 [ %.pre73, %land.lhs.true34.for.inc_crit_edge ], [ %1, %if.end33 ]
   %inc = add nuw nsw i64 %i.053, 1
   %cmp1 = icmp slt i64 %inc, %13
-  br i1 %cmp1, label %for.body, label %return, !llvm.loop !19
+  br i1 %cmp1, label %for.body, label %return, !llvm.loop !18
 
 return:                                           ; preds = %for.inc, %land.lhs.true34, %entry, %entry.split, %if.then28, %if.then14, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then14 ], [ 0, %if.then28 ], [ 1, %entry ], [ 1, %entry.split ], [ 0, %land.lhs.true34 ], [ 1, %for.inc ]
@@ -3292,9 +3292,9 @@ return:                                           ; preds = %for.inc, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_pattern_match_value(ptr nocapture noundef %state, ptr noundef %exp) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_pattern_match_value(ptr nocapture noundef %state, ptr noundef %exp) unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %exp, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %exp, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -3309,7 +3309,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call1 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %exp, i32 noundef 1), !range !5
+  %call1 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %exp, i32 noundef 1)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
@@ -3432,7 +3432,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_patterns(ptr nocapture noundef %state, ptr noundef readonly %patterns, i32 noundef %star_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_patterns(ptr nocapture noundef %state, ptr noundef readonly %patterns, i32 noundef %star_ok) unnamed_addr #0 {
 entry:
   %typed_elements = getelementptr inbounds i8, ptr %patterns, i64 16
   %cmp = icmp eq ptr %patterns, null
@@ -3447,10 +3447,10 @@ for.cond:                                         ; preds = %entry, %for.body
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.0
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = tail call fastcc i32 @validate_pattern(ptr noundef %state, ptr noundef %1, i32 noundef %star_ok), !range !5
+  %call = tail call fastcc i32 @validate_pattern(ptr noundef %state, ptr noundef %1, i32 noundef %star_ok)
   %tobool.not = icmp eq i32 %call, 0
   %inc = add nuw nsw i64 %i.0, 1
-  br i1 %tobool.not, label %return, label %for.cond, !llvm.loop !20
+  br i1 %tobool.not, label %return, label %for.cond, !llvm.loop !19
 
 return:                                           ; preds = %for.body, %for.cond, %entry
   %.us-phi = phi i32 [ 1, %entry ], [ 0, %for.body ], [ 1, %for.cond ]
@@ -3458,7 +3458,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_capture(ptr noundef %name) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_capture(ptr noundef %name) unnamed_addr #0 {
 entry:
   %call = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %name, ptr noundef nonnull @.str.58) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -3472,7 +3472,7 @@ if.then:                                          ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !15
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %entry ]
@@ -3493,7 +3493,7 @@ return:                                           ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_comprehension(ptr nocapture noundef %state, ptr noundef readonly %gens) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_comprehension(ptr nocapture noundef %state, ptr noundef readonly %gens) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %gens, null
   br i1 %cmp, label %return.sink.split, label %cond.false
@@ -3516,14 +3516,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.015
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load ptr, ptr %2, align 8
-  %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %3, i32 noundef 2), !range !5
+  %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %3, i32 noundef 2)
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %iter = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %iter, align 8
-  %call9 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %4, i32 noundef 1), !range !5
+  %call9 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %4, i32 noundef 1)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %lor.lhs.false11
 
@@ -3547,16 +3547,16 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i, label %return.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %call.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %7, i32 noundef 1), !range !5
+  %call.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %7, i32 noundef 1)
   %tobool2.not.i = icmp eq i32 %call.i, 0
   %inc.i = add nuw nsw i64 %i.0.i, 1
-  br i1 %tobool2.not.i, label %return, label %for.cond.i, !llvm.loop !6
+  br i1 %tobool2.not.i, label %return, label %for.cond.i, !llvm.loop !5
 
 for.inc:                                          ; preds = %for.cond.i, %lor.lhs.false11
   %inc = add nuw nsw i64 %i.015, 1
   %8 = load i64, ptr %gens, align 8
   %cmp7 = icmp slt i64 %inc, %8
-  br i1 %cmp7, label %for.body, label %return, !llvm.loop !21
+  br i1 %cmp7, label %for.body, label %return, !llvm.loop !20
 
 return.sink.split:                                ; preds = %for.body.i, %cond.false, %entry
   %.str.73.sink = phi ptr [ @.str.71, %entry ], [ @.str.71, %cond.false ], [ @.str.73, %for.body.i ]
@@ -3570,7 +3570,7 @@ return:                                           ; preds = %lor.lhs.false, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_constant(ptr nocapture noundef %state, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_constant(ptr nocapture noundef %state, ptr noundef %value) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %value, @_Py_NoneStruct
   %cmp1 = icmp eq ptr %value, @_Py_EllipsisObject
@@ -3646,7 +3646,7 @@ if.then1.i86:                                     ; preds = %if.end.i83
 
 if.end39:                                         ; preds = %while.body.preheader, %Py_DECREF.exit61
   %call3264 = phi ptr [ %call32, %Py_DECREF.exit61 ], [ %call3262, %while.body.preheader ]
-  %call40 = tail call fastcc i32 @validate_constant(ptr noundef nonnull %state, ptr noundef nonnull %call3264), !range !5
+  %call40 = tail call fastcc i32 @validate_constant(ptr noundef nonnull %state, ptr noundef nonnull %call3264)
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.then42, label %if.end43
 
@@ -3763,20 +3763,19 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}

@@ -1681,11 +1681,11 @@ _ZL11IS_CHEMBONDi.exit886:                        ; preds = %_ZL13gmx_snew_implI
 
 .lr.ph1362:                                       ; preds = %.preheader1269
   %672 = mul nuw nsw i64 %indvars.iv1583, 3
-  %673 = getelementptr i32, ptr %666, i64 %672
-  %674 = getelementptr i8, ptr %673, i64 4
+  %673 = getelementptr inbounds i32, ptr %666, i64 %672
+  %674 = getelementptr inbounds i8, ptr %673, i64 4
   %675 = load i32, ptr %674, align 4
   %676 = load ptr, ptr %391, align 8
-  %677 = getelementptr i8, ptr %673, i64 8
+  %677 = getelementptr inbounds i8, ptr %673, i64 8
   %678 = load i32, ptr %677, align 4
   %wide.trip.count1581 = zext nneg i32 %670 to i64
   br label %679
@@ -1710,8 +1710,8 @@ _ZL11IS_CHEMBONDi.exit886:                        ; preds = %_ZL13gmx_snew_implI
 
 685:                                              ; preds = %._crit_edge1363
   %686 = mul nuw nsw i64 %indvars.iv1583, 3
-  %687 = getelementptr i32, ptr %666, i64 %686
-  %688 = getelementptr i8, ptr %687, i64 4
+  %687 = getelementptr inbounds i32, ptr %666, i64 %686
+  %688 = getelementptr inbounds i8, ptr %687, i64 4
   %689 = load i32, ptr %688, align 4
   %690 = sext i32 %689 to i64
   %691 = getelementptr inbounds i32, ptr %.01185, i64 %690
@@ -1719,7 +1719,7 @@ _ZL11IS_CHEMBONDi.exit886:                        ; preds = %_ZL13gmx_snew_implI
   %693 = sext i32 %.16631367 to i64
   %694 = getelementptr inbounds i32, ptr %654, i64 %693
   store i32 %692, ptr %694, align 4
-  %695 = getelementptr i8, ptr %687, i64 8
+  %695 = getelementptr inbounds i8, ptr %687, i64 8
   %696 = load i32, ptr %695, align 4
   %697 = sext i32 %696 to i64
   %698 = getelementptr inbounds i32, ptr %.01185, i64 %697

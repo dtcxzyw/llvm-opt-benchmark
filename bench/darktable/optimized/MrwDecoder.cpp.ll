@@ -849,7 +849,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10RawDecoderD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN8rawspeed10MrwDecoder5isMRWENS_6BufferE(ptr readonly %0, i32 %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN8rawspeed10MrwDecoder5isMRWENS_6BufferE(ptr readonly %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i32 %1, 4
   br i1 %3, label %4, label %5
 
@@ -1649,7 +1649,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder22decodeMetaDataInternalEPKNS_14Came
   %41 = add i64 %32, -10
   %42 = call i64 @llvm.smax.i64(i64 %41, i64 -2147483648)
   %43 = call i64 @llvm.smin.i64(i64 %42, i64 2147483647)
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nsw i64 %43 to i32
   br label %45
 
 45:                                               ; preds = %40, %34
@@ -1684,7 +1684,7 @@ define hidden void @_ZN8rawspeed10MrwDecoder22decodeMetaDataInternalEPKNS_14Came
   %66 = sub i64 10, %57
   %67 = call i64 @llvm.smax.i64(i64 %66, i64 -2147483648)
   %68 = call i64 @llvm.smin.i64(i64 %67, i64 2147483647)
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nsw i64 %68 to i32
   br label %71
 
 70:                                               ; preds = %53, %21

@@ -1003,7 +1003,7 @@ Dau_DsdIsConst.exit.i:                            ; preds = %46
   br label %Dau_DsdMergeCopy.exit
 
 Dau_DsdIsConst.exit.thread.i:                     ; preds = %Dau_DsdIsConst.exit.i, %46
-  %53 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %.not14.i, ptr noundef nonnull %.0.i91) #10
+  %53 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %.not14.i, ptr noundef nonnull %.0.i91) #10
   br label %Dau_DsdMergeCopy.exit
 
 Dau_DsdMergeCopy.exit:                            ; preds = %51, %Dau_DsdIsConst.exit.thread.i
@@ -1042,7 +1042,7 @@ Dau_DsdIsConst.exit.i98:                          ; preds = %59
   br label %Dau_DsdMergeCopy.exit101
 
 Dau_DsdIsConst.exit.thread.i97:                   ; preds = %Dau_DsdIsConst.exit.i98, %59
-  %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %.not14.i93, ptr noundef nonnull %.0.i95) #10
+  %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %.not14.i93, ptr noundef nonnull %.0.i95) #10
   br label %Dau_DsdMergeCopy.exit101
 
 Dau_DsdMergeCopy.exit101:                         ; preds = %64, %Dau_DsdIsConst.exit.thread.i97
@@ -1145,7 +1145,7 @@ Dau_DsdIsConst.exit103.thread:                    ; preds = %Dau_DsdIsConst.exit
 .sink.split.i:                                    ; preds = %99, %95
   %.sink31.i = phi ptr [ %98, %95 ], [ %105, %99 ]
   %.1.ph.i = phi i32 [ %96, %95 ], [ %100, %99 ]
-  %106 = trunc i64 %indvars.iv.i to i32
+  %106 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %106, ptr %.sink31.i, align 4
   br label %107
 
@@ -1198,7 +1198,7 @@ Dau_DsdMergeMatches.exit:                         ; preds = %107, %Dau_DsdIsCons
 .sink.split.i112:                                 ; preds = %116, %112
   %.sink31.i113 = phi ptr [ %115, %112 ], [ %122, %116 ]
   %.1.ph.i114 = phi i32 [ %113, %112 ], [ %117, %116 ]
-  %123 = trunc i64 %indvars.iv.i110 to i32
+  %123 = trunc nuw nsw i64 %indvars.iv.i110 to i32
   store i32 %123, ptr %.sink31.i113, align 4
   br label %124
 
@@ -1262,7 +1262,7 @@ Dau_DsdMergeMatches.exit118:                      ; preds = %124, %Dau_DsdMergeM
   br i1 %or.cond48.i, label %.critedge.i, label %.critedge2.loopexit.i, !llvm.loop !18
 
 .critedge2.loopexit.i:                            ; preds = %.critedge.i
-  %146 = trunc i64 %indvars.iv.i122 to i32
+  %146 = trunc nsw i64 %indvars.iv.i122 to i32
   %sext.i = shl i64 %indvars.iv.i122, 32
   %.pre51.i = ashr exact i64 %sext.i, 32
   %.phi.trans.insert53.i = getelementptr inbounds i8, ptr %22, i64 %.pre51.i
@@ -1345,7 +1345,7 @@ Dau_DsdMergeReplace.exit:                         ; preds = %127
   br i1 %or.cond48.i144, label %.critedge.i140, label %.critedge2.loopexit.i146, !llvm.loop !18
 
 .critedge2.loopexit.i146:                         ; preds = %.critedge.i140
-  %176 = trunc i64 %indvars.iv.i141 to i32
+  %176 = trunc nsw i64 %indvars.iv.i141 to i32
   %sext.i147 = shl i64 %indvars.iv.i141, 32
   %.pre51.i148 = ashr exact i64 %sext.i147, 32
   %.phi.trans.insert53.i149 = getelementptr inbounds i8, ptr %23, i64 %.pre51.i148
@@ -1430,7 +1430,7 @@ Dau_DsdMergeReplace.exit151:                      ; preds = %157
   br i1 %or.cond47.i.i, label %.critedge.i.i, label %.critedge2.loopexit.i.i, !llvm.loop !20
 
 .critedge2.loopexit.i.i:                          ; preds = %.critedge.i.i
-  %207 = trunc i64 %indvars.iv.i.i to i32
+  %207 = trunc nsw i64 %indvars.iv.i.i to i32
   %sext.i.i = shl i64 %indvars.iv.i.i, 32
   %.pre50.i.i = ashr exact i64 %sext.i.i, 32
   %.phi.trans.insert52.i.i = getelementptr inbounds i8, ptr %22, i64 %.pre50.i.i
@@ -1504,7 +1504,7 @@ Dau_DsdMergeVarPres.exit.i:                       ; preds = %187, %242
   br i1 %or.cond47.i27.i, label %.critedge.i23.i, label %.critedge2.loopexit.i29.i, !llvm.loop !20
 
 .critedge2.loopexit.i29.i:                        ; preds = %.critedge.i23.i
-  %235 = trunc i64 %indvars.iv.i24.i to i32
+  %235 = trunc nsw i64 %indvars.iv.i24.i to i32
   %sext.i30.i = shl i64 %indvars.iv.i24.i, 32
   %.pre50.i31.i = ashr exact i64 %sext.i30.i, 32
   %.phi.trans.insert52.i32.i = getelementptr inbounds i8, ptr %23, i64 %.pre50.i31.i
@@ -1588,7 +1588,7 @@ Dau_DsdMergeFindShared.exit:                      ; preds = %Dau_DsdMergeVarPres
 .sink.split.i156:                                 ; preds = %259, %255
   %.sink31.i157 = phi ptr [ %258, %255 ], [ %265, %259 ]
   %.1.ph.i158 = phi i32 [ %256, %255 ], [ %260, %259 ]
-  %266 = trunc i64 %indvars.iv.i154 to i32
+  %266 = trunc nuw nsw i64 %indvars.iv.i154 to i32
   store i32 %266, ptr %.sink31.i157, align 4
   br label %267
 
@@ -1609,7 +1609,7 @@ Dau_DsdMergeMatches.exit162:                      ; preds = %267, %250
   br i1 %271, label %Dau_DsdRemoveBraces.exit, label %272
 
 272:                                              ; preds = %Dau_DsdMergeMatches.exit162
-  call void @Dau_DsdRemoveBraces_rec(ptr noundef nonnull @Dau_DsdMerge.pRes, ptr noundef nonnull %17, ptr noundef nonnull %31)
+  call void @Dau_DsdRemoveBraces_rec(ptr noundef nonnull @Dau_DsdMerge.pRes, ptr noundef nonnull %17, ptr noundef nonnull readonly %31)
   br label %273
 
 273:                                              ; preds = %281, %272
@@ -1710,7 +1710,7 @@ Abc_Clock.exit170:                                ; preds = %296, %299
   store i32 %.02126.i, ptr %313, align 4
   %314 = sext i32 %.02126.i to i64
   %315 = getelementptr inbounds i32, ptr %28, i64 %314
-  %316 = trunc i64 %indvars.iv.i171 to i32
+  %316 = trunc nuw nsw i64 %indvars.iv.i171 to i32
   store i32 %316, ptr %315, align 4
   %317 = add nsw i32 %.02126.i, 1
   br label %324
@@ -1720,7 +1720,7 @@ Abc_Clock.exit170:                                ; preds = %296, %299
   store i32 %.027.i, ptr %319, align 4
   %320 = sext i32 %.027.i to i64
   %321 = getelementptr inbounds i32, ptr %28, i64 %320
-  %322 = trunc i64 %indvars.iv.i171 to i32
+  %322 = trunc nuw nsw i64 %indvars.iv.i171 to i32
   store i32 %322, ptr %321, align 4
   %323 = add nsw i32 %.027.i, 1
   br label %324
@@ -1784,7 +1784,7 @@ Dau_DsdMergeCreateMaps.exit:                      ; preds = %324
   br i1 %or.cond48.i194, label %.critedge.i190, label %.critedge2.loopexit.i196, !llvm.loop !18
 
 .critedge2.loopexit.i196:                         ; preds = %.critedge.i190
-  %345 = trunc i64 %indvars.iv.i191 to i32
+  %345 = trunc nsw i64 %indvars.iv.i191 to i32
   %sext.i197 = shl i64 %indvars.iv.i191, 32
   %.pre51.i198 = ashr exact i64 %sext.i197, 32
   %.phi.trans.insert53.i199 = getelementptr inbounds i8, ptr %22, i64 %.pre51.i198
@@ -1861,7 +1861,7 @@ Dau_DsdMergeReplace.exit201:                      ; preds = %325, %384
   br i1 %or.cond48.i222, label %.critedge.i218, label %.critedge2.loopexit.i224, !llvm.loop !18
 
 .critedge2.loopexit.i224:                         ; preds = %.critedge.i218
-  %375 = trunc i64 %indvars.iv.i219 to i32
+  %375 = trunc nsw i64 %indvars.iv.i219 to i32
   %sext.i225 = shl i64 %indvars.iv.i219, 32
   %.pre51.i226 = ashr exact i64 %sext.i225, 32
   %.phi.trans.insert53.i227 = getelementptr inbounds i8, ptr %23, i64 %.pre51.i226
@@ -1893,11 +1893,11 @@ Dau_DsdMergeReplace.exit201:                      ; preds = %325, %384
 Dau_DsdMergeReplace.exit229:                      ; preds = %Dau_DsdMergeReplace.exit201
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr %22, ptr %14, align 8
-  %386 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %22, ptr noundef nonnull %14, ptr noundef nonnull %24, i32 noundef %248, ptr noundef nonnull %29)
+  %386 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %22, ptr noundef nonnull %14, ptr noundef nonnull readonly %24, i32 noundef %248, ptr noundef nonnull writeonly %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr %23, ptr %13, align 8
-  %387 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %23, ptr noundef nonnull %13, ptr noundef nonnull %25, i32 noundef %248, ptr noundef nonnull %30)
+  %387 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %23, ptr noundef nonnull %13, ptr noundef nonnull readonly %25, i32 noundef %248, ptr noundef nonnull writeonly %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   store i32 %248, ptr %32, align 8
   %388 = getelementptr inbounds i8, ptr %32, i64 4024
@@ -1994,7 +1994,7 @@ Dau_DsdIsConst.exit234.thread:                    ; preds = %403
 .sink.split.i239:                                 ; preds = %416, %412
   %.sink31.i240 = phi ptr [ %415, %412 ], [ %422, %416 ]
   %.1.ph.i241 = phi i32 [ %413, %412 ], [ %417, %416 ]
-  %423 = trunc i64 %indvars.iv.i237 to i32
+  %423 = trunc nuw nsw i64 %indvars.iv.i237 to i32
   store i32 %423, ptr %.sink31.i240, align 4
   br label %424
 
@@ -2046,7 +2046,7 @@ Dau_DsdMergeMatches.exit245:                      ; preds = %424, %Dau_DsdIsCons
   br i1 %.not68.not.i, label %.lr.ph.i249, label %.loopexit4.loopexit.i, !llvm.loop !25
 
 .loopexit4.loopexit.i:                            ; preds = %.lr.ph.i249
-  %442 = trunc i64 %indvars.iv.next.i251 to i32
+  %442 = trunc nsw i64 %indvars.iv.next.i251 to i32
   %sext.i252 = shl i64 %indvars.iv.next.i251, 32
   %.pre.i253 = ashr exact i64 %sext.i252, 32
   %.phi.trans.insert.i254 = getelementptr inbounds i8, ptr %391, i64 %.pre.i253
@@ -2082,7 +2082,7 @@ Dau_DsdMergeMatches.exit245:                      ; preds = %424, %Dau_DsdIsCons
   br i1 %or.cond2.i, label %.critedge.i258, label %.critedge2.loopexit.i259, !llvm.loop !26
 
 .critedge2.loopexit.i259:                         ; preds = %.critedge.i258
-  %452 = trunc i64 %indvars.iv.next27.i to i32
+  %452 = trunc nsw i64 %indvars.iv.next27.i to i32
   br label %.critedge2.i257
 
 .critedge2.i257:                                  ; preds = %.critedge2.loopexit.i259, %.loopexit4.i
@@ -2171,7 +2171,7 @@ Dau_DsdMergeInlineDefinitions.exit:               ; preds = %427
 .sink.split.i264:                                 ; preds = %477, %473
   %.sink31.i265 = phi ptr [ %476, %473 ], [ %483, %477 ]
   %.1.ph.i266 = phi i32 [ %474, %473 ], [ %478, %477 ]
-  %484 = trunc i64 %indvars.iv.i262 to i32
+  %484 = trunc nuw nsw i64 %indvars.iv.i262 to i32
   store i32 %484, ptr %.sink31.i265, align 4
   br label %485
 
@@ -2235,7 +2235,7 @@ Dau_DsdMergeMatches.exit270:                      ; preds = %485, %Dau_DsdMergeI
   br i1 %or.cond48.i291, label %.critedge.i287, label %.critedge2.loopexit.i293, !llvm.loop !18
 
 .critedge2.loopexit.i293:                         ; preds = %.critedge.i287
-  %507 = trunc i64 %indvars.iv.i288 to i32
+  %507 = trunc nsw i64 %indvars.iv.i288 to i32
   %sext.i294 = shl i64 %indvars.iv.i288, 32
   %.pre51.i295 = ashr exact i64 %sext.i294, 32
   %.phi.trans.insert53.i296 = getelementptr inbounds i8, ptr @Dau_DsdMerge.pRes, i64 %.pre51.i295
@@ -2275,7 +2275,7 @@ Dau_DsdMergeReplace.exit298:                      ; preds = %488
   br i1 %519, label %Dau_DsdRemoveBraces.exit304, label %520
 
 520:                                              ; preds = %Dau_DsdMergeReplace.exit298
-  call void @Dau_DsdRemoveBraces_rec(ptr noundef nonnull @Dau_DsdMerge.pRes, ptr noundef nonnull %8, ptr noundef nonnull %31)
+  call void @Dau_DsdRemoveBraces_rec(ptr noundef nonnull @Dau_DsdMerge.pRes, ptr noundef nonnull %8, ptr noundef nonnull readonly %31)
   br label %521
 
 521:                                              ; preds = %529, %520

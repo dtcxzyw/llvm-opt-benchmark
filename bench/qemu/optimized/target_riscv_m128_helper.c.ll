@@ -22,7 +22,7 @@ if.else:                                          ; preds = %entry
   %div.i = udiv i128 %a.sroa.0.0.insert.insert.i, %b.sroa.0.0.insert.insert.i
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %div.i to i64
   %retval.sroa.2.0.extract.shift.i = lshr i128 %div.i, 64
-  %retval.sroa.2.0.extract.trunc.i = trunc i128 %retval.sroa.2.0.extract.shift.i to i64
+  %retval.sroa.2.0.extract.trunc.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i to i64
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
@@ -52,7 +52,7 @@ if.else:                                          ; preds = %entry
   %rem.i = urem i128 %a.sroa.0.0.insert.insert.i, %b.sroa.0.0.insert.insert.i
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %rem.i to i64
   %retval.sroa.2.0.extract.shift.i = lshr i128 %rem.i, 64
-  %retval.sroa.2.0.extract.trunc.i = trunc i128 %retval.sroa.2.0.extract.shift.i to i64
+  %retval.sroa.2.0.extract.trunc.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i to i64
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
@@ -91,7 +91,7 @@ if.else10:                                        ; preds = %if.else
   %div.i = sdiv i128 %a.sroa.0.0.insert.insert.i, %b.sroa.0.0.insert.insert.i
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %div.i to i64
   %retval.sroa.2.0.extract.shift.i = lshr i128 %div.i, 64
-  %retval.sroa.2.0.extract.trunc.i = trunc i128 %retval.sroa.2.0.extract.shift.i to i64
+  %retval.sroa.2.0.extract.trunc.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i to i64
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %entry, %if.else10
@@ -121,7 +121,7 @@ if.else:                                          ; preds = %entry
   %rem.i = srem i128 %a.sroa.0.0.insert.insert.i, %b.sroa.0.0.insert.insert.i
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %rem.i to i64
   %retval.sroa.2.0.extract.shift.i = lshr i128 %rem.i, 64
-  %retval.sroa.2.0.extract.trunc.i = trunc i128 %retval.sroa.2.0.extract.shift.i to i64
+  %retval.sroa.2.0.extract.trunc.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i to i64
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else

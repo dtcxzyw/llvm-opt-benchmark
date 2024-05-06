@@ -96,7 +96,7 @@ if.end:                                           ; preds = %cond.end.thread, %i
   store i8 -1, ptr %ht_size_exp.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call211, i64 16
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %call211, i64 51
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx.i.i, i8 0, i64 16, i1 false)
   store i8 -1, ptr %arrayidx2.i.i, align 1
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %call211, i64 32
   store i64 0, ptr %arrayidx4.i.i, align 8
@@ -158,7 +158,7 @@ dictCreate.exit:                                  ; preds = %cond.end.thread.i, 
   store i8 -1, ptr %ht_size_exp.i.i.i, align 1
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call211.i, i64 16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %call211.i, i64 51
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx.i.i.i, i8 0, i64 16, i1 false)
   store i8 -1, ptr %arrayidx2.i.i.i, align 1
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call211.i, i64 32
   store i64 0, ptr %arrayidx4.i.i.i, align 8
@@ -178,7 +178,7 @@ for.end:                                          ; preds = %dictCreate.exit, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dictResize(ptr noundef %d) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @dictResize(ptr noundef %d) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr @dict_can_resize, align 4
   %cmp.not = icmp eq i32 %0, 0
@@ -194,7 +194,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %ht_used = getelementptr inbounds i8, ptr %d, i64 24
   %2 = load i64, ptr %ht_used, align 8
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %2, i64 4)
-  %call.i = tail call noundef i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %spec.store.select, ptr noundef null), !range !7
+  %call.i = tail call i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %spec.store.select, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -203,14 +203,14 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dictExpand(ptr noundef %d, i64 noundef %size) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @dictExpand(ptr noundef %d, i64 noundef %size) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef null), !range !7
+  %call = tail call i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef writeonly %malloc_failed) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef writeonly %malloc_failed) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %malloc_failed, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -241,7 +241,7 @@ if.end.i:                                         ; preds = %if.end3
 
 if.end3.i:                                        ; preds = %if.end.i
   %sub.i = add nsw i64 %size, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !8
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %3 = trunc nuw nsw i64 %2 to i8
   %conv5.i = sub nuw nsw i8 64, %3
   br label %_dictNextExp.exit
@@ -353,10 +353,10 @@ declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #5
 declare void @zfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictTryExpand(ptr noundef %d, i64 noundef %size) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @dictTryExpand(ptr noundef %d, i64 noundef %size) local_unnamed_addr #3 {
 entry:
   %malloc_failed = alloca i32, align 4
-  %call = call i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef nonnull %malloc_failed), !range !7
+  %call = call i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef nonnull %malloc_failed)
   %0 = load i32, ptr %malloc_failed, align 4
   %tobool.not = icmp ne i32 %0, 0
   %cond = zext i1 %tobool.not to i32
@@ -364,7 +364,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dictRehash(ptr noundef %d, i32 noundef %n) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @dictRehash(ptr noundef %d, i32 noundef %n) local_unnamed_addr #3 {
 entry:
   %mul = mul nsw i32 %n, 10
   %ht_size_exp = getelementptr inbounds i8, ptr %d, i64 50
@@ -460,7 +460,7 @@ while.body73:                                     ; preds = %while.cond67
   store i64 %inc, ptr %rehashidx, align 8
   %dec75 = add nsw i32 %empty_visits.1, -1
   %cmp76 = icmp eq i32 %dec75, 0
-  br i1 %cmp76, label %return, label %while.cond67, !llvm.loop !9
+  br i1 %cmp76, label %return, label %while.cond67, !llvm.loop !7
 
 while.body86:                                     ; preds = %while.cond67, %if.end207
   %de.0115 = phi ptr [ %retval.0.i103, %if.end207 ], [ %8, %while.cond67 ]
@@ -623,7 +623,7 @@ if.end207:                                        ; preds = %cond.end172, %decod
   %37 = add <2 x i64> %36, <i64 -1, i64 1>
   store <2 x i64> %37, ptr %ht_used, align 8
   %tobool85.not = icmp eq ptr %retval.0.i103, null
-  br i1 %tobool85.not, label %while.end217, label %while.body86, !llvm.loop !10
+  br i1 %tobool85.not, label %while.end217, label %while.body86, !llvm.loop !8
 
 while.end217:                                     ; preds = %if.end207
   %38 = load ptr, ptr %ht_table, align 8
@@ -634,7 +634,7 @@ while.end217:                                     ; preds = %if.end207
   %inc223 = add nsw i64 %40, 1
   store i64 %inc223, ptr %rehashidx, align 8
   %tobool.not = icmp eq i32 %dec119, 0
-  br i1 %tobool.not, label %while.end224, label %land.rhs, !llvm.loop !11
+  br i1 %tobool.not, label %while.end224, label %land.rhs, !llvm.loop !9
 
 while.end224:                                     ; preds = %land.rhs, %while.end217, %if.end40
   %ht_used225 = getelementptr inbounds i8, ptr %d, i64 24
@@ -735,7 +735,7 @@ if.end:                                           ; preds = %entry
 
 while.cond:                                       ; preds = %while.body, %if.end
   %rehashes.0 = phi i32 [ 0, %if.end ], [ %add, %while.body ]
-  %call = tail call i32 @dictRehash(ptr noundef %d, i32 noundef 100), !range !7
+  %call = tail call i32 @dictRehash(ptr noundef %d, i32 noundef 100)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %while.body
 
@@ -745,7 +745,7 @@ while.body:                                       ; preds = %while.cond
   %call.i3 = tail call i64 %2() #22
   %sub.i = sub i64 %call.i3, %call.i
   %cmp3.not = icmp ult i64 %sub.i, %us
-  br i1 %cmp3.not, label %while.cond, label %return, !llvm.loop !12
+  br i1 %cmp3.not, label %while.cond, label %return, !llvm.loop !10
 
 return:                                           ; preds = %while.cond, %while.body, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %rehashes.0, %while.cond ], [ %add, %while.body ]
@@ -753,7 +753,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dictAdd(ptr noundef %d, ptr noundef %key, ptr noundef %val) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @dictAdd(ptr noundef %d, ptr noundef %key, ptr noundef %val) local_unnamed_addr #3 {
 entry:
   %call.i = tail call ptr @dictFindPositionForInsert(ptr noundef %d, ptr noundef %key, ptr noundef null)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -901,7 +901,7 @@ if.then1:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.end2, label %for.cond.preheader
 
 if.end2:                                          ; preds = %if.then1
-  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1), !range !7
+  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1)
   %.pr.pre = load i64, ptr %rehashidx, align 8
   %cmp.not.i = icmp eq i64 %.pr.pre, -1
   br i1 %cmp.not.i, label %if.end.i, label %for.cond.preheader
@@ -1023,7 +1023,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp1.i.i.i, label %dictTypeExpandAllowed.exit.i, label %if.end3.i10.i.i
 
 if.end3.i10.i.i:                                  ; preds = %if.end.i.i.i
-  %19 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !8
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
   %conv5.i11.i.i = sub nuw nsw i64 64, %19
   br label %dictTypeExpandAllowed.exit.i
 
@@ -1047,7 +1047,7 @@ dictTypeExpandAllowed.exit.if.end54_crit_edge.i:  ; preds = %dictTypeExpandAllow
 if.end54.i:                                       ; preds = %dictTypeExpandAllowed.exit.if.end54_crit_edge.i, %if.then51.i
   %21 = phi i64 [ %.pre23.i, %dictTypeExpandAllowed.exit.if.end54_crit_edge.i ], [ %16, %if.then51.i ]
   %add.i = add i64 %21, 1
-  %call.i13.i = tail call noundef i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null), !range !7
+  %call.i13.i = tail call i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null)
   %22 = icmp eq i32 %call.i13.i, 0
   br i1 %22, label %for.cond.preheader, label %return
 
@@ -1076,7 +1076,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp25, label %for.body.backedge, label %if.end28
 
 for.body.backedge:                                ; preds = %land.lhs.true, %while.end
-  br label %for.body, !llvm.loop !13
+  br label %for.body, !llvm.loop !11
 
 if.end28:                                         ; preds = %land.lhs.true, %for.body
   %arrayidx29 = getelementptr inbounds [2 x ptr], ptr %ht_table, i64 0, i64 %table.049
@@ -1139,7 +1139,7 @@ dictGetNext.exit:                                 ; preds = %if.end49
   %next6.sink.i = select i1 %cmp.i.not.i41, ptr %next.i, ptr %next6.i
   %33 = load ptr, ptr %next6.sink.i, align 8
   %tobool31.not = icmp eq ptr %33, null
-  br i1 %tobool31.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %tobool31.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end49, %dictGetNext.exit, %if.end28
   %34 = load i64, ptr %rehashidx, align 8
@@ -1260,7 +1260,7 @@ if.end67:                                         ; preds = %if.else, %if.then41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dictReplace(ptr noundef %d, ptr noundef %key, ptr noundef %val) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @dictReplace(ptr noundef %d, ptr noundef %key, ptr noundef %val) local_unnamed_addr #3 {
 entry:
   %existing = alloca ptr, align 8
   %call.i = call ptr @dictFindPositionForInsert(ptr noundef %d, ptr noundef %key, ptr noundef nonnull %existing)
@@ -1407,7 +1407,7 @@ dictAddRaw.exit:                                  ; preds = %entry, %if.end6.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictDelete(ptr noundef %ht, ptr noundef %key) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @dictDelete(ptr noundef %ht, ptr noundef %key) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc ptr @dictGenericDelete(ptr noundef %ht, ptr noundef %key, i32 noundef 0)
   %tobool.not = icmp eq ptr %call, null
@@ -1439,7 +1439,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.end5
 
 if.then.i:                                        ; preds = %if.then4
-  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1), !range !7
+  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then.i, %if.then4, %if.end
@@ -1470,7 +1470,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp27, label %for.body.backedge, label %if.end30
 
 for.body.backedge:                                ; preds = %land.lhs.true, %while.end
-  br label %for.body, !llvm.loop !15
+  br label %for.body, !llvm.loop !13
 
 if.end30:                                         ; preds = %land.lhs.true, %for.body
   %arrayidx32 = getelementptr inbounds [2 x ptr], ptr %ht_table, i64 0, i64 %table.086
@@ -1648,7 +1648,7 @@ dictGetNext.exit77:                               ; preds = %if.end63
   %next6.sink.i76 = select i1 %cmp.i.not.i72, ptr %next.i75, ptr %next6.i73
   %32 = load ptr, ptr %next6.sink.i76, align 8
   %tobool.not = icmp eq ptr %32, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !16
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end63, %dictGetNext.exit77, %if.end30
   %33 = load i64, ptr %rehashidx, align 8
@@ -1873,7 +1873,7 @@ for.inc:                                          ; preds = %if.end39, %if.end
   %i.0.highbits = lshr i64 %inc, %sh_prom
   %cmp647 = icmp eq i64 %i.0.highbits, 0
   %cmp6 = select i1 %cmp, i1 %cmp647, i1 false
-  br i1 %cmp6, label %land.rhs, label %for.end, !llvm.loop !17
+  br i1 %cmp6, label %land.rhs, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %entry
   %ht_table43 = getelementptr inbounds i8, ptr %d, i64 8
@@ -1921,7 +1921,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.end5
 
 if.then.i:                                        ; preds = %if.then4
-  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1), !range !7
+  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then.i, %if.then4, %if.end
@@ -1952,7 +1952,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp25, label %for.body.backedge, label %if.end28
 
 for.body.backedge:                                ; preds = %land.lhs.true, %while.end
-  br label %for.body, !llvm.loop !18
+  br label %for.body, !llvm.loop !16
 
 if.end28:                                         ; preds = %land.lhs.true, %for.body
   %arrayidx29 = getelementptr inbounds [2 x ptr], ptr %ht_table, i64 0, i64 %table.039
@@ -2008,7 +2008,7 @@ dictGetNext.exit:                                 ; preds = %if.end45
   %next6.sink.i = select i1 %cmp.i.not.i33, ptr %next.i, ptr %next6.i
   %16 = load ptr, ptr %next6.sink.i, align 8
   %tobool.not = icmp eq ptr %16, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !19
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end45, %dictGetNext.exit, %if.end28
   %17 = load i64, ptr %rehashidx, align 8
@@ -2073,7 +2073,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.end5
 
 if.then.i:                                        ; preds = %if.then4
-  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1), !range !7
+  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then.i, %if.then4, %if.end
@@ -2182,7 +2182,7 @@ if.end.i36:                                       ; preds = %if.end47
   %retval.0.i35 = select i1 %cmp.i.not.i38, ptr %next.i, ptr %next6.i
   %20 = load ptr, ptr %retval.0.i35, align 8
   %tobool31.not = icmp eq ptr %20, null
-  br i1 %tobool31.not, label %while.end, label %while.body, !llvm.loop !20
+  br i1 %tobool31.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end.i36, %if.end47, %land.rhs.preheader, %if.end28
   %21 = load i64, ptr %rehashidx, align 8
@@ -2194,7 +2194,7 @@ for.inc:                                          ; preds = %land.lhs.true
   br i1 %cmp22, label %for.body.backedge, label %return
 
 for.body.backedge:                                ; preds = %for.inc, %while.end
-  br label %for.body, !llvm.loop !21
+  br label %for.body, !llvm.loop !19
 
 return:                                           ; preds = %for.inc, %while.end, %entry, %if.then45
   %retval.0 = phi ptr [ %17, %if.then45 ], [ null, %entry ], [ null, %while.end ], [ null, %for.inc ]
@@ -2612,7 +2612,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add32 = mul i64 %xor30, 2147483649
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body
   ret i64 %add32
@@ -2641,7 +2641,7 @@ entry:
   store i64 -1, ptr %index.i, align 8
   %safe.i = getelementptr inbounds i8, ptr %iter, i64 20
   %0 = getelementptr inbounds i8, ptr %iter, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
   store i32 1, ptr %safe.i, align 4
   ret void
 }
@@ -2729,7 +2729,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   %add32.i = mul i64 %xor30.i, 2147483649
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %dictFingerprint.exit, label %for.body.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %dictFingerprint.exit, label %for.body.i, !llvm.loop !20
 
 dictFingerprint.exit:                             ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %integers.i)
@@ -2755,7 +2755,7 @@ entry:
   %index.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 -1, ptr %index.i, align 8
   %safe.i = getelementptr inbounds i8, ptr %call, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %safe.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %safe.i, i8 0, i64 20, i1 false)
   ret ptr %call
 }
 
@@ -2770,7 +2770,7 @@ entry:
   store i64 -1, ptr %index.i.i, align 8
   %safe.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %0 = getelementptr inbounds i8, ptr %call.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
   store i32 1, ptr %safe.i.i, align 4
   ret ptr %call.i
 }
@@ -2864,7 +2864,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   %add32.i = mul i64 %xor30.i, 2147483649
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %dictFingerprint.exit, label %for.body.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %dictFingerprint.exit, label %for.body.i, !llvm.loop !20
 
 dictFingerprint.exit:                             ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %integers.i)
@@ -2993,7 +2993,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.end5, label %if.then8
 
 if.end5:                                          ; preds = %if.then4
-  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1), !range !7
+  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1)
   %.pr.pre = load i64, ptr %rehashidx, align 8
   %cmp7.not = icmp eq i64 %.pr.pre, -1
   br i1 %cmp7.not, label %if.else, label %if.then8
@@ -3050,7 +3050,7 @@ cond.end57:                                       ; preds = %cond.false53, %cond
   %cond58.in = phi ptr [ %arrayidx52, %cond.true49 ], [ %arrayidx56, %cond.false53 ]
   %cond58 = load ptr, ptr %cond58.in, align 8
   %cmp59 = icmp eq ptr %cond58, null
-  br i1 %cmp59, label %do.body, label %if.end94, !llvm.loop !23
+  br i1 %cmp59, label %do.body, label %if.end94, !llvm.loop !21
 
 if.else:                                          ; preds = %if.end, %if.end5
   %ht_size_exp61 = getelementptr inbounds i8, ptr %d, i64 50
@@ -3071,7 +3071,7 @@ do.body85:                                        ; preds = %do.body85, %if.else
   %arrayidx89 = getelementptr inbounds ptr, ptr %12, i64 %and
   %13 = load ptr, ptr %arrayidx89, align 8
   %cmp91 = icmp eq ptr %13, null
-  br i1 %cmp91, label %do.body85, label %if.end94, !llvm.loop !24
+  br i1 %cmp91, label %do.body85, label %if.end94, !llvm.loop !22
 
 if.end94:                                         ; preds = %cond.end57, %do.body85
   %he.0 = phi ptr [ %13, %do.body85 ], [ %cond58, %cond.end57 ]
@@ -3100,7 +3100,7 @@ dictGetNext.exit:                                 ; preds = %while.body
   %16 = load ptr, ptr %next6.sink.i, align 8
   %inc = add nuw nsw i32 %listlen.043, 1
   %tobool.not = icmp eq ptr %16, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !25
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !23
 
 while.end:                                        ; preds = %dictGetNext.exit, %dictGetNext.exit.thread
   %inc56 = phi i32 [ %inc54, %dictGetNext.exit.thread ], [ %inc, %dictGetNext.exit ]
@@ -3134,7 +3134,7 @@ if.end.i33:                                       ; preds = %while.body102
 dictGetNext.exit40:                               ; preds = %while.body102, %if.end.i33
   %retval.0.i32 = phi ptr [ null, %while.body102 ], [ %19, %if.end.i33 ]
   %tobool101.not = icmp eq i32 %dec, 0
-  br i1 %tobool101.not, label %return, label %while.body102, !llvm.loop !26
+  br i1 %tobool101.not, label %return, label %while.body102, !llvm.loop !24
 
 return:                                           ; preds = %dictGetNext.exit40, %while.end, %entry
   %retval.0 = phi ptr [ null, %entry ], [ %he.0, %while.end ], [ %retval.0.i32, %dictGetNext.exit40 ]
@@ -3181,13 +3181,13 @@ if.then16:                                        ; preds = %for.body
   br i1 %cmp.i, label %if.then.i, label %_dictRehashStep.exit
 
 if.then.i:                                        ; preds = %if.then16
-  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1), !range !7
+  %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1)
   br label %_dictRehashStep.exit
 
 _dictRehashStep.exit:                             ; preds = %if.then16, %if.then.i
   %inc = add nuw nsw i64 %j.076, 1
   %exitcond.not = icmp eq i64 %inc, %conv11
-  br i1 %exitcond.not, label %for.endthread-pre-split, label %for.body, !llvm.loop !27
+  br i1 %exitcond.not, label %for.endthread-pre-split, label %for.body, !llvm.loop !25
 
 for.endthread-pre-split:                          ; preds = %_dictRehashStep.exit, %entry
   %.pr = load i64, ptr %rehashidx, align 8
@@ -3336,7 +3336,7 @@ dictGetNext.exit:                                 ; preds = %if.end183
   %15 = load ptr, ptr %next6.sink.i, align 8
   %inc185 = add i64 %stored.278, 1
   %tobool167.not = icmp eq ptr %15, null
-  br i1 %tobool167.not, label %while.end, label %while.body168, !llvm.loop !28
+  br i1 %tobool167.not, label %while.end, label %while.body168, !llvm.loop !26
 
 while.end:                                        ; preds = %dictGetNext.exit, %dictGetNext.exit.thread
   %inc18596 = phi i64 [ %inc18594, %dictGetNext.exit.thread ], [ %inc185, %dictGetNext.exit ]
@@ -3347,12 +3347,12 @@ for.inc192:                                       ; preds = %if.then161, %if.the
   %stored.3 = phi i64 [ %stored.181, %if.end130 ], [ %stored.181, %if.then161 ], [ %stored.181, %if.then153 ], [ %inc18596, %while.end ], [ %stored.181, %if.then109 ]
   %i.3 = phi i64 [ %i.2, %if.end130 ], [ %and163, %if.then161 ], [ %i.2, %if.then153 ], [ %i.2, %while.end ], [ %i.182, %if.then109 ]
   %emptylen.2 = phi i64 [ %emptylen.183, %if.end130 ], [ 0, %if.then161 ], [ %inc154, %if.then153 ], [ 0, %while.end ], [ %emptylen.183, %if.then109 ]
-  br i1 %or.cond, label %for.body99, label %for.end194, !llvm.loop !29
+  br i1 %or.cond, label %for.body99, label %for.end194, !llvm.loop !27
 
 for.end194:                                       ; preds = %for.inc192
   %add195 = add i64 %i.3, 1
   %cmp94 = icmp ult i64 %stored.3, %conv11
-  br i1 %cmp94, label %land.rhs, label %end, !llvm.loop !30
+  br i1 %cmp94, label %land.rhs, label %end, !llvm.loop !28
 
 end:                                              ; preds = %for.end194, %land.rhs, %while.end, %if.end92
   %stored.4 = phi i64 [ 0, %if.end92 ], [ %inc18596, %while.end ], [ %stored.3, %for.end194 ], [ %stored.085, %land.rhs ]
@@ -3472,7 +3472,7 @@ dictGetNext.exit:                                 ; preds = %while.body
   %10 = load ptr, ptr %next6.sink.i, align 8
   tail call void %fn(ptr noundef %privdata, ptr noundef nonnull %de.0160) #22
   %tobool32.not = icmp eq ptr %10, null
-  br i1 %tobool32.not, label %while.end, label %while.body, !llvm.loop !31
+  br i1 %tobool32.not, label %while.end, label %while.body, !llvm.loop !29
 
 while.end:                                        ; preds = %dictGetNext.exit, %dictGetNext.exit.thread, %if.end26
   %not = xor i64 %cond21, -1
@@ -3493,7 +3493,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %and3.i = and i64 %shl2.i, %not.i
   %or.i = or i64 %and.i, %and3.i
   %cmp.not.i = icmp ult i64 %s.010.i, 4
-  br i1 %cmp.not.i, label %rev.exit, label %while.body.i, !llvm.loop !32
+  br i1 %cmp.not.i, label %rev.exit, label %while.body.i, !llvm.loop !30
 
 rev.exit:                                         ; preds = %while.body.i
   %inc34 = add i64 %or.i, 1
@@ -3513,7 +3513,7 @@ while.body.i85:                                   ; preds = %while.body.i85, %re
   %and3.i96 = and i64 %shl2.i94, %not.i95
   %or.i97 = or i64 %and.i93, %and3.i96
   %cmp.not.i98 = icmp ult i64 %s.010.i87, 4
-  br i1 %cmp.not.i98, label %if.end169, label %while.body.i85, !llvm.loop !32
+  br i1 %cmp.not.i98, label %if.end169, label %while.body.i85, !llvm.loop !30
 
 if.else:                                          ; preds = %if.end
   %cmp40 = icmp ne i8 %4, -1
@@ -3602,7 +3602,7 @@ dictGetNext.exit110:                              ; preds = %while.body141
   %19 = load ptr, ptr %next6.sink.i109, align 8
   tail call void %fn(ptr noundef %privdata, ptr noundef nonnull %de.1156) #22
   %tobool140.not = icmp eq ptr %19, null
-  br i1 %tobool140.not, label %do.body.preheader, label %while.body141, !llvm.loop !33
+  br i1 %tobool140.not, label %do.body.preheader, label %while.body141, !llvm.loop !31
 
 do.body:                                          ; preds = %do.body.preheader, %rev.exit151
   %v.addr.0 = phi i64 [ %or.i149, %rev.exit151 ], [ %v, %do.body.preheader ]
@@ -3645,7 +3645,7 @@ dictGetNext.exit121:                              ; preds = %while.body159
   %24 = load ptr, ptr %next6.sink.i120, align 8
   tail call void %fn(ptr noundef %privdata, ptr noundef nonnull %de.2158) #22
   %tobool158.not = icmp eq ptr %24, null
-  br i1 %tobool158.not, label %while.end161, label %while.body159, !llvm.loop !34
+  br i1 %tobool158.not, label %while.end161, label %while.body159, !llvm.loop !32
 
 while.end161:                                     ; preds = %dictGetNext.exit121, %dictGetNext.exit121.thread, %if.end151
   %or163 = or i64 %v.addr.0, %not162
@@ -3665,7 +3665,7 @@ while.body.i122:                                  ; preds = %while.body.i122, %w
   %and3.i133 = and i64 %shl2.i131, %not.i132
   %or.i134 = or i64 %and.i130, %and3.i133
   %cmp.not.i135 = icmp ult i64 %s.010.i124, 4
-  br i1 %cmp.not.i135, label %rev.exit136, label %while.body.i122, !llvm.loop !32
+  br i1 %cmp.not.i135, label %rev.exit136, label %while.body.i122, !llvm.loop !30
 
 rev.exit136:                                      ; preds = %while.body.i122
   %inc165 = add i64 %or.i134, 1
@@ -3685,12 +3685,12 @@ while.body.i137:                                  ; preds = %while.body.i137, %r
   %and3.i148 = and i64 %shl2.i146, %not.i147
   %or.i149 = or i64 %and.i145, %and3.i148
   %cmp.not.i150 = icmp ult i64 %s.010.i139, 4
-  br i1 %cmp.not.i150, label %rev.exit151, label %while.body.i137, !llvm.loop !32
+  br i1 %cmp.not.i150, label %rev.exit151, label %while.body.i137, !llvm.loop !30
 
 rev.exit151:                                      ; preds = %while.body.i137
   %and167 = and i64 %or.i149, %xor
   %tobool168.not = icmp eq i64 %and167, 0
-  br i1 %tobool168.not, label %if.end169, label %do.body, !llvm.loop !35
+  br i1 %tobool168.not, label %if.end169, label %do.body, !llvm.loop !33
 
 if.end169:                                        ; preds = %rev.exit151, %while.body.i85
   %v.addr.1 = phi i64 [ %or.i97, %while.body.i85 ], [ %or.i149, %rev.exit151 ]
@@ -3893,7 +3893,7 @@ if.end.i45:                                       ; preds = %if.end62
   %retval.0.i44 = select i1 %cmp.i.not.i47, ptr %next.i, ptr %next6.i
   %17 = load ptr, ptr %retval.0.i44, align 8
   %tobool1.not = icmp eq ptr %17, null
-  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !36
+  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !34
 
 while.end:                                        ; preds = %if.end.i45, %if.end62, %land.rhs.lr.ph, %entry
   ret void
@@ -3964,7 +3964,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp21, label %for.body.backedge, label %if.end24
 
 for.body.backedge:                                ; preds = %land.lhs.true, %while.end
-  br label %for.body, !llvm.loop !37
+  br label %for.body, !llvm.loop !35
 
 if.end24:                                         ; preds = %land.lhs.true, %for.body
   %arrayidx25 = getelementptr inbounds [2 x ptr], ptr %ht_table, i64 0, i64 %table.030
@@ -4001,7 +4001,7 @@ dictGetNext.exit:                                 ; preds = %dictGetKey.exit
   %next6.sink.i = select i1 %cmp.i.not.i, ptr %next.i, ptr %next6.i
   %9 = load ptr, ptr %next6.sink.i, align 8
   %tobool.not = icmp eq ptr %9, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !38
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !36
 
 while.end:                                        ; preds = %dictGetNext.exit, %dictGetKey.exit.thread, %if.end24
   %10 = load i64, ptr %rehashidx, align 8
@@ -4106,7 +4106,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i64 %add16, ptr %arrayidx15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -4181,7 +4181,7 @@ dictGetNext.exit:                                 ; preds = %while.body
   %next6.sink.i = select i1 %cmp.i.not.i, ptr %next.i, ptr %next6.i
   %7 = load ptr, ptr %next6.sink.i, align 8
   %tobool42.not = icmp eq ptr %7, null
-  br i1 %tobool42.not, label %while.end, label %while.body, !llvm.loop !40
+  br i1 %tobool42.not, label %while.end, label %while.body, !llvm.loop !38
 
 while.end:                                        ; preds = %while.body, %dictGetNext.exit
   %cond50 = tail call i64 @llvm.umin.i64(i64 %inc43, i64 49)
@@ -4205,7 +4205,7 @@ for.inc:                                          ; preds = %while.end, %if.then
   store i64 %add, ptr %totalChainLen.sink40, align 8
   %inc58 = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc58, %shl
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !41
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !39
 
 return:                                           ; preds = %for.inc, %entry
   ret ptr %call1
@@ -4289,7 +4289,7 @@ for.inc:                                          ; preds = %for.body, %if.end36
   %l.1 = phi i64 [ %l.042, %for.body ], [ %add50, %if.end36 ]
   %inc = add nuw nsw i64 %i.043, 1
   %exitcond.not = icmp eq i64 %inc, 49
-  br i1 %exitcond.not, label %if.end51, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %if.end51, label %for.body, !llvm.loop !40
 
 if.end51:                                         ; preds = %for.inc, %if.end32, %if.end
   %10 = getelementptr i8, ptr %buf, i64 %bufsize
@@ -4394,8 +4394,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
-!8 = !{i64 0, i64 65}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
@@ -4428,5 +4428,3 @@ attributes #25 = { nounwind willreturn memory(read) }
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}

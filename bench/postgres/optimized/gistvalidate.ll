@@ -408,7 +408,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not145, label %217, label %226
 
 217:                                              ; preds = %213, %212
-  %218 = trunc i64 %indvars.iv180 to i32
+  %218 = trunc nuw nsw i64 %indvars.iv180 to i32
   %219 = and i32 %218, 12
   %220 = icmp eq i32 %219, 8
   br i1 %220, label %226, label %switch.early.test

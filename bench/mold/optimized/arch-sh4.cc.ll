@@ -123,7 +123,7 @@ $_ZN4mold12opt_demangleE = comdat any
 @_ZN4mold7SyncOutINS_3elf7ContextINS1_3SH4EEEE2muE = linkonce_odr dso_local global { %union.pthread_mutex_t } zeroinitializer, comdat, align 8
 @_ZSt4cerr = external global %"class.std::basic_ostream", align 8
 @.str.9 = private unnamed_addr constant [6 x i8] c"fatal\00", align 1
-@_ZN4mold12opt_demangleE = linkonce_odr dso_local thread_local global i8 0, comdat, align 1
+@_ZN4mold12opt_demangleE = linkonce_odr dso_local thread_local local_unnamed_addr global i8 0, comdat, align 1
 @.str.10 = private unnamed_addr constant [16 x i8] c"mold: \1B[0;1;31m\00", align 1
 @.str.11 = private unnamed_addr constant [7 x i8] c":\1B[0m \00", align 1
 @.str.12 = private unnamed_addr constant [7 x i8] c"mold: \00", align 1
@@ -251,7 +251,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read)
-define dso_local noundef i64 @_ZN4mold3elf10get_addendINS0_3SH4EEElPhRKNS0_6ElfRelIT_EE(ptr nocapture noundef readonly %loc, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %rel) local_unnamed_addr #5 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZN4mold3elf10get_addendINS0_3SH4EEElPhRKNS0_6ElfRelIT_EE(ptr nocapture noundef readonly %loc, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %rel) local_unnamed_addr #5 {
 entry:
   %r_type = getelementptr inbounds i8, ptr %rel, i64 4
   %0 = load i8, ptr %r_type, align 1
@@ -843,7 +843,7 @@ if.end12:                                         ; preds = %for.body
   %idx.ext18 = zext i32 %x.0.copyload.i56 to i64
   %add.ptr19 = getelementptr inbounds i8, ptr %base, i64 %idx.ext18
   %call20 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_3SH4EE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %18, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 noundef 0)
-  %call21 = call noundef i64 @_ZN4mold3elf10get_addendINS0_3SH4EEElPhRKNS0_6ElfRelIT_EE(ptr noundef %add.ptr19, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i), !range !4
+  %call21 = call noundef i64 @_ZN4mold3elf10get_addendINS0_3SH4EEElPhRKNS0_6ElfRelIT_EE(ptr noundef %add.ptr19, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i)
   %19 = load ptr, ptr %output_section.i, align 8
   %sh_addr.i = getelementptr inbounds i8, ptr %19, i64 36
   %x.0.copyload.i.i = load i32, ptr %sh_addr.i, align 1
@@ -989,7 +989,7 @@ sw.default:                                       ; preds = %_ZNK4mold3elf6Symbo
 for.inc:                                          ; preds = %sw.bb, %sw.bb33, %sw.bb37, %sw.bb40, %sw.bb45, %_ZNK4mold3elf6SymbolINS0_3SH4EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, %sw.bb56, %sw.bb63, %_ZNK4mold3elf6SymbolINS0_3SH4EE14get_gottp_addrERNS0_7ContextIS2_EE.exit, %sw.bb74, %for.body
   %inc = add nuw i64 %i.080, 1
   %exitcond.not = icmp eq i64 %inc, %retval.sroa.3.0.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end
   ret void
@@ -1422,7 +1422,7 @@ if.then9.i:                                       ; preds = %_ZN4mold3elf10Objec
   %conv12.i = zext i32 %x.0.copyload.i.i to i64
   %19 = load ptr, ptr %_M_str.i.i.i, align 8
   %add.ptr.i9.i = getelementptr inbounds i8, ptr %19, i64 %idx.ext
-  %call2.i.i = tail call noundef i64 @_ZN4mold3elf10get_addendINS0_3SH4EEElPhRKNS0_6ElfRelIT_EE(ptr noundef %add.ptr.i9.i, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i), !range !4
+  %call2.i.i = tail call noundef i64 @_ZN4mold3elf10get_addendINS0_3SH4EEElPhRKNS0_6ElfRelIT_EE(ptr noundef %add.ptr.i9.i, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i)
   %add.i = add nuw nsw i64 %call2.i.i, %conv12.i
   %frag_offsets.i.i = getelementptr inbounds i8, ptr %18, i64 64
   %20 = load ptr, ptr %frag_offsets.i.i, align 8
@@ -1449,7 +1449,7 @@ while.body.i.i.i.i:                               ; preds = %if.then9.i, %while.
   %__first.sroa.0.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__first.sroa.0.07.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i
   %__len.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %shr.i.i.i.i, i64 %sub9.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4mold3elf12InputSectionINS0_3SH4EE12get_fragmentERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4mold3elf12InputSectionINS0_3SH4EE12get_fragmentERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit, !llvm.loop !6
 
 _ZN4mold3elf12InputSectionINS0_3SH4EE12get_fragmentERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit: ; preds = %while.body.i.i.i.i, %if.then9.i
   %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %20, %if.then9.i ], [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ]
@@ -1480,7 +1480,7 @@ cond.true17:                                      ; preds = %_ZN4mold3elf12Input
 
 cond.false18:                                     ; preds = %if.end, %_ZN4mold3elf10ObjectFileINS0_3SH4EE9get_shndxERKNS0_6ElfSymIS2_EE.exit.i, %_ZN4mold3elf12InputSectionINS0_3SH4EE12get_fragmentERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit
   %call15 = tail call noundef i64 @_ZNK4mold3elf6SymbolINS0_3SH4EE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %13, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 noundef 0)
-  %call19 = tail call noundef i64 @_ZN4mold3elf10get_addendINS0_3SH4EEElPhRKNS0_6ElfRelIT_EE(ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i), !range !4
+  %call19 = tail call noundef i64 @_ZN4mold3elf10get_addendINS0_3SH4EEElPhRKNS0_6ElfRelIT_EE(ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i)
   br label %cond.end20
 
 cond.end20:                                       ; preds = %cond.false18, %cond.true17
@@ -1513,7 +1513,7 @@ sw.default:                                       ; preds = %cond.end20
 for.inc:                                          ; preds = %sw.bb, %for.body, %lor.lhs.false
   %inc = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc, %4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry, %_ZNK4mold3elf12InputSectionINS0_3SH4EE8get_relsERNS0_7ContextIS2_EE.exit
   ret void
@@ -1848,7 +1848,7 @@ sw.default:                                       ; preds = %if.end16
 for.inc:                                          ; preds = %sw.bb, %sw.bb19, %sw.bb20, %sw.bb27, %sw.bb30, %sw.bb31, %sw.bb34, %if.then23, %sw.bb22, %if.end16, %if.end16, %if.end16, %for.body, %lor.lhs.false
   %inc = add nuw i64 %i.036, 1
   %exitcond.not = icmp eq i64 %inc, %6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry, %_ZNK4mold3elf12InputSectionINS0_3SH4EE8get_relsERNS0_7ContextIS2_EE.exit
   ret void
@@ -2939,9 +2939,8 @@ attributes #22 = { builtin nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 4294967296}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

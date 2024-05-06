@@ -138,7 +138,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10Subprocess6FinishEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN10Subprocess6FinishEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4

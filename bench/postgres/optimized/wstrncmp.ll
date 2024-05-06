@@ -69,7 +69,7 @@ define dso_local i32 @pg_char_and_wchar_strncmp(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @pg_wchar_strlen(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @pg_wchar_strlen(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1

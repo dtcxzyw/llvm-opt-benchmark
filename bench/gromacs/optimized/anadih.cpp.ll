@@ -1284,7 +1284,7 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL10calc_RBbinfif(float noundef %0, i32 %1, float %2) unnamed_addr #11 {
+define internal noundef range(i32 0, 4) i32 @_ZL10calc_RBbinfif(float noundef %0, i32 %1, float %2) unnamed_addr #11 {
   %4 = tail call float @llvm.fabs.f32(float %0)
   %or.cond = fcmp olt float %4, 0x3FE0C15240000000
   br i1 %or.cond, label %11, label %5
@@ -2830,11 +2830,11 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit166:     ; preds = %75
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds [3 x float], ptr %87, i64 %91
-  %93 = getelementptr i8, ptr %89, i64 4
+  %93 = getelementptr inbounds i8, ptr %89, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds [3 x float], ptr %87, i64 %95
-  %97 = getelementptr i8, ptr %89, i64 8
+  %97 = getelementptr inbounds i8, ptr %89, i64 8
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds [3 x float], ptr %87, i64 %99

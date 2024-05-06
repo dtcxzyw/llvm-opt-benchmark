@@ -504,7 +504,7 @@ declare dso_local void @i915_gem_object_set_cache_coherency(ptr noundef, i32 nou
 declare dso_local i32 @i915_gem_object_unbind(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_gem_get_caching_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @i915_gem_get_caching_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 7168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 28

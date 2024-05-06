@@ -2159,7 +2159,7 @@ define internal fastcc i32 @_sta_info_move_state(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__sta_info_destroy(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @__sta_info_destroy(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call fastcc i32 @__sta_info_destroy_part1(ptr noundef %0), !range !82
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5
@@ -2174,7 +2174,7 @@ define dso_local noundef i32 @__sta_info_destroy(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__sta_info_destroy_part1(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2, 1) i32 @__sta_info_destroy_part1(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #18
   %3 = icmp eq ptr %0, null
   br i1 %3, label %278, label %4
@@ -2755,7 +2755,7 @@ define internal fastcc void @__sta_info_destroy_part2(ptr noundef %0, i1 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sta_info_destroy_addr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @sta_info_destroy_addr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   tail call void @__rcu_read_lock() #18
@@ -2798,7 +2798,7 @@ define dso_local noundef i32 @sta_info_destroy_addr(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sta_info_destroy_addr_bss(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @sta_info_destroy_addr_bss(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   tail call void @__rcu_read_lock() #18
@@ -7008,7 +7008,7 @@ define dso_local void @ieee80211_sta_set_expected_throughput(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_sta_allocate_link(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_sta_allocate_link(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1256

@@ -604,7 +604,7 @@ define internal fastcc noundef i32 @time_stamp(ptr noundef %0, ptr noundef %1, i
   %19 = urem i32 %.0, 3600000
   %20 = udiv i32 %19, 60000
   %21 = urem i32 %.0, 60000
-  %.lhs.trunc = trunc i32 %21 to i16
+  %.lhs.trunc = trunc nuw i32 %21 to i16
   %22 = udiv i16 %.lhs.trunc, 1000
   %.zext = zext nneg i16 %22 to i32
   %23 = urem i32 %.0, 1000

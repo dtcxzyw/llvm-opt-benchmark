@@ -162,7 +162,7 @@ entry:
 if.end.i44:                                       ; preds = %entry
   %shl.i45 = shl nuw i64 %add11, 1
   %sub.i = add i64 %shl.i45, -1
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !7
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %1 = trunc nuw nsw i64 %0 to i32
   %conv1.i.i.i.i = xor i32 %1, 63
   %conv2.i = zext nneg i32 %conv1.i.i.i.i to i64
@@ -367,7 +367,7 @@ while.cond.i.i:                                   ; preds = %if.end.i52, %while.
   %26 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i53 = icmp eq ptr %26, null
   %inc.i.i54 = add i64 %n_blocks.0.i.i, 1
-  br i1 %cmp.not.i.i53, label %base_get_num_blocks.exit.i, label %while.cond.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i53, label %base_get_num_blocks.exit.i, label %while.cond.i.i, !llvm.loop !7
 
 base_get_num_blocks.exit.i:                       ; preds = %while.cond.i.i
   %cmp3.i55 = icmp eq i64 %n_blocks.0.i.i, 2
@@ -380,7 +380,7 @@ while.cond.i15.i:                                 ; preds = %if.end.i52, %while.
   %27 = load ptr, ptr %next.i18.i, align 8
   %cmp.not.i19.i = icmp eq ptr %27, null
   %inc.i20.i = add i64 %n_blocks.0.i17.i, 1
-  br i1 %cmp.not.i19.i, label %if.end7.i, label %while.cond.i15.i, !llvm.loop !8
+  br i1 %cmp.not.i19.i, label %if.end7.i, label %while.cond.i15.i, !llvm.loop !7
 
 if.end7.i:                                        ; preds = %while.cond.i15.i
   %cmp5.i = icmp eq i64 %n_blocks.0.i17.i, 5
@@ -411,7 +411,7 @@ do.end16.i:                                       ; preds = %do.end16.i, %do.end
   %next.i = getelementptr inbounds i8, ptr %block.03.i, i64 8
   %block.0.i = load ptr, ptr %next.i, align 8
   %cmp14.not.i = icmp eq ptr %block.0.i, null
-  br i1 %cmp14.not.i, label %base_auto_thp_switch.exit.loopexit, label %do.end16.i, !llvm.loop !9
+  br i1 %cmp14.not.i, label %base_auto_thp_switch.exit.loopexit, label %do.end16.i, !llvm.loop !8
 
 base_auto_thp_switch.exit.loopexit:               ; preds = %do.end16.i
   %.pre = load i8, ptr %auto_thp_switched.i, align 8
@@ -440,7 +440,7 @@ if.end.i:                                         ; preds = %if.end41
   %cmp.i.i.i.i61 = icmp ne i64 %cond24, 0
   call void @llvm.assume(i1 %cmp.i.i.i.i61)
   %33 = add nsw i64 %cond24, -1
-  %34 = call i64 @llvm.ctlz.i64(i64 %33, i1 true), !range !7
+  %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)
   %35 = trunc nuw nsw i64 %34 to i32
   %cond.i = call i32 @llvm.usub.sat.i32(i32 50, i32 %35)
   %cmp4.i = icmp ugt i32 %35, 49
@@ -873,7 +873,7 @@ if.end.i:                                         ; preds = %if.then
 if.end5.i:                                        ; preds = %if.end.i
   %shl.i = shl nuw i64 %add, 1
   %sub.i17 = add i64 %shl.i, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i17, i1 true), !range !7
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i17, i1 true)
   %3 = shl nuw nsw i64 %2, 2
   %sub15.i = sub nuw nsw i64 60, %2
   %shl18.i = shl nsw i64 -1, %sub15.i
@@ -958,7 +958,7 @@ do.body:                                          ; preds = %do.body, %entry
   %2 = load i64, ptr %next.0, align 8
   tail call fastcc void @base_unmap(ptr noundef %tsdn, ptr noundef nonnull %ehooks_base.i, ptr noundef nonnull %next.0, i64 noundef %2)
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !10
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -1055,7 +1055,7 @@ if.end.i:                                         ; preds = %malloc_mutex_lock.e
 if.end5.i:                                        ; preds = %if.end.i
   %shl.i = shl nuw i64 %sub5, 1
   %sub.i26 = add i64 %shl.i, -1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %sub.i26, i1 true), !range !7
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i26, i1 true)
   %5 = trunc nuw nsw i64 %4 to i32
   %6 = shl nuw nsw i32 %5, 2
   %sub15.i = sub nuw nsw i64 60, %4
@@ -1082,7 +1082,7 @@ for.body.lr.ph:                                   ; preds = %sz_size2index.exit
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 235
-  br i1 %exitcond.not, label %if.then12, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %if.then12, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ %8, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -1406,8 +1406,7 @@ attributes #9 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

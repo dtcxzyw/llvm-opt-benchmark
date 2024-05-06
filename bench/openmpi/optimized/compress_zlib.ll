@@ -36,7 +36,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   br i1 %or.cond, label %46, label %9
 
 9:                                                ; preds = %4
-  %10 = trunc i64 %1 to i32
+  %10 = trunc nuw i64 %1 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
   %11 = call i32 @deflateInit_(ptr noundef nonnull %5, i32 noundef 9, ptr noundef nonnull @.str, i32 noundef 112) #8
   %.not = icmp eq i32 %11, 0
@@ -64,7 +64,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   store ptr %0, ptr %5, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %10, ptr %22, align 8
-  %23 = trunc i64 %13 to i32
+  %23 = trunc nuw i64 %13 to i32
   %24 = getelementptr inbounds i8, ptr %5, i64 32
   store i32 %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %5, i64 24
@@ -240,7 +240,7 @@ define internal fastcc noundef zeroext i1 @doit(ptr nocapture noundef writeonly 
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %11, ptr %12, align 8
   store ptr %2, ptr %5, align 8
-  %13 = trunc i64 %1 to i32
+  %13 = trunc nuw i64 %1 to i32
   %14 = getelementptr inbounds i8, ptr %5, i64 32
   store i32 %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 24

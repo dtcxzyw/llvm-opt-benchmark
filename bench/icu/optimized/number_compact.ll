@@ -817,7 +817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_756number4impl11CompactData13getMultiplierEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1375) %this, i32 noundef %magnitude) unnamed_addr #9 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_756number4impl11CompactData13getMultiplierEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1375) %this, i32 noundef %magnitude) unnamed_addr #9 align 2 {
 entry:
   %cmp = icmp slt i32 %magnitude, 0
   br i1 %cmp, label %return, label %if.end

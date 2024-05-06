@@ -145,7 +145,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %._crit_edge, label %40, !llvm.loop !4
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %40
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %._crit_edge.loopexit.split.loop.exit, %24
@@ -249,7 +249,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Vec_StrGets(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Vec_StrGets(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #8 {
   %5 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %5, align 8
   %6 = load i32, ptr %3, align 4
@@ -332,10 +332,10 @@ define i32 @Map_LibraryCompareLibNames(ptr noundef readonly %0, ptr noundef read
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #17
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #18
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #16
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %3
@@ -344,10 +344,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
   br i1 %.not.i39, label %Abc_UtilStrsav.exit40, label %9
 
 9:                                                ; preds = %Abc_UtilStrsav.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %11 = add i64 %10, 1
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #18
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %1) #16
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %1) #16
   br label %Abc_UtilStrsav.exit40
 
 Abc_UtilStrsav.exit40:                            ; preds = %Abc_UtilStrsav.exit, %9
@@ -413,7 +413,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #6
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [5000 x i8], align 16
   %6 = getelementptr i8, ptr %2, i64 8
   %7 = getelementptr i8, ptr %2, i64 4
@@ -718,7 +718,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %136 = load ptr, ptr %133, align 8
   %137 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %136) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %137, i8 0, i64 256, i1 false)
-  %138 = trunc i64 %indvars.iv314 to i32
+  %138 = trunc nuw nsw i64 %indvars.iv314 to i32
   store i32 %138, ptr %137, align 8
   %139 = getelementptr inbounds [6 x [2 x i32]], ptr %134, i64 0, i64 %indvars.iv314
   %140 = load i32, ptr %139, align 8
@@ -795,7 +795,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %.val36.i155 = phi i32 [ %.val36.i155250257, %.preheader.i156.lr.ph.lr.ph ], [ %.val36.i155250, %Extra_ProgressBarUpdate.exit ]
   %174 = phi ptr [ %171, %.preheader.i156.lr.ph.lr.ph ], [ %218, %Extra_ProgressBarUpdate.exit ]
   %.5.ph258 = phi i32 [ %.4, %.preheader.i156.lr.ph.lr.ph ], [ %.6, %Extra_ProgressBarUpdate.exit ]
-  %175 = trunc i64 %indvars.iv318 to i32
+  %175 = trunc nsw i64 %indvars.iv318 to i32
   %176 = sext i32 %.val36.i155 to i64
   %177 = getelementptr inbounds i8, ptr %.val.i154, i64 %176
   br label %.preheader.i156
@@ -818,7 +818,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   br label %186
 
 .outer._crit_edge.loopexit269:                    ; preds = %Extra_ProgressBarUpdate.exit
-  %185 = trunc i64 %indvars.iv.next319 to i32
+  %185 = trunc nsw i64 %indvars.iv.next319 to i32
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.loopexit, %.outer._crit_edge.loopexit269, %._crit_edge248
@@ -903,7 +903,7 @@ Vec_StrGets.exit161:                              ; preds = %188, %195
   br i1 %214, label %Extra_ProgressBarUpdate.exit, label %215
 
 215:                                              ; preds = %211, %208
-  %216 = trunc i64 %indvars.iv.next319 to i32
+  %216 = trunc nsw i64 %indvars.iv.next319 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %166, i32 noundef %216, ptr noundef null) #16
   br label %Extra_ProgressBarUpdate.exit
 
@@ -986,7 +986,7 @@ declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_LibraryReadTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Map_LibraryReadTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Mio_ReadFile(ptr noundef %2, i32 noundef 0) #16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -1027,14 +1027,14 @@ Vec_StrFree.exit:                                 ; preds = %15
 
 Vec_StrFree.exit25:                               ; preds = %20, %9
   %.0 = phi ptr [ %17, %20 ], [ null, %9 ]
-  %23 = tail call i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %12, ptr noundef %2), !range !16
+  %23 = tail call i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %12, ptr noundef %2)
   tail call void @free(ptr noundef nonnull %5) #16
   tail call void @free(ptr noundef nonnull %12) #16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %Vec_StrFree.exit25
-  %26 = tail call i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %.0), !range !16
+  %26 = tail call i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %.0)
   br label %27
 
 27:                                               ; preds = %Vec_StrFree.exit25, %25, %Vec_StrFree.exit, %7
@@ -1060,7 +1060,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @Abc_FrameReadOut(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
   %4 = alloca [6 x [2 x i32]], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1139,7 +1139,7 @@ define noundef i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %1) lo
   %40 = and i32 %39, 7
   %41 = zext nneg i32 %40 to i64
   %42 = icmp ult i64 %indvars.iv.next, %41
-  br i1 %42, label %28, label %.loopexit, !llvm.loop !17
+  br i1 %42, label %28, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %37, %..loopexit_crit_edge, %._crit_edge204
   %43 = phi i32 [ %.pre, %..loopexit_crit_edge ], [ %.promoted, %._crit_edge204 ], [ %38, %37 ]
@@ -1170,7 +1170,7 @@ define noundef i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %1) lo
   %58 = and i32 %57, 7
   %59 = zext nneg i32 %58 to i64
   %60 = icmp ult i64 %indvars.iv.next187, %59
-  br i1 %60, label %47, label %._crit_edge, !llvm.loop !18
+  br i1 %60, label %47, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %47, %.loopexit
   %.lcssa = phi i32 [ 0, %.loopexit ], [ %58, %47 ]
@@ -1197,7 +1197,7 @@ define noundef i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %1) lo
   %71 = load i32, ptr %5, align 8
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next190, %72
-  br i1 %73, label %68, label %._crit_edge155, !llvm.loop !19
+  br i1 %73, label %68, label %._crit_edge155, !llvm.loop !18
 
 ._crit_edge155:                                   ; preds = %68, %._crit_edge
   %74 = load ptr, ptr %61, align 8
@@ -1318,7 +1318,7 @@ define noundef i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %1) lo
   %136 = load i32, ptr %5, align 8
   %137 = sext i32 %136 to i64
   %138 = icmp slt i64 %indvars.iv.next.i, %137
-  br i1 %138, label %95, label %._crit_edge.i, !llvm.loop !20
+  br i1 %138, label %95, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %135, %.preheader.i
   %139 = phi i32 [ %.pre.i, %.preheader.i ], [ %136, %135 ]
@@ -1409,7 +1409,7 @@ define noundef i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr noundef %1) lo
   %185 = load i32, ptr %5, align 8
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next163.i, %186
-  br i1 %187, label %144, label %Map_LibraryAddFaninDelays.exit, !llvm.loop !21
+  br i1 %187, label %144, label %Map_LibraryAddFaninDelays.exit, !llvm.loop !20
 
 Map_LibraryAddFaninDelays.exit:                   ; preds = %184, %._crit_edge.i, %._crit_edge165.i
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
@@ -1419,7 +1419,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %184, %._crit_edge.i
   %191 = and i32 %190, 7
   %192 = zext nneg i32 %191 to i64
   %193 = icmp ult i64 %indvars.iv.next193, %192
-  br i1 %193, label %81, label %._crit_edge160, !llvm.loop !22
+  br i1 %193, label %81, label %._crit_edge160, !llvm.loop !21
 
 ._crit_edge160:                                   ; preds = %Map_LibraryAddFaninDelays.exit, %._crit_edge155
   %194 = phi i32 [ %76, %._crit_edge155 ], [ %189, %Map_LibraryAddFaninDelays.exit ]
@@ -1508,7 +1508,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %184, %._crit_edge.i
   %238 = load i32, ptr %5, align 8
   %239 = sext i32 %238 to i64
   %240 = icmp slt i64 %indvars.iv.next196, %239
-  br i1 %240, label %203, label %._crit_edge165, !llvm.loop !23
+  br i1 %240, label %203, label %._crit_edge165, !llvm.loop !22
 
 ._crit_edge165:                                   ; preds = %228, %196
   %241 = and i32 %194, -225
@@ -1551,7 +1551,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %184, %._crit_edge.i
   %265 = and i32 %264, 7
   %266 = zext nneg i32 %265 to i64
   %267 = icmp ult i64 %indvars.iv.next199, %266
-  br i1 %267, label %249, label %._crit_edge170, !llvm.loop !24
+  br i1 %267, label %249, label %._crit_edge170, !llvm.loop !23
 
 ._crit_edge170:                                   ; preds = %249, %._crit_edge165
   %.lcssa148 = phi i32 [ %.promoted166, %._crit_edge165 ], [ %260, %249 ]
@@ -1579,7 +1579,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %184, %._crit_edge.i
   %282 = load i32, ptr %7, align 4
   %283 = sext i32 %282 to i64
   %284 = icmp slt i64 %indvars.iv.next202, %283
-  br i1 %284, label %14, label %._crit_edge176, !llvm.loop !25
+  br i1 %284, label %14, label %._crit_edge176, !llvm.loop !24
 
 ._crit_edge176:                                   ; preds = %281, %2
   %285 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1639,7 +1639,7 @@ define internal fastcc i32 @Map_LibraryGetMaxSuperPi_rec(ptr nocapture noundef r
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.015, i32 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !25
 
 .loopexit:                                        ; preds = %12, %.preheader, %10
   %.011 = phi i32 [ %11, %10 ], [ 0, %.preheader ], [ %spec.select, %12 ]
@@ -1685,7 +1685,7 @@ define i32 @Map_CalculatePhase(ptr nocapture noundef readonly %0, i32 noundef %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = shl i32 %.018, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %16, %4
   %.015.lcssa = phi i32 [ %2, %4 ], [ %.1, %16 ]
@@ -1758,7 +1758,7 @@ define void @Map_CalculatePhase6(ptr nocapture noundef readonly %0, i32 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = shl i32 %.037, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %35, %5
   ret void
@@ -1814,7 +1814,7 @@ define void @Map_LibraryPrintTree(ptr nocapture noundef readonly %0) local_unnam
   %32 = and i32 %31, 7
   %33 = zext nneg i32 %32 to i64
   %34 = icmp ult i64 %indvars.iv.next, %33
-  br i1 %34, label %25, label %._crit_edge, !llvm.loop !29
+  br i1 %34, label %25, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %25, %7
   %35 = getelementptr inbounds i8, ptr %10, i64 240
@@ -1924,14 +1924,14 @@ define void @Map_LibraryPrintTree(ptr nocapture noundef readonly %0) local_unnam
   %98 = load i32, ptr %2, align 8
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next76, %99
-  br i1 %100, label %59, label %._crit_edge68, !llvm.loop !30
+  br i1 %100, label %59, label %._crit_edge68, !llvm.loop !29
 
 ._crit_edge68:                                    ; preds = %97, %._crit_edge
   %putchar59 = tail call i32 @putchar(i32 10)
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, 1
   %101 = and i64 %indvars.iv.next79, 4294967295
   %exitcond.not = icmp eq i64 %101, 20
-  br i1 %exitcond.not, label %._crit_edge72, label %7, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge72, label %7, !llvm.loop !30
 
 ._crit_edge72:                                    ; preds = %._crit_edge68, %1
   ret void
@@ -1994,7 +1994,7 @@ attributes #18 = { nounwind allocsize(0) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 0, i32 2}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
@@ -2009,4 +2009,3 @@ attributes #18 = { nounwind allocsize(0) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}

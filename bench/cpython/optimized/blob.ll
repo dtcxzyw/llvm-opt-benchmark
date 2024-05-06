@@ -136,7 +136,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pysqlite_blob_setup_types(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @pysqlite_blob_setup_types(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %mod, ptr noundef nonnull @blob_spec, ptr noundef null) #5
   %cmp = icmp eq ptr %call, null
@@ -279,7 +279,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @blob_length(ptr nocapture noundef readonly %self) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @blob_length(ptr nocapture noundef readonly %self) #0 {
 entry:
   %connection.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %connection.i, align 8
@@ -442,14 +442,14 @@ if.end.i10:                                       ; preds = %if.then8
 
 if.then2.i:                                       ; preds = %if.end.i10
   %17 = load i64, ptr %start.i, align 8
-  %call3.i = call fastcc ptr @read_multiple(ptr noundef nonnull %self, i64 noundef %call2.i.i14, i64 noundef %17)
+  %call3.i = call fastcc ptr @read_multiple(ptr noundef nonnull readonly %self, i64 noundef %call2.i.i14, i64 noundef %17)
   br label %subscript_slice.exit
 
 if.end4.i:                                        ; preds = %if.end.i10
   %18 = load i64, ptr %stop.i, align 8
   %19 = load i64, ptr %start.i, align 8
   %sub.i = sub i64 %18, %19
-  %call5.i = call fastcc ptr @read_multiple(ptr noundef nonnull %self, i64 noundef %sub.i, i64 noundef %19)
+  %call5.i = call fastcc ptr @read_multiple(ptr noundef nonnull readonly %self, i64 noundef %sub.i, i64 noundef %19)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %subscript_slice.exit, label %if.end8.i
 
@@ -511,7 +511,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @blob_ass_subscript(ptr nocapture noundef readonly %self, ptr noundef %item, ptr noundef %value) #0 {
+define internal range(i32 -1, 1) i32 @blob_ass_subscript(ptr nocapture noundef readonly %self, ptr noundef %item, ptr noundef %value) #0 {
 entry:
   %start.i = alloca i64, align 8
   %stop.i = alloca i64, align 8
@@ -755,7 +755,7 @@ if.then9.i.i25:                                   ; preds = %if.end.i19.i
 if.else17.i:                                      ; preds = %if.else.i
   %35 = load i64, ptr %stop.i, align 8
   %sub.i = sub i64 %35, %28
-  %call18.i = call fastcc ptr @read_multiple(ptr noundef nonnull %self, i64 noundef %sub.i, i64 noundef %28)
+  %call18.i = call fastcc ptr @read_multiple(ptr noundef nonnull readonly %self, i64 noundef %sub.i, i64 noundef %28)
   %cmp19.not.i = icmp eq ptr %call18.i, null
   br i1 %cmp19.not.i, label %if.end29.i, label %if.then20.i
 

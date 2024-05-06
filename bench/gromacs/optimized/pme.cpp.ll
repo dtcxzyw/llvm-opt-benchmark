@@ -6442,9 +6442,9 @@ _ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %
 
 .thread:                                          ; preds = %43
   tail call void @_ZN11PmeAtomCommD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %28) #7
-  br label %_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit39
+  br label %_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit41
 
-47:                                               ; preds = %_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit39
+47:                                               ; preds = %_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit41
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -6452,9 +6452,9 @@ _ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %
 
 49:                                               ; preds = %43
   tail call void @_ZdlPv(ptr noundef nonnull %27) #27
-  br label %_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit39
+  br label %_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit41
 
-_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit39: ; preds = %49, %.thread
+_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit41: ; preds = %49, %.thread
   invoke void @__cxa_rethrow() #25
           to label %54 unwind label %47
 
@@ -6468,7 +6468,7 @@ _ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit39: ; preds =
   tail call void @__clang_call_terminate(ptr %53) #28
   unreachable
 
-54:                                               ; preds = %_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit39
+54:                                               ; preds = %_ZNSt12_Vector_baseI11PmeAtomCommSaIS0_EE13_M_deallocateEPS0_m.exit41
   unreachable
 }
 
@@ -9261,10 +9261,10 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit246: ; preds = %1041, 
 .thread392:                                       ; preds = %.thread
   %1094 = getelementptr inbounds i8, ptr %1089, i64 440
   %1095 = load ptr, ptr %1094, align 8
-  %1096 = getelementptr %class.PmeAtomComm, ptr %1095, i64 %indvars.iv460
-  %1097 = getelementptr i8, ptr %1096, i64 560
+  %1096 = getelementptr inbounds %class.PmeAtomComm, ptr %1095, i64 %indvars.iv460
+  %1097 = getelementptr inbounds i8, ptr %1096, i64 560
   %.sroa.0280.0.copyload = load ptr, ptr %1097, align 8
-  %.sroa.4.0..sroa_idx = getelementptr i8, ptr %1096, i64 568
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1096, i64 568
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %1098 = ptrtoint ptr %.sroa.4.0.copyload to i64
   %1099 = ptrtoint ptr %.sroa.0280.0.copyload to i64
@@ -12091,9 +12091,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #7
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -12101,9 +12101,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #25
           to label %44 unwind label %37
 
@@ -12117,7 +12117,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #28
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 

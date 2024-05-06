@@ -393,7 +393,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uv_queue_work(ptr noundef %loop, ptr noundef %req, ptr noundef %work_cb, ptr noundef %after_work_cb) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @uv_queue_work(ptr noundef %loop, ptr noundef %req, ptr noundef %work_cb, ptr noundef %after_work_cb) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %work_cb, null
   br i1 %cmp, label %return, label %do.body1

@@ -487,7 +487,7 @@ define dso_local void @sg_free_table(ptr nocapture noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__sg_alloc_table(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %.thread5, label %9
@@ -586,7 +586,7 @@ define dso_local noundef i32 @__sg_alloc_table(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sg_alloc_table(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.thread, label %5, !prof !20
@@ -2065,7 +2065,7 @@ sg_miter_stop.exit:                               ; preds = %8, %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) #3 align 16 {
   %7 = alloca %struct.sg_mapping_iter, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #16
   %8 = select i1 %5, i32 5, i32 3
@@ -2301,31 +2301,31 @@ define dso_local i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sg_copy_from_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_copy_from_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3) #3 align 16 {
   %5 = tail call i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i1 noundef zeroext false), !range !57
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sg_copy_to_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_copy_to_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3) #3 align 16 {
   %5 = tail call i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i1 noundef zeroext true), !range !57
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sg_pcopy_from_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_pcopy_from_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4) #3 align 16 {
   %6 = tail call i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false), !range !57
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sg_pcopy_to_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_pcopy_to_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4) #3 align 16 {
   %6 = tail call i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true), !range !57
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sg_zero_buffer(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #3 align 16 {
   %5 = alloca %struct.sg_mapping_iter, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #16
   %6 = getelementptr inbounds i8, ptr %5, i64 32

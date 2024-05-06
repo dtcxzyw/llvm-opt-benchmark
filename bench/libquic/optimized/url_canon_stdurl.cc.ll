@@ -54,7 +54,7 @@ $_ZTVN3url15RawCanonOutputTIcLi1024EEE = comdat any
 @_ZTVN3url15RawCanonOutputTIcLi1024EEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3url15RawCanonOutputTIcLi1024EEE, ptr @_ZN3url15RawCanonOutputTIcLi1024EED2Ev, ptr @_ZN3url15RawCanonOutputTIcLi1024EED0Ev, ptr @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi] }, comdat, align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr nocapture noundef readonly %scheme, i32 noundef %scheme_len) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 444) i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr nocapture noundef readonly %scheme, i32 noundef %scheme_len) local_unnamed_addr #0 {
 entry:
   switch i32 %scheme_len, label %sw.epilog [
     i32 4, label %sw.bb
@@ -270,7 +270,7 @@ if.end54:                                         ; preds = %do.body.i.i73, %if.
   %arrayidx = getelementptr inbounds i8, ptr %20, i64 %idxprom
   %len = getelementptr inbounds i8, ptr %new_parsed, i64 4
   %22 = load i32, ptr %len, align 4
-  %call39 = tail call noundef i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr noundef %arrayidx, i32 noundef %22), !range !7
+  %call39 = tail call noundef i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr noundef %arrayidx, i32 noundef %22)
   %port40 = getelementptr inbounds i8, ptr %source, i64 32
   %23 = load ptr, ptr %port40, align 8
   %port41 = getelementptr inbounds i8, ptr %parsed, i64 32
@@ -516,7 +516,7 @@ if.end54.i:                                       ; preds = %do.body.i.i73.i, %r
   %arrayidx.i = getelementptr inbounds i8, ptr %16, i64 %idxprom.i
   %len.i = getelementptr inbounds i8, ptr %new_parsed, i64 4
   %18 = load i32, ptr %len.i, align 4
-  %call39.i = tail call noundef i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr noundef %arrayidx.i, i32 noundef %18), !range !7
+  %call39.i = tail call noundef i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr noundef %arrayidx.i, i32 noundef %18)
   %port41.i = getelementptr inbounds i8, ptr %parsed, i64 32
   %port42.i = getelementptr inbounds i8, ptr %new_parsed, i64 32
   %call43.i = tail call noundef zeroext i1 @_ZN3url16CanonicalizePortEPKtRKNS_9ComponentEiPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %port41.i, i32 noundef %call39.i, ptr noundef nonnull %output, ptr noundef nonnull %port42.i)
@@ -931,4 +931,3 @@ attributes #13 = { builtin allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 444}

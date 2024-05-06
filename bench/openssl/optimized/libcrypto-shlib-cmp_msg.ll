@@ -100,7 +100,7 @@ declare ptr @ASN1_item_new_ex(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @OSSL_CMP_MSG_it() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_msg_set0_libctx(ptr noundef %msg, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_msg_set0_libctx(ptr noundef %msg, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -188,7 +188,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_cmp_msg_set_bodytype(ptr noundef readonly %msg, i32 noundef %type) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_cmp_msg_set_bodytype(ptr noundef readonly %msg, i32 noundef %type) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %return, label %land.rhs
@@ -459,7 +459,7 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.end.thread
 
 cond.end.thread:                                  ; preds = %entry
-  %call68 = tail call ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef nonnull %ctx) #6
+  %call69 = tail call ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef nonnull %ctx) #6
   br label %cond.true3
 
 cond.end:                                         ; preds = %entry
@@ -470,15 +470,15 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp2.not, label %cond.end6, label %cond.true3
 
 cond.true3:                                       ; preds = %cond.end.thread, %cond.end
-  %call73 = phi ptr [ %call68, %cond.end.thread ], [ %call, %cond.end ]
-  %cond71 = phi ptr [ %0, %cond.end.thread ], [ %1, %cond.end ]
-  %call4 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %cond71) #6
+  %call75 = phi ptr [ %call69, %cond.end.thread ], [ %call, %cond.end ]
+  %cond72 = phi ptr [ %0, %cond.end.thread ], [ %1, %cond.end ]
+  %call4 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %cond72) #6
   br label %cond.end6
 
 cond.end6:                                        ; preds = %cond.end, %cond.true3
-  %cmp274 = phi i1 [ true, %cond.true3 ], [ false, %cond.end ]
-  %call72 = phi ptr [ %call73, %cond.true3 ], [ %call, %cond.end ]
-  %cond70 = phi ptr [ %cond71, %cond.true3 ], [ null, %cond.end ]
+  %cmp276 = phi i1 [ true, %cond.true3 ], [ false, %cond.end ]
+  %call73 = phi ptr [ %call75, %cond.true3 ], [ %call, %cond.end ]
+  %cond71 = phi ptr [ %cond72, %cond.true3 ], [ null, %cond.end ]
   %cond7 = phi ptr [ %call4, %cond.true3 ], [ null, %cond.end ]
   %subjectName.i = getelementptr inbounds i8, ptr %ctx, i64 376
   %2 = load ptr, ptr %subjectName.i, align 8
@@ -528,7 +528,7 @@ determine_subj.exit:                              ; preds = %if.then.i, %cond.fa
   %issuer9 = getelementptr inbounds i8, ptr %ctx, i64 352
   %6 = load ptr, ptr %issuer9, align 8
   %cmp10 = icmp ne ptr %6, null
-  %cmp11 = icmp eq ptr %cond70, null
+  %cmp11 = icmp eq ptr %cond71, null
   %or.cond = or i1 %cmp11, %cmp10
   br i1 %or.cond, label %cond.true12, label %cond.false21
 
@@ -542,7 +542,7 @@ cond.false17:                                     ; preds = %cond.true12
   br label %cond.end23
 
 cond.false21:                                     ; preds = %determine_subj.exit
-  %call22 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %cond70) #6
+  %call22 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %cond71) #6
   br label %cond.end23
 
 cond.end23:                                       ; preds = %cond.false17, %cond.true12, %cond.false21
@@ -554,7 +554,7 @@ cond.end23:                                       ; preds = %cond.false17, %cond
   %9 = select i1 %tobool, i1 true, i1 %cmp25
   %lor.ext = zext i1 %9 to i32
   store ptr null, ptr %exts, align 8
-  %cmp26 = icmp eq ptr %call72, null
+  %cmp26 = icmp eq ptr %call73, null
   br i1 %cmp26, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end23
@@ -592,7 +592,7 @@ if.end36:                                         ; preds = %if.end32
 
 lor.lhs.false39:                                  ; preds = %if.end36
   %call40 = tail call ptr @OSSL_CRMF_MSG_get0_tmpl(ptr noundef nonnull %call33) #6
-  %call41 = tail call i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %call40, ptr noundef nonnull %call72, ptr noundef %retval.0.i, ptr noundef %cond24, ptr noundef null) #6
+  %call41 = tail call i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %call40, ptr noundef nonnull %call73, ptr noundef %retval.0.i, ptr noundef %cond24, ptr noundef null) #6
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %err, label %if.end44
 
@@ -650,17 +650,17 @@ land.lhs.true69:                                  ; preds = %if.end67
 lor.lhs.false73:                                  ; preds = %land.lhs.true69
   %call74 = tail call i32 @OSSL_CMP_CTX_reqExtensions_have_SAN(ptr noundef nonnull %ctx) #6
   %cmp75 = icmp ne i32 %call74, 1
-  %or.cond3 = and i1 %cmp274, %cmp75
+  %or.cond3 = and i1 %cmp276, %cmp75
   br i1 %or.cond3, label %land.lhs.true78, label %if.end86
 
 land.lhs.true78:                                  ; preds = %lor.lhs.false73
-  %call79 = tail call ptr @X509_get0_extensions(ptr noundef nonnull %cond70) #6
+  %call79 = tail call ptr @X509_get0_extensions(ptr noundef nonnull %cond71) #6
   %call80 = tail call ptr @X509V3_get_d2i(ptr noundef %call79, i32 noundef 85, ptr noundef null, ptr noundef null) #6
   %cmp81.not = icmp eq ptr %call80, null
   br i1 %cmp81.not, label %if.end86, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %land.lhs.true78
-  %call83 = call fastcc i32 @add1_extension(ptr noundef nonnull %exts, i32 noundef 85, i32 noundef %lor.ext, ptr noundef nonnull %call80), !range !4
+  %call83 = call fastcc i32 @add1_extension(ptr noundef nonnull %exts, i32 noundef 85, i32 noundef %lor.ext, ptr noundef nonnull %call80)
   %tobool84.not = icmp eq i32 %call83, 0
   br i1 %tobool84.not, label %err, label %if.end86
 
@@ -680,7 +680,7 @@ for.cond.i:                                       ; preds = %if.end13.i
   %inc.i = add nuw nsw i32 %i.014.i, 1
   %call1.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %16) #6
   %cmp2.i62 = icmp slt i32 %inc.i, %call1.i
-  br i1 %cmp2.i62, label %for.body.i, label %if.end93, !llvm.loop !5
+  br i1 %cmp2.i62, label %for.body.i, label %if.end93, !llvm.loop !4
 
 for.body.i:                                       ; preds = %land.lhs.true88, %for.cond.i
   %i.014.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %land.lhs.true88 ]
@@ -699,7 +699,7 @@ do.body.i:                                        ; preds = %for.body.i, %do.bod
   %19 = load ptr, ptr %exts, align 8
   %call11.i = call i32 @X509v3_get_ext_by_OBJ(ptr noundef %19, ptr noundef %call5.i, i32 noundef -1) #6
   %cmp12.not.i = icmp eq i32 %call11.i, -1
-  br i1 %cmp12.not.i, label %if.end13.i, label %do.body.i, !llvm.loop !7
+  br i1 %cmp12.not.i, label %if.end13.i, label %do.body.i, !llvm.loop !6
 
 if.end13.i:                                       ; preds = %do.body.i, %for.body.i
   %call14.i = call ptr @X509v3_add_ext(ptr noundef nonnull %exts, ptr noundef %call4.i, i32 noundef -1) #6
@@ -715,14 +715,14 @@ if.end93:                                         ; preds = %for.cond.i, %land.l
 
 land.lhs.true98:                                  ; preds = %if.end93
   %21 = load ptr, ptr %subjectAltNames94, align 8
-  %call.i64 = call ptr @X509V3_EXT_i2d(i32 noundef 85, i32 noundef %lor.ext, ptr noundef %21) #6
-  %cmp5.i = icmp eq ptr %call.i64, null
+  %call.i65 = call ptr @X509V3_EXT_i2d(i32 noundef 85, i32 noundef %lor.ext, ptr noundef %21) #6
+  %cmp5.i = icmp eq ptr %call.i65, null
   br i1 %cmp5.i, label %err, label %add1_extension.exit
 
 add1_extension.exit:                              ; preds = %land.lhs.true98
-  %call9.i = call ptr @X509v3_add_ext(ptr noundef nonnull %exts, ptr noundef nonnull %call.i64, i32 noundef 0) #6
+  %call9.i = call ptr @X509v3_add_ext(ptr noundef nonnull %exts, ptr noundef nonnull %call.i65, i32 noundef 0) #6
   %cmp10.i.not = icmp eq ptr %call9.i, null
-  call void @X509_EXTENSION_free(ptr noundef nonnull %call.i64) #6
+  call void @X509_EXTENSION_free(ptr noundef nonnull %call.i65) #6
   br i1 %cmp10.i.not, label %err, label %if.end103
 
 if.end103:                                        ; preds = %add1_extension.exit, %if.end93
@@ -734,7 +734,7 @@ if.end103:                                        ; preds = %add1_extension.exit
 land.lhs.true105:                                 ; preds = %if.end103
   %setPoliciesCritical = getelementptr inbounds i8, ptr %ctx, i64 416
   %23 = load i32, ptr %setPoliciesCritical, align 8
-  %call107 = call fastcc i32 @add1_extension(ptr noundef nonnull %exts, i32 noundef 89, i32 noundef %23, ptr noundef nonnull %22), !range !4
+  %call107 = call fastcc i32 @add1_extension(ptr noundef nonnull %exts, i32 noundef 89, i32 noundef %23, ptr noundef nonnull %22)
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %err, label %if.end110
 
@@ -746,12 +746,12 @@ if.end110:                                        ; preds = %land.lhs.true105, %
 
 if.end114:                                        ; preds = %if.end110
   store ptr null, ptr %exts, align 8
-  %or.cond4 = and i1 %tobool27, %cmp274
+  %or.cond4 = and i1 %tobool27, %cmp276
   br i1 %or.cond4, label %if.then118, label %end
 
 if.then118:                                       ; preds = %if.end114
-  %call119 = call ptr @X509_get_issuer_name(ptr noundef nonnull %cond70) #6
-  %call120 = call ptr @X509_get0_serialNumber(ptr noundef nonnull %cond70) #6
+  %call119 = call ptr @X509_get_issuer_name(ptr noundef nonnull %cond71) #6
+  %call120 = call ptr @X509_get0_serialNumber(ptr noundef nonnull %cond71) #6
   %call121 = call ptr @OSSL_CRMF_CERTID_gen(ptr noundef %call119, ptr noundef %call120) #6
   %cmp122 = icmp eq ptr %call121, null
   br i1 %cmp122, label %err, label %if.end124
@@ -816,7 +816,7 @@ declare ptr @X509V3_get_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) 
 declare ptr @X509_get0_extensions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add1_extension(ptr noundef %pexts, i32 noundef %nid, i32 noundef %crit, ptr noundef %ex) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add1_extension(ptr noundef %pexts, i32 noundef %nid, i32 noundef %crit, ptr noundef %ex) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pexts, null
   br i1 %cmp.not, label %return, label %if.end
@@ -1473,7 +1473,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 declare i32 @OSSL_CMP_ITAV_push0_stack_item(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_msg_gen_push1_ITAVs(ptr noundef readonly %msg, ptr noundef %itavs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_msg_gen_push1_ITAVs(ptr noundef readonly %msg, ptr noundef %itavs) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %return, label %for.cond.preheader
@@ -1491,7 +1491,7 @@ for.cond:                                         ; preds = %ossl_cmp_msg_gen_pu
   %inc = add nuw nsw i32 %i.013, 1
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %itavs) #6
   %cmp6 = icmp slt i32 %inc, %call5
-  br i1 %cmp6, label %for.body, label %return, !llvm.loop !8
+  br i1 %cmp6, label %for.body, label %return, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.013 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -1563,7 +1563,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp9.not, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end8
-  %call11 = tail call i32 @ossl_cmp_msg_gen_push1_ITAVs(ptr noundef nonnull %call, ptr noundef nonnull %itavs), !range !4
+  %call11 = tail call i32 @ossl_cmp_msg_gen_push1_ITAVs(ptr noundef nonnull %call, ptr noundef nonnull %itavs)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %if.end14
 
@@ -1737,7 +1737,7 @@ declare ptr @ERR_reason_error_string(i64 noundef) local_unnamed_addr #1
 declare i32 @ossl_cmp_sk_ASN1_UTF8STRING_push_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_certstatus_set0_certHash(ptr noundef %certStatus, ptr noundef %hash) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_certstatus_set0_certHash(ptr noundef %certStatus, ptr noundef %hash) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %certStatus, null
   br i1 %cmp.not, label %return, label %if.end
@@ -2106,7 +2106,7 @@ for.inc:                                          ; preds = %suitable_rid.exit.t
   %inc = add nuw nsw i32 %i.016, 1
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %prc) #6
   %cmp5 = icmp slt i32 %inc, %call.i
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   tail call void @ERR_new() #6
@@ -2169,7 +2169,7 @@ for.inc:                                          ; preds = %suitable_rid.exit.t
   %4 = load ptr, ptr %response, align 8
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #6
   %cmp6 = icmp slt i32 %inc, %call5
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   tail call void @ERR_new() #6
@@ -2270,7 +2270,7 @@ declare ptr @OSSL_CRMF_ENCRYPTEDVALUE_get1_encCert(ptr noundef, ptr noundef, ptr
 declare i32 @ossl_x509_set0_libctx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_MSG_update_transactionID(ptr noundef %ctx, ptr noundef %msg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_transactionID(ptr noundef %ctx, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %msg, null
@@ -2310,7 +2310,7 @@ return:                                           ; preds = %if.end3, %lor.rhs, 
 declare i32 @ossl_cmp_hdr_set_transactionID(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_MSG_update_recipNonce(ptr noundef %ctx, ptr noundef %msg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_MSG_update_recipNonce(ptr noundef %ctx, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %msg, null
@@ -2581,10 +2581,9 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

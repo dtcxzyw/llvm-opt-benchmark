@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [28 x i8] c"error reading the file, %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @crl2pkcs7_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %informat = alloca i32, align 4
   %outformat = alloca i32, align 4

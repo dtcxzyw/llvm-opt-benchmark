@@ -157,11 +157,11 @@ if.end9.i:                                        ; preds = %if.end.i
   %tobool.i33.not.i = icmp eq i64 %v.coerce1, 0
   %spec.select.i = select i1 %tobool.i33.not.i, i64 %v.coerce0, i64 %v.coerce1
   %spec.select99.i = select i1 %tobool.i33.not.i, i32 63, i32 127
-  %1 = call i64 @llvm.ctlz.i64(i64 %spec.select.i, i1 true), !range !5
-  %cast.i.i20.i = trunc i64 %1 to i32
+  %1 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i, i1 true)
+  %cast.i.i20.i = trunc nuw nsw i64 %1 to i32
   %sub6.i38.i = xor i32 %spec.select99.i, %cast.i.i20.i
-  %2 = call i64 @llvm.ctlz.i64(i64 %div.sroa.0.0, i1 true), !range !5
-  %cast.i.i22.i = trunc i64 %2 to i32
+  %2 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.sroa.0.0, i1 true)
+  %cast.i.i22.i = trunc nuw nsw i64 %2 to i32
   %sub6.i.neg.i = add nsw i32 %sub6.i38.i, -63
   %sub.i = add nsw i32 %sub6.i.neg.i, %cast.i.i22.i
   %cmp.not85.i = icmp slt i32 %sub.i, 0
@@ -171,7 +171,7 @@ for.body.preheader.i:                             ; preds = %if.end9.i
   %sh_prom.i.i.i = zext nneg i32 %sub.i to i128
   %shl.i.i.i = shl i128 %coerce2.sroa.0.0.insert.ext.i.i.i, %sh_prom.i.i.i
   %coerce1.sroa.2.0.extract.shift.i.i.i = lshr i128 %shl.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i to i64
   %coerce1.sroa.0.0.extract.trunc.i.i.i = trunc i128 %shl.i.i.i to i64
   br label %for.body.i
 
@@ -190,7 +190,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shl.i.i34.i = or disjoint i128 %4, %3
   %coerce1.sroa.0.0.extract.trunc.i.i35.i = trunc i128 %4 to i64
   %coerce1.sroa.2.0.extract.shift.i.i36.i = lshr i128 %shl.i.i34.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i37.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i36.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i37.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i36.i to i64
   %coerce.sroa.2.0.insert.ext.i.i38.i = zext i64 %dividend.sroa.8.091.i to i128
   %coerce.sroa.2.0.insert.shift.i.i39.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i38.i, 64
   %coerce.sroa.0.0.insert.ext.i.i40.i = zext i64 %dividend.sroa.0.090.i to i128
@@ -203,7 +203,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %coerce.sroa.0.0.insert.insert.i.i54.i = sub i128 %coerce.sroa.0.0.insert.insert.i.i41.i, %coerce2.sroa.0.0.insert.ext.i.i44.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i.i54.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i54.i, 64
-  %.tr.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i = sub i64 %.tr.i.i.i, %denominator.sroa.8.086.i
   %coerce.sroa.0.0.insert.insert.i1.i.i = zext i1 %cmp.i.i46.not.i to i64
   %quotient.sroa.0.1.i = or disjoint i64 %coerce.sroa.0.0.insert.insert.i1.i.i, %coerce1.sroa.0.0.extract.trunc.i.i35.i
@@ -214,7 +214,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %coerce1.sroa.2.0.extract.shift.i.i66.i = lshr i64 %denominator.sroa.8.086.i, 1
   %inc.i = add nuw nsw i32 %i.092.i, 1
   %exitcond.not.i = icmp eq i32 %i.092.i, %sub.i
-  br i1 %exitcond.not.i, label %invoke.cont13, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %invoke.cont13, label %for.body.i, !llvm.loop !5
 
 invoke.cont13:                                    ; preds = %for.body.i, %invoke.cont10, %if.end.i, %if.end9.i
   %high.sroa.0.0 = phi i64 [ 0, %invoke.cont10 ], [ 1, %if.end.i ], [ 0, %if.end9.i ], [ %quotient.sroa.0.1.i, %for.body.i ]
@@ -235,11 +235,11 @@ if.end9.i19:                                      ; preds = %if.end.i17
   %tobool.i33.not.i20 = icmp eq i64 %high.sroa.10.0, 0
   %spec.select.i21 = select i1 %tobool.i33.not.i20, i64 %high.sroa.0.0, i64 %high.sroa.10.0
   %spec.select99.i22 = select i1 %tobool.i33.not.i20, i32 63, i32 127
-  %6 = call i64 @llvm.ctlz.i64(i64 %spec.select.i21, i1 true), !range !5
-  %cast.i.i20.i23 = trunc i64 %6 to i32
+  %6 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i21, i1 true)
+  %cast.i.i20.i23 = trunc nuw nsw i64 %6 to i32
   %sub6.i38.i24 = xor i32 %spec.select99.i22, %cast.i.i20.i23
-  %7 = call i64 @llvm.ctlz.i64(i64 %div.sroa.0.0, i1 true), !range !5
-  %cast.i.i22.i28 = trunc i64 %7 to i32
+  %7 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.sroa.0.0, i1 true)
+  %cast.i.i22.i28 = trunc nuw nsw i64 %7 to i32
   %sub6.i.neg.i29 = add nuw nsw i32 %cast.i.i22.i28, -63
   %sub.i30 = add nsw i32 %sub6.i.neg.i29, %sub6.i38.i24
   %cmp.not85.i31 = icmp slt i32 %sub.i30, 0
@@ -249,7 +249,7 @@ for.body.preheader.i32:                           ; preds = %if.end9.i19
   %sh_prom.i.i.i33 = zext nneg i32 %sub.i30 to i128
   %shl.i.i.i34 = shl i128 %coerce2.sroa.0.0.insert.ext.i.i.i, %sh_prom.i.i.i33
   %coerce1.sroa.2.0.extract.shift.i.i.i35 = lshr i128 %shl.i.i.i34, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i36 = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i35 to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i36 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i35 to i64
   %coerce1.sroa.0.0.extract.trunc.i.i.i37 = trunc i128 %shl.i.i.i34 to i64
   br label %for.body.i38
 
@@ -273,7 +273,7 @@ for.body.i38:                                     ; preds = %for.body.i38, %for.
   %coerce.sroa.0.0.insert.insert.i.i54.i61 = sub i128 %coerce.sroa.0.0.insert.insert.i.i41.i55, %coerce2.sroa.0.0.insert.ext.i.i44.i58
   %coerce3.sroa.0.0.extract.trunc.i.i.i62 = trunc i128 %coerce.sroa.0.0.insert.insert.i.i54.i61 to i64
   %8 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i54.i61, 64
-  %.tr.i.i.i63 = trunc i128 %8 to i64
+  %.tr.i.i.i63 = trunc nuw i128 %8 to i64
   %.narrow.i.i.i64 = sub i64 %.tr.i.i.i63, %denominator.sroa.8.086.i45
   %coerce.sroa.0.0.insert.insert.i1.i.i65 = zext i1 %cmp.i.i46.not.i60 to i64
   %quotient.sroa.0.1.i66 = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i35.i49, %coerce.sroa.0.0.insert.insert.i1.i.i65
@@ -284,7 +284,7 @@ for.body.i38:                                     ; preds = %for.body.i38, %for.
   %coerce1.sroa.2.0.extract.shift.i.i66.i71 = lshr i64 %denominator.sroa.8.086.i45, 1
   %inc.i72 = add nuw nsw i32 %i.092.i39, 1
   %exitcond.not.i73 = icmp eq i32 %i.092.i39, %sub.i30
-  br i1 %exitcond.not.i73, label %invoke.cont16, label %for.body.i38, !llvm.loop !6
+  br i1 %exitcond.not.i73, label %invoke.cont16, label %for.body.i38, !llvm.loop !5
 
 invoke.cont16:                                    ; preds = %for.body.i38
   %cmp.not = icmp eq i64 %quotient.sroa.0.1.i66, 0
@@ -500,7 +500,7 @@ cond.true.i:                                      ; preds = %if.end
   %coerce.sroa.0.0.insert.insert.neg.i.i = sub nuw i128 %coerce.sroa.2.0.insert.shift.neg.i.i, %coerce.sroa.0.0.insert.ext.i.i
   %coerce1.sroa.0.0.extract.trunc.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.neg.i.i to i64
   %coerce1.sroa.2.0.extract.shift.i.i = lshr i128 %coerce.sroa.0.0.insert.insert.neg.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %cond.true.i, %if.end, %if.end.thread
@@ -584,7 +584,7 @@ cond.true.i:                                      ; preds = %if.then8
   %coerce.sroa.0.0.insert.insert.neg.i.i = sub nuw i128 %coerce.sroa.2.0.insert.shift.neg.i.i, %coerce.sroa.0.0.insert.ext.i.i
   %coerce1.sroa.0.0.extract.trunc.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.neg.i.i to i64
   %coerce1.sroa.2.0.extract.shift.i.i = lshr i128 %coerce.sroa.0.0.insert.insert.neg.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.true.i, %if.else, %if.then14, %entry
@@ -777,6 +777,5 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

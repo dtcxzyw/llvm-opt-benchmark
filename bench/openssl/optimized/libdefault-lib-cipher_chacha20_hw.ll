@@ -80,7 +80,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %5, label %while.body, label %while.end.loopexit, !llvm.loop !6
 
 while.end.loopexit:                               ; preds = %while.body
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
@@ -136,7 +136,7 @@ while.body35:                                     ; preds = %while.body35.lr.ph,
   %in.addr.270 = phi ptr [ %in.addr.1, %while.body35.lr.ph ], [ %add.ptr, %if.end60 ]
   %div57 = lshr exact i64 %inl.addr.271, 6
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %div57, i64 268435456)
-  %conv40 = trunc i64 %spec.store.select to i32
+  %conv40 = trunc nuw nsw i64 %spec.store.select to i32
   %add = add i32 %ctr32.073, %conv40
   %conv41 = zext i32 %add to i64
   %cmp42 = icmp ugt i64 %spec.store.select, %conv41

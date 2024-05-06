@@ -44,10 +44,10 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_get_root(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_get_root(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc i32 @do_proc_get_root(ptr noundef %5, ptr noundef %1, ptr noundef %2), !range !5
+  %6 = tail call fastcc i32 @do_proc_get_root(ptr noundef %5, ptr noundef %1, ptr noundef %2)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %16, label %8
 
@@ -60,7 +60,7 @@ define internal i32 @nfs3_proc_get_root(ptr nocapture noundef readonly %0, ptr n
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call fastcc i32 @do_proc_get_root(ptr noundef %11, ptr noundef %1, ptr noundef %2), !range !5
+  %15 = tail call fastcc i32 @do_proc_get_root(ptr noundef %11, ptr noundef %1, ptr noundef %2)
   br label %16
 
 16:                                               ; preds = %14, %8, %3
@@ -75,7 +75,7 @@ declare dso_local i32 @nfs_submount(ptr noundef, ptr noundef) #1
 declare dso_local i32 @nfs_try_get_tree(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_getattr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 1), ptr %5, align 8
@@ -108,7 +108,7 @@ define internal i32 @nfs3_proc_getattr(ptr nocapture noundef readonly %0, ptr no
   br i1 %21, label %22, label %39
 
 22:                                               ; preds = %19
-  %23 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %23 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   store volatile i32 8450, ptr %25, align 8
@@ -129,7 +129,7 @@ define internal i32 @nfs3_proc_getattr(ptr nocapture noundef readonly %0, ptr no
 36:                                               ; preds = %30, %22
   %37 = phi i32 [ 0, %22 ], [ %35, %30 ]
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %19, label %39, !llvm.loop !7
+  br i1 %38, label %19, label %39, !llvm.loop !6
 
 39:                                               ; preds = %36, %19
   %40 = phi i32 [ %20, %19 ], [ -512, %36 ]
@@ -138,7 +138,7 @@ define internal i32 @nfs3_proc_getattr(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nfs3_sattrargs, align 8
   %5 = alloca %struct.rpc_message, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -187,7 +187,7 @@ define internal noundef i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0
   br label %30
 
 30:                                               ; preds = %.thread, %3
-  store i64 0, ptr %8, align 8, !annotation !10
+  store i64 0, ptr %8, align 8, !annotation !9
   call void @nfs_fattr_init(ptr noundef %1) #10
   %31 = getelementptr inbounds i8, ptr %7, i64 40
   %32 = load ptr, ptr %31, align 8
@@ -205,7 +205,7 @@ define internal noundef i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0
   ]
 
 39:                                               ; preds = %37
-  %40 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %40 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds i8, ptr %41, i64 24
   store volatile i32 8450, ptr %42, align 8
@@ -226,7 +226,7 @@ define internal noundef i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0
 53:                                               ; preds = %47, %39
   %54 = phi i32 [ 0, %39 ], [ %52, %47 ]
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %37, label %.thread3, !llvm.loop !7
+  br i1 %55, label %37, label %.thread3, !llvm.loop !6
 
 56:                                               ; preds = %37
   call void @nfs_setattr_update_inode(ptr noundef %7, ptr noundef %2, ptr noundef %1) #10
@@ -248,7 +248,7 @@ define internal noundef i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_lookup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_lookup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 872
@@ -281,12 +281,12 @@ define internal i32 @nfs3_proc_lookup(ptr noundef %0, ptr nocapture noundef read
   %28 = getelementptr inbounds i8, ptr %1, i64 36
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = tail call fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %27, i64 noundef %30, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %25), !range !5
+  %31 = tail call fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %27, i64 noundef %30, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %25), !range !10
   ret i32 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_lookupp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_lookupp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #10
   store i8 46, ptr %4, align 1
@@ -303,19 +303,19 @@ define internal i32 @nfs3_proc_lookupp(ptr noundef %0, ptr noundef %1, ptr nound
   %13 = lshr i32 %12, 11
   %14 = trunc i32 %13 to i16
   %15 = and i16 %14, 4096
-  %16 = call fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %15), !range !5
+  %16 = call fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %15), !range !10
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #10
   ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_access(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nfs3_accessargs, align 8
   %5 = alloca %struct.nfs3_accessres, align 8
   %6 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %7 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %7, align 8, !annotation !10
+  store i64 0, ptr %7, align 8, !annotation !9
   %8 = getelementptr i8, ptr %0, i64 -424
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
@@ -323,7 +323,7 @@ define internal i32 @nfs3_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 4), ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 8
@@ -352,7 +352,7 @@ define internal i32 @nfs3_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %26, label %27, label %46
 
 27:                                               ; preds = %24
-  %28 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %28 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   store volatile i32 8450, ptr %30, align 8
@@ -373,7 +373,7 @@ define internal i32 @nfs3_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
 41:                                               ; preds = %35, %27
   %42 = phi i32 [ 0, %27 ], [ %40, %35 ]
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %24, label %.thread, !llvm.loop !7
+  br i1 %43, label %24, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %41
   %44 = load ptr, ptr %5, align 8
@@ -407,7 +407,7 @@ define internal i32 @nfs3_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.nfs3_readlinkargs, align 8
   %7 = alloca %struct.rpc_message, align 8
@@ -448,7 +448,7 @@ define internal i32 @nfs3_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %26, label %27, label %44
 
 27:                                               ; preds = %24
-  %28 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %28 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   store volatile i32 8450, ptr %30, align 8
@@ -469,7 +469,7 @@ define internal i32 @nfs3_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noun
 41:                                               ; preds = %35, %27
   %42 = phi i32 [ 0, %27 ], [ %40, %35 ]
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %24, label %44, !llvm.loop !7
+  br i1 %43, label %24, label %44, !llvm.loop !6
 
 44:                                               ; preds = %41, %24
   %45 = phi i32 [ %25, %24 ], [ -512, %41 ]
@@ -489,9 +489,9 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !annotation !10
+  store ptr null, ptr %5, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr null, ptr %6, align 8, !annotation !10
+  store ptr null, ptr %6, align 8, !annotation !9
   %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 688) #12
   %9 = icmp eq ptr %8, null
@@ -541,7 +541,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   %35 = tail call i32 @llvm.bswap.i32(i32 %34)
   %36 = getelementptr inbounds i8, ptr %8, i64 68
   store i32 %35, ptr %36, align 4
-  %37 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %37 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds i8, ptr %38, i64 1320
   %40 = load i32, ptr %39, align 8
@@ -616,7 +616,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
 
 74:                                               ; preds = %65, %72
   %75 = load ptr, ptr %18, align 8
-  %76 = call i32 @nfs3_proc_setattr(ptr noundef %62, ptr noundef %75, ptr noundef %2), !range !5
+  %76 = call i32 @nfs3_proc_setattr(ptr noundef %62, ptr noundef %75, ptr noundef %2), !range !10
   %77 = getelementptr inbounds i8, ptr %62, i64 48
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %18, align 8
@@ -695,7 +695,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_remove(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.nfs_removeargs, align 8
   %4 = alloca %struct.nfs_removeres, align 8
   %5 = alloca %struct.rpc_message, align 8
@@ -708,7 +708,7 @@ define internal i32 @nfs3_proc_remove(ptr noundef %0, ptr nocapture noundef read
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %8, ptr noundef align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 12), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 8
@@ -738,7 +738,7 @@ define internal i32 @nfs3_proc_remove(ptr noundef %0, ptr nocapture noundef read
   br i1 %25, label %26, label %43
 
 26:                                               ; preds = %23
-  %27 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %27 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   store volatile i32 8450, ptr %29, align 8
@@ -759,7 +759,7 @@ define internal i32 @nfs3_proc_remove(ptr noundef %0, ptr nocapture noundef read
 40:                                               ; preds = %34, %26
   %41 = phi i32 [ 0, %26 ], [ %39, %34 ]
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %23, label %43, !llvm.loop !7
+  br i1 %42, label %23, label %43, !llvm.loop !6
 
 43:                                               ; preds = %40, %23
   %44 = phi i32 [ %24, %23 ], [ -512, %40 ]
@@ -790,7 +790,7 @@ define internal void @nfs3_proc_unlink_rpc_prepare(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs3_proc_unlink_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @nfs3_proc_unlink_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -528
@@ -836,7 +836,7 @@ define internal void @nfs3_proc_rename_rpc_prepare(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs3_proc_rename_done(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @nfs3_proc_rename_done(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, -528
@@ -873,13 +873,13 @@ define internal noundef i32 @nfs3_proc_rename_done(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_link(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca %struct.nfs3_linkargs, align 8
   %5 = alloca %struct.nfs3_linkres, align 8
   %6 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %7 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 0, ptr %7, align 8, !annotation !10
+  store i64 0, ptr %7, align 8, !annotation !9
   %8 = getelementptr i8, ptr %0, i64 -424
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
@@ -894,7 +894,7 @@ define internal i32 @nfs3_proc_link(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 15), ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 8
@@ -929,7 +929,7 @@ define internal i32 @nfs3_proc_link(ptr noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %36, label %37, label %54
 
 37:                                               ; preds = %34
-  %38 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %38 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   store volatile i32 8450, ptr %40, align 8
@@ -950,7 +950,7 @@ define internal i32 @nfs3_proc_link(ptr noundef %0, ptr noundef %1, ptr nocaptur
 51:                                               ; preds = %45, %37
   %52 = phi i32 [ 0, %37 ], [ %50, %45 ]
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %34, label %54, !llvm.loop !7
+  br i1 %53, label %34, label %54, !llvm.loop !6
 
 54:                                               ; preds = %51, %34
   %55 = phi i32 [ %35, %34 ], [ -512, %51 ]
@@ -1049,9 +1049,9 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !annotation !10
+  store ptr null, ptr %4, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !annotation !10
+  store ptr null, ptr %5, align 8, !annotation !9
   %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 688) #12
   %8 = icmp eq ptr %7, null
@@ -1171,12 +1171,12 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_rmdir(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.nfs3_diropargs, align 8
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i64 0, ptr %5, align 8, !annotation !9
   %6 = getelementptr i8, ptr %0, i64 -424
   store ptr %6, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1214,7 +1214,7 @@ define internal i32 @nfs3_proc_rmdir(ptr noundef %0, ptr nocapture noundef reado
   br i1 %27, label %28, label %45
 
 28:                                               ; preds = %25
-  %29 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %29 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   store volatile i32 8450, ptr %31, align 8
@@ -1235,7 +1235,7 @@ define internal i32 @nfs3_proc_rmdir(ptr noundef %0, ptr nocapture noundef reado
 42:                                               ; preds = %36, %28
   %43 = phi i32 [ 0, %28 ], [ %41, %36 ]
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %25, label %45, !llvm.loop !7
+  br i1 %44, label %25, label %45, !llvm.loop !6
 
 45:                                               ; preds = %42, %25
   %46 = phi i32 [ %26, %25 ], [ -512, %42 ]
@@ -1251,7 +1251,7 @@ define internal i32 @nfs3_proc_rmdir(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_readdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.nfs3_readdirargs, align 8
   %4 = alloca %struct.nfs3_readdirres, align 8
   %5 = alloca %struct.rpc_message, align 8
@@ -1260,7 +1260,7 @@ define internal i32 @nfs3_proc_readdir(ptr nocapture noundef readonly %0, ptr no
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %9 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %9, align 8, !annotation !10
+  store i64 0, ptr %9, align 8, !annotation !9
   %10 = getelementptr i8, ptr %8, i64 -424
   store ptr %10, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1337,7 +1337,7 @@ define internal i32 @nfs3_proc_readdir(ptr nocapture noundef readonly %0, ptr no
   br i1 %52, label %53, label %70
 
 53:                                               ; preds = %50
-  %54 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %54 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %55 = inttoptr i64 %54 to ptr
   %56 = getelementptr inbounds i8, ptr %55, i64 24
   store volatile i32 8450, ptr %56, align 8
@@ -1358,7 +1358,7 @@ define internal i32 @nfs3_proc_readdir(ptr nocapture noundef readonly %0, ptr no
 67:                                               ; preds = %61, %53
   %68 = phi i32 [ 0, %53 ], [ %66, %61 ]
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %50, label %70, !llvm.loop !7
+  br i1 %69, label %50, label %70, !llvm.loop !6
 
 70:                                               ; preds = %67, %50
   %71 = phi i32 [ %51, %50 ], [ -512, %67 ]
@@ -1382,9 +1382,9 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !annotation !10
+  store ptr null, ptr %5, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr null, ptr %6, align 8, !annotation !10
+  store ptr null, ptr %6, align 8, !annotation !9
   %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 688) #12
   %9 = icmp eq ptr %8, null
@@ -1528,7 +1528,7 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_statfs(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 18), ptr %4, align 8
@@ -1550,7 +1550,7 @@ define internal i32 @nfs3_proc_statfs(ptr nocapture noundef readonly %0, ptr nou
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %11
-  %15 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %15 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   store volatile i32 8450, ptr %17, align 8
@@ -1571,7 +1571,7 @@ define internal i32 @nfs3_proc_statfs(ptr nocapture noundef readonly %0, ptr nou
 28:                                               ; preds = %22, %14
   %29 = phi i32 [ 0, %14 ], [ %27, %22 ]
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %11, label %31, !llvm.loop !7
+  br i1 %30, label %11, label %31, !llvm.loop !6
 
 31:                                               ; preds = %28, %11
   %32 = phi i32 [ %12, %11 ], [ -512, %28 ]
@@ -1580,7 +1580,7 @@ define internal i32 @nfs3_proc_statfs(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   %5 = alloca %struct.rpc_message, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1603,7 +1603,7 @@ define internal i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr nou
   br i1 %14, label %15, label %32
 
 15:                                               ; preds = %12
-  %16 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %16 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   store volatile i32 8450, ptr %18, align 8
@@ -1624,7 +1624,7 @@ define internal i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr nou
 29:                                               ; preds = %23, %15
   %30 = phi i32 [ 0, %15 ], [ %28, %23 ]
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %12, label %.thread, !llvm.loop !7
+  br i1 %31, label %12, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
@@ -1663,7 +1663,7 @@ define internal i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr nou
   br i1 %48, label %49, label %66
 
 49:                                               ; preds = %46
-  %50 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %50 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %51 = inttoptr i64 %50 to ptr
   %52 = getelementptr inbounds i8, ptr %51, i64 24
   store volatile i32 8450, ptr %52, align 8
@@ -1684,7 +1684,7 @@ define internal i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr nou
 63:                                               ; preds = %57, %49
   %64 = phi i32 [ 0, %49 ], [ %62, %57 ]
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %46, label %66, !llvm.loop !7
+  br i1 %65, label %46, label %66, !llvm.loop !6
 
 66:                                               ; preds = %63, %46
   %67 = phi i32 [ %47, %46 ], [ -512, %63 ]
@@ -1697,7 +1697,7 @@ define internal i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_pathconf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_pathconf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 20), ptr %4, align 8
@@ -1719,7 +1719,7 @@ define internal i32 @nfs3_proc_pathconf(ptr nocapture noundef readonly %0, ptr n
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %11
-  %15 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %15 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   store volatile i32 8450, ptr %17, align 8
@@ -1740,7 +1740,7 @@ define internal i32 @nfs3_proc_pathconf(ptr nocapture noundef readonly %0, ptr n
 28:                                               ; preds = %22, %14
   %29 = phi i32 [ 0, %14 ], [ %27, %22 ]
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %11, label %31, !llvm.loop !7
+  br i1 %30, label %11, label %31, !llvm.loop !6
 
 31:                                               ; preds = %28, %11
   %32 = phi i32 [ %12, %11 ], [ -512, %28 ]
@@ -2143,7 +2143,7 @@ declare dso_local void @nfs_put_lock_context(ptr noundef) local_unnamed_addr #1
 declare dso_local void @put_nfs_open_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_proc_get_root(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs3_procedures, i64 0, i64 19), ptr %4, align 8
@@ -2165,7 +2165,7 @@ define internal fastcc i32 @do_proc_get_root(ptr noundef %0, ptr noundef %1, ptr
   ]
 
 11:                                               ; preds = %9
-  %12 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %12 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   store volatile i32 8450, ptr %14, align 8
@@ -2186,7 +2186,7 @@ define internal fastcc i32 @do_proc_get_root(ptr noundef %0, ptr noundef %1, ptr
 25:                                               ; preds = %19, %11
   %26 = phi i32 [ 0, %11 ], [ %24, %19 ]
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %9, label %.thread, !llvm.loop !7
+  br i1 %27, label %9, label %.thread, !llvm.loop !6
 
 28:                                               ; preds = %9
   %29 = load ptr, ptr %2, align 8
@@ -2206,7 +2206,7 @@ define internal fastcc i32 @do_proc_get_root(ptr noundef %0, ptr noundef %1, ptr
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %34
-  %38 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %38 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   store volatile i32 8450, ptr %40, align 8
@@ -2227,7 +2227,7 @@ define internal fastcc i32 @do_proc_get_root(ptr noundef %0, ptr noundef %1, ptr
 51:                                               ; preds = %45, %37
   %52 = phi i32 [ 0, %37 ], [ %50, %45 ]
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %34, label %.thread, !llvm.loop !7
+  br i1 %53, label %34, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %9, %25, %51, %34, %28
   %54 = phi i32 [ 0, %28 ], [ -512, %51 ], [ %35, %34 ], [ %10, %9 ], [ -512, %25 ]
@@ -2254,13 +2254,13 @@ declare dso_local void @nfs_setattr_update_inode(ptr noundef, ptr noundef, ptr n
 declare dso_local void @nfs_zap_acl_cache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.nfs3_diropargs, align 8
   %8 = alloca %struct.nfs3_diropres, align 8
   %9 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 0, ptr %10, align 8, !annotation !10
+  store i64 0, ptr %10, align 8, !annotation !9
   %11 = getelementptr i8, ptr %0, i64 -424
   store ptr %11, ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
@@ -2304,7 +2304,7 @@ define internal fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %1, i
   br i1 %32, label %33, label %52
 
 33:                                               ; preds = %30
-  %34 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %34 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   store volatile i32 8450, ptr %36, align 8
@@ -2325,7 +2325,7 @@ define internal fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %1, i
 47:                                               ; preds = %41, %33
   %48 = phi i32 [ 0, %33 ], [ %46, %41 ]
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %30, label %.thread, !llvm.loop !7
+  br i1 %49, label %30, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %47
   %50 = load ptr, ptr %8, align 8
@@ -2361,7 +2361,7 @@ define internal fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %1, i
   br i1 %68, label %69, label %.loopexit
 
 69:                                               ; preds = %66
-  %70 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %70 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %71 = inttoptr i64 %70 to ptr
   %72 = getelementptr inbounds i8, ptr %71, i64 24
   store volatile i32 8450, ptr %72, align 8
@@ -2382,7 +2382,7 @@ define internal fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %1, i
 83:                                               ; preds = %77, %69
   %84 = phi i32 [ 0, %69 ], [ %82, %77 ]
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %66, label %.loopexit, !llvm.loop !7
+  br i1 %85, label %66, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %83, %66, %.thread, %56, %52
   %86 = phi i32 [ %31, %56 ], [ %31, %52 ], [ -512, %.thread ], [ -512, %83 ], [ %67, %66 ]
@@ -2432,7 +2432,7 @@ define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %12, label %13, label %33
 
 13:                                               ; preds = %10
-  %14 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %14 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   store volatile i32 8450, ptr %16, align 8
@@ -2453,7 +2453,7 @@ define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr n
 27:                                               ; preds = %21, %13
   %28 = phi i32 [ 0, %13 ], [ %26, %21 ]
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %10, label %.thread, !llvm.loop !7
+  br i1 %29, label %10, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %27
   %30 = getelementptr inbounds i8, ptr %2, i64 80
@@ -2550,13 +2550,13 @@ attributes #12 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i32 -527, i32 -528}
-!6 = !{i64 2148184784}
-!7 = distinct !{!7, !8, !9}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !9}
+!5 = !{i64 2148184784}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unroll.disable"}
+!9 = !{!"auto-init"}
+!10 = !{i32 -527, i32 -528}
+!11 = distinct !{!11, !8}
 !12 = !{i64 2149012171, i64 2149012210, i64 2149012231, i64 2149012268, i64 2149012291, i64 2149012300}
 !13 = !{!"branch_weights", i32 2000, i32 1}
 !14 = !{i64 2150379231}

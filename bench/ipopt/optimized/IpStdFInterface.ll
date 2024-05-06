@@ -249,7 +249,7 @@ define i32 @ipsolve_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 declare i32 @IpoptSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ipaddstroption_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ipaddstroption_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %7 = icmp sgt i32 %3, 0
@@ -278,7 +278,7 @@ define i32 @ipaddstroption_(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %17) #7
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
   %19 = getelementptr inbounds i8, ptr %15, i64 %17
   store i8 0, ptr %19, align 1
   br label %f2cstr.exit
@@ -311,7 +311,7 @@ f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
 
 29:                                               ; preds = %._crit_edge.i11
   %30 = sext i32 %.0.lcssa.i12 to i64
-  %31 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef %2, i64 noundef %30) #7
+  %31 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef readonly %2, i64 noundef %30) #7
   %32 = getelementptr inbounds i8, ptr %28, i64 %30
   store i8 0, ptr %32, align 1
   br label %f2cstr.exit18
@@ -330,7 +330,7 @@ f2cstr.exit18:                                    ; preds = %._crit_edge.i11, %2
 declare zeroext i1 @AddIpoptStrOption(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ipaddnumoption_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ipaddnumoption_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %6 = icmp sgt i32 %3, 0
@@ -359,7 +359,7 @@ define i32 @ipaddnumoption_(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 15:                                               ; preds = %._crit_edge.i
   %16 = sext i32 %.0.lcssa.i to i64
-  %17 = tail call ptr @strncpy(ptr noundef nonnull %14, ptr noundef %1, i64 noundef %16) #7
+  %17 = tail call ptr @strncpy(ptr noundef nonnull %14, ptr noundef readonly %1, i64 noundef %16) #7
   %18 = getelementptr inbounds i8, ptr %14, i64 %16
   store i8 0, ptr %18, align 1
   br label %f2cstr.exit
@@ -378,7 +378,7 @@ f2cstr.exit:                                      ; preds = %._crit_edge.i, %15
 declare zeroext i1 @AddIpoptNumOption(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ipaddintoption_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ipaddintoption_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = load i32, ptr %2, align 4
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
@@ -408,7 +408,7 @@ define i32 @ipaddintoption_(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %17) #7
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
   %19 = getelementptr inbounds i8, ptr %15, i64 %17
   store i8 0, ptr %19, align 1
   br label %f2cstr.exit
@@ -426,7 +426,7 @@ f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
 declare zeroext i1 @AddIpoptIntOption(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ipopenoutputfile_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ipopenoutputfile_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = load i32, ptr %2, align 4
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
@@ -456,7 +456,7 @@ define i32 @ipopenoutputfile_(ptr nocapture noundef readonly %0, ptr nocapture n
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %17) #7
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
   %19 = getelementptr inbounds i8, ptr %15, i64 %17
   store i8 0, ptr %19, align 1
   br label %f2cstr.exit
@@ -543,7 +543,7 @@ define void @ipunsetcallback_(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ipgetcurriterate_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef readonly %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ipgetcurriterate_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef readonly %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
@@ -573,7 +573,7 @@ define i32 @ipgetcurriterate_(ptr nocapture noundef readonly %0, ptr nocapture n
 declare zeroext i1 @GetIpoptCurrentIterate(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ipgetcurrviolations_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef readonly %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ipgetcurrviolations_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef readonly %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 {
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
@@ -605,7 +605,7 @@ define i32 @ipgetcurrviolations_(ptr nocapture noundef readonly %0, ptr nocaptur
 declare zeroext i1 @GetIpoptCurrentViolations(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ipsetproblemscaling_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ipsetproblemscaling_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8

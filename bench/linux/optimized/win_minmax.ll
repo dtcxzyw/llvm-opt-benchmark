@@ -88,14 +88,14 @@ define dso_local i32 @minmax_running_max(ptr nocapture noundef %0, i32 noundef %
   %53 = sub i32 %2, %52
   %54 = icmp ugt i32 %53, %1
   %55 = lshr i64 %46, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   br i1 %54, label %57, label %84, !prof !6
 
 57:                                               ; preds = %45
   store i64 %47, ptr %0, align 4
   store i64 %51, ptr %44, align 4
   %58 = lshr i64 %47, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   br label %81
 
 60:                                               ; preds = %39
@@ -223,14 +223,14 @@ define dso_local i32 @minmax_running_min(ptr nocapture noundef %0, i32 noundef %
   %53 = sub i32 %2, %52
   %54 = icmp ugt i32 %53, %1
   %55 = lshr i64 %46, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   br i1 %54, label %57, label %84, !prof !6
 
 57:                                               ; preds = %45
   store i64 %47, ptr %0, align 4
   store i64 %51, ptr %44, align 4
   %58 = lshr i64 %47, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   br label %81
 
 60:                                               ; preds = %39

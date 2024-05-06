@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_mul(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_mul(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %top1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top1, align 8
@@ -387,7 +387,7 @@ if.end195:                                        ; preds = %if.else187, %if.the
   br i1 %tobool205.not, label %if.end221, label %if.then206
 
 if.then206:                                       ; preds = %if.end195
-  %add207 = mul nsw i32 %n, 3
+  %add207 = mul nuw nsw i32 %n, 3
   %idxprom208 = zext nneg i32 %add207 to i64
   %arrayidx209 = getelementptr inbounds i64, ptr %r, i64 %idxprom208
   %0 = load i64, ptr %arrayidx209, align 8
@@ -723,7 +723,7 @@ declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_mul_word(ptr noundef %bn, i64 noundef %w) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_mul_word(ptr noundef %bn, i64 noundef %w) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top, align 8
@@ -770,7 +770,7 @@ return:                                           ; preds = %if.end2, %if.end12,
 declare i64 @bn_mul_words(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_sqr(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_sqr(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %t = alloca [32 x i64], align 16
   %top = getelementptr inbounds i8, ptr %a, i64 8

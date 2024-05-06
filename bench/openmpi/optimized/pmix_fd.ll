@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_maxfd = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -26, 1) i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.split.us, label %.loopexit
 
@@ -69,7 +69,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -26, 1) i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.split.us, label %.thread
 
@@ -121,7 +121,7 @@ define noundef i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr nocapture 
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_fd_set_cloexec(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 -26, 1) i32 @pmix_fd_set_cloexec(i32 noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 1, i32 noundef 0) #9
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %8, label %4

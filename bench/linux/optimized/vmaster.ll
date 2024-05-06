@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_ctl_appl
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable__snd_ctl_add_follower317, ptr @__UNIQUE_ID___addressable_snd_ctl_add_followers318, ptr @__UNIQUE_ID___addressable_snd_ctl_add_vmaster_hook320, ptr @__UNIQUE_ID___addressable_snd_ctl_apply_vmaster_followers322, ptr @__UNIQUE_ID___addressable_snd_ctl_make_virtual_master319, ptr @__UNIQUE_ID___addressable_snd_ctl_sync_vmaster321], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @_snd_ctl_add_follower(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @_snd_ctl_add_follower(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 80
@@ -107,10 +107,10 @@ define internal i32 @follower_info(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @follower_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @follower_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call fastcc i32 @follower_init(ptr noundef %4), !range !5
+  %5 = tail call fastcc i32 @follower_init(ptr noundef %4)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
@@ -136,7 +136,7 @@ define internal i32 @follower_get(ptr nocapture noundef readonly %0, ptr nocaptu
   %21 = load i32, ptr %8, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %20, %22
-  br i1 %23, label %14, label %.loopexit, !llvm.loop !6
+  br i1 %23, label %14, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %14, %7, %2
   %24 = phi i32 [ %5, %2 ], [ 0, %7 ], [ 0, %14 ]
@@ -147,7 +147,7 @@ define internal i32 @follower_get(ptr nocapture noundef readonly %0, ptr nocaptu
 define internal i32 @follower_put(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call fastcc i32 @follower_init(ptr noundef %4), !range !5
+  %5 = tail call fastcc i32 @follower_init(ptr noundef %4)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %38, label %7
 
@@ -182,7 +182,7 @@ define internal i32 @follower_put(ptr nocapture noundef readonly %0, ptr noundef
 25:                                               ; preds = %17
   %26 = add nuw nsw i64 %18, 1
   %27 = icmp slt i64 %26, %16
-  br i1 %27, label %17, label %34, !llvm.loop !9
+  br i1 %27, label %17, label %34, !llvm.loop !8
 
 .thread:                                          ; preds = %17
   %28 = getelementptr [2 x i32], ptr %12, i64 0, i64 %18
@@ -192,7 +192,7 @@ define internal i32 @follower_put(ptr nocapture noundef readonly %0, ptr noundef
   %31 = load i32, ptr %8, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %30, %32
-  br i1 %33, label %.outer, label %.thread3, !llvm.loop !9
+  br i1 %33, label %.outer, label %.thread3, !llvm.loop !8
 
 34:                                               ; preds = %25
   br i1 %15, label %38, label %.thread3
@@ -259,7 +259,7 @@ define internal void @follower_free(ptr nocapture noundef readonly %0) #0 align 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_ctl_add_followers(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @snd_ctl_add_followers(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca %struct.snd_ctl_elem_id, align 4
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %5, null
@@ -344,7 +344,7 @@ define dso_local noundef i32 @snd_ctl_add_followers(ptr noundef %0, ptr nocaptur
   %52 = getelementptr i8, ptr %13, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread, label %11, !llvm.loop !10
+  br i1 %54, label %.thread, label %11, !llvm.loop !9
 
 .thread:                                          ; preds = %17, %51, %3
   %55 = phi i32 [ 0, %3 ], [ -12, %17 ], [ 0, %51 ]
@@ -419,7 +419,7 @@ define dso_local ptr @snd_ctl_make_virtual_master(ptr noundef %0, ptr noundef re
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @master_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @master_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -434,7 +434,7 @@ define internal i32 @master_info(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %11, label %39, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc i32 @follower_init(ptr noundef %10), !range !5
+  %13 = tail call fastcc i32 @follower_init(ptr noundef %10)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %39, label %15
 
@@ -488,7 +488,7 @@ declare dso_local ptr @snd_ctl_new1(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @master_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @master_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -503,7 +503,7 @@ define internal i32 @master_get(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc i32 @follower_init(ptr noundef %10), !range !5
+  %13 = tail call fastcc i32 @follower_init(ptr noundef %10)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %31, label %15
 
@@ -540,7 +540,7 @@ define internal i32 @master_get(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @master_put(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 2) i32 @master_put(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -555,7 +555,7 @@ define internal i32 @master_put(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %11, label %sync_followers.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc i32 @follower_init(ptr noundef %10), !range !5
+  %13 = tail call fastcc i32 @follower_init(ptr noundef %10)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %sync_followers.exit.thread, label %15
 
@@ -607,7 +607,7 @@ define internal i32 @master_put(ptr nocapture noundef readonly %0, ptr nocapture
   store i32 %28, ptr %27, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef align 8 dereferenceable(64) %44, i64 64, i1 false)
-  %45 = tail call fastcc i32 @follower_init(ptr noundef %43), !range !5
+  %45 = tail call fastcc i32 @follower_init(ptr noundef %43)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %.loopexit.i, label %47
 
@@ -632,14 +632,14 @@ define internal i32 @master_put(ptr nocapture noundef readonly %0, ptr nocapture
   %60 = load i32, ptr %48, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %59, %61
-  br i1 %62, label %53, label %.loopexit.i, !llvm.loop !6
+  br i1 %62, label %53, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %53, %47, %42
   store i32 %31, ptr %27, align 8
   %63 = tail call fastcc i32 @follower_put_val(ptr noundef %43, ptr noundef nonnull %35)
   %64 = load ptr, ptr %43, align 8
   %65 = icmp eq ptr %64, %4
-  br i1 %65, label %.loopexit, label %42, !llvm.loop !11
+  br i1 %65, label %.loopexit, label %42, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.loopexit.i, %37
   tail call void @kfree(ptr noundef nonnull %35) #11
@@ -690,7 +690,7 @@ define internal void @master_free(ptr nocapture noundef readonly %0) #0 align 16
   tail call void @kfree(ptr noundef %7) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %18 = icmp eq ptr %8, %4
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @kfree(ptr noundef %4) #11
@@ -731,7 +731,7 @@ define dso_local void @snd_ctl_sync_vmaster(ptr noundef readonly %0, i1 noundef 
   br i1 %14, label %.thread8, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call fastcc i32 @follower_init(ptr noundef %13), !range !5
+  %16 = tail call fastcc i32 @follower_init(ptr noundef %13)
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.thread8, label %18
 
@@ -776,7 +776,7 @@ define dso_local void @snd_ctl_sync_vmaster(ptr noundef readonly %0, i1 noundef 
   store i32 %31, ptr %30, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef align 8 dereferenceable(64) %42, i64 64, i1 false)
-  %43 = tail call fastcc i32 @follower_init(ptr noundef %41), !range !5
+  %43 = tail call fastcc i32 @follower_init(ptr noundef %41)
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %.loopexit.i, label %45
 
@@ -801,14 +801,14 @@ define dso_local void @snd_ctl_sync_vmaster(ptr noundef readonly %0, i1 noundef 
   %58 = load i32, ptr %46, align 4
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %57, %59
-  br i1 %60, label %51, label %.loopexit.i, !llvm.loop !6
+  br i1 %60, label %51, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %51, %45, %40
   store i32 %31, ptr %30, align 8
   %61 = tail call fastcc i32 @follower_put_val(ptr noundef %41, ptr noundef nonnull %33)
   %62 = load ptr, ptr %41, align 8
   %63 = icmp eq ptr %62, %6
-  br i1 %63, label %.thread9, label %40, !llvm.loop !11
+  br i1 %63, label %.thread9, label %40, !llvm.loop !10
 
 .thread9:                                         ; preds = %.loopexit.i, %35
   tail call void @kfree(ptr noundef nonnull %33) #11
@@ -835,7 +835,7 @@ define dso_local void @snd_ctl_sync_vmaster(ptr noundef readonly %0, i1 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_ctl_apply_vmaster_followers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_ctl_apply_vmaster_followers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -850,7 +850,7 @@ define dso_local i32 @snd_ctl_apply_vmaster_followers(ptr nocapture noundef read
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call fastcc i32 @follower_init(ptr noundef %11), !range !5
+  %14 = tail call fastcc i32 @follower_init(ptr noundef %11)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.thread, label %16
 
@@ -888,7 +888,7 @@ define dso_local i32 @snd_ctl_apply_vmaster_followers(ptr nocapture noundef read
   %34 = getelementptr inbounds i8, ptr %29, i64 64
   %35 = tail call i32 %1(ptr noundef %33, ptr noundef %34, ptr noundef %2) #11
   %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.thread, label %27, !llvm.loop !13
+  br i1 %36, label %.thread, label %27, !llvm.loop !12
 
 .thread:                                          ; preds = %31, %27, %10, %13
   %37 = phi i32 [ -2, %10 ], [ %14, %13 ], [ 0, %27 ], [ %35, %31 ]
@@ -902,7 +902,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @follower_init(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @follower_init(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -953,7 +953,7 @@ define internal fastcc i32 @follower_init(ptr noundef %0) unnamed_addr #0 align 
   %35 = load i32, ptr %3, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %34, %36
-  br i1 %37, label %28, label %.loopexit4, !llvm.loop !14
+  br i1 %37, label %28, label %.loopexit4, !llvm.loop !13
 
 .loopexit4:                                       ; preds = %28, %22, %15
   tail call void @kfree(ptr noundef nonnull %13) #11
@@ -1044,7 +1044,7 @@ define internal fastcc i32 @follower_init(ptr noundef %0) unnamed_addr #0 align 
   %92 = load i32, ptr %3, align 4
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %91, %93
-  br i1 %94, label %85, label %.loopexit, !llvm.loop !14
+  br i1 %94, label %85, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %85, %79, %74
   tail call void @kfree(ptr noundef nonnull %72) #11
@@ -1075,7 +1075,7 @@ define internal fastcc i32 @follower_put_val(ptr noundef %0, ptr noundef %1) unn
   br i1 %11, label %85, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc i32 @follower_init(ptr noundef %10), !range !5
+  %13 = tail call fastcc i32 @follower_init(ptr noundef %10)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %85, label %15
 
@@ -1143,7 +1143,7 @@ define internal fastcc i32 @follower_put_val(ptr noundef %0, ptr noundef %1) unn
   %54 = load i32, ptr %38, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %53, %55
-  br i1 %56, label %43, label %.loopexit, !llvm.loop !15
+  br i1 %56, label %43, label %.loopexit, !llvm.loop !14
 
 57:                                               ; preds = %74, %33
   %58 = phi i64 [ 0, %33 ], [ %77, %74 ]
@@ -1174,7 +1174,7 @@ define internal fastcc i32 @follower_put_val(ptr noundef %0, ptr noundef %1) unn
   %78 = load i32, ptr %30, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %77, %79
-  br i1 %80, label %57, label %.loopexit, !llvm.loop !16
+  br i1 %80, label %57, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %74, %43, %37, %29, %26
   %81 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1219,15 +1219,14 @@ attributes #13 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i32 -2147483648, i32 1}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!5 = distinct !{!5, !6, !7}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.unroll.disable"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}

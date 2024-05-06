@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [41 x i8] c"Matrix allocation failed (out of memory)\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @csc_is_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @csc_is_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -333,7 +333,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
   %37 = load ptr, ptr %36, align 8
   %38 = shl i64 %4, 3
   %39 = add i64 %38, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %37, i8 0, i64 %39, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %37, i8 0, i64 %39, i1 false)
   br label %.sink.split
 
 40:                                               ; preds = %32
@@ -854,7 +854,7 @@ define void @csc_extract_diag(ptr nocapture noundef readonly %0, ptr nocapture n
 
 .lr.ph24.preheader:                               ; preds = %2
   %12 = shl nuw i64 %4, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %1, i8 0, i64 %12, i1 false)
   %.pre = load i64, ptr %6, align 8
   br label %.lr.ph24
 

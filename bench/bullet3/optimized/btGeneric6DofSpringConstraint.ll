@@ -78,8 +78,8 @@ entry:
   %m_springEnabled.i = getelementptr inbounds i8, ptr %this, i64 1333
   %m_equilibriumPoint.i = getelementptr inbounds i8, ptr %this, i64 1340
   %m_springDamping.i = getelementptr inbounds i8, ptr %this, i64 1388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %m_springEnabled.i, i8 0, i64 6, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_equilibriumPoint.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %m_springEnabled.i, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(48) %m_equilibriumPoint.i, i8 0, i64 48, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -132,8 +132,8 @@ entry:
   %m_springEnabled.i = getelementptr inbounds i8, ptr %this, i64 1333
   %m_equilibriumPoint.i = getelementptr inbounds i8, ptr %this, i64 1340
   %m_springDamping.i = getelementptr inbounds i8, ptr %this, i64 1388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %m_springEnabled.i, i8 0, i64 6, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_equilibriumPoint.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %m_springEnabled.i, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(48) %m_equilibriumPoint.i, i8 0, i64 48, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry

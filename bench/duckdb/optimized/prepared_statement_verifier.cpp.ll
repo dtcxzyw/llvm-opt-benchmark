@@ -1781,7 +1781,7 @@ if.then.i.i93:                                    ; preds = %while.end.i.i
   br label %invoke.cont9
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %34 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %34 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %34, 48
   br label %invoke.cont9
 

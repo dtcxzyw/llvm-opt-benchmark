@@ -19,7 +19,7 @@ define noundef i32 @dtpsv_NUU(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
 
 12:                                               ; preds = %9
   %13 = add nuw nsw i64 %0, 1
-  %14 = mul nsw i64 %13, %0
+  %14 = mul nuw nsw i64 %13, %0
   %15 = lshr i64 %14, 1
   %16 = getelementptr double, ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
@@ -38,7 +38,7 @@ define noundef i32 @dtpsv_NUU(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
   %26 = getelementptr inbounds double, ptr %10, i64 %25
   %27 = load double, ptr %26, align 8, !tbaa !3
   %28 = fneg double %27
-  %29 = sub i64 0, %25
+  %29 = sub nsw i64 0, %25
   %30 = getelementptr inbounds double, ptr %21, i64 %29
   %31 = tail call i32 @daxpy_k(i64 noundef %25, i64 noundef 0, i64 noundef 0, double noundef %28, ptr noundef %30, i64 noundef 1, ptr noundef %10, i64 noundef 1, ptr noundef null, i64 noundef 0) #2
   br label %32

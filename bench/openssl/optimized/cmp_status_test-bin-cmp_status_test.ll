@@ -37,7 +37,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_PKISI() #1 {
+define internal range(i32 0, 2) i32 @test_PKISI() #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.3, i32 noundef 26) #4
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 26, ptr noundef nonnull @.str.4, ptr noundef %call.i) #4

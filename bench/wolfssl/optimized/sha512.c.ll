@@ -34,7 +34,7 @@ InitSha512.exit:                                  ; preds = %entry
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %InitSha512_Family.exit
 
 InitSha512_Family.exit:                           ; preds = %entry, %InitSha512.exit
@@ -69,7 +69,7 @@ InitSha512_224.exit:                              ; preds = %entry
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %InitSha512_Family.exit
 
 InitSha512_Family.exit:                           ; preds = %entry, %InitSha512_224.exit
@@ -104,7 +104,7 @@ InitSha512_256.exit:                              ; preds = %entry
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %InitSha512_Family.exit
 
 InitSha512_Family.exit:                           ; preds = %entry, %InitSha512_256.exit
@@ -113,7 +113,7 @@ InitSha512_Family.exit:                           ; preds = %entry, %InitSha512_
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @wc_Sha512Update(ptr noundef %sha512, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha512Update(ptr noundef %sha512, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha512, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -125,7 +125,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha512, ptr noundef %data, i32 noundef %len), !range !4
+  %call = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha512, ptr noundef %data, i32 noundef %len)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -134,7 +134,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc noundef i32 @Sha512Update(ptr nocapture noundef %sha512, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc range(i32 -132, 1) i32 @Sha512Update(ptr nocapture noundef %sha512, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %sha512, i64 64
   %buffLen = getelementptr inbounds i8, ptr %sha512, i64 192
@@ -189,7 +189,7 @@ for.body.i:                                       ; preds = %if.then6, %for.body
   store i64 %or.i.i.i, ptr %arrayidx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !4
 
 ByteReverseWords64.exit:                          ; preds = %for.body.i
   tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %sha512)
@@ -217,13 +217,13 @@ for.body.i39:                                     ; preds = %for.body.i39, %whil
   store i64 %or.i.i.i42, ptr %arrayidx.i41, align 8
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 16
-  br i1 %exitcond.not.i45, label %ByteReverseWords64.exit46, label %for.body.i39, !llvm.loop !5
+  br i1 %exitcond.not.i45, label %ByteReverseWords64.exit46, label %for.body.i39, !llvm.loop !4
 
 ByteReverseWords64.exit46:                        ; preds = %for.body.i39
   %sub34 = add i32 %len.addr.2, -128
   tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %sha512)
   %cmp31 = icmp ugt i32 %sub34, 127
-  br i1 %cmp31, label %while.body, label %while.end, !llvm.loop !7
+  br i1 %cmp31, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %ByteReverseWords64.exit46, %if.end30
   %len.addr.3 = phi i32 [ %len.addr.1, %if.end30 ], [ %sub34, %ByteReverseWords64.exit46 ]
@@ -243,7 +243,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha512FinalRaw(ptr noundef readonly %sha512, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha512FinalRaw(ptr noundef readonly %sha512, ptr noundef writeonly %hash) local_unnamed_addr #2 {
 entry:
   %digest.i = alloca [8 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -261,10 +261,10 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   store i64 %or.i.i.i.i, ptr %arrayidx2.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords64.exit.i:                        ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 16 dereferenceable(64) %digest.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %hash, ptr noundef nonnull align 16 dereferenceable(64) %digest.i, i64 64, i1 false)
   br label %Sha512FinalRaw.exit
 
 Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverseWords64.exit.i
@@ -274,7 +274,7 @@ Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverse
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha512Final(ptr noundef %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define i32 @wc_Sha512Final(ptr noundef %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %sha512, null
   %cmp1.i = icmp eq ptr %hash, null
@@ -282,12 +282,12 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512), !range !8
+  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %InitSha512.exit, label %Sha512_Family_Final.exit
 
 InitSha512.exit:                                  ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %sha512, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %sha512, i64 64, i1 false)
   store i64 7640891576956012808, ptr %sha512, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %sha512, i64 8
   store i64 -4942790177534073029, ptr %arrayidx2.i, align 8
@@ -306,7 +306,7 @@ InitSha512.exit:                                  ; preds = %if.end.i
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %Sha512_Family_Final.exit
 
 Sha512_Family_Final.exit:                         ; preds = %entry, %if.end.i, %InitSha512.exit
@@ -341,7 +341,7 @@ InitSha512.exit.i:                                ; preds = %entry
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i.i, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
   br label %wc_InitSha512_ex.exit
 
 wc_InitSha512_ex.exit:                            ; preds = %entry, %InitSha512.exit.i
@@ -375,7 +375,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !9
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !7
 
 while.cond9.preheader.i:                          ; preds = %for.body.i
   %tobool11.not20.i = icmp eq i32 %sub8.i, 0
@@ -388,7 +388,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !10
+  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !8
 
 while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
@@ -397,14 +397,14 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !11
+  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !9
 
 return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %entry
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @wc_Sha384Update(ptr noundef %sha384, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha384Update(ptr noundef %sha384, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha384, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -416,7 +416,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha384, ptr noundef %data, i32 noundef %len), !range !4
+  %call = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha384, ptr noundef %data, i32 noundef %len)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -425,7 +425,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha384FinalRaw(ptr noundef readonly %sha384, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha384FinalRaw(ptr noundef readonly %sha384, ptr noundef writeonly %hash) local_unnamed_addr #2 {
 entry:
   %digest = alloca [6 x i64], align 16
   %cmp = icmp eq ptr %sha384, null
@@ -442,7 +442,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store i64 %or.i.i.i, ptr %arrayidx2.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !4
 
 ByteReverseWords64.exit:                          ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 16 dereferenceable(48) %digest, i64 48, i1 false)
@@ -457,7 +457,7 @@ return:                                           ; preds = %entry, %ByteReverse
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha384Final(ptr noundef %sha384, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define range(i32 -192, 1) i32 @wc_Sha384Final(ptr noundef %sha384, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %sha384, null
   %cmp1 = icmp eq ptr %hash, null
@@ -465,7 +465,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha384), !range !8
+  %call = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha384)
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -489,7 +489,7 @@ if.end4:                                          ; preds = %if.end
   %buffLen.i = getelementptr inbounds i8, ptr %sha384, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha384, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
@@ -498,7 +498,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i32 @Sha512Final(ptr nocapture noundef %sha512) unnamed_addr #3 {
+define internal fastcc range(i32 -192, 1) i32 @Sha512Final(ptr nocapture noundef %sha512) unnamed_addr #3 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %sha512, i64 64
   %buffLen = getelementptr inbounds i8, ptr %sha512, i64 192
@@ -533,7 +533,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   store i64 %or.i.i.i, ptr %arrayidx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !4
 
 ByteReverseWords64.exit:                          ; preds = %for.body.i
   tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %sha512)
@@ -565,7 +565,7 @@ for.body.i35:                                     ; preds = %for.body.i35, %if.e
   store i64 %or.i.i.i38, ptr %arrayidx.i37, align 8
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 14
-  br i1 %exitcond.not.i41, label %ByteReverseWords64.exit42, label %for.body.i35, !llvm.loop !5
+  br i1 %exitcond.not.i41, label %ByteReverseWords64.exit42, label %for.body.i35, !llvm.loop !4
 
 ByteReverseWords64.exit42:                        ; preds = %for.body.i35
   %arrayidx42 = getelementptr inbounds i8, ptr %sha512, i64 176
@@ -583,7 +583,7 @@ for.body.i43:                                     ; preds = %for.body.i43, %Byte
   store i64 %or.i.i.i46, ptr %arrayidx.i45, align 8
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 8
-  br i1 %exitcond.not.i49, label %return, label %for.body.i43, !llvm.loop !5
+  br i1 %exitcond.not.i49, label %return, label %for.body.i43, !llvm.loop !4
 
 return:                                           ; preds = %for.body.i43, %entry
   %retval.0 = phi i32 [ -192, %entry ], [ 0, %for.body.i43 ]
@@ -591,7 +591,7 @@ return:                                           ; preds = %for.body.i43, %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitSha384_ex(ptr noundef writeonly %sha384, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha384_ex(ptr noundef writeonly %sha384, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sha384, null
   br i1 %cmp, label %return, label %if.end
@@ -617,7 +617,7 @@ if.end:                                           ; preds = %entry
   %buffLen.i = getelementptr inbounds i8, ptr %sha384, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha384, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -626,7 +626,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitSha384(ptr noundef writeonly %sha384) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha384(ptr noundef writeonly %sha384) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %sha384, null
   br i1 %cmp.i, label %wc_InitSha384_ex.exit, label %if.end.i
@@ -652,7 +652,7 @@ if.end.i:                                         ; preds = %entry
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha384, i64 192
   store i32 0, ptr %buffLen.i.i, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %sha384, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
   br label %wc_InitSha384_ex.exit
 
 wc_InitSha384_ex.exit:                            ; preds = %entry, %if.end.i
@@ -686,7 +686,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !9
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !7
 
 while.cond9.preheader.i:                          ; preds = %for.body.i
   %tobool11.not20.i = icmp eq i32 %sub8.i, 0
@@ -699,7 +699,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !10
+  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !8
 
 while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
@@ -708,14 +708,14 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !11
+  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !9
 
 return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %entry
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha512GetHash(ptr noundef readonly %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define i32 @wc_Sha512GetHash(ptr noundef readonly %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %tmpSha512.i = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %tmpSha512.i)
@@ -725,13 +725,13 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i), !range !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512.exit.i, label %for.body.i.i.i.preheader
 
 InitSha512.exit.i:                                ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 16 dereferenceable(64) %tmpSha512.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %hash, ptr noundef nonnull align 16 dereferenceable(64) %tmpSha512.i, i64 64, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.end.i.i, %InitSha512.exit.i
@@ -744,7 +744,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   store volatile i64 0, ptr %w.017.i.i.i, align 8
   %sub8.i.i.i = add nsw i32 %len.addr.016.i.i.i, -8
   %cmp5.i.i.not.i = icmp eq i32 %sub8.i.i.i, 0
-  br i1 %cmp5.i.i.not.i, label %Sha512_Family_GetHash.exit, label %for.body.i.i.i, !llvm.loop !10
+  br i1 %cmp5.i.i.not.i, label %Sha512_Family_GetHash.exit, label %for.body.i.i.i, !llvm.loop !8
 
 Sha512_Family_GetHash.exit:                       ; preds = %for.body.i.i.i, %entry
   %retval.0.i = phi i32 [ -173, %entry ], [ %call.i.i, %for.body.i.i.i ]
@@ -753,7 +753,7 @@ Sha512_Family_GetHash.exit:                       ; preds = %for.body.i.i.i, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha512Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_Sha512Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dst, null
@@ -796,7 +796,7 @@ InitSha512_224.exit.i:                            ; preds = %entry
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha, i64 192
   store i32 0, ptr %buffLen.i.i, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %sha, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
   br label %wc_InitSha512_224_ex.exit
 
 wc_InitSha512_224_ex.exit:                        ; preds = %entry, %InitSha512_224.exit.i
@@ -805,7 +805,7 @@ wc_InitSha512_224_ex.exit:                        ; preds = %entry, %InitSha512_
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @wc_Sha512_224Update(ptr noundef %sha, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha512_224Update(ptr noundef %sha, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %sha, null
   br i1 %cmp.i, label %wc_Sha512Update.exit, label %lor.lhs.false.i
@@ -817,7 +817,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %wc_Sha512Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef %data, i32 noundef %len), !range !4
+  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef readonly %data, i32 noundef %len)
   br label %wc_Sha512Update.exit
 
 wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -826,7 +826,7 @@ wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha512_224FinalRaw(ptr noundef readonly %sha, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha512_224FinalRaw(ptr noundef readonly %sha, ptr noundef writeonly %hash) local_unnamed_addr #2 {
 entry:
   %digest.i = alloca [8 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -844,10 +844,10 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   store i64 %or.i.i.i.i, ptr %arrayidx2.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords64.exit.i:                        ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %digest.i, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %digest.i, i64 28, i1 false)
   br label %Sha512FinalRaw.exit
 
 Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverseWords64.exit.i
@@ -857,7 +857,7 @@ Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverse
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha512_224Final(ptr noundef %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define i32 @wc_Sha512_224Final(ptr noundef %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %sha512, null
   %cmp1.i = icmp eq ptr %hash, null
@@ -865,12 +865,12 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512), !range !8
+  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %InitSha512_224.exit, label %Sha512_Family_Final.exit
 
 InitSha512_224.exit:                              ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %sha512, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %sha512, i64 28, i1 false)
   store i64 -8341449602262348382, ptr %sha512, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %sha512, i64 8
   store i64 8350123849800275158, ptr %arrayidx2.i, align 8
@@ -889,7 +889,7 @@ InitSha512_224.exit:                              ; preds = %if.end.i
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %Sha512_Family_Final.exit
 
 Sha512_Family_Final.exit:                         ; preds = %entry, %if.end.i, %InitSha512_224.exit
@@ -923,7 +923,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %z.013.i.i, i64 1
   store volatile i8 0, ptr %z.013.i.i, align 1
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %tobool.not.i.i, label %for.body.i.i.preheader, label %while.body.i.i, !llvm.loop !9
+  br i1 %tobool.not.i.i, label %for.body.i.i.preheader, label %while.body.i.i, !llvm.loop !7
 
 while.cond9.preheader.i.i:                        ; preds = %for.body.i.i
   %tobool11.not20.i.i = icmp eq i32 %sub8.i.i, 0
@@ -936,7 +936,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
-  br i1 %cmp5.i.i, label %for.body.i.i, label %while.cond9.preheader.i.i, !llvm.loop !10
+  br i1 %cmp5.i.i, label %for.body.i.i, label %while.cond9.preheader.i.i, !llvm.loop !8
 
 while.body12.i.i:                                 ; preds = %while.cond9.preheader.i.i, %while.body12.i.i
   %z.122.i.i = phi ptr [ %incdec.ptr13.i.i, %while.body12.i.i ], [ %incdec.ptr7.i.i, %while.cond9.preheader.i.i ]
@@ -945,14 +945,14 @@ while.body12.i.i:                                 ; preds = %while.cond9.prehead
   %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %z.122.i.i, i64 1
   store volatile i8 0, ptr %z.122.i.i, align 1
   %tobool11.not.i.i = icmp eq i32 %dec10.i.i, 0
-  br i1 %tobool11.not.i.i, label %wc_Sha512Free.exit, label %while.body12.i.i, !llvm.loop !11
+  br i1 %tobool11.not.i.i, label %wc_Sha512Free.exit, label %while.body12.i.i, !llvm.loop !9
 
 wc_Sha512Free.exit:                               ; preds = %while.body12.i.i, %entry, %while.cond9.preheader.i.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha512_224GetHash(ptr noundef readonly %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define i32 @wc_Sha512_224GetHash(ptr noundef readonly %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %tmpSha512.i = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %tmpSha512.i)
@@ -962,13 +962,13 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i), !range !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_224.exit.i, label %for.body.i.i.i.preheader
 
 InitSha512_224.exit.i:                            ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha512.i, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha512.i, i64 28, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.end.i.i, %InitSha512_224.exit.i
@@ -981,7 +981,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   store volatile i64 0, ptr %w.017.i.i.i, align 8
   %sub8.i.i.i = add nsw i32 %len.addr.016.i.i.i, -8
   %cmp5.i.i.not.i = icmp eq i32 %sub8.i.i.i, 0
-  br i1 %cmp5.i.i.not.i, label %Sha512_Family_GetHash.exit, label %for.body.i.i.i, !llvm.loop !10
+  br i1 %cmp5.i.i.not.i, label %Sha512_Family_GetHash.exit, label %for.body.i.i.i, !llvm.loop !8
 
 Sha512_Family_GetHash.exit:                       ; preds = %for.body.i.i.i, %entry
   %retval.0.i = phi i32 [ -173, %entry ], [ %call.i.i, %for.body.i.i.i ]
@@ -990,7 +990,7 @@ Sha512_Family_GetHash.exit:                       ; preds = %for.body.i.i.i, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha512_224Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_Sha512_224Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %src, null
   %cmp1.i = icmp eq ptr %dst, null
@@ -998,7 +998,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha512Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %dst, ptr noundef nonnull align 8 dereferenceable(224) %src, i64 224, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(224) %dst, ptr noundef nonnull readonly align 8 dereferenceable(224) %src, i64 224, i1 false)
   br label %wc_Sha512Copy.exit
 
 wc_Sha512Copy.exit:                               ; preds = %entry, %if.end.i
@@ -1033,7 +1033,7 @@ InitSha512_256.exit.i:                            ; preds = %entry
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha, i64 192
   store i32 0, ptr %buffLen.i.i, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %sha, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
   br label %wc_InitSha512_256_ex.exit
 
 wc_InitSha512_256_ex.exit:                        ; preds = %entry, %InitSha512_256.exit.i
@@ -1042,7 +1042,7 @@ wc_InitSha512_256_ex.exit:                        ; preds = %entry, %InitSha512_
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @wc_Sha512_256Update(ptr noundef %sha, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha512_256Update(ptr noundef %sha, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %sha, null
   br i1 %cmp.i, label %wc_Sha512Update.exit, label %lor.lhs.false.i
@@ -1054,7 +1054,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %wc_Sha512Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef %data, i32 noundef %len), !range !4
+  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef readonly %data, i32 noundef %len)
   br label %wc_Sha512Update.exit
 
 wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -1063,7 +1063,7 @@ wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha512_256FinalRaw(ptr noundef readonly %sha, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha512_256FinalRaw(ptr noundef readonly %sha, ptr noundef writeonly %hash) local_unnamed_addr #2 {
 entry:
   %digest.i = alloca [8 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -1081,10 +1081,10 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   store i64 %or.i.i.i.i, ptr %arrayidx2.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords64.exit.i:                        ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %digest.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %digest.i, i64 32, i1 false)
   br label %Sha512FinalRaw.exit
 
 Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverseWords64.exit.i
@@ -1094,7 +1094,7 @@ Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverse
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha512_256Final(ptr noundef %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define i32 @wc_Sha512_256Final(ptr noundef %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %sha512, null
   %cmp1.i = icmp eq ptr %hash, null
@@ -1102,12 +1102,12 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512), !range !8
+  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %InitSha512_256.exit, label %Sha512_Family_Final.exit
 
 InitSha512_256.exit:                              ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %sha512, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %sha512, i64 32, i1 false)
   store i64 2463787394917988140, ptr %sha512, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %sha512, i64 8
   store i64 -6965556091613846334, ptr %arrayidx2.i, align 8
@@ -1126,7 +1126,7 @@ InitSha512_256.exit:                              ; preds = %if.end.i
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %Sha512_Family_Final.exit
 
 Sha512_Family_Final.exit:                         ; preds = %entry, %if.end.i, %InitSha512_256.exit
@@ -1160,7 +1160,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %z.013.i.i, i64 1
   store volatile i8 0, ptr %z.013.i.i, align 1
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %tobool.not.i.i, label %for.body.i.i.preheader, label %while.body.i.i, !llvm.loop !9
+  br i1 %tobool.not.i.i, label %for.body.i.i.preheader, label %while.body.i.i, !llvm.loop !7
 
 while.cond9.preheader.i.i:                        ; preds = %for.body.i.i
   %tobool11.not20.i.i = icmp eq i32 %sub8.i.i, 0
@@ -1173,7 +1173,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
-  br i1 %cmp5.i.i, label %for.body.i.i, label %while.cond9.preheader.i.i, !llvm.loop !10
+  br i1 %cmp5.i.i, label %for.body.i.i, label %while.cond9.preheader.i.i, !llvm.loop !8
 
 while.body12.i.i:                                 ; preds = %while.cond9.preheader.i.i, %while.body12.i.i
   %z.122.i.i = phi ptr [ %incdec.ptr13.i.i, %while.body12.i.i ], [ %incdec.ptr7.i.i, %while.cond9.preheader.i.i ]
@@ -1182,14 +1182,14 @@ while.body12.i.i:                                 ; preds = %while.cond9.prehead
   %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %z.122.i.i, i64 1
   store volatile i8 0, ptr %z.122.i.i, align 1
   %tobool11.not.i.i = icmp eq i32 %dec10.i.i, 0
-  br i1 %tobool11.not.i.i, label %wc_Sha512Free.exit, label %while.body12.i.i, !llvm.loop !11
+  br i1 %tobool11.not.i.i, label %wc_Sha512Free.exit, label %while.body12.i.i, !llvm.loop !9
 
 wc_Sha512Free.exit:                               ; preds = %while.body12.i.i, %entry, %while.cond9.preheader.i.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha512_256GetHash(ptr noundef readonly %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define i32 @wc_Sha512_256GetHash(ptr noundef readonly %sha512, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %tmpSha512.i = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %tmpSha512.i)
@@ -1199,13 +1199,13 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i), !range !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_256.exit.i, label %for.body.i.i.i.preheader
 
 InitSha512_256.exit.i:                            ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha512.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha512.i, i64 32, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.end.i.i, %InitSha512_256.exit.i
@@ -1218,7 +1218,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   store volatile i64 0, ptr %w.017.i.i.i, align 8
   %sub8.i.i.i = add nsw i32 %len.addr.016.i.i.i, -8
   %cmp5.i.i.not.i = icmp eq i32 %sub8.i.i.i, 0
-  br i1 %cmp5.i.i.not.i, label %Sha512_Family_GetHash.exit, label %for.body.i.i.i, !llvm.loop !10
+  br i1 %cmp5.i.i.not.i, label %Sha512_Family_GetHash.exit, label %for.body.i.i.i, !llvm.loop !8
 
 Sha512_Family_GetHash.exit:                       ; preds = %for.body.i.i.i, %entry
   %retval.0.i = phi i32 [ -173, %entry ], [ %call.i.i, %for.body.i.i.i ]
@@ -1227,7 +1227,7 @@ Sha512_Family_GetHash.exit:                       ; preds = %for.body.i.i.i, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha512_256Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_Sha512_256Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %src, null
   %cmp1.i = icmp eq ptr %dst, null
@@ -1235,7 +1235,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha512Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %dst, ptr noundef nonnull align 8 dereferenceable(224) %src, i64 224, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(224) %dst, ptr noundef nonnull readonly align 8 dereferenceable(224) %src, i64 224, i1 false)
   br label %wc_Sha512Copy.exit
 
 wc_Sha512Copy.exit:                               ; preds = %entry, %if.end.i
@@ -1244,25 +1244,25 @@ wc_Sha512Copy.exit:                               ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha384GetHash(ptr noundef readonly %sha384, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define i32 @wc_Sha384GetHash(ptr noundef readonly %sha384, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %tmpSha384 = alloca [1 x %struct.wc_Sha512], align 16
   %cmp = icmp eq ptr %sha384, null
   %cmp1 = icmp eq ptr %hash, null
   %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end.i4
+  br i1 %or.cond, label %return, label %if.end.i5
 
-if.end.i4:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha384, ptr noundef nonnull align 8 dereferenceable(224) %sha384, i64 224, i1 false)
-  %call.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha384), !range !8
+if.end.i5:                                        ; preds = %entry
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(224) %tmpSha384, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha384, i64 224, i1 false)
+  %call.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha384)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %for.body.i.i.preheader
 
-if.end4.i:                                        ; preds = %if.end.i4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 16 dereferenceable(48) %tmpSha384, i64 48, i1 false)
+if.end4.i:                                        ; preds = %if.end.i5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(48) %hash, ptr noundef nonnull align 16 dereferenceable(48) %tmpSha384, i64 48, i1 false)
   br label %for.body.i.i.preheader
 
-for.body.i.i.preheader:                           ; preds = %if.end4.i, %if.end.i4
+for.body.i.i.preheader:                           ; preds = %if.end4.i, %if.end.i5
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
@@ -1272,7 +1272,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i.not = icmp eq i32 %sub8.i.i, 0
-  br i1 %cmp5.i.i.not, label %return, label %for.body.i.i, !llvm.loop !10
+  br i1 %cmp5.i.i.not, label %return, label %for.body.i.i, !llvm.loop !8
 
 return:                                           ; preds = %for.body.i.i, %entry
   %retval.0 = phi i32 [ -173, %entry ], [ %call.i, %for.body.i.i ]
@@ -1280,7 +1280,7 @@ return:                                           ; preds = %for.body.i.i, %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha384Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_Sha384Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dst, null
@@ -2179,7 +2179,7 @@ cond.end1160:                                     ; preds = %cond.false1156, %co
   %add1187 = add i64 %add1185, %add1164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %cmp = icmp ult i64 %indvars.iv, 64
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %cond.end1160
   %69 = load i64, ptr %sha512, align 8
@@ -2222,7 +2222,7 @@ for.body.i:                                       ; preds = %for.end, %for.body.
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0
-  br i1 %cmp5.i.not, label %for.body.i572, label %for.body.i, !llvm.loop !10
+  br i1 %cmp5.i.not, label %for.body.i572, label %for.body.i, !llvm.loop !8
 
 for.body.i572:                                    ; preds = %for.body.i, %for.body.i572
   %w.017.i573 = phi ptr [ %incdec.ptr7.i575, %for.body.i572 ], [ %T, %for.body.i ]
@@ -2231,7 +2231,7 @@ for.body.i572:                                    ; preds = %for.body.i, %for.bo
   store volatile i64 0, ptr %w.017.i573, align 8
   %sub8.i576 = add nsw i32 %len.addr.016.i574, -8
   %cmp5.i577.not = icmp eq i32 %sub8.i576, 0
-  br i1 %cmp5.i577.not, label %ForceZero.exit578, label %for.body.i572, !llvm.loop !10
+  br i1 %cmp5.i577.not, label %ForceZero.exit578, label %for.body.i572, !llvm.loop !8
 
 ForceZero.exit578:                                ; preds = %for.body.i572
   ret void
@@ -2271,12 +2271,10 @@ attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -132, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = !{i32 -192, i32 1}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

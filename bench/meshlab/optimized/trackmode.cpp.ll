@@ -363,7 +363,7 @@ _ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i: ; preds = %29, %26
   store <2 x float> %59, ptr %53, align 4
   %60 = getelementptr inbounds i8, ptr %13, i64 20
   store float %.sroa.15.0.i, ptr %60, align 4
-  %61 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %13, ptr noundef nonnull align 4 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11)
+  %61 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %13, ptr noundef nonnull readonly align 4 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11)
   %62 = and i64 %61, 4294967296
   %.not.i = icmp eq i64 %62, 0
   br i1 %.not.i, label %63, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit
@@ -481,7 +481,7 @@ _ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit.i30: ; preds = %85, %8
   store <2 x float> %115, ptr %109, align 4
   %116 = getelementptr inbounds i8, ptr %8, i64 20
   store float %.sroa.15.0.i49, ptr %116, align 4
-  %117 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
+  %117 = call i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4Ray3IfLb0EEERKNS_5Line3IfLb0EEERNS_6Point3IfEESB_(ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull readonly align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %6)
   %118 = and i64 %117, 4294967296
   %.not.i50 = icmp eq i64 %118, 0
   br i1 %.not.i50, label %119, label %_ZN3vcg10trackutils21HitNearestPointOnAxisEPNS_9TrackballENS_5Line3IfLb0EEENS_6Point3IfEE.exit65
@@ -8782,7 +8782,7 @@ define noundef float @_ZN3vcg8PathMode9NormalizeEf(ptr nocapture noundef nonnull
 declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN3vcg8PathMode5VerseENS_6Point3IfEES2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6, <2 x float> %7, float %8) local_unnamed_addr #19 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN3vcg8PathMode5VerseENS_6Point3IfEES2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6, <2 x float> %7, float %8) local_unnamed_addr #19 align 2 {
 _ZN3vcg6Point3IfE9NormalizeEv.exit:
   %9 = fsub <2 x float> %1, %3
   %10 = insertelement <2 x float> poison, float %6, i64 0
@@ -10855,7 +10855,7 @@ define void @_ZN3vcg17NavigatorWasdModeC2Ev(ptr nocapture noundef nonnull writeo
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store <4 x float> <float 0x3F50624DE0000000, float 0x3F50624DE0000000, float 0.000000e+00, float 0.000000e+00>, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   ret void
 }
 

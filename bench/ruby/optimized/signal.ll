@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [27 x i8] c"signal name with null byte\00", align 1
 @.str.22 = private unnamed_addr constant [28 x i8] c"negative signal name: % li\0B\00", align 1
 @.str.23 = private unnamed_addr constant [30 x i8] c"unsupported signal '%.*s%li\0B'\00", align 1
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @ruby_current_vm_ptr = external local_unnamed_addr global ptr, align 8
 @ruby_disable_gc = external local_unnamed_addr global i32, align 4
 @received_signal = internal global ptr null, align 8
@@ -154,7 +154,7 @@ define internal fastcc void @reset_sigmask(i32 noundef %0) unnamed_addr #1 {
 declare i32 @raise(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_f_kill(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #1 {
+define dso_local range(i64 1, 0) i64 @rb_f_kill(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca [6 x i64], align 16
   %5 = alloca i64, align 8
@@ -803,7 +803,7 @@ define hidden i32 @rb_get_next_signal() local_unnamed_addr #8 {
 
 4:                                                ; preds = %.preheader
   %5 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %indvars.iv
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = atomicrmw volatile sub ptr %5, i32 1 seq_cst, align 4
   %8 = atomicrmw volatile sub ptr getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i64 0, i32 1), i32 1 seq_cst, align 4
   br label %.loopexit
@@ -827,7 +827,7 @@ define hidden void @rb_vm_trap_exit(ptr nocapture noundef %0) local_unnamed_addr
 
 4:                                                ; preds = %1
   store i64 0, ptr %2, align 8
-  %5 = tail call fastcc i32 @signal_exec(i64 noundef %3, i32 noundef 0), !range !18
+  %5 = tail call fastcc i32 @signal_exec(i64 noundef %3, i32 noundef 0)
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -835,7 +835,7 @@ define hidden void @rb_vm_trap_exit(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @signal_exec(i64 noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca %struct.rb_vm_tag, align 8
@@ -985,7 +985,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %49, %rb_ec_ractor_p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @rb_signal_exec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @rb_signal_exec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 656
   %5 = sext i32 %1 to i64
@@ -1020,7 +1020,7 @@ define hidden noundef i32 @rb_signal_exec(ptr noundef %0, i32 noundef %1) local_
   br label %14
 
 12:                                               ; preds = %2
-  %13 = tail call fastcc i32 @signal_exec(i64 noundef %7, i32 noundef %1), !range !18
+  %13 = tail call fastcc i32 @signal_exec(i64 noundef %7, i32 noundef %1)
   br label %14
 
 14:                                               ; preds = %11, %10, %8, %12
@@ -1185,7 +1185,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   %24 = call i32 @sigfillset(ptr noundef nonnull %16) #16
   %25 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %16, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16)
-  %26 = call fastcc i32 @install_sighandler_core(i32 noundef 2, ptr noundef nonnull @sighandler, ptr noundef null), !range !19
+  %26 = call fastcc i32 @install_sighandler_core(i32 noundef 2, ptr noundef nonnull @sighandler, ptr noundef null)
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %28, label %27
 
@@ -1194,7 +1194,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br label %28
 
 28:                                               ; preds = %27, %0
-  %29 = call fastcc i32 @install_sighandler_core(i32 noundef 1, ptr noundef nonnull @sighandler, ptr noundef null), !range !19
+  %29 = call fastcc i32 @install_sighandler_core(i32 noundef 1, ptr noundef nonnull @sighandler, ptr noundef null)
   %.not4 = icmp eq i32 %29, 0
   br i1 %.not4, label %31, label %30
 
@@ -1203,7 +1203,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = call fastcc i32 @install_sighandler_core(i32 noundef 3, ptr noundef nonnull @sighandler, ptr noundef null), !range !19
+  %32 = call fastcc i32 @install_sighandler_core(i32 noundef 3, ptr noundef nonnull @sighandler, ptr noundef null)
   %.not6 = icmp eq i32 %32, 0
   br i1 %.not6, label %34, label %33
 
@@ -1212,7 +1212,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = call fastcc i32 @install_sighandler_core(i32 noundef 15, ptr noundef nonnull @sighandler, ptr noundef null), !range !19
+  %35 = call fastcc i32 @install_sighandler_core(i32 noundef 15, ptr noundef nonnull @sighandler, ptr noundef null)
   %.not8 = icmp eq i32 %35, 0
   br i1 %.not8, label %37, label %36
 
@@ -1221,7 +1221,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br label %37
 
 37:                                               ; preds = %36, %34
-  %38 = call fastcc i32 @install_sighandler_core(i32 noundef 14, ptr noundef nonnull @sighandler, ptr noundef null), !range !19
+  %38 = call fastcc i32 @install_sighandler_core(i32 noundef 14, ptr noundef nonnull @sighandler, ptr noundef null)
   %.not10 = icmp eq i32 %38, 0
   br i1 %.not10, label %40, label %39
 
@@ -1230,7 +1230,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br label %40
 
 40:                                               ; preds = %39, %37
-  %41 = call fastcc i32 @install_sighandler_core(i32 noundef 10, ptr noundef nonnull @sighandler, ptr noundef null), !range !19
+  %41 = call fastcc i32 @install_sighandler_core(i32 noundef 10, ptr noundef nonnull @sighandler, ptr noundef null)
   %.not12 = icmp eq i32 %41, 0
   br i1 %.not12, label %43, label %42
 
@@ -1239,7 +1239,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br label %43
 
 43:                                               ; preds = %42, %40
-  %44 = call fastcc i32 @install_sighandler_core(i32 noundef 12, ptr noundef nonnull @sighandler, ptr noundef null), !range !19
+  %44 = call fastcc i32 @install_sighandler_core(i32 noundef 12, ptr noundef nonnull @sighandler, ptr noundef null)
   %.not14 = icmp eq i32 %44, 0
   br i1 %.not14, label %46, label %45
 
@@ -1440,7 +1440,7 @@ install_sighandler_core.exit43.thread:            ; preds = %rb_allocate_sigalts
   unreachable
 
 118:                                              ; preds = %install_sighandler_core.exit43.thread, %46
-  %119 = call fastcc i32 @install_sighandler_core(i32 noundef 13, ptr noundef nonnull @sig_do_nothing, ptr noundef null), !range !19
+  %119 = call fastcc i32 @install_sighandler_core(i32 noundef 13, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
   %.not23 = icmp eq i32 %119, 0
   br i1 %.not23, label %121, label %120
 
@@ -1449,7 +1449,7 @@ install_sighandler_core.exit43.thread:            ; preds = %rb_allocate_sigalts
   br label %121
 
 121:                                              ; preds = %120, %118
-  %122 = call fastcc i32 @install_sighandler_core(i32 noundef 31, ptr noundef nonnull @sig_do_nothing, ptr noundef null), !range !19
+  %122 = call fastcc i32 @install_sighandler_core(i32 noundef 31, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
   %.not25 = icmp eq i32 %122, 0
   br i1 %.not25, label %124, label %123
 
@@ -1458,7 +1458,7 @@ install_sighandler_core.exit43.thread:            ; preds = %rb_allocate_sigalts
   br label %124
 
 124:                                              ; preds = %123, %121
-  %125 = call fastcc i32 @install_sighandler_core(i32 noundef 17, ptr noundef nonnull @sighandler, ptr noundef null), !range !19
+  %125 = call fastcc i32 @install_sighandler_core(i32 noundef 17, ptr noundef nonnull @sighandler, ptr noundef null)
   %.not27 = icmp eq i32 %125, 0
   br i1 %.not27, label %127, label %126
 
@@ -1610,7 +1610,7 @@ RB_SYMBOL_P.exit.thread.i:                        ; preds = %RB_SYMBOL_P.exit.i,
   %56 = call i64 @rb_string_value(ptr noundef nonnull %8) #16
   %57 = load i64, ptr %8, align 8
   %58 = inttoptr i64 %57 to ptr
-  %59 = load i64, ptr %58, align 8, !noalias !20
+  %59 = load i64, ptr %58, align 8, !noalias !18
   %60 = and i64 %59, 8192
   %.not.i.i = icmp eq i64 %60, 0
   %61 = getelementptr inbounds i8, ptr %58, i64 24
@@ -1846,7 +1846,7 @@ define internal i64 @sig_list(i64 %0) #1 {
   %10 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %4, i64 noundef %9) #16
   %11 = getelementptr i8, ptr %.05, i64 12
   %12 = icmp ult ptr %11, getelementptr inbounds ([34 x %struct.signals], ptr @siglist, i64 1, i64 0)
-  br i1 %12, label %3, label %13, !llvm.loop !23
+  br i1 %12, label %3, label %13, !llvm.loop !21
 
 13:                                               ; preds = %3
   ret i64 %2
@@ -2045,7 +2045,7 @@ rb_check_arity.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @install_sighandler_core(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
   %4 = alloca %struct.sigaction, align 8
   %5 = alloca %struct.sigaction, align 8
   %6 = alloca [6 x i64], align 16
@@ -2513,7 +2513,7 @@ define internal fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %1
   %24 = ptrtoint ptr %23 to i64
   %25 = lshr i64 %24, 12
   %.not27 = icmp ugt i64 %25, %6
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %10
   %.123 = phi i32 [ 0, %10 ], [ 1, %.lr.ph ], [ 0, %22 ]
@@ -2605,10 +2605,8 @@ attributes #26 = { noreturn }
 !15 = distinct !{!15, !8}
 !16 = !{i64 2151713367, i64 2151713403, i64 2151713471}
 !17 = distinct !{!17, !8}
-!18 = !{i32 0, i32 2}
-!19 = !{i32 -1, i32 1}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"rbimpl_rstring_getmem: argument 0"}
-!22 = distinct !{!22, !"rbimpl_rstring_getmem"}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"rbimpl_rstring_getmem: argument 0"}
+!20 = distinct !{!20, !"rbimpl_rstring_getmem"}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

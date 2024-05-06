@@ -6115,7 +6115,7 @@ get_int64_value.exit:                             ; preds = %83, %85, %88, %91, 
   unreachable
 
 proto_tree_set_ipv6_tvb.exit:                     ; preds = %125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %126, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull readonly align 1 dereferenceable(16) %126, i64 16, i1 false)
   %128 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 128, ptr %128, align 4
   %129 = load ptr, ptr %15, align 8
@@ -6576,7 +6576,7 @@ get_stringztrunc_value.exit:                      ; preds = %275, %283
   ]
 
 322:                                              ; preds = %320, %320
-  %323 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #38
+  %323 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #38
   %324 = trunc i64 %323 to i32
   %325 = icmp sgt i32 %.0347, %324
   br i1 %325, label %.lr.ph.preheader.i, label %detect_trailing_stray_characters.exit
@@ -9937,7 +9937,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %84, %90, %proto_ite
   unreachable
 
 proto_tree_set_ipv6.exit:                         ; preds = %proto_item_is_hidden.exit.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull readonly align 1 dereferenceable(16) %6, i64 16, i1 false)
   %102 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 128, ptr %102, align 4
   %103 = getelementptr inbounds i8, ptr %100, i64 48
@@ -10482,7 +10482,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %118, %124, %proto_i
   ]
 
 148:                                              ; preds = %146, %146
-  %149 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #38
+  %149 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #38
   %150 = trunc i64 %149 to i32
   %151 = icmp slt i32 %150, %4
   br i1 %151, label %.lr.ph.preheader.i, label %detect_trailing_stray_characters.exit
@@ -10709,7 +10709,7 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
 83:                                               ; preds = %28
   tail call void @tvb_ensure_bytes_exist(ptr noundef %2, i32 noundef %3, i32 noundef %4) #32
   %84 = tail call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %3, i32 noundef %4) #32
-  %85 = tail call fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %6, ptr noundef nonnull %26, ptr noundef %84, i32 noundef %4, i64 noundef 240)
+  %85 = tail call fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %6, ptr noundef nonnull readonly %26, ptr noundef %84, i32 noundef %4, i64 noundef 240)
   store ptr %85, ptr %7, align 8
   store i32 %4, ptr %8, align 4
   br label %95
@@ -10719,7 +10719,7 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
   %88 = add i32 %4, %3
   tail call void @tvb_ensure_bytes_exist(ptr noundef %2, i32 noundef %88, i32 noundef %87) #32
   %89 = tail call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %88, i32 noundef %87) #32
-  %90 = tail call fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %6, ptr noundef nonnull %26, ptr noundef %89, i32 noundef %87, i64 noundef 240)
+  %90 = tail call fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %6, ptr noundef nonnull readonly %26, ptr noundef %89, i32 noundef %87, i64 noundef 240)
   store ptr %90, ptr %7, align 8
   %91 = add i32 %87, %4
   store i32 %91, ptr %8, align 4
@@ -10968,7 +10968,7 @@ proto_tree_set_bytes.exit194:                     ; preds = %181
   ]
 
 199:                                              ; preds = %197, %197
-  %200 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0149) #38
+  %200 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0149) #38
   %201 = trunc i64 %200 to i32
   %202 = icmp slt i32 %201, %4
   br i1 %202, label %.lr.ph.preheader.i, label %detect_trailing_stray_characters.exit
@@ -15632,7 +15632,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %63, %proto_ite
   unreachable
 
 proto_tree_set_ipv6.exit:                         ; preds = %79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull readonly align 1 dereferenceable(16) %5, i64 16, i1 false)
   %86 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 128, ptr %86, align 4
   %87 = getelementptr inbounds i8, ptr %84, i64 48
@@ -19131,7 +19131,7 @@ protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit
 170:                                              ; preds = %136
   %171 = icmp eq i32 %.pre, 35
   %spec.store.select.i = select i1 %171, i32 1, i32 %122
-  %172 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %10, i32 noundef %spec.store.select.i, ptr noundef nonnull %5, i32 noundef %120)
+  %172 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i, ptr noundef nonnull %5, i32 noundef %120)
   %173 = icmp eq i32 %2, 0
   br i1 %173, label %protoo_strlcpy.exit, label %174
 
@@ -19220,7 +19220,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 hfinfo_numeric_value_format64.exit:               ; preds = %switch.lookup, %switch.hole_check, %206
   %.0.i = phi i32 [ %spec.store.select.i300, %206 ], [ %spec.store.select.i300, %switch.hole_check ], [ %switch.load, %switch.lookup ]
-  %211 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %10, i32 noundef %.0.i, ptr noundef nonnull %5, i64 noundef %187)
+  %211 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %.0.i, ptr noundef nonnull %5, i64 noundef %187)
   %212 = icmp eq i32 %2, 0
   br i1 %212, label %protoo_strlcpy.exit304, label %213
 
@@ -19363,7 +19363,7 @@ hf_try_val64_to_str.exit316:                      ; preds = %254, %256, %260
   %276 = load i32, ptr %11, align 8
   %277 = icmp eq i32 %276, 35
   %spec.store.select.i321 = select i1 %277, i32 1, i32 %189
-  %278 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %10, i32 noundef %spec.store.select.i321, ptr noundef nonnull %5, i64 noundef %187)
+  %278 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i321, ptr noundef nonnull %5, i64 noundef %187)
   %279 = icmp eq i32 %2, 0
   br i1 %279, label %protoo_strlcpy.exit, label %280
 
@@ -22675,7 +22675,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %20 = load ptr, ptr %17, align 8
   %21 = tail call i64 @fvalue_length2(ptr noundef %20) #32
   %22 = trunc i64 %21 to i32
-  %23 = tail call fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef null, ptr noundef nonnull %8, ptr noundef %19, i32 noundef %22, i64 noundef 240)
+  %23 = tail call fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef %19, i32 noundef %22, i64 noundef 240)
   tail call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %23)
   tail call void @wmem_free(ptr noundef null, ptr noundef %23) #32
   br label %free_address.exit
@@ -25858,7 +25858,7 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
   br i1 %.not46, label %71, label %62
 
 62:                                               ; preds = %61
-  %63 = tail call fastcc ptr @hf_try_val_to_str(i32 noundef %24, ptr noundef nonnull %5)
+  %63 = tail call fastcc ptr @hf_try_val_to_str(i32 noundef %24, ptr noundef nonnull readonly %5)
   %.not.i49 = icmp eq ptr %63, null
   %64 = select i1 %.not.i49, ptr @.str.80, ptr %63
   %.val48 = load i32, ptr %52, align 4
@@ -25918,7 +25918,7 @@ define internal fastcc void @fill_label_char(ptr nocapture readonly %.0.val, ptr
   br i1 %.not22, label %19, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call fastcc ptr @hf_try_val_to_str(i32 noundef %4, ptr noundef nonnull %.0.val)
+  %15 = tail call fastcc ptr @hf_try_val_to_str(i32 noundef %4, ptr noundef nonnull readonly %.0.val)
   %.not.i = icmp eq ptr %15, null
   %16 = select i1 %.not.i, ptr @.str.80, ptr %15
   %.val23 = load i32, ptr %5, align 4
@@ -26191,7 +26191,7 @@ hfinfo_number_vals_format.exit:                   ; preds = %96
   %spec.store.select.i = select i1 %101, i32 1, i32 %99
   %102 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %102, i32 2, i32 %spec.store.select.i
-  %103 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %.064)
+  %103 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %.064)
   %104 = load i32, ptr %86, align 4
   %105 = and i32 %104, 32768
   %.not72 = icmp eq i32 %105, 0
@@ -26246,7 +26246,7 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %96
   %121 = load i32, ptr %120, align 8
   %122 = icmp eq i32 %121, 35
   %spec.store.select.i90 = select i1 %122, i32 1, i32 %87
-  %123 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %6, i32 noundef %spec.store.select.i90, ptr noundef nonnull %4, i32 noundef %.064)
+  %123 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i90, ptr noundef nonnull %4, i32 noundef %.064)
   %sext = shl i64 %85, 32
   %124 = ashr exact i64 %sext, 32
   call fastcc void @label_fill(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef %123)
@@ -26318,7 +26318,7 @@ hfinfo_number_vals_format.exit:                   ; preds = %27
   %spec.store.select.i = select i1 %32, i32 1, i32 %30
   %33 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %33, i32 2, i32 %spec.store.select.i
-  %34 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %7, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %.0)
+  %34 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %.0)
   %35 = load i32, ptr %15, align 4
   %36 = and i32 %35, 32768
   %.not53 = icmp eq i32 %36, 0
@@ -26389,7 +26389,7 @@ display_to_port_type.exit:                        ; preds = %48, %switch.lookup
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 35
   %spec.store.select.i57 = select i1 %55, i32 1, i32 %16
-  %56 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %7, i32 noundef %spec.store.select.i57, ptr noundef nonnull %4, i32 noundef %.0)
+  %56 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select.i57, ptr noundef nonnull %4, i32 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %56)
   br label %57
 
@@ -26691,7 +26691,7 @@ hfinfo_number_vals_format64.exit:                 ; preds = %hf_try_val64_to_str
   %spec.store.select.i = select i1 %116, i32 1, i32 %114
   %117 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %117, i32 2, i32 %spec.store.select.i
-  %118 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i64 noundef %.064)
+  %118 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i64 noundef %.064)
   %119 = load i32, ptr %84, align 4
   %120 = and i32 %119, 32768
   %.not72 = icmp eq i32 %120, 0
@@ -26746,7 +26746,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %136 = load i32, ptr %135, align 8
   %137 = icmp eq i32 %136, 35
   %spec.store.select.i92 = select i1 %137, i32 1, i32 %85
-  %138 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %6, i32 noundef %spec.store.select.i92, ptr noundef nonnull %4, i64 noundef %.064)
+  %138 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i92, ptr noundef nonnull %4, i64 noundef %.064)
   %sext = shl i64 %83, 32
   %139 = ashr exact i64 %sext, 32
   call fastcc void @label_fill(ptr noundef %1, i64 noundef %139, ptr noundef nonnull %6, ptr noundef %138)
@@ -26853,7 +26853,7 @@ hfinfo_number_vals_format64.exit:                 ; preds = %hf_try_val64_to_str
   %spec.store.select.i = select i1 %45, i32 1, i32 %43
   %46 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %46, i32 2, i32 %spec.store.select.i
-  %47 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i64 noundef %.0)
+  %47 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i64 noundef %.0)
   %48 = load i32, ptr %14, align 4
   %49 = and i32 %48, 32768
   %.not42 = icmp eq i32 %49, 0
@@ -26902,7 +26902,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 35
   %spec.store.select.i46 = select i1 %63, i32 1, i32 %15
-  %64 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %6, i32 noundef %spec.store.select.i46, ptr noundef nonnull %4, i64 noundef %.0)
+  %64 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i46, ptr noundef nonnull %4, i64 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef %64)
   br label %65
 
@@ -29828,7 +29828,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   %117 = select i1 %.not370, ptr @.str.402, ptr @.str.77
   %118 = load ptr, ptr %66, align 8
   %119 = trunc i64 %101 to i32
-  %120 = call fastcc ptr @hf_try_val_to_str(i32 noundef %119, ptr noundef nonnull %66)
+  %120 = call fastcc ptr @hf_try_val_to_str(i32 noundef %119, ptr noundef nonnull readonly %66)
   %.not.i386 = icmp eq ptr %120, null
   %121 = select i1 %.not.i386, ptr @.str.80, ptr %120
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.401, ptr noundef nonnull %117, ptr noundef %118, ptr noundef nonnull %121)
@@ -29892,7 +29892,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   %145 = select i1 %.not358, ptr @.str.402, ptr @.str.77
   %146 = load ptr, ptr %66, align 8
   %147 = trunc i64 %101 to i32
-  %148 = call fastcc ptr @hf_try_val_to_str(i32 noundef %147, ptr noundef nonnull %66)
+  %148 = call fastcc ptr @hf_try_val_to_str(i32 noundef %147, ptr noundef nonnull readonly %66)
   %.not.i387 = icmp eq ptr %148, null
   %149 = select i1 %.not.i387, ptr @.str.80, ptr %148
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.401, ptr noundef nonnull %145, ptr noundef %146, ptr noundef nonnull %149)
@@ -29936,7 +29936,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   %162 = load i32, ptr %97, align 8
   %163 = icmp eq i32 %162, 35
   %spec.store.select.i = select i1 %163, i32 1, i32 %160
-  %164 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %66, i32 noundef %spec.store.select.i, ptr noundef nonnull %15, i32 noundef %161)
+  %164 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i, ptr noundef nonnull %15, i32 noundef %161)
   br label %165
 
 165:                                              ; preds = %.thread407, %156
@@ -30017,7 +30017,7 @@ ws_sign_ext32.exit:                               ; preds = %180, %176, %174
   %.not348 = icmp eq i32 %.0268.ph489, 0
   %199 = select i1 %.not348, ptr @.str.402, ptr @.str.77
   %200 = load ptr, ptr %66, align 8
-  %201 = call fastcc ptr @hf_try_val_to_str(i32 noundef %.0280, ptr noundef nonnull %66)
+  %201 = call fastcc ptr @hf_try_val_to_str(i32 noundef %.0280, ptr noundef nonnull readonly %66)
   %.not.i390 = icmp eq ptr %201, null
   %202 = select i1 %.not.i390, ptr @.str.80, ptr %201
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.401, ptr noundef nonnull %199, ptr noundef %200, ptr noundef nonnull %202)
@@ -30059,7 +30059,7 @@ ws_sign_ext32.exit:                               ; preds = %180, %176, %174
   %213 = load i32, ptr %97, align 8
   %214 = icmp eq i32 %213, 35
   %spec.store.select.i391 = select i1 %214, i32 1, i32 %212
-  %215 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %66, i32 noundef %spec.store.select.i391, ptr noundef nonnull %17, i32 noundef %.0280)
+  %215 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i391, ptr noundef nonnull %17, i32 noundef %.0280)
   br label %216
 
 216:                                              ; preds = %.thread410, %209
@@ -30194,7 +30194,7 @@ hf_try_val64_to_str.exit.thread:                  ; preds = %hf_try_val64_to_str
   %267 = load i32, ptr %97, align 8
   %268 = icmp eq i32 %267, 35
   %spec.store.select.i394 = select i1 %268, i32 1, i32 %266
-  %269 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %66, i32 noundef %spec.store.select.i394, ptr noundef nonnull %19, i64 noundef %101)
+  %269 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i394, ptr noundef nonnull %19, i64 noundef %101)
   br label %270
 
 270:                                              ; preds = %hf_try_val64_to_str.exit.thread, %hf_try_val64_to_str.exit
@@ -30355,7 +30355,7 @@ hf_try_val64_to_str.exit404.thread:               ; preds = %hf_try_val64_to_str
   %332 = load i32, ptr %97, align 8
   %333 = icmp eq i32 %332, 35
   %spec.store.select.i405 = select i1 %333, i32 1, i32 %331
-  %334 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %66, i32 noundef %spec.store.select.i405, ptr noundef nonnull %21, i64 noundef %.0279)
+  %334 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i405, ptr noundef nonnull %21, i64 noundef %.0279)
   br label %335
 
 335:                                              ; preds = %hf_try_val64_to_str.exit404.thread, %hf_try_val64_to_str.exit404

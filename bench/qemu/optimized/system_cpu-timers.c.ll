@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @timers_state = dso_local global %struct.TimersState zeroinitializer, align 8
 @use_icount = external local_unnamed_addr global i32, align 4
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @cpus_queue = external local_unnamed_addr global %union.CPUTailQ, align 8
 @vmstate_timers = internal constant %struct.VMStateDescription { ptr @.str.3, i8 0, i8 0, i32 2, i32 1, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @.compoundliteral, ptr @.compoundliteral.7 }, align 8
 @use_rt_clock = external local_unnamed_addr global i32, align 4

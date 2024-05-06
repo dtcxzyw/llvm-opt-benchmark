@@ -235,7 +235,7 @@ define dso_local noundef i32 @io_uring_cmd_prep_async(ptr nocapture noundef %0) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_uring_cmd_prep(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_uring_cmd_prep(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4

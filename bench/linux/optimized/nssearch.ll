@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @acpi_gbl_runtime_namespace_override = external dso_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_search_one_scope(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 6) i32 @acpi_ns_search_one_scope(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -50,7 +50,7 @@ define dso_local noundef i32 @acpi_ns_search_one_scope(i32 noundef %0, ptr nocap
 declare dso_local i32 @acpi_ns_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_search_and_enter(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_ns_search_and_enter(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
   %8 = alloca i32, align 4
   store i32 %0, ptr %8, align 4
   %9 = icmp ne ptr %2, null

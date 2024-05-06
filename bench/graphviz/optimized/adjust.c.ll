@@ -137,7 +137,7 @@ define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr n
   %.038 = phi ptr [ %43, %.lr.ph.split ], [ %11, %.lr.ph.split.preheader ]
   %.03137 = phi i32 [ %spec.select, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
   %28 = tail call ptr @agnameof(ptr noundef nonnull %.038) #18
-  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(12) @.str, i64 noundef 11) #19
+  %29 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %28, ptr noundef nonnull dereferenceable(12) @.str, i64 noundef 11) #19
   %30 = icmp eq i32 %29, 0
   %31 = zext i1 %30 to i32
   %spec.select = add nuw nsw i32 %.03137, %31
@@ -172,7 +172,7 @@ define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr n
   %.141 = phi ptr [ %60, %59 ], [ %47, %44 ]
   %.240 = phi i32 [ %.3, %59 ], [ 0, %44 ]
   %48 = tail call ptr @agnameof(ptr noundef nonnull %.141) #18
-  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(12) @.str, i64 noundef 11) #19
+  %49 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %48, ptr noundef nonnull dereferenceable(12) @.str, i64 noundef 11) #19
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %59
 
@@ -438,7 +438,7 @@ declare ptr @SparseMatrix_from_coordinate_arrays(i32 noundef, i32 noundef, i32 n
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @normalize(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @normalize(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.13) #18
@@ -698,7 +698,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %1, i64 %28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #18
+  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #18
   %31 = icmp sgt i32 %30, 0
   %32 = load i32, ptr %4, align 4
   %33 = icmp sgt i32 %32, -1
@@ -779,7 +779,7 @@ define i32 @removeOverlapWith(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %5, label %395, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @normalize(ptr noundef %0), !range !4
+  %7 = tail call i32 @normalize(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %8 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.20) #18
   %.not.i = icmp eq ptr %8, null
@@ -977,7 +977,7 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %6, %9, %
   %103 = getelementptr inbounds i8, ptr %91, i64 16
   store double %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %91, i64 48
-  %105 = call i32 %.033.i(ptr noundef nonnull %104, ptr noundef %.03234.i, float noundef %.sroa.014.0.vec.extract17.i, float noundef %.sroa.014.4.vec.extract20.i) #18, !callees !5
+  %105 = call i32 %.033.i(ptr noundef nonnull %104, ptr noundef %.03234.i, float noundef %.sroa.014.0.vec.extract17.i, float noundef %.sroa.014.4.vec.extract20.i) #18, !callees !4
   %.not.i34 = icmp eq i32 %105, 0
   br i1 %.not.i34, label %106, label %114
 
@@ -2419,7 +2419,7 @@ declare i32 @polyOverlap(double, double, ptr noundef, double, double, ptr nounde
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @scomp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
+define internal range(i32 -1, 2) i32 @scomp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2536,5 +2536,4 @@ attributes #23 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{ptr @makeAddPoly, ptr @makePoly}
+!4 = !{ptr @makeAddPoly, ptr @makePoly}

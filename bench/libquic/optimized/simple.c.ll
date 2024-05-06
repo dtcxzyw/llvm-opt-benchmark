@@ -40,7 +40,7 @@ entry:
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_simple_group_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_group_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   %field = getelementptr inbounds i8, ptr %dest, i64 80
   %field1 = getelementptr inbounds i8, ptr %src, i64 80
@@ -84,7 +84,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_simple_group_set_curve(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_group_set_curve(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %p) #5
   %cmp = icmp ult i32 %call, 3
@@ -234,7 +234,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_simple_group_get_curve(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_group_get_curve(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -373,7 +373,7 @@ entry:
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_simple_point_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_point_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   %X = getelementptr inbounds i8, ptr %dest, i64 8
   %X1 = getelementptr inbounds i8, ptr %src, i64 8
@@ -412,7 +412,7 @@ entry:
 declare void @BN_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -565,7 +565,7 @@ return:                                           ; preds = %if.then, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_simple_get_Jprojective_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_get_Jprojective_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %field_decode = getelementptr inbounds i8, ptr %0, i64 80
@@ -1010,7 +1010,7 @@ declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_simple_dbl(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_dbl(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %a) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1279,7 +1279,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_simple_is_on_curve(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_is_on_curve(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %point) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1435,7 +1435,7 @@ return:                                           ; preds = %if.then4, %entry, %
 declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_simple_cmp(ptr noundef %group, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @ec_GFp_simple_cmp(ptr noundef %group, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %a) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1600,7 +1600,7 @@ return:                                           ; preds = %if.then31, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_simple_make_affine(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_make_affine(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %Z = getelementptr inbounds i8, ptr %point, i64 56
   %one = getelementptr inbounds i8, ptr %group, i64 168
@@ -1666,7 +1666,7 @@ declare i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr n
 declare i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_simple_points_make_affine(ptr noundef %group, i64 noundef %num, ptr nocapture noundef readonly %points, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef %group, i64 noundef %num, ptr nocapture noundef readonly %points, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %num, 0
   br i1 %cmp, label %return, label %if.end

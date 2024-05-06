@@ -496,7 +496,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rgoose_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rgoose_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -906,7 +906,7 @@ define internal noundef i32 @dissect_goose_UtcTime(i1 zeroext %0, ptr noundef %1
   %21 = zext i32 %20 to i64
   %22 = mul nuw nsw i64 %21, 1000000000
   %23 = lshr i64 %22, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = zext i32 %17 to i64
   store i64 %25, ptr %7, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 8

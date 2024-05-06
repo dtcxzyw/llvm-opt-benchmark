@@ -31,7 +31,7 @@ define internal i32 @phc_vclocks_prepare_data(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @phc_vclocks_reply_size(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 8, 5) i32 @phc_vclocks_reply_size(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -44,7 +44,7 @@ define internal i32 @phc_vclocks_reply_size(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @phc_vclocks_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -90, 1) i32 @phc_vclocks_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8

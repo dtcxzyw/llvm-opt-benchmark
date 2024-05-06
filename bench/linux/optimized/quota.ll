@@ -59,7 +59,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32, ptr @percpu_down_read.__UNIQUE_ID___addressable___SCK__preempt_schedule271, ptr @percpu_up_read.__UNIQUE_ID___addressable___SCK__preempt_schedule273], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @qtype_enforce_flag(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 33) i32 @qtype_enforce_flag(i32 noundef %0) local_unnamed_addr #0 align 16 {
   switch i32 %0, label %4 [
     i32 0, label %5
     i32 1, label %2
@@ -81,7 +81,7 @@ define dso_local noundef i32 @qtype_enforce_flag(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_quotactl(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_quotactl(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -95,7 +95,7 @@ define dso_local i64 @__x64_sys_quotactl(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_quotactl(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.path, align 8
@@ -352,7 +352,7 @@ define internal fastcc i64 @__se_sys_quotactl(i64 noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_quotactl(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_quotactl(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -370,7 +370,7 @@ define dso_local i64 @__ia32_sys_quotactl(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_quotactl_fd(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_quotactl_fd(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -384,7 +384,7 @@ define dso_local i64 @__x64_sys_quotactl_fd(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_quotactl_fd(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl_fd(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
   %5 = trunc i64 %0 to i32
   %6 = trunc i64 %1 to i32
   %7 = trunc i64 %2 to i32
@@ -498,7 +498,7 @@ define internal fastcc i64 @__se_sys_quotactl_fd(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_quotactl_fd(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_quotactl_fd(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -663,7 +663,7 @@ define internal fastcc i32 @do_quotactl(ptr noundef %0, i32 noundef %1, i32 noun
   br label %.thread
 
 68:                                               ; preds = %38
-  %69 = tail call fastcc i32 @quota_getxstate(ptr noundef %0, i32 noundef %10, ptr noundef %4), !range !24
+  %69 = tail call fastcc i32 @quota_getxstate(ptr noundef %0, i32 noundef %10, ptr noundef %4)
   br label %.thread
 
 70:                                               ; preds = %38
@@ -887,7 +887,7 @@ default.unreachable:                              ; preds = %.thread
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @quota_getfmt(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @quota_getfmt(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 256
@@ -1504,7 +1504,7 @@ define internal fastcc i32 @quota_rmxquota(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @quota_getxstate(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstate(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.qc_state, align 8
   %5 = alloca %struct.fs_quota_stat, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
@@ -1538,7 +1538,7 @@ define internal fastcc i32 @quota_getxstate(ptr noundef %0, i32 noundef %1, ptr 
   %25 = shl i32 %24, 2
   %26 = and i32 %25, 48
   %27 = or disjoint i32 %22, %26
-  %28 = trunc i32 %27 to i16
+  %28 = trunc nuw nsw i32 %27 to i16
   %29 = getelementptr inbounds i8, ptr %5, i64 2
   store i16 %28, ptr %29, align 2
   %30 = icmp eq i16 %28, 0
@@ -1807,7 +1807,7 @@ define internal fastcc i32 @quota_getxstate(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @quota_getxstatev(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstatev(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.qc_state, align 8
   %5 = alloca %struct.fs_quota_statv, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #8
@@ -1855,7 +1855,7 @@ define internal fastcc i32 @quota_getxstatev(ptr noundef %0, i32 noundef %1, ptr
   %34 = shl i32 %33, 2
   %35 = and i32 %34, 48
   %36 = or disjoint i32 %31, %35
-  %37 = trunc i32 %36 to i16
+  %37 = trunc nuw nsw i32 %36 to i16
   %38 = getelementptr inbounds i8, ptr %5, i64 2
   store i16 %37, ptr %38, align 2
   %39 = icmp eq i16 %37, 0
@@ -2584,7 +2584,7 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 declare dso_local i32 @from_kqid(ptr noundef, i64) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @compat_copy_fs_qfilestat(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @compat_copy_fs_qfilestat(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef %1, i64 noundef 20) #8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %17

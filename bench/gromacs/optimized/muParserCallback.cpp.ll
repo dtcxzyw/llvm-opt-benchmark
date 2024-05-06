@@ -1368,7 +1368,7 @@ define noundef i32 @_ZNK2mu14ParserCallback16GetAssociativityEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK2mu14ParserCallback7GetArgcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 16) i32 @_ZNK2mu14ParserCallback7GetArgcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16384

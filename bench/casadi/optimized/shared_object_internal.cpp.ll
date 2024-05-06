@@ -173,7 +173,7 @@ declare void @_ZN6casadi7WeakRefC1EPNS_20SharedObjectInternalE(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6casadi15WeakRefInternalC2EPNS_20SharedObjectInternalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi15WeakRefInternalE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8

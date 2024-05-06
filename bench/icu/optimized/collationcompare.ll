@@ -8,7 +8,7 @@ $_ZN6icu_7517CollationIterator6nextCEER10UErrorCode = comdat any
 $_ZNK6icu_7517CollationSettings7reorderEj = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7516CollationCompare21compareUpToQuaternaryERNS_17CollationIteratorES2_RKNS_17CollationSettingsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %left, ptr noundef nonnull align 8 dereferenceable(389) %right, ptr noundef nonnull align 8 dereferenceable(852) %settings, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN6icu_7516CollationCompare21compareUpToQuaternaryERNS_17CollationIteratorES2_RKNS_17CollationSettingsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %left, ptr noundef nonnull align 8 dereferenceable(389) %right, ptr noundef nonnull align 8 dereferenceable(852) %settings, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -36,7 +36,7 @@ for.cond:                                         ; preds = %if.end64, %if.end
 do.body:                                          ; preds = %do.cond22, %for.cond
   %call5 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %left, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr = lshr i64 %call5, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %cmp6 = icmp ugt i32 %variableTop.0, %conv
   %cmp7 = icmp ugt i32 %conv, 33554432
   %or.cond = and i1 %cmp6, %cmp7
@@ -53,7 +53,7 @@ do.body9:                                         ; preds = %do.body, %do.cond
   store i64 %and10, ptr %arrayidx.i.i.i, align 8
   %call12256 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %left, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr13257 = lshr i64 %call12256, 32
-  %conv14258 = trunc i64 %shr13257 to i32
+  %conv14258 = trunc nuw i64 %shr13257 to i32
   %cmp15259 = icmp eq i32 %conv14258, 0
   br i1 %cmp15259, label %if.then16, label %do.cond
 
@@ -66,7 +66,7 @@ if.then16:                                        ; preds = %do.body9, %if.then1
   store i64 0, ptr %arrayidx.i.i.i144, align 8
   %call12 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %left, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr13 = lshr i64 %call12, 32
-  %conv14 = trunc i64 %shr13 to i32
+  %conv14 = trunc nuw i64 %shr13 to i32
   %cmp15 = icmp eq i32 %conv14, 0
   br i1 %cmp15, label %if.then16, label %do.cond, !llvm.loop !4
 
@@ -90,7 +90,7 @@ do.body25.preheader:                              ; preds = %do.cond22, %do.cond
 do.body25:                                        ; preds = %do.body25.preheader, %do.cond52
   %call27 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %right, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr28 = lshr i64 %call27, 32
-  %conv29 = trunc i64 %shr28 to i32
+  %conv29 = trunc nuw i64 %shr28 to i32
   %cmp30 = icmp ugt i32 %variableTop.0, %conv29
   %cmp32 = icmp ugt i32 %conv29, 33554432
   %or.cond1 = and i1 %cmp30, %cmp32
@@ -107,7 +107,7 @@ do.body34:                                        ; preds = %do.body25, %do.cond
   store i64 %and35, ptr %arrayidx.i.i.i147, align 8
   %call37261 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %right, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr38262 = lshr i64 %call37261, 32
-  %conv39263 = trunc i64 %shr38262 to i32
+  %conv39263 = trunc nuw i64 %shr38262 to i32
   %cmp40264 = icmp eq i32 %conv39263, 0
   br i1 %cmp40264, label %if.then41, label %do.cond45
 
@@ -120,7 +120,7 @@ if.then41:                                        ; preds = %do.body34, %if.then
   store i64 0, ptr %arrayidx.i.i.i150, align 8
   %call37 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %right, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %shr38 = lshr i64 %call37, 32
-  %conv39 = trunc i64 %shr38 to i32
+  %conv39 = trunc nuw i64 %shr38 to i32
   %cmp40 = icmp eq i32 %conv39, 0
   br i1 %cmp40, label %if.then41, label %do.cond45, !llvm.loop !8
 
@@ -230,7 +230,7 @@ for.cond79:                                       ; preds = %if.then75, %if.end9
 
 do.body80:                                        ; preds = %do.body80, %for.cond79
   %indvars.iv317 = phi i64 [ %indvars.iv.next318, %do.body80 ], [ %28, %for.cond79 ]
-  %indvars.iv.next318 = add i64 %indvars.iv317, 1
+  %indvars.iv.next318 = add nsw i64 %indvars.iv317, 1
   %arrayidx.i.i.i176 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv317
   %29 = load i64, ptr %arrayidx.i.i.i176, align 8
   %conv82 = trunc i64 %29 to i32
@@ -244,7 +244,7 @@ do.body87.preheader:                              ; preds = %do.body80
 
 do.body87:                                        ; preds = %do.body87.preheader, %do.body87
   %indvars.iv320 = phi i64 [ %30, %do.body87.preheader ], [ %indvars.iv.next321, %do.body87 ]
-  %indvars.iv.next321 = add i64 %indvars.iv320, 1
+  %indvars.iv.next321 = add nsw i64 %indvars.iv320, 1
   %arrayidx.i.i.i179 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv320
   %31 = load i64, ptr %arrayidx.i.i.i179, align 8
   %conv90 = trunc i64 %31 to i32
@@ -277,10 +277,10 @@ while.cond:                                       ; preds = %while.cond, %for.co
   %arrayidx.i.i.i182 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %33 = load i64, ptr %arrayidx.i.i.i182, align 8
   %shr107 = lshr i64 %33, 32
-  %conv108 = trunc i64 %shr107 to i32
+  %conv108 = trunc nuw i64 %shr107 to i32
   %34 = add i32 %conv108, -33554433
   %35 = icmp ult i32 %34, -33554432
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %35, label %while.cond, label %while.cond112.preheader, !llvm.loop !15
 
 while.cond112.preheader:                          ; preds = %while.cond
@@ -292,15 +292,15 @@ while.cond112:                                    ; preds = %while.cond112, %whi
   %arrayidx.i.i.i185 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv308
   %37 = load i64, ptr %arrayidx.i.i.i185, align 8
   %shr114 = lshr i64 %37, 32
-  %conv115 = trunc i64 %shr114 to i32
+  %conv115 = trunc nuw i64 %shr114 to i32
   %38 = add i32 %conv115, -33554433
   %39 = icmp ult i32 %38, -33554432
-  %indvars.iv.next309 = add i64 %indvars.iv308, 1
+  %indvars.iv.next309 = add nsw i64 %indvars.iv308, 1
   br i1 %39, label %while.cond112, label %for.cond125.preheader, !llvm.loop !16
 
 for.cond125.preheader:                            ; preds = %while.cond112
-  %40 = trunc i64 %indvars.iv to i32
-  %41 = trunc i64 %indvars.iv308 to i32
+  %40 = trunc nsw i64 %indvars.iv to i32
+  %41 = trunc nsw i64 %indvars.iv308 to i32
   br label %for.cond125
 
 for.cond125:                                      ; preds = %for.cond125.preheader, %if.end153
@@ -315,7 +315,7 @@ while.body132.preheader:                          ; preds = %for.cond125
 
 while.cond138.preheader.loopexit:                 ; preds = %while.body132
   %shr135 = lshr i32 %conv134, 16
-  %43 = trunc i64 %indvars.iv.next312 to i32
+  %43 = trunc nsw i64 %indvars.iv.next312 to i32
   br label %while.cond138.preheader
 
 while.cond138.preheader:                          ; preds = %while.cond138.preheader.loopexit, %for.cond125
@@ -353,7 +353,7 @@ while.body143:                                    ; preds = %while.body143.prehe
 
 while.end148.loopexit:                            ; preds = %while.body143
   %shr147 = lshr i32 %conv146, 16
-  %49 = trunc i64 %indvars.iv.next315 to i32
+  %49 = trunc nsw i64 %indvars.iv.next315 to i32
   br label %while.end148
 
 while.end148:                                     ; preds = %while.end148.loopexit, %while.cond138.preheader
@@ -399,7 +399,7 @@ for.cond172.us:                                   ; preds = %for.cond172.prehead
 
 do.body176.us:                                    ; preds = %for.cond172.us, %do.body176.us
   %indvars.iv329 = phi i64 [ %52, %for.cond172.us ], [ %indvars.iv.next330, %do.body176.us ]
-  %indvars.iv.next330 = add i64 %indvars.iv329, 1
+  %indvars.iv.next330 = add nsw i64 %indvars.iv329, 1
   %arrayidx.i.i.i195.us = getelementptr inbounds i64, ptr %50, i64 %indvars.iv329
   %53 = load i64, ptr %arrayidx.i.i.i195.us, align 8
   %conv179.us = trunc i64 %53 to i32
@@ -410,7 +410,7 @@ do.body176.us:                                    ; preds = %for.cond172.us, %do
 
 do.body189.us:                                    ; preds = %do.body189.preheader.us, %do.body189.us
   %indvars.iv332 = phi i64 [ %57, %do.body189.preheader.us ], [ %indvars.iv.next333, %do.body189.us ]
-  %indvars.iv.next333 = add i64 %indvars.iv332, 1
+  %indvars.iv.next333 = add nsw i64 %indvars.iv332, 1
   %arrayidx.i.i.i198.us = getelementptr inbounds i64, ptr %51, i64 %indvars.iv332
   %55 = load i64, ptr %arrayidx.i.i.i198.us, align 8
   %conv192.us = trunc i64 %55 to i32
@@ -444,7 +444,7 @@ for.cond172:                                      ; preds = %for.cond172.prehead
 
 do.body203:                                       ; preds = %for.cond172, %do.body203
   %indvars.iv323 = phi i64 [ %58, %for.cond172 ], [ %indvars.iv.next324, %do.body203 ]
-  %indvars.iv.next324 = add i64 %indvars.iv323, 1
+  %indvars.iv.next324 = add nsw i64 %indvars.iv323, 1
   %arrayidx.i.i.i201 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv323
   %59 = load i64, ptr %arrayidx.i.i.i201, align 8
   %conv206 = trunc i64 %59 to i32
@@ -458,7 +458,7 @@ do.body211.preheader:                             ; preds = %do.body203
 
 do.body211:                                       ; preds = %do.body211.preheader, %do.body211
   %indvars.iv326 = phi i64 [ %60, %do.body211.preheader ], [ %indvars.iv.next327, %do.body211 ]
-  %indvars.iv.next327 = add i64 %indvars.iv326, 1
+  %indvars.iv.next327 = add nsw i64 %indvars.iv326, 1
   %arrayidx.i.i.i204 = getelementptr inbounds i64, ptr %51, i64 %indvars.iv326
   %61 = load i64, ptr %arrayidx.i.i.i204, align 8
   %conv214 = trunc i64 %61 to i32
@@ -515,7 +515,7 @@ for.cond244:                                      ; preds = %if.end288, %if.end2
 do.body246:                                       ; preds = %do.body246, %for.cond244
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %do.body246 ], [ %64, %for.cond244 ]
   %anyQuaternaries.1 = phi i32 [ %or, %do.body246 ], [ %anyQuaternaries.0, %for.cond244 ]
-  %indvars.iv.next336 = add i64 %indvars.iv335, 1
+  %indvars.iv.next336 = add nsw i64 %indvars.iv335, 1
   %arrayidx.i.i.i208 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv335
   %65 = load i64, ptr %arrayidx.i.i.i208, align 8
   %conv249 = trunc i64 %65 to i32
@@ -532,7 +532,7 @@ do.body254.preheader:                             ; preds = %do.body246
 do.body254:                                       ; preds = %do.body254.preheader, %do.body254
   %indvars.iv338 = phi i64 [ %66, %do.body254.preheader ], [ %indvars.iv.next339, %do.body254 ]
   %anyQuaternaries.2 = phi i32 [ %or, %do.body254.preheader ], [ %or258, %do.body254 ]
-  %indvars.iv.next339 = add i64 %indvars.iv338, 1
+  %indvars.iv.next339 = add nsw i64 %indvars.iv338, 1
   %arrayidx.i.i.i211 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv338
   %67 = load i64, ptr %arrayidx.i.i.i211, align 8
   %conv257 = trunc i64 %67 to i32
@@ -614,14 +614,14 @@ for.cond303:                                      ; preds = %if.end296, %if.end3
 
 do.body304:                                       ; preds = %do.body304, %for.cond303
   %indvars.iv341 = phi i64 [ %indvars.iv.next342, %do.body304 ], [ %68, %for.cond303 ]
-  %indvars.iv.next342 = add i64 %indvars.iv341, 1
+  %indvars.iv.next342 = add nsw i64 %indvars.iv341, 1
   %arrayidx.i.i.i218 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv341
   %69 = load i64, ptr %arrayidx.i.i.i218, align 8
   %conv308 = trunc i64 %69 to i32
   %and309 = and i32 %conv308, 65535
   %cmp310 = icmp ult i32 %and309, 257
   %shr312 = lshr i64 %69, 32
-  %conv313 = trunc i64 %shr312 to i32
+  %conv313 = trunc nuw i64 %shr312 to i32
   %or315 = or i32 %conv308, -193
   %leftQuaternary.0 = select i1 %cmp310, i32 %conv313, i32 %or315
   %cmp318 = icmp eq i32 %leftQuaternary.0, 0
@@ -634,14 +634,14 @@ do.body320.preheader:                             ; preds = %do.body304
 
 do.body320:                                       ; preds = %do.body320.preheader, %do.body320
   %indvars.iv344 = phi i64 [ %70, %do.body320.preheader ], [ %indvars.iv.next345, %do.body320 ]
-  %indvars.iv.next345 = add i64 %indvars.iv344, 1
+  %indvars.iv.next345 = add nsw i64 %indvars.iv344, 1
   %arrayidx.i.i.i221 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv344
   %71 = load i64, ptr %arrayidx.i.i.i221, align 8
   %conv324 = trunc i64 %71 to i32
   %and325 = and i32 %conv324, 65535
   %cmp326 = icmp ult i32 %and325, 257
   %shr328 = lshr i64 %71, 32
-  %conv329 = trunc i64 %shr328 to i32
+  %conv329 = trunc nuw i64 %shr328 to i32
   %or331 = or i32 %conv324, -193
   %rightQuaternary.0 = select i1 %cmp326, i32 %conv329, i32 %or331
   %cmp334 = icmp eq i32 %rightQuaternary.0, 0
@@ -826,8 +826,8 @@ cond.false25.i:                                   ; preds = %cond.false20.i
   %21 = load ptr, ptr %13, align 8
   %shr30.i = lshr i32 %8, 11
   %22 = zext nneg i32 %shr30.i to i64
-  %23 = getelementptr i16, ptr %21, i64 %22
-  %arrayidx33.i = getelementptr i8, ptr %23, i64 4160
+  %23 = getelementptr inbounds i16, ptr %21, i64 %22
+  %arrayidx33.i = getelementptr inbounds i8, ptr %23, i64 4160
   %24 = load i16, ptr %arrayidx33.i, align 2
   %conv34.i = zext i16 %24 to i32
   %shr35.i = lshr i32 %8, 5

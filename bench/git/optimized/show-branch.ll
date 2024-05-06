@@ -117,7 +117,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.84 = private unnamed_addr constant [4 x i8] c"^%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_show_branch(i32 noundef %ac, ptr noundef %av, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_show_branch(i32 noundef %ac, ptr noundef %av, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %newname.i = alloca %struct.strbuf, align 8
   %seen.addr.i = alloca ptr, align 8
@@ -1377,11 +1377,11 @@ if.end.i197:                                      ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i198, label %if.then.i.i201, label %if.end.i.i199
 
 if.then.i.i201:                                   ; preds = %if.end.i197
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %head_oid, ptr noundef nonnull dereferenceable(32) %oid421, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %head_oid, ptr noundef nonnull readonly dereferenceable(32) %oid421, i64 32)
   br label %oideq.exit
 
 if.end.i.i199:                                    ; preds = %if.end.i197
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %head_oid, ptr noundef nonnull dereferenceable(20) %oid421, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %head_oid, ptr noundef nonnull readonly dereferenceable(20) %oid421, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i201, %if.end.i.i199
@@ -2235,7 +2235,7 @@ return:                                           ; preds = %if.end.i147, %if.th
 declare i32 @parse_opt_color_flag_cb(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_reflog_param(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @parse_reflog_param(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %ep = alloca ptr, align 8
   %value = getelementptr inbounds i8, ptr %opt, i64 16
@@ -2878,11 +2878,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %tmp, ptr noundef nonnull dereferenceable(32) %oid, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %tmp, ptr noundef nonnull readonly dereferenceable(32) %oid, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %tmp, ptr noundef nonnull dereferenceable(20) %oid, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %tmp, ptr noundef nonnull readonly dereferenceable(20) %oid, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -3063,11 +3063,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %tmp, ptr noundef nonnull dereferenceable(32) %oid, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %tmp, ptr noundef nonnull readonly dereferenceable(32) %oid, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %tmp, ptr noundef nonnull dereferenceable(20) %oid, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %tmp, ptr noundef nonnull readonly dereferenceable(20) %oid, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -3585,7 +3585,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
 
 if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
   %42 = load ptr, ptr %33, align 8
-  tail call fastcc void @name_commit(ptr noundef %11, ptr noundef %42, i32 noundef %.pre9.i)
+  tail call fastcc void @name_commit(ptr noundef readonly %11, ptr noundef %42, i32 noundef %.pre9.i)
   %.pre3.i.i.i.pre = load ptr, ptr @name_slab.3, align 8
   br label %name_parent.exit
 

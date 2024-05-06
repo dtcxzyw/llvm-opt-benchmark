@@ -102,7 +102,7 @@ define dso_local i32 @__devm_mdiobus_register(ptr noundef %0, ptr noundef %1, pt
 declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @mdiobus_devres_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #2 align 16 {
+define internal range(i32 0, 2) i32 @mdiobus_devres_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #2 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %2
   %6 = zext i1 %5 to i32

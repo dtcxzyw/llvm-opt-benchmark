@@ -180,7 +180,7 @@ define internal void @_ZL12init_comparePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
 
 40:                                               ; preds = %24
   %41 = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   br label %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit
 
 _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit: ; preds = %12, %28, %40
@@ -239,7 +239,7 @@ _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit: ; preds 
 
 75:                                               ; preds = %59
   %76 = getelementptr inbounds i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
   br label %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62
 
 _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62: ; preds = %47, %63, %75

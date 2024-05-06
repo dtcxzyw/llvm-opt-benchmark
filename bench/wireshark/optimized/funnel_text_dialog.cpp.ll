@@ -3786,7 +3786,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_fu
 9:                                                ; preds = %8
   %10 = shl nuw i64 %1, 1
   %11 = add i64 %10, -1
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %11, i1 true), !range !22
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
   %14 = shl i64 2, %13
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
@@ -3941,7 +3941,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt
 17:                                               ; preds = %16
   %18 = shl nuw i64 %.sroa.speculated, 1
   %19 = add i64 %18, -1
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !22
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %21 = xor i64 %20, 63
   %22 = shl i64 2, %21
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -4115,7 +4115,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit: ; 
   %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QObject *, _funnel_bt_t *>>::Entry", ptr %116, i64 %.011.i.i
   store i8 %123, ptr %124, align 1
   %exitcond.not.i.i = icmp eq i64 %122, %114
-  br i1 %exitcond.not.i.i, label %125, label %121, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %125, label %121, !llvm.loop !22
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds i8, ptr %105, i64 128
@@ -4150,12 +4150,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE6insertEm.exit: ; pre
 137:                                              ; preds = %54, %_ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE6insertEm.exit
   %138 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %138, 128
-  br i1 %exitcond.not, label %139, label %54, !llvm.loop !24
+  br i1 %exitcond.not, label %139, label %54, !llvm.loop !23
 
 139:                                              ; preds = %137
   %140 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %140, %47
-  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !25
+  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %139, %.loopexit
   ret void
@@ -4362,7 +4362,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit11: 
   %119 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QObject *, _funnel_bt_t *>>::Entry", ptr %111, i64 %.011.i.i
   store i8 %118, ptr %119, align 1
   %exitcond.not.i.i = icmp eq i64 %117, %109
-  br i1 %exitcond.not.i.i, label %120, label %116, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %120, label %116, !llvm.loop !22
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds i8, ptr %100, i64 128
@@ -4431,7 +4431,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt
 8:                                                ; preds = %7
   %9 = shl nuw i64 %.0, 1
   %10 = add i64 %9, -1
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !22
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
   %13 = shl i64 2, %12
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -4595,7 +4595,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit: ; 
   %107 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QObject *, _funnel_bt_t *>>::Entry", ptr %99, i64 %.011.i.i
   store i8 %106, ptr %107, align 1
   %exitcond.not.i.i = icmp eq i64 %105, %97
-  br i1 %exitcond.not.i.i, label %108, label %104, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %108, label %104, !llvm.loop !22
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %89, i64 128
@@ -4630,7 +4630,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE6insertEm.exit: ; pre
 120:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE6insertEm.exit
   %121 = add nuw nsw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %121, 128
-  br i1 %exitcond.not, label %122, label %43, !llvm.loop !26
+  br i1 %exitcond.not, label %122, label %43, !llvm.loop !25
 
 122:                                              ; preds = %120
   %123 = load ptr, ptr %42, align 8
@@ -4645,7 +4645,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE6insertEm.exit: ; pre
 _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE8freeDataEv.exit: ; preds = %122, %124
   %125 = add nuw nsw i64 %.02233, 1
   %exitcond35.not = icmp eq i64 %125, %38
-  br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !27
+  br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit31
   %126 = icmp eq ptr %15, null
@@ -4820,9 +4820,8 @@ attributes #24 = { cold noreturn }
 !19 = !{}
 !20 = distinct !{!20, !11}
 !21 = distinct !{!21, !11}
-!22 = !{i64 0, i64 65}
+!22 = distinct !{!22, !11}
 !23 = distinct !{!23, !11}
 !24 = distinct !{!24, !11}
 !25 = distinct !{!25, !11}
 !26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}

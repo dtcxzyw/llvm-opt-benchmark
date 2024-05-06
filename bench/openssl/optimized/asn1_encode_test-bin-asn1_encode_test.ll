@@ -119,49 +119,49 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_long_32bit() #0 {
+define internal range(i32 0, 2) i32 @test_long_32bit() #0 {
 entry:
-  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @long_test_package_32bit), !range !5
+  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @long_test_package_32bit)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_long_64bit() #0 {
+define internal range(i32 0, 2) i32 @test_long_64bit() #0 {
 entry:
-  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @long_test_package_64bit), !range !5
+  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @long_test_package_64bit)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_int32() #0 {
+define internal range(i32 0, 2) i32 @test_int32() #0 {
 entry:
-  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @int32_test_package), !range !5
+  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @int32_test_package)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_uint32() #0 {
+define internal range(i32 0, 2) i32 @test_uint32() #0 {
 entry:
-  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @uint32_test_package), !range !5
+  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @uint32_test_package)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_int64() #0 {
+define internal range(i32 0, 2) i32 @test_int64() #0 {
 entry:
-  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @int64_test_package), !range !5
+  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @int64_test_package)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_uint64() #0 {
+define internal range(i32 0, 2) i32 @test_uint64() #0 {
 entry:
-  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @uint64_test_package), !range !5
+  %call = tail call fastcc i32 @test_intern(ptr noundef nonnull @uint64_test_package)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_invalid_template() #0 {
+define internal range(i32 0, 2) i32 @test_invalid_template() #0 {
 entry:
   %call1.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @INVALIDTEMPLATE_it.local_it) #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.8, i32 noundef 884, ptr noundef nonnull @.str.39, ptr noundef %call1.i) #7
@@ -180,7 +180,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_intern(ptr nocapture noundef readonly %package) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_intern(ptr nocapture noundef readonly %package) unnamed_addr #0 {
 entry:
   %bytes.addr.i.i56 = alloca ptr, align 8
   %data.i = alloca ptr, align 8
@@ -224,7 +224,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx5 = getelementptr inbounds [34 x %struct.TEST_CUSTOM_DATA], ptr @test_custom_data, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expected.i)
   store ptr null, ptr %expected.i, align 8
-  %call.i = call fastcc i64 @make_custom_der(ptr noundef nonnull %arrayidx5, ptr noundef nonnull %expected.i, i32 noundef 0)
+  %call.i = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %arrayidx5, ptr noundef nonnull %expected.i, i32 noundef 0)
   %cmp.i = icmp eq i64 %call.i, 0
   br i1 %cmp.i, label %do_encode_custom.exit.thread, label %if.end.i
 
@@ -254,7 +254,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %7 = load ptr, ptr %data.i.i, align 8
-  %bcmp.i.i = call i32 @bcmp(ptr %7, ptr %6, i64 %call.i)
+  %bcmp.i.i = call i32 @bcmp(ptr %7, ptr readonly %6, i64 %call.i)
   %cmp4.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp4.not.i.i, label %do_encode_custom.exit.thread85, label %if.then6.i.i
 
@@ -307,7 +307,7 @@ sw.epilog:                                        ; preds = %do_encode_custom.ex
   %16 = load i64, ptr %encode_expectations_elem_size, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %encoding.i)
   store ptr null, ptr %encoding.i, align 8
-  %call.i48 = call fastcc i64 @make_custom_der(ptr noundef nonnull %arrayidx5, ptr noundef nonnull %encoding.i, i32 noundef 1)
+  %call.i48 = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %arrayidx5, ptr noundef nonnull %encoding.i, i32 noundef 1)
   %cmp.i49 = icmp eq i64 %call.i48, 0
   br i1 %cmp.i49, label %do_decode_custom.exit.thread, label %if.end.i50
 
@@ -348,7 +348,7 @@ if.else3.i.i:                                     ; preds = %if.end.i50
   br i1 %cmp4.i.i, label %land.lhs.true.i.i, label %sw.bb24
 
 land.lhs.true.i.i:                                ; preds = %if.else3.i.i
-  %bcmp.i.i55 = call i32 @bcmp(ptr nonnull %call.i.i51, ptr %arrayidx, i64 %16)
+  %bcmp.i.i55 = call i32 @bcmp(ptr nonnull %call.i.i51, ptr readonly %arrayidx, i64 %16)
   %cmp6.i.i = icmp eq i32 %bcmp.i.i55, 0
   br i1 %cmp6.i.i, label %do_decode_custom.exit.thread88, label %sw.bb24
 
@@ -390,7 +390,7 @@ for.inc:                                          ; preds = %do_decode_custom.ex
   %fail.2 = phi i32 [ %inc26, %sw.bb24 ], [ %inc22, %if.then20 ], [ %fail.1, %sw.bb17 ], [ %fail.1, %do_decode_custom.exit.thread88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 34
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
   %encdec_data_size = getelementptr inbounds i8, ptr %package, i64 56
@@ -459,7 +459,7 @@ if.else3.i.i63:                                   ; preds = %if.end.i59
   br i1 %cmp4.i.i65, label %land.lhs.true.i.i71, label %sw.bb52
 
 land.lhs.true.i.i71:                              ; preds = %if.else3.i.i63
-  %bcmp.i.i72 = call i32 @bcmp(ptr nonnull %call.i.i61, ptr %arrayidx42, i64 %31)
+  %bcmp.i.i72 = call i32 @bcmp(ptr nonnull %call.i.i61, ptr readonly %arrayidx42, i64 %31)
   %cmp6.i.i73 = icmp eq i32 %bcmp.i.i72, 0
   br i1 %cmp6.i.i73, label %do_enc_dec.exit.thread95, label %sw.bb52
 
@@ -501,7 +501,7 @@ for.inc58:                                        ; preds = %do_enc_dec.exit.thr
   %inc59 = add i32 %i.1109, 1
   %conv33 = zext i32 %inc59 to i64
   %cmp34 = icmp ugt i64 %div31, %conv33
-  br i1 %cmp34, label %for.body36, label %for.end60, !llvm.loop !8
+  br i1 %cmp34, label %for.body36, label %for.end60, !llvm.loop !7
 
 for.end60:                                        ; preds = %for.inc58, %for.end
   %fail.3.lcssa = phi i32 [ %fail.2, %for.end ], [ %fail.4, %for.inc58 ]
@@ -587,7 +587,7 @@ for.body.lr.ph:                                   ; preds = %cond.end.i
 for.cond:                                         ; preds = %for.body
   %dec = add i64 %i.0172, -1
   %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0172 = phi i64 [ %2, %for.body.lr.ph ], [ %dec, %for.cond ]
@@ -1070,8 +1070,7 @@ attributes #8 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

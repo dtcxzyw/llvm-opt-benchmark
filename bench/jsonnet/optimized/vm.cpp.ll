@@ -1720,7 +1720,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i:
   %103 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %104, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %104, i8 0, i64 40, i1 false)
   %105 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_15StackE, i64 0, i32 0, i64 2), ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1728,7 +1728,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i:
   %107 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 %3, ptr %107, align 4
   %108 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
   %109 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %13, i64 16
@@ -3328,7 +3328,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %491, label %492, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 492:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %489, ptr align 8 %.val16.i.i.i.i.i, i64 %477, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %489, ptr align 8 %.val16.i.i.i.i.i, i64 %477, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %492, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -4626,7 +4626,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %900, label %901, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i
 
 901:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %898, ptr align 8 %.val16.i.i.i.i.i.i, i64 %887, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %898, ptr align 8 %.val16.i.i.i.i.i.i, i64 %887, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i: ; preds = %901, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i.i
@@ -5446,7 +5446,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %407, label %408, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 408:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %405, ptr align 8 %.val17.i.i, i64 %394, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %405, ptr align 8 %.val17.i.i, i64 %394, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %408, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
@@ -5478,7 +5478,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   br label %.backedge.backedge
 
 417:                                              ; preds = %.backedge
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %418 = getelementptr inbounds i8, ptr %.0, i64 160
   %419 = getelementptr inbounds i8, ptr %.0, i64 168
   %420 = load ptr, ptr %419, align 8
@@ -5583,7 +5583,7 @@ _ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12_M_c
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc1595, %.lr.ph.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %459, %.lr.ph.i.i.i.i.i ], [ %455, %.noexc1595 ]
   %.092.i.i.i.i.i = phi ptr [ %458, %.lr.ph.i.i.i.i.i ], [ %436, %.noexc1595 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !17
   %458 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
   %459 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %458, %434
@@ -5711,7 +5711,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12empla
 _ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.exit1605: ; preds = %484, %491
   %.02763 = phi i32 [ %495, %491 ], [ 0, %484 ]
   %.02762 = phi ptr [ %493, %491 ], [ null, %484 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %496 = getelementptr inbounds i8, ptr %.0, i64 152
   %497 = getelementptr inbounds i8, ptr %.0, i64 160
   %498 = load ptr, ptr %497, align 8
@@ -5819,7 +5819,7 @@ _ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12_M_c
 .lr.ph.i.i.i.i.i1626:                             ; preds = %.noexc1632, %.lr.ph.i.i.i.i.i1626
   %.03.i.i.i.i.i1627 = phi ptr [ %539, %.lr.ph.i.i.i.i.i1626 ], [ %535, %.noexc1632 ]
   %.092.i.i.i.i.i1628 = phi ptr [ %538, %.lr.ph.i.i.i.i.i1626 ], [ %514, %.noexc1632 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i1627, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i1628, i64 16, i1 false), !alias.scope !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i.i1627, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i1628, i64 16, i1 false), !alias.scope !22
   %538 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i1628, i64 16
   %539 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i1627, i64 16
   %.not.i.i.i.i.i1629 = icmp eq ptr %538, %512
@@ -5945,7 +5945,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i: ; preds = %558
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPNS1_10HeapObjectEjRKSt6vectorINS2_5ParamESaISL_EEPKNS0_3ASTERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %550, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %.02762, i32 noundef %.02763, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %549, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPNS1_10HeapObjectEjRKSt6vectorINS2_5ParamESaISL_EEPKNS0_3ASTERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %550, ptr noundef nonnull readonly align 8 dereferenceable(48) %11, ptr noundef %.02762, i32 noundef %.02763, ptr noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noundef %549, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %560 unwind label %591
 
 560:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
@@ -6003,7 +6003,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %583, label %584, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i
 
 584:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %581, ptr align 8 %.val16.i.i.i.i.i.i, i64 %569, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %581, ptr align 8 %.val16.i.i.i.i.i.i, i64 %569, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i: ; preds = %584, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i.i
@@ -6330,7 +6330,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %707, label %708, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i1699
 
 708:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i.i1698
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %705, ptr align 8 %.val16.i.i.i.i.i.i1694, i64 %693, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %705, ptr align 8 %.val16.i.i.i.i.i.i1694, i64 %693, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i1699
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i1699: ; preds = %708, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i.i1698
@@ -6673,7 +6673,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %831, label %832, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
 
 832:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %830, ptr align 8 %.val9.i1707, i64 %828, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %830, ptr align 8 %.val9.i1707, i64 %828, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i: ; preds = %832, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i
@@ -6754,7 +6754,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %863, label %864, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1717
 
 864:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1716
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %861, ptr align 8 %.val17.i.i1712, i64 %850, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %861, ptr align 8 %.val17.i.i1712, i64 %850, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1717
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1717: ; preds = %864, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1716
@@ -6937,7 +6937,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %946, label %947, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 947:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %944, ptr align 8 %.val16.i.i.i.i.i, i64 %932, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %944, ptr align 8 %.val16.i.i.i.i.i, i64 %932, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %947, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -7697,7 +7697,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit: ; preds =
 
 1219:                                             ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %1218) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1216, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1217, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1216, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1217, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %1222
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %1219
@@ -7869,7 +7869,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_E
 
 1275:                                             ; preds = %1273
   %1276 = getelementptr inbounds i8, ptr %1213, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1274, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1276, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1274, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1276, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1810 unwind label %.thread2780
 
 .thread2780:                                      ; preds = %1275
@@ -7958,7 +7958,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 1304:                                             ; preds = %1302
   %1305 = getelementptr inbounds i8, ptr %1213, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1303, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1305, ptr noundef nonnull align 8 dereferenceable(32) %30)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1303, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1305, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1812 unwind label %.thread2786
 
 .thread2786:                                      ; preds = %1304
@@ -8138,7 +8138,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %1376, label %1377, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1831
 
 1377:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1830
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1374, ptr align 8 %.val17.i.i1826, i64 %1363, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %1374, ptr align 8 %.val17.i.i1826, i64 %1363, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1831
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1831: ; preds = %1377, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1830
@@ -8212,7 +8212,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
 
 1397:                                             ; preds = %1395
   %1398 = getelementptr inbounds i8, ptr %1213, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1396, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1398, ptr noundef nonnull align 8 dereferenceable(32) %34)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1396, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1398, ptr noundef nonnull align 8 dereferenceable(32) %34)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1842 unwind label %.thread2793
 
 .thread2793:                                      ; preds = %1397
@@ -8316,7 +8316,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE4findERKS4_.exit.
 
 1426:                                             ; preds = %1424
   %1427 = getelementptr inbounds i8, ptr %1213, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1425, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1427, ptr noundef nonnull align 8 dereferenceable(32) %37)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1425, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1427, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1852 unwind label %.thread2800
 
 .thread2800:                                      ; preds = %1426
@@ -8483,7 +8483,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
 
 1475:                                             ; preds = %1473
   %1476 = getelementptr inbounds i8, ptr %1213, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1474, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1476, ptr noundef nonnull align 8 dereferenceable(32) %40)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1474, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1476, ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1868 unwind label %.thread2807
 
 .thread2807:                                      ; preds = %1475
@@ -8606,7 +8606,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %1523, label %1524, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i1921
 
 1524:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i1920
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1521, ptr align 8 %.val16.i.i.i.i.i1916, i64 %1510, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %1521, ptr align 8 %.val16.i.i.i.i.i1916, i64 %1510, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i1921
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i1921: ; preds = %1524, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i1920
@@ -8834,7 +8834,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %1611, label %1612, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1938
 
 1612:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1937
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1609, ptr align 8 %.val17.i.i1933, i64 %1599, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %1609, ptr align 8 %.val17.i.i1933, i64 %1599, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1938
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1938: ; preds = %1612, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1937
@@ -8899,7 +8899,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %1633, label %1634, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1950
 
 1634:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1949
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1631, ptr align 8 %.sroa.02696.26145, i64 %1621, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %1631, ptr align 8 %.sroa.02696.26145, i64 %1621, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1950
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i1950: ; preds = %1634, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i1949
@@ -9054,7 +9054,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19
 
 .noexc1976:                                       ; preds = %_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE10_M_insert_IRSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i.i
   %1676 = getelementptr inbounds i8, ptr %1675, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1676, ptr noundef nonnull align 8 dereferenceable(16) %1653, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1676, ptr noundef nonnull readonly align 8 dereferenceable(16) %1653, i64 16, i1 false)
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1674, ptr noundef nonnull %1675, ptr noundef nonnull %.sroa.12.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %323) #32
   %1677 = load i64, ptr %327, align 8
   %1678 = add i64 %1677, 1
@@ -9112,7 +9112,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   %1688 = ptrtoint ptr %.val10.i1977 to i64
   %1689 = sub i64 %1687, %1688
   %1690 = ashr exact i64 %1689, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %.not.i.i.i.i1979 = icmp eq ptr %.val11.i1978, %.val10.i1977
   br i1 %.not.i.i.i.i1979, label %.noexc1984, label %1691
 
@@ -9146,7 +9146,7 @@ _ZNSt16allocator_traitsISaIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEEE8alloca
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %1700, label %1699
 
 1699:                                             ; preds = %.noexc1984
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %1694, ptr align 8 %.val.i1980, i64 %1698, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %1694, ptr align 8 %.val.i1980, i64 %1698, i1 false)
   br label %1700
 
 1700:                                             ; preds = %1699, %.noexc1984
@@ -9430,7 +9430,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2003: ; pre
 
 1802:                                             ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2003
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %1801) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1799, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1800, ptr noundef nonnull align 8 dereferenceable(32) %43)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1799, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1800, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2007 unwind label %1805
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2007: ; preds = %1802
@@ -9495,7 +9495,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2011: ; pre
 
 1824:                                             ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2011
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %1823) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1821, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1822, ptr noundef nonnull align 8 dereferenceable(32) %46)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1821, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1822, ptr noundef nonnull align 8 dereferenceable(32) %46)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2015 unwind label %1827
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2015: ; preds = %1824
@@ -9578,7 +9578,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2024: ; pre
 
 1847:                                             ; preds = %1845
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1846) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1834, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1835, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %1834, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %1835, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2028 unwind label %1864
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2028: ; preds = %1847
@@ -9768,7 +9768,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %1901, label %1902, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2035
 
 1902:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2034
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1899, ptr align 8 %.sroa.02684.26110, i64 %1888, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %1899, ptr align 8 %.sroa.02684.26110, i64 %1888, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2035
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2035: ; preds = %1902, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2034
@@ -9885,7 +9885,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %1928, label %1929, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2049
 
 1929:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2048
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1926, ptr align 8 %.sroa.02684.56121, i64 %1915, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %1926, ptr align 8 %.sroa.02684.56121, i64 %1915, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2049
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2049: ; preds = %1929, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2048
@@ -10061,7 +10061,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   %.val1452 = load ptr, ptr %1986, align 8
   %1987 = call fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.val1449, ptr %.val1450, i32 %.val1451, ptr %.val1452)
   %1988 = getelementptr inbounds i8, ptr %1987, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1988, ptr noundef nonnull align 8 dereferenceable(16) %1983, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1988, ptr noundef nonnull readonly align 8 dereferenceable(16) %1983, i64 16, i1 false)
   %1989 = getelementptr inbounds i8, ptr %1987, i64 10
   store i8 1, ptr %1989, align 2
   %1990 = getelementptr inbounds i8, ptr %1987, i64 88
@@ -10086,7 +10086,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE9push_backERKS4
   %.val1456 = load ptr, ptr %1997, align 8
   %1998 = call fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_9HeapThunkEJRPKNS0_10IdentifierERPNS1_10HeapObjectERjRKPNS0_3ASTEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr %.val1453, ptr %.val1454, i32 %.val1455, ptr %.val1456)
   %1999 = getelementptr inbounds i8, ptr %1998, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1999, ptr noundef nonnull align 8 dereferenceable(16) %1779, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1999, ptr noundef nonnull readonly align 8 dereferenceable(16) %1779, i64 16, i1 false)
   %2000 = getelementptr inbounds i8, ptr %1998, i64 10
   store i8 1, ptr %2000, align 2
   %2001 = getelementptr inbounds i8, ptr %1998, i64 88
@@ -10174,7 +10174,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2061: ; preds = %1982, %2009
 
 2030:                                             ; preds = %2028
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %2029) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2023, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2024, ptr noundef nonnull align 8 dereferenceable(32) %66)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2023, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2024, ptr noundef nonnull align 8 dereferenceable(32) %66)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2072 unwind label %2035
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2072: ; preds = %2030
@@ -10269,7 +10269,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2069:                                             ; preds = %2067
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %2068) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2062, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2063, ptr noundef nonnull align 8 dereferenceable(32) %69)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2062, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2063, ptr noundef nonnull align 8 dereferenceable(32) %69)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2082 unwind label %2074
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2082: ; preds = %2069
@@ -10378,7 +10378,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2109:                                             ; preds = %2107
   %2110 = getelementptr inbounds i8, ptr %1777, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2108, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2110, ptr noundef nonnull align 8 dereferenceable(32) %72)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2108, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2110, ptr noundef nonnull align 8 dereferenceable(32) %72)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2084 unwind label %2112
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2084: ; preds = %2109
@@ -10428,7 +10428,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2127:                                             ; preds = %2125
   %2128 = getelementptr inbounds i8, ptr %1777, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2126, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2128, ptr noundef nonnull align 8 dereferenceable(32) %74)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2126, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2128, ptr noundef nonnull align 8 dereferenceable(32) %74)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2086 unwind label %2130
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2086: ; preds = %2127
@@ -10482,7 +10482,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2149:                                             ; preds = %2147
   %2150 = getelementptr inbounds i8, ptr %1777, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2148, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2150, ptr noundef nonnull align 8 dereferenceable(32) %76)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2148, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2150, ptr noundef nonnull align 8 dereferenceable(32) %76)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2089 unwind label %2152
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2089: ; preds = %2149
@@ -10634,7 +10634,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2235:                                             ; preds = %2233
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %2234) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2228, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2229, ptr noundef nonnull align 8 dereferenceable(32) %78)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2228, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2229, ptr noundef nonnull align 8 dereferenceable(32) %78)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2107 unwind label %2240
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2107: ; preds = %2235
@@ -10695,7 +10695,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2253:                                             ; preds = %2251
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %2252) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2246, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2247, ptr noundef nonnull align 8 dereferenceable(32) %81)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2246, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2247, ptr noundef nonnull align 8 dereferenceable(32) %81)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2113 unwind label %2258
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2113: ; preds = %2253
@@ -10756,7 +10756,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2271:                                             ; preds = %2269
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %2270) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2264, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2265, ptr noundef nonnull align 8 dereferenceable(32) %84)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2264, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2265, ptr noundef nonnull align 8 dereferenceable(32) %84)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2119 unwind label %2276
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2119: ; preds = %2271
@@ -10821,7 +10821,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2290:                                             ; preds = %2288
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %2289) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2283, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2284, ptr noundef nonnull align 8 dereferenceable(32) %87)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2283, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2284, ptr noundef nonnull align 8 dereferenceable(32) %87)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2125 unwind label %2295
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2125: ; preds = %2290
@@ -10925,7 +10925,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %2330, label %2331, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i2166
 
 2331:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i.i2165
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2328, ptr align 8 %.val16.i.i.i.i.i.i2161, i64 %2316, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %2328, ptr align 8 %.val16.i.i.i.i.i.i2161, i64 %2316, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i2166
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i.i2166: ; preds = %2331, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i.i2165
@@ -11360,7 +11360,7 @@ _ZStgtIDiSt11char_traitsIDiESaIDiEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.ex
 
 2495:                                             ; preds = %2493
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %2494) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2488, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2489, ptr noundef nonnull align 8 dereferenceable(32) %91)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2488, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2489, ptr noundef nonnull align 8 dereferenceable(32) %91)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2221 unwind label %2500
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2221: ; preds = %2495
@@ -11426,7 +11426,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2223: ; pre
 
 2516:                                             ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2223
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %2515) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2513, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2514, ptr noundef nonnull align 8 dereferenceable(32) %94)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2513, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2514, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2227 unwind label %2519
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2227: ; preds = %2516
@@ -11520,7 +11520,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %2555, label %2556, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2234
 
 2556:                                             ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2233
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2553, ptr align 8 %.val17.i.i2229, i64 %2542, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %2553, ptr align 8 %.val17.i.i2229, i64 %2542, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2234
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i2234: ; preds = %2556, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i2233
@@ -11662,7 +11662,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   %2618 = load ptr, ptr %2617, align 8
   %2619 = getelementptr inbounds i8, ptr %2605, i64 8
   %2620 = getelementptr inbounds i8, ptr %2618, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
   %.val1348 = load ptr, ptr %2609, align 8
   %.val1352 = load ptr, ptr %2610, align 8
   %.not30676092 = icmp eq ptr %.val1348, %.val1352
@@ -11678,7 +11678,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   br i1 %.not.i2249, label %2628, label %2625
 
 2625:                                             ; preds = %.lr.ph6095
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2621, ptr noundef nonnull align 8 dereferenceable(16) %2623, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2621, ptr noundef nonnull readonly align 8 dereferenceable(16) %2623, i64 16, i1 false)
   %2626 = load ptr, ptr %297, align 8
   %2627 = getelementptr inbounds i8, ptr %2626, i64 16
   store ptr %2627, ptr %297, align 8
@@ -11718,12 +11718,12 @@ _ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE12_M_check_lenEmPKc
 _ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %2640, %_ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %2643 = phi ptr [ null, %_ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %2642, %2640 ]
   %2644 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::Value", ptr %2643, i64 %2634
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2644, ptr noundef nonnull align 8 dereferenceable(16) %2623, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2644, ptr noundef nonnull readonly align 8 dereferenceable(16) %2623, i64 16, i1 false)
   %2645 = icmp sgt i64 %2631, 0
   br i1 %2645, label %2646, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i
 
 2646:                                             ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2643, ptr align 8 %.val.i.i2250, i64 %2631, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %2643, ptr align 8 %.val.i.i2250, i64 %2631, i1 false)
   br label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i
 
 _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i: ; preds = %2646, %_ZNSt12_Vector_baseIN7jsonnet8internal12_GLOBAL__N_15ValueESaIS3_EE11_M_allocateEm.exit.i.i
@@ -12022,7 +12022,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
           to label %2737 unwind label %.thread2899
 
 2737:                                             ; preds = %2735
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2736, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2619, ptr noundef nonnull align 8 dereferenceable(32) %107)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2736, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2619, ptr noundef nonnull align 8 dereferenceable(32) %107)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2291 unwind label %2739
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2291: ; preds = %2737
@@ -12165,7 +12165,7 @@ _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
           to label %2778 unwind label %.thread2903
 
 2778:                                             ; preds = %2776
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2777, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2619, ptr noundef nonnull align 8 dereferenceable(32) %109)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2777, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2619, ptr noundef nonnull align 8 dereferenceable(32) %109)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2297 unwind label %.thread2907
 
 .thread2907:                                      ; preds = %2778
@@ -12234,7 +12234,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
           to label %2797 unwind label %.thread2909
 
 2797:                                             ; preds = %2795
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2796, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2619, ptr noundef nonnull align 8 dereferenceable(32) %113)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2796, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2619, ptr noundef nonnull align 8 dereferenceable(32) %113)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2299 unwind label %2799
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2299: ; preds = %2797
@@ -12267,7 +12267,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 2804:                                             ; preds = %2802
   %2805 = call ptr @__cxa_allocate_exception(i64 56) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2805, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2619, ptr noundef nonnull align 8 dereferenceable(32) %115)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2805, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2619, ptr noundef nonnull align 8 dereferenceable(32) %115)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2301 unwind label %2806
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2301: ; preds = %2804
@@ -12414,7 +12414,7 @@ _ZNSt6vectorIPK16JsonnetJsonValueSaIS2_EED2Ev.exit2309: ; preds = %2820, %.loope
 
 2844:                                             ; preds = %2842
   %2845 = getelementptr inbounds i8, ptr %2843, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2845, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2845, ptr noundef nonnull readonly align 8 dereferenceable(16) %198, i64 16, i1 false)
   %2846 = getelementptr inbounds i8, ptr %2843, i64 10
   store i8 1, ptr %2846, align 2
   %2847 = getelementptr inbounds i8, ptr %2843, i64 88
@@ -12539,7 +12539,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit2316: ; preds =
 
 2911:                                             ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit2316
   %2912 = getelementptr inbounds i8, ptr %2889, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2910, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2912, ptr noundef nonnull align 8 dereferenceable(32) %118)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2910, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2912, ptr noundef nonnull align 8 dereferenceable(32) %118)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2318 unwind label %.thread2922
 
 .thread2922:                                      ; preds = %2911
@@ -12609,7 +12609,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2323: ; pre
 
 2933:                                             ; preds = %2931
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull align 8 dereferenceable(32) %2932) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2928, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2929, ptr noundef nonnull align 8 dereferenceable(32) %119)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2928, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2929, ptr noundef nonnull align 8 dereferenceable(32) %119)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2329 unwind label %2938
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2329: ; preds = %2933
@@ -12704,7 +12704,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack14getSelfBindingERPNS1_10HeapObjectERj.e
 
 2965:                                             ; preds = %2963
   %2966 = getelementptr inbounds i8, ptr %2948, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2964, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2966, ptr noundef nonnull align 8 dereferenceable(32) %122)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2964, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2966, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2342 unwind label %2968
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2342: ; preds = %2965
@@ -12753,7 +12753,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2344: ; pre
 
 2979:                                             ; preds = %2977
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %2978) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2974, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2975, ptr noundef nonnull align 8 dereferenceable(32) %124)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2974, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %2975, ptr noundef nonnull align 8 dereferenceable(32) %124)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2350 unwind label %2984
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2350: ; preds = %2979
@@ -12871,7 +12871,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2363: ; pre
 
 3023:                                             ; preds = %3021
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %3022) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3018, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3019, ptr noundef nonnull align 8 dereferenceable(32) %127)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3018, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3019, ptr noundef nonnull align 8 dereferenceable(32) %127)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2369 unwind label %3028
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2369: ; preds = %3023
@@ -12978,7 +12978,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 3060:                                             ; preds = %3058
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %3059) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3053, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3054, ptr noundef nonnull align 8 dereferenceable(32) %131)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3053, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3054, ptr noundef nonnull align 8 dereferenceable(32) %131)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2377 unwind label %3066
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2377: ; preds = %3060
@@ -13075,7 +13075,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2382: ; pre
 
 3090:                                             ; preds = %3088
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %3089) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3085, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3086, ptr noundef nonnull align 8 dereferenceable(32) %135)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3085, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3086, ptr noundef nonnull align 8 dereferenceable(32) %135)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2388 unwind label %3095
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2388: ; preds = %3090
@@ -13165,7 +13165,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 3126:                                             ; preds = %3124
   %3127 = getelementptr inbounds i8, ptr %3045, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3125, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3127, ptr noundef nonnull align 8 dereferenceable(32) %139)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3125, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3127, ptr noundef nonnull align 8 dereferenceable(32) %139)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2390 unwind label %.thread2973
 
 .thread2973:                                      ; preds = %3126
@@ -13226,7 +13226,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 3146:                                             ; preds = %3144
   %3147 = getelementptr inbounds i8, ptr %3045, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3145, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3147, ptr noundef nonnull align 8 dereferenceable(32) %141)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3145, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3147, ptr noundef nonnull align 8 dereferenceable(32) %141)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2392 unwind label %.thread2979
 
 .thread2979:                                      ; preds = %3146
@@ -13317,7 +13317,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2397: ; pre
 
 3182:                                             ; preds = %3180
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %3181) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3177, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3178, ptr noundef nonnull align 8 dereferenceable(32) %142)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3177, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3178, ptr noundef nonnull align 8 dereferenceable(32) %142)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2403 unwind label %3187
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2403: ; preds = %3182
@@ -13408,7 +13408,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2408: ; pre
 
 3213:                                             ; preds = %3211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %3212) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3208, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3209, ptr noundef nonnull align 8 dereferenceable(32) %145)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3208, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3209, ptr noundef nonnull align 8 dereferenceable(32) %145)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2414 unwind label %3218
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2414: ; preds = %3213
@@ -13491,7 +13491,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 3243:                                             ; preds = %3241
   %3244 = getelementptr inbounds i8, ptr %3045, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3242, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3244, ptr noundef nonnull align 8 dereferenceable(32) %149)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3242, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3244, ptr noundef nonnull align 8 dereferenceable(32) %149)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2416 unwind label %.thread2999
 
 .thread2999:                                      ; preds = %3243
@@ -13660,7 +13660,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2429: ; pre
 
 3296:                                             ; preds = %3294
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %3295) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3291, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3292, ptr noundef nonnull align 8 dereferenceable(32) %152)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3291, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3292, ptr noundef nonnull align 8 dereferenceable(32) %152)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2435 unwind label %3301
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2435: ; preds = %3296
@@ -13857,7 +13857,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_15Stack3popEv.exit2442: ; preds = %3358
 
 3384:                                             ; preds = %3382
   %3385 = getelementptr inbounds i8, ptr %3380, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3383, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3385, ptr noundef nonnull align 8 dereferenceable(32) %157)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3383, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3385, ptr noundef nonnull align 8 dereferenceable(32) %157)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2444 unwind label %3387
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2444: ; preds = %3384
@@ -13935,7 +13935,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #32
   %3410 = call ptr @__cxa_allocate_exception(i64 56) #32
   %3411 = getelementptr inbounds i8, ptr %3380, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3410, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3411, ptr noundef nonnull align 8 dereferenceable(32) %160)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3410, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3411, ptr noundef nonnull align 8 dereferenceable(32) %160)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2462 unwind label %3417
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2462: ; preds = %3409
@@ -14218,7 +14218,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2515: ; pre
 
 3497:                                             ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2515
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %3496) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3494, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3495, ptr noundef nonnull align 8 dereferenceable(32) %167)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3494, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3495, ptr noundef nonnull align 8 dereferenceable(32) %167)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2519 unwind label %3500
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2519: ; preds = %3497
@@ -14344,7 +14344,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2525: ; pre
 
 3540:                                             ; preds = %3538
   %3541 = getelementptr inbounds i8, ptr %3529, i64 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3539, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3541, ptr noundef nonnull align 8 dereferenceable(32) %173)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3539, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3541, ptr noundef nonnull align 8 dereferenceable(32) %173)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2527 unwind label %.thread3025
 
 .thread3025:                                      ; preds = %3540
@@ -14442,7 +14442,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
 
 3574:                                             ; preds = %3572
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %3573) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3568, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3569, ptr noundef nonnull align 8 dereferenceable(32) %175)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3568, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3569, ptr noundef nonnull align 8 dereferenceable(32) %175)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2547 unwind label %3579
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2547: ; preds = %3574
@@ -15095,7 +15095,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 
 3805:                                             ; preds = %3803
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull align 8 dereferenceable(32) %3804) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3798, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3799, ptr noundef nonnull align 8 dereferenceable(32) %184)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3798, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3799, ptr noundef nonnull align 8 dereferenceable(32) %184)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2627 unwind label %3810
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2627: ; preds = %3805
@@ -15185,7 +15185,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 3838:                                             ; preds = %3836
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(32) %3837) #32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3831, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3832, ptr noundef nonnull align 8 dereferenceable(32) %187)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3831, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3832, ptr noundef nonnull align 8 dereferenceable(32) %187)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2635 unwind label %3843
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2635: ; preds = %3838
@@ -15255,7 +15255,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2641: ; pre
           to label %3857 unwind label %3864
 
 3857:                                             ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit2641
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3848, ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3849, ptr noundef nonnull align 8 dereferenceable(32) %190)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3848, ptr noundef nonnull readonly align 8 dereferenceable(40) %195, ptr noundef nonnull align 8 dereferenceable(64) %3849, ptr noundef nonnull align 8 dereferenceable(32) %190)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2643 unwind label %3866
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2643: ; preds = %3857
@@ -15548,7 +15548,7 @@ define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter14ma
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %1, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread13
 
 .thread13:                                        ; preds = %18
@@ -16533,7 +16533,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit182: ; preds = 
 
 338:                                              ; preds = %336
   %339 = getelementptr inbounds i8, ptr %1, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %337, ptr noundef nonnull align 8 dereferenceable(40) %339, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %337, ptr noundef nonnull readonly align 8 dereferenceable(40) %339, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %341
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %338
@@ -17940,7 +17940,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %24, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull readonly align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i unwind label %.thread76.i
 
 .thread76.i:                                      ; preds = %54
@@ -18409,7 +18409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %23, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull readonly align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i unwind label %.thread77.i
 
 .thread77.i:                                      ; preds = %48
@@ -20464,7 +20464,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit: ; pr
           to label %34 unwind label %.thread
 
 34:                                               ; preds = %32
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull readonly align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread172
 
 .thread172:                                       ; preds = %34
@@ -20559,7 +20559,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit90: ; 
           to label %65 unwind label %.thread174
 
 65:                                               ; preds = %63
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull readonly align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit92 unwind label %.thread178
 
 .thread178:                                       ; preds = %65
@@ -20620,7 +20620,7 @@ _ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_len
 _ZSt6fill_nIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i33.i.i: ; preds = %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %79 = getelementptr i8, ptr %77, i64 8
   %80 = add nsw i64 %76, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %79, i8 0, i64 %80, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %79, i8 0, i64 %80, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i33.i.i, %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -20727,7 +20727,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %137, label %138, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 138:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %135, ptr align 8 %.val16.i.i.i.i.i, i64 %124, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %135, ptr align 8 %.val16.i.i.i.i.i, i64 %124, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %138, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -20955,7 +20955,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %225, label %226, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 226:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %223, ptr align 8 %.val17.i.i, i64 %213, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %223, ptr align 8 %.val17.i.i, i64 %213, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %226, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
@@ -21058,7 +21058,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %265, label %266, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i149
 
 266:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i148
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %263, ptr align 8 %.val16.i.i.i.i.i144, i64 %252, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %263, ptr align 8 %.val16.i.i.i.i.i144, i64 %252, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i149
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i149: ; preds = %266, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i148
@@ -22793,7 +22793,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit: ; pr
           to label %32 unwind label %.thread
 
 32:                                               ; preds = %30
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull readonly align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %37
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %32
@@ -23153,7 +23153,7 @@ define internal noalias noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpr
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull readonly align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %18
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %15
@@ -23249,7 +23249,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit: ; preds =
 56:                                               ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %55) #32
   %57 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull readonly align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit50 unwind label %60
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit50: ; preds = %56
@@ -23521,7 +23521,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %81, label %82, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 82:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %79, ptr align 8 %.val17.i.i, i64 %68, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %79, ptr align 8 %.val17.i.i, i64 %68, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %82, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
@@ -23677,7 +23677,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit: ; pr
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull readonly align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread43
 
 .thread43:                                        ; preds = %31
@@ -23834,7 +23834,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit: ; pr
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull readonly align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread64
 
 .thread64:                                        ; preds = %33
@@ -23915,7 +23915,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit55: ; 
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull readonly align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit57 unwind label %.thread70
 
 .thread70:                                        ; preds = %55
@@ -24402,7 +24402,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit: ; pr
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull readonly align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %30
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %24
@@ -24583,7 +24583,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
 44:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5VmExtESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.thread
   %45 = call ptr @__cxa_allocate_exception(i64 56) #32
   %46 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull readonly align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %52
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %44
@@ -24836,7 +24836,7 @@ define internal noalias noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpr
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull readonly align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread69
 
 .thread69:                                        ; preds = %25
@@ -24956,7 +24956,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(40) %79, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %77, ptr noundef nonnull readonly align 8 dereferenceable(40) %79, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit64 unwind label %81
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit64: ; preds = %78
@@ -24996,7 +24996,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit: ; preds =
 87:                                               ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %86) #32
   %88 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %85, ptr noundef nonnull readonly align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65 unwind label %91
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65: ; preds = %87
@@ -25190,7 +25190,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit32: ; 
   %.val24 = load ptr, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not13.i = icmp eq ptr %.val23, %.val24
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -25269,7 +25269,7 @@ _ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12_M_c
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc13.i, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i.i.i ], [ %78, %.noexc13.i ]
   %.092.i.i.i.i.i.i = phi ptr [ %81, %.lr.ph.i.i.i.i.i.i ], [ %54, %.noexc13.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !79
   %81 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 16
   %82 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %81, %53
@@ -25606,7 +25606,7 @@ define internal noalias noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpr
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread24
 
 .thread24:                                        ; preds = %20
@@ -25955,7 +25955,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %104, label %105, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 105:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %102, ptr align 8 %.val17.i.i, i64 %91, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %102, ptr align 8 %.val17.i.i, i64 %91, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %105, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
@@ -26180,7 +26180,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %184, label %185, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i101
 
 185:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i100
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr align 8 %.val17.i.i96, i64 %171, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %182, ptr align 8 %.val17.i.i96, i64 %171, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i101
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i101: ; preds = %185, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i100
@@ -26406,7 +26406,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit: ; pr
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull readonly align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread89
 
 .thread89:                                        ; preds = %39
@@ -26487,7 +26487,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit74: ; 
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit76 unwind label %.thread95
 
 .thread95:                                        ; preds = %61
@@ -26805,7 +26805,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %55, label %56, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 56:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.val17.i.i, i64 %42, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %53, ptr align 8 %.val17.i.i, i64 %42, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %56, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
@@ -26951,7 +26951,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit: ; pr
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull readonly align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %36
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %30
@@ -27646,7 +27646,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit: ; preds =
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread64
 
 .thread64:                                        ; preds = %18
@@ -27723,7 +27723,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit59: ; preds
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull readonly align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit60 unwind label %.thread70
 
 .thread70:                                        ; preds = %42
@@ -28116,7 +28116,7 @@ _ZNSt8functionIFbiN8nlohmann6detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7_
 
 118:                                              ; preds = %111
   %119 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %113, ptr noundef nonnull align 8 dereferenceable(40) %119, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %113, ptr noundef nonnull readonly align 8 dereferenceable(40) %119, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %121
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %118
@@ -28764,7 +28764,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %54, label %55, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 55:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr align 8 %.val17.i.i, i64 %41, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %52, ptr align 8 %.val17.i.i, i64 %41, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %55, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
@@ -31338,7 +31338,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit: ; preds =
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread58
 
 .thread58:                                        ; preds = %61
@@ -31478,7 +31478,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %25, label %26, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i
 
 26:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %.val17.i, i64 %12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %23, ptr align 8 %.val17.i, i64 %12, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i: ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i, %26
@@ -31682,7 +31682,7 @@ define internal fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9make
   %5 = ptrtoint ptr %.8.val to i64
   %6 = ptrtoint ptr %.0.val to i64
   %7 = sub i64 %5, %6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.8.val, %.0.val
   br i1 %.not.i.i.i.i.i.i.i, label %.noexc3.i.thread.i.i, label %11
 
@@ -31716,7 +31716,7 @@ _ZNSt16allocator_traitsISaIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkEEE8alloca
   %16 = getelementptr inbounds i8, ptr %13, i64 %7
   %17 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %16, ptr %17, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %.0.val, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %13, ptr align 8 %.0.val, i64 %7, i1 false)
   br label %18
 
 18:                                               ; preds = %14, %.noexc3.i.thread.i.i
@@ -31776,7 +31776,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %47, label %48, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 48:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %45, ptr align 8 %.val16.i.i.i.i.i, i64 %33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %45, ptr align 8 %.val16.i.i.i.i.i, i64 %33, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %48, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -33317,7 +33317,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal10TraceFrameEEEvT_S6_.exi
 define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS1_10HeapEntityE(i8 %.16.val, ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.202", align 8
   %3 = add i8 %.16.val, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34
@@ -33326,7 +33326,7 @@ define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPN
 .lr.ph85.preheader:                               ; preds = %1
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %6, ptr %2, align 8
   store ptr %8, ptr %4, align 8
@@ -33474,7 +33474,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %48, label %49, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 49:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr align 8 %.val.i.i.i, i64 %35, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %46, ptr align 8 %.val.i.i.i, i64 %35, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i: ; preds = %49, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -33551,7 +33551,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %83, label %84, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i117
 
 84:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i116
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %81, ptr align 8 %.val.i.i.i112, i64 %70, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %81, ptr align 8 %.val.i.i.i112, i64 %70, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i117
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i117: ; preds = %84, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i116
@@ -33618,7 +33618,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %112, label %113, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i129
 
 113:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i128
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %110, ptr align 8 %.val.i.i.i124, i64 %99, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %110, ptr align 8 %.val.i.i.i124, i64 %99, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i129
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i129: ; preds = %113, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i128
@@ -33700,7 +33700,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %146, label %147, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i141
 
 147:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i140
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %144, ptr align 8 %.val.i.i.i136, i64 %133, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %144, ptr align 8 %.val.i.i.i136, i64 %133, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i141
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i141: ; preds = %147, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i140
@@ -33788,7 +33788,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %181, label %182, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i153
 
 182:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i152
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr align 8 %.val.i.i.i148, i64 %168, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %179, ptr align 8 %.val.i.i.i148, i64 %168, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i153
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i153: ; preds = %182, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i152
@@ -33876,7 +33876,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %218, label %219, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i165
 
 219:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i164
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %216, ptr align 8 %.val.i.i.i160, i64 %205, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %216, ptr align 8 %.val.i.i.i160, i64 %205, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i165
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i165: ; preds = %219, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i164
@@ -33964,7 +33964,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %254, label %255, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i177
 
 255:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i176
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %252, ptr align 8 %.val.i.i.i172, i64 %241, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %252, ptr align 8 %.val.i.i.i172, i64 %241, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i177
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i177: ; preds = %255, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i176
@@ -34044,7 +34044,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %289, label %290, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i189
 
 290:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i188
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %287, ptr align 8 %.val.i.i.i184, i64 %276, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %287, ptr align 8 %.val.i.i.i184, i64 %276, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i189
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i189: ; preds = %290, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i188
@@ -34127,7 +34127,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %329, label %330, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i201
 
 330:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i200
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %327, ptr align 8 %.val.i.i.i196, i64 %316, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %327, ptr align 8 %.val.i.i.i196, i64 %316, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i201
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i201: ; preds = %330, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i200
@@ -34209,7 +34209,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %363, label %364, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i213
 
 364:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i212
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %361, ptr align 8 %.val.i.i.i208, i64 %350, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %361, ptr align 8 %.val.i.i.i208, i64 %350, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i213
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i213: ; preds = %364, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i212
@@ -34289,7 +34289,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %398, label %399, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i225
 
 399:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i224
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %396, ptr align 8 %.val.i.i.i220, i64 %385, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %396, ptr align 8 %.val.i.i.i220, i64 %385, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i225
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i225: ; preds = %399, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i224
@@ -34334,7 +34334,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6v
 416:                                              ; preds = %406
   store ptr %412, ptr %414, align 8
   %417 = getelementptr inbounds i8, ptr %414, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %417, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %417, i8 0, i64 24, i1 false)
   %418 = getelementptr inbounds i8, ptr %414, i64 32
   store ptr %418, ptr %4, align 8
   br label %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit246thread-pre-split
@@ -34368,7 +34368,7 @@ _ZNKSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityE
   %434 = getelementptr inbounds %struct.State, ptr %433, i64 %424
   store ptr %412, ptr %434, align 8
   %435 = getelementptr inbounds i8, ptr %434, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %435, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %435, i8 0, i64 24, i1 false)
   br i1 %425, label %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit38.i.i240, label %.lr.ph.i.i.i.i.i236
 
 .lr.ph.i.i.i.i.i236:                              ; preds = %.noexc245, %.lr.ph.i.i.i.i.i236
@@ -34705,7 +34705,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19
   %.sink10.i.i = phi ptr [ %26, %_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9.i.i ], [ %5, %22 ], [ %5, %19 ], [ %5, %25 ], [ %5, %23 ], [ %5, %13 ]
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = getelementptr inbounds i8, ptr %.sink10.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %28, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, i64 16, i1 false)
   %29 = load i32, ptr %0, align 8
   store i32 %29, ptr %.sink10.i.i, align 8
   %30 = getelementptr inbounds i8, ptr %.sink10.i.i, i64 16
@@ -34813,7 +34813,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19
   %.sink10.i.i37 = phi ptr [ %42, %59 ], [ %42, %56 ], [ %42, %62 ], [ %42, %60 ], [ %42, %50 ], [ %63, %_ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19HeapThunkEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9.i.i43 ]
   %65 = getelementptr inbounds i8, ptr %.049, i64 32
   %66 = getelementptr inbounds i8, ptr %.sink10.i.i37, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 8 dereferenceable(16) %65, i64 16, i1 false)
   %67 = load i32, ptr %.049, align 8
   store i32 %67, ptr %.sink10.i.i37, align 8
   %68 = getelementptr inbounds i8, ptr %.sink10.i.i37, i64 16
@@ -35119,7 +35119,7 @@ define internal fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter15mak
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %14
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %11
@@ -35152,7 +35152,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull readonly align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit20 unwind label %24
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit20: ; preds = %21
@@ -35275,7 +35275,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
   br label %15
 
 14:                                               ; preds = %._crit_edge.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 4 %.0.val, i64 %.idx.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr readonly align 4 %.0.val, i64 %.idx.i.i.i.i, i1 false)
   br label %15
 
 15:                                               ; preds = %14, %12, %._crit_edge.i.i.i.i.i
@@ -35335,7 +35335,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %43, label %44, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 44:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %41, ptr align 8 %.val16.i.i.i.i.i, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %41, ptr align 8 %.val16.i.i.i.i.i, i64 %29, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %44, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -35586,7 +35586,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN7jsonnet8internal1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #34
   %5 = getelementptr inbounds i8, ptr %4, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   %6 = load i32, ptr %0, align 8
   store i32 %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -35640,7 +35640,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN7jsonnet8internal1
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds i8, ptr %.039, i64 32
   %22 = getelementptr inbounds i8, ptr %19, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %22, ptr noundef nonnull readonly align 8 dereferenceable(16) %21, i64 16, i1 false)
   %23 = load i32, ptr %.039, align 8
   store i32 %23, ptr %19, align 8
   %24 = getelementptr inbounds i8, ptr %19, i64 16
@@ -36608,7 +36608,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %38, label %39, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i
 
 39:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr align 8 %.val16.i.i.i.i, i64 %24, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %36, ptr align 8 %.val16.i.i.i.i, i64 %24, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i: ; preds = %39, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i
@@ -37657,7 +37657,7 @@ define internal fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter11mak
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %3
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPNS1_10HeapObjectEjRKSt6vectorINS2_5ParamESaISL_EEPKNS0_3ASTERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPNS1_10HeapObjectEjRKSt6vectorINS2_5ParamESaISL_EEPKNS0_3ASTERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %4, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %11 unwind label %43
 
 11:                                               ; preds = %.noexc
@@ -37716,7 +37716,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %37, label %38, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 38:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %.val16.i.i.i.i.i, i64 %23, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %35, ptr align 8 %.val16.i.i.i.i.i, i64 %23, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %38, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -38008,7 +38008,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
   %30 = ptrtoint ptr %.val.i to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %.val9.i, %.val.i
   br i1 %.not.i.i.i.i, label %.noexc15, label %33
 
@@ -38043,7 +38043,7 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamEE
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc15, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %36, %.noexc15 ]
   %.sroa.06.08.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %.val12.i, %.noexc15 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.08.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.06.08.i.i.i.i.i, i64 16, i1 false)
   %40 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i, i64 16
   %41 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %40, %.val13.i
@@ -38567,7 +38567,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit: ; preds =
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %0, i64 80
   %24 = getelementptr inbounds i8, ptr %.val, i64 -384
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull readonly align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread4
 
 .thread4:                                         ; preds = %22
@@ -38800,7 +38800,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_18type_strB5cxx11ERKNS1_5ValueE.exit: ; preds =
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %0, i64 80
   %24 = getelementptr inbounds i8, ptr %.val36, i64 -384
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull readonly align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread7
 
 .thread7:                                         ; preds = %22
@@ -38914,7 +38914,7 @@ define internal fastcc void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19Heap
 _ZSt22__uninitialized_move_aIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_SaIS4_EET0_T_S8_S7_RT1_.exit.i.i: ; preds = %21
   %25 = sub nsw i64 0, %13
   %26 = getelementptr inbounds ptr, ptr %17, i64 %25
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %17, ptr align 8 %26, i64 %12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %17, ptr align 8 %26, i64 %12, i1 false)
   %.pre80.i.i = load ptr, ptr %16, align 8
   %27 = getelementptr inbounds i8, ptr %.pre80.i.i, i64 %12
   store ptr %27, ptr %16, align 8
@@ -38927,11 +38927,11 @@ _ZSt22__uninitialized_move_aIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_SaI
   %31 = ashr exact i64 %30, 3
   %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %31
   %32 = getelementptr inbounds ptr, ptr %17, i64 %.pre.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %32, ptr align 8 %8, i64 %30, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %32, ptr align 8 %8, i64 %30, i1 false)
   br label %_ZSt13move_backwardIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_ET0_T_S7_S6_.exit.i.i
 
 _ZSt13move_backwardIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_ET0_T_S7_S6_.exit.i.i: ; preds = %28, %_ZSt22__uninitialized_move_aIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_SaIS4_EET0_T_S8_S7_RT1_.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %8, ptr align 8 %2, i64 %12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %8, ptr align 8 %2, i64 %12, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE18_M_insert_dispatchIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEEvSB_T_SC_St12__false_type.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit.i.i: ; preds = %21
@@ -38942,7 +38942,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN7jsonnet8internal12_GLOBAL__N_19H
 34:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit.i.i
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %10, %35
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %17, ptr align 8 %33, i64 %36, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %17, ptr align 8 %33, i64 %36, i1 false)
   %.pre.i.i = load ptr, ptr %16, align 8
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.i.i
 
@@ -38960,11 +38960,11 @@ _ZSt22__uninitialized_move_aIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_SaI
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE18_M_insert_dispatchIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEEvSB_T_SC_St12__false_type.exit
 
 41:                                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %8, i64 %22, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %39, ptr align 8 %8, i64 %22, i1 false)
   %.pre79.i.i = load ptr, ptr %16, align 8
   %42 = getelementptr inbounds i8, ptr %.pre79.i.i, i64 %22
   store ptr %42, ptr %16, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %8, ptr align 8 %2, i64 %22, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %8, ptr align 8 %2, i64 %22, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE18_M_insert_dispatchIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEEvSB_T_SC_St12__false_type.exit
 
 43:                                               ; preds = %9
@@ -38998,19 +38998,19 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %.not.i.i.i.i.i.i.i.i.i62.i.i, label %58, label %57
 
 57:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr align 8 %.val10, i64 %7, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %56, ptr align 8 %.val10, i64 %7, i1 false)
   br label %58
 
 58:                                               ; preds = %57, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
   %59 = getelementptr inbounds i8, ptr %56, i64 %7
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr align 8 %2, i64 %12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %59, ptr align 8 %2, i64 %12, i1 false)
   %60 = getelementptr inbounds i8, ptr %59, i64 %12
   %61 = sub i64 %19, %5
   %.not.i.i.i.i.i.i.i.i.i65.i.i = icmp eq ptr %17, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i65.i.i, label %63, label %62
 
 62:                                               ; preds = %58
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %60, ptr align 8 %8, i64 %61, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %60, ptr align 8 %8, i64 %61, i1 false)
   br label %63
 
 63:                                               ; preds = %62, %58
@@ -39564,7 +39564,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %91, label %92, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 92:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %89, ptr align 8 %.val16.i.i.i, i64 %78, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %89, ptr align 8 %.val16.i.i.i, i64 %78, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i: ; preds = %92, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -53593,7 +53593,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohma
 ; Function Attrs: mustprogress uwtable
 define internal fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeObjectINS1_23HeapComprehensionObjectEJSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKNS0_3ASTES8_SH_EEENS1_5ValueEDpT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #34
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPKNS0_3ASTES6_SH_(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPKNS0_3ASTES6_SH_(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %4)
           to label %7 unwind label %39
 
 7:                                                ; preds = %5
@@ -53649,7 +53649,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %33, label %34, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 34:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %.val16.i.i.i.i.i, i64 %19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %31, ptr align 8 %.val16.i.i.i.i.i, i64 %19, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %34, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -61472,7 +61472,7 @@ define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpre
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %.val51, i64 -384
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.thread63
 
 .thread63:                                        ; preds = %41
@@ -61546,7 +61546,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeE
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %.val50, i64 -384
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %67, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit56 unwind label %.thread69
 
 .thread69:                                        ; preds = %68
@@ -62692,7 +62692,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %39, label %40, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i
 
 40:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %37, ptr align 8 %.val16.i.i.i.i, i64 %25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %37, ptr align 8 %.val16.i.i.i.i, i64 %25, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i: ; preds = %40, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i
@@ -63157,7 +63157,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit: ; preds = %_Z
 72:                                               ; preds = %70
   %73 = call ptr @__cxa_allocate_exception(i64 56) #32
   %74 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull readonly align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %95
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %72
@@ -63619,7 +63619,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %114, label %115, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 115:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %112, ptr align 8 %.val16.i.i.i.i.i, i64 %100, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %112, ptr align 8 %.val16.i.i.i.i.i, i64 %100, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %115, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -63881,7 +63881,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit, label %17
 
 17:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %.val36, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %16, ptr align 8 %.val36, i64 %7, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEPS4_mT_SE_.exit: ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i, %17
@@ -63911,7 +63911,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE13_M_dea
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESt6vectorIS6_SaIS6_EEEENS1_IPS6_SB_EEET0_T_SG_SF_.exit, label %25
 
 25:                                               ; preds = %24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val38, ptr align 8 %.val36, i64 %7, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %.val38, ptr align 8 %.val36, i64 %7, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESt6vectorIS6_SaIS6_EEEENS1_IPS6_SB_EEET0_T_SG_SF_.exit
 
 26:                                               ; preds = %20
@@ -63919,7 +63919,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE13_M_dea
   br i1 %.not.i.i.i.i.i40, label %_ZSt4copyIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_ET0_T_S7_S6_.exit, label %27
 
 27:                                               ; preds = %26
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val38, ptr align 8 %.val36, i64 %23, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %.val38, ptr align 8 %.val36, i64 %23, i1 false)
   %.pre = load ptr, ptr %1, align 8
   %.val30.pre = load ptr, ptr %0, align 8
   %.val31.pre = load ptr, ptr %21, align 8
@@ -63942,7 +63942,7 @@ _ZSt4copyIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_ET0_T_S7_S6_.exit: ; p
   %32 = ptrtoint ptr %28 to i64
   %33 = ptrtoint ptr %30 to i64
   %34 = sub i64 %32, %33
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val31, ptr align 8 %30, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %.val31, ptr align 8 %30, i64 %34, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESt6vectorIS6_SaIS6_EEEENS1_IPS6_SB_EEET0_T_SG_SF_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESt6vectorIS6_SaIS6_EEEENS1_IPS6_SB_EEET0_T_SG_SF_.exit: ; preds = %31, %_ZSt4copyIPPN7jsonnet8internal12_GLOBAL__N_19HeapThunkES5_ET0_T_S7_S6_.exit, %25, %24, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE13_M_deallocateEPS4_m.exit
@@ -65122,7 +65122,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %72, label %73, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr align 8 %.val16.i.i.i, i64 %59, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %70, ptr align 8 %.val16.i.i.i, i64 %59, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i: ; preds = %73, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -65649,7 +65649,7 @@ define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpre
 16:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %15) #32
   %17 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15Stack9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %20
 
 _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter9makeErrorERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %16
@@ -66194,7 +66194,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %72, label %73, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr align 8 %.val16.i.i.i.i.i, i64 %58, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %70, ptr align 8 %.val16.i.i.i.i.i, i64 %58, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %73, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -66419,7 +66419,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_all
   br i1 %164, label %165, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 165:                                              ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %162, ptr align 8 %.val17.i.i, i64 %151, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %162, ptr align 8 %.val17.i.i, i64 %151, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %165, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE11_M_allocateEm.exit.i.i
@@ -66490,7 +66490,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5
   %15 = getelementptr inbounds i8, ptr %14, i64 32
   store ptr %.val5, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br i1 %13, label %17, label %36
 
 17:                                               ; preds = %.critedge
@@ -66711,7 +66711,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_NS1_12_GLOBAL__N_116
 ; Function Attrs: mustprogress uwtable
 define internal fastcc ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter10makeObjectINS1_23HeapComprehensionObjectEJSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS8_ESaISt4pairIKS8_SA_EEEPNS0_3ASTES8_SH_EEENS1_5ValueEDpT0_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #34
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPKNS0_3ASTES6_SH_(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPKNS0_3ASTES6_SH_(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %4)
           to label %7 unwind label %39
 
 7:                                                ; preds = %5
@@ -66767,7 +66767,7 @@ _ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_a
   br i1 %33, label %34, label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 34:                                               ; preds = %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %.val16.i.i.i.i.i, i64 %19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %31, ptr align 8 %.val16.i.i.i.i.i, i64 %19, i1 false)
   br label %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %34, %_ZNSt12_Vector_baseIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -68132,7 +68132,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN7jsonnet8internal1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #34
   %5 = getelementptr inbounds i8, ptr %4, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
   %6 = load i32, ptr %0, align 8
   store i32 %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -68186,7 +68186,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN7jsonnet8internal1
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds i8, ptr %.039, i64 32
   %22 = getelementptr inbounds i8, ptr %19, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %21, i64 24, i1 false)
   %23 = load i32, ptr %.039, align 8
   store i32 %23, ptr %19, align 8
   %24 = getelementptr inbounds i8, ptr %19, i64 16

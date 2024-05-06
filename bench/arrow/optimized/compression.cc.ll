@@ -2040,7 +2040,7 @@ entry:
   %0 = icmp ult i32 %codec_type, 10
   %switch.cast = trunc i32 %codec_type to i10
   %switch.downshift = lshr i10 1, %switch.cast
-  %switch.masked = trunc i10 %switch.downshift to i1
+  %switch.masked = trunc nuw i10 %switch.downshift to i1
   %retval.0 = select i1 %0, i1 %switch.masked, i1 false
   ret i1 %retval.0
 }

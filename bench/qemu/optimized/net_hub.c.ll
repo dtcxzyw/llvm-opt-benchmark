@@ -215,7 +215,7 @@ declare i32 @monitor_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @print_net_client(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @net_hub_id_for_client(ptr nocapture noundef readonly %nc, ptr noundef writeonly %id) local_unnamed_addr #2 {
+define dso_local range(i32 -2, 1) i32 @net_hub_id_for_client(ptr nocapture noundef readonly %nc, ptr noundef writeonly %id) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -252,7 +252,7 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @net_init_hubport(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef readnone %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_hubport(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef readnone %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8

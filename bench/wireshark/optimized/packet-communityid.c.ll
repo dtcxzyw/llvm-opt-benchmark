@@ -264,7 +264,7 @@ thread-pre-split:                                 ; preds = %communityid_calc_wr
   br i1 %107, label %switch.lookup, label %.thread113
 
 switch.lookup:                                    ; preds = %100
-  %switch.cast = trunc i32 %switch.tableidx to i24
+  %switch.cast = trunc nuw i32 %switch.tableidx to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 1115780, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
@@ -434,7 +434,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @communityid_calc(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @communityid_calc(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i16, align 2
@@ -579,7 +579,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.0735 = phi ptr [ %12, %44 ], [ %4, %23 ], [ %12, %26 ]
   %.0744 = phi ptr [ %13, %44 ], [ %5, %23 ], [ %13, %26 ]
   %45 = zext nneg i8 %1 to i64
-  %46 = tail call i32 @memcmp(ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %45) #8
+  %46 = tail call i32 @memcmp(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %3, i64 noundef %45) #8
   %47 = icmp ne ptr %.0735, null
   %48 = icmp ne ptr %.0744, null
   %or.cond.i = and i1 %47, %48

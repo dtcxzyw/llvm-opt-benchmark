@@ -138,7 +138,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %47
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %107
 
@@ -298,7 +298,7 @@ define dso_local zeroext i1 @RE_compile_and_execute(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nameregexeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @nameregexeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -328,7 +328,7 @@ declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nameregexne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @nameregexne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -354,7 +354,7 @@ define dso_local i64 @nameregexne(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @textregexeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @textregexeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -415,7 +415,7 @@ define dso_local i64 @textregexeq(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @textregexne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @textregexne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -477,7 +477,7 @@ define dso_local i64 @textregexne(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nameicregexeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @nameicregexeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -502,7 +502,7 @@ define dso_local i64 @nameicregexeq(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nameicregexne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @nameicregexne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -528,7 +528,7 @@ define dso_local i64 @nameicregexne(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @texticregexeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @texticregexeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -589,7 +589,7 @@ define dso_local i64 @texticregexeq(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @texticregexne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @texticregexne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1289,7 +1289,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   br i1 %74, label %75, label %.split.us
 
 75:                                               ; preds = %.lr.ph.split.us.split.us
-  %76 = trunc i8 %.0137164.us.us to i1
+  %76 = trunc nuw i8 %.0137164.us.us to i1
   br i1 %76, label %80, label %77
 
 77:                                               ; preds = %75
@@ -1326,7 +1326,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   br i1 %90, label %91, label %.split.us
 
 91:                                               ; preds = %.lr.ph.split.us.split
-  %92 = trunc i8 %.0137164.us to i1
+  %92 = trunc nuw i8 %.0137164.us to i1
   br i1 %92, label %100, label %93
 
 93:                                               ; preds = %91
@@ -1375,7 +1375,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   %.us-phi169 = phi i8 [ %.0137.ph180, %.lr.ph.split ], [ %.0137164.us.us, %.lr.ph.split.us.split.us ], [ %.0137164.us, %.lr.ph.split.us.split ]
   %.us-phi170 = phi ptr [ %.0131.ph183, %.lr.ph.split ], [ %.0131165.us.us, %.lr.ph.split.us.split.us ], [ %.0131165.us, %.lr.ph.split.us.split ]
   %.us-phi171 = phi ptr [ %.0.ph184, %.lr.ph.split ], [ %.0166.us.us, %.lr.ph.split.us.split.us ], [ %.0166.us, %.lr.ph.split.us.split ]
-  %109 = trunc i8 %.us-phi169 to i1
+  %109 = trunc nuw i8 %.us-phi169 to i1
   br i1 %109, label %110, label %135
 
 110:                                              ; preds = %.split.us
@@ -1383,7 +1383,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   br i1 %111, label %112, label %132
 
 112:                                              ; preds = %110
-  %113 = trunc i8 %.0135.ph181 to i1
+  %113 = trunc nuw i8 %.0135.ph181 to i1
   br i1 %113, label %132, label %114
 
 114:                                              ; preds = %112
@@ -1448,7 +1448,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   br i1 %138, label %.outer, label %139
 
 139:                                              ; preds = %136, %135
-  %140 = trunc i8 %.0135.ph181 to i1
+  %140 = trunc nuw i8 %.0135.ph181 to i1
   br i1 %140, label %141, label %148
 
 141:                                              ; preds = %139
@@ -1595,7 +1595,7 @@ define dso_local i64 @similar_escape(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.pg_re_flags, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1981,19 +1981,19 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_count_no_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @regexp_count(ptr noundef %0), !range !12
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_count_no_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @regexp_count(ptr noundef %0)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_count_no_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @regexp_count(ptr noundef %0), !range !12
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_count_no_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @regexp_count(ptr noundef %0)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_instr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.pg_re_flags, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2157,37 +2157,37 @@ define dso_local i64 @regexp_instr(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_instr_no_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @regexp_instr(ptr noundef %0), !range !12
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr_no_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @regexp_instr(ptr noundef %0)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_instr_no_n(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @regexp_instr(ptr noundef %0), !range !12
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr_no_n(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @regexp_instr(ptr noundef %0)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_instr_no_endoption(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @regexp_instr(ptr noundef %0), !range !12
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr_no_endoption(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @regexp_instr(ptr noundef %0)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_instr_no_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @regexp_instr(ptr noundef %0), !range !12
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr_no_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @regexp_instr(ptr noundef %0)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_instr_no_subexpr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @regexp_instr(ptr noundef %0), !range !12
+define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr_no_subexpr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @regexp_instr(ptr noundef %0)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_like(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @regexp_like(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.pg_re_flags, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2280,8 +2280,8 @@ define dso_local i64 @regexp_like(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regexp_like_no_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @regexp_like(ptr noundef %0), !range !13
+define dso_local range(i64 0, 2) i64 @regexp_like_no_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @regexp_like(ptr noundef %0)
   ret i64 %2
 }
 
@@ -2425,7 +2425,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr nocapture noundef read
   %41 = load i32, ptr %10, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next53, %42
-  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
+  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
@@ -2465,7 +2465,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr nocapture noundef read
   %66 = load i32, ptr %10, align 4
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %63, %38, %1
   %.lcssa = phi i32 [ %11, %1 ], [ %41, %38 ], [ %66, %63 ]
@@ -2833,7 +2833,7 @@ define dso_local i64 @regexp_split_to_array(ptr nocapture noundef readonly %0) l
   store i32 %40, ptr %32, align 8
   %41 = load i32, ptr %33, align 8
   %.not = icmp sgt i32 %40, %41
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %.0.lcssa = phi ptr [ null, %20 ], [ %38, %.lr.ph ]
@@ -3177,7 +3177,5 @@ attributes #10 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i64 -2147483648, i64 2147483648}
-!13 = !{i64 0, i64 2}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

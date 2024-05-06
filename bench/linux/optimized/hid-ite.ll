@@ -76,7 +76,7 @@ define internal i32 @ite_probe(ptr noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ite_event(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 %3) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @ite_event(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 %3) #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 7152
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
@@ -189,7 +189,7 @@ define internal noundef ptr @ite_report_fixup(ptr noundef %0, ptr noundef return
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ite_input_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
+define internal noundef range(i32 -1, 2) i32 @ite_input_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 6472
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64

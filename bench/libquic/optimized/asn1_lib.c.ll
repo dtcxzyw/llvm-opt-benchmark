@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/asn1_lib.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ASN1_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i64 %len, 1
   br i1 %cmp.i, label %_asn1_check_infinite_end.exit, label %if.else.i
@@ -38,7 +38,7 @@ _asn1_check_infinite_end.exit:                    ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ASN1_const_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_const_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i64 %len, 1
   br i1 %cmp.i, label %_asn1_check_infinite_end.exit, label %if.else.i
@@ -242,13 +242,13 @@ entry:
 if.then:                                          ; preds = %entry
   %and1 = and i32 %tag, 31
   %or2 = or disjoint i32 %or, %and1
-  %conv = trunc i32 %or2 to i8
+  %conv = trunc nuw i32 %or2 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %conv, ptr %0, align 1
   br label %if.end21
 
 if.else:                                          ; preds = %entry
-  %1 = trunc i32 %or to i8
+  %1 = trunc nuw i32 %or to i8
   %conv4 = or disjoint i8 %1, 31
   store i8 %conv4, ptr %0, align 1
   br label %for.body
@@ -281,7 +281,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %shr20 = lshr i32 %tag.addr.026, 7
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
   %3 = icmp sgt i64 %indvars.iv29, 0
-  %4 = trunc i64 %indvars.iv29 to i32
+  %4 = trunc nuw i64 %indvars.iv29 to i32
   br i1 %3, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body
@@ -362,7 +362,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @ASN1_object_size(i32 noundef %constructed, i32 noundef %length, i32 noundef %tag) local_unnamed_addr #5 {
+define hidden range(i32 -2147483646, -2147483648) i32 @ASN1_object_size(i32 noundef %constructed, i32 noundef %length, i32 noundef %tag) local_unnamed_addr #5 {
 entry:
   %inc = add nsw i32 %length, 1
   %cmp = icmp sgt i32 %tag, 30
@@ -404,7 +404,7 @@ return:                                           ; preds = %while.body11, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @asn1_Finish(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @asn1_Finish(ptr nocapture noundef %c) local_unnamed_addr #0 {
 entry:
   %inf.i = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load i32, ptr %inf.i, align 8
@@ -469,7 +469,7 @@ _asn1_Finish.exit:                                ; preds = %if.end3.i, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @asn1_const_Finish(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @asn1_const_Finish(ptr nocapture noundef %c) local_unnamed_addr #0 {
 entry:
   %inf.i = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load i32, ptr %inf.i, align 8
@@ -534,7 +534,7 @@ _asn1_Finish.exit:                                ; preds = %if.end3.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @asn1_GetSequence(ptr nocapture noundef %c, ptr nocapture noundef %length) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @asn1_GetSequence(ptr nocapture noundef %c, ptr nocapture noundef %length) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %c, align 8
   %slen = getelementptr inbounds i8, ptr %c, i64 32
@@ -611,7 +611,7 @@ return:                                           ; preds = %if.end21, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_STRING_copy(ptr nocapture noundef %dst, ptr noundef readonly %str) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ASN1_STRING_copy(ptr nocapture noundef %dst, ptr noundef readonly %str) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %str, null
   br i1 %cmp, label %return, label %if.end
@@ -624,7 +624,7 @@ if.end:                                           ; preds = %entry
   %data = getelementptr inbounds i8, ptr %str, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %str, align 8
-  %call = tail call i32 @ASN1_STRING_set(ptr noundef %dst, ptr noundef %1, i32 noundef %2), !range !14
+  %call = tail call i32 @ASN1_STRING_set(ptr noundef %dst, ptr noundef %1, i32 noundef %2)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -641,7 +641,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_STRING_set(ptr nocapture noundef %str, ptr noundef readonly %_data, i32 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ASN1_STRING_set(ptr nocapture noundef %str, ptr noundef readonly %_data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end3
@@ -748,7 +748,7 @@ if.end.i:                                         ; preds = %if.end
   %data.i = getelementptr inbounds i8, ptr %str, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %2 = load i32, ptr %str, align 8
-  %call.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call.i.i, ptr noundef %1, i32 noundef %2), !range !14
+  %call.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call.i.i, ptr noundef %1, i32 noundef %2)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i6, label %ASN1_STRING_copy.exit
 
@@ -999,4 +999,3 @@ attributes #19 = { nounwind allocsize(1) }
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = !{i32 0, i32 2}

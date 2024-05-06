@@ -110,7 +110,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, ptr noundef nonnull align 1 dereferenceable(41) %ref.tmp.i, i64 41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, ptr noundef nonnull readonly align 1 dereferenceable(41) %ref.tmp.i, i64 41, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments) #18
   br label %_ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit
 
@@ -543,7 +543,7 @@ init.i.i:                                         ; preds = %init.check.i.i
           to label %invoke.cont1.i.i unwind label %lpad.i.i
 
 invoke.cont1.i.i:                                 ; preds = %init.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, ptr noundef nonnull align 1 dereferenceable(41) %ref.tmp.i.i, i64 41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, ptr noundef nonnull readonly align 1 dereferenceable(41) %ref.tmp.i.i, i64 41, i1 false)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments) #18
   br label %invoke.cont37
 
@@ -783,7 +783,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 if.then.i:                                        ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds %"struct.grpc_core::ExperimentMetadata", ptr %experiment_metadata, i64 %i.030.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp14.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp14.i, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp14.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %arrayidx.i, i64 40, i1 false)
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %invoker_.i.i.i, align 8
   %call2.i.i2 = invoke noundef zeroext i1 %5(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp14.i)
@@ -1019,7 +1019,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, ptr noundef nonnull align 1 dereferenceable(41) %ref.tmp.i, i64 41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, ptr noundef nonnull readonly align 1 dereferenceable(41) %ref.tmp.i, i64 41, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments) #18
   br label %_ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit
 

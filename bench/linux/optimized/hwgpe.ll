@@ -205,7 +205,7 @@ define dso_local i32 @acpi_hw_low_set_gpe(ptr nocapture noundef readonly %0, i32
 
 62:                                               ; preds = %55
   %63 = load i64, ptr %11, align 8
-  %64 = trunc i64 %49 to i32
+  %64 = trunc nuw i64 %49 to i32
   %65 = call i32 @acpi_os_write_port(i64 noundef %63, i32 noundef %64, i32 noundef 8) #5
   br label %66
 
@@ -596,7 +596,7 @@ define internal i32 @acpi_hw_enable_wakeup_gpe_block(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i8 @acpi_hw_check_all_gpes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext range(i8 0, 2) i8 @acpi_hw_check_all_gpes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.acpi_gpe_block_status_context, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -731,7 +731,7 @@ define internal noundef i32 @acpi_hw_get_gpe_block_status(ptr nocapture readnone
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   %50 = and i64 %.ph2, %.ph
   %51 = trunc i64 %50 to i8
-  %52 = trunc i64 %50 to i32
+  %52 = trunc nuw i64 %50 to i32
   %53 = and i32 %52, 255
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %64, label %55

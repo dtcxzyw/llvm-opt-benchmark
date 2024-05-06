@@ -61,7 +61,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 
 13:                                               ; preds = %.lr.ph
   %.val = load ptr, ptr %.sroa.0.025, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val, ptr nonnull %1, i64 %2), !alias.scope !6
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %1, i64 %2), !alias.scope !6
   %14 = icmp eq i32 %bcmp.i.i, 0
   br i1 %14, label %16, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge"
 
@@ -114,7 +114,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
 
 14:                                               ; preds = %.lr.ph.i.i
   %.val.i.i = load ptr, ptr %.sroa.0.025.i.i, align 8, !noalias !25, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i.i, ptr nonnull %2, i64 %3), !alias.scope !26, !noalias !33
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %2, i64 %3), !alias.scope !26, !noalias !33
   %15 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %15, label %17, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge.i.i"
 
@@ -222,7 +222,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
 
 14:                                               ; preds = %.lr.ph.i.i
   %.val.i.i = load ptr, ptr %.sroa.0.025.i.i, align 8, !noalias !57, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i.i, ptr nonnull %2, i64 %3), !alias.scope !58, !noalias !65
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %2, i64 %3), !alias.scope !58, !noalias !65
   %15 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %15, label %17, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge.i.i"
 
@@ -367,7 +367,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13t
 
 14:                                               ; preds = %.lr.ph.i
   %.val.i = load ptr, ptr %.sroa.0.025.i, align 8, !noalias !81, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i, ptr nonnull %2, i64 %3), !alias.scope !82, !noalias !76
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %2, i64 %3), !alias.scope !82, !noalias !76
   %15 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %15, label %17, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge.i"
 
@@ -440,7 +440,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13t
 
 14:                                               ; preds = %.lr.ph.i
   %.val.i = load ptr, ptr %.sroa.0.025.i, align 8, !noalias !97, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i, ptr nonnull %2, i64 %3), !alias.scope !98, !noalias !92
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %2, i64 %3), !alias.scope !98, !noalias !92
   %15 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %15, label %17, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge.i"
 
@@ -491,7 +491,7 @@ _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17h3e8ab7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.14324550437899031131"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.14324550437899031131"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp ult i64 %3, %4
@@ -508,7 +508,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17ha63096c77f3eddcbE.llvm.14324550
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17h5afe6c127677078fE.llvm.14324550437899031131(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h5afe6c127677078fE.llvm.14324550437899031131(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %3 = load i64, ptr %0, align 8, !alias.scope !108, !noalias !111, !noundef !4

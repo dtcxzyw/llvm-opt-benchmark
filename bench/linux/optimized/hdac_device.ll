@@ -621,7 +621,7 @@ declare dso_local void @snd_hdac_bus_remove_device(ptr noundef, ptr noundef) loc
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hdac_device_register(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_register(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @device_add(ptr noundef %0) #9
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %9, label %4
@@ -685,7 +685,7 @@ define dso_local void @snd_hdac_device_unregister(ptr noundef %0) #0 align 16 {
 declare dso_local void @hda_widget_sysfs_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_device_set_chip_name(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @snd_hdac_device_set_chip_name(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %4
 
@@ -815,7 +815,7 @@ define dso_local i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext
 declare dso_local i32 @snd_hdac_regmap_write_raw(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hdac_get_sub_nodes(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 0, 32768) i32 @snd_hdac_get_sub_nodes(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
@@ -1151,7 +1151,7 @@ define dso_local i32 @snd_hdac_power_up_pm(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hdac_keep_power_up(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -1, 2) i32 @snd_hdac_keep_power_up(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 832
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1454,7 +1454,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_query_supported_pcm(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

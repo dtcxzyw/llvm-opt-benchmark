@@ -11,7 +11,7 @@ define noundef nonnull ptr @get_crc_table() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @crc32(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i64 0, 4294967296) i64 @crc32(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %269, label %5
 

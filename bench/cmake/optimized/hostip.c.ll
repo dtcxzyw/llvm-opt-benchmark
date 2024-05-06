@@ -184,7 +184,7 @@ define dso_local ptr @Curl_fetch_addr(ptr noundef %0, ptr nocapture noundef read
 define internal fastcc ptr @fetch_addr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [262 x i8], align 16
   %5 = alloca %struct.hostcache_prune_data, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %6, i64 255)
   %.not1920.i = icmp eq i64 %6, 0
   br i1 %.not1920.i, label %create_hostcache_id.exit, label %select.unfold.i
@@ -490,7 +490,7 @@ Curl_shuffle_addr.exit.thread:                    ; preds = %10, %num_addresses.
   br label %select.unfold.preheader.i
 
 65:                                               ; preds = %64
-  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
+  %66 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #13
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %66, i64 255)
   %.not1920.i = icmp eq i64 %66, 0
   br i1 %.not1920.i, label %create_hostcache_id.exit, label %select.unfold.preheader.i
@@ -655,7 +655,7 @@ define dso_local zeroext i1 @Curl_host_is_ipnum(ptr noundef %0) local_unnamed_ad
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_resolv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %.sroa.4.i.i = alloca [4 x i32], align 4
   %6 = alloca [16 x i8], align 16
   %7 = alloca i32, align 4
@@ -798,7 +798,7 @@ define dso_local i32 @Curl_resolv(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 78:                                               ; preds = %76, %74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %79 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %80 = trunc i32 %2 to i16
   %81 = call zeroext i16 @htons(i16 noundef zeroext %80) #14
   %82 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull @.str.23, ptr noundef nonnull %7) #12
@@ -830,10 +830,10 @@ define dso_local i32 @Curl_resolv(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %92 = getelementptr inbounds i8, ptr %87, i64 64
   %93 = getelementptr inbounds i8, ptr %87, i64 24
   store ptr %92, ptr %93, align 8
-  %94 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %1) #12
+  %94 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %95 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %96 = load ptr, ptr @Curl_ccalloc, align 8
   %97 = add i64 %95, 77
   %98 = call ptr %96(i64 noundef 1, i64 noundef %97) #12
@@ -872,7 +872,7 @@ get_localhost6.exit.thread.i:                     ; preds = %99, %88
   %107 = getelementptr inbounds i8, ptr %98, i64 76
   %108 = getelementptr inbounds i8, ptr %98, i64 24
   store ptr %107, ptr %108, align 8
-  %109 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %1) #12
+  %109 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   store ptr %87, ptr %104, align 8
@@ -1226,7 +1226,7 @@ define dso_local i32 @Curl_resolv_timeout(ptr noundef %0, ptr noundef %1, i32 no
   br label %15
 
 15:                                               ; preds = %14, %10, %7
-  %16 = tail call i32 @Curl_resolv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext true, ptr noundef nonnull %3), !range !14
+  %16 = tail call i32 @Curl_resolv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext true, ptr noundef nonnull %3)
   br label %17
 
 17:                                               ; preds = %5, %15
@@ -1360,7 +1360,7 @@ define dso_local void @Curl_hostcache_clean(ptr noundef %0, ptr noundef %1) loca
 declare void @Curl_hash_clean(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_loadhostpairs(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [262 x i8], align 16
   %3 = alloca [64 x i8], align 16
   %4 = alloca ptr, align 8
@@ -1544,7 +1544,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   %.0127 = phi ptr [ %85, %84 ], [ %71, %76 ]
   %.1 = phi ptr [ %82, %84 ], [ %.0126, %76 ]
   %.not158 = icmp eq ptr %.1, %.0127
-  br i1 %.not158, label %68, label %87, !llvm.loop !15
+  br i1 %.not158, label %68, label %87, !llvm.loop !14
 
 87:                                               ; preds = %86
   store ptr %.0126, ptr %4, align 8
@@ -1574,12 +1574,12 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
 
 99:                                               ; preds = %92
   %.not162 = icmp eq ptr %.0130.ph, null
-  br i1 %.not162, label %.outer.outer, label %100, !llvm.loop !15
+  br i1 %.not162, label %.outer.outer, label %100, !llvm.loop !14
 
 100:                                              ; preds = %99
   %101 = getelementptr inbounds i8, ptr %.0130.ph, i64 40
   store ptr %94, ptr %101, align 8
-  br label %.outer, !llvm.loop !15
+  br label %.outer, !llvm.loop !14
 
 102:                                              ; preds = %68
   store ptr %.0126227, ptr %4, align 8
@@ -1606,7 +1606,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br label %select.unfold.preheader.i185
 
 105:                                              ; preds = %104
-  %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select179) #13
+  %106 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select179) #13
   %spec.select.i194 = call i64 @llvm.umin.i64(i64 %106, i64 255)
   %.not1920.i195 = icmp eq i64 %106, 0
   br i1 %.not1920.i195, label %create_hostcache_id.exit196, label %select.unfold.preheader.i185
@@ -1742,7 +1742,7 @@ create_hostcache_id.exit196:                      ; preds = %select.unfold.i187,
   %164 = getelementptr inbounds i8, ptr %.0118233, i64 8
   %.0118 = load ptr, ptr %164, align 8
   %.not = icmp eq ptr %.0118, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %163, %1
   store ptr null, ptr %8, align 8
@@ -1811,7 +1811,7 @@ declare void @Curl_conncache_remove_conn(ptr noundef, ptr noundef, i1 noundef ze
 declare void @Curl_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_resolver_error(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 5, 7) i32 @Curl_resolver_error(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 672
@@ -1829,7 +1829,7 @@ define dso_local i32 @Curl_resolver_error(ptr noundef %0) local_unnamed_addr #0 
 declare void @Curl_hash_clean_with_criterium(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @hostcache_timestamp_remove(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @hostcache_timestamp_remove(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -1926,6 +1926,5 @@ attributes #14 = { nounwind willreturn memory(none) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 -1, i32 2}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

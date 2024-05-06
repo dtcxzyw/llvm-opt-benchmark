@@ -262,7 +262,7 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
 _ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h50b7b17c82f13f08E.exit.thread: ; preds = %3
   %9 = load ptr, ptr %0, align 8, !alias.scope !27, !noalias !30, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %9, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %10, i64 %2, i1 false), !alias.scope !32, !noalias !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1, ptr nonnull readonly align 1 %10, i64 %2, i1 false), !alias.scope !32, !noalias !36
   %11 = add i64 %5, %2
   store i64 %11, ptr %4, align 8, !alias.scope !27, !noalias !30
   br label %13
@@ -290,7 +290,7 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
 _ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h6fc4178204a5a5adE.exit.thread: ; preds = %3
   %9 = load ptr, ptr %0, align 8, !alias.scope !38, !noalias !41, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %9, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %10, i64 %2, i1 false), !alias.scope !43, !noalias !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1, ptr nonnull readonly align 1 %10, i64 %2, i1 false), !alias.scope !43, !noalias !47
   %11 = add i64 %5, %2
   store i64 %11, ptr %4, align 8, !alias.scope !38, !noalias !41
   br label %13
@@ -356,7 +356,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !49, !noalias !54, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %11, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %11, i64 %10, i1 false)
   %33 = load i64, ptr %12, align 8, !alias.scope !49, !noalias !54, !noundef !4
   %34 = add i64 %33, %10
   store i64 %34, ptr %12, align 8, !alias.scope !49, !noalias !54
@@ -446,7 +446,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !57, !noalias !62, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %11, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %11, i64 %10, i1 false)
   %33 = load i64, ptr %12, align 8, !alias.scope !57, !noalias !62, !noundef !4
   %34 = add i64 %33, %10
   store i64 %34, ptr %12, align 8, !alias.scope !57, !noalias !62
@@ -585,7 +585,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h040b86cf378eb7deE.exit: ;
   br i1 %51, label %52, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h851d6f6cf48753cdE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h851d6f6cf48753cdE.exit.i.i": ; preds = %46
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %44, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !81, !noalias !85
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %48, ptr nonnull readonly align 1 %44, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !81, !noalias !85
   br label %54
 
 52:                                               ; preds = %46
@@ -724,7 +724,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17heafd907283b2b13dE.exit: ;
   br i1 %51, label %52, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h851d6f6cf48753cdE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h851d6f6cf48753cdE.exit.i.i": ; preds = %46
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %44, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !108, !noalias !112
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %48, ptr nonnull readonly align 1 %44, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !108, !noalias !112
   br label %54
 
 52:                                               ; preds = %46
@@ -846,7 +846,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %42 = getelementptr inbounds i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8, !alias.scope !124, !noalias !129, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds i8, ptr %43, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull align 1 %28, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %28, i64 %30, i1 false)
   %45 = load i64, ptr %9, align 8, !alias.scope !124, !noalias !129, !noundef !4
   %46 = add i64 %45, %30
   store i64 %46, ptr %9, align 8, !alias.scope !124, !noalias !129
@@ -1001,7 +1001,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %42 = getelementptr inbounds i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8, !alias.scope !154, !noalias !159, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds i8, ptr %43, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull align 1 %28, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %28, i64 %30, i1 false)
   %45 = load i64, ptr %9, align 8, !alias.scope !154, !noalias !159, !noundef !4
   %46 = add i64 %45, %30
   store i64 %46, ptr %9, align 8, !alias.scope !154, !noalias !159
@@ -1185,7 +1185,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17heafd907283b2b13dE.exit: ;
   br i1 %36, label %37, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h851d6f6cf48753cdE.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h851d6f6cf48753cdE.exit.i": ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %30, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !199, !noalias !203
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr nonnull readonly align 1 %30, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !199, !noalias !203
   br label %39
 
 37:                                               ; preds = %35
@@ -1283,7 +1283,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h040b86cf378eb7deE.exit: ;
   br i1 %36, label %37, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h851d6f6cf48753cdE.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h851d6f6cf48753cdE.exit.i": ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %30, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !220, !noalias !224
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr nonnull readonly align 1 %30, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !220, !noalias !224
   br label %39
 
 37:                                               ; preds = %35
@@ -1406,7 +1406,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h040b86cf378eb7deE.exit: ;
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %49, i64 %37)
   %50 = load ptr, ptr %1, align 8, !alias.scope !238, !noalias !246, !nonnull !4, !align !123, !noundef !4
   %51 = getelementptr inbounds i8, ptr %50, i64 %19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %38, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !247, !noalias !251
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %38, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !247, !noalias !251
   %52 = getelementptr inbounds i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8, !alias.scope !238, !noalias !246, !noundef !4
   %54 = add i64 %.0.sroa.speculated.i.i, %19
@@ -1520,7 +1520,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17heafd907283b2b13dE.exit: ;
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %49, i64 %37)
   %50 = load ptr, ptr %1, align 8, !alias.scope !261, !noalias !269, !nonnull !4, !align !123, !noundef !4
   %51 = getelementptr inbounds i8, ptr %50, i64 %19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %38, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !270, !noalias !274
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %38, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !270, !noalias !274
   %52 = getelementptr inbounds i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8, !alias.scope !261, !noalias !269, !noundef !4
   %54 = add i64 %.0.sroa.speculated.i.i, %19

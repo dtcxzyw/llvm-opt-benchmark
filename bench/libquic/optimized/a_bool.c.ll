@@ -35,7 +35,7 @@ declare i32 @ASN1_object_size(i32 noundef, i32 noundef, i32 noundef) local_unnam
 declare void @ASN1_put_object(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @d2i_ASN1_BOOLEAN(ptr noundef writeonly %a, ptr nocapture noundef %pp, i64 noundef %length) local_unnamed_addr #0 {
+define hidden range(i32 -1, 256) i32 @d2i_ASN1_BOOLEAN(ptr noundef writeonly %a, ptr nocapture noundef %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %len = alloca i64, align 8

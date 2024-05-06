@@ -34,9 +34,9 @@ if.end.i:                                         ; preds = %sw.bb11.i
   br i1 %cmp1615.i, label %while.body.preheader.i, label %while.end.i
 
 while.body.preheader.i:                           ; preds = %if.end.i
-  %shl14.masked.numleadingzeros.i = tail call i32 @llvm.ctlz.i32(i32 %shl14.i, i1 true), !range !4
+  %shl14.masked.numleadingzeros.i = tail call range(i32 22, 33) i32 @llvm.ctlz.i32(i32 %shl14.i, i1 true)
   %shl14.masked.leadingonepos.i = xor i32 %shl14.masked.numleadingzeros.i, 31
-  %while.body.tripcount.i = sub nsw i32 10, %shl14.masked.leadingonepos.i
+  %while.body.tripcount.i = sub nuw nsw i32 10, %shl14.masked.leadingonepos.i
   %shl17.i = shl nuw nsw i32 %shl14.i, %while.body.tripcount.i
   %2 = shl nuw nsw i32 %shl14.masked.numleadingzeros.i, 23
   %3 = sub nuw nsw i32 1115684864, %2
@@ -48,7 +48,7 @@ while.end.i:                                      ; preds = %while.body.preheade
   %and19.i = shl i32 %f_mant.0.lcssa.i, 13
   %shl20.i = and i32 %and19.i, 8372224
   %4 = or i32 %f_exp.0.lcssa.i, %shl20.i
-  %or22.i = or i32 %4, %shl.i
+  %or22.i = or disjoint i32 %4, %shl.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE12FromBinary16Et.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -70,11 +70,11 @@ define i16 @_ZN5arrow4util7Float169FromFloatEf(float noundef %f) local_unnamed_a
 entry:
   %0 = bitcast float %f to i32
   %shr.i = lshr i32 %0, 16
-  %1 = trunc i32 %shr.i to i16
+  %1 = trunc nuw i32 %shr.i to i16
   %conv.i = and i16 %1, -32768
   %and1.i = and i32 %0, 2139095040
   %shr2.i = lshr exact i32 %and1.i, 23
-  %2 = trunc i32 %shr2.i to i16
+  %2 = trunc nuw nsw i32 %shr2.i to i16
   %and8.i = and i32 %0, 8388607
   %cmp.i = icmp ugt i16 %2, 142
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
@@ -91,7 +91,7 @@ if.then12.i:                                      ; preds = %if.then.i
   %or.i = and i32 %shr.i, 64512
   %conv19.i = select i1 %cmp16.i, i32 1, i32 %shr13.i
   %or20.i = or disjoint i32 %conv19.i, %or.i
-  %conv21.i = trunc i32 %or20.i to i16
+  %conv21.i = trunc nuw i32 %or20.i to i16
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit
 
 if.end22.i:                                       ; preds = %if.then.i
@@ -120,7 +120,7 @@ if.end33.i:                                       ; preds = %if.then29.i
   %shr46.i = lshr i32 %rounded_mant.0.i, 13
   %conv48.i = and i32 %shr.i, 32768
   %add50.i = or disjoint i32 %shr46.i, %conv48.i
-  %conv51.i = trunc i32 %add50.i to i16
+  %conv51.i = trunc nuw i32 %add50.i to i16
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit
 
 if.end52.i:                                       ; preds = %if.end26.i
@@ -176,9 +176,9 @@ if.end.i:                                         ; preds = %sw.bb12.i
   br i1 %cmp1715.i, label %while.body.preheader.i, label %while.end.i
 
 while.body.preheader.i:                           ; preds = %if.end.i
-  %shl15.masked.numleadingzeros.i = tail call i64 @llvm.ctlz.i64(i64 %shl15.i, i1 true), !range !5
+  %shl15.masked.numleadingzeros.i = tail call range(i64 54, 65) i64 @llvm.ctlz.i64(i64 %shl15.i, i1 true)
   %shl15.masked.leadingonepos.i = xor i64 %shl15.masked.numleadingzeros.i, 63
-  %while.body.tripcount.i = sub nsw i64 10, %shl15.masked.leadingonepos.i
+  %while.body.tripcount.i = sub nuw nsw i64 10, %shl15.masked.leadingonepos.i
   %shl18.i = shl nuw nsw i64 %shl15.i, %while.body.tripcount.i
   %2 = shl nuw nsw i64 %shl15.masked.numleadingzeros.i, 52
   %3 = sub nuw nsw i64 4778319204640096256, %2
@@ -190,7 +190,7 @@ while.end.i:                                      ; preds = %while.body.preheade
   %and20.i = shl nuw nsw i64 %f_mant.0.lcssa.i, 42
   %shl21.i = and i64 %and20.i, 4494803534348288
   %4 = or i64 %f_exp.0.lcssa.i, %shl21.i
-  %or23.i = or i64 %4, %shl.i
+  %or23.i = or disjoint i64 %4, %shl.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE12FromBinary16Et.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -212,11 +212,11 @@ define i16 @_ZN5arrow4util7Float1610FromDoubleEd(double noundef %d) local_unname
 entry:
   %0 = bitcast double %d to i64
   %shr.i = lshr i64 %0, 48
-  %1 = trunc i64 %shr.i to i16
+  %1 = trunc nuw i64 %shr.i to i16
   %conv.i = and i16 %1, -32768
   %and1.i = and i64 %0, 9218868437227405312
   %shr2.i = lshr exact i64 %and1.i, 52
-  %conv3.i = trunc i64 %shr2.i to i16
+  %conv3.i = trunc nuw nsw i64 %shr2.i to i16
   %and8.i = and i64 %0, 4503599627370495
   %cmp.i = icmp ugt i16 %conv3.i, 1038
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
@@ -229,7 +229,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then12.i:                                      ; preds = %if.then.i
   %shr13.i = lshr i64 %and8.i, 42
-  %conv14.i = trunc i64 %shr13.i to i16
+  %conv14.i = trunc nuw nsw i64 %shr13.i to i16
   %cmp16.i = icmp ult i64 %and8.i, 4398046511104
   %conv19.i = select i1 %cmp16.i, i16 1, i16 %conv14.i
   %2 = or disjoint i16 %conv.i, %conv19.i
@@ -261,7 +261,7 @@ if.end33.i:                                       ; preds = %if.then29.i
   %add43.i = add nuw nsw i64 %shr37.i, 2199023255552
   %rounded_mant.0.i = select i1 %or.cond22.i, i64 %shr37.i, i64 %add43.i
   %shr46.i = lshr i64 %rounded_mant.0.i, 42
-  %conv47.i = trunc i64 %shr46.i to i16
+  %conv47.i = trunc nuw nsw i64 %shr46.i to i16
   %add50.i = add nuw i16 %conv.i, %conv47.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit
 
@@ -272,7 +272,7 @@ if.end52.i:                                       ; preds = %if.end26.i
   %add59.i = add nuw nsw i64 %and8.i, 2199023255552
   %spec.select.i = select i1 %cmp57.not.i, i64 %and8.i, i64 %add59.i
   %shr62.i = lshr i64 %spec.select.i, 42
-  %conv63.i = trunc i64 %shr62.i to i16
+  %conv63.i = trunc nuw nsw i64 %shr62.i to i16
   %shl.i = or disjoint i16 %conv.i, 16384
   %add66.i = add i16 %shl.i, %add.i
   %add68.i = add i16 %add66.i, %conv63.i
@@ -313,9 +313,9 @@ if.end.i.i:                                       ; preds = %sw.bb11.i.i
   br i1 %cmp1615.i.i, label %while.body.preheader.i.i, label %while.end.i.i
 
 while.body.preheader.i.i:                         ; preds = %if.end.i.i
-  %shl14.masked.numleadingzeros.i.i = tail call i32 @llvm.ctlz.i32(i32 %shl14.i.i, i1 true), !range !4
+  %shl14.masked.numleadingzeros.i.i = tail call range(i32 22, 33) i32 @llvm.ctlz.i32(i32 %shl14.i.i, i1 true)
   %shl14.masked.leadingonepos.i.i = xor i32 %shl14.masked.numleadingzeros.i.i, 31
-  %while.body.tripcount.i.i = sub nsw i32 10, %shl14.masked.leadingonepos.i.i
+  %while.body.tripcount.i.i = sub nuw nsw i32 10, %shl14.masked.leadingonepos.i.i
   %shl17.i.i = shl nuw nsw i32 %shl14.i.i, %while.body.tripcount.i.i
   %1 = shl nuw nsw i32 %shl14.masked.numleadingzeros.i.i, 23
   %2 = sub nuw nsw i32 1115684864, %1
@@ -327,7 +327,7 @@ while.end.i.i:                                    ; preds = %while.body.preheade
   %and19.i.i = shl i32 %f_mant.0.lcssa.i.i, 13
   %shl20.i.i = and i32 %and19.i.i, 8372224
   %3 = or i32 %f_exp.0.lcssa.i.i, %shl20.i.i
-  %or22.i.i = or i32 %3, %shl.i.i
+  %or22.i.i = or disjoint i32 %3, %shl.i.i
   br label %_ZNK5arrow4util7Float167ToFloatEv.exit
 
 sw.default.i.i:                                   ; preds = %entry
@@ -365,5 +365,3 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 22, i32 33}
-!5 = !{i64 54, i64 65}

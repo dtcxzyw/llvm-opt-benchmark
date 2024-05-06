@@ -489,7 +489,7 @@ default.unreachable:                              ; preds = %29
   %62 = load i32, ptr @hf_docsis_exthdr, align 4
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %64 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22), !range !4
+  %64 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22)
   %65 = icmp ne i32 %64, 0
   %66 = icmp sgt i32 %.0268278, 0
   %or.cond4 = select i1 %65, i1 %66, i1 false
@@ -520,7 +520,7 @@ default.unreachable:                              ; preds = %29
   %80 = load i32, ptr @hf_docsis_exthdr, align 4
   %81 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %82 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22), !range !4
+  %82 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22)
   %.not276 = icmp eq i32 %82, 0
   br i1 %.not276, label %200, label %83
 
@@ -558,7 +558,7 @@ default.unreachable:                              ; preds = %29
   %100 = load i32, ptr @hf_docsis_exthdr, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %100, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %102 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22), !range !4
+  %102 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22)
   %103 = icmp ne i32 %102, 0
   %104 = icmp sgt i32 %.0268278, 0
   %or.cond13 = select i1 %103, i1 %104, i1 false
@@ -599,7 +599,7 @@ default.unreachable:                              ; preds = %29
 
 120:                                              ; preds = %115, %115
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %121 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22), !range !4
+  %121 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22)
   %.not275 = icmp eq i32 %121, 0
   br i1 %.not275, label %200, label %122
 
@@ -627,7 +627,7 @@ default.unreachable:                              ; preds = %29
   %135 = load i32, ptr @hf_docsis_sid, align 4
   %136 = zext i16 %19 to i32
   %137 = tail call ptr @proto_tree_add_uint(ptr noundef %56, i32 noundef %135, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %136) #3
-  %138 = tail call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22), !range !4
+  %138 = tail call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22)
   br label %200
 
 139:                                              ; preds = %115
@@ -635,7 +635,7 @@ default.unreachable:                              ; preds = %29
   %141 = load i32, ptr %140, align 8
   store i32 1, ptr %140, align 8
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %142 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22), !range !4
+  %142 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22)
   %.not271 = icmp eq i32 %142, 0
   br i1 %.not271, label %200, label %143
 
@@ -721,7 +721,7 @@ default.unreachable:                              ; preds = %29
   %190 = load i32, ptr @hf_docsis_sid, align 4
   %191 = zext i16 %19 to i32
   %192 = tail call ptr @proto_tree_add_uint(ptr noundef %56, i32 noundef %190, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef %191) #3
-  %193 = tail call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22), !range !4
+  %193 = tail call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22)
   br label %200
 
 194:                                              ; preds = %115
@@ -730,7 +730,7 @@ default.unreachable:                              ; preds = %29
   %196 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %195, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %197 = load i32, ptr @hf_docsis_len, align 4
   %198 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %197, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
-  %199 = tail call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22), !range !4
+  %199 = tail call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %56, i32 noundef %22)
   br label %200
 
 200:                                              ; preds = %132, %187, %194, %128, %129, %120, %183, %139, %115, %97, %112, %111, %77, %91, %92, %95, %59, %74, %73
@@ -1029,7 +1029,7 @@ define internal fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr nou
   %164 = zext i8 %.1.i to i32
   %165 = add i32 %.2.i, %164
   %166 = icmp slt i32 %165, %28
-  br i1 %166, label %30, label %dissect_ehdr.exit, !llvm.loop !5
+  br i1 %166, label %30, label %dissect_ehdr.exit, !llvm.loop !4
 
 .loopexit.sink.split.i:                           ; preds = %56, %48
   %167 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %47, ptr noundef nonnull @ei_docsis_eh_len) #3
@@ -1054,7 +1054,7 @@ dissect_ehdr.exit:                                ; preds = %163, %.loopexit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @docsis_check_fcs, align 4
   %.not = icmp eq i32 %5, 0
   %6 = add nsw i32 %3, -2
@@ -1237,6 +1237,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

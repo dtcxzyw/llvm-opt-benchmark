@@ -73,7 +73,7 @@ $_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test = comdat any
 @.str.3 = private unnamed_addr constant [18 x i8] c"testZlibLargeData\00", align 1
 @.str.4 = private unnamed_addr constant [18 x i8] c"testZstdLargeData\00", align 1
 @.str.5 = private unnamed_addr constant [14 x i8] c"testZlibLimit\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.6 = private unnamed_addr constant [16 x i8] c"str_out.size()=\00", align 1
 @.str.7 = private unnamed_addr constant [26 x i8] c"TestCompress: 1,5,5,1 -> \00", align 1
 @.str.8 = private unnamed_addr constant [2 x i8] c",\00", align 1

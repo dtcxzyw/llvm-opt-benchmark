@@ -250,7 +250,7 @@ define dso_local noundef ptr @drm_property_create_enum(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_property_add_enum(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_property_add_enum(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 @strlen(ptr noundef %2) #9
   %5 = icmp ugt i64 %4, 31
   br i1 %5, label %6, label %7, !prof !11
@@ -591,7 +591,7 @@ define dso_local noundef ptr @drm_property_create_bool(ptr noundef %0, i32 nound
 declare dso_local void @drm_mode_object_unregister(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_getproperty_ioctl(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getproperty_ioctl(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
@@ -1028,7 +1028,7 @@ define dso_local noundef zeroext i1 @drm_property_replace_blob(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_property_replace_blob_from_id(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_property_replace_blob_from_id(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef %5) #0 align 16 {
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %48, label %8
 
@@ -1152,7 +1152,7 @@ define dso_local noundef i32 @drm_property_replace_blob_from_id(ptr noundef %0, 
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_getblob_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getblob_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
@@ -1298,7 +1298,7 @@ define dso_local i32 @drm_mode_createblob_ioctl(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_destroyblob_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_destroyblob_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176

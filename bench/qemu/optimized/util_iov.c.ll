@@ -370,7 +370,7 @@ if.else:                                          ; preds = %for.cond.preheader,
   unreachable
 
 if.end14:                                         ; preds = %land.rhs
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %add.ptr = getelementptr %struct.iovec, ptr %iov.0116, i64 %indvars.iv
   %sub15 = sub i32 %iov_cnt.addr.0115, %4
   %tobool.not = icmp eq i64 %offset.addr.1104, 0
@@ -408,7 +408,7 @@ for.body33:                                       ; preds = %land.rhs26
   br i1 %exitcond138.not, label %for.end40.thread, label %land.rhs26, !llvm.loop !12
 
 for.end40:                                        ; preds = %land.rhs26
-  %7 = trunc i64 %indvars.iv131 to i32
+  %7 = trunc nuw i64 %indvars.iv131 to i32
   %tobool41.not = icmp eq i64 %tail.0107, 0
   br i1 %tobool41.not, label %if.else69, label %if.end47
 
@@ -692,7 +692,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 %done.029.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %add.ptr10.i.i = getelementptr i8, ptr %3, i64 %offset.addr.030.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i.i, ptr align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
   %add.i.i = add i64 %cond.i.i, %done.029.i.i
   br label %for.inc.i.i
 
@@ -1359,7 +1359,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %add.ptr.i.i = getelementptr i8, ptr %buf, i64 %done.029.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %add.ptr10.i.i = getelementptr i8, ptr %5, i64 %offset.addr.030.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i.i, ptr align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
   %add.i.i = add i64 %cond.i.i, %done.029.i.i
   br label %for.inc.i.i
 
@@ -1425,7 +1425,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %5, i64 %offset.addr.030.i.i
   %add.ptr10.i.i = getelementptr i8, ptr %buf, i64 %done.029.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
   %add.i.i = add i64 %cond.i.i, %done.029.i.i
   br label %for.inc.i.i
 
@@ -1629,7 +1629,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr %struct.IOVectorSortElem, ptr %call, i64 %indvars.iv
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %3, ptr %arrayidx, align 8
   %arrayidx4 = getelementptr %struct.iovec, ptr %2, i64 %indvars.iv
   %src_iov = getelementptr %struct.IOVectorSortElem, ptr %call, i64 %indvars.iv, i32 1
@@ -1763,7 +1763,7 @@ for.end55:                                        ; preds = %qemu_iovec_add.exit
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @sortelem_cmp_src_base(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
+define internal range(i32 -1, 2) i32 @sortelem_cmp_src_base(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
 entry:
   %src_iov = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %src_iov, align 8

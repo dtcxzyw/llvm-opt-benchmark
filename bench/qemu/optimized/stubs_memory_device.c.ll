@@ -4,25 +4,25 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias ptr @qmp_memory_device_list() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_memory_device_list() local_unnamed_addr #0 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @get_plugged_memory_size() local_unnamed_addr #0 {
+define dso_local noundef i64 @get_plugged_memory_size() local_unnamed_addr #0 {
 entry:
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @memory_devices_get_reserved_memslots() local_unnamed_addr #0 {
+define dso_local noundef i32 @memory_devices_get_reserved_memslots() local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @memory_devices_memslot_auto_decision_active() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @memory_devices_memslot_auto_decision_active() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }

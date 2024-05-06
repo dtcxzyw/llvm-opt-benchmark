@@ -81,7 +81,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @mchp_pfsoc_sysreg_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
+define internal range(i64 0, 65) i64 @mchp_pfsoc_sysreg_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
 entry:
   %cond = icmp eq i64 %offset, 184
   br i1 %cond, label %sw.epilog, label %do.body

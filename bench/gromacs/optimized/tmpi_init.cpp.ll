@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [9 x i8] c"thread #\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14tMPI_Is_masterv() local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z14tMPI_Is_masterv() local_unnamed_addr #0 {
   %1 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %2
@@ -66,7 +66,7 @@ define noundef ptr @_Z18tMPI_Get_comm_selfv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
   %.not = icmp eq ptr %2, null
@@ -155,7 +155,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare noundef i32 @_Z25tMPI_Thread_get_hw_numberv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %6 = icmp eq ptr %5, null
@@ -176,7 +176,7 @@ define noundef i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef %0, ptr noundef %1, p
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %11 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str, ptr noundef nonnull dereferenceable(1) %12) #17
+  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(4) @.str, ptr noundef nonnull dereferenceable(1) %12) #17
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit.loopexit.split.loop.exit34.i, label %15
 

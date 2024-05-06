@@ -55,7 +55,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_cbc_hmac_sha256_init_key(ptr noundef %ctx, ptr noundef %inkey, ptr nocapture readnone %iv, i32 noundef %enc) #0 {
+define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha256_init_key(ptr noundef %ctx, ptr noundef %inkey, ptr nocapture readnone %iv, i32 noundef %enc) #0 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %tobool.not = icmp eq i32 %enc, 0
@@ -87,7 +87,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_cbc_hmac_sha256_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha256_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #0 {
 entry:
   %mac = alloca %union.anon.0, align 4
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
@@ -610,7 +610,7 @@ for.body209:                                      ; preds = %for.body209.lr.ph, 
   %not218 = xor i64 %shr217, -1
   %and219 = and i64 %and215, %not218
   %or220 = or i64 %and214, %and219
-  %conv221 = trunc i64 %or220 to i8
+  %conv221 = trunc nuw i64 %or220 to i8
   %inc222 = add i32 %res.0562, 1
   %idxprom = zext i32 %res.0562 to i64
   %arrayidx223 = getelementptr inbounds [64 x i8], ptr %data117, i64 0, i64 %idxprom
@@ -622,7 +622,7 @@ if.end227:                                        ; preds = %for.body209
   %sub229 = sub i64 %add228, %j.0563
   %shr230.neg = ashr i64 %sub229, 63
   %49 = load i32, ptr %arrayidx234, align 4
-  %50 = trunc i64 %shr230.neg to i32
+  %50 = trunc nsw i64 %shr230.neg to i32
   %51 = and i32 %46, %50
   %conv237 = or i32 %49, %51
   store i32 %conv237, ptr %arrayidx234, align 4
@@ -632,7 +632,7 @@ if.end227:                                        ; preds = %for.body209
   %and243 = ashr i64 %shr230.neg335, 63
   %52 = load i32, ptr %md, align 4
   %53 = load i32, ptr %26, align 64
-  %54 = trunc i64 %and243 to i32
+  %54 = trunc nsw i64 %and243 to i32
   %55 = and i32 %52, %54
   %conv251 = or i32 %55, %53
   store i32 %conv251, ptr %26, align 64
@@ -702,7 +702,7 @@ if.then330:                                       ; preds = %for.end317, %for.en
   %shr333.neg = ashr i64 %sub332, 63
   %arrayidx337 = getelementptr inbounds i8, ptr %call, i64 568
   %81 = load i32, ptr %arrayidx337, align 4
-  %82 = trunc i64 %shr333.neg to i32
+  %82 = trunc nsw i64 %shr333.neg to i32
   %83 = and i32 %46, %82
   %conv340 = or i32 %81, %83
   store i32 %conv340, ptr %arrayidx337, align 4
@@ -713,7 +713,7 @@ if.then330:                                       ; preds = %for.end317, %for.en
   %and346 = ashr i64 %shr333.neg331, 63
   %84 = load i32, ptr %md, align 4
   %85 = load i32, ptr %26, align 64
-  %86 = trunc i64 %and346 to i32
+  %86 = trunc nsw i64 %and346 to i32
   %87 = and i32 %84, %86
   %conv355 = or i32 %87, %85
   store i32 %conv355, ptr %26, align 64
@@ -773,7 +773,7 @@ if.end420:                                        ; preds = %if.then330, %for.en
   %shr425.neg = ashr i64 %sub424, 63
   %109 = load i32, ptr %md, align 4
   %110 = load i32, ptr %26, align 64
-  %111 = trunc i64 %shr425.neg to i32
+  %111 = trunc nsw i64 %shr425.neg to i32
   %112 = and i32 %109, %111
   %conv435 = or i32 %112, %110
   store i32 %conv435, ptr %26, align 64
@@ -1113,7 +1113,7 @@ if.then7.i107:                                    ; preds = %for.end, %if.end4.i
   %8 = load i32, ptr %Nh.i111, align 4
   %Nl.i113 = getelementptr inbounds i8, ptr %call, i64 276
   %9 = load i32, ptr %Nl.i113, align 4
-  %sub5.tr.i114 = trunc i64 %sub5.i105208 to i32
+  %sub5.tr.i114 = trunc nuw nsw i64 %sub5.i105208 to i32
   %10 = shl nuw nsw i32 %sub5.tr.i114, 3
   %conv13.i115 = add i32 %9, %10
   store i32 %conv13.i115, ptr %Nl.i113, align 4
@@ -1178,7 +1178,7 @@ if.then7.i140:                                    ; preds = %for.end34, %if.end4
   %14 = load i32, ptr %Nh.i144, align 4
   %Nl.i146 = getelementptr inbounds i8, ptr %call, i64 388
   %15 = load i32, ptr %Nl.i146, align 4
-  %sub5.tr.i147 = trunc i64 %sub5.i138218 to i32
+  %sub5.tr.i147 = trunc nuw nsw i64 %sub5.i138218 to i32
   %16 = shl nuw nsw i32 %sub5.tr.i147, 3
   %conv13.i148 = add i32 %15, %16
   store i32 %conv13.i148, ptr %Nl.i146, align 4
@@ -1245,7 +1245,7 @@ if.then66:                                        ; preds = %if.then52
 if.end70:                                         ; preds = %if.then66
   %sub71 = add nsw i32 %or, -16
   %shr = lshr i32 %sub71, 8
-  %conv72 = trunc i32 %shr to i8
+  %conv72 = trunc nuw i32 %shr to i8
   store i8 %conv72, ptr %arrayidx45, align 1
   %conv76 = trunc i32 %sub71 to i8
   store i8 %conv76, ptr %arrayidx49, align 1

@@ -583,7 +583,7 @@ $_ZTIN6google8protobuf8internal31RepeatedPtrFieldMessageAccessorE = comdat any
 @_ZTIN6google8protobuf8internal33RandomAccessRepeatedFieldAccessorE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal33RandomAccessRepeatedFieldAccessorE, ptr @_ZTIN6google8protobuf8internal21RepeatedFieldAccessorE }, comdat, align 8
 @_ZTIN6google8protobuf8internal20RepeatedFieldWrapperIiEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal20RepeatedFieldWrapperIiEE, ptr @_ZTIN6google8protobuf8internal33RandomAccessRepeatedFieldAccessorE }, comdat, align 8
 @_ZTIN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIiEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal30RepeatedFieldPrimitiveAccessorIiEE, ptr @_ZTIN6google8protobuf8internal20RepeatedFieldWrapperIiEE }, comdat, align 8
-@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
+@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local local_unnamed_addr global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
 @.str.20 = private unnamed_addr constant [137 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/protobuf/protobuf/src/google/protobuf/reflection_internal.h\00", align 1
 @.str.21 = private unnamed_addr constant [22 x i8] c"this == other_mutator\00", align 1
 @_ZZN6google8protobuf12_GLOBAL__N_112GetSingletonINS0_8internal30RepeatedFieldPrimitiveAccessorIjEEEEPT_vE9singleton = internal global %"class.google::protobuf::internal::RepeatedFieldPrimitiveAccessor.55" zeroinitializer, align 8
@@ -1824,7 +1824,7 @@ if.end11:                                         ; preds = %cleanup.cont
   %22 = extractvalue { i64, ptr } %call14, 1
   %files_.i = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i.i = load ptr, ptr %files_.i, align 8
-  tail call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
   %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState21CombineContiguousImplEmPKhmSt17integral_constantIiLi8EE(i64 noundef ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr noundef %22, i64 noundef %21)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %21
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i128
@@ -1919,12 +1919,12 @@ for.body.i.i.i23:                                 ; preds = %for.inc.i.i.i28, %f
   %call20.val.i.i.i = load ptr, ptr %add.ptr19.i.i.i27, align 8
   %38 = getelementptr i8, ptr %call20.val.i.i.i, i64 16
   %call20.val.val.i.i.i = load ptr, ptr %38, align 8
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call20.val.val.i.i.i) #29
+  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call20.val.val.i.i.i) #29
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %call.i.i.i.i.i.i.i.i.i.i, %21
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i28
 
 land.rhs.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i23
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %call20.val.val.i.i.i, ptr %22, i64 %21)
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %call20.val.val.i.i.i, ptr readonly %22, i64 %21)
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i37, label %for.inc.i.i.i28
 
@@ -2160,7 +2160,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
   %files_.i = getelementptr inbounds i8, ptr %call, i64 8
   %this.val7.i.i.i.i.i.i.i.i = load ptr, ptr %files_.i, align 8, !noalias !42
-  tail call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !42
+  tail call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !42
   %0 = getelementptr i8, ptr %table, i64 16
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8, !noalias !42
   %call.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i.i.i.i.i.i.i.i) #29, !noalias !42
@@ -2226,7 +2226,7 @@ land.rhs.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %lor.rhs.i.i.i.i.i.i
   br i1 %cmp.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %10, ptr %11, i64 %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !42
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %10, ptr readonly %11, i64 %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !42
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %for.inc.i.i.i.i.i.i.i.i
 
@@ -2913,7 +2913,7 @@ entry:
   %files_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %files_, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %slots_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %dropped_defaults_factory_ = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @_ZN6google8protobuf21DynamicMessageFactoryC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %dropped_defaults_factory_)
           to label %invoke.cont7 unwind label %lpad2

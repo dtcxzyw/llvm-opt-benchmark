@@ -9946,7 +9946,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #15
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i31
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i34
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow6ScalarEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #15
@@ -9958,11 +9958,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i31:                                      ; preds = %lpad
+if.then.i34:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #16
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i31, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i34, %if.end.thread
   invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad17
 

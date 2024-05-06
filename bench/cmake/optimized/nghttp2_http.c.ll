@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @SF_KEY_CHARS = internal unnamed_addr constant <{ [123 x i32], [133 x i32] }> <{ [123 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 1, i32 1, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [133 x i32] zeroinitializer }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_http_on_header(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -531, 1) i32 @nghttp2_http_on_header(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nghttp2_extpri, align 4
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
@@ -686,7 +686,7 @@ check_pseudo_header.exit112.i:                    ; preds = %296
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds i8, ptr %351, i64 24
   %355 = load i64, ptr %354, align 8
-  %356 = call i32 @nghttp2_http_parse_priority(ptr noundef nonnull %6, ptr noundef %353, i64 noundef %355), !range !10
+  %356 = call i32 @nghttp2_http_parse_priority(ptr noundef nonnull %6, ptr noundef %353, i64 noundef %355)
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %358, label %362
 
@@ -812,7 +812,7 @@ http_request_on_header.exit:                      ; preds = %.lr.ph.i113.i, %155
   %417 = add nsw i64 %411, %413
   %418 = add nuw nsw i64 %.024.i.i, 1
   %exitcond.not.i.i71 = icmp eq i64 %418, 3
-  br i1 %exitcond.not.i.i71, label %parse_uint.exit.i, label %.preheader.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i71, label %parse_uint.exit.i, label %.preheader.i.i, !llvm.loop !10
 
 parse_uint.exit.thread.i:                         ; preds = %410, %.preheader.i.i
   %419 = getelementptr inbounds i8, ptr %1, i64 208
@@ -969,7 +969,7 @@ declare i32 @nghttp2_check_header_value(ptr noundef, i64 noundef) local_unnamed_
 declare i32 @nghttp2_check_header_value_rfc9113(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @nghttp2_http_on_request_headers(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_request_headers(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 32768
@@ -1029,7 +1029,7 @@ check_path.exit.thread:                           ; preds = %17, %15, %check_pat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @nghttp2_http_on_response_headers(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_response_headers(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 212
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 32
@@ -1093,7 +1093,7 @@ expect_response_body.exit.thread:                 ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_http_on_trailer_headers(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_trailer_headers(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 13
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 1
@@ -1103,7 +1103,7 @@ define dso_local i32 @nghttp2_http_on_trailer_headers(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 212
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16384
@@ -1131,7 +1131,7 @@ define dso_local noundef i32 @nghttp2_http_on_remote_end_stream(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @nghttp2_http_on_data_chunk(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_data_chunk(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, %1
@@ -1223,7 +1223,7 @@ define dso_local void @nghttp2_http_record_request_method(ptr nocapture noundef 
 31:                                               ; preds = %.lr.ph, %13, %18
   %32 = add nuw i64 %.02128, 1
   %exitcond.not = icmp eq i64 %32, %.022
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !11
 
 .thread.sink.split:                               ; preds = %27, %23
   %.sink35 = phi i32 [ 128, %23 ], [ 256, %27 ]
@@ -1300,7 +1300,7 @@ define internal fastcc noundef i64 @sf_parse_item(ptr noundef %0, ptr noundef %1
 23:                                               ; preds = %.lr.ph.i.i
   %24 = getelementptr inbounds i8, ptr %.016.i.i, i64 1
   %.not12.i.i = icmp eq ptr %24, %2
-  br i1 %.not12.i.i, label %sf_parse_key.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not12.i.i, label %sf_parse_key.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 sf_parse_key.exit.i:                              ; preds = %23, %.lr.ph.i.i
   %.0.lcssa.ph.i.i = phi ptr [ %.016.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %23 ]
@@ -1336,7 +1336,7 @@ sf_parse_key.exit.i:                              ; preds = %23, %.lr.ph.i.i
 40:                                               ; preds = %38, %30, %27
   %.2.i = phi ptr [ %28, %27 ], [ %28, %30 ], [ %39, %38 ]
   %.not.i = icmp eq ptr %.2.i, %2
-  br i1 %.not.i, label %sf_parse_params.exit, label %9, !llvm.loop !14
+  br i1 %.not.i, label %sf_parse_params.exit, label %9, !llvm.loop !13
 
 sf_parse_params.exit:                             ; preds = %9, %40, %6
   %.0.lcssa.i = phi ptr [ %2, %6 ], [ %.041.i, %9 ], [ %2, %40 ]
@@ -1439,7 +1439,7 @@ define internal fastcc noundef i64 @sf_parse_inner_list(ptr noundef writeonly %0
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds i8, ptr %.016.i.i, i64 1
   %.not12.i.i = icmp eq ptr %29, %2
-  br i1 %.not12.i.i, label %sf_parse_key.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not12.i.i, label %sf_parse_key.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 sf_parse_key.exit.i:                              ; preds = %28, %.lr.ph.i.i
   %.0.lcssa.ph.i.i = phi ptr [ %.016.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %28 ]
@@ -1475,7 +1475,7 @@ sf_parse_key.exit.i:                              ; preds = %28, %.lr.ph.i.i
 45:                                               ; preds = %43, %35, %32
   %.2.i = phi ptr [ %33, %32 ], [ %33, %35 ], [ %44, %43 ]
   %.not.i = icmp eq ptr %.2.i, %2
-  br i1 %.not.i, label %sf_parse_params.exit, label %14, !llvm.loop !14
+  br i1 %.not.i, label %sf_parse_params.exit, label %14, !llvm.loop !13
 
 sf_parse_params.exit:                             ; preds = %14, %45, %11
   %.0.lcssa.i = phi ptr [ %2, %11 ], [ %.041.i, %14 ], [ %2, %45 ]
@@ -1521,7 +1521,7 @@ sf_parse_params.exit.thread:                      ; preds = %58, %61, %55, %8, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_http_parse_priority(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.nghttp2_sf_value, align 8
   %5 = getelementptr i8, ptr %1, i64 %2
   %.sroa.0.0.copyload = load i32, ptr %0, align 4
@@ -1539,7 +1539,7 @@ define dso_local noundef i32 @nghttp2_http_parse_priority(ptr nocapture noundef 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %.052104, i64 1
   %.not = icmp eq ptr %9, %5
-  br i1 %.not, label %.loopexit78, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.loopexit78, label %.lr.ph, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph, %3
   %.052.lcssa = phi ptr [ %1, %3 ], [ %.052104, %.lr.ph ]
@@ -1585,7 +1585,7 @@ define dso_local noundef i32 @nghttp2_http_parse_priority(ptr nocapture noundef 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds i8, ptr %.016.i, i64 1
   %.not12.i = icmp eq ptr %22, %5
-  br i1 %.not12.i, label %sf_parse_key.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not12.i, label %sf_parse_key.exit, label %.lr.ph.i, !llvm.loop !12
 
 sf_parse_key.exit:                                ; preds = %21, %.lr.ph.i
   %.0.lcssa.ph.i = phi ptr [ %.016.i, %.lr.ph.i ], [ %scevgep.i, %21 ]
@@ -1660,7 +1660,7 @@ sf_parse_key.exit:                                ; preds = %21, %.lr.ph.i
 44:                                               ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds i8, ptr %.016.i.i, i64 1
   %.not12.i.i = icmp eq ptr %45, %5
-  br i1 %.not12.i.i, label %sf_parse_key.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not12.i.i, label %sf_parse_key.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 sf_parse_key.exit.i:                              ; preds = %44, %.lr.ph.i.i
   %.0.lcssa.ph.i.i = phi ptr [ %.016.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %44 ]
@@ -1696,7 +1696,7 @@ sf_parse_key.exit.i:                              ; preds = %44, %.lr.ph.i.i
 61:                                               ; preds = %59, %51, %48
   %.2.i = phi ptr [ %49, %48 ], [ %49, %51 ], [ %60, %59 ]
   %.not.i74 = icmp eq ptr %.2.i, %5
-  br i1 %.not.i74, label %sf_parse_params.exit, label %30, !llvm.loop !14
+  br i1 %.not.i74, label %sf_parse_params.exit, label %30, !llvm.loop !13
 
 sf_parse_params.exit:                             ; preds = %61, %.sf_parse_params.exit.loopexit_crit_edge, %.thread
   %.pre-phi = phi i64 [ %10, %.thread ], [ %.pre140, %.sf_parse_params.exit.loopexit_crit_edge ], [ %10, %61 ]
@@ -1841,7 +1841,7 @@ define internal fastcc i64 @parse_uint(ptr nocapture noundef readonly %0, i64 no
   %15 = add nsw i64 %9, %11
   %16 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %16, %1
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %14, %.preheader, %8, %2
   %.018 = phi i64 [ -1, %2 ], [ %15, %14 ], [ -1, %.preheader ], [ -1, %8 ]
@@ -1950,7 +1950,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
   %.1.i = phi i64 [ %.04487.i, %16 ], [ %.04586.i, %24 ]
   %27 = getelementptr inbounds i8, ptr %.15383.i, i64 1
   %.not.i = icmp eq ptr %27, %2
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %26, %.lr.ph.i
   %.153.lcssa.ph.i = phi ptr [ %.15383.i, %.lr.ph.i ], [ %scevgep.i, %26 ]
@@ -2011,7 +2011,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
   %46 = fdiv double %45, 1.000000e+01
   %47 = add nsw i64 %.099.i, -1
   %.not63.i = icmp eq i64 %47, 0
-  br i1 %.not63.i, label %._crit_edge102.i, label %.lr.ph101.i, !llvm.loop !17
+  br i1 %.not63.i, label %._crit_edge102.i, label %.lr.ph101.i, !llvm.loop !16
 
 ._crit_edge102.i:                                 ; preds = %.lr.ph101.i, %42
   %48 = phi double [ %43, %42 ], [ %46, %.lr.ph101.i ]
@@ -2084,7 +2084,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
   %.1.i30 = phi ptr [ %.029.i, %75 ], [ %59, %61 ], [ %59, %61 ]
   %80 = getelementptr inbounds i8, ptr %.1.i30, i64 1
   %.not24.i = icmp eq ptr %80, %2
-  br i1 %.not24.i, label %sf_parse_integer_or_decimal.exit, label %.lr.ph.i28, !llvm.loop !18
+  br i1 %.not24.i, label %sf_parse_integer_or_decimal.exit, label %.lr.ph.i28, !llvm.loop !17
 
 81:                                               ; preds = %3
   %82 = ptrtoint ptr %1 to i64
@@ -2109,7 +2109,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
 89:                                               ; preds = %.lr.ph.i34
   %90 = getelementptr inbounds i8, ptr %.029.i35, i64 1
   %.not23.i = icmp eq ptr %90, %2
-  br i1 %.not23.i, label %.critedge.i, label %.lr.ph.i34, !llvm.loop !19
+  br i1 %.not23.i, label %.critedge.i, label %.lr.ph.i34, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %89, %.lr.ph.i34, %81
   %.0.lcssa.i = phi ptr [ %1, %81 ], [ %.029.i35, %.lr.ph.i34 ], [ %scevgep.i33, %89 ]
@@ -2172,7 +2172,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
   %115 = getelementptr inbounds i8, ptr %.024.i, i64 1
   %.not19.i = icmp eq ptr %115, %2
   %or.cond26.i43 = select i1 %.not20.i, i1 true, i1 %.not19.i
-  br i1 %or.cond26.i43, label %sf_parse_integer_or_decimal.exit, label %.lr.ph.i42, !llvm.loop !20
+  br i1 %or.cond26.i43, label %sf_parse_integer_or_decimal.exit, label %.lr.ph.i42, !llvm.loop !19
 
 116:                                              ; preds = %3
   %117 = getelementptr inbounds i8, ptr %1, i64 1
@@ -2229,7 +2229,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
 136:                                              ; preds = %.lr.ph.i51
   %137 = getelementptr inbounds i8, ptr %.029.i52, i64 1
   %.not23.i54 = icmp eq ptr %137, %2
-  br i1 %.not23.i54, label %.critedge.i55, label %.lr.ph.i51, !llvm.loop !19
+  br i1 %.not23.i54, label %.critedge.i55, label %.lr.ph.i51, !llvm.loop !18
 
 .critedge.i55:                                    ; preds = %136, %.lr.ph.i51, %128
   %.0.lcssa.i56 = phi ptr [ %1, %128 ], [ %.029.i52, %.lr.ph.i51 ], [ %scevgep.i50, %136 ]
@@ -2289,7 +2289,7 @@ attributes #10 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -501, i32 1}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -2299,4 +2299,3 @@ attributes #10 = { nounwind }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

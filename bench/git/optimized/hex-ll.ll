@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hexval_table = dso_local local_unnamed_addr constant [256 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\01\02\03\04\05\06\07\08\09\FF\FF\FF\FF\FF\FF\FF\0A\0B\0C\0D\0E\0F\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\0A\0B\0C\0D\0E\0F\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @hex_to_bytes(ptr nocapture noundef writeonly %binary, ptr nocapture noundef readonly %hex, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hex_to_bytes(ptr nocapture noundef writeonly %binary, ptr nocapture noundef readonly %hex, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not8 = icmp eq i64 %len, 0
   br i1 %tobool.not8, label %return, label %for.body
@@ -32,7 +32,7 @@ for.body:                                         ; preds = %entry, %if.end
   br i1 %tobool3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body
-  %conv = trunc i32 %or to i8
+  %conv = trunc nuw i32 %or to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %binary.addr.09, i64 1
   store i8 %conv, ptr %binary.addr.09, align 1
   %dec = add i64 %len.addr.011, -1

@@ -46,7 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.heaptype_with_member_set_memb_relative.def = private unnamed_addr constant %struct.PyMemberDef { ptr @.str.15, i32 8, i64 16, i32 8, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_HeaptypeRelative(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_HeaptypeRelative(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %m, ptr noundef nonnull @TestMethods) #7
   %cmp = icmp slt i32 %call, 0

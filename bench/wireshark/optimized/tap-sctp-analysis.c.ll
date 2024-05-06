@@ -306,7 +306,7 @@ define internal void @reset(ptr nocapture noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %65, %72, %76, %79
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   %80 = getelementptr inbounds i8, ptr %5, i64 32
   %81 = load i32, ptr %80, align 8
   %.not.i.i79 = icmp eq i32 %81, 0
@@ -329,7 +329,7 @@ free_address.exit:                                ; preds = %65, %72, %76, %79
   br label %free_address.exit81
 
 free_address.exit81:                              ; preds = %free_address.exit, %82, %86, %89
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
   %90 = load ptr, ptr %.083, align 8
   tail call void @g_free(ptr noundef %90) #8
   %91 = getelementptr inbounds i8, ptr %.083, i64 8
@@ -362,7 +362,7 @@ define internal noundef i32 @packet(ptr nocapture readnone %0, ptr nocapture nou
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %3, i64 40
   %17 = load ptr, ptr %16, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store i32 %10, ptr %12, align 8
   %18 = icmp eq i32 %15, 0
   br i1 %18, label %copy_address.exit, label %19
@@ -379,7 +379,7 @@ define internal noundef i32 @packet(ptr nocapture readnone %0, ptr nocapture nou
   br label %copy_address.exit
 
 25:                                               ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   br label %copy_address.exit
 
 copy_address.exit:                                ; preds = %19, %13, %25
@@ -398,7 +398,7 @@ copy_address.exit:                                ; preds = %19, %13, %25
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds i8, ptr %3, i64 64
   %37 = load ptr, ptr %36, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i32 %30, ptr %32, align 8
   %38 = icmp eq i32 %35, 0
   br i1 %38, label %copy_address.exit1268, label %39
@@ -415,7 +415,7 @@ copy_address.exit:                                ; preds = %19, %13, %25
   br label %copy_address.exit1268
 
 45:                                               ; preds = %copy_address.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   br label %copy_address.exit1268
 
 copy_address.exit1268:                            ; preds = %39, %33, %45
@@ -502,7 +502,7 @@ copy_address.exit1268:                            ; preds = %39, %33, %45
   %92 = getelementptr inbounds i8, ptr %6, i64 8
   %93 = getelementptr inbounds i8, ptr %6, i64 12
   %94 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false)
   store i32 %28, ptr %91, align 8
   %95 = icmp eq i32 %27, 0
   br i1 %95, label %copy_address.exit1269, label %96
@@ -523,7 +523,7 @@ copy_address.exit1269:                            ; preds = %88, %96
   %103 = getelementptr inbounds i8, ptr %6, i64 32
   %104 = getelementptr inbounds i8, ptr %6, i64 36
   %105 = getelementptr inbounds i8, ptr %6, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
   store i32 %48, ptr %102, align 8
   %106 = icmp eq i32 %47, 0
   br i1 %106, label %copy_address.exit1270, label %107
@@ -671,7 +671,7 @@ copy_address.exit1270:                            ; preds = %copy_address.exit12
   %195 = load i32, ptr %92, align 8
   %196 = load i32, ptr %93, align 4
   %197 = load ptr, ptr %94, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %194, i8 0, i64 24, i1 false)
   store i32 %195, ptr %194, align 8
   %198 = icmp eq i32 %196, 0
   br i1 %198, label %copy_address.exit1271, label %199
@@ -692,7 +692,7 @@ copy_address.exit1271:                            ; preds = %192, %199
   %206 = load i32, ptr %103, align 8
   %207 = load i32, ptr %104, align 4
   %208 = load ptr, ptr %105, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %205, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %205, i8 0, i64 24, i1 false)
   store i32 %206, ptr %205, align 8
   %209 = icmp eq i32 %207, 0
   br i1 %209, label %copy_address.exit1272, label %210
@@ -711,7 +711,7 @@ copy_address.exit1271:                            ; preds = %192, %199
 copy_address.exit1272:                            ; preds = %copy_address.exit1271, %210
   %216 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #9
   %217 = getelementptr inbounds i8, ptr %216, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %217, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %217, i8 0, i64 24, i1 false)
   store i32 %195, ptr %217, align 8
   br i1 %198, label %copy_address.exit1273, label %218
 
@@ -728,7 +728,7 @@ copy_address.exit1272:                            ; preds = %copy_address.exit12
 
 copy_address.exit1273:                            ; preds = %copy_address.exit1272, %218
   %224 = getelementptr inbounds i8, ptr %216, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %224, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %224, i8 0, i64 24, i1 false)
   store i32 %206, ptr %224, align 8
   br i1 %209, label %copy_address.exit1274, label %225
 
@@ -893,7 +893,7 @@ copy_address.exit1274:                            ; preds = %copy_address.exit12
   %311 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
   %312 = load ptr, ptr %307, align 8
   %313 = tail call ptr @tvb_get_ptr(ptr noundef %312, i32 noundef 4, i32 noundef 4) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %311, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %311, i8 0, i64 24, i1 false)
   store i32 2, ptr %311, align 8
   %314 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %313, i64 noundef 4) #8
   br label %.sink.split1393
@@ -902,7 +902,7 @@ copy_address.exit1274:                            ; preds = %copy_address.exit12
   %316 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
   %317 = load ptr, ptr %307, align 8
   %318 = tail call ptr @tvb_get_ptr(ptr noundef %317, i32 noundef 4, i32 noundef 16) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %316, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %316, i8 0, i64 24, i1 false)
   store i32 3, ptr %316, align 8
   %319 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %318, i64 noundef 16) #8
   br label %.sink.split1393
@@ -1548,7 +1548,7 @@ copy_address.exit1274:                            ; preds = %copy_address.exit12
   %669 = load i32, ptr %92, align 8
   %670 = load i32, ptr %93, align 4
   %671 = load ptr, ptr %94, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %668, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %668, i8 0, i64 24, i1 false)
   store i32 %669, ptr %668, align 8
   %672 = icmp eq i32 %670, 0
   br i1 %672, label %copy_address.exit1275, label %673
@@ -1571,7 +1571,7 @@ copy_address.exit1275:                            ; preds = %667, %673
   %682 = load i32, ptr %103, align 8
   %683 = load i32, ptr %104, align 4
   %684 = load ptr, ptr %105, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %681, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %681, i8 0, i64 24, i1 false)
   store i32 %682, ptr %681, align 8
   %685 = icmp eq i32 %683, 0
   br i1 %685, label %copy_address.exit1276, label %686
@@ -1763,7 +1763,7 @@ find_assoc.exit._crit_edge:                       ; preds = %find_assoc.exit, %7
 787:                                              ; preds = %783, %779, %775, %771, %767, %763, %759
   %788 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #9
   %789 = getelementptr inbounds i8, ptr %788, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %789, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %789, i8 0, i64 24, i1 false)
   store i32 %28, ptr %789, align 8
   %790 = icmp eq i32 %27, 0
   br i1 %790, label %copy_address.exit1277, label %791
@@ -1781,7 +1781,7 @@ find_assoc.exit._crit_edge:                       ; preds = %find_assoc.exit, %7
 
 copy_address.exit1277:                            ; preds = %787, %791
   %797 = getelementptr inbounds i8, ptr %788, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %797, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %797, i8 0, i64 24, i1 false)
   store i32 %48, ptr %797, align 8
   %798 = icmp eq i32 %47, 0
   br i1 %798, label %copy_address.exit1278, label %799
@@ -1800,7 +1800,7 @@ copy_address.exit1277:                            ; preds = %787, %791
 copy_address.exit1278:                            ; preds = %copy_address.exit1277, %799
   %805 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #9
   %806 = getelementptr inbounds i8, ptr %805, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %806, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %806, i8 0, i64 24, i1 false)
   store i32 %28, ptr %806, align 8
   br i1 %790, label %copy_address.exit1279, label %807
 
@@ -1817,7 +1817,7 @@ copy_address.exit1278:                            ; preds = %copy_address.exit12
 
 copy_address.exit1279:                            ; preds = %copy_address.exit1278, %807
   %813 = getelementptr inbounds i8, ptr %805, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %813, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %813, i8 0, i64 24, i1 false)
   store i32 %48, ptr %813, align 8
   br i1 %798, label %copy_address.exit1280, label %814
 
@@ -1952,7 +1952,7 @@ copy_address.exit1280:                            ; preds = %copy_address.exit12
   store ptr %889, ptr %885, align 8
   %890 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
   %891 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %890, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %890, i8 0, i64 24, i1 false)
   store i32 %28, ptr %890, align 8
   %892 = icmp eq i32 %27, 0
   br i1 %892, label %copy_address.exit1281, label %893
@@ -1989,7 +1989,7 @@ copy_address.exit1281:                            ; preds = %883, %893
 
 905:                                              ; preds = %904, %902, %900
   %906 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %906, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %906, i8 0, i64 24, i1 false)
   store i32 %48, ptr %906, align 8
   %907 = icmp eq i32 %47, 0
   br i1 %907, label %copy_address.exit1282, label %908
@@ -2172,7 +2172,7 @@ copy_address.exit1282:                            ; preds = %905, %908
   %1004 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
   %1005 = load ptr, ptr %1000, align 8
   %1006 = tail call ptr @tvb_get_ptr(ptr noundef %1005, i32 noundef 4, i32 noundef 4) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1004, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1004, i8 0, i64 24, i1 false)
   store i32 2, ptr %1004, align 8
   %1007 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %1006, i64 noundef 4) #8
   br label %.sink.split1426
@@ -2181,7 +2181,7 @@ copy_address.exit1282:                            ; preds = %905, %908
   %1009 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #9
   %1010 = load ptr, ptr %1000, align 8
   %1011 = tail call ptr @tvb_get_ptr(ptr noundef %1010, i32 noundef 4, i32 noundef 16) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1009, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1009, i8 0, i64 24, i1 false)
   store i32 3, ptr %1009, align 8
   %1012 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %1011, i64 noundef 16) #8
   br label %.sink.split1426
@@ -3348,7 +3348,7 @@ copy_address.exit1282:                            ; preds = %905, %908
   br label %free_address.exit.i
 
 free_address.exit.i:                              ; preds = %1636, %1633, %1629, %1626
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1627, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1627, i8 0, i64 24, i1 false)
   %1637 = getelementptr inbounds i8, ptr %.71149, i64 40
   %1638 = load i32, ptr %1637, align 8
   %.not.i.i6.i = icmp eq i32 %1638, 0
@@ -3371,7 +3371,7 @@ free_address.exit.i:                              ; preds = %1636, %1633, %1629,
   br label %tsn_free.exit
 
 tsn_free.exit:                                    ; preds = %free_address.exit.i, %1639, %1643, %1646
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1637, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1637, i8 0, i64 24, i1 false)
   tail call void @g_free(ptr noundef nonnull %.71149) #8
   br label %1647
 
@@ -3414,7 +3414,7 @@ tsn_free.exit:                                    ; preds = %free_address.exit.i
   br label %free_address.exit.i1286
 
 free_address.exit.i1286:                          ; preds = %1664, %1661, %1657, %1654
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1655, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1655, i8 0, i64 24, i1 false)
   %1665 = getelementptr inbounds i8, ptr %.71141, i64 40
   %1666 = load i32, ptr %1665, align 8
   %.not.i.i6.i1287 = icmp eq i32 %1666, 0
@@ -3437,7 +3437,7 @@ free_address.exit.i1286:                          ; preds = %1664, %1661, %1657,
   br label %tsn_free.exit1290
 
 tsn_free.exit1290:                                ; preds = %free_address.exit.i1286, %1667, %1671, %1674
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1665, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1665, i8 0, i64 24, i1 false)
   tail call void @g_free(ptr noundef nonnull %.71141) #8
   br label %.thread1323
 
@@ -3518,7 +3518,7 @@ define internal void @store_free(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %1, %3, %7, %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   tail call void @g_free(ptr noundef nonnull %0) #8
   ret void
 }
@@ -3561,7 +3561,7 @@ define internal void @tsn_free(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %5, %8, %12, %15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %.not.i.i6 = icmp eq i32 %17, 0
@@ -3584,7 +3584,7 @@ free_address.exit:                                ; preds = %5, %8, %12, %15
   br label %free_address.exit8
 
 free_address.exit8:                               ; preds = %free_address.exit, %18, %22, %25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   tail call void @g_free(ptr noundef nonnull %0) #8
   ret void
 }
@@ -3623,7 +3623,7 @@ define internal void @chunk_free(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %1, %4, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   tail call void @g_free(ptr noundef nonnull %0) #8
   ret void
 }
@@ -3826,7 +3826,7 @@ define internal fastcc noundef ptr @add_address(ptr noundef %0, ptr noundef retu
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %20, %28, %30, %33
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   tail call void @g_free(ptr noundef nonnull %0) #8
   br label %46
 
@@ -3952,7 +3952,7 @@ addresses_equal.exit:                             ; preds = %26, %19, %14, %10
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   store i32 %46, ptr %45, align 8
   %51 = icmp eq i32 %48, 0
   br i1 %51, label %copy_address.exit, label %52

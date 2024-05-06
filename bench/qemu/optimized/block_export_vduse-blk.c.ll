@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @virtio_blk_process_req, ptr @.str.10, ptr @.str.11, i32 31, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vduse_blk_virtio_process_req, ptr @.str.10, ptr @.str.12, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.13, ptr @.str.14, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.15, ptr @.str.14, i32 81, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vduse_blk_exp_create(ptr noundef %exp, ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @vduse_blk_exp_create(ptr noundef %exp, ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %config = alloca %struct.virtio_blk_config, align 8
@@ -71,7 +71,7 @@ if.then6:                                         ; preds = %if.end4
   br i1 %cmp9, label %if.then16, label %is_power_of_2.exit
 
 is_power_of_2.exit:                               ; preds = %if.then6
-  %5 = tail call i16 @llvm.ctpop.i16(i16 %4), !range !5
+  %5 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %4)
   %tobool1.not.i = icmp ult i16 %5, 2
   %cmp14 = icmp ult i16 %4, 1025
   %or.cond.not = and i1 %cmp14, %tobool1.not.i
@@ -203,7 +203,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call92 = call i32 @vduse_dev_setup_queue(ptr noundef %20, i32 noundef %i.057, i32 noundef %conv41) #8
   %inc = add nuw nsw i32 %i.057, 1
   %exitcond.not = icmp eq i32 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
   %ctx = getelementptr inbounds i8, ptr %exp, i64 24
@@ -307,7 +307,7 @@ vduse_blk_disable_queue.exit.i:                   ; preds = %if.end.i.i, %for.bo
   %4 = load i16, ptr %num_queues.i, align 8
   %5 = zext i16 %4 to i32
   %cmp.i = icmp ult i32 %indvars.iv.next.i, %5
-  br i1 %cmp.i, label %for.body.i, label %vduse_blk_stop_virtqueues.exit, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %vduse_blk_stop_virtqueues.exit, !llvm.loop !7
 
 vduse_blk_stop_virtqueues.exit:                   ; preds = %vduse_blk_disable_queue.exit.i, %entry
   %vqs_started.i = getelementptr inbounds i8, ptr %exp, i64 108
@@ -586,7 +586,7 @@ vduse_blk_disable_queue.exit.i:                   ; preds = %if.end.i.i, %for.bo
   %4 = load i16, ptr %num_queues.i, align 8
   %5 = zext i16 %4 to i32
   %cmp.i = icmp ult i32 %indvars.iv.next.i, %5
-  br i1 %cmp.i, label %for.body.i, label %vduse_blk_stop_virtqueues.exit, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %vduse_blk_stop_virtqueues.exit, !llvm.loop !7
 
 vduse_blk_stop_virtqueues.exit:                   ; preds = %vduse_blk_disable_queue.exit.i, %entry
   %vqs_started.i = getelementptr inbounds i8, ptr %opaque, i64 108
@@ -633,7 +633,7 @@ vduse_blk_enable_queue.exit.i:                    ; preds = %if.end.i.i, %for.bo
   %5 = load i16, ptr %num_queues.i, align 8
   %6 = zext i16 %5 to i32
   %cmp.i = icmp ult i32 %indvars.iv.next.i, %6
-  br i1 %cmp.i, label %for.body.i, label %vduse_blk_start_virtqueues.exit, !llvm.loop !9
+  br i1 %cmp.i, label %for.body.i, label %vduse_blk_start_virtqueues.exit, !llvm.loop !8
 
 vduse_blk_start_virtqueues.exit:                  ; preds = %vduse_blk_enable_queue.exit.i, %entry
   ret void
@@ -696,8 +696,7 @@ attributes #9 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i16 0, i16 17}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

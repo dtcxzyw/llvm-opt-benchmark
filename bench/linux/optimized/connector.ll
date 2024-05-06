@@ -275,7 +275,7 @@ define dso_local void @cn_del_callback(ptr noundef %0) #0 align 16 {
 declare dso_local void @cn_queue_del_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cn_init() #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @cn_init() #0 align 16 {
   %1 = alloca %struct.netlink_kernel_cfg, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #4
   store i32 26, ptr %1, align 8
@@ -465,7 +465,7 @@ define internal void @cn_rx_skb(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cn_bind(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @cn_bind(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = sext i32 %1 to i64

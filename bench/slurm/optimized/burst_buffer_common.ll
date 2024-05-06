@@ -1566,7 +1566,7 @@ _print_users.exit163:                             ; preds = %175, %.preheader.i1
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %234, i64 16
   %238 = load i64, ptr %237, align 8
-  %239 = trunc i64 %indvars.iv to i32
+  %239 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.53, ptr noundef %1, ptr noundef nonnull @__func__.bb_load_config, i32 noundef %239, ptr noundef %236, i64 noundef %238) #17
   br label %240
 
@@ -2882,7 +2882,7 @@ define void @bb_job_queue_del(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @bb_job_queue_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define range(i32 -1, 2) i32 @bb_job_queue_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2901,7 +2901,7 @@ define i32 @bb_job_queue_sort(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @bb_preempt_queue_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define range(i32 -1, 2) i32 @bb_preempt_queue_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 32
@@ -4427,7 +4427,7 @@ define i32 @bb_post_persist_delete(ptr nocapture noundef readonly %0, ptr nocapt
 declare i32 @acct_storage_g_remove_reservation(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bb_test_size_limit(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @bb_test_size_limit(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

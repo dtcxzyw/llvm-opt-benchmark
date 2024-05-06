@@ -168,7 +168,7 @@ define void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hd39
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h92ed0c60661949ddE"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #0 {
+define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h92ed0c60661949ddE"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call i64 @_ZN4core3cmp6min_by17h83f2fa75b02956cbE(i64 %1, i64 %3)
   %6 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf156a56bf74e7174E"(i64 0, i64 %5, ptr align 8 %0, i64 %1, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.6)
   %7 = extractvalue { ptr, i64 } %6, 0

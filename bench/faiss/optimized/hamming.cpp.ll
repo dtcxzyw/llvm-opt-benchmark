@@ -245,14 +245,14 @@ define void @_ZN5faiss11fvec2bitvecEPKfPhm(ptr noalias nocapture noundef readonl
 
 .lr.ph.preheader:                                 ; preds = %5
   %wide.trip.count = zext nneg i32 %8 to i64
-  %invariant.gep = getelementptr float, ptr %0, i64 %indvars.iv33
+  %invariant.gep = getelementptr inbounds float, ptr %0, i64 %indvars.iv33
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01925 = phi i8 [ 1, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %.02024 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv
   %10 = load float, ptr %gep, align 4
   %11 = fcmp ult float %10, 0.000000e+00
   %12 = select i1 %11, i8 0, i8 %.01925
@@ -382,14 +382,14 @@ _ZN5faiss11fvec2bitvecEPKfPhm.exit.us:            ; preds = %.lr.ph, %_ZN5faiss1
 
 .lr.ph.preheader.i:                               ; preds = %33
   %wide.trip.count.i = zext nneg i32 %36 to i64
-  %invariant.gep.i = getelementptr float, ptr %27, i64 %indvars.iv33.i
+  %invariant.gep.i = getelementptr inbounds float, ptr %27, i64 %indvars.iv33.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01925.i = phi i8 [ 1, %.lr.ph.preheader.i ], [ %41, %.lr.ph.i ]
   %.02024.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds float, ptr %invariant.gep.i, i64 %indvars.iv.i
   %38 = load float, ptr %gep.i, align 4, !alias.scope !11, !noalias !14
   %39 = fcmp ult float %38, 0.000000e+00
   %40 = select i1 %39, i8 0, i8 %.01925.i
@@ -21160,7 +21160,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i: ; preds = %777,
 .preheader115.us134.preheader.i.i.i:              ; preds = %.lr.ph132.split.i.i.i
   %822 = shl i64 %4, 3
   %823 = mul i64 %822, %780
-  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 -1, i64 %823, i1 false), !alias.scope !614, !noalias !631
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %7, i8 -1, i64 %823, i1 false), !alias.scope !614, !noalias !631
   br label %.preheader115.us134.i.i.i
 
 .preheader115.us134.i.i.i:                        ; preds = %._crit_edge130.us138.i.i.i, %.preheader115.us134.preheader.i.i.i

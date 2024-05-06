@@ -781,7 +781,7 @@ define hidden void @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$
   %51 = getelementptr i8, ptr %.sroa.0.08.i, i64 8
   %.val4.i = load i64, ptr %51, align 8, !noalias !66, !noundef !7
   %52 = getelementptr inbounds i8, ptr %47, i64 %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr align 1 %.val3.i, i64 %.val4.i, i1 false), !noalias !66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr readonly align 1 %.val3.i, i64 %.val4.i, i1 false), !noalias !66
   %53 = add i64 %.val4.i, %49
   %54 = icmp eq ptr %50, %27
   br i1 %54, label %._crit_edge.i, label %48

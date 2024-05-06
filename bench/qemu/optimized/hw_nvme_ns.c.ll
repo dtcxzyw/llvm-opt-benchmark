@@ -221,7 +221,7 @@ declare i32 @bdrv_get_info(ptr noundef, ptr noundef) #2
 declare ptr @blk_bs(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @nvme_ns_setup(ptr noundef %ns, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @nvme_ns_setup(ptr noundef %ns, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %n.i = alloca i32, align 4
   %m.i = alloca i32, align 4
@@ -508,7 +508,7 @@ if.end16.i:                                       ; preds = %if.then13.i, %land.
   store i64 %34, ptr %eui6427.i, align 1
   %logical_block_size.i19 = getelementptr inbounds i8, ptr %ns, i64 176
   %35 = load i32, ptr %logical_block_size.i19, align 8
-  %36 = tail call i32 @llvm.ctlz.i32(i32 %35, i1 false), !range !5
+  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 false)
   %37 = trunc nuw nsw i32 %36 to i8
   %conv29.i = sub nsw i8 31, %37
   %ms31.i = getelementptr inbounds i8, ptr %ns, i64 8690
@@ -587,7 +587,7 @@ if.then75.i:                                      ; preds = %if.then69.i
 for.inc.i:                                        ; preds = %if.then69.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i
   %ds87.i = getelementptr i8, ptr %ns, i64 434
@@ -801,18 +801,18 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %incdec.ptr.i.i = getelementptr i8, ptr %zone.047.i.i, i64 88
   %75 = load i32, ptr %num_zones.i, align 8
   %cmp.i.i34 = icmp ult i32 %inc.i.i, %75
-  br i1 %cmp.i.i34, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
+  br i1 %cmp.i.i34, label %for.body.i.i, label %for.end.i.i, !llvm.loop !7
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %do.body.i.i
   %zone_size_log2.i.i = getelementptr inbounds i8, ptr %ns, i64 8632
   store i32 0, ptr %zone_size_log2.i.i, align 8
   %76 = load i64, ptr %zone_size22.i, align 8
-  %77 = call i64 @llvm.ctpop.i64(i64 %76), !range !9
+  %77 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %76)
   %or.cond.i.i = icmp eq i64 %77, 1
   br i1 %or.cond.i.i, label %if.then41.i.i, label %nvme_ns_zoned_init_state.exit.i
 
 if.then41.i.i:                                    ; preds = %for.end.i.i
-  %78 = call i64 @llvm.ctlz.i64(i64 %76, i1 false), !range !9
+  %78 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %76, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %78 to i32
   %sub44.i.i = sub nuw nsw i32 63, %cast.i.i.i
   store i32 %sub44.i.i, ptr %zone_size_log2.i.i, align 8
@@ -849,7 +849,7 @@ for.body.i40:                                     ; preds = %for.body.i40, %nvme
   store i8 %conv10.i, ptr %zdes.i, align 1
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.i41, %conv6.i
-  br i1 %exitcond.not.i44, label %for.end.i45, label %for.body.i40, !llvm.loop !10
+  br i1 %exitcond.not.i44, label %for.end.i45, label %for.body.i40, !llvm.loop !8
 
 for.end.i45:                                      ; preds = %for.body.i40
   %zrwas.i46 = getelementptr inbounds i8, ptr %ns, i64 8744
@@ -978,7 +978,7 @@ for.body.i.i67:                                   ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i67
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.body.i78.i.preheader, label %for.body.i.i67, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %for.body.i78.i.preheader, label %for.body.i.i67, !llvm.loop !9
 
 nvme_find_ruh_by_attr.exit.i:                     ; preds = %for.body.i.i67
   %105 = trunc nuw i64 %indvars.iv.i.i to i16
@@ -1000,7 +1000,7 @@ for.body.i78.i:                                   ; preds = %for.body.i78.i.preh
 for.inc.i83.i:                                    ; preds = %for.body.i78.i
   %indvars.iv.next.i84.i = add nuw nsw i64 %indvars.iv.i79.i, 1
   %exitcond.not.i85.i = icmp eq i64 %indvars.iv.next.i84.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i85.i, label %if.then10.i69, label %for.body.i78.i, !llvm.loop !11
+  br i1 %exitcond.not.i85.i, label %if.then10.i69, label %for.body.i78.i, !llvm.loop !9
 
 nvme_find_ruh_by_attr.exit88.i:                   ; preds = %for.body.i78.i
   %107 = trunc nuw i64 %indvars.iv.i79.i to i16
@@ -1043,7 +1043,7 @@ for.body.i75:                                     ; preds = %for.body.i75, %for.
   %112 = load i16, ptr %nrg.i, align 2
   %113 = zext i16 %112 to i64
   %cmp.i77 = icmp ult i64 %indvars.iv.next141.i, %113
-  br i1 %cmp.i77, label %for.body.i75, label %nvme_ns_init_fdp.exit, !llvm.loop !12
+  br i1 %cmp.i77, label %for.body.i75, label %nvme_ns_init_fdp.exit, !llvm.loop !10
 
 if.else.i:                                        ; preds = %nvme_find_ruh_by_attr.exit.i
   %lbafi20.i = getelementptr inbounds i8, ptr %arrayidx.i.i68, i64 16
@@ -1074,7 +1074,7 @@ while.body.lr.ph.i:                               ; preds = %if.end28.i
 while.cond.loopexit.i:                            ; preds = %if.end72.i
   %call36.i = call ptr @qemu_strsep(ptr noundef nonnull %p.i, ptr noundef nonnull @.str.21) #13
   %cmp37.not.i = icmp eq ptr %call36.i, null
-  br i1 %cmp37.not.i, label %while.end.i, label %while.body.i, !llvm.loop !13
+  br i1 %cmp37.not.i, label %while.end.i, label %while.body.i, !llvm.loop !11
 
 while.body.i:                                     ; preds = %while.cond.loopexit.i, %while.body.lr.ph.i
   %call36109.i = phi ptr [ %call36106.i, %while.body.lr.ph.i ], [ %call36.i, %while.cond.loopexit.i ]
@@ -1145,7 +1145,7 @@ if.end72.i:                                       ; preds = %for.body61.i
   store i32 %inc74.i, ptr %n.i, align 4
   %126 = load i32, ptr %m.i, align 4
   %cmp59.not.i = icmp ugt i32 %inc74.i, %126
-  br i1 %cmp59.not.i, label %while.cond.loopexit.i, label %for.body61.i, !llvm.loop !14
+  br i1 %cmp59.not.i, label %while.cond.loopexit.i, label %for.body61.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %while.cond.loopexit.i, %if.end28.i
   call void @free(ptr noundef %call35.i) #13
@@ -1161,7 +1161,7 @@ for.body82.preheader.i:                           ; preds = %while.end.i
 for.cond76.loopexit.i:                            ; preds = %for.cond83.i, %for.body82.i
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond136.not.i = icmp eq i64 %indvars.iv.next133.i, %128
-  br i1 %exitcond136.not.i, label %for.end105.i, label %for.body82.i, !llvm.loop !15
+  br i1 %exitcond136.not.i, label %for.end105.i, label %for.body82.i, !llvm.loop !13
 
 for.body82.i:                                     ; preds = %for.cond76.loopexit.i, %for.body82.preheader.i
   %indvars.iv132.i = phi i64 [ 0, %for.body82.preheader.i ], [ %indvars.iv.next133.i, %for.cond76.loopexit.i ]
@@ -1178,7 +1178,7 @@ for.body89.lr.ph.i:                               ; preds = %for.body82.i
 for.cond83.i:                                     ; preds = %for.body89.i
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next130.i, %128
-  br i1 %exitcond.not.i63, label %for.cond76.loopexit.i, label %for.body89.i, !llvm.loop !16
+  br i1 %exitcond.not.i63, label %for.cond76.loopexit.i, label %for.body89.i, !llvm.loop !14
 
 for.body89.i:                                     ; preds = %for.cond83.i, %for.body89.lr.ph.i
   %indvars.iv129.i = phi i64 [ %indvars.iv.i57, %for.body89.lr.ph.i ], [ %indvars.iv.next130.i, %for.cond83.i ]
@@ -1260,7 +1260,7 @@ for.body151.i:                                    ; preds = %for.body151.i, %for
   %140 = load i16, ptr %nrg147.i, align 2
   %141 = zext i16 %140 to i64
   %cmp149.i = icmp ult i64 %indvars.iv.next138.i, %141
-  br i1 %cmp149.i, label %for.body151.i, label %sw.epilog.i60, !llvm.loop !17
+  br i1 %cmp149.i, label %for.body151.i, label %sw.epilog.i60, !llvm.loop !15
 
 sw.bb160.i:                                       ; preds = %if.end126.i
   %lbafi161.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 16
@@ -1289,7 +1289,7 @@ sw.epilog.i60:                                    ; preds = %for.body151.i, %sw.
   %143 = load i16, ptr %fdp77.i, align 8
   %conv116.i = zext i16 %143 to i32
   %cmp117.i = icmp ult i32 %inc171.i, %conv116.i
-  br i1 %cmp117.i, label %for.body119.i, label %nvme_ns_init_fdp.exit, !llvm.loop !18
+  br i1 %cmp117.i, label %for.body119.i, label %nvme_ns_init_fdp.exit, !llvm.loop !16
 
 nvme_ns_init_fdp.exit.thread:                     ; preds = %if.then10.i69, %if.then25.i, %if.then96.i, %sw.bb168.i, %if.then166.i, %if.then125.i, %if.then42.i, %if.then51.i, %if.then55.i, %if.then71.i
   %ruhids.0.i.ph = phi ptr [ %call31.i, %if.then71.i ], [ %call31.i, %if.then55.i ], [ %call31.i, %if.then51.i ], [ %call31.i, %if.then42.i ], [ %call31.i, %if.then125.i ], [ %call31.i, %if.then166.i ], [ %call31.i, %sw.bb168.i ], [ %call31.i, %if.then96.i ], [ null, %if.then25.i ], [ null, %if.then10.i69 ]
@@ -1396,7 +1396,7 @@ if.else12.i.i:                                    ; preds = %if.end8.i.i
 
 nvme_aor_dec_active.exit.i:                       ; preds = %if.end8.i.i, %if.end.i.i
   tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef nonnull %zone.0105.i)
-  br i1 %cmp.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !19
+  br i1 %cmp.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !17
 
 for.end.i:                                        ; preds = %nvme_aor_dec_active.exit.i, %if.then
   %imp_open_zones.i = getelementptr inbounds i8, ptr %ns, i64 8560
@@ -1486,7 +1486,7 @@ if.else12.i74.i:                                  ; preds = %if.end8.i73.i
 
 nvme_aor_dec_active.exit75.i:                     ; preds = %if.end8.i73.i, %if.end.i68.i
   tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef nonnull %zone.1107.i)
-  br i1 %cmp27.not.i, label %for.end51.i, label %land.rhs21.i, !llvm.loop !20
+  br i1 %cmp27.not.i, label %for.end51.i, label %land.rhs21.i, !llvm.loop !18
 
 for.end51.i:                                      ; preds = %nvme_aor_dec_active.exit75.i, %for.end.i
   %exp_open_zones.i = getelementptr inbounds i8, ptr %ns, i64 8544
@@ -1576,7 +1576,7 @@ if.else12.i102.i:                                 ; preds = %if.end8.i101.i
 
 nvme_aor_dec_active.exit103.i:                    ; preds = %if.end8.i101.i, %if.end.i96.i
   tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef nonnull %zone.2109.i)
-  br i1 %cmp60.not.i, label %for.end84.i, label %land.rhs54.i, !llvm.loop !21
+  br i1 %cmp60.not.i, label %for.end84.i, label %land.rhs54.i, !llvm.loop !19
 
 for.end84.i:                                      ; preds = %nvme_aor_dec_active.exit103.i, %for.end51.i
   %nr_open_zones.i = getelementptr inbounds i8, ptr %ns, i64 8648
@@ -1956,7 +1956,7 @@ if.end12:                                         ; preds = %if.else
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then, %if.end12
-  %call16 = tail call i32 @nvme_ns_setup(ptr noundef nonnull %call, ptr noundef %errp), !range !22
+  %call16 = tail call i32 @nvme_ns_setup(ptr noundef nonnull %call, ptr noundef %errp)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.end19, label %return
 
@@ -1979,7 +1979,7 @@ nvme_ns.exit.us:                                  ; preds = %for.cond.preheader,
 for.inc.us:                                       ; preds = %nvme_ns.exit.us
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 257
-  br i1 %exitcond95.not, label %if.then31, label %nvme_ns.exit.us, !llvm.loop !23
+  br i1 %exitcond95.not, label %if.then31, label %nvme_ns.exit.us, !llvm.loop !20
 
 nvme_ns.exit:                                     ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.cond.preheader ]
@@ -1997,7 +1997,7 @@ lor.lhs.false:                                    ; preds = %nvme_ns.exit
 for.inc:                                          ; preds = %nvme_ns.exit, %lor.lhs.false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %if.then31, label %nvme_ns.exit, !llvm.loop !23
+  br i1 %exitcond.not, label %if.then31, label %nvme_ns.exit, !llvm.loop !20
 
 for.end:                                          ; preds = %lor.lhs.false, %nvme_ns.exit.us
   %.us-phi.in = phi i64 [ %indvars.iv92, %nvme_ns.exit.us ], [ %indvars.iv, %lor.lhs.false ]
@@ -2082,7 +2082,7 @@ if.then63:                                        ; preds = %for.body57
 for.inc65:                                        ; preds = %for.body57, %for.body57, %if.then63
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 256
-  br i1 %exitcond99.not, label %return, label %for.body57, !llvm.loop !24
+  br i1 %exitcond99.not, label %return, label %for.body57, !llvm.loop !21
 
 if.end69:                                         ; preds = %lor.lhs.false36, %if.end49, %if.end41
   tail call void @nvme_attach_ns(ptr noundef nonnull %call2, ptr noundef nonnull %call) #13
@@ -2189,23 +2189,20 @@ attributes #16 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 0, i64 65}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = !{i32 -1, i32 1}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}

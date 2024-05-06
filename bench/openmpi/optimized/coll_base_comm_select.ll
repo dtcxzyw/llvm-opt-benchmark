@@ -84,7 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.66 = private unnamed_addr constant [51 x i8] c"coll:base:comm_select: component not available: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_coll_base_comm_select(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_coll_base_comm_select(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -206,7 +206,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   br i1 %63, label %64, label %85
 
 64:                                               ; preds = %.lr.ph.i
-  %65 = trunc i64 %indvars.iv.i to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.i to i32
   %66 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.i
   store ptr null, ptr %66, align 8
   %67 = sub i32 %54, %65
@@ -328,7 +328,7 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %95, 
 .lr.ph.i117.i:                                    ; preds = %.preheader.i.i, %110
   %113 = phi ptr [ %112, %110 ], [ %109, %.preheader.i.i ]
   %.0510.i.i = phi ptr [ %111, %110 ], [ %.092.i, %.preheader.i.i ]
-  %114 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull dereferenceable(1) %113) #12
+  %114 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %108, ptr noundef nonnull dereferenceable(1) %113) #12
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %component_in_argv.exit.i, label %110
 
@@ -8203,7 +8203,7 @@ declare i32 @opal_argv_count(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @avail_coll_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @avail_coll_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 40

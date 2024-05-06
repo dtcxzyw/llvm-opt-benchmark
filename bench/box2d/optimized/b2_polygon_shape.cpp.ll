@@ -635,7 +635,7 @@ if.else:                                          ; preds = %for.body
 
 if.then25:                                        ; preds = %if.else
   %div = fdiv float %18, %19
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.end35
 
 if.else26:                                        ; preds = %if.else

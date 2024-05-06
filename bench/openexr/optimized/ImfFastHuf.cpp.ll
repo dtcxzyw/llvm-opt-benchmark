@@ -305,7 +305,7 @@ invoke.cont63:                                    ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp66, label %if.then67, label %if.end70
 
 if.then67:                                        ; preds = %invoke.cont63
-  %conv68 = trunc i64 %and.i to i8
+  %conv68 = trunc nuw nsw i64 %and.i to i8
   store i8 %conv68, ptr %_minCodeLength, align 8
   br label %if.end70
 
@@ -316,7 +316,7 @@ if.end70:                                         ; preds = %if.then67, %invoke.
   br i1 %cmp73, label %if.then74, label %if.end77
 
 if.then74:                                        ; preds = %if.end70
-  %conv75 = trunc i64 %and.i to i8
+  %conv75 = trunc nuw nsw i64 %and.i to i8
   store i8 %conv75, ptr %_maxCodeLength, align 1
   br label %if.end77
 
@@ -980,7 +980,7 @@ while.cond15:                                     ; preds = %while.cond15, %if.e
   br i1 %or.cond, label %while.end, label %while.cond15, !llvm.loop !19
 
 while.end:                                        ; preds = %while.cond15
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %cmp20.not, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %while.end
@@ -1135,7 +1135,7 @@ if.end51:                                         ; preds = %_ZN7Imf_3_214FastHu
   %bufferBackNumBits.9 = phi i32 [ %sub26.i45.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %bufferBackNumBits.5, %if.then47 ]
   %bufferNumBits.3 = phi i32 [ 64, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %sub45, %if.then47 ]
   %shr52 = lshr i64 %buffer.5, 56
-  %conv53 = trunc i64 %shr52 to i32
+  %conv53 = trunc nuw nsw i64 %shr52 to i32
   %cmp54 = icmp slt i32 %dstIdx.0184, 1
   br i1 %cmp54, label %if.then55, label %if.end59
 
@@ -1180,7 +1180,7 @@ for.cond.preheader:                               ; preds = %if.end66
   %31 = zext nneg i32 %dstIdx.0184 to i64
   %gep = getelementptr i16, ptr %invariant.gep, i64 %31
   %.pre = load i16, ptr %gep, align 2
-  %invariant.gep199 = getelementptr i16, ptr %dst, i64 %31
+  %invariant.gep199 = getelementptr inbounds i16, ptr %dst, i64 %31
   br label %for.body
 
 if.then68:                                        ; preds = %if.end66
@@ -1199,7 +1199,7 @@ lpad70:                                           ; preds = %if.then68
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv190 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next191, %for.body ]
-  %gep200 = getelementptr i16, ptr %invariant.gep199, i64 %indvars.iv190
+  %gep200 = getelementptr inbounds i16, ptr %invariant.gep199, i64 %indvars.iv190
   store i16 %.pre, ptr %gep200, align 2
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next191, %shr52

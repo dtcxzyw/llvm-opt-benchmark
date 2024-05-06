@@ -82,7 +82,7 @@ define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %10, label %11, label %31
 
 11:                                               ; preds = %4
-  %12 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #4
+  %12 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %is_icap_message.exit, label %14
 
@@ -91,7 +91,7 @@ define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %15, label %16, label %31
 
 16:                                               ; preds = %14
-  %17 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #4
+  %17 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %is_icap_message.exit, label %19
 
@@ -100,12 +100,12 @@ define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %31, label %20
 
 20:                                               ; preds = %19
-  %21 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(9) @.str.20, i64 noundef 8) #4
+  %21 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(9) @.str.20, i64 noundef 8) #4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %is_icap_message.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #4
+  %24 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %is_icap_message.exit, label %31
 
@@ -155,7 +155,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %47, label %48, label %is_icap_message.exit80
 
 48:                                               ; preds = %42
-  %49 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #4
+  %49 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %53
 
@@ -168,7 +168,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %54, label %55, label %.preheader
 
 55:                                               ; preds = %53
-  %56 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #4
+  %56 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #4
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
 
@@ -181,7 +181,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %cond, label %.preheader, label %61
 
 61:                                               ; preds = %60
-  %62 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(9) @.str.20, i64 noundef 8) #4
+  %62 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(9) @.str.20, i64 noundef 8) #4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %66
 
@@ -190,7 +190,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %65, label %.thread15.sink.split.i78, label %is_icap_message.exit80.thread
 
 66:                                               ; preds = %61
-  %67 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #4
+  %67 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %.preheader
 

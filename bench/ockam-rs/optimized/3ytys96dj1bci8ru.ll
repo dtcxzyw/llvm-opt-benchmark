@@ -513,7 +513,7 @@ common.ret:                                       ; preds = %1756, %1972, %182
   %196 = extractvalue { ptr, i64 } %191, 1
   %197 = icmp ne ptr %195, null
   tail call void @llvm.assume(i1 %197)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull align 1 %189, i64 %190, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull readonly align 1 %189, i64 %190, i1 false)
   %198 = getelementptr inbounds i8, ptr %0, i64 81
   store i8 0, ptr %198, align 1
   %199 = getelementptr inbounds i8, ptr %0, i64 56
@@ -959,7 +959,7 @@ common.ret:                                       ; preds = %1756, %1972, %182
   %332 = extractvalue { ptr, i64 } %328, 1
   %333 = icmp ne ptr %331, null
   tail call void @llvm.assume(i1 %333)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %331, ptr nonnull align 1 %326, i64 %327, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %331, ptr nonnull readonly align 1 %326, i64 %327, i1 false)
   %334 = getelementptr inbounds i8, ptr %97, i64 24
   store i8 %324, ptr %334, align 8, !alias.scope !81, !noalias !91
   store ptr %331, ptr %97, align 8, !alias.scope !81, !noalias !91
@@ -2315,7 +2315,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit46.
   %837 = extractvalue { ptr, i64 } %832, 1
   %838 = icmp ne ptr %836, null
   tail call void @llvm.assume(i1 %838)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %836, ptr nonnull align 1 %830, i64 %831, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %836, ptr nonnull readonly align 1 %830, i64 %831, i1 false)
   %839 = getelementptr inbounds i8, ptr %63, i64 24
   store i8 %828, ptr %839, align 8, !alias.scope !236, !noalias !247
   store ptr %836, ptr %63, align 8, !alias.scope !236, !noalias !247
@@ -2408,7 +2408,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit46.
   %865 = extractvalue { ptr, i64 } %860, 1
   %866 = icmp ne ptr %864, null
   tail call void @llvm.assume(i1 %866)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %864, ptr nonnull align 1 %858, i64 %859, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %864, ptr nonnull readonly align 1 %858, i64 %859, i1 false)
   %867 = getelementptr inbounds i8, ptr %59, i64 24
   store i8 %857, ptr %867, align 8, !alias.scope !248, !noalias !259
   store ptr %864, ptr %59, align 8, !alias.scope !248, !noalias !259
@@ -5567,7 +5567,7 @@ define hidden void @"_ZN12futures_util9abortable18Abortable$LT$T$GT$3new17h68adf
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN12futures_util9abortable18Abortable$LT$T$GT$8try_poll17h06a18f223e673ae4E.llvm.4590617646937006035"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @"_ZN12futures_util9abortable18Abortable$LT$T$GT$8try_poll17h06a18f223e673ae4E.llvm.4590617646937006035"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 1376
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 40
@@ -7711,7 +7711,7 @@ define internal fastcc void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN94_$LT$futures_util..abortable..Abortable$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h12649768bc1ff01eE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @"_ZN94_$LT$futures_util..abortable..Abortable$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h12649768bc1ff01eE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !994)
   %3 = getelementptr inbounds i8, ptr %0, i64 1376
   %4 = load ptr, ptr %3, align 8, !noalias !994, !nonnull !4, !noundef !4

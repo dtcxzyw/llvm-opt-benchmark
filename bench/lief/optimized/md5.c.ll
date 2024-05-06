@@ -905,8 +905,8 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   store i8 -128, ptr %7, align 1
   %8 = icmp ult i32 %4, 56
   %9 = zext nneg i32 %4 to i64
-  %10 = getelementptr i8, ptr %5, i64 %9
-  %11 = getelementptr i8, ptr %10, i64 1
+  %10 = getelementptr inbounds i8, ptr %5, i64 %9
+  %11 = getelementptr inbounds i8, ptr %10, i64 1
   br i1 %8, label %12, label %15
 
 12:                                               ; preds = %2
@@ -941,7 +941,7 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   %32 = getelementptr inbounds i8, ptr %0, i64 82
   store i8 %31, ptr %32, align 2
   %33 = lshr i32 %24, 24
-  %34 = trunc i32 %33 to i8
+  %34 = trunc nuw i32 %33 to i8
   %35 = getelementptr inbounds i8, ptr %0, i64 83
   store i8 %34, ptr %35, align 1
   %36 = trunc i32 %23 to i8
@@ -956,7 +956,7 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   %43 = getelementptr inbounds i8, ptr %0, i64 86
   store i8 %42, ptr %43, align 2
   %44 = lshr i32 %23, 24
-  %45 = trunc i32 %44 to i8
+  %45 = trunc nuw i32 %44 to i8
   %46 = getelementptr inbounds i8, ptr %0, i64 87
   store i8 %45, ptr %46, align 1
   %47 = tail call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %0, ptr noundef nonnull %5)
@@ -976,7 +976,7 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   store i8 %57, ptr %58, align 1
   %59 = load i32, ptr %48, align 4
   %60 = lshr i32 %59, 24
-  %61 = trunc i32 %60 to i8
+  %61 = trunc nuw i32 %60 to i8
   %62 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %61, ptr %62, align 1
   %63 = getelementptr inbounds i8, ptr %0, i64 12
@@ -996,7 +996,7 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   store i8 %73, ptr %74, align 1
   %75 = load i32, ptr %63, align 4
   %76 = lshr i32 %75, 24
-  %77 = trunc i32 %76 to i8
+  %77 = trunc nuw i32 %76 to i8
   %78 = getelementptr inbounds i8, ptr %1, i64 7
   store i8 %77, ptr %78, align 1
   %79 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1016,7 +1016,7 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   store i8 %89, ptr %90, align 1
   %91 = load i32, ptr %79, align 4
   %92 = lshr i32 %91, 24
-  %93 = trunc i32 %92 to i8
+  %93 = trunc nuw i32 %92 to i8
   %94 = getelementptr inbounds i8, ptr %1, i64 11
   store i8 %93, ptr %94, align 1
   %95 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1036,7 +1036,7 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   store i8 %105, ptr %106, align 1
   %107 = load i32, ptr %95, align 4
   %108 = lshr i32 %107, 24
-  %109 = trunc i32 %108 to i8
+  %109 = trunc nuw i32 %108 to i8
   %110 = getelementptr inbounds i8, ptr %1, i64 15
   store i8 %109, ptr %110, align 1
   ret i32 0
@@ -1084,7 +1084,7 @@ mbedtls_md5_update.exit:                          ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_md5_self_test(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.mbedtls_md5_context, align 4
   %3 = alloca [16 x i8], align 16
   %.not16 = icmp eq i32 %0, 0
@@ -1129,7 +1129,7 @@ define hidden noundef i32 @mbedtls_md5_self_test(i32 noundef %0) local_unnamed_a
   br label %mbedtls_md5.exit.us
 
 mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.i.i.us, %._crit_edge.i.i.us, %.split.us
-  %17 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %17 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull writeonly %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 88) #11
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
   %18 = getelementptr inbounds [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv30
@@ -1145,7 +1145,7 @@ mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.
 .split:                                           ; preds = %1, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %1 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc i64 %indvars.iv.next to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.next to i32
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %20)
   %22 = getelementptr inbounds [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
@@ -1182,7 +1182,7 @@ mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.
   br label %mbedtls_md5.exit
 
 mbedtls_md5.exit:                                 ; preds = %.split, %._crit_edge.i.i, %._crit_edge.thread.i.i
-  %33 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %33 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull writeonly %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 88) #11
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
   %34 = getelementptr inbounds [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv

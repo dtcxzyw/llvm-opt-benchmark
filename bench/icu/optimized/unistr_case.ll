@@ -535,7 +535,7 @@ return:                                           ; preds = %entry, %invoke.cont
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uhash_compareCaselessUnicodeString_75(ptr %key1.coerce, ptr %key2.coerce) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_compareCaselessUnicodeString_75(ptr %key1.coerce, ptr %key2.coerce) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key1.coerce, %key2.coerce
   br i1 %cmp, label %return, label %if.end

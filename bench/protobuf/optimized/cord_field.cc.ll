@@ -265,7 +265,7 @@ $_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15Fi
 @.str.21 = private unnamed_addr constant [61 x i8] c"$deprecated_attr$const ::absl::Cord& ${1$$name$$}$() const;\0A\00", align 1
 @.str.22 = private unnamed_addr constant [137 x i8] c"$deprecated_attr$void ${1$set_$name$$}$(const ::absl::Cord& value);\0A$deprecated_attr$void ${1$set_$name$$}$(::absl::string_view value);\0A\00", align 1
 @.str.23 = private unnamed_addr constant [181 x i8] c"private:\0Aconst ::absl::Cord& ${1$_internal_$name$$}$() const;\0Avoid ${1$_internal_set_$name$$}$(const ::absl::Cord& value);\0A::absl::Cord* ${1$_internal_mutable_$name$$}$();\0Apublic:\0A\00", align 1
-@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
+@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local local_unnamed_addr global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
 @.str.28 = private unnamed_addr constant [103 x i8] c"\0A    inline const ::absl::Cord& $classname$::_internal_$name$() const {\0A      return $field$;\0A    }\0A  \00", align 1
 @.str.29 = private unnamed_addr constant [221 x i8] c"\0A    inline const ::absl::Cord& $classname$::$name$() const\0A        ABSL_ATTRIBUTE_LIFETIME_BOUND {\0A      $annotate_get$;\0A      // @@protoc_insertion_point(field_get:$full_name$)\0A      return _internal_$name$();\0A    }\0A  \00", align 1
 @.str.30 = private unnamed_addr constant [132 x i8] c"\0A    inline void $classname$::_internal_set_$name$(const ::absl::Cord& value) {\0A      $set_hasbit$;\0A      $field$ = value;\0A    }\0A  \00", align 1

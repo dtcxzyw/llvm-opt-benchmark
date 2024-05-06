@@ -164,28 +164,28 @@ if.end.i.i:                                       ; preds = %for.cond.cleanup
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i = add i64 %sub.ptr.sub.i.i, 512
   %cmp.i20.i.not = icmp eq i64 %sub.ptr.sub.i.i, -1
-  br i1 %cmp.i20.i.not, label %if.then5.i.i5, label %if.then.i.i7
+  br i1 %cmp.i20.i.not, label %if.then5.i.i11, label %if.then.i.i13
 
-if.then.i.i7:                                     ; preds = %if.end.i.i
+if.then.i.i13:                                    ; preds = %if.end.i.i
   invoke void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %blob.i.i, i64 noundef 1)
           to label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i unwind label %lpad78.loopexit.split-lp
 
-if.then5.i.i5:                                    ; preds = %if.end.i.i
-  %tobool.not.i.i.i6 = icmp eq ptr %5, %6
-  br i1 %tobool.not.i.i.i6, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread, label %if.then.i.i21.i
+if.then5.i.i11:                                   ; preds = %if.end.i.i
+  %tobool.not.i.i.i12 = icmp eq ptr %5, %6
+  br i1 %tobool.not.i.i.i12, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread, label %if.then.i.i21.i
 
-if.then.i.i21.i:                                  ; preds = %if.then5.i.i5
+if.then.i.i21.i:                                  ; preds = %if.then5.i.i11
   store ptr %6, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread
 
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread: ; preds = %if.then.i.i21.i, %if.then5.i.i5
-  %.ph = phi ptr [ %6, %if.then.i.i21.i ], [ %5, %if.then5.i.i5 ]
-  %add.ptr8.i49 = getelementptr inbounds i8, ptr %.ph, i64 -1
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread: ; preds = %if.then.i.i21.i, %if.then5.i.i11
+  %.ph = phi ptr [ %6, %if.then.i.i21.i ], [ %5, %if.then5.i.i11 ]
+  %add.ptr8.i65 = getelementptr inbounds i8, ptr %.ph, i64 -1
   %7 = load i8, ptr %raw_reach.sroa.0.0, align 1
-  store i8 %7, ptr %add.ptr8.i49, align 1
+  store i8 %7, ptr %add.ptr8.i65, align 1
   br label %call.i.i.i.noexc
 
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %if.then.i.i7
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %if.then.i.i13
   %.pre27.i = load ptr, ptr %_M_finish.i.i.i, align 8
   %add.ptr8.i = getelementptr inbounds i8, ptr %.pre27.i, i64 -1
   %8 = load i8, ptr %raw_reach.sroa.0.0, align 1
@@ -200,9 +200,9 @@ if.then.i.i25.i:                                  ; preds = %_ZNSt6vectorIcN3ue2
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
-          to label %.noexc8 unwind label %lpad78.loopexit.split-lp
+          to label %.noexc16 unwind label %lpad78.loopexit.split-lp
 
-.noexc8:                                          ; preds = %invoke.cont.i.i.i
+.noexc16:                                         ; preds = %invoke.cont.i.i.i
   unreachable
 
 lpad78.thread:                                    ; preds = %if.then.i.i25.i
@@ -213,7 +213,7 @@ lpad78.thread:                                    ; preds = %if.then.i.i25.i
   br label %if.then.i.i.i158
 
 call.i.i.i.noexc:                                 ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %conv.i.i.i = trunc i64 %add.i to i32
+  %conv.i.i.i = trunc nuw i64 %add.i to i32
   %b.sroa.0.018.i.i = getelementptr inbounds i8, ptr %raw_reach.sroa.0.0, i64 1
   %cmp.i10.not19.i.i = icmp eq ptr %b.sroa.0.018.i.i, %__first.addr.0.i.i.i.i.i
   br i1 %cmp.i10.not19.i.i, label %invoke.cont79, label %for.body.i.i
@@ -222,59 +222,59 @@ for.body.i.i:                                     ; preds = %call.i.i.i.noexc, %
   %b.sroa.0.020.i.i = phi ptr [ %b.sroa.0.0.i.i, %call.i11.i.i.noexc ], [ %b.sroa.0.018.i.i, %call.i.i.i.noexc ]
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %11 = load ptr, ptr %blob.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i11 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i.i12 = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i11, %sub.ptr.rhs.cast.i.i.i12
-  %add.i16 = add i64 %sub.ptr.sub.i.i15, 512
-  %cmp.i20.i18.not = icmp eq i64 %sub.ptr.sub.i.i15, -1
-  br i1 %cmp.i20.i18.not, label %if.then5.i.i31, label %if.then.i.i35
+  %sub.ptr.lhs.cast.i.i.i19 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i20 = ptrtoint ptr %11 to i64
+  %sub.ptr.sub.i.i29 = sub i64 %sub.ptr.lhs.cast.i.i.i19, %sub.ptr.rhs.cast.i.i.i20
+  %add.i30 = add i64 %sub.ptr.sub.i.i29, 512
+  %cmp.i20.i32.not = icmp eq i64 %sub.ptr.sub.i.i29, -1
+  br i1 %cmp.i20.i32.not, label %if.then5.i.i45, label %if.then.i.i49
 
-if.then.i.i35:                                    ; preds = %for.body.i.i
+if.then.i.i49:                                    ; preds = %for.body.i.i
   invoke void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %blob.i.i, i64 noundef 1)
-          to label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i21 unwind label %lpad78.loopexit.loopexit
+          to label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35 unwind label %lpad78.loopexit.loopexit
 
-if.then5.i.i31:                                   ; preds = %for.body.i.i
-  %tobool.not.i.i.i33 = icmp eq ptr %10, %11
-  br i1 %tobool.not.i.i.i33, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i21.thread, label %if.then.i.i21.i34
+if.then5.i.i45:                                   ; preds = %for.body.i.i
+  %tobool.not.i.i.i47 = icmp eq ptr %10, %11
+  br i1 %tobool.not.i.i.i47, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35.thread, label %if.then.i.i21.i48
 
-if.then.i.i21.i34:                                ; preds = %if.then5.i.i31
+if.then.i.i21.i48:                                ; preds = %if.then5.i.i45
   store ptr %11, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i21.thread
+  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35.thread
 
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i21.thread: ; preds = %if.then.i.i21.i34, %if.then5.i.i31
-  %.ph51 = phi ptr [ %11, %if.then.i.i21.i34 ], [ %10, %if.then5.i.i31 ]
-  %add.ptr8.i2452 = getelementptr inbounds i8, ptr %.ph51, i64 -1
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35.thread: ; preds = %if.then.i.i21.i48, %if.then5.i.i45
+  %.ph67 = phi ptr [ %11, %if.then.i.i21.i48 ], [ %10, %if.then5.i.i45 ]
+  %add.ptr8.i3868 = getelementptr inbounds i8, ptr %.ph67, i64 -1
   %12 = load i8, ptr %b.sroa.0.020.i.i, align 1
-  store i8 %12, ptr %add.ptr8.i2452, align 1
+  store i8 %12, ptr %add.ptr8.i3868, align 1
   br label %call.i11.i.i.noexc
 
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i21: ; preds = %if.then.i.i35
-  %.pre27.i36 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %add.ptr8.i24 = getelementptr inbounds i8, ptr %.pre27.i36, i64 -1
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35: ; preds = %if.then.i.i49
+  %.pre27.i50 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %add.ptr8.i38 = getelementptr inbounds i8, ptr %.pre27.i50, i64 -1
   %13 = load i8, ptr %b.sroa.0.020.i.i, align 1
-  store i8 %13, ptr %add.ptr8.i24, align 1
-  %cmp.not.i.i.i25 = icmp ult i64 %add.i16, 4294967296
-  br i1 %cmp.not.i.i.i25, label %call.i11.i.i.noexc, label %if.then.i.i25.i26
+  store i8 %13, ptr %add.ptr8.i38, align 1
+  %cmp.not.i.i.i39 = icmp ult i64 %add.i30, 4294967296
+  br i1 %cmp.not.i.i.i39, label %call.i11.i.i.noexc, label %if.then.i.i25.i40
 
-if.then.i.i25.i26:                                ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i21
-  %exception.i.i.i27 = tail call ptr @__cxa_allocate_exception(i64 48) #18
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i27)
-          to label %invoke.cont.i.i.i29 unwind label %lpad.i.i.i28
+if.then.i.i25.i40:                                ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35
+  %exception.i.i.i41 = tail call ptr @__cxa_allocate_exception(i64 48) #18
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i41)
+          to label %invoke.cont.i.i.i43 unwind label %lpad.i.i.i42
 
-invoke.cont.i.i.i29:                              ; preds = %if.then.i.i25.i26
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i27, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
-          to label %.noexc38 unwind label %lpad78.loopexit.loopexit.split-lp
+invoke.cont.i.i.i43:                              ; preds = %if.then.i.i25.i40
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i41, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
+          to label %.noexc54 unwind label %lpad78.loopexit.loopexit.split-lp
 
-.noexc38:                                         ; preds = %invoke.cont.i.i.i29
+.noexc54:                                         ; preds = %invoke.cont.i.i.i43
   unreachable
 
-lpad.i.i.i28:                                     ; preds = %if.then.i.i25.i26
+lpad.i.i.i42:                                     ; preds = %if.then.i.i25.i40
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i27) #18
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i41) #18
   br label %lpad78
 
-call.i11.i.i.noexc:                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i21.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i21
+call.i11.i.i.noexc:                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35
   %b.sroa.0.0.i.i = getelementptr inbounds i8, ptr %b.sroa.0.020.i.i, i64 1
   %cmp.i10.not.i.i = icmp eq ptr %b.sroa.0.0.i.i, %__first.addr.0.i.i.i.i.i
   br i1 %cmp.i10.not.i.i, label %invoke.cont79, label %for.body.i.i, !llvm.loop !5
@@ -421,8 +421,8 @@ if.end.i.i153.backedge:                           ; preds = %if.then18.i.i, %if.
 
 cleanup:                                          ; preds = %for.body.i.i155.2, %for.cond.i.i.2, %for.cond.i.i.1, %for.cond.i.i, %invoke.cont40
   %inc62 = add nuw i64 %i32.0183, 1
-  %exitcond.not48 = icmp eq i64 %inc62, %umax
-  br i1 %exitcond.not48, label %for.cond.cleanup36, label %invoke.cont40, !llvm.loop !10
+  %exitcond.not64 = icmp eq i64 %inc62, %umax
+  br i1 %exitcond.not64, label %for.cond.cleanup36, label %invoke.cont40, !llvm.loop !10
 
 invoke.cont79:                                    ; preds = %call.i11.i.i.noexc, %call.i.i.i.noexc, %for.cond.cleanup
   %retval.0.i.i = phi i32 [ 0, %for.cond.cleanup ], [ %conv.i.i.i, %call.i.i.i.noexc ], [ %conv.i.i.i, %call.i11.i.i.noexc ]
@@ -440,35 +440,35 @@ if.then.i.i.i:                                    ; preds = %invoke.cont85
   call void @_ZdlPv(ptr noundef nonnull %raw_reach.sroa.0.0) #19
   br label %cleanup95
 
-lpad78.loopexit.loopexit:                         ; preds = %if.then.i.i35
-  %lpad.loopexit45 = landingpad { ptr, i32 }
+lpad78.loopexit.loopexit:                         ; preds = %if.then.i.i49
+  %lpad.loopexit61 = landingpad { ptr, i32 }
           cleanup
   br label %lpad78
 
-lpad78.loopexit.loopexit.split-lp:                ; preds = %invoke.cont.i.i.i29
-  %lpad.loopexit.split-lp46 = landingpad { ptr, i32 }
+lpad78.loopexit.loopexit.split-lp:                ; preds = %invoke.cont.i.i.i43
+  %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %lpad78
 
-lpad78.loopexit.split-lp:                         ; preds = %invoke.cont.i.i.i, %if.then.i.i7, %invoke.cont79
+lpad78.loopexit.split-lp:                         ; preds = %invoke.cont.i.i.i, %if.then.i.i13, %invoke.cont79
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad78
 
-lpad78:                                           ; preds = %lpad78.loopexit.loopexit, %lpad78.loopexit.loopexit.split-lp, %lpad78.loopexit.split-lp, %lpad.i.i.i28
-  %lpad.phi = phi { ptr, i32 } [ %14, %lpad.i.i.i28 ], [ %lpad.loopexit.split-lp, %lpad78.loopexit.split-lp ], [ %lpad.loopexit45, %lpad78.loopexit.loopexit ], [ %lpad.loopexit.split-lp46, %lpad78.loopexit.loopexit.split-lp ]
+lpad78:                                           ; preds = %lpad78.loopexit.loopexit, %lpad78.loopexit.loopexit.split-lp, %lpad78.loopexit.split-lp, %lpad.i.i.i42
+  %lpad.phi = phi { ptr, i32 } [ %14, %lpad.i.i.i42 ], [ %lpad.loopexit.split-lp, %lpad78.loopexit.split-lp ], [ %lpad.loopexit61, %lpad78.loopexit.loopexit ], [ %lpad.loopexit.split-lp62, %lpad78.loopexit.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %reach_idx) #18
   %tobool.not.i.i.i157 = icmp eq ptr %raw_reach.sroa.0.0, null
   br i1 %tobool.not.i.i.i157, label %ehcleanup94, label %if.then.i.i.i158
 
 if.then.i.i.i158:                                 ; preds = %lpad78.thread, %lpad78
-  %lpad.phi43 = phi { ptr, i32 } [ %9, %lpad78.thread ], [ %lpad.phi, %lpad78 ]
+  %lpad.phi59 = phi { ptr, i32 } [ %9, %lpad78.thread ], [ %lpad.phi, %lpad78 ]
   call void @_ZdlPv(ptr noundef nonnull %raw_reach.sroa.0.0) #19
   br label %ehcleanup94
 
 ehcleanup94:                                      ; preds = %if.then.i.i.i158, %lpad78
-  %lpad.phi44 = phi { ptr, i32 } [ %lpad.phi43, %if.then.i.i.i158 ], [ %lpad.phi, %lpad78 ]
-  resume { ptr, i32 } %lpad.phi44
+  %lpad.phi60 = phi { ptr, i32 } [ %lpad.phi59, %if.then.i.i.i158 ], [ %lpad.phi, %lpad78 ]
+  resume { ptr, i32 } %lpad.phi60
 
 cleanup95:                                        ; preds = %if.then.i.i.i, %invoke.cont85, %do.end
   %retval.0 = phi i32 [ %0, %do.end ], [ %33, %invoke.cont85 ], [ %33, %if.then.i.i.i ]
@@ -555,9 +555,9 @@ if.then.i.i21.i:                                  ; preds = %if.then5.i.i
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread: ; preds = %if.then.i.i21.i, %if.then5.i.i
   %.ph = phi ptr [ %4, %if.then.i.i21.i ], [ %3, %if.then5.i.i ]
-  %add.ptr8.i39 = getelementptr inbounds i8, ptr %.ph, i64 -1
+  %add.ptr8.i43 = getelementptr inbounds i8, ptr %.ph, i64 -1
   %5 = load i8, ptr %call5.i.i.i.i3.i.i33, align 1
-  store i8 %5, ptr %add.ptr8.i39, align 1
+  store i8 %5, ptr %add.ptr8.i43, align 1
   br label %call.i.i.i.noexc
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %if.then.i.i3
@@ -575,9 +575,9 @@ if.then.i.i25.i:                                  ; preds = %_ZNSt6vectorIcN3ue2
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
-          to label %.noexc4 unwind label %ehcleanup.thread74
+          to label %.noexc6 unwind label %ehcleanup.thread74
 
-.noexc4:                                          ; preds = %invoke.cont.i.i.i
+.noexc6:                                          ; preds = %invoke.cont.i.i.i
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
@@ -597,7 +597,7 @@ ehcleanup.thread74.body:                          ; preds = %lpad.i.i.i, %ehclea
   br label %if.then.i.i.i40
 
 call.i.i.i.noexc:                                 ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %conv.i.i.i = trunc i64 %add.i to i32
+  %conv.i.i.i = trunc nuw i64 %add.i to i32
   %cmp.i10.not19.i.i = icmp eq i64 %sub.ptr.sub.i, 1
   br i1 %cmp.i10.not19.i.i, label %invoke.cont16, label %for.body.i.i
 
@@ -605,59 +605,59 @@ for.body.i.i:                                     ; preds = %call.i.i.i.noexc, %
   %b.sroa.0.020.i.i = phi ptr [ %b.sroa.0.0.i.i, %call.i11.i.i.noexc ], [ %incdec.ptr.i.i.i.i.i, %call.i.i.i.noexc ]
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8
   %9 = load ptr, ptr %blob.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i7 = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i.i8 = ptrtoint ptr %9 to i64
-  %sub.ptr.sub.i.i11 = sub i64 %sub.ptr.lhs.cast.i.i.i7, %sub.ptr.rhs.cast.i.i.i8
-  %add.i12 = add i64 %sub.ptr.sub.i.i11, 512
-  %cmp.i20.i14.not = icmp eq i64 %sub.ptr.sub.i.i11, -1
-  br i1 %cmp.i20.i14.not, label %if.then5.i.i27, label %if.then.i.i31
+  %sub.ptr.lhs.cast.i.i.i9 = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i.i10 = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i.i9, %sub.ptr.rhs.cast.i.i.i10
+  %add.i14 = add i64 %sub.ptr.sub.i.i13, 512
+  %cmp.i20.i16.not = icmp eq i64 %sub.ptr.sub.i.i13, -1
+  br i1 %cmp.i20.i16.not, label %if.then5.i.i29, label %if.then.i.i33
 
-if.then.i.i31:                                    ; preds = %for.body.i.i
+if.then.i.i33:                                    ; preds = %for.body.i.i
   invoke void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %blob.i.i, i64 noundef 1)
-          to label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i17 unwind label %ehcleanup.thread70.loopexit
+          to label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19 unwind label %ehcleanup.thread70.loopexit
 
-if.then5.i.i27:                                   ; preds = %for.body.i.i
-  %tobool.not.i.i.i29 = icmp eq ptr %8, %9
-  br i1 %tobool.not.i.i.i29, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i17.thread, label %if.then.i.i21.i30
+if.then5.i.i29:                                   ; preds = %for.body.i.i
+  %tobool.not.i.i.i31 = icmp eq ptr %8, %9
+  br i1 %tobool.not.i.i.i31, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread, label %if.then.i.i21.i32
 
-if.then.i.i21.i30:                                ; preds = %if.then5.i.i27
+if.then.i.i21.i32:                                ; preds = %if.then5.i.i29
   store ptr %9, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i17.thread
+  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread
 
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i17.thread: ; preds = %if.then.i.i21.i30, %if.then5.i.i27
-  %.ph41 = phi ptr [ %9, %if.then.i.i21.i30 ], [ %8, %if.then5.i.i27 ]
-  %add.ptr8.i2042 = getelementptr inbounds i8, ptr %.ph41, i64 -1
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread: ; preds = %if.then.i.i21.i32, %if.then5.i.i29
+  %.ph45 = phi ptr [ %9, %if.then.i.i21.i32 ], [ %8, %if.then5.i.i29 ]
+  %add.ptr8.i2246 = getelementptr inbounds i8, ptr %.ph45, i64 -1
   %10 = load i8, ptr %b.sroa.0.020.i.i, align 1
-  store i8 %10, ptr %add.ptr8.i2042, align 1
+  store i8 %10, ptr %add.ptr8.i2246, align 1
   br label %call.i11.i.i.noexc
 
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i17: ; preds = %if.then.i.i31
-  %.pre27.i32 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %add.ptr8.i20 = getelementptr inbounds i8, ptr %.pre27.i32, i64 -1
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19: ; preds = %if.then.i.i33
+  %.pre27.i34 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %add.ptr8.i22 = getelementptr inbounds i8, ptr %.pre27.i34, i64 -1
   %11 = load i8, ptr %b.sroa.0.020.i.i, align 1
-  store i8 %11, ptr %add.ptr8.i20, align 1
-  %cmp.not.i.i.i21 = icmp ult i64 %add.i12, 4294967296
-  br i1 %cmp.not.i.i.i21, label %call.i11.i.i.noexc, label %if.then.i.i25.i22
+  store i8 %11, ptr %add.ptr8.i22, align 1
+  %cmp.not.i.i.i23 = icmp ult i64 %add.i14, 4294967296
+  br i1 %cmp.not.i.i.i23, label %call.i11.i.i.noexc, label %if.then.i.i25.i24
 
-if.then.i.i25.i22:                                ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i17
-  %exception.i.i.i23 = tail call ptr @__cxa_allocate_exception(i64 48) #18
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i23)
-          to label %invoke.cont.i.i.i25 unwind label %lpad.i.i.i24
+if.then.i.i25.i24:                                ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19
+  %exception.i.i.i25 = tail call ptr @__cxa_allocate_exception(i64 48) #18
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i25)
+          to label %invoke.cont.i.i.i27 unwind label %lpad.i.i.i26
 
-invoke.cont.i.i.i25:                              ; preds = %if.then.i.i25.i22
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i23, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
-          to label %.noexc34 unwind label %ehcleanup.thread70.loopexit.split-lp
+invoke.cont.i.i.i27:                              ; preds = %if.then.i.i25.i24
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i25, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
+          to label %.noexc38 unwind label %ehcleanup.thread70.loopexit.split-lp
 
-.noexc34:                                         ; preds = %invoke.cont.i.i.i25
+.noexc38:                                         ; preds = %invoke.cont.i.i.i27
   unreachable
 
-lpad.i.i.i24:                                     ; preds = %if.then.i.i25.i22
+lpad.i.i.i26:                                     ; preds = %if.then.i.i25.i24
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i23) #18
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i25) #18
   br label %ehcleanup.thread70.body
 
-call.i11.i.i.noexc:                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i17.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i17
+call.i11.i.i.noexc:                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19
   %b.sroa.0.0.i.i = getelementptr inbounds i8, ptr %b.sroa.0.020.i.i, i64 1
   %cmp.i10.not.i.i = icmp eq ptr %b.sroa.0.0.i.i, %add.ptr.i.i.i
   br i1 %cmp.i10.not.i.i, label %invoke.cont16, label %for.body.i.i, !llvm.loop !5
@@ -697,18 +697,18 @@ if.then.i.i.i:                                    ; preds = %invoke.cont19
   call void @_ZdlPv(ptr noundef nonnull %raw_reach.sroa.0.05663) #19
   br label %return
 
-ehcleanup.thread70.loopexit:                      ; preds = %if.then.i.i31
-  %lpad.loopexit37 = landingpad { ptr, i32 }
+ehcleanup.thread70.loopexit:                      ; preds = %if.then.i.i33
+  %lpad.loopexit41 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.thread70.body
 
-ehcleanup.thread70.loopexit.split-lp:             ; preds = %invoke.cont.i.i.i25
-  %lpad.loopexit.split-lp38 = landingpad { ptr, i32 }
+ehcleanup.thread70.loopexit.split-lp:             ; preds = %invoke.cont.i.i.i27
+  %lpad.loopexit.split-lp42 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.thread70.body
 
-ehcleanup.thread70.body:                          ; preds = %ehcleanup.thread70.loopexit, %ehcleanup.thread70.loopexit.split-lp, %lpad.i.i.i24
-  %eh.lpad-body35 = phi { ptr, i32 } [ %12, %lpad.i.i.i24 ], [ %lpad.loopexit37, %ehcleanup.thread70.loopexit ], [ %lpad.loopexit.split-lp38, %ehcleanup.thread70.loopexit.split-lp ]
+ehcleanup.thread70.body:                          ; preds = %ehcleanup.thread70.loopexit, %ehcleanup.thread70.loopexit.split-lp, %lpad.i.i.i26
+  %eh.lpad-body39 = phi { ptr, i32 } [ %12, %lpad.i.i.i26 ], [ %lpad.loopexit41, %ehcleanup.thread70.loopexit ], [ %lpad.loopexit.split-lp42, %ehcleanup.thread70.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset14) #18
   br label %if.then.i.i.i40
 
@@ -720,7 +720,7 @@ ehcleanup:                                        ; preds = %invoke.cont16
   br i1 %tobool.not.i.i.i39, label %ehcleanup22, label %if.then.i.i.i40
 
 if.then.i.i.i40:                                  ; preds = %ehcleanup, %ehcleanup.thread70.body, %ehcleanup.thread, %ehcleanup.thread74.body
-  %.pn68 = phi { ptr, i32 } [ %13, %ehcleanup.thread ], [ %lpad.loopexit.split-lp, %ehcleanup ], [ %eh.lpad-body35, %ehcleanup.thread70.body ], [ %eh.lpad-body, %ehcleanup.thread74.body ]
+  %.pn68 = phi { ptr, i32 } [ %13, %ehcleanup.thread ], [ %lpad.loopexit.split-lp, %ehcleanup ], [ %eh.lpad-body39, %ehcleanup.thread70.body ], [ %eh.lpad-body, %ehcleanup.thread74.body ]
   %raw_reach.sroa.0.05567 = phi ptr [ %call5.i.i.i.i3.i.i33, %ehcleanup.thread ], [ %raw_reach.sroa.0.05663, %ehcleanup ], [ %call5.i.i.i.i3.i.i33, %ehcleanup.thread70.body ], [ %call5.i.i.i.i3.i.i33, %ehcleanup.thread74.body ]
   call void @_ZdlPv(ptr noundef nonnull %raw_reach.sroa.0.05567) #19
   br label %ehcleanup22
@@ -780,9 +780,9 @@ if.then.i.i21.i:                                  ; preds = %if.then5.i.i
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread: ; preds = %if.then.i.i21.i, %if.then5.i.i
   %.ph = phi ptr [ %4, %if.then.i.i21.i ], [ %3, %if.then5.i.i ]
-  %add.ptr8.i32 = getelementptr inbounds i8, ptr %.ph, i64 -1
+  %add.ptr8.i36 = getelementptr inbounds i8, ptr %.ph, i64 -1
   %5 = load i8, ptr %1, align 1
-  store i8 %5, ptr %add.ptr8.i32, align 1
+  store i8 %5, ptr %add.ptr8.i36, align 1
   br label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %if.end.i.i
@@ -803,10 +803,10 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
   unreachable
 
-common.resume:                                    ; preds = %lpad.i.i.i22, %lpad.i.i.i
-  %exception.i.i.i21.sink = phi ptr [ %exception.i.i.i21, %lpad.i.i.i22 ], [ %exception.i.i.i, %lpad.i.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i.i.i22 ], [ %7, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i21.sink) #18
+common.resume:                                    ; preds = %lpad.i.i.i26, %lpad.i.i.i
+  %exception.i.i.i25.sink = phi ptr [ %exception.i.i.i25, %lpad.i.i.i26 ], [ %exception.i.i.i, %lpad.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i.i.i26 ], [ %7, %lpad.i.i.i ]
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i25.sink) #18
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
@@ -815,67 +815,67 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %conv.i.i.i = trunc i64 %add.i to i32
+  %conv.i.i.i = trunc nuw i64 %add.i to i32
   %b.sroa.0.018.i.i = getelementptr inbounds i8, ptr %1, i64 1
   %cmp.i10.not19.i.i = icmp eq ptr %b.sroa.0.018.i.i, %2
   br i1 %cmp.i10.not19.i.i, label %_ZN3ue214RoseEngineBlob9add_rangeISt6vectorIaSaIaEEEEjRKT_.exit, label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit31
-  %b.sroa.0.020.i.i = phi ptr [ %b.sroa.0.0.i.i, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit31 ], [ %b.sroa.0.018.i.i, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit ]
+for.body.i.i:                                     ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit35
+  %b.sroa.0.020.i.i = phi ptr [ %b.sroa.0.0.i.i, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit35 ], [ %b.sroa.0.018.i.i, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit ]
   %8 = load ptr, ptr %_M_finish.i.i.i2, align 8
   %9 = load ptr, ptr %blob.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i5 = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i.i6 = ptrtoint ptr %9 to i64
-  %sub.ptr.sub.i.i9 = sub i64 %sub.ptr.lhs.cast.i.i.i5, %sub.ptr.rhs.cast.i.i.i6
-  %cmp.i20.i12.not = icmp eq i64 %sub.ptr.sub.i.i9, -1
-  br i1 %cmp.i20.i12.not, label %if.then5.i.i25, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i15
+  %sub.ptr.lhs.cast.i.i.i7 = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i.i8 = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i.i7, %sub.ptr.rhs.cast.i.i.i8
+  %cmp.i20.i16.not = icmp eq i64 %sub.ptr.sub.i.i13, -1
+  br i1 %cmp.i20.i16.not, label %if.then5.i.i29, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19
 
-if.then5.i.i25:                                   ; preds = %for.body.i.i
-  %tobool.not.i.i.i27 = icmp eq ptr %8, %9
-  br i1 %tobool.not.i.i.i27, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i15.thread, label %if.then.i.i21.i28
+if.then5.i.i29:                                   ; preds = %for.body.i.i
+  %tobool.not.i.i.i31 = icmp eq ptr %8, %9
+  br i1 %tobool.not.i.i.i31, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread, label %if.then.i.i21.i32
 
-if.then.i.i21.i28:                                ; preds = %if.then5.i.i25
+if.then.i.i21.i32:                                ; preds = %if.then5.i.i29
   store ptr %9, ptr %_M_finish.i.i.i2, align 8
-  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i15.thread
+  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread
 
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i15.thread: ; preds = %if.then.i.i21.i28, %if.then5.i.i25
-  %.ph34 = phi ptr [ %9, %if.then.i.i21.i28 ], [ %8, %if.then5.i.i25 ]
-  %add.ptr8.i1835 = getelementptr inbounds i8, ptr %.ph34, i64 -1
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread: ; preds = %if.then.i.i21.i32, %if.then5.i.i29
+  %.ph38 = phi ptr [ %9, %if.then.i.i21.i32 ], [ %8, %if.then5.i.i29 ]
+  %add.ptr8.i2239 = getelementptr inbounds i8, ptr %.ph38, i64 -1
   %10 = load i8, ptr %b.sroa.0.020.i.i, align 1
-  store i8 %10, ptr %add.ptr8.i1835, align 1
-  br label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit31
+  store i8 %10, ptr %add.ptr8.i2239, align 1
+  br label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit35
 
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i15: ; preds = %for.body.i.i
-  %add.i10 = add i64 %sub.ptr.sub.i.i9, 512
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19: ; preds = %for.body.i.i
+  %add.i14 = add i64 %sub.ptr.sub.i.i13, 512
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %blob.i.i, i64 noundef 1)
-  %.pre27.i30 = load ptr, ptr %_M_finish.i.i.i2, align 8
-  %add.ptr8.i18 = getelementptr inbounds i8, ptr %.pre27.i30, i64 -1
+  %.pre27.i34 = load ptr, ptr %_M_finish.i.i.i2, align 8
+  %add.ptr8.i22 = getelementptr inbounds i8, ptr %.pre27.i34, i64 -1
   %11 = load i8, ptr %b.sroa.0.020.i.i, align 1
-  store i8 %11, ptr %add.ptr8.i18, align 1
-  %cmp.not.i.i.i19 = icmp ult i64 %add.i10, 4294967296
-  br i1 %cmp.not.i.i.i19, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit31, label %if.then.i.i25.i20
+  store i8 %11, ptr %add.ptr8.i22, align 1
+  %cmp.not.i.i.i23 = icmp ult i64 %add.i14, 4294967296
+  br i1 %cmp.not.i.i.i23, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit35, label %if.then.i.i25.i24
 
-if.then.i.i25.i20:                                ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i15
-  %exception.i.i.i21 = tail call ptr @__cxa_allocate_exception(i64 48) #18
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i21)
-          to label %invoke.cont.i.i.i23 unwind label %lpad.i.i.i22
+if.then.i.i25.i24:                                ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19
+  %exception.i.i.i25 = tail call ptr @__cxa_allocate_exception(i64 48) #18
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i25)
+          to label %invoke.cont.i.i.i27 unwind label %lpad.i.i.i26
 
-invoke.cont.i.i.i23:                              ; preds = %if.then.i.i25.i20
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i21, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
+invoke.cont.i.i.i27:                              ; preds = %if.then.i.i25.i24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i25, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #16
   unreachable
 
-lpad.i.i.i22:                                     ; preds = %if.then.i.i25.i20
+lpad.i.i.i26:                                     ; preds = %if.then.i.i25.i24
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3ue214RoseEngineBlob3addEPKvmm.exit31:         ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i15.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i15
+_ZN3ue214RoseEngineBlob3addEPKvmm.exit35:         ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19
   %b.sroa.0.0.i.i = getelementptr inbounds i8, ptr %b.sroa.0.020.i.i, i64 1
   %cmp.i10.not.i.i = icmp eq ptr %b.sroa.0.0.i.i, %2
   br i1 %cmp.i10.not.i.i, label %_ZN3ue214RoseEngineBlob9add_rangeISt6vectorIaSaIaEEEEjRKT_.exit, label %for.body.i.i, !llvm.loop !11
 
-_ZN3ue214RoseEngineBlob9add_rangeISt6vectorIaSaIaEEEEjRKT_.exit: ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit31, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, %if.end
-  %retval.0.i.i = phi i32 [ 0, %if.end ], [ %conv.i.i.i, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit ], [ %conv.i.i.i, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit31 ]
+_ZN3ue214RoseEngineBlob9add_rangeISt6vectorIaSaIaEEEEjRKT_.exit: ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit35, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, %if.end
+  %retval.0.i.i = phi i32 [ 0, %if.end ], [ %conv.i.i.i, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit ], [ %conv.i.i.i, %_ZN3ue214RoseEngineBlob3addEPKvmm.exit35 ]
   store i32 %retval.0.i.i, ptr %offset4, align 4
   %call.i.i11 = call { ptr, i8 } @_ZNSt10_HashtableISt6vectorIaSaIaEESt4pairIKS2_jESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_EN3ue210ue2_hasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS4_RjEEES3_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %lcache, ptr noundef nonnull align 8 dereferenceable(24) %look, ptr noundef nonnull align 4 dereferenceable(4) %offset4)
   %13 = load i32, ptr %offset4, align 4

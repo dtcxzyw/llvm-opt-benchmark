@@ -180,7 +180,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
   br i1 %.not12.i, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
-  %invariant.gep.i = getelementptr i8, ptr %18, i64 1
+  %invariant.gep.i = getelementptr inbounds i8, ptr %18, i64 1
   br label %20
 
 20:                                               ; preds = %34, %.lr.ph.i
@@ -190,7 +190,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %24 = load i8, ptr %gep.i, align 1
   %.not.i = icmp eq i8 %24, 0
   br i1 %.not.i, label %30, label %25
@@ -271,7 +271,7 @@ define dso_local void @_ZNK23cmCursesLongMessageForm11DrawMessageEPKc(ptr nocapt
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %invariant.gep = getelementptr i8, ptr %1, i64 1
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 1
   br label %5
 
 5:                                                ; preds = %.lr.ph, %19
@@ -281,7 +281,7 @@ define dso_local void @_ZNK23cmCursesLongMessageForm11DrawMessageEPKc(ptr nocapt
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %9 = load i8, ptr %gep, align 1
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %15, label %10
@@ -511,7 +511,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   br i1 %.not12.i, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29
-  %invariant.gep.i = getelementptr i8, ptr %37, i64 1
+  %invariant.gep.i = getelementptr inbounds i8, ptr %37, i64 1
   br label %39
 
 39:                                               ; preds = %53, %.lr.ph.i
@@ -521,7 +521,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %39
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %43 = load i8, ptr %gep.i, align 1
   %.not.i = icmp eq i8 %43, 0
   br i1 %.not.i, label %49, label %44

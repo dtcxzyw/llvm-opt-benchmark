@@ -55,7 +55,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 
 29:                                               ; preds = %19
   %30 = lshr i64 %23, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   %32 = trunc i64 %23 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 207, ptr noundef nonnull @.str.1, i32 noundef %31, i32 noundef %32, i32 noundef %26) #3
   br label %.thread

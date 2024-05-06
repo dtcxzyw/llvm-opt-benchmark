@@ -886,7 +886,7 @@ define internal ptr @svc_tcp_accept(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i32 @svc_tcp_has_wspace(ptr noundef %0) #5 align 16 {
+define internal range(i32 0, 2) i32 @svc_tcp_has_wspace(ptr noundef %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 512
@@ -1667,7 +1667,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @svc_tcp_sendto(ptr noundef %0) #0 align 16 {
+define internal range(i32 -107, -2147483648) i32 @svc_tcp_sendto(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.msghdr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -2744,7 +2744,7 @@ define internal noundef ptr @svc_udp_accept(ptr nocapture readnone %0) #14 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @svc_udp_has_wspace(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @svc_udp_has_wspace(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 520

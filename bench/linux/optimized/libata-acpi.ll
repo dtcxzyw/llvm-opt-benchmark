@@ -175,7 +175,7 @@ define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_acpi_gtm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ata_acpi_gtm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   store i64 -1, ptr %3, align 8
@@ -513,7 +513,7 @@ define dso_local void @ata_acpi_dissociate(ptr nocapture noundef readonly %0) lo
 
 43:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(20) %30, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull readonly align 1 dereferenceable(20) %30, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   store i64 3, ptr %3, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
@@ -573,7 +573,7 @@ ata_acpi_stm.exit:                                ; preds = %54, %54, %57
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_acpi_stm(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ata_acpi_stm(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.ata_acpi_gtm, align 1
   %4 = alloca %struct.acpi_object_list, align 8
   %5 = alloca [3 x %union.acpi_object], align 16
@@ -694,7 +694,7 @@ declare dso_local zeroext i8 @ata_timing_cycle2mode(i32 noundef, i32 noundef) lo
 declare dso_local i32 @ata_xfer_mode2mask(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_acpi_cbl_80wire(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ata_acpi_cbl_80wire(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8256
   %5 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #8
@@ -782,7 +782,7 @@ define dso_local void @ata_acpi_on_resume(ptr noundef %0) local_unnamed_addr #0 
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(20) %10, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull readonly align 1 dereferenceable(20) %10, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   store i64 3, ptr %3, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
@@ -937,7 +937,7 @@ ata_acpi_stm.exit:                                ; preds = %44, %44, %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ata_dev_get_GTF(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 613566757) i32 @ata_dev_get_GTF(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !6

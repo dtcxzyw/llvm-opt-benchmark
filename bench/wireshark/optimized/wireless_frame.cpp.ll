@@ -1702,7 +1702,7 @@ _ZN13WirelessFrame10startTimerEi.exit:            ; preds = %67
   %88 = load ptr, ptr %16, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 40
   %90 = load ptr, ptr %89, align 8
-  %91 = trunc i64 %indvars.iv to i32
+  %91 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZNK9QComboBox8itemTextEi(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %90, i32 noundef %91)
           to label %92 unwind label %.loopexit.split-lp.loopexit
 
@@ -3937,7 +3937,7 @@ define noundef i32 @_ZN13WirelessFrame18getCenterFrequencyEii(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN13WirelessFrame24getBandwidthFromChanTypeEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 161) i32 @_ZN13WirelessFrame24getBandwidthFromChanTypeEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %switch.selectcmp = icmp eq i32 %1, 6
   %switch.select = select i1 %switch.selectcmp, i32 160, i32 -1
   %switch.selectcmp2 = icmp eq i32 %1, 4

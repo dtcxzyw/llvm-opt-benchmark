@@ -602,8 +602,8 @@ while.end.i:                                      ; preds = %if.end59.i, %if.end
 _ZL8_findRowP13UPropsVectorsi.exit:               ; preds = %if.then.i, %if.then10.i, %if.then17.i, %do.end.i, %if.then37.i, %if.then55.i, %while.end.i
   %retval.0.i = phi ptr [ %add.ptr7.i, %if.then10.i ], [ %add.ptr14.i, %if.then17.i ], [ %add.ptr26.i, %do.end.i ], [ %add.ptr48.i, %if.then55.i ], [ %add.ptr64.i, %while.end.i ], [ %5, %if.then37.i ], [ %add.ptr.i, %if.then.i ]
   %14 = zext nneg i32 %column to i64
-  %15 = getelementptr i32, ptr %retval.0.i, i64 %14
-  %arrayidx = getelementptr i8, ptr %15, i64 8
+  %15 = getelementptr inbounds i32, ptr %retval.0.i, i64 %14
+  %arrayidx = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i32, ptr %arrayidx, align 4
   br label %return
 
@@ -832,7 +832,7 @@ return:                                           ; preds = %if.then24, %if.then
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL17upvec_compareRowsPKvS0_S0_(ptr nocapture noundef readonly %context, ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZL17upvec_compareRowsPKvS0_S0_(ptr nocapture noundef readonly %context, ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #7 {
 entry:
   %columns1 = getelementptr inbounds i8, ptr %context, i64 8
   %0 = load i32, ptr %columns1, align 8

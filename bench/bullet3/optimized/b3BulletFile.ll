@@ -1663,7 +1663,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 declare void @_ZN6bParse5bFile13parseInternalEiPci(ptr noundef nonnull align 8 dereferenceable(540), i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6bParse12b3BulletFile5writeEPKcb(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef %fileName, i1 noundef zeroext %fixupPointers) unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN6bParse12b3BulletFile5writeEPKcb(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef %fileName, i1 noundef zeroext %fixupPointers) unnamed_addr #0 align 2 {
 entry:
   %header = alloca [12 x i8], align 1
   %call = tail call noalias ptr @fopen(ptr noundef %fileName, ptr noundef nonnull @.str.3)
@@ -1975,7 +1975,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %15, ptr %arrayidx.i41, align 4
   %17 = load ptr, ptr %m_data10.i, align 8
   %arrayidx.i44 = getelementptr inbounds i32, ptr %17, i64 %idxprom.i37
-  %18 = trunc i64 %indvars.iv57 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv57 to i32
   store i32 %18, ptr %arrayidx.i44, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
@@ -2266,7 +2266,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %15, ptr %arrayidx.i41, align 4
   %17 = load ptr, ptr %m_data10.i, align 8
   %arrayidx.i44 = getelementptr inbounds i32, ptr %17, i64 %idxprom.i37
-  %18 = trunc i64 %indvars.iv57 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv57 to i32
   store i32 %18, ptr %arrayidx.i44, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60

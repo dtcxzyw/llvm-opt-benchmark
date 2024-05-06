@@ -71,7 +71,7 @@ define hidden void @proto_reg_handoff_pn_mrrt() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_PNMRRT_Data_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_PNMRRT_Data_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [6 x i8], align 1
   %6 = alloca i16, align 2
   %7 = alloca %struct._e_guid_t, align 4

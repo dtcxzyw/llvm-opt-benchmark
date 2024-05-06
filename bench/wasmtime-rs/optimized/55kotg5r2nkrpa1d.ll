@@ -1949,7 +1949,7 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$cranelift_isle..lexer..Pos$u20$as$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN68_$LT$cranelift_isle..lexer..Pos$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he2e522eb5f3eaae6E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden range(i8 -1, 2) i8 @"_ZN68_$LT$cranelift_isle..lexer..Pos$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he2e522eb5f3eaae6E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %5 = icmp ult i64 %3, %4
@@ -2000,7 +2000,7 @@ define hidden noundef i8 @"_ZN68_$LT$cranelift_isle..lexer..Pos$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN61_$LT$cranelift_isle..lexer..Pos$u20$as$u20$core..cmp..Ord$GT$3cmp17hff3025bea9511c9fE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden range(i8 -1, 2) i8 @"_ZN61_$LT$cranelift_isle..lexer..Pos$u20$as$u20$core..cmp..Ord$GT$3cmp17hff3025bea9511c9fE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %5 = icmp ult i64 %3, %4

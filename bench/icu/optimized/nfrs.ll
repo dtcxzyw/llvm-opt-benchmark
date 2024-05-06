@@ -1238,7 +1238,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv.i = sitofp i64 %number to double
-  %call.i = tail call noundef ptr @_ZNK6icu_759NFRuleSet23findFractionRuleSetRuleEd(ptr noundef nonnull align 8 dereferenceable(163) %this, double noundef %conv.i)
+  %call.i = tail call noundef ptr @_ZNK6icu_759NFRuleSet23findFractionRuleSetRuleEd(ptr noundef nonnull readonly align 8 dereferenceable(163) %this, double noundef %conv.i)
   br label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit
 
 if.end.i:                                         ; preds = %if.end
@@ -1850,7 +1850,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 declare double @uprv_maxMantissa_75() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_759NFRuleSet5parseERKNS_13UnicodeStringERNS_13ParsePositionEdjRNS_11FormattableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(163) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, double noundef %upperBound, i32 noundef %nonNumericalExecutedRuleMask, ptr noundef nonnull align 8 dereferenceable(112) %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759NFRuleSet5parseERKNS_13UnicodeStringERNS_13ParsePositionEdjRNS_11FormattableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(163) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, double noundef %upperBound, i32 noundef %nonNumericalExecutedRuleMask, ptr noundef nonnull align 8 dereferenceable(112) %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %highWaterMark = alloca %"class.icu_75::ParsePosition", align 8
   %workingPos = alloca %"class.icu_75::ParsePosition", align 8

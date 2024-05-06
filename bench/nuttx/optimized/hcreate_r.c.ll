@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_default_hash = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @hcreate_r(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @hcreate_r(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %.loopexit
@@ -16,7 +16,7 @@ define noundef i32 @hcreate_r(i64 noundef %0, ptr nocapture noundef %1) local_un
 4:                                                ; preds = %2
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %0, i64 16)
   %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 288230376151711744)
-  %5 = tail call i64 @llvm.ctpop.i64(i64 %spec.store.select1), !range !6
+  %5 = tail call range(i64 0, 60) i64 @llvm.ctpop.i64(i64 %spec.store.select1)
   %.not23 = icmp ult i64 %5, 2
   br i1 %.not23, label %11, label %.preheader25
 
@@ -26,7 +26,7 @@ define noundef i32 @hcreate_r(i64 noundef %0, ptr nocapture noundef %1) local_un
   %6 = lshr i64 %.02226, 1
   %7 = add nuw nsw i32 %.027, 1
   %.not24 = icmp ult i64 %.02226, 2
-  br i1 %.not24, label %8, label %.preheader25, !llvm.loop !7
+  br i1 %.not24, label %8, label %.preheader25, !llvm.loop !6
 
 8:                                                ; preds = %.preheader25
   %9 = shl nuw i32 2, %.027
@@ -51,7 +51,7 @@ define noundef i32 @hcreate_r(i64 noundef %0, ptr nocapture noundef %1) local_un
   %19 = add nuw i64 %.02028, 1
   %20 = load i64, ptr %13, align 8
   %21 = icmp ult i64 %19, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %2
   %.021 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 1, %.lr.ph ]
@@ -98,7 +98,7 @@ define void @hdestroy_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %18 = getelementptr inbounds %struct.internal_head, ptr %17, i64 %.018
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %4, align 8
@@ -109,7 +109,7 @@ define void @hdestroy_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %21 = phi ptr [ %17, %._crit_edge.loopexit ], [ %7, %.preheader ]
   %22 = add nuw i64 %.018, 1
   %23 = icmp ult i64 %22, %20
-  br i1 %23, label %.preheader, label %._crit_edge19, !llvm.loop !11
+  br i1 %23, label %.preheader, label %._crit_edge19, !llvm.loop !10
 
 ._crit_edge19:                                    ; preds = %._crit_edge, %.preheader16
   %24 = phi ptr [ %2, %.preheader16 ], [ %21, %._crit_edge ]
@@ -125,7 +125,7 @@ define void @hdestroy_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %7 = load ptr, ptr @g_default_hash, align 8
   %8 = tail call i32 %7(ptr noundef %0, i64 noundef %6) #7
@@ -149,7 +149,7 @@ define noundef i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapture noun
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #7
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.thread, label %16, !llvm.loop !12
+  br i1 %21, label %.thread, label %16, !llvm.loop !11
 
 22:                                               ; preds = %16
   switch i32 %2, label %35 [
@@ -171,7 +171,7 @@ define noundef i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapture noun
   %.0 = phi ptr [ %28, %.preheader ], [ %26, %25 ]
   %28 = load ptr, ptr %.0, align 8
   %.not48 = icmp eq ptr %28, %.042
-  br i1 %.not48, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %.not48, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %25
   %.sink56 = phi ptr [ %26, %25 ], [ %28, %.preheader ]
@@ -251,11 +251,10 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i64 0, i64 60}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

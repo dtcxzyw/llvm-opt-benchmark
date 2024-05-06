@@ -993,7 +993,7 @@ define void @sapi_initialize_empty_request() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sapi_add_header_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sapi_add_header_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sapi_header_line, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %6, align 8
@@ -1002,7 +1002,7 @@ define noundef i32 @sapi_add_header_ex(ptr noundef %0, i64 noundef %1, i1 nounde
   store i64 %1, ptr %7, align 8
   %not. = xor i1 %3, true
   %8 = zext i1 %not. to i32
-  %9 = call i32 @sapi_header_op(i32 noundef %8, ptr noundef nonnull %5), !range !5
+  %9 = call i32 @sapi_header_op(i32 noundef %8, ptr noundef nonnull %5)
   br i1 %2, label %11, label %10
 
 10:                                               ; preds = %4
@@ -1014,7 +1014,7 @@ define noundef i32 @sapi_add_header_ex(ptr noundef %0, i64 noundef %1, i1 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sapi_header_struct, align 8
   %4 = alloca ptr, align 8
   %5 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 5), align 1
@@ -1201,7 +1201,7 @@ define noundef i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %83, label %84, label %94
 
 84:                                               ; preds = %79
-  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef %31, i64 noundef %.1267) #19
+  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef readonly %31, i64 noundef %.1267) #19
   %.not27.i = icmp eq i32 %85, 0
   br i1 %.not27.i, label %86, label %94
 
@@ -1669,7 +1669,7 @@ define internal fastcc void @sapi_header_add_op(i32 noundef %0, ptr noundef %1) 
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %22
-  %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef %14, i64 noundef %15) #19
+  %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef readonly %14, i64 noundef %15) #19
   %.not27.i = icmp eq i32 %28, 0
   br i1 %.not27.i, label %29, label %37
 
@@ -1714,7 +1714,7 @@ sapi_remove_header.exit:                          ; preds = %37, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sapi_send_headers() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sapi_send_headers() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca %struct._zend_fcall_info, align 8
   %3 = alloca ptr, align 8
@@ -1941,7 +1941,7 @@ declare i32 @ap_php_slprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 declare void @zend_llist_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sapi_register_post_entries(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sapi_register_post_entries(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -1954,7 +1954,7 @@ define noundef i32 @sapi_register_post_entries(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %1, %3
   %.06 = phi ptr [ %4, %3 ], [ %0, %1 ]
-  %6 = tail call i32 @sapi_register_post_entry(ptr noundef nonnull %.06), !range !5
+  %6 = tail call i32 @sapi_register_post_entry(ptr noundef nonnull %.06)
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %._crit_edge, label %3
 
@@ -1964,7 +1964,7 @@ define noundef i32 @sapi_register_post_entries(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sapi_register_post_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 12), align 4
   %4 = trunc i8 %3 to i1
@@ -2070,7 +2070,7 @@ define void @sapi_unregister_post_entry(ptr nocapture noundef readonly %0) local
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @sapi_register_default_post_reader(ptr noundef %0) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @sapi_register_default_post_reader(ptr noundef %0) local_unnamed_addr #11 {
   %2 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 12), align 4
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
@@ -2088,7 +2088,7 @@ define noundef i32 @sapi_register_default_post_reader(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @sapi_register_treat_data(ptr noundef %0) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @sapi_register_treat_data(ptr noundef %0) local_unnamed_addr #11 {
   %2 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 12), align 4
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
@@ -2106,7 +2106,7 @@ define noundef i32 @sapi_register_treat_data(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @sapi_register_input_filter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @sapi_register_input_filter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 12), align 4
   %4 = trunc i8 %3 to i1
   %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
@@ -2125,7 +2125,7 @@ define noundef i32 @sapi_register_input_filter(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sapi_flush() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sapi_flush() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 7), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
@@ -2547,4 +2547,3 @@ attributes #21 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

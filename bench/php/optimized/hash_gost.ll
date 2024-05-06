@@ -26,7 +26,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @PHP_GOSTInitCrypto(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %0, i8 0, i64 112, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @tables_crypto, ptr %3, align 8
   ret void
@@ -208,7 +208,7 @@ GostTransform.exit55:                             ; preds = %75
   %110 = getelementptr inbounds [32 x i8], ptr %108, i64 0, i64 %34
   %111 = sub nuw nsw i64 32, %34
   tail call void @explicit_bzero(ptr noundef nonnull %110, i64 noundef %111) #8
-  %112 = trunc i64 %34 to i8
+  %112 = trunc nuw nsw i64 %34 to i8
   br label %113
 
 113:                                              ; preds = %._crit_edge, %27
@@ -317,7 +317,7 @@ GostTransform.exit:                               ; preds = %9
   store i8 %57, ptr %59, align 1
   %60 = load i32, ptr %46, align 4
   %61 = lshr i32 %60, 24
-  %62 = trunc i32 %61 to i8
+  %62 = trunc nuw i32 %61 to i8
   %63 = or disjoint i64 %indvars.iv, 3
   %64 = getelementptr inbounds i8, ptr %0, i64 %63
   store i8 %62, ptr %64, align 1

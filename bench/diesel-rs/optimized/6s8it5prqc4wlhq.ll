@@ -158,7 +158,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !6, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %5 = load i64, ptr %4, align 8, !range !10, !alias.scope !7, !noalias !11, !noundef !4
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
@@ -283,7 +283,7 @@ define hidden void @_ZN4core5error5Error7provide17h805ef83b4e7baa27E.llvm.570308
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h6b92ec4f29978dc9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef range(i64 0, 461168601842738791) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h6b92ec4f29978dc9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = load ptr, ptr %0, align 8, !noundef !4
@@ -504,7 +504,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !24, !noalias !29, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %4, i64 %6, i1 false), !noalias !34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %4, i64 %6, i1 false), !noalias !34
   %21 = load i64, ptr %8, align 8, !alias.scope !24, !noalias !29, !noundef !4
   %22 = add i64 %21, %6
   store i64 %22, ptr %8, align 8, !alias.scope !24, !noalias !29
@@ -546,7 +546,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !56, !noalias !61, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %5, i64 %7, i1 false), !noalias !66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %5, i64 %7, i1 false), !noalias !66
   %22 = load i64, ptr %9, align 8, !alias.scope !56, !noalias !61, !noundef !4
   %23 = add i64 %22, %7
   store i64 %23, ptr %9, align 8, !alias.scope !56, !noalias !61
@@ -692,7 +692,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5703081208350009384.ex
 29:                                               ; preds = %28
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..fmt..Debug$GT$$GT$17h6e3e9a92f936f007E"(ptr nonnull %21, ptr nonnull @anon.c5d754b239a11c64fd3a6e83a20bb62b.13.llvm.5703081208350009384) #22
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..fmt..Debug$GT$$GT$17h6e3e9a92f936f007E"(ptr nonnull %21, ptr nonnull readonly @anon.c5d754b239a11c64fd3a6e83a20bb62b.13.llvm.5703081208350009384) #22
           to label %31 unwind label %32
 
 31:                                               ; preds = %29
@@ -804,7 +804,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5703081208350009384.ex
 29:                                               ; preds = %28
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..fmt..Debug$GT$$GT$17h6e3e9a92f936f007E"(ptr nonnull %21, ptr nonnull @anon.c5d754b239a11c64fd3a6e83a20bb62b.14.llvm.5703081208350009384) #22
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..fmt..Debug$GT$$GT$17h6e3e9a92f936f007E"(ptr nonnull %21, ptr nonnull readonly @anon.c5d754b239a11c64fd3a6e83a20bb62b.14.llvm.5703081208350009384) #22
           to label %31 unwind label %32
 
 31:                                               ; preds = %29

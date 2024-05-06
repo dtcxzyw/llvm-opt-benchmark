@@ -315,11 +315,11 @@ $_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_me
 @_ZTVN9grpc_core13ChannelFilterE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN9grpc_core13ChannelFilterE, ptr @_ZN9grpc_core13ChannelFilter8PostInitEv, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core13ChannelFilter16StartTransportOpEP17grpc_transport_op, ptr @_ZN9grpc_core13ChannelFilter14GetChannelInfoEPK17grpc_channel_info, ptr @_ZN9grpc_core13ChannelFilterD2Ev, ptr @_ZN9grpc_core13ChannelFilterD0Ev] }, comdat, align 8
 @.str.16 = private unnamed_addr constant [131 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/channel/promise_based_filter.h\00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
 @.str.17 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.18 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE = linkonce_odr unnamed_addr constant { [18 x ptr], [6 x ptr] } { [18 x ptr] [ptr null, ptr @_ZTIN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData6OrphanEv, ptr @_ZN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EED2Ev, ptr @_ZN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EED0Ev, ptr @_ZN9grpc_core21promise_filter_detail14ClientCallData20ForceImmediateRepollEt, ptr @_ZNK9grpc_core8Activity18CurrentParticipantEv, ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData15MakeOwningWakerEv, ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData18MakeNonOwningWakerEv, ptr @_ZNK9grpc_core21promise_filter_detail14ClientCallData8DebugTagB5cxx11Ev, ptr @_ZNK9grpc_core21promise_filter_detail12BaseCallData16ActivityDebugTagB5cxx11Et, ptr @_ZN9grpc_core21promise_filter_detail14ClientCallData10StartBatchEP30grpc_transport_stream_op_batch, ptr @_ZN9grpc_core21promise_filter_detail14ClientCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE, ptr @_ZNK9grpc_core21promise_filter_detail14ClientCallData20ClientOrServerStringEv, ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData6WakeupEt, ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData11WakeupAsyncEt, ptr @_ZN9grpc_core21promise_filter_detail12BaseCallData4DropEt, ptr @_ZN9grpc_core21promise_filter_detail14ClientCallData8OnWakeupEv], [6 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, ptr @_ZThn8_N9grpc_core21promise_filter_detail12BaseCallData6WakeupEt, ptr @_ZThn8_N9grpc_core21promise_filter_detail12BaseCallData11WakeupAsyncEt, ptr @_ZThn8_N9grpc_core21promise_filter_detail12BaseCallData4DropEt, ptr @_ZThn8_NK9grpc_core21promise_filter_detail12BaseCallData16ActivityDebugTagB5cxx11Et] }, comdat, align 8
 @_ZTSN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE = linkonce_odr constant [70 x i8] c"N9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE\00", comdat, align 1
 @_ZTIN9grpc_core21promise_filter_detail14ClientCallDataE = external constant ptr
@@ -328,11 +328,11 @@ $_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_me
 @.str.20 = private unnamed_addr constant [16 x i8] c"not implemented\00", align 1
 @.str.21 = private unnamed_addr constant [65 x i8] c"nullptr == pollent_.exchange(pollent, std::memory_order_release)\00", align 1
 @.str.22 = private unnamed_addr constant [33 x i8] c"then_schedule_closure == nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @.str.23 = private unnamed_addr constant [49 x i8] c"args->is_last == ((kFlags & kFilterIsLast) != 0)\00", align 1
 @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN9grpc_core21promise_filter_detail20InvalidChannelFilterE, ptr @_ZN9grpc_core13ChannelFilter8PostInitEv, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES2_EE, ptr @_ZN9grpc_core13ChannelFilter16StartTransportOpEP17grpc_transport_op, ptr @_ZN9grpc_core13ChannelFilter14GetChannelInfoEPK17grpc_channel_info, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD2Ev, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD0Ev] }, comdat, align 8
 @_ZTSN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr constant [58 x i8] c"N9grpc_core21promise_filter_detail20InvalidChannelFilterE\00", comdat, align 1
@@ -1113,7 +1113,7 @@ entry:
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %args.sroa.4.0.extract.trunc = trunc i64 %args.sroa.4.0.extract.shift to i32
+  %args.sroa.4.0.extract.trunc = trunc nuw i64 %args.sroa.4.0.extract.shift to i32
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 8
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %length.i = getelementptr inbounds i8, ptr %1, i64 32
@@ -5011,12 +5011,12 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %fn_, i64 16, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %fn_, i64 16, i1 false), !noalias !45
   %0 = load i8, ptr %x, align 1, !noalias !45
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !45
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %memory, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, i64 16, i1 false)
   %arg_.i.i.i.i = getelementptr inbounds i8, ptr %memory, i64 16
   store i8 %0, ptr %arg_.i.i.i.i, align 1, !alias.scope !45
   %2 = getelementptr inbounds i8, ptr %memory, i64 24
@@ -5155,12 +5155,12 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %fn_, i64 16, i1 false), !noalias !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %fn_, i64 16, i1 false), !noalias !66
   %0 = load i8, ptr %x, align 1, !noalias !66
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !66
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %memory, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, i64 16, i1 false)
   %arg_.i.i.i.i = getelementptr inbounds i8, ptr %memory, i64 16
   store i8 %0, ptr %arg_.i.i.i.i, align 1, !alias.scope !66
   %2 = getelementptr inbounds i8, ptr %memory, i64 24
@@ -5319,12 +5319,12 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %fn_, i64 24, i1 false), !noalias !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.0.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %fn_, i64 24, i1 false), !noalias !87
   %0 = load i8, ptr %x, align 1, !noalias !87
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !87
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memory, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.0.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %memory, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.0.i.i, i64 24, i1 false)
   %arg_.i.i.i.i = getelementptr inbounds i8, ptr %memory, i64 24
   store i8 %0, ptr %arg_.i.i.i.i, align 1, !alias.scope !87
   %2 = getelementptr inbounds i8, ptr %memory, i64 32
@@ -5951,12 +5951,12 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %fn_, i64 32, i1 false), !noalias !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %fn_, i64 32, i1 false), !noalias !126
   %0 = load i8, ptr %x, align 1, !noalias !126
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !126
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !126
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %memory, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %memory, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.0.i.i, i64 32, i1 false)
   %arg_.i.i.i.i = getelementptr inbounds i8, ptr %memory, i64 32
   store i8 %0, ptr %arg_.i.i.i.i, align 1, !alias.scope !126
   %2 = getelementptr inbounds i8, ptr %memory, i64 40
@@ -6491,12 +6491,12 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %fn_, i64 16, i1 false), !noalias !147
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %fn_, i64 16, i1 false), !noalias !147
   %0 = load i8, ptr %x, align 1, !noalias !147
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !147
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !147
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %memory, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, i64 16, i1 false)
   %arg_.i.i.i.i = getelementptr inbounds i8, ptr %memory, i64 16
   store i8 %0, ptr %arg_.i.i.i.i, align 1, !alias.scope !147
   %2 = getelementptr inbounds i8, ptr %memory, i64 24
@@ -6669,12 +6669,12 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %fn_, i64 16, i1 false), !noalias !168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %fn_, i64 16, i1 false), !noalias !168
   %0 = load i8, ptr %x, align 1, !noalias !168
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !168
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %memory, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.i.i, i64 16, i1 false)
   %arg_.i.i.i.i = getelementptr inbounds i8, ptr %memory, i64 16
   store i8 %0, ptr %arg_.i.i.i.i, align 1, !alias.scope !168
   %2 = getelementptr inbounds i8, ptr %memory, i64 24

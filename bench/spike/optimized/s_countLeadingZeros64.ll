@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %0) local_unnamed_addr #0 {
   %2 = lshr i64 %0, 32
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw i64 %2 to i32
   %.not = icmp eq i32 %3, 0
   %4 = trunc i64 %0 to i32
   %spec.select = select i1 %.not, i8 32, i8 0

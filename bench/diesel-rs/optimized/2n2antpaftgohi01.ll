@@ -56,7 +56,7 @@ define noundef zeroext i1 @_ZN4core6option6Option4Some17h1a15017bf7ea7a81E() unn
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i8 @_ZN4core6option6Option4Some17h8b1a0750e9755fbeE(i1 zeroext %0) unnamed_addr #2 {
+define range(i8 0, 2) i8 @_ZN4core6option6Option4Some17h8b1a0750e9755fbeE(i1 zeroext %0) unnamed_addr #2 {
   %2 = zext i1 %0 to i8
   ret i8 %2
 }

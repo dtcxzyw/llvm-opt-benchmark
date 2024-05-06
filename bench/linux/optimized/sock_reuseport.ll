@@ -1159,7 +1159,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
   %106 = zext i16 %13 to i64
   %107 = mul nuw nsw i64 %106, %105
   %108 = lshr i64 %107, 32
-  %109 = trunc i64 %108 to i32
+  %109 = trunc nuw nsw i64 %108 to i32
   %110 = getelementptr inbounds i8, ptr %7, i64 48
   %111 = getelementptr inbounds i8, ptr %7, i64 22
   br label %112
@@ -1275,7 +1275,7 @@ define dso_local ptr @reuseport_migrate_sock(ptr noundef %0, ptr noundef %1, ptr
   %41 = zext i16 %9 to i64
   %42 = mul nuw nsw i64 %40, %41
   %43 = lshr i64 %42, 32
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw nsw i64 %43 to i32
   %45 = getelementptr inbounds i8, ptr %5, i64 48
   %46 = getelementptr inbounds i8, ptr %5, i64 22
   br label %47
@@ -1420,7 +1420,7 @@ define dso_local i32 @reuseport_attach_prog(ptr noundef %0, ptr noundef %1) #0 a
 declare dso_local void @sk_reuseport_prog_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @reuseport_detach_prog(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @reuseport_detach_prog(ptr nocapture noundef readonly %0) #0 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %2 = getelementptr inbounds i8, ptr %0, i64 720
   %3 = load ptr, ptr %2, align 8

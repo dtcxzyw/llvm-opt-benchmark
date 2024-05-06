@@ -322,7 +322,7 @@ define internal i32 @intel_fetch_size() #2 align 16 {
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %17
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %18, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 24
@@ -557,7 +557,7 @@ define internal i32 @intel_815_fetch_size() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_815_configure() #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @intel_815_configure() #2 align 16 {
   %1 = alloca %struct.pci_bus_region, align 8
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1

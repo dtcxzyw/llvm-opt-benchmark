@@ -366,7 +366,7 @@ declare void @vhost_dev_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_net_start(ptr noundef %dev, ptr noundef %ncs, i32 noundef %data_queue_pairs, i32 noundef %cvq) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vhost_net_start(ptr noundef %dev, ptr noundef %ncs, i32 noundef %data_queue_pairs, i32 noundef %cvq) local_unnamed_addr #0 {
 entry:
   %file.i = alloca %struct.vhost_vring_file, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10

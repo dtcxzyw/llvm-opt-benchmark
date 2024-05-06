@@ -293,7 +293,7 @@ declare noundef i32 @_ZN3ozz3log8GetLevelEv() local_unnamed_addr #0
 declare noundef i32 @_ZN3ozz3log8SetLevelENS0_5LevelE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3ozz9animation7offline11OzzImporterclEiPPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN3ozz9animation7offline11OzzImporterclEiPPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Json::Value", align 8
   %5 = alloca %"class.ozz::log::Err", align 8
   %6 = alloca %"class.ozz::log::Log", align 8

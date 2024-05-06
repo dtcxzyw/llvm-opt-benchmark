@@ -101644,7 +101644,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt10theory_str19validate_unsat_coreER10ref_vectorI4expr11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1800) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %unsat_core) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN3smt10theory_str19validate_unsat_coreER10ref_vectorI4expr11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1800) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %unsat_core) unnamed_addr #3 align 2 {
 entry.split:
   %m.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m.i, align 8
@@ -122382,7 +122382,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeIP4ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt10theory_str14final_check_ehEv(ptr noundef nonnull align 8 dereferenceable(1800) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN3smt10theory_str14final_check_ehEv(ptr noundef nonnull align 8 dereferenceable(1800) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %class.zstring, align 8
   %unused.i = alloca %class.rational, align 8

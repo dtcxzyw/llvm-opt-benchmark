@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [9 x i8] c"SHA2-512\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ssl3_cbc_digest_record(ptr noundef %md, ptr noundef %md_out, ptr noundef writeonly %md_out_size, ptr noundef %header, ptr noundef %data, i64 noundef %data_size, i64 noundef %data_plus_mac_plus_padding_size, ptr noundef %mac_secret, i64 noundef %mac_secret_length, i8 noundef signext %is_sslv3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl3_cbc_digest_record(ptr noundef %md, ptr noundef %md_out, ptr noundef writeonly %md_out_size, ptr noundef %header, ptr noundef %data, i64 noundef %data_size, i64 noundef %data_plus_mac_plus_padding_size, ptr noundef %mac_secret, i64 noundef %mac_secret_length, i8 noundef signext %is_sslv3) local_unnamed_addr #0 {
 entry:
   %md_state = alloca %union.anon, align 8
   %length_bytes = alloca [16 x i8], align 16
@@ -110,9 +110,9 @@ if.end104:                                        ; preds = %if.then6, %if.then1
 cond.false:                                       ; preds = %if.end104
   %add113 = or disjoint i64 %md_block_size.0, 256
   %add114 = add nuw nsw i64 %add113, %md_size.0
-  %0 = trunc i64 %add114 to i16
+  %0 = trunc nuw nsw i64 %add114 to i16
   %div.lhs.trunc = add nsw i16 %0, -1
-  %div.rhs.trunc = trunc i64 %md_block_size.0 to i16
+  %div.rhs.trunc = trunc nuw nsw i64 %md_block_size.0 to i16
   %div183 = udiv i16 %div.lhs.trunc, %div.rhs.trunc
   %div.zext = zext nneg i16 %div183 to i64
   %add115 = add nuw nsw i64 %div.zext, 1
@@ -287,19 +287,19 @@ for.body256:                                      ; preds = %for.body256.lr.ph, 
   %sub.i.i.i = add i64 %xor.i.i, -1
   %and.i.i.i = and i64 %sub.i.i.i, %not.i.i.i
   %shr.neg.i.i.i.i = ashr i64 %and.i.i.i, 63
-  %conv.i = trunc i64 %shr.neg.i.i.i.i to i8
+  %conv.i = trunc nsw i64 %shr.neg.i.i.i.i to i8
   %xor.i.i160 = xor i64 %i.3197, %div127
   %not.i.i.i161 = xor i64 %xor.i.i160, -1
   %sub.i.i.i162 = add i64 %xor.i.i160, -1
   %and.i.i.i163 = and i64 %sub.i.i.i162, %not.i.i.i161
   %shr.neg.i.i.i.i164 = ashr i64 %and.i.i.i163, 63
-  %conv.i165 = trunc i64 %shr.neg.i.i.i.i164 to i8
-  %4 = trunc i64 %shr.neg.i.i.i.i to i32
+  %conv.i165 = trunc nsw i64 %shr.neg.i.i.i.i164 to i8
+  %4 = trunc nsw i64 %shr.neg.i.i.i.i to i32
   %5 = and i32 %4, 255
   %6 = xor i8 %conv.i, -1
   %not293 = xor i8 %conv.i165, -1
   %or = or i8 %conv.i, %not293
-  %7 = trunc i64 %shr.neg.i.i.i.i164 to i32
+  %7 = trunc nsw i64 %shr.neg.i.i.i.i164 to i32
   %conv.i176 = and i32 %7, 255
   %not.i.i179 = xor i32 %conv.i176, -1
   br label %for.body262
@@ -345,7 +345,7 @@ if.end275:                                        ; preds = %if.end275.sink.spli
   %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !9
   %and2.i.i = and i32 %10, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i
-  %conv3.i = trunc i32 %or.i.i to i8
+  %conv3.i = trunc nuw i32 %or.i.i to i8
   %not = select i1 %isnotneg.i.i173, i8 %6, i8 -1
   %and290 = and i8 %not, %or
   %and296 = and i8 %and290, %conv3.i
@@ -363,7 +363,7 @@ if.then301:                                       ; preds = %if.end275
   %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i179) #7, !srcloc !9
   %and2.i.i180 = and i32 %13, %conv2.i177
   %or.i.i181 = or i32 %and2.i.i180, %and.i.i178
-  %conv3.i182 = trunc i32 %or.i.i181 to i8
+  %conv3.i182 = trunc nuw i32 %or.i.i181 to i8
   br label %if.end306
 
 if.end306:                                        ; preds = %if.then301, %if.end275
@@ -492,7 +492,7 @@ entry:
   store i8 %conv6, ptr %incdec.ptr3, align 1
   %3 = load i32, ptr %ctx, align 4
   %shr9 = lshr i32 %3, 24
-  %conv10 = trunc i32 %shr9 to i8
+  %conv10 = trunc nuw i32 %shr9 to i8
   %incdec.ptr11 = getelementptr inbounds i8, ptr %md_out, i64 4
   store i8 %conv10, ptr %incdec.ptr7, align 1
   %B = getelementptr inbounds i8, ptr %ctx, i64 4
@@ -512,7 +512,7 @@ entry:
   store i8 %conv20, ptr %incdec.ptr17, align 1
   %7 = load i32, ptr %B, align 4
   %shr23 = lshr i32 %7, 24
-  %conv24 = trunc i32 %shr23 to i8
+  %conv24 = trunc nuw i32 %shr23 to i8
   %incdec.ptr25 = getelementptr inbounds i8, ptr %md_out, i64 8
   store i8 %conv24, ptr %incdec.ptr21, align 1
   %C = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -532,7 +532,7 @@ entry:
   store i8 %conv34, ptr %incdec.ptr31, align 1
   %11 = load i32, ptr %C, align 4
   %shr37 = lshr i32 %11, 24
-  %conv38 = trunc i32 %shr37 to i8
+  %conv38 = trunc nuw i32 %shr37 to i8
   %incdec.ptr39 = getelementptr inbounds i8, ptr %md_out, i64 12
   store i8 %conv38, ptr %incdec.ptr35, align 1
   %D = getelementptr inbounds i8, ptr %ctx, i64 12
@@ -552,7 +552,7 @@ entry:
   store i8 %conv48, ptr %incdec.ptr45, align 1
   %15 = load i32, ptr %D, align 4
   %shr51 = lshr i32 %15, 24
-  %conv52 = trunc i32 %shr51 to i8
+  %conv52 = trunc nuw i32 %shr51 to i8
   store i8 %conv52, ptr %incdec.ptr49, align 1
   ret void
 }
@@ -566,7 +566,7 @@ define internal void @tls1_sha1_final_raw(ptr nocapture noundef readonly %ctx, p
 entry:
   %0 = load i32, ptr %ctx, align 4
   %shr = lshr i32 %0, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %md_out, i64 1
   store i8 %conv, ptr %md_out, align 1
   %1 = load i32, ptr %ctx, align 4
@@ -586,7 +586,7 @@ entry:
   %h1 = getelementptr inbounds i8, ptr %ctx, i64 4
   %4 = load i32, ptr %h1, align 4
   %shr15 = lshr i32 %4, 24
-  %conv17 = trunc i32 %shr15 to i8
+  %conv17 = trunc nuw i32 %shr15 to i8
   %incdec.ptr18 = getelementptr inbounds i8, ptr %md_out, i64 5
   store i8 %conv17, ptr %incdec.ptr14, align 1
   %5 = load i32, ptr %h1, align 4
@@ -606,7 +606,7 @@ entry:
   %h2 = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load i32, ptr %h2, align 4
   %shr33 = lshr i32 %8, 24
-  %conv35 = trunc i32 %shr33 to i8
+  %conv35 = trunc nuw i32 %shr33 to i8
   %incdec.ptr36 = getelementptr inbounds i8, ptr %md_out, i64 9
   store i8 %conv35, ptr %incdec.ptr32, align 1
   %9 = load i32, ptr %h2, align 4
@@ -626,7 +626,7 @@ entry:
   %h3 = getelementptr inbounds i8, ptr %ctx, i64 12
   %12 = load i32, ptr %h3, align 4
   %shr51 = lshr i32 %12, 24
-  %conv53 = trunc i32 %shr51 to i8
+  %conv53 = trunc nuw i32 %shr51 to i8
   %incdec.ptr54 = getelementptr inbounds i8, ptr %md_out, i64 13
   store i8 %conv53, ptr %incdec.ptr50, align 1
   %13 = load i32, ptr %h3, align 4
@@ -646,7 +646,7 @@ entry:
   %h4 = getelementptr inbounds i8, ptr %ctx, i64 16
   %16 = load i32, ptr %h4, align 4
   %shr69 = lshr i32 %16, 24
-  %conv71 = trunc i32 %shr69 to i8
+  %conv71 = trunc nuw i32 %shr69 to i8
   %incdec.ptr72 = getelementptr inbounds i8, ptr %md_out, i64 17
   store i8 %conv71, ptr %incdec.ptr68, align 1
   %17 = load i32, ptr %h4, align 4
@@ -680,7 +680,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds [8 x i32], ptr %ctx, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %shr = lshr i32 %0, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %md_out.addr.012, i64 1
   store i8 %conv, ptr %md_out.addr.012, align 1
   %1 = load i32, ptr %arrayidx, align 4
@@ -722,7 +722,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %0, 56
-  %conv = trunc i64 %shr to i8
+  %conv = trunc nuw i64 %shr to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %md_out.addr.024, i64 1
   store i8 %conv, ptr %md_out.addr.024, align 1
   %1 = load i64, ptr %arrayidx, align 8

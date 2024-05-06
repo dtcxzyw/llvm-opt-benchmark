@@ -461,12 +461,12 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 if.end11.loopexit:                                ; preds = %for.body.i.i.i.i.i
   %.pre = load ptr, ptr %this, align 8
-  %.pre57 = load i32, ptr %Size.i18, align 8
-  %.pre58 = zext i32 %.pre57 to i64
+  %.pre59 = load i32, ptr %Size.i18, align 8
+  %.pre60 = zext i32 %.pre59 to i64
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then4, %if.end11.loopexit
-  %conv.i21.pre-phi = phi i64 [ %.pre58, %if.end11.loopexit ], [ %conv.i19, %if.then4 ]
+  %conv.i21.pre-phi = phi i64 [ %.pre60, %if.end11.loopexit ], [ %conv.i19, %if.then4 ]
   %4 = phi ptr [ %.pre, %if.end11.loopexit ], [ %2, %if.then4 ]
   %NewEnd.0 = phi ptr [ %incdec.ptr1.i.i.i.i.i, %if.end11.loopexit ], [ %2, %if.then4 ]
   %add.ptr.i59 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %4, i64 %conv.i21.pre-phi
@@ -489,56 +489,56 @@ if.end13:                                         ; preds = %if.end
 
 if.then16:                                        ; preds = %if.end13
   %6 = load ptr, ptr %this, align 8
-  %cmp.not3.i25 = icmp eq i32 %1, 0
-  br i1 %cmp.not3.i25, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit31, label %while.body.i26.preheader
+  %cmp.not3.i26 = icmp eq i32 %1, 0
+  br i1 %cmp.not3.i26, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32, label %while.body.i27.preheader
 
-while.body.i26.preheader:                         ; preds = %if.then16
+while.body.i27.preheader:                         ; preds = %if.then16
   %add.ptr.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %6, i64 %conv.i19
-  br label %while.body.i26
+  br label %while.body.i27
 
-while.body.i26:                                   ; preds = %while.body.i26.preheader, %while.body.i26
-  %E.addr.04.i27 = phi ptr [ %incdec.ptr.i28, %while.body.i26 ], [ %add.ptr.i, %while.body.i26.preheader ]
-  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %E.addr.04.i27, i64 -48
-  %Text.i.i29 = getelementptr inbounds i8, ptr %E.addr.04.i27, i64 -32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i29) #12
-  %cmp.not.i30 = icmp eq ptr %incdec.ptr.i28, %6
-  br i1 %cmp.not.i30, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit31, label %while.body.i26, !llvm.loop !24
+while.body.i27:                                   ; preds = %while.body.i27.preheader, %while.body.i27
+  %E.addr.04.i28 = phi ptr [ %incdec.ptr.i29, %while.body.i27 ], [ %add.ptr.i, %while.body.i27.preheader ]
+  %incdec.ptr.i29 = getelementptr inbounds i8, ptr %E.addr.04.i28, i64 -48
+  %Text.i.i30 = getelementptr inbounds i8, ptr %E.addr.04.i28, i64 -32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i30) #12
+  %cmp.not.i31 = icmp eq ptr %incdec.ptr.i29, %6
+  br i1 %cmp.not.i31, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32, label %while.body.i27, !llvm.loop !24
 
-_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit31: ; preds = %while.body.i26, %if.then16
+_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32: ; preds = %while.body.i27, %if.then16
   store i32 0, ptr %Size.i18, align 8
   tail call void @_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %conv.i)
   br label %if.end28
 
 if.else19:                                        ; preds = %if.end13
   %tobool20.not = icmp eq i32 %1, 0
-  br i1 %tobool20.not, label %if.end28, label %for.body.preheader.i.i.i.i.i38
+  br i1 %tobool20.not, label %if.end28, label %for.body.preheader.i.i.i.i.i39
 
-for.body.preheader.i.i.i.i.i38:                   ; preds = %if.else19
+for.body.preheader.i.i.i.i.i39:                   ; preds = %if.else19
   %7 = load ptr, ptr %RHS, align 8
   %8 = load ptr, ptr %this, align 8
-  br label %for.body.i.i.i.i.i40
+  br label %for.body.i.i.i.i.i41
 
-for.body.i.i.i.i.i40:                             ; preds = %for.body.i.i.i.i.i40, %for.body.preheader.i.i.i.i.i38
-  %__n.09.i.i.i.i.i41 = phi i64 [ %dec.i.i.i.i.i49, %for.body.i.i.i.i.i40 ], [ %conv.i19, %for.body.preheader.i.i.i.i.i38 ]
-  %__result.addr.08.i.i.i.i.i42 = phi ptr [ %incdec.ptr1.i.i.i.i.i48, %for.body.i.i.i.i.i40 ], [ %8, %for.body.preheader.i.i.i.i.i38 ]
-  %__first.addr.07.i.i.i.i.i43 = phi ptr [ %incdec.ptr.i.i.i.i.i47, %for.body.i.i.i.i.i40 ], [ %7, %for.body.preheader.i.i.i.i.i38 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.08.i.i.i.i.i42, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i43, i64 16, i1 false)
-  %Text.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i42, i64 16
-  %Text3.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i43, i64 16
-  %call.i.i.i.i.i.i46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i45) #12
-  %incdec.ptr.i.i.i.i.i47 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i43, i64 48
-  %incdec.ptr1.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i42, i64 48
-  %dec.i.i.i.i.i49 = add nsw i64 %__n.09.i.i.i.i.i41, -1
-  %cmp.i.i.i.i.i50 = icmp ugt i64 %__n.09.i.i.i.i.i41, 1
-  br i1 %cmp.i.i.i.i.i50, label %for.body.i.i.i.i.i40, label %if.end28, !llvm.loop !29
+for.body.i.i.i.i.i41:                             ; preds = %for.body.i.i.i.i.i41, %for.body.preheader.i.i.i.i.i39
+  %__n.09.i.i.i.i.i42 = phi i64 [ %dec.i.i.i.i.i50, %for.body.i.i.i.i.i41 ], [ %conv.i19, %for.body.preheader.i.i.i.i.i39 ]
+  %__result.addr.08.i.i.i.i.i43 = phi ptr [ %incdec.ptr1.i.i.i.i.i49, %for.body.i.i.i.i.i41 ], [ %8, %for.body.preheader.i.i.i.i.i39 ]
+  %__first.addr.07.i.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i48, %for.body.i.i.i.i.i41 ], [ %7, %for.body.preheader.i.i.i.i.i39 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.addr.08.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i44, i64 16, i1 false)
+  %Text.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i43, i64 16
+  %Text3.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i44, i64 16
+  %call.i.i.i.i.i.i47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i45, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i46) #12
+  %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i44, i64 48
+  %incdec.ptr1.i.i.i.i.i49 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i43, i64 48
+  %dec.i.i.i.i.i50 = add nsw i64 %__n.09.i.i.i.i.i42, -1
+  %cmp.i.i.i.i.i51 = icmp ugt i64 %__n.09.i.i.i.i.i42, 1
+  br i1 %cmp.i.i.i.i.i51, label %for.body.i.i.i.i.i41, label %if.end28, !llvm.loop !29
 
-if.end28:                                         ; preds = %for.body.i.i.i.i.i40, %if.else19, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit31
-  %CurSize.0 = phi i64 [ 0, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit31 ], [ 0, %if.else19 ], [ %conv.i19, %for.body.i.i.i.i.i40 ]
+if.end28:                                         ; preds = %for.body.i.i.i.i.i41, %if.else19, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32
+  %CurSize.0 = phi i64 [ 0, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32 ], [ 0, %if.else19 ], [ %conv.i19, %for.body.i.i.i.i.i41 ]
   %9 = load ptr, ptr %RHS, align 8
   %10 = load i32, ptr %Size.i, align 8
-  %conv.i53 = zext i32 %10 to i64
-  %add.ptr.i65 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %9, i64 %conv.i53
-  %cmp.not5.i.i.i.i = icmp eq i64 %CurSize.0, %conv.i53
+  %conv.i54 = zext i32 %10 to i64
+  %add.ptr.i65 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %9, i64 %conv.i54
+  %cmp.not5.i.i.i.i = icmp eq i64 %CurSize.0, %conv.i54
   br i1 %cmp.not5.i.i.i.i, label %return.sink.split, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.end28
@@ -551,9 +551,9 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr33, %for.body.i.i.i.i.preheader ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr30, %for.body.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false)
-  %Text.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
-  %Text3.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i54, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i55) #12
+  %Text.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
+  %Text3.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i56) #12
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 48
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i65

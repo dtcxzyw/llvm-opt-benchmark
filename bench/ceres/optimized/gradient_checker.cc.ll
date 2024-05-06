@@ -8267,7 +8267,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i50: ; preds = %_ZNSt16al
 
 .lr.ph.i.i.i.i.i.i.i59:                           ; preds = %109, %.lr.ph.i.i.i.i.i.i.i59
   %.05.i.i.i.i.i.i.i = phi i64 [ %115, %.lr.ph.i.i.i.i.i.i.i59 ], [ 0, %109 ]
-  %111 = mul nsw i64 %.05.i.i.i.i.i.i.i, %12
+  %111 = mul nuw nsw i64 %.05.i.i.i.i.i.i.i, %12
   %112 = getelementptr inbounds double, ptr %110, i64 %111
   %113 = getelementptr inbounds double, ptr %.0.i.i.i51, i64 %.05.i.i.i.i.i.i.i
   %114 = load double, ptr %113, align 8

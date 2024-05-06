@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.21 = private unnamed_addr constant [52 x i8] c"git mailinfo [<options>] <msg> <patch> < mail >info\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_mailinfo(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_mailinfo(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %meta_charset = alloca %struct.metainfo_charset, align 8
   %mi = alloca %struct.mailinfo, align 8
@@ -289,7 +289,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_quoted_cr(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @parse_opt_quoted_cr(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.end, label %if.then

@@ -52,7 +52,7 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %.lr.ph88
-  %19 = trunc i8 %.0275086 to i1
+  %19 = trunc nuw i8 %.0275086 to i1
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
@@ -75,7 +75,7 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %27
-  %31 = trunc i8 %.05185 to i1
+  %31 = trunc nuw i8 %.05185 to i1
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
@@ -134,8 +134,8 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %58, label %.lr.ph88, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %55
-  %59 = trunc i8 %.1 to i1
-  %60 = trunc i8 %.128 to i1
+  %59 = trunc nuw i8 %.1 to i1
+  %60 = trunc nuw i8 %.128 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %.lr.ph

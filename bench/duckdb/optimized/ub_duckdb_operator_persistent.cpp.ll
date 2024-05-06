@@ -20876,7 +20876,7 @@ _ZNSt10unique_ptrIN6duckdb17DeleteSourceStateESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb14PhysicalDelete7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(153) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb14PhysicalDelete7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(153) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::Value", align 8
   %0 = load ptr, ptr %input, align 8, !tbaa !740
@@ -29324,7 +29324,7 @@ _ZNSt10unique_ptrIN6duckdb17InsertSourceStateESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb14PhysicalInsert7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb14PhysicalInsert7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::Value", align 8
   %0 = load ptr, ptr %input, align 8, !tbaa !740
@@ -30437,7 +30437,7 @@ _ZNSt10unique_ptrIN6duckdb17UpdateSourceStateESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb14PhysicalUpdate7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(218) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb14PhysicalUpdate7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(218) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::Value", align 8
   %0 = load ptr, ptr %input, align 8, !tbaa !740

@@ -126,7 +126,7 @@ user_init.exit.thread:                            ; preds = %19
   br i1 %spec.select.i, label %29, label %.thread
 
 29:                                               ; preds = %28
-  %30 = trunc i8 %.1.i to i1
+  %30 = trunc nuw i8 %.1.i to i1
   br i1 %30, label %._crit_edge.i.thread, label %31
 
 31:                                               ; preds = %29
@@ -342,12 +342,12 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr nocapture 
   %9 = icmp eq i8 %8, 0
   %spec.select = select i1 %9, i8 0, i8 %.047
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = trunc i8 %spec.select to i1
+  %10 = trunc nuw i8 %spec.select to i1
   br i1 %10, label %.preheader45, label %.critedge
 
 .critedge:                                        ; preds = %.preheader45, %7
   %.2.ph = phi i8 [ %.047, %.preheader45 ], [ %spec.select, %7 ]
-  %11 = trunc i8 %.2.ph to i1
+  %11 = trunc nuw i8 %.2.ph to i1
   br i1 %11, label %.preheader43, label %.loopexit44
 
 .preheader43:                                     ; preds = %3, %.critedge

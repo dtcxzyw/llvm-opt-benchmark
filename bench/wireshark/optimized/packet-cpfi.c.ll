@@ -309,7 +309,7 @@ define internal i32 @dissect_cpfi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %61 = add i8 %60, -1
   store i8 %61, ptr %5, align 1
   %62 = lshr i32 %48, 4
-  %63 = trunc i32 %62 to i8
+  %63 = trunc nuw nsw i32 %62 to i8
   store i8 %63, ptr %6, align 1
   %64 = trunc i32 %47 to i8
   %65 = and i8 %64, 15
@@ -352,7 +352,7 @@ define internal i32 @dissect_cpfi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %89 = add i8 %88, -1
   store i8 %89, ptr %8, align 1
   %90 = lshr i32 %76, 4
-  %91 = trunc i32 %90 to i8
+  %91 = trunc nuw nsw i32 %90 to i8
   store i8 %91, ptr %9, align 1
   %92 = trunc i32 %75 to i8
   %93 = and i8 %92, 15

@@ -65,7 +65,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext %type) local_unnamed_addr #0 {
+define hidden noundef zeroext range(i8 1, 9) i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext %type) local_unnamed_addr #0 {
 entry:
   %0 = sext i8 %type to i64
   %switch.gep = getelementptr inbounds [9 x i8], ptr @switch.table._ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE, i64 0, i64 %0

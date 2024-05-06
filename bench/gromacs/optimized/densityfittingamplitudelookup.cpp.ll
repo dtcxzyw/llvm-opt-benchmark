@@ -84,7 +84,7 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_119ChargesAsAmplitudesESt14default_deleteIS2
 .sink.split:                                      ; preds = %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_114UnitAmplitudesESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118MassesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_119ChargesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit
   %.sink18 = phi ptr [ %10, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_119ChargesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit ], [ %8, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118MassesAsAmplitudesESt14default_deleteIS2_EED2Ev.exit ], [ %5, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_114UnitAmplitudesESt14default_deleteIS2_EED2Ev.exit ]
   %11 = getelementptr inbounds i8, ptr %.sink18, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !noalias !14
   store ptr %.sink18, ptr %0, align 8
   br label %12
 
@@ -191,7 +191,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_114UnitAmplitudes5cloneEv(ptr dead_on_
   %7 = ptrtoint ptr %.val1 to i64
   %8 = ptrtoint ptr %.val to i64
   %9 = sub i64 %7, %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !15
   %.not.i.i.i.i.i.i = icmp eq ptr %.val1, %.val
   br i1 %.not.i.i.i.i.i.i, label %.noexc4.i.thread.i, label %13
 
@@ -543,7 +543,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118MassesAsAmplitudes5cloneEv(ptr dead
   %7 = ptrtoint ptr %.val1 to i64
   %8 = ptrtoint ptr %.val to i64
   %9 = sub i64 %7, %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !21
   %.not.i.i.i.i.i.i = icmp eq ptr %.val1, %.val
   br i1 %.not.i.i.i.i.i.i, label %.noexc4.i.thread.i, label %13
 
@@ -801,7 +801,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119ChargesAsAmplitudes5cloneEv(ptr dea
   %7 = ptrtoint ptr %.val1 to i64
   %8 = ptrtoint ptr %.val to i64
   %9 = sub i64 %7, %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !25
   %.not.i.i.i.i.i.i = icmp eq ptr %.val1, %.val
   br i1 %.not.i.i.i.i.i.i, label %.noexc4.i.thread.i, label %13
 

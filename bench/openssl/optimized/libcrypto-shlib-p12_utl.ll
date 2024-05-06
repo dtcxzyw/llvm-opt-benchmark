@@ -281,7 +281,7 @@ if.then36:                                        ; preds = %for.body29
 
 if.else51:                                        ; preds = %for.body29
   %shr52 = lshr i64 %6, 8
-  %conv53 = trunc i64 %shr52 to i8
+  %conv53 = trunc nuw i64 %shr52 to i8
   store i8 %conv53, ptr %unitmp.045, align 1
   %11 = load i64, ptr %utf32chr, align 8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %unitmp.045, i64 2

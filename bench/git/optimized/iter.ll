@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @indexed_table_ref_iter_vtable = internal global %struct.reftable_iterator_vtable { ptr @indexed_table_ref_iter_next, ptr @indexed_table_ref_iter_close }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @iterator_is_null(ptr nocapture noundef readonly %it) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @iterator_is_null(ptr nocapture noundef readonly %it) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %it, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @new_indexed_table_ref_iter(ptr nocapture noundef writeonly %dest, ptr noundef %r, ptr noundef %oid, i32 noundef %oid_len, ptr noundef %offsets, i32 noundef %offset_len) local_unnamed_addr #2 {
+define dso_local range(i32 -2147483648, 2) i32 @new_indexed_table_ref_iter(ptr nocapture noundef writeonly %dest, ptr noundef %r, ptr noundef %oid, i32 noundef %oid_len, ptr noundef %offsets, i32 noundef %offset_len) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @reftable_calloc(i64 noundef 184) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %call, ptr noundef nonnull align 8 dereferenceable(184) @__const.new_indexed_table_ref_iter.empty, i64 184, i1 false)
@@ -232,7 +232,7 @@ declare i32 @reader_init_block_reader(ptr noundef, ptr noundef, i64 noundef, i8 
 declare void @block_reader_start(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @indexed_table_ref_iter_next(ptr noundef %p, ptr noundef %rec) #2 {
+define internal range(i32 -2147483648, 2) i32 @indexed_table_ref_iter_next(ptr noundef %p, ptr noundef %rec) #2 {
 entry:
   %block_reader.i = getelementptr inbounds i8, ptr %p, i64 48
   %block.i = getelementptr inbounds i8, ptr %p, i64 56

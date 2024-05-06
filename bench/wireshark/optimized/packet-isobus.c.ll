@@ -4571,7 +4571,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @address_combination_hash(ptr nocapture noundef readonly %0) #2 {
+define internal range(i32 0, 65536) i32 @address_combination_hash(ptr nocapture noundef readonly %0) #2 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw nsw i32 %3, 8
@@ -4583,7 +4583,7 @@ define internal i32 @address_combination_hash(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @address_combination_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @address_combination_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i8, ptr %0, align 1
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %3, %4
@@ -4824,7 +4824,7 @@ proto_item_set_generated.exit338:                 ; preds = %proto_item_set_gene
   %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
   %121 = trunc i64 %120 to i32
   %122 = add i32 %121, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
   store i32 7, ptr %119, align 8
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %alloc_address_wmem.exit, label %124
@@ -4851,7 +4851,7 @@ alloc_address_wmem.exit:                          ; preds = %proto_item_set_gene
   %135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %136 = trunc i64 %135 to i32
   %137 = add i32 %136, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
   store i32 7, ptr %131, align 8
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %alloc_address_wmem.exit339, label %alloc_address_wmem.exit339.sink.split
@@ -4862,7 +4862,7 @@ alloc_address_wmem.exit:                          ; preds = %proto_item_set_gene
   %142 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %143 = trunc i64 %142 to i32
   %144 = add i32 %143, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
   store i32 7, ptr %131, align 8
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %alloc_address_wmem.exit339, label %alloc_address_wmem.exit339.sink.split

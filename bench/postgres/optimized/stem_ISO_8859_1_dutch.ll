@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_1_2 = internal constant [1 x i8] c"Y", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dutch_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @dutch_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -381,7 +381,7 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
   br i1 %144, label %r_prelude.exit.thread, label %155
 
 145:                                              ; preds = %138
-  %146 = tail call fastcc i32 @r_en_ending(ptr noundef nonnull %0), !range !4
+  %146 = tail call fastcc i32 @r_en_ending(ptr noundef nonnull %0)
   %147 = icmp slt i32 %146, 0
   br i1 %147, label %r_prelude.exit.thread, label %155
 
@@ -405,7 +405,7 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
 155:                                              ; preds = %152, %150, %148, %145, %142, %140, %138, %136, %132, %125, %r_mark_regions.exit
   %156 = load i32, ptr %5, align 4
   store i32 %156, ptr %2, align 8
-  %157 = tail call fastcc i32 @r_e_ending(ptr noundef nonnull %0), !range !4
+  %157 = tail call fastcc i32 @r_e_ending(ptr noundef nonnull %0)
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %r_prelude.exit.thread, label %159
 
@@ -454,7 +454,7 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
 178:                                              ; preds = %175
   %179 = load i32, ptr %2, align 8
   store i32 %179, ptr %4, align 4
-  %180 = tail call fastcc i32 @r_en_ending(ptr noundef nonnull %0), !range !4
+  %180 = tail call fastcc i32 @r_en_ending(ptr noundef nonnull %0)
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %r_prelude.exit.thread, label %182
 
@@ -551,7 +551,7 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
   %222 = load i32, ptr %5, align 4
   %223 = add i32 %.neg271.i, %222
   store i32 %223, ptr %2, align 8
-  %224 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0), !range !4
+  %224 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0)
   %225 = icmp slt i32 %224, 0
   br i1 %225, label %r_prelude.exit.thread, label %256
 
@@ -592,7 +592,7 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
   br i1 %241, label %r_prelude.exit.thread, label %242
 
 242:                                              ; preds = %239
-  %243 = tail call fastcc i32 @r_e_ending(ptr noundef nonnull %0), !range !4
+  %243 = tail call fastcc i32 @r_e_ending(ptr noundef nonnull %0)
   %244 = icmp slt i32 %243, 0
   br i1 %244, label %r_prelude.exit.thread, label %256
 
@@ -790,7 +790,7 @@ declare i32 @out_grouping(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i3
 declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_en_ending(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_en_ending(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 40
@@ -886,7 +886,7 @@ declare i32 @out_grouping_b(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 declare i32 @slice_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_e_ending(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_e_ending(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -995,7 +995,7 @@ r_undouble.exit:                                  ; preds = %51, %41, %35, %28, 
 declare i32 @eq_s_b(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_undouble(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_undouble(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1064,4 +1064,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

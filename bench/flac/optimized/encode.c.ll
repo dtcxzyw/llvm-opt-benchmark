@@ -3731,7 +3731,7 @@ entry:
   %land.ext = zext i1 %spec.select to i32
   store i32 0, ptr %static_metadata, align 8
   %needs_delete.i = getelementptr inbounds i8, ptr %static_metadata, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %needs_delete.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %needs_delete.i, i8 0, i64 24, i1 false)
   %replay_gain = getelementptr inbounds i8, ptr %options, i64 1144
   %7 = load i32, ptr %replay_gain, align 8
   %replay_gain13 = getelementptr inbounds i8, ptr %e, i64 48
@@ -5411,11 +5411,11 @@ if.then660:                                       ; preds = %sw.bb649
 
 if.else662:                                       ; preds = %sw.bb649
   %sub.i = sub i64 2000, %call650
-  %call1.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef %307, i64 noundef %sub.i) #19
+  %call1.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef readonly %307, i64 noundef %sub.i) #19
   store i8 0, ptr %arrayidx.i528, align 1
   %call.i529 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %apodizations) #22
   %sub.i530 = sub i64 2000, %call.i529
-  %call1.i531 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef nonnull @.str.129, i64 noundef %sub.i530) #19
+  %call1.i531 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef nonnull readonly @.str.129, i64 noundef %sub.i530) #19
   store i8 0, ptr %arrayidx.i528, align 1
   br label %for.inc728
 
@@ -7245,7 +7245,7 @@ if.then14:                                        ; preds = %if.end12
 
 if.end16:                                         ; preds = %if.then14, %if.end12
   store i32 0, ptr %m, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %needs_delete8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %needs_delete8, i8 0, i64 24, i1 false)
   ret void
 }
 

@@ -303,7 +303,7 @@ if.end7:                                          ; preds = %lor.lhs.false
   br i1 %cmp8, label %for.inc, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %call15 = tail call fastcc i32 @nc_match_single(ptr noundef nonnull %gen, ptr noundef nonnull %3), !range !10
+  %call15 = tail call fastcc i32 @nc_match_single(ptr noundef nonnull %gen, ptr noundef nonnull %3)
   %cmp16 = icmp eq i32 %call15, 0
   br i1 %cmp16, label %for.inc, label %if.else
 
@@ -318,7 +318,7 @@ for.inc:                                          ; preds = %if.end10, %if.else,
   %7 = load ptr, ptr %nc, align 8
   %call = tail call i64 @sk_num(ptr noundef %7) #5
   %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
   %8 = icmp eq i32 %match.1, 1
@@ -354,7 +354,7 @@ lor.lhs.false39:                                  ; preds = %if.end36
   br i1 %tobool41.not, label %if.end43, label %return
 
 if.end43:                                         ; preds = %lor.lhs.false39
-  %call45 = tail call fastcc i32 @nc_match_single(ptr noundef nonnull %gen, ptr noundef nonnull %12), !range !10
+  %call45 = tail call fastcc i32 @nc_match_single(ptr noundef nonnull %gen, ptr noundef nonnull %12)
   switch i32 %call45, label %return [
     i32 0, label %return.loopexit
     i32 47, label %for.inc53
@@ -365,7 +365,7 @@ for.inc53:                                        ; preds = %if.end43, %for.body
   %16 = load ptr, ptr %excludedSubtrees, align 8
   %call26 = tail call i64 @sk_num(ptr noundef %16) #5
   %cmp27 = icmp ult i64 %inc54, %call26
-  br i1 %cmp27, label %for.body28, label %return, !llvm.loop !12
+  br i1 %cmp27, label %for.body28, label %return, !llvm.loop !11
 
 return.loopexit:                                  ; preds = %if.end43
   br label %return
@@ -503,7 +503,7 @@ if.end12:                                         ; preds = %for.body.i, %if.els
   %inc = add nuw i64 %i.03, 1
   %call2 = tail call i64 @sk_num(ptr noundef %trees) #5
   %cmp3 = icmp ult i64 %inc, %call2
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %if.end12, %if.end
   ret void
@@ -516,7 +516,7 @@ declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nc_match_single(ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %base) unnamed_addr #0 {
+define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %base) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %base, align 8
   switch i32 %0, label %return [
@@ -813,7 +813,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 0, i32 54}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}

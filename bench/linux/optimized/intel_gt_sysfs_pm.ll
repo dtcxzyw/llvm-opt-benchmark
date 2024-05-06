@@ -552,7 +552,7 @@ declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unname
 declare dso_local i32 @sysfs_merge_group(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rc6_enable_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = load ptr, ptr %5, align 8
@@ -575,13 +575,13 @@ declare dso_local ptr @intel_gt_sysfs_get_drvdata(ptr noundef, ptr noundef) loca
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rc6_residency_ms_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @rc6_residency_ms_show_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !7
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @rc6_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %36, label %5
 
@@ -672,7 +672,7 @@ declare dso_local i64 @intel_rc6_residency_us(ptr noundef, i32 noundef) local_un
 declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rc6_enable_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = load ptr, ptr %5, align 8
@@ -689,19 +689,19 @@ define internal i64 @rc6_enable_dev_show(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rc6_residency_ms_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @rc6_residency_ms_show_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !7
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rc6p_residency_ms_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @rc6p_residency_ms_show_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !7
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @rc6p_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %36, label %5
 
@@ -780,13 +780,13 @@ define internal fastcc i64 @rc6p_residency_ms_show_common(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rc6pp_residency_ms_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_ms_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @rc6pp_residency_ms_show_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !7
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @rc6pp_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %36, label %5
 
@@ -865,25 +865,25 @@ define internal fastcc i64 @rc6pp_residency_ms_show_common(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rc6p_residency_ms_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @rc6p_residency_ms_show_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !7
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rc6pp_residency_ms_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_ms_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @rc6pp_residency_ms_show_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !7
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @media_rc6_residency_ms_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @media_rc6_residency_ms_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @media_rc6_residency_ms_show_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !7
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @media_rc6_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residency_ms_show_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %36, label %5
 
@@ -962,13 +962,13 @@ define internal fastcc i64 @media_rc6_residency_ms_show_common(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @media_rc6_residency_ms_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @media_rc6_residency_ms_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @media_rc6_residency_ms_show_common(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !7
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @act_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1014,7 +1014,7 @@ act_freq_mhz_show_common.exit:                    ; preds = %19, %21
 declare dso_local i32 @intel_rps_read_actual_frequency(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cur_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1060,7 +1060,7 @@ cur_freq_mhz_show_common.exit:                    ; preds = %19, %21
 declare dso_local i32 @intel_rps_get_requested_frequency(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @boost_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1181,7 +1181,7 @@ declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_u
 declare dso_local i32 @intel_rps_set_boost_frequency(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @max_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1299,7 +1299,7 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 declare dso_local i32 @intel_rps_set_max_frequency(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @min_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1417,7 +1417,7 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 declare dso_local i32 @intel_rps_set_min_frequency(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @RP0_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1463,7 +1463,7 @@ RP0_freq_mhz_show_common.exit:                    ; preds = %19, %21
 declare dso_local i32 @intel_rps_get_rp0_frequency(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @RP1_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1509,7 +1509,7 @@ RP1_freq_mhz_show_common.exit:                    ; preds = %19, %21
 declare dso_local i32 @intel_rps_get_rp1_frequency(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @RPn_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1555,7 +1555,7 @@ RPn_freq_mhz_show_common.exit:                    ; preds = %19, %21
 declare dso_local i32 @intel_rps_get_rpn_frequency(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vlv_rpe_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %24, label %5
 
@@ -1607,7 +1607,7 @@ vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
 declare dso_local i32 @intel_gpu_freq(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @act_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1650,7 +1650,7 @@ act_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cur_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1693,7 +1693,7 @@ cur_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @boost_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1742,7 +1742,7 @@ define internal i64 @boost_freq_mhz_dev_store(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @max_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1791,7 +1791,7 @@ define internal i64 @max_freq_mhz_dev_store(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @min_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1840,7 +1840,7 @@ define internal i64 @min_freq_mhz_dev_store(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @RP0_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1883,7 +1883,7 @@ RP0_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @RP1_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1926,7 +1926,7 @@ RP1_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @RPn_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %21, label %5
 
@@ -1969,7 +1969,7 @@ RPn_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vlv_rpe_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call zeroext i1 @is_object_gt(ptr noundef %0) #5
   br i1 %4, label %24, label %5
 
@@ -2018,7 +2018,7 @@ vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rps_up_threshold_pct_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rps_up_threshold_pct_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = getelementptr inbounds i8, ptr %5, i64 3696
@@ -2069,7 +2069,7 @@ declare dso_local i32 @kstrtou8(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare dso_local i32 @intel_rps_set_up_threshold(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rps_down_threshold_pct_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rps_down_threshold_pct_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = getelementptr inbounds i8, ptr %5, i64 3696
@@ -2120,7 +2120,7 @@ declare dso_local i32 @intel_rps_set_down_threshold(ptr noundef, i8 noundef zero
 declare dso_local i32 @sysfs_create_file_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @punit_req_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @punit_req_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = getelementptr inbounds i8, ptr %5, i64 3696
@@ -2134,7 +2134,7 @@ define internal i64 @punit_req_freq_mhz_show(ptr noundef %0, ptr nocapture nound
 declare dso_local i32 @intel_rps_read_punit_req_frequency(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @slpc_ignore_eff_freq_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @slpc_ignore_eff_freq_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = getelementptr inbounds i8, ptr %5, i64 1548
@@ -2180,7 +2180,7 @@ define internal i64 @slpc_ignore_eff_freq_store(ptr noundef %0, ptr nocapture no
 declare dso_local i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @throttle_reason_bool_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @throttle_reason_bool_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = getelementptr inbounds i8, ptr %5, i64 3696
@@ -2200,7 +2200,7 @@ define internal i64 @throttle_reason_bool_show(ptr noundef %0, ptr nocapture nou
 declare dso_local zeroext i1 @rps_read_mask_mmio(ptr noundef, i32, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @media_freq_factor_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @media_freq_factor_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = load ptr, ptr %5, align 8
@@ -2324,14 +2324,14 @@ declare dso_local i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef, i32 noun
 declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @freq_factor_scale_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @freq_factor_scale_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51) #5
   %5 = sext i32 %4 to i64
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @media_RP0_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @media_RP0_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
   %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
@@ -2361,7 +2361,7 @@ define internal i64 @media_RP0_freq_mhz_show(ptr noundef %0, ptr nocapture nound
 declare dso_local i32 @snb_pcode_read_p(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @media_RPn_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @media_RPn_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
   %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
@@ -2388,7 +2388,7 @@ define internal i64 @media_RPn_freq_mhz_show(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @default_min_freq_mhz_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @default_min_freq_mhz_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 64
@@ -2399,7 +2399,7 @@ define internal i64 @default_min_freq_mhz_show(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @default_max_freq_mhz_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @default_max_freq_mhz_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 68
@@ -2410,7 +2410,7 @@ define internal i64 @default_max_freq_mhz_show(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @default_rps_up_threshold_pct_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @default_rps_up_threshold_pct_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 72
@@ -2422,7 +2422,7 @@ define internal i64 @default_rps_up_threshold_pct_show(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @default_rps_down_threshold_pct_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @default_rps_down_threshold_pct_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 73

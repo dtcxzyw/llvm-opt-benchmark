@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h1faca37af0180201E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 4611686018427387904) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h1faca37af0180201E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !3
   %4 = load ptr, ptr %0, align 8, !noundef !3
@@ -16,7 +16,7 @@ define i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h1faca37af0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hbc62c48f6f1f37b3E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 288230376151711744) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hbc62c48f6f1f37b3E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !3
   %4 = load ptr, ptr %0, align 8, !noundef !3
@@ -28,7 +28,7 @@ define i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hbc62c48f6f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hd0be757ab7cb0d19E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, -9223372036854775808) i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17hd0be757ab7cb0d19E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !3
   %4 = load ptr, ptr %0, align 8, !noundef !3

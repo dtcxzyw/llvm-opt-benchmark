@@ -51,7 +51,7 @@ return:                                           ; preds = %if.end11, %if.then8
 declare void @_ZN4base12StringPrintfB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i64 0, 18446744073710) i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div = udiv i64 %0, 1000000

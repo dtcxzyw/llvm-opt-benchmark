@@ -99,7 +99,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fifd(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_fifd(i32 noundef %idx) #0 {
 entry:
   %info = alloca %struct.info_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %info, i8 0, i64 192, i1 false)
@@ -187,7 +187,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end:                                          ; preds = %for.cond
   call void @ossl_statm_update_rtt(ptr noundef nonnull %statm, i64 0, i64 1000000) #10
-  %call49 = call fastcc i32 @test_generic(ptr noundef nonnull %info, i32 noundef %idx), !range !7
+  %call49 = call fastcc i32 @test_generic(ptr noundef nonnull %info, i32 noundef %idx)
   %call52 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 350, ptr noundef nonnull @.str.10, i32 noundef %call49) #10
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %err, label %lor.lhs.false54
@@ -234,7 +234,7 @@ for.body75:                                       ; preds = %if.end71, %for.body
   call void @ossl_quic_sstream_free(ptr noundef %11) #10
   %inc79 = add nuw nsw i64 %i.17, 1
   %exitcond8.not = icmp eq i64 %inc79, 4
-  br i1 %exitcond8.not, label %for.end80, label %for.body75, !llvm.loop !8
+  br i1 %exitcond8.not, label %for.end80, label %for.body75, !llvm.loop !7
 
 for.end80:                                        ; preds = %for.body75
   store ptr null, ptr @cur_info, align 8
@@ -321,7 +321,7 @@ declare ptr @ossl_quic_sstream_new(i64 noundef) local_unnamed_addr #1
 declare void @ossl_statm_update_rtt(ptr noundef, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_generic(ptr noundef %info, i32 noundef %kind) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_generic(ptr noundef %info, i32 noundef %kind) unnamed_addr #0 {
 entry:
   %consumed = alloca i64, align 8
   %hdr = alloca %struct.ossl_quic_frame_stream_st, align 8
@@ -355,7 +355,7 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.cond:                                         ; preds = %if.end68
-  br i1 %cmp12.not, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp12.not, label %for.body, label %for.end, !llvm.loop !8
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %cmp12.not = phi i1 [ true, %for.cond.preheader ], [ false, %for.cond ]
@@ -398,7 +398,7 @@ lor.lhs.false25:                                  ; preds = %if.end17
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
-  %conv27 = trunc i64 %i.075 to i32
+  %conv27 = trunc nuw nsw i64 %i.075 to i32
   %call28 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %bf.cast, i32 noundef %conv27) #10
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %lor.lhs.false30
@@ -487,7 +487,7 @@ if.end93:                                         ; preds = %lor.lhs.false87
   call void @ossl_quic_txpim_pkt_add_cfq_item(ptr noundef %call1, ptr noundef %call84) #10
   store i64 0, ptr %call1, align 8
   %pkt_space = getelementptr inbounds i8, ptr %call1, i64 32
-  %16 = trunc i32 %cond to i8
+  %16 = trunc nuw nsw i32 %cond to i8
   %bf.load95 = load i8, ptr %pkt_space, align 8
   %bf.clear97 = and i8 %bf.load95, -16
   %bf.set98 = or disjoint i8 %bf.clear97, %16
@@ -549,7 +549,7 @@ sw.bb:                                            ; preds = %if.end146
   br i1 %tobool151.not, label %err, label %for.body157
 
 for.cond154:                                      ; preds = %for.body157
-  br i1 %cmp155, label %for.body157, label %for.end167, !llvm.loop !10
+  br i1 %cmp155, label %for.body157, label %for.end167, !llvm.loop !9
 
 for.body157:                                      ; preds = %sw.bb, %for.cond154
   %cmp155 = phi i1 [ false, %for.cond154 ], [ true, %sw.bb ]
@@ -631,7 +631,7 @@ lor.lhs.false232:                                 ; preds = %if.end193
   br i1 %tobool238.not, label %err, label %for.body244
 
 for.cond241:                                      ; preds = %lor.lhs.false257
-  br i1 %cmp242, label %for.body244, label %for.end265, !llvm.loop !11
+  br i1 %cmp242, label %for.body244, label %for.end265, !llvm.loop !10
 
 for.body244:                                      ; preds = %lor.lhs.false232, %for.cond241
   %cmp242 = phi i1 [ false, %for.cond241 ], [ true, %lor.lhs.false232 ]
@@ -910,8 +910,7 @@ attributes #10 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

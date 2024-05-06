@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [30 x i8] c"argument list must be a tuple\00", align 1
 @.str.9 = private unnamed_addr constant [34 x i8] c"keyword list must be a dictionary\00", align 1
 @.str.10 = private unnamed_addr constant [25 x i8] c"keywords must be strings\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyModule_Type = external global %struct._typeobject, align 8
 @.str.11 = private unnamed_addr constant [61 x i8] c"'%.200s' object is not callable. Did you mean: '%U.%U(...)'?\00", align 1
 @.str.12 = private unnamed_addr constant [32 x i8] c"'%.200s' object is not callable\00", align 1
@@ -1503,14 +1503,11 @@ entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %call2
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %tstate, ptr noundef %callable, ptr noundef %format, ptr noundef %va) unnamed_addr #0 {
@@ -1718,18 +1715,15 @@ return:                                           ; preds = %if.then.i, %_PyErr_
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyEval_CallFunction(ptr noundef %callable, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %call2
 }
 
@@ -1739,9 +1733,9 @@ entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %call2
 }
 
@@ -1779,7 +1773,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call.i = call i32 @PyCallable_Check(ptr noundef nonnull %call3) #8
   %tobool.not.i9 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i9, label %if.then.i11, label %if.end.i10
@@ -1799,7 +1793,7 @@ if.end.i10:                                       ; preds = %if.end6
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
   %retval.0.i = phi ptr [ %call3.i, %if.end.i10 ], [ null, %if.then.i11 ]
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   %8 = load i64, ptr %call3, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i12.not = icmp eq i64 %9, 0
@@ -1856,7 +1850,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call.i = call i32 @PyCallable_Check(ptr noundef nonnull %call3) #8
   %tobool.not.i9 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i9, label %if.then.i11, label %if.end.i10
@@ -1876,7 +1870,7 @@ if.end.i10:                                       ; preds = %if.end6
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
   %retval.0.i = phi ptr [ %call3.i, %if.end.i10 ], [ null, %if.then.i11 ]
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   %8 = load i64, ptr %call3, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i12.not = icmp eq i64 %9, 0
@@ -1931,7 +1925,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call.i = call i32 @PyCallable_Check(ptr noundef nonnull %call3) #8
   %tobool.not.i9 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i9, label %if.then.i11, label %if.end.i10
@@ -1951,7 +1945,7 @@ if.end.i10:                                       ; preds = %if.end6
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
   %retval.0.i = phi ptr [ %call3.i, %if.end.i10 ], [ null, %if.then.i11 ]
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   %8 = load i64, ptr %call3, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i12.not = icmp eq i64 %9, 0
@@ -2008,7 +2002,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call.i = call i32 @PyCallable_Check(ptr noundef nonnull %call3) #8
   %tobool.not.i9 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i9, label %if.then.i11, label %if.end.i10
@@ -2028,7 +2022,7 @@ if.end.i10:                                       ; preds = %if.end6
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
   %retval.0.i = phi ptr [ %call3.i, %if.end.i10 ], [ null, %if.then.i11 ]
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   %8 = load i64, ptr %call3, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i12.not = icmp eq i64 %9, 0
@@ -2055,7 +2049,7 @@ declare ptr @_PyObject_GetAttrId(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden ptr @_PyObject_CallMethodFormat(ptr noundef %tstate, ptr noundef %callable, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call.i = call i32 @PyCallable_Check(ptr noundef %callable) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -2075,7 +2069,7 @@ if.end.i:                                         ; preds = %entry
 
 callmethod.exit:                                  ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call3.i, %if.end.i ], [ null, %if.then.i ]
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %retval.0.i
 }
 
@@ -2113,7 +2107,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call.i = call i32 @PyCallable_Check(ptr noundef nonnull %call3) #8
   %tobool.not.i9 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i9, label %if.then.i11, label %if.end.i10
@@ -2133,7 +2127,7 @@ if.end.i10:                                       ; preds = %if.end6
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
   %retval.0.i = phi ptr [ %call3.i, %if.end.i10 ], [ null, %if.then.i11 ]
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   %8 = load i64, ptr %call3, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i12.not = icmp eq i64 %9, 0
@@ -2311,10 +2305,10 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %tobool.not = icmp eq i32 %call3, 0
   %cond = select i1 %tobool.not, ptr null, ptr %obj
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %6 = load ptr, ptr %callable, align 8
   %call8 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef %cond, ptr noundef %6, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %7 = load ptr, ptr %callable, align 8
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2147483648
@@ -2362,7 +2356,7 @@ if.then.i:                                        ; preds = %_PyErr_Occurred.exi
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_copy(ptr nonnull %countva, ptr %vargs)
+  call void @llvm.va_copy.p0(ptr nonnull %countva, ptr %vargs)
   %tobool.not = icmp ne ptr %base, null
   %conv = zext i1 %tobool.not to i64
   %countva.promoted = load i32, ptr %countva, align 16
@@ -2401,7 +2395,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   br i1 %cmp2, label %while.end, label %while.body
 
 while.end:                                        ; preds = %vaarg.end
-  call void @llvm.va_end(ptr nonnull %countva)
+  call void @llvm.va_end.p0(ptr nonnull %countva)
   %cmp7 = icmp slt i64 %nargs.0, 6
   br i1 %cmp7, label %if.end17, label %if.else
 
@@ -2594,10 +2588,10 @@ if.end5:                                          ; preds = %if.end
 if.end9:                                          ; preds = %if.end5
   %tobool10.not = icmp eq i32 %call6, 0
   %cond = select i1 %tobool10.not, ptr null, ptr %obj
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %6 = load ptr, ptr %callable, align 8
   %call12 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef %cond, ptr noundef %6, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %7 = load ptr, ptr %callable, align 8
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2147483648
@@ -2627,9 +2621,9 @@ entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call2 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef null, ptr noundef %callable, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr %call2
 }
 
@@ -2666,7 +2660,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @PyVectorcall_NARGS(i64 noundef %n) local_unnamed_addr #6 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @PyVectorcall_NARGS(i64 noundef %n) local_unnamed_addr #5 {
 entry:
   %and.i = and i64 %n, 9223372036854775807
   ret i64 %and.i
@@ -2675,7 +2669,7 @@ entry:
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
 declare ptr @PyModule_GetNameObject(ptr noundef) local_unnamed_addr #1
 
@@ -2690,16 +2684,22 @@ declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @_Py_VaBuildStack(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #5
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }
 

@@ -10,21 +10,21 @@ target triple = "x86_64-unknown-linux-gnu"
 @uriSafeToPointToW = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriAddBaseUriA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
+define i32 @uriAddBaseUriA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noundef i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
+  %call.i = tail call i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriAddBaseUriExA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
+define i32 @uriAddBaseUriExA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
+define i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %do.end, label %if.else
@@ -162,7 +162,7 @@ if.then84.i:                                      ; preds = %if.else81.i, %land.
   br i1 %tobool86.not.i, label %if.then7, label %if.end88.i
 
 if.end88.i:                                       ; preds = %if.then84.i
-  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0), !range !4
+  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0)
   %cmp90.not.i = icmp eq i32 %call89.i, 0
   br i1 %cmp90.not.i, label %if.end92.i, label %if.then7
 
@@ -177,7 +177,7 @@ if.else97.i:                                      ; preds = %if.else81.i
   br i1 %tobool99.not.i, label %if.then7, label %if.end101.i
 
 if.end101.i:                                      ; preds = %if.else97.i
-  %call102.i = tail call fastcc i32 @uriMergePathA(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0), !range !5
+  %call102.i = tail call fastcc i32 @uriMergePathA(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0)
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %if.then7, label %if.end105.i
 
@@ -226,21 +226,21 @@ declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #1
 declare i32 @uriFreeUriMembersMmA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriAddBaseUriW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
+define i32 @uriAddBaseUriW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noundef i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
+  %call.i = tail call i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriAddBaseUriExW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
+define i32 @uriAddBaseUriExW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
+define i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %do.end, label %if.else
@@ -378,7 +378,7 @@ if.then84.i:                                      ; preds = %if.else81.i, %land.
   br i1 %tobool86.not.i, label %if.then7, label %if.end88.i
 
 if.end88.i:                                       ; preds = %if.then84.i
-  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0), !range !4
+  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0)
   %cmp90.not.i = icmp eq i32 %call89.i, 0
   br i1 %cmp90.not.i, label %if.end92.i, label %if.then7
 
@@ -393,7 +393,7 @@ if.else97.i:                                      ; preds = %if.else81.i
   br i1 %tobool99.not.i, label %if.then7, label %if.end101.i
 
 if.end101.i:                                      ; preds = %if.else97.i
-  %call102.i = tail call fastcc i32 @uriMergePathW(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0), !range !5
+  %call102.i = tail call fastcc i32 @uriMergePathW(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0)
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %if.then7, label %if.end105.i
 
@@ -455,7 +455,7 @@ declare i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef, ptr noundef) local_unnam
 declare i32 @uriIsHostSetA(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriResolveAbsolutePathFlagA(ptr noundef %absWork, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagA(ptr noundef %absWork, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %call = tail call i32 @uriIsHostSetA(ptr noundef %absWork) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -501,7 +501,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriMergePathA(ptr nocapture noundef %absWork, ptr nocapture noundef readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMergePathA(ptr nocapture noundef %absWork, ptr nocapture noundef readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %pathHead = getelementptr inbounds i8, ptr %relAppend, i64 96
   %0 = load ptr, ptr %pathHead, align 8
@@ -607,7 +607,7 @@ declare i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef, ptr noundef) local_unnam
 declare i32 @uriIsHostSetW(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriResolveAbsolutePathFlagW(ptr noundef %absWork, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagW(ptr noundef %absWork, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %call = tail call i32 @uriIsHostSetW(ptr noundef %absWork) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -653,7 +653,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uriMergePathW(ptr nocapture noundef %absWork, ptr nocapture noundef readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMergePathW(ptr nocapture noundef %absWork, ptr nocapture noundef readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %pathHead = getelementptr inbounds i8, ptr %relAppend, i64 96
   %0 = load ptr, ptr %pathHead, align 8
@@ -757,5 +757,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 4}
-!5 = !{i32 0, i32 2}

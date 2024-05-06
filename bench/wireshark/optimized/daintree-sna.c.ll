@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @daintree_sna_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @daintree_sna_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @daintree_sna_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [512 x i8], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = call ptr @file_gets(ptr noundef nonnull %4, i32 noundef 512, ptr noundef %5) #5
@@ -92,17 +92,17 @@ declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @daintree_sna_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @daintree_sna_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #5
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @daintree_sna_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %10 = tail call fastcc i32 @daintree_sna_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @daintree_sna_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @daintree_sna_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
@@ -111,7 +111,7 @@ define internal noundef i32 @daintree_sna_seek_read(ptr nocapture noundef readon
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @daintree_sna_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %13 = tail call fastcc i32 @daintree_sna_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %14
 
 14:                                               ; preds = %6, %11
@@ -136,7 +136,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @daintree_sna_read_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @daintree_sna_read_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca [512 x i8], align 16
@@ -156,7 +156,7 @@ define internal fastcc noundef i32 @daintree_sna_read_packet(ptr noundef %0, ptr
 15:                                               ; preds = %10
   %16 = load i8, ptr %8, align 16
   %17 = icmp eq i8 %16, 35
-  br i1 %17, label %10, label %18, !llvm.loop !5
+  br i1 %17, label %10, label %18, !llvm.loop !4
 
 18:                                               ; preds = %15
   store i32 0, ptr %1, align 8
@@ -282,7 +282,7 @@ define internal fastcc noundef i32 @daintree_sna_read_packet(ptr noundef %0, ptr
   %78 = add i32 %.05672, 1
   %79 = load i8, ptr %76, align 1
   %.not62 = icmp eq i8 %79, 0
-  br i1 %.not62, label %._crit_edge, label %41, !llvm.loop !7
+  br i1 %.not62, label %._crit_edge, label %41, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %75
   %80 = icmp ult i32 %78, 3
@@ -356,7 +356,6 @@ attributes #6 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

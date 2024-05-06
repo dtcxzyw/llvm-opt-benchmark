@@ -208,7 +208,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @template_public_single_zero_test(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @template_public_single_zero_test(i32 noundef %idx) #0 {
 entry:
   %zbn_res = alloca ptr, align 8
   store ptr null, ptr %zbn_res, align 8
@@ -911,7 +911,7 @@ declare i32 @CRYPTO_secure_malloc_init(i64 noundef, i64 noundef) local_unnamed_a
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @template_private_single_zero_test() #0 {
+define internal range(i32 0, 2) i32 @template_private_single_zero_test() #0 {
 entry:
   %zbn_res = alloca ptr, align 8
   store ptr null, ptr %zbn_res, align 8
@@ -1744,7 +1744,7 @@ if.end429:                                        ; preds = %err.thread, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @builder_limit_test() #0 {
+define internal range(i32 0, 2) i32 @builder_limit_test() #0 {
 entry:
   %names = alloca [100 x [3 x i8]], align 16
   %call = tail call ptr @OSSL_PARAM_BLD_new() #2
@@ -1791,11 +1791,11 @@ for.cond27:                                       ; preds = %for.end, %for.cond2
   %arrayidx29 = getelementptr inbounds %struct.ossl_param_st, ptr %call22, i64 %indvars.iv29
   %3 = load ptr, ptr %arrayidx29, align 8
   %cmp30.not = icmp eq ptr %3, null
-  %indvars.iv.next30 = add nuw i64 %indvars.iv29, 1
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   br i1 %cmp30.not, label %for.end35, label %for.cond27, !llvm.loop !9
 
 for.end35:                                        ; preds = %for.cond27
-  %4 = trunc i64 %indvars.iv29 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv29 to i32
   %call36 = call i32 @test_int_eq(ptr noundef nonnull @.str.6, i32 noundef 418, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.148, i32 noundef %4, i32 noundef 100) #2
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %if.end39
@@ -1820,11 +1820,11 @@ for.cond50:                                       ; preds = %lor.lhs.false, %for
   %arrayidx52 = getelementptr inbounds %struct.ossl_param_st, ptr %call45, i64 %indvars.iv32
   %5 = load ptr, ptr %arrayidx52, align 8
   %cmp54.not = icmp eq ptr %5, null
-  %indvars.iv.next33 = add nuw i64 %indvars.iv32, 1
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   br i1 %cmp54.not, label %for.end59, label %for.cond50, !llvm.loop !10
 
 for.end59:                                        ; preds = %for.cond50
-  %6 = trunc i64 %indvars.iv32 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv32 to i32
   %call60 = call i32 @test_int_eq(ptr noundef nonnull @.str.6, i32 noundef 430, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.151, i32 noundef %6, i32 noundef 1) #2
   %tobool61.not = icmp ne i32 %call60, 0
   %spec.select = zext i1 %tobool61.not to i32

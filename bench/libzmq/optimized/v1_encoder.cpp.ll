@@ -101,7 +101,7 @@ if.else:                                          ; preds = %entry
   store i8 -1, ptr %_tmpbuf15, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 73
   %shr.i = lshr i64 %size.0, 56
-  %conv.i = trunc i64 %shr.i to i8
+  %conv.i = trunc nuw i64 %shr.i to i8
   store i8 %conv.i, ptr %add.ptr, align 1
   %shr1.i = lshr i64 %size.0, 48
   %conv3.i = trunc i64 %shr1.i to i8

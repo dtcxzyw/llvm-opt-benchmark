@@ -389,7 +389,7 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 264:                                              ; preds = %26
   %265 = add nuw nsw i32 %17, 1
-  %266 = mul nsw i32 %265, %17
+  %266 = mul nuw nsw i32 %265, %17
   %267 = lshr i32 %266, 1
   %268 = getelementptr i8, ptr %2, i64 8
   %269 = icmp eq i32 %17, 0

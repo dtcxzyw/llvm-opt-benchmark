@@ -6,9 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 @softfloat_exceptionFlags = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @f16_to_ui64_r_minMag(i16 %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i64 -1, 131009) i64 @f16_to_ui64_r_minMag(i16 %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = lshr i16 %0, 10
-  %4 = trunc i16 %3 to i8
+  %4 = trunc nuw nsw i16 %3 to i8
   %5 = and i8 %4, 31
   %6 = and i16 %0, 1023
   %7 = zext nneg i16 %6 to i64

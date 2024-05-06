@@ -55,7 +55,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.10391794601993921631"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.10391794601993921631"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp ult i64 %3, %4
@@ -72,7 +72,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17h5a6d1d55c337cb5cE.llvm.10391794
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17h286a9a1b39ae68bdE.llvm.10391794601993921631(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h286a9a1b39ae68bdE.llvm.10391794601993921631(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %3 = load i64, ptr %0, align 8, !alias.scope !6, !noalias !9, !noundef !4
@@ -149,7 +149,7 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10get_result17ha3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !27
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = load i8, ptr %16, align 8, !range !28, !noalias !27, !noundef !4
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !27
   br i1 %18, label %19, label %.sink.split.i.i.i.i
 
@@ -196,7 +196,7 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10get_result17ha3
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer8name_buf17h3d7daaa81178c0a0E(ptr noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !17, !noundef !4
-  %trunc = trunc i64 %2 to i1
+  %trunc = trunc nuw i64 %2 to i1
   br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
@@ -211,7 +211,7 @@ define noundef nonnull align 8 ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTok
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer12name_buf_mut17hb414fda9746d6411E(ptr noalias noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !17, !noundef !4
-  %trunc = trunc i64 %2 to i1
+  %trunc = trunc nuw i64 %2 to i1
   br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
@@ -243,7 +243,7 @@ define noundef i8 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10finish_on
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14finish_numeric4conv17hf20fb4db1fb01372E(i32 noundef returned %0) unnamed_addr #1 {
+define noundef range(i32 0, 1114112) i32 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14finish_numeric4conv17hf20fb4db1fb01372E(i32 noundef returned %0) unnamed_addr #1 {
   %2 = xor i32 %0, 55296
   %3 = add i32 %2, -1114112
   %4 = icmp ult i32 %3, -1112064

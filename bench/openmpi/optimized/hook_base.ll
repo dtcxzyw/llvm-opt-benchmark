@@ -108,7 +108,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %15, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_hook_base_deregister_callbacks(ptr noundef readnone %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @ompi_hook_base_deregister_callbacks(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @additional_callback_components, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = getelementptr inbounds i8, ptr %2, i64 16

@@ -212,7 +212,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.21) #11
+  %call.i.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.21) #11
   %tobool.not.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.not.i, label %return, label %if.end.i.i
 
@@ -250,7 +250,7 @@ auth_digest_get_key_value.exit.i:                 ; preds = %switch.early.test.i
 if.end4.i:                                        ; preds = %auth_digest_get_key_value.exit.i, %if.end.i.i, %if.end.i.i
   %arrayidx8.i.sink.i = phi ptr [ %arrayidx8.i.i, %auth_digest_get_key_value.exit.i ], [ %nonce, %if.end.i.i ], [ %nonce, %if.end.i.i ]
   store i8 0, ptr %arrayidx8.i.sink.i, align 1
-  %call.i6.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.22) #11
+  %call.i6.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #11
   %tobool.not.i7.not.i = icmp eq ptr %call.i6.i, null
   br i1 %tobool.not.i7.not.i, label %if.end8.i, label %if.end.i8.i
 
@@ -288,7 +288,7 @@ auth_digest_get_key_value.exit28.i:               ; preds = %switch.early.test84
 if.end8.i:                                        ; preds = %auth_digest_get_key_value.exit28.i, %if.end.i8.i, %if.end.i8.i, %if.end4.i
   %arrayidx8.i16.sink.i = phi ptr [ %arrayidx8.i16.i, %auth_digest_get_key_value.exit28.i ], [ %realm, %if.end.i8.i ], [ %realm, %if.end.i8.i ], [ %realm, %if.end4.i ]
   store i8 0, ptr %arrayidx8.i16.sink.i, align 1
-  %call.i29.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.24) #11
+  %call.i29.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.24) #11
   %tobool.not.i30.not.i = icmp eq ptr %call.i29.i, null
   br i1 %tobool.not.i30.not.i, label %return, label %if.end.i31.i
 
@@ -326,7 +326,7 @@ auth_digest_get_key_value.exit51.i:               ; preds = %switch.early.test85
 if.end11.i:                                       ; preds = %auth_digest_get_key_value.exit51.i, %if.end.i31.i, %if.end.i31.i
   %arrayidx8.i39.sink.i = phi ptr [ %arrayidx8.i39.i, %auth_digest_get_key_value.exit51.i ], [ %algorithm, %if.end.i31.i ], [ %algorithm, %if.end.i31.i ]
   store i8 0, ptr %arrayidx8.i39.sink.i, align 1
-  %call.i52.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.25) #11
+  %call.i52.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.25) #11
   %tobool.not.i53.not.i = icmp eq ptr %call.i52.i, null
   br i1 %tobool.not.i53.not.i, label %return, label %if.end.i54.i
 
@@ -606,7 +606,7 @@ declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @curl_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %chlg, ptr nocapture noundef %digest) local_unnamed_addr #2 {
+define hidden range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %chlg, ptr nocapture noundef %digest) local_unnamed_addr #2 {
 entry:
   %chlg.addr = alloca ptr, align 8
   %value = alloca [256 x i8], align 16

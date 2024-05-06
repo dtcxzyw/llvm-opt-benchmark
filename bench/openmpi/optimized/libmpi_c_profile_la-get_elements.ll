@@ -70,7 +70,7 @@ define i32 @PMPI_Get_elements(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %28 = load i64, ptr %4, align 8
   %29 = icmp ult i64 %28, 2147483648
   %or.cond13 = select i1 %27, i1 %29, i1 false
-  %30 = trunc i64 %28 to i32
+  %30 = trunc nuw nsw i64 %28 to i32
   %storemerge = select i1 %or.cond13, i32 %30, i32 -32766
   store i32 %storemerge, ptr %2, align 4
   br label %33

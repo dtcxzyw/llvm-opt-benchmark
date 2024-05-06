@@ -25,7 +25,7 @@ define noundef i32 @serialize_p_data_to_string(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @serialize_p_string_to_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @serialize_p_string_to_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @data_new() #3

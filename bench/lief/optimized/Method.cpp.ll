@@ -527,7 +527,7 @@ define noundef ptr @_ZN4LIEF3DEX6Method3clsEv(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK4LIEF3DEX6Method5indexEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #5 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK4LIEF3DEX6Method5indexEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64

@@ -2688,7 +2688,7 @@ entry:
 declare void @_ZN4YAML12EmitterState13StartedScalarEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN4YAML22GetStringEscapingStyleENS_13EMITTER_MANIPE(i32 noundef %emitterManip) local_unnamed_addr #10 {
+define noundef range(i32 0, 3) i32 @_ZN4YAML22GetStringEscapingStyleENS_13EMITTER_MANIPE(i32 noundef %emitterManip) local_unnamed_addr #10 {
 entry:
   %switch.selectcmp = icmp eq i32 %emitterManip, 5
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0

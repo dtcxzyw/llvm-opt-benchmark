@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_epoll_ctl_prep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_epoll_ctl_prep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
@@ -51,7 +51,7 @@ define dso_local noundef i32 @io_epoll_ctl_prep(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_epoll_ctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @io_epoll_ctl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp slt i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8

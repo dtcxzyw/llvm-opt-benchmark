@@ -227,7 +227,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_private_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @EVP_PKEY_private_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
   %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 $__clang_call_terminate = comdat any
 
 @_ZN8nanobind6detail9internalsE = external hidden local_unnamed_addr global ptr, align 8
-@_ZN8nanobind6detail14current_ticketE = hidden thread_local global ptr null, align 8
+@_ZN8nanobind6detail14current_ticketE = hidden thread_local local_unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [81 x i8] c"nanobind::detail::get_trampoline('%s()'): tried to call a pure virtual function!\00", align 1
 @_Py_NoneStruct = external global %struct._object, align 8
 @.str.1 = private unnamed_addr constant [38 x i8] c"tried to call a pure virtual function\00", align 1

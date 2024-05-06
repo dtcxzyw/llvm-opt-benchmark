@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_cInteger = external local_unnamed_addr global i64, align 8
 @rb_cSymbol = external local_unnamed_addr global i64, align 8
 @rb_cRational = external local_unnamed_addr global i64, align 8
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @complex_pow_for_special_angle.dirs = internal unnamed_addr constant [8 x [2 x i32]] [[2 x i32] [i32 1, i32 0], [2 x i32] [i32 1, i32 1], [2 x i32] [i32 0, i32 1], [2 x i32] [i32 -1, i32 1], [2 x i32] [i32 -1, i32 0], [2 x i32] [i32 -1, i32 -1], [2 x i32] [i32 0, i32 -1], [2 x i32] [i32 1, i32 -1]], align 16
 @rb_eTypeError = external local_unnamed_addr global i64, align 8
 @.str.66 = private unnamed_addr constant [11 x i8] c"not a real\00", align 1
@@ -5912,7 +5912,7 @@ define internal i64 @nucomp_fdiv(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nucomp_eqeq_p(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @nucomp_eqeq_p(i64 noundef %0, i64 noundef %1) #0 {
   %3 = and i64 %1, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %1, 0
@@ -6950,7 +6950,7 @@ f_denominator.exit5:                              ; preds = %25, %29, %.critedge
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nucomp_hash(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @nucomp_hash(i64 noundef %0) #0 {
   %2 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = inttoptr i64 %0 to ptr
@@ -7003,7 +7003,7 @@ rb_complex_hash.exit:                             ; preds = %16, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nucomp_eql_p(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @nucomp_eql_p(i64 noundef %0, i64 noundef %1) #0 {
   %3 = and i64 %1, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %1, 0
@@ -7427,7 +7427,7 @@ f_format.exit:                                    ; preds = %RSTRING_PTR.exit.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_complex_finite_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_complex_finite_p(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -7521,7 +7521,7 @@ f_finite_p.exit10.thread:                         ; preds = %rb_integer_type_p.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_complex_infinite_p(i64 noundef %0) #0 {
+define internal range(i64 3, 5) i64 @rb_complex_infinite_p(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -8298,7 +8298,7 @@ define internal i64 @string_to_c(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   tail call void @rb_must_asciicompat(i64 noundef %0) #15
   %3 = tail call ptr @rb_str_fill_terminator(i64 noundef %0, i32 noundef 1) #15
-  %4 = call fastcc i32 @parse_comp(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %2), !range !18
+  %4 = call fastcc i32 @parse_comp(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %2)
   %5 = load i64, ptr %2, align 8
   ret i64 %5
 }
@@ -9847,13 +9847,13 @@ define internal fastcc i64 @string_to_c_strict(i64 noundef %0, i32 noundef %1) u
   br i1 %.not5, label %16, label %7
 
 7:                                                ; preds = %5
-  %8 = call fastcc i32 @parse_comp(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4), !range !18
+  %8 = call fastcc i32 @parse_comp(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4)
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %16, label %14
 
 .thread:                                          ; preds = %2
   %9 = call ptr @rb_string_value_cstr(ptr noundef nonnull %3) #15
-  %10 = call fastcc i32 @parse_comp(ptr noundef %9, i32 noundef 1, ptr noundef nonnull %4), !range !18
+  %10 = call fastcc i32 @parse_comp(ptr noundef %9, i32 noundef 1, ptr noundef nonnull %4)
   %.not68 = icmp eq i32 %10, 0
   br i1 %.not68, label %11, label %14
 
@@ -9889,7 +9889,7 @@ declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #4
 declare ptr @rb_str_to_cstr(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @parse_comp(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_comp(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -9932,7 +9932,7 @@ define internal fastcc i32 @parse_comp(ptr noundef %0, i32 noundef %1, ptr nocap
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 8192
   %.not.i = icmp eq i16 %31, 0
-  br i1 %.not.i, label %skip_ws.exit.loopexit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %skip_ws.exit.loopexit, label %.lr.ph.i, !llvm.loop !18
 
 skip_ws.exit.loopexit:                            ; preds = %.lr.ph.i
   store ptr %26, ptr %4, align 8
@@ -9976,7 +9976,7 @@ isimagunit.exit.thread.i:                         ; preds = %read_sign.exit.i, %
   br label %read_comp.exit.thread16
 
 44:                                               ; preds = %read_sign.exit.i
-  %45 = call fastcc i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5), !range !18
+  %45 = call fastcc i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5)
   %.not63.i = icmp eq i32 %45, 0
   %46 = load ptr, ptr %5, align 8
   store i8 0, ptr %46, align 1
@@ -10021,7 +10021,7 @@ isimagunit.exit71.thread.i:                       ; preds = %48, %48, %48, %48
   br label %read_rat.exit.i
 
 read_rat.exit.i:                                  ; preds = %57, %54
-  %60 = call fastcc noundef i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5), !range !18
+  %60 = call fastcc i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5)
   %61 = load ptr, ptr %5, align 8
   store i8 0, ptr %61, align 1
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #20
@@ -10057,7 +10057,7 @@ read_sign.exit73.i:                               ; preds = %48, %48
   ]
 
 77:                                               ; preds = %read_sign.exit73.i
-  %78 = call fastcc i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5), !range !18
+  %78 = call fastcc i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5)
   %.not67.i = icmp eq i32 %78, 0
   br i1 %.not67.i, label %read_comp.exit.thread, label %79
 
@@ -10135,7 +10135,7 @@ read_comp.exit._crit_edge:                        ; preds = %read_comp.exit
   %108 = load i16, ptr %107, align 2
   %109 = and i16 %108, 8192
   %.not.i9 = icmp eq i16 %109, 0
-  br i1 %.not.i9, label %skip_ws.exit10.loopexit, label %.lr.ph.i8, !llvm.loop !19
+  br i1 %.not.i9, label %skip_ws.exit10.loopexit, label %.lr.ph.i8, !llvm.loop !18
 
 skip_ws.exit10.loopexit:                          ; preds = %.lr.ph.i8
   store ptr %104, ptr %4, align 8
@@ -10170,7 +10170,7 @@ declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 nou
 declare ptr @__ctype_b_loc() local_unnamed_addr #11
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @read_rat_nos(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @read_rat_nos(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #12 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %.not.i = icmp eq i8 %5, 46
@@ -10229,7 +10229,7 @@ define internal fastcc noundef i32 @read_rat_nos(ptr nocapture noundef %0, i32 n
   %.phi.trans.insert.i.i = zext i8 %.pre.i.i to i64
   %.phi.trans.insert25.i.i = getelementptr i16, ptr %.pre24.i.i, i64 %.phi.trans.insert.i.i
   %.pre26.i.i = load i16, ptr %.phi.trans.insert25.i.i, align 2
-  br label %.preheader18.i.i, !llvm.loop !20
+  br label %.preheader18.i.i, !llvm.loop !19
 
 .loopexit19.i.i:                                  ; preds = %16
   %.not17.i.i = icmp eq i32 %.0.i.i, 0
@@ -10244,7 +10244,7 @@ define internal fastcc noundef i32 @read_rat_nos(ptr nocapture noundef %0, i32 n
   store ptr %26, ptr %0, align 8
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 95
-  br i1 %28, label %.preheader.i.i, label %read_digits.exit.i, !llvm.loop !21
+  br i1 %28, label %.preheader.i.i, label %read_digits.exit.i, !llvm.loop !20
 
 read_digits.exit.i:                               ; preds = %.preheader.i.i, %.loopexit19.i.i
   %29 = phi i8 [ %13, %.loopexit19.i.i ], [ %27, %.preheader.i.i ]
@@ -10313,7 +10313,7 @@ read_digits.exit.thread.i:                        ; preds = %3, %read_digits.exi
   %.phi.trans.insert.i38.i = zext i8 %.pre.i36.i to i64
   %.phi.trans.insert25.i39.i = getelementptr i16, ptr %.pre24.i37.i, i64 %.phi.trans.insert.i38.i
   %.pre26.i40.i = load i16, ptr %.phi.trans.insert25.i39.i, align 2
-  br label %.preheader18.i29.i, !llvm.loop !20
+  br label %.preheader18.i29.i, !llvm.loop !19
 
 .loopexit19.i46.i:                                ; preds = %47
   %.not17.i47.i = icmp eq i32 %.0.i31.i, 0
@@ -10328,7 +10328,7 @@ read_digits.exit.thread.i:                        ; preds = %3, %read_digits.exi
   store ptr %57, ptr %0, align 8
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 95
-  br i1 %59, label %.preheader.i45.i, label %read_digits.exit48.i, !llvm.loop !21
+  br i1 %59, label %.preheader.i45.i, label %read_digits.exit48.i, !llvm.loop !20
 
 read_digits.exit48.i:                             ; preds = %.preheader.i45.i, %.loopexit19.i46.i, %read_digits.exit.i
   %60 = phi i8 [ %44, %.loopexit19.i46.i ], [ %29, %read_digits.exit.i ], [ %58, %.preheader.i45.i ]
@@ -10420,7 +10420,7 @@ read_sign.exit.i:                                 ; preds = %70, %62
   %.phi.trans.insert.i60.i = zext i8 %.pre.i58.i to i64
   %.phi.trans.insert25.i61.i = getelementptr i16, ptr %.pre24.i59.i, i64 %.phi.trans.insert.i60.i
   %.pre26.i62.i = load i16, ptr %.phi.trans.insert25.i61.i, align 2
-  br label %.preheader18.i51.i, !llvm.loop !20
+  br label %.preheader18.i51.i, !llvm.loop !19
 
 .loopexit19.i68.i:                                ; preds = %88
   %.not17.i69.i = icmp eq i32 %.0.i53.i, 0
@@ -10435,7 +10435,7 @@ read_sign.exit.i:                                 ; preds = %70, %62
   store ptr %98, ptr %0, align 8
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 95
-  br i1 %100, label %.preheader.i67.i, label %read_num.exit, !llvm.loop !21
+  br i1 %100, label %.preheader.i67.i, label %read_num.exit, !llvm.loop !20
 
 read_num.exit:                                    ; preds = %.preheader.i67.i, %.loopexit19.i68.i, %read_digits.exit48.i
   %101 = phi i8 [ %85, %.loopexit19.i68.i ], [ %60, %read_digits.exit48.i ], [ %99, %.preheader.i67.i ]
@@ -10505,7 +10505,7 @@ read_num.exit:                                    ; preds = %.preheader.i67.i, %
   %.phi.trans.insert.i.i23 = zext i8 %.pre.i.i21 to i64
   %.phi.trans.insert25.i.i24 = getelementptr i16, ptr %.pre24.i.i22, i64 %.phi.trans.insert.i.i23
   %.pre26.i.i25 = load i16, ptr %.phi.trans.insert25.i.i24, align 2
-  br label %.preheader18.i.i14, !llvm.loop !20
+  br label %.preheader18.i.i14, !llvm.loop !19
 
 .loopexit19.i.i31:                                ; preds = %121
   %.not17.i.i32 = icmp eq i32 %.0.i.i16, 0
@@ -10520,7 +10520,7 @@ read_num.exit:                                    ; preds = %.preheader.i67.i, %
   store ptr %131, ptr %0, align 8
   %132 = load i8, ptr %131, align 1
   %133 = icmp eq i8 %132, 95
-  br i1 %133, label %.preheader.i.i30, label %read_den.exit, !llvm.loop !21
+  br i1 %133, label %.preheader.i.i30, label %read_den.exit, !llvm.loop !20
 
 read_den.exit.sink.split.sink.split:              ; preds = %122, %48, %89
   %.pre = load ptr, ptr %2, align 8
@@ -10710,7 +10710,6 @@ attributes #22 = { nounwind willreturn memory(none) }
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"rbimpl_rstring_getmem: argument 0"}
 !17 = distinct !{!17, !"rbimpl_rstring_getmem"}
-!18 = !{i32 0, i32 2}
+!18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}

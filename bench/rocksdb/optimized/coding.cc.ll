@@ -10,7 +10,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %v to i8
+  %conv = trunc nuw nsw i32 %v to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %dst, i64 1
   store i8 %conv, ptr %dst, align 1
   br label %if.end58
@@ -25,7 +25,7 @@ if.then2:                                         ; preds = %if.else
   %incdec.ptr4 = getelementptr inbounds i8, ptr %dst, i64 1
   store i8 %conv3, ptr %dst, align 1
   %shr = lshr i32 %v, 7
-  %conv5 = trunc i32 %shr to i8
+  %conv5 = trunc nuw nsw i32 %shr to i8
   %incdec.ptr6 = getelementptr inbounds i8, ptr %dst, i64 2
   store i8 %conv5, ptr %incdec.ptr4, align 1
   br label %if.end58
@@ -45,7 +45,7 @@ if.then9:                                         ; preds = %if.else7
   %incdec.ptr16 = getelementptr inbounds i8, ptr %dst, i64 2
   store i8 %conv15, ptr %incdec.ptr12, align 1
   %shr17 = lshr i32 %v, 14
-  %conv18 = trunc i32 %shr17 to i8
+  %conv18 = trunc nuw nsw i32 %shr17 to i8
   %incdec.ptr19 = getelementptr inbounds i8, ptr %dst, i64 3
   store i8 %conv18, ptr %incdec.ptr16, align 1
   br label %if.end58
@@ -80,7 +80,7 @@ if.else37:                                        ; preds = %if.else20
   %incdec.ptr52 = getelementptr inbounds i8, ptr %dst, i64 4
   store i8 %conv51, ptr %incdec.ptr33, align 1
   %shr53 = lshr i32 %v, 28
-  %conv54 = trunc i32 %shr53 to i8
+  %conv54 = trunc nuw nsw i32 %shr53 to i8
   %incdec.ptr55 = getelementptr inbounds i8, ptr %dst, i64 5
   store i8 %conv54, ptr %incdec.ptr52, align 1
   br label %if.end58
@@ -108,7 +108,7 @@ for.body:                                         ; preds = %entry, %if.then
 
 if.then:                                          ; preds = %for.body
   %and2 = and i32 %conv, 127
-  %shl = shl i32 %and2, %shift.016
+  %shl = shl nuw nsw i32 %and2, %shift.016
   %or = or i32 %shl, %result.015
   %add = add nuw nsw i32 %shift.016, 7
   %cmp = icmp ult i32 %shift.016, 22
@@ -145,7 +145,7 @@ for.body:                                         ; preds = %entry, %if.then
 
 if.then:                                          ; preds = %for.body
   %and2 = and i64 %conv, 127
-  %shl = shl i64 %and2, %indvars.iv
+  %shl = shl nuw nsw i64 %and2, %indvars.iv
   %or = or i64 %shl, %result.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 7
   %cmp = icmp ult i64 %indvars.iv, 57

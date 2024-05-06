@@ -388,7 +388,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare i32 @ompi_comm_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_coll_han_comm_create(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -8, 1) i32 @mca_coll_han_comm_create(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.opal_info_t, align 8
   %5 = alloca i32, align 4

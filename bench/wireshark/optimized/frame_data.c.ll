@@ -39,7 +39,7 @@ declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %3, label %120 [
     i32 32, label %5
     i32 45, label %12
@@ -133,15 +133,15 @@ define i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %121
 
 46:                                               ; preds = %12
-  %47 = tail call fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+  %47 = tail call fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %121
 
 48:                                               ; preds = %12
-  %49 = tail call fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+  %49 = tail call fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %121
 
 50:                                               ; preds = %12
-  %51 = tail call fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+  %51 = tail call fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %121
 
 52:                                               ; preds = %4, %4, %4, %4, %4, %4
@@ -197,15 +197,15 @@ define i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %121
 
 84:                                               ; preds = %4
-  %85 = tail call fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+  %85 = tail call fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %121
 
 86:                                               ; preds = %4
-  %87 = tail call fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+  %87 = tail call fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %121
 
 88:                                               ; preds = %4
-  %89 = tail call fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+  %89 = tail call fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %121
 
 90:                                               ; preds = %4
@@ -266,7 +266,7 @@ define i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 declare i32 @timestamp_get_type() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 88
@@ -364,7 +364,7 @@ frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = load i32, ptr %1, align 8
@@ -462,7 +462,7 @@ frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 92
@@ -906,4 +906,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}

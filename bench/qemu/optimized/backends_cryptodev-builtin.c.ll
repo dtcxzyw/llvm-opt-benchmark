@@ -225,7 +225,7 @@ for.end19:                                        ; preds = %for.inc17, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cryptodev_builtin_create_session(ptr noundef %backend, ptr nocapture noundef %sess_info, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
+define internal range(i32 -3, 1) i32 @cryptodev_builtin_create_session(ptr noundef %backend, ptr nocapture noundef %sess_info, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %opts.i = alloca %struct.QCryptoAkCipherOptions, align 4
   %local_error = alloca ptr, align 8
@@ -266,7 +266,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then6.i, label %for.body.i.i, !llvm.loop !8
 
 cryptodev_builtin_get_unused_session_index.exit.i: ; preds = %for.body.i.i
-  %conv.i.i = trunc i64 %i.05.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %i.05.i.i to i32
   %cmp4.i = icmp slt i32 %conv.i.i, 0
   br i1 %cmp4.i, label %if.then6.i, label %if.end7.i
 
@@ -366,7 +366,7 @@ sw.default.i:                                     ; preds = %if.end7.i
   br label %sw.epilog
 
 switch.hole_check:                                ; preds = %sw.bb27.i
-  %switch.maskindex = trunc i32 %9 to i8
+  %switch.maskindex = trunc nuw i32 %9 to i8
   %switch.shifted = lshr i8 71, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %cryptodev_builtin_get_aes_algo.exit52.i
@@ -433,7 +433,7 @@ cryptodev_builtin_get_rsa_hash_algo.exit.i.i:     ; preds = %switch.hole_check35
   br label %cryptodev_builtin_create_akcipher_session.exit
 
 switch.hole_check35:                              ; preds = %if.then.i.i
-  %switch.maskindex37 = trunc i32 %switch.tableidx to i8
+  %switch.maskindex37 = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted38 = lshr i8 23, %switch.maskindex37
   %switch.lobit39 = trunc i8 %switch.shifted38 to i1
   br i1 %switch.lobit39, label %switch.lookup36, label %cryptodev_builtin_get_rsa_hash_algo.exit.i.i
@@ -488,7 +488,7 @@ for.inc.i.i17:                                    ; preds = %for.body.i.i13
   br i1 %exitcond.not.i.i19, label %if.then11.i, label %for.body.i.i13, !llvm.loop !8
 
 cryptodev_builtin_get_unused_session_index.exit.i20: ; preds = %for.body.i.i13
-  %conv.i.i21 = trunc i64 %i.05.i.i14 to i32
+  %conv.i.i21 = trunc nuw nsw i64 %i.05.i.i14 to i32
   %cmp10.i = icmp slt i32 %conv.i.i21, 0
   br i1 %cmp10.i, label %if.then11.i, label %if.end12.i
 
@@ -610,7 +610,7 @@ if.end16:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cryptodev_builtin_operation(ptr noundef %backend, ptr nocapture noundef readonly %op_info) #0 {
+define internal range(i32 -4, 1) i32 @cryptodev_builtin_operation(ptr noundef %backend, ptr nocapture noundef readonly %op_info) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6

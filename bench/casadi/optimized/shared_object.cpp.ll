@@ -1022,7 +1022,7 @@ define noundef zeroext i1 @_ZNK6casadi7WeakRef5aliveEv(ptr nocapture noundef non
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %5 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
@@ -1047,7 +1047,7 @@ define void @_ZN6casadi7WeakRef6sharedEv(ptr dead_on_unwind noalias writable sre
   br i1 %4, label %_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %6 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %1)
           to label %_ZNK6casadi7WeakRef5aliveEv.exit unwind label %30
 
 _ZNK6casadi7WeakRef5aliveEv.exit:                 ; preds = %5
@@ -1057,7 +1057,7 @@ _ZNK6casadi7WeakRef5aliveEv.exit:                 ; preds = %5
   br i1 %.not, label %_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE.exit, label %9
 
 9:                                                ; preds = %_ZNK6casadi7WeakRef5aliveEv.exit
-  %10 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %10 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %1)
           to label %_ZN6casadi7WeakRefptEv.exit unwind label %30
 
 _ZN6casadi7WeakRefptEv.exit:                      ; preds = %9
@@ -1118,7 +1118,7 @@ define noundef ptr @_ZN6casadi7WeakRefptEv(ptr nocapture noundef nonnull readonl
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi7WeakRefC2ENS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
-  %3 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %3 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %1)
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %2
@@ -1243,7 +1243,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi7WeakRef4killEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
-  %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr null, ptr %3, align 8
   ret void

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.VIRTIO_DEVICE_GET_CLASS = private unnamed_addr constant [24 x i8] c"VIRTIO_DEVICE_GET_CLASS\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtio_config_readb(ptr noundef %vdev, i32 noundef %addr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @virtio_config_readb(ptr noundef %vdev, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
@@ -36,7 +36,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtio_config_readw(ptr noundef %vdev, i32 noundef %addr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 65536) i32 @virtio_config_readw(ptr noundef %vdev, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
@@ -187,7 +187,7 @@ if.end5:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtio_config_modern_readb(ptr noundef %vdev, i32 noundef %addr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @virtio_config_modern_readb(ptr noundef %vdev, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
@@ -215,7 +215,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtio_config_modern_readw(ptr noundef %vdev, i32 noundef %addr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 65536) i32 @virtio_config_modern_readw(ptr noundef %vdev, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2

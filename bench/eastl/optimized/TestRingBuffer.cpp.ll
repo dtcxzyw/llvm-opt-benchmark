@@ -58289,7 +58289,7 @@ if.then.i8684:                                    ; preds = %for.end2723
 
 call3.i.i.noexc:                                  ; preds = %if.then.i8684
   %mContainer.i.i = getelementptr inbounds i8, ptr %cTemp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call3.i.i8734, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %call3.i.i8734, i8 0, i64 40, i1 false)
   store ptr %call3.i.i8734, ptr %mContainer.i.i, align 8
   %add.i8685 = or disjoint i64 %mul2725, 1
   %mpEnd.i9.i = getelementptr inbounds i8, ptr %call3.i.i8734, i64 8

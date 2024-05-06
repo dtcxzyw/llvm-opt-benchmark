@@ -532,7 +532,7 @@ define dso_local zeroext i1 @nfs_client_init_is_complete(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_client_init_status(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @nfs_client_init_status(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1320,7 +1320,7 @@ define dso_local ptr @nfs_init_client(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_probe_server(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @nfs_probe_server(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @nfs_alloc_fattr() #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -1339,7 +1339,7 @@ define dso_local i32 @nfs_probe_server(ptr noundef %0, ptr noundef %1) #0 align 
 declare dso_local ptr @nfs_alloc_fattr() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs_probe_fsinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.nfs_fsinfo, align 8
   %5 = alloca %struct.nfs_pathconf, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #13
@@ -3216,7 +3216,7 @@ define dso_local void @nfs_clients_exit(ptr noundef %0) local_unnamed_addr #0 al
 declare dso_local void @nfs_netns_sysfs_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_fs_proc_net_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @nfs_fs_proc_net_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @nfs_net_id, align 4
   tail call void @__rcu_read_lock() #13
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
@@ -3269,7 +3269,7 @@ define dso_local void @nfs_fs_proc_net_exit(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @nfs_fs_proc_init() local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @nfs_fs_proc_init() local_unnamed_addr #7 section ".init.text" align 16 {
   %1 = tail call ptr @proc_mkdir(ptr noundef nonnull @.str.9, ptr noundef null) #13
   %2 = icmp eq ptr %1, null
   br i1 %2, label %11, label %3

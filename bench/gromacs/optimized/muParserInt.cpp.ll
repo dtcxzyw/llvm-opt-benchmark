@@ -1460,7 +1460,7 @@ define noundef double @_ZN2mu9ParserInt3MaxEPKdi(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu9ParserInt5IsValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt5IsValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -1607,7 +1607,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu9ParserInt8IsHexValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsHexValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1715,7 +1715,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRS
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %5, 35

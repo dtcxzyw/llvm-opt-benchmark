@@ -1839,8 +1839,8 @@ if.then32:                                        ; preds = %invoke.cont30
   %35 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i61 = zext i32 %35 to i64
   %add.ptr.i62.idx = shl nuw nsw i64 %idx.ext.i61, 3
-  %36 = getelementptr i8, ptr %29, i64 %add.ptr.i62.idx
-  %add.ptr.i62.ptr = getelementptr i8, ptr %36, i64 32
+  %36 = getelementptr inbounds i8, ptr %29, i64 %add.ptr.i62.idx
+  %add.ptr.i62.ptr = getelementptr inbounds i8, ptr %36, i64 32
   %cmp.not255 = icmp eq i32 %35, 0
   br i1 %cmp.not255, label %if.end117, label %invoke.cont39.preheader
 

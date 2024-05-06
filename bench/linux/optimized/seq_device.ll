@@ -74,7 +74,7 @@ define dso_local void @snd_seq_device_load_drivers() #0 align 16 {
 declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_device_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_seq_device_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) #0 align 16 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %8, label %7
 
@@ -154,7 +154,7 @@ define internal noundef i32 @snd_seq_device_dev_free(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_seq_device_dev_register(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @snd_seq_device_dev_register(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 136
@@ -338,7 +338,7 @@ declare dso_local void @device_del(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @snd_seq_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal range(i32 0, 2) i32 @snd_seq_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -120
@@ -371,7 +371,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @bus_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @seq_dev_proc_init() unnamed_addr #2 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @seq_dev_proc_init() unnamed_addr #2 section ".init.text" align 16 {
   %1 = load ptr, ptr @snd_seq_root, align 8
   %2 = tail call ptr @snd_info_create_module_entry(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef %1) #6
   store ptr %2, ptr @info_entry, align 8

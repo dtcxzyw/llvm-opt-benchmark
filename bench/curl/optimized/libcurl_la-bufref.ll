@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_bufref_memdup(ptr nocapture noundef %br, ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_bufref_memdup(ptr nocapture noundef %br, ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %ptr, null
   br i1 %tobool.not, label %if.end11, label %if.then

@@ -1153,7 +1153,7 @@ declare dso_local i32 @scsi_ioctl(ptr noundef, i1 noundef zeroext, i32 noundef, 
 declare dso_local i32 @cdrom_check_events(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sr_open(ptr nocapture noundef readonly %0, i32 %1) #2 align 16 {
+define internal range(i32 -6, 1) i32 @sr_open(ptr nocapture noundef readonly %0, i32 %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1655,7 +1655,7 @@ declare i32 @llvm.bswap.i32(i32) #8
 declare dso_local void @del_gendisk(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @sr_runtime_suspend(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal range(i32 -16, 1) i32 @sr_runtime_suspend(ptr nocapture noundef readonly %0) #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

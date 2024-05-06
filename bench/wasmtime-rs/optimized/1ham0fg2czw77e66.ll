@@ -16,7 +16,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %8 = uitofp i64 %3 to double
   %9 = fmul double %8, 1.200000e+00
   %10 = tail call i64 @llvm.fptoui.sat.i64.f64(double %9)
-  %11 = tail call i64 @llvm.ctpop.i64(i64 %10), !range !3
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %15
 
@@ -26,7 +26,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
 
 15:                                               ; preds = %4
   %16 = add i64 %10, -1
-  %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !3
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
   %18 = lshr i64 -1, %17
   %19 = add i64 %18, 1
   %.inv = icmp ugt i64 %10, 1
@@ -43,7 +43,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %22 = icmp eq i64 %.0.fr, 0
   %23 = getelementptr inbounds i8, ptr %7, i64 16
   %24 = getelementptr inbounds i8, ptr %7, i64 8
-  br i1 %22, label %.split.us, label %.split, !prof !4
+  br i1 %22, label %.split.us, label %.split, !prof !3
 
 .split.us:                                        ; preds = %20
   %25 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %6)
@@ -94,13 +94,13 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   ret void
 
 .preheader:                                       ; preds = %33
-  %35 = load i64, ptr %23, align 8, !noundef !5
+  %35 = load i64, ptr %23, align 8, !noundef !4
   %.02737 = urem i64 %34, %.0.fr
   %36 = icmp ult i64 %.02737, %35
-  br i1 %36, label %.lr.ph, label %.preheader._crit_edge, !prof !6
+  br i1 %36, label %.lr.ph, label %.preheader._crit_edge, !prof !5
 
 .lr.ph:                                           ; preds = %.preheader
-  %37 = load ptr, ptr %24, align 8, !nonnull !5, !noundef !5
+  %37 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
   br label %39
 
 .split46.us:                                      ; preds = %28
@@ -114,7 +114,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %.02739 = phi i64 [ %.02737, %.lr.ph ], [ %.027, %42 ]
   %.02538 = phi i64 [ 0, %.lr.ph ], [ %43, %42 ]
   %40 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02739
-  %41 = load ptr, ptr %40, align 8, !noundef !5
+  %41 = load ptr, ptr %40, align 8, !noundef !4
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %46, label %42
 
@@ -128,7 +128,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %44 = add i64 %.02739, %43
   %.027 = urem i64 %44, %.0.fr
   %45 = icmp ult i64 %.027, %35
-  br i1 %45, label %39, label %.preheader._crit_edge, !prof !7
+  br i1 %45, label %39, label %.preheader._crit_edge, !prof !6
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02739
@@ -153,7 +153,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %8 = uitofp i64 %3 to double
   %9 = fmul double %8, 1.200000e+00
   %10 = tail call i64 @llvm.fptoui.sat.i64.f64(double %9)
-  %11 = tail call i64 @llvm.ctpop.i64(i64 %10), !range !3
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %15
 
@@ -163,7 +163,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
 
 15:                                               ; preds = %4
   %16 = add i64 %10, -1
-  %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !3
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
   %18 = lshr i64 -1, %17
   %19 = add i64 %18, 1
   %.inv = icmp ugt i64 %10, 1
@@ -180,7 +180,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %22 = icmp eq i64 %.0.fr, 0
   %23 = getelementptr inbounds i8, ptr %7, i64 16
   %24 = getelementptr inbounds i8, ptr %7, i64 8
-  br i1 %22, label %.split.us, label %.split, !prof !4
+  br i1 %22, label %.split.us, label %.split, !prof !3
 
 .split.us:                                        ; preds = %20
   %25 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd6d86bbba0a25962E"(ptr nonnull align 8 %6)
@@ -231,13 +231,13 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   ret void
 
 .preheader:                                       ; preds = %33
-  %35 = load i64, ptr %23, align 8, !noundef !5
+  %35 = load i64, ptr %23, align 8, !noundef !4
   %.02737 = urem i64 %34, %.0.fr
   %36 = icmp ult i64 %.02737, %35
-  br i1 %36, label %.lr.ph, label %.preheader._crit_edge, !prof !6
+  br i1 %36, label %.lr.ph, label %.preheader._crit_edge, !prof !5
 
 .lr.ph:                                           ; preds = %.preheader
-  %37 = load ptr, ptr %24, align 8, !nonnull !5, !noundef !5
+  %37 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
   br label %39
 
 .split46.us:                                      ; preds = %28
@@ -251,7 +251,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %.02739 = phi i64 [ %.02737, %.lr.ph ], [ %.027, %42 ]
   %.02538 = phi i64 [ 0, %.lr.ph ], [ %43, %42 ]
   %40 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02739
-  %41 = load ptr, ptr %40, align 8, !noundef !5
+  %41 = load ptr, ptr %40, align 8, !noundef !4
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %46, label %42
 
@@ -265,7 +265,7 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %44 = add i64 %.02739, %43
   %.027 = urem i64 %44, %.0.fr
   %45 = icmp ult i64 %.027, %35
-  br i1 %45, label %39, label %.preheader._crit_edge, !prof !7
+  br i1 %45, label %39, label %.preheader._crit_edge, !prof !6
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02739
@@ -346,8 +346,7 @@ attributes #8 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
-!3 = !{i64 0, i64 65}
-!4 = !{!"branch_weights", i32 1, i32 2000}
-!5 = !{}
-!6 = !{!"branch_weights", i32 127, i32 1}
-!7 = !{!"branch_weights", i32 255873, i32 127}
+!3 = !{!"branch_weights", i32 1, i32 2000}
+!4 = !{}
+!5 = !{!"branch_weights", i32 127, i32 1}
+!6 = !{!"branch_weights", i32 255873, i32 127}

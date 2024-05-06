@@ -278,7 +278,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %21 = icmp ne i32 %13, 0
   %22 = xor i1 %20, %21
   tail call void @llvm.assume(i1 %22)
-  %23 = mul nsw i32 %16, %13
+  %23 = mul nuw nsw i32 %16, %13
   %24 = icmp eq i32 %7, %23
   tail call void @llvm.assume(i1 %24)
   %25 = shl nuw nsw i32 %13, 1
@@ -286,7 +286,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %27 = mul nsw i32 %25, %10
+  %27 = mul nuw nsw i32 %25, %10
   %28 = zext nneg i32 %27 to i64
   %29 = icmp eq i32 %27, 0
   br i1 %29, label %33, label %30
@@ -885,7 +885,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   tail call void @llvm.assume(i1 %484)
   %485 = icmp ult i64 %215, %83
   tail call void @llvm.assume(i1 %485)
-  %486 = mul nsw i64 %215, %82
+  %486 = mul nuw nsw i64 %215, %82
   %487 = trunc i64 %486 to i32
   %488 = add i32 %54, %487
   %489 = icmp ule i32 %488, %50
@@ -1172,14 +1172,14 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %683 = add i32 %54, %682
   %684 = icmp ule i32 %683, %50
   tail call void @llvm.assume(i1 %684)
-  %685 = mul nsw i64 %215, %82
+  %685 = mul nuw nsw i64 %215, %82
   %686 = trunc i64 %685 to i32
   %687 = add i32 %54, %686
   %688 = icmp ule i32 %687, %50
   tail call void @llvm.assume(i1 %688)
   %689 = icmp ult i64 %463, %83
   tail call void @llvm.assume(i1 %689)
-  %690 = mul nsw i64 %463, %82
+  %690 = mul nuw nsw i64 %463, %82
   %691 = trunc i64 %690 to i32
   %692 = add i32 %54, %691
   %693 = icmp ule i32 %692, %50
@@ -1674,7 +1674,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   %23 = icmp ne i32 %15, 0
   %24 = xor i1 %22, %23
   tail call void @llvm.assume(i1 %24)
-  %25 = mul nsw i32 %18, %15
+  %25 = mul nuw nsw i32 %18, %15
   %26 = icmp eq i32 %9, %25
   tail call void @llvm.assume(i1 %26)
   %27 = shl nuw nsw i32 %12, 1
@@ -1682,7 +1682,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  %29 = mul nsw i32 %15, %27
+  %29 = mul nuw nsw i32 %15, %27
   %30 = zext nneg i32 %29 to i64
   %31 = icmp eq i32 %29, 0
   br i1 %31, label %35, label %32
@@ -1738,7 +1738,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   tail call void @llvm.assume(i1 %62)
   %63 = icmp uge i32 %60, %57
   tail call void @llvm.assume(i1 %63)
-  %64 = mul nsw i32 %54, %60
+  %64 = mul nuw nsw i32 %54, %60
   %65 = icmp eq i32 %50, %64
   tail call void @llvm.assume(i1 %65)
   %66 = icmp ugt i32 %57, 2
@@ -2404,7 +2404,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBand31
   %39 = icmp ne i32 %25, 0
   %40 = xor i1 %39, %38
   tail call void @llvm.assume(i1 %40)
-  %41 = mul nsw i32 %34, %25
+  %41 = mul nuw nsw i32 %34, %25
   %42 = icmp eq i32 %41, %22
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds i8, ptr %13, i64 80
@@ -2444,7 +2444,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBand31
   %66 = icmp ne i32 %52, 0
   %67 = xor i1 %66, %65
   tail call void @llvm.assume(i1 %67)
-  %68 = mul nsw i32 %61, %52
+  %68 = mul nuw nsw i32 %61, %52
   %69 = icmp eq i32 %68, %49
   tail call void @llvm.assume(i1 %69)
   call void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_(ptr dead_on_unwind nonnull writable sret(%"struct.rawspeed::VC5Decompressor::BandData") align 8 %3, ptr noundef nonnull byval(%"class.rawspeed::Array2DRef.5") align 8 %4, ptr noundef nonnull byval(%"class.rawspeed::Array2DRef.5") align 8 %5) #30
@@ -2540,7 +2540,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBand32
   %40 = icmp ne i32 %26, 0
   %41 = xor i1 %40, %39
   tail call void @llvm.assume(i1 %41)
-  %42 = mul nsw i32 %35, %26
+  %42 = mul nuw nsw i32 %35, %26
   %43 = icmp eq i32 %42, %23
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds i8, ptr %14, i64 80
@@ -2580,7 +2580,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBand32
   %67 = icmp ne i32 %53, 0
   %68 = xor i1 %67, %66
   tail call void @llvm.assume(i1 %68)
-  %69 = mul nsw i32 %62, %53
+  %69 = mul nuw nsw i32 %62, %53
   %70 = icmp eq i32 %69, %50
   tail call void @llvm.assume(i1 %70)
   call void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_(ptr dead_on_unwind nonnull writable sret(%"struct.rawspeed::VC5Decompressor::BandData") align 8 %3, ptr noundef nonnull byval(%"class.rawspeed::Array2DRef.5") align 8 %4, ptr noundef nonnull byval(%"class.rawspeed::Array2DRef.5") align 8 %5) #30
@@ -2712,7 +2712,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBand30
   %58 = icmp ne i32 %44, 0
   %59 = xor i1 %58, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = mul nsw i32 %53, %44
+  %60 = mul nuw nsw i32 %53, %44
   %61 = icmp eq i32 %60, %41
   tail call void @llvm.assume(i1 %61)
   %62 = getelementptr inbounds i8, ptr %0, i64 232
@@ -2752,7 +2752,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBand30
   %85 = icmp ne i32 %71, 0
   %86 = xor i1 %85, %84
   tail call void @llvm.assume(i1 %86)
-  %87 = mul nsw i32 %80, %71
+  %87 = mul nuw nsw i32 %80, %71
   %88 = icmp eq i32 %87, %68
   tail call void @llvm.assume(i1 %88)
   %89 = getelementptr inbounds i8, ptr %0, i64 88
@@ -7023,7 +7023,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %12 = getelementptr inbounds i8, ptr %2, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !382, !noalias !377
   %14 = ashr i32 %13, 1
-  %15 = mul nsw i32 %14, %11
+  %15 = mul nuw nsw i32 %14, %11
   %16 = icmp sgt i32 %9, -1
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %11, -1
@@ -7073,7 +7073,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %49 = icmp ne i32 %39, 0
   %50 = xor i1 %48, %49
   tail call void @llvm.assume(i1 %50)
-  %51 = mul nsw i32 %39, %44
+  %51 = mul nuw nsw i32 %39, %44
   %52 = icmp eq i32 %51, %35
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds i8, ptr %0, i64 440
@@ -7109,7 +7109,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %76 = icmp ne i32 %66, 0
   %77 = xor i1 %75, %76
   tail call void @llvm.assume(i1 %77)
-  %78 = mul nsw i32 %66, %71
+  %78 = mul nuw nsw i32 %66, %71
   %79 = icmp eq i32 %78, %62
   tail call void @llvm.assume(i1 %79)
   %80 = getelementptr inbounds i8, ptr %0, i64 632
@@ -7145,7 +7145,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %103 = icmp ne i32 %93, 0
   %104 = xor i1 %102, %103
   tail call void @llvm.assume(i1 %104)
-  %105 = mul nsw i32 %93, %98
+  %105 = mul nuw nsw i32 %93, %98
   %106 = icmp eq i32 %105, %89
   tail call void @llvm.assume(i1 %106)
   %107 = getelementptr inbounds i8, ptr %0, i64 824
@@ -7181,7 +7181,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %130 = icmp ne i32 %120, 0
   %131 = xor i1 %129, %130
   tail call void @llvm.assume(i1 %131)
-  %132 = mul nsw i32 %120, %125
+  %132 = mul nuw nsw i32 %120, %125
   %133 = icmp eq i32 %132, %116
   tail call void @llvm.assume(i1 %133)
   %134 = icmp ult i32 %11, 2
@@ -7639,7 +7639,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %14 = getelementptr inbounds i8, ptr %4, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !382, !noalias !400
   %16 = ashr i32 %15, 1
-  %17 = mul nsw i32 %16, %13
+  %17 = mul nuw nsw i32 %16, %13
   %18 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %13, -1
@@ -7689,7 +7689,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %51 = icmp ne i32 %41, 0
   %52 = xor i1 %50, %51
   tail call void @llvm.assume(i1 %52)
-  %53 = mul nsw i32 %41, %46
+  %53 = mul nuw nsw i32 %41, %46
   %54 = icmp eq i32 %53, %37
   tail call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds i8, ptr %0, i64 440
@@ -7725,7 +7725,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %78 = icmp ne i32 %68, 0
   %79 = xor i1 %77, %78
   tail call void @llvm.assume(i1 %79)
-  %80 = mul nsw i32 %68, %73
+  %80 = mul nuw nsw i32 %68, %73
   %81 = icmp eq i32 %80, %64
   tail call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds i8, ptr %0, i64 632
@@ -7761,7 +7761,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %105 = icmp ne i32 %95, 0
   %106 = xor i1 %104, %105
   tail call void @llvm.assume(i1 %106)
-  %107 = mul nsw i32 %95, %100
+  %107 = mul nuw nsw i32 %95, %100
   %108 = icmp eq i32 %107, %91
   tail call void @llvm.assume(i1 %108)
   %109 = getelementptr inbounds i8, ptr %0, i64 824
@@ -7797,7 +7797,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %132 = icmp ne i32 %122, 0
   %133 = xor i1 %131, %132
   tail call void @llvm.assume(i1 %133)
-  %134 = mul nsw i32 %122, %127
+  %134 = mul nuw nsw i32 %122, %127
   %135 = icmp eq i32 %134, %118
   tail call void @llvm.assume(i1 %135)
   %136 = icmp ult i32 %13, 2

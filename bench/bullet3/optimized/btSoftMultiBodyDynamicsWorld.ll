@@ -950,7 +950,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyE6removeERKS1_.exit, label %for.body.i.i, !llvm.loop !13
 
 _ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i: ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %0, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyE6removeERKS1_.exit
 
@@ -1014,7 +1014,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN28btSoftMultiBodyDynamicsWorld14removeSoftBodyEP10btSoftBody.exit, label %for.body.i.i.i, !llvm.loop !13
 
 _ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i.i: ; preds = %for.body.i.i.i
-  %4 = trunc i64 %indvars.iv.i.i.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %cmp.i.i.i = icmp sgt i32 %1, %4
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN28btSoftMultiBodyDynamicsWorld14removeSoftBodyEP10btSoftBody.exit
 

@@ -78,7 +78,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %5 = alloca %struct.agxbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %1, align 8
-  %7 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #19
+  %7 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %6, i32 noundef 47) #19
   %.not.i.i = icmp eq ptr %7, null
   %8 = getelementptr inbounds i8, ptr %7, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %6, ptr %8
@@ -666,7 +666,7 @@ get_xml_attr.exit.thread:                         ; preds = %33, %get_xml_attr.e
 .lr.ph.i68:                                       ; preds = %get_xml_attr.exit.thread, %45
   %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %45 ], [ 0, %get_xml_attr.exit.thread ]
   %42 = phi ptr [ %47, %45 ], [ %18, %get_xml_attr.exit.thread ]
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.19, ptr noundef nonnull dereferenceable(1) %42) #19
+  %43 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.19, ptr noundef nonnull dereferenceable(1) %42) #19
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %get_xml_attr.exit73, label %45
 
@@ -776,13 +776,13 @@ push_subg.exit76:                                 ; preds = %isAnonGraph.exit.th
   %storemerge = phi ptr [ %81, %push_subg.exit76 ], [ %67, %push_subg.exit ]
   %.2 = phi ptr [ %.1, %push_subg.exit76 ], [ %.060117, %push_subg.exit ]
   store ptr %storemerge, ptr @G, align 8
-  %85 = call noalias ptr @strdup(ptr noundef %.2) #20
+  %85 = call noalias ptr @strdup(ptr noundef readonly %.2) #20
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %pushString.exit
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr @stderr, align 8
-  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #19
+  %89 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.2) #19
   %90 = add i64 %89, 1
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.33, i64 noundef %90) #21
   call fastcc void @graphviz_exit(i32 noundef 1) #23
@@ -864,13 +864,13 @@ get_xml_attr.exit83:                              ; preds = %.lr.ph.i78.tail
   br label %129
 
 129:                                              ; preds = %127, %124
-  %130 = tail call noalias ptr @strdup(ptr noundef %121) #20
+  %130 = tail call noalias ptr @strdup(ptr noundef readonly %121) #20
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %pushString.exit84
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr @stderr, align 8
-  %134 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %121) #19
+  %134 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %121) #19
   %135 = add i64 %134, 1
   %136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.33, i64 noundef %135) #21
   tail call fastcc void @graphviz_exit(i32 noundef 1) #23
@@ -894,7 +894,7 @@ pushString.exit84:                                ; preds = %129
 .lr.ph.i86:                                       ; preds = %141, %146
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %146 ], [ 0, %141 ]
   %143 = phi ptr [ %148, %146 ], [ %142, %141 ]
-  %144 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.27, ptr noundef nonnull dereferenceable(1) %143) #19
+  %144 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.27, ptr noundef nonnull dereferenceable(1) %143) #19
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %get_xml_attr.exit91, label %146
 
@@ -924,7 +924,7 @@ get_xml_attr.exit91:                              ; preds = %.lr.ph.i86
 .lr.ph.i93:                                       ; preds = %.lr.ph.i93.preheader, %159
   %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %159 ], [ 0, %.lr.ph.i93.preheader ]
   %156 = phi ptr [ %161, %159 ], [ %142, %.lr.ph.i93.preheader ]
-  %157 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.28, ptr noundef nonnull dereferenceable(1) %156) #19
+  %157 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.28, ptr noundef nonnull dereferenceable(1) %156) #19
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %get_xml_attr.exit98, label %159
 

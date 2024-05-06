@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_bops = internal constant %struct.block_operations { ptr @loop_open, ptr @loop_close, ptr @loop_read, ptr @loop_write, ptr @loop_geometry, ptr null, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @losetup(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @losetup(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.stat, align 8
   %7 = call i32 @nx_stat(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #6
   %8 = icmp slt i32 %7, 0
@@ -202,7 +202,7 @@ define internal i32 @loop_close(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @loop_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal range(i64 -2147483648, -9223372036854775808) i64 @loop_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %3, %2
@@ -295,7 +295,7 @@ define internal i64 @loop_write(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @loop_geometry(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #4 {
+define internal range(i32 -22, 1) i32 @loop_geometry(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %3
 

@@ -430,7 +430,7 @@ define linkonce_odr dso_local void @_ZN24cmParseCoberturaCoverage9XMLParser12Sta
           to label %40 unwind label %85
 
 40:                                               ; preds = %38
-  %41 = getelementptr i8, ptr %37, i64 8
+  %41 = getelementptr inbounds i8, ptr %37, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %42)
           to label %44 unwind label %85
@@ -907,7 +907,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br i1 %225, label %226, label %230
 
 226:                                              ; preds = %.lr.ph.split
-  %227 = getelementptr i8, ptr %222, i64 8
+  %227 = getelementptr inbounds i8, ptr %222, i64 8
   %228 = load ptr, ptr %227, align 8
   %229 = call i32 @atoi(ptr nocapture noundef %228) #19
   br label %237
@@ -918,7 +918,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br i1 %232, label %233, label %237
 
 233:                                              ; preds = %230
-  %234 = getelementptr i8, ptr %222, i64 8
+  %234 = getelementptr inbounds i8, ptr %222, i64 8
   %235 = load ptr, ptr %234, align 8
   %236 = call i32 @atoi(ptr nocapture noundef %235) #19
   br label %237

@@ -747,7 +747,7 @@ new.cont:                                         ; preds = %invoke.cont, %if.en
 
 for.body:                                         ; preds = %new.cont, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %new.cont ]
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZNK6icu_7514ResourceBundle11getStringExEiR10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %call, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %4, i64 %indvars.iv
   %call14 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #15
@@ -807,7 +807,7 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont8
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont8 ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZNK6icu_7514ResourceBundle11getStringExEiR10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %call, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 

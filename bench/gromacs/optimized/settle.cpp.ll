@@ -5611,49 +5611,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %550
   %844 = shufflevector <8 x float> %841, <8 x float> %.sroa.039.0.copyload.i, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %845 = shufflevector <8 x float> %841, <8 x float> %.sroa.039.0.copyload.i, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %846 = shufflevector <8 x float> %842, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %846, ptr %401, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %846, ptr writeonly %401, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %847 = load i32, ptr %239, align 4, !noalias !84
   %848 = mul nsw i32 %847, 3
   %849 = sext i32 %848 to i64
   %850 = getelementptr inbounds float, ptr %5, i64 %849
   %851 = shufflevector <8 x float> %843, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %851, ptr %850, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %851, ptr writeonly %850, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %852 = load i32, ptr %252, align 4, !noalias !84
   %853 = mul nsw i32 %852, 3
   %854 = sext i32 %853 to i64
   %855 = getelementptr inbounds float, ptr %5, i64 %854
   %856 = shufflevector <8 x float> %845, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %856, ptr %855, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %856, ptr writeonly %855, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %857 = load i32, ptr %265, align 4, !noalias !84
   %858 = mul nsw i32 %857, 3
   %859 = sext i32 %858 to i64
   %860 = getelementptr inbounds float, ptr %5, i64 %859
   %861 = shufflevector <8 x float> %844, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %861, ptr %860, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %861, ptr writeonly %860, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %862 = load i32, ptr %232, align 4, !noalias !84
   %863 = mul nsw i32 %862, 3
   %864 = sext i32 %863 to i64
   %865 = getelementptr inbounds float, ptr %5, i64 %864
   %866 = shufflevector <8 x float> %842, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %866, ptr %865, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %866, ptr writeonly %865, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %867 = load i32, ptr %245, align 4, !noalias !84
   %868 = mul nsw i32 %867, 3
   %869 = sext i32 %868 to i64
   %870 = getelementptr inbounds float, ptr %5, i64 %869
   %871 = shufflevector <8 x float> %843, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %871, ptr %870, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %871, ptr writeonly %870, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %872 = load i32, ptr %258, align 4, !noalias !84
   %873 = mul nsw i32 %872, 3
   %874 = sext i32 %873 to i64
   %875 = getelementptr inbounds float, ptr %5, i64 %874
   %876 = shufflevector <8 x float> %845, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %876, ptr %875, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %876, ptr writeonly %875, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %877 = load i32, ptr %271, align 4, !noalias !84
   %878 = mul nsw i32 %877, 3
   %879 = sext i32 %878 to i64
   %880 = getelementptr inbounds float, ptr %5, i64 %879
   %881 = shufflevector <8 x float> %844, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %881, ptr %880, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %881, ptr writeonly %880, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %.sroa.038.0.copyload.i = load <8 x float>, ptr %96, align 32, !noalias !84
   %.sroa.037.0.copyload.i = load <8 x float>, ptr %162, align 32, !noalias !84
   %.sroa.036.0.copyload.i = load <8 x float>, ptr %163, align 32, !noalias !84
@@ -5668,49 +5668,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %550
   %890 = sext i32 %889 to i64
   %891 = getelementptr inbounds float, ptr %5, i64 %890
   %892 = shufflevector <8 x float> %884, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %892, ptr %891, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %892, ptr writeonly %891, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %893 = load i32, ptr %297, align 4, !noalias !84
   %894 = mul nsw i32 %893, 3
   %895 = sext i32 %894 to i64
   %896 = getelementptr inbounds float, ptr %5, i64 %895
   %897 = shufflevector <8 x float> %885, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %897, ptr %896, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %897, ptr writeonly %896, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %898 = load i32, ptr %310, align 4, !noalias !84
   %899 = mul nsw i32 %898, 3
   %900 = sext i32 %899 to i64
   %901 = getelementptr inbounds float, ptr %5, i64 %900
   %902 = shufflevector <8 x float> %887, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %902, ptr %901, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %902, ptr writeonly %901, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %903 = load i32, ptr %323, align 4, !noalias !84
   %904 = mul nsw i32 %903, 3
   %905 = sext i32 %904 to i64
   %906 = getelementptr inbounds float, ptr %5, i64 %905
   %907 = shufflevector <8 x float> %886, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %907, ptr %906, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %907, ptr writeonly %906, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %908 = load i32, ptr %290, align 4, !noalias !84
   %909 = mul nsw i32 %908, 3
   %910 = sext i32 %909 to i64
   %911 = getelementptr inbounds float, ptr %5, i64 %910
   %912 = shufflevector <8 x float> %884, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %912, ptr %911, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %912, ptr writeonly %911, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %913 = load i32, ptr %303, align 4, !noalias !84
   %914 = mul nsw i32 %913, 3
   %915 = sext i32 %914 to i64
   %916 = getelementptr inbounds float, ptr %5, i64 %915
   %917 = shufflevector <8 x float> %885, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %917, ptr %916, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %917, ptr writeonly %916, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %918 = load i32, ptr %316, align 4, !noalias !84
   %919 = mul nsw i32 %918, 3
   %920 = sext i32 %919 to i64
   %921 = getelementptr inbounds float, ptr %5, i64 %920
   %922 = shufflevector <8 x float> %887, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %922, ptr %921, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %922, ptr writeonly %921, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %923 = load i32, ptr %329, align 4, !noalias !84
   %924 = mul nsw i32 %923, 3
   %925 = sext i32 %924 to i64
   %926 = getelementptr inbounds float, ptr %5, i64 %925
   %927 = shufflevector <8 x float> %886, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %927, ptr %926, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %927, ptr writeonly %926, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %.sroa.035.0.copyload.i = load <8 x float>, ptr %97, align 32, !noalias !84
   %.sroa.034.0.copyload.i = load <8 x float>, ptr %164, align 32, !noalias !84
   %.sroa.033.0.copyload.i = load <8 x float>, ptr %165, align 32, !noalias !84
@@ -5725,49 +5725,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %550
   %936 = sext i32 %935 to i64
   %937 = getelementptr inbounds float, ptr %5, i64 %936
   %938 = shufflevector <8 x float> %930, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %938, ptr %937, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %938, ptr writeonly %937, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %939 = load i32, ptr %355, align 4, !noalias !84
   %940 = mul nsw i32 %939, 3
   %941 = sext i32 %940 to i64
   %942 = getelementptr inbounds float, ptr %5, i64 %941
   %943 = shufflevector <8 x float> %931, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %943, ptr %942, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %943, ptr writeonly %942, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %944 = load i32, ptr %368, align 4, !noalias !84
   %945 = mul nsw i32 %944, 3
   %946 = sext i32 %945 to i64
   %947 = getelementptr inbounds float, ptr %5, i64 %946
   %948 = shufflevector <8 x float> %933, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %948, ptr %947, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %948, ptr writeonly %947, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %949 = load i32, ptr %381, align 4, !noalias !84
   %950 = mul nsw i32 %949, 3
   %951 = sext i32 %950 to i64
   %952 = getelementptr inbounds float, ptr %5, i64 %951
   %953 = shufflevector <8 x float> %932, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %953, ptr %952, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %953, ptr writeonly %952, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %954 = load i32, ptr %348, align 4, !noalias !84
   %955 = mul nsw i32 %954, 3
   %956 = sext i32 %955 to i64
   %957 = getelementptr inbounds float, ptr %5, i64 %956
   %958 = shufflevector <8 x float> %930, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %958, ptr %957, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %958, ptr writeonly %957, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %959 = load i32, ptr %361, align 4, !noalias !84
   %960 = mul nsw i32 %959, 3
   %961 = sext i32 %960 to i64
   %962 = getelementptr inbounds float, ptr %5, i64 %961
   %963 = shufflevector <8 x float> %931, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %963, ptr %962, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %963, ptr writeonly %962, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %964 = load i32, ptr %374, align 4, !noalias !84
   %965 = mul nsw i32 %964, 3
   %966 = sext i32 %965 to i64
   %967 = getelementptr inbounds float, ptr %5, i64 %966
   %968 = shufflevector <8 x float> %933, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %968, ptr %967, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %968, ptr writeonly %967, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %969 = load i32, ptr %387, align 4, !noalias !84
   %970 = mul nsw i32 %969, 3
   %971 = sext i32 %970 to i64
   %972 = getelementptr inbounds float, ptr %5, i64 %971
   %973 = shufflevector <8 x float> %932, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %973, ptr %972, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %973, ptr writeonly %972, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !84
   %974 = load i32, ptr %225, align 4, !noalias !84
   %975 = mul nsw i32 %974, 3
   %976 = sext i32 %975 to i64
@@ -5980,21 +5980,21 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %550
   %1143 = shufflevector <8 x float> %1140, <8 x float> %.sroa.07.0.copyload.i, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %1144 = shufflevector <8 x float> %1140, <8 x float> %.sroa.07.0.copyload.i, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %1145 = shufflevector <8 x float> %1141, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1145, ptr %977, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1145, ptr writeonly %977, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1146 = shufflevector <8 x float> %1142, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1146, ptr %988, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1146, ptr writeonly %988, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1147 = shufflevector <8 x float> %1144, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1147, ptr %999, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1147, ptr writeonly %999, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1148 = shufflevector <8 x float> %1143, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1148, ptr %1010, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1148, ptr writeonly %1010, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1149 = shufflevector <8 x float> %1141, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1149, ptr %982, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1149, ptr writeonly %982, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1150 = shufflevector <8 x float> %1142, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1150, ptr %993, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1150, ptr writeonly %993, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1151 = shufflevector <8 x float> %1144, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1151, ptr %1004, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1151, ptr writeonly %1004, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1152 = shufflevector <8 x float> %1143, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1152, ptr %1015, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1152, ptr writeonly %1015, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %.sroa.06.0.copyload.i = load <8 x float>, ptr %117, align 32, !noalias !84
   %.sroa.05.0.copyload.i = load <8 x float>, ptr %212, align 32, !noalias !84
   %.sroa.04.0.copyload.i = load <8 x float>, ptr %213, align 32, !noalias !84
@@ -6005,21 +6005,21 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %550
   %1157 = shufflevector <8 x float> %1154, <8 x float> %.sroa.04.0.copyload.i, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %1158 = shufflevector <8 x float> %1154, <8 x float> %.sroa.04.0.copyload.i, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %1159 = shufflevector <8 x float> %1155, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1159, ptr %1028, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1159, ptr writeonly %1028, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1160 = shufflevector <8 x float> %1156, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1160, ptr %1039, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1160, ptr writeonly %1039, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1161 = shufflevector <8 x float> %1158, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1161, ptr %1050, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1161, ptr writeonly %1050, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1162 = shufflevector <8 x float> %1157, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1162, ptr %1061, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1162, ptr writeonly %1061, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1163 = shufflevector <8 x float> %1155, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1163, ptr %1033, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1163, ptr writeonly %1033, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1164 = shufflevector <8 x float> %1156, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1164, ptr %1044, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1164, ptr writeonly %1044, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1165 = shufflevector <8 x float> %1158, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1165, ptr %1055, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1165, ptr writeonly %1055, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1166 = shufflevector <8 x float> %1157, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1166, ptr %1066, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1166, ptr writeonly %1066, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %.sroa.03.0.copyload.i = load <8 x float>, ptr %118, align 32, !noalias !84
   %.sroa.02.0.copyload.i = load <8 x float>, ptr %214, align 32, !noalias !84
   %.sroa.01.0.copyload.i = load <8 x float>, ptr %215, align 32, !noalias !84
@@ -6030,21 +6030,21 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %550
   %1171 = shufflevector <8 x float> %1168, <8 x float> %.sroa.01.0.copyload.i, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %1172 = shufflevector <8 x float> %1168, <8 x float> %.sroa.01.0.copyload.i, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %1173 = shufflevector <8 x float> %1169, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1173, ptr %1079, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1173, ptr writeonly %1079, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1174 = shufflevector <8 x float> %1170, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1174, ptr %1090, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1174, ptr writeonly %1090, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1175 = shufflevector <8 x float> %1172, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1175, ptr %1101, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1175, ptr writeonly %1101, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1176 = shufflevector <8 x float> %1171, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1176, ptr %1112, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1176, ptr writeonly %1112, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1177 = shufflevector <8 x float> %1169, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1177, ptr %1084, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1177, ptr writeonly %1084, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1178 = shufflevector <8 x float> %1170, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1178, ptr %1095, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1178, ptr writeonly %1095, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1179 = shufflevector <8 x float> %1172, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1179, ptr %1106, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1179, ptr writeonly %1106, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %1180 = shufflevector <8 x float> %1171, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1180, ptr %1117, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1180, ptr writeonly %1117, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !84
   %indvars.iv.next137.i = add nsw i64 %indvars.iv136.i, 8
   %1181 = icmp slt i64 %indvars.iv.next137.i, %219
   br i1 %1181, label %.preheader81.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !99
@@ -7100,49 +7100,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1612
   %1906 = shufflevector <8 x float> %1903, <8 x float> %.sroa.0107.0.copyload.i, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %1907 = shufflevector <8 x float> %1903, <8 x float> %.sroa.0107.0.copyload.i, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %1908 = shufflevector <8 x float> %1904, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1908, ptr %1463, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1908, ptr writeonly %1463, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1909 = load i32, ptr %1301, align 4, !noalias !100
   %1910 = mul nsw i32 %1909, 3
   %1911 = sext i32 %1910 to i64
   %1912 = getelementptr inbounds float, ptr %5, i64 %1911
   %1913 = shufflevector <8 x float> %1905, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1913, ptr %1912, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1913, ptr writeonly %1912, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1914 = load i32, ptr %1314, align 4, !noalias !100
   %1915 = mul nsw i32 %1914, 3
   %1916 = sext i32 %1915 to i64
   %1917 = getelementptr inbounds float, ptr %5, i64 %1916
   %1918 = shufflevector <8 x float> %1907, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1918, ptr %1917, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1918, ptr writeonly %1917, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1919 = load i32, ptr %1327, align 4, !noalias !100
   %1920 = mul nsw i32 %1919, 3
   %1921 = sext i32 %1920 to i64
   %1922 = getelementptr inbounds float, ptr %5, i64 %1921
   %1923 = shufflevector <8 x float> %1906, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1923, ptr %1922, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1923, ptr writeonly %1922, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1924 = load i32, ptr %1294, align 4, !noalias !100
   %1925 = mul nsw i32 %1924, 3
   %1926 = sext i32 %1925 to i64
   %1927 = getelementptr inbounds float, ptr %5, i64 %1926
   %1928 = shufflevector <8 x float> %1904, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1928, ptr %1927, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1928, ptr writeonly %1927, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1929 = load i32, ptr %1307, align 4, !noalias !100
   %1930 = mul nsw i32 %1929, 3
   %1931 = sext i32 %1930 to i64
   %1932 = getelementptr inbounds float, ptr %5, i64 %1931
   %1933 = shufflevector <8 x float> %1905, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1933, ptr %1932, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1933, ptr writeonly %1932, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1934 = load i32, ptr %1320, align 4, !noalias !100
   %1935 = mul nsw i32 %1934, 3
   %1936 = sext i32 %1935 to i64
   %1937 = getelementptr inbounds float, ptr %5, i64 %1936
   %1938 = shufflevector <8 x float> %1907, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1938, ptr %1937, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1938, ptr writeonly %1937, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1939 = load i32, ptr %1333, align 4, !noalias !100
   %1940 = mul nsw i32 %1939, 3
   %1941 = sext i32 %1940 to i64
   %1942 = getelementptr inbounds float, ptr %5, i64 %1941
   %1943 = shufflevector <8 x float> %1906, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1943, ptr %1942, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1943, ptr writeonly %1942, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %.sroa.0106.0.copyload.i = load <8 x float>, ptr %66, align 32, !noalias !100
   %.sroa.0105.0.copyload.i = load <8 x float>, ptr %1219, align 32, !noalias !100
   %.sroa.0104.0.copyload.i = load <8 x float>, ptr %1220, align 32, !noalias !100
@@ -7157,49 +7157,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1612
   %1952 = sext i32 %1951 to i64
   %1953 = getelementptr inbounds float, ptr %5, i64 %1952
   %1954 = shufflevector <8 x float> %1946, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1954, ptr %1953, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1954, ptr writeonly %1953, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1955 = load i32, ptr %1359, align 4, !noalias !100
   %1956 = mul nsw i32 %1955, 3
   %1957 = sext i32 %1956 to i64
   %1958 = getelementptr inbounds float, ptr %5, i64 %1957
   %1959 = shufflevector <8 x float> %1947, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1959, ptr %1958, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1959, ptr writeonly %1958, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1960 = load i32, ptr %1372, align 4, !noalias !100
   %1961 = mul nsw i32 %1960, 3
   %1962 = sext i32 %1961 to i64
   %1963 = getelementptr inbounds float, ptr %5, i64 %1962
   %1964 = shufflevector <8 x float> %1949, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1964, ptr %1963, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1964, ptr writeonly %1963, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1965 = load i32, ptr %1385, align 4, !noalias !100
   %1966 = mul nsw i32 %1965, 3
   %1967 = sext i32 %1966 to i64
   %1968 = getelementptr inbounds float, ptr %5, i64 %1967
   %1969 = shufflevector <8 x float> %1948, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1969, ptr %1968, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1969, ptr writeonly %1968, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1970 = load i32, ptr %1352, align 4, !noalias !100
   %1971 = mul nsw i32 %1970, 3
   %1972 = sext i32 %1971 to i64
   %1973 = getelementptr inbounds float, ptr %5, i64 %1972
   %1974 = shufflevector <8 x float> %1946, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1974, ptr %1973, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1974, ptr writeonly %1973, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1975 = load i32, ptr %1365, align 4, !noalias !100
   %1976 = mul nsw i32 %1975, 3
   %1977 = sext i32 %1976 to i64
   %1978 = getelementptr inbounds float, ptr %5, i64 %1977
   %1979 = shufflevector <8 x float> %1947, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1979, ptr %1978, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1979, ptr writeonly %1978, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1980 = load i32, ptr %1378, align 4, !noalias !100
   %1981 = mul nsw i32 %1980, 3
   %1982 = sext i32 %1981 to i64
   %1983 = getelementptr inbounds float, ptr %5, i64 %1982
   %1984 = shufflevector <8 x float> %1949, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1984, ptr %1983, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1984, ptr writeonly %1983, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %1985 = load i32, ptr %1391, align 4, !noalias !100
   %1986 = mul nsw i32 %1985, 3
   %1987 = sext i32 %1986 to i64
   %1988 = getelementptr inbounds float, ptr %5, i64 %1987
   %1989 = shufflevector <8 x float> %1948, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1989, ptr %1988, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %1989, ptr writeonly %1988, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %.sroa.0103.0.copyload.i = load <8 x float>, ptr %67, align 32, !noalias !100
   %.sroa.0102.0.copyload.i = load <8 x float>, ptr %1221, align 32, !noalias !100
   %.sroa.0101.0.copyload.i = load <8 x float>, ptr %1222, align 32, !noalias !100
@@ -7214,49 +7214,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1612
   %1998 = sext i32 %1997 to i64
   %1999 = getelementptr inbounds float, ptr %5, i64 %1998
   %2000 = shufflevector <8 x float> %1992, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2000, ptr %1999, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2000, ptr writeonly %1999, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %2001 = load i32, ptr %1417, align 4, !noalias !100
   %2002 = mul nsw i32 %2001, 3
   %2003 = sext i32 %2002 to i64
   %2004 = getelementptr inbounds float, ptr %5, i64 %2003
   %2005 = shufflevector <8 x float> %1993, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2005, ptr %2004, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2005, ptr writeonly %2004, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %2006 = load i32, ptr %1430, align 4, !noalias !100
   %2007 = mul nsw i32 %2006, 3
   %2008 = sext i32 %2007 to i64
   %2009 = getelementptr inbounds float, ptr %5, i64 %2008
   %2010 = shufflevector <8 x float> %1995, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2010, ptr %2009, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2010, ptr writeonly %2009, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %2011 = load i32, ptr %1443, align 4, !noalias !100
   %2012 = mul nsw i32 %2011, 3
   %2013 = sext i32 %2012 to i64
   %2014 = getelementptr inbounds float, ptr %5, i64 %2013
   %2015 = shufflevector <8 x float> %1994, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2015, ptr %2014, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2015, ptr writeonly %2014, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %2016 = load i32, ptr %1410, align 4, !noalias !100
   %2017 = mul nsw i32 %2016, 3
   %2018 = sext i32 %2017 to i64
   %2019 = getelementptr inbounds float, ptr %5, i64 %2018
   %2020 = shufflevector <8 x float> %1992, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2020, ptr %2019, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2020, ptr writeonly %2019, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %2021 = load i32, ptr %1423, align 4, !noalias !100
   %2022 = mul nsw i32 %2021, 3
   %2023 = sext i32 %2022 to i64
   %2024 = getelementptr inbounds float, ptr %5, i64 %2023
   %2025 = shufflevector <8 x float> %1993, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2025, ptr %2024, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2025, ptr writeonly %2024, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %2026 = load i32, ptr %1436, align 4, !noalias !100
   %2027 = mul nsw i32 %2026, 3
   %2028 = sext i32 %2027 to i64
   %2029 = getelementptr inbounds float, ptr %5, i64 %2028
   %2030 = shufflevector <8 x float> %1995, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2030, ptr %2029, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2030, ptr writeonly %2029, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %2031 = load i32, ptr %1449, align 4, !noalias !100
   %2032 = mul nsw i32 %2031, 3
   %2033 = sext i32 %2032 to i64
   %2034 = getelementptr inbounds float, ptr %5, i64 %2033
   %2035 = shufflevector <8 x float> %1994, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2035, ptr %2034, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2035, ptr writeonly %2034, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !noalias !100
   %2036 = load i32, ptr %1287, align 4, !noalias !100
   %2037 = mul nsw i32 %2036, 3
   %2038 = sext i32 %2037 to i64
@@ -7468,21 +7468,21 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1612
   %2203 = shufflevector <8 x float> %2200, <8 x float> %.sroa.074.0.copyload.i73, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %2204 = shufflevector <8 x float> %2200, <8 x float> %.sroa.074.0.copyload.i73, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %2205 = shufflevector <8 x float> %2201, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2205, ptr %2039, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2205, ptr writeonly %2039, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2206 = shufflevector <8 x float> %2202, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2206, ptr %2050, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2206, ptr writeonly %2050, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2207 = shufflevector <8 x float> %2204, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2207, ptr %2061, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2207, ptr writeonly %2061, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2208 = shufflevector <8 x float> %2203, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2208, ptr %2072, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2208, ptr writeonly %2072, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2209 = shufflevector <8 x float> %2201, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2209, ptr %2044, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2209, ptr writeonly %2044, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2210 = shufflevector <8 x float> %2202, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2210, ptr %2055, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2210, ptr writeonly %2055, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2211 = shufflevector <8 x float> %2204, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2211, ptr %2066, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2211, ptr writeonly %2066, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2212 = shufflevector <8 x float> %2203, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2212, ptr %2077, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2212, ptr writeonly %2077, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %.sroa.073.0.copyload.i74 = load <8 x float>, ptr %87, align 32, !noalias !100
   %.sroa.072.0.copyload.i = load <8 x float>, ptr %1269, align 32, !noalias !100
   %.sroa.071.0.copyload.i75 = load <8 x float>, ptr %1270, align 32, !noalias !100
@@ -7493,21 +7493,21 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1612
   %2217 = shufflevector <8 x float> %2214, <8 x float> %.sroa.071.0.copyload.i75, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %2218 = shufflevector <8 x float> %2214, <8 x float> %.sroa.071.0.copyload.i75, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %2219 = shufflevector <8 x float> %2215, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2219, ptr %2090, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2219, ptr writeonly %2090, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2220 = shufflevector <8 x float> %2216, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2220, ptr %2101, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2220, ptr writeonly %2101, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2221 = shufflevector <8 x float> %2218, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2221, ptr %2112, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2221, ptr writeonly %2112, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2222 = shufflevector <8 x float> %2217, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2222, ptr %2123, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2222, ptr writeonly %2123, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2223 = shufflevector <8 x float> %2215, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2223, ptr %2095, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2223, ptr writeonly %2095, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2224 = shufflevector <8 x float> %2216, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2224, ptr %2106, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2224, ptr writeonly %2106, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2225 = shufflevector <8 x float> %2218, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2225, ptr %2117, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2225, ptr writeonly %2117, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2226 = shufflevector <8 x float> %2217, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2226, ptr %2128, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2226, ptr writeonly %2128, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %.sroa.070.0.copyload.i = load <8 x float>, ptr %88, align 32, !noalias !100
   %.sroa.069.0.copyload.i = load <8 x float>, ptr %1271, align 32, !noalias !100
   %.sroa.068.0.copyload.i = load <8 x float>, ptr %1272, align 32, !noalias !100
@@ -7518,21 +7518,21 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1612
   %2231 = shufflevector <8 x float> %2228, <8 x float> %.sroa.068.0.copyload.i, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %2232 = shufflevector <8 x float> %2228, <8 x float> %.sroa.068.0.copyload.i, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %2233 = shufflevector <8 x float> %2229, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2233, ptr %2141, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2233, ptr writeonly %2141, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2234 = shufflevector <8 x float> %2230, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2234, ptr %2152, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2234, ptr writeonly %2152, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2235 = shufflevector <8 x float> %2232, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2235, ptr %2163, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2235, ptr writeonly %2163, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2236 = shufflevector <8 x float> %2231, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2236, ptr %2174, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2236, ptr writeonly %2174, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2237 = shufflevector <8 x float> %2229, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2237, ptr %2146, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2237, ptr writeonly %2146, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2238 = shufflevector <8 x float> %2230, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2238, ptr %2157, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2238, ptr writeonly %2157, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2239 = shufflevector <8 x float> %2232, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2239, ptr %2168, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2239, ptr writeonly %2168, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2240 = shufflevector <8 x float> %2231, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2240, ptr %2179, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2240, ptr writeonly %2179, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !100
   %2241 = load ptr, ptr %1275, align 8, !noalias !100
   %2242 = getelementptr inbounds float, ptr %2241, i64 %indvars.iv1174.i
   %.val.i = load <8 x float>, ptr %2242, align 32, !noalias !100
@@ -8642,49 +8642,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2696
   %2989 = shufflevector <8 x float> %2986, <8 x float> %.sroa.07.0.copyload.i119, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %2990 = shufflevector <8 x float> %2986, <8 x float> %.sroa.07.0.copyload.i119, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %2991 = shufflevector <8 x float> %2987, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2991, ptr %2547, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2991, ptr writeonly %2547, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %2992 = load i32, ptr %2385, align 4
   %2993 = mul nsw i32 %2992, 3
   %2994 = sext i32 %2993 to i64
   %2995 = getelementptr inbounds float, ptr %5, i64 %2994
   %2996 = shufflevector <8 x float> %2988, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2996, ptr %2995, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %2996, ptr writeonly %2995, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %2997 = load i32, ptr %2398, align 4
   %2998 = mul nsw i32 %2997, 3
   %2999 = sext i32 %2998 to i64
   %3000 = getelementptr inbounds float, ptr %5, i64 %2999
   %3001 = shufflevector <8 x float> %2990, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3001, ptr %3000, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3001, ptr writeonly %3000, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3002 = load i32, ptr %2411, align 4
   %3003 = mul nsw i32 %3002, 3
   %3004 = sext i32 %3003 to i64
   %3005 = getelementptr inbounds float, ptr %5, i64 %3004
   %3006 = shufflevector <8 x float> %2989, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3006, ptr %3005, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3006, ptr writeonly %3005, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3007 = load i32, ptr %2378, align 4
   %3008 = mul nsw i32 %3007, 3
   %3009 = sext i32 %3008 to i64
   %3010 = getelementptr inbounds float, ptr %5, i64 %3009
   %3011 = shufflevector <8 x float> %2987, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3011, ptr %3010, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3011, ptr writeonly %3010, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3012 = load i32, ptr %2391, align 4
   %3013 = mul nsw i32 %3012, 3
   %3014 = sext i32 %3013 to i64
   %3015 = getelementptr inbounds float, ptr %5, i64 %3014
   %3016 = shufflevector <8 x float> %2988, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3016, ptr %3015, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3016, ptr writeonly %3015, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3017 = load i32, ptr %2404, align 4
   %3018 = mul nsw i32 %3017, 3
   %3019 = sext i32 %3018 to i64
   %3020 = getelementptr inbounds float, ptr %5, i64 %3019
   %3021 = shufflevector <8 x float> %2990, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3021, ptr %3020, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3021, ptr writeonly %3020, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3022 = load i32, ptr %2417, align 4
   %3023 = mul nsw i32 %3022, 3
   %3024 = sext i32 %3023 to i64
   %3025 = getelementptr inbounds float, ptr %5, i64 %3024
   %3026 = shufflevector <8 x float> %2989, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3026, ptr %3025, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3026, ptr writeonly %3025, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %.sroa.06.0.copyload.i120 = load <8 x float>, ptr %44, align 32
   %.sroa.05.0.copyload.i121 = load <8 x float>, ptr %2316, align 32
   %.sroa.04.0.copyload.i122 = load <8 x float>, ptr %2317, align 32
@@ -8699,49 +8699,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2696
   %3035 = sext i32 %3034 to i64
   %3036 = getelementptr inbounds float, ptr %5, i64 %3035
   %3037 = shufflevector <8 x float> %3029, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3037, ptr %3036, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3037, ptr writeonly %3036, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3038 = load i32, ptr %2443, align 4
   %3039 = mul nsw i32 %3038, 3
   %3040 = sext i32 %3039 to i64
   %3041 = getelementptr inbounds float, ptr %5, i64 %3040
   %3042 = shufflevector <8 x float> %3030, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3042, ptr %3041, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3042, ptr writeonly %3041, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3043 = load i32, ptr %2456, align 4
   %3044 = mul nsw i32 %3043, 3
   %3045 = sext i32 %3044 to i64
   %3046 = getelementptr inbounds float, ptr %5, i64 %3045
   %3047 = shufflevector <8 x float> %3032, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3047, ptr %3046, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3047, ptr writeonly %3046, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3048 = load i32, ptr %2469, align 4
   %3049 = mul nsw i32 %3048, 3
   %3050 = sext i32 %3049 to i64
   %3051 = getelementptr inbounds float, ptr %5, i64 %3050
   %3052 = shufflevector <8 x float> %3031, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3052, ptr %3051, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3052, ptr writeonly %3051, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3053 = load i32, ptr %2436, align 4
   %3054 = mul nsw i32 %3053, 3
   %3055 = sext i32 %3054 to i64
   %3056 = getelementptr inbounds float, ptr %5, i64 %3055
   %3057 = shufflevector <8 x float> %3029, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3057, ptr %3056, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3057, ptr writeonly %3056, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3058 = load i32, ptr %2449, align 4
   %3059 = mul nsw i32 %3058, 3
   %3060 = sext i32 %3059 to i64
   %3061 = getelementptr inbounds float, ptr %5, i64 %3060
   %3062 = shufflevector <8 x float> %3030, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3062, ptr %3061, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3062, ptr writeonly %3061, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3063 = load i32, ptr %2462, align 4
   %3064 = mul nsw i32 %3063, 3
   %3065 = sext i32 %3064 to i64
   %3066 = getelementptr inbounds float, ptr %5, i64 %3065
   %3067 = shufflevector <8 x float> %3032, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3067, ptr %3066, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3067, ptr writeonly %3066, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3068 = load i32, ptr %2475, align 4
   %3069 = mul nsw i32 %3068, 3
   %3070 = sext i32 %3069 to i64
   %3071 = getelementptr inbounds float, ptr %5, i64 %3070
   %3072 = shufflevector <8 x float> %3031, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3072, ptr %3071, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3072, ptr writeonly %3071, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %.sroa.03.0.copyload.i123 = load <8 x float>, ptr %45, align 32
   %.sroa.02.0.copyload.i124 = load <8 x float>, ptr %2318, align 32
   %.sroa.01.0.copyload.i125 = load <8 x float>, ptr %2319, align 32
@@ -8756,49 +8756,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2696
   %3081 = sext i32 %3080 to i64
   %3082 = getelementptr inbounds float, ptr %5, i64 %3081
   %3083 = shufflevector <8 x float> %3075, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3083, ptr %3082, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3083, ptr writeonly %3082, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3084 = load i32, ptr %2501, align 4
   %3085 = mul nsw i32 %3084, 3
   %3086 = sext i32 %3085 to i64
   %3087 = getelementptr inbounds float, ptr %5, i64 %3086
   %3088 = shufflevector <8 x float> %3076, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3088, ptr %3087, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3088, ptr writeonly %3087, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3089 = load i32, ptr %2514, align 4
   %3090 = mul nsw i32 %3089, 3
   %3091 = sext i32 %3090 to i64
   %3092 = getelementptr inbounds float, ptr %5, i64 %3091
   %3093 = shufflevector <8 x float> %3078, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3093, ptr %3092, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3093, ptr writeonly %3092, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3094 = load i32, ptr %2527, align 4
   %3095 = mul nsw i32 %3094, 3
   %3096 = sext i32 %3095 to i64
   %3097 = getelementptr inbounds float, ptr %5, i64 %3096
   %3098 = shufflevector <8 x float> %3077, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3098, ptr %3097, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3098, ptr writeonly %3097, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3099 = load i32, ptr %2494, align 4
   %3100 = mul nsw i32 %3099, 3
   %3101 = sext i32 %3100 to i64
   %3102 = getelementptr inbounds float, ptr %5, i64 %3101
   %3103 = shufflevector <8 x float> %3075, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3103, ptr %3102, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3103, ptr writeonly %3102, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3104 = load i32, ptr %2507, align 4
   %3105 = mul nsw i32 %3104, 3
   %3106 = sext i32 %3105 to i64
   %3107 = getelementptr inbounds float, ptr %5, i64 %3106
   %3108 = shufflevector <8 x float> %3076, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3108, ptr %3107, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3108, ptr writeonly %3107, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3109 = load i32, ptr %2520, align 4
   %3110 = mul nsw i32 %3109, 3
   %3111 = sext i32 %3110 to i64
   %3112 = getelementptr inbounds float, ptr %5, i64 %3111
   %3113 = shufflevector <8 x float> %3078, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3113, ptr %3112, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3113, ptr writeonly %3112, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3114 = load i32, ptr %2533, align 4
   %3115 = mul nsw i32 %3114, 3
   %3116 = sext i32 %3115 to i64
   %3117 = getelementptr inbounds float, ptr %5, i64 %3116
   %3118 = shufflevector <8 x float> %3077, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3118, ptr %3117, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3118, ptr writeonly %3117, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %indvars.iv.next115.i = add nsw i64 %indvars.iv114.i, 8
   %3119 = icmp slt i64 %indvars.iv.next115.i, %2365
   br i1 %3119, label %.preheader74.preheader.i, label %._crit_edge.loopexit.i126, !llvm.loop !128
@@ -9836,49 +9836,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3542
   %3836 = shufflevector <8 x float> %3833, <8 x float> %.sroa.074.0.copyload.i175, <8 x i32> <i32 2, i32 3, i32 11, i32 8, i32 6, i32 7, i32 15, i32 12>
   %3837 = shufflevector <8 x float> %3833, <8 x float> %.sroa.074.0.copyload.i175, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %3838 = shufflevector <8 x float> %3834, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3838, ptr %3393, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3838, ptr writeonly %3393, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3839 = load i32, ptr %3231, align 4
   %3840 = mul nsw i32 %3839, 3
   %3841 = sext i32 %3840 to i64
   %3842 = getelementptr inbounds float, ptr %5, i64 %3841
   %3843 = shufflevector <8 x float> %3835, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3843, ptr %3842, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3843, ptr writeonly %3842, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3844 = load i32, ptr %3244, align 4
   %3845 = mul nsw i32 %3844, 3
   %3846 = sext i32 %3845 to i64
   %3847 = getelementptr inbounds float, ptr %5, i64 %3846
   %3848 = shufflevector <8 x float> %3837, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3848, ptr %3847, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3848, ptr writeonly %3847, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3849 = load i32, ptr %3257, align 4
   %3850 = mul nsw i32 %3849, 3
   %3851 = sext i32 %3850 to i64
   %3852 = getelementptr inbounds float, ptr %5, i64 %3851
   %3853 = shufflevector <8 x float> %3836, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3853, ptr %3852, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3853, ptr writeonly %3852, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3854 = load i32, ptr %3224, align 4
   %3855 = mul nsw i32 %3854, 3
   %3856 = sext i32 %3855 to i64
   %3857 = getelementptr inbounds float, ptr %5, i64 %3856
   %3858 = shufflevector <8 x float> %3834, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3858, ptr %3857, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3858, ptr writeonly %3857, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3859 = load i32, ptr %3237, align 4
   %3860 = mul nsw i32 %3859, 3
   %3861 = sext i32 %3860 to i64
   %3862 = getelementptr inbounds float, ptr %5, i64 %3861
   %3863 = shufflevector <8 x float> %3835, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3863, ptr %3862, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3863, ptr writeonly %3862, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3864 = load i32, ptr %3250, align 4
   %3865 = mul nsw i32 %3864, 3
   %3866 = sext i32 %3865 to i64
   %3867 = getelementptr inbounds float, ptr %5, i64 %3866
   %3868 = shufflevector <8 x float> %3837, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3868, ptr %3867, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3868, ptr writeonly %3867, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3869 = load i32, ptr %3263, align 4
   %3870 = mul nsw i32 %3869, 3
   %3871 = sext i32 %3870 to i64
   %3872 = getelementptr inbounds float, ptr %5, i64 %3871
   %3873 = shufflevector <8 x float> %3836, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3873, ptr %3872, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3873, ptr writeonly %3872, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %.sroa.073.0.copyload.i176 = load <8 x float>, ptr %17, align 32
   %.sroa.072.0.copyload.i177 = load <8 x float>, ptr %3157, align 32
   %.sroa.071.0.copyload.i178 = load <8 x float>, ptr %3158, align 32
@@ -9893,49 +9893,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3542
   %3882 = sext i32 %3881 to i64
   %3883 = getelementptr inbounds float, ptr %5, i64 %3882
   %3884 = shufflevector <8 x float> %3876, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3884, ptr %3883, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3884, ptr writeonly %3883, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3885 = load i32, ptr %3289, align 4
   %3886 = mul nsw i32 %3885, 3
   %3887 = sext i32 %3886 to i64
   %3888 = getelementptr inbounds float, ptr %5, i64 %3887
   %3889 = shufflevector <8 x float> %3877, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3889, ptr %3888, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3889, ptr writeonly %3888, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3890 = load i32, ptr %3302, align 4
   %3891 = mul nsw i32 %3890, 3
   %3892 = sext i32 %3891 to i64
   %3893 = getelementptr inbounds float, ptr %5, i64 %3892
   %3894 = shufflevector <8 x float> %3879, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3894, ptr %3893, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3894, ptr writeonly %3893, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3895 = load i32, ptr %3315, align 4
   %3896 = mul nsw i32 %3895, 3
   %3897 = sext i32 %3896 to i64
   %3898 = getelementptr inbounds float, ptr %5, i64 %3897
   %3899 = shufflevector <8 x float> %3878, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3899, ptr %3898, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3899, ptr writeonly %3898, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3900 = load i32, ptr %3282, align 4
   %3901 = mul nsw i32 %3900, 3
   %3902 = sext i32 %3901 to i64
   %3903 = getelementptr inbounds float, ptr %5, i64 %3902
   %3904 = shufflevector <8 x float> %3876, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3904, ptr %3903, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3904, ptr writeonly %3903, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3905 = load i32, ptr %3295, align 4
   %3906 = mul nsw i32 %3905, 3
   %3907 = sext i32 %3906 to i64
   %3908 = getelementptr inbounds float, ptr %5, i64 %3907
   %3909 = shufflevector <8 x float> %3877, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3909, ptr %3908, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3909, ptr writeonly %3908, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3910 = load i32, ptr %3308, align 4
   %3911 = mul nsw i32 %3910, 3
   %3912 = sext i32 %3911 to i64
   %3913 = getelementptr inbounds float, ptr %5, i64 %3912
   %3914 = shufflevector <8 x float> %3879, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3914, ptr %3913, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3914, ptr writeonly %3913, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3915 = load i32, ptr %3321, align 4
   %3916 = mul nsw i32 %3915, 3
   %3917 = sext i32 %3916 to i64
   %3918 = getelementptr inbounds float, ptr %5, i64 %3917
   %3919 = shufflevector <8 x float> %3878, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3919, ptr %3918, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3919, ptr writeonly %3918, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %.sroa.070.0.copyload.i179 = load <8 x float>, ptr %18, align 32
   %.sroa.069.0.copyload.i180 = load <8 x float>, ptr %3159, align 32
   %.sroa.068.0.copyload.i181 = load <8 x float>, ptr %3160, align 32
@@ -9950,49 +9950,49 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3542
   %3928 = sext i32 %3927 to i64
   %3929 = getelementptr inbounds float, ptr %5, i64 %3928
   %3930 = shufflevector <8 x float> %3922, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3930, ptr %3929, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3930, ptr writeonly %3929, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3931 = load i32, ptr %3347, align 4
   %3932 = mul nsw i32 %3931, 3
   %3933 = sext i32 %3932 to i64
   %3934 = getelementptr inbounds float, ptr %5, i64 %3933
   %3935 = shufflevector <8 x float> %3923, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3935, ptr %3934, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3935, ptr writeonly %3934, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3936 = load i32, ptr %3360, align 4
   %3937 = mul nsw i32 %3936, 3
   %3938 = sext i32 %3937 to i64
   %3939 = getelementptr inbounds float, ptr %5, i64 %3938
   %3940 = shufflevector <8 x float> %3925, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3940, ptr %3939, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3940, ptr writeonly %3939, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3941 = load i32, ptr %3373, align 4
   %3942 = mul nsw i32 %3941, 3
   %3943 = sext i32 %3942 to i64
   %3944 = getelementptr inbounds float, ptr %5, i64 %3943
   %3945 = shufflevector <8 x float> %3924, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3945, ptr %3944, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3945, ptr writeonly %3944, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3946 = load i32, ptr %3340, align 4
   %3947 = mul nsw i32 %3946, 3
   %3948 = sext i32 %3947 to i64
   %3949 = getelementptr inbounds float, ptr %5, i64 %3948
   %3950 = shufflevector <8 x float> %3922, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3950, ptr %3949, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3950, ptr writeonly %3949, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3951 = load i32, ptr %3353, align 4
   %3952 = mul nsw i32 %3951, 3
   %3953 = sext i32 %3952 to i64
   %3954 = getelementptr inbounds float, ptr %5, i64 %3953
   %3955 = shufflevector <8 x float> %3923, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3955, ptr %3954, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3955, ptr writeonly %3954, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3956 = load i32, ptr %3366, align 4
   %3957 = mul nsw i32 %3956, 3
   %3958 = sext i32 %3957 to i64
   %3959 = getelementptr inbounds float, ptr %5, i64 %3958
   %3960 = shufflevector <8 x float> %3925, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3960, ptr %3959, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3960, ptr writeonly %3959, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3961 = load i32, ptr %3379, align 4
   %3962 = mul nsw i32 %3961, 3
   %3963 = sext i32 %3962 to i64
   %3964 = getelementptr inbounds float, ptr %5, i64 %3963
   %3965 = shufflevector <8 x float> %3924, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3965, ptr %3964, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
+  tail call void @llvm.masked.store.v4f32.p0(<4 x float> %3965, ptr writeonly %3964, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>)
   %3966 = load ptr, ptr %3205, align 8
   %3967 = getelementptr inbounds float, ptr %3966, i64 %indvars.iv145.i
   %.val.i182 = load <8 x float>, ptr %3967, align 32

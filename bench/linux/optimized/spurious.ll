@@ -317,7 +317,7 @@ define dso_local void @note_interrupt(ptr noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @misrouted_irq(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @misrouted_irq(i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @irq_poll_active, i32 1, ptr nonnull elementtype(i32) @irq_poll_active) #5, !srcloc !22
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %.loopexit
@@ -447,7 +447,7 @@ define internal noundef i32 @irqpoll_setup(ptr nocapture readnone %0) #3 section
 declare dso_local ptr @irq_to_desc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @try_one_irq(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @try_one_irq(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   tail call void @_raw_spin_lock(ptr noundef %3) #5
   %4 = getelementptr inbounds i8, ptr %0, i64 120

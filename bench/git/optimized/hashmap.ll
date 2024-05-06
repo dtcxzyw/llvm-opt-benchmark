@@ -181,7 +181,7 @@ while.end:                                        ; preds = %while.cond
   store ptr %call.i, ptr %map, align 8
   %mul.i = mul nuw nsw i64 %conv3, 80
   %div.i = udiv i64 %mul.i, 100
-  %conv2.i = trunc i64 %div.i to i32
+  %conv2.i = trunc nuw i64 %div.i to i32
   %grow_at.i = getelementptr inbounds i8, ptr %map, i64 32
   store i32 %conv2.i, ptr %grow_at.i, align 8
   %cmp.i = icmp ult i32 %size.0, 65
@@ -256,7 +256,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br i1 %tobool.not.i.i, label %if.end.i.i, label %while.body.loopexit.i
 
 while.body.loopexit.i:                            ; preds = %if.end4.i.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.loopexit.i, %while.cond.i
@@ -330,7 +330,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br i1 %tobool.not.i.i, label %if.end.i.i, label %while.body.loopexit.i
 
 while.body.loopexit.i:                            ; preds = %if.end4.i.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.loopexit.i, %while.cond.i
@@ -510,7 +510,7 @@ if.then9:                                         ; preds = %if.then7
   store ptr %call.i.i, ptr %map, align 8
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 80
   %div.i.i = udiv i64 %mul.i.i, 100
-  %conv2.i.i = trunc i64 %div.i.i to i32
+  %conv2.i.i = trunc nuw i64 %div.i.i to i32
   store i32 %conv2.i.i, ptr %grow_at, align 8
   %cmp.i.i = icmp ult i32 %shl, 65
   %div5.i.i = udiv i32 %conv2.i.i, 5
@@ -651,7 +651,7 @@ if.then8:                                         ; preds = %if.then6
   store ptr %call.i.i12, ptr %map, align 8
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 80
   %div.i.i = udiv i64 %mul.i.i, 100
-  %conv2.i.i = trunc i64 %div.i.i to i32
+  %conv2.i.i = trunc nuw nsw i64 %div.i.i to i32
   %grow_at.i.i = getelementptr inbounds i8, ptr %map, i64 32
   store i32 %conv2.i.i, ptr %grow_at.i.i, align 8
   %cmp.i.i13 = icmp ult i32 %15, 260
@@ -894,7 +894,7 @@ if.end15:                                         ; preds = %st_add.exit18, %has
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pool_entry_cmp(ptr nocapture readnone %cmp_data, ptr noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr noundef readonly %keydata) #8 {
+define internal range(i32 0, 2) i32 @pool_entry_cmp(ptr nocapture readnone %cmp_data, ptr noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr noundef readonly %keydata) #8 {
 entry:
   %data = getelementptr inbounds i8, ptr %eptr, i64 24
   %cmp.not = icmp eq ptr %data, %keydata

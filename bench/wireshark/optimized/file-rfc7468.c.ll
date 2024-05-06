@@ -96,7 +96,7 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %20, label %.loopexit148, label %21
 
 21:                                               ; preds = %17
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %18, ptr noundef nonnull dereferenceable(11) @preeb_prefix, i64 11)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %18, ptr noundef nonnull readonly dereferenceable(11) @preeb_prefix, i64 11)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %22, label %.loopexit148
 
@@ -233,7 +233,7 @@ line_is_blank.exit:                               ; preds = %.loopexit146, %.lr.
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %73
-  %bcmp.i113 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %74, ptr noundef nonnull dereferenceable(9) @posteb_prefix, i64 9)
+  %bcmp.i113 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %74, ptr noundef nonnull readonly dereferenceable(9) @posteb_prefix, i64 9)
   %.not.i114 = icmp eq i32 %bcmp.i113, 0
   br i1 %.not.i114, label %78, label %.loopexit
 
@@ -355,7 +355,7 @@ define hidden void @proto_reg_handoff_rfc7468() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rfc7468_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rfc7468_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   br label %6
 
@@ -373,7 +373,7 @@ define internal noundef i32 @dissect_rfc7468_heur(ptr noundef %0, ptr noundef %1
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %9
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %10, ptr noundef nonnull dereferenceable(11) @preeb_prefix, i64 11)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %10, ptr noundef nonnull readonly dereferenceable(11) @preeb_prefix, i64 11)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %14, label %.loopexit
 

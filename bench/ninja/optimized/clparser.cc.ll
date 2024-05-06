@@ -232,7 +232,7 @@ define dso_local noundef zeroext i1 @_ZN8CLParser15IsSystemIncludeENSt7__cxx1112
   %5 = load i8, ptr %.sroa.03.07.i, align 1
   %6 = add i8 %5, -65
   %or.cond.i = icmp ult i8 %6, 26
-  %7 = add i8 %5, 32
+  %7 = add nuw nsw i8 %5, 32
   %8 = select i1 %or.cond.i, i8 %7, i8 %5
   store i8 %8, ptr %.sroa.0.08.i, align 1
   %9 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
@@ -288,7 +288,7 @@ define dso_local noundef zeroext i1 @_ZN8CLParser19FilterInputFilenameENSt7__cxx
   %15 = load i8, ptr %.sroa.03.07.i, align 1
   %16 = add i8 %15, -65
   %or.cond.i = icmp ult i8 %16, 26
-  %17 = add i8 %15, 32
+  %17 = add nuw nsw i8 %15, 32
   %18 = select i1 %or.cond.i, i8 %17, i8 %15
   store i8 %18, ptr %.sroa.0.08.i, align 1
   %19 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
@@ -709,7 +709,7 @@ define dso_local noundef zeroext i1 @_ZN8CLParser5ParseERKNSt7__cxx1112basic_str
   %51 = load i8, ptr %.sroa.03.07.i.i, align 1
   %52 = add i8 %51, -65
   %or.cond.i.i = icmp ult i8 %52, 26
-  %53 = add i8 %51, 32
+  %53 = add nuw nsw i8 %51, 32
   %54 = select i1 %or.cond.i.i, i8 %53, i8 %51
   store i8 %54, ptr %.sroa.0.08.i.i, align 1
   %55 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i, i64 1

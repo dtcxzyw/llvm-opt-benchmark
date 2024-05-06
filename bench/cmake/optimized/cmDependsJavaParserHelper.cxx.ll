@@ -1452,7 +1452,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelper16GetFilesProducedB5cxx11Ev
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN25cmDependsJavaParserHelper11ParseStringEPKci(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN25cmDependsJavaParserHelper11ParseStringEPKci(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZN25cmDependsJavaParserHelper13CleanupParserEv.exit, label %5
@@ -1595,7 +1595,7 @@ declare noundef i32 @_Z27cmDependsJava_yylex_destroyPv(ptr noundef) local_unname
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN25cmDependsJavaParserHelper8LexInputEPci(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN25cmDependsJavaParserHelper8LexInputEPci(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %22, label %5
 
@@ -1694,7 +1694,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelper13UpdateCombineEPKcS1_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN25cmDependsJavaParserHelper9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN25cmDependsJavaParserHelper9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::basic_ifstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1772,7 +1772,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 29:                                               ; preds = %20
   %30 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %31 = invoke noundef i32 @_ZN25cmDependsJavaParserHelper11ParseStringEPKci(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %30, i32 noundef 0)
-          to label %32 unwind label %.loopexit.split-lp, !range !24
+          to label %32 unwind label %.loopexit.split-lp
 
 32:                                               ; preds = %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
@@ -1861,7 +1861,7 @@ _ZN25cmDependsJavaParserHelper12CurrentClassD2Ev.exit: ; preds = %_ZSt8_DestroyI
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05) #19
   %12 = getelementptr inbounds i8, ptr %.05, i64 56
   %.not = icmp eq ptr %12, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN25cmDependsJavaParserHelper12CurrentClassD2Ev.exit, %2
   ret void
@@ -1919,23 +1919,23 @@ _ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_M_allo
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_M_allocateEm.exit, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i
   %.012.i.i.i = phi ptr [ %38, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_M_allocateEm.exit ]
   %.0911.i.i.i = phi ptr [ %37, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #19
   %31 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %32 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %33 = load <2 x ptr>, ptr %32, align 8, !alias.scope !29, !noalias !26
-  store <2 x ptr> %33, ptr %31, align 8, !alias.scope !26, !noalias !29
+  %33 = load <2 x ptr>, ptr %32, align 8, !alias.scope !28, !noalias !25
+  store <2 x ptr> %33, ptr %31, align 8, !alias.scope !25, !noalias !28
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  %36 = load ptr, ptr %35, align 8, !alias.scope !29, !noalias !26
-  store ptr %36, ptr %34, align 8, !alias.scope !26, !noalias !29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !29, !noalias !26
+  %36 = load ptr, ptr %35, align 8, !alias.scope !28, !noalias !25
+  store ptr %36, ptr %34, align 8, !alias.scope !25, !noalias !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !28, !noalias !25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #19
   %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %37, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_M_allocateEm.exit ], [ %38, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ]
@@ -1946,23 +1946,23 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17
   %.012.i.i.i18 = phi ptr [ %47, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17 ], [ %39, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i19 = phi ptr [ %46, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #19
   %40 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
   %41 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
-  %42 = load <2 x ptr>, ptr %41, align 8, !alias.scope !35, !noalias !32
-  store <2 x ptr> %42, ptr %40, align 8, !alias.scope !32, !noalias !35
+  %42 = load <2 x ptr>, ptr %41, align 8, !alias.scope !34, !noalias !31
+  store <2 x ptr> %42, ptr %40, align 8, !alias.scope !31, !noalias !34
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
-  %45 = load ptr, ptr %44, align 8, !alias.scope !35, !noalias !32
-  store ptr %45, ptr %43, align 8, !alias.scope !32, !noalias !35
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32
+  %45 = load ptr, ptr %44, align 8, !alias.scope !34, !noalias !31
+  store ptr %45, ptr %43, align 8, !alias.scope !31, !noalias !34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !34, !noalias !31
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #19
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 56
   %47 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 56
   %.not.i.i.i20 = icmp eq ptr %46, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17, !llvm.loop !31
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17, !llvm.loop !30
 
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %39, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %47, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17 ]
@@ -2075,7 +2075,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !36
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
@@ -2091,7 +2091,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i30 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !37
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !36
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i31 = phi ptr [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %29, %.lr.ph.i.i.i27 ]
@@ -2208,7 +2208,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !36
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
@@ -2224,7 +2224,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
   %.not.i.i.i30 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !37
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !36
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i31 = phi ptr [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %29, %.lr.ph.i.i.i27 ]
@@ -2485,23 +2485,23 @@ _ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE9constru
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i
   %.012.i.i.i = phi ptr [ %32, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %31, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #19
   %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %27 = load <2 x ptr>, ptr %26, align 8, !alias.scope !41, !noalias !38
-  store <2 x ptr> %27, ptr %25, align 8, !alias.scope !38, !noalias !41
+  %27 = load <2 x ptr>, ptr %26, align 8, !alias.scope !40, !noalias !37
+  store <2 x ptr> %27, ptr %25, align 8, !alias.scope !37, !noalias !40
   %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
   %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  %30 = load ptr, ptr %29, align 8, !alias.scope !41, !noalias !38
-  store ptr %30, ptr %28, align 8, !alias.scope !38, !noalias !41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !41, !noalias !38
+  %30 = load ptr, ptr %29, align 8, !alias.scope !40, !noalias !37
+  store ptr %30, ptr %28, align 8, !alias.scope !37, !noalias !40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !40, !noalias !37
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #19
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %31, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %32, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ]
@@ -2512,23 +2512,23 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27
   %.012.i.i.i28 = phi ptr [ %41, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27 ], [ %33, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i29 = phi ptr [ %40, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #19
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
-  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !46, !noalias !43
-  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !43, !noalias !46
+  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !45, !noalias !42
+  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !42, !noalias !45
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 48
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 48
-  %39 = load ptr, ptr %38, align 8, !alias.scope !46, !noalias !43
-  store ptr %39, ptr %37, align 8, !alias.scope !43, !noalias !46
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !46, !noalias !43
+  %39 = load ptr, ptr %38, align 8, !alias.scope !45, !noalias !42
+  store ptr %39, ptr %37, align 8, !alias.scope !42, !noalias !45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !45, !noalias !42
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #19
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 56
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 56
   %.not.i.i.i30 = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27, !llvm.loop !31
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27, !llvm.loop !30
 
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i31 = phi ptr [ %33, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %41, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27 ]
@@ -2741,7 +2741,7 @@ _ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.e
   %27 = getelementptr inbounds i8, ptr %.sroa.08.015, i64 56
   %28 = getelementptr inbounds i8, ptr %.016, i64 56
   %.not = icmp eq ptr %27, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 29:                                               ; preds = %.lr.ph
   %30 = landingpad { ptr, i32 }
@@ -2856,28 +2856,27 @@ attributes #25 = { cold nounwind }
 !21 = distinct !{!21, !"_ZN25cmDependsJavaParserHelper16GetFilesProducedB5cxx11Ev"}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
-!24 = !{i32 0, i32 2}
-!25 = distinct !{!25, !6}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!28 = distinct !{!28, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_"}
-!29 = !{!30}
-!30 = distinct !{!30, !28, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!31 = distinct !{!31, !6}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!34 = distinct !{!34, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_"}
-!35 = !{!36}
-!36 = distinct !{!36, !34, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!37 = distinct !{!37, !6}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_"}
-!41 = !{!42}
-!42 = distinct !{!42, !40, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_"}
-!46 = !{!47}
-!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!48 = distinct !{!48, !6}
+!24 = distinct !{!24, !6}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!27 = distinct !{!27, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_"}
+!28 = !{!29}
+!29 = distinct !{!29, !27, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!30 = distinct !{!30, !6}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!33 = distinct !{!33, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_"}
+!34 = !{!35}
+!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!36 = distinct !{!36, !6}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_"}
+!40 = !{!41}
+!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!44 = distinct !{!44, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"_ZSt19__relocate_object_aIN25cmDependsJavaParserHelper12CurrentClassES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!47 = distinct !{!47, !6}

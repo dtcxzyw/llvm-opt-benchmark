@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mq_notify(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mq_notify(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %4) #5

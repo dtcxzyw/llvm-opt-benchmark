@@ -139,7 +139,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_init_dns_resolver314, ptr @__UNIQUE_ID_author308, ptr @__UNIQUE_ID_debug312, ptr @__UNIQUE_ID_debugtype311, ptr @__UNIQUE_ID_description307, ptr @__UNIQUE_ID_file309, ptr @__UNIQUE_ID_file315, ptr @__UNIQUE_ID_license310, ptr @__UNIQUE_ID_license316, ptr @__exitcall_exit_dns_resolver, ptr @__param_debug, ptr @exit_dns_resolver], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dns_resolver_preparse(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @dns_resolver_preparse(ptr nocapture noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13

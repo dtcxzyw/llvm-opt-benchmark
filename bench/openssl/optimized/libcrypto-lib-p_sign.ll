@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.EVP_SignFinal_ex = private unnamed_addr constant [17 x i8] c"EVP_SignFinal_ex\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_SignFinal_ex(ptr noundef %ctx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, ptr noundef %pkey, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_SignFinal_ex(ptr noundef %ctx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, ptr noundef %pkey, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %m = alloca [64 x i8], align 16
   %m_len = alloca i32, align 4
@@ -127,9 +127,9 @@ declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i
 declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_SignFinal(ptr noundef %ctx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_SignFinal(ptr noundef %ctx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @EVP_SignFinal_ex(ptr noundef %ctx, ptr noundef %sigret, ptr noundef %siglen, ptr noundef %pkey, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @EVP_SignFinal_ex(ptr noundef %ctx, ptr noundef %sigret, ptr noundef %siglen, ptr noundef %pkey, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -143,4 +143,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

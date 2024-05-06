@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @crc32_z(i64 noundef %crc, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #1 {
+define range(i64 0, 4294967296) i64 @crc32_z(i64 noundef %crc, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %buf, null
   br i1 %cmp, label %return, label %if.end
@@ -60,7 +60,7 @@ while.end:                                        ; preds = %while.body, %while.
   %div = udiv i64 %len.addr.0.lcssa, 40
   %mul8.neg = mul i64 %div, -40
   %sub = add i64 %mul8.neg, %len.addr.0.lcssa
-  %conv11 = trunc i64 %crc.addr.0.lcssa to i32
+  %conv11 = trunc nuw i64 %crc.addr.0.lcssa to i32
   %dec13192 = add nsw i64 %div, -1
   %tobool14.not193 = icmp eq i64 %dec13192, 0
   br i1 %tobool14.not193, label %while.end80, label %while.body15.preheader
@@ -410,15 +410,15 @@ return:                                           ; preds = %entry, %while.end29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @crc32(i64 noundef %crc, ptr noundef readonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define range(i64 0, 4294967296) i64 @crc32(i64 noundef %crc, ptr noundef readonly %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %conv = zext i32 %len to i64
-  %call = tail call i64 @crc32_z(i64 noundef %crc, ptr noundef %buf, i64 noundef %conv), !range !11
+  %call = tail call i64 @crc32_z(i64 noundef %crc, ptr noundef %buf, i64 noundef %conv)
   ret i64 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @crc32_combine64(i64 noundef %crc1, i64 noundef %crc2, i64 noundef %len2) local_unnamed_addr #2 {
+define range(i64 0, 4294967296) i64 @crc32_combine64(i64 noundef %crc1, i64 noundef %crc2, i64 noundef %len2) local_unnamed_addr #2 {
 entry:
   %tobool.not5.i = icmp eq i64 %len2, 0
   br i1 %tobool.not5.i, label %x2nmodp.exit, label %while.body.i
@@ -468,7 +468,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %while
   %shr.i = ashr i64 %n.addr.06.i, 1
   %inc.i = add i32 %k.addr.07.i, 1
   %tobool.not.i = icmp ult i64 %n.addr.06.i, 2
-  br i1 %tobool.not.i, label %x2nmodp.exit, label %while.body.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %x2nmodp.exit, label %while.body.i, !llvm.loop !11
 
 x2nmodp.exit:                                     ; preds = %if.end.i, %entry
   %p.0.lcssa.i = phi i32 [ -2147483648, %entry ], [ %p.1.i, %if.end.i ]
@@ -508,7 +508,7 @@ multmodp.exit:                                    ; preds = %if.then.i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @crc32_combine(i64 noundef %crc1, i64 noundef %crc2, i64 noundef %len2) local_unnamed_addr #2 {
+define range(i64 0, 4294967296) i64 @crc32_combine(i64 noundef %crc1, i64 noundef %crc2, i64 noundef %len2) local_unnamed_addr #2 {
 entry:
   %tobool.not5.i.i = icmp eq i64 %len2, 0
   br i1 %tobool.not5.i.i, label %x2nmodp.exit.i, label %while.body.i.i
@@ -558,7 +558,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i.i, %whi
   %shr.i.i = ashr i64 %n.addr.06.i.i, 1
   %inc.i.i = add i32 %k.addr.07.i.i, 1
   %tobool.not.i.i = icmp ult i64 %n.addr.06.i.i, 2
-  br i1 %tobool.not.i.i, label %x2nmodp.exit.i, label %while.body.i.i, !llvm.loop !12
+  br i1 %tobool.not.i.i, label %x2nmodp.exit.i, label %while.body.i.i, !llvm.loop !11
 
 x2nmodp.exit.i:                                   ; preds = %if.end.i.i, %entry
   %p.0.lcssa.i.i = phi i32 [ -2147483648, %entry ], [ %p.1.i.i, %if.end.i.i ]
@@ -598,7 +598,7 @@ crc32_combine64.exit:                             ; preds = %if.then.i3.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @crc32_combine_gen64(i64 noundef %len2) local_unnamed_addr #2 {
+define range(i64 0, 4294967296) i64 @crc32_combine_gen64(i64 noundef %len2) local_unnamed_addr #2 {
 entry:
   %tobool.not5.i = icmp eq i64 %len2, 0
   br i1 %tobool.not5.i, label %x2nmodp.exit, label %while.body.i
@@ -648,7 +648,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %while
   %shr.i = ashr i64 %n.addr.06.i, 1
   %inc.i = add i32 %k.addr.07.i, 1
   %tobool.not.i = icmp ult i64 %n.addr.06.i, 2
-  br i1 %tobool.not.i, label %x2nmodp.exit.loopexit, label %while.body.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %x2nmodp.exit.loopexit, label %while.body.i, !llvm.loop !11
 
 x2nmodp.exit.loopexit:                            ; preds = %if.end.i
   %1 = zext i32 %p.1.i to i64
@@ -660,7 +660,7 @@ x2nmodp.exit:                                     ; preds = %x2nmodp.exit.loopex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @crc32_combine_gen(i64 noundef %len2) local_unnamed_addr #2 {
+define range(i64 0, 4294967296) i64 @crc32_combine_gen(i64 noundef %len2) local_unnamed_addr #2 {
 entry:
   %tobool.not5.i.i = icmp eq i64 %len2, 0
   br i1 %tobool.not5.i.i, label %crc32_combine_gen64.exit, label %while.body.i.i
@@ -710,7 +710,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i.i, %whi
   %shr.i.i = ashr i64 %n.addr.06.i.i, 1
   %inc.i.i = add i32 %k.addr.07.i.i, 1
   %tobool.not.i.i = icmp ult i64 %n.addr.06.i.i, 2
-  br i1 %tobool.not.i.i, label %x2nmodp.exit.loopexit.i, label %while.body.i.i, !llvm.loop !12
+  br i1 %tobool.not.i.i, label %x2nmodp.exit.loopexit.i, label %while.body.i.i, !llvm.loop !11
 
 x2nmodp.exit.loopexit.i:                          ; preds = %if.end.i.i
   %1 = zext i32 %p.1.i.i to i64
@@ -722,7 +722,7 @@ crc32_combine_gen64.exit:                         ; preds = %entry, %x2nmodp.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @crc32_combine_op(i64 noundef %crc1, i64 noundef %crc2, i64 noundef %op) local_unnamed_addr #2 {
+define range(i64 0, 4294967296) i64 @crc32_combine_op(i64 noundef %crc1, i64 noundef %crc2, i64 noundef %op) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %op to i32
   %conv1 = trunc i64 %crc1 to i32
@@ -777,5 +777,4 @@ attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-p
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i64 0, i64 4294967296}
-!12 = distinct !{!12, !5}
+!11 = distinct !{!11, !5}

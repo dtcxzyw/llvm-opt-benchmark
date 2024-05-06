@@ -239,7 +239,7 @@ define noundef i32 @acct_gather_energy_p_update_node_energy() local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   switch i32 %0, label %195 [
     i32 7, label %3
     i32 6, label %100
@@ -300,7 +300,7 @@ _thread_init.exit:                                ; preds = %9
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %22 ]
-  %24 = trunc i64 %indvars.iv.i to i32
+  %24 = trunc nuw i64 %indvars.iv.i to i32
   %25 = load ptr, ptr @gpus, align 8
   %26 = getelementptr inbounds %struct.gpu_status_t, ptr %25, i64 %indvars.iv.i, i32 3
   tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %26, i32 noundef %24)
@@ -481,7 +481,7 @@ _get_node_energy.exit:                            ; preds = %89, %86, %._crit_ed
 
 .lr.ph.i78:                                       ; preds = %104, %.lr.ph.i78
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %.lr.ph.i78 ], [ 0, %104 ]
-  %106 = trunc i64 %indvars.iv.i79 to i32
+  %106 = trunc nuw i64 %indvars.iv.i79 to i32
   %107 = load ptr, ptr @gpus, align 8
   %108 = getelementptr inbounds %struct.gpu_status_t, ptr %107, i64 %indvars.iv.i79, i32 3
   tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %108, i32 noundef %106)
@@ -725,7 +725,7 @@ define internal fastcc void @_thread_update_node_energy() unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %0, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %0 ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw i64 %indvars.iv to i32
   %3 = load ptr, ptr @gpus, align 8
   %4 = getelementptr inbounds %struct.gpu_status_t, ptr %3, i64 %indvars.iv
   %5 = tail call i32 @gpu_g_energy_read(i32 noundef %2, ptr noundef %4) #10
@@ -838,7 +838,7 @@ _update_energy.exit:                              ; preds = %32, %38
 
 66:                                               ; preds = %.lr.ph19, %56
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %67 = trunc i64 %indvars.iv.next24 to i32
+  %67 = trunc nuw i64 %indvars.iv.next24 to i32
   %68 = load i16, ptr @gpus_len, align 2
   %69 = zext i16 %68 to i64
   %70 = icmp ult i64 %indvars.iv.next24, %69
@@ -1135,7 +1135,7 @@ _running_profile.exit:                            ; preds = %0, %10
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %17 ]
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.29, i32 noundef %23) #10
   %25 = getelementptr inbounds %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv
   store ptr %24, ptr %25, align 16
@@ -1247,7 +1247,7 @@ _running_profile.exit:                            ; preds = %0, %10
 
 70:                                               ; preds = %.lr.ph44, %67
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %71 = trunc i64 %indvars.iv.next57 to i32
+  %71 = trunc nuw i64 %indvars.iv.next57 to i32
   %72 = load i16, ptr @gpus_len, align 2
   %73 = zext i16 %72 to i64
   %74 = icmp ult i64 %indvars.iv.next57, %73

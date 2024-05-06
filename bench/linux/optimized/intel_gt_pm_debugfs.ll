@@ -470,7 +470,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #1
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @drpc_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @drpc_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8

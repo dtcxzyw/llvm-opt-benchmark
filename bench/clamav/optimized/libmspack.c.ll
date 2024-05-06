@@ -590,7 +590,7 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %.not.i, label %32, label %31
 
 31:                                               ; preds = %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %30, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr nonnull align 1 %30, i64 %spec.select.i, i1 false)
   br label %fmap_readn.exit
 
 32:                                               ; preds = %24, %26
@@ -635,7 +635,7 @@ fmap_readn.exit:                                  ; preds = %31, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mspack_fmap_write(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
   %4 = icmp sgt i32 %2, -1
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4

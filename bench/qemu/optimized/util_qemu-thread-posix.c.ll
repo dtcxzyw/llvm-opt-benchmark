@@ -237,7 +237,7 @@ qemu_mutex_post_lock.exit:                        ; preds = %if.end3, %land.lhs.
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_mutex_trylock_impl(ptr noundef %mutex, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
+define dso_local range(i32 -16, 1) i32 @qemu_mutex_trylock_impl(ptr noundef %mutex, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
@@ -444,9 +444,9 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_rec_mutex_trylock_impl(ptr noundef %mutex, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
+define dso_local range(i32 -16, 1) i32 @qemu_rec_mutex_trylock_impl(ptr noundef %mutex, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @qemu_mutex_trylock_impl(ptr noundef %mutex, ptr noundef %file, i32 noundef %line), !range !5
+  %call = tail call i32 @qemu_mutex_trylock_impl(ptr noundef %mutex, ptr noundef %file, i32 noundef %line)
   ret i32 %call
 }
 
@@ -978,7 +978,7 @@ if.end:                                           ; preds = %if.end.i
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_sem_timedwait(ptr noundef %sem, i32 noundef %ms) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @qemu_sem_timedwait(ptr noundef %sem, i32 noundef %ms) local_unnamed_addr #1 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %call1.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts) #19
@@ -1021,11 +1021,11 @@ while.body2.lr.ph:                                ; preds = %compute_abs_deadlin
 while.cond1:                                      ; preds = %while.body2
   %5 = load i32, ptr %count, align 8
   %cmp = icmp eq i32 %5, 0
-  br i1 %cmp, label %while.body2, label %if.then9, !llvm.loop !6
+  br i1 %cmp, label %while.body2, label %if.then9, !llvm.loop !5
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %while.cond1
   %call = call fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef nonnull %cond, ptr noundef nonnull %sem, ptr noundef nonnull %ts, ptr noundef nonnull @.str.1, i32 noundef 297)
-  br i1 %call, label %while.cond1, label %if.end11, !llvm.loop !6
+  br i1 %call, label %while.cond1, label %if.end11, !llvm.loop !5
 
 if.then9:                                         ; preds = %while.cond1, %compute_abs_deadline.exit
   %6 = load i32, ptr %count, align 8
@@ -1060,7 +1060,7 @@ while.end8:                                       ; preds = %while.end8.lr.ph, %
   tail call void %4(ptr noundef nonnull %cond, ptr noundef nonnull %sem, ptr noundef nonnull @.str.1, i32 noundef 314) #19
   %5 = load i32, ptr %count, align 8
   %cmp = icmp eq i32 %5, 0
-  br i1 %cmp, label %while.end8, label %while.end12, !llvm.loop !8
+  br i1 %cmp, label %while.end8, label %while.end12, !llvm.loop !7
 
 while.end12:                                      ; preds = %while.end8, %entry
   %.lcssa = phi i32 [ %2, %entry ], [ %5, %while.end8 ]
@@ -1111,7 +1111,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
   %1 = load atomic i32, ptr %ev monotonic, align 4
   %cmp.not = icmp eq i32 %1, 0
@@ -1190,7 +1190,7 @@ while.body.i:                                     ; preds = %while.cond.i
   switch i32 %6, label %sw.default.i [
     i32 11, label %if.end18
     i32 4, label %while.cond.i
-  ], !llvm.loop !10
+  ], !llvm.loop !9
 
 sw.default.i:                                     ; preds = %while.body.i
   tail call void @abort() #21
@@ -1308,7 +1308,7 @@ entry:
   %arg2 = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load ptr, ptr %arg2, align 8
   %2 = load i8, ptr @name_threads, align 1
-  %tobool = trunc i8 %2 to i1
+  %tobool = trunc nuw i8 %2 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
@@ -1375,7 +1375,7 @@ for.body.i:                                       ; preds = %do.body1, %for.inc.
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 true), !range !11
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   %add.i = or disjoint i64 %2, %result.012.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 %nbits)
   br label %find_first_bit.exit
@@ -1384,7 +1384,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr i8, ptr %addr.addr.011.i, i64 8
   %add3.i = add i64 %result.012.i, 64
   %cmp.i = icmp ult i64 %add3.i, %nbits
-  br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !12
+  br i1 %cmp.i, label %for.body.i, label %while.end, !llvm.loop !10
 
 find_first_bit.exit:                              ; preds = %do.body1, %if.then.i
   %retval.0.i = phi i64 [ %cond.i, %if.then.i ], [ 0, %do.body1 ]
@@ -1411,7 +1411,7 @@ cond.end:                                         ; preds = %while.body, %cond.t
   %add7 = add nuw i64 %value.022, 1
   %call8 = tail call i64 @find_next_bit(ptr noundef %host_cpus, i64 noundef %nbits, i64 noundef %add7) #19
   %cmp = icmp ult i64 %call8, %nbits
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %for.inc.i, %cond.end, %find_first_bit.exit
   %4 = load i64, ptr %thread, align 8
@@ -1508,7 +1508,7 @@ for.inc:                                          ; preds = %for.body, %cond.end
   %inc = add i32 %i.034, 1
   %conv = sext i32 %inc to i64
   %cmp11 = icmp ugt i64 %tmpbits.031, %conv
-  br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %bitmap_new.exit
   tail call void @__sched_cpufree(ptr noundef nonnull %call32) #19
@@ -1680,13 +1680,11 @@ attributes #25 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -16, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 2150186322}
-!10 = distinct !{!10, !7}
-!11 = !{i64 0, i64 65}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = !{i64 2150186322}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}

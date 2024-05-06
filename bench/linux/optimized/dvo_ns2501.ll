@@ -558,7 +558,7 @@ define internal void @ns2501_dpms(ptr nocapture noundef readonly %0, i1 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ns2501_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 0, 34) i32 @ns2501_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i32

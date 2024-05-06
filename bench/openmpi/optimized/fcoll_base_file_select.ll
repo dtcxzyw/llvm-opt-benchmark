@@ -426,7 +426,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @mca_fcoll_base_query_table(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @mca_fcoll_base_query_table(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.7) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %17

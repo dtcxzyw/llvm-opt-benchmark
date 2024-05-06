@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_cm_jalt(ptr noundef %env, i32 noundef %index) local_unnamed_addr #0 {
+define dso_local range(i64 0, -1) i64 @helper_cm_jalt(ptr noundef %env, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %jvt = getelementptr inbounds i8, ptr %env, i64 5040
   %0 = load i64, ptr %jvt, align 16

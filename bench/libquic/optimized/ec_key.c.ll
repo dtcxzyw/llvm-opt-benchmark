@@ -350,7 +350,7 @@ entry:
 declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @EC_KEY_is_opaque(ptr nocapture noundef readonly %key) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @EC_KEY_is_opaque(ptr nocapture noundef readonly %key) local_unnamed_addr #3 {
 entry:
   %ecdsa_meth = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EC_KEY_set_group(ptr nocapture noundef %key, ptr noundef %group) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_set_group(ptr nocapture noundef %key, ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   tail call void @EC_GROUP_free(ptr noundef %0) #8
@@ -418,7 +418,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_KEY_set_private_key(ptr nocapture noundef %key, ptr noundef %priv_key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_set_private_key(ptr nocapture noundef %key, ptr noundef %priv_key) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -460,7 +460,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_KEY_set_public_key(ptr nocapture noundef %key, ptr noundef %pub_key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_set_public_key(ptr nocapture noundef %key, ptr noundef %pub_key) local_unnamed_addr #0 {
 entry:
   %pub_key1 = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %pub_key1, align 8
@@ -506,7 +506,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EC_KEY_check_key(ptr noundef readonly %eckey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_check_key(ptr noundef readonly %eckey) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %eckey, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -642,7 +642,7 @@ declare i32 @EC_POINT_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EC_KEY_set_public_key_affine_coordinates(ptr noundef %key, ptr noundef %x, ptr noundef %y) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_set_public_key_affine_coordinates(ptr noundef %key, ptr noundef %x, ptr noundef %y) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %key, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -707,12 +707,12 @@ if.then34:                                        ; preds = %lor.lhs.false31, %i
   br label %err
 
 if.end35:                                         ; preds = %lor.lhs.false31
-  %call36 = tail call i32 @EC_KEY_set_public_key(ptr noundef nonnull %key, ptr noundef nonnull %call9), !range !7
+  %call36 = tail call i32 @EC_KEY_set_public_key(ptr noundef nonnull %key, ptr noundef nonnull %call9)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %if.end39
 
 if.end39:                                         ; preds = %if.end35
-  %call40 = tail call i32 @EC_KEY_check_key(ptr noundef nonnull %key), !range !7
+  %call40 = tail call i32 @EC_KEY_check_key(ptr noundef nonnull %key)
   br label %err
 
 err:                                              ; preds = %if.end39, %if.end35, %if.end19, %lor.lhs.false23, %if.end12, %if.end7, %if.then34
@@ -738,7 +738,7 @@ declare i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr n
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EC_KEY_generate_key(ptr noundef %eckey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_generate_key(ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %eckey, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -781,7 +781,7 @@ do.body:                                          ; preds = %do.cond, %if.end8
 do.cond:                                          ; preds = %do.body
   %call15 = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.0) #8
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %do.end, label %do.body, !llvm.loop !8
+  br i1 %tobool16.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %do.cond
   %pub_key17 = getelementptr inbounds i8, ptr %eckey, i64 8
@@ -901,6 +901,5 @@ attributes #8 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

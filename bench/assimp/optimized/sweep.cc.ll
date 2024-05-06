@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3p2t5SweepD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3p2t5SweepD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN3p2t8Orient2dERKNS_5PointES2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pc) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN3p2t8Orient2dERKNS_5PointES2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pc) local_unnamed_addr #0 {
 entry:
   %0 = load <2 x double>, ptr %pc, align 8
   %1 = load <2 x double>, ptr %pa, align 8
@@ -1370,7 +1370,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   br i1 %cmp6.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  tail call void @_ZN3p2t5Sweep23FillRightBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %edge, ptr noundef nonnull align 8 dereferenceable(40) %node.addr.09.i)
+  tail call void @_ZN3p2t5Sweep23FillRightBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull readonly %edge, ptr noundef nonnull align 8 dereferenceable(40) %node.addr.09.i)
   %.pre.i = load ptr, ptr %edge, align 8
   %.pre10.i = load double, ptr %.pre.i, align 8
   br label %if.end.i
@@ -1434,7 +1434,7 @@ while.body.i7:                                    ; preds = %if.end.i21, %while.
   br i1 %cmp6.i20, label %if.then.i24, label %if.end.i21
 
 if.then.i24:                                      ; preds = %while.body.i7
-  tail call void @_ZN3p2t5Sweep22FillLeftBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %edge, ptr noundef nonnull align 8 dereferenceable(40) %node.addr.010.i)
+  tail call void @_ZN3p2t5Sweep22FillLeftBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull readonly %edge, ptr noundef nonnull align 8 dereferenceable(40) %node.addr.010.i)
   %.pre.i25 = load ptr, ptr %edge, align 8
   %.pre11.i = load double, ptr %.pre.i25, align 8
   br label %if.end.i21

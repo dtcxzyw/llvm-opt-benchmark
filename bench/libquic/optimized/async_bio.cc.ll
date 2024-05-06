@@ -257,7 +257,7 @@ return:                                           ; preds = %entry, %if.then15, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_19AsyncCtrlEP6bio_stilPv(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN12_GLOBAL__N_19AsyncCtrlEP6bio_stilPv(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
 entry:
   %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
@@ -279,7 +279,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_18AsyncNewEP6bio_st(ptr nocapture noundef writeonly %bio) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_18AsyncNewEP6bio_st(ptr nocapture noundef writeonly %bio) #4 {
 entry:
   %calloc = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %cmp = icmp eq ptr %calloc, null
@@ -300,7 +300,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_19AsyncFreeEP6bio_st(ptr noundef %bio) #5 {
+define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_19AsyncFreeEP6bio_st(ptr noundef %bio) #5 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

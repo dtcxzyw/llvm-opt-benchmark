@@ -2307,13 +2307,13 @@ for.inc240:                                       ; preds = %for.inc
 
 for.cond245.preheader:                            ; preds = %for.cond242.preheader, %for.inc317
   %char0.0320 = phi i32 [ 0, %for.cond242.preheader ], [ %inc318, %for.inc317 ]
-  %conv = trunc i32 %char0.0320 to i8
+  %conv = trunc nuw i32 %char0.0320 to i8
   br label %for.body247
 
 for.body247:                                      ; preds = %for.cond245.preheader, %_ZN7testing15AssertionResultD2Ev.exit299
   %char1.0319 = phi i32 [ 0, %for.cond245.preheader ], [ %inc315, %_ZN7testing15AssertionResultD2Ev.exit299 ]
   store i8 %conv, ptr %chars, align 1
-  %conv248 = trunc i32 %char1.0319 to i8
+  %conv248 = trunc nuw i32 %char1.0319 to i8
   store i8 %conv248, ptr %arrayidx249, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp252) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %s250, ptr noundef nonnull %chars, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp252)

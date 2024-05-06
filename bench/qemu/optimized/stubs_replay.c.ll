@@ -18,19 +18,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @replay_read_random(ptr nocapture noundef readnone %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @replay_read_random(ptr nocapture noundef readnone %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @replay_reverse_step() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_reverse_step() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @replay_reverse_continue() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_reverse_continue() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }

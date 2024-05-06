@@ -14,14 +14,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.hash_init_with_dom.dom_s = private unnamed_addr constant [9 x i8] c"SigEd448\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_c448_ed448_convert_private_key_to_x448(ptr noundef %ctx, ptr noundef %x, ptr noundef %ed, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ossl_c448_ed448_convert_private_key_to_x448(ptr noundef %ctx, ptr noundef %x, ptr noundef %ed, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @oneshot_hash(ptr noundef %ctx, ptr noundef %x, i64 noundef 56, ptr noundef %ed, ptr noundef %propq)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @oneshot_hash(ptr noundef %ctx, ptr noundef %out, i64 noundef %outlen, ptr noundef %in, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @oneshot_hash(ptr noundef %ctx, ptr noundef %out, i64 noundef %outlen, ptr noundef %in, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_new() #4
   %cmp = icmp eq ptr %call, null
@@ -60,7 +60,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_c448_ed448_derive_public_key(ptr noundef %ctx, ptr noundef %pubkey, ptr noundef %privkey, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ossl_c448_ed448_derive_public_key(ptr noundef %ctx, ptr noundef %pubkey, ptr noundef %privkey, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %secret_scalar_ser = alloca [57 x i8], align 16
   %secret_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
@@ -118,7 +118,7 @@ declare void @ossl_curve448_point_destroy(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_c448_ed448_sign(ptr noundef %ctx, ptr noundef %signature, ptr noundef %privkey, ptr noundef %pubkey, ptr noundef %message, i64 noundef %message_len, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %ctx, ptr noundef %signature, ptr noundef %privkey, ptr noundef %pubkey, ptr noundef %message, i64 noundef %message_len, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %secret_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
   %nonce_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
@@ -239,7 +239,7 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %hashctx, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %hashctx, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %dom_s = alloca [9 x i8], align 1
   %dom = alloca [2 x i8], align 1
@@ -251,7 +251,7 @@ if.end:                                           ; preds = %entry
   %cmp1 = icmp ne i8 %prehashed, 0
   %conv8 = zext i1 %cmp1 to i8
   store i8 %conv8, ptr %dom, align 1
-  %conv9 = trunc i64 %context_len to i8
+  %conv9 = trunc nuw i64 %context_len to i8
   %arrayidx10 = getelementptr inbounds i8, ptr %dom, i64 1
   store i8 %conv9, ptr %arrayidx10, align 1
   %call = tail call ptr @EVP_MD_fetch(ptr noundef %ctx, ptr noundef nonnull @.str, ptr noundef %propq) #4
@@ -305,9 +305,9 @@ declare void @ossl_curve448_scalar_encode(ptr noundef, ptr noundef) local_unname
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_c448_ed448_sign_prehash(ptr noundef %ctx, ptr noundef %signature, ptr noundef %privkey, ptr noundef %pubkey, ptr noundef %hash, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ossl_c448_ed448_sign_prehash(ptr noundef %ctx, ptr noundef %signature, ptr noundef %privkey, ptr noundef %pubkey, ptr noundef %hash, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_c448_ed448_sign(ptr noundef %ctx, ptr noundef %signature, ptr noundef %privkey, ptr noundef %pubkey, ptr noundef %hash, i64 noundef 64, i8 noundef zeroext 1, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq), !range !6
+  %call = tail call i32 @ossl_c448_ed448_sign(ptr noundef %ctx, ptr noundef %signature, ptr noundef %privkey, ptr noundef %pubkey, ptr noundef %hash, i64 noundef 64, i8 noundef zeroext 1, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
   ret i32 %call
 }
 
@@ -319,18 +319,18 @@ entry:
   %challenge_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
   %response_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
   %challenge = alloca [114 x i8], align 16
-  %invariant.gep = getelementptr i8, ptr %signature, i64 57
+  %invariant.gep = getelementptr inbounds i8, ptr %signature, i64 57
   br label %for.body
 
 for.cond:                                         ; preds = %if.end
   %dec = add nsw i32 %i.023, -1
   %cmp.not = icmp eq i32 %i.023, 0
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !6
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.023 = phi i32 [ 56, %entry ], [ %dec, %for.cond ]
   %0 = zext nneg i32 %i.023 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %0
   %1 = load i8, ptr %gep, align 1
   %arrayidx2 = getelementptr inbounds [57 x i8], ptr @ossl_c448_ed448_verify.order, i64 0, i64 %0
   %2 = load i8, ptr %arrayidx2, align 1
@@ -418,16 +418,16 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ed448_sign(ptr noundef %ctx, ptr noundef %out_sig, ptr noundef %message, i64 noundef %message_len, ptr noundef %public_key, ptr noundef %private_key, ptr noundef %context, i64 noundef %context_len, i8 noundef zeroext %phflag, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ed448_sign(ptr noundef %ctx, ptr noundef %out_sig, ptr noundef %message, i64 noundef %message_len, ptr noundef %public_key, ptr noundef %private_key, ptr noundef %context, i64 noundef %context_len, i8 noundef zeroext %phflag, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_c448_ed448_sign(ptr noundef %ctx, ptr noundef %out_sig, ptr noundef %private_key, ptr noundef %public_key, ptr noundef %message, i64 noundef %message_len, i8 noundef zeroext %phflag, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq), !range !6
+  %call = tail call i32 @ossl_c448_ed448_sign(ptr noundef %ctx, ptr noundef %out_sig, ptr noundef %private_key, ptr noundef %public_key, ptr noundef %message, i64 noundef %message_len, i8 noundef zeroext %phflag, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
   %cmp = icmp eq i32 %call, -1
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ed448_verify(ptr noundef %ctx, ptr noundef %message, i64 noundef %message_len, ptr noundef %signature, ptr noundef %public_key, ptr noundef %context, i64 noundef %context_len, i8 noundef zeroext %phflag, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ed448_verify(ptr noundef %ctx, ptr noundef %message, i64 noundef %message_len, ptr noundef %signature, ptr noundef %public_key, ptr noundef %context, i64 noundef %context_len, i8 noundef zeroext %phflag, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %conv = trunc i64 %context_len to i8
   %call = tail call i32 @ossl_c448_ed448_verify(ptr noundef %ctx, ptr noundef %signature, ptr noundef %public_key, ptr noundef %message, i64 noundef %message_len, i8 noundef zeroext %phflag, ptr noundef %context, i8 noundef zeroext %conv, ptr noundef %propq)
@@ -437,9 +437,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ed448_public_from_private(ptr noundef %ctx, ptr noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ed448_public_from_private(ptr noundef %ctx, ptr noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_c448_ed448_derive_public_key(ptr noundef %ctx, ptr noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq), !range !6
+  %call = tail call i32 @ossl_c448_ed448_derive_public_key(ptr noundef %ctx, ptr noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq)
   %cmp = icmp eq i32 %call, -1
   %conv = zext i1 %cmp to i32
   ret i32 %conv
@@ -465,5 +465,4 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

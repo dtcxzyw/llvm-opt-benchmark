@@ -895,7 +895,7 @@ list_head.exit77.i:                               ; preds = %44, %list_head.exit
   %.06692.i = phi ptr [ %47, %.lr.ph.i ], [ %.167.i, %128 ]
   %.06990.i = phi i32 [ 0, %.lr.ph.i ], [ %.170.i, %128 ]
   %53 = load ptr, ptr %50, align 8
-  %54 = trunc i64 %indvars.iv.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   %55 = call zeroext i1 @bms_is_member(i32 noundef %54, ptr noundef %53) #6
   br i1 %55, label %128, label %56
 
@@ -1072,7 +1072,7 @@ partkey_datum_from_expr.exit.i:                   ; preds = %77, %71
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %153 = trunc i64 %indvars.iv.i.i to i32
+  %153 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %154 = call zeroext i1 @bms_is_member(i32 noundef %153, ptr noundef %142) #6
   %155 = getelementptr [32 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
   %156 = zext i1 %154 to i8
@@ -1423,7 +1423,7 @@ get_matching_list_bounds.exit.i:                  ; preds = %.thread.i.i, %263, 
   br i1 %.not181.i.i, label %327, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %329
-  %337 = trunc i64 %indvars.iv.i82.i to i32
+  %337 = trunc nuw nsw i64 %indvars.iv.i82.i to i32
   br label %.split.loop.exit203.i.i
 
 .split.loop.exit203.i.i:                          ; preds = %327, %.split.loop.exit.i.i
@@ -1444,7 +1444,7 @@ get_matching_list_bounds.exit.i:                  ; preds = %.thread.i.i, %263, 
   %indvars.iv200.i.i = phi i64 [ %indvars.iv.next201.i.i, %352 ], [ %323, %.split.loop.exit203.i.i ]
   %348 = load i32, ptr %284, align 4
   %349 = add i32 %348, -1
-  %350 = trunc i64 %indvars.iv200.i.i to i32
+  %350 = trunc nuw i64 %indvars.iv200.i.i to i32
   %351 = icmp sgt i32 %349, %350
   br i1 %351, label %352, label %360
 
@@ -3143,7 +3143,7 @@ match_clause_to_partition_key.exit:               ; preds = %220, %222, %list_le
   ]
 
 .loopexit278.loopexit:                            ; preds = %match_clause_to_partition_key.exit
-  %482 = trunc i64 %indvars.iv710 to i32
+  %482 = trunc nuw nsw i64 %indvars.iv710 to i32
   br label %.loopexit278
 
 .loopexit278:                                     ; preds = %.loopexit278.loopexit, %match_clause_to_partition_key.exit.thread236
@@ -3337,7 +3337,7 @@ match_boolean_partition_clause.exit:              ; preds = %479
   br i1 %or.cond3.i, label %550, label %553
 
 550:                                              ; preds = %548
-  %551 = trunc i64 %indvars.iv472.i to i32
+  %551 = trunc nuw nsw i64 %indvars.iv472.i to i32
   %552 = call zeroext i1 @bms_is_member(i32 noundef %551, ptr noundef %.0118497.lcssa1220) #6
   br i1 %552, label %._crit_edge.thread.i, label %gen_prune_steps_from_opexps.exit
 
@@ -3802,7 +3802,7 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
 list_head.exit.i.i:                               ; preds = %.thread260.i
   %766 = getelementptr inbounds i8, ptr %.5502.i, i64 16
   %767 = load ptr, ptr %766, align 8
-  %768 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext %620, i1 noundef zeroext %741, ptr noundef %743, i32 noundef %745, ptr noundef null, ptr noundef nonnull %.5502.i, ptr noundef %767, ptr noundef null, ptr noundef null)
+  %768 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext %620, i1 noundef zeroext %741, ptr noundef %743, i32 noundef %745, ptr noundef null, ptr noundef nonnull readonly %.5502.i, ptr noundef %767, ptr noundef null, ptr noundef null)
   br label %get_steps_using_prefix.exit.i
 
 get_steps_using_prefix.exit.i:                    ; preds = %list_head.exit.i.i, %747, %628
@@ -3931,7 +3931,7 @@ list_head.exit.i236.i:                            ; preds = %.lr.ph309.i, %list_
   %831 = getelementptr inbounds i8, ptr %828, i64 24
   %832 = load i32, ptr %831, align 8
   %833 = load ptr, ptr %799, align 8
-  %834 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %830, i32 noundef %832, ptr noundef %.0118497.lcssa1220, ptr noundef nonnull %793, ptr noundef %833, ptr noundef null, ptr noundef null)
+  %834 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %830, i32 noundef %832, ptr noundef %.0118497.lcssa1220, ptr noundef nonnull readonly %793, ptr noundef %833, ptr noundef null, ptr noundef null)
   %835 = call ptr @list_concat(ptr noundef %.3307.i, ptr noundef %834) #6
   %indvars.iv.next479.i = add nuw nsw i64 %indvars.iv478.i, 1
   %836 = load i32, ptr %777, align 4

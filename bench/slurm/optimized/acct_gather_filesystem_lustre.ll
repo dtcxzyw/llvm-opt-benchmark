@@ -229,7 +229,7 @@ _check_lustre_fs.exit:                            ; preds = %6, %_llite_path.exi
 34:                                               ; preds = %30
   %35 = load i32, ptr @_update_node_filesystem.errors, align 4
   %36 = icmp ne i32 %35, 0
-  %37 = call fastcc i32 @_read_lustre_counters(i1 noundef zeroext %36), !range !8
+  %37 = call fastcc i32 @_read_lustre_counters(i1 noundef zeroext %36)
   %.not16.i = icmp eq i32 %37, 0
   %38 = load i32, ptr @_update_node_filesystem.errors, align 4
   %.not17.i = icmp eq i32 %38, 0
@@ -413,7 +413,7 @@ define void @acct_gather_filesystem_p_conf_values(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_filesystem_p_get_data(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @tres_pos, align 4
   %3 = icmp ne i32 %2, -1
   %4 = icmp ne ptr %0, null
@@ -443,7 +443,7 @@ define noundef i32 @acct_gather_filesystem_p_get_data(ptr noundef writeonly %0) 
 13:                                               ; preds = %9
   %14 = load i32, ptr @acct_gather_filesystem_p_get_data.errors, align 4
   %15 = icmp ne i32 %14, 0
-  %16 = tail call fastcc i32 @_read_lustre_counters(i1 noundef zeroext %15), !range !8
+  %16 = tail call fastcc i32 @_read_lustre_counters(i1 noundef zeroext %15)
   %.not17 = icmp eq i32 %16, 0
   %17 = load i32, ptr @acct_gather_filesystem_p_get_data.errors, align 4
   %.not18 = icmp eq i32 %17, 0
@@ -532,7 +532,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare void @slurm_fatal(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_read_lustre_counters(i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_read_lustre_counters(i1 noundef zeroext %0) unnamed_addr #0 {
   %2 = alloca [8192 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
@@ -623,7 +623,7 @@ _llite_path.exit.thread33:                        ; preds = %1, %_llite_path.exi
 .backedge:                                        ; preds = %87, %90, %.lr.ph43, %32, %43
   %34 = call ptr @readdir(ptr noundef nonnull %24) #11
   %.not24 = icmp eq ptr %34, null
-  br i1 %.not24, label %._crit_edge44, label %.lr.ph43, !llvm.loop !9
+  br i1 %.not24, label %._crit_edge44, label %.lr.ph43, !llvm.loop !8
 
 35:                                               ; preds = %32
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i36, ptr noundef nonnull %30) #11
@@ -699,7 +699,7 @@ _llite_path.exit.thread33:                        ; preds = %1, %_llite_path.exi
   %.118 = phi i1 [ %.01739, %58 ], [ true, %64 ], [ true, %60 ]
   %68 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 8192, ptr noundef nonnull %42)
   %.not28 = icmp eq ptr %68, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %67, %.lr.ph, %46
   %69 = call i32 @fclose(ptr noundef nonnull %42)
@@ -837,6 +837,5 @@ attributes #14 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}

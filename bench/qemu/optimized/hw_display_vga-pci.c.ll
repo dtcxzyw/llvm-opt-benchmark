@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pci_vga_ioport_read(ptr noundef %ptr, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @pci_vga_ioport_read(ptr noundef %ptr, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   switch i32 %size, label %sw.epilog [
     i32 1, label %sw.bb
@@ -192,7 +192,7 @@ declare i32 @vga_ioport_read(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @vga_ioport_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pci_vga_bochs_read(ptr noundef %ptr, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @pci_vga_bochs_read(ptr noundef %ptr, i64 noundef %addr, i32 %size) #0 {
 entry:
   %shr = lshr i64 %addr, 1
   %conv = trunc i64 %shr to i32
@@ -220,7 +220,7 @@ declare i32 @vbe_ioport_read_data(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @vbe_ioport_write_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @pci_vga_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #2 {
+define internal range(i64 0, 4294967296) i64 @pci_vga_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #2 {
 entry:
   switch i64 %addr, label %sw.default [
     i64 0, label %return

@@ -1114,7 +1114,7 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
   %.0174 = phi i64 [ %.0168, %83 ], [ %89, %84 ]
   %.0173 = phi ptr [ %10, %83 ], [ %88, %84 ]
   %85 = urem i64 %.0174, 10
-  %86 = trunc i64 %85 to i8
+  %86 = trunc nuw nsw i64 %85 to i8
   %87 = or disjoint i8 %86, 48
   %88 = getelementptr inbounds i8, ptr %.0173, i64 -1
   store i8 %87, ptr %88, align 1
@@ -1735,7 +1735,7 @@ tailrecurse:                                      ; preds = %262, %3
   %.0380 = phi i64 [ %228, %227 ], [ %234, %229 ]
   %.0 = phi ptr [ %225, %227 ], [ %233, %229 ]
   %230 = urem i64 %.0380, 10
-  %231 = trunc i64 %230 to i8
+  %231 = trunc nuw nsw i64 %230 to i8
   %232 = or disjoint i8 %231, 48
   %233 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %232, ptr %233, align 1
@@ -1756,7 +1756,7 @@ tailrecurse:                                      ; preds = %262, %3
   %.0382 = phi i64 [ %224, %237 ], [ %243, %238 ]
   %.0381 = phi ptr [ %225, %237 ], [ %242, %238 ]
   %239 = urem i64 %.0382, 10
-  %240 = trunc i64 %239 to i8
+  %240 = trunc nuw nsw i64 %239 to i8
   %241 = or disjoint i8 %240, 48
   %242 = getelementptr inbounds i8, ptr %.0381, i64 -1
   store i8 %241, ptr %242, align 1
@@ -2169,7 +2169,7 @@ define hidden void @zend_register_standard_ini_entries() local_unnamed_addr #0 {
 declare i32 @zend_register_ini_entries_ex(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_post_startup() local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_post_startup() local_unnamed_addr #0 {
   store i1 true, ptr @startup_done, align 1
   %1 = load ptr, ptr @zend_post_startup_cb, align 8
   %.not = icmp eq ptr %1, null
@@ -3314,8 +3314,8 @@ define void @zend_error_zstr(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
 define void @zend_begin_record_errors() local_unnamed_addr #22 {
   %1 = load i8, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 72), align 8
   %2 = trunc i8 %1 to i1
-  %not. = xor i1 %2, true
-  tail call void @llvm.assume(i1 %not.)
+  %3 = xor i1 %2, true
+  tail call void @llvm.assume(i1 %3)
   store i8 1, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 72), align 8
   store i32 0, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 73), align 4
   store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 74), align 8
@@ -4550,7 +4550,7 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   %.0421 = phi i64 [ %204, %203 ], [ %210, %205 ]
   %.0 = phi ptr [ %49, %203 ], [ %209, %205 ]
   %206 = urem i64 %.0421, 10
-  %207 = trunc i64 %206 to i8
+  %207 = trunc nuw nsw i64 %206 to i8
   %208 = or disjoint i8 %207, 48
   %209 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %208, ptr %209, align 1
@@ -4571,7 +4571,7 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   %.0431 = phi i64 [ %.0430, %213 ], [ %219, %214 ]
   %.0425 = phi ptr [ %49, %213 ], [ %218, %214 ]
   %215 = urem i64 %.0431, 10
-  %216 = trunc i64 %215 to i8
+  %216 = trunc nuw nsw i64 %215 to i8
   %217 = or disjoint i8 %216, 48
   %218 = getelementptr inbounds i8, ptr %.0425, i64 -1
   store i8 %217, ptr %218, align 1
@@ -4791,7 +4791,7 @@ define internal noundef i32 @OnUpdateErrorReporting(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateAssertions(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateAssertions(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = load ptr, ptr %0, align 8
@@ -4886,7 +4886,7 @@ define internal i32 @OnUpdateScriptEncoding(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define internal noundef i32 @OnSetExceptionStringParamMaxLen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #25 {
+define internal range(i32 -1, 1) i32 @OnSetExceptionStringParamMaxLen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #25 {
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call i64 @atoll(ptr nocapture noundef nonnull %7) #33
   %or.cond = icmp ult i64 %8, 1000001
@@ -4902,7 +4902,7 @@ define internal noundef i32 @OnSetExceptionStringParamMaxLen(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateFiberStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateFiberStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %7
 
@@ -4927,7 +4927,7 @@ define internal noundef i32 @OnUpdateFiberStackSize(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateMaxAllowedStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateMaxAllowedStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_quantity_warn(ptr noundef %1, ptr noundef %7) #30
   %9 = icmp slt i64 %8, -1
@@ -4949,7 +4949,7 @@ define internal noundef i32 @OnUpdateMaxAllowedStackSize(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateReservedStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateReservedStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_uquantity_warn(ptr noundef %1, ptr noundef %7) #30
   %9 = icmp eq i64 %8, 0

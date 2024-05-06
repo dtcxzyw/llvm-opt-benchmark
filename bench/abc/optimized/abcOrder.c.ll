@@ -59,7 +59,7 @@ define internal fastcc void @Abc_NtkChangeCiOrder(ptr nocapture noundef readonly
   %11 = getelementptr inbounds ptr, ptr %.val33, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = xor i32 %14, -1
   %16 = add i32 %.val45, %15
   %17 = getelementptr i8, ptr %13, i64 8

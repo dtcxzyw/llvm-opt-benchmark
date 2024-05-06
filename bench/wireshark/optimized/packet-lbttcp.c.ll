@@ -202,7 +202,7 @@ define internal fastcc noalias ptr @lbttcp_transport_create(ptr nocapture nounde
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 %7, ptr %5, align 8
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %copy_address_wmem.exit, label %13
@@ -266,7 +266,7 @@ declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lbttcp_transport_sid_find(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lbttcp_transport_sid_find(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = zext i16 %1 to i32
   %6 = tail call ptr @find_conversation(i32 noundef %2, ptr noundef %0, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %5, i32 noundef 0, i32 noundef 0) #4
   %7 = icmp eq ptr %6, null
@@ -543,7 +543,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_lbttcp_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @test_lbttcp_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 232
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 2
@@ -862,7 +862,7 @@ declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 declare i32 @lbmc_get_minimum_length() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_lbttcp_pdu_length(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_lbttcp_pdu_length(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i16 @lbmc_get_message_length(ptr noundef %1, i32 noundef %2) #4
   %6 = zext i16 %5 to i32
   ret i32 %6
@@ -1438,7 +1438,7 @@ lbttcp_client_transport_find.exit.thread:         ; preds = %4, %10, %lbttcp_cli
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store i32 %19, ptr %17, align 8
   %24 = icmp eq i32 %21, 0
   br i1 %24, label %copy_address_wmem.exit, label %25

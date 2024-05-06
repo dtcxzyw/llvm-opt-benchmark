@@ -60,7 +60,7 @@ define internal noundef i32 @mca_btl_self_add_procs(ptr nocapture readnone %0, i
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %.lr.ph
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call i32 @opal_bitmap_set_bit(ptr noundef %4, i32 noundef %19) #8
   %21 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8
@@ -521,7 +521,7 @@ mca_btl_self_free.exit:                           ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_btl_self_sendi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) #0 {
+define internal range(i32 -2, 1) i32 @mca_btl_self_sendi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) #0 {
   %11 = alloca i64, align 8
   %12 = alloca [2 x %struct.mca_btl_base_segment_t], align 16
   %13 = alloca %struct.mca_btl_base_descriptor_t, align 8
@@ -695,7 +695,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)

@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.49 = private unnamed_addr constant [31 x i8] c"Failed to initialize HMAC-SHA1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_zip_set_compression_deflate(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_zip_set_compression_deflate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 7, ptr noundef nonnull @.str) #13
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %12, label %4
@@ -88,7 +88,7 @@ declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr no
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_zip_set_compression_store(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_zip_set_compression_store(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 7, ptr noundef nonnull @.str) #13
@@ -116,7 +116,7 @@ define dso_local noundef i32 @archive_write_zip_set_compression_store(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_format_zip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_format_zip(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str.3) #13
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %32, label %4
@@ -204,7 +204,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_zip_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_zip_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca [12 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
@@ -342,7 +342,7 @@ define internal i32 @archive_write_zip_options(ptr noundef %0, ptr nocapture nou
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %71
-  %75 = tail call fastcc i32 @is_winzip_aes_encryption_supported(i32 noundef 2), !range !5
+  %75 = tail call fastcc i32 @is_winzip_aes_encryption_supported(i32 noundef 2)
   %.not75 = icmp eq i32 %75, 0
   br i1 %.not75, label %78, label %76
 
@@ -361,7 +361,7 @@ define internal i32 @archive_write_zip_options(ptr noundef %0, ptr nocapture nou
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %79
-  %83 = tail call fastcc i32 @is_winzip_aes_encryption_supported(i32 noundef 3), !range !5
+  %83 = tail call fastcc i32 @is_winzip_aes_encryption_supported(i32 noundef 3)
   %.not74 = icmp eq i32 %83, 0
   br i1 %.not74, label %86, label %84
 
@@ -496,7 +496,7 @@ define internal i32 @archive_write_zip_options(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_zip_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_zip_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca i64, align 8
@@ -754,7 +754,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds i8, ptr %.0.i363, i64 1
   %123 = icmp slt i8 %120, 0
-  br i1 %123, label %124, label %119, !llvm.loop !6
+  br i1 %123, label %124, label %119, !llvm.loop !5
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %13, align 8
@@ -1054,7 +1054,7 @@ dos_time.exit:                                    ; preds = %216, %245, %247
   %282 = getelementptr inbounds i8, ptr %7, i64 12
   store i8 %281, ptr %282, align 4
   %283 = lshr i32 %.0.i366, 24
-  %284 = trunc i32 %283 to i8
+  %284 = trunc nuw i32 %283 to i8
   %285 = getelementptr inbounds i8, ptr %7, i64 13
   store i8 %284, ptr %285, align 1
   %286 = getelementptr inbounds i8, ptr %7, i64 14
@@ -1070,7 +1070,7 @@ dos_time.exit:                                    ; preds = %216, %245, %247
   %294 = getelementptr inbounds i8, ptr %7, i64 16
   store i8 %293, ptr %294, align 16
   %295 = lshr i32 %287, 24
-  %296 = trunc i32 %295 to i8
+  %296 = trunc nuw i32 %295 to i8
   %297 = getelementptr inbounds i8, ptr %7, i64 17
   store i8 %296, ptr %297, align 1
   %298 = load i32, ptr %48, align 8
@@ -1225,7 +1225,7 @@ cd_alloc.exit:                                    ; preds = %352, %360, %367
   %382 = add nuw nsw i16 %220, 768
   store i8 %221, ptr %381, align 1
   %383 = lshr i16 %382, 8
-  %384 = trunc i16 %383 to i8
+  %384 = trunc nuw i16 %383 to i8
   %385 = getelementptr inbounds i8, ptr %380, i64 5
   store i8 %384, ptr %385, align 1
   %386 = load ptr, ptr %375, align 8
@@ -1329,7 +1329,7 @@ dos_time.exit370:                                 ; preds = %407, %417, %419
   %454 = getelementptr inbounds i8, ptr %409, i64 14
   store i8 %453, ptr %454, align 1
   %455 = lshr i32 %.0.i369, 24
-  %456 = trunc i32 %455 to i8
+  %456 = trunc nuw i32 %455 to i8
   %457 = getelementptr inbounds i8, ptr %409, i64 15
   store i8 %456, ptr %457, align 1
   %458 = load ptr, ptr %375, align 8
@@ -1423,7 +1423,7 @@ cd_alloc.exit373:                                 ; preds = %485, %493, %500
   %509 = call ptr @archive_entry_pathname(ptr noundef %508) #13
   %510 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %509) #16
   %511 = call i32 @archive_entry_filetype(ptr noundef %508) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i371, ptr align 1 %509, i64 %510, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.0.i371, ptr align 1 %509, i64 %510, i1 false)
   %512 = icmp eq i32 %511, 16384
   br i1 %512, label %513, label %copy_path.exit
 
@@ -1748,7 +1748,7 @@ cd_alloc.exit377:                                 ; preds = %661, %669, %676
   %705 = getelementptr inbounds i8, ptr %.3, i64 10
   store i8 %704, ptr %705, align 1
   %sum.shift.i = lshr i64 %686, 56
-  %706 = trunc i64 %sum.shift.i to i8
+  %706 = trunc nuw i64 %sum.shift.i to i8
   %707 = getelementptr inbounds i8, ptr %.3, i64 11
   store i8 %706, ptr %707, align 1
   %708 = getelementptr inbounds i8, ptr %.3, i64 12
@@ -1780,7 +1780,7 @@ cd_alloc.exit377:                                 ; preds = %661, %669, %676
   %728 = getelementptr inbounds i8, ptr %.3, i64 18
   store i8 %727, ptr %728, align 1
   %sum.shift.i378 = lshr i64 %709, 56
-  %729 = trunc i64 %sum.shift.i378 to i8
+  %729 = trunc nuw i64 %sum.shift.i378 to i8
   %730 = getelementptr inbounds i8, ptr %.3, i64 19
   store i8 %729, ptr %730, align 1
   %731 = getelementptr inbounds i8, ptr %.3, i64 20
@@ -2055,7 +2055,7 @@ define internal i64 @archive_write_zip_data(ptr noundef %0, ptr noundef %1, i64 
   %61 = add i32 %60, 1
   store i32 %61, ptr %47, align 4
   %62 = lshr i32 %61, 24
-  %63 = trunc i32 %62 to i8
+  %63 = trunc nuw i32 %62 to i8
   store i8 %63, ptr %13, align 1
   %64 = load i32, ptr %48, align 4
   %65 = xor i32 %64, -1
@@ -2068,7 +2068,7 @@ define internal i64 @archive_write_zip_data(ptr noundef %0, ptr noundef %1, i64 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   %70 = add i64 %.09.i.i, -1
   %.not.i.i = icmp eq i64 %70, 0
-  br i1 %.not.i.i, label %trad_enc_init.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %trad_enc_init.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
 trad_enc_init.exit.i:                             ; preds = %.lr.ph.i.i, %44
   %.val.pre.i.i = phi i32 [ 878082192, %44 ], [ %69, %.lr.ph.i.i ]
@@ -2108,7 +2108,7 @@ trad_enc_init.exit.i:                             ; preds = %.lr.ph.i.i, %44
   %94 = add i32 %93, 1
   store i32 %94, ptr %47, align 4
   %95 = lshr i32 %94, 24
-  %96 = trunc i32 %95 to i8
+  %96 = trunc nuw i32 %95 to i8
   store i8 %96, ptr %11, align 1
   %97 = load i32, ptr %48, align 4
   %98 = xor i32 %97, -1
@@ -2121,7 +2121,7 @@ trad_enc_init.exit.i:                             ; preds = %.lr.ph.i.i, %44
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 12
-  br i1 %exitcond.not.i.i, label %trad_enc_encrypt_update.exit.i, label %74, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %trad_enc_encrypt_update.exit.i, label %74, !llvm.loop !8
 
 trad_enc_encrypt_update.exit.i:                   ; preds = %74
   %103 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 12) #13
@@ -2342,7 +2342,7 @@ trad_enc_encrypt_update.exit.i:                   ; preds = %74
   %217 = add i32 %216, 1
   store i32 %217, ptr %181, align 4
   %218 = lshr i32 %217, 24
-  %219 = trunc i32 %218 to i8
+  %219 = trunc nuw i32 %218 to i8
   store i8 %219, ptr %7, align 1
   %220 = load i32, ptr %180, align 4
   %221 = xor i32 %220, -1
@@ -2355,7 +2355,7 @@ trad_enc_encrypt_update.exit.i:                   ; preds = %74
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %196
-  br i1 %exitcond.not.i, label %trad_enc_encrypt_update.exit, label %197, !llvm.loop !9
+  br i1 %exitcond.not.i, label %trad_enc_encrypt_update.exit, label %197, !llvm.loop !8
 
 trad_enc_encrypt_update.exit:                     ; preds = %197, %190
   store i64 %196, ptr %16, align 8
@@ -2403,7 +2403,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %197, %190
   store i64 %248, ptr %187, align 8
   %249 = getelementptr inbounds i8, ptr %.0110159, i64 %244
   %250 = icmp ult ptr %249, %174
-  br i1 %250, label %188, label %.loopexit, !llvm.loop !10
+  br i1 %250, label %188, label %.loopexit, !llvm.loop !9
 
 251:                                              ; preds = %170
   %252 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %1, i64 noundef %spec.select) #13
@@ -2503,7 +2503,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %197, %190
   %312 = add i32 %311, 1
   store i32 %312, ptr %272, align 4
   %313 = lshr i32 %312, 24
-  %314 = trunc i32 %313 to i8
+  %314 = trunc nuw i32 %313 to i8
   store i8 %314, ptr %5, align 1
   %315 = load i32, ptr %271, align 4
   %316 = xor i32 %315, -1
@@ -2516,7 +2516,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %197, %190
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %292
-  br i1 %exitcond.not.i144, label %trad_enc_encrypt_update.exit145, label %293, !llvm.loop !9
+  br i1 %exitcond.not.i144, label %trad_enc_encrypt_update.exit145, label %293, !llvm.loop !8
 
 321:                                              ; preds = %287
   %322 = load i8, ptr %273, align 8
@@ -2569,7 +2569,7 @@ trad_enc_encrypt_update.exit145:                  ; preds = %293, %289, %321, %3
 345:                                              ; preds = %284, %337
   %346 = load i32, ptr %265, align 8
   %.not127 = icmp eq i32 %346, 0
-  br i1 %.not127, label %.loopexit, label %281, !llvm.loop !11
+  br i1 %.not127, label %.loopexit, label %281, !llvm.loop !10
 
 347:                                              ; preds = %164
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.45) #13
@@ -2697,7 +2697,7 @@ define internal i32 @archive_write_zip_finish_entry(ptr noundef %0) #0 {
   %60 = add i32 %59, 1
   store i32 %60, ptr %23, align 4
   %61 = lshr i32 %60, 24
-  %62 = trunc i32 %61 to i8
+  %62 = trunc nuw i32 %61 to i8
   store i8 %62, ptr %3, align 1
   %63 = load i32, ptr %22, align 4
   %64 = xor i32 %63, -1
@@ -2710,7 +2710,7 @@ define internal i32 @archive_write_zip_finish_entry(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %40
-  br i1 %exitcond.not.i, label %trad_enc_encrypt_update.exit, label %41, !llvm.loop !9
+  br i1 %exitcond.not.i, label %trad_enc_encrypt_update.exit, label %41, !llvm.loop !8
 
 69:                                               ; preds = %32
   %70 = load i8, ptr %24, align 8
@@ -2830,7 +2830,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %41, %38, %69, %76
   %131 = getelementptr inbounds i8, ptr %7, i64 6
   store i8 %130, ptr %131, align 2
   %132 = lshr i32 %124, 24
-  %133 = trunc i32 %132 to i8
+  %133 = trunc nuw i32 %132 to i8
   %134 = getelementptr inbounds i8, ptr %7, i64 7
   store i8 %133, ptr %134, align 1
   br label %135
@@ -2872,7 +2872,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %41, %38, %69, %76
   %160 = getelementptr inbounds i8, ptr %7, i64 14
   store i8 %159, ptr %160, align 2
   %sum.shift.i = lshr i64 %140, 56
-  %161 = trunc i64 %sum.shift.i to i8
+  %161 = trunc nuw i64 %sum.shift.i to i8
   %162 = getelementptr inbounds i8, ptr %7, i64 15
   store i8 %161, ptr %162, align 1
   %163 = getelementptr inbounds i8, ptr %7, i64 16
@@ -2994,7 +2994,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %41, %38, %69, %76
   %234 = getelementptr inbounds i8, ptr %8, i64 10
   store i8 %233, ptr %234, align 2
   %sum.shift.i125 = lshr i64 %.pre, 56
-  %235 = trunc i64 %sum.shift.i125 to i8
+  %235 = trunc nuw i64 %sum.shift.i125 to i8
   %236 = getelementptr inbounds i8, ptr %8, i64 11
   store i8 %235, ptr %236, align 1
   %237 = getelementptr inbounds i8, ptr %8, i64 12
@@ -3034,7 +3034,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %41, %38, %69, %76
   %260 = getelementptr inbounds i8, ptr %.0102, i64 6
   store i8 %259, ptr %260, align 1
   %sum.shift.i126 = lshr i64 %204, 56
-  %261 = trunc i64 %sum.shift.i126 to i8
+  %261 = trunc nuw i64 %sum.shift.i126 to i8
   %262 = getelementptr inbounds i8, ptr %.0102, i64 7
   store i8 %261, ptr %262, align 1
   %263 = getelementptr inbounds i8, ptr %.0102, i64 8
@@ -3074,7 +3074,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %41, %38, %69, %76
   %286 = getelementptr inbounds i8, ptr %.1, i64 6
   store i8 %285, ptr %286, align 1
   %sum.shift.i127 = lshr i64 %265, 56
-  %287 = trunc i64 %sum.shift.i127 to i8
+  %287 = trunc nuw i64 %sum.shift.i127 to i8
   %288 = getelementptr inbounds i8, ptr %.1, i64 7
   store i8 %287, ptr %288, align 1
   %289 = getelementptr inbounds i8, ptr %.1, i64 8
@@ -3224,7 +3224,7 @@ cd_alloc.exit.thread:                             ; preds = %316, %324, %cd_allo
   %373 = getelementptr inbounds i8, ptr %363, i64 18
   store i8 %372, ptr %373, align 1
   %374 = lshr i32 %366, 24
-  %375 = trunc i32 %374 to i8
+  %375 = trunc nuw i32 %374 to i8
   %376 = getelementptr inbounds i8, ptr %363, i64 19
   store i8 %375, ptr %376, align 1
   br label %377
@@ -3307,7 +3307,7 @@ cd_alloc.exit.thread:                             ; preds = %316, %324, %cd_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_zip_close(ptr noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_zip_close(ptr noundef %0) #0 {
   %2 = alloca [64 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
@@ -3342,7 +3342,7 @@ define internal noundef i32 @archive_write_zip_close(ptr noundef %0) #0 {
   store i64 %23, ptr %5, align 8
   %.0 = load ptr, ptr %.060, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %16, %1
   %24 = phi i64 [ %6, %1 ], [ %23, %16 ]
@@ -3402,7 +3402,7 @@ define internal noundef i32 @archive_write_zip_close(ptr noundef %0) #0 {
   %57 = getelementptr inbounds i8, ptr %2, i64 30
   store i8 %56, ptr %57, align 2
   %sum.shift.i = lshr i64 %.pre, 56
-  %58 = trunc i64 %sum.shift.i to i8
+  %58 = trunc nuw i64 %sum.shift.i to i8
   %59 = getelementptr inbounds i8, ptr %2, i64 31
   store i8 %58, ptr %59, align 1
   %60 = getelementptr inbounds i8, ptr %2, i64 32
@@ -3449,7 +3449,7 @@ define internal noundef i32 @archive_write_zip_close(ptr noundef %0) #0 {
   %87 = getelementptr inbounds i8, ptr %2, i64 46
   store i8 %86, ptr %87, align 2
   %sum.shift.i54 = lshr i64 %25, 56
-  %88 = trunc i64 %sum.shift.i54 to i8
+  %88 = trunc nuw i64 %sum.shift.i54 to i8
   %89 = getelementptr inbounds i8, ptr %2, i64 47
   store i8 %88, ptr %89, align 1
   %90 = getelementptr inbounds i8, ptr %2, i64 48
@@ -3480,7 +3480,7 @@ define internal noundef i32 @archive_write_zip_close(ptr noundef %0) #0 {
   %109 = getelementptr inbounds i8, ptr %2, i64 54
   store i8 %108, ptr %109, align 2
   %sum.shift.i55 = lshr i64 %6, 56
-  %110 = trunc i64 %sum.shift.i55 to i8
+  %110 = trunc nuw i64 %sum.shift.i55 to i8
   %111 = getelementptr inbounds i8, ptr %2, i64 55
   store i8 %110, ptr %111, align 1
   %112 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 56) #13
@@ -3521,7 +3521,7 @@ define internal noundef i32 @archive_write_zip_close(ptr noundef %0) #0 {
   %135 = trunc i64 %134 to i8
   store i8 %135, ptr %115, align 2
   %sum.shift.i56 = lshr i64 %24, 56
-  %136 = trunc i64 %sum.shift.i56 to i8
+  %136 = trunc nuw i64 %sum.shift.i56 to i8
   store i8 %136, ptr %114, align 1
   %137 = getelementptr inbounds i8, ptr %2, i64 16
   store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %137, align 16
@@ -3545,7 +3545,7 @@ define internal noundef i32 @archive_write_zip_close(ptr noundef %0) #0 {
   %145 = trunc i64 %spec.select57 to i8
   store i8 %145, ptr %144, align 8
   %146 = lshr i64 %spec.select57, 8
-  %147 = trunc i64 %146 to i8
+  %147 = trunc nuw i64 %146 to i8
   %148 = getelementptr inbounds i8, ptr %2, i64 9
   store i8 %147, ptr %148, align 1
   %149 = getelementptr inbounds i8, ptr %2, i64 10
@@ -3618,7 +3618,7 @@ define internal noundef i32 @archive_write_zip_free(ptr nocapture noundef %0) #0
   tail call void @free(ptr noundef nonnull %6) #13
   %10 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %11 = getelementptr inbounds i8, ptr %3, i64 440
@@ -3662,7 +3662,7 @@ declare i64 @cm_zlib_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_winzip_aes_encryption_supported(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_winzip_aes_encryption_supported(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [18 x i8], align 16
   %3 = alloca [66 x i8], align 16
   %4 = alloca %struct.archive_crypto_ctx, align 8
@@ -3831,12 +3831,11 @@ attributes #17 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}

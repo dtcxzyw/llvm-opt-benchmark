@@ -86,7 +86,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(618) ptr @_ZN6icu_758CalendaraSERKS0_(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 8 dereferenceable(618)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7510CECalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear, i32 noundef %emonth, i8 signext %0) unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7510CECalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear, i32 noundef %emonth, i8 signext %0) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
@@ -123,7 +123,7 @@ _ZN6icu_7510CECalendar6ceToJDEiiii.exit:          ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7510CECalendar6ceToJDEiiii(i32 noundef %year, i32 noundef %month, i32 noundef %date, i32 noundef %jdEpochOffset) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_7510CECalendar6ceToJDEiiii(i32 noundef %year, i32 noundef %month, i32 noundef %date, i32 noundef %jdEpochOffset) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp sgt i32 %month, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -189,7 +189,7 @@ entry:
   store i32 %add, ptr %year, align 4
   %cmp = icmp eq i32 %0, 1460
   %rem = srem i32 %0, 365
-  %1 = trunc i32 %rem to i16
+  %1 = trunc nsw i32 %rem to i16
   %div3.lhs.trunc = select i1 %cmp, i16 365, i16 %1
   %div32 = sdiv i16 %div3.lhs.trunc, 30
   %div3.sext = sext i16 %div32 to i32

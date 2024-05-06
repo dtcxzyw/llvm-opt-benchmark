@@ -18,7 +18,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17hfe345e65e
 
 7:                                                ; preds = %3
   tail call void @llvm.assume(i1 %5)
-  %8 = sub i64 -9223372036854775808, %1
+  %8 = sub nuw i64 -9223372036854775808, %1
   %9 = udiv i64 %8, %0
   %10 = icmp ult i64 %9, %2
   br i1 %10, label %11, label %._crit_edge

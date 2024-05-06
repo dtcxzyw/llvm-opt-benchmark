@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_digital_connector_atomic_get_property(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_digital_connector_atomic_get_property(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
   %7 = load ptr, ptr %6, align 8
@@ -60,7 +60,7 @@ define dso_local noundef i32 @intel_digital_connector_atomic_get_property(ptr no
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_digital_connector_atomic_set_property(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_digital_connector_atomic_set_property(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 3328
   %7 = load ptr, ptr %6, align 8

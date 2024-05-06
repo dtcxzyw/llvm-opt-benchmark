@@ -394,14 +394,14 @@ entry:
   %_swap_buffer.i = alloca [24 x i8], align 16
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %directory_template) #16
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %directory_template) #16
   %cmp.i.i.i = icmp ult i64 %call.i.i, 6
   br i1 %cmp.i.i.i, label %if.then, label %ends_with.exit
 
 ends_with.exit:                                   ; preds = %entry
   %0 = getelementptr i8, ptr %directory_template, i64 %call.i.i
   %add.ptr.i.i.i = getelementptr i8, ptr %0, i64 -6
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
   %tobool.not.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i.not, label %if.end, label %if.then
 
@@ -640,7 +640,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @close_tempfile_gently(ptr noundef %tempfile) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @close_tempfile_gently(ptr noundef %tempfile) local_unnamed_addr #0 {
 entry:
   %tobool.i.not = icmp eq ptr %tempfile, null
   br i1 %tobool.i.not, label %return, label %lor.lhs.false
@@ -728,7 +728,7 @@ if.end2:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rename_tempfile(ptr nocapture noundef %tempfile_p, ptr nocapture noundef readonly %path) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rename_tempfile(ptr nocapture noundef %tempfile_p, ptr nocapture noundef readonly %path) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tempfile_p, align 8
   %tobool.i.not = icmp eq ptr %0, null
@@ -884,8 +884,8 @@ remove_tempfiles.exit:                            ; preds = %for.inc.i, %entry
   ret void
 }
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #6
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @remove_tempfiles_on_exit() #0 {

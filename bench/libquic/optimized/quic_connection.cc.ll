@@ -10116,7 +10116,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  %call.i = tail call noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr noundef nonnull align 8 dereferenceable(3372) %0, i8 noundef signext %retransmittable)
+  %call.i = tail call noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr noundef nonnull readonly align 8 dereferenceable(3372) %0, i8 noundef signext %retransmittable)
   br label %_ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE.exit
 
 _ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE.exit: ; preds = %entry, %if.end.i
@@ -10203,7 +10203,7 @@ declare noundef ptr @_ZN3net9QuicUtils10CopyBufferERKNS_16SerializedPacketE(ptr 
 declare void @_ZN3net19QuicEncryptedPacketC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef, i64 noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef signext i8 @_ZN3net14QuicConnection17IsRetransmittableERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #11 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZN3net14QuicConnection17IsRetransmittableERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #11 align 2 {
 entry:
   %transmission_type = getelementptr inbounds i8, ptr %packet, i64 61
   %0 = load i8, ptr %transmission_type, align 1

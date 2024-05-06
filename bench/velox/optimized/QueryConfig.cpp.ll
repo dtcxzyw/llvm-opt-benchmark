@@ -72,7 +72,7 @@ switch.lookup:                                    ; preds = %entry
 declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN8facebook5velox4core19valueOfCapacityUnitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %unitStr) local_unnamed_addr #2 {
+define noundef range(i32 0, 6) i32 @_ZN8facebook5velox4core19valueOfCapacityUnitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %unitStr) local_unnamed_addr #2 {
 entry:
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %unitStr, ptr noundef nonnull @.str) #14
   %cmp.i = icmp eq i32 %call.i, 0
@@ -187,7 +187,7 @@ lpad1:                                            ; preds = %init.end
 
 if.end:                                           ; preds = %invoke.cont5
   %6 = load double, ptr %value, align 8
-  %call7 = call noundef i32 @_ZN8facebook5velox4core19valueOfCapacityUnitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %unit), !range !5
+  %call7 = call noundef i32 @_ZN8facebook5velox4core19valueOfCapacityUnitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %unit)
   %7 = icmp ult i32 %to, 6
   br i1 %7, label %switch.lookup, label %sw.default.i9
 
@@ -398,38 +398,38 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 define void @_ZN8facebook5velox4core11QueryConfigC2ERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(56) %values) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
-  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !6
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !6
+  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !5
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
   %values_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !6
-  store ptr null, ptr %values_.i.i, align 8, !noalias !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !5
+  store ptr null, ptr %values_.i.i, align 8, !noalias !5
   %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_bucket_count2.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 8
-  %0 = load i64, ptr %_M_bucket_count2.i.i.i.i, align 8, !noalias !6
-  store i64 %0, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !6
+  %0 = load i64, ptr %_M_bucket_count2.i.i.i.i, align 8, !noalias !5
+  store i64 %0, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !5
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store ptr null, ptr %_M_before_begin.i.i.i.i, align 8, !noalias !6
+  store ptr null, ptr %_M_before_begin.i.i.i.i, align 8, !noalias !5
   %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %_M_element_count3.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 24
-  %1 = load i64, ptr %_M_element_count3.i.i.i.i, align 8, !noalias !6
-  store i64 %1, ptr %_M_element_count.i.i.i.i, align 8, !noalias !6
+  %1 = load i64, ptr %_M_element_count3.i.i.i.i, align 8, !noalias !5
+  store i64 %1, ptr %_M_element_count.i.i.i.i, align 8, !noalias !5
   %_M_rehash_policy.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %_M_rehash_policy4.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy4.i.i.i.i, i64 16, i1 false), !noalias !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy4.i.i.i.i, i64 16, i1 false), !noalias !5
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  store ptr null, ptr %_M_single_bucket.i.i.i.i, align 8, !noalias !6
-  store ptr %values_.i.i, ptr %__alloc_node_gen.i.i.i.i, align 8, !noalias !6
+  store ptr null, ptr %_M_single_bucket.i.i.i.i, align 8, !noalias !5
+  store ptr %values_.i.i, ptr %__alloc_node_gen.i.i.i.i, align 8, !noalias !5
   invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSL_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %values_.i.i, ptr noundef nonnull align 8 dereferenceable(56) %values, ptr noundef nonnull align 8 dereferenceable(8) %__alloc_node_gen.i.i.i.i)
-          to label %_ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.exit unwind label %lpad.i, !noalias !6
+          to label %_ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.exit unwind label %lpad.i, !noalias !5
 
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call.i) #16, !noalias !6
+  call void @_ZdlPv(ptr noundef nonnull %call.i) #16, !noalias !5
   resume { ptr, i32 } %2
 
 _ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !5
   store ptr %call.i, ptr %this, align 8
   ret void
 }
@@ -437,36 +437,36 @@ _ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.e
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox4core11QueryConfigC2EOSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(56) %values) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !9
+  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !8
   %values_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %0 = load ptr, ptr %values, align 8, !noalias !9
-  store ptr %0, ptr %values_.i.i, align 8, !noalias !9
+  %0 = load ptr, ptr %values, align 8, !noalias !8
+  store ptr %0, ptr %values_.i.i, align 8, !noalias !8
   %_M_bucket_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_bucket_count3.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 8
-  %1 = load i64, ptr %_M_bucket_count3.i.i.i.i.i, align 8, !noalias !9
-  store i64 %1, ptr %_M_bucket_count.i.i.i.i.i, align 8, !noalias !9
+  %1 = load i64, ptr %_M_bucket_count3.i.i.i.i.i, align 8, !noalias !8
+  store i64 %1, ptr %_M_bucket_count.i.i.i.i.i, align 8, !noalias !8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %_M_before_begin4.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 16
-  %2 = load ptr, ptr %_M_before_begin4.i.i.i.i.i, align 8, !noalias !9
-  store ptr %2, ptr %_M_before_begin.i.i.i.i.i, align 8, !noalias !9
+  %2 = load ptr, ptr %_M_before_begin4.i.i.i.i.i, align 8, !noalias !8
+  store ptr %2, ptr %_M_before_begin.i.i.i.i.i, align 8, !noalias !8
   %_M_element_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %_M_element_count5.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 24
-  %3 = load i64, ptr %_M_element_count5.i.i.i.i.i, align 8, !noalias !9
-  store i64 %3, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !9
+  %3 = load i64, ptr %_M_element_count5.i.i.i.i.i, align 8, !noalias !8
+  store i64 %3, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !8
   %_M_rehash_policy.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %_M_rehash_policy6.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy6.i.i.i.i.i, i64 16, i1 false), !noalias !9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy6.i.i.i.i.i, i64 16, i1 false), !noalias !8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  store ptr null, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !9
+  store ptr null, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !8
   %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 48
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i, %0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  store ptr %_M_single_bucket.i.i.i.i.i, ptr %values_.i.i, align 8, !noalias !9
-  %4 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !9
-  store ptr %4, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !9
+  store ptr %_M_single_bucket.i.i.i.i.i, ptr %values_.i.i, align 8, !noalias !8
+  %4 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr %4, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !8
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, %entry
@@ -476,19 +476,19 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
-  %6 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !9
+  %6 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %6, %1
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i.i.i.i.i
-  store ptr %_M_before_begin.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !9
+  store ptr %_M_before_begin.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !8
   br label %_ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %_M_next_resize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 40
-  store i64 0, ptr %_M_next_resize.i.i.i.i.i.i.i, align 8, !noalias !9
-  store i64 1, ptr %_M_bucket_count3.i.i.i.i.i, align 8, !noalias !9
-  store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !9
-  store ptr %_M_single_bucket.i.i.i.i.i.i.i, ptr %values, align 8, !noalias !9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin4.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !9
+  store i64 0, ptr %_M_next_resize.i.i.i.i.i.i.i, align 8, !noalias !8
+  store i64 1, ptr %_M_bucket_count3.i.i.i.i.i, align 8, !noalias !8
+  store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr %_M_single_bucket.i.i.i.i.i.i.i, ptr %values, align 8, !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin4.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !8
   store ptr %call.i, ptr %this, align 8
   ret void
 }
@@ -496,36 +496,36 @@ _ZNSt10unique_ptrIN8facebook5velox4core9MemConfigESt14default_deleteIS3_EED2Ev.e
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox4core11QueryConfig27testingOverrideConfigUnsafeEOSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(56) %values) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !12
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !12
+  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !11
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook5velox4core9MemConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !11
   %values_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %0 = load ptr, ptr %values, align 8, !noalias !12
-  store ptr %0, ptr %values_.i.i, align 8, !noalias !12
+  %0 = load ptr, ptr %values, align 8, !noalias !11
+  store ptr %0, ptr %values_.i.i, align 8, !noalias !11
   %_M_bucket_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_bucket_count3.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 8
-  %1 = load i64, ptr %_M_bucket_count3.i.i.i.i.i, align 8, !noalias !12
-  store i64 %1, ptr %_M_bucket_count.i.i.i.i.i, align 8, !noalias !12
+  %1 = load i64, ptr %_M_bucket_count3.i.i.i.i.i, align 8, !noalias !11
+  store i64 %1, ptr %_M_bucket_count.i.i.i.i.i, align 8, !noalias !11
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %_M_before_begin4.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 16
-  %2 = load ptr, ptr %_M_before_begin4.i.i.i.i.i, align 8, !noalias !12
-  store ptr %2, ptr %_M_before_begin.i.i.i.i.i, align 8, !noalias !12
+  %2 = load ptr, ptr %_M_before_begin4.i.i.i.i.i, align 8, !noalias !11
+  store ptr %2, ptr %_M_before_begin.i.i.i.i.i, align 8, !noalias !11
   %_M_element_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %_M_element_count5.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 24
-  %3 = load i64, ptr %_M_element_count5.i.i.i.i.i, align 8, !noalias !12
-  store i64 %3, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !12
+  %3 = load i64, ptr %_M_element_count5.i.i.i.i.i, align 8, !noalias !11
+  store i64 %3, ptr %_M_element_count.i.i.i.i.i, align 8, !noalias !11
   %_M_rehash_policy.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %_M_rehash_policy6.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy6.i.i.i.i.i, i64 16, i1 false), !noalias !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy6.i.i.i.i.i, i64 16, i1 false), !noalias !11
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  store ptr null, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !12
+  store ptr null, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !11
   %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 48
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i, %0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  store ptr %_M_single_bucket.i.i.i.i.i, ptr %values_.i.i, align 8, !noalias !12
-  %4 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !12
-  store ptr %4, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !12
+  store ptr %_M_single_bucket.i.i.i.i.i, ptr %values_.i.i, align 8, !noalias !11
+  %4 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !11
+  store ptr %4, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !11
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, %entry
@@ -535,19 +535,19 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
-  %6 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !12
+  %6 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %6, %1
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i.i.i.i.i
-  store ptr %_M_before_begin.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !12
+  store ptr %_M_before_begin.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !11
   br label %_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %_M_next_resize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 40
-  store i64 0, ptr %_M_next_resize.i.i.i.i.i.i.i, align 8, !noalias !12
-  store i64 1, ptr %_M_bucket_count3.i.i.i.i.i, align 8, !noalias !12
-  store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !12
-  store ptr %_M_single_bucket.i.i.i.i.i.i.i, ptr %values, align 8, !noalias !12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin4.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !12
+  store i64 0, ptr %_M_next_resize.i.i.i.i.i.i.i, align 8, !noalias !11
+  store i64 1, ptr %_M_bucket_count3.i.i.i.i.i, align 8, !noalias !11
+  store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !11
+  store ptr %_M_single_bucket.i.i.i.i.i.i.i, ptr %values, align 8, !noalias !11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin4.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !11
   %7 = load ptr, ptr %this, align 8
   store ptr %call.i, ptr %this, align 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
@@ -733,7 +733,7 @@ if.end.i.i:                                       ; preds = %if.then36
 if.end33:                                         ; preds = %if.then30, %invoke.cont20
   %__ht_n.0 = load ptr, ptr %__ht_n.026, align 8
   %tobool16.not = icmp eq ptr %__ht_n.0, null
-  br i1 %tobool16.not, label %try.cont, label %for.body, !llvm.loop !15
+  br i1 %tobool16.not, label %try.cont, label %for.body, !llvm.loop !14
 
 lpad37:                                           ; preds = %if.end39
   %16 = landingpad { ptr, i32 }
@@ -781,7 +781,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i) #16
   %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %invoke.cont, label %while.body.i, !llvm.loop !17
+  br i1 %tobool.not.i, label %invoke.cont, label %while.body.i, !llvm.loop !16
 
 invoke.cont:                                      ; preds = %while.body.i, %entry
   %2 = load ptr, ptr %this, align 8
@@ -907,16 +907,15 @@ attributes #18 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = !{i32 0, i32 6}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!8 = distinct !{!8, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!11 = distinct !{!11, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!14 = distinct !{!14, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!7 = distinct !{!7, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!10 = distinct !{!10, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!13 = distinct !{!13, !"_ZSt11make_uniqueIN8facebook5velox4core9MemConfigEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}

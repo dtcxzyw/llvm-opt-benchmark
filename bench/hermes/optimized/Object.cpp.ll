@@ -918,12 +918,12 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16PropertyAccessorEEENS0_6HandleI
   %18 = load i32, ptr %argCount_.i, align 8
   %cmp.i19.not = icmp eq i32 %18, 0
   %19 = load ptr, ptr %args, align 8
-  %incdec.ptr.i.i.i20 = getelementptr inbounds i8, ptr %19, i64 -8
-  %retval.sroa.0.0.i21 = select i1 %cmp.i19.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i20
-  %call66 = tail call i32 @_ZN6hermes2vm8JSObject17defineOwnComputedENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i21, i32 109, ptr %retval.0.i.i.i.i.i.i15, i32 1) #8
-  %bf.cast.i.i23.mask = and i32 %call66, 255
-  %cmp.i22 = icmp ne i32 %bf.cast.i.i23.mask, 0
-  %spec.select = zext i1 %cmp.i22 to i32
+  %incdec.ptr.i.i.i21 = getelementptr inbounds i8, ptr %19, i64 -8
+  %retval.sroa.0.0.i22 = select i1 %cmp.i19.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i21
+  %call66 = tail call i32 @_ZN6hermes2vm8JSObject17defineOwnComputedENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i22, i32 109, ptr %retval.0.i.i.i.i.i.i15, i32 1) #8
+  %bf.cast.i.i24.mask = and i32 %call66, 255
+  %cmp.i23 = icmp ne i32 %bf.cast.i.i24.mask, 0
+  %spec.select = zext i1 %cmp.i23 to i32
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16PropertyAccessorEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %entry, %if.then16
@@ -1036,12 +1036,12 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16PropertyAccessorEEENS0_6HandleI
   %18 = load i32, ptr %argCount_.i, align 8
   %cmp.i19.not = icmp eq i32 %18, 0
   %19 = load ptr, ptr %args, align 8
-  %incdec.ptr.i.i.i20 = getelementptr inbounds i8, ptr %19, i64 -8
-  %retval.sroa.0.0.i21 = select i1 %cmp.i19.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i20
-  %call66 = tail call i32 @_ZN6hermes2vm8JSObject17defineOwnComputedENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i21, i32 173, ptr %retval.0.i.i.i.i.i.i15, i32 1) #8
-  %bf.cast.i.i23.mask = and i32 %call66, 255
-  %cmp.i22 = icmp ne i32 %bf.cast.i.i23.mask, 0
-  %spec.select = zext i1 %cmp.i22 to i32
+  %incdec.ptr.i.i.i21 = getelementptr inbounds i8, ptr %19, i64 -8
+  %retval.sroa.0.0.i22 = select i1 %cmp.i19.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i21
+  %call66 = tail call i32 @_ZN6hermes2vm8JSObject17defineOwnComputedENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i22, i32 173, ptr %retval.0.i.i.i.i.i.i15, i32 1) #8
+  %bf.cast.i.i24.mask = and i32 %call66, 255
+  %cmp.i23 = icmp ne i32 %bf.cast.i.i24.mask, 0
+  %spec.select = zext i1 %cmp.i23 to i32
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16PropertyAccessorEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %entry, %if.then16
@@ -3971,11 +3971,11 @@ _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.ex
   %retval.0.i.i.i.i.i.i = phi ptr [ %10, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i.i, ptr %descValueOrAccessor, align 8
   %12 = load i32, ptr %argCount_.i, align 8
-  %cmp.i15 = icmp ugt i32 %12, 2
+  %cmp.i16 = icmp ugt i32 %12, 2
   %13 = load ptr, ptr %args, align 8
-  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %13, i64 -24
-  %retval.sroa.0.0.i18 = select i1 %cmp.i15, ptr %incdec.ptr.i.i.i17, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call27 = call noundef i32 @_ZN6hermes2vm20toPropertyDescriptorENS0_6HandleINS0_11HermesValueEEERNS0_7RuntimeERNS0_19DefinePropertyFlagsERNS0_13MutableHandleIS2_EE(ptr nonnull %retval.sroa.0.0.i18, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 4 dereferenceable(4) %descFlags, ptr noundef nonnull align 8 dereferenceable(8) %descValueOrAccessor) #8
+  %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %13, i64 -24
+  %retval.sroa.0.0.i19 = select i1 %cmp.i16, ptr %incdec.ptr.i.i.i18, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
+  %call27 = call noundef i32 @_ZN6hermes2vm20toPropertyDescriptorENS0_6HandleINS0_11HermesValueEEERNS0_7RuntimeERNS0_19DefinePropertyFlagsERNS0_13MutableHandleIS2_EE(ptr nonnull %retval.sroa.0.0.i19, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 4 dereferenceable(4) %descFlags, ptr noundef nonnull align 8 dereferenceable(8) %descValueOrAccessor) #8
   %cmp = icmp eq i32 %call27, 0
   br i1 %cmp, label %return, label %if.end29
 

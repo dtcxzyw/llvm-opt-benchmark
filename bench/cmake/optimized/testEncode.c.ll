@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @testMD5output2 = internal constant [33 x i8] c"a2ad137b746138fae4e5adca9c85d3ae\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @testEncode(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @testEncode(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [33 x i8], align 16
   %5 = alloca [33 x i8], align 16

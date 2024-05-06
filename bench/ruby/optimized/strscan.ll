@@ -543,7 +543,7 @@ define internal noundef i64 @strscan_concat(i64 noundef returned %0, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_get_pos(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @strscan_get_pos(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1032,7 +1032,7 @@ define internal noundef i64 @strscan_getbyte(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_scan_byte(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @strscan_scan_byte(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1180,7 +1180,7 @@ extract_beg_len.exit:                             ; preds = %23, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_peek_byte(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @strscan_peek_byte(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1268,7 +1268,7 @@ define internal noundef i64 @strscan_unscan(i64 noundef returned %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_bol_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @strscan_bol_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1339,7 +1339,7 @@ RSTRING_PTR.exit16:                               ; preds = %28, %29
 declare void @rb_alias(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_eos_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @strscan_eos_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1363,7 +1363,7 @@ define internal i64 @strscan_eos_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_empty_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @strscan_empty_p(i64 noundef %0) #0 {
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.70) #7
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1388,7 +1388,7 @@ strscan_eos_p.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_rest_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @strscan_rest_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1412,7 +1412,7 @@ define internal i64 @strscan_rest_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_matched_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @strscan_matched_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1890,7 +1890,7 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_size(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @strscan_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -2119,7 +2119,7 @@ extract_range.exit:                               ; preds = %16, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_rest_size(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @strscan_rest_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -2146,7 +2146,7 @@ define internal i64 @strscan_rest_size(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_restsize(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @strscan_restsize(i64 noundef %0) #0 {
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.72) #7
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2355,7 +2355,7 @@ inspect2.exit42:                                  ; preds = %63, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_fixed_anchor_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @strscan_fixed_anchor_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 64
   %4 = load i8, ptr %3, align 8

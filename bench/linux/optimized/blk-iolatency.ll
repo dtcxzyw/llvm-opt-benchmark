@@ -1409,7 +1409,7 @@ define internal void @blkcg_iolatency_throttle(ptr noundef %0, ptr nocapture nou
 158:                                              ; preds = %112
   %159 = lshr i64 %125, 1
   %160 = tail call i64 @llvm.umax.i64(i64 %159, i64 1)
-  %161 = trunc i64 %160 to i32
+  %161 = trunc nuw nsw i64 %160 to i32
   store i32 %161, ptr %92, align 8
   br label %.thread
 

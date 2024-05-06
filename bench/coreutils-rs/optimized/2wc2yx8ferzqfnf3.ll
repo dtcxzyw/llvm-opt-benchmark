@@ -1036,7 +1036,7 @@ define hidden void @_ZN12clap_builder7builder7command7Command14override_usage17h
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN12clap_builder7builder7command7Command3arg17h436c7e20329f2621E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, i64 } } }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, ptr, i32, i32, i32, i8, [3 x i8] }) align 8 dereferenceable(712) %0, ptr noalias nocapture noundef align 8 dereferenceable(712) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(592) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, [1 x i64] }, { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [2 x i64], i64, [2 x i64] }, { { { { ptr, i64 } } } }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i32, i32, i32, i8, i8, [2 x i8] }, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %4, ptr noundef nonnull align 8 dereferenceable(592) %2, i64 592, i1 false), !alias.scope !157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %4, ptr noundef nonnull readonly align 8 dereferenceable(592) %2, i64 592, i1 false), !alias.scope !157
   invoke void @_ZN12clap_builder7builder7command7Command12arg_internal17h711ac70569505de6E(ptr noalias noundef nonnull align 8 dereferenceable(712) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %4)
           to label %7 unwind label %5
 
@@ -2065,7 +2065,7 @@ _ZN5uu_ls27get_metadata_with_deref_opt17h40b024bdbe73ea8cE.exit.i.i: ; preds = %
   %102 = extractvalue { i64, ptr } %78, 1
   %103 = icmp ne ptr %102, null
   tail call void @llvm.assume(i1 %103)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull align 1 %76, i64 %77, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull readonly align 1 %76, i64 %77, i1 false)
   %104 = getelementptr inbounds i8, ptr %1, i64 297
   %105 = load i8, ptr %104, align 1, !range !309, !noalias !310, !noundef !9
   %106 = getelementptr inbounds i8, ptr %14, i64 8
@@ -2151,7 +2151,7 @@ _ZN5uu_ls27get_metadata_with_deref_opt17h40b024bdbe73ea8cE.exit.i.i: ; preds = %
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.9.1.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !304, !noalias !384
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.10.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.10.i, i64 160, i1 false), !noalias !384
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %.sroa.10.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.10.i, i64 160, i1 false), !noalias !384
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.10.i)
   ret void
 }

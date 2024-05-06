@@ -254,7 +254,7 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
   store i64 0, ptr %14, align 8
   store i32 0, ptr %16, align 4
   %118 = load i64, ptr %17, align 8
-  %119 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %110, i32 noundef %.061117.i, i32 noundef %104, i64 noundef %54, i64 noundef %118, i32 poison, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %111, ptr noundef nonnull %112), !range !6
+  %119 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %110, i32 noundef %.061117.i, i32 noundef %104, i64 noundef %54, i64 noundef %118, i32 poison, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %111, ptr noundef nonnull %112)
   %120 = load i32, ptr %112, align 8
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %._crit_edge.i, label %122
@@ -326,7 +326,7 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
   %spec.select87.i = select i1 %.not.i, ptr %.1116.i, ptr %.063115.i
   %148 = add nuw i32 %.061117.i, 1
   %exitcond.not.i = icmp eq i32 %.061117.i, %104
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %114, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %114, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %146, %116, %.thread.i
   %.069.lcssa.i = phi i64 [ 0, %.thread.i ], [ %.372.i, %146 ], [ %.069114.i, %116 ]
@@ -421,7 +421,7 @@ mca_common_ompio_file_write_pipelined.exit:       ; preds = %97, %108, %159
   %.02933.i = phi i32 [ 0, %.lr.ph.i36 ], [ %195, %192 ]
   %181 = load i64, ptr %9, align 8
   %182 = load ptr, ptr %7, align 8
-  %183 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %175, i32 noundef %.02933.i, i32 noundef %174, i64 noundef %168, i64 noundef %181, i32 poison, ptr noundef %182, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %178, ptr noundef nonnull %179), !range !6
+  %183 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %175, i32 noundef %.02933.i, i32 noundef %174, i64 noundef %168, i64 noundef %181, i32 poison, ptr noundef %182, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %178, ptr noundef nonnull %179)
   %184 = load i32, ptr %179, align 8
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %._crit_edge.loopexit.i, label %186
@@ -442,7 +442,7 @@ mca_common_ompio_file_write_pipelined.exit:       ; preds = %97, %108, %159
   store ptr null, ptr %178, align 8
   %195 = add nuw nsw i32 %.02933.i, 1
   %exitcond.not.i37 = icmp eq i32 %195, %174
-  br i1 %exitcond.not.i37, label %._crit_edge.loopexit.i, label %180, !llvm.loop !8
+  br i1 %exitcond.not.i37, label %._crit_edge.loopexit.i, label %180, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %192, %186, %180
   %.028.lcssa.ph.i = phi i64 [ %.02834.i, %186 ], [ %193, %192 ], [ %.02834.i, %180 ]
@@ -741,7 +741,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %140 = load ptr, ptr %7, align 8
   %141 = getelementptr inbounds i8, ptr %0, i64 296
   %142 = getelementptr inbounds i8, ptr %0, i64 304
-  %143 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %23, i32 noundef 0, i32 noundef 1, i64 noundef %139, i64 noundef %139, i32 poison, ptr noundef %140, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %141, ptr noundef nonnull %142), !range !6
+  %143 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %23, i32 noundef 0, i32 noundef 1, i64 noundef %139, i64 noundef %139, i32 poison, ptr noundef %140, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %141, ptr noundef nonnull %142)
   %144 = load ptr, ptr %39, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 40
   %146 = load ptr, ptr %145, align 8
@@ -849,7 +849,7 @@ define internal void @mca_common_ompio_post_next_write_subreq(ptr noundef %0, i3
   %31 = load ptr, ptr %10, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 296
   %33 = getelementptr inbounds i8, ptr %31, i64 304
-  %34 = call i32 @mca_common_ompio_build_io_array(ptr noundef %28, i32 noundef %1, i32 noundef %29, i64 noundef %19, i64 noundef %30, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %32, ptr noundef nonnull %33), !range !6
+  %34 = call i32 @mca_common_ompio_build_io_array(ptr noundef %28, i32 noundef %1, i32 noundef %29, i64 noundef %19, i64 noundef %30, i32 poison, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %32, ptr noundef nonnull %33)
   call void @mca_common_ompio_request_alloc(ptr noundef nonnull %8, i32 noundef 0) #9
   %35 = load ptr, ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 544
@@ -884,7 +884,7 @@ declare i32 @mca_common_ompio_fview_duplicate(ptr noundef, ptr noundef) local_un
 declare i32 @mca_common_ompio_decode_datatype(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_common_ompio_build_io_array(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_build_io_array(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11) local_unnamed_addr #0 {
   %13 = load i64, ptr %8, align 8
   %14 = load i64, ptr %9, align 8
   %15 = load i32, ptr %7, align 4
@@ -1060,7 +1060,7 @@ define noundef i32 @mca_common_ompio_build_io_array(ptr nocapture noundef %0, i3
   %109 = sub i64 %.1123151, %108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not134 = icmp eq i64 %109, 0
-  br i1 %.not134, label %._crit_edge.loopexit, label %34, !llvm.loop !9
+  br i1 %.not134, label %._crit_edge.loopexit, label %34, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %103
   %110 = trunc nuw i64 %indvars.iv.next to i32
@@ -1358,7 +1358,6 @@ attributes #11 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -2, i32 1}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

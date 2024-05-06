@@ -75,7 +75,7 @@ do.end:                                           ; preds = %entry
   %incdec.ptr7 = getelementptr inbounds i8, ptr %cond, i64 5
   store i8 0, ptr %incdec.ptr6, align 1
   %shr = lshr i32 %id, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   %incdec.ptr8 = getelementptr inbounds i8, ptr %cond, i64 6
   store i8 %conv, ptr %incdec.ptr7, align 1
   %shr9 = lshr i32 %id, 16
@@ -90,7 +90,7 @@ do.end:                                           ; preds = %entry
   %incdec.ptr16 = getelementptr inbounds i8, ptr %cond, i64 9
   store i8 %conv15, ptr %incdec.ptr14, align 1
   %shr17 = lshr i32 %window_delta, 24
-  %conv18 = trunc i32 %shr17 to i8
+  %conv18 = trunc nuw i32 %shr17 to i8
   %incdec.ptr19 = getelementptr inbounds i8, ptr %cond, i64 10
   store i8 %conv18, ptr %incdec.ptr16, align 1
   %shr20 = lshr i32 %window_delta, 16

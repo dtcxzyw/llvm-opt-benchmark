@@ -687,7 +687,7 @@ declare dso_local i32 @acpi_scan_add_handler(ptr noundef) local_unnamed_addr #3
 declare dso_local void @s2idle_set_ops(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_register_lps0_dev(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_register_lps0_dev(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr @lps0_device_handle, align 8
   %3 = icmp ne ptr %2, null
   %4 = load i8, ptr @sleep_no_lps0, align 1, !range !8

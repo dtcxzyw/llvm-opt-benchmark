@@ -83,7 +83,7 @@ declare dso_local void @misc_deregister(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @autofs_dev_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
   %4 = alloca %struct.autofs_dev_ioctl, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = and i32 %1, 255
@@ -319,7 +319,7 @@ define internal i64 @autofs_dev_ioctl(ptr nocapture readnone %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @autofs_dev_ioctl_compat(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl_compat(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
   %4 = and i64 %2, 4294967295
   %5 = tail call i64 @autofs_dev_ioctl(ptr poison, i32 noundef %1, i64 noundef %4), !range !8
   ret i64 %5
@@ -376,7 +376,7 @@ define internal noundef i32 @autofs_dev_ioctl_protosubver(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_openmount(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 align 16 {
+define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -519,7 +519,7 @@ define internal i32 @autofs_dev_ioctl_fail(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @autofs_dev_ioctl_setpipefd(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1

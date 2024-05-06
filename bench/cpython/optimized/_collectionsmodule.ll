@@ -976,7 +976,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @defdict_missing_doc = internal constant [190 x i8] c"__missing__(key) # Called by __getitem__ for missing key; pseudo-code:\0A  if self.default_factory is None: raise KeyError((key,))\0A  self[key] = value = self.default_factory()\0A  return value\0A\00", align 16
 @defdict_copy_doc = internal constant [33 x i8] c"D.copy() -> a shallow copy of D.\00", align 16
 @PyExc_KeyError = external local_unnamed_addr global ptr, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.50 = private unnamed_addr constant [16 x i8] c"default_factory\00", align 1
 @.str.51 = private unnamed_addr constant [51 x i8] c"Factory for default value called by __missing__().\00", align 1
 @.str.52 = private unnamed_addr constant [40 x i8] c"first argument must be callable or None\00", align 1
@@ -1535,7 +1535,7 @@ declare i32 @PyObject_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @collections_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @collections_exec(ptr noundef %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @deque_init(ptr noundef %deque, ptr noundef %args, ptr noundef %kwdargs) #0 {
+define internal range(i32 -1, 1) i32 @deque_init(ptr noundef %deque, ptr noundef %args, ptr noundef %kwdargs) #0 {
 entry:
   %iterable = alloca ptr, align 8
   %maxlenobj = alloca ptr, align 8
@@ -2825,7 +2825,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @deque_ass_item(ptr nocapture noundef %deque, i64 noundef %i, ptr noundef %v) #0 {
+define internal range(i32 -1, 1) i32 @deque_ass_item(ptr nocapture noundef %deque, i64 noundef %i, ptr noundef %v) #0 {
 entry:
   %0 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %0, align 8
@@ -2844,7 +2844,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc i32 @deque_del_item(ptr noundef nonnull %deque, i64 noundef %i), !range !13
+  %call3 = tail call fastcc i32 @deque_del_item(ptr noundef nonnull %deque, i64 noundef %i)
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -2869,7 +2869,7 @@ while.body:                                       ; preds = %if.then7, %while.bo
   %rightlink = getelementptr inbounds i8, ptr %b.030, i64 520
   %b.0 = load ptr, ptr %rightlink, align 8
   %cmp8 = icmp ugt i64 %n.029, 1
-  br i1 %cmp8, label %while.body, label %do.body, !llvm.loop !14
+  br i1 %cmp8, label %while.body, label %do.body, !llvm.loop !13
 
 if.else:                                          ; preds = %if.end4
   %add11 = add i64 %deque.val, -1
@@ -2885,7 +2885,7 @@ while.cond14:                                     ; preds = %while.cond14, %if.e
   %b.1 = load ptr, ptr %b.1.in, align 8
   %cmp16 = icmp sgt i64 %n.1, 0
   %dec15 = add nsw i64 %n.1, -1
-  br i1 %cmp16, label %while.cond14, label %do.body, !llvm.loop !15
+  br i1 %cmp16, label %while.cond14, label %do.body, !llvm.loop !14
 
 do.body:                                          ; preds = %while.body, %while.cond14, %if.then7
   %b.2 = phi ptr [ %b.027, %if.then7 ], [ %b.1, %while.cond14 ], [ %b.0, %while.body ]
@@ -3003,7 +3003,7 @@ if.end10:                                         ; preds = %if.then9, %if.end7
   %b.1 = phi ptr [ %10, %if.then9 ], [ %b.015, %if.end7 ]
   %dec = add nsw i64 %dec16, -1
   %cmp1 = icmp sgt i64 %dec16, 0
-  br i1 %cmp1, label %while.body, label %return, !llvm.loop !16
+  br i1 %cmp1, label %while.body, label %return, !llvm.loop !15
 
 return:                                           ; preds = %Py_DECREF.exit, %if.end10, %entry, %if.then6
   %retval.0 = phi i32 [ -1, %if.then6 ], [ 0, %entry ], [ %call3, %Py_DECREF.exit ], [ 0, %if.end10 ]
@@ -3115,7 +3115,7 @@ for.body.lr.ph:                                   ; preds = %if.then9
 
 for.cond.loopexit:                                ; preds = %_Py_NewRef.exit83, %if.end27
   %cmp16 = icmp slt i64 %add37, %sub
-  br i1 %cmp16, label %for.body, label %for.end.loopexit, !llvm.loop !17
+  br i1 %cmp16, label %for.body, label %for.end.loopexit, !llvm.loop !16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit
   %i.0103 = phi i64 [ 0, %for.body.lr.ph ], [ %add37, %for.cond.loopexit ]
@@ -3193,7 +3193,7 @@ _Py_NewRef.exit83:                                ; preds = %while.body, %if.end
   %arrayidx44 = getelementptr [64 x ptr], ptr %data42, i64 0, i64 %15
   store ptr %5, ptr %arrayidx44, align 8
   %tobool.not = icmp eq i64 %dec, 0
-  br i1 %tobool.not, label %for.cond.loopexit, label %while.body, !llvm.loop !18
+  br i1 %tobool.not, label %for.cond.loopexit, label %while.body, !llvm.loop !17
 
 for.end.loopexit:                                 ; preds = %for.cond.loopexit
   %deque.val73.pre = load i64, ptr %0, align 8
@@ -3288,7 +3288,7 @@ if.then1.i84:                                     ; preds = %if.end.i81
 for.inc:                                          ; preds = %if.end.i81, %if.then1.i84, %if.end75
   %inc76 = add nuw nsw i64 %i.199, 1
   %exitcond.not = icmp eq i64 %i.199, %20
-  br i1 %exitcond.not, label %for.end77, label %for.body71, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end77, label %for.body71, !llvm.loop !18
 
 for.end77:                                        ; preds = %for.inc, %if.end67
   %25 = load i32, ptr %deque, align 8
@@ -3522,9 +3522,9 @@ while.cond:                                       ; preds = %while.body, %if.end
   br i1 %cmp20.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call21 = tail call fastcc i32 @deque_append_internal(ptr noundef %deque, ptr noundef nonnull %call19, i64 noundef %0), !range !13
+  %call21 = tail call fastcc i32 @deque_append_internal(ptr noundef %deque, ptr noundef nonnull %call19, i64 noundef %0)
   %cmp22 = icmp eq i32 %call21, -1
-  br i1 %cmp22, label %if.then23, label %while.cond, !llvm.loop !20
+  br i1 %cmp22, label %if.then23, label %while.cond, !llvm.loop !19
 
 if.then23:                                        ; preds = %while.body
   %6 = load i64, ptr %call19, align 8
@@ -3638,7 +3638,7 @@ if.then1.i:                                       ; preds = %if.end.i
 Py_DECREF.exit:                                   ; preds = %while.body, %if.then1.i, %if.end.i
   %call1 = tail call ptr %1(ptr noundef %it) #9
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !21
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %Py_DECREF.exit, %entry
   %call.i = tail call ptr @PyErr_Occurred() #9
@@ -3690,7 +3690,7 @@ finalize_iterator.exit:                           ; preds = %if.else.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @deque_append_internal(ptr nocapture noundef %deque, ptr noundef %item, i64 noundef %maxlen) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @deque_append_internal(ptr nocapture noundef %deque, ptr noundef %item, i64 noundef %maxlen) unnamed_addr #0 {
 entry:
   %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
   %0 = load i64, ptr %rightindex, align 8
@@ -3910,7 +3910,7 @@ return:                                           ; preds = %if.end, %if.else, %
 declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @deque_append(ptr nocapture noundef %deque, ptr noundef %item) #0 {
+define internal ptr @deque_append(ptr nocapture noundef %deque, ptr noundef %item) #0 {
 entry:
   %0 = load i32, ptr %item, align 8
   %add.i.i = add i32 %0, 1
@@ -3924,14 +3924,14 @@ if.end.i.i:                                       ; preds = %entry
 _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
   %maxlen = getelementptr inbounds i8, ptr %deque, i64 64
   %1 = load i64, ptr %maxlen, align 8
-  %call1 = tail call fastcc i32 @deque_append_internal(ptr noundef %deque, ptr noundef nonnull %item, i64 noundef %1), !range !13
+  %call1 = tail call fastcc i32 @deque_append_internal(ptr noundef %deque, ptr noundef nonnull %item, i64 noundef %1)
   %cmp = icmp slt i32 %call1, 0
   %._Py_NoneStruct = select i1 %cmp, ptr null, ptr @_Py_NoneStruct
   ret ptr %._Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @deque_appendleft(ptr nocapture noundef %deque, ptr noundef %item) #0 {
+define internal ptr @deque_appendleft(ptr nocapture noundef %deque, ptr noundef %item) #0 {
 entry:
   %0 = load i32, ptr %item, align 8
   %add.i.i = add i32 %0, 1
@@ -4059,7 +4059,7 @@ if.end.i.i.i:                                     ; preds = %if.then9
 
 deque_append.exit:                                ; preds = %if.then9, %if.end.i.i.i
   %14 = phi i64 [ %8, %if.then9 ], [ %.pre, %if.end.i.i.i ]
-  %call1.i = tail call fastcc i32 @deque_append_internal(ptr noundef nonnull %call.i39, ptr noundef nonnull %12, i64 noundef %14), !range !13
+  %call1.i = tail call fastcc i32 @deque_append_internal(ptr noundef nonnull %call.i39, ptr noundef nonnull %12, i64 noundef %14)
   %cmp.i43 = icmp slt i32 %call1.i, 0
   br i1 %cmp.i43, label %if.end15, label %if.then14
 
@@ -4238,7 +4238,7 @@ if.end13:                                         ; preds = %if.then12, %if.end9
   %b.1 = phi ptr [ %10, %if.then12 ], [ %b.019, %if.end9 ]
   %dec = add nsw i64 %dec20, -1
   %cmp1 = icmp sgt i64 %dec20, 0
-  br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !22
+  br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %if.end13, %entry
   %count.0.lcssa = phi i64 [ 0, %entry ], [ %add, %if.end13 ]
@@ -4321,7 +4321,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 while.body:                                       ; preds = %while.cond
   %call21 = tail call fastcc i32 @deque_appendleft_internal(ptr noundef %deque, ptr noundef nonnull %call19)
   %cmp22 = icmp eq i32 %call21, -1
-  br i1 %cmp22, label %if.then23, label %while.cond, !llvm.loop !23
+  br i1 %cmp22, label %if.then23, label %while.cond, !llvm.loop !22
 
 if.then23:                                        ; preds = %while.body
   %6 = load i64, ptr %call19, align 8
@@ -4485,7 +4485,7 @@ for.body:                                         ; preds = %if.end24, %for.body
   %10 = load ptr, ptr %rightlink, align 8
   %add26 = add nuw nsw i64 %i.032, 64
   %cmp25 = icmp slt i64 %add26, %sub
-  br i1 %cmp25, label %for.body, label %for.cond27.preheader, !llvm.loop !24
+  br i1 %cmp25, label %for.body, label %for.cond27.preheader, !llvm.loop !23
 
 for.body29:                                       ; preds = %for.cond27.preheader, %for.inc34
   %i.138 = phi i64 [ %inc35, %for.inc34 ], [ %i.0.lcssa, %for.cond27.preheader ]
@@ -4505,7 +4505,7 @@ for.inc34:                                        ; preds = %for.body29, %if.the
   %index.1 = phi i64 [ 0, %if.then31 ], [ %inc, %for.body29 ]
   %inc35 = add nuw nsw i64 %i.138, 1
   %exitcond.not = icmp eq i64 %inc35, %9
-  br i1 %exitcond.not, label %for.end36, label %for.body29, !llvm.loop !25
+  br i1 %exitcond.not, label %for.end36, label %for.body29, !llvm.loop !24
 
 for.end36:                                        ; preds = %for.inc34, %for.cond27.preheader
   %b.1.lcssa = phi ptr [ %b.0.lcssa, %for.cond27.preheader ], [ %b.2, %for.inc34 ]
@@ -4533,7 +4533,7 @@ while.body:                                       ; preds = %if.end57
   %15 = load ptr, ptr %v, align 8
   %call39 = call i32 @PyObject_RichCompareBool(ptr noundef %14, ptr noundef %15, i32 noundef 2) #9
   %cmp40 = icmp sgt i32 %call39, 0
-  br i1 %cmp40, label %if.then41, label %if.end45, !llvm.loop !26
+  br i1 %cmp40, label %if.then41, label %if.end45, !llvm.loop !25
 
 if.then41:                                        ; preds = %while.body, %while.body.preheader
   %n.044.lcssa = phi i64 [ %sub37, %while.body.preheader ], [ %dec4761, %while.body ]
@@ -4574,7 +4574,7 @@ if.end57:                                         ; preds = %if.then55, %if.end5
   %b.4 = phi ptr [ %19, %if.then55 ], [ %b.34563, %if.end52 ]
   %index.3 = phi i64 [ 0, %if.then55 ], [ %inc53, %if.end52 ]
   %cmp38 = icmp sgt i64 %dec4761, 0
-  br i1 %cmp38, label %while.body, label %while.end, !llvm.loop !26
+  br i1 %cmp38, label %while.body, label %while.end, !llvm.loop !25
 
 while.end:                                        ; preds = %if.end57, %for.end36
   %20 = load ptr, ptr @PyExc_ValueError, align 8
@@ -4588,7 +4588,7 @@ return:                                           ; preds = %if.end45, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @deque_insert(ptr nocapture noundef %deque, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @deque_insert(ptr nocapture noundef %deque, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %index = alloca i64, align 8
   %value = alloca ptr, align 8
@@ -4629,7 +4629,7 @@ if.end.i.i.i:                                     ; preds = %if.then6
 
 deque_append.exit:                                ; preds = %if.then6, %if.end.i.i.i
   %6 = phi i64 [ %1, %if.then6 ], [ %.pre, %if.end.i.i.i ]
-  %call1.i = call fastcc i32 @deque_append_internal(ptr noundef nonnull %deque, ptr noundef nonnull %4, i64 noundef %6), !range !13
+  %call1.i = call fastcc i32 @deque_append_internal(ptr noundef nonnull %deque, ptr noundef nonnull %4, i64 noundef %6)
   %cmp.i14 = icmp slt i32 %call1.i, 0
   %._Py_NoneStruct.i = select i1 %cmp.i14, ptr null, ptr @_Py_NoneStruct
   br label %return
@@ -4660,7 +4660,7 @@ deque_appendleft.exit:                            ; preds = %if.then11, %if.end.
 
 if.end13:                                         ; preds = %if.end8
   %sub14 = sub nsw i64 0, %3
-  %call15 = call fastcc i32 @_deque_rotate(ptr noundef nonnull %deque, i64 noundef %sub14), !range !13
+  %call15 = call fastcc i32 @_deque_rotate(ptr noundef nonnull %deque, i64 noundef %sub14)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end18, label %return
 
@@ -4701,7 +4701,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 Py_DECREF.exit:                                   ; preds = %if.end26, %if.then1.i, %if.end.i
   %13 = load i64, ptr %index, align 8
-  %call27 = call fastcc i32 @_deque_rotate(ptr noundef nonnull %deque, i64 noundef %13), !range !13
+  %call27 = call fastcc i32 @_deque_rotate(ptr noundef nonnull %deque, i64 noundef %13)
   %tobool28.not = icmp eq i32 %call27, 0
   %_Py_NoneStruct. = select i1 %tobool28.not, ptr @_Py_NoneStruct, ptr null
   br label %return
@@ -4761,7 +4761,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @deque_remove(ptr nocapture noundef %deque, ptr noundef %value) #0 {
+define internal ptr @deque_remove(ptr nocapture noundef %deque, ptr noundef %value) #0 {
 entry:
   %0 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %0, align 8
@@ -4843,7 +4843,7 @@ for.inc:                                          ; preds = %if.end11, %if.then1
   %b.1 = phi ptr [ %10, %if.then13 ], [ %b.023, %if.end11 ]
   %inc15 = add nuw nsw i64 %i.022, 1
   %exitcond.not = icmp eq i64 %inc15, %deque.val
-  br i1 %exitcond.not, label %if.then17, label %for.body, !llvm.loop !27
+  br i1 %exitcond.not, label %if.then17, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %if.end8, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %i.022, %if.end8 ]
@@ -4856,7 +4856,7 @@ if.then17:                                        ; preds = %for.inc, %for.end
   br label %return
 
 if.end19:                                         ; preds = %for.end
-  %call20 = tail call fastcc i32 @deque_del_item(ptr noundef nonnull %deque, i64 noundef %i.0.lcssa), !range !13
+  %call20 = tail call fastcc i32 @deque_del_item(ptr noundef nonnull %deque, i64 noundef %i.0.lcssa)
   %cmp21 = icmp eq i32 %call20, -1
   %._Py_NoneStruct = select i1 %cmp21, ptr null, ptr @_Py_NoneStruct
   br label %return
@@ -4975,14 +4975,14 @@ if.end15:                                         ; preds = %if.then14, %if.end
   %rightblock.1 = phi ptr [ %8, %if.then14 ], [ %rightblock.017, %if.end ]
   %rightindex.1 = phi i64 [ 63, %if.then14 ], [ %dec12, %if.end ]
   %cmp = icmp ugt i64 %dec21.in, 1
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !28
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !27
 
 while.end:                                        ; preds = %if.end15, %entry
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @deque_rotate(ptr nocapture noundef %deque, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @deque_rotate(ptr nocapture noundef %deque, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -5030,7 +5030,7 @@ land.lhs.true10:                                  ; preds = %Py_DECREF.exit
 
 if.end15:                                         ; preds = %Py_DECREF.exit, %land.lhs.true10, %if.end
   %n.0 = phi i64 [ -1, %land.lhs.true10 ], [ %call8, %Py_DECREF.exit ], [ 1, %if.end ]
-  %call16 = tail call fastcc i32 @_deque_rotate(ptr noundef %deque, i64 noundef %n.0), !range !13
+  %call16 = tail call fastcc i32 @_deque_rotate(ptr noundef %deque, i64 noundef %n.0)
   %tobool17.not = icmp eq i32 %call16, 0
   %_Py_NoneStruct. = select i1 %tobool17.not, ptr @_Py_NoneStruct, ptr null
   br label %return
@@ -5063,7 +5063,7 @@ entry:
 declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @deque_appendleft_internal(ptr nocapture noundef %deque, ptr noundef %item) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @deque_appendleft_internal(ptr nocapture noundef %deque, ptr noundef %item) unnamed_addr #0 {
 entry:
   %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
   %0 = load i64, ptr %leftindex, align 8
@@ -5220,7 +5220,7 @@ declare i32 @_PyArg_ParseStack(ptr noundef, i64 noundef, ptr noundef, ...) local
 declare i32 @_PyEval_SliceIndexNotNone(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_deque_rotate(ptr nocapture noundef %deque, i64 noundef %n) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_deque_rotate(ptr nocapture noundef %deque, i64 noundef %n) unnamed_addr #0 {
 entry:
   %leftblock1 = getelementptr inbounds i8, ptr %deque, i64 24
   %0 = load ptr, ptr %leftblock1, align 8
@@ -5356,7 +5356,7 @@ do.body:                                          ; preds = %do.body, %if.end27
   store ptr %8, ptr %dest.0, align 8
   %dec = add i64 %m.2, -1
   %tobool.not = icmp eq i64 %dec, 0
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !29
+  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !28
 
 do.end:                                           ; preds = %do.body
   %sub41 = sub i64 %n.addr.1158, %m.1
@@ -5372,7 +5372,7 @@ if.end46:                                         ; preds = %if.then44, %do.end
   %rightblock.1 = phi ptr [ %9, %if.then44 ], [ %rightblock.0153, %do.end ]
   %rightindex.1 = phi i64 [ 63, %if.then44 ], [ %sub36, %do.end ]
   %cmp17 = icmp sgt i64 %sub41, 0
-  br i1 %cmp17, label %while.body, label %while.cond47.preheader, !llvm.loop !30
+  br i1 %cmp17, label %while.body, label %while.cond47.preheader, !llvm.loop !29
 
 while.body49:                                     ; preds = %while.body49.lr.ph, %if.end94
   %n.addr.2172 = phi i64 [ %n.addr.1.lcssa, %while.body49.lr.ph ], [ %add83, %if.end94 ]
@@ -5444,7 +5444,7 @@ do.body84:                                        ; preds = %do.body84, %if.end6
   store ptr %12, ptr %dest63.0, align 8
   %dec88 = add i64 %m64.2, -1
   %tobool89.not = icmp eq i64 %dec88, 0
-  br i1 %tobool89.not, label %do.end90, label %do.body84, !llvm.loop !31
+  br i1 %tobool89.not, label %do.end90, label %do.body84, !llvm.loop !30
 
 do.end90:                                         ; preds = %do.body84
   %add81 = add i64 %m64.1, %leftindex.2169
@@ -5462,7 +5462,7 @@ if.end94:                                         ; preds = %if.then92, %do.end9
   %leftblock.3 = phi ptr [ %13, %if.then92 ], [ %leftblock.2166, %do.end90 ]
   %leftindex.3 = phi i64 [ 0, %if.then92 ], [ %add81, %do.end90 ]
   %cmp48 = icmp slt i64 %add83, 0
-  br i1 %cmp48, label %while.body49, label %done, !llvm.loop !32
+  br i1 %cmp48, label %while.body49, label %done, !llvm.loop !31
 
 done:                                             ; preds = %if.end94, %while.cond47.preheader
   %b.4.lcssa = phi ptr [ %b.0.lcssa, %while.cond47.preheader ], [ %b.7, %if.end94 ]
@@ -5514,10 +5514,10 @@ declare ptr @_PyObject_GetState(ptr noundef) local_unnamed_addr #1
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @deque_del_item(ptr nocapture noundef %deque, i64 noundef %i) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @deque_del_item(ptr nocapture noundef %deque, i64 noundef %i) unnamed_addr #0 {
 entry:
   %sub = sub i64 0, %i
-  %call = tail call fastcc i32 @_deque_rotate(ptr noundef %deque, i64 noundef %sub), !range !13
+  %call = tail call fastcc i32 @_deque_rotate(ptr noundef %deque, i64 noundef %sub)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -5589,7 +5589,7 @@ if.else.i:                                        ; preds = %if.then6.i
 
 deque_popleft.exit:                               ; preds = %if.then.i, %if.end.i7, %freeblock.exit.i, %if.else.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %4, %freeblock.exit.i ], [ %4, %if.else.i ], [ %4, %if.end.i7 ]
-  %call2 = tail call fastcc i32 @_deque_rotate(ptr noundef nonnull %deque, i64 noundef %i), !range !13
+  %call2 = tail call fastcc i32 @_deque_rotate(ptr noundef nonnull %deque, i64 noundef %i)
   %9 = load i64, ptr %retval.0.i, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i4.not = icmp eq i64 %10, 0
@@ -6624,7 +6624,7 @@ for.inc:                                          ; preds = %if.then8, %if.then1
   %inc = add nuw nsw i64 %i.024, 1
   %27 = load i64, ptr %index, align 8
   %cmp = icmp slt i64 %inc, %27
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !33
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !32
 
 return:                                           ; preds = %for.inc, %if.end.i13, %deque_iter.exit, %if.end, %if.else, %if.end.i, %if.then1.i, %if.then10, %entry
   %retval.0 = phi ptr [ null, %entry ], [ null, %if.then10 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call2.i, %if.else ], [ null, %if.end ], [ %call2.i, %deque_iter.exit ], [ %call2.i, %if.end.i13 ], [ %call2.i, %for.inc ]
@@ -6871,7 +6871,7 @@ for.inc:                                          ; preds = %if.then8, %if.then1
   %inc = add nuw nsw i64 %i.026, 1
   %27 = load i64, ptr %index, align 8
   %cmp = icmp slt i64 %inc, %27
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !34
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !33
 
 return:                                           ; preds = %for.inc, %for.body, %deque_reviter.exit, %if.end, %if.else, %if.end.i, %if.then1.i, %if.then10, %entry
   %retval.0 = phi ptr [ null, %entry ], [ null, %if.then10 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call2.i, %if.else ], [ null, %if.end ], [ %call2.i, %deque_reviter.exit ], [ %call2.i, %for.body ], [ %call2.i, %for.inc ]
@@ -7279,7 +7279,7 @@ attributes #9 = { nounwind }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
@@ -7300,4 +7300,3 @@ attributes #9 = { nounwind }
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}

@@ -119,7 +119,7 @@ $__clang_call_terminate = comdat any
 @_ZN12_GLOBAL__N_117nodebox_tile_dirsE = internal constant [6 x %"class.irr::core::vector3d"] [%"class.irr::core::vector3d" { i16 0, i16 1, i16 0 }, %"class.irr::core::vector3d" { i16 0, i16 -1, i16 0 }, %"class.irr::core::vector3d" { i16 1, i16 0, i16 0 }, %"class.irr::core::vector3d" { i16 -1, i16 0, i16 0 }, %"class.irr::core::vector3d" { i16 0, i16 0, i16 1 }, %"class.irr::core::vector3d" { i16 0, i16 0, i16 -1 }], align 16
 @_ZN12_GLOBAL__N_123nodebox_connection_dirsE = internal unnamed_addr constant [6 x %"class.irr::core::vector3d"] [%"class.irr::core::vector3d" { i16 0, i16 1, i16 0 }, %"class.irr::core::vector3d" { i16 0, i16 -1, i16 0 }, %"class.irr::core::vector3d" { i16 0, i16 0, i16 -1 }, %"class.irr::core::vector3d" { i16 -1, i16 0, i16 0 }, %"class.irr::core::vector3d" { i16 0, i16 0, i16 1 }, %"class.irr::core::vector3d" { i16 1, i16 0, i16 0 }], align 16
 @wallmounted_to_facedir = external local_unnamed_addr constant [8 x i8], align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.18 = private unnamed_addr constant [14 x i8] c"Got drawtype \00", align 1
 @.str.19 = private unnamed_addr constant [17 x i8] c"Unknown drawtype\00", align 1
 @.str.20 = private unnamed_addr constant [118 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/client/content_mapblock.cpp\00", align 1
@@ -4694,7 +4694,7 @@ declare noundef zeroext i16 @_Z12getFaceLight7MapNodeS_PK14NodeDefManager(i32, i
 declare noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6), ptr noundef nonnull align 2 dereferenceable(6), ptr noundef nonnull align 2 dereferenceable(6), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZNK21MapblockMeshGenerator14getNodeBoxMaskEN3irr4core8aabbox3dIfEEhh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this, ptr nocapture noundef readonly byval(%"class.irr::core::aabbox3d") align 8 %box, i8 noundef zeroext %solid_neighbors, i8 noundef zeroext %sametype_neighbors) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext range(i8 0, 64) i8 @_ZNK21MapblockMeshGenerator14getNodeBoxMaskEN3irr4core8aabbox3dIfEEhh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this, ptr nocapture noundef readonly byval(%"class.irr::core::aabbox3d") align 8 %box, i8 noundef zeroext %solid_neighbors, i8 noundef zeroext %sametype_neighbors) local_unnamed_addr #12 align 2 {
 entry:
   %MaxEdge = getelementptr inbounds i8, ptr %box, i64 12
   %0 = load float, ptr %MaxEdge, align 4, !tbaa !135

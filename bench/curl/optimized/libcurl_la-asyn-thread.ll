@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_resolver_init(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly %resolver) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_resolver_init(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly %resolver) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 16) #8
@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_resolver_duphandle(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly %to, ptr nocapture noundef readnone %from) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_resolver_duphandle(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly %to, ptr nocapture noundef readnone %from) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %0(i64 noundef 1, i64 noundef 16) #8
@@ -366,7 +366,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #3
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_resolver_getsock(ptr noundef %data, ptr nocapture noundef writeonly %socks) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @Curl_resolver_getsock(ptr noundef %data, ptr nocapture noundef writeonly %socks) local_unnamed_addr #1 {
 entry:
   %tdata = getelementptr inbounds i8, ptr %data, i64 3640
   %0 = load ptr, ptr %tdata, align 8
@@ -399,7 +399,7 @@ if.else8:                                         ; preds = %if.else
   br i1 %cmp9, label %if.then10, label %if.else11
 
 if.then10:                                        ; preds = %if.else8
-  %div.lhs.trunc = trunc i64 %call6 to i8
+  %div.lhs.trunc = trunc nuw i64 %call6 to i8
   %div9 = udiv i8 %div.lhs.trunc, 3
   %div.zext = zext nneg i8 %div9 to i64
   br label %if.end16

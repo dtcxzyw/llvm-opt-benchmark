@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @uprv_isASCIILetter_75(i8 noundef signext %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uprv_isASCIILetter_75(i8 noundef signext %c) local_unnamed_addr #0 {
 entry:
   %0 = and i8 %c, -33
   %1 = add i8 %0, -65
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @uprv_ebcdictolower_75(i8 noundef signext %c) local_unnamed_addr #0 {
+define signext i8 @uprv_ebcdictolower_75(i8 noundef signext %c) local_unnamed_addr #0 {
 entry:
   %0 = and i8 %c, -17
   %1 = add i8 %0, 63
@@ -42,7 +42,7 @@ entry:
   %2 = add i8 %c, 30
   %or.cond2 = icmp ult i8 %2, 8
   %or.cond11 = or i1 %or.cond2, %or.cond10
-  %sub = add i8 %c, -64
+  %sub = add nsw i8 %c, -64
   %c.addr.0 = select i1 %or.cond11, i8 %sub, i8 %c
   ret i8 %c.addr.0
 }
@@ -131,10 +131,10 @@ do.body:                                          ; preds = %do.body, %if.end
 
 do.end:                                           ; preds = %do.body
   %arrayidx12.le = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nsw i64 %indvars.iv to i32
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %length.0
   %call = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %arrayidx12.le) #11
-  %1 = trunc i64 %length.0 to i32
+  %1 = trunc nuw nsw i64 %length.0 to i32
   %2 = sub i32 %1, %0
   %conv21 = add i32 %2, 30
   ret i32 %conv21
@@ -169,7 +169,7 @@ do.body:                                          ; preds = %do.body, %if.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body ], [ 29, %if.end ]
   %uval.1 = phi i64 [ %div, %do.body ], [ %uval.0, %if.end ]
   %rem = urem i64 %uval.1, %conv
-  %conv4 = trunc i64 %rem to i32
+  %conv4 = trunc nuw i64 %rem to i32
   %conv5 = and i32 %conv4, 254
   %cmp6 = icmp ult i32 %conv5, 10
   %add = or i32 %conv4, 48
@@ -185,10 +185,10 @@ do.body:                                          ; preds = %do.body, %if.end
 
 do.end:                                           ; preds = %do.body
   %arrayidx13.le = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nsw i64 %indvars.iv to i32
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %length.0
   %call = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %arrayidx13.le) #11
-  %1 = trunc i64 %length.0 to i32
+  %1 = trunc nuw nsw i64 %length.0 to i32
   %2 = sub i32 %1, %0
   %conv23 = add i32 %2, 30
   ret i32 %conv23
@@ -366,14 +366,14 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #12
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %src) #12
   %add.i = add i64 %call.i, 1
   %call1.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %add.i) #13
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end4, label %do.body.i
 
 do.body.i:                                        ; preds = %if.then
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i, ptr align 1 %src, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i, ptr readonly align 1 %src, i64 %add.i, i1 false)
   br label %if.end4
 
 if.else:                                          ; preds = %entry

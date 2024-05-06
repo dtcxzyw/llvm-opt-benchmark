@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [55 x i8] c"pthread_attr_destroy failed, possible memory leak!: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @proctrack_g_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @proctrack_g_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #10
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -598,87 +598,87 @@ define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
   %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 7), align 8
   %7 = call i32 %6(i64 noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.preheader18, label %.loopexit
+  br i1 %8, label %.preheader16, label %.loopexit
 
-.preheader18:                                     ; preds = %.critedge, %27
+.preheader16:                                     ; preds = %.critedge, %29
   %9 = load i32, ptr %3, align 4
-  %.not1519 = icmp sgt i32 %9, 0
-  br i1 %.not1519, label %.lr.ph, label %._crit_edge
+  %10 = icmp sgt i32 %9, 0
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %24
-  %10 = icmp sgt i32 %25, 0
-  br i1 %10, label %.lr.ph22, label %._crit_edge
+.preheader:                                       ; preds = %25
+  %11 = icmp sgt i32 %26, 0
+  br i1 %11, label %.lr.ph19, label %._crit_edge
 
-.lr.ph22:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %33
+.lr.ph19:                                         ; preds = %.preheader
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %35
 
-.lr.ph:                                           ; preds = %.preheader18, %24
-  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.preheader18 ]
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i32 noundef %14) #10
-  %15 = load ptr, ptr %4, align 8
-  %16 = call fastcc zeroext i1 @_test_core_dumping(ptr noundef %15)
-  br i1 %16, label %17, label %24
+.lr.ph:                                           ; preds = %.preheader16, %25
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader16 ]
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i32 noundef %15) #10
+  %16 = load ptr, ptr %4, align 8
+  %17 = call fastcc zeroext i1 @_test_core_dumping(ptr noundef %16)
+  br i1 %17, label %18, label %25
 
-17:                                               ; preds = %.lr.ph
-  %18 = call i32 @get_log_level() #10
-  %19 = icmp sgt i32 %18, 4
-  br i1 %19, label %20, label %27
+18:                                               ; preds = %.lr.ph
+  %19 = call i32 @get_log_level() #10
+  %20 = icmp sgt i32 %19, 4
+  br i1 %20, label %21, label %29
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.7, i32 noundef %23) #10
-  br label %27
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.7, i32 noundef %24) #10
+  br label %29
 
-24:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr %3, align 4
-  %26 = sext i32 %25 to i64
-  %.not15 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %.not15, label %.lr.ph, label %.preheader, !llvm.loop !10
+  %26 = load i32, ptr %3, align 4
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph, label %.preheader, !llvm.loop !10
 
-27:                                               ; preds = %17, %20
+29:                                               ; preds = %18, %21
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   store ptr null, ptr %2, align 8
   store i32 0, ptr %3, align 4
   store ptr null, ptr %4, align 8
-  %28 = call i32 @sleep(i32 noundef 5) #10
-  %29 = load i64, ptr %0, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 7), align 8
-  %31 = call i32 %30(i64 noundef %29, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.preheader18, label %.loopexit
+  %30 = call i32 @sleep(i32 noundef 5) #10
+  %31 = load i64, ptr %0, align 8
+  %32 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 7), align 8
+  %33 = call i32 %32(i64 noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %.preheader16, label %.loopexit
 
-33:                                               ; preds = %.lr.ph22, %33
-  %indvars.iv26 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next27, %33 ]
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv26
-  %36 = load i32, ptr %35, align 4
-  %37 = load i32, ptr %11, align 8
-  %38 = call i32 @kill(i32 noundef %36, i32 noundef %37) #10
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %39 = load i32, ptr %3, align 4
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next27, %40
-  br i1 %41, label %33, label %._crit_edge, !llvm.loop !11
+35:                                               ; preds = %.lr.ph19, %35
+  %indvars.iv23 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next24, %35 ]
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv23
+  %38 = load i32, ptr %37, align 4
+  %39 = load i32, ptr %12, align 8
+  %40 = call i32 @kill(i32 noundef %38, i32 noundef %39) #10
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %41 = load i32, ptr %3, align 4
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next24, %42
+  br i1 %43, label %35, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.preheader18, %33, %.preheader
+._crit_edge:                                      ; preds = %.preheader16, %35, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %.critedge, %._crit_edge
-  %42 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 2), align 8
-  %43 = load i64, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = call i32 %42(i64 noundef %43, i32 noundef %45) #10
+.loopexit:                                        ; preds = %29, %.critedge, %._crit_edge
+  %44 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i64 0, i32 2), align 8
+  %45 = load i64, ptr %0, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load i32, ptr %46, align 8
+  %48 = call i32 %44(i64 noundef %45, i32 noundef %47) #10
   call void @slurm_xfree(ptr noundef nonnull %1) #10
   ret ptr null
 }

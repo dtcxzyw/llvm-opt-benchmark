@@ -556,7 +556,7 @@ make_aux_edge.exit.i.i:                           ; preds = %243, %gv_alloc.exit
   %304 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx217.i.i
   %305 = getelementptr inbounds i8, ptr %304, i64 56
   %306 = load ptr, ptr %305, align 8
-  %307 = tail call fastcc noundef zeroext i1 @go(ptr noundef %306, ptr noundef %302)
+  %307 = tail call fastcc noundef zeroext i1 @go(ptr noundef readonly %306, ptr noundef readonly %302)
   br i1 %307, label %342, label %308
 
 308:                                              ; preds = %259
@@ -630,7 +630,7 @@ gv_alloc.exit22.i199.i.i:                         ; preds = %gv_alloc.exit.i198.
   %350 = getelementptr inbounds i8, ptr %spec.select195.i.i, i64 %.idx219.i.i
   %351 = getelementptr inbounds i8, ptr %350, i64 56
   %352 = load ptr, ptr %351, align 8
-  %353 = tail call fastcc noundef zeroext i1 @go(ptr noundef %352, ptr noundef %348)
+  %353 = tail call fastcc noundef zeroext i1 @go(ptr noundef readonly %352, ptr noundef readonly %348)
   br i1 %353, label %389, label %354
 
 354:                                              ; preds = %342
@@ -861,26 +861,26 @@ make_LR_constraints.exit.i:                       ; preds = %._crit_edge231.i.i,
   %503 = phi ptr [ %140, %allocate_aux_edges.exit.i ], [ %499, %._crit_edge231.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %504 = getelementptr inbounds i8, ptr %503, i64 256
-  %.04258.i.i = load ptr, ptr %504, align 8
-  %.not59.i.i = icmp eq ptr %.04258.i.i, null
-  br i1 %.not59.i.i, label %make_edge_pairs.exit.i, label %.lr.ph61.i.i
+  %.04257.i.i = load ptr, ptr %504, align 8
+  %.not58.i.i = icmp eq ptr %.04257.i.i, null
+  br i1 %.not58.i.i, label %make_edge_pairs.exit.i, label %.lr.ph60.i.i
 
-.lr.ph61.i.i:                                     ; preds = %make_LR_constraints.exit.i, %.loopexit.i17.i
-  %.04260.i.i = phi ptr [ %.042.i.i, %.loopexit.i17.i ], [ %.04258.i.i, %make_LR_constraints.exit.i ]
-  %505 = getelementptr inbounds i8, ptr %.04260.i.i, i64 16
+.lr.ph60.i.i:                                     ; preds = %make_LR_constraints.exit.i, %.loopexit.i18.i
+  %.04259.i.i = phi ptr [ %.042.i.i, %.loopexit.i18.i ], [ %.04257.i.i, %make_LR_constraints.exit.i ]
+  %505 = getelementptr inbounds i8, ptr %.04259.i.i, i64 16
   %506 = load ptr, ptr %505, align 8
   %507 = getelementptr inbounds i8, ptr %506, i64 392
   %508 = load ptr, ptr %507, align 8
   %.not48.i.i = icmp eq ptr %508, null
-  br i1 %.not48.i.i, label %.loopexit.i17.i, label %.preheader.i10.i
+  br i1 %.not48.i.i, label %.loopexit.i18.i, label %.preheader.i10.i
 
-.preheader.i10.i:                                 ; preds = %.lr.ph61.i.i
+.preheader.i10.i:                                 ; preds = %.lr.ph60.i.i
   %509 = load ptr, ptr %508, align 8
-  %.not4956.i.i = icmp eq ptr %509, null
-  br i1 %.not4956.i.i, label %.loopexit.i17.i, label %.lr.ph.i11.i
+  %.not4955.i.i = icmp eq ptr %509, null
+  br i1 %.not4955.i.i, label %.loopexit.i18.i, label %.lr.ph.i11.i
 
 .lr.ph.i11.i:                                     ; preds = %.preheader.i10.i, %gv_alloc.exit22.i51.i.i
-  %indvars.iv.i12.i = phi i64 [ %indvars.iv.next.i16.i, %gv_alloc.exit22.i51.i.i ], [ 0, %.preheader.i10.i ]
+  %indvars.iv.i12.i = phi i64 [ %indvars.iv.next.i17.i, %gv_alloc.exit22.i51.i.i ], [ 0, %.preheader.i10.i ]
   %510 = phi ptr [ %614, %gv_alloc.exit22.i51.i.i ], [ %509, %.preheader.i10.i ]
   %511 = tail call ptr @virtual_node(ptr noundef %0) #15
   %512 = getelementptr inbounds i8, ptr %511, i64 16
@@ -992,9 +992,9 @@ gv_alloc.exit22.i51.i.i:                          ; preds = %gv_alloc.exit.i50.i
   %579 = getelementptr inbounds i8, ptr %566, i64 56
   store ptr %560, ptr %579, align 8
   %580 = icmp slt i32 %.043.i.i, -1
-  %.in.v.i53.i.i = select i1 %580, double -5.000000e-01, double 5.000000e-01
-  %.in.i54.i.i = fadd double %.in.v.i53.i.i, %562
-  %581 = fptosi double %.in.i54.i.i to i32
+  %.in.v.i.i16.i = select i1 %580, double -5.000000e-01, double 5.000000e-01
+  %.in.i53.i.i = fadd double %.in.v.i.i16.i, %562
+  %581 = fptosi double %.in.i53.i.i to i32
   %582 = getelementptr inbounds i8, ptr %572, i64 228
   store i32 %581, ptr %582, align 4
   %583 = getelementptr inbounds i8, ptr %572, i64 212
@@ -1026,28 +1026,28 @@ gv_alloc.exit22.i51.i.i:                          ; preds = %gv_alloc.exit.i50.i
   %608 = load ptr, ptr %512, align 8
   %609 = getelementptr inbounds i8, ptr %608, i64 360
   store i32 %607, ptr %609, align 8
-  %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i12.i, 1
+  %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i12.i, 1
   %610 = load ptr, ptr %505, align 8
   %611 = getelementptr inbounds i8, ptr %610, i64 392
   %612 = load ptr, ptr %611, align 8
-  %613 = getelementptr inbounds ptr, ptr %612, i64 %indvars.iv.next.i16.i
+  %613 = getelementptr inbounds ptr, ptr %612, i64 %indvars.iv.next.i17.i
   %614 = load ptr, ptr %613, align 8
   %.not49.i.i = icmp eq ptr %614, null
-  br i1 %.not49.i.i, label %.loopexit.i17.i, label %.lr.ph.i11.i
+  br i1 %.not49.i.i, label %.loopexit.i18.i, label %.lr.ph.i11.i
 
-.loopexit.i17.i:                                  ; preds = %gv_alloc.exit22.i51.i.i, %.preheader.i10.i, %.lr.ph61.i.i
-  %615 = phi ptr [ %506, %.preheader.i10.i ], [ %506, %.lr.ph61.i.i ], [ %610, %gv_alloc.exit22.i51.i.i ]
+.loopexit.i18.i:                                  ; preds = %gv_alloc.exit22.i51.i.i, %.preheader.i10.i, %.lr.ph60.i.i
+  %615 = phi ptr [ %506, %.preheader.i10.i ], [ %506, %.lr.ph60.i.i ], [ %610, %gv_alloc.exit22.i51.i.i ]
   %616 = getelementptr inbounds i8, ptr %615, i64 240
   %.042.i.i = load ptr, ptr %616, align 8
-  %.not.i18.i = icmp eq ptr %.042.i.i, null
-  br i1 %.not.i18.i, label %make_edge_pairs.exit.loopexit.i, label %.lr.ph61.i.i
+  %.not.i19.i = icmp eq ptr %.042.i.i, null
+  br i1 %.not.i19.i, label %make_edge_pairs.exit.loopexit.i, label %.lr.ph60.i.i
 
-make_edge_pairs.exit.loopexit.i:                  ; preds = %.loopexit.i17.i
-  %.pre23.i = load ptr, ptr %3, align 8
+make_edge_pairs.exit.loopexit.i:                  ; preds = %.loopexit.i18.i
+  %.pre24.i = load ptr, ptr %3, align 8
   br label %make_edge_pairs.exit.i
 
 make_edge_pairs.exit.i:                           ; preds = %make_edge_pairs.exit.loopexit.i, %make_LR_constraints.exit.i
-  %617 = phi ptr [ %.pre23.i, %make_edge_pairs.exit.loopexit.i ], [ %503, %make_LR_constraints.exit.i ]
+  %617 = phi ptr [ %.pre24.i, %make_edge_pairs.exit.loopexit.i ], [ %503, %make_LR_constraints.exit.i ]
   %618 = getelementptr inbounds i8, ptr %617, i64 236
   %619 = load i32, ptr %618, align 4
   %620 = icmp sgt i32 %619, 0
@@ -1058,17 +1058,17 @@ make_edge_pairs.exit.i:                           ; preds = %make_edge_pairs.exi
   tail call fastcc void @keepout_othernodes(ptr noundef nonnull %0)
   tail call fastcc void @contain_subclust(ptr noundef nonnull %0)
   tail call fastcc void @separate_subclust(ptr noundef nonnull %0)
-  %.pre24.i = load ptr, ptr %3, align 8
+  %.pre25.i = load ptr, ptr %3, align 8
   br label %pos_clusters.exit.i
 
 pos_clusters.exit.i:                              ; preds = %621, %make_edge_pairs.exit.i
-  %622 = phi ptr [ %617, %make_edge_pairs.exit.i ], [ %.pre24.i, %621 ]
+  %622 = phi ptr [ %617, %make_edge_pairs.exit.i ], [ %.pre25.i, %621 ]
   %623 = getelementptr inbounds i8, ptr %622, i64 16
   %624 = load ptr, ptr %623, align 8
   %625 = getelementptr inbounds i8, ptr %624, i64 84
   %626 = load i32, ptr %625, align 4
-  %.not.i20.i = icmp eq i32 %626, 3
-  br i1 %.not.i20.i, label %627, label %create_aux_edges.exit
+  %.not.i21.i = icmp eq i32 %626, 3
+  br i1 %.not.i21.i, label %627, label %create_aux_edges.exit
 
 627:                                              ; preds = %pos_clusters.exit.i
   %628 = getelementptr inbounds i8, ptr %624, i64 64
@@ -1931,7 +1931,7 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.not, label %.preheader147, label %._crit_edge155
 
 ._crit_edge155:                                   ; preds = %._crit_edge, %1
-  %109 = tail call fastcc i32 @clust_ht(ptr noundef nonnull %0), !range !5
+  %109 = tail call fastcc i32 @clust_ht(ptr noundef nonnull %0)
   %110 = load ptr, ptr %2, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 348
   %112 = load i32, ptr %111, align 4
@@ -2217,7 +2217,7 @@ gv_alloc.exit22:                                  ; preds = %gv_alloc.exit
 declare ptr @fast_edge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ports_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ports_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104
@@ -3141,7 +3141,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 declare double @llvm.maxnum.f64(double, double) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clust_ht(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @clust_ht(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @dot_root(ptr noundef %0) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -3180,7 +3180,7 @@ define internal fastcc i32 @clust_ht(ptr noundef %0) unnamed_addr #0 {
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call fastcc i32 @clust_ht(ptr noundef %26), !range !5
+  %27 = tail call fastcc i32 @clust_ht(ptr noundef %26)
   %28 = or i32 %27, %.080
   %29 = getelementptr inbounds i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -3977,4 +3977,3 @@ attributes #20 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 0, i32 2}

@@ -76,7 +76,7 @@ declare dso_local i64 @ktime_get_real_seconds() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gss_krb5_unwrap_v2(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_unwrap_v2(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 16 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
   %9 = alloca %struct.xdr_buf, align 8

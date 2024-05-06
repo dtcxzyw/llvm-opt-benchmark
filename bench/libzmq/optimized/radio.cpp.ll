@@ -478,7 +478,7 @@ entry:
 declare void @_ZN3zmq6dist_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq7radio_t11xsetsockoptEiPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1968) %this, i32 noundef %option_, ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_) unnamed_addr #8 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq7radio_t11xsetsockoptEiPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1968) %this, i32 noundef %option_, ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_) unnamed_addr #8 align 2 {
 entry:
   %cmp.not = icmp eq i64 %optvallen_, 4
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
@@ -688,7 +688,7 @@ if.end32:                                         ; preds = %for.end.i.i.i, %_ZN
 declare void @_ZN3zmq6dist_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq7radio_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1968) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq7radio_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1968) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1

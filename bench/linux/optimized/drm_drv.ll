@@ -1439,7 +1439,7 @@ declare dso_local void @drm_modeset_unregister_all(ptr noundef) local_unnamed_ad
 declare dso_local void @drm_debugfs_dev_fini(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @drm_core_init() #3 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @drm_core_init() #3 section ".init.text" align 16 {
   tail call void @drm_connector_ida_init() #10
   store i32 0, ptr @drm_minors_idr, align 8
   store i32 67108868, ptr getelementptr inbounds (%struct.idr, ptr @drm_minors_idr, i64 0, i32 0, i32 1), align 4
@@ -1686,7 +1686,7 @@ declare dso_local i32 @simple_pin_fs(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local ptr @alloc_anon_inode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drm_fs_init_fs_context(ptr noundef %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @drm_fs_init_fs_context(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 16909311) #10
   %3 = icmp eq ptr %2, null
   %4 = select i1 %3, i32 -12, i32 0

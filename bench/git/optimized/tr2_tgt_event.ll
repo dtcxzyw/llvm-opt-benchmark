@@ -287,9 +287,9 @@ maybe_add_string_va.exit:                         ; preds = %entry
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.maybe_add_string_va.buf, i64 24, i1 false)
-  call void @llvm.va_copy(ptr nonnull %copy_ap.i, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
-  call void @llvm.va_end(ptr nonnull %copy_ap.i)
+  call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
   %buf4.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %1 = load ptr, ptr %buf4.i, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.22, ptr noundef %1) #7
@@ -677,9 +677,9 @@ land.lhs.true.i:                                  ; preds = %if.end6
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.maybe_add_string_va.buf, i64 24, i1 false)
-  call void @llvm.va_copy(ptr nonnull %copy_ap.i, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
-  call void @llvm.va_end(ptr nonnull %copy_ap.i)
+  call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
   %buf4.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %4 = load ptr, ptr %buf4.i, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.22, ptr noundef %4) #7
@@ -749,9 +749,9 @@ land.lhs.true.i:                                  ; preds = %if.end7
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.maybe_add_string_va.buf, i64 24, i1 false)
-  call void @llvm.va_copy(ptr nonnull %copy_ap.i, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
-  call void @llvm.va_end(ptr nonnull %copy_ap.i)
+  call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
   %buf4.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %4 = load ptr, ptr %buf4.i, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.22, ptr noundef %4) #7
@@ -1001,13 +1001,7 @@ declare void @jw_object_inline_begin_array(ptr noundef, ptr noundef) local_unnam
 
 declare void @jw_array_argv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #5
-
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
@@ -1018,6 +1012,12 @@ declare void @jw_object_bool(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare ptr @config_scope_name(i32 noundef) local_unnamed_addr #1
 
 declare void @jw_object_sub_jw(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6

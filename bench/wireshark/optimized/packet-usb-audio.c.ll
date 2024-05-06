@@ -1444,7 +1444,7 @@ dissect_usb_midi_event.exit:                      ; preds = %61, %42, %is_last_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_audio_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal range(i32 0, 256) i32 @dissect_usb_audio_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread230, label %6
@@ -2021,7 +2021,7 @@ define internal fastcc i32 @dissect_ac_if_input_terminal(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ac_if_output_terminal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 10) i32 @dissect_ac_if_output_terminal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load i16, ptr %4, align 8
   switch i16 %5, label %27 [
@@ -2531,7 +2531,7 @@ set_entity_type.exit:                             ; preds = %18, %13, %9, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_as_if_general_body(ptr noundef %0, ptr noundef %1, i16 %.40.val) unnamed_addr #1 {
+define internal fastcc range(i32 0, 14) i32 @dissect_as_if_general_body(ptr noundef %0, ptr noundef %1, i16 %.40.val) unnamed_addr #1 {
   switch i16 %.40.val, label %35 [
     i16 0, label %3
     i16 32, label %10

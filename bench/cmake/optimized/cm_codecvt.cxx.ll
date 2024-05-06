@@ -58,7 +58,7 @@ define dso_local noundef i32 @_ZNK7codecvt6do_outER11__mbstate_tPKcS3_RS3_PcS5_R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK7codecvt10do_unshiftER11__mbstate_tPcS2_RS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZNK7codecvt10do_unshiftER11__mbstate_tPcS2_RS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) unnamed_addr #7 align 2 {
   store ptr %2, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8

@@ -128,7 +128,7 @@ cond.true40:                                      ; preds = %cond.end27, %_ZN4cv
   store ptr %9, ptr %agg.tmp, align 8
   %bf.load.i.i = load i64, ptr %9, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %10 = trunc i64 %bf.lshr.i.i to i32
+  %10 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %10, 1048575
   %cmp.i.i445 = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i445, label %if.then.i.i, label %if.else.i.i
@@ -499,7 +499,7 @@ _ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_E
   store ptr %71, ptr %ref.tmp.i1096, align 8, !alias.scope !8
   %bf.load.i.i.i.i.i = load i64, ptr %71, align 8, !noalias !8
   %bf.lshr.i.i.i.i.i = lshr i64 %bf.load.i.i.i.i.i, 40
-  %72 = trunc i64 %bf.lshr.i.i.i.i.i to i32
+  %72 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i to i32
   %bf.cast.i.i.i.i.i = and i32 %72, 1048575
   %cmp.i.i.i.i.i = icmp ult i32 %bf.cast.i.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i1106, label %if.else.i.i.i.i.i1097
@@ -568,7 +568,7 @@ if.then.i.i1102:                                  ; preds = %_ZNSt4pairIN4cvc58i
   store ptr %79, ptr %77, align 8
   %bf.load.i.i.i.i.i.i = load i64, ptr %79, align 8
   %bf.lshr.i.i.i.i.i.i = lshr i64 %bf.load.i.i.i.i.i.i, 40
-  %80 = trunc i64 %bf.lshr.i.i.i.i.i.i to i32
+  %80 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i.i to i32
   %bf.cast.i.i.i.i.i.i = and i32 %80, 1048575
   %cmp.i.i.i.i.i.i1103 = icmp ult i32 %bf.cast.i.i.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i.i.i1103, label %if.then.i.i.i.i.i.i1104, label %if.else.i.i.i.i.i.i
@@ -1255,7 +1255,7 @@ invoke.cont:
   store ptr %0, ptr %add.ptr, align 8
   %bf.load.i.i.i.i.i = load i64, ptr %0, align 8
   %bf.lshr.i.i.i.i.i = lshr i64 %bf.load.i.i.i.i.i, 40
-  %1 = trunc i64 %bf.lshr.i.i.i.i.i to i32
+  %1 = trunc nuw nsw i64 %bf.lshr.i.i.i.i.i to i32
   %bf.cast.i.i.i.i.i = and i32 %1, 1048575
   %cmp.i.i.i.i.i = icmp ult i32 %bf.cast.i.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -1499,7 +1499,7 @@ _ZNSt5dequeIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE22_M_reserve_map_at_back
   store ptr %10, ptr %9, align 8
   %bf.load.i.i.i.i = load i64, ptr %10, align 8
   %bf.lshr.i.i.i.i = lshr i64 %bf.load.i.i.i.i, 40
-  %11 = trunc i64 %bf.lshr.i.i.i.i to i32
+  %11 = trunc nuw nsw i64 %bf.lshr.i.i.i.i to i32
   %bf.cast.i.i.i.i = and i32 %11, 1048575
   %cmp.i.i.i.i = icmp ult i32 %bf.cast.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i

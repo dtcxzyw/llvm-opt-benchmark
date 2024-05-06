@@ -1519,8 +1519,8 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   %4 = alloca %struct.OfficeArtRecordHeader_Unpacked, align 2
   %5 = alloca %struct.OfficeArtRecordHeader_Unpacked, align 2
   %6 = alloca [256 x i8], align 16
-  %.not72 = icmp eq i64 %1, 0
-  br i1 %.not72, label %.loopexit, label %.lr.ph
+  %.not73 = icmp eq i64 %1, 0
+  br i1 %.not73, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 2
@@ -1532,24 +1532,24 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br label %13
 
 13:                                               ; preds = %.lr.ph, %select.unfold
-  %.03975 = phi i32 [ 3, %.lr.ph ], [ %.1, %select.unfold ]
-  %.04074 = phi ptr [ %0, %.lr.ph ], [ %spec.select69, %select.unfold ]
-  %.04273 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %select.unfold ]
-  %14 = icmp eq ptr %.04074, null
-  %15 = icmp ult i64 %.04273, 8
+  %.03976 = phi i32 [ 3, %.lr.ph ], [ %.1, %select.unfold ]
+  %.04075 = phi ptr [ %0, %.lr.ph ], [ %spec.select70, %select.unfold ]
+  %.04274 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %select.unfold ]
+  %14 = icmp eq ptr %.04075, null
+  %15 = icmp ult i64 %.04274, 8
   %or.cond.i = or i1 %15, %14
   br i1 %or.cond.i, label %.loopexit.sink.split, label %16
 
 16:                                               ; preds = %13
-  %17 = load i16, ptr %.04074, align 1
+  %17 = load i16, ptr %.04075, align 1
   %18 = and i16 %17, 15
   store i16 %18, ptr %4, align 2
   %19 = lshr i16 %17, 4
   store i16 %19, ptr %7, align 2
-  %20 = getelementptr inbounds i8, ptr %.04074, i64 2
+  %20 = getelementptr inbounds i8, ptr %.04075, i64 2
   %21 = load i16, ptr %20, align 1
   store i16 %21, ptr %8, align 2
-  %22 = getelementptr inbounds i8, ptr %.04074, i64 4
+  %22 = getelementptr inbounds i8, ptr %.04075, i64 4
   %23 = load i32, ptr %22, align 1
   store i32 %23, ptr %9, align 2
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #10
@@ -1570,9 +1570,9 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 
 .thread:                                          ; preds = %16
   %29 = icmp eq i16 %21, -4089
-  br i1 %29, label %.thread82, label %73
+  br i1 %29, label %.thread83, label %73
 
-.thread82:                                        ; preds = %.thread
+.thread83:                                        ; preds = %.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1147) #10
   br label %31
 
@@ -1581,12 +1581,12 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   %.not59 = icmp eq i16 %18, 2
   br i1 %.not59, label %32, label %31
 
-31:                                               ; preds = %.thread82, %30
+31:                                               ; preds = %.thread83, %30
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1148, i32 noundef %24) #10
   br label %32
 
 32:                                               ; preds = %31, %30
-  %33 = add i64 %.04273, -8
+  %33 = add i64 %.04274, -8
   %34 = icmp ult i64 %33, 36
   br i1 %34, label %35, label %36
 
@@ -1595,10 +1595,10 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br label %select.unfold
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %.04074, i64 41
+  %37 = getelementptr inbounds i8, ptr %.04075, i64 41
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
-  %40 = add i64 %.04273, -44
+  %40 = add i64 %.04274, -44
   %41 = icmp ult i64 %40, %39
   br i1 %41, label %42, label %43
 
@@ -1612,7 +1612,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not60, label %47, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %.04074, i64 44
+  %45 = getelementptr inbounds i8, ptr %.04075, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %45, i64 %39, i1 false)
   %46 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %39
   store i8 0, ptr %46, align 1
@@ -1622,11 +1622,11 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 
 47:                                               ; preds = %44, %43
   %48 = phi i8 [ %.pre, %44 ], [ 0, %43 ]
-  %49 = getelementptr inbounds i8, ptr %.04074, i64 44
+  %49 = getelementptr inbounds i8, ptr %.04075, i64 44
   %50 = zext i8 %48 to i64
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
   %52 = sub i64 %40, %50
-  %53 = getelementptr inbounds i8, ptr %.04074, i64 28
+  %53 = getelementptr inbounds i8, ptr %.04075, i64 28
   %54 = load i32, ptr %53, align 1
   %55 = zext i32 %54 to i64
   %56 = icmp ult i64 %52, %55
@@ -1668,7 +1668,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not62, label %.select.unfold_crit_edge, label %.loopexit
 
 .select.unfold_crit_edge:                         ; preds = %61
-  %.pre81 = load i32, ptr %9, align 2
+  %.pre82 = load i32, ptr %9, align 2
   br label %select.unfold
 
 73:                                               ; preds = %.thread, %27
@@ -1678,7 +1678,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 
 75:                                               ; preds = %73
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1154) #10
-  %76 = call i32 @process_blip_record(ptr noundef nonnull %4, ptr noundef nonnull %.04074, i64 noundef %.04273, ptr noundef %2)
+  %76 = call i32 @process_blip_record(ptr noundef nonnull %4, ptr noundef nonnull %.04075, i64 noundef %.04274, ptr noundef %2)
   %.not58 = icmp eq i32 %76, 0
   br i1 %.not58, label %select.unfold, label %.loopexit
 
@@ -1687,15 +1687,15 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.select.unfold_crit_edge, %77, %75, %35, %42
-  %78 = phi i32 [ %23, %35 ], [ %23, %42 ], [ %.pre81, %.select.unfold_crit_edge ], [ %23, %75 ], [ %23, %77 ]
-  %.1 = phi i32 [ %.03975, %35 ], [ %.03975, %42 ], [ 0, %.select.unfold_crit_edge ], [ 0, %75 ], [ %.03975, %77 ]
+  %78 = phi i32 [ %23, %35 ], [ %23, %42 ], [ %.pre82, %.select.unfold_crit_edge ], [ %23, %75 ], [ %23, %77 ]
+  %.1 = phi i32 [ %.03976, %35 ], [ %.03976, %42 ], [ 0, %.select.unfold_crit_edge ], [ 0, %75 ], [ %.03976, %77 ]
   %79 = zext i32 %78 to i64
   %80 = add nuw nsw i64 %79, 8
-  %81 = icmp ult i64 %.04273, %80
-  %spec.select = call i64 @llvm.usub.sat.i64(i64 %.04273, i64 %80)
-  %spec.select69.idx = select i1 %81, i64 0, i64 %80
-  %spec.select69 = getelementptr inbounds i8, ptr %.04074, i64 %spec.select69.idx
-  %.not.not = icmp ugt i64 %.04273, %80
+  %81 = icmp ult i64 %.04274, %80
+  %spec.select = call i64 @llvm.usub.sat.i64(i64 %.04274, i64 %80)
+  %spec.select70.idx = select i1 %81, i64 0, i64 %80
+  %spec.select70 = getelementptr inbounds i8, ptr %.04075, i64 %spec.select70.idx
+  %.not.not = icmp ugt i64 %.04274, %80
   br i1 %.not.not, label %13, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %59, %13
@@ -1703,7 +1703,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %75, %select.unfold, %.loopexit.sink.split, %3
-  %.2 = phi i32 [ 0, %3 ], [ %.03975, %.loopexit.sink.split ], [ %72, %61 ], [ %76, %75 ], [ 0, %select.unfold ]
+  %.2 = phi i32 [ 0, %3 ], [ %.03976, %.loopexit.sink.split ], [ %72, %61 ], [ %76, %75 ], [ 0, %select.unfold ]
   ret i32 %.2
 }
 
@@ -1997,7 +1997,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   %98 = load i16, ptr %34, align 2
   %99 = zext i16 %98 to i32
   %100 = add nsw i32 %99, -21
-  %101 = call fastcc i32 @parse_formula(ptr noundef nonnull %22, ptr noundef nonnull %45, i32 noundef %100), !range !4
+  %101 = call fastcc i32 @parse_formula(ptr noundef nonnull %22, ptr noundef nonnull %45, i32 noundef %100)
   %.not162 = icmp eq i32 %101, 0
   br i1 %.not162, label %227, label %102
 
@@ -2390,7 +2390,7 @@ declare i64 @cli_readn(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_formula(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %.not385 = icmp eq i32 %2, 0
@@ -3292,4 +3292,3 @@ attributes #11 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 27}

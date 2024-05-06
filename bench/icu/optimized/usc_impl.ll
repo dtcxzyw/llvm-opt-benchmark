@@ -167,7 +167,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uscript_nextRun_75(ptr noundef %scriptRun, ptr noundef writeonly %pRunStart, ptr noundef writeonly %pRunLimit, ptr noundef writeonly %pRunScript) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uscript_nextRun_75(ptr noundef %scriptRun, ptr noundef writeonly %pRunStart, ptr noundef writeonly %pRunLimit, ptr noundef writeonly %pRunScript) local_unnamed_addr #0 {
 entry:
   %error = alloca i32, align 4
   store i32 0, ptr %error, align 4
@@ -222,7 +222,7 @@ if.then25:                                        ; preds = %if.then15
   %conv20 = zext i16 %7 to i32
   %sub27 = shl nuw nsw i32 %conv, 10
   %add29 = add nsw i32 %sub27, -56613888
-  %add31 = add nsw i32 %add29, %conv20
+  %add31 = add nuw nsw i32 %add29, %conv20
   store i32 %add, ptr %scriptLimit, align 4
   br label %if.end35
 

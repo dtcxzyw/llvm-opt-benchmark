@@ -250,7 +250,7 @@ declare i32 @cuddTreeSifting(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @cuddZddAlignToBdd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_ShuffleHeap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_ShuffleHeap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %.not4459 = icmp sgt i32 %4, 0
@@ -450,7 +450,7 @@ ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %7
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @ddCheckPermuation(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #3 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %37, label %5
 
@@ -529,7 +529,7 @@ define internal fastcc noundef i32 @ddCheckPermuation(ptr noundef readonly %0, p
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %._crit_edge.thread, label %5
 
@@ -727,7 +727,7 @@ define ptr @cuddDynamicAllocNode(ptr nocapture noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -1167,7 +1167,7 @@ define internal i32 @ddUniqueCompare(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sub nsw i32 %2, %1
   %6 = add i32 %5, 1
   %.not110 = icmp slt i32 %5, 0
@@ -1534,13 +1534,13 @@ ddSiftingBackward.exit:                           ; preds = %ddSiftingBackward.e
 declare i64 @Cudd_Random() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @cuddNextHigh(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 -2147483647, -2147483648) i32 @cuddNextHigh(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = add nsw i32 %1, 1
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @cuddNextLow(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 -2147483648, 2147483647) i32 @cuddNextLow(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = add nsw i32 %1, -1
   ret i32 %3
 }
@@ -2569,7 +2569,7 @@ declare i32 @cuddTestInteract(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0

@@ -79,7 +79,7 @@ define internal void @native_finalize() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @native_get_max_size(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1) #1 {
+define internal range(i32 -27, 1) i32 @native_get_max_size(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1) #1 {
   %switch.tableidx = add i16 %0, -4
   %3 = icmp ult i16 %switch.tableidx, 12
   br i1 %3, label %switch.hole_check, label %5
@@ -102,7 +102,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @native_encode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   switch i16 %0, label %9 [
@@ -173,7 +173,7 @@ define internal noundef i32 @native_encode_int(i16 noundef zeroext %0, ptr nocap
 23:                                               ; preds = %20
   %.sroa.01.0.extract.trunc.i = trunc i64 %.0..0..0..0.7 to i32
   %.sroa.22.0.extract.shift.i = lshr i64 %.0..0..0..0.7, 32
-  %.sroa.22.0.extract.trunc.i = trunc i64 %.sroa.22.0.extract.shift.i to i32
+  %.sroa.22.0.extract.trunc.i = trunc nuw i64 %.sroa.22.0.extract.shift.i to i32
   %24 = tail call i32 @htonl(i32 noundef %.sroa.22.0.extract.trunc.i) #6
   %25 = tail call i32 @htonl(i32 noundef %.sroa.01.0.extract.trunc.i) #6
   %.sroa.2.0.insert.ext.i = zext i32 %25 to i64
@@ -204,7 +204,7 @@ pmix_hton64.exit:                                 ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @native_decode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
   switch i16 %0, label %10 [
@@ -275,7 +275,7 @@ define internal noundef i32 @native_decode_int(i16 noundef zeroext %0, ptr nocap
 24:                                               ; preds = %21
   %.sroa.01.0.extract.trunc.i = trunc i64 %.0..0..0..0.8 to i32
   %.sroa.22.0.extract.shift.i = lshr i64 %.0..0..0..0.8, 32
-  %.sroa.22.0.extract.trunc.i = trunc i64 %.sroa.22.0.extract.shift.i to i32
+  %.sroa.22.0.extract.trunc.i = trunc nuw i64 %.sroa.22.0.extract.shift.i to i32
   %25 = tail call i32 @ntohl(i32 noundef %.sroa.22.0.extract.trunc.i) #6
   %26 = tail call i32 @ntohl(i32 noundef %.sroa.01.0.extract.trunc.i) #6
   %.sroa.2.0.insert.ext.i = zext i32 %26 to i64

@@ -106,7 +106,7 @@ define dso_local i32 @pm_qos_read_value(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pm_qos_update_target(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @pm_qos_update_target(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pm_qos_lock) #13
   %6 = load volatile ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, %0
@@ -815,7 +815,7 @@ define dso_local i32 @freq_qos_read_value(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @freq_qos_apply(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @freq_qos_apply(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %16 [
     i32 1, label %5
@@ -845,7 +845,7 @@ define dso_local noundef i32 @freq_qos_apply(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @freq_qos_add_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @freq_qos_add_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %7 = or i1 %5, %6
@@ -901,7 +901,7 @@ define dso_local noundef i32 @freq_qos_add_request(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @freq_qos_update_request(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @freq_qos_update_request(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, -1
   %5 = or i1 %3, %4
@@ -952,7 +952,7 @@ define dso_local noundef i32 @freq_qos_update_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @freq_qos_remove_request(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @freq_qos_remove_request(ptr noundef %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %20, label %3
 
@@ -1220,7 +1220,7 @@ define internal i64 @cpu_latency_qos_write(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cpu_latency_qos_open(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @cpu_latency_qos_open(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 48) #15
   %5 = icmp eq ptr %4, null

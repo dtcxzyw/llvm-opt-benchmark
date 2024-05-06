@@ -278,7 +278,7 @@ stnode_clear.exit:                                ; preds = %3, %12, %15, %18
   store ptr null, ptr %21, align 8
   %23 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %23) #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr %6, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
   store i16 0, ptr %9, align 8
@@ -286,7 +286,7 @@ stnode_clear.exit:                                ; preds = %3, %12, %15, %18
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %stnode_clear.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %stnode_init.exit
 
 26:                                               ; preds = %stnode_clear.exit
@@ -331,7 +331,7 @@ define noundef ptr @stnode_new(i32 noundef %0, ptr noundef %1, ptr noundef %2, i
   %6 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #14
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 40
   store i64 %3, ptr %9, align 8
@@ -343,7 +343,7 @@ define noundef ptr @stnode_new(i32 noundef %0, ptr noundef %1, ptr noundef %2, i
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %stnode_init.exit
 
 13:                                               ; preds = %5
@@ -389,7 +389,7 @@ define noundef ptr @stnode_new_empty(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %stnode_new.exit
 
 8:                                                ; preds = %1

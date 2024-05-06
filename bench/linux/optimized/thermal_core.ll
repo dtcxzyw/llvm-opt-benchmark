@@ -739,7 +739,7 @@ define internal void @perf_trace_thermal_zone_trip(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @thermal_register_governor(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @thermal_register_governor(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %69, label %3
 
@@ -1556,7 +1556,7 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @thermal_zone_device_is_enabled(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 16 {
+define dso_local range(i32 0, 2) i32 @thermal_zone_device_is_enabled(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -2036,7 +2036,7 @@ define dso_local i32 @thermal_zone_bind_cooling_device(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @thermal_unbind_cdev_from_trip(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @thermal_unbind_cdev_from_trip(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 992
   tail call void @mutex_lock(ptr noundef %4) #19
   %5 = getelementptr inbounds i8, ptr %2, i64 792
@@ -2130,7 +2130,7 @@ define dso_local noundef i32 @thermal_unbind_cdev_from_trip(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @thermal_zone_unbind_cooling_device(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_unbind_cooling_device(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %15, label %5
 
@@ -3563,7 +3563,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @thermal_register_governors() unnamed_addr #11 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @thermal_register_governors() unnamed_addr #11 section ".init.text" align 16 {
   br i1 icmp ult (ptr @__governor_thermal_table, ptr @__governor_thermal_table_end), label %.preheader2, label %.thread
 
 .preheader2:                                      ; preds = %0, %6

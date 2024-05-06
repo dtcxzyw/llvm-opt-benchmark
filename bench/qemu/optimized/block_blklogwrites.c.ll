@@ -80,7 +80,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blk_log_writes_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @blk_log_writes_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %log_sb = alloca %struct.log_write_super, align 8
@@ -175,7 +175,7 @@ if.end42:                                         ; preds = %if.end35
   br i1 %tobool.not.i.i, label %if.then69, label %blk_log_writes_sector_size_valid.exit
 
 blk_log_writes_sector_size_valid.exit:            ; preds = %if.end42
-  %7 = call i32 @llvm.ctpop.i32(i32 %6), !range !5
+  %7 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
   %tobool1.not.i.i = icmp ult i32 %7, 2
   %8 = add i32 %6, -32
   %9 = icmp ult i32 %8, 16777184
@@ -216,7 +216,7 @@ if.end66:                                         ; preds = %blk_log_writes_sect
   br i1 %tobool.not.i.i46, label %if.then69, label %blk_log_writes_sector_size_valid.exit51
 
 blk_log_writes_sector_size_valid.exit51:          ; preds = %if.end66
-  %14 = call i32 @llvm.ctpop.i32(i32 %conv67), !range !5
+  %14 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %conv67)
   %tobool1.not.i.i48 = icmp ult i32 %14, 2
   %15 = add i32 %conv67, -32
   %16 = icmp ult i32 %15, 16777184
@@ -231,7 +231,7 @@ if.then69:                                        ; preds = %if.end42, %if.end66
 blk_log_writes_log2.exit:                         ; preds = %blk_log_writes_sector_size_valid.exit51
   %sectorsize72 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %conv67, ptr %sectorsize72, align 8
-  %17 = call i32 @llvm.ctlz.i32(i32 %conv67, i1 true), !range !5
+  %17 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv67, i1 true)
   %sub.i = xor i32 %17, 31
   %sectorbits = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %sub.i, ptr %sectorbits, align 4
@@ -392,7 +392,7 @@ blk_log_writes_log2.exit:                         ; preds = %entry
   br i1 %cmp14.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %blk_log_writes_log2.exit
-  %0 = tail call i32 @llvm.ctlz.i32(i32 %sector_size, i1 true), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sector_size, i1 true)
   %sub.i = xor i32 %0, 31
   %sh_prom = zext nneg i32 %sub.i to i64
   %flags = getelementptr inbounds i8, ptr %cur_entry, i64 16
@@ -430,7 +430,7 @@ if.end7:                                          ; preds = %if.end
   %cur_sector.1 = add i64 %inc, %add
   %inc15 = add nuw i64 %cur_idx.015, 1
   %exitcond.not = icmp eq i64 %inc15, %nr_entries
-  br i1 %exitcond.not, label %return, label %while.body, !llvm.loop !6
+  br i1 %exitcond.not, label %return, label %while.body, !llvm.loop !5
 
 return:                                           ; preds = %if.end7, %blk_log_writes_log2.exit, %if.then4, %if.then
   %retval.0 = phi i64 [ -1, %if.then ], [ -1, %if.then4 ], [ 1, %blk_log_writes_log2.exit ], [ %cur_sector.1, %if.end7 ]
@@ -829,6 +829,5 @@ attributes #10 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

@@ -521,7 +521,7 @@ ompi_request_complete.exit:                       ; preds = %133, %130, %opal_th
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_request_schedule_append(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_comm_request_schedule_append(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 2
   br i1 %5, label %ompi_comm_request_schedule_append_w_flags.exit, label %6
 
@@ -571,7 +571,7 @@ opal_obj_new.exit.thread20.i:                     ; preds = %.lr.ph.i.i.i, %13
   %23 = getelementptr inbounds i8, ptr %8, i64 48
   %24 = zext nneg i32 %3 to i64
   %25 = shl nuw nsw i64 %24, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %2, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr readonly align 8 %2, i64 %25, i1 false)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %opal_obj_new.exit.thread20.i
@@ -600,7 +600,7 @@ ompi_comm_request_schedule_append_w_flags.exit:   ; preds = %4, %12, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_request_schedule_append_w_flags(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_comm_request_schedule_append_w_flags(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 2
   br i1 %6, label %opal_obj_new.exit.thread, label %7
 
@@ -838,7 +838,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %20 = extractvalue { i128, i1 } %18, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %20 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %20, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -1087,7 +1087,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ompi_comm_request_free(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 8) i32 @ompi_comm_request_free(ptr nocapture noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 88
   %4 = load ptr, ptr %3, align 8

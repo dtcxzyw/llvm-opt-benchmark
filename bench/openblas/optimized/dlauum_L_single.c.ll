@@ -122,7 +122,7 @@ define noundef i32 @dlauum_L_single(ptr noundef %0, ptr nocapture readnone %1, p
   %91 = phi i64 [ %99, %.preheader ], [ 0, %.loopexit8 ]
   %92 = sub nsw i64 %42, %91
   %93 = call i64 @llvm.smin.i64(i64 %92, i64 192)
-  %94 = mul nsw i64 %91, %42
+  %94 = mul nuw nsw i64 %91, %42
   %95 = getelementptr inbounds double, ptr %4, i64 %94
   %96 = add i64 %91, %55
   %97 = getelementptr inbounds double, ptr %27, i64 %96

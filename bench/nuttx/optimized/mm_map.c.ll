@@ -104,7 +104,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare i32 @nxrmutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mm_map_add(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @mm_map_add(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %3
 
@@ -225,7 +225,7 @@ define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mm_map_remove(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [30 x i8] c"Replay: unknown event kind %d\00", align 1
 @lock = internal global %struct.QemuMutex zeroinitializer, align 8
 @mutex_cond = internal global %struct.QemuCond zeroinitializer, align 8
-@replay_locked = internal thread_local global i8 0, align 1
+@replay_locked = internal thread_local unnamed_addr global i8 0, align 1
 @mutex_tail = internal unnamed_addr global i64 0, align 8
 @replay_mode = external local_unnamed_addr global i32, align 4
 @__func__.replay_mutex_lock = private unnamed_addr constant [18 x i8] c"replay_mutex_lock\00", align 1
@@ -250,7 +250,7 @@ replay_put_word.exit20:                           ; preds = %replay_put_byte.exi
 define dso_local void @replay_put_qword(i64 noundef %qword) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %qword, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   tail call void @replay_put_dword(i32 noundef %conv)
   %conv1 = trunc i64 %qword to i32
   tail call void @replay_put_dword(i32 noundef %conv1)
@@ -682,7 +682,7 @@ declare void @qemu_cond_init(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @replay_mutex_locked() local_unnamed_addr #7 {
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @replay_locked)
@@ -927,7 +927,7 @@ attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }

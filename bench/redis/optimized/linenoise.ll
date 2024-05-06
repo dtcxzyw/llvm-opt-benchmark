@@ -240,7 +240,7 @@ if.end.i:                                         ; preds = %if.end27
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %idx.ext.i
   %sext = shl i64 %call30, 32
   %conv4.i = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %seq, i64 %conv4.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 16 %seq, i64 %conv4.i, i1 false)
   store ptr %call.i, ptr %ab, align 8
   %add7.i = add nsw i32 %12, %conv31
   store i32 %add7.i, ptr %len1.i, align 8
@@ -260,7 +260,7 @@ if.end.i20:                                       ; preds = %abAppend.exit
   %idx.ext.i21 = sext i32 %15 to i64
   %add.ptr.i22 = getelementptr inbounds i8, ptr %call.i18, i64 %idx.ext.i21
   %conv4.i23 = sext i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i22, ptr nonnull align 1 %call, i64 %conv4.i23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i22, ptr nonnull readonly align 1 %call, i64 %conv4.i23, i1 false)
   store ptr %call.i18, ptr %ab, align 8
   %add7.i24 = add nsw i32 %15, %spec.select
   store i32 %add7.i24, ptr %len1.i, align 8
@@ -310,7 +310,7 @@ if.end43:                                         ; preds = %if.then, %if.then40
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @linenoiseEditInsert(ptr nocapture noundef %l, i8 noundef signext %c) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 1) i32 @linenoiseEditInsert(ptr nocapture noundef %l, i8 noundef signext %c) local_unnamed_addr #9 {
 entry:
   %d = alloca i8, align 1
   %len = getelementptr inbounds i8, ptr %l, i64 56
@@ -464,7 +464,7 @@ if.then21.i:                                      ; preds = %if.end.i
 
 if.end.i.i:                                       ; preds = %if.then21.i
   %conv27.i = trunc i64 %call26.i to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %malloc.i, ptr nonnull align 16 %seq.i, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %malloc.i, ptr nonnull readonly align 16 %seq.i, i64 %conv.i.i, i1 false)
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end.i.i, %if.then21.i, %if.end.i
@@ -495,7 +495,7 @@ if.end.i55.i:                                     ; preds = %for.body.i
   %add.ptr.i57.i = getelementptr inbounds i8, ptr %call.i53.i, i64 %idx.ext.i56.i
   %sext154.i = shl i64 %call36.i, 32
   %conv4.i58.i = ashr exact i64 %sext154.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i57.i, ptr nonnull align 16 %seq.i, i64 %conv4.i58.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i57.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i58.i, i1 false)
   br label %abAppend.exit60.i
 
 abAppend.exit60.i:                                ; preds = %if.end.i55.i, %for.body.i
@@ -524,7 +524,7 @@ if.end.i66.i:                                     ; preds = %for.end.i
   %add.ptr.i68.i = getelementptr inbounds i8, ptr %call.i64.i, i64 %idx.ext.i67.i
   %sext148.i = shl i64 %call42.i, 32
   %conv4.i69.i = ashr exact i64 %sext148.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i68.i, ptr nonnull align 16 %seq.i, i64 %conv4.i69.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i68.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i69.i, i1 false)
   store ptr %call.i64.i, ptr %ab.i, align 8
   store i32 %add.i62.i, ptr %len.i.i, align 8
   br label %abAppend.exit71.i
@@ -546,7 +546,7 @@ if.end.i77.i:                                     ; preds = %abAppend.exit71.i
   %add.ptr.i79.i = getelementptr inbounds i8, ptr %call.i75.i, i64 %idx.ext.i78.i
   %sext149.i = shl i64 %call46.i, 32
   %conv4.i80.i = ashr exact i64 %sext149.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i79.i, ptr align 1 %12, i64 %conv4.i80.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i79.i, ptr readonly align 1 %12, i64 %conv4.i80.i, i1 false)
   store ptr %call.i75.i, ptr %ab.i, align 8
   store i32 %add.i73.i, ptr %len.i.i, align 8
   br label %abAppend.exit82.i
@@ -603,7 +603,7 @@ if.end.i98.i:                                     ; preds = %if.else.i
   %add.ptr.i100.i = getelementptr inbounds i8, ptr %call.i96.i, i64 %idx.ext.i99.i
   %sext150.i = shl i64 %18, 32
   %conv4.i101.i = ashr exact i64 %sext150.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i100.i, ptr align 1 %17, i64 %conv4.i101.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i100.i, ptr readonly align 1 %17, i64 %conv4.i101.i, i1 false)
   br label %if.end62.i.sink.split
 
 if.end62.i.sink.split:                            ; preds = %for.cond51.preheader.i, %abAppend.exit92.i, %if.end.i98.i
@@ -666,7 +666,7 @@ if.end.i119.i:                                    ; preds = %abAppend.exit113.i
   %add.ptr.i121.i = getelementptr inbounds i8, ptr %call.i117.i, i64 %idx.ext.i120.i
   %sext151.i = shl i64 %call79.i, 32
   %conv4.i122.i = ashr exact i64 %sext151.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i121.i, ptr nonnull align 16 %seq.i, i64 %conv4.i122.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i121.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i122.i, i1 false)
   store ptr %call.i117.i, ptr %ab.i, align 8
   store i32 %add.i115.i, ptr %len.i.i, align 8
   br label %abAppend.exit124.i
@@ -712,7 +712,7 @@ if.end.i130.i:                                    ; preds = %if.then102.i
   %add.ptr.i132.i = getelementptr inbounds i8, ptr %call.i128.i, i64 %idx.ext.i131.i
   %sext152.i = shl i64 %call108.i, 32
   %conv4.i133.i = ashr exact i64 %sext152.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i132.i, ptr nonnull align 16 %seq.i, i64 %conv4.i133.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i132.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i133.i, i1 false)
   store ptr %call.i128.i, ptr %ab.i, align 8
   store i32 %add.i126.i, ptr %len.i.i, align 8
   br label %if.end110.i
@@ -751,7 +751,7 @@ if.end.i141.i:                                    ; preds = %if.end124.i
   %add.ptr.i143.i = getelementptr inbounds i8, ptr %call.i139.i, i64 %.pre.i
   %sext153.i = shl i64 %call127.i, 32
   %conv4.i144.i = ashr exact i64 %sext153.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i143.i, ptr nonnull align 16 %seq.i, i64 %conv4.i144.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i143.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i144.i, i1 false)
   br label %refreshMultiLine.exit
 
 refreshMultiLine.exit:                            ; preds = %if.end124.i, %if.end.i141.i
@@ -814,7 +814,7 @@ while.cond5.preheader.i:                          ; preds = %while.body.preheade
 
 if.end.i.i13:                                     ; preds = %while.cond5.preheader.i
   %conv.i14 = trunc i64 %call15.i to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %malloc.i11, ptr nonnull align 16 %seq.i2, i64 %conv.i.i10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %malloc.i11, ptr nonnull readonly align 16 %seq.i2, i64 %conv.i.i10, i1 false)
   store ptr %malloc.i11, ptr %ab.i3, align 8
   store i32 %conv.i14, ptr %len.i.i8, align 8
   br label %abAppend.exit.i
@@ -834,7 +834,7 @@ if.end.i25.i:                                     ; preds = %abAppend.exit.i
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %call.i23.i, i64 %idx.ext.i26.i
   %sext74.i = shl i64 %call18.i, 32
   %conv4.i28.i = ashr exact i64 %sext74.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i27.i, ptr align 1 %37, i64 %conv4.i28.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i27.i, ptr readonly align 1 %37, i64 %conv4.i28.i, i1 false)
   store ptr %call.i23.i, ptr %ab.i3, align 8
   store i32 %add.i21.i, ptr %len.i.i8, align 8
   br label %abAppend.exit30.i
@@ -885,7 +885,7 @@ if.end.i46.i:                                     ; preds = %if.else.i18
   %add.ptr.i48.i = getelementptr inbounds i8, ptr %call.i44.i, i64 %idx.ext.i47.i
   %sext75.i = shl i64 %49, 32
   %conv4.i49.i = ashr exact i64 %sext75.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i48.i, ptr align 1 %buf.0.lcssa.i, i64 %conv4.i49.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i48.i, ptr readonly align 1 %buf.0.lcssa.i, i64 %conv4.i49.i, i1 false)
   br label %if.end.i19.sink.split
 
 if.end.i19.sink.split:                            ; preds = %while.cond22.preheader.i, %abAppend.exit40.i, %if.end.i46.i
@@ -897,7 +897,7 @@ if.end.i19.sink.split:                            ; preds = %while.cond22.prehea
 
 if.end.i19:                                       ; preds = %if.end.i19.sink.split, %if.else.i18
   %conv27.i20 = trunc i64 %call.i5 to i32
-  call void @refreshShowHints(ptr noundef nonnull %ab.i3, ptr noundef %l, i32 noundef %conv27.i20)
+  call void @refreshShowHints(ptr noundef nonnull %ab.i3, ptr noundef readonly %l, i32 noundef %conv27.i20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %seq.i2, ptr noundef nonnull align 1 dereferenceable(5) @.str.18, i64 5, i1 false)
   %call32.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %seq.i2) #24
   %conv33.i = trunc i64 %call32.i to i32
@@ -914,7 +914,7 @@ if.end.i57.i:                                     ; preds = %if.end.i19
   %add.ptr.i59.i = getelementptr inbounds i8, ptr %call.i55.i, i64 %.pre
   %sext76.i = shl i64 %call32.i, 32
   %conv4.i60.i = ashr exact i64 %sext76.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i59.i, ptr nonnull align 16 %seq.i2, i64 %conv4.i60.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i59.i, ptr nonnull readonly align 16 %seq.i2, i64 %conv4.i60.i, i1 false)
   br label %abAppend.exit62.i
 
 abAppend.exit62.i:                                ; preds = %if.end.i19, %if.end.i57.i
@@ -935,7 +935,7 @@ if.end.i68.i:                                     ; preds = %abAppend.exit62.i
   %add.ptr.i70.i = getelementptr inbounds i8, ptr %call.i66.i, i64 %.pre.i21.pre-phi
   %sext77.i = shl i64 %call40.i, 32
   %conv4.i71.i = ashr exact i64 %sext77.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i70.i, ptr nonnull align 16 %seq.i2, i64 %conv4.i71.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i70.i, ptr nonnull readonly align 16 %seq.i2, i64 %conv4.i71.i, i1 false)
   br label %refreshSingleLine.exit
 
 refreshSingleLine.exit:                           ; preds = %abAppend.exit62.i, %if.end.i68.i
@@ -1320,7 +1320,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @enableRawMode() unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @enableRawMode() unnamed_addr #9 {
 entry:
   %raw = alloca %struct.termios, align 16
   %call = tail call i32 @isatty(i32 noundef 0) #23
@@ -1693,7 +1693,7 @@ getColumns.exit.i.i:                              ; preds = %if.else.i.i.i, %if.
   %16 = load i64, ptr %buflen2.i.i, align 8
   %dec.i.i = add i64 %16, -1
   store i64 %dec.i.i, ptr %buflen2.i.i, align 8
-  %call7.i.i = call i32 @linenoiseHistoryAdd(ptr noundef nonnull @.str.23, i32 noundef 0), !range !14
+  %call7.i.i = call i32 @linenoiseHistoryAdd(ptr noundef nonnull @.str.23, i32 noundef 0)
   %17 = load i32, ptr %ofd.i.i, align 4
   %18 = load i64, ptr %plen.i.i, align 8
   %call10.i.i = call i64 @write(i32 noundef %17, ptr noundef %prompt, i64 noundef %18) #23
@@ -1793,7 +1793,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then18.i.i.i, %f
   %inc.i.i.i.i = add nuw i64 %i.07.i.i.i.i, 1
   %35 = load i64, ptr %lc.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %inc.i.i.i.i, %35
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i, !llvm.loop !15
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i, !llvm.loop !14
 
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i, %if.then18.i.i.i
   %36 = load ptr, ptr %cvec.i.i.i, align 8
@@ -1831,7 +1831,7 @@ if.then26.i.i.i:                                  ; preds = %sw.bb.i.i.i
 while.body.i.i.i.backedge:                        ; preds = %if.then26.i.i.i, %sw.bb.i.i.i
   %.be = phi i64 [ %.pre.pre.i.i, %if.then26.i.i.i ], [ %38, %sw.bb.i.i.i ]
   %i.040.i.i.i.be = phi i64 [ %38, %if.then26.i.i.i ], [ %rem.i.i.i, %sw.bb.i.i.i ]
-  br label %while.body.i.i.i, !llvm.loop !16
+  br label %while.body.i.i.i, !llvm.loop !15
 
 sw.bb28.i.i.i:                                    ; preds = %if.end19.i.i.i
   %41 = load i64, ptr %lc.i.i.i, align 8
@@ -1878,7 +1878,7 @@ for.body.i30.i.i.i:                               ; preds = %if.end46.i.i.i, %fo
   %inc.i33.i.i.i = add nuw i64 %i.07.i31.i.i.i, 1
   %51 = load i64, ptr %lc.i.i.i, align 8
   %cmp.i34.i.i.i = icmp ult i64 %inc.i33.i.i.i, %51
-  br i1 %cmp.i34.i.i.i, label %for.body.i30.i.i.i, label %for.end.i35.i.i.i, !llvm.loop !15
+  br i1 %cmp.i34.i.i.i, label %for.body.i30.i.i.i, label %for.end.i35.i.i.i, !llvm.loop !14
 
 for.end.i35.i.i.i:                                ; preds = %for.body.i30.i.i.i, %if.end46.i.i.i
   %52 = load ptr, ptr %cvec.i.i.i, align 8
@@ -2233,7 +2233,7 @@ if.then.i85.i.i:                                  ; preds = %sw.bb165.i.i
   br label %while.body.backedge.i.i
 
 sw.default.i.i:                                   ; preds = %if.end41.i.i
-  %call169.i.i = call i32 @linenoiseEditInsert(ptr noundef nonnull %l.i.i, i8 noundef signext %54), !range !17
+  %call169.i.i = call i32 @linenoiseEditInsert(ptr noundef nonnull %l.i.i, i8 noundef signext %54)
   %tobool170.not.i.i = icmp eq i32 %call169.i.i, 0
   br i1 %tobool170.not.i.i, label %while.body.backedge.i.i, label %linenoiseEdit.exit.i
 
@@ -2381,7 +2381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noundef i32 @linenoiseHistoryAdd(ptr nocapture noundef readonly %line, i32 noundef %is_sensitive) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @linenoiseHistoryAdd(ptr nocapture noundef readonly %line, i32 noundef %is_sensitive) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr @history_max_len, align 4
   %1 = load ptr, ptr @history, align 8
@@ -2470,7 +2470,7 @@ return:                                           ; preds = %if.end22, %land.lhs
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @linenoiseHistorySetMaxLen(i32 noundef %len) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp slt i32 %len, 1
   br i1 %cmp, label %return, label %if.end
@@ -2518,7 +2518,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @free(ptr noundef %1) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end18, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %if.end18, label %for.body, !llvm.loop !16
 
 if.end18:                                         ; preds = %for.body, %if.end12, %for.cond.preheader
   %sub23.pre-phi = phi i32 [ %sub, %for.cond.preheader ], [ 0, %if.end12 ], [ %sub, %for.body ]
@@ -2555,7 +2555,7 @@ return:                                           ; preds = %if.end31, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @linenoiseHistorySave(ptr nocapture noundef readonly %filename) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 1) i32 @linenoiseHistorySave(ptr nocapture noundef readonly %filename) local_unnamed_addr #9 {
 entry:
   %call = tail call i32 @umask(i32 noundef 127) #23
   %call1 = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.8)
@@ -2598,7 +2598,7 @@ for.inc:                                          ; preds = %for.body, %if.then6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = sext i32 %6 to i64
   %cmp5 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %if.end
   %call11 = tail call i32 @fclose(ptr noundef nonnull %call1)
@@ -2628,7 +2628,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @linenoiseHistoryLoad(ptr nocapture noundef readonly %filename) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 1) i32 @linenoiseHistoryLoad(ptr nocapture noundef readonly %filename) local_unnamed_addr #9 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.10)
@@ -2656,10 +2656,10 @@ if.then10:                                        ; preds = %while.body, %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end8
-  %call13 = call i32 @linenoiseHistoryAdd(ptr noundef nonnull %buf, i32 noundef 0), !range !14
+  %call13 = call i32 @linenoiseHistoryAdd(ptr noundef nonnull %buf, i32 noundef 0)
   %call1 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 4096, ptr noundef nonnull %call)
   %cmp2.not = icmp eq ptr %call1, null
-  br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !20
+  br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end11, %while.cond.preheader
   %call14 = call i32 @fclose(ptr noundef nonnull %call)
@@ -2673,8 +2673,8 @@ return:                                           ; preds = %entry, %while.end
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #15
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal void @linenoiseAtExit() #9 {
@@ -2712,7 +2712,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @free(ptr noundef %2) #23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   tail call void @free(ptr noundef nonnull %0) #23
@@ -2817,11 +2817,9 @@ attributes #27 = { nounwind willreturn memory(none) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 0, i32 2}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 -1, i32 1}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

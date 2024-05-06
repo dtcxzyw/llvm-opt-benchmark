@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [130 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bio/socket_helper.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @bio_ip_and_port_to_socket_and_addr(ptr nocapture noundef writeonly %out_sock, ptr nocapture noundef writeonly %out_addr, ptr nocapture noundef writeonly %out_addr_length, ptr noundef %hostname, ptr noundef %port_str) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @bio_ip_and_port_to_socket_and_addr(ptr nocapture noundef writeonly %out_sock, ptr nocapture noundef writeonly %out_addr, ptr nocapture noundef writeonly %out_addr_length, ptr noundef %hostname, ptr noundef %port_str) local_unnamed_addr #0 {
 entry:
   %hint = alloca %struct.addrinfo, align 8
   %result = alloca ptr, align 8
@@ -102,7 +102,7 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @bio_socket_nbio(i32 noundef %sock, i32 noundef %on) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @bio_socket_nbio(i32 noundef %sock, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %sock, i32 noundef 3, i32 noundef 0) #6
   %cmp = icmp slt i32 %call, 0

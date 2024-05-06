@@ -471,7 +471,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %23, %Abc_ObjIsBarBu
   br i1 %57, label %72, label %58
 
 58:                                               ; preds = %54
-  %59 = trunc i64 %indvars.iv51 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv51 to i32
   %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %59)
   %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %56)
   %62 = sitofp i32 %56 to double
@@ -895,10 +895,10 @@ define void @Abc_SclReadTimingConstr(ptr nocapture noundef readnone %0, ptr noca
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #18
+  %15 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #18
   %16 = add i64 %15, 1
   %17 = call noalias ptr @malloc(i64 noundef %16) #17
-  %18 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #16
+  %18 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %12, %14
@@ -1094,7 +1094,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %57, ptr %9, align 4
   %58 = sext i32 %33 to i64
   %59 = getelementptr inbounds i32, ptr %56, i64 %58
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %60, ptr %59, align 4
   %.pre = load ptr, ptr %12, align 8
   br label %Abc_ObjIsBarBuf.exit.thread

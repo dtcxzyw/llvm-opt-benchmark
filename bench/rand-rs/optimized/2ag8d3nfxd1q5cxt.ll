@@ -114,7 +114,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hdac8c255ff630aa8E
   %.val = load ptr, ptr %2, align 8, !nonnull !10, !align !11, !noundef !10
   %32 = load i8, ptr %.val, align 1, !range !12, !noundef !10
   store i8 0, ptr %.val, align 1
-  %trunc.i = trunc i8 %32 to i1
+  %trunc.i = trunc nuw i8 %32 to i1
   br i1 %trunc.i, label %34, label %33
 
 33:                                               ; preds = %.split26.us

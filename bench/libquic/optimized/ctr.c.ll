@@ -194,7 +194,7 @@ while.body22:                                     ; preds = %while.end, %if.end5
   %len.addr.188 = phi i64 [ %sub51, %if.end50 ], [ %len.addr.0.lcssa, %while.end ]
   %div64 = lshr i64 %len.addr.188, 4
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %div64, i64 268435456)
-  %conv25 = trunc i64 %spec.store.select to i32
+  %conv25 = trunc nuw nsw i64 %spec.store.select to i32
   %add26 = add i32 %ctr32.091, %conv25
   %conv27 = zext i32 %add26 to i64
   %cmp28 = icmp ugt i64 %spec.store.select, %conv27
@@ -203,7 +203,7 @@ while.body22:                                     ; preds = %while.end, %if.end5
   %spec.select66 = sub nsw i64 %spec.store.select, %sub
   tail call void %func(ptr noundef %in.addr.190, ptr noundef %out.addr.189, i64 noundef %spec.select66, ptr noundef %key, ptr noundef nonnull %ivec) #3
   %shr = lshr i32 %spec.select, 24
-  %conv33 = trunc i32 %shr to i8
+  %conv33 = trunc nuw i32 %shr to i8
   store i8 %conv33, ptr %add.ptr, align 1
   %shr36 = lshr i32 %spec.select, 16
   %conv37 = trunc i32 %shr36 to i8
@@ -251,7 +251,7 @@ if.then56:                                        ; preds = %while.end54
   tail call void %func(ptr noundef %ecount_buf, ptr noundef %ecount_buf, i64 noundef 1, ptr noundef %key, ptr noundef nonnull %ivec) #3
   %inc = add i32 %ctr32.0.lcssa, 1
   %shr57 = lshr i32 %inc, 24
-  %conv58 = trunc i32 %shr57 to i8
+  %conv58 = trunc nuw i32 %shr57 to i8
   store i8 %conv58, ptr %add.ptr, align 1
   %shr61 = lshr i32 %inc, 16
   %conv62 = trunc i32 %shr61 to i8

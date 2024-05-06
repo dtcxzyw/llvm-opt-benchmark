@@ -483,7 +483,7 @@ define internal noundef i32 @time_unary_minus(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @time_add(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @time_add(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = call i32 @_setjmp(ptr noundef nonnull %5) #20
   %.not = icmp eq i32 %6, 0
@@ -582,7 +582,7 @@ _nstime_add.exit:                                 ; preds = %40, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @time_subtract(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @time_subtract(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = call i32 @_setjmp(ptr noundef nonnull %5) #20
   %.not = icmp eq i32 %6, 0
@@ -681,7 +681,7 @@ _nstime_sub.exit:                                 ; preds = %40, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @time_multiply(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @time_multiply(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = call i32 @_setjmp(ptr noundef nonnull %5) #20
   %.not = icmp eq i32 %6, 0
@@ -858,7 +858,7 @@ _nstime_mul_int.exit:                             ; preds = %74, %40, %82, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @time_divide(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 4) i32 @time_divide(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = call i32 @_setjmp(ptr noundef nonnull %5) #20
   %.not = icmp eq i32 %6, 0

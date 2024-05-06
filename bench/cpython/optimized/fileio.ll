@@ -983,7 +983,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.65 = private unnamed_addr constant [19 x i8] c"opener returned %d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_PyFileIO_closed(ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyFileIO_closed(ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -1286,7 +1286,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_FileIO___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #1 {
+define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #1 {
 entry:
   %stringobj.i = alloca ptr, align 8
   %fdfstat.i = alloca %struct.stat, align 8
@@ -1973,7 +1973,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i = call fastcc ptr @_io_FileIO_readall_impl(ptr noundef nonnull %self)
+  %call7.i = call fastcc ptr @_io_FileIO_readall_impl(ptr noundef nonnull readonly %self)
   br label %_io_FileIO_read_impl.exit
 
 if.end8.i:                                        ; preds = %if.end4.i

@@ -27,7 +27,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_srt_gen(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_srt_gen(i32 noundef %idx) #0 {
 entry:
   %token = alloca %struct.QUIC_STATELESS_RESET_TOKEN, align 1
   %idxprom = sext i32 %idx to i64
@@ -46,7 +46,7 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.end7, %for.cond.preheader
-  %cmp = phi i1 [ false, %for.cond.preheader ], [ true, %if.end7 ]
+  %cmp.not = phi i1 [ false, %for.cond.preheader ], [ true, %if.end7 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %token, i8 -1, i64 16, i1 false)
   %call2 = call i32 @ossl_quic_srt_gen_calculate_token(ptr noundef %call, ptr noundef nonnull %dcid, ptr noundef nonnull %token) #3
   %cmp3 = icmp ne i32 %call2, 0
@@ -58,7 +58,7 @@ for.body:                                         ; preds = %if.end7, %for.cond.
 if.end7:                                          ; preds = %for.body
   %call9 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %token, i64 noundef 16, ptr noundef nonnull %expected, i64 noundef 16) #3
   %tobool10.not = icmp eq i32 %call9, 0
-  %brmerge = or i1 %tobool10.not, %cmp
+  %brmerge = or i1 %tobool10.not, %cmp.not
   br i1 %brmerge, label %err.loopexit.split.loop.exit, label %for.body
 
 err.loopexit.split.loop.exit:                     ; preds = %if.end7

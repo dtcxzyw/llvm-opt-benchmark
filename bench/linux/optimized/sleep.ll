@@ -51,7 +51,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_init_s4_sigcheck374, ptr @__setup_acpi_sleep_setup], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @acpi_get_wakeup_address() local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @acpi_get_wakeup_address() local_unnamed_addr #0 align 16 {
   %1 = load ptr, ptr @real_mode_header, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load i32, ptr %2, align 4
@@ -69,7 +69,7 @@ define dso_local i32 @x86_acpi_enter_sleep_state(i8 noundef zeroext %0) local_un
 declare dso_local i32 @acpi_enter_sleep_state(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x86_acpi_suspend_lowlevel() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @x86_acpi_suspend_lowlevel() local_unnamed_addr #1 align 16 {
   %1 = load ptr, ptr @real_mode_header, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 28
   %3 = load i32, ptr %2, align 4
@@ -135,7 +135,7 @@ define dso_local noundef i32 @x86_acpi_suspend_lowlevel() local_unnamed_addr #1 
   %38 = getelementptr inbounds i8, ptr %7, i64 36
   store i32 %37, ptr %38, align 1
   %39 = lshr i64 %.pre-phi2, 32
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   %41 = getelementptr inbounds i8, ptr %7, i64 40
   store i32 %40, ptr %41, align 1
   %42 = icmp eq i32 %30, 0

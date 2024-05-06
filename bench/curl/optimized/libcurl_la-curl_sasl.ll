@@ -144,7 +144,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @Curl_sasl_parse_url_auth_option(ptr nocapture noundef %sasl, ptr nocapture noundef readonly %value, i64 noundef %len) local_unnamed_addr #2 {
+define hidden range(i32 0, 4) i32 @Curl_sasl_parse_url_auth_option(ptr nocapture noundef %sasl, ptr nocapture noundef readonly %value, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i64 %len, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -183,7 +183,7 @@ for.body.i:                                       ; preds = %if.end6, %for.inc.i
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %bcmp.i = tail call i32 @bcmp(ptr %value, ptr nonnull %0, i64 %1)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %value, ptr nonnull %0, i64 %1)
   %tobool10.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool10.not.i, label %if.then.i, label %for.inc.i
 

@@ -579,7 +579,7 @@ return:                                           ; preds = %if.else89, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @stbds_is_key_equal(ptr nocapture noundef readonly %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode, i64 noundef %i) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @stbds_is_key_equal(ptr nocapture noundef readonly %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode, i64 noundef %i) local_unnamed_addr #11 {
 entry:
   %cmp = icmp sgt i32 %mode, 0
   %mul = mul i64 %i, %elemsize
@@ -801,7 +801,7 @@ if.then31.i:                                      ; preds = %cond.false
   br label %cond.end
 
 if.else89.i:                                      ; preds = %cond.false
-  %call.i = tail call i64 @stbds_siphash_bytes(ptr noundef %key, i64 noundef %keysize, i64 noundef %1)
+  %call.i = tail call i64 @stbds_siphash_bytes(ptr noundef readonly %key, i64 noundef %keysize, i64 noundef %1)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.else89.i, %if.then31.i, %if.then.i, %stbds_hash_string.exit
@@ -844,7 +844,7 @@ if.then11.us:                                     ; preds = %for.body.us
   %mul.i49.us = mul i64 %16, %elemsize
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %mul.i49.us
   %17 = load ptr, ptr %gep.us, align 8
-  %call.i52.us = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %17) #22
+  %call.i52.us = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %17) #22
   %retval.0.in.i.not.us = icmp eq i32 %call.i52.us, 0
   br i1 %retval.0.in.i.not.us, label %if.then14, label %for.inc.us
 
@@ -877,7 +877,7 @@ if.then31.us:                                     ; preds = %for.body27.us
   %mul.i54.us = mul i64 %19, %elemsize
   %gep76.us = getelementptr i8, ptr %invariant.gep, i64 %mul.i54.us
   %20 = load ptr, ptr %gep76.us, align 8
-  %call.i63.us = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %20) #22
+  %call.i63.us = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %20) #22
   %retval.0.in.i60.not.us = icmp eq i32 %call.i63.us, 0
   br i1 %retval.0.in.i60.not.us, label %if.then36, label %for.inc47.us
 
@@ -1046,7 +1046,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %stbds_hmget_key_ts.exit, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else.i
-  %call7.i = tail call i64 @stbds_hm_find_slot(ptr noundef nonnull %a, i64 noundef %elemsize, ptr noundef %key, i64 noundef %keysize, i64 noundef 0, i32 noundef %mode)
+  %call7.i = tail call i64 @stbds_hm_find_slot(ptr noundef nonnull readonly %a, i64 noundef %elemsize, ptr noundef readonly %key, i64 noundef %keysize, i64 noundef 0, i32 noundef %mode)
   %cmp8.i = icmp slt i64 %call7.i, 0
   br i1 %cmp8.i, label %stbds_hmget_key_ts.exit, label %if.else10.i
 
@@ -1335,7 +1335,7 @@ if.then31.i:                                      ; preds = %cond.false22
   br label %cond.end25
 
 if.else89.i:                                      ; preds = %cond.false22
-  %call.i145 = tail call i64 @stbds_siphash_bytes(ptr noundef %key, i64 noundef %keysize, i64 noundef %9)
+  %call.i145 = tail call i64 @stbds_siphash_bytes(ptr noundef readonly %key, i64 noundef %keysize, i64 noundef %9)
   br label %cond.end25
 
 cond.end25:                                       ; preds = %if.else89.i, %if.then31.i, %if.then.i, %stbds_hash_string.exit
@@ -1392,7 +1392,7 @@ if.then41.us:                                     ; preds = %for.body.us
   %mul.i147.us = mul i64 %25, %elemsize
   %add.ptr.i148.us = getelementptr inbounds i8, ptr %a.addr.0, i64 %mul.i147.us
   %26 = load ptr, ptr %add.ptr.i148.us, align 8
-  %call.i151.us = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %26) #22
+  %call.i151.us = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %26) #22
   %retval.0.in.i.not.us = icmp eq i32 %call.i151.us, 0
   br i1 %retval.0.in.i.not.us, label %if.then51, label %for.inc.us
 
@@ -1485,11 +1485,11 @@ if.then94:                                        ; preds = %for.body89
 
 if.then.i160:                                     ; preds = %if.then94
   %34 = load ptr, ptr %add.ptr.i154, align 8
-  %call.i161 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %34) #22
+  %call.i161 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %34) #22
   br label %stbds_is_key_equal.exit162
 
 if.else.i155:                                     ; preds = %if.then94
-  %call6.i156 = tail call i32 @memcmp(ptr noundef %key, ptr noundef %add.ptr.i154, i64 noundef %keysize) #22
+  %call6.i156 = tail call i32 @memcmp(ptr noundef readonly %key, ptr noundef readonly %add.ptr.i154, i64 noundef %keysize) #22
   br label %stbds_is_key_equal.exit162
 
 stbds_is_key_equal.exit162:                       ; preds = %if.then.i160, %if.else.i155
@@ -1621,10 +1621,10 @@ if.end161:                                        ; preds = %if.end48.i, %cond.e
   ]
 
 sw.bb:                                            ; preds = %if.end161
-  %call.i174 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #22
+  %call.i174 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #22
   %add.i175 = add i64 %call.i174, 1
   %malloc.i176 = tail call noalias noundef ptr @malloc(i64 %add.i175)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc.i176, ptr align 1 %key, i64 %add.i175, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc.i176, ptr readonly align 1 %key, i64 %add.i175, i1 false)
   %mul183 = mul i64 %cond149199207, %elemsize
   %add.ptr184 = getelementptr inbounds i8, ptr %a.addr.1, i64 %mul183
   store ptr %malloc.i176, ptr %add.ptr184, align 8
@@ -1635,7 +1635,7 @@ sw.bb:                                            ; preds = %if.end161
 
 sw.bb187:                                         ; preds = %if.end161
   %string179 = getelementptr inbounds i8, ptr %8, i64 72
-  %call.i177 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #22
+  %call.i177 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #22
   %add.i178 = add i64 %call.i177, 1
   %remaining.i = getelementptr inbounds i8, ptr %8, i64 80
   %44 = load i64, ptr %remaining.i, align 8
@@ -1668,7 +1668,7 @@ if.then7.i:                                       ; preds = %if.end.i
   %add8.i = add i64 %call.i177, 9
   %malloc33.i = tail call ptr @malloc(i64 %add8.i)
   %storage.i186 = getelementptr inbounds i8, ptr %malloc33.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %storage.i186, ptr align 1 %key, i64 %add.i178, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %storage.i186, ptr readonly align 1 %key, i64 %add.i178, i1 false)
   %47 = load ptr, ptr %string179, align 8
   %tobool.not.i187 = icmp eq ptr %47, null
   br i1 %tobool.not.i187, label %if.else.i188, label %if.then11.i
@@ -1702,7 +1702,7 @@ if.end31.i:                                       ; preds = %if.else22.i, %entry
   %add.ptr36.i = getelementptr inbounds i8, ptr %add.ptr.i180, i64 %idx.neg.i
   %sub.i181 = sub i64 %50, %add.i178
   store i64 %sub.i181, ptr %remaining.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr36.i, ptr align 1 %key, i64 %add.i178, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr36.i, ptr readonly align 1 %key, i64 %add.i178, i1 false)
   br label %stbds_stralloc.exit
 
 stbds_stralloc.exit:                              ; preds = %if.then11.i, %if.else.i188, %if.end31.i

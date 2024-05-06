@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [70 x i8] c"sharedfp_individual_write_ordered: Error while writing the datafile \0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_sharedfp_individual_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_sharedfp_individual_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null

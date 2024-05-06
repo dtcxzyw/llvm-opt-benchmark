@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_cvar_read = weak alias i32 (ptr, ptr), ptr @PMPI_T_cvar_read
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PMPI_T_cvar_read(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define range(i32 0, 73) i32 @PMPI_T_cvar_read(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load volatile i32, ptr @ompi_mpit_init_count, align 4

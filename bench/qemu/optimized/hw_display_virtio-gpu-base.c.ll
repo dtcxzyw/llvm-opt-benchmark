@@ -273,7 +273,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @virtio_gpu_get_flags(ptr nocapture noundef readonly %opaque) #3 {
+define internal range(i32 0, 4) i32 @virtio_gpu_get_flags(ptr nocapture noundef readonly %opaque) #3 {
 entry:
   %flags1 = getelementptr inbounds i8, ptr %opaque, i64 532
   %0 = load i32, ptr %flags1, align 4
@@ -499,12 +499,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  %conv12.i.i = trunc i64 %and to i32
+  %conv12.i.i = trunc nuw nsw i64 %and to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv12.i.i) #9
   br label %trace_virtio_gpu_features.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv14.i.i = trunc i64 %and to i32
+  %conv14.i.i = trunc nuw nsw i64 %and to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %conv14.i.i) #9
   br label %trace_virtio_gpu_features.exit
 

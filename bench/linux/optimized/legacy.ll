@@ -32,7 +32,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_pci_subsys_init354, ptr @__UNIQUE_ID___addressable_pcibios_scan_specific_bus352], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @pci_legacy_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @pci_legacy_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @raw_pci_ops, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %5, label %3
@@ -107,7 +107,7 @@ declare dso_local i32 @raw_pci_read(i32 noundef, i32 noundef, i32 noundef, i32 n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @pci_subsys_init() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @pci_subsys_init() #0 section ".init.text" align 16 {
   %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 1), align 8
   %2 = tail call i32 %1() #6
   %3 = icmp eq i32 %2, 0

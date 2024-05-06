@@ -141,7 +141,7 @@ declare i32 @archive_read_append_callback_data(ptr noundef, ptr noundef) local_u
 declare i32 @archive_read_set_open_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_open(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   tail call void @archive_clear_error(ptr noundef %0) #14
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -326,7 +326,7 @@ define internal noundef i64 @file_read(ptr noundef %0, ptr noundef %1, ptr nocap
 declare i32 @archive_read_set_skip_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @file_skip(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_skip(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i8, ptr %4, align 4
   %.not = icmp eq i8 %5, 0
@@ -436,7 +436,7 @@ file_close2.exit:                                 ; preds = %2, %.loopexit.i, %1
 declare i32 @archive_read_set_switch_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_switch(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @file_switch(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %file_close2.exit
@@ -482,14 +482,14 @@ file_close2.exit:                                 ; preds = %3, %.loopexit.i, %2
   tail call void @free(ptr noundef %24) #14
   store ptr null, ptr %23, align 8
   store i32 -1, ptr %1, align 8
-  %25 = tail call i32 @file_open(ptr noundef %0, ptr noundef %2), !range !9
+  %25 = tail call i32 @file_open(ptr noundef %0, ptr noundef %2)
   ret i32 %25
 }
 
 declare i32 @archive_read_set_seek_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @file_seek(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal range(i64 -30, -9223372036854775808) i64 @file_seek(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = load i32, ptr %1, align 8
   %6 = tail call i64 @lseek(i32 noundef %5, i64 noundef %2, i32 noundef %3) #14
   %7 = icmp sgt i64 %6, -1
@@ -686,4 +686,3 @@ attributes #18 = { nounwind allocsize(0) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -30, i32 1}

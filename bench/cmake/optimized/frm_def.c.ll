@@ -22,7 +22,7 @@ define dso_local noundef ptr @new_form(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr @_nc_Default_Form, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
-  %5 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %2, ptr noundef %0), !range !5
+  %5 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %2, ptr noundef %0)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %Associate_Fields.exit
 
@@ -77,7 +77,7 @@ Associate_Fields.exit:                            ; preds = %3
   %28 = getelementptr inbounds i8, ptr %.021.i.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not18.i.i = icmp eq ptr %29, null
-  br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %27, %.preheader.i.i
   %30 = getelementptr inbounds i8, ptr %2, i64 4
@@ -133,7 +133,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @free_form(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %2
 
@@ -170,7 +170,7 @@ define dso_local noundef i32 @free_form(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %.021.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not18.i = icmp eq ptr %16, null
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %14, %.preheader.i
   %17 = getelementptr inbounds i8, ptr %0, i64 4
@@ -216,7 +216,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @set_form_fields(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %Associate_Fields.exit.thread, label %3
 
@@ -253,7 +253,7 @@ define dso_local i32 @set_form_fields(ptr noundef %0, ptr noundef %1) local_unna
   %16 = getelementptr inbounds i8, ptr %.021.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not18.i = icmp eq ptr %17, null
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %15, %.preheader.i
   %18 = getelementptr inbounds i8, ptr %0, i64 4
@@ -279,7 +279,7 @@ define dso_local i32 @set_form_fields(ptr noundef %0, ptr noundef %1) local_unna
   br label %Disconnect_Fields.exit
 
 Disconnect_Fields.exit:                           ; preds = %6, %25
-  %26 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %0, ptr noundef %1), !range !5
+  %26 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %0, ptr noundef %1)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %Associate_Fields.exit
 
@@ -302,7 +302,7 @@ Disconnect_Fields.exit:                           ; preds = %6, %25
   br label %Associate_Fields.exit.thread
 
 Associate_Fields.exit:                            ; preds = %Disconnect_Fields.exit
-  %37 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %0, ptr noundef %8), !range !5
+  %37 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %0, ptr noundef %8)
   br label %Associate_Fields.exit.thread
 
 Associate_Fields.exit.thread:                     ; preds = %Associate_Fields.exit, %33, %35, %3, %2
@@ -313,7 +313,7 @@ Associate_Fields.exit.thread:                     ; preds = %Associate_Fields.ex
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @Connect_Fields(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -358,7 +358,7 @@ define internal fastcc i32 @Connect_Fields(ptr noundef %0, ptr noundef %1) unnam
   %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8
   %.not92 = icmp eq ptr %19, null
-  br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %17
   %20 = sext i32 %.184 to i64
@@ -444,7 +444,7 @@ define internal fastcc i32 @Connect_Fields(ptr noundef %0, ptr noundef %1) unnam
 68:                                               ; preds = %62, %66
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count
-  br i1 %exitcond.not, label %69, label %27, !llvm.loop !9
+  br i1 %exitcond.not, label %69, label %27, !llvm.loop !8
 
 69:                                               ; preds = %68
   %70 = trunc i64 %indvars.iv.next to i16
@@ -520,7 +520,7 @@ define internal fastcc i32 @Connect_Fields(ptr noundef %0, ptr noundef %1) unnam
   %107 = getelementptr inbounds i8, ptr %.028.i, i64 56
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, %.0108
-  br i1 %109, label %.critedge2.i, label %96, !llvm.loop !10
+  br i1 %109, label %.critedge2.i, label %96, !llvm.loop !9
 
 .critedge2.i:                                     ; preds = %.critedge.i, %102, %100
   %.029.i = phi ptr [ %.0108, %102 ], [ %.0108, %100 ], [ null, %.critedge.i ]
@@ -548,7 +548,7 @@ Insert_Field_By_Position.exit:                    ; preds = %93, %.critedge2.i
   %120 = load i16, ptr %119, align 2
   %121 = sext i16 %120 to i64
   %.not94.not = icmp slt i64 %indvars.iv123, %121
-  br i1 %.not94.not, label %82, label %._crit_edge111, !llvm.loop !11
+  br i1 %.not94.not, label %82, label %._crit_edge111, !llvm.loop !10
 
 ._crit_edge111:                                   ; preds = %Insert_Field_By_Position.exit
   %122 = getelementptr inbounds i8, ptr %.0.i, i64 34
@@ -566,7 +566,7 @@ Insert_Field_By_Position.exit:                    ; preds = %93, %.critedge2.i
   %131 = load i16, ptr %5, align 2
   %132 = sext i16 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next127, %132
-  br i1 %133, label %.lr.ph116, label %._crit_edge.thread, !llvm.loop !12
+  br i1 %133, label %.lr.ph116, label %._crit_edge.thread, !llvm.loop !11
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge111, %69, %._crit_edge, %.preheader, %2
   %.sink = phi i32 [ 0, %2 ], [ -2, %.preheader ], [ -1, %._crit_edge ], [ 0, %69 ], [ 0, %._crit_edge111 ], [ -4, %.lr.ph ]
@@ -586,7 +586,7 @@ define dso_local ptr @form_fields(ptr noundef readonly %0) local_unnamed_addr #6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @field_count(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i32 -32768, 32768) i32 @field_count(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
@@ -621,11 +621,10 @@ attributes #11 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -4, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

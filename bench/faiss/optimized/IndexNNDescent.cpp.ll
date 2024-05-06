@@ -737,7 +737,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
 
 .noexc27:                                         ; preds = %.noexc3.i
   store ptr %20, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 %18
+  %21 = getelementptr i8, ptr %20, i64 %18
   %22 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %21, ptr %22, align 8
   store i8 0, ptr %20, align 1

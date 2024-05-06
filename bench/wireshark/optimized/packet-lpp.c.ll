@@ -12066,7 +12066,7 @@ define hidden i32 @dissect_lpp_ECID_SignalMeasurementInformation(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_Ellipsoid_Point_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_Ellipsoid_Point_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_Ellipsoid_Point_PDU, align 4
@@ -12080,7 +12080,7 @@ define hidden i32 @dissect_lpp_Ellipsoid_Point_PDU(ptr noundef %0, ptr noundef %
 declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_Ellipsoid_PointWithUncertaintyCircle_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_Ellipsoid_PointWithUncertaintyCircle_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_Ellipsoid_PointWithUncertaintyCircle_PDU, align 4
@@ -12099,7 +12099,7 @@ define internal i32 @dissect_lpp_Ellipsoid_PointWithUncertaintyCircle(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_EllipsoidPointWithUncertaintyEllipse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_EllipsoidPointWithUncertaintyEllipse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_EllipsoidPointWithUncertaintyEllipse_PDU, align 4
@@ -12118,7 +12118,7 @@ define internal i32 @dissect_lpp_EllipsoidPointWithUncertaintyEllipse(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_EllipsoidPointWithAltitude_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_EllipsoidPointWithAltitude_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_EllipsoidPointWithAltitude_PDU, align 4
@@ -12130,7 +12130,7 @@ define hidden i32 @dissect_lpp_EllipsoidPointWithAltitude_PDU(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_EllipsoidPointWithAltitudeAndUncertaintyEllipsoid_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_EllipsoidPointWithAltitudeAndUncertaintyEllipsoid_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_EllipsoidPointWithAltitudeAndUncertaintyEllipsoid_PDU, align 4
@@ -12142,7 +12142,7 @@ define hidden i32 @dissect_lpp_EllipsoidPointWithAltitudeAndUncertaintyEllipsoid
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_EllipsoidArc_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_EllipsoidArc_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_EllipsoidArc_PDU, align 4
@@ -12161,7 +12161,7 @@ define internal i32 @dissect_lpp_EllipsoidArc(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_HorizontalVelocity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_HorizontalVelocity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_HorizontalVelocity_PDU, align 4
@@ -12180,7 +12180,7 @@ define internal i32 @dissect_lpp_HorizontalVelocity(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_HorizontalWithVerticalVelocity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_HorizontalWithVerticalVelocity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_HorizontalWithVerticalVelocity_PDU, align 4
@@ -12199,7 +12199,7 @@ define internal i32 @dissect_lpp_HorizontalWithVerticalVelocity(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_HorizontalVelocityWithUncertainty_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_HorizontalVelocityWithUncertainty_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_HorizontalVelocityWithUncertainty_PDU, align 4
@@ -12218,7 +12218,7 @@ define internal i32 @dissect_lpp_HorizontalVelocityWithUncertainty(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_Polygon_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_Polygon_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_Polygon_PDU, align 4
@@ -12237,7 +12237,7 @@ define internal i32 @dissect_lpp_Polygon(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_LocationCoordinates_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_LocationCoordinates_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_LocationCoordinates_PDU, align 4
@@ -12256,7 +12256,7 @@ define internal i32 @dissect_lpp_LocationCoordinates(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_Velocity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_Velocity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_Velocity_PDU, align 4
@@ -12268,7 +12268,7 @@ define hidden i32 @dissect_lpp_Velocity_PDU(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_LocationError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_LocationError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_LocationError_PDU, align 4
@@ -12287,7 +12287,7 @@ define internal i32 @dissect_lpp_LocationError(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_LocationSource_r13_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_LocationSource_r13_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_LocationSource_r13_PDU, align 4
@@ -12304,7 +12304,7 @@ define internal i32 @dissect_lpp_LocationSource_r13(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_Sensor_MeasurementInformation_r13_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_Sensor_MeasurementInformation_r13_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_Sensor_MeasurementInformation_r13_PDU, align 4
@@ -12323,7 +12323,7 @@ define internal i32 @dissect_lpp_Sensor_MeasurementInformation_r13(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_Sensor_MotionInformation_r15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_Sensor_MotionInformation_r15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_Sensor_MotionInformation_r15_PDU, align 4
@@ -12342,7 +12342,7 @@ define internal i32 @dissect_lpp_Sensor_MotionInformation_r15(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_DisplacementTimeStamp_r15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_DisplacementTimeStamp_r15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #9
   %6 = load i32, ptr @hf_lpp_lpp_DisplacementTimeStamp_r15_PDU, align 4
@@ -12361,7 +12361,7 @@ define internal i32 @dissect_lpp_DisplacementTimeStamp_r15(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lpp_AssistanceDataSIBelement_r15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_AssistanceDataSIBelement_r15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -14296,7 +14296,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_lpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_lpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_lpp, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9

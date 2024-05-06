@@ -619,7 +619,7 @@ define dso_local void @gss_mech_put(ptr noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gss_mech_flavor2info(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @gss_mech_flavor2info(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @gss_mech_get_by_pseudoflavor(i32 noundef %0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %37, label %5
@@ -879,7 +879,7 @@ define dso_local i32 @gss_unwrap(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gss_delete_sec_context(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 524289) i32 @gss_delete_sec_context(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %23, label %4

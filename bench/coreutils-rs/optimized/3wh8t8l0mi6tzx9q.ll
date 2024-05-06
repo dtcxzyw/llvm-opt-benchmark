@@ -253,7 +253,7 @@ define hidden void @"_ZN11signal_hook8iterator20SignalsInfo$LT$E$GT$3new17h99444
   %.sroa.02.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %16, ptr %.sroa.02.sroa.5.0..sroa_idx.i, align 8, !alias.scope !23
   %.sroa.02.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02.sroa.6.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %.sroa.02.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02.sroa.6.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.02.sroa.6.i)
   br label %"_ZN11signal_hook8iterator20SignalsInfo$LT$E$GT$16with_exfiltrator17h4a39b5010f842f9bE.llvm.6180704580393161520.exit"
 
@@ -314,7 +314,7 @@ define hidden void @_ZN3std2fs8metadata17h68c0a2a62aef0789E(ptr noalias nocaptur
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !32
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he6dbb85e4648067fE.llvm.6180704580393161520.exit"
 
 8:                                                ; preds = %3
@@ -394,7 +394,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.6180704580393161520(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.6180704580393161520(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 3
@@ -438,7 +438,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.llvm.6180704580393161520(i32 noundef %0) unnamed_addr #4 {
+define hidden noundef range(i8 0, 41) i8 @_ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.llvm.6180704580393161520(i32 noundef %0) unnamed_addr #4 {
   switch i32 %0, label %37 [
     i32 7, label %36
     i32 98, label %2
@@ -1951,7 +1951,7 @@ define hidden void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8f
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817hdb9731819c04f2e9E.llvm.6180704580393161520(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817hdb9731819c04f2e9E.llvm.6180704580393161520(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #12 {
   %2 = load <16 x i8>, ptr %0, align 16
   %3 = icmp slt <16 x i8> %2, zeroinitializer
   %4 = bitcast <16 x i1> %3 to i16
@@ -3175,7 +3175,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   call void @llvm.experimental.noalias.scope.decl(metadata !308)
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !314
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !noalias !286
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull readonly align 16 dereferenceable(32) %6, i64 32, i1 false), !noalias !286
   %13 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i, align 16, !alias.scope !315, !noalias !286, !noundef !5
   %14 = shl i64 %13, 56
   %15 = getelementptr inbounds i8, ptr %6, i64 56

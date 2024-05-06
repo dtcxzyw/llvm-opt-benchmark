@@ -1217,7 +1217,7 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %invoke.cont
   %queue_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i4, i64 56
   store i64 %1, ptr %queue_.i.i.i.i.i.i.i.i, align 8, !noalias !30
   %mutex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i4, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %mutex_.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !30
   store ptr %_M_impl.i.i.i.i.i.i, ptr %2, align 8, !noalias !30
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !30
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -1415,7 +1415,7 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %cleanup.done
   %queue_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i1, i64 56
   store i64 %2, ptr %queue_.i.i.i.i.i.i.i.i, align 8, !noalias !36
   %mutex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i1, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %mutex_.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !36
   store ptr %_M_impl.i.i.i.i.i.i, ptr %3, align 8, !noalias !36
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !36
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
@@ -10827,7 +10827,7 @@ invoke.cont.i6.i:                                 ; preds = %_ZN5arrow6FutureINS
   store ptr %17, ptr %_M_refcount.i.i.i2.i.i.i.i.i.i, align 8, !noalias !160
   store ptr null, ptr %next.i.i.i.i.i, align 8, !noalias !160
   store ptr %call.i3.i.i, ptr %agg.tmp.i.i, align 8, !noalias !160
-  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i.i.i) #20, !noalias !160
+  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.i.i.i) #20, !noalias !160
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i.i.i), !noalias !160
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this.val.i, ptr noundef nonnull %agg.tmp.i.i, i32 0, ptr null)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i, !noalias !160
@@ -10869,13 +10869,13 @@ _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i: ; preds = %_ZNKS
 
 ehcleanup.i4.i:                                   ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i, %lpad.i3.i
   %.pn.i5.i = phi { ptr, i32 } [ %24, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit8.i.i ], [ %23, %lpad.i3.i ]
-  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i) #20, !noalias !160
+  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i) #20, !noalias !160
   call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #20, !noalias !160
   br label %common.resume.i
 
 _ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENUlvE_D2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i, %invoke.cont6.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8, !noalias !160
-  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.i.i) #20, !noalias !160
+  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.i.i) #20, !noalias !160
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !160
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp2.i.i), !noalias !160
   call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #20, !noalias !160
@@ -11224,7 +11224,7 @@ define internal void @_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINSE_18AsyncTaskScheduler4TaskESt14default_deleteISJ_EEEN11WrapperTaskclEvEUlvE_NSA_17PassthruOnFailureISO_EEEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %fn_) #20
+  tail call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_) #20
   ret void
 }
 
@@ -11233,7 +11233,7 @@ define internal void @_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINSE_18AsyncTaskScheduler4TaskESt14default_deleteISJ_EEEN11WrapperTaskclEvEUlvE_NSA_17PassthruOnFailureISO_EEEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %fn_.i) #20
+  tail call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %fn_.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }

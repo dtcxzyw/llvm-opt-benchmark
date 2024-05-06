@@ -77,14 +77,14 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @X509_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @X509_print_ex_fp(ptr noundef %fp, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !4
+  %call = tail call i32 @X509_print_ex_fp(ptr noundef %fp, ptr noundef %x, i64 noundef 0, i64 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_print_ex_fp(ptr noundef %fp, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_print_ex_fp(ptr noundef %fp, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #3
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #3
@@ -99,7 +99,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #3
-  %call3 = tail call i32 @X509_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag), !range !4
+  %call3 = tail call i32 @X509_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #3
   br label %return
 
@@ -121,7 +121,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %xpoid = alloca ptr, align 8
   %iuid = alloca ptr, align 8
@@ -234,7 +234,7 @@ for.body:                                         ; preds = %for.cond
   %cond69 = select i1 %cmp67, i32 10, i32 58
   %call70 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.11, i32 noundef %conv, i32 noundef %cond69) #3
   %cmp71 = icmp slt i32 %call70, 1
-  br i1 %cmp71, label %err, label %for.cond, !llvm.loop !5
+  br i1 %cmp71, label %err, label %for.cond, !llvm.loop !4
 
 if.end76:                                         ; preds = %for.cond, %if.then47, %if.end30
   %and77 = and i64 %cflag, 8
@@ -391,7 +391,7 @@ if.then209:                                       ; preds = %if.then206
 
 if.end214:                                        ; preds = %if.then209
   %10 = load ptr, ptr %iuid, align 8
-  %call215 = call i32 @X509_signature_dump(ptr noundef %bp, ptr noundef %10, i32 noundef 12), !range !4
+  %call215 = call i32 @X509_signature_dump(ptr noundef %bp, ptr noundef %10, i32 noundef 12)
   %tobool216.not = icmp eq i32 %call215, 0
   br i1 %tobool216.not, label %err, label %if.end219
 
@@ -407,7 +407,7 @@ if.then222:                                       ; preds = %if.end219
 
 if.end227:                                        ; preds = %if.then222
   %12 = load ptr, ptr %suid, align 8
-  %call228 = call i32 @X509_signature_dump(ptr noundef %bp, ptr noundef %12, i32 noundef 12), !range !4
+  %call228 = call i32 @X509_signature_dump(ptr noundef %bp, ptr noundef %12, i32 noundef 12)
   %tobool229.not = icmp eq i32 %call228, 0
   br i1 %tobool229.not, label %err, label %if.end233
 
@@ -452,9 +452,9 @@ err:                                              ; preds = %for.body, %if.end25
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !4
+  %call = tail call i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef 0, i64 noundef 0)
   ret i32 %call
 }
 
@@ -536,7 +536,7 @@ if.end25:                                         ; preds = %if.then12, %land.lh
   br i1 %brmerge, label %return, label %if.then31
 
 if.then31:                                        ; preds = %if.end25
-  %call33 = call i32 @X509_signature_dump(ptr noundef %bp, ptr noundef nonnull %sig, i32 noundef 8), !range !4
+  %call33 = call i32 @X509_signature_dump(ptr noundef %bp, ptr noundef nonnull %sig, i32 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end25, %land.lhs.true, %if.end, %entry, %if.then31, %if.then20
@@ -571,7 +571,7 @@ declare i32 @EVP_PKEY_print_public(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare void @X509_get0_uids(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_signature_dump(ptr noundef %bp, ptr nocapture noundef readonly %sig, i32 noundef %indent) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_signature_dump(ptr noundef %bp, ptr nocapture noundef readonly %sig, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sig, align 8
   %data = getelementptr inbounds i8, ptr %sig, i64 8
@@ -587,7 +587,7 @@ for.cond:                                         ; preds = %if.end9, %entry
   br i1 %exitcond.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %3, 18
   %cmp1 = icmp eq i32 %rem, 0
   br i1 %cmp1, label %if.then, label %if.end9
@@ -615,7 +615,7 @@ if.end9:                                          ; preds = %if.end, %for.body
   %cond = select i1 %cmp10, ptr @.str.4, ptr @.str.30
   %call12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.29, i32 noundef %conv, ptr noundef nonnull %cond) #3
   %cmp13 = icmp slt i32 %call12, 1
-  br i1 %cmp13, label %return, label %for.cond, !llvm.loop !7
+  br i1 %cmp13, label %return, label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
   %call17 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.14, i32 noundef 1) #3
@@ -671,7 +671,7 @@ if.end11:                                         ; preds = %if.then3, %if.then9
   store i32 %inc, ptr %i, align 4
   %call6 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #3
   %cmp7 = icmp slt i32 %inc, %call6
-  br i1 %cmp7, label %if.then9.critedge, label %for.end, !llvm.loop !8
+  br i1 %cmp7, label %if.then9.critedge, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end11, %if.then3
   %call17 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.14) #3
@@ -706,7 +706,7 @@ if.end34:                                         ; preds = %if.then22, %if.then
   store i32 %inc42, ptr %i, align 4
   %call27 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call2) #3
   %cmp28 = icmp slt i32 %inc42, %call27
-  br i1 %cmp28, label %if.then31.critedge, label %for.end43, !llvm.loop !9
+  br i1 %cmp28, label %if.then31.critedge, label %for.end43, !llvm.loop !8
 
 for.end43:                                        ; preds = %if.end34, %if.then22
   %call44 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.14) #3
@@ -752,7 +752,7 @@ for.body59:                                       ; preds = %if.then55, %for.bod
   store i32 %inc63, ptr %i, align 4
   %6 = load i32, ptr %keyidlen, align 4
   %cmp58 = icmp slt i32 %inc63, %6
-  br i1 %cmp58, label %for.body59, label %for.end64, !llvm.loop !10
+  br i1 %cmp58, label %for.body59, label %for.end64, !llvm.loop !9
 
 for.end64:                                        ; preds = %for.body59, %if.then55
   %call65 = call i32 @BIO_write(ptr noundef %out, ptr noundef nonnull @.str.14, i32 noundef 1) #3
@@ -763,7 +763,7 @@ return:                                           ; preds = %if.end52, %for.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_ocspid_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %dertmp = alloca ptr, align 8
   %SHA1md = alloca [20 x i8], align 16
@@ -808,7 +808,7 @@ if.end20:                                         ; preds = %if.end14
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %if.end20, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.end20 ]
@@ -841,7 +841,7 @@ if.end42:                                         ; preds = %if.end37
 for.cond51:                                       ; preds = %for.body54
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, 20
-  br i1 %exitcond34.not, label %for.end65, label %for.body54, !llvm.loop !12
+  br i1 %exitcond34.not, label %for.end65, label %for.body54, !llvm.loop !11
 
 for.body54:                                       ; preds = %if.end42, %for.cond51
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %for.cond51 ], [ 0, %if.end42 ]
@@ -912,7 +912,7 @@ declare ptr @X509_alias_get0(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @X509_keyid_get0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x509_print_ex_brief(ptr noundef %bio, ptr noundef %cert, i64 noundef %neg_cflags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_print_ex_brief(ptr noundef %bio, ptr noundef %cert, i64 noundef %neg_cflags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cert, null
   br i1 %cmp, label %if.then, label %if.end
@@ -976,7 +976,7 @@ if.end106.i:                                      ; preds = %if.end100.i
   br i1 %cmp108.i, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.end106.i, %if.then11
-  %call26 = tail call i32 @X509_print_ex(ptr noundef %bio, ptr noundef nonnull %cert, i64 noundef 131871, i64 noundef -37), !range !4
+  %call26 = tail call i32 @X509_print_ex(ptr noundef %bio, ptr noundef nonnull %cert, i64 noundef 131871, i64 noundef -37)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %if.end29
 
@@ -1005,7 +1005,7 @@ if.then45:                                        ; preds = %if.end40
 if.end51:                                         ; preds = %if.then45, %if.end40
   %not = and i64 %neg_cflags, -8193
   %and = xor i64 %not, -8193
-  %call52 = tail call i32 @X509_print_ex(ptr noundef %bio, ptr noundef nonnull %cert, i64 noundef 131871, i64 noundef %and), !range !4
+  %call52 = tail call i32 @X509_print_ex(ptr noundef %bio, ptr noundef nonnull %cert, i64 noundef 131871, i64 noundef %and)
   br label %return
 
 return:                                           ; preds = %if.end106.i, %if.end100.i, %lor.lhs.false20, %if.end163.i, %if.end157.i, %lor.lhs.false, %if.then45, %if.then34, %if.end25, %if.else, %if.then11, %if.end, %if.end51, %if.then
@@ -1063,7 +1063,7 @@ while.body:                                       ; preds = %sw.bb, %while.body
   %call20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.51, ptr noundef nonnull %cond19, ptr noundef nonnull %call1452) #3
   %call14 = tail call ptr @X509_VERIFY_PARAM_get0_host(ptr noundef %call12, i32 noundef %inc) #3
   %cmp15.not = icmp eq ptr %call14, null
-  br i1 %cmp15.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %cmp15.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %sw.bb
   %call21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.14) #3
@@ -1094,13 +1094,13 @@ if.end35:                                         ; preds = %if.then33, %sw.bb29
 sw.epilog.thread:                                 ; preds = %sw.bb22, %if.then26, %if.end35
   %call3646 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.54) #3
   %call3747 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef nonnull %ctx) #3
-  %call3848 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %call3, ptr noundef %call3747, i64 noundef 256), !range !4
+  %call3848 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %call3, ptr noundef %call3747, i64 noundef 256)
   br label %if.end65
 
 sw.epilog:                                        ; preds = %if.end, %while.end
   %call36 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.54) #3
   %call37 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef nonnull %ctx) #3
-  %call38 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %call3, ptr noundef %call37, i64 noundef 256), !range !4
+  %call38 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %call3, ptr noundef %call37, i64 noundef 256)
   switch i32 %call, label %if.end65 [
     i32 70, label %if.then58
     i32 33, label %if.then58
@@ -1191,7 +1191,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp11.not, label %for.inc, label %if.then13
 
 if.then13:                                        ; preds = %for.body
-  %call14 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef %bio, ptr noundef nonnull %call10, i64 noundef 0), !range !4
+  %call14 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef %bio, ptr noundef nonnull %call10, i64 noundef 0)
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %return, label %if.end16
 
@@ -1205,7 +1205,7 @@ for.inc:                                          ; preds = %for.body, %if.end16
   %inc = add nuw nsw i32 %i.012, 1
   %call6 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs) #3
   %cmp7 = icmp slt i32 %inc, %call6
-  br i1 %cmp7, label %for.body, label %return, !llvm.loop !14
+  br i1 %cmp7, label %for.body, label %return, !llvm.loop !13
 
 return:                                           ; preds = %if.then13, %if.end16, %for.inc, %for.cond.preheader, %if.then
   ret void
@@ -1231,14 +1231,13 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

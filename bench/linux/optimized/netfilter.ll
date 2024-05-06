@@ -314,7 +314,7 @@ declare dso_local ptr @xfrm_lookup(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__nf_ip6_route(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @__nf_ip6_route(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = select i1 %3, ptr @__nf_ip6_route.fake_sk, ptr null
   %6 = tail call ptr @ip6_route_output_flags(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef 0) #7
   %7 = getelementptr inbounds i8, ptr %6, i64 96

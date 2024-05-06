@@ -1245,9 +1245,9 @@ define hidden void @_ZN7nanogui10RenderPass12set_viewportERKNS_5ArrayIiLm2EEES4_
   %12 = trunc i64 %7 to i32
   %13 = trunc i64 %5 to i32
   %14 = lshr i64 %5, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = lshr i64 %7, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = getelementptr inbounds i8, ptr %0, i64 100
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 92

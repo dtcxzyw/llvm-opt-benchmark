@@ -91,7 +91,7 @@ define internal noundef i32 @load_ramdisk(ptr nocapture readnone %0) #0 section 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @readonly(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @readonly(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %7
@@ -108,7 +108,7 @@ define internal noundef i32 @readonly(ptr nocapture noundef readonly %0) #1 sect
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @readwrite(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @readwrite(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %7
@@ -131,7 +131,7 @@ define internal noundef i32 @root_dev_setup(ptr noundef %0) #0 section ".init.te
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @rootwait_setup(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @rootwait_setup(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %5

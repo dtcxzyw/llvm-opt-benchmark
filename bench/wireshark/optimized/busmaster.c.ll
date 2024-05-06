@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @busmaster_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @busmaster_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @busmaster_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.busmaster_state_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, i8 0, i64 232, i1 false)
   %5 = load ptr, ptr %0, align 8
@@ -140,7 +140,7 @@ define internal void @busmaster_close(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @busmaster_read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) #0 {
+define internal range(i32 0, 2) i32 @busmaster_read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) #0 {
   %7 = alloca %struct.busmaster_state_t, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = getelementptr inbounds i8, ptr %7, i64 80
@@ -314,14 +314,14 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %27, %.lr.ph
 
 busmaster_find_priv_entry.exit68:                 ; preds = %74, %78, %80, %67
   %.0.i66 = phi ptr [ null, %67 ], [ %70, %74 ], [ null, %80 ], [ %70, %78 ]
-  %83 = call fastcc i32 @busmaster_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef %.0.i66, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4), !range !7
+  %83 = call fastcc i32 @busmaster_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef %.0.i66, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4)
   br label %.loopexit
 
 84:                                               ; preds = %40, %31, %60
   %85 = load ptr, ptr %0, align 8
   %86 = call i32 @file_eof(ptr noundef %85) #8
   %.not55 = icmp eq i32 %86, 0
-  br i1 %.not55, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %.not55, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 .loopexit:                                        ; preds = %31, %busmaster_find_priv_entry.exit68, %58, %47, %38, %._crit_edge
   %.050 = phi i32 [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %58 ], [ 0, %38 ], [ %83, %busmaster_find_priv_entry.exit68 ], [ 0, %31 ]
@@ -329,7 +329,7 @@ busmaster_find_priv_entry.exit68:                 ; preds = %74, %78, %80, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @busmaster_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @busmaster_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.busmaster_state_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %7, i8 0, i64 232, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 96
@@ -398,7 +398,7 @@ busmaster_find_priv_entry.exit:                   ; preds = %18, %14
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %7, i64 136
-  %38 = call fastcc i32 @busmaster_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %37, ptr noundef %4, ptr noundef %5), !range !7
+  %38 = call fastcc i32 @busmaster_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %37, ptr noundef %4, ptr noundef %5)
   br label %39
 
 39:                                               ; preds = %28, %busmaster_find_priv_entry.exit, %36, %34, %.loopexit
@@ -442,7 +442,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @busmaster_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @busmaster_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
 switch.edge:
   %6 = alloca %struct.canfd_frame, align 4
   %7 = alloca %struct.can_frame, align 4
@@ -682,5 +682,4 @@ attributes #10 = { nounwind allocsize(0,1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

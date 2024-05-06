@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lzma_filter_info_s = type { i64, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_alone_decoder_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) #0 {
+define dso_local range(i32 0, 6) i32 @lzma_alone_decoder_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) #0 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
@@ -255,7 +255,7 @@ define internal void @alone_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @alone_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #2 {
+define internal range(i32 0, 7) i32 @alone_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %1, align 8

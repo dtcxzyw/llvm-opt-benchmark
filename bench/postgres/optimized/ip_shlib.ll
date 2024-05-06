@@ -17,7 +17,7 @@ define i32 @pg_getaddrinfo_all(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %4
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %10 = icmp ugt i64 %9, 107
   br i1 %10, label %getaddrinfo_unix.exit, label %11
 
@@ -60,14 +60,14 @@ define i32 @pg_getaddrinfo_all(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %24 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 110, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %16, i64 2
-  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %1) #11
+  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %27 = load i8, ptr %1, align 1
   %28 = icmp eq i8 %27, 64
   br i1 %28, label %29, label %getaddrinfo_unix.exit
 
 29:                                               ; preds = %19
   store i8 0, ptr %25, align 2
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %31 = trunc i64 %30 to i32
   %32 = add i32 %31, 2
   store i32 %32, ptr %24, align 8

@@ -20,43 +20,43 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [13 x i8] c"OMP_ADAPTIVE\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @openblas_verbose() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @openblas_verbose() local_unnamed_addr #0 {
   %1 = load i32, ptr @openblas_env_verbose, align 4, !tbaa !3
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @openblas_thread_timeout() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @openblas_thread_timeout() local_unnamed_addr #0 {
   %1 = load i32, ptr @openblas_env_thread_timeout, align 4, !tbaa !3
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @openblas_block_factor() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @openblas_block_factor() local_unnamed_addr #0 {
   %1 = load i32, ptr @openblas_env_block_factor, align 4, !tbaa !3
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @openblas_num_threads_env() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @openblas_num_threads_env() local_unnamed_addr #0 {
   %1 = load i32, ptr @openblas_env_openblas_num_threads, align 4, !tbaa !3
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @openblas_goto_num_threads_env() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @openblas_goto_num_threads_env() local_unnamed_addr #0 {
   %1 = load i32, ptr @openblas_env_goto_num_threads, align 4, !tbaa !3
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @openblas_omp_num_threads_env() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @openblas_omp_num_threads_env() local_unnamed_addr #0 {
   %1 = load i32, ptr @openblas_env_omp_num_threads, align 4, !tbaa !3
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @openblas_omp_adaptive_env() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @openblas_omp_adaptive_env() local_unnamed_addr #0 {
   %1 = load i32, ptr @openblas_env_omp_adaptive, align 4, !tbaa !3
   ret i32 %1
 }

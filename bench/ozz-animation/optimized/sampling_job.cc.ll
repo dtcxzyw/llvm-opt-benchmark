@@ -807,8 +807,8 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, %56
   store i32 %60, ptr %.016.i.i, align 4
-  %61 = getelementptr i8, ptr %53, i64 %57
-  %62 = getelementptr i8, ptr %61, i64 1
+  %61 = getelementptr inbounds i8, ptr %53, i64 %57
+  %62 = getelementptr inbounds i8, ptr %61, i64 1
   %63 = lshr i8 %54, 2
   %64 = and i8 %63, 3
   %65 = load i32, ptr %62, align 1
@@ -818,8 +818,8 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %69 = and i32 %68, %65
   %70 = getelementptr inbounds i8, ptr %.016.i.i, i64 4
   store i32 %69, ptr %70, align 4
-  %71 = getelementptr i8, ptr %62, i64 %66
-  %72 = getelementptr i8, ptr %71, i64 1
+  %71 = getelementptr inbounds i8, ptr %62, i64 %66
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
   %73 = lshr i8 %54, 4
   %74 = and i8 %73, 3
   %75 = load i32, ptr %72, align 1
@@ -829,8 +829,8 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %79 = and i32 %78, %75
   %80 = getelementptr inbounds i8, ptr %.016.i.i, i64 8
   store i32 %79, ptr %80, align 4
-  %81 = getelementptr i8, ptr %72, i64 %76
-  %82 = getelementptr i8, ptr %81, i64 1
+  %81 = getelementptr inbounds i8, ptr %72, i64 %76
+  %82 = getelementptr inbounds i8, ptr %81, i64 1
   %83 = lshr i8 %54, 6
   %84 = load i32, ptr %82, align 1
   %85 = zext nneg i8 %83 to i64
@@ -839,8 +839,8 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %88 = and i32 %87, %84
   %89 = getelementptr inbounds i8, ptr %.016.i.i, i64 12
   store i32 %88, ptr %89, align 4
-  %90 = getelementptr i8, ptr %82, i64 %85
-  %91 = getelementptr i8, ptr %90, i64 1
+  %90 = getelementptr inbounds i8, ptr %82, i64 %85
+  %91 = getelementptr inbounds i8, ptr %90, i64 1
   %92 = getelementptr inbounds i8, ptr %.016.i.i, i64 16
   %93 = icmp ult ptr %92, %52
   br i1 %93, label %.lr.ph.i.i, label %_ZN3ozz15DecodeGV4StreamERKNS_4spanIKhEERKNS0_IjEE.exit.i, !llvm.loop !39

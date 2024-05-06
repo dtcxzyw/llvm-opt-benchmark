@@ -1025,7 +1025,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 
 call5.i.i.i.i1.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i.i65, ptr %result, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i65, i64 %sub.ptr.sub.i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i65, i64 %sub.ptr.sub.i64
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i65, align 1
@@ -1445,7 +1445,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 

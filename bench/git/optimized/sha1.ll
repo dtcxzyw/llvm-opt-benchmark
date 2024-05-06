@@ -3263,7 +3263,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   %buffer.i = getelementptr inbounds i8, ptr %ctx, i64 28
   %idx.ext.i = and i64 %0, 63
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(1) @sha1_padding, i64 %conv1.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 16 dereferenceable(1) @sha1_padding, i64 %conv1.i, i1 false)
   tail call fastcc void @sha1_process(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer.i)
   %add.ptr11.i = getelementptr inbounds i8, ptr @sha1_padding, i64 %conv1.i
   %sub13.i = sub nsw i64 %conv4, %conv1.i
@@ -3309,7 +3309,7 @@ SHA1DCUpdate.exit:                                ; preds = %while.end.i, %if.th
   %sub7 = sub i64 %4, %conv4
   %shl = shl i64 %sub7, 3
   %shr = lshr i64 %shl, 56
-  %conv8 = trunc i64 %shr to i8
+  %conv8 = trunc nuw i64 %shr to i8
   %buffer = getelementptr inbounds i8, ptr %ctx, i64 28
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 84
   store i8 %conv8, ptr %arrayidx, align 4
@@ -3344,7 +3344,7 @@ SHA1DCUpdate.exit:                                ; preds = %while.end.i, %if.th
   %ihv = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load i32, ptr %ihv, align 8
   %shr38 = lshr i32 %5, 24
-  %conv39 = trunc i32 %shr38 to i8
+  %conv39 = trunc nuw i32 %shr38 to i8
   store i8 %conv39, ptr %output, align 1
   %6 = load i32, ptr %ihv, align 8
   %shr43 = lshr i32 %6, 16
@@ -3363,7 +3363,7 @@ SHA1DCUpdate.exit:                                ; preds = %while.end.i, %if.th
   %arrayidx56 = getelementptr inbounds i8, ptr %ctx, i64 12
   %9 = load i32, ptr %arrayidx56, align 4
   %shr57 = lshr i32 %9, 24
-  %conv58 = trunc i32 %shr57 to i8
+  %conv58 = trunc nuw i32 %shr57 to i8
   %arrayidx59 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv58, ptr %arrayidx59, align 1
   %10 = load i32, ptr %arrayidx56, align 4
@@ -3383,7 +3383,7 @@ SHA1DCUpdate.exit:                                ; preds = %while.end.i, %if.th
   %arrayidx75 = getelementptr inbounds i8, ptr %ctx, i64 16
   %13 = load i32, ptr %arrayidx75, align 8
   %shr76 = lshr i32 %13, 24
-  %conv77 = trunc i32 %shr76 to i8
+  %conv77 = trunc nuw i32 %shr76 to i8
   %arrayidx78 = getelementptr inbounds i8, ptr %output, i64 8
   store i8 %conv77, ptr %arrayidx78, align 1
   %14 = load i32, ptr %arrayidx75, align 8
@@ -3403,7 +3403,7 @@ SHA1DCUpdate.exit:                                ; preds = %while.end.i, %if.th
   %arrayidx94 = getelementptr inbounds i8, ptr %ctx, i64 20
   %17 = load i32, ptr %arrayidx94, align 4
   %shr95 = lshr i32 %17, 24
-  %conv96 = trunc i32 %shr95 to i8
+  %conv96 = trunc nuw i32 %shr95 to i8
   %arrayidx97 = getelementptr inbounds i8, ptr %output, i64 12
   store i8 %conv96, ptr %arrayidx97, align 1
   %18 = load i32, ptr %arrayidx94, align 4
@@ -3423,7 +3423,7 @@ SHA1DCUpdate.exit:                                ; preds = %while.end.i, %if.th
   %arrayidx113 = getelementptr inbounds i8, ptr %ctx, i64 24
   %21 = load i32, ptr %arrayidx113, align 8
   %shr114 = lshr i32 %21, 24
-  %conv115 = trunc i32 %shr114 to i8
+  %conv115 = trunc nuw i32 %shr114 to i8
   %arrayidx116 = getelementptr inbounds i8, ptr %output, i64 16
   store i8 %conv115, ptr %arrayidx116, align 1
   %22 = load i32, ptr %arrayidx113, align 8

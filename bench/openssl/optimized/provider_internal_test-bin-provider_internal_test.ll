@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [30 x i8] c"%s provider is not available\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_builtin_provider) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_loaded_provider) #2
@@ -55,7 +55,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_builtin_provider() #0 {
+define internal range(i32 0, 2) i32 @test_builtin_provider() #0 {
 entry:
   %call = tail call i32 @EVP_set_default_properties(ptr noundef null, ptr noundef nonnull @.str.5) #2
   %call1 = tail call ptr @ossl_provider_new(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull @p_test_init, ptr noundef null, i32 noundef 0) #2
@@ -65,7 +65,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %call.i = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull @expected_greeting1.expected_greeting, i64 noundef 256, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.4) #2
-  %call4 = tail call fastcc i32 @test_provider(ptr noundef %call1, ptr noundef nonnull @expected_greeting1.expected_greeting), !range !5
+  %call4 = tail call fastcc i32 @test_provider(ptr noundef %call1, ptr noundef nonnull @expected_greeting1.expected_greeting)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -75,7 +75,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_loaded_provider() #0 {
+define internal range(i32 0, 2) i32 @test_loaded_provider() #0 {
 entry:
   %call = tail call ptr @ossl_provider_new(ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef null, i32 noundef 0) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 82, ptr noundef nonnull @.str.21, ptr noundef %call) #2
@@ -84,7 +84,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %call.i = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull @expected_greeting1.expected_greeting, i64 noundef 256, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #2
-  %call3 = tail call fastcc i32 @test_provider(ptr noundef %call, ptr noundef nonnull @expected_greeting1.expected_greeting), !range !5
+  %call3 = tail call fastcc i32 @test_provider(ptr noundef %call, ptr noundef nonnull @expected_greeting1.expected_greeting)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -93,7 +93,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_configured_provider() #0 {
+define internal range(i32 0, 2) i32 @test_configured_provider() #0 {
 entry:
   %call = tail call ptr @ossl_provider_find(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 0) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 96, ptr noundef nonnull @.str.24, ptr noundef %call) #2
@@ -101,7 +101,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call2 = tail call fastcc i32 @test_provider(ptr noundef %call, ptr noundef nonnull @.str.23), !range !5
+  %call2 = tail call fastcc i32 @test_provider(ptr noundef %call, ptr noundef nonnull @.str.23)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -110,7 +110,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cache_flushes() #0 {
+define internal range(i32 0, 2) i32 @test_cache_flushes() #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 109, ptr noundef nonnull @.str.25, ptr noundef %call) #2
@@ -187,7 +187,7 @@ declare ptr @ossl_provider_new(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @p_test_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_provider(ptr noundef %prov, ptr noundef %expected_greeting) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef %prov, ptr noundef %expected_greeting) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_provider_activate(ptr noundef %prov, i32 noundef 1, i32 noundef 0) #2
   %cmp = icmp ne i32 %call, 0
@@ -291,4 +291,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

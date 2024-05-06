@@ -98,14 +98,14 @@ define i32 @gzread(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br i1 %44, label %gz_skip.exit.thread, label %45
 
 45:                                               ; preds = %42, %40
-  %46 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0), !range !4
+  %46 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %gz_skip.exit, label %48
 
 48:                                               ; preds = %45, %28
   %.1.i = phi i64 [ %39, %28 ], [ %.01722.i, %45 ]
   %.not.i = icmp eq i64 %.1.i, 0
-  br i1 %.not.i, label %gz_skip.exit.thread, label %26, !llvm.loop !5
+  br i1 %.not.i, label %gz_skip.exit.thread, label %26, !llvm.loop !4
 
 gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
   %49 = getelementptr inbounds i8, ptr %0, i64 56
@@ -163,7 +163,7 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %76, %73
-  %81 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0), !range !4
+  %81 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0)
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %gz_skip.exit, label %113
 
@@ -186,7 +186,7 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
 93:                                               ; preds = %.preheader
   %94 = add i32 %.061, %91
   %95 = icmp ult i32 %94, %.047
-  br i1 %95, label %.preheader, label %gz_load.exit.thread, !llvm.loop !7
+  br i1 %95, label %.preheader, label %gz_load.exit.thread, !llvm.loop !6
 
 96:                                               ; preds = %.preheader
   %97 = icmp slt i32 %91, 0
@@ -206,7 +206,7 @@ gz_load.exit:                                     ; preds = %96
 102:                                              ; preds = %83
   store i32 %.047, ptr %55, align 8
   store ptr %.044, ptr %56, align 8
-  %103 = tail call fastcc i32 @gz_decomp(ptr noundef nonnull %0), !range !4
+  %103 = tail call fastcc i32 @gz_decomp(ptr noundef nonnull %0)
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %gz_skip.exit, label %105
 
@@ -231,7 +231,7 @@ gz_load.exit.thread:                              ; preds = %93, %98, %105, %61
   %.146 = phi i32 [ %110, %gz_load.exit.thread ], [ %.045, %80 ]
   %.1 = phi ptr [ %109, %gz_load.exit.thread ], [ %.044, %80 ]
   %.not57 = icmp eq i32 %.148, 0
-  br i1 %.not57, label %gz_skip.exit, label %59, !llvm.loop !8
+  br i1 %.not57, label %gz_skip.exit, label %59, !llvm.loop !7
 
 gz_skip.exit:                                     ; preds = %45, %113, %70, %102, %80, %gz_load.exit, %13, %5, %7, %3, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %3 ], [ -1, %7 ], [ -1, %5 ], [ 0, %13 ], [ -1, %gz_load.exit ], [ %.045, %70 ], [ %.146, %113 ], [ -1, %102 ], [ -1, %80 ], [ -1, %45 ]
@@ -244,14 +244,14 @@ declare hidden void @gz_error(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_make(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_make(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = tail call fastcc i32 @gz_head(ptr noundef nonnull %0), !range !4
+  %6 = tail call fastcc i32 @gz_head(ptr noundef nonnull %0)
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %55, label %8
 
@@ -300,7 +300,7 @@ thread-pre-split:                                 ; preds = %8
   %33 = add i32 %32, %29
   store i32 %33, ptr %19, align 4
   %34 = icmp ult i32 %33, %18
-  br i1 %34, label %21, label %.loopexit, !llvm.loop !7
+  br i1 %34, label %21, label %.loopexit, !llvm.loop !6
 
 35:                                               ; preds = %21
   %36 = icmp slt i32 %29, 0
@@ -334,7 +334,7 @@ gz_load.exit:                                     ; preds = %35
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %50, ptr %51, align 8
-  %52 = tail call fastcc i32 @gz_decomp(ptr noundef nonnull %0), !range !4
+  %52 = tail call fastcc i32 @gz_decomp(ptr noundef nonnull %0)
   %53 = icmp eq i32 %52, -1
   br i1 %53, label %55, label %54
 
@@ -347,7 +347,7 @@ gz_load.exit:                                     ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_decomp(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
@@ -399,7 +399,7 @@ define internal fastcc noundef i32 @gz_decomp(ptr noundef %0) unnamed_addr #0 {
   %36 = add i32 %35, %32
   store i32 %36, ptr %7, align 4
   %37 = icmp ult i32 %36, %23
-  br i1 %37, label %24, label %gz_avail.exit, !llvm.loop !7
+  br i1 %37, label %24, label %gz_avail.exit, !llvm.loop !6
 
 38:                                               ; preds = %24
   %39 = icmp slt i32 %32, 0
@@ -458,7 +458,7 @@ gz_avail.exit.thread42:                           ; preds = %13, %gz_avail.exit
   %55 = icmp ne i32 %54, 0
   %56 = icmp ne i32 %46, 1
   %57 = and i1 %56, %55
-  br i1 %57, label %13, label %58, !llvm.loop !9
+  br i1 %57, label %13, label %58, !llvm.loop !8
 
 58:                                               ; preds = %53
   %59 = sub i32 %6, %54
@@ -479,12 +479,12 @@ gz_avail.exit.thread42:                           ; preds = %13, %gz_avail.exit
   br i1 %70, label %71, label %gz_avail.exit.thread
 
 71:                                               ; preds = %58
-  %72 = call fastcc i32 @gz_next4(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !4
+  %72 = call fastcc i32 @gz_next4(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %77, label %74
 
 74:                                               ; preds = %71
-  %75 = call fastcc i32 @gz_next4(ptr noundef nonnull %0, ptr noundef nonnull %3), !range !4
+  %75 = call fastcc i32 @gz_next4(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %76 = icmp eq i32 %75, -1
   br i1 %76, label %77, label %78
 
@@ -525,7 +525,7 @@ gz_avail.exit.thread:                             ; preds = %16, %gz_load.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gzgetc(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 256) i32 @gzgetc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1 x i8], align 1
   %3 = icmp eq ptr %0, null
   br i1 %3, label %28, label %4
@@ -576,7 +576,7 @@ define i32 @gzgetc(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gzungetc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @gzungetc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %gz_skip.exit.thread, label %4
 
@@ -646,14 +646,14 @@ define noundef i32 @gzungetc(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %38, label %gz_skip.exit, label %39
 
 39:                                               ; preds = %36, %34
-  %40 = tail call fastcc i32 @gz_make(ptr noundef nonnull %1), !range !4
+  %40 = tail call fastcc i32 @gz_make(ptr noundef nonnull %1)
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %gz_skip.exit.thread, label %42
 
 42:                                               ; preds = %39, %22
   %.1.i = phi i64 [ %33, %22 ], [ %.01722.i, %39 ]
   %.not.i = icmp eq i64 %.1.i, 0
-  br i1 %.not.i, label %gz_skip.exit, label %20, !llvm.loop !5
+  br i1 %.not.i, label %gz_skip.exit, label %20, !llvm.loop !4
 
 gz_skip.exit:                                     ; preds = %36, %42, %12
   %43 = icmp slt i32 %0, 0
@@ -725,7 +725,7 @@ gz_skip.exit:                                     ; preds = %36, %42, %12
   store i8 %82, ptr %83, align 1
   %84 = load ptr, ptr %72, align 8
   %85 = icmp ugt ptr %81, %84
-  br i1 %85, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %85, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre.pre = load i32, ptr %46, align 8
@@ -826,14 +826,14 @@ define noundef ptr @gzgets(ptr noundef %0, ptr noundef writeonly %1, i32 noundef
   br i1 %41, label %gz_skip.exit.thread, label %42
 
 42:                                               ; preds = %39, %37
-  %43 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0), !range !4
+  %43 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %gz_skip.exit, label %45
 
 45:                                               ; preds = %42, %25
   %.1.i = phi i64 [ %36, %25 ], [ %.01722.i, %42 ]
   %.not.i = icmp eq i64 %.1.i, 0
-  br i1 %.not.i, label %gz_skip.exit.thread, label %23, !llvm.loop !5
+  br i1 %.not.i, label %gz_skip.exit.thread, label %23, !llvm.loop !4
 
 gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   %46 = add nsw i32 %2, -1
@@ -855,7 +855,7 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %50
-  %54 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0), !range !4
+  %54 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0)
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %gz_skip.exit, label %56
 
@@ -896,7 +896,7 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   %79 = getelementptr inbounds i8, ptr %.047, i64 %71
   %80 = icmp ne i32 %78, 0
   %81 = and i1 %.not60, %80
-  br i1 %81, label %50, label %.loopexit, !llvm.loop !11
+  br i1 %81, label %50, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %61, %59, %gz_skip.exit.thread
   %.1 = phi ptr [ %.047, %59 ], [ %1, %gz_skip.exit.thread ], [ %79, %61 ]
@@ -934,7 +934,7 @@ define i32 @gzdirect(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = tail call fastcc i32 @gz_head(ptr noundef nonnull %0), !range !4
+  %14 = tail call fastcc i32 @gz_head(ptr noundef nonnull %0)
   br label %15
 
 15:                                               ; preds = %13, %9, %5
@@ -948,7 +948,7 @@ define i32 @gzdirect(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_head(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_head(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
@@ -1053,7 +1053,7 @@ define internal fastcc noundef i32 @gz_head(ptr noundef %0) unnamed_addr #0 {
   %58 = add i32 %57, %54
   store i32 %58, ptr %31, align 4
   %59 = icmp ult i32 %58, %44
-  br i1 %59, label %46, label %gz_avail.exit, !llvm.loop !7
+  br i1 %59, label %46, label %gz_avail.exit, !llvm.loop !6
 
 60:                                               ; preds = %46
   %61 = icmp slt i32 %54, 0
@@ -1141,7 +1141,7 @@ gz_avail.exit:                                    ; preds = %56, %62
   %107 = add i32 %106, %103
   store i32 %107, ptr %31, align 4
   %108 = icmp ult i32 %107, %93
-  br i1 %108, label %95, label %gz_avail.exit176, !llvm.loop !7
+  br i1 %108, label %95, label %gz_avail.exit176, !llvm.loop !6
 
 109:                                              ; preds = %95
   %110 = icmp slt i32 %103, 0
@@ -1218,7 +1218,7 @@ gz_avail.exit176.thread199:                       ; preds = %79, %gz_avail.exit1
   %148 = add i32 %147, %144
   store i32 %148, ptr %31, align 4
   %149 = icmp ult i32 %148, %134
-  br i1 %149, label %136, label %gz_avail.exit181, !llvm.loop !7
+  br i1 %149, label %136, label %gz_avail.exit181, !llvm.loop !6
 
 150:                                              ; preds = %136
   %151 = icmp slt i32 %144, 0
@@ -1263,7 +1263,7 @@ gz_avail.exit181.thread203:                       ; preds = %120, %gz_avail.exit
   br i1 %164, label %165, label %.thread206
 
 165:                                              ; preds = %163
-  %166 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %166 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %167 = icmp eq i32 %166, -1
   br i1 %167, label %.thread208, label %168
 
@@ -1297,7 +1297,7 @@ gz_avail.exit181.thread203:                       ; preds = %120, %gz_avail.exit
   br i1 %177, label %178, label %.thread212
 
 178:                                              ; preds = %176
-  %179 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %179 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %180 = icmp eq i32 %179, -1
   %.pr214 = load i32, ptr %31, align 8
   br i1 %180, label %thread-pre-split213, label %181
@@ -1325,7 +1325,7 @@ thread-pre-split213:                              ; preds = %178, %.thread212
   br i1 %188, label %.thread215, label %.thread311
 
 .thread215:                                       ; preds = %181, %thread-pre-split213
-  %189 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %189 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %190 = icmp eq i32 %189, -1
   %.pre287 = load i32, ptr %31, align 8
   br i1 %190, label %thread-pre-split216, label %191
@@ -1349,7 +1349,7 @@ thread-pre-split216:                              ; preds = %.thread215, %.threa
   br i1 %198, label %.thread218, label %.thread312
 
 .thread218:                                       ; preds = %191, %thread-pre-split216
-  %199 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %199 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %200 = icmp eq i32 %199, -1
   %.pre288 = load i32, ptr %31, align 8
   br i1 %200, label %thread-pre-split219, label %201
@@ -1373,7 +1373,7 @@ thread-pre-split219:                              ; preds = %.thread218, %.threa
   br i1 %208, label %.thread221, label %.thread313
 
 .thread221:                                       ; preds = %201, %thread-pre-split219
-  %209 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %209 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %210 = icmp eq i32 %209, -1
   %.pre289 = load i32, ptr %31, align 8
   br i1 %210, label %thread-pre-split222, label %211
@@ -1397,7 +1397,7 @@ thread-pre-split222:                              ; preds = %.thread221, %.threa
   br i1 %218, label %.thread224, label %.thread314
 
 .thread224:                                       ; preds = %211, %thread-pre-split222
-  %219 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %219 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %220 = icmp eq i32 %219, -1
   %.pre290 = load i32, ptr %31, align 8
   br i1 %220, label %thread-pre-split225, label %221
@@ -1421,7 +1421,7 @@ thread-pre-split225:                              ; preds = %.thread224, %.threa
   br i1 %228, label %.thread227, label %.thread315
 
 .thread227:                                       ; preds = %221, %thread-pre-split225
-  %229 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %229 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %230 = icmp eq i32 %229, -1
   br i1 %230, label %237, label %231
 
@@ -1450,7 +1450,7 @@ thread-pre-split225:                              ; preds = %.thread224, %.threa
   br i1 %241, label %242, label %.thread230
 
 242:                                              ; preds = %239
-  %243 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %243 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %244 = icmp eq i32 %243, -1
   %.pr232.pre = load i32, ptr %31, align 8
   br i1 %244, label %253, label %245
@@ -1478,7 +1478,7 @@ thread-pre-split225:                              ; preds = %.thread224, %.threa
 
 .thread233:                                       ; preds = %245, %253
   %255 = phi i32 [ %.ph, %253 ], [ -1, %245 ]
-  %256 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %256 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %257 = icmp eq i32 %256, -1
   br i1 %257, label %268, label %258
 
@@ -1555,7 +1555,7 @@ thread-pre-split225:                              ; preds = %.thread224, %.threa
   %300 = add i32 %299, %296
   store i32 %300, ptr %31, align 4
   %301 = icmp ult i32 %300, %287
-  br i1 %301, label %288, label %gz_avail.exit186, !llvm.loop !7
+  br i1 %301, label %288, label %gz_avail.exit186, !llvm.loop !6
 
 302:                                              ; preds = %288
   %303 = icmp slt i32 %296, 0
@@ -1588,7 +1588,7 @@ gz_avail.exit186.thread239:                       ; preds = %276, %gz_avail.exit
   %313 = getelementptr inbounds i8, ptr %312, i64 1
   store ptr %313, ptr %2, align 8
   %.not166 = icmp eq i32 %278, 0
-  br i1 %.not166, label %.critedge, label %276, !llvm.loop !12
+  br i1 %.not166, label %.critedge, label %276, !llvm.loop !11
 
 .critedge:                                        ; preds = %282, %gz_avail.exit186.thread239, %gz_avail.exit186, %280, %268, %gz_load.exit.i185, %237
   %314 = and i32 %175, 8
@@ -1641,7 +1641,7 @@ gz_avail.exit186.thread239:                       ; preds = %276, %gz_avail.exit
   %342 = add i32 %341, %338
   store i32 %342, ptr %31, align 4
   %343 = icmp ult i32 %342, %329
-  br i1 %343, label %330, label %gz_avail.exit191, !llvm.loop !7
+  br i1 %343, label %330, label %gz_avail.exit191, !llvm.loop !6
 
 344:                                              ; preds = %330
   %345 = icmp slt i32 %338, 0
@@ -1675,7 +1675,7 @@ gz_avail.exit191.thread242:                       ; preds = %319, %gz_avail.exit
   store ptr %355, ptr %2, align 8
   %356 = load i8, ptr %354, align 1
   %.not256 = icmp eq i8 %356, 0
-  br i1 %.not256, label %.thread244, label %319, !llvm.loop !13
+  br i1 %.not256, label %.thread244, label %319, !llvm.loop !12
 
 .thread244:                                       ; preds = %324, %322, %gz_avail.exit191, %gz_avail.exit191.thread242, %gz_load.exit.i190, %.critedge
   %.not168 = icmp ult i8 %174, 16
@@ -1727,7 +1727,7 @@ gz_avail.exit191.thread242:                       ; preds = %319, %gz_avail.exit
   %384 = add i32 %383, %380
   store i32 %384, ptr %31, align 4
   %385 = icmp ult i32 %384, %371
-  br i1 %385, label %372, label %gz_avail.exit196, !llvm.loop !7
+  br i1 %385, label %372, label %gz_avail.exit196, !llvm.loop !6
 
 386:                                              ; preds = %372
   %387 = icmp slt i32 %380, 0
@@ -1761,7 +1761,7 @@ gz_avail.exit196.thread247:                       ; preds = %361, %gz_avail.exit
   store ptr %397, ptr %2, align 8
   %398 = load i8, ptr %396, align 1
   %.not257 = icmp eq i8 %398, 0
-  br i1 %.not257, label %.thread249, label %361, !llvm.loop !14
+  br i1 %.not257, label %.thread249, label %361, !llvm.loop !13
 
 .thread249:                                       ; preds = %366, %364, %gz_avail.exit196, %gz_avail.exit196.thread247, %gz_load.exit.i195, %.thread244
   %399 = and i32 %175, 2
@@ -1774,7 +1774,7 @@ gz_avail.exit196.thread247:                       ; preds = %361, %gz_avail.exit
   br i1 %402, label %403, label %.thread252
 
 403:                                              ; preds = %400
-  %404 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %404 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %405 = icmp eq i32 %404, -1
   %.pr254 = load i32, ptr %31, align 8
   br i1 %405, label %thread-pre-split253, label %406
@@ -1798,7 +1798,7 @@ thread-pre-split253:                              ; preds = %403, %.thread252
   br i1 %413, label %.thread255, label %.thread319
 
 .thread255:                                       ; preds = %406, %thread-pre-split253
-  %414 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0), !range !4
+  %414 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
   %415 = icmp eq i32 %414, -1
   br i1 %415, label %422, label %416
 
@@ -1875,7 +1875,7 @@ gz_avail.exit.thread:                             ; preds = %37, %gz_load.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gzclose_r(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @gzclose_r(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %22, label %3
 
@@ -1936,7 +1936,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_avail(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_avail(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
@@ -1976,7 +1976,7 @@ define internal fastcc noundef i32 @gz_avail(ptr noundef %0) unnamed_addr #0 {
   %28 = add i32 %27, %24
   store i32 %28, ptr %14, align 4
   %29 = icmp ult i32 %28, %13
-  br i1 %29, label %16, label %.loopexit, !llvm.loop !7
+  br i1 %29, label %16, label %.loopexit, !llvm.loop !6
 
 30:                                               ; preds = %16
   %31 = icmp slt i32 %24, 0
@@ -2008,7 +2008,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_next4(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_next4(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
@@ -2053,7 +2053,7 @@ define internal fastcc noundef i32 @gz_next4(ptr noundef %0, ptr nocapture nound
   %32 = add i32 %31, %28
   store i32 %32, ptr %4, align 4
   %33 = icmp ult i32 %32, %18
-  br i1 %33, label %20, label %gz_avail.exit, !llvm.loop !7
+  br i1 %33, label %20, label %gz_avail.exit, !llvm.loop !6
 
 34:                                               ; preds = %20
   %35 = icmp slt i32 %28, 0
@@ -2139,7 +2139,7 @@ gz_avail.exit37.thread.thread:                    ; preds = %.thread
   %75 = add i32 %74, %71
   store i32 %75, ptr %4, align 4
   %76 = icmp ult i32 %75, %61
-  br i1 %76, label %63, label %gz_avail.exit37, !llvm.loop !7
+  br i1 %76, label %63, label %gz_avail.exit37, !llvm.loop !6
 
 77:                                               ; preds = %63
   %78 = icmp slt i32 %71, 0
@@ -2233,7 +2233,7 @@ gz_avail.exit42.thread.thread:                    ; preds = %96
   %123 = add i32 %122, %119
   store i32 %123, ptr %4, align 4
   %124 = icmp ult i32 %123, %109
-  br i1 %124, label %111, label %gz_avail.exit42, !llvm.loop !7
+  br i1 %124, label %111, label %gz_avail.exit42, !llvm.loop !6
 
 125:                                              ; preds = %111
   %126 = icmp slt i32 %119, 0
@@ -2323,7 +2323,7 @@ gz_avail.exit42.thread:                           ; preds = %gz_load.exit.i41, %
   %170 = add i32 %169, %166
   store i32 %170, ptr %4, align 4
   %171 = icmp ult i32 %170, %156
-  br i1 %171, label %158, label %gz_avail.exit47, !llvm.loop !7
+  br i1 %171, label %158, label %gz_avail.exit47, !llvm.loop !6
 
 172:                                              ; preds = %158
   %173 = icmp slt i32 %166, 0
@@ -2403,14 +2403,13 @@ attributes #14 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

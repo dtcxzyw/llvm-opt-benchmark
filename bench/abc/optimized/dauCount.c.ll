@@ -108,7 +108,7 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %21, label %23, label %28
 
 23:                                               ; preds = %19
-  %24 = trunc i64 %22 to i32
+  %24 = trunc nuw nsw i64 %22 to i32
   %25 = getelementptr inbounds i8, ptr %2, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, %24
@@ -126,7 +126,7 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
 .preheader:                                       ; preds = %.preheader.loopexit, %28
   %.pre-phi69.in = phi i64 [ %.pre, %.preheader.loopexit ], [ %22, %28 ]
   %.lcssa52 = phi i64 [ %38, %.preheader.loopexit ], [ %18, %28 ]
-  %.pre-phi69 = trunc i64 %.pre-phi69.in to i32
+  %.pre-phi69 = trunc nuw nsw i64 %.pre-phi69.in to i32
   store i64 %.lcssa52, ptr %4, align 8
   %30 = add i32 %1, -1
   %31 = icmp sgt i32 %1, 1
@@ -146,7 +146,7 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %32, %37
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %39 = trunc i64 %indvars.iv.next62 to i32
+  %39 = trunc nuw i64 %indvars.iv.next62 to i32
   %40 = icmp sgt i32 %20, %39
   br i1 %40, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !10
 
@@ -298,7 +298,7 @@ define void @Abc_TtCountOnesInCofsTest() local_unnamed_addr #4 {
 
 28:                                               ; preds = %20
   %29 = lshr i64 %27, 56
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw nsw i64 %29 to i32
   store i32 %30, ptr %7, align 4
   br label %.lr.ph.i
 

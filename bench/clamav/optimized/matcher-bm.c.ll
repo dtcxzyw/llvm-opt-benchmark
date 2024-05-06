@@ -114,16 +114,16 @@ define i32 @cli_bm_addpatt(ptr nocapture noundef %0, ptr noundef %1, ptr noundef
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = mul nuw nsw i64 %58, 211
-  %60 = getelementptr i8, ptr %56, i64 1
+  %60 = getelementptr inbounds i8, ptr %56, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64
   %63 = mul nuw nsw i64 %62, 37
-  %64 = getelementptr i8, ptr %56, i64 2
+  %64 = getelementptr inbounds i8, ptr %56, i64 2
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
-  %67 = getelementptr ptr, ptr %53, i64 %63
-  %68 = getelementptr ptr, ptr %67, i64 %59
-  %69 = getelementptr ptr, ptr %68, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %53, i64 %63
+  %68 = getelementptr inbounds ptr, ptr %67, i64 %59
+  %69 = getelementptr inbounds ptr, ptr %68, i64 %66
   %70 = load ptr, ptr %69, align 8
   %.not122 = icmp eq ptr %70, null
   br i1 %.not122, label %71, label %78
@@ -306,7 +306,7 @@ declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @mpool_realloc2(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bm_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_bm_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

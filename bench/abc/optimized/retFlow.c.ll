@@ -320,7 +320,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_Clock.exit, %Ve
   %51 = sext i32 %.val89.val to i64
   %52 = getelementptr inbounds ptr, ptr %.val86.val.val, i64 %51
   %53 = load ptr, ptr %52, align 8
-  %54 = call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %53), !range !10
+  %54 = call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %53)
   br label %61
 
 55:                                               ; preds = %46
@@ -330,7 +330,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_Clock.exit, %Ve
   %57 = sext i32 %.val87.val to i64
   %58 = getelementptr inbounds ptr, ptr %.val86.val.val, i64 %57
   %59 = load ptr, ptr %58, align 8
-  %60 = call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %59), !range !10
+  %60 = call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %59)
   br label %61
 
 61:                                               ; preds = %55, %49
@@ -396,7 +396,7 @@ Abc_NtkIncrementTravId.exit104:                   ; preds = %62, %Vec_IntFill.ex
   %.val79 = load i32, ptr %80, align 4
   %81 = sext i32 %.val79 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %39, label %.critedge2, !llvm.loop !11
+  br i1 %82, label %39, label %.critedge2, !llvm.loop !10
 
 .critedge2:                                       ; preds = %78, %Abc_NtkIncrementTravId.exit
   %83 = phi ptr [ %33, %Abc_NtkIncrementTravId.exit ], [ %79, %78 ]
@@ -493,7 +493,7 @@ Abc_NtkIncrementTravId.exit116:                   ; preds = %.critedge2, %Vec_In
   %117 = sext i32 %.val91.val to i64
   %118 = getelementptr inbounds ptr, ptr %.val84.val.val, i64 %117
   %119 = load ptr, ptr %118, align 8
-  %120 = call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %119), !range !10
+  %120 = call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %119)
   br label %127
 
 121:                                              ; preds = %112
@@ -503,7 +503,7 @@ Abc_NtkIncrementTravId.exit116:                   ; preds = %.critedge2, %Vec_In
   %123 = sext i32 %.val85.val to i64
   %124 = getelementptr inbounds ptr, ptr %.val84.val.val, i64 %123
   %125 = load ptr, ptr %124, align 8
-  %126 = call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %125), !range !10
+  %126 = call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %125)
   br label %127
 
 127:                                              ; preds = %105, %121, %115
@@ -513,7 +513,7 @@ Abc_NtkIncrementTravId.exit116:                   ; preds = %.critedge2, %Vec_In
   %.val78 = load i32, ptr %129, align 4
   %130 = sext i32 %.val78 to i64
   %131 = icmp slt i64 %indvars.iv.next179, %130
-  br i1 %131, label %105, label %.critedge4, !llvm.loop !12
+  br i1 %131, label %105, label %.critedge4, !llvm.loop !11
 
 .critedge4:                                       ; preds = %127, %Abc_NtkIncrementTravId.exit116
   %132 = getelementptr i8, ptr %0, i64 128
@@ -676,7 +676,7 @@ Vec_PtrPush.exit.i:                               ; preds = %199, %Vec_PtrGrow.e
   %.val.i118 = load i32, ptr %207, align 4
   %208 = sext i32 %.val.i118 to i64
   %209 = icmp slt i64 %indvars.iv.next.i, %208
-  br i1 %209, label %.lr.ph.i, label %Abc_NtkMaxFlowMinCut.exit, !llvm.loop !13
+  br i1 %209, label %.lr.ph.i, label %Abc_NtkMaxFlowMinCut.exit, !llvm.loop !12
 
 Abc_NtkMaxFlowMinCut.exit:                        ; preds = %205, %Vec_PtrAlloc.exit.i
   %.val.val.i.i = phi i32 [ %.val27.i, %Vec_PtrAlloc.exit.i ], [ %.val.i118, %205 ]
@@ -770,7 +770,7 @@ Abc_NtkIncrementTravId.exit.i:                    ; preds = %Vec_IntFill.exit.i.
   %241 = sext i32 %.val31.val.us.i to i64
   %242 = getelementptr inbounds ptr, ptr %.val30.val.val.us.i, i64 %241
   %243 = load ptr, ptr %242, align 8
-  %244 = call i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr noundef %243, i32 noundef 0), !range !10
+  %244 = call i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr noundef %243, i32 noundef 0)
   %.not24.us.i = icmp eq i32 %244, 0
   br i1 %.not24.us.i, label %Abc_NtkMaxFlowVerifyCut.exit, label %..critedge.us_crit_edge.i
 
@@ -785,7 +785,7 @@ Abc_NtkIncrementTravId.exit.i:                    ; preds = %Vec_IntFill.exit.i.
   %.val.us.i = load i32, ptr %246, align 4
   %247 = sext i32 %.val.us.i to i64
   %248 = icmp slt i64 %indvars.iv.next52.i, %247
-  br i1 %248, label %.lr.ph40.split.us.i, label %Abc_NtkMaxFlowVerifyCut.exit.thread, !llvm.loop !14
+  br i1 %248, label %.lr.ph40.split.us.i, label %Abc_NtkMaxFlowVerifyCut.exit.thread, !llvm.loop !13
 
 .lr.ph.i123:                                      ; preds = %.lr.ph.i123.preheader, %.lr.ph.i123
   %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i127, %.lr.ph.i123 ], [ 0, %.lr.ph.i123.preheader ]
@@ -806,7 +806,7 @@ Abc_NtkIncrementTravId.exit.i:                    ; preds = %Vec_IntFill.exit.i.
   store i32 %253, ptr %258, align 4
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i127, %227
-  br i1 %exitcond.not, label %.critedge.preheader.i, label %.lr.ph.i123, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge.preheader.i, label %.lr.ph.i123, !llvm.loop !14
 
 .lr.ph40.split.i:                                 ; preds = %.lr.ph40.i, %.critedge.i
   %259 = phi ptr [ %273, %.critedge.i ], [ %228, %.lr.ph40.i ]
@@ -833,7 +833,7 @@ Abc_NtkIncrementTravId.exit.i:                    ; preds = %Vec_IntFill.exit.i.
   %269 = sext i32 %.val33.val.i to i64
   %270 = getelementptr inbounds ptr, ptr %.val32.val.val.i, i64 %269
   %271 = load ptr, ptr %270, align 8
-  %272 = call i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr noundef %271, i32 noundef %1), !range !10
+  %272 = call i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr noundef %271, i32 noundef %1)
   %.not25.i122 = icmp eq i32 %272, 0
   br i1 %.not25.i122, label %Abc_NtkMaxFlowVerifyCut.exit, label %..critedge_crit_edge.i
 
@@ -848,7 +848,7 @@ Abc_NtkIncrementTravId.exit.i:                    ; preds = %Vec_IntFill.exit.i.
   %.val.i121 = load i32, ptr %274, align 4
   %275 = sext i32 %.val.i121 to i64
   %276 = icmp slt i64 %indvars.iv.next49.i, %275
-  br i1 %276, label %.lr.ph40.split.i, label %Abc_NtkMaxFlowVerifyCut.exit.thread, !llvm.loop !14
+  br i1 %276, label %.lr.ph40.split.i, label %Abc_NtkMaxFlowVerifyCut.exit.thread, !llvm.loop !13
 
 Abc_NtkMaxFlowVerifyCut.exit:                     ; preds = %265, %237
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -893,7 +893,7 @@ Abc_NtkMaxFlowVerifyCut.exit.thread:              ; preds = %.critedge.i, %.crit
   %.val87.i = load i32, ptr %294, align 4
   %295 = sext i32 %.val87.i to i64
   %296 = icmp slt i64 %indvars.iv.next.i157, %295
-  br i1 %296, label %.lr.ph.i154, label %.critedge.preheader.i129, !llvm.loop !16
+  br i1 %296, label %.lr.ph.i154, label %.critedge.preheader.i129, !llvm.loop !15
 
 .critedge2.preheader.i:                           ; preds = %.critedge.i153, %.critedge.preheader.i129
   br i1 %226, label %.critedge2.i.preheader, label %.critedge4.i
@@ -942,7 +942,7 @@ Abc_NtkMaxFlowVerifyCut.exit.thread:              ; preds = %.critedge.i, %.crit
   %.val86.i = load i32, ptr %315, align 4
   %316 = sext i32 %.val86.i to i64
   %317 = icmp slt i64 %indvars.iv.next135.i, %316
-  br i1 %317, label %.lr.ph114.i, label %.critedge2.preheader.i, !llvm.loop !17
+  br i1 %317, label %.lr.ph114.i, label %.critedge2.preheader.i, !llvm.loop !16
 
 .critedge2.i:                                     ; preds = %.critedge2.i.preheader, %.critedge2.i
   %indvars.iv137.i = phi i64 [ %indvars.iv.next138.i, %.critedge2.i ], [ 0, %.critedge2.i.preheader ]
@@ -951,7 +951,7 @@ Abc_NtkMaxFlowVerifyCut.exit.thread:              ; preds = %.critedge.i, %.crit
   call void @Abc_NtkMaxFlowMarkCut_rec(ptr noundef %319)
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next138.i, %297
-  br i1 %exitcond181.not, label %.critedge4.i, label %.critedge2.i, !llvm.loop !18
+  br i1 %exitcond181.not, label %.critedge4.i, label %.critedge2.i, !llvm.loop !17
 
 .critedge4.i:                                     ; preds = %.critedge2.i, %.critedge2.preheader.i
   %.not.i130 = icmp eq i32 %1, 0
@@ -1002,7 +1002,7 @@ Abc_NtkMaxFlowVerifyCut.exit.thread:              ; preds = %.critedge.i, %.crit
 338:                                              ; preds = %339
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next141.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge8.i, label %339, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.critedge8.i, label %339, !llvm.loop !18
 
 339:                                              ; preds = %338, %.lr.ph119.i
   %indvars.iv140.i = phi i64 [ 0, %.lr.ph119.i ], [ %indvars.iv.next141.i, %338 ]
@@ -1089,7 +1089,7 @@ Vec_PtrPush.exit.i133:                            ; preds = %370, %Vec_PtrGrow.e
   %.val84.i = load i32, ptr %377, align 4
   %378 = sext i32 %.val84.i to i64
   %379 = icmp slt i64 %indvars.iv.next144.i, %378
-  br i1 %379, label %.lr.ph122.i, label %Abc_NtkMaxFlowMinCutUpdate.exit, !llvm.loop !20
+  br i1 %379, label %.lr.ph122.i, label %Abc_NtkMaxFlowMinCutUpdate.exit, !llvm.loop !19
 
 380:                                              ; preds = %.critedge4.i
   %381 = load ptr, ptr %12, align 8
@@ -1189,7 +1189,7 @@ Abc_NtkIncrementTravId.exit.i138:                 ; preds = %Vec_IntFill.exit.i.
   %.val83.i = load i32, ptr %419, align 4
   %420 = sext i32 %.val83.i to i64
   %421 = icmp slt i64 %indvars.iv.next147.i, %420
-  br i1 %421, label %.lr.ph125.i, label %.critedge10.preheader.i, !llvm.loop !21
+  br i1 %421, label %.lr.ph125.i, label %.critedge10.preheader.i, !llvm.loop !20
 
 .critedge12.preheader.i:                          ; preds = %.critedge10.i, %.critedge10.preheader.i
   %.val129.i = load i32, ptr %135, align 4
@@ -1243,7 +1243,7 @@ Abc_NtkIncrementTravId.exit.i138:                 ; preds = %Vec_IntFill.exit.i.
   %.val82.i = load i32, ptr %446, align 4
   %447 = sext i32 %.val82.i to i64
   %448 = icmp slt i64 %indvars.iv.next150.i, %447
-  br i1 %448, label %.lr.ph128.i, label %.critedge12.preheader.i, !llvm.loop !22
+  br i1 %448, label %.lr.ph128.i, label %.critedge12.preheader.i, !llvm.loop !21
 
 .critedge12.i:                                    ; preds = %.critedge12.i.preheader, %.critedge12.i
   %indvars.iv152.i = phi i64 [ %indvars.iv.next153.i, %.critedge12.i ], [ 0, %.critedge12.i.preheader ]
@@ -1255,7 +1255,7 @@ Abc_NtkIncrementTravId.exit.i138:                 ; preds = %Vec_IntFill.exit.i.
   store i32 %453, ptr %451, align 4
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next153.i, %423
-  br i1 %exitcond182.not, label %Abc_NtkMaxFlowMinCutUpdate.exit, label %.critedge12.i, !llvm.loop !23
+  br i1 %exitcond182.not, label %Abc_NtkMaxFlowMinCutUpdate.exit, label %.critedge12.i, !llvm.loop !22
 
 Abc_NtkMaxFlowMinCutUpdate.exit:                  ; preds = %.critedge8.i, %.critedge12.i, %320, %.critedge12.preheader.i
   %.not71 = icmp eq i32 %2, 0
@@ -1299,7 +1299,7 @@ declare void @Abc_NtkCleanMarkA(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkCleanCopy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) unnamed_addr #0 {
   %.val2.i = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 16
   %.val3.i = load i32, ptr %2, align 8
@@ -1358,7 +1358,7 @@ define internal fastcc noundef i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) u
   %.val36 = load i32, ptr %22, align 4
   %27 = sext i32 %.val36 to i64
   %28 = icmp slt i64 %indvars.iv.next62, %27
-  br i1 %28, label %29, label %.critedge, !llvm.loop !24
+  br i1 %28, label %29, label %.critedge, !llvm.loop !23
 
 29:                                               ; preds = %.lr.ph53, %26
   %indvars.iv61 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next62, %26 ]
@@ -1373,7 +1373,7 @@ define internal fastcc noundef i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) u
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds ptr, ptr %.val38.val.val, i64 %34
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %36), !range !10
+  %37 = tail call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %36)
   %.not31 = icmp eq i32 %37, 0
   br i1 %.not31, label %26, label %38
 
@@ -1401,7 +1401,7 @@ define internal fastcc noundef i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) u
 45:                                               ; preds = %46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %46, !llvm.loop !25
+  br i1 %exitcond.not.i, label %.critedge, label %46, !llvm.loop !24
 
 46:                                               ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %45 ]
@@ -1431,7 +1431,7 @@ Abc_ObjGetFaninPath.exit:                         ; preds = %60
   %.val37 = load i32, ptr %55, align 4
   %58 = sext i32 %.val37 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %60, label %.critedge2, !llvm.loop !26
+  br i1 %59, label %60, label %.critedge2, !llvm.loop !25
 
 60:                                               ; preds = %.lr.ph, %Abc_ObjGetFaninPath.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_ObjGetFaninPath.exit ]
@@ -1446,7 +1446,7 @@ Abc_ObjGetFaninPath.exit:                         ; preds = %60
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %.val40.val.val, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %67), !range !10
+  %68 = tail call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %67)
   %.not33 = icmp eq i32 %68, 0
   br i1 %.not33, label %Abc_ObjGetFaninPath.exit, label %69
 
@@ -1455,7 +1455,7 @@ Abc_ObjGetFaninPath.exit:                         ; preds = %60
   br label %.critedge
 
 .critedge2:                                       ; preds = %Abc_ObjGetFaninPath.exit, %Abc_ObjGetFaninPath.exit.preheader
-  %70 = tail call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef nonnull %51), !range !10
+  %70 = tail call fastcc i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef nonnull %51)
   %.not32 = icmp eq i32 %70, 0
   br i1 %.not32, label %.critedge, label %71
 
@@ -1469,7 +1469,7 @@ Abc_ObjGetFaninPath.exit:                         ; preds = %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) unnamed_addr #0 {
   %.val2.i = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 16
   %.val3.i = load i32, ptr %2, align 8
@@ -1528,7 +1528,7 @@ define internal fastcc noundef i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) u
   %.val36 = load i32, ptr %22, align 4
   %27 = sext i32 %.val36 to i64
   %28 = icmp slt i64 %indvars.iv.next62, %27
-  br i1 %28, label %29, label %.critedge, !llvm.loop !27
+  br i1 %28, label %29, label %.critedge, !llvm.loop !26
 
 29:                                               ; preds = %.lr.ph53, %26
   %indvars.iv61 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next62, %26 ]
@@ -1543,7 +1543,7 @@ define internal fastcc noundef i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) u
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds ptr, ptr %.val38.val.val, i64 %34
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %36), !range !10
+  %37 = tail call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %36)
   %.not31 = icmp eq i32 %37, 0
   br i1 %.not31, label %26, label %38
 
@@ -1571,7 +1571,7 @@ define internal fastcc noundef i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) u
 45:                                               ; preds = %46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %46, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.critedge, label %46, !llvm.loop !27
 
 46:                                               ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %45 ]
@@ -1601,7 +1601,7 @@ Abc_ObjGetFanoutPath.exit:                        ; preds = %60
   %.val37 = load i32, ptr %55, align 4
   %58 = sext i32 %.val37 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %60, label %.critedge2, !llvm.loop !29
+  br i1 %59, label %60, label %.critedge2, !llvm.loop !28
 
 60:                                               ; preds = %.lr.ph, %Abc_ObjGetFanoutPath.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_ObjGetFanoutPath.exit ]
@@ -1616,7 +1616,7 @@ Abc_ObjGetFanoutPath.exit:                        ; preds = %60
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %.val40.val.val, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %67), !range !10
+  %68 = tail call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %67)
   %.not33 = icmp eq i32 %68, 0
   br i1 %.not33, label %Abc_ObjGetFanoutPath.exit, label %69
 
@@ -1625,7 +1625,7 @@ Abc_ObjGetFanoutPath.exit:                        ; preds = %60
   br label %.critedge
 
 .critedge2:                                       ; preds = %Abc_ObjGetFanoutPath.exit, %Abc_ObjGetFanoutPath.exit.preheader
-  %70 = tail call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef nonnull %51), !range !10
+  %70 = tail call fastcc i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef nonnull %51)
   %.not32 = icmp eq i32 %70, 0
   br i1 %.not32, label %.critedge, label %71
 
@@ -1650,7 +1650,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #12
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #12
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1669,7 +1669,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1714,7 +1714,7 @@ define void @Abc_NtkMaxFlowMarkCut_rec(ptr nocapture noundef %0) local_unnamed_a
   %.val = load i32, ptr %7, align 4
   %18 = sext i32 %.val to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %10, label %.critedge, !llvm.loop !30
+  br i1 %19, label %10, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %10, %5, %1
   ret void
@@ -1852,14 +1852,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val13 = load i32, ptr %21, align 4
   %64 = sext i32 %.val13 to i64
   %65 = icmp slt i64 %indvars.iv.next, %64
-  br i1 %65, label %56, label %.critedge, !llvm.loop !31
+  br i1 %65, label %56, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %56, %.preheader, %2, %Vec_PtrPush.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.val2.i = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 16
   %.val3.i = load i32, ptr %3, align 8
@@ -1913,7 +1913,7 @@ define noundef i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr nocapture noundef readonly %
   %.val30 = load i32, ptr %22, align 4
   %26 = sext i32 %.val30 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %28, label %.critedge, !llvm.loop !32
+  br i1 %27, label %28, label %.critedge, !llvm.loop !31
 
 28:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -1928,7 +1928,7 @@ define noundef i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr nocapture noundef readonly %
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %33
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr noundef %35, i32 noundef %1), !range !10
+  %36 = tail call i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr noundef %35, i32 noundef %1)
   %.not28 = icmp eq i32 %36, 0
   br i1 %.not28, label %.critedge, label %25
 
@@ -1953,7 +1953,7 @@ define noundef i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr nocapture noundef readonly %
   %.val33 = load i32, ptr %38, align 4
   %42 = sext i32 %.val33 to i64
   %43 = icmp slt i64 %indvars.iv.next59, %42
-  br i1 %43, label %44, label %.critedge, !llvm.loop !33
+  br i1 %43, label %44, label %.critedge, !llvm.loop !32
 
 44:                                               ; preds = %.lr.ph51, %41
   %indvars.iv58 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next59, %41 ]
@@ -1968,7 +1968,7 @@ define noundef i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr nocapture noundef readonly %
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %.val34.val.val, i64 %49
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr noundef %51, i32 noundef 0), !range !10
+  %52 = tail call i32 @Abc_NtkMaxFlowVerifyCut_rec(ptr noundef %51, i32 noundef 0)
   %.not26 = icmp eq i32 %52, 0
   br i1 %.not26, label %.critedge, label %41
 
@@ -1993,19 +1993,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -2092,7 +2086,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -2101,6 +2095,12 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 40:                                               ; preds = %2, %._crit_edge
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
@@ -2119,8 +2119,8 @@ attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nofree nounwind }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
@@ -2140,7 +2140,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -2164,4 +2164,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

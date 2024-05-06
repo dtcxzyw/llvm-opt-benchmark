@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.fat_bmap_cluster = private unnamed_addr constant [17 x i8] c"fat_bmap_cluster\00", align 1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @fat_cache_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @fat_cache_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 32, i32 noundef 0, i32 noundef 1179648, ptr noundef nonnull @init_once) #8
   store ptr %1, ptr @fat_cache_cachep, align 8
   %2 = icmp eq ptr %1, null
@@ -103,7 +103,7 @@ define dso_local void @fat_cache_inval_inode(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fat_get_cluster(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 16 {
   %5 = alloca %struct.fat_entry, align 8
   %6 = alloca %struct.fat_cache_id, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -622,7 +622,7 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr nocapture noundef
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fat_get_mapped_cluster(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @fat_get_mapped_cluster(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #3 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -718,7 +718,7 @@ define dso_local i32 @fat_get_mapped_cluster(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fat_bmap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 872

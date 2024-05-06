@@ -993,7 +993,7 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %if.end5
   %add.i.i = add i32 %cond.i.i, 1
   %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %add.i.i, ptr %depth_est.i, align 8
-  %call.i = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %8, i32 noundef 1, ptr noundef nonnull %replacement_parent)
+  %call.i = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %8, i32 noundef 1, ptr noundef nonnull writeonly %replacement_parent)
   %11 = load ptr, ptr %replacement_parent, align 8
   %cmp15 = icmp eq ptr %11, %this
   %m_left_child17 = getelementptr inbounds i8, ptr %call.i, i64 160
@@ -1021,7 +1021,7 @@ if.else22:                                        ; preds = %if.end5
   %add.i.i22 = add i32 %cond.i.i21, 1
   %depth_est.i23 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %add.i.i22, ptr %depth_est.i23, align 8
-  %call.i26 = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %13, i32 noundef -1, ptr noundef nonnull %replacement_parent)
+  %call.i26 = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %13, i32 noundef -1, ptr noundef nonnull writeonly %replacement_parent)
   %16 = load ptr, ptr %replacement_parent, align 8
   %cmp30 = icmp eq ptr %16, %this
   %m_right_child32 = getelementptr inbounds i8, ptr %call.i26, i64 176

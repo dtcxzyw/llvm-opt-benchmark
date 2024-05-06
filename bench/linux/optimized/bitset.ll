@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ethnl_parse_bit.__msg.13 = internal constant [37 x i8] c"neither bit index nor name specified\00", align 16
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @ethnl_bitset32_size(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = icmp ne ptr %1, null
   br i1 %4, label %83, label %7
 
@@ -463,7 +463,7 @@ declare dso_local ptr @nla_reserve(ptr noundef, i32 noundef, i32 noundef) local_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ethnl_bitset_is_compact(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ethnl_bitset_is_compact(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
   %3 = alloca [6 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -984,7 +984,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ethnl_compact_sanity_checks(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_checks(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = getelementptr i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -1641,7 +1641,7 @@ define internal fastcc i32 @ethnl_parse_bit(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @ethnl_bitset_size(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = icmp ne ptr %1, null
   br i1 %4, label %83, label %7
 

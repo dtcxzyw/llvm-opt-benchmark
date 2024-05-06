@@ -356,7 +356,7 @@ declare dso_local void @async_synchronize_cookie(i64 noundef) local_unnamed_addr
 declare dso_local void @acpi_bus_unregister_driver(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_battery_init() #4 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @acpi_battery_init() #4 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_disabled, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %5
@@ -1366,7 +1366,7 @@ define internal fastcc void @acpi_battery_init_alarm(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_battery_get_state(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   store i64 -1, ptr %2, align 8
@@ -1802,7 +1802,7 @@ define internal void @find_battery(ptr nocapture noundef readonly %0, ptr nounde
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_battery_get_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = tail call ptr @power_supply_get_drvdata(ptr noundef %0) #12
   %5 = getelementptr inbounds i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
@@ -2115,7 +2115,7 @@ declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unname
 declare dso_local ptr @power_supply_get_drvdata(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i32 @acpi_battery_is_charged(ptr nocapture noundef readonly %0) unnamed_addr #8 align 16 {
+define internal fastcc range(i32 0, 2) i32 @acpi_battery_is_charged(ptr nocapture noundef readonly %0) unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 556
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -2154,7 +2154,7 @@ declare dso_local i32 @power_supply_is_system_supplied() local_unnamed_addr #2
 declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @acpi_battery_alarm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @acpi_battery_alarm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @power_supply_get_drvdata(ptr noundef %5) #12
@@ -2250,7 +2250,7 @@ declare dso_local void @power_supply_unregister(ptr noundef) local_unnamed_addr 
 declare dso_local void @acpi_dev_remove_notify_handler(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_battery_resume(ptr noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_battery_resume(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %23, label %3
 

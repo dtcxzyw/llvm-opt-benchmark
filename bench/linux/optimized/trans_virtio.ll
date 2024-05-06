@@ -561,7 +561,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 declare dso_local i32 @sysfs_create_file_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal i64 @p9_mount_tag_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @p9_mount_tag_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
   %4 = getelementptr i8, ptr %0, i64 776
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4152
@@ -590,7 +590,7 @@ declare dso_local void @_dev_emerg(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local void @virtio_reset_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @p9_virtio_create(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #2 align 16 {
+define internal range(i32 -22, 1) i32 @p9_virtio_create(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #2 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %29, label %5
 
@@ -662,7 +662,7 @@ define internal void @p9_virtio_close(ptr nocapture noundef readonly %0) #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @p9_virtio_request(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -512, 1) i32 @p9_virtio_request(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = alloca [2 x ptr], align 16
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

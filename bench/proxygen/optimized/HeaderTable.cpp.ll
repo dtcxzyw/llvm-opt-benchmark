@@ -234,15 +234,15 @@ _ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE13_M_deallocateEPS1_m.exit.i
   br label %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE7reserveEm.exit: ; preds = %entry, %_ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE13_M_deallocateEPS1_m.exit.i
-  %cmp4.not = icmp eq i32 %cond.i, 0
-  br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
+  %cmp5.not = icmp eq i32 %cond.i, 0
+  br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE7reserveEm.exit
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
-  %i.05 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit ]
+  %i.06 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit ]
   %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
@@ -268,7 +268,7 @@ if.else.i:                                        ; preds = %for.body
   br label %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
 
 _ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit: ; preds = %if.then.i, %if.else.i
-  %inc = add nuw nsw i32 %i.05, 1
+  %inc = add nuw nsw i32 %i.06, 1
   %exitcond.not = icmp eq i32 %inc, %cond.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
@@ -2539,11 +2539,11 @@ if.then13:                                        ; preds = %if.then11
   br label %for.body
 
 for.body:                                         ; preds = %if.then13, %for.body
-  %ci.034 = phi i64 [ 0, %if.then13 ], [ %inc, %for.body ]
+  %ci.035 = phi i64 [ 0, %if.then13 ], [ %inc, %for.body ]
   %5 = load ptr, ptr %chunks_, align 8
-  %arrayidx20 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %5, i64 %ci.034
+  %arrayidx20 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %5, i64 %ci.035
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx20, i8 0, i64 16, i1 false)
-  %inc = add nuw i64 %ci.034, 1
+  %inc = add nuw i64 %ci.035, 1
   %6 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %sh_prom.i.i.i14 = and i64 %6, 255
   %ci.0.highbits = lshr i64 %inc, %sh_prom.i.i.i14
@@ -2556,31 +2556,31 @@ for.end:                                          ; preds = %for.body
   %8 = load i8, ptr %control_.i, align 2
   %cmp.i16 = icmp eq i8 %8, 0
   tail call void @llvm.assume(i1 %cmp.i16)
-  %arrayidx.i.i.i.i17 = getelementptr inbounds i8, ptr %7, i64 12
-  store i16 %v.0.copyload.i.pre, ptr %arrayidx.i.i.i.i17, align 1
-  %.pre37 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
+  %arrayidx.i.i.i.i18 = getelementptr inbounds i8, ptr %7, i64 12
+  store i16 %v.0.copyload.i.pre, ptr %arrayidx.i.i.i.i18, align 1
+  %.pre38 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %for.end, %if.then11
-  %9 = phi i64 [ %.pre37, %for.end ], [ %4, %if.then11 ]
-  %conv.i.i18 = and i64 %9, 255
-  store i64 %conv.i.i18, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
+  %9 = phi i64 [ %.pre38, %for.end ], [ %4, %if.then11 ]
+  %conv.i.i19 = and i64 %9, 255
+  store i64 %conv.i.i19, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end24, %if.end9
-  %10 = phi i64 [ %conv.i.i18, %if.end24 ], [ %4, %if.end9 ]
+  %10 = phi i64 [ %conv.i.i19, %if.end24 ], [ %4, %if.end9 ]
   br i1 %cmp3.not, label %if.end41, label %if.end25._ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge
 
 if.end25._ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge: ; preds = %if.end25
-  %.pre38 = load ptr, ptr %chunks_, align 8
+  %.pre39 = load ptr, ptr %chunks_, align 8
   br label %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit
 
 _ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit: ; preds = %if.then6, %if.end25._ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge
   %11 = phi i64 [ %10, %if.end25._ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %1, %if.then6 ]
-  %12 = phi ptr [ %.pre38, %if.end25._ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %0, %if.then6 ]
+  %12 = phi ptr [ %.pre39, %if.end25._ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %0, %if.then6 ]
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_, align 8
-  %shr.i.i.i26 = and i64 %11, -256
-  store i64 %shr.i.i.i26, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
+  %shr.i.i.i27 = and i64 %11, -256
+  store i64 %shr.i.i.i27, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %12) #28
   store ptr null, ptr %this, align 8
   br label %if.end41
@@ -2870,8 +2870,8 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %shr.i6 = lshr i64 %mul.i, 2
-  %add2.i = add i64 %shr.i6, %mul.i
+  %shr.i7 = lshr i64 %mul.i, 2
+  %add2.i = add i64 %shr.i7, %mul.i
   %shr3.i = lshr i64 %mul.i, 3
   %add4.i = add i64 %add2.i, %shr3.i
   %shr5.i = lshr i64 %mul.i, 5
@@ -2902,8 +2902,8 @@ if.else11.i.i:                                    ; preds = %if.then
   %shl25.i.i = select i1 %cmp17.i.i, i32 40960, i32 %4
   %conv26.i.i = zext i32 %shl25.i.i to i64
   %sub.i.i.i = add nsw i64 %shl.i.i, -1
-  %shr.i.i.i7 = lshr i64 %sub.i.i.i, 12
-  %add.i7.i.i = add nuw nsw i64 %shr.i.i.i7, 1
+  %shr.i.i.i8 = lshr i64 %sub.i.i.i, 12
+  %add.i7.i.i = add nuw nsw i64 %shr.i.i.i8, 1
   %mul.i.i.i = mul i64 %add.i7.i.i, %conv26.i.i
   %cmp32.i.i = icmp ugt i64 %mul.i.i.i, 72057594037927935
   br i1 %cmp32.i.i, label %if.then33.i.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit

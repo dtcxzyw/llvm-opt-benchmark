@@ -554,7 +554,7 @@ return:                                           ; preds = %if.then6, %do.body3
 declare void @virtio_gpu_base_generate_edid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %nr_entries, i32 noundef %offset, ptr nocapture noundef readonly %cmd, ptr noundef %addr, ptr nocapture noundef %iov, ptr nocapture noundef writeonly %niov) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %nr_entries, i32 noundef %offset, ptr nocapture noundef readonly %cmd, ptr noundef %addr, ptr nocapture noundef %iov, ptr nocapture noundef writeonly %niov) local_unnamed_addr #0 {
 entry:
   %xlen.i = alloca i64, align 8
   %cmp = icmp ugt i32 %nr_entries, 16384
@@ -650,7 +650,7 @@ do.body67:                                        ; preds = %do.body34
   br i1 %cmp.i62.not, label %do.end77, label %if.then75
 
 if.then75:                                        ; preds = %do.body67
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.virtio_gpu_create_mapping_iov, i32 noundef %10) #12
   br label %do.end77
 
@@ -1368,7 +1368,7 @@ if.end59.i:                                       ; preds = %for.inc.i.i59, %if.
   %addrs.i = getelementptr inbounds i8, ptr %call60.i, i64 16
   %iov.i = getelementptr inbounds i8, ptr %call60.i, i64 24
   %iov_cnt.i = getelementptr inbounds i8, ptr %call60.i, i64 32
-  %call64.i = call i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %65, i32 noundef 56, ptr noundef %cmd, ptr noundef nonnull %addrs.i, ptr noundef nonnull %iov.i, ptr noundef nonnull %iov_cnt.i), !range !10
+  %call64.i = call i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %65, i32 noundef 56, ptr noundef %cmd, ptr noundef nonnull %addrs.i, ptr noundef nonnull %iov.i, ptr noundef nonnull %iov_cnt.i)
   %cmp65.not.i = icmp eq i32 %call64.i, 0
   br i1 %cmp65.not.i, label %if.end69.i, label %if.then67.i
 
@@ -1699,7 +1699,7 @@ for.inc.i:                                        ; preds = %if.then58.i.for.inc
   %within_bounds.1.i = phi i1 [ true, %if.then58.i.for.inc.i_crit_edge ], [ %within_bounds.087.i, %land.lhs.true49.i ], [ %within_bounds.087.i, %land.lhs.true41.i ], [ %within_bounds.087.i, %land.lhs.true32.i ], [ %within_bounds.087.i, %land.lhs.true.i ], [ %within_bounds.087.i, %for.body.i ]
   %inc.i = add nuw i32 %i.089.i, 1
   %cmp18.i = icmp ult i32 %inc.i, %117
-  br i1 %cmp18.i, label %for.body.i, label %for.end.i, !llvm.loop !11
+  br i1 %cmp18.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.inc.i.thread:                                 ; preds = %if.then58.i
   %width29.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
@@ -1711,7 +1711,7 @@ for.inc.i.thread:                                 ; preds = %if.then58.i
   %inc.i519 = add nuw i32 %i.089.i, 1
   %121 = load i32, ptr %conf.i, align 16
   %cmp18.i520 = icmp ult i32 %inc.i519, %121
-  br i1 %cmp18.i520, label %for.body.i.outer, label %virtio_gpu_resource_flush.exit, !llvm.loop !11
+  br i1 %cmp18.i520, label %for.body.i.outer, label %virtio_gpu_resource_flush.exit, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
   br i1 %update_submitted.088.i.ph, label %virtio_gpu_resource_flush.exit, label %if.end68.i147
@@ -1877,7 +1877,7 @@ for.inc217.i:                                     ; preds = %if.then197.i, %lor.
   %151 = phi i32 [ %144, %if.end183.i ], [ %144, %lor.lhs.false.i.i ], [ %.pre96.i, %if.then197.i ], [ %144, %for.body180.i ]
   %inc218.i = add nuw i32 %i.192.i, 1
   %cmp178.i = icmp ult i32 %inc218.i, %151
-  br i1 %cmp178.i, label %for.body180.i, label %virtio_gpu_resource_flush.exit, !llvm.loop !12
+  br i1 %cmp178.i, label %for.body180.i, label %virtio_gpu_resource_flush.exit, !llvm.loop !11
 
 virtio_gpu_resource_flush.exit:                   ; preds = %for.inc.i.thread, %for.inc217.i, %do.body2.i166, %if.then5.i169, %virtio_gpu_find_check_resource.exit.thread.i, %for.end.i, %do.end90.i, %do.end159.i, %if.end161.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %rf.i)
@@ -2129,7 +2129,7 @@ if.else.i45.i:                                    ; preds = %for.body.lr.ph.i209
   %inc.i212 = add nuw i32 %h.074.i, 1
   %196 = load i32, ptr %height28.i, align 4
   %cmp95.i = icmp ult i32 %inc.i212, %196
-  br i1 %cmp95.i, label %if.else.i45.i, label %virtio_gpu_transfer_to_host_2d.exit, !llvm.loop !13
+  br i1 %cmp95.i, label %if.else.i45.i, label %virtio_gpu_transfer_to_host_2d.exit, !llvm.loop !12
 
 if.else.i55.i:                                    ; preds = %lor.lhs.false85.i
   %197 = load i32, ptr %height28.i, align 4
@@ -2857,7 +2857,7 @@ if.end28.i:                                       ; preds = %if.end24.i433
   %301 = load i32, ptr %nr_entries.i435, align 4
   %addrs.i436 = getelementptr inbounds i8, ptr %res.06.i.i424, i64 16
   %iov_cnt.i437 = getelementptr inbounds i8, ptr %res.06.i.i424, i64 32
-  %call30.i = call i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %301, i32 noundef 32, ptr noundef %cmd, ptr noundef nonnull %addrs.i436, ptr noundef nonnull %iov.i434, ptr noundef nonnull %iov_cnt.i437), !range !10
+  %call30.i = call i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %301, i32 noundef 32, ptr noundef %cmd, ptr noundef nonnull %addrs.i436, ptr noundef nonnull %iov.i434, ptr noundef nonnull %iov_cnt.i437)
   %cmp31.not.i = icmp eq i32 %call30.i, 0
   br i1 %cmp31.not.i, label %virtio_gpu_resource_attach_backing.exit, label %if.then33.i
 
@@ -3142,7 +3142,7 @@ if.else61:                                        ; preds = %if.end28
 if.end62:                                         ; preds = %do.body31, %if.end57, %if.else61
   %16 = load ptr, ptr %cmdq, align 16
   %cmp.not = icmp eq ptr %16, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end62, %while.body, %if.end
   store i8 0, ptr %processing_cmdq, align 8
@@ -3372,7 +3372,7 @@ land.rhs:                                         ; preds = %entry, %land.rhs
   %2 = load ptr, ptr %next, align 8
   tail call fastcc void @virtio_gpu_resource_destroy(ptr noundef %call.i, ptr noundef nonnull %res.011)
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %for.cond1.preheader, label %land.rhs, !llvm.loop !15
+  br i1 %tobool.not, label %for.cond1.preheader, label %land.rhs, !llvm.loop !14
 
 for.body2:                                        ; preds = %for.body2.lr.ph, %for.body2
   %i.013 = phi i32 [ 0, %for.body2.lr.ph ], [ %inc, %for.body2 ]
@@ -3383,7 +3383,7 @@ for.body2:                                        ; preds = %for.body2.lr.ph, %f
   %inc = add nuw i32 %i.013, 1
   %4 = load i32, ptr %conf, align 16
   %cmp = icmp ult i32 %inc, %4
-  br i1 %cmp, label %for.body2, label %for.end5, !llvm.loop !16
+  br i1 %cmp, label %for.body2, label %for.end5, !llvm.loop !15
 
 for.end5:                                         ; preds = %for.body2, %for.cond1.preheader
   %reset_finished = getelementptr inbounds i8, ptr %call.i, i64 3032
@@ -3420,7 +3420,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   tail call void @qemu_cond_wait_iothread(ptr noundef nonnull %reset_cond) #12
   %2 = load i8, ptr %reset_finished, align 8
   %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %if.end, label %while.body, !llvm.loop !17
+  br i1 %tobool, label %if.end, label %while.body, !llvm.loop !16
 
 if.else:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.22, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_GPU) #12
@@ -3445,7 +3445,7 @@ land.rhs.i:                                       ; preds = %if.else, %land.rhs.
   %5 = load ptr, ptr %next.i, align 8
   tail call fastcc void @virtio_gpu_resource_destroy(ptr noundef %call.i.i, ptr noundef nonnull %res.011.i)
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %for.cond1.preheader.i, label %land.rhs.i, !llvm.loop !15
+  br i1 %tobool.not.i, label %for.cond1.preheader.i, label %land.rhs.i, !llvm.loop !14
 
 for.body2.i:                                      ; preds = %for.body2.i, %for.body2.lr.ph.i
   %i.013.i = phi i32 [ 0, %for.body2.lr.ph.i ], [ %inc.i, %for.body2.i ]
@@ -3456,7 +3456,7 @@ for.body2.i:                                      ; preds = %for.body2.i, %for.b
   %inc.i = add nuw i32 %i.013.i, 1
   %7 = load i32, ptr %conf.i, align 16
   %cmp.i = icmp ult i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body2.i, label %virtio_gpu_reset_bh.exit, !llvm.loop !16
+  br i1 %cmp.i, label %for.body2.i, label %virtio_gpu_reset_bh.exit, !llvm.loop !15
 
 virtio_gpu_reset_bh.exit:                         ; preds = %for.body2.i, %for.cond1.preheader.i
   %reset_finished.i = getelementptr inbounds i8, ptr %call.i.i, i64 3032
@@ -3502,7 +3502,7 @@ while.body5:                                      ; preds = %while.body5.lr.ph, 
   tail call void @g_free(ptr noundef nonnull %10) #12
   %14 = load ptr, ptr %cmdq, align 16
   %cmp.not = icmp eq ptr %14, null
-  br i1 %cmp.not, label %while.cond28.preheader, label %while.body5, !llvm.loop !18
+  br i1 %cmp.not, label %while.cond28.preheader, label %while.body5, !llvm.loop !17
 
 while.body31:                                     ; preds = %while.body31.lr.ph, %while.body31
   %15 = phi ptr [ %9, %while.body31.lr.ph ], [ %20, %while.body31 ]
@@ -3523,7 +3523,7 @@ while.body31:                                     ; preds = %while.body31.lr.ph,
   tail call void @g_free(ptr noundef nonnull %15) #12
   %20 = load ptr, ptr %fenceq, align 16
   %cmp29.not = icmp eq ptr %20, null
-  br i1 %cmp29.not, label %while.end58, label %while.body31, !llvm.loop !19
+  br i1 %cmp29.not, label %while.end58, label %while.body31, !llvm.loop !18
 
 while.end58:                                      ; preds = %while.body31, %while.cond28.preheader
   %call.i33 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #12
@@ -3551,7 +3551,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_gpu_blob_load(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @virtio_gpu_blob_load(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call = tail call i32 @qemu_get_be32(ptr noundef %f) #12
   %cmp.not30 = icmp eq i32 %call, 0
@@ -3617,7 +3617,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %inc = add nuw i32 %i.029, 1
   %5 = load i32, ptr %iov_cnt, align 8
   %cmp13 = icmp ult i32 %inc, %5
-  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !20
+  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %if.end
   %call22 = tail call fastcc zeroext i1 @virtio_gpu_load_restore_mapping(ptr noundef %opaque, ptr noundef nonnull %call2)
@@ -3631,7 +3631,7 @@ if.end24:                                         ; preds = %for.end
   tail call void @virtio_gpu_init_udmabuf(ptr noundef nonnull %call2) #12
   %call25 = tail call i32 @qemu_get_be32(ptr noundef %f) #12
   %cmp.not = icmp eq i32 %call25, 0
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !21
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !20
 
 return:                                           ; preds = %if.end24, %for.body.i, %entry, %if.then23
   %retval.0 = phi i32 [ -22, %if.then23 ], [ 0, %entry ], [ -22, %for.body.i ], [ 0, %if.end24 ]
@@ -3696,13 +3696,13 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %inc = add nuw i32 %i.019, 1
   %10 = load i32, ptr %iov_cnt, align 8
   %cmp7 = icmp ult i32 %inc, %10
-  br i1 %cmp7, label %for.body9, label %for.inc13, !llvm.loop !22
+  br i1 %cmp7, label %for.body9, label %for.inc13, !llvm.loop !21
 
 for.inc13:                                        ; preds = %for.body9, %if.end3, %for.body
   %next = getelementptr inbounds i8, ptr %res.022, i64 88
   %res.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %res.0, null
-  br i1 %tobool.not, label %for.end14, label %for.body, !llvm.loop !23
+  br i1 %tobool.not, label %for.end14, label %for.body, !llvm.loop !22
 
 for.end14:                                        ; preds = %for.inc13, %if.end
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef 0) #12
@@ -3821,7 +3821,7 @@ for.inc:                                          ; preds = %if.end4.i, %if.then
   %8 = phi i32 [ %.pre, %if.end4.i ], [ %2, %if.then3 ], [ %2, %for.body ]
   %inc = add nuw i32 %i.024, 1
   %cmp = icmp ult i32 %inc, %8
-  br i1 %cmp, label %for.body, label %if.end4, !llvm.loop !24
+  br i1 %cmp, label %for.body, label %if.end4, !llvm.loop !23
 
 if.end4:                                          ; preds = %for.inc, %for.cond.preheader, %entry
   %image = getelementptr inbounds i8, ptr %res, i64 40
@@ -4394,7 +4394,7 @@ for.inc:                                          ; preds = %lor.lhs.false
   %inc = add nuw i32 %i.062, 1
   %14 = load i32, ptr %iov_cnt, align 8
   %cmp.not = icmp ult i32 %inc, %14
-  br i1 %cmp.not, label %for.body, label %do.body, !llvm.loop !25
+  br i1 %cmp.not, label %for.body, label %do.body, !llvm.loop !24
 
 do.body:                                          ; preds = %for.inc, %entry
   %reslist = getelementptr inbounds i8, ptr %g, i64 3040
@@ -4495,7 +4495,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr %next, ptr %tql_prev, align 8
   %call12 = tail call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 112) #12
   %tobool3.not = icmp eq ptr %call12, null
-  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !26
+  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !25
 
 while.end:                                        ; preds = %while.body, %if.end
   tail call void @virtio_gpu_process_cmdq(ptr noundef %call.i)
@@ -4592,7 +4592,7 @@ if.then19.i:                                      ; preds = %trace_virtio_gpu_fe
 
 for.inc.i:                                        ; preds = %if.then19.i, %trace_virtio_gpu_fence_resp.exit.i
   %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %virtio_gpu_process_fenceq.exit, label %land.rhs.i, !llvm.loop !27
+  br i1 %tobool.not.i, label %virtio_gpu_process_fenceq.exit, label %land.rhs.i, !llvm.loop !26
 
 virtio_gpu_process_fenceq.exit:                   ; preds = %for.inc.i, %entry
   call void @virtio_gpu_process_cmdq(ptr noundef nonnull %b)
@@ -4681,7 +4681,7 @@ declare void @qemu_cond_destroy(ptr noundef) local_unnamed_addr #1
 declare void @virtio_gpu_base_device_unrealize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_gpu_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -22, 1) i32 @virtio_gpu_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %conf = getelementptr inbounds i8, ptr %opaque, i64 528
   %0 = load i32, ptr %conf, align 16
@@ -4757,7 +4757,7 @@ for.inc:                                          ; preds = %for.body, %if.end18
   %9 = phi i32 [ %1, %for.body ], [ %.pre, %if.end18 ]
   %inc = add nuw i32 %i.022, 1
   %cmp = icmp ult i32 %inc, %9
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !28
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !27
 
 return:                                           ; preds = %if.end6, %for.inc, %if.end, %for.inc.i, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ -22, %for.inc.i ], [ -22, %if.end6 ], [ 0, %for.inc ], [ -22, %if.end ]
@@ -4765,7 +4765,7 @@ return:                                           ; preds = %if.end6, %for.inc, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_gpu_load(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @virtio_gpu_load(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %hostmem = getelementptr inbounds i8, ptr %opaque, i64 3088
   store i64 0, ptr %hostmem, align 16
@@ -4906,7 +4906,7 @@ for.body:                                         ; preds = %if.end29, %for.body
   %inc = add nuw i32 %i.060, 1
   %11 = load i32, ptr %iov_cnt, align 8
   %cmp37 = icmp ult i32 %inc, %11
-  br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !29
+  br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !28
 
 for.end:                                          ; preds = %for.body, %if.end29
   %12 = load ptr, ptr %image, align 8
@@ -4929,7 +4929,7 @@ if.then54:                                        ; preds = %for.end
 if.end57:                                         ; preds = %for.end
   %call58 = tail call i32 @qemu_get_be32(ptr noundef %f) #12
   %cmp.not = icmp eq i32 %call58, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !30
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !29
 
 while.end:                                        ; preds = %if.end57, %entry
   %call59 = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio_gpu_scanouts, ptr noundef %opaque, i32 noundef 1) #12
@@ -5004,7 +5004,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
   %inc = add nuw i32 %i.029, 1
   %12 = load i32, ptr %iov_cnt, align 8
   %cmp6 = icmp ult i32 %inc, %12
-  br i1 %cmp6, label %for.body7, label %for.end, !llvm.loop !31
+  br i1 %cmp6, label %for.body7, label %for.end, !llvm.loop !30
 
 for.end:                                          ; preds = %for.body7, %if.end3
   %image = getelementptr inbounds i8, ptr %res.032, i64 40
@@ -5022,7 +5022,7 @@ for.inc14:                                        ; preds = %for.body, %for.end
   %next = getelementptr inbounds i8, ptr %res.032, i64 88
   %res.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %res.0, null
-  br i1 %tobool.not, label %for.end15, label %for.body, !llvm.loop !32
+  br i1 %tobool.not, label %for.end15, label %for.body, !llvm.loop !31
 
 for.end15:                                        ; preds = %for.inc14, %if.end
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef 0) #12
@@ -5082,7 +5082,7 @@ attributes #16 = { noreturn nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 1}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -5104,4 +5104,3 @@ attributes #16 = { noreturn nounwind }
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}

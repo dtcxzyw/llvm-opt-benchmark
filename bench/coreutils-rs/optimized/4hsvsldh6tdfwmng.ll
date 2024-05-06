@@ -392,13 +392,13 @@ define hidden void @_ZN3ini3Ini18load_from_file_opt17hcc751519d237f041E(ptr noal
   br i1 %68, label %70, label %69
 
 69:                                               ; preds = %66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %8, i64 176, i1 false), !noalias !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %8, i64 176, i1 false), !noalias !70
   br label %73
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds i8, ptr %8, i64 8
   %72 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %71, i64 40, i1 false), !noalias !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %71, i64 40, i1 false), !noalias !70
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !60, !noalias !70
   br label %73
 

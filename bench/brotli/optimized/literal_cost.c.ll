@@ -308,7 +308,7 @@ FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.the
 
 if.then134.i:                                     ; preds = %FastLog2.exit.i
   %sub135.i = sub nuw nsw i64 2000, %i.1140.i
-  %conv136.i = uitofp i64 %sub135.i to double
+  %conv136.i = uitofp nneg i64 %sub135.i to double
   %neg.i = fdiv double %conv136.i, -2.000000e+03
   %25 = tail call double @llvm.fmuladd.f64(double %neg.i, double 3.500000e-01, double 0x3FE6666666666666)
   %add138.i = fadd double %25, %lit_cost.0.i

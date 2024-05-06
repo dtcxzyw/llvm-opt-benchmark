@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @sodium_memcmp(ptr noundef %b1_, ptr noundef %b2_, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sodium_memcmp(ptr noundef %b1_, ptr noundef %b2_, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %d = alloca i8, align 1
   store volatile i8 0, ptr %d, align 1
@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @sodium_compare(ptr noundef %b1_, ptr noundef %b2_, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 765) i32 @sodium_compare(ptr noundef %b1_, ptr noundef %b2_, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %gt = alloca i8, align 1
   %eq = alloca i8, align 1
@@ -127,7 +127,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define i32 @sodium_is_zero(ptr nocapture noundef readonly %n, i64 noundef %nlen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sodium_is_zero(ptr nocapture noundef readonly %n, i64 noundef %nlen) local_unnamed_addr #2 {
 entry:
   %d = alloca i8, align 1
   store volatile i8 0, ptr %d, align 1
@@ -598,7 +598,7 @@ _sodium_mprotect.exit:                            ; preds = %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @sodium_pad(ptr noundef writeonly %padded_buflen_p, ptr nocapture noundef nonnull %buf, i64 noundef %unpadded_buflen, i64 noundef %blocksize, i64 noundef %max_buflen) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly %padded_buflen_p, ptr nocapture noundef nonnull %buf, i64 noundef %unpadded_buflen, i64 noundef %blocksize, i64 noundef %max_buflen) local_unnamed_addr #0 {
 entry:
   %mask = alloca i8, align 1
   %cmp = icmp eq i64 %blocksize, 0
@@ -606,7 +606,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sub = add i64 %blocksize, -1
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %blocksize), !range !18
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %blocksize)
   %cmp2 = icmp ult i64 %0, 2
   br i1 %cmp2, label %if.then3, label %if.else
 
@@ -655,7 +655,7 @@ for.body:                                         ; preds = %if.end19, %for.body
   %xor = xor i64 %i.025, %xpadlen.0
   %sub21 = add i64 %xor, -1
   %shr = lshr i64 %sub21, 56
-  %conv = trunc i64 %shr to i8
+  %conv = trunc nuw i64 %shr to i8
   %idx.neg = sub i64 0, %i.025
   %add.ptr = getelementptr i8, ptr %arrayidx, i64 %idx.neg
   %1 = load i8, ptr %add.ptr, align 1
@@ -669,7 +669,7 @@ for.body:                                         ; preds = %if.end19, %for.body
   store volatile i8 %or32, ptr %mask, align 1
   %inc = add nuw i64 %i.025, 1
   %exitcond.not = icmp eq i64 %inc, %blocksize
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !18
 
 return:                                           ; preds = %for.body, %if.end12, %entry
   %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end12 ], [ 0, %for.body ]
@@ -677,7 +677,7 @@ return:                                           ; preds = %for.body, %if.end12
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i32 @sodium_unpad(ptr nocapture noundef writeonly %unpadded_buflen_p, ptr nocapture noundef nonnull readonly %buf, i64 noundef %padded_buflen, i64 noundef %blocksize) local_unnamed_addr #9 {
+define range(i32 -1, 1) i32 @sodium_unpad(ptr nocapture noundef writeonly %unpadded_buflen_p, ptr nocapture noundef nonnull readonly %buf, i64 noundef %padded_buflen, i64 noundef %blocksize) local_unnamed_addr #9 {
 entry:
   %pad_len = alloca i64, align 8
   store volatile i64 0, ptr %pad_len, align 8
@@ -715,11 +715,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %pad_len.0.pad_len.0.pad_len.0.pad_len.0.5 = load volatile i64, ptr %pad_len, align 8
   %or15 = or i64 %and14, %pad_len.0.pad_len.0.pad_len.0.pad_len.0.5
   store volatile i64 %or15, ptr %pad_len, align 8
-  %conv16 = trunc i64 %and10 to i8
+  %conv16 = trunc nuw nsw i64 %and10 to i8
   %or19 = or i8 %valid.016, %conv16
   %inc = add nuw i64 %i.017, 1
   %exitcond.not = icmp eq i64 %inc, %blocksize
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
   %3 = zext nneg i8 %or19 to i32
@@ -799,6 +799,5 @@ attributes #16 = { noreturn }
 !15 = distinct !{!15, !5}
 !16 = !{i64 9802, i64 9845, i64 9887, i64 9929, i64 9971, i64 10013, i64 10055, i64 10097, i64 10139, i64 10182, i64 10225, i64 10268, i64 10311, i64 10354, i64 10397, i64 10440}
 !17 = distinct !{!17, !5}
-!18 = !{i64 0, i64 65}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

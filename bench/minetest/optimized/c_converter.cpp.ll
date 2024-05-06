@@ -107,7 +107,7 @@ $_ZTV13BaseException = comdat any
 @_ZGVZ18check_field_or_nilP9lua_StateiiPKcE11warned_msgs = internal thread_local unnamed_addr global i1 false, align 1
 @.str.17 = private unnamed_addr constant [15 x i8] c"Invalid field \00", align 1
 @.str.18 = private unnamed_addr constant [4 x i8] c").\0A\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @_ZTV8LuaError = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI8LuaError, ptr @_ZN13BaseExceptionD2Ev, ptr @_ZN8LuaErrorD0Ev, ptr @_ZNK13BaseException4whatEv] }, comdat, align 8
 @_ZTV13BaseException = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI13BaseException, ptr @_ZN13BaseExceptionD2Ev, ptr @_ZN13BaseExceptionD0Ev, ptr @_ZNK13BaseException4whatEv] }, comdat, align 8
 @.str.19 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
@@ -6920,7 +6920,7 @@ entry:
   %default_.sroa.3.0.extract.shift = lshr i48 %default_.coerce, 16
   %default_.sroa.3.0.extract.trunc = trunc i48 %default_.sroa.3.0.extract.shift to i16
   %default_.sroa.4.0.extract.shift = lshr i48 %default_.coerce, 32
-  %default_.sroa.4.0.extract.trunc = trunc i48 %default_.sroa.4.0.extract.shift to i16
+  %default_.sroa.4.0.extract.trunc = trunc nuw i48 %default_.sroa.4.0.extract.shift to i16
   tail call void @lua_getfield(ptr noundef %L, i32 noundef %table, ptr noundef %fieldname)
   %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1)
   %cmp.i = icmp eq i32 %call.i, 5
@@ -7035,17 +7035,17 @@ define dso_local noundef i64 @_Z23write_array_slice_floatP9lua_StateiPfN3irr4cor
 entry:
   %data_size.sroa.0.0.extract.trunc = trunc i48 %data_size.coerce to i32
   %data_size.sroa.6.0.extract.shift = lshr i48 %data_size.coerce, 16
-  %data_size.sroa.6.0.extract.trunc = trunc i48 %data_size.sroa.6.0.extract.shift to i32
+  %data_size.sroa.6.0.extract.trunc = trunc nuw i48 %data_size.sroa.6.0.extract.shift to i32
   %data_size.sroa.10.0.extract.shift = lshr i48 %data_size.coerce, 32
-  %data_size.sroa.10.0.extract.trunc = trunc i48 %data_size.sroa.10.0.extract.shift to i32
+  %data_size.sroa.10.0.extract.trunc = trunc nuw nsw i48 %data_size.sroa.10.0.extract.shift to i32
   %0 = trunc i48 %slice_offset.coerce to i32
   %1 = lshr i32 %0, 16
   %slice_offset.sroa.13.0.extract.shift = lshr i48 %slice_offset.coerce, 32
-  %slice_offset.sroa.13.0.extract.trunc = trunc i48 %slice_offset.sroa.13.0.extract.shift to i32
+  %slice_offset.sroa.13.0.extract.trunc = trunc nuw nsw i48 %slice_offset.sroa.13.0.extract.shift to i32
   %2 = trunc i48 %slice_size.coerce to i32
   %3 = lshr i32 %2, 16
   %slice_size.sroa.5.0.extract.shift = lshr i48 %slice_size.coerce, 32
-  %slice_size.sroa.5.0.extract.trunc = trunc i48 %slice_size.sroa.5.0.extract.shift to i32
+  %slice_size.sroa.5.0.extract.trunc = trunc nuw nsw i48 %slice_size.sroa.5.0.extract.shift to i32
   %conv150 = and i48 %slice_offset.coerce, 65535
   %cmp.not = icmp eq i48 %conv150, 0
   br i1 %cmp.not, label %if.end, label %if.then

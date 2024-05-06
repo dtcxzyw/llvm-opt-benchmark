@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [26 x i8] c"unsuitable for PDU export\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @exp_pdu_open(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @exp_pdu_open(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.wtap_dump_params, align 8
@@ -263,7 +263,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @export_pdu_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 3) i32 @export_pdu_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = alloca %struct.wtap_rec, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8

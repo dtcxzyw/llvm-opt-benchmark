@@ -1041,7 +1041,7 @@ _ZN5vcpkg4Util13range_lexcompISt6vectorINSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZN5vcpkgL14semver_id_compENS_11ZStringViewES0_.exit
 
 90:                                               ; preds = %_ZN5vcpkg12_GLOBAL__N_110as_numericENS_10StringViewE.exit16.i
-  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %60) #21
+  %91 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull readonly dereferenceable(1) %60) #21
   br label %_ZN5vcpkgL14semver_id_compENS_11ZStringViewES0_.exit
 
 _ZN5vcpkgL14semver_id_compENS_11ZStringViewES0_.exit: ; preds = %85, %90
@@ -2048,7 +2048,7 @@ _ZN5vcpkg7details15OptionalStorageINS_10DotVersionELb1EED2Ev.exit: ; preds = %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN5vcpkg14int_to_vercompEi(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN5vcpkg14int_to_vercompEi(i32 noundef %0) local_unnamed_addr #6 {
   %.not = icmp ne i32 %0, 0
   %. = zext i1 %.not to i32
   %.inv = icmp sgt i32 %0, -1

@@ -1383,7 +1383,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %171
   br i1 %183, label %186, label %184
 
 184:                                              ; preds = %180
-  %185 = getelementptr inbounds i8, ptr %179, i64 %176
+  %185 = getelementptr i8, ptr %179, i64 %176
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %181, i8 0, i64 %182, i1 false), !noalias !17
   br label %186
 

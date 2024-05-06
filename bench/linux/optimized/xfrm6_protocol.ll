@@ -192,7 +192,7 @@ declare dso_local ptr @ip6_route_input_lookup(ptr noundef, ptr noundef, ptr noun
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm6_protocol_register(ptr noundef %0, i8 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noundef %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   switch i8 %1, label %39 [
@@ -311,7 +311,7 @@ declare dso_local i32 @inet6_add_protocol(ptr noundef, i8 noundef zeroext) local
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm6_protocol_deregister(ptr noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_deregister(ptr noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
   switch i8 %1, label %43 [
     i8 50, label %3
     i8 51, label %3
@@ -458,7 +458,7 @@ declare dso_local void @icmp6_send(ptr noundef, i8 noundef zeroext, i8 noundef z
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm6_esp_rcv(ptr noundef %0) #0 align 16 {
+define internal range(i32 -21, -22) i32 @xfrm6_esp_rcv(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @esp6_handlers, align 8
@@ -490,7 +490,7 @@ define internal i32 @xfrm6_esp_rcv(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm6_esp_err(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @xfrm6_esp_err(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = load volatile ptr, ptr @esp6_handlers, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -515,7 +515,7 @@ define internal noundef i32 @xfrm6_esp_err(ptr noundef %0, ptr noundef %1, i8 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm6_ah_rcv(ptr noundef %0) #0 align 16 {
+define internal range(i32 -21, -22) i32 @xfrm6_ah_rcv(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @ah6_handlers, align 8
@@ -547,7 +547,7 @@ define internal i32 @xfrm6_ah_rcv(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm6_ah_err(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @xfrm6_ah_err(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = load volatile ptr, ptr @ah6_handlers, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -572,7 +572,7 @@ define internal noundef i32 @xfrm6_ah_err(ptr noundef %0, ptr noundef %1, i8 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm6_ipcomp_rcv(ptr noundef %0) #0 align 16 {
+define internal range(i32 -21, -22) i32 @xfrm6_ipcomp_rcv(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @ipcomp6_handlers, align 8
@@ -604,7 +604,7 @@ define internal i32 @xfrm6_ipcomp_rcv(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm6_ipcomp_err(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @xfrm6_ipcomp_err(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = load volatile ptr, ptr @ipcomp6_handlers, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -629,7 +629,7 @@ define internal noundef i32 @xfrm6_ipcomp_err(ptr noundef %0, ptr noundef %1, i8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm6_rcv_cb(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @xfrm6_rcv_cb(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   switch i8 %1, label %.loopexit [
     i8 50, label %6
     i8 51, label %4

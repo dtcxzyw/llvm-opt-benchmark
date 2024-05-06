@@ -1270,9 +1270,9 @@ while.body:                                       ; preds = %while.cond
   %strlen.i68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i67)
   %strchr.i69 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 %strlen.i68
   store ptr %strchr.i69, ptr %fieldLimit.i, align 8
-  %call95 = call noundef signext i8 @_ZN6icu_7512PreparsedUCD13parsePropertyERNS_8UniPropsEPKcRNS_10UnicodeSetER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull align 8 dereferenceable(696) %props.0, ptr noundef nonnull %add.ptr.i67, ptr noundef nonnull align 8 dereferenceable(200) %newValues, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !10
+  %call95 = call noundef signext i8 @_ZN6icu_7512PreparsedUCD13parsePropertyERNS_8UniPropsEPKcRNS_10UnicodeSetER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull align 8 dereferenceable(696) %props.0, ptr noundef nonnull %add.ptr.i67, ptr noundef nonnull align 8 dereferenceable(200) %newValues, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool96.not = icmp eq i8 %call95, 0
-  br i1 %tobool96.not, label %return, label %while.cond, !llvm.loop !11
+  br i1 %tobool96.not, label %return, label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %while.cond
   %30 = load i32, ptr %lineType.i, align 8
@@ -1321,7 +1321,7 @@ if.then124:                                       ; preds = %land.lhs.true113
 for.inc:                                          ; preds = %for.body, %land.lhs.true113, %if.then124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 75
-  br i1 %exitcond.not, label %for.cond128.preheader, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.cond128.preheader, label %for.body, !llvm.loop !11
 
 for.body130:                                      ; preds = %for.cond128.preheader, %for.inc146
   %indvars.iv94 = phi i64 [ 4096, %for.cond128.preheader ], [ %indvars.iv.next95, %for.inc146 ]
@@ -1346,7 +1346,7 @@ if.then143:                                       ; preds = %land.lhs.true133
 for.inc146:                                       ; preds = %for.body130, %land.lhs.true133, %if.then143
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, 4121
-  br i1 %exitcond98.not, label %return, label %for.body130, !llvm.loop !13
+  br i1 %exitcond98.not, label %return, label %for.body130, !llvm.loop !12
 
 return:                                           ; preds = %while.body, %for.inc146, %_ZN6icu_7512PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread, %if.then101, %if.else104, %entry, %sw.default, %if.else78, %if.then30, %if.then23, %if.then17, %if.then9, %if.then5
   %retval.0 = phi ptr [ null, %if.then9 ], [ null, %sw.default ], [ null, %if.else78 ], [ null, %if.then17 ], [ null, %if.then23 ], [ null, %if.then30 ], [ null, %if.then5 ], [ null, %entry ], [ %props.0, %if.else104 ], [ %props.0, %if.then101 ], [ null, %_ZN6icu_7512PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread ], [ %props.0, %for.inc146 ], [ null, %while.body ]
@@ -1356,7 +1356,7 @@ return:                                           ; preds = %while.body, %for.in
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7512PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14640) %this, ptr noundef %s, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %end, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14640) %this, ptr noundef %s, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %end, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %st = alloca i32, align 4
   %e = alloca i32, align 4
@@ -1412,7 +1412,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6removeEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7512PreparsedUCD13parsePropertyERNS_8UniPropsEPKcRNS_10UnicodeSetER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14640) %this, ptr noundef nonnull align 8 dereferenceable(696) %props, ptr noundef %field, ptr noundef nonnull align 8 dereferenceable(200) %newValues, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PreparsedUCD13parsePropertyERNS_8UniPropsEPKcRNS_10UnicodeSetER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14640) %this, ptr noundef nonnull align 8 dereferenceable(696) %props, ptr noundef %field, ptr noundef nonnull align 8 dereferenceable(200) %newValues, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pBuffer = alloca %"class.icu_75::CharString", align 8
   %end = alloca ptr, align 8
@@ -1492,7 +1492,7 @@ invoke.cont17:                                    ; preds = %if.end16
 for.cond:                                         ; preds = %invoke.cont24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp21 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %cmp21, label %cleanup, label %if.end23, !llvm.loop !14
+  br i1 %cmp21, label %cleanup, label %if.end23, !llvm.loop !13
 
 if.end23:                                         ; preds = %invoke.cont17, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %invoke.cont17 ]
@@ -1769,37 +1769,37 @@ sw.bb139:                                         ; preds = %if.else120
           to label %if.end188 unwind label %lpad.loopexit.split-lp
 
 sw.bb141:                                         ; preds = %if.else120
-  %call143 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !15
+  %call143 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %bmg144 = getelementptr inbounds i8, ptr %props, i64 188
   store i32 %call143, ptr %bmg144, align 4
   br label %if.end188
 
 sw.bb145:                                         ; preds = %if.else120
-  %call147 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !15
+  %call147 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %bpb148 = getelementptr inbounds i8, ptr %props, i64 192
   store i32 %call147, ptr %bpb148, align 8
   br label %if.end188
 
 sw.bb149:                                         ; preds = %if.else120
-  %call151 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !15
+  %call151 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %scf152 = getelementptr inbounds i8, ptr %props, i64 196
   store i32 %call151, ptr %scf152, align 4
   br label %if.end188
 
 sw.bb153:                                         ; preds = %if.else120
-  %call155 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !15
+  %call155 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %slc156 = getelementptr inbounds i8, ptr %props, i64 200
   store i32 %call155, ptr %slc156, align 8
   br label %if.end188
 
 sw.bb157:                                         ; preds = %if.else120
-  %call159 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !15
+  %call159 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %stc160 = getelementptr inbounds i8, ptr %props, i64 204
   store i32 %call159, ptr %stc160, align 4
   br label %if.end188
 
 sw.bb161:                                         ; preds = %if.else120
-  %call163 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !15
+  %call163 = call noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef nonnull %v.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %suc164 = getelementptr inbounds i8, ptr %props, i64 208
   store i32 %call163, ptr %suc164, align 8
   br label %if.end188
@@ -1858,7 +1858,7 @@ declare i32 @uprv_stricmp_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14640) %this, ptr noundef %s, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #17 align 2 {
+define noundef range(i32 -1, 1114112) i32 @_ZN6icu_7512PreparsedUCD14parseCodePointEPKcR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14640) %this, ptr noundef %s, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #17 align 2 {
 entry:
   %end = alloca ptr, align 8
   %call = call i64 @strtoul(ptr noundef %s, ptr noundef nonnull %end, i32 noundef 16) #21
@@ -1892,7 +1892,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 define void @_ZN6icu_7512PreparsedUCD11parseStringEPKcRNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14640) %this, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(64) %uni, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %uni, i32 noundef -1)
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call) #21, !srcloc !16
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call) #21, !srcloc !14
   %fUnion.i = getelementptr inbounds i8, ptr %uni, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %1 = and i16 %0, 2
@@ -1909,7 +1909,7 @@ if.then:                                          ; preds = %entry
   store i32 0, ptr %errorCode, align 4
   tail call void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %uni, i32 noundef 0)
   %call5 = tail call noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %uni, i32 noundef %call4)
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call5) #21, !srcloc !16
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call5) #21, !srcloc !14
   %4 = load i16, ptr %fUnion.i, align 8
   %5 = and i16 %4, 2
   %tobool.not.i15 = icmp eq i16 %5, 0
@@ -2035,7 +2035,7 @@ if.else32:                                        ; preds = %invoke.cont24
 
 if.end36:                                         ; preds = %if.else32
   %add.ptr = getelementptr inbounds i8, ptr %call3, i64 1
-  br i1 %cmp.not, label %for.end, label %for.cond, !llvm.loop !17
+  br i1 %cmp.not, label %for.end, label %for.cond, !llvm.loop !15
 
 for.end:                                          ; preds = %if.end36
   %call42 = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(200) %scx)
@@ -2068,7 +2068,7 @@ cleanup.cont:                                     ; preds = %entry, %cleanup
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7512PreparsedUCD19getRangeForAlgNamesERiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %end, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PreparsedUCD19getRangeForAlgNamesERiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %end, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %st.i = alloca i32, align 4
   %e.i = alloca i32, align 4
@@ -2213,11 +2213,9 @@ attributes #25 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i8 0, i8 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = !{i32 -1, i32 1114112}
-!16 = !{i64 2148378793}
-!17 = distinct !{!17, !5}
+!14 = !{i64 2148378793}
+!15 = distinct !{!15, !5}

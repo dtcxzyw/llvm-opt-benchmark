@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [6 x i8] c"nid%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @create_apinfo(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -360,7 +360,7 @@ define noundef i32 @create_apinfo(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %130
-  %135 = trunc i64 %indvars.iv162.i to i32
+  %135 = trunc nuw nsw i64 %indvars.iv162.i to i32
   %136 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef nonnull @plugin_type, i32 noundef %135) #11
   br label %.critedge2.thread.i
 
@@ -1097,7 +1097,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i161, %
 
 .preheader.lr.ph.i:                               ; preds = %405, %_setup_pals_nics.exit
   call void @slurm_xfree(ptr noundef nonnull %12) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %11, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %11, i8 0, i64 136, i1 false)
   store i32 5, ptr %11, align 8
   %407 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 36, ptr %407, align 8
@@ -1146,7 +1146,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i161, %
   %436 = add nsw i64 %430, %435
   %437 = getelementptr inbounds i8, ptr %11, i64 136
   %438 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %437, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %437, i8 0, i64 24, i1 false)
   store i64 %436, ptr %438, align 8
   %439 = load ptr, ptr %17, align 8
   %440 = call ptr @slurm_xcalloc(i64 noundef %422, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 197, ptr noundef nonnull @__func__._setup_pals_pes) #11
@@ -1167,7 +1167,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i161, %
 
 .lr.ph.us.i:                                      ; preds = %.preheader.us.i
   %443 = getelementptr inbounds ptr, ptr %.0120200221250273286309, i64 %indvars.iv48.i
-  %444 = trunc i64 %indvars.iv48.i to i32
+  %444 = trunc nuw nsw i64 %indvars.iv48.i to i32
   br label %445
 
 445:                                              ; preds = %457, %.lr.ph.us.i
@@ -1187,7 +1187,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i161, %
   %453 = getelementptr inbounds %struct.pals_pe_t, ptr %440, i64 %452
   %454 = getelementptr inbounds i8, ptr %453, i64 8
   store i32 %444, ptr %454, align 4
-  %455 = trunc i64 %indvars.iv45.i to i32
+  %455 = trunc nuw nsw i64 %indvars.iv45.i to i32
   store i32 %455, ptr %453, align 4
   %456 = getelementptr inbounds i8, ptr %453, i64 4
   store i32 0, ptr %456, align 4
@@ -1209,7 +1209,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i161, %
 
 .lr.ph.i171:                                      ; preds = %.preheader.i170
   %463 = getelementptr inbounds ptr, ptr %.0120200221250273286309, i64 %indvars.iv42.i
-  %464 = trunc i64 %indvars.iv42.i to i32
+  %464 = trunc nuw nsw i64 %indvars.iv42.i to i32
   br label %465
 
 465:                                              ; preds = %479, %.lr.ph.i171
@@ -1229,7 +1229,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i161, %
   %473 = getelementptr inbounds %struct.pals_pe_t, ptr %440, i64 %472
   %474 = getelementptr inbounds i8, ptr %473, i64 8
   store i32 %464, ptr %474, align 4
-  %475 = trunc i64 %indvars.iv.i172 to i32
+  %475 = trunc nuw nsw i64 %indvars.iv.i172 to i32
   store i32 %475, ptr %473, align 4
   %476 = getelementptr inbounds i32, ptr %439, i64 %472
   %477 = load i32, ptr %476, align 4
@@ -1632,7 +1632,7 @@ _open_apinfo.exit.thread:                         ; preds = %524, %537
   br label %.lr.ph511.split.us, !llvm.loop !27
 
 .outer313._crit_edge:                             ; preds = %.split514.us, %.outer314._crit_edge
-  %639 = call fastcc i32 @_write_pals_nodes(i32 noundef %522, ptr noundef nonnull %.0119201220251272287308), !range !28
+  %639 = call fastcc i32 @_write_pals_nodes(i32 noundef %522, ptr noundef nonnull %.0119201220251272287308)
   %640 = icmp eq i32 %639, -1
   br i1 %640, label %679, label %641
 
@@ -1699,7 +1699,7 @@ _open_apinfo.exit.thread:                         ; preds = %524, %537
   br label %.lr.ph530.split.us.backedge
 
 .lr.ph530.split.us.backedge:                      ; preds = %666, %663
-  br label %.lr.ph530.split.us, !llvm.loop !29
+  br label %.lr.ph530.split.us, !llvm.loop !28
 
 .outer._crit_edge:                                ; preds = %.split533.us, %641
   %667 = call i32 @fsync(i32 noundef %522) #11
@@ -1768,7 +1768,7 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_write_pals_nodes(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_write_pals_nodes(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.pals_node_t, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -1793,14 +1793,14 @@ define internal fastcc noundef i32 @_write_pals_nodes(i32 noundef %0, ptr nounde
 .loopexit:                                        ; preds = %.split.us
   %11 = call ptr @hostlist_shift(ptr noundef nonnull %6) #11
   %.not24 = icmp eq ptr %11, null
-  br i1 %.not24, label %.loopexit25, label %12, !llvm.loop !30
+  br i1 %.not24, label %.loopexit25, label %12, !llvm.loop !29
 
 12:                                               ; preds = %.lr.ph44, %.loopexit
   %13 = phi ptr [ %7, %.lr.ph44 ], [ %11, %.loopexit ]
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.37, ptr noundef nonnull %13) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 -1, ptr %3, align 4
-  %15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #11
+  %15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %13, ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #11
   %16 = icmp slt i32 %15, 1
   %17 = load i32, ptr %3, align 4
   %18 = icmp slt i32 %17, 0
@@ -1865,7 +1865,7 @@ define internal fastcc noundef i32 @_write_pals_nodes(i32 noundef %0, ptr nounde
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %40, %37
-  br label %.lr.ph.split.us, !llvm.loop !31
+  br label %.lr.ph.split.us, !llvm.loop !30
 
 .loopexit25:                                      ; preds = %.loopexit, %.preheader, %.split32.us, %32
   call void @hostlist_destroy(ptr noundef nonnull %6) #11
@@ -1985,7 +1985,6 @@ attributes #12 = { nounwind willreturn memory(none) }
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
-!28 = !{i32 -1, i32 1}
+!28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}

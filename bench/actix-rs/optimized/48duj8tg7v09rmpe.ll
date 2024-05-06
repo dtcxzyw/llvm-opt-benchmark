@@ -297,7 +297,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br label %"_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..hash..Hash$GT$4hash17h6c090d70e84ae0bbE.llvm.15438266989197742398.exit"
 
 26:                                               ; preds = %2
-  tail call void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash..Hash$GT$4hash17h179407edcb5bbfcfE.llvm.15438266989197742398"(ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash..Hash$GT$4hash17h179407edcb5bbfcfE.llvm.15438266989197742398"(ptr noundef nonnull readonly align 8 %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %"_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..hash..Hash$GT$4hash17h6c090d70e84ae0bbE.llvm.15438266989197742398.exit"
 
 "_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..hash..Hash$GT$4hash17h6c090d70e84ae0bbE.llvm.15438266989197742398.exit": ; preds = %16, %26
@@ -524,7 +524,7 @@ define hidden void @"_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..h
   br label %"_ZN70_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hfa57ad931fe4f3f3E.llvm.15438266989197742398.exit"
 
 25:                                               ; preds = %2
-  tail call void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash..Hash$GT$4hash17h179407edcb5bbfcfE.llvm.15438266989197742398"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash..Hash$GT$4hash17h179407edcb5bbfcfE.llvm.15438266989197742398"(ptr noundef nonnull readonly align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %"_ZN70_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hfa57ad931fe4f3f3E.llvm.15438266989197742398.exit"
 
 "_ZN70_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hfa57ad931fe4f3f3E.llvm.15438266989197742398.exit": ; preds = %15, %25

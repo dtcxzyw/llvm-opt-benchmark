@@ -103,7 +103,7 @@ $_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test = comdat any
 @.str.29 = private unnamed_addr constant [43 x i8] c"result.getFamily() != fallback.getFamily()\00", align 1
 @g_settings = external local_unnamed_addr global ptr, align 8
 @.str.30 = private unnamed_addr constant [12 x i8] c"enable_ipv6\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.31 = private unnamed_addr constant [53 x i8] c"Couldn't verify Address::Resolve fallback (no IPv6?)\00", align 1
 @_ZTV11TestAddress = dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI11TestAddress, ptr @_ZN11TestAddress8runTestsEP8IGameDef, ptr @_ZN11TestAddress7getNameEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]

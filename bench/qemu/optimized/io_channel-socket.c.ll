@@ -174,7 +174,7 @@ define dso_local noundef ptr @qio_channel_socket_new_fd(i32 noundef %fd, ptr nou
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qio_channel_socket_new()
-  %call1 = tail call fastcc i32 @qio_channel_socket_set_fd(ptr noundef %call, i32 noundef %fd, ptr noundef %errp), !range !5
+  %call1 = tail call fastcc i32 @qio_channel_socket_set_fd(ptr noundef %call, i32 noundef %fd, ptr noundef %errp)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -225,7 +225,7 @@ return:                                           ; preds = %trace_qio_channel_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qio_channel_socket_set_fd(ptr noundef %sioc, i32 noundef %fd, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @qio_channel_socket_set_fd(ptr noundef %sioc, i32 noundef %fd, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %fd1 = getelementptr inbounds i8, ptr %sioc, i64 96
   %0 = load i32, ptr %fd1, align 8
@@ -296,7 +296,7 @@ return:                                           ; preds = %if.end21, %if.then2
 declare void @object_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_socket_connect_sync(ptr noundef %ioc, ptr noundef %addr, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_socket_connect_sync(ptr noundef %ioc, ptr noundef %addr, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i26 = alloca %struct.timeval, align 8
   %_now.i.i12 = alloca %struct.timeval, align 8
@@ -412,7 +412,7 @@ if.else.i.i35:                                    ; preds = %if.then.i.i33
 
 trace_qio_channel_socket_connect_complete.exit:   ; preds = %if.end, %land.lhs.true5.i.i30, %if.then8.i.i36, %if.else.i.i35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i26)
-  %call1 = tail call fastcc i32 @qio_channel_socket_set_fd(ptr noundef %ioc, i32 noundef %call, ptr noundef %errp), !range !5
+  %call1 = tail call fastcc i32 @qio_channel_socket_set_fd(ptr noundef %ioc, i32 noundef %call, ptr noundef %errp)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end5
 
@@ -507,7 +507,7 @@ entry:
   %call = tail call ptr @qio_task_get_source(ptr noundef %task) #9
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   store ptr null, ptr %err, align 8
-  %call2 = call i32 @qio_channel_socket_connect_sync(ptr noundef %call.i, ptr noundef %opaque, ptr noundef nonnull %err), !range !5
+  %call2 = call i32 @qio_channel_socket_connect_sync(ptr noundef %call.i, ptr noundef %opaque, ptr noundef nonnull %err)
   %0 = load ptr, ptr %err, align 8
   call void @qio_task_set_error(ptr noundef %task, ptr noundef %0) #9
   ret void
@@ -516,7 +516,7 @@ entry:
 declare void @qapi_free_SocketAddress(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_socket_listen_sync(ptr noundef %ioc, ptr noundef %addr, i32 noundef %num, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_socket_listen_sync(ptr noundef %ioc, ptr noundef %addr, i32 noundef %num, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i11 = alloca %struct.timeval, align 8
@@ -631,7 +631,7 @@ if.else.i.i34:                                    ; preds = %if.then.i.i32
 
 trace_qio_channel_socket_listen_complete.exit:    ; preds = %if.end, %land.lhs.true5.i.i29, %if.then8.i.i35, %if.else.i.i34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i25)
-  %call1 = tail call fastcc i32 @qio_channel_socket_set_fd(ptr noundef %ioc, i32 noundef %call, ptr noundef %errp), !range !5
+  %call1 = tail call fastcc i32 @qio_channel_socket_set_fd(ptr noundef %ioc, i32 noundef %call, ptr noundef %errp)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end5
 
@@ -712,7 +712,7 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %num = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load i32, ptr %num, align 8
-  %call2 = call i32 @qio_channel_socket_listen_sync(ptr noundef %call.i, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %err), !range !5
+  %call2 = call i32 @qio_channel_socket_listen_sync(ptr noundef %call.i, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %err)
   %2 = load ptr, ptr %err, align 8
   call void @qio_task_set_error(ptr noundef %task, ptr noundef %2) #9
   ret void
@@ -728,7 +728,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_socket_dgram_sync(ptr noundef %ioc, ptr noundef %localAddr, ptr noundef %remoteAddr, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_socket_dgram_sync(ptr noundef %ioc, ptr noundef %localAddr, ptr noundef %remoteAddr, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i24 = alloca %struct.timeval, align 8
   %_now.i.i10 = alloca %struct.timeval, align 8
@@ -843,7 +843,7 @@ if.else.i.i33:                                    ; preds = %if.then.i.i31
 
 trace_qio_channel_socket_dgram_complete.exit:     ; preds = %if.end, %land.lhs.true5.i.i28, %if.then8.i.i34, %if.else.i.i33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i24)
-  %call1 = tail call fastcc i32 @qio_channel_socket_set_fd(ptr noundef %ioc, i32 noundef %call, ptr noundef %errp), !range !5
+  %call1 = tail call fastcc i32 @qio_channel_socket_set_fd(ptr noundef %ioc, i32 noundef %call, ptr noundef %errp)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %return
 
@@ -917,7 +917,7 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %remoteAddr = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %remoteAddr, align 8
-  %call2 = call i32 @qio_channel_socket_dgram_sync(ptr noundef %call.i, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %err), !range !5
+  %call2 = call i32 @qio_channel_socket_dgram_sync(ptr noundef %call.i, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %err)
   %2 = load ptr, ptr %err, align 8
   call void @qio_task_set_error(ptr noundef %task, ptr noundef %2) #9
   ret void
@@ -1239,7 +1239,7 @@ declare void @socket_listen_cleanup(i32 noundef, ptr noundef) local_unnamed_addr
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_socket_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef readonly %fds, i64 noundef %nfds, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal range(i64 -2, -9223372036854775808) i64 @qio_channel_socket_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef readonly %fds, i64 noundef %nfds, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.msghdr, align 8
   %control = alloca [80 x i8], align 16
@@ -1329,7 +1329,7 @@ return:                                           ; preds = %if.then17, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_socket_readv(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal range(i64 -2, -9223372036854775808) i64 @qio_channel_socket_readv(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.msghdr, align 8
   %control = alloca [80 x i8], align 16
@@ -1454,7 +1454,7 @@ if.end22.i:                                       ; preds = %for.body16.i
 for.inc.i:                                        ; preds = %if.end22.i, %for.body16.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body16.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body16.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end8.i
   %16 = load i64, ptr %nfds, align 8
@@ -1465,7 +1465,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end8
 for.inc25.i:                                      ; preds = %for.end.i, %if.end.i, %lor.lhs.false3.i, %lor.lhs.false.i, %for.body.i
   %call26.i = call ptr @__cmsg_nxthdr(ptr noundef nonnull %msg, ptr noundef nonnull %cmsg.029.i) #9
   %tobool.not.i = icmp eq ptr %call26.i, null
-  br i1 %tobool.not.i, label %return, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 return:                                           ; preds = %if.then8, %for.inc25.i, %if.then22, %if.end18, %if.end16
   %retval.0 = phi i64 [ -1, %if.end16 ], [ %call7, %if.end18 ], [ %call7, %if.then22 ], [ %call7, %for.inc25.i ], [ -2, %if.then8 ]
@@ -1493,7 +1493,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_socket_close(ptr noundef %ioc, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qio_channel_socket_close(ptr noundef %ioc, ptr noundef %errp) #0 {
 entry:
   %err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
@@ -1533,7 +1533,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_socket_shutdown(ptr noundef %ioc, i32 noundef %how, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qio_channel_socket_shutdown(ptr noundef %ioc, i32 noundef %how, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   %switch.selectcmp = icmp eq i32 %how, 2
@@ -1656,7 +1656,7 @@ while.cond.backedge:                              ; preds = %sw.bb, %if.then8
   %5 = load i64, ptr %zero_copy_sent, align 8
   %6 = load i64, ptr %zero_copy_queued, align 8
   %cmp4 = icmp slt i64 %5, %6
-  br i1 %cmp4, label %while.body, label %return, !llvm.loop !9
+  br i1 %cmp4, label %while.body, label %return, !llvm.loop !8
 
 sw.default:                                       ; preds = %if.then8
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 761, ptr noundef nonnull @__func__.qio_channel_socket_flush, i32 noundef %4, ptr noundef nonnull @.str.49) #9
@@ -1733,7 +1733,7 @@ if.end49:                                         ; preds = %if.end43
   %spec.select = select i1 %cmp55.not, i32 %ret.0.ph42, i32 0
   %18 = load i64, ptr %zero_copy_queued, align 8
   %cmp439 = icmp slt i64 %add53, %18
-  br i1 %cmp439, label %while.body.lr.ph, label %return, !llvm.loop !9
+  br i1 %cmp439, label %while.body.lr.ph, label %return, !llvm.loop !8
 
 return:                                           ; preds = %if.end49, %while.cond.backedge, %if.end, %entry, %if.then46, %if.then40, %if.then34, %if.then29, %sw.default
   %retval.0 = phi i32 [ -1, %sw.default ], [ -1, %if.then29 ], [ -1, %if.then34 ], [ -1, %if.then40 ], [ -1, %if.then46 ], [ 0, %entry ], [ 1, %if.end ], [ %ret.0.ph42, %while.cond.backedge ], [ %spec.select, %if.end49 ]
@@ -1797,8 +1797,7 @@ attributes #11 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

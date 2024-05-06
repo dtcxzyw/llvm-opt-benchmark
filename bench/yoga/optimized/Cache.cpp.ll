@@ -7,13 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef %widthMode, float noundef %availableWidth, i32 noundef %heightMode, float noundef %availableHeight, i32 noundef %lastWidthMode, float noundef %lastAvailableWidth, i32 noundef %lastHeightMode, float noundef %lastAvailableHeight, float noundef %lastComputedWidth, float noundef %lastComputedHeight, float noundef %marginRow, float noundef %marginColumn, ptr noundef %config) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = fcmp ord float %lastComputedHeight, 0.000000e+00
-  %or.cond = fcmp olt float %lastComputedHeight, 0.000000e+00
-  br i1 %or.cond, label %return, label %lor.lhs.false
+  %cmp = fcmp olt float %lastComputedHeight, 0.000000e+00
+  br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %cmp.i.i44 = fcmp ord float %lastComputedWidth, 0.000000e+00
-  %or.cond1 = fcmp olt float %lastComputedWidth, 0.000000e+00
-  br i1 %or.cond1, label %return, label %if.end
+  %cmp3 = fcmp olt float %lastComputedWidth, 0.000000e+00
+  br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %call4 = tail call noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48) %config)
@@ -103,8 +103,8 @@ if.then.i.i:                                      ; preds = %land.rhs.i57
 if.end.i.i:                                       ; preds = %land.rhs.i57
   %cmp.i.i.i = fcmp uno float %sub, 0.000000e+00
   %cmp.i6.i.i = fcmp uno float %lastComputedWidth, 0.000000e+00
-  %or.cond183 = and i1 %cmp.i6.i.i, %cmp.i.i.i
-  br i1 %or.cond183, label %lor.end, label %lor.rhs
+  %or.cond182 = and i1 %cmp.i6.i.i, %cmp.i.i.i
+  br i1 %or.cond182, label %lor.end, label %lor.rhs
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false44
   %cmp.i59 = icmp eq i32 %widthMode, 2
@@ -145,8 +145,8 @@ lor.rhs:                                          ; preds = %if.then.i.i, %if.en
   %or.cond12.i = and i1 %6, %or.cond.i72
   %cmp8.i = fcmp olt float %sub, %lastAvailableWidth
   %or.cond7.i = and i1 %cmp.i.i44, %cmp8.i
-  %or.cond181 = and i1 %or.cond7.i, %or.cond12.i
-  br i1 %or.cond181, label %land.rhs.i73, label %lor.end
+  %or.cond = and i1 %or.cond7.i, %or.cond12.i
+  br i1 %or.cond, label %land.rhs.i73, label %lor.end
 
 land.rhs.i73:                                     ; preds = %lor.rhs
   %cmp9.i = fcmp ult float %sub, %lastComputedWidth
@@ -184,8 +184,8 @@ if.then.i.i86:                                    ; preds = %land.rhs.i80
 if.end.i.i82:                                     ; preds = %land.rhs.i80
   %cmp.i.i.i83 = fcmp uno float %sub54, 0.000000e+00
   %cmp.i6.i.i85 = fcmp uno float %lastComputedHeight, 0.000000e+00
-  %or.cond184 = and i1 %cmp.i6.i.i85, %cmp.i.i.i83
-  br i1 %or.cond184, label %lor.end62, label %lor.rhs59
+  %or.cond183 = and i1 %cmp.i6.i.i85, %cmp.i.i.i83
+  br i1 %or.cond183, label %lor.end62, label %lor.rhs59
 
 lor.lhs.false56:                                  ; preds = %lor.lhs.false53
   %cmp.i90 = icmp eq i32 %heightMode, 2
@@ -226,8 +226,8 @@ lor.rhs59:                                        ; preds = %if.then.i.i86, %if.
   %or.cond12.i108 = and i1 %11, %or.cond.i107
   %cmp8.i111 = fcmp olt float %sub54, %lastAvailableHeight
   %or.cond7.i112 = and i1 %cmp.i.i, %cmp8.i111
-  %or.cond182 = and i1 %or.cond7.i112, %or.cond12.i108
-  br i1 %or.cond182, label %land.rhs.i113, label %lor.end62
+  %or.cond181 = and i1 %or.cond7.i112, %or.cond12.i108
+  br i1 %or.cond181, label %land.rhs.i113, label %lor.end62
 
 land.rhs.i113:                                    ; preds = %lor.rhs59
   %cmp9.i114 = fcmp ult float %sub54, %lastComputedHeight

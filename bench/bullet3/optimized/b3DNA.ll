@@ -958,7 +958,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp1126, label %for.body12.preheader, label %for.inc27
 
 for.body12.preheader:                             ; preds = %if.then
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.body12
 
 for.body12:                                       ; preds = %for.body12.preheader, %for.inc
@@ -1242,7 +1242,7 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
   br i1 %cmp82, label %if.then83, label %for.inc85
 
 if.then83:                                        ; preds = %for.body79
-  %46 = trunc i64 %indvars.iv83 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv83 to i32
   tail call void @_ZN6bParse4bDNA19initRecurseCmpFlagsEi(ptr noundef nonnull align 8 dereferenceable(420) %this, i32 noundef %46)
   %.pre86 = load i32, ptr %m_size.i, align 4
   br label %for.inc85
@@ -1309,12 +1309,12 @@ lor.rhs:                                          ; preds = %for.body
 lor.end:                                          ; preds = %lor.rhs, %for.body
   %4 = phi i1 [ true, %for.body ], [ %cmp13, %lor.rhs ]
   %frombool14 = zext i1 %4 to i8
-  %call4.i = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cp.0117, i32 noundef 91) #21
+  %call4.i = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %cp.0117, i32 noundef 91) #21
   %tobool5.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool5.not.i, label %_ZL13name_is_arrayPcPiS0_.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %lor.end
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cp.0117) #21
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %cp.0117) #21
   %sext.i = shl i64 %call.i, 32
   %idx.ext.i = ashr exact i64 %sext.i, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %cp.0117, i64 %idx.ext.i
@@ -2045,7 +2045,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %arrayidx5 = getelementptr i8, ptr %arrayidx, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -2179,7 +2179,7 @@ if.end:                                           ; preds = %_ZN6bParse4bDNA14ge
   %idxprom.i31 = sext i16 %14 to i64
   %arrayidx.i32 = getelementptr inbounds ptr, ptr %15, i64 %idxprom.i31
   %16 = load ptr, ptr %arrayidx.i32, align 8
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %call16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17, ptr noundef %16)
   %arrayidx17 = getelementptr inbounds i8, ptr %2, i64 2
   %18 = load i16, ptr %arrayidx17, align 2
@@ -2976,7 +2976,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %14, ptr %arrayidx.i41, align 4
   %16 = load ptr, ptr %m_data10.i, align 8
   %arrayidx.i44 = getelementptr inbounds i32, ptr %16, i64 %idxprom.i37
-  %17 = trunc i64 %indvars.iv57 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv57 to i32
   store i32 %17, ptr %arrayidx.i44, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
@@ -3174,7 +3174,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %14, ptr %arrayidx.i41, align 4
   %16 = load ptr, ptr %m_data10.i, align 8
   %arrayidx.i44 = getelementptr inbounds i32, ptr %16, i64 %idxprom.i37
-  %17 = trunc i64 %indvars.iv57 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv57 to i32
   store i32 %17, ptr %arrayidx.i44, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60

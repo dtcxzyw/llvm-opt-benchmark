@@ -350,7 +350,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %68 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %68, ptr %5, align 8, !noalias !24
   %69 = getelementptr inbounds i8, ptr %19, i64 32
-  %70 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.56, i64 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.57, i64 noundef 8, ptr noundef nonnull align 1 %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.58, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.59, i64 noundef 4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.8)
+  %70 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.56, i64 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.57, i64 noundef 8, ptr noundef nonnull readonly align 1 %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.58, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.59, i64 noundef 4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !24
   br label %"_ZN73_$LT$deltalake_core..kernel..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h6651648c2e286963E.exit"
 
@@ -367,7 +367,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %75 = getelementptr inbounds i8, ptr %19, i64 32
   store ptr %75, ptr %3, align 8, !noalias !24
   %76 = getelementptr inbounds i8, ptr %19, i64 8
-  %77 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h63f5f67b424b9e7bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.61, i64 noundef 5, ptr noundef nonnull align 1 %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.62, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.63)
+  %77 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h63f5f67b424b9e7bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.61, i64 noundef 5, ptr noundef nonnull readonly align 1 %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.62, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.63)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !24
   br label %"_ZN73_$LT$deltalake_core..kernel..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h6651648c2e286963E.exit"
 
@@ -491,7 +491,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %48 = getelementptr inbounds i8, ptr %13, i64 32
   store ptr %48, ptr %3, align 8, !noalias !31
   %49 = getelementptr inbounds i8, ptr %13, i64 8
-  %50 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.79, i64 noundef 13, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.80, i64 noundef 3, ptr noundef nonnull align 1 %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.62, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.13, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.14)
+  %50 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.79, i64 noundef 13, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.80, i64 noundef 3, ptr noundef nonnull readonly align 1 %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.62, ptr noalias noundef nonnull readonly align 1 @anon.95d9bea77899dab99aa125b578101e99.13, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95d9bea77899dab99aa125b578101e99.14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !31
   br label %"_ZN94_$LT$deltalake_core..operations..transaction..TransactionError$u20$as$u20$core..fmt..Debug$GT$3fmt17habd00ecf63e2b51bE.exit"
 
@@ -850,7 +850,7 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
   unreachable
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha7e72f8cbf4fdcaeE.exit": ; preds = %.loopexit
-  %38 = call i16 @llvm.cttz.i16(i16 %.lcssa.i.i92, i1 true), !range !47
+  %38 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i92, i1 true)
   %39 = zext nneg i16 %38 to i64
   %40 = sub nsw i64 0, %39
   %41 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { ptr, ptr } }, {}, {} } } } }, ptr %.val3.i.i91, i64 %40
@@ -867,12 +867,12 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
   ret void
 
 45:                                               ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b559ad038445f36E.exit.thread"
-  call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %46 = load ptr, ptr %32, align 8, !alias.scope !48, !nonnull !4, !align !10, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %46 = load ptr, ptr %32, align 8, !alias.scope !47, !nonnull !4, !align !10, !noundef !4
   %47 = icmp ugt i64 %.val21, %31
   call void @llvm.assume(i1 %47)
   %48 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %46, i64 %31
-  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h6f1e7a0917245b19E.llvm.7530649560028716548(ptr noundef nonnull %48, i8 noundef 0), !noalias !48
+  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h6f1e7a0917245b19E.llvm.7530649560028716548(ptr noundef nonnull %48, i8 noundef 0), !noalias !47
   %50 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %49, i64 4)
   %51 = extractvalue { i64, i1 } %50, 1
   %52 = icmp ugt i64 %49, -9
@@ -881,13 +881,13 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.7530649560028716548.exit.i: ; preds = %45
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h3018af7ee7555d4aE.llvm.7530649560028716548(ptr noundef nonnull %48, i64 noundef %49, i64 noundef %53, i8 noundef 2, i8 noundef 0), !noalias !48
+  %54 = call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h3018af7ee7555d4aE.llvm.7530649560028716548(ptr noundef nonnull %48, i64 noundef %49, i64 noundef %53, i8 noundef 2, i8 noundef 0), !noalias !47
   %55 = extractvalue { i64, i64 } %54, 0
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %58, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.7530649560028716548.exit.thread.i
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.7530649560028716548.exit.thread.i: ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.7530649560028716548.exit.i, %45
-  call void @_ZN7dashmap4lock9RawRwLock16lock_shared_slow17hd88585e111c42812E(ptr noundef nonnull align 8 %48), !noalias !48
+  call void @_ZN7dashmap4lock9RawRwLock16lock_shared_slow17hd88585e111c42812E(ptr noundef nonnull align 8 %48), !noalias !47
   br label %58
 
 57:                                               ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b559ad038445f36E.exit.thread"
@@ -896,22 +896,22 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.753064
 
 58:                                               ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.7530649560028716548.exit.thread.i, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.7530649560028716548.exit.i
   %59 = getelementptr inbounds i8, ptr %48, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %60 = load ptr, ptr %59, align 8, !alias.scope !51, !noalias !54, !nonnull !4, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  %60 = load ptr, ptr %59, align 8, !alias.scope !50, !noalias !53, !nonnull !4, !noundef !4
   %61 = getelementptr inbounds i8, ptr %48, i64 16
-  %62 = load i64, ptr %61, align 8, !alias.scope !51, !noalias !54, !noundef !4
+  %62 = load i64, ptr %61, align 8, !alias.scope !50, !noalias !53, !noundef !4
   %63 = getelementptr i8, ptr %60, i64 %62
   %64 = getelementptr i8, ptr %63, i64 1
-  %65 = load <16 x i8>, ptr %60, align 16, !noalias !56
+  %65 = load <16 x i8>, ptr %60, align 16, !noalias !55
   %66 = icmp slt <16 x i8> %65, zeroinitializer
   %67 = bitcast <16 x i1> %66 to i16
   %68 = xor i16 %67, -1
   %69 = getelementptr inbounds i8, ptr %60, i64 16
   %70 = getelementptr inbounds i8, ptr %48, i64 32
-  %71 = load i64, ptr %70, align 8, !alias.scope !51, !noalias !54, !noundef !4
+  %71 = load i64, ptr %70, align 8, !alias.scope !50, !noalias !53, !noundef !4
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.59.sroa.8)
-  %72 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !59
-  %73 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #14, !noalias !59
+  %72 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !58
+  %73 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #14, !noalias !58
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %83
 
@@ -925,7 +925,7 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.753064
 76:                                               ; preds = %75
   %77 = landingpad { ptr, i32 }
           cleanup
-  %78 = atomicrmw sub ptr %48, i64 4 release, align 8, !noalias !62
+  %78 = atomicrmw sub ptr %48, i64 4 release, align 8, !noalias !61
   %79 = icmp eq i64 %78, 6
   br i1 %79, label %80, label %.noexc22
 
@@ -945,26 +945,26 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.753064
   store i64 1, ptr %.sroa.433.0..sroa_idx, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 16
   store ptr %48, ptr %.sroa.534.0..sroa_idx, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %84 = load ptr, ptr %4, align 8, !alias.scope !69, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %84 = load ptr, ptr %4, align 8, !alias.scope !68, !noundef !4
   %85 = icmp eq ptr %84, null
   br i1 %85, label %"_ZN4core3ptr484drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$$GT$17h7b56104732c4c954E.exit", label %86
 
 86:                                               ; preds = %83
-  call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %87 = atomicrmw sub ptr %84, i64 1 release, align 8, !noalias !81
+  call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  %87 = atomicrmw sub ptr %84, i64 1 release, align 8, !noalias !80
   %88 = icmp eq i64 %87, 1
   br i1 %88, label %89, label %"_ZN4core3ptr484drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$$GT$17h7b56104732c4c954E.exit"
 
 89:                                               ; preds = %86
   fence acquire
-  call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  %90 = load ptr, ptr %4, align 8, !alias.scope !85, !nonnull !4, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  %90 = load ptr, ptr %4, align 8, !alias.scope !84, !nonnull !4, !noundef !4
   %91 = getelementptr inbounds i8, ptr %90, i64 16
-  %.val.i.i.i.i.i = load ptr, ptr %91, align 8, !noalias !85, !nonnull !4, !align !10, !noundef !4
-  %92 = atomicrmw sub ptr %.val.i.i.i.i.i, i64 4 release, align 8, !noalias !85
+  %.val.i.i.i.i.i = load ptr, ptr %91, align 8, !noalias !84, !nonnull !4, !align !10, !noundef !4
+  %92 = atomicrmw sub ptr %.val.i.i.i.i.i, i64 4 release, align 8, !noalias !84
   %93 = icmp eq i64 %92, 6
   br i1 %93, label %94, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE.exit.i.i.i.i"
 
@@ -973,15 +973,15 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.753064
           to label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE.exit.i.i.i.i" unwind label %.thread
 
 "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE.exit.i.i.i.i": ; preds = %94, %89
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !85
-  %95 = load ptr, ptr %4, align 8, !alias.scope !85, !nonnull !4, !noundef !4
-  store ptr %95, ptr %3, align 8, !noalias !85
-  store ptr %5, ptr %10, align 8, !noalias !85
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !84
+  %95 = load ptr, ptr %4, align 8, !alias.scope !84, !nonnull !4, !noundef !4
+  store ptr %95, ptr %3, align 8, !noalias !84
+  store ptr %5, ptr %10, align 8, !noalias !84
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h311c9ae258d3b995E.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc24 unwind label %.thread
 
 .noexc24:                                         ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE.exit.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !85
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !84
   br label %"_ZN4core3ptr484drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$$GT$17h7b56104732c4c954E.exit"
 
 .thread:                                          ; preds = %94, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE.exit.i.i.i.i"
@@ -1226,42 +1226,41 @@ attributes #15 = { noreturn }
 !44 = !{!45, !38, !35}
 !45 = distinct !{!45, !46, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E: argument 0"}
 !46 = distinct !{!46, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E"}
-!47 = !{i16 0, i16 17}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h24cce42d7fe71fe9E: argument 0"}
-!50 = distinct !{!50, !"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h24cce42d7fe71fe9E"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN9hashbrown3raw5inner13RawTableInner4iter17he0359312bfe99606E: argument 1"}
-!53 = distinct !{!53, !"_ZN9hashbrown3raw5inner13RawTableInner4iter17he0359312bfe99606E"}
-!54 = !{!55}
-!55 = distinct !{!55, !53, !"_ZN9hashbrown3raw5inner13RawTableInner4iter17he0359312bfe99606E: argument 0"}
-!56 = !{!57, !55, !52}
-!57 = distinct !{!57, !58, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E: argument 0"}
-!58 = distinct !{!58, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8d2021eaabe3709aE: argument 0"}
-!61 = distinct !{!61, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8d2021eaabe3709aE"}
-!62 = !{!63, !65, !67}
-!63 = distinct !{!63, !64, !"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ed50364903dd71cE.llvm.14011817705576975213: argument 0"}
-!64 = distinct !{!64, !"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ed50364903dd71cE.llvm.14011817705576975213"}
-!65 = distinct !{!65, !66, !"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h729d4d47ae00c5a1E.llvm.14011817705576975213: argument 0"}
-!66 = distinct !{!66, !"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h729d4d47ae00c5a1E.llvm.14011817705576975213"}
-!67 = distinct !{!67, !68, !"_ZN4core3ptr302drop_in_place$LT$alloc..sync..ArcInner$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17heb228b4ef4cf1101E: argument 0"}
-!68 = distinct !{!68, !"_ZN4core3ptr302drop_in_place$LT$alloc..sync..ArcInner$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17heb228b4ef4cf1101E"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN4core3ptr484drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$$GT$17h7b56104732c4c954E: argument 0"}
-!71 = distinct !{!71, !"_ZN4core3ptr484drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$$GT$17h7b56104732c4c954E"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4core3ptr456drop_in_place$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$17h6ba39f385a2e1aa3E: argument 0"}
-!74 = distinct !{!74, !"_ZN4core3ptr456drop_in_place$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$17h6ba39f385a2e1aa3E"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN4core3ptr297drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17h3f7ee05ec61c975bE: argument 0"}
-!77 = distinct !{!77, !"_ZN4core3ptr297drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17h3f7ee05ec61c975bE"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h29f9c72e495f9c4aE: argument 0"}
-!80 = distinct !{!80, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h29f9c72e495f9c4aE"}
-!81 = !{!79, !76, !73, !70}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE: argument 0"}
-!84 = distinct !{!84, !"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE"}
-!85 = !{!83, !79, !76, !73, !70}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h24cce42d7fe71fe9E: argument 0"}
+!49 = distinct !{!49, !"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h24cce42d7fe71fe9E"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN9hashbrown3raw5inner13RawTableInner4iter17he0359312bfe99606E: argument 1"}
+!52 = distinct !{!52, !"_ZN9hashbrown3raw5inner13RawTableInner4iter17he0359312bfe99606E"}
+!53 = !{!54}
+!54 = distinct !{!54, !52, !"_ZN9hashbrown3raw5inner13RawTableInner4iter17he0359312bfe99606E: argument 0"}
+!55 = !{!56, !54, !51}
+!56 = distinct !{!56, !57, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E: argument 0"}
+!57 = distinct !{!57, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8d2021eaabe3709aE: argument 0"}
+!60 = distinct !{!60, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8d2021eaabe3709aE"}
+!61 = !{!62, !64, !66}
+!62 = distinct !{!62, !63, !"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ed50364903dd71cE.llvm.14011817705576975213: argument 0"}
+!63 = distinct !{!63, !"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ed50364903dd71cE.llvm.14011817705576975213"}
+!64 = distinct !{!64, !65, !"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h729d4d47ae00c5a1E.llvm.14011817705576975213: argument 0"}
+!65 = distinct !{!65, !"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h729d4d47ae00c5a1E.llvm.14011817705576975213"}
+!66 = distinct !{!66, !67, !"_ZN4core3ptr302drop_in_place$LT$alloc..sync..ArcInner$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17heb228b4ef4cf1101E: argument 0"}
+!67 = distinct !{!67, !"_ZN4core3ptr302drop_in_place$LT$alloc..sync..ArcInner$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17heb228b4ef4cf1101E"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN4core3ptr484drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$$GT$17h7b56104732c4c954E: argument 0"}
+!70 = distinct !{!70, !"_ZN4core3ptr484drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$$GT$17h7b56104732c4c954E"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN4core3ptr456drop_in_place$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$17h6ba39f385a2e1aa3E: argument 0"}
+!73 = distinct !{!73, !"_ZN4core3ptr456drop_in_place$LT$$LP$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$C$hashbrown..map..Iter$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$RP$$GT$17h6ba39f385a2e1aa3E"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN4core3ptr297drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17h3f7ee05ec61c975bE: argument 0"}
+!76 = distinct !{!76, !"_ZN4core3ptr297drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17h3f7ee05ec61c975bE"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h29f9c72e495f9c4aE: argument 0"}
+!79 = distinct !{!79, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h29f9c72e495f9c4aE"}
+!80 = !{!78, !75, !72, !69}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE: argument 0"}
+!83 = distinct !{!83, !"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7ffbe3768d05fbdE"}
+!84 = !{!82, !78, !75, !72, !69}

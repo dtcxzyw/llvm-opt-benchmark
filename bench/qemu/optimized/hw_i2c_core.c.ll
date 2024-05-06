@@ -87,7 +87,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @i2c_bus_busy(ptr nocapture noundef readonly %bus) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @i2c_bus_busy(ptr nocapture noundef readonly %bus) local_unnamed_addr #3 {
 entry:
   %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs, align 8
@@ -498,7 +498,7 @@ for.end:                                          ; preds = %if.end13, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @i2c_send(ptr nocapture noundef readonly %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @i2c_send(ptr nocapture noundef readonly %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
@@ -592,7 +592,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @i2c_send_async(ptr nocapture noundef readonly %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @i2c_send_async(ptr nocapture noundef readonly %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %current_devs = getelementptr inbounds i8, ptr %bus, i64 120

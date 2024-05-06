@@ -842,7 +842,7 @@ define dso_local i64 @nfs3_listxattr(ptr nocapture noundef readonly %0, ptr noca
   br i1 %20, label %nfs3_list_one_acl.exit, label %21
 
 21:                                               ; preds = %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(24) @.str, i64 24, i1 false) #8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str, i64 24, i1 false) #8
   br label %22
 
 22:                                               ; preds = %21, %3, %.thread.i
@@ -883,7 +883,7 @@ define dso_local i64 @nfs3_listxattr(ptr nocapture noundef readonly %0, ptr noca
   br i1 %39, label %nfs3_list_one_acl.exit, label %40
 
 40:                                               ; preds = %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(25) %23, ptr noundef nonnull align 1 dereferenceable(25) @.str.1, i64 25, i1 false) #8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(25) %23, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.1, i64 25, i1 false) #8
   br label %nfs3_list_one_acl.exit
 
 nfs3_list_one_acl.exit:                           ; preds = %38, %19, %.thread.i2, %22, %40

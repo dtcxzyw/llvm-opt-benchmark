@@ -78,7 +78,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bad_dtls() #0 {
+define internal range(i32 0, 2) i32 @test_bad_dtls() #0 {
 entry:
   %p.i = alloca ptr, align 8
   %recv_buf = alloca [2 x i64], align 16
@@ -215,7 +215,7 @@ lor.lhs.false85:                                  ; preds = %if.end81
   br i1 %tobool88.not, label %end, label %lor.lhs.false89
 
 lor.lhs.false89:                                  ; preds = %lor.lhs.false85
-  %call90 = call fastcc i32 @validate_client_hello(ptr noundef %call60), !range !5
+  %call90 = call fastcc i32 @validate_client_hello(ptr noundef %call60)
   %call91 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 538, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef %call90, i32 noundef 1) #6
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %end, label %lor.lhs.false93
@@ -240,13 +240,13 @@ lor.lhs.false104:                                 ; preds = %if.end100
   br i1 %tobool107.not, label %end, label %lor.lhs.false108
 
 lor.lhs.false108:                                 ; preds = %lor.lhs.false104
-  %call109 = call fastcc i32 @validate_client_hello(ptr noundef %call60), !range !5
+  %call109 = call fastcc i32 @validate_client_hello(ptr noundef %call60)
   %call110 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 545, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.24, i32 noundef %call109, i32 noundef 2) #6
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %end, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false108
-  %call113 = call fastcc i32 @send_server_hello(ptr noundef %call58), !range !6
+  %call113 = call fastcc i32 @send_server_hello(ptr noundef %call58)
   %call116 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @.str.25, i32 noundef %call113) #6
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %end, label %if.end119
@@ -276,7 +276,7 @@ if.end134:                                        ; preds = %lor.lhs.false127
   br i1 %tobool137.not, label %end, label %lor.lhs.false138
 
 lor.lhs.false138:                                 ; preds = %if.end134
-  %call139 = call fastcc i32 @validate_ccs(ptr noundef %call60), !range !6
+  %call139 = call fastcc i32 @validate_ccs(ptr noundef %call60)
   %call142 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 557, ptr noundef nonnull @.str.27, i32 noundef %call139) #6
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %end, label %for.body
@@ -285,16 +285,16 @@ for.body:                                         ; preds = %lor.lhs.false138, %
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %lor.lhs.false138 ]
   %arrayidx = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx, align 16
-  %call151 = call fastcc i32 @send_record(ptr noundef %call58, i8 noundef zeroext 23, i64 noundef %1, ptr noundef nonnull %arrayidx, i64 noundef 8), !range !6
+  %call151 = call fastcc i32 @send_record(ptr noundef %call58, i8 noundef zeroext 23, i64 noundef %1, ptr noundef nonnull %arrayidx, i64 noundef 8)
   %call154 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @.str.28, i32 noundef %call151) #6
   %tobool155.not = icmp eq i32 %call154, 0
   br i1 %tobool155.not, label %if.then156, label %if.end165
 
 if.then156:                                       ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = load i64, ptr %arrayidx, align 16
   %shr = lshr i64 %3, 32
-  %conv160 = trunc i64 %shr to i32
+  %conv160 = trunc nuw i64 %shr to i32
   %conv164 = trunc i64 %3 to i32
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.1, i32 noundef 571, ptr noundef nonnull @.str.29, i32 noundef %conv160, i32 noundef %conv164, i32 noundef %2) #6
   br label %end
@@ -313,9 +313,9 @@ if.end170:                                        ; preds = %if.end165
   br i1 %tobool173.not, label %if.then174, label %if.end184
 
 if.then174:                                       ; preds = %if.end170
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %shr178 = lshr i64 %5, 32
-  %conv179 = trunc i64 %shr178 to i32
+  %conv179 = trunc nuw i64 %shr178 to i32
   %conv183 = trunc i64 %5 to i32
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.1, i32 noundef 581, ptr noundef nonnull @.str.31, i32 noundef %conv179, i32 noundef %conv183, i32 noundef %6) #6
   br label %end
@@ -331,7 +331,7 @@ if.end184:                                        ; preds = %if.end170
 for.inc:                                          ; preds = %if.end184, %if.end165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
   %8 = load i32, ptr getelementptr inbounds ([35 x %struct.anon], ptr @tests, i64 0, i64 34, i32 1), align 8
@@ -412,7 +412,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @SSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @validate_client_hello(ptr noundef %wbio) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @validate_client_hello(ptr noundef %wbio) unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %call = call i64 @BIO_ctrl(ptr noundef %wbio, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %data) #6
@@ -586,7 +586,7 @@ return:                                           ; preds = %lor.lhs.false75, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @send_server_hello(ptr noundef %rbio) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @send_server_hello(ptr noundef %rbio) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) getelementptr inbounds ([95 x i8], ptr @send_server_hello.server_hello, i64 0, i64 27), ptr noundef nonnull align 16 dereferenceable(32) @server_random, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) getelementptr inbounds ([95 x i8], ptr @send_server_hello.server_hello, i64 0, i64 60), ptr noundef nonnull align 16 dereferenceable(32) @session_id, i64 32, i1 false)
@@ -606,7 +606,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @send_finished(ptr noundef %rbio) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @send_finished(ptr noundef %rbio) unnamed_addr #0 {
 entry:
   %outlen.i1 = alloca i64, align 8
   %outlen.i = alloca i64, align 8
@@ -646,7 +646,7 @@ if.end:                                           ; preds = %entry
   %call8.i10 = call i32 @EVP_PKEY_derive(ptr noundef %call.i2, ptr noundef nonnull getelementptr inbounds (<{ [12 x i8], [12 x i8] }>, ptr @send_finished.finished_msg, i64 0, i32 1, i64 0), ptr noundef nonnull %outlen.i1) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %call.i2) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %outlen.i1)
-  %call6 = call fastcc i32 @send_record(ptr noundef %rbio, i8 noundef zeroext 22, i64 noundef 0, ptr noundef nonnull @send_finished.finished_msg, i64 noundef 24), !range !6
+  %call6 = call fastcc i32 @send_record(ptr noundef %rbio, i8 noundef zeroext 22, i64 noundef 0, ptr noundef nonnull @send_finished.finished_msg, i64 noundef 24)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -657,7 +657,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_ccs(ptr noundef %wbio) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_ccs(ptr noundef %wbio) unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %call = call i64 @BIO_ctrl(ptr noundef %wbio, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %data) #6
@@ -753,7 +753,7 @@ return:                                           ; preds = %if.end.i60, %PACKET
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @send_record(ptr noundef %rbio, i8 noundef zeroext %type, i64 noundef %seqnr, ptr nocapture noundef readonly %msg, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @send_record(ptr noundef %rbio, i8 noundef zeroext %type, i64 noundef %seqnr, ptr nocapture noundef readonly %msg, i64 noundef %len) unnamed_addr #0 {
 entry:
   %type.addr = alloca i8, align 1
   %lenbytes = alloca [2 x i8], align 1
@@ -810,7 +810,7 @@ if.end27:                                         ; preds = %lor.lhs.false
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp29) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx28, ptr noundef nonnull align 8 dereferenceable(40) %tmp29, i64 40, i1 false)
   store i8 0, ptr %lenbytes, align 1
-  %conv33 = trunc i64 %len to i8
+  %conv33 = trunc nuw nsw i64 %len to i8
   %arrayidx34 = getelementptr inbounds i8, ptr %lenbytes, i64 1
   store i8 %conv33, ptr %arrayidx34, align 1
   %call35 = call i32 @EVP_MAC_init(ptr noundef %call23, ptr noundef nonnull getelementptr inbounds ([104 x i8], ptr @key_block, i64 0, i64 20), i64 noundef 20, ptr noundef nonnull %params) #6
@@ -1021,7 +1021,5 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

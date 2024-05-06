@@ -2089,7 +2089,7 @@ define internal noundef i32 @_v39_dump_STRING(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_STRING(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_STRING(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %9
@@ -2152,7 +2152,7 @@ define internal noundef i32 @_v39_dump_UINT32(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_UINT32(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_UINT32(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2280,7 +2280,7 @@ define internal noundef i32 @_v39_dump_UINT64(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_UINT64(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_UINT64(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2558,7 +2558,7 @@ define internal noundef i32 @_v39_dump_UINT16(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_UINT16(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_UINT16(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2755,7 +2755,7 @@ define internal noundef i32 @_v39_dump_FLOAT128(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_FLOAT128(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_FLOAT128(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2805,7 +2805,7 @@ define internal noundef i32 @_v39_dump_FLOAT64(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_FLOAT64(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_FLOAT64(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -3084,7 +3084,7 @@ define internal noundef i32 @_v39_dump_BOOL(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_BOOL(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_BOOL(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 7) #16
   %7 = icmp eq i32 %6, 7
   br i1 %7, label %8, label %11
@@ -3109,7 +3109,7 @@ define internal noundef i32 @_v39_dump_BOOL16(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_BOOL16(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_BOOL16(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 7) #16
   %7 = icmp eq i32 %6, 7
   br i1 %7, label %8, label %11
@@ -3136,7 +3136,7 @@ define internal noundef i32 @_v39_dump_BOOL16_NO_VAL(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_BOOL16_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_BOOL16_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %_v39_parse_BOOL16.exit.sink.split, label %8
@@ -3318,7 +3318,7 @@ define internal i32 @_v39_parse_QOS_ID(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_QOS_STRING_ID_LIST(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @_v39_dump_QOS_STRING_ID_LIST(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.foreach_qos_string_id_t, align 8
   %6 = load ptr, ptr %1, align 8
   store i32 782351915, ptr %5, align 8
@@ -3345,7 +3345,7 @@ define internal i32 @_v39_dump_QOS_STRING_ID_LIST(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_QOS_STRING_ID_LIST(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_QOS_STRING_ID_LIST(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.foreach_qos_string_id_t, align 8
   store i32 782351915, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3715,7 +3715,7 @@ define internal noundef i32 @_v39_dump_USER_ID(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %15, label %8
@@ -4880,7 +4880,7 @@ define internal noundef i32 @_v39_dump_STRING_ARRAY(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_STRING_ARRAY(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_STRING_ARRAY(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.foreach_string_array_t, align 8
   store i32 -1365131733, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -5292,7 +5292,7 @@ define internal noundef i32 @_v39_dump_HOLD(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_HOLD(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_HOLD(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %12, label %8
@@ -7379,7 +7379,7 @@ declare void @on_warn(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_dump_qos_string_id(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2067) i32 @_foreach_dump_qos_string_id(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7468,7 +7468,7 @@ declare void @xfree_ptr(ptr noundef) #1
 declare i32 @data_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_parse_qos_string_id(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef range(i32 1, 5) i32 @_foreach_parse_qos_string_id(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7565,7 +7565,7 @@ declare i32 @uid_from_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_tres_list_from_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_foreach_resolve_tres_id(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2116) i32 @_foreach_resolve_tres_id(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7641,7 +7641,7 @@ declare ptr @slurmdb_make_tres_string(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_foreach_CSV_STRING_list(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_parse_foreach_CSV_STRING_list(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @data_convert_type(ptr noundef %0, i32 noundef 5) #16
   %.not = icmp eq i32 %3, 5
   br i1 %.not, label %14, label %4
@@ -7677,7 +7677,7 @@ define internal noundef i32 @_parse_foreach_CSV_STRING_list(ptr noundef %0, ptr 
 declare i32 @data_dict_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_foreach_CSV_STRING_dict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 1, 5) i32 @_parse_foreach_CSV_STRING_dict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @data_convert_type(ptr noundef %1, i32 noundef 5) #16
   %.not = icmp eq i32 %4, 5
   br i1 %.not, label %15, label %5
@@ -7728,7 +7728,7 @@ declare void @hostlist_iterator_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_hostlist_parse(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_hostlist_parse(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @data_convert_type(ptr noundef %0, i32 noundef 5) #16
@@ -7796,7 +7796,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare i32 @data_list_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_string_array_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_string_array_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = call i32 @data_get_string_converted(ptr noundef %0, ptr noundef nonnull %3) #16
@@ -7838,7 +7838,7 @@ declare i64 @data_get_dict_length(ptr noundef) local_unnamed_addr #1
 declare i32 @data_dict_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_string_array_dict(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 1, 5) i32 @_foreach_string_array_dict(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -8161,7 +8161,7 @@ define internal noundef i32 @_foreach_populate_g_tres_list(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_list_per_tres_type_nct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_foreach_list_per_tres_type_nct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

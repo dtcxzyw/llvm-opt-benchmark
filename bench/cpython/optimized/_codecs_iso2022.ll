@@ -294,7 +294,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_cjk_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %module) #0 {
 entry:
   %mhname.i = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %mhname.i)
@@ -526,7 +526,7 @@ declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @iso2022_codec_init(ptr noundef %codec) #0 {
+define internal range(i32 -1, 1) i32 @iso2022_codec_init(ptr noundef %codec) #0 {
 entry:
   %config = getelementptr inbounds i8, ptr %codec, i64 8
   %0 = load ptr, ptr %config, align 8
@@ -560,7 +560,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @iso2022_encode(ptr nocapture noundef %state, ptr noundef %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 noundef %flags) #0 {
+define internal range(i64 -3, 2) i64 @iso2022_encode(ptr nocapture noundef %state, ptr noundef %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 noundef %flags) #0 {
 entry:
   %buf = alloca [2 x i32], align 4
   %length = alloca i64, align 8
@@ -1082,7 +1082,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @iso2022_encode_reset(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %outbuf, i64 noundef %outleft) #6 {
+define internal range(i64 -1, 1) i64 @iso2022_encode_reset(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %outbuf, i64 noundef %outleft) #6 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 4
   %0 = load i8, ptr %arrayidx, align 1
@@ -1783,18 +1783,18 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ksx1001_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @ksx1001_init(ptr nocapture noundef readonly %codec) #0 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
   %cp949_encmap = getelementptr inbounds i8, ptr %0, i64 24
-  %call = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull %cp949_encmap, ptr noundef null), !range !15
+  %call = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull %cp949_encmap, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %ksx1001_decmap = getelementptr inbounds i8, ptr %0, i64 32
-  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull %ksx1001_decmap), !range !15
+  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull %ksx1001_decmap)
   %tobool2.not = icmp ne i32 %call1, 0
   %spec.select = sext i1 %tobool2.not to i32
   br label %return
@@ -1805,7 +1805,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ksx1001_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 65536) i32 @ksx1001_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -1899,7 +1899,7 @@ return:                                           ; preds = %land.lhs.true19, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @importmap(ptr noundef %modname, ptr noundef %symbol, ptr noundef writeonly %encmap, ptr noundef writeonly %decmap) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @importmap(ptr noundef %modname, ptr noundef %symbol, ptr noundef writeonly %encmap, ptr noundef writeonly %decmap) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyImport_ImportModule(ptr noundef %modname) #15
   %cmp = icmp eq ptr %call, null
@@ -2002,18 +2002,18 @@ declare i32 @_PyUnicodeWriter_WriteChar(ptr noundef, i32 noundef) local_unnamed_
 declare i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jisx0208_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @jisx0208_init(ptr nocapture noundef readonly %codec) #0 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
   %jisxcommon_encmap = getelementptr inbounds i8, ptr %0, i64 40
-  %call = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %jisxcommon_encmap, ptr noundef null), !range !15
+  %call = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %jisxcommon_encmap, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %jisx0208_decmap = getelementptr inbounds i8, ptr %0, i64 48
-  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull %jisx0208_decmap), !range !15
+  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull %jisx0208_decmap)
   %tobool2.not = icmp ne i32 %call1, 0
   %spec.select = sext i1 %tobool2.not to i32
   br label %return
@@ -2024,7 +2024,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @jisx0208_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 65536) i32 @jisx0208_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
 entry:
   %0 = load i8, ptr %data, align 1
   %cmp = icmp eq i8 %0, 33
@@ -2132,7 +2132,7 @@ return:                                           ; preds = %land.lhs.true21, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @jisx0201_r_decoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data) #9 {
+define internal range(i32 0, 65536) i32 @jisx0201_r_decoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data) #9 {
 entry:
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
@@ -2160,7 +2160,7 @@ return:                                           ; preds = %if.else13, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i16 @jisx0201_r_encoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #9 {
+define internal zeroext range(i16 -1, 128) i16 @jisx0201_r_encoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #9 {
 entry:
   %0 = load i32, ptr %data, align 4
   %.fr = freeze i32 %0
@@ -2190,18 +2190,18 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jisx0212_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @jisx0212_init(ptr nocapture noundef readonly %codec) #0 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
   %jisxcommon_encmap = getelementptr inbounds i8, ptr %0, i64 40
-  %call = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %jisxcommon_encmap, ptr noundef null), !range !15
+  %call = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %jisxcommon_encmap, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %jisx0212_decmap = getelementptr inbounds i8, ptr %0, i64 56
-  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef nonnull %jisx0212_decmap), !range !15
+  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef nonnull %jisx0212_decmap)
   %tobool2.not = icmp ne i32 %call1, 0
   %spec.select = sext i1 %tobool2.not to i32
   br label %return
@@ -2212,7 +2212,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @jisx0212_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 65536) i32 @jisx0212_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2256,7 +2256,7 @@ return:                                           ; preds = %land.lhs.true22, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i16 @jisx0212_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
+define internal zeroext range(i16 -1, -32768) i16 @jisx0212_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
@@ -2305,18 +2305,18 @@ return:                                           ; preds = %land.lhs.true19, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gb2312_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @gb2312_init(ptr nocapture noundef readonly %codec) #0 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
   %gbcommon_encmap = getelementptr inbounds i8, ptr %0, i64 112
-  %call = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %gbcommon_encmap, ptr noundef null), !range !15
+  %call = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %gbcommon_encmap, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %gb2312_decmap = getelementptr inbounds i8, ptr %0, i64 120
-  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef nonnull %gb2312_decmap), !range !15
+  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef nonnull %gb2312_decmap)
   %tobool2.not = icmp ne i32 %call1, 0
   %spec.select = sext i1 %tobool2.not to i32
   br label %return
@@ -2327,7 +2327,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @gb2312_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 65536) i32 @gb2312_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2433,59 +2433,59 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jisx0213_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @jisx0213_init(ptr nocapture noundef readonly %codec) #0 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
   %jisxcommon_encmap.i = getelementptr inbounds i8, ptr %0, i64 40
-  %call.i = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %jisxcommon_encmap.i, ptr noundef null), !range !15
+  %call.i = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %jisxcommon_encmap.i, ptr noundef null)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %jisx0208_init.exit, label %return
 
 jisx0208_init.exit:                               ; preds = %entry
   %jisx0208_decmap.i = getelementptr inbounds i8, ptr %0, i64 48
-  %call1.i = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull %jisx0208_decmap.i), !range !15
+  %call1.i = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull %jisx0208_decmap.i)
   %tobool2.not.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %jisx0208_init.exit
   %jisx0213_bmp_encmap = getelementptr inbounds i8, ptr %0, i64 64
-  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.27, ptr noundef nonnull %jisx0213_bmp_encmap, ptr noundef null), !range !15
+  %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.27, ptr noundef nonnull %jisx0213_bmp_encmap, ptr noundef null)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %jisx0213_1_bmp_decmap = getelementptr inbounds i8, ptr %0, i64 72
-  %call4 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef nonnull %jisx0213_1_bmp_decmap), !range !15
+  %call4 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef nonnull %jisx0213_1_bmp_decmap)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %lor.lhs.false6, label %return
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
   %jisx0213_2_bmp_decmap = getelementptr inbounds i8, ptr %0, i64 80
-  %call7 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %jisx0213_2_bmp_decmap), !range !15
+  %call7 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %jisx0213_2_bmp_decmap)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %lor.lhs.false9, label %return
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
   %jisx0213_emp_encmap = getelementptr inbounds i8, ptr %0, i64 88
-  %call10 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.30, ptr noundef nonnull %jisx0213_emp_encmap, ptr noundef null), !range !15
+  %call10 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.30, ptr noundef nonnull %jisx0213_emp_encmap, ptr noundef null)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %lor.lhs.false12, label %return
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false9
   %jisx0213_1_emp_decmap = getelementptr inbounds i8, ptr %0, i64 96
-  %call13 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef nonnull %jisx0213_1_emp_decmap), !range !15
+  %call13 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef nonnull %jisx0213_1_emp_decmap)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %lor.lhs.false15, label %return
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false12
   %jisx0213_2_emp_decmap = getelementptr inbounds i8, ptr %0, i64 104
-  %call16 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef nonnull %jisx0213_2_emp_decmap), !range !15
+  %call16 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef nonnull %jisx0213_2_emp_decmap)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %lor.lhs.false18, label %return
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false15
-  %call19 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.33, ptr noundef nonnull @jisx0213_pair_encmap, ptr noundef nonnull @jisx0213_pair_decmap), !range !15
+  %call19 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.33, ptr noundef nonnull @jisx0213_pair_encmap, ptr noundef nonnull @jisx0213_pair_decmap)
   %tobool20.not = icmp ne i32 %call19, 0
   %spec.select = sext i1 %tobool20.not to i32
   br label %return
@@ -2684,7 +2684,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @jisx0213_2004_2_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
 entry:
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2967,7 +2967,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %add.i = add i32 %max.1.i, %min.1.i
   %shr20.i = ashr i32 %add.i, 1
   %cmp.not.i = icmp eq i32 %min.1.i, %max.1.i
-  br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
+  br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %for.inc.i, %if.else.i, %if.then.i
   %pos.0.lcssa.i = phi i32 [ %max.020.i, %if.then.i ], [ %pos.018.i, %if.else.i ], [ %shr20.i, %for.inc.i ]
@@ -2988,56 +2988,56 @@ sw.bb225:                                         ; preds = %for.end.i, %find_pa
   %25 = load i32, ptr %data, align 4
   %26 = load ptr, ptr @jisx0213_pair_encmap, align 8
   %conv.i69 = shl i32 %25, 16
-  br label %for.body.i71
+  br label %for.body.i72
 
-for.body.i71:                                     ; preds = %for.inc.i82, %sw.bb225
-  %max.020.i72 = phi i32 [ 46, %sw.bb225 ], [ %max.1.i84, %for.inc.i82 ]
-  %min.019.i73 = phi i32 [ 0, %sw.bb225 ], [ %min.1.i83, %for.inc.i82 ]
-  %pos.018.i74 = phi i32 [ 23, %sw.bb225 ], [ %shr20.i86, %for.inc.i82 ]
-  %idxprom.i75 = sext i32 %pos.018.i74 to i64
-  %arrayidx.i76 = getelementptr %struct.pair_encodemap, ptr %26, i64 %idxprom.i75
-  %27 = load i32, ptr %arrayidx.i76, align 4
-  %cmp3.i77 = icmp ult i32 %conv.i69, %27
-  br i1 %cmp3.i77, label %if.then.i96, label %if.else.i78
+for.body.i72:                                     ; preds = %for.inc.i83, %sw.bb225
+  %max.020.i73 = phi i32 [ 46, %sw.bb225 ], [ %max.1.i85, %for.inc.i83 ]
+  %min.019.i74 = phi i32 [ 0, %sw.bb225 ], [ %min.1.i84, %for.inc.i83 ]
+  %pos.018.i75 = phi i32 [ 23, %sw.bb225 ], [ %shr20.i87, %for.inc.i83 ]
+  %idxprom.i76 = sext i32 %pos.018.i75 to i64
+  %arrayidx.i77 = getelementptr %struct.pair_encodemap, ptr %26, i64 %idxprom.i76
+  %27 = load i32, ptr %arrayidx.i77, align 4
+  %cmp3.i78 = icmp ult i32 %conv.i69, %27
+  br i1 %cmp3.i78, label %if.then.i97, label %if.else.i79
 
-if.then.i96:                                      ; preds = %for.body.i71
-  %cmp5.not.i97 = icmp eq i32 %max.020.i72, %pos.018.i74
-  br i1 %cmp5.not.i97, label %for.end.i88, label %for.inc.i82
+if.then.i97:                                      ; preds = %for.body.i72
+  %cmp5.not.i98 = icmp eq i32 %max.020.i73, %pos.018.i75
+  br i1 %cmp5.not.i98, label %for.end.i89, label %for.inc.i83
 
-if.else.i78:                                      ; preds = %for.body.i71
-  %cmp11.i79 = icmp ule i32 %conv.i69, %27
-  %cmp14.not.i80 = icmp eq i32 %min.019.i73, %pos.018.i74
-  %or.cond.i81 = or i1 %cmp14.not.i80, %cmp11.i79
-  br i1 %or.cond.i81, label %for.end.i88, label %for.inc.i82
+if.else.i79:                                      ; preds = %for.body.i72
+  %cmp11.i80 = icmp ule i32 %conv.i69, %27
+  %cmp14.not.i81 = icmp eq i32 %min.019.i74, %pos.018.i75
+  %or.cond.i82 = or i1 %cmp14.not.i81, %cmp11.i80
+  br i1 %or.cond.i82, label %for.end.i89, label %for.inc.i83
 
-for.inc.i82:                                      ; preds = %if.else.i78, %if.then.i96
-  %min.1.i83 = phi i32 [ %min.019.i73, %if.then.i96 ], [ %pos.018.i74, %if.else.i78 ]
-  %max.1.i84 = phi i32 [ %pos.018.i74, %if.then.i96 ], [ %max.020.i72, %if.else.i78 ]
-  %add.i85 = add i32 %max.1.i84, %min.1.i83
-  %shr20.i86 = ashr i32 %add.i85, 1
-  %cmp.not.i87 = icmp eq i32 %min.1.i83, %max.1.i84
-  br i1 %cmp.not.i87, label %for.end.i88, label %for.body.i71, !llvm.loop !16
+for.inc.i83:                                      ; preds = %if.else.i79, %if.then.i97
+  %min.1.i84 = phi i32 [ %min.019.i74, %if.then.i97 ], [ %pos.018.i75, %if.else.i79 ]
+  %max.1.i85 = phi i32 [ %pos.018.i75, %if.then.i97 ], [ %max.020.i73, %if.else.i79 ]
+  %add.i86 = add i32 %max.1.i85, %min.1.i84
+  %shr20.i87 = ashr i32 %add.i86, 1
+  %cmp.not.i88 = icmp eq i32 %min.1.i84, %max.1.i85
+  br i1 %cmp.not.i88, label %for.end.i89, label %for.body.i72, !llvm.loop !15
 
-for.end.i88:                                      ; preds = %for.inc.i82, %if.else.i78, %if.then.i96
-  %pos.0.lcssa.i89 = phi i32 [ %max.020.i72, %if.then.i96 ], [ %pos.018.i74, %if.else.i78 ], [ %shr20.i86, %for.inc.i82 ]
-  %idxprom21.i90 = sext i32 %pos.0.lcssa.i89 to i64
-  %arrayidx22.i91 = getelementptr %struct.pair_encodemap, ptr %26, i64 %idxprom21.i90
-  %28 = load i32, ptr %arrayidx22.i91, align 4
-  %cmp24.i92 = icmp eq i32 %conv.i69, %28
-  br i1 %cmp24.i92, label %find_pairencmap.exit98, label %find_pairencmap.exit98.thread
+for.end.i89:                                      ; preds = %for.inc.i83, %if.else.i79, %if.then.i97
+  %pos.0.lcssa.i90 = phi i32 [ %max.020.i73, %if.then.i97 ], [ %pos.018.i75, %if.else.i79 ], [ %shr20.i87, %for.inc.i83 ]
+  %idxprom21.i91 = sext i32 %pos.0.lcssa.i90 to i64
+  %arrayidx22.i92 = getelementptr %struct.pair_encodemap, ptr %26, i64 %idxprom21.i91
+  %28 = load i32, ptr %arrayidx22.i92, align 4
+  %cmp24.i93 = icmp eq i32 %conv.i69, %28
+  br i1 %cmp24.i93, label %find_pairencmap.exit99, label %find_pairencmap.exit99.thread
 
-find_pairencmap.exit98:                           ; preds = %for.end.i88
-  %code.i95 = getelementptr inbounds i8, ptr %arrayidx22.i91, i64 4
-  %29 = load i16, ptr %code.i95, align 4
+find_pairencmap.exit99:                           ; preds = %for.end.i89
+  %code.i96 = getelementptr inbounds i8, ptr %arrayidx22.i92, i64 4
+  %29 = load i16, ptr %code.i96, align 4
   %.fr = freeze i16 %29
   %cmp230 = icmp eq i16 %.fr, -3
-  br i1 %cmp230, label %find_pairencmap.exit98.thread, label %return
+  br i1 %cmp230, label %find_pairencmap.exit99.thread, label %return
 
-find_pairencmap.exit98.thread:                    ; preds = %for.end.i88, %find_pairencmap.exit98
+find_pairencmap.exit99.thread:                    ; preds = %for.end.i89, %find_pairencmap.exit99
   br label %return
 
-return:                                           ; preds = %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %find_pairencmap.exit98.thread, %find_pairencmap.exit98, %entry, %find_pairencmap.exit, %if.else154, %land.lhs.true162, %land.lhs.true173, %land.lhs.true184, %land.lhs.true127, %land.lhs.true31, %if.then2, %if.end214, %if.end56
-  %retval.0 = phi i16 [ -1, %if.end56 ], [ %coded.0, %if.end214 ], [ -1, %if.then2 ], [ %7, %land.lhs.true31 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ %13, %land.lhs.true127 ], [ -1, %land.lhs.true184 ], [ -1, %land.lhs.true173 ], [ -1, %land.lhs.true162 ], [ -1, %if.else154 ], [ %24, %find_pairencmap.exit ], [ -1, %entry ], [ -1, %find_pairencmap.exit98.thread ], [ %.fr, %find_pairencmap.exit98 ]
+return:                                           ; preds = %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %find_pairencmap.exit99.thread, %find_pairencmap.exit99, %entry, %find_pairencmap.exit, %if.else154, %land.lhs.true162, %land.lhs.true173, %land.lhs.true184, %land.lhs.true127, %land.lhs.true31, %if.then2, %if.end214, %if.end56
+  %retval.0 = phi i16 [ -1, %if.end56 ], [ %coded.0, %if.end214 ], [ -1, %if.then2 ], [ %7, %land.lhs.true31 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ %13, %land.lhs.true127 ], [ -1, %land.lhs.true184 ], [ -1, %land.lhs.true173 ], [ -1, %land.lhs.true162 ], [ -1, %if.else154 ], [ %24, %find_pairencmap.exit ], [ -1, %entry ], [ -1, %find_pairencmap.exit99.thread ], [ %.fr, %find_pairencmap.exit99 ]
   ret i16 %retval.0
 }
 
@@ -3269,7 +3269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @jisx0213_2000_2_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
 entry:
   %0 = load i8, ptr %data, align 1
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
@@ -3360,7 +3360,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @jisx0201_k_decoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data) #9 {
+define internal range(i32 65377, 65536) i32 @jisx0201_k_decoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data) #9 {
 entry:
   %0 = load i8, ptr %data, align 1
   %1 = xor i8 %0, -128
@@ -3373,7 +3373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i16 @jisx0201_k_encoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #9 {
+define internal zeroext range(i16 -1, 96) i16 @jisx0201_k_encoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #9 {
 entry:
   %0 = load i32, ptr %data, align 4
   %1 = add i32 %0, -65377
@@ -3431,5 +3431,4 @@ attributes #16 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 -1, i32 1}
-!16 = distinct !{!16, !5}
+!15 = distinct !{!15, !5}

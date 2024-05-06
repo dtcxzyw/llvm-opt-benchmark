@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %out.i4 = alloca [32 x i8], align 16
   %private_key.i = alloca [32 x i8], align 16

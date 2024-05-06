@@ -200,7 +200,7 @@ define dso_local i64 @ginqueryarrayextract(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @ginarrayconsistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -317,7 +317,7 @@ define dso_local noundef i64 @ginarrayconsistent(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ginarraytriconsistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

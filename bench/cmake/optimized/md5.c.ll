@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @my_md5_init(ptr noundef %0) #0 {
+define internal range(i32 0, 28) i32 @my_md5_init(ptr noundef %0) #0 {
   %2 = tail call i32 @MD5_Init(ptr noundef %0) #2
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, i32 27, i32 0
@@ -34,7 +34,7 @@ define internal void @my_md5_final(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_md5it(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_md5it(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.MD5state_st, align 4
   %5 = call i32 @MD5_Init(ptr noundef nonnull %4) #2
   %.not.i.not = icmp eq i32 %5, 0

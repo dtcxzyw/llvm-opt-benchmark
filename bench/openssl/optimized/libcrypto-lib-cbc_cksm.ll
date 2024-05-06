@@ -148,7 +148,7 @@ if.then99:                                        ; preds = %for.end
   %incdec.ptr108 = getelementptr inbounds i8, ptr %output, i64 3
   store i8 %conv107, ptr %incdec.ptr104, align 1
   %shr109 = lshr i32 %tout0.0.lcssa, 24
-  %conv111 = trunc i32 %shr109 to i8
+  %conv111 = trunc nuw i32 %shr109 to i8
   %incdec.ptr112 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv111, ptr %incdec.ptr108, align 1
   %conv114 = trunc i32 %tout1.0.lcssa to i8
@@ -163,7 +163,7 @@ if.then99:                                        ; preds = %for.end
   %incdec.ptr123 = getelementptr inbounds i8, ptr %output, i64 7
   store i8 %conv122, ptr %incdec.ptr119, align 1
   %shr124 = lshr i32 %tout1.0.lcssa, 24
-  %conv126 = trunc i32 %shr124 to i8
+  %conv126 = trunc nuw i32 %shr124 to i8
   store i8 %conv126, ptr %incdec.ptr123, align 1
   br label %if.end128
 

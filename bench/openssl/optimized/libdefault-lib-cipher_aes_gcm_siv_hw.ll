@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_gcm_siv_initkey(ptr noundef %vctx) #1 {
+define internal range(i32 0, 2) i32 @aes_gcm_siv_initkey(ptr noundef %vctx) #1 {
 entry:
   %output = alloca [16 x i8], align 16
   %data = alloca %union.anon, align 4
@@ -144,7 +144,7 @@ return:                                           ; preds = %err, %if.end48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aes_gcm_siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @aes_gcm_siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %keystream.i.i27 = alloca [16 x i8], align 16
   %out_len.i.i28 = alloca i32, align 4
@@ -225,7 +225,7 @@ if.end11.i:                                       ; preds = %if.end7.i
   store ptr %call.i14, ptr %aad8.i, align 8
   %5 = load i64, ptr %aad_len3.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i14, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr nonnull align 1 %in, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr nonnull readonly align 1 %in, i64 %len, i1 false)
   %6 = load i64, ptr %aad_len3.i, align 8
   %add16.i = add i64 %6, %len
   store i64 %add16.i, ptr %aad_len3.i, align 8
@@ -576,7 +576,7 @@ return:                                           ; preds = %if.then19.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_gcm_siv_dup_ctx(ptr nocapture noundef %vdst, ptr nocapture noundef readonly %vsrc) #1 {
+define internal range(i32 0, 2) i32 @aes_gcm_siv_dup_ctx(ptr nocapture noundef %vdst, ptr nocapture noundef readonly %vsrc) #1 {
 entry:
   store ptr null, ptr %vdst, align 8
   %0 = load ptr, ptr %vsrc, align 8

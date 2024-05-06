@@ -136,7 +136,7 @@ define ptr @Cudd_Init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nounde
 
 .lr.ph:                                           ; preds = %.preheader, %100
   %indvars.iv = phi i64 [ %indvars.iv.next, %100 ], [ 0, %.preheader ]
-  %92 = trunc i64 %indvars.iv to i32
+  %92 = trunc nuw nsw i64 %indvars.iv to i32
   %93 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %13, i32 noundef %92, ptr noundef %76, ptr noundef %79) #6
   %94 = load ptr, ptr %85, align 8
   %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv
@@ -168,7 +168,7 @@ define ptr @Cudd_Init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nounde
   br i1 %.not, label %114, label %112
 
 112:                                              ; preds = %._crit_edge
-  %113 = tail call i32 @cuddZddInitUniv(ptr noundef nonnull %13), !range !6
+  %113 = tail call i32 @cuddZddInitUniv(ptr noundef nonnull %13)
   br label %114
 
 114:                                              ; preds = %112, %._crit_edge
@@ -202,7 +202,7 @@ declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #1
 declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddZddInitUniv(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddZddInitUniv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 140
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -278,7 +278,7 @@ define noundef i32 @cuddZddInitUniv(ptr noundef %0) local_unnamed_addr #0 {
   %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.next
   store ptr %28, ptr %47, align 8
   %48 = icmp ugt i64 %indvars.iv, 1
-  br i1 %48, label %24, label %.loopexit, !llvm.loop !7
+  br i1 %48, label %24, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %33, %11, %32, %30, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %30 ], [ 0, %32 ], [ 1, %11 ], [ 1, %33 ]
@@ -357,5 +357,4 @@ attributes #7 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

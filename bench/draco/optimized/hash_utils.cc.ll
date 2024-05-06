@@ -33,7 +33,7 @@ define noundef i64 @_ZN5draco17FingerprintStringEPKcm(ptr nocapture noundef read
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %indvars.iv54 to i64
-  %invariant.gep = getelementptr i8, ptr %0, i64 %9
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 %9
   br label %.lr.ph
 
 13:                                               ; preds = %8
@@ -87,7 +87,7 @@ define noundef i64 @_ZN5draco17FingerprintStringEPKcm(ptr nocapture noundef read
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03944 = phi i64 [ 2271560481, %.lr.ph.preheader ], [ %65, %.lr.ph ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %59 = load i8, ptr %gep, align 1
   %60 = sext i8 %59 to i64
   %61 = sub nsw i64 %indvars.iv, %10

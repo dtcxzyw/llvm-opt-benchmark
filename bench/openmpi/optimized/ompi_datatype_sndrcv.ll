@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_local_convertor = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.opal_convertor_t, align 8
   %8 = alloca %struct.opal_convertor_t, align 8
   %9 = alloca %struct.iovec, align 8

@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_prepare_start(ptr noundef %handle, ptr noundef %cb) local_unnamed_addr #1 {
+define range(i32 -22, 1) i32 @uv_prepare_start(ptr noundef %handle, ptr noundef %cb) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -249,7 +249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_check_start(ptr noundef %handle, ptr noundef %cb) local_unnamed_addr #1 {
+define range(i32 -22, 1) i32 @uv_check_start(ptr noundef %handle, ptr noundef %cb) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -467,7 +467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_idle_start(ptr noundef %handle, ptr noundef %cb) local_unnamed_addr #1 {
+define range(i32 -22, 1) i32 @uv_idle_start(ptr noundef %handle, ptr noundef %cb) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8

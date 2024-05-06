@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [122 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/hkdf/hkdf.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @HKDF(ptr nocapture noundef writeonly %out_key, i64 noundef %out_len, ptr noundef %digest, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %salt, i64 noundef %salt_len, ptr noundef %info, i64 noundef %info_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @HKDF(ptr nocapture noundef writeonly %out_key, i64 noundef %out_len, ptr noundef %digest, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %salt, i64 noundef %salt_len, ptr noundef %info, i64 noundef %info_len) local_unnamed_addr #0 {
 entry:
   %prk = alloca [64 x i8], align 16
   %previous = alloca [64 x i8], align 16

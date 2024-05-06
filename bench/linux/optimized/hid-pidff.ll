@@ -4530,7 +4530,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pidff_request_effect_upload(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @pidff_request_effect_upload(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -4642,7 +4642,7 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   %24 = phi i1 [ true, %2 ], [ false, %134 ]
   %25 = phi i64 [ 0, %2 ], [ 1, %134 ]
   %26 = load ptr, ptr %8, align 8
-  %27 = trunc i64 %25 to i32
+  %27 = trunc nuw nsw i64 %25 to i32
   store i32 %27, ptr %26, align 4
   %28 = getelementptr [2 x %struct.ff_condition_effect], ptr %10, i64 0, i64 %25
   %29 = getelementptr inbounds i8, ptr %28, i64 10

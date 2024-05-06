@@ -85,7 +85,7 @@ define internal void @nf_conntrack_ftp_fini() #0 section ".exit.text" align 16 {
 declare dso_local void @nf_conntrack_helpers_unregister(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @nf_conntrack_ftp_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @nf_conntrack_ftp_init() #0 section ".init.text" align 16 {
   %1 = load i32, ptr @ports_c, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %.preheader
@@ -605,10 +605,10 @@ define internal i32 @try_rfc959(ptr nocapture noundef readonly %0, i64 noundef %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   br i1 %7, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %5, %32
-  %8 = phi ptr [ %35, %32 ], [ %0, %5 ]
-  %9 = phi i32 [ %34, %32 ], [ 0, %5 ]
-  %10 = phi i32 [ %33, %32 ], [ 0, %5 ]
+.preheader:                                       ; preds = %5, %31
+  %8 = phi ptr [ %34, %31 ], [ %0, %5 ]
+  %9 = phi i32 [ %33, %31 ], [ 0, %5 ]
+  %10 = phi i32 [ %32, %31 ], [ 0, %5 ]
   %11 = load i8, ptr %8, align 1
   %12 = add i8 %11, -48
   %13 = icmp ult i8 %12, 10
@@ -623,7 +623,7 @@ define internal i32 @try_rfc959(ptr nocapture noundef readonly %0, i64 noundef %
   %20 = add nsw i32 %15, -48
   %21 = add i32 %20, %19
   store i32 %21, ptr %17, align 4
-  br label %32
+  br label %31
 
 22:                                               ; preds = %.preheader
   %23 = icmp eq i8 %11, 44
@@ -631,60 +631,60 @@ define internal i32 @try_rfc959(ptr nocapture noundef readonly %0, i64 noundef %
 
 24:                                               ; preds = %22
   %25 = add nuw nsw i32 %10, 1
-  br label %32
+  br label %31
 
 26:                                               ; preds = %22
   %27 = icmp ne i8 %11, %3
   %28 = icmp ne i8 %3, 0
-  %.not4 = and i1 %28, %27
+  %.not7 = and i1 %28, %27
   %29 = icmp ne i32 %10, 5
-  %30 = select i1 %.not4, i1 true, i1 %29
-  %31 = icmp eq i32 %9, 0
-  %or.cond = or i1 %31, %30
-  br i1 %or.cond, label %.thread, label %40
+  %.not5 = select i1 %.not7, i1 true, i1 %29
+  %30 = icmp eq i32 %9, 0
+  %or.cond = or i1 %30, %.not5
+  br i1 %or.cond, label %.thread, label %39
 
-32:                                               ; preds = %24, %14
-  %33 = phi i32 [ %10, %14 ], [ %25, %24 ]
-  %34 = add i32 %9, 1
-  %35 = getelementptr i8, ptr %8, i64 1
-  %36 = zext i32 %34 to i64
-  %37 = icmp ult i64 %36, %1
-  %38 = icmp ult i32 %33, 6
-  %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.preheader, label %.thread, !llvm.loop !17
+31:                                               ; preds = %24, %14
+  %32 = phi i32 [ %10, %14 ], [ %25, %24 ]
+  %33 = add i32 %9, 1
+  %34 = getelementptr i8, ptr %8, i64 1
+  %35 = zext i32 %33 to i64
+  %36 = icmp ult i64 %35, %1
+  %37 = icmp ult i32 %32, 6
+  %38 = select i1 %36, i1 %37, i1 false
+  br i1 %38, label %.preheader, label %.thread, !llvm.loop !17
 
-40:                                               ; preds = %26
-  %41 = load i32, ptr %6, align 16
-  %42 = shl i32 %41, 24
-  %43 = getelementptr inbounds i8, ptr %6, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = shl i32 %44, 16
-  %46 = or i32 %45, %42
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = shl i32 %48, 8
-  %50 = or i32 %46, %49
-  %51 = getelementptr inbounds i8, ptr %6, i64 12
-  %52 = load i32, ptr %51, align 4
-  %53 = or i32 %50, %52
-  %54 = tail call i32 @llvm.bswap.i32(i32 %53)
-  store i32 %54, ptr %2, align 4
-  %55 = getelementptr inbounds i8, ptr %6, i64 16
-  %56 = load i32, ptr %55, align 16
-  %57 = shl i32 %56, 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 20
-  %59 = load i32, ptr %58, align 4
-  %60 = or i32 %57, %59
-  %61 = trunc i32 %60 to i16
-  %62 = tail call i16 @llvm.bswap.i16(i16 %61)
-  %63 = getelementptr inbounds i8, ptr %2, i64 16
-  store i16 %62, ptr %63, align 4
+39:                                               ; preds = %26
+  %40 = load i32, ptr %6, align 16
+  %41 = shl i32 %40, 24
+  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %43 = load i32, ptr %42, align 4
+  %44 = shl i32 %43, 16
+  %45 = or i32 %44, %41
+  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  %47 = load i32, ptr %46, align 8
+  %48 = shl i32 %47, 8
+  %49 = or i32 %45, %48
+  %50 = getelementptr inbounds i8, ptr %6, i64 12
+  %51 = load i32, ptr %50, align 4
+  %52 = or i32 %49, %51
+  %53 = tail call i32 @llvm.bswap.i32(i32 %52)
+  store i32 %53, ptr %2, align 4
+  %54 = getelementptr inbounds i8, ptr %6, i64 16
+  %55 = load i32, ptr %54, align 16
+  %56 = shl i32 %55, 8
+  %57 = getelementptr inbounds i8, ptr %6, i64 20
+  %58 = load i32, ptr %57, align 4
+  %59 = or i32 %56, %58
+  %60 = trunc i32 %59 to i16
+  %61 = tail call i16 @llvm.bswap.i16(i16 %60)
+  %62 = getelementptr inbounds i8, ptr %2, i64 16
+  store i16 %61, ptr %62, align 4
   br label %.thread
 
-.thread:                                          ; preds = %32, %5, %26, %40
-  %64 = phi i32 [ %9, %40 ], [ 0, %26 ], [ 0, %5 ], [ 0, %32 ]
+.thread:                                          ; preds = %31, %5, %26, %39
+  %63 = phi i32 [ %9, %39 ], [ 0, %26 ], [ 0, %5 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
-  ret i32 %64
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -722,36 +722,36 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
 
 24:                                               ; preds = %21
   %25 = icmp eq i8 %.pre, 49
-  br i1 %25, label %.thread33, label %.thread12
+  br i1 %25, label %.thread36, label %.thread12
 
-.thread33:                                        ; preds = %24
+.thread36:                                        ; preds = %24
   %26 = add i64 %1, -3
   br label %33
 
 27:                                               ; preds = %21
   %28 = icmp eq i8 %.pre, 50
-  br i1 %28, label %.thread34, label %.thread12
+  br i1 %28, label %.thread37, label %.thread12
 
-.thread34:                                        ; preds = %27
+.thread37:                                        ; preds = %27
   %29 = add i64 %1, -3
-  br label %85
+  br label %84
 
 30:                                               ; preds = %21
   %31 = icmp eq i8 %.pre, 49
   %32 = add i64 %1, -3
-  br i1 %31, label %33, label %85
+  br i1 %31, label %33, label %84
 
-33:                                               ; preds = %.thread33, %30
-  %34 = phi i64 [ %26, %.thread33 ], [ %32, %30 ]
+33:                                               ; preds = %.thread36, %30
+  %34 = phi i64 [ %26, %.thread36 ], [ %32, %30 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %35 = getelementptr i8, ptr %0, i64 3
   br label %36
 
-36:                                               ; preds = %61, %33
-  %37 = phi ptr [ %64, %61 ], [ %35, %33 ]
-  %38 = phi i32 [ %63, %61 ], [ 0, %33 ]
-  %39 = phi i32 [ %62, %61 ], [ 0, %33 ]
+36:                                               ; preds = %60, %33
+  %37 = phi ptr [ %63, %60 ], [ %35, %33 ]
+  %38 = phi i32 [ %62, %60 ], [ 0, %33 ]
+  %39 = phi i32 [ %61, %60 ], [ 0, %33 ]
   %40 = load i8, ptr %37, align 1
   %41 = add i8 %40, -48
   %42 = icmp ult i8 %41, 10
@@ -766,7 +766,7 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
   %49 = add nsw i32 %44, -48
   %50 = add i32 %49, %48
   store i32 %50, ptr %46, align 4
-  br label %61
+  br label %60
 
 51:                                               ; preds = %36
   %52 = icmp eq i8 %40, 46
@@ -774,117 +774,117 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
 
 53:                                               ; preds = %51
   %54 = add nuw nsw i32 %39, 1
-  br label %61
+  br label %60
 
 55:                                               ; preds = %51
   %56 = icmp ne i8 %40, %10
   %57 = icmp ne i8 %10, 0
-  %.not14 = and i1 %57, %56
+  %.not17 = and i1 %57, %56
   %58 = icmp ne i32 %39, 3
-  %59 = select i1 %.not14, i1 true, i1 %58
-  %60 = icmp eq i32 %38, 0
-  %or.cond = or i1 %60, %59
-  br i1 %or.cond, label %.thread, label %69
+  %.not15 = select i1 %.not17, i1 true, i1 %58
+  %59 = icmp eq i32 %38, 0
+  %or.cond = or i1 %59, %.not15
+  br i1 %or.cond, label %.thread, label %68
 
-61:                                               ; preds = %53, %43
-  %62 = phi i32 [ %39, %43 ], [ %54, %53 ]
-  %63 = add i32 %38, 1
-  %64 = getelementptr i8, ptr %37, i64 1
-  %65 = zext i32 %63 to i64
-  %66 = icmp ugt i64 %34, %65
-  %67 = icmp ult i32 %62, 4
-  %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %36, label %.thread, !llvm.loop !17
+60:                                               ; preds = %53, %43
+  %61 = phi i32 [ %39, %43 ], [ %54, %53 ]
+  %62 = add i32 %38, 1
+  %63 = getelementptr i8, ptr %37, i64 1
+  %64 = zext i32 %62 to i64
+  %65 = icmp ugt i64 %34, %64
+  %66 = icmp ult i32 %61, 4
+  %67 = select i1 %65, i1 %66, i1 false
+  br i1 %67, label %36, label %.thread, !llvm.loop !17
 
-69:                                               ; preds = %55
-  %70 = load i32, ptr %7, align 16
-  %71 = shl i32 %70, 24
-  %72 = getelementptr inbounds i8, ptr %7, i64 4
-  %73 = load i32, ptr %72, align 4
-  %74 = shl i32 %73, 16
-  %75 = or i32 %74, %71
-  %76 = getelementptr inbounds i8, ptr %7, i64 8
-  %77 = load i32, ptr %76, align 8
-  %78 = shl i32 %77, 8
-  %79 = or i32 %75, %78
-  %80 = getelementptr inbounds i8, ptr %7, i64 12
-  %81 = load i32, ptr %80, align 4
-  %82 = or i32 %79, %81
-  %83 = tail call i32 @llvm.bswap.i32(i32 %82)
-  store i32 %83, ptr %2, align 4
+68:                                               ; preds = %55
+  %69 = load i32, ptr %7, align 16
+  %70 = shl i32 %69, 24
+  %71 = getelementptr inbounds i8, ptr %7, i64 4
+  %72 = load i32, ptr %71, align 4
+  %73 = shl i32 %72, 16
+  %74 = or i32 %73, %70
+  %75 = getelementptr inbounds i8, ptr %7, i64 8
+  %76 = load i32, ptr %75, align 8
+  %77 = shl i32 %76, 8
+  %78 = or i32 %74, %77
+  %79 = getelementptr inbounds i8, ptr %7, i64 12
+  %80 = load i32, ptr %79, align 4
+  %81 = or i32 %78, %80
+  %82 = tail call i32 @llvm.bswap.i32(i32 %81)
+  store i32 %82, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %61, %55, %69
-  %84 = phi i32 [ %38, %69 ], [ 0, %55 ], [ 0, %61 ]
+.thread:                                          ; preds = %60, %55, %68
+  %83 = phi i32 [ %38, %68 ], [ 0, %55 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   br label %select.unfold11
 
-85:                                               ; preds = %.thread34, %30
-  %86 = phi i64 [ %29, %.thread34 ], [ %32, %30 ]
-  %87 = getelementptr i8, ptr %0, i64 3
+84:                                               ; preds = %.thread37, %30
+  %85 = phi i64 [ %29, %.thread37 ], [ %32, %30 ]
+  %86 = getelementptr i8, ptr %0, i64 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   store ptr null, ptr %6, align 8, !annotation !8
-  %88 = tail call i64 @llvm.umin.i64(i64 %86, i64 65535)
-  %89 = trunc i64 %88 to i32
-  %90 = call i32 @in6_pton(ptr noundef %87, i32 noundef %89, ptr noundef %2, i32 noundef %11, ptr noundef nonnull %6) #12
-  %91 = icmp sgt i32 %90, 0
-  %92 = load ptr, ptr %6, align 8
-  %93 = ptrtoint ptr %92 to i64
-  %94 = ptrtoint ptr %87 to i64
-  %95 = sub i64 %93, %94
-  %96 = trunc i64 %95 to i32
+  %87 = tail call i64 @llvm.umin.i64(i64 %85, i64 65535)
+  %88 = trunc nuw nsw i64 %87 to i32
+  %89 = call i32 @in6_pton(ptr noundef %86, i32 noundef %88, ptr noundef %2, i32 noundef %11, ptr noundef nonnull %6) #12
+  %90 = icmp sgt i32 %89, 0
+  %91 = load ptr, ptr %6, align 8
+  %92 = ptrtoint ptr %91 to i64
+  %93 = ptrtoint ptr %86 to i64
+  %94 = sub i64 %92, %93
+  %95 = trunc i64 %94 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  br i1 %91, label %select.unfold11, label %.thread12
+  br i1 %90, label %select.unfold11, label %.thread12
 
-select.unfold11:                                  ; preds = %85, %.thread
-  %97 = phi i32 [ %84, %.thread ], [ %96, %85 ]
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.thread12, label %99
+select.unfold11:                                  ; preds = %84, %.thread
+  %96 = phi i32 [ %83, %.thread ], [ %95, %84 ]
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %.thread12, label %98
 
-99:                                               ; preds = %select.unfold11
-  %100 = add i32 %97, 4
-  %101 = getelementptr inbounds i8, ptr %2, i64 16
-  %102 = sext i32 %100 to i64
-  %103 = icmp ult i64 %102, %1
-  br i1 %103, label %.preheader, label %.thread12
+98:                                               ; preds = %select.unfold11
+  %99 = add i32 %96, 4
+  %100 = getelementptr inbounds i8, ptr %2, i64 16
+  %101 = sext i32 %99 to i64
+  %102 = icmp ult i64 %101, %1
+  br i1 %102, label %.preheader, label %.thread12
 
-.preheader:                                       ; preds = %99, %119
-  %104 = phi i64 [ %124, %119 ], [ %102, %99 ]
-  %105 = phi i16 [ %122, %119 ], [ 0, %99 ]
-  %106 = phi i32 [ %123, %119 ], [ %100, %99 ]
-  %107 = getelementptr i8, ptr %0, i64 %104
-  %108 = load i8, ptr %107, align 1
-  %109 = zext i8 %108 to i16
-  %110 = icmp eq i8 %108, %10
-  br i1 %110, label %111, label %116
+.preheader:                                       ; preds = %98, %118
+  %103 = phi i64 [ %123, %118 ], [ %101, %98 ]
+  %104 = phi i16 [ %121, %118 ], [ 0, %98 ]
+  %105 = phi i32 [ %122, %118 ], [ %99, %98 ]
+  %106 = getelementptr i8, ptr %0, i64 %103
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i16
+  %109 = icmp eq i8 %107, %10
+  br i1 %109, label %110, label %115
 
-111:                                              ; preds = %.preheader
-  %112 = icmp eq i16 %105, 0
-  br i1 %112, label %.thread12, label %113
+110:                                              ; preds = %.preheader
+  %111 = icmp eq i16 %104, 0
+  br i1 %111, label %.thread12, label %112
 
-113:                                              ; preds = %111
-  %114 = call i16 @llvm.bswap.i16(i16 %105)
-  store i16 %114, ptr %101, align 2
-  %115 = add i32 %106, 1
+112:                                              ; preds = %110
+  %113 = call i16 @llvm.bswap.i16(i16 %104)
+  store i16 %113, ptr %100, align 2
+  %114 = add i32 %105, 1
   br label %.thread12
 
-116:                                              ; preds = %.preheader
-  %117 = add i8 %108, -48
-  %118 = icmp ult i8 %117, 10
-  br i1 %118, label %119, label %.thread12
+115:                                              ; preds = %.preheader
+  %116 = add i8 %107, -48
+  %117 = icmp ult i8 %116, 10
+  br i1 %117, label %118, label %.thread12
 
-119:                                              ; preds = %116
-  %120 = mul i16 %105, 10
-  %121 = add i16 %120, -48
-  %122 = add i16 %121, %109
-  %123 = add i32 %106, 1
-  %124 = sext i32 %123 to i64
-  %125 = icmp ult i64 %124, %1
-  br i1 %125, label %.preheader, label %.thread12, !llvm.loop !18
+118:                                              ; preds = %115
+  %119 = mul i16 %104, 10
+  %120 = add i16 %119, -48
+  %121 = add i16 %120, %108
+  %122 = add i32 %105, 1
+  %123 = sext i32 %122 to i64
+  %124 = icmp ult i64 %123, %1
+  br i1 %124, label %.preheader, label %.thread12, !llvm.loop !18
 
-.thread12:                                        ; preds = %119, %116, %85, %113, %111, %99, %select.unfold11, %27, %24, %17, %9, %5
-  %126 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %9 ], [ 0, %27 ], [ 0, %24 ], [ 0, %select.unfold11 ], [ %115, %113 ], [ 0, %111 ], [ 0, %99 ], [ 0, %85 ], [ 0, %116 ], [ 0, %119 ]
-  ret i32 %126
+.thread12:                                        ; preds = %118, %115, %84, %112, %110, %98, %select.unfold11, %27, %24, %17, %9, %5
+  %125 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %9 ], [ 0, %27 ], [ 0, %24 ], [ 0, %select.unfold11 ], [ %114, %112 ], [ 0, %110 ], [ 0, %98 ], [ 0, %84 ], [ 0, %115 ], [ 0, %118 ]
+  ret i32 %125
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)

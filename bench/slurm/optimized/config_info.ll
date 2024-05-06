@@ -4182,7 +4182,7 @@ _reset_period_str.exit:                           ; preds = %815, %switch.lookup
 1124:                                             ; preds = %.lr.ph, %1148
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1148 ]
   %1125 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.21, i32 noundef 1535, ptr noundef nonnull @__func__.slurm_ctl_conf_2_key_pairs) #13
-  %1126 = trunc i64 %indvars.iv to i32
+  %1126 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1125, ptr noundef nonnull @.str.271, i32 noundef %1126) #13
   %1127 = load ptr, ptr %1122, align 8
   %1128 = getelementptr inbounds ptr, ptr %1127, i64 %indvars.iv
@@ -4913,7 +4913,7 @@ define void @slurm_print_ctl_conf(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %.not12.i, label %_print_config_plugin_params_list.exit, label %25
 
 25:                                               ; preds = %23
-  %fputs.i = call i32 @fputs(ptr %22, ptr %0)
+  %fputs.i = call i32 @fputs(ptr readonly %22, ptr %0)
   %26 = call ptr @list_iterator_create(ptr noundef nonnull %21) #13
   %27 = call ptr @list_next(ptr noundef %26) #13
   %.not1314.i = icmp eq ptr %27, null
@@ -5026,7 +5026,7 @@ declare ptr @log_num2string(i16 noundef zeroext) local_unnamed_addr #2
 declare void @slurm_sprint_cpu_bind_type(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_ctl_conf(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @slurm_load_ctl_conf(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.last_update_msg, align 8
@@ -5086,7 +5086,7 @@ declare void @slurm_free_return_code_msg(ptr noundef) local_unnamed_addr #2
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_slurmd_status(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @slurm_load_slurmd_status(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca ptr, align 8

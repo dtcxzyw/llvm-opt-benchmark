@@ -3534,7 +3534,7 @@ define internal fastcc noundef zeroext i1 @sema_check_alignment_expression(ptr n
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8
-  %21 = tail call i64 @llvm.ctpop.i64(i64 %20), !range !19
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
   %22 = icmp ult i64 %21, 2
   br i1 %22, label %.thread, label %.critedge
 
@@ -3633,4 +3633,3 @@ attributes #5 = { noreturn nounwind }
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
-!19 = !{i64 0, i64 65}

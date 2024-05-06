@@ -606,7 +606,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i64 @freezer_self_freezing_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
+define internal range(i64 0, 2) i64 @freezer_self_freezing_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 1
@@ -616,7 +616,7 @@ define internal i64 @freezer_self_freezing_read(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i64 @freezer_parent_freezing_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
+define internal range(i64 0, 2) i64 @freezer_parent_freezing_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 2

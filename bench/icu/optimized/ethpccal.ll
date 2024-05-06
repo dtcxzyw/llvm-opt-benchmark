@@ -143,34 +143,34 @@ cond.true.i:                                      ; preds = %if.then
 if.end:                                           ; preds = %entry
   %fStamp.i1 = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load i32, ptr %fStamp.i1, align 4
-  %cmp.i2 = icmp slt i32 %2, 1
-  %fFields.i5 = getelementptr inbounds i8, ptr %this, i64 12
-  %3 = load i32, ptr %fFields.i5, align 4
+  %cmp.i3 = icmp slt i32 %2, 1
+  %fFields.i6 = getelementptr inbounds i8, ptr %this, i64 12
+  %3 = load i32, ptr %fFields.i6, align 4
   %cmp4 = icmp eq i32 %3, 1
-  %or.cond = select i1 %cmp.i2, i1 true, i1 %cmp4
-  %arrayidx.i8 = getelementptr inbounds i8, ptr %this, i64 136
-  %4 = load i32, ptr %arrayidx.i8, align 8
+  %or.cond = select i1 %cmp.i3, i1 true, i1 %cmp4
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %this, i64 136
+  %4 = load i32, ptr %arrayidx.i10, align 8
   br i1 %or.cond, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  %cmp.i9 = icmp sgt i32 %4, 0
-  br i1 %cmp.i9, label %cond.true.i11, label %return
+  %cmp.i11 = icmp sgt i32 %4, 0
+  br i1 %cmp.i11, label %cond.true.i13, label %return
 
-cond.true.i11:                                    ; preds = %if.then5
-  %arrayidx3.i13 = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load i32, ptr %arrayidx3.i13, align 8
+cond.true.i13:                                    ; preds = %if.then5
+  %arrayidx3.i15 = getelementptr inbounds i8, ptr %this, i64 16
+  %5 = load i32, ptr %arrayidx3.i15, align 8
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx3.i21 = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i32, ptr %arrayidx3.i21, align 8
-  %cmp.i17.inv = icmp slt i32 %4, 1
+  %arrayidx3.i23 = getelementptr inbounds i8, ptr %this, i64 16
+  %6 = load i32, ptr %arrayidx3.i23, align 8
+  %cmp.i19.inv = icmp slt i32 %4, 1
   %7 = add nsw i32 %6, -5500
-  %sub = select i1 %cmp.i17.inv, i32 -5499, i32 %7
+  %sub = select i1 %cmp.i19.inv, i32 -5499, i32 %7
   br label %return
 
-return:                                           ; preds = %cond.true.i11, %if.then5, %cond.true.i, %if.then, %if.end7
-  %retval.0 = phi i32 [ %sub, %if.end7 ], [ %1, %cond.true.i ], [ 1, %if.then ], [ %5, %cond.true.i11 ], [ 1, %if.then5 ]
+return:                                           ; preds = %cond.true.i13, %if.then5, %cond.true.i, %if.then, %if.end7
+  %retval.0 = phi i32 [ %sub, %if.end7 ], [ %1, %cond.true.i ], [ 1, %if.then ], [ %5, %cond.true.i13 ], [ 1, %if.then5 ]
   ret i32 %retval.0
 }
 
@@ -204,40 +204,40 @@ entry:
   store i8 1, ptr %fIsSet.i, align 4
   %add = add nsw i32 %2, 5500
   %cond3 = select i1 %cmp, i32 %2, i32 %add
-  %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %cond3, ptr %arrayidx.i5, align 8
-  %arrayidx3.i7 = getelementptr inbounds i8, ptr %this, i64 136
-  store i32 1, ptr %arrayidx3.i7, align 8
-  %arrayidx5.i9 = getelementptr inbounds i8, ptr %this, i64 109
-  store i8 1, ptr %arrayidx5.i9, align 1
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %cond3, ptr %arrayidx.i8, align 8
+  %arrayidx3.i10 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i10, align 8
+  %arrayidx5.i12 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i12, align 1
   %3 = load i32, ptr %month, align 4
-  %arrayidx.i11 = getelementptr inbounds i8, ptr %this, i64 20
-  store i32 %3, ptr %arrayidx.i11, align 4
-  %arrayidx3.i13 = getelementptr inbounds i8, ptr %this, i64 140
-  store i32 1, ptr %arrayidx3.i13, align 4
-  %arrayidx5.i15 = getelementptr inbounds i8, ptr %this, i64 110
-  store i8 1, ptr %arrayidx5.i15, align 2
-  %arrayidx.i17 = getelementptr inbounds i8, ptr %this, i64 104
-  store i32 %3, ptr %arrayidx.i17, align 8
-  %arrayidx3.i19 = getelementptr inbounds i8, ptr %this, i64 224
-  store i32 1, ptr %arrayidx3.i19, align 8
-  %arrayidx5.i21 = getelementptr inbounds i8, ptr %this, i64 131
-  store i8 1, ptr %arrayidx5.i21, align 1
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %3, ptr %arrayidx.i14, align 4
+  %arrayidx3.i16 = getelementptr inbounds i8, ptr %this, i64 140
+  store i32 1, ptr %arrayidx3.i16, align 4
+  %arrayidx5.i18 = getelementptr inbounds i8, ptr %this, i64 110
+  store i8 1, ptr %arrayidx5.i18, align 2
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %this, i64 104
+  store i32 %3, ptr %arrayidx.i20, align 8
+  %arrayidx3.i22 = getelementptr inbounds i8, ptr %this, i64 224
+  store i32 1, ptr %arrayidx3.i22, align 8
+  %arrayidx5.i24 = getelementptr inbounds i8, ptr %this, i64 131
+  store i8 1, ptr %arrayidx5.i24, align 1
   %4 = load i32, ptr %day, align 4
-  %arrayidx.i23 = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 %4, ptr %arrayidx.i23, align 8
-  %arrayidx3.i25 = getelementptr inbounds i8, ptr %this, i64 152
-  store i32 1, ptr %arrayidx3.i25, align 8
-  %arrayidx5.i27 = getelementptr inbounds i8, ptr %this, i64 113
-  store i8 1, ptr %arrayidx5.i27, align 1
+  %arrayidx.i26 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %4, ptr %arrayidx.i26, align 8
+  %arrayidx3.i28 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 1, ptr %arrayidx3.i28, align 8
+  %arrayidx5.i30 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx5.i30, align 1
   %mul = mul nsw i32 %3, 30
   %add4 = add nsw i32 %4, %mul
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %this, i64 36
-  store i32 %add4, ptr %arrayidx.i29, align 4
-  %arrayidx3.i31 = getelementptr inbounds i8, ptr %this, i64 156
-  store i32 1, ptr %arrayidx3.i31, align 4
-  %arrayidx5.i33 = getelementptr inbounds i8, ptr %this, i64 114
-  store i8 1, ptr %arrayidx5.i33, align 2
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %add4, ptr %arrayidx.i32, align 4
+  %arrayidx3.i34 = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 1, ptr %arrayidx3.i34, align 4
+  %arrayidx5.i36 = getelementptr inbounds i8, ptr %this, i64 114
+  store i8 1, ptr %arrayidx5.i36, align 2
   ret void
 }
 
@@ -491,40 +491,40 @@ entry:
   store i32 1, ptr %fStamp.i, align 4
   store i8 1, ptr %fIsSet.i, align 4
   %add = add nsw i32 %2, 5500
-  %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %add, ptr %arrayidx.i5, align 8
-  %arrayidx3.i7 = getelementptr inbounds i8, ptr %this, i64 136
-  store i32 1, ptr %arrayidx3.i7, align 8
-  %arrayidx5.i9 = getelementptr inbounds i8, ptr %this, i64 109
-  store i8 1, ptr %arrayidx5.i9, align 1
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %add, ptr %arrayidx.i8, align 8
+  %arrayidx3.i10 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i10, align 8
+  %arrayidx5.i12 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i12, align 1
   %3 = load i32, ptr %month, align 4
-  %arrayidx.i11 = getelementptr inbounds i8, ptr %this, i64 20
-  store i32 %3, ptr %arrayidx.i11, align 4
-  %arrayidx3.i13 = getelementptr inbounds i8, ptr %this, i64 140
-  store i32 1, ptr %arrayidx3.i13, align 4
-  %arrayidx5.i15 = getelementptr inbounds i8, ptr %this, i64 110
-  store i8 1, ptr %arrayidx5.i15, align 2
-  %arrayidx.i17 = getelementptr inbounds i8, ptr %this, i64 104
-  store i32 %3, ptr %arrayidx.i17, align 8
-  %arrayidx3.i19 = getelementptr inbounds i8, ptr %this, i64 224
-  store i32 1, ptr %arrayidx3.i19, align 8
-  %arrayidx5.i21 = getelementptr inbounds i8, ptr %this, i64 131
-  store i8 1, ptr %arrayidx5.i21, align 1
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %3, ptr %arrayidx.i14, align 4
+  %arrayidx3.i16 = getelementptr inbounds i8, ptr %this, i64 140
+  store i32 1, ptr %arrayidx3.i16, align 4
+  %arrayidx5.i18 = getelementptr inbounds i8, ptr %this, i64 110
+  store i8 1, ptr %arrayidx5.i18, align 2
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %this, i64 104
+  store i32 %3, ptr %arrayidx.i20, align 8
+  %arrayidx3.i22 = getelementptr inbounds i8, ptr %this, i64 224
+  store i32 1, ptr %arrayidx3.i22, align 8
+  %arrayidx5.i24 = getelementptr inbounds i8, ptr %this, i64 131
+  store i8 1, ptr %arrayidx5.i24, align 1
   %4 = load i32, ptr %day, align 4
-  %arrayidx.i23 = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 %4, ptr %arrayidx.i23, align 8
-  %arrayidx3.i25 = getelementptr inbounds i8, ptr %this, i64 152
-  store i32 1, ptr %arrayidx3.i25, align 8
-  %arrayidx5.i27 = getelementptr inbounds i8, ptr %this, i64 113
-  store i8 1, ptr %arrayidx5.i27, align 1
+  %arrayidx.i26 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %4, ptr %arrayidx.i26, align 8
+  %arrayidx3.i28 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 1, ptr %arrayidx3.i28, align 8
+  %arrayidx5.i30 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx5.i30, align 1
   %mul = mul nsw i32 %3, 30
   %add2 = add nsw i32 %4, %mul
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %this, i64 36
-  store i32 %add2, ptr %arrayidx.i29, align 4
-  %arrayidx3.i31 = getelementptr inbounds i8, ptr %this, i64 156
-  store i32 1, ptr %arrayidx3.i31, align 4
-  %arrayidx5.i33 = getelementptr inbounds i8, ptr %this, i64 114
-  store i8 1, ptr %arrayidx5.i33, align 2
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %add2, ptr %arrayidx.i32, align 4
+  %arrayidx3.i34 = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 1, ptr %arrayidx3.i34, align 4
+  %arrayidx5.i36 = getelementptr inbounds i8, ptr %this, i64 114
+  store i8 1, ptr %arrayidx5.i36, align 2
   ret void
 }
 
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7525EthiopicAmeteAlemCalendar23defaultCenturyStartYearEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147478148, -2147483648) i32 @_ZNK6icu_7525EthiopicAmeteAlemCalendar23defaultCenturyStartYearEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L25gSystemDefaultCenturyInitE acquire, align 4
   %cmp.i.i = icmp eq i32 %0, 2

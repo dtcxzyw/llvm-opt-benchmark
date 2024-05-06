@@ -752,7 +752,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %198 = add i32 %197, %193
   %199 = sdiv i32 %198, 8
   %200 = srem i32 %198, 8
-  %201 = trunc i32 %200 to i8
+  %201 = trunc nsw i32 %200 to i8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %138, %133
@@ -831,7 +831,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %241 = add i32 %236, %240
   %242 = sdiv i32 %241, 8
   %243 = srem i32 %241, 8
-  %244 = trunc i32 %243 to i8
+  %244 = trunc nsw i32 %243 to i8
   br label %245
 
 245:                                              ; preds = %233, %231
@@ -864,7 +864,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %257 = add i32 %252, %256
   %258 = sdiv i32 %257, 8
   %259 = srem i32 %257, 8
-  %260 = trunc i32 %259 to i8
+  %260 = trunc nsw i32 %259 to i8
   br label %261
 
 261:                                              ; preds = %.sink.split268.i, %248
@@ -884,7 +884,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %270 = add i32 %269, %265
   %271 = sdiv i32 %270, 8
   %272 = srem i32 %270, 8
-  %273 = trunc i32 %272 to i8
+  %273 = trunc nsw i32 %272 to i8
   %274 = icmp eq i32 %.0206.i, 1
   br i1 %274, label %275, label %288
 
@@ -901,7 +901,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %284 = add i32 %278, %283
   %285 = sdiv i32 %284, 8
   %286 = srem i32 %284, 8
-  %287 = trunc i32 %286 to i8
+  %287 = trunc nsw i32 %286 to i8
   br label %288
 
 288:                                              ; preds = %275, %263, %261
@@ -921,7 +921,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %297 = add i32 %296, %292
   %298 = sdiv i32 %297, 8
   %299 = srem i32 %297, 8
-  %300 = trunc i32 %299 to i8
+  %300 = trunc nsw i32 %299 to i8
   %301 = icmp eq i32 %.0205.i, 1
   br i1 %301, label %302, label %315
 
@@ -938,7 +938,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %311 = add i32 %305, %310
   %312 = sdiv i32 %311, 8
   %313 = srem i32 %311, 8
-  %314 = trunc i32 %313 to i8
+  %314 = trunc nsw i32 %313 to i8
   br label %315
 
 315:                                              ; preds = %302, %290, %288
@@ -958,7 +958,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %324 = add i32 %323, %319
   %325 = sdiv i32 %324, 8
   %326 = srem i32 %324, 8
-  %327 = trunc i32 %326 to i8
+  %327 = trunc nsw i32 %326 to i8
   br label %328
 
 328:                                              ; preds = %317, %315
@@ -978,7 +978,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %337 = add i32 %333, %336
   %338 = sdiv i32 %337, 8
   %339 = srem i32 %337, 8
-  %340 = trunc i32 %339 to i8
+  %340 = trunc nsw i32 %339 to i8
   br label %dissect_auheader.exit
 
 dissect_auheader.exit:                            ; preds = %328, %330

@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @init() #0 {
+define internal range(i32 -64, 1) i32 @init() #0 {
   %1 = load ptr, ptr getelementptr inbounds (%struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i64 0, i32 17), align 8
   %2 = icmp eq ptr %1, null
   %. = select i1 %2, i32 -64, i32 0
@@ -25,7 +25,7 @@ define internal i32 @init() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal range(i32 -156, -31) i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @local_caddy_t_class, i64 0, i32 8), align 8
   %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #11
   %10 = load i32, ptr @pmix_class_init_epoch, align 4

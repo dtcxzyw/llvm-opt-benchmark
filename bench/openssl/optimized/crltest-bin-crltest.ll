@@ -146,7 +146,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.129 = private unnamed_addr constant [50 x i8] c"GKljn9weIYiMPV/BzGymwfv2EW0preLwtyJNJPaxbdin6Jc=\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %s.i.i1 = alloca i64, align 8
   %s.i.i = alloca i64, align 8
@@ -234,7 +234,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_basic_crl() #0 {
+define internal range(i32 0, 2) i32 @test_basic_crl() #0 {
 entry:
   %s.i.i6 = alloca i64, align 8
   %s.i.i = alloca i64, align 8
@@ -331,7 +331,7 @@ land.end:                                         ; preds = %make_CRL_stack.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bad_issuer_crl() #0 {
+define internal range(i32 0, 2) i32 @test_bad_issuer_crl() #0 {
 entry:
   %s.i.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i)
@@ -379,7 +379,7 @@ land.end:                                         ; preds = %land.rhs, %CRL_from
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_known_critical_crl() #0 {
+define internal range(i32 0, 2) i32 @test_known_critical_crl() #0 {
 entry:
   %s.i.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i)
@@ -429,7 +429,7 @@ land.end:                                         ; preds = %land.rhs, %CRL_from
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unknown_critical_crl(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_unknown_critical_crl(i32 noundef %n) #0 {
 entry:
   %s.i.i = alloca i64, align 8
   %idxprom = sext i32 %n to i64
@@ -480,7 +480,7 @@ land.end:                                         ; preds = %land.rhs, %CRL_from
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_reuse_crl() #0 {
+define internal range(i32 0, 2) i32 @test_reuse_crl() #0 {
 entry:
   %s.i = alloca i64, align 8
   %s.i.i = alloca i64, align 8

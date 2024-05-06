@@ -1524,7 +1524,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @SpGistGetInnerTypeSize(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 1073741831) i32 @SpGistGetInnerTypeSize(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 6
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -1581,7 +1581,7 @@ define dso_local i32 @SpGistGetInnerTypeSize(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @SpGistGetLeafTupleSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 0, -7) i64 @SpGistGetLeafTupleSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 .loopexit:
   %3 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #9
   %4 = add i64 %3, 23
@@ -1739,7 +1739,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr nocapture noundef readonly %0
   %44 = zext nneg i32 %.01924 to i64
   %45 = tail call ptr @palloc0(i64 noundef %44) #9
   %46 = or disjoint i32 %.01924, %spec.select
-  %47 = trunc i32 %46 to i16
+  %47 = trunc nuw i32 %46 to i16
   %48 = getelementptr inbounds i8, ptr %45, i64 6
   store i16 %47, ptr %48, align 2
   store i16 -1, ptr %45, align 2
@@ -1808,7 +1808,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr nocapture noundef readonly %0
   %.pre-phi.i = phi ptr [ %64, %79 ], [ %64, %81 ], [ %64, %68 ], [ %.pre.i, %61 ]
   %85 = phi i32 [ %80, %79 ], [ %83, %81 ], [ %76, %68 ], [ %62, %61 ]
   %86 = zext nneg i32 %85 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %.pre-phi.i, i64 %86, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %52, ptr align 1 %.pre-phi.i, i64 %86, i1 false)
   br label %memcpyInnerDatum.exit
 
 memcpyInnerDatum.exit:                            ; preds = %84, %56, %.thread
@@ -1937,7 +1937,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   %67 = or disjoint i32 %.masked, %65
   %68 = or disjoint i32 %67, %66
   store i32 %68, ptr %62, align 4
-  %69 = trunc i32 %spec.store.select to i16
+  %69 = trunc nuw i32 %spec.store.select to i16
   %70 = getelementptr inbounds i8, ptr %62, i64 4
   store i16 %69, ptr %70, align 4
   br i1 %1, label %71, label %memcpyInnerDatum.exit
@@ -2003,7 +2003,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   %.pre-phi.i = phi ptr [ %85, %100 ], [ %85, %102 ], [ %85, %89 ], [ %.pre.i, %82 ]
   %106 = phi i32 [ %101, %100 ], [ %104, %102 ], [ %97, %89 ], [ %83, %82 ]
   %107 = zext nneg i32 %106 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %.pre-phi.i, i64 %107, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %73, ptr align 1 %.pre-phi.i, i64 %107, i1 false)
   br label %memcpyInnerDatum.exit
 
 memcpyInnerDatum.exit:                            ; preds = %105, %77, %61
@@ -2057,7 +2057,7 @@ define dso_local noundef ptr @spgFormDeadTuple(ptr nocapture noundef readonly %0
 
 14:                                               ; preds = %4
   %15 = lshr i32 %2, 16
-  %16 = trunc i32 %15 to i16
+  %16 = trunc nuw i32 %15 to i16
   store i16 %16, ptr %13, align 2
   %17 = trunc i32 %2 to i16
   %18 = getelementptr inbounds i8, ptr %6, i64 8

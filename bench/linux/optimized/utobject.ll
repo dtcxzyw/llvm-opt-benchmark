@@ -372,7 +372,7 @@ define dso_local ptr @acpi_ut_create_string_object(i64 noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i8 @acpi_ut_valid_internal_object(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext range(i8 0, 2) i8 @acpi_ut_valid_internal_object(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -441,7 +441,7 @@ define dso_local i32 @acpi_ut_get_object_size(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_ut_get_simple_object_size(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 12304) i32 @acpi_ut_get_simple_object_size(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -548,7 +548,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare dso_local i32 @acpi_ut_walk_package_tree(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_ut_get_element_length(i8 noundef zeroext %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef range(i32 0, 12304) i32 @acpi_ut_get_element_length(i8 noundef zeroext %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   switch i8 %0, label %19 [

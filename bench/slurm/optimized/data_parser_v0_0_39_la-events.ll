@@ -20,10 +20,10 @@ define i32 @on_error(i32 noundef %0, i32 noundef %1, ptr nocapture noundef reado
   %10 = tail call ptr @find_parser_by_type(i32 noundef %1) #5
   %11 = tail call ptr @__errno_location() #6
   %12 = load i32, ptr %11, align 4
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %13 = call ptr @vxstrfmt(ptr noundef %6, ptr noundef nonnull %8) #5
   store ptr %13, ptr %9, align 8
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   switch i32 %0, label %27 [
     i32 60138, label %14
     i32 44718, label %17
@@ -94,16 +94,10 @@ declare ptr @find_parser_by_type(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare ptr @vxstrfmt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
-
 ; Function Attrs: noreturn
-declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #4
+declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @get_log_level() local_unnamed_addr #1
 
@@ -120,10 +114,10 @@ define void @on_warn(i32 noundef %0, i32 noundef %1, ptr nocapture noundef reado
   %9 = tail call ptr @find_parser_by_type(i32 noundef %1) #5
   %10 = tail call ptr @__errno_location() #6
   %11 = load i32, ptr %10, align 4
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %12 = call ptr @vxstrfmt(ptr noundef %5, ptr noundef nonnull %7) #5
   store ptr %12, ptr %8, align 8
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   switch i32 %0, label %25 [
     i32 60138, label %13
     i32 44718, label %16
@@ -185,11 +179,17 @@ define void @on_warn(i32 noundef %0, i32 noundef %1, ptr nocapture noundef reado
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(none) }
 attributes #7 = { noreturn nounwind }

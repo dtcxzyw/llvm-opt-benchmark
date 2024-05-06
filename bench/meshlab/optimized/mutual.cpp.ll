@@ -193,7 +193,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %39 = trunc i64 %indvars.iv.next to i32
+  %39 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph58.split.._crit_edge_crit_edge, %._crit_edge.loopexit
@@ -231,7 +231,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   br i1 %or.cond, label %.lr.ph63.preheader, label %.loopexit
 
 .lr.ph63.preheader:                               ; preds = %48
-  %56 = trunc i64 %indvars.iv92 to i32
+  %56 = trunc nuw i64 %indvars.iv92 to i32
   br label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %79
@@ -241,7 +241,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %.14761 = phi double [ %.04665, %.lr.ph63.preheader ], [ %.2, %79 ]
   %59 = load ptr, ptr %47, align 8
   %60 = mul i32 %58, %56
-  %61 = trunc i64 %indvars.iv89 to i32
+  %61 = trunc nuw i64 %indvars.iv89 to i32
   %62 = add i32 %60, %61
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %59, i64 %63
@@ -307,7 +307,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr nocapture noundef nonnull
   br i1 %.not49, label %.lr.ph55.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
-  %.rhs.trunc = trunc i32 %19 to i16
+  %.rhs.trunc = trunc nuw i32 %19 to i16
   %20 = udiv i16 256, %.rhs.trunc
   %.zext = zext nneg i16 %20 to i32
   br label %.lr.ph

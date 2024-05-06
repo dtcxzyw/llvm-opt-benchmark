@@ -1688,7 +1688,7 @@ define internal fastcc ptr @vma_to_resize(i64 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vma_expandable(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @vma_expandable(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1

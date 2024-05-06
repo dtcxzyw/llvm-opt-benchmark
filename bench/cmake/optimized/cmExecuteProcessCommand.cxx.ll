@@ -3049,7 +3049,7 @@ define internal fastcc void @"_Z14cmUVStreamReadIZ23cmExecuteProcessCommandRKSt6
 
 "_ZNSt8functionIFvvEEaSIZ23cmExecuteProcessCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_2EENSt9enable_ifIXsrNS1_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES1_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JEEEE5valueERS1_E4typeEOSJ_.exit": ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   store ptr %6, ptr %7, align 8
   %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
   store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8
@@ -3158,7 +3158,7 @@ define internal fastcc void @"_Z14cmUVStreamReadIZ23cmExecuteProcessCommandRKSt6
 
 "_ZNSt8functionIFvvEEaSIZ23cmExecuteProcessCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_4EENSt9enable_ifIXsrNS1_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES1_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JEEEE5valueERS1_E4typeEOSJ_.exit": ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   store ptr %6, ptr %7, align 8
   %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
   store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8
@@ -4886,7 +4886,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef no
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 %11
+  %24 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
@@ -5452,7 +5452,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZ23cmExecuteProcessCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
@@ -5881,7 +5881,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZ23cmExecuteProcessCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE3$_3E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 

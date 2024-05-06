@@ -3201,7 +3201,7 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
   call void @BufferGetTag(i32 noundef %3, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20) #17
   %23 = getelementptr inbounds i8, ptr %2, i64 4
   %24 = getelementptr inbounds i8, ptr %18, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %24, ptr noundef nonnull align 2 dereferenceable(6) %23, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %24, ptr noundef nonnull readonly align 2 dereferenceable(6) %23, i64 6, i1 false)
   %25 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null) #17
   %.not66 = icmp eq ptr %25, null
   br i1 %.not66, label %.lr.ph50, label %._crit_edge.thread
@@ -3418,14 +3418,14 @@ sub_2.i:                                          ; preds = %sub_143.i
 
 126:                                              ; preds = %120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %30, ptr noundef nonnull align 4 dereferenceable(6) %29, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %30, ptr noundef nonnull readonly align 4 dereferenceable(6) %29, i64 6, i1 false)
   %127 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 0, ptr noundef null) #17
   %.not17.i.i = icmp eq ptr %127, null
   br i1 %.not17.i.i, label %.backedge.i.i, label %128
 
 128:                                              ; preds = %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %30, ptr noundef nonnull align 2 dereferenceable(6) %32, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %30, ptr noundef nonnull readonly align 2 dereferenceable(6) %32, i64 6, i1 false)
   %129 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %10) #17
   %130 = load i8, ptr %10, align 1
   %131 = trunc i8 %130 to i1
@@ -3639,7 +3639,7 @@ ReorderBufferTransferSnapToParent.exit:           ; preds = %14, %.thread.i, %42
   %64 = shl nuw nsw i64 %63, 2
   %65 = add nuw nsw i64 %64, 120
   %66 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %65) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %66, ptr noundef nonnull align 8 dereferenceable(120) %52, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %66, ptr noundef nonnull readonly align 8 dereferenceable(120) %52, i64 120, i1 false)
   %67 = getelementptr inbounds i8, ptr %66, i64 46
   store i8 1, ptr %67, align 2
   %68 = getelementptr inbounds i8, ptr %66, i64 64
@@ -3717,7 +3717,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %54, %._crit_edge.lo
   %110 = shl nuw nsw i64 %109, 2
   %111 = add nuw nsw i64 %110, 120
   %112 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val39, i64 noundef %111) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %112, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %112, ptr noundef nonnull readonly align 8 dereferenceable(120) %4, i64 120, i1 false)
   %113 = getelementptr inbounds i8, ptr %112, i64 46
   store i8 1, ptr %113, align 2
   %114 = getelementptr inbounds i8, ptr %112, i64 64
@@ -3900,7 +3900,7 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
   %42 = getelementptr i8, ptr %.sroa.0.025.i, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %42, i64 12, i1 false)
   %43 = getelementptr i8, ptr %.sroa.0.025.i, i64 -20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %40, ptr noundef nonnull align 2 dereferenceable(6) %43, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %40, ptr noundef nonnull readonly align 2 dereferenceable(6) %43, i64 6, i1 false)
   %44 = load ptr, ptr %38, align 8
   %45 = call ptr @hash_search(ptr noundef %44, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %11) #17
   %46 = load i8, ptr %11, align 1
@@ -5131,7 +5131,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %663, %664
   %674 = shl nuw nsw i64 %673, 2
   %675 = add nuw nsw i64 %674, 120
   %676 = call ptr @MemoryContextAllocZero(ptr noundef %.val255, i64 noundef %675) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %676, ptr noundef nonnull align 8 dereferenceable(120) %666, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %676, ptr noundef nonnull readonly align 8 dereferenceable(120) %666, i64 120, i1 false)
   %677 = getelementptr inbounds i8, ptr %676, i64 46
   store i8 1, ptr %677, align 2
   %678 = getelementptr inbounds i8, ptr %676, i64 64
@@ -5214,7 +5214,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   %721 = shl nuw nsw i64 %720, 2
   %722 = add nuw nsw i64 %721, 120
   %723 = call ptr @MemoryContextAllocZero(ptr noundef %.val254, i64 noundef %722) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %723, ptr noundef nonnull align 8 dereferenceable(120) %709, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %723, ptr noundef nonnull readonly align 8 dereferenceable(120) %709, i64 120, i1 false)
   %724 = getelementptr inbounds i8, ptr %723, i64 46
   store i8 1, ptr %724, align 2
   %725 = getelementptr inbounds i8, ptr %723, i64 64
@@ -5315,7 +5315,7 @@ ReorderBufferCopySnap.exit290:                    ; preds = %713, %._crit_edge.l
   %773 = shl nuw nsw i64 %772, 2
   %774 = add nuw nsw i64 %773, 120
   %775 = call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %774) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %775, ptr noundef nonnull align 8 dereferenceable(120) %.0..0..0..0.129, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %775, ptr noundef nonnull readonly align 8 dereferenceable(120) %.0..0..0..0.129, i64 120, i1 false)
   %776 = getelementptr inbounds i8, ptr %775, i64 46
   store i8 1, ptr %776, align 2
   %777 = getelementptr inbounds i8, ptr %775, i64 64
@@ -6029,7 +6029,7 @@ define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr nocapture noundef 
   %19 = shl nuw nsw i64 %18, 2
   %20 = add nuw nsw i64 %19, 120
   %21 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %20) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull align 8 dereferenceable(120) %2, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull readonly align 8 dereferenceable(120) %2, i64 120, i1 false)
   %22 = getelementptr inbounds i8, ptr %21, i64 46
   store i8 1, ptr %22, align 2
   %23 = getelementptr inbounds i8, ptr %21, i64 64
@@ -6374,7 +6374,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0,
 ReorderBufferSerializeReserve.exit.i:             ; preds = %.sink.split.i.i, %63
   %69 = phi ptr [ %68, %.sink.split.i.i ], [ %65, %63 ]
   %70 = getelementptr inbounds i8, ptr %69, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %70, ptr noundef nonnull align 8 dereferenceable(80) %30, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %70, ptr noundef nonnull readonly align 8 dereferenceable(80) %30, i64 80, i1 false)
   %71 = getelementptr i8, ptr %.sroa.0.073, i64 -56
   %72 = load i32, ptr %71, align 8
   switch i32 %72, label %211 [
@@ -7046,7 +7046,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %144 = call noundef ptr @MemoryContextAlloc(ptr noundef %143, i64 noundef 80) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %144, i8 0, i64 80, i1 false)
   %145 = getelementptr inbounds i8, ptr %142, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %144, ptr noundef nonnull align 8 dereferenceable(80) %145, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %144, ptr noundef nonnull readonly align 8 dereferenceable(80) %145, i64 80, i1 false)
   %146 = getelementptr i8, ptr %142, i64 88
   %147 = getelementptr inbounds i8, ptr %144, i64 8
   %148 = load i32, ptr %147, align 8
@@ -7077,7 +7077,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %159 = getelementptr inbounds i8, ptr %157, i64 16
   store ptr %158, ptr %159, align 8
   store ptr %157, ptr %150, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %157, ptr noundef nonnull align 1 dereferenceable(24) %146, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %157, ptr noundef nonnull readonly align 1 dereferenceable(24) %146, i64 24, i1 false)
   %160 = getelementptr i8, ptr %142, i64 112
   %161 = load ptr, ptr %150, align 8
   %162 = getelementptr i8, ptr %161, i64 24
@@ -7086,7 +7086,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %164 = load ptr, ptr %150, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %166, ptr align 1 %160, i64 %154, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %166, ptr readonly align 1 %160, i64 %154, i1 false)
   %167 = getelementptr i8, ptr %160, i64 %154
   br label %168
 
@@ -7126,7 +7126,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %188 = call ptr @MemoryContextAlloc(ptr noundef %187, i64 noundef %.0.copyload.i) #17
   %189 = getelementptr inbounds i8, ptr %144, i64 32
   store ptr %188, ptr %189, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr align 1 %186, i64 %.0.copyload.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr readonly align 1 %186, i64 %.0.copyload.i, i1 false)
   %190 = getelementptr i8, ptr %186, i64 %.0.copyload.i
   %191 = getelementptr inbounds i8, ptr %144, i64 40
   %192 = load i64, ptr %190, align 1
@@ -7137,7 +7137,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %196 = getelementptr inbounds i8, ptr %144, i64 48
   store ptr %195, ptr %196, align 8
   %197 = load i64, ptr %191, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr align 1 %193, i64 %197, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr readonly align 1 %193, i64 %197, i1 false)
   br label %236
 
 198:                                              ; preds = %139
@@ -7149,7 +7149,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %204 = call ptr @MemoryContextAlloc(ptr noundef %203, i64 noundef %202) #17
   %205 = getelementptr inbounds i8, ptr %144, i64 40
   store ptr %204, ptr %205, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %204, ptr align 1 %146, i64 %202, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %204, ptr readonly align 1 %146, i64 %202, i1 false)
   br label %236
 
 206:                                              ; preds = %139
@@ -7166,7 +7166,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %217 = call ptr @MemoryContextAllocZero(ptr noundef %216, i64 noundef %215) #17
   %218 = getelementptr inbounds i8, ptr %144, i64 32
   store ptr %217, ptr %218, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %217, ptr align 1 %146, i64 %215, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %217, ptr readonly align 1 %146, i64 %215, i1 false)
   %219 = getelementptr i8, ptr %217, i64 120
   %220 = getelementptr inbounds i8, ptr %217, i64 16
   store ptr %219, ptr %220, align 8
@@ -7189,7 +7189,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %232 = call ptr @MemoryContextAlloc(ptr noundef %231, i64 noundef %230) #17
   %233 = load i64, ptr %228, align 8
   %234 = shl i64 %233, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %232, ptr align 1 %146, i64 %234, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %232, ptr readonly align 1 %146, i64 %234, i1 false)
   %235 = getelementptr inbounds i8, ptr %144, i64 48
   store ptr %232, ptr %235, align 8
   br label %236

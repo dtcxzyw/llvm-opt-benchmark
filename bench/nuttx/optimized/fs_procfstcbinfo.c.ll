@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_tcbinfo = external constant %struct.tcbinfo_s, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tcbinfo_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3) #0 {
+define internal range(i32 -13, 1) i32 @tcbinfo_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3) #0 {
   %5 = and i32 %2, 3
   %or.cond.not = icmp eq i32 %5, 1
   br i1 %or.cond.not, label %6, label %11
@@ -86,7 +86,7 @@ define internal i64 @tcbinfo_read(ptr nocapture noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @tcbinfo_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 -12, 1) i32 @tcbinfo_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(144) ptr @malloc(i64 noundef 144) #12

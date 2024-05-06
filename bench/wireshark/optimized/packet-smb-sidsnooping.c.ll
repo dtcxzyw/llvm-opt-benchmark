@@ -88,7 +88,7 @@ define internal noundef i32 @ctx_handle_hash(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ctx_handle_equal(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 0, 2) i32 @ctx_handle_equal(ptr noundef %0, ptr noundef %1) #2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
   %5 = ptrtoint ptr %1 to i64

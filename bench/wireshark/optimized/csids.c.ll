@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @csids_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @csids_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @csids_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.csids_header, align 4
@@ -150,19 +150,19 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @csids_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @csids_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i64 @file_tell(ptr noundef %9) #4
   store i64 %10, ptr %5, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = tail call fastcc i32 @csids_read_packet(ptr noundef %11, ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %12 = tail call fastcc i32 @csids_read_packet(ptr noundef %11, ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @csids_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @csids_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -173,7 +173,7 @@ define internal noundef i32 @csids_seek_read(ptr nocapture noundef readonly %0, 
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr %9, align 8
-  %15 = tail call fastcc i32 @csids_read_packet(ptr noundef %14, ptr noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %15 = tail call fastcc i32 @csids_read_packet(ptr noundef %14, ptr noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %20
 
@@ -208,7 +208,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @csids_read_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @csids_read_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.csids_header, align 4
   %8 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 8, ptr noundef %4, ptr noundef %5) #4
   %.not = icmp eq i32 %8, 0
@@ -335,4 +335,3 @@ attributes #5 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

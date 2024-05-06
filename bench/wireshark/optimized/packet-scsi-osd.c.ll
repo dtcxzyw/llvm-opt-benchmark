@@ -1389,7 +1389,7 @@ dissect_osd_allocation_length.exit:               ; preds = %59
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 8, i32 noundef 0) #4
   %63 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %60) #4
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %63, i64 4294967295)
-  %64 = trunc i64 %spec.store.select.i to i32
+  %64 = trunc nuw i64 %spec.store.select.i to i32
   %65 = load ptr, ptr %12, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   store i32 %64, ptr %66, align 8
@@ -1406,7 +1406,7 @@ dissect_osd_allocation_length.exit239:            ; preds = %59
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 8, i32 noundef 0) #4
   %75 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %72) #4
   %spec.store.select.i238 = tail call i64 @llvm.umin.i64(i64 %75, i64 4294967295)
-  %76 = trunc i64 %spec.store.select.i238 to i32
+  %76 = trunc nuw i64 %spec.store.select.i238 to i32
   %77 = load ptr, ptr %12, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 24
   store i32 %76, ptr %78, align 8
@@ -4003,7 +4003,7 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 8, i32 noundef 0) #4
   %48 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %45) #4
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %48, i64 4294967295)
-  %49 = trunc i64 %spec.store.select.i to i32
+  %49 = trunc nuw i64 %spec.store.select.i to i32
   %50 = load ptr, ptr %11, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   store i32 %49, ptr %51, align 8

@@ -102,7 +102,7 @@ declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_asn1_set_prefix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ndef_prefix(ptr nocapture readnone %b, ptr nocapture noundef %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_prefix(ptr nocapture readnone %b, ptr nocapture noundef %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #0 {
 entry:
   %p = alloca ptr, align 8
   %tobool.not = icmp eq ptr %parg, null
@@ -148,7 +148,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @ndef_prefix_free(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #3 {
+define internal range(i32 0, 2) i32 @ndef_prefix_free(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #3 {
 entry:
   %tobool.not = icmp eq ptr %parg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -178,7 +178,7 @@ return:                                           ; preds = %entry, %if.end4
 declare i32 @BIO_asn1_set_suffix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ndef_suffix(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_suffix(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #0 {
 entry:
   %p = alloca ptr, align 8
   %sarg = alloca %struct.ASN1_STREAM_ARG_st, align 16
@@ -246,7 +246,7 @@ return:                                           ; preds = %if.end14, %if.end6,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @ndef_suffix_free(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef %parg) #3 {
+define internal range(i32 0, 2) i32 @ndef_suffix_free(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef %parg) #3 {
 entry:
   %tobool.not.i = icmp eq ptr %parg, null
   br i1 %tobool.not.i, label %return, label %if.end.i

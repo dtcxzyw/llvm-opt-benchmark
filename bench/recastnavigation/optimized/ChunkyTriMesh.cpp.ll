@@ -50,7 +50,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %34 = getelementptr inbounds i32, ptr %1, i64 %33
   %35 = getelementptr inbounds %struct.BoundsItem, ptr %31, i64 %indvars.iv98
   %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = trunc i64 %indvars.iv98 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv98 to i32
   store i32 %37, ptr %36, align 4
   %38 = load i32, ptr %34, align 4
   %39 = mul nsw i32 %38, 3
@@ -609,7 +609,7 @@ _ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL12compareItemXPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemXPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load float, ptr %0, align 4
   %4 = load float, ptr %1, align 4
   %5 = fcmp olt float %3, %4
@@ -620,7 +620,7 @@ define internal noundef i32 @_ZL12compareItemXPKvS0_(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL12compareItemYPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemYPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load float, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4

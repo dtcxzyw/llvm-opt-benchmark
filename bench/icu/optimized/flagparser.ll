@@ -105,7 +105,7 @@ for.inc.i.i.us:                                   ; preds = %for.body.i.i.us
   br i1 %exitcond.not.i.i.us, label %_ZL13getFlagOffsetPKci.exit.i.us, label %for.body.i.i.us, !llvm.loop !6
 
 if.then.i.i.us:                                   ; preds = %for.body.i.i.us
-  %8 = trunc i64 %indvars.iv.i.i.us to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i.i.us to i32
   %inc.i.i.us = add nuw nsw i32 %8, 1
   br label %_ZL13getFlagOffsetPKci.exit.i.us
 
@@ -166,7 +166,7 @@ for.body.i.us:                                    ; preds = %for.inc33.i.us, %fo
   %indvars.iv37.i.us = phi i64 [ 0, %for.body.lr.ph.i.us ], [ %indvars.iv.next38.i.us, %for.inc33.i.us ]
   %arrayidx27.i.us = getelementptr inbounds ptr, ptr %flagNames, i64 %indvars.iv37.i.us
   %12 = load ptr, ptr %arrayidx27.i.us, align 8
-  %call29.i.us = tail call i32 @strncmp(ptr noundef nonnull %buffer.1.us, ptr noundef %12, i64 noundef %conv28.i.us) #6
+  %call29.i.us = tail call i32 @strncmp(ptr noundef nonnull readonly %buffer.1.us, ptr noundef %12, i64 noundef %conv28.i.us) #6
   %cmp30.i.us = icmp eq i32 %call29.i.us, 0
   br i1 %cmp30.i.us, label %return.loopexit.split.loop.exit45.i.us, label %for.inc33.i.us
 
@@ -176,7 +176,7 @@ for.inc33.i.us:                                   ; preds = %for.body.i.us
   br i1 %exitcond41.not.i.us, label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us, label %for.body.i.us, !llvm.loop !8
 
 return.loopexit.split.loop.exit45.i.us:           ; preds = %for.body.i.us
-  %13 = trunc i64 %indvars.iv37.i.us to i32
+  %13 = trunc nuw nsw i64 %indvars.iv37.i.us to i32
   br label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us
 
 _ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %for.inc33.i.us, %return.loopexit.split.loop.exit45.i.us, %if.end20.i.us

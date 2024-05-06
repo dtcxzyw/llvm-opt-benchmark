@@ -72,7 +72,7 @@ land.rhs:                                         ; preds = %while.cond19
   br i1 %cmp25, label %while.cond19, label %while.end27.split.loop.exit54, !llvm.loop !6
 
 while.end27.split.loop.exit54:                    ; preds = %land.rhs
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end27
 
 while.end27:                                      ; preds = %while.cond19, %while.end27.split.loop.exit54

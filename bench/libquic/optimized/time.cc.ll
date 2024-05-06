@@ -31,7 +31,7 @@ entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
   %div = sdiv i64 %0, 86400000000
-  %conv = trunc i64 %div to i32
+  %conv = trunc nsw i64 %div to i32
   %retval.0 = select i1 %cmp.i, i32 2147483647, i32 %conv
   ret i32 %retval.0
 }

@@ -1942,12 +1942,12 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %48, label %50, label %._crit_edge93
 
 50:                                               ; preds = %45
-  %51 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %49, ptr noundef nonnull @.str.15), !range !21
+  %51 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %49, ptr noundef nonnull @.str.15)
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %50
-  %54 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %49, i32 noundef %44, ptr noundef nonnull @.str.45), !range !21
+  %54 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %49, i32 noundef %44, ptr noundef nonnull @.str.45)
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %146, label %56
 
@@ -1961,12 +1961,12 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds i8, ptr %58, i64 260
-  %64 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %63), !range !21
+  %64 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %63)
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %146, label %._crit_edge93
 
 ._crit_edge93:                                    ; preds = %45, %56, %62
-  %66 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %49, i32 noundef %44, ptr noundef nonnull @.str.46), !range !21
+  %66 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %49, i32 noundef %44, ptr noundef nonnull @.str.46)
   %67 = icmp eq i32 %66, -1
   br i1 %67, label %146, label %._crit_edge
 
@@ -1990,12 +1990,12 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %76, label %78, label %._crit_edge94
 
 78:                                               ; preds = %73
-  %79 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %77, ptr noundef nonnull @.str.15), !range !21
+  %79 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %77, ptr noundef nonnull @.str.15)
   %80 = icmp eq i32 %79, -1
   br i1 %80, label %146, label %81
 
 81:                                               ; preds = %78
-  %82 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %77, i32 noundef %72, ptr noundef nonnull @.str.45), !range !21
+  %82 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %77, i32 noundef %72, ptr noundef nonnull @.str.45)
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %146, label %84
 
@@ -2009,12 +2009,12 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 90:                                               ; preds = %84
   %91 = getelementptr inbounds i8, ptr %86, i64 260
-  %92 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %77, ptr noundef nonnull %91), !range !21
+  %92 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %77, ptr noundef nonnull %91)
   %93 = icmp eq i32 %92, -1
   br i1 %93, label %146, label %._crit_edge94
 
 ._crit_edge94:                                    ; preds = %73, %84, %90
-  %94 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %77, i32 noundef %72, ptr noundef nonnull @.str.47), !range !21
+  %94 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %77, i32 noundef %72, ptr noundef nonnull @.str.47)
   %95 = icmp eq i32 %94, -1
   br i1 %95, label %146, label %._crit_edge89
 
@@ -2038,7 +2038,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %.not77, label %._crit_edge95, label %104
 
 104:                                              ; preds = %101
-  %105 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %.pre96, ptr noundef nonnull @.str.15), !range !21
+  %105 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %.pre96, ptr noundef nonnull @.str.15)
   %106 = icmp eq i32 %105, -1
   br i1 %106, label %146, label %._crit_edge95
 
@@ -2046,7 +2046,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %107 = load ptr, ptr @cpufreq, align 8
   %108 = getelementptr inbounds %struct.cpu_freq_data, ptr %107, i64 %indvars.iv, i32 7
   %109 = load i32, ptr %108, align 4
-  %110 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %.pre96, i32 noundef %109, ptr noundef nonnull @.str.45), !range !21
+  %110 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %.pre96, i32 noundef %109, ptr noundef nonnull @.str.45)
   %111 = icmp eq i32 %110, -1
   br i1 %111, label %146, label %._crit_edge91
 
@@ -2063,7 +2063,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 116:                                              ; preds = %112
   %117 = trunc nuw nsw i64 %indvars.iv to i32
-  %118 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %117, ptr noundef nonnull %114), !range !21
+  %118 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %117, ptr noundef nonnull %114)
   %119 = icmp eq i32 %118, -1
   br i1 %119, label %146, label %120
 
@@ -2082,7 +2082,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %129 = load i32, ptr %128, align 4
   %130 = getelementptr inbounds i8, ptr %125, i64 312
   %131 = load i32, ptr %130, align 4
-  %132 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %2, i32 noundef 100, i32 noundef -2, i32 noundef %127, i32 noundef %129, i32 noundef %131), !range !22
+  %132 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %2, i32 noundef 100, i32 noundef -2, i32 noundef %127, i32 noundef %129, i32 noundef %131)
   %133 = load ptr, ptr @cpufreq, align 8
   %134 = getelementptr inbounds %struct.cpu_freq_data, ptr %133, i64 %indvars.iv, i32 5
   %135 = load i8, ptr %134, align 4
@@ -2114,7 +2114,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %147 = load i16, ptr @cpu_freq_count, align 2
   %148 = zext i16 %147 to i64
   %149 = icmp ult i64 %indvars.iv.next, %148
-  br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %146, %50, %1
   ret void
@@ -2294,7 +2294,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, 2048
   %.not58.i = icmp eq i16 %95, 0
-  br i1 %.not58.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph77.i, !llvm.loop !24
+  br i1 %.not58.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph77.i, !llvm.loop !22
 
 96:                                               ; preds = %.preheader
   %97 = icmp eq i16 %.035, -1
@@ -2347,7 +2347,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %122 = load i16, ptr %121, align 2
   %123 = and i16 %122, 2048
   %.not56.i = icmp eq i16 %123, 0
-  br i1 %.not56.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !25
+  br i1 %.not56.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %.preheader59.i, %.lr.ph.i
   %124 = phi i8 [ %129, %.lr.ph.i ], [ %102, %.preheader59.i ]
@@ -2364,7 +2364,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 2048
   %.not.i = icmp eq i16 %133, 0
-  br i1 %.not.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph.i, !llvm.loop !24
 
 ._crit_edge70.i:                                  ; preds = %.lr.ph69.i, %.preheader.i, %98, %96
   %.136 = phi i16 [ -1, %98 ], [ %.035, %96 ], [ 0, %.preheader.i ], [ %118, %.lr.ph69.i ]
@@ -2415,7 +2415,7 @@ _cpu_freq_next_cpu.exit.thread47:                 ; preds = %.preheader59.i, %77
 
 149:                                              ; preds = %_cpu_freq_next_cpu.exit.thread47
   tail call fastcc void @_cpu_freq_setup_data(ptr noundef %0, i32 noundef %144)
-  br label %.preheader, !llvm.loop !27
+  br label %.preheader, !llvm.loop !25
 
 _cpu_freq_next_cpu.exit.thread:                   ; preds = %98, %73, %_cpu_freq_next_cpu.exit
   tail call void @cpu_freq_set(ptr noundef %0)
@@ -2548,7 +2548,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
   %70 = getelementptr inbounds [64 x i32], ptr %41, i64 0, i64 %indvars.iv.next
   %71 = load i32, ptr %70, align 4
   %72 = icmp ugt i32 %71, %0
-  br i1 %72, label %73, label %65, !llvm.loop !28
+  br i1 %72, label %73, label %65, !llvm.loop !26
 
 73:                                               ; preds = %69
   %74 = tail call i32 @get_log_level() #11
@@ -2578,7 +2578,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_cpu_freq_set_gov(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_gov(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.104, i32 noundef %1) #11
   %6 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2613,7 +2613,7 @@ define internal fastcc noundef i32 @_cpu_freq_set_gov(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_cpu_freq_set_scaling_freq(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_scaling_freq(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.99, i32 noundef %1, ptr noundef %3) #11
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2664,7 +2664,7 @@ define internal fastcc noundef i32 @_cpu_freq_set_scaling_freq(ptr nocapture nou
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cpu_freq_debug(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cpu_freq_debug(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [64 x i8], align 16
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
@@ -2936,7 +2936,7 @@ define void @cpu_freq_reset(ptr nocapture noundef readonly %0) local_unnamed_add
 57:                                               ; preds = %54, %54
   %58 = add nuw nsw i32 %.0612.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %58, 10
-  br i1 %exitcond.not.i.i, label %_fd_lock_retry.exit.i, label %.preheader42.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %_fd_lock_retry.exit.i, label %.preheader42.i, !llvm.loop !27
 
 _fd_lock_retry.exit.i:                            ; preds = %57, %54
   %59 = icmp slt i32 %52, 0
@@ -2997,7 +2997,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   br label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %79, %76
-  br label %.lr.ph.i, !llvm.loop !30
+  br label %.lr.ph.i, !llvm.loop !28
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader
   %.032.ph99.i = phi ptr [ %3, %.lr.ph.i.preheader ], [ %73, %.lr.ph.i.backedge ]
@@ -3115,7 +3115,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %115, %108
   br i1 %.not, label %135, label %123
 
 123:                                              ; preds = %119
-  %124 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %40, ptr noundef nonnull @.str.15), !range !21
+  %124 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %40, ptr noundef nonnull @.str.15)
   %125 = icmp eq i32 %124, -1
   br i1 %125, label %188, label %126
 
@@ -3123,7 +3123,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %115, %108
   %127 = load ptr, ptr @cpufreq, align 8
   %128 = getelementptr inbounds %struct.cpu_freq_data, ptr %127, i64 %indvars.iv, i32 6
   %129 = load i32, ptr %128, align 4
-  %130 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %129, ptr noundef nonnull @.str.45), !range !21
+  %130 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %129, ptr noundef nonnull @.str.45)
   %131 = icmp eq i32 %130, -1
   br i1 %131, label %188, label %132
 
@@ -3145,7 +3145,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %115, %108
 140:                                              ; preds = %135
   %141 = getelementptr inbounds i8, ptr %137, i64 324
   %142 = load i32, ptr %141, align 4
-  %143 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %142, ptr noundef nonnull @.str.46), !range !21
+  %143 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %142, ptr noundef nonnull @.str.46)
   %144 = icmp eq i32 %143, -1
   br i1 %144, label %188, label %._crit_edge
 
@@ -3164,7 +3164,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %115, %108
 150:                                              ; preds = %145
   %151 = getelementptr inbounds i8, ptr %147, i64 316
   %152 = load i32, ptr %151, align 4
-  %153 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %152, ptr noundef nonnull @.str.47), !range !21
+  %153 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %152, ptr noundef nonnull @.str.47)
   %154 = icmp eq i32 %153, -1
   br i1 %154, label %188, label %._crit_edge101
 
@@ -3182,7 +3182,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %115, %108
 
 160:                                              ; preds = %155
   %161 = getelementptr inbounds i8, ptr %157, i64 260
-  %162 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %40, ptr noundef nonnull %161), !range !21
+  %162 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %40, ptr noundef nonnull %161)
   %163 = icmp eq i32 %162, -1
   br i1 %163, label %188, label %164
 
@@ -3201,7 +3201,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %115, %108
   %173 = load i32, ptr %172, align 4
   %174 = getelementptr inbounds i8, ptr %169, i64 308
   %175 = load i32, ptr %174, align 4
-  %176 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %4, i32 noundef 100, i32 noundef -2, i32 noundef %171, i32 noundef %173, i32 noundef %175), !range !22
+  %176 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %4, i32 noundef 100, i32 noundef -2, i32 noundef %171, i32 noundef %173, i32 noundef %175)
   %177 = load ptr, ptr @cpufreq, align 8
   %178 = getelementptr inbounds %struct.cpu_freq_data, ptr %177, i64 %indvars.iv, i32 5
   %179 = load i8, ptr %178, align 4
@@ -3231,7 +3231,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %115, %108
   %189 = load i16, ptr @cpu_freq_count, align 2
   %190 = zext i16 %189 to i64
   %191 = icmp ult i64 %indvars.iv.next, %190
-  br i1 %191, label %10, label %.loopexit, !llvm.loop !31
+  br i1 %191, label %10, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %188, %1
   ret void
@@ -3426,7 +3426,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cpu_freq_set_env(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cpu_freq_set_env(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @cpu_freq_to_cmdline(i32 noundef %1, i32 noundef %2, i32 noundef %3)
   store ptr %6, ptr %5, align 8
@@ -3543,8 +3543,8 @@ declare void @_xstrfmtcatat(ptr noundef, ptr noundef, ptr noundef, ...) local_un
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cpu_freq_verify_def(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef %0, i32 noundef -2139095040), !range !32
+define range(i32 -1, 1) i32 @cpu_freq_verify_def(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+  %3 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef %0, i32 noundef -2139095040)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
 
@@ -3571,7 +3571,7 @@ define noundef i32 @cpu_freq_verify_def(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_cpu_freq_check_gov(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @_cpu_freq_check_gov(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @xstrncasecmp(ptr noundef %0, ptr noundef nonnull @.str.123, i64 noundef 2) #11
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %20, label %5
@@ -3613,7 +3613,7 @@ define internal fastcc i32 @_cpu_freq_check_gov(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cpu_freq_verify_govlist(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cpu_freq_verify_govlist(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -3647,7 +3647,7 @@ define noundef i32 @cpu_freq_verify_govlist(ptr noundef %0, ptr nocapture nounde
   br label %17
 
 17:                                               ; preds = %16, %.preheader
-  %18 = call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %.010, i32 noundef 0), !range !32
+  %18 = call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %.010, i32 noundef 0)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %22
 
@@ -3661,7 +3661,7 @@ define noundef i32 @cpu_freq_verify_govlist(ptr noundef %0, ptr nocapture nounde
   store i32 %24, ptr %1, align 4
   %25 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef nonnull %4) #11
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %26, label %.preheader, !llvm.loop !33
+  br i1 %.not, label %26, label %.preheader, !llvm.loop !30
 
 26:                                               ; preds = %22
   call void @slurm_xfree(ptr noundef nonnull %3) #11
@@ -3673,7 +3673,7 @@ define noundef i32 @cpu_freq_verify_govlist(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3750,7 +3750,7 @@ define noundef i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef %1, ptr 
   %45 = phi ptr [ null, %38 ], [ null, %42 ], [ %30, %22 ], [ %37, %31 ]
   %46 = phi ptr [ %19, %38 ], [ null, %42 ], [ %19, %22 ], [ null, %31 ]
   %47 = phi ptr [ %41, %38 ], [ %43, %42 ], [ %25, %22 ], [ %35, %31 ]
-  %48 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef %47, i32 noundef 0), !range !32
+  %48 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef %47, i32 noundef 0)
   %.not86 = icmp eq i32 %48, 0
   br i1 %.not86, label %52, label %49
 
@@ -3815,7 +3815,7 @@ define noundef i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef %1, ptr 
 
 72:                                               ; preds = %.thread102, %71
   %.not88112 = phi i1 [ false, %.thread102 ], [ true, %71 ]
-  %73 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %46, i32 noundef 0), !range !32
+  %73 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %46, i32 noundef 0)
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %77
 
@@ -3899,7 +3899,7 @@ define noundef i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef %1, ptr 
 101:                                              ; preds = %97
   %102 = load i32, ptr %1, align 4
   %103 = load i32, ptr %2, align 4
-  %104 = tail call i32 @cpu_freq_debug(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef null, i32 noundef 0, i32 noundef %98, i32 noundef %102, i32 noundef %103, i32 noundef -2), !range !22
+  %104 = tail call i32 @cpu_freq_debug(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef null, i32 noundef 0, i32 noundef %98, i32 noundef %102, i32 noundef %103, i32 noundef -2)
   br label %105
 
 105:                                              ; preds = %101, %97
@@ -4076,7 +4076,7 @@ define internal fastcc noundef i32 @_set_cpu_owner_lock(i32 noundef %0, i32 noun
 28:                                               ; preds = %25, %25
   %29 = add nuw nsw i32 %.0612.i, 1
   %exitcond.not.i = icmp eq i32 %29, 10
-  br i1 %exitcond.not.i, label %_fd_lock_retry.exit, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_fd_lock_retry.exit, label %.preheader, !llvm.loop !27
 
 _fd_lock_retry.exit:                              ; preds = %25, %28
   %30 = icmp slt i32 %23, 0
@@ -4143,7 +4143,7 @@ _fd_lock_retry.exit:                              ; preds = %25, %28
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %54, %51
-  br label %.lr.ph.split.us, !llvm.loop !34
+  br label %.lr.ph.split.us, !llvm.loop !31
 
 55:                                               ; preds = %.split33.us, %46
   %56 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.115, ptr noundef nonnull @__func__._set_cpu_owner_lock, ptr noundef nonnull %4) #11
@@ -4229,8 +4229,8 @@ attributes #13 = { nounwind willreturn memory(none) }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = !{i32 -1, i32 1}
-!22 = !{i32 0, i32 2}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
@@ -4240,6 +4240,3 @@ attributes #13 = { nounwind willreturn memory(none) }
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
-!32 = !{i32 -2147483648, i32 1}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}

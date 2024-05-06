@@ -896,7 +896,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [49 x i8] c"PyState_RemoveModule called on module with slots\00", align 1
 @PyModule_Type = external global %struct._typeobject, align 8
 @.str.7 = private unnamed_addr constant [55 x i8] c"Exception ignored on clearing interpreters module list\00", align 1
-@pkgcontext = hidden thread_local global ptr null, align 8
+@pkgcontext = hidden thread_local local_unnamed_addr global ptr null, align 8
 @PyExc_ImportError = external local_unnamed_addr global ptr, align 8
 @.str.8 = private unnamed_addr constant [54 x i8] c"module %s does not support loading in subinterpreters\00", align 1
 @__func__.PyImport_ExtendInittab = private unnamed_addr constant [23 x i8] c"PyImport_ExtendInittab\00", align 1
@@ -946,7 +946,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.41 = private unnamed_addr constant [54 x i8] c"Exception ignored on clearing sys.path_importer_cache\00", align 1
 @.str.42 = private unnamed_addr constant [45 x i8] c"Exception ignored on clearing sys.path_hooks\00", align 1
 @imp_module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str.80, ptr @doc_imp, i64 0, ptr @imp_methods, ptr @imp_slots, ptr null, ptr null, ptr null }, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.43 = private unnamed_addr constant [26 x i8] c"unable to get sys.modules\00", align 1
 @.str.44 = private unnamed_addr constant [28 x i8] c"no import module dictionary\00", align 1
 @.str.45 = private unnamed_addr constant [21 x i8] c"invalid module index\00", align 1
@@ -1145,7 +1145,7 @@ declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyImport_ReleaseLock(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_PyImport_ReleaseLock(ptr nocapture noundef %interp) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @PyThread_get_thread_ident() #19
   %cmp = icmp eq i64 %call, -1
@@ -1392,7 +1392,7 @@ import_get_module.exit:                           ; preds = %Py_INCREF.exit.i, %
 
 if.then:                                          ; preds = %import_get_module.exit
   %9 = load ptr, ptr %interp.i, align 8
-  %call3 = call fastcc i32 @import_ensure_initialized(ptr noundef %9, ptr noundef nonnull %8, ptr noundef %name), !range !5
+  %call3 = call fastcc i32 @import_ensure_initialized(ptr noundef %9, ptr noundef nonnull %8, ptr noundef %name)
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %return
 
@@ -1474,7 +1474,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @import_ensure_initialized(ptr nocapture noundef readonly %interp, ptr noundef %mod, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @import_ensure_initialized(ptr nocapture noundef readonly %interp, ptr noundef %mod, ptr noundef %name) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %spec = alloca ptr, align 8
@@ -1662,7 +1662,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 Py_DECREF.exit:                                   ; preds = %if.end28, %if.then1.i, %if.end.i
   %cmp8.not = icmp eq ptr %4, null
-  br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !6
+  br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %Py_DECREF.exit
   %base_tb.0.base_tb.0.base_tb.0.base_tb.0.22.pre = load ptr, ptr %base_tb, align 8
@@ -2088,7 +2088,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
 while.body.i:                                     ; preds = %while.cond.i
   %call14.i = tail call i32 @PyList_Append(ptr noundef nonnull %5, ptr noundef nonnull @_Py_NoneStruct) #19
   %cmp15.i = icmp slt i32 %call14.i, 0
-  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !8
+  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
   %7 = load i32, ptr %module, align 8
@@ -2186,7 +2186,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
 while.body.i:                                     ; preds = %while.cond.i
   %call14.i = tail call i32 @PyList_Append(ptr noundef nonnull %11, ptr noundef nonnull @_Py_NoneStruct) #19
   %cmp15.i = icmp slt i32 %call14.i, 0
-  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !8
+  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
   %13 = load i32, ptr %module, align 8
@@ -2334,7 +2334,7 @@ for.inc:                                          ; preds = %PyObject_TypeCheck.
   %10 = getelementptr i8, ptr %9, i64 16
   %.val14 = load i64, ptr %10, align 8
   %cmp = icmp slt i64 %inc, %.val14
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %.lcssa = phi ptr [ %0, %for.cond.preheader ], [ %9, %for.inc ]
@@ -2420,7 +2420,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyImport_ClearExtension(ptr noundef %name, ptr noundef %filename) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyImport_ClearExtension(ptr noundef %name, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2608,7 +2608,7 @@ clear_singlephase_extension.exit.thread:          ; preds = %if.then14.i.i, %ext
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyImport_CheckSubinterpIncompatibleExtensionAllowed(ptr noundef %name) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyImport_CheckSubinterpIncompatibleExtensionAllowed(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2641,14 +2641,14 @@ return:                                           ; preds = %entry, %check_multi
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyImport_FixupExtensionObject(ptr noundef %mod, ptr noundef %name, ptr noundef %filename, ptr noundef %modules) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyImport_FixupExtensionObject(ptr noundef %mod, ptr noundef %name, ptr noundef %filename, ptr noundef %modules) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyObject_SetItem(ptr noundef %modules, ptr noundef %name, ptr noundef %mod) #19
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @fix_up_extension(ptr noundef %mod, ptr noundef %name, ptr noundef %filename), !range !10
+  %call1 = tail call fastcc i32 @fix_up_extension(ptr noundef %mod, ptr noundef %name, ptr noundef %filename)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %return
 
@@ -2662,7 +2662,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fix_up_extension(ptr noundef %mod, ptr noundef %name, ptr noundef %filename) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @fix_up_extension(ptr noundef %mod, ptr noundef %name, ptr noundef %filename) unnamed_addr #0 {
 entry:
   %alloc.i = alloca %struct._Py_hashtable_allocator_t, align 8
   %cmp = icmp eq ptr %mod, null
@@ -2723,7 +2723,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
 while.body.i:                                     ; preds = %while.cond.i
   %call14.i = tail call i32 @PyList_Append(ptr noundef nonnull %6, ptr noundef nonnull @_Py_NoneStruct) #19
   %cmp15.i = icmp slt i32 %call14.i, 0
-  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !8
+  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
   %8 = load i32, ptr %mod, align 8
@@ -2899,7 +2899,7 @@ return:                                           ; preds = %while.body.i, %if.t
 declare i32 @PyObject_DelItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyImport_FixupBuiltin(ptr noundef %mod, ptr noundef %name, ptr noundef %modules) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyImport_FixupBuiltin(ptr noundef %mod, ptr noundef %name, ptr noundef %modules) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_InternFromString(ptr noundef %name) #19
   %cmp = icmp eq ptr %call, null
@@ -2911,7 +2911,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %finally, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc i32 @fix_up_extension(ptr noundef %mod, ptr noundef nonnull %call, ptr noundef nonnull %call), !range !10
+  %call5 = tail call fastcc i32 @fix_up_extension(ptr noundef %mod, ptr noundef nonnull %call, ptr noundef nonnull %call)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %finally
 
@@ -2944,7 +2944,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyImport_ExtendInittab(ptr nocapture noundef readonly %newtab) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyImport_ExtendInittab(ptr nocapture noundef readonly %newtab) local_unnamed_addr #0 {
 entry:
   %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 21), align 8
@@ -2961,7 +2961,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp1.not = icmp eq ptr %1, null
   %inc = add i64 %n.0, 1
-  br i1 %cmp1.not, label %for.end, label %for.cond, !llvm.loop !11
+  br i1 %cmp1.not, label %for.end, label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
   %cmp2 = icmp eq i64 %n.0, 0
@@ -2977,7 +2977,7 @@ for.cond5:                                        ; preds = %for.cond5, %for.con
   %3 = load ptr, ptr %arrayidx6, align 8
   %cmp8.not = icmp eq ptr %3, null
   %inc11 = add i64 %i.0, 1
-  br i1 %cmp8.not, label %for.end12, label %for.cond5, !llvm.loop !12
+  br i1 %cmp8.not, label %for.end12, label %for.cond5, !llvm.loop !10
 
 for.end12:                                        ; preds = %for.cond5
   %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #19
@@ -3034,7 +3034,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyImport_AppendInittab(ptr noundef %name, ptr noundef %initfunc) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyImport_AppendInittab(ptr noundef %name, ptr noundef %initfunc) local_unnamed_addr #0 {
 entry:
   %newtab = alloca [2 x %struct._inittab], align 16
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 21), align 8
@@ -3051,7 +3051,7 @@ if.end:                                           ; preds = %entry
   store ptr %name, ptr %newtab, align 16
   %initfunc3 = getelementptr inbounds i8, ptr %newtab, i64 8
   store ptr %initfunc, ptr %initfunc3, align 8
-  %call = call i32 @PyImport_ExtendInittab(ptr noundef nonnull %newtab), !range !10
+  %call = call i32 @PyImport_ExtendInittab(ptr noundef nonnull %newtab)
   ret i32 %call
 }
 
@@ -3138,7 +3138,7 @@ for.inc:                                          ; preds = %if.end.i, %if.then1
   %arrayidx = getelementptr %struct._inittab, ptr %0, i64 %inc
   %9 = load ptr, ptr %arrayidx, align 8
   %cmp1.not = icmp eq ptr %9, null
-  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !13
+  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !11
 
 return.sink.split:                                ; preds = %if.end.i16, %if.end.i34
   tail call void @_Py_Dealloc(ptr noundef nonnull %call) #19
@@ -3743,12 +3743,12 @@ return:                                           ; preds = %import_get_module.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyImport_ImportFrozenModuleObject(ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyImport_ImportFrozenModuleObject(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %info = alloca %struct.frozen_info, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %call1 = call fastcc i32 @find_frozen(ptr noundef %name, ptr noundef nonnull %info), !range !14
+  %call1 = call fastcc i32 @find_frozen(ptr noundef %name, ptr noundef nonnull %info)
   %2 = and i32 %call1, 6
   %or.cond = icmp eq i32 %2, 2
   br i1 %or.cond, label %return, label %if.else
@@ -3982,7 +3982,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_frozen(ptr noundef %nameobj, ptr noundef writeonly %info) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @find_frozen(ptr noundef %nameobj, ptr noundef writeonly %info) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %info, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4015,7 +4015,7 @@ if.end7:                                          ; preds = %if.end4
 if.end.i:                                         ; preds = %if.end7, %for.inc.i
   %2 = phi ptr [ %3, %for.inc.i ], [ %1, %if.end7 ]
   %p.033.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %if.end7 ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %2) #21
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %2) #21
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %if.end11, label %for.inc.i
 
@@ -4038,7 +4038,7 @@ for.cond8.preheader.i:                            ; preds = %for.end.i
 if.end12.i:                                       ; preds = %for.cond8.preheader.i, %for.inc18.i
   %6 = phi ptr [ %7, %for.inc18.i ], [ %5, %for.cond8.preheader.i ]
   %p.135.i = phi ptr [ %incdec.ptr19.i, %for.inc18.i ], [ %4, %for.cond8.preheader.i ]
-  %call14.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %6) #21
+  %call14.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %6) #21
   %cmp15.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.i, label %if.end11, label %for.inc18.i
 
@@ -4077,7 +4077,7 @@ if.then23.i:                                      ; preds = %use_frozen.exit.i, 
 if.end28.i:                                       ; preds = %if.then23.i, %for.inc34.i
   %15 = phi ptr [ %16, %for.inc34.i ], [ %14, %if.then23.i ]
   %p.237.i = phi ptr [ %incdec.ptr35.i, %for.inc34.i ], [ %13, %if.then23.i ]
-  %call30.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %15) #21
+  %call30.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %15) #21
   %cmp31.i = icmp eq i32 %call30.i, 0
   br i1 %cmp31.i, label %if.end11, label %for.inc34.i
 
@@ -4096,7 +4096,7 @@ for.end36.i:                                      ; preds = %for.inc34.i, %if.th
 if.end41.i:                                       ; preds = %for.end36.i, %for.inc47.i
   %19 = phi ptr [ %20, %for.inc47.i ], [ %18, %for.end36.i ]
   %p.339.i = phi ptr [ %incdec.ptr48.i, %for.inc47.i ], [ %17, %for.end36.i ]
-  %call43.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %19) #21
+  %call43.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %19) #21
   %cmp44.i = icmp eq i32 %call43.i, 0
   br i1 %cmp44.i, label %if.end11, label %for.inc47.i
 
@@ -4149,7 +4149,7 @@ if.end25:                                         ; preds = %if.then20, %if.then
 if.end.i27:                                       ; preds = %if.end25, %for.inc.i29
   %27 = phi ptr [ %29, %for.inc.i29 ], [ %26, %if.end25 ]
   %entry1.09.i = phi ptr [ %incdec.ptr.i30, %for.inc.i29 ], [ %25, %if.end25 ]
-  %call.i28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %27) #21
+  %call.i28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %27) #21
   %cmp4.i = icmp eq i32 %call.i28, 0
   br i1 %cmp4.i, label %if.then5.i, label %for.inc.i29
 
@@ -4325,14 +4325,14 @@ declare ptr @PyModule_GetDict(ptr noundef) local_unnamed_addr #1
 declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyImport_ImportFrozenModule(ptr noundef %name) local_unnamed_addr #0 {
+define dso_local i32 @PyImport_ImportFrozenModule(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_InternFromString(ptr noundef %name) #19
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @PyImport_ImportFrozenModuleObject(ptr noundef nonnull %call), !range !15
+  %call1 = tail call i32 @PyImport_ImportFrozenModuleObject(ptr noundef nonnull %call)
   %0 = load i64, ptr %call, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i3.not = icmp eq i64 %1, 0
@@ -4567,7 +4567,7 @@ if.end30.i:                                       ; preds = %if.end26.i
   call void @_PyErr_Clear(ptr noundef %1) #19
   %inc.i = add nuw nsw i64 %j.022.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call7.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %if.end30.i, %for.cond.preheader.i
   %.pr.i = load ptr, ptr %importer.i, align 8
@@ -4639,7 +4639,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PySys_GetObject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyImport_InitDefaultImportFunc(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyImport_InitDefaultImportFunc(ptr nocapture noundef %interp) local_unnamed_addr #0 {
 entry:
   %import_func = alloca ptr, align 8
   %builtins = getelementptr inbounds i8, ptr %interp, i64 1248
@@ -4662,7 +4662,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @PyDict_GetItemStringRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_PyImport_IsDefaultImportFunc(ptr nocapture noundef readonly %interp, ptr noundef readnone %func) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @_PyImport_IsDefaultImportFunc(ptr nocapture noundef readonly %interp, ptr noundef readnone %func) local_unnamed_addr #3 {
 entry:
   %import_func = getelementptr inbounds i8, ptr %interp, i64 1296
   %0 = load ptr, ptr %import_func, align 8
@@ -4736,7 +4736,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i30, label %if.then.i69, label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.else
-  %call1.i = tail call ptr @PyImport_ImportModuleLevelObject(ptr noundef nonnull %call.i, ptr noundef null, ptr poison, ptr noundef null, i32 noundef 0)
+  %call1.i = tail call ptr @PyImport_ImportModuleLevelObject(ptr noundef nonnull %call.i, ptr noundef null, ptr readnone poison, ptr noundef null, i32 noundef 0)
   %3 = load i64, ptr %call.i, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i3.not.i = icmp eq i64 %4, 0
@@ -5302,7 +5302,7 @@ if.then106.i:                                     ; preds = %for.body.i
 for.inc.i:                                        ; preds = %for.body.i
   %add.i = add nuw nsw i32 %level_up.071.i, 1
   %exitcond.not.i = icmp eq i32 %add.i, %level
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %last_dot.0.lcssa.i = phi i64 [ %.val47.i, %for.cond.preheader.i ], [ %call101.i, %for.inc.i ]
@@ -5502,7 +5502,7 @@ if.end26:                                         ; preds = %import_get_module.e
 
 if.then30:                                        ; preds = %if.end26
   %75 = load ptr, ptr %interp1, align 8
-  %call32 = call fastcc i32 @import_ensure_initialized(ptr noundef %75, ptr noundef nonnull %72, ptr noundef nonnull %abs_name.0), !range !5
+  %call32 = call fastcc i32 @import_ensure_initialized(ptr noundef %75, ptr noundef nonnull %72, ptr noundef nonnull %abs_name.0)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %if.then.i120, label %if.end41
 
@@ -5950,7 +5950,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.end
   %2 = load ptr, ptr %arrayidx.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   %inc.i = add i64 %size.0.i, 1
-  br i1 %cmp.not.i, label %for.end.i, label %for.cond.i, !llvm.loop !18
+  br i1 %cmp.not.i, label %for.end.i, label %for.cond.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.cond.i
   %inc1.i = shl i64 %size.0.i, 4
@@ -6035,7 +6035,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %cmp.i17.i, label %if.then1, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %if.end.i
-  %call1.i.i = tail call i32 @PyImport_ImportFrozenModuleObject(ptr noundef nonnull %call.i.i), !range !15
+  %call1.i.i = tail call i32 @PyImport_ImportFrozenModuleObject(ptr noundef nonnull %call.i.i)
   %2 = load i64, ptr %call.i.i, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i3.not.i.i = icmp eq i64 %3, 0
@@ -6293,7 +6293,7 @@ return:                                           ; preds = %if.end2, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_PyImport_IsInitialized(ptr nocapture noundef readonly %interp) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @_PyImport_IsInitialized(ptr nocapture noundef readonly %interp) local_unnamed_addr #3 {
 entry:
   %imports = getelementptr inbounds i8, ptr %interp, i64 1256
   %0 = load ptr, ptr %imports, align 8
@@ -6753,7 +6753,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @hashtable_compare_str(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #14 {
+define internal range(i32 0, 2) i32 @hashtable_compare_str(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #14 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key1, ptr noundef nonnull dereferenceable(1) %key2) #21
   %cmp = icmp eq i32 %call, 0
@@ -6968,7 +6968,7 @@ if.end25:                                         ; preds = %if.else
   %9 = load ptr, ptr %initfunc, align 8
   %m_init = getelementptr inbounds i8, ptr %call22, i64 16
   store ptr %9, ptr %m_init, align 8
-  %call27 = tail call i32 @_PyImport_FixupExtensionObject(ptr noundef nonnull %call14, ptr noundef %name, ptr noundef %name, ptr noundef %3), !range !10
+  %call27 = tail call i32 @_PyImport_FixupExtensionObject(ptr noundef nonnull %call14, ptr noundef %name, ptr noundef %name, ptr noundef %3)
   %cmp28 = icmp slt i32 %call27, 0
   %.call14 = select i1 %cmp28, ptr null, ptr %call14
   br label %return
@@ -6977,7 +6977,7 @@ for.inc:                                          ; preds = %for.body
   %incdec.ptr = getelementptr i8, ptr %p.029, i64 16
   %10 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %10, null
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !19
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !15
 
 return:                                           ; preds = %for.inc, %if.end, %if.end25, %if.else, %if.end12, %entry, %_PyErr_Occurred.exit, %if.then20, %if.then10
   %retval.0 = phi ptr [ %call11, %if.then10 ], [ %call21, %if.then20 ], [ null, %_PyErr_Occurred.exit ], [ %call, %entry ], [ null, %if.end12 ], [ null, %if.else ], [ %.call14, %if.end25 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %for.inc ]
@@ -7212,7 +7212,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
 while.body.i:                                     ; preds = %while.cond.i
   %call14.i = tail call i32 @PyList_Append(ptr noundef nonnull %28, ptr noundef nonnull @_Py_NoneStruct) #19
   %cmp15.i = icmp slt i32 %call14.i, 0
-  br i1 %cmp15.i, label %if.then47, label %while.cond.i, !llvm.loop !8
+  br i1 %cmp15.i, label %if.then47, label %while.cond.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
   %30 = load i32, ptr %mod.0, align 8
@@ -7361,7 +7361,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %arrayidx.i = getelementptr [0 x ptr], ptr @_PyImport_DynLoadFiletab, i64 0, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %_imp_extension_suffixes_impl.exit, label %while.body.i, !llvm.loop !20
+  br i1 %tobool.not.i, label %_imp_extension_suffixes_impl.exit, label %while.body.i, !llvm.loop !16
 
 return.sink.split.i:                              ; preds = %if.end.i12.i, %if.end.i30.i
   %call1.lcssa6.sink.i = phi ptr [ %call.i, %if.end.i30.i ], [ %call1.i, %if.end.i12.i ]
@@ -7511,7 +7511,7 @@ skip_optional_kwonly:                             ; preds = %if.end.thread, %if.
   %13 = phi ptr [ %3, %if.end21 ], [ %3, %if.end17 ], [ %7, %if.end.thread ]
   %withdata.0 = phi i32 [ %call23, %if.end21 ], [ 0, %if.end17 ], [ 0, %if.end.thread ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %info.i)
-  %call.i = call fastcc i32 @find_frozen(ptr noundef nonnull %13, ptr noundef nonnull %info.i), !range !14
+  %call.i = call fastcc i32 @find_frozen(ptr noundef nonnull %13, ptr noundef nonnull %info.i)
   %14 = and i32 %call.i, 6
   %or.cond.i = icmp eq i32 %14, 2
   br i1 %or.cond.i, label %_imp_find_frozen_impl.exit, label %if.else.i
@@ -7701,7 +7701,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %_imp_get_frozen_object_impl.exit
 
 if.else6.i:                                       ; preds = %if.else.i
-  %call7.i = call fastcc i32 @find_frozen(ptr noundef nonnull %1, ptr noundef nonnull %info.i), !range !14
+  %call7.i = call fastcc i32 @find_frozen(ptr noundef nonnull %1, ptr noundef nonnull %info.i)
   %cmp8.not.i = icmp eq i32 %call7.i, 0
   br i1 %cmp8.not.i, label %if.end12.i, label %if.then9.i
 
@@ -7789,7 +7789,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %info.i)
-  %call.i = call fastcc i32 @find_frozen(ptr noundef nonnull %arg, ptr noundef nonnull %info.i), !range !14
+  %call.i = call fastcc i32 @find_frozen(ptr noundef nonnull %arg, ptr noundef nonnull %info.i)
   %3 = and i32 %call.i, 3
   %or.cond.not.i = icmp eq i32 %3, 0
   br i1 %or.cond.not.i, label %if.end.i, label %if.then.i
@@ -7891,7 +7891,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %call1.i = tail call i32 @PyImport_ImportFrozenModuleObject(ptr noundef nonnull %arg), !range !15
+  %call1.i = tail call i32 @PyImport_ImportFrozenModuleObject(ptr noundef nonnull %arg)
   %cmp.i3 = icmp slt i32 %call1.i, 0
   br i1 %cmp.i3, label %exit, label %if.end.i
 
@@ -7941,12 +7941,12 @@ for.cond.i.i:                                     ; preds = %for.body.i.preheade
   %arrayidx.i.i = getelementptr %struct._inittab, ptr %3, i64 %idxprom.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i, label %_imp_is_builtin_impl.exit, label %for.body.i.i, !llvm.loop !21
+  br i1 %cmp.not.i.i, label %_imp_is_builtin_impl.exit, label %for.body.i.i, !llvm.loop !17
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %call.i.i = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %arg, ptr noundef nonnull %5) #19
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %for.cond.i.i, label %if.then.i.i, !llvm.loop !21
+  br i1 %tobool.not.i.i, label %for.cond.i.i, label %if.then.i.i, !llvm.loop !17
 
 if.then.i.i:                                      ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx9.i.lcssa.i = phi ptr [ %3, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
@@ -7984,7 +7984,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %info.i)
-  %call.i = call fastcc i32 @find_frozen(ptr noundef nonnull %arg, ptr noundef nonnull %info.i), !range !14
+  %call.i = call fastcc i32 @find_frozen(ptr noundef nonnull %arg, ptr noundef nonnull %info.i)
   %cmp.not.i = icmp eq i32 %call.i, 0
   %_Py_TrueStruct._Py_FalseStruct.i = select i1 %cmp.not.i, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %info.i)
@@ -8818,7 +8818,7 @@ if.then6:                                         ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then6
   %inc = add nuw nsw i64 %i.014, 1
   %exitcond.not = icmp eq i64 %inc, %.val10
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %Py_XDECREF.exit, %entry
   ret void
@@ -8829,7 +8829,7 @@ declare i64 @_Py_KeyedHash(i64 noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @imp_module_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @imp_module_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call ptr @_Py_GetConfig() #19
   %check_hash_pycs_mode = getelementptr inbounds i8, ptr %call, i64 248
@@ -8886,21 +8886,17 @@ attributes #22 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i32 -1, i32 1}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{i32 0, i32 6}
-!15 = !{i32 -1, i32 2}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}

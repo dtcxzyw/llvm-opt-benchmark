@@ -44,7 +44,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else
   store ptr %call9, ptr %cbdata, align 8
-  %call19 = call i32 @algorithm_do_this(ptr noundef nonnull %provider, ptr noundef nonnull %cbdata), !range !4
+  %call19 = call i32 @algorithm_do_this(ptr noundef nonnull %provider, ptr noundef nonnull %cbdata)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.end, %if.then
@@ -54,7 +54,7 @@ if.end20:                                         ; preds = %if.else, %if.end, %
 declare i32 @ossl_provider_doall_activated(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @algorithm_do_this(ptr noundef %provider, ptr nocapture noundef readonly %cbdata) #0 {
+define internal range(i32 0, 2) i32 @algorithm_do_this(ptr noundef %provider, ptr nocapture noundef readonly %cbdata) #0 {
 entry:
   %ret.i = alloca i32, align 4
   %no_store = alloca i32, align 4
@@ -139,7 +139,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %incdec.ptr.i = getelementptr inbounds i8, ptr %thismap.024.i, i64 32
   %9 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp15.not.i = icmp eq ptr %9, null
-  br i1 %cmp15.not.i, label %if.end17.i, label %for.body.i, !llvm.loop !5
+  br i1 %cmp15.not.i, label %if.end17.i, label %for.body.i, !llvm.loop !4
 
 if.end17.i:                                       ; preds = %for.body.i, %for.cond.preheader.i, %if.end12.i
   %10 = load ptr, ptr %post.i, align 8
@@ -175,7 +175,7 @@ if.end6:                                          ; preds = %algorithm_do_map.ex
   %spec.select12 = select i1 %tobool.not, i32 0, i32 %ok.018
   %inc = add i32 %cur_operation.017, 1
   %exitcond.not = icmp eq i32 %cur_operation.017, %spec.select11
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 return:                                           ; preds = %algorithm_do_map.exit, %if.end6, %entry, %algorithm_do_map.exit.thread
   %retval.0 = phi i32 [ 0, %algorithm_do_map.exit.thread ], [ 1, %entry ], [ 0, %algorithm_do_map.exit ], [ %spec.select12, %if.end6 ]
@@ -253,7 +253,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

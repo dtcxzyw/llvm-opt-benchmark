@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_finalize = weak alias i32 (), ptr @PMPI_T_finalize
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PMPI_T_finalize() #0 {
+define range(i32 0, 56) i32 @PMPI_T_finalize() #0 {
   tail call void @ompi_mpit_lock() #3
   %1 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not8 = icmp eq i32 %1, 0

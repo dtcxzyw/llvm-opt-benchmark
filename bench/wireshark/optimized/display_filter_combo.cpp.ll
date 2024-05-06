@@ -795,7 +795,7 @@ declare void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 deref
 declare void @_ZN9QComboBox11setMaxCountEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @dfilter_combo_add_recent(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @dfilter_combo_add_recent(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QIcon, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8

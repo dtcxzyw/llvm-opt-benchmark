@@ -101,7 +101,7 @@ for.end40:                                        ; preds = %if.end26, %for.body
   %incdec.ptr51 = getelementptr inbounds i8, ptr %bb, i64 3
   store i8 %conv50, ptr %incdec.ptr47, align 1
   %shr52 = lshr i32 %8, 24
-  %conv54 = trunc i32 %shr52 to i8
+  %conv54 = trunc nuw i32 %shr52 to i8
   %incdec.ptr55 = getelementptr inbounds i8, ptr %bb, i64 4
   store i8 %conv54, ptr %incdec.ptr51, align 1
   %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 4
@@ -118,7 +118,7 @@ for.end40:                                        ; preds = %if.end26, %for.body
   %incdec.ptr67 = getelementptr inbounds i8, ptr %bb, i64 7
   store i8 %conv66, ptr %incdec.ptr63, align 1
   %shr68 = lshr i32 %9, 24
-  %conv70 = trunc i32 %shr68 to i8
+  %conv70 = trunc nuw i32 %shr68 to i8
   store i8 %conv70, ptr %incdec.ptr67, align 1
   %arrayidx72 = getelementptr inbounds i8, ptr %bb, i64 8
   store i8 0, ptr %arrayidx72, align 1

@@ -104,7 +104,7 @@ define void @cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @try_enter(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @try_enter(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 21), align 8, !tbaa !14
   %3 = tail call i32 @dt_collection_get_count(ptr noundef %2) #13
   %4 = icmp eq i32 %3, 0
@@ -778,7 +778,7 @@ define noundef i32 @button_released(ptr nocapture noundef readnone %0, double no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 288
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   switch i32 %4, label %10 [
@@ -1521,7 +1521,7 @@ define internal fastcc void @_process_image(ptr noundef %0, i32 noundef %1) unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @_is_idle(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @_is_idle(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8, !tbaa !40
   %4 = icmp eq i32 %3, 0
@@ -1657,7 +1657,7 @@ define internal fastcc i32 @_is_idle(ptr nocapture noundef readonly %0) unnamed_
 declare void @dt_dev_image(i32 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_auto_advance(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_auto_advance(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load i32, ptr %2, align 8, !tbaa !45
   %4 = icmp eq i32 %3, 0

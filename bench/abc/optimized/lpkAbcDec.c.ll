@@ -214,7 +214,7 @@ define ptr @Lpk_Implement(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -360,7 +360,7 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit, %52
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %81
-  %101 = call i32 @Lpk_Decompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !8
+  %101 = call i32 @Lpk_Decompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.not103 = icmp eq i32 %101, 0
   br i1 %.not103, label %235, label %102
 
@@ -518,7 +518,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %Abc_Clock.exit115
-  %191 = call i32 @Lpk_Decompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %168), !range !8
+  %191 = call i32 @Lpk_Decompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %168)
   %.not101 = icmp eq i32 %191, 0
   br i1 %.not101, label %235, label %._crit_edge
 
@@ -537,7 +537,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %192
-  %198 = call i32 @Lpk_Decompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !8
+  %198 = call i32 @Lpk_Decompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.not102 = icmp eq i32 %198, 0
   br i1 %.not102, label %235, label %199
 
@@ -603,7 +603,7 @@ Abc_Clock.exit119:                                ; preds = %Abc_Clock.exit117, 
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %Abc_Clock.exit119
-  %233 = call i32 @Lpk_Decompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !8
+  %233 = call i32 @Lpk_Decompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.not100 = icmp eq i32 %233, 0
   br i1 %.not100, label %235, label %234
 
@@ -649,7 +649,7 @@ define void @Lpk_DecomposeClean(ptr nocapture noundef %0, i32 noundef %1) local_
   %.val8 = load i32, ptr %3, align 4
   %10 = sext i32 %.val8 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %7, label %.critedge, !llvm.loop !9
+  br i1 %11, label %7, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %7, %2
   store i32 %1, ptr %3, align 4
@@ -698,7 +698,7 @@ define ptr @Lpk_Decompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %48
 
 32:                                               ; preds = %22
-  %33 = tail call i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef nonnull %10), !range !8
+  %33 = tail call i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef nonnull %10)
   %.not30 = icmp eq i32 %33, 0
   br i1 %.not30, label %48, label %34
 
@@ -755,7 +755,7 @@ Lpk_Implement.exit:                               ; preds = %37, %34
   %.val8.i = load i32, ptr %9, align 4
   %55 = sext i32 %.val8.i to i64
   %56 = icmp slt i64 %indvars.iv.next.i34, %55
-  br i1 %56, label %52, label %Lpk_DecomposeClean.exit, !llvm.loop !9
+  br i1 %56, label %52, label %Lpk_DecomposeClean.exit, !llvm.loop !8
 
 Lpk_DecomposeClean.exit:                          ; preds = %52, %48
   store i32 %.val, ptr %9, align 4
@@ -818,5 +818,4 @@ attributes #5 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}

@@ -63,7 +63,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_mins2time_str = alias void (i32, ptr, i32), ptr @mins2time_str
 
 ; Function Attrs: nounwind uwtable
-define i64 @parse_time(ptr noundef %0, i32 noundef %1) #0 {
+define range(i64 0, -1) i64 @parse_time(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca i32, align 4
@@ -257,10 +257,10 @@ switch.early.test:                                ; preds = %45
   ]
 
 97:                                               ; preds = %94
-  %98 = trunc i64 %indvars.iv to i32
+  %98 = trunc nsw i64 %indvars.iv to i32
   %99 = add nsw i32 %storemerge, %98
   store i32 %99, ptr %8, align 4
-  %100 = call fastcc i32 @_get_delta(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %13), !range !6
+  %100 = call fastcc i32 @_get_delta(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %13)
   %.not82 = icmp eq i32 %100, 0
   br i1 %.not82, label %._crit_edge, label %.loopexit.loopexit
 
@@ -269,10 +269,10 @@ switch.early.test:                                ; preds = %45
   br label %122
 
 101:                                              ; preds = %94
-  %102 = trunc i64 %indvars.iv to i32
+  %102 = trunc nsw i64 %indvars.iv to i32
   %103 = add nsw i32 %storemerge, %102
   store i32 %103, ptr %8, align 4
-  %104 = call fastcc i32 @_get_delta(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %13), !range !6
+  %104 = call fastcc i32 @_get_delta(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %13)
   %.not81 = icmp eq i32 %104, 0
   br i1 %.not81, label %105, label %.loopexit.loopexit
 
@@ -292,7 +292,7 @@ switch.early.test:                                ; preds = %45
   br i1 %.not80, label %114, label %121
 
 114:                                              ; preds = %108
-  %115 = trunc i64 %indvars.iv to i32
+  %115 = trunc nsw i64 %indvars.iv to i32
   switch i8 %96, label %119 [
     i8 0, label %116
     i8 10, label %116
@@ -463,11 +463,11 @@ switch.early.test:                                ; preds = %45
   %209 = and i16 %208, 8192
   %.not97.i = icmp eq i16 %209, 0
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  br i1 %.not97.i, label %210, label %203, !llvm.loop !7
+  br i1 %.not97.i, label %210, label %203, !llvm.loop !6
 
 210:                                              ; preds = %203
   %211 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  %212 = trunc i64 %indvars.iv.i to i32
+  %212 = trunc nsw i64 %indvars.iv.i to i32
   %213 = call i32 @xstrncasecmp(ptr noundef nonnull %211, ptr noundef nonnull @.str.28, i64 noundef 2) #13
   %.not98.i = icmp eq i32 %213, 0
   br i1 %.not98.i, label %214, label %221
@@ -516,7 +516,7 @@ _get_time.exit.split.loop.exit:                   ; preds = %146
   br label %.loopexit
 
 231:                                              ; preds = %142
-  %232 = call fastcc i32 @_get_date(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !6
+  %232 = call fastcc i32 @_get_date(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not83 = icmp eq i32 %232, 0
   br i1 %.not83, label %233, label %.loopexit.loopexit
 
@@ -526,7 +526,7 @@ _get_time.exit.split.loop.exit:                   ; preds = %146
   %.2 = phi i32 [ %.095, %45 ], [ %.095, %54 ], [ %.095, %61 ], [ 0, %71 ], [ 0, %75 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ %132, %122 ], [ %.095, %231 ], [ %.095, %switch.early.test ], [ %.095, %switch.early.test ], [ %.078.i, %_get_time.exit.thread ]
   %234 = load i32, ptr %8, align 4
   %235 = add nsw i32 %234, 1
-  br label %41, !llvm.loop !9
+  br label %41, !llvm.loop !8
 
 .critedge:                                        ; preds = %41, %41
   %236 = icmp eq i32 %.099, -1
@@ -833,7 +833,7 @@ define i32 @time_str2secs(ptr noundef %0) #0 {
   %28 = getelementptr inbounds i8, ptr %.03852.i, i64 1
   %29 = load i8, ptr %28, align 1
   %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %27
   %.not43.i = icmp eq i32 %.137.i, 0
@@ -1014,7 +1014,7 @@ declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_delta(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
   br label %.outer
@@ -1043,7 +1043,7 @@ define internal fastcc noundef i32 @_get_delta(ptr noundef %0, ptr nocapture nou
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8192
   %.not46 = icmp eq i16 %15, 0
-  br i1 %.not46, label %.preheader.preheader, label %6, !llvm.loop !11
+  br i1 %.not46, label %.preheader.preheader, label %6, !llvm.loop !10
 
 .preheader.preheader:                             ; preds = %9
   %16 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next77
@@ -1054,7 +1054,7 @@ define internal fastcc noundef i32 @_get_delta(ptr noundef %0, ptr nocapture nou
   %18 = getelementptr inbounds [11 x %struct.unit_names], ptr @un, i64 0, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond, label %33, label %.preheader, !llvm.loop !12
+  br i1 %exitcond, label %33, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader.preheader ]
@@ -1068,7 +1068,7 @@ define internal fastcc noundef i32 @_get_delta(ptr noundef %0, ptr nocapture nou
   br i1 %.not48, label %26, label %17
 
 26:                                               ; preds = %.preheader
-  %27 = trunc i64 %indvars.iv76 to i32
+  %27 = trunc nsw i64 %indvars.iv76 to i32
   %28 = getelementptr inbounds i8, ptr %21, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
@@ -1087,10 +1087,10 @@ define internal fastcc noundef i32 @_get_delta(ptr noundef %0, ptr nocapture nou
   %38 = zext nneg i8 %35 to i64
   %39 = add nsw i64 %37, %38
   %40 = add nuw nsw i32 %.0.ph, 1
-  br label %.outer, !llvm.loop !11
+  br label %.outer, !llvm.loop !10
 
 .critedge.loopexit:                               ; preds = %6, %6
-  %41 = trunc i64 %indvars.iv76 to i32
+  %41 = trunc nsw i64 %indvars.iv76 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %26
@@ -1105,7 +1105,7 @@ define internal fastcc noundef i32 @_get_delta(ptr noundef %0, ptr nocapture nou
   br label %45
 
 43:                                               ; preds = %33
-  %44 = trunc i64 %indvars.iv76 to i32
+  %44 = trunc nsw i64 %indvars.iv76 to i32
   store i32 %44, ptr %1, align 4
   br label %45
 
@@ -1115,7 +1115,7 @@ define internal fastcc noundef i32 @_get_delta(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_get_date(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #6 {
   %6 = load i32, ptr %1, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %163, label %7
@@ -1599,10 +1599,9 @@ attributes #16 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

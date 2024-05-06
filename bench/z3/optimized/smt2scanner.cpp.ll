@@ -648,7 +648,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6symbolaSEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 10) i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_at_eof = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %m_at_eof, align 1
@@ -770,7 +770,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4smt27scanner11read_symbolEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 10) i32 @_ZN4smt27scanner11read_symbolEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_string = getelementptr inbounds i8, ptr %this, i64 1368
   %0 = load ptr, ptr %m_string, align 8
@@ -820,12 +820,12 @@ _ZN6vectorIcLb0EjE9push_backEOc.exit:             ; preds = %lor.lhs.false.i, %i
   %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
-  %call4 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !9
+  %call4 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   ret i32 %call4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4smt27scanner11read_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 6, 9) i32 @_ZN4smt27scanner11read_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %q = alloca %class.rational, align 8
   %ref.tmp = alloca %class.rational, align 8
@@ -1236,7 +1236,7 @@ if.end45:                                         ; preds = %if.end41, %if.end
   %is_float.1 = phi i8 [ %is_float.0137, %if.end ], [ 1, %if.end41 ]
   %57 = load i8, ptr %m_at_eof, align 1
   %tobool = trunc i8 %57 to i1
-  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end45, %if.then38, %if.else
   %is_float.0.lcssa.ph = phi i8 [ %is_float.1, %if.end45 ], [ %is_float.0137, %if.then38 ], [ %is_float.0137, %if.else ]
@@ -1598,7 +1598,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i24,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4smt27scanner18read_signed_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 10) i32 @_ZN4smt27scanner18read_signed_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   %m_curr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1608,7 +1608,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call5 = tail call noundef i32 @_ZN4smt27scanner11read_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !11
+  %call5 = tail call noundef i32 @_ZN4smt27scanner11read_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   %m_number = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   tail call void @_ZN11mpz_managerILb1EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %2, ptr noundef nonnull align 8 dereferenceable(16) %m_number)
@@ -1653,7 +1653,7 @@ _ZN6vectorIcLb0EjE9push_backEOc.exit:             ; preds = %lor.lhs.false.i, %i
   %9 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %9, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
-  %call8 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !9
+  %call8 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 return:                                           ; preds = %_ZN6vectorIcLb0EjE9push_backEOc.exit, %if.then
@@ -1881,14 +1881,14 @@ _ZN6vectorIcLb0EjE9push_backERKc.exit:            ; preds = %lor.lhs.false.i8, %
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   %25 = load i8, ptr %m_at_eof, align 1
   %tobool = trunc i8 %25 to i1
-  br i1 %tobool, label %if.then, label %if.end, !llvm.loop !12
+  br i1 %tobool, label %if.then, label %if.end, !llvm.loop !10
 
 unreachable:                                      ; preds = %invoke.cont
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4smt27scanner15read_bv_literalEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 8) i32 @_ZN4smt27scanner15read_bv_literalEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %ref.tmp9 = alloca %class.rational, align 8
@@ -2410,7 +2410,7 @@ if.end69:                                         ; preds = %.noexc.i147, %.noex
   store i32 %add71, ptr %m_bv_size, align 8
   call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   %68 = load i8, ptr %m_curr.i, align 8
-  br label %while.body, !llvm.loop !13
+  br label %while.body, !llvm.loop !11
 
 if.then76:                                        ; preds = %entry
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
@@ -2610,7 +2610,7 @@ _ZN8rationalD2Ev.exit255:                         ; preds = %.noexc.i253
   %100 = load i8, ptr %m_curr.i, align 8
   %101 = and i8 %100, -2
   %102 = icmp eq i8 %101, 48
-  br i1 %102, label %while.body86, label %while.end, !llvm.loop !14
+  br i1 %102, label %while.body86, label %while.end, !llvm.loop !12
 
 lpad89:                                           ; preds = %if.else.i.i224, %.noexc233, %if.then.i.i232
   %103 = landingpad { ptr, i32 }
@@ -2814,7 +2814,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i8 %conv, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
   %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 85
@@ -2892,7 +2892,7 @@ _ZN6vectorIcLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4smt27scanner4scanEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 0) i32 @_ZN4smt27scanner4scanEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ex = alloca %class.cmd_exception, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3013,7 +3013,7 @@ _ZN4smt27scanner11read_symbolEv.exit:             ; preds = %lor.lhs.false.i.i, 
   %inc.i.i4 = add i32 %19, 1
   store i32 %inc.i.i4, ptr %arrayidx10.i.i, align 4
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
-  %call4.i = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !9
+  %call4.i = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 sw.bb6:                                           ; preds = %if.end
@@ -3071,7 +3071,7 @@ _ZN4smt27scanner11read_symbolEv.exit27:           ; preds = %lor.lhs.false.i.i12
   %inc.i.i19 = add i32 %29, 1
   store i32 %inc.i.i19, ptr %arrayidx10.i.i18, align 4
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
-  %call4.i20 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !9
+  %call4.i20 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 sw.bb12:                                          ; preds = %if.end
@@ -3079,11 +3079,11 @@ sw.bb12:                                          ; preds = %if.end
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %call15 = tail call noundef i32 @_ZN4smt27scanner11read_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !11
+  %call15 = tail call noundef i32 @_ZN4smt27scanner11read_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 sw.bb16:                                          ; preds = %if.end
-  %call17 = tail call noundef i32 @_ZN4smt27scanner15read_bv_literalEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !16
+  %call17 = tail call noundef i32 @_ZN4smt27scanner15read_bv_literalEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   %cmp = icmp eq i32 %call17, 0
   br i1 %cmp, label %sw.epilog, label %return
 
@@ -3137,11 +3137,11 @@ _ZN4smt27scanner11read_symbolEv.exit50:           ; preds = %lor.lhs.false.i.i35
   %inc.i.i42 = add i32 %41, 1
   store i32 %inc.i.i42, ptr %arrayidx10.i.i41, align 4
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
-  %call4.i43 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !9
+  %call4.i43 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 if.else:                                          ; preds = %sw.bb20
-  %call25 = tail call noundef i32 @_ZN4smt27scanner18read_signed_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this), !range !9
+  %call25 = tail call noundef i32 @_ZN4smt27scanner18read_signed_numberEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -3196,7 +3196,7 @@ sw.epilog:                                        ; preds = %if.end3.i, %if.then
   store i32 %48, ptr %m_pos, align 8
   %49 = load i8, ptr %m_at_eof, align 1
   %tobool = trunc i8 %49 to i1
-  br i1 %tobool, label %return, label %if.end, !llvm.loop !17
+  br i1 %tobool, label %return, label %if.end, !llvm.loop !14
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %entry, %if.else, %_ZN4smt27scanner11read_symbolEv.exit50, %sw.bb14, %sw.bb12, %_ZN4smt27scanner11read_symbolEv.exit27, %sw.bb8, %sw.bb7, %sw.bb6, %_ZN4smt27scanner11read_symbolEv.exit
   %retval.0 = phi i32 [ %call4.i43, %_ZN4smt27scanner11read_symbolEv.exit50 ], [ %call25, %if.else ], [ %call15, %sw.bb14 ], [ 5, %sw.bb12 ], [ %call4.i20, %_ZN4smt27scanner11read_symbolEv.exit27 ], [ 4, %sw.bb8 ], [ 2, %sw.bb7 ], [ 1, %sw.bb6 ], [ 3, %_ZN4smt27scanner11read_symbolEv.exit ], [ 9, %entry ], [ 9, %sw.epilog ], [ %call17, %sw.bb16 ]
@@ -3246,7 +3246,7 @@ while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %end
-  br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !18
+  br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !15
 
 while.end.loopexit.split.loop.exit46:             ; preds = %land.rhs
   %4 = trunc nuw i64 %indvars.iv to i32
@@ -3272,7 +3272,7 @@ land.rhs5:                                        ; preds = %while.cond3
   %conv8 = sext i8 %8 to i32
   %call9 = tail call i32 @isspace(i32 noundef %conv8) #17
   %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %while.end13.split.loop.exit48, label %while.cond3, !llvm.loop !19
+  br i1 %tobool10.not, label %while.end13.split.loop.exit48, label %while.cond3, !llvm.loop !16
 
 while.end13.split.loop.exit48:                    ; preds = %land.rhs5
   %9 = trunc nuw i64 %indvars.iv37 to i32
@@ -3321,7 +3321,7 @@ _ZN6vectorIcLb0EjE9push_backERKc.exit:            ; preds = %lor.lhs.false.i, %i
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %lftr.wideiv44 = trunc i64 %indvars.iv.next42 to i32
   %exitcond45.not = icmp eq i32 %end.addr.0.lcssa, %lftr.wideiv44
-  br i1 %exitcond45.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond45.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %_ZN6vectorIcLb0EjE9push_backERKc.exit, %while.end13
   %19 = load ptr, ptr %m_cache_result, align 8
@@ -3962,15 +3962,12 @@ attributes #18 = { builtin nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 4, i32 10}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 6, i32 9}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 0, i32 8}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

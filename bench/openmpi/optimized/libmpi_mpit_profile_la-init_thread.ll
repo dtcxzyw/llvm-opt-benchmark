@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_init_thread = weak alias i32 (i32, ptr), ptr @PMPI_T_init_thread
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PMPI_T_init_thread(i32 noundef %0, ptr noundef %1) #0 {
+define range(i32 0, 73) i32 @PMPI_T_init_thread(i32 noundef %0, ptr noundef %1) #0 {
   tail call void @ompi_mpit_lock() #2
   %3 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %4 = add i32 %3, 1

@@ -1657,7 +1657,7 @@ return:                                           ; preds = %sw.default.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7516DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode(i32 noundef %field, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
+define noundef range(i32 0, 10) i32 @_ZN6icu_7516DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode(i32 noundef %field, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1832,7 +1832,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7516DateIntervalInfo13stringNumericEiic(i32 noundef %fieldWidth, i32 noundef %anotherFieldWidth, i8 noundef signext %patternLetter) local_unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516DateIntervalInfo13stringNumericEiic(i32 noundef %fieldWidth, i32 noundef %anotherFieldWidth, i8 noundef signext %patternLetter) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i8 %patternLetter, 77
   br i1 %cmp, label %if.then, label %if.end7
@@ -2405,7 +2405,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @_ZN6icu_7513UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64), i16 noundef zeroext) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_75L32dtitvinfHashTableValueComparatorE8UElementS0_(ptr %val1.coerce, ptr %val2.coerce) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L32dtitvinfHashTableValueComparatorE8UElementS0_(ptr %val1.coerce, ptr %val2.coerce) #1 {
 entry:
   br label %for.body
 

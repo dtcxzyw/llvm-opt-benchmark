@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [13 x i8] c"\\u%04x\\u%04x\00", align 1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @jq_set_colors(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @jq_set_colors(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader.preheader
 

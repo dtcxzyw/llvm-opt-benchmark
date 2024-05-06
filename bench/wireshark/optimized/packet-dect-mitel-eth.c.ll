@@ -1106,7 +1106,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 8) i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3

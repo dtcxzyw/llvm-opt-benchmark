@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.50 = private unnamed_addr constant [47 x i8] c"Invalid / unimplemented type (%s) in attr_init\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @internal_exr_is_standard_type(ptr nocapture noundef readonly %typen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @internal_exr_is_standard_type(ptr nocapture noundef readonly %typen) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -688,7 +688,7 @@ if.then26:                                        ; preds = %if.end20
   br label %return
 
 if.end30:                                         ; preds = %if.end20
-  %conv31 = trunc i64 %call21 to i32
+  %conv31 = trunc nuw nsw i64 %call21 to i32
   %call32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #7
   %cmp34 = icmp ugt i64 %call32, %conv23
   br i1 %cmp34, label %if.then36, label %if.end40
@@ -701,7 +701,7 @@ if.then36:                                        ; preds = %if.end30
   br label %return
 
 if.end40:                                         ; preds = %if.end30
-  %conv41 = trunc i64 %call32 to i32
+  %conv41 = trunc nuw nsw i64 %call32 to i32
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -866,7 +866,7 @@ while.body.i:                                     ; preds = %if.then17.i, %if.en
   %add.ptr22.i = getelementptr inbounds ptr, ptr %first.032.i, i64 %idx.ext21.i
   %8 = load ptr, ptr %add.ptr22.i, align 8
   %9 = load ptr, ptr %8, align 8
-  %call24.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %name) #7
+  %call24.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %name) #7
   %cmp25.i = icmp eq i32 %call24.i, 0
   br i1 %cmp25.i, label %if.then29, label %if.end28.i
 
@@ -888,7 +888,7 @@ while.end.i:                                      ; preds = %if.end28.i, %if.the
 land.lhs.true36.i:                                ; preds = %while.end.i
   %10 = load ptr, ptr %first.0.lcssa.i, align 8
   %11 = load ptr, ptr %10, align 8
-  %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %name) #7
+  %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %name) #7
   %cmp39.i = icmp eq i32 %call38.i, 0
   br i1 %cmp39.i, label %if.then29, label %return
 
@@ -984,7 +984,7 @@ if.then38:                                        ; preds = %if.end35
   %conv40 = zext nneg i32 %add39 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %name, i64 %conv40, i1 false)
   store ptr %add.ptr, ptr %call, align 8
-  %conv42 = trunc i32 %nlen to i8
+  %conv42 = trunc nuw i32 %nlen to i8
   %name_length = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %conv42, ptr %name_length, align 8
   %add.ptr44 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv40
@@ -998,7 +998,7 @@ if.then48:                                        ; preds = %if.end45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %ptr.0, ptr noundef nonnull align 1 dereferenceable(1) %type, i64 %conv6, i1 false)
   %type_name = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %ptr.0, ptr %type_name, align 8
-  %conv51 = trunc i32 %tlen to i8
+  %conv51 = trunc nuw i32 %tlen to i8
   %type_name_length = getelementptr inbounds i8, ptr %call, i64 17
   store i8 %conv51, ptr %type_name_length, align 1
   %add.ptr54 = getelementptr inbounds i8, ptr %ptr.0, i64 %conv6
@@ -1378,7 +1378,7 @@ if.then13.i:                                      ; preds = %for.inc.i, %if.end8
   br label %return
 
 if.end16.i:                                       ; preds = %for.body.i
-  %74 = trunc i64 %indvars.iv.i to i32
+  %74 = trunc nuw nsw i64 %indvars.iv.i to i32
   %idxprom18.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx19.i = getelementptr inbounds ptr, ptr %71, i64 %idxprom18.i
   store ptr null, ptr %arrayidx19.i, align 8
@@ -1486,7 +1486,7 @@ while.body.i:                                     ; preds = %if.then17.i, %if.en
   %add.ptr22.i = getelementptr inbounds ptr, ptr %first.032.i, i64 %idx.ext21.i
   %6 = load ptr, ptr %add.ptr22.i, align 8
   %7 = load ptr, ptr %6, align 8
-  %call24.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #7
+  %call24.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #7
   %cmp25.i = icmp eq i32 %call24.i, 0
   br i1 %cmp25.i, label %if.then2, label %if.end28.i
 
@@ -1508,7 +1508,7 @@ while.end.i:                                      ; preds = %if.end28.i, %if.the
 land.lhs.true36.i:                                ; preds = %while.end.i
   %8 = load ptr, ptr %first.0.lcssa.i, align 8
   %9 = load ptr, ptr %8, align 8
-  %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #7
+  %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %1) #7
   %cmp39.i = icmp eq i32 %call38.i, 0
   br i1 %cmp39.i, label %if.then2, label %if.end6
 
@@ -1659,7 +1659,7 @@ if.end35.i:                                       ; preds = %if.end32.i
 
 if.then38.i:                                      ; preds = %if.end35.i
   %add39.i = add nuw nsw i64 %call11, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %name, i64 %add39.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %name, i64 %add39.i, i1 false)
   store ptr %add.ptr.i, ptr %call.i, align 8
   %conv42.i = trunc i64 %call11 to i8
   %name_length.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -1954,7 +1954,7 @@ if.then13:                                        ; preds = %for.inc, %if.end8
   br label %return
 
 if.end16:                                         ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %idxprom18 = and i64 %indvars.iv, 4294967295
   %arrayidx19 = getelementptr inbounds ptr, ptr %3, i64 %idxprom18
   store ptr null, ptr %arrayidx19, align 8

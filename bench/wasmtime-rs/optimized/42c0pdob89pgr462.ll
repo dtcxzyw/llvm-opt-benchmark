@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.11abb8f896180e3283a91d59a6f225d3.11 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.11abb8f896180e3283a91d59a6f225d3.10, [16 x i8] c"L\00\00\00\00\00\00\00\A0\0B\00\00\0D\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN108_$LT$alloc..vec..Vec$LT$T$C$A1$GT$$u20$as$u20$core..cmp..PartialOrd$LT$alloc..vec..Vec$LT$T$C$A2$GT$$GT$$GT$11partial_cmp17hf2bf8a92d5bbc638E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define range(i8 -1, 3) i8 @"_ZN108_$LT$alloc..vec..Vec$LT$T$C$A1$GT$$u20$as$u20$core..cmp..PartialOrd$LT$alloc..vec..Vec$LT$T$C$A2$GT$$GT$$GT$11partial_cmp17hf2bf8a92d5bbc638E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %0, i64 16

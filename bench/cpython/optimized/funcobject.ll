@@ -904,7 +904,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [29 x i8] c"PyFunction_EVENT_MODIFY_CODE\00", align 1
 @.str.15 = private unnamed_addr constant [33 x i8] c"PyFunction_EVENT_MODIFY_DEFAULTS\00", align 1
 @.str.16 = private unnamed_addr constant [35 x i8] c"PyFunction_EVENT_MODIFY_KWDEFAULTS\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyTuple_Type = external global %struct._typeobject, align 8
 @.str.17 = private unnamed_addr constant [20 x i8] c"<function %U at %p>\00", align 1
 @.str.18 = private unnamed_addr constant [12 x i8] c"__closure__\00", align 1
@@ -1014,7 +1014,7 @@ return:                                           ; preds = %for.end, %if.then
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFunction_ClearWatcher(i32 noundef %watcher_id) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFunction_ClearWatcher(i32 noundef %watcher_id) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1863,7 +1863,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFunction_SetDefaults(ptr noundef %op, ptr noundef %defaults) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFunction_SetDefaults(ptr noundef %op, ptr noundef %defaults) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -2053,7 +2053,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFunction_SetKwDefaults(ptr noundef %op, ptr noundef %defaults) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFunction_SetKwDefaults(ptr noundef %op, ptr noundef %defaults) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -2211,7 +2211,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFunction_SetClosure(ptr noundef %op, ptr noundef %closure) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFunction_SetClosure(ptr noundef %op, ptr noundef %closure) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -2389,7 +2389,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFunction_SetAnnotations(ptr noundef %op, ptr noundef %annotations) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFunction_SetAnnotations(ptr noundef %op, ptr noundef %annotations) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -3738,7 +3738,7 @@ return:                                           ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cm_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @cm_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %callable = alloca ptr, align 8
   %cmp = icmp eq ptr %kwds, null
@@ -3790,7 +3790,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i5
 
 Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit, %if.then.i, %if.end.i.i5, %if.then1.i.i
   %5 = load ptr, ptr %cm_callable, align 8
-  %call7 = call fastcc i32 @functools_wraps(ptr noundef nonnull %self, ptr noundef %5), !range !10
+  %call7 = call fastcc i32 @functools_wraps(ptr noundef nonnull %self, ptr noundef %5)
   br label %return
 
 return:                                           ; preds = %Py_XDECREF.exit, %if.end, %lor.lhs.false
@@ -4032,7 +4032,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @sm_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %callable = alloca ptr, align 8
   %cmp = icmp eq ptr %kwds, null
@@ -4084,7 +4084,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i5
 
 Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit, %if.then.i, %if.end.i.i5, %if.then1.i.i
   %5 = load ptr, ptr %sm_callable, align 8
-  %call7 = call fastcc i32 @functools_wraps(ptr noundef nonnull %self, ptr noundef %5), !range !10
+  %call7 = call fastcc i32 @functools_wraps(ptr noundef nonnull %self, ptr noundef %5)
   br label %return
 
 return:                                           ; preds = %Py_XDECREF.exit, %if.end, %lor.lhs.false
@@ -4158,7 +4158,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_set_code(ptr noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @func_set_code(ptr noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4352,7 +4352,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_set_defaults(ptr noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @func_set_defaults(ptr noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, @_Py_NoneStruct
   %cmp1.not52 = icmp eq ptr %value, null
@@ -4584,7 +4584,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_set_kwdefaults(ptr noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @func_set_kwdefaults(ptr noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, @_Py_NoneStruct
   %cmp1.not52 = icmp eq ptr %value, null
@@ -4883,7 +4883,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_set_annotations(ptr noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @func_set_annotations(ptr noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, @_Py_NoneStruct
   %cmp1.not10 = icmp eq ptr %value, null
@@ -5021,7 +5021,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_set_name(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @func_set_name(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -5097,7 +5097,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_set_qualname(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @func_set_qualname(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -5182,7 +5182,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_set_type_params(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @func_set_type_params(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -5273,7 +5273,7 @@ declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @functools_wraps(ptr noundef %wrapper, ptr noundef %wrapped) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @functools_wraps(ptr noundef %wrapper, ptr noundef %wrapped) unnamed_addr #0 {
 entry:
   %value.i45 = alloca ptr, align 8
   %value.i33 = alloca ptr, align 8
@@ -5488,4 +5488,3 @@ attributes #7 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 1}

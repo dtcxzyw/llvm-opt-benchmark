@@ -152,7 +152,7 @@ if.then:                                          ; preds = %lor.lhs.false, %for
   %arrayidx19 = getelementptr inbounds [0 x i16], ptr @grpc_setting_id_to_wire_id, i64 0, i64 %i.140
   %8 = load i16, ptr %arrayidx19, align 2
   %9 = lshr i16 %8, 8
-  %conv21 = trunc i16 %9 to i8
+  %conv21 = trunc nuw i16 %9 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %p.041, i64 1
   store i8 %conv21, ptr %p.041, align 1
   %conv23 = trunc i16 %8 to i8
@@ -160,7 +160,7 @@ if.then:                                          ; preds = %lor.lhs.false, %for
   store i8 %conv23, ptr %incdec.ptr, align 1
   %10 = load i32, ptr %arrayidx12, align 4
   %shr26 = lshr i32 %10, 24
-  %conv27 = trunc i32 %shr26 to i8
+  %conv27 = trunc nuw i32 %shr26 to i8
   %incdec.ptr28 = getelementptr inbounds i8, ptr %p.041, i64 3
   store i8 %conv27, ptr %incdec.ptr24, align 1
   %11 = load i32, ptr %arrayidx12, align 4

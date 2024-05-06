@@ -725,7 +725,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = phi i32 [ %12, %for.inc61.us ], [ %.pre, %for.body.lr.ph ]
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %for.inc61.us ], [ 0, %for.body.lr.ph ]
   %.compoundliteral.sroa.0.052.us = phi i16 [ %.compoundliteral.sroa.0.1.lcssa.us, %for.inc61.us ], [ undef, %for.body.lr.ph ]
-  %9 = trunc i64 %indvars.iv80 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv80 to i32
   %mul20.us = mul i32 %8, %9
   %idxprom.us = sext i32 %mul20.us to i64
   %arrayidx.us = getelementptr %struct.TextCell, ptr %call15, i64 %idxprom.us
@@ -789,7 +789,7 @@ for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.spli
 for.body.us53:                                    ; preds = %for.cond34.for.inc61_crit_edge.us75, %for.body.lr.ph.split.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond34.for.inc61_crit_edge.us75 ], [ 0, %for.body.lr.ph.split.split.us ]
   %.compoundliteral.sroa.0.052.us54 = phi i16 [ %bf.set.us70, %for.cond34.for.inc61_crit_edge.us75 ], [ undef, %for.body.lr.ph.split.split.us ]
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %mul20.us56 = mul i32 %.pre, %16
   %idxprom.us57 = sext i32 %mul20.us56 to i64
   %arrayidx.us58 = getelementptr %struct.TextCell, ptr %call15, i64 %idxprom.us57
@@ -1117,7 +1117,7 @@ if.then11:                                        ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.then11
   %8 = load i8, ptr @cursor_visible_phase, align 1
-  %tobool14 = trunc i8 %8 to i1
+  %tobool14 = trunc nuw i8 %8 to i1
   br i1 %tobool14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %land.lhs.true

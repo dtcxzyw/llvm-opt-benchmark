@@ -861,7 +861,7 @@ define internal noundef i32 @hcd_pci_resume_noirq(ptr nocapture readnone %0) #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @check_root_hub_suspended(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -16, 1) i32 @check_root_hub_suspended(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 328

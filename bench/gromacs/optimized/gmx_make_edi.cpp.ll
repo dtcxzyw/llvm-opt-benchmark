@@ -445,7 +445,7 @@ define noundef i32 @_Z12gmx_make_ediiPPc(i32 noundef %0, ptr noundef %1) local_u
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
-  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #14
+  %88 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %85) #14
   %89 = shl i64 %88, 32
   %sext.i = add i64 %89, 17179869184
   %90 = ashr exact i64 %sext.i, 32
@@ -453,7 +453,7 @@ define noundef i32 @_Z12gmx_make_ediiPPc(i32 noundef %0, ptr noundef %1) local_u
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %86
-  %92 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %85) #15
+  %92 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull readonly dereferenceable(1) %85) #15
   %93 = ashr exact i64 %89, 32
   %94 = getelementptr inbounds i8, ptr %91, i64 %93
   store i8 44, ptr %94, align 1
@@ -1514,47 +1514,47 @@ _ZL11write_t_edxP8_IO_FILE4edixPKc.exit.i:        ; preds = %509, %_ZNSt10filesy
 _ZL11write_t_edxP8_IO_FILE4edixPKc.exit72.i:      ; preds = %525, %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit.i
   %539 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
   %540 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 6), align 16
-  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %539, ptr noundef %540, ptr noundef %467, i32 noundef %468, ptr noundef nonnull @.str.197, ptr noundef null)
+  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %539, ptr noundef %540, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.197, ptr noundef null)
           to label %.noexc97 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc97:                                         ; preds = %_ZL11write_t_edxP8_IO_FILE4edixPKc.exit72.i
   %541 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
   %542 = load ptr, ptr @_ZZ12gmx_make_ediiPPcE6listen, align 16
   %543 = load ptr, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, align 16
-  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %541, ptr noundef %542, ptr noundef %467, i32 noundef %468, ptr noundef nonnull @.str.198, ptr noundef %543)
+  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %541, ptr noundef %542, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.198, ptr noundef %543)
           to label %.noexc98 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc98:                                         ; preds = %.noexc97
   %544 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
   %545 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 1), align 8
   %546 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 1), align 8
-  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %544, ptr noundef %545, ptr noundef %467, i32 noundef %468, ptr noundef nonnull @.str.199, ptr noundef %546)
+  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %544, ptr noundef %545, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.199, ptr noundef %546)
           to label %.noexc99 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc99:                                         ; preds = %.noexc98
   %547 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
   %548 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 3), align 8
   %549 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 3), align 8
-  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %547, ptr noundef %548, ptr noundef %467, i32 noundef %468, ptr noundef nonnull @.str.200, ptr noundef %549)
+  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %547, ptr noundef %548, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.200, ptr noundef %549)
           to label %.noexc100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc100:                                        ; preds = %.noexc99
   %550 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
   %551 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 4), align 16
-  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %550, ptr noundef %551, ptr noundef %467, i32 noundef %468, ptr noundef nonnull @.str.201, ptr noundef null)
+  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %550, ptr noundef %551, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.201, ptr noundef null)
           to label %.noexc101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc101:                                        ; preds = %.noexc100
   %552 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
   %553 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 5), align 8
-  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %552, ptr noundef %553, ptr noundef %467, i32 noundef %468, ptr noundef nonnull @.str.202, ptr noundef null)
+  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %552, ptr noundef %553, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.202, ptr noundef null)
           to label %.noexc102 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc102:                                        ; preds = %.noexc101
   %554 = load i32, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 0, i32 11), align 4
   %555 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2), align 16
   %556 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 2), align 16
-  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %554, ptr noundef %555, ptr noundef %467, i32 noundef %468, ptr noundef nonnull @.str.203, ptr noundef %556)
+  invoke fastcc void @_ZL12write_eigvecP8_IO_FILEiPiPPA3_fiPKcPf(ptr noundef %469, i32 noundef %554, ptr noundef %555, ptr noundef readonly %467, i32 noundef %468, ptr noundef nonnull @.str.203, ptr noundef %556)
           to label %.noexc103 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc103:                                        ; preds = %.noexc102

@@ -84,7 +84,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @attribute_container_unregister(ptr noundef %0) #2 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @attribute_container_unregister(ptr noundef %0) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @attribute_container_mutex) #7
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_raw_spin_lock(ptr noundef %2) #7

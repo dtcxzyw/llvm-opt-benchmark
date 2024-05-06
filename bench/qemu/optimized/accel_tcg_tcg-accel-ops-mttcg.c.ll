@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @use_icount = external local_unnamed_addr global i32, align 4
 @__func__.mttcg_cpu_thread_fn = private unnamed_addr constant [20 x i8] c"mttcg_cpu_thread_fn\00", align 1
 @.str.3 = private unnamed_addr constant [18 x i8] c"!icount_enabled()\00", align 1
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @mttcg_kick_vcpu_thread(ptr noundef %cpu) local_unnamed_addr #0 {

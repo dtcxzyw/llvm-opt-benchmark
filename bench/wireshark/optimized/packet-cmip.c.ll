@@ -3386,7 +3386,7 @@ define internal i32 @dissect_cmip_ResultArgument(i1 zeroext %0, ptr noundef %1, 
   br i1 %8, label %switch.hole_check, label %13
 
 switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 469, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %13

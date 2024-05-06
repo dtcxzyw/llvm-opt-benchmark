@@ -7222,7 +7222,7 @@ Vec_IntRandomizeOrder.exit:                       ; preds = %.lr.ph.i37, %Vec_In
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv.i42
   %114 = load i32, ptr %113, align 4
-  %115 = tail call i32 @Supp_ManSubsetAdd(ptr noundef nonnull %0, i32 noundef %.01415.i, i32 noundef %114, i32 noundef 0)
+  %115 = tail call i32 @Supp_ManSubsetAdd(ptr noundef nonnull readonly %0, i32 noundef %.01415.i, i32 noundef %114, i32 noundef 0)
   br label %116
 
 116:                                              ; preds = %96, %89, %88
@@ -9316,8 +9316,8 @@ Abc_TtIsConst0.exit.loopexit.i:                   ; preds = %.lr.ph.i25.i
 
 .lr.ph.i90:                                       ; preds = %.lr.ph.i90.preheader, %Abc_TtIsConst0.exit.loopexit.i
   %.034.i = phi i32 [ %168, %Abc_TtIsConst0.exit.loopexit.i ], [ 0, %.lr.ph.i90.preheader ]
-  %167 = call i32 @Supp_ManFindNextObj(ptr noundef nonnull %20, i32 noundef 0)
-  %168 = call i32 @Supp_ManSubsetAdd(ptr noundef nonnull %20, i32 noundef %.034.i, i32 noundef %167, i32 noundef 0)
+  %167 = call i32 @Supp_ManFindNextObj(ptr noundef nonnull readonly %20, i32 noundef 0)
+  %168 = call i32 @Supp_ManSubsetAdd(ptr noundef nonnull readonly %20, i32 noundef %.034.i, i32 noundef %167, i32 noundef 0)
   %.val23.i = load ptr, ptr %163, align 8
   %.val.i91 = load i32, ptr %159, align 4
   %169 = icmp sgt i32 %.val.i91, 0
@@ -9355,7 +9355,7 @@ Supp_ManReconstruct.exit:                         ; preds = %Abc_TtIsConst0.exit
 .lr.ph.i114:                                      ; preds = %Supp_ManReconstruct.exit, %302
   %180 = phi ptr [ %.pre.i115, %302 ], [ %87, %Supp_ManReconstruct.exit ]
   %.02023.i = phi i32 [ %269, %302 ], [ %.1.i, %Supp_ManReconstruct.exit ]
-  %181 = call i32 @Supp_ComputePair(ptr noundef nonnull %20, i32 noundef %.02023.i)
+  %181 = call i32 @Supp_ComputePair(ptr noundef nonnull readonly %20, i32 noundef %.02023.i)
   %182 = ashr i32 %181, 16
   %183 = and i32 %181, 65535
   %184 = load ptr, ptr %61, align 8
@@ -9507,7 +9507,7 @@ Supp_FindNextDiv.exit:                            ; preds = %.lr.ph.i114, %Abc_T
   %266 = phi i32 [ 1000000000, %.lr.ph.i114 ], [ %spec.select71.i, %Abc_TtFindFirstAndBit2.exit48.thread.i ], [ %spec.select.i, %Abc_TtFindFirstAndBit2.exit48.i ]
   %267 = phi i32 [ 1000000000, %.lr.ph.i114 ], [ 1000000000, %Abc_TtFindFirstAndBit2.exit48.thread.i ], [ %spec.select79.i, %Abc_TtFindFirstAndBit2.exit48.i ]
   %268 = call noundef i32 @llvm.smin.i32(i32 %266, i32 %267)
-  %269 = call i32 @Supp_ManSubsetAdd(ptr noundef nonnull %20, i32 noundef %.02023.i, i32 noundef %268, i32 noundef 0)
+  %269 = call i32 @Supp_ManSubsetAdd(ptr noundef nonnull readonly %20, i32 noundef %.02023.i, i32 noundef %268, i32 noundef 0)
   %270 = getelementptr i8, ptr %180, i64 8
   %.val.i21.i = load ptr, ptr %270, align 8
   %271 = sext i32 %269 to i64
@@ -9605,7 +9605,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %287, %285
   br i1 %310, label %Supp_ManRandomSolution.exit, label %311
 
 311:                                              ; preds = %._crit_edge.i
-  call void @Supp_ManAddPatterns(ptr noundef nonnull %20, ptr noundef nonnull %.pre)
+  call void @Supp_ManAddPatterns(ptr noundef nonnull readonly %20, ptr noundef nonnull %.pre)
   br label %Supp_ManRandomSolution.exit
 
 Supp_ManRandomSolution.exit:                      ; preds = %Supp_ManReconstruct.exit, %._crit_edge.i, %311

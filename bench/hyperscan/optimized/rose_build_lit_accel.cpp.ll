@@ -445,7 +445,7 @@ lpad.i.i.i249:                                    ; preds = %if.then.i.i.i247
 
 _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %if.end225.i
   %47 = icmp eq i8 %.in.i, 0
-  %conv.i.i.i251 = trunc i32 %best.sroa.13.1472481.i to i8
+  %conv.i.i.i251 = trunc nuw i32 %best.sroa.13.1472481.i to i8
   %offset.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i251, ptr %offset.i, align 1
   %48 = and i8 %best.sroa.0.1470483.i, -33
@@ -792,7 +792,7 @@ lpad.i.i.i275:                                    ; preds = %if.then.i.i.i273
   br label %ehcleanup165
 
 invoke.cont3:                                     ; preds = %if.end190.i
-  %conv.i.i.i278 = trunc i32 %best.sroa.7.1367375381.i to i8
+  %conv.i.i.i278 = trunc nuw i32 %best.sroa.7.1367375381.i to i8
   %offset.i279 = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i278, ptr %offset.i279, align 1
   br label %cleanup164
@@ -1138,7 +1138,7 @@ lpad.i.i364:                                      ; preds = %if.then.i.i362
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit376
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split: ; preds = %do.end149, %do.end142
-  %conv.i.i366 = trunc i32 %spec.select230 to i8
+  %conv.i.i366 = trunc nuw i32 %spec.select230 to i8
   %offset153 = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i366, ptr %offset153, align 1
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit

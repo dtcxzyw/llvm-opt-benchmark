@@ -440,13 +440,13 @@ _Z11get_acfnoutv.exit:                            ; preds = %16
   br i1 %98, label %.lr.ph199.preheader.i, label %._crit_edge200.i
 
 .lr.ph199.preheader.i:                            ; preds = %.preheader171.i
-  %invariant.gep288.i = getelementptr float, ptr %131, i64 %indvars.iv263.i
+  %invariant.gep288.i = getelementptr inbounds float, ptr %131, i64 %indvars.iv263.i
   br label %.lr.ph199.i
 
 .lr.ph199.i:                                      ; preds = %.lr.ph199.i, %.lr.ph199.preheader.i
   %indvars.iv253.i = phi i64 [ 0, %.lr.ph199.preheader.i ], [ %indvars.iv.next254.i, %.lr.ph199.i ]
   %171 = mul nuw nsw i64 %indvars.iv253.i, 3
-  %gep289.i = getelementptr float, ptr %invariant.gep288.i, i64 %171
+  %gep289.i = getelementptr inbounds float, ptr %invariant.gep288.i, i64 %171
   %172 = load float, ptr %gep289.i, align 4
   %173 = fmul float %172, %172
   %174 = getelementptr inbounds float, ptr %90, i64 %indvars.iv253.i
@@ -604,16 +604,16 @@ _ZL16low_do_four_coreiPfS_i.exit241:              ; preds = %_ZSt8_DestroyIPSt6v
 .lr.ph208.preheader.i:                            ; preds = %.preheader.i
   %211 = icmp eq i64 %indvars.iv.next278.i, 3
   %212 = select i1 %211, i64 0, i64 %indvars.iv.next278.i
-  %invariant.gep290.i = getelementptr float, ptr %131, i64 %indvars.iv277.i
-  %invariant.gep292.i = getelementptr float, ptr %131, i64 %212
+  %invariant.gep290.i = getelementptr inbounds float, ptr %131, i64 %indvars.iv277.i
+  %invariant.gep292.i = getelementptr inbounds float, ptr %131, i64 %212
   br label %.lr.ph208.i
 
 .lr.ph208.i:                                      ; preds = %.lr.ph208.i, %.lr.ph208.preheader.i
   %indvars.iv267.i = phi i64 [ 0, %.lr.ph208.preheader.i ], [ %indvars.iv.next268.i, %.lr.ph208.i ]
   %213 = mul nuw nsw i64 %indvars.iv267.i, 3
-  %gep291.i = getelementptr float, ptr %invariant.gep290.i, i64 %213
+  %gep291.i = getelementptr inbounds float, ptr %invariant.gep290.i, i64 %213
   %214 = load float, ptr %gep291.i, align 4
-  %gep293.i = getelementptr float, ptr %invariant.gep292.i, i64 %213
+  %gep293.i = getelementptr inbounds float, ptr %invariant.gep292.i, i64 %213
   %215 = load float, ptr %gep293.i, align 4
   %216 = fmul float %214, %215
   %217 = getelementptr inbounds float, ptr %90, i64 %indvars.iv267.i
@@ -803,13 +803,13 @@ _ZL22norm_and_scale_vectorsiPff.exit156.i:        ; preds = %.lr.ph.i151.i, %255
   br label %._crit_edge194.i
 
 .lr.ph189.preheader.i:                            ; preds = %.preheader173.i
-  %invariant.gep.i = getelementptr float, ptr %131, i64 %indvars.iv244.i
+  %invariant.gep.i = getelementptr inbounds float, ptr %131, i64 %indvars.iv244.i
   br label %.lr.ph189.i
 
 .lr.ph189.i:                                      ; preds = %.lr.ph189.i, %.lr.ph189.preheader.i
   %indvars.iv234.i = phi i64 [ 0, %.lr.ph189.preheader.i ], [ %indvars.iv.next235.i, %.lr.ph189.i ]
   %271 = mul nuw nsw i64 %indvars.iv234.i, 3
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %271
+  %gep.i = getelementptr inbounds float, ptr %invariant.gep.i, i64 %271
   %272 = load float, ptr %gep.i, align 4
   %273 = getelementptr inbounds float, ptr %90, i64 %indvars.iv234.i
   store float %272, ptr %273, align 4

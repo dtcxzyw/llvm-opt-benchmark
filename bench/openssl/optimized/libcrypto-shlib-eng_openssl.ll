@@ -447,7 +447,7 @@ declare i32 @EVP_CIPHER_meth_set_flags(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rc4_init_key(ptr noundef %ctx, ptr nocapture noundef readonly %key, ptr nocapture readnone %iv, i32 %enc) #0 {
+define internal range(i32 -2147483648, 2) i32 @test_rc4_init_key(ptr noundef %ctx, ptr nocapture noundef readonly %key, ptr nocapture readnone %iv, i32 %enc) #0 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #5
   %0 = load ptr, ptr @stderr, align 8

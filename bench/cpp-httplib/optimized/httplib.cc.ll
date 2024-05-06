@@ -5493,7 +5493,7 @@ _ZNKSt8functionIFviEEclEi.exit.i:                 ; preds = %call27.i.noexc
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %.noexc, %call27.i.noexc
-  %call31.i9 = invoke fastcc noundef zeroext i1 @"_ZZN7httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEENK3$_0clEiR8addrinfo"(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp15, i32 noundef %call17.i, ptr noundef nonnull align 8 dereferenceable(48) %hints.i)
+  %call31.i9 = invoke fastcc noundef zeroext i1 @"_ZZN7httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEENK3$_0clEiR8addrinfo"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp15, i32 noundef %call17.i, ptr noundef nonnull align 8 dereferenceable(48) %hints.i)
           to label %call31.i.noexc unwind label %lpad
 
 call31.i.noexc:                                   ; preds = %if.end30.i
@@ -5572,7 +5572,7 @@ if.then68.us.i:                                   ; preds = %if.end65.us.i
   br label %if.end70.us.i
 
 if.end70.us.i:                                    ; preds = %if.then68.us.i, %if.end65.us.i
-  %call72.us.i = invoke fastcc noundef zeroext i1 @"_ZZN7httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEENK3$_0clEiR8addrinfo"(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp15, i32 noundef %call47.us.i, ptr noundef nonnull align 8 dereferenceable(48) %rp.047.us.i)
+  %call72.us.i = invoke fastcc noundef zeroext i1 @"_ZZN7httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEENK3$_0clEiR8addrinfo"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp15, i32 noundef %call47.us.i, ptr noundef nonnull align 8 dereferenceable(48) %rp.047.us.i)
           to label %invoke.cont71.us.i unwind label %lpad.loopexit.split.us.i
 
 invoke.cont71.us.i:                               ; preds = %if.end70.us.i
@@ -5663,7 +5663,7 @@ if.then68.i:                                      ; preds = %if.end65.i
   br label %if.end70.i
 
 if.end70.i:                                       ; preds = %if.then68.i, %if.end65.i
-  %call72.i = invoke fastcc noundef zeroext i1 @"_ZZN7httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEENK3$_0clEiR8addrinfo"(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp15, i32 noundef %call47.i, ptr noundef nonnull align 8 dereferenceable(48) %rp.047.i)
+  %call72.i = invoke fastcc noundef zeroext i1 @"_ZZN7httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEENK3$_0clEiR8addrinfo"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp15, i32 noundef %call47.i, ptr noundef nonnull align 8 dereferenceable(48) %rp.047.i)
           to label %invoke.cont71.i unwind label %lpad.loopexit.split.i
 
 invoke.cont71.i:                                  ; preds = %if.end70.i
@@ -18886,7 +18886,7 @@ entry:
   %new_task_queue = getelementptr inbounds i8, ptr %this, i64 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_task_queue, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %new_task_queue, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7httplib9TaskQueueEvEZNS0_6ServerC1EvE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7httplib9TaskQueueEvEZNS0_6ServerC1EvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %svr_sock_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -21634,14 +21634,14 @@ _ZNSt8functionIFvRKN7httplib7RequestERNS0_8ResponseEEEC2ERKS7_.exit: ; preds = %
 
 call.i.i2.i.i.noexc:                              ; preds = %_ZNSt8functionIFvRKN7httplib7RequestERNS0_8ResponseEEEC2ERKS7_.exit
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i.i2.i.i2, i8 0, i64 24, i1 false)
   store ptr %7, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %"_ZNSt8functionIFN7httplib6Server15HandlerResponseERKNS0_7RequestERNS0_8ResponseEEEC2IZNS1_17set_error_handlerES_IFvS5_S7_EEE3$_0vEEOT_.exit.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.i.noexc
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i2.i.i2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %call.i.i2.i.i2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   br label %"_ZNSt8functionIFN7httplib6Server15HandlerResponseERKNS0_7RequestERNS0_8ResponseEEEC2IZNS1_17set_error_handlerES_IFvS5_S7_EEE3$_0vEEOT_.exit.i"
@@ -27501,7 +27501,7 @@ entry:
   store ptr @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6Server12read_contentERNS3_6StreamERNS3_7RequestERNS3_8ResponseEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Om", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6Server12read_contentERNS3_6StreamERNS3_7RequestERNS3_8ResponseEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %_M_manager.i.i13 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp2, i8 0, i64 32, i1 false)
   %call.i.i2.i15 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
           to label %invoke.cont unwind label %ehcleanup.thread
 
@@ -27917,14 +27917,14 @@ invoke.cont20:                                    ; preds = %invoke.cont.i, %if.
 
 call.i.i2.i.i.noexc31:                            ; preds = %invoke.cont20
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i32, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i.i2.i.i32, i8 0, i64 24, i1 false)
   store ptr %17, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %"_ZNSt8functionIFbPKcmmmEEC2IZNK7httplib6Server17read_content_coreERNS5_6StreamERNS5_7RequestERNS5_8ResponseES_IFbS1_mEES_IFbRKNS5_17MultipartFormDataEEESE_E3$_1vEEOT_.exit.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.i.noexc31
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i32, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i2.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %call.i.i2.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, i64 16, i1 false)
   store ptr %18, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   br label %"_ZNSt8functionIFbPKcmmmEEC2IZNK7httplib6Server17read_content_coreERNS5_6StreamERNS5_7RequestERNS5_8ResponseES_IFbS1_mEES_IFbRKNS5_17MultipartFormDataEEESE_E3$_1vEEOT_.exit.i"
@@ -28939,7 +28939,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN7httplib6detail4mmapEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN7httplib6detail4mmapEEC2ERKS3_.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i33 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #43
           to label %invoke.cont50 unwind label %lpad49
 
@@ -32183,7 +32183,7 @@ while.body.i.i:                                   ; preds = %land.rhs.lr.ph.i.i,
   call void @_ZN7httplib6detail12SocketStreamC1Eillll(ptr noundef nonnull align 8 dereferenceable(88) %strm.i.i.i, i32 noundef %sock, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i, i8 0, i64 32, i1 false)
-  %call.i.i.i.i = invoke noundef zeroext i1 @_ZN7httplib6Server15process_requestERNS_6StreamEbRbRKSt8functionIFvRNS_7RequestEEE(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(8) %strm.i.i.i, i1 noundef zeroext %cmp3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %connection_closed.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i = invoke noundef zeroext i1 @_ZN7httplib6Server15process_requestERNS_6StreamEbRbRKSt8functionIFvRNS_7RequestEEE(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(8) %strm.i.i.i, i1 noundef zeroext %cmp3.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %connection_closed.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %while.body.i.i
@@ -34018,7 +34018,7 @@ _ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit: ; preds = %for.inc, %c
   %execute_on_destruction.i = getelementptr inbounds i8, ptr %se, i64 32
   store i8 1, ptr %execute_on_destruction.i, align 8
   %_M_manager.i.i34 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i3637 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
           to label %invoke.cont76 unwind label %lpad75
 
@@ -34201,7 +34201,7 @@ entry:
   %5 = load i64, ptr %write_timeout_usec_, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i18 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
           to label %invoke.cont unwind label %lpad
 
@@ -34383,7 +34383,7 @@ if.then13:                                        ; preds = %invoke.cont11
   %26 = load i64, ptr %write_timeout_usec_, align 8
   %_M_manager.i.i41 = getelementptr inbounds i8, ptr %agg.tmp21, i64 16
   %_M_invoker.i42 = getelementptr inbounds i8, ptr %agg.tmp21, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp21, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp21, i8 0, i64 32, i1 false)
   %call.i.i2.i43 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #43
           to label %invoke.cont23 unwind label %lpad10
 
@@ -36340,7 +36340,7 @@ cond.end:                                         ; preds = %if.end46, %cond.tru
   %16 = getelementptr inbounds i8, ptr %out, i64 16
   store ptr %14, ptr %16, align 8
   %_M_manager.i.i40 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i4243 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
           to label %_ZNSt8functionIFbPKcmmmEEC2EOS3_.exit unwind label %ehcleanup.thread
 
@@ -41626,7 +41626,7 @@ define void @_ZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cx
 entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
   %ref.tmp.sroa.3.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call.i.i2.i, i8 0, i64 16, i1 false)
@@ -42461,14 +42461,14 @@ invoke.cont10:                                    ; preds = %invoke.cont.i, %_ZN
 
 call.i.i2.i.i.noexc:                              ; preds = %invoke.cont10
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i.i2.i.i15, i8 0, i64 24, i1 false)
   store ptr %16, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %"_ZNSt8functionIFbPKcmmmEEC2IZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapISC_SC_NS5_6detail2ciESaISt4pairISD_SC_EEES_IFbRKNS5_8ResponseEEES_IFbS1_mEES_IFbmmEEE3$_0vEEOT_.exit.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.i.noexc
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i15, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i2.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %call.i.i2.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   store ptr %17, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i3, i8 0, i64 16, i1 false)
   br label %"_ZNSt8functionIFbPKcmmmEEC2IZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapISC_SC_NS5_6detail2ciESaISt4pairISD_SC_EEES_IFbRKNS5_8ResponseEEES_IFbS1_mEES_IFbmmEEE3$_0vEEOT_.exit.i"
@@ -45699,7 +45699,7 @@ invoke.cont6:                                     ; preds = %.noexc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !247)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, i8 0, i64 32, i1 false), !alias.scope !247
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp7, i8 0, i64 32, i1 false), !alias.scope !247
   %call.i.i2.i.i6 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
           to label %invoke.cont9 unwind label %lpad8
 
@@ -46965,7 +46965,7 @@ invoke.cont6:                                     ; preds = %.noexc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !253)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, i8 0, i64 32, i1 false), !alias.scope !253
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp7, i8 0, i64 32, i1 false), !alias.scope !253
   %call.i.i2.i.i6 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
           to label %invoke.cont9 unwind label %lpad8
 
@@ -50100,7 +50100,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   store i64 %18, ptr %ref.tmp.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSLServer24process_and_close_socketEiENK3$_0clERNS0_6StreamEbRbEUlS2_E_E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSLServer24process_and_close_socketEiENK3$_0clERNS0_6StreamEbRbEUlS2_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i, align 8
-  %call.i.i.i.i = invoke noundef zeroext i1 @_ZN7httplib6Server15process_requestERNS_6StreamEbRbRKSt8functionIFvRNS_7RequestEEE(ptr noundef nonnull align 8 dereferenceable(816) %20, ptr noundef nonnull align 8 dereferenceable(8) %strm.i.i.i, i1 noundef zeroext %cmp3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %connection_closed.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i = invoke noundef zeroext i1 @_ZN7httplib6Server15process_requestERNS_6StreamEbRbRKSt8functionIFvRNS_7RequestEEE(ptr noundef nonnull align 8 dereferenceable(816) %20, ptr noundef nonnull align 8 dereferenceable(8) %strm.i.i.i, i1 noundef zeroext %cmp3.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %connection_closed.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %while.body.i.i
@@ -54245,7 +54245,7 @@ entry:
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8, !noalias !303
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !noalias !303
-  invoke void @_ZN7httplib10ClientImpl4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKSt6vectorINS_17MultipartFormDataESaISJ_EE(ptr sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %items)
+  invoke void @_ZN7httplib10ClientImpl4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKSt6vectorINS_17MultipartFormDataESaISJ_EE(ptr sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %items)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -54741,7 +54741,7 @@ entry:
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8, !noalias !315
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !noalias !315
-  invoke void @_ZN7httplib10ClientImpl3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKSt6vectorINS_17MultipartFormDataESaISJ_EE(ptr sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %items)
+  invoke void @_ZN7httplib10ClientImpl3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKSt6vectorINS_17MultipartFormDataESaISJ_EE(ptr sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %items)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -85761,7 +85761,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -85948,7 +85948,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -86348,7 +86348,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -86389,7 +86389,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -86841,7 +86841,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -94997,7 +94997,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -95480,7 +95480,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -95570,7 +95570,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -95896,7 +95896,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -95990,7 +95990,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE0_E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #5 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
-  tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_RNS_5ErrorEENKUlPKSt8multimapISF_SF_NS0_2ciESaISt4pairISG_SF_EEEE_clES15_"(ptr noundef nonnull align 8 dereferenceable(32) %call.val, ptr noundef null)
+  tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_RNS_5ErrorEENKUlPKSt8multimapISF_SF_NS0_2ciESaISt4pairISG_SF_EEEE_clES15_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %call.val, ptr noundef null)
   ret void
 }
 
@@ -96528,7 +96528,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define internal void @"_ZNSt17_Function_handlerIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_SR_E3$_0NS8_10compressorEEEbSL_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_E9_M_invokeERKSt9_Any_dataSG_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(48) %__args) #5 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
-  tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_RNS_5ErrorEENKUlPKSt8multimapISF_SF_NS0_2ciESaISt4pairISG_SF_EEEE_clES15_"(ptr noundef nonnull align 8 dereferenceable(32) %call.val, ptr noundef nonnull %__args)
+  tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_RNS_5ErrorEENKUlPKSt8multimapISF_SF_NS0_2ciESaISt4pairISG_SF_EEEE_clES15_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %call.val, ptr noundef nonnull %__args)
   ret void
 }
 
@@ -96638,7 +96638,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -96827,7 +96827,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -97090,7 +97090,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -100625,7 +100625,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -100857,7 +100857,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -101165,7 +101165,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -101522,7 +101522,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -101580,7 +101580,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -101869,7 +101869,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -101963,7 +101963,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE0_E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #5 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
-  tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEE3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_S9_ENKUlPKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS0_2ciESaISt4pairIKSU_SU_EEEE_clES12_"(ptr noundef nonnull align 8 dereferenceable(32) %call.val, ptr noundef null)
+  tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEE3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_S9_ENKUlPKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS0_2ciESaISt4pairIKSU_SU_EEEE_clES12_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %call.val, ptr noundef null)
   ret void
 }
 
@@ -102501,7 +102501,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define internal void @"_ZNSt17_Function_handlerIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSL_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_SQ_EUlSG_E_E9_M_invokeERKSt9_Any_dataSG_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(48) %__args) #5 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
-  tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEE3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_S9_ENKUlPKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS0_2ciESaISt4pairIKSU_SU_EEEE_clES12_"(ptr noundef nonnull align 8 dereferenceable(32) %call.val, ptr noundef nonnull %__args)
+  tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEE3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_S9_ENKUlPKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS0_2ciESaISt4pairIKSU_SU_EEEE_clES12_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %call.val, ptr noundef nonnull %__args)
   ret void
 }
 
@@ -102614,7 +102614,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -102787,7 +102787,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -102959,7 +102959,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -104986,7 +104986,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -105359,7 +105359,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -106226,7 +106226,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -106443,7 +106443,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

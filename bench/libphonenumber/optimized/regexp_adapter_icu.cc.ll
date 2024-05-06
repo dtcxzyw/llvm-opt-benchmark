@@ -664,7 +664,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   br i1 %.not30, label %52, label %41
 
 41:                                               ; preds = %37
-  %42 = trunc i64 %.02335 to i32
+  %42 = trunc nuw i64 %.02335 to i32
   %43 = add nuw nsw i32 %42, 1
   %44 = invoke noundef i32 @_ZNK6icu_7012RegexMatcher10groupCountEv(ptr noundef nonnull align 8 dereferenceable(336) %38)
           to label %45 unwind label %.loopexit

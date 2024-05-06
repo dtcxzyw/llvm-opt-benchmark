@@ -145,7 +145,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @reftable_is_block_type(i8 noundef zeroext %typ) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @reftable_is_block_type(i8 noundef zeroext %typ) local_unnamed_addr #4 {
 entry:
   switch i8 %typ, label %sw.epilog [
     i8 114, label %return
@@ -834,7 +834,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_log_record_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @reftable_log_record_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -1255,7 +1255,7 @@ return:                                           ; preds = %entry, %reftable_re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_ref_record_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @reftable_ref_record_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -1303,24 +1303,24 @@ sw.bb:                                            ; preds = %if.end6
 sw.bb11:                                          ; preds = %if.end6
   %value12 = getelementptr inbounds i8, ptr %a, i64 24
   %value14 = getelementptr inbounds i8, ptr %b, i64 24
-  %conv.i16 = sext i32 %hash_size to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %value12, ptr nonnull %value14, i64 %conv.i16)
+  %conv.i17 = sext i32 %hash_size to i64
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %value12, ptr nonnull readonly %value14, i64 %conv.i17)
   %tobool2.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool2.not.i.not, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %sw.bb11
   %target_value = getelementptr inbounds i8, ptr %a, i64 56
   %target_value22 = getelementptr inbounds i8, ptr %b, i64 56
-  %bcmp.i18 = tail call i32 @bcmp(ptr nonnull %target_value, ptr nonnull %target_value22, i64 %conv.i16)
-  %tobool2.not.i19 = icmp eq i32 %bcmp.i18, 0
+  %bcmp.i21 = tail call i32 @bcmp(ptr nonnull readonly %target_value, ptr nonnull readonly %target_value22, i64 %conv.i17)
+  %tobool2.not.i22 = icmp eq i32 %bcmp.i21, 0
   br label %return
 
 sw.bb26:                                          ; preds = %if.end6
   %value27 = getelementptr inbounds i8, ptr %a, i64 24
   %value29 = getelementptr inbounds i8, ptr %b, i64 24
-  %conv.i21 = sext i32 %hash_size to i64
-  %bcmp.i22 = tail call i32 @bcmp(ptr nonnull %value27, ptr nonnull %value29, i64 %conv.i21)
-  %tobool2.not.i23 = icmp eq i32 %bcmp.i22, 0
+  %conv.i25 = sext i32 %hash_size to i64
+  %bcmp.i26 = tail call i32 @bcmp(ptr nonnull readonly %value27, ptr nonnull readonly %value29, i64 %conv.i25)
+  %tobool2.not.i27 = icmp eq i32 %bcmp.i26, 0
   br label %return
 
 sw.default:                                       ; preds = %if.end6
@@ -1328,7 +1328,7 @@ sw.default:                                       ; preds = %if.end6
   unreachable
 
 return:                                           ; preds = %if.end6, %sw.bb11, %land.rhs, %if.end, %lor.lhs.false, %entry, %sw.bb26, %sw.bb
-  %retval.0.shrunk = phi i1 [ %tobool2.not.i23, %sw.bb26 ], [ %tobool10.not, %sw.bb ], [ false, %entry ], [ false, %lor.lhs.false ], [ false, %if.end ], [ false, %sw.bb11 ], [ %tobool2.not.i19, %land.rhs ], [ true, %if.end6 ]
+  %retval.0.shrunk = phi i1 [ %tobool2.not.i27, %sw.bb26 ], [ %tobool10.not, %sw.bb ], [ false, %entry ], [ false, %lor.lhs.false ], [ false, %if.end ], [ false, %sw.bb11 ], [ %tobool2.not.i22, %land.rhs ], [ true, %if.end6 ]
   %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -1346,7 +1346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @reftable_ref_record_is_deletion(ptr nocapture noundef readonly %ref) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @reftable_ref_record_is_deletion(ptr nocapture noundef readonly %ref) local_unnamed_addr #5 {
 entry:
   %value_type = getelementptr inbounds i8, ptr %ref, i64 16
   %0 = load i32, ptr %value_type, align 8
@@ -1383,7 +1383,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @reftable_log_record_is_deletion(ptr nocapture noundef readonly %log) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @reftable_log_record_is_deletion(ptr nocapture noundef readonly %log) local_unnamed_addr #5 {
 entry:
   %value_type = getelementptr inbounds i8, ptr %log, i64 16
   %0 = load i32, ptr %value_type, align 8
@@ -1644,7 +1644,7 @@ if.end:                                           ; preds = %put_var_int.exit
 sw.bb:                                            ; preds = %if.end
   %value = getelementptr inbounds i8, ptr %rec, i64 24
   %5 = load ptr, ptr %value, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #24
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #24
   %sext.i = shl i64 %call.i, 32
   %conv1.i = ashr exact i64 %sext.i, 32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i.i)
@@ -1688,7 +1688,7 @@ put_var_int.exit.i:                               ; preds = %while.end.i.i
   %add.i.i = add nsw i32 %i.0.lcssa.i.i, 1
   %idxprom17.i.i = sext i32 %add.i.i to i64
   %arrayidx18.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %idxprom17.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %arrayidx18.i.i, i64 %conv12.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr nonnull align 1 %arrayidx18.i.i, i64 %conv12.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i.i)
   %cmp.i17 = icmp slt i32 %sub10.i.i, 0
   br i1 %cmp.i17, label %return, label %if.end.i18
@@ -1701,7 +1701,7 @@ if.end.i18:                                       ; preds = %put_var_int.exit.i
 
 encode_string.exit:                               ; preds = %if.end.i18
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %5, i64 %conv1.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i.i, ptr readonly align 1 %5, i64 %conv1.i, i1 false)
   %sub.i10.neg.i = add i64 %call.i, %sub.i
   %sub.i19 = sub i64 %sub.i10.neg.i, %sub.i.i
   %9 = and i64 %sub.i19, 2147483648
@@ -1982,7 +1982,7 @@ reftable_ref_record_release.exit:                 ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @reftable_ref_record_is_deletion_void(ptr nocapture noundef readonly %p) #5 {
+define internal range(i32 0, 2) i32 @reftable_ref_record_is_deletion_void(ptr nocapture noundef readonly %p) #5 {
 entry:
   %value_type.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %value_type.i, align 8
@@ -1992,9 +1992,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reftable_ref_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) #6 {
+define internal range(i32 0, 2) i32 @reftable_ref_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) #6 {
 entry:
-  %call = tail call i32 @reftable_ref_record_equal(ptr noundef %a, ptr noundef %b, i32 noundef %hash_size), !range !8
+  %call = tail call i32 @reftable_ref_record_equal(ptr noundef %a, ptr noundef %b, i32 noundef %hash_size)
   ret i32 %call
 }
 
@@ -2255,7 +2255,7 @@ sw.epilog:                                        ; preds = %if.end, %if.end41, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i8 @reftable_log_record_val_type(ptr nocapture noundef readonly %rec) #5 {
+define internal zeroext range(i8 0, 2) i8 @reftable_log_record_val_type(ptr nocapture noundef readonly %rec) #5 {
 entry:
   %value_type.i = getelementptr inbounds i8, ptr %rec, i64 16
   %0 = load i32, ptr %value_type.i, align 8
@@ -2301,7 +2301,7 @@ if.end10:                                         ; preds = %if.end
   %3 = load ptr, ptr %name, align 8
   %tobool16.not = icmp eq ptr %3, null
   %spec.select = select i1 %tobool16.not, ptr @.str.12, ptr %3
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #24
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select) #24
   %sext.i = shl i64 %call.i, 32
   %conv1.i = ashr exact i64 %sext.i, 32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i.i)
@@ -2345,7 +2345,7 @@ put_var_int.exit.i:                               ; preds = %while.end.i.i
   %add.i.i = add nsw i32 %i.0.lcssa.i.i, 1
   %idxprom17.i.i = sext i32 %add.i.i to i64
   %arrayidx18.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %idxprom17.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %arrayidx18.i.i, i64 %conv12.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr nonnull align 1 %arrayidx18.i.i, i64 %conv12.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i.i)
   %cmp.i29 = icmp slt i32 %sub10.i.i, 0
   br i1 %cmp.i29, label %return, label %if.end.i
@@ -2358,7 +2358,7 @@ if.end.i:                                         ; preds = %put_var_int.exit.i
 
 encode_string.exit:                               ; preds = %if.end.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %spec.select, i64 %conv1.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i.i, ptr nonnull readonly align 1 %spec.select, i64 %conv1.i, i1 false)
   %sub.i10.neg.i = add i64 %call.i, %sub.i
   %sub.i30 = sub i64 %sub.i10.neg.i, %sub.i.i
   %7 = and i64 %sub.i30, 2147483648
@@ -2373,7 +2373,7 @@ if.end23:                                         ; preds = %encode_string.exit
   %8 = load ptr, ptr %email, align 8
   %tobool25.not = icmp eq ptr %8, null
   %spec.select27 = select i1 %tobool25.not, ptr @.str.12, ptr %8
-  %call.i36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select27) #24
+  %call.i36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select27) #24
   %sext.i37 = shl i64 %call.i36, 32
   %conv1.i38 = ashr exact i64 %sext.i37, 32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i.i35)
@@ -2417,7 +2417,7 @@ put_var_int.exit.i57:                             ; preds = %while.end.i.i52
   %add.i.i58 = add nsw i32 %i.0.lcssa.i.i53, 1
   %idxprom17.i.i59 = sext i32 %add.i.i58 to i64
   %arrayidx18.i.i60 = getelementptr inbounds [10 x i8], ptr %buf.i.i35, i64 0, i64 %idxprom17.i.i59
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i32, ptr nonnull align 1 %arrayidx18.i.i60, i64 %conv12.i.i55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i32, ptr nonnull align 1 %arrayidx18.i.i60, i64 %conv12.i.i55, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i.i35)
   %cmp.i61 = icmp slt i32 %sub10.i.i54, 0
   br i1 %cmp.i61, label %return, label %if.end.i62
@@ -2430,7 +2430,7 @@ if.end.i62:                                       ; preds = %put_var_int.exit.i5
 
 encode_string.exit73:                             ; preds = %if.end.i62
   %add.ptr.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i32, i64 %idx.ext.i.i63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i67, ptr nonnull align 1 %spec.select27, i64 %conv1.i38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i.i67, ptr nonnull readonly align 1 %spec.select27, i64 %conv1.i38, i1 false)
   %sub.i10.neg.i68 = add i64 %call.i36, %sub.i34
   %sub.i69 = sub i64 %sub.i10.neg.i68, %sub.i.i64
   %12 = and i64 %sub.i69, 2147483648
@@ -2506,7 +2506,7 @@ if.end47:                                         ; preds = %if.end42
   %18 = load ptr, ptr %message, align 8
   %tobool51.not = icmp eq ptr %18, null
   %spec.select28 = select i1 %tobool51.not, ptr @.str.12, ptr %18
-  %call.i92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select28) #24
+  %call.i92 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select28) #24
   %sext.i93 = shl i64 %call.i92, 32
   %conv1.i94 = ashr exact i64 %sext.i93, 32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i.i91)
@@ -2550,7 +2550,7 @@ put_var_int.exit.i113:                            ; preds = %while.end.i.i108
   %add.i.i114 = add nsw i32 %i.0.lcssa.i.i109, 1
   %idxprom17.i.i115 = sext i32 %add.i.i114 to i64
   %arrayidx18.i.i116 = getelementptr inbounds [10 x i8], ptr %buf.i.i91, i64 0, i64 %idxprom17.i.i115
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i88, ptr nonnull align 1 %arrayidx18.i.i116, i64 %conv12.i.i111, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i88, ptr nonnull align 1 %arrayidx18.i.i116, i64 %conv12.i.i111, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i.i91)
   %cmp.i117 = icmp slt i32 %sub10.i.i110, 0
   br i1 %cmp.i117, label %return, label %if.end.i118
@@ -2563,7 +2563,7 @@ if.end.i118:                                      ; preds = %put_var_int.exit.i1
 
 encode_string.exit129:                            ; preds = %if.end.i118
   %add.ptr.i.i123 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 %idx.ext.i.i119
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i123, ptr nonnull align 1 %spec.select28, i64 %conv1.i94, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i123, ptr nonnull readonly align 1 %spec.select28, i64 %conv1.i94, i1 false)
   %sub.i10.neg.i124 = add i64 %call.i92, %sub.i90
   %sub.i125 = sub i64 %sub.i10.neg.i124, %sub.i.i120
   %22 = and i64 %sub.i125, 2147483648
@@ -3001,7 +3001,7 @@ reftable_log_record_release.exit:                 ; preds = %entry, %sw.bb1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @reftable_log_record_is_deletion_void(ptr nocapture noundef readonly %p) #5 {
+define internal range(i32 0, 2) i32 @reftable_log_record_is_deletion_void(ptr nocapture noundef readonly %p) #5 {
 entry:
   %value_type.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %value_type.i, align 8
@@ -3011,9 +3011,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reftable_log_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) #6 {
+define internal range(i32 0, 2) i32 @reftable_log_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) #6 {
 entry:
-  %call = tail call i32 @reftable_log_record_equal(ptr noundef %a, ptr noundef %b, i32 noundef %hash_size), !range !8
+  %call = tail call i32 @reftable_log_record_equal(ptr noundef %a, ptr noundef %b, i32 noundef %hash_size)
   ret i32 %call
 }
 
@@ -3213,7 +3213,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reftable_index_record_equal(ptr noundef %a, ptr noundef %b, i32 %hash_size) #6 {
+define internal range(i32 0, 2) i32 @reftable_index_record_equal(ptr noundef %a, ptr noundef %b, i32 %hash_size) #6 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -3323,7 +3323,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw nsw i64 %conv15, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9, ptr align 1 %7, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %call9, ptr readonly align 1 %7, i64 %mul.i.i, i1 false)
   br label %copy_array.exit
 
 copy_array.exit:                                  ; preds = %if.end, %st_mult.exit.i
@@ -3331,7 +3331,7 @@ copy_array.exit:                                  ; preds = %if.end, %st_mult.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i8 @reftable_obj_record_val_type(ptr nocapture noundef readonly %rec) #5 {
+define internal zeroext range(i8 0, 8) i8 @reftable_obj_record_val_type(ptr nocapture noundef readonly %rec) #5 {
 entry:
   %offset_len = getelementptr inbounds i8, ptr %rec, i64 24
   %0 = load i32, ptr %offset_len, align 8
@@ -3544,7 +3544,7 @@ if.end33:                                         ; preds = %put_var_int.exit73
   %18 = load i32, ptr %offset_len, align 8
   %19 = sext i32 %18 to i64
   %cmp23 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end33, %if.end19
   %s.sroa.10.1.lcssa = phi i64 [ %sub.i47, %if.end19 ], [ %sub.i77, %if.end33 ]
@@ -3743,7 +3743,7 @@ if.end39:                                         ; preds = %if.end.i51, %get_va
   store i64 %add, ptr %arrayidx41, align 8
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
-  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end39, %if.end28
   %in.sroa.10.1.lcssa = phi i64 [ %sub.i48, %if.end28 ], [ %sub.i75, %if.end39 ]
@@ -3770,7 +3770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @reftable_obj_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 %hash_size) #12 {
+define internal range(i32 0, 2) i32 @reftable_obj_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 %hash_size) #12 {
 entry:
   %hash_prefix_len = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %hash_prefix_len, align 8
@@ -3848,7 +3848,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load i32, ptr %offset_len, align 8
   %4 = sext i32 %3 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %4
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
   %5 = load ptr, ptr %rec, align 8
@@ -3958,7 +3958,6 @@ attributes #24 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

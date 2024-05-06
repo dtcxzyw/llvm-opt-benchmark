@@ -602,7 +602,7 @@ define internal i32 @cvBandPrecSolve(double %0, ptr nocapture readnone %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -750,7 +750,7 @@ declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVBandPrecGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @CVBandPrecGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

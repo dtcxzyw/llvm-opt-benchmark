@@ -363,7 +363,7 @@ declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @dt_bauhaus_combobox_get(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #1 {
   %15 = alloca [4096 x i8], align 16
   %16 = alloca [4096 x i8], align 16
   %17 = alloca [4096 x i8], align 16
@@ -677,7 +677,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr noundef %1) loca
 declare void @dt_variables_params_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 344
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = sext i32 %2 to i64

@@ -452,7 +452,7 @@ spgPrepareScanKeys.exit:                          ; preds = %79, %104, %._crit_e
   %148 = getelementptr inbounds i8, ptr %143, i64 64
   %149 = zext nneg i32 %145 to i64
   %150 = shl nuw nsw i64 %149, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %148, ptr align 8 %137, i64 %150, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %148, ptr readonly align 8 %137, i64 %150, i1 false)
   br label %spgAddStartItem.exit.i
 
 spgAddStartItem.exit.i:                           ; preds = %147, %135
@@ -859,10 +859,10 @@ BufferGetPage.exit:                               ; preds = %84, %90
 
 .lr.ph:                                           ; preds = %.preheader85, %.lr.ph
   %.065122 = phi i16 [ %113, %.lr.ph ], [ 1, %.preheader85 ]
-  %112 = call fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %1, ptr noundef nonnull %46, ptr noundef %.0.i.i, i16 noundef zeroext %.065122, i1 noundef zeroext %102, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef %3), !range !13
+  %112 = call fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %1, ptr noundef nonnull %46, ptr noundef %.0.i.i, i16 noundef zeroext %.065122, i1 noundef zeroext %102, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef %3)
   %113 = add i16 %.065122, 1
   %.not73 = icmp ugt i16 %113, %111
-  br i1 %.not73, label %.loopexit86, label %.lr.ph, !llvm.loop !14
+  br i1 %.not73, label %.loopexit86, label %.lr.ph, !llvm.loop !13
 
 .preheader:                                       ; preds = %104, %114
   %.166 = phi i16 [ %115, %114 ], [ %.val77, %104 ]
@@ -870,9 +870,9 @@ BufferGetPage.exit:                               ; preds = %84, %90
   br i1 %.not72, label %.loopexit86, label %114
 
 114:                                              ; preds = %.preheader
-  %115 = call fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %1, ptr noundef nonnull %46, ptr noundef %.0.i.i, i16 noundef zeroext %.166, i1 noundef zeroext %102, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef %3), !range !13
+  %115 = call fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %1, ptr noundef nonnull %46, ptr noundef %.0.i.i, i16 noundef zeroext %.166, i1 noundef zeroext %102, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef %3)
   %116 = icmp eq i16 %115, 2049
-  br i1 %116, label %.backedge.backedge, label %.preheader, !llvm.loop !15
+  br i1 %116, label %.backedge.backedge, label %.preheader, !llvm.loop !14
 
 117:                                              ; preds = %BufferGetPage.exit
   %118 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
@@ -997,7 +997,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %165, %163, %140
   store i32 %176, ptr %175, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit59.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.loopexit59.i, label %.lr.ph.i, !llvm.loop !15
 
 .loopexit59.i:                                    ; preds = %.lr.ph.i, %171, %spgInitInnerConsistentIn.exit.i
   %177 = phi i32 [ 0, %171 ], [ %.pre.i, %spgInitInnerConsistentIn.exit.i ], [ %139, %.lr.ph.i ]
@@ -1052,7 +1052,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %165, %163, %140
   %204 = and i32 %203, 8191
   %205 = zext nneg i32 %204 to i64
   %206 = icmp ult i64 %indvars.iv.next71.i, %205
-  br i1 %206, label %.lr.ph63.i, label %._crit_edge.i, !llvm.loop !17
+  br i1 %206, label %.lr.ph63.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph63.i, %186
   %207 = load ptr, ptr %17, align 8
@@ -1115,13 +1115,13 @@ ItemPointerIsValid.exit.i:                        ; preds = %212
   %238 = getelementptr inbounds i8, ptr %233, i64 64
   %239 = zext nneg i32 %235 to i64
   %240 = shl nuw nsw i64 %239, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %238, ptr align 8 %225, i64 %240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %238, ptr readonly align 8 %225, i64 %240, i1 false)
   br label %spgAllocSearchItem.exit.i.i
 
 spgAllocSearchItem.exit.i.i:                      ; preds = %237, %228, %.thread.i.i.i
   %241 = phi ptr [ %226, %.thread.i.i.i ], [ %233, %237 ], [ %233, %228 ]
   %242 = getelementptr inbounds i8, ptr %241, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %242, ptr noundef nonnull align 2 dereferenceable(6) %219, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %242, ptr noundef nonnull readonly align 2 dereferenceable(6) %219, i64 6, i1 false)
   %243 = load ptr, ptr %36, align 8
   %.not.i54.i = icmp eq ptr %243, null
   %244 = load i32, ptr %211, align 8
@@ -1186,7 +1186,7 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %spgMakeInnerItem.ex
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %275 = sext i32 %274 to i64
   %276 = icmp slt i64 %indvars.iv.next74.i, %275
-  br i1 %276, label %212, label %spgInnerTest.exit, !llvm.loop !18
+  br i1 %276, label %212, label %spgInnerTest.exit, !llvm.loop !17
 
 spgInnerTest.exit:                                ; preds = %ItemPointerIsValid.exit.thread.i, %185, %._crit_edge.i
   store ptr %136, ptr @CurrentMemoryContext, align 8
@@ -1249,7 +1249,7 @@ spgFreeSearchItem.exit:                           ; preds = %294, %297
   %300 = trunc i8 %299 to i1
   %301 = xor i1 %300, true
   %302 = select i1 %2, i1 true, i1 %301
-  br i1 %302, label %42, label %spgGetNextQueueItem.exit.thread, !llvm.loop !19
+  br i1 %302, label %42, label %spgGetNextQueueItem.exit.thread, !llvm.loop !18
 
 spgGetNextQueueItem.exit.thread:                  ; preds = %spgFreeSearchItem.exit, %spgGetNextQueueItem.exit, %42
   %.0.lcssa.ph = phi i32 [ %.3, %spgFreeSearchItem.exit ], [ %.0123, %spgGetNextQueueItem.exit ], [ %.0123, %42 ]
@@ -1380,7 +1380,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph, label %.loopexit48, !llvm.loop !20
+  br i1 %67, label %.lr.ph, label %.loopexit48, !llvm.loop !19
 
 .loopexit48:                                      ; preds = %64, %56
   %68 = phi i32 [ %20, %56 ], [ %65, %64 ]
@@ -1399,7 +1399,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   %74 = load i32, ptr %14, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next63, %75
-  br i1 %76, label %.lr.ph57, label %.loopexit, !llvm.loop !21
+  br i1 %76, label %.lr.ph57, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph57, %.loopexit48
   store i32 0, ptr %14, align 8
@@ -1500,7 +1500,7 @@ define internal void @storeGettuple(ptr nocapture noundef %0, ptr nocapture noun
   %54 = load i32, ptr %27, align 8
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %42, label %.sink.split, !llvm.loop !22
+  br i1 %56, label %42, label %.sink.split, !llvm.loop !21
 
 .sink.split:                                      ; preds = %51, %35, %30, %31
   %.sink50 = phi ptr [ null, %31 ], [ null, %30 ], [ %38, %35 ], [ %38, %51 ]
@@ -1572,7 +1572,7 @@ declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 declare ptr @pairingheap_allocate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @pairingheap_SpGistSearchItem_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
+define internal range(i32 -1, 2) i32 @pairingheap_SpGistSearchItem_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 58
   %5 = load i8, ptr %4, align 2
   %6 = trunc i8 %5 to i1
@@ -1627,7 +1627,7 @@ define internal i32 @pairingheap_SpGistSearchItem_cmp(ptr nocapture noundef read
 31:                                               ; preds = %26, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !22
 
 .loopexit:                                        ; preds = %31, %.preheader, %10
   %32 = getelementptr inbounds i8, ptr %0, i64 59
@@ -1665,7 +1665,7 @@ declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca %struct.spgLeafConsistentIn, align 8
   %10 = alloca %struct.spgLeafConsistentOut, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1855,7 +1855,7 @@ define internal fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %0, ptr nocaptu
   %118 = getelementptr inbounds i8, ptr %113, i64 64
   %119 = zext nneg i32 %115 to i64
   %120 = shl nuw nsw i64 %119, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %118, ptr align 8 %.03952.i, i64 %120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %118, ptr readonly align 8 %.03952.i, i64 %120, i1 false)
   br label %spgAllocSearchItem.exit.i.i
 
 spgAllocSearchItem.exit.i.i:                      ; preds = %117, %109
@@ -1863,7 +1863,7 @@ spgAllocSearchItem.exit.i.i:                      ; preds = %117, %109
   store i32 %107, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %113, i64 52
   %123 = getelementptr inbounds i8, ptr %17, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %122, ptr noundef nonnull align 2 dereferenceable(6) %123, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %122, ptr noundef nonnull readonly align 2 dereferenceable(6) %123, i64 6, i1 false)
   %124 = getelementptr inbounds i8, ptr %0, i64 304
   %125 = load i8, ptr %124, align 8
   %126 = trunc i8 %125 to i1
@@ -1877,7 +1877,7 @@ spgAllocSearchItem.exit.thread.i.i:               ; preds = %102
   store i32 %107, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %127, i64 52
   %131 = getelementptr inbounds i8, ptr %17, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %130, ptr noundef nonnull align 2 dereferenceable(6) %131, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %130, ptr noundef nonnull readonly align 2 dereferenceable(6) %131, i64 6, i1 false)
   %132 = getelementptr inbounds i8, ptr %0, i64 304
   %133 = load i8, ptr %132, align 8
   %134 = trunc i8 %133 to i1
@@ -1914,7 +1914,7 @@ spgAllocSearchItem.exit.thread.i.i:               ; preds = %102
   %156 = load i32, ptr %17, align 4
   %157 = lshr i32 %156, 2
   %158 = zext nneg i32 %157 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %154, ptr nonnull align 4 %17, i64 %158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %154, ptr nonnull readonly align 4 %17, i64 %158, i1 false)
   br label %spgNewHeapItem.exit.i
 
 159:                                              ; preds = %.thread.i.i
@@ -2014,7 +2014,7 @@ attributes #9 = { cold nounwind }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = !{ptr @storeBitmap, ptr @storeGettuple}
-!13 = !{i16 0, i16 16384}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
@@ -2024,4 +2024,3 @@ attributes #9 = { cold nounwind }
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}

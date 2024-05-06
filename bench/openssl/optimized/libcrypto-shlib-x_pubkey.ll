@@ -166,9 +166,9 @@ if.then5.i:                                       ; preds = %if.then.i
   %call.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 55) #8
   store ptr %call.i, ptr %propq2.i, align 8
   %cmp8.i = icmp eq ptr %call.i, null
-  br i1 %cmp8.i, label %if.then.i7, label %if.end4
+  br i1 %cmp8.i, label %if.then.i8, label %if.end4
 
-if.then.i7:                                       ; preds = %if.then5.i
+if.then.i8:                                       ; preds = %if.then5.i
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 290, ptr noundef nonnull @__func__.X509_PUBKEY_dup) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524299, ptr noundef null) #8
@@ -190,14 +190,14 @@ if.end4:                                          ; preds = %if.then5.i, %if.the
   %call5 = tail call ptr @X509_ALGOR_dup(ptr noundef %7) #8
   store ptr %call5, ptr %call, align 8
   %cmp7 = icmp eq ptr %call5, null
-  br i1 %cmp7, label %x509_pubkey_ex_free.exit13, label %lor.lhs.false
+  br i1 %cmp7, label %x509_pubkey_ex_free.exit15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
   %call8 = tail call ptr @ASN1_BIT_STRING_new() #8
   %public_key = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call8, ptr %public_key, align 8
   %cmp9 = icmp eq ptr %call8, null
-  br i1 %cmp9, label %x509_pubkey_ex_free.exit13, label %lor.lhs.false10
+  br i1 %cmp9, label %x509_pubkey_ex_free.exit15, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
   %public_key12 = getelementptr inbounds i8, ptr %a, i64 8
@@ -207,16 +207,16 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
   %10 = load i32, ptr %8, align 8
   %call14 = tail call i32 @ASN1_BIT_STRING_set(ptr noundef nonnull %call8, ptr noundef %9, i32 noundef %10) #8
   %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %x509_pubkey_ex_free.exit13, label %if.end18
+  br i1 %tobool15.not, label %x509_pubkey_ex_free.exit15, label %if.end18
 
-x509_pubkey_ex_free.exit13:                       ; preds = %lor.lhs.false10, %if.end4, %lor.lhs.false
+x509_pubkey_ex_free.exit15:                       ; preds = %lor.lhs.false10, %if.end4, %lor.lhs.false
   %11 = load ptr, ptr %call, align 8
   tail call void @X509_ALGOR_free(ptr noundef %11) #8
-  %public_key.i10 = getelementptr inbounds i8, ptr %call, i64 8
-  %12 = load ptr, ptr %public_key.i10, align 8
+  %public_key.i12 = getelementptr inbounds i8, ptr %call, i64 8
+  %12 = load ptr, ptr %public_key.i12, align 8
   tail call void @ASN1_BIT_STRING_free(ptr noundef %12) #8
-  %pkey.i11 = getelementptr inbounds i8, ptr %call, i64 16
-  %13 = load ptr, ptr %pkey.i11, align 8
+  %pkey.i13 = getelementptr inbounds i8, ptr %call, i64 16
+  %13 = load ptr, ptr %pkey.i13, align 8
   tail call void @EVP_PKEY_free(ptr noundef %13) #8
   %14 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 94) #8
@@ -246,7 +246,7 @@ if.then27:                                        ; preds = %if.then20
   %bf.load = load i8, ptr %flag_force_legacy, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_force_legacy, align 8
-  %call29 = tail call fastcc i32 @x509_pubkey_decode(ptr noundef nonnull %pkey24, ptr noundef nonnull %call), !range !4
+  %call29 = tail call fastcc i32 @x509_pubkey_decode(ptr noundef nonnull %pkey24, ptr noundef nonnull %call)
   %cmp30 = icmp slt i32 %call29, 1
   br i1 %cmp30, label %if.then31, label %if.end35
 
@@ -259,8 +259,8 @@ if.end35:                                         ; preds = %if.then27, %if.then
   %call36 = tail call i32 @ERR_pop_to_mark() #8
   br label %return
 
-return:                                           ; preds = %if.end18, %if.end35, %if.then.i7, %entry, %if.then31, %x509_pubkey_ex_free.exit13
-  %retval.0 = phi ptr [ null, %x509_pubkey_ex_free.exit13 ], [ null, %if.then31 ], [ null, %entry ], [ null, %if.then.i7 ], [ %call, %if.end35 ], [ %call, %if.end18 ]
+return:                                           ; preds = %if.end18, %if.end35, %if.then.i8, %entry, %if.then31, %x509_pubkey_ex_free.exit15
+  %retval.0 = phi ptr [ null, %x509_pubkey_ex_free.exit15 ], [ null, %if.then31 ], [ null, %entry ], [ null, %if.then.i8 ], [ %call, %if.end35 ], [ %call, %if.end18 ]
   ret ptr %retval.0
 }
 
@@ -312,7 +312,7 @@ declare i32 @ERR_set_mark() local_unnamed_addr #1
 declare ptr @EVP_PKEY_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @x509_pubkey_decode(ptr nocapture noundef writeonly %ppkey, ptr noundef %key) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @x509_pubkey_decode(ptr nocapture noundef writeonly %ppkey, ptr noundef %key) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %1 = load ptr, ptr %0, align 8
@@ -387,7 +387,7 @@ declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_PUBKEY_set(ptr noundef %x, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_PUBKEY_set(ptr noundef %x, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   %derlen = alloca i64, align 8
@@ -1588,7 +1588,7 @@ declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare void @ossl_asn1_string_set_bits_left(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_PUBKEY_set0_param(ptr nocapture noundef readonly %pub, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_PUBKEY_set0_param(ptr nocapture noundef readonly %pub, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pub, align 8
   %call = tail call i32 @X509_ALGOR_set0(ptr noundef %0, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval) #8
@@ -1782,7 +1782,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x509_pubkey_ex_new_ex(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it, ptr noundef %libctx, ptr noundef %propq) #0 {
+define internal range(i32 0, 2) i32 @x509_pubkey_ex_new_ex(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it, ptr noundef %libctx, ptr noundef %propq) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 116) #8
   %cmp = icmp eq ptr %call, null
@@ -1830,8 +1830,8 @@ if.then5.i:                                       ; preds = %if.then.i
 x509_pubkey_ex_free.exit:                         ; preds = %if.then5.i, %lor.lhs.false.i, %x509_pubkey_ex_populate.exit
   %3 = load ptr, ptr %call, align 8
   tail call void @X509_ALGOR_free(ptr noundef %3) #8
-  %public_key.i4 = getelementptr inbounds i8, ptr %call, i64 8
-  %4 = load ptr, ptr %public_key.i4, align 8
+  %public_key.i5 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = load ptr, ptr %public_key.i5, align 8
   tail call void @ASN1_BIT_STRING_free(ptr noundef %4) #8
   %pkey.i = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load ptr, ptr %pkey.i, align 8
@@ -1855,7 +1855,7 @@ return:                                           ; preds = %x509_pubkey_ex_free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_pubkey_ex_d2i_ex(ptr noundef %pval, ptr noundef %in, i64 noundef %len, ptr nocapture readnone %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx, ptr noundef %libctx, ptr noundef %propq) #0 {
+define internal range(i32 -2147483648, 2) i32 @x509_pubkey_ex_d2i_ex(ptr noundef %pval, ptr noundef %in, i64 noundef %len, ptr nocapture readnone %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx, ptr noundef %libctx, ptr noundef %propq) #0 {
 entry:
   %p = alloca ptr, align 8
   %txtoidname = alloca [50 x i8], align 16
@@ -1866,7 +1866,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call i32 @x509_pubkey_ex_new_ex(ptr noundef nonnull %pval, ptr poison, ptr noundef %libctx, ptr noundef %propq), !range !5
+  %call = tail call i32 @x509_pubkey_ex_new_ex(ptr noundef nonnull %pval, ptr poison, ptr noundef %libctx, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true.if.end_crit_edge
 
@@ -1930,7 +1930,7 @@ if.end17:                                         ; preds = %if.end9
   tail call void @EVP_PKEY_free(ptr noundef %6) #8
   store ptr null, ptr %pkey, align 8
   %call19 = tail call i32 @ERR_set_mark() #8
-  %call21 = tail call fastcc i32 @x509_pubkey_decode(ptr noundef nonnull %pkey, ptr noundef %5), !range !4
+  %call21 = tail call fastcc i32 @x509_pubkey_decode(ptr noundef nonnull %pkey, ptr noundef %5)
   switch i32 %call21, label %if.end65 [
     i32 -1, label %if.then24
     i32 0, label %land.lhs.true29
@@ -2072,5 +2072,3 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = !{i32 0, i32 2}

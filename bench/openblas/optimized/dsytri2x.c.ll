@@ -401,7 +401,7 @@ thread-pre-split95:                               ; preds = %179, %195, %198, %1
   br i1 %249, label %250, label %.loopexit123
 
 250:                                              ; preds = %.loopexit125
-  %251 = trunc i64 %240 to i32
+  %251 = trunc nuw nsw i64 %240 to i32
   %252 = add nsw i32 %201, %251
   br label %253
 

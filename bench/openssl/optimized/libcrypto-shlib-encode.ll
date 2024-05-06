@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_EncodeUpdate(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl, ptr nocapture noundef readonly %in, i32 noundef %inl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_EncodeUpdate(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl, ptr nocapture noundef readonly %in, i32 noundef %inl) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %outl, align 4
   %cmp = icmp slt i32 %inl, 1
@@ -690,7 +690,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @EVP_DecodeUpdate(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl, ptr nocapture noundef readonly %in, i32 noundef %inl) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl, ptr nocapture noundef readonly %in, i32 noundef %inl) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %enc_data = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -1059,7 +1059,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @EVP_DecodeFinal(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl) local_unnamed_addr #7 {
 entry:
   store i32 0, ptr %outl, align 4
   %0 = load i32, ptr %ctx, align 4

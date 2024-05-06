@@ -566,7 +566,7 @@ define hidden void @proto_reg_handoff_asphodel() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_asphodel_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_asphodel_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 11
   br i1 %6, label %11, label %7
@@ -627,7 +627,7 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_asphodel_tcp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65538) i32 @get_asphodel_tcp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #4
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %6, 2
@@ -664,7 +664,7 @@ define internal i32 @dissect_asphodel_tcp_pdu(ptr noundef %0, ptr noundef %1, pt
   br i1 %23, label %switch.hole_check, label %25
 
 switch.hole_check:                                ; preds = %19
-  %switch.maskindex = trunc i32 %22 to i8
+  %switch.maskindex = trunc nuw i32 %22 to i8
   %switch.shifted = lshr i8 79, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %25

@@ -924,7 +924,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 declare void @_ZN7mitsuba10filesystem8absoluteERKNS0_4pathE(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8, ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7mitsuba4util14terminal_widthEv() local_unnamed_addr #12 {
+define noundef range(i32 -1, 65536) i32 @_ZN7mitsuba4util14terminal_widthEv() local_unnamed_addr #12 {
   %1 = alloca %struct.winsize, align 2
   %2 = load i32, ptr @_ZZN7mitsuba4util14terminal_widthEvE12cached_width, align 4
   %3 = icmp eq i32 %2, -1

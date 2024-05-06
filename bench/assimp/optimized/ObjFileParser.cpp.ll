@@ -1707,7 +1707,7 @@ switch.early.test:                                ; preds = %if.end8
   ]
 
 land.lhs.true.i:                                  ; preds = %switch.early.test, %switch.early.test
-  %call.i.i = tail call i32 @strncasecmp(ptr noundef nonnull %in.addr.0.i.i, ptr noundef nonnull @.str.21, i64 noundef 3) #26
+  %call.i.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %in.addr.0.i.i, ptr noundef nonnull @.str.21, i64 noundef 3) #26
   %cmp4.i4 = icmp eq i32 %call.i.i, 0
   br i1 %cmp4.i4, label %lor.end, label %lor.rhs.i5
 
@@ -1716,7 +1716,7 @@ lor.rhs.i5:                                       ; preds = %land.lhs.true.i
   br i1 %cond.i, label %land.rhs.i, label %lor.end
 
 land.rhs.i:                                       ; preds = %switch.early.test, %switch.early.test, %lor.rhs.i5
-  %call.i6.i = tail call i32 @strncasecmp(ptr noundef nonnull %in.addr.0.i.i, ptr noundef nonnull @.str.22, i64 noundef 3) #26
+  %call.i6.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %in.addr.0.i.i, ptr noundef nonnull @.str.22, i64 noundef 3) #26
   %cmp13.i = icmp eq i32 %call.i6.i, 0
   br label %lor.end
 
@@ -6090,7 +6090,7 @@ if.end89:                                         ; preds = %if.else, %invoke.co
   br i1 %cmp.i23, label %if.then92, label %if.end.i24
 
 if.end.i24:                                       ; preds = %if.end89
-  %call2.i25 = call noundef i32 @_ZN6Assimp13ObjFileParser16getMaterialIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %strName)
+  %call2.i25 = call noundef i32 @_ZN6Assimp13ObjFileParser16getMaterialIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %strName)
   %30 = load ptr, ptr %m_pModel, align 8
   %mCurrentMesh5.i = getelementptr inbounds i8, ptr %30, i64 296
   %31 = load ptr, ptr %mCurrentMesh5.i, align 8
@@ -9001,7 +9001,7 @@ if.else:                                          ; preds = %invoke.cont35
   br i1 %cmp.i13, label %if.then55, label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.else
-  %call2.i = call noundef i32 @_ZN6Assimp13ObjFileParser16getMaterialIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %strMat)
+  %call2.i = call noundef i32 @_ZN6Assimp13ObjFileParser16getMaterialIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %strMat)
   %18 = load ptr, ptr %m_pModel, align 8
   %mCurrentMesh5.i = getelementptr inbounds i8, ptr %18, i64 296
   %19 = load ptr, ptr %mCurrentMesh5.i, align 8
@@ -10683,7 +10683,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 

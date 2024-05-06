@@ -356,7 +356,7 @@ define internal i32 @pc_clock_adjtime(i32 noundef %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @posix_clock_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @posix_clock_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -432,7 +432,7 @@ define internal i32 @posix_clock_poll(ptr noundef %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @posix_clock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @posix_clock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -470,7 +470,7 @@ define internal i64 @posix_clock_ioctl(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @posix_clock_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @posix_clock_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

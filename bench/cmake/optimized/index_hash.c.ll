@@ -46,7 +46,7 @@ define dso_local void @lzma_index_hash_end(ptr noundef %0, ptr noundef %1) local
 declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i64 @lzma_index_hash_size(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, -3) i64 @lzma_index_hash_size(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -61,7 +61,7 @@ define dso_local i64 @lzma_index_hash_size(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_index_hash_append(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_index_hash_append(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i64], align 16
   %5 = load i32, ptr %0, align 8
   %6 = icmp ne i32 %5, 0

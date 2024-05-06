@@ -109,7 +109,7 @@ if.end14:                                         ; preds = %for.end
   unreachable
 
 return.loopexit:                                  ; preds = %land.lhs.true
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %for.end
@@ -186,13 +186,13 @@ while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   br i1 %cmp.i.i.us, label %while.body.lr.ph.split.us.split.us, label %while.body.lr.ph.split.us.split
 
 while.body.lr.ph.split.us.split.us:               ; preds = %while.body.lr.ph.split.us
-  %bcmp3.i.i.us.us73 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %oid4.us.us72, i64 32)
+  %bcmp3.i.i.us.us73 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid4.us.us72, i64 32)
   %retval.0.in.i.i.not.us.us74 = icmp eq i32 %bcmp3.i.i.us.us73, 0
   br i1 %retval.0.in.i.i.not.us.us74, label %return, label %if.end8.us.us
 
 while.body.us.us:                                 ; preds = %if.end8.us.us
   %oid4.us.us = getelementptr inbounds i8, ptr %9, i64 4
-  %bcmp3.i.i.us.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %oid4.us.us, i64 32)
+  %bcmp3.i.i.us.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid4.us.us, i64 32)
   %retval.0.in.i.i.not.us.us = icmp eq i32 %bcmp3.i.i.us.us, 0
   br i1 %retval.0.in.i.i.not.us.us, label %while.end, label %if.end8.us.us, !llvm.loop !7
 
@@ -208,13 +208,13 @@ if.end8.us.us:                                    ; preds = %while.body.lr.ph.sp
   br i1 %cmp.not.us.us, label %return, label %while.body.us.us, !llvm.loop !7
 
 while.body.lr.ph.split.us.split:                  ; preds = %while.body.lr.ph.split.us
-  %bcmp.i.i.us66 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %oid4.us.us72, i64 20)
+  %bcmp.i.i.us66 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4.us.us72, i64 20)
   %retval.0.in.i.i.not.us67 = icmp eq i32 %bcmp.i.i.us66, 0
   br i1 %retval.0.in.i.i.not.us67, label %return, label %if.end8.us
 
 while.body.us:                                    ; preds = %if.end8.us
   %oid4.us = getelementptr inbounds i8, ptr %10, i64 4
-  %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %oid4.us, i64 20)
+  %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4.us, i64 20)
   %retval.0.in.i.i.not.us = icmp eq i32 %bcmp.i.i.us, 0
   br i1 %retval.0.in.i.i.not.us, label %while.end, label %if.end8.us, !llvm.loop !7
 
@@ -238,13 +238,13 @@ while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %cmp.i.i, label %while.body.lr.ph.split.split.us, label %while.body.lr.ph.split.split
 
 while.body.lr.ph.split.split.us:                  ; preds = %while.body.lr.ph.split
-  %bcmp3.i.i.us3256 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %oid4.us3055, i64 32)
+  %bcmp3.i.i.us3256 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid4.us3055, i64 32)
   %retval.0.in.i.i.not.us3557 = icmp eq i32 %bcmp3.i.i.us3256, 0
   br i1 %retval.0.in.i.i.not.us3557, label %return, label %if.end8.us36
 
 while.body.us27:                                  ; preds = %if.end8.us36
   %oid4.us30 = getelementptr inbounds i8, ptr %12, i64 4
-  %bcmp3.i.i.us32 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %oid4.us30, i64 32)
+  %bcmp3.i.i.us32 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid4.us30, i64 32)
   %retval.0.in.i.i.not.us35 = icmp eq i32 %bcmp3.i.i.us32, 0
   br i1 %retval.0.in.i.i.not.us35, label %while.end, label %if.end8.us36, !llvm.loop !7
 
@@ -260,13 +260,13 @@ if.end8.us36:                                     ; preds = %while.body.lr.ph.sp
   br i1 %cmp.not.us42, label %return, label %while.body.us27, !llvm.loop !7
 
 while.body.lr.ph.split.split:                     ; preds = %while.body.lr.ph.split
-  %bcmp.i.i50 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %oid4.us3055, i64 20)
+  %bcmp.i.i50 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4.us3055, i64 20)
   %retval.0.in.i.i.not51 = icmp eq i32 %bcmp.i.i50, 0
   br i1 %retval.0.in.i.i.not51, label %return, label %if.end8
 
 while.body:                                       ; preds = %if.end8
   %oid4 = getelementptr inbounds i8, ptr %13, i64 4
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %oid4, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4, i64 20)
   %retval.0.in.i.i.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %retval.0.in.i.i.not, label %while.end, label %if.end8, !llvm.loop !7
 
@@ -310,7 +310,7 @@ entry:
   %bf.clear2 = and i32 %bf.load, 14
   store i32 %bf.clear2, ptr %o, align 4
   %oid4 = getelementptr inbounds i8, ptr %o, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid4, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid4, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %o, i64 36
@@ -925,7 +925,7 @@ entry:
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @object_list_contains(ptr noundef readonly %list, ptr noundef readnone %obj) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @object_list_contains(ptr noundef readonly %list, ptr noundef readnone %obj) local_unnamed_addr #9 {
 entry:
   %tobool.not3 = icmp eq ptr %list, null
   br i1 %tobool.not3, label %return, label %while.body
@@ -1277,7 +1277,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 land.lhs.true.i:                                  ; preds = %for.body.i
   %name4.i = getelementptr inbounds i8, ptr %object.03.i, i64 8
   %5 = load ptr, ptr %name4.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %3) #17
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %3) #17
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.else, label %for.inc.i
 

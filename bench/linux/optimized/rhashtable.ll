@@ -644,7 +644,7 @@ define dso_local void @rhashtable_walk_exit(ptr nocapture noundef %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rhashtable_walk_start_check(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @rhashtable_walk_start_check(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 56
   %4 = load i8, ptr %3, align 8, !range !27, !noundef !28
@@ -1236,7 +1236,7 @@ define internal void @bucket_table_free_rcu(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rhashtable_init(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rhashtable_init(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = icmp eq i16 %4, 0
@@ -1822,7 +1822,7 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef %0, i32 nound
 45:                                               ; preds = %2, %.thread
   %46 = phi i64 [ %0, %2 ], [ 0, %.thread ]
   %47 = phi ptr [ %6, %2 ], [ %23, %.thread ]
-  %48 = trunc i64 %0 to i32
+  %48 = trunc nuw i64 %0 to i32
   store i32 %48, ptr %47, align 64
   %49 = getelementptr inbounds i8, ptr %47, i64 40
   store ptr inttoptr (i64 -1 to ptr), ptr %49, align 8
@@ -1890,7 +1890,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
 
 24:                                               ; preds = %19
   %25 = shl i32 %15, 1
-  %26 = tail call fastcc i32 @rhashtable_rehash_alloc(ptr noundef %8, i32 noundef %25), !range !60
+  %26 = tail call fastcc i32 @rhashtable_rehash_alloc(ptr noundef %8, i32 noundef %25)
   br label %71
 
 27:                                               ; preds = %19, %12
@@ -1944,7 +1944,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   br i1 %62, label %63, label %.thread
 
 63:                                               ; preds = %59
-  %64 = tail call fastcc i32 @rhashtable_rehash_alloc(ptr noundef %6, i32 noundef %56), !range !60
+  %64 = tail call fastcc i32 @rhashtable_rehash_alloc(ptr noundef %6, i32 noundef %56)
   br label %71
 
 65:                                               ; preds = %36, %31, %27
@@ -1954,7 +1954,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   br i1 %68, label %.thread, label %69
 
 69:                                               ; preds = %65
-  %70 = tail call fastcc i32 @rhashtable_rehash_alloc(ptr noundef %8, i32 noundef %15), !range !60
+  %70 = tail call fastcc i32 @rhashtable_rehash_alloc(ptr noundef %8, i32 noundef %15)
   br label %71
 
 71:                                               ; preds = %69, %63, %24
@@ -2100,7 +2100,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %147 = ptrtoint ptr %146 to i64
   %148 = and i64 %147, 1
   %149 = icmp eq i64 %148, 0
-  br i1 %149, label %.preheader17, label %150, !llvm.loop !61
+  br i1 %149, label %.preheader17, label %150, !llvm.loop !60
 
 150:                                              ; preds = %.preheader17
   %151 = load ptr, ptr %84, align 1
@@ -2195,9 +2195,9 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %204 = select i1 %201, i64 %203, i64 %200
   %205 = inttoptr i64 %204 to ptr
   store volatile ptr %205, ptr %145, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !62
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !61
   store volatile ptr %145, ptr %179, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !63
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !62
   %206 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #15, !srcloc !19
   %207 = icmp ult i8 %206, 2
   call void @llvm.assume(i1 %207)
@@ -2206,7 +2206,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
 
 209:                                              ; preds = %.loopexit16
   %210 = call i64 @llvm.read_register.i64(metadata !0)
-  %211 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %210) #15, !srcloc !64
+  %211 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %210) #15, !srcloc !63
   call void @llvm.write_register.i64(metadata !0, i64 %211)
   br label %212
 
@@ -2233,7 +2233,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   br label %.backedge
 
 .backedge:                                        ; preds = %219, %218
-  br label %124, !llvm.loop !65
+  br label %124, !llvm.loop !64
 
 .thread10:                                        ; preds = %135, %131
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !31
@@ -2273,10 +2273,10 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %234 = load i32, ptr %74, align 64
   %235 = zext i32 %234 to i64
   %236 = icmp ult i64 %233, %235
-  br i1 %236, label %88, label %.loopexit20, !llvm.loop !66
+  br i1 %236, label %88, label %.loopexit20, !llvm.loop !65
 
 .loopexit20:                                      ; preds = %231, %78
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !67
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !66
   store volatile ptr %76, ptr %4, align 8
   %237 = getelementptr i8, ptr %0, i64 64
   call void @_raw_spin_lock(ptr noundef %237) #15
@@ -2291,7 +2291,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   store ptr null, ptr %242, align 8
   %243 = load ptr, ptr %241, align 8
   %244 = icmp eq ptr %243, %238
-  br i1 %244, label %.loopexit, label %.preheader, !llvm.loop !68
+  br i1 %244, label %.loopexit, label %.preheader, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit20
   %245 = getelementptr inbounds i8, ptr %74, i64 32
@@ -2323,8 +2323,8 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rhltable_init(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = tail call i32 @rhashtable_init(ptr noundef %0, ptr noundef %1), !range !69
+define dso_local noundef range(i32 -22, 1) i32 @rhltable_init(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+  %3 = tail call i32 @rhashtable_init(ptr noundef %0, ptr noundef %1), !range !68
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 1, ptr %4, align 8
   ret i32 %3
@@ -2494,20 +2494,20 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %114 = getelementptr i8, ptr %108, i64 %113
   tail call void %1(ptr noundef %114, ptr noundef %2) #15
   %115 = icmp eq ptr %110, null
-  br i1 %115, label %.loopexit, label %.preheader, !llvm.loop !70
+  br i1 %115, label %.loopexit, label %.preheader, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.preheader, %103
   %116 = ptrtoint ptr %100 to i64
   %117 = and i64 %116, 1
   %118 = icmp eq i64 %117, 0
-  br i1 %118, label %98, label %.thread, !llvm.loop !71
+  br i1 %118, label %98, label %.thread, !llvm.loop !70
 
 .thread:                                          ; preds = %.loopexit, %85
   %119 = add nuw nsw i64 %39, 1
   %120 = load i32, ptr %32, align 64
   %121 = zext i32 %120 to i64
   %122 = icmp ult i64 %119, %121
-  br i1 %122, label %38, label %.loopexit9, !llvm.loop !72
+  br i1 %122, label %38, label %.loopexit9, !llvm.loop !71
 
 .loopexit9:                                       ; preds = %.thread, %.split
   %123 = phi i32 [ 0, %.split ], [ %120, %.thread ]
@@ -2785,7 +2785,7 @@ define dso_local ptr @rht_bucket_nested_insert(ptr nocapture readnone %0, ptr no
   %59 = icmp ne ptr %58, null
   %60 = icmp ugt i32 %36, 262655
   %61 = select i1 %59, i1 %60, i1 false
-  br i1 %61, label %.preheader, label %.loopexit, !llvm.loop !73
+  br i1 %61, label %.preheader, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %57, %30
   %62 = phi i32 [ %13, %30 ], [ %40, %57 ]
@@ -2834,7 +2834,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rhashtable_rehash_alloc(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -17, 1) i32 @rhashtable_rehash_alloc(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 64
@@ -2942,7 +2942,7 @@ define internal fastcc void @nested_table_free(ptr nocapture noundef readonly %0
   tail call fastcc void @nested_table_free(ptr noundef %11, i32 noundef %8)
   %12 = add nuw nsw i64 %10, 1
   %13 = icmp eq i64 %12, 512
-  br i1 %13, label %.loopexit, label %9, !llvm.loop !74
+  br i1 %13, label %.loopexit, label %9, !llvm.loop !73
 
 .loopexit:                                        ; preds = %9, %5
   tail call void @kfree(ptr noundef nonnull %3) #15
@@ -3053,18 +3053,17 @@ attributes #18 = { nounwind allocsize(2) }
 !57 = distinct !{!57, !9, !10}
 !58 = !{i64 2154093535, i64 2154093574, i64 2154093595, i64 2154093632, i64 2154093655, i64 2154093664}
 !59 = distinct !{!59, !9, !10}
-!60 = !{i32 -17, i32 1}
-!61 = distinct !{!61, !9, !10}
-!62 = !{i64 2153978897}
-!63 = !{i64 2153981199}
-!64 = !{i64 2153981381}
+!60 = distinct !{!60, !9, !10}
+!61 = !{i64 2153978897}
+!62 = !{i64 2153981199}
+!63 = !{i64 2153981381}
+!64 = distinct !{!64, !9, !10}
 !65 = distinct !{!65, !9, !10}
-!66 = distinct !{!66, !9, !10}
-!67 = !{i64 2154124588}
-!68 = distinct !{!68, !9, !10}
-!69 = !{i32 -22, i32 1}
+!66 = !{i64 2154124588}
+!67 = distinct !{!67, !9, !10}
+!68 = !{i32 -22, i32 1}
+!69 = distinct !{!69, !9, !10}
 !70 = distinct !{!70, !9, !10}
 !71 = distinct !{!71, !9, !10}
 !72 = distinct !{!72, !9, !10}
 !73 = distinct !{!73, !9, !10}
-!74 = distinct !{!74, !9, !10}

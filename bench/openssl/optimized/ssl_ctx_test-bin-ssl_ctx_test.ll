@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [31 x i8] c"SSL_get_max_proto_version(ssl)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_set_min_max_version, i32 noundef 25, i32 noundef 1) #2
   ret i32 1

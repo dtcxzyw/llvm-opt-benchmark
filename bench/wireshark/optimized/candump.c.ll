@@ -22,9 +22,9 @@ target triple = "x86_64-pc-linux-gnu"
 @candump_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @candump_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @candump_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call fastcc i32 @candump_parse(ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2), !range !4
+  %5 = tail call fastcc i32 @candump_parse(ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
 
@@ -72,7 +72,7 @@ define hidden noundef i32 @candump_open(ptr nocapture noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @candump_parse(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @candump_parse(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.candump_state_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 0, i64 160, i1 false)
   %7 = getelementptr inbounds i8, ptr %6, i64 104
@@ -111,7 +111,7 @@ define internal fastcc noundef i32 @candump_parse(ptr noundef %0, ptr noundef wr
   %26 = load i32, ptr %6, align 8
   %.not20 = icmp eq i32 %26, 0
   %27 = select i1 %25, i1 %.not20, i1 false
-  br i1 %27, label %9, label %28, !llvm.loop !5
+  br i1 %27, label %9, label %28, !llvm.loop !4
 
 28:                                               ; preds = %24
   br i1 %25, label %29, label %.loopexit
@@ -151,15 +151,15 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @candump_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @candump_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.msg_t, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = call fastcc i32 @candump_parse(ptr noundef %8, ptr noundef nonnull %7, ptr noundef %5, ptr noundef %3, ptr noundef %4), !range !4
+  %9 = call fastcc i32 @candump_parse(ptr noundef %8, ptr noundef nonnull %7, ptr noundef %5, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = call fastcc i32 @candump_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4), !range !4
+  %11 = call fastcc i32 @candump_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
   br label %12
 
 12:                                               ; preds = %6, %10
@@ -168,7 +168,7 @@ define internal noundef i32 @candump_read(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @candump_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @candump_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.msg_t, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -187,12 +187,12 @@ define internal noundef i32 @candump_seek_read(ptr nocapture noundef readonly %0
 
 17:                                               ; preds = %6
   %18 = load ptr, ptr %8, align 8
-  %19 = call fastcc i32 @candump_parse(ptr noundef %18, ptr noundef nonnull %7, ptr noundef null, ptr noundef %4, ptr noundef %5), !range !4
+  %19 = call fastcc i32 @candump_parse(ptr noundef %18, ptr noundef nonnull %7, ptr noundef null, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %17
-  %21 = call fastcc i32 @candump_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5), !range !4
+  %21 = call fastcc i32 @candump_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
   br label %22
 
 22:                                               ; preds = %17, %20, %12
@@ -222,7 +222,7 @@ declare i32 @run_candump_parser(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @candump_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.canfd_frame, align 4
   %7 = alloca %struct.can_frame, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 24
@@ -364,6 +364,5 @@ attributes #7 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

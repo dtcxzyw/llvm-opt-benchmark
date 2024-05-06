@@ -49,7 +49,7 @@ if.end:                                           ; preds = %lor.lhs.false3
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fuzz_rand_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
+define internal range(i32 0, 2) i32 @fuzz_rand_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #6
   store ptr %call, ptr %provctx, align 8
@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fuzz_rand_get_ctx_params(ptr nocapture noundef readonly %vrng, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @fuzz_rand_get_ctx_params(ptr nocapture noundef readonly %vrng, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.4) #6
   %cmp.not = icmp eq ptr %call, null

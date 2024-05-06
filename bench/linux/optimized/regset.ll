@@ -88,7 +88,7 @@ declare dso_local void @copy_xstate_to_uabi_buf(ptr, i64, ptr noundef, i32 nound
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfpregs_set(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfpregs_set(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 align 16 {
   %7 = alloca %struct.fxregs_state, align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 3008
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #12
@@ -181,7 +181,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xstateregs_get(ptr noundef %0, ptr nocapture noundef readnone %1, ptr %2, i64 %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @xstateregs_get(ptr noundef %0, ptr nocapture noundef readnone %1, ptr %2, i64 %3) local_unnamed_addr #1 align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 154, i32 4, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 11)) #12
           to label %5 [label %5, label %12], !srcloc !7
 
@@ -555,7 +555,7 @@ define dso_local i32 @fpregs_get(ptr noundef %0, ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fpregs_set(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fpregs_set(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 align 16 {
   %7 = alloca %struct.user_i387_ia32_struct, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 3008
   call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %7) #12

@@ -211,7 +211,7 @@ define internal void @cstate_pmu_exit() #0 section ".exit.text" align 16 {
 declare dso_local ptr @x86_match_cpu(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @cstate_probe(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -19, 1) i32 @cstate_probe(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -691,7 +691,7 @@ declare dso_local ptr @cpu_clustergroup_mask(i32 noundef) local_unnamed_addr #1
 declare dso_local void @perf_pmu_migrate_context(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cstate_pmu_event_init(ptr nocapture noundef %0) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr nocapture noundef %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load i64, ptr %3, align 8
@@ -727,7 +727,7 @@ define internal noundef i32 @cstate_pmu_event_init(ptr nocapture noundef %0) #3 
   %24 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 4, i64 %4) #7, !srcloc !16
   %25 = and i64 %24, %4
   %26 = load i64, ptr @core_msr_mask, align 8
-  %27 = trunc i64 %25 to i32
+  %27 = trunc nuw nsw i64 %25 to i32
   %28 = shl nuw nsw i32 1, %27
   %29 = zext nneg i32 %28 to i64
   %30 = and i64 %26, %29
@@ -767,7 +767,7 @@ define internal noundef i32 @cstate_pmu_event_init(ptr nocapture noundef %0) #3 
   %53 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 7, i64 %4) #7, !srcloc !16
   %54 = and i64 %53, %4
   %55 = load i64, ptr @pkg_msr_mask, align 8
-  %56 = trunc i64 %54 to i32
+  %56 = trunc nuw nsw i64 %54 to i32
   %57 = shl nuw nsw i32 1, %56
   %58 = zext nneg i32 %57 to i64
   %59 = and i64 %55, %58
@@ -1038,7 +1038,7 @@ define internal noundef i64 @__cstate_cstate_event_show(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cstate_get_attr_cpumask(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #3 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cstate_get_attr_cpumask(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @cstate_core_pmu

@@ -44,14 +44,14 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, -1
   %or.cond.i = icmp ult i32 %11, 1023
-  %12 = tail call i32 @llvm.ctpop.i32(i32 %10), !range !5
+  %12 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %10)
   %13 = icmp ult i32 %12, 2
   %or.cond61.i = select i1 %or.cond.i, i1 %13, i1 false
   br i1 %or.cond61.i, label %14, label %.loopexit.sink.split.i
 
 14:                                               ; preds = %8
   %15 = or i32 %10, %.05366.i
-  %16 = tail call i32 @llvm.cttz.i32(i32 %10, i1 true), !range !6
+  %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %10, i1 true)
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds %struct.rhash_hash_info, ptr %7, i64 %17, i32 1
   %19 = load i64, ptr %18, align 8
@@ -60,7 +60,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
   %22 = add i64 %21, %.05664.i
   %23 = add nuw i64 %.05565.i, 1
   %exitcond.not.i = icmp eq i64 %23, %0
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !7
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !5
 
 24:                                               ; preds = %14
   %25 = add i64 %22, %4
@@ -89,7 +89,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
   %.167.i = phi i64 [ 0, %29 ], [ %53, %37 ]
   %38 = getelementptr inbounds i32, ptr %1, i64 %.167.i
   %39 = load i32, ptr %38, align 4
-  %40 = tail call i32 @llvm.cttz.i32(i32 %39, i1 true), !range !6
+  %40 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %39, i1 true)
   %41 = load ptr, ptr @rhash_info_table, align 8
   %42 = zext nneg i32 %40 to i64
   %43 = getelementptr inbounds %struct.rhash_hash_info, ptr %41, i64 %42
@@ -107,7 +107,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
   tail call void %52(ptr noundef %.05468.i) #15
   %53 = add nuw i64 %.167.i, 1
   %exitcond70.not.i = icmp eq i64 %53, %0
-  br i1 %exitcond70.not.i, label %rhash_alloc_multi.exit, label %37, !llvm.loop !9
+  br i1 %exitcond70.not.i, label %rhash_alloc_multi.exit, label %37, !llvm.loop !7
 
 .loopexit.sink.split.i:                           ; preds = %8, %2
   %54 = tail call ptr @__errno_location() #17
@@ -165,7 +165,7 @@ define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
   %.1 = phi i64 [ %19, %18 ], [ %.0612, %16 ]
   %22 = shl i32 %.013, 1
   %.not10 = icmp ugt i32 %22, %0
-  br i1 %.not10, label %23, label %16, !llvm.loop !10
+  br i1 %.not10, label %23, label %16, !llvm.loop !8
 
 23:                                               ; preds = %21
   %24 = call ptr @rhash_init_multi(i64 noundef %.1, ptr noundef nonnull %3)
@@ -218,7 +218,7 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %18 to i64
   %20 = icmp ult i64 %indvars.iv.next, %19
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !11
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %17, %3
   tail call void @free(ptr noundef nonnull %0) #15
@@ -269,7 +269,7 @@ define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
   %19 = load i32, ptr %3, align 8
   %20 = zext i32 %19 to i64
   %21 = icmp ult i64 %indvars.iv.next, %20
-  br i1 %21, label %6, label %._crit_edge, !llvm.loop !12
+  br i1 %21, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14, %1
   %22 = getelementptr inbounds i8, ptr %0, i64 20
@@ -312,7 +312,7 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
   %19 = load i32, ptr %9, align 8
   %20 = zext i32 %19 to i64
   %21 = icmp ult i64 %indvars.iv.next, %20
-  br i1 %21, label %12, label %.loopexit, !llvm.loop !13
+  br i1 %21, label %12, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %6, %3
   ret i32 0
@@ -353,7 +353,7 @@ define dso_local noundef i32 @rhash_final(ptr nocapture noundef %0, ptr noundef 
   %20 = load i32, ptr %9, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp ult i64 %indvars.iv.next, %21
-  br i1 %22, label %13, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %22, label %13, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %13
   %.pre = load i32, ptr %4, align 4
@@ -393,7 +393,7 @@ define dso_local void @rhash_set_callback(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rhash_msg(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rhash_msg(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [130 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca [32 x i32], align 16
@@ -444,7 +444,7 @@ rhash_init.exit.thread:                           ; preds = %4
   %.1.i = phi i64 [ %23, %22 ], [ %.0612.i, %20 ]
   %26 = shl i32 %.013.i, 1
   %.not10.i = icmp ugt i32 %26, %8
-  br i1 %.not10.i, label %27, label %20, !llvm.loop !10
+  br i1 %.not10.i, label %27, label %20, !llvm.loop !8
 
 27:                                               ; preds = %25
   %28 = call ptr @rhash_init_multi(i64 noundef %.1.i, ptr noundef nonnull %7)
@@ -489,7 +489,7 @@ rhash_init.exit:                                  ; preds = %15, %27
   %46 = load i32, ptr %36, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp ult i64 %indvars.iv.next.i, %47
-  br i1 %48, label %39, label %rhash_update.exit, !llvm.loop !13
+  br i1 %48, label %39, label %rhash_update.exit, !llvm.loop !11
 
 rhash_update.exit:                                ; preds = %39, %30, %33
   call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %5)
@@ -525,7 +525,7 @@ rhash_update.exit:                                ; preds = %39, %30, %33
   %65 = load i32, ptr %54, align 8
   %66 = zext i32 %65 to i64
   %67 = icmp ult i64 %indvars.iv.next.i13, %66
-  br i1 %67, label %58, label %._crit_edge.loopexit.i, !llvm.loop !14
+  br i1 %67, label %58, label %._crit_edge.loopexit.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %58
   %.pre.i = load i32, ptr %49, align 4
@@ -571,7 +571,7 @@ rhash_update.exit:                                ; preds = %39, %30, %33
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i15, 1
   %85 = zext i32 %84 to i64
   %86 = icmp ult i64 %indvars.iv.next.i18, %85
-  br i1 %86, label %74, label %rhash_free.exit, !llvm.loop !11
+  br i1 %86, label %74, label %rhash_free.exit, !llvm.loop !9
 
 rhash_free.exit:                                  ; preds = %83, %70
   call void @free(ptr noundef nonnull %.07.i) #15
@@ -583,7 +583,7 @@ rhash_free.exit:                                  ; preds = %83, %70
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rhash_file_update(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load volatile i32, ptr %3, align 8
   %.not = icmp eq i32 %4, -1340228930
@@ -647,7 +647,7 @@ define dso_local noundef i32 @rhash_file_update(ptr noundef %0, ptr nocapture no
   %30 = load i32, ptr %8, align 8
   %31 = zext i32 %30 to i64
   %32 = icmp ult i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %rhash_update.exit, !llvm.loop !13
+  br i1 %32, label %.lr.ph.i, label %rhash_update.exit, !llvm.loop !11
 
 rhash_update.exit:                                ; preds = %.lr.ph.i, %18, %20
   %33 = load ptr, ptr %10, align 8
@@ -663,7 +663,7 @@ rhash_update.exit:                                ; preds = %.lr.ph.i, %18, %20
 37:                                               ; preds = %17, %34, %rhash_update.exit
   %38 = tail call i32 @feof(ptr noundef %1) #15
   %.not24 = icmp eq i32 %38, 0
-  br i1 %.not24, label %12, label %._crit_edge, !llvm.loop !15
+  br i1 %.not24, label %12, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %37, %12, %14, %.preheader
   %.0 = phi i32 [ 0, %.preheader ], [ -1, %14 ], [ 0, %12 ], [ 0, %37 ]
@@ -688,7 +688,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rhash_file(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [130 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca [32 x i32], align 16
@@ -741,7 +741,7 @@ define dso_local noundef i32 @rhash_file(i32 noundef %0, ptr nocapture noundef r
   %.1.i = phi i64 [ %25, %24 ], [ %.0612.i, %22 ]
   %28 = shl i32 %.013.i, 1
   %.not10.i = icmp ugt i32 %28, %7
-  br i1 %.not10.i, label %29, label %22, !llvm.loop !10
+  br i1 %.not10.i, label %29, label %22, !llvm.loop !8
 
 29:                                               ; preds = %27
   %30 = call ptr @rhash_init_multi(i64 noundef %.1.i, ptr noundef nonnull %6)
@@ -759,7 +759,7 @@ rhash_init.exit:                                  ; preds = %17, %29
   br label %77
 
 33:                                               ; preds = %rhash_init.exit
-  %34 = tail call i32 @rhash_file_update(ptr noundef nonnull %.07.i, ptr noundef nonnull %12), !range !16
+  %34 = tail call i32 @rhash_file_update(ptr noundef nonnull %.07.i, ptr noundef nonnull %12)
   %35 = tail call i32 @fclose(ptr noundef nonnull %12)
   %36 = icmp sgt i32 %34, -1
   br i1 %36, label %37, label %59
@@ -798,7 +798,7 @@ rhash_init.exit:                                  ; preds = %17, %29
   %54 = load i32, ptr %43, align 8
   %55 = zext i32 %54 to i64
   %56 = icmp ult i64 %indvars.iv.next.i, %55
-  br i1 %56, label %47, label %._crit_edge.loopexit.i, !llvm.loop !14
+  br i1 %56, label %47, label %._crit_edge.loopexit.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %47
   %.pre.i = load i32, ptr %38, align 4
@@ -848,7 +848,7 @@ rhash_final.exit:                                 ; preds = %37, %._crit_edge.i
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i20, 1
   %75 = zext i32 %74 to i64
   %76 = icmp ult i64 %indvars.iv.next.i23, %75
-  br i1 %76, label %64, label %rhash_free.exit, !llvm.loop !11
+  br i1 %76, label %64, label %rhash_free.exit, !llvm.loop !9
 
 rhash_free.exit:                                  ; preds = %73, %59
   call void @free(ptr noundef nonnull %.07.i) #15
@@ -868,13 +868,13 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @rhash_get_digest_size(i32 noundef %0) local_unnamed_addr #10 {
   %2 = and i32 %0, 1023
-  %3 = tail call i32 @llvm.ctpop.i32(i32 %2), !range !5
+  %3 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %2)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %13
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @rhash_info_table, align 8
-  %6 = tail call i32 @llvm.cttz.i32(i32 %2, i1 true), !range !6
+  %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds %struct.rhash_hash_info, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -994,15 +994,12 @@ attributes #17 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 11}
-!6 = !{i32 0, i32 33}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = !{i32 -1, i32 1}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

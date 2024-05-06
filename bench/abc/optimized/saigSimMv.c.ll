@@ -306,7 +306,7 @@ define noalias noundef ptr @Saig_MvManStart(ptr noundef %0, i32 noundef %1) loca
 
 17:                                               ; preds = %.lr.ph.i
   %18 = add nuw nsw i32 %.01116.i, 2
-  %19 = mul nsw i32 %18, %18
+  %19 = mul nuw nsw i32 %18, %18
   %.not.i = icmp ugt i32 %19, %15
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -436,7 +436,7 @@ Vec_PtrPush.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
 
 75:                                               ; preds = %.lr.ph.i57
   %76 = add nuw nsw i32 %.01116.i58, 2
-  %77 = mul nsw i32 %76, %76
+  %77 = mul nuw nsw i32 %76, %76
   %.not.i59 = icmp ugt i32 %77, %73
   br i1 %.not.i59, label %Abc_PrimeCudd.exit60, label %.lr.ph.i57, !llvm.loop !7
 
@@ -894,9 +894,9 @@ define void @Saig_MvSimulateFrame(ptr nocapture noundef %0, i32 noundef %1, i32 
   %51 = load ptr, ptr %6, align 8
   %52 = load i32, ptr %7, align 8
   %53 = lshr i32 %50, 1
-  %54 = mul nsw i32 %53, 7937
+  %54 = mul nuw nsw i32 %53, 7937
   %55 = lshr i32 %49, 1
-  %56 = mul nsw i32 %55, 2971
+  %56 = mul nuw nsw i32 %55, 2971
   %57 = trunc i32 %50 to i1
   %58 = select i1 %57, i32 911, i32 0
   %59 = trunc i32 %49 to i1
@@ -1087,7 +1087,7 @@ define i32 @Saig_MvSimHash(ptr nocapture noundef readonly %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Saig_MvSaveState(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @Saig_MvSaveState(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %3) #21
@@ -1172,13 +1172,13 @@ Saig_MvSimHash.exit.i:                            ; preds = %.lr.ph.i.i, %.crite
   %45 = sext i32 %25 to i64
   %46 = shl nsw i64 %45, 2
   %47 = getelementptr inbounds i8, ptr %44, i64 4
-  %bcmp.i29 = tail call i32 @bcmp(ptr nonnull %47, ptr nonnull %23, i64 %46)
+  %bcmp.i29 = tail call i32 @bcmp(ptr nonnull %47, ptr nonnull readonly %23, i64 %46)
   %48 = icmp eq i32 %bcmp.i29, 0
   br i1 %48, label %Saig_MvSimTableFind.exit, label %.lr.ph31
 
 49:                                               ; preds = %53
   %50 = getelementptr inbounds i8, ptr %56, i64 4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %50, ptr nonnull %23, i64 %46)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %50, ptr nonnull readonly %23, i64 %46)
   %51 = icmp eq i32 %bcmp.i, 0
   br i1 %51, label %Saig_MvSimTableFind.exit, label %.lr.ph31, !llvm.loop !14
 
@@ -1390,14 +1390,14 @@ define void @Saig_MvManPostProcess(ptr nocapture noundef readonly %0, i32 nounde
   %49 = getelementptr i32, ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr i32, ptr %48, i64 %indvars.iv155
-  %53 = getelementptr i8, ptr %52, i64 4
+  %52 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv155
+  %53 = getelementptr inbounds i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %.not77.us = icmp eq i32 %51, %54
   br i1 %.not77.us, label %58, label %.critedge6.us
 
 .critedge6.us:                                    ; preds = %46
-  %55 = trunc i64 %indvars.iv145 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv145 to i32
   %56 = icmp eq i32 %.val79, %55
   br i1 %56, label %.split.us.loopexit, label %57
 
@@ -1416,7 +1416,7 @@ define void @Saig_MvManPostProcess(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %59, label %.split.us, label %.critedge4.thread
 
 .split.us.loopexit:                               ; preds = %.critedge6.us, %58
-  %60 = trunc i64 %indvars.iv150 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv150 to i32
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.loopexit, %.lr.ph117.split
@@ -1494,7 +1494,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %88, ptr %4, align 4
   %89 = sext i32 %.val86 to i64
   %90 = getelementptr inbounds i32, ptr %87, i64 %89
-  %91 = trunc i64 %indvars.iv155 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv155 to i32
   store i32 %91, ptr %90, align 4
   %92 = load i32, ptr %8, align 4
   %93 = load i32, ptr %7, align 8
@@ -1871,7 +1871,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %.critedge4._crit_edge, label %56, !llvm.loop !25
 
 .critedge2.loopexit:                              ; preds = %56
-  %60 = trunc i64 %indvars.iv89 to i32
+  %60 = trunc nsw i64 %indvars.iv89 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader68
@@ -1901,7 +1901,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond95.not, label %.critedge4._crit_edge, label %64, !llvm.loop !26
 
 .critedge4.loopexit:                              ; preds = %64
-  %68 = trunc i64 %indvars.iv92 to i32
+  %68 = trunc nsw i64 %indvars.iv92 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.preheader67
@@ -2026,8 +2026,8 @@ Vec_IntAlloc.exit32:                              ; preds = %Vec_IntAlloc.exit, 
   %.044 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %34 ]
   %29 = getelementptr inbounds ptr, ptr %.val28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr i32, ptr %30, i64 %indvars.iv47
-  %32 = getelementptr i8, ptr %31, i64 4
+  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv47
+  %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %.not41 = icmp eq i32 %33, 536870910
   br i1 %.not41, label %.critedge.thread, label %34
@@ -2161,7 +2161,7 @@ Vec_IntGrow.exit.i38:                             ; preds = %68, %66
   store i32 %82, ptr %.sink57, align 4
   %83 = sext i32 %.sink58 to i64
   %84 = getelementptr inbounds i32, ptr %.sink, i64 %83
-  %85 = trunc i64 %indvars.iv47 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv47 to i32
   store i32 %85, ptr %84, align 4
   br label %.critedge.thread
 
@@ -2670,11 +2670,11 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
   %indvars.iv123 = phi i64 [ 1, %.lr.ph104 ], [ %indvars.iv.next124, %94 ]
   %96 = getelementptr inbounds ptr, ptr %.val68, i64 %indvars.iv123
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr i32, ptr %97, i64 %84
-  %99 = getelementptr i8, ptr %98, i64 4
+  %98 = getelementptr inbounds i32, ptr %97, i64 %84
+  %99 = getelementptr inbounds i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr i32, ptr %97, i64 %93
-  %102 = getelementptr i8, ptr %101, i64 4
+  %101 = getelementptr inbounds i32, ptr %97, i64 %93
+  %102 = getelementptr inbounds i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
   %.not65 = icmp eq i32 %100, %103
   br i1 %.not65, label %94, label %.critedge8.thread
@@ -2708,7 +2708,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
   %.val72 = phi i32 [ %.val72.pre, %.critedge8 ], [ %.val72138, %85 ], [ %.val72138, %95 ]
   %.2 = phi i32 [ %116, %.critedge8 ], [ %.1107, %85 ], [ %.1107, %95 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %117 = trunc i64 %indvars.iv.next131 to i32
+  %117 = trunc nuw i64 %indvars.iv.next131 to i32
   %118 = icmp sgt i32 %.val72, %117
   br i1 %118, label %85, label %.critedge6, !llvm.loop !38
 
@@ -2845,7 +2845,7 @@ Abc_Clock.exit71:                                 ; preds = %17, %20
   br i1 %44, label %36, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %36, %30
-  %45 = call i32 @Saig_MvSaveState(ptr noundef nonnull %16), !range !41
+  %45 = call i32 @Saig_MvSaveState(ptr noundef nonnull %16)
   %.not62 = icmp eq i32 %4, 0
   br i1 %.not62, label %63, label %46
 
@@ -3083,13 +3083,13 @@ Vec_IntFree.exit:                                 ; preds = %112, %116
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %136 = sext i32 %.val to i64
   %137 = icmp slt i64 %indvars.iv.next106, %136
-  br i1 %137, label %125, label %.critedge2, !llvm.loop !42
+  br i1 %137, label %125, label %.critedge2, !llvm.loop !41
 
 .critedge2:                                       ; preds = %135, %.preheader, %118
   %138 = icmp slt i32 %.057, %1
   %139 = zext i1 %138 to i32
   call void @Saig_MvSimulateFrame(ptr noundef nonnull %16, i32 noundef %139, i32 poison)
-  %140 = call i32 @Saig_MvSaveState(ptr noundef nonnull %16), !range !41
+  %140 = call i32 @Saig_MvSaveState(ptr noundef nonnull %16)
   %.pre110 = add nuw nsw i32 %.057, 1
   br i1 %.not62, label %.critedge2._crit_edge, label %141
 
@@ -3325,5 +3325,4 @@ attributes #22 = { nounwind willreturn memory(read) }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = !{i32 1, i32 0}
-!42 = distinct !{!42, !5}
+!41 = distinct !{!41, !5}

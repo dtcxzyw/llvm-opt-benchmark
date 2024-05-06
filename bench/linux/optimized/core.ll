@@ -735,7 +735,7 @@ define dso_local i64 @intel_event_sysfs_show(ptr noundef %0, i64 noundef %1) #1 
 declare dso_local i64 @x86_event_sysfs_show(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_cpuc_prepare(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_cpuc_prepare(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 57), align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 2424
   store i32 %3, ptr %4, align 8
@@ -4450,7 +4450,7 @@ define internal i32 @intel_pmu_snapshot_arch_branch_stack(ptr nocapture noundef 
   %14 = getelementptr inbounds i8, ptr %11, i64 2472
   %15 = zext i32 %13 to i64
   %16 = mul nuw nsw i64 %15, 24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %14, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %0, ptr align 8 %14, i64 %16, i1 false)
   call void @intel_pmu_pebs_enable_all() #22
   call fastcc void @__intel_pmu_enable_all(i1 noundef zeroext false)
   %17 = and i64 %4, 512
@@ -4521,7 +4521,7 @@ define internal i32 @intel_pmu_snapshot_branch_stack(ptr nocapture noundef write
   %25 = getelementptr inbounds i8, ptr %22, i64 2472
   %26 = zext i32 %24 to i64
   %27 = mul nuw nsw i64 %26, 24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %25, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %0, ptr align 8 %25, i64 %27, i1 false)
   call void @intel_pmu_pebs_enable_all() #22
   call fastcc void @__intel_pmu_enable_all(i1 noundef zeroext false)
   %28 = and i64 %4, 512
@@ -5395,7 +5395,7 @@ define internal void @intel_put_event_constraints(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_pmu_cpu_prepare(i32 noundef %0) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @intel_pmu_cpu_prepare(i32 noundef %0) #1 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
@@ -6170,7 +6170,7 @@ define internal ptr @core_guest_get_msrs(ptr nocapture noundef writeonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_pmu_check_period(ptr nocapture noundef readonly %0, i64 noundef %1) #1 align 16 {
+define internal range(i32 -22, 1) i32 @intel_pmu_check_period(ptr nocapture noundef readonly %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 1024
@@ -9083,7 +9083,7 @@ define internal zeroext i16 @exra_is_visible(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @pmu_name_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @pmu_name_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.233, ptr noundef nonnull @pmu_name_str) #22
   %5 = sext i32 %4 to i64
   ret i64 %5
@@ -9116,7 +9116,7 @@ define internal zeroext i16 @lbr_is_visible(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @branches_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @branches_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
   %4 = load i32, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 71), align 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.235, i32 noundef %4) #22
   %6 = sext i32 %5 to i64
@@ -9124,7 +9124,7 @@ define internal noundef i64 @branches_show(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @branch_counter_nr_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @branch_counter_nr_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = load i32, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 77), align 2
   %5 = lshr i32 %4, 20
   %6 = and i32 %5, 15
@@ -9136,7 +9136,7 @@ define internal noundef i64 @branch_counter_nr_show(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @branch_counter_width_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @branch_counter_width_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.235, i32 noundef 2) #22
   %5 = sext i32 %4 to i64
   ret i64 %5
@@ -9166,7 +9166,7 @@ define internal zeroext i16 @default_is_visible(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_sysctl_tfa(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_sysctl_tfa(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
   %4 = load i8, ptr @allow_tsx_force_abort, align 1, !range !31, !noundef !32
   %5 = zext nneg i8 %4 to i32
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 40, ptr noundef nonnull @.str.235, i32 noundef %5) #22
@@ -9239,7 +9239,7 @@ declare dso_local void @perf_pmu_resched(ptr noundef) local_unnamed_addr #0
 declare dso_local ptr @x86_get_pmu(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @freeze_on_smi_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @freeze_on_smi_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #19 align 16 {
   %4 = load i64, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 46), align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.240, i64 noundef %4) #22
   %6 = sext i32 %5 to i64
@@ -9417,7 +9417,7 @@ define internal zeroext i16 @hybrid_format_is_visible(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @intel_hybrid_get_attr_cpus(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @intel_hybrid_get_attr_cpus(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 320

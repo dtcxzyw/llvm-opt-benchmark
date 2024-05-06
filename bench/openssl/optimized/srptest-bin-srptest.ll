@@ -71,7 +71,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @run_srp_tests() #0 {
+define internal range(i32 0, 2) i32 @run_srp_tests() #0 {
 entry:
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 260, ptr noundef nonnull @.str.3) #2
   %call = tail call fastcc i32 @run_srp(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
@@ -93,7 +93,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @run_srp_kat() #0 {
+define internal range(i32 0, 2) i32 @run_srp_kat() #0 {
 entry:
   %s = alloca ptr, align 8
   %v = alloca ptr, align 8
@@ -254,7 +254,7 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @run_srp(ptr noundef %client_pass, ptr noundef %server_pass) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @run_srp(ptr noundef %client_pass, ptr noundef %server_pass) unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %v = alloca ptr, align 8

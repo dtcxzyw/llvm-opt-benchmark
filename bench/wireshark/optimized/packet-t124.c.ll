@@ -1077,7 +1077,7 @@ define hidden void @t124_set_top_tree(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_DomainMCSPDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_DomainMCSPDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #8
@@ -1171,7 +1171,7 @@ declare void @register_ber_oid_dissector(ptr noundef, ptr noundef, i32 noundef, 
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_t124_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_t124_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   %7 = alloca i32, align 4

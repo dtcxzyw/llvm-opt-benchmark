@@ -94,7 +94,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.82 = private unnamed_addr constant [22 x i8] c"../openssl/apps/rsa.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rsa_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %enc = alloca ptr, align 8
   %passin = alloca ptr, align 8
@@ -503,7 +503,7 @@ if.then191:                                       ; preds = %if.end187
 
 lor.lhs.false195:                                 ; preds = %if.then191
   %24 = load i32, ptr %outformat, align 4
-  %call196 = call fastcc i32 @try_legacy_encoding(ptr noundef nonnull %pkey.0, i32 noundef %24, i32 noundef %pubout.0, ptr noundef nonnull %call92), !range !7
+  %call196 = call fastcc i32 @try_legacy_encoding(ptr noundef nonnull %pkey.0, i32 noundef %24, i32 noundef %pubout.0, ptr noundef nonnull %call92)
   %tobool197.not = icmp eq i32 %call196, 0
   br i1 %tobool197.not, label %if.then198, label %end
 
@@ -652,7 +652,7 @@ declare ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef, i32 noundef, ptr noundef
 declare i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @try_legacy_encoding(ptr noundef %pkey, i32 noundef %outformat, i32 noundef %pubout, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @try_legacy_encoding(ptr noundef %pkey, i32 noundef %outformat, i32 noundef %pubout, ptr noundef %out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %pkey) #6
   %cmp = icmp eq ptr %call, null
@@ -780,4 +780,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}

@@ -719,7 +719,7 @@ define void @mca_common_monitoring_coll_reset() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @mca_common_monitoring_coll_messages_notify(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @mca_common_monitoring_coll_messages_notify(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
   switch i32 %1, label %9 [
     i32 0, label %5
     i32 3, label %10

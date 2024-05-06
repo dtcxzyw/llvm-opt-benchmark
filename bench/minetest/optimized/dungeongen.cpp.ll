@@ -3688,7 +3688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_Z14dir_to_facedirN3irr4core8vector3dIsEE(i48 %d.coerce) local_unnamed_addr #9 {
+define dso_local noundef range(i32 0, 4) i32 @_Z14dir_to_facedirN3irr4core8vector3dIsEE(i48 %d.coerce) local_unnamed_addr #9 {
 entry:
   %d.sroa.0.0.extract.trunc = trunc i48 %d.coerce to i32
   %sext = shl i32 %d.sroa.0.0.extract.trunc, 16

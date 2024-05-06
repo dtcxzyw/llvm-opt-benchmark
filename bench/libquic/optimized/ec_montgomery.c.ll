@@ -35,7 +35,7 @@ declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @ec_GFp_simple_group_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_mont_group_copy(ptr noundef %dest, ptr noundef %src) #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_mont_group_copy(ptr noundef %dest, ptr noundef %src) #0 {
 entry:
   %mont = getelementptr inbounds i8, ptr %dest, i64 160
   %0 = load ptr, ptr %mont, align 8
@@ -242,7 +242,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ec_GFp_mont_point_get_affine_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #0 {
+define internal range(i32 0, 2) i32 @ec_GFp_mont_point_get_affine_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #0 {
 entry:
   %call = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %point) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -382,7 +382,7 @@ return:                                           ; preds = %if.then1, %err, %if
 declare i32 @ec_wNAF_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_GFp_mont_check_pub_key_order(ptr noundef %group, ptr noundef %pub_key, ptr noundef %ctx) #0 {
+define internal range(i32 0, 2) i32 @ec_GFp_mont_check_pub_key_order(ptr noundef %group, ptr noundef %pub_key, ptr noundef %ctx) #0 {
 entry:
   %call = tail call ptr @EC_POINT_new(ptr noundef %group) #3
   %cmp = icmp eq ptr %call, null

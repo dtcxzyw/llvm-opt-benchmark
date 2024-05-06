@@ -23,7 +23,7 @@ define dso_local zeroext i8 @lzma_check_is_supported(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @lzma_check_size(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @lzma_check_size(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 15
   br i1 %2, label %8, label %3
 

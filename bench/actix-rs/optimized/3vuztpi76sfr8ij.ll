@@ -8218,7 +8218,7 @@ define void @"_ZN80_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$actix_router..patter
 18:                                               ; preds = %2
   %19 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %20 = load ptr, ptr %12, align 8, !noundef !4
-  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf0ed4bca0031b779E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %3, ptr nonnull %19, ptr %20)
+  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf0ed4bca0031b779E"(ptr nonnull writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %3, ptr nonnull %19, ptr %20)
   br label %22
 
 21:                                               ; preds = %15

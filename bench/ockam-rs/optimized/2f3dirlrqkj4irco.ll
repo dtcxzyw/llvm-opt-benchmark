@@ -2794,7 +2794,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h4a8ff9e992
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17he877fa54606afdeaE"(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17he877fa54606afdeaE"(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 31
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %4)

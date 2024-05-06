@@ -1898,7 +1898,7 @@ return:                                           ; preds = %if.end7, %if.end17,
 declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @OBJ_nid2cbb(ptr noundef %out, i32 noundef %nid) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @OBJ_nid2cbb(ptr noundef %out, i32 noundef %nid) local_unnamed_addr #0 {
 entry:
   %template.i = alloca %struct.asn1_object_st, align 8
   %oid = alloca %struct.cbb_st, align 8

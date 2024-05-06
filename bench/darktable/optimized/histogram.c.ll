@@ -211,7 +211,7 @@ define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
   %2 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.26) #16
   %3 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.27) #16
   %4 = icmp eq i32 %3, 0

@@ -34,7 +34,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.3 = private unnamed_addr constant [149 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/proxygen/proxygen/proxygen/lib/services/RequestWorkerThreadNoExecutor.h\00", align 1
 @.str.4 = private unnamed_addr constant [24 x i8] c"'self' Must be non NULL\00", align 1
-@_ZN8proxygen12WorkerThread14currentWorker_E = external thread_local global ptr, align 8
+@_ZN8proxygen12WorkerThread14currentWorker_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.5 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
@@ -215,7 +215,7 @@ entry:
   %nextRequestId_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %nextRequestId_, align 8
   %shr = lshr i64 %0, 56
-  %conv = trunc i64 %shr to i8
+  %conv = trunc nuw i64 %shr to i8
   ret i8 %conv
 }
 
@@ -384,7 +384,7 @@ if.end15.i.i:                                     ; preds = %for.cond.i.i
 
 if.then23.i.i:                                    ; preds = %if.end15.i.i
   %and.i.i.i = zext nneg i16 %15 to i32
-  %16 = tail call i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true), !range !7
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true)
   %sub.i.i = xor i32 %16, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -240
@@ -690,4 +690,3 @@ attributes #24 = { noreturn }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 33}

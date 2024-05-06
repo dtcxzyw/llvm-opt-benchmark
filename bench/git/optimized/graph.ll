@@ -1058,7 +1058,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @graph_next_line(ptr noundef %graph, ptr noundef %sb) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 2) i32 @graph_next_line(ptr noundef %graph, ptr noundef %sb) local_unnamed_addr #2 {
 entry:
   %line = alloca %struct.graph_line, align 8
   store ptr %sb, ptr %line, align 8
@@ -2364,7 +2364,7 @@ if.then.i.i.i213:                                 ; preds = %if.then.i.i178
 
 st_mult.exit.i.i:                                 ; preds = %if.then.i.i178
   %mul.i.i.i179 = shl nuw nsw i64 %conv.pre-phi.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %237, ptr align 1 %238, i64 %mul.i.i.i179, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %237, ptr readonly align 1 %238, i64 %mul.i.i.i179, i1 false)
   %.pre.i180 = load ptr, ptr %mapping.i175, align 8
   %.pre125.i = load i32, ptr %mapping_size.i, align 4
   br label %copy_array.exit.i
@@ -2559,7 +2559,7 @@ return:                                           ; preds = %if.then.i233, %sw.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @graph_is_commit_finished(ptr nocapture noundef readonly %graph) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @graph_is_commit_finished(ptr nocapture noundef readonly %graph) local_unnamed_addr #6 {
 entry:
   %state = getelementptr inbounds i8, ptr %graph, i64 28
   %0 = load i32, ptr %state, align 4
@@ -2650,7 +2650,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %st
   br i1 %cmp.i14.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %call7 = call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf), !range !28
+  %call7 = call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf)
   %14 = load ptr, ptr %buf, align 8
   %15 = load i64, ptr %len, align 8
   %16 = load ptr, ptr %revs, align 8
@@ -2690,7 +2690,7 @@ if.then4.i:                                       ; preds = %if.end17
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.end17, %if.then4.i
-  br i1 %tobool9.not, label %land.rhs, label %while.end, !llvm.loop !29
+  br i1 %tobool9.not, label %land.rhs, label %while.end, !llvm.loop !28
 
 while.end:                                        ; preds = %land.rhs, %strbuf_setlen.exit, %if.end3.thread
   call void @strbuf_release(ptr noundef nonnull %msgbuf) #15
@@ -2784,7 +2784,7 @@ graph_show_line_prefix.exit:                      ; preds = %entry, %lor.lhs.fal
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %graph_show_line_prefix.exit
-  %call = call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf), !range !28
+  %call = call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf)
   %buf = getelementptr inbounds i8, ptr %msgbuf, i64 16
   %4 = load ptr, ptr %buf, align 8
   %len = getelementptr inbounds i8, ptr %msgbuf, i64 8
@@ -2825,7 +2825,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef %sb), !range !28
+  %call = tail call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef %sb)
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2896,7 +2896,7 @@ for.inc:                                          ; preds = %if.then5, %graph_li
   %16 = load i32, ptr %num_columns, align 4
   %17 = sext i32 %16 to i64
   %cmp1 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !30
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %18 = phi ptr [ %sb, %for.cond.preheader ], [ %14, %for.inc ]
@@ -2922,7 +2922,7 @@ return:                                           ; preds = %graph_pad_horizonta
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @graph_show_remainder(ptr noundef %graph) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @graph_show_remainder(ptr noundef %graph) local_unnamed_addr #2 {
 entry:
   %msgbuf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %msgbuf, ptr noundef nonnull align 8 dereferenceable(24) @__const.graph_show_remainder.msgbuf, i64 24, i1 false)
@@ -2961,7 +2961,7 @@ for.cond.preheader:                               ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
-  %call4 = call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf), !range !28
+  %call4 = call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf)
   %5 = load ptr, ptr %buf, align 8
   %6 = load i64, ptr %len, align 8
   %7 = load ptr, ptr %revs, align 8
@@ -3079,7 +3079,7 @@ graph_show_line_prefix.exit.i.us.i:               ; preds = %if.end.i.i.us.i, %l
 if.end11.us.i:                                    ; preds = %graph_show_line_prefix.exit.i.us.i, %land.lhs.true.us.i
   %call.us.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr.us.i, i32 noundef 10) #16
   %tobool1.not.us.i = icmp eq ptr %call.us.i, null
-  br i1 %tobool1.not.us.i, label %while.end.sink.split.i, label %land.lhs.true.us.i, !llvm.loop !31
+  br i1 %tobool1.not.us.i, label %while.end.sink.split.i, label %land.lhs.true.us.i, !llvm.loop !30
 
 land.lhs.true.i:                                  ; preds = %while.body.i.preheader, %if.end11.i
   %call.i18 = phi ptr [ %call.i, %if.end11.i ], [ %call.i15, %while.body.i.preheader ]
@@ -3115,7 +3115,7 @@ if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   br label %graph_show_line_prefix.exit.i.i
 
 graph_show_line_prefix.exit.i.i:                  ; preds = %if.end.i.i.i, %lor.lhs.false.i.i.i, %if.then10.i
-  %call.i.i = call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf.i.i), !range !28
+  %call.i.i = call i32 @graph_next_line(ptr noundef nonnull %graph, ptr noundef nonnull %msgbuf.i.i)
   %11 = load ptr, ptr %buf.i.i, align 8
   %12 = load i64, ptr %len.i.i, align 8
   %13 = load ptr, ptr %revs.i.i, align 8
@@ -3129,7 +3129,7 @@ graph_show_line_prefix.exit.i.i:                  ; preds = %if.end.i.i.i, %lor.
 if.end11.i:                                       ; preds = %graph_show_line_prefix.exit.i.i, %land.lhs.true.i
   %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i, i32 noundef 10) #16
   %tobool1.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool1.not.i, label %while.end.sink.split.i, label %land.lhs.true.i, !llvm.loop !31
+  br i1 %tobool1.not.i, label %while.end.sink.split.i, label %land.lhs.true.i, !llvm.loop !30
 
 while.end.sink.split.i:                           ; preds = %if.end11.i, %if.end11.us.i, %while.body.i.preheader, %while.body.us.i.preheader
   %p.018.lcssa.sink24.i = phi ptr [ %0, %while.body.us.i.preheader ], [ %0, %while.body.i.preheader ], [ %incdec.ptr.us.i, %if.end11.us.i ], [ %incdec.ptr.i, %if.end11.i ]
@@ -3171,11 +3171,11 @@ if.then5:                                         ; preds = %land.end
 
 if.then7:                                         ; preds = %land.end.thread, %if.then5
   %call8 = call i32 @putc(i32 noundef 10, ptr noundef %file)
-  %call10 = call i32 @graph_show_remainder(ptr noundef nonnull %graph), !range !32
+  %call10 = call i32 @graph_show_remainder(ptr noundef nonnull %graph)
   br label %if.end15
 
 if.then12.critedge:                               ; preds = %if.then5
-  %call10.c = call i32 @graph_show_remainder(ptr noundef nonnull %graph), !range !32
+  %call10.c = call i32 @graph_show_remainder(ptr noundef nonnull %graph)
   %call13 = call i32 @putc(i32 noundef 10, ptr noundef %file)
   br label %if.end15
 
@@ -3351,8 +3351,6 @@ attributes #17 = { noreturn nounwind }
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
-!28 = !{i32 -1, i32 2}
+!28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = !{i32 0, i32 2}

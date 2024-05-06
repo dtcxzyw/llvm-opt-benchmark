@@ -367,7 +367,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_cipher_name() #0 {
+define internal range(i32 0, 2) i32 @test_cipher_name() #0 {
 entry:
   %call = tail call ptr @SSL_CIPHER_standard_name(ptr noundef null) #2
   %call1 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.2, i32 noundef 390, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %call, ptr noundef nonnull @.str.5) #2

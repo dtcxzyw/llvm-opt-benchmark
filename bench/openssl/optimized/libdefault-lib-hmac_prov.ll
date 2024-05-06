@@ -177,7 +177,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @hmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @hmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -282,7 +282,7 @@ return:                                           ; preds = %if.end5, %if.then1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @hmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %hlen = alloca i32, align 4
   %call = tail call i32 @ossl_prov_is_running() #7
@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hmac_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @hmac_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #7
   %cmp.not = icmp eq ptr %call, null
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @hmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %flag.i13 = alloca i32, align 4
   %flag.i = alloca i32, align 4
@@ -643,4 +643,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -84,8 +84,8 @@ entry:
   %2 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %3 = getelementptr i8, ptr %jst, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %3, i64 32
+  %3 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %3, i64 32
   %cmp.not6 = icmp eq i32 %2, 0
   br i1 %cmp.not6, label %nrvo.skipdtor, label %for.body.preheader
 
@@ -258,8 +258,8 @@ entry:
   %2 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %3 = getelementptr i8, ptr %jst, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %3, i64 32
+  %3 = getelementptr inbounds i8, ptr %jst, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %3, i64 32
   %cmp.not15 = icmp eq i32 %2, 0
   br i1 %cmp.not15, label %nrvo.skipdtor, label %for.body.lr.ph
 

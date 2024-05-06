@@ -199,7 +199,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %184 = add nsw i64 %147, 160
   %185 = trunc i64 %184 to i32
   %186 = tail call i32 @llvm.smin.i32(i32 %185, i32 %63)
-  %187 = trunc i64 %147 to i32
+  %187 = trunc nsw i64 %147 to i32
   %188 = sub nsw i32 %186, %187
   %189 = icmp slt i64 %147, %92
   %190 = select i1 %189, i32 16, i32 0
@@ -268,7 +268,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %250 = add nsw i64 %225, 160
   %251 = trunc i64 %250 to i32
   %252 = tail call i32 @llvm.smin.i32(i32 %251, i32 %64)
-  %253 = trunc i64 %225 to i32
+  %253 = trunc nsw i64 %225 to i32
   %254 = sub nsw i32 %252, %253
   %255 = icmp slt i64 %225, %89
   %256 = select i1 %255, i32 16, i32 0
@@ -441,7 +441,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %347 = or disjoint i32 %345, 16
   %348 = zext i32 %347 to i64
   %349 = add nsw i32 %346, %187
-  %350 = mul nsw i32 %346, 160
+  %350 = mul nuw nsw i32 %346, 160
   %351 = or disjoint i32 %350, 16
   %352 = shl i32 %346, 2
   %353 = and i32 %352, 28
@@ -1360,8 +1360,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br label %1561
 
 1066:                                             ; preds = %1055
-  %1067 = trunc i32 %1057 to i31
-  %1068 = trunc i32 %1062 to i31
+  %1067 = trunc nuw i32 %1057 to i31
+  %1068 = trunc nuw i32 %1062 to i31
   %1069 = xor i31 %1067, -1
   %1070 = icmp ult i31 %1069, %1068
   %1071 = shl nsw i64 %1059, 2
@@ -1560,7 +1560,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1241 = and i64 %1064, 4294967288
   %1242 = shl nuw nsw i64 %1241, 1
   %1243 = add nsw i64 %1242, %1059
-  %1244 = trunc i64 %1241 to i32
+  %1244 = trunc nuw i64 %1241 to i32
   %1245 = shl i32 %1244, 1
   %1246 = insertelement <8 x i64> poison, i64 %1059, i64 0
   %1247 = shufflevector <8 x i64> %1246, <8 x i64> poison, <8 x i32> zeroinitializer
@@ -3416,7 +3416,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2776 = phi i32 [ %289, %5379 ], [ %2794, %.loopexit326 ]
   %2777 = phi i32 [ %5381, %5379 ], [ %2793, %.loopexit326 ]
   %2778 = phi i32 [ %281, %5379 ], [ %2792, %.loopexit326 ]
-  %2779 = mul nsw i32 %2778, 160
+  %2779 = mul nuw nsw i32 %2778, 160
   %2780 = add nuw nsw i32 %2779, %283
   %2781 = shl i32 %2778, 2
   %2782 = and i32 %2781, 28
@@ -3795,7 +3795,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 3110:                                             ; preds = %.loopexit327, %287
   %3111 = phi i32 [ %289, %287 ], [ %3126, %.loopexit327 ]
   %3112 = phi i32 [ %281, %287 ], [ %3125, %.loopexit327 ]
-  %3113 = mul nsw i32 %3112, 160
+  %3113 = mul nuw nsw i32 %3112, 160
   %3114 = add nuw nsw i32 %3113, %283
   %3115 = shl i32 %3112, 2
   %3116 = and i32 %3115, 28
@@ -4950,7 +4950,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3999 = phi i32 [ %238, %5629 ], [ %4230, %.loopexit332 ]
   %4000 = phi i32 [ 640, %5629 ], [ %4229, %.loopexit332 ]
   %4001 = phi i32 [ 4, %5629 ], [ %4228, %.loopexit332 ]
-  %4002 = trunc i64 %indvars.iv412 to i32
+  %4002 = trunc nuw nsw i64 %indvars.iv412 to i32
   %4003 = mul i32 %4002, 160
   %4004 = add i32 %4003, %238
   %4005 = sext i32 %4004 to i64
@@ -5384,7 +5384,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4380 = phi i32 [ %235, %5627 ], [ %4456, %.loopexit333 ]
   %4381 = phi i32 [ 320, %5627 ], [ %4455, %.loopexit333 ]
   %4382 = phi i32 [ 2, %5627 ], [ %4454, %.loopexit333 ]
-  %4383 = trunc i64 %indvars.iv to i32
+  %4383 = trunc nuw nsw i64 %indvars.iv to i32
   %4384 = mul i32 %4383, 160
   %4385 = add i32 %4384, %235
   %4386 = zext i32 %4385 to i64

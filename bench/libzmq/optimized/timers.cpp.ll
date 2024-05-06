@@ -165,7 +165,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq8timers_t6cancelEi(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %timer_id_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq8timers_t6cancelEi(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %timer_id_) local_unnamed_addr #0 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -294,7 +294,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIiiSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq8timers_t12set_intervalEim(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %timer_id_, i64 noundef %interval_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq8timers_t12set_intervalEim(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %timer_id_, i64 noundef %interval_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.sroa.3.sroa.3 = alloca { ptr, ptr }, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -387,7 +387,7 @@ return:                                           ; preds = %if.end, %_ZNSt8mult
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq8timers_t5resetEi(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %timer_id_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq8timers_t5resetEi(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %timer_id_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.sroa.3.sroa.3 = alloca { ptr, ptr }, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 32

@@ -154,7 +154,7 @@ $_ZTVN9grpc_core14ReclaimerQueue6Handle5SweepE = comdat any
 @_ZGVN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E), align 8
 @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr global %"class.grpc_core::NoDestruct.20" zeroinitializer, comdat, align 8
 @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E), align 8
-@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
+@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local local_unnamed_addr global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
 @.str.9 = private unnamed_addr constant [51 x i8] c"Disabling TCP TX zerocopy due to memory pressure.\0A\00", align 1
 @.str.10 = private unnamed_addr constant [24 x i8] c"tcp->read_cb == nullptr\00", align 1
 @.str.11 = private unnamed_addr constant [22 x i8] c"TCP:%p notify_on_read\00", align 1
@@ -189,7 +189,7 @@ $_ZTVN9grpc_core14ReclaimerQueue6Handle5SweepE = comdat any
 @.str.39 = private unnamed_addr constant [21 x i8] c"g_backup_poller == p\00", align 1
 @.str.40 = private unnamed_addr constant [26 x i8] c"BACKUP_POLLER:%p shutdown\00", align 1
 @.str.41 = private unnamed_addr constant [28 x i8] c"BACKUP_POLLER:%p reschedule\00", align 1
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.42 = private unnamed_addr constant [25 x i8] c"BACKUP_POLLER:%p destroy\00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.43 = private unnamed_addr constant [20 x i8] c"TCP:%p got_read: %s\00", align 1

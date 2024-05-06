@@ -51,7 +51,7 @@ declare dso_local zeroext i1 @nlm4svc_decode_void(ptr noundef, ptr noundef) #1
 declare dso_local zeroext i1 @nlm4svc_encode_void(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_test(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_test(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef %3), !range !5
@@ -65,7 +65,7 @@ declare dso_local zeroext i1 @nlm4svc_decode_testargs(ptr noundef, ptr noundef) 
 declare dso_local zeroext i1 @nlm4svc_encode_testres(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_lock(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_lock(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr noundef %3), !range !5
@@ -79,7 +79,7 @@ declare dso_local zeroext i1 @nlm4svc_decode_lockargs(ptr noundef, ptr noundef) 
 declare dso_local zeroext i1 @nlm4svc_encode_res(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_cancel(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_cancel(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr noundef %3), !range !5
@@ -90,7 +90,7 @@ define internal i32 @nlm4svc_proc_cancel(ptr noundef %0) #2 align 16 {
 declare dso_local zeroext i1 @nlm4svc_decode_cancargs(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_unlock(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unlock(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr noundef %3), !range !5
@@ -284,7 +284,7 @@ nlm4svc_callback.exit:                            ; preds = %1, %11, %18, %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_granted_msg(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 83886081) i32 @nlm4svc_proc_granted_msg(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -345,7 +345,7 @@ define internal noundef i32 @nlm4svc_proc_granted_res(ptr nocapture noundef read
 declare dso_local zeroext i1 @nlm4svc_decode_res(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nlm4svc_proc_sm_notify(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr noundef %0) #2 align 16 {
   %2 = alloca [63 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 11296
   %4 = load ptr, ptr %3, align 8
@@ -436,7 +436,7 @@ define internal noundef i32 @nlm4svc_proc_unused(ptr nocapture readnone %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_share(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_share(ptr noundef %0) #2 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 11296
@@ -507,7 +507,7 @@ declare dso_local zeroext i1 @nlm4svc_decode_shareargs(ptr noundef, ptr noundef)
 declare dso_local zeroext i1 @nlm4svc_encode_shareres(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_unshare(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unshare(ptr noundef %0) #2 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 11296
@@ -566,7 +566,7 @@ define internal i32 @nlm4svc_proc_unshare(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_nm_lock(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_nm_lock(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 452
@@ -641,7 +641,7 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
 declare dso_local zeroext i1 @nlm4svc_decode_notify(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 11296
@@ -838,7 +838,7 @@ declare dso_local i32 @nlm_lookup_file(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local void @nlmsvc_locks_init_private(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 11296
@@ -891,7 +891,7 @@ declare dso_local i32 @nlmsvc_lock(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare dso_local void @nlmsvc_release_lockowner(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 11296
@@ -959,7 +959,7 @@ declare dso_local zeroext i1 @locks_in_grace(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @nlmsvc_cancel_blocked(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 11296

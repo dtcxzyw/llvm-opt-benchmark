@@ -33,7 +33,7 @@ declare ptr @Py_GetBuildInfo() local_unnamed_addr #1
 declare ptr @Py_GetCompiler() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @Py_GetVersion() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @Py_GetVersion() local_unnamed_addr #0 {
 entry:
   %.b.i = load i1, ptr @initialized, align 4
   br i1 %.b.i, label %_Py_InitVersion.exit, label %if.end.i

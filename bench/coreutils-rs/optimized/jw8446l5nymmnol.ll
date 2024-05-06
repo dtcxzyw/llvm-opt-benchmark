@@ -610,14 +610,14 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %258, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcf783812d4bc82d4E.exit"
-  %.sroa.3.0.i46.i.i = phi i64 [ %259, %258 ], [ %.sroa.15.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcf783812d4bc82d4E.exit" ]
+  %.sroa.3.0.i47.i.i = phi i64 [ %259, %258 ], [ %.sroa.15.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcf783812d4bc82d4E.exit" ]
   %239 = phi i64 [ %255, %258 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcf783812d4bc82d4E.exit" ]
-  %.48.i.i = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %239
-  %240 = icmp ult i64 %.sroa.3.0.i46.i.i, 16
+  %.49.i.i = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %239
+  %240 = icmp ult i64 %.sroa.3.0.i47.i.i, 16
   br i1 %240, label %243, label %241
 
 241:                                              ; preds = %.lr.ph.split.split.i.i
-  %242 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 46, ptr noalias noundef nonnull readonly align 1 %.48.i.i, i64 noundef %.sroa.3.0.i46.i.i), !noalias !100
+  %242 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 46, ptr noalias noundef nonnull readonly align 1 %.49.i.i, i64 noundef %.sroa.3.0.i47.i.i), !noalias !100
   br label %251
 
 243:                                              ; preds = %.lr.ph.split.split.i.i
@@ -626,18 +626,18 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %243, %247
   %.05.i.i.i = phi i64 [ %248, %247 ], [ 0, %243 ]
-  %244 = getelementptr inbounds [0 x i8], ptr %.48.i.i, i64 0, i64 %.05.i.i.i
+  %244 = getelementptr inbounds [0 x i8], ptr %.49.i.i, i64 0, i64 %.05.i.i.i
   %245 = load i8, ptr %244, align 1, !alias.scope !104, !noalias !100, !noundef !21
   %246 = icmp eq i8 %245, 46
   br i1 %246, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %247
 
 247:                                              ; preds = %.lr.ph.i.i.i
   %248 = add nuw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %248, %.sroa.3.0.i46.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %248, %.sroa.3.0.i47.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %247, %.lr.ph.i.i.i, %243
-  %.0.lcssa.i.i.i = phi i64 [ 0, %243 ], [ %.sroa.3.0.i46.i.i, %247 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i = phi i64 [ 0, %243 ], [ %.sroa.3.0.i47.i.i, %247 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.0.0.i25.i.i = phi i64 [ 0, %243 ], [ 0, %247 ], [ 1, %.lr.ph.i.i.i ]
   %249 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i25.i.i, 0
   %250 = insertvalue { i64, i64 } %249, i64 %.0.lcssa.i.i.i, 1
@@ -674,14 +674,14 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %247
   br label %.lr.ph.split.split.i.i63
 
 .lr.ph.split.split.i.i63:                         ; preds = %281, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17heac5ee16336c6d7aE.exit"
-  %.sroa.3.0.i46.i.i64 = phi i64 [ %282, %281 ], [ %.sroa.15.0, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17heac5ee16336c6d7aE.exit" ]
+  %.sroa.3.0.i47.i.i64 = phi i64 [ %282, %281 ], [ %.sroa.15.0, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17heac5ee16336c6d7aE.exit" ]
   %262 = phi i64 [ %278, %281 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17heac5ee16336c6d7aE.exit" ]
-  %.48.i.i65 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %262
-  %263 = icmp ult i64 %.sroa.3.0.i46.i.i64, 16
+  %.49.i.i65 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %262
+  %263 = icmp ult i64 %.sroa.3.0.i47.i.i64, 16
   br i1 %263, label %266, label %264
 
 264:                                              ; preds = %.lr.ph.split.split.i.i63
-  %265 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 101, ptr noalias noundef nonnull readonly align 1 %.48.i.i65, i64 noundef %.sroa.3.0.i46.i.i64), !noalias !109
+  %265 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 101, ptr noalias noundef nonnull readonly align 1 %.49.i.i65, i64 noundef %.sroa.3.0.i47.i.i64), !noalias !109
   br label %274
 
 266:                                              ; preds = %.lr.ph.split.split.i.i63
@@ -690,18 +690,18 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %247
 
 .lr.ph.i.i.i76:                                   ; preds = %266, %270
   %.05.i.i.i77 = phi i64 [ %271, %270 ], [ 0, %266 ]
-  %267 = getelementptr inbounds [0 x i8], ptr %.48.i.i65, i64 0, i64 %.05.i.i.i77
+  %267 = getelementptr inbounds [0 x i8], ptr %.49.i.i65, i64 0, i64 %.05.i.i.i77
   %268 = load i8, ptr %267, align 1, !alias.scope !113, !noalias !109, !noundef !21
   %269 = icmp eq i8 %268, 101
   br i1 %269, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i79, label %270
 
 270:                                              ; preds = %.lr.ph.i.i.i76
   %271 = add nuw i64 %.05.i.i.i77, 1
-  %exitcond.not.i.i.i78 = icmp eq i64 %271, %.sroa.3.0.i46.i.i64
+  %exitcond.not.i.i.i78 = icmp eq i64 %271, %.sroa.3.0.i47.i.i64
   br i1 %exitcond.not.i.i.i78, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i79, label %.lr.ph.i.i.i76
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i79: ; preds = %270, %.lr.ph.i.i.i76, %266
-  %.0.lcssa.i.i.i80 = phi i64 [ 0, %266 ], [ %.sroa.3.0.i46.i.i64, %270 ], [ %.05.i.i.i77, %.lr.ph.i.i.i76 ]
+  %.0.lcssa.i.i.i80 = phi i64 [ 0, %266 ], [ %.sroa.3.0.i47.i.i64, %270 ], [ %.05.i.i.i77, %.lr.ph.i.i.i76 ]
   %.sroa.0.0.i25.i.i81 = phi i64 [ 0, %266 ], [ 0, %270 ], [ 1, %.lr.ph.i.i.i76 ]
   %272 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i25.i.i81, 0
   %273 = insertvalue { i64, i64 } %272, i64 %.0.lcssa.i.i.i80, 1

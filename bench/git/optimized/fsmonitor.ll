@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.initialize_fsmonitor_last_update.last_update = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @read_fsmonitor_extension(ptr nocapture noundef %istate, ptr noundef %data, i64 noundef %sz) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @read_fsmonitor_extension(ptr nocapture noundef %istate, ptr noundef %data, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %last_update = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_update, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
@@ -273,7 +273,7 @@ if.else:                                          ; preds = %for.body
 
 if.then7:                                         ; preds = %if.else
   %5 = load ptr, ptr %fsmonitor_dirty, align 8
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %sub = sub i32 %6, %skipped.012
   %conv = zext i32 %sub to i64
   tail call void @ewah_set(ptr noundef %5, i64 noundef %conv) #7

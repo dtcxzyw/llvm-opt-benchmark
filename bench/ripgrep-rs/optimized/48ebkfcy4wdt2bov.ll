@@ -841,7 +841,7 @@ define void @_ZN8grep_cli7process20CommandReaderBuilder5build17h74c4aae7db76a0e8
   tail call void @_ZN3std3sys3pal4unix7process14process_common7Command6stderr17h5410d538ff593c42E(ptr noalias noundef nonnull align 8 dereferenceable(208) %2, i32 noundef 2, i32 undef)
   call void @_ZN3std7process7Command5spawn17h9a21f1fb92267e85E(ptr noalias nocapture noundef nonnull sret({ i32, [7 x i32] }) align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(208) %2)
   %9 = load i32, ptr %7, align 8, !range !122, !noundef !4
-  %trunc = trunc i32 %9 to i1
+  %trunc = trunc nuw i32 %9 to i1
   br i1 %trunc, label %17, label %10
 
 10:                                               ; preds = %3
@@ -860,7 +860,7 @@ define void @_ZN8grep_cli7process20CommandReaderBuilder5build17h74c4aae7db76a0e8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
   %12 = load i8, ptr %1, align 1, !range !123, !noundef !4
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   %14 = getelementptr inbounds i8, ptr %8, i64 24
   %15 = load i32, ptr %14, align 4, !noundef !4
   store i32 -1, ptr %14, align 4
@@ -1020,7 +1020,7 @@ define noundef ptr @_ZN8grep_cli7process13CommandReader5close17h858076d32dcdd6c7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @_ZN3std7process5Child4wait17he69fcc66edb3f01fE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 4 dereferenceable(28) %14)
   %16 = load i32, ptr %8, align 8, !range !122, !noundef !4
-  %trunc = trunc i32 %16 to i1
+  %trunc = trunc nuw i32 %16 to i1
   %17 = getelementptr inbounds i8, ptr %8, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !4
   %19 = getelementptr inbounds i8, ptr %8, i64 4
@@ -1042,7 +1042,7 @@ define noundef ptr @_ZN8grep_cli7process13CommandReader5close17h858076d32dcdd6c7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %25 = load i32, ptr %0, align 8, !range !122, !alias.scope !151, !noalias !154, !noundef !4
-  %trunc.i = trunc i32 %25 to i1
+  %trunc.i = trunc nuw i32 %25 to i1
   br i1 %trunc.i, label %29, label %26
 
 26:                                               ; preds = %24
@@ -1054,7 +1054,7 @@ define noundef ptr @_ZN8grep_cli7process13CommandReader5close17h858076d32dcdd6c7
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %0, i64 4
-  call void @_ZN8grep_cli7process23stderr_to_command_error17h82dc2bc9d8a785abE(ptr noalias nocapture noundef nonnull sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 4 dereferenceable(4) %30)
+  call void @_ZN8grep_cli7process23stderr_to_command_error17h82dc2bc9d8a785abE(ptr noalias nocapture noundef nonnull writeonly sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 4 dereferenceable(4) %30)
   br label %_ZN8grep_cli7process12StderrReader11read_to_end17hae14b8eb9f625673E.exit
 
 31:                                               ; preds = %26
@@ -1103,14 +1103,14 @@ common.resume:                                    ; preds = %38
   resume { ptr, i32 } %39
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1ead30995395b885E.exit.i": ; preds = %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !alias.scope !165, !noalias !151
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false), !alias.scope !165, !noalias !151
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !156
   br label %_ZN8grep_cli7process12StderrReader11read_to_end17hae14b8eb9f625673E.exit
 
 _ZN8grep_cli7process12StderrReader11read_to_end17hae14b8eb9f625673E.exit: ; preds = %29, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1ead30995395b885E.exit.i"
   %43 = getelementptr inbounds i8, ptr %0, i64 60
   %44 = load i8, ptr %43, align 4, !range !123, !noundef !4
-  %45 = trunc i8 %44 to i1
+  %45 = trunc nuw i8 %44 to i1
   %.sroa.0.0.copyload.pre = load i64, ptr %7, align 8
   br i1 %45, label %46, label %51
 
@@ -1196,7 +1196,7 @@ define void @"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Rea
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN59_$LT$std..process..ChildStdout$u20$as$u20$std..io..Read$GT$4read17h1b1fdc0fe9da5e89E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 4 dereferenceable(4) %6, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   %11 = load i64, ptr %5, align 8, !range !180, !noundef !4
-  %trunc = trunc i64 %11 to i1
+  %trunc = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
   %.cast = ptrtoint ptr %13 to i64
@@ -1262,7 +1262,7 @@ define hidden void @_ZN8grep_cli7process23stderr_to_command_error17h82dc2bc9d8a7
 
 10:                                               ; preds = %2
   %11 = load i64, ptr %4, align 8, !range !180, !noundef !4
-  %trunc = trunc i64 %11 to i1
+  %trunc = trunc nuw i64 %11 to i1
   br i1 %trunc, label %14, label %12
 
 12:                                               ; preds = %10
@@ -1325,7 +1325,7 @@ declare void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() unnamed
 declare hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h47a135e40a8ab462E(ptr noalias nocapture noundef sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.5952769917390182195(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.5952769917390182195(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #11 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

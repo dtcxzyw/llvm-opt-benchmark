@@ -414,7 +414,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_ocfs2_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 24, 65560) i32 @get_ocfs2_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #4
   %7 = zext i16 %6 to i32
@@ -1011,7 +1011,7 @@ define internal fastcc void @dissect_dlm_query_join_request(ptr noundef %0, ptr 
 
 28:                                               ; preds = %23, %28
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %28 ]
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = shl nuw nsw i32 1, %29
   %31 = and i32 %30, %26
   %.not48 = icmp eq i32 %31, 0

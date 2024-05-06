@@ -10421,7 +10421,7 @@ unreachable:                                      ; preds = %invoke.cont7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_ZN6duckdb4Node21GetARTNodeTypeByCountEm(i64 noundef %count) local_unnamed_addr #11 align 2 {
+define noundef zeroext range(i8 3, 7) i8 @_ZN6duckdb4Node21GetARTNodeTypeByCountEm(i64 noundef %count) local_unnamed_addr #11 align 2 {
 entry:
   %cmp = icmp ult i64 %count, 5
   br i1 %cmp, label %return, label %if.else

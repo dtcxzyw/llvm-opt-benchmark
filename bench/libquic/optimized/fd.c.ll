@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [16 x i8] c"file descriptor\00", align 1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @bio_fd_should_retry(i32 noundef %i) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @bio_fd_should_retry(i32 noundef %i) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %i, -1
   br i1 %cmp, label %if.then, label %return
@@ -154,7 +154,7 @@ entry:
   %0 = load i32, ptr %num.i, align 8
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef %str, i64 noundef %conv.i) #10
+  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %str, i64 noundef %conv.i) #10
   %conv1.i = trunc i64 %call.i to i32
   tail call void @BIO_clear_retry_flags(ptr noundef %bp) #10
   %cmp.i.i = icmp eq i32 %conv1.i, -1
@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_free(ptr noundef %bio) #2 {
+define internal range(i32 0, 2) i32 @fd_free(ptr noundef %bio) #2 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

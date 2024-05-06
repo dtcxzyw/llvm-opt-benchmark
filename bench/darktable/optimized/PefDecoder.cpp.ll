@@ -999,13 +999,13 @@ define hidden void @_ZN8rawspeed10PefDecoder22decodeMetaDataInternalEPKNS_14Came
   %94 = icmp ne i32 %86, 0
   %95 = xor i1 %93, %94
   call void @llvm.assume(i1 %95)
-  %96 = mul nsw i32 %89, %86
+  %96 = mul nuw nsw i32 %89, %86
   %97 = icmp eq i32 %80, %96
   call void @llvm.assume(i1 %97)
   %98 = icmp eq i32 %86, 1
   %99 = icmp eq i32 %89, %83
   %100 = or i1 %98, %99
-  %101 = mul nsw i32 %86, %83
+  %101 = mul nuw nsw i32 %86, %83
   call void @llvm.assume(i1 %100)
   %102 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %54, i32 noundef 0)
   %103 = icmp ne i32 %101, 0

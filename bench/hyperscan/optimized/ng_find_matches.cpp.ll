@@ -5626,7 +5626,7 @@ if.end.i.i178.i:                                  ; preds = %.noexc184
   %div1.i.i.i180.i = lshr i64 %inc.i.i179.i, 6
   %rem.i.i.i181.i = and i64 %inc.i.i179.i, 63
   %573 = load ptr, ptr %add.ptr.i4.i.i.i, align 8
-  %add.ptr.i.i53.i.i = getelementptr i64, ptr %573, i64 %div1.i.i.i180.i
+  %add.ptr.i.i53.i.i = getelementptr inbounds i64, ptr %573, i64 %div1.i.i.i180.i
   %574 = load i64, ptr %add.ptr.i.i53.i.i, align 8
   %shr.i.i182.i = lshr i64 %574, %rem.i.i.i181.i
   %tobool.not.i.i183.i = icmp eq i64 %shr.i.i182.i, 0
@@ -5662,7 +5662,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i.i201.i: ; preds = %_ZN5boost6detail10
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i204.i
 
 cond.false.i.i212.i:                              ; preds = %if.end.i.i178.i
-  %add.ptr.i.i931 = getelementptr i8, ptr %add.ptr.i.i53.i.i, i64 8
+  %add.ptr.i.i931 = getelementptr inbounds i8, ptr %add.ptr.i.i53.i.i, i64 8
   %576 = load ptr, ptr %_M_finish.i.i830, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i933 = ptrtoint ptr %576 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i934 = ptrtoint ptr %add.ptr.i.i931 to i64
@@ -5905,7 +5905,7 @@ if.end.i59.i.i:                                   ; preds = %.noexc186
   %div1.i.i61.i.i = lshr i64 %inc.i60.i.i, 6
   %rem.i.i62.i.i = and i64 %inc.i60.i.i, 63
   %593 = load ptr, ptr %add.ptr.i4.i51.i.i, align 8
-  %add.ptr.i.i63.i.i = getelementptr i64, ptr %593, i64 %div1.i.i61.i.i
+  %add.ptr.i.i63.i.i = getelementptr inbounds i64, ptr %593, i64 %div1.i.i61.i.i
   %594 = load i64, ptr %add.ptr.i.i63.i.i, align 8
   %shr.i64.i.i = lshr i64 %594, %rem.i.i62.i.i
   %tobool.not.i65.i.i = icmp eq i64 %shr.i64.i.i, 0
@@ -5941,7 +5941,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i83.i.i: ; preds = %_ZN5boost6detail10l
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit90.i.i
 
 cond.false.i87.i.i:                               ; preds = %if.end.i59.i.i
-  %add.ptr.i.i1013 = getelementptr i8, ptr %add.ptr.i.i63.i.i, i64 8
+  %add.ptr.i.i1013 = getelementptr inbounds i8, ptr %add.ptr.i.i63.i.i, i64 8
   %596 = load ptr, ptr %_M_finish.i.i850, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i1015 = ptrtoint ptr %596 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i1016 = ptrtoint ptr %add.ptr.i.i1013 to i64
@@ -12569,7 +12569,7 @@ if.end.i.i167:                                    ; preds = %invoke.cont15.i162
   %div1.i.i.i169 = lshr i64 %inc.i104.i168, 6
   %rem.i.i.i170 = and i64 %inc.i104.i168, 63
   %83 = load ptr, ptr %cur_shadow_vertices.i86, align 8
-  %add.ptr.i.i105.i171 = getelementptr i64, ptr %83, i64 %div1.i.i.i169
+  %add.ptr.i.i105.i171 = getelementptr inbounds i64, ptr %83, i64 %div1.i.i.i169
   %84 = load i64, ptr %add.ptr.i.i105.i171, align 8
   %shr.i.i172 = lshr i64 %84, %rem.i.i.i170
   %tobool.not.i.i173 = icmp eq i64 %shr.i.i172, 0
@@ -12605,7 +12605,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i.i191:  ; preds = %_ZN5boost6detail10l
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i194
 
 cond.false.i.i305:                                ; preds = %if.end.i.i167
-  %add.ptr.i.i124 = getelementptr i8, ptr %add.ptr.i.i105.i171, i64 8
+  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %add.ptr.i.i105.i171, i64 8
   %86 = load ptr, ptr %_M_finish.i.i.i.i.i97, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %86 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i124 to i64
@@ -12943,7 +12943,7 @@ if.end.i137.i257:                                 ; preds = %invoke.cont39.i252
   %div1.i.i139.i259 = lshr i64 %inc.i138.i258, 6
   %rem.i.i140.i260 = and i64 %inc.i138.i258, 63
   %116 = load ptr, ptr %cur_helper_vertices.i89, align 8
-  %add.ptr.i.i141.i261 = getelementptr i64, ptr %116, i64 %div1.i.i139.i259
+  %add.ptr.i.i141.i261 = getelementptr inbounds i64, ptr %116, i64 %div1.i.i139.i259
   %117 = load i64, ptr %add.ptr.i.i141.i261, align 8
   %shr.i142.i262 = lshr i64 %117, %rem.i.i140.i260
   %tobool.not.i143.i263 = icmp eq i64 %shr.i142.i262, 0
@@ -12979,7 +12979,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i161.i281: ; preds = %_ZN5boost6detail1
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit169.i284
 
 cond.false.i165.i296:                             ; preds = %if.end.i137.i257
-  %add.ptr.i.i179 = getelementptr i8, ptr %add.ptr.i.i141.i261, i64 8
+  %add.ptr.i.i179 = getelementptr inbounds i8, ptr %add.ptr.i.i141.i261, i64 8
   %119 = load ptr, ptr %_M_finish.i.i.i.i86.i102, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i181 = ptrtoint ptr %119 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i182 = ptrtoint ptr %add.ptr.i.i179 to i64

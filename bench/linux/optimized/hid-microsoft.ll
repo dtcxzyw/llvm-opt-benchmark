@@ -182,7 +182,7 @@ define internal void @ms_remove(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ms_event(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @ms_event(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 6472
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8

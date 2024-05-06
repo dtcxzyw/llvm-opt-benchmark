@@ -92,7 +92,7 @@ $_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE7destroyIS2_EEvRS3_PT_ = com
 @_ZN3vcg3ply7PlyFileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3vcg3ply7PlyFileD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3vcg3ply14PropDescriptor11memtypesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor11memtypesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -103,7 +103,7 @@ define noundef i64 @_ZNK3vcg3ply14PropDescriptor11memtypesizeEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3vcg3ply14PropDescriptor11stotypesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor11stotypesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -114,7 +114,7 @@ define noundef i64 @_ZNK3vcg3ply14PropDescriptor11stotypesizeEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3vcg3ply14PropDescriptor12memtype2sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor12memtype2sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -125,7 +125,7 @@ define noundef i64 @_ZNK3vcg3ply14PropDescriptor12memtype2sizeEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3vcg3ply14PropDescriptor12stotype2sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor12stotype2sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -514,7 +514,7 @@ define noundef ptr @_ZN3vcg3ply10PlyElement8FindPropEPKc(ptr nocapture noundef n
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 13) i32 @_ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9) local_unnamed_addr #3 align 2 {
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 48
@@ -863,7 +863,7 @@ define void @_ZN3vcg3ply7PlyFile7DestroyEv(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3vcg3ply7PlyFile4OpenEPKci(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4OpenEPKci(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp eq ptr %1, null
   %or.cond = icmp ugt i32 %2, 1
   %or.cond9 = or i1 %4, %or.cond
@@ -879,7 +879,7 @@ define noundef i32 @_ZN3vcg3ply7PlyFile4OpenEPKci(ptr noundef nonnull align 8 de
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call noundef i32 @_ZN3vcg3ply7PlyFile8OpenReadEPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1), !range !23
+  %10 = tail call noundef i32 @_ZN3vcg3ply7PlyFile8OpenReadEPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1)
   br label %11
 
 11:                                               ; preds = %7, %9, %5
@@ -888,7 +888,7 @@ define noundef i32 @_ZN3vcg3ply7PlyFile4OpenEPKci(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3vcg3ply7PlyFile8OpenReadEPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile8OpenReadEPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1014,7 +1014,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %60 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
   %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(8) @.str.24) #31
   %.not96 = icmp eq i32 %61, 0
-  br i1 %.not96, label %39, label %._crit_edge, !llvm.loop !24
+  br i1 %.not96, label %39, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %58, %.preheader
   %.075.lcssa = phi ptr [ %33, %.preheader ], [ %60, %58 ]
@@ -1249,7 +1249,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %163 = load ptr, ptr %12, align 8
   %164 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 511, ptr noundef %163)
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %._crit_edge124, label %85, !llvm.loop !25
+  br i1 %165, label %._crit_edge124, label %85, !llvm.loop !24
 
 166:                                              ; preds = %115
   %167 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1416,14 +1416,14 @@ define noundef i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nocapture nonnull read
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.split.loop.exit, label %3, !llvm.loop !26
+  br i1 %exitcond.not, label %.split.loop.exit, label %3, !llvm.loop !25
 
 .split.loop.exit11:                               ; preds = %3
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit13:                               ; preds = %7
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %11, %.split.loop.exit13, %.split.loop.exit11
@@ -1561,7 +1561,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
 66:                                               ; preds = %68
   %67 = add nuw nsw i32 %.03450, 1
   %exitcond.not = icmp eq i32 %67, %28
-  br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !26
 
 68:                                               ; preds = %.lr.ph, %66
   %.03450 = phi i32 [ 0, %.lr.ph ], [ %67, %66 ]
@@ -1580,7 +1580,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
 78:                                               ; preds = %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit
   %79 = add nuw nsw i32 %.153, 1
   %exitcond59.not = icmp eq i32 %79, %19
-  br i1 %exitcond59.not, label %.loopexit, label %80, !llvm.loop !28
+  br i1 %exitcond59.not, label %.loopexit, label %80, !llvm.loop !27
 
 80:                                               ; preds = %.lr.ph54, %78
   %.153 = phi i32 [ 0, %.lr.ph54 ], [ %79, %78 ]
@@ -1801,7 +1801,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
 64:                                               ; preds = %66
   %65 = add nuw nsw i32 %.03746, 1
   %exitcond.not = icmp eq i32 %65, %26
-  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !28
 
 66:                                               ; preds = %.lr.ph, %64
   %.03746 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
@@ -1820,7 +1820,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
 76:                                               ; preds = %.lr.ph50
   %77 = add nuw nsw i32 %.149, 1
   %exitcond56.not = icmp eq i32 %77, %18
-  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph50, !llvm.loop !30
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph50, !llvm.loop !29
 
 .lr.ph50:                                         ; preds = %.preheader, %76
   %.149 = phi i32 [ %77, %76 ], [ 0, %.preheader ]
@@ -1919,7 +1919,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
@@ -1935,7 +1935,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i20 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !31
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !30
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %29, %.lr.ph.i.i.i.i17 ]
@@ -2001,27 +2001,27 @@ _ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_P
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #26
   %25 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
-  %27 = load i32, ptr %26, align 8, !alias.scope !35, !noalias !32
-  store i32 %27, ptr %25, align 8, !alias.scope !32, !noalias !35
+  %27 = load i32, ptr %26, align 8, !alias.scope !34, !noalias !31
+  store i32 %27, ptr %25, align 8, !alias.scope !31, !noalias !34
   %28 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
   %29 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
-  %30 = load <2 x ptr>, ptr %29, align 8, !alias.scope !35, !noalias !32
-  store <2 x ptr> %30, ptr %28, align 8, !alias.scope !32, !noalias !35
+  %30 = load <2 x ptr>, ptr %29, align 8, !alias.scope !34, !noalias !31
+  store <2 x ptr> %30, ptr %28, align 8, !alias.scope !31, !noalias !34
   %31 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 56
   %32 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 56
-  %33 = load ptr, ptr %32, align 8, !alias.scope !35, !noalias !32
-  store ptr %33, ptr %31, align 8, !alias.scope !32, !noalias !35
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32
+  %33 = load ptr, ptr %32, align 8, !alias.scope !34, !noalias !31
+  store ptr %33, ptr %31, align 8, !alias.scope !31, !noalias !34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false), !alias.scope !34, !noalias !31
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #26
   %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 64
   %35 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %34, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !36
 
 _ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %35, %.lr.ph.i.i.i.i ]
@@ -2032,27 +2032,27 @@ _ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i27
   %.012.i.i.i.i28 = phi ptr [ %47, %.lr.ph.i.i.i.i27 ], [ %36, %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i.i29 = phi ptr [ %46, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #26
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 32
-  %39 = load i32, ptr %38, align 8, !alias.scope !41, !noalias !38
-  store i32 %39, ptr %37, align 8, !alias.scope !38, !noalias !41
+  %39 = load i32, ptr %38, align 8, !alias.scope !40, !noalias !37
+  store i32 %39, ptr %37, align 8, !alias.scope !37, !noalias !40
   %40 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 40
   %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 40
-  %42 = load <2 x ptr>, ptr %41, align 8, !alias.scope !41, !noalias !38
-  store <2 x ptr> %42, ptr %40, align 8, !alias.scope !38, !noalias !41
+  %42 = load <2 x ptr>, ptr %41, align 8, !alias.scope !40, !noalias !37
+  store <2 x ptr> %42, ptr %40, align 8, !alias.scope !37, !noalias !40
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 56
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 56
-  %45 = load ptr, ptr %44, align 8, !alias.scope !41, !noalias !38
-  store ptr %45, ptr %43, align 8, !alias.scope !38, !noalias !41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !41, !noalias !38
+  %45 = load ptr, ptr %44, align 8, !alias.scope !40, !noalias !37
+  store ptr %45, ptr %43, align 8, !alias.scope !37, !noalias !40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !40, !noalias !37
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #26
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 64
   %47 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 64
   %.not.i.i.i.i30 = icmp eq ptr %46, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !37
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !36
 
 _ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %36, %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %47, %.lr.ph.i.i.i.i27 ]
@@ -2240,7 +2240,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %20 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 168
   %21 = getelementptr inbounds i8, ptr %.019, i64 168
   %.not = icmp eq ptr %20, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 22:                                               ; preds = %.lr.ph
   %23 = landingpad { ptr, i32 }
@@ -2342,7 +2342,7 @@ define noundef ptr @_ZN3vcg3ply7PlyFile11FindElementEPKc(ptr nocapture noundef n
   %9 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 64
   %10 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %9, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %2
   %.0 = phi ptr [ null, %2 ], [ %.sroa.03.08, %.lr.ph ], [ null, %8 ]
@@ -2350,7 +2350,7 @@ define noundef ptr @_ZN3vcg3ply7PlyFile11FindElementEPKc(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3vcg3ply7PlyFile9AddToReadEPKcS3_iimiiiim(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile9AddToReadEPKcS3_iimiiiim(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10) local_unnamed_addr #3 align 2 {
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -2367,10 +2367,10 @@ define noundef i32 @_ZN3vcg3ply7PlyFile9AddToReadEPKcS3_iimiiiim(ptr nocapture n
   %18 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 64
   %19 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %18, %19
-  br i1 %.not.i, label %.sink.split, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %.sink.split, label %.lr.ph.i, !llvm.loop !43
 
 _ZN3vcg3ply7PlyFile11FindElementEPKc.exit:        ; preds = %.lr.ph.i
-  %20 = tail call noundef i32 @_ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.03.08.i, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10), !range !45
+  %20 = tail call noundef i32 @_ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.03.08.i, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %23, label %.sink.split
 
@@ -3445,7 +3445,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
   %53 = add nuw nsw i32 %.01921, 1
   %54 = load i32, ptr %4, align 4
   %55 = icmp slt i32 %53, %54
-  br i1 %55, label %56, label %.loopexit, !llvm.loop !46
+  br i1 %55, label %56, label %.loopexit, !llvm.loop !44
 
 56:                                               ; preds = %.lr.ph, %52
   %.01921 = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
@@ -3492,7 +3492,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_skip_list_asciiEP8_IO_FILEP
   %12 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp ne i32 %12, %7
   %or.cond.not = select i1 %.not5, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !47
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3
   %.04 = phi i1 [ false, %3 ], [ true, %.preheader ], [ %.not5, %.lr.ph ]
@@ -3629,7 +3629,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %7, %15, %16, %18, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not21, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !48
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %3
   %.016 = phi i1 [ false, %3 ], [ true, %40 ], [ %.not21, %.lr.ph ]
@@ -3743,7 +3743,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i16 %45, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -3857,7 +3857,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i32 %45, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -3969,7 +3969,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i8 %44, ptr %45, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -4083,7 +4083,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i16 %45, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -4197,7 +4197,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i32 %45, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -4311,7 +4311,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store float %45, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -4425,7 +4425,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store double %45, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -4551,7 +4551,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !54
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
@@ -4677,7 +4677,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   store i16 %52, ptr %54, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !55
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
@@ -4804,7 +4804,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   store i32 %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !56
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
@@ -4930,7 +4930,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !59
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !57
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
@@ -5056,7 +5056,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   store i16 %52, ptr %54, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !60
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !58
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
@@ -5183,7 +5183,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   store i32 %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !61
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !59
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
@@ -5310,7 +5310,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   store float %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !62
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !60
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
@@ -5437,7 +5437,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   store double %53, ptr %55, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !61
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
@@ -5563,7 +5563,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !62
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
@@ -5690,7 +5690,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   store i16 %53, ptr %55, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
@@ -5911,7 +5911,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32:       ; preds = %98, %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %98, label %.loopexit, !llvm.loop !66
+  br i1 %or.cond.not, label %98, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32, %95, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %18, %11
   %.031 = phi i1 [ false, %11 ], [ false, %18 ], [ false, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ], [ false, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ], [ false, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ], [ true, %95 ], [ %.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32 ]
@@ -6037,7 +6037,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !67
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !65
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
@@ -6164,7 +6164,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   store i16 %53, ptr %55, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !66
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
@@ -6290,7 +6290,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   store i32 %52, ptr %54, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !69
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !67
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
@@ -6417,7 +6417,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   store float %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !70
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !68
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
@@ -6544,7 +6544,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   store double %53, ptr %55, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !71
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !69
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
@@ -6656,7 +6656,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i8 %44, ptr %45, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -6770,7 +6770,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i16 %45, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -6884,7 +6884,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i32 %45, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -6996,7 +6996,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i8 %44, ptr %45, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -7110,7 +7110,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i16 %45, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -7224,7 +7224,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store i32 %45, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -7338,7 +7338,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store float %45, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -7452,7 +7452,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store double %45, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
   %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
@@ -7578,7 +7578,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !80
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !78
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
@@ -7704,7 +7704,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   store i16 %52, ptr %54, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !81
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !79
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
@@ -7831,7 +7831,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   store i32 %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !82
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !80
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
@@ -7957,7 +7957,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !83
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !81
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
@@ -8083,7 +8083,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   store i16 %52, ptr %54, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !84
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !82
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
@@ -8210,7 +8210,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   store i32 %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !83
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
@@ -8337,7 +8337,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   store float %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !86
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !84
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
@@ -8464,7 +8464,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   store double %53, ptr %55, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !87
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !85
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
@@ -8590,7 +8590,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !88
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !86
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
@@ -8717,7 +8717,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   store i16 %53, ptr %55, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !89
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !87
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
@@ -8843,7 +8843,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   store i32 %52, ptr %54, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !90
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !88
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
@@ -8969,7 +8969,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !91
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !89
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
@@ -9096,7 +9096,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   store i16 %53, ptr %55, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !92
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !90
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
@@ -9222,7 +9222,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   store i32 %52, ptr %54, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !93
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !91
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
@@ -9349,7 +9349,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   store float %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !94
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !92
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
@@ -9476,7 +9476,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   store double %53, ptr %55, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !95
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !93
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
@@ -9602,7 +9602,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   store float %52, ptr %54, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !96
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !94
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
@@ -9729,7 +9729,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   store double %53, ptr %55, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !97
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !95
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit, %51, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
@@ -9844,7 +9844,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store float %46, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !98
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !96
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %44 ], [ %.not22, %.lr.ph ]
@@ -9958,7 +9958,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   store double %45, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !99
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %41, %3
   %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %44 ], [ %.not22, %.lr.ph ]
@@ -11900,7 +11900,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_10PlyElementE(ptr nocapture nounde
   %7 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 168
   %8 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %7, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -12381,7 +12381,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %180, %183
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40
@@ -12401,7 +12401,7 @@ define noundef i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr nocapture noundef nonnull re
   %13 = getelementptr inbounds i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %11, %14
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !99
 
 15:                                               ; preds = %.lr.ph, %10
   %.sroa.02.07 = phi ptr [ %6, %.lr.ph ], [ %11, %10 ]
@@ -12497,7 +12497,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
 
 .preheader81._crit_edge:                          ; preds = %.preheader81
   %.pre = add nuw nsw i64 %indvars.iv, 1
-  br label %.preheader81, !llvm.loop !102
+  br label %.preheader81, !llvm.loop !100
 
 .preheader:                                       ; preds = %.preheader81
   %33 = sext i32 %.066.ph to i64
@@ -12508,8 +12508,8 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
 
 36:                                               ; preds = %.preheader81, %.preheader81
   %37 = add nuw nsw i64 %indvars.iv, 1
-  %38 = trunc i64 %37 to i32
-  br label %.preheader81.outer, !llvm.loop !102
+  %38 = trunc nuw i64 %37 to i32
+  br label %.preheader81.outer, !llvm.loop !100
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.lr.ph ], [ %33, %.preheader ]
@@ -12521,10 +12521,10 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
   %42 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next86
   %43 = load i8, ptr %42, align 1
   %.not80 = icmp eq i8 %43, 0
-  br i1 %.not80, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !103
+  br i1 %.not80, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %44 = trunc i64 %indvars.iv.next86 to i32
+  %44 = trunc nsw i64 %indvars.iv.next86 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -12587,7 +12587,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
 .backedge.backedge:                               ; preds = %69, %76
   %.068.be = phi i32 [ %74, %69 ], [ %78, %76 ]
   %.0.be = phi i32 [ %75, %69 ], [ %77, %76 ]
-  br label %.backedge, !llvm.loop !104
+  br label %.backedge, !llvm.loop !102
 
 76:                                               ; preds = %23, %20, %17, %14, %.backedge, %9, %26
   %77 = add nsw i32 %.0, 1
@@ -12693,7 +12693,7 @@ attributes #32 = { nounwind allocsize(0,1) }
 !20 = distinct !{!20, !12}
 !21 = distinct !{!21, !12}
 !22 = distinct !{!22, !12}
-!23 = !{i32 -1, i32 1}
+!23 = distinct !{!23, !12}
 !24 = distinct !{!24, !12}
 !25 = distinct !{!25, !12}
 !26 = distinct !{!26, !12}
@@ -12701,21 +12701,21 @@ attributes #32 = { nounwind allocsize(0,1) }
 !28 = distinct !{!28, !12}
 !29 = distinct !{!29, !12}
 !30 = distinct !{!30, !12}
-!31 = distinct !{!31, !12}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!34 = distinct !{!34, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!35 = !{!36}
-!36 = distinct !{!36, !34, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!37 = distinct !{!37, !12}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!41 = !{!42}
-!42 = distinct !{!42, !40, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!33 = distinct !{!33, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!34 = !{!35}
+!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!36 = distinct !{!36, !12}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!40 = !{!41}
+!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN3vcg3ply10PlyElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!42 = distinct !{!42, !12}
 !43 = distinct !{!43, !12}
 !44 = distinct !{!44, !12}
-!45 = !{i32 0, i32 13}
+!45 = distinct !{!45, !12}
 !46 = distinct !{!46, !12}
 !47 = distinct !{!47, !12}
 !48 = distinct !{!48, !12}
@@ -12773,5 +12773,3 @@ attributes #32 = { nounwind allocsize(0,1) }
 !100 = distinct !{!100, !12}
 !101 = distinct !{!101, !12}
 !102 = distinct !{!102, !12}
-!103 = distinct !{!103, !12}
-!104 = distinct !{!104, !12}

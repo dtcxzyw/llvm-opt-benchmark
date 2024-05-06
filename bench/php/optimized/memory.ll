@@ -295,7 +295,7 @@ define internal noundef i32 @php_stream_memory_flush(ptr nocapture readnone %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_stream_memory_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 {
+define internal range(i32 -1, 1) i32 @php_stream_memory_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %2, label %57 [
@@ -455,7 +455,7 @@ define internal noundef i32 @php_stream_memory_stat(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stream_memory_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -2, 1) i32 @php_stream_memory_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %cond = icmp eq i32 %1, 10
@@ -618,7 +618,7 @@ define internal noundef i32 @php_stream_memory_set_option(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @php_stream_mode_from_str(ptr noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 5) i32 @php_stream_mode_from_str(ptr noundef readonly %0) local_unnamed_addr #5 {
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 97)
   %.not = icmp eq ptr %strchr, null
   br i1 %.not, label %2, label %4

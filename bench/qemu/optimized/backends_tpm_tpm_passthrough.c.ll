@@ -354,7 +354,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tpm_passthrough_startup_tpm(ptr noundef %tb, i64 noundef %buffersize) #0 {
+define internal range(i32 -1, 1) i32 @tpm_passthrough_startup_tpm(ptr noundef %tb, i64 noundef %buffersize) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.TPM_PASSTHROUGH) #11
   %tobool.not = icmp eq i64 %buffersize, 0

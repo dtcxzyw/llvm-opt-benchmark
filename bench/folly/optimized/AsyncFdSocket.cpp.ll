@@ -778,7 +778,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %cl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback20getAncillaryDataSizeENS_10WriteFlagsERKNS_11AsyncSocket15WriteRequestTagEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %writeTag, i1 zeroext %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 16, 9) i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback20getAncillaryDataSizeENS_10WriteFlagsERKNS_11AsyncSocket15WriteRequestTagEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %writeTag, i1 zeroext %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %_M_element_count.i.i.i.i, align 8, !tbaa !20

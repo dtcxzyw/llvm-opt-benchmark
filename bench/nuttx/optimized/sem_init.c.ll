@@ -15,7 +15,7 @@ define noundef i32 @nxsem_init(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sem_init(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @sem_init(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ugt i32 %2, 32767
   %or.cond = or i1 %4, %5
@@ -27,7 +27,7 @@ define noundef i32 @sem_init(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br label %12
 
 8:                                                ; preds = %3
-  %9 = trunc i32 %2 to i16
+  %9 = trunc nuw i32 %2 to i16
   store volatile i16 %9, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %0, i64 2

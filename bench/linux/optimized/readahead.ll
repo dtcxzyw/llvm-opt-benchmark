@@ -283,7 +283,7 @@ define internal fastcc void @read_pages(ptr noundef %0) unnamed_addr #0 align 16
   %68 = load ptr, ptr %30, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   %70 = load i32, ptr %69, align 8
-  %71 = trunc i64 %67 to i32
+  %71 = trunc nuw i64 %67 to i32
   %72 = sub i32 %70, %71
   store i32 %72, ptr %69, align 8
   %73 = load ptr, ptr %30, align 8
@@ -974,7 +974,7 @@ define dso_local void @page_cache_async_ra(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ksys_readahead(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @ksys_readahead(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i64 @__fdget(i32 noundef %0) #6
   %5 = and i64 %4, -4
   %6 = inttoptr i64 %5 to ptr
@@ -1036,7 +1036,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare dso_local i32 @vfs_fadvise(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_readahead(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_readahead(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1099,7 +1099,7 @@ define dso_local i64 @__x64_sys_readahead(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_readahead(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_readahead(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88

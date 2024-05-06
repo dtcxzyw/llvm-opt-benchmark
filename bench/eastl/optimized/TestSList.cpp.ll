@@ -2842,7 +2842,7 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i14
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit1490:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i1486, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit1482
   store ptr null, ptr %list1641.sroa.0, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list1686, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %list1686, i8 0, i64 16, i1 false)
   %call690 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 407, ptr noundef nonnull @.str.14)
           to label %invoke.cont689 unwind label %lpad688
 

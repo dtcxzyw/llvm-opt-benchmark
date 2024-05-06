@@ -326,7 +326,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %6 = load ptr, ptr %m_inv_p, align 8
   %idxprom.i18 = zext i32 %5 to i64
   %arrayidx.i19 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i18
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   store i32 %7, ptr %arrayidx.i19, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -372,7 +372,7 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw i64 %indvars.iv to i32
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %2)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.1)
   %3 = load ptr, ptr %this, align 8

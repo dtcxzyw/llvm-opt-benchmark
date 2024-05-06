@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [15 x i8] c"table overflow\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaH_next(ptr noundef %L, ptr nocapture noundef readonly %t, ptr noundef %key) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @luaH_next(ptr noundef %L, ptr nocapture noundef readonly %t, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tt.i = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load i32, ptr %tt.i, align 8, !tbaa !4

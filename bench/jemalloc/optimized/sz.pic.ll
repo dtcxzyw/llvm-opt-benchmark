@@ -22,8 +22,8 @@ entry:
 sz_psz2ind.exit:                                  ; preds = %entry
   %cmp.i.i = icmp ne i64 %add, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub, i1 false), !range !4
-  %2 = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub, i1 false)
+  %2 = trunc nuw nsw i64 %1 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i = icmp ugt i32 %2, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -63,8 +63,8 @@ entry:
 sz_psz2ind.exit.i:                                ; preds = %entry
   %cmp.i.i.i = icmp ne i64 %add.i9, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 false), !range !4
-  %2 = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
+  %2 = trunc nuw nsw i64 %1 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i.i = icmp ugt i32 %2, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
@@ -96,8 +96,8 @@ if.then:                                          ; preds = %sz_psz_quantize_flo
 if.end.i:                                         ; preds = %if.then
   %cmp.i.i12 = icmp ne i64 %add, 0
   tail call void @llvm.assume(i1 %cmp.i.i12)
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !4
-  %6 = trunc i64 %5 to i32
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
+  %6 = trunc nuw nsw i64 %5 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
   %cmp4.i = icmp ugt i32 %6, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -173,7 +173,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %pind.1.i = phi i32 [ %inc.i, %if.then.i ], [ %pind.012.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 232
-  br i1 %exitcond.not.i, label %for.cond10.preheader.i, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.cond10.preheader.i, label %for.body.i, !llvm.loop !4
 
 for.body13.i:                                     ; preds = %for.body13.i, %for.body13.lr.ph.i
   %i9.014.i = phi i32 [ %pind.1.i, %for.body13.lr.ph.i ], [ %inc18.i, %for.body13.i ]
@@ -182,7 +182,7 @@ for.body13.i:                                     ; preds = %for.body13.i, %for.
   store i64 %add14.i, ptr %arrayidx16.i, align 8
   %inc18.i = add i32 %i9.014.i, 1
   %exitcond16.not.i = icmp eq i32 %inc18.i, 200
-  br i1 %exitcond16.not.i, label %for.body.i4.preheader, label %for.body13.i, !llvm.loop !7
+  br i1 %exitcond16.not.i, label %for.body.i4.preheader, label %for.body13.i, !llvm.loop !6
 
 for.body.i4.preheader:                            ; preds = %for.body13.i, %for.cond10.preheader.i
   br label %for.body.i4
@@ -206,7 +206,7 @@ for.body.i4:                                      ; preds = %for.body.i4.prehead
   store i64 %add.i15, ptr %arrayidx7.i16, align 8
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 232
-  br i1 %exitcond.not.i18, label %for.body.i19, label %for.body.i4, !llvm.loop !8
+  br i1 %exitcond.not.i18, label %for.body.i19, label %for.body.i4, !llvm.loop !7
 
 for.body.i19:                                     ; preds = %for.body.i4, %for.inc19.i
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i28, %for.inc19.i ], [ 0, %for.body.i4 ]
@@ -247,7 +247,7 @@ for.inc19.i:                                      ; preds = %for.body16.lr.ph.i,
   %cmp.i = icmp ult i64 %indvars.iv.i20, 231
   %cmp2.i = icmp ult i64 %dst_ind.1.lcssa.i, 513
   %16 = and i1 %cmp.i, %cmp2.i
-  br i1 %16, label %for.body.i19, label %sz_boot_size2index_tab.exit, !llvm.loop !9
+  br i1 %16, label %for.body.i19, label %sz_boot_size2index_tab.exit, !llvm.loop !8
 
 sz_boot_size2index_tab.exit:                      ; preds = %for.inc19.i
   ret void
@@ -284,9 +284,8 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

@@ -187,7 +187,7 @@ ompi_group_get_proc_name.exit41:                  ; preds = %38, %42
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %ompi_group_get_proc_name.exit41
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %48, ptr %31, align 4
   br label %.loopexit42
 
@@ -295,7 +295,7 @@ ompi_group_get_proc_name.exit41.i:                ; preds = %43, %39
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %ompi_group_get_proc_name.exit41.i
-  %49 = trunc i64 %indvars.iv.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %ompi_group_translate_ranks.exit
 
 50:                                               ; preds = %ompi_group_get_proc_name.exit41.i
@@ -410,7 +410,7 @@ ompi_group_get_proc_name.exit41.i49:              ; preds = %104, %100
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %ompi_group_get_proc_name.exit41.i49
-  %110 = trunc i64 %indvars.iv.i45 to i32
+  %110 = trunc nuw nsw i64 %indvars.iv.i45 to i32
   br label %ompi_group_translate_ranks.exit59
 
 111:                                              ; preds = %ompi_group_get_proc_name.exit41.i49
@@ -513,7 +513,7 @@ ompi_group_get_proc_name.exit41.i76:              ; preds = %159, %155
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %ompi_group_get_proc_name.exit41.i76
-  %165 = trunc i64 %indvars.iv.i72 to i32
+  %165 = trunc nuw nsw i64 %indvars.iv.i72 to i32
   br label %ompi_group_translate_ranks.exit86
 
 166:                                              ; preds = %ompi_group_get_proc_name.exit41.i76
@@ -574,7 +574,7 @@ define i32 @ompi_group_minloc(ptr nocapture noundef readonly %0, i32 noundef %1)
   %7 = icmp sle i32 %.018, %6
   %.not = icmp eq i32 %6, -1
   %or.cond = or i1 %7, %.not
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %.113 = select i1 %or.cond, i32 %.01217, i32 %8
   %.1 = select i1 %or.cond, i32 %.018, i32 %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -639,7 +639,7 @@ define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
   br i1 %exitcond54.not, label %._crit_edge.us.thread, label %16, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %16
-  %21 = trunc i64 %indvars.iv50 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv50 to i32
   %22 = icmp eq i32 %21, %1
   br i1 %22, label %._crit_edge.us.thread, label %26
 
@@ -824,11 +824,11 @@ define i32 @ompi_group_range_incl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %52 = trunc i64 %indvars.iv.next136 to i32
+  %52 = trunc nsw i64 %indvars.iv.next136 to i32
   br label %.loopexit
 
 .loopexit.loopexit124:                            ; preds = %.preheader99
-  %53 = trunc i64 %indvars.iv.next133 to i32
+  %53 = trunc nsw i64 %indvars.iv.next133 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit124, %.loopexit.loopexit, %49
@@ -981,11 +981,11 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.preheader124
-  %51 = trunc i64 %indvars.iv.next176 to i32
+  %51 = trunc nsw i64 %indvars.iv.next176 to i32
   br label %.loopexit
 
 .loopexit.loopexit165:                            ; preds = %.preheader125
-  %52 = trunc i64 %indvars.iv.next173 to i32
+  %52 = trunc nsw i64 %indvars.iv.next173 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit165, %.loopexit.loopexit, %48
@@ -1041,7 +1041,7 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %exitcond194.not, label %._crit_edge149.us.thread, label %63, !llvm.loop !24
 
 ._crit_edge149.us:                                ; preds = %63
-  %68 = trunc i64 %indvars.iv190 to i32
+  %68 = trunc nuw nsw i64 %indvars.iv190 to i32
   %69 = icmp eq i32 %.0101.lcssa, %68
   br i1 %69, label %._crit_edge149.us.thread, label %73
 
@@ -1191,7 +1191,7 @@ ompi_group_get_proc_name.exit40:                  ; preds = %37, %41
 46:                                               ; preds = %ompi_group_get_proc_name.exit40
   %47 = sext i32 %.03142 to i64
   %48 = getelementptr inbounds i32, ptr %11, i64 %47
-  %49 = trunc i64 %indvars.iv47 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv47 to i32
   store i32 %49, ptr %48, align 4
   %50 = add nsw i32 %.03142, 1
   br label %.loopexit
@@ -1418,7 +1418,7 @@ define i32 @ompi_group_count_local_peers(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @ompi_group_to_proc_name_array(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
+define range(i32 -2, 1) i32 @ompi_group_to_proc_name_array(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64

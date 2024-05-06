@@ -874,7 +874,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [30 x i8] c"Failed to copy perf map file.\00", align 1
 @.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.4 = private unnamed_addr constant [10 x i8] c"py::%s:%s\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyExc_OSError = external local_unnamed_addr global ptr, align 8
 @.str.5 = private unnamed_addr constant [46 x i8] c"Failed to create new mmap for perf trampoline\00", align 1
 @_Py_trampoline_func_start = external global ptr, align 8
@@ -965,7 +965,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %cmp1.not.i, label %compile_trampoline.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then
-  %call.i5 = call fastcc i32 @new_code_arena(), !range !5
+  %call.i5 = call fastcc i32 @new_code_arena()
   %cmp2.i = icmp slt i32 %call.i5, 0
   br i1 %cmp2.i, label %return, label %if.then.if.end4_crit_edge.i
 
@@ -1009,7 +1009,7 @@ return:                                           ; preds = %if.then.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_PyIsPerfTrampolineActive() local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_PyIsPerfTrampolineActive() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1056,7 +1056,7 @@ lor.lhs.false.i:                                  ; preds = %if.then6
   br i1 %cmp1.not.i, label %compile_trampoline.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then6
-  %call.i11 = call fastcc i32 @new_code_arena(), !range !5
+  %call.i11 = call fastcc i32 @new_code_arena()
   %cmp2.i = icmp slt i32 %call.i11, 0
   br i1 %cmp2.i, label %default_eval, label %if.then.if.end4_crit_edge.i
 
@@ -1131,7 +1131,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyPerfTrampoline_SetCallbacks(ptr noundef readonly %callbacks) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyPerfTrampoline_SetCallbacks(ptr noundef readonly %callbacks) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %callbacks, null
   br i1 %cmp, label %return, label %if.end
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyPerfTrampoline_Init(i32 noundef %activate) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyPerfTrampoline_Init(i32 noundef %activate) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1259,7 +1259,7 @@ if.then4:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   store ptr @py_trampoline_evaluator, ptr %eval_frame, align 8
-  %call9 = tail call fastcc i32 @new_code_arena(), !range !5
+  %call9 = tail call fastcc i32 @new_code_arena()
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %return, label %if.end12
 
@@ -1295,7 +1295,7 @@ return:                                           ; preds = %if.end12, %if.else,
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @new_code_arena() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @new_code_arena() unnamed_addr #0 {
 entry:
   %call = tail call ptr @mmap64(ptr noundef null, i64 noundef 65536, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #9
   %tobool.not = icmp eq ptr %call, null
@@ -1319,7 +1319,7 @@ for.body:                                         ; preds = %if.end, %for.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 8 @_Py_trampoline_func_start, i64 sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64)), i1 false)
   %inc = add nuw nsw i64 %i.027, 1
   %cmp = icmp ult i64 %inc, %div
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end
   %call3 = tail call i32 @mprotect(ptr noundef nonnull %call, i64 noundef 65536, i32 noundef 5) #9
@@ -1383,7 +1383,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %3 = load ptr, ptr %prev1.i, align 8
   tail call void @PyMem_RawFree(ptr noundef nonnull %cur.06.i) #9
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %free_code_arenas.exit, label %while.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %free_code_arenas.exit, label %while.body.i, !llvm.loop !7
 
 free_code_arenas.exit:                            ; preds = %while.body.i, %entry
   ret void
@@ -1501,7 +1501,7 @@ if.then.i:                                        ; preds = %if.then9
 
 if.end.i17:                                       ; preds = %if.then9
   store ptr @py_trampoline_evaluator, ptr %eval_frame.i15, align 8
-  %call9.i = tail call fastcc i32 @new_code_arena(), !range !5
+  %call9.i = tail call fastcc i32 @new_code_arena()
   %cmp10.i = icmp slt i32 %call9.i, 0
   br i1 %cmp10.i, label %if.end12, label %if.end12.i
 
@@ -1609,7 +1609,6 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

@@ -139,7 +139,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.123 = private unnamed_addr constant [15 x i8] c"non-hex digit\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @enc_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %ctx = alloca ptr, align 8
   %cipher = alloca ptr, align 8
@@ -737,7 +737,7 @@ if.else358:                                       ; preds = %if.then354
 
 land.lhs.true361:                                 ; preds = %if.else358
   %33 = load i32, ptr %saltlen, align 4
-  %call363 = call fastcc i32 @set_hex(ptr noundef nonnull %hsalt.0, ptr noundef nonnull %salt, i32 noundef %33), !range !8
+  %call363 = call fastcc i32 @set_hex(ptr noundef nonnull %hsalt.0, ptr noundef nonnull %salt, i32 noundef %33)
   %tobool364.not = icmp eq i32 %call363, 0
   br i1 %tobool364.not, label %if.then365, label %if.end426
 
@@ -884,7 +884,7 @@ if.then472:                                       ; preds = %if.then468
   br label %if.end497
 
 if.else474:                                       ; preds = %if.then468
-  %call476 = call fastcc i32 @set_hex(ptr noundef nonnull %hiv.0, ptr noundef nonnull %iv, i32 noundef %call469), !range !8
+  %call476 = call fastcc i32 @set_hex(ptr noundef nonnull %hiv.0, ptr noundef nonnull %iv, i32 noundef %call469)
   %tobool477.not = icmp eq i32 %call476, 0
   br i1 %tobool477.not, label %if.then478, label %if.end497
 
@@ -915,7 +915,7 @@ if.end497:                                        ; preds = %if.else474, %if.the
 if.then500:                                       ; preds = %if.end497
   %59 = load ptr, ptr %cipher, align 8
   %call502 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %59) #11
-  %call503 = call fastcc i32 @set_hex(ptr noundef nonnull %hkey.0, ptr noundef nonnull %key, i32 noundef %call502), !range !8
+  %call503 = call fastcc i32 @set_hex(ptr noundef nonnull %hkey.0, ptr noundef nonnull %key, i32 noundef %call502)
   %tobool504.not = icmp eq i32 %call503, 0
   br i1 %tobool504.not, label %if.then505, label %if.end507
 
@@ -1018,7 +1018,7 @@ for.body:                                         ; preds = %if.then553, %for.bo
   %75 = load i32, ptr %saltlen, align 4
   %76 = sext i32 %75 to i64
   %cmp556 = icmp slt i64 %indvars.iv.next472, %76
-  br i1 %cmp556, label %for.body, label %for.end562, !llvm.loop !9
+  br i1 %cmp556, label %for.body, label %for.end562, !llvm.loop !8
 
 for.end562:                                       ; preds = %for.body, %if.then553
   %putchar = call i32 @putchar(i32 10)
@@ -1048,7 +1048,7 @@ for.body574:                                      ; preds = %if.then568, %for.bo
   %call571 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %80) #11
   %81 = sext i32 %call571 to i64
   %cmp572 = icmp slt i64 %indvars.iv.next475, %81
-  br i1 %cmp572, label %for.body574, label %for.end581, !llvm.loop !10
+  br i1 %cmp572, label %for.body574, label %for.end581, !llvm.loop !9
 
 for.end581:                                       ; preds = %for.body574, %if.then568
   %putchar163 = call i32 @putchar(i32 10)
@@ -1078,7 +1078,7 @@ for.body593:                                      ; preds = %if.then587, %for.bo
   %call590 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %85) #11
   %86 = sext i32 %call590 to i64
   %cmp591 = icmp slt i64 %indvars.iv.next478, %86
-  br i1 %cmp591, label %for.body593, label %for.end600, !llvm.loop !11
+  br i1 %cmp591, label %for.body593, label %for.end600, !llvm.loop !10
 
 for.end600:                                       ; preds = %for.body593, %if.then587
   %putchar164 = call i32 @putchar(i32 10)
@@ -1095,7 +1095,7 @@ if.then611:                                       ; preds = %if.end602, %if.end5
 if.end613:                                        ; preds = %if.end348, %if.then611
   %benc.0173 = phi ptr [ %call510, %if.then611 ], [ null, %if.end348 ]
   %wbio.3 = phi ptr [ %call612, %if.then611 ], [ %wbio.2, %if.end348 ]
-  br i1 %tobool226.fr, label %while.cond614.us, label %while.cond614, !llvm.loop !12
+  br i1 %tobool226.fr, label %while.cond614.us, label %while.cond614, !llvm.loop !11
 
 while.cond614.us:                                 ; preds = %if.end613
   %call615.us = call i64 @BIO_ctrl(ptr noundef %rbio.2, i32 noundef 10, i64 noundef 0, ptr noundef null) #11
@@ -1350,7 +1350,7 @@ declare ptr @BIO_f_base64() local_unnamed_addr #2
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_hex(ptr nocapture noundef readonly %in, ptr nocapture noundef %out, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_hex(ptr nocapture noundef readonly %in, ptr nocapture noundef %out, i32 noundef %size) unnamed_addr #0 {
 entry:
   %mul = shl nsw i32 %size, 1
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #10
@@ -1426,7 +1426,7 @@ if.else27:                                        ; preds = %if.end16
 for.inc:                                          ; preds = %if.then21, %if.else27
   %inc = add nuw nsw i32 %i.020, 1
   %exitcond.not = icmp eq i32 %inc, %n.0
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !12
 
 return:                                           ; preds = %for.inc, %if.end7, %if.then14
   %retval.0 = phi i32 [ 0, %if.then14 ], [ 1, %if.end7 ], [ 1, %for.inc ]
@@ -1531,9 +1531,8 @@ attributes #12 = { nounwind willreturn memory(none) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

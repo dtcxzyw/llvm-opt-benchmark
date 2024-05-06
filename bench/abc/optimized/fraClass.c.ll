@@ -382,7 +382,7 @@ define i32 @Fra_ClassCount(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %.not, label %5, label %2, !llvm.loop !7
 
 5:                                                ; preds = %2
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   ret i32 %6
 }
 
@@ -421,7 +421,7 @@ define i32 @Fra_ClassesCountLits(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not.i, label %Fra_ClassCount.exit, label %13, !llvm.loop !7
 
 Fra_ClassCount.exit:                              ; preds = %13
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   %17 = add i32 %.013, -1
   %18 = add i32 %17, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -464,7 +464,7 @@ define i32 @Fra_ClassesCountPairs(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not.i, label %Fra_ClassCount.exit, label %10, !llvm.loop !7
 
 Fra_ClassCount.exit:                              ; preds = %10
-  %13 = trunc i64 %indvars.iv.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %14 = add nsw i32 %13, -1
   %15 = mul nsw i32 %14, %13
   %16 = sdiv i32 %15, 2
@@ -493,7 +493,7 @@ define void @Fra_PrintClass(ptr nocapture noundef readonly %0, ptr nocapture nou
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = and i32 %11, 16777215
   %13 = load ptr, ptr %0, align 8
   %14 = tail call i32 @Aig_SupportSize(ptr noundef %13, ptr noundef nonnull %5) #18
@@ -546,7 +546,7 @@ define void @Fra_ClassesPrint(ptr nocapture noundef readonly %0, i32 noundef %1)
   br i1 %.not.i.i, label %Fra_ClassCount.exit.i, label %14, !llvm.loop !7
 
 Fra_ClassCount.exit.i:                            ; preds = %14
-  %17 = trunc i64 %indvars.iv.i.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %18 = add i32 %.013.i, -1
   %19 = add i32 %18, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -596,7 +596,7 @@ Fra_ClassesCountLits.exit:                        ; preds = %Fra_ClassCount.exit
   %39 = getelementptr inbounds i8, ptr %36, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = lshr i64 %40, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   %43 = and i32 %42, 16777215
   %44 = load ptr, ptr %0, align 8
   %45 = tail call i32 @Aig_SupportSize(ptr noundef %44, ptr noundef %36) #18
@@ -635,8 +635,8 @@ Fra_ClassesCountLits.exit:                        ; preds = %Fra_ClassCount.exit
   br i1 %.not.i, label %Fra_ClassCount.exit, label %58, !llvm.loop !7
 
 Fra_ClassCount.exit:                              ; preds = %58
-  %61 = trunc i64 %indvars.iv.i45 to i32
-  %62 = trunc i64 %indvars.iv56 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv.i45 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv56 to i32
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %62, i32 noundef %61)
   %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   %65 = load ptr, ptr %57, align 8
@@ -651,7 +651,7 @@ Fra_ClassCount.exit:                              ; preds = %58
   %69 = getelementptr inbounds i8, ptr %66, i64 24
   %70 = load i64, ptr %69, align 8
   %71 = lshr i64 %70, 32
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   %73 = and i32 %72, 16777215
   %74 = load ptr, ptr %0, align 8
   %75 = tail call i32 @Aig_SupportSize(ptr noundef %74, ptr noundef nonnull %66) #18
@@ -706,7 +706,7 @@ define void @Fra_ClassesPrepare(ptr nocapture noundef %0, i32 noundef %1, i32 no
 
 10:                                               ; preds = %.lr.ph.i
   %11 = add nuw nsw i32 %.01116.i, 2
-  %12 = mul nsw i32 %11, %11
+  %12 = mul nuw nsw i32 %11, %11
   %.not.i = icmp ugt i32 %12, %8
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !14
 
@@ -784,7 +784,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
 
 45:                                               ; preds = %44
   %46 = lshr i64 %.val165, 32
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw i64 %46 to i32
   %48 = and i32 %47, 16777215
   %49 = icmp sgt i32 %48, %2
   br i1 %49, label %113, label %50
@@ -1136,7 +1136,7 @@ Vec_PtrPush.exit187:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %.lr.ph219 ], [ 1, %._crit_edge ]
   %.2134217 = phi ptr [ %.2134, %.lr.ph219 ], [ %.2134214, %._crit_edge ]
   %214 = load ptr, ptr %144, align 8
-  %215 = trunc i64 %indvars.iv238 to i32
+  %215 = trunc nuw nsw i64 %indvars.iv238 to i32
   %216 = sub i32 %.pre244, %215
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds ptr, ptr %214, i64 %217
@@ -1161,7 +1161,7 @@ Vec_PtrPush.exit187:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not147, label %._crit_edge220.loopexit, label %.lr.ph219, !llvm.loop !19
 
 ._crit_edge220.loopexit:                          ; preds = %.lr.ph219
-  %225 = trunc i64 %indvars.iv.next239 to i32
+  %225 = trunc nsw i64 %indvars.iv.next239 to i32
   br label %._crit_edge220
 
 ._crit_edge220:                                   ; preds = %._crit_edge, %._crit_edge220.loopexit
@@ -1584,7 +1584,7 @@ Vec_PtrPush.exit80:                               ; preds = %116, %Vec_PtrGrow.e
   %129 = load ptr, ptr %15, align 8
   %130 = getelementptr i8, ptr %129, i64 4
   %.val66 = load i32, ptr %130, align 4
-  %131 = trunc i64 %indvars.iv to i32
+  %131 = trunc nuw nsw i64 %indvars.iv to i32
   %132 = add nsw i32 %.val66, %131
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds ptr, ptr %1, i64 %133
@@ -1640,7 +1640,7 @@ Vec_PtrPush.exit80:                               ; preds = %116, %Vec_PtrGrow.e
   %160 = load ptr, ptr %18, align 8
   %161 = getelementptr i8, ptr %160, i64 4
   %.val = load i32, ptr %161, align 4
-  %162 = trunc i64 %indvars.iv103 to i32
+  %162 = trunc nuw nsw i64 %indvars.iv103 to i32
   %163 = add nsw i32 %.val, %162
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds ptr, ptr %151, i64 %164
@@ -1969,7 +1969,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %89 = load ptr, ptr %9, align 8
   %90 = getelementptr i8, ptr %89, i64 4
   %.val = load i32, ptr %90, align 4
-  %91 = trunc i64 %indvars.iv85 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv85 to i32
   %92 = add nsw i32 %.val, %91
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds ptr, ptr %79, i64 %93
@@ -2673,20 +2673,20 @@ define void @Fra_ClassesSelectRepr(ptr nocapture noundef readonly %0) local_unna
   %21 = getelementptr inbounds i8, ptr %.053, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %25 = and i32 %24, 16777215
   %26 = load ptr, ptr %14, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = lshr i64 %28, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = and i32 %30, 16777215
   %32 = icmp ugt i32 %25, %31
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %.lr.ph._crit_edge, %20
   %34 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %26, %20 ]
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw nsw i64 %indvars.iv to i32
   br label %36
 
 36:                                               ; preds = %18, %20, %33
@@ -2770,10 +2770,10 @@ define ptr @Fra_ClassesDeriveAig(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
+  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #20
   %13 = add i64 %12, 1
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #17
-  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %10) #18
+  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %10) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %11
@@ -2786,10 +2786,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %11
   br i1 %.not.i158, label %Abc_UtilStrsav.exit159, label %20
 
 20:                                               ; preds = %Abc_UtilStrsav.exit
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #20
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #20
   %22 = add i64 %21, 1
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #17
-  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %19) #18
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %19) #18
   br label %Abc_UtilStrsav.exit159
 
 Abc_UtilStrsav.exit159:                           ; preds = %Abc_UtilStrsav.exit, %20

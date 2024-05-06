@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @init_tlv_info(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 128) i32 @init_tlv_info(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #3
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %4, ptr %5, align 1
@@ -20,7 +20,7 @@ define hidden noundef i32 @init_tlv_info(ptr nocapture noundef writeonly %0, ptr
 11:                                               ; preds = %3
   store i8 1, ptr %10, align 2
   %12 = and i32 %8, 127
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = getelementptr inbounds i8, ptr %0, i64 3
   store i8 %13, ptr %14, align 1
   %15 = add nuw nsw i32 %12, 2
@@ -83,7 +83,7 @@ declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @get_tlv_type(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 -1, 256) i32 @get_tlv_type(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 4
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
@@ -100,7 +100,7 @@ define hidden i32 @get_tlv_type(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @get_tlv_size_of_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 -1, 256) i32 @get_tlv_size_of_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 4
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
@@ -149,7 +149,7 @@ define hidden i32 @get_tlv_value_offset(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @get_tlv_length_type(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 -1, 256) i32 @get_tlv_length_type(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 4
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3

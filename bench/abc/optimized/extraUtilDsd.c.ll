@@ -785,7 +785,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %28, %Vec_IntAlloc.e
 
 39:                                               ; preds = %.lr.ph.i.i.i
   %40 = add nuw nsw i32 %.01116.i.i.i, 2
-  %41 = mul nsw i32 %40, %40
+  %41 = mul nuw nsw i32 %40, %40
   %.not.i.i.i = icmp ugt i32 %41, %37
   br i1 %.not.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -881,7 +881,7 @@ Hsh_IntManStart.exit.i:                           ; preds = %56, %Vec_IntStartFu
 
 74:                                               ; preds = %.lr.ph.i.i26.i
   %75 = add nuw nsw i32 %.01116.i.i27.i, 2
-  %76 = mul nsw i32 %75, %75
+  %76 = mul nuw nsw i32 %75, %75
   %.not.i.i28.i = icmp ugt i32 %76, %72
   br i1 %.not.i.i28.i, label %Abc_PrimeCudd.exit.i29.i, label %.lr.ph.i.i26.i, !llvm.loop !7
 
@@ -1013,7 +1013,7 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %._crit_edge.loopexi
   %128 = mul nsw i32 %.val42.i.i, %127
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %.val43.val.i.i, i64 %129
-  %131 = tail call fastcc ptr @Hsh_IntManLookup(ptr noundef nonnull %35, ptr noundef %130)
+  %131 = tail call fastcc ptr @Hsh_IntManLookup(ptr noundef nonnull readonly %35, ptr noundef %130)
   %132 = load i32, ptr %131, align 4
   %133 = icmp eq i32 %132, -1
   br i1 %133, label %134, label %Hsh_IntManAdd.exit.i
@@ -1737,7 +1737,7 @@ Hsh_IntObj.exit.thread:                           ; preds = %Hsh_IntObj.exit.thr
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Sdm_ManComputeFunc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 {
+define range(i32 -32768, 32768) i32 @Sdm_ManComputeFunc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 {
   %7 = alloca i64, align 8
   %8 = alloca [6 x i32], align 16
   %9 = and i32 %4, 262143
@@ -2123,7 +2123,7 @@ define void @Sdm_ManQuit() local_unnamed_addr #11 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Sdm_ManCanRead() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sdm_ManCanRead() local_unnamed_addr #0 {
   %1 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %2 = icmp eq ptr %1, null
   br i1 %2, label %5, label %3
@@ -2146,7 +2146,7 @@ define void @Sdm_ManTest() local_unnamed_addr #2 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %1, ptr noundef nonnull align 16 dereferenceable(28) @__const.Sdm_ManTest.pCut, i64 28, i1 false)
   %2 = tail call noalias dereferenceable_or_null(6752) ptr @calloc(i64 noundef 1, i64 noundef 6752) #26
   tail call void @Sdm_ManPrecomputePerms(ptr noundef %2)
-  %3 = call i32 @Sdm_ManComputeFunc(ptr noundef %2, i32 noundef 4, i32 noundef 6, ptr noundef nonnull %1, i32 noundef 258623, i32 noundef 0), !range !26
+  %3 = call i32 @Sdm_ManComputeFunc(ptr noundef %2, i32 noundef 4, i32 noundef 6, ptr noundef nonnull %1, i32 noundef 258623, i32 noundef 0)
   call void @Sdm_ManFree(ptr noundef %2)
   ret void
 }
@@ -2224,7 +2224,7 @@ Sdm_ManCheckDsd6.exit:                            ; preds = %2
   %.1 = phi i32 [ %39, %30 ], [ %.028, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %41, label %.preheader, !llvm.loop !27
+  br i1 %exitcond.not, label %41, label %.preheader, !llvm.loop !26
 
 41:                                               ; preds = %40
   %42 = add i32 %.1, -2
@@ -2332,7 +2332,7 @@ define void @Sdm_ManDivTest() local_unnamed_addr #2 {
   store ptr %6, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %11, label %5, !llvm.loop !28
+  br i1 %exitcond.not, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   call void @Sdm_ManDivCollect_rec(i64 noundef 4557642819526735616, ptr noundef nonnull %3)
@@ -2382,7 +2382,7 @@ define void @Sdm_ManDivTest() local_unnamed_addr #2 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next.i, %35
-  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !29
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %33, %18
   %.0.lcssa.i = phi i32 [ 1, %18 ], [ %.1.i, %33 ]
@@ -2392,7 +2392,7 @@ define void @Sdm_ManDivTest() local_unnamed_addr #2 {
 Vec_WrdUniqify.exit:                              ; preds = %12, %._crit_edge.i
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 5
-  br i1 %exitcond50.not, label %37, label %12, !llvm.loop !30
+  br i1 %exitcond50.not, label %37, label %12, !llvm.loop !29
 
 37:                                               ; preds = %Vec_WrdUniqify.exit
   %38 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
@@ -2475,7 +2475,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   store i64 %45, ptr %71, align 8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 6
-  br i1 %exitcond54.not, label %.preheader38, label %thread-pre-split, !llvm.loop !31
+  br i1 %exitcond54.not, label %.preheader38, label %thread-pre-split, !llvm.loop !30
 
 .preheader38:                                     ; preds = %Vec_WrdPush.exit, %Vec_WrdAppend.exit
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %Vec_WrdAppend.exit ], [ 2, %Vec_WrdPush.exit ]
@@ -2560,12 +2560,12 @@ Vec_WrdPush.exit.i:                               ; preds = %101, %Vec_WrdGrow.e
   %.val.i = load i32, ptr %74, align 4
   %107 = sext i32 %.val.i to i64
   %108 = icmp slt i64 %indvars.iv.next.i33, %107
-  br i1 %108, label %77, label %Vec_WrdAppend.exit, !llvm.loop !32
+  br i1 %108, label %77, label %Vec_WrdAppend.exit, !llvm.loop !31
 
 Vec_WrdAppend.exit:                               ; preds = %Vec_WrdPush.exit.i, %.preheader38
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 5
-  br i1 %exitcond58.not, label %.preheader37, label %.preheader38, !llvm.loop !33
+  br i1 %exitcond58.not, label %.preheader37, label %.preheader38, !llvm.loop !32
 
 .preheader:                                       ; preds = %Vec_WrdFree.exit
   %.val44 = load i32, ptr %39, align 4
@@ -2589,7 +2589,7 @@ Vec_WrdFree.exit:                                 ; preds = %.preheader37, %114
   call void @free(ptr noundef nonnull %111) #24
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 5
-  br i1 %exitcond62.not, label %.preheader, label %.preheader37, !llvm.loop !34
+  br i1 %exitcond62.not, label %.preheader, label %.preheader37, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.545 = phi i32 [ %116, %.lr.ph ], [ 0, %.preheader ]
@@ -2597,7 +2597,7 @@ Vec_WrdFree.exit:                                 ; preds = %.preheader37, %114
   %putchar = call i32 @putchar(i32 10)
   %116 = add nuw nsw i32 %.545, 1
   %117 = icmp slt i32 %116, %.val44
-  br i1 %117, label %.lr.ph, label %.critedge, !llvm.loop !35
+  br i1 %117, label %.lr.ph, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
   %118 = call i32 @Rsb_ManPerformResub6(ptr noundef %4, i32 noundef 6, i64 noundef 4557642819526735616, ptr noundef nonnull %38, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #24
@@ -2689,7 +2689,7 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_WrdSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #18 {
+define internal range(i32 -1, 2) i32 @Vec_WrdSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #18 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp ult i64 %3, %4
@@ -2781,7 +2781,7 @@ attributes #28 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = !{i32 -32768, i32 32768}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
@@ -2790,4 +2790,3 @@ attributes #28 = { nounwind willreturn memory(read) }
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}

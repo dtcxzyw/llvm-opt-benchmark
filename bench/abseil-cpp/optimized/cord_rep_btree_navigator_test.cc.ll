@@ -869,7 +869,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestEEE, i64 0) #27
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestEEE, i64 0) #27
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -3555,7 +3555,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   store ptr %call.i5, ptr %add.ptr.i6, align 8
   br label %if.end
 
-lpad:                                             ; preds = %invoke.cont31, %invoke.cont27, %if.then.i12, %invoke.cont19, %invoke.cont15, %if.then.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit, %entry, %if.end, %invoke.cont2, %invoke.cont
+lpad:                                             ; preds = %invoke.cont31, %invoke.cont27, %if.then.i13, %invoke.cont19, %invoke.cont15, %if.then.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit, %entry, %if.end, %invoke.cont2, %invoke.cont
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load ptr, ptr %flats_, align 8
@@ -3573,61 +3573,61 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit9: ; preds = %lpad,
 
 if.else:                                          ; preds = %invoke.cont11
   %18 = load ptr, ptr %8, align 8
-  %refcount.i10 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = atomicrmw sub ptr %refcount.i10, i32 2 acq_rel, align 4
-  %cmp.i.not.i11 = icmp eq i32 %19, 2
-  br i1 %cmp.i.not.i11, label %if.then.i12, label %invoke.cont27
+  %refcount.i11 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = atomicrmw sub ptr %refcount.i11, i32 2 acq_rel, align 4
+  %cmp.i.not.i12 = icmp eq i32 %19, 2
+  br i1 %cmp.i.not.i12, label %if.then.i13, label %invoke.cont27
 
-if.then.i12:                                      ; preds = %if.else
+if.then.i13:                                      ; preds = %if.else
   invoke void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef %18)
           to label %invoke.cont27 unwind label %lpad
 
-invoke.cont27:                                    ; preds = %if.else, %if.then.i12
+invoke.cont27:                                    ; preds = %if.else, %if.then.i13
   %call30 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %data_) #27
   %20 = extractvalue { i64, ptr } %call30, 0
-  %cmp.i.i.i15 = icmp ult i64 %20, 20
-  %spec.store.select.i.i.i16 = call i64 @llvm.umin.i64(i64 %20, i64 4083)
-  %21 = add nuw nsw i64 %spec.store.select.i.i.i16, 13
-  %len.addr.0.i.i.i17 = select i1 %cmp.i.i.i15, i64 32, i64 %21
-  %cmp.i.i.i.i18 = icmp ult i64 %len.addr.0.i.i.i17, 513
-  %conv.i.neg.i.i.i19 = select i1 %cmp.i.i.i.i18, i64 -8, i64 -64
-  %conv.i.i.i.i20 = select i1 %cmp.i.i.i.i18, i64 8, i64 64
-  %add.i.i.i.i.i21 = add nsw i64 %len.addr.0.i.i.i17, -1
-  %sub.i.i.i.i.i22 = add nuw nsw i64 %add.i.i.i.i.i21, %conv.i.i.i.i20
-  %and.i.i.i.i.i23 = and i64 %sub.i.i.i.i.i22, %conv.i.neg.i.i.i19
-  %call4.i.i.i33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i23) #32
+  %cmp.i.i.i16 = icmp ult i64 %20, 20
+  %spec.store.select.i.i.i17 = call i64 @llvm.umin.i64(i64 %20, i64 4083)
+  %21 = add nuw nsw i64 %spec.store.select.i.i.i17, 13
+  %len.addr.0.i.i.i18 = select i1 %cmp.i.i.i16, i64 32, i64 %21
+  %cmp.i.i.i.i19 = icmp ult i64 %len.addr.0.i.i.i18, 513
+  %conv.i.neg.i.i.i20 = select i1 %cmp.i.i.i.i19, i64 -8, i64 -64
+  %conv.i.i.i.i21 = select i1 %cmp.i.i.i.i19, i64 8, i64 64
+  %add.i.i.i.i.i22 = add nsw i64 %len.addr.0.i.i.i18, -1
+  %sub.i.i.i.i.i23 = add nuw nsw i64 %add.i.i.i.i.i22, %conv.i.i.i.i21
+  %and.i.i.i.i.i24 = and i64 %sub.i.i.i.i.i23, %conv.i.neg.i.i.i20
+  %call4.i.i.i34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i24) #32
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %invoke.cont27
   %22 = extractvalue { i64, ptr } %call30, 1
-  %23 = getelementptr inbounds i8, ptr %call4.i.i.i33, i64 8
+  %23 = getelementptr inbounds i8, ptr %call4.i.i.i34, i64 8
   store i64 2, ptr %23, align 8
-  %cmp.i.i.i.i.i25 = icmp ult i64 %and.i.i.i.i.i23, 513
-  %.sink8.i.i.i.i.i26 = select i1 %cmp.i.i.i.i.i25, i64 3, i64 6
-  %.sink.i.i.i.i.i27 = select i1 %cmp.i.i.i.i.i25, i64 2, i64 58
-  %div36.i.i.i.i.i28 = lshr i64 %and.i.i.i.i.i23, %.sink8.i.i.i.i.i26
-  %sub.i.i5.i.i.i29 = add nuw nsw i64 %div36.i.i.i.i.i28, %.sink.i.i.i.i.i27
-  %conv.i.i.i.i.i30 = trunc i64 %sub.i.i5.i.i.i29 to i8
-  %tag.i.i.i31 = getelementptr inbounds i8, ptr %call4.i.i.i33, i64 12
-  store i8 %conv.i.i.i.i.i30, ptr %tag.i.i.i31, align 4
-  store i64 %20, ptr %call4.i.i.i33, align 8
-  %storage.i.i32 = getelementptr inbounds i8, ptr %call4.i.i.i33, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i32, ptr align 1 %22, i64 %20, i1 false)
-  %call.i39 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %cmp.i.i.i.i.i26 = icmp ult i64 %and.i.i.i.i.i24, 513
+  %.sink8.i.i.i.i.i27 = select i1 %cmp.i.i.i.i.i26, i64 3, i64 6
+  %.sink.i.i.i.i.i28 = select i1 %cmp.i.i.i.i.i26, i64 2, i64 58
+  %div36.i.i.i.i.i29 = lshr i64 %and.i.i.i.i.i24, %.sink8.i.i.i.i.i27
+  %sub.i.i5.i.i.i30 = add nuw nsw i64 %div36.i.i.i.i.i29, %.sink.i.i.i.i.i28
+  %conv.i.i.i.i.i31 = trunc i64 %sub.i.i5.i.i.i30 to i8
+  %tag.i.i.i32 = getelementptr inbounds i8, ptr %call4.i.i.i34, i64 12
+  store i8 %conv.i.i.i.i.i31, ptr %tag.i.i.i32, align 4
+  store i64 %20, ptr %call4.i.i.i34, align 8
+  %storage.i.i33 = getelementptr inbounds i8, ptr %call4.i.i.i34, i64 13
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i33, ptr align 1 %22, i64 %20, i1 false)
+  %call.i40 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  %refcount.i.i.i35 = getelementptr inbounds i8, ptr %call.i39, i64 8
-  store i32 2, ptr %refcount.i.i.i35, align 4
-  %tag.i36 = getelementptr inbounds i8, ptr %call.i39, i64 12
-  store i8 1, ptr %tag.i36, align 4
-  %start1.i37 = getelementptr inbounds i8, ptr %call.i39, i64 16
-  store i64 0, ptr %start1.i37, align 8
-  store i64 3, ptr %call.i39, align 8
-  %child.i38 = getelementptr inbounds i8, ptr %call.i39, i64 24
-  store ptr %call4.i.i.i33, ptr %child.i38, align 8
+  %refcount.i.i.i36 = getelementptr inbounds i8, ptr %call.i40, i64 8
+  store i32 2, ptr %refcount.i.i.i36, align 4
+  %tag.i37 = getelementptr inbounds i8, ptr %call.i40, i64 12
+  store i8 1, ptr %tag.i37, align 4
+  %start1.i38 = getelementptr inbounds i8, ptr %call.i40, i64 16
+  store i64 0, ptr %start1.i38, align 8
+  store i64 3, ptr %call.i40, align 8
+  %child.i39 = getelementptr inbounds i8, ptr %call.i40, i64 24
+  store ptr %call4.i.i.i34, ptr %child.i39, align 8
   %24 = load ptr, ptr %flats_, align 8
-  store ptr %call.i39, ptr %24, align 8
+  store ptr %call.i40, ptr %24, align 8
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont33, %invoke.cont21
@@ -4715,7 +4715,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add = add nuw nsw i64 %sub, 1
-  %div.rhs.trunc = trunc i64 %add to i32
+  %div.rhs.trunc = trunc nuw i64 %add to i32
   %div22 = udiv i32 2147483645, %div.rhs.trunc
   %div.zext = zext nneg i32 %div22 to i64
   %mul = mul nuw nsw i64 %add, %div.zext

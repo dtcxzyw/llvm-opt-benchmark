@@ -217,7 +217,7 @@ define hidden void @proto_reg_handoff_smb_direct() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_smb_direct_iwarp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_smb_direct_iwarp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %12, label %6
 
@@ -242,7 +242,7 @@ define internal noundef i32 @dissect_smb_direct_iwarp_heur(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_smb_direct_infiniband_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_smb_direct_infiniband_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %dissect_smb_direct_infiniband.exit, label %6
 
@@ -280,7 +280,7 @@ dissect_smb_direct_infiniband.exit:               ; preds = %4, %6, %9, %12
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @is_smb_direct(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %3 = icmp ult i32 %2, 20
   br i1 %3, label %.thread, label %4

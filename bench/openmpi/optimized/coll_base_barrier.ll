@@ -107,7 +107,7 @@ define i32 @ompi_coll_base_barrier_intra_recursivedoubling(ptr noundef %0, ptr n
   %11 = getelementptr i8, ptr %0, i64 220
   %.val64 = load i32, ptr %11, align 4
   %12 = icmp eq i32 %.val.val, 0
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %.val.val, i1 true), !range !4
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val.val, i1 true)
   %narrow.i = sub nuw nsw i32 32, %13
   %14 = shl nuw i32 1, %narrow.i
   %15 = ashr i32 %14, 1
@@ -215,7 +215,7 @@ ompi_coll_base_sendrecv_zero.exit:                ; preds = %25
 
 .backedge:                                        ; preds = %.lr.ph, %ompi_coll_base_sendrecv_zero.exit77
   %57 = icmp slt i32 %56, %16
-  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 58:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -396,7 +396,7 @@ ompi_coll_base_sendrecv_zero.exit.thread:         ; preds = %ompi_request_cancel
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %43 = shl i32 %.01824, 1
   %44 = icmp slt i32 %43, %.val.val
-  br i1 %44, label %12, label %.loopexit, !llvm.loop !7
+  br i1 %44, label %12, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %42, %8, %ompi_coll_base_sendrecv_zero.exit.thread, %2
   %.0 = phi i32 [ 0, %2 ], [ %.011.i.ph, %ompi_coll_base_sendrecv_zero.exit.thread ], [ 0, %8 ], [ 0, %42 ]
@@ -535,7 +535,7 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
 21:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
@@ -560,7 +560,7 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
 30:                                               ; preds = %.lr.ph74
   %31 = add nuw nsw i32 %.173, 1
   %exitcond89.not = icmp eq i32 %31, %.val.val
-  br i1 %exitcond89.not, label %.thread, label %.lr.ph74, !llvm.loop !9
+  br i1 %exitcond89.not, label %.thread, label %.lr.ph74, !llvm.loop !8
 
 .lr.ph74:                                         ; preds = %.preheader69, %30
   %.173 = phi i32 [ %31, %30 ], [ 1, %.preheader69 ]
@@ -600,7 +600,7 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
 42:                                               ; preds = %39, %39, %.lr.ph78
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph78, !llvm.loop !10
+  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph78, !llvm.loop !9
 
 .loopexit:                                        ; preds = %42, %39, %.loopexit71
   %.147 = phi i32 [ %.046, %.loopexit71 ], [ 18, %42 ], [ %41, %39 ]
@@ -650,7 +650,7 @@ ompi_request_cancel.exit.i:                       ; preds = %52, %49
 60:                                               ; preds = %56, %ompi_request_cancel.exit.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !10
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %60, %.loopexit
   %61 = icmp eq i32 %.147.fr, 76
@@ -677,7 +677,7 @@ define i32 @ompi_coll_base_barrier_intra_tree(ptr noundef %0, ptr nocapture noun
   %7 = getelementptr i8, ptr %0, i64 220
   %.val64 = load i32, ptr %7, align 4
   %8 = add nsw i32 %.val.val, -1
-  %9 = tail call i32 @llvm.ctlz.i32(i32 %8, i1 true), !range !4
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %narrow.i = sub nuw nsw i32 32, %9
   %10 = shl nuw i32 1, %narrow.i
   %.inv.i = icmp sgt i32 %.val.val, 1
@@ -718,7 +718,7 @@ define i32 @ompi_coll_base_barrier_intra_tree(ptr noundef %0, ptr nocapture noun
 26:                                               ; preds = %.lr.ph, %21, %23, %18
   %27 = shl i32 %.067, 1
   %28 = icmp slt i32 %27, %.0.i
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %26, %6
   %29 = ashr i32 %.0.i, 1
@@ -758,7 +758,7 @@ define i32 @ompi_coll_base_barrier_intra_tree(ptr noundef %0, ptr nocapture noun
 45:                                               ; preds = %.lr.ph70, %40, %42, %37
   %46 = lshr i32 %.168, 1
   %.not75 = icmp ult i32 %.168, 2
-  br i1 %.not75, label %.loopexit, label %.lr.ph70, !llvm.loop !13
+  br i1 %.not75, label %.loopexit, label %.lr.ph70, !llvm.loop !12
 
 .loopexit:                                        ; preds = %23, %18, %37, %42, %45, %._crit_edge, %2
   %.047 = phi i32 [ 0, %2 ], [ 0, %._crit_edge ], [ %39, %37 ], [ %44, %42 ], [ 0, %45 ], [ %25, %23 ], [ %20, %18 ]
@@ -786,13 +786,12 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

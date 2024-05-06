@@ -137,7 +137,7 @@ declare void @sysbus_pass_irq(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @qdev_get_child_bus(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @cadence_sdhci_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #2 {
+define internal range(i64 0, 4294967296) i64 @cadence_sdhci_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #2 {
 entry:
   %regs = getelementptr inbounds i8, ptr %opaque, i64 1368
   %div1 = lshr i64 %addr, 2

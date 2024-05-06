@@ -14,7 +14,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_reciprocal_v
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_reciprocal_value6, ptr @__UNIQUE_ID___addressable_reciprocal_value_adv11], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @reciprocal_value(i32 noundef %0) #0 align 16 {
+define dso_local range(i64 0, 281474976710656) i64 @reciprocal_value(i32 noundef %0) #0 align 16 {
   %2 = add i32 %0, -1
   %3 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %2, i32 -1) #4, !srcloc !5
   %4 = add i32 %3, 1
@@ -40,7 +40,7 @@ define dso_local i64 @reciprocal_value(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @reciprocal_value_adv(i32 noundef %0, i8 noundef zeroext %1) #1 align 16 {
+define dso_local range(i64 0, 562949953421312) i64 @reciprocal_value_adv(i32 noundef %0, i8 noundef zeroext %1) #1 align 16 {
   %3 = add i32 %0, -1
   %4 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %3, i32 -1) #4, !srcloc !5
   %5 = add i32 %4, 1

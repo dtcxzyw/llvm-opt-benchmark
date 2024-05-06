@@ -153,7 +153,7 @@ define internal i32 @_sort_by_cluster_name(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_job_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @_sort_by_job_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -171,7 +171,7 @@ define internal i32 @_sort_by_job_id(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_nice_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8

@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DSA_meth_set1_name(ptr nocapture noundef %dsam, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSA_meth_set1_name(ptr nocapture noundef %dsam, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef %name, ptr noundef nonnull @.str, i32 noundef 70) #5
   %cmp = icmp eq ptr %call, null

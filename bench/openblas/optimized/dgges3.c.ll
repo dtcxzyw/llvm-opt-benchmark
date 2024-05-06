@@ -178,7 +178,7 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 110:                                              ; preds = %105
   %111 = load i32, ptr %18, align 4, !tbaa !3
-  %112 = mul nsw i32 %91, 6
+  %112 = mul nuw nsw i32 %91, 6
   %113 = add nuw nsw i32 %112, 16
   %114 = icmp sge i32 %111, %113
   %115 = select i1 %114, i1 true, i1 %82

@@ -145,7 +145,7 @@ define void @Abc_NtkCutCostMuxPrecompute() local_unnamed_addr #0 {
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_NtkCutCostMux(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 -2147483648, 2147483647) i32 @Abc_NtkCutCostMux(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i64, ptr %3, align 4
   %5 = trunc i64 %4 to i32

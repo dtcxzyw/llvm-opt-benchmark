@@ -16,7 +16,7 @@ define i32 @Kit_TruthWordNum_64bit(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @Kit_WordCountOnes_64bit(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @Kit_WordCountOnes_64bit(i64 noundef %0) local_unnamed_addr #0 {
   %2 = lshr i64 %0, 1
   %3 = and i64 %2, 6148914691236517205
   %4 = sub i64 %0, %3
@@ -126,7 +126,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %27 = add nuw nsw i64 %26, %25
   %28 = trunc i64 %27 to i32
   %29 = and i32 %28, 255
-  %30 = trunc i64 %indvars.iv82 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv82 to i32
   br label %31
 
 31:                                               ; preds = %.lr.ph.us, %41
@@ -839,7 +839,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i72, 
   store i8 %55, ptr %56, align 1
   store i32 %51, ptr %53, align 4
   store i32 %49, ptr %50, align 4
-  %58 = trunc i64 %indvars.iv103 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv103 to i32
   %59 = lshr i32 %.495.us, %58
   %60 = shl nuw i32 2, %58
   %61 = and i32 %.495.us, %60
@@ -965,7 +965,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %83, %.lr.ph62.i.us,
   br i1 %.not69, label %124, label %155
 
 124:                                              ; preds = %120
-  %125 = trunc i64 %indvars.iv to i32
+  %125 = trunc nuw nsw i64 %indvars.iv to i32
   %126 = shl nuw i32 1, %125
   %127 = or i32 %.192, %126
   store i32 %123, ptr %121, align 4
@@ -1160,7 +1160,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92, 
   %63 = load <2 x i32>, ptr %54, align 4
   %64 = shufflevector <2 x i32> %63, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %64, ptr %54, align 4
-  %65 = trunc i64 %indvars.iv126 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv126 to i32
   %66 = lshr i32 %.4118.us, %65
   %67 = shl nuw i32 2, %65
   %68 = and i32 %.4118.us, %67
@@ -1299,7 +1299,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %90, %.lr.ph62.i.us,
   br i1 %135, label %167, label %136
 
 136:                                              ; preds = %133
-  %137 = trunc i64 %indvars.iv to i32
+  %137 = trunc nuw nsw i64 %indvars.iv to i32
   %138 = shl nuw i32 1, %137
   %139 = or i32 %.1115, %138
   store i32 %134, ptr %127, align 4
@@ -1539,7 +1539,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i60, 
   br i1 %10, label %.lr.ph64.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
 
 .lr.ph64.i.us:                                    ; preds = %84
-  %85 = trunc i64 %indvars.iv87 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv87 to i32
   %86 = shl nuw nsw i32 1, %85
   %87 = getelementptr inbounds [5 x [3 x i64]], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 0, i64 %indvars.iv87
   %88 = load i64, ptr %87, align 8
@@ -1604,7 +1604,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %67, %.lr.ph62.i.us,
 .lr.ph38.i:                                       ; preds = %.preheader.i
   %111 = getelementptr inbounds [6 x i64], ptr @mask0, i64 0, i64 %indvars.iv
   %112 = load i64, ptr %111, align 8
-  %113 = trunc i64 %indvars.iv to i32
+  %113 = trunc nuw nsw i64 %indvars.iv to i32
   %114 = shl nuw nsw i32 1, %113
   %115 = zext nneg i32 %114 to i64
   %116 = xor i64 %112, -1

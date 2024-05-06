@@ -817,7 +817,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN16IcuTestErrorCode20errIfFailureAndResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN16IcuTestErrorCode20errIfFailureAndResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %errorCode.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -853,7 +853,7 @@ return:                                           ; preds = %if.else, %invoke.co
 declare noundef i32 @_ZN6icu_759ErrorCode5resetEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN16IcuTestErrorCode20errIfFailureAndResetEPKcz(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN16IcuTestErrorCode20errIfFailureAndResetEPKcz(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca [4000 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -895,7 +895,7 @@ return:                                           ; preds = %if.else, %invoke.co
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN16IcuTestErrorCode24errDataIfFailureAndResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN16IcuTestErrorCode24errDataIfFailureAndResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %errorCode.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -929,7 +929,7 @@ return:                                           ; preds = %if.else, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN16IcuTestErrorCode24errDataIfFailureAndResetEPKcz(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN16IcuTestErrorCode24errDataIfFailureAndResetEPKcz(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca [4000 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -1572,7 +1572,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 declare void @_ZN9RBDataMapC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZNK16RBTestDataModule7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #15 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK16RBTestDataModule7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #15 align 2 {
 entry:
   %fInfo = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fInfo, align 8

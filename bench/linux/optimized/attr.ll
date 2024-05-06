@@ -27,7 +27,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_notify_chang
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_inode_newsize_ok406, ptr @__UNIQUE_ID___addressable_may_setattr408, ptr @__UNIQUE_ID___addressable_notify_change412, ptr @__UNIQUE_ID___addressable_setattr_copy407, ptr @__UNIQUE_ID___addressable_setattr_prepare405, ptr @__UNIQUE_ID___addressable_setattr_should_drop_sgid403, ptr @__UNIQUE_ID___addressable_setattr_should_drop_suidgid404], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @setattr_should_drop_sgid(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 0, 4097) i32 @setattr_should_drop_sgid(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load i16, ptr %1, align 8
   %4 = zext i16 %3 to i32
   %5 = and i32 %4, 1024
@@ -60,7 +60,7 @@ define dso_local i32 @setattr_should_drop_sgid(ptr noundef %0, ptr noundef %1) #
 declare dso_local zeroext i1 @in_group_or_capable(ptr noundef, ptr noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @setattr_should_drop_suidgid(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 0, 8192) i32 @setattr_should_drop_suidgid(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load i16, ptr %1, align 8
   %4 = zext i16 %3 to i32
   %5 = and i32 %4, 2048
@@ -343,7 +343,7 @@ define dso_local i32 @setattr_prepare(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inode_newsize_ok(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -27, 1) i32 @inode_newsize_ok(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %29, label %4
 

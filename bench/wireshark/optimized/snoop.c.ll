@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @shomiti_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @snoop_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca %struct.snoop_hdr, align 4
   %6 = alloca %struct.snooprec_hdr, align 4
@@ -231,7 +231,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @snoop_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @snoop_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #7
   store i64 %8, ptr %5, align 8
@@ -257,7 +257,7 @@ define internal noundef i32 @snoop_read(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @snoop_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @snoop_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
@@ -372,7 +372,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %2, i64 80
-  %41 = call fastcc i32 @snoop_read_atm_pseudoheader(ptr noundef %1, ptr noundef nonnull %40, ptr noundef %4, ptr noundef %5), !range !4
+  %41 = call fastcc i32 @snoop_read_atm_pseudoheader(ptr noundef %1, ptr noundef nonnull %40, ptr noundef %4, ptr noundef %5)
   %.not81 = icmp eq i32 %41, 0
   br i1 %.not81, label %101, label %42
 
@@ -408,7 +408,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %2, i64 80
-  %57 = call fastcc i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %1, ptr noundef nonnull %56, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %8), !range !4
+  %57 = call fastcc i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %1, ptr noundef nonnull %56, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %8)
   %.not79 = icmp eq i32 %57, 0
   br i1 %.not79, label %101, label %58
 
@@ -492,7 +492,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @snoop_read_atm_pseudoheader(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @snoop_read_atm_pseudoheader(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.snoop_atm_hdr, align 2
   %6 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 4, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %6, 0
@@ -568,7 +568,7 @@ switch.lookup:                                    ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.shomiti_wireless_header, align 1
   %7 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 12, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %7, 0
@@ -661,7 +661,7 @@ declare void @atm_guess_lane_type(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @snoop_dump_can_write_encap(i32 noundef %0) #4 {
+define internal range(i32 -9, 1) i32 @snoop_dump_can_write_encap(i32 noundef %0) #4 {
   %2 = icmp eq i32 %0, -1
   br i1 %2, label %9, label %3
 
@@ -683,7 +683,7 @@ define internal i32 @snoop_dump_can_write_encap(i32 noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @snoop_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @snoop_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.snoop_hdr, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @snoop_dump, ptr %5, align 8
@@ -712,7 +712,7 @@ define internal i32 @snoop_dump_open(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @snoop_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.snooprec_hdr, align 4
   %7 = alloca %struct.snoop_atm_hdr, align 2
   %8 = getelementptr inbounds i8, ptr %1, i64 64
@@ -890,4 +890,3 @@ attributes #8 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

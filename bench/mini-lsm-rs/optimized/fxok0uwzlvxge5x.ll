@@ -5184,7 +5184,7 @@ define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$16insert_o
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.sroa.01.0.copyload.i, ptr %0, align 8, !alias.scope !1669, !noalias !1672
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.42.0..sroa_idx.i, i64 72, i1 false), !alias.scope !1674
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.42.0..sroa_idx.i, i64 72, i1 false), !alias.scope !1674
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$10ok_or_else17h5bedf8c00c823397E.llvm.4598255899691141044.exit"
@@ -5281,7 +5281,7 @@ define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_i
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.sroa.03.0.copyload.i, ptr %0, align 8, !alias.scope !1683, !noalias !1686
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.44.0..sroa_idx.i, i64 16, i1 false), !alias.scope !1688
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.44.0..sroa_idx.i, i64 16, i1 false), !alias.scope !1688
   br label %"_ZN4core6option15Option$LT$T$GT$10ok_or_else17h8f49ee56c2e45354E.llvm.4598255899691141044.exit"
 
 13:                                               ; preds = %9
@@ -5357,7 +5357,7 @@ define hidden void @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_i
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.sroa.03.0.copyload.i, ptr %0, align 8, !alias.scope !1697, !noalias !1700
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, i64 32, i1 false), !alias.scope !1702
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, i64 32, i1 false), !alias.scope !1702
   br label %"_ZN4core6option15Option$LT$T$GT$10ok_or_else17h651c88e5ede3d282E.llvm.4598255899691141044.exit"
 
 13:                                               ; preds = %9
@@ -6317,7 +6317,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %91, %_ZN3
   store <2 x i64> %77, ptr %7, align 16, !alias.scope !1978, !noalias !1981
   store <2 x i64> %79, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 16, !alias.scope !1978, !noalias !1981
   store <2 x i64> %75, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i, align 16, !alias.scope !1978, !noalias !1981
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i, i8 0, i64 24, i1 false), !alias.scope !1978, !noalias !1981
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i, i8 0, i64 24, i1 false), !alias.scope !1978, !noalias !1981
   call void @llvm.experimental.noalias.scope.decl(metadata !1983)
   %129 = load ptr, ptr %127, align 8, !alias.scope !1986, !noalias !1987, !nonnull !4, !noundef !4
   %130 = getelementptr inbounds i8, ptr %129, i64 16
@@ -7209,7 +7209,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %91, %_ZN3
   store <2 x i64> %77, ptr %7, align 16, !alias.scope !2070, !noalias !2073
   store <2 x i64> %79, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 16, !alias.scope !2070, !noalias !2073
   store <2 x i64> %75, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i, align 16, !alias.scope !2070, !noalias !2073
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i, i8 0, i64 24, i1 false), !alias.scope !2070, !noalias !2073
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i, i8 0, i64 24, i1 false), !alias.scope !2070, !noalias !2073
   call void @llvm.experimental.noalias.scope.decl(metadata !2075)
   %129 = load ptr, ptr %127, align 8, !alias.scope !2078, !noalias !2079, !nonnull !4, !noundef !4
   %130 = getelementptr inbounds i8, ptr %129, i64 16
@@ -8104,7 +8104,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %93, %_ZN3
   store <2 x i64> %78, ptr %8, align 16, !alias.scope !2162, !noalias !2165
   store <2 x i64> %80, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 16, !alias.scope !2162, !noalias !2165
   store <2 x i64> %76, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i, align 16, !alias.scope !2162, !noalias !2165
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i, i8 0, i64 24, i1 false), !alias.scope !2162, !noalias !2165
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i, i8 0, i64 24, i1 false), !alias.scope !2162, !noalias !2165
   call void @llvm.experimental.noalias.scope.decl(metadata !2167)
   call void @llvm.experimental.noalias.scope.decl(metadata !2170)
   %131 = load ptr, ptr %129, align 8, !alias.scope !2173, !noalias !2174, !nonnull !4, !noundef !4
@@ -8841,7 +8841,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i87: ; preds = %455, %.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17h1aa1e11d50c242e2E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17h1aa1e11d50c242e2E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
@@ -8858,7 +8858,7 @@ define hidden noundef i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8ca
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17h5dda0286dcff3937E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17h5dda0286dcff3937E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
@@ -8875,7 +8875,7 @@ define hidden noundef i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8ca
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17h6571f3821d82a705E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$8capacity17h6571f3821d82a705E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
@@ -9403,7 +9403,7 @@ common.resume:                                    ; preds = %57, %19, %15, %26, 
   br label %"_ZN4moka3cht3map6bucket28ValueOrFunction$LT$V$C$F$GT$10into_value17h5a4d1a2163802f7aE.exit"
 
 47:                                               ; preds = %38
-  %48 = invoke fastcc noundef nonnull ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$19do_insert_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17hbb2abe6a8e99f027E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %41)
+  %48 = invoke fastcc noundef nonnull ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$19do_insert_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17hbb2abe6a8e99f027E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %41)
           to label %"_ZN4moka3cht3map6bucket28ValueOrFunction$LT$V$C$F$GT$10into_value17h5a4d1a2163802f7aE.exit" unwind label %57
 
 "_ZN4moka3cht3map6bucket28ValueOrFunction$LT$V$C$F$GT$10into_value17h5a4d1a2163802f7aE.exit": ; preds = %45, %47
@@ -9459,7 +9459,7 @@ define hidden noundef i64 @_ZN4moka3cht3map6bucket4hash17h17bcbab635d73157E(ptr 
   store <2 x i64> %11, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !2289, !noalias !2292
   store <2 x i64> %7, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !2289, !noalias !2292
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !2289, !noalias !2292
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !2289, !noalias !2292
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2294)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2297)
   %12 = load ptr, ptr %1, align 8, !alias.scope !2300, !noalias !2301, !nonnull !4, !noundef !4
@@ -9578,7 +9578,7 @@ define hidden noundef i64 @_ZN4moka3cht3map6bucket4hash17h545e8d455f803e70E(ptr 
   store <2 x i64> %10, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !2342, !noalias !2345
   store <2 x i64> %6, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !2342, !noalias !2345
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !2342, !noalias !2345
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !2342, !noalias !2345
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2347)
   %11 = load ptr, ptr %1, align 8, !alias.scope !2347, !noalias !2350, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 16

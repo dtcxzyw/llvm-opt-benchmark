@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @regcache_flat_ops = dso_local local_unnamed_addr global %struct.regcache_ops { ptr @.str, i32 2, ptr @regcache_flat_init, ptr @regcache_flat_exit, ptr null, ptr @regcache_flat_read, ptr @regcache_flat_write, ptr null, ptr null }, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @regcache_flat_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @regcache_flat_init(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

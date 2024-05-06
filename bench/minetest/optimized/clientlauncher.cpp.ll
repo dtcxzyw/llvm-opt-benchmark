@@ -348,7 +348,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.33 = private unnamed_addr constant [13 x i8] c"random_input\00", align 1
 @.str.34 = private unnamed_addr constant [13 x i8] c"random-input\00", align 1
 @.str.35 = private unnamed_addr constant [17 x i8] c"enable_joysticks\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.36 = private unnamed_addr constant [25 x i8] c"Joystick support enabled\00", align 1
 @.str.37 = private unnamed_addr constant [37 x i8] c"Could not activate joystick support.\00", align 1
 @.str.38 = private unnamed_addr constant [12 x i8] c"gui_scaling\00", align 1
@@ -5603,7 +5603,7 @@ if.then.i.i.i639:                                 ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %119 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %119 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %119, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -9537,15 +9537,15 @@ entry:
 
 invoke.cont.i.1:                                  ; preds = %entry, %invoke.cont.i.1
   %arrayctor.cur.idx.i6 = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i.1, %invoke.cont.i.1 ]
-  %1 = getelementptr i8, ptr %keycache, i64 %arrayctor.cur.idx.i6
-  %arrayctor.cur.ptr.i.1 = getelementptr i8, ptr %1, i64 40
+  %1 = getelementptr inbounds i8, ptr %keycache, i64 %arrayctor.cur.idx.i6
+  %arrayctor.cur.ptr.i.1 = getelementptr inbounds i8, ptr %1, i64 40
   store i32 256, ptr %arrayctor.cur.ptr.i.1, align 8, !tbaa !268
-  %Char.i.i.1 = getelementptr i8, ptr %1, i64 44
+  %Char.i.i.1 = getelementptr inbounds i8, ptr %1, i64 44
   store i32 0, ptr %Char.i.i.1, align 4, !tbaa !264
-  %m_name.i.i.1 = getelementptr i8, ptr %1, i64 48
-  %2 = getelementptr i8, ptr %1, i64 64
+  %m_name.i.i.1 = getelementptr inbounds i8, ptr %1, i64 48
+  %2 = getelementptr inbounds i8, ptr %1, i64 64
   store ptr %2, ptr %m_name.i.i.1, align 8, !tbaa !37
-  %_M_string_length.i.i.i.i.i.i.1 = getelementptr i8, ptr %1, i64 56
+  %_M_string_length.i.i.i.i.i.i.1 = getelementptr inbounds i8, ptr %1, i64 56
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.1, align 8, !tbaa !11
   store i8 0, ptr %2, align 8, !tbaa !34
   %arrayctor.cur.add.i.1 = add nuw nsw i64 %arrayctor.cur.idx.i6, 80

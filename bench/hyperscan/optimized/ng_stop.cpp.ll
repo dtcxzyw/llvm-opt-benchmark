@@ -623,7 +623,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %cmp.not.i.i.i29, label %invoke.cont48, label %for.body.i.i.i
 
 invoke.cont48:                                    ; preds = %for.body.i.i.i
-  %21 = trunc i64 %indvars.iv76 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv76 to i32
   %shl = shl nuw nsw i32 1, %21
   br label %for.body.i.i
 
@@ -641,13 +641,13 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.body.i.i
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 6
-  %23 = call noundef i64 @llvm.cttz.i64(i64 %22, i1 true), !range !11
+  %23 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %22, i1 true)
   %add.i.i = or disjoint i64 %23, %mul.i.i
   %cmp53.not67 = icmp eq i64 %add.i.i, 256
   br i1 %cmp53.not67, label %for.inc63, label %for.body54.lr.ph
 
 for.body54.lr.ph:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
-  %24 = trunc i32 %shl to i8
+  %24 = trunc nuw i32 %shl to i8
   %add.ptr.i3097 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i27, i64 %add.i.i
   %25 = load i8, ptr %add.ptr.i3097, align 1
   %conv5898 = or i8 %25, %24
@@ -675,7 +675,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i34 = and i64 %c.068100, 192
-  %27 = call i64 @llvm.cttz.i64(i64 %and.i.i, i1 true), !range !12
+  %27 = call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 true)
   %add9.i.i = or disjoint i64 %27, %mul.i.i34
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
@@ -689,11 +689,11 @@ for.body.i.i35:                                   ; preds = %for.cond.i.i
   %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %i.0.i.i
   %28 = load i64, ptr %arrayidx.i.i13.i.i, align 8
   %tobool17.not.i.i = icmp eq i64 %28, 0
-  br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !13
+  br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !11
 
 if.then18.i.i:                                    ; preds = %for.body.i.i35
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i, 6
-  %29 = call noundef i64 @llvm.cttz.i64(i64 %28, i1 true), !range !11
+  %29 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %28, i1 true)
   %add21.i.i = or disjoint i64 %29, %mul19.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
@@ -714,7 +714,7 @@ lpad39:                                           ; preds = %for.end36
 for.inc63:                                        ; preds = %for.inc.i.i, %_ZNK3ue29CharReach9find_nextEm.exit, %for.cond.i.i, %for.body54.lr.ph, %_ZNK3ue29CharReach10find_firstEv.exit
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 8
-  br i1 %exitcond79.not, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %for.body44, !llvm.loop !14
+  br i1 %exitcond79.not, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %for.body44, !llvm.loop !12
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %for.inc63
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i19) #14
@@ -774,9 +774,9 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %entry
   %__begin0.0.idx5.i.i.i = phi i64 [ 0, %entry ], [ %__begin0.0.add.i.i.i, %for.body.i.i.i ]
   %__begin0.0.ptr.i.i.i = getelementptr inbounds i8, ptr %escape, i64 %__begin0.0.idx5.i.i.i
-  %0 = load i64, ptr %__begin0.0.ptr.i.i.i, align 8, !alias.scope !15
+  %0 = load i64, ptr %__begin0.0.ptr.i.i.i, align 8, !alias.scope !13
   %not.i.i.i = xor i64 %0, -1
-  store i64 %not.i.i.i, ptr %__begin0.0.ptr.i.i.i, align 8, !alias.scope !15
+  store i64 %not.i.i.i, ptr %__begin0.0.ptr.i.i.i, align 8, !alias.scope !13
   %__begin0.0.add.i.i.i = add nuw nsw i64 %__begin0.0.idx5.i.i.i, 8
   %cmp.not.i.i.i = icmp eq i64 %__begin0.0.add.i.i.i, 32
   br i1 %cmp.not.i.i.i, label %_ZNK3ue25depthcvjEv.exit, label %for.body.i.i.i
@@ -811,7 +811,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.body.i.i
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 6
-  %3 = tail call noundef i64 @llvm.cttz.i64(i64 %2, i1 true), !range !11
+  %3 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
   %add.i.i = or disjoint i64 %3, %mul.i.i
   %cmp.not20 = icmp eq i64 %add.i.i, 256
   br i1 %cmp.not20, label %nrvo.skipdtor, label %for.body.preheader
@@ -844,7 +844,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i13 = and i64 %c.02142, 192
-  %6 = tail call i64 @llvm.cttz.i64(i64 %and.i.i, i1 true), !range !12
+  %6 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 true)
   %add9.i.i = or disjoint i64 %6, %mul.i.i13
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
@@ -858,11 +858,11 @@ for.body.i.i14:                                   ; preds = %for.cond.i.i
   %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %escape, i64 0, i64 %i.0.i.i
   %7 = load i64, ptr %arrayidx.i.i13.i.i, align 8
   %tobool17.not.i.i = icmp eq i64 %7, 0
-  br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !13
+  br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !11
 
 if.then18.i.i:                                    ; preds = %for.body.i.i14
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i, 6
-  %8 = tail call noundef i64 @llvm.cttz.i64(i64 %7, i1 true), !range !11
+  %8 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
   %add21.i.i = or disjoint i64 %8, %mul19.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
@@ -920,7 +920,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #14
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !18
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !16
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -970,11 +970,9 @@ attributes #17 = { builtin allocsize(0) }
 !8 = distinct !{!8, !9, !"_ZNK3ue29CharReachcoEv: %agg.result"}
 !9 = distinct !{!9, !"_ZNK3ue29CharReachcoEv"}
 !10 = distinct !{!10, !6}
-!11 = !{i64 0, i64 65}
-!12 = !{i64 1, i64 65}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK3ue29CharReachcoEv: %agg.result"}
-!17 = distinct !{!17, !"_ZNK3ue29CharReachcoEv"}
-!18 = distinct !{!18, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK3ue29CharReachcoEv: %agg.result"}
+!15 = distinct !{!15, !"_ZNK3ue29CharReachcoEv"}
+!16 = distinct !{!16, !6}

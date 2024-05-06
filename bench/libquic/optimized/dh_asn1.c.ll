@@ -36,7 +36,7 @@ entry:
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_cb(i32 noundef %operation, ptr nocapture noundef %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
+define internal range(i32 0, 3) i32 @dh_cb(i32 noundef %operation, ptr nocapture noundef %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
 entry:
   switch i32 %operation, label %return [
     i32 0, label %if.then

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [9 x i8] c"password\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_parsenetrc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca %struct.passwd, align 8
   %7 = alloca ptr, align 8
@@ -55,7 +55,7 @@ define dso_local i32 @Curl_parsenetrc(ptr noundef %0, ptr nocapture noundef %1, 
   br label %.thread
 
 21:                                               ; preds = %.thread30
-  %22 = call fastcc i32 @parsenetrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %18), !range !5
+  %22 = call fastcc i32 @parsenetrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %18)
   %23 = load ptr, ptr @Curl_cfree, align 8
   call void %23(ptr noundef nonnull %18) #4
   %24 = load ptr, ptr @Curl_cfree, align 8
@@ -63,7 +63,7 @@ define dso_local i32 @Curl_parsenetrc(ptr noundef %0, ptr nocapture noundef %1, 
   br label %.thread
 
 25:                                               ; preds = %4
-  %26 = tail call fastcc i32 @parsenetrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3), !range !5
+  %26 = tail call fastcc i32 @parsenetrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
   br label %.thread
 
 .thread:                                          ; preds = %10, %21, %25, %19
@@ -81,7 +81,7 @@ declare i32 @geteuid() local_unnamed_addr #2
 declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
@@ -161,7 +161,7 @@ define internal fastcc i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1,
 
 .critedge5:                                       ; preds = %20, %20
   %22 = getelementptr inbounds i8, ptr %.1110, i64 1
-  br label %20, !llvm.loop !6
+  br label %20, !llvm.loop !5
 
 .preheader:                                       ; preds = %20, %26
   %23 = phi i8 [ %.pr, %26 ], [ %21, %20 ]
@@ -179,7 +179,7 @@ define internal fastcc i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1,
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %.0105, i64 1
   %.pr = load i8, ptr %27, align 1
-  br label %.preheader, !llvm.loop !8
+  br label %.preheader, !llvm.loop !7
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds i8, ptr %.1110, i64 1
@@ -203,7 +203,7 @@ define internal fastcc i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1,
   %33 = phi i8 [ %31, %.lr.ph ], [ %42, %40 ]
   %.0102292 = phi i8 [ %.0102.ph304, %.lr.ph ], [ 1, %40 ]
   %.1106291 = phi ptr [ %.1106.ph303, %.lr.ph ], [ %41, %40 ]
-  %34 = trunc i8 %.0102292 to i1
+  %34 = trunc nuw i8 %.0102292 to i1
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
@@ -232,7 +232,7 @@ define internal fastcc i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1,
   %41 = getelementptr inbounds i8, ptr %.1106291, i64 1
   %42 = load i8, ptr %41, align 1
   %.not163.not = icmp eq i8 %42, 0
-  br i1 %.not163.not, label %.thread, label %32, !llvm.loop !9
+  br i1 %.not163.not, label %.thread, label %32, !llvm.loop !8
 
 .outer:                                           ; preds = %39, %35, %36, %37, %38
   %.1 = phi i8 [ 0, %35 ], [ 0, %38 ], [ 0, %37 ], [ 0, %36 ], [ %.0102292, %39 ]
@@ -242,7 +242,7 @@ define internal fastcc i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1,
   %44 = getelementptr inbounds i8, ptr %.1106291, i64 1
   %45 = load i8, ptr %44, align 1
   %.not163.not290 = icmp eq i8 %45, 0
-  br i1 %.not163.not290, label %.thread, label %.lr.ph, !llvm.loop !9
+  br i1 %.not163.not290, label %.thread, label %.lr.ph, !llvm.loop !8
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds i8, ptr %.1106291, i64 1
@@ -327,7 +327,7 @@ define internal fastcc i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1,
   br i1 %.not175, label %97, label %72
 
 72:                                               ; preds = %70, %69
-  %73 = trunc i8 %.1138 to i1
+  %73 = trunc nuw i8 %.1138 to i1
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
@@ -361,7 +361,7 @@ define internal fastcc i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1,
   br i1 %.not173, label %97, label %84
 
 84:                                               ; preds = %82, %81
-  %85 = trunc i8 %.1133 to i1
+  %85 = trunc nuw i8 %.1133 to i1
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %84
@@ -407,7 +407,7 @@ default.unreachable443:                           ; preds = %54
   %.3114 = phi ptr [ %.1112, %55 ], [ %.1112, %57 ], [ %.1112, %59 ], [ %.1112, %61 ], [ %.1112, %62 ], [ %78, %76 ], [ %.1112, %70 ], [ %.1112, %66 ], [ %.1112, %82 ], [ %.1112, %80 ], [ %.1112, %88 ], [ %.1112, %91 ], [ %.1112, %93 ], [ %.1112, %95 ]
   %.2 = phi i32 [ %.1104, %55 ], [ %.1104, %57 ], [ %spec.select189, %59 ], [ %.1104, %61 ], [ %.1104., %62 ], [ %.1104, %76 ], [ %.1104, %70 ], [ %.1104, %66 ], [ %.1104, %82 ], [ %.1104, %80 ], [ %.1104, %88 ], [ %.1104, %91 ], [ %.1104, %93 ], [ %.1104, %95 ]
   %98 = getelementptr inbounds i8, ptr %.3108, i64 1
-  br label %19, !llvm.loop !10
+  br label %19, !llvm.loop !9
 
 .critedge.split:                                  ; preds = %.outer212.split, %52
   %.0143.ph697 = phi ptr [ %.1144, %52 ], [ %.0143.ph698, %.outer212.split ]
@@ -419,7 +419,7 @@ default.unreachable443:                           ; preds = %54
   br i1 %.not183, label %99, label %.critedge.thread
 
 99:                                               ; preds = %.critedge.split
-  %100 = trunc i8 %.0137.ph690 to i1
+  %100 = trunc nuw i8 %.0137.ph690 to i1
   br i1 %100, label %101, label %106
 
 101:                                              ; preds = %99
@@ -437,7 +437,7 @@ default.unreachable443:                           ; preds = %54
   br label %106
 
 106:                                              ; preds = %105, %99
-  %107 = trunc i8 %.0132.ph683 to i1
+  %107 = trunc nuw i8 %.0132.ph683 to i1
   br i1 %107, label %108, label %120
 
 108:                                              ; preds = %106
@@ -512,9 +512,8 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

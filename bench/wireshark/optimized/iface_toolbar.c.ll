@@ -35,7 +35,7 @@ define hidden void @iface_toolbar_remove(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @iface_toolbar_use() local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @iface_toolbar_use() local_unnamed_addr #1 {
   %1 = load ptr, ptr @iface_toolbar_add_cb, align 8
   %.not = icmp ne ptr %1, null
   %2 = zext i1 %.not to i32

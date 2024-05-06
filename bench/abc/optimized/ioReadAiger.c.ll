@@ -232,7 +232,7 @@ define ptr @Io_ReadAiger(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %10 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.2)
+  %10 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.2)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 

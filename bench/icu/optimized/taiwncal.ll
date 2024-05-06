@@ -163,39 +163,39 @@ cond.true.i:                                      ; preds = %if.then
 if.else:                                          ; preds = %land.lhs.true, %entry
   %fStamp.i2 = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load i32, ptr %fStamp.i2, align 4
-  %cmp.i3 = icmp sgt i32 %2, 0
-  br i1 %cmp.i3, label %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7, label %if.then7
+  %cmp.i4 = icmp sgt i32 %2, 0
+  br i1 %cmp.i4, label %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit9, label %if.then7
 
-_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7: ; preds = %if.else
-  %fFields.i6 = getelementptr inbounds i8, ptr %this, i64 12
-  %3 = load i32, ptr %fFields.i6, align 4
+_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit9: ; preds = %if.else
+  %fFields.i7 = getelementptr inbounds i8, ptr %this, i64 12
+  %3 = load i32, ptr %fFields.i7, align 4
   switch i32 %3, label %if.end15 [
     i32 1, label %if.then7
     i32 0, label %if.then11
   ]
 
-if.then7:                                         ; preds = %if.else, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7
-  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 136
-  %4 = load i32, ptr %arrayidx.i9, align 8
-  %arrayidx3.i14 = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load i32, ptr %arrayidx3.i14, align 8
-  %cmp.i10.inv = icmp slt i32 %4, 1
+if.then7:                                         ; preds = %if.else, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit9
+  %arrayidx.i11 = getelementptr inbounds i8, ptr %this, i64 136
+  %4 = load i32, ptr %arrayidx.i11, align 8
+  %arrayidx3.i16 = getelementptr inbounds i8, ptr %this, i64 16
+  %5 = load i32, ptr %arrayidx3.i16, align 8
+  %cmp.i12.inv = icmp slt i32 %4, 1
   %6 = add nsw i32 %5, 1911
-  %add = select i1 %cmp.i10.inv, i32 1912, i32 %6
+  %add = select i1 %cmp.i12.inv, i32 1912, i32 %6
   br label %if.end15
 
-if.then11:                                        ; preds = %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7
-  %arrayidx.i17 = getelementptr inbounds i8, ptr %this, i64 136
-  %7 = load i32, ptr %arrayidx.i17, align 8
-  %arrayidx3.i22 = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load i32, ptr %arrayidx3.i22, align 8
-  %cmp.i18.inv = icmp slt i32 %7, 1
+if.then11:                                        ; preds = %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit9
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %this, i64 136
+  %7 = load i32, ptr %arrayidx.i19, align 8
+  %arrayidx3.i24 = getelementptr inbounds i8, ptr %this, i64 16
+  %8 = load i32, ptr %arrayidx3.i24, align 8
+  %cmp.i20.inv = icmp slt i32 %7, 1
   %9 = sub i32 1912, %8
-  %add13 = select i1 %cmp.i18.inv, i32 1911, i32 %9
+  %add13 = select i1 %cmp.i20.inv, i32 1911, i32 %9
   br label %if.end15
 
-if.end15:                                         ; preds = %cond.true.i, %if.then, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7, %if.then7, %if.then11
-  %year.0 = phi i32 [ %add, %if.then7 ], [ %add13, %if.then11 ], [ 1970, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7 ], [ %1, %cond.true.i ], [ 1970, %if.then ]
+if.end15:                                         ; preds = %cond.true.i, %if.then, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit9, %if.then7, %if.then11
+  %year.0 = phi i32 [ %add, %if.then7 ], [ %add13, %if.then11 ], [ 1970, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit9 ], [ %1, %cond.true.i ], [ 1970, %if.then ]
   ret i32 %year.0
 }
 

@@ -404,7 +404,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i64 [ %2, %cond.true ], [ 65536, %entry ]
   %size1 = getelementptr inbounds i8, ptr %call.i, i64 152
   store i64 %cond, ptr %size1, align 8
-  %3 = tail call i64 @llvm.ctpop.i64(i64 %cond), !range !8
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %cond)
   %tobool4.not = icmp ult i64 %3, 2
   br i1 %tobool4.not, label %if.end, label %if.then
 
@@ -467,4 +467,3 @@ attributes #10 = { nounwind allocsize(0,1) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 0, i64 65}

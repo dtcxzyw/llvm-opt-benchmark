@@ -52,7 +52,7 @@ define internal void @rpcprogs_init(ptr nocapture readnone %0, ptr nocapture rea
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rpcprogs_packet(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = load ptr, ptr @prog_list, align 8
   %.not = icmp eq ptr %7, null

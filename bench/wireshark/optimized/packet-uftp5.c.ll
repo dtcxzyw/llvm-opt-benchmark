@@ -1147,12 +1147,12 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
 
 118:                                              ; preds = %115
   %119 = load i32, ptr @hf_uftp_encinfo_keyblob, align 4
-  %120 = call fastcc i32 @dissect_uftp_rsablob(ptr noundef %116, ptr noundef %1, ptr noundef %93, i32 noundef %119), !range !6
+  %120 = call fastcc i32 @dissect_uftp_rsablob(ptr noundef %116, ptr noundef %1, ptr noundef %93, i32 noundef %119)
   br label %124
 
 121:                                              ; preds = %115
   %122 = load i32, ptr @hf_uftp_encinfo_keyblob, align 4
-  %123 = call fastcc i32 @dissect_uftp_ecblob(ptr noundef %116, ptr noundef %1, ptr noundef %93, i32 noundef %122), !range !7
+  %123 = call fastcc i32 @dissect_uftp_ecblob(ptr noundef %116, ptr noundef %1, ptr noundef %93, i32 noundef %122)
   br label %124
 
 124:                                              ; preds = %121, %118, %115
@@ -1175,12 +1175,12 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
 
 130:                                              ; preds = %127
   %131 = load i32, ptr @hf_uftp_encinfo_dhblob, align 4
-  %132 = call fastcc i32 @dissect_uftp_rsablob(ptr noundef %128, ptr noundef %1, ptr noundef %93, i32 noundef %131), !range !6
+  %132 = call fastcc i32 @dissect_uftp_rsablob(ptr noundef %128, ptr noundef %1, ptr noundef %93, i32 noundef %131)
   br label %136
 
 133:                                              ; preds = %127
   %134 = load i32, ptr @hf_uftp_encinfo_dhblob, align 4
-  %135 = call fastcc i32 @dissect_uftp_ecblob(ptr noundef %128, ptr noundef %1, ptr noundef %93, i32 noundef %134), !range !7
+  %135 = call fastcc i32 @dissect_uftp_ecblob(ptr noundef %128, ptr noundef %1, ptr noundef %93, i32 noundef %134)
   br label %136
 
 136:                                              ; preds = %133, %130, %127
@@ -1202,7 +1202,7 @@ dissect_uftp_encinfo.exit:                        ; preds = %138, %139
   %142 = sub nsw i32 %.0117131, %84
   %143 = add i32 %84, %.1132
   %144 = icmp sgt i32 %142, 0
-  br i1 %144, label %.lr.ph, label %dissect_uftp_encinfo.exit.thread, !llvm.loop !8
+  br i1 %144, label %.lr.ph, label %dissect_uftp_encinfo.exit.thread, !llvm.loop !6
 
 dissect_uftp_encinfo.exit.thread:                 ; preds = %dissect_uftp_encinfo.exit, %.lr.ph, %58, %86, %66
   %145 = call i32 @tvb_reported_length(ptr noundef %0) #4
@@ -1228,7 +1228,7 @@ dissect_uftp_encinfo.exit.thread:                 ; preds = %dissect_uftp_encinf
   %155 = add i32 %.2135, 4
   %156 = add nuw nsw i32 %.0118134, 1
   %exitcond.not = icmp eq i32 %156, %umax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph136, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph136, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph136, %dissect_uftp_encinfo.exit.thread, %16, %7
   ret void
@@ -1319,7 +1319,7 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
   %56 = add nuw nsw i32 %.06974, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %48
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %._crit_edge, %7
   ret void
@@ -1392,12 +1392,12 @@ define internal fastcc void @dissect_uftp_clientkey(ptr noundef %0, ptr noundef 
 
 43:                                               ; preds = %40
   %44 = load i32, ptr @hf_uftp_clientkey_keyblob, align 4
-  %45 = tail call fastcc i32 @dissect_uftp_rsablob(ptr noundef %41, ptr noundef %1, ptr noundef %29, i32 noundef %44), !range !6
+  %45 = tail call fastcc i32 @dissect_uftp_rsablob(ptr noundef %41, ptr noundef %1, ptr noundef %29, i32 noundef %44)
   br label %49
 
 46:                                               ; preds = %40
   %47 = load i32, ptr @hf_uftp_clientkey_keyblob, align 4
-  %48 = tail call fastcc i32 @dissect_uftp_ecblob(ptr noundef %41, ptr noundef %1, ptr noundef %29, i32 noundef %47), !range !7
+  %48 = tail call fastcc i32 @dissect_uftp_ecblob(ptr noundef %41, ptr noundef %1, ptr noundef %29, i32 noundef %47)
   br label %49
 
 49:                                               ; preds = %46, %43, %40
@@ -1479,7 +1479,7 @@ define internal fastcc void @dissect_uftp_regconf(ptr noundef %0, ptr noundef %1
   %41 = add nuw nsw i32 %.05054, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %33
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
@@ -1559,7 +1559,7 @@ define internal fastcc void @dissect_uftp_keyinfo(ptr noundef %0, ptr noundef %1
   %55 = add nuw nsw i32 %.06974, 52
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %40
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %19, %6
   ret void
@@ -1740,7 +1740,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
   %90 = add nuw nsw i32 %.0108115, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %82
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %78, %27, %8
   ret void
@@ -1834,7 +1834,7 @@ define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr nounde
   %60 = add nuw nsw i32 %.06974, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %52
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %26, %17, %7
   ret void
@@ -1943,7 +1943,7 @@ define internal fastcc void @dissect_uftp_fileseg(ptr noundef %0, ptr noundef %1
   %68 = fmul double %.08.i.i, 1.000000e+01
   %69 = add nuw nsw i32 %.067.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %69, %64
-  br i1 %exitcond.not.i.i, label %unquantize_rate.exit.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %unquantize_rate.exit.i, label %.lr.ph.i.i, !llvm.loop !13
 
 unquantize_rate.exit.i:                           ; preds = %.lr.ph.i.i, %61
   %.0.lcssa.i.i = phi double [ %67, %61 ], [ %68, %.lr.ph.i.i ]
@@ -1963,7 +1963,7 @@ unquantize_rate.exit.i:                           ; preds = %.lr.ph.i.i, %61
   %77 = fmul double %.08.i50.i, 1.000000e+01
   %78 = add nuw nsw i32 %.067.i51.i, 1
   %exitcond.not.i52.i = icmp eq i32 %78, %73
-  br i1 %exitcond.not.i52.i, label %.loopexit, label %.lr.ph.i49.i, !llvm.loop !15
+  br i1 %exitcond.not.i52.i, label %.loopexit, label %.lr.ph.i49.i, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph.i49.i, %unquantize_rate.exit.i
   %.0.lcssa.i53.i = phi double [ %76, %unquantize_rate.exit.i ], [ %77, %.lr.ph.i49.i ]
@@ -1984,7 +1984,7 @@ unquantize_rate.exit.i:                           ; preds = %.lr.ph.i.i, %61
   %93 = tail call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %92, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef %70) #4
   %94 = add nuw nsw i32 %.07080, 8
   %95 = icmp sgt i32 %.07181.in, 16
-  br i1 %95, label %.lr.ph, label %dissect_uftp_tfmccdata.exit.thread, !llvm.loop !16
+  br i1 %95, label %.lr.ph, label %dissect_uftp_tfmccdata.exit.thread, !llvm.loop !14
 
 dissect_uftp_tfmccdata.exit.thread:               ; preds = %.loopexit, %.lr.ph, %19, %58, %48
   %96 = load i32, ptr @hf_uftp_fileseg_data, align 4
@@ -2073,7 +2073,7 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
   %53 = add nuw nsw i32 %.06570, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %45
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %16, %6
   ret void
@@ -2143,7 +2143,7 @@ define internal fastcc void @dissect_uftp_status(ptr noundef %0, ptr noundef %1,
   br i1 %cond, label %44, label %.thread
 
 44:                                               ; preds = %.lr.ph
-  %45 = tail call fastcc i32 @dissect_uftp_tfmccack(ptr noundef %42, ptr noundef %1, ptr noundef %29), !range !18
+  %45 = tail call fastcc i32 @dissect_uftp_tfmccack(ptr noundef %42, ptr noundef %1, ptr noundef %29)
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %.thread, label %46
 
@@ -2151,7 +2151,7 @@ define internal fastcc void @dissect_uftp_status(ptr noundef %0, ptr noundef %1,
   %47 = sub nsw i32 %.06973, %45
   %48 = add i32 %45, %.06874
   %49 = icmp sgt i32 %47, 0
-  br i1 %49, label %.lr.ph, label %.thread, !llvm.loop !19
+  br i1 %49, label %.lr.ph, label %.thread, !llvm.loop !16
 
 .thread:                                          ; preds = %46, %44, %.lr.ph, %19
   %50 = load i32, ptr @hf_uftp_status_naks, align 4
@@ -2271,7 +2271,7 @@ define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %
   %73 = add nsw i32 %.08193, -12
   %74 = add nuw nsw i32 %.08292, 12
   %75 = icmp sgt i32 %.08193, 12
-  br i1 %75, label %.lr.ph, label %dissect_uftp_freespace.exit.thread, !llvm.loop !20
+  br i1 %75, label %.lr.ph, label %dissect_uftp_freespace.exit.thread, !llvm.loop !17
 
 dissect_uftp_freespace.exit.thread:               ; preds = %60, %.lr.ph, %25, %57, %47
   %76 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
@@ -2297,7 +2297,7 @@ dissect_uftp_freespace.exit.thread:               ; preds = %60, %.lr.ph, %25, %
   %87 = add nuw nsw i32 %.195, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %79
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph97, %dissect_uftp_freespace.exit.thread, %16, %6
   ret void
@@ -2363,7 +2363,7 @@ define internal fastcc void @dissect_uftp_doneconf(ptr noundef %0, ptr noundef %
   %41 = add nuw nsw i32 %.05054, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %33
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
@@ -2438,12 +2438,12 @@ define internal fastcc void @dissect_uftp_hbreq(ptr noundef %0, ptr noundef %1, 
 
 45:                                               ; preds = %42
   %46 = load i32, ptr @hf_uftp_hbreq_keyblob, align 4
-  %47 = tail call fastcc i32 @dissect_uftp_rsablob(ptr noundef %43, ptr noundef %1, ptr noundef %29, i32 noundef %46), !range !6
+  %47 = tail call fastcc i32 @dissect_uftp_rsablob(ptr noundef %43, ptr noundef %1, ptr noundef %29, i32 noundef %46)
   br label %51
 
 48:                                               ; preds = %42
   %49 = load i32, ptr @hf_uftp_hbreq_keyblob, align 4
-  %50 = tail call fastcc i32 @dissect_uftp_ecblob(ptr noundef %43, ptr noundef %1, ptr noundef %29, i32 noundef %49), !range !7
+  %50 = tail call fastcc i32 @dissect_uftp_ecblob(ptr noundef %43, ptr noundef %1, ptr noundef %29, i32 noundef %49)
   br label %51
 
 51:                                               ; preds = %48, %45, %42
@@ -2584,12 +2584,12 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
 
 46:                                               ; preds = %43
   %47 = load i32, ptr @hf_uftp_proxykey_keyblob, align 4
-  %48 = tail call fastcc i32 @dissect_uftp_rsablob(ptr noundef %44, ptr noundef %1, ptr noundef %32, i32 noundef %47), !range !6
+  %48 = tail call fastcc i32 @dissect_uftp_rsablob(ptr noundef %44, ptr noundef %1, ptr noundef %32, i32 noundef %47)
   br label %52
 
 49:                                               ; preds = %43
   %50 = load i32, ptr @hf_uftp_proxykey_keyblob, align 4
-  %51 = tail call fastcc i32 @dissect_uftp_ecblob(ptr noundef %44, ptr noundef %1, ptr noundef %32, i32 noundef %50), !range !7
+  %51 = tail call fastcc i32 @dissect_uftp_ecblob(ptr noundef %44, ptr noundef %1, ptr noundef %32, i32 noundef %50)
   br label %52
 
 52:                                               ; preds = %49, %46, %43
@@ -2612,12 +2612,12 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
 
 58:                                               ; preds = %55
   %59 = load i32, ptr @hf_uftp_proxykey_dhblob, align 4
-  %60 = tail call fastcc i32 @dissect_uftp_rsablob(ptr noundef %56, ptr noundef %1, ptr noundef %32, i32 noundef %59), !range !6
+  %60 = tail call fastcc i32 @dissect_uftp_rsablob(ptr noundef %56, ptr noundef %1, ptr noundef %32, i32 noundef %59)
   br label %64
 
 61:                                               ; preds = %55
   %62 = load i32, ptr @hf_uftp_proxykey_dhblob, align 4
-  %63 = tail call fastcc i32 @dissect_uftp_ecblob(ptr noundef %56, ptr noundef %1, ptr noundef %32, i32 noundef %62), !range !7
+  %63 = tail call fastcc i32 @dissect_uftp_ecblob(ptr noundef %56, ptr noundef %1, ptr noundef %32, i32 noundef %62)
   br label %64
 
 64:                                               ; preds = %61, %58, %55
@@ -2682,7 +2682,7 @@ define internal fastcc void @dissect_uftp_congctrl(ptr noundef %0, ptr noundef %
   %27 = fmul double %.08.i, 1.000000e+01
   %28 = add nuw nsw i32 %.067.i, 1
   %exitcond.not.i = icmp eq i32 %28, %23
-  br i1 %exitcond.not.i, label %unquantize_rate.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %unquantize_rate.exit, label %.lr.ph.i, !llvm.loop !13
 
 unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %.0.lcssa.i = phi double [ %26, %20 ], [ %27, %.lr.ph.i ]
@@ -2767,7 +2767,7 @@ unquantize_grtt.exit:                             ; preds = %64, %68
   %82 = fmul double %.08.i94, 1.000000e+01
   %83 = add nuw nsw i32 %.067.i95, 1
   %exitcond.not.i96 = icmp eq i32 %83, %78
-  br i1 %exitcond.not.i96, label %unquantize_rate.exit98, label %.lr.ph.i93, !llvm.loop !15
+  br i1 %exitcond.not.i96, label %unquantize_rate.exit98, label %.lr.ph.i93, !llvm.loop !13
 
 unquantize_rate.exit98:                           ; preds = %.lr.ph.i93, %unquantize_grtt.exit
   %.0.lcssa.i97 = phi double [ %81, %unquantize_grtt.exit ], [ %82, %.lr.ph.i93 ]
@@ -2789,7 +2789,7 @@ unquantize_rate.exit98:                           ; preds = %.lr.ph.i93, %unquan
   %99 = add nuw nsw i32 %.089100, 8
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %54
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %unquantize_rate.exit98, %unquantize_rate.exit, %17, %7
   ret void
@@ -2848,7 +2848,7 @@ define internal fastcc void @dissect_uftp_ccack(ptr noundef %0, ptr noundef %1, 
   br i1 %cond, label %34, label %.thread
 
 34:                                               ; preds = %.lr.ph
-  %35 = tail call fastcc i32 @dissect_uftp_tfmccack(ptr noundef %32, ptr noundef %1, ptr noundef %23), !range !18
+  %35 = tail call fastcc i32 @dissect_uftp_tfmccack(ptr noundef %32, ptr noundef %1, ptr noundef %23)
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %.thread, label %36
 
@@ -2856,7 +2856,7 @@ define internal fastcc void @dissect_uftp_ccack(ptr noundef %0, ptr noundef %1, 
   %37 = sub nsw i32 %.05157, %35
   %38 = add i32 %35, %.05256
   %39 = icmp sgt i32 %37, 0
-  br i1 %39, label %.lr.ph, label %.thread, !llvm.loop !24
+  br i1 %39, label %.lr.ph, label %.thread, !llvm.loop !21
 
 .thread:                                          ; preds = %36, %34, %.lr.ph, %19, %16, %6
   ret void
@@ -2971,7 +2971,7 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_uftp_rsablob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65544) i32 @dissect_uftp_rsablob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %7, label %10
@@ -3016,7 +3016,7 @@ define internal fastcc i32 @dissect_uftp_rsablob(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_uftp_ecblob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65540) i32 @dissect_uftp_ecblob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %7, label %10
@@ -3059,7 +3059,7 @@ define internal fastcc i32 @dissect_uftp_ecblob(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_uftp_tfmccack(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @dissect_uftp_tfmccack(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 20
@@ -3101,7 +3101,7 @@ define internal fastcc noundef i32 @dissect_uftp_tfmccack(ptr noundef %0, ptr no
   %27 = fmul double %.08.i, 1.000000e+01
   %28 = add nuw nsw i32 %.067.i, 1
   %exitcond.not.i = icmp eq i32 %28, %23
-  br i1 %exitcond.not.i, label %unquantize_rate.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %unquantize_rate.exit, label %.lr.ph.i, !llvm.loop !13
 
 unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %.0.lcssa.i = phi double [ %26, %20 ], [ %27, %.lr.ph.i ]
@@ -3159,8 +3159,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 65544}
-!7 = !{i32 0, i32 65540}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -3171,10 +3171,7 @@ attributes #4 = { nounwind }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 0, i32 21}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

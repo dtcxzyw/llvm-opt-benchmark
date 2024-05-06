@@ -845,7 +845,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @megasas_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @megasas_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %_now.i.i110 = alloca %struct.timeval, align 8
   %_now.i.i95 = alloca %struct.timeval, align 8
@@ -1843,7 +1843,7 @@ if.end12.i.i:                                     ; preds = %while.end.i.i
   %72 = load i64, ptr %add.ptr.i.i.i, align 8
   %or.i.i.i = or i64 %72, %shl.i.i.i
   store i64 %or.i.i.i, ptr %add.ptr.i.i.i, align 8
-  %conv17.i.i = trunc i64 %index.1.i.i to i32
+  %conv17.i.i = trunc nuw i64 %index.1.i.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i70.i.i)
   %73 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i71.i.i = icmp ne i32 %73, 0
@@ -2456,7 +2456,7 @@ for.inc.i.i.i:                                    ; preds = %megasas_unmap_frame
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %megasas_reset_frames.exit.i.i, !llvm.loop !11
 
 megasas_reset_frames.exit.i.i:                    ; preds = %for.inc.i.i.i, %trace_megasas_init_queue.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %frame_map.i.i, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %frame_map.i.i, i8 0, i64 256, i1 false)
   %fw_state.i.i = getelementptr inbounds i8, ptr %opaque, i64 3428
   store i32 -1073741824, ptr %fw_state.i.i, align 4
   br label %out.i.i
@@ -2662,7 +2662,7 @@ while.body.i90.i:                                 ; preds = %land.rhs.i.i
 
 if.then11.i91.i:                                  ; preds = %while.body.i90.i
   %214 = load i32, ptr %arrayidx14.i.i, align 8
-  %conv.i92.i = trunc i64 %conv14.sink.i.i.i to i32
+  %conv.i92.i = trunc nuw i64 %conv14.sink.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i25.i.i)
   %215 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i26.i.i = icmp ne i32 %215, 0
@@ -2739,7 +2739,7 @@ if.else.i.i169:                                   ; preds = %land.rhs.i.i
   %229 = load i32, ptr %arrayidx14.i.i, align 8
   %desc.i.i = getelementptr inbounds i8, ptr %cmdptr.075.i.i, i64 8
   %230 = load ptr, ptr %desc.i.i, align 8
-  %conv16.i.i = trunc i64 %conv14.sink.i.i.i to i32
+  %conv16.i.i = trunc nuw i64 %conv14.sink.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i53.i.i)
   %231 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i54.i.i = icmp ne i32 %231, 0
@@ -3178,7 +3178,7 @@ trace_megasas_scsi_invalid_cdb_len.exit.i.i:      ; preds = %if.else.i.i114.i.i,
   %sense.sroa.2.0.extract.shift.i.i.i = lshr i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i.i, 8
   %sense.sroa.2.0.extract.trunc.i.i.i = trunc i24 %sense.sroa.2.0.extract.shift.i.i.i to i8
   %sense.sroa.3.0.extract.shift.i.i.i = lshr i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i.i, 16
-  %sense.sroa.3.0.extract.trunc.i.i.i = trunc i24 %sense.sroa.3.0.extract.shift.i.i.i to i8
+  %sense.sroa.3.0.extract.trunc.i.i.i = trunc nuw i24 %sense.sroa.3.0.extract.shift.i.i.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i.i.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i.i.i, align 16
   %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %sense_buf.i.i.i, i64 2
@@ -3244,7 +3244,7 @@ megasas_write_sense.exit.i.i:                     ; preds = %if.end12.i.i.i.i, %
 if.end44.i.i:                                     ; preds = %if.end36.i.i
   %315 = load ptr, ptr %frame20.i.i, align 8
   %sgl.i.i = getelementptr inbounds i8, ptr %315, i64 48
-  %call46.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i.i), !range !14
+  %call46.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i.i)
   %tobool47.not.i.i = icmp eq i32 %call46.i.i, 0
   br i1 %tobool47.not.i.i, label %if.end53.i.i, label %if.then48.i.i
 
@@ -3255,7 +3255,7 @@ if.then48.i.i:                                    ; preds = %if.end44.i.i
   %sense.sroa.2.0.extract.shift.i121.i.i = lshr i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i.i, 8
   %sense.sroa.2.0.extract.trunc.i122.i.i = trunc i24 %sense.sroa.2.0.extract.shift.i121.i.i to i8
   %sense.sroa.3.0.extract.shift.i123.i.i = lshr i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i.i, 16
-  %sense.sroa.3.0.extract.trunc.i124.i.i = trunc i24 %sense.sroa.3.0.extract.shift.i123.i.i to i8
+  %sense.sroa.3.0.extract.trunc.i124.i.i = trunc nuw i24 %sense.sroa.3.0.extract.shift.i123.i.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i119.i.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i119.i.i, align 16
   %arrayidx1.i125.i.i = getelementptr inbounds i8, ptr %sense_buf.i119.i.i, i64 2
@@ -3366,7 +3366,7 @@ if.else82.i.i:                                    ; preds = %if.end64.i.i
   br label %if.end84.i.i
 
 if.end84.i.i:                                     ; preds = %if.else82.i.i, %if.else.i150.i, %if.then74.i.i
-  %call86.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp67.i.i), !range !15
+  %call86.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp67.i.i)
   br label %sw.epilog
 
 sw.bb14.i:                                        ; preds = %if.end.i167, %if.end.i167
@@ -3528,7 +3528,7 @@ trace_megasas_scsi_invalid_cdb_len.exit.i224.i:   ; preds = %if.else.i.i93.i263.
   %sense.sroa.2.0.extract.shift.i.i227.i = lshr i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i225.i, 8
   %sense.sroa.2.0.extract.trunc.i.i228.i = trunc i24 %sense.sroa.2.0.extract.shift.i.i227.i to i8
   %sense.sroa.3.0.extract.shift.i.i229.i = lshr i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i225.i, 16
-  %sense.sroa.3.0.extract.trunc.i.i230.i = trunc i24 %sense.sroa.3.0.extract.shift.i.i229.i to i8
+  %sense.sroa.3.0.extract.trunc.i.i230.i = trunc nuw i24 %sense.sroa.3.0.extract.shift.i.i229.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i.i187.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i.i187.i, align 16
   %arrayidx1.i.i231.i = getelementptr inbounds i8, ptr %sense_buf.i.i187.i, i64 2
@@ -3600,7 +3600,7 @@ if.end31.i210.i:                                  ; preds = %if.end25.i.i
   store i64 %conv32.i.i, ptr %iov_size.i211.i, align 8
   %374 = load ptr, ptr %frame20.i.i, align 8
   %sgl.i212.i = getelementptr inbounds i8, ptr %374, i64 40
-  %call34.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i212.i), !range !14
+  %call34.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i212.i)
   %tobool35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %tobool35.not.i.i, label %if.end41.i.i, label %if.then36.i.i
 
@@ -3611,7 +3611,7 @@ if.then36.i.i:                                    ; preds = %if.end31.i210.i
   %sense.sroa.2.0.extract.shift.i100.i.i = lshr i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i213.i, 8
   %sense.sroa.2.0.extract.trunc.i101.i.i = trunc i24 %sense.sroa.2.0.extract.shift.i100.i.i to i8
   %sense.sroa.3.0.extract.shift.i102.i.i = lshr i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i213.i, 16
-  %sense.sroa.3.0.extract.trunc.i103.i.i = trunc i24 %sense.sroa.3.0.extract.shift.i102.i.i to i8
+  %sense.sroa.3.0.extract.trunc.i103.i.i = trunc nuw i24 %sense.sroa.3.0.extract.shift.i102.i.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i98.i.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i98.i.i, align 16
   %arrayidx1.i104.i.i = getelementptr inbounds i8, ptr %sense_buf.i98.i.i, i64 2
@@ -3676,7 +3676,7 @@ megasas_write_sense.exit128.i.i:                  ; preds = %if.end12.i.i120.i.i
 
 if.end41.i.i:                                     ; preds = %if.end31.i210.i
   %387 = getelementptr inbounds i8, ptr %cdb.i.i, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %387, i8 0, i64 15, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %387, i8 0, i64 15, i1 false)
   %..i.i.i = select i1 %cmp.i190.i, i8 -118, i8 -120
   store i8 %..i.i.i, ptr %cdb.i.i, align 16
   %arrayidx2.i129.i.i = getelementptr inbounds i8, ptr %cdb.i.i, i64 2
@@ -3734,7 +3734,7 @@ trace_megasas_scsi_req_alloc_failed.exit.i.i:     ; preds = %if.else.i.i146.i.i,
   %sense.sroa.2.0.extract.shift.i153.i.i = lshr i24 %sense_code_NO_SENSE.coerce.0.copyload.i220.i, 8
   %sense.sroa.2.0.extract.trunc.i154.i.i = trunc i24 %sense.sroa.2.0.extract.shift.i153.i.i to i8
   %sense.sroa.3.0.extract.shift.i155.i.i = lshr i24 %sense_code_NO_SENSE.coerce.0.copyload.i220.i, 16
-  %sense.sroa.3.0.extract.trunc.i156.i.i = trunc i24 %sense.sroa.3.0.extract.shift.i155.i.i to i8
+  %sense.sroa.3.0.extract.trunc.i156.i.i = trunc nuw i24 %sense.sroa.3.0.extract.shift.i155.i.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i151.i.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i151.i.i, align 16
   %arrayidx1.i157.i.i = getelementptr inbounds i8, ptr %sense_buf.i151.i.i, i64 2
@@ -3798,7 +3798,7 @@ megasas_write_sense.exit181.i.i:                  ; preds = %if.end12.i.i173.i.i
   br label %megasas_handle_io.exit.i
 
 if.end55.i.i:                                     ; preds = %if.end41.i.i
-  %call57.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp.i190.i), !range !15
+  %call57.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp.i190.i)
   %cmp58.i.i = icmp sgt i32 %call57.i.i, 0
   br i1 %cmp58.i.i, label %if.then60.i.i, label %megasas_handle_io.exit.i
 
@@ -4228,7 +4228,7 @@ megasas_abort_command.exit:                       ; preds = %for.body, %if.end.i
   %11 = phi i32 [ %8, %for.body ], [ %8, %if.end.i ], [ %.pre, %if.then2.i ]
   %inc = add nuw i32 %i.027, 1
   %cmp = icmp ult i32 %inc, %11
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %megasas_abort_command.exit, %trace_megasas_reset.exit
   %.pr33 = phi i32 [ 0, %trace_megasas_reset.exit ], [ %11, %megasas_abort_command.exit ]
@@ -4253,7 +4253,7 @@ for.body4:                                        ; preds = %if.then, %for.body4
   %sibling = getelementptr inbounds i8, ptr %kid.030, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
-  br i1 %tobool.not, label %if.endthread-pre-split.loopexit, label %for.body4, !llvm.loop !17
+  br i1 %tobool.not, label %if.endthread-pre-split.loopexit, label %for.body4, !llvm.loop !15
 
 if.endthread-pre-split.loopexit:                  ; preds = %for.body4
   %.pr.pre = load i32, ptr %fw_cmds, align 4
@@ -4327,7 +4327,7 @@ megasas_reset_frames.exit.loopexit:               ; preds = %for.inc.i
 megasas_reset_frames.exit:                        ; preds = %megasas_reset_frames.exit.loopexit, %if.end
   %conv = phi i16 [ %24, %megasas_reset_frames.exit.loopexit ], [ 0, %if.end ]
   %frame_map.i = getelementptr inbounds i8, ptr %s, i64 265720
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %frame_map.i, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %frame_map.i, i8 0, i64 256, i1 false)
   %reply_queue_len = getelementptr inbounds i8, ptr %s, i64 3544
   store i16 %conv, ptr %reply_queue_len, align 8
   %reply_queue_pa = getelementptr inbounds i8, ptr %s, i64 3528
@@ -4973,7 +4973,7 @@ if.end19:                                         ; preds = %if.then3, %if.else1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_ctrl_get_info(ptr noundef %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_ctrl_get_info(ptr noundef %s, ptr noundef %cmd) #0 {
 entry:
   %curtime.i = alloca %struct.tm, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5083,7 +5083,7 @@ if.end21:                                         ; preds = %if.then16, %for.bod
   %sibling = getelementptr inbounds i8, ptr %kid.051, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
-  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !18
+  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %if.end21
   %14 = trunc i32 %inc to i16
@@ -5243,7 +5243,7 @@ return:                                           ; preds = %if.end71, %trace_me
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_get_properties(ptr nocapture readnone %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_get_properties(ptr nocapture readnone %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info = alloca %struct.mfi_ctrl_props, align 1
@@ -5327,7 +5327,7 @@ return:                                           ; preds = %if.end, %trace_mega
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_set_properties(ptr nocapture readnone %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_set_properties(ptr nocapture readnone %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5446,7 +5446,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_event_wait(ptr nocapture noundef %s, ptr noundef %cmd) #0 {
+define internal range(i32 3, 256) i32 @megasas_event_wait(ptr nocapture noundef %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
@@ -5634,7 +5634,7 @@ trace_megasas_dcmd_set_fw_time.exit:              ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_get_bios_info(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_get_bios_info(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info = alloca %struct.mfi_bios_data, align 1
@@ -5714,7 +5714,7 @@ return:                                           ; preds = %if.end3, %trace_meg
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_mfc_get_defaults(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_mfc_get_defaults(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info = alloca %struct.mfi_defaults, align 8
@@ -5811,7 +5811,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_pd_get_list(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_pd_get_list(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i41 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5925,7 +5925,7 @@ if.end16:                                         ; preds = %for.body
   %sibling = getelementptr inbounds i8, ptr %kid.059, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
-  br i1 %tobool.not, label %for.end.loopexit.split.loop.exit64, label %for.body, !llvm.loop !19
+  br i1 %tobool.not, label %for.end.loopexit.split.loop.exit64, label %for.body, !llvm.loop !17
 
 for.end.loopexit.split.loop.exit64:               ; preds = %if.end16
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -5987,7 +5987,7 @@ return:                                           ; preds = %trace_megasas_dcmd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_pd_list_query(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_pd_list_query(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %frame = getelementptr inbounds i8, ptr %cmd, i64 40
@@ -6041,7 +6041,7 @@ lor.lhs.false:                                    ; preds = %trace_megasas_dcmd_
   br i1 %tobool.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %trace_megasas_dcmd_pd_list_query.exit
-  %call6 = tail call i32 @megasas_dcmd_pd_get_list(ptr noundef %s, ptr noundef nonnull %cmd), !range !20
+  %call6 = tail call i32 @megasas_dcmd_pd_get_list(ptr noundef %s, ptr noundef nonnull %cmd)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.then
@@ -6050,7 +6050,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_pd_get_info(ptr noundef %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 256) i32 @megasas_dcmd_pd_get_info(ptr noundef %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
@@ -6105,7 +6105,7 @@ trace_megasas_dcmd_pd_get_info.exit:              ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %trace_megasas_dcmd_pd_get_info.exit
-  %call13 = tail call fastcc i32 @megasas_pd_get_info_submit(ptr noundef nonnull %call9, i32 noundef %conv2, ptr noundef nonnull %cmd), !range !21
+  %call13 = tail call fastcc i32 @megasas_pd_get_info_submit(ptr noundef nonnull %call9, i32 noundef %conv2, ptr noundef nonnull %cmd)
   br label %return
 
 return:                                           ; preds = %trace_megasas_dcmd_pd_get_info.exit, %if.then11, %entry
@@ -6114,7 +6114,7 @@ return:                                           ; preds = %trace_megasas_dcmd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_ld_get_list(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_ld_get_list(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -6213,7 +6213,7 @@ if.end13:                                         ; preds = %for.body
   %sibling = getelementptr inbounds i8, ptr %kid.051, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
-  br i1 %tobool.not, label %for.end.loopexit.split.loop.exit54, label %for.body, !llvm.loop !22
+  br i1 %tobool.not, label %for.end.loopexit.split.loop.exit54, label %for.body, !llvm.loop !18
 
 for.end.loopexit.split.loop.exit54:               ; preds = %if.end13
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -6270,7 +6270,7 @@ return:                                           ; preds = %trace_megasas_dcmd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_ld_list_query(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_ld_list_query(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i51 = alloca %struct.timeval, align 8
   %_now.i.i37 = alloca %struct.timeval, align 8
@@ -6403,7 +6403,7 @@ if.end26:                                         ; preds = %for.body
   %sibling = getelementptr inbounds i8, ptr %kid.069, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
-  br i1 %tobool.not, label %for.end.loopexit.split.loop.exit74, label %for.body, !llvm.loop !23
+  br i1 %tobool.not, label %for.end.loopexit.split.loop.exit74, label %for.body, !llvm.loop !19
 
 for.end.loopexit.split.loop.exit74:               ; preds = %if.end26
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -6464,7 +6464,7 @@ return:                                           ; preds = %trace_megasas_dcmd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_ld_get_info(ptr noundef %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 256) i32 @megasas_dcmd_ld_get_info(ptr noundef %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %fw_luns = getelementptr inbounds i8, ptr %s, i64 3444
@@ -6530,7 +6530,7 @@ if.end12:                                         ; preds = %trace_megasas_dcmd_
   br i1 %tobool.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end12
-  %call15 = tail call fastcc i32 @megasas_ld_get_info_submit(ptr noundef nonnull %call11, i32 noundef %conv2, ptr noundef nonnull %cmd), !range !21
+  %call15 = tail call fastcc i32 @megasas_ld_get_info_submit(ptr noundef nonnull %call11, i32 noundef %conv2, ptr noundef nonnull %cmd)
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then13, %trace_megasas_dcmd_ld_get_info.exit, %entry
@@ -6539,7 +6539,7 @@ return:                                           ; preds = %if.end12, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_cfg_read(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_cfg_read(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
 entry:
   %data = alloca [4096 x i8], align 16
   %residual = alloca i64, align 8
@@ -6564,7 +6564,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %sibling = getelementptr inbounds i8, ptr %kid.075, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !24
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %if.end
   %num_pd_disks.0.lcssa = phi i32 [ 0, %if.end ], [ %inc, %for.body ]
@@ -6656,7 +6656,7 @@ for.body52:                                       ; preds = %for.body28, %for.bo
   store i8 -1, ptr %slot75, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %for.end78, label %for.body52, !llvm.loop !25
+  br i1 %exitcond.not, label %for.end78, label %for.body52, !llvm.loop !21
 
 for.end78:                                        ; preds = %for.body52
   %add80 = add nsw i64 %idx.ext, 288
@@ -6682,7 +6682,7 @@ for.end78:                                        ; preds = %for.body52
   %sibling107 = getelementptr inbounds i8, ptr %kid.181, i64 32
   %kid.1 = load ptr, ptr %sibling107, align 8
   %tobool27.not = icmp eq ptr %kid.1, null
-  br i1 %tobool27.not, label %for.end108.loopexit, label %for.body28, !llvm.loop !26
+  br i1 %tobool27.not, label %for.end108.loopexit, label %for.body28, !llvm.loop !22
 
 for.end108.loopexit:                              ; preds = %for.end78
   %.pre = load i32, ptr %data, align 16
@@ -6783,7 +6783,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %14 = phi i32 [ %10, %for.body ], [ %10, %land.lhs.true ], [ %.pre, %if.then ]
   %inc = add nuw i32 %i.09, 1
   %cmp = icmp ult i32 %inc, %14
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !27
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %trace_megasas_dcmd_reset_ld.exit
   ret i32 0
@@ -6810,7 +6810,7 @@ declare void @blk_drain_all() local_unnamed_addr #1
 declare ptr @scsi_device_find(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @megasas_pd_get_info_submit(ptr noundef %sdev, i32 noundef %lun, ptr noundef %cmd) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @megasas_pd_get_info_submit(ptr noundef %sdev, i32 noundef %lun, ptr noundef %cmd) unnamed_addr #0 {
 entry:
   %_now.i.i104 = alloca %struct.timeval, align 8
   %_now.i.i89 = alloca %struct.timeval, align 8
@@ -6838,7 +6838,7 @@ if.then:                                          ; preds = %entry
   %vpd_page83 = getelementptr inbounds i8, ptr %call, i64 100
   store i8 127, ptr %vpd_page83, align 1
   %2 = getelementptr inbounds i8, ptr %cmdbuf, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %2, i8 0, i64 5, i1 false)
   store i8 18, ptr %cmdbuf, align 1
   %arrayidx3.i = getelementptr inbounds i8, ptr %cmdbuf, i64 3
   store i16 24576, ptr %arrayidx3.i, align 1
@@ -7149,7 +7149,7 @@ declare void @scsi_req_continue(ptr noundef) local_unnamed_addr #1
 declare void @blk_get_geometry(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @megasas_ld_get_info_submit(ptr noundef %sdev, i32 noundef %lun, ptr noundef %cmd) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @megasas_ld_get_info_submit(ptr noundef %sdev, i32 noundef %lun, ptr noundef %cmd) unnamed_addr #0 {
 entry:
   %_now.i.i48 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -7329,7 +7329,7 @@ entry:
   %sense.sroa.2.0.extract.shift = lshr i24 %sense.coerce, 8
   %sense.sroa.2.0.extract.trunc = trunc i24 %sense.sroa.2.0.extract.shift to i8
   %sense.sroa.3.0.extract.shift = lshr i24 %sense.coerce, 16
-  %sense.sroa.3.0.extract.trunc = trunc i24 %sense.sroa.3.0.extract.shift to i8
+  %sense.sroa.3.0.extract.trunc = trunc nuw i24 %sense.sroa.3.0.extract.shift to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf, align 16
   %arrayidx1 = getelementptr inbounds i8, ptr %sense_buf, i64 2
@@ -7386,7 +7386,7 @@ megasas_build_sense.exit:                         ; preds = %entry, %if.end12.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @megasas_map_sgl(ptr noundef %s, ptr noundef %cmd, ptr noundef readonly %sgl) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @megasas_map_sgl(ptr noundef %s, ptr noundef %cmd, ptr noundef readonly %sgl) unnamed_addr #0 {
 entry:
   %_now.i.i84 = alloca %struct.timeval, align 8
   %_now.i.i70 = alloca %struct.timeval, align 8
@@ -7591,7 +7591,7 @@ if.end20:                                         ; preds = %megasas_sgl_get_add
   %add = add i64 %iov_size.0104, %conv13
   %inc = add nuw nsw i32 %i.0103, 1
   %exitcond.not = icmp eq i32 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %if.end20
   %iov_size23 = getelementptr inbounds i8, ptr %cmd, i64 104
@@ -7862,7 +7862,7 @@ _nocheck__trace_megasas_scsi_nodata.exit:         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @megasas_enqueue_req(ptr nocapture noundef %cmd, i1 noundef zeroext %is_write) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483647) i32 @megasas_enqueue_req(ptr nocapture noundef %cmd, i1 noundef zeroext %is_write) unnamed_addr #0 {
 entry:
   %_now.i.i53 = alloca %struct.timeval, align 8
   %_now.i.i39 = alloca %struct.timeval, align 8
@@ -7884,7 +7884,7 @@ if.then2:                                         ; preds = %entry
 
 if.then5:                                         ; preds = %if.then2
   %2 = load i32, ptr %cmd, align 8
-  %conv8 = trunc i64 %1 to i32
+  %conv8 = trunc nuw nsw i64 %1 to i32
   br i1 %is_write, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then5
@@ -8072,10 +8072,10 @@ declare i64 @llvm.bswap.i64(i64) #9
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @megasas_port_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @megasas_port_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %and = and i64 %addr, 255
-  %call = tail call i64 @megasas_mmio_read(ptr noundef %opaque, i64 noundef %and, i32 poison), !range !29
+  %call = tail call i64 @megasas_mmio_read(ptr noundef %opaque, i64 noundef %and, i32 poison)
   ret i64 %call
 }
 
@@ -8321,13 +8321,13 @@ trace_megasas_dcmd_internal_finish.exit.i:        ; preds = %if.else.i.i.i, %if.
 sw.bb.i:                                          ; preds = %trace_megasas_dcmd_internal_finish.exit.i
   %dev.i = getelementptr inbounds i8, ptr %req, i64 8
   %21 = load ptr, ptr %dev.i, align 8
-  %call.i = tail call fastcc i32 @megasas_pd_get_info_submit(ptr noundef %21, i32 noundef %11, ptr noundef nonnull %0), !range !21
+  %call.i = tail call fastcc i32 @megasas_pd_get_info_submit(ptr noundef %21, i32 noundef %11, ptr noundef nonnull %0)
   br label %sw.epilog.i
 
 sw.bb4.i:                                         ; preds = %trace_megasas_dcmd_internal_finish.exit.i
   %dev5.i = getelementptr inbounds i8, ptr %req, i64 8
   %22 = load ptr, ptr %dev5.i, align 8
-  %call6.i = tail call fastcc i32 @megasas_ld_get_info_submit(ptr noundef %22, i32 noundef %11, ptr noundef nonnull %0), !range !21
+  %call6.i = tail call fastcc i32 @megasas_ld_get_info_submit(ptr noundef %22, i32 noundef %11, ptr noundef nonnull %0)
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %trace_megasas_dcmd_internal_finish.exit.i
@@ -8378,7 +8378,7 @@ megasas_finish_internal_dcmd.exit:                ; preds = %sw.epilog.thread.i,
   %30 = load i64, ptr %iov_size.i, align 8
   %conv.i = trunc i64 %30 to i32
   tail call fastcc void @megasas_finish_dcmd(ptr noundef nonnull %0, i32 noundef %conv.i)
-  %conv4 = trunc i32 %retval1.031.i to i8
+  %conv4 = trunc nuw i32 %retval1.031.i to i8
   br label %if.end30
 
 if.else:                                          ; preds = %if.end
@@ -8650,19 +8650,14 @@ attributes #17 = { nounwind allocsize(0) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 -1, i32 1}
-!15 = !{i32 0, i32 -2147483647}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i32 0, i32 4}
-!21 = !{i32 0, i32 256}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = !{i64 0, i64 4294967296}

@@ -36,7 +36,7 @@ define hidden void @"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h60a802b29ed122
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %7, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   store i64 %11, ptr %0, align 8, !alias.scope !7, !noalias !12
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !7, !noalias !12

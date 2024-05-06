@@ -205,7 +205,7 @@ declare i32 @Abc_SopGetVarNum(ptr noundef) local_unnamed_addr #1
 declare i32 @Bmc_CollapseExpandRound(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_ObjExpandCubes(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_ObjExpandCubes(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   %6 = add i32 %2, -1
@@ -575,7 +575,7 @@ define void @Abc_NtkExpandCubes(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   store i32 0, ptr %6, align 4
   %30 = getelementptr inbounds i8, ptr %23, i64 56
   %31 = load ptr, ptr %30, align 8
-  call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %5, ptr noundef %31)
+  call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %5, ptr noundef readonly %31)
   %32 = load i32, ptr %6, align 4
   %33 = load i32, ptr %5, align 8
   %34 = icmp eq i32 %32, %33
@@ -639,7 +639,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   store i8 0, ptr %58, align 1
   %59 = call ptr @Gia_ManDupCones(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0) #6
   %.val27 = load i32, ptr %27, align 4
-  %60 = call i32 @Abc_ObjExpandCubes(ptr noundef nonnull %5, ptr noundef %59, i32 noundef %.val27), !range !12
+  %60 = call i32 @Abc_ObjExpandCubes(ptr noundef nonnull %5, ptr noundef %59, i32 noundef %.val27)
   %.not20 = icmp eq i32 %60, 0
   br i1 %.not20, label %62, label %61
 
@@ -665,7 +665,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %68 = getelementptr i8, ptr %.val21, i64 4
   %.val21.val = load i32, ptr %68, align 4
   %69 = icmp slt i32 %67, %.val21.val
-  br i1 %69, label %13, label %.critedge.loopexit, !llvm.loop !13
+  br i1 %69, label %13, label %.critedge.loopexit, !llvm.loop !12
 
 .critedge.loopexit:                               ; preds = %65
   %.pre34 = load ptr, ptr %8, align 8
@@ -731,5 +731,4 @@ attributes #9 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
-!13 = distinct !{!13, !5}
+!12 = distinct !{!12, !5}

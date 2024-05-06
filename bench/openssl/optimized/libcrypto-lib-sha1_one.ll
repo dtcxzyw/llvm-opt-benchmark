@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [7 x i8] c"SHA512\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_sha1(ptr noundef %d, i64 noundef %n, ptr noundef %md) local_unnamed_addr #0 {
+define noundef ptr @ossl_sha1(ptr noundef %d, i64 noundef %n, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %c = alloca %struct.SHAstate_st, align 4
   %call = call i32 @SHA1_Init(ptr noundef nonnull %c) #2

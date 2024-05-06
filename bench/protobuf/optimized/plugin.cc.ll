@@ -871,7 +871,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf18Featu
 declare void @_ZN6google8protobuf14DescriptorPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6google8protobuf8compiler10PluginMainEiPPcPKNS1_13CodeGeneratorE(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %generator) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6google8protobuf8compiler10PluginMainEiPPcPKNS1_13CodeGeneratorE(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %generator) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %request = alloca %"class.google::protobuf::compiler::CodeGeneratorRequest", align 8
   %error_msg = alloca %"class.std::__cxx11::basic_string", align 8

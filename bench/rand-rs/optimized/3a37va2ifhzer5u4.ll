@@ -110,7 +110,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.8950959336182019511"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.8950959336182019511"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp ult i64 %3, %4
@@ -127,7 +127,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17h0bd9cd0f4e2883bcE.llvm.89509593
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17h470217122bfd532eE.llvm.8950959336182019511(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h470217122bfd532eE.llvm.8950959336182019511(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %3 = load i64, ptr %0, align 8, !alias.scope !5, !noalias !8, !noundef !4
@@ -162,7 +162,7 @@ define hidden { i64, i64 } @_ZN9rand_core5impls15fill_via_chunks17h227660b9829fe
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h7cfbfdc81c67a424E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb420a04f746e510aE.llvm.8950959336182019511.exit"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 4 %0, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !16, !noalias !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 4 %0, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !16, !noalias !20
   %13 = insertvalue { i64, i64 } poison, i64 %7, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.0.sroa.speculated.i, 1
   ret { i64, i64 } %14
@@ -191,7 +191,7 @@ define hidden { i64, i64 } @_ZN9rand_core5impls15fill_via_chunks17h46b4e1b4df1e0
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h7cfbfdc81c67a424E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b9ce95e7209bc53E.llvm.8950959336182019511.exit"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 8 %0, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !28, !noalias !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 8 %0, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !28, !noalias !32
   %13 = insertvalue { i64, i64 } poison, i64 %7, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.0.sroa.speculated.i, 1
   ret { i64, i64 } %14

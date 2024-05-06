@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @mca_topo_base_cart_map(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @mca_topo_base_cart_map(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -21,7 +21,7 @@ define noundef i32 @mca_topo_base_cart_map(ptr nocapture noundef readonly %0, i3
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = mul nsw i32 %8, %.01823
+  %11 = mul nuw nsw i32 %8, %.01823
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4

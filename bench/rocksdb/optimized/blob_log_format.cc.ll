@@ -52,21 +52,21 @@ entry:
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i11)
   %has_ttl = getelementptr inbounds i8, ptr %this, i64 9
   %2 = load i8, ptr %has_ttl, align 1
-  %3 = and i8 %2, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %dst, i8 noundef signext %3)
+  %conv = and i8 %2, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %dst, i8 noundef signext %conv)
   %compression = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load i8, ptr %compression, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %dst, i8 noundef signext %4)
+  %3 = load i8, ptr %compression, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %dst, i8 noundef signext %3)
   %expiration_range = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load i64, ptr %expiration_range, align 8
+  %4 = load i64, ptr %expiration_range, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i13)
-  store i64 %5, ptr %value.addr.i13, align 8
+  store i64 %4, ptr %value.addr.i13, align 8
   %call.i14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull %value.addr.i13, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i13)
   %second = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load i64, ptr %second, align 8
+  %5 = load i64, ptr %second, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i15)
-  store i64 %6, ptr %value.addr.i15, align 8
+  store i64 %5, ptr %value.addr.i15, align 8
   %call.i16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull %value.addr.i15, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i15)
   ret void

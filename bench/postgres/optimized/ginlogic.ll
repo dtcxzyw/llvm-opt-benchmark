@@ -168,7 +168,7 @@ define internal signext i8 @directTriConsistentFn(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal signext i8 @shimTriConsistentFn(ptr noundef %0) #3 {
+define internal signext range(i8 0, 3) i8 @shimTriConsistentFn(ptr noundef %0) #3 {
   %2 = alloca [4 x i32], align 16
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
@@ -322,7 +322,7 @@ define internal signext i8 @shimTriConsistentFn(ptr noundef %0) #3 {
   br i1 %exitcond70.not, label %.split57.us, label %86, !llvm.loop !8
 
 ..loopexit_crit_edge.us:                          ; preds = %86
-  %95 = trunc i64 %indvars.iv66 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv66 to i32
   store i8 1, ptr %91, align 1
   %96 = icmp eq i32 %.139, %95
   br i1 %96, label %.split57.us, label %97

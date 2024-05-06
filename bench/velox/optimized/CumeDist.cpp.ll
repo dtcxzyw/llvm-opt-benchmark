@@ -1626,11 +1626,11 @@ lpad.i.i.i.i:                                     ; preds = %entry
   %pool_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 77
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %pool_.i.i.i.i.i.i, i8 0, i64 52, i1 false), !noalias !18
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox6window9prestosql12_GLOBAL__N_116CumeDistFunctionE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !18
   %runningTotal_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   %currentPeerGroupStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %runningTotal_.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %runningTotal_.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !18
   store i64 -1, ptr %currentPeerGroupStart_.i.i.i.i.i, align 8, !noalias !18
   %numPartitionRows_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 104
   store i32 1, ptr %numPartitionRows_.i.i.i.i.i, align 8, !noalias !18
@@ -2134,9 +2134,9 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !23
   %11 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !23
   %cmp.not.i9.i = icmp ult i64 %11, %6
-  br i1 %cmp.not.i9.i, label %if.then.i11.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIdEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
+  br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIdEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
-if.then.i11.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
+if.then.i12.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
   tail call void @llvm.trap()
   unreachable
 

@@ -1558,7 +1558,7 @@ define internal i32 @sctp_assoc_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @sctp_assoc_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @sctp_assoc_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -1669,7 +1669,7 @@ define internal i32 @sctp_assoc_half_hash(ptr nocapture noundef readonly %0) #3 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @sctp_assoc_half_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @sctp_assoc_half_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -2616,7 +2616,7 @@ proto_item_set_hidden.exit118:                    ; preds = %162, %159, %proto_i
   %341 = load i32, ptr %204, align 8
   %342 = load i32, ptr %207, align 4
   %343 = load ptr, ptr %208, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %340, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %340, i8 0, i64 24, i1 false)
   store i32 %341, ptr %340, align 8
   %344 = icmp eq i32 %342, 0
   br i1 %344, label %copy_address_wmem.exit.i, label %345
@@ -2638,7 +2638,7 @@ copy_address_wmem.exit.i:                         ; preds = %345, %336
   %353 = load i32, ptr %210, align 8
   %354 = load i32, ptr %213, align 4
   %355 = load ptr, ptr %214, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %352, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %352, i8 0, i64 24, i1 false)
   store i32 %353, ptr %352, align 8
   %356 = icmp eq i32 %354, 0
   br i1 %356, label %copy_address_wmem.exit74.i, label %357
@@ -8442,7 +8442,7 @@ define internal fastcc void @sctp_ack_block(ptr nocapture noundef readonly %0, p
 75:                                               ; preds = %72
   store i32 %68, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %71, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull readonly align 8 dereferenceable(16) %59, i64 16, i1 false)
   %77 = load ptr, ptr %8, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8
@@ -8592,7 +8592,7 @@ define internal i32 @frag_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @frag_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @frag_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i16, ptr %0, align 4
   %4 = load i16, ptr %1, align 4
   %5 = icmp eq i16 %3, %4

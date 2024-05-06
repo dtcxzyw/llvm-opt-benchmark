@@ -80,7 +80,7 @@ if.then.i:                                        ; preds = %for.body.i38
   %sub.i = sub i64 %add3.i, %from_pos.028.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.ph, i64 %pos.027.i
   %add.ptr4.i = getelementptr inbounds i8, ptr %data, i64 %from_pos.028.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr4.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %add.ptr4.i, i64 %sub.i, i1 false)
   %add5.i = add i64 %sub.i, %pos.027.i
   %sub6.i = sub i64 %conv.i40, %sub.i
   br label %if.end.i
@@ -95,7 +95,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
 if.then9.i:                                       ; preds = %if.end.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %cond.ph, i64 %pos.1.i
   %add.ptr11.i = getelementptr inbounds i8, ptr %data, i64 %from_pos.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr10.i, ptr align 1 %add.ptr11.i, i64 %insert_len.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr10.i, ptr readonly align 1 %add.ptr11.i, i64 %insert_len.0.i, i1 false)
   %add12.i = add i64 %pos.1.i, %insert_len.0.i
   br label %if.end13.i
 
@@ -220,7 +220,7 @@ if.end74.i:                                       ; preds = %if.end69.i, %if.end
   %14 = load ptr, ptr %types76.i, align 8
   %arrayidx.i49 = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 0, ptr %arrayidx.i49, align 1
-  %conv.i50 = trunc i64 %add.i to i32
+  %conv.i50 = trunc nuw nsw i64 %add.i to i32
   %lengths78.i = getelementptr inbounds i8, ptr %literal_split, i64 24
   %15 = load ptr, ptr %lengths78.i, align 8
   %16 = load i64, ptr %num_blocks.i, align 8
@@ -428,7 +428,7 @@ if.then.i.i.i:                                    ; preds = %for.body5.i.i
   br label %FastLog2.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body5.i.i
-  %conv.i.i131.i = uitofp i64 %conv7.i.i to double
+  %conv.i.i131.i = uitofp nneg i64 %conv7.i.i to double
   %call.i.i.i = tail call double @log2(double noundef %conv.i.i131.i) #7
   br label %FastLog2.exit.i.i
 
@@ -1260,7 +1260,7 @@ if.then405.i.i:                                   ; preds = %lor.lhs.false399.i.
   %conv.i.i175.i = zext i8 %max_type.0394.i.i to i32
   %conv1.i.i.i = and i32 %89, 255
   %cond.i459.i.i = tail call i32 @llvm.umax.i32(i32 %conv1.i.i.i, i32 %conv.i.i175.i)
-  %conv5.i.i.i = trunc i32 %cond.i459.i.i to i8
+  %conv5.i.i.i = trunc nuw i32 %cond.i459.i.i to i8
   %inc415.i.i = add i64 %block_idx389.0393.i.i, 1
   br label %for.inc417.i.i
 
@@ -1413,7 +1413,7 @@ if.end74.i652:                                    ; preds = %if.end69.i673, %if.
   %106 = load ptr, ptr %types76.i653, align 8
   %arrayidx.i654 = getelementptr inbounds i8, ptr %106, i64 %105
   store i8 0, ptr %arrayidx.i654, align 1
-  %conv.i655 = trunc i64 %num_commands to i32
+  %conv.i655 = trunc nuw nsw i64 %num_commands to i32
   %lengths78.i656 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 24
   %107 = load ptr, ptr %lengths78.i656, align 8
   %108 = load i64, ptr %num_blocks.i645, align 8
@@ -1623,7 +1623,7 @@ if.then.i.i.i640:                                 ; preds = %for.body5.i.i176
   br label %FastLog2.exit.i.i184
 
 if.end.i.i.i181:                                  ; preds = %for.body5.i.i176
-  %conv.i.i131.i182 = uitofp i64 %conv7.i.i179 to double
+  %conv.i.i131.i182 = uitofp nneg i64 %conv7.i.i179 to double
   %call.i.i.i183 = tail call double @log2(double noundef %conv.i.i131.i182) #7
   br label %FastLog2.exit.i.i184
 
@@ -2459,7 +2459,7 @@ if.then405.i.i548:                                ; preds = %lor.lhs.false399.i.
   %conv.i.i175.i554 = zext i8 %max_type.0393.i.i to i32
   %conv1.i.i.i555 = and i32 %183, 255
   %cond.i448.i.i = tail call i32 @llvm.umax.i32(i32 %conv1.i.i.i555, i32 %conv.i.i175.i554)
-  %conv5.i.i.i556 = trunc i32 %cond.i448.i.i to i8
+  %conv5.i.i.i556 = trunc nuw i32 %cond.i448.i.i to i8
   %inc415.i.i557 = add i64 %block_idx389.0392.i.i, 1
   br label %for.inc417.i.i558
 
@@ -2633,7 +2633,7 @@ if.end74.i1341:                                   ; preds = %if.end69.i1362, %if
   %203 = load ptr, ptr %types76.i1342, align 8
   %arrayidx.i1343 = getelementptr inbounds i8, ptr %203, i64 %202
   store i8 0, ptr %arrayidx.i1343, align 1
-  %conv.i1344 = trunc i64 %j.1 to i32
+  %conv.i1344 = trunc nuw nsw i64 %j.1 to i32
   %lengths78.i1345 = getelementptr inbounds i8, ptr %dist_split, i64 24
   %204 = load ptr, ptr %lengths78.i1345, align 8
   %205 = load i64, ptr %num_blocks.i1334, align 8
@@ -2842,7 +2842,7 @@ if.then.i.i.i1329:                                ; preds = %for.body5.i.i816
   br label %FastLog2.exit.i.i824
 
 if.end.i.i.i821:                                  ; preds = %for.body5.i.i816
-  %conv.i.i131.i822 = uitofp i64 %conv7.i.i819 to double
+  %conv.i.i131.i822 = uitofp nneg i64 %conv7.i.i819 to double
   %call.i.i.i823 = tail call double @log2(double noundef %conv.i.i131.i822) #7
   br label %FastLog2.exit.i.i824
 
@@ -3678,7 +3678,7 @@ if.then405.i.i1236:                               ; preds = %lor.lhs.false399.i.
   %conv.i.i175.i1242 = zext i8 %max_type.0393.i.i1223 to i32
   %conv1.i.i.i1243 = and i32 %280, 255
   %cond.i448.i.i1244 = tail call i32 @llvm.umax.i32(i32 %conv1.i.i.i1243, i32 %conv.i.i175.i1242)
-  %conv5.i.i.i1245 = trunc i32 %cond.i448.i.i1244 to i8
+  %conv5.i.i.i1245 = trunc nuw i32 %cond.i448.i.i1244 to i8
   %inc415.i.i1246 = add i64 %block_idx389.0392.i.i1224, 1
   br label %for.inc417.i.i1247
 

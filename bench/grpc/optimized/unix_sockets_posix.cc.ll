@@ -357,7 +357,7 @@ ehcleanup16:                                      ; preds = %_ZNSt12_Vector_base
 declare void @_ZN9grpc_core28UnixAbstractSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z19grpc_is_unix_socketPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_Z19grpc_is_unix_socketPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #7 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   %cmp = icmp eq i16 %0, 1

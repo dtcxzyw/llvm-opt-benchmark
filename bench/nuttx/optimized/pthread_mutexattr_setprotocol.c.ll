@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @pthread_mutexattr_setprotocol(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 139) i32 @pthread_mutexattr_setprotocol(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %1, 3
   br i1 %or.cond, label %3, label %10
 
@@ -13,7 +13,7 @@ define noundef i32 @pthread_mutexattr_setprotocol(ptr nocapture noundef %0, i32 
   br i1 %switch.not, label %10, label %4
 
 4:                                                ; preds = %3
-  %5 = trunc i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = load i8, ptr %0, align 1
   %7 = shl nuw nsw i8 %5, 1
   %8 = and i8 %6, -7

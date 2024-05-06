@@ -51,7 +51,7 @@ define i32 @Ssw_SmlObjHashWord(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Ssw_SmlObjIsConstWord(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ssw_SmlObjIsConstWord(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -88,7 +88,7 @@ define noundef i32 @Ssw_SmlObjIsConstWord(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Ssw_SmlObjsAreEqualWord(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ssw_SmlObjsAreEqualWord(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -132,7 +132,7 @@ define noundef i32 @Ssw_SmlObjsAreEqualWord(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Ssw_SmlObjIsConstBit(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Ssw_SmlObjIsConstBit(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -145,7 +145,7 @@ define i32 @Ssw_SmlObjIsConstBit(ptr nocapture noundef readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Ssw_SmlObjsAreEqualBit(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Ssw_SmlObjsAreEqualBit(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
@@ -219,7 +219,7 @@ define i32 @Ssw_SmlNodeNotEquWeight(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Ssw_SmlCheckXorImplication(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Ssw_SmlCheckXorImplication(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = ptrtoint ptr %3 to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
@@ -505,7 +505,7 @@ define i32 @Ssw_SmlCountEqual(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Ssw_SmlNodeIsZero(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ssw_SmlNodeIsZero(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -542,7 +542,7 @@ define noundef i32 @Ssw_SmlNodeIsZero(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Ssw_SmlNodeIsZeroFrame(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Ssw_SmlNodeIsZeroFrame(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -851,7 +851,7 @@ define noalias noundef ptr @Ssw_SmlCheckOutputSavePattern(ptr nocapture noundef 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %._crit_edge.loopexit.split.loop.exit, %2
@@ -1012,7 +1012,7 @@ Ssw_SmlObjIsConstWord.exit:                       ; preds = %.lr.ph.i.us
   br i1 %exitcond.not.i19, label %._crit_edge.i, label %.lr.ph.i15, !llvm.loop !20
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i15
-  %32 = trunc i64 %indvars.iv.i16 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i16 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %31, %._crit_edge.loopexit.split.loop.exit.i, %Ssw_SmlObjIsConstWord.exit
@@ -1301,7 +1301,7 @@ define void @Ssw_SmlAssignDist1(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %28, label %.lr.ph.i, label %Ssw_SmlObjAssignConst.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph98.split
-  %29 = trunc i64 %indvars.iv111 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv111 to i32
   %30 = lshr i64 %indvars.iv111, 5
   %31 = and i64 %30, 134217727
   %32 = getelementptr inbounds i32, ptr %1, i64 %31
@@ -1372,7 +1372,7 @@ Ssw_SmlObjAssignConst.exit:                       ; preds = %Ssw_SmlObjAssignCon
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i32, ptr %57, i64 %68
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %70 = trunc i64 %indvars.iv.next115 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.next115 to i32
   %71 = and i32 %70, 31
   %72 = shl nuw i32 1, %71
   %73 = lshr i64 %indvars.iv.next115, 5
@@ -1622,7 +1622,7 @@ define void @Ssw_SmlAssignDist1Plus(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %25, label %.lr.ph.i, label %Ssw_SmlObjAssignConst.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = lshr i64 %indvars.iv, 5
   %28 = and i64 %27, 134217727
   %29 = getelementptr inbounds i32, ptr %1, i64 %28
@@ -1709,7 +1709,7 @@ Ssw_SmlObjAssignConst.exit:                       ; preds = %Ssw_SmlObjAssignCon
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i32, ptr %54, i64 %75
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %77 = trunc i64 %indvars.iv.next55 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv.next55 to i32
   %78 = and i32 %77, 31
   %79 = shl nuw i32 1, %78
   %80 = lshr i64 %indvars.iv.next55, 5
@@ -2059,7 +2059,7 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Ssw_SmlNodesCompareInFrame(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ssw_SmlNodesCompareInFrame(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2574,7 +2574,7 @@ Ssw_SmlAssignRandom.exit:                         ; preds = %.lr.ph15.i, %.prehe
   %50 = getelementptr inbounds i32, ptr %.val24, i64 %indvars.iv33
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %0, align 8
-  %53 = trunc i64 %indvars.iv33 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv33 to i32
   %54 = srem i32 %53, %.val22
   %55 = getelementptr i8, ptr %52, i64 16
   %.val25 = load ptr, ptr %55, align 8
@@ -2769,7 +2769,7 @@ Ssw_SmlNodeTransferFirst.exit:                    ; preds = %Ssw_SmlNodeTransfer
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Ssw_SmlCheckNonConstOutputs(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Ssw_SmlCheckNonConstOutputs(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 112
   %.val14 = load i32, ptr %3, align 8
@@ -3908,7 +3908,7 @@ Vec_PtrStart.exit:                                ; preds = %1, %7
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %17, align 4
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = mul nsw i32 %23, %24
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %16, i64 %26
@@ -4396,7 +4396,7 @@ define noundef ptr @Ssw_SmlGetCounterExample(ptr nocapture noundef readonly %0) 
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.preheader.i.us, !llvm.loop !71
 
 .lr.ph110.preheader:                              ; preds = %.lr.ph.i.us
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %Ssw_SmlNodeIsZero.exit
@@ -4407,7 +4407,7 @@ define noundef ptr @Ssw_SmlGetCounterExample(ptr nocapture noundef readonly %0) 
   br i1 %.not74, label %Ssw_SmlNodeIsZero.exit, label %28
 
 28:                                               ; preds = %.lr.ph110
-  %29 = trunc i64 %indvars.iv130 to i32
+  %29 = trunc nsw i64 %indvars.iv130 to i32
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = sdiv i32 %29, %31
@@ -4576,7 +4576,7 @@ Ssw_SmlNodeIsZero.exit:                           ; preds = %.lr.ph110
   %127 = load i32, ptr %64, align 4
   %128 = load i32, ptr %65, align 4
   %129 = mul nsw i32 %128, %.168118
-  %130 = trunc i64 %indvars.iv134 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv134 to i32
   %131 = add i32 %127, %130
   %132 = add i32 %131, %129
   %133 = and i32 %132, 31
@@ -4635,7 +4635,7 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #26
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #26
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -4654,7 +4654,7 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4672,19 +4672,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #18
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #18
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #20
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #22
+declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #20
+declare void @llvm.va_start.p0(ptr) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23
@@ -4718,9 +4718,9 @@ attributes #16 = { mustprogress nounwind willreturn memory(argmem: readwrite, in
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nounwind allocsize(0) }

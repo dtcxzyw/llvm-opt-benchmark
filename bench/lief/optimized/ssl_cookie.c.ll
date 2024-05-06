@@ -65,7 +65,7 @@ declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #1
 declare i32 @mbedtls_md_hmac_starts(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_ssl_cookie_write(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_write(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %3, null
@@ -155,7 +155,7 @@ ssl_cookie_hmac.exit:                             ; preds = %16, %38, %40, %42, 
 declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_cookie_check(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_check(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [28 x i8], align 16
   %8 = icmp eq ptr %0, null

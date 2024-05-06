@@ -462,7 +462,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_113BernoulliTestEEE, i64 0) #24
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_113BernoulliTestEEE, i64 0) #24
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -4802,11 +4802,11 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %0 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %0 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %0 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i, 58
-  %xor.i.i12.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i
-  %or.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i, i64 %xor.i.i12.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i)
+  %xor.i.i14.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i
+  %or.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i)
   %conv1.i.i = and i64 %or.i.i.i.i.i.i.i.i, 4294967295
   %cmp.not.i.i = icmp eq i64 %conv1.i.i, %conv.i.i.fr
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit

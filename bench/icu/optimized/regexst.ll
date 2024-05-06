@@ -300,7 +300,7 @@ for.body:                                         ; preds = %invoke.cont195, %fo
   %arrayidx205 = getelementptr inbounds [13 x %"class.icu_75::UnicodeSet"], ptr %fPropSets.ptr, i64 0, i64 %indvars.iv
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body
+for.body.i:                                       ; preds = %for.body, %for.inc.i
   %i.05.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body ]
   %call.i37 = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx205, i32 noundef %i.05.i)
           to label %call.i.noexc unwind label %lpad32.loopexit
@@ -316,7 +316,7 @@ if.then3.i:                                       ; preds = %call.i.noexc
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [32 x i8], ptr %arrayidx202, i64 0, i64 %idxprom.i.i
   %10 = load i8, ptr %arrayidx.i.i, align 1
-  %11 = trunc i32 %shl.i.i to i8
+  %11 = trunc nuw i32 %shl.i.i to i8
   %conv2.i.i = or i8 %10, %11
   store i8 %conv2.i.i, ptr %arrayidx.i.i, align 1
   br label %for.inc.i

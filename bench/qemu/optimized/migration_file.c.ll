@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [37 x i8] c"migration_file_incoming filename=%s\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @file_parse_offset(ptr noundef %filespec, ptr noundef %offsetp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @file_parse_offset(ptr noundef %filespec, ptr noundef %offsetp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filespec, ptr noundef nonnull dereferenceable(1) @.str) #5
   %tobool.not = icmp eq ptr %call, null

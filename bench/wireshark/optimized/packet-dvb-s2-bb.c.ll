@@ -943,7 +943,7 @@ define internal i32 @virtual_stream_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @virtual_stream_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @virtual_stream_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -1031,7 +1031,7 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
   %41 = load i32, ptr @proto_dvb_s2_modeadapt, align 4
   %42 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef %37, ptr noundef nonnull @.str.647, i32 noundef %.074) #9
   %43 = sext i32 %.075 to i64
-  %44 = tail call i64 @llvm.ctpop.i64(i64 %43), !range !4
+  %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %43)
   %.not90 = icmp ult i64 %44, 2
   br i1 %.not90, label %47, label %45
 
@@ -1237,7 +1237,7 @@ thread-pre-split.i:                               ; preds = %116, %get_dvbs2_bb_
   %167 = getelementptr [256 x i8], ptr @crc8_table, i64 0, i64 %166
   %168 = load i8, ptr %167, align 1
   %exitcond.not.i.i = icmp eq i32 %163, 9
-  br i1 %exitcond.not.i.i, label %compute_crc8.exit.i, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %compute_crc8.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 compute_crc8.exit.i:                              ; preds = %.lr.ph.i.i
   %.0372.i = trunc i32 %.0372.in.i to i16
@@ -1908,7 +1908,7 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %485, %484, %292
   %495 = sub i16 %.137318.i, %.1200.i.i
   %496 = icmp ult i16 %495, 2
   %or.cond44.i = or i1 %or.cond4.not46.i, %496
-  br i1 %or.cond44.i, label %dissect_dvb_s2_bb.exit, label %271, !llvm.loop !7
+  br i1 %or.cond44.i, label %dissect_dvb_s2_bb.exit, label %271, !llvm.loop !6
 
 497:                                              ; preds = %250
   %498 = load i32, ptr @hf_dvb_s2_bb_df, align 4
@@ -2242,7 +2242,7 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %485, %484, %292
   %648 = load i8, ptr %647, align 1
   %649 = add nuw nsw i32 %.089.i475.i, 1
   %exitcond.not.i476.i = icmp eq i32 %649, %632
-  br i1 %exitcond.not.i476.i, label %compute_crc8.exit477.i, label %.lr.ph.i472.i, !llvm.loop !5
+  br i1 %exitcond.not.i476.i, label %compute_crc8.exit477.i, label %.lr.ph.i472.i, !llvm.loop !4
 
 compute_crc8.exit477.i:                           ; preds = %.lr.ph.i472.i, %641
   %.07.lcssa.i.i = phi i8 [ 0, %641 ], [ %648, %.lr.ph.i472.i ]
@@ -2277,7 +2277,7 @@ compute_crc8.exit477.i:                           ; preds = %.lr.ph.i472.i, %641
   %661 = add i32 %.312.i, %557
   %662 = sub i32 %628, %661
   %.not457.i = icmp ult i32 %662, %557
-  br i1 %.not457.i, label %._crit_edge.i, label %634, !llvm.loop !8
+  br i1 %.not457.i, label %._crit_edge.i, label %634, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %660, %627
   %.2386.lcssa.i = phi ptr [ %.1385.i, %627 ], [ %.3387.i, %660 ]
@@ -2366,7 +2366,7 @@ define hidden void @proto_reg_handoff_dvb_s2_modeadapt() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dvb_s2_modeadapt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dvb_s2_modeadapt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call fastcc i32 @detect_dvb_s2_modeadapt(ptr noundef %0)
   %6 = load i32, ptr @dvb_s2_try_all_modeadapt, align 4
   %.not = icmp eq i32 %6, 0
@@ -2433,7 +2433,7 @@ define internal fastcc i32 @detect_dvb_s2_modeadapt(ptr noundef %0) unnamed_addr
   %13 = getelementptr [256 x i8], ptr @crc8_table, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %exitcond.not.i.i = icmp eq i32 %9, 9
-  br i1 %exitcond.not.i.i, label %test_dvb_s2_crc.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %test_dvb_s2_crc.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 test_dvb_s2_crc.exit:                             ; preds = %.lr.ph.i.i
   %.not.i = icmp ne i8 %14, %8
@@ -2470,7 +2470,7 @@ test_dvb_s2_crc.exit.thread:                      ; preds = %4, %test_dvb_s2_crc
   %29 = load i8, ptr %28, align 1
   %30 = add nuw nsw i32 %.089.i.i22, 1
   %exitcond.not.i.i23 = icmp eq i32 %30, 9
-  br i1 %exitcond.not.i.i23, label %test_dvb_s2_crc.exit28, label %.lr.ph.i.i19, !llvm.loop !5
+  br i1 %exitcond.not.i.i23, label %test_dvb_s2_crc.exit28, label %.lr.ph.i.i19, !llvm.loop !4
 
 test_dvb_s2_crc.exit28:                           ; preds = %.lr.ph.i.i19
   %.not.i25 = icmp ne i8 %29, %23
@@ -2503,7 +2503,7 @@ test_dvb_s2_crc.exit28.thread:                    ; preds = %19, %test_dvb_s2_cr
   %42 = load i8, ptr %41, align 1
   %43 = add nuw nsw i32 %.089.i.i32, 1
   %exitcond.not.i.i33 = icmp eq i32 %43, 9
-  br i1 %exitcond.not.i.i33, label %test_dvb_s2_crc.exit38, label %.lr.ph.i.i29, !llvm.loop !5
+  br i1 %exitcond.not.i.i33, label %test_dvb_s2_crc.exit38, label %.lr.ph.i.i29, !llvm.loop !4
 
 test_dvb_s2_crc.exit38:                           ; preds = %.lr.ph.i.i29
   %.not.i35 = icmp ne i8 %42, %36
@@ -2541,7 +2541,7 @@ test_dvb_s2_crc.exit38.thread:                    ; preds = %32, %test_dvb_s2_cr
   %59 = load i8, ptr %58, align 1
   %60 = add nuw nsw i32 %.089.i.i42, 1
   %exitcond.not.i.i43 = icmp eq i32 %60, 9
-  br i1 %exitcond.not.i.i43, label %test_dvb_s2_crc.exit48, label %.lr.ph.i.i39, !llvm.loop !5
+  br i1 %exitcond.not.i.i43, label %test_dvb_s2_crc.exit48, label %.lr.ph.i.i39, !llvm.loop !4
 
 test_dvb_s2_crc.exit48:                           ; preds = %.lr.ph.i.i39
   %.not.i45 = icmp ne i8 %59, %53
@@ -2595,7 +2595,7 @@ define internal fastcc zeroext i8 @compute_crc8(ptr noundef %0, i8 noundef zeroe
   %10 = load i8, ptr %9, align 1
   %11 = add nuw nsw i32 %.089, 1
   %exitcond.not = icmp eq i32 %11, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.07.lcssa = phi i8 [ 0, %3 ], [ %10, %.lr.ph ]
@@ -2718,8 +2718,7 @@ attributes #10 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

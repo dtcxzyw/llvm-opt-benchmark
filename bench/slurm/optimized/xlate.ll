@@ -115,7 +115,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   %9 = alloca i32, align 4
   store ptr null, ptr %6, align 8
   store i32 0, ptr %9, align 4
-  switch i32 %3, label %58 [
+  switch i32 %3, label %57 [
     i32 1, label %11
     i32 2, label %10
   ]
@@ -137,134 +137,134 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 
 .outer:                                           ; preds = %._crit_edge, %11
   %.033.ph = phi i32 [ %.134.lcssa, %._crit_edge ], [ 1, %11 ]
-  %.031.ph = phi i32 [ %20, %._crit_edge ], [ 0, %11 ]
+  %.031.ph = phi i32 [ %19, %._crit_edge ], [ 0, %11 ]
   %.030.ph = phi i32 [ %.030, %._crit_edge ], [ 0, %11 ]
-  %16 = phi i1 [ true, %._crit_edge ], [ false, %11 ]
-  br label %17
+  %.0.ph = phi i1 [ true, %._crit_edge ], [ false, %11 ]
+  br label %16
 
-17:                                               ; preds = %.outer, %23
-  %.031 = phi i32 [ %20, %23 ], [ %.031.ph, %.outer ]
-  %.030 = phi i32 [ %spec.select, %23 ], [ %.030.ph, %.outer ]
-  %18 = call ptr @next_line(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6) #12
-  store ptr %18, ptr %7, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %52, label %19
+16:                                               ; preds = %.outer, %22
+  %.031 = phi i32 [ %19, %22 ], [ %.031.ph, %.outer ]
+  %.030 = phi i32 [ %spec.select, %22 ], [ %.030.ph, %.outer ]
+  %17 = call ptr @next_line(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6) #12
+  store ptr %17, ptr %7, align 8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %51, label %18
 
-19:                                               ; preds = %17
-  %20 = add nsw i32 %.031, 1
-  %21 = call i32 @xstrncmp(ptr noundef nonnull %18, ptr noundef nonnull %.037, i64 noundef %14) #12
-  %.not39 = icmp eq i32 %21, 0
-  %22 = load ptr, ptr %7, align 8
-  br i1 %.not39, label %27, label %23
+18:                                               ; preds = %16
+  %19 = add nsw i32 %.031, 1
+  %20 = call i32 @xstrncmp(ptr noundef nonnull %17, ptr noundef nonnull %.037, i64 noundef %14) #12
+  %.not39 = icmp eq i32 %20, 0
+  %21 = load ptr, ptr %7, align 8
+  br i1 %.not39, label %26, label %22
 
-23:                                               ; preds = %19
-  %24 = load i8, ptr %22, align 1
-  %.not43 = icmp ne i8 %24, 35
-  %25 = zext i1 %.not43 to i32
-  %spec.select = add nsw i32 %.030, %25
+22:                                               ; preds = %18
+  %23 = load i8, ptr %21, align 1
+  %.not43 = icmp ne i8 %23, 35
+  %24 = zext i1 %.not43 to i32
+  %spec.select = add nsw i32 %.030, %24
   call void @slurm_xfree(ptr noundef nonnull %7) #12
-  %26 = icmp sgt i32 %spec.select, 100
-  br i1 %26, label %52, label %17, !llvm.loop !7
+  %25 = icmp sgt i32 %spec.select, 100
+  br i1 %25, label %51, label %16, !llvm.loop !7
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %22, i64 %14
-  %29 = call ptr @get_argument(ptr noundef %0, i32 noundef %20, ptr noundef %28, ptr noundef nonnull %9) #12
-  store ptr %29, ptr %8, align 8
-  %.not4046 = icmp eq ptr %29, null
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds i8, ptr %21, i64 %14
+  %28 = call ptr @get_argument(ptr noundef %0, i32 noundef %19, ptr noundef %27, ptr noundef nonnull %9) #12
+  store ptr %28, ptr %8, align 8
+  %.not4046 = icmp eq ptr %28, null
   br i1 %.not4046, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %27
-  %30 = sext i32 %.033.ph to i64
+.lr.ph.preheader:                                 ; preds = %26
+  %29 = sext i32 %.033.ph to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
-  %indvars.iv = phi i64 [ %30, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
-  %.03248 = phi ptr [ %28, %.lr.ph.preheader ], [ %49, %43 ]
-  %31 = call i32 @get_log_level() #12
-  %32 = icmp sgt i32 %31, 5
-  br i1 %32, label %33, label %35
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
+  %indvars.iv = phi i64 [ %29, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
+  %.03248 = phi ptr [ %27, %.lr.ph.preheader ], [ %48, %42 ]
+  %30 = call i32 @get_log_level() #12
+  %31 = icmp sgt i32 %30, 5
+  br i1 %31, label %32, label %34
 
-33:                                               ; preds = %.lr.ph
-  %34 = load ptr, ptr %8, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %34) #12
-  br label %35
+32:                                               ; preds = %.lr.ph
+  %33 = load ptr, ptr %8, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %33) #12
+  br label %34
 
-35:                                               ; preds = %33, %.lr.ph
+34:                                               ; preds = %32, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %36 = shl nsw i64 %indvars.iv.next, 3
-  %37 = call ptr @slurm_xrecalloc(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %36, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 134, ptr noundef nonnull @__func__.xlate_batch_script) #12
-  %38 = and i64 %indvars.iv, 1
-  %.not41.not = icmp eq i64 %38, 0
+  %35 = shl nsw i64 %indvars.iv.next, 3
+  %36 = call ptr @slurm_xrecalloc(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %35, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 134, ptr noundef nonnull @__func__.xlate_batch_script) #12
+  %37 = and i64 %indvars.iv, 1
+  %.not41.not = icmp eq i64 %37, 0
   %or.cond = select i1 %15, i1 true, i1 %.not41.not
-  %.pre61 = load ptr, ptr %8, align 8
-  br i1 %or.cond, label %43, label %39
+  %.pre60 = load ptr, ptr %8, align 8
+  br i1 %or.cond, label %42, label %38
 
-39:                                               ; preds = %35
-  %40 = call i32 @xstrcmp(ptr noundef nonnull @.str.5, ptr noundef %.pre61) #12
-  %.not42 = icmp eq i32 %40, 0
-  br i1 %.not42, label %41, label %._crit_edge60
+38:                                               ; preds = %34
+  %39 = call i32 @xstrcmp(ptr noundef nonnull @.str.5, ptr noundef %.pre60) #12
+  %.not42 = icmp eq i32 %39, 0
+  br i1 %.not42, label %40, label %._crit_edge59
 
-._crit_edge60:                                    ; preds = %39
+._crit_edge59:                                    ; preds = %38
   %.pre = load ptr, ptr %8, align 8
-  br label %43
+  br label %42
 
-41:                                               ; preds = %39
+40:                                               ; preds = %38
   call void @slurm_xfree(ptr noundef nonnull %8) #12
-  %42 = call ptr @xstrdup(ptr noundef nonnull @.str.6) #12
-  store ptr %42, ptr %8, align 8
-  br label %43
+  %41 = call ptr @xstrdup(ptr noundef nonnull @.str.6) #12
+  store ptr %41, ptr %8, align 8
+  br label %42
 
-43:                                               ; preds = %._crit_edge60, %41, %35
-  %44 = phi ptr [ %.pre, %._crit_edge60 ], [ %42, %41 ], [ %.pre61, %35 ]
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
-  store ptr %44, ptr %46, align 8
-  %47 = load i32, ptr %9, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %.03248, i64 %48
-  %50 = call ptr @get_argument(ptr noundef %0, i32 noundef %20, ptr noundef %49, ptr noundef nonnull %9) #12
-  store ptr %50, ptr %8, align 8
-  %.not40 = icmp eq ptr %50, null
+42:                                               ; preds = %._crit_edge59, %40, %34
+  %43 = phi ptr [ %.pre, %._crit_edge59 ], [ %41, %40 ], [ %.pre60, %34 ]
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
+  store ptr %43, ptr %45, align 8
+  %46 = load i32, ptr %9, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr %.03248, i64 %47
+  %49 = call ptr @get_argument(ptr noundef %0, i32 noundef %19, ptr noundef %48, ptr noundef nonnull %9) #12
+  store ptr %49, ptr %8, align 8
+  %.not40 = icmp eq ptr %49, null
   br i1 %.not40, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %43
-  %51 = trunc i64 %indvars.iv.next to i32
+._crit_edge.loopexit:                             ; preds = %42
+  %50 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %27
-  %.134.lcssa = phi i32 [ %.033.ph, %27 ], [ %51, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
+  %.134.lcssa = phi i32 [ %.033.ph, %26 ], [ %50, %._crit_edge.loopexit ]
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   br label %.outer, !llvm.loop !7
 
-52:                                               ; preds = %23, %17
-  %53 = icmp sgt i32 %.033.ph, 0
-  br i1 %53, label %54, label %._crit_edge52
+51:                                               ; preds = %22, %16
+  %52 = icmp sgt i32 %.033.ph, 0
+  br i1 %52, label %53, label %._crit_edge52
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %5, align 8
-  call void %.036(i32 noundef %.033.ph, ptr noundef %55) #12, !callees !10
-  %.not64 = icmp eq i32 %.033.ph, 1
-  br i1 %.not64, label %._crit_edge52, label %.lr.ph51.preheader
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %5, align 8
+  call void %.036(i32 noundef %.033.ph, ptr noundef %54) #12, !callees !10
+  %.not62 = icmp eq i32 %.033.ph, 1
+  br i1 %.not62, label %._crit_edge52, label %.lr.ph51.preheader
 
-.lr.ph51.preheader:                               ; preds = %54
+.lr.ph51.preheader:                               ; preds = %53
   %wide.trip.count = zext nneg i32 %.033.ph to i64
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
-  %indvars.iv57 = phi i64 [ 1, %.lr.ph51.preheader ], [ %indvars.iv.next58, %.lr.ph51 ]
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv57
-  call void @slurm_xfree(ptr noundef nonnull %57) #12
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
+  %indvars.iv56 = phi i64 [ 1, %.lr.ph51.preheader ], [ %indvars.iv.next57, %.lr.ph51 ]
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv56
+  call void @slurm_xfree(ptr noundef nonnull %56) #12
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !11
 
-._crit_edge52:                                    ; preds = %.lr.ph51, %52, %54
+._crit_edge52:                                    ; preds = %.lr.ph51, %51, %53
   call void @slurm_xfree(ptr noundef nonnull %5) #12
-  br label %58
+  br label %57
 
-58:                                               ; preds = %4, %._crit_edge52
-  %.035 = phi i1 [ %16, %._crit_edge52 ], [ false, %4 ]
+57:                                               ; preds = %4, %._crit_edge52
+  %.035 = phi i1 [ %.0.ph, %._crit_edge52 ], [ false, %4 ]
   ret i1 %.035
 }
 
@@ -546,12 +546,12 @@ define internal void @_set_pbs_options(i32 noundef %0, ptr noundef %1) unnamed_a
 
 50:                                               ; preds = %47
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %51 = trunc i64 %indvars.iv.next.i.i to i32
+  %51 = trunc nsw i64 %indvars.iv.next.i.i to i32
   store i32 %51, ptr %7, align 4
   br label %47, !llvm.loop !14
 
 52:                                               ; preds = %47
-  %53 = trunc i64 %indvars.iv.i.i to i32
+  %53 = trunc nsw i64 %indvars.iv.i.i to i32
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -586,7 +586,7 @@ define internal void @_set_pbs_options(i32 noundef %0, ptr noundef %1) unnamed_a
   ]
 
 .critedge.i.loopexit.i:                           ; preds = %.lr.ph.i.i, %.lr.ph.i.i
-  %67 = trunc i64 %indvars.iv.next.i108.i to i32
+  %67 = trunc nsw i64 %indvars.iv.next.i108.i to i32
   store i32 %67, ptr %7, align 4
   br label %.critedge.i.i
 
@@ -599,7 +599,7 @@ define internal void @_set_pbs_options(i32 noundef %0, ptr noundef %1) unnamed_a
   %71 = load i32, ptr %7, align 4
   %72 = sub nsw i32 %71, %61
   %73 = sext i32 %72 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull align 1 %63, i64 %73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull readonly align 1 %63, i64 %73, i1 false)
   %74 = load i32, ptr %7, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %27, i64 %75
@@ -658,7 +658,7 @@ _get_pbs_option_value.exit.i:                     ; preds = %78, %.critedge.i.i
   ]
 
 .critedge.i118.loopexit.i:                        ; preds = %.lr.ph.i112.i, %.lr.ph.i112.i
-  %96 = trunc i64 %indvars.iv.next.i114.i to i32
+  %96 = trunc nsw i64 %indvars.iv.next.i114.i to i32
   store i32 %96, ptr %7, align 4
   br label %.critedge.i118.i
 
@@ -671,7 +671,7 @@ _get_pbs_option_value.exit.i:                     ; preds = %78, %.critedge.i.i
   %100 = load i32, ptr %7, align 4
   %101 = sub nsw i32 %100, %90
   %102 = sext i32 %101 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr nonnull align 1 %92, i64 %102, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr nonnull readonly align 1 %92, i64 %102, i1 false)
   %103 = load i32, ptr %7, align 4
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr %27, i64 %104
@@ -743,12 +743,12 @@ _get_pbs_option_value.exit122.i:                  ; preds = %107, %.critedge.i11
 
 135:                                              ; preds = %132
   %indvars.iv.next.i125.i = add nsw i64 %indvars.iv.i124.i, 1
-  %136 = trunc i64 %indvars.iv.next.i125.i to i32
+  %136 = trunc nsw i64 %indvars.iv.next.i125.i to i32
   store i32 %136, ptr %7, align 4
   br label %132, !llvm.loop !14
 
 137:                                              ; preds = %132
-  %138 = trunc i64 %indvars.iv.i124.i to i32
+  %138 = trunc nsw i64 %indvars.iv.i124.i to i32
   %139 = add nsw i32 %138, 1
   store i32 %139, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -783,7 +783,7 @@ _get_pbs_option_value.exit122.i:                  ; preds = %107, %.critedge.i11
   ]
 
 .critedge.i136.loopexit.i:                        ; preds = %.lr.ph.i130.i, %.lr.ph.i130.i
-  %152 = trunc i64 %indvars.iv.next.i132.i to i32
+  %152 = trunc nsw i64 %indvars.iv.next.i132.i to i32
   store i32 %152, ptr %7, align 4
   br label %.critedge.i136.i
 
@@ -796,7 +796,7 @@ _get_pbs_option_value.exit122.i:                  ; preds = %107, %.critedge.i11
   %156 = load i32, ptr %7, align 4
   %157 = sub nsw i32 %156, %146
   %158 = sext i32 %157 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %155, ptr nonnull align 1 %148, i64 %158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %155, ptr nonnull readonly align 1 %148, i64 %158, i1 false)
   %159 = load i32, ptr %7, align 4
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i8, ptr %27, i64 %160
@@ -873,7 +873,7 @@ _get_pbs_option_value.exit140.i:                  ; preds = %163, %.critedge.i13
   ]
 
 .critedge.i150.loopexit.i:                        ; preds = %.lr.ph.i144.i, %.lr.ph.i144.i
-  %192 = trunc i64 %indvars.iv.next.i146.i to i32
+  %192 = trunc nsw i64 %indvars.iv.next.i146.i to i32
   store i32 %192, ptr %7, align 4
   br label %.critedge.i150.i
 
@@ -886,7 +886,7 @@ _get_pbs_option_value.exit140.i:                  ; preds = %163, %.critedge.i13
   %196 = load i32, ptr %7, align 4
   %197 = sub nsw i32 %196, %186
   %198 = sext i32 %197 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr nonnull align 1 %188, i64 %198, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr nonnull readonly align 1 %188, i64 %198, i1 false)
   %199 = load i32, ptr %7, align 4
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i8, ptr %27, i64 %200
@@ -940,7 +940,7 @@ _get_pbs_option_value.exit154.i:                  ; preds = %203, %.critedge.i15
   ]
 
 .critedge.i164.loopexit.i:                        ; preds = %.lr.ph.i158.i, %.lr.ph.i158.i
-  %219 = trunc i64 %indvars.iv.next.i160.i to i32
+  %219 = trunc nsw i64 %indvars.iv.next.i160.i to i32
   store i32 %219, ptr %7, align 4
   br label %.critedge.i164.i
 
@@ -953,7 +953,7 @@ _get_pbs_option_value.exit154.i:                  ; preds = %203, %.critedge.i15
   %223 = load i32, ptr %7, align 4
   %224 = sub nsw i32 %223, %213
   %225 = sext i32 %224 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %222, ptr nonnull align 1 %215, i64 %225, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %222, ptr nonnull readonly align 1 %215, i64 %225, i1 false)
   %226 = load i32, ptr %7, align 4
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds i8, ptr %27, i64 %227
@@ -1006,7 +1006,7 @@ _get_pbs_option_value.exit168.i:                  ; preds = %230, %.critedge.i16
   ]
 
 .critedge.i178.loopexit.i:                        ; preds = %.lr.ph.i172.i, %.lr.ph.i172.i
-  %246 = trunc i64 %indvars.iv.next.i174.i to i32
+  %246 = trunc nsw i64 %indvars.iv.next.i174.i to i32
   store i32 %246, ptr %7, align 4
   br label %.critedge.i178.i
 
@@ -1019,7 +1019,7 @@ _get_pbs_option_value.exit168.i:                  ; preds = %230, %.critedge.i16
   %250 = load i32, ptr %7, align 4
   %251 = sub nsw i32 %250, %240
   %252 = sext i32 %251 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %249, ptr nonnull align 1 %242, i64 %252, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %249, ptr nonnull readonly align 1 %242, i64 %252, i1 false)
   %253 = load i32, ptr %7, align 4
   %254 = sext i32 %253 to i64
   %255 = getelementptr inbounds i8, ptr %27, i64 %254
@@ -1073,7 +1073,7 @@ _get_pbs_option_value.exit182.i:                  ; preds = %257, %.critedge.i17
   ]
 
 .critedge.i192.loopexit.i:                        ; preds = %.lr.ph.i186.i, %.lr.ph.i186.i
-  %273 = trunc i64 %indvars.iv.next.i188.i to i32
+  %273 = trunc nsw i64 %indvars.iv.next.i188.i to i32
   store i32 %273, ptr %7, align 4
   br label %.critedge.i192.i
 
@@ -1086,7 +1086,7 @@ _get_pbs_option_value.exit182.i:                  ; preds = %257, %.critedge.i17
   %277 = load i32, ptr %7, align 4
   %278 = sub nsw i32 %277, %267
   %279 = sext i32 %278 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %276, ptr nonnull align 1 %269, i64 %279, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %276, ptr nonnull readonly align 1 %269, i64 %279, i1 false)
   %280 = load i32, ptr %7, align 4
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %27, i64 %281
@@ -1135,7 +1135,7 @@ _get_pbs_option_value.exit196.i:                  ; preds = %284, %.critedge.i19
   ]
 
 .critedge.i206.loopexit.i:                        ; preds = %.lr.ph.i200.i, %.lr.ph.i200.i
-  %298 = trunc i64 %indvars.iv.next.i202.i to i32
+  %298 = trunc nsw i64 %indvars.iv.next.i202.i to i32
   store i32 %298, ptr %7, align 4
   br label %.critedge.i206.i
 
@@ -1148,7 +1148,7 @@ _get_pbs_option_value.exit196.i:                  ; preds = %284, %.critedge.i19
   %302 = load i32, ptr %7, align 4
   %303 = sub nsw i32 %302, %292
   %304 = sext i32 %303 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %301, ptr nonnull align 1 %294, i64 %304, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %301, ptr nonnull readonly align 1 %294, i64 %304, i1 false)
   %305 = load i32, ptr %7, align 4
   %306 = sext i32 %305 to i64
   %307 = getelementptr inbounds i8, ptr %27, i64 %306
@@ -1220,7 +1220,7 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   %330 = getelementptr inbounds i8, ptr %301, i64 %322
   %331 = sub nsw i32 %indvars76.i.i, %321
   %332 = sext i32 %331 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %329, ptr nonnull align 1 %330, i64 %332, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %329, ptr nonnull readonly align 1 %330, i64 %332, i1 false)
   %sext.i.i = shl i64 %indvars.iv.i.i.i, 32
   %333 = ashr exact i64 %sext.i.i, 32
   %334 = getelementptr inbounds i8, ptr %301, i64 %333
@@ -1297,11 +1297,11 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
 
 368:                                              ; preds = %365
   %indvars.iv.next.i35.i.i = add nsw i64 %indvars.iv.i34.i.i, 1
-  %369 = trunc i64 %indvars.iv.next.i35.i.i to i32
+  %369 = trunc nsw i64 %indvars.iv.next.i35.i.i to i32
   br label %365, !llvm.loop !16
 
 370:                                              ; preds = %365, %365
-  %371 = trunc i64 %indvars.iv.i34.i.i to i32
+  %371 = trunc nsw i64 %indvars.iv.i34.i.i to i32
   %372 = add nsw i32 %371, 1
   br label %_get_next_pbs_node_part.exit.i.i
 
@@ -1323,18 +1323,18 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
 
 377:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i41.i.i = add nsw i64 %indvars.iv.i37.i.i, 1
-  %378 = trunc i64 %indvars.iv.next.i41.i.i to i32
+  %378 = trunc nsw i64 %indvars.iv.next.i41.i.i to i32
   br label %.preheader.i.i, !llvm.loop !15
 
 .critedge.i38.i.i:                                ; preds = %.preheader.i.i, %.preheader.i.i, %.preheader.i.i
-  %379 = trunc i64 %indvars.iv.i37.i.i to i32
+  %379 = trunc nsw i64 %indvars.iv.i37.i.i to i32
   %reass.sub62 = sub i32 %379, %.05565.i.i
   %380 = add i32 %reass.sub62, 1
   %381 = sext i32 %380 to i64
   %382 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %381, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 432, ptr noundef nonnull @__func__._get_pbs_node_name) #12
   %383 = sub nsw i32 %.7.i.i, %.05565.i.i
   %384 = sext i32 %383 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %382, ptr nonnull align 1 %317, i64 %384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %382, ptr nonnull readonly align 1 %317, i64 %384, i1 false)
   %385 = sext i32 %.7.i.i to i64
   %386 = getelementptr inbounds i8, ptr %301, i64 %385
   %387 = load i8, ptr %386, align 1
@@ -1431,12 +1431,12 @@ _parse_pbs_nodes_opts.exit.i:                     ; preds = %403, %.thread.i.i
 
 416:                                              ; preds = %413
   %indvars.iv.next.i216.i = add nsw i64 %indvars.iv.i215.i, 1
-  %417 = trunc i64 %indvars.iv.next.i216.i to i32
+  %417 = trunc nsw i64 %indvars.iv.next.i216.i to i32
   store i32 %417, ptr %7, align 4
   br label %413, !llvm.loop !14
 
 418:                                              ; preds = %413
-  %419 = trunc i64 %indvars.iv.i215.i to i32
+  %419 = trunc nsw i64 %indvars.iv.i215.i to i32
   %420 = add nsw i32 %419, 1
   store i32 %420, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -1466,12 +1466,12 @@ _parse_pbs_nodes_opts.exit.i:                     ; preds = %403, %.thread.i.i
 
 432:                                              ; preds = %429
   %indvars.iv.next.i220.i = add nsw i64 %indvars.iv.i219.i, 1
-  %433 = trunc i64 %indvars.iv.next.i220.i to i32
+  %433 = trunc nsw i64 %indvars.iv.next.i220.i to i32
   store i32 %433, ptr %7, align 4
   br label %429, !llvm.loop !14
 
 434:                                              ; preds = %429
-  %435 = trunc i64 %indvars.iv.i219.i to i32
+  %435 = trunc nsw i64 %indvars.iv.i219.i to i32
   %436 = add nsw i32 %435, 1
   store i32 %436, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -1506,7 +1506,7 @@ _parse_pbs_nodes_opts.exit.i:                     ; preds = %403, %.thread.i.i
   ]
 
 .critedge.i231.loopexit.i:                        ; preds = %.lr.ph.i225.i, %.lr.ph.i225.i
-  %449 = trunc i64 %indvars.iv.next.i227.i to i32
+  %449 = trunc nsw i64 %indvars.iv.next.i227.i to i32
   store i32 %449, ptr %7, align 4
   br label %.critedge.i231.i
 
@@ -1519,7 +1519,7 @@ _parse_pbs_nodes_opts.exit.i:                     ; preds = %403, %.thread.i.i
   %453 = load i32, ptr %7, align 4
   %454 = sub nsw i32 %453, %443
   %455 = sext i32 %454 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %452, ptr nonnull align 1 %445, i64 %455, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %452, ptr nonnull readonly align 1 %445, i64 %455, i1 false)
   %456 = load i32, ptr %7, align 4
   %457 = sext i32 %456 to i64
   %458 = getelementptr inbounds i8, ptr %27, i64 %457
@@ -1573,12 +1573,12 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
 
 477:                                              ; preds = %474
   %indvars.iv.next.i238.i = add nsw i64 %indvars.iv.i237.i, 1
-  %478 = trunc i64 %indvars.iv.next.i238.i to i32
+  %478 = trunc nsw i64 %indvars.iv.next.i238.i to i32
   store i32 %478, ptr %7, align 4
   br label %474, !llvm.loop !14
 
 479:                                              ; preds = %474
-  %480 = trunc i64 %indvars.iv.i237.i to i32
+  %480 = trunc nsw i64 %indvars.iv.i237.i to i32
   %481 = add nsw i32 %480, 1
   store i32 %481, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -1624,12 +1624,12 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
 
 498:                                              ; preds = %495
   %indvars.iv.next.i242.i = add nsw i64 %indvars.iv.i241.i, 1
-  %499 = trunc i64 %indvars.iv.next.i242.i to i32
+  %499 = trunc nsw i64 %indvars.iv.next.i242.i to i32
   store i32 %499, ptr %7, align 4
   br label %495, !llvm.loop !14
 
 500:                                              ; preds = %495
-  %501 = trunc i64 %indvars.iv.i241.i to i32
+  %501 = trunc nsw i64 %indvars.iv.i241.i to i32
   %502 = add nsw i32 %501, 1
   store i32 %502, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -1659,12 +1659,12 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
 
 514:                                              ; preds = %511
   %indvars.iv.next.i246.i = add nsw i64 %indvars.iv.i245.i, 1
-  %515 = trunc i64 %indvars.iv.next.i246.i to i32
+  %515 = trunc nsw i64 %indvars.iv.next.i246.i to i32
   store i32 %515, ptr %7, align 4
   br label %511, !llvm.loop !14
 
 516:                                              ; preds = %511
-  %517 = trunc i64 %indvars.iv.i245.i to i32
+  %517 = trunc nsw i64 %indvars.iv.i245.i to i32
   %518 = add nsw i32 %517, 1
   store i32 %518, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -1716,12 +1716,12 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
 
 540:                                              ; preds = %537
   %indvars.iv.next.i250.i = add nsw i64 %indvars.iv.i249.i, 1
-  %541 = trunc i64 %indvars.iv.next.i250.i to i32
+  %541 = trunc nsw i64 %indvars.iv.next.i250.i to i32
   store i32 %541, ptr %7, align 4
   br label %537, !llvm.loop !14
 
 542:                                              ; preds = %537
-  %543 = trunc i64 %indvars.iv.i249.i to i32
+  %543 = trunc nsw i64 %indvars.iv.i249.i to i32
   %544 = add nsw i32 %543, 1
   store i32 %544, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -1751,12 +1751,12 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
 
 556:                                              ; preds = %553
   %indvars.iv.next.i254.i = add nsw i64 %indvars.iv.i253.i, 1
-  %557 = trunc i64 %indvars.iv.next.i254.i to i32
+  %557 = trunc nsw i64 %indvars.iv.next.i254.i to i32
   store i32 %557, ptr %7, align 4
   br label %553, !llvm.loop !14
 
 558:                                              ; preds = %553
-  %559 = trunc i64 %indvars.iv.i253.i to i32
+  %559 = trunc nsw i64 %indvars.iv.i253.i to i32
   %560 = add nsw i32 %559, 1
   store i32 %560, ptr %7, align 4
   br label %_get_next_pbs_option.exit.i
@@ -1858,12 +1858,12 @@ _parse_pbs_resource_list.exit:                    ; preds = %26, %587, %595
 598:                                              ; preds = %596
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %599 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 98) #11
+  %599 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 98) #11
   %.not.i19 = icmp eq ptr %599, null
   br i1 %.not.i19, label %600, label %602
 
 600:                                              ; preds = %598
-  %601 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 66) #11
+  %601 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 66) #11
   %.not8.i = icmp eq ptr %601, null
   br i1 %.not8.i, label %603, label %602
 
@@ -1872,12 +1872,12 @@ _parse_pbs_resource_list.exit:                    ; preds = %26, %587, %595
   br label %603
 
 603:                                              ; preds = %602, %600
-  %604 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 101) #11
+  %604 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 101) #11
   %.not10.i = icmp eq ptr %604, null
   br i1 %.not10.i, label %605, label %607
 
 605:                                              ; preds = %603
-  %606 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 69) #11
+  %606 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 69) #11
   %.not11.i = icmp eq ptr %606, null
   br i1 %.not11.i, label %610, label %607
 
@@ -1889,12 +1889,12 @@ _parse_pbs_resource_list.exit:                    ; preds = %26, %587, %595
   br label %610
 
 610:                                              ; preds = %607, %605
-  %611 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 97) #11
+  %611 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 97) #11
   %.not13.i = icmp eq ptr %611, null
   br i1 %.not13.i, label %612, label %614
 
 612:                                              ; preds = %610
-  %613 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 65) #11
+  %613 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 65) #11
   %.not14.i = icmp eq ptr %613, null
   br i1 %.not14.i, label %617, label %614
 
@@ -1906,12 +1906,12 @@ _parse_pbs_resource_list.exit:                    ; preds = %26, %587, %595
   br label %617
 
 617:                                              ; preds = %614, %612
-  %618 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 110) #11
+  %618 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 110) #11
   %.not16.i = icmp eq ptr %618, null
   br i1 %.not16.i, label %619, label %621
 
 619:                                              ; preds = %617
-  %620 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %597, i32 noundef 78) #11
+  %620 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %597, i32 noundef 78) #11
   %.not17.i = icmp eq ptr %620, null
   br i1 %.not17.i, label %._crit_edge.i20, label %621
 
@@ -2103,7 +2103,7 @@ define internal fastcc ptr @_get_pbs_option_value(ptr nocapture noundef readonly
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %5, %3 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %8, ptr %1, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
   %10 = load i8, ptr %9, align 1

@@ -112,8 +112,8 @@ $_ZTI12ExecCtxPluck = comdat any
 @grpc_trace_cq_refcount = local_unnamed_addr global %"class.grpc_core::DebugOnlyTraceFlag" undef, align 1
 @grpc_cq_pluck_trace = global %"class.grpc_core::TraceFlag" zeroinitializer, align 8
 @.str.3 = private unnamed_addr constant [12 x i8] c"queue_pluck\00", align 1
-@_ZN12_GLOBAL__N_111g_cached_cqE = internal thread_local global ptr null, align 8
-@_ZN12_GLOBAL__N_114g_cached_eventE = internal thread_local global ptr null, align 8
+@_ZN12_GLOBAL__N_111g_cached_cqE = internal thread_local unnamed_addr global ptr null, align 8
+@_ZN12_GLOBAL__N_114g_cached_eventE = internal thread_local unnamed_addr global ptr null, align 8
 @grpc_api_trace = external local_unnamed_addr global %"class.grpc_core::TraceFlag", align 8
 @.str.4 = private unnamed_addr constant [128 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/surface/completion_queue.cc\00", align 1
 @.str.5 = private unnamed_addr constant [75 x i8] c"grpc_completion_queue_create_internal(completion_type=%d, polling_type=%d)\00", align 1
@@ -129,15 +129,15 @@ $_ZTI12ExecCtxPluck = comdat any
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic", align 1
-@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
+@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local local_unnamed_addr global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
 @.str.9 = private unnamed_addr constant [23 x i8] c"queue.num_items() == 0\00", align 1
 @.str.10 = private unnamed_addr constant [114 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/gprpp/mpscq.h\00", align 1
 @.str.11 = private unnamed_addr constant [48 x i8] c"head_.load(std::memory_order_relaxed) == &stub_\00", align 1
@@ -165,7 +165,7 @@ $_ZTI12ExecCtxPluck = comdat any
 @_ZTS12ExecCtxPluck = linkonce_odr constant [15 x i8] c"12ExecCtxPluck\00", comdat, align 1
 @_ZTI12ExecCtxPluck = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS12ExecCtxPluck, ptr @_ZTIN9grpc_core7ExecCtxE }, comdat, align 8
 @.str.29 = private unnamed_addr constant [7 x i8] c"return\00", align 1
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.30 = private unnamed_addr constant [82 x i8] c"cq_end_op_for_callback(cq=%p, tag=%p, error=%s, done=%p, done_arg=%p, storage=%p)\00", align 1
 @.str.31 = private unnamed_addr constant [19 x i8] c"closure != nullptr\00", align 1
 @.str.32 = private unnamed_addr constant [57 x i8] c"cqd->pending_events.load(std::memory_order_relaxed) == 0\00", align 1
@@ -204,7 +204,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: uwtable
-define noundef i32 @grpc_completion_queue_thread_local_cache_flush(ptr noundef %cq, ptr nocapture noundef writeonly %tag, ptr nocapture noundef writeonly %ok) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @grpc_completion_queue_thread_local_cache_flush(ptr noundef %cq, ptr nocapture noundef writeonly %tag, ptr nocapture noundef writeonly %ok) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114g_cached_eventE)

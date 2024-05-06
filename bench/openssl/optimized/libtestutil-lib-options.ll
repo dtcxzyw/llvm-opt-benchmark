@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [42 x i8] c"Warning arguments %d and later unchecked\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_skip_common_options() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @test_skip_common_options() local_unnamed_addr #0 {
 entry:
   br label %while.cond
 
@@ -42,7 +42,7 @@ return:                                           ; preds = %while.cond, %return
 declare i32 @opt_next() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @test_get_argument_count() local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @test_get_argument_count() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @opt_num_rest() #5
   %conv = sext i32 %call to i64
@@ -63,7 +63,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %conv = trunc i64 %n to i32
+  %conv = trunc nuw nsw i64 %n to i32
   %call1 = tail call i32 @opt_num_rest() #5
   %cmp2 = icmp sle i32 %call1, %conv
   %cmp4 = icmp eq ptr %call, null
@@ -110,7 +110,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then4:                                         ; preds = %for.body
   %arrayidx6 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx6, align 8
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call7 = tail call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.2, i32 noundef %2, ptr noundef %1) #5
   br label %for.inc
 
@@ -138,19 +138,19 @@ declare i32 @test_printf_stderr(ptr noundef, ...) local_unnamed_addr #1
 define i32 @opt_printf_stderr(ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @test_vprintf_stderr(ptr noundef %fmt, ptr noundef nonnull %ap) #5
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
 
 declare i32 @test_vprintf_stderr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4

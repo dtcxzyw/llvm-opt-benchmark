@@ -83,10 +83,10 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %32
 
 32:                                               ; preds = %15
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #18
+  %33 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #18
   %34 = add i64 %33, 1
   %35 = call noalias ptr @malloc(i64 noundef %34) #17
-  %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %31) #16
+  %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %31) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %15, %32
@@ -98,10 +98,10 @@ Abc_UtilStrsav.exit:                              ; preds = %15, %32
   br i1 %.not.i152, label %Abc_UtilStrsav.exit153, label %40
 
 40:                                               ; preds = %Abc_UtilStrsav.exit
-  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #18
+  %41 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %39) #18
   %42 = add i64 %41, 1
   %43 = call noalias ptr @malloc(i64 noundef %42) #17
-  %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %39) #16
+  %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull readonly dereferenceable(1) %39) #16
   br label %Abc_UtilStrsav.exit153
 
 Abc_UtilStrsav.exit153:                           ; preds = %Abc_UtilStrsav.exit, %40
@@ -429,7 +429,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   br i1 %230, label %.lr.ph, label %.lr.ph205.preheader
 
 .critedge2.preheader:                             ; preds = %Vec_IntPush.exit
-  %231 = trunc i64 %indvars.iv.next to i32
+  %231 = trunc nuw nsw i64 %indvars.iv.next to i32
   %232 = icmp ult i32 %231, 4
   br i1 %232, label %.lr.ph205.preheader, label %.critedge2._crit_edge
 
@@ -631,7 +631,7 @@ Vec_IntPush.exit172:                              ; preds = %.Vec_IntGrow.exit10
 
 select.unfold.i:                                  ; preds = %316, %.critedge4
   %indvars.iv.i = phi i64 [ %313, %.critedge4 ], [ %317, %316 ]
-  %314 = trunc i64 %indvars.iv.i to i32
+  %314 = trunc nuw i64 %indvars.iv.i to i32
   %315 = icmp sgt i32 %314, 0
   br i1 %315, label %316, label %Gia_ManTruthIsConst0.exit
 
@@ -649,7 +649,7 @@ Gia_ManTruthIsConst0.exit:                        ; preds = %select.unfold.i
 
 select.unfold.i175:                               ; preds = %316, %323
   %indvars.iv.i176 = phi i64 [ %324, %323 ], [ %313, %316 ]
-  %321 = trunc i64 %indvars.iv.i176 to i32
+  %321 = trunc nuw i64 %indvars.iv.i176 to i32
   %322 = icmp sgt i32 %321, 0
   br i1 %322, label %323, label %Gia_ManTruthIsConst1.exit
 
@@ -680,14 +680,14 @@ Gia_ManTruthIsConst1.exit:                        ; preds = %select.unfold.i175
   %338 = inttoptr i64 %337 to ptr
   %339 = load i64, ptr %338, align 4
   %340 = lshr i64 %339, 63
-  %341 = trunc i64 %340 to i32
+  %341 = trunc nuw nsw i64 %340 to i32
   %342 = trunc i64 %336 to i32
   %343 = xor i32 %331, %342
   %344 = and i32 %343, 1
   %345 = xor i32 %344, %341
   %346 = load i64, ptr %57, align 4
   %347 = lshr i64 %346, 63
-  %348 = trunc i64 %347 to i32
+  %348 = trunc nuw nsw i64 %347 to i32
   %349 = icmp ne i32 %345, %348
   %350 = zext i1 %349 to i32
   %351 = xor i32 %331, %350
@@ -878,7 +878,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #16
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -897,7 +897,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1195,16 +1195,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13

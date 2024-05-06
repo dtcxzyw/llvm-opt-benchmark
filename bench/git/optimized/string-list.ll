@@ -134,7 +134,7 @@ st_mult.exit.i.i:                                 ; preds = %if.then26.i
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %9, i64 %conv.i
   %add.ptr28.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %mul.i.i.i = shl nuw i64 %sub34.i, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr28.i, ptr align 1 %add.ptr.i, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr28.i, ptr readonly align 1 %add.ptr.i, i64 %mul.i.i.i, i1 false)
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %st_mult.exit.i.i, %do.end.i
@@ -255,7 +255,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw i64 %sub, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %add.ptr14, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr nonnull readonly align 1 %add.ptr14, i64 %mul.i.i, i1 false)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end13.i, %entry, %st_mult.exit.i, %if.end9
@@ -459,7 +459,7 @@ if.then14.us:                                     ; preds = %if.then12.us
 
 for.inc.us:                                       ; preds = %if.then12.us, %if.then14.us, %if.else.us
   %dst.1.us = phi i32 [ %inc.us, %if.else.us ], [ %dst.020.us, %if.then14.us ], [ %dst.020.us, %if.then12.us ]
-  %indvars.iv.next26 = add nuw i64 %indvars.iv25, 1
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %10 = load i64, ptr %nr, align 8
   %cmp5.us = icmp ugt i64 %10, %indvars.iv.next26
   br i1 %cmp5.us, label %for.body.us, label %for.end, !llvm.loop !7
@@ -508,7 +508,7 @@ if.else:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %if.else, %if.end
   %dst.1 = phi i32 [ %inc, %if.else ], [ %dst.020, %if.end ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i64, ptr %nr, align 8
   %cmp5 = icmp ugt i64 %21, %indvars.iv.next
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !7
@@ -535,7 +535,7 @@ entry:
   br i1 %cmp4.not, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %1, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
@@ -599,7 +599,7 @@ if.then9.us:                                      ; preds = %if.else.us
 
 for.inc.us:                                       ; preds = %if.else.us, %if.then9.us, %if.then.us
   %dst.1.us = phi i32 [ %inc.us, %if.then.us ], [ %dst.016.us, %if.then9.us ], [ %dst.016.us, %if.else.us ]
-  %indvars.iv.next21 = add nuw i64 %indvars.iv20, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %5 = load i64, ptr %nr, align 8
   %cmp.us = icmp ugt i64 %5, %indvars.iv.next21
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !9
@@ -644,7 +644,7 @@ if.end:                                           ; preds = %if.then9, %if.else
 
 for.inc:                                          ; preds = %if.then, %if.end
   %dst.1 = phi i32 [ %inc, %if.then ], [ %dst.016, %if.end ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %12, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
@@ -698,7 +698,7 @@ if.then9.us.i:                                    ; preds = %if.else.us.i
 
 for.inc.us.i:                                     ; preds = %if.then9.us.i, %if.else.us.i, %if.then.us.i
   %dst.1.us.i = phi i32 [ %inc.us.i, %if.then.us.i ], [ %dst.016.us.i, %if.then9.us.i ], [ %dst.016.us.i, %if.else.us.i ]
-  %indvars.iv.next21.i = add nuw i64 %indvars.iv20.i, 1
+  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %4 = load i64, ptr %nr.i, align 8
   %cmp.us.i = icmp ugt i64 %4, %indvars.iv.next21.i
   br i1 %cmp.us.i, label %for.body.us.i, label %filter_string_list.exit, !llvm.loop !9
@@ -740,7 +740,7 @@ if.end.i:                                         ; preds = %if.then9.i, %if.els
 
 for.inc.i:                                        ; preds = %if.end.i, %if.then.i
   %dst.1.i = phi i32 [ %inc.i, %if.then.i ], [ %dst.016.i, %if.end.i ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i64, ptr %nr.i, align 8
   %cmp.i = icmp ugt i64 %10, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %filter_string_list.exit, !llvm.loop !9
@@ -839,7 +839,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %3 = load ptr, ptr %util, align 8
   %4 = load ptr, ptr %arrayidx, align 8
   tail call void %clearfunc(ptr noundef %3, ptr noundef %4) #10
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %5, %indvars.iv.next
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !12
@@ -1099,7 +1099,7 @@ return:                                           ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unsorted_string_list_has_string(ptr nocapture noundef readonly %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @unsorted_string_list_has_string(ptr nocapture noundef readonly %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %cmp1.i = getelementptr inbounds i8, ptr %list, i64 32
   %0 = load ptr, ptr %cmp1.i, align 8
@@ -1184,7 +1184,7 @@ if.end6:                                          ; preds = %if.end.if.end6_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @string_list_split(ptr nocapture noundef %list, ptr noundef %string, i32 noundef %delim, i32 noundef %maxsplit) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split(ptr nocapture noundef %list, ptr noundef %string, i32 noundef %delim, i32 noundef %maxsplit) local_unnamed_addr #3 {
 entry:
   %strdup_strings = getelementptr inbounds i8, ptr %list, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
@@ -1455,7 +1455,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @string_list_split_in_place(ptr nocapture noundef %list, ptr noundef %string, ptr nocapture noundef readonly %delim, i32 noundef %maxsplit) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split_in_place(ptr nocapture noundef %list, ptr noundef %string, ptr nocapture noundef readonly %delim, i32 noundef %maxsplit) local_unnamed_addr #3 {
 entry:
   %strdup_strings = getelementptr inbounds i8, ptr %list, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8

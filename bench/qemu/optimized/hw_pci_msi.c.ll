@@ -97,7 +97,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @msi_init(ptr noundef %dev, i8 noundef zeroext %offset, i32 noundef %nr_vectors, i1 noundef zeroext %msi64bit, i1 noundef zeroext %msi_per_vector_mask, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -2147483648, 1) i32 @msi_init(ptr noundef %dev, i8 noundef zeroext %offset, i32 noundef %nr_vectors, i1 noundef zeroext %msi64bit, i1 noundef zeroext %msi_per_vector_mask, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @msi_nonbroken, align 1
   %tobool = trunc i8 %0 to i1
@@ -108,7 +108,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %nr_vectors), !range !5
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nr_vectors)
   %tobool2.not = icmp ult i32 %1, 2
   br i1 %tobool2.not, label %if.end4, label %if.else
 
@@ -133,8 +133,8 @@ if.else10:                                        ; preds = %if.end7
   unreachable
 
 if.end11:                                         ; preds = %if.end7
-  %2 = tail call i32 @llvm.cttz.i32(i32 %nr_vectors, i1 true), !range !5
-  %.tr = trunc i32 %2 to i16
+  %2 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %nr_vectors, i1 true)
+  %.tr = trunc nuw nsw i32 %2 to i16
   %conv = shl nuw nsw i16 %.tr, 1
   %conv16 = or disjoint i16 %conv, 128
   %flags.0 = select i1 %msi64bit, i16 %conv16, i16 %conv
@@ -745,7 +745,7 @@ msi_is_masked.exit:                               ; preds = %if.end.i61, %if.end
   %inc = add nuw nsw i32 %vector.0114, 1
   %vector.0.highbits = lshr i32 %inc, %shr.i
   %cmp18 = icmp eq i32 %vector.0.highbits, 0
-  br i1 %cmp18, label %for.body, label %if.end22, !llvm.loop !6
+  br i1 %cmp18, label %for.body, label %if.end22, !llvm.loop !5
 
 if.end22:                                         ; preds = %msi_is_masked.exit, %if.end
   %and24 = and i32 %conv2, 1
@@ -763,7 +763,7 @@ if.end27:                                         ; preds = %if.end22
 
 if.then41:                                        ; preds = %if.end27
   %and43 = and i16 %add.ptr.val, -113
-  %shr35.tr = trunc i32 %shr35 to i16
+  %shr35.tr = trunc nuw nsw i32 %shr35 to i16
   %14 = shl nuw nsw i16 %shr35.tr, 4
   %conv48 = or disjoint i16 %14, %and43
   %15 = load ptr, ptr %config, align 8
@@ -865,7 +865,7 @@ if.end85:                                         ; preds = %lor.lhs.false80
 for.inc94:                                        ; preds = %msi_is_masked.exit108, %lor.lhs.false80, %if.end85
   %inc95 = add nuw nsw i32 %vector.1115, 1
   %exitcond118.not = icmp eq i32 %inc95, %shl.i70
-  br i1 %exitcond118.not, label %for.end96, label %for.body77, !llvm.loop !8
+  br i1 %exitcond118.not, label %for.end96, label %for.body77, !llvm.loop !7
 
 for.end96:                                        ; preds = %for.inc94, %if.end54, %if.end22, %entry, %lor.lhs.false
   ret void
@@ -916,7 +916,6 @@ attributes #8 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

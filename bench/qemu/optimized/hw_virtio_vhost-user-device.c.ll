@@ -305,7 +305,7 @@ do_vhost_user_cleanup.exit:                       ; preds = %for.body.i, %vub_se
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vub_get_features(ptr noundef %vdev, i64 %requested_features, ptr nocapture readnone %errp) #0 {
+define internal range(i64 0, -1073741824) i64 @vub_get_features(ptr noundef %vdev, i64 %requested_features, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_BASE) #5
   %features = getelementptr inbounds i8, ptr %call.i, i64 1080

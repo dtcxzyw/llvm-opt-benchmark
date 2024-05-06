@@ -279,7 +279,7 @@ if.else.i.i:                                      ; preds = %if.then2.i
 
 _ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i: ; preds = %if.else.i.i, %if.then2.i
   %11 = lshr i16 %bf.load.i, 8
-  %12 = trunc i16 %11 to i8
+  %12 = trunc nuw i16 %11 to i8
   %frombool.i.i.i.sink.i.i = and i8 %12, 1
   store i8 %frombool.i.i.i.sink.i.i, ptr %is_delivery_rate_app_limited.i, align 1
   %tcpi_snd_cwnd.i = getelementptr inbounds i8, ptr %call, i64 1088

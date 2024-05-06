@@ -178,7 +178,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rrcp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rrcp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 1) #3
@@ -259,7 +259,7 @@ define internal noundef i32 @dissect_rrcp(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rep(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rep(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 1) #3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %28, label %6
@@ -306,7 +306,7 @@ define internal noundef i32 @dissect_rep(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rldp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rldp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 1) #3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6

@@ -729,7 +729,7 @@ if.then6:                                         ; preds = %for.body
   %13 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %13) #10
   %14 = load ptr, ptr %watches, align 8
-  %conv8 = trunc i64 %i.044 to i32
+  %conv8 = trunc nuw i64 %i.044 to i32
   %call9 = tail call ptr @g_array_remove_index(ptr noundef %14, i32 noundef %conv8) #10
   %.pre = load ptr, ptr %watches, align 8
   %len12.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8

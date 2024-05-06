@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_process_info = external local_unnamed_addr global %struct.opal_process_info_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_sm_sendi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_btl_sm_sendi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) local_unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %.sroa.22.i.i.i.i.i.i = alloca i64, align 8
@@ -252,7 +252,7 @@ opal_update_counted_pointer.exit.i.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i
   %119 = extractvalue { i128, i1 } %117, 0
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %119 to i64
   %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i128 %119, 64
-  %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i.i.i, ptr %.sroa.4.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i.i.i)
@@ -461,7 +461,7 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, -1
   %.lobit = lshr i32 %25, 31
-  %27 = trunc i32 %.lobit to i8
+  %27 = trunc nuw nsw i32 %.lobit to i8
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load i32, ptr %28, align 8
   %.lobit102 = lshr i32 %29, 31
@@ -593,7 +593,7 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
   %96 = load i16, ptr %95, align 8
   %97 = add i16 %96, 1
   store i16 %97, ptr %95, align 8
-  %98 = trunc i64 %8 to i32
+  %98 = trunc nuw nsw i64 %8 to i32
   %99 = getelementptr inbounds i8, ptr %.188, i64 4
   store i32 0, ptr %99, align 4
   fence release

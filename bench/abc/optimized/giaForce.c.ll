@@ -1221,7 +1221,7 @@ define void @Frc_ManTransformRefs(ptr noundef %0, ptr nocapture noundef writeonl
   store i32 0, ptr %87, align 4
   %100 = and i64 %.val122, -3221225473
   store i64 %100, ptr %93, align 4
-  tail call void @Frc_ManCollectSuper_rec(ptr noundef nonnull %0, ptr noundef nonnull %93, ptr noundef nonnull %82, ptr noundef nonnull %86)
+  tail call void @Frc_ManCollectSuper_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %93, ptr noundef nonnull %82, ptr noundef nonnull %86)
   %101 = load i64, ptr %93, align 4
   %102 = or i64 %101, 1073741824
   store i64 %102, ptr %93, align 4
@@ -1637,7 +1637,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 0, ptr %124, align 4
   %138 = and i64 %.val190, -3221225473
   store i64 %138, ptr %131, align 4
-  tail call void @Frc_ManCollectSuper_rec(ptr noundef nonnull %0, ptr noundef nonnull %131, ptr noundef nonnull %119, ptr noundef nonnull %123)
+  tail call void @Frc_ManCollectSuper_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %131, ptr noundef nonnull %119, ptr noundef nonnull %123)
   %139 = load i64, ptr %131, align 4
   %140 = or i64 %139, 1073741824
   store i64 %140, ptr %131, align 4
@@ -2104,7 +2104,7 @@ Vec_IntFree.exit10:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Frc_ManCrossCut_rec(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Frc_ManCrossCut_rec(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
@@ -2141,7 +2141,7 @@ define i32 @Frc_ManCrossCut_rec(ptr nocapture noundef %0, ptr nocapture noundef 
   %21 = sext i32 %20 to i64
   %22 = sub nsw i64 0, %21
   %23 = getelementptr inbounds i32, ptr %1, i64 %22
-  %24 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %23), !range !23
+  %24 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %23)
   %25 = load i32, ptr %10, align 8
   %26 = sub nsw i32 %25, %24
   store i32 %26, ptr %10, align 8
@@ -2150,7 +2150,7 @@ define i32 @Frc_ManCrossCut_rec(ptr nocapture noundef %0, ptr nocapture noundef 
   %28 = lshr i32 %27, 4
   %29 = zext nneg i32 %28 to i64
   %30 = icmp ult i64 %indvars.iv.next, %29
-  br i1 %30, label %18, label %.critedge, !llvm.loop !24
+  br i1 %30, label %18, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %18, %9, %2
   %31 = load i32, ptr %3, align 4
@@ -2160,7 +2160,7 @@ define i32 @Frc_ManCrossCut_rec(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Frc_ManCrossCut2_rec(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Frc_ManCrossCut2_rec(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
@@ -2200,12 +2200,12 @@ define i32 @Frc_ManCrossCut2_rec(ptr nocapture noundef %0, ptr nocapture noundef
   %23 = sext i32 %22 to i64
   %24 = sub nsw i64 0, %23
   %25 = getelementptr inbounds i32, ptr %1, i64 %24
-  %26 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %25), !range !23
+  %26 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %25)
   %27 = load i32, ptr %10, align 8
   %28 = sub nsw i32 %27, %26
   store i32 %28, ptr %10, align 8
   %29 = icmp ugt i64 %indvars.iv, 1
-  br i1 %29, label %20, label %.critedge, !llvm.loop !25
+  br i1 %29, label %20, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %20, %9, %2
   %30 = load i32, ptr %3, align 4
@@ -2246,7 +2246,7 @@ define i32 @Frc_ManCrossCut(ptr nocapture noundef %0, ptr nocapture noundef read
   %18 = add i32 %17, %16
   %19 = load i32, ptr %7, align 8
   %20 = icmp slt i32 %18, %19
-  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !26
+  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph, %10, %3
   %21 = getelementptr i8, ptr %1, i64 8
@@ -2276,7 +2276,7 @@ define i32 @Frc_ManCrossCut(ptr nocapture noundef %0, ptr nocapture noundef read
   %31 = sext i32 %30 to i64
   %32 = sub nsw i64 0, %31
   %33 = getelementptr inbounds i32, ptr %28, i64 %32
-  %34 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %33), !range !23
+  %34 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %33)
   %35 = load i32, ptr %4, align 8
   %36 = sub nsw i32 %35, %34
   store i32 %36, ptr %4, align 8
@@ -2284,7 +2284,7 @@ define i32 @Frc_ManCrossCut(ptr nocapture noundef %0, ptr nocapture noundef read
   %.val.us = load i32, ptr %22, align 4
   %37 = sext i32 %.val.us to i64
   %38 = icmp slt i64 %indvars.iv.next43, %37
-  br i1 %38, label %.lr.ph38.split.us, label %.critedge2, !llvm.loop !27
+  br i1 %38, label %.lr.ph38.split.us, label %.critedge2, !llvm.loop !26
 
 .lr.ph38.split:                                   ; preds = %.lr.ph38, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.lr.ph38 ]
@@ -2303,7 +2303,7 @@ define i32 @Frc_ManCrossCut(ptr nocapture noundef %0, ptr nocapture noundef read
   %46 = sext i32 %45 to i64
   %47 = sub nsw i64 0, %46
   %48 = getelementptr inbounds i32, ptr %43, i64 %47
-  %49 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %48), !range !23
+  %49 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %48)
   %50 = load i32, ptr %4, align 8
   %51 = sub nsw i32 %50, %49
   store i32 %51, ptr %4, align 8
@@ -2311,7 +2311,7 @@ define i32 @Frc_ManCrossCut(ptr nocapture noundef %0, ptr nocapture noundef read
   %.val = load i32, ptr %22, align 4
   %52 = sext i32 %.val to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph38.split, label %.critedge2, !llvm.loop !27
+  br i1 %53, label %.lr.ph38.split, label %.critedge2, !llvm.loop !26
 
 .critedge2:                                       ; preds = %.lr.ph38.split, %39, %.lr.ph38.split.us, %24, %.critedge
   %54 = load i32, ptr %5, align 4
@@ -2431,7 +2431,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %52, align 4
   %53 = sext i32 %.val to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %.critedge, !llvm.loop !28
+  br i1 %54, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %Vec_IntPush.exit, %Vec_IntAlloc.exit
   ret ptr %4
@@ -2478,7 +2478,7 @@ define void @Frc_ManCrossCutTest(ptr nocapture noundef %0, ptr noundef %1) local
   %21 = add i32 %20, %19
   %22 = load i32, ptr %10, align 8
   %23 = icmp slt i32 %21, %22
-  br i1 %23, label %.lr.ph.i, label %.critedge.i, !llvm.loop !26
+  br i1 %23, label %.lr.ph.i, label %.critedge.i, !llvm.loop !25
 
 .critedge.i:                                      ; preds = %13, %.lr.ph.i, %5
   %24 = getelementptr i8, ptr %6, i64 8
@@ -2504,7 +2504,7 @@ define void @Frc_ManCrossCutTest(ptr nocapture noundef %0, ptr noundef %1) local
   %34 = sext i32 %33 to i64
   %35 = sub nsw i64 0, %34
   %36 = getelementptr inbounds i32, ptr %31, i64 %35
-  %37 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %36), !range !23
+  %37 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %36)
   %38 = load i32, ptr %7, align 8
   %39 = sub nsw i32 %38, %37
   store i32 %39, ptr %7, align 8
@@ -2512,7 +2512,7 @@ define void @Frc_ManCrossCutTest(ptr nocapture noundef %0, ptr noundef %1) local
   %.val.us.i = load i32, ptr %25, align 4
   %40 = sext i32 %.val.us.i to i64
   %41 = icmp slt i64 %indvars.iv.next43.i, %40
-  br i1 %41, label %.lr.ph38.split.us.i, label %Frc_ManCrossCut.exit, !llvm.loop !27
+  br i1 %41, label %.lr.ph38.split.us.i, label %Frc_ManCrossCut.exit, !llvm.loop !26
 
 Frc_ManCrossCut.exit:                             ; preds = %.lr.ph38.split.us.i, %27, %.critedge.i
   %42 = load i32, ptr %8, align 4
@@ -2543,7 +2543,7 @@ Frc_ManCrossCut.exit:                             ; preds = %.lr.ph38.split.us.i
   %54 = add i32 %53, %52
   %55 = load i32, ptr %10, align 8
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph.i21, label %.critedge.i18, !llvm.loop !26
+  br i1 %56, label %.lr.ph.i21, label %.critedge.i18, !llvm.loop !25
 
 .critedge.i18:                                    ; preds = %46, %.lr.ph.i21, %Frc_ManCrossCut.exit
   %.val36.i19 = load i32, ptr %25, align 4
@@ -2567,7 +2567,7 @@ Frc_ManCrossCut.exit:                             ; preds = %.lr.ph38.split.us.i
   %65 = sext i32 %64 to i64
   %66 = sub nsw i64 0, %65
   %67 = getelementptr inbounds i32, ptr %62, i64 %66
-  %68 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %67), !range !23
+  %68 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %67)
   %69 = load i32, ptr %7, align 8
   %70 = sub nsw i32 %69, %68
   store i32 %70, ptr %7, align 8
@@ -2575,7 +2575,7 @@ Frc_ManCrossCut.exit:                             ; preds = %.lr.ph38.split.us.i
   %.val.i = load i32, ptr %25, align 4
   %71 = sext i32 %.val.i to i64
   %72 = icmp slt i64 %indvars.iv.next.i, %71
-  br i1 %72, label %.lr.ph38.split.i, label %Frc_ManCrossCut.exit27, !llvm.loop !27
+  br i1 %72, label %.lr.ph38.split.i, label %Frc_ManCrossCut.exit27, !llvm.loop !26
 
 Frc_ManCrossCut.exit27:                           ; preds = %.lr.ph38.split.i, %58, %.critedge.i18
   %73 = load i32, ptr %8, align 4
@@ -2608,7 +2608,7 @@ Frc_ManCrossCut.exit27:                           ; preds = %.lr.ph38.split.i, %
   %93 = sdiv i32 %92, 2
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next.i30, %94
-  br i1 %95, label %.lr.ph.i28, label %Vec_IntReverseOrder.exit, !llvm.loop !29
+  br i1 %95, label %.lr.ph.i28, label %Vec_IntReverseOrder.exit, !llvm.loop !28
 
 Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i28, %Frc_ManCrossCut.exit27
   store i32 0, ptr %7, align 8
@@ -2637,7 +2637,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i28, %Frc_Ma
   %106 = add i32 %105, %104
   %107 = load i32, ptr %10, align 8
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph.i41, label %.critedge.i31, !llvm.loop !26
+  br i1 %108, label %.lr.ph.i41, label %.critedge.i31, !llvm.loop !25
 
 .critedge.i31:                                    ; preds = %98, %.lr.ph.i41, %Vec_IntReverseOrder.exit
   %.val36.i32 = load i32, ptr %25, align 4
@@ -2661,7 +2661,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i28, %Frc_Ma
   %117 = sext i32 %116 to i64
   %118 = sub nsw i64 0, %117
   %119 = getelementptr inbounds i32, ptr %114, i64 %118
-  %120 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %119), !range !23
+  %120 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %119)
   %121 = load i32, ptr %7, align 8
   %122 = sub nsw i32 %121, %120
   store i32 %122, ptr %7, align 8
@@ -2669,7 +2669,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i28, %Frc_Ma
   %.val.us.i40 = load i32, ptr %25, align 4
   %123 = sext i32 %.val.us.i40 to i64
   %124 = icmp slt i64 %indvars.iv.next43.i39, %123
-  br i1 %124, label %.lr.ph38.split.us.i34, label %Frc_ManCrossCut.exit47, !llvm.loop !27
+  br i1 %124, label %.lr.ph38.split.us.i34, label %Frc_ManCrossCut.exit47, !llvm.loop !26
 
 Frc_ManCrossCut.exit47:                           ; preds = %.lr.ph38.split.us.i34, %110, %.critedge.i31
   %125 = load i32, ptr %8, align 4
@@ -2700,7 +2700,7 @@ Frc_ManCrossCut.exit47:                           ; preds = %.lr.ph38.split.us.i
   %137 = add i32 %136, %135
   %138 = load i32, ptr %10, align 8
   %139 = icmp slt i32 %137, %138
-  br i1 %139, label %.lr.ph.i58, label %.critedge.i48, !llvm.loop !26
+  br i1 %139, label %.lr.ph.i58, label %.critedge.i48, !llvm.loop !25
 
 .critedge.i48:                                    ; preds = %129, %.lr.ph.i58, %Frc_ManCrossCut.exit47
   %.val36.i49 = load i32, ptr %25, align 4
@@ -2724,7 +2724,7 @@ Frc_ManCrossCut.exit47:                           ; preds = %.lr.ph38.split.us.i
   %148 = sext i32 %147 to i64
   %149 = sub nsw i64 0, %148
   %150 = getelementptr inbounds i32, ptr %145, i64 %149
-  %151 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %150), !range !23
+  %151 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %150)
   %152 = load i32, ptr %7, align 8
   %153 = sub nsw i32 %152, %151
   store i32 %153, ptr %7, align 8
@@ -2732,7 +2732,7 @@ Frc_ManCrossCut.exit47:                           ; preds = %.lr.ph38.split.us.i
   %.val.i57 = load i32, ptr %25, align 4
   %154 = sext i32 %.val.i57 to i64
   %155 = icmp slt i64 %indvars.iv.next.i56, %154
-  br i1 %155, label %.lr.ph38.split.i51, label %Frc_ManCrossCut.exit64, !llvm.loop !27
+  br i1 %155, label %.lr.ph38.split.i51, label %Frc_ManCrossCut.exit64, !llvm.loop !26
 
 Frc_ManCrossCut.exit64:                           ; preds = %.lr.ph38.split.i51, %141, %.critedge.i48
   %156 = load i32, ptr %8, align 4
@@ -2765,7 +2765,7 @@ Frc_ManCrossCut.exit64:                           ; preds = %.lr.ph38.split.i51,
   %176 = sdiv i32 %175, 2
   %177 = sext i32 %176 to i64
   %178 = icmp slt i64 %indvars.iv.next.i67, %177
-  br i1 %178, label %.lr.ph.i65, label %Vec_IntReverseOrder.exit68, !llvm.loop !29
+  br i1 %178, label %.lr.ph.i65, label %Vec_IntReverseOrder.exit68, !llvm.loop !28
 
 Vec_IntReverseOrder.exit68:                       ; preds = %.lr.ph.i65, %Frc_ManCrossCut.exit64
   %.not17 = icmp eq ptr %6, %1
@@ -2812,7 +2812,7 @@ define void @Frc_ManPlaceRandom(ptr nocapture noundef readonly %0) local_unnamed
   store i32 %9, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader37, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader37, label %.lr.ph, !llvm.loop !29
 
 .preheader:                                       ; preds = %.lr.ph40, %1, %.preheader37
   %10 = getelementptr i8, ptr %0, i64 32
@@ -2836,7 +2836,7 @@ define void @Frc_ManPlaceRandom(ptr nocapture noundef readonly %0) local_unnamed
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %22 = sext i32 %15 to i64
   %23 = icmp slt i64 %indvars.iv.next47, %22
-  br i1 %23, label %.lr.ph40, label %.preheader, !llvm.loop !31
+  br i1 %23, label %.lr.ph40, label %.preheader, !llvm.loop !30
 
 .lr.ph43:                                         ; preds = %.preheader, %24
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %24 ], [ 0, %.preheader ]
@@ -2862,7 +2862,7 @@ define void @Frc_ManPlaceRandom(ptr nocapture noundef readonly %0) local_unnamed
   %33 = add i32 %32, %.val36
   %34 = load i32, ptr %11, align 8
   %35 = icmp slt i32 %33, %34
-  br i1 %35, label %.lr.ph43, label %.critedge.thread, !llvm.loop !32
+  br i1 %35, label %.lr.ph43, label %.critedge.thread, !llvm.loop !31
 
 .critedge:                                        ; preds = %.lr.ph43, %.preheader
   %.not34 = icmp eq ptr %6, null
@@ -2911,7 +2911,7 @@ define void @Frc_ManArrayShuffle(ptr nocapture noundef readonly %0) local_unname
   %18 = load i32, ptr %2, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %6, label %._crit_edge, !llvm.loop !33
+  br i1 %20, label %6, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -2953,7 +2953,7 @@ define void @Frc_ManPlaceDfs_rec(ptr nocapture noundef readnone %0, ptr nocaptur
   %20 = lshr i32 %19, 4
   %21 = zext nneg i32 %20 to i64
   %22 = icmp ult i64 %indvars.iv.next, %21
-  br i1 %22, label %13, label %.critedge, !llvm.loop !34
+  br i1 %22, label %13, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %13, %10
   %23 = load i32, ptr %2, align 4
@@ -3011,7 +3011,7 @@ define void @Frc_ManPlaceDfs(ptr nocapture noundef readonly %0, ptr nocapture no
   %24 = add i32 %23, %13
   %25 = load i32, ptr %5, align 8
   %26 = icmp slt i32 %24, %25
-  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !35
+  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph, %20, %2
   %.lcssa = phi i32 [ 0, %2 ], [ %21, %20 ], [ %8, %.lr.ph ]
@@ -3052,7 +3052,7 @@ define void @Frc_ManPlaceDfs(ptr nocapture noundef readonly %0, ptr nocapture no
   %.val = load i32, ptr %27, align 4
   %44 = sext i32 %.val to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %30, label %.critedge2, !llvm.loop !36
+  br i1 %45, label %30, label %.critedge2, !llvm.loop !35
 
 .critedge2:                                       ; preds = %30, %31, %.critedge
   ret void
@@ -3092,7 +3092,7 @@ define i32 @Frc_ManPlaceDfsBoth(ptr nocapture noundef %0, ptr nocapture noundef 
   %20 = add i32 %19, %18
   %21 = load i32, ptr %9, align 8
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.lr.ph.i, label %.critedge.i, !llvm.loop !26
+  br i1 %22, label %.lr.ph.i, label %.critedge.i, !llvm.loop !25
 
 .critedge.i:                                      ; preds = %12, %.lr.ph.i, %3
   %23 = getelementptr i8, ptr %1, i64 8
@@ -3113,7 +3113,7 @@ Frc_ManCrossCut.exit.thread:                      ; preds = %.critedge.i
 .lr.ph38.split.us.i:                              ; preds = %.lr.ph
   %.val29.us.i = load ptr, ptr %8, align 8
   %.not27.us.i = icmp eq ptr %.val29.us.i, null
-  br i1 %.not27.us.i, label %Frc_ManCrossCut.exit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not27.us.i, label %Frc_ManCrossCut.exit, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph38.split.us.i.preheader, %.lr.ph38.split.us.i
   %.val29.us.i82 = phi ptr [ %.val29.us.i, %.lr.ph38.split.us.i ], [ %.val29.us.i79, %.lr.ph38.split.us.i.preheader ]
@@ -3128,7 +3128,7 @@ Frc_ManCrossCut.exit.thread:                      ; preds = %.critedge.i
   %33 = sext i32 %32 to i64
   %34 = sub nsw i64 0, %33
   %35 = getelementptr inbounds i32, ptr %30, i64 %34
-  %36 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %35), !range !23
+  %36 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %35)
   %37 = load i32, ptr %6, align 8
   %38 = sub nsw i32 %37, %36
   store i32 %38, ptr %6, align 8
@@ -3136,7 +3136,7 @@ Frc_ManCrossCut.exit.thread:                      ; preds = %.critedge.i
   %.val.us.i = load i32, ptr %24, align 4
   %39 = sext i32 %.val.us.i to i64
   %40 = icmp slt i64 %indvars.iv.next43.i, %39
-  br i1 %40, label %.lr.ph38.split.us.i, label %Frc_ManCrossCut.exit, !llvm.loop !27
+  br i1 %40, label %.lr.ph38.split.us.i, label %Frc_ManCrossCut.exit, !llvm.loop !26
 
 Frc_ManCrossCut.exit:                             ; preds = %.lr.ph38.split.us.i, %.lr.ph, %.lr.ph38.split.us.i.preheader
   %41 = phi i32 [ %.val36.i, %.lr.ph38.split.us.i.preheader ], [ %.val.us.i, %.lr.ph ], [ %.val.us.i, %.lr.ph38.split.us.i ]
@@ -3168,7 +3168,7 @@ Frc_ManCrossCut.exit:                             ; preds = %.lr.ph38.split.us.i
   %60 = sdiv i32 %59, 2
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next.i, %61
-  br i1 %62, label %.lr.ph.i22, label %Vec_IntReverseOrder.exit, !llvm.loop !29
+  br i1 %62, label %.lr.ph.i22, label %Vec_IntReverseOrder.exit, !llvm.loop !28
 
 Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i22, %Frc_ManCrossCut.exit.thread, %Frc_ManCrossCut.exit
   %63 = phi i32 [ %26, %Frc_ManCrossCut.exit.thread ], [ %42, %Frc_ManCrossCut.exit ], [ %42, %.lr.ph.i22 ]
@@ -3198,7 +3198,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i22, %Frc_Ma
   %74 = add i32 %73, %72
   %75 = load i32, ptr %9, align 8
   %76 = icmp slt i32 %74, %75
-  br i1 %76, label %.lr.ph.i33, label %.critedge.i23, !llvm.loop !26
+  br i1 %76, label %.lr.ph.i33, label %.critedge.i23, !llvm.loop !25
 
 .critedge.i23:                                    ; preds = %66, %.lr.ph.i33, %Vec_IntReverseOrder.exit
   %.val36.i24 = load i32, ptr %24, align 4
@@ -3213,7 +3213,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i22, %Frc_Ma
 .lr.ph38.split.us.i26:                            ; preds = %.lr.ph88
   %.val29.us.i28 = load ptr, ptr %8, align 8
   %.not27.us.i29 = icmp eq ptr %.val29.us.i28, null
-  br i1 %.not27.us.i29, label %Frc_ManCrossCut.exit39, label %.lr.ph88, !llvm.loop !27
+  br i1 %.not27.us.i29, label %Frc_ManCrossCut.exit39, label %.lr.ph88, !llvm.loop !26
 
 .lr.ph88:                                         ; preds = %.lr.ph38.split.us.i26.preheader, %.lr.ph38.split.us.i26
   %.val29.us.i2887 = phi ptr [ %.val29.us.i28, %.lr.ph38.split.us.i26 ], [ %.val29.us.i2884, %.lr.ph38.split.us.i26.preheader ]
@@ -3228,7 +3228,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i22, %Frc_Ma
   %84 = sext i32 %83 to i64
   %85 = sub nsw i64 0, %84
   %86 = getelementptr inbounds i32, ptr %81, i64 %85
-  %87 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %86), !range !23
+  %87 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %86)
   %88 = load i32, ptr %6, align 8
   %89 = sub nsw i32 %88, %87
   store i32 %89, ptr %6, align 8
@@ -3236,7 +3236,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i22, %Frc_Ma
   %.val.us.i32 = load i32, ptr %24, align 4
   %90 = sext i32 %.val.us.i32 to i64
   %91 = icmp slt i64 %indvars.iv.next43.i31, %90
-  br i1 %91, label %.lr.ph38.split.us.i26, label %Frc_ManCrossCut.exit39, !llvm.loop !27
+  br i1 %91, label %.lr.ph38.split.us.i26, label %Frc_ManCrossCut.exit39, !llvm.loop !26
 
 Frc_ManCrossCut.exit39:                           ; preds = %.lr.ph88, %.lr.ph38.split.us.i26, %.lr.ph38.split.us.i26.preheader, %.critedge.i23
   %92 = phi i32 [ %.val36.i24, %.critedge.i23 ], [ %.val36.i24, %.lr.ph38.split.us.i26.preheader ], [ %.val.us.i32, %.lr.ph38.split.us.i26 ], [ %.val.us.i32, %.lr.ph88 ]
@@ -3272,7 +3272,7 @@ Frc_ManCrossCut.exit39:                           ; preds = %.lr.ph88, %.lr.ph38
   %112 = sdiv i32 %111, 2
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next.i42, %113
-  br i1 %114, label %.lr.ph.i40, label %Vec_IntReverseOrder.exit43, !llvm.loop !29
+  br i1 %114, label %.lr.ph.i40, label %Vec_IntReverseOrder.exit43, !llvm.loop !28
 
 Vec_IntReverseOrder.exit43:                       ; preds = %.lr.ph.i40, %94
   %.val34.i76 = phi i32 [ %92, %94 ], [ %111, %.lr.ph.i40 ]
@@ -3316,7 +3316,7 @@ Vec_IntReverseOrder.exit43:                       ; preds = %.lr.ph.i40, %94
   %133 = add i32 %132, %131
   %134 = load i32, ptr %9, align 8
   %135 = icmp slt i32 %133, %134
-  br i1 %135, label %.lr.ph.i47, label %.critedge.i44.loopexit, !llvm.loop !35
+  br i1 %135, label %.lr.ph.i47, label %.critedge.i44.loopexit, !llvm.loop !34
 
 .critedge.i44.loopexit:                           ; preds = %.lr.ph.i47, %129
   %.lcssa.i.ph = phi i32 [ %130, %129 ], [ %117, %.lr.ph.i47 ]
@@ -3347,7 +3347,7 @@ Vec_IntReverseOrder.exit43:                       ; preds = %.lr.ph.i40, %94
   %144 = sext i32 %143 to i64
   %145 = sub nsw i64 0, %144
   %146 = getelementptr inbounds i32, ptr %141, i64 %145
-  call void @Frc_ManPlaceDfs_rec(ptr noundef nonnull %0, ptr noundef nonnull %146, ptr noundef nonnull %5)
+  call void @Frc_ManPlaceDfs_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %146, ptr noundef nonnull %5)
   %147 = load i32, ptr %5, align 4
   %148 = add nsw i32 %147, 1
   store i32 %148, ptr %5, align 4
@@ -3357,7 +3357,7 @@ Vec_IntReverseOrder.exit43:                       ; preds = %.lr.ph.i40, %94
   %.val.i = load i32, ptr %24, align 4
   %150 = sext i32 %.val.i to i64
   %151 = icmp slt i64 %indvars.iv.next.i46, %150
-  br i1 %151, label %.lr.ph36.i, label %Frc_ManPlaceDfs.exit, !llvm.loop !36
+  br i1 %151, label %.lr.ph36.i, label %Frc_ManPlaceDfs.exit, !llvm.loop !35
 
 Frc_ManPlaceDfs.exit:                             ; preds = %.lr.ph36.i, %137, %.critedge.i44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3404,7 +3404,7 @@ Frc_ManPlaceDfs.exit:                             ; preds = %.lr.ph36.i, %137, %
   %171 = add i32 %170, %169
   %172 = load i32, ptr %9, align 8
   %173 = icmp slt i32 %171, %172
-  br i1 %173, label %.lr.ph.i60, label %.critedge.i50.loopexit, !llvm.loop !35
+  br i1 %173, label %.lr.ph.i60, label %.critedge.i50.loopexit, !llvm.loop !34
 
 .critedge.i50.loopexit:                           ; preds = %.lr.ph.i60, %167
   %.lcssa.i51.ph = phi i32 [ %168, %167 ], [ %155, %.lr.ph.i60 ]
@@ -3430,7 +3430,7 @@ Frc_ManPlaceDfs.exit68.thread:                    ; preds = %.critedge.i50
 .lr.ph36.i53:                                     ; preds = %.lr.ph95
   %.val25.i55 = load ptr, ptr %8, align 8
   %.not23.i56 = icmp eq ptr %.val25.i55, null
-  br i1 %.not23.i56, label %Frc_ManPlaceDfs.exit68, label %.lr.ph95, !llvm.loop !36
+  br i1 %.not23.i56, label %Frc_ManPlaceDfs.exit68, label %.lr.ph95, !llvm.loop !35
 
 .lr.ph95:                                         ; preds = %.lr.ph36.i53.preheader, %.lr.ph36.i53
   %.val25.i5594 = phi ptr [ %.val25.i55, %.lr.ph36.i53 ], [ %.val25.i5591, %.lr.ph36.i53.preheader ]
@@ -3445,7 +3445,7 @@ Frc_ManPlaceDfs.exit68.thread:                    ; preds = %.critedge.i50
   %181 = sext i32 %180 to i64
   %182 = sub nsw i64 0, %181
   %183 = getelementptr inbounds i32, ptr %178, i64 %182
-  call void @Frc_ManPlaceDfs_rec(ptr noundef nonnull %0, ptr noundef nonnull %183, ptr noundef nonnull %4)
+  call void @Frc_ManPlaceDfs_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %183, ptr noundef nonnull %4)
   %184 = load i32, ptr %4, align 4
   %185 = add nsw i32 %184, 1
   store i32 %185, ptr %4, align 4
@@ -3455,7 +3455,7 @@ Frc_ManPlaceDfs.exit68.thread:                    ; preds = %.critedge.i50
   %.val.i59 = load i32, ptr %24, align 4
   %187 = sext i32 %.val.i59 to i64
   %188 = icmp slt i64 %indvars.iv.next.i58, %187
-  br i1 %188, label %.lr.ph36.i53, label %Frc_ManPlaceDfs.exit68, !llvm.loop !36
+  br i1 %188, label %.lr.ph36.i53, label %Frc_ManPlaceDfs.exit68, !llvm.loop !35
 
 Frc_ManPlaceDfs.exit68:                           ; preds = %.lr.ph36.i53, %.lr.ph95, %.lr.ph36.i53.preheader
   %189 = phi i32 [ %.val34.i52, %.lr.ph36.i53.preheader ], [ %.val.i59, %.lr.ph95 ], [ %.val.i59, %.lr.ph36.i53 ]
@@ -3487,7 +3487,7 @@ Frc_ManPlaceDfs.exit68:                           ; preds = %.lr.ph36.i53, %.lr.
   %207 = sdiv i32 %206, 2
   %208 = sext i32 %207 to i64
   %209 = icmp slt i64 %indvars.iv.next.i71, %208
-  br i1 %209, label %.lr.ph.i69, label %Vec_IntReverseOrder.exit72, !llvm.loop !29
+  br i1 %209, label %.lr.ph.i69, label %Vec_IntReverseOrder.exit72, !llvm.loop !28
 
 Vec_IntReverseOrder.exit72:                       ; preds = %.lr.ph.i69, %Frc_ManPlaceDfs.exit68, %Frc_ManPlaceDfs.exit68.thread, %Frc_ManPlaceDfs.exit
   %storemerge = phi i32 [ %93, %Frc_ManPlaceDfs.exit ], [ %63, %Frc_ManPlaceDfs.exit68.thread ], [ %63, %Frc_ManPlaceDfs.exit68 ], [ %63, %.lr.ph.i69 ]
@@ -3560,7 +3560,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %33 = sext i32 %61 to i64
   %34 = getelementptr inbounds i32, ptr %.val116, i64 %33
   %.not109 = icmp eq ptr %.val116, null
-  br i1 %.not109, label %.critedge, label %.lr.ph195, !llvm.loop !37
+  br i1 %.not109, label %.critedge, label %.lr.ph195, !llvm.loop !36
 
 .lr.ph195:                                        ; preds = %.lr.ph144.preheader, %.lr.ph144
   %35 = phi ptr [ %34, %.lr.ph144 ], [ %.val116191, %.lr.ph144.preheader ]
@@ -3599,7 +3599,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %51 = call noundef i32 @llvm.smax.i32(i32 %.095139, i32 %49)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %44, !llvm.loop !38
+  br i1 %exitcond.not, label %.critedge2, label %44, !llvm.loop !37
 
 .critedge2:                                       ; preds = %44, %..critedge2_crit_edge
   %.pre-phi183 = phi i32 [ %.pre182, %..critedge2_crit_edge ], [ %42, %44 ]
@@ -3619,7 +3619,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %61 = add i32 %60, %.pre-phi183
   %62 = load i32, ptr %25, align 8
   %63 = icmp slt i32 %61, %62
-  br i1 %63, label %.lr.ph144, label %.critedge, !llvm.loop !37
+  br i1 %63, label %.lr.ph144, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph144, %.lr.ph144.preheader
   %.093.lcssa = phi double [ 0.000000e+00, %.lr.ph144.preheader ], [ %59, %.lr.ph144 ], [ %59, %.critedge2 ]
@@ -3661,7 +3661,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %78 = fadd float %.0101152, %77
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
-  br i1 %exitcond174.not, label %.critedge6, label %72, !llvm.loop !39
+  br i1 %exitcond174.not, label %.critedge6, label %72, !llvm.loop !38
 
 .critedge6:                                       ; preds = %72, %.lr.ph159.split
   %.0101.lcssa = phi float [ %68, %.lr.ph159.split ], [ %78, %72 ]
@@ -3681,7 +3681,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %86 = add i32 %narrow.i123, %85
   %87 = add i32 %86, %.val118
   %88 = icmp slt i32 %87, %.lcssa135
-  br i1 %88, label %.lr.ph159.split, label %.critedge4, !llvm.loop !40
+  br i1 %88, label %.lr.ph159.split, label %.critedge4, !llvm.loop !39
 
 .critedge4:                                       ; preds = %.critedge6, %.preheader, %.lr.ph159, %.critedge
   %.093.lcssa186 = phi double [ %.093.lcssa, %.lr.ph159 ], [ %.093.lcssa, %.critedge ], [ 0.000000e+00, %.preheader ], [ %.093.lcssa, %.critedge6 ]
@@ -3812,7 +3812,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %146 = load i32, ptr %17, align 8
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next179, %147
-  br i1 %148, label %.lr.ph162, label %._crit_edge, !llvm.loop !41
+  br i1 %148, label %.lr.ph162, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %145, %Abc_Clock.exit127
   %149 = call i32 @Frc_ManPlaceDfsBoth(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %8)
@@ -3856,7 +3856,7 @@ Abc_Clock.exit129:                                ; preds = %150, %160
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %Abc_Clock.exit129
   %exitcond181.not = icmp eq i32 %.pre, %1
-  br i1 %exitcond181.not, label %._crit_edge165, label %.preheader, !llvm.loop !42
+  br i1 %exitcond181.not, label %._crit_edge165, label %.preheader, !llvm.loop !41
 
 ._crit_edge165:                                   ; preds = %._crit_edge._crit_edge, %Abc_Clock.exit
   %.not = icmp eq ptr %21, null
@@ -3927,7 +3927,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Frc_ObjFanoutsAreCos(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Frc_ObjFanoutsAreCos(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -3944,7 +3944,7 @@ define noundef i32 @Frc_ObjFanoutsAreCos(ptr nocapture noundef readonly %0) loca
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !43
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !42
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
@@ -4006,7 +4006,7 @@ define void @Frc_DumpGraphIntoFile(ptr nocapture noundef readonly %0) local_unna
 18:                                               ; preds = %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Frc_ObjFanoutsAreCos.exit.thread, label %19, !llvm.loop !43
+  br i1 %exitcond.not.i, label %Frc_ObjFanoutsAreCos.exit.thread, label %19, !llvm.loop !42
 
 19:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
@@ -4044,7 +4044,7 @@ Frc_ObjFanoutsAreCos.exit:                        ; preds = %19, %Frc_ObjFanouts
   %34 = add i32 %33, %.val51
   %35 = load i32, ptr %3, align 8
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %.lr.ph, label %.critedge, !llvm.loop !44
+  br i1 %36, label %.lr.ph, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %.lr.ph, %29, %1
   %37 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
@@ -4107,7 +4107,7 @@ Frc_ObjFanoutsAreCos.exit:                        ; preds = %19, %Frc_ObjFanouts
   %63 = phi i32 [ %50, %.lr.ph64.split ], [ %50, %51 ], [ %.pre, %60 ]
   %64 = add nuw nsw i32 %.03363, 1
   %65 = icmp slt i32 %64, %63
-  br i1 %65, label %.lr.ph64.splitthread-pre-split, label %.critedge4.loopexit68, !llvm.loop !45
+  br i1 %65, label %.lr.ph64.splitthread-pre-split, label %.critedge4.loopexit68, !llvm.loop !44
 
 .critedge4.loopexit68:                            ; preds = %62
   %.pre71 = load i32, ptr %3, align 8
@@ -4122,7 +4122,7 @@ Frc_ObjFanoutsAreCos.exit:                        ; preds = %19, %Frc_ObjFanouts
   %68 = add i32 %narrow.i55, %.lcssa
   %69 = add i32 %68, %67
   %70 = icmp slt i32 %69, %66
-  br i1 %70, label %.lr.ph66, label %.critedge2, !llvm.loop !47
+  br i1 %70, label %.lr.ph66, label %.critedge2, !llvm.loop !46
 
 .critedge2:                                       ; preds = %.lr.ph66, %.critedge4, %.critedge
   %71 = tail call i32 @fclose(ptr noundef %37)
@@ -4240,7 +4240,7 @@ Abc_Clock.exit:                                   ; preds = %0, %9
   store i32 %17, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 33554432
-  br i1 %exitcond.not, label %18, label %15, !llvm.loop !48
+  br i1 %exitcond.not, label %18, label %15, !llvm.loop !47
 
 18:                                               ; preds = %15
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.20)
@@ -4450,7 +4450,7 @@ attributes #23 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = !{i32 0, i32 2}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
@@ -4471,8 +4471,7 @@ attributes #23 = { nounwind willreturn memory(read) }
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5, !46}
-!46 = !{!"llvm.loop.unswitch.partial.disable"}
+!44 = distinct !{!44, !5, !45}
+!45 = !{!"llvm.loop.unswitch.partial.disable"}
+!46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}

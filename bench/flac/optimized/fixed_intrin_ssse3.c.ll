@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden i32 @FLAC__fixed_compute_best_predictor_intrin_ssse3(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_ssse3(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %prev_err0_scalar = alloca [4 x i32], align 16
   %prev_err1_scalar = alloca [4 x i32], align 16
@@ -61,9 +61,9 @@ for.body68.lr.ph:                                 ; preds = %for.end
   %13 = zext nneg i32 %mul78 to i64
   %14 = zext nneg i32 %mul84 to i64
   %wide.trip.count = zext nneg i32 %div to i64
-  %invariant.gep = getelementptr i32, ptr %data, i64 %12
-  %invariant.gep267 = getelementptr i32, ptr %data, i64 %13
-  %invariant.gep269 = getelementptr i32, ptr %data, i64 %14
+  %invariant.gep = getelementptr inbounds i32, ptr %data, i64 %12
+  %invariant.gep267 = getelementptr inbounds i32, ptr %data, i64 %13
+  %invariant.gep269 = getelementptr inbounds i32, ptr %data, i64 %14
   br label %for.body68
 
 for.body68:                                       ; preds = %for.body68.lr.ph, %for.body68
@@ -80,13 +80,13 @@ for.body68:                                       ; preds = %for.body68.lr.ph, %
   %arrayidx70 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv257
   %24 = load i32, ptr %arrayidx70, align 4
   %data_scalar.sroa.0.0.vec.insert = insertelement <4 x i32> poison, i32 %24, i64 0
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv257
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv257
   %25 = load i32, ptr %gep, align 4
   %data_scalar.sroa.0.4.vec.insert = insertelement <4 x i32> %data_scalar.sroa.0.0.vec.insert, i32 %25, i64 1
-  %gep268 = getelementptr i32, ptr %invariant.gep267, i64 %indvars.iv257
+  %gep268 = getelementptr inbounds i32, ptr %invariant.gep267, i64 %indvars.iv257
   %26 = load i32, ptr %gep268, align 4
   %data_scalar.sroa.0.8.vec.insert = insertelement <4 x i32> %data_scalar.sroa.0.4.vec.insert, i32 %26, i64 2
-  %gep270 = getelementptr i32, ptr %invariant.gep269, i64 %indvars.iv257
+  %gep270 = getelementptr inbounds i32, ptr %invariant.gep269, i64 %indvars.iv257
   %27 = load i32, ptr %gep270, align 4
   %data_scalar.sroa.0.12.vec.insert = insertelement <4 x i32> %data_scalar.sroa.0.8.vec.insert, i32 %27, i64 3
   %elt.abs.i377 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %data_scalar.sroa.0.12.vec.insert, i1 false)
@@ -177,7 +177,7 @@ for.body183:                                      ; preds = %for.body183.prehead
   %cond219 = tail call i32 @llvm.abs.i32(i32 %sub213, i1 true)
   %add220 = add i32 %cond219, %total_error_4.0240
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
-  %42 = trunc i64 %indvars.iv.next265 to i32
+  %42 = trunc nuw i64 %indvars.iv.next265 to i32
   %cmp182 = icmp slt i32 %42, %data_len
   br i1 %cmp182, label %for.body183, label %if.end, !llvm.loop !7
 

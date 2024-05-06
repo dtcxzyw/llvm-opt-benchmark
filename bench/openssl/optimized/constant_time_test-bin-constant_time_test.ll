@@ -82,7 +82,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sizeofs() #0 {
+define internal range(i32 0, 2) i32 @test_sizeofs() #0 {
 entry:
   %call = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 248, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 10, i32 noundef 10) #2
   %tobool.not = icmp ne i32 %call, 0
@@ -93,7 +93,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_is_zero(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_is_zero(i32 noundef %i) #0 {
 entry:
   %cond = icmp eq i32 %i, 0
   br i1 %cond, label %land.lhs.true, label %land.lhs.true3
@@ -124,7 +124,7 @@ return:                                           ; preds = %land.lhs.true3, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_is_zero_8(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_is_zero_8(i32 noundef %i) #0 {
 entry:
   %cond = icmp eq i32 %i, 0
   br i1 %cond, label %land.lhs.true, label %land.lhs.true6
@@ -148,7 +148,7 @@ return:                                           ; preds = %land.lhs.true6, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_is_zero_32(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_is_zero_32(i32 noundef %i) #0 {
 entry:
   %cond = icmp eq i32 %i, 0
   br i1 %cond, label %land.lhs.true, label %land.lhs.true7
@@ -172,7 +172,7 @@ return:                                           ; preds = %land.lhs.true7, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_is_zero_s(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_is_zero_s(i32 noundef %i) #0 {
 entry:
   %cond = icmp eq i32 %i, 0
   br i1 %cond, label %land.lhs.true, label %land.lhs.true3
@@ -204,7 +204,7 @@ return:                                           ; preds = %land.lhs.true3, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_binops(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_binops(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %idxprom
@@ -344,7 +344,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_binops_8(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_binops_8(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom
@@ -453,7 +453,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_binops_s(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_binops_s(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [10 x i64], ptr @test_values_s, i64 0, i64 %idxprom
@@ -625,7 +625,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_signed(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_signed(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [13 x i32], ptr @signed_test_values, i64 0, i64 %idxprom
@@ -697,7 +697,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_8values(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_8values(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom
@@ -745,7 +745,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_32values(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_32values(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [9 x i32], ptr @test_values_32, i64 0, i64 %idxprom
@@ -793,7 +793,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_64values(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_64values(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [11 x i64], ptr @test_values_64, i64 0, i64 %idxprom

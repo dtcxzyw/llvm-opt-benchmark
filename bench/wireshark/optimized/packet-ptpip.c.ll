@@ -532,7 +532,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ptpIP(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [30 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [30 x i8], align 16

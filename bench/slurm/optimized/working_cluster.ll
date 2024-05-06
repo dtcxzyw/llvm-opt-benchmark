@@ -71,7 +71,7 @@ define dso_local i32 @slurmdb_setup_cluster_flags() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slurmdb_str_2_cluster_flags(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 1024) i32 @slurmdb_str_2_cluster_flags(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8

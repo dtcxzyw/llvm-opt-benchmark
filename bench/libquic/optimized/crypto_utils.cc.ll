@@ -1044,7 +1044,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net11CryptoUtils19ValidateServerHelloERKNS_22CryptoHandshakeMessageERKSt6vectorINS_11QuicVersionESaIS5_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %server_hello, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %negotiated_versions, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 56) i32 @_ZN3net11CryptoUtils19ValidateServerHelloERKNS_22CryptoHandshakeMessageERKSt6vectorINS_11QuicVersionESaIS5_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %server_hello, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %negotiated_versions, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
 entry:
   %supported_version_tags = alloca ptr, align 8
   %num_supported_versions = alloca i64, align 8
@@ -1119,7 +1119,7 @@ declare noundef i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr no
 declare noundef i32 @_ZN3net20QuicTagToQuicVersionEj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net11CryptoUtils19ValidateClientHelloERKNS_22CryptoHandshakeMessageENS_11QuicVersionERKSt6vectorIS4_SaIS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %client_hello, i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %supported_versions, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 56) i32 @_ZN3net11CryptoUtils19ValidateClientHelloERKNS_22CryptoHandshakeMessageENS_11QuicVersionERKSt6vectorIS4_SaIS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %client_hello, i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %supported_versions, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
 entry:
   %client_version_tag = alloca i32, align 4
   %0 = load i32, ptr %client_hello, align 8

@@ -275,7 +275,7 @@ if.end24.i.i:                                     ; preds = %if.then14.i.i, %if.
   br i1 %tobool25.not.i.i, label %for.inc.i.i, label %if.then26.i.i
 
 if.then26.i.i:                                    ; preds = %if.end24.i.i
-  %29 = trunc i64 %indvars.iv.i.i to i32
+  %29 = trunc nuw i64 %indvars.iv.i.i to i32
   %shl.i.i = shl i32 %29, 24
   %and27.i.i = and i32 %tr.0.i.i, 1310719
   %add.i.i = or disjoint i32 %and27.i.i, %shl.i.i
@@ -641,7 +641,7 @@ if.end5:                                          ; preds = %while.body
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end5, %while.body, %if.end
-  %invariant.gep = getelementptr i8, ptr %udf, i64 1
+  %invariant.gep = getelementptr inbounds i8, ptr %udf, i64 1
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %while.end
@@ -945,7 +945,7 @@ cond.end220:                                      ; preds = %if.then200, %lor.lh
   %shr222 = lshr i32 %5, 8
   %and223 = and i32 %shr222, 255
   %42 = zext nneg i32 %and223 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %42
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %42
   %43 = load i8, ptr %gep, align 1
   %mul228 = mul i8 %43, 3
   store i8 %mul228, ptr %gep, align 1
@@ -962,7 +962,7 @@ for.body241.preheader:                            ; preds = %cond.end220
   br label %for.body241
 
 for.cond250.preheader.loopexit:                   ; preds = %for.body241
-  %48 = trunc i64 %indvars.iv.next218 to i32
+  %48 = trunc nuw i64 %indvars.iv.next218 to i32
   br label %for.cond250.preheader
 
 for.cond250.preheader:                            ; preds = %for.cond250.preheader.loopexit, %cond.end220
@@ -1549,8 +1549,8 @@ if.end44:                                         ; preds = %if.then40, %if.else
   %17 = and i32 %and45, 64
   %spec.select = or i32 %mode.0, %17
   %or50 = or disjoint i16 %and36, 18176
-  %conv52 = trunc i32 %shr to i16
-  %conv53 = trunc i32 %spec.select to i16
+  %conv52 = trunc nuw nsw i32 %shr to i16
+  %conv53 = trunc nuw nsw i32 %spec.select to i16
   store i16 %or50, ptr %ot1.i489, align 4
   store i16 %conv52, ptr %fold.i488, align 8
   store i16 %conv53, ptr %op2.i492, align 2
@@ -1666,7 +1666,7 @@ if.then110:                                       ; preds = %if.end102
   br i1 %cmp.i, label %if.then.i245, label %if.else.i
 
 if.then.i245:                                     ; preds = %if.then110
-  %call.i246 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef nonnull %arrayidx.i244)
+  %call.i246 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef nonnull readonly %arrayidx.i244)
   br label %if.end113
 
 if.else.i:                                        ; preds = %if.then110
@@ -1733,7 +1733,7 @@ if.then119:                                       ; preds = %if.end113
   br i1 %cmp.i249, label %if.then.i287, label %if.else.i250
 
 if.then.i287:                                     ; preds = %if.then119
-  %call.i288 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef %arrayidx.i248)
+  %call.i288 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef readonly %arrayidx.i248)
   br label %if.end123
 
 if.else.i250:                                     ; preds = %if.then119
@@ -1858,7 +1858,7 @@ if.then141:                                       ; preds = %if.then.i502, %snap
   br i1 %cmp.i297, label %if.then.i335, label %if.else.i298
 
 if.then.i335:                                     ; preds = %if.then141
-  %call.i336 = tail call fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef %arrayidx.i296)
+  %call.i336 = tail call fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef readonly %arrayidx.i296)
   br label %snap_pref.exit337
 
 if.else.i298:                                     ; preds = %if.then141
@@ -1932,7 +1932,7 @@ if.then147:                                       ; preds = %snap_pref.exit337.i
   br i1 %cmp.i340, label %if.then.i378, label %if.else.i341
 
 if.then.i378:                                     ; preds = %if.then147
-  %call.i379 = tail call fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef nonnull %arrayidx.i339)
+  %call.i379 = tail call fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef nonnull readonly %arrayidx.i339)
   br label %for.inc158
 
 if.else.i341:                                     ; preds = %if.then147
@@ -2007,7 +2007,7 @@ if.then170:                                       ; preds = %land.lhs.true164
   br i1 %cmp.i383, label %if.then.i421, label %if.else.i384
 
 if.then.i421:                                     ; preds = %if.then170
-  %call.i422 = tail call fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef nonnull %arrayidx.i382)
+  %call.i422 = tail call fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef nonnull readonly %arrayidx.i382)
   br label %snap_pref.exit423
 
 if.else.i384:                                     ; preds = %if.then170
@@ -2120,7 +2120,7 @@ if.then238:                                       ; preds = %if.end228
   br i1 %cmp.i426, label %if.then.i464, label %if.else.i427
 
 if.then.i464:                                     ; preds = %if.then238
-  %call.i465 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef %arrayidx.i425)
+  %call.i465 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef readonly %arrayidx.i425)
   br label %if.end240
 
 if.else.i427:                                     ; preds = %if.then238
@@ -2189,7 +2189,7 @@ if.then248:                                       ; preds = %if.end240
   br i1 %cmp.i469, label %if.then.i507, label %if.else.i470
 
 if.then.i507:                                     ; preds = %if.then248
-  %call.i508 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef %arrayidx.i468)
+  %call.i508 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef readonly %arrayidx.i468)
   br label %if.end250
 
 if.else.i470:                                     ; preds = %if.then248
@@ -2426,7 +2426,7 @@ skip_newref:                                      ; preds = %land.lhs.true354, %
   br i1 %cmp.i530, label %if.then.i568, label %if.else.i531
 
 if.then.i568:                                     ; preds = %skip_newref
-  %call.i = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef %arrayidx.i529)
+  %call.i = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef readonly %arrayidx.i529)
   br label %snap_pref.exit569
 
 if.else.i531:                                     ; preds = %skip_newref
@@ -2500,7 +2500,7 @@ if.then373:                                       ; preds = %snap_pref.exit569.i
   br i1 %cmp.i572, label %if.then.i610, label %if.else.i573
 
 if.then.i610:                                     ; preds = %if.then373
-  %call.i611 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef nonnull %arrayidx.i571)
+  %call.i611 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef nonnull readonly %arrayidx.i571)
   br label %snap_pref.exit612
 
 if.else.i573:                                     ; preds = %if.then373
@@ -2920,7 +2920,7 @@ if.then15.i:                                      ; preds = %if.then.i65
   %55 = load i16, ptr %op2.i72, align 2
   %conv16.i = zext i16 %55 to i32
   %56 = load i32, ptr %sz.i, align 4
-  call fastcc void @snap_restoredata(ptr noundef nonnull %4, ptr noundef %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv16.i, ptr noundef nonnull %add.ptr.i, i32 noundef %56)
+  call fastcc void @snap_restoredata(ptr noundef nonnull readonly %4, ptr noundef readonly %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv16.i, ptr noundef nonnull %add.ptr.i, i32 noundef %56)
   br label %snap_unsink.exit
 
 if.else.i:                                        ; preds = %if.then.i65
@@ -3046,7 +3046,7 @@ if.end85.i:                                       ; preds = %if.else83.i, %if.th
   %op286.i = getelementptr inbounds i8, ptr %ir.pn95123.i, i64 10
   %78 = load i16, ptr %op286.i, align 2
   %conv87.i = zext i16 %78 to i32
-  call fastcc void @snap_restoredata(ptr noundef nonnull %4, ptr noundef %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv87.i, ptr noundef %p38.0.i, i32 noundef %szs.0.i)
+  call fastcc void @snap_restoredata(ptr noundef nonnull readonly %4, ptr noundef readonly %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv87.i, ptr noundef %p38.0.i, i32 noundef %szs.0.i)
   br label %for.inc.i69
 
 for.inc.i69:                                      ; preds = %if.end85.i, %snap_sunk_store.exit191.i, %if.end.i182.i, %if.then.i184.i, %for.body.i68
@@ -3176,7 +3176,7 @@ sw.bb.i:                                          ; preds = %if.then140.i
   %op2143.i = getelementptr inbounds i8, ptr %ir.pn127.i, i64 10
   %102 = load i16, ptr %op2143.i, align 2
   %conv144.i = zext i16 %102 to i32
-  call fastcc void @snap_restoreval(ptr noundef %J, ptr noundef nonnull %4, ptr noundef %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv144.i, ptr noundef nonnull %tmp.i)
+  call fastcc void @snap_restoreval(ptr noundef readonly %J, ptr noundef nonnull readonly %4, ptr noundef readonly %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv144.i, ptr noundef nonnull %tmp.i)
   %103 = load i64, ptr %tmp.i, align 8
   %and146.i = and i64 %103, 140737488355327
   store i64 %and146.i, ptr %metatable.i, align 8
@@ -3205,7 +3205,7 @@ if.end163.i:                                      ; preds = %if.then158.i, %if.e
   %op2167.i = getelementptr inbounds i8, ptr %ir.pn127.i, i64 10
   %108 = load i16, ptr %op2167.i, align 2
   %conv168.i = zext i16 %108 to i32
-  call fastcc void @snap_restoreval(ptr noundef %J, ptr noundef nonnull %4, ptr noundef %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv168.i, ptr noundef %call166.i)
+  call fastcc void @snap_restoreval(ptr noundef readonly %J, ptr noundef nonnull readonly %4, ptr noundef readonly %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv168.i, ptr noundef %call166.i)
   br label %for.inc171.i
 
 for.inc171.i:                                     ; preds = %if.end163.i, %sw.bb.i, %if.then140.i, %snap_sunk_store.exit.i, %if.end.i.i, %if.then.i.i, %for.body123.i

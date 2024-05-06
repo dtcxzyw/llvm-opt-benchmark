@@ -180,7 +180,7 @@ define dso_local void @_ZN31cmGeneratorExpressionDAGChecker10InitializeEv(ptr no
   br i1 %.not.i, label %_ZNK31cmGeneratorExpressionDAGChecker3TopEv.exit, label %4, !llvm.loop !5
 
 _ZNK31cmGeneratorExpressionDAGChecker3TopEv.exit: ; preds = %4
-  %5 = tail call noundef i32 @_ZNK31cmGeneratorExpressionDAGChecker10CheckGraphEv(ptr noundef nonnull align 8 dereferenceable(126) %0), !range !7
+  %5 = tail call noundef i32 @_ZNK31cmGeneratorExpressionDAGChecker10CheckGraphEv(ptr noundef nonnull align 8 dereferenceable(126) %0)
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %5, ptr %6, align 8
   %7 = icmp eq i32 %5, 0
@@ -221,13 +221,13 @@ _ZNK31cmGeneratorExpressionDAGChecker34EvaluatingSystemIncludeDirectoriesEv.exit
   br i1 %27, label %_ZNK31cmGeneratorExpressionDAGChecker28EvaluatingIncludeDirectoriesEv.exit.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #18
+  %29 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #18
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 20)
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %_ZNK31cmGeneratorExpressionDAGChecker28EvaluatingCompileDefinitionsEv.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %28
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %22, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i.i)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr readonly %22, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i.i)
   %31 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %31, label %_ZNK31cmGeneratorExpressionDAGChecker28EvaluatingCompileDefinitionsEv.exit, label %_ZNK31cmGeneratorExpressionDAGChecker28EvaluatingCompileDefinitionsEv.exit.thread38
 
@@ -316,7 +316,7 @@ _ZNSt3mapIPK17cmGeneratorTargetSt3setINSt7__cxx1112basic_stringIcSt11char_traits
   %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEESt10_Select1stISG_ESC_IS2_ESaISG_EE14_M_lower_boundEPSt13_Rb_tree_nodeISG_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, label %66, !llvm.loop !8
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEESt10_Select1stISG_ESC_IS2_ESaISG_EE14_M_lower_boundEPSt13_Rb_tree_nodeISG_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, label %66, !llvm.loop !7
 
 _ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEESt10_Select1stISG_ESC_IS2_ESaISG_EE14_M_lower_boundEPSt13_Rb_tree_nodeISG_EPSt18_Rb_tree_node_baseRS4_.exit.i.i: ; preds = %66
   %70 = icmp eq ptr %.19.i.i.i, %64
@@ -357,7 +357,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i.i.i26 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 %.1.in.v.i.i.i25
   %.1.i.i.i27 = load ptr, ptr %.1.in.i.i.i26, align 8
   %.not.i.i.i28 = icmp eq ptr %.1.i.i.i27, null
-  br i1 %.not.i.i.i28, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, label %.lr.ph.i.i.i23, !llvm.loop !9
+  br i1 %.not.i.i.i28, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, label %.lr.ph.i.i.i23, !llvm.loop !8
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %85 = icmp eq ptr %.19.i.i.i24, %78
@@ -405,7 +405,7 @@ _ZNSt3mapIPK17cmGeneratorTargetSt3setINSt7__cxx1112basic_stringIcSt11char_traits
   %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIPK17cmGeneratorTargetSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESA_IS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSG_.exit.i, label %95, !llvm.loop !8
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIPK17cmGeneratorTargetSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESA_IS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSG_.exit.i, label %95, !llvm.loop !7
 
 _ZNSt3mapIPK17cmGeneratorTargetSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESA_IS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSG_.exit.i: ; preds = %95
   %99 = icmp eq ptr %.19.i.i.i.i, %64
@@ -607,7 +607,7 @@ define dso_local noundef nonnull ptr @_ZNK31cmGeneratorExpressionDAGChecker3TopE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK31cmGeneratorExpressionDAGChecker10CheckGraphEv(ptr noundef nonnull align 8 dereferenceable(126) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK31cmGeneratorExpressionDAGChecker10CheckGraphEv(ptr noundef nonnull align 8 dereferenceable(126) %0) local_unnamed_addr #4 align 2 {
   %.09 = load ptr, ptr %0, align 8
   %.not10 = icmp eq ptr %.09, null
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -653,7 +653,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread7: ; preds = %9, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %4
   %.0 = load ptr, ptr %.011, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %4, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %4, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread7, %1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %.06 = phi i32 [ %22, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ 0, %1 ], [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread7 ]
@@ -710,13 +710,13 @@ define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker28Eval
   br i1 %8, label %_Z14additionalTestIL18TransitiveProperty2EEbPKc.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
+  %10 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #18
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 20)
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %9
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %3, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i)
   %12 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %12, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_Z14additionalTestIL18TransitiveProperty2EEbPKc.exit
 
@@ -1100,7 +1100,7 @@ define dso_local void @_ZN31cmGeneratorExpressionDAGChecker11ReportErrorEP28cmGe
   %94 = add nuw nsw i32 %.041, 1
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #18
   %.not34 = icmp eq ptr %93, null
-  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 95:                                               ; preds = %67, %63, %61, %59, %57, %55, %53
   %96 = landingpad { ptr, i32 }
@@ -1627,7 +1627,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairI
 _ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEESt10_Select1stISG_ESC_IS2_ESaISG_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISG_E.exit: ; preds = %.lr.ph
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEESt10_Select1stISG_ESC_IS2_ESaISG_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISG_E.exit, %2
   ret void
@@ -1649,7 +1649,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1697,7 +1697,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in.i = getelementptr inbounds i8, ptr %.02127.i, i64 %.in.v.i
   %.021.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.021.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   br i1 %11, label %._crit_edge.thread.i, label %17
@@ -1949,7 +1949,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK17cmGeneratorTarget
   %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !15
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -2021,7 +2021,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK17cmGeneratorTarget
   %.in.i15 = getelementptr inbounds i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !15
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !14
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -2086,7 +2086,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK17cmGeneratorTarget
   %.in.i35 = getelementptr inbounds i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !15
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !14
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -2211,7 +2211,7 @@ attributes #23 = { noreturn }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 3}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -2219,4 +2219,3 @@ attributes #23 = { noreturn }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

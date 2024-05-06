@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.dsa_pkey_import_from = private unnamed_addr constant [21 x i8] c"dsa_pkey_import_from\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_pub_decode(ptr noundef %pkey, ptr noundef %pubkey) #0 {
+define internal range(i32 0, 2) i32 @dsa_pub_decode(ptr noundef %pkey, ptr noundef %pubkey) #0 {
 entry:
   %p = alloca ptr, align 8
   %pm = alloca ptr, align 8
@@ -109,7 +109,7 @@ return:                                           ; preds = %entry, %err, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_pub_encode(ptr noundef %pk, ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @dsa_pub_encode(ptr noundef %pk, ptr nocapture noundef readonly %pkey) #0 {
 entry:
   %penc = alloca ptr, align 8
   store ptr null, ptr %penc, align 8
@@ -213,7 +213,7 @@ return:                                           ; preds = %if.end27, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 0, 2) i32 @dsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %b, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -230,7 +230,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @dsa_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -273,7 +273,7 @@ do_dsa_print.exit:                                ; preds = %if.end.i, %if.end32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_priv_decode(ptr noundef %pkey, ptr noundef %p8) #0 {
+define internal range(i32 0, 2) i32 @dsa_priv_decode(ptr noundef %pkey, ptr noundef %p8) #0 {
 entry:
   %call = tail call ptr @ossl_dsa_key_from_pkcs8(ptr noundef %p8, ptr noundef null, ptr noundef null) #4
   %cmp.not = icmp eq ptr %call, null
@@ -289,7 +289,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_priv_encode(ptr noundef %p8, ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @dsa_priv_encode(ptr noundef %p8, ptr nocapture noundef readonly %pkey) #0 {
 entry:
   %dp = alloca ptr, align 8
   store ptr null, ptr %dp, align 8
@@ -387,11 +387,11 @@ return:                                           ; preds = %if.end22, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @dsa_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %call = tail call fastcc i32 @do_dsa_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 2), !range !4
+  %call = tail call fastcc i32 @do_dsa_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 2)
   ret i32 %call
 }
 
@@ -423,7 +423,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_param_decode(ptr noundef %pkey, ptr noundef %pder, i32 noundef %derlen) #0 {
+define internal range(i32 0, 2) i32 @dsa_param_decode(ptr noundef %pkey, ptr noundef %pder, i32 noundef %derlen) #0 {
 entry:
   %conv = sext i32 %derlen to i64
   %call = tail call ptr @d2i_DSAparams(ptr noundef null, ptr noundef %pder, i64 noundef %conv) #4
@@ -453,7 +453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @dsa_missing_parameters(ptr nocapture noundef readonly %pkey) #1 {
+define internal range(i32 0, 2) i32 @dsa_missing_parameters(ptr nocapture noundef readonly %pkey) #1 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -485,7 +485,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_copy_parameters(ptr nocapture noundef %to, ptr nocapture noundef readonly %from) #0 {
+define internal range(i32 0, 2) i32 @dsa_copy_parameters(ptr nocapture noundef %to, ptr nocapture noundef readonly %from) #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %to, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -535,7 +535,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_param_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @dsa_param_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -648,7 +648,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dsa_pkey_ctrl(ptr nocapture readnone %pkey, i32 noundef %op, i64 %arg1, ptr nocapture noundef writeonly %arg2) #2 {
+define internal range(i32 -2, 2) i32 @dsa_pkey_ctrl(ptr nocapture readnone %pkey, i32 noundef %op, i64 %arg1, ptr nocapture noundef writeonly %arg2) #2 {
 entry:
   %cond = icmp eq i32 %op, 3
   br i1 %cond, label %sw.bb, label %return
@@ -663,7 +663,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @old_dsa_priv_decode(ptr noundef %pkey, ptr noundef %pder, i32 noundef %derlen) #0 {
+define internal range(i32 0, 2) i32 @old_dsa_priv_decode(ptr noundef %pkey, ptr noundef %pder, i32 noundef %derlen) #0 {
 entry:
   %conv = sext i32 %derlen to i64
   %call = tail call ptr @d2i_DSAPrivateKey(ptr noundef null, ptr noundef %pder, i64 noundef %conv) #4
@@ -790,7 +790,7 @@ return:                                           ; preds = %if.end, %entry, %er
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_pkey_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
+define internal range(i32 0, 2) i32 @dsa_pkey_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %vpctx) #4
   %libctx = getelementptr inbounds i8, ptr %vpctx, i64 8
@@ -900,7 +900,7 @@ declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #3
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_dsa_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef %ptype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef %ptype) unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -1056,4 +1056,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -295,7 +295,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @dev_memalloc_noio(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 align 16 {
+define internal range(i32 0, 2) i32 @dev_memalloc_noio(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   %4 = load i16, ptr %3, align 8
   %5 = lshr i16 %4, 13
@@ -2292,7 +2292,7 @@ split:                                            ; preds = %140, %137, %._crit_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pm_runtime_get_if_active(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local range(i32 -22, 2) i32 @pm_runtime_get_if_active(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 228
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 440
@@ -2807,7 +2807,7 @@ define dso_local void @pm_runtime_enable(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pm_runtime_barrier(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @pm_runtime_barrier(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 432
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, ptr elementtype(i32) %2) #8, !srcloc !33
   %3 = getelementptr inbounds i8, ptr %0, i64 228

@@ -199,7 +199,7 @@ define dso_local void @ieee80211_recalc_txpower(ptr noundef %0, i1 noundef zeroe
 declare dso_local void @ieee80211_link_info_change_notify(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_idle_off(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 257) i32 @ieee80211_idle_off(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 456
@@ -969,7 +969,7 @@ declare dso_local i32 @drv_add_interface(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ieee80211_check_queues(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_check_queues(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120
@@ -5968,7 +5968,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local void @skb_queue_purge_reason(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @netdev_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @netdev_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #3 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq i64 %1, 11
   br i1 %5, label %6, label %21

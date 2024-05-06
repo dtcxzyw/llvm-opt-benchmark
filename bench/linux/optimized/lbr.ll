@@ -2340,7 +2340,7 @@ define internal fastcc void @intel_pmu_lbr_filter(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_pmu_setup_lbr_filter(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @intel_pmu_setup_lbr_filter(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 71), align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %4

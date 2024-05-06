@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.stb__RefineBlock.prods = private unnamed_addr constant [4 x i32] [i32 589824, i32 2304, i32 262402, i32 66562], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb__Mul8Bit(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+define range(i32 -8388608, 8388608) i32 @stb__Mul8Bit(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %mul = mul nsw i32 %b, %a
   %add = add nsw i32 %mul, 128
@@ -30,16 +30,16 @@ entry:
   %0 = and i16 %v, 31
   %mul = mul nuw nsw i16 %shr, 33
   %shr7 = lshr i16 %mul, 2
-  %conv8 = trunc i16 %shr7 to i8
+  %conv8 = trunc nuw i16 %shr7 to i8
   store i8 %conv8, ptr %out, align 1
   %mul9 = mul nuw nsw i16 %shr3, 65
   %shr10 = lshr i16 %mul9, 4
-  %conv11 = trunc i16 %shr10 to i8
+  %conv11 = trunc nuw i16 %shr10 to i8
   %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 1
   store i8 %conv11, ptr %arrayidx12, align 1
   %narrow = mul nuw nsw i16 %0, 33
   %1 = lshr i16 %narrow, 2
-  %conv15 = trunc i16 %1 to i8
+  %conv15 = trunc nuw i16 %1 to i8
   %arrayidx16 = getelementptr inbounds i8, ptr %out, i64 2
   store i8 %conv15, ptr %arrayidx16, align 1
   %arrayidx17 = getelementptr inbounds i8, ptr %out, i64 3
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb__Lerp13(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+define range(i32 -715827882, 715827883) i32 @stb__Lerp13(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %mul = shl nsw i32 %a, 1
   %add = add nsw i32 %mul, %b
@@ -92,7 +92,7 @@ entry:
   %mul.i = shl nuw nsw i16 %conv, 1
   %add.i = add nuw nsw i16 %mul.i, %conv2
   %div.i1314 = udiv i16 %add.i, 3
-  %conv3 = trunc i16 %div.i1314 to i8
+  %conv3 = trunc nuw i16 %div.i1314 to i8
   store i8 %conv3, ptr %out, align 1
   %arrayidx5 = getelementptr inbounds i8, ptr %p1, i64 1
   %2 = load i8, ptr %arrayidx5, align 1
@@ -103,7 +103,7 @@ entry:
   %mul.i7 = shl nuw nsw i16 %conv6, 1
   %add.i8 = add nuw nsw i16 %mul.i7, %conv8
   %div.i91516 = udiv i16 %add.i8, 3
-  %conv10 = trunc i16 %div.i91516 to i8
+  %conv10 = trunc nuw i16 %div.i91516 to i8
   %arrayidx11 = getelementptr inbounds i8, ptr %out, i64 1
   store i8 %conv10, ptr %arrayidx11, align 1
   %arrayidx12 = getelementptr inbounds i8, ptr %p1, i64 2
@@ -115,7 +115,7 @@ entry:
   %mul.i10 = shl nuw nsw i16 %conv13, 1
   %add.i11 = add nuw nsw i16 %mul.i10, %conv15
   %div.i121718 = udiv i16 %add.i11, 3
-  %conv17 = trunc i16 %div.i121718 to i8
+  %conv17 = trunc nuw i16 %div.i121718 to i8
   %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 2
   store i8 %conv17, ptr %arrayidx18, align 1
   ret void
@@ -130,16 +130,16 @@ entry:
   %0 = and i16 %c0, 31
   %mul.i = mul nuw nsw i16 %shr.i, 33
   %shr7.i = lshr i16 %mul.i, 2
-  %conv8.i = trunc i16 %shr7.i to i8
+  %conv8.i = trunc nuw i16 %shr7.i to i8
   store i8 %conv8.i, ptr %color, align 1
   %mul9.i = mul nuw nsw i16 %shr3.i, 65
   %shr10.i = lshr i16 %mul9.i, 4
-  %conv11.i = trunc i16 %shr10.i to i8
+  %conv11.i = trunc nuw i16 %shr10.i to i8
   %arrayidx12.i = getelementptr inbounds i8, ptr %color, i64 1
   store i8 %conv11.i, ptr %arrayidx12.i, align 1
   %narrow.i = mul nuw nsw i16 %0, 33
   %1 = lshr i16 %narrow.i, 2
-  %conv15.i = trunc i16 %1 to i8
+  %conv15.i = trunc nuw i16 %1 to i8
   %arrayidx16.i = getelementptr inbounds i8, ptr %color, i64 2
   store i8 %conv15.i, ptr %arrayidx16.i, align 1
   %arrayidx17.i = getelementptr inbounds i8, ptr %color, i64 3
@@ -151,16 +151,16 @@ entry:
   %2 = and i16 %c1, 31
   %mul.i11 = mul nuw nsw i16 %shr.i8, 33
   %shr7.i12 = lshr i16 %mul.i11, 2
-  %conv8.i13 = trunc i16 %shr7.i12 to i8
+  %conv8.i13 = trunc nuw i16 %shr7.i12 to i8
   store i8 %conv8.i13, ptr %add.ptr1, align 1
   %mul9.i14 = mul nuw nsw i16 %shr3.i10, 65
   %shr10.i15 = lshr i16 %mul9.i14, 4
-  %conv11.i16 = trunc i16 %shr10.i15 to i8
+  %conv11.i16 = trunc nuw i16 %shr10.i15 to i8
   %arrayidx12.i17 = getelementptr inbounds i8, ptr %color, i64 5
   store i8 %conv11.i16, ptr %arrayidx12.i17, align 1
   %narrow.i18 = mul nuw nsw i16 %2, 33
   %3 = lshr i16 %narrow.i18, 2
-  %conv15.i19 = trunc i16 %3 to i8
+  %conv15.i19 = trunc nuw i16 %3 to i8
   %arrayidx16.i20 = getelementptr inbounds i8, ptr %color, i64 6
   store i8 %conv15.i19, ptr %arrayidx16.i20, align 1
   %arrayidx17.i21 = getelementptr inbounds i8, ptr %color, i64 7
@@ -169,36 +169,36 @@ entry:
   %mul.i.i = shl nuw nsw i16 %shr7.i, 1
   %add.i.i = add nuw nsw i16 %mul.i.i, %shr7.i12
   %div.i1314.i = udiv i16 %add.i.i, 3
-  %conv3.i = trunc i16 %div.i1314.i to i8
+  %conv3.i = trunc nuw i16 %div.i1314.i to i8
   store i8 %conv3.i, ptr %add.ptr2, align 1
   %mul.i7.i = shl nuw nsw i16 %shr10.i, 1
   %add.i8.i = add nuw nsw i16 %mul.i7.i, %shr10.i15
   %div.i91516.i = udiv i16 %add.i8.i, 3
-  %conv10.i = trunc i16 %div.i91516.i to i8
+  %conv10.i = trunc nuw i16 %div.i91516.i to i8
   %arrayidx11.i = getelementptr inbounds i8, ptr %color, i64 9
   store i8 %conv10.i, ptr %arrayidx11.i, align 1
   %mul.i10.i = shl nuw nsw i16 %1, 1
   %add.i11.i = add nuw nsw i16 %mul.i10.i, %3
   %div.i121718.i = udiv i16 %add.i11.i, 3
-  %conv17.i = trunc i16 %div.i121718.i to i8
+  %conv17.i = trunc nuw i16 %div.i121718.i to i8
   %arrayidx18.i = getelementptr inbounds i8, ptr %color, i64 10
   store i8 %conv17.i, ptr %arrayidx18.i, align 1
   %add.ptr5 = getelementptr inbounds i8, ptr %color, i64 12
   %mul.i.i27 = shl nuw nsw i16 %shr7.i12, 1
   %add.i.i28 = add nuw nsw i16 %mul.i.i27, %shr7.i
   %div.i1314.i29 = udiv i16 %add.i.i28, 3
-  %conv3.i30 = trunc i16 %div.i1314.i29 to i8
+  %conv3.i30 = trunc nuw i16 %div.i1314.i29 to i8
   store i8 %conv3.i30, ptr %add.ptr5, align 1
   %mul.i7.i35 = shl nuw nsw i16 %shr10.i15, 1
   %add.i8.i36 = add nuw nsw i16 %mul.i7.i35, %shr10.i
   %div.i91516.i37 = udiv i16 %add.i8.i36, 3
-  %conv10.i38 = trunc i16 %div.i91516.i37 to i8
+  %conv10.i38 = trunc nuw i16 %div.i91516.i37 to i8
   %arrayidx11.i39 = getelementptr inbounds i8, ptr %color, i64 13
   store i8 %conv10.i38, ptr %arrayidx11.i39, align 1
   %mul.i10.i44 = shl nuw nsw i16 %3, 1
   %add.i11.i45 = add nuw nsw i16 %mul.i10.i44, %1
   %div.i121718.i46 = udiv i16 %add.i11.i45, 3
-  %conv17.i47 = trunc i16 %div.i121718.i46 to i8
+  %conv17.i47 = trunc nuw i16 %div.i121718.i46 to i8
   %arrayidx18.i48 = getelementptr inbounds i8, ptr %color, i64 14
   store i8 %conv17.i47, ptr %arrayidx18.i48, align 1
   ret void
@@ -662,7 +662,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @stb__RefineBlock(ptr nocapture noundef readonly %block, ptr nocapture noundef %pmax16, ptr nocapture noundef %pmin16, i32 noundef %mask) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @stb__RefineBlock(ptr nocapture noundef readonly %block, ptr nocapture noundef %pmax16, ptr nocapture noundef %pmin16, i32 noundef %mask) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %pmin16, align 2
   %1 = load i16, ptr %pmax16, align 2
@@ -769,11 +769,11 @@ for.body53:                                       ; preds = %entry, %for.body53
   br i1 %exitcond.not, label %for.end89, label %for.body53, !llvm.loop !15
 
 for.end89:                                        ; preds = %for.body53
-  %mul90 = mul nsw i32 %add83, 3
+  %mul90 = mul nuw nsw i32 %add83, 3
   %sub = sub nsw i32 %mul90, %add78
-  %mul91 = mul nsw i32 %add84, 3
+  %mul91 = mul nuw nsw i32 %add84, 3
   %sub92 = sub nsw i32 %mul91, %add80
-  %mul93 = mul nsw i32 %add85, 3
+  %mul93 = mul nuw nsw i32 %add85, 3
   %sub94 = sub nsw i32 %mul93, %add82
   %shr95 = ashr i32 %add76, 16
   %shr96 = lshr i32 %add76, 8
@@ -973,16 +973,16 @@ if.then46:                                        ; preds = %if.else
   %15 = and i16 %13, 31
   %mul.i.i = mul nuw nsw i16 %shr.i.i, 33
   %shr7.i.i = lshr i16 %mul.i.i, 2
-  %conv8.i.i = trunc i16 %shr7.i.i to i8
+  %conv8.i.i = trunc nuw i16 %shr7.i.i to i8
   store i8 %conv8.i.i, ptr %color, align 16
   %mul9.i.i = mul nuw nsw i16 %shr3.i.i, 65
   %shr10.i.i = lshr i16 %mul9.i.i, 4
-  %conv11.i.i = trunc i16 %shr10.i.i to i8
+  %conv11.i.i = trunc nuw i16 %shr10.i.i to i8
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %color, i64 1
   store i8 %conv11.i.i, ptr %arrayidx12.i.i, align 1
   %narrow.i.i = mul nuw nsw i16 %15, 33
   %16 = lshr i16 %narrow.i.i, 2
-  %conv15.i.i = trunc i16 %16 to i8
+  %conv15.i.i = trunc nuw i16 %16 to i8
   %arrayidx16.i.i = getelementptr inbounds i8, ptr %color, i64 2
   store i8 %conv15.i.i, ptr %arrayidx16.i.i, align 2
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %color, i64 3
@@ -994,16 +994,16 @@ if.then46:                                        ; preds = %if.else
   %17 = and i16 %14, 31
   %mul.i11.i = mul nuw nsw i16 %shr.i8.i, 33
   %shr7.i12.i = lshr i16 %mul.i11.i, 2
-  %conv8.i13.i = trunc i16 %shr7.i12.i to i8
+  %conv8.i13.i = trunc nuw i16 %shr7.i12.i to i8
   store i8 %conv8.i13.i, ptr %add.ptr1.i, align 4
   %mul9.i14.i = mul nuw nsw i16 %shr3.i10.i, 65
   %shr10.i15.i = lshr i16 %mul9.i14.i, 4
-  %conv11.i16.i = trunc i16 %shr10.i15.i to i8
+  %conv11.i16.i = trunc nuw i16 %shr10.i15.i to i8
   %arrayidx12.i17.i = getelementptr inbounds i8, ptr %color, i64 5
   store i8 %conv11.i16.i, ptr %arrayidx12.i17.i, align 1
   %narrow.i18.i = mul nuw nsw i16 %17, 33
   %18 = lshr i16 %narrow.i18.i, 2
-  %conv15.i19.i = trunc i16 %18 to i8
+  %conv15.i19.i = trunc nuw i16 %18 to i8
   %arrayidx16.i20.i = getelementptr inbounds i8, ptr %color, i64 6
   store i8 %conv15.i19.i, ptr %arrayidx16.i20.i, align 2
   %arrayidx17.i21.i = getelementptr inbounds i8, ptr %color, i64 7
@@ -1012,36 +1012,36 @@ if.then46:                                        ; preds = %if.else
   %mul.i.i.i = shl nuw nsw i16 %shr7.i.i, 1
   %add.i.i.i = add nuw nsw i16 %mul.i.i.i, %shr7.i12.i
   %div.i1314.i.i = udiv i16 %add.i.i.i, 3
-  %conv3.i.i = trunc i16 %div.i1314.i.i to i8
+  %conv3.i.i = trunc nuw i16 %div.i1314.i.i to i8
   store i8 %conv3.i.i, ptr %add.ptr2.i, align 8
   %mul.i7.i.i = shl nuw nsw i16 %shr10.i.i, 1
   %add.i8.i.i = add nuw nsw i16 %mul.i7.i.i, %shr10.i15.i
   %div.i91516.i.i = udiv i16 %add.i8.i.i, 3
-  %conv10.i.i = trunc i16 %div.i91516.i.i to i8
+  %conv10.i.i = trunc nuw i16 %div.i91516.i.i to i8
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %color, i64 9
   store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
   %mul.i10.i.i = shl nuw nsw i16 %16, 1
   %add.i11.i.i = add nuw nsw i16 %mul.i10.i.i, %18
   %div.i121718.i.i = udiv i16 %add.i11.i.i, 3
-  %conv17.i.i = trunc i16 %div.i121718.i.i to i8
+  %conv17.i.i = trunc nuw i16 %div.i121718.i.i to i8
   %arrayidx18.i.i = getelementptr inbounds i8, ptr %color, i64 10
   store i8 %conv17.i.i, ptr %arrayidx18.i.i, align 2
   %add.ptr5.i = getelementptr inbounds i8, ptr %color, i64 12
   %mul.i.i27.i = shl nuw nsw i16 %shr7.i12.i, 1
   %add.i.i28.i = add nuw nsw i16 %mul.i.i27.i, %shr7.i.i
   %div.i1314.i29.i = udiv i16 %add.i.i28.i, 3
-  %conv3.i30.i = trunc i16 %div.i1314.i29.i to i8
+  %conv3.i30.i = trunc nuw i16 %div.i1314.i29.i to i8
   store i8 %conv3.i30.i, ptr %add.ptr5.i, align 4
   %mul.i7.i35.i = shl nuw nsw i16 %shr10.i15.i, 1
   %add.i8.i36.i = add nuw nsw i16 %mul.i7.i35.i, %shr10.i.i
   %div.i91516.i37.i = udiv i16 %add.i8.i36.i, 3
-  %conv10.i38.i = trunc i16 %div.i91516.i37.i to i8
+  %conv10.i38.i = trunc nuw i16 %div.i91516.i37.i to i8
   %arrayidx11.i39.i = getelementptr inbounds i8, ptr %color, i64 13
   store i8 %conv10.i38.i, ptr %arrayidx11.i39.i, align 1
   %mul.i10.i44.i = shl nuw nsw i16 %18, 1
   %add.i11.i45.i = add nuw nsw i16 %mul.i10.i44.i, %16
   %div.i121718.i46.i = udiv i16 %add.i11.i45.i, 3
-  %conv17.i47.i = trunc i16 %div.i121718.i46.i to i8
+  %conv17.i47.i = trunc nuw i16 %div.i121718.i46.i to i8
   %arrayidx18.i48.i = getelementptr inbounds i8, ptr %color, i64 14
   store i8 %conv17.i47.i, ptr %arrayidx18.i48.i, align 2
   %call = call i32 @stb__MatchColorsBlock(ptr noundef nonnull %block, ptr noundef nonnull %color)
@@ -1071,7 +1071,7 @@ for.cond50:                                       ; preds = %if.end67
 for.body53:                                       ; preds = %if.end49, %for.cond50
   %mask.196 = phi i32 [ %mask.0, %if.end49 ], [ %call64, %for.cond50 ]
   %cmp5197 = phi i1 [ true, %if.end49 ], [ false, %for.cond50 ]
-  %call54 = call i32 @stb__RefineBlock(ptr noundef nonnull %block, ptr noundef nonnull %max16, ptr noundef nonnull %min16, i32 noundef %mask.196), !range !18
+  %call54 = call i32 @stb__RefineBlock(ptr noundef nonnull %block, ptr noundef nonnull %max16, ptr noundef nonnull %min16, i32 noundef %mask.196)
   %tobool55.not = icmp eq i32 %call54, 0
   %.pre.pre = load i16, ptr %max16, align 2
   %.pre99.pre = load i16, ptr %min16, align 2
@@ -1088,15 +1088,15 @@ if.end67:                                         ; preds = %if.then56
   %19 = and i16 %.pre.pre, 31
   %mul.i.i34 = mul nuw nsw i16 %shr.i.i31, 33
   %shr7.i.i35 = lshr i16 %mul.i.i34, 2
-  %conv8.i.i36 = trunc i16 %shr7.i.i35 to i8
+  %conv8.i.i36 = trunc nuw i16 %shr7.i.i35 to i8
   store i8 %conv8.i.i36, ptr %color, align 16
   %mul9.i.i37 = mul nuw nsw i16 %shr3.i.i33, 65
   %shr10.i.i38 = lshr i16 %mul9.i.i37, 4
-  %conv11.i.i39 = trunc i16 %shr10.i.i38 to i8
+  %conv11.i.i39 = trunc nuw i16 %shr10.i.i38 to i8
   store i8 %conv11.i.i39, ptr %arrayidx12.i.i40, align 1
   %narrow.i.i41 = mul nuw nsw i16 %19, 33
   %20 = lshr i16 %narrow.i.i41, 2
-  %conv15.i.i42 = trunc i16 %20 to i8
+  %conv15.i.i42 = trunc nuw i16 %20 to i8
   store i8 %conv15.i.i42, ptr %arrayidx16.i.i43, align 2
   store i8 0, ptr %arrayidx17.i.i44, align 1
   %shr.i8.i46 = lshr i16 %.pre99.pre, 11
@@ -1105,46 +1105,46 @@ if.end67:                                         ; preds = %if.then56
   %21 = and i16 %.pre99.pre, 31
   %mul.i11.i49 = mul nuw nsw i16 %shr.i8.i46, 33
   %shr7.i12.i50 = lshr i16 %mul.i11.i49, 2
-  %conv8.i13.i51 = trunc i16 %shr7.i12.i50 to i8
+  %conv8.i13.i51 = trunc nuw i16 %shr7.i12.i50 to i8
   store i8 %conv8.i13.i51, ptr %add.ptr1.i45, align 4
   %mul9.i14.i52 = mul nuw nsw i16 %shr3.i10.i48, 65
   %shr10.i15.i53 = lshr i16 %mul9.i14.i52, 4
-  %conv11.i16.i54 = trunc i16 %shr10.i15.i53 to i8
+  %conv11.i16.i54 = trunc nuw i16 %shr10.i15.i53 to i8
   store i8 %conv11.i16.i54, ptr %arrayidx12.i17.i55, align 1
   %narrow.i18.i56 = mul nuw nsw i16 %21, 33
   %22 = lshr i16 %narrow.i18.i56, 2
-  %conv15.i19.i57 = trunc i16 %22 to i8
+  %conv15.i19.i57 = trunc nuw i16 %22 to i8
   store i8 %conv15.i19.i57, ptr %arrayidx16.i20.i58, align 2
   store i8 0, ptr %arrayidx17.i21.i59, align 1
   %mul.i.i.i61 = shl nuw nsw i16 %shr7.i.i35, 1
   %add.i.i.i62 = add nuw nsw i16 %mul.i.i.i61, %shr7.i12.i50
   %div.i1314.i.i63 = udiv i16 %add.i.i.i62, 3
-  %conv3.i.i64 = trunc i16 %div.i1314.i.i63 to i8
+  %conv3.i.i64 = trunc nuw i16 %div.i1314.i.i63 to i8
   store i8 %conv3.i.i64, ptr %add.ptr2.i60, align 8
   %mul.i7.i.i65 = shl nuw nsw i16 %shr10.i.i38, 1
   %add.i8.i.i66 = add nuw nsw i16 %mul.i7.i.i65, %shr10.i15.i53
   %div.i91516.i.i67 = udiv i16 %add.i8.i.i66, 3
-  %conv10.i.i68 = trunc i16 %div.i91516.i.i67 to i8
+  %conv10.i.i68 = trunc nuw i16 %div.i91516.i.i67 to i8
   store i8 %conv10.i.i68, ptr %arrayidx11.i.i69, align 1
   %mul.i10.i.i70 = shl nuw nsw i16 %20, 1
   %add.i11.i.i71 = add nuw nsw i16 %mul.i10.i.i70, %22
   %div.i121718.i.i72 = udiv i16 %add.i11.i.i71, 3
-  %conv17.i.i73 = trunc i16 %div.i121718.i.i72 to i8
+  %conv17.i.i73 = trunc nuw i16 %div.i121718.i.i72 to i8
   store i8 %conv17.i.i73, ptr %arrayidx18.i.i74, align 2
   %mul.i.i27.i76 = shl nuw nsw i16 %shr7.i12.i50, 1
   %add.i.i28.i77 = add nuw nsw i16 %mul.i.i27.i76, %shr7.i.i35
   %div.i1314.i29.i78 = udiv i16 %add.i.i28.i77, 3
-  %conv3.i30.i79 = trunc i16 %div.i1314.i29.i78 to i8
+  %conv3.i30.i79 = trunc nuw i16 %div.i1314.i29.i78 to i8
   store i8 %conv3.i30.i79, ptr %add.ptr5.i75, align 4
   %mul.i7.i35.i80 = shl nuw nsw i16 %shr10.i15.i53, 1
   %add.i8.i36.i81 = add nuw nsw i16 %mul.i7.i35.i80, %shr10.i.i38
   %div.i91516.i37.i82 = udiv i16 %add.i8.i36.i81, 3
-  %conv10.i38.i83 = trunc i16 %div.i91516.i37.i82 to i8
+  %conv10.i38.i83 = trunc nuw i16 %div.i91516.i37.i82 to i8
   store i8 %conv10.i38.i83, ptr %arrayidx11.i39.i84, align 1
   %mul.i10.i44.i85 = shl nuw nsw i16 %22, 1
   %add.i11.i45.i86 = add nuw nsw i16 %mul.i10.i44.i85, %20
   %div.i121718.i46.i87 = udiv i16 %add.i11.i45.i86, 3
-  %conv17.i47.i88 = trunc i16 %div.i121718.i46.i87 to i8
+  %conv17.i47.i88 = trunc nuw i16 %div.i121718.i46.i87 to i8
   store i8 %conv17.i47.i88, ptr %arrayidx18.i48.i89, align 2
   %call64 = call i32 @stb__MatchColorsBlock(ptr noundef nonnull %block, ptr noundef nonnull %color)
   %cmp68 = icmp eq i32 %call64, %mask.196
@@ -1162,14 +1162,14 @@ if.end75:                                         ; preds = %for.body53, %if.the
   %conv82 = trunc i16 %26 to i8
   store i8 %conv82, ptr %dest, align 1
   %27 = lshr i16 %26, 8
-  %conv85 = trunc i16 %27 to i8
+  %conv85 = trunc nuw i16 %27 to i8
   %arrayidx86 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %conv85, ptr %arrayidx86, align 1
   %conv87 = trunc i16 %25 to i8
   %arrayidx88 = getelementptr inbounds i8, ptr %dest, i64 2
   store i8 %conv87, ptr %arrayidx88, align 1
   %28 = lshr i16 %25, 8
-  %conv91 = trunc i16 %28 to i8
+  %conv91 = trunc nuw i16 %28 to i8
   %arrayidx92 = getelementptr inbounds i8, ptr %dest, i64 3
   store i8 %conv91, ptr %arrayidx92, align 1
   %conv93 = trunc i32 %mask.4 to i8
@@ -1184,7 +1184,7 @@ if.end75:                                         ; preds = %for.body53, %if.the
   %arrayidx100 = getelementptr inbounds i8, ptr %dest, i64 6
   store i8 %conv99, ptr %arrayidx100, align 1
   %shr101 = lshr i32 %mask.4, 24
-  %conv102 = trunc i32 %shr101 to i8
+  %conv102 = trunc nuw i32 %shr101 to i8
   %arrayidx103 = getelementptr inbounds i8, ptr %dest, i64 7
   store i8 %conv102, ptr %arrayidx103, align 1
   ret void
@@ -1212,12 +1212,12 @@ for.body:                                         ; preds = %entry, %for.body
   %mx.1 = select i1 %cmp4, i32 %mx.052, i32 %spec.select
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
-  %conv22 = trunc i32 %mx.1 to i8
+  %conv22 = trunc nuw i32 %mx.1 to i8
   store i8 %conv22, ptr %dest, align 1
-  %conv24 = trunc i32 %mn.1 to i8
+  %conv24 = trunc nuw i32 %mn.1 to i8
   %arrayidx25 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %conv24, ptr %arrayidx25, align 1
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 2
@@ -1279,7 +1279,7 @@ for.inc69:                                        ; preds = %for.body36, %if.the
   %dest.addr.1 = phi ptr [ %incdec.ptr, %if.then65 ], [ %dest.addr.057, %for.body36 ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, 16
-  br i1 %exitcond64.not, label %for.end71, label %for.body36, !llvm.loop !20
+  br i1 %exitcond64.not, label %for.end71, label %for.body36, !llvm.loop !19
 
 for.end71:                                        ; preds = %for.inc69
   ret void
@@ -1312,12 +1312,12 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %mx.1.i = select i1 %cmp4.i, i32 %mx.052.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv22.i = trunc i32 %mx.1.i to i8
+  %conv22.i = trunc nuw i32 %mx.1.i to i8
   store i8 %conv22.i, ptr %dest, align 1
-  %conv24.i = trunc i32 %mn.1.i to i8
+  %conv24.i = trunc nuw i32 %mn.1.i to i8
   %arrayidx25.i = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %conv24.i, ptr %arrayidx25.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 2
@@ -1379,7 +1379,7 @@ for.inc69.i:                                      ; preds = %if.then65.i, %for.b
   %dest.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then65.i ], [ %dest.addr.057.i, %for.body36.i ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, 16
-  br i1 %exitcond64.not.i, label %stb__CompressAlphaBlock.exit, label %for.body36.i, !llvm.loop !20
+  br i1 %exitcond64.not.i, label %stb__CompressAlphaBlock.exit, label %for.body36.i, !llvm.loop !19
 
 stb__CompressAlphaBlock.exit:                     ; preds = %for.inc69.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %data, ptr noundef nonnull align 1 dereferenceable(64) %src, i64 64, i1 false)
@@ -1391,7 +1391,7 @@ for.body:                                         ; preds = %stb__CompressAlphaB
   store i8 -1, ptr %arrayidx2, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %if.end.loopexit, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %if.end.loopexit, label %for.body, !llvm.loop !20
 
 if.end.loopexit:                                  ; preds = %for.body
   %add.ptr1 = getelementptr inbounds i8, ptr %dest, i64 8
@@ -1424,12 +1424,12 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %mx.1.i = select i1 %cmp4.i, i32 %mx.052.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv22.i = trunc i32 %mx.1.i to i8
+  %conv22.i = trunc nuw i32 %mx.1.i to i8
   store i8 %conv22.i, ptr %dest, align 1
-  %conv24.i = trunc i32 %mn.1.i to i8
+  %conv24.i = trunc nuw i32 %mn.1.i to i8
   %arrayidx25.i = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %conv24.i, ptr %arrayidx25.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 2
@@ -1490,7 +1490,7 @@ for.inc69.i:                                      ; preds = %if.then65.i, %for.b
   %dest.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then65.i ], [ %dest.addr.057.i, %for.body36.i ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, 16
-  br i1 %exitcond64.not.i, label %stb__CompressAlphaBlock.exit, label %for.body36.i, !llvm.loop !20
+  br i1 %exitcond64.not.i, label %stb__CompressAlphaBlock.exit, label %for.body36.i, !llvm.loop !19
 
 stb__CompressAlphaBlock.exit:                     ; preds = %for.inc69.i
   ret void
@@ -1517,12 +1517,12 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %mx.1.i = select i1 %cmp4.i, i32 %mx.052.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv22.i = trunc i32 %mx.1.i to i8
+  %conv22.i = trunc nuw i32 %mx.1.i to i8
   store i8 %conv22.i, ptr %dest, align 1
-  %conv24.i = trunc i32 %mn.1.i to i8
+  %conv24.i = trunc nuw i32 %mn.1.i to i8
   %arrayidx25.i = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %conv24.i, ptr %arrayidx25.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 2
@@ -1584,7 +1584,7 @@ for.inc69.i:                                      ; preds = %if.then65.i, %for.b
   %dest.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then65.i ], [ %dest.addr.057.i, %for.body36.i ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, 16
-  br i1 %exitcond64.not.i, label %stb__CompressAlphaBlock.exit, label %for.body36.i, !llvm.loop !20
+  br i1 %exitcond64.not.i, label %stb__CompressAlphaBlock.exit, label %for.body36.i, !llvm.loop !19
 
 stb__CompressAlphaBlock.exit:                     ; preds = %for.inc69.i
   %add.ptr1 = getelementptr inbounds i8, ptr %src, i64 1
@@ -1606,13 +1606,13 @@ for.body.i4:                                      ; preds = %for.body.i4, %stb__
   %mx.1.i13 = select i1 %cmp4.i10, i32 %mx.052.i6, i32 %spec.select.i11
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 16
-  br i1 %exitcond.not.i15, label %for.end.i16, label %for.body.i4, !llvm.loop !19
+  br i1 %exitcond.not.i15, label %for.end.i16, label %for.body.i4, !llvm.loop !18
 
 for.end.i16:                                      ; preds = %for.body.i4
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 8
-  %conv22.i17 = trunc i32 %mx.1.i13 to i8
+  %conv22.i17 = trunc nuw i32 %mx.1.i13 to i8
   store i8 %conv22.i17, ptr %add.ptr, align 1
-  %conv24.i18 = trunc i32 %mn.1.i12 to i8
+  %conv24.i18 = trunc nuw i32 %mn.1.i12 to i8
   %arrayidx25.i19 = getelementptr inbounds i8, ptr %dest, i64 9
   store i8 %conv24.i18, ptr %arrayidx25.i19, align 1
   %add.ptr.i20 = getelementptr inbounds i8, ptr %dest, i64 10
@@ -1674,7 +1674,7 @@ for.inc69.i59:                                    ; preds = %if.then65.i65, %for
   %dest.addr.1.i62 = phi ptr [ %incdec.ptr.i67, %if.then65.i65 ], [ %dest.addr.057.i31, %for.body36.i29 ]
   %indvars.iv.next61.i63 = add nuw nsw i64 %indvars.iv60.i30, 1
   %exitcond64.not.i64 = icmp eq i64 %indvars.iv.next61.i63, 16
-  br i1 %exitcond64.not.i64, label %stb__CompressAlphaBlock.exit70, label %for.body36.i29, !llvm.loop !20
+  br i1 %exitcond64.not.i64, label %stb__CompressAlphaBlock.exit70, label %for.body36.i29, !llvm.loop !19
 
 stb__CompressAlphaBlock.exit70:                   ; preds = %for.inc69.i59
   ret void
@@ -1730,7 +1730,6 @@ attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn mem
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 0, i32 2}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

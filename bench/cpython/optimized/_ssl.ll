@@ -3195,7 +3195,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 if.end.i.i:                                       ; preds = %if.end.i
   %call2.i.i = call ptr @OBJ_nid2sn(i32 noundef %call.i4.i) #11
   %call3.i.i = call ptr @OBJ_nid2ln(i32 noundef %call.i4.i) #11
-  %call4.i.i = call fastcc ptr @_asn1obj2py(ptr noundef %call.i.i, ptr noundef nonnull %call.i, i32 noundef 1)
+  %call4.i.i = call fastcc ptr @_asn1obj2py(ptr noundef readonly %call.i.i, ptr noundef nonnull %call.i, i32 noundef 1)
   %call5.i.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.57, i32 noundef %call.i4.i, ptr noundef %call2.i.i, ptr noundef %call3.i.i, ptr noundef %call4.i.i) #11
   br label %asn1obj2py.exit.i
 
@@ -3805,7 +3805,7 @@ if.end27:                                         ; preds = %if.then10, %if.end2
   %call29 = call ptr @X509_NAME_ENTRY_get_object(ptr noundef %call8) #11
   %call30 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %call8) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %valuebuf.i)
-  %call.i = call fastcc ptr @_asn1obj2py(ptr noundef %state, ptr noundef %call29, i32 noundef 0)
+  %call.i = call fastcc ptr @_asn1obj2py(ptr noundef readonly %state, ptr noundef %call29, i32 noundef 0)
   %cmp.i48 = icmp eq ptr %call.i, null
   br i1 %cmp.i48, label %if.then.i, label %if.end.i49
 
@@ -3816,7 +3816,7 @@ if.then.i:                                        ; preds = %if.end27
   %4 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %state, ptr noundef null, ptr noundef %4, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 1096, i64 noundef %conv15.i.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %state, ptr noundef null, ptr noundef %4, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 1096, i64 noundef %conv15.i.i)
   call void @ERR_clear_error() #11
   br label %_create_tuple_for_attribute.exit.thread
 
@@ -3845,7 +3845,7 @@ if.then12.i:                                      ; preds = %if.else.i
   %5 = load ptr, ptr %PySSLErrorObject4.i16.i, align 8
   %sext.i17.i = shl i64 %call.i14.i, 32
   %conv15.i18.i = ashr exact i64 %sext.i17.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %state, ptr noundef null, ptr noundef %5, i32 noundef %conv.i15.i, ptr noundef null, i32 noundef 1107, i64 noundef %conv15.i18.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %state, ptr noundef null, ptr noundef %5, i32 noundef %conv.i15.i, ptr noundef null, i32 noundef 1107, i64 noundef %conv15.i18.i)
   call void @ERR_clear_error() #11
   %6 = load i64, ptr %call.i, align 8
   %7 = and i64 %6, 2147483648
@@ -4099,7 +4099,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.end231.thread, label %if.then9
 
 if.end231.thread:                                 ; preds = %if.end4
-  %call232155 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #11
+  %call232159 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #11
   br label %return
 
 if.then9:                                         ; preds = %if.end4
@@ -4108,22 +4108,22 @@ if.then9:                                         ; preds = %if.end4
   br i1 %cmp11, label %if.then245.thread, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then9
-  %call16169 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call5) #11
-  %cmp17170 = icmp sgt i32 %call16169, 0
-  br i1 %cmp17170, label %for.body.lr.ph, label %if.end231
+  %call16173 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call5) #11
+  %cmp17174 = icmp sgt i32 %call16173, 0
+  br i1 %cmp17174, label %for.body.lr.ph, label %if.end231
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   br label %for.body
 
 if.then245.thread:                                ; preds = %if.then9
-  %call241158 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #11
+  %call241162 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #11
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %j.0172 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %v.0171 = phi ptr [ null, %for.body.lr.ph ], [ %call218.sink, %for.inc ]
-  %call19 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call5, i32 noundef %j.0172) #11
+  %j.0176 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %v.0175 = phi ptr [ null, %for.body.lr.ph ], [ %call218.sink, %for.inc ]
+  %call19 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call5, i32 noundef %j.0176) #11
   %1 = load i32, ptr %call19, align 8
   switch i32 %1, label %sw.default176 [
     i32 4, label %sw.bb
@@ -4214,7 +4214,7 @@ sw.epilog.sink.split:                             ; preds = %if.end36, %sw.bb40,
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end36
-  %v.1 = phi ptr [ %v.0171, %if.end36 ], [ %call44, %sw.epilog.sink.split ]
+  %v.1 = phi ptr [ %v.0175, %if.end36 ], [ %call44, %sw.epilog.sink.split ]
   %as.0 = phi ptr [ null, %if.end36 ], [ %7, %sw.epilog.sink.split ]
   %cmp46 = icmp eq ptr %v.1, null
   br i1 %cmp46, label %if.then47, label %if.end48
@@ -4288,8 +4288,8 @@ if.then1.i325:                                    ; preds = %if.end.i322
   br label %if.then240
 
 if.end66:                                         ; preds = %if.end61
-  %ob_item.i144 = getelementptr inbounds i8, ptr %call57, i64 24
-  store ptr %call62, ptr %ob_item.i144, align 8
+  %ob_item.i145 = getelementptr inbounds i8, ptr %call57, i64 24
+  store ptr %call62, ptr %ob_item.i145, align 8
   %d67 = getelementptr inbounds i8, ptr %call19, i64 8
   %14 = load ptr, ptr %d67, align 8
   %call68 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %buf, i32 noundef 2047, ptr noundef %14) #11
@@ -4377,8 +4377,8 @@ if.then1.i298:                                    ; preds = %if.end.i295
   br label %if.then240
 
 if.end97:                                         ; preds = %if.end92
-  %ob_item.i147 = getelementptr inbounds i8, ptr %call88, i64 24
-  store ptr %call93, ptr %ob_item.i147, align 8
+  %ob_item.i149 = getelementptr inbounds i8, ptr %call88, i64 24
+  store ptr %call93, ptr %ob_item.i149, align 8
   %d98 = getelementptr inbounds i8, ptr %call19, i64 8
   %21 = load ptr, ptr %d98, align 8
   %22 = load i32, ptr %21, align 8
@@ -4554,8 +4554,8 @@ if.then1.i280:                                    ; preds = %if.end.i277
   br label %if.then240
 
 if.end212:                                        ; preds = %if.end205
-  %ob_item.i150 = getelementptr inbounds i8, ptr %call201, i64 24
-  store ptr %call208, ptr %ob_item.i150, align 8
+  %ob_item.i153 = getelementptr inbounds i8, ptr %call201, i64 24
+  store ptr %call208, ptr %ob_item.i153, align 8
   %add.ptr = getelementptr i8, ptr %call194, i64 1
   %conv213 = zext nneg i32 %call187 to i64
   %add.neg = xor i64 %sub.ptr.sub, -1
@@ -4583,8 +4583,8 @@ if.then1.i271:                                    ; preds = %if.end.i268
 sw.epilog223:                                     ; preds = %if.end212, %if.end170, %if.end82, %if.end48, %if.end27
   %call201.sink = phi ptr [ %call20, %if.end27 ], [ %call33, %if.end48 ], [ %call57, %if.end82 ], [ %call88, %if.end170 ], [ %call201, %if.end212 ]
   %call218.sink = phi ptr [ %call28, %if.end27 ], [ %call51, %if.end48 ], [ %v.2, %if.end82 ], [ %v.3, %if.end170 ], [ %call218, %if.end212 ]
-  %arrayidx.i152 = getelementptr i8, ptr %call201.sink, i64 32
-  store ptr %call218.sink, ptr %arrayidx.i152, align 8
+  %arrayidx.i156 = getelementptr i8, ptr %call201.sink, i64 32
+  store ptr %call218.sink, ptr %arrayidx.i156, align 8
   %call224 = call i32 @PyList_Append(ptr noundef nonnull %call10, ptr noundef nonnull %call201.sink) #11
   %cmp225 = icmp slt i32 %call224, 0
   %53 = load i64, ptr %call201.sink, align 8
@@ -4619,7 +4619,7 @@ if.then1.i253:                                    ; preds = %if.end.i250
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i250, %if.then1.i253, %if.end228
-  %inc = add nuw nsw i32 %j.0172, 1
+  %inc = add nuw nsw i32 %j.0176, 1
   %call16 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call5) #11
   %cmp17 = icmp slt i32 %inc, %call16
   br i1 %cmp17, label %for.body, label %if.end231, !llvm.loop !7
@@ -4967,7 +4967,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %state, ptr noundef null, ptr noundef %0, i32 noundef %conv.i, ptr noundef null, i32 noundef 1054, i64 noundef %conv15.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %state, ptr noundef null, ptr noundef %0, i32 noundef %conv.i, ptr noundef null, i32 noundef 1054, i64 noundef %conv15.i)
   call void @ERR_clear_error() #11
   br label %return
 
@@ -4999,7 +4999,7 @@ if.then15:                                        ; preds = %if.end10
   %1 = load ptr, ptr %PySSLErrorObject4.i20, align 8
   %sext.i21 = shl i64 %call.i18, 32
   %conv15.i22 = ashr exact i64 %sext.i21, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %state, ptr noundef null, ptr noundef %1, i32 noundef %conv.i19, ptr noundef null, i32 noundef 1069, i64 noundef %conv15.i22)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %state, ptr noundef null, ptr noundef %1, i32 noundef %conv.i19, ptr noundef null, i32 noundef 1069, i64 noundef %conv15.i22)
   call void @ERR_clear_error() #11
   br label %done
 
@@ -5618,7 +5618,7 @@ if.then.i:                                        ; preds = %if.end4
 if.end.i:                                         ; preds = %if.end4
   %call2.i = tail call ptr @OBJ_nid2sn(i32 noundef %call.i5) #11
   %call3.i = tail call ptr @OBJ_nid2ln(i32 noundef %call.i5) #11
-  %call4.i = tail call fastcc ptr @_asn1obj2py(ptr noundef %call.i, ptr noundef nonnull %call, i32 noundef 1)
+  %call4.i = tail call fastcc ptr @_asn1obj2py(ptr noundef readonly %call.i, ptr noundef nonnull %call, i32 noundef 1)
   %call5.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.57, i32 noundef %call.i5, ptr noundef %call2.i, ptr noundef %call3.i, ptr noundef %call4.i) #11
   br label %asn1obj2py.exit
 
@@ -5635,7 +5635,7 @@ return:                                           ; preds = %asn1obj2py.exit, %i
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sslmodule_init_types(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @sslmodule_init_types(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #11
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @PySSLContext_spec, ptr noundef null) #11
@@ -5708,7 +5708,7 @@ return:                                           ; preds = %if.end41, %if.end36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sslmodule_init_exceptions(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @sslmodule_init_exceptions(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #11
   %0 = load ptr, ptr @PyExc_OSError, align 8
@@ -5821,7 +5821,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sslmodule_init_socketapi(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @sslmodule_init_socketapi(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #11
   %call1 = tail call ptr @PyCapsule_Import(ptr noundef nonnull @.str.295, i32 noundef 1) #11
@@ -5854,7 +5854,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sslmodule_init_errorcodes(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @sslmodule_init_errorcodes(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #11
   %call1 = tail call ptr @PyDict_New() #11
@@ -6523,7 +6523,7 @@ return:                                           ; preds = %do.body551, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sslmodule_init_versioninfo(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @sslmodule_init_versioninfo(ptr noundef %m) #0 {
 entry:
   %call = tail call i64 @OpenSSL_version_num() #11
   %call1 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %call) #11
@@ -6567,7 +6567,7 @@ return:                                           ; preds = %if.end13, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sslmodule_init_strings(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @sslmodule_init_strings(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #11
   %call1 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.1920) #11
@@ -6604,7 +6604,7 @@ return:                                           ; preds = %if.end12, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sslmodule_init_lock(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @sslmodule_init_lock(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #11
   %call1 = tail call ptr @PyThread_allocate_lock() #11
@@ -7207,7 +7207,7 @@ if.end2.i:                                        ; preds = %skip_optional_kwonl
   %session.063 = phi ptr [ %session.0, %if.then.if.end2_crit_edge.i ], [ %session.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
   %owner.162 = phi ptr [ %owner.1, %if.then.if.end2_crit_edge.i ], [ %owner.1, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
   %22 = phi ptr [ %.pre.i, %if.then.if.end2_crit_edge.i ], [ null, %skip_optional_kwonly ], [ null, %skip_optional_kwonly.thread ]
-  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef null, i32 noundef %call33, ptr noundef %22, ptr noundef %owner.162, ptr noundef %session.063, ptr noundef %11, ptr noundef %17)
+  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef null, i32 noundef %call33, ptr noundef %22, ptr noundef %owner.162, ptr noundef %session.063, ptr noundef readonly %11, ptr noundef readonly %17)
   %23 = load ptr, ptr %hostname.i, align 8
   call void @PyMem_Free(ptr noundef %23) #11
   br label %_ssl__SSLContext__wrap_bio_impl.exit
@@ -7467,7 +7467,7 @@ if.then24.i:                                      ; preds = %if.then21.i
   br label %if.end29.i
 
 if.else.i:                                        ; preds = %if.then21.i
-  %call25.i = call fastcc i32 @_pwinfo_set(ptr noundef nonnull %pw_info.i, ptr noundef %password.0, ptr noundef nonnull @.str.109), !range !13
+  %call25.i = call fastcc i32 @_pwinfo_set(ptr noundef nonnull %pw_info.i, ptr noundef %password.0, ptr noundef nonnull @.str.109)
   %tobool26.not.i = icmp eq i32 %call25.i, 0
   br i1 %tobool26.not.i, label %error110.i, label %if.end29.i
 
@@ -7520,7 +7520,7 @@ if.else49.i:                                      ; preds = %if.else44.i
   %22 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %21, ptr noundef null, ptr noundef %22, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 3934, i64 noundef %conv15.i.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %21, ptr noundef null, ptr noundef %22, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 3934, i64 noundef %conv15.i.i)
   call void @ERR_clear_error() #11
   br label %error110.i
 
@@ -7628,7 +7628,7 @@ if.then103.i:                                     ; preds = %do.body93.i
   %40 = load ptr, ptr %PySSLErrorObject4.i37.i, align 8
   %sext.i38.i = shl i64 %call.i35.i, 32
   %conv15.i39.i = ashr exact i64 %sext.i38.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %39, ptr noundef null, ptr noundef %40, i32 noundef %conv.i36.i, ptr noundef null, i32 noundef 3963, i64 noundef %conv15.i39.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %39, ptr noundef null, ptr noundef %40, i32 noundef %conv.i36.i, ptr noundef null, i32 noundef 3963, i64 noundef %conv15.i39.i)
   call void @ERR_clear_error() #11
   br label %error110.i
 
@@ -7739,7 +7739,7 @@ if.else:                                          ; preds = %if.then8
   %3 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %2, ptr noundef null, ptr noundef %3, i32 noundef %conv.i, ptr noundef null, i32 noundef 4234, i64 noundef %conv15.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %2, ptr noundef null, ptr noundef %3, i32 noundef %conv.i, ptr noundef null, i32 noundef 4234, i64 noundef %conv15.i)
   br label %return.sink.split
 
 if.end15:                                         ; preds = %if.end
@@ -7759,7 +7759,7 @@ if.then17:                                        ; preds = %if.end15
   %6 = load ptr, ptr %PySSLErrorObject4.i11, align 8
   %sext.i12 = shl i64 %call.i9, 32
   %conv15.i13 = ashr exact i64 %sext.i12, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %5, ptr noundef null, ptr noundef %6, i32 noundef %conv.i10, ptr noundef null, i32 noundef 4240, i64 noundef %conv15.i13)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %5, ptr noundef null, ptr noundef %6, i32 noundef %conv.i10, ptr noundef null, i32 noundef 4240, i64 noundef %conv15.i13)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then17, %if.else, %if.then11
@@ -7772,7 +7772,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLContext_load_verify_locations(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_ssl__SSLContext_load_verify_locations(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %cafile_bytes.i = alloca ptr, align 8
   %capath_bytes.i = alloca ptr, align 8
@@ -7923,7 +7923,7 @@ if.end45.i:                                       ; preds = %if.then37.i
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call38.i, i64 32
   %15 = getelementptr i8, ptr %call38.i, i64 16
   %call38.val.i = load i64, ptr %15, align 8
-  %call48.i = call fastcc i32 @_add_ca_certs(ptr noundef %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %call38.val.i, i32 noundef 1), !range !14
+  %call48.i = call fastcc i32 @_add_ca_certs(ptr noundef readonly %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %call38.val.i, i32 noundef 1)
   %16 = load i64, ptr %call38.i, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i101.not.i = icmp eq i64 %17, 0
@@ -7971,7 +7971,7 @@ if.end61.i:                                       ; preds = %if.end58.i
   %20 = load ptr, ptr %buf.i, align 8
   %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %21 = load i64, ptr %len.i, align 8
-  %call63.i = call fastcc i32 @_add_ca_certs(ptr noundef %self, ptr noundef %20, i64 noundef %21, i32 noundef 2), !range !14
+  %call63.i = call fastcc i32 @_add_ca_certs(ptr noundef readonly %self, ptr noundef %20, i64 noundef %21, i32 noundef 2)
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #11
   %cmp64.i = icmp eq i32 %call63.i, -1
   %brmerge = or i1 %cmp64.i, %or.cond.i
@@ -8457,7 +8457,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 4376, i64 noundef %conv15.i.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %1, ptr noundef null, ptr noundef %2, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 4376, i64 noundef %conv15.i.i)
   tail call void @ERR_clear_error() #11
   br label %_ssl__SSLContext_set_default_verify_paths_impl.exit
 
@@ -8521,7 +8521,7 @@ if.then8:                                         ; preds = %if.end5
   %7 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %6, ptr noundef null, ptr noundef %7, i32 noundef %conv.i, ptr noundef null, i32 noundef 4415, i64 noundef %conv15.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %6, ptr noundef null, ptr noundef %7, i32 noundef %conv.i, ptr noundef null, i32 noundef 4415, i64 noundef %conv15.i)
   call void @ERR_clear_error() #11
   br label %return
 
@@ -8573,7 +8573,7 @@ for.inc.i:                                        ; preds = %sw.bb10.i, %sw.bb.i
   %inc12.i = add nuw nsw i32 %i.06.i, 1
   %call3.i = tail call i32 @OPENSSL_sk_num(ptr noundef %call1.i) #11
   %cmp.i = icmp slt i32 %inc12.i, %call3.i
-  br i1 %cmp.i, label %for.body.i, label %_ssl__SSLContext_cert_store_stats_impl.exit, !llvm.loop !15
+  br i1 %cmp.i, label %for.body.i, label %_ssl__SSLContext_cert_store_stats_impl.exit, !llvm.loop !13
 
 _ssl__SSLContext_cert_store_stats_impl.exit:      ; preds = %for.inc.i, %entry
   %x509.0.lcssa.i = phi i32 [ 0, %entry ], [ %x509.1.i, %for.inc.i ]
@@ -8684,7 +8684,7 @@ for.inc.us.i:                                     ; preds = %if.then1.i.us.i, %i
   %inc.us.i = add nuw nsw i32 %i.032.us.i, 1
   %call4.us.i = call i32 @OPENSSL_sk_num(ptr noundef %call2.i) #11
   %cmp5.us.i = icmp slt i32 %inc.us.i, %call4.us.i
-  br i1 %cmp5.us.i, label %for.body.us.i, label %exit, !llvm.loop !16
+  br i1 %cmp5.us.i, label %for.body.us.i, label %exit, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %i.032.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
@@ -8747,7 +8747,7 @@ for.inc.i:                                        ; preds = %if.then1.i.i, %if.e
   %inc.i = add nuw nsw i32 %i.032.i, 1
   %call4.i = call i32 @OPENSSL_sk_num(ptr noundef %call2.i) #11
   %cmp5.i = icmp slt i32 %inc.i, %call4.i
-  br i1 %cmp5.i, label %for.body.i, label %exit, !llvm.loop !16
+  br i1 %cmp5.i, label %for.body.i, label %exit, !llvm.loop !14
 
 if.then.i21.i:                                    ; preds = %if.end15.i, %if.end15.us.i, %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i
   %13 = load i64, ptr %call.i, align 8
@@ -8790,7 +8790,7 @@ exit.thread.i:                                    ; preds = %entry
   %2 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 3311, i64 noundef %conv15.i.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %1, ptr noundef null, ptr noundef %2, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 3311, i64 noundef %conv15.i.i)
   tail call void @ERR_clear_error() #11
   br label %_ssl__SSLContext_get_ciphers_impl.exit
 
@@ -8916,7 +8916,7 @@ if.end24.i:                                       ; preds = %cipher_to_dict.exit
   %call11.i = call i32 @OPENSSL_sk_num(ptr noundef %call2.i) #11
   %9 = sext i32 %call11.i to i64
   %cmp12.i = icmp slt i64 %indvars.iv.next.i, %9
-  br i1 %cmp12.i, label %for.body.i, label %if.then28.i, !llvm.loop !17
+  br i1 %cmp12.i, label %for.body.i, label %if.then28.i, !llvm.loop !15
 
 if.then28.i:                                      ; preds = %if.end24.i, %if.then1.i.i, %if.end.i.i, %if.then22.i, %for.cond.preheader.i, %if.end.i
   %result.028.i = phi ptr [ null, %if.end.i ], [ null, %if.then22.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %call5.i, %for.cond.preheader.i ], [ %call5.i, %if.end24.i ]
@@ -8957,7 +8957,7 @@ if.then.i:                                        ; preds = %if.end
   %3 = load ptr, ptr %state.i, align 8
   %PySSLErrorObject6.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %PySSLErrorObject6.i.i, align 8
-  call fastcc void @fill_and_set_sslerror(ptr noundef %3, ptr noundef null, ptr noundef %4, i32 noundef 0, ptr noundef nonnull @.str.156, i32 noundef 4762, i64 noundef 0)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %3, ptr noundef null, ptr noundef %4, i32 noundef 0, ptr noundef nonnull @.str.156, i32 noundef 4762, i64 noundef 0)
   call void @ERR_clear_error() #11
   br label %exit
 
@@ -9106,7 +9106,7 @@ if.then.i:                                        ; preds = %skip_optional_pos
   %12 = load ptr, ptr %state.i, align 8
   %PySSLErrorObject6.i.i = getelementptr inbounds i8, ptr %12, i64 40
   %13 = load ptr, ptr %PySSLErrorObject6.i.i, align 8
-  call fastcc void @fill_and_set_sslerror(ptr noundef %12, ptr noundef null, ptr noundef %13, i32 noundef 0, ptr noundef nonnull @.str.162, i32 noundef 4872, i64 noundef 0)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %12, ptr noundef null, ptr noundef %13, i32 noundef 0, ptr noundef nonnull @.str.162, i32 noundef 4872, i64 noundef 0)
   call void @ERR_clear_error() #11
   br label %exit
 
@@ -9209,7 +9209,7 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %state, align 8
   %PySSLErrorObject6.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %PySSLErrorObject6.i, align 8
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %2, ptr noundef null, ptr noundef %3, i32 noundef 0, ptr noundef nonnull @.str.84, i32 noundef 824, i64 noundef 0)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %2, ptr noundef null, ptr noundef %3, i32 noundef 0, ptr noundef nonnull @.str.84, i32 noundef 824, i64 noundef 0)
   tail call void @ERR_clear_error() #11
   br label %return
 
@@ -9228,7 +9228,7 @@ if.then7:                                         ; preds = %land.lhs.true4
   %5 = load ptr, ptr %state8, align 8
   %PySSLErrorObject6.i79 = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %PySSLErrorObject6.i79, align 8
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %5, ptr noundef null, ptr noundef %6, i32 noundef 0, ptr noundef nonnull @.str.85, i32 noundef 831, i64 noundef 0)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %5, ptr noundef null, ptr noundef %6, i32 noundef 0, ptr noundef nonnull @.str.85, i32 noundef 831, i64 noundef 0)
   tail call void @ERR_clear_error() #11
   br label %return
 
@@ -9297,7 +9297,7 @@ Py_DECREF.exit162:                                ; preds = %if.then28, %if.then
   %14 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %13, ptr noundef null, ptr noundef %14, i32 noundef %conv.i, ptr noundef null, i32 noundef 857, i64 noundef %conv15.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %13, ptr noundef null, ptr noundef %14, i32 noundef %conv.i, ptr noundef null, i32 noundef 857, i64 noundef %conv15.i)
   tail call void @ERR_clear_error() #11
   br label %return
 
@@ -9422,7 +9422,7 @@ if.then19.i:                                      ; preds = %if.then17.i
   %35 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %34, ptr noundef null, ptr noundef %35, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 781, i64 noundef %conv15.i.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %34, ptr noundef null, ptr noundef %35, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 781, i64 noundef %conv15.i.i)
   tail call void @ERR_clear_error() #11
   br label %if.then73
 
@@ -9475,7 +9475,7 @@ if.then44.i:                                      ; preds = %if.then25.thread.i
   %45 = load ptr, ptr %PySSLErrorObject4.i25.i, align 8
   %sext.i26.i = shl i64 %call.i23.i, 32
   %conv15.i27.i = ashr exact i64 %sext.i26.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %44, ptr noundef null, ptr noundef %45, i32 noundef %conv.i24.i, ptr noundef null, i32 noundef 796, i64 noundef %conv15.i27.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %44, ptr noundef null, ptr noundef %45, i32 noundef %conv.i24.i, ptr noundef null, i32 noundef 796, i64 noundef %conv15.i27.i)
   tail call void @ERR_clear_error() #11
   br label %_ssl_configure_hostname.exit.thread96
 
@@ -9623,7 +9623,7 @@ if.end117:                                        ; preds = %PySSL_set_owner.exi
   br i1 %or.cond1, label %if.then121, label %if.end126
 
 if.then121:                                       ; preds = %if.end117
-  %call122 = tail call i32 @PySSL_set_session(ptr noundef nonnull %call12, ptr noundef nonnull %session, ptr poison), !range !14
+  %call122 = tail call i32 @PySSL_set_session(ptr noundef nonnull %call12, ptr noundef nonnull %session, ptr poison)
   %cmp123 = icmp eq i32 %call122, -1
   br i1 %cmp123, label %if.then124, label %if.end126
 
@@ -9698,7 +9698,7 @@ declare void @SSL_set_accept_state(ptr noundef) local_unnamed_addr #1
 declare ptr @PyWeakref_NewRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PySSL_set_owner(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @PySSL_set_owner(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %c) #0 {
 entry:
   %owner = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load ptr, ptr %owner, align 8
@@ -9731,7 +9731,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PySSL_set_session(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %value, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @PySSL_set_session(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %value, ptr nocapture readnone %closure) #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %ctx, align 8
@@ -9905,7 +9905,7 @@ declare i32 @SSL_CTX_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_selectALPN_cb(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %client_protocols, i32 noundef %client_protocols_len, ptr nocapture noundef readonly %args) #0 {
+define internal range(i32 0, 4) i32 @_selectALPN_cb(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %client_protocols, i32 noundef %client_protocols_len, ptr nocapture noundef readonly %args) #0 {
 entry:
   %alpn_protocols = getelementptr inbounds i8, ptr %args, i64 24
   %0 = load ptr, ptr %alpn_protocols, align 8
@@ -9937,7 +9937,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare i32 @PyCallable_Check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_pwinfo_set(ptr nocapture noundef %pw_info, ptr noundef %password, ptr noundef %bad_type_error) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_pwinfo_set(ptr nocapture noundef %pw_info, ptr noundef %password, ptr noundef %bad_type_error) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %password, i64 8
   %password.val19 = load ptr, ptr %0, align 8
@@ -10097,7 +10097,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool4.not, label %Py_XDECREF.exit, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %call7 = tail call fastcc i32 @_pwinfo_set(ptr noundef nonnull %userdata, ptr noundef nonnull %call, ptr noundef nonnull @.str.112), !range !13
+  %call7 = tail call fastcc i32 @_pwinfo_set(ptr noundef nonnull %userdata, ptr noundef nonnull %call, ptr noundef nonnull @.str.112)
   %tobool8.not = icmp eq i32 %call7, 0
   %3 = load i64, ptr %call, align 8
   %4 = and i64 %3, 2147483648
@@ -10193,7 +10193,7 @@ declare void @DH_free(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsASCIIString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_ca_certs(ptr nocapture noundef readonly %self, ptr noundef %data, i64 noundef %len, i32 noundef %filetype) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr nocapture noundef readonly %self, ptr noundef %data, i64 noundef %len, i32 noundef %filetype) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %len, 1
   br i1 %cmp, label %if.then, label %if.else
@@ -10223,7 +10223,7 @@ if.then7:                                         ; preds = %if.end4
   %2 = load ptr, ptr %state, align 8
   %PySSLErrorObject6.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %PySSLErrorObject6.i, align 8
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %2, ptr noundef null, ptr noundef %3, i32 noundef 0, ptr noundef nonnull @.str.124, i32 noundef 4004, i64 noundef 0)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %2, ptr noundef null, ptr noundef %3, i32 noundef 0, ptr noundef nonnull @.str.124, i32 noundef 4004, i64 noundef 0)
   tail call void @ERR_clear_error() #11
   br label %return
 
@@ -10324,7 +10324,7 @@ if.then51:                                        ; preds = %while.end.thread, %
   %13 = load ptr, ptr %state57, align 8
   %PySSLErrorObject6.i26 = getelementptr inbounds i8, ptr %13, i64 40
   %14 = load ptr, ptr %PySSLErrorObject6.i26, align 8
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %13, ptr noundef null, ptr noundef %14, i32 noundef 0, ptr noundef nonnull %.str.125..str.126, i32 noundef 4053, i64 noundef 0)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %13, ptr noundef null, ptr noundef %14, i32 noundef 0, ptr noundef nonnull %.str.125..str.126, i32 noundef 4053, i64 noundef 0)
   br label %if.end89.sink.split
 
 if.else59:                                        ; preds = %while.end
@@ -10351,7 +10351,7 @@ if.then82:                                        ; preds = %if.else79
   %17 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %16, ptr noundef null, ptr noundef %17, i32 noundef %conv.i, ptr noundef null, i32 noundef 4066, i64 noundef %conv15.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %16, ptr noundef null, ptr noundef %17, i32 noundef %conv.i, ptr noundef null, i32 noundef 4066, i64 noundef %conv15.i)
   br label %if.end89.sink.split
 
 if.end89.sink.split:                              ; preds = %if.else65, %if.else59, %if.then51, %if.then82
@@ -10409,7 +10409,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %state, ptr noundef null, ptr noundef %0, i32 noundef %conv.i, ptr noundef null, i32 noundef 1773, i64 noundef %conv15.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %state, ptr noundef null, ptr noundef %0, i32 noundef %conv.i, ptr noundef null, i32 noundef 1773, i64 noundef %conv15.i)
   call void @ERR_clear_error() #11
   br label %return
 
@@ -10826,7 +10826,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_check_hostname(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_check_hostname(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %check_hostname = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.177, ptr noundef nonnull %check_hostname) #11
@@ -10874,7 +10874,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_host_flags(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_host_flags(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %new_flags = alloca i32, align 4
   store i32 0, ptr %new_flags, align 4
@@ -10913,9 +10913,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_minimum_version(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_minimum_version(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
-  %call = tail call fastcc i32 @set_min_max_proto_version(ptr noundef %self, ptr noundef %arg, i32 noundef 0), !range !14
+  %call = tail call fastcc i32 @set_min_max_proto_version(ptr noundef %self, ptr noundef %arg, i32 noundef 0)
   ret i32 %call
 }
 
@@ -10935,9 +10935,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_maximum_version(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_maximum_version(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
-  %call = tail call fastcc i32 @set_min_max_proto_version(ptr noundef %self, ptr noundef %arg, i32 noundef 1), !range !14
+  %call = tail call fastcc i32 @set_min_max_proto_version(ptr noundef %self, ptr noundef %arg, i32 noundef 1)
   ret i32 %call
 }
 
@@ -10965,7 +10965,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_PySSLContext_set_keylog_filename(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @_PySSLContext_set_keylog_filename(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -11089,7 +11089,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_PySSLContext_set_msg_callback(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @_PySSLContext_set_msg_callback(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %msg_cb = getelementptr inbounds i8, ptr %self, i64 64
   %0 = load ptr, ptr %msg_cb, align 8
@@ -11182,7 +11182,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_sni_callback(ptr noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_sni_callback(ptr noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %protocol = getelementptr inbounds i8, ptr %self, i64 56
   %0 = load i32, ptr %protocol, align 8
@@ -11275,7 +11275,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_num_tickets(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_num_tickets(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %num = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.180, ptr noundef nonnull %num) #11
@@ -11322,7 +11322,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_options(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_options(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %new_opts_obj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.200, ptr noundef nonnull @PyLong_Type, ptr noundef nonnull %new_opts_obj) #11
@@ -11392,7 +11392,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_post_handshake_auth(ptr nocapture noundef writeonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_post_handshake_auth(ptr nocapture noundef writeonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %cmp = icmp eq ptr %arg, null
   br i1 %cmp, label %if.then, label %if.end
@@ -11439,7 +11439,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_verify_flags(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_verify_flags(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %new_flags = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.203, ptr noundef nonnull %new_flags) #11
@@ -11473,7 +11473,7 @@ if.then9:                                         ; preds = %if.then6
   %3 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %2, ptr noundef null, ptr noundef %3, i32 noundef %conv.i, ptr noundef null, i32 noundef 3465, i64 noundef %conv15.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %2, ptr noundef null, ptr noundef %3, i32 noundef %conv.i, ptr noundef null, i32 noundef 3465, i64 noundef %conv15.i)
   br label %return.sink.split
 
 if.end12:                                         ; preds = %if.then6, %if.end
@@ -11494,7 +11494,7 @@ if.then17:                                        ; preds = %if.then14
   %5 = load ptr, ptr %PySSLErrorObject4.i10, align 8
   %sext.i11 = shl i64 %call.i8, 32
   %conv15.i12 = ashr exact i64 %sext.i11, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %4, ptr noundef null, ptr noundef %5, i32 noundef %conv.i9, ptr noundef null, i32 noundef 3471, i64 noundef %conv15.i12)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %4, ptr noundef null, ptr noundef %5, i32 noundef %conv.i9, ptr noundef null, i32 noundef 3471, i64 noundef %conv15.i12)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then9, %if.then17
@@ -11545,7 +11545,7 @@ return:                                           ; preds = %sw.epilog, %sw.bb4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_verify_mode(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_verify_mode(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
 entry:
   %n = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.205, ptr noundef nonnull %n) #11
@@ -11615,7 +11615,7 @@ declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 declare ptr @SSL_CTX_get0_param(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_min_max_proto_version(ptr nocapture noundef readonly %self, ptr noundef %arg, i32 noundef %what) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr nocapture noundef readonly %self, ptr noundef %arg, i32 noundef %what) unnamed_addr #0 {
 entry:
   %v = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.180, ptr noundef nonnull %v) #11
@@ -12000,7 +12000,7 @@ declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_servername_callback(ptr noundef %s, ptr nocapture noundef writeonly %al, ptr noundef %args) #0 {
+define internal range(i32 0, 3) i32 @_servername_callback(ptr noundef %s, ptr nocapture noundef writeonly %al, ptr noundef %args) #0 {
 entry:
   %call = tail call ptr @SSL_get_servername(ptr noundef %s, i32 noundef 0) #11
   %call1 = tail call i32 @PyGILState_Ensure() #11
@@ -12366,7 +12366,7 @@ if.then37:                                        ; preds = %if.end31
   %6 = load ptr, ptr %PySSLErrorObject4.i, align 8
   %sext.i = shl i64 %call.i64, 32
   %conv15.i = ashr exact i64 %sext.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %call.i63, ptr noundef null, ptr noundef %6, i32 noundef %conv.i, ptr noundef null, i32 noundef 3111, i64 noundef %conv15.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %call.i63, ptr noundef null, ptr noundef %6, i32 noundef %conv.i, ptr noundef null, i32 noundef 3111, i64 noundef %conv15.i)
   tail call void @ERR_clear_error() #11
   br label %return
 
@@ -12759,7 +12759,7 @@ if.then1.i:                                       ; preds = %if.end.i7.i.i, %if.
   %9 = load ptr, ptr %state.i, align 8
   %PySSLErrorObject6.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load ptr, ptr %PySSLErrorObject6.i.i, align 8
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %9, ptr noundef null, ptr noundef %10, i32 noundef 0, ptr noundef nonnull @.str.230, i32 noundef 975, i64 noundef 0)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %9, ptr noundef null, ptr noundef %10, i32 noundef 0, ptr noundef nonnull @.str.230, i32 noundef 975, i64 noundef 0)
   tail call void @ERR_clear_error() #11
   br label %_ssl__SSLSocket_do_handshake_impl.exit
 
@@ -12940,7 +12940,7 @@ if.end52.i:                                       ; preds = %PySSL_select.exit66
 do.cond.i:                                        ; preds = %if.end52.i, %if.end39.i
   %27 = and i32 %err.sroa.0.0.extract.trunc.i, -2
   %28 = icmp eq i32 %27, 2
-  br i1 %28, label %do.body.i, label %do.end83.i, !llvm.loop !18
+  br i1 %28, label %do.body.i, label %do.end83.i, !llvm.loop !16
 
 do.end83.i:                                       ; preds = %do.cond.i, %if.end52.i
   br i1 %tobool.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i67.i
@@ -13103,7 +13103,7 @@ if.then3.i:                                       ; preds = %if.end.i7.i.i, %if.
   %9 = load ptr, ptr %state.i, align 8
   %PySSLErrorObject6.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load ptr, ptr %PySSLErrorObject6.i.i, align 8
-  call fastcc void @fill_and_set_sslerror(ptr noundef %9, ptr noundef null, ptr noundef %10, i32 noundef 0, ptr noundef nonnull @.str.230, i32 noundef 2369, i64 noundef 0)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %9, ptr noundef null, ptr noundef %10, i32 noundef 0, ptr noundef nonnull @.str.230, i32 noundef 2369, i64 noundef 0)
   call void @ERR_clear_error() #11
   br label %_ssl__SSLSocket_write_impl.exit
 
@@ -13339,7 +13339,7 @@ if.then83.i:                                      ; preds = %if.end76.i
 do.cond.i:                                        ; preds = %if.end76.i, %if.end62.i
   %36 = and i32 %err.sroa.0.0.extract.trunc.i, -2
   %37 = icmp eq i32 %36, 2
-  br i1 %37, label %do.body.i, label %do.end100.i, !llvm.loop !19
+  br i1 %37, label %do.body.i, label %do.end100.i, !llvm.loop !17
 
 do.end100.i:                                      ; preds = %do.cond.i, %if.end76.i
   br i1 %tobool.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i97.i
@@ -13553,7 +13553,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   %10 = load ptr, ptr %state.i, align 8
   %PySSLErrorObject6.i.i = getelementptr inbounds i8, ptr %10, i64 40
   %11 = load ptr, ptr %PySSLErrorObject6.i.i, align 8
-  call fastcc void @fill_and_set_sslerror(ptr noundef %10, ptr noundef null, ptr noundef %11, i32 noundef 0, ptr noundef nonnull @.str.230, i32 noundef 2512, i64 noundef 0)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %10, ptr noundef null, ptr noundef %11, i32 noundef 0, ptr noundef nonnull @.str.230, i32 noundef 2512, i64 noundef 0)
   call void @ERR_clear_error() #11
   br label %_ssl__SSLSocket_read_impl.exit
 
@@ -13830,7 +13830,7 @@ if.then104.i:                                     ; preds = %if.end101.i
 do.cond.i:                                        ; preds = %if.end101.i, %if.end76.i
   %36 = and i32 %err.sroa.0.0.extract.trunc.i, -2
   %37 = icmp eq i32 %36, 2
-  br i1 %37, label %do.body.i, label %do.end117.i, !llvm.loop !20
+  br i1 %37, label %do.body.i, label %do.end117.i, !llvm.loop !18
 
 do.end117.i:                                      ; preds = %do.cond.i, %if.end101.i, %land.lhs.true92.i
   br i1 %cmp62.not.i, label %if.then120.i, label %if.end122.i
@@ -14288,7 +14288,7 @@ for.inc.i:                                        ; preds = %if.end27.i, %for.bo
   %inc29.i = add nuw nsw i32 %i.021.i, 1
   %call13.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #11
   %cmp.i = icmp slt i32 %inc29.i, %call13.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !21
+  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !19
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
   %5 = sext i32 %len.1.i to i64
@@ -14455,7 +14455,7 @@ if.then3.i:                                       ; preds = %lor.lhs.false.i, %i
   %7 = load ptr, ptr %state.i, align 8
   %PySSLErrorObject6.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load ptr, ptr %PySSLErrorObject6.i.i, align 8
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %7, ptr noundef null, ptr noundef %8, i32 noundef 0, ptr noundef nonnull @.str.230, i32 noundef 2640, i64 noundef 0)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %7, ptr noundef null, ptr noundef %8, i32 noundef 0, ptr noundef nonnull @.str.230, i32 noundef 2640, i64 noundef 0)
   tail call void @ERR_clear_error() #11
   br label %_ssl__SSLSocket_shutdown_impl.exit
 
@@ -14767,7 +14767,7 @@ if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %2, ptr noundef null, ptr noundef %3, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 2795, i64 noundef %conv15.i.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %2, ptr noundef null, ptr noundef %3, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 2795, i64 noundef %conv15.i.i)
   tail call void @ERR_clear_error() #11
   br label %_ssl__SSLSocket_verify_client_post_handshake_impl.exit
 
@@ -15301,7 +15301,7 @@ if.end12:                                         ; preds = %for.body
   %call14 = tail call i32 @PyList_SetItem(ptr noundef nonnull %call2, i64 noundef %indvars.iv, ptr noundef nonnull %call.i.i) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !20
 
 return:                                           ; preds = %if.end12, %for.cond.preheader, %if.end.i, %if.then1.i, %if.then11, %entry
   %retval.0 = phi ptr [ null, %entry ], [ null, %if.then11 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call2, %for.cond.preheader ], [ %call2, %if.end12 ]
@@ -15335,7 +15335,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PySSL_set_context(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @PySSL_set_context(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %closure) #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %ctx, align 8
@@ -15797,7 +15797,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %9 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %call23.i, ptr noundef null, ptr noundef %9, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 5095, i64 noundef %conv15.i.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %call23.i, ptr noundef null, ptr noundef %9, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 5095, i64 noundef %conv15.i.i)
   tail call void @ERR_clear_error() #11
   br label %_ssl_MemoryBIO_read_impl.exit
 
@@ -15880,7 +15880,7 @@ if.then13.i:                                      ; preds = %if.end8.i
   %7 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i9.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %call15.i, ptr noundef null, ptr noundef %7, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 5141, i64 noundef %conv15.i.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %call15.i, ptr noundef null, ptr noundef %7, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 5141, i64 noundef %conv15.i.i)
   call void @ERR_clear_error() #11
   br label %exit
 
@@ -16297,7 +16297,7 @@ if.then4.i:                                       ; preds = %if.end.i9
   %3 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %call1, ptr noundef null, ptr noundef %3, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 143, i64 noundef %conv15.i.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %call1, ptr noundef null, ptr noundef %3, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 143, i64 noundef %conv15.i.i)
   tail call void @ERR_clear_error() #11
   %call6.i = tail call i32 @BIO_free(ptr noundef nonnull %call1.i) #11
   br label %return
@@ -16522,7 +16522,7 @@ if.then13.i:                                      ; preds = %sw.epilog.thread.i,
   %10 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %call1.i, ptr noundef null, ptr noundef %10, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 105, i64 noundef %conv15.i.i)
+  call fastcc void @fill_and_set_sslerror(ptr noundef readonly %call1.i, ptr noundef null, ptr noundef %10, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 105, i64 noundef %conv15.i.i)
   call void @ERR_clear_error() #11
   br label %exit
 
@@ -16722,13 +16722,11 @@ attributes #13 = { nounwind willreturn memory(none) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
-!14 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

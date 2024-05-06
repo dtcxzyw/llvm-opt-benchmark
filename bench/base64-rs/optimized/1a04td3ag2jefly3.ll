@@ -192,7 +192,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   %78 = getelementptr inbounds i8, ptr %4, i64 %.0193
   %79 = shl i32 %.077192, 8
   %80 = lshr i32 %.077192, 24
-  %81 = trunc i32 %80 to i8
+  %81 = trunc nuw i32 %80 to i8
   %82 = add nuw nsw i64 %.sroa.024.0191, 1
   store i8 %81, ptr %78, align 1
   %83 = add nuw i64 %.0193, 1

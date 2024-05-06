@@ -64,7 +64,7 @@ define hidden void @_ZN6hermes2vm15StorageProvider12mmapProviderEv(ptr noalias n
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   %numSucceededAllocs_.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %numSucceededAllocs_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %agg.result, align 8
   ret void
@@ -125,10 +125,10 @@ define hidden void @_ZN6hermes2vm15StorageProvider14mallocProviderEv(ptr noalias
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
   %numSucceededAllocs_.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %numSucceededAllocs_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_121MallocStorageProviderE, i64 0, i32 0, i64 2), ptr %call, align 8
   %lowLimToAllocHandle_.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lowLimToAllocHandle_.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lowLimToAllocHandle_.i, i8 0, i64 20, i1 false)
   store ptr %call, ptr %agg.result, align 8
   ret void
 }
@@ -821,7 +821,7 @@ _ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EEE
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8

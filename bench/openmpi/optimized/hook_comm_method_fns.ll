@@ -286,7 +286,7 @@ define internal fastcc void @ompi_report_comm_methods(i32 noundef %0) unnamed_ad
   br i1 %102, label %add_string_to_conversion_struct.exit, label %103
 
 103:                                              ; preds = %.lr.ph739
-  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(4) @.str.34) #26
+  %104 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %101, ptr noundef nonnull dereferenceable(4) @.str.34) #26
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %add_string_to_conversion_struct.exit, label %106
 
@@ -302,7 +302,7 @@ define internal fastcc void @ompi_report_comm_methods(i32 noundef %0) unnamed_ad
 .lr.ph.i.i:                                       ; preds = %112, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %112 ]
   %109 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i.i
-  %110 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(1) %101) #26
+  %110 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %109, ptr noundef nonnull readonly dereferenceable(1) %101) #26
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %lookup_string_in_conversion_struct.exit.i, label %112
 
@@ -325,7 +325,7 @@ lookup_string_in_conversion_struct.exit.thread.i: ; preds = %112
 lookup_string_in_conversion_struct.exit.thread.thread.i: ; preds = %lookup_string_in_conversion_struct.exit.thread.i, %lookup_string_in_conversion_struct.exit.i, %106
   %116 = sext i32 %107 to i64
   %117 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %116
-  %118 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %101, i64 noundef 200) #24
+  %118 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull readonly dereferenceable(1) %101, i64 noundef 200) #24
   %119 = load i32, ptr @comm_method_string_conversion, align 4
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %120, i64 199
@@ -405,7 +405,7 @@ add_string_to_conversion_struct.exit:             ; preds = %.lr.ph739, %103, %l
 .lr.ph.i.i.i:                                     ; preds = %161, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %161 ]
   %158 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i.i.i
-  %159 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) %152) #26
+  %159 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %158, ptr noundef nonnull readonly dereferenceable(1) %152) #26
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %._crit_edge.loopexit.split.loop.exit12.i.i.i, label %161
 
@@ -450,7 +450,7 @@ comm_method.exit:                                 ; preds = %161, %.lr.ph743, %1
 .lr.ph.i.i.i633:                                  ; preds = %176, %.lr.ph.preheader.i.i.i631
   %indvars.iv.i.i.i634 = phi i64 [ 0, %.lr.ph.preheader.i.i.i631 ], [ %indvars.iv.next.i.i.i635, %176 ]
   %173 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i.i.i634
-  %174 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) %167) #26
+  %174 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) %167) #26
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %._crit_edge.loopexit.split.loop.exit12.i.i.i637, label %176
 
@@ -857,7 +857,7 @@ comm_method.exit638:                              ; preds = %176, %165, %168, %1
 .lr.ph.i:                                         ; preds = %328, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %328 ]
   %325 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i
-  %326 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %325, ptr noundef nonnull dereferenceable(1) %319) #26
+  %326 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %325, ptr noundef nonnull readonly dereferenceable(1) %319) #26
   %327 = icmp eq i32 %326, 0
   br i1 %327, label %._crit_edge.loopexit.split.loop.exit12.i, label %328
 
@@ -1372,7 +1372,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %328, %322, %._crit_
 .lr.ph.i.i642:                                    ; preds = %530, %534
   %indvars.iv.i.i643 = phi i64 [ %indvars.iv.next.i.i644, %534 ], [ 0, %530 ]
   %531 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i.i643
-  %532 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %531, ptr noundef nonnull dereferenceable(5) @.str.21) #26
+  %532 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %531, ptr noundef nonnull readonly dereferenceable(5) @.str.21) #26
   %533 = icmp eq i32 %532, 0
   br i1 %533, label %._crit_edge.loopexit.split.loop.exit12.i.i, label %534
 
@@ -1409,7 +1409,7 @@ string_to_comm_method.exit.thread:                ; preds = %530
 .lr.ph.i.i650:                                    ; preds = %536, %540
   %indvars.iv.i.i651 = phi i64 [ %indvars.iv.next.i.i652, %540 ], [ 0, %536 ]
   %537 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i.i651
-  %538 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %537, ptr noundef nonnull dereferenceable(5) @.str.21) #26
+  %538 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %537, ptr noundef nonnull readonly dereferenceable(5) @.str.21) #26
   %539 = icmp eq i32 %538, 0
   br i1 %539, label %._crit_edge.loopexit.split.loop.exit12.i.i654, label %540
 
@@ -1465,7 +1465,7 @@ string_to_comm_method.exit655:                    ; preds = %540, %536, %._crit_
 .lr.ph.i.i660:                                    ; preds = %547, %554
   %indvars.iv.i.i661 = phi i64 [ %indvars.iv.next.i.i662, %554 ], [ 0, %547 ]
   %551 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i.i661
-  %552 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %551, ptr noundef nonnull dereferenceable(5) @.str.21) #26
+  %552 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %551, ptr noundef nonnull readonly dereferenceable(5) @.str.21) #26
   %553 = icmp eq i32 %552, 0
   br i1 %553, label %._crit_edge.loopexit.split.loop.exit12.i.i664, label %554
 
@@ -1496,7 +1496,7 @@ string_to_comm_method.exit665:                    ; preds = %554, %._crit_edge.l
 .lr.ph.i.i670:                                    ; preds = %558, %566
   %indvars.iv.i.i671 = phi i64 [ %indvars.iv.next.i.i672, %566 ], [ 0, %558 ]
   %563 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i.i671
-  %564 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %563, ptr noundef nonnull dereferenceable(5) @.str.21) #26
+  %564 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %563, ptr noundef nonnull readonly dereferenceable(5) @.str.21) #26
   %565 = icmp eq i32 %564, 0
   br i1 %565, label %string_to_comm_method.exit675, label %566
 
@@ -1681,7 +1681,7 @@ string_to_comm_method.exit675:                    ; preds = %566, %.lr.ph.i.i670
 .lr.ph.i.i680:                                    ; preds = %621, %625
   %indvars.iv.i.i681 = phi i64 [ %indvars.iv.next.i.i682, %625 ], [ 0, %621 ]
   %622 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i.i681
-  %623 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %622, ptr noundef nonnull dereferenceable(5) @.str.21) #26
+  %623 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %622, ptr noundef nonnull readonly dereferenceable(5) @.str.21) #26
   %624 = icmp eq i32 %623, 0
   br i1 %624, label %._crit_edge.loopexit.split.loop.exit12.i.i684, label %625
 
@@ -2221,7 +2221,7 @@ define internal fastcc void @add_string_to_conversion_struct(ptr noundef %0, ptr
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %14 ]
   %11 = getelementptr inbounds [1000 x [200 x i8]], ptr %8, i64 0, i64 %indvars.iv.i
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #26
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %1) #26
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %lookup_string_in_conversion_struct.exit, label %14
 
@@ -2288,7 +2288,7 @@ define internal void @myfn(ptr nocapture noundef readonly %0, ptr noundef %1, pt
   %15 = phi i32 [ %10, %.lr.ph ], [ %37, %add_string_to_conversion_struct.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %add_string_to_conversion_struct.exit ]
   %16 = getelementptr inbounds [1000 x [200 x i8]], ptr %12, i64 0, i64 %indvars.iv
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(4) @.str.34) #26
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull dereferenceable(4) @.str.34) #26
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %add_string_to_conversion_struct.exit, label %19
 
@@ -2304,7 +2304,7 @@ define internal void @myfn(ptr nocapture noundef readonly %0, ptr noundef %1, pt
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %25 ]
   %22 = getelementptr inbounds [1000 x [200 x i8]], ptr %13, i64 0, i64 %indvars.iv.i.i
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %16) #26
+  %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %16) #26
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %lookup_string_in_conversion_struct.exit.i, label %25
 
@@ -2327,7 +2327,7 @@ lookup_string_in_conversion_struct.exit.thread.i: ; preds = %25
 lookup_string_in_conversion_struct.exit.thread.thread.i: ; preds = %lookup_string_in_conversion_struct.exit.thread.i, %lookup_string_in_conversion_struct.exit.i, %19
   %29 = sext i32 %20 to i64
   %30 = getelementptr inbounds [1000 x [200 x i8]], ptr %13, i64 0, i64 %29
-  %31 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %16, i64 noundef 200) #24
+  %31 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %16, i64 noundef 200) #24
   %32 = load i32, ptr %9, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds [1000 x [200 x i8]], ptr %13, i64 0, i64 %33, i64 199
@@ -2459,7 +2459,7 @@ define internal fastcc i32 @string_to_comm_method(ptr noundef readonly %0) unnam
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %7 = getelementptr inbounds [1000 x [200 x i8]], ptr getelementptr inbounds (%struct.comm_method_string_conversion_t, ptr @comm_method_string_conversion, i64 0, i32 1, i64 0, i64 0), i64 0, i64 %indvars.iv.i
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #26
+  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #26
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %._crit_edge.loopexit.split.loop.exit12.i, label %10
 

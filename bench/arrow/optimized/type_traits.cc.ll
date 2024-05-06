@@ -24,7 +24,7 @@ $_ZN5arrow6Status8FromArgsIJRA61_KcRNS_4Type4typeEEEES0_NS_10StatusCodeEDpOT_ = 
 @switch.table._ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi = private unnamed_addr constant [43 x i32] [i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 4, i32 4, i32 8, i32 8, i32 2, i32 4, i32 8, i32 4, i32 4, i32 1, i32 4, i32 8, i32 8, i32 4, i32 8, i32 4, i32 4, i32 8, i32 8, i32 4, i32 1, i32 1, i32 1, i32 1, i32 4, i32 1, i32 1, i32 8, i32 8, i32 8, i32 8, i32 8, i32 1, i32 8, i32 8, i32 4, i32 8], align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi(i32 noundef %type_id, i32 noundef %buffer_index) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 9) i32 @_ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi(i32 noundef %type_id, i32 noundef %buffer_index) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %type_id.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.arrow::Status", align 8

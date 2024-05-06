@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i16 @newhope_montgomery_reduce(i32 noundef %a) local_unnamed_addr #0 {
+define hidden zeroext range(i16 0, 16384) i16 @newhope_montgomery_reduce(i32 noundef %a) local_unnamed_addr #0 {
 entry:
   %mul = mul i32 %a, 12287
   %and = and i32 %mul, 262143
   %mul1 = mul nuw i32 %and, 12289
   %add = add i32 %mul1, %a
   %shr = lshr i32 %add, 18
-  %conv = trunc i32 %shr to i16
+  %conv = trunc nuw nsw i32 %shr to i16
   ret i16 %conv
 }
 
@@ -21,7 +21,7 @@ entry:
   %conv = zext i16 %a to i32
   %mul = mul nuw nsw i32 %conv, 5
   %shr = lshr i32 %mul, 16
-  %0 = trunc i32 %shr to i16
+  %0 = trunc nuw nsw i32 %shr to i16
   %1 = mul i16 %0, -12289
   %conv3 = add i16 %1, %a
   ret i16 %conv3

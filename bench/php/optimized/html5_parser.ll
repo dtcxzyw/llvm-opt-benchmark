@@ -92,7 +92,7 @@ define hidden noundef i32 @lexbor_libxml2_bridge_convert_document(ptr nocapture 
   %32 = getelementptr inbounds i8, ptr %21, i64 96
   %33 = load i64, ptr %32, align 8
   %.04.i.i = call i64 @llvm.umin.i64(i64 %33, i64 65535)
-  %.0.i.i = trunc i64 %.04.i.i to i16
+  %.0.i.i = trunc nuw i64 %.04.i.i to i16
   %34 = getelementptr inbounds i8, ptr %28, i64 112
   store i16 %.0.i.i, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %21, i64 24
@@ -202,7 +202,7 @@ lxb_dom_attr_value.exit.i:                        ; preds = %65, %lxb_dom_attr_l
   %78 = getelementptr inbounds i8, ptr %74, i64 40
   store ptr %28, ptr %78, align 8
   %79 = load ptr, ptr %9, align 8
-  %80 = trunc i64 %.pre.i.i to i32
+  %80 = trunc nuw i64 %.pre.i.i to i32
   %81 = call ptr @xmlDictLookup(ptr noundef %79, ptr noundef %.0.i.i.i, i32 noundef %80) #8
   %82 = getelementptr inbounds i8, ptr %74, i64 16
   store ptr %81, ptr %82, align 8
@@ -232,7 +232,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread143.i: ; preds = %85
   br label %97
 
 lexbor_libxml2_bridge_new_text_node_fast.exit.i:  ; preds = %76
-  %94 = trunc i64 %.0141.i to i32
+  %94 = trunc nuw i64 %.0141.i to i32
   %95 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %6, ptr noundef %.0.i128.i, i32 noundef %94) #8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i, label %97
@@ -320,7 +320,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit131.thread147.i: ; preds = %126
   br label %138
 
 lexbor_libxml2_bridge_new_text_node_fast.exit131.i: ; preds = %122
-  %135 = trunc i64 %120 to i32
+  %135 = trunc nuw i64 %120 to i32
   %136 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %6, ptr noundef %124, i32 noundef %135) #8
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.loopexit, label %138
@@ -343,7 +343,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit131.i: ; preds = %122
   br label %.loopexit.i
 
 148:                                              ; preds = %138
-  %149 = trunc i64 %141 to i16
+  %149 = trunc nuw i64 %141 to i16
   %150 = getelementptr inbounds i8, ptr %.0.i130149.i, i64 112
   store i16 %149, ptr %150, align 8
   br label %.loopexit.i
@@ -404,7 +404,7 @@ lxb_dom_document_type_name.exit.i:                ; preds = %167, %163, %160, %1
   %188 = getelementptr inbounds i8, ptr %21, i64 96
   %189 = load i64, ptr %188, align 8
   %.04.i133.i = call i64 @llvm.umin.i64(i64 %189, i64 65535)
-  %.0.i134.i = trunc i64 %.04.i133.i to i16
+  %.0.i134.i = trunc nuw i64 %.04.i133.i to i16
   %190 = getelementptr inbounds i8, ptr %184, i64 112
   store i16 %.0.i134.i, ptr %190, align 8
   br label %.loopexit.i

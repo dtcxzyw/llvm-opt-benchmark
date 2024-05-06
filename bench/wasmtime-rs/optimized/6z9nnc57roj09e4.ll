@@ -27,7 +27,7 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc..string..String$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @"_ZN56_$LT$alloc..string..String$u20$as$u20$core..cmp..Ord$GT$3cmp17h45a01e5a8c0dc28dE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden range(i8 -1, 2) i8 @"_ZN56_$LT$alloc..string..String$u20$as$u20$core..cmp..Ord$GT$3cmp17h45a01e5a8c0dc28dE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i8 @"_ZN63_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hc942115e893a615fE"(ptr align 8 %0, ptr align 8 %1), !range !4
   ret i8 %3
 }
@@ -192,7 +192,7 @@ define hidden zeroext i1 @"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @"_ZN63_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h67b806409ffe4311E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden range(i8 -1, 3) i8 @"_ZN63_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h67b806409ffe4311E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i8 @"_ZN108_$LT$alloc..vec..Vec$LT$T$C$A1$GT$$u20$as$u20$core..cmp..PartialOrd$LT$alloc..vec..Vec$LT$T$C$A2$GT$$GT$$GT$11partial_cmp17hf2bf8a92d5bbc638E"(ptr align 8 %0, ptr align 8 %1), !range !5
   ret i8 %3
 }

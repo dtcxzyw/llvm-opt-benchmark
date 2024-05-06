@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_thread_assist_init_start(ptr noundef %qta, ptr noundef %ch, ptr noundef %now_cb, ptr noundef %now_cb_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_thread_assist_init_start(ptr noundef %qta, ptr noundef %ch, ptr noundef %now_cb, ptr noundef %now_cb_arg) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_quic_channel_get_mutex(ptr noundef %ch) #3
   %cmp = icmp eq ptr %call, null
@@ -128,7 +128,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @ossl_crypto_condvar_signal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_thread_assist_wait_stopped(ptr nocapture noundef %qta) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_thread_assist_wait_stopped(ptr nocapture noundef %qta) local_unnamed_addr #0 {
 entry:
   %rv = alloca i32, align 4
   %0 = load ptr, ptr %qta, align 8
@@ -180,7 +180,7 @@ declare i32 @ossl_crypto_thread_native_join(ptr noundef, ptr noundef) local_unna
 declare void @ossl_crypto_mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_thread_assist_cleanup(ptr noundef %qta) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_thread_assist_cleanup(ptr noundef %qta) local_unnamed_addr #0 {
 entry:
   %joined = getelementptr inbounds i8, ptr %qta, i64 28
   %0 = load i32, ptr %joined, align 4
@@ -205,7 +205,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_crypto_thread_native_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_thread_assist_notify_deadline_changed(ptr nocapture noundef readonly %qta) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_thread_assist_notify_deadline_changed(ptr nocapture noundef readonly %qta) local_unnamed_addr #0 {
 entry:
   %teardown = getelementptr inbounds i8, ptr %qta, i64 24
   %0 = load i32, ptr %teardown, align 8

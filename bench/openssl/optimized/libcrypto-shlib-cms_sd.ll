@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.cms_add1_signingTime = private unnamed_addr constant [21 x i8] c"cms_add1_signingTime\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_SignedData_init(ptr nocapture noundef %cms) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_SignedData_init(ptr nocapture noundef %cms) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @cms_signed_data_init(ptr noundef %cms)
   %tobool.not = icmp ne ptr %call, null
@@ -94,7 +94,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_set1_SignerIdentifier(ptr noundef %sid, ptr noundef %cert, i32 noundef %type, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_set1_SignerIdentifier(ptr noundef %sid, ptr noundef %cert, i32 noundef %type, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   switch i32 %type, label %sw.default [
     i32 0, label %sw.bb
@@ -139,7 +139,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr nocapture noundef readonly %sid, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr nocapture noundef readonly %sid, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %sid, align 8
   switch i32 %0, label %return [
@@ -405,7 +405,7 @@ if.end73:                                         ; preds = %if.end65, %for.end
   br i1 %tobool75.not, label %land.lhs.true, label %if.end80
 
 land.lhs.true:                                    ; preds = %if.end73
-  %call76 = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef %call7, i32 noundef 0), !range !6
+  %call76 = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef %call7, i32 noundef 0)
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %if.then78, label %if.end80
 
@@ -446,7 +446,7 @@ if.end92:                                         ; preds = %if.then85, %if.then
 
 if.then95:                                        ; preds = %if.end92
   store ptr null, ptr %smcap, align 8
-  %call96 = call i32 @CMS_add_standard_smimecap(ptr noundef nonnull %smcap), !range !6
+  %call96 = call i32 @CMS_add_standard_smimecap(ptr noundef nonnull %smcap)
   %tobool97.not = icmp eq i32 %call96, 0
   %14 = load ptr, ptr %smcap, align 8
   br i1 %tobool97.not, label %if.end100.thread, label %if.end100
@@ -508,7 +508,7 @@ if.end129:                                        ; preds = %if.end125, %if.end1
   br i1 %tobool131.not, label %if.end149, label %if.then132
 
 if.then132:                                       ; preds = %if.end129
-  %call133 = call fastcc i32 @cms_copy_messageDigest(ptr noundef %cms, ptr noundef nonnull %call7), !range !6
+  %call133 = call fastcc i32 @cms_copy_messageDigest(ptr noundef %cms, ptr noundef nonnull %call7)
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %err, label %if.end136
 
@@ -528,7 +528,7 @@ if.end140:                                        ; preds = %if.end136
   br i1 %tobool142.not, label %land.lhs.true143, label %if.end149
 
 land.lhs.true143:                                 ; preds = %if.end140
-  %call144 = call i32 @CMS_SignerInfo_sign(ptr noundef nonnull %call7), !range !6
+  %call144 = call i32 @CMS_SignerInfo_sign(ptr noundef nonnull %call7)
   %tobool145.not = icmp eq i32 %call144, 0
   br i1 %tobool145.not, label %err, label %if.end149
 
@@ -661,7 +661,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @X509_ALGOR_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cms_sd_asn1_ctrl(ptr noundef %si, i32 noundef %cmd) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_sd_asn1_ctrl(ptr noundef %si, i32 noundef %cmd) unnamed_addr #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %si, i64 64
   %0 = load ptr, ptr %pkey1, align 8
@@ -742,7 +742,7 @@ return:                                           ; preds = %if.end33, %if.then3
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_add_standard_smimecap(ptr nocapture noundef %smcap) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add_standard_smimecap(ptr nocapture noundef %smcap) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @OBJ_nid2sn(i32 noundef 427) #7
   %call1.i = tail call ptr @EVP_get_cipherbyname(ptr noundef %call.i) #7
@@ -945,22 +945,22 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false18, %l
   br i1 %tobool.not.i42, label %lor.lhs.false24, label %cms_add_cipher_smcap.exit46
 
 cms_add_cipher_smcap.exit46:                      ; preds = %lor.lhs.false21
-  %call2.i44 = tail call i32 @CMS_add_simple_smimecap(ptr noundef %smcap, i32 noundef 37, i32 noundef 128), !range !6
+  %call2.i44 = tail call i32 @CMS_add_simple_smimecap(ptr noundef %smcap, i32 noundef 37, i32 noundef 128)
   %tobool23.not = icmp eq i32 %call2.i44, 0
   br i1 %tobool23.not, label %return, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false21, %cms_add_cipher_smcap.exit46
-  %call25 = tail call fastcc i32 @cms_add_cipher_smcap(ptr noundef %smcap, i32 noundef 37, i32 noundef 64), !range !6
+  %call25 = tail call fastcc i32 @cms_add_cipher_smcap(ptr noundef %smcap, i32 noundef 37, i32 noundef 64)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %return, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false24
-  %call28 = tail call fastcc i32 @cms_add_cipher_smcap(ptr noundef %smcap, i32 noundef 31, i32 noundef -1), !range !6
+  %call28 = tail call fastcc i32 @cms_add_cipher_smcap(ptr noundef %smcap, i32 noundef 31, i32 noundef -1)
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %return, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false27
-  %call31 = tail call fastcc i32 @cms_add_cipher_smcap(ptr noundef %smcap, i32 noundef 37, i32 noundef 40), !range !6
+  %call31 = tail call fastcc i32 @cms_add_cipher_smcap(ptr noundef %smcap, i32 noundef 37, i32 noundef 40)
   br label %return
 
 return:                                           ; preds = %if.then24.i98, %if.then10.i102, %if.then24.i84, %if.then10.i88, %if.then24.i70, %if.then10.i74, %if.then24.i56, %if.then10.i60, %if.then24.i, %if.then10.i, %lor.lhs.false30, %lor.lhs.false, %lor.lhs.false3, %lor.lhs.false6, %cms_add_cipher_smcap.exit46, %lor.lhs.false24, %lor.lhs.false27
@@ -1084,7 +1084,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @ESS_SIGNING_CERT_V2_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cms_copy_messageDigest(ptr nocapture noundef readonly %cms, ptr noundef %si) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_copy_messageDigest(ptr nocapture noundef readonly %cms, ptr noundef %si) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #7
@@ -1161,7 +1161,7 @@ for.inc:                                          ; preds = %if.end9, %if.end, %
   %inc = add nuw nsw i32 %i.012, 1
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %cond.i) #7
   %cmp = icmp slt i32 %inc, %call2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %CMS_get0_SignerInfos.exit
   tail call void @ERR_new() #7
@@ -1175,7 +1175,7 @@ return:                                           ; preds = %if.end19, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_SignerInfo_sign(ptr noundef %si) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_SignerInfo_sign(ptr noundef %si) local_unnamed_addr #0 {
 entry:
   %pctx = alloca ptr, align 8
   %abuf = alloca ptr, align 8
@@ -1376,7 +1376,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw nsw i32 %i.08, 1
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %cond.i) #7
   %cmp = icmp slt i32 %inc, %call5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %CMS_get0_SignerInfos.exit
   ret void
@@ -1487,7 +1487,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw nsw i32 %i.07, 1
   %call2 = call i32 @OPENSSL_sk_num(ptr noundef %cond.i) #7
   %cmp = icmp slt i32 %inc, %call2
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %signers, align 8
@@ -1532,7 +1532,7 @@ declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @CMS_SignerInfo_get0_signer_id(ptr nocapture noundef readonly %si, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CMS_SignerInfo_get0_signer_id(ptr nocapture noundef readonly %si, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
 entry:
   %sid = getelementptr inbounds i8, ptr %si, i64 8
   %0 = load ptr, ptr %sid, align 8
@@ -1711,7 +1711,7 @@ for.inc:                                          ; preds = %for.body14, %CMS_Si
   %inc21 = add nuw nsw i32 %j.055, 1
   %call12 = tail call i32 @OPENSSL_sk_num(ptr noundef %scerts) #7
   %cmp13 = icmp slt i32 %inc21, %call12
-  br i1 %cmp13, label %for.body14, label %for.end, !llvm.loop !10
+  br i1 %cmp13, label %for.body14, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond10.preheader, %CMS_SignerInfo_set1_signer_cert.exit
   %ret.1 = phi i32 [ %inc, %CMS_SignerInfo_set1_signer_cert.exit ], [ %ret.062, %for.cond10.preheader ], [ %ret.062, %for.inc ]
@@ -1787,7 +1787,7 @@ for.inc39:                                        ; preds = %if.end33, %CMS_Sign
   %inc40 = add nuw nsw i32 %j.158, 1
   %call.i28 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #7
   %cmp28 = icmp slt i32 %inc40, %call.i28
-  br i1 %cmp28, label %for.body29, label %for.inc42, !llvm.loop !11
+  br i1 %cmp28, label %for.body29, label %for.inc42, !llvm.loop !10
 
 for.inc42:                                        ; preds = %for.inc39, %for.cond26.preheader, %CMS_SignerInfo_set1_signer_cert.exit46, %for.end, %for.body
   %ret.2 = phi i32 [ %ret.062, %for.body ], [ %ret.1, %for.end ], [ %inc37, %CMS_SignerInfo_set1_signer_cert.exit46 ], [ %ret.1, %for.cond26.preheader ], [ %ret.1, %for.inc39 ]
@@ -1795,7 +1795,7 @@ for.inc42:                                        ; preds = %for.inc39, %for.con
   %21 = load ptr, ptr %signerInfos, align 8
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %21) #7
   %cmp3 = icmp slt i32 %inc43, %call2
-  br i1 %cmp3, label %for.body, label %return, !llvm.loop !12
+  br i1 %cmp3, label %for.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %for.inc42, %if.end, %cms_get0_signed.exit.thread, %cms_get0_signed.exit
   %retval.0 = phi i32 [ -1, %cms_get0_signed.exit ], [ -1, %cms_get0_signed.exit.thread ], [ 0, %if.end ], [ %ret.2, %for.inc42 ]
@@ -1857,7 +1857,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_SignedData_final(ptr noundef %cms, ptr noundef %chain, ptr noundef %precomp_md, i32 noundef %precomp_mdlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_SignedData_final(ptr noundef %cms, ptr noundef %chain, ptr noundef %precomp_md, i32 noundef %precomp_mdlen) local_unnamed_addr #0 {
 entry:
   %mdlen.addr.i = alloca i32, align 4
   %computed_md.i = alloca [64 x i8], align 16
@@ -1901,7 +1901,7 @@ for.cond:                                         ; preds = %cms_SignerInfo_cont
   %inc = add nuw nsw i32 %i.011, 1
   %call2 = call i32 @OPENSSL_sk_num(ptr noundef %cond.i) #7
   %cmp = icmp slt i32 %inc, %call2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -1954,7 +1954,7 @@ if.end7.i:                                        ; preds = %if.end4.i
   br i1 %tobool9.not.i, label %if.end13.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end7.i
-  %call10.i = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef nonnull %call4, i32 noundef 0), !range !6
+  %call10.i = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef nonnull %call4, i32 noundef 0)
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %cms_SignerInfo_content_sign.exit, label %if.end13.i
 
@@ -1992,7 +1992,7 @@ if.end28.i:                                       ; preds = %if.end24.i
   br i1 %cmp.i.i, label %cms_SignerInfo_content_sign.exit, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end28.i
-  %call33.i = call i32 @CMS_SignerInfo_sign(ptr noundef nonnull %call4), !range !6
+  %call33.i = call i32 @CMS_SignerInfo_sign(ptr noundef nonnull %call4)
   br label %cms_SignerInfo_content_sign.exit
 
 if.else.i:                                        ; preds = %if.end13.i
@@ -2208,7 +2208,7 @@ if.end28:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp33, label %err, label %if.end35
 
 if.end35:                                         ; preds = %if.end28
-  %call36 = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef nonnull %si, i32 noundef 1), !range !6
+  %call36 = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef nonnull %si, i32 noundef 1)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %if.end39
 
@@ -2358,7 +2358,7 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   %11 = load ptr, ptr %certificates.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #7
   %cmp.i = icmp slt i32 %inc.i, %call.i.i
-  br i1 %cmp.i, label %for.body.i, label %for.cond27.preheader.i, !llvm.loop !14
+  br i1 %cmp.i, label %for.body.i, label %for.cond27.preheader.i, !llvm.loop !13
 
 for.body31.i:                                     ; preds = %for.cond27.preheader.i, %for.inc44.i
   %i.141.i = phi i32 [ %inc45.i, %for.inc44.i ], [ 0, %for.cond27.preheader.i ]
@@ -2382,7 +2382,7 @@ for.inc44.i:                                      ; preds = %if.then40.i, %if.th
   %15 = load ptr, ptr %crls.i, align 8
   %call29.i = tail call i32 @OPENSSL_sk_num(ptr noundef %15) #7
   %cmp30.i = icmp slt i32 %inc45.i, %call29.i
-  br i1 %cmp30.i, label %for.body31.i, label %for.end46.i, !llvm.loop !15
+  br i1 %cmp30.i, label %for.body31.i, label %for.end46.i, !llvm.loop !14
 
 for.end46.i:                                      ; preds = %for.inc44.i, %for.cond27.preheader.i
   %16 = load ptr, ptr %encapContentInfo, align 8
@@ -2448,7 +2448,7 @@ for.inc82.i:                                      ; preds = %if.then78.i, %if.el
   %25 = load ptr, ptr %signerInfos.i, align 8
   %call56.i = tail call i32 @OPENSSL_sk_num(ptr noundef %25) #7
   %cmp57.i = icmp slt i32 %inc83.i, %call56.i
-  br i1 %cmp57.i, label %for.body58.i, label %for.end84.i, !llvm.loop !16
+  br i1 %cmp57.i, label %for.body58.i, label %for.end84.i, !llvm.loop !15
 
 for.end84.i:                                      ; preds = %for.inc82.i, %if.end53.i
   %26 = load i32, ptr %1, align 8
@@ -2490,7 +2490,7 @@ for.inc:                                          ; preds = %if.end13, %if.then1
   %29 = load ptr, ptr %digestAlgorithms, align 8
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef %29) #7
   %cmp5 = icmp slt i32 %inc, %call4
-  br i1 %cmp5, label %for.body, label %return, !llvm.loop !17
+  br i1 %cmp5, label %for.body, label %return, !llvm.loop !16
 
 err:                                              ; preds = %for.body
   tail call void @BIO_free_all(ptr noundef %chain.019) #7
@@ -2508,7 +2508,7 @@ declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_SignerInfo_verify_content(ptr noundef %si, ptr noundef %chain) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @CMS_SignerInfo_verify_content(ptr noundef %si, ptr noundef %chain) local_unnamed_addr #0 {
 entry:
   %mval = alloca [64 x i8], align 16
   %mlen = alloca i32, align 4
@@ -2613,7 +2613,7 @@ if.end40:                                         ; preds = %if.end35
 if.end45:                                         ; preds = %if.end40
   %pctx = getelementptr inbounds i8, ptr %si, i64 80
   store ptr %call31, ptr %pctx, align 8
-  %call46 = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef nonnull %si, i32 noundef 1), !range !6
+  %call46 = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef nonnull %si, i32 noundef 1)
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %err, label %if.end49
 
@@ -2700,7 +2700,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.021, 1
   %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef %extra) #7
   %cmp12 = icmp slt i32 %inc, %call11
-  br i1 %cmp12, label %for.body, label %for.cond18.preheader, !llvm.loop !18
+  br i1 %cmp12, label %for.body, label %for.cond18.preheader, !llvm.loop !17
 
 for.cond18.preheader:                             ; preds = %for.cond, %if.end8
   %call2022 = tail call i32 @OPENSSL_sk_num(ptr noundef %crls) #7
@@ -2718,7 +2718,7 @@ for.cond18:                                       ; preds = %for.body22
   %inc30 = add nuw nsw i32 %i.124, 1
   %call20 = tail call i32 @OPENSSL_sk_num(ptr noundef %crls) #7
   %cmp21 = icmp slt i32 %inc30, %call20
-  br i1 %cmp21, label %for.body22, label %for.end31, !llvm.loop !19
+  br i1 %cmp21, label %for.body22, label %for.end31, !llvm.loop !18
 
 for.body22:                                       ; preds = %for.cond18.preheader, %for.cond18
   %i.124 = phi i32 [ %inc30, %for.cond18 ], [ 0, %for.cond18.preheader ]
@@ -2768,7 +2768,7 @@ declare i32 @i2d_X509_ALGORS(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @CMS_signed_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_add_simple_smimecap(ptr nocapture noundef %algs, i32 noundef %algnid, i32 noundef %keysize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add_simple_smimecap(ptr nocapture noundef %algs, i32 noundef %algnid, i32 noundef %keysize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %keysize, 0
   br i1 %cmp, label %if.then, label %if.end4
@@ -2835,7 +2835,7 @@ declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_X509_ALGOR_from_nid(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cms_add_cipher_smcap(ptr nocapture noundef %sk, i32 noundef %nid, i32 noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_add_cipher_smcap(ptr nocapture noundef %sk, i32 noundef %nid, i32 noundef %arg) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #7
   %call1 = tail call ptr @EVP_get_cipherbyname(ptr noundef %call) #7
@@ -2843,7 +2843,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call i32 @CMS_add_simple_smimecap(ptr noundef %sk, i32 noundef %nid, i32 noundef %arg), !range !6
+  %call2 = tail call i32 @CMS_add_simple_smimecap(ptr noundef %sk, i32 noundef %nid, i32 noundef %arg)
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -2852,7 +2852,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cms_add_digest_smcap(ptr nocapture noundef %sk, i32 noundef %nid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap(ptr nocapture noundef %sk, i32 noundef %nid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #7
   %call1 = tail call ptr @EVP_get_digestbyname(ptr noundef %call) #7
@@ -3022,7 +3022,7 @@ attributes #7 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -3035,4 +3035,3 @@ attributes #7 = { nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

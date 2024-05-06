@@ -1227,7 +1227,7 @@ _ZNK7QString6toUIntEPbi.exit.thread:              ; preds = %17
 _ZNK7QString6toUIntEPbi.exit:                     ; preds = %17
   %.pre = load i8, ptr %3, align 1
   %21 = trunc i8 %.pre to i1
-  %22 = trunc i64 %20 to i32
+  %22 = trunc nuw i64 %20 to i32
   br i1 %21, label %27, label %23
 
 23:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit.thread, %_ZNK7QString6toUIntEPbi.exit

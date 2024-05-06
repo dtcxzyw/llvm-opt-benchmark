@@ -1317,7 +1317,7 @@ while.body.i.i:                                   ; preds = %invoke.cont, %while
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i:           ; preds = %while.body.i.i, %invoke.cont
   %v.addr.0.lcssa.i.i = phi i64 [ %xor.i.i, %invoke.cont ], [ %shr.i1.i, %while.body.i.i ]
   %ptr.0.lcssa.i.i = phi ptr [ %buf.i, %invoke.cont ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %conv1.i.i = trunc i64 %v.addr.0.lcssa.i.i to i8
+  %conv1.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i.i to i8
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i, ptr %ptr.0.lcssa.i.i, align 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr2.i.i to i64

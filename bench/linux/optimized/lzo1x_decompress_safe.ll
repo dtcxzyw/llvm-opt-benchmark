@@ -12,7 +12,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_lzo1x_decomp
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_lzo1x_decompress_safe303, ptr @__UNIQUE_ID_description306, ptr @__UNIQUE_ID_file304, ptr @__UNIQUE_ID_license305], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @lzo1x_decompress_safe(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local range(i32 -8, 1) i32 @lzo1x_decompress_safe(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 %1
   %6 = load i64, ptr %3, align 8
   %7 = getelementptr i8, ptr %2, i64 %6

@@ -76,7 +76,7 @@ define hidden noundef ptr @_Z41pj_projection_specific_setup_xyzgridshiftP8PJcons
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %5, i8 0, i64 25, i1 false)
   store double 1.000000e+00, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %3, ptr %7, align 8

@@ -3697,12 +3697,12 @@ _ZN4node9inspector12_GLOBAL__N_116ToProtocolStringEPN2v87IsolateENS2_5LocalINS2_
   %call70 = call i64 @_ZNK2v87Message13GetLineNumberENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %message.coerce, ptr %call2.i) #23
   %tobool.i136 = trunc i64 %call70 to i1
   %ref.tmp64.sroa.24.0.extract.shift = lshr i64 %call70, 32
-  %ref.tmp64.sroa.24.0.extract.trunc = trunc i64 %ref.tmp64.sroa.24.0.extract.shift to i32
+  %ref.tmp64.sroa.24.0.extract.trunc = trunc nuw i64 %ref.tmp64.sroa.24.0.extract.shift to i32
   %cond.i138 = select i1 %tobool.i136, i32 %ref.tmp64.sroa.24.0.extract.trunc, i32 0
   %call79 = call i64 @_ZNK2v87Message14GetStartColumnENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %message.coerce, ptr %call2.i) #23
   %tobool.i = trunc i64 %call79 to i1
   %ref.tmp73.sroa.25.0.extract.shift = lshr i64 %call79, 32
-  %ref.tmp73.sroa.25.0.extract.trunc = trunc i64 %ref.tmp73.sroa.25.0.extract.shift to i32
+  %ref.tmp73.sroa.25.0.extract.trunc = trunc nuw i64 %ref.tmp73.sroa.25.0.extract.shift to i32
   %cond.i = select i1 %tobool.i, i32 %ref.tmp73.sroa.25.0.extract.trunc, i32 0
   %21 = load ptr, ptr %client_, align 8
   %vtable89 = load ptr, ptr %21, align 8
@@ -6602,7 +6602,7 @@ entry:
   %vtable.i = load ptr, ptr %1, align 8
   %2 = load ptr, ptr %vtable.i, align 8
   call void %2(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %1) #23
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_111ChannelImpl21sendMessageToFrontendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_111ChannelImpl21sendMessageToFrontendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   ret void
@@ -6618,7 +6618,7 @@ entry:
   %vtable.i = load ptr, ptr %1, align 8
   %2 = load ptr, ptr %vtable.i, align 8
   call void %2(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %1) #23
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_111ChannelImpl21sendMessageToFrontendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_111ChannelImpl21sendMessageToFrontendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   ret void
@@ -7581,7 +7581,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp6.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp17.i)
-  call void @_ZN4node9inspector8protocol10StringUtil16StringViewToUtf8B5cxx11EN12v8_inspector10StringViewE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %raw_message.i, ptr noundef nonnull byval(%"class.v8_inspector::StringView") align 8 %message) #23
+  call void @_ZN4node9inspector8protocol10StringUtil16StringViewToUtf8B5cxx11EN12v8_inspector10StringViewE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %raw_message.i, ptr noundef nonnull readonly byval(%"class.v8_inspector::StringView") align 8 %message) #23
   %0 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 66), align 1
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit.i
@@ -7592,7 +7592,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit.i
 
 _ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit.i: ; preds = %if.end.i.i, %entry
-  call void @_ZN4node9inspector8protocol10StringUtil9parseJSONEN12v8_inspector10StringViewE(ptr nonnull sret(%"class.std::unique_ptr.673") align 8 %agg.tmp2.i, ptr noundef nonnull byval(%"class.v8_inspector::StringView") align 8 %message) #23
+  call void @_ZN4node9inspector8protocol10StringUtil9parseJSONEN12v8_inspector10StringViewE(ptr nonnull sret(%"class.std::unique_ptr.673") align 8 %agg.tmp2.i, ptr noundef nonnull readonly byval(%"class.v8_inspector::StringView") align 8 %message) #23
   %2 = load ptr, ptr %agg.tmp2.i, align 8, !noalias !99
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit.i, label %lor.lhs.false.i.i.i
@@ -7663,7 +7663,7 @@ if.end.i:                                         ; preds = %_ZNSt10unique_ptrIN
   %vtable13.i = load ptr, ptr %15, align 8
   %vfn14.i = getelementptr inbounds i8, ptr %vtable13.i, i64 24
   %16 = load ptr, ptr %vfn14.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull byval(%"class.v8_inspector::StringView") align 8 %message) #23
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull readonly byval(%"class.v8_inspector::StringView") align 8 %message) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %method.i) #23
   %cmp.not.i14.i = icmp eq ptr %retval.0.i.i.i, null
   br i1 %cmp.not.i14.i, label %_ZN4node9inspector12_GLOBAL__N_111ChannelImpl23dispatchProtocolMessageERKN12v8_inspector10StringViewE.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol15DictionaryValueEEclEPS3_.exit.i.i

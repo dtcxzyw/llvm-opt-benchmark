@@ -5933,7 +5933,7 @@ entry:
   br i1 %1, label %return, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8facebook5velox4core10ITypedExprE, ptr nonnull @_ZTIN8facebook5velox4core17ConstantTypedExprE, i64 0) #17
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN8facebook5velox4core10ITypedExprE, ptr nonnull @_ZTIN8facebook5velox4core17ConstantTypedExprE, i64 0) #17
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %return, label %if.then.i
 

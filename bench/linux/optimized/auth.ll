@@ -156,7 +156,7 @@ define dso_local noundef nonnull ptr @rpc_machine_cred() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpcauth_register(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @rpcauth_register(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 7
@@ -184,7 +184,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpcauth_unregister(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @rpcauth_unregister(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 7
@@ -424,7 +424,7 @@ define dso_local void @rpcauth_release(ptr noundef %0) local_unnamed_addr #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rpcauth_init_credcache(ptr nocapture noundef writeonly %0) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @rpcauth_init_credcache(ptr nocapture noundef writeonly %0) #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 16) #16
   %4 = icmp eq ptr %3, null
@@ -819,7 +819,7 @@ define dso_local ptr @rpcauth_lookup_credcache(ptr noundef %0, ptr noundef %1, i
 118:                                              ; preds = %113
   %119 = sub i64 %115, %116
   %120 = call i64 @llvm.umin.i64(i64 %119, i64 100)
-  %121 = trunc i64 %120 to i32
+  %121 = trunc nuw nsw i64 %120 to i32
   %122 = call fastcc i64 @rpcauth_cache_do_shrink(i32 noundef %121)
   br label %123
 
@@ -1522,7 +1522,7 @@ define dso_local void @rpcauth_invalcred(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i32 @rpcauth_uptodatecred(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 2) i32 @rpcauth_uptodatecred(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 160
@@ -1544,7 +1544,7 @@ define dso_local i32 @rpcauth_uptodatecred(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @rpcauth_init_module() local_unnamed_addr #6 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @rpcauth_init_module() local_unnamed_addr #6 section ".init.text" align 16 {
   %1 = tail call i32 @rpc_init_authunix() #19
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %9, label %3
@@ -1578,7 +1578,7 @@ declare dso_local i32 @rpc_init_authunix() local_unnamed_addr #7 section ".init.
 declare dso_local ptr @shrinker_alloc(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define internal i64 @rpcauth_cache_shrink_count(ptr nocapture readnone %0, ptr nocapture readnone %1) #8 align 16 {
+define internal range(i64 0, 184467440737095517) i64 @rpcauth_cache_shrink_count(ptr nocapture readnone %0, ptr nocapture readnone %1) #8 align 16 {
   %3 = load i64, ptr @number_cred_unused, align 8
   %4 = load i32, ptr @sysctl_vfs_cache_pressure, align 4
   %5 = sext i32 %4 to i64
@@ -1629,7 +1629,7 @@ define dso_local void @rpcauth_remove_module() local_unnamed_addr #1 align 16 {
 declare dso_local void @shrinker_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @param_set_hashtbl_sz(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @param_set_hashtbl_sz(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %4 = icmp eq ptr %0, null

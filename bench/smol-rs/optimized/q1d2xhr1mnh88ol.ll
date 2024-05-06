@@ -722,7 +722,7 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   %.val = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val16 = load i8, ptr %4, align 8, !range !75, !noundef !4
-  %5 = trunc i8 %.val16 to i1
+  %5 = trunc nuw i8 %.val16 to i1
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
@@ -743,7 +743,7 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   %.promoted = load ptr, ptr %11, align 8
   %.promoted24 = load i8, ptr %12, align 1, !alias.scope !76
   %.promoted25 = load i64, ptr %13, align 8
-  %14 = trunc i8 %.promoted24 to i1
+  %14 = trunc nuw i8 %.promoted24 to i1
   %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4, i64 7
   br label %17
 
@@ -870,7 +870,7 @@ define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17he1c2357fed
   %6 = alloca { i8, [23 x i8] }, align 8
   %7 = alloca { i8, [23 x i8] }, align 8
   %8 = load i64, ptr %2, align 8, !range !86, !noundef !4
-  %trunc = trunc i64 %8 to i1
+  %trunc = trunc nuw i64 %8 to i1
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %trunc, label %10, label %22
 
@@ -1045,7 +1045,7 @@ define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17he1c2357fed
 define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h184627b8bca56f9fE.llvm.3826330461689352739"(ptr noalias nocapture noundef align 1 dereferenceable(1) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !range !75, !noundef !4
   store i8 0, ptr %0, align 1
-  %trunc = trunc i8 %2 to i1
+  %trunc = trunc nuw i8 %2 to i1
   br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
@@ -1479,7 +1479,7 @@ define hidden void @"_ZN57_$LT$F$u20$as$u20$event_listener..notify..TagProducer$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %2 = load i8, ptr %0, align 1, !range !75, !alias.scope !163, !noundef !4
   store i8 0, ptr %0, align 1, !alias.scope !163
-  %trunc.i = trunc i8 %2 to i1
+  %trunc.i = trunc nuw i8 %2 to i1
   br i1 %trunc.i, label %"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h184627b8bca56f9fE.llvm.3826330461689352739.exit", label %3
 
 3:                                                ; preds = %1

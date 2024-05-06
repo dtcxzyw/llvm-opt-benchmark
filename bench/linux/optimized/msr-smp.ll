@@ -130,7 +130,7 @@ define internal void @__rdmsr_on_cpu(ptr nocapture noundef %0) #0 align 16 {
   %25 = trunc i64 %19 to i32
   store i32 %25, ptr %16, align 8
   %26 = lshr i64 %22, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %27, ptr %28, align 4
   ret void
@@ -278,7 +278,7 @@ define dso_local void @rdmsr_on_cpus(ptr noundef %0, i32 noundef %1, ptr noundef
   %32 = trunc i64 %26 to i32
   store i32 %32, ptr %24, align 8
   %33 = lshr i64 %29, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = getelementptr inbounds i8, ptr %24, i64 4
   store i32 %34, ptr %35, align 4
   br label %36
@@ -443,7 +443,7 @@ define internal void @__rdmsr_safe_on_cpu(ptr noundef %0) #0 align 16 {
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %11, ptr %12, align 8
   %13 = lshr i64 %.pre-phi2, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 24

@@ -2967,7 +2967,7 @@ declare double @tanh(double noundef) local_unnamed_addr #4
 declare double @tan(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmath_exec(ptr noundef %mod) #0 {
+define internal range(i32 -1, 1) i32 @cmath_exec(ptr noundef %mod) #0 {
 entry:
   %call = tail call ptr @PyFloat_FromDouble(double noundef 0x400921FB54442D18) #10
   %call1 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.32, ptr noundef %call) #10

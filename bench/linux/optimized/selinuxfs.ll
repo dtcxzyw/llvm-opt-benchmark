@@ -717,7 +717,7 @@ declare dso_local void @d_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @generic_file_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sel_write_load(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sel_write_load(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #5 align 16 {
   %5 = alloca %struct.selinux_load_state, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -1843,7 +1843,7 @@ declare dso_local ptr @simple_transaction_get(ptr noundef, ptr noundef, i64 noun
 declare dso_local void @simple_transaction_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sel_write_context(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sel_write_context(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1909,7 +1909,7 @@ define internal i64 @sel_write_context(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sel_write_access(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sel_write_access(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
@@ -1998,7 +1998,7 @@ define internal i64 @sel_write_access(ptr nocapture readnone %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sel_write_create(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sel_write_create(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2) #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2164,7 +2164,7 @@ define internal i64 @sel_write_create(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sel_write_relabel(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sel_write_relabel(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2) #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2407,7 +2407,7 @@ define internal i64 @sel_write_user(ptr nocapture readnone %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sel_write_member(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sel_write_member(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2) #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2938,7 +2938,7 @@ define internal i32 @sel_mmap_handle_status(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sel_open_handle_status(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i32 -12, 1) i32 @sel_open_handle_status(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = tail call ptr @selinux_kernel_status_page() #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -2995,7 +2995,7 @@ define internal i64 @sel_read_policy(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sel_mmap_policy(ptr nocapture readnone %0, ptr noundef %1) #5 align 16 {
+define internal noundef range(i32 -13, 1) i32 @sel_mmap_policy(ptr nocapture readnone %0, ptr noundef %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 8
@@ -3185,7 +3185,7 @@ define internal noundef i32 @sel_release_policy(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sel_mmap_policy_fault(ptr nocapture noundef %0) #5 align 16 {
+define internal noundef range(i32 0, 3) i32 @sel_mmap_policy_fault(ptr nocapture noundef %0) #5 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 136
   %4 = load ptr, ptr %3, align 8
@@ -3274,7 +3274,7 @@ declare void @llvm.assume(i1 noundef) #13
 declare dso_local i32 @security_read_policy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sel_write_validatetrans(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sel_write_validatetrans(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #5 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

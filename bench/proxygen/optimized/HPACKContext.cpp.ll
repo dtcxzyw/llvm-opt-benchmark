@@ -130,7 +130,7 @@ if.else.i.i:                                      ; preds = %if.else
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %1 = add nsw i64 %sub.ptr.div.i.i, -2
   %or.cond.i.i = icmp ult i64 %1, 87
-  %conv.i.i = trunc i64 %sub.ptr.div.i.i to i8
+  %conv.i.i = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %spec.select.i.i = select i1 %or.cond.i.i, i8 %conv.i.i, i8 1
   br label %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit
 
@@ -157,7 +157,7 @@ if.then8:                                         ; preds = %_ZNK8proxygen15HPAC
   %call11 = tail call i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(80) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1)
   %ref.tmp9.sroa.0.0.extract.trunc = trunc i64 %call11 to i32
   %ref.tmp9.sroa.2.0.extract.shift = lshr i64 %call11, 32
-  %ref.tmp9.sroa.2.0.extract.trunc = trunc i64 %ref.tmp9.sroa.2.0.extract.shift to i32
+  %ref.tmp9.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp9.sroa.2.0.extract.shift to i32
   %tobool13.not = icmp eq i32 %ref.tmp9.sroa.0.0.extract.trunc, 0
   br i1 %tobool13.not, label %if.end20, label %if.then14
 
@@ -181,7 +181,7 @@ if.end31:                                         ; preds = %if.end20
   %call29 = tail call i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1)
   %ref.tmp26.sroa.0.0.extract.trunc = trunc i64 %call29 to i32
   %ref.tmp26.sroa.2.0.extract.shift = lshr i64 %call29, 32
-  %ref.tmp26.sroa.2.0.extract.trunc = trunc i64 %ref.tmp26.sroa.2.0.extract.shift to i32
+  %ref.tmp26.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp26.sroa.2.0.extract.shift to i32
   %tobool33.not = icmp eq i32 %ref.tmp26.sroa.0.0.extract.trunc, 0
   br i1 %tobool33.not, label %if.else39, label %if.then34
 

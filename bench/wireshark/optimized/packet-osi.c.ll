@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.48 = private unnamed_addr constant [28 x i8] c"Unknown ISO protocol (%02x)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @osi_calc_checksum(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @osi_calc_checksum(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #4
   %7 = icmp ult i32 %6, %2
   br i1 %7, label %.loopexit, label %8
@@ -124,7 +124,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @osi_check_and_get_checksum(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @osi_check_and_get_checksum(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %.not = icmp slt i32 %3, %1
   br i1 %.not, label %6, label %7
 

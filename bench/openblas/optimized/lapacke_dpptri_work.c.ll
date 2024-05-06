@@ -29,7 +29,7 @@ define i32 @LAPACKE_dpptri_work(i32 noundef %0, i8 noundef signext %1, i32 nound
 10:                                               ; preds = %4
   %11 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %12 = add nuw nsw i32 %11, 1
-  %13 = mul nsw i32 %12, %11
+  %13 = mul nuw nsw i32 %12, %11
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 2
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #7

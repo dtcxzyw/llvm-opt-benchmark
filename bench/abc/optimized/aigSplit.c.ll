@@ -81,10 +81,10 @@ define ptr @Aig_ManConvertBddsToAigs(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #15
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #16
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #14
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #14
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %10
@@ -149,7 +149,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
   %.val73 = load ptr, ptr %43, align 8
   %44 = getelementptr inbounds ptr, ptr %.val73, i64 %indvars.iv92
   %45 = load ptr, ptr %44, align 8
-  %46 = trunc i64 %indvars.iv92 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv92 to i32
   %47 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %46) #14
   %48 = getelementptr inbounds i8, ptr %45, i64 40
   %49 = load ptr, ptr %48, align 8
@@ -475,7 +475,7 @@ define noundef ptr @Aig_ManBuildPoBdd(ptr noundef %0, ptr nocapture noundef %1) 
   %.val42 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds ptr, ptr %.val42, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef %16) #14
   %18 = getelementptr inbounds i8, ptr %15, i64 40
   store ptr %17, ptr %18, align 8
@@ -593,7 +593,7 @@ Vec_PtrDup.exit:                                  ; preds = %2, %7
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Vec_PtrRemove.exit
   %indvars.iv = phi i64 [ %14, %.lr.ph.preheader ], [ %indvars.iv.next, %Vec_PtrRemove.exit ]
   %18 = tail call i32 @Aig_ManRandom(i32 noundef 0) #14
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nsw i64 %indvars.iv to i32
   %20 = urem i32 %18, %19
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %.val9, i64 %21
@@ -604,7 +604,7 @@ Vec_PtrDup.exit:                                  ; preds = %2, %7
 
 25:                                               ; preds = %28, %.lr.ph
   %indvars.iv.i = phi i64 [ %29, %28 ], [ %24, %.lr.ph ]
-  %26 = trunc i64 %indvars.iv.i to i32
+  %26 = trunc nuw i64 %indvars.iv.i to i32
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %33
 
@@ -637,7 +637,7 @@ Vec_PtrRemove.exit:                               ; preds = %.lr.ph.i, %33
   br i1 %40, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %Vec_PtrRemove.exit
-  %41 = trunc i64 %indvars.iv.next to i32
+  %41 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_PtrDup.exit
@@ -773,7 +773,7 @@ Vec_PtrDup.exit.i:                                ; preds = %45, %41
 .lr.ph.i:                                         ; preds = %Vec_PtrRemove.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %53, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %Vec_PtrRemove.exit.i ]
   %57 = call i32 @Aig_ManRandom(i32 noundef 0) #14
-  %58 = trunc i64 %indvars.iv.i to i32
+  %58 = trunc nsw i64 %indvars.iv.i to i32
   %59 = urem i32 %57, %58
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds ptr, ptr %49, i64 %60
@@ -784,7 +784,7 @@ Vec_PtrDup.exit.i:                                ; preds = %45, %41
 
 64:                                               ; preds = %67, %.lr.ph.i
   %indvars.iv.i.i = phi i64 [ %68, %67 ], [ %63, %.lr.ph.i ]
-  %65 = trunc i64 %indvars.iv.i.i to i32
+  %65 = trunc nuw i64 %indvars.iv.i.i to i32
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %67, label %72
 
@@ -817,7 +817,7 @@ Vec_PtrRemove.exit.i:                             ; preds = %.lr.ph.i.i, %72
   br i1 %79, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %Vec_PtrRemove.exit.i
-  %80 = trunc i64 %indvars.iv.next.i to i32
+  %80 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %Aig_ManVecRandSubset.exit
 
 Aig_ManVecRandSubset.exit:                        ; preds = %Vec_PtrDup.exit.i, %._crit_edge.loopexit.i
@@ -973,7 +973,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #14
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #14
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -992,7 +992,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1003,16 +1003,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11

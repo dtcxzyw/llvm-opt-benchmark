@@ -234,7 +234,7 @@ declare i64 @rb_ary_new() local_unnamed_addr #1
 declare i32 @OSSL_PROVIDER_do_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @push_provider(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @push_provider(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.rb_push_provider_name_args, align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8

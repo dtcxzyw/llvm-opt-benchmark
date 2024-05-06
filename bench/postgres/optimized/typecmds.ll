@@ -946,7 +946,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br i1 %.not244, label %360, label %358
 
 358:                                              ; preds = %findTypeOutputFunction.exit
-  %359 = call fastcc i32 @findTypeReceiveFunction(ptr noundef nonnull %.0155, i32 noundef %.0177), !range !7
+  %359 = call fastcc i32 @findTypeReceiveFunction(ptr noundef nonnull %.0155, i32 noundef %.0177)
   br label %360
 
 360:                                              ; preds = %358, %findTypeOutputFunction.exit
@@ -955,7 +955,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br i1 %.not245, label %363, label %361
 
 361:                                              ; preds = %360
-  %362 = call fastcc i32 @findTypeSendFunction(ptr noundef nonnull %.0156, i32 noundef %.0177), !range !7
+  %362 = call fastcc i32 @findTypeSendFunction(ptr noundef nonnull %.0156, i32 noundef %.0177)
   br label %363
 
 363:                                              ; preds = %361, %360
@@ -963,7 +963,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br i1 %296, label %366, label %364
 
 364:                                              ; preds = %363
-  %365 = call fastcc i32 @findTypeTypmodinFunction(ptr noundef nonnull %.0157), !range !7
+  %365 = call fastcc i32 @findTypeTypmodinFunction(ptr noundef nonnull %.0157)
   br label %366
 
 366:                                              ; preds = %364, %363
@@ -971,7 +971,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br i1 %297, label %367, label %369
 
 367:                                              ; preds = %366
-  %368 = call fastcc i32 @findTypeTypmodoutFunction(ptr noundef nonnull %.0158), !range !7
+  %368 = call fastcc i32 @findTypeTypmodoutFunction(ptr noundef nonnull %.0158)
   br label %369
 
 369:                                              ; preds = %367, %366
@@ -1096,7 +1096,7 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @findTypeReceiveFunction(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @findTypeReceiveFunction(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   store i32 2281, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -1170,7 +1170,7 @@ define internal fastcc noundef i32 @findTypeReceiveFunction(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @findTypeSendFunction(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @findTypeSendFunction(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [1 x i32], align 4
   store i32 %1, ptr %3, align 4
   %4 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext true) #8
@@ -1221,7 +1221,7 @@ define internal fastcc i32 @findTypeSendFunction(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @findTypeTypmodinFunction(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @findTypeTypmodinFunction(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x i32], align 4
   store i32 1263, ptr %2, align 4
   %3 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2, i1 noundef zeroext true) #8
@@ -1272,7 +1272,7 @@ define internal fastcc i32 @findTypeTypmodinFunction(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @findTypeTypmodoutFunction(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @findTypeTypmodoutFunction(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x i32], align 4
   store i32 23, ptr %2, align 4
   %3 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2, i1 noundef zeroext true) #8
@@ -1323,7 +1323,7 @@ define internal fastcc i32 @findTypeTypmodoutFunction(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @findTypeAnalyzeFunction(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @findTypeAnalyzeFunction(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x i32], align 4
   store i32 2281, ptr %2, align 4
   %3 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2, i1 noundef zeroext true) #8
@@ -1358,7 +1358,7 @@ define internal fastcc i32 @findTypeAnalyzeFunction(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @findTypeSubscriptingFunction(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @findTypeSubscriptingFunction(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x i32], align 4
   store i32 2281, ptr %2, align 4
   %3 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2, i1 noundef zeroext true) #8
@@ -1780,11 +1780,11 @@ list_length.exit:                                 ; preds = %1, %9
   br label %187
 
 147:                                              ; preds = %120
-  %148 = trunc i8 %.0149240286 to i1
+  %148 = trunc nuw i8 %.0149240286 to i1
   br i1 %148, label %149, label %187
 
 149:                                              ; preds = %147
-  %150 = trunc i8 %.0147241285 to i1
+  %150 = trunc nuw i8 %.0147241285 to i1
   br i1 %150, label %187, label %.split275
 
 .split275:                                        ; preds = %149
@@ -1796,11 +1796,11 @@ list_length.exit:                                 ; preds = %1, %9
   unreachable
 
 154:                                              ; preds = %120
-  %155 = trunc i8 %.0149240286 to i1
+  %155 = trunc nuw i8 %.0149240286 to i1
   br i1 %155, label %156, label %187
 
 156:                                              ; preds = %154
-  %157 = trunc i8 %.0147241285 to i1
+  %157 = trunc nuw i8 %.0147241285 to i1
   br i1 %157, label %.split273, label %187
 
 .split273:                                        ; preds = %156
@@ -1887,7 +1887,7 @@ list_length.exit:                                 ; preds = %1, %9
   br i1 %190, label %.lr.ph288, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %187
-  %191 = trunc i8 %.1148 to i1
+  %191 = trunc nuw i8 %.1148 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %107
@@ -1901,7 +1901,7 @@ list_length.exit:                                 ; preds = %1, %9
   %196 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %193, i32 noundef %17, i32 noundef 0, i8 noundef signext 0, i32 noundef %194, i16 noundef signext %83, i8 noundef signext 100, i8 noundef signext %85, i1 noundef zeroext false, i8 noundef signext %87, i32 noundef 2597, i32 noundef %89, i32 noundef 2598, i32 noundef %91, i32 noundef 0, i32 noundef 0, i32 noundef %93, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %192, i32 noundef %44, ptr noundef %.1.lcssa, ptr noundef %.1143.lcssa, i1 noundef zeroext %77, i8 noundef signext %79, i8 noundef signext %81, i32 noundef %195, i32 noundef %12, i1 noundef zeroext %.0147.lcssa, i32 noundef %.0153) #8
   %.fca.0.extract26 = extractvalue { i64, i32 } %196, 0
   %.sroa.2139.0.extract.shift = lshr i64 %.fca.0.extract26, 32
-  %.sroa.2139.0.extract.trunc = trunc i64 %.sroa.2139.0.extract.shift to i32
+  %.sroa.2139.0.extract.trunc = trunc nuw i64 %.sroa.2139.0.extract.shift to i32
   %197 = load ptr, ptr %2, align 8
   %198 = call ptr @makeArrayTypeName(ptr noundef %197, i32 noundef %17) #8
   %199 = icmp eq i8 %79, 100
@@ -2105,7 +2105,7 @@ define dso_local { i64, i32 } @DefineEnum(ptr nocapture noundef readonly %0) loc
   %27 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %25, i32 noundef %5, i32 noundef 0, i8 noundef signext 0, i32 noundef %26, i16 noundef signext 4, i8 noundef signext 101, i8 noundef signext 69, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 3506, i32 noundef 3507, i32 noundef 3532, i32 noundef 3533, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %24, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i8 noundef signext 105, i8 noundef signext 112, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #8
   %.fca.0.extract4 = extractvalue { i64, i32 } %27, 0
   %.sroa.226.0.extract.shift = lshr i64 %.fca.0.extract4, 32
-  %.sroa.226.0.extract.trunc = trunc i64 %.sroa.226.0.extract.shift to i32
+  %.sroa.226.0.extract.trunc = trunc nuw i64 %.sroa.226.0.extract.shift to i32
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   call void @EnumValuesCreate(i32 noundef %.sroa.226.0.extract.trunc, ptr noundef %29) #8
@@ -2721,7 +2721,7 @@ findRangeSubtypeDiffFunction.exit:                ; preds = %204, %207
   %.2 = phi i32 [ %.0139248.lcssa, %226 ], [ %.0139248.lcssa, %224 ], [ %.0139248.lcssa, %220 ], [ %21, %234 ]
   %.fca.0.extract24 = extractvalue { i64, i32 } %218, 0
   %.sroa.2138.0.extract.shift = lshr i64 %.fca.0.extract24, 32
-  %.sroa.2138.0.extract.trunc = trunc i64 %.sroa.2138.0.extract.shift to i32
+  %.sroa.2138.0.extract.trunc = trunc nuw i64 %.sroa.2138.0.extract.shift to i32
   %238 = load ptr, ptr %15, align 8
   %239 = call i32 @GetUserId() #8
   %240 = call { i64, i32 } @TypeCreate(i32 noundef %214, ptr noundef %238, i32 noundef %.2, i32 noundef 0, i8 noundef signext 0, i32 noundef %239, i16 noundef signext -1, i8 noundef signext 109, i8 noundef signext 82, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 4231, i32 noundef 4232, i32 noundef 4233, i32 noundef 4234, i32 noundef 0, i32 noundef 0, i32 noundef 4242, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %215, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %212, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #8
@@ -2766,7 +2766,7 @@ findRangeSubtypeDiffFunction.exit:                ; preds = %204, %207
   store i64 %.fca.0.extract.i, ptr %10, align 8
   store i32 %.fca.1.extract.i, ptr %.sroa.22.0..sroa_idx.i, align 8
   call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 105) #8
-  br i1 %255, label %254, label %makeRangeConstructors.exit, !llvm.loop !8
+  br i1 %255, label %254, label %makeRangeConstructors.exit, !llvm.loop !7
 
 makeRangeConstructors.exit:                       ; preds = %254
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
@@ -3253,7 +3253,7 @@ table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph109
   %63 = load i8, ptr @bsysscan, align 1
   %64 = trunc i8 %63 to i1
   %.not5.i = select i1 %62, i1 true, i1 %64
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge, !llvm.loop !9
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph109, %.loopexit
   %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3281,7 +3281,7 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   %76 = load i32, ptr %54, align 8
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader, %75
   %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.preheader ]
@@ -3422,7 +3422,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   %.0.ph.be = phi ptr [ %.2, %.critedge ], [ %.2, %.loopexit.split ], [ %29, %27 ], [ %.0.ph110, %30 ], [ %.2, %95 ], [ %.2, %85 ]
   %31 = call ptr @systable_getnext(ptr noundef %7) #8
   %.not99 = icmp eq ptr %31, null
-  br i1 %.not99, label %.outer._crit_edge, label %.lr.ph100, !llvm.loop !11
+  br i1 %.not99, label %.outer._crit_edge, label %.lr.ph100, !llvm.loop !10
 
 32:                                               ; preds = %12
   %33 = getelementptr inbounds i8, ptr %19, i64 8
@@ -3448,7 +3448,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
 .backedge:                                        ; preds = %32, %12, %62
   %41 = call ptr @systable_getnext(ptr noundef %7) #8
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %.outer._crit_edge, label %12, !llvm.loop !11
+  br i1 %.not, label %.outer._crit_edge, label %12, !llvm.loop !10
 
 42:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3573,7 +3573,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   store i32 %108, ptr %106, align 4
   %112 = add nsw i32 %.066103, -1
   %113 = icmp sgt i32 %.066103, 1
-  br i1 %113, label %.lr.ph105, label %.critedge, !llvm.loop !12
+  br i1 %113, label %.lr.ph105, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph105, %111, %98
   %.066.lcssa = phi i32 [ %100, %98 ], [ 0, %111 ], [ %.066103, %.lr.ph105 ]
@@ -3922,7 +3922,7 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   %60 = load i32, ptr %44, align 8
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.preheader, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.preheader ]
@@ -3989,7 +3989,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   %101 = load i8, ptr @bsysscan, align 1
   %102 = trunc i8 %101 to i1
   %.not5.i = select i1 %100, i1 true, i1 %102
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge58, !llvm.loop !14
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge58, !llvm.loop !13
 
 103:                                              ; preds = %table_scan_getnextslot.exit
   call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %35) #8
@@ -5106,7 +5106,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 95:                                               ; preds = %92
   %96 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %51) #8
-  %97 = tail call fastcc i32 @findTypeReceiveFunction(ptr noundef %96, i32 noundef %8), !range !7
+  %97 = tail call fastcc i32 @findTypeReceiveFunction(ptr noundef %96, i32 noundef %8)
   br label %190
 
 98:                                               ; preds = %89
@@ -5122,7 +5122,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 104:                                              ; preds = %101
   %105 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %51) #8
-  %106 = tail call fastcc i32 @findTypeSendFunction(ptr noundef %105, i32 noundef %8), !range !7
+  %106 = tail call fastcc i32 @findTypeSendFunction(ptr noundef %105, i32 noundef %8)
   br label %190
 
 107:                                              ; preds = %98
@@ -5138,7 +5138,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 113:                                              ; preds = %110
   %114 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %51) #8
-  %115 = tail call fastcc i32 @findTypeTypmodinFunction(ptr noundef %114), !range !7
+  %115 = tail call fastcc i32 @findTypeTypmodinFunction(ptr noundef %114)
   br label %190
 
 116:                                              ; preds = %107
@@ -5154,7 +5154,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 122:                                              ; preds = %119
   %123 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %51) #8
-  %124 = tail call fastcc i32 @findTypeTypmodoutFunction(ptr noundef %123), !range !7
+  %124 = tail call fastcc i32 @findTypeTypmodoutFunction(ptr noundef %123)
   br label %190
 
 125:                                              ; preds = %116
@@ -5635,7 +5635,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 .backedge:                                        ; preds = %140, %.lr.ph
   %142 = call ptr @systable_getnext(ptr noundef %129) #8
   %.not62 = icmp eq ptr %142, null
-  br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.backedge, %127
   call void @systable_endscan(ptr noundef %129) #8
@@ -5792,7 +5792,7 @@ attributes #11 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 1, i32 0}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -5800,4 +5800,3 @@ attributes #11 = { noreturn nounwind }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

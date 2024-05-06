@@ -368,7 +368,7 @@ define void @ABC_UseOnlyCoreSatSolver(ptr nocapture noundef writeonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ABC_AddGate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ABC_AddGate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -779,7 +779,7 @@ define void @ABC_Network_Finalize(ptr nocapture noundef readonly %0) local_unnam
 declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ABC_Check_Integrity(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ABC_Check_Integrity(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -912,7 +912,7 @@ define void @ABC_EnableDump(ptr nocapture noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ABC_AddTarget(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ABC_AddTarget(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp slt i32 %1, 1
   br i1 %6, label %7, label %8

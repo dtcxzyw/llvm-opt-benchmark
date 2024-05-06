@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [100 x i8] c"\09<text%s%s font-family='Monospace'%s x='%u' y='%u' fill='rgb(%d,%d,%d)' font-size='%dpx'>%s</text>\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @output_nativesvg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_nativesvg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %4) #8

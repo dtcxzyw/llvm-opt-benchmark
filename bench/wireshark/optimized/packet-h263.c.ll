@@ -159,7 +159,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.108 = private unnamed_addr constant [8 x i8] c"(GBSC) \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_h263_group_of_blocks_layer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 536870912) i32 @dissect_h263_group_of_blocks_layer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = shl i32 %2, 3
   %.not = icmp eq i32 %3, 0
   %6 = load i32, ptr @hf_h263_gbsc, align 4
@@ -187,7 +187,7 @@ define hidden noundef i32 @dissect_h263_group_of_blocks_layer(ptr noundef %0, pt
 declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_h263_picture_layer(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 536870912) i32 @dissect_h263_picture_layer(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -433,7 +433,7 @@ define internal i32 @dissect_h263_data(ptr noundef %0, ptr nocapture noundef rea
 22:                                               ; preds = %21, %21
   %23 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.107) #2
-  %24 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0, i32 poison, i32 noundef 0), !range !6
+  %24 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0, i32 poison, i32 noundef 0)
   br label %31
 
 25:                                               ; preds = %21
@@ -483,4 +483,3 @@ attributes #2 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 536870912}

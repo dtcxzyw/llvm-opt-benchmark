@@ -60,7 +60,7 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %21 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa108, i64 noundef 4) #12
   %22 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %21, ptr %22, align 8
-  %23 = trunc i64 %.0.lcssa108 to i32
+  %23 = trunc nuw nsw i64 %.0.lcssa108 to i32
   %24 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %23, ptr %24, align 4
   store i32 %1, ptr %3, align 8
@@ -124,7 +124,7 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %48 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv95
-  %49 = trunc i64 %indvars.iv.next96 to i32
+  %49 = trunc nsw i64 %indvars.iv.next96 to i32
   store i32 %49, ptr %48, align 4
   %50 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv95
   %51 = trunc i64 %indvars.iv95 to i32

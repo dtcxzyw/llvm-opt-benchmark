@@ -2066,7 +2066,7 @@ if.then50:                                        ; preds = %if.end48
 
 invoke.cont51:                                    ; preds = %if.then50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZN4pbrt8ToStringB5cxx11ERKNS_25RenderingCoordinateSystemE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(4) %v)
+  invoke void @_ZN4pbrt8ToStringB5cxx11ERKNS_25RenderingCoordinateSystemE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %v)
           to label %.noexc unwind label %lpad52
 
 .noexc:                                           ; preds = %invoke.cont51

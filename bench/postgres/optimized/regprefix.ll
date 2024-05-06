@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.colordesc = type { i32, i32, i16, ptr, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_regprefix(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 18) i32 @pg_regprefix(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -62,7 +62,7 @@ define dso_local i32 @pg_regprefix(ptr noundef readonly %0, ptr noundef %1, ptr 
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %17, i64 104
-  %36 = tail call fastcc i32 @findprefix(ptr noundef nonnull %24, ptr noundef nonnull %35, ptr noundef nonnull %32, ptr noundef nonnull %2), !range !5
+  %36 = tail call fastcc i32 @findprefix(ptr noundef nonnull %24, ptr noundef nonnull %35, ptr noundef nonnull %32, ptr noundef nonnull %2)
   %or.cond3 = icmp ult i32 %36, -2
   br i1 %or.cond3, label %37, label %39
 
@@ -83,7 +83,7 @@ declare void @pg_set_regex_collation(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc_extended(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @findprefix(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -128,7 +128,7 @@ define internal fastcc i32 @findprefix(ptr nocapture noundef readonly %0, ptr no
   %28 = getelementptr i8, ptr %.099, i64 8
   %29 = load i16, ptr %28, align 4
   %.not = icmp eq i16 %29, -1
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %27
   %30 = icmp eq i32 %.172, -1
@@ -208,7 +208,7 @@ define internal fastcc i32 @findprefix(ptr nocapture noundef readonly %0, ptr no
   %69 = getelementptr i8, ptr %.1103, i64 8
   %70 = load i16, ptr %69, align 4
   %.not81 = icmp eq i16 %70, -1
-  br i1 %.not81, label %._crit_edge106, label %45, !llvm.loop !8
+  br i1 %.not81, label %._crit_edge106, label %45, !llvm.loop !7
 
 ._crit_edge106:                                   ; preds = %68
   %71 = icmp eq i16 %.169, -1
@@ -257,7 +257,7 @@ define internal fastcc i32 @findprefix(ptr nocapture noundef readonly %0, ptr no
   %95 = getelementptr i32, ptr %2, i64 %93
   store i32 %82, ptr %95, align 4
   %.not86 = icmp eq i32 %.4, -1
-  br i1 %.not86, label %.thread.loopexit120, label %38, !llvm.loop !9
+  br i1 %.not86, label %.thread.loopexit120, label %38, !llvm.loop !8
 
 .thread.loopexit120:                              ; preds = %38, %92, %._crit_edge106, %72, %77, %91
   %.pre = load ptr, ptr %7, align 8
@@ -303,7 +303,7 @@ define internal fastcc i32 @findprefix(ptr nocapture noundef readonly %0, ptr no
   %111 = getelementptr i8, ptr %.2111, i64 8
   %112 = load i16, ptr %111, align 4
   %.not87 = icmp eq i16 %112, -1
-  br i1 %.not87, label %._crit_edge113, label %99, !llvm.loop !10
+  br i1 %.not87, label %._crit_edge113, label %99, !llvm.loop !9
 
 ._crit_edge113:                                   ; preds = %110, %109, %102, %.thread
   %.7 = phi i32 [ -1, %.thread ], [ -1, %102 ], [ -1, %109 ], [ %.6, %110 ]
@@ -338,9 +338,8 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

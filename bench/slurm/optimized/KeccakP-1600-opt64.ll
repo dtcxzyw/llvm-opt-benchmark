@@ -63,7 +63,7 @@ define void @KeccakP1600_AddLanes(ptr nocapture noundef %0, ptr nocapture nounde
   br label %.lr.ph
 
 .preheader76.loopexit:                            ; preds = %.lr.ph
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   br label %.preheader76
 
 .preheader76:                                     ; preds = %.preheader76.loopexit, %3
@@ -248,7 +248,7 @@ define void @KeccakP1600_AddBytes(ptr nocapture noundef %0, ptr nocapture nounde
 17:                                               ; preds = %8
   store i64 0, ptr %6, align 8
   %18 = zext nneg i32 %13 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr align 1 %12, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr readonly align 1 %12, i64 %18, i1 false)
   %.0..0..0..0..0..0..pre.i = load i64, ptr %6, align 8
   br label %19
 
@@ -293,7 +293,7 @@ KeccakP1600_AddBytesInLane.exit:                  ; preds = %8, %19
 31:                                               ; preds = %.lr.ph
   store i64 0, ptr %5, align 8
   %32 = zext nneg i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %.02740, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull readonly align 1 dereferenceable(1) %.02740, i64 %32, i1 false)
   %.0..0..0..0..0..0..pre.i34 = load i64, ptr %5, align 8
   br label %KeccakP1600_AddBytesInLane.exit35
 
@@ -347,12 +347,12 @@ define void @KeccakP1600_OverwriteBytes(ptr nocapture noundef writeonly %0, ptr 
 6:                                                ; preds = %4
   %7 = and i32 %3, -8
   %8 = zext i32 %7 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %0, ptr readonly align 1 %1, i64 %8, i1 false)
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = and i32 %3, 7
   %11 = getelementptr inbounds i8, ptr %0, i64 %8
   %12 = zext nneg i32 %10 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %9, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %11, ptr readonly align 1 %9, i64 %12, i1 false)
   br label %.loopexit
 
 13:                                               ; preds = %4
@@ -377,7 +377,7 @@ define void @KeccakP1600_OverwriteBytes(ptr nocapture noundef writeonly %0, ptr 
   %20 = zext nneg i32 %.02836 to i64
   %21 = getelementptr inbounds i8, ptr %19, i64 %20
   %22 = zext nneg i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %.02737, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %21, ptr noundef nonnull readonly align 1 dereferenceable(1) %.02737, i64 %22, i1 false)
   %23 = sub i32 %.03034, %spec.select
   %24 = add i32 %.02935, 1
   %25 = getelementptr inbounds i8, ptr %.02737, i64 %22
@@ -6848,7 +6848,7 @@ define void @KeccakP1600_ExtractBytes(ptr nocapture noundef readonly %0, ptr noc
   %8 = lshr i32 %3, 3
   %9 = and i32 %3, -8
   %10 = zext i32 %9 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %0, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr readonly align 1 %0, i64 %10, i1 false)
   %11 = getelementptr inbounds i8, ptr %1, i64 %10
   %12 = and i32 %3, 7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
@@ -6857,7 +6857,7 @@ define void @KeccakP1600_ExtractBytes(ptr nocapture noundef readonly %0, ptr noc
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %.sroa.0, align 8
   %16 = zext nneg i32 %12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 8 %.sroa.0, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %11, ptr nonnull align 8 %.sroa.0, i64 %16, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   br label %.loopexit
 
@@ -6885,7 +6885,7 @@ define void @KeccakP1600_ExtractBytes(ptr nocapture noundef readonly %0, ptr noc
   %24 = zext nneg i32 %.02836 to i64
   %25 = getelementptr inbounds i8, ptr %5, i64 %24
   %26 = zext nneg i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02737, ptr noundef nonnull align 1 dereferenceable(1) %25, i64 %26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.02737, ptr noundef nonnull align 1 dereferenceable(1) %25, i64 %26, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %27 = sub i32 %.03034, %spec.select
   %28 = add i32 %.02935, 1
@@ -6915,7 +6915,7 @@ define void @KeccakP1600_ExtractAndAddBytesInLane(ptr nocapture noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %13, %4
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %7, i64 %15
@@ -7046,7 +7046,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %Keccak
   %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.preheader.i49 ], [ %indvars.iv.next.i53, %.lr.ph.i51 ]
   %37 = getelementptr inbounds i8, ptr %.03560, i64 %indvars.iv.i52
   %38 = load i8, ptr %37, align 1
-  %39 = trunc i64 %indvars.iv.i52 to i32
+  %39 = trunc nuw i64 %indvars.iv.i52 to i32
   %40 = add i32 %.03659, %39
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %6, i64 %41

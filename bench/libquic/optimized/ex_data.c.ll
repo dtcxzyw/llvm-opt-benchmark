@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ex_data.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_get_ex_new_index(ptr noundef %ex_data_class, ptr nocapture noundef writeonly %out_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_get_ex_new_index(ptr noundef %ex_data_class, ptr nocapture noundef writeonly %out_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #6
   %cmp = icmp eq ptr %call, null
@@ -88,7 +88,7 @@ declare i64 @sk_num(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_set_ex_data(ptr nocapture noundef %ad, i32 noundef %index, ptr noundef %val) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_set_ex_data(ptr nocapture noundef %ad, i32 noundef %index, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ad, align 8
   %cmp = icmp eq ptr %0, null
@@ -175,7 +175,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_dup_ex_data(ptr noundef %ex_data_class, ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_dup_ex_data(ptr noundef %ex_data_class, ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
 entry:
   %ptr = alloca ptr, align 8
   %0 = load ptr, ptr %from, align 8
@@ -266,11 +266,11 @@ if.end16:                                         ; preds = %if.then9, %CRYPTO_g
   %conv18 = zext i8 %11 to i64
   %add19 = add i64 %i.025, %conv18
   %conv20 = trunc i64 %add19 to i32
-  %call21 = call i32 @CRYPTO_set_ex_data(ptr noundef %to, i32 noundef %conv20, ptr noundef %10), !range !9
+  %call21 = call i32 @CRYPTO_set_ex_data(ptr noundef %to, i32 noundef %conv20, ptr noundef %10)
   %inc = add nuw i64 %i.025, 1
   %call3 = call i64 @sk_num(ptr noundef %func_pointers.0) #7
   %cmp4 = icmp ult i64 %inc, %call3
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end16, %get_func_pointers.exit
   call void @sk_free(ptr noundef %func_pointers.0) #7
@@ -370,7 +370,7 @@ for.inc:                                          ; preds = %for.body, %CRYPTO_g
   %inc = add nuw i64 %i.024, 1
   %call3 = tail call i64 @sk_num(ptr noundef %func_pointers.0) #7
   %cmp4 = icmp ult i64 %inc, %call3
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %get_func_pointers.exit
   tail call void @sk_free(ptr noundef %func_pointers.0) #7
@@ -413,6 +413,5 @@ attributes #7 = { nounwind }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}

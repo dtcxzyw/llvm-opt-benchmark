@@ -3959,7 +3959,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not225, label %115, label %100
 
 100:                                              ; preds = %91
-  %101 = trunc i16 %95 to i8
+  %101 = trunc nuw nsw i16 %95 to i8
   %102 = getelementptr inbounds i8, ptr %1, i64 408
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noalias ptr @wmem_alloc(ptr noundef %103, i64 noundef 32) #7
@@ -4268,7 +4268,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %235 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef 2, i32 noundef -2147483648) #7
   %236 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 13) #7
   %237 = and i16 %236, 32767
-  %238 = uitofp i16 %237 to double
+  %238 = uitofp nneg i16 %237 to double
   %239 = fmul double %238, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %235, ptr noundef nonnull @.str.2523, double noundef %239) #7
   %240 = load i32, ptr @hf_bthci_cmd_clock_offset_valid, align 4
@@ -4547,7 +4547,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %439 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %438, ptr noundef %0, i32 noundef %437, i32 noundef 2, i32 noundef -2147483648) #7
   %440 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %437) #7
   %441 = and i16 %440, 32767
-  %442 = uitofp i16 %441 to double
+  %442 = uitofp nneg i16 %441 to double
   %443 = fmul double %442, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %439, ptr noundef nonnull @.str.2523, double noundef %443) #7
   %444 = load i32, ptr @hf_bthci_cmd_clock_offset_valid, align 4
@@ -4869,7 +4869,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %714 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %713, ptr noundef %0, i32 noundef %712, i32 noundef 2, i32 noundef -2147483648) #7
   %715 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 13) #7
   %716 = and i16 %715, 32767
-  %717 = uitofp i16 %716 to double
+  %717 = uitofp nneg i16 %716 to double
   %718 = fmul double %717, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %714, ptr noundef nonnull @.str.2523, double noundef %718) #7
   %719 = load i32, ptr @hf_bthci_cmd_clock_offset_valid, align 4

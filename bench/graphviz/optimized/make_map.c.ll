@@ -2927,7 +2927,7 @@ get_tri.exit:                                     ; preds = %384
 .lr.ph.preheader.i:                               ; preds = %.loopexit
   %468 = zext nneg i32 %.2425 to i64
   %469 = shl nuw nsw i64 %468, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %465, ptr nonnull align 4 %.2462, i64 %469, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %465, ptr nonnull readonly align 4 %.2462, i64 %469, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -3144,13 +3144,13 @@ conn_comp.exit.i:                                 ; preds = %.loopexit.i.i, %480
   %565 = getelementptr inbounds %struct.Triangle, ptr %391, i64 %indvars.iv59.i, i32 1, i64 0
   %566 = load double, ptr %565, align 8
   %567 = load ptr, ptr %11, align 8
-  %568 = getelementptr double, ptr %567, i64 %564
+  %568 = getelementptr inbounds double, ptr %567, i64 %564
   store double %566, ptr %568, align 8
   %569 = getelementptr inbounds %struct.Triangle, ptr %391, i64 %indvars.iv59.i, i32 1, i64 1
   %570 = load double, ptr %569, align 8
   %571 = load ptr, ptr %11, align 8
-  %572 = getelementptr i8, ptr %571, i64 8
-  %573 = getelementptr double, ptr %572, i64 %564
+  %572 = getelementptr inbounds i8, ptr %571, i64 8
+  %573 = getelementptr inbounds double, ptr %572, i64 %564
   store double %570, ptr %573, align 8
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
@@ -3190,7 +3190,7 @@ conn_comp.exit.i:                                 ; preds = %.loopexit.i.i, %480
 .lr.ph5.i.i:                                      ; preds = %.lr.ph5.i.i, %.lr.ph5.preheader.i.i
   %indvars.iv.i126.i = phi i64 [ 0, %.lr.ph5.preheader.i.i ], [ %indvars.iv.next.i127.i, %.lr.ph5.i.i ]
   %590 = mul nuw nsw i64 %indvars.iv.i126.i, 3
-  %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %590
+  %gep.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i, i64 %590
   store i32 0, ptr %gep.i.i, align 4
   %indvars.iv.next.i127.i = add nuw nsw i64 %indvars.iv.i126.i, 1
   %exitcond.not.i128.i = icmp eq i64 %indvars.iv.next.i127.i, %wide.trip.count.i125.i
@@ -3433,7 +3433,7 @@ get_poly_lines.exit.i:                            ; preds = %.loopexit1.i.i, %._
 .lr.ph452.i.i:                                    ; preds = %get_poly_lines.exit.i
   %711 = zext nneg i32 %700 to i64
   %712 = shl nuw nsw i64 %711, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %483, i8 -1, i64 %712, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 4 %483, i8 -1, i64 %712, i1 false)
   %713 = call ptr @SparseMatrix_new(i32 noundef %700, i32 noundef %700, i32 noundef 1, i32 noundef 4, i32 noundef 1) #18
   store i32 0, ptr %19, align 4
   store i32 0, ptr %20, align 4
@@ -4407,7 +4407,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #18
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #18
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -4496,7 +4496,7 @@ gv_calloc.exit.i.i:                               ; preds = %26
 
 agxbnext.exit.i:                                  ; preds = %37, %35
   %41 = phi ptr [ %36, %35 ], [ %40, %37 ]
-  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #18
+  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #18
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %vagxbprint.exit
 

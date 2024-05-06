@@ -23,7 +23,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_i8237A_init_ops169], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @i8237A_init_ops() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @i8237A_init_ops() #0 section ".init.text" align 16 {
   %1 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 135) #3, !srcloc !5
   %2 = icmp eq i8 %1, -1
   br i1 %2, label %9, label %3

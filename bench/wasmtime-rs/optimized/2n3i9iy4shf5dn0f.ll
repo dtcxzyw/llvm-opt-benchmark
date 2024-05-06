@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i24 @"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h270c87eff0a2d7d1E"(ptr align 1 %0) unnamed_addr #0 {
+define range(i24 1, 0) i24 @"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h270c87eff0a2d7d1E"(ptr align 1 %0) unnamed_addr #0 {
   %2 = tail call { i8, i8 } @_ZN4core5clone5Clone5clone17h3f272803a7fc14b1E(ptr align 1 %0)
   %3 = extractvalue { i8, i8 } %2, 0
   %4 = extractvalue { i8, i8 } %2, 1

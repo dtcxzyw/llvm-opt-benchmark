@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_75L6latin1E = internal unnamed_addr constant <{ [248 x i8], [8 x i8] }> <{ [248 x i8] c"\00\00\00\00\00\00\00\00\00\05\05\05\05\05\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\05\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\00\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\00\00\00\00\00\00\05\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\03\03\03\03\03\03\00\03\00\03\03\00\03\00\03\03\00\00\00\00\03\00\00\00\00\03\00\00\00\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03", [8 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7512PatternProps8isSyntaxEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PatternProps8isSyntaxEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %c, 0
   br i1 %cmp, label %return, label %if.else
@@ -66,7 +66,7 @@ return:                                           ; preds = %if.else21, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %c, 0
   br i1 %cmp, label %return, label %if.else
@@ -122,7 +122,7 @@ return:                                           ; preds = %if.else18, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %c, 0
   br i1 %cmp, label %return, label %if.else
@@ -264,19 +264,19 @@ _ZN6icu_7512PatternProps12isWhiteSpaceEi.exit:    ; preds = %if.then2.i, %if.the
   br i1 %tobool.not, label %while.end.loopexit.split.loop.exit23, label %while.body
 
 while.body:                                       ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp slt i64 %indvars.iv.next, %6
-  %14 = trunc i64 %indvars.iv.next to i32
+  %14 = trunc nsw i64 %indvars.iv.next to i32
   %cmp.i.i5 = icmp ugt i32 %cond.i, %14
   %or.cond = and i1 %cmp, %cmp.i.i5
   br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %while.end, !llvm.loop !6
 
 while.end.loopexit.split.loop.exit:               ; preds = %if.else6.i
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.loopexit.split.loop.exit23:             ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit, %while.end.loopexit.split.loop.exit23, %entry
@@ -396,7 +396,7 @@ while.body:                                       ; preds = %_ZN6icu_7512Pattern
   br i1 %exitcond.not, label %if.end22, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %if.else6.i29, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit37
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %invariant.gep = getelementptr i8, ptr %s, i64 -2
   %25 = zext nneg i32 %0 to i64
   br label %while.cond13
@@ -434,11 +434,11 @@ _ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47:  ; preds = %if.then2.i44, %if.t
   br i1 %tobool19.not, label %if.end22.loopexit, label %while.body20
 
 while.body20:                                     ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47
-  %indvars.iv.next65 = add i64 %indvars.iv64, -1
+  %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
   br label %while.cond13, !llvm.loop !8
 
 if.end22.loopexit:                                ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47, %if.else6.i39
-  %33 = trunc i64 %indvars.iv64 to i32
+  %33 = trunc nsw i64 %indvars.iv64 to i32
   br label %if.end22
 
 if.end22:                                         ; preds = %while.body, %if.end22.loopexit
@@ -456,7 +456,7 @@ return:                                           ; preds = %if.else6.i19, %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_7512PatternProps12isIdentifierEPKDsi(ptr noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PatternProps12isIdentifierEPKDsi(ptr noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %length, 1
   br i1 %cmp, label %return, label %if.end

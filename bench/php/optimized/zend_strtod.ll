@@ -6028,8 +6028,8 @@ Bfree.exit.i:                                     ; preds = %35, %34
 
 81:                                               ; preds = %.preheader
   %82 = zext nneg i32 %80 to i64
-  %83 = getelementptr i8, ptr %.377, i64 %82
-  %84 = getelementptr i8, ptr %83, i64 1
+  %83 = getelementptr inbounds i8, ptr %.377, i64 %82
+  %84 = getelementptr inbounds i8, ptr %83, i64 1
   store i8 0, ptr %84, align 1
   %.pr = load i32, ptr %6, align 4
   %.not94123 = icmp eq i32 %.pr, 0

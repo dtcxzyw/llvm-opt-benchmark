@@ -203,7 +203,7 @@ if.then16:                                        ; preds = %if.then14
   br label %return
 
 if.end20:                                         ; preds = %if.end12
-  %call22 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %1, double noundef 1.000000e+00), !range !6
+  %call22 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %1, double noundef 1.000000e+00)
   %cmp.i17 = icmp ult i64 %call22, -119
   br i1 %cmp.i17, label %if.end26, label %return
 
@@ -231,7 +231,7 @@ if.then5.i:                                       ; preds = %if.end26
 COVER_warnOnSmallCorpus.exit:                     ; preds = %if.end26, %if.then5.i
   %sub = add i32 %2, 1
   %add = sub i32 %sub, %1
-  %17 = call i32 @llvm.ctlz.i32(i32 %add, i1 true), !range !7
+  %17 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add, i1 true)
   %sub.i.i = xor i32 %17, 31
   %add.i = sub nuw nsw i32 33, %17
   %sizeLog.i = getelementptr inbounds i8, ptr %activeDmers, i64 8
@@ -305,7 +305,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   br label %return
 
 if.end36:                                         ; preds = %COVER_warnOnSmallCorpus.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call5.i, i8 -1, i64 %mul.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %call5.i, i8 -1, i64 %mul.i, i1 false)
   %26 = load i32, ptr @g_displayLevel, align 4
   %cmp37 = icmp sgt i32 %26, 1
   br i1 %cmp37, label %if.then38, label %if.end41
@@ -390,7 +390,7 @@ return:                                           ; preds = %if.then17.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @COVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d, double noundef %splitPoint) unnamed_addr #4 {
+define internal fastcc range(i64 -72, 1) i64 @COVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d, double noundef %splitPoint) unnamed_addr #4 {
 entry:
   %cmp4.not.i = icmp eq i32 %nbSamples, 0
   br i1 %cmp4.not.i, label %COVER_sum.exit, label %for.body.preheader.i
@@ -658,7 +658,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 %add127, ptr %arrayidx130, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %if.end116
   %30 = load i32, ptr @g_displayLevel, align 4
@@ -687,7 +687,7 @@ for.body143:                                      ; preds = %if.end136, %for.bod
   %conv139 = zext i32 %inc148 to i64
   %36 = load i64, ptr %suffixSize, align 8
   %cmp141 = icmp ugt i64 %36, %conv139
-  br i1 %cmp141, label %for.body143, label %for.end149, !llvm.loop !9
+  br i1 %cmp141, label %for.body143, label %for.end149, !llvm.loop !7
 
 for.end149:                                       ; preds = %for.body143, %if.end136
   %.lcssa = phi i64 [ 0, %if.end136 ], [ %36, %for.body143 ]
@@ -734,9 +734,9 @@ while.cond2.i:                                    ; preds = %land.rhs.i, %while.
 
 land.rhs.i:                                       ; preds = %while.cond2.i
   %num.1.i = add i64 %num.1.in.i, 1
-  %call.i = tail call i32 %cond167(ptr noundef nonnull %ctx, ptr noundef %ptr.02.i, ptr noundef nonnull %grpEnd.0.i) #23, !callees !10
+  %call.i = tail call i32 %cond167(ptr noundef nonnull %ctx, ptr noundef %ptr.02.i, ptr noundef nonnull %grpEnd.0.i) #23, !callees !8
   %cmp4.i = icmp eq i32 %call.i, 0
-  br i1 %cmp4.i, label %while.cond2.i, label %while.end.i, !llvm.loop !11
+  br i1 %cmp4.i, label %while.cond2.i, label %while.end.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %land.rhs.i, %while.cond2.i
   %num.1.lcssa.i = phi i64 [ %umax.i, %while.cond2.i ], [ %num.1.i, %land.rhs.i ]
@@ -796,7 +796,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %count.1.i.i.i = select i1 %cmp1.i.i.i, i64 %sub.i.i.i, i64 %div9.i.i.i
   %first.addr.1.i.i.i = select i1 %cmp1.i.i.i, ptr %incdec.ptr.i.i.i, ptr %first.addr.012.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %count.1.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %while.body.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %while.body.i.i.i, !llvm.loop !10
 
 COVER_lower_bound.exit.i.i:                       ; preds = %while.body.i.i.i, %if.then11.i.i
   %first.addr.0.lcssa.i.i.i = phi ptr [ %curOffsetPtr.018.i.i, %if.then11.i.i ], [ %first.addr.1.i.i.i, %while.body.i.i.i ]
@@ -810,7 +810,7 @@ for.inc.i.i:                                      ; preds = %COVER_lower_bound.e
   %curSampleEnd.1.i.i = phi i64 [ %curSampleEnd.020.i.i, %for.body.i.i ], [ %56, %COVER_lower_bound.exit.i.i ], [ %curSampleEnd.020.i.i, %if.end.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %grpPtr.021.i.i, i64 4
   %cmp.not.i.i = icmp eq ptr %grpPtr.021.i.i, %ptr.0.pn.i
-  br i1 %cmp.not.i.i, label %COVER_group.exit.i, label %for.body.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i, label %COVER_group.exit.i, label %for.body.i.i, !llvm.loop !11
 
 COVER_group.exit.i:                               ; preds = %for.inc.i.i
   %.pre.i.i = load ptr, ptr %suffix, align 8
@@ -818,7 +818,7 @@ COVER_group.exit.i:                               ; preds = %for.inc.i.i
   %arrayidx17.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom16.i.i
   store i32 %freq.1.i.i, ptr %arrayidx17.i.i, align 4
   %cmp1.i = icmp ult i64 %num.1.lcssa.i, %44
-  br i1 %cmp1.i, label %while.cond2.preheader.i, label %COVER_groupBy.exit.loopexit, !llvm.loop !14
+  br i1 %cmp1.i, label %while.cond2.preheader.i, label %COVER_groupBy.exit.loopexit, !llvm.loop !12
 
 COVER_groupBy.exit.loopexit:                      ; preds = %COVER_group.exit.i
   %.pre = load ptr, ptr %suffix, align 8
@@ -902,7 +902,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %activeDmers.val43.i = load i32, ptr %4, align 4
   %conv.i.i = zext i32 %activeDmers.val43.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %activeDmers.val.i, i8 -1, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %activeDmers.val.i, i8 -1, i64 %mul.i.i, i1 false)
   %cmp8.i = icmp ult i32 %conv31, %add
   br i1 %cmp8.i, label %while.body.lr.ph.i, label %if.then36
 
@@ -1157,7 +1157,7 @@ if.end36.i:                                       ; preds = %COVER_map_remove.ex
   %retval.sroa.0.sroa.7.1.i = select i1 %cmp39.i, i32 %indvars.i, i32 %retval.sroa.0.sroa.7.014.i
   %retval.sroa.0.sroa.0.1.i = select i1 %cmp39.i, i32 %activeSegment.sroa.0.1.i, i32 %retval.sroa.0.sroa.0.015.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.cond.preheader.i, label %while.body.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %for.cond.preheader.i, label %while.body.i, !llvm.loop !13
 
 for.cond61.preheader.i:                           ; preds = %for.body.i
   %cmp63.not24.i = icmp eq i32 %newBegin.1.i, %newEnd.1.i
@@ -1179,7 +1179,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %newBegin.1.i = select i1 %cmp52.not.i, i32 %newBegin.019.i, i32 %cond.i28
   %newEnd.1.i = select i1 %cmp52.not.i, i32 %newEnd.020.i, i32 %add55.i
   %cmp46.not.i = icmp eq i32 %add55.i, %retval.sroa.0.sroa.7.1.i
-  br i1 %cmp46.not.i, label %for.cond61.preheader.i, label %for.body.i, !llvm.loop !16
+  br i1 %cmp46.not.i, label %for.cond61.preheader.i, label %for.body.i, !llvm.loop !14
 
 for.body64.i:                                     ; preds = %for.cond61.preheader.i, %for.body64.i
   %pos59.025.i = phi i32 [ %inc71.i, %for.body64.i ], [ %newBegin.1.i, %for.cond61.preheader.i ]
@@ -1192,7 +1192,7 @@ for.body64.i:                                     ; preds = %for.cond61.preheade
   store i32 0, ptr %arrayidx69.i, align 4
   %inc71.i = add i32 %pos59.025.i, 1
   %cmp63.not.i = icmp eq i32 %inc71.i, %newEnd.1.i
-  br i1 %cmp63.not.i, label %COVER_selectSegment.exit, label %for.body64.i, !llvm.loop !17
+  br i1 %cmp63.not.i, label %COVER_selectSegment.exit, label %for.body64.i, !llvm.loop !15
 
 COVER_selectSegment.exit:                         ; preds = %for.body64.i, %for.cond.preheader.i, %for.cond61.preheader.i
   %newEnd.0.lcssa45.i = phi i32 [ %newBegin.1.i, %for.cond61.preheader.i ], [ %retval.sroa.0.sroa.7.1.i, %for.cond.preheader.i ], [ %newEnd.1.i, %for.body64.i ]
@@ -1253,7 +1253,7 @@ for.inc:                                          ; preds = %if.end63, %if.then6
   %add85 = add nsw i64 %epoch.016, 1
   %rem = urem i64 %add85, %retval.sroa.0.0.insert.ext.i
   %cmp27.not = icmp eq i64 %tail.1, 0
-  br i1 %cmp27.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %cmp27.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %if.then36, %if.end41, %if.end
   %tail.0.lcssa = phi i64 [ 0, %if.end ], [ %tail.018, %if.end41 ], [ %tail.018, %if.then36 ], [ 0, %for.inc ]
@@ -1292,7 +1292,7 @@ for.body:                                         ; preds = %entry, %for.body
   %.maxSampleSize.0 = tail call i64 @llvm.umax.i64(i64 %1, i64 %maxSampleSize.029)
   %inc = add nuw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, %nbSamples
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
   %maxSampleSize.0.lcssa = phi i64 [ 0, %entry ], [ %.maxSampleSize.0, %for.body ]
@@ -1327,7 +1327,7 @@ if.end29:                                         ; preds = %for.body22
   %add = add i64 %call25, %totalCompressedSize.032
   %inc31 = add i64 %i.131, 1
   %exitcond35.not = icmp eq i64 %inc31, %nbSamples
-  br i1 %exitcond35.not, label %_compressCleanup, label %for.body22, !llvm.loop !20
+  br i1 %exitcond35.not, label %_compressCleanup, label %for.body22, !llvm.loop !18
 
 _compressCleanup:                                 ; preds = %if.end29, %for.body22, %for.end
   %totalCompressedSize.1 = phi i64 [ %.mux, %for.end ], [ %add, %if.end29 ], [ %call25, %for.body22 ]
@@ -1413,7 +1413,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call2 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond, ptr noundef nonnull %best) #23
   %1 = load i64, ptr %liveJobs, align 8
   %cmp.not = icmp eq i64 %1, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !21
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %if.end
   %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %best) #23
@@ -1452,7 +1452,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %call2.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond.i, ptr noundef nonnull %best) #23
   %1 = load i64, ptr %liveJobs.i, align 8
   %cmp.not.i = icmp eq i64 %1, 0
-  br i1 %cmp.not.i, label %COVER_best_wait.exit, label %while.body.i, !llvm.loop !21
+  br i1 %cmp.not.i, label %COVER_best_wait.exit, label %while.body.i, !llvm.loop !19
 
 COVER_best_wait.exit:                             ; preds = %while.body.i, %if.end.i
   %call4.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %best) #23
@@ -1597,12 +1597,12 @@ define void @COVER_dictSelectionError(ptr noalias nocapture writeonly sret(%stru
 entry:
   %totalCompressedSize.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
-  store i64 %error, ptr %totalCompressedSize.i, align 8, !alias.scope !22
+  store i64 %error, ptr %totalCompressedSize.i, align 8, !alias.scope !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @COVER_dictSelectionIsError(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %selection) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %selection) local_unnamed_addr #12 {
 entry:
   %totalCompressedSize = getelementptr inbounds i8, ptr %selection, i64 16
   %0 = load i64, ptr %totalCompressedSize, align 8
@@ -1642,8 +1642,8 @@ if.then:                                          ; preds = %entry
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
   %totalCompressedSize.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !25
-  store i64 %dictContentSize, ptr %totalCompressedSize.i.i, align 8, !alias.scope !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !23
+  store i64 %dictContentSize, ptr %totalCompressedSize.i.i, align 8, !alias.scope !26
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1658,8 +1658,8 @@ if.then6:                                         ; preds = %if.end
   tail call void @free(ptr noundef nonnull %call) #23
   tail call void @free(ptr noundef nonnull %call1) #23
   %totalCompressedSize.i.i67 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !31
-  store i64 %call3, ptr %totalCompressedSize.i.i67, align 8, !alias.scope !34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !29
+  store i64 %call3, ptr %totalCompressedSize.i.i67, align 8, !alias.scope !32
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -1671,8 +1671,8 @@ if.then11:                                        ; preds = %if.end7
   tail call void @free(ptr noundef nonnull %call) #23
   tail call void @free(ptr noundef nonnull %call1) #23
   %totalCompressedSize.i.i68 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !37
-  store i64 %call8, ptr %totalCompressedSize.i.i68, align 8, !alias.scope !40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !35
+  store i64 %call8, ptr %totalCompressedSize.i.i68, align 8, !alias.scope !38
   br label %return
 
 if.end12:                                         ; preds = %if.end7
@@ -1692,11 +1692,11 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 if.then14:                                        ; preds = %if.end12
   tail call void @free(ptr noundef nonnull %call1) #23
-  store ptr %call, ptr %agg.result, align 8, !alias.scope !43
+  store ptr %call, ptr %agg.result, align 8, !alias.scope !41
   %dictSize.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %call3, ptr %dictSize.i, align 8, !alias.scope !43
+  store i64 %call3, ptr %dictSize.i, align 8, !alias.scope !41
   %totalCompressedSize.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i64 %call8, ptr %totalCompressedSize.i, align 8, !alias.scope !43
+  store i64 %call8, ptr %totalCompressedSize.i, align 8, !alias.scope !41
   br label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end35
@@ -1713,8 +1713,8 @@ if.then23:                                        ; preds = %while.body
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
   %totalCompressedSize.i.i69 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !46
-  store i64 %call20, ptr %totalCompressedSize.i.i69, align 8, !alias.scope !49
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !44
+  store i64 %call20, ptr %totalCompressedSize.i.i69, align 8, !alias.scope !47
   br label %return
 
 if.end24:                                         ; preds = %while.body
@@ -1726,8 +1726,8 @@ if.then28:                                        ; preds = %if.end24
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
   %totalCompressedSize.i.i72 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !52
-  store i64 %call25, ptr %totalCompressedSize.i.i72, align 8, !alias.scope !55
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !50
+  store i64 %call25, ptr %totalCompressedSize.i.i72, align 8, !alias.scope !53
   br label %return
 
 if.end29:                                         ; preds = %if.end24
@@ -1737,25 +1737,25 @@ if.end29:                                         ; preds = %if.end24
 
 if.then34:                                        ; preds = %if.end29
   tail call void @free(ptr noundef %call) #23
-  store ptr %call1, ptr %agg.result, align 8, !alias.scope !58
+  store ptr %call1, ptr %agg.result, align 8, !alias.scope !56
   %dictSize.i73 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %call20, ptr %dictSize.i73, align 8, !alias.scope !58
+  store i64 %call20, ptr %dictSize.i73, align 8, !alias.scope !56
   %totalCompressedSize.i74 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i64 %call25, ptr %totalCompressedSize.i74, align 8, !alias.scope !58
+  store i64 %call25, ptr %totalCompressedSize.i74, align 8, !alias.scope !56
   br label %return
 
 if.end35:                                         ; preds = %if.end29
   %mul36 = shl i64 %call20, 1
   %cmp16 = icmp ult i64 %mul36, %call3
-  br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !61
+  br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !59
 
 while.end:                                        ; preds = %if.end35, %while.cond.preheader
   tail call void @free(ptr noundef %call1) #23
-  store ptr %call, ptr %agg.result, align 8, !alias.scope !62
+  store ptr %call, ptr %agg.result, align 8, !alias.scope !60
   %dictSize.i75 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %call3, ptr %dictSize.i75, align 8, !alias.scope !62
+  store i64 %call3, ptr %dictSize.i75, align 8, !alias.scope !60
   %totalCompressedSize.i76 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i64 %call8, ptr %totalCompressedSize.i76, align 8, !alias.scope !62
+  store i64 %call8, ptr %totalCompressedSize.i76, align 8, !alias.scope !60
   br label %return
 
 return:                                           ; preds = %while.end, %if.then34, %if.then28, %if.then23, %if.then14, %if.then11, %if.then6, %if.then
@@ -1928,7 +1928,7 @@ if.then105:                                       ; preds = %for.body
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then105, %for.body
-  %call109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d48.0136, double noundef %cond), !range !6
+  %call109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d48.0136, double noundef %cond)
   %cmp.i = icmp ult i64 %call109, -119
   br i1 %cmp.i, label %if.end119, label %if.then112
 
@@ -2007,7 +2007,7 @@ while.body.i.i:                                   ; preds = %if.end141, %while.b
   %call2.i.i = call i32 @pthread_cond_wait(ptr noundef nonnull %cond.i, ptr noundef nonnull %best) #23
   %37 = load i64, ptr %liveJobs.i, align 8
   %cmp.not.i.i = icmp eq i64 %37, 0
-  br i1 %cmp.not.i.i, label %COVER_best_wait.exit.i, label %while.body.i.i, !llvm.loop !21
+  br i1 %cmp.not.i.i, label %COVER_best_wait.exit.i, label %while.body.i.i, !llvm.loop !19
 
 COVER_best_wait.exit.i:                           ; preds = %while.body.i.i, %if.end141
   %call4.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %best) #23
@@ -2153,7 +2153,7 @@ for.inc:                                          ; preds = %if.end191, %if.end1
   %iteration.2 = phi i32 [ %inc, %if.end191 ], [ %iteration.1133, %if.end169 ]
   %add192 = add i32 %k49.0132, %cond42
   %cmp124.not = icmp ugt i32 %add192, %cond29
-  br i1 %cmp124.not, label %for.end, label %for.body126, !llvm.loop !65
+  br i1 %cmp124.not, label %for.end, label %for.body126, !llvm.loop !63
 
 for.end:                                          ; preds = %for.inc
   %call.i104 = call i32 @pthread_mutex_lock(ptr noundef nonnull %best) #23
@@ -2165,7 +2165,7 @@ while.body.i:                                     ; preds = %for.end, %while.bod
   %call2.i107 = call i32 @pthread_cond_wait(ptr noundef nonnull %cond.i, ptr noundef nonnull %best) #23
   %53 = load i64, ptr %liveJobs.i, align 8
   %cmp.not.i = icmp eq i64 %53, 0
-  br i1 %cmp.not.i, label %COVER_best_wait.exit, label %while.body.i, !llvm.loop !21
+  br i1 %cmp.not.i, label %COVER_best_wait.exit, label %while.body.i, !llvm.loop !19
 
 COVER_best_wait.exit:                             ; preds = %while.body.i, %for.end
   %call4.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %best) #23
@@ -2211,7 +2211,7 @@ if.then17.i122:                                   ; preds = %if.end15.i119
 COVER_ctx_destroy.exit123:                        ; preds = %if.end15.i119, %if.then17.i122
   %add194 = add i32 %d48.0136, 2
   %cmp101.not = icmp ugt i32 %add194, %cond16
-  br i1 %cmp101.not, label %for.end195, label %for.body, !llvm.loop !66
+  br i1 %cmp101.not, label %for.end195, label %for.body, !llvm.loop !64
 
 for.end195:                                       ; preds = %COVER_ctx_destroy.exit123, %if.end100
   br i1 %cmp95, label %if.then198, label %if.end201
@@ -2276,7 +2276,7 @@ entry:
   %4 = load i32, ptr %d, align 4
   %sub = add i32 %3, 1
   %add = sub i32 %sub, %4
-  %5 = tail call i32 @llvm.ctlz.i32(i32 %add, i1 true), !range !7
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add, i1 true)
   %sub.i.i = xor i32 %5, 31
   %add.i = sub nuw nsw i32 33, %5
   %sizeLog.i = getelementptr inbounds i8, ptr %activeDmers, i64 8
@@ -2305,7 +2305,7 @@ if.then6:                                         ; preds = %if.then
   br label %_cleanup.sink.split
 
 if.end9:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call5.i, i8 -1, i64 %mul.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %call5.i, i8 -1, i64 %mul.i, i1 false)
   %tobool10 = icmp ne ptr %call, null
   %tobool11 = icmp ne ptr %call4, null
   %or.cond = and i1 %tobool10, %tobool11
@@ -2520,7 +2520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @COVER_cmp8(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %lp, ptr nocapture noundef readonly %rp) unnamed_addr #15 {
+define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %lp, ptr nocapture noundef readonly %rp) unnamed_addr #15 {
 entry:
   %d = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load i32, ptr %d, align 8
@@ -2623,11 +2623,11 @@ attributes #24 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 -72, i64 1}
-!7 = !{i32 0, i32 33}
-!8 = distinct !{!8, !5}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{ptr @COVER_cmp, ptr @COVER_cmp8}
 !9 = distinct !{!9, !5}
-!10 = !{ptr @COVER_cmp, ptr @COVER_cmp8}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -2637,50 +2637,48 @@ attributes #24 = { nounwind willreturn memory(read) }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"setDictSelection: %agg.result"}
-!24 = distinct !{!24, !"setDictSelection"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"COVER_dictSelectionError: %agg.result"}
-!27 = distinct !{!27, !"COVER_dictSelectionError"}
-!28 = !{!29, !26}
-!29 = distinct !{!29, !30, !"setDictSelection: %agg.result"}
-!30 = distinct !{!30, !"setDictSelection"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"COVER_dictSelectionError: %agg.result"}
-!33 = distinct !{!33, !"COVER_dictSelectionError"}
-!34 = !{!35, !32}
-!35 = distinct !{!35, !36, !"setDictSelection: %agg.result"}
-!36 = distinct !{!36, !"setDictSelection"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"COVER_dictSelectionError: %agg.result"}
-!39 = distinct !{!39, !"COVER_dictSelectionError"}
-!40 = !{!41, !38}
-!41 = distinct !{!41, !42, !"setDictSelection: %agg.result"}
-!42 = distinct !{!42, !"setDictSelection"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"setDictSelection: %agg.result"}
-!45 = distinct !{!45, !"setDictSelection"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"COVER_dictSelectionError: %agg.result"}
-!48 = distinct !{!48, !"COVER_dictSelectionError"}
-!49 = !{!50, !47}
-!50 = distinct !{!50, !51, !"setDictSelection: %agg.result"}
-!51 = distinct !{!51, !"setDictSelection"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"COVER_dictSelectionError: %agg.result"}
-!54 = distinct !{!54, !"COVER_dictSelectionError"}
-!55 = !{!56, !53}
-!56 = distinct !{!56, !57, !"setDictSelection: %agg.result"}
-!57 = distinct !{!57, !"setDictSelection"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"setDictSelection: %agg.result"}
-!60 = distinct !{!60, !"setDictSelection"}
-!61 = distinct !{!61, !5}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"setDictSelection: %agg.result"}
-!64 = distinct !{!64, !"setDictSelection"}
-!65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"setDictSelection: %agg.result"}
+!22 = distinct !{!22, !"setDictSelection"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"COVER_dictSelectionError: %agg.result"}
+!25 = distinct !{!25, !"COVER_dictSelectionError"}
+!26 = !{!27, !24}
+!27 = distinct !{!27, !28, !"setDictSelection: %agg.result"}
+!28 = distinct !{!28, !"setDictSelection"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"COVER_dictSelectionError: %agg.result"}
+!31 = distinct !{!31, !"COVER_dictSelectionError"}
+!32 = !{!33, !30}
+!33 = distinct !{!33, !34, !"setDictSelection: %agg.result"}
+!34 = distinct !{!34, !"setDictSelection"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"COVER_dictSelectionError: %agg.result"}
+!37 = distinct !{!37, !"COVER_dictSelectionError"}
+!38 = !{!39, !36}
+!39 = distinct !{!39, !40, !"setDictSelection: %agg.result"}
+!40 = distinct !{!40, !"setDictSelection"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"setDictSelection: %agg.result"}
+!43 = distinct !{!43, !"setDictSelection"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"COVER_dictSelectionError: %agg.result"}
+!46 = distinct !{!46, !"COVER_dictSelectionError"}
+!47 = !{!48, !45}
+!48 = distinct !{!48, !49, !"setDictSelection: %agg.result"}
+!49 = distinct !{!49, !"setDictSelection"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"COVER_dictSelectionError: %agg.result"}
+!52 = distinct !{!52, !"COVER_dictSelectionError"}
+!53 = !{!54, !51}
+!54 = distinct !{!54, !55, !"setDictSelection: %agg.result"}
+!55 = distinct !{!55, !"setDictSelection"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"setDictSelection: %agg.result"}
+!58 = distinct !{!58, !"setDictSelection"}
+!59 = distinct !{!59, !5}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"setDictSelection: %agg.result"}
+!62 = distinct !{!62, !"setDictSelection"}
+!63 = distinct !{!63, !5}
+!64 = distinct !{!64, !5}

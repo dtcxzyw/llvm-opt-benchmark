@@ -276,7 +276,7 @@ _ZN3re26Regexp6WalkerIiED2Ev.exit:                ; preds = %invoke.cont.i, %_ZN
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3re214ToStringWalker8PreVisitEPNS_6RegexpEiPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %re, i32 noundef %parent_arg, ptr nocapture readnone %stop) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 6) i32 @_ZN3re214ToStringWalker8PreVisitEPNS_6RegexpEiPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %re, i32 noundef %parent_arg, ptr nocapture readnone %stop) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %0 = load i8, ptr %re, align 8

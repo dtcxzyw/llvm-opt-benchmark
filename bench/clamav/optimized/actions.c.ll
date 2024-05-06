@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [14 x i8] c"%s: Removed.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @actsetup(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @actsetup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #11
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -134,7 +134,7 @@ define internal void @action_move(ptr noundef %0) #0 {
   br i1 %5, label %.thread29, label %6
 
 6:                                                ; preds = %1
-  %7 = call fastcc i32 @getdest(ptr noundef nonnull %0, ptr noundef nonnull %4), !range !4
+  %7 = call fastcc i32 @getdest(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %8 = icmp slt i32 %7, 0
   %.pre = load ptr, ptr %4, align 8
   br i1 %8, label %37, label %9
@@ -224,11 +224,11 @@ traverse_rename.exit:                             ; preds = %32, %33
   br i1 %.not21, label %51, label %41
 
 41:                                               ; preds = %37
-  %42 = call fastcc i32 @traverse_unlink(ptr noundef nonnull %.pre), !range !5
+  %42 = call fastcc i32 @traverse_unlink(ptr noundef nonnull %.pre)
   br label %51
 
 43:                                               ; preds = %35
-  %44 = call fastcc i32 @traverse_unlink(ptr noundef nonnull %0), !range !5
+  %44 = call fastcc i32 @traverse_unlink(ptr noundef nonnull %0)
   %.not20 = icmp eq i32 %44, 0
   br i1 %.not20, label %.critedge, label %45
 
@@ -266,7 +266,7 @@ traverse_rename.exit:                             ; preds = %32, %33
 ; Function Attrs: nounwind uwtable
 define internal void @action_copy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  %3 = call fastcc i32 @getdest(ptr noundef %0, ptr noundef nonnull %2), !range !4
+  %3 = call fastcc i32 @getdest(ptr noundef %0, ptr noundef nonnull %2)
   %4 = icmp slt i32 %3, 0
   %.pr = load ptr, ptr %2, align 8
   br i1 %4, label %thread-pre-split, label %5
@@ -285,7 +285,7 @@ thread-pre-split:                                 ; preds = %1, %5
   br i1 %.not8, label %13, label %10
 
 10:                                               ; preds = %thread-pre-split
-  %11 = tail call fastcc i32 @traverse_unlink(ptr noundef nonnull %.pr), !range !5
+  %11 = tail call fastcc i32 @traverse_unlink(ptr noundef nonnull %.pr)
   br label %13
 
 .thread:                                          ; preds = %5
@@ -321,7 +321,7 @@ define internal void @action_remove(ptr noundef %0) #0 {
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @traverse_unlink(ptr noundef nonnull %0), !range !5
+  %4 = tail call fastcc i32 @traverse_unlink(ptr noundef nonnull %0)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
@@ -344,7 +344,7 @@ define internal void @action_remove(ptr noundef %0) #0 {
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @getdest(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @getdest(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = tail call noalias ptr @strdup(ptr noundef %0) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -414,7 +414,7 @@ define internal fastcc noundef i32 @getdest(ptr nocapture noundef readonly %0, p
 declare i32 @filecopy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @traverse_unlink(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @traverse_unlink(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 -1, ptr %2, align 4
@@ -501,7 +501,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @traverse_to(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca [2048 x ptr], align 16
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7
@@ -637,5 +637,3 @@ attributes #14 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 -2147483648}
-!5 = !{i32 -1, i32 1}

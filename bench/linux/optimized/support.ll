@@ -35,7 +35,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pnp_is_activ
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_pnp_is_active315], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 0) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4

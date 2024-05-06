@@ -313,7 +313,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123EngineParamTestTemplateINS2_10TestParamsEEEEE, i64 0) #26
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_123EngineParamTestTemplateINS2_10TestParamsEEEEE, i64 0) #26
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -551,7 +551,7 @@ entry:
 for.body.i.i.i.i.preheader.i.i.i.i.i.i:           ; preds = %entry
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_110TestParamsEEE, i64 0, i32 0, i64 2), ptr %call.i.i6.i, align 8, !noalias !17
   %container_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i6.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container_.i.i.i.i, i8 0, i64 24, i1 false), !noalias !17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %container_.i.i.i.i, i8 0, i64 24, i1 false), !noalias !17
   %call5.i.i.i.i2.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(60) ptr @_Znwm(i64 noundef 60) #28
           to label %invoke.cont.i.i.i unwind label %lpad.body.i.i.i, !noalias !17
 
@@ -1428,7 +1428,7 @@ invoke.cont20:                                    ; preds = %if.else17
 invoke.cont24:                                    ; preds = %invoke.cont20
   %call21.fca.0.extract = extractvalue { i64, i32 } %call21, 0
   %ref.tmp19.sroa.1.0.extract.shift = lshr i64 %call21.fca.0.extract, 32
-  %ref.tmp19.sroa.1.0.extract.trunc = trunc i64 %ref.tmp19.sroa.1.0.extract.shift to i32
+  %ref.tmp19.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp19.sroa.1.0.extract.shift to i32
   %call25.fca.1.extract = extractvalue { i64, i32 } %call25, 1
   invoke void @_ZN4absl12crc_internal9CrcMemcpy13GetTestEngineEii(ptr nonnull sret(%"class.std::unique_ptr.34") align 8 %ref.tmp18, i32 noundef %ref.tmp19.sroa.1.0.extract.trunc, i32 noundef %call25.fca.1.extract)
           to label %invoke.cont27 unwind label %lpad
@@ -1712,7 +1712,7 @@ for.end:                                          ; preds = %_ZN4absl24uniform_i
   %call15 = call fastcc { i64, i32 } @_ZNK12_GLOBAL__N_123EngineParamTestTemplateINS_10TestParamsEE8GetParamEv()
   %call15.fca.0.extract = extractvalue { i64, i32 } %call15, 0
   %ref.tmp14.sroa.1.0.extract.shift = lshr i64 %call15.fca.0.extract, 32
-  %ref.tmp14.sroa.1.0.extract.trunc = trunc i64 %ref.tmp14.sroa.1.0.extract.shift to i32
+  %ref.tmp14.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp14.sroa.1.0.extract.shift to i32
   %call.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %ref.tmp14.sroa.1.0.extract.trunc, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1785,7 +1785,7 @@ invoke.cont:                                      ; preds = %.noexc
   store i32 -1, ptr %range_.i.i.i.i.i.i26, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i27 = load i64, ptr %dist.i.i.i25, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i29 = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i27, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i30 = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i29 to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i30 = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i29 to i32
   %call3.i.i.i.i.i3133 = invoke noundef i32 @_ZN4absl24uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i25, ptr noundef nonnull align 8 dereferenceable(288) %gen_, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i30)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -2447,10 +2447,10 @@ if.then:
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
-  %dst.020 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
-  %sub = add nsw i64 %dst.020, -4
+  %dst.022 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
+  %sub = add nsw i64 %dst.022, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.020, -5
+  %dec = add nsw i64 %dst.022, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -2458,7 +2458,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.020, -6
+  %dec11 = add nsw i64 %dst.022, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -2466,7 +2466,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.020, -7
+  %dec15 = add nsw i64 %dst.022, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -2474,7 +2474,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.020, -8
+  %dec19 = add nsw i64 %dst.022, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
@@ -2492,9 +2492,9 @@ if.end:                                           ; preds = %while.body
   %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %9 = load i8, ptr %has_crypto_.i, align 8
   %tobool.i = trunc i8 %9 to i1
-  br i1 %tobool.i, label %if.then.i18, label %if.else.i
+  br i1 %tobool.i, label %if.then.i20, label %if.else.i
 
-if.then.i18:                                      ; preds = %if.end
+if.then.i20:                                      ; preds = %if.end
   call void @_ZN4absl15random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
   br label %_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit
 
@@ -2502,7 +2502,7 @@ if.else.i:                                        ; preds = %if.end
   call void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
   br label %_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit
 
-_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i18, %if.else.i
+_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i20, %if.else.i
   %next_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void
@@ -2675,7 +2675,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i32 = trunc i64 %shr.i to i32
+  %conv.i32 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then
@@ -3197,7 +3197,7 @@ for.end:                                          ; preds = %_ZN4absl24uniform_i
   %call14 = call fastcc { i64, i32 } @_ZNK12_GLOBAL__N_123EngineParamTestTemplateINS_10TestParamsEE8GetParamEv()
   %call14.fca.0.extract = extractvalue { i64, i32 } %call14, 0
   %ref.tmp13.sroa.1.0.extract.shift = lshr i64 %call14.fca.0.extract, 32
-  %ref.tmp13.sroa.1.0.extract.trunc = trunc i64 %ref.tmp13.sroa.1.0.extract.shift to i32
+  %ref.tmp13.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp13.sroa.1.0.extract.shift to i32
   %call.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %ref.tmp13.sroa.1.0.extract.trunc, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -3270,7 +3270,7 @@ invoke.cont:                                      ; preds = %.noexc
   store i32 -1, ptr %range_.i.i.i.i.i.i26, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i27 = load i64, ptr %dist.i.i.i25, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i29 = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i27, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i30 = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i29 to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i30 = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i29 to i32
   %call3.i.i.i.i.i3133 = invoke noundef i32 @_ZN4absl24uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i25, ptr noundef nonnull align 8 dereferenceable(288) %gen_, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i30)
           to label %invoke.cont23 unwind label %lpad22
 
@@ -3939,7 +3939,7 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 
 if.end:                                           ; preds = %entry, %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %3 = call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7testing8internal22ParamIteratorInterfaceIN12_GLOBAL__N_110TestParamsEEE, ptr nonnull @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_110TestParamsEE8IteratorE, i64 0) #26
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %other, ptr nonnull @_ZTIN7testing8internal22ParamIteratorInterfaceIN12_GLOBAL__N_110TestParamsEEE, ptr nonnull @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_110TestParamsEE8IteratorE, i64 0) #26
   %cmp1.i = icmp ne ptr %3, null
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %cmp1.i)
   br i1 %call.i, label %_ZN7testing8internal27CheckedDowncastToActualTypeIKNS0_30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_110TestParamsEE8IteratorEKNS0_22ParamIteratorInterfaceIS4_EEEEPT_PT0_.exit, label %if.else.i
@@ -4622,7 +4622,7 @@ invoke.cont43:                                    ; preds = %for.body42
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp44, ptr noundef nonnull align 4 dereferenceable(12) %call2.i60, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %ref.tmp44, ptr noundef nonnull readonly align 4 dereferenceable(12) %call2.i60, i64 12, i1 false)
   store i64 %i.0, ptr %index.i, align 8
   invoke void %10(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %param_name, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp44)
           to label %invoke.cont49 unwind label %lpad45

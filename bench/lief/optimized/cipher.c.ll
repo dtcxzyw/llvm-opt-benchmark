@@ -199,7 +199,7 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_cipher_setup(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 -24960, 1) i32 @mbedtls_cipher_setup(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %mbedtls_cipher_set_padding_mode.exit, label %4
 
@@ -235,7 +235,7 @@ mbedtls_cipher_set_padding_mode.exit:             ; preds = %15, %12, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_cipher_set_padding_mode(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_set_padding_mode(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
@@ -442,7 +442,7 @@ declare i32 @mbedtls_ccm_starts(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_cipher_reset(ptr nocapture noundef %0) local_unnamed_addr #12 {
+define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_reset(ptr nocapture noundef %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -996,7 +996,7 @@ mbedtls_cipher_get_block_size.exit58:             ; preds = %74, %76
   br label %switch.lookup
 
 switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -33, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %11
@@ -1032,7 +1032,7 @@ define internal void @add_pkcs_padding(ptr nocapture noundef writeonly %0, i64 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @get_pkcs_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
+define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1099,7 +1099,7 @@ define internal void @add_one_and_zeros_padding(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @get_one_and_zeros_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
+define internal range(i32 -25088, 1) i32 @get_one_and_zeros_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1160,7 +1160,7 @@ define internal void @add_zeros_and_len_padding(ptr nocapture noundef writeonly 
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %10 = trunc i64 %4 to i8
+  %10 = trunc nuw i64 %4 to i8
   %11 = getelementptr i8, ptr %0, i64 %1
   %12 = getelementptr i8, ptr %11, i64 -1
   store i8 %10, ptr %12, align 1
@@ -1168,7 +1168,7 @@ define internal void @add_zeros_and_len_padding(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @get_zeros_and_len_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
+define internal range(i32 -25088, 1) i32 @get_zeros_and_len_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1227,7 +1227,7 @@ define internal void @add_zeros_padding(ptr nocapture noundef writeonly %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @get_zeros_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
+define internal range(i32 -24832, 1) i32 @get_zeros_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1262,7 +1262,7 @@ define internal noundef i32 @get_zeros_padding(ptr noundef readonly %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @get_no_padding(ptr noundef readnone %0, i64 noundef %1, ptr noundef writeonly %2) #5 {
+define internal range(i32 -24832, 1) i32 @get_no_padding(ptr noundef readnone %0, i64 noundef %1, ptr noundef writeonly %2) #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1600,7 +1600,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
   store i64 %28, ptr %9, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 80
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %55, i64 noundef %28, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %33, ptr noundef %5, ptr noundef %7) #16
+  %56 = tail call i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %55, i64 noundef %28, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %33, ptr noundef %5, ptr noundef %7) #16
   %57 = icmp eq i32 %56, -86
   %spec.store.select3.i = select i1 %57, i32 -25344, i32 %56
   br label %mbedtls_cipher_aead_decrypt.exit

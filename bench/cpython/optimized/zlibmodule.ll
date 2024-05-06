@@ -653,7 +653,7 @@ do.body7.i:                                       ; preds = %do.cond.i, %do.body
   br i1 %cmp9.i, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %do.body7.i
-  %call.i16.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
+  %call.i16.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
   %conv1.i.i = trunc i64 %call.i16.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 8
   %cmp14.i = icmp slt i64 %call.i16.i, 0
@@ -674,11 +674,11 @@ if.then22.i:                                      ; preds = %if.end18.i
   %call23.i = call i32 @deflateEnd(ptr noundef nonnull %zst.i) #6
   %18 = getelementptr inbounds i8, ptr %zst.i, i64 48
   %zst.val12.i = load ptr, ptr %18, align 8
-  %cmp5.i17.i = icmp eq ptr %zst.val12.i, null
-  %spec.select.i = select i1 %cmp5.i17.i, ptr @.str.17, ptr %zst.val12.i
-  %ZlibError12.i20.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %19 = load ptr, ptr %ZlibError12.i20.i, align 8
-  %call13.i21.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.20, i32 noundef -2, ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select.i) #6
+  %cmp5.i18.i = icmp eq ptr %zst.val12.i, null
+  %spec.select.i = select i1 %cmp5.i18.i, ptr @.str.17, ptr %zst.val12.i
+  %ZlibError12.i21.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %19 = load ptr, ptr %ZlibError12.i21.i, align 8
+  %call13.i22.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.20, i32 noundef -2, ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select.i) #6
   br label %error.i
 
 do.cond.i:                                        ; preds = %if.end18.i
@@ -696,9 +696,9 @@ do.end29.i:                                       ; preds = %do.cond27.i
 
 if.then32.i:                                      ; preds = %do.end29.i
   %21 = load i32, ptr %avail_out.i, align 8
-  %conv.i25.i = zext i32 %21 to i64
-  %call.i26.i = call fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull %buffer.i, i64 noundef %conv.i25.i)
-  %cmp35.i = icmp eq ptr %call.i26.i, null
+  %conv.i26.i = zext i32 %21 to i64
+  %call.i27.i = call fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull %buffer.i, i64 noundef %conv.i26.i)
+  %cmp35.i = icmp eq ptr %call.i27.i, null
   br i1 %cmp35.i, label %error.i, label %zlib_compress_impl.exit
 
 if.else.i:                                        ; preds = %do.end29.i
@@ -716,20 +716,20 @@ if.then.i.i.i:                                    ; preds = %error.i
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i2.not.i.i.i = icmp eq i64 %25, 0
-  br i1 %cmp.i2.not.i.i.i, label %if.end.i.i.i27.i, label %zlib_compress_impl.exit
+  br i1 %cmp.i2.not.i.i.i, label %if.end.i.i.i28.i, label %zlib_compress_impl.exit
 
-if.end.i.i.i27.i:                                 ; preds = %if.then.i.i.i
-  %dec.i.i.i28.i = add i64 %24, -1
-  store i64 %dec.i.i.i28.i, ptr %23, align 8
-  %cmp.i.i.i29.i = icmp eq i64 %dec.i.i.i28.i, 0
-  br i1 %cmp.i.i.i29.i, label %if.then1.i.i.i30.i, label %zlib_compress_impl.exit
+if.end.i.i.i28.i:                                 ; preds = %if.then.i.i.i
+  %dec.i.i.i29.i = add i64 %24, -1
+  store i64 %dec.i.i.i29.i, ptr %23, align 8
+  %cmp.i.i.i30.i = icmp eq i64 %dec.i.i.i29.i, 0
+  br i1 %cmp.i.i.i30.i, label %if.then1.i.i.i31.i, label %zlib_compress_impl.exit
 
-if.then1.i.i.i30.i:                               ; preds = %if.end.i.i.i27.i
+if.then1.i.i.i31.i:                               ; preds = %if.end.i.i.i28.i
   call void @_Py_Dealloc(ptr noundef nonnull %23) #6
   br label %zlib_compress_impl.exit
 
-zlib_compress_impl.exit:                          ; preds = %if.then32.i, %error.i, %if.then.i.i.i, %if.end.i.i.i27.i, %if.then1.i.i.i30.i
-  %retval.0.i = phi ptr [ %call.i26.i, %if.then32.i ], [ null, %error.i ], [ null, %if.then.i.i.i ], [ null, %if.end.i.i.i27.i ], [ null, %if.then1.i.i.i30.i ]
+zlib_compress_impl.exit:                          ; preds = %if.then32.i, %error.i, %if.then.i.i.i, %if.end.i.i.i28.i, %if.then1.i.i.i31.i
+  %retval.0.i = phi ptr [ %call.i27.i, %if.then32.i ], [ null, %error.i ], [ null, %if.then.i.i.i ], [ null, %if.end.i.i.i28.i ], [ null, %if.then1.i.i.i31.i ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %zst.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i)
   br label %exit
@@ -1407,7 +1407,7 @@ OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %if.end.i.i
   br label %if.end23.i
 
 OutputBuffer_WindowGrow.exit.i:                   ; preds = %if.end.i.i
-  %call.i23.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
+  %call.i23.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
   %conv10.i.i = trunc i64 %call.i23.i to i32
   store i32 %conv10.i.i, ptr %avail_out.i, align 8
   %cmp19.i = icmp slt i64 %call.i23.i, 0
@@ -1683,7 +1683,7 @@ sw.bb.i:                                          ; preds = %if.end14.i
   br i1 %or.cond.i, label %if.then21.i, label %exit
 
 if.then21.i:                                      ; preds = %sw.bb.i
-  %call22.i = call fastcc i32 @set_inflate_zdict(ptr noundef nonnull %call.i.i35, ptr noundef nonnull %call2.i), !range !11
+  %call22.i = call fastcc i32 @set_inflate_zdict(ptr noundef nonnull %call.i.i35, ptr noundef nonnull %call2.i)
   %cmp23.i = icmp slt i32 %call22.i, 0
   br i1 %cmp23.i, label %if.then24.i, label %exit
 
@@ -2119,7 +2119,7 @@ for.body:                                         ; preds = %if.then19, %for.bod
   %add.ptr = getelementptr i8, ptr %posi.045, i64 %.val38
   %inc = add nuw nsw i64 %i.046, 1
   %exitcond.not = icmp eq i64 %inc, %sub21
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %if.then19
   %posi.0.lcssa = phi ptr [ %ob_sval.i, %if.then19 ], [ %add.ptr, %for.body ]
@@ -2279,7 +2279,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_inflate_zdict(ptr nocapture noundef readonly %state, ptr noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict(ptr nocapture noundef readonly %state, ptr noundef %self) unnamed_addr #0 {
 entry:
   %zdict_buf = alloca %struct.Py_buffer, align 8
   %zdict = getelementptr inbounds i8, ptr %self, i64 152
@@ -2351,7 +2351,7 @@ return:                                           ; preds = %if.else.i, %if.then
 declare i32 @inflateSetDictionary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zlib_exec(ptr noundef %mod) #0 {
+define internal range(i32 -1, 1) i32 @zlib_exec(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #6
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %mod, ptr noundef nonnull @Comptype_spec, ptr noundef null) #6
@@ -2746,7 +2746,7 @@ do.body10.i:                                      ; preds = %do.cond38.i, %Outpu
   br label %if.end25.i
 
 if.then16.critedge.i:                             ; preds = %do.cond.i
-  %call.i.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
+  %call.i.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
   %conv1.i.i = trunc i64 %call.i.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 4
   %cmp22.i = icmp slt i64 %call.i.i, 0
@@ -2772,11 +2772,11 @@ if.then31.i:                                      ; preds = %if.end25.i
 do.cond.i:                                        ; preds = %if.end25.i
   %11 = load i32, ptr %avail_out.i, align 8
   %cmp36.i = icmp eq i32 %11, 0
-  br i1 %cmp36.i, label %if.then16.critedge.i, label %do.cond38.i, !llvm.loop !13
+  br i1 %cmp36.i, label %if.then16.critedge.i, label %do.cond38.i, !llvm.loop !12
 
 do.cond38.i:                                      ; preds = %do.cond.i
   %cmp39.not.i = icmp eq i64 %sub.i.i, 0
-  br i1 %cmp39.not.i, label %do.end40.i, label %do.body10.i, !llvm.loop !14
+  br i1 %cmp39.not.i, label %do.end40.i, label %do.body10.i, !llvm.loop !13
 
 do.end40.i:                                       ; preds = %do.cond38.i
   %conv.i18.i = zext i32 %11 to i64
@@ -2941,7 +2941,7 @@ do.body14.i:                                      ; preds = %do.cond.i, %OutputB
   br i1 %cmp17.i, label %if.then18.i, label %if.end27.i
 
 if.then18.i:                                      ; preds = %do.body14.i
-  %call.i.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef %conv.i32.i)
+  %call.i.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef %conv.i32.i)
   %conv1.i.i = trunc i64 %call.i.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 4
   %cmp24.i = icmp slt i64 %call.i.i, 0
@@ -2967,7 +2967,7 @@ if.then33.i:                                      ; preds = %if.end27.i
 do.cond.i:                                        ; preds = %if.end27.i
   %9 = load i32, ptr %avail_out.i, align 8
   %cmp38.i = icmp eq i32 %9, 0
-  br i1 %cmp38.i, label %do.body14.i, label %do.end39.i, !llvm.loop !15
+  br i1 %cmp38.i, label %do.body14.i, label %do.end39.i, !llvm.loop !14
 
 do.end39.i:                                       ; preds = %do.cond.i
   %cmp40.i = icmp eq i32 %call31.i, 1
@@ -3596,7 +3596,7 @@ if.then26.i:                                      ; preds = %do.body22.i
   br i1 %cmp30.i, label %save.i, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then26.i
-  %call.i36.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
+  %call.i36.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
   %conv1.i.i = trunc i64 %call.i36.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 4
   %cmp38.i = icmp slt i64 %call.i36.i, 0
@@ -3619,7 +3619,7 @@ land.lhs.true.i:                                  ; preds = %if.end41.i
   br i1 %cmp47.not.i, label %save.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %land.lhs.true.i
-  %call49.i = call fastcc i32 @set_inflate_zdict(ptr noundef %call.i.i, ptr noundef nonnull %self), !range !11
+  %call49.i = call fastcc i32 @set_inflate_zdict(ptr noundef %call.i.i, ptr noundef nonnull %self)
   %cmp50.i = icmp slt i32 %call49.i, 0
   br i1 %cmp50.i, label %abort.i, label %do.cond.i
 
@@ -3628,17 +3628,17 @@ do.cond.i:                                        ; preds = %if.then48.i, %if.en
   %cmp56.i = icmp eq i32 %18, 0
   %cmp57.i = icmp eq i32 %call45.i, 2
   %19 = select i1 %cmp56.i, i1 true, i1 %cmp57.i
-  br i1 %19, label %do.body22.i, label %do.cond59.i, !llvm.loop !16
+  br i1 %19, label %do.body22.i, label %do.cond59.i, !llvm.loop !15
 
 do.cond59.i:                                      ; preds = %do.cond.i
   %cmp60.i = icmp ne i32 %call45.i, 1
   %cmp61.i = icmp ne i64 %sub.i.i, 0
   %20 = select i1 %cmp60.i, i1 %cmp61.i, i1 false
-  br i1 %20, label %do.body20.i, label %save.i, !llvm.loop !17
+  br i1 %20, label %do.body20.i, label %save.i, !llvm.loop !16
 
 save.i:                                           ; preds = %do.cond59.i, %land.lhs.true.i, %if.end41.i, %if.then26.i
   %err.2.i = phi i32 [ %err.1.i, %if.then26.i ], [ 2, %land.lhs.true.i ], [ %call45.i, %if.end41.i ], [ %call45.i, %do.cond59.i ]
-  %call63.i = call fastcc i32 @save_unconsumed_input(ptr noundef nonnull %self, ptr noundef nonnull %data, i32 noundef %err.2.i), !range !11
+  %call63.i = call fastcc i32 @save_unconsumed_input(ptr noundef nonnull %self, ptr noundef nonnull readonly %data, i32 noundef %err.2.i)
   %cmp64.i = icmp slt i32 %call63.i, 0
   br i1 %cmp64.i, label %abort.i, label %if.end66.i
 
@@ -3931,7 +3931,7 @@ OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %if.end.i.i
   br label %if.end38.i
 
 OutputBuffer_WindowGrow.exit.i:                   ; preds = %if.end.i.i
-  %call.i31.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
+  %call.i31.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
   %conv10.i.i = trunc i64 %call.i31.i to i32
   store i32 %conv10.i.i, ptr %avail_out.i, align 4
   %cmp35.i = icmp slt i64 %call.i31.i, 0
@@ -3952,16 +3952,16 @@ if.end38.i:                                       ; preds = %OutputBuffer_Window
 do.cond.i:                                        ; preds = %if.end38.i, %if.end38.i, %if.end38.i
   %15 = load i32, ptr %avail_out.i, align 8
   %cmp45.i = icmp eq i32 %15, 0
-  br i1 %cmp45.i, label %do.body25.i, label %do.cond48.i, !llvm.loop !18
+  br i1 %cmp45.i, label %do.body25.i, label %do.cond48.i, !llvm.loop !17
 
 do.cond48.i:                                      ; preds = %do.cond.i
   %cmp49.i = icmp ne i32 %call42.i, 1
   %cmp50.i = icmp ne i64 %sub.i29.i, 0
   %16 = select i1 %cmp49.i, i1 %cmp50.i, i1 false
-  br i1 %16, label %do.body22.i, label %save.i, !llvm.loop !19
+  br i1 %16, label %do.body22.i, label %save.i, !llvm.loop !18
 
 save.i:                                           ; preds = %do.cond48.i, %if.end38.i
-  %call52.i = call fastcc i32 @save_unconsumed_input(ptr noundef %self, ptr noundef nonnull %data.i, i32 noundef %call42.i), !range !11
+  %call52.i = call fastcc i32 @save_unconsumed_input(ptr noundef %self, ptr noundef nonnull %data.i, i32 noundef %call42.i)
   %cmp53.i = icmp slt i32 %call52.i, 0
   br i1 %cmp53.i, label %abort.i, label %if.end55.i
 
@@ -4099,7 +4099,7 @@ exit:                                             ; preds = %cond.end, %if.end
 declare ptr @PyType_GetModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @save_unconsumed_input(ptr nocapture noundef %self, ptr nocapture noundef readonly %data, i32 noundef %err) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @save_unconsumed_input(ptr nocapture noundef %self, ptr nocapture noundef readonly %data, i32 noundef %err) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %err, 1
   br i1 %cmp, label %if.then, label %if.end22
@@ -4659,7 +4659,7 @@ sw.bb:                                            ; preds = %if.end23
   br i1 %or.cond, label %if.then29, label %return
 
 if.then29:                                        ; preds = %sw.bb
-  %call30 = call fastcc i32 @set_inflate_zdict_ZlibDecompressor(ptr noundef %call, ptr noundef nonnull %call2), !range !11
+  %call30 = call fastcc i32 @set_inflate_zdict_ZlibDecompressor(ptr noundef %call, ptr noundef nonnull %call2)
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %if.then32, label %return
 
@@ -4781,7 +4781,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_inflate_zdict_ZlibDecompressor(ptr nocapture noundef readonly %state, ptr noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict_ZlibDecompressor(ptr nocapture noundef readonly %state, ptr noundef %self) unnamed_addr #0 {
 entry:
   %zdict_buf = alloca %struct.Py_buffer, align 8
   %zdict = getelementptr inbounds i8, ptr %self, i64 128
@@ -5125,7 +5125,7 @@ if.end16.i.i.i:                                   ; preds = %arrange_output_buff
 do.cond.i.i.i:                                    ; preds = %if.end16.i.i.i
   %30 = load i32, ptr %avail_out.i.i.i, align 8
   %cmp25.i.i.i = icmp eq i32 %30, 0
-  br i1 %cmp25.i.i.i, label %do.body6.i.i.i, label %do.cond26.i.i.i, !llvm.loop !20
+  br i1 %cmp25.i.i.i, label %do.body6.i.i.i, label %do.cond26.i.i.i, !llvm.loop !19
 
 do.cond26.i.i.i:                                  ; preds = %do.cond.i.i.i, %arrange_output_buffer_with_maximum.exit.i.i.i, %if.then4.i.i.i.i
   %retval.0.i46.i.i.i = phi i64 [ %length.addr.0.i.i.i.i, %do.cond.i.i.i ], [ %length.addr.0.i.i.i.i, %arrange_output_buffer_with_maximum.exit.i.i.i ], [ -2, %if.then4.i.i.i.i ]
@@ -5136,7 +5136,7 @@ do.cond26.i.i.i:                                  ; preds = %do.cond.i.i.i, %arr
 land.rhs.i.i.i:                                   ; preds = %do.cond26.i.i.i
   %31 = load i64, ptr %avail_in_real.i.i.i, align 8
   %cmp29.not.i.i.i = icmp eq i64 %31, 0
-  br i1 %cmp29.not.i.i.i, label %do.end30.i.i.i, label %do.body.i.i.i, !llvm.loop !21
+  br i1 %cmp29.not.i.i.i, label %do.end30.i.i.i, label %do.body.i.i.i, !llvm.loop !20
 
 do.end30.i.i.i:                                   ; preds = %land.rhs.i.i.i
   switch i32 %err.2.i.i.i, label %if.then42.i.i.i [
@@ -5434,7 +5434,7 @@ attributes #6 = { nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 -1, i32 1}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -5444,4 +5444,3 @@ attributes #6 = { nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

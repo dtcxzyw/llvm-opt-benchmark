@@ -68,7 +68,7 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   %2 = ptrtoint ptr %p to i64
   %3 = lshr i64 %2, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %conv = and i32 %4, -128
   %lightudseg = getelementptr inbounds i8, ptr %1, i64 112
   %5 = load i64, ptr %lightudseg, align 8
@@ -106,7 +106,7 @@ if.then13:                                        ; preds = %for.end
 
 if.end15:                                         ; preds = %for.end, %entry
   %segnum.0 = phi i32 [ %8, %for.end ], [ %conv3, %entry ]
-  %10 = tail call i32 @llvm.ctpop.i32(i32 %segnum.0), !range !5
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %segnum.0)
   %tobool17 = icmp ult i32 %10, 2
   %cmp18 = icmp ne i32 %segnum.0, 1
   %or.cond = and i1 %cmp18, %tobool17
@@ -127,7 +127,7 @@ if.then20:                                        ; preds = %if.end15
 
 if.end29:                                         ; preds = %if.end15, %if.then20
   %segmap.0 = phi ptr [ %call, %if.then20 ], [ %6, %if.end15 ]
-  %conv30 = trunc i32 %segnum.0 to i8
+  %conv30 = trunc nuw i32 %segnum.0 to i8
   store i8 %conv30, ptr %lightudnum, align 1
   %arrayidx34 = getelementptr inbounds i32, ptr %segmap.0, i64 %conv21
   store i32 %conv, ptr %arrayidx34, align 4
@@ -162,4 +162,3 @@ attributes #5 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i32 0, i32 33}

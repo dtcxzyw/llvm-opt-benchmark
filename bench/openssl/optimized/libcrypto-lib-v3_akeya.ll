@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [7 x i8] c"serial\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @AUTHORITY_KEYID_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @AUTHORITY_KEYID_it() local_unnamed_addr #0 {
 entry:
   ret ptr @AUTHORITY_KEYID_it.local_it
 }

@@ -2873,7 +2873,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_buildvalue_N(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @test_buildvalue_N(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyList_New(i64 noundef 0) #15
   %cmp = icmp eq ptr %call, null
@@ -2946,27 +2946,27 @@ if.then1.i:                                       ; preds = %if.end.i35
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit46, %if.then1.i, %if.end.i35
-  %call14 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.242), !range !14
+  %call14 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.242)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %Py_DECREF.exit
-  %call18 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.243), !range !14
+  %call18 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.243)
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
-  %call22 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.244), !range !14
+  %call22 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.244)
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.end21
-  %call26 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.245), !range !14
+  %call26 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.245)
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end25
-  %call30 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.246), !range !14
+  %call30 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.246)
   %cmp31 = icmp slt i32 %call30, 0
   %._Py_NoneStruct = select i1 %cmp31, ptr null, ptr @_Py_NoneStruct
   br label %return
@@ -3992,7 +3992,7 @@ while.cond:                                       ; preds = %while.cond, %if.end
   %call52 = call i32 @PyDict_Next(ptr noundef %21, ptr noundef nonnull %pos, ptr noundef %arrayidx50, ptr noundef %arrayidx51) #15
   %tobool53.not = icmp eq i32 %call52, 0
   %add54 = add i64 %i.0, 2
-  br i1 %tobool53.not, label %while.end, label %while.cond, !llvm.loop !15
+  br i1 %tobool53.not, label %while.end, label %while.cond, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond
   %div = ashr exact i64 %i.0, 1
@@ -5085,7 +5085,7 @@ Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %for.bo
   tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call.i, i64 noundef %i.012.i, ptr noundef %3)
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %nargs
-  br i1 %exitcond.not.i, label %_fastcall_to_tuple.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_fastcall_to_tuple.exit, label %for.body.i, !llvm.loop !15
 
 _fastcall_to_tuple.exit:                          ; preds = %Py_INCREF.exit.i, %_null_to_none.exit
   %call2 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.335, ptr noundef nonnull %retval.0.i, ptr noundef %call.i) #15
@@ -5120,7 +5120,7 @@ Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %for.bo
   tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call.i, i64 noundef %i.012.i, ptr noundef %2)
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %nargs
-  br i1 %exitcond.not.i, label %_fastcall_to_tuple.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_fastcall_to_tuple.exit, label %for.body.i, !llvm.loop !15
 
 _fastcall_to_tuple.exit:                          ; preds = %Py_INCREF.exit.i, %entry
   %cmp = icmp eq ptr %call.i, null
@@ -7553,7 +7553,7 @@ declare i64 @PyBuffer_SizeFromFormat(ptr noundef) local_unnamed_addr #2
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_buildvalue_N_error(ptr noundef %fmt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @test_buildvalue_N_error(ptr noundef %fmt) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyList_New(i64 noundef 0) #15
   %cmp = icmp eq ptr %call, null
@@ -7745,7 +7745,7 @@ entry:
 declare i32 @Py_AddPendingCall(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_pending_callback(ptr noundef %arg) #0 {
+define internal range(i32 -1, 1) i32 @_pending_callback(ptr noundef %arg) #0 {
 entry:
   %call = tail call ptr @PyObject_CallNoArgs(ptr noundef %arg) #15
   %0 = load i64, ptr %arg, align 8
@@ -8127,7 +8127,7 @@ declare ptr @PyCode_GetFreevars(ptr noundef) local_unnamed_addr #2
 declare void @PyEval_SetTrace(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @error_func(ptr noundef %obj, ptr nocapture readnone %f, i32 %what, ptr nocapture readnone %arg) #0 {
+define internal range(i32 -1, 1) i32 @error_func(ptr noundef %obj, ptr nocapture readnone %f, i32 %what, ptr nocapture readnone %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -8181,7 +8181,7 @@ return:                                           ; preds = %if.end, %PyList_GET
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @record_func(ptr noundef %obj, ptr noundef %f, i32 noundef %what, ptr noundef %arg) #0 {
+define internal range(i32 -1, 1) i32 @record_func(ptr noundef %obj, ptr noundef %f, i32 noundef %what, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -8648,6 +8648,5 @@ attributes #17 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 -1, i32 1}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

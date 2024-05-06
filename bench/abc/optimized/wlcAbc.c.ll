@@ -78,8 +78,8 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr i8, ptr %28, i64 %indvars.iv
-  %30 = getelementptr i8, ptr %29, i64 %22
+  %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds i8, ptr %29, i64 %22
   %31 = load i8, ptr %30, align 1
   br label %32
 
@@ -208,12 +208,12 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr nocapture noundef readonly
   %smax = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
   %23 = add nuw i32 %smax, 1
   %wide.trip.count = zext i32 %23 to i64
-  %invariant.gep = getelementptr i32, ptr %.val40, i64 %22
+  %invariant.gep = getelementptr inbounds i32, ptr %.val40, i64 %22
   br label %24
 
 24:                                               ; preds = %16, %26
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %26 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %25 = load i32, ptr %gep, align 4
   %.not39 = icmp eq i32 %25, 0
   br i1 %.not39, label %26, label %27
@@ -243,14 +243,14 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr nocapture noundef readonly
 36:                                               ; preds = %31, %44
   %indvars.iv55 = phi i64 [ 0, %31 ], [ %indvars.iv.next56, %44 ]
   %.val41 = load ptr, ptr %8, align 8
-  %37 = getelementptr i32, ptr %.val41, i64 %indvars.iv55
-  %38 = getelementptr i32, ptr %37, i64 %22
+  %37 = getelementptr inbounds i32, ptr %.val41, i64 %indvars.iv55
+  %38 = getelementptr inbounds i32, ptr %37, i64 %22
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %36
-  %42 = trunc i64 %indvars.iv55 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv55 to i32
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %42, i32 noundef %39)
   br label %44
 
@@ -335,7 +335,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
 
 30:                                               ; preds = %.lr.ph121.split.us
   %31 = call ptr @Abc_NtkCreateObj(ptr noundef %7, i32 noundef 2) #10
-  %32 = trunc i64 %indvars.iv144 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv144 to i32
   %33 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %32) #10
   %34 = call ptr @Abc_ObjAssignName(ptr noundef %31, ptr noundef nonnull %4, ptr noundef null) #10
   %.val.us.pre = load i32, ptr %22, align 4
@@ -371,7 +371,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   br label %53
 
 49:                                               ; preds = %41
-  %50 = trunc i64 %indvars.iv140 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv140 to i32
   %51 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %50) #10
   %52 = call ptr @Abc_ObjAssignName(ptr noundef %42, ptr noundef nonnull %4, ptr noundef null) #10
   br label %53
@@ -424,12 +424,12 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   %smax = call i32 @llvm.abs.i32(i32 %69, i1 false)
   %73 = add nuw i32 %smax, 1
   %wide.trip.count = zext i32 %73 to i64
-  %invariant.gep = getelementptr i32, ptr %.val97, i64 %72
+  %invariant.gep = getelementptr inbounds i32, ptr %.val97, i64 %72
   br label %74
 
 74:                                               ; preds = %66, %76
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %76 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %75 = load i32, ptr %gep, align 4
   %.not92 = icmp eq i32 %75, 0
   br i1 %.not92, label %76, label %77
@@ -456,8 +456,8 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
 82:                                               ; preds = %.preheader, %97
   %indvars.iv129 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next130, %97 ]
   %.val96 = load ptr, ptr %16, align 8
-  %83 = getelementptr i32, ptr %.val96, i64 %indvars.iv129
-  %84 = getelementptr i32, ptr %83, i64 %72
+  %83 = getelementptr inbounds i32, ptr %.val96, i64 %indvars.iv129
+  %84 = getelementptr inbounds i32, ptr %83, i64 %72
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %97, label %87
@@ -470,7 +470,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   %91 = sdiv exact i64 %90, 24
   %92 = trunc i64 %91 to i32
   %93 = call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %92) #10
-  %94 = trunc i64 %indvars.iv129 to i32
+  %94 = trunc nuw nsw i64 %indvars.iv129 to i32
   %95 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %93, i32 noundef %94) #10
   %96 = call ptr @Abc_ObjAssignName(ptr noundef %88, ptr noundef nonnull %4, ptr noundef null) #10
   br label %97
@@ -700,7 +700,7 @@ Vec_IntAlloc.exit:                                ; preds = %10, %25
   %56 = getelementptr inbounds ptr, ptr %.val122.val.val, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @Abc_ObjName(ptr noundef %57) #10
-  %59 = trunc i64 %indvars.iv167 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv167 to i32
   br i1 %.not109, label %72, label %60
 
 60:                                               ; preds = %50
@@ -734,7 +734,7 @@ Vec_IntAlloc.exit:                                ; preds = %10, %25
 
 77:                                               ; preds = %80, %72
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %80 ], [ %75, %72 ]
-  %78 = trunc i64 %indvars.iv164 to i32
+  %78 = trunc nuw i64 %indvars.iv164 to i32
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %.split.loop.exit183
 

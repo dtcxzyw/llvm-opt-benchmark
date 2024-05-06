@@ -269,7 +269,7 @@ for.body.i29:                                     ; preds = %for.body.i29, %for.
   %12 = load i8, ptr %arrayidx.i31, align 1
   %13 = load ptr, ptr %buffer_.i, align 8
   %14 = load i32, ptr %cur_len_.i, align 4
-  %15 = trunc i64 %indvars.iv.i30 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   %add9.i = add nsw i32 %14, %15
   %idxprom10.i = sext i32 %add9.i to i64
   %arrayidx11.i = getelementptr inbounds i8, ptr %13, i64 %idxprom10.i
@@ -446,8 +446,8 @@ lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i11.i.i, label %if.end.i.i, label %if.then2.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false2.i.i
-  %conv.i.i = trunc i16 %6 to i8
-  %conv13.i.i = trunc i16 %7 to i8
+  %conv.i.i = trunc nuw i16 %6 to i8
+  %conv13.i.i = trunc nuw i16 %7 to i8
   %idxprom.i.i.i.i = zext nneg i16 %6 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i.i, align 1
@@ -764,7 +764,7 @@ for.body.i41:                                     ; preds = %for.body.i41, %for.
   %45 = load i8, ptr %arrayidx.i43, align 1
   %46 = load ptr, ptr %buffer_.i, align 8
   %47 = load i32, ptr %cur_len_.i, align 4
-  %48 = trunc i64 %indvars.iv.i42 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv.i42 to i32
   %add9.i = add nsw i32 %47, %48
   %idxprom10.i = sext i32 %add9.i to i64
   %arrayidx11.i = getelementptr inbounds i8, ptr %46, i64 %idxprom10.i
@@ -1614,8 +1614,8 @@ lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i11.i.i, label %if.end.i.i, label %if.then2.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false2.i.i
-  %conv.i.i = trunc i16 %3 to i8
-  %conv13.i.i = trunc i16 %4 to i8
+  %conv.i.i = trunc nuw i16 %3 to i8
+  %conv13.i.i = trunc nuw i16 %4 to i8
   %idxprom.i.i.i.i = zext nneg i16 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i.i, align 1

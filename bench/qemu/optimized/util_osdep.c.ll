@@ -80,14 +80,14 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_mprotect_rw(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qemu_mprotect_rw(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef 3), !range !5
+  %call = tail call fastcc i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef 3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef %prot) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef %prot) unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %call.i.i = tail call i32 @getpagesize() #16
@@ -128,16 +128,16 @@ return:                                           ; preds = %do.end9, %if.then12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_mprotect_rwx(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qemu_mprotect_rwx(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef 7), !range !5
+  %call = tail call fastcc i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef 7)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_mprotect_none(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qemu_mprotect_none(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef 0)
   ret i32 %call
 }
 
@@ -296,7 +296,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   %call2.i = tail call ptr @__errno_location() #16
   %1 = load i32, ptr %call2.i, align 4
   %cmp3.i = icmp eq i32 %1, 4
-  br i1 %cmp3.i, label %do.body.i, label %cond.true.i, !llvm.loop !6
+  br i1 %cmp3.i, label %do.body.i, label %cond.true.i, !llvm.loop !5
 
 cond.true.i:                                      ; preds = %land.rhs.i
   %sub.i = sub i32 0, %1
@@ -335,7 +335,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   %call2.i = tail call ptr @__errno_location() #16
   %1 = load i32, ptr %call2.i, align 4
   %cmp3.i = icmp eq i32 %1, 4
-  br i1 %cmp3.i, label %do.body.i, label %cond.true.i, !llvm.loop !6
+  br i1 %cmp3.i, label %do.body.i, label %cond.true.i, !llvm.loop !5
 
 cond.true.i:                                      ; preds = %land.rhs.i
   %sub.i = sub i32 0, %1
@@ -437,7 +437,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %entry
   %or.i = or i32 %flags, 524288
-  %call.i22 = call noundef i32 (ptr, i32, ...) @open64(ptr noundef %name, i32 noundef %or.i, i32 noundef %mode) #15
+  %call.i22 = call noundef i32 (ptr, i32, ...) @open64(ptr noundef readonly %name, i32 noundef %or.i, i32 noundef %mode) #15
   %cmp13 = icmp eq i32 %call.i22, -1
   br i1 %cmp13, label %if.then15, label %return
 
@@ -500,7 +500,7 @@ if.end:                                           ; preds = %entry
 define dso_local i32 @qemu_open_old(ptr noundef %name, i32 noundef %flags, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %and = and i32 %flags, 64
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -533,7 +533,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
 
 if.end:                                           ; preds = %vaarg.end, %entry
   %mode.0 = phi i32 [ %4, %vaarg.end ], [ 0, %entry ]
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call = call fastcc i32 @qemu_open_internal(ptr noundef %name, i32 noundef %flags, i32 noundef %mode.0, ptr noundef null)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %land.lhs.true, label %if.end10
@@ -555,12 +555,6 @@ if.then8:                                         ; preds = %land.lhs.true
 if.end10:                                         ; preds = %if.then8, %land.lhs.true, %if.end
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
@@ -606,10 +600,10 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i64 @qemu_write_full(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %count) local_unnamed_addr #7 {
+define dso_local i64 @qemu_write_full(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %count) local_unnamed_addr #6 {
 entry:
   %tobool.old.not13 = icmp eq i64 %count, 0
   br i1 %tobool.old.not13, label %while.end, label %while.body.preheader
@@ -629,14 +623,14 @@ if.then:                                          ; preds = %while.body
   %call1 = tail call ptr @__errno_location() #16
   %0 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %0, 4
-  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !7
 
 if.end4:                                          ; preds = %while.body
   %sub = sub i64 %count.addr.015, %call
   %add.ptr = getelementptr i8, ptr %buf.addr.014, i64 %call
   %add = add i64 %call, %total.016
   %tobool.old.not = icmp eq i64 %sub, 0
-  br i1 %tobool.old.not, label %while.end, label %while.body.preheader, !llvm.loop !8
+  br i1 %tobool.old.not, label %while.end, label %while.body.preheader, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end4, %if.then, %entry
   %total.012 = phi i64 [ 0, %entry ], [ %total.016, %if.then ], [ %add, %if.end4 ]
@@ -644,7 +638,7 @@ while.end:                                        ; preds = %if.end4, %if.then, 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_socket(i32 noundef %domain, i32 noundef %type, i32 noundef %protocol) local_unnamed_addr #0 {
@@ -731,14 +725,14 @@ if.then:                                          ; preds = %while.body
   %call1 = tail call ptr @__errno_location() #16
   %0 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %0, 4
-  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !9
+  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !8
 
 if.end4:                                          ; preds = %while.body
   %sub = sub i64 %count.addr.015, %call
   %add.ptr = getelementptr i8, ptr %buf.addr.014, i64 %call
   %add = add i64 %call, %total.016
   %tobool.old.not = icmp eq i64 %sub, 0
-  br i1 %tobool.old.not, label %while.end, label %while.body.preheader, !llvm.loop !9
+  br i1 %tobool.old.not, label %while.end, label %while.body.preheader, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end4, %if.then, %entry
   %total.012 = phi i64 [ 0, %entry ], [ %total.016, %if.then ], [ %add, %if.end4 ]
@@ -748,21 +742,21 @@ while.end:                                        ; preds = %if.end4, %if.then, 
 declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @qemu_set_hw_version(ptr noundef %version) local_unnamed_addr #9 {
+define dso_local void @qemu_set_hw_version(ptr noundef %version) local_unnamed_addr #8 {
 entry:
   store ptr %version, ptr @hw_version, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_hw_version() local_unnamed_addr #10 {
+define dso_local ptr @qemu_hw_version() local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr @hw_version, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @socket_init() local_unnamed_addr #11 {
+define dso_local noundef i32 @socket_init() local_unnamed_addr #10 {
 entry:
   ret i32 0
 }
@@ -777,7 +771,7 @@ entry:
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
@@ -789,13 +783,13 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 declare i32 @getpagesize() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
+declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 declare i32 @strstart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -806,6 +800,12 @@ declare i32 @monitor_fdset_dup_fd_add(i64 noundef, i32 noundef) local_unnamed_ad
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @qemu_parse_fd(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
@@ -818,15 +818,15 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(none) }
@@ -840,8 +840,7 @@ attributes #18 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

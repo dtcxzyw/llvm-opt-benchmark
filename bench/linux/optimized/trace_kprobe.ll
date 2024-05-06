@@ -1045,7 +1045,7 @@ define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr n
   %375 = zext nneg i8 %374 to i32
   %376 = and i32 %372, 255
   %377 = lshr i32 %376, %375
-  %378 = trunc i32 %377 to i8
+  %378 = trunc nuw i32 %377 to i8
   store i8 %378, ptr %161, align 1
   br label %thread-pre-split
 
@@ -1061,7 +1061,7 @@ define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr n
   %387 = zext nneg i8 %386 to i32
   %388 = and i32 %384, 65535
   %389 = lshr i32 %388, %387
-  %390 = trunc i32 %389 to i16
+  %390 = trunc nuw i32 %389 to i16
   store i16 %390, ptr %161, align 2
   br label %thread-pre-split
 
@@ -1799,7 +1799,7 @@ define internal void @kretprobe_perf_func(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bpf_get_kprobe_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5, i1 noundef zeroext %6) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_get_kprobe_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5, i1 noundef zeroext %6) local_unnamed_addr #1 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 992
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 96
@@ -2592,7 +2592,7 @@ define internal zeroext i1 @trace_kprobe_is_busy(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @trace_kprobe_release(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -16, 1) i32 @trace_kprobe_release(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
@@ -4296,7 +4296,7 @@ define internal fastcc i32 @enable_trace_kprobe(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @disable_trace_kprobe(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @disable_trace_kprobe(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 144
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3

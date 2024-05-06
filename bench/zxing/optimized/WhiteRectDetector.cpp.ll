@@ -109,7 +109,7 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
 
 44:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %33, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %45 = mul nsw i64 %indvars.iv.i, %31
+  %45 = mul nuw nsw i64 %indvars.iv.i, %31
   %46 = add nuw nsw i64 %45, %42
   %.not.i.i.i.i27.i = icmp ugt i64 %30, %46
   br i1 %.not.i.i.i.i27.i, label %_ZNK5ZXing9BitMatrix3getEii.exit28.i, label %47
@@ -258,7 +258,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %67
 
 90:                                               ; preds = %89, %.lr.ph.i229
   %indvars.iv.i230 = phi i64 [ %33, %.lr.ph.i229 ], [ %indvars.iv.next.i234, %89 ]
-  %91 = mul nsw i64 %indvars.iv.i230, %31
+  %91 = mul nuw nsw i64 %indvars.iv.i230, %31
   %92 = add nuw nsw i64 %91, %88
   %.not.i.i.i.i27.i231 = icmp ugt i64 %30, %92
   br i1 %.not.i.i.i.i27.i231, label %_ZNK5ZXing9BitMatrix3getEii.exit28.i232, label %93

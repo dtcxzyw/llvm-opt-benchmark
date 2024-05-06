@@ -255,7 +255,7 @@ define void @php_register_variable(ptr nocapture noundef readonly %0, ptr nocapt
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %5, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 1 %1, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr readonly align 1 %1, i64 %5, i1 false)
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %5
   store i8 0, ptr %15, align 1
   br label %php_register_variable_safe.exit
@@ -285,7 +285,7 @@ php_register_variable_safe.exit:                  ; preds = %7, %18, %20
   %28 = select i1 %.not.i, i32 262, i32 6
   %29 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %28, ptr %29, align 8
-  call void @php_register_variable_ex(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
+  call void @php_register_variable_ex(ptr noundef readonly %0, ptr noundef nonnull %4, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 }
@@ -1311,7 +1311,7 @@ define void @php_std_post_handler(ptr nocapture noundef readnone %0, ptr noundef
   %29 = load ptr, ptr %3, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   store i64 %.1, ptr %30, align 8
-  %31 = call fastcc i32 @add_post_vars(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext false), !range !4
+  %31 = call fastcc i32 @add_post_vars(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext false)
   %.not68 = icmp eq i32 %31, 0
   br i1 %.not68, label %43, label %32
 
@@ -1346,7 +1346,7 @@ define void @php_std_post_handler(ptr nocapture noundef readnone %0, ptr noundef
   br i1 %.not70, label %57, label %45
 
 45:                                               ; preds = %.thread
-  %46 = call fastcc i32 @add_post_vars(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true), !range !4
+  %46 = call fastcc i32 @add_post_vars(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true)
   %47 = load ptr, ptr %3, align 8
   %.not71 = icmp eq ptr %47, null
   br i1 %.not71, label %57, label %48
@@ -1386,7 +1386,7 @@ declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #5
 declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_post_vars(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1496,7 +1496,7 @@ add_post_var.exit.thread:                         ; preds = %22
   %66 = getelementptr inbounds i8, ptr %63, i64 16
   store i64 %58, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %63, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr align 1 %57, i64 %58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr readonly align 1 %57, i64 %58, i1 false)
   %68 = getelementptr inbounds [1 x i8], ptr %67, i64 0, i64 %58
   store i8 0, ptr %68, align 1
   br label %php_register_variable_safe.exit.i
@@ -1525,7 +1525,7 @@ php_register_variable_safe.exit.i:                ; preds = %73, %71, %60
   %.not.i.i = icmp eq i32 %80, 0
   %81 = select i1 %.not.i.i, i32 262, i32 6
   store i32 %81, ptr %20, align 8
-  call void @php_register_variable_ex(ptr noundef %56, ptr noundef nonnull %4, ptr noundef %0)
+  call void @php_register_variable_ex(ptr noundef readonly %56, ptr noundef nonnull %4, ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %84
 
@@ -1864,7 +1864,7 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
   %116 = getelementptr inbounds i8, ptr %113, i64 16
   store i64 %108, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %113, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %117, ptr align 1 %107, i64 %108, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %117, ptr readonly align 1 %107, i64 %108, i1 false)
   %118 = getelementptr inbounds [1 x i8], ptr %117, i64 0, i64 %108
   store i8 0, ptr %118, align 1
   br label %php_register_variable_safe.exit
@@ -1893,7 +1893,7 @@ php_register_variable_safe.exit:                  ; preds = %110, %121, %123
   %.not.i = icmp eq i32 %130, 0
   %131 = select i1 %.not.i, i32 262, i32 6
   store i32 %131, ptr %64, align 8
-  call void @php_register_variable_ex(ptr noundef nonnull %.2, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  call void @php_register_variable_ex(ptr noundef nonnull readonly %.2, ptr noundef nonnull %4, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %132
 
@@ -3235,4 +3235,3 @@ attributes #18 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

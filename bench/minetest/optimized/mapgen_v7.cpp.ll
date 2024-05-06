@@ -5736,7 +5736,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 declare void @_ZN8Settings10setDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK8FlagDescj(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8MapgenV720getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -32767, 32770) i32 @_ZN8MapgenV720getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
 entry:
   %p.sroa.4.0.extract.shift = lshr i32 %p.coerce, 16
   %0 = insertelement <2 x i32> poison, i32 %p.sroa.4.0.extract.shift, i64 0
@@ -6032,7 +6032,7 @@ entry:
   %blockseed = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %call32, ptr %blockseed, align 8, !tbaa !127
   %call33 = tail call noundef i32 @_ZN8MapgenV715generateTerrainEv(ptr noundef nonnull align 8 dereferenceable(576) %this), !range !128
-  %conv = trunc i32 %call33 to i16
+  %conv = trunc nsw i32 %call33 to i16
   %agg.tmp34.sroa.0.0.copyload = load i48, ptr %node_min, align 8, !tbaa.struct !126
   %agg.tmp36.sroa.0.0.copyload = load i48, ptr %node_max, align 2, !tbaa.struct !126
   tail call void @_ZN6Mapgen15updateHeightmapEN3irr4core8vector3dIsEES3_(ptr noundef nonnull align 8 dereferenceable(200) %this, i48 %agg.tmp34.sroa.0.0.copyload, i48 %agg.tmp36.sroa.0.0.copyload)
@@ -6239,7 +6239,7 @@ if.end137:                                        ; preds = %if.then121, %land.e
 declare noundef i32 @_ZN6Mapgen13getBlockSeed2EN3irr4core8vector3dIsEEi(i48, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8MapgenV715generateTerrainEv(ptr noundef nonnull readonly align 8 dereferenceable(576) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -31007, 32768) i32 @_ZN8MapgenV715generateTerrainEv(ptr noundef nonnull readonly align 8 dereferenceable(576) %this) local_unnamed_addr #5 align 2 {
 entry:
   %c_stone = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i16, ptr %c_stone, align 8, !tbaa !142

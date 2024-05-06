@@ -311,7 +311,7 @@ declare dso_local void @drm_gem_dmabuf_vunmap(ptr noundef, ptr noundef) #2
 declare dso_local i32 @drm_gem_map_attach(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtgpu_virtio_get_uuid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @virtgpu_virtio_get_uuid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8

@@ -30,7 +30,7 @@ define void @Acec_GenerateNpnTable() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0, %4
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = tail call i32 @Extra_TruthCanonNPN(i32 noundef %5, i32 noundef 3) #7
   %7 = getelementptr inbounds [256 x i32], ptr %1, i64 0, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
@@ -71,7 +71,7 @@ define void @Acec_GenerateNpnTable() local_unnamed_addr #0 {
   br i1 %exitcond21.not, label %._crit_edge.thread, label %19, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %19
-  %24 = trunc i64 %indvars.iv18 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv18 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
@@ -182,7 +182,7 @@ Vec_WrdStart.exit96:                              ; preds = %Vec_WrdStart.exit, 
   br i1 %.not100, label %34, label %30
 
 30:                                               ; preds = %26
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = tail call i64 @Gia_ObjComputeTruthTable6Lut(ptr noundef nonnull %0, i32 noundef %31, ptr noundef nonnull %16) #7
   %33 = getelementptr inbounds i64, ptr %.val83, i64 %indvars.iv
   store i64 %32, ptr %33, align 8
@@ -345,7 +345,7 @@ Vec_WrdFree.exit98:                               ; preds = %.critedge2, %.crite
 
 101:                                              ; preds = %100, %114
   %indvars.iv135 = phi i64 [ 0, %100 ], [ %indvars.iv.next136, %114 ]
-  %102 = trunc i64 %indvars.iv135 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv135 to i32
   %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %102)
   %104 = shl nuw nsw i64 %indvars.iv135, 4
   br label %105

@@ -26,7 +26,7 @@ declare i32 @OPENSSL_init_ssl(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %seq_num_out = alloca i64, align 8
   %arg_cid = alloca %struct.quic_conn_id_st, align 1
@@ -136,7 +136,7 @@ lor.lhs.false1.i:                                 ; preds = %PACKET_get_1.exit.i
   br i1 %cmp.i.i.i, label %err, label %if.end23
 
 if.end23:                                         ; preds = %lor.lhs.false1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id.i253, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %id.i253, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv.i, i1 false)
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
   %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
   store i8 %10, ptr %arg_cid, align 1
@@ -439,7 +439,7 @@ lor.lhs.false1.i249:                              ; preds = %PACKET_get_1.exit.i
   br i1 %cmp.i.i.i251, label %err, label %if.end62
 
 if.end62:                                         ; preds = %lor.lhs.false1.i249
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id.i253, ptr nonnull align 1 %add.ptr.i.i.i246, i64 %conv.i250, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %id.i253, ptr nonnull align 1 %add.ptr.i.i.i246, i64 %conv.i250, i1 false)
   %add.ptr.i.i5.i254 = getelementptr inbounds i8, ptr %add.ptr.i.i.i246, i64 %conv.i250
   %sub.i.i6.i255 = sub i64 %sub.i.i.i247, %conv.i250
   store i8 %65, ptr %arg_cid, align 1

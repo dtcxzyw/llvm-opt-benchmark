@@ -2084,7 +2084,7 @@ define internal i32 @dissect_diameter_3gpp_imsi_mnc_mcc(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_diameter_3gpp_sgsn_ipv6_address(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 17) i32 @dissect_diameter_3gpp_sgsn_ipv6_address(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %10, label %7

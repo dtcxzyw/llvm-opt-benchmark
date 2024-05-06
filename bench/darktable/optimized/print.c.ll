@@ -327,7 +327,7 @@ declare void @dt_control_set_mouse_over_id(i32 noundef) local_unnamed_addr #2
 declare i32 @dt_printing_get_image_box(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @try_enter(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @try_enter(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca [4096 x i8], align 16
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 288

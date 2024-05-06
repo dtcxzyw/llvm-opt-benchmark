@@ -331,14 +331,14 @@ $_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNS0_15_Move
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.1 = private unnamed_addr constant [45 x i8] c"OpenALSoundManager: Creating playing sound \22\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.3 = private unnamed_addr constant [26 x i8] c"before createPlayingSound\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.4 = private unnamed_addr constant [48 x i8] c"OpenALSoundManager::createPlayingSound: Sound \22\00", align 1
 @.str.5 = private unnamed_addr constant [15 x i8] c"\22 disappeared.\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.6 = private unnamed_addr constant [41 x i8] c"OpenALSoundManager::createPlayingSound: \00", align 1
 @.str.7 = private unnamed_addr constant [35 x i8] c"Creating positional stereo sound \22\00", align 1
 @.str.8 = private unnamed_addr constant [3 x i8] c"\22.\00", align 1
@@ -355,7 +355,7 @@ $_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNS0_15_Move
 @__PRETTY_FUNCTION__._ZN5sound18OpenALSoundManagerC2EPNS_21SoundManagerSingletonESt10unique_ptrI25SoundFallbackPathProviderSt14default_deleteIS4_EE = private unnamed_addr constant [115 x i8] c"sound::OpenALSoundManager::OpenALSoundManager(SoundManagerSingleton *, std::unique_ptr<SoundFallbackPathProvider>)\00", align 1
 @.str.18 = private unnamed_addr constant [28 x i8] c"Audio: Initialized: OpenAL \00", align 1
 @.str.19 = private unnamed_addr constant [25 x i8] c"Audio: Deinitializing...\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.20 = private unnamed_addr constant [29 x i8] c"OpenALSoundManager::step(): \00", align 1
 @.str.21 = private unnamed_addr constant [18 x i8] c" playing sounds, \00", align 1
 @.str.22 = private unnamed_addr constant [17 x i8] c" unopen sounds, \00", align 1

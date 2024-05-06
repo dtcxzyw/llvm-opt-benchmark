@@ -290,7 +290,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %18 = load i64, ptr %13, align 8, !alias.scope !85, !noalias !90, !noundef !9
   %19 = load ptr, ptr %12, align 8, !alias.scope !85, !noalias !90, !nonnull !9, !noundef !9
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %15, i64 %17, i1 false), !noalias !92
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %15, i64 %17, i1 false), !noalias !92
   %21 = load i64, ptr %13, align 8, !alias.scope !85, !noalias !90, !noundef !9
   %22 = add i64 %21, %17
   store i64 %22, ptr %13, align 8, !alias.scope !85, !noalias !90
@@ -747,7 +747,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.13608732564321174593"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.13608732564321174593"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8, !noundef !9
   %4 = load i64, ptr %1, align 8, !noundef !9
   %5 = icmp ult i64 %3, %4
@@ -764,7 +764,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17hc42045454bf49c04E.llvm.13608732
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17h92842889f2acb9dfE.llvm.13608732564321174593(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h92842889f2acb9dfE.llvm.13608732564321174593(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   %3 = load i64, ptr %0, align 8, !alias.scope !162, !noalias !165, !noundef !9

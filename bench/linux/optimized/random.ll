@@ -1972,7 +1972,7 @@ define internal i64 @random_write_iter(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @random_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 65, 261) i32 @random_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 
@@ -2002,7 +2002,7 @@ define internal i32 @random_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @random_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -9223372036854775808, 2147483648) i64 @random_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.iov_iter, align 8
   %5 = inttoptr i64 %2 to ptr
   switch i32 %1, label %.thread [

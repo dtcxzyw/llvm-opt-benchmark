@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @cpuinfo_init, ptr null }]
 
 ; Function Attrs: nounwind sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @cpuinfo_init() #0 {
+define dso_local range(i32 1, 0) i32 @cpuinfo_init() #0 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
   %tobool.not = icmp eq i32 %0, 0

@@ -1191,7 +1191,7 @@ BufferGetPage.exit:                               ; preds = %39, %45
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %96 = getelementptr inbounds i8, ptr %6, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %96, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %96, i8 0, i64 56, i1 false)
   %97 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %0, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %6, i64 88
@@ -1266,7 +1266,7 @@ define dso_local void @ginInsertItemPointers(ptr noundef %0, i32 noundef %1, ptr
   %6 = alloca %struct.GinBtreeData, align 8
   %7 = alloca %struct.GinBtreeDataLeafInsertData, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %8, i8 0, i64 56, i1 false)
   %9 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 88
@@ -1329,7 +1329,7 @@ declare void @ginInsertValue(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginScanBeginPostingTree(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1682,7 +1682,7 @@ define internal zeroext i16 @dataFindChildPtr(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dataBeginPlaceToPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) #0 {
+define internal range(i32 0, 3) i32 @dataBeginPlaceToPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) #0 {
   %9 = alloca %struct.ItemPointerData, align 2
   %10 = alloca [820 x %struct.PostingItem], align 16
   %11 = alloca i32, align 4
@@ -2387,7 +2387,7 @@ addItemsToLeaf.exit.i:                            ; preds = %.critedge.thread.i.
   br label %378
 
 369:                                              ; preds = %366
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %312, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %312, i64 6, i1 false)
   %.0107.val122142.i.i = load ptr, ptr %272, align 8
   %.not130143.i.i = icmp eq ptr %.0107.val122142.i.i, %79
   br i1 %.not130143.i.i, label %.loopexit.i.thread.i, label %.lr.ph145.i.i
@@ -2505,15 +2505,15 @@ leafRepackItems.exit.i:                           ; preds = %400, %381
   br i1 %408, label %.lr.ph27.i, label %._crit_edge.thread.i
 
 .lr.ph27.i:                                       ; preds = %.preheader13.i
-  %.val6.i154.i = load i16, ptr %15, align 2
-  %.val7.i155.i = load i16, ptr %267, align 2
-  %409 = zext i16 %.val6.i154.i to i64
-  %410 = zext i16 %.val7.i155.i to i64
+  %.val6.i155.i = load i16, ptr %15, align 2
+  %.val7.i156.i = load i16, ptr %267, align 2
+  %409 = zext i16 %.val6.i155.i to i64
+  %410 = zext i16 %.val7.i156.i to i64
   %411 = shl nuw i64 %409, 48
   %412 = shl nuw nsw i64 %410, 32
   %413 = or disjoint i64 %412, %411
-  %.val9.i156.i = load i16, ptr %268, align 2
-  %414 = zext i16 %.val9.i156.i to i64
+  %.val9.i157.i = load i16, ptr %268, align 2
+  %414 = zext i16 %.val9.i157.i to i64
   %415 = or disjoint i64 %413, %414
   %416 = zext nneg i32 %.1.i to i64
   br label %420
@@ -2528,17 +2528,17 @@ leafRepackItems.exit.i:                           ; preds = %400, %381
 420:                                              ; preds = %431, %.lr.ph27.i
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %431 ], [ 0, %.lr.ph27.i ]
   %421 = getelementptr %struct.ItemPointerData, ptr %47, i64 %indvars.iv47
-  %.val.i151.i = load i16, ptr %421, align 2
+  %.val.i152.i = load i16, ptr %421, align 2
   %422 = getelementptr i8, ptr %421, i64 2
-  %.val5.i152.i = load i16, ptr %422, align 2
-  %423 = zext i16 %.val.i151.i to i64
-  %424 = zext i16 %.val5.i152.i to i64
+  %.val5.i153.i = load i16, ptr %422, align 2
+  %423 = zext i16 %.val.i152.i to i64
+  %424 = zext i16 %.val5.i153.i to i64
   %425 = shl nuw i64 %423, 48
   %426 = shl nuw nsw i64 %424, 32
   %427 = or disjoint i64 %426, %425
   %428 = getelementptr i8, ptr %421, i64 4
-  %.val8.i153.i = load i16, ptr %428, align 2
-  %429 = zext i16 %.val8.i153.i to i64
+  %.val8.i154.i = load i16, ptr %428, align 2
+  %429 = zext i16 %.val8.i154.i to i64
   %430 = or disjoint i64 %427, %429
   %.not4.i = icmp ult i64 %430, %415
   br i1 %.not4.i, label %431, label %._crit_edge.i
@@ -2732,25 +2732,25 @@ leafRepackItems.exit.i:                           ; preds = %400, %381
   %527 = getelementptr i8, ptr %526, i64 24
   %528 = load ptr, ptr %.phi.trans.insert.i, align 8
   %529 = getelementptr i8, ptr %528, i64 8
-  %.val.i158.i = load ptr, ptr %529, align 8
+  %.val.i159.i = load ptr, ptr %529, align 8
   %.04756.i.i = load ptr, ptr %80, align 8
-  %.not57.i.i = icmp eq ptr %.04756.i.i, %.val.i158.i
-  br i1 %.not57.i.i, label %._crit_edge.i162.i, label %.lr.ph.preheader.i.i
+  %.not57.i.i = icmp eq ptr %.04756.i.i, %.val.i159.i
+  br i1 %.not57.i.i, label %._crit_edge.i163.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %517
   %530 = getelementptr i8, ptr %526, i64 32
-  br label %.lr.ph.i159.i
+  br label %.lr.ph.i160.i
 
-.lr.ph.i159.i:                                    ; preds = %545, %.lr.ph.preheader.i.i
+.lr.ph.i160.i:                                    ; preds = %545, %.lr.ph.preheader.i.i
   %.04760.i.i = phi ptr [ %.047.i.i, %545 ], [ %.04756.i.i, %.lr.ph.preheader.i.i ]
-  %.059.i.i = phi ptr [ %.1.i160.i, %545 ], [ %530, %.lr.ph.preheader.i.i ]
+  %.059.i.i = phi ptr [ %.1.i161.i, %545 ], [ %530, %.lr.ph.preheader.i.i ]
   %.04358.i.i = phi i32 [ %.144.i.i, %545 ], [ 0, %.lr.ph.preheader.i.i ]
   %531 = getelementptr inbounds i8, ptr %.04760.i.i, i64 16
   %532 = load i8, ptr %531, align 8
   %.not51.i.i = icmp eq i8 %532, 1
   br i1 %.not51.i.i, label %545, label %533
 
-533:                                              ; preds = %.lr.ph.i159.i
+533:                                              ; preds = %.lr.ph.i160.i
   %534 = getelementptr inbounds i8, ptr %.04760.i.i, i64 40
   %535 = load ptr, ptr %534, align 8
   %536 = getelementptr inbounds i8, ptr %535, i64 6
@@ -2765,20 +2765,20 @@ leafRepackItems.exit.i:                           ; preds = %400, %381
   %544 = add i32 %541, %.04358.i.i
   br label %545
 
-545:                                              ; preds = %533, %.lr.ph.i159.i
-  %.144.i.i = phi i32 [ %544, %533 ], [ %.04358.i.i, %.lr.ph.i159.i ]
-  %.1.i160.i = phi ptr [ %543, %533 ], [ %.059.i.i, %.lr.ph.i159.i ]
+545:                                              ; preds = %533, %.lr.ph.i160.i
+  %.144.i.i = phi i32 [ %544, %533 ], [ %.04358.i.i, %.lr.ph.i160.i ]
+  %.1.i161.i = phi ptr [ %543, %533 ], [ %.059.i.i, %.lr.ph.i160.i ]
   %.047.in.i.i = getelementptr i8, ptr %.04760.i.i, i64 8
   %.047.i.i = load ptr, ptr %.047.in.i.i, align 8
-  %.not.i161.i = icmp eq ptr %.047.i.i, %.val.i158.i
-  br i1 %.not.i161.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i159.i, !llvm.loop !26
+  %.not.i162.i = icmp eq ptr %.047.i.i, %.val.i159.i
+  br i1 %.not.i162.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i160.i, !llvm.loop !26
 
 ._crit_edge.loopexit.i.i:                         ; preds = %545
   %546 = trunc i32 %.144.i.i to i16
   %547 = add i16 %546, 32
-  br label %._crit_edge.i162.i
+  br label %._crit_edge.i163.i
 
-._crit_edge.i162.i:                               ; preds = %._crit_edge.loopexit.i.i, %517
+._crit_edge.i163.i:                               ; preds = %._crit_edge.loopexit.i.i, %517
   %.043.lcssa.i.i = phi i16 [ 32, %517 ], [ %547, %._crit_edge.loopexit.i.i ]
   %548 = getelementptr inbounds i8, ptr %526, i64 12
   store i16 %.043.lcssa.i.i, ptr %548, align 4
@@ -2786,10 +2786,10 @@ leafRepackItems.exit.i:                           ; preds = %400, %381
   %549 = getelementptr i8, ptr %525, i64 32
   br label %550
 
-550:                                              ; preds = %565, %._crit_edge.i162.i
-  %.148.i.i = phi ptr [ %.val.i158.i, %._crit_edge.i162.i ], [ %.148.val.i.i, %565 ]
-  %.045.i.i = phi i32 [ 0, %._crit_edge.i162.i ], [ %.146.i.i, %565 ]
-  %.2.i163.i = phi ptr [ %549, %._crit_edge.i162.i ], [ %.3.i164.i, %565 ]
+550:                                              ; preds = %565, %._crit_edge.i163.i
+  %.148.i.i = phi ptr [ %.val.i159.i, %._crit_edge.i163.i ], [ %.148.val.i.i, %565 ]
+  %.045.i.i = phi i32 [ 0, %._crit_edge.i163.i ], [ %.146.i.i, %565 ]
+  %.2.i164.i = phi ptr [ %549, %._crit_edge.i163.i ], [ %.3.i165.i, %565 ]
   %551 = getelementptr inbounds i8, ptr %.148.i.i, i64 16
   %552 = load i8, ptr %551, align 8
   %.not50.i.i = icmp eq i8 %552, 1
@@ -2805,14 +2805,14 @@ leafRepackItems.exit.i:                           ; preds = %400, %381
   %560 = and i32 %559, 131070
   %561 = add nuw nsw i32 %560, 8
   %562 = zext nneg i32 %561 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.2.i163.i, ptr noundef nonnull align 2 dereferenceable(1) %555, i64 %562, i1 false)
-  %563 = getelementptr i8, ptr %.2.i163.i, i64 %562
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.2.i164.i, ptr noundef nonnull align 2 dereferenceable(1) %555, i64 %562, i1 false)
+  %563 = getelementptr i8, ptr %.2.i164.i, i64 %562
   %564 = add i32 %561, %.045.i.i
   br label %565
 
 565:                                              ; preds = %553, %550
   %.146.i.i = phi i32 [ %564, %553 ], [ %.045.i.i, %550 ]
-  %.3.i164.i = phi ptr [ %563, %553 ], [ %.2.i163.i, %550 ]
+  %.3.i165.i = phi ptr [ %563, %553 ], [ %.2.i164.i, %550 ]
   %566 = getelementptr i8, ptr %.148.i.i, i64 8
   %.148.val.i.i = load ptr, ptr %566, align 8
   %.not54.i.i = icmp eq ptr %.148.val.i.i, %79
@@ -2938,7 +2938,7 @@ BufferGetPage.exit.i.i:                           ; preds = %607, %606
   %635 = mul nsw i64 %634, 10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 2 %631, i64 %635, i1 false)
   %636 = getelementptr [820 x %struct.PostingItem], ptr %10, i64 0, i64 %634
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %636, ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %636, ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
   %637 = zext i16 %610 to i64
   %638 = getelementptr [820 x %struct.PostingItem], ptr %10, i64 0, i64 %637
   %639 = getelementptr i8, ptr %631, i64 %635
@@ -3254,7 +3254,7 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
 GinDataPageAddPostingItem.exit.i:                 ; preds = %123, %116, %112
   %.pre-phi.i.i = phi i64 [ %.pre-phi, %116 ], [ %.pre19.i.i, %123 ], [ %.pre-phi, %112 ]
   %.0.i.i13 = phi ptr [ %120, %116 ], [ %120, %123 ], [ %115, %112 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i13, ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i13, ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
   %128 = add i16 %108, 1
   %129 = getelementptr i8, ptr %.0.i.i.i, i64 %.pre-phi.i.i
   %130 = getelementptr inbounds i8, ptr %129, i64 4
@@ -3298,7 +3298,7 @@ GinDataPageAddPostingItem.exit.i:                 ; preds = %123, %116, %112
 
 156:                                              ; preds = %152
   store i16 %96, ptr @dataExecPlaceToPageInternal.data, align 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (%struct.ginxlogInsertDataInternal, ptr @dataExecPlaceToPageInternal.data, i64 0, i32 1), ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (%struct.ginxlogInsertDataInternal, ptr @dataExecPlaceToPageInternal.data, i64 0, i32 1), ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
   tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #12
   tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull @dataExecPlaceToPageInternal.data, i32 noundef 12) #12
   br label %dataExecPlaceToPageLeaf.exit

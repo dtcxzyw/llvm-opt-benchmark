@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_list_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @opal_hwloc_base_register(i32 %0) #0 {
+define internal range(i32 -2147483648, 1) i32 @opal_hwloc_base_register(i32 %0) #0 {
   %2 = alloca ptr, align 8
   store i32 1, ptr @opal_hwloc_base_mbfa, align 4
   %3 = call i32 @mca_base_var_enum_create(ptr noundef nonnull @.str.5, ptr noundef nonnull @hwloc_failure_action, ptr noundef nonnull %2) #6
@@ -101,7 +101,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @opal_hwloc_base_open(i32 noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @opal_hwloc_base_open(i32 noundef %0) #0 {
   %2 = load i8, ptr @opal_hwloc_base_inited, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %6, label %4
@@ -150,7 +150,7 @@ define internal i32 @opal_hwloc_base_close() #0 {
   br i1 %12, label %free_topology.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0) #7
+  %14 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %9, i32 noundef 0, i32 noundef 0) #7
   %15 = getelementptr inbounds i8, ptr %14, i64 232
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null

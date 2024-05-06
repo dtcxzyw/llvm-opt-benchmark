@@ -2016,7 +2016,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit:        ; preds = %48, %49, %54
   %.0.i5.i49 = phi ptr [ %.0.i4.i, %44 ], [ null, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.i ]
   %.234 = phi ptr [ %47, %44 ], [ %.13363, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.i ]
   %.2 = phi ptr [ %46, %44 ], [ %.166, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.i ]
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw nsw i64 %indvars.iv to i32
   %60 = invoke noundef i32 @_ZNK5Ipopt19CompoundMatrixSpace12GetBlockColsEi(ptr noundef nonnull align 8 dereferenceable(129) %8, i32 noundef %59)
           to label %61 unwind label %48
 
@@ -2052,7 +2052,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit38:      ; preds = %61, %63, %68
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit38, %.preheader
   %.133.lcssa = phi ptr [ %.03268, %.preheader ], [ %.234, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit38 ]
   %.1.lcssa = phi ptr [ %.071, %.preheader ], [ %.2, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit38 ]
-  %77 = trunc i64 %indvars.iv77 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv77 to i32
   %78 = tail call noundef i32 @_ZNK5Ipopt19CompoundMatrixSpace12GetBlockRowsEi(ptr noundef nonnull align 8 dereferenceable(129) %8, i32 noundef %77)
   %79 = add nsw i32 %78, %.03169
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -2182,7 +2182,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit:        ; preds = %42, %43, %48
   %.0.i5.i49 = phi ptr [ %.0.i4.i, %38 ], [ null, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit.i ]
   %.234 = phi ptr [ %41, %38 ], [ %.13363, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit.i ]
   %.2 = phi ptr [ %40, %38 ], [ %.166, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit.i ]
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = invoke noundef i32 @_ZNK5Ipopt22CompoundSymMatrixSpace11GetBlockDimEi(ptr noundef nonnull align 8 dereferenceable(97) %8, i32 noundef %53)
           to label %55 unwind label %42
 
@@ -2212,7 +2212,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit38:      ; preds = %55, %57, %62
   br i1 %exitcond.not, label %66, label %21, !llvm.loop !67
 
 66:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit38
-  %67 = trunc i64 %indvars.iv79 to i32
+  %67 = trunc nuw nsw i64 %indvars.iv79 to i32
   %68 = tail call noundef i32 @_ZNK5Ipopt22CompoundSymMatrixSpace11GetBlockDimEi(ptr noundef nonnull align 8 dereferenceable(97) %8, i32 noundef %67)
   %69 = add nsw i32 %68, %.03168
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1

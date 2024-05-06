@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [45 x i8] c"RSA_X931_generate_key_ex(rsa, 1024, e, NULL)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_get_libctx(ptr noundef nonnull @libctx, ptr noundef nonnull @prov_null, ptr noundef null, ptr noundef null, ptr noundef null) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -34,7 +34,7 @@ declare i32 @test_get_libctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rsa_x931_keygen() #0 {
+define internal range(i32 0, 2) i32 @test_rsa_x931_keygen() #0 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr @ossl_rsa_new_with_ctx(ptr noundef %0) #2

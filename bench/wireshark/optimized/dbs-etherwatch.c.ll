@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dbs_etherwatch_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dbs_etherwatch_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @dbs_etherwatch_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %4, i64 239
@@ -125,7 +125,7 @@ define hidden i32 @dbs_etherwatch_open(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dbs_etherwatch_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @dbs_etherwatch_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 @file_getc(ptr noundef %7) #10
   %.not17.i = icmp eq i32 %8, -1
@@ -179,7 +179,7 @@ dbs_etherwatch_seek_next_packet.exit:             ; preds = %18
   %32 = add nuw nsw i64 %20, 1
   store i64 %32, ptr %5, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = tail call fastcc i32 @parse_dbs_etherwatch_packet(ptr noundef %33, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !8
+  %34 = tail call fastcc i32 @parse_dbs_etherwatch_packet(ptr noundef %33, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %dbs_etherwatch_seek_next_packet.exit.thread
 
 dbs_etherwatch_seek_next_packet.exit.thread:      ; preds = %._crit_edge.i, %22, %dbs_etherwatch_seek_next_packet.exit, %31
@@ -188,7 +188,7 @@ dbs_etherwatch_seek_next_packet.exit.thread:      ; preds = %._crit_edge.i, %22,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dbs_etherwatch_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @dbs_etherwatch_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %1, -1
@@ -198,7 +198,7 @@ define internal noundef i32 @dbs_etherwatch_seek_read(ptr nocapture noundef read
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %7, align 8
-  %14 = tail call fastcc i32 @parse_dbs_etherwatch_packet(ptr noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !8
+  %14 = tail call fastcc i32 @parse_dbs_etherwatch_packet(ptr noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %15
 
 15:                                               ; preds = %6, %12
@@ -228,7 +228,7 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_dbs_etherwatch_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_dbs_etherwatch_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [240 x i8], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -276,7 +276,7 @@ define internal fastcc noundef i32 @parse_dbs_etherwatch_packet(ptr noundef %0, 
 .loopexit.i:                                      ; preds = %69
   %28 = add i32 %.044.i, 1
   %.not.i = icmp eq i8 %72, 32
-  br i1 %.not.i, label %parse_hex_dump.exit, label %29, !llvm.loop !9
+  br i1 %.not.i, label %parse_hex_dump.exit, label %29, !llvm.loop !8
 
 29:                                               ; preds = %.loopexit.i, %.lr.ph.i
   %30 = phi i8 [ %26, %.lr.ph.i ], [ %72, %.loopexit.i ]
@@ -353,7 +353,7 @@ define internal fastcc noundef i32 @parse_dbs_etherwatch_packet(ptr noundef %0, 
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %72, 45
   %74 = add i32 %.1.i, 1
-  br i1 %73, label %69, label %.loopexit.i, !llvm.loop !10
+  br i1 %73, label %69, label %.loopexit.i, !llvm.loop !9
 
 parse_hex_dump.exit:                              ; preds = %.loopexit.i
   %.not124 = icmp eq i32 %28, 6
@@ -374,7 +374,7 @@ parse_hex_dump.exit.thread:                       ; preds = %36, %29, %24, %pars
   %80 = and i16 %79, 1024
   %.not125 = icmp eq i16 %80, 0
   %81 = getelementptr i8, ptr %.0117, i64 1
-  br i1 %.not125, label %.preheader, label %82, !llvm.loop !11
+  br i1 %.not125, label %.preheader, label %82, !llvm.loop !10
 
 82:                                               ; preds = %.preheader
   %83 = getelementptr i8, ptr %14, i64 6
@@ -384,7 +384,7 @@ parse_hex_dump.exit.thread:                       ; preds = %36, %29, %24, %pars
 .loopexit.i152:                                   ; preds = %121
   %84 = add i32 %.044.i143, 1
   %.not.i153 = icmp eq i8 %124, 32
-  br i1 %.not.i153, label %parse_hex_dump.exit155, label %.lr.ph.i142, !llvm.loop !9
+  br i1 %.not.i153, label %parse_hex_dump.exit155, label %.lr.ph.i142, !llvm.loop !8
 
 .lr.ph.i142:                                      ; preds = %82, %.loopexit.i152
   %85 = phi i8 [ %124, %.loopexit.i152 ], [ %76, %82 ]
@@ -458,7 +458,7 @@ parse_hex_dump.exit.thread:                       ; preds = %36, %29, %24, %pars
   %124 = load i8, ptr %123, align 1
   %125 = icmp eq i8 %124, 45
   %126 = add i32 %.1.i151, 1
-  br i1 %125, label %121, label %.loopexit.i152, !llvm.loop !10
+  br i1 %125, label %121, label %.loopexit.i152, !llvm.loop !9
 
 parse_hex_dump.exit155:                           ; preds = %.loopexit.i152
   %.not126 = icmp eq i32 %84, 6
@@ -716,7 +716,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   %251 = add i32 %247, %.0116
   %252 = load i32, ptr %7, align 4
   %253 = icmp sgt i32 %251, %252
-  br i1 %253, label %254, label %234, !llvm.loop !12
+  br i1 %253, label %254, label %234, !llvm.loop !11
 
 254:                                              ; preds = %250
   store i32 -13, ptr %3, align 4
@@ -756,7 +756,7 @@ define internal fastcc i32 @parse_hex_dump(ptr nocapture noundef readonly %0, pt
 .loopexit:                                        ; preds = %50
   %7 = add i32 %.044, 1
   %.not = icmp eq i8 %53, %3
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !8
 
 8:                                                ; preds = %.lr.ph, %.loopexit
   %9 = phi i8 [ %5, %.lr.ph ], [ %53, %.loopexit ]
@@ -835,7 +835,7 @@ define internal fastcc i32 @parse_hex_dump(ptr nocapture noundef readonly %0, pt
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, %2
   %55 = add i32 %.1, 1
-  br i1 %54, label %50, label %.loopexit, !llvm.loop !10
+  br i1 %54, label %50, label %.loopexit, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %15, %8, %.loopexit, %4
   %.036 = phi i32 [ 0, %4 ], [ %7, %.loopexit ], [ 0, %8 ], [ 0, %15 ]
@@ -857,7 +857,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr nocapture noundef rea
   br label %5
 
 4:                                                ; preds = %5
-  br i1 %6, label %5, label %10, !llvm.loop !13
+  br i1 %6, label %5, label %10, !llvm.loop !12
 
 5:                                                ; preds = %3, %4
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
@@ -877,7 +877,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr nocapture noundef rea
 14:                                               ; preds = %.lr.ph
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63, 21
-  br i1 %exitcond.not, label %.preheader43, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader43, label %.lr.ph, !llvm.loop !13
 
 .preheader43:                                     ; preds = %14, %10
   %15 = load ptr, ptr @g_ascii_table, align 8
@@ -923,7 +923,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr nocapture noundef rea
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %37 = add nuw nsw i32 %.253, 1
   %exitcond68.not = icmp eq i32 %37, 5
-  br i1 %exitcond68.not, label %38, label %21, !llvm.loop !15
+  br i1 %exitcond68.not, label %38, label %21, !llvm.loop !14
 
 38:                                               ; preds = %36
   %.not = icmp eq i32 %.1, %2
@@ -941,7 +941,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr nocapture noundef rea
 
 42:                                               ; preds = %.preheader
   %43 = add i32 %.236, 1
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader, !llvm.loop !15
 
 44:                                               ; preds = %.preheader
   %45 = add i32 %.236, 1
@@ -954,7 +954,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr nocapture noundef rea
 .loopexit.i:                                      ; preds = %89
   %49 = add i32 %.044.i, 1
   %.not.i = icmp eq i8 %92, 93
-  br i1 %.not.i, label %parse_hex_dump.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %parse_hex_dump.exit, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %44, %.loopexit.i
   %50 = phi i8 [ %92, %.loopexit.i ], [ %48, %44 ]
@@ -1031,7 +1031,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr nocapture noundef rea
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %92, 32
   %94 = add i32 %.1.i, 1
-  br i1 %93, label %89, label %.loopexit.i, !llvm.loop !10
+  br i1 %93, label %89, label %.loopexit.i, !llvm.loop !9
 
 parse_hex_dump.exit:                              ; preds = %5, %.lr.ph, %29, %.preheader, %56, %.lr.ph.i, %.loopexit.i, %44, %38
   %.037 = phi i32 [ 0, %38 ], [ 0, %44 ], [ 0, %56 ], [ 0, %.lr.ph.i ], [ %49, %.loopexit.i ], [ 0, %.preheader ], [ 0, %29 ], [ 0, %.lr.ph ], [ 0, %5 ]
@@ -1076,7 +1076,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -1084,4 +1084,3 @@ attributes #12 = { nounwind willreturn memory(none) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

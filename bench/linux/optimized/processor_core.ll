@@ -415,7 +415,7 @@ thread-pre-split:                                 ; preds = %3, %9, %14, %17, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i32 @acpi_map_cpuid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -22, 64) i32 @acpi_map_cpuid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = icmp eq i32 %0, -1
   br i1 %3, label %6, label %4
 
@@ -466,7 +466,7 @@ define dso_local i32 @acpi_map_cpuid(i32 noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_get_cpuid(ptr noundef %0, i32 noundef %1, i32 noundef %2) #4 align 16 {
+define dso_local range(i32 -22, 64) i32 @acpi_get_cpuid(ptr noundef %0, i32 noundef %1, i32 noundef %2) #4 align 16 {
   %4 = tail call i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %8, label %6
@@ -518,7 +518,7 @@ define dso_local i32 @acpi_get_cpuid(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_get_ioapic_id(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -1, 256) i32 @acpi_get_ioapic_id(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   store i64 -1, ptr %4, align 8

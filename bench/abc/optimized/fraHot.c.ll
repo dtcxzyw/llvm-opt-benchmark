@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [70 x i8] c"Fra_OneHotAddKnownConstraint(): Adding clause makes SAT solver unsat.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Fra_OneHotNodeIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_OneHotNodeIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -55,7 +55,7 @@ define noundef i32 @Fra_OneHotNodeIsConst(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Fra_OneHotNodesAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_OneHotNodesAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -99,7 +99,7 @@ define noundef i32 @Fra_OneHotNodesAreEqual(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Fra_OneHotNodesAreClause(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_OneHotNodesAreClause(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -290,7 +290,7 @@ Fra_OneHotNodeIsConst.exit.preheader:             ; preds = %.lr.ph.i
   br i1 %41, label %.lr.ph.split.preheader, label %.critedge2
 
 .lr.ph.split.preheader:                           ; preds = %Fra_OneHotNodeIsConst.exit.preheader
-  %42 = trunc i64 %indvars.iv166 to i32
+  %42 = trunc nsw i64 %indvars.iv166 to i32
   %43 = xor i32 %42, -1
   %44 = add i32 %6, %43
   %reass.sub156 = sub i32 %42, %6
@@ -700,7 +700,7 @@ Vec_IntPush.exit121:                              ; preds = %.Vec_IntGrow.exit10
   %218 = sext i32 %193 to i64
   %219 = getelementptr inbounds i32, ptr %216, i64 %218
   store i32 %44, ptr %219, align 4
-  %220 = trunc i64 %indvars.iv163 to i32
+  %220 = trunc nsw i64 %indvars.iv163 to i32
   %reass.sub157 = sub i32 %220, %6
   %221 = add i32 %reass.sub157, 1
   %222 = load i32, ptr %8, align 4
@@ -777,7 +777,7 @@ Fra_OneHotNodesAreClause.exit114:                 ; preds = %59, %66, %.lr.ph44.
   %.val64 = load i32, ptr %251, align 4
   %252 = sext i32 %.val64 to i64
   %253 = icmp slt i64 %indvars.iv.next164, %252
-  %254 = trunc i64 %indvars.iv163 to i32
+  %254 = trunc nsw i64 %indvars.iv163 to i32
   br i1 %253, label %.lr.ph.split, label %.critedge2, !llvm.loop !10
 
 .critedge2:                                       ; preds = %36, %Fra_OneHotNodesAreClause.exit114, %Fra_OneHotNodeIsConst.exit.preheader, %.lr.ph155.split
@@ -894,7 +894,7 @@ define void @Fra_OneHotAssume(ptr nocapture noundef %0, ptr nocapture noundef re
 61:                                               ; preds = %._crit_edge, %15
   %.val25 = phi i32 [ %.val25.pre, %._crit_edge ], [ %.val2538, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %62 = trunc i64 %indvars.iv.next to i32
+  %62 = trunc nuw i64 %indvars.iv.next to i32
   %63 = icmp sgt i32 %.val25, %62
   br i1 %63, label %15, label %.loopexit, !llvm.loop !13
 
@@ -994,7 +994,7 @@ define void @Fra_OneHotCheck(ptr noundef %0, ptr nocapture noundef readonly %1) 
 50:                                               ; preds = %20, %49, %46, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val30 = load i32, ptr %8, align 4
-  %51 = trunc i64 %indvars.iv.next to i32
+  %51 = trunc nuw i64 %indvars.iv.next to i32
   %52 = icmp sgt i32 %.val30, %51
   br i1 %52, label %12, label %._crit_edge, !llvm.loop !14
 
@@ -1007,7 +1007,7 @@ declare i32 @Fra_NodesAreClause(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare void @Fra_SmlResimulate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 136
@@ -1495,7 +1495,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1514,7 +1514,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1616,7 +1616,7 @@ define ptr @Fra_OneHotCreateExdc(ptr nocapture noundef readonly %0, ptr nocaptur
 61:                                               ; preds = %25, %33
   %.val38 = phi i32 [ %.val3852, %25 ], [ %.val38.pre, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %62 = trunc i64 %indvars.iv.next to i32
+  %62 = trunc nuw i64 %indvars.iv.next to i32
   %63 = icmp sgt i32 %.val38, %62
   br i1 %63, label %25, label %._crit_edge, !llvm.loop !26
 
@@ -1696,7 +1696,7 @@ define void @Fra_OneHotAddKnownConstraint(ptr nocapture noundef %0, ptr nocaptur
 24:                                               ; preds = %27
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %.val31 = load i32, ptr %14, align 4
-  %25 = trunc i64 %indvars.iv.next50 to i32
+  %25 = trunc nuw i64 %indvars.iv.next50 to i32
   %26 = icmp sgt i32 %.val31, %25
   br i1 %26, label %27, label %.critedge4.loopexit.loopexit, !llvm.loop !28
 
@@ -1782,19 +1782,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
@@ -1819,8 +1819,8 @@ attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

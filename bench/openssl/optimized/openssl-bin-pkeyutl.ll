@@ -128,7 +128,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.115 = private unnamed_addr constant [30 x i8] c"Error signing raw input data\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pkeyutl_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pkeyutl_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %pkey = alloca ptr, align 8
   %buf_in = alloca ptr, align 8
@@ -492,7 +492,7 @@ if.end159:                                        ; preds = %if.end152
 
 land.lhs.true162:                                 ; preds = %if.end159
   %9 = load i32, ptr %peerform, align 4
-  %call163 = call fastcc i32 @setup_peer(ptr noundef nonnull %phi.call, i32 noundef %9, ptr noundef nonnull %peerkey.0, ptr noundef %e.0), !range !7
+  %call163 = call fastcc i32 @setup_peer(ptr noundef nonnull %phi.call, i32 noundef %9, ptr noundef nonnull %peerkey.0, ptr noundef %e.0)
   %tobool164.not = icmp eq i32 %call163, 0
   br i1 %tobool164.not, label %if.then165, label %if.end167
 
@@ -513,7 +513,7 @@ if.then170:                                       ; preds = %if.end167
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.0276, 1
   %exitcond.not = icmp eq i32 %inc, %call172
-  br i1 %exitcond.not, label %if.end183, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %if.end183, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %if.then170, %for.cond
   %i.0276 = phi i32 [ %inc, %for.cond ], [ 0, %if.then170 ]
@@ -605,7 +605,7 @@ if.end237:                                        ; preds = %if.end231
   call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.89, i32 noundef 374) #5
   %inc239 = add nuw nsw i32 %i190.0278, 1
   %exitcond393.not = icmp eq i32 %inc239, %call189
-  br i1 %exitcond393.not, label %if.end241, label %for.body194, !llvm.loop !9
+  br i1 %exitcond393.not, label %if.end241, label %for.body194, !llvm.loop !8
 
 if.end241:                                        ; preds = %if.end237, %if.then186, %if.end183
   %cmp242 = icmp ne ptr %sigfile.0, null
@@ -727,7 +727,7 @@ for.body321:                                      ; preds = %if.then315, %for.bo
   store i8 %26, ptr %arrayidx327, align 1
   %inc329 = add nuw nsw i64 %i316.0280, 1
   %exitcond394.not = icmp eq i64 %inc329, %div134
-  br i1 %exitcond394.not, label %if.end332, label %for.body321, !llvm.loop !10
+  br i1 %exitcond394.not, label %if.end332, label %for.body321, !llvm.loop !9
 
 if.end332:                                        ; preds = %for.body321, %if.end313
   %cmp335 = icmp sgt i32 %call308, 64
@@ -1141,7 +1141,7 @@ end:                                              ; preds = %if.end79, %if.then8
 declare ptr @app_get0_propq() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_peer(ptr noundef %ctx, i32 noundef %peerform, ptr noundef %file, ptr noundef %e) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @setup_peer(ptr noundef %ctx, i32 noundef %peerform, ptr noundef %file, ptr noundef %e) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %peerform, 8
   %spec.select = select i1 %cmp, ptr %e, ptr null
@@ -1502,7 +1502,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

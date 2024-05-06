@@ -322,7 +322,7 @@ define internal i32 @compat_drm_getclient(ptr noundef %0, i32 %1, i64 noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @compat_drm_getstats(ptr nocapture readnone %0, i32 %1, i64 noundef %2) #0 align 16 {
+define internal range(i32 -14, 1) i32 @compat_drm_getstats(ptr nocapture readnone %0, i32 %1, i64 noundef %2) #0 align 16 {
   %4 = inttoptr i64 %2 to ptr
   %5 = icmp sgt ptr %4, inttoptr (i64 -1 to ptr)
   br i1 %5, label %6, label %13

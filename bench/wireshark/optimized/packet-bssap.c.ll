@@ -497,7 +497,7 @@ declare i32 @proto_register_protocol_in_name_only(ptr noundef, ptr noundef, ptr 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bssap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 1, 768) i32 @dissect_bssap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.143) #2
@@ -528,12 +528,12 @@ define internal i32 @dissect_bssap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
   tail call void @p_add_proto_data(ptr noundef %21, ptr noundef nonnull %1, i32 noundef %22, i32 noundef 0, ptr noundef %19) #2
-  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3), !range !4
+  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
   ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 1, 768) i32 @dissect_bsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.146) #2
@@ -564,12 +564,12 @@ define internal i32 @dissect_bsap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
   tail call void @p_add_proto_data(ptr noundef %21, ptr noundef nonnull %1, i32 noundef %22, i32 noundef 0, ptr noundef %19) #2
-  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3), !range !4
+  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
   ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bssap_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 1, 768) i32 @dissect_bssap_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.147) #2
@@ -600,7 +600,7 @@ define internal i32 @dissect_bssap_le(ptr noundef %0, ptr noundef %1, ptr nounde
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
   tail call void @p_add_proto_data(ptr noundef %21, ptr noundef nonnull %1, i32 noundef %22, i32 noundef 0, ptr noundef %19) #2
-  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3), !range !4
+  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
   ret i32 %23
 }
 
@@ -2689,7 +2689,7 @@ define hidden void @proto_reg_handoff_bssap() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bssap_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_bssap_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   switch i8 %5, label %29 [
     i8 0, label %6
@@ -2731,15 +2731,15 @@ define internal noundef i32 @dissect_bssap_heur(ptr noundef %0, ptr noundef %1, 
   ]
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @dissect_bssap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !4
+  %24 = tail call i32 @dissect_bssap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %29
 
 25:                                               ; preds = %21
-  %26 = tail call i32 @dissect_bsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !4
+  %26 = tail call i32 @dissect_bsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %29
 
 27:                                               ; preds = %21
-  %28 = tail call i32 @dissect_bssap_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !4
+  %28 = tail call i32 @dissect_bssap_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %29
 
 29:                                               ; preds = %21, %23, %25, %27, %4, %16, %14, %6
@@ -2766,7 +2766,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 1, 768) i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_bssap, align 4
@@ -2795,13 +2795,13 @@ define internal fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1
   %24 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %22, ptr noundef %20, i32 noundef 0, i32 noundef 1, i32 noundef %23) #2
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %26 = zext i8 %25 to i16
-  %27 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 2, i16 noundef zeroext %26, ptr noundef %4), !range !5
+  %27 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 2, i16 noundef zeroext %26, ptr noundef %4)
   %28 = zext i8 %25 to i32
   %29 = add nuw nsw i32 %28, 3
   br label %52
 
 30:                                               ; preds = %5
-  %31 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, i32 noundef 1, i16 noundef zeroext 1, ptr noundef %4), !range !5
+  %31 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, i32 noundef 1, i16 noundef zeroext 1, ptr noundef %4)
   %32 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1) #2
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %32, i32 noundef 0) #2
   %34 = load i32, ptr @hf_bssap_length, align 4
@@ -2809,7 +2809,7 @@ define internal fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1
   %36 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %34, ptr noundef %32, i32 noundef 0, i32 noundef 1, i32 noundef %35) #2
   %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
   %38 = zext i8 %37 to i16
-  %39 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 3, i16 noundef zeroext %38, ptr noundef %4), !range !5
+  %39 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 3, i16 noundef zeroext %38, ptr noundef %4)
   %narrow53 = add nuw nsw i16 %38, 4
   %40 = zext nneg i16 %narrow53 to i32
   br label %52
@@ -2841,7 +2841,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, i16 noundef returned zeroext %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 256) i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, i16 noundef returned zeroext %6, ptr noundef %7) unnamed_addr #0 {
   %9 = zext nneg i16 %6 to i32
   %10 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %5, i32 noundef %9) #2
   switch i8 %4, label %default.unreachable [
@@ -3375,5 +3375,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 1, i32 768}
-!5 = !{i16 0, i16 256}

@@ -100,7 +100,7 @@ exit:                                             ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_posixshmem_shm_unlink(ptr nocapture readnone %module, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal noundef ptr @_posixshmem_shm_unlink(ptr nocapture readnone %module, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %path = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwargs, ptr noundef nonnull @.str.8, ptr noundef nonnull @_posixshmem_shm_unlink._keywords, ptr noundef nonnull %path) #3

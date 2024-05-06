@@ -200,7 +200,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @block_latency_histogram_set(ptr nocapture noundef %stats, i32 noundef %type, ptr noundef readonly %boundaries) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @block_latency_histogram_set(ptr nocapture noundef %stats, i32 noundef %type, ptr noundef readonly %boundaries) local_unnamed_addr #0 {
 entry:
   %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
   %idxprom = zext i32 %type to i64
@@ -577,7 +577,7 @@ declare void @timed_average_account(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @block_latency_histogram_compare_func(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %it) #6 {
+define internal range(i32 -1, 2) i32 @block_latency_histogram_compare_func(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %it) #6 {
 entry:
   %0 = load i64, ptr %key, align 8
   %1 = load i64, ptr %it, align 8

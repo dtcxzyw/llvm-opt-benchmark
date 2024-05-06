@@ -1030,7 +1030,7 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
   %216 = load i8, ptr %9, align 1
   %217 = zext i8 %216 to i32
   %218 = sub nsw i32 %215, %217
-  %219 = trunc i32 %218 to i16
+  %219 = trunc nsw i32 %218 to i16
   %220 = add i32 %.4, %217
   br label %proto_item_set_generated.exit404
 
@@ -1345,7 +1345,7 @@ dissect_rohc_feedback_data.exit:                  ; preds = %251, %265, %268, %2
   %.0307469 = phi i16 [ %151, %149 ], [ 0, %.thread ]
   %.3467 = phi i32 [ %157, %149 ], [ %.2, %.thread ]
   %.2315464 = phi i8 [ %158, %149 ], [ %.1314, %.thread ]
-  %392 = trunc i32 %391 to i8
+  %392 = trunc nuw i32 %391 to i8
   %trunc = and i8 %392, -2
   switch i8 %trunc, label %632 [
     i8 -2, label %393

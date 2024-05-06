@@ -6603,11 +6603,11 @@ _ZN5QListISt4pairIiiEE5clearEv.exit:              ; preds = %2, %_ZN17QArrayData
   %29 = icmp sgt i32 %28, -1
   %30 = load i32, ptr %26, align 4
   %31 = icmp sgt i32 %30, -1
-  %or.cond.i35 = select i1 %29, i1 %31, i1 false
+  %or.cond.i36 = select i1 %29, i1 %31, i1 false
   %32 = load ptr, ptr %27, align 8
   %33 = icmp ne ptr %32, null
-  %or.cond36 = select i1 %or.cond.i35, i1 %33, i1 false
-  br i1 %or.cond36, label %.lr.ph, label %_ZNK11QModelIndex7isValidEv.exit.thread
+  %or.cond37 = select i1 %or.cond.i36, i1 %33, i1 false
+  br i1 %or.cond37, label %.lr.ph, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 .lr.ph:                                           ; preds = %_ZN5QListISt4pairIiiEE5clearEv.exit
   %34 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6650,25 +6650,25 @@ _ZN5QListISt4pairIiiEE5clearEv.exit:              ; preds = %2, %_ZN17QArrayData
   br i1 %.not.i.i9, label %._ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i_crit_edge, label %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.i10
 
 ._ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i_crit_edge: ; preds = %50
-  %.pre37 = load i64, ptr %9, align 8
+  %.pre38 = load i64, ptr %9, align 8
   br label %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i
 
 _ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.i10: ; preds = %50
   %53 = load atomic i32, ptr %52 monotonic, align 4
   %54 = icmp sgt i32 %53, 1
-  %.pre38 = load i64, ptr %9, align 8
+  %.pre39 = load i64, ptr %9, align 8
   br i1 %54, label %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i, label %55
 
 55:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.i10
-  %56 = icmp eq i64 %.pre38, 0
+  %56 = icmp eq i64 %.pre39, 0
   %.pre = load ptr, ptr %36, align 8
   br i1 %56, label %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55
-  %.pre39 = ptrtoint ptr %52 to i64
-  %.pre40 = add i64 %.pre39, 23
-  %.pre42 = and i64 %.pre40, -8
-  %.pre44 = ptrtoint ptr %.pre to i64
+  %.pre40 = ptrtoint ptr %52 to i64
+  %.pre41 = add i64 %.pre40, 23
+  %.pre43 = and i64 %.pre41, -8
+  %.pre45 = ptrtoint ptr %.pre to i64
   br label %68
 
 _ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i: ; preds = %55
@@ -6680,24 +6680,24 @@ _ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i: ; preds = %55
   %62 = ptrtoint ptr %.pre to i64
   %63 = sub i64 %62, %61
   %64 = ashr exact i64 %63, 3
-  %.not.i11 = icmp eq i64 %58, %64
-  br i1 %.not.i11, label %68, label %65
+  %.not.i12 = icmp eq i64 %58, %64
+  br i1 %.not.i12, label %68, label %65
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i
-  %.sroa.4.0.insert.ext27 = zext i32 %51 to i64
-  %.sroa.4.0.insert.shift28 = shl nuw i64 %.sroa.4.0.insert.ext27, 32
-  %.sroa.0.0.insert.ext18 = zext i32 %49 to i64
-  %.sroa.0.0.insert.insert20 = or disjoint i64 %.sroa.4.0.insert.shift28, %.sroa.0.0.insert.ext18
-  store i64 %.sroa.0.0.insert.insert20, ptr %.pre, align 4
+  %.sroa.4.0.insert.ext28 = zext i32 %51 to i64
+  %.sroa.4.0.insert.shift29 = shl nuw i64 %.sroa.4.0.insert.ext28, 32
+  %.sroa.0.0.insert.ext19 = zext i32 %49 to i64
+  %.sroa.0.0.insert.insert21 = or disjoint i64 %.sroa.4.0.insert.shift29, %.sroa.0.0.insert.ext19
+  store i64 %.sroa.0.0.insert.insert21, ptr %.pre, align 4
   %66 = load i64, ptr %9, align 8
   %67 = add i64 %66, 1
   store i64 %67, ptr %9, align 8
   br label %_ZN5QListISt4pairIiiEE7prependEOS1_.exit
 
 68:                                               ; preds = %._crit_edge, %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i
-  %.pre-phi45 = phi i64 [ %.pre44, %._crit_edge ], [ %62, %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i ]
-  %.pre-phi43 = phi i64 [ %.pre42, %._crit_edge ], [ %61, %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i ]
-  %.not12.i = icmp eq i64 %.pre-phi43, %.pre-phi45
+  %.pre-phi46 = phi i64 [ %.pre45, %._crit_edge ], [ %62, %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i ]
+  %.pre-phi44 = phi i64 [ %.pre43, %._crit_edge ], [ %61, %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i ]
+  %.not12.i = icmp eq i64 %.pre-phi44, %.pre-phi46
   br i1 %.not12.i, label %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i, label %69
 
 69:                                               ; preds = %68
@@ -6716,21 +6716,21 @@ _ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i: ; preds = %55
   br label %_ZN5QListISt4pairIiiEE7prependEOS1_.exit
 
 _ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i: ; preds = %._ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i_crit_edge, %68, %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.i10
-  %75 = phi i64 [ %.pre37, %._ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i_crit_edge ], [ %.pre38, %68 ], [ %.pre38, %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.i10 ]
-  %.sroa.4.0.insert.ext22 = zext i32 %51 to i64
-  %.sroa.4.0.insert.shift23 = shl nuw i64 %.sroa.4.0.insert.ext22, 32
-  %.sroa.0.0.insert.ext14 = zext i32 %49 to i64
-  %.sroa.0.0.insert.insert16 = or disjoint i64 %.sroa.4.0.insert.shift23, %.sroa.0.0.insert.ext14
+  %75 = phi i64 [ %.pre38, %._ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i_crit_edge ], [ %.pre39, %68 ], [ %.pre39, %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.i10 ]
+  %.sroa.4.0.insert.ext23 = zext i32 %51 to i64
+  %.sroa.4.0.insert.shift24 = shl nuw i64 %.sroa.4.0.insert.ext23, 32
+  %.sroa.0.0.insert.ext15 = zext i32 %49 to i64
+  %.sroa.0.0.insert.insert17 = or disjoint i64 %.sroa.4.0.insert.shift24, %.sroa.0.0.insert.ext15
   %76 = icmp ne i64 %75, 0
   %spec.store.select.i = zext i1 %76 to i32
   invoke void @_ZN17QArrayDataPointerISt4pairIiiEE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS1_PS2_(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %spec.store.select.i, i64 noundef 1, ptr noundef null, ptr noundef null)
-          to label %.noexc12 unwind label %113
+          to label %.noexc13 unwind label %113
 
-.noexc12:                                         ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i
+.noexc13:                                         ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i
   %77 = load ptr, ptr %36, align 8
   br i1 %76, label %84, label %78
 
-78:                                               ; preds = %.noexc12
+78:                                               ; preds = %.noexc13
   %79 = load i64, ptr %9, align 8
   %80 = icmp sgt i64 %79, 0
   br i1 %80, label %81, label %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
@@ -6741,7 +6741,7 @@ _ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread.i: ; preds = %._
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %82, ptr align 1 %77, i64 %83, i1 false)
   br label %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
 
-84:                                               ; preds = %.noexc12
+84:                                               ; preds = %.noexc13
   %85 = getelementptr i8, ptr %77, i64 -8
   store ptr %85, ptr %36, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
@@ -6751,7 +6751,7 @@ _ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositi
   %86 = load i64, ptr %9, align 8
   %87 = add i64 %86, 1
   store i64 %87, ptr %9, align 8
-  store i64 %.sroa.0.0.insert.insert16, ptr %.0.i14.i, align 4
+  store i64 %.sroa.0.0.insert.insert17, ptr %.0.i14.i, align 4
   br label %_ZN5QListISt4pairIiiEE7prependEOS1_.exit
 
 _ZN5QListISt4pairIiiEE7prependEOS1_.exit:         ; preds = %65, %69, %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
@@ -11891,12 +11891,12 @@ _ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit: ; preds = %5
 ._crit_edge:                                      ; preds = %10
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre47 = ptrtoint ptr %6 to i64
-  %.pre48 = add i64 %.pre47, 23
-  %.pre50 = and i64 %.pre48, -8
-  %.pre52 = ptrtoint ptr %.pre to i64
-  %.pre54 = sub i64 %.pre52, %.pre50
-  %.pre56 = ashr exact i64 %.pre54, 3
+  %.pre49 = ptrtoint ptr %6 to i64
+  %.pre50 = add i64 %.pre49, 23
+  %.pre52 = and i64 %.pre50, -8
+  %.pre54 = ptrtoint ptr %.pre to i64
+  %.pre56 = sub i64 %.pre54, %.pre52
+  %.pre58 = ashr exact i64 %.pre56, 3
   br label %19
 
 _ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit: ; preds = %10
@@ -11912,21 +11912,21 @@ _ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit: ; preds = %10
   br i1 %.not16, label %19, label %_ZN17QArrayDataPointerISt4pairIiiEE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
 19:                                               ; preds = %._crit_edge, %_ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit
-  %.pre-phi57 = phi i64 [ %.pre56, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit ]
+  %.pre-phi59 = phi i64 [ %.pre58, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %12, %_ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit ]
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %.pre-phi57
+  %26 = add i64 %25, %.pre-phi59
   %27 = sub i64 %22, %26
   %28 = icmp eq i32 %1, 1
   %.not18.i = icmp sge i64 %27, %2
-  %or.cond19.i.not60 = and i1 %28, %.not18.i
+  %or.cond19.i.not62 = and i1 %28, %.not18.i
   %29 = mul i64 %25, 3
   %30 = icmp slt i64 %29, %22
-  %or.cond = and i1 %or.cond19.i.not60, %30
+  %or.cond = and i1 %or.cond19.i.not62, %30
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
@@ -11934,7 +11934,7 @@ _ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit: ; preds = %10
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
-  %36 = sub i64 %2, %.pre-phi57
+  %36 = sub i64 %2, %.pre-phi59
   %37 = add i64 %36, %35
   %38 = getelementptr %"struct.std::pair", ptr %20, i64 %37
   %39 = icmp eq i64 %25, 0
@@ -12009,42 +12009,42 @@ _ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit.i23: ; preds = %_ZNK
   %74 = sub nsw i64 0, %64
   %75 = getelementptr %"struct.std::pair", ptr %58, i64 %74
   %76 = icmp eq i64 %66, 0
-  br i1 %76, label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i32, label %77
+  br i1 %76, label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i33, label %77
 
 77:                                               ; preds = %73
-  %.idx.mask.i.i29 = and i64 %74, 2305843009213693951
-  %78 = icmp eq i64 %.idx.mask.i.i29, 0
+  %.idx.mask.i.i30 = and i64 %74, 2305843009213693951
+  %78 = icmp eq i64 %.idx.mask.i.i30, 0
   %79 = icmp eq ptr %58, null
-  %or.cond.i.i.i30 = or i1 %78, %79
+  %or.cond.i.i.i31 = or i1 %78, %79
   %80 = icmp eq ptr %75, null
-  %or.cond3.i.i.i31 = or i1 %80, %or.cond.i.i.i30
-  br i1 %or.cond3.i.i.i31, label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i32, label %81
+  %or.cond3.i.i.i32 = or i1 %80, %or.cond.i.i.i31
+  br i1 %or.cond3.i.i.i32, label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i33, label %81
 
 81:                                               ; preds = %77
   %82 = shl i64 %66, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %58, i64 %82, i1 false)
-  br label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i32
+  br label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i33
 
-_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i32: ; preds = %81, %77, %73
-  %.not.i21.i33 = icmp eq ptr %3, null
-  br i1 %.not.i21.i33, label %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i35, label %83
+_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i33: ; preds = %81, %77, %73
+  %.not.i21.i34 = icmp eq ptr %3, null
+  br i1 %.not.i21.i34, label %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i36, label %83
 
-83:                                               ; preds = %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i32
+83:                                               ; preds = %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i33
   %84 = load ptr, ptr %3, align 8
   %85 = load ptr, ptr %57, align 8
   %86 = load i64, ptr %65, align 8
   %87 = getelementptr %"struct.std::pair", ptr %85, i64 %86
   %88 = icmp uge ptr %84, %85
   %89 = icmp ult ptr %84, %87
-  %spec.select.i.i.i34 = and i1 %88, %89
-  br i1 %spec.select.i.i.i34, label %90, label %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i35
+  %spec.select.i.i.i35 = and i1 %88, %89
+  br i1 %spec.select.i.i.i35, label %90, label %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i36
 
 90:                                               ; preds = %83
   %91 = getelementptr %"struct.std::pair", ptr %84, i64 %74
   store ptr %91, ptr %3, align 8
-  br label %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i35
+  br label %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i36
 
-_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i35: ; preds = %90, %83, %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i32
+_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i36: ; preds = %90, %83, %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIiiExEEvPT_T0_S4_.exit.i.i33
   store ptr %75, ptr %57, align 8
   br label %_ZN17QArrayDataPointerISt4pairIiiEE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
@@ -12052,7 +12052,7 @@ _ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i35: ; preds = %90, %8
   tail call void @_ZN17QArrayDataPointerISt4pairIiiEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %4)
   br label %_ZN17QArrayDataPointerISt4pairIiiEE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
-_ZN17QArrayDataPointerISt4pairIiiEE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit: ; preds = %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i, %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i35, %9, %_ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit, %.critedge
+_ZN17QArrayDataPointerISt4pairIiiEE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit: ; preds = %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i, %_ZN17QArrayDataPointerISt4pairIiiEE8relocateExPPKS1_.exit.i36, %9, %_ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit, %.critedge
   ret void
 }
 

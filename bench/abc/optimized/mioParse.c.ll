@@ -47,7 +47,7 @@ define noundef ptr @Mio_ParseFormulaOper(ptr nocapture readnone %0, i32 noundef 
   br label %293
 
 19:                                               ; preds = %4
-  %20 = tail call fastcc ptr @Exp_And(i32 noundef %1, ptr noundef %16, ptr noundef %12, i32 noundef 1, i32 noundef 1)
+  %20 = tail call fastcc ptr @Exp_And(i32 noundef %1, ptr noundef readonly %16, ptr noundef readonly %12, i32 noundef 1, i32 noundef 1)
   %21 = getelementptr i8, ptr %20, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %22 = load i32, ptr %.val.i.i, align 4
@@ -3033,7 +3033,7 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr nocapture 
   %82 = getelementptr i32, ptr %.val117.i, i64 %81
   %83 = getelementptr i8, ptr %82, i64 -4
   %84 = load i32, ptr %83, align 4
-  tail call fastcc void @Exp_TruthLit(i32 noundef %2, i32 noundef %84, ptr noundef %21, ptr noundef %48, ptr noundef %14, i32 noundef %10)
+  tail call fastcc void @Exp_TruthLit(i32 noundef %2, i32 noundef %84, ptr noundef %21, ptr noundef %48, ptr noundef writeonly %14, i32 noundef %10)
   br i1 %22, label %.lr.ph144.preheader.i, label %._crit_edge145.i
 
 .lr.ph144.preheader.i:                            ; preds = %79

@@ -23000,19 +23000,19 @@ _ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EED2Ev.exit269: ; preds = %_ZNSt3setIP6CFace
   store i64 0, ptr %37, align 8
   %275 = getelementptr inbounds i8, ptr %271, i64 8
   %276 = load ptr, ptr %275, align 8
-  invoke void @_ZNK25FilterImgPatchParamPlugin12getNeighborsEP8CVertexORSt3setIP6CFaceOSt4lessIS4_ESaIS4_EE(ptr nonnull align 8 poison, ptr noundef %276, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_ZNK25FilterImgPatchParamPlugin12getNeighborsEP8CVertexORSt3setIP6CFaceOSt4lessIS4_ESaIS4_EE(ptr nonnull readnone align 8 poison, ptr noundef %276, ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.noexc128 unwind label %431
 
 .noexc128:                                        ; preds = %268
   %277 = getelementptr inbounds i8, ptr %271, i64 16
   %278 = load ptr, ptr %277, align 8
-  invoke void @_ZNK25FilterImgPatchParamPlugin12getNeighborsEP8CVertexORSt3setIP6CFaceOSt4lessIS4_ESaIS4_EE(ptr nonnull align 8 poison, ptr noundef %278, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_ZNK25FilterImgPatchParamPlugin12getNeighborsEP8CVertexORSt3setIP6CFaceOSt4lessIS4_ESaIS4_EE(ptr nonnull readnone align 8 poison, ptr noundef %278, ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.noexc129 unwind label %431
 
 .noexc129:                                        ; preds = %.noexc128
   %279 = getelementptr inbounds i8, ptr %271, i64 24
   %280 = load ptr, ptr %279, align 8
-  invoke void @_ZNK25FilterImgPatchParamPlugin12getNeighborsEP8CVertexORSt3setIP6CFaceOSt4lessIS4_ESaIS4_EE(ptr nonnull align 8 poison, ptr noundef %280, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_ZNK25FilterImgPatchParamPlugin12getNeighborsEP8CVertexORSt3setIP6CFaceOSt4lessIS4_ESaIS4_EE(ptr nonnull readnone align 8 poison, ptr noundef %280, ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %_ZNK25FilterImgPatchParamPlugin16getFaceNeighborsEP6CFaceORSt3setIS1_St4lessIS1_ESaIS1_EE.exit unwind label %431
 
 _ZNK25FilterImgPatchParamPlugin16getFaceNeighborsEP6CFaceORSt3setIS1_St4lessIS1_ESaIS1_EE.exit: ; preds = %.noexc129

@@ -708,7 +708,7 @@ if.end195:                                        ; preds = %if.else187, %if.the
   br i1 %tobool205.not, label %if.end221, label %if.then206
 
 if.then206:                                       ; preds = %if.end195
-  %add207 = mul nsw i32 %n, 3
+  %add207 = mul nuw nsw i32 %n, 3
   %idxprom208 = zext nneg i32 %add207 to i64
   %arrayidx209 = getelementptr inbounds i64, ptr %r, i64 %idxprom208
   %0 = load i64, ptr %arrayidx209, align 8
@@ -820,15 +820,15 @@ return:                                           ; preds = %if.end21, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx), !range !8
+  %call = tail call i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx)
   tail call void @bn_correct_top(ptr noundef %r) #4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %top1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top1, align 8
@@ -1033,4 +1033,3 @@ attributes #4 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}

@@ -271,7 +271,7 @@ declare ptr @stnode_tostr(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 declare void @stnode_mutate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define hidden zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call ptr @stnode_data(ptr noundef %2) #6
   store ptr null, ptr %6, align 8
@@ -308,7 +308,7 @@ define hidden noundef zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i3
   br i1 %.not28, label %28, label %19
 
 19:                                               ; preds = %18
-  %20 = call fastcc i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %7, ptr noundef %2), !range !4
+  %20 = call fastcc i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %7, ptr noundef %2)
   %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %28, label %21
 
@@ -343,7 +343,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @df_error_new(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %9 [
@@ -481,7 +481,7 @@ define internal fastcc noundef i32 @mk_fvalue_from_val_string(ptr noundef %0, pt
   %61 = icmp ne ptr %60, null
   %62 = icmp ult i64 %.1134, 2
   %63 = select i1 %61, i1 %62, i1 false
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %57
   %64 = icmp ugt i64 %.1134, 1
@@ -568,7 +568,7 @@ define internal fastcc noundef i32 @mk_fvalue_from_val_string(ptr noundef %0, pt
   %101 = icmp ne ptr %100, null
   %102 = icmp ult i64 %.3136, 2
   %103 = select i1 %101, i1 %102, i1 false
-  br i1 %103, label %.lr.ph161, label %._crit_edge162, !llvm.loop !7
+  br i1 %103, label %.lr.ph161, label %._crit_edge162, !llvm.loop !6
 
 ._crit_edge162:                                   ; preds = %97
   %104 = icmp ugt i64 %.3136, 1
@@ -682,7 +682,7 @@ define internal fastcc noundef i32 @mk_fvalue_from_val_string(ptr noundef %0, pt
   %147 = icmp ne ptr %146, null
   %148 = icmp ult i64 %.5138, 2
   %149 = select i1 %147, i1 %148, i1 false
-  br i1 %149, label %.lr.ph169, label %._crit_edge170, !llvm.loop !8
+  br i1 %149, label %.lr.ph169, label %._crit_edge170, !llvm.loop !7
 
 ._crit_edge170:                                   ; preds = %143
   %150 = icmp ugt i64 %.5138, 1
@@ -732,7 +732,7 @@ declare void @dfw_set_error_location(ptr noundef, i64, i64) local_unnamed_addr #
 declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @stnode_string(ptr noundef %2) #6
   store ptr null, ptr %5, align 8
@@ -773,7 +773,7 @@ define hidden noundef zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr %6, align 8
-  %23 = call fastcc i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %22, ptr noundef %2), !range !4
+  %23 = call fastcc i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %22, ptr noundef %2)
   %.not25 = icmp eq i32 %23, 0
   br i1 %.not25, label %26, label %24
 
@@ -1034,7 +1034,7 @@ resolve_unparsed.exit:                            ; preds = %19, %26, %27
   %31 = getelementptr inbounds i8, ptr %.015.i24, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not18.i = icmp eq ptr %32, null
-  br i1 %.not18.i, label %get_function_ftype.exit, label %19, !llvm.loop !9
+  br i1 %.not18.i, label %get_function_ftype.exit, label %19, !llvm.loop !8
 
 33:                                               ; preds = %2, %2
   call void @sttype_oper_get(ptr noundef %1, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
@@ -1098,7 +1098,7 @@ declare void @sttype_oper_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare ptr @sttype_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @check_slice(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 26, 31) i32 @check_slice(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @sttype_slice_entity(ptr noundef %1) #6
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %4, i1 noundef zeroext true)
   %5 = tail call i32 @stnode_type_id(ptr noundef %4) #6
@@ -1159,7 +1159,7 @@ define hidden noundef i32 @check_slice(ptr noundef %0, ptr noundef %1, i32 nound
   unreachable
 
 30:                                               ; preds = %3
-  %31 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %4, i32 noundef %2), !range !10
+  %31 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %4, i32 noundef %2)
   br label %39
 
 32:                                               ; preds = %3, %3, %3, %3
@@ -1309,7 +1309,7 @@ define hidden i32 @check_arithmetic(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %check_arithmetic_LHS_NUMBER.exit
 
 24:                                               ; preds = %3
-  %25 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !10
+  %25 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %check_arithmetic_LHS_NUMBER.exit
 
 26:                                               ; preds = %3
@@ -1468,7 +1468,7 @@ switch.lookup:                                    ; preds = %101
   %switch.load = load ptr, ptr %switch.gep, align 8
   %107 = load ptr, ptr %5, align 8
   %108 = load ptr, ptr %6, align 8
-  call void %switch.load(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %107, ptr noundef %108) #6, !callees !11
+  call void %switch.load(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %107, ptr noundef %108) #6, !callees !9
   br label %check_arithmetic_LHS_TIME.exit
 
 check_arithmetic_LHS_TIME.exit:                   ; preds = %35, %41, %45, %89, %93, %97, %switch.lookup
@@ -1986,7 +1986,7 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   %112 = and i32 %109, -2
   %113 = icmp eq i32 %112, 26
   %or.cond38.i.i = select i1 %.not2.us.i.i, i1 %113, i1 false
-  br i1 %or.cond38.i.i, label %.critedge9.us.i.i, label %.critedge.i.i, !llvm.loop !12
+  br i1 %or.cond38.i.i, label %.critedge9.us.i.i, label %.critedge.i.i, !llvm.loop !10
 
 .lr.ph.split.split.us.i.i:                        ; preds = %.lr.ph.i.i
   %114 = add i32 %76, -28
@@ -2004,7 +2004,7 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   %122 = add i32 %119, -28
   %123 = icmp ult i32 %122, -2
   %or.cond.i.i = select i1 %.not2.us17.i.i, i1 %123, i1 false
-  br i1 %or.cond.i.i, label %.critedge9.us16.i.i, label %.critedge.i.i, !llvm.loop !12
+  br i1 %or.cond.i.i, label %.critedge9.us16.i.i, label %.critedge.i.i, !llvm.loop !10
 
 .critedge.i.i:                                    ; preds = %.critedge9.us.i.i, %.critedge9.us16.i.i, %.preheader.i.i
   %.0160.lcssa.i.i = phi i32 [ %76, %.preheader.i.i ], [ %119, %.critedge9.us16.i.i ], [ %109, %.critedge9.us.i.i ]
@@ -2036,7 +2036,7 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   br label %check_relation_LHS_FIELD.specialized.3.exit.i
 
 129:                                              ; preds = %100
-  %130 = call i32 @check_slice(ptr noundef %0, ptr noundef %45, i32 noundef %76), !range !10
+  %130 = call i32 @check_slice(ptr noundef %0, ptr noundef %45, i32 noundef %76)
   %131 = call zeroext i1 @compatible_ftypes(i32 noundef %76, i32 noundef %130)
   br i1 %131, label %138, label %132
 
@@ -2218,7 +2218,7 @@ check_relation_LHS_FIELD.specialized.3.exit.i:    ; preds = %190, %173, %158, %1
   %202 = getelementptr inbounds i8, ptr %54, i64 8
   %203 = load ptr, ptr %202, align 8
   %.not34.i = icmp eq ptr %203, null
-  br i1 %.not34.i, label %check_test.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not34.i, label %check_test.exit, label %.lr.ph.i, !llvm.loop !11
 
 204:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8
   %205 = call ptr @stnode_op_name(i32 noundef %9) #6
@@ -2268,7 +2268,7 @@ find_logical_ftype.exit.i:                        ; preds = %208
   unreachable
 
 find_logical_ftype.exit17.i:                      ; preds = %216
-  %223 = tail call i32 @check_slice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %217), !range !10
+  %223 = tail call i32 @check_slice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %217)
   br label %235
 
 224:                                              ; preds = %206
@@ -2725,7 +2725,7 @@ find_logical_ftype.exit48:                        ; preds = %24
 
 find_logical_ftype.exit49:                        ; preds = %31
   %38 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %4, i32 noundef %32)
-  %39 = tail call zeroext i1 %2(i32 noundef %38) #6, !callees !14
+  %39 = tail call zeroext i1 %2(i32 noundef %38) #6, !callees !12
   br i1 %39, label %46, label %40
 
 40:                                               ; preds = %find_logical_ftype.exit49
@@ -2769,7 +2769,7 @@ find_logical_ftype.exit49:                        ; preds = %31
   unreachable
 
 58:                                               ; preds = %49
-  %59 = tail call zeroext i1 %2(i32 noundef %50) #6, !callees !14
+  %59 = tail call zeroext i1 %2(i32 noundef %50) #6, !callees !12
   br i1 %59, label %66, label %60
 
 60:                                               ; preds = %58
@@ -2808,7 +2808,7 @@ find_logical_ftype.exit49:                        ; preds = %31
   br label %check_relation_LHS_ARITHMETIC.exit
 
 77:                                               ; preds = %46
-  %78 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %38), !range !10
+  %78 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %38)
   %79 = tail call zeroext i1 @compatible_ftypes(i32 noundef %38, i32 noundef %78)
   br i1 %79, label %86, label %80
 
@@ -2822,7 +2822,7 @@ find_logical_ftype.exit49:                        ; preds = %31
   unreachable
 
 86:                                               ; preds = %77
-  %87 = tail call zeroext i1 %2(i32 noundef %78) #6, !callees !14
+  %87 = tail call zeroext i1 %2(i32 noundef %78) #6, !callees !12
   br i1 %87, label %94, label %88
 
 88:                                               ; preds = %86
@@ -2932,7 +2932,7 @@ is_bytes_type.exit.i:                             ; preds = %94, %94, %94, %94, 
   unreachable
 
 117:                                              ; preds = %107
-  %118 = tail call zeroext i1 %2(i32 noundef %108) #6, !callees !14
+  %118 = tail call zeroext i1 %2(i32 noundef %108) #6, !callees !12
   br i1 %118, label %check_relation_LHS_ARITHMETIC.exit, label %119
 
 119:                                              ; preds = %117
@@ -2959,7 +2959,7 @@ is_bytes_type.exit.i:                             ; preds = %94, %94, %94, %94, 
   unreachable
 
 134:                                              ; preds = %125
-  %135 = tail call zeroext i1 %2(i32 noundef %126) #6, !callees !14
+  %135 = tail call zeroext i1 %2(i32 noundef %126) #6, !callees !12
   br i1 %135, label %check_relation_LHS_ARITHMETIC.exit, label %136
 
 136:                                              ; preds = %134
@@ -3014,7 +3014,7 @@ find_logical_ftype.exit50:                        ; preds = %146
 155:                                              ; preds = %find_logical_ftype.exit50, %find_logical_ftype.exit50
   %156 = tail call ptr @sttype_field_hfinfo(ptr noundef %5) #6
   %157 = tail call i32 @sttype_field_ftenum(ptr noundef %5) #6
-  %158 = tail call zeroext i1 %2(i32 noundef %157) #6, !callees !14
+  %158 = tail call zeroext i1 %2(i32 noundef %157) #6, !callees !12
   br i1 %158, label %165, label %159
 
 159:                                              ; preds = %155
@@ -3044,8 +3044,8 @@ find_logical_ftype.exit50:                        ; preds = %146
   unreachable
 
 174:                                              ; preds = %find_logical_ftype.exit50
-  %175 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %147), !range !10
-  %176 = tail call zeroext i1 %2(i32 noundef %175) #6, !callees !14
+  %175 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %147)
+  %176 = tail call zeroext i1 %2(i32 noundef %175) #6, !callees !12
   br i1 %176, label %205, label %177
 
 177:                                              ; preds = %174
@@ -3059,7 +3059,7 @@ find_logical_ftype.exit50:                        ; preds = %146
 
 183:                                              ; preds = %find_logical_ftype.exit50
   %184 = tail call i32 @check_function(ptr noundef %0, ptr noundef %5, i32 noundef %147)
-  %185 = tail call zeroext i1 %2(i32 noundef %184) #6, !callees !14
+  %185 = tail call zeroext i1 %2(i32 noundef %184) #6, !callees !12
   br i1 %185, label %205, label %186
 
 186:                                              ; preds = %183
@@ -3073,7 +3073,7 @@ find_logical_ftype.exit50:                        ; preds = %146
 
 192:                                              ; preds = %find_logical_ftype.exit50
   %193 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %5, i32 noundef %147)
-  %194 = tail call zeroext i1 %2(i32 noundef %193) #6, !callees !14
+  %194 = tail call zeroext i1 %2(i32 noundef %193) #6, !callees !12
   br i1 %194, label %205, label %195
 
 195:                                              ; preds = %192
@@ -3336,7 +3336,7 @@ check_warning_contains_RHS_FIELD.exit:            ; preds = %21, %17, %15, %reso
   %87 = and i32 %84, -2
   %88 = icmp eq i32 %87, 26
   %or.cond38.i = select i1 %.not2.us.i, i1 %88, i1 false
-  br i1 %or.cond38.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !12
+  br i1 %or.cond38.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !10
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i
   %89 = add i32 %50, -28
@@ -3354,7 +3354,7 @@ check_warning_contains_RHS_FIELD.exit:            ; preds = %21, %17, %15, %reso
   %97 = add i32 %94, -28
   %98 = icmp ult i32 %97, -2
   %or.cond.i = select i1 %.not2.us17.i, i1 %98, i1 false
-  br i1 %or.cond.i, label %.critedge9.us16.i, label %.critedge.i, !llvm.loop !12
+  br i1 %or.cond.i, label %.critedge9.us16.i, label %.critedge.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %.critedge9.us.i, %.critedge9.us16.i, %.preheader.i
   %.0160.lcssa.i = phi i32 [ %50, %.preheader.i ], [ %94, %.critedge9.us16.i ], [ %84, %.critedge9.us.i ]
@@ -3391,7 +3391,7 @@ check_warning_contains_RHS_FIELD.exit:            ; preds = %21, %17, %15, %reso
   br label %check_relation_LHS_FIELD.specialized.1.exit
 
 108:                                              ; preds = %75
-  %109 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %50), !range !10
+  %109 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %50)
   %110 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %109)
   br i1 %110, label %117, label %111
 
@@ -3791,7 +3791,7 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
   %90 = and i32 %87, -2
   %91 = icmp eq i32 %90, 26
   %or.cond38.i = select i1 %.not2.us.i, i1 %91, i1 false
-  br i1 %or.cond38.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !12
+  br i1 %or.cond38.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !10
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i
   %92 = add i32 %53, -28
@@ -3809,7 +3809,7 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
   %100 = add i32 %97, -28
   %101 = icmp ult i32 %100, -2
   %or.cond.i = select i1 %.not2.us17.i, i1 %101, i1 false
-  br i1 %or.cond.i, label %.critedge9.us16.i, label %.critedge.i, !llvm.loop !12
+  br i1 %or.cond.i, label %.critedge9.us16.i, label %.critedge.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %.critedge9.us.i, %.critedge9.us16.i, %.preheader.i
   %.0160.lcssa.i = phi i32 [ %53, %.preheader.i ], [ %97, %.critedge9.us16.i ], [ %87, %.critedge9.us.i ]
@@ -3846,7 +3846,7 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
   br label %check_relation_LHS_FIELD.specialized.2.exit
 
 111:                                              ; preds = %78
-  %112 = call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %53), !range !10
+  %112 = call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %53)
   %113 = call zeroext i1 @compatible_ftypes(i32 noundef %53, i32 noundef %112)
   br i1 %113, label %120, label %114
 
@@ -4085,7 +4085,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
 14:                                               ; preds = %10, %7
   %15 = tail call ptr @sttype_field_hfinfo(ptr noundef %5) #6
   %16 = tail call i32 @sttype_field_ftenum(ptr noundef %5) #6
-  %17 = tail call zeroext i1 %2(i32 noundef %16) #6, !callees !14
+  %17 = tail call zeroext i1 %2(i32 noundef %16) #6, !callees !12
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %14
@@ -4143,7 +4143,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   unreachable
 
 48:                                               ; preds = %39
-  %49 = tail call zeroext i1 %2(i32 noundef %40) #6, !callees !14
+  %49 = tail call zeroext i1 %2(i32 noundef %40) #6, !callees !12
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %48
@@ -4204,7 +4204,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   %73 = and i32 %70, -2
   %74 = icmp eq i32 %73, 26
   %or.cond205 = select i1 %.not164.us, i1 %74, i1 false
-  br i1 %or.cond205, label %.critedge9.us, label %.critedge, !llvm.loop !12
+  br i1 %or.cond205, label %.critedge9.us, label %.critedge, !llvm.loop !10
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %75 = add i32 %36, -28
@@ -4222,7 +4222,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   %83 = add i32 %80, -28
   %84 = icmp ult i32 %83, -2
   %or.cond = select i1 %.not164.us184, i1 %84, i1 false
-  br i1 %or.cond, label %.critedge9.us183, label %.critedge, !llvm.loop !12
+  br i1 %or.cond, label %.critedge9.us183, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.critedge9.us, %.critedge9.us183, %.preheader
   %.0160.lcssa = phi i32 [ %36, %.preheader ], [ %80, %.critedge9.us183 ], [ %70, %.critedge9.us ]
@@ -4269,7 +4269,7 @@ op_is_equality.exit:                              ; preds = %87
   br label %op_is_equality.exit.thread
 
 94:                                               ; preds = %61
-  %95 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %6, i32 noundef %36), !range !10
+  %95 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %6, i32 noundef %36)
   %96 = tail call zeroext i1 @compatible_ftypes(i32 noundef %36, i32 noundef %95)
   br i1 %96, label %103, label %97
 
@@ -4283,7 +4283,7 @@ op_is_equality.exit:                              ; preds = %87
   unreachable
 
 103:                                              ; preds = %94
-  %104 = tail call zeroext i1 %2(i32 noundef %95) #6, !callees !14
+  %104 = tail call zeroext i1 %2(i32 noundef %95) #6, !callees !12
   br i1 %104, label %111, label %105
 
 105:                                              ; preds = %103
@@ -4397,7 +4397,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   unreachable
 
 138:                                              ; preds = %126
-  %139 = tail call zeroext i1 %2(i32 noundef %127) #6, !callees !14
+  %139 = tail call zeroext i1 %2(i32 noundef %127) #6, !callees !12
   br i1 %139, label %op_is_equality.exit.thread, label %140
 
 140:                                              ; preds = %138
@@ -4424,7 +4424,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   unreachable
 
 155:                                              ; preds = %146
-  %156 = tail call zeroext i1 %2(i32 noundef %147) #6, !callees !14
+  %156 = tail call zeroext i1 %2(i32 noundef %147) #6, !callees !12
   br i1 %156, label %op_is_equality.exit.thread, label %157
 
 157:                                              ; preds = %155
@@ -4453,8 +4453,8 @@ op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %4, i32 noundef %6), !range !10
-  %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !15
+  %8 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %4, i32 noundef %6)
+  %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !13
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %7
@@ -4594,7 +4594,7 @@ is_bytes_type.exit.thread:                        ; preds = %19, %19, %19, %19, 
   br label %is_bytes_type.exit101.thread
 
 44:                                               ; preds = %16
-  %45 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %8), !range !10
+  %45 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %8)
   %46 = tail call zeroext i1 @compatible_ftypes(i32 noundef %8, i32 noundef %45)
   br i1 %46, label %53, label %47
 
@@ -4608,7 +4608,7 @@ is_bytes_type.exit.thread:                        ; preds = %19, %19, %19, %19, 
   unreachable
 
 53:                                               ; preds = %44
-  %54 = tail call zeroext i1 %1(i32 noundef %45) #6, !callees !15
+  %54 = tail call zeroext i1 %1(i32 noundef %45) #6, !callees !13
   br i1 %54, label %is_bytes_type.exit101.thread, label %55
 
 55:                                               ; preds = %53
@@ -4719,7 +4719,7 @@ is_bytes_type.exit101:                            ; preds = %61, %61, %61, %61, 
   unreachable
 
 85:                                               ; preds = %76
-  %86 = tail call zeroext i1 %1(i32 noundef %77) #6, !callees !15
+  %86 = tail call zeroext i1 %1(i32 noundef %77) #6, !callees !13
   br i1 %86, label %is_bytes_type.exit101.thread, label %87
 
 87:                                               ; preds = %85
@@ -4749,7 +4749,7 @@ is_bytes_type.exit101.thread:                     ; preds = %61, %61, %61, %61, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @check_function(ptr noundef %0, ptr noundef %4, i32 noundef %6)
-  %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !15
+  %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !13
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %7
@@ -4794,7 +4794,7 @@ define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noc
   unreachable
 
 29:                                               ; preds = %20
-  %30 = tail call zeroext i1 %1(i32 noundef %21) #6, !callees !15
+  %30 = tail call zeroext i1 %1(i32 noundef %21) #6, !callees !13
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -4833,7 +4833,7 @@ define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noc
   br label %is_bytes_type.exit.thread
 
 48:                                               ; preds = %17
-  %49 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %8), !range !10
+  %49 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %8)
   %50 = tail call zeroext i1 @compatible_ftypes(i32 noundef %8, i32 noundef %49)
   br i1 %50, label %57, label %51
 
@@ -4847,7 +4847,7 @@ define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noc
   unreachable
 
 57:                                               ; preds = %48
-  %58 = tail call zeroext i1 %1(i32 noundef %49) #6, !callees !15
+  %58 = tail call zeroext i1 %1(i32 noundef %49) #6, !callees !13
   br i1 %58, label %65, label %59
 
 59:                                               ; preds = %57
@@ -4959,7 +4959,7 @@ is_bytes_type.exit:                               ; preds = %65, %65, %65, %65, 
   unreachable
 
 90:                                               ; preds = %79
-  %91 = tail call zeroext i1 %1(i32 noundef %80) #6, !callees !15
+  %91 = tail call zeroext i1 %1(i32 noundef %80) #6, !callees !13
   br i1 %91, label %is_bytes_type.exit.thread, label %92
 
 92:                                               ; preds = %90
@@ -4986,7 +4986,7 @@ is_bytes_type.exit:                               ; preds = %65, %65, %65, %65, 
   unreachable
 
 107:                                              ; preds = %98
-  %108 = tail call zeroext i1 %1(i32 noundef %99) #6, !callees !15
+  %108 = tail call zeroext i1 %1(i32 noundef %99) #6, !callees !13
   br i1 %108, label %is_bytes_type.exit.thread, label %109
 
 109:                                              ; preds = %107
@@ -5063,15 +5063,13 @@ attributes #8 = { nounwind returns_twice }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 4}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{i32 26, i32 31}
-!11 = !{ptr @do_addition, ptr @do_division, ptr @do_multiplication, ptr @do_subtraction}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = !{ptr @ftype_can_cmp, ptr @ftype_can_eq}
-!15 = !{ptr @ftype_can_cmp, ptr @ftype_can_contains, ptr @ftype_can_eq, ptr @ftype_can_matches}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{ptr @do_addition, ptr @do_division, ptr @do_multiplication, ptr @do_subtraction}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = !{ptr @ftype_can_cmp, ptr @ftype_can_eq}
+!13 = !{ptr @ftype_can_cmp, ptr @ftype_can_contains, ptr @ftype_can_eq, ptr @ftype_can_matches}

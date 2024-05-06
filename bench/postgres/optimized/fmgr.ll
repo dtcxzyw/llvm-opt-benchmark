@@ -261,7 +261,7 @@ fmgr_isbuiltin.exit.thread:                       ; preds = %4, %17, %fmgr_isbui
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %81 ]
   %82 = getelementptr [0 x %struct.FmgrBuiltin], ptr @fmgr_builtins, i64 0, i64 %indvars.iv.i, i32 4
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %83) #15
+  %84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %83) #15
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %fmgr_lookupByName.exit, label %81
 
@@ -369,7 +369,7 @@ record_C_func.exit.i:                             ; preds = %139, %121
   store i32 %146, ptr %147, align 4
   %148 = getelementptr inbounds i8, ptr %144, i64 8
   %149 = getelementptr inbounds i8, ptr %38, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %148, ptr noundef nonnull align 4 dereferenceable(6) %149, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %148, ptr noundef nonnull readonly align 4 dereferenceable(6) %149, i64 6, i1 false)
   %150 = getelementptr inbounds i8, ptr %144, i64 16
   store ptr %128, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %144, i64 24
@@ -657,7 +657,7 @@ define dso_local i32 @fmgr_internal_function(ptr nocapture noundef readonly %0) 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %4 ]
   %5 = getelementptr [0 x %struct.FmgrBuiltin], ptr @fmgr_builtins, i64 0, i64 %indvars.iv.i, i32 4
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #15
+  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #15
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %fmgr_lookupByName.exit, label %4
 
@@ -2070,7 +2070,7 @@ define dso_local i64 @OidFunctionCall0Coll(i32 noundef %0, i32 noundef %1) local
   %3 = alloca %union.anon.12, align 8
   %4 = alloca %struct.FmgrInfo, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %4, ptr noundef %5, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %4, ptr noundef %5, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2106,7 +2106,7 @@ define dso_local i64 @OidFunctionCall1Coll(i32 noundef %0, i32 noundef %1, i64 n
   %4 = alloca %union.anon.13, align 8
   %5 = alloca %struct.FmgrInfo, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %6, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %5, ptr noundef %6, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2146,7 +2146,7 @@ define dso_local i64 @OidFunctionCall2Coll(i32 noundef %0, i32 noundef %1, i64 n
   %5 = alloca %union.anon.14, align 8
   %6 = alloca %struct.FmgrInfo, align 8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %6, ptr noundef %7, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %6, ptr noundef %7, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2190,7 +2190,7 @@ define dso_local i64 @OidFunctionCall3Coll(i32 noundef %0, i32 noundef %1, i64 n
   %6 = alloca %union.anon.15, align 8
   %7 = alloca %struct.FmgrInfo, align 8
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %7, ptr noundef %8, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %7, ptr noundef %8, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   store ptr %7, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2238,7 +2238,7 @@ define dso_local i64 @OidFunctionCall4Coll(i32 noundef %0, i32 noundef %1, i64 n
   %7 = alloca %union.anon.16, align 8
   %8 = alloca %struct.FmgrInfo, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %8, ptr noundef %9, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %8, ptr noundef %9, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   store ptr %8, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
@@ -2290,7 +2290,7 @@ define dso_local i64 @OidFunctionCall5Coll(i32 noundef %0, i32 noundef %1, i64 n
   %8 = alloca %union.anon.17, align 8
   %9 = alloca %struct.FmgrInfo, align 8
   %10 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %9, ptr noundef %10, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %9, ptr noundef %10, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8)
   store ptr %9, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
@@ -2346,7 +2346,7 @@ define dso_local i64 @OidFunctionCall6Coll(i32 noundef %0, i32 noundef %1, i64 n
   %9 = alloca %union.anon.18, align 8
   %10 = alloca %struct.FmgrInfo, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %10, ptr noundef %11, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %10, ptr noundef %11, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9)
   store ptr %10, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
@@ -2406,7 +2406,7 @@ define dso_local i64 @OidFunctionCall7Coll(i32 noundef %0, i32 noundef %1, i64 n
   %10 = alloca %union.anon.19, align 8
   %11 = alloca %struct.FmgrInfo, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %11, ptr noundef %12, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %11, ptr noundef %12, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
   store ptr %11, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2470,7 +2470,7 @@ define dso_local i64 @OidFunctionCall8Coll(i32 noundef %0, i32 noundef %1, i64 n
   %11 = alloca %union.anon.20, align 8
   %12 = alloca %struct.FmgrInfo, align 8
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %12, ptr noundef %13, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %12, ptr noundef %13, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11)
   store ptr %12, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 8
@@ -2538,7 +2538,7 @@ define dso_local i64 @OidFunctionCall9Coll(i32 noundef %0, i32 noundef %1, i64 n
   %12 = alloca %union.anon.21, align 8
   %13 = alloca %struct.FmgrInfo, align 8
   %14 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %13, ptr noundef %14, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %13, ptr noundef %14, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %12)
   store ptr %13, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 8
@@ -2992,7 +2992,7 @@ pg_detoast_datum.exit:                            ; preds = %FunctionCall1Coll.e
 define dso_local i64 @OidInputFunctionCall(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.FmgrInfo, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %6, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %5, ptr noundef %6, i1 noundef zeroext false)
   %7 = call i64 @InputFunctionCall(ptr noundef nonnull %5, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   ret i64 %7
 }
@@ -3002,7 +3002,7 @@ define dso_local ptr @OidOutputFunctionCall(i32 noundef %0, i64 noundef %1) loca
   %3 = alloca %union.anon.13, align 8
   %4 = alloca %struct.FmgrInfo, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %4, ptr noundef %5, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %4, ptr noundef %5, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3039,7 +3039,7 @@ OutputFunctionCall.exit:                          ; preds = %2
 define dso_local i64 @OidReceiveFunctionCall(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.FmgrInfo, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %6, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %5, ptr noundef %6, i1 noundef zeroext false)
   %7 = call i64 @ReceiveFunctionCall(ptr noundef nonnull %5, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   ret i64 %7
 }
@@ -3049,7 +3049,7 @@ define dso_local ptr @OidSendFunctionCall(i32 noundef %0, i64 noundef %1) local_
   %3 = alloca %union.anon.13, align 8
   %4 = alloca %struct.FmgrInfo, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
-  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull %4, ptr noundef %5, i1 noundef zeroext false)
+  call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef nonnull writeonly %4, ptr noundef %5, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3187,7 +3187,7 @@ define dso_local i32 @get_fn_expr_argtype(ptr noundef readonly %0, i32 noundef %
   br i1 %8, label %switch.hole_check, label %get_call_expr_argtype.exit
 
 switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %get_call_expr_argtype.exit
@@ -3249,7 +3249,7 @@ define dso_local i32 @get_call_expr_argtype(ptr noundef readonly %0, i32 noundef
   br i1 %6, label %switch.hole_check, label %26
 
 switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %26
@@ -3319,7 +3319,7 @@ define dso_local noundef zeroext i1 @get_fn_expr_arg_stable(ptr noundef readonly
   br i1 %8, label %switch.hole_check, label %get_call_expr_arg_stable.exit
 
 switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %get_call_expr_arg_stable.exit
@@ -3385,7 +3385,7 @@ define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readon
   br i1 %6, label %switch.hole_check, label %26
 
 switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %26

@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [63 x i8] c"\014efi: memattr: No matching entry found in the EFI memory map\0A\00", align 1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @efi_memattr_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @efi_memattr_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i64, ptr @efi_mem_attr_table, align 8
   %2 = icmp eq i64 %1, -1
   br i1 %2, label %25, label %3

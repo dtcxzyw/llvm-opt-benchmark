@@ -1461,7 +1461,7 @@ define dso_local i64 @unix_inq_len(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i64 @unix_outq_len(ptr noundef %0) #6 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @unix_outq_len(ptr noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 340
   %3 = load volatile i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -1595,7 +1595,7 @@ declare dso_local void @fd_install(i32 noundef, ptr noundef) local_unnamed_addr 
 declare dso_local void @put_pid(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @unix_stream_recv_urg(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 2) i32 @unix_stream_recv_urg(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2898,7 +2898,7 @@ define internal i32 @unix_getname(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @unix_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 0, 16384) i32 @unix_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %2, null
@@ -3190,7 +3190,7 @@ define internal i32 @unix_compat_ioctl(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unix_listen(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @unix_listen(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3247,7 +3247,7 @@ define internal noundef i32 @unix_listen(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unix_shutdown(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @unix_shutdown(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ugt i32 %1, 2
@@ -5966,7 +5966,7 @@ define internal i32 @unix_dgram_connect(ptr noundef %0, ptr noundef %1, i32 noun
 declare dso_local i32 @sock_no_accept(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @unix_dgram_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 0, 16384) i32 @unix_dgram_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %2, null
@@ -6866,7 +6866,7 @@ declare dso_local void @sk_error_report(ptr noundef) local_unnamed_addr #4
 declare dso_local void @skb_queue_purge_reason(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @unix_dgram_peer_wake_me(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @unix_dgram_peer_wake_me(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 896
   tail call void @_raw_spin_lock(ptr noundef %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 968
@@ -7172,7 +7172,7 @@ define internal noundef i32 @unix_dgram_peer_wake_relay(ptr noundef %0, i32 %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unix_net_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @unix_net_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 552
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   store i32 10, ptr %3, align 8

@@ -75,7 +75,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %35 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %36, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -163,7 +163,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
   %60 = add nsw i32 %.0238317, 1
   %61 = sext i32 %.0238317 to i64
   %62 = getelementptr inbounds ptr, ptr %20, i64 %61
-  %63 = trunc i64 %indvars.iv367 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv367 to i32
   %64 = tail call i32 %57(ptr noundef %59, i64 noundef %17, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %63, i32 noundef -29, ptr noundef %6, ptr noundef %62) #9
   %65 = and i32 %55, -38
   br label %68
@@ -184,7 +184,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
   %72 = add nsw i32 %.1239298, 1
   %73 = sext i32 %.1239298 to i64
   %74 = getelementptr inbounds ptr, ptr %20, i64 %73
-  %75 = trunc i64 %indvars.iv367 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv367 to i32
   %76 = tail call i32 %71(ptr noundef nonnull %24, i64 noundef %17, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %75, i32 noundef -29, i32 noundef 4, ptr noundef %6, ptr noundef %74) #9
   %77 = and i32 %storemerge, -26
   store i32 %77, ptr %54, align 4
@@ -502,7 +502,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
   %192 = add nsw i32 %.0232348, 1
   %193 = sext i32 %.0232348 to i64
   %194 = getelementptr inbounds i32, ptr %13, i64 %193
-  %195 = trunc i64 %indvars.iv398 to i32
+  %195 = trunc nuw nsw i64 %indvars.iv398 to i32
   store i32 %195, ptr %194, align 4
   br label %196
 
@@ -614,7 +614,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store ptr %4, ptr %6, align 8
-  %10 = trunc i64 %3 to i32
+  %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
   br i1 %11, label %12, label %30

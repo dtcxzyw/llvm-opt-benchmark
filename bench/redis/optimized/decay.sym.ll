@@ -32,7 +32,7 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %if.then
   %cmp.i13 = icmp ne i64 %call3, 0
   %sub.i14 = add i64 %call3, -1
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i14, i1 true), !range !5
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i14, i1 true)
   tail call void @llvm.assume(i1 %cmp.i13)
   %jitter_state.promoted = load i64, ptr %jitter_state, align 8
   br label %do.body2.i
@@ -43,7 +43,7 @@ do.body2.i:                                       ; preds = %do.body2.i, %if.end
   %add.i = add i64 %mul.i, 1442695040888963407
   %shr.i = lshr i64 %add.i, %1
   %cmp4.i.not = icmp ult i64 %shr.i, %call3
-  br i1 %cmp4.i.not, label %prng_range_u64.exit.loopexit, label %do.body2.i, !llvm.loop !6
+  br i1 %cmp4.i.not, label %prng_range_u64.exit.loopexit, label %do.body2.i, !llvm.loop !5
 
 prng_range_u64.exit.loopexit:                     ; preds = %do.body2.i
   store i64 %add.i, ptr %jitter_state, align 8
@@ -106,7 +106,7 @@ if.then.i:                                        ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.then.i
   %cmp.i13.i = icmp ne i64 %call3.i, 0
   %sub.i14.i = add i64 %call3.i, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i14.i, i1 true), !range !5
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i14.i, i1 true)
   tail call void @llvm.assume(i1 %cmp.i13.i)
   %jitter_state.promoted.i = load i64, ptr %jitter_state, align 8
   br label %do.body2.i.i
@@ -117,7 +117,7 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.e
   %add.i.i = add i64 %mul.i.i, 1442695040888963407
   %shr.i.i = lshr i64 %add.i.i, %2
   %cmp4.i.not.i = icmp ult i64 %shr.i.i, %call3.i
-  br i1 %cmp4.i.not.i, label %prng_range_u64.exit.loopexit.i, label %do.body2.i.i, !llvm.loop !6
+  br i1 %cmp4.i.not.i, label %prng_range_u64.exit.loopexit.i, label %do.body2.i.i, !llvm.loop !5
 
 prng_range_u64.exit.loopexit.i:                   ; preds = %do.body2.i.i
   store i64 %add.i.i, ptr %jitter_state, align 8
@@ -228,7 +228,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %cmp.i13.i.i = icmp ne i64 %call3.i.i, 0
   %sub.i14.i.i = add i64 %call3.i.i, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i14.i.i, i1 true), !range !5
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i14.i.i, i1 true)
   tail call void @llvm.assume(i1 %cmp.i13.i.i)
   %jitter_state.promoted.i.i = load i64, ptr %jitter_state.i.i, align 8
   br label %do.body2.i.i.i
@@ -239,7 +239,7 @@ do.body2.i.i.i:                                   ; preds = %do.body2.i.i.i, %if
   %add.i.i.i = add i64 %mul.i.i.i, 1442695040888963407
   %shr.i.i.i = lshr i64 %add.i.i.i, %2
   %cmp4.i.not.i.i = icmp ult i64 %shr.i.i.i, %call3.i.i
-  br i1 %cmp4.i.not.i.i, label %prng_range_u64.exit.loopexit.i.i, label %do.body2.i.i.i, !llvm.loop !6
+  br i1 %cmp4.i.not.i.i, label %prng_range_u64.exit.loopexit.i.i, label %do.body2.i.i.i, !llvm.loop !5
 
 prng_range_u64.exit.loopexit.i.i:                 ; preds = %do.body2.i.i.i
   store i64 %add.i.i.i, ptr %jitter_state.i.i, align 8
@@ -287,7 +287,7 @@ if.then.i23:                                      ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.then.i23
   %cmp.i13.i = icmp ne i64 %call3.i, 0
   %sub.i14.i = add i64 %call3.i, -1
-  %5 = call i64 @llvm.ctlz.i64(i64 %sub.i14.i, i1 true), !range !5
+  %5 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i14.i, i1 true)
   call void @llvm.assume(i1 %cmp.i13.i)
   %jitter_state.promoted.i = load i64, ptr %jitter_state.i, align 8
   br label %do.body2.i.i
@@ -298,7 +298,7 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.e
   %add.i.i = add i64 %mul.i.i, 1442695040888963407
   %shr.i.i = lshr i64 %add.i.i, %5
   %cmp4.i.not.i = icmp ult i64 %shr.i.i, %call3.i
-  br i1 %cmp4.i.not.i, label %prng_range_u64.exit.loopexit.i, label %do.body2.i.i, !llvm.loop !6
+  br i1 %cmp4.i.not.i, label %prng_range_u64.exit.loopexit.i, label %do.body2.i.i, !llvm.loop !5
 
 prng_range_u64.exit.loopexit.i:                   ; preds = %do.body2.i.i
   store i64 %add.i.i, ptr %jitter_state.i, align 8
@@ -354,7 +354,7 @@ for.body.i:                                       ; preds = %for.body.i, %decay_
   %add.i = add i64 %mul.i29, %sum.06.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %decay_backlog_npages_limit.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %decay_backlog_npages_limit.exit, label %for.body.i, !llvm.loop !7
 
 decay_backlog_npages_limit.exit:                  ; preds = %for.body.i
   %shr.i = lshr i64 %add.i, 24
@@ -402,7 +402,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
 
 if.end10:                                         ; preds = %for.body, %if.end
   %cmp11.not = icmp ugt i64 %npages_current, %npages_threshold
@@ -427,7 +427,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %add.i = add i64 %mul.i, %sum.015.i
   %inc.i = add nuw nsw i64 %i.014.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 2
-  br i1 %exitcond.not.i, label %for.body4.i, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %for.body4.i, label %for.body.i, !llvm.loop !9
 
 for.body4.i:                                      ; preds = %for.body.i, %for.body4.i
   %sum.119.i = phi i64 [ %add11.i, %for.body4.i ], [ %add.i, %for.body.i ]
@@ -444,7 +444,7 @@ for.body4.i:                                      ; preds = %for.body.i, %for.bo
   %add11.i = add i64 %mul10.i, %sum.119.i
   %inc13.i = add nuw nsw i64 %i.118.i, 1
   %exitcond21.not.i = icmp eq i64 %inc13.i, 200
-  br i1 %exitcond21.not.i, label %decay_npurge_after_interval.exit, label %for.body4.i, !llvm.loop !11
+  br i1 %exitcond21.not.i, label %decay_npurge_after_interval.exit, label %for.body4.i, !llvm.loop !10
 
 decay_npurge_after_interval.exit:                 ; preds = %for.body4.i
   %shr.i = lshr i64 %add11.i, 24
@@ -466,7 +466,7 @@ for.body.i34:                                     ; preds = %decay_npurge_after_
   %add.i40 = add i64 %mul.i39, %sum.015.i35
   %inc.i41 = add nuw nsw i64 %i.014.i36, 1
   %exitcond.not.i42 = icmp eq i64 %inc.i41, 200
-  br i1 %exitcond.not.i42, label %decay_npurge_after_interval.exit45, label %for.body.i34, !llvm.loop !10
+  br i1 %exitcond.not.i42, label %decay_npurge_after_interval.exit45, label %for.body.i34, !llvm.loop !9
 
 decay_npurge_after_interval.exit45:               ; preds = %for.body.i34
   %shr.i44 = lshr i64 %add.i40, 24
@@ -511,7 +511,7 @@ for.body.i47:                                     ; preds = %while.body, %for.bo
   %add.i53 = add i64 %mul.i52, %sum.015.i48
   %inc.i54 = add nuw nsw i64 %i.014.i49, 1
   %exitcond.not.i55 = icmp eq i64 %inc.i54, %div32
-  br i1 %exitcond.not.i55, label %for.cond2.preheader.i56, label %for.body.i47, !llvm.loop !10
+  br i1 %exitcond.not.i55, label %for.cond2.preheader.i56, label %for.body.i47, !llvm.loop !9
 
 for.body4.i59:                                    ; preds = %for.body4.i59.preheader, %for.body4.i59
   %sum.119.i60 = phi i64 [ %add11.i68, %for.body4.i59 ], [ %sum.119.i60.ph, %for.body4.i59.preheader ]
@@ -528,7 +528,7 @@ for.body4.i59:                                    ; preds = %for.body4.i59.prehe
   %add11.i68 = add i64 %mul10.i67, %sum.119.i60
   %inc13.i69 = add i64 %i.118.i61, 1
   %exitcond21.not.i70 = icmp eq i64 %inc13.i69, 200
-  br i1 %exitcond21.not.i70, label %decay_npurge_after_interval.exit71, label %for.body4.i59, !llvm.loop !11
+  br i1 %exitcond21.not.i70, label %decay_npurge_after_interval.exit71, label %for.body4.i59, !llvm.loop !10
 
 decay_npurge_after_interval.exit71:               ; preds = %for.body4.i59, %for.cond2.preheader.i56
   %sum.1.lcssa.i = phi i64 [ %add.i53, %for.cond2.preheader.i56 ], [ %add11.i68, %for.body4.i59 ]
@@ -543,7 +543,7 @@ decay_npurge_after_interval.exit71:               ; preds = %for.body4.i59, %for
   %add25 = add i64 %lb.0.div32, 2
   %cmp26 = icmp ult i64 %add25, %div32.ub.0
   %14 = and i1 %cmp24, %cmp26
-  br i1 %14, label %while.body, label %while.end.loopexit, !llvm.loop !12
+  br i1 %14, label %while.body, label %while.end.loopexit, !llvm.loop !11
 
 while.end.loopexit:                               ; preds = %decay_npurge_after_interval.exit71
   %15 = add i64 %div32.ub.0, %lb.0.div32
@@ -601,11 +601,10 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

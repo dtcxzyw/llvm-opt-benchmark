@@ -2619,7 +2619,7 @@ define hidden void @fill_map(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %19 = load i32, ptr %8, align 8
   %20 = load i32, ptr %10, align 4
   %21 = load ptr, ptr %11, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store i32 %19, ptr %18, align 8
   %22 = icmp eq i32 %20, 0
   br i1 %22, label %copy_address_wmem.exit, label %23
@@ -8236,7 +8236,7 @@ define internal noundef ptr @pdcp_lte_copy_cb(ptr noundef returned %0, ptr nocap
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @g_strdup(ptr noundef %8) #13
@@ -8333,14 +8333,14 @@ sub_0:
   br label %free_address_wmem.exit
 
 free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %32 = load ptr, ptr %0, align 8
   %33 = call zeroext i1 @ws_inet_pton6(ptr noundef %32, ptr noundef nonnull %3) #13
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %free_address_wmem.exit
   %35 = call ptr @wmem_epan_scope() #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 3, ptr %22, align 8
   %36 = call noalias ptr @wmem_memdup(ptr noundef %35, ptr noundef nonnull %3, i64 noundef 16) #13
   %37 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8358,7 +8358,7 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
 
 43:                                               ; preds = %40
   %44 = call ptr @wmem_epan_scope() #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 2, ptr %22, align 8
   %45 = call noalias ptr @wmem_memdup(ptr noundef %44, ptr noundef nonnull %2, i64 noundef 4) #13
   %46 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8413,7 +8413,7 @@ define internal void @pdcp_lte_free_cb(ptr nocapture noundef %0) #1 {
   br label %free_address_wmem.exit
 
 free_address_wmem.exit:                           ; preds = %1, %8, %12, %15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   ret void
 }
 
@@ -9127,7 +9127,7 @@ define internal noundef ptr @pdcp_nr_copy_cb(ptr noundef returned %0, ptr nocapt
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @g_strdup(ptr noundef %8) #13
@@ -9232,14 +9232,14 @@ sub_0:
   br label %free_address_wmem.exit
 
 free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %32 = load ptr, ptr %0, align 8
   %33 = call zeroext i1 @ws_inet_pton6(ptr noundef %32, ptr noundef nonnull %3) #13
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %free_address_wmem.exit
   %35 = call ptr @wmem_epan_scope() #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 3, ptr %22, align 8
   %36 = call noalias ptr @wmem_memdup(ptr noundef %35, ptr noundef nonnull %3, i64 noundef 16) #13
   %37 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9257,7 +9257,7 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
 
 43:                                               ; preds = %40
   %44 = call ptr @wmem_epan_scope() #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 2, ptr %22, align 8
   %45 = call noalias ptr @wmem_memdup(ptr noundef %44, ptr noundef nonnull %2, i64 noundef 4) #13
   %46 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9312,7 +9312,7 @@ define internal void @pdcp_nr_free_cb(ptr nocapture noundef %0) #1 {
   br label %free_address_wmem.exit
 
 free_address_wmem.exit:                           ; preds = %1, %8, %12, %15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   ret void
 }
 
@@ -12086,7 +12086,7 @@ ip_exists.exit:                                   ; preds = %161, %149
 .loopexit:                                        ; preds = %addresses_equal.exit.i, %addresses_equal.exit.i.us, %140
   %167 = load ptr, ptr %16, align 8
   %168 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
   store i32 %.sroa.0.0.copyload, ptr %168, align 8
   %169 = icmp eq i32 %.sroa.4.0.copyload.fr, 0
   br i1 %169, label %copy_address_wmem.exit, label %170

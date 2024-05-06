@@ -196,7 +196,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
 84:                                               ; preds = %.thread374, %.thread355, %505, %86
   %.0159 = phi i8 [ %.1160, %86 ], [ %.4163345359, %.thread355 ], [ %.4163343350, %505 ], [ %.2161277373, %.thread374 ]
   %.pn258 = phi { ptr, i32 } [ %87, %86 ], [ %.pn256360, %.thread355 ], [ %506, %505 ], [ %.pn254278371, %.thread374 ]
-  %85 = trunc i8 %.0159 to i1
+  %85 = trunc nuw i8 %.0159 to i1
   br i1 %85, label %.thread, label %.thread379
 
 86:                                               ; preds = %519, %.thread352, %97, %4
@@ -359,7 +359,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %137, i64 32, i1 false)
   %139 = getelementptr inbounds i8, ptr %71, i64 32
   store i8 %.0152, ptr %139, align 8
-  %140 = trunc i8 %.0152 to i1
+  %140 = trunc nuw i8 %.0152 to i1
   %141 = load i64, ptr %71, align 8, !range !5, !noundef !4
   %142 = icmp eq i64 %141, -9223372036854775807
   %143 = load i64, ptr %138, align 8, !range !10
@@ -1342,7 +1342,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br i1 %.not251, label %457, label %455
 
 455:                                              ; preds = %452
-  %456 = trunc i8 %.4186 to i1
+  %456 = trunc nuw i8 %.4186 to i1
   br i1 %456, label %459, label %457
 
 457:                                              ; preds = %459, %455, %452
@@ -1366,7 +1366,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br label %460
 
 464:                                              ; preds = %447
-  %465 = trunc i8 %.4186 to i1
+  %465 = trunc nuw i8 %.4186 to i1
   br i1 %465, label %466, label %460
 
 466:                                              ; preds = %464
@@ -1400,7 +1400,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br i1 %.not241, label %460, label %478
 
 478:                                              ; preds = %475
-  %479 = trunc i8 %.4186 to i1
+  %479 = trunc nuw i8 %.4186 to i1
   br i1 %479, label %480, label %460
 
 480:                                              ; preds = %478
@@ -1447,7 +1447,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br i1 %.not238, label %498, label %496
 
 496:                                              ; preds = %493
-  %497 = trunc i8 %.0182 to i1
+  %497 = trunc nuw i8 %.0182 to i1
   br i1 %497, label %500, label %498
 
 498:                                              ; preds = %500, %496, %493
@@ -1460,7 +1460,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
           to label %498 unwind label %192
 
 501:                                              ; preds = %457
-  %502 = trunc i8 %.6 to i1
+  %502 = trunc nuw i8 %.6 to i1
   br i1 %502, label %.thread346, label %.thread364
 
 503:                                              ; preds = %112
@@ -1478,11 +1478,11 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
 505:                                              ; preds = %.thread346
   %506 = landingpad { ptr, i32 }
           cleanup
-  %507 = trunc i8 %.7340351 to i1
+  %507 = trunc nuw i8 %.7340351 to i1
   br i1 %507, label %.thread355, label %84
 
 508:                                              ; preds = %.thread352
-  %509 = trunc i8 %.4163343350 to i1
+  %509 = trunc nuw i8 %.4163343350 to i1
   br i1 %509, label %.thread362, label %.thread364
 
 .thread352:                                       ; preds = %.thread346
@@ -1507,7 +1507,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
 .thread272:                                       ; preds = %498, %460, %105
   %.pn254278 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %105 ], [ %.pn236, %498 ], [ %.pn252, %460 ]
   %.0168276 = phi i8 [ %.1169.ph, %105 ], [ %.2170, %498 ], [ %.6, %460 ]
-  %515 = trunc i8 %.0168276 to i1
+  %515 = trunc nuw i8 %.0168276 to i1
   br i1 %515, label %.thread366, label %.thread379
 
 516:                                              ; preds = %112, %107, %106, %103
@@ -1659,7 +1659,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 58:                                               ; preds = %56
   %59 = load i8, ptr %44, align 8, !range !9, !noundef !4
-  %60 = trunc i8 %59 to i1
+  %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %64, label %63
 
 61:                                               ; preds = %56
@@ -1672,12 +1672,12 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
           to label %71 unwind label %69
 
 64:                                               ; preds = %71, %58
-  %65 = trunc i8 %.0130.ph to i1
+  %65 = trunc nuw i8 %.0130.ph to i1
   %spec.select = select i1 %65, i32 %.sroa.0118.0.ph, i32 0
-  %66 = trunc i8 %.0.ph to i1
+  %66 = trunc nuw i8 %.0.ph to i1
   %.sroa.0125.1 = select i1 %66, i32 %.sroa.0125.0.ph, i32 0
   %67 = load i8, ptr %43, align 8, !range !9, !noundef !4
-  %68 = trunc i8 %67 to i1
+  %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %73, label %72
 
 69:                                               ; preds = %63
@@ -1698,7 +1698,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 73:                                               ; preds = %78, %64
   %74 = load i8, ptr %42, align 8, !range !9, !noundef !4
-  %75 = trunc i8 %74 to i1
+  %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %80, label %79
 
 76:                                               ; preds = %72
@@ -1907,7 +1907,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 131:                                              ; preds = %128
   %132 = load i8, ptr %44, align 8, !range !9, !noundef !4
-  %133 = trunc i8 %132 to i1
+  %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %198, label %196
 
 134:                                              ; preds = %129
@@ -1918,7 +1918,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
           to label %139 unwind label %126
 
 137:                                              ; preds = %134
-  %138 = trunc i8 %.0130.ph to i1
+  %138 = trunc nuw i8 %.0130.ph to i1
   br i1 %138, label %190, label %188
 
 139:                                              ; preds = %135
@@ -1929,7 +1929,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
           to label %144 unwind label %126
 
 142:                                              ; preds = %139
-  %143 = trunc i8 %.0.ph to i1
+  %143 = trunc nuw i8 %.0.ph to i1
   br i1 %143, label %182, label %180
 
 144:                                              ; preds = %140
@@ -1941,7 +1941,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 147:                                              ; preds = %144
   %148 = load i8, ptr %43, align 8, !range !9, !noundef !4
-  %149 = trunc i8 %148 to i1
+  %149 = trunc nuw i8 %148 to i1
   br i1 %149, label %171, label %169
 
 150:                                              ; preds = %145
@@ -1953,7 +1953,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 152:                                              ; preds = %150
   %153 = load i8, ptr %42, align 8, !range !9, !noundef !4
-  %154 = trunc i8 %153 to i1
+  %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %160, label %158
 
 155:                                              ; preds = %151

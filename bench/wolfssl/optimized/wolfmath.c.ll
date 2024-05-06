@@ -104,7 +104,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 for.cond17.preheader.loopexit72:                  ; preds = %get_digit.exit37
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw i64 %indvars.iv.next to i32
   br label %for.cond17.preheader
 
 for.cond17.preheader:                             ; preds = %for.cond17.preheader.loopexit72, %for.cond.preheader

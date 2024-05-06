@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @nstrace_3_5_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nstrace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @wtap_file_size(ptr noundef %0, ptr noundef %1) #10
   switch i64 %4, label %6 [
     i64 -1, label %185
@@ -108,7 +108,7 @@ define hidden noundef i32 @nstrace_open(ptr noundef %0, ptr noundef %1, ptr noun
   %21 = icmp eq i16 %.0.val.i, 257
   %22 = trunc i16 %.0.val.i to i8
   %23 = lshr i16 %.0.val.i, 8
-  %24 = trunc i16 %23 to i8
+  %24 = trunc nuw i16 %23 to i8
   br i1 %21, label %25, label %37
 
 25:                                               ; preds = %20
@@ -128,7 +128,7 @@ define hidden noundef i32 @nstrace_open(ptr noundef %0, ptr noundef %1, ptr noun
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds i8, ptr %.036.i, i64 8
-  %36 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(27) @.str.4, i64 noundef 26) #12
+  %36 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(27) @.str.4, i64 noundef 26) #12
   %.not31.i = icmp eq i32 %36, 0
   br i1 %.not31.i, label %54, label %.thread.i
 
@@ -152,17 +152,17 @@ define hidden noundef i32 @nstrace_open(ptr noundef %0, ptr noundef %1, ptr noun
 
 43:                                               ; preds = %.thread.i
   %44 = getelementptr inbounds i8, ptr %.036.i, i64 3
-  %45 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.5, i64 noundef 30) #12
+  %45 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.5, i64 noundef 30) #12
   %.not32.i = icmp eq i32 %45, 0
   br i1 %.not32.i, label %58, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.6, i64 noundef 30) #12
+  %47 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.6, i64 noundef 30) #12
   %.not33.i = icmp eq i32 %47, 0
   br i1 %.not33.i, label %62, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.7, i64 noundef 30) #12
+  %49 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.7, i64 noundef 30) #12
   %.not34.i = icmp eq i32 %49, 0
   br i1 %.not34.i, label %67, label %50
 
@@ -377,7 +377,7 @@ nstrace_set_start_time.exit.thread119:            ; preds = %122
   %151 = load i64, ptr %113, align 8
   %152 = sub i64 %151, %150
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %152, i64 8192)
-  %153 = trunc i64 %spec.select.i.i to i32
+  %153 = trunc nuw nsw i64 %spec.select.i.i to i32
   %.not.i.i = icmp eq i32 %153, 0
   br i1 %.not.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split, label %154
 
@@ -411,7 +411,7 @@ nstrace_read_page.exit.i.i:                       ; preds = %165
   br label %114, !llvm.loop !7
 
 nstrace_set_start_time.exit:                      ; preds = %103, %103
-  %168 = tail call fastcc i32 @nstrace_set_start_time_v20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2), !range !8
+  %168 = tail call fastcc i32 @nstrace_set_start_time_v20(ptr noundef nonnull readonly %0, ptr noundef writeonly %1, ptr noundef %2)
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %nstrace_set_start_time.exit.threadthread-pre-split, label %183
 
@@ -438,7 +438,7 @@ nstrace_set_start_time.exit.thread:               ; preds = %nstrace_set_start_t
   br i1 %175, label %185, label %176
 
 176:                                              ; preds = %172
-  %177 = tail call fastcc i32 @nstrace_read_page(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2), !range !8
+  %177 = tail call fastcc i32 @nstrace_read_page(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
   %.not79 = icmp eq i32 %177, 0
   br i1 %.not79, label %178, label %182
 
@@ -479,7 +479,7 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_read_v10(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_read_v10(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 56
@@ -594,7 +594,7 @@ ns_hrtime2nsec.exit:                              ; preds = %39, %49, %51, %53
   %61 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %60, ptr %61, align 8
   %62 = urem i64 %55, 1000000000
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw nsw i64 %62 to i32
   %64 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %63, ptr %64, align 8
   %.val184 = load i8, ptr %34, align 1
@@ -706,7 +706,7 @@ ns_hrtime2nsec.exit209:                           ; preds = %98, %108, %110, %11
   %120 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %119, ptr %120, align 8
   %121 = urem i64 %114, 1000000000
-  %122 = trunc i64 %121 to i32
+  %122 = trunc nuw nsw i64 %121 to i32
   %123 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %122, ptr %123, align 8
   store i32 3, ptr %101, align 4
@@ -887,7 +887,7 @@ nstrace_ensure_buflen.exit216:                    ; preds = %191
   %209 = sub i32 %.0171, %207
   %210 = icmp ugt i32 %209, 1
   %211 = and i1 %208, %210
-  br i1 %211, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %211, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %205, %21
   %212 = zext i32 %.0171 to i64
@@ -897,7 +897,7 @@ nstrace_ensure_buflen.exit216:                    ; preds = %191
   %215 = load i64, ptr %20, align 8
   %216 = sub i64 %215, %214
   %spec.select = tail call i64 @llvm.umin.i64(i64 %216, i64 8192)
-  %217 = trunc i64 %spec.select to i32
+  %217 = trunc nuw nsw i64 %spec.select to i32
   %.not = icmp eq i32 %217, 0
   br i1 %.not, label %.critedge, label %218
 
@@ -928,7 +928,7 @@ nstrace_ensure_buflen.exit216:                    ; preds = %191
 nstrace_read_page.exit:                           ; preds = %229
   %232 = getelementptr inbounds i8, ptr %219, i64 28
   store i32 %224, ptr %232, align 4
-  br label %21, !llvm.loop !10
+  br label %21, !llvm.loop !9
 
 .critedge:                                        ; preds = %._crit_edge, %231, %226, %nstrace_ensure_buflen.exit216.thread, %nstrace_ensure_buflen.exit213.thread, %nstrace_ensure_buflen.exit.thread, %203, %174, %157, %138, %136, %96, %90, %76, %74, %37, %31
   %.0 = phi i32 [ 0, %203 ], [ 0, %174 ], [ 0, %157 ], [ 0, %90 ], [ 0, %96 ], [ 0, %136 ], [ 1, %138 ], [ 0, %31 ], [ 0, %37 ], [ 0, %74 ], [ 1, %76 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit213.thread ], [ 0, %nstrace_ensure_buflen.exit216.thread ], [ 0, %226 ], [ 0, %231 ], [ 0, %._crit_edge ]
@@ -936,7 +936,7 @@ nstrace_read_page.exit:                           ; preds = %229
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_seek_read_v10(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_seek_read_v10(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nspr_hd_v10, align 4
   store i32 0, ptr %4, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1221,7 +1221,7 @@ ns_hrtime2nsec.exit:                              ; preds = %47, %57, %59, %61
   %69 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %68, ptr %69, align 8
   %70 = urem i64 %63, 1000000000
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw nsw i64 %70 to i32
   %72 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %71, ptr %72, align 8
   %73 = load i8, ptr %32, align 1
@@ -1375,7 +1375,7 @@ ns_hrtime2nsec.exit1092:                          ; preds = %135, %145, %147, %1
   %157 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %156, ptr %157, align 8
   %158 = urem i64 %151, 1000000000
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nuw nsw i64 %158 to i32
   %160 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %159, ptr %160, align 8
   store i32 3, ptr %138, align 4
@@ -1534,7 +1534,7 @@ ns_hrtime2nsec.exit1095:                          ; preds = %226, %236, %238, %2
   %248 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %247, ptr %248, align 8
   %249 = urem i64 %242, 1000000000
-  %250 = trunc i64 %249 to i32
+  %250 = trunc nuw nsw i64 %249 to i32
   %251 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %250, ptr %251, align 8
   %252 = load i8, ptr %211, align 1
@@ -1692,7 +1692,7 @@ ns_hrtime2nsec.exit1098:                          ; preds = %316, %326, %328, %3
   %338 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %337, ptr %338, align 8
   %339 = urem i64 %332, 1000000000
-  %340 = trunc i64 %339 to i32
+  %340 = trunc nuw nsw i64 %339 to i32
   %341 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %340, ptr %341, align 8
   store i32 3, ptr %319, align 4
@@ -1855,7 +1855,7 @@ ns_hrtime2nsec.exit1101:                          ; preds = %409, %419, %421, %4
   %431 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %430, ptr %431, align 8
   %432 = urem i64 %425, 1000000000
-  %433 = trunc i64 %432 to i32
+  %433 = trunc nuw nsw i64 %432 to i32
   %434 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %433, ptr %434, align 8
   %435 = load i8, ptr %394, align 1
@@ -2009,7 +2009,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %519 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %518, ptr %519, align 8
   %520 = urem i64 %513, 1000000000
-  %521 = trunc i64 %520 to i32
+  %521 = trunc nuw nsw i64 %520 to i32
   %522 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %521, ptr %522, align 8
   store i32 3, ptr %500, align 4
@@ -2139,7 +2139,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %596 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %595, ptr %596, align 8
   %597 = urem i64 %593, 1000000000
-  %598 = trunc i64 %597 to i32
+  %598 = trunc nuw nsw i64 %597 to i32
   %599 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %598, ptr %599, align 8
   %600 = load i8, ptr %573, align 1
@@ -2266,7 +2266,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %671 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %670, ptr %671, align 8
   %672 = urem i64 %668, 1000000000
-  %673 = trunc i64 %672 to i32
+  %673 = trunc nuw nsw i64 %672 to i32
   %674 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %673, ptr %674, align 8
   store i32 3, ptr %666, align 4
@@ -2398,7 +2398,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %749 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %748, ptr %749, align 8
   %750 = urem i64 %746, 1000000000
-  %751 = trunc i64 %750 to i32
+  %751 = trunc nuw nsw i64 %750 to i32
   %752 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %751, ptr %752, align 8
   %753 = load i8, ptr %726, align 1
@@ -2523,7 +2523,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %823 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %822, ptr %823, align 8
   %824 = urem i64 %820, 1000000000
-  %825 = trunc i64 %824 to i32
+  %825 = trunc nuw nsw i64 %824 to i32
   %826 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %825, ptr %826, align 8
   store i32 3, ptr %818, align 4
@@ -2653,7 +2653,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %900 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %899, ptr %900, align 8
   %901 = urem i64 %897, 1000000000
-  %902 = trunc i64 %901 to i32
+  %902 = trunc nuw nsw i64 %901 to i32
   %903 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %902, ptr %903, align 8
   %904 = load i8, ptr %877, align 1
@@ -2784,7 +2784,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %977 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %976, ptr %977, align 8
   %978 = urem i64 %974, 1000000000
-  %979 = trunc i64 %978 to i32
+  %979 = trunc nuw nsw i64 %978 to i32
   %980 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %979, ptr %980, align 8
   store i32 3, ptr %972, align 4
@@ -2920,7 +2920,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %1057 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %1056, ptr %1057, align 8
   %1058 = urem i64 %1054, 1000000000
-  %1059 = trunc i64 %1058 to i32
+  %1059 = trunc nuw nsw i64 %1058 to i32
   %1060 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %1059, ptr %1060, align 8
   %1061 = load i8, ptr %1034, align 1
@@ -3047,7 +3047,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
   %1132 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %1131, ptr %1132, align 8
   %1133 = urem i64 %1129, 1000000000
-  %1134 = trunc i64 %1133 to i32
+  %1134 = trunc nuw nsw i64 %1133 to i32
   %1135 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %1134, ptr %1135, align 8
   store i32 3, ptr %1127, align 4
@@ -3336,7 +3336,7 @@ nstrace_ensure_buflen.exit1120:                   ; preds = %1264
 1286:                                             ; preds = %1263, %1283, %1260, %nstrace_ensure_buflen.exit1111
   %.2 = phi i32 [ %1285, %1283 ], [ %1262, %1260 ], [ %1208, %nstrace_ensure_buflen.exit1111 ], [ %.0994., %1263 ]
   %1287 = icmp ult i32 %.2, %.0994
-  br i1 %1287, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %1287, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %1286, %21
   %1288 = zext i32 %.0994 to i64
@@ -3346,7 +3346,7 @@ nstrace_ensure_buflen.exit1120:                   ; preds = %1264
   %1291 = load i64, ptr %20, align 8
   %1292 = sub i64 %1291, %1290
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1292, i64 8192)
-  %1293 = trunc i64 %spec.select to i32
+  %1293 = trunc nuw nsw i64 %spec.select to i32
   %.not = icmp eq i32 %1293, 0
   br i1 %.not, label %.critedge, label %1294
 
@@ -3377,7 +3377,7 @@ nstrace_ensure_buflen.exit1120:                   ; preds = %1264
 nstrace_read_page.exit:                           ; preds = %1305
   %1308 = getelementptr inbounds i8, ptr %1295, i64 28
   store i32 %1300, ptr %1308, align 4
-  br label %21, !llvm.loop !12
+  br label %21, !llvm.loop !11
 
 .critedge:                                        ; preds = %._crit_edge, %1307, %1302, %nstrace_ensure_buflen.exit1120.thread, %nstrace_ensure_buflen.exit1114.thread, %nstrace_ensure_buflen.exit1111.thread, %nstrace_ensure_buflen.exit.thread, %1281, %1237, %1198, %1178, %1157, %1122, %1106, %1100, %1079, %1047, %1031, %1025, %1004, %967, %951, %945, %924, %890, %874, %868, %847, %813, %797, %791, %770, %739, %723, %717, %696, %661, %645, %639, %618, %586, %570, %564, %543, %495, %479, %473, %452, %407, %391, %385, %364, %314, %298, %292, %271, %224, %208, %202, %181, %133, %117, %111, %90, %45, %29
   %.0 = phi i32 [ 0, %1281 ], [ 0, %1237 ], [ 0, %1198 ], [ 0, %1106 ], [ 0, %1122 ], [ 0, %1157 ], [ 1, %1178 ], [ 0, %1031 ], [ 0, %1047 ], [ 0, %1079 ], [ 1, %1100 ], [ 0, %951 ], [ 0, %967 ], [ 0, %1004 ], [ 1, %1025 ], [ 0, %874 ], [ 0, %890 ], [ 0, %924 ], [ 1, %945 ], [ 0, %797 ], [ 0, %813 ], [ 0, %847 ], [ 1, %868 ], [ 0, %723 ], [ 0, %739 ], [ 0, %770 ], [ 1, %791 ], [ 0, %645 ], [ 0, %661 ], [ 0, %696 ], [ 1, %717 ], [ 0, %570 ], [ 0, %586 ], [ 0, %618 ], [ 1, %639 ], [ 0, %479 ], [ 0, %495 ], [ 0, %543 ], [ 1, %564 ], [ 0, %391 ], [ 0, %407 ], [ 0, %452 ], [ 1, %473 ], [ 0, %298 ], [ 0, %314 ], [ 0, %364 ], [ 1, %385 ], [ 0, %208 ], [ 0, %224 ], [ 0, %271 ], [ 1, %292 ], [ 0, %117 ], [ 0, %133 ], [ 0, %181 ], [ 1, %202 ], [ 0, %29 ], [ 0, %45 ], [ 0, %90 ], [ 1, %111 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit1111.thread ], [ 0, %nstrace_ensure_buflen.exit1114.thread ], [ 0, %nstrace_ensure_buflen.exit1120.thread ], [ 0, %1302 ], [ 0, %1307 ], [ 0, %._crit_edge ]
@@ -3385,7 +3385,7 @@ nstrace_read_page.exit:                           ; preds = %1305
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_seek_read_v20(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nspr_hd_v20, align 1
   store i32 0, ptr %4, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3751,7 +3751,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
   %193 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %192, ptr %193, align 8
   %194 = urem i64 %190, 1000000000
-  %195 = trunc i64 %194 to i32
+  %195 = trunc nuw nsw i64 %194 to i32
   %196 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %195, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %36, i64 1
@@ -3803,7 +3803,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
   %225 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %224, ptr %225, align 8
   %226 = urem i64 %222, 1000000000
-  %227 = trunc i64 %226 to i32
+  %227 = trunc nuw nsw i64 %226 to i32
   %228 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %227, ptr %228, align 8
   store i32 3, ptr %220, align 4
@@ -3860,7 +3860,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
   %260 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %259, ptr %260, align 8
   %261 = urem i64 %257, 1000000000
-  %262 = trunc i64 %261 to i32
+  %262 = trunc nuw nsw i64 %261 to i32
   %263 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %262, ptr %263, align 8
   %264 = getelementptr inbounds i8, ptr %36, i64 1
@@ -3912,7 +3912,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
   %292 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %291, ptr %292, align 8
   %293 = urem i64 %289, 1000000000
-  %294 = trunc i64 %293 to i32
+  %294 = trunc nuw nsw i64 %293 to i32
   %295 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %294, ptr %295, align 8
   store i32 3, ptr %287, align 4
@@ -3969,7 +3969,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
   %327 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %326, ptr %327, align 8
   %328 = urem i64 %324, 1000000000
-  %329 = trunc i64 %328 to i32
+  %329 = trunc nuw nsw i64 %328 to i32
   %330 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %329, ptr %330, align 8
   %331 = getelementptr inbounds i8, ptr %36, i64 1
@@ -4027,7 +4027,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
   %362 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %361, ptr %362, align 8
   %363 = urem i64 %359, 1000000000
-  %364 = trunc i64 %363 to i32
+  %364 = trunc nuw nsw i64 %363 to i32
   %365 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %364, ptr %365, align 8
   store i32 3, ptr %357, align 4
@@ -4090,7 +4090,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
   %400 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %399, ptr %400, align 8
   %401 = urem i64 %397, 1000000000
-  %402 = trunc i64 %401 to i32
+  %402 = trunc nuw nsw i64 %401 to i32
   %403 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %402, ptr %403, align 8
   %404 = getelementptr inbounds i8, ptr %36, i64 1
@@ -4142,7 +4142,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
   %432 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %431, ptr %432, align 8
   %433 = urem i64 %429, 1000000000
-  %434 = trunc i64 %433 to i32
+  %434 = trunc nuw nsw i64 %433 to i32
   %435 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %434, ptr %435, align 8
   store i32 3, ptr %427, align 4
@@ -4197,7 +4197,7 @@ define internal noundef i32 @nstrace_seek_read_v20(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_read_v30(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_read_v30(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -4344,7 +4344,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %45
   %79 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %78, ptr %79, align 8
   %80 = urem i64 %76, 1000000000
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw nsw i64 %80 to i32
   %82 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %81, ptr %82, align 8
   store i32 3, ptr %74, align 4
@@ -4427,10 +4427,10 @@ nstrace_ensure_buflen.exit:                       ; preds = %45
   %125 = getelementptr i8, ptr %16, i64 %indvars.iv570
   store i8 %124, ptr %125, align 1
   %exitcond578.not = icmp eq i64 %indvars.iv.next571, 52
-  br i1 %exitcond578.not, label %126, label %119, !llvm.loop !13
+  br i1 %exitcond578.not, label %126, label %119, !llvm.loop !12
 
 126:                                              ; preds = %122
-  %127 = trunc i64 %indvars.iv.next569 to i32
+  %127 = trunc nuw i64 %indvars.iv.next569 to i32
   %128 = load i8, ptr %51, align 1
   %129 = zext i8 %128 to i32
   %.not365 = icmp sgt i8 %128, -1
@@ -4491,7 +4491,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %45
   %152 = getelementptr i8, ptr %16, i64 %151
   store i8 %149, ptr %152, align 1
   %153 = icmp ult i64 %indvars.iv.next580, %145
-  br i1 %153, label %.lr.ph482, label %._crit_edge483, !llvm.loop !14
+  br i1 %153, label %.lr.ph482, label %._crit_edge483, !llvm.loop !13
 
 ._crit_edge483:                                   ; preds = %.lr.ph482, %.preheader410
   %.2340.lcssa = phi i32 [ %.1339486, %.preheader410 ], [ %150, %.lr.ph482 ]
@@ -4527,7 +4527,7 @@ select.unfold:                                    ; preds = %._crit_edge483
   %169 = getelementptr i8, ptr %16, i64 %indvars.iv582
   store i8 %168, ptr %169, align 1
   %exitcond586.not = icmp eq i64 %indvars.iv.next583, %wide.trip.count585
-  br i1 %exitcond586.not, label %._crit_edge495, label %.lr.ph494, !llvm.loop !15
+  br i1 %exitcond586.not, label %._crit_edge495, label %.lr.ph494, !llvm.loop !14
 
 ._crit_edge495:                                   ; preds = %.lr.ph494, %.preheader
   %.5.lcssa = phi i32 [ %.3.lcssa, %.preheader ], [ %165, %.lr.ph494 ]
@@ -4568,7 +4568,7 @@ select.unfold:                                    ; preds = %._crit_edge483
   %189 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %188, ptr %189, align 8
   %190 = urem i64 %186, 1000000000
-  %191 = trunc i64 %190 to i32
+  %191 = trunc nuw nsw i64 %190 to i32
   %192 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %191, ptr %192, align 8
   store i32 3, ptr %184, align 4
@@ -4658,10 +4658,10 @@ select.unfold:                                    ; preds = %._crit_edge483
   %234 = getelementptr i8, ptr %16, i64 %indvars.iv554
   store i8 %233, ptr %234, align 1
   %exitcond559.not = icmp eq i64 %indvars.iv.next555, 35
-  br i1 %exitcond559.not, label %235, label %228, !llvm.loop !16
+  br i1 %exitcond559.not, label %235, label %228, !llvm.loop !15
 
 235:                                              ; preds = %231
-  %236 = trunc i64 %indvars.iv.next to i32
+  %236 = trunc nuw i64 %indvars.iv.next to i32
   %237 = load i8, ptr %51, align 1
   %238 = zext i8 %237 to i32
   %.not359 = icmp sgt i8 %237, -1
@@ -4722,7 +4722,7 @@ select.unfold:                                    ; preds = %._crit_edge483
   %261 = getelementptr i8, ptr %16, i64 %260
   store i8 %258, ptr %261, align 1
   %262 = icmp ult i64 %indvars.iv.next561, %254
-  br i1 %262, label %.lr.ph465, label %._crit_edge, !llvm.loop !17
+  br i1 %262, label %.lr.ph465, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph465, %.preheader412
   %.6344.lcssa = phi i32 [ %.5343467, %.preheader412 ], [ %259, %.lr.ph465 ]
@@ -4758,7 +4758,7 @@ select.unfold399:                                 ; preds = %._crit_edge
   %278 = getelementptr i8, ptr %16, i64 %indvars.iv563
   store i8 %277, ptr %278, align 1
   %exitcond567.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count566
-  br i1 %exitcond567.not, label %._crit_edge476, label %.lr.ph475, !llvm.loop !18
+  br i1 %exitcond567.not, label %._crit_edge476, label %.lr.ph475, !llvm.loop !17
 
 ._crit_edge476:                                   ; preds = %.lr.ph475, %.preheader411
   %.9.lcssa = phi i32 [ %.7.lcssa, %.preheader411 ], [ %274, %.lr.ph475 ]
@@ -4883,7 +4883,7 @@ nstrace_ensure_buflen.exit395:                    ; preds = %66
 348:                                              ; preds = %345, %335, %nstrace_ensure_buflen.exit389
   %.10 = phi i32 [ %347, %345 ], [ %337, %335 ], [ %296, %nstrace_ensure_buflen.exit389 ]
   %349 = icmp ult i32 %.10, 16384
-  br i1 %349, label %.lr.ph, label %.critedge, !llvm.loop !19
+  br i1 %349, label %.lr.ph, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph, %348, %39
   %350 = zext i32 %.0333 to i64
@@ -4901,7 +4901,7 @@ nstrace_ensure_buflen.exit395:                    ; preds = %66
   %359 = icmp ne i32 %358, 0
   %360 = icmp eq i32 %354, 16384
   %361 = or i1 %360, %359
-  br i1 %361, label %21, label %.critedge11.thread, !llvm.loop !20
+  br i1 %361, label %21, label %.critedge11.thread, !llvm.loop !19
 
 .critedge11:                                      ; preds = %.critedge
   %362 = icmp slt i32 %354, 0
@@ -4928,7 +4928,7 @@ nstrace_ensure_buflen.exit395:                    ; preds = %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_seek_read_v30(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_seek_read_v30(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nspr_hd_v20, align 1
   store i32 0, ptr %4, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5022,7 +5022,7 @@ define internal noundef i32 @nstrace_seek_read_v30(ptr nocapture noundef readonl
   %56 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %55, ptr %56, align 8
   %57 = urem i64 %53, 1000000000
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %58, ptr %59, align 8
   store i32 3, ptr %51, align 4
@@ -5089,7 +5089,7 @@ define internal noundef i32 @nstrace_seek_read_v30(ptr nocapture noundef readonl
   %99 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %98, ptr %99, align 8
   %100 = urem i64 %96, 1000000000
-  %101 = trunc i64 %100 to i32
+  %101 = trunc nuw nsw i64 %100 to i32
   %102 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %101, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %36, i64 26
@@ -5167,7 +5167,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nstrace_read_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nstrace_read_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -5233,7 +5233,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nstrace_set_start_time_v20(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -5353,7 +5353,7 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
 63:                                               ; preds = %58
   %64 = add i32 %59, %.183
   %65 = icmp ult i32 %64, %.052
-  br i1 %65, label %15, label %._crit_edge, !llvm.loop !21
+  br i1 %65, label %15, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %nstrace_ensure_buflen.exit, %63, %13
   %66 = zext i32 %.052 to i64
@@ -5363,7 +5363,7 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
   %69 = load i64, ptr %12, align 8
   %70 = sub i64 %69, %68
   %spec.select = tail call i64 @llvm.umin.i64(i64 %70, i64 8192)
-  %71 = trunc i64 %spec.select to i32
+  %71 = trunc nuw nsw i64 %spec.select to i32
   %.not = icmp eq i32 %71, 0
   br i1 %.not, label %.critedge, label %72
 
@@ -5394,7 +5394,7 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
 nstrace_read_page.exit:                           ; preds = %83
   %86 = getelementptr inbounds i8, ptr %73, i64 28
   store i32 %78, ptr %86, align 4
-  br label %13, !llvm.loop !22
+  br label %13, !llvm.loop !21
 
 .critedge:                                        ; preds = %._crit_edge, %85, %80, %nstrace_ensure_buflen.exit66.thread, %nstrace_ensure_buflen.exit.thread, %61, %44
   %.0 = phi i32 [ 0, %61 ], [ 1, %44 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit66.thread ], [ 0, %80 ], [ 0, %85 ], [ 0, %._crit_edge ]
@@ -5418,7 +5418,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @nstrace_10_dump_can_write_encap(i32 noundef %0) #7 {
+define internal noundef range(i32 -8, 1) i32 @nstrace_10_dump_can_write_encap(i32 noundef %0) #7 {
   %2 = icmp eq i32 %0, 119
   %. = select i1 %2, i32 0, i32 -8
   ret i32 %.
@@ -5444,7 +5444,7 @@ define internal noundef i32 @nstrace_10_dump_open(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @nstrace_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
@@ -5485,32 +5485,32 @@ define internal noundef i32 @nstrace_dump(ptr noundef %0, ptr nocapture noundef 
   ]
 
 23:                                               ; preds = %21
-  %24 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3), !range !8
+  %24 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3)
   %.not103 = icmp eq i32 %24, 0
   br i1 %.not103, label %126, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc i32 @nstrace_add_abstime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3), !range !8
+  %26 = tail call fastcc i32 @nstrace_add_abstime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %.not104 = icmp eq i32 %26, 0
   br i1 %.not104, label %126, label %36
 
 27:                                               ; preds = %21
-  %28 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3), !range !8
+  %28 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3)
   %.not101 = icmp eq i32 %28, 0
   br i1 %.not101, label %126, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call fastcc i32 @nstrace_add_abstime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3), !range !8
+  %30 = tail call fastcc i32 @nstrace_add_abstime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %.not102 = icmp eq i32 %30, 0
   br i1 %.not102, label %126, label %36
 
 31:                                               ; preds = %21, %21
-  %32 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3), !range !8
+  %32 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3)
   %.not99 = icmp eq i32 %32, 0
   br i1 %.not99, label %126, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call fastcc i32 @nstrace_add_abstime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3), !range !8
+  %34 = tail call fastcc i32 @nstrace_add_abstime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %.not100 = icmp eq i32 %34, 0
   br i1 %.not100, label %126, label %36
 
@@ -5562,7 +5562,7 @@ define internal noundef i32 @nstrace_dump(ptr noundef %0, ptr nocapture noundef 
 
 55:                                               ; preds = %50
   store i16 0, ptr %42, align 4
-  %56 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3), !range !8
+  %56 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3)
   %.not112 = icmp eq i32 %56, 0
   br i1 %.not112, label %126, label %._crit_edge116
 
@@ -5621,7 +5621,7 @@ define internal noundef i32 @nstrace_dump(ptr noundef %0, ptr nocapture noundef 
 
 84:                                               ; preds = %79
   store i16 0, ptr %71, align 4
-  %85 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3), !range !8
+  %85 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3)
   %.not109 = icmp eq i32 %85, 0
   br i1 %.not109, label %126, label %._crit_edge114
 
@@ -5682,7 +5682,7 @@ define internal noundef i32 @nstrace_dump(ptr noundef %0, ptr nocapture noundef 
 
 113:                                              ; preds = %108
   store i16 0, ptr %100, align 4
-  %114 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3), !range !8
+  %114 = tail call fastcc i32 @nstrace_add_signature(ptr noundef nonnull %0, ptr noundef %3)
   %.not106 = icmp eq i32 %114, 0
   br i1 %.not106, label %126, label %._crit_edge
 
@@ -5719,7 +5719,7 @@ define internal noundef i32 @nstrace_dump(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nstrace_add_signature(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nstrace_add_signature(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.nspr_signature_v10, align 2
   %4 = alloca %struct.nspr_signature_v20, align 1
   %5 = alloca %struct.nspr_signature_v30, align 1
@@ -5806,7 +5806,7 @@ define internal fastcc noundef i32 @nstrace_add_signature(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nstrace_add_abstime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nstrace_add_abstime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.nspr_abstime_v10, align 2
   %6 = alloca %struct.nspr_abstime_v20, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5859,7 +5859,7 @@ ns_hrtime2nsec.exit:                              ; preds = %10, %17, %19, %21
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   %27 = udiv i64 %.0.i, 1000000000
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %29 = sub i32 %26, %28
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %29, ptr %30, align 2
@@ -5937,7 +5937,7 @@ declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @nstrace_20_dump_can_write_encap(i32 noundef %0) #7 {
+define internal noundef range(i32 -8, 1) i32 @nstrace_20_dump_can_write_encap(i32 noundef %0) #7 {
   %2 = icmp eq i32 %0, 120
   %. = select i1 %2, i32 0, i32 -8
   ret i32 %.
@@ -5963,7 +5963,7 @@ define internal noundef i32 @nstrace_20_dump_open(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @nstrace_30_dump_can_write_encap(i32 noundef %0) #7 {
+define internal noundef range(i32 -8, 1) i32 @nstrace_30_dump_can_write_encap(i32 noundef %0) #7 {
   %2 = icmp eq i32 %0, 162
   %. = select i1 %2, i32 0, i32 -8
   ret i32 %.
@@ -5989,7 +5989,7 @@ define internal noundef i32 @nstrace_30_dump_open(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @nstrace_35_dump_can_write_encap(i32 noundef %0) #7 {
+define internal noundef range(i32 -8, 1) i32 @nstrace_35_dump_can_write_encap(i32 noundef %0) #7 {
   %2 = icmp eq i32 %0, 176
   %. = select i1 %2, i32 0, i32 -8
   ret i32 %.
@@ -6046,7 +6046,7 @@ attributes #14 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -6060,4 +6060,3 @@ attributes #14 = { noreturn nounwind }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

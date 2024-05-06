@@ -190,7 +190,7 @@ dealloc.exit:                                     ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @closure_freed_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @closure_freed_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @closure_data_type) #6
   %.not = icmp eq ptr %2, null
   %3 = select i1 %.not, i64 20, i64 0

@@ -746,7 +746,7 @@ define dso_local void @snbep_uncore_cpu_init() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snbep_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snbep_uncore_pci_init() local_unnamed_addr #1 align 16 {
   %1 = tail call fastcc i32 @snbep_pci2phy_map_init(i32 noundef 15584, i32 noundef 64, i32 noundef 84, i1 noundef zeroext true), !range !5
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4
@@ -764,7 +764,7 @@ define dso_local i32 @snbep_uncore_pci_init() local_unnamed_addr #1 align 16 {
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snbep_pci2phy_map_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
@@ -1025,7 +1025,7 @@ define dso_local void @ivbep_uncore_cpu_init() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ivbep_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ivbep_uncore_pci_init() local_unnamed_addr #1 align 16 {
   %1 = tail call fastcc i32 @snbep_pci2phy_map_init(i32 noundef 3614, i32 noundef 64, i32 noundef 84, i1 noundef zeroext true), !range !5
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4
@@ -1112,7 +1112,7 @@ define dso_local void @hswep_uncore_cpu_init() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @hswep_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @hswep_uncore_pci_init() local_unnamed_addr #1 align 16 {
   %1 = tail call fastcc i32 @snbep_pci2phy_map_init(i32 noundef 12062, i32 noundef 64, i32 noundef 84, i1 noundef zeroext true), !range !5
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4
@@ -1181,7 +1181,7 @@ define dso_local void @bdx_uncore_cpu_init() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @bdx_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @bdx_uncore_pci_init() local_unnamed_addr #1 align 16 {
   %1 = tail call fastcc i32 @snbep_pci2phy_map_init(i32 noundef 28446, i32 noundef 64, i32 noundef 84, i1 noundef zeroext true), !range !5
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4
@@ -1222,7 +1222,7 @@ define dso_local void @skx_uncore_cpu_init() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skx_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @skx_uncore_pci_init() local_unnamed_addr #1 align 16 {
   %1 = tail call fastcc i32 @snbep_pci2phy_map_init(i32 noundef 8212, i32 noundef 192, i32 noundef 212, i1 noundef zeroext false), !range !5
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4
@@ -1243,7 +1243,7 @@ define dso_local void @snr_uncore_cpu_init() local_unnamed_addr #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snr_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snr_uncore_pci_init() local_unnamed_addr #1 align 16 {
   %1 = tail call fastcc i32 @snbep_pci2phy_map_init(i32 noundef 13408, i32 noundef 192, i32 noundef 212, i1 noundef zeroext true), !range !5
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4
@@ -1294,7 +1294,7 @@ define dso_local void @icx_uncore_cpu_init() local_unnamed_addr #1 align 16 {
   br label %15
 
 13:                                               ; preds = %8
-  %14 = trunc i64 %10 to i32
+  %14 = trunc nuw nsw i64 %10 to i32
   store i32 %14, ptr getelementptr inbounds ({ ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, %union.anon, i32, i8, i8, %union.anon.0, ptr, %struct.event_constraint, ptr, ptr, ptr, ptr, ptr, [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr }, ptr @icx_uncore_chabox, i64 0, i32 2), align 4
   store ptr @icx_msr_uncores, ptr @uncore_msr_uncores, align 8
   br label %15
@@ -1304,7 +1304,7 @@ define dso_local void @icx_uncore_cpu_init() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @icx_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @icx_uncore_pci_init() local_unnamed_addr #1 align 16 {
   %1 = tail call fastcc i32 @snbep_pci2phy_map_init(i32 noundef 13392, i32 noundef 192, i32 noundef 212, i1 noundef zeroext true), !range !5
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4
@@ -2021,7 +2021,7 @@ define internal void @snbep_uncore_msr_disable_box(ptr nocapture noundef readonl
   %38 = or i64 %35, 256
   %39 = trunc i64 %38 to i32
   %40 = lshr i64 %35, 32
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %39, i32 %41) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %.thread [label %42], !srcloc !25
@@ -2091,7 +2091,7 @@ define internal void @snbep_uncore_msr_enable_box(ptr nocapture noundef readonly
   %38 = and i64 %35, -257
   %39 = trunc i64 %38 to i32
   %40 = lshr i64 %35, 32
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %39, i32 %41) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %.thread [label %42], !srcloc !25
@@ -2113,7 +2113,7 @@ define internal void @snbep_uncore_msr_disable_event(ptr nocapture readnone %0, 
   %7 = load i64, ptr %3, align 8
   %8 = trunc i64 %7 to i32
   %9 = lshr i64 %7, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %6, i32 %8, i32 %10) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %12 [label %11], !srcloc !25
@@ -2139,7 +2139,7 @@ define internal void @snbep_uncore_msr_enable_event(ptr noundef %0, ptr nocaptur
   %9 = tail call i64 @uncore_shared_reg_config(ptr noundef %0, i32 noundef 0) #20
   %10 = trunc i64 %9 to i32
   %11 = lshr i64 %9, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 %10, i32 %12) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %14 [label %13], !srcloc !25
@@ -2157,7 +2157,7 @@ define internal void @snbep_uncore_msr_enable_event(ptr noundef %0, ptr nocaptur
   %20 = or i64 %19, 4194304
   %21 = trunc i64 %20 to i32
   %22 = lshr i64 %19, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %18, i32 %21, i32 %23) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %25 [label %24], !srcloc !25
@@ -2296,7 +2296,7 @@ declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef
 declare dso_local i64 @uncore_shared_reg_config(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i64 @snbep_cbox_filter_mask(i32 noundef %0) #6 align 16 {
+define internal range(i64 0, 4294967296) i64 @snbep_cbox_filter_mask(i32 noundef %0) #6 align 16 {
   %2 = and i32 %0, 1
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i64 0, i64 31
@@ -2942,7 +2942,7 @@ define internal void @snbep_qpi_enable_event(ptr nocapture noundef readonly %0, 
   %30 = add i32 %29, 4
   %31 = load i64, ptr %5, align 8
   %32 = lshr i64 %31, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = tail call i32 @pci_write_config_dword(ptr noundef nonnull %21, i32 noundef %30, i32 noundef %33) #20
   %35 = getelementptr inbounds i8, ptr %1, i64 440
   %36 = load i32, ptr %35, align 8
@@ -2953,7 +2953,7 @@ define internal void @snbep_qpi_enable_event(ptr nocapture noundef readonly %0, 
   %41 = add i32 %40, 4
   %42 = load i64, ptr %6, align 8
   %43 = lshr i64 %42, 32
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   %45 = tail call i32 @pci_write_config_dword(ptr noundef nonnull %21, i32 noundef %41, i32 noundef %44) #20
   br label %46
 
@@ -3196,7 +3196,7 @@ define internal void @ivbep_cbox_enable_event(ptr noundef %0, ptr nocapture noun
   %14 = load i32, ptr %8, align 8
   %15 = add i32 %14, 6
   %16 = lshr i64 %7, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %15, i32 %17, i32 0) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %19 [label %18], !srcloc !25
@@ -3214,7 +3214,7 @@ define internal void @ivbep_cbox_enable_event(ptr noundef %0, ptr nocapture noun
   %25 = or i64 %24, 4194304
   %26 = trunc i64 %25 to i32
   %27 = lshr i64 %24, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %23, i32 %26, i32 %28) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %30 [label %29], !srcloc !25
@@ -3310,7 +3310,7 @@ define internal noundef ptr @ivbep_cbox_get_constraint(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i64 @ivbep_cbox_filter_mask(i32 noundef %0) #6 align 16 {
+define internal range(i64 -4503599627370496, 281470690131968) i64 @ivbep_cbox_filter_mask(i32 noundef %0) #6 align 16 {
   %2 = and i32 %0, 1
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i64 0, i64 31
@@ -3466,7 +3466,7 @@ define internal void @hswep_cbox_enable_event(ptr noundef %0, ptr nocapture noun
   %14 = load i32, ptr %8, align 8
   %15 = add i32 %14, 1
   %16 = lshr i64 %7, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %15, i32 %17, i32 0) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %19 [label %18], !srcloc !25
@@ -3484,7 +3484,7 @@ define internal void @hswep_cbox_enable_event(ptr noundef %0, ptr nocapture noun
   %25 = or i64 %24, 4194304
   %26 = trunc i64 %25 to i32
   %27 = lshr i64 %24, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %23, i32 %26, i32 %28) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %30 [label %29], !srcloc !25
@@ -3573,7 +3573,7 @@ define internal noundef ptr @knl_cha_get_constraint(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i64 @knl_cha_filter_mask(i32 noundef %0) #6 align 16 {
+define internal range(i64 -2018634629120, 1835520) i64 @knl_cha_filter_mask(i32 noundef %0) #6 align 16 {
   %2 = and i32 %0, 1
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i64 0, i64 511
@@ -3777,7 +3777,7 @@ define internal noundef ptr @hswep_cbox_get_constraint(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i64 @hswep_cbox_filter_mask(i32 noundef %0) #6 align 16 {
+define internal range(i64 -4503599627370496, 281470698520576) i64 @hswep_cbox_filter_mask(i32 noundef %0) #6 align 16 {
   %2 = and i32 %0, 1
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i64 0, i64 63
@@ -3878,7 +3878,7 @@ define internal void @hswep_uncore_sbox_msr_init_box(ptr nocapture noundef reado
   %42 = or i64 %41, %31
   %43 = trunc i64 %42 to i32
   %44 = lshr i64 %42, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %43, i32 %45) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %47 [label %46], !srcloc !25
@@ -4059,7 +4059,7 @@ define internal noundef ptr @skx_cha_get_constraint(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i64 @skx_cha_filter_mask(i32 noundef %0) #6 align 16 {
+define internal range(i64 -2305844954833879040, 134094848) i64 @skx_cha_filter_mask(i32 noundef %0) #6 align 16 {
   %2 = and i32 %0, 1
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i64 0, i64 511
@@ -4148,7 +4148,7 @@ define internal void @skx_iio_enable_event(ptr nocapture readnone %0, ptr nocapt
   %8 = or i64 %7, 4194304
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %7, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %6, i32 %9, i32 %11) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %13 [label %12], !srcloc !25
@@ -4708,7 +4708,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @skx_iio_mapping_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #11 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @skx_iio_mapping_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #11 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 352
@@ -4876,7 +4876,7 @@ define internal fastcc void @pmu_cleanup_mapping(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @uncore_freerunning_hw_config(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #15 align 16 {
+define internal range(i32 -22, 1) i32 @uncore_freerunning_hw_config(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #15 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 224
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 255
@@ -5023,7 +5023,7 @@ define internal i32 @skx_upi_topology_cb(ptr nocapture noundef readonly %0, i32 
 declare dso_local ptr @pci_get_domain_bus_and_slot(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @upi_fill_topology(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @upi_fill_topology(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
   store i32 0, ptr %4, align 4, !annotation !6
@@ -5130,7 +5130,7 @@ define internal fastcc i32 @upi_fill_topology(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @skx_upi_mapping_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @skx_upi_mapping_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -5172,7 +5172,7 @@ define internal void @snr_cha_enable_event(ptr nocapture readnone %0, ptr nocapt
   %10 = load i64, ptr %7, align 8
   %11 = trunc i64 %10 to i32
   %12 = lshr i64 %10, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %9, i32 %11, i32 %13) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %15 [label %14], !srcloc !25
@@ -5190,7 +5190,7 @@ define internal void @snr_cha_enable_event(ptr nocapture readnone %0, ptr nocapt
   %21 = or i64 %20, 4194304
   %22 = trunc i64 %21 to i32
   %23 = lshr i64 %20, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, i32 %22, i32 %24) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %26 [label %25], !srcloc !25
@@ -5240,7 +5240,7 @@ define internal noundef i64 @__uncore_filter_tid5_show(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snr_iio_get_topology(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @snr_iio_get_topology(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = tail call fastcc i32 @sad_cfg_iio_topology(ptr noundef %0, ptr noundef nonnull @snr_sad_pmon_mapping), !range !5
   ret i32 %2
 }
@@ -5327,7 +5327,7 @@ define internal zeroext i16 @snr_iio_mapping_visible(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sad_cfg_iio_topology(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sad_cfg_iio_topology(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
   store i32 0, ptr %3, align 4, !annotation !6
@@ -5508,7 +5508,7 @@ define internal void @snr_uncore_pci_enable_event(ptr nocapture noundef readonly
   %15 = add i32 %14, 4
   %16 = load i64, ptr %5, align 8
   %17 = lshr i64 %16, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = tail call i32 @pci_write_config_dword(ptr noundef %4, i32 noundef %15, i32 noundef %18) #20
   ret void
 }
@@ -5669,7 +5669,7 @@ define internal void @snr_uncore_mmio_enable_event(ptr nocapture noundef readonl
 declare dso_local i64 @uncore_mmio_read_counter(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @snr_uncore_mmio_map(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @snr_uncore_mmio_map(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %0, align 8
   br label %7
@@ -5772,7 +5772,7 @@ define internal noundef i32 @icx_cha_hw_config(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @icx_iio_get_topology(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @icx_iio_get_topology(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = tail call fastcc i32 @sad_cfg_iio_topology(ptr noundef %0, ptr noundef nonnull @icx_sad_pmon_mapping), !range !5
   ret i32 %2
 }
@@ -5924,7 +5924,7 @@ define internal noundef i64 @__uncore_umask_ext4_show(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @discover_upi_topology(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @discover_upi_topology(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
@@ -6195,7 +6195,7 @@ define internal void @spr_uncore_msr_enable_event(ptr nocapture readnone %0, ptr
   %10 = load i64, ptr %7, align 8
   %11 = trunc i64 %10 to i32
   %12 = lshr i64 %10, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %9, i32 %11, i32 %13) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %15 [label %14], !srcloc !25
@@ -6212,7 +6212,7 @@ define internal void @spr_uncore_msr_enable_event(ptr nocapture readnone %0, ptr
   %20 = load i64, ptr %16, align 8
   %21 = trunc i64 %20 to i32
   %22 = lshr i64 %20, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, i32 %21, i32 %23) #20, !srcloc !30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #20
           to label %25 [label %24], !srcloc !25
@@ -6269,7 +6269,7 @@ define internal noundef i64 @__uncore_tid_en2_show(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @alias_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @alias_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = alloca [32 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -6354,7 +6354,7 @@ define internal void @spr_uncore_pci_enable_event(ptr nocapture noundef readonly
   %9 = add i32 %8, 4
   %10 = load i64, ptr %5, align 8
   %11 = lshr i64 %10, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = tail call i32 @pci_write_config_dword(ptr noundef %4, i32 noundef %9, i32 noundef %12) #20
   %14 = load i64, ptr %6, align 8
   %15 = trunc i64 %14 to i32

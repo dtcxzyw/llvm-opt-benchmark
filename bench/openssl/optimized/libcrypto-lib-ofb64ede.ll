@@ -90,7 +90,7 @@ if.then:                                          ; preds = %while.body
   %conv69 = trunc i32 %shr67 to i8
   store i8 %conv69, ptr %incdec.ptr31, align 1
   %shr71 = lshr i32 %11, 24
-  %conv73 = trunc i32 %shr71 to i8
+  %conv73 = trunc nuw i32 %shr71 to i8
   store i8 %conv73, ptr %incdec.ptr35, align 1
   %conv76 = trunc i32 %12 to i8
   store i8 %conv76, ptr %incdec.ptr39, align 1
@@ -101,7 +101,7 @@ if.then:                                          ; preds = %while.body
   %conv84 = trunc i32 %shr82 to i8
   store i8 %conv84, ptr %incdec.ptr46, align 1
   %shr86 = lshr i32 %12, 24
-  %conv88 = trunc i32 %shr86 to i8
+  %conv88 = trunc nuw i32 %shr86 to i8
   store i8 %conv88, ptr %incdec.ptr50, align 1
   %inc = add nsw i32 %save.075, 1
   br label %if.end
@@ -137,7 +137,7 @@ if.then98:                                        ; preds = %while.end
   %conv109 = trunc i32 %shr107 to i8
   store i8 %conv109, ptr %incdec.ptr1, align 1
   %shr111 = lshr i32 %v0.1, 24
-  %conv113 = trunc i32 %shr111 to i8
+  %conv113 = trunc nuw i32 %shr111 to i8
   store i8 %conv113, ptr %incdec.ptr3, align 1
   %conv116 = trunc i32 %v1.1 to i8
   store i8 %conv116, ptr %incdec.ptr7, align 1
@@ -148,7 +148,7 @@ if.then98:                                        ; preds = %while.end
   %conv124 = trunc i32 %shr122 to i8
   store i8 %conv124, ptr %incdec.ptr13, align 1
   %shr126 = lshr i32 %v1.1, 24
-  %conv128 = trunc i32 %shr126 to i8
+  %conv128 = trunc nuw i32 %shr126 to i8
   store i8 %conv128, ptr %incdec.ptr17, align 1
   br label %if.end130
 

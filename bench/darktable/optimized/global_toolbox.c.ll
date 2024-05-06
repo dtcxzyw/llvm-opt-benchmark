@@ -1200,7 +1200,7 @@ define internal void @_lib_keymap_button_clicked(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_keymap_button_press_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_lib_keymap_button_press_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !94
@@ -1513,7 +1513,7 @@ define internal fastcc void @_set_mapping_mode_cursor(ptr noundef %0) unnamed_ad
   %48 = tail call i32 @dt_dev_modulegroups_basics_module_toggle(ptr noundef %47, ptr noundef %31, i32 noundef 0) #10
   tail call void @dtgtk_cairo_paint_shortcut(ptr noundef %46, i32 noundef 0, i32 noundef 0, i32 noundef %41, i32 noundef %41, i32 noundef %48, ptr noundef nonnull inttoptr (i64 1 to ptr)) #10
   %49 = lshr i32 %41, 1
-  %50 = uitofp i32 %49 to double
+  %50 = uitofp nneg i32 %49 to double
   %51 = tail call ptr @gdk_cursor_new_from_surface(ptr noundef %2, ptr noundef %45, double noundef %50, double noundef %50) #10
   tail call void @cairo_surface_destroy(ptr noundef %45) #10
   tail call void @gdk_window_set_cursor(ptr noundef %6, ptr noundef null) #10

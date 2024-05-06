@@ -105,7 +105,7 @@ define dso_local void @ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noun
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @_ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.cfg80211_chan_def, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -1164,7 +1164,7 @@ define internal fastcc void @__ieee80211_link_copy_chanctx_to_vlans(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_link_unreserve_chanctx(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_unreserve_chanctx(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
@@ -1504,7 +1504,7 @@ define dso_local i32 @ieee80211_link_reserve_chanctx(ptr noundef %0, ptr noundef
   %108 = getelementptr inbounds i8, ptr %102, i64 56
   store volatile ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %102, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %109, ptr noundef align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %109, ptr noundef readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %110 = getelementptr inbounds i8, ptr %102, i64 152
   store i8 1, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %102, i64 153
@@ -1849,7 +1849,7 @@ define dso_local i32 @ieee80211_link_use_channel(ptr noundef %0, ptr noundef %1,
   %105 = getelementptr inbounds i8, ptr %99, i64 56
   store volatile ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %99, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %106, ptr noundef align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %106, ptr noundef readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %107 = getelementptr inbounds i8, ptr %99, i64 152
   store i8 1, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %99, i64 153
@@ -4224,7 +4224,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_link_change_bandwidth(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_change_bandwidth(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 720
   %6 = load ptr, ptr %5, align 8

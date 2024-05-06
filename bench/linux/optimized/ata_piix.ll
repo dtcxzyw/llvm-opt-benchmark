@@ -1236,7 +1236,7 @@ declare dso_local i32 @pci_test_config_bits(ptr noundef, ptr noundef) local_unna
 declare dso_local i32 @ata_sff_prereset(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal i32 @ich_pata_cable_detect(ptr nocapture noundef readonly %0) #7 align 16 {
+define internal range(i32 1, 4) i32 @ich_pata_cable_detect(ptr nocapture noundef readonly %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1397,7 +1397,7 @@ declare void @llvm.write_register.i64(metadata, i64) #9
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i8 @piix_vmw_bmdma_status(ptr noundef %0) #2 align 16 {
+define internal zeroext range(i8 0, -2) i8 @piix_vmw_bmdma_status(ptr noundef %0) #2 align 16 {
   %2 = tail call zeroext i8 @ata_bmdma_status(ptr noundef %0) #13
   %3 = and i8 %2, -3
   ret i8 %3
@@ -1437,7 +1437,7 @@ declare dso_local i32 @pcim_iomap_regions(ptr noundef, i32 noundef, ptr noundef)
 declare dso_local ptr @pcim_iomap_table(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @piix_sidpr_scr_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = icmp ugt i32 %1, 2
   br i1 %4, label %27, label %5
 
@@ -1473,7 +1473,7 @@ define internal noundef i32 @piix_sidpr_scr_read(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @piix_sidpr_scr_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp ugt i32 %1, 2
   br i1 %4, label %26, label %5
 

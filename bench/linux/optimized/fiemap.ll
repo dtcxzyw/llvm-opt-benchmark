@@ -229,7 +229,7 @@ declare dso_local i32 @iomap_iter(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @iomap_bmap(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i64 0, 36028797018963968) i64 @iomap_bmap(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #5
   %5 = getelementptr inbounds i8, ptr %4, i64 24

@@ -206,7 +206,7 @@ define void @Dch_ManSweep(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %56, label %Bar_ProgressUpdate.exit, label %57
 
 57:                                               ; preds = %53, %52
-  %58 = trunc i64 %indvars.iv70 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv70 to i32
   tail call void @Bar_ProgressUpdate_int(ptr noundef %35, i32 noundef %58, ptr noundef null) #3
   br label %Bar_ProgressUpdate.exit
 

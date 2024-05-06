@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_Truths6Neg = internal unnamed_addr constant [6 x i64] [i64 6148914691236517205, i64 3689348814741910323, i64 1085102592571150095, i64 71777214294589695, i64 281470681808895, i64 4294967295], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Mpm_CutComputeTruth(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Mpm_CutComputeTruth(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -107,7 +107,7 @@ define noundef i32 @Mpm_CutComputeTruth(ptr noundef %0, ptr nocapture noundef %1
   br i1 %82, label %89, label %83
 
 83:                                               ; preds = %76
-  %84 = trunc i64 %indvars.iv.next.i.i to i32
+  %84 = trunc nsw i64 %indvars.iv.next.i.i to i32
   %85 = icmp ult i32 %.017.i.i, %84
   br i1 %85, label %86, label %87
 
@@ -163,7 +163,7 @@ Mpm_TruthStretch.exit.i:                          ; preds = %Mpm_TruthStretch.ex
   br i1 %111, label %118, label %112
 
 112:                                              ; preds = %105
-  %113 = trunc i64 %indvars.iv.next.i53.i to i32
+  %113 = trunc nsw i64 %indvars.iv.next.i53.i to i32
   %114 = icmp ult i32 %.017.i52.i, %113
   br i1 %114, label %115, label %116
 
@@ -245,7 +245,7 @@ Mpm_TruthStretch.exit55.i:                        ; preds = %118, %Mpm_TruthStre
   br i1 %166, label %173, label %167
 
 167:                                              ; preds = %160
-  %168 = trunc i64 %indvars.iv.next.i59.i to i32
+  %168 = trunc nsw i64 %indvars.iv.next.i59.i to i32
   %169 = icmp ult i32 %.017.i58.i, %168
   br i1 %169, label %170, label %171
 
@@ -374,7 +374,7 @@ Mpm_TruthStretch.exit61.i..thread.i_crit_edge:    ; preds = %Mpm_TruthStretch.ex
   %238 = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %248, %.lr.ph.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
   %.012.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
-  %239 = trunc i64 %indvars.iv.i.i.i to i32
+  %239 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %240 = shl nuw nsw i32 1, %239
   %241 = zext nneg i32 %240 to i64
   %242 = lshr i64 %236, %241
@@ -418,7 +418,7 @@ Abc_Tt6SupportAndSize.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %218
   %.val2841.i.i = phi i32 [ %.val2834.i.i, %.lr.ph.i62.i ], [ %.val28.i.i, %272 ]
   %indvars.iv.i63.i = phi i64 [ 0, %.lr.ph.i62.i ], [ %indvars.iv.next.i65.i, %272 ]
   %.037.i.i = phi i32 [ 0, %.lr.ph.i62.i ], [ %.1.i64.i, %272 ]
-  %259 = trunc i64 %indvars.iv.i63.i to i32
+  %259 = trunc nuw nsw i64 %indvars.iv.i63.i to i32
   %260 = shl nuw nsw i32 1, %259
   %261 = and i32 %260, %.0.lcssa.i.i.i
   %.not.i.i = icmp eq i32 %261, 0
@@ -639,7 +639,7 @@ Abc_TtCopy.exit86.i:                              ; preds = %.lr.ph.i75.i, %.lr.
   br i1 %364, label %371, label %365
 
 365:                                              ; preds = %358
-  %366 = trunc i64 %indvars.iv.next.i89.i to i32
+  %366 = trunc nsw i64 %indvars.iv.next.i89.i to i32
   %367 = icmp ult i32 %.017.i.i35, %366
   br i1 %367, label %368, label %369
 
@@ -694,7 +694,7 @@ Mpm_TruthStretch.exit.i21:                        ; preds = %Mpm_TruthStretch.ex
   br i1 %393, label %400, label %394
 
 394:                                              ; preds = %387
-  %395 = trunc i64 %indvars.iv.next.i93.i to i32
+  %395 = trunc nsw i64 %indvars.iv.next.i93.i to i32
   %396 = icmp ult i32 %.017.i92.i, %395
   br i1 %396, label %397, label %398
 
@@ -814,7 +814,7 @@ Abc_TtCopy.exit111.i:                             ; preds = %.lr.ph.i100.i, %.lr
   br i1 %456, label %463, label %457
 
 457:                                              ; preds = %450
-  %458 = trunc i64 %indvars.iv.next.i115.i to i32
+  %458 = trunc nsw i64 %indvars.iv.next.i115.i to i32
   %459 = icmp ult i32 %.017.i114.i, %458
   br i1 %459, label %460, label %461
 
@@ -1013,7 +1013,7 @@ Abc_TtHasVar.exit.us.i.i.i:                       ; preds = %Abc_TtHasVar.exit.u
   %559 = phi i32 [ 0, %Abc_TtHasVar.exit.us.preheader.i.i.i ], [ %569, %Abc_TtHasVar.exit.us.i.i.i ]
   %indvars.iv52.i.i.i = phi i64 [ 0, %Abc_TtHasVar.exit.us.preheader.i.i.i ], [ %indvars.iv.next53.i.i.i, %Abc_TtHasVar.exit.us.i.i.i ]
   %.022.us.i.i.i = phi i32 [ 0, %Abc_TtHasVar.exit.us.preheader.i.i.i ], [ %.1.us.i.i.i, %Abc_TtHasVar.exit.us.i.i.i ]
-  %560 = trunc i64 %indvars.iv52.i.i.i to i32
+  %560 = trunc nuw nsw i64 %indvars.iv52.i.i.i to i32
   %561 = shl nuw nsw i32 1, %560
   %562 = zext nneg i32 %561 to i64
   %563 = lshr i64 %558, %562
@@ -1157,7 +1157,7 @@ Abc_TtCopy.exit.i.i:                              ; preds = %.lr.ph18.i.i.i, %60
   %.val3251.i.i = phi i32 [ %.val3242.i.i, %.lr.ph.i142.i ], [ %.val32.i.i, %630 ]
   %indvars.iv.i143.i = phi i64 [ 0, %.lr.ph.i142.i ], [ %indvars.iv.next.i146.i, %630 ]
   %.03045.i.i = phi i32 [ 0, %.lr.ph.i142.i ], [ %.1.i145.i, %630 ]
-  %617 = trunc i64 %indvars.iv.i143.i to i32
+  %617 = trunc nuw nsw i64 %indvars.iv.i143.i to i32
   %618 = shl nuw nsw i32 1, %617
   %619 = and i32 %618, %.0.lcssa.i.i.i30
   %.not.i144.i = icmp eq i32 %619, 0
@@ -1246,7 +1246,7 @@ define internal fastcc i32 @Vec_MemHashInsert(ptr nocapture noundef %0, ptr noca
 
 14:                                               ; preds = %.lr.ph.i.i
   %15 = add nuw nsw i32 %.01116.i.i, 2
-  %16 = mul nsw i32 %15, %15
+  %16 = mul nuw nsw i32 %15, %15
   %.not.i.i = icmp ugt i32 %16, %12
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
@@ -1387,7 +1387,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %80 = mul nsw i32 %79, %50
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i64, ptr %78, i64 %81
-  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull %55, i64 %74)
+  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull readonly %55, i64 %74)
   %.not15.i1727.i = icmp eq i32 %bcmp.i26.i, 0
   %.pre40.i = load ptr, ptr %36, align 8
   br i1 %.not15.i1727.i, label %Vec_MemHashLookup.exit.i, label %.lr.ph.i
@@ -1406,7 +1406,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %90 = mul nsw i32 %89, %50
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i64, ptr %88, i64 %91
-  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull %55, i64 %74)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull readonly %55, i64 %74)
   %.not15.i17.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i17.i, label %Vec_MemHashLookup.exit.i.loopexit, label %93, !llvm.loop !23
 
@@ -1556,7 +1556,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %165 = mul nsw i32 %164, %136
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i64, ptr %163, i64 %166
-  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr %1, i64 %159)
+  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr readonly %1, i64 %159)
   %.not15.i49 = icmp eq i32 %bcmp.i48, 0
   br i1 %.not15.i49, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -1576,7 +1576,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %177 = mul nsw i32 %176, %136
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i64, ptr %175, i64 %178
-  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr %1, i64 %159)
+  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr readonly %1, i64 %159)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %180, !llvm.loop !23
 
@@ -1759,7 +1759,7 @@ Vec_MemPush.exit:                                 ; preds = %Vec_IntPush.exit, %
   %270 = getelementptr inbounds i64, ptr %263, i64 %269
   %271 = sext i32 %264 to i64
   %272 = shl nsw i64 %271, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr align 8 %1, i64 %272, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr readonly align 8 %1, i64 %272, i1 false)
   %273 = load ptr, ptr %186, align 8
   %274 = getelementptr i8, ptr %273, i64 4
   %.val15 = load i32, ptr %274, align 4

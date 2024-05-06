@@ -18,14 +18,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @o_sig_init_ossl_ret_ = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OBJ_find_sigid_algs(i32 noundef %signid, ptr noundef %pdig_nid, ptr noundef %ppkey_nid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_find_sigid_algs(i32 noundef %signid, ptr noundef %pdig_nid, ptr noundef %ppkey_nid) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef %pdig_nid, ptr noundef %ppkey_nid, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef %pdig_nid, ptr noundef %ppkey_nid, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef writeonly %pdig_nid, ptr noundef writeonly %ppkey_nid, i32 noundef %lock) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef writeonly %pdig_nid, ptr noundef writeonly %ppkey_nid, i32 noundef %lock) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.nid_triple, align 4
   %cmp = icmp eq i32 %signid, 0
@@ -116,7 +116,7 @@ return:                                           ; preds = %if.end29, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OBJ_find_sigid_by_algs(ptr noundef writeonly %psignid, i32 noundef %dig_nid, i32 noundef %pkey_nid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_find_sigid_by_algs(ptr noundef writeonly %psignid, i32 noundef %dig_nid, i32 noundef %pkey_nid) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.nid_triple, align 4
   %t = alloca ptr, align 8
@@ -203,7 +203,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OBJ_add_sigid(i32 noundef %signid, i32 noundef %dig_id, i32 noundef %pkey_id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_add_sigid(i32 noundef %signid, i32 noundef %dig_id, i32 noundef %pkey_id) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.nid_triple, align 4
   %cmp = icmp eq i32 %signid, 0
@@ -506,4 +506,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

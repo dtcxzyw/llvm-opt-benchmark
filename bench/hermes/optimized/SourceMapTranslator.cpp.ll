@@ -448,7 +448,7 @@ if.then:                                          ; preds = %entry
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %3 = trunc i64 %or8.i.i.i to i32
+  %3 = trunc nuw i64 %or8.i.i.i to i32
   %conv3.i.i = add i32 %3, 1
   %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %conv3.i.i, i32 64)
   store i32 %.sroa.speculated.i.i, ptr %NumBuckets.i.i, align 8
@@ -554,7 +554,7 @@ if.then10:                                        ; preds = %if.else
   %or6.i.i.i25 = or i64 %shr5.i.i.i24, %or4.i.i.i23
   %shr7.i.i.i26 = lshr i64 %or6.i.i.i25, 16
   %or8.i.i.i27 = or i64 %shr7.i.i.i26, %or6.i.i.i25
-  %12 = trunc i64 %or8.i.i.i27 to i32
+  %12 = trunc nuw i64 %or8.i.i.i27 to i32
   %conv3.i.i28 = add i32 %12, 1
   %.sroa.speculated.i.i29 = tail call i32 @llvm.umax.i32(i32 %conv3.i.i28, i32 64)
   store i32 %.sroa.speculated.i.i29, ptr %NumBuckets.i.i, align 8

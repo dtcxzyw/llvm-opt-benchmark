@@ -43,13 +43,13 @@ if.else.i6:                                       ; preds = %entry
   %bf.load.i = load i120, ptr %header.coerce, align 1
   %bf.lshr.i = lshr i120 %bf.load.i, 104
   %bf.cast.i = trunc i120 %bf.lshr.i to i8
-  %3 = trunc i120 %bf.lshr.i to i32
+  %3 = trunc nuw nsw i120 %bf.lshr.i to i32
   %conv.i17 = and i32 %3, 255
   %cmp.i18 = icmp eq i8 %bf.cast.i, 0
   %add.i19 = add nuw nsw i32 %conv.i17, 1
   %cond.i20 = select i1 %cmp.i18, i32 0, i32 %add.i19
   %bf.lshr.i8 = lshr i120 %bf.load.i, 112
-  %bf.cast.i9 = trunc i120 %bf.lshr.i8 to i8
+  %bf.cast.i9 = trunc nuw i120 %bf.lshr.i8 to i8
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit
 
 _ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit: ; preds = %if.then.i4, %if.else.i6
@@ -511,8 +511,8 @@ entry:
   %0 = load i32, ptr %propertyCacheSize_, align 4
   %conv = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv, 3
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 40
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 40
   %cmp.not6 = icmp eq i32 %0, 0
   br i1 %cmp.not6, label %for.end, label %for.body.preheader
 

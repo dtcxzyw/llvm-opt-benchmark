@@ -24,7 +24,7 @@ define dso_local i32 @Curl_rand(ptr noundef %0, ptr nocapture noundef writeonly 
   %.01224 = phi i64 [ %5, %.loopexit ], [ %2, %3 ]
   %.01323 = phi ptr [ %10, %.loopexit ], [ %1, %3 ]
   %6 = call i64 @llvm.umin.i64(i64 %.01224, i64 4)
-  %7 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4), !range !7
+  %7 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4)
   %.not17 = icmp eq i32 %7, 0
   br i1 %.not17, label %.preheader.preheader, label %._crit_edge
 
@@ -44,7 +44,7 @@ define dso_local i32 @Curl_rand(ptr noundef %0, ptr nocapture noundef writeonly 
   store i32 %12, ptr %4, align 4
   %13 = add i64 %.021, -1
   %.not18 = icmp eq i64 %13, 0
-  br i1 %.not18, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %.not18, label %.loopexit, label %.preheader, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit, %3
   %.015 = phi i32 [ 43, %3 ], [ %7, %.lr.ph ], [ 0, %.loopexit ]
@@ -52,7 +52,7 @@ define dso_local i32 @Curl_rand(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @randit(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 5, 4) i32 @randit(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @Curl_ssl_random(ptr noundef %0, ptr noundef %1, i64 noundef 4) #5
   %.not = icmp eq i32 %3, 4
   br i1 %.not, label %4, label %35
@@ -159,7 +159,7 @@ Curl_rand.exit.thread:                            ; preds = %.loopexit.i
   %.01224.i = phi i64 [ %10, %.loopexit.i ], [ %9, %7 ]
   %.01323.i = phi ptr [ %15, %.loopexit.i ], [ %5, %7 ]
   %11 = call i64 @llvm.umin.i64(i64 %.01224.i, i64 4)
-  %12 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4), !range !7
+  %12 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4)
   %.not17.i = icmp eq i32 %12, 0
   br i1 %.not17.i, label %.preheader.preheader.i, label %Curl_rand.exit
 
@@ -179,7 +179,7 @@ Curl_rand.exit.thread:                            ; preds = %.loopexit.i
   store i32 %17, ptr %4, align 4
   %18 = add i64 %.021.i, -1
   %.not18.i = icmp eq i64 %18, 0
-  br i1 %.not18.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !8
+  br i1 %.not18.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !7
 
 Curl_rand.exit:                                   ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -205,14 +205,14 @@ define dso_local i32 @Curl_rand_alnum(ptr noundef %0, ptr nocapture noundef writ
   br label %5
 
 5:                                                ; preds = %.preheader, %7
-  %6 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4), !range !7
+  %6 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4)
   %.not14 = icmp eq i32 %6, 0
   br i1 %.not14, label %7, label %.loopexit
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %4, align 4
   %9 = icmp ugt i32 %8, -5
-  br i1 %9, label %5, label %10, !llvm.loop !9
+  br i1 %9, label %5, label %10, !llvm.loop !8
 
 10:                                               ; preds = %7
   %11 = urem i32 %8, 62
@@ -223,7 +223,7 @@ define dso_local i32 @Curl_rand_alnum(ptr noundef %0, ptr nocapture noundef writ
   store i8 %14, ptr %.01120, align 1
   %.010 = add i64 %.01021, -1
   %.not = icmp eq i64 %.010, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %10, %3
   %.011.lcssa = phi ptr [ %1, %3 ], [ %15, %10 ]
@@ -277,7 +277,6 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 5, i32 4}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

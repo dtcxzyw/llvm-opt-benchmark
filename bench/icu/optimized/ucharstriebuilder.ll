@@ -97,7 +97,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517UCharsTrieElement15compareStringToERKS0_RKNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(64) %strings) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7517UCharsTrieElement15compareStringToERKS0_RKNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(64) %strings) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp2 = alloca %"class.icu_75::UnicodeString", align 8
@@ -804,9 +804,9 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_75L21compareElementStringsEPKvS1_S1_(ptr noundef nonnull %context, ptr nocapture noundef nonnull readonly %left, ptr nocapture noundef nonnull readonly %right) #0 {
+define internal noundef range(i32 -128, 128) i32 @_ZN6icu_75L21compareElementStringsEPKvS1_S1_(ptr noundef nonnull %context, ptr nocapture noundef nonnull readonly %left, ptr nocapture noundef nonnull readonly %right) #0 {
 entry:
-  %call = tail call noundef i32 @_ZNK6icu_7517UCharsTrieElement15compareStringToERKS0_RKNS_13UnicodeStringE(ptr noundef nonnull align 4 dereferenceable(8) %left, ptr noundef nonnull align 4 dereferenceable(8) %right, ptr noundef nonnull align 8 dereferenceable(64) %context), !range !16
+  %call = tail call noundef i32 @_ZNK6icu_7517UCharsTrieElement15compareStringToERKS0_RKNS_13UnicodeStringE(ptr noundef nonnull align 4 dereferenceable(8) %left, ptr noundef nonnull align 4 dereferenceable(8) %right, ptr noundef nonnull align 8 dereferenceable(64) %context)
   ret i32 %call
 }
 
@@ -904,7 +904,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7517UCharsTrieBuilder21getLimitOfLinearMatchEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %first, i32 noundef %last, i32 noundef %unitIndex) unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7517UCharsTrieBuilder21getLimitOfLinearMatchEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %first, i32 noundef %last, i32 noundef %unitIndex) unnamed_addr #7 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %elements, align 8
@@ -991,10 +991,10 @@ if.then.i.i.i28:                                  ; preds = %_ZNK6icu_7517UChars
 _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit35: ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit, %if.then.i.i.i28
   %retval.0.i.i.i27 = phi i16 [ %17, %if.then.i.i.i28 ], [ -1, %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit ]
   %cmp10 = icmp eq i16 %retval.0.i.i.i11, %retval.0.i.i.i27
-  br i1 %cmp10, label %while.cond, label %while.end.split.loop.exit39, !llvm.loop !17
+  br i1 %cmp10, label %while.cond, label %while.end.split.loop.exit39, !llvm.loop !16
 
 while.end.split.loop.exit39:                      ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit35
-  %18 = trunc i64 %indvars.iv.next to i32
+  %18 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit39
@@ -1003,7 +1003,7 @@ while.end:                                        ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7517UCharsTrieBuilder17countElementUnitsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex) unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7517UCharsTrieBuilder17countElementUnitsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex) unnamed_addr #7 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %elements, align 8
@@ -1067,10 +1067,10 @@ if.then.i.i.i17:                                  ; preds = %land.rhs
 _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit24: ; preds = %land.rhs, %if.then.i.i.i17
   %retval.0.i.i.i16 = phi i16 [ %10, %if.then.i.i.i17 ], [ -1, %land.rhs ]
   %cmp8 = icmp eq i16 %retval.0.i.i.i, %retval.0.i.i.i16
-  br i1 %cmp8, label %while.cond, label %while.end, !llvm.loop !18
+  br i1 %cmp8, label %while.cond, label %while.end, !llvm.loop !17
 
 while.end:                                        ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit24
-  %11 = trunc i64 %indvars.iv.next to i32
+  %11 = trunc nsw i64 %indvars.iv.next to i32
   %inc10 = add nuw nsw i32 %length.0, 1
   br label %do.body
 
@@ -1080,7 +1080,7 @@ do.end:                                           ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7517UCharsTrieBuilder23skipElementsBySomeUnitsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %i, i32 noundef %unitIndex, i32 noundef %count) unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7517UCharsTrieBuilder23skipElementsBySomeUnitsEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %i, i32 noundef %unitIndex, i32 noundef %count) unnamed_addr #7 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %elements, align 8
@@ -1123,7 +1123,7 @@ _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %do
 
 while.cond:                                       ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit21, %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit21 ], [ %idxprom, %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx4 = getelementptr inbounds %"class.icu_75::UCharsTrieElement", ptr %0, i64 %indvars.iv.next
   %8 = load i32, ptr %arrayidx4, align 4
   %add2.i6 = add i32 %8, %add.i
@@ -1139,13 +1139,13 @@ if.then.i.i.i14:                                  ; preds = %while.cond
 _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit21: ; preds = %while.cond, %if.then.i.i.i14
   %retval.0.i.i.i13 = phi i16 [ %9, %if.then.i.i.i14 ], [ -1, %while.cond ]
   %cmp = icmp eq i16 %retval.0.i.i.i, %retval.0.i.i.i13
-  br i1 %cmp, label %while.cond, label %do.cond, !llvm.loop !19
+  br i1 %cmp, label %while.cond, label %do.cond, !llvm.loop !18
 
 do.cond:                                          ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit21
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nsw i64 %indvars.iv.next to i32
   %dec = add nsw i32 %count.addr.0, -1
   %cmp9 = icmp sgt i32 %count.addr.0, 1
-  br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !20
+  br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !19
 
 do.end:                                           ; preds = %do.cond
   ret i32 %10
@@ -1191,11 +1191,11 @@ if.then.i.i.i:                                    ; preds = %while.cond
 _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %while.cond, %if.then.i.i.i
   %retval.0.i.i.i = phi i16 [ %8, %if.then.i.i.i ], [ -1, %while.cond ]
   %cmp = icmp eq i16 %retval.0.i.i.i, %unit
-  %indvars.iv.next = add i64 %indvars.iv, 1
-  br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !21
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !20
 
 while.end:                                        ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   ret i32 %9
 }
 
@@ -1333,7 +1333,7 @@ do.body.i:                                        ; preds = %if.end.i, %do.body.
   %newCapacity.0.i = phi i32 [ %mul.i, %do.body.i ], [ %2, %if.end.i ]
   %mul.i = shl nsw i32 %newCapacity.0.i, 1
   %cmp5.not.i = icmp sgt i32 %mul.i, %add
-  br i1 %cmp5.not.i, label %do.end.i, label %do.body.i, !llvm.loop !22
+  br i1 %cmp5.not.i, label %do.end.i, label %do.body.i, !llvm.loop !21
 
 do.end.i:                                         ; preds = %do.body.i
   %mul6.i = shl nsw i32 %newCapacity.0.i, 2
@@ -1395,14 +1395,14 @@ new.notnull:                                      ; preds = %entry
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds %"class.icu_75::UCharsTrieElement", ptr %0, i64 %idxprom
   %strings = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load i32, ptr %arrayidx, align 4, !noalias !23
+  %1 = load i32, ptr %arrayidx, align 4, !noalias !22
   %fUnion.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load i16, ptr %fUnion.i.i.i.i.i, align 8, !noalias !23
+  %2 = load i16, ptr %fUnion.i.i.i.i.i, align 8, !noalias !22
   %cmp.i.i.i.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i.i.i.i = sext i16 %3 to i32
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
-  %4 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !23
+  %4 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !22
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
   %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit.i
@@ -1412,11 +1412,11 @@ if.then.i.i.i:                                    ; preds = %new.notnull
   %tobool.not.i.i.i.i = icmp eq i16 %5, 0
   %fBuffer.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 26
   %fArray.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load ptr, ptr %fArray.i.i.i.i, align 8, !noalias !23
+  %6 = load ptr, ptr %fArray.i.i.i.i, align 8, !noalias !22
   %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %6, ptr %fBuffer.i.i.i.i
   %idxprom.i.i.i = sext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %7 = load i16, ptr %arrayidx.i.i.i, align 2, !noalias !23
+  %7 = load i16, ptr %arrayidx.i.i.i, align 2, !noalias !22
   %8 = zext i16 %7 to i32
   br label %_ZNK6icu_7513UnicodeStringixEi.exit.i
 
@@ -1480,7 +1480,7 @@ cleanup.action11:                                 ; preds = %lpad, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7517UCharsTrieBuilder14ensureCapacityEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %length) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517UCharsTrieBuilder14ensureCapacityEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
   %uchars = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %uchars, align 8
@@ -1497,7 +1497,7 @@ do.body:                                          ; preds = %if.end, %do.body
   %newCapacity.0 = phi i32 [ %mul, %do.body ], [ %1, %if.end ]
   %mul = shl nsw i32 %newCapacity.0, 1
   %cmp5.not = icmp sgt i32 %mul, %length
-  br i1 %cmp5.not, label %do.end, label %do.body, !llvm.loop !22
+  br i1 %cmp5.not, label %do.end, label %do.body, !llvm.loop !21
 
 do.end:                                           ; preds = %do.body
   %mul6 = shl nsw i32 %newCapacity.0, 2
@@ -1558,7 +1558,7 @@ do.body.i:                                        ; preds = %if.end.i, %do.body.
   %newCapacity.0.i = phi i32 [ %mul.i, %do.body.i ], [ %2, %if.end.i ]
   %mul.i = shl nsw i32 %newCapacity.0.i, 1
   %cmp5.not.i = icmp sgt i32 %mul.i, %add
-  br i1 %cmp5.not.i, label %do.end.i, label %do.body.i, !llvm.loop !22
+  br i1 %cmp5.not.i, label %do.end.i, label %do.body.i, !llvm.loop !21
 
 do.end.i:                                         ; preds = %do.body.i
   %mul6.i = shl nsw i32 %newCapacity.0.i, 2
@@ -1616,14 +1616,14 @@ entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds %"class.icu_75::UCharsTrieElement", ptr %0, i64 %idxprom
   %strings = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load i32, ptr %arrayidx, align 4, !noalias !26
+  %1 = load i32, ptr %arrayidx, align 4, !noalias !25
   %fUnion.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load i16, ptr %fUnion.i.i.i.i.i, align 8, !noalias !26
+  %2 = load i16, ptr %fUnion.i.i.i.i.i, align 8, !noalias !25
   %cmp.i.i.i.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i.i.i.i = sext i16 %3 to i32
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
-  %4 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !26
+  %4 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !25
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
   %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
@@ -1633,11 +1633,11 @@ if.then.i.i.i:                                    ; preds = %entry
   %tobool.not.i.i.i.i = icmp eq i16 %5, 0
   %fBuffer.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 26
   %fArray.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load ptr, ptr %fArray.i.i.i.i, align 8, !noalias !26
+  %6 = load ptr, ptr %fArray.i.i.i.i, align 8, !noalias !25
   %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %6, ptr %fBuffer.i.i.i.i
   %idxprom.i.i.i = sext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %7 = load i16, ptr %arrayidx.i.i.i, align 2, !noalias !26
+  %7 = load i16, ptr %arrayidx.i.i.i, align 2, !noalias !25
   %8 = zext i16 %7 to i32
   br label %_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
 
@@ -1713,7 +1713,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
-  %1 = trunc i32 %shr to i16
+  %1 = trunc nuw i32 %shr to i16
   %conv11 = or disjoint i16 %1, 16384
   br label %if.end15
 
@@ -1756,7 +1756,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %shr = lshr i32 %value, 16
-  %conv = trunc i32 %shr to i16
+  %conv = trunc nuw i32 %shr to i16
   %arrayidx4 = getelementptr inbounds i8, ptr %intUnits, i64 2
   store i16 %conv, ptr %arrayidx4, align 2
   %conv5 = trunc i32 %value to i16
@@ -1769,14 +1769,14 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp7, label %if.then8, label %if.else11
 
 if.then8:                                         ; preds = %if.else
-  %value.tr = trunc i32 %value to i16
+  %value.tr = trunc nuw i32 %value to i16
   %1 = shl nuw nsw i16 %value.tr, 6
   %conv9 = add nuw nsw i16 %1, 64
   br label %if.end19
 
 if.else11:                                        ; preds = %if.else
   %shr12 = lshr i32 %value, 10
-  %2 = trunc i32 %shr12 to i16
+  %2 = trunc nuw i32 %shr12 to i16
   %3 = and i16 %2, 16320
   %conv14 = add nuw nsw i16 %3, 16448
   %conv16 = trunc i32 %value to i16
@@ -1818,7 +1818,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cmp2 = icmp ult i32 %sub, 67043328
   %shr = lshr i32 %sub, 16
-  %2 = trunc i32 %shr to i16
+  %2 = trunc nuw i32 %shr to i16
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
@@ -1951,16 +1951,15 @@ attributes #13 = { allocsize(0) }
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{i64 2148208964}
-!16 = !{i32 -128, i32 128}
+!16 = distinct !{!16, !14}
 !17 = distinct !{!17, !14}
 !18 = distinct !{!18, !14}
 !19 = distinct !{!19, !14}
 !20 = distinct !{!20, !14}
 !21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE: %agg.result"}
-!25 = distinct !{!25, !"_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE: %agg.result"}
-!28 = distinct !{!28, !"_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE: %agg.result"}
+!24 = distinct !{!24, !"_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE: %agg.result"}
+!27 = distinct !{!27, !"_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE"}

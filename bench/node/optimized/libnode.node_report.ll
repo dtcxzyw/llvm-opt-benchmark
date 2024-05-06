@@ -1492,7 +1492,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i
   %__first.val13.i.i.i = load ptr, ptr %ref.tmp.sroa.2.0.versions_array.sroa_idx.i.i, align 8
-  %call.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %__i.0.val12.i.i.i, ptr noundef %__first.val13.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #24
+  %call.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef readonly %__i.0.val12.i.i.i, ptr noundef readonly %__first.val13.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #24
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i.i.i"
 
@@ -1500,7 +1500,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i = sub i64 %__i.0.val.i.i.i, %__first.val.i.i.i
   %spec.select3.i.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i.i.i.i = trunc i64 %retval.04.i.i.i.i.i.i.i.i to i32
+  %retval.0.i3.i.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
@@ -1550,7 +1550,7 @@ while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %while.cond.i.i.i.i
   %77 = getelementptr i8, ptr %__last.addr.0.i.i.i.i, i64 -24
   %__next.0.val9.i.i.i.i = load ptr, ptr %77, align 8
-  %call.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %__i.0.val12.i.i.i, ptr noundef %__next.0.val9.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #24
+  %call.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef readonly %__i.0.val12.i.i.i, ptr noundef readonly %__next.0.val9.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #24
   %cmp.i.i.i.i.i14.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i14.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_EPSE_EEbRT_T0_.exit.i.i.i.i"
 
@@ -1558,7 +1558,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %__i.0.val.i.i.i, %__next.0.val.i.i.i.i
   %spec.select3.i.i.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i.i.i.i.i = trunc i64 %retval.04.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i3.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_EPSE_EEbRT_T0_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_EPSE_EEbRT_T0_.exit.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
@@ -1613,7 +1613,7 @@ while.cond.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %while.cond.i.i.i.i.i.i.i
   %78 = getelementptr i8, ptr %__last.addr.0.i.i.i.i.i.i.i, i64 -24
   %__next.0.val9.i.i.i.i.i.i.i = load ptr, ptr %78, align 8
-  %call.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %__val.sroa.3.0.copyload.i.i.i.i.i.i.i, ptr noundef %__next.0.val9.i.i.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i) #24
+  %call.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef readonly %__val.sroa.3.0.copyload.i.i.i.i.i.i.i, ptr noundef readonly %__next.0.val9.i.i.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i) #24
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_EPSE_EEbRT_T0_.exit.i.i.i.i.i.i.i"
 
@@ -1621,7 +1621,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %__val.sroa.0.0.copyload.i.i.i.i.i.i.i, %__next.0.val.i.i.i.i.i.i.i
   %spec.select3.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %retval.04.i.i.i.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i3.i.i.i.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_EPSE_EEbRT_T0_.exit.i.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_EPSE_EEbRT_T0_.exit.i.i.i.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -1648,11 +1648,11 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %"_ZN9__gnu_cxx5__op
   br i1 %cmp.not.i.i.i.i.i.i, label %for.body.i.i38, label %for.body.i.i.i.i.i.i, !llvm.loop !10
 
 for.body.i.i38:                                   ; preds = %"_ZSt25__unguarded_linear_insertIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNSA_10JSONWriterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %for.body.i.i38
-  %__begin2.0.idx177.i.i = phi i64 [ %__begin2.0.add.i.i, %for.body.i.i38 ], [ 0, %"_ZSt25__unguarded_linear_insertIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNSA_10JSONWriterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ]
-  %__begin2.0.ptr.i.i = getelementptr inbounds i8, ptr %versions_array.i.i, i64 %__begin2.0.idx177.i.i
+  %__begin2.0.idx178.i.i = phi i64 [ %__begin2.0.add.i.i, %for.body.i.i38 ], [ 0, %"_ZSt25__unguarded_linear_insertIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops14_Val_comp_iterIZN4node6reportL22PrintComponentVersionsEPNSA_10JSONWriterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ]
+  %__begin2.0.ptr.i.i = getelementptr inbounds i8, ptr %versions_array.i.i, i64 %__begin2.0.idx178.i.i
   %second.i.i = getelementptr inbounds i8, ptr %__begin2.0.ptr.i.i, i64 16
   call void @_ZN4node10JSONWriter13json_keyvalueISt17basic_string_viewIcSt11char_traitsIcEES5_EEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.0.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i)
-  %__begin2.0.add.i.i = add nuw nsw i64 %__begin2.0.idx177.i.i, 32
+  %__begin2.0.add.i.i = add nuw nsw i64 %__begin2.0.idx178.i.i, 32
   %cmp.not.i.i = icmp eq i64 %__begin2.0.add.i.i, 800
   br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i38
 
@@ -2286,7 +2286,7 @@ for.body.i.i107:                                  ; preds = %_ZN4node9Utf8ValueD
   store i32 %add.i.i.i, ptr %line_number.i.i, align 4
   %call.i18.i.i = call i64 @_ZNK2v810StackFrame11GetLocationEv(ptr noundef nonnull align 1 dereferenceable(1) %call8.i.i) #24
   %ref.tmp.sroa.1.0.extract.shift.i.i.i = lshr i64 %call.i18.i.i, 32
-  %ref.tmp.sroa.1.0.extract.trunc.i.i.i = trunc i64 %ref.tmp.sroa.1.0.extract.shift.i.i.i to i32
+  %ref.tmp.sroa.1.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift.i.i.i to i32
   %add.i19.i.i = add nsw i32 %ref.tmp.sroa.1.0.extract.trunc.i.i.i, 1
   store i32 %add.i19.i.i, ptr %column.i.i, align 4
   %187 = load ptr, ptr %buf_.i.i.i, align 8
@@ -3602,7 +3602,7 @@ if.then19.i234:                                   ; preds = %if.end16.i
   %376 = load double, ptr %user_cpu.i, align 8
   %377 = load double, ptr %kernel_cpu.i, align 8
   %add.i235 = fadd double %376, %377
-  %conv27.i = uitofp i64 %spec.store.select.i to double
+  %conv27.i = uitofp nneg i64 %spec.store.select.i to double
   %div28.i = fdiv double %add.i235, %conv27.i
   %mul.i = fmul double %div28.i, 1.000000e+02
   store double %mul.i, ptr %cpu_percentage.i, align 8
@@ -3788,7 +3788,7 @@ if.then39.i:                                      ; preds = %_ZN4node10JSONWrite
   %412 = load double, ptr %user_cpu40.i, align 8
   %413 = load double, ptr %kernel_cpu48.i, align 8
   %add57.i = fadd double %412, %413
-  %conv59.i = uitofp i64 %spec.store.select.i to double
+  %conv59.i = uitofp nneg i64 %spec.store.select.i to double
   %div60.i = fdiv double %add57.i, %conv59.i
   %mul61.i = fmul double %div60.i, 1.000000e+02
   store double %mul61.i, ptr %cpu_percentage58.i, align 8
@@ -5601,7 +5601,7 @@ if.end16.i:                                       ; preds = %if.end12.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
   %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
-  %conv = trunc i64 %__val.lobit to i32
+  %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
@@ -5656,7 +5656,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -7127,7 +7127,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %if.end
-  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %__a.val33.i.i, ptr noundef %__b.val35.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #24
+  %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %__a.val33.i.i, ptr noundef readonly %__b.val35.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #24
   %cmp.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i.i"
 
@@ -7135,7 +7135,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %__a.val32.i.i, %__b.val34.i.i
   %spec.select3.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i.i.i = trunc i64 %retval.04.i.i.i.i.i.i.i to i32
+  %retval.0.i3.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -7152,7 +7152,7 @@ if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   br i1 %cmp.i2.i.i.i.i37.i.i, label %if.then.i.i.i.i43.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i38.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i38.i.i: ; preds = %if.then.i.i
-  %call.i.i.i.i.i39.i.i = tail call i32 @memcmp(ptr noundef %__b.val35.i.i, ptr noundef %__c.val31.i.i, i64 noundef %.sroa.speculated.i.i.i.i36.i.i) #24
+  %call.i.i.i.i.i39.i.i = tail call i32 @memcmp(ptr noundef readonly %__b.val35.i.i, ptr noundef readonly %__c.val31.i.i, i64 noundef %.sroa.speculated.i.i.i.i36.i.i) #24
   %cmp.i.i.i.i40.i.i = icmp eq i32 %call.i.i.i.i.i39.i.i, 0
   br i1 %cmp.i.i.i.i40.i.i, label %if.then.i.i.i.i43.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit48.i.i"
 
@@ -7160,7 +7160,7 @@ if.then.i.i.i.i43.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i44.i.i = sub i64 %__b.val34.i.i, %__c.val30.i.i
   %spec.select3.i.i.i.i.i45.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i44.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i46.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i45.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i47.i.i = trunc i64 %retval.04.i.i.i.i.i46.i.i to i32
+  %retval.0.i3.i.i.i.i47.i.i = trunc nsw i64 %retval.04.i.i.i.i.i46.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit48.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit48.i.i": ; preds = %if.then.i.i.i.i43.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i38.i.i
@@ -7188,7 +7188,7 @@ if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   br i1 %cmp.i2.i.i.i.i50.i.i, label %if.then.i.i.i.i56.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i: ; preds = %if.else.i.i
-  %call.i.i.i.i.i52.i.i = tail call i32 @memcmp(ptr noundef %__a.val33.i.i, ptr noundef %__c.val31.i.i, i64 noundef %.sroa.speculated.i.i.i.i49.i.i) #24
+  %call.i.i.i.i.i52.i.i = tail call i32 @memcmp(ptr noundef readonly %__a.val33.i.i, ptr noundef readonly %__c.val31.i.i, i64 noundef %.sroa.speculated.i.i.i.i49.i.i) #24
   %cmp.i.i.i.i53.i.i = icmp eq i32 %call.i.i.i.i.i52.i.i, 0
   br i1 %cmp.i.i.i.i53.i.i, label %if.then.i.i.i.i56.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit61.i.i"
 
@@ -7196,7 +7196,7 @@ if.then.i.i.i.i56.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i57.i.i = sub i64 %__a.val32.i.i, %__c.val30.i.i
   %spec.select3.i.i.i.i.i58.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i57.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i59.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i58.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i60.i.i = trunc i64 %retval.04.i.i.i.i.i59.i.i to i32
+  %retval.0.i3.i.i.i.i60.i.i = trunc nsw i64 %retval.04.i.i.i.i.i59.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit61.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit61.i.i": ; preds = %if.then.i.i.i.i56.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i
@@ -7237,7 +7237,7 @@ if.else7.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
   br i1 %cmp.i2.i.i.i.i71.i.i, label %if.then.i.i.i.i77.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i72.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i72.i.i: ; preds = %if.else7.i.i
-  %call.i.i.i.i.i73.i.i = tail call i32 @memcmp(ptr noundef %__a.val33.i.i, ptr noundef %__c.val31.i.i, i64 noundef %.sroa.speculated.i.i.i.i70.i.i) #24
+  %call.i.i.i.i.i73.i.i = tail call i32 @memcmp(ptr noundef readonly %__a.val33.i.i, ptr noundef readonly %__c.val31.i.i, i64 noundef %.sroa.speculated.i.i.i.i70.i.i) #24
   %cmp.i.i.i.i74.i.i = icmp eq i32 %call.i.i.i.i.i73.i.i, 0
   br i1 %cmp.i.i.i.i74.i.i, label %if.then.i.i.i.i77.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit82.i.i"
 
@@ -7245,7 +7245,7 @@ if.then.i.i.i.i77.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i78.i.i = sub i64 %__a.val32.i.i, %__c.val30.i.i
   %spec.select3.i.i.i.i.i79.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i78.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i80.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i79.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i81.i.i = trunc i64 %retval.04.i.i.i.i.i80.i.i to i32
+  %retval.0.i3.i.i.i.i81.i.i = trunc nsw i64 %retval.04.i.i.i.i.i80.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit82.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit82.i.i": ; preds = %if.then.i.i.i.i77.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i72.i.i
@@ -7272,7 +7272,7 @@ if.else10.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   br i1 %cmp.i2.i.i.i.i88.i.i, label %if.then.i.i.i.i94.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i89.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i89.i.i: ; preds = %if.else10.i.i
-  %call.i.i.i.i.i90.i.i = tail call i32 @memcmp(ptr noundef %__b.val35.i.i, ptr noundef %__c.val31.i.i, i64 noundef %.sroa.speculated.i.i.i.i87.i.i) #24
+  %call.i.i.i.i.i90.i.i = tail call i32 @memcmp(ptr noundef readonly %__b.val35.i.i, ptr noundef readonly %__c.val31.i.i, i64 noundef %.sroa.speculated.i.i.i.i87.i.i) #24
   %cmp.i.i.i.i91.i.i = icmp eq i32 %call.i.i.i.i.i90.i.i, 0
   br i1 %cmp.i.i.i.i91.i.i, label %if.then.i.i.i.i94.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit99.i.i"
 
@@ -7280,7 +7280,7 @@ if.then.i.i.i.i94.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i95.i.i = sub i64 %__b.val34.i.i, %__c.val30.i.i
   %spec.select3.i.i.i.i.i96.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i95.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i97.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i96.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i98.i.i = trunc i64 %retval.04.i.i.i.i.i97.i.i to i32
+  %retval.0.i3.i.i.i.i98.i.i = trunc nsw i64 %retval.04.i.i.i.i.i97.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit99.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit99.i.i": ; preds = %if.then.i.i.i.i94.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i89.i.i
@@ -7336,7 +7336,7 @@ while.cond1.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__op
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i13.i: ; preds = %while.cond1.i.i
   %4 = getelementptr i8, ptr %__first.addr.1.i.i, i64 8
   %__first.addr.1.val13.i.i = load ptr, ptr %4, align 8
-  %call.i.i.i.i.i.i14.i = tail call i32 @memcmp(ptr noundef %__first.addr.1.val13.i.i, ptr noundef %__pivot.val15.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i11.i) #24
+  %call.i.i.i.i.i.i14.i = tail call i32 @memcmp(ptr noundef readonly %__first.addr.1.val13.i.i, ptr noundef readonly %__pivot.val15.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i11.i) #24
   %cmp.i.i.i.i.i15.i = icmp eq i32 %call.i.i.i.i.i.i14.i, 0
   br i1 %cmp.i.i.i.i.i15.i, label %if.then.i.i.i.i.i22.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i16.i"
 
@@ -7344,7 +7344,7 @@ if.then.i.i.i.i.i22.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i23.i = sub i64 %__first.addr.1.val.i.i, %__pivot.val14.i.i
   %spec.select3.i.i.i.i.i.i24.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i23.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i25.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i24.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i.i26.i = trunc i64 %retval.04.i.i.i.i.i.i25.i to i32
+  %retval.0.i3.i.i.i.i.i26.i = trunc nsw i64 %retval.04.i.i.i.i.i.i25.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i16.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit.i16.i": ; preds = %if.then.i.i.i.i.i22.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i13.i
@@ -7364,7 +7364,7 @@ while.cond4.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__op
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i18.i.i: ; preds = %while.cond4.i.i
   %5 = getelementptr i8, ptr %__last.addr.0.pn.i.i, i64 -24
   %__last.addr.1.val12.i.i = load ptr, ptr %5, align 8
-  %call.i.i.i.i.i19.i.i = tail call i32 @memcmp(ptr noundef %__pivot.val15.i.i, ptr noundef %__last.addr.1.val12.i.i, i64 noundef %.sroa.speculated.i.i.i.i16.i.i) #24
+  %call.i.i.i.i.i19.i.i = tail call i32 @memcmp(ptr noundef readonly %__pivot.val15.i.i, ptr noundef readonly %__last.addr.1.val12.i.i, i64 noundef %.sroa.speculated.i.i.i.i16.i.i) #24
   %cmp.i.i.i.i20.i.i = icmp eq i32 %call.i.i.i.i.i19.i.i, 0
   br i1 %cmp.i.i.i.i20.i.i, label %if.then.i.i.i.i23.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit28.i.i"
 
@@ -7372,7 +7372,7 @@ if.then.i.i.i.i23.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i24.i.i = sub i64 %__pivot.val14.i.i, %__last.addr.1.val.i.i
   %spec.select3.i.i.i.i.i25.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i24.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i26.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i25.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i27.i.i = trunc i64 %retval.04.i.i.i.i.i26.i.i to i32
+  %retval.0.i3.i.i.i.i27.i.i = trunc nsw i64 %retval.04.i.i.i.i.i26.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit28.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit28.i.i": ; preds = %if.then.i.i.i.i23.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i18.i.i
@@ -7436,7 +7436,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %while.body
   %add.ptr2.val24 = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %add.ptr, i64 8
   %add.ptr.val23 = load ptr, ptr %1, align 8
-  %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %add.ptr.val23, ptr noundef %add.ptr2.val24, i64 noundef %.sroa.speculated.i.i.i.i) #24
+  %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %add.ptr.val23, ptr noundef readonly %add.ptr2.val24, i64 noundef %.sroa.speculated.i.i.i.i) #24
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit"
 
@@ -7444,7 +7444,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %add.ptr.val, %add.ptr2.val
   %spec.select3.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i = trunc i64 %retval.04.i.i.i.i.i to i32
+  %retval.0.i3.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %if.then.i.i.i.i
@@ -7504,7 +7504,7 @@ land.rhs.i:                                       ; preds = %if.end18, %while.bo
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %land.rhs.i
   %2 = getelementptr i8, ptr %add.ptr.i, i64 8
   %add.ptr.val10.i = load ptr, ptr %2, align 8
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %add.ptr.val10.i, ptr noundef %agg.tmp.sroa.2.0.copyload, i64 noundef %.sroa.speculated.i.i.i.i.i) #24
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %add.ptr.val10.i, ptr noundef readonly %agg.tmp.sroa.2.0.copyload, i64 noundef %.sroa.speculated.i.i.i.i.i) #24
   %cmp.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESE_EEbT_RT0_.exit.i"
 
@@ -7512,7 +7512,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %add.ptr.val.i, %agg.tmp.sroa.0.0.copyload
   %spec.select3.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i.i = trunc i64 %retval.04.i.i.i.i.i.i to i32
+  %retval.0.i3.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESE_EEbT_RT0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESE_EEbT_RT0_.exit.i": ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -9486,7 +9486,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

@@ -627,12 +627,12 @@ define i32 @unpack_slurmdbd_msg(ptr noundef %0, i16 noundef zeroext %1, ptr noun
 32:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = zext nneg i16 %18 to i32
-  %35 = tail call i32 @slurmdbd_unpack_list_msg(ptr noundef nonnull %33, i16 noundef zeroext %1, i32 noundef %34, ptr noundef %2), !range !7
+  %35 = tail call i32 @slurmdbd_unpack_list_msg(ptr noundef nonnull %33, i16 noundef zeroext %1, i32 noundef %34, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 36:                                               ; preds = %17, %17
   %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = tail call fastcc i32 @_unpack_acct_coord_msg(ptr noundef nonnull %37, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %38 = tail call fastcc i32 @_unpack_acct_coord_msg(ptr noundef nonnull %37, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 39:                                               ; preds = %17
@@ -642,7 +642,7 @@ define i32 @unpack_slurmdbd_msg(ptr noundef %0, i16 noundef zeroext %1, ptr noun
 
 42:                                               ; preds = %17, %17
   %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = tail call fastcc i32 @_unpack_cluster_tres_msg(ptr noundef nonnull %43, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %44 = tail call fastcc i32 @_unpack_cluster_tres_msg(ptr noundef nonnull %43, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 45:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
@@ -737,74 +737,74 @@ define i32 @unpack_slurmdbd_msg(ptr noundef %0, i16 noundef zeroext %1, ptr noun
 68:                                               ; preds = %17, %17, %17, %17, %17, %17
   %69 = getelementptr inbounds i8, ptr %0, i64 8
   %70 = zext nneg i16 %18 to i32
-  %71 = tail call i32 @slurmdbd_unpack_usage_msg(ptr noundef nonnull %69, i16 noundef zeroext %1, i32 noundef %70, ptr noundef %2), !range !7
+  %71 = tail call i32 @slurmdbd_unpack_usage_msg(ptr noundef nonnull %69, i16 noundef zeroext %1, i32 noundef %70, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 72:                                               ; preds = %17
   %73 = getelementptr inbounds i8, ptr %0, i64 8
-  %74 = tail call i32 @slurmdbd_unpack_fini_msg(ptr noundef nonnull %73, i16 zeroext poison, ptr noundef %2), !range !7
+  %74 = tail call i32 @slurmdbd_unpack_fini_msg(ptr noundef nonnull %73, i16 zeroext poison, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 75:                                               ; preds = %17
   %76 = getelementptr inbounds i8, ptr %0, i64 8
-  %77 = tail call fastcc i32 @_unpack_job_complete_msg(ptr noundef nonnull %76, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %77 = tail call fastcc i32 @_unpack_job_complete_msg(ptr noundef nonnull %76, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 78:                                               ; preds = %17
   %79 = getelementptr inbounds i8, ptr %0, i64 8
-  %80 = tail call i32 @_unpack_job_start_msg(ptr noundef nonnull %79, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %80 = tail call i32 @_unpack_job_start_msg(ptr noundef nonnull %79, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 81:                                               ; preds = %17
   %82 = getelementptr inbounds i8, ptr %0, i64 8
-  %83 = tail call i32 @_unpack_job_heavy_msg(ptr noundef nonnull %82, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %83 = tail call i32 @_unpack_job_heavy_msg(ptr noundef nonnull %82, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 84:                                               ; preds = %17
   %85 = getelementptr inbounds i8, ptr %0, i64 8
-  %86 = tail call i32 @slurmdbd_unpack_id_rc_msg(ptr noundef nonnull %85, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %86 = tail call i32 @slurmdbd_unpack_id_rc_msg(ptr noundef nonnull %85, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 87:                                               ; preds = %17
   %88 = getelementptr inbounds i8, ptr %0, i64 8
-  %89 = tail call fastcc i32 @_unpack_job_suspend_msg(ptr noundef nonnull %88, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %89 = tail call fastcc i32 @_unpack_job_suspend_msg(ptr noundef nonnull %88, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 90:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
   %91 = getelementptr inbounds i8, ptr %0, i64 8
   %92 = zext nneg i16 %18 to i32
-  %93 = tail call fastcc i32 @_unpack_modify_msg(ptr noundef nonnull %91, i16 noundef zeroext %1, i32 noundef %92, ptr noundef %2), !range !7
+  %93 = tail call fastcc i32 @_unpack_modify_msg(ptr noundef nonnull %91, i16 noundef zeroext %1, i32 noundef %92, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 94:                                               ; preds = %17
   %95 = getelementptr inbounds i8, ptr %0, i64 8
-  %96 = tail call fastcc i32 @_unpack_node_state_msg(ptr noundef nonnull %95, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %96 = tail call fastcc i32 @_unpack_node_state_msg(ptr noundef nonnull %95, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 97:                                               ; preds = %17
   %98 = getelementptr inbounds i8, ptr %0, i64 8
-  %99 = tail call fastcc i32 @_unpack_step_complete_msg(ptr noundef nonnull %98, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %99 = tail call fastcc i32 @_unpack_step_complete_msg(ptr noundef nonnull %98, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 100:                                              ; preds = %17
   %101 = getelementptr inbounds i8, ptr %0, i64 8
-  %102 = tail call fastcc i32 @_unpack_step_start_msg(ptr noundef nonnull %101, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %102 = tail call fastcc i32 @_unpack_step_start_msg(ptr noundef nonnull %101, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 103:                                              ; preds = %17
   %104 = getelementptr inbounds i8, ptr %0, i64 8
-  %105 = tail call fastcc i32 @_unpack_register_ctld_msg(ptr noundef nonnull %104, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %105 = tail call fastcc i32 @_unpack_register_ctld_msg(ptr noundef nonnull %104, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 106:                                              ; preds = %17
   %107 = getelementptr inbounds i8, ptr %0, i64 8
-  %108 = tail call fastcc i32 @_unpack_roll_usage_msg(ptr noundef nonnull %107, i16 noundef zeroext %1, ptr noundef %2), !range !7
+  %108 = tail call fastcc i32 @_unpack_roll_usage_msg(ptr noundef nonnull %107, i16 noundef zeroext %1, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 109:                                              ; preds = %17, %17, %17
   %110 = getelementptr inbounds i8, ptr %0, i64 8
   %111 = zext nneg i16 %18 to i32
-  %112 = tail call fastcc i32 @_unpack_rec_msg(ptr noundef nonnull %110, i16 noundef zeroext %1, i32 noundef %111, ptr noundef %2), !range !7
+  %112 = tail call fastcc i32 @_unpack_rec_msg(ptr noundef nonnull %110, i16 noundef zeroext %1, i32 noundef %111, ptr noundef %2)
   br label %_unpack_cond_msg.exit
 
 113:                                              ; preds = %17
@@ -875,7 +875,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdbd_unpack_id_rc_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define range(i32 -1, 1) i32 @slurmdbd_unpack_id_rc_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1080, ptr noundef nonnull @__func__.slurmdbd_unpack_id_rc_msg) #5
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
@@ -968,7 +968,7 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #2
 declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdbd_unpack_usage_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdbd_unpack_usage_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1135, ptr noundef nonnull @__func__.slurmdbd_unpack_usage_msg) #5
   store ptr %5, ptr %0, align 8
   switch i32 %2, label %8 [
@@ -993,7 +993,7 @@ define noundef i32 @slurmdbd_unpack_usage_msg(ptr nocapture noundef writeonly %0
 9:                                                ; preds = %4, %4, %7, %6
   %.0 = phi ptr [ @slurmdb_unpack_wckey_rec, %7 ], [ @slurmdb_unpack_cluster_rec, %6 ], [ @slurmdb_unpack_assoc_rec, %4 ], [ @slurmdb_unpack_assoc_rec, %4 ]
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = tail call i32 %.0(ptr noundef nonnull %10, i16 noundef zeroext %1, ptr noundef %3) #5, !callees !8
+  %11 = tail call i32 %.0(ptr noundef nonnull %10, i16 noundef zeroext %1, ptr noundef %3) #5, !callees !7
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %18, label %13
 
@@ -1031,7 +1031,7 @@ declare void @slurmdbd_free_usage_msg(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdbd_unpack_fini_msg(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdbd_unpack_fini_msg(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1181, ptr noundef nonnull @__func__.slurmdbd_unpack_fini_msg) #5
   store ptr %4, ptr %0, align 8
   %5 = tail call i32 @unpack16(ptr noundef %4, ptr noundef %2) #5
@@ -1676,7 +1676,7 @@ define internal void @_pack_buffer(ptr nocapture noundef readonly %0, i16 zeroex
 declare i32 @slurm_pack_list(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdbd_unpack_list_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdbd_unpack_list_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   switch i32 %2, label %24 [
     i32 1402, label %25
     i32 1416, label %25
@@ -1823,7 +1823,7 @@ declare i32 @slurmdb_unpack_job_rec(ptr noundef, i16 noundef zeroext, ptr nounde
 declare void @slurmdb_destroy_job_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_slurmdbd_unpackstr(ptr noundef %0, i16 zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_slurmdbd_unpackstr(ptr noundef %0, i16 zeroext %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2) #5
   %.not = icmp ne i32 %5, 0
@@ -1864,7 +1864,7 @@ declare i32 @slurmdb_unpack_instance_rec(ptr noundef, i16 noundef zeroext, ptr n
 declare void @slurmdb_destroy_instance_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_unpack_job_start_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_unpack_job_start_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2154,7 +2154,7 @@ define internal noundef i32 @_unpack_job_start_msg(ptr nocapture noundef writeon
 declare void @slurmdbd_free_job_start_msg(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_unpack_job_heavy_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_unpack_job_heavy_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2200,7 +2200,7 @@ define internal noundef i32 @_unpack_job_heavy_msg(ptr nocapture noundef writeon
 declare void @slurmdbd_free_job_heavy_msg(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_unpack_buffer(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_unpack_buffer(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr null, ptr %4, align 8
@@ -2274,7 +2274,7 @@ define internal fastcc void @_pack_acct_coord_msg(ptr nocapture noundef readonly
   tail call void @packmem(ptr noundef nonnull %11, i32 noundef %14, ptr noundef %2) #5
   %15 = tail call ptr @list_next(ptr noundef %9) #5
   %.not19 = icmp eq ptr %15, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   tail call void @list_iterator_destroy(ptr noundef %9) #5
@@ -2949,7 +2949,7 @@ declare i32 @unpack_msg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_unpack_received_msg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_acct_coord_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_coord_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2986,7 +2986,7 @@ define internal fastcc noundef i32 @_unpack_acct_coord_msg(ptr nocapture noundef
   %18 = add nuw nsw i32 %.01317, 1
   %19 = load i32, ptr %5, align 4
   %20 = icmp ult i32 %18, %19
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %15, %11, %9
   %21 = getelementptr inbounds i8, ptr %7, i64 8
@@ -3007,7 +3007,7 @@ define internal fastcc noundef i32 @_unpack_acct_coord_msg(ptr nocapture noundef
 declare i32 @slurmdb_unpack_archive_rec(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_cluster_tres_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_cluster_tres_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__._unpack_cluster_tres_msg) #5
@@ -3043,7 +3043,7 @@ define internal fastcc noundef i32 @_unpack_cluster_tres_msg(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_complete_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_complete_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3168,7 +3168,7 @@ define internal fastcc noundef i32 @_unpack_job_complete_msg(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_job_suspend_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_suspend_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 616, ptr noundef nonnull @__func__._unpack_job_suspend_msg) #5
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
@@ -3220,7 +3220,7 @@ define internal fastcc noundef i32 @_unpack_job_suspend_msg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_modify_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_modify_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @__func__._unpack_modify_msg) #5
   store ptr %5, ptr %0, align 8
   switch i32 %2, label %15 [
@@ -3291,7 +3291,7 @@ define internal fastcc noundef i32 @_unpack_modify_msg(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_node_state_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_node_state_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3421,7 +3421,7 @@ define internal fastcc noundef i32 @_unpack_node_state_msg(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_step_complete_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_step_complete_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 96, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 919, ptr noundef nonnull @__func__._unpack_step_complete_msg) #5
   store ptr %5, ptr %0, align 8
@@ -3517,7 +3517,7 @@ define internal fastcc noundef i32 @_unpack_step_complete_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_step_start_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_step_start_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3652,7 +3652,7 @@ define internal fastcc noundef i32 @_unpack_step_start_msg(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_register_ctld_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_register_ctld_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 843, ptr noundef nonnull @__func__._unpack_register_ctld_msg) #5
   store ptr %5, ptr %0, align 8
@@ -3713,7 +3713,7 @@ define internal fastcc noundef i32 @_unpack_register_ctld_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_roll_usage_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_roll_usage_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 879, ptr noundef nonnull @__func__._unpack_roll_usage_msg) #5
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
@@ -3747,7 +3747,7 @@ define internal fastcc noundef i32 @_unpack_roll_usage_msg(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_rec_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_rec_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.off = add i32 %2, -1461
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %5, label %9
@@ -3921,8 +3921,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{ptr @slurmdb_pack_assoc_rec, ptr @slurmdb_pack_cluster_rec, ptr @slurmdb_pack_wckey_rec}
-!7 = !{i32 -1, i32 1}
-!8 = !{ptr @slurmdb_unpack_assoc_rec, ptr @slurmdb_unpack_cluster_rec, ptr @slurmdb_unpack_wckey_rec}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!7 = !{ptr @slurmdb_unpack_assoc_rec, ptr @slurmdb_unpack_cluster_rec, ptr @slurmdb_unpack_wckey_rec}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

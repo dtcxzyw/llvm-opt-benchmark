@@ -44,7 +44,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @run_mtu_tests() #0 {
+define internal range(i32 0, 3) i32 @run_mtu_tests() #0 {
 entry:
   %call = tail call ptr @DTLS_method() #6
   %call1 = tail call ptr @SSL_CTX_new(ptr noundef %call) #6
@@ -79,7 +79,7 @@ for.body:                                         ; preds = %if.end7, %for.inc
   br i1 %cmp17, label %if.end20, label %for.inc
 
 if.end20:                                         ; preds = %for.body
-  %call21 = tail call fastcc i32 @mtu_test(ptr noundef %call1, ptr noundef %call15, i32 noundef 0), !range !5
+  %call21 = tail call fastcc i32 @mtu_test(ptr noundef %call1, ptr noundef %call15, i32 noundef 0)
   %call22 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %call21, i32 noundef 0) #6
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %end, label %if.end25
@@ -90,7 +90,7 @@ if.end25:                                         ; preds = %if.end20
   br i1 %cmp26, label %for.inc, label %if.end29
 
 if.end29:                                         ; preds = %if.end25
-  %call30 = tail call fastcc i32 @mtu_test(ptr noundef %call1, ptr noundef %call15, i32 noundef 1), !range !5
+  %call30 = tail call fastcc i32 @mtu_test(ptr noundef %call1, ptr noundef %call15, i32 noundef 1)
   %call31 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 184, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, i32 noundef %call30, i32 noundef 0) #6
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %end, label %if.end34
@@ -104,7 +104,7 @@ for.inc:                                          ; preds = %if.end25, %for.body
   %inc = add nuw nsw i32 %i.019, 1
   %call10 = tail call i32 @OPENSSL_sk_num(ptr noundef %call8) #6
   %cmp11 = icmp slt i32 %inc, %call10
-  br i1 %cmp11, label %for.body, label %end, !llvm.loop !6
+  br i1 %cmp11, label %for.body, label %end, !llvm.loop !5
 
 end:                                              ; preds = %if.end29, %if.end20, %for.inc, %if.end7, %if.end, %entry
   %ret.2 = phi i32 [ 0, %if.end ], [ 0, %entry ], [ 0, %if.end7 ], [ %call30, %if.end29 ], [ %call21, %if.end20 ], [ %ret.1, %for.inc ]
@@ -113,7 +113,7 @@ end:                                              ; preds = %if.end29, %if.end20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_server_mtu_larger_than_max_fragment_length() #0 {
+define internal range(i32 0, 2) i32 @test_server_mtu_larger_than_max_fragment_length() #0 {
 entry:
   %srvr_ssl = alloca ptr, align 8
   %clnt_ssl = alloca ptr, align 8
@@ -236,7 +236,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mtu_test(ptr noundef %ctx, ptr noundef %cs, i32 noundef %no_etm) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %ctx, ptr noundef %cs, i32 noundef %no_etm) unnamed_addr #0 {
 entry:
   %srvr_ssl = alloca ptr, align 8
   %clnt_ssl = alloca ptr, align 8
@@ -299,7 +299,7 @@ lor.lhs.false20:                                  ; preds = %lor.lhs.false16
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %lor.lhs.false20, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %lor.lhs.false20 ]
@@ -315,7 +315,7 @@ for.body:                                         ; preds = %lor.lhs.false20, %f
   br i1 %tobool46.not, label %if.then47, label %for.cond
 
 if.then47:                                        ; preds = %for.body
-  %9 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %7 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 89, ptr noundef nonnull @.str.23, ptr noundef %cs, i32 noundef %9) #6
   br label %end
 
@@ -345,7 +345,7 @@ if.end64:                                         ; preds = %for.body56
 for.cond71:                                       ; preds = %if.end91
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, 30
-  br i1 %exitcond65.not, label %for.inc115, label %for.body74, !llvm.loop !9
+  br i1 %exitcond65.not, label %for.inc115, label %for.body74, !llvm.loop !8
 
 for.body74:                                       ; preds = %if.end64, %for.cond71
   %indvars.iv61 = phi i64 [ 0, %if.end64 ], [ %indvars.iv.next62, %for.cond71 ]
@@ -362,7 +362,7 @@ for.body74:                                       ; preds = %if.end64, %for.cond
   br i1 %tobool86.not, label %if.then87, label %if.end91
 
 if.then87:                                        ; preds = %for.body74
-  %18 = trunc i64 %16 to i32
+  %18 = trunc nuw nsw i64 %16 to i32
   %conv67.le45 = sext i32 %call66 to i64
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @.str.28, ptr noundef %cs, i64 noundef %s.048, i64 noundef %15, i64 noundef %conv67.le45, i32 noundef %18) #6
   br label %end
@@ -376,7 +376,7 @@ if.end91:                                         ; preds = %for.body74
   br i1 %tobool106.not, label %if.then107, label %for.cond71
 
 if.then107:                                       ; preds = %if.end91
-  %20 = trunc i64 %16 to i32
+  %20 = trunc nuw nsw i64 %16 to i32
   %conv67.le = sext i32 %call66 to i64
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @.str.28, ptr noundef %cs, i64 noundef %s.048, i64 noundef %15, i64 noundef %conv67.le, i32 noundef %20) #6
   br label %end
@@ -384,7 +384,7 @@ if.then107:                                       ; preds = %if.end91
 for.inc115:                                       ; preds = %for.cond71
   %inc116 = add i64 %s.048, 1
   %cmp54.not = icmp ugt i64 %inc116, %12
-  br i1 %cmp54.not, label %for.end117, label %for.body56, !llvm.loop !10
+  br i1 %cmp54.not, label %for.end117, label %for.body56, !llvm.loop !9
 
 for.end117:                                       ; preds = %for.inc115, %for.end
   %21 = load ptr, ptr %clnt_ssl, align 8
@@ -480,9 +480,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

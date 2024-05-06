@@ -127,7 +127,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.99 = private unnamed_addr constant [59 x i8] c"phar error: unable to write signature to zip-based phar %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_parse_zipfile(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_parse_zipfile(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [4096 x i8], align 16
   %9 = alloca %struct.tm, align 8
   %10 = alloca i64, align 8
@@ -1945,7 +1945,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
 880:                                              ; preds = %877
   %881 = call i64 @_php_stream_tell(ptr noundef %0) #15
   %882 = load i16, ptr %215, align 1
-  %883 = call fastcc i32 @phar_zip_process_extra(ptr noundef %0, ptr noundef nonnull %16, i16 noundef zeroext %882), !range !4
+  %883 = call fastcc i32 @phar_zip_process_extra(ptr noundef %0, ptr noundef nonnull %16, i16 noundef zeroext %882)
   %884 = icmp eq i32 %883, -1
   br i1 %884, label %885, label %926
 
@@ -4589,7 +4589,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   %2009 = getelementptr inbounds i8, ptr %99, i64 40
   %2010 = load i32, ptr %2009, align 8
   %2011 = zext i32 %2010 to i64
-  %2012 = call fastcc i32 @phar_validate_alias(ptr noundef nonnull %.01269.lcssa, i64 noundef %2011), !range !5
+  %2012 = call fastcc i32 @phar_validate_alias(ptr noundef nonnull %.01269.lcssa, i64 noundef %2011)
   %.not1411 = icmp eq i32 %2012, 0
   br i1 %.not1411, label %2013, label %2019
 
@@ -4616,7 +4616,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   br i1 %.not1413, label %.thread1711, label %2023
 
 2023:                                             ; preds = %2019
-  %2024 = load ptr, ptr %2022, align 8, !nonnull !6, !noundef !6
+  %2024 = load ptr, ptr %2022, align 8, !nonnull !4, !noundef !4
   %2025 = load i32, ptr %2009, align 8
   %2026 = zext i32 %2025 to i64
   %2027 = call i32 @phar_free_alias(ptr noundef nonnull %2024, ptr noundef nonnull %.01269.lcssa, i64 noundef %2026) #15
@@ -4691,7 +4691,7 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   br i1 %.not1405, label %.thread1714, label %2056
 
 2056:                                             ; preds = %2054
-  %2057 = load ptr, ptr %2055, align 8, !nonnull !6, !noundef !6
+  %2057 = load ptr, ptr %2055, align 8, !nonnull !4, !noundef !4
   %2058 = call i32 @phar_free_alias(ptr noundef nonnull %2057, ptr noundef %3, i64 noundef %4) #15
   %.not1407 = icmp eq i32 %2058, 0
   br i1 %.not1407, label %.thread1714, label %2059
@@ -4859,7 +4859,7 @@ declare i32 @phar_verify_signature(ptr noundef, i64 noundef, i32 noundef, ptr no
 declare void @phar_add_virtual_dirs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @phar_zip_process_extra(ptr noundef %0, ptr nocapture noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phar_zip_process_extra(ptr noundef %0, ptr nocapture noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %union.anon.7, align 1
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = getelementptr inbounds i8, ptr %4, i64 1
@@ -4995,7 +4995,7 @@ declare i32 @_php_stream_filter_flush(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @php_stream_filter_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @phar_validate_alias(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @phar_validate_alias(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #9 {
   %3 = tail call ptr @memchr(ptr noundef %0, i32 noundef 47, i64 noundef %1) #16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %16
@@ -5980,7 +5980,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   store i32 %417, ptr %9, align 8
   %419 = getelementptr inbounds i8, ptr %9, i64 128
   store ptr %320, ptr %419, align 8
-  %420 = call fastcc i32 @phar_zip_changed_apply_int(ptr noundef nonnull %9, ptr noundef nonnull %17), !range !7
+  %420 = call fastcc i32 @phar_zip_changed_apply_int(ptr noundef nonnull %9, ptr noundef nonnull %17)
   %421 = call i32 @_php_stream_free(ptr noundef nonnull %328, i32 noundef 3) #15
   %422 = load ptr, ptr %20, align 8
   %.not47.i = icmp eq ptr %422, null
@@ -6268,9 +6268,9 @@ declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, 
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @phar_zip_changed_apply(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 3) i32 @phar_zip_changed_apply(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call fastcc i32 @phar_zip_changed_apply_int(ptr noundef %3, ptr noundef %1), !range !7
+  %4 = tail call fastcc i32 @phar_zip_changed_apply_int(ptr noundef %3, ptr noundef %1)
   ret i32 %4
 }
 
@@ -6296,7 +6296,7 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @phar_zip_changed_apply_int(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @phar_zip_changed_apply_int(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca %struct._phar_zip_file_header, align 4
@@ -7341,7 +7341,4 @@ attributes #18 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{i32 0, i32 2}
-!6 = !{}
-!7 = !{i32 0, i32 3}
+!4 = !{}

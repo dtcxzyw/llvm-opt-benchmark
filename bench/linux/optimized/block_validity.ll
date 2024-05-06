@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched201], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @ext4_init_system_zone() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @ext4_init_system_zone() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 40, i32 noundef 8, i32 noundef 0, ptr noundef null) #7
   store ptr %1, ptr @ext4_system_zone_cachep, align 8
   %2 = icmp eq ptr %1, null
@@ -310,7 +310,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare dso_local i32 @ext4_num_base_meta_blocks(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @add_system_zone(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -117, 1) i32 @add_system_zone(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %25, label %.preheader
@@ -493,7 +493,7 @@ define internal void @ext4_destroy_system_zone(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ext4_sb_block_valid(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @ext4_sb_block_valid(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 104
@@ -596,7 +596,7 @@ define dso_local i32 @ext4_sb_block_valid(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ext4_inode_block_valid(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @ext4_inode_block_valid(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 872
@@ -701,7 +701,7 @@ define dso_local i32 @ext4_inode_block_valid(ptr noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_check_blockref(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -117, 1) i32 @ext4_check_blockref(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 872

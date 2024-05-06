@@ -170,7 +170,7 @@ BufferGetPage.exit:                               ; preds = %32, %38
   %78 = getelementptr ptr, ptr %70, i64 %77
   %79 = sub i32 %.04046.i, %.049.i
   %80 = tail call i32 @BufferGetBlockNumber(i32 noundef %74) #9
-  %81 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.04245.i, ptr noundef %78, i32 noundef %79, i32 noundef %80)
+  %81 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.04245.i, ptr noundef readonly %78, i32 noundef %79, i32 noundef %80)
   br label %84
 
 82:                                               ; preds = %73
@@ -217,7 +217,7 @@ makeSublist.exit:                                 ; preds = %makeSublist.exit.lo
   %101 = sext i32 %.0.lcssa.i to i64
   %102 = getelementptr ptr, ptr %70, i64 %101
   %103 = sub i32 %69, %.0.lcssa.i
-  %104 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.035.lcssa.i, ptr noundef %102, i32 noundef %103, i32 noundef -1)
+  %104 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.035.lcssa.i, ptr noundef readonly %102, i32 noundef %103, i32 noundef -1)
   tail call void @LockBuffer(i32 noundef %30, i32 noundef 2) #9
   %105 = getelementptr i8, ptr %.0.i.i, i64 24
   tail call void @CheckForSerializableConflictIn(ptr noundef %4, ptr noundef null, i32 noundef 0) #9
@@ -429,7 +429,7 @@ BufferGetPage.exit119:                            ; preds = %152, %158
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 88) #9
   %220 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 96) #9
   %221 = lshr i64 %220, 32
-  %222 = trunc i64 %221 to i32
+  %222 = trunc nuw i64 %221 to i32
   store i32 %222, ptr %.0.i.i, align 4
   %223 = trunc i64 %220 to i32
   %224 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -1004,7 +1004,7 @@ BufferGetPage.exit68.i:                           ; preds = %219, %213
   call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 64) #9
   %256 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext -128) #9
   %257 = lshr i64 %256, 32
-  %258 = trunc i64 %257 to i32
+  %258 = trunc nuw i64 %257 to i32
   store i32 %258, ptr %.0.i.i.i, align 4
   %259 = trunc i64 %256 to i32
   store i32 %259, ptr %140, align 4
@@ -1192,9 +1192,9 @@ define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr nocapture nou
 
 23:                                               ; preds = %20
   %24 = call i32 @llvm.umax.i32(i32 %10, i32 16)
-  %25 = call i32 @llvm.ctpop.i32(i32 %24), !range !17
+  %25 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
   %26 = icmp ult i32 %25, 2
-  %27 = call i32 @llvm.ctlz.i32(i32 %24, i1 true), !range !17
+  %27 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %28 = xor i32 %27, 31
   %29 = shl nuw i32 2, %28
   %.0.i = select i1 %26, i32 %24, i32 %29
@@ -1212,9 +1212,9 @@ define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr nocapture nou
   br i1 %37, label %38, label %47
 
 38:                                               ; preds = %34
-  %39 = call i32 @llvm.ctpop.i32(i32 %15), !range !17
+  %39 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
   %40 = icmp ult i32 %39, 2
-  %41 = call i32 @llvm.ctlz.i32(i32 %15, i1 true), !range !17
+  %41 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %42 = xor i32 %41, 31
   %43 = shl nuw nsw i32 2, %42
   %.0.i31 = select i1 %40, i32 %15, i32 %43
@@ -1265,7 +1265,7 @@ define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr nocapture nou
   %69 = load i32, ptr %8, align 4
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %51, label %._crit_edge, !llvm.loop !18
+  br i1 %71, label %51, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %51, %47
   ret void
@@ -1393,7 +1393,7 @@ addDatum.exit:                                    ; preds = %36, %42
   store i32 %61, ptr %7, align 8
   %62 = add i16 %.038, 1
   %.not = icmp ugt i16 %62, %.0.i
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %addDatum.exit, %4
   %63 = phi i32 [ 0, %4 ], [ %61, %addDatum.exit ]
@@ -1422,7 +1422,7 @@ declare void @IndexFreeSpaceMapVacuum(ptr noundef) local_unnamed_addr #2
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_clean_pending_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @gin_clean_pending_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.IndexBulkDeleteResult, align 8
   %3 = alloca %struct.GinState, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1621,7 +1621,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %42 = add i16 %.04346, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %38, %BufferGetPage.exit
   %.041.lcssa = phi i32 [ 0, %BufferGetPage.exit ], [ %40, %38 ]
@@ -1686,7 +1686,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %6, i32 noundef %.041.lcssa) #9
   %79 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 112) #9
   %80 = lshr i64 %79, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   store i32 %81, ptr %.0.i.i, align 4
   %82 = trunc i64 %79 to i32
   %83 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -1768,7 +1768,6 @@ attributes #10 = { cold nounwind }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 0, i32 33}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

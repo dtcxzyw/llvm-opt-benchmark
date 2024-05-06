@@ -181,7 +181,7 @@ while.end:                                        ; preds = %sw.epilog, %while.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ucnv_compareNames_75(ptr nocapture noundef readonly %name1, ptr nocapture noundef readonly %name2) local_unnamed_addr #1 {
+define range(i32 -255, 256) i32 @ucnv_compareNames_75(ptr nocapture noundef readonly %name1, ptr nocapture noundef readonly %name2) local_unnamed_addr #1 {
 entry:
   br label %for.cond
 
@@ -348,7 +348,7 @@ if.then6:                                         ; preds = %land.lhs.true
 
 if.end7:                                          ; preds = %if.then6, %for.body
   %aliasTmp.1 = phi ptr [ %add.ptr, %if.then6 ], [ %aliasTmp.012, %for.body ]
-  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true8
 
@@ -366,7 +366,7 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %land.lhs.true8
   br i1 %cmp1.i.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit
-  %call12 = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %aliasTmp.1, ptr noundef %containsOption, ptr noundef %pErrorCode), !range !12
+  %call12 = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %aliasTmp.1, ptr noundef %containsOption, ptr noundef %pErrorCode)
   %3 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 9), align 8
   %cmp13 = icmp ult i32 %call12, %3
   br i1 %cmp13, label %if.then14, label %for.cond
@@ -387,7 +387,7 @@ return:                                           ; preds = %for.cond, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -543,7 +543,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr nocapture noundef readonly %alias, ptr noundef writeonly %containsOption, ptr nocapture noundef writeonly %pErrorCode) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr nocapture noundef readonly %alias, ptr noundef writeonly %containsOption, ptr nocapture noundef writeonly %pErrorCode) unnamed_addr #3 {
 entry:
   %strippedName = alloca [60 x i8], align 16
   %0 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 6), align 8
@@ -679,7 +679,7 @@ if.end9.us:                                       ; preds = %if.end9.us.preheade
   %23 = load i16, ptr %arrayidx.us, align 2
   %idx.ext.us = zext i16 %23 to i64
   %add.ptr.us = getelementptr inbounds i16, ptr %22, i64 %idx.ext.us
-  %call13.us = call i32 @ucnv_compareNames_75(ptr noundef %alias.addr.056, ptr noundef %add.ptr.us), !range !13
+  %call13.us = call i32 @ucnv_compareNames_75(ptr noundef %alias.addr.056, ptr noundef %add.ptr.us)
   %cmp21.us = icmp slt i32 %call13.us, 0
   br i1 %cmp21.us, label %if.end51.us, label %if.else23.us
 
@@ -693,7 +693,7 @@ if.end51.us:                                      ; preds = %if.else23.us, %if.e
   %add.us = add i32 %limit.1.us, %start.1.us
   %div18.us = lshr i32 %add.us, 1
   %cmp7.us = icmp eq i32 %div1834.us, %div18.us
-  br i1 %cmp7.us, label %return, label %if.end9.us, !llvm.loop !14
+  br i1 %cmp7.us, label %return, label %if.end9.us, !llvm.loop !11
 
 if.end9:                                          ; preds = %if.end9.preheader, %if.end51
   %div1834 = phi i32 [ %div18, %if.end51 ], [ %div183161, %if.end9.preheader ]
@@ -763,7 +763,7 @@ if.end51:                                         ; preds = %if.else23, %if.end9
   %add = add i32 %limit.1, %start.1
   %div18 = lshr i32 %add, 1
   %cmp7 = icmp eq i32 %div1834, %div18
-  br i1 %cmp7, label %return, label %if.end9, !llvm.loop !14
+  br i1 %cmp7, label %return, label %if.end9, !llvm.loop !11
 
 return:                                           ; preds = %if.end51, %if.end51.us, %if.end45, %if.then3
   %retval.0 = phi i32 [ %and49, %if.end45 ], [ -1, %if.then3 ], [ -1, %if.end51.us ], [ -1, %if.end51 ]
@@ -773,7 +773,7 @@ return:                                           ; preds = %if.end51, %if.end51
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ucnv_openStandardNames_75(ptr noundef readonly %convName, ptr noundef %standard, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -791,7 +791,7 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %land.lhs.true
   br i1 %cmp1.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZL7isAliasPKcP10UErrorCode.exit
-  %call3 = tail call fastcc noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef nonnull %convName, ptr noundef %standard, ptr noundef %pErrorCode), !range !15
+  %call3 = tail call fastcc noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef nonnull %convName, ptr noundef %standard, ptr noundef %pErrorCode)
   %1 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 14), align 4
   %cmp = icmp ult i32 %call3, %1
   br i1 %cmp, label %if.then4, label %return
@@ -830,7 +830,7 @@ return:                                           ; preds = %_ZL7isAliasPKcP10UE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr nocapture noundef readonly %alias, ptr noundef %standard, ptr nocapture noundef writeonly %pErrorCode) unnamed_addr #2 {
+define internal fastcc noundef range(i32 -1, 65536) i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr nocapture noundef readonly %alias, ptr noundef %standard, ptr nocapture noundef writeonly %pErrorCode) unnamed_addr #2 {
 entry:
   %myErr = alloca i32, align 4
   store i32 0, ptr %myErr, align 4
@@ -858,7 +858,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %5 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 10), align 4
   %6 = zext i32 %5 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %6
-  br i1 %cmp.i, label %for.body.i, label %_ZL12getTagNumberPKc.exit, !llvm.loop !16
+  br i1 %cmp.i, label %for.body.i, label %_ZL12getTagNumberPKc.exit, !llvm.loop !12
 
 return.loopexit.split.loop.exit8.i:               ; preds = %for.body.i
   %7 = trunc nuw i64 %indvars.iv.i to i32
@@ -866,7 +866,7 @@ return.loopexit.split.loop.exit8.i:               ; preds = %for.body.i
 
 _ZL12getTagNumberPKc.exit:                        ; preds = %for.inc.i, %entry, %return.loopexit.split.loop.exit8.i
   %retval.0.i = phi i32 [ -1, %entry ], [ %7, %return.loopexit.split.loop.exit8.i ], [ -1, %for.inc.i ]
-  %call1 = call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %alias, ptr noundef null, ptr noundef nonnull %myErr), !range !12
+  %call1 = call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %alias, ptr noundef null, ptr noundef nonnull %myErr)
   %8 = load i32, ptr %myErr, align 4
   %cmp.not = icmp eq i32 %8, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -900,8 +900,8 @@ land.lhs.true5:                                   ; preds = %if.then4
   %conv = zext i16 %12 to i32
   %13 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 5), align 8
   %14 = zext i16 %12 to i64
-  %15 = getelementptr i16, ptr %13, i64 %14
-  %arrayidx8 = getelementptr i8, ptr %15, i64 2
+  %15 = getelementptr inbounds i16, ptr %13, i64 %14
+  %arrayidx8 = getelementptr inbounds i8, ptr %15, i64 2
   %16 = load i16, ptr %arrayidx8, align 2
   %tobool9.not = icmp eq i16 %16, 0
   br i1 %tobool9.not, label %if.end11, label %return
@@ -918,7 +918,7 @@ for.cond.preheader:                               ; preds = %if.end11
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %18 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 5), align 8
   %19 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 7), align 8
-  %invariant.gep = getelementptr i8, ptr %18, i64 2
+  %invariant.gep = getelementptr inbounds i8, ptr %18, i64 2
   %wide.trip.count = zext i32 %17 to i64
   br label %for.body
 
@@ -951,14 +951,14 @@ for.body.i17:                                     ; preds = %for.inc.i20, %for.b
 land.lhs.true.i:                                  ; preds = %for.body.i17
   %idx.ext8.i = zext i16 %22 to i64
   %add.ptr9.i = getelementptr inbounds i16, ptr %19, i64 %idx.ext8.i
-  %call.i19 = tail call i32 @ucnv_compareNames_75(ptr noundef %alias, ptr noundef nonnull %add.ptr9.i), !range !13
+  %call.i19 = tail call i32 @ucnv_compareNames_75(ptr noundef readonly %alias, ptr noundef nonnull %add.ptr9.i)
   %cmp10.i = icmp eq i32 %call.i19, 0
   br i1 %cmp10.i, label %if.then22, label %for.inc.i20
 
 for.inc.i20:                                      ; preds = %land.lhs.true.i, %for.body.i17
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.inc, label %for.body.i17, !llvm.loop !17
+  br i1 %exitcond.not.i, label %for.inc, label %for.body.i17, !llvm.loop !13
 
 if.then22:                                        ; preds = %land.lhs.true.i
   %23 = trunc nuw i64 %indvars.iv to i32
@@ -972,7 +972,7 @@ if.then22:                                        ; preds = %land.lhs.true.i
 
 land.lhs.true31:                                  ; preds = %if.then22
   %26 = zext i16 %25 to i64
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %26
+  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %26
   %27 = load i16, ptr %gep, align 2
   %tobool35.not = icmp eq i16 %27, 0
   br i1 %tobool35.not, label %for.inc, label %return.loopexit.split.loop.exit
@@ -980,7 +980,7 @@ land.lhs.true31:                                  ; preds = %if.then22
 for.inc:                                          ; preds = %for.inc.i20, %land.lhs.true19, %for.body, %land.lhs.true31, %if.then22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !14
 
 return.loopexit.split.loop.exit:                  ; preds = %land.lhs.true31
   %conv29.le = zext i16 %25 to i32
@@ -1002,7 +1002,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define ptr @ucnv_getStandard_75(i16 noundef zeroext %n, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -1035,7 +1035,7 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: mustprogress uwtable
 define ptr @ucnv_getStandardName_75(ptr noundef readonly %alias, ptr noundef %standard, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -1053,7 +1053,7 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %land.lhs.true
   br i1 %cmp1.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZL7isAliasPKcP10UErrorCode.exit
-  %call3 = tail call fastcc noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef nonnull %alias, ptr noundef %standard, ptr noundef %pErrorCode), !range !15
+  %call3 = tail call fastcc noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef nonnull %alias, ptr noundef %standard, ptr noundef %pErrorCode)
   %cmp.not = icmp ne i32 %call3, 0
   %1 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 14), align 4
   %cmp5 = icmp ult i32 %call3, %1
@@ -1083,7 +1083,7 @@ return:                                           ; preds = %_ZL7isAliasPKcP10UE
 ; Function Attrs: mustprogress uwtable
 define zeroext i16 @ucnv_countAliases_75(ptr noundef readonly %alias, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call.i = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit, label %land.lhs.true.i
 
@@ -1101,7 +1101,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %land.lhs.true.i
   br i1 %cmp1.i.not.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.i
-  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %alias, ptr noundef null, ptr noundef %pErrorCode), !range !12
+  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %alias, ptr noundef null, ptr noundef %pErrorCode)
   %1 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 9), align 8
   %cmp.i = icmp ult i32 %call3.i, %1
   br i1 %cmp.i, label %if.then4.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit
@@ -1133,7 +1133,7 @@ _ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit:   ; preds = %entry, %_ZL7isAlias
 ; Function Attrs: mustprogress uwtable
 define ptr @ucnv_getAlias_75(ptr noundef readonly %alias, i16 noundef zeroext %n, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call.i = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit, label %land.lhs.true.i
 
@@ -1151,7 +1151,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %land.lhs.true.i
   br i1 %cmp1.i.not.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.i
-  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %alias, ptr noundef null, ptr noundef %pErrorCode), !range !12
+  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %alias, ptr noundef null, ptr noundef %pErrorCode)
   %1 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 9), align 8
   %cmp.i = icmp ult i32 %call3.i, %1
   br i1 %cmp.i, label %if.then4.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit
@@ -1198,7 +1198,7 @@ _ZL16ucnv_io_getAliasPKctP10UErrorCode.exit:      ; preds = %entry, %_ZL7isAlias
 ; Function Attrs: mustprogress uwtable
 define void @ucnv_getAliases_75(ptr noundef readonly %alias, ptr nocapture noundef writeonly %aliases, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call.i = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit, label %land.lhs.true.i
 
@@ -1216,7 +1216,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %land.lhs.true.i
   br i1 %cmp1.i.not.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.i
-  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %alias, ptr noundef null, ptr noundef %pErrorCode), !range !12
+  %call3.i = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %alias, ptr noundef null, ptr noundef %pErrorCode)
   %1 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 9), align 8
   %cmp.i = icmp ult i32 %call3.i, %1
   br i1 %cmp.i, label %if.then4.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit
@@ -1257,7 +1257,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store ptr %add.ptr17.i, ptr %arrayidx19.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit, label %for.body.i, !llvm.loop !15
 
 _ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit: ; preds = %for.body.i, %entry, %_ZL7isAliasPKcP10UErrorCode.exit.thread.i, %_ZL7isAliasPKcP10UErrorCode.exit.i, %if.then.i, %if.then4.i, %if.then6.i
   ret void
@@ -1268,7 +1268,7 @@ define zeroext i16 @ucnv_countStandards_75() local_unnamed_addr #2 {
 entry:
   %err = alloca i32, align 4
   store i32 0, ptr %err, align 4
-  %call.i = call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef nonnull %err), !range !11
+  %call.i = call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef nonnull %err)
   %tobool.not.i = icmp eq i8 %call.i, 0
   %0 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 10), align 4
   %1 = trunc i32 %0 to i16
@@ -1281,7 +1281,7 @@ entry:
 define ptr @ucnv_getCanonicalName_75(ptr noundef readonly %alias, ptr noundef %standard, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %myErr.i = alloca i32, align 4
-  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -1325,7 +1325,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %6 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 10), align 4
   %7 = zext i32 %6 to i64
   %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %7
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZL12getTagNumberPKc.exit.i, !llvm.loop !16
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZL12getTagNumberPKc.exit.i, !llvm.loop !12
 
 return.loopexit.split.loop.exit8.i.i:             ; preds = %for.body.i.i
   %8 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -1333,7 +1333,7 @@ return.loopexit.split.loop.exit8.i.i:             ; preds = %for.body.i.i
 
 _ZL12getTagNumberPKc.exit.i:                      ; preds = %for.inc.i.i, %return.loopexit.split.loop.exit8.i.i, %if.then
   %retval.0.i.i = phi i32 [ -1, %if.then ], [ %8, %return.loopexit.split.loop.exit8.i.i ], [ -1, %for.inc.i.i ]
-  %call1.i = call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull %alias, ptr noundef null, ptr noundef nonnull %myErr.i), !range !12
+  %call1.i = call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %alias, ptr noundef null, ptr noundef nonnull %myErr.i)
   %9 = load i32, ptr %myErr.i, align 4
   %cmp.not.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i, label %if.end.i6, label %if.then.i5
@@ -1387,14 +1387,14 @@ for.body.i17.i:                                   ; preds = %for.inc.i20.i, %for
 land.lhs.true.i.i:                                ; preds = %for.body.i17.i
   %idx.ext8.i.i = zext i16 %17 to i64
   %add.ptr9.i.i = getelementptr inbounds i16, ptr %16, i64 %idx.ext8.i.i
-  %call.i19.i = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr9.i.i), !range !13
+  %call.i19.i = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull readonly %alias, ptr noundef nonnull %add.ptr9.i.i)
   %cmp10.i.i = icmp eq i32 %call.i19.i, 0
   br i1 %cmp10.i.i, label %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit, label %for.inc.i20.i
 
 for.inc.i20.i:                                    ; preds = %land.lhs.true.i.i, %for.body.i17.i
   %indvars.iv.next.i21.i = add nuw nsw i64 %indvars.iv.i18.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i21.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.end9.i, label %for.body.i17.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %if.end9.i, label %for.body.i17.i, !llvm.loop !13
 
 if.end9.i:                                        ; preds = %for.inc.i20.i, %land.lhs.true5.i, %if.then4.i
   %cmp10.i = icmp eq i32 %9, -122
@@ -1442,14 +1442,14 @@ for.body.i29.i:                                   ; preds = %for.inc.i38.i, %for
 land.lhs.true.i33.i:                              ; preds = %for.body.i29.i
   %idx.ext8.i34.i = zext i16 %23 to i64
   %add.ptr9.i35.i = getelementptr inbounds i16, ptr %19, i64 %idx.ext8.i34.i
-  %call.i36.i = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr9.i35.i), !range !13
+  %call.i36.i = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull readonly %alias, ptr noundef nonnull %add.ptr9.i35.i)
   %cmp10.i37.i = icmp eq i32 %call.i36.i, 0
   br i1 %cmp10.i37.i, label %if.then23.i, label %for.inc.i38.i
 
 for.inc.i38.i:                                    ; preds = %land.lhs.true.i33.i, %for.body.i29.i
   %indvars.iv.next.i39.i = add nuw nsw i64 %indvars.iv.i30.i, 1
   %exitcond.not.i40.i = icmp eq i64 %indvars.iv.next.i39.i, %wide.trip.count.i28.i
-  br i1 %exitcond.not.i40.i, label %for.inc.i, label %for.body.i29.i, !llvm.loop !17
+  br i1 %exitcond.not.i40.i, label %for.inc.i, label %for.body.i29.i, !llvm.loop !13
 
 if.then23.i:                                      ; preds = %land.lhs.true.i33.i
   %24 = trunc nuw i64 %indvars.iv.i to i32
@@ -1459,7 +1459,7 @@ if.then23.i:                                      ; preds = %land.lhs.true.i33.i
 for.inc.i:                                        ; preds = %for.inc.i38.i, %land.lhs.true20.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread, label %for.body.i, !llvm.loop !16
 
 _ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread: ; preds = %for.inc.i, %if.end9.i, %land.lhs.true.i, %if.end.i6, %if.then11.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %myErr.i)
@@ -1489,7 +1489,7 @@ return:                                           ; preds = %_ZL22findTaggedConv
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ucnv_openAllNames_75(ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -1527,7 +1527,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 ; Function Attrs: mustprogress uwtable
 define zeroext i16 @ucnv_io_countKnownConverters_75(ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   %0 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 9), align 8
   %conv = trunc i32 %0 to i16
@@ -1644,7 +1644,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %call56, ptr %arrayidx58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %offsets, i8 0, i64 40, i1 false)
@@ -1669,7 +1669,7 @@ for.body63:                                       ; preds = %for.body63.preheade
   store i32 %add70, ptr %arrayidx72, align 4
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count176
-  br i1 %exitcond177.not, label %for.end75, label %for.body63, !llvm.loop !22
+  br i1 %exitcond177.not, label %for.end75, label %for.body63, !llvm.loop !18
 
 for.end75:                                        ; preds = %for.body63, %for.end
   %i.1.lcssa = phi i64 [ 1, %for.end ], [ %indvars.iv172, %for.body63 ]
@@ -1823,7 +1823,7 @@ for.body174:                                      ; preds = %for.body174.lr.ph, 
   store i16 %conv181, ptr %sortIndex, align 2
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %for.end187, label %for.body174, !llvm.loop !23
+  br i1 %exitcond182.not, label %for.end187, label %for.body174, !llvm.loop !19
 
 for.end187:                                       ; preds = %for.body174, %if.end152
   %41 = phi ptr [ %32, %if.end152 ], [ %40, %for.body174 ]
@@ -1861,7 +1861,7 @@ for.body196:                                      ; preds = %for.body196.lr.ph, 
   %call214 = call noundef i32 %46(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr211, i32 noundef 2, ptr noundef %add.ptr213, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %if.end261, label %for.body196, !llvm.loop !24
+  br i1 %exitcond187.not, label %if.end261, label %for.body196, !llvm.loop !20
 
 if.else218:                                       ; preds = %if.then191
   %resort219 = getelementptr inbounds i8, ptr %tempTable, i64 16
@@ -1885,7 +1885,7 @@ for.body222:                                      ; preds = %for.body222.lr.ph, 
   %call233 = call noundef i32 %50(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr230, i32 noundef 2, ptr noundef %add.ptr232, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %do.body, label %for.body222, !llvm.loop !25
+  br i1 %exitcond192.not, label %do.body, label %for.body222, !llvm.loop !21
 
 do.body:                                          ; preds = %for.body222
   %mul238 = shl nuw nsw i64 %wide.trip.count191, 1
@@ -1908,7 +1908,7 @@ for.body241:                                      ; preds = %for.body241.lr.ph, 
   %call252 = call noundef i32 %53(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr249, i32 noundef 2, ptr noundef %add.ptr251, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count191
-  br i1 %exitcond197.not, label %do.body256, label %for.body241, !llvm.loop !26
+  br i1 %exitcond197.not, label %do.body256, label %for.body241, !llvm.loop !22
 
 do.body256:                                       ; preds = %for.body241, %if.else218, %do.body
   %mul238205 = phi i64 [ %mul238, %do.body ], [ 0, %if.else218 ], [ %mul238, %for.body241 ]
@@ -2025,7 +2025,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @udata_openChoice_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #8 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #8 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %3, 19
@@ -2102,7 +2102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL28ucnv_io_countStandardAliasesP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %enumerator, ptr nocapture readnone %0) #1 {
+define internal noundef range(i32 0, 65536) i32 @_ZL28ucnv_io_countStandardAliasesP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %enumerator, ptr nocapture readnone %0) #1 {
 entry:
   %context = getelementptr inbounds i8, ptr %enumerator, i64 8
   %1 = load ptr, ptr %context, align 8
@@ -2284,11 +2284,11 @@ attributes #15 = { allocsize(0) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i8 0, i8 2}
-!12 = !{i32 -1, i32 4096}
-!13 = !{i32 -255, i32 256}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 -1, i32 65536}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
@@ -2296,7 +2296,3 @@ attributes #15 = { allocsize(0) }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

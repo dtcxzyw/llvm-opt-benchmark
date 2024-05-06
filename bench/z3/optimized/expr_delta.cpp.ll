@@ -162,7 +162,7 @@ invoke.cont:                                      ; preds = %for.body
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %4 = load ptr, ptr %r, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %if.then.i.i.i.i

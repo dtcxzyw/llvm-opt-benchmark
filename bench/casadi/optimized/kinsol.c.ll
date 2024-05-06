@@ -154,7 +154,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 define void @KINProcessError(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ...) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca [256 x i8], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %8 = call i32 @vsprintf(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull %6) #12
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %15
@@ -175,7 +175,7 @@ define void @KINProcessError(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   br label %20
 
 20:                                               ; preds = %15, %10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -234,7 +234,7 @@ declare double @SUNRsqrt(double noundef) local_unnamed_addr #4
 declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINInit(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @KINInit(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %0, null
@@ -1623,7 +1623,7 @@ KINLinSolDrv.exit:                                ; preds = %469
   br label %524
 
 503:                                              ; preds = %500
-  %504 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0), !range !4
+  %504 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
   %505 = icmp eq i32 %504, -996
   br i1 %505, label %506, label %.preheader514
 
@@ -1687,7 +1687,7 @@ KINLinSolDrv.exit:                                ; preds = %469
   store double %542, ptr %288, align 8
   %543 = add nuw nsw i32 %.088.i, 1
   %exitcond.i = icmp eq i32 %543, 6
-  br i1 %exitcond.i, label %KINLinSolDrv.exit.thread, label %524, !llvm.loop !5
+  br i1 %exitcond.i, label %KINLinSolDrv.exit.thread, label %524, !llvm.loop !4
 
 544:                                              ; preds = %524
   %545 = load ptr, ptr %209, align 8
@@ -1813,7 +1813,7 @@ KINLinSolDrv.exit174:                             ; preds = %575
   br label %618
 
 599:                                              ; preds = %597
-  %600 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0), !range !4
+  %600 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
   %601 = icmp eq i32 %600, -996
   br i1 %601, label %602, label %.preheader518
 
@@ -1877,7 +1877,7 @@ KINLinSolDrv.exit174:                             ; preds = %575
   store double %635, ptr %288, align 8
   %636 = add nuw nsw i32 %.0312409.i, 1
   %exitcond.i176 = icmp eq i32 %636, 6
-  br i1 %exitcond.i176, label %KINLinSolDrv.exit.thread, label %618, !llvm.loop !7
+  br i1 %exitcond.i176, label %KINLinSolDrv.exit.thread, label %618, !llvm.loop !6
 
 637:                                              ; preds = %618
   %638 = load ptr, ptr %209, align 8
@@ -2172,7 +2172,7 @@ KINLinSolDrv.exit174:                             ; preds = %575
   %.1329.ph.i = select i1 %815, double %816, double %.0328.i
   %817 = fcmp oge double %.1329.ph.i, %656
   %818 = select i1 %815, i1 %817, i1 false
-  br i1 %818, label %.critedge2.outer.i, label %819, !llvm.loop !8
+  br i1 %818, label %.critedge2.outer.i, label %819, !llvm.loop !7
 
 819:                                              ; preds = %814
   br i1 %815, label %820, label %.thread.i177
@@ -2588,7 +2588,7 @@ define void @KINPrintInfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr
   %7 = alloca [256 x i8], align 16
   %8 = alloca [40 x i8], align 16
   %9 = alloca [30 x i8], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %10 = icmp eq i32 %1, 1
   br i1 %10, label %11, label %40
 
@@ -2684,7 +2684,7 @@ define void @KINPrintInfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr
   %45 = getelementptr inbounds i8, ptr %0, i64 616
   %46 = load ptr, ptr %45, align 8
   call void %44(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %46) #12
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -3023,17 +3023,11 @@ KINFreeVectors.exit:                              ; preds = %97, %114
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
@@ -3065,7 +3059,7 @@ declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @KINConstraint(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -996, 1) i32 @KINConstraint(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 312
@@ -3112,7 +3106,7 @@ declare void @N_VAbs(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare double @N_VMinQuotient(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 declare double @SUNRabs(double noundef) local_unnamed_addr #4
 
@@ -3133,7 +3127,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   %13 = add i32 %5, -1
   %14 = sext i32 %13 to i64
   %15 = srem i64 %14, %10
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nsw i64 %15 to i32
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef -1.000000e+00, ptr noundef %4, ptr noundef %2) #12
   %17 = icmp sgt i32 %5, 0
   br i1 %17, label %18, label %31
@@ -3233,7 +3227,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
 76:                                               ; preds = %.lr.ph239, %76
   %indvars.iv270 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next271, %76 ]
   %77 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv270
-  %78 = trunc i64 %indvars.iv270 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv270 to i32
   store i32 %78, ptr %77, align 4
   %79 = load ptr, ptr %75, align 8
   %80 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv270
@@ -3262,7 +3256,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %92, double noundef %98, ptr noundef %101, ptr noundef %92) #12
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count
-  br i1 %exitcond273.not, label %._crit_edge, label %76, !llvm.loop !9
+  br i1 %exitcond273.not, label %._crit_edge, label %76, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %76, %65
   %102 = load ptr, ptr %70, align 8
@@ -3309,11 +3303,11 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %63, %.preheader222 ]
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %128 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv251
-  %129 = trunc i64 %indvars.iv to i32
+  %129 = trunc nsw i64 %indvars.iv to i32
   store i32 %129, ptr %128, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %130 = icmp sgt i64 %61, %indvars.iv.next
-  br i1 %130, label %.lr.ph, label %.preheader221.loopexit, !llvm.loop !10
+  br i1 %130, label %.lr.ph, label %.preheader221.loopexit, !llvm.loop !9
 
 .preheader220:                                    ; preds = %.lr.ph229, %.preheader221
   %131 = icmp sgt i64 %61, 0
@@ -3332,7 +3326,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   store i32 %.1228, ptr %134, align 4
   %135 = add nuw i32 %.1228, 1
   %exitcond.not = icmp eq i32 %.1228, %16
-  br i1 %exitcond.not, label %.preheader220, label %.lr.ph229, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader220, label %.lr.ph229, !llvm.loop !10
 
 .preheader218:                                    ; preds = %139
   %136 = icmp sgt i64 %146, 0
@@ -3355,13 +3349,13 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %146 = load i64, ptr %9, align 8
   %147 = icmp sgt i64 %146, %indvars.iv.next260
-  br i1 %147, label %139, label %.preheader218, !llvm.loop !12
+  br i1 %147, label %139, label %.preheader218, !llvm.loop !11
 
 .loopexit217:                                     ; preds = %.lr.ph235, %150
   %148 = phi i64 [ %175, %150 ], [ %199, %.lr.ph235 ]
   %149 = icmp sgt i64 %148, %indvars.iv.next268
   %indvars.iv.next263 = add i64 %indvars.iv262, 1
-  br i1 %149, label %150, label %.loopexit219, !llvm.loop !13
+  br i1 %149, label %150, label %.loopexit219, !llvm.loop !12
 
 150:                                              ; preds = %.lr.ph237, %.loopexit217
   %indvars.iv267 = phi i64 [ 0, %.lr.ph237 ], [ %indvars.iv.next268, %.loopexit217 ]
@@ -3429,7 +3423,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %199 = load i64, ptr %9, align 8
   %200 = icmp sgt i64 %199, %indvars.iv.next265
-  br i1 %200, label %.lr.ph235, label %.loopexit217, !llvm.loop !14
+  br i1 %200, label %.lr.ph235, label %.loopexit217, !llvm.loop !13
 
 .loopexit219:                                     ; preds = %.loopexit217, %.preheader220, %.preheader218, %._crit_edge, %37
   %.pre-phi = phi i64 [ %60, %.preheader218 ], [ %60, %._crit_edge ], [ 1, %37 ], [ %60, %.preheader220 ], [ %60, %.loopexit217 ]
@@ -3468,7 +3462,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   store double %216, ptr %217, align 8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count277
-  br i1 %exitcond278.not, label %.preheader216, label %209, !llvm.loop !15
+  br i1 %exitcond278.not, label %.preheader216, label %209, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge245
   %indvars.iv279 = phi i64 [ %207, %.preheader.lr.ph ], [ %indvars.iv.next280, %._crit_edge245 ]
@@ -3499,9 +3493,9 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   %228 = tail call double @llvm.fmuladd.f64(double %227, double %226, double %221)
   store double %228, ptr %219, align 8
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
-  %229 = trunc i64 %indvars.iv.next282 to i32
+  %229 = trunc nuw i64 %indvars.iv.next282 to i32
   %230 = icmp sgt i32 %spec.select, %229
-  br i1 %230, label %220, label %._crit_edge245, !llvm.loop !16
+  br i1 %230, label %220, label %._crit_edge245, !llvm.loop !15
 
 ._crit_edge245:                                   ; preds = %220, %.preheader.._crit_edge245_crit_edge
   %231 = phi double [ %.pre285, %.preheader.._crit_edge245_crit_edge ], [ %228, %220 ]
@@ -3522,7 +3516,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   %245 = load ptr, ptr %244, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef %239, ptr noundef %245, ptr noundef %3) #12
   %246 = icmp sgt i64 %indvars.iv279, 1
-  br i1 %246, label %.preheader, label %.loopexit, !llvm.loop !17
+  br i1 %246, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge245, %.loopexit219, %.preheader216, %36
   tail call void @free(ptr noundef %12) #12
@@ -3530,9 +3524,15 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #9
+declare double @sqrt(double noundef) local_unnamed_addr #8
 
 declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
@@ -3547,9 +3547,9 @@ attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #12 = { nounwind }
@@ -3562,17 +3562,16 @@ attributes #14 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -996, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

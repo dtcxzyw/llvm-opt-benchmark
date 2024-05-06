@@ -25,7 +25,7 @@ define hidden { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumera
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %4 = load ptr, ptr %0, align 8, !alias.scope !10, !noalias !11, !nonnull !16, !align !17, !noundef !16
-  %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !10
+  %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !10
   ret { i64, ptr } %5
 }
 
@@ -163,7 +163,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator4find17hbe31ba
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %4 = load ptr, ptr %0, align 8, !alias.scope !42, !noalias !45, !nonnull !16, !align !17, !noundef !16
-  %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !51
+  %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !51
   ret { i64, ptr } %5
 }
 
@@ -671,7 +671,7 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
 define hidden { i64, ptr } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h25818128eb7641e3E.llvm.6803770875864335718"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %4 = load ptr, ptr %0, align 8, !alias.scope !127, !noalias !130, !nonnull !16, !align !17, !noundef !16
-  %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !127
+  %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !127
   ret { i64, ptr } %5
 }
 
@@ -707,7 +707,7 @@ define hidden { i64, ptr } @_ZN9itertools9Itertools13find_position17h33625faf71c
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8
-  %6 = call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !133
+  %6 = call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce411379c7555e35E.llvm.6803770875864335718(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !133
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret { i64, ptr } %6
 }

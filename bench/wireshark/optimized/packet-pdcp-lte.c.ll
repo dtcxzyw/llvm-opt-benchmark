@@ -2247,7 +2247,7 @@ proto_item_set_generated.exit437:                 ; preds = %proto_item_set_gene
   %622 = getelementptr inbounds i8, ptr %12, i64 32
   %623 = load i32, ptr %622, align 8
   %624 = lshr i32 %623, 24
-  %625 = trunc i32 %624 to i8
+  %625 = trunc nuw i32 %624 to i8
   store i8 %625, ptr %8, align 16
   %626 = lshr i32 %623, 16
   %627 = trunc i32 %626 to i8
@@ -2396,7 +2396,7 @@ decipher_payload.exit.thread:                     ; preds = %decipher_payload.ex
   %705 = getelementptr inbounds i8, ptr %12, i64 32
   %706 = load i32, ptr %705, align 8
   %707 = lshr i32 %706, 24
-  %708 = trunc i32 %707 to i8
+  %708 = trunc nuw i32 %707 to i8
   store i8 %708, ptr %704, align 1
   %709 = lshr i32 %706, 16
   %710 = trunc i32 %709 to i8
@@ -2885,7 +2885,7 @@ define internal i32 @pdcp_result_hash_func(ptr nocapture noundef readonly %0) #4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pdcp_result_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @pdcp_result_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) %1, i64 8)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -2904,7 +2904,7 @@ define internal i32 @pdcp_lte_ueid_frame_hash_func(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pdcp_lte_ueid_frame_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @pdcp_lte_ueid_frame_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -2985,7 +2985,7 @@ define hidden void @proto_reg_handoff_pdcp_lte() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pdcp_lte_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_pdcp_lte_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #13
   %6 = icmp slt i32 %5, 13
   br i1 %6, label %94, label %7
@@ -3243,9 +3243,9 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal void @write_pdu_label_and_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef nonnull @write_pdu_label_and_info.info_buffer, i64 noundef 256, ptr noundef %2, ptr noundef nonnull %4) #13
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   call void @col_append_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @write_pdu_label_and_info.info_buffer) #13
@@ -3556,14 +3556,8 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4199,7 +4193,7 @@ look_up_keys_record.exit.thread:                  ; preds = %183, %.preheader.i,
 }
 
 ; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #10
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #9
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4256,6 +4250,12 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 
@@ -4274,8 +4274,8 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) u
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }

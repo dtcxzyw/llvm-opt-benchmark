@@ -277,7 +277,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i, %if.
   store ptr %10, ptr %d_ranVariable, align 8
   %bf.load.i2.i = load i64, ptr %10, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i2.i, 40
-  %11 = trunc i64 %bf.lshr.i.i to i32
+  %11 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %11, 1048575
   %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i5.i, label %if.else.i.i
@@ -819,7 +819,7 @@ call2.i.i.i.noexc:                                ; preds = %if.then8
   store ptr %7, ptr %ref.tmp9, align 8, !alias.scope !7
   %bf.load.i.i.i = load i64, ptr %7, align 8, !noalias !7
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
-  %8 = trunc i64 %bf.lshr.i.i.i to i32
+  %8 = trunc nuw nsw i64 %bf.lshr.i.i.i to i32
   %bf.cast.i.i.i = and i32 %8, 1048575
   %cmp.i.i.i = icmp ult i32 %bf.cast.i.i.i, 1048574
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -870,7 +870,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i13, %i
   store ptr %7, ptr %svalue, align 8
   %bf.load.i2.i = load i64, ptr %7, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i2.i, 40
-  %11 = trunc i64 %bf.lshr.i.i to i32
+  %11 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %11, 1048575
   %cmp.i.i12 = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i12, label %if.then.i5.i, label %if.else.i.i
@@ -979,7 +979,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i41:  ; preds = %if.then13.i.i55, %i
   store ptr %22, ptr %svalue, align 8
   %bf.load.i2.i42 = load i64, ptr %22, align 8
   %bf.lshr.i.i43 = lshr i64 %bf.load.i2.i42, 40
-  %23 = trunc i64 %bf.lshr.i.i43 to i32
+  %23 = trunc nuw nsw i64 %bf.lshr.i.i43 to i32
   %bf.cast.i.i44 = and i32 %23, 1048575
   %cmp.i.i45 = icmp ult i32 %bf.cast.i.i44, 1048574
   br i1 %cmp.i.i45, label %if.then.i5.i50, label %if.else.i.i46
@@ -1279,7 +1279,7 @@ _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %init.check, %init.c
   store ptr %4, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
   %bf.load.i.i = load i64, ptr %4, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %5 = trunc i64 %bf.lshr.i.i to i32
+  %5 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %5, 1048575
   %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -2052,7 +2052,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit:      ; preds = %if.then, %if.then.i
   store ptr %3, ptr %this, align 8
   %bf.load.i2 = load i64, ptr %3, align 8
   %bf.lshr.i = lshr i64 %bf.load.i2, 40
-  %4 = trunc i64 %bf.lshr.i to i32
+  %4 = trunc nuw nsw i64 %bf.lshr.i to i32
   %bf.cast.i = and i32 %4, 1048575
   %cmp.i = icmp ult i32 %bf.cast.i, 1048574
   br i1 %cmp.i, label %if.then.i5, label %if.else.i

@@ -81,7 +81,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
 34:                                               ; preds = %42, %36
   %.1 = phi i8 [ %.2, %36 ], [ %.0, %42 ]
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %43, %42 ]
-  %35 = trunc i8 %.1 to i1
+  %35 = trunc nuw i8 %.1 to i1
   br i1 %35, label %52, label %51
 
 36:                                               ; preds = %.invoke, %44, %22, %17, %12
@@ -111,7 +111,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
           to label %45 unwind label %36
 
 45:                                               ; preds = %44
-  %46 = trunc i8 %.0 to i1
+  %46 = trunc nuw i8 %.0 to i1
   br i1 %46, label %48, label %47
 
 47:                                               ; preds = %48, %45

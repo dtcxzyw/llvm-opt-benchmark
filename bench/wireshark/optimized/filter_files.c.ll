@@ -59,7 +59,7 @@ define internal void @free_filter_entry(ptr noundef %0) #0 {
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef nonnull ptr @ws_filter_list_read(i32 noundef %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @ws_filter_list_read(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   store i32 %0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8

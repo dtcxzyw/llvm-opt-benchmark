@@ -3,7 +3,7 @@ source_filename = "bench/arrow/original/hashing.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5arrow8internal17ComputeBitmapHashEPKhmll(ptr nocapture noundef readonly %bitmap, i64 noundef %seed, i64 noundef %bits_offset, i64 noundef %num_bits) local_unnamed_addr #0 {
 entry:
   %mul.i = mul i64 %num_bits, -4132994306676758123
@@ -24,7 +24,7 @@ entry:
   %cmp.i8.i.i = icmp ne i64 %and.i7.i.i, 0
   %conv.i9.i.i = zext i1 %cmp.i8.i.i to i64
   %add.i10.i.i = add nsw i64 %shr.i6.i.i, %conv.i9.i.i
-  %conv15.i.i = trunc i64 %add.i10.i.i to i32
+  %conv15.i.i = trunc nsw i64 %add.i10.i.i to i32
   %cmp17.i.i = icmp sgt i64 %spec.select.i.i, 0
   br i1 %cmp17.i.i, label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.thread.i, label %if.else.i.i
 
@@ -90,7 +90,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
 
 do.body.preheader.i:                              ; preds = %while.end.i
   %tobool.not.i.i = icmp eq i64 %rem.i.i, 0
-  %sh_prom.i.i = trunc i64 %rem.i.i to i32
+  %sh_prom.i.i = trunc nsw i64 %rem.i.i to i32
   %sh_prom25.i.i = sub nsw i32 8, %sh_prom.i.i
   br i1 %tobool.not.i.i, label %do.body.us.i, label %do.body.i
 
@@ -163,7 +163,7 @@ for.end.i.us.i:                                   ; preds = %for.end.loopexit.i.
   %byte.0.lcssa.i.us.i = phi i32 [ %6, %for.end.loopexit.i.us.i ], [ 0, %if.then.i.us.i ]
   %sub.i31.us.i = sub nsw i32 8, %reader.sroa.13.0.us.i
   %shr11.i.us.i = lshr i32 %byte.0.lcssa.i.us.i, %sub.i31.us.i
-  %conv12.i.us.i = trunc i32 %shr11.i.us.i to i8
+  %conv12.i.us.i = trunc nuw i32 %shr11.i.us.i to i8
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i: ; preds = %for.end.i.us.i, %if.else.i24.us.i
@@ -286,7 +286,7 @@ _ZN5arrow8internal12_GLOBAL__N_118MurmurHashBitmap64EPKhmmm.exit: ; preds = %whi
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #1
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

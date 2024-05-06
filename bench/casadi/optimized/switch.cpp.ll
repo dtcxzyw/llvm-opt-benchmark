@@ -2207,7 +2207,7 @@ define void @_ZN6casadi6SwitchD0Ev(ptr noundef nonnull align 8 dereferenceable(1
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6casadi6Switch8get_n_inEv(ptr noundef nonnull align 8 dereferenceable(1338) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZN6casadi6Switch8get_n_inEv(ptr noundef nonnull align 8 dereferenceable(1338) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3230,7 +3230,7 @@ declare noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 de
 declare noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi6Switch4evalEPPKdPPdPxS4_Pv(ptr noundef nonnull align 8 dereferenceable(1338) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi6Switch4evalEPPKdPPdPxS4_Pv(ptr noundef nonnull align 8 dereferenceable(1338) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 {
   %7 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %8
@@ -4855,7 +4855,7 @@ define void @_ZNK6casadi6Switch20codegen_declarationsERNS_13CodeGeneratorE(ptr n
 declare void @_ZN6casadi13CodeGenerator14add_dependencyB5cxx11ERKNS_8FunctionE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(3097), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi6Switch7eval_sxEPPKNS_6SXElemEPPS1_PxS5_Pv(ptr noundef nonnull align 8 dereferenceable(1338) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi6Switch7eval_sxEPPKNS_6SXElemEPPS1_PxS5_Pv(ptr noundef nonnull align 8 dereferenceable(1338) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.casadi::SXElem", align 8
   %8 = alloca %"class.casadi::SXElem", align 8
   %9 = alloca %"class.casadi::SXElem", align 8
@@ -5103,8 +5103,8 @@ _ZSt6copy_nIPPN6casadi6SXElemEmS3_ET1_T_T0_S4_.exit136: ; preds = %_ZSt8__copy_n
 
 86:                                               ; preds = %84
   %87 = load ptr, ptr %45, align 8
-  %88 = getelementptr %"class.casadi::Sparsity", ptr %87, i64 %.0115244
-  %89 = getelementptr i8, ptr %88, i64 8
+  %88 = getelementptr inbounds %"class.casadi::Sparsity", ptr %87, i64 %.0115244
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
   %90 = invoke noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull align 8 dereferenceable(8) %89)
           to label %91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

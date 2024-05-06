@@ -220,7 +220,7 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
 
 92:                                               ; preds = %.lr.ph403
   %93 = add nsw i32 %.0192400, 1
-  %94 = getelementptr i8, ptr %90, i64 20
+  %94 = getelementptr inbounds i8, ptr %90, i64 20
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds i8, ptr %90, i64 4
   %97 = load i32, ptr %96, align 4
@@ -511,7 +511,7 @@ writebits.exit222:                                ; preds = %.lr.ph.i25.i210, %.
   %213 = and i32 %212, 255
   %214 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %213, ptr %214, align 4
-  %invariant.gep = getelementptr i8, ptr %9, i64 12
+  %invariant.gep = getelementptr inbounds i8, ptr %9, i64 12
   %215 = load i32, ptr %193, align 4
   %.not198431 = icmp slt i32 %215, 0
   br i1 %.not198431, label %._crit_edge435.thread, label %.preheader
@@ -634,7 +634,7 @@ writebits.exit246:                                ; preds = %.lr.ph.i25.i244, %.
   %.sink = phi i32 [ %254, %writebits.exit238 ], [ 0, %writebits.exit246 ]
   %.19341 = phi i32 [ %.15337, %writebits.exit238 ], [ %.18340, %writebits.exit246 ]
   %.23 = phi ptr [ %.19, %writebits.exit238 ], [ %.22, %writebits.exit246 ]
-  %gep430 = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv507
+  %gep430 = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv507
   store i32 %.sink, ptr %gep430, align 4
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
   %270 = load i32, ptr %193, align 4
@@ -741,7 +741,7 @@ declare ptr @Ptngc_warnmalloc_x(i64 noundef, ptr noundef, i32 noundef) local_unn
 declare void @Ptngc_merge_sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @comp_htree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -1, 2) i32 @comp_htree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -818,7 +818,7 @@ tailrecurse:                                      ; preds = %21, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @comp_codes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -1, 2) i32 @comp_codes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -876,7 +876,7 @@ define internal fastcc void @free_nodes(ptr nocapture noundef %0, i32 noundef %1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @comp_codes_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -1, 2) i32 @comp_codes_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -904,7 +904,7 @@ define void @Ptngc_comp_conv_from_huffman(ptr nocapture noundef readonly %0, ptr
   %19 = load i32, ptr %18, align 4
   %20 = shl i32 %19, 16
   %21 = or i32 %17, %20
-  %invariant.gep = getelementptr i8, ptr %6, i64 12
+  %invariant.gep = getelementptr inbounds i8, ptr %6, i64 12
   %.not85157 = icmp slt i32 %21, 0
   br i1 %.not85157, label %.loopexit, label %.lr.ph.preheader
 
@@ -916,7 +916,7 @@ define void @Ptngc_comp_conv_from_huffman(ptr nocapture noundef readonly %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
   %.073158 = phi i32 [ 0, %.lr.ph.preheader ], [ %.174, %31 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %23 = load i32, ptr %gep, align 4
   %.not88 = icmp eq i32 %23, 0
   br i1 %.not88, label %31, label %24
@@ -1051,7 +1051,7 @@ readbits.exit98:                                  ; preds = %62
 
 78:                                               ; preds = %75
   %79 = add nsw i32 %.077164, 1
-  %80 = getelementptr i8, ptr %76, i64 20
+  %80 = getelementptr inbounds i8, ptr %76, i64 20
   %81 = load i32, ptr %80, align 4
   %82 = getelementptr inbounds i8, ptr %76, i64 4
   %83 = load i32, ptr %82, align 4

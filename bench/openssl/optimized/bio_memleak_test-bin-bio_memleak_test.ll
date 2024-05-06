@@ -75,7 +75,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_memleak() #0 {
+define internal range(i32 0, 2) i32 @test_bio_memleak() #0 {
 entry:
   %bufmem = alloca %struct.buf_mem_st, align 8
   %buf = alloca [100 x i8], align 16
@@ -111,7 +111,7 @@ finish:                                           ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_get_mem() #0 {
+define internal range(i32 0, 2) i32 @test_bio_get_mem() #0 {
 entry:
   %bufmem = alloca ptr, align 8
   store ptr null, ptr %bufmem, align 8
@@ -162,7 +162,7 @@ finish:                                           ; preds = %if.end17, %if.end12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_new_mem_buf() #0 {
+define internal range(i32 0, 2) i32 @test_bio_new_mem_buf() #0 {
 entry:
   %bufmem = alloca ptr, align 8
   %data = alloca [16 x i8], align 16
@@ -232,7 +232,7 @@ finish:                                           ; preds = %if.end44, %if.end38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_rdonly_mem_buf() #0 {
+define internal range(i32 0, 2) i32 @test_bio_rdonly_mem_buf() #0 {
 entry:
   %bufmem = alloca ptr, align 8
   %data = alloca [16 x i8], align 16
@@ -309,7 +309,7 @@ finish:                                           ; preds = %if.end48, %if.end42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_rdwr_rdonly() #0 {
+define internal range(i32 0, 2) i32 @test_bio_rdwr_rdonly() #0 {
 entry:
   %data = alloca [16 x i8], align 16
   %call = tail call ptr @BIO_s_mem() #3
@@ -369,7 +369,7 @@ finish:                                           ; preds = %if.end33, %if.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_nonclear_rst() #0 {
+define internal range(i32 0, 2) i32 @test_bio_nonclear_rst() #0 {
 entry:
   %data = alloca [16 x i8], align 16
   %call = tail call ptr @BIO_s_mem() #3
@@ -436,7 +436,7 @@ finish:                                           ; preds = %if.end39, %if.end33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_i2d_ASN1_mime() #0 {
+define internal range(i32 0, 2) i32 @test_bio_i2d_ASN1_mime() #0 {
 entry:
   %bufmem = alloca %struct.buf_mem_st, align 8
   %call = tail call ptr @BIO_s_mem() #3
@@ -537,7 +537,7 @@ declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i64 @BIO_error_callback(ptr nocapture readnone %bio, i32 noundef %cmd, ptr nocapture readnone %argp, i64 %len, i32 %argi, i64 %argl, i32 noundef %ret, ptr nocapture readnone %processed) #2 {
+define internal range(i64 -2147483648, 2147483648) i64 @BIO_error_callback(ptr nocapture readnone %bio, i32 noundef %cmd, ptr nocapture readnone %argp, i64 %len, i32 %argi, i64 %argl, i32 noundef %ret, ptr nocapture readnone %processed) #2 {
 entry:
   %and = and i32 %cmd, 130
   %cmp.not = icmp eq i32 %and, 0

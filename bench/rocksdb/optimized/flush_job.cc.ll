@@ -442,7 +442,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @.str.51 = private unnamed_addr constant [9 x i8] c"WAL Full\00", align 1
 @.str.52 = private unnamed_addr constant [30 x i8] c"Catch Up After Error Recovery\00", align 1
 @.str.53 = private unnamed_addr constant [8 x i8] c"Invalid\00", align 1
-@_ZN7rocksdb15iostats_contextE = external thread_local global %"struct.rocksdb::IOStatsContext", align 8
+@_ZN7rocksdb15iostats_contextE = external thread_local local_unnamed_addr global %"struct.rocksdb::IOStatsContext", align 8
 @.str.54 = private unnamed_addr constant [43 x i8] c"[%s:235] [%s] Nothing in memtable to flush\00", align 1
 @.str.55 = private unnamed_addr constant [109 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/rocksdb/rocksdb/db/flush_job.cc\00", align 1
 @.str.56 = private unnamed_addr constant [13 x i8] c"No MemPurge.\00", align 1
@@ -10218,7 +10218,7 @@ declare void @_ZNK7rocksdb18SeqnoToTimeMapping4CopyEm(ptr sret(%"class.rocksdb::
 declare noundef i32 @_ZN7rocksdb16ColumnFamilyData21CalculateSSTWriteHintEi(ptr noundef nonnull align 8 dereferenceable(2656), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb8FlushJob30GetRateLimiterPriorityForWriteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 2, 4) i32 @_ZN7rocksdb8FlushJob30GetRateLimiterPriorityForWriteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 {
 entry:
   %versions_ = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load ptr, ptr %versions_, align 8

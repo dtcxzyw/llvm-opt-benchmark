@@ -508,10 +508,10 @@ if.then16:                                        ; preds = %land.lhs.true13
 
 if.then20:                                        ; preds = %if.then16
   store i32 2, ptr %res, align 8
-  %conv21 = trunc i32 %value.0.lcssa.i to i8
+  %conv21 = trunc nuw i32 %value.0.lcssa.i to i8
   %14 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %conv21, ptr %14, align 8
-  %conv24 = trunc i32 %value.0.lcssa.i47 to i8
+  %conv24 = trunc nuw i32 %value.0.lcssa.i47 to i8
   %week26 = getelementptr inbounds i8, ptr %res, i64 9
   store i8 %conv24, ptr %week26, align 1
   %15 = load i32, ptr %weekday, align 4

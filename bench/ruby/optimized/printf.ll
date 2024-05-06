@@ -353,7 +353,7 @@ rbimpl_intern_const.exit64:                       ; preds = %.lr.ph.i62, %87
   %.017.i = phi ptr [ %99, %.preheader.i ], [ %93, %.preheader.i.preheader ]
   %.016.i = phi i32 [ %100, %.preheader.i ], [ %95, %.preheader.i.preheader ]
   %96 = urem i32 %.016.i, 10
-  %97 = trunc i32 %96 to i8
+  %97 = trunc nuw nsw i32 %96 to i8
   %98 = or disjoint i8 %97, 48
   %99 = getelementptr inbounds i8, ptr %.017.i, i64 -1
   store i8 %98, ptr %99, align 1
@@ -367,7 +367,7 @@ rbimpl_intern_const.exit64:                       ; preds = %.lr.ph.i62, %87
   %105 = ptrtoint ptr %93 to i64
   %106 = ptrtoint ptr %99 to i64
   %107 = sub i64 %105, %106
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.4.ptr.ptr, ptr noundef nonnull align 1 dereferenceable(1) %99, i64 %107, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.4.ptr.ptr, ptr noundef nonnull align 1 dereferenceable(1) %99, i64 %107, i1 false)
   %.4.ptr.add = add nsw i64 %107, %.4.idx
   br label %uint_to_str.exit
 
@@ -413,7 +413,7 @@ rbimpl_intern_const.exit72:                       ; preds = %.lr.ph.i70, %uint_t
   %.017.i76 = phi ptr [ %122, %.preheader.i75 ], [ %116, %.preheader.i75.preheader ]
   %.016.i77 = phi i32 [ %123, %.preheader.i75 ], [ %118, %.preheader.i75.preheader ]
   %119 = urem i32 %.016.i77, 10
-  %120 = trunc i32 %119 to i8
+  %120 = trunc nuw nsw i32 %119 to i8
   %121 = or disjoint i8 %120, 48
   %122 = getelementptr inbounds i8, ptr %.017.i76, i64 -1
   store i8 %121, ptr %122, align 1
@@ -427,7 +427,7 @@ rbimpl_intern_const.exit72:                       ; preds = %.lr.ph.i70, %uint_t
   %128 = ptrtoint ptr %116 to i64
   %129 = ptrtoint ptr %122 to i64
   %130 = sub i64 %128, %129
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.ptr, ptr noundef nonnull align 1 dereferenceable(1) %122, i64 %130, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.ptr, ptr noundef nonnull align 1 dereferenceable(1) %122, i64 %130, i1 false)
   %131 = getelementptr inbounds i8, ptr %.ptr, i64 %130
   br label %uint_to_str.exit78
 
@@ -456,7 +456,7 @@ uint_to_str.exit78:                               ; preds = %127, %115, %rbimpl_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @snprintf_count(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @snprintf_count(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call ptr @rb_string_value_cstr(ptr noundef nonnull %3) #5

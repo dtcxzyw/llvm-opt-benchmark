@@ -94,7 +94,7 @@ entry:
 define dso_local ptr @sifive_plic_create(i64 noundef %addr, ptr noundef %hart_config, i32 noundef %num_harts, i32 noundef %hartid_base, i32 noundef %num_sources, i32 noundef %num_priorities, i32 noundef %priority_base, i32 noundef %pending_base, i32 noundef %enable_base, i32 noundef %enable_stride, i32 noundef %context_base, i32 noundef %context_stride, i32 noundef %aperture_size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qdev_new(ptr noundef nonnull @.str) #8
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %enable_stride), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %enable_stride)
   %cmp = icmp ult i32 %0, 2
   br i1 %cmp, label %if.end, label %if.else
 
@@ -103,7 +103,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %context_stride), !range !5
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %context_stride)
   %cmp3 = icmp ult i32 %1, 2
   br i1 %cmp3, label %if.end6, label %if.else5
 
@@ -177,7 +177,7 @@ for.inc:                                          ; preds = %if.end21, %if.then2
   %inc = add nuw i32 %i.040, 1
   %8 = load i32, ptr %num_addrs, align 16
   %cmp11 = icmp ult i32 %inc, %8
-  br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !6
+  br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %if.end6
   ret ptr %call
@@ -280,7 +280,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i32 %i.017, 1
   %15 = load i32, ptr %num_harts, align 4
   %cmp = icmp ult i32 %inc, %15
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -327,12 +327,12 @@ if.then.i:                                        ; preds = %while.cond.i
   br i1 %tobool2.not.i, label %while.cond.i.backedge, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %conv4.i = trunc i32 %modes.0.i to i8
-  %3 = tail call i8 @llvm.ctpop.i8(i8 %conv4.i), !range !9
+  %conv4.i = trunc nuw nsw i32 %modes.0.i to i8
+  %3 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %conv4.i)
   %4 = zext nneg i8 %3 to i32
   %add.i = add i32 %addrid.0.i.ph, %4
   %inc.i = add i32 %hartid.0.i.ph, 1
-  br label %while.cond.i.outer, !llvm.loop !10
+  br label %while.cond.i.outer, !llvm.loop !8
 
 sw.bb1.i.i:                                       ; preds = %while.cond.i
   br label %char_to_mode.exit.i
@@ -355,7 +355,7 @@ char_to_mode.exit.i:                              ; preds = %sw.bb2.i.i, %sw.bb1
 
 while.cond.i.backedge:                            ; preds = %char_to_mode.exit.i, %if.then.i
   %modes.0.i.be = phi i32 [ 0, %if.then.i ], [ %or.i, %char_to_mode.exit.i ]
-  br label %while.cond.i, !llvm.loop !10
+  br label %while.cond.i, !llvm.loop !8
 
 if.then8.i:                                       ; preds = %char_to_mode.exit.i
   %conv.i = zext nneg i8 %2 to i32
@@ -368,8 +368,8 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %tobool14.not.i, label %if.end20.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %while.end.i
-  %conv16.i = trunc i32 %modes.0.i to i8
-  %5 = tail call i8 @llvm.ctpop.i8(i8 %conv16.i), !range !9
+  %conv16.i = trunc nuw nsw i32 %modes.0.i to i8
+  %5 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %conv16.i)
   %6 = zext nneg i8 %5 to i32
   %add18.i = add i32 %addrid.0.i.ph, %6
   %inc19.i = add i32 %hartid.0.i.ph, 1
@@ -416,7 +416,7 @@ if.then32.i:                                      ; preds = %while.cond25.i
   %tobool33.not.i = icmp ne i32 %modes.3.i, 0
   %inc35.i = zext i1 %tobool33.not.i to i32
   %spec.select.i = add i32 %hartid.3.i, %inc35.i
-  br label %while.cond25.i, !llvm.loop !11
+  br label %while.cond25.i, !llvm.loop !9
 
 sw.bb2.i39.i:                                     ; preds = %while.cond25.i
   br label %char_to_mode.exit44.i
@@ -445,7 +445,7 @@ char_to_mode.exit44.i:                            ; preds = %while.cond25.i, %ch
   %shl48.i = shl nuw nsw i32 1, %retval.0.i40.i
   %or49.i = or i32 %shl48.i, %modes.3.i
   %inc50.i = add i32 %addrid.3.i.ph, 1
-  br label %while.cond25.i.outer, !llvm.loop !11
+  br label %while.cond25.i.outer, !llvm.loop !9
 
 parse_hart_config.exit:                           ; preds = %while.cond25.i
   %num_sources = getelementptr inbounds i8, ptr %call.i, i64 1164
@@ -516,7 +516,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i32 %i.053, 1
   %25 = load i32, ptr %num_harts.i, align 4
   %cmp = icmp ult i32 %inc, %25
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.053 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -584,7 +584,7 @@ do.body1.i.i:                                     ; preds = %do.body1.i.i, %entr
   %2 = cmpxchg ptr %arrayidx.i, i32 %cmp.0.i.i, i32 %or.i.i seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 0
   %cmp10.not.i.i = icmp eq i32 %cmp.0.i.i, %3
-  br i1 %cmp10.not.i.i, label %sifive_plic_set_pending.exit, label %do.body1.i.i, !llvm.loop !13
+  br i1 %cmp10.not.i.i, label %sifive_plic_set_pending.exit, label %do.body1.i.i, !llvm.loop !11
 
 sifive_plic_set_pending.exit:                     ; preds = %do.body1.i.i
   tail call fastcc void @sifive_plic_update(ptr noundef %opaque)
@@ -599,7 +599,7 @@ declare void @qdev_init_gpio_out(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @riscv_cpu_claim_interrupts(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sifive_plic_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @sifive_plic_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %conv = trunc i64 %addr to i32
   %priority_base = getelementptr inbounds i8, ptr %opaque, i64 1172
@@ -665,7 +665,7 @@ if.then21:                                        ; preds = %if.else18
   %conv30 = zext i32 %sub29 to i64
   %and = and i64 %conv30, %addr
   %shr31 = lshr i64 %and, 2
-  %conv32 = trunc i64 %shr31 to i32
+  %conv32 = trunc nuw nsw i64 %shr31 to i32
   %bitfield_words = getelementptr inbounds i8, ptr %opaque, i64 1096
   %13 = load i32, ptr %bitfield_words, align 8
   %cmp = icmp ugt i32 %13, %conv32
@@ -780,7 +780,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %for.
   %indvars.iv.i = phi i64 [ 0, %for.body18.lr.ph.i ], [ %indvars.iv.next.i, %for.body18.i ]
   %max_irq.127.i = phi i32 [ %max_irq.034.i, %for.body18.lr.ph.i ], [ %max_irq.2.i, %for.body18.i ]
   %max_prio.126.i = phi i32 [ %max_prio.033.i, %for.body18.lr.ph.i ], [ %max_prio.2.i, %for.body18.i ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add20.i = add i32 %shl19.i, %31
   %idxprom21.i = sext i32 %add20.i to i64
   %arrayidx22.i = getelementptr i32, ptr %30, i64 %idxprom21.i
@@ -794,7 +794,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %for.
   %max_irq.2.i = select i1 %or.cond.i, i32 %add20.i, i32 %max_irq.127.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.inc29.i, label %for.body18.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.inc29.i, label %for.body18.i, !llvm.loop !12
 
 for.inc29.i:                                      ; preds = %for.body18.i, %if.end.i, %for.body.i
   %num_irq_in_word.2.i = phi i32 [ %num_irq_in_word.030.i, %for.body.i ], [ %spec.select, %if.end.i ], [ %spec.select, %for.body18.i ]
@@ -802,7 +802,7 @@ for.inc29.i:                                      ; preds = %for.body18.i, %if.e
   %max_irq.3.i = phi i32 [ %max_irq.034.i, %for.body.i ], [ %max_irq.034.i, %if.end.i ], [ %max_irq.2.i, %for.body18.i ]
   %inc30.i = add nuw i32 %i.031.i, 1
   %exitcond37.not.i = icmp eq i32 %inc30.i, %21
-  br i1 %exitcond37.not.i, label %sifive_plic_claimed.exit, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond37.not.i, label %sifive_plic_claimed.exit, label %for.body.i, !llvm.loop !13
 
 sifive_plic_claimed.exit:                         ; preds = %for.inc29.i
   %tobool.not = icmp eq i32 %max_irq.3.i, 0
@@ -824,7 +824,7 @@ do.body1.i.i:                                     ; preds = %do.body1.i.i, %if.t
   %34 = cmpxchg ptr %arrayidx.i56, i32 %cmp.0.i.i, i32 %and.i.i seq_cst seq_cst, align 4
   %35 = extractvalue { i32, i1 } %34, 0
   %cmp10.not.i.i = icmp eq i32 %cmp.0.i.i, %35
-  br i1 %cmp10.not.i.i, label %sifive_plic_set_pending.exit, label %do.body1.i.i, !llvm.loop !13
+  br i1 %cmp10.not.i.i, label %sifive_plic_set_pending.exit, label %do.body1.i.i, !llvm.loop !11
 
 sifive_plic_set_pending.exit:                     ; preds = %do.body1.i.i
   %36 = load ptr, ptr %claimed.i, align 16
@@ -838,7 +838,7 @@ do.body1.i.i66:                                   ; preds = %do.body1.i.i66, %si
   %38 = cmpxchg ptr %arrayidx.i62, i32 %cmp.0.i.i67, i32 %or.i.i seq_cst seq_cst, align 4
   %39 = extractvalue { i32, i1 } %38, 0
   %cmp10.not.i.i69 = icmp eq i32 %cmp.0.i.i67, %39
-  br i1 %cmp10.not.i.i69, label %if.end72, label %do.body1.i.i66, !llvm.loop !13
+  br i1 %cmp10.not.i.i69, label %if.end72, label %do.body1.i.i66, !llvm.loop !11
 
 if.end72:                                         ; preds = %do.body1.i.i66, %if.then69, %sifive_plic_claimed.exit
   %max_irq.0.lcssa.i73 = phi i32 [ 0, %sifive_plic_claimed.exit ], [ 0, %if.then69 ], [ %max_irq.3.i, %do.body1.i.i66 ]
@@ -890,7 +890,7 @@ if.then:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.then
   %conv9 = zext i32 %add to i64
   %rem = urem i64 %value, %conv9
-  %conv10 = trunc i64 %rem to i32
+  %conv10 = trunc nuw i64 %rem to i32
   %source_priority = getelementptr inbounds i8, ptr %opaque, i64 1112
   %4 = load ptr, ptr %source_priority, align 8
   %idxprom = and i64 %shr, 4294967295
@@ -905,7 +905,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp13.not, label %if.end159, label %if.then15
 
 if.then15:                                        ; preds = %if.else
-  %conv16 = trunc i64 %value to i32
+  %conv16 = trunc nuw i64 %value to i32
   %source_priority17 = getelementptr inbounds i8, ptr %opaque, i64 1112
   %5 = load ptr, ptr %source_priority17, align 8
   %idxprom18 = and i64 %shr, 4294967295
@@ -954,7 +954,7 @@ if.then36:                                        ; preds = %if.else33
   %conv45 = zext i32 %sub44 to i64
   %and46 = and i64 %conv45, %addr
   %shr47 = lshr i64 %and46, 2
-  %conv48 = trunc i64 %shr47 to i32
+  %conv48 = trunc nuw nsw i64 %shr47 to i32
   %bitfield_words = getelementptr inbounds i8, ptr %opaque, i64 1096
   %13 = load i32, ptr %bitfield_words, align 8
   %cmp49 = icmp ugt i32 %13, %conv48
@@ -1021,7 +1021,7 @@ if.then92:                                        ; preds = %if.then76
 if.then99:                                        ; preds = %if.then92
   %conv102 = zext i32 %add94 to i64
   %rem103 = urem i64 %value, %conv102
-  %conv104 = trunc i64 %rem103 to i32
+  %conv104 = trunc nuw i64 %rem103 to i32
   %target_priority = getelementptr inbounds i8, ptr %opaque, i64 1120
   %20 = load ptr, ptr %target_priority, align 16
   %idxprom105 = and i64 %div83, 4294967295
@@ -1036,7 +1036,7 @@ if.else107:                                       ; preds = %if.then92
   br i1 %cmp110.not, label %if.end159, label %if.then112
 
 if.then112:                                       ; preds = %if.else107
-  %conv113 = trunc i64 %value to i32
+  %conv113 = trunc nuw i64 %value to i32
   %target_priority114 = getelementptr inbounds i8, ptr %opaque, i64 1120
   %21 = load ptr, ptr %target_priority114, align 16
   %idxprom115 = and i64 %div83, 4294967295
@@ -1051,7 +1051,7 @@ if.then122:                                       ; preds = %if.then76
   br i1 %cmp125, label %if.then127, label %if.end159
 
 if.then127:                                       ; preds = %if.then122
-  %conv128 = trunc i64 %value to i32
+  %conv128 = trunc nuw i64 %value to i32
   %claimed.i = getelementptr inbounds i8, ptr %opaque, i64 1136
   %22 = load ptr, ptr %claimed.i, align 16
   %shr.i = ashr i32 %conv128, 5
@@ -1069,7 +1069,7 @@ do.body1.i.i:                                     ; preds = %do.body1.i.i, %if.t
   %24 = cmpxchg ptr %arrayidx.i, i32 %cmp.0.i.i, i32 %and.i.i seq_cst seq_cst, align 4
   %25 = extractvalue { i32, i1 } %24, 0
   %cmp10.not.i.i = icmp eq i32 %cmp.0.i.i, %25
-  br i1 %cmp10.not.i.i, label %sifive_plic_set_claimed.exit, label %do.body1.i.i, !llvm.loop !13
+  br i1 %cmp10.not.i.i, label %sifive_plic_set_claimed.exit, label %do.body1.i.i, !llvm.loop !11
 
 sifive_plic_set_claimed.exit:                     ; preds = %do.body1.i.i
   tail call fastcc void @sifive_plic_update(ptr noundef %opaque)
@@ -1191,7 +1191,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %for.
   %indvars.iv.i = phi i64 [ 0, %for.body18.lr.ph.i ], [ %indvars.iv.next.i, %for.body18.i ]
   %max_irq.127.i = phi i32 [ %max_irq.034.i, %for.body18.lr.ph.i ], [ %max_irq.2.i, %for.body18.i ]
   %max_prio.126.i = phi i32 [ %max_prio.033.i, %for.body18.lr.ph.i ], [ %max_prio.2.i, %for.body18.i ]
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add20.i = add i32 %shl19.i, %15
   %idxprom21.i = sext i32 %add20.i to i64
   %arrayidx22.i = getelementptr i32, ptr %14, i64 %idxprom21.i
@@ -1205,7 +1205,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %for.
   %max_irq.2.i = select i1 %or.cond.i, i32 %add20.i, i32 %max_irq.127.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.inc29.i, label %for.body18.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.inc29.i, label %for.body18.i, !llvm.loop !12
 
 for.inc29.i:                                      ; preds = %for.body18.i, %if.end15.i, %for.body.i
   %num_irq_in_word.2.i = phi i32 [ %num_irq_in_word.030.i, %for.body.i ], [ %num_irq_in_word.1.i, %if.end15.i ], [ %num_irq_in_word.1.i, %for.body18.i ]
@@ -1213,7 +1213,7 @@ for.inc29.i:                                      ; preds = %for.body18.i, %if.e
   %max_irq.3.i = phi i32 [ %max_irq.034.i, %for.body.i ], [ %max_irq.034.i, %if.end15.i ], [ %max_irq.2.i, %for.body18.i ]
   %inc30.i = add nuw i32 %i.031.i, 1
   %exitcond37.not.i = icmp eq i32 %inc30.i, %4
-  br i1 %exitcond37.not.i, label %sifive_plic_claimed.exit, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond37.not.i, label %sifive_plic_claimed.exit, label %for.body.i, !llvm.loop !13
 
 sifive_plic_claimed.exit:                         ; preds = %for.inc29.i, %for.body
   %max_irq.0.lcssa.i = phi i32 [ 0, %for.body ], [ %max_irq.3.i, %for.inc29.i ]
@@ -1242,7 +1242,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %inc = add nuw i32 %addrid.015, 1
   %19 = load i32, ptr %num_addrs, align 16
   %cmp = icmp ult i32 %inc, %19
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -1283,15 +1283,13 @@ attributes #11 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 9}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

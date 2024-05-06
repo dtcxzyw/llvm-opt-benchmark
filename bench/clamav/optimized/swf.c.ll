@@ -180,7 +180,7 @@ define i32 @cli_scanswf(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull align 1 %21, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %13, ptr nonnull align 1 %21, i64 %spec.select.i, i1 false)
   %.not = icmp ugt i64 %17, 7
   br i1 %.not, label %22, label %fmap_readn.exit.thread
 
@@ -308,7 +308,7 @@ fmap_readn.exit.thread.i:                         ; preds = %65, %63
   br label %scancws.exit
 
 75:                                               ; preds = %65
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %68, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %9, ptr nonnull align 1 %68, i64 %spec.select.i.i, i1 false)
   %76 = trunc nuw nsw i64 %spec.select.i.i to i32
   store i32 %76, ptr %45, align 8
   %77 = add i64 %spec.select.i.i, %.041.i
@@ -499,7 +499,7 @@ scancws.exit:                                     ; preds = %33, %37, %52, %fmap
   br i1 %.not26.i.i260, label %fmap_readn.exit.thread.i261, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %153
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 1 %157, i64 %spec.select.i.i259, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %5, ptr nonnull align 1 %157, i64 %spec.select.i.i259, i1 false)
   %.not65.i = icmp ugt i64 %154, 3
   br i1 %.not65.i, label %163, label %fmap_readn.exit.thread.i261
 
@@ -549,7 +549,7 @@ fmap_readn.exit.thread.i261:                      ; preds = %fmap_readn.exit.i, 
   br i1 %.not26.i84.i, label %fmap_readn.exit86.thread.i, label %fmap_readn.exit86.i
 
 fmap_readn.exit86.i:                              ; preds = %173
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %176, i64 %spec.select.i83.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %176, i64 %spec.select.i83.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %2, i8 0, i64 168, i1 false)
   %177 = getelementptr inbounds i8, ptr %2, i64 168
   store ptr %3, ptr %177, align 8
@@ -644,7 +644,7 @@ fmap_readn.exit91.thread.i:                       ; preds = %208, %206
   br label %scanzws.exit
 
 217:                                              ; preds = %208
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %211, i64 %spec.select.i88.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %211, i64 %spec.select.i88.i, i1 false)
   store i64 %spec.select.i88.i, ptr %179, align 8
   %218 = add i64 %spec.select.i88.i, %.055106.i
   br label %219

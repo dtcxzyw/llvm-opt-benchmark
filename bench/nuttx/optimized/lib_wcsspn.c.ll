@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i64 @wcsspn(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i64 -2305843009213693952, 2305843009213693952) i64 @wcsspn(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %.not9 = icmp eq i32 %3, 0
   br i1 %.not9, label %.critedge, label %.lr.ph

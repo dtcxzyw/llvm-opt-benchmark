@@ -130,7 +130,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i32 @amd_iommu_domain_set_gcr3(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @iommu_v2_map_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @iommu_v2_map_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 align 16 {
   %9 = alloca i32, align 4
   %10 = getelementptr i8, ptr %0, i64 -360
   %11 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %3) #7, !srcloc !6
@@ -450,7 +450,7 @@ define internal i64 @iommu_v2_unmap_pages(ptr nocapture noundef readonly %0, i64
   br i1 %56, label %35, label %57, !llvm.loop !24
 
 57:                                               ; preds = %43
-  %58 = trunc i64 %36 to i32
+  %58 = trunc nuw i64 %36 to i32
   switch i32 %58, label %.thread [
     i32 3, label %.loopexit
     i32 2, label %59
@@ -480,7 +480,7 @@ define internal i64 @iommu_v2_unmap_pages(ptr nocapture noundef readonly %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal i64 @iommu_v2_iova_to_phys(ptr nocapture noundef readonly %0, i64 noundef %1) #3 align 16 {
+define internal range(i64 0, 4503599627370496) i64 @iommu_v2_iova_to_phys(ptr nocapture noundef readonly %0, i64 noundef %1) #3 align 16 {
   %3 = load i32, ptr @amd_iommu_gpt_level, align 4
   %4 = add i32 %3, -1
   %5 = getelementptr i8, ptr %0, i64 48
@@ -524,7 +524,7 @@ define internal i64 @iommu_v2_iova_to_phys(ptr nocapture noundef readonly %0, i6
   br i1 %36, label %15, label %37, !llvm.loop !24
 
 37:                                               ; preds = %23
-  %38 = trunc i64 %16 to i32
+  %38 = trunc nuw i64 %16 to i32
   switch i32 %38, label %.thread [
     i32 3, label %.loopexit
     i32 2, label %39

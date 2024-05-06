@@ -136,7 +136,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sifive_uart_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @sifive_uart_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
   switch i64 %0, label %do.body [
@@ -405,7 +405,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @sifive_uart_can_rx(ptr nocapture noundef readonly %opaque) #3 {
+define internal range(i32 0, 2) i32 @sifive_uart_can_rx(ptr nocapture noundef readonly %opaque) #3 {
 entry:
   %rx_fifo_len = getelementptr inbounds i8, ptr %opaque, i64 1168
   %0 = load i8, ptr %rx_fifo_len, align 16

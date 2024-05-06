@@ -293,7 +293,7 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #4 {
+define hidden noundef range(i32 0, 4) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #4 {
 entry:
   %i.i.i = alloca i32, align 4
   %ret.i = alloca %"struct.std::pair", align 8
@@ -3625,7 +3625,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub.i = add i32 %0, -1
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 false), !range !28
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 false)
   %add = sub nuw nsw i32 33, %1
   %shl = shl nuw i32 1, %add
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %shl, i32 64)
@@ -3657,7 +3657,7 @@ for.body.i:                                       ; preds = %if.then4, %for.body
   store i32 -1, ptr %EmptyKey.sroa.3.0.B.0.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !29
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !28
 
 if.end5:                                          ; preds = %if.end
   %4 = load ptr, ptr %this, align 8
@@ -3705,7 +3705,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   store i32 -1, ptr %EmptyKey.sroa.3.0.B.0.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %return, label %for.body.i.i, !llvm.loop !29
+  br i1 %cmp.not.i.i, label %return, label %for.body.i.i, !llvm.loop !28
 
 if.else.i:                                        ; preds = %if.end5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, i8 0, i64 20, i1 false)
@@ -3750,7 +3750,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %4 = extractvalue { ptr, i64 } %call2, 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22, !noalias !30
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22, !noalias !29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
@@ -3865,7 +3865,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__first.sroa.0.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__first.sroa.0.07.i.i.i, ptr %incdec.ptr.i.i.i.i
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %shr.i.i.i, i64 %sub9.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.loopexit.i, !llvm.loop !33
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.loopexit.i, !llvm.loop !32
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.loopexit.i: ; preds = %while.body.i.i.i
   %.pre.i = ptrtoint ptr %__first.sroa.0.1.i.i.i to i64
@@ -3938,7 +3938,7 @@ _ZN4llvh9StringRefC2EPKc.exit29:                  ; preds = %_ZN4llvh9StringRefC
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.33, i64 17, i32 noundef %add, i32 noundef 1)
   %inc = add nuw i32 %i.024, 1
   %exitcond.not = icmp eq i32 %inc, %mul
-  br i1 %exitcond.not, label %for.end, label %_ZN4llvh9StringRefC2EPKc.exit29, !llvm.loop !34
+  br i1 %exitcond.not, label %for.end, label %_ZN4llvh9StringRefC2EPKc.exit29, !llvm.loop !33
 
 for.end:                                          ; preds = %_ZN4llvh9StringRefC2EPKc.exit29, %if.end
   ret void
@@ -4052,7 +4052,7 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us: ; p
   %spec.select.us = select i1 %or.cond.not.us, ptr %add.ptr.us, ptr %FoundTombstone.0.us
   %inc.us = add i32 %ProbeAmt.0.us, 1
   %add.us = add i32 %BucketNo.0.us, %ProbeAmt.0.us
-  br label %while.body.us, !llvm.loop !35
+  br label %while.body.us, !llvm.loop !34
 
 if.end.split:                                     ; preds = %if.end
   br i1 %cmp18.i.i, label %while.body.us66, label %if.end.split.split
@@ -4116,7 +4116,7 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us93: ;
   %spec.select.us96 = select i1 %or.cond.not.us95, ptr %add.ptr.us72, ptr %FoundTombstone.0.us67
   %inc.us97 = add i32 %ProbeAmt.0.us69, 1
   %add.us98 = add i32 %BucketNo.0.us70, %ProbeAmt.0.us69
-  br label %while.body.us66, !llvm.loop !35
+  br label %while.body.us66, !llvm.loop !34
 
 if.end.split.split:                               ; preds = %if.end.split
   br i1 %cmp7.i.i, label %while.body.us105, label %while.body
@@ -4175,7 +4175,7 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us133: 
   %spec.select.us136 = select i1 %or.cond.not.us135, ptr %add.ptr.us111, ptr %FoundTombstone.0.us106
   %inc.us137 = add i32 %ProbeAmt.0.us108, 1
   %add.us138 = add i32 %BucketNo.0.us109, %ProbeAmt.0.us108
-  br label %while.body.us105, !llvm.loop !35
+  br label %while.body.us105, !llvm.loop !34
 
 while.body:                                       ; preds = %if.end.split.split, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60
   %FoundTombstone.0 = phi ptr [ %spec.select, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60 ], [ null, %if.end.split.split ]
@@ -4238,7 +4238,7 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60: ; pred
   %spec.select = select i1 %or.cond.not, ptr %add.ptr, ptr %FoundTombstone.0
   %inc = add i32 %ProbeAmt.0, 1
   %add = add i32 %BucketNo.0, %ProbeAmt.0
-  br label %while.body, !llvm.loop !35
+  br label %while.body, !llvm.loop !34
 
 return:                                           ; preds = %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us, %entry, %if.then10
   %cond.sink = phi ptr [ %cond, %if.then10 ], [ null, %entry ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us ], [ %add.ptr.us72, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82 ], [ %add.ptr.us111, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit ]
@@ -4367,7 +4367,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i32 -1, ptr %EmptyKey.sroa.3.0.B.0.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !29
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !28
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
@@ -4391,7 +4391,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store i32 -1, ptr %EmptyKey.sroa.3.0.B.0.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !29
+  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !28
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i: ; preds = %for.body.i.i, %if.end
   %cmp.not41.i = icmp eq i32 %0, 0
@@ -4440,7 +4440,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit32.i, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.i
   %incdec.ptr.i6 = getelementptr inbounds i8, ptr %B.042.i, i64 32
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
-  br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %if.then.i.i.i, !llvm.loop !36
+  br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %if.then.i.i.i, !llvm.loop !35
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E18moveFromOldBucketsEPS9_SC_.exit: ; preds = %if.end.i5, %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i
   call void @_ZdlPv(ptr noundef nonnull %1) #22
@@ -4493,7 +4493,7 @@ while.cond.loopexit:                              ; preds = %_ZN12_GLOBAL__N_112
   %keyInd.1.lcssa = phi i32 [ %add, %while.body ], [ %keyInd.2, %_ZN12_GLOBAL__N_112UsageCounter22countSerializedLiteralEhPKhPj.exit ]
   %count.addr.1.lcssa = phi i32 [ %count.addr.093, %while.body ], [ %dec, %_ZN12_GLOBAL__N_112UsageCounter22countSerializedLiteralEhPKhPj.exit ]
   %cmp.not = icmp eq i32 %count.addr.1.lcssa, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !37
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !36
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
   %count.addr.093 = phi i32 [ %count, %while.body.lr.ph ], [ %count.addr.1.lcssa, %while.cond.loopexit ]
@@ -4814,7 +4814,7 @@ _ZN12_GLOBAL__N_112UsageCounter22countSerializedLiteralEhPKhPj.exit: ; preds = %
   %dec = add nsw i32 %count.addr.188, -1
   %inc = add nuw nsw i32 %i.089, 1
   %exitcond.not = icmp eq i32 %i.089, %umin
-  br i1 %exitcond.not, label %while.cond.loopexit, label %for.body, !llvm.loop !38
+  br i1 %exitcond.not, label %while.cond.loopexit, label %for.body, !llvm.loop !37
 
 while.end:                                        ; preds = %while.cond.loopexit, %entry
   ret void
@@ -5084,14 +5084,13 @@ attributes #28 = { builtin nounwind }
 !25 = distinct !{!25, !18}
 !26 = distinct !{!26, !18}
 !27 = distinct !{!27, !18}
-!28 = !{i32 0, i32 33}
-!29 = distinct !{!29, !18}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
-!32 = distinct !{!32, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
+!28 = distinct !{!28, !18}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
+!31 = distinct !{!31, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
+!32 = distinct !{!32, !18}
 !33 = distinct !{!33, !18}
 !34 = distinct !{!34, !18}
 !35 = distinct !{!35, !18}
 !36 = distinct !{!36, !18}
 !37 = distinct !{!37, !18}
-!38 = distinct !{!38, !18}

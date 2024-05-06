@@ -305,7 +305,7 @@ define dso_local void @grow_buf(ptr noundef %0, i32 noundef %1) #0 {
   unreachable
 
 20:                                               ; preds = %17
-  %21 = trunc i64 %7 to i32
+  %21 = trunc nuw i64 %7 to i32
   store i32 %21, ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %22, i64 noundef 1, i64 noundef %7, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @__func__.grow_buf) #15
@@ -410,7 +410,7 @@ define dso_local void @pack_time(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = trunc i64 %11 to i32
+  %27 = trunc nuw i64 %11 to i32
   store i32 %27, ptr %3, align 8
   %.pre = load i32, ptr %5, align 4
   br label %try_grow_buf_remaining.exit
@@ -433,7 +433,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpack_time(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
+define dso_local range(i32 -1, 1) i32 @unpack_time(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -500,7 +500,7 @@ define dso_local void @packfloat(float noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i.i.i, label %pack32.exit, label %28
 
 28:                                               ; preds = %25
-  %29 = trunc i64 %13 to i32
+  %29 = trunc nuw i64 %13 to i32
   store i32 %29, ptr %5, align 8
   %.pre.i = load i32, ptr %7, align 4
   br label %try_grow_buf_remaining.exit.i
@@ -523,7 +523,7 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpackfloat(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
+define dso_local range(i32 -1, 1) i32 @unpackfloat(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -590,7 +590,7 @@ define dso_local void @packdouble(double noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = trunc i64 %11 to i32
+  %27 = trunc nuw i64 %11 to i32
   store i32 %27, ptr %3, align 8
   %.pre = load i32, ptr %5, align 4
   br label %try_grow_buf_remaining.exit
@@ -615,7 +615,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpackdouble(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
+define dso_local range(i32 -1, 1) i32 @unpackdouble(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -754,7 +754,7 @@ define dso_local void @pack64(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = trunc i64 %11 to i32
+  %27 = trunc nuw i64 %11 to i32
   store i32 %27, ptr %3, align 8
   %.pre = load i32, ptr %5, align 4
   br label %try_grow_buf_remaining.exit
@@ -777,7 +777,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpack64(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
+define dso_local range(i32 -1, 1) i32 @unpack64(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -843,7 +843,7 @@ define dso_local void @pack32(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = trunc i64 %11 to i32
+  %27 = trunc nuw i64 %11 to i32
   store i32 %27, ptr %3, align 8
   %.pre = load i32, ptr %5, align 4
   br label %try_grow_buf_remaining.exit
@@ -866,7 +866,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpack32(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
+define dso_local range(i32 -1, 1) i32 @unpack32(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -932,7 +932,7 @@ define dso_local void @pack16(i16 noundef zeroext %0, ptr noundef %1) #0 {
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = trunc i64 %11 to i32
+  %27 = trunc nuw i64 %11 to i32
   store i32 %27, ptr %3, align 8
   %.pre = load i32, ptr %5, align 4
   br label %try_grow_buf_remaining.exit
@@ -955,7 +955,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpack16(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
+define dso_local range(i32 -1, 1) i32 @unpack16(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1020,7 +1020,7 @@ define dso_local void @pack8(i8 noundef zeroext %0, ptr noundef %1) #0 {
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = trunc i64 %10 to i32
+  %26 = trunc nuw i64 %10 to i32
   store i32 %26, ptr %3, align 8
   %.pre = load i32, ptr %5, align 4
   br label %try_grow_buf_remaining.exit
@@ -1042,7 +1042,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %22, %8, %14, %20, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpack8(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
+define dso_local range(i32 -1, 1) i32 @unpack8(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1106,7 +1106,7 @@ define dso_local void @packbool(i1 noundef zeroext %0, ptr noundef %1) #0 {
   br i1 %.not.i.i.i, label %pack8.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = trunc i64 %11 to i32
+  %27 = trunc nuw i64 %11 to i32
   store i32 %27, ptr %4, align 8
   %.pre.i = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i
@@ -1128,7 +1128,7 @@ pack8.exit:                                       ; preds = %9, %15, %21, %23, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpackbool(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
+define dso_local range(i32 -1, 1) i32 @unpackbool(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1193,7 +1193,7 @@ define dso_local void @pack16_array(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not.i.i.i, label %pack32.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %12 to i32
+  %28 = trunc nuw i64 %12 to i32
   store i32 %28, ptr %4, align 8
   %.pre.i = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i
@@ -1258,7 +1258,7 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   br i1 %.not.i.i.i8, label %pack16.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = trunc i64 %49 to i32
+  %62 = trunc nuw i64 %49 to i32
   store i32 %62, ptr %4, align 8
   %.pre.i9 = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i7
@@ -1285,7 +1285,7 @@ pack16.exit:                                      ; preds = %47, %52, %57, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpack16_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1404,7 +1404,7 @@ define dso_local void @pack32_array(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not.i.i.i, label %pack32.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %12 to i32
+  %28 = trunc nuw i64 %12 to i32
   store i32 %28, ptr %4, align 8
   %.pre.i = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i
@@ -1469,7 +1469,7 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   br i1 %.not.i.i.i8, label %pack32.exit10, label %61
 
 61:                                               ; preds = %59
-  %62 = trunc i64 %49 to i32
+  %62 = trunc nuw i64 %49 to i32
   store i32 %62, ptr %4, align 8
   %.pre.i9 = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i7
@@ -1496,7 +1496,7 @@ pack32.exit10:                                    ; preds = %47, %52, %57, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpack32_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1627,7 +1627,7 @@ define dso_local void @packmem(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %35
 
 35:                                               ; preds = %32
-  %36 = trunc i64 %20 to i32
+  %36 = trunc nuw i64 %20 to i32
   store i32 %36, ptr %11, align 8
   %.pre = load i32, ptr %13, align 4
   br label %try_grow_buf_remaining.exit
@@ -1660,7 +1660,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %32, %17, %24, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpackmem_ptr(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackmem_ptr(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1720,7 +1720,7 @@ unpack32.exit:                                    ; preds = %3, %23, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpackmem_xmalloc(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackmem_xmalloc(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1790,7 +1790,7 @@ unpack32.exit:                                    ; preds = %3, %27, %23, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpackstr_xmalloc(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1870,7 +1870,7 @@ unpack32.exit:                                    ; preds = %3, %34, %27, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpackstr_xmalloc_escaped(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1972,17 +1972,17 @@ unpack32.exit:                                    ; preds = %3, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpackstr_xmalloc_chooser(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_chooser(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   %4 = load ptr, ptr @slurmdbd_conf, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @unpackstr_xmalloc_escaped(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !13
+  %6 = tail call i32 @unpackstr_xmalloc_escaped(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @unpackstr_xmalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !13
+  %8 = tail call i32 @unpackstr_xmalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -2029,7 +2029,7 @@ define dso_local void @packstr_array(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %27
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %12 to i32
+  %28 = trunc nuw i64 %12 to i32
   store i32 %28, ptr %4, align 8
   %.pre = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit
@@ -2070,14 +2070,14 @@ try_grow_buf_remaining.exit:                      ; preds = %27, %3
   tail call void @packmem(ptr noundef %38, i32 noundef %.0, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %try_grow_buf_remaining.exit.thread, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %try_grow_buf_remaining.exit.thread, label %.lr.ph, !llvm.loop !13
 
 try_grow_buf_remaining.exit.thread:               ; preds = %43, %try_grow_buf_remaining.exit, %24, %10, %16, %22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpackstr_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   %4 = alloca i32, align 4
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2125,7 +2125,7 @@ define dso_local noundef i32 @unpackstr_array(ptr noundef %0, ptr nocapture noun
   %28 = load i32, ptr %1, align 4
   %29 = zext i32 %28 to i64
   %30 = icmp ult i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
@@ -2136,11 +2136,11 @@ define dso_local noundef i32 @unpackstr_array(ptr noundef %0, ptr nocapture noun
   br i1 %.not.i, label %36, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = call i32 @unpackstr_xmalloc_escaped(ptr noundef %32, ptr noundef nonnull %4, ptr noundef %2), !range !13
+  %35 = call i32 @unpackstr_xmalloc_escaped(ptr noundef writeonly %32, ptr noundef nonnull %4, ptr noundef %2)
   br label %unpackstr_xmalloc_chooser.exit
 
 36:                                               ; preds = %.lr.ph
-  %37 = call i32 @unpackstr_xmalloc(ptr noundef %32, ptr noundef nonnull %4, ptr noundef %2), !range !13
+  %37 = call i32 @unpackstr_xmalloc(ptr noundef writeonly %32, ptr noundef nonnull %4, ptr noundef %2)
   br label %unpackstr_xmalloc_chooser.exit
 
 unpackstr_xmalloc_chooser.exit:                   ; preds = %34, %36
@@ -2198,7 +2198,7 @@ define dso_local void @packmem_array(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = trunc i64 %13 to i32
+  %29 = trunc nuw i64 %13 to i32
   store i32 %29, ptr %4, align 8
   %.pre = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit
@@ -2220,7 +2220,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %25, %11, %17, %23, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @unpackmem_array(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2) #3 {
+define dso_local range(i32 -1, 1) i32 @unpackmem_array(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2) #3 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 20
@@ -2280,7 +2280,7 @@ declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #8
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @try_grow_buf(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9206) i32 @try_grow_buf(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2312,7 +2312,7 @@ define dso_local noundef i32 @try_grow_buf(ptr noundef %0, i32 noundef %1) local
   br i1 %.not, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = trunc i64 %7 to i32
+  %23 = trunc nuw i64 %7 to i32
   store i32 %23, ptr %4, align 8
   br label %24
 
@@ -2322,7 +2322,7 @@ define dso_local noundef i32 @try_grow_buf(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9206) i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2361,7 +2361,7 @@ define dso_local noundef i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef
   br i1 %.not.i, label %try_grow_buf.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %12 to i32
+  %28 = trunc nuw i64 %12 to i32
   store i32 %28, ptr %3, align 8
   br label %try_grow_buf.exit
 
@@ -2424,7 +2424,7 @@ define dso_local ptr @try_init_buf(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @swap_buf_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define dso_local range(i32 0, 23) i32 @swap_buf_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -2529,7 +2529,7 @@ define dso_local void @pack64_array(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not.i.i.i, label %pack32.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %12 to i32
+  %28 = trunc nuw i64 %12 to i32
   store i32 %28, ptr %4, align 8
   %.pre.i = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i
@@ -2594,7 +2594,7 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   br i1 %.not.i.i.i8, label %pack64.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = trunc i64 %49 to i32
+  %62 = trunc nuw i64 %49 to i32
   store i32 %62, ptr %4, align 8
   %.pre.i9 = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i7
@@ -2614,14 +2614,14 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
 pack64.exit:                                      ; preds = %47, %52, %57, %59, %try_grow_buf_remaining.exit.i7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %pack64.exit, %pack32.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpack64_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2690,7 +2690,7 @@ define dso_local noundef i32 @unpack64_array(ptr noundef %0, ptr nocapture nound
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp ult i64 %indvars.iv.next, %40
-  br i1 %41, label %25, label %.loopexit, !llvm.loop !17
+  br i1 %41, label %25, label %.loopexit, !llvm.loop !16
 
 unpack32.exit:                                    ; preds = %25, %3, %20
   tail call void @slurm_xfree(ptr noundef nonnull %0) #15
@@ -2740,7 +2740,7 @@ define dso_local void @packdouble_array(ptr nocapture noundef readonly %0, i32 n
   br i1 %.not.i.i.i, label %pack32.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %12 to i32
+  %28 = trunc nuw i64 %12 to i32
   store i32 %28, ptr %4, align 8
   %.pre.i = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i
@@ -2805,7 +2805,7 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   br i1 %.not.i.i.i8, label %packdouble.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = trunc i64 %49 to i32
+  %62 = trunc nuw i64 %49 to i32
   store i32 %62, ptr %4, align 8
   %.pre.i9 = load i32, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.i7
@@ -2827,14 +2827,14 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
 packdouble.exit:                                  ; preds = %47, %52, %57, %59, %try_grow_buf_remaining.exit.i7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %packdouble.exit, %pack32.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpackdouble_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2900,7 +2900,7 @@ define dso_local noundef i32 @unpackdouble_array(ptr noundef %0, ptr nocapture n
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp ult i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 unpack32.exit:                                    ; preds = %.lr.ph, %3, %20
   tail call void @slurm_xfree(ptr noundef nonnull %0) #15
@@ -2951,7 +2951,7 @@ define dso_local void @packlongdouble_array(ptr nocapture noundef readonly %0, i
   br i1 %.not.i.i.i, label %pack32.exit, label %28
 
 28:                                               ; preds = %25
-  %29 = trunc i64 %13 to i32
+  %29 = trunc nuw i64 %13 to i32
   store i32 %29, ptr %5, align 8
   %.pre.i = load i32, ptr %7, align 4
   br label %try_grow_buf_remaining.exit.i
@@ -2990,14 +2990,14 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %pack32.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpacklongdouble_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca x86_fp80, align 16
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
@@ -3101,7 +3101,7 @@ unpacklongdouble.exit.thread:                     ; preds = %unpackmem_ptr.exit.
   %53 = load i32, ptr %1, align 4
   %54 = zext i32 %53 to i64
   %55 = icmp ult i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 unpack32.exit:                                    ; preds = %unpacklongdouble.exit.thread, %3, %21
   call void @slurm_xfree(ptr noundef nonnull %0) #15
@@ -3164,7 +3164,7 @@ define dso_local void @packbuf(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = trunc i64 %15 to i32
+  %31 = trunc nuw i64 %15 to i32
   store i32 %31, ptr %6, align 8
   %.pre = load i32, ptr %8, align 4
   br label %try_grow_buf_remaining.exit
@@ -3233,7 +3233,7 @@ attributes #18 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
@@ -3241,4 +3241,3 @@ attributes #18 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}

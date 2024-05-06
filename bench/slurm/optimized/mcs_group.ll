@@ -263,7 +263,7 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [128 x i32], align 16
@@ -470,7 +470,7 @@ _find_mcs_label.exit.thread:                      ; preds = %._crit_edge.us.i, %
 declare i32 @slurm_mcs_get_enforced() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mcs_p_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mcs_p_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca [128 x i32], align 16

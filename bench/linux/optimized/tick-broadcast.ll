@@ -227,7 +227,7 @@ declare dso_local void @clockevents_exchange_device(ptr noundef, ptr noundef) lo
 declare dso_local void @clockevents_handle_noop(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @tick_broadcast_oneshot_active() local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @tick_broadcast_oneshot_active() local_unnamed_addr #4 align 16 {
   %1 = load i32, ptr getelementptr inbounds (%struct.tick_device, ptr @tick_broadcast_device, i64 0, i32 1), align 8
   %2 = icmp eq i32 %1, 1
   %3 = zext i1 %2 to i32
@@ -257,7 +257,7 @@ define dso_local void @tick_broadcast_switch_to_oneshot() local_unnamed_addr #2 
 declare dso_local void @tick_clock_notify() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @tick_is_broadcast_device(ptr noundef readnone %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @tick_is_broadcast_device(ptr noundef readnone %0) local_unnamed_addr #4 align 16 {
   %2 = icmp ne ptr %0, null
   %3 = load ptr, ptr @tick_broadcast_device, align 8
   %4 = icmp eq ptr %3, %0
@@ -295,7 +295,7 @@ declare dso_local i32 @__clockevents_update_freq(ptr noundef, i32 noundef) local
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tick_device_uses_broadcast(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @tick_broadcast_device, align 8
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tick_broadcast_lock) #11
   %5 = getelementptr inbounds i8, ptr %0, i64 60
@@ -576,7 +576,7 @@ declare dso_local void @clockevents_shutdown(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tick_receive_broadcast() local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tick_receive_broadcast() local_unnamed_addr #2 align 16 {
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !15
   %2 = inttoptr i64 %1 to ptr
   %3 = load ptr, ptr %2, align 8
@@ -933,7 +933,7 @@ define dso_local noundef nonnull ptr @tick_get_broadcast_oneshot_mask() local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define dso_local i32 @tick_check_broadcast_expired() local_unnamed_addr #6 section ".noinstr.text" align 16 {
+define dso_local range(i32 0, 2) i32 @tick_check_broadcast_expired() local_unnamed_addr #6 section ".noinstr.text" align 16 {
   %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !23
   %2 = sext i32 %1 to i64
   %3 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_force_mask, i64 %2) #11, !srcloc !8
@@ -974,7 +974,7 @@ define dso_local void @tick_check_oneshot_broadcast_this_cpu() local_unnamed_add
 declare dso_local void @clockevents_switch_state(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__tick_broadcast_oneshot_control(i32 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !26
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !27

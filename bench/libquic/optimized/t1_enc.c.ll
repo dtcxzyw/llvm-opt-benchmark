@@ -16,9 +16,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [16 x i8] c"server finished\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tls1_change_cipher_state(ptr noundef %ssl, i32 noundef %which) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tls1_change_cipher_state(ptr noundef %ssl, i32 noundef %which) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @tls1_setup_key_block(ptr noundef %ssl), !range !7
+  %call = tail call i32 @tls1_setup_key_block(ptr noundef %ssl)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -81,7 +81,7 @@ return:                                           ; preds = %if.then35, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tls1_setup_key_block(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tls1_setup_key_block(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %aead = alloca ptr, align 8
   %mac_secret_len = alloca i64, align 8
@@ -213,7 +213,7 @@ declare void @ssl_set_read_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ssl_set_write_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @SSL_get_key_block_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
+define hidden range(i64 0, 1531) i64 @SSL_get_key_block_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -356,7 +356,7 @@ if.end8:                                          ; preds = %lor.lhs.false.i12
   %call6.i18 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %ctx_copy.i5) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ctx_copy.i5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i6)
-  %5 = trunc i64 %md5_len.1 to i32
+  %5 = trunc nuw i64 %md5_len.1 to i32
   %conv = add i32 %4, %5
   br label %return
 
@@ -368,7 +368,7 @@ return:                                           ; preds = %append_digest.exit2
 declare ptr @EVP_MD_CTX_md(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tls1_generate_master_secret(ptr noundef %ssl, ptr noundef %out, ptr noundef %premaster, i64 noundef %premaster_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 49) i32 @tls1_generate_master_secret(ptr noundef %ssl, ptr noundef %out, ptr noundef %premaster, i64 noundef %premaster_len) local_unnamed_addr #0 {
 entry:
   %digests = alloca [64 x i8], align 16
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
@@ -495,7 +495,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls1_prf(ptr noundef %ssl, ptr nocapture noundef %out, i64 noundef %out_len, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len) #0 {
+define internal range(i32 0, 2) i32 @tls1_prf(ptr noundef %ssl, ptr nocapture noundef %out, i64 noundef %out_len, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len) #0 {
 entry:
   %cmp = icmp eq i64 %out_len, 0
   br i1 %cmp, label %return, label %if.end
@@ -510,7 +510,7 @@ if.then2:                                         ; preds = %if.end
   %div20 = lshr i64 %secret_len, 1
   %sub = sub i64 %secret_len, %div20
   %call3 = tail call ptr @EVP_md5() #8
-  %call4 = tail call fastcc i32 @tls1_P_hash(ptr noundef %out, i64 noundef %out_len, ptr noundef %call3, ptr noundef %secret, i64 noundef %sub, ptr noundef %label, i64 noundef %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len), !range !7
+  %call4 = tail call fastcc i32 @tls1_P_hash(ptr noundef %out, i64 noundef %out_len, ptr noundef %call3, ptr noundef %secret, i64 noundef %sub, ptr noundef %label, i64 noundef %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %if.end6
 
@@ -522,7 +522,7 @@ if.end8:                                          ; preds = %if.end6, %if.end
   %secret_len.addr.0 = phi i64 [ %sub, %if.end6 ], [ %secret_len, %if.end ]
   %secret.addr.0 = phi ptr [ %add.ptr, %if.end6 ], [ %secret, %if.end ]
   %call9 = tail call ptr @ssl_get_handshake_digest(i32 noundef %call) #8
-  %call10 = tail call fastcc i32 @tls1_P_hash(ptr noundef %out, i64 noundef %out_len, ptr noundef %call9, ptr noundef %secret.addr.0, i64 noundef %secret_len.addr.0, ptr noundef %label, i64 noundef %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len), !range !7
+  %call10 = tail call fastcc i32 @tls1_P_hash(ptr noundef %out, i64 noundef %out_len, ptr noundef %call9, ptr noundef %secret.addr.0, i64 noundef %secret_len.addr.0, ptr noundef %label, i64 noundef %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len)
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then2, %entry
@@ -531,7 +531,7 @@ return:                                           ; preds = %if.end8, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls1_final_finish_mac(ptr noundef %ssl, i32 noundef %from_server, ptr noundef %out) #0 {
+define internal range(i32 0, 13) i32 @tls1_final_finish_mac(ptr noundef %ssl, i32 noundef %from_server, ptr noundef %out) #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %call = call i32 @tls1_handshake_digest(ptr noundef %ssl, ptr noundef nonnull %buf, i64 noundef 64)
@@ -630,7 +630,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare i32 @ssl_get_algorithm_prf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tls1_P_hash(ptr nocapture noundef %out, i64 noundef %out_len, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr nocapture noundef %out, i64 noundef %out_len, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len) unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.hmac_ctx_st, align 8
   %ctx_tmp = alloca %struct.hmac_ctx_st, align 8
@@ -722,7 +722,7 @@ if.end40:                                         ; preds = %lor.lhs.false35
   br i1 %cmp42, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end40
-  %conv45 = trunc i64 %out_len.addr.0 to i32
+  %conv45 = trunc nuw i64 %out_len.addr.0 to i32
   store i32 %conv45, ptr %len, align 4
   br label %if.end46
 
@@ -745,7 +745,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %xor16, ptr %arrayidx52, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end46
   %idx.ext.pre-phi = phi i64 [ 0, %if.end46 ], [ %wide.trip.count, %for.body ]
@@ -816,6 +816,5 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

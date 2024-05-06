@@ -417,7 +417,7 @@ define hidden ptr @zend_accel_hash_find_entry(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_accel_hash_unlink(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @zend_accel_hash_unlink(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0

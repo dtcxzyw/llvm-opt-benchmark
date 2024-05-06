@@ -449,7 +449,7 @@ _ZN6icu_7517CollationIterator23clearCEsIfNoneRemainingEv.exit: ; preds = %if.end
 
 if.end27:                                         ; preds = %_ZN6icu_7517CollationIterator23clearCEsIfNoneRemainingEv.exit
   %shr = lshr i64 %call24, 32
-  %conv28 = trunc i64 %shr to i32
+  %conv28 = trunc nuw i64 %shr to i32
   %conv29 = trunc i64 %call24 to i32
   %and.i = and i32 %conv28, -65536
   %shr.i = lshr i32 %conv29, 16
@@ -625,8 +625,8 @@ cond.false25.i:                                   ; preds = %cond.false20.i
   %21 = load ptr, ptr %13, align 8
   %shr30.i = lshr i32 %8, 11
   %22 = zext nneg i32 %shr30.i to i64
-  %23 = getelementptr i16, ptr %21, i64 %22
-  %arrayidx33.i = getelementptr i8, ptr %23, i64 4160
+  %23 = getelementptr inbounds i16, ptr %21, i64 %22
+  %arrayidx33.i = getelementptr inbounds i8, ptr %23, i64 4160
   %24 = load i16, ptr %arrayidx33.i, align 2
   %conv34.i = zext i16 %24 to i32
   %shr35.i = lshr i32 %8, 5
@@ -926,7 +926,7 @@ cond.end:                                         ; preds = %if.end32, %cond.tru
 
 if.end45:                                         ; preds = %cond.end
   %shr = lshr i64 %call42, 32
-  %conv46 = trunc i64 %shr to i32
+  %conv46 = trunc nuw i64 %shr to i32
   %conv47 = trunc i64 %call42 to i32
   %and.i = and i32 %conv46, -65536
   %shr.i = lshr i32 %conv47, 16
@@ -1111,7 +1111,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %do.body, %if.then.i
   %conv = zext i16 %retval.0.i.i to i32
   %call7 = tail call noundef signext i8 @_ZNK6icu_7517RuleBasedCollator8isUnsafeEi(ptr noundef nonnull align 8 dereferenceable(272) %12, i32 noundef %conv)
   %tobool8.not = icmp eq i8 %call7, 0
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %tobool8.not, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
@@ -1513,7 +1513,7 @@ lpad2:                                            ; preds = %.noexc, %if.end.i
   resume { ptr, i32 } %2
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
 
 declare void @_ZN6icu_7525FCDUTF16CollationIteratorC1ERKS0_PKDs(ptr noundef nonnull align 8 dereferenceable(521), ptr noundef nonnull align 8 dereferenceable(521), ptr noundef) unnamed_addr #4
@@ -1647,7 +1647,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7524CollationElementIterator15getMaxExpansionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %order) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1, 0) i32 @_ZNK6icu_7524CollationElementIterator15getMaxExpansionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %order) local_unnamed_addr #1 align 2 {
 entry:
   %rbc_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %rbc_, align 8
@@ -1679,7 +1679,7 @@ _ZN6icu_7524CollationElementIterator15getMaxExpansionEPK10UHashtablei.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7524CollationElementIterator15getMaxExpansionEPK10UHashtablei(ptr noundef %maxExpansions, i32 noundef %order) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1, 0) i32 @_ZN6icu_7524CollationElementIterator15getMaxExpansionEPK10UHashtablei(ptr noundef %maxExpansions, i32 noundef %order) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq i32 %order, 0
   br i1 %cmp, label %return, label %if.end
@@ -1756,7 +1756,7 @@ for.end:                                          ; preds = %for.body
   %arrayidx4 = getelementptr i8, ptr %1, i64 -8
   %2 = load i64, ptr %arrayidx4, align 8
   %shr = lshr i64 %2, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %conv5 = trunc i64 %2 to i32
   %shl.i = shl i32 %conv, 16
   %shr.i = lshr i32 %conv5, 8
@@ -1818,7 +1818,7 @@ attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 

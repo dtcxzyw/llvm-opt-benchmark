@@ -255,7 +255,7 @@ _ZN22cranelift_codegen_meta4cdsl5types8LaneType3doc17hadaf3487e3b940acE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType8membytes17h0574a8fc75a099b2E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType8membytes17h0574a8fc75a099b2E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 8, !range !3, !noundef !4
   switch i8 %2, label %default.unreachable [
     i8 2, label %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i
@@ -353,7 +353,7 @@ default.unreachable4:                             ; preds = %1
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
 switch.lookup:                                    ; preds = %3
-  %11 = tail call i8 @llvm.cttz.i8(i8 %8, i1 true), !range !19
+  %11 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %8, i1 true)
   %switch.tableidx = add nsw i8 %11, -3
   %switch.idx.cast = zext i8 %switch.tableidx to i16
   %switch.offset = add nuw nsw i16 %switch.idx.cast, 118
@@ -382,7 +382,7 @@ switch.lookup:                                    ; preds = %3
   br label %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit
 
 switch.lookup5:                                   ; preds = %16
-  %26 = tail call i8 @llvm.cttz.i8(i8 %23, i1 true), !range !19
+  %26 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %23, i1 true)
   %switch.tableidx6 = add nsw i8 %26, -3
   %switch.idx.cast7 = zext i8 %switch.tableidx6 to i16
   %switch.offset8 = add nuw nsw i16 %switch.idx.cast7, 118
@@ -390,7 +390,7 @@ switch.lookup5:                                   ; preds = %16
 
 _ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit: ; preds = %switch.lookup5, %24
   %.0.i.i = phi i16 [ %..i.i, %24 ], [ %switch.offset8, %switch.lookup5 ]
-  %27 = tail call i64 @llvm.ctlz.i64(i64 %18, i1 false), !range !20
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
   %28 = trunc nuw nsw i64 %27 to i16
   %29 = shl nuw nsw i16 %28, 4
   %reass.sub = sub nsw i16 %.0.i.i, %29
@@ -412,7 +412,7 @@ _ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.ex
   br label %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit
 
 switch.lookup9:                                   ; preds = %31
-  %41 = tail call i8 @llvm.cttz.i8(i8 %37, i1 true), !range !19
+  %41 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %37, i1 true)
   %switch.tableidx10 = add nsw i8 %41, -3
   %switch.idx.cast11 = zext i8 %switch.tableidx10 to i16
   %switch.offset12 = add nuw nsw i16 %switch.idx.cast11, 1254
@@ -421,7 +421,7 @@ switch.lookup9:                                   ; preds = %31
 _ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit: ; preds = %switch.lookup9, %38
   %.0.i.i2 = phi i16 [ %40, %38 ], [ %switch.offset12, %switch.lookup9 ]
   %42 = load i64, ptr %32, align 8, !noundef !4
-  %43 = tail call i64 @llvm.ctlz.i64(i64 %42, i1 false), !range !20
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 false)
   %44 = trunc nuw nsw i64 %43 to i16
   %45 = shl nuw nsw i16 %44, 4
   %46 = sub nuw nsw i16 %.0.i.i2, %45
@@ -965,13 +965,13 @@ define { i1, i8 } @"_ZN135_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20
 
 ; Function Attrs: nonlazybind uwtable
 define { i8, i8 } @"_ZN112_$LT$cranelift_codegen_meta..cdsl..types..LaneTypeIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0014741f9326859E"(ptr align 1 %0) unnamed_addr #0 {
-  %2 = tail call i8 @"_ZN109_$LT$cranelift_codegen_meta..shared..types..IntIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c219c12bc1b8097E"(ptr align 1 %0), !range !21
+  %2 = tail call i8 @"_ZN109_$LT$cranelift_codegen_meta..shared..types..IntIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c219c12bc1b8097E"(ptr align 1 %0), !range !19
   %.not = icmp eq i8 %2, 7
   br i1 %.not, label %3, label %6
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 1
-  %5 = tail call i8 @"_ZN111_$LT$cranelift_codegen_meta..shared..types..FloatIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6afc9fbb10ee1fe3E"(ptr nonnull align 1 %4), !range !22
+  %5 = tail call i8 @"_ZN111_$LT$cranelift_codegen_meta..shared..types..FloatIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6afc9fbb10ee1fe3E"(ptr nonnull align 1 %4), !range !20
   %.not4 = icmp eq i8 %5, 31
   %spec.select5 = select i1 %.not4, i8 2, i8 0
   br label %6
@@ -1123,7 +1123,7 @@ define zeroext i1 @"_ZN91_$LT$cranelift_codegen_meta..cdsl..types..DynamicVector
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN22cranelift_codegen_meta4cdsl5types13ReferenceType13ref_from_bits17h32f944ee20ce01a6E(i16 %0) unnamed_addr #0 {
+define hidden range(i8 32, 65) i8 @_ZN22cranelift_codegen_meta4cdsl5types13ReferenceType13ref_from_bits17h32f944ee20ce01a6E(i16 %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   switch i16 %0, label %4 [
@@ -1184,8 +1184,8 @@ define i8 @"_ZN146_$LT$cranelift_codegen_meta..cdsl..types..ReferenceType$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @"_ZN117_$LT$cranelift_codegen_meta..cdsl..types..ReferenceTypeIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcfbd0d02f2c4adbE"(ptr align 1 %0) unnamed_addr #0 {
-  %2 = tail call i8 @"_ZN115_$LT$cranelift_codegen_meta..shared..types..ReferenceIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f78f95d70c84d9aE"(ptr align 1 %0), !range !22
+define range(i8 31, 65) i8 @"_ZN117_$LT$cranelift_codegen_meta..cdsl..types..ReferenceTypeIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcfbd0d02f2c4adbE"(ptr align 1 %0) unnamed_addr #0 {
+  %2 = tail call i8 @"_ZN115_$LT$cranelift_codegen_meta..shared..types..ReferenceIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f78f95d70c84d9aE"(ptr align 1 %0), !range !20
   %3 = icmp eq i8 %2, 31
   br i1 %3, label %6, label %4
 
@@ -1320,7 +1320,5 @@ attributes #17 = { noreturn }
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType3doc17h216992f6a17e5f21E: argument 0"}
 !18 = distinct !{!18, !"_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType3doc17h216992f6a17e5f21E"}
-!19 = !{i8 0, i8 9}
-!20 = !{i64 0, i64 65}
-!21 = !{i8 7, i8 -127}
-!22 = !{i8 31, i8 65}
+!19 = !{i8 7, i8 -127}
+!20 = !{i8 31, i8 65}

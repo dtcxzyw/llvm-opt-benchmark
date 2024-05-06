@@ -1257,7 +1257,7 @@ entry:
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @extstore_write_request(ptr noundef %ptr, i32 noundef %bucket, i32 noundef %free_bucket, ptr nocapture noundef %io) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %ptr, i32 noundef %bucket, i32 noundef %free_bucket, ptr nocapture noundef %io) local_unnamed_addr #0 {
 entry:
   %page_bucketcount = getelementptr inbounds i8, ptr %ptr, i64 132
   %0 = load i32, ptr %page_bucketcount, align 4
@@ -1788,7 +1788,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @extstore_delete(ptr noundef %ptr, i32 noundef %page_id, i64 noundef %page_version, i32 noundef %count, i32 noundef %bytes) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extstore_delete(ptr noundef %ptr, i32 noundef %page_id, i64 noundef %page_version, i32 noundef %count, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %pages = getelementptr inbounds i8, ptr %ptr, i64 40
   %0 = load ptr, ptr %pages, align 8
@@ -1847,7 +1847,7 @@ if.end34:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @extstore_check(ptr nocapture noundef readonly %ptr, i32 noundef %page_id, i64 noundef %page_version) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extstore_check(ptr nocapture noundef readonly %ptr, i32 noundef %page_id, i64 noundef %page_version) local_unnamed_addr #0 {
 entry:
   %pages = getelementptr inbounds i8, ptr %ptr, i64 40
   %0 = load ptr, ptr %pages, align 8

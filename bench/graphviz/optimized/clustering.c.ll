@@ -465,7 +465,7 @@ tailrecurse:                                      ; preds = %200, %2
 37:                                               ; preds = %.lr.ph323
   %38 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv383
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr i8, ptr %38, i64 4
+  %40 = getelementptr inbounds i8, ptr %38, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp slt i32 %39, %41
   br i1 %42, label %.lr.ph310.preheader, label %._crit_edge315.thread
@@ -473,7 +473,7 @@ tailrecurse:                                      ; preds = %200, %2
 .lr.ph310.preheader:                              ; preds = %37
   %43 = sext i32 %39 to i64
   %wide.trip.count = sext i32 %41 to i64
-  %44 = trunc i64 %indvars.iv383 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv383 to i32
   br label %.lr.ph310
 
 .preheader:                                       ; preds = %70
@@ -696,7 +696,7 @@ tailrecurse:                                      ; preds = %200, %2
 .lr.ph328:                                        ; preds = %.lr.ph328.preheader, %.lr.ph328
   %indvars.iv388 = phi i64 [ 0, %.lr.ph328.preheader ], [ %indvars.iv.next389, %.lr.ph328 ]
   %156 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv388
-  %157 = trunc i64 %indvars.iv388 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv388 to i32
   store i32 %157, ptr %156, align 4
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next389, %wide.trip.count391
@@ -721,7 +721,7 @@ tailrecurse:                                      ; preds = %200, %2
 .lr.ph340:                                        ; preds = %.lr.ph340.preheader, %.lr.ph340
   %indvars.iv403 = phi i64 [ 0, %.lr.ph340.preheader ], [ %indvars.iv.next404, %.lr.ph340 ]
   %162 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv403
-  %163 = trunc i64 %indvars.iv403 to i32
+  %163 = trunc nuw nsw i64 %indvars.iv403 to i32
   store i32 %163, ptr %162, align 4
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %exitcond407.not = icmp eq i64 %indvars.iv.next404, %wide.trip.count406
@@ -754,7 +754,7 @@ tailrecurse:                                      ; preds = %200, %2
   %indvars.iv398 = phi i64 [ 0, %.lr.ph336.preheader ], [ %indvars.iv.next399, %.lr.ph336 ]
   %171 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv398
   %172 = load i32, ptr %171, align 4
-  %173 = trunc i64 %indvars.iv398 to i32
+  %173 = trunc nuw nsw i64 %indvars.iv398 to i32
   %174 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %170, i32 noundef %172, i32 noundef %173, ptr noundef nonnull %3) #12
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next399, %wide.trip.count401
@@ -831,7 +831,7 @@ tailrecurse:                                      ; preds = %200, %2
 .lr.ph332:                                        ; preds = %.lr.ph332.preheader, %.lr.ph332
   %indvars.iv393 = phi i64 [ 0, %.lr.ph332.preheader ], [ %indvars.iv.next394, %.lr.ph332 ]
   %202 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv393
-  %203 = trunc i64 %indvars.iv393 to i32
+  %203 = trunc nuw nsw i64 %indvars.iv393 to i32
   store i32 %203, ptr %202, align 4
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond397.not = icmp eq i64 %indvars.iv.next394, %wide.trip.count396

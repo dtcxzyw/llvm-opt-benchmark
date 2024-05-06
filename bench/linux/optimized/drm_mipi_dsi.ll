@@ -644,7 +644,7 @@ define dso_local noundef zeroext i1 @mipi_dsi_packet_format_is_long(i8 noundef z
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @mipi_dsi_create_packet(ptr noundef writeonly %0, ptr noundef readonly %1) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mipi_dsi_create_packet(ptr noundef writeonly %0, ptr noundef readonly %1) #5 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -793,7 +793,7 @@ define dso_local noundef i32 @mipi_dsi_create_packet(ptr noundef writeonly %0, p
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mipi_dsi_shutdown_peripheral(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_shutdown_peripheral(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca %struct.mipi_dsi_msg, align 8
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
@@ -850,7 +850,7 @@ define dso_local i32 @mipi_dsi_shutdown_peripheral(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mipi_dsi_turn_on_peripheral(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_turn_on_peripheral(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca %struct.mipi_dsi_msg, align 8
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
@@ -907,7 +907,7 @@ define dso_local i32 @mipi_dsi_turn_on_peripheral(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mipi_dsi_set_maximum_return_packet_size(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_set_maximum_return_packet_size(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
@@ -915,7 +915,7 @@ define dso_local i32 @mipi_dsi_set_maximum_return_packet_size(ptr nocapture noun
   store i8 %5, ptr %3, align 2
   %6 = getelementptr inbounds i8, ptr %3, i64 1
   %7 = lshr i16 %1, 8
-  %8 = trunc i16 %7 to i8
+  %8 = trunc nuw i16 %7 to i8
   store i8 %8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
@@ -969,7 +969,7 @@ define dso_local i32 @mipi_dsi_set_maximum_return_packet_size(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @mipi_dsi_compression_mode(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_compression_mode(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
@@ -1030,7 +1030,7 @@ define dso_local i64 @mipi_dsi_compression_mode(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @mipi_dsi_picture_parameter_set(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_picture_parameter_set(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !14
@@ -1933,10 +1933,10 @@ define dso_local i32 @mipi_dsi_dcs_set_column_address(ptr nocapture noundef read
   %4 = alloca %struct.mipi_dsi_msg, align 8
   %5 = alloca [8 x i8], align 8
   %6 = lshr i16 %1, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   %8 = trunc i16 %1 to i8
   %9 = lshr i16 %2, 8
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw i16 %9 to i8
   %11 = trunc i16 %2 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store i64 42, ptr %5, align 8, !annotation !14
@@ -2005,10 +2005,10 @@ define dso_local i32 @mipi_dsi_dcs_set_page_address(ptr nocapture noundef readon
   %4 = alloca %struct.mipi_dsi_msg, align 8
   %5 = alloca [8 x i8], align 8
   %6 = lshr i16 %1, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   %8 = trunc i16 %1 to i8
   %9 = lshr i16 %2, 8
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw i16 %9 to i8
   %11 = trunc i16 %2 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store i64 43, ptr %5, align 8, !annotation !14
@@ -2256,7 +2256,7 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_scanline(ptr nocapture noundef reado
   %3 = alloca %struct.mipi_dsi_msg, align 8
   %4 = alloca [8 x i8], align 8
   %5 = lshr i16 %1, 8
-  %6 = trunc i16 %5 to i8
+  %6 = trunc nuw i16 %5 to i8
   %7 = trunc i16 %1 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 68, ptr %4, align 8, !annotation !14
@@ -2322,7 +2322,7 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness(ptr nocapture noundef 
   %4 = alloca [8 x i8], align 8
   %5 = trunc i16 %1 to i8
   %6 = lshr i16 %1, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 81, ptr %4, align 8, !annotation !14
   %8 = getelementptr inbounds i8, ptr %4, i64 1
@@ -2456,7 +2456,7 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness_large(ptr nocapture no
   %3 = alloca %struct.mipi_dsi_msg, align 8
   %4 = alloca [8 x i8], align 8
   %5 = lshr i16 %1, 8
-  %6 = trunc i16 %5 to i8
+  %6 = trunc nuw i16 %5 to i8
   %7 = trunc i16 %1 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 81, ptr %4, align 8, !annotation !14
@@ -2702,7 +2702,7 @@ declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, pt
 declare dso_local i32 @device_match_of_node(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @mipi_dsi_device_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define internal range(i32 0, 2) i32 @mipi_dsi_device_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 align 16 {
   %3 = getelementptr i8, ptr %0, i64 729
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef %3, ptr noundef %4) #14

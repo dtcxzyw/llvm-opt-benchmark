@@ -984,7 +984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7511TextTrieMap7isEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #12 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7511TextTrieMap7isEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #12 align 2 {
 entry:
   %fIsEmpty = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %fIsEmpty, align 8
@@ -1112,7 +1112,7 @@ if.then6:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
   %fNodesCount = getelementptr inbounds i8, ptr %this, i64 28
   store i32 1, ptr %fNodesCount, align 4
   br label %if.end8
@@ -1348,7 +1348,7 @@ if.end24:                                         ; preds = %while.end, %if.end2
   %parent.addr.0 = phi ptr [ %add.ptr23, %if.end20 ], [ %parent, %while.end ]
   %idx.ext27 = sext i32 %9 to i64
   %add.ptr28 = getelementptr inbounds %"struct.icu_75::CharacterNode", ptr %10, i64 %idx.ext27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr28, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %add.ptr28, i8 0, i64 16, i1 false)
   %fCharacter29 = getelementptr inbounds i8, ptr %add.ptr28, i64 8
   store i16 %c, ptr %fCharacter29, align 8
   %fNextSibling30 = getelementptr inbounds i8, ptr %add.ptr28, i64 12
@@ -1388,7 +1388,7 @@ return:                                           ; preds = %while.body, %entry,
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7511TextTrieMap9growNodesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7511TextTrieMap9growNodesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fNodesCapacity = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %fNodesCapacity, align 8
@@ -2221,7 +2221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7518ZNameSearchHandler11handleMatchEiPKNS_13CharacterNodeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %matchLength, ptr nocapture noundef readonly %node, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518ZNameSearchHandler11handleMatchEiPKNS_13CharacterNodeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %matchLength, ptr nocapture noundef readonly %node, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp33 = alloca %"class.icu_75::UnicodeString", align 8
@@ -2976,10 +2976,10 @@ if.end.i.i:                                       ; preds = %if.end.i
           to label %call2.i.i.noexc unwind label %lpad15
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %key.i, ptr noundef nonnull align 1 dereferenceable(5) @_ZN6icu_75L9gMZPrefixE, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(5) %key.i, ptr noundef nonnull align 1 dereferenceable(5) @_ZN6icu_75L9gMZPrefixE, i64 5, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %key.i, i64 5
   %conv5.i.i = sext i32 %call2.i.i22 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr nonnull align 16 %mzIdChar.i.i, i64 %conv5.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i, ptr nonnull align 16 %mzIdChar.i.i, i64 %conv5.i.i, i1 false)
   %17 = getelementptr i8, ptr %key.i, i64 %conv5.i.i
   %arrayidx7.i.i = getelementptr i8, ptr %17, i64 5
   br label %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i
@@ -5666,7 +5666,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7521TZDBNameSearchHandler11handleMatchEiPKNS_13CharacterNodeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %matchLength, ptr nocapture noundef readonly %node, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7521TZDBNameSearchHandler11handleMatchEiPKNS_13CharacterNodeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %matchLength, ptr nocapture noundef readonly %node, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %status, align 4
@@ -6360,10 +6360,10 @@ if.end.i32:                                       ; preds = %if.then14
   %16 = load i32, ptr %fLength.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %16, i32 %shr.i.i.i
   %call2.i33 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %mzID, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %mzIdChar.i, i32 noundef 129, i32 noundef 0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %key, ptr noundef nonnull align 1 dereferenceable(5) @_ZN6icu_75L9gMZPrefixE, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(5) %key, ptr noundef nonnull align 1 dereferenceable(5) @_ZN6icu_75L9gMZPrefixE, i64 5, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %key, i64 5
   %conv5.i = sext i32 %call2.i33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %mzIdChar.i, i64 %conv5.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr nonnull align 16 %mzIdChar.i, i64 %conv5.i, i1 false)
   %17 = getelementptr i8, ptr %key, i64 %conv5.i
   %arrayidx7.i = getelementptr i8, ptr %17, i64 5
   br label %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit

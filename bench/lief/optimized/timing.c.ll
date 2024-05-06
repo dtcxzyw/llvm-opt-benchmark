@@ -56,7 +56,7 @@ define hidden void @mbedtls_timing_set_delay(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @mbedtls_timing_get_delay(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 3) i32 @mbedtls_timing_get_delay(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4

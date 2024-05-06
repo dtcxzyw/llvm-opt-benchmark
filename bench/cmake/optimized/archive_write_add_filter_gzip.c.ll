@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [30 x i8] c"Failed to clean up compressor\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_compression_gzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_compression_gzip(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @__archive_write_filters_free(ptr noundef %0) #9
   %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #9
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #9
@@ -59,7 +59,7 @@ archive_write_add_filter_gzip.exit:               ; preds = %1, %8, %9
 declare void @__archive_write_filters_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_gzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_gzip(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #9
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #9
   %4 = icmp eq i32 %3, -30
@@ -107,7 +107,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_gzip_open(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_gzip_open(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 128
@@ -268,7 +268,7 @@ define internal noundef i32 @archive_compressor_gzip_open(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @archive_compressor_gzip_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #3 {
+define internal range(i32 -20, 1) i32 @archive_compressor_gzip_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.3) #12
@@ -455,7 +455,7 @@ declare i64 @cm_zlib_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i64 @time(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_gzip_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_gzip_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 144

@@ -2320,7 +2320,7 @@ declare noundef zeroext i1 @_ZN3ue210isAnchoredERKNS_8NGHolderE(ptr noundef nonn
 declare i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN3ue214whatRoseIsThisERKNS_11RoseInGraphERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %in, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 4) i32 @_ZN3ue214whatRoseIsThisERKNS_11RoseInGraphERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %in, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #5 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %e, align 8
   %source.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 32

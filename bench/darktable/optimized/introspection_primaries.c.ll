@@ -545,7 +545,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %63 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %60) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #19
-  call fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef %50, i64 noundef 0, float noundef %63, float noundef 0.000000e+00, ptr noundef nonnull %13)
+  call fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %26, ptr noundef nonnull readonly %30, ptr noundef readonly %50, i64 noundef 0, float noundef %63, float noundef 0.000000e+00, ptr noundef nonnull %13)
   %64 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get_hard_min(ptr noundef %62) #19
   %65 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get_hard_max(ptr noundef %62) #19
   %66 = fsub reassoc nsz arcp contract afn float %65, %64
@@ -571,7 +571,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %83 = shufflevector <4 x float> %82, <4 x float> poison, <4 x i32> zeroinitializer
   %84 = fadd reassoc nsz arcp contract afn <4 x float> %83, %81
   store <4 x float> %84, ptr %15, align 16, !tbaa !32
-  call fastcc void @_apply_trc_if_nonlinear(ptr noundef nonnull %30, ptr noundef nonnull %15, ptr noundef nonnull %14)
+  call fastcc void @_apply_trc_if_nonlinear(ptr noundef nonnull readonly %30, ptr noundef nonnull %15, ptr noundef nonnull %14)
   %85 = load float, ptr %14, align 16, !tbaa !32
   %86 = load float, ptr %67, align 4, !tbaa !32
   %87 = load float, ptr %68, align 8, !tbaa !32
@@ -593,7 +593,7 @@ _paint_purity_slider.exit:                        ; preds = %70
   %95 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %92) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
-  call fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef %50, i64 noundef 1, float noundef %95, float noundef 0.000000e+00, ptr noundef nonnull %10)
+  call fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %26, ptr noundef nonnull readonly %30, ptr noundef readonly %50, i64 noundef 1, float noundef %95, float noundef 0.000000e+00, ptr noundef nonnull %10)
   %96 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get_hard_min(ptr noundef %94) #19
   %97 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get_hard_max(ptr noundef %94) #19
   %98 = fsub reassoc nsz arcp contract afn float %97, %96
@@ -619,7 +619,7 @@ _paint_purity_slider.exit:                        ; preds = %70
   %115 = shufflevector <4 x float> %114, <4 x float> poison, <4 x i32> zeroinitializer
   %116 = fadd reassoc nsz arcp contract afn <4 x float> %115, %113
   store <4 x float> %116, ptr %12, align 16, !tbaa !32
-  call fastcc void @_apply_trc_if_nonlinear(ptr noundef nonnull %30, ptr noundef nonnull %12, ptr noundef nonnull %11)
+  call fastcc void @_apply_trc_if_nonlinear(ptr noundef nonnull readonly %30, ptr noundef nonnull %12, ptr noundef nonnull %11)
   %117 = load float, ptr %11, align 16, !tbaa !32
   %118 = load float, ptr %99, align 4, !tbaa !32
   %119 = load float, ptr %100, align 8, !tbaa !32
@@ -640,7 +640,7 @@ _paint_purity_slider.exit5:                       ; preds = %102
   %126 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %123) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
-  call fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef %50, i64 noundef 2, float noundef %126, float noundef 0.000000e+00, ptr noundef nonnull %7)
+  call fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %26, ptr noundef nonnull readonly %30, ptr noundef readonly %50, i64 noundef 2, float noundef %126, float noundef 0.000000e+00, ptr noundef nonnull %7)
   %127 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get_hard_min(ptr noundef %125) #19
   %128 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get_hard_max(ptr noundef %125) #19
   %129 = fsub reassoc nsz arcp contract afn float %128, %127
@@ -666,7 +666,7 @@ _paint_purity_slider.exit5:                       ; preds = %102
   %146 = shufflevector <4 x float> %145, <4 x float> poison, <4 x i32> zeroinitializer
   %147 = fadd reassoc nsz arcp contract afn <4 x float> %146, %144
   store <4 x float> %147, ptr %9, align 16, !tbaa !32
-  call fastcc void @_apply_trc_if_nonlinear(ptr noundef nonnull %30, ptr noundef nonnull %9, ptr noundef nonnull %8)
+  call fastcc void @_apply_trc_if_nonlinear(ptr noundef nonnull readonly %30, ptr noundef nonnull %9, ptr noundef nonnull %8)
   %148 = load float, ptr %8, align 16, !tbaa !32
   %149 = load float, ptr %130, align 4, !tbaa !32
   %150 = load float, ptr %131, align 8, !tbaa !32
@@ -733,7 +733,7 @@ _paint_purity_slider.exit6:                       ; preds = %133
   %184 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %180) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
-  call fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef %181, i64 noundef 0, float noundef %184, float noundef 0.000000e+00, ptr noundef nonnull %4)
+  call fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %26, ptr noundef nonnull readonly %30, ptr noundef readonly %181, i64 noundef 0, float noundef %184, float noundef 0.000000e+00, ptr noundef nonnull %4)
   %185 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get_hard_min(ptr noundef %183) #19
   %186 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get_hard_max(ptr noundef %183) #19
   %187 = fsub reassoc nsz arcp contract afn float %186, %185
@@ -760,7 +760,7 @@ _paint_purity_slider.exit6:                       ; preds = %133
   %205 = shufflevector <4 x float> %204, <4 x float> poison, <4 x i32> zeroinitializer
   %206 = fadd reassoc nsz arcp contract afn <4 x float> %205, %203
   store <4 x float> %206, ptr %6, align 16, !tbaa !32
-  call fastcc void @_apply_trc_if_nonlinear(ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @_apply_trc_if_nonlinear(ptr noundef nonnull readonly %30, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %207 = load float, ptr %5, align 16, !tbaa !32
   %208 = load float, ptr %189, align 4, !tbaa !32
   %209 = load float, ptr %190, align 8, !tbaa !32
@@ -1163,7 +1163,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !93
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

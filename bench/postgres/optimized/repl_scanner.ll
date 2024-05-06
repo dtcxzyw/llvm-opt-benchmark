@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @litbuf = internal global %struct.StringInfoData zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @replication_yylex() local_unnamed_addr #0 {
+define dso_local range(i32 -128, 283) i32 @replication_yylex() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %.b = load i1, ptr @yy_init, align 4
@@ -551,8 +551,8 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   %205 = ashr exact i64 %sext, 32
   %206 = getelementptr i8, ptr %204, i64 %205
   store ptr %206, ptr @yy_c_buf_p, align 8
-  %207 = tail call fastcc i32 @yy_get_previous_state(), !range !8
-  %208 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %207), !range !8
+  %207 = tail call fastcc i32 @yy_get_previous_state()
+  %208 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %207)
   %209 = load ptr, ptr @replication_yytext, align 8
   %.not75 = icmp eq i32 %208, 0
   br i1 %.not75, label %213, label %210
@@ -621,7 +621,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   store i8 %237, ptr %.05185.i, align 1
   %239 = add nuw nsw i32 %.05383.i, 1
   %exitcond.not.i = icmp eq i32 %239, %234
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %181, align 8
@@ -703,7 +703,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.054.i = add i32 %.pn.i, %245
   %272 = icmp slt i32 %.054.i, 1
-  br i1 %272, label %.lr.ph90.i, label %._crit_edge91.i, !llvm.loop !10
+  br i1 %272, label %.lr.ph90.i, label %._crit_edge91.i, !llvm.loop !9
 
 ._crit_edge91.i:                                  ; preds = %268, %244
   %273 = phi ptr [ %240, %244 ], [ %271, %268 ]
@@ -742,7 +742,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   store i8 %282, ptr %290, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond101.not.i, label %.critedge.i, label %278, !llvm.loop !11
+  br i1 %exitcond101.not.i, label %.critedge.i, label %278, !llvm.loop !10
 
 .critedge.split.loop.exit.i:                      ; preds = %278, %278
   %291 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -841,7 +841,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   %343 = trunc i64 %342 to i32
   store i32 %343, ptr @yy_n_chars, align 4
   %344 = icmp eq i32 %343, 0
-  br i1 %344, label %.lr.ph94.i, label %.loopexit.thread.i, !llvm.loop !12
+  br i1 %344, label %.lr.ph94.i, label %.loopexit.thread.i, !llvm.loop !11
 
 .loopexit.thread.i:                               ; preds = %332, %308
   %.pr.ph.i = phi i32 [ %321, %308 ], [ %343, %332 ]
@@ -986,7 +986,7 @@ yy_get_next_buffer.exit.thread:                   ; preds = %228, %yy_get_next_b
   %416 = ashr exact i64 %sext205, 32
   %417 = getelementptr i8, ptr %406, i64 %416
   store ptr %417, ptr @yy_c_buf_p, align 8
-  %418 = tail call fastcc i32 @yy_get_previous_state(), !range !8
+  %418 = tail call fastcc i32 @yy_get_previous_state()
   %419 = load ptr, ptr @yy_c_buf_p, align 8
   %420 = load ptr, ptr @replication_yytext, align 8
   br label %.backedge.backedge
@@ -996,7 +996,7 @@ yy_get_next_buffer.exit.thread79:                 ; preds = %228, %yy_get_next_b
   %421 = phi ptr [ %.pre373, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread79_crit_edge ], [ %197, %228 ]
   %422 = getelementptr i8, ptr %421, i64 %.pre-phi
   store ptr %422, ptr @yy_c_buf_p, align 8
-  %423 = tail call fastcc i32 @yy_get_previous_state(), !range !8
+  %423 = tail call fastcc i32 @yy_get_previous_state()
   %424 = load ptr, ptr @replication_yytext, align 8
   br label %.outer.backedge
 
@@ -1147,7 +1147,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @yy_get_previous_state() unnamed_addr #6 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unnamed_addr #6 {
   %1 = load i32, ptr @yy_start, align 4
   %2 = load ptr, ptr @replication_yytext, align 8
   %3 = load ptr, ptr @yy_c_buf_p, align 8
@@ -1217,7 +1217,7 @@ define internal fastcc i32 @yy_get_previous_state() unnamed_addr #6 {
   %40 = getelementptr [628 x i16], ptr @yy_chk, i64 0, i64 %39
   %41 = load i16, ptr %40, align 2
   %.not19 = icmp eq i16 %28, %41
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %33, %16
   %.lcssa = phi i64 [ %21, %16 ], [ %39, %33 ]
@@ -1226,7 +1226,7 @@ define internal fastcc i32 @yy_get_previous_state() unnamed_addr #6 {
   %44 = sext i16 %43 to i32
   %45 = getelementptr i8, ptr %.01523, i64 1
   %exitcond.not = icmp eq ptr %45, %3
-  br i1 %exitcond.not, label %._crit_edge26, label %.lr.ph25, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge26, label %.lr.ph25, !llvm.loop !13
 
 ._crit_edge26:                                    ; preds = %._crit_edge, %0
   %.016.lcssa = phi i32 [ %1, %0 ], [ %44, %._crit_edge ]
@@ -1234,7 +1234,7 @@ define internal fastcc i32 @yy_get_previous_state() unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0) unnamed_addr #7 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [285 x i16], ptr @yy_accept, i64 0, i64 %2
   %4 = load i16, ptr %3, align 2
@@ -1270,7 +1270,7 @@ define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0) unnamed_addr #7 {
   %23 = getelementptr [628 x i16], ptr @yy_chk, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
   %.not14 = icmp eq i16 %17, %24
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.lcssa = phi i64 [ %11, %7 ], [ %22, %.lr.ph ]
@@ -2274,7 +2274,7 @@ replication_yy_delete_buffer.exit:                ; preds = %0, %20
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @replication_scanner_is_replication_command() local_unnamed_addr #0 {
-  %1 = tail call i32 @replication_yylex(), !range !16
+  %1 = tail call i32 @replication_yylex()
   switch i32 %1, label %3 [
     i32 263, label %2
     i32 262, label %2
@@ -2378,12 +2378,10 @@ attributes #30 = { cold nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -32768, i32 32768}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{i32 -128, i32 283}

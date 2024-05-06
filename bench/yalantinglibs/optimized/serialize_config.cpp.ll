@@ -958,7 +958,7 @@ _ZN11struct_pack6detail6packerINS0_13memory_writerE4rectE26get_fast_varint_width
   %.88 = select i1 %cmp1.i.i, i32 1, i32 2
   %tobool.i = select i1 %cmp1.i.i, i8 0, i8 32
   %width_signed.i.i.0 = select i1 %cmp.i.i, i32 0, i32 %.88
-  %width_signed.i.i.0.tr = trunc i32 %width_signed.i.i.0 to i8
+  %width_signed.i.i.0.tr = trunc nuw nsw i32 %width_signed.i.i.0 to i8
   %7 = shl nuw nsw i8 %width_signed.i.i.0.tr, 4
   %8 = and i8 %7, 16
   %conv8.i = or i8 %tobool.i, %vec.i.sroa.0.3

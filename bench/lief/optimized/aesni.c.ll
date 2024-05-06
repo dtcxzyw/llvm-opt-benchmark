@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mbedtls_aesni_has_support.c = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_aesni_has_support(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_aesni_has_support(i32 noundef %0) local_unnamed_addr #0 {
   %.b = load i1, ptr @mbedtls_aesni_has_support.done, align 4
   br i1 %.b, label %._crit_edge, label %2
 
@@ -110,7 +110,7 @@ define hidden void @mbedtls_aesni_inverse_key(ptr noundef %0, ptr noundef %1, i3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_aesni_setkey_enc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -32, 1) i32 @mbedtls_aesni_setkey_enc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   switch i64 %2, label %7 [
     i64 128, label %4
     i64 192, label %5

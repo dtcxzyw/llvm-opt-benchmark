@@ -300,7 +300,7 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_util_register_stackhandlers() local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_addr #0 {
   %1 = alloca %struct.sigaction, align 8
   %2 = alloca %struct.sigaction, align 8
   %3 = alloca ptr, align 8

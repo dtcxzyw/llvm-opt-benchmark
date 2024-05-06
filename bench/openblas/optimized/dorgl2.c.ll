@@ -91,7 +91,7 @@ define void @dorgl2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %63, label %69, label %64
 
 64:                                               ; preds = %52
-  %65 = trunc i64 %53 to i32
+  %65 = trunc nuw nsw i64 %53 to i32
   %66 = mul i32 %40, %65
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds double, ptr %15, i64 %67

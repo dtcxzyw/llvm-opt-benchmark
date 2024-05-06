@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [5 x i8] c"xn--\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_punycode_decode(ptr nocapture noundef readonly %pEncoded, i64 noundef %enc_len, ptr nocapture noundef %pDecoded, ptr nocapture noundef %pout_length) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_punycode_decode(ptr nocapture noundef readonly %pEncoded, i64 noundef %enc_len, ptr nocapture noundef %pDecoded, ptr nocapture noundef %pout_length) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pout_length, align 4
   %cmp74.not = icmp eq i64 %enc_len, 0
@@ -66,7 +66,7 @@ if.end33:                                         ; preds = %entry, %for.end31, 
   br i1 %cmp3788, label %for.cond40.preheader.lr.ph, label %if.end33.for.end123_crit_edge
 
 if.end33.for.end123_crit_edge:                    ; preds = %if.end33
-  %.pre = trunc i64 %written_out.1 to i32
+  %.pre = trunc nuw i64 %written_out.1 to i32
   br label %for.end123
 
 for.cond40.preheader.lr.ph:                       ; preds = %if.end33
@@ -198,7 +198,7 @@ adapt.exit:                                       ; preds = %while.body.i, %cond
   br i1 %or.cond, label %if.end112, label %return
 
 if.end112:                                        ; preds = %adapt.exit
-  %7 = trunc i32 %delta.addr.0.lcssa.i to i16
+  %7 = trunc nuw i32 %delta.addr.0.lcssa.i to i16
   %div6.lhs.trunc.i = mul nuw i16 %7, 36
   %div6.rhs.trunc.i = add nuw nsw i16 %7, 38
   %div610.i = udiv i16 %div6.lhs.trunc.i, %div6.rhs.trunc.i
@@ -206,7 +206,7 @@ if.end112:                                        ; preds = %adapt.exit
   %add7.i = add i32 %k.0.lcssa.i, %div6.zext.i
   %rem68 = urem i32 %add58, %conv86
   %rem.zext = zext i32 %rem68 to i64
-  %8 = trunc i64 %div92 to i32
+  %8 = trunc nuw i64 %div92 to i32
   %conv104 = add i32 %n.093, %8
   %add.ptr = getelementptr inbounds i32, ptr %pDecoded, i64 %rem.zext
   %add.ptr113 = getelementptr inbounds i8, ptr %add.ptr, i64 4
@@ -233,7 +233,7 @@ return:                                           ; preds = %for.body15, %adapt.
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_a2ulabel(ptr noundef %in, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @ossl_a2ulabel(ptr noundef %in, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #2 {
 entry:
   %buf = alloca [512 x i32], align 16
   %pkt = alloca %struct.wpacket_st, align 8
@@ -284,7 +284,7 @@ if.else:                                          ; preds = %cond.end
   store i32 512, ptr %bufsize, align 4
   %add.ptr = getelementptr inbounds i8, ptr %inptr.0, i64 4
   %sub = add i64 %cond, -4
-  %call20 = call i32 @ossl_punycode_decode(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %buf, ptr noundef nonnull %bufsize), !range !9
+  %call20 = call i32 @ossl_punycode_decode(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %buf, ptr noundef nonnull %bufsize)
   %cmp21.not.not = icmp eq i32 %call20, 0
   br i1 %cmp21.not.not, label %end, label %for.cond.preheader
 
@@ -306,7 +306,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
-  %conv.i = trunc i32 %1 to i8
+  %conv.i = trunc nuw i32 %1 to i8
   store i8 %conv.i, ptr %seed, align 4
   br label %if.end34
 
@@ -316,7 +316,7 @@ if.else.i:                                        ; preds = %for.body
 
 if.then4.i:                                       ; preds = %if.else.i
   %shr.i = lshr i32 %1, 6
-  %2 = trunc i32 %shr.i to i8
+  %2 = trunc nuw i32 %shr.i to i8
   %conv5.i = or disjoint i8 %2, -64
   store i8 %conv5.i, ptr %seed, align 4
   %3 = trunc i32 %1 to i8
@@ -331,7 +331,7 @@ if.else13.i:                                      ; preds = %if.else.i
 
 if.then16.i:                                      ; preds = %if.else13.i
   %shr17.i = lshr i32 %1, 12
-  %5 = trunc i32 %shr17.i to i8
+  %5 = trunc nuw i32 %shr17.i to i8
   %conv20.i = or disjoint i8 %5, -32
   store i8 %conv20.i, ptr %seed, align 4
   %shr22.i = lshr i32 %1, 6
@@ -351,7 +351,7 @@ if.else33.i:                                      ; preds = %if.else13.i
 
 if.then36.i:                                      ; preds = %if.else33.i
   %shr37.i = lshr i32 %1, 18
-  %10 = trunc i32 %shr37.i to i8
+  %10 = trunc nuw i32 %shr37.i to i8
   %conv40.i = or disjoint i8 %10, -16
   store i8 %conv40.i, ptr %seed, align 4
   %shr42.i = lshr i32 %1, 12
@@ -383,7 +383,7 @@ if.end34:                                         ; preds = %if.then36.i, %if.th
   %spec.select14 = select i1 %tobool37.not, i32 0, i32 %result.128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end40, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %if.end40, label %for.body, !llvm.loop !9
 
 if.end40:                                         ; preds = %if.end34, %for.cond.preheader, %if.then15
   %result.3 = phi i32 [ %spec.select, %if.then15 ], [ %result.0, %for.cond.preheader ], [ %spec.select14, %if.end34 ]
@@ -452,5 +452,4 @@ attributes #7 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
-!10 = distinct !{!10, !5}
+!9 = distinct !{!9, !5}

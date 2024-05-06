@@ -877,7 +877,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %conv.i.i = trunc i32 %cp to i8
+  %conv.i.i = trunc nuw nsw i32 %cp to i8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %result, i64 1
   store i8 %conv.i.i, ptr %result, align 1
   br label %_ZN4utf88internal6appendIPhEET_jS3_.exit
@@ -888,7 +888,7 @@ if.else.i.i:                                      ; preds = %if.end
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
   %shr.i.i = lshr i32 %cp, 6
-  %3 = trunc i32 %shr.i.i to i8
+  %3 = trunc nuw i32 %shr.i.i to i8
   %conv3.i.i = or disjoint i8 %3, -64
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %result, i64 1
   store i8 %conv3.i.i, ptr %result, align 1
@@ -907,7 +907,7 @@ if.else8.i.i:                                     ; preds = %if.else.i.i
 
 if.then10.i.i:                                    ; preds = %if.else8.i.i
   %shr11.i.i = lshr i32 %cp, 12
-  %6 = trunc i32 %shr11.i.i to i8
+  %6 = trunc nuw i32 %shr11.i.i to i8
   %conv13.i.i = or disjoint i8 %6, -32
   store i8 %conv13.i.i, ptr %result, align 1
   %shr15.i.i = lshr i32 %cp, 6
@@ -924,8 +924,8 @@ if.then10.i.i:                                    ; preds = %if.else8.i.i
 
 if.else24.i.i:                                    ; preds = %if.else8.i.i
   %shr25.i.i = lshr i32 %cp, 18
-  %11 = trunc i32 %shr25.i.i to i8
-  %conv27.i.i = or i8 %11, -16
+  %11 = trunc nuw i32 %shr25.i.i to i8
+  %conv27.i.i = or disjoint i8 %11, -16
   store i8 %conv27.i.i, ptr %result, align 1
   %shr29.i.i = lshr i32 %cp, 12
   %12 = trunc i32 %shr29.i.i to i8

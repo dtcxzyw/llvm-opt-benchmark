@@ -41,7 +41,7 @@ if.end5:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end5
   %0 = load i32, ptr %delta, align 4
-  %call.i = call fastcc i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef 0, i32 noundef %0), !range !5
+  %call.i = call fastcc i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef 0, i32 noundef %0)
   %tobool10.not = icmp eq i32 %call.i, 0
   br i1 %tobool10.not, label %if.end12, label %err
 
@@ -201,7 +201,7 @@ if.end14.i.i.i:                                   ; preds = %if.end10.i.i.i
   br i1 %cmp15.i.i.i, label %overlay_fixup_one_phandle.exit.thread.i.i, label %if.end17.i.i.i
 
 if.end17.i.i.i:                                   ; preds = %if.end14.i.i.i
-  %rev.i.i.i.i = call i32 @llvm.bswap.i32(i32 %call7.i.i.i)
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %call7.i.i.i)
   store i32 %rev.i.i.i.i, ptr %phandle_prop.i.i.i, align 4
   %call19.i.i.i = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %fdto, i32 noundef %call11.i.i.i, ptr noundef %add.ptr28.i.i, i32 noundef %conv41.i.i, i32 noundef %conv47.i.i, ptr noundef nonnull %phandle_prop.i.i.i, i32 noundef 4) #8
   br label %overlay_fixup_one_phandle.exit.i.i
@@ -222,7 +222,7 @@ overlay_fixup_one_phandle.exit.i.i:               ; preds = %if.end17.i.i.i, %if
 do.cond.i.i:                                      ; preds = %overlay_fixup_one_phandle.exit.i.i
   %10 = load i32, ptr %len.i.i, align 4
   %cmp61.i.i = icmp sgt i32 %10, 0
-  br i1 %cmp61.i.i, label %do.body.i.i, label %overlay_fixup_phandle.exit.thread16.i, !llvm.loop !6
+  br i1 %cmp61.i.i, label %do.body.i.i, label %overlay_fixup_phandle.exit.thread16.i, !llvm.loop !5
 
 overlay_fixup_phandle.exit.thread16.i:            ; preds = %do.cond.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %label.i.i)
@@ -247,7 +247,7 @@ overlay_fixup_phandle.exit.i:                     ; preds = %if.then.i.i
 for.inc.i:                                        ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread16.i
   %call14.i = call i32 @fdt_next_property_offset(ptr noundef %fdto, i32 noundef %property.021.i) #8
   %cmp10.i = icmp sgt i32 %call14.i, -1
-  br i1 %cmp10.i, label %for.body.i, label %if.end20, !llvm.loop !8
+  br i1 %cmp10.i, label %for.body.i, label %if.end20, !llvm.loop !7
 
 if.end20:                                         ; preds = %for.inc.i, %if.end8.i, %if.end16
   %call21 = call fastcc i32 @overlay_merge(ptr noundef %fdt, ptr noundef %fdto)
@@ -309,7 +309,7 @@ if.end9:                                          ; preds = %if.end5
 for.inc:                                          ; preds = %if.end9, %for.body
   %call13 = tail call i32 @fdt_next_subnode(ptr noundef %fdto, i32 noundef %fragment.016) #8
   %cmp = icmp sgt i32 %call13, -1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %if.end, %if.end5, %if.end9, %for.inc, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %for.inc ], [ %call10, %if.end9 ], [ %call6, %if.end5 ], [ %call1, %if.end ]
@@ -552,7 +552,7 @@ if.end126:                                        ; preds = %if.else121, %if.the
 for.inc:                                          ; preds = %land.lhs.true, %if.else, %land.lhs.true57, %if.end24, %if.end126
   %call137 = call i32 @fdt_next_property_offset(ptr noundef %fdto, i32 noundef %prop.085) #8
   %cmp10 = icmp sgt i32 %call137, -1
-  br i1 %cmp10, label %for.body, label %return, !llvm.loop !10
+  br i1 %cmp10, label %for.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %lor.lhs.false, %if.end13, %if.end19, %if.end66, %if.end71, %if.end76, %get_path_len.exit, %if.end92, %if.then103, %if.then114, %for.inc, %for.body, %if.end8, %get_path_len.exit.thread, %if.end5, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %root_sym.0, %if.end5 ], [ %retval.0.i.ph, %get_path_len.exit.thread ], [ 0, %if.end8 ], [ %0, %for.body ], [ -15, %lor.lhs.false ], [ -15, %if.end13 ], [ -15, %if.end19 ], [ -16, %if.end66 ], [ -16, %if.end71 ], [ %call77, %if.end76 ], [ %retval.0.i, %get_path_len.exit ], [ %call97, %if.end92 ], [ %call104, %if.then103 ], [ %call116, %if.then114 ], [ 0, %for.inc ]
@@ -560,7 +560,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef %node, i32 noundef %delta) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef %node, i32 noundef %delta) unnamed_addr #0 {
 entry:
   %tmp.i.i19 = alloca i32, align 4
   %len.i20 = alloca i32, align 4
@@ -578,7 +578,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %1 = load i32, ptr %call.i, align 4
-  %rev.i.i = call i32 @llvm.bswap.i32(i32 %1)
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
   %add.i = add i32 %rev.i.i, %delta
   %cmp5.i = icmp ult i32 %add.i, %rev.i.i
   %cmp10.i = icmp eq i32 %add.i, -1
@@ -587,7 +587,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.end13.i:                                       ; preds = %if.end3.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
-  %rev.i.i.i = call i32 @llvm.bswap.i32(i32 %add.i)
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %add.i)
   store i32 %rev.i.i.i, ptr %tmp.i.i, align 4
   %call1.i.i = call i32 @fdt_setprop_inplace(ptr noundef %fdto, i32 noundef %node, ptr noundef nonnull @.str, ptr noundef nonnull %tmp.i.i, i32 noundef 4) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
@@ -618,7 +618,7 @@ if.end.i23:                                       ; preds = %if.end
 
 if.end3.i26:                                      ; preds = %if.end.i23
   %4 = load i32, ptr %call.i21, align 4
-  %rev.i.i27 = call i32 @llvm.bswap.i32(i32 %4)
+  %rev.i.i27 = call noundef i32 @llvm.bswap.i32(i32 %4)
   %add.i28 = add i32 %rev.i.i27, %delta
   %cmp5.i29 = icmp ult i32 %add.i28, %rev.i.i27
   %cmp10.i30 = icmp eq i32 %add.i28, -1
@@ -627,7 +627,7 @@ if.end3.i26:                                      ; preds = %if.end.i23
 
 if.end13.i32:                                     ; preds = %if.end3.i26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i19)
-  %rev.i.i.i33 = call i32 @llvm.bswap.i32(i32 %add.i28)
+  %rev.i.i.i33 = call noundef i32 @llvm.bswap.i32(i32 %add.i28)
   store i32 %rev.i.i.i33, ptr %tmp.i.i19, align 4
   %call1.i.i34 = call i32 @fdt_setprop_inplace(ptr noundef %fdto, i32 noundef %node, ptr noundef nonnull @.str.1, ptr noundef nonnull %tmp.i.i19, i32 noundef 4) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i19)
@@ -652,14 +652,14 @@ if.end6:                                          ; preds = %overlay_phandle_add
 
 for.body:                                         ; preds = %if.end6, %for.inc
   %child.041 = phi i32 [ %call13, %for.inc ], [ %call7, %if.end6 ]
-  %call9 = call fastcc i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef %child.041, i32 noundef %delta), !range !5
+  %call9 = call fastcc i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef %child.041, i32 noundef %delta)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body
   %call13 = call i32 @fdt_next_subnode(ptr noundef %fdto, i32 noundef %child.041) #8
   %cmp8 = icmp sgt i32 %call13, -1
-  br i1 %cmp8, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp8, label %for.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.body, %for.inc, %if.end6, %overlay_phandle_add_offset.exit35.thread, %overlay_phandle_add_offset.exit.thread, %overlay_phandle_add_offset.exit35, %overlay_phandle_add_offset.exit
   %retval.0 = phi i32 [ %retval.0.i, %overlay_phandle_add_offset.exit ], [ %retval.0.i25, %overlay_phandle_add_offset.exit35 ], [ %retval.0.i.ph, %overlay_phandle_add_offset.exit.thread ], [ %retval.0.i25.ph, %overlay_phandle_add_offset.exit35.thread ], [ 0, %if.end6 ], [ %call9, %for.body ], [ 0, %for.inc ]
@@ -722,13 +722,13 @@ for.body18:                                       ; preds = %for.cond15.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond15.preheader ]
   %arrayidx = getelementptr i32, ptr %call1, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx, align 4
-  %rev.i = call i32 @llvm.bswap.i32(i32 %5)
+  %rev.i = call noundef i32 @llvm.bswap.i32(i32 %5)
   %idx.ext = zext i32 %rev.i to i64
   %add.ptr = getelementptr i8, ptr %call7, i64 %idx.ext
   %6 = load i32, ptr %add.ptr, align 1
-  %rev.i32 = call i32 @llvm.bswap.i32(i32 %6)
+  %rev.i32 = call noundef i32 @llvm.bswap.i32(i32 %6)
   %add = add i32 %rev.i32, %delta
-  %rev.i33 = call i32 @llvm.bswap.i32(i32 %add)
+  %rev.i33 = call noundef i32 @llvm.bswap.i32(i32 %add)
   store i32 %rev.i33, ptr %adj_val, align 4
   %7 = load ptr, ptr %name, align 8
   %call22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
@@ -744,12 +744,12 @@ for.inc:                                          ; preds = %for.body18
   %8 = load i32, ptr %fixup_len, align 4
   %9 = sext i32 %8 to i64
   %cmp16 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %cmp16, label %for.body18, label %for.inc32, !llvm.loop !12
+  br i1 %cmp16, label %for.body18, label %for.inc32, !llvm.loop !11
 
 for.inc32:                                        ; preds = %for.inc, %for.cond15.preheader
   %call33 = call i32 @fdt_next_property_offset(ptr noundef %fdto, i32 noundef %fixup_prop.040) #8
   %cmp = icmp sgt i32 %call33, -1
-  br i1 %cmp, label %for.body, label %for.end34, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end34, !llvm.loop !12
 
 for.end34:                                        ; preds = %for.inc32, %entry
   %call35 = call i32 @fdt_first_subnode(ptr noundef %fdto, i32 noundef %fixup_node) #8
@@ -775,7 +775,7 @@ if.end49:                                         ; preds = %if.end45
 for.inc54:                                        ; preds = %if.end49
   %call55 = call i32 @fdt_next_subnode(ptr noundef %fdto, i32 noundef %fixup_child.042) #8
   %cmp37 = icmp sgt i32 %call55, -1
-  br i1 %cmp37, label %for.body39, label %return, !llvm.loop !14
+  br i1 %cmp37, label %for.body39, label %return, !llvm.loop !13
 
 return.loopexit60:                                ; preds = %for.body18
   br label %return
@@ -839,7 +839,7 @@ overlay_get_target_phandle.exit.thread:           ; preds = %if.end.i
 
 overlay_get_target_phandle.exit:                  ; preds = %if.end.i
   %1 = load i32, ptr %call.i, align 4
-  %rev.i.i = call i32 @llvm.bswap.i32(i32 %1)
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   switch i32 %rev.i.i, label %if.else7 [
     i32 -1, label %return
@@ -915,7 +915,7 @@ if.end5:                                          ; preds = %if.end
 for.inc:                                          ; preds = %if.end5
   %call9 = call i32 @fdt_next_property_offset(ptr noundef %fdto, i32 noundef %property.028) #8
   %cmp = icmp sgt i32 %call9, -1
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry
   %call10 = call i32 @fdt_first_subnode(ptr noundef %fdto, i32 noundef %node) #8
@@ -947,7 +947,7 @@ if.end27:                                         ; preds = %if.end24
 for.inc32:                                        ; preds = %if.end27
   %call33 = call i32 @fdt_next_subnode(ptr noundef %fdto, i32 noundef %subnode.030) #8
   %cmp12 = icmp sgt i32 %call33, -1
-  br i1 %cmp12, label %for.body13, label %return, !llvm.loop !16
+  br i1 %cmp12, label %for.body13, label %return, !llvm.loop !15
 
 return:                                           ; preds = %if.end5, %if.end, %for.body, %if.then19, %if.end24, %if.end27, %for.inc32, %for.end
   %retval.0 = phi i32 [ 0, %for.end ], [ -13, %if.then19 ], [ %nnode.0, %if.end24 ], [ %call28, %if.end27 ], [ 0, %for.inc32 ], [ %call6, %if.end5 ], [ %0, %if.end ], [ -13, %for.body ]
@@ -1004,15 +1004,14 @@ attributes #9 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 -1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}

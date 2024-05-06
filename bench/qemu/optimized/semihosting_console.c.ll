@@ -119,7 +119,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %call2, label %do.end.split.loop.exit6, label %do.body, !llvm.loop !5
 
 do.end.split.loop.exit6:                          ; preds = %land.rhs
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %do.end.split.loop.exit6

@@ -914,7 +914,7 @@ define dso_local void @__i915_gem_object_invalidate_frontbuffer(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_gem_object_read_from_page(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @i915_gem_object_read_from_page(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 640
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
@@ -1416,7 +1416,7 @@ define dso_local void @i915_objects_module_exit() local_unnamed_addr #0 align 16
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @i915_objects_module_init() local_unnamed_addr #11 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @i915_objects_module_init() local_unnamed_addr #11 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.6, i32 noundef 1152, i32 noundef 8, i32 noundef 8192, ptr noundef null) #18
   store ptr %1, ptr @slab_objects, align 8
   %2 = icmp eq ptr %1, null
@@ -1535,7 +1535,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @kref_get_unless_zero(ptr noundef %0) unnamed_addr #15 align 16 {
+define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0) unnamed_addr #15 align 16 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %.preheader

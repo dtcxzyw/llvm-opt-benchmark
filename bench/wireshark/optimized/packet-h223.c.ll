@@ -327,7 +327,7 @@ define internal i32 @circuit_chain_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @circuit_chain_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @circuit_chain_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -644,7 +644,7 @@ find_or_create_call_info_circ.exit.thread.i:      ; preds = %find_or_create_call
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds i8, ptr %1, i64 216
   %64 = load ptr, ptr %63, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i32 %60, ptr %58, align 8
   %65 = icmp eq i32 %62, 0
   br i1 %65, label %copy_address_wmem.exit.i.i, label %66
@@ -1557,7 +1557,7 @@ define internal noundef i32 @attempt_mux_level0_header_parse(i32 %0, i32 %1, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @attempt_mux_level1_header_parse(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #8 {
+define internal range(i32 0, 2) i32 @attempt_mux_level1_header_parse(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #8 {
   %4 = icmp ult i32 %0, 2
   br i1 %4, label %11, label %5
 
@@ -1578,7 +1578,7 @@ define internal noundef i32 @attempt_mux_level1_header_parse(i32 noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @attempt_mux_level2_3_header_parse(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 0, 2) i32 @attempt_mux_level2_3_header_parse(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 {
   %4 = icmp ult i32 %0, 3
   br i1 %4, label %20, label %5
 
@@ -1650,7 +1650,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   br i1 %17, label %19, label %.lr.ph
 
 19:                                               ; preds = %18
-  %20 = tail call fastcc i32 @mux_element_sublist_size(ptr noundef %1, ptr noundef nonnull %14), !range !11
+  %20 = tail call fastcc i32 @mux_element_sublist_size(ptr noundef %1, ptr noundef nonnull %14)
   %21 = add i32 %.05974, %20
   %.not6569 = icmp ugt i32 %21, %11
   br i1 %.not6569, label %.loopexit, label %.lr.ph71
@@ -1661,7 +1661,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   %23 = tail call fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %22, i32 noundef %.170, i32 noundef %7, i32 noundef %8, i32 noundef %9)
   %24 = add i32 %23, %20
   %.not65 = icmp ugt i32 %24, %11
-  br i1 %.not65, label %.loopexit, label %.lr.ph71, !llvm.loop !12
+  br i1 %.not65, label %.loopexit, label %.lr.ph71, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %.05868 = phi i32 [ %27, %.lr.ph ], [ 0, %18 ]
@@ -1672,7 +1672,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   %28 = load i16, ptr %15, align 2
   %29 = zext i16 %28 to i32
   %30 = icmp ult i32 %27, %29
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 31:                                               ; preds = %13
   %32 = sub i32 %11, %.05974
@@ -1698,7 +1698,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   %43 = getelementptr inbounds i8, ptr %.075, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit, %10
   %.059.lcssa = phi i32 [ %6, %10 ], [ %.3, %.loopexit ]
@@ -1709,7 +1709,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mux_element_sublist_size(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @mux_element_sublist_size(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @increment_dissection_depth(ptr noundef %0) #12
@@ -1731,7 +1731,7 @@ define internal fastcc i32 @mux_element_sublist_size(ptr noundef %0, ptr nocaptu
   br i1 %.not16, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = tail call fastcc i32 @mux_element_sublist_size(ptr noundef %0, ptr noundef nonnull %5), !range !11
+  %10 = tail call fastcc i32 @mux_element_sublist_size(ptr noundef %0, ptr noundef nonnull %5)
   %11 = mul i32 %10, %8
   br label %12
 
@@ -1741,7 +1741,7 @@ define internal fastcc i32 @mux_element_sublist_size(ptr noundef %0, ptr nocaptu
   %13 = getelementptr inbounds i8, ptr %.01318, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %12
   tail call void @decrement_dissection_depth(ptr noundef %0) #12
@@ -1885,7 +1885,7 @@ circuit_chain_lookup.exit:                        ; preds = %30, %38
   %73 = getelementptr inbounds i8, ptr %71, i64 8
   %74 = load i32, ptr %73, align 8
   %.not13.i = icmp ugt i32 %74, %64
-  br i1 %.not13.i, label %find_h223_lc_params.exit, label %68, !llvm.loop !16
+  br i1 %.not13.i, label %find_h223_lc_params.exit, label %68, !llvm.loop !15
 
 find_h223_lc_params.exit:                         ; preds = %69, %72
   %75 = load ptr, ptr %.0.i80, align 8
@@ -2071,7 +2071,7 @@ proto_item_set_generated.exit.i:                  ; preds = %136, %133, %125
   %163 = getelementptr [256 x i8], ptr @crctable, i64 0, i64 %162
   %164 = load i8, ptr %163, align 1
   %.not10.i.i = icmp eq i32 %158, 0
-  br i1 %.not10.i.i, label %h223_al2_crc8bit.exit.i, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not10.i.i, label %h223_al2_crc8bit.exit.i, label %.lr.ph.i.i, !llvm.loop !16
 
 h223_al2_crc8bit.exit.i:                          ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.08.lcssa.i.i = phi i8 [ 0, %.preheader.i.i ], [ %164, %.lr.ph.i.i ]
@@ -2221,10 +2221,9 @@ attributes #14 = { nounwind returns_twice }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 1, i32 0}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

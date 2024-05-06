@@ -119,7 +119,7 @@ common.resume:                                    ; preds = %35, %29, %105, %77
   %43 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr }, i64 } } }, [4 x i64] }], ptr %.val, i64 0, i64 %41
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hcca577643f41b41aE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 %43)
   %44 = load i64, ptr %7, align 8, !range !18, !noundef !4
-  %trunc = trunc i64 %44 to i1
+  %trunc = trunc nuw i64 %44 to i1
   br i1 %trunc, label %108, label %45
 
 45:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h71660e31915976dfE.exit"
@@ -144,7 +144,7 @@ common.resume:                                    ; preds = %35, %29, %105, %77
 
 "_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17h4388dc2950b099f1E.exit": ; preds = %51
   %56 = getelementptr inbounds i8, ptr %47, i64 4
-  %57 = trunc i8 %49 to i1
+  %57 = trunc nuw i8 %49 to i1
   br i1 %57, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %58
 
 58:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17h4388dc2950b099f1E.exit"
@@ -235,7 +235,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %63, %_ZN3
   %93 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %47, i64 4
-  %95 = trunc i8 %49 to i1
+  %95 = trunc nuw i8 %49 to i1
   br i1 %95, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i38, label %96
 
 96:                                               ; preds = %83
@@ -382,7 +382,7 @@ define internal fastcc void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0
@@ -429,7 +429,7 @@ define internal fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Resu
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %.val, i64 4
-  %8 = trunc i8 %.val1 to i1
+  %8 = trunc nuw i8 %.val1 to i1
   br i1 %8, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %9
 
 9:                                                ; preds = %6
@@ -459,7 +459,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %14, %_ZN3
   %19 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %.val, i64 4
-  %21 = trunc i8 %.val1 to i1
+  %21 = trunc nuw i8 %.val1 to i1
   br i1 %21, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.12279157293026222448.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %18
@@ -644,7 +644,7 @@ declare void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() unnamed
 declare noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h658c934b8397a2acE() unnamed_addr #0
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.18242890092585159480(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.18242890092585159480(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #12 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

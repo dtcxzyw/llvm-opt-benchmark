@@ -401,7 +401,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   %157 = lshr i32 %141, 6
   %158 = or disjoint i32 %156, %157
   %159 = icmp eq i32 %158, 8191
-  %160 = trunc i32 %158 to i16
+  %160 = trunc nuw nsw i32 %158 to i16
   %161 = select i1 %159, i16 0, i16 %160
   %162 = zext nneg i16 %161 to i32
   %163 = getelementptr [64 x i32], ptr %129, i64 0, i64 %indvars.iv74.i.i
@@ -439,7 +439,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   br label %attach_info.exit
 
 ._crit_edge.loopexit.i.i:                         ; preds = %131
-  %181 = trunc i32 %indvars.iv.next.i.i to i16
+  %181 = trunc nuw nsw i32 %indvars.iv.next.i.i to i16
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %127
@@ -611,7 +611,7 @@ attach_info.exit:                                 ; preds = %assign_fph_pch.exit
   store i8 2, ptr %262, align 4
   store i32 4, ptr %5, align 4
   %263 = lshr i32 %259, 20
-  %264 = trunc i32 %263 to i16
+  %264 = trunc nuw nsw i32 %263 to i16
   %265 = and i16 %264, 255
   %266 = getelementptr inbounds i8, ptr %5, i64 8
   store i16 %265, ptr %266, align 4

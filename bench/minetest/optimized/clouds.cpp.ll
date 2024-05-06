@@ -244,7 +244,7 @@ $_ZTIN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE = comdat any
 @_ZTT6Clouds = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV6Clouds, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC6Clouds0_N3irr5scene10ISceneNodeE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC6Clouds0_N3irr5scene10ISceneNodeE, i32 0, i32 1, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV6Clouds, i32 0, i32 1, i32 3)], align 8
 @g_profiler = external local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [21 x i8] c"Clouds::updateMesh()\00", align 1
-@tracestream = external thread_local global %class.LogStream, align 8
+@tracestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.4 = private unnamed_addr constant [22 x i8] c"Cloud::updateMesh(): \00", align 1
 @.str.5 = private unnamed_addr constant [10 x i8] c" vertices\00", align 1
 @.str.6 = private unnamed_addr constant [13 x i8] c"cloud_radius\00", align 1
@@ -2527,7 +2527,7 @@ invoke.cont79:                                    ; preds = %if.then46, %invoke.
   %61 = load i16, ptr %m_cloud_radius_i, align 8, !tbaa !123
   %conv82 = zext i16 %61 to i32
   %mul83 = shl nuw nsw i32 %conv82, 1
-  %mul86 = mul nsw i32 %mul83, %conv82
+  %mul86 = mul nuw nsw i32 %mul83, %conv82
   %tobool.not.i.i.i = icmp eq i32 %mul86, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont91, label %if.then.i.i.i
 

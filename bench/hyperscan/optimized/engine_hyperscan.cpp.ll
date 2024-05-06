@@ -3040,7 +3040,7 @@ invoke.cont276:                                   ; preds = %if.end274
   store i32 %138, ptr %crc32280, align 16
   %streaming = getelementptr inbounds i8, ptr %cs, i64 116
   %and.lobit = lshr exact i32 %and, 1
-  %frombool = trunc i32 %and.lobit to i8
+  %frombool = trunc nuw nsw i32 %and.lobit to i8
   store i8 %frombool, ptr %streaming, align 4
   %139 = load i64, ptr %streamSize, align 8
   store i64 %139, ptr %streamSize.i, align 8

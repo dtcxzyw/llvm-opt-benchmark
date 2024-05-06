@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [19 x i8] c"LEGACY_GOST_PKCS12\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PKCS12_mac_present(ptr nocapture noundef readonly %p12) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_mac_present(ptr nocapture noundef readonly %p12) local_unnamed_addr #0 {
 entry:
   %mac = getelementptr inbounds i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac, align 8
@@ -91,14 +91,14 @@ if.end21:                                         ; preds = %if.end21.sink.split
 declare void @X509_SIG_get0(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_gen_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_gen_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @pkcs12_gen_mac(ptr noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pkcs12_gen_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) unnamed_addr #1 {
 entry:
   %out.i = alloca [96 x i8], align 16
   %key = alloca [64 x i8], align 16
@@ -204,7 +204,7 @@ if.then54:                                        ; preds = %land.lhs.true
 
 pkcs12_gen_gost_mac_key.exit:                     ; preds = %if.then54
   %add.ptr4.i = getelementptr inbounds i8, ptr %out.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key, ptr noundef nonnull align 16 dereferenceable(32) %add.ptr4.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %key, ptr noundef nonnull align 16 dereferenceable(32) %add.ptr4.i, i64 32, i1 false)
   call void @OPENSSL_cleanse(ptr noundef nonnull %out.i, i64 noundef 96) #5
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %out.i)
   br label %if.end81
@@ -275,7 +275,7 @@ return:                                           ; preds = %if.end12, %err, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_verify_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_verify_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen) local_unnamed_addr #1 {
 entry:
   %mac = alloca [64 x i8], align 16
   %maclen = alloca i32, align 4
@@ -340,7 +340,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS12_set_mac(ptr nocapture noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %md_type) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_set_mac(ptr nocapture noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %md_type) local_unnamed_addr #1 {
 entry:
   %mac = alloca [64 x i8], align 16
   %maclen = alloca i32, align 4
@@ -356,7 +356,7 @@ if.end:                                           ; preds = %if.then, %entry
   %md_type.addr.0 = phi ptr [ %call, %if.then ], [ %md_type, %entry ]
   %tobool.not = icmp eq i32 %iter, 0
   %spec.store.select = select i1 %tobool.not, i32 2048, i32 %iter
-  %call3 = tail call i32 @PKCS12_setup_mac(ptr noundef %p12, i32 noundef %spec.store.select, ptr noundef %salt, i32 noundef %saltlen, ptr noundef %md_type.addr.0), !range !4
+  %call3 = tail call i32 @PKCS12_setup_mac(ptr noundef %p12, i32 noundef %spec.store.select, ptr noundef %salt, i32 noundef %saltlen, ptr noundef %md_type.addr.0)
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.end6
 
@@ -402,7 +402,7 @@ return:                                           ; preds = %if.end10, %if.then1
 declare ptr @EVP_sha256() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS12_setup_mac(ptr nocapture noundef %p12, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %md_type) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_setup_mac(ptr nocapture noundef %p12, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %md_type) local_unnamed_addr #1 {
 entry:
   %macalg = alloca ptr, align 8
   %mac = getelementptr inbounds i8, ptr %p12, i64 8
@@ -606,4 +606,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

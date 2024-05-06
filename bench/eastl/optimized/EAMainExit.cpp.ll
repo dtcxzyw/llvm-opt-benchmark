@@ -47,7 +47,7 @@ declare noundef i32 @_ZN2EA6EAMain8Internal14EAMainShutdownEi(i32 noundef) local
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN2EA6EAMain16SignalToExitCodeEi(i32 noundef %signal) local_unnamed_addr #3 {
+define dso_local noundef range(i32 2, 9) i32 @_ZN2EA6EAMain16SignalToExitCodeEi(i32 noundef %signal) local_unnamed_addr #3 {
 entry:
   %switch.tableidx = add i32 %signal, -1
   %0 = icmp ult i32 %switch.tableidx, 11

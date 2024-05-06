@@ -701,7 +701,7 @@ define internal void @linkwatch_event(ptr nocapture readnone %0) #0 align 16 {
   %3 = load i64, ptr @linkwatch_nextevent, align 8
   %4 = sub i64 %2, %3
   %5 = lshr i64 %4, 63
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   tail call fastcc void @__linkwatch_run_queue(i32 noundef %6)
   tail call void @rtnl_unlock() #4
   ret void

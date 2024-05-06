@@ -955,7 +955,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_Py_FalseStruct = external global %struct._longobject, align 8
 @.str.42 = private unnamed_addr constant [19 x i8] c"object.__getattr__\00", align 1
 @.str.43 = private unnamed_addr constant [3 x i8] c"Os\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.44 = private unnamed_addr constant [28 x i8] c"<coroutine object %S at %p>\00", align 1
 @coro_send_doc = internal constant [91 x i8] c"send(arg) -> send 'arg' into coroutine,\0Areturn next iterated value or raise StopIteration.\00", align 16
 @coro_throw_doc = internal constant [223 x i8] c"throw(value)\0Athrow(type[,value[,traceback]])\0A\0ARaise exception in coroutine, return next iterated value or raise\0AStopIteration.\0Athe (type, val, tb) signature is deprecated, \0Aand may be removed in a future version of Python.\00", align 16
@@ -1173,7 +1173,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 if.then10:                                        ; preds = %if.then.i, %if.end.i.i.i
   %4 = phi i8 [ -1, %if.then.i ], [ %.pre, %if.end.i.i.i ]
   store i8 0, ptr %gi_frame_state, align 1
-  %call14 = tail call fastcc i32 @gen_close_iter(ptr noundef nonnull %2), !range !5
+  %call14 = tail call fastcc i32 @gen_close_iter(ptr noundef nonnull %2)
   store i8 %4, ptr %gi_frame_state, align 1
   %5 = load i64, ptr %2, align 8
   %6 = and i64 %5, 2147483648
@@ -1265,7 +1265,7 @@ if.then45:                                        ; preds = %if.end42
   br label %return
 
 if.end46:                                         ; preds = %if.end42
-  %call47 = call i32 @_PyGen_FetchStopIterationValue(ptr noundef nonnull %retval1), !range !5
+  %call47 = call i32 @_PyGen_FetchStopIterationValue(ptr noundef nonnull %retval1)
   %cmp48 = icmp eq i32 %call47, 0
   %16 = load ptr, ptr %retval1, align 8
   %spec.select19 = select i1 %cmp48, ptr %16, ptr null
@@ -1309,7 +1309,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyGen_SetStopIterationValue(ptr noundef %value) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PyGen_SetStopIterationValue(ptr noundef %value) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1360,7 +1360,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyGen_FetchStopIterationValue(ptr nocapture noundef writeonly %pvalue) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PyGen_FetchStopIterationValue(ptr nocapture noundef writeonly %pvalue) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @PyExc_StopIteration, align 8
   %call = tail call i32 @PyErr_ExceptionMatches(ptr noundef %0) #7
@@ -1728,7 +1728,7 @@ declare ptr @PyObject_SelfIter(ptr noundef) #2
 define internal ptr @gen_iternext(ptr noundef %gen) #1 {
 entry:
   %result = alloca ptr, align 8
-  %call = call fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef null, ptr noundef nonnull %result, i32 noundef 0, i32 noundef 0), !range !6
+  %call = call fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef null, ptr noundef nonnull %result, i32 noundef 0, i32 noundef 0)
   %cmp = icmp eq i32 %call, 0
   %.pre = load ptr, ptr %result, align 8
   br i1 %cmp, label %if.then, label %if.end7
@@ -2051,7 +2051,7 @@ while.body.i:                                     ; preds = %_PyFrame_IsIncomple
   %previous.i = getelementptr inbounds i8, ptr %frame.addr.08.i, i64 8
   %49 = load ptr, ptr %previous.i, align 8
   %tobool.not.i = icmp eq ptr %49, null
-  br i1 %tobool.not.i, label %_PyFrame_GetFirstComplete.exit, label %land.rhs.i, !llvm.loop !7
+  br i1 %tobool.not.i, label %_PyFrame_GetFirstComplete.exit, label %land.rhs.i, !llvm.loop !5
 
 _PyFrame_GetFirstComplete.exit:                   ; preds = %land.rhs.i, %_PyFrame_IsIncomplete.exit.i, %while.body.i, %if.else
   %frame.addr.0.lcssa.i = phi ptr [ null, %if.else ], [ %frame.addr.08.i, %_PyFrame_IsIncomplete.exit.i ], [ null, %while.body.i ], [ %frame.addr.08.i, %land.rhs.i ]
@@ -2123,7 +2123,7 @@ while.body.i:                                     ; preds = %_PyFrame_IsIncomple
   %previous.i = getelementptr inbounds i8, ptr %frame.addr.08.i, i64 8
   %5 = load ptr, ptr %previous.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %_PyFrame_GetFirstComplete.exit.thread, label %land.rhs.i, !llvm.loop !7
+  br i1 %tobool.not.i, label %_PyFrame_GetFirstComplete.exit.thread, label %land.rhs.i, !llvm.loop !5
 
 _PyFrame_GetFirstComplete.exit.thread:            ; preds = %for.body, %while.body.i
   %inc44 = add nuw nsw i32 %frame_count.037, 1
@@ -2132,7 +2132,7 @@ _PyFrame_GetFirstComplete.exit.thread:            ; preds = %for.body, %while.bo
 _PyFrame_GetFirstComplete.exit:                   ; preds = %land.rhs.i, %_PyFrame_IsIncomplete.exit.i
   %inc = add nuw nsw i32 %frame_count.037, 1
   %cmp = icmp slt i32 %inc, %origin_depth
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %_PyFrame_GetFirstComplete.exit, %_PyFrame_GetFirstComplete.exit.thread
   %frame_count.0.lcssa = phi i32 [ %inc44, %_PyFrame_GetFirstComplete.exit.thread ], [ %inc, %_PyFrame_GetFirstComplete.exit ]
@@ -2211,13 +2211,13 @@ while.body.i23:                                   ; preds = %_PyFrame_IsIncomple
   %previous.i24 = getelementptr inbounds i8, ptr %frame.addr.08.i20, i64 8
   %14 = load ptr, ptr %previous.i24, align 8
   %tobool.not.i25 = icmp eq ptr %14, null
-  br i1 %tobool.not.i25, label %_PyFrame_GetFirstComplete.exit34, label %land.rhs.i19, !llvm.loop !7
+  br i1 %tobool.not.i25, label %_PyFrame_GetFirstComplete.exit34, label %land.rhs.i19, !llvm.loop !5
 
 _PyFrame_GetFirstComplete.exit34:                 ; preds = %land.rhs.i19, %_PyFrame_IsIncomplete.exit.i26, %while.body.i23, %if.end13
   %frame.addr.0.lcssa.i22 = phi ptr [ null, %if.end13 ], [ %frame.addr.08.i20, %_PyFrame_IsIncomplete.exit.i26 ], [ null, %while.body.i23 ], [ %frame.addr.08.i20, %land.rhs.i19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %return, label %for.body7, !llvm.loop !10
+  br i1 %exitcond.not, label %return, label %for.body7, !llvm.loop !8
 
 return:                                           ; preds = %_PyFrame_GetFirstComplete.exit34, %for.end.thread, %if.end.i, %if.then1.i, %if.then12, %for.end
   %retval.0 = phi ptr [ null, %for.end ], [ null, %if.then12 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call150, %for.end.thread ], [ %call1, %_PyFrame_GetFirstComplete.exit34 ]
@@ -2770,7 +2770,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @PyObject_GC_Del(ptr noundef %3) #7
   %4 = load i32, ptr %value_numfree, align 8
   %tobool.not = icmp eq i32 %4, 0
-  br i1 %tobool.not, label %while.cond2.preheader, label %while.body, !llvm.loop !11
+  br i1 %tobool.not, label %while.cond2.preheader, label %while.body, !llvm.loop !9
 
 while.body4:                                      ; preds = %while.body4.lr.ph, %while.body4
   %5 = phi i32 [ %1, %while.body4.lr.ph ], [ %7, %while.body4 ]
@@ -2782,7 +2782,7 @@ while.body4:                                      ; preds = %while.body4.lr.ph, 
   tail call void @PyObject_GC_Del(ptr noundef %6) #7
   %7 = load i32, ptr %asend_numfree, align 8
   %tobool3.not = icmp eq i32 %7, 0
-  br i1 %tobool3.not, label %while.end10, label %while.body4, !llvm.loop !12
+  br i1 %tobool3.not, label %while.end10, label %while.body4, !llvm.loop !10
 
 while.end10:                                      ; preds = %while.body4, %while.cond2.preheader
   ret void
@@ -2819,7 +2819,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   tail call void @PyObject_GC_Del(ptr noundef %3) #7
   %4 = load i32, ptr %value_numfree.i, align 8
   %tobool.not.i = icmp eq i32 %4, 0
-  br i1 %tobool.not.i, label %while.cond2.preheader.i, label %while.body.i, !llvm.loop !11
+  br i1 %tobool.not.i, label %while.cond2.preheader.i, label %while.body.i, !llvm.loop !9
 
 while.body4.i:                                    ; preds = %while.body4.i, %while.body4.lr.ph.i
   %5 = phi i32 [ %1, %while.body4.lr.ph.i ], [ %7, %while.body4.i ]
@@ -2831,7 +2831,7 @@ while.body4.i:                                    ; preds = %while.body4.i, %whi
   tail call void @PyObject_GC_Del(ptr noundef %6) #7
   %7 = load i32, ptr %asend_numfree.i, align 8
   %tobool3.not.i = icmp eq i32 %7, 0
-  br i1 %tobool3.not.i, label %_PyAsyncGen_ClearFreeLists.exit, label %while.body4.i, !llvm.loop !12
+  br i1 %tobool3.not.i, label %_PyAsyncGen_ClearFreeLists.exit, label %while.body4.i, !llvm.loop !10
 
 _PyAsyncGen_ClearFreeLists.exit:                  ; preds = %while.body4.i, %while.cond2.preheader.i
   ret void
@@ -3347,7 +3347,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gen_close_iter(ptr noundef %yf) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @gen_close_iter(ptr noundef %yf) unnamed_addr #1 {
 entry:
   %meth = alloca ptr, align 8
   %0 = getelementptr i8, ptr %yf, i64 8
@@ -3454,7 +3454,7 @@ declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @gen_send_ex(ptr noundef %gen, ptr noundef %arg, i32 noundef %exc, i32 noundef %closing) unnamed_addr #1 {
 entry:
   %result = alloca ptr, align 8
-  %call = call fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr noundef nonnull %result, i32 noundef %exc, i32 noundef %closing), !range !6
+  %call = call fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr noundef nonnull %result, i32 noundef %exc, i32 noundef %closing)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end11
 
@@ -3559,7 +3559,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly %presult, i32 noundef %exc, i32 noundef %closing) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly %presult, i32 noundef %exc, i32 noundef %closing) unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3766,9 +3766,9 @@ declare i32 @PyObject_CallFinalizerFromDealloc(ptr noundef) local_unnamed_addr #
 declare void @_PyFrame_ClearExceptCode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PyGen_am_send(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly %result) #1 {
+define internal range(i32 -1, 2) i32 @PyGen_am_send(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly %result) #1 {
 entry:
-  %call = tail call fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr noundef %result, i32 noundef 0, i32 noundef 0), !range !6
+  %call = tail call fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr noundef %result, i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
@@ -3898,7 +3898,7 @@ if.then:                                          ; preds = %if.then.i, %if.end.
 if.then4:                                         ; preds = %if.then
   %5 = load i8, ptr %gi_frame_state.i, align 1
   store i8 0, ptr %gi_frame_state.i, align 1
-  %call6 = tail call fastcc i32 @gen_close_iter(ptr noundef nonnull %2), !range !5
+  %call6 = tail call fastcc i32 @gen_close_iter(ptr noundef nonnull %2)
   store i8 %5, ptr %gi_frame_state.i, align 1
   %6 = load i64, ptr %2, align 8
   %7 = and i64 %6, 2147483648
@@ -4281,7 +4281,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gen_set_name(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #1 {
+define internal range(i32 -1, 1) i32 @gen_set_name(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4357,7 +4357,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gen_set_qualname(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #1 {
+define internal range(i32 -1, 1) i32 @gen_set_qualname(ptr nocapture noundef %op, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4789,7 +4789,7 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal ptr @async_gen_anext(ptr noundef %o) #1 {
 entry:
-  %call = tail call fastcc i32 @async_gen_init_hooks(ptr noundef %o), !range !13
+  %call = tail call fastcc i32 @async_gen_init_hooks(ptr noundef %o)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -4863,7 +4863,7 @@ return:                                           ; preds = %_Py_NewRef.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @async_gen_init_hooks(ptr noundef %o) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @async_gen_init_hooks(ptr noundef %o) unnamed_addr #1 {
 entry:
   %ag_hooks_inited = getelementptr inbounds i8, ptr %o, i64 64
   %0 = load i8, ptr %ag_hooks_inited, align 8
@@ -4955,7 +4955,7 @@ return:                                           ; preds = %if.end5, %if.end10,
 ; Function Attrs: nounwind uwtable
 define internal ptr @async_gen_asend(ptr noundef %o, ptr noundef %arg) #1 {
 entry:
-  %call = tail call fastcc i32 @async_gen_init_hooks(ptr noundef %o), !range !13
+  %call = tail call fastcc i32 @async_gen_init_hooks(ptr noundef %o)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -5057,7 +5057,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.then, %entry
-  %call5 = tail call fastcc i32 @async_gen_init_hooks(ptr noundef %o), !range !13
+  %call5 = tail call fastcc i32 @async_gen_init_hooks(ptr noundef %o)
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.end7, label %return
 
@@ -5123,7 +5123,7 @@ return:                                           ; preds = %_Py_XNewRef.exit.i,
 ; Function Attrs: nounwind uwtable
 define internal ptr @async_gen_aclose(ptr noundef %o, ptr nocapture readnone %arg) #1 {
 entry:
-  %call = tail call fastcc i32 @async_gen_init_hooks(ptr noundef %o), !range !13
+  %call = tail call fastcc i32 @async_gen_init_hooks(ptr noundef %o)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -5888,12 +5888,9 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = !{i32 -1, i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{i32 0, i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

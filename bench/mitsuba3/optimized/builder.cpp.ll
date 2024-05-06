@@ -163,7 +163,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11newInstNodeEPPN
   store i32 %3, ptr %26, align 4, !tbaa !45
   %27 = getelementptr inbounds i8, ptr %13, i64 56
   store i64 0, ptr %27, align 4
-  %28 = trunc i32 %8 to i8
+  %28 = trunc nuw nsw i32 %8 to i8
   %29 = getelementptr inbounds i8, ptr %13, i64 19
   store i8 %28, ptr %29, align 1, !tbaa !16
   %30 = trunc i32 %4 to i8
@@ -1678,7 +1678,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder7addPassEPNS0_4Pa
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder10deletePassEPNS0_4PassE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1011BaseBuilder10deletePassEPNS0_4PassE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = icmp eq ptr %4, null
@@ -2053,10 +2053,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5_emitEjRKNS0_8Op
   store i32 %78, ptr %102, align 4, !tbaa !45
   %103 = getelementptr inbounds i8, ptr %85, i64 56
   store i64 0, ptr %103, align 4
-  %104 = trunc i32 %80 to i8
+  %104 = trunc nuw nsw i32 %80 to i8
   %105 = getelementptr inbounds i8, ptr %85, i64 19
   store i8 %104, ptr %105, align 1, !tbaa !16
-  %106 = trunc i32 %32 to i8
+  %106 = trunc nuw nsw i32 %32 to i8
   store i8 %106, ptr %99, align 2, !tbaa !16
   %107 = getelementptr inbounds i8, ptr %0, i64 88
   %108 = getelementptr inbounds i8, ptr %0, i64 92

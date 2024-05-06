@@ -37,7 +37,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) #3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_global_init(i64 noundef %flags) local_unnamed_addr #5 {
+define range(i32 0, 3) i32 @curl_global_init(i64 noundef %flags) local_unnamed_addr #5 {
 entry:
   %0 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not2.i = icmp eq i32 %0, 0
@@ -99,7 +99,7 @@ global_init.exit:                                 ; preds = %curl_simple_lock_lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_global_init_mem(i64 noundef %flags, ptr noundef %m, ptr noundef %f, ptr noundef %r, ptr noundef %s, ptr noundef %c) local_unnamed_addr #5 {
+define range(i32 0, 3) i32 @curl_global_init_mem(i64 noundef %flags, ptr noundef %m, ptr noundef %f, ptr noundef %r, ptr noundef %s, ptr noundef %c) local_unnamed_addr #5 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %f, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %m, i64 1
@@ -1293,7 +1293,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_easy_upkeep(ptr noundef %data) local_unnamed_addr #5 {
+define range(i32 0, 44) i32 @curl_easy_upkeep(ptr noundef %data) local_unnamed_addr #5 {
 entry:
   %now.i = alloca %struct.curltime, align 8
   %tobool.not = icmp eq ptr %data, null

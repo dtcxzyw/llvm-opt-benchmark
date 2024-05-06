@@ -654,7 +654,7 @@ declare dso_local i32 @__sock_cmsg_send(ptr noundef, ptr noundef, ptr noundef) l
 declare dso_local i32 @ip_options_get(ptr noundef, ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_ra_control(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @ip_ra_control(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 514
@@ -1351,7 +1351,7 @@ define dso_local void @ip_sock_set_recverr(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @ip_sock_set_mtu_discover(ptr noundef %0, i32 noundef %1) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ip_sock_set_mtu_discover(ptr noundef %0, i32 noundef %1) #5 align 16 {
   %3 = icmp ugt i32 %1, 5
   br i1 %3, label %7, label %4
 

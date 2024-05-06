@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/ssl_rsa.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_use_certificate(ptr nocapture noundef readonly %ssl, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_use_certificate(ptr nocapture noundef readonly %ssl, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %if.then, label %if.end
@@ -18,7 +18,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cert = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %call = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef nonnull %x), !range !7
+  %call = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef nonnull %x)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -29,7 +29,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_set_cert(ptr nocapture noundef %c, ptr noundef %x) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr nocapture noundef %c, ptr noundef %x) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get_pubkey(ptr noundef %x) #5
   %cmp = icmp eq ptr %call, null
@@ -90,7 +90,7 @@ return:                                           ; preds = %if.end16, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_use_certificate_ASN1(ptr nocapture noundef readonly %ssl, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_use_certificate_ASN1(ptr nocapture noundef readonly %ssl, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp slt i64 %der_len, 0
@@ -118,7 +118,7 @@ if.then3:                                         ; preds = %if.end
 SSL_use_certificate.exit:                         ; preds = %if.end
   %cert.i = getelementptr inbounds i8, ptr %ssl, i64 136
   %1 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef nonnull %call), !range !7
+  %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef nonnull %call)
   call void @X509_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -132,7 +132,7 @@ declare ptr @d2i_X509(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_use_RSAPrivateKey(ptr nocapture noundef readonly %ssl, ptr noundef %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_use_RSAPrivateKey(ptr nocapture noundef readonly %ssl, ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rsa, null
   br i1 %cmp, label %if.then, label %if.end
@@ -155,7 +155,7 @@ if.end3:                                          ; preds = %if.end
   %call5 = tail call i32 @EVP_PKEY_assign_RSA(ptr noundef nonnull %call, ptr noundef nonnull %rsa) #5
   %cert = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %call6 = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %call), !range !7
+  %call6 = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %call)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -171,7 +171,7 @@ declare i32 @RSA_up_ref(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_assign_RSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_set_pkey(ptr nocapture noundef %c, ptr noundef %pkey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr nocapture noundef %c, ptr noundef %pkey) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type, align 4
@@ -222,7 +222,7 @@ return:                                           ; preds = %if.end11, %if.then7
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_use_RSAPrivateKey_ASN1(ptr nocapture noundef readonly %ssl, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_use_RSAPrivateKey_ASN1(ptr nocapture noundef readonly %ssl, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @RSA_private_key_from_bytes(ptr noundef %der, i64 noundef %der_len) #5
   %cmp = icmp eq ptr %call, null
@@ -246,7 +246,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %call5.i = tail call i32 @EVP_PKEY_assign_RSA(ptr noundef nonnull %call.i, ptr noundef nonnull %call) #5
   %cert.i = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert.i, align 8
-  %call6.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %call.i), !range !7
+  %call6.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %call.i)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call.i) #5
   br label %SSL_use_RSAPrivateKey.exit
 
@@ -265,7 +265,7 @@ declare ptr @RSA_private_key_from_bytes(ptr noundef, i64 noundef) local_unnamed_
 declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_use_PrivateKey(ptr nocapture noundef readonly %ssl, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_use_PrivateKey(ptr nocapture noundef readonly %ssl, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pkey, null
   br i1 %cmp, label %if.then, label %if.end
@@ -277,7 +277,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cert = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %pkey), !range !7
+  %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %pkey)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -286,7 +286,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_use_PrivateKey_ASN1(i32 noundef %type, ptr nocapture noundef readonly %ssl, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_use_PrivateKey_ASN1(i32 noundef %type, ptr nocapture noundef readonly %ssl, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp slt i64 %der_len, 0
@@ -314,7 +314,7 @@ if.then3:                                         ; preds = %if.end
 SSL_use_PrivateKey.exit:                          ; preds = %if.end
   %cert.i = getelementptr inbounds i8, ptr %ssl, i64 136
   %1 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef nonnull %call), !range !7
+  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef nonnull %call)
   call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -326,7 +326,7 @@ return:                                           ; preds = %SSL_use_PrivateKey.
 declare ptr @d2i_PrivateKey(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_CTX_use_certificate(ptr nocapture noundef readonly %ctx, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_use_certificate(ptr nocapture noundef readonly %ctx, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %if.then, label %if.end
@@ -338,7 +338,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cert = getelementptr inbounds i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
-  %call = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef nonnull %x), !range !7
+  %call = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef nonnull %x)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -347,7 +347,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_CTX_use_certificate_ASN1(ptr nocapture noundef readonly %ctx, i64 noundef %der_len, ptr noundef %der) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_use_certificate_ASN1(ptr nocapture noundef readonly %ctx, i64 noundef %der_len, ptr noundef %der) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp slt i64 %der_len, 0
@@ -375,7 +375,7 @@ if.then3:                                         ; preds = %if.end
 SSL_CTX_use_certificate.exit:                     ; preds = %if.end
   %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
   %1 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef nonnull %call), !range !7
+  %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef nonnull %call)
   call void @X509_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -385,7 +385,7 @@ return:                                           ; preds = %SSL_CTX_use_certifi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_CTX_use_RSAPrivateKey(ptr nocapture noundef readonly %ctx, ptr noundef %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_use_RSAPrivateKey(ptr nocapture noundef readonly %ctx, ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rsa, null
   br i1 %cmp, label %if.then, label %if.end
@@ -408,7 +408,7 @@ if.end3:                                          ; preds = %if.end
   %call5 = tail call i32 @EVP_PKEY_assign_RSA(ptr noundef nonnull %call, ptr noundef nonnull %rsa) #5
   %cert = getelementptr inbounds i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
-  %call6 = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %call), !range !7
+  %call6 = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %call)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -418,7 +418,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_CTX_use_RSAPrivateKey_ASN1(ptr nocapture noundef readonly %ctx, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_use_RSAPrivateKey_ASN1(ptr nocapture noundef readonly %ctx, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @RSA_private_key_from_bytes(ptr noundef %der, i64 noundef %der_len) #5
   %cmp = icmp eq ptr %call, null
@@ -442,7 +442,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %call5.i = tail call i32 @EVP_PKEY_assign_RSA(ptr noundef nonnull %call.i, ptr noundef nonnull %call) #5
   %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert.i, align 8
-  %call6.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %call.i), !range !7
+  %call6.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %call.i)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call.i) #5
   br label %SSL_CTX_use_RSAPrivateKey.exit
 
@@ -457,7 +457,7 @@ return:                                           ; preds = %SSL_CTX_use_RSAPriv
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_CTX_use_PrivateKey(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_use_PrivateKey(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pkey, null
   br i1 %cmp, label %if.then, label %if.end
@@ -469,7 +469,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cert = getelementptr inbounds i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
-  %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %pkey), !range !7
+  %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %pkey)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -478,7 +478,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_CTX_use_PrivateKey_ASN1(i32 noundef %type, ptr nocapture noundef readonly %ctx, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_use_PrivateKey_ASN1(i32 noundef %type, ptr nocapture noundef readonly %ctx, ptr noundef %der, i64 noundef %der_len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp slt i64 %der_len, 0
@@ -506,7 +506,7 @@ if.then3:                                         ; preds = %if.end
 SSL_CTX_use_PrivateKey.exit:                      ; preds = %if.end
   %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
   %1 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef nonnull %call), !range !7
+  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef nonnull %call)
   call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -536,7 +536,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_set_private_key_digest_prefs(ptr nocapture noundef readonly %ssl, ptr noundef %digest_nids, i64 noundef %num_digests) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_set_private_key_digest_prefs(ptr nocapture noundef readonly %ssl, ptr noundef %digest_nids, i64 noundef %num_digests) local_unnamed_addr #0 {
 entry:
   %cert = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
@@ -577,7 +577,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @BUF_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @ssl_has_private_key(ptr nocapture noundef readonly %ssl) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @ssl_has_private_key(ptr nocapture noundef readonly %ssl) local_unnamed_addr #4 {
 entry:
   %cert = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
@@ -817,4 +817,3 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

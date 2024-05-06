@@ -820,7 +820,7 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.b
   %idxprom10.i = zext nneg i16 %83 to i64
   %arrayidx11.i = getelementptr inbounds i8, ptr %call.i, i64 %idxprom10.i
   %84 = load i8, ptr %arrayidx11.i, align 1
-  %85 = trunc i16 %shl.i to i8
+  %85 = trunc nuw i16 %shl.i to i8
   %conv13.i = or i8 %84, %85
   store i8 %conv13.i, ptr %arrayidx11.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -882,7 +882,7 @@ for.body.i:                                       ; preds = %for.inc.i, %invoke.
   br i1 %cmp1.i, label %if.then.i89, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %93 = trunc i64 %indvars.iv.i85 to i32
+  %93 = trunc nuw nsw i64 %indvars.iv.i85 to i32
   %shr.i = lshr i64 %indvars.iv.i85, 3
   %idxprom.i = and i64 %shr.i, 536870911
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %idxprom.i
@@ -934,14 +934,14 @@ _ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit:   ; preds = %for.body.i93, %_ZN7
   %98 = load ptr, ptr %_outBuffer130, align 8
   %conv.i99 = trunc i16 %minNonZero.2 to i8
   %99 = lshr i16 %minNonZero.2, 8
-  %conv2.i = trunc i16 %99 to i8
+  %conv2.i = trunc nuw i16 %99 to i8
   store i8 %conv.i99, ptr %98, align 1
   %b.i98.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 1
   store i8 %conv2.i, ptr %b.i98.sroa.4.0..sroa_idx, align 1
   %scevgep = getelementptr i8, ptr %98, i64 2
   %conv.i108 = trunc i16 %maxNonZero.1 to i8
   %100 = lshr i16 %maxNonZero.1, 8
-  %conv2.i109 = trunc i16 %100 to i8
+  %conv2.i109 = trunc nuw i16 %100 to i8
   store i8 %conv.i108, ptr %scevgep, align 1
   %b.i107.sroa.4.0.scevgep.sroa_idx = getelementptr i8, ptr %98, i64 3
   store i8 %conv2.i109, ptr %b.i107.sroa.4.0.scevgep.sroa_idx, align 1
@@ -1089,7 +1089,7 @@ invoke.cont184:                                   ; preds = %invoke.cont176
   %arrayidx5.i133 = getelementptr inbounds i8, ptr %b.i129, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i133, align 1
   %shr6.i = lshr i32 %call185, 24
-  %conv7.i = trunc i32 %shr6.i to i8
+  %conv7.i = trunc nuw i32 %shr6.i to i8
   %arrayidx8.i134 = getelementptr inbounds i8, ptr %b.i129, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i134, align 1
   br label %while.body.i.i.i135
@@ -1359,7 +1359,7 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 1
   %31 = add nuw nsw i64 %30, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep.i, i8 0, i64 %31, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(1) %scevgep.i, i8 0, i64 %31, i1 false)
   br label %_ZN7Imf_3_212_GLOBAL__N_120reverseLutFromBitmapEPKhPt.exit
 
 for.body.i:                                       ; preds = %for.inc.i, %invoke.cont75
@@ -1381,7 +1381,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %for.body.i
-  %conv3.i = trunc i32 %i.010.i to i16
+  %conv3.i = trunc nuw i32 %i.010.i to i16
   %inc.i = add nsw i32 %k.011.i, 1
   %idxprom4.i = sext i32 %k.011.i to i64
   %arrayidx5.i = getelementptr inbounds i16, ptr %call.i7778, i64 %idxprom4.i
@@ -1638,7 +1638,7 @@ for.body169.us:                                   ; preds = %for.body169.lr.ph.u
   %conv.i93.us = trunc i16 %71 to i8
   store i8 %conv.i93.us, ptr %b.i92, align 1
   %72 = lshr i16 %71, 8
-  %conv2.i.us = trunc i16 %72 to i8
+  %conv2.i.us = trunc nuw i16 %72 to i8
   store i8 %conv2.i.us, ptr %arrayidx3.i, align 1
   br label %while.body.i.i.i94.us
 
@@ -1722,7 +1722,7 @@ for.body169:                                      ; preds = %for.body169.lr.ph, 
   %conv.i93 = trunc i16 %82 to i8
   store i8 %conv.i93, ptr %b.i92, align 1
   %83 = lshr i16 %82, 8
-  %conv2.i = trunc i16 %83 to i8
+  %conv2.i = trunc nuw i16 %83 to i8
   store i8 %conv2.i, ptr %arrayidx3.i, align 1
   br label %while.body.i.i.i94
 

@@ -84,7 +84,7 @@ define dso_local noundef ptr @ZSTD_initStaticDCtx(ptr noundef %0, i64 noundef %1
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 30256
   %19 = getelementptr inbounds i8, ptr %0, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 30240
   store i64 0, ptr %20, align 8
   store i64 134217729, ptr %18, align 8
@@ -162,8 +162,8 @@ ZSTD_customMalloc.exit.i:                         ; preds = %6, %4
   %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 30104
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 30256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i64 134217729, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 30312
   store i32 0, ptr %22, align 8
@@ -210,8 +210,8 @@ ZSTD_customMalloc.exit.i:
   %13 = getelementptr inbounds i8, ptr %0, i64 30104
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 30256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i64 134217729, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 30312
@@ -642,7 +642,7 @@ define dso_local i64 @ZSTD_getFrameHeader(ptr nocapture noundef writeonly %0, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i64 @ZSTD_getFrameContentSize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
-  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %.not = icmp eq i64 %4, 0
   %5 = getelementptr inbounds i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
@@ -758,7 +758,7 @@ readSkippableFrameSize.exit:                      ; preds = %12
 
 22:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  %23 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef nonnull %.02848, i64 noundef %.02947, i32 noundef 0)
+  %23 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %4, ptr noundef nonnull %.02848, i64 noundef %.02947, i32 noundef 0)
   %.not.i = icmp eq i64 %23, 0
   %24 = load i32, ptr %5, align 4
   %25 = icmp eq i32 %24, 1
@@ -813,7 +813,7 @@ define dso_local i64 @ZSTD_findFrameCompressedSize(ptr noundef %0, i64 noundef %
 define dso_local i64 @ZSTD_getDecompressedSize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %.not.i = icmp eq i64 %4, 0
   %5 = getelementptr inbounds i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
@@ -852,7 +852,7 @@ readSkippableFrameSize.exit:                      ; preds = %7
   br label %.sink.split
 
 15:                                               ; preds = %7, %3
-  %16 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2, i32 noundef 0)
+  %16 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %4, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   %17 = icmp ult i64 %16, -119
   br i1 %17, label %18, label %.loopexit
 
@@ -994,7 +994,7 @@ define dso_local i64 @ZSTD_decompressionMargin(ptr noundef %0, i64 noundef %1) l
   call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.02437, i64 noundef %.02536)
   %12 = load i64, ptr %5, align 8
   %13 = load i64, ptr %6, align 8
-  %14 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef %.02437, i64 noundef %.02536, i32 noundef 0)
+  %14 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %4, ptr noundef %.02437, i64 noundef %.02536, i32 noundef 0)
   %15 = icmp ult i64 %14, -119
   br i1 %15, label %16, label %.loopexit
 
@@ -1349,7 +1349,7 @@ ZSTD_frameHeaderSize_internal.exit.i:             ; preds = %80
   br i1 %160, label %ZSTD_copyRawBlock.exit.thread.i, label %ZSTD_decompressFrame.exit
 
 161:                                              ; preds = %157
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.096.i, ptr nonnull align 1 %144, i64 %141, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 1 %.096.i, ptr nonnull readonly align 1 %144, i64 %141, i1 false)
   br label %ZSTD_copyRawBlock.exit.thread.i
 
 162:                                              ; preds = %147
@@ -1370,7 +1370,7 @@ ZSTD_frameHeaderSize_internal.exit.i:             ; preds = %80
   br i1 %172, label %ZSTD_copyRawBlock.exit.thread.i, label %ZSTD_decompressFrame.exit
 
 ZSTD_copyRawBlock.exit.thread132.i:               ; preds = %169
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.096.i, i8 %165, i64 %167, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %.096.i, i8 %165, i64 %167, i1 false)
   br label %ZSTD_copyRawBlock.exit.thread.i
 
 ZSTD_copyRawBlock.exit.i:                         ; preds = %147
@@ -1586,7 +1586,7 @@ ZSTD_decompressDCtx.exit:                         ; preds = %ZSTD_customMalloc.e
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 30256
   store i64 0, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i64 134217729, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 30312
@@ -1921,7 +1921,7 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
   br i1 %147, label %.thread, label %ZSTD_decodeFrameHeader.exit.thread
 
 ZSTD_copyRawBlock.exit:                           ; preds = %144
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 1 %1, ptr readonly align 1 %3, i64 %4, i1 false)
   %148 = icmp ult i64 %4, -119
   br i1 %148, label %.thread, label %ZSTD_decodeFrameHeader.exit.thread
 
@@ -1949,7 +1949,7 @@ ZSTD_copyRawBlock.exit:                           ; preds = %144
   br label %ZSTD_setRleBlock.exit
 
 161:                                              ; preds = %157
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 %153, i64 %155, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %1, i8 %153, i64 %155, i1 false)
   br label %ZSTD_setRleBlock.exit
 
 ZSTD_setRleBlock.exit:                            ; preds = %161, %159, %152, %140
@@ -2569,7 +2569,7 @@ define dso_local i32 @ZSTD_getDictID_fromDict(ptr nocapture noundef readonly %0,
 define dso_local i32 @ZSTD_getDictID_fromFrame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
-  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp ult i64 %4, -119
   %6 = getelementptr inbounds i8, ptr %3, i64 28
   %7 = load i32, ptr %6, align 4
@@ -2607,8 +2607,8 @@ ZSTD_customMalloc.exit.i:
   %13 = getelementptr inbounds i8, ptr %0, i64 30104
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 30256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i64 134217729, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 30312
@@ -2657,7 +2657,7 @@ define dso_local noundef ptr @ZSTD_initStaticDStream(ptr noundef %0, i64 noundef
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 30256
   %19 = getelementptr inbounds i8, ptr %0, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 30240
   store i64 0, ptr %20, align 8
   store i64 134217729, ptr %18, align 8
@@ -2735,8 +2735,8 @@ ZSTD_customMalloc.exit.i:                         ; preds = %6, %4
   %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 30104
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 30256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i64 134217729, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 30312
   store i32 0, ptr %22, align 8
@@ -3648,7 +3648,7 @@ define dso_local i64 @ZSTD_estimateDStreamSize(i64 noundef %0) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
-  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp ult i64 %4, -119
   br i1 %5, label %6, label %15
 
@@ -4324,7 +4324,7 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %251, %253
 ZSTD_limitCopy.exit.thread391:                    ; preds = %301
   %305 = load ptr, ptr %82, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 %295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %306, ptr align 1 %.0271422.ph, i64 %304, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %306, ptr readonly align 1 %.0271422.ph, i64 %304, i1 false)
   %.pre433 = load i64, ptr %42, align 8
   br label %310
 
@@ -4427,7 +4427,7 @@ ZSTD_decompressContinueStream.exit357:            ; preds = %332, %334, %343
 352:                                              ; preds = %345
   %353 = load ptr, ptr %38, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 %347
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0371419, ptr align 1 %354, i64 %351, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.0371419, ptr readonly align 1 %354, i64 %351, i1 false)
   %.pre = load i64, ptr %36, align 8
   br label %ZSTD_limitCopy.exit359
 

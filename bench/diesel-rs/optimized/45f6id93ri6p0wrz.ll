@@ -578,7 +578,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %31
 101:                                              ; preds = %97
   %102 = getelementptr inbounds i8, ptr %59, i64 4
   %103 = load i8, ptr %102, align 4, !range !87, !noundef !5
-  %104 = trunc i8 %103 to i1
+  %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %100
 
 105:                                              ; preds = %101
@@ -776,7 +776,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %27
   %.sroa.448.0 = phi i64 [ %.sroa.448.0.copyload, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit ], [ 8, %27 ]
   %34 = getelementptr inbounds i8, ptr %20, i64 4
   %35 = load i8, ptr %34, align 4, !range !87, !noundef !5
-  %36 = trunc i8 %35 to i1
+  %36 = trunc nuw i8 %35 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   store i64 %.sroa.043.0, ptr %14, align 8
   %.sroa.345.0..sroa_idx46 = getelementptr inbounds i8, ptr %14, i64 8

@@ -550,7 +550,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %or.cond, label %55, label %59
 
 55:                                               ; preds = %26
-  %56 = tail call noundef i32 @llvm.smin.i32(i32 %49, i32 %50)
+  %56 = tail call i32 @llvm.smin.i32(i32 %49, i32 %50)
   %57 = shl nsw i32 %56, 1
   %58 = or disjoint i32 %57, 1
   br label %common.ret.sink.split
@@ -573,7 +573,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %common.ret.sink.split
 
 66:                                               ; preds = %63
-  %67 = tail call noundef i32 @llvm.smax.i32(i32 %49, i32 %50)
+  %67 = tail call i32 @llvm.smax.i32(i32 %49, i32 %50)
   %68 = shl nsw i32 %67, 1
   br label %common.ret.sink.split
 }
@@ -608,7 +608,7 @@ define void @Saig_ManCexMinVerifyPhase(ptr nocapture noundef readonly %0, ptr no
   %19 = load i32, ptr %12, align 4
   %20 = load i32, ptr %13, align 4
   %21 = mul nsw i32 %20, %2
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = add i32 %19, %22
   %24 = add i32 %23, %21
   %25 = ashr i32 %24, 5
@@ -1047,8 +1047,8 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %62 = getelementptr inbounds i8, ptr %57, i64 4
   %.phi.trans.insert.i82 = getelementptr inbounds i8, ptr %57, i64 8
   %63 = add nuw nsw i64 %indvars.iv104, 1
-  %64 = trunc i64 %63 to i32
-  %65 = trunc i64 %indvars.iv104 to i32
+  %64 = trunc nuw i64 %63 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv104 to i32
   br label %66
 
 66:                                               ; preds = %.lr.ph96, %Vec_IntPush.exit
@@ -1324,7 +1324,7 @@ Vec_IntPush.exit:                                 ; preds = %177, %Vec_IntGrow.e
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit, %..critedge2_crit_edge
   %indvars.iv.next105.pre-phi = phi i64 [ %.pre108, %..critedge2_crit_edge ], [ %63, %Vec_IntPush.exit ]
-  %185 = trunc i64 %indvars.iv104 to i32
+  %185 = trunc nuw nsw i64 %indvars.iv104 to i32
   tail call void @Saig_ManCexMinDerivePhasePriority(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %23, i32 noundef %185, ptr noundef nonnull %43)
   %186 = load i32, ptr %20, align 4
   %187 = sext i32 %186 to i64
@@ -1477,8 +1477,8 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %62 = getelementptr inbounds i8, ptr %57, i64 4
   %.phi.trans.insert.i82 = getelementptr inbounds i8, ptr %57, i64 8
   %63 = add nuw nsw i64 %indvars.iv104, 1
-  %64 = trunc i64 %63 to i32
-  %65 = trunc i64 %indvars.iv104 to i32
+  %64 = trunc nuw i64 %63 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv104 to i32
   br label %66
 
 66:                                               ; preds = %.lr.ph96, %Vec_IntPush.exit
@@ -1755,7 +1755,7 @@ Vec_IntPush.exit:                                 ; preds = %178, %Vec_IntGrow.e
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit, %..critedge2_crit_edge
   %indvars.iv.next105.pre-phi = phi i64 [ %.pre108, %..critedge2_crit_edge ], [ %63, %Vec_IntPush.exit ]
-  %186 = trunc i64 %indvars.iv104 to i32
+  %186 = trunc nuw nsw i64 %indvars.iv104 to i32
   tail call void @Saig_ManCexMinDerivePhasePriority(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %23, i32 noundef %186, ptr noundef nonnull %43)
   %187 = load i32, ptr %20, align 4
   %188 = sext i32 %187 to i64
@@ -2090,7 +2090,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 25:                                               ; preds = %.lr.ph39, %.critedge
   %indvars.iv41 = phi i64 [ %24, %.lr.ph39 ], [ %indvars.iv.next42, %.critedge ]
-  %26 = trunc i64 %indvars.iv41 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv41 to i32
   tail call void @Saig_ManCexMinDerivePhasePriority(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %26, ptr noundef nonnull %18)
   %27 = load i32, ptr %6, align 4
   %28 = zext i32 %27 to i64
@@ -2099,8 +2099,8 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 30:                                               ; preds = %25
   %.val35 = load ptr, ptr %22, align 8
-  %31 = getelementptr ptr, ptr %.val35, i64 %indvars.iv41
-  %32 = getelementptr i8, ptr %31, i64 8
+  %31 = getelementptr inbounds ptr, ptr %.val35, i64 %indvars.iv41
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   br label %34
 
@@ -2307,10 +2307,10 @@ Vec_VecSizeSize.exit:                             ; preds = %9, %2
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %19
 
 19:                                               ; preds = %Vec_VecSizeSize.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #15
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #15
   %21 = add i64 %20, 1
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #13
-  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %18) #14
+  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %18) #14
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_VecSizeSize.exit, %19

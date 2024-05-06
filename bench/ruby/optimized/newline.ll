@@ -37,7 +37,7 @@ define internal noundef i32 @universal_newline_init(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i64 @fun_so_universal_newline(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #3 {
+define internal range(i64 0, 3) i64 @fun_so_universal_newline(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #3 {
   %6 = load i8, ptr %1, align 1
   %7 = icmp eq i8 %6, 10
   %8 = load i8, ptr %0, align 1
@@ -88,7 +88,7 @@ define internal i64 @fun_so_universal_newline(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @universal_newline_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 %2) #3 {
+define internal range(i64 0, 2) i64 @universal_newline_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 %2) #3 {
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %6, label %10

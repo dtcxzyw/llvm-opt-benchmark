@@ -653,7 +653,7 @@ define hidden void @packet_range_process_init(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @packet_range_process_all(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @packet_range_process_all(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %11
@@ -677,7 +677,7 @@ define hidden i32 @packet_range_process_all(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @packet_range_process_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0

@@ -331,7 +331,7 @@ define dso_local void @intel_gmch_gtt_clear_range(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_gmch_probe(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @intel_gmch_probe(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.pci_bus_region, align 8
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
@@ -1072,7 +1072,7 @@ define dso_local void @intel_gmch_gtt_flush() #0 align 16 {
 declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i810_setup() #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @i810_setup() #0 align 16 {
   %1 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef 4) #9
   %2 = inttoptr i64 %1 to ptr
   %3 = icmp eq i64 %1, 0
@@ -1174,7 +1174,7 @@ declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i830_setup() #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @i830_setup() #0 align 16 {
   %1 = load ptr, ptr getelementptr inbounds (%struct._intel_private, ptr @intel_private, i64 0, i32 1), align 8
   %2 = getelementptr i8, ptr %1, i64 984
   %3 = load i64, ptr %2, align 8
@@ -1254,7 +1254,7 @@ declare dso_local i32 @wbinvd_on_all_cpus() local_unnamed_addr #2
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i9xx_setup() #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @i9xx_setup() #0 align 16 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
@@ -1334,7 +1334,7 @@ define internal noundef i32 @i9xx_setup() #0 align 16 {
   %47 = load ptr, ptr getelementptr inbounds (%struct._intel_private, ptr @intel_private, i64 0, i32 2), align 8
   %48 = load i64, ptr getelementptr inbounds (%struct._intel_private, ptr @intel_private, i64 0, i32 11), align 8
   %49 = lshr i64 %48, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw i64 %49 to i32
   %51 = call i32 @pci_write_config_dword(ptr noundef %47, i32 noundef 116, i32 noundef %50) #9
   %52 = load ptr, ptr getelementptr inbounds (%struct._intel_private, ptr @intel_private, i64 0, i32 2), align 8
   %53 = load i64, ptr getelementptr inbounds (%struct._intel_private, ptr @intel_private, i64 0, i32 11), align 8
@@ -1523,7 +1523,7 @@ define internal void @i965_write_entry(i64 noundef %0, i32 noundef %1, i32 nound
 declare dso_local ptr @pci_get_device(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, argmem: write, inaccessiblemem: none)
-define internal i32 @intel_fake_agp_fetch_size() #6 align 16 {
+define internal range(i32 0, 4096) i32 @intel_fake_agp_fetch_size() #6 align 16 {
   %1 = load i32, ptr getelementptr inbounds (%struct._intel_private, ptr @intel_private, i64 0, i32 20), align 4
   %2 = lshr i32 %1, 8
   %3 = and i32 %2, 4095
@@ -1553,7 +1553,7 @@ define internal i32 @intel_fake_agp_fetch_size() #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_fake_agp_configure() #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @intel_fake_agp_configure() #0 align 16 {
   %1 = tail call zeroext i1 @intel_gmch_enable_gtt()
   br i1 %1, label %2, label %6
 
@@ -2090,7 +2090,7 @@ declare dso_local void @agp_generic_destroy_pages(ptr noundef) #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_gtt_map_memory(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @intel_gtt_map_memory(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call i32 @sg_alloc_table(ptr noundef %2, i32 noundef %1, i32 noundef 3264) #9
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %36

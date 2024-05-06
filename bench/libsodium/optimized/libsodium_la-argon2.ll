@@ -112,17 +112,17 @@ if.end9:                                          ; preds = %if.end6
 
 if.end11:                                         ; preds = %if.end9
   store ptr %call, ptr %context, align 8
-  %conv = trunc i64 %hashlen to i32
+  %conv = trunc nuw i64 %hashlen to i32
   %outlen = getelementptr inbounds i8, ptr %context, i64 8
   store i32 %conv, ptr %outlen, align 8
   %pwd13 = getelementptr inbounds i8, ptr %context, i64 16
   store ptr %pwd, ptr %pwd13, align 8
-  %conv14 = trunc i64 %pwdlen to i32
+  %conv14 = trunc nuw i64 %pwdlen to i32
   %pwdlen15 = getelementptr inbounds i8, ptr %context, i64 24
   store i32 %conv14, ptr %pwdlen15, align 8
   %salt16 = getelementptr inbounds i8, ptr %context, i64 32
   store ptr %salt, ptr %salt16, align 8
-  %conv17 = trunc i64 %saltlen to i32
+  %conv17 = trunc nuw i64 %saltlen to i32
   %saltlen18 = getelementptr inbounds i8, ptr %context, i64 40
   store i32 %conv17, ptr %saltlen18, align 8
   %secret = getelementptr inbounds i8, ptr %context, i64 48
@@ -242,7 +242,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw i64 %call to i32
   %adlen = getelementptr inbounds i8, ptr %ctx, i64 72
   store i32 %conv, ptr %adlen, align 8
   %saltlen = getelementptr inbounds i8, ptr %ctx, i64 40

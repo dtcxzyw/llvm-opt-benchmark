@@ -96,7 +96,7 @@ declare void @abort() local_unnamed_addr #3
 declare zeroext i1 @safe_strcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @restart_get_kv(ptr nocapture noundef %ctx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @restart_get_kv(ptr nocapture noundef %ctx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
 entry:
   %line = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -325,7 +325,7 @@ if.then12:                                        ; preds = %if.end9
 if.end13:                                         ; preds = %if.end9
   store i64 %limit, ptr @slabmem_limit, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx.i)
-  %call.i6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %file) #20
+  %call.i6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %file) #20
   %add2.i = add i64 %call.i6, 6
   %call3.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add2.i) #16
   %cmp.i = icmp eq ptr %call3.i, null
@@ -338,7 +338,7 @@ if.then.i:                                        ; preds = %if.end13
   unreachable
 
 if.end.i:                                         ; preds = %if.end13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr align 1 %file, i64 %call.i6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr readonly align 1 %file, i64 %call.i6, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call3.i, i64 %call.i6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.15, i64 5, i1 false)
   %call6.i = tail call noalias ptr @fopen(ptr noundef nonnull %call3.i, ptr noundef nonnull @.str.17)
@@ -357,7 +357,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %line.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   %done.i = getelementptr inbounds i8, ptr %ctx.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %cb.i, i8 0, i64 17, i1 false)
-  %call12.i = call i32 @restart_get_kv(ptr noundef nonnull %ctx.i, ptr noundef null, ptr noundef null), !range !10
+  %call12.i = call i32 @restart_get_kv(ptr noundef nonnull %ctx.i, ptr noundef null, ptr noundef null)
   %cmp13.not.i = icmp eq i32 %call12.i, 3
   br i1 %cmp13.not.i, label %if.end16.i, label %if.then14.i
 
@@ -391,7 +391,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %15 = load ptr, ptr %13, align 8
   %call25.i = call i32 %14(ptr noundef nonnull %tag.i, ptr noundef nonnull %ctx.i, ptr noundef %15) #19
   %cmp26.not.i = icmp eq i32 %call25.i, 0
-  br i1 %cmp26.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !11
+  br i1 %cmp26.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.i
   %16 = load ptr, ptr %line.i, align 8
@@ -445,7 +445,7 @@ entry:
   %call = tail call i32 @msync(ptr noundef %0, i64 noundef %1, i32 noundef 4) #19
   %2 = load ptr, ptr @memory_file, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx.i)
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #20
   %add2.i = add i64 %call.i, 6
   %call3.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add2.i) #16
   %cmp.i = icmp eq ptr %call3.i, null
@@ -457,7 +457,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.then
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr align 1 %2, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr readonly align 1 %2, i64 %call.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call3.i, i64 %call.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.15, i64 5, i1 false)
   %call5.i = tail call i32 @umask(i32 noundef -385) #19
@@ -497,7 +497,7 @@ if.end20.i:                                       ; preds = %while.body.i
   %next.i = getelementptr inbounds i8, ptr %cb.022.i, i64 8
   %8 = load ptr, ptr %next.i, align 8
   %cmp12.not.i = icmp eq ptr %8, null
-  br i1 %cmp12.not.i, label %restart_save.exit, label %while.body.i, !llvm.loop !12
+  br i1 %cmp12.not.i, label %restart_save.exit, label %while.body.i, !llvm.loop !11
 
 restart_save.exit:                                ; preds = %if.end20.i, %if.end10.i
   %call21.i = call i32 @fclose(ptr noundef nonnull %call6.i)
@@ -595,7 +595,7 @@ while.cond.backedge:                              ; preds = %while.body, %if.end
   %add = add i64 %checked.058.sink, %conv13
   %11 = load i64, ptr @slabmem_limit, align 8
   %cmp4 = icmp ult i64 %add, %11
-  br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !12
 
 if.end14:                                         ; preds = %while.body
   %it_flags = getelementptr inbounds i8, ptr %add.ptr, i64 38
@@ -838,7 +838,6 @@ attributes #20 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 4}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

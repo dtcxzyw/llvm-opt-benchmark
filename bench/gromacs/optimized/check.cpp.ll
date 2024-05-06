@@ -1140,12 +1140,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit130.i:     ; preds = %254, %251
 .lr.ph.i.i:                                       ; preds = %.thread.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.thread.i.i ]
   %346 = phi ptr [ %338, %.lr.ph.preheader.i.i ], [ %400, %.thread.i.i ]
-  %347 = getelementptr i32, ptr %346, i64 %indvars.iv.i.i
+  %347 = getelementptr inbounds i32, ptr %346, i64 %indvars.iv.i.i
   %348 = load i32, ptr %347, align 4
-  %349 = getelementptr i8, ptr %347, i64 4
+  %349 = getelementptr inbounds i8, ptr %347, i64 4
   %350 = load i32, ptr %349, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 3
-  %351 = getelementptr i8, ptr %347, i64 8
+  %351 = getelementptr inbounds i8, ptr %347, i64 8
   %352 = load i32, ptr %351, align 4
   switch i32 %345, label %.thread.i.i [
     i32 0, label %353

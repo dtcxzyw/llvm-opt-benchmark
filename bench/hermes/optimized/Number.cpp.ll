@@ -1743,10 +1743,10 @@ if.then151:                                       ; preds = %for.cond.preheader,
   %e.0147150 = phi i32 [ %sub, %if.end149 ], [ 0, %if.end132.thread ], [ 0, %for.cond.preheader ]
   %50 = load ptr, ptr %n, align 8
   %51 = zext nneg i32 %e.0147150 to i64
-  %52 = getelementptr i8, ptr %50, i64 %51
-  %add.ptr153 = getelementptr i8, ptr %52, i64 1
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  %add.ptr153 = getelementptr inbounds i8, ptr %52, i64 1
   store i8 46, ptr %ref.tmp154, align 1
-  %call155 = call noundef ptr @_ZN4llvh15SmallVectorImplIcE6insertEPcOc(ptr noundef nonnull align 8 dereferenceable(16) %n, ptr noundef %add.ptr153, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp154)
+  %call155 = call noundef ptr @_ZN4llvh15SmallVectorImplIcE6insertEPcOc(ptr noundef nonnull align 8 dereferenceable(16) %n, ptr noundef nonnull %add.ptr153, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp154)
   br i1 %cmp85, label %if.then157, label %if.end161
 
 if.then157:                                       ; preds = %if.then151

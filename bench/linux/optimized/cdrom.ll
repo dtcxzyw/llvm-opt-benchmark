@@ -195,7 +195,7 @@ define dso_local noundef i32 @cdrom_dummy_generic_packet(ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_cdrom(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @register_cdrom(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -703,7 +703,7 @@ define dso_local void @unregister_cdrom(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cdrom_get_media_event(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @cdrom_get_media_event(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = alloca %struct.packet_command, align 8
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
@@ -1796,7 +1796,7 @@ define dso_local void @cdrom_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cdrom_number_of_slots(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -12, 256) i32 @cdrom_number_of_slots(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.packet_command, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %3, align 8

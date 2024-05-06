@@ -177,7 +177,7 @@ _blake2_clear.exit:                               ; preds = %do.body1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blake2_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @blake2_exec(ptr noundef %m) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #2
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @blake2b_type_spec, ptr noundef null) #2

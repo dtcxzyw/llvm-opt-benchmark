@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [22 x i8] c"cvDlsBandJacBSWrapper\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsSetDenseJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVDlsSetDenseJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -76,7 +76,7 @@ define noundef i32 @CVDlsSetDenseJacFn(ptr noundef %0, ptr noundef %1) local_unn
 declare void @cvProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsSetBandJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVDlsSetBandJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -115,7 +115,7 @@ define noundef i32 @CVDlsSetBandJacFn(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVDlsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -175,7 +175,7 @@ define noundef i32 @CVDlsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVDlsGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -205,7 +205,7 @@ define noundef i32 @CVDlsGetNumJacEvals(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVDlsGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -287,7 +287,7 @@ define noalias noundef ptr @CVDlsGetReturnFlagName(i64 noundef %0) local_unnamed
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVDlsGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -583,7 +583,7 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -730,7 +730,7 @@ define internal i32 @cvDlsDenseJacBWrapper(i64 noundef %0, double noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -892,7 +892,7 @@ define internal i32 @cvDlsDenseJacBSWrapper(i64 noundef %0, double noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1039,7 +1039,7 @@ define internal i32 @cvDlsBandJacBWrapper(i64 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

@@ -42,7 +42,7 @@ define internal noundef i32 @mca_mpool_base_register(i32 %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_mpool_base_open(i32 noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @mca_mpool_base_open(i32 noundef %0) #0 {
   %2 = tail call i32 @mca_base_framework_components_open(ptr noundef nonnull @opal_mpool_base_framework, i32 noundef %0) #3
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %18

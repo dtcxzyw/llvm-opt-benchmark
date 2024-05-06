@@ -269,7 +269,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   %26 = getelementptr inbounds i8, ptr %23, i64 8
   %27 = zext nneg i32 %11 to i64
   %wide.trip.count = zext nneg i32 %11 to i64
-  %invariant.gep = getelementptr double, ptr %16, i64 %27
+  %invariant.gep = getelementptr inbounds double, ptr %16, i64 %27
   br label %28
 
 28:                                               ; preds = %.lr.ph, %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit
@@ -390,7 +390,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
 
 _ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit: ; preds = %.split.split.i, %.split.split.us.i, %.split.us.split.i, %.split.us.split.us.i
   %.us-phi.i = phi double [ %53, %.split.us.split.us.i ], [ %65, %.split.us.split.i ], [ %78, %.split.split.us.i ], [ %94, %.split.split.i ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
   store double %.us-phi.i, ptr %gep, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !7

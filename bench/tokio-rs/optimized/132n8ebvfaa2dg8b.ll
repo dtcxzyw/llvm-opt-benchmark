@@ -57,7 +57,7 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local10fa
 5:                                                ; preds = %3, %2
   %6 = tail call noundef i64 @_ZN12tokio_stream10stream_map4rand4loom4rand4seed17h234306adff59a14dE(), !noalias !17
   %7 = lshr i64 %6, 32
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %9 = trunc i64 %6 to i32
   %spec.store.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hcd01a353889c4a51E.exit"
@@ -76,7 +76,7 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local10fa
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h15d311754e63d5bcE"(ptr noundef nonnull align 4 %0, ptr noalias nocapture noundef align 4 dereferenceable_or_null(12) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %0, align 4, !range !18, !noundef !19
-  %trunc = trunc i32 %3 to i1
+  %trunc = trunc nuw i32 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   br i1 %trunc, label %13, label %5
 
@@ -100,7 +100,7 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local10fa
 8:                                                ; preds = %6, %5
   %9 = tail call noundef i64 @_ZN12tokio_stream10stream_map4rand4loom4rand4seed17h234306adff59a14dE(), !noalias !29
   %10 = lshr i64 %9, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = trunc i64 %9 to i32
   %spec.store.select.i.i.i.i = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hf879e4c8837730ceE.llvm.510346183147660621.exit"
@@ -121,7 +121,7 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local10fa
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h868333d49a63ea28E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !31, !noundef !19
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %trunc, label %12, label %5
 

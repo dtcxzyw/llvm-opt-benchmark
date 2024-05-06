@@ -116,7 +116,7 @@ define noundef ptr @_ZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char
   %44 = load i8, ptr %43, align 4
   %45 = trunc i8 %44 to i1
   %46 = call noundef double @_ZN5Yosys3AST7AstNode6asRealEb(ptr noundef nonnull align 8 dereferenceable(284) %42, i1 noundef zeroext %45)
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.2, i32 noundef %47, ptr noundef %39, double noundef %46)
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv
@@ -145,7 +145,7 @@ define noundef ptr @_ZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char
   %67 = load i8, ptr %66, align 4
   %68 = trunc i8 %67 to i1
   %69 = call noundef double @_ZN5Yosys3AST7AstNode6asRealEb(ptr noundef nonnull align 8 dereferenceable(284) %65, i1 noundef zeroext %68)
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.2, i32 noundef %70, ptr noundef %62, double noundef %69)
   %71 = load ptr, ptr %3, align 8
   %72 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv
@@ -175,7 +175,7 @@ define noundef ptr @_ZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char
   %91 = load i8, ptr %90, align 4
   %92 = trunc i8 %91 to i1
   %93 = call noundef i64 @_ZN5Yosys3AST7AstNode5asIntEb(ptr noundef nonnull align 8 dereferenceable(284) %89, i1 noundef zeroext %92)
-  %94 = trunc i64 %indvars.iv to i32
+  %94 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.5, i32 noundef %94, ptr noundef %86, i64 noundef %93)
   %95 = load ptr, ptr %3, align 8
   %96 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv
@@ -202,7 +202,7 @@ define noundef ptr @_ZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char
   %112 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv
   %113 = load ptr, ptr %112, align 8
   %114 = call noundef i64 @_ZN5Yosys3AST7AstNode5asIntEb(ptr noundef nonnull align 8 dereferenceable(284) %113, i1 noundef zeroext false)
-  %115 = trunc i64 %indvars.iv to i32
+  %115 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.7, i32 noundef %115, ptr noundef %110, i64 noundef %114)
   %116 = load ptr, ptr %3, align 8
   %117 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv
@@ -217,7 +217,7 @@ define noundef ptr @_ZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char
   br label %130
 
 125:                                              ; preds = %104
-  %126 = trunc i64 %indvars.iv to i32
+  %126 = trunc nuw nsw i64 %indvars.iv to i32
   %127 = load ptr, ptr %2, align 8
   %128 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %127, i64 %indvars.iv
   %129 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #12

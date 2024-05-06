@@ -150,7 +150,7 @@ FASTCOVER_checkParameters.exit.thread:            ; preds = %31, %29, %6
   %62 = zext nneg i32 %17 to i64
   %63 = getelementptr inbounds [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %62
   %.sroa.0.0.copyload = load i64, ptr %63, align 8
-  %64 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %30, double noundef 1.000000e+00, i32 noundef %14, i64 %.sroa.0.0.copyload), !range !5
+  %64 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %30, double noundef 1.000000e+00, i32 noundef %14, i64 %.sroa.0.0.copyload)
   %65 = icmp ult i64 %64, -119
   br i1 %65, label %74, label %66
 
@@ -240,7 +240,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @FASTCOVER_ctx_init(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, i32 noundef %6, i64 %7) unnamed_addr #0 {
+define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, i32 noundef %6, i64 %7) unnamed_addr #0 {
   %9 = tail call i64 @COVER_sum(ptr noundef %2, i32 noundef %3) #14
   %10 = fcmp olt double %5, 1.000000e+00
   %11 = uitofp i32 %3 to double
@@ -413,7 +413,7 @@ FASTCOVER_ctx_destroy.exit:                       ; preds = %95, %92
   store i64 %110, ptr %111, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %103
   %112 = zext nneg i32 %6 to i64
@@ -486,7 +486,7 @@ FASTCOVER_ctx_destroy.exit82:                     ; preds = %120, %118
 .loopexit.i:                                      ; preds = %150, %.loopexit.loopexit.i
   %148 = phi i64 [ %.pre.i, %.loopexit.loopexit.i ], [ %151, %150 ]
   %149 = icmp ult i64 %155, %148
-  br i1 %149, label %150, label %FASTCOVER_computeFrequency.exit, !llvm.loop !8
+  br i1 %149, label %150, label %FASTCOVER_computeFrequency.exit, !llvm.loop !7
 
 150:                                              ; preds = %.loopexit.i, %.lr.ph26.i
   %151 = phi i64 [ %136, %.lr.ph26.i ], [ %148, %.loopexit.i ]
@@ -515,7 +515,7 @@ FASTCOVER_ctx_destroy.exit82:                     ; preds = %120, %118
   %166 = add i64 %147, %.02224.i
   %167 = add i64 %166, %142
   %.not.i83 = icmp ugt i64 %167, %157
-  br i1 %.not.i83, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i83, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 FASTCOVER_computeFrequency.exit:                  ; preds = %.loopexit.i, %134, %51, %54, %41, %44, %29, %32, %FASTCOVER_ctx_destroy.exit82, %FASTCOVER_ctx_destroy.exit
   %.074 = phi i64 [ -64, %FASTCOVER_ctx_destroy.exit ], [ -64, %FASTCOVER_ctx_destroy.exit82 ], [ -72, %32 ], [ -72, %29 ], [ -72, %44 ], [ -72, %41 ], [ -72, %54 ], [ -72, %51 ], [ 0, %134 ], [ 0, %.loopexit.i ]
@@ -535,7 +535,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
   %9 = trunc i64 %8 to i32
   %10 = tail call i64 @COVER_computeEpochs(i32 noundef %6, i32 noundef %9, i32 noundef %.0.val, i32 noundef 1) #14
   %.sroa.3.0.extract.shift = lshr i64 %10, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %11 = load i32, ptr @g_displayLevel, align 4
   %12 = icmp sgt i32 %11, 1
   br i1 %12, label %13, label %18
@@ -662,7 +662,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
   %.sroa.049.sroa.4.1.i = select i1 %72, i32 %indvars.i, i32 %.sroa.049.sroa.4.06.i
   %.sroa.049.sroa.0.1.i = select i1 %72, i32 %.sroa.011.1.i, i32 %.sroa.049.sroa.0.07.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader1.i, label %39, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader1.i, label %39, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %75, %.preheader1.i
   %.not13.i = icmp eq i32 %.sroa.049.sroa.0.0.lcssa.i, %.sroa.049.sroa.4.0.lcssa.i
@@ -686,7 +686,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
   store i16 %82, ptr %80, align 2
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count21.i
-  br i1 %exitcond22.not.i, label %.preheader.i, label %75, !llvm.loop !11
+  br i1 %exitcond22.not.i, label %.preheader.i, label %75, !llvm.loop !10
 
 83:                                               ; preds = %83, %.lr.ph15.i
   %.014.i = phi i32 [ %.sroa.049.sroa.0.0.lcssa.i, %.lr.ph15.i ], [ %90, %83 ]
@@ -700,7 +700,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
   store i32 0, ptr %89, align 4
   %90 = add i32 %.014.i, 1
   %.not.i = icmp eq i32 %90, %.sroa.049.sroa.4.0.lcssa.i
-  br i1 %.not.i, label %FASTCOVER_selectSegment.exit, label %83, !llvm.loop !12
+  br i1 %.not.i, label %FASTCOVER_selectSegment.exit, label %83, !llvm.loop !11
 
 FASTCOVER_selectSegment.exit:                     ; preds = %83, %.preheader.i
   %.sroa.049.sroa.0.0.insert.ext.i = zext i32 %.sroa.049.sroa.0.0.lcssa.i to i64
@@ -759,7 +759,7 @@ FASTCOVER_selectSegment.exit:                     ; preds = %83, %.preheader.i
   %125 = add nsw i64 %.0372, 1
   %126 = urem i64 %125, %25
   %.not = icmp eq i64 %.1, 0
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %124, %92, %95, %18
   %.0.lcssa = phi i64 [ 0, %18 ], [ %.04, %95 ], [ %.04, %92 ], [ 0, %124 ]
@@ -812,8 +812,8 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
   %28 = select i1 %21, i32 1950, i32 0
   %29 = udiv i32 %28, %27
   %30 = tail call i32 @llvm.umax.i32(i32 %29, i32 1)
-  %.lhs.trunc = trunc i32 %28 to i16
-  %.rhs.trunc = trunc i32 %30 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %28 to i16
+  %.rhs.trunc = trunc nuw nsw i32 %30 to i16
   %31 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %narrow = add nuw nsw i16 %31, 1
   %32 = zext nneg i16 %narrow to i32
@@ -968,7 +968,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
   br label %116
 
 116:                                              ; preds = %111, %.lr.ph196.split
-  %117 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0127193, double noundef %14, i32 noundef %38, i64 %.sroa.0.0.copyload), !range !5
+  %117 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0127193, double noundef %14, i32 noundef %38, i64 %.sroa.0.0.copyload)
   %118 = icmp ult i64 %117, -119
   br i1 %118, label %126, label %.split.us
 
@@ -1144,7 +1144,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %157
   %.2 = phi i32 [ %186, %185 ], [ %.1190, %168 ]
   %188 = add i32 %.0128188, %30
   %.not156 = icmp ugt i32 %188, %23
-  br i1 %.not156, label %._crit_edge, label %130, !llvm.loop !14
+  br i1 %.not156, label %._crit_edge, label %130, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %187
   call void @COVER_best_wait(ptr noundef nonnull %7) #14
@@ -1156,7 +1156,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %157
   store ptr null, ptr %110, align 8
   %191 = add i32 %.0127193, 2
   %.not152 = icmp ugt i32 %191, %19
-  br i1 %.not152, label %._crit_edge197, label %.lr.ph196.split, !llvm.loop !15
+  br i1 %.not152, label %._crit_edge197, label %.lr.ph196.split, !llvm.loop !14
 
 ._crit_edge197:                                   ; preds = %._crit_edge, %104
   br i1 %98, label %192, label %197
@@ -1386,14 +1386,13 @@ attributes #16 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 -72, i64 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

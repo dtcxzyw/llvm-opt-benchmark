@@ -110,7 +110,7 @@ define dso_local void @dm_io_client_destroy(ptr noundef %0) #0 align 16 {
 declare dso_local void @bioset_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dm_io(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @dm_io(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = alloca %struct.sync_io, align 8
   %6 = alloca %struct.dpages, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
@@ -315,7 +315,7 @@ define dso_local i32 @dm_io(ptr nocapture noundef readonly %0, i32 noundef %1, p
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @dm_io_init() local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @dm_io_init() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 64, i32 noundef 64, i32 noundef 0, ptr noundef null) #12
   store ptr %1, ptr @_dm_io_cache, align 8
   %2 = icmp eq ptr %1, null
@@ -685,7 +685,7 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
 68:                                               ; preds = %63, %.split.us.split.us, %.split.us.split.us
   %69 = phi i32 [ %67, %63 ], [ 0, %.split.us.split.us ], [ 0, %.split.us.split.us ]
   %70 = load ptr, ptr %37, align 8
-  %71 = trunc i32 %69 to i16
+  %71 = trunc nuw nsw i32 %69 to i16
   %72 = load ptr, ptr %26, align 16
   %73 = getelementptr inbounds i8, ptr %72, i64 72
   %74 = call ptr @bio_alloc_bioset(ptr noundef %70, i16 noundef zeroext %71, i32 noundef %16, i32 noundef 3072, ptr noundef %73) #12
@@ -700,7 +700,7 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
   %81 = getelementptr inbounds i8, ptr %74, i64 64
   store ptr %60, ptr %81, align 8
   %82 = call i64 @llvm.umin.i64(i64 %62, i64 %61)
-  %83 = trunc i64 %82 to i32
+  %83 = trunc nuw i64 %82 to i32
   %84 = shl i32 %83, 9
   %85 = getelementptr inbounds i8, ptr %74, i64 40
   store i32 %84, ptr %85, align 8
@@ -727,7 +727,7 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
 94:                                               ; preds = %89, %.split.us.split, %.split.us.split
   %95 = phi i32 [ %93, %89 ], [ 0, %.split.us.split ], [ 0, %.split.us.split ]
   %96 = load ptr, ptr %37, align 8
-  %97 = trunc i32 %95 to i16
+  %97 = trunc nuw nsw i32 %95 to i16
   %98 = load ptr, ptr %26, align 16
   %99 = getelementptr inbounds i8, ptr %98, i64 72
   %100 = call ptr @bio_alloc_bioset(ptr noundef %96, i16 noundef zeroext %97, i32 noundef %16, i32 noundef 3072, ptr noundef %99) #12
@@ -805,7 +805,7 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
   %138 = lshr i64 %137, 3
   %139 = trunc i64 %138 to i32
   %140 = call noundef i32 @llvm.umin.i32(i32 %139, i32 256)
-  %141 = trunc i32 %140 to i16
+  %141 = trunc nuw nsw i32 %140 to i16
   br label %142
 
 142:                                              ; preds = %136, %.split, %.split

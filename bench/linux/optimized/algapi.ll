@@ -1106,7 +1106,7 @@ define dso_local void @crypto_unregister_algs(ptr noundef %0, i32 noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_register_template(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @crypto_register_template(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #16
   br label %2
 
@@ -1137,7 +1137,7 @@ define dso_local noundef i32 @crypto_register_template(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_register_templates(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @crypto_register_templates(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %.loopexit
 
@@ -2137,7 +2137,7 @@ define dso_local noundef ptr @crypto_attr_alg_name(ptr noundef %0) #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_inst_setname(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #8 align 16 {
+define dso_local noundef range(i32 -36, 1) i32 @crypto_inst_setname(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %2, i64 56
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %4, i64 noundef 128, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef %5) #16
@@ -2175,7 +2175,7 @@ define dso_local void @crypto_init_queue(ptr noundef %0, i32 noundef %1) #10 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_enqueue_request(ptr noundef %0, ptr noundef %1) #11 align 16 {
+define dso_local noundef range(i32 -115, -15) i32 @crypto_enqueue_request(ptr noundef %0, ptr noundef %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2354,7 +2354,7 @@ define dso_local i32 @crypto_alg_extsize(ptr nocapture noundef readonly %0) #14 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_type_has_alg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @crypto_type_has_alg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = tail call ptr @crypto_find_alg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #16
   %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
   br i1 %6, label %8, label %7

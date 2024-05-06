@@ -555,7 +555,7 @@ _get_command.exit.thread:                         ; preds = %142
 
 166:                                              ; preds = %160
   %167 = getelementptr inbounds i8, ptr %.044.i, i64 %indvars.iv.i
-  %168 = trunc i64 %indvars.iv.i to i32
+  %168 = trunc nsw i64 %indvars.iv.i to i32
   store i8 0, ptr %167, align 1
   br label %.loopexit.i
 
@@ -567,7 +567,7 @@ _get_command.exit.thread:                         ; preds = %142
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %.lr.ph.i
-  %170 = trunc i64 %indvars.iv.i to i32
+  %170 = trunc nsw i64 %indvars.iv.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %169, %.loopexit.loopexit.split.loop.exit.i, %166, %147, %135

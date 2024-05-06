@@ -515,7 +515,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin
   %191 = getelementptr inbounds i8, ptr %181, i64 16
   %192 = load <2 x double>, ptr %191, align 16
   %193 = fmul <2 x double> %192, %192
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %181, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %181, i64 48
   %194 = icmp ugt i64 %178, 7
   br i1 %194, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -528,7 +528,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin
   %196 = load <2 x double>, ptr %195, align 16
   %197 = fmul <2 x double> %196, %196
   %198 = fadd <2 x double> %.07275.i.i.i.i, %197
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %199 = load <2 x double>, ptr %gep.i.i.i.i, align 16
   %200 = fmul <2 x double> %199, %199
   %201 = fadd <2 x double> %storemerge76.i.i.i.i, %200

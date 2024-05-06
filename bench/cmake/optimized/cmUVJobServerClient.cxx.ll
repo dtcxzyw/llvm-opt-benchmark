@@ -1028,7 +1028,7 @@ _Z18cmHasLiteralPrefixILm6EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
 114:                                              ; preds = %113
   %115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24, !noalias !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !5
-  %116 = invoke i32 (ptr, i32, ...) @open(ptr noundef %115, i32 noundef 2)
+  %116 = invoke i32 (ptr, i32, ...) @open(ptr noundef readonly %115, i32 noundef 2)
           to label %.noexc21.i.i.i unwind label %148, !noalias !5
 
 .noexc21.i.i.i:                                   ; preds = %114

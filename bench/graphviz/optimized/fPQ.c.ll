@@ -129,7 +129,7 @@ define void @PQupheap(i32 noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PQ_insert(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQ_insert(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @PQcnt, align 4
   %3 = load i32, ptr @PQsize, align 4
   %4 = icmp eq i32 %2, %3

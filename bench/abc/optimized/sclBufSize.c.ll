@@ -158,10 +158,10 @@ Abc_SclGetTotalArea.exit:                         ; preds = %21, %.critedge.loop
   br i1 %.not.i55, label %.thread104, label %66
 
 66:                                               ; preds = %64
-  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #24
+  %67 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %65) #24
   %68 = add i64 %67, 1
   %69 = tail call noalias ptr @malloc(i64 noundef %68) #25
-  %70 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %65) #23
+  %70 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull readonly dereferenceable(1) %65) #23
   br label %.thread104
 
 .thread104:                                       ; preds = %66, %64
@@ -1497,7 +1497,7 @@ define void @Abc_NtkPrintFanoutProfileVec(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Bus_SclCompareFanouts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define range(i32 -1, 2) i32 @Bus_SclCompareFanouts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %.val23 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %3, i64 16
@@ -2045,7 +2045,7 @@ select.unfold.i:                                  ; preds = %47, %45
   %56 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %57 = trunc nuw nsw i64 %indvars.iv.i to i32
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %57, i32 noundef %56)
-  tail call void @Abc_NtkPrintFanoutProfileVec(ptr noundef null, ptr noundef nonnull %2)
+  tail call void @Abc_NtkPrintFanoutProfileVec(ptr noundef null, ptr noundef nonnull readonly %2)
   br label %Bus_SclCheckSortedFanout.exit
 
 Bus_SclCheckSortedFanout.exit:                    ; preds = %Bus_SclCompareFanouts.exit.i, %4, %select.unfold.i
@@ -3587,7 +3587,7 @@ Abc_ObjIsBarBuf.exit237.thread:                   ; preds = %383, %391, %393, %A
 Scl_LibHandleInputDriver.exit:                    ; preds = %421, %438
   %.sink.i = phi ptr [ %440, %438 ], [ null, %421 ]
   call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9)
-  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull readonly %12, ptr noundef nonnull %8, ptr noundef nonnull %11)
   %441 = load float, ptr %40, align 4
   %442 = load float, ptr %41, align 4
   %443 = fsub float %441, %442

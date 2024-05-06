@@ -5811,7 +5811,7 @@ declare void @ssl_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_some_ip_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_some_ip_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @udp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @test_someip, ptr noundef nonnull @get_someip_message_len, ptr noundef nonnull @dissect_someip_message, ptr noundef %3) #14
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -5819,7 +5819,7 @@ define internal i32 @dissect_some_ip_heur_udp(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_some_ip_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_some_ip_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %test_someip.exit.thread, label %7
@@ -7659,7 +7659,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i57: ; preds = %proto_item_set_hi
   br label %dissect_someip_payload_typedef.exit
 
 180:                                              ; preds = %170
-  %181 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %171, i32 noundef %3, i32 noundef %172), !range !24
+  %181 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %171, i32 noundef %3, i32 noundef %172)
   %182 = icmp slt i64 %181, 0
   br i1 %182, label %dissect_someip_payload_typedef.exit, label %183
 
@@ -7733,7 +7733,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i57: ; preds = %proto_item_set_hi
 216:                                              ; preds = %215, %.lr.ph.i60
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i59
-  br i1 %exitcond.not.i63, label %.loopexit.i, label %.lr.ph.i60, !llvm.loop !25
+  br i1 %exitcond.not.i63, label %.loopexit.i, label %.lr.ph.i60, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %216, %206
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.087103107.i, ptr noundef nonnull @.str.357, ptr noundef %209) #14
@@ -7859,7 +7859,7 @@ switch.lookup156:                                 ; preds = %proto_item_set_hidd
   %281 = phi i32 [ %275, %272 ], [ %269, %switch.lookup156 ]
   %.0.i81114 = phi i32 [ 0, %272 ], [ %switch.load159, %switch.lookup156 ]
   %.03847.i = phi i32 [ %279, %272 ], [ %switch.load159, %switch.lookup156 ]
-  %282 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %243, i32 noundef %3, i32 noundef %.03847.i), !range !24
+  %282 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %243, i32 noundef %3, i32 noundef %.03847.i)
   %283 = icmp slt i64 %282, 0
   br i1 %283, label %284, label %dissect_someip_payload_array_dim_length.exit
 
@@ -8043,7 +8043,7 @@ switch.lookup160:                                 ; preds = %proto_item_set_hidd
   br i1 %.not.i70, label %373, label %365
 
 365:                                              ; preds = %364
-  %366 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %356, i32 noundef %3, i32 noundef %.070.i), !range !24
+  %366 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %356, i32 noundef %3, i32 noundef %.070.i)
   %367 = icmp slt i64 %366, 0
   br i1 %367, label %dissect_someip_payload_typedef.exit, label %368
 
@@ -8199,7 +8199,7 @@ switch.lookup164:                                 ; preds = %proto_item_set_hidd
   br label %dissect_someip_payload_typedef.exit
 
 448:                                              ; preds = %435
-  %449 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %436, i32 noundef %3, i32 noundef %.0.i74), !range !24
+  %449 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %436, i32 noundef %3, i32 noundef %.0.i74)
   %450 = icmp eq i64 %449, -1
   br i1 %450, label %dissect_someip_payload_typedef.exit, label %451
 
@@ -8307,7 +8307,7 @@ dissect_someip_payload_type_field.exit:           ; preds = %456, %459, %462, %4
   %.1.i76 = phi ptr [ %.096.i148, %490 ], [ %spec.select.i77, %494 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %490, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %490, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %497
   %.not.i75 = icmp eq ptr %.1.i76, null
@@ -8365,7 +8365,7 @@ declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 4294967296) i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   switch i32 %4, label %25 [
@@ -8507,7 +8507,7 @@ define internal fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr
   %or.cond.i = select i1 %.not.i, i1 %44, i1 false
   %45 = icmp slt i32 %42, %4
   %or.cond61.i = or i1 %or.cond.i, %45
-  br i1 %or.cond61.i, label %.critedge.i, label %._crit_edge, !llvm.loop !27
+  br i1 %or.cond61.i, label %.critedge.i, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %41, %27
   %.1.i.lcssa = phi i32 [ %.053.i, %27 ], [ %42, %41 ]
@@ -8572,7 +8572,7 @@ dissect_someip_payload_array_payload.exit:        ; preds = %.critedge.i, %21, %
 
 .thread.i:                                        ; preds = %72, %62
   %.03847.i = phi i32 [ %74, %72 ], [ %10, %62 ]
-  %75 = tail call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %66, i32 noundef %.092, i32 noundef %.03847.i), !range !24
+  %75 = tail call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %66, i32 noundef %.092, i32 noundef %.03847.i)
   %76 = icmp slt i64 %75, 0
   br i1 %76, label %77, label %79
 
@@ -8622,7 +8622,7 @@ dissect_someip_payload_array_dim_length.exit:     ; preds = %77, %84, %87
   %98 = add i32 %97, %89
   tail call void @proto_item_set_end(ptr noundef %64, ptr noundef %0, i32 noundef %98) #14
   %99 = icmp slt i32 %98, %56
-  br i1 %99, label %62, label %.loopexit, !llvm.loop !28
+  br i1 %99, label %62, label %.loopexit, !llvm.loop !27
 
 100:                                              ; preds = %55
   %101 = getelementptr inbounds i8, ptr %7, i64 48
@@ -8642,7 +8642,7 @@ dissect_someip_payload_array_dim_length.exit:     ; preds = %77, %84, %87
   %110 = add i32 %109, %.196
   %111 = add nuw nsw i32 %.06995, 1
   %exitcond.not = icmp eq i32 %111, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !28
 
 .loopexit:                                        ; preds = %96, %.lr.ph97, %.preheader, %100, %dissect_someip_payload_array_payload.exit
   %.2 = phi i32 [ %54, %dissect_someip_payload_array_payload.exit ], [ %3, %100 ], [ %3, %.preheader ], [ %110, %.lr.ph97 ], [ %98, %96 ]
@@ -8683,7 +8683,7 @@ define internal i32 @someip_segment_hash(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @someip_segment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @someip_segment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 62
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 62
@@ -8732,14 +8732,14 @@ define internal i32 @someip_segment_equal(ptr nocapture noundef readonly %0, ptr
   br i1 %37, label %38, label %57
 
 38:                                               ; preds = %32
-  %39 = tail call fastcc i32 @addresses_equal(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !30
+  %39 = tail call fastcc i32 @addresses_equal(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %57, label %40
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 24
   %42 = getelementptr inbounds i8, ptr %1, i64 24
-  %43 = tail call fastcc i32 @addresses_equal(ptr noundef nonnull %41, ptr noundef nonnull %42), !range !30
+  %43 = tail call fastcc i32 @addresses_equal(ptr noundef nonnull %41, ptr noundef nonnull %42)
   %.not22 = icmp eq i32 %43, 0
   br i1 %.not22, label %57, label %44
 
@@ -8805,7 +8805,7 @@ define internal noalias noundef ptr @someip_segment_persistent_key(ptr nocapture
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 %6, ptr %4, align 8
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %copy_address.exit, label %12
@@ -8829,7 +8829,7 @@ copy_address.exit:                                ; preds = %3, %12
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 240
   %24 = load ptr, ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store i32 %20, ptr %18, align 8
   %25 = icmp eq i32 %22, 0
   br i1 %25, label %copy_address.exit12, label %26
@@ -8895,7 +8895,7 @@ define internal void @someip_segment_free_persistent_key(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %2, %4, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i5 = icmp eq i32 %13, 0
@@ -8918,7 +8918,7 @@ free_address.exit:                                ; preds = %2, %4, %8, %11
   br label %free_address.exit7
 
 free_address.exit7:                               ; preds = %free_address.exit, %14, %18, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   tail call void @g_slice_free1(i64 noundef 72, ptr noundef nonnull %0) #14
   br label %22
 
@@ -8927,7 +8927,7 @@ free_address.exit7:                               ; preds = %free_address.exit, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -9112,7 +9112,7 @@ define internal void @free_someip_parameter_enum(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_someip(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @test_someip(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1) #14
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %17, label %7
@@ -9210,7 +9210,7 @@ define internal void @update_dynamic_param_hf_entry(ptr nocapture readnone %0, p
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
   %30 = icmp ult i64 %indvars.iv.next, %29
-  br i1 %30, label %7, label %._crit_edge, !llvm.loop !31
+  br i1 %30, label %7, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %27, %7, %3
   ret void
@@ -9275,7 +9275,7 @@ get_typedef_config.exit.i:                        ; preds = %.lr.ph.split.i
   %28 = icmp eq i8 %.1.i, 6
   %29 = icmp ugt i32 %.03764.i, 1
   %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !32
+  br i1 %30, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %25, %6
   %.038.lcssa.i = phi i32 [ %3, %6 ], [ %.139.i, %25 ]
@@ -9604,7 +9604,7 @@ define internal void @update_dynamic_struct_hf_entry(ptr nocapture readnone %0, 
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
   %30 = icmp ult i64 %indvars.iv.next, %29
-  br i1 %30, label %7, label %._crit_edge, !llvm.loop !33
+  br i1 %30, label %7, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %27, %7, %3
   ret void
@@ -9657,7 +9657,7 @@ define internal void @update_dynamic_union_hf_entry(ptr nocapture readnone %0, p
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
   %30 = icmp ult i64 %indvars.iv.next, %29
-  br i1 %30, label %7, label %._crit_edge, !llvm.loop !34
+  br i1 %30, label %7, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %27, %7, %3
   ret void
@@ -9721,14 +9721,12 @@ attributes #18 = { nounwind allocsize(0) }
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = !{i64 -1, i64 4294967296}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = !{i32 0, i32 2}
+!30 = distinct !{!30, !5, !20}
 !31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5, !20}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
+!32 = distinct !{!32, !5}

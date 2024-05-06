@@ -2195,7 +2195,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_ffi_typeinfo(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_ffi_typeinfo(ptr noundef %L) #0 {
 entry:
   %i.i = alloca i32, align 4
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
@@ -2794,7 +2794,7 @@ ffi_checkctype.exit:                              ; preds = %if.end9.i, %cond.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_ffi_offsetof(ptr noundef %L) #0 {
+define internal range(i32 0, 4) i32 @lj_cf_ffi_offsetof(ptr noundef %L) #0 {
 entry:
   %cp.i = alloca %struct.CPState, align 8
   %ofs = alloca i32, align 4

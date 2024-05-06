@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @softfloat_exceptionFlags = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @f16_to_ui16(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i64 0, 65536) i64 @f16_to_ui16(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @softfloat_exceptionFlags, align 1
   %5 = tail call i64 @f16_to_ui32(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) #2
   %6 = icmp ugt i64 %5, 65535

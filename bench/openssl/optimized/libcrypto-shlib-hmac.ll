@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"HMAC\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @HMAC_Init_ex(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md, ptr noundef %impl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_Init_ex(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md, ptr noundef %impl) local_unnamed_addr #0 {
 entry:
   %pad = alloca [144 x i8], align 16
   %keytmp_length = alloca i32, align 4
@@ -199,7 +199,7 @@ declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @HMAC_Init(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_Init(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %key, null
   %tobool1 = icmp ne ptr %md, null
@@ -207,16 +207,16 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @HMAC_CTX_reset(ptr noundef %ctx), !range !7
+  %call = tail call i32 @HMAC_CTX_reset(ptr noundef %ctx)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call2 = tail call i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md, ptr noundef null), !range !7
+  %call2 = tail call i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md, ptr noundef null)
   ret i32 %call2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @HMAC_CTX_reset(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_CTX_reset(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
   %i_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8
@@ -294,7 +294,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @HMAC_Final(ptr nocapture noundef readonly %ctx, ptr noundef %md, ptr noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_Final(ptr nocapture noundef readonly %ctx, ptr noundef %md, ptr noundef %len) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %buf = alloca [64 x i8], align 16
@@ -340,7 +340,7 @@ return:                                           ; preds = %if.end15, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @HMAC_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @HMAC_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i32 @EVP_MD_get_size(ptr noundef %0) #6
@@ -359,7 +359,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @HMAC_CTX_reset(ptr noundef nonnull %call), !range !7
+  %call1 = tail call i32 @HMAC_CTX_reset(ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %HMAC_CTX_free.exit, label %return
 
@@ -422,7 +422,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @HMAC_CTX_copy(ptr nocapture noundef %dctx, ptr nocapture noundef readonly %sctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_CTX_copy(ptr nocapture noundef %dctx, ptr nocapture noundef readonly %sctx) local_unnamed_addr #0 {
 entry:
   %i_ctx.i = getelementptr inbounds i8, ptr %dctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8
@@ -588,4 +588,3 @@ attributes #6 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}

@@ -2384,7 +2384,7 @@ _ZNSt6vectorIPKN3nix9StorePathESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17
   %319 = load ptr, ptr %.sroa.0.012.i.i.i.i, align 8
   %.sroa.0.06.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.012.i.i.i.i, i64 -8
   %320 = load ptr, ptr %.sroa.0.06.i.i.i.i.i, align 8
-  %321 = invoke fastcc noundef zeroext i1 @"_ZZN3nix12printMissingENS_3refINS_5StoreEEERKSt3setINS_9StorePathESt4lessIS4_ESaIS4_EESA_SA_mmNS_9VerbosityEENK3$_1clEPKS4_SE_"(ptr noundef %319, ptr noundef %320)
+  %321 = invoke fastcc noundef zeroext i1 @"_ZZN3nix12printMissingENS_3refINS_5StoreEEERKSt3setINS_9StorePathESt4lessIS4_ESaIS4_EESA_SA_mmNS_9VerbosityEENK3$_1clEPKS4_SE_"(ptr noundef readonly %319, ptr noundef %320)
           to label %.noexc177 unwind label %.loopexit255
 
 .noexc177:                                        ; preds = %.lr.ph.i.i.i.i174
@@ -3753,7 +3753,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i:               ; preds = %105
   store i64 0, ptr %119, align 8
   %120 = getelementptr inbounds i8, ptr %13, i64 176
   %121 = getelementptr inbounds i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 32, i1 false)
   %122 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
@@ -5706,7 +5706,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i:               ; preds = %111
   store i64 0, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %12, i64 176
   %127 = getelementptr inbounds i8, ptr %15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, i8 0, i64 32, i1 false)
   %128 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
@@ -11058,7 +11058,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN3nix9StorePathESt6vectorI
 
 16:                                               ; preds = %6
   %17 = load ptr, ptr %.pn23, align 8
-  %18 = tail call fastcc noundef zeroext i1 @"_ZZN3nix12printMissingENS_3refINS_5StoreEEERKSt3setINS_9StorePathESt4lessIS4_ESaIS4_EESA_SA_mmNS_9VerbosityEENK3$_1clEPKS4_SE_"(ptr noundef %10, ptr noundef %17)
+  %18 = tail call fastcc noundef zeroext i1 @"_ZZN3nix12printMissingENS_3refINS_5StoreEEERKSt3setINS_9StorePathESt4lessIS4_ESaIS4_EESA_SA_mmNS_9VerbosityEENK3$_1clEPKS4_SE_"(ptr noundef readonly %10, ptr noundef %17)
   br i1 %18, label %.lr.ph.i.preheader, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN3nix9StorePathESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_12printMissingENS2_3refINS2_5StoreEEERKSt3setIS3_St4lessIS3_ESaIS3_EESM_SM_mmNS2_9VerbosityEE3$_1EEEvT_T0_.exit"
 
 .lr.ph.i.preheader:                               ; preds = %16
@@ -25301,7 +25301,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix8RunPage
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix8RunPagerC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix8RunPagerC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix8RunPagerC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

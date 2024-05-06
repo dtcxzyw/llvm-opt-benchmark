@@ -259,7 +259,7 @@ define i32 @pmix_gds_base_store_modex(ptr nocapture noundef readnone %0, ptr nou
 76:                                               ; preds = %75, %72
   store ptr @pmix_buffer_t_class, ptr %49, align 8
   store i32 1, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   %77 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_buffer_t_class, i64 0, i32 6), align 8
   %78 = load ptr, ptr %77, align 8
   %.not6.i = icmp eq ptr %78, null
@@ -646,7 +646,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
 276:                                              ; preds = %275, %.lr.ph287
   store ptr @pmix_buffer_t_class, ptr %59, align 8
   store i32 1, ptr %60, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %61, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %61, i8 0, i64 64, i1 false)
   %277 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_buffer_t_class, i64 0, i32 6), align 8
   %278 = load ptr, ptr %277, align 8
   %.not6.i147 = icmp eq ptr %278, null

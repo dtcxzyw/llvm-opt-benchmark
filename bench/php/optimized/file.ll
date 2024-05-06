@@ -631,7 +631,7 @@ thread-pre-split:                                 ; preds = %16
   %.0213317 = phi i32 [ 0, %42 ], [ %.2215, %140 ]
   %.0216316 = phi i32 [ 0, %42 ], [ %.2218, %140 ]
   %.0219315 = phi i32 [ 0, %42 ], [ %.4223, %140 ]
-  %49 = call i32 @php_next_meta_token(ptr noundef nonnull %5), !range !4
+  %49 = call i32 @php_next_meta_token(ptr noundef nonnull %5)
   switch i32 %49, label %98 [
     i32 0, label %.critedge
     i32 6, label %50
@@ -929,7 +929,7 @@ declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @_zend_new_array_0() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @php_next_meta_token(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = alloca [8193 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8193) %2, i8 0, i64 8193, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7617,4 +7617,3 @@ attributes #21 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 9}

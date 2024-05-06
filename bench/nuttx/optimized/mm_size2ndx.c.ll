@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @mm_size2ndx(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @mm_size2ndx(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i64 %0, 4194303
   br i1 %2, label %7, label %3
 

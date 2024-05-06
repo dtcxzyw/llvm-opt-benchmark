@@ -160,8 +160,8 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %16 = trunc i64 %indvars.iv.i.i to i32
-  %17 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nsw i64 %indvars.iv.i.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %find_better_matching_suffix.exit.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -193,8 +193,8 @@ for.body.i26.i:                                   ; preds = %for.inc.i33.i, %for
   br i1 %tobool.not.i30.i, label %for.inc.i33.i, label %if.then.i31.i
 
 if.then.i31.i:                                    ; preds = %for.body.i26.i
-  %20 = trunc i64 %indvars.iv.i27.i to i32
-  %21 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nsw i64 %indvars.iv.i27.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %find_better_matching_suffix.exit37.i
 
 for.inc.i33.i:                                    ; preds = %for.body.i26.i
@@ -207,7 +207,7 @@ find_better_matching_suffix.exit37.i:             ; preds = %for.inc.i33.i, %if.
   %match2.sroa.6.1.i = phi i32 [ %match2.sroa.6.045.i, %find_better_matching_suffix.exit.i ], [ %conv6.i, %if.then.i31.i ], [ %match2.sroa.6.045.i, %for.inc.i33.i ]
   %match2.sroa.3.1.i = phi i32 [ %match2.sroa.3.046.i, %find_better_matching_suffix.exit.i ], [ %20, %if.then.i31.i ], [ %match2.sroa.3.046.i, %for.inc.i33.i ]
   %match2.sroa.0.1.i = phi i32 [ %match2.sroa.0.047.i, %find_better_matching_suffix.exit.i ], [ %21, %if.then.i31.i ], [ %match2.sroa.0.047.i, %for.inc.i33.i ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load ptr, ptr @prereleases, align 8
   %nr.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %nr.i, align 8

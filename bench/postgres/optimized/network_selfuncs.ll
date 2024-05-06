@@ -868,7 +868,7 @@ inet_mcv_join_sel.exit.i:                         ; preds = %inet_mcv_join_sel.e
   %130 = fpext float %129 to double
   %131 = getelementptr i64, ptr %119, i64 %indvars.iv.i90.i
   %132 = load i64, ptr %131, align 8
-  %133 = call fastcc double @inet_hist_value_sel(ptr noundef %123, i32 noundef %125, i64 noundef %132, i32 noundef %126)
+  %133 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %123, i32 noundef %125, i64 noundef %132, i32 noundef %126)
   %134 = call double @llvm.fmuladd.f64(double %130, double %133, double %.01213.i.i)
   %indvars.iv.next.i91.i = add nuw nsw i64 %indvars.iv.i90.i, 1
   %exitcond.not.i92.i = icmp eq i64 %indvars.iv.next.i91.i, %wide.trip.count.i88.i
@@ -911,7 +911,7 @@ inet_mcv_hist_sel.exit.i:                         ; preds = %.lr.ph.i89.i, %115
   %151 = fpext float %150 to double
   %152 = getelementptr i64, ptr %141, i64 %indvars.iv.i97.i
   %153 = load i64, ptr %152, align 8
-  %154 = call fastcc double @inet_hist_value_sel(ptr noundef %145, i32 noundef %147, i64 noundef %153, i32 noundef %.0.i.i)
+  %154 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %145, i32 noundef %147, i64 noundef %153, i32 noundef %.0.i.i)
   %155 = call double @llvm.fmuladd.f64(double %151, double %154, double %.01213.i98.i)
   %indvars.iv.next.i99.i = add nuw nsw i64 %indvars.iv.i97.i, 1
   %exitcond.not.i100.i = icmp eq i64 %indvars.iv.next.i99.i, %wide.trip.count.i95.i
@@ -958,7 +958,7 @@ inet_mcv_hist_sel.exit101.i:                      ; preds = %.lr.ph.i96.i, %137
   %177 = sext i32 %.01620.i.i to i64
   %178 = getelementptr i64, ptr %169, i64 %177
   %179 = load i64, ptr %178, align 8
-  %180 = call fastcc double @inet_hist_value_sel(ptr noundef %165, i32 noundef %167, i64 noundef %179, i32 noundef %.0.i.i)
+  %180 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %165, i32 noundef %167, i64 noundef %179, i32 noundef %.0.i.i)
   %181 = fadd double %.01719.i.i, %180
   %182 = add i32 %.021.i.i, 1
   %183 = add i32 %175, %.01620.i.i
@@ -1288,7 +1288,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   br i1 %or.cond.i, label %105, label %inet_semi_join_sel.exit
 
 105:                                              ; preds = %.loopexit.i
-  %106 = call fastcc double @inet_hist_value_sel(ptr noundef %99, i32 noundef %100, i64 noundef %97, i32 noundef %89)
+  %106 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %99, i32 noundef %100, i64 noundef %97, i32 noundef %89)
   %107 = fcmp ogt double %106, 0.000000e+00
   br i1 %107, label %108, label %inet_semi_join_sel.exit
 
@@ -1360,7 +1360,7 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i103, %.loop
   br i1 %or.cond.i109, label %138, label %inet_semi_join_sel.exit118
 
 138:                                              ; preds = %.loopexit.i108
-  %139 = call fastcc double @inet_hist_value_sel(ptr noundef %132, i32 noundef %133, i64 noundef %130, i32 noundef %125)
+  %139 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %132, i32 noundef %133, i64 noundef %130, i32 noundef %125)
   %140 = fcmp ogt double %139, 0.000000e+00
   br i1 %140, label %141, label %inet_semi_join_sel.exit118
 

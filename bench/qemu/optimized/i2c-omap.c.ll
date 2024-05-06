@@ -374,7 +374,7 @@ if.end133:                                        ; preds = %do.end94
   %conv124 = trunc i16 %call98 to i8
   store i8 %conv124, ptr %buf.addr.051, align 1
   %25 = lshr i16 %call98, 8
-  %conv127 = trunc i16 %25 to i8
+  %conv127 = trunc nuw i16 %25 to i8
   %arrayidx128 = getelementptr i8, ptr %buf.addr.051, i64 1
   store i8 %conv127, ptr %arrayidx128, align 1
   %add.ptr129 = getelementptr i8, ptr %buf.addr.051, i64 2

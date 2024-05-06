@@ -1380,11 +1380,11 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hecd9ba03f95867edE
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..result..Result$LT$u32$C$anyhow..Error$GT$$GT$17he0687526a8303992E.exit13.i.i.i.i", %"_ZN4core3ptr68drop_in_place$LT$core..result..Result$LT$u32$C$anyhow..Error$GT$$GT$17he0687526a8303992E.exit.i.i.i.i", %42, %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !57
   %92 = icmp ne ptr %.sroa.5.sroa.0.0.copyload.i, null
   call void @llvm.assume(i1 %92)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.5.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i)
   store i32 4, ptr %30, align 8
   call void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
@@ -2626,7 +2626,7 @@ define void @_ZN16wasmtime_runtime2gc7GcStore8gc_async17ha3a2a3c103dbefdfE(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
+define noundef range(i32 1, 0) i32 @_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4, !range !145, !noundef !4
   %4 = and i32 %3, 1
   %5 = icmp eq i32 %4, 0
@@ -6393,7 +6393,7 @@ common.resume:                                    ; preds = %34, %29, %19, %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE() unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i64 1, 0) i64 @_ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca { {} }, align 1
   %2 = load atomic i64, ptr @_ZN16wasmtime_runtime9page_size9PAGE_SIZE17h8efa91081f5a7269E.llvm.10220905185939527020 monotonic, align 8
   %3 = icmp eq i64 %2, 0

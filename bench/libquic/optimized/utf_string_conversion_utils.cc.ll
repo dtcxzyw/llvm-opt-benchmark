@@ -220,7 +220,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %code_point to i8
+  %conv = trunc nuw nsw i32 %code_point to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %output, i8 noundef signext %conv)
   br label %return
 
@@ -233,7 +233,7 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   %shr = lshr i32 %code_point, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv7 = or disjoint i8 %0, -64
   br label %if.end41
 
@@ -244,7 +244,7 @@ if.else11:                                        ; preds = %if.end
 
 if.then13:                                        ; preds = %if.else11
   %shr14 = lshr i32 %code_point, 12
-  %1 = trunc i32 %shr14 to i8
+  %1 = trunc nuw i32 %shr14 to i8
   %conv16 = or disjoint i8 %1, -32
   %inc18 = add i64 %call, 1
   %arrayidx19 = getelementptr inbounds i8, ptr %call17, i64 %call
@@ -309,13 +309,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(i32 noundef %code_point, ptr noundef %output) local_unnamed_addr #0 {
+define dso_local noundef range(i64 1, 3) i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(i32 noundef %code_point, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %code_point, 65536
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %code_point to i16
+  %conv = trunc nuw i32 %code_point to i16
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt(ptr noundef nonnull align 8 dereferenceable(32) %output, i16 noundef zeroext %conv)
   br label %return
 

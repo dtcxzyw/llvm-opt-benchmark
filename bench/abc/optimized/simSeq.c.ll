@@ -296,7 +296,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = trunc i64 %indvars.iv73 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv73 to i32
   br label %29
 
 29:                                               ; preds = %.lr.ph.us, %29
@@ -304,7 +304,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %.val51.us = load ptr, ptr %15, align 8
   %30 = getelementptr i8, ptr %.val51.us, i64 4
   %.val51.val.us = load i32, ptr %30, align 4
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = mul nsw i32 %.val51.val.us, %31
   %33 = add nsw i32 %32, %28
   %34 = sext i32 %33 to i64

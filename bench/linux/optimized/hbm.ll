@@ -148,7 +148,7 @@ define dso_local void @mei_hbm_reset(ptr noundef %0) local_unnamed_addr #2 align
 declare dso_local void @mei_me_cl_rm_all(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mei_hbm_start_wait(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -62, 1) i32 @mei_hbm_start_wait(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 428
   %4 = load i32, ptr %3, align 4
@@ -386,7 +386,7 @@ define dso_local i32 @mei_hbm_cl_dma_map_req(ptr noundef %0, ptr nocapture nound
   %12 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %11, ptr %12, align 1
   %13 = lshr i64 %10, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %14, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %1, i64 264
@@ -722,7 +722,7 @@ define dso_local zeroext i1 @mei_hbm_version_is_supported(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mei_hbm_dispatch(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_host_stop_request, align 4
   %5 = alloca %struct.mei_msg_hdr, align 4
@@ -1983,7 +1983,7 @@ define internal fastcc i32 @mei_hbm_dma_setup_req(ptr noundef %0) unnamed_addr #
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = lshr i64 %11, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = getelementptr [3 x %struct.hbm_dma_mem_dscr], ptr %6, i64 0, i64 %8
   store i32 %13, ptr %14, align 1
   %15 = trunc i64 %11 to i32

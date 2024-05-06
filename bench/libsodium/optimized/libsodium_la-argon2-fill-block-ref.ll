@@ -16,7 +16,7 @@ entry:
   %tmp_block.i = alloca %struct.block_, align 8
   %position.sroa.0.0.extract.trunc = trunc i64 %position.coerce0 to i32
   %position.sroa.7.0.extract.shift = lshr i64 %position.coerce0, 32
-  %position.sroa.7.0.extract.trunc = trunc i64 %position.sroa.7.0.extract.shift to i32
+  %position.sroa.7.0.extract.trunc = trunc nuw i64 %position.sroa.7.0.extract.shift to i32
   %position.sroa.11.8.extract.trunc = trunc i64 %position.coerce1 to i8
   %cmp = icmp eq ptr %instance, null
   br i1 %cmp, label %for.end, label %if.end
@@ -51,9 +51,9 @@ if.then8:                                         ; preds = %if.end6.thread, %if
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %input_block.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %address_block.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %tmp_block.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %zero_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %zero_block.i, i8 0, i64 1024, i1 false)
   %4 = getelementptr inbounds i8, ptr %input_block.i, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, i8 0, i64 968, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %4, i8 0, i64 968, i1 false)
   %conv.i = and i64 %position.coerce0, 4294967295
   store i64 %conv.i, ptr %input_block.i, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %input_block.i, i64 8
@@ -93,8 +93,8 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
 if.then21.i:                                      ; preds = %for.body.i
   %inc.i = add i64 %inc15.i, 1
   store i64 %inc.i, ptr %arrayidx23.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %tmp_block.i, i8 0, i64 1024, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %tmp_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
   call fastcc void @fill_block_with_xor(ptr noundef nonnull %zero_block.i, ptr noundef nonnull %input_block.i, ptr noundef nonnull %tmp_block.i)
   call fastcc void @fill_block_with_xor(ptr noundef nonnull %zero_block.i, ptr noundef nonnull %tmp_block.i, ptr noundef nonnull %address_block.i)
   br label %if.end.i
@@ -180,7 +180,7 @@ if.end48:                                         ; preds = %if.else44, %if.then
   %pseudo_rand.0 = load i64, ptr %pseudo_rand.0.in, align 8
   %shr = lshr i64 %pseudo_rand.0, 32
   %22 = load i32, ptr %lanes, align 4
-  %rem50.lhs.trunc = trunc i64 %shr to i32
+  %rem50.lhs.trunc = trunc nuw i64 %shr to i32
   %rem5068 = urem i32 %rem50.lhs.trunc, %22
   %rem50.zext = zext i32 %rem5068 to i64
   %ref_lane.0 = select i1 %or.cond1, i64 %position.sroa.7.0.extract.shift, i64 %rem50.zext
@@ -191,7 +191,7 @@ if.then.i:                                        ; preds = %if.end48
   br i1 %cmp16, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw i64 %indvars.iv to i32
   %sub.i = add i32 %23, -1
   br label %index_alpha.exit
 
@@ -200,7 +200,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp66.not, label %if.then4.i, label %if.else9.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %24, -1
   %sub8.i = add i32 %add.i, %mul13.i
   br label %index_alpha.exit
@@ -216,7 +216,7 @@ if.else19.i:                                      ; preds = %if.end48
 
 if.then21.i41:                                    ; preds = %if.else19.i
   %25 = xor i32 %18, -1
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw i64 %indvars.iv to i32
   %add25.i = add i32 %26, %25
   br label %if.then49.i
 
@@ -270,7 +270,7 @@ if.then81:                                        ; preds = %index_alpha.exit
 if.else86:                                        ; preds = %index_alpha.exit
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %blockR.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %block_tmp.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %blockR.i, ptr noundef nonnull align 8 dereferenceable(1024) %add.ptr74, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %blockR.i, ptr noundef nonnull readonly align 8 dereferenceable(1024) %add.ptr74, i64 1024, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.else86
@@ -980,7 +980,7 @@ define internal fastcc void @fill_block_with_xor(ptr nocapture noundef readonly 
 entry:
   %blockR = alloca %struct.block_, align 8
   %block_tmp = alloca %struct.block_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %blockR, ptr noundef nonnull align 8 dereferenceable(1024) %ref_block, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %blockR, ptr noundef nonnull readonly align 8 dereferenceable(1024) %ref_block, i64 1024, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -996,7 +996,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %xor_block.exit, label %for.body.i, !llvm.loop !6
 
 xor_block.exit:                                   ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %block_tmp, ptr noundef nonnull align 8 dereferenceable(1024) %blockR, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %block_tmp, ptr noundef nonnull readonly align 8 dereferenceable(1024) %blockR, i64 1024, i1 false)
   br label %for.body.i390
 
 for.body.i390:                                    ; preds = %for.body.i390, %xor_block.exit
@@ -1664,7 +1664,7 @@ do.body1058:                                      ; preds = %do.body1, %do.body1
   br i1 %exitcond1011.not, label %for.end2121, label %do.body1058, !llvm.loop !11
 
 for.end2121:                                      ; preds = %do.body1058
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %next_block, ptr noundef nonnull align 8 dereferenceable(1024) %block_tmp, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %next_block, ptr noundef nonnull readonly align 8 dereferenceable(1024) %block_tmp, i64 1024, i1 false)
   br label %for.body.i965
 
 for.body.i965:                                    ; preds = %for.body.i965, %for.end2121

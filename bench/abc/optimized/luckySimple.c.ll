@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.varInfo = type { i32, i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 1
@@ -126,7 +126,7 @@ define void @fillInSwapArray(ptr nocapture noundef readonly %0) local_unnamed_ad
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %13 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %indvars.iv.i, i32 1
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %14, ptr %13, align 4
   %15 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %indvars.iv.i
   store i32 -1, ptr %15, align 4
@@ -358,7 +358,7 @@ factorial.exit:                                   ; preds = %factorial.exit.loop
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %oneBitPosition.exit.i.loopexit.us
   %indvars.iv = phi i64 [ 1, %.lr.ph.i.us.preheader ], [ %indvars.iv.next, %oneBitPosition.exit.i.loopexit.us ]
   %.01113.i.us = phi i32 [ 0, %.lr.ph.i.us.preheader ], [ %30, %oneBitPosition.exit.i.loopexit.us ]
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = lshr i32 %28, 1
   %30 = xor i32 %29, %28
   %31 = xor i32 %30, %.01113.i.us
@@ -635,7 +635,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %30 = zext nneg i32 %4 to i64
   %31 = add nuw i32 %4, 1
   %wide.trip.count230 = zext i32 %31 to i64
-  %invariant.gep251 = getelementptr i32, ptr %28, i64 %30
+  %invariant.gep251 = getelementptr inbounds i32, ptr %28, i64 %30
   br label %.lr.ph194
 
 .lr.ph189:                                        ; preds = %.lr.ph189.preheader, %.lr.ph189
@@ -676,7 +676,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %47 = getelementptr inbounds i8, ptr %46, i64 20
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, 1
-  %gep252 = getelementptr i32, ptr %invariant.gep251, i64 %indvars.iv227
+  %gep252 = getelementptr inbounds i32, ptr %invariant.gep251, i64 %indvars.iv227
   store i32 %49, ptr %gep252, align 4
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
@@ -887,7 +887,7 @@ minWord3.exit176:                                 ; preds = %minWord3.exit176.si
   br i1 %154, label %.lr.ph210, label %._crit_edge211.loopexit, !llvm.loop !18
 
 ._crit_edge211.loopexit:                          ; preds = %.lr.ph210
-  %155 = trunc i64 %indvars.iv.next246 to i32
+  %155 = trunc nsw i64 %indvars.iv.next246 to i32
   br label %._crit_edge211
 
 ._crit_edge211:                                   ; preds = %._crit_edge211.loopexit, %._crit_edge207

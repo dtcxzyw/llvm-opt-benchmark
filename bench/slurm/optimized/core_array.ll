@@ -486,7 +486,7 @@ define void @core_array_log(ptr noundef %0, ptr noundef %1, ptr noundef readonly
 29:                                               ; preds = %26
   %30 = load ptr, ptr %24, align 8
   %31 = call ptr @bit_fmt(ptr noundef nonnull %4, i32 noundef 100, ptr noundef %30) #2
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %.01320, i32 noundef %32, ptr noundef nonnull %4) #2
   br label %33
 
@@ -550,7 +550,7 @@ define ptr @core_array_to_bitmap(ptr noundef readonly %0) local_unnamed_addr #0 
   br i1 %.not20, label %.loopexit, label %11
 
 11:                                               ; preds = %.lr.ph25
-  %12 = trunc i64 %indvars.iv28 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv28 to i32
   %13 = tail call i32 @cr_get_coremap_offset(i32 noundef %12) #2
   %14 = load ptr, ptr @node_record_table_ptr, align 8
   %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv28

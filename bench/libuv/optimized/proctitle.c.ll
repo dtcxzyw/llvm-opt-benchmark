@@ -118,7 +118,7 @@ declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_set_process_title(ptr nocapture noundef readonly %title) local_unnamed_addr #0 {
+define range(i32 -105, 1) i32 @uv_set_process_title(ptr nocapture noundef readonly %title) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @args_mem, align 8
   %cmp = icmp eq ptr %0, null
@@ -166,7 +166,7 @@ declare void @uv__set_process_title(ptr noundef) local_unnamed_addr #2
 declare void @uv_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_get_process_title(ptr noundef writeonly %buffer, i64 noundef %size) local_unnamed_addr #0 {
+define range(i32 -105, 1) i32 @uv_get_process_title(ptr noundef writeonly %buffer, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %buffer, null
   %cmp1 = icmp eq i64 %size, 0

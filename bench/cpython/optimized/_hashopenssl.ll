@@ -357,7 +357,7 @@ declare void @HMAC_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_hashlib_HMAC_update(ptr noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_hashlib_HMAC_update(ptr noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -375,7 +375,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond12 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond12, align 8
-  %call.i = call fastcc i32 @_hmac_update(ptr noundef %self, ptr noundef %1), !range !6
+  %call.i = call fastcc i32 @_hmac_update(ptr noundef %self, ptr noundef %1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %._Py_NoneStruct.i = select i1 %tobool.not.i, ptr null, ptr @_Py_NoneStruct
   br label %exit
@@ -403,7 +403,7 @@ if.then.i:                                        ; preds = %entry
   br label %_hashlib_HMAC_digest_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = call fastcc i32 @_hmac_digest(ptr noundef nonnull %self, ptr noundef nonnull %digest.i, i32 noundef %call1.i.i), !range !6
+  %call2.i = call fastcc i32 @_hmac_digest(ptr noundef nonnull %self, ptr noundef nonnull %digest.i, i32 noundef %call1.i.i)
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %_hashlib_HMAC_digest_impl.exit, label %if.end5.i
 
@@ -436,7 +436,7 @@ if.then.i:                                        ; preds = %entry
   br label %_hashlib_HMAC_hexdigest_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = call fastcc i32 @_hmac_digest(ptr noundef nonnull %self, ptr noundef nonnull %digest.i, i32 noundef %call1.i.i), !range !6
+  %call2.i = call fastcc i32 @_hmac_digest(ptr noundef nonnull %self, ptr noundef nonnull %digest.i, i32 noundef %call1.i.i)
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %_hashlib_HMAC_hexdigest_impl.exit, label %if.end5.i
 
@@ -535,7 +535,7 @@ _hashlib_HMAC_copy_impl.exit:                     ; preds = %if.then.i, %if.then
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_hmac_update(ptr noundef %self, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_hmac_update(ptr noundef %self, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %view, i8 0, i64 80, i1 false)
@@ -740,7 +740,7 @@ declare ptr @ERR_reason_error_string(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_hmac_digest(ptr noundef %self, ptr noundef %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_hmac_digest(ptr noundef %self, ptr noundef %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
   %len.addr = alloca i32, align 4
   store i32 %len, ptr %len.addr, align 4
@@ -1577,7 +1577,7 @@ if.then11.i:                                      ; preds = %land.lhs.true.i
 
 if.end12.i:                                       ; preds = %land.lhs.true.i, %if.end8.i
   %cmp13.i = icmp ugt i64 %call.i, 1
-  %26 = call i64 @llvm.ctpop.i64(i64 %call.i), !range !7
+  %26 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call.i)
   %tobool14.not.i = icmp ult i64 %26, 2
   %or.cond30.i = select i1 %cmp13.i, i1 %tobool14.not.i, i1 false
   br i1 %or.cond30.i, label %if.end16.i, label %if.then15.i
@@ -2169,7 +2169,7 @@ if.end24.i:                                       ; preds = %if.end19.i
   br i1 %or.cond.i, label %if.then30.i, label %exit
 
 if.then30.i:                                      ; preds = %if.end24.i
-  %call31.i = call fastcc i32 @_hmac_update(ptr noundef nonnull %call20.i, ptr noundef nonnull %msg_obj.1), !range !6
+  %call31.i = call fastcc i32 @_hmac_update(ptr noundef nonnull %call20.i, ptr noundef nonnull %msg_obj.1)
   %tobool.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool.not.i, label %if.then39.i, label %exit
 
@@ -3035,7 +3035,7 @@ if.end5.i:                                        ; preds = %while.body.i
   %sub.i = sub nsw i64 %len.addr.08.i, %.len.addr.0.i
   %add.ptr.i = getelementptr i8, ptr %cp.09.i, i64 %.len.addr.0.i
   %cmp.i34 = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i34, label %while.body.i, label %if.end54.thread60, !llvm.loop !8
+  br i1 %cmp.i34, label %while.body.i, label %if.end54.thread60, !llvm.loop !6
 
 if.else50:                                        ; preds = %if.then42
   %cmp7.i35 = icmp sgt i64 %13, 0
@@ -3059,7 +3059,7 @@ if.end5.i45:                                      ; preds = %while.body.i39
   %sub.i46 = sub nsw i64 %len.addr.08.i41, %.len.addr.0.i42
   %add.ptr.i47 = getelementptr i8, ptr %cp.09.i40, i64 %.len.addr.0.i42
   %cmp.i48 = icmp sgt i64 %sub.i46, 0
-  br i1 %cmp.i48, label %while.body.i39, label %exit, !llvm.loop !8
+  br i1 %cmp.i48, label %while.body.i39, label %exit, !llvm.loop !6
 
 if.end54.thread60:                                ; preds = %if.end5.i, %if.then45
   call void @PyEval_RestoreThread(ptr noundef %call46) #9
@@ -3419,7 +3419,7 @@ declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 declare i32 @HMAC_Init_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hashlib_init_hashtable(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @hashlib_init_hashtable(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call.i2 = tail call ptr @_Py_hashtable_new_full(ptr noundef nonnull @py_hashentry_t_hash_name, ptr noundef nonnull @py_hashentry_t_compare_name, ptr noundef null, ptr noundef nonnull @py_hashentry_t_destroy_value, ptr noundef null) #9
@@ -3464,7 +3464,7 @@ for.inc.i:                                        ; preds = %if.end18.i, %if.end
   %incdec.ptr.i = getelementptr i8, ptr %h.019.i, i64 48
   %4 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp1.not.i = icmp eq ptr %4, null
-  br i1 %cmp1.not.i, label %py_hashentry_table_new.exit, label %for.body.i, !llvm.loop !9
+  br i1 %cmp1.not.i, label %py_hashentry_table_new.exit, label %for.body.i, !llvm.loop !7
 
 error.sink.split.i:                               ; preds = %if.then13.i, %if.end6.i
   tail call void @PyMem_Free(ptr noundef nonnull %call3.i) #9
@@ -3491,7 +3491,7 @@ return:                                           ; preds = %py_hashentry_table_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hashlib_init_evptype(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @hashlib_init_evptype(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call1 = tail call ptr @PyType_FromSpec(ptr noundef nonnull @EVPtype_spec) #9
@@ -3510,7 +3510,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hashlib_init_evpxoftype(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @hashlib_init_evpxoftype(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %0 = load ptr, ptr %call.i, align 8
@@ -3535,7 +3535,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hashlib_init_hmactype(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @hashlib_init_hmactype(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call1 = tail call ptr @PyType_FromSpec(ptr noundef nonnull @HMACtype_spec) #9
@@ -3696,7 +3696,7 @@ for.inc:                                          ; preds = %Py_DECREF.exit, %fo
   %incdec.ptr = getelementptr i8, ptr %fdef.025, i64 32
   %11 = load ptr, ptr %incdec.ptr, align 8
   %cmp7.not = icmp eq ptr %11, null
-  br i1 %cmp7.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
+  br i1 %cmp7.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %constructs, align 8
@@ -3714,7 +3714,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hashlib_exception(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @hashlib_exception(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %0 = load ptr, ptr @PyExc_ValueError, align 8
@@ -3745,7 +3745,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @py_hashentry_t_compare_name(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #5 {
+define internal range(i32 0, 2) i32 @py_hashentry_t_compare_name(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #5 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key1, ptr noundef nonnull dereferenceable(1) %key2) #10
   %cmp = icmp eq i32 %call, 0
@@ -4007,7 +4007,7 @@ if.end5.i:                                        ; preds = %while.body.i
   %sub.i = sub nsw i64 %len.addr.08.i, %.len.addr.0.i
   %add.ptr.i = getelementptr i8, ptr %cp.09.i, i64 %.len.addr.0.i
   %cmp.i9 = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i9, label %while.body.i, label %EVP_hash.exit, !llvm.loop !8
+  br i1 %cmp.i9, label %while.body.i, label %EVP_hash.exit, !llvm.loop !6
 
 EVP_hash.exit:                                    ; preds = %if.end5.i, %PyMutex_Lock.exit, %if.then3.i
   %cmp28 = phi i1 [ true, %if.then3.i ], [ false, %PyMutex_Lock.exit ], [ false, %if.end5.i ]
@@ -4047,7 +4047,7 @@ if.end5.i21:                                      ; preds = %while.body.i15
   %sub.i22 = sub nsw i64 %len.addr.08.i17, %.len.addr.0.i18
   %add.ptr.i23 = getelementptr i8, ptr %cp.09.i16, i64 %.len.addr.0.i18
   %cmp.i24 = icmp sgt i64 %sub.i22, 0
-  br i1 %cmp.i24, label %while.body.i15, label %if.end27.thread, !llvm.loop !8
+  br i1 %cmp.i24, label %while.body.i15, label %if.end27.thread, !llvm.loop !6
 
 if.end27.thread:                                  ; preds = %if.end5.i21, %if.else
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
@@ -4892,8 +4892,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = !{i64 0, i64 65}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

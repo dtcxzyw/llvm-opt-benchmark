@@ -88,7 +88,7 @@ define internal i32 @sort_by_name(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @process_stat_cmd_arg(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @process_stat_cmd_arg(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @g_strdup(ptr noundef %0) #10
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(11) @.str, i64 noundef 10) #11
   %.not = icmp eq i32 %3, 0
@@ -546,7 +546,7 @@ define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %18, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %19 = trunc i64 %indvars.iv41 to i32
+  %19 = trunc nuw i64 %indvars.iv41 to i32
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %28
@@ -565,7 +565,7 @@ define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_a
   %24 = getelementptr ptr, ptr %23, i64 %indvars.iv41
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr %struct._stat_tap_table_item_type, ptr %25, i64 %indvars.iv
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw i64 %indvars.iv to i32
   tail call void %20(ptr noundef nonnull %11, i32 noundef %19, i32 noundef %27, ptr noundef %26) #10
   %.pre = load i32, ptr %14, align 8
   br label %28

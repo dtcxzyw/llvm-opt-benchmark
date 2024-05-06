@@ -227,7 +227,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_has_aes_hardware() local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @EVP_has_aes_hardware() local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
   %1 = and i32 %0, 33554432
@@ -248,7 +248,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @crypto_gcm_clmul_enabled() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aesni_init_key(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #2 {
+define internal range(i32 0, 2) i32 @aesni_init_key(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #2 {
 entry:
   %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -339,7 +339,7 @@ declare void @aesni_ctr32_encrypt_blocks(ptr noundef, ptr noundef, i64 noundef, 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_init_key(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #2 {
+define internal range(i32 0, 2) i32 @aes_init_key(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #2 {
 entry:
   %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -831,7 +831,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_gcm_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #2 {
+define internal range(i32 -1, 2) i32 @aes_gcm_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #2 {
 entry:
   %cipher_data = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -1262,7 +1262,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_gcm_init(ptr nocapture noundef writeonly %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_gcm_init(ptr nocapture noundef writeonly %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len) #2 {
 entry:
   %0 = and i64 %key_len, 2305843009213693951
   switch i64 %0, label %if.then [
@@ -1317,7 +1317,7 @@ aes_ctr_set_key.exit:                             ; preds = %if.end7.i, %if.then
   %retval.0.i = phi ptr [ @aesni_ctr32_encrypt_blocks, %if.then.i ], [ %.bsaes_ctr32_encrypt_blocks, %if.end7.i ]
   %ctr = getelementptr inbounds i8, ptr %call, i64 632
   store ptr %retval.0.i, ptr %ctr, align 8
-  %conv = trunc i64 %spec.store.select to i8
+  %conv = trunc nuw nsw i64 %spec.store.select to i8
   %tag_len12 = getelementptr inbounds i8, ptr %call, i64 640
   store i8 %conv, ptr %tag_len12, align 8
   %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -1340,7 +1340,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_gcm_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_gcm_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #2 {
 entry:
   %gcm = alloca %struct.gcm128_context, align 8
   %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -1409,7 +1409,7 @@ return:                                           ; preds = %if.else, %if.then15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_gcm_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_gcm_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #2 {
 entry:
   %tag = alloca [16 x i8], align 16
   %gcm = alloca %struct.gcm128_context, align 8
@@ -1488,7 +1488,7 @@ return:                                           ; preds = %if.else, %if.then12
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_key_wrap_init(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %key, i64 noundef %key_len, i64 noundef %tag_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_key_wrap_init(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %key, i64 noundef %key_len, i64 noundef %tag_len) #2 {
 entry:
   %mul = shl i64 %key_len, 3
   switch i64 %mul, label %if.then [
@@ -1520,7 +1520,7 @@ if.then9:                                         ; preds = %if.end7
 
 if.end10:                                         ; preds = %if.end7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call, ptr align 1 %key, i64 %key_len, i1 false)
-  %conv = trunc i64 %mul to i32
+  %conv = trunc nuw i64 %mul to i32
   %key_bits12 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %conv, ptr %key_bits12, align 4
   %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -1543,7 +1543,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_key_wrap_seal(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture noundef readonly %nonce, i64 noundef %nonce_len, ptr nocapture noundef readonly %in, i64 noundef %in_len, ptr nocapture readnone %ad, i64 noundef %ad_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_key_wrap_seal(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture noundef readonly %nonce, i64 noundef %nonce_len, ptr nocapture noundef readonly %in, i64 noundef %in_len, ptr nocapture readnone %ad, i64 noundef %ad_len) #2 {
 entry:
   %ks = alloca %union.anon.4, align 8
   %A = alloca [16 x i8], align 16
@@ -1681,7 +1681,7 @@ return:                                           ; preds = %for.end70, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_key_wrap_open(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr nocapture noundef readonly %in, i64 noundef %in_len, ptr nocapture readnone %ad, i64 noundef %ad_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_key_wrap_open(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr nocapture noundef readonly %in, i64 noundef %in_len, ptr nocapture readnone %ad, i64 noundef %ad_len) #2 {
 entry:
   %ks = alloca %union.anon.5, align 8
   %A = alloca [16 x i8], align 16
@@ -1809,7 +1809,7 @@ for.body32:                                       ; preds = %for.cond29.preheade
 
 for.cond29.for.inc65_crit_edge:                   ; preds = %for.body32
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
-  %17 = trunc i64 %indvars.iv.next32 to i32
+  %17 = trunc nsw i64 %indvars.iv.next32 to i32
   %cmp27 = icmp ult i32 %17, 6
   br i1 %cmp27, label %for.cond29.preheader, label %for.end67, !llvm.loop !13
 
@@ -1835,7 +1835,7 @@ return:                                           ; preds = %if.end73, %if.then7
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_ctr_hmac_sha256_init(ptr nocapture noundef writeonly %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_ctr_hmac_sha256_init(ptr nocapture noundef writeonly %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len) #2 {
 entry:
   %block.i = alloca [64 x i8], align 16
   %cmp = icmp ult i64 %key_len, 32
@@ -1903,13 +1903,13 @@ aes_ctr_set_key.exit:                             ; preds = %if.end7.i, %if.then
   store ptr %AES_encrypt.sink.i, ptr %block, align 8
   %ctr = getelementptr inbounds i8, ptr %call, i64 248
   store ptr %retval.0.ph.i, ptr %ctr, align 8
-  %conv = trunc i64 %spec.store.select to i8
+  %conv = trunc nuw nsw i64 %spec.store.select to i8
   %tag_len15 = getelementptr inbounds i8, ptr %call, i64 488
   store i8 %conv, ptr %tag_len15, align 8
   %inner_init_state = getelementptr inbounds i8, ptr %call, i64 264
   %add.ptr = getelementptr inbounds i8, ptr %key, i64 %sub
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %block.i, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %block.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %add.ptr, i64 32, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %block.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, i8 54, i64 32, i1 false)
   br label %for.body.i
@@ -1965,7 +1965,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_ctr_hmac_sha256_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_ctr_hmac_sha256_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #2 {
 entry:
   %partial_block_buffer.i = alloca [16 x i8], align 16
   %partial_block_offset.i = alloca i32, align 4
@@ -2008,7 +2008,7 @@ if.end14:                                         ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %counter.i)
   store i32 0, ptr %partial_block_offset.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %partial_block_buffer.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %counter.i, ptr noundef nonnull align 1 dereferenceable(12) %nonce, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %counter.i, ptr noundef nonnull readonly align 1 dereferenceable(12) %nonce, i64 12, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %counter.i, i64 12
   store i32 0, ptr %add.ptr.i, align 4
   %ctr.i = getelementptr inbounds i8, ptr %0, i64 248
@@ -2049,7 +2049,7 @@ return:                                           ; preds = %aead_aes_ctr_hmac_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_ctr_hmac_sha256_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #2 {
+define internal range(i32 0, 2) i32 @aead_aes_ctr_hmac_sha256_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #2 {
 entry:
   %partial_block_buffer.i = alloca [16 x i8], align 16
   %partial_block_offset.i = alloca i32, align 4
@@ -2105,7 +2105,7 @@ if.end18:                                         ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %counter.i)
   store i32 0, ptr %partial_block_offset.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %partial_block_buffer.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %counter.i, ptr noundef nonnull align 1 dereferenceable(12) %nonce, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %counter.i, ptr noundef nonnull readonly align 1 dereferenceable(12) %nonce, i64 12, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %counter.i, i64 12
   store i32 0, ptr %add.ptr.i, align 4
   %ctr.i = getelementptr inbounds i8, ptr %0, i64 248

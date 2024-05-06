@@ -831,7 +831,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_opensafety_udpdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_opensafety_udpdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -853,7 +853,7 @@ define internal i32 @dissect_opensafety_udpdata(ptr noundef %0, ptr noundef %1, 
 13:                                               ; preds = %12
   store i1 true, ptr @bDissector_Called_Once_Before, align 4
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
-  %15 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.513, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext 2), !range !4
+  %15 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.513, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext 2)
   store i1 false, ptr @bDissector_Called_Once_Before, align 4
   br label %dissect_opensafety_siii.exit
 
@@ -881,7 +881,7 @@ define internal i32 @dissect_opensafety_udpdata(ptr noundef %0, ptr noundef %1, 
 
 26:                                               ; preds = %25, %21
   %27 = load i32, ptr @global_udp_frame2_first, align 4
-  %28 = call fastcc i32 @findSafetyFrame(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0, i32 noundef %27, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null), !range !4
+  %28 = call fastcc i32 @findSafetyFrame(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0, i32 noundef %27, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null)
   %29 = icmp eq i32 %28, 0
   %30 = load i32, ptr %5, align 4
   %31 = icmp ugt i32 %30, 10
@@ -920,7 +920,7 @@ define internal i32 @dissect_opensafety_udpdata(ptr noundef %0, ptr noundef %1, 
   %54 = load i32, ptr @hf_oss_udp_transport_length, align 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %54, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648) #10
   %56 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 12) #10
-  %57 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.344, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %56, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext 0), !range !4
+  %57 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.344, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %56, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext 0)
   %.not.i32 = icmp eq i32 %57, 0
   br i1 %.not.i32, label %58, label %opensafety_udp_transport_dissector.exit.thread
 
@@ -933,7 +933,7 @@ opensafety_udp_transport_dissector.exit:          ; preds = %26
   %61 = load i32, ptr @global_udp_frame2_first, align 4
   %62 = load i32, ptr @dissect_opensafety_udpdata.frameIdx, align 4
   %63 = trunc i32 %62 to i8
-  %64 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.344, ptr noundef nonnull @.str.342, i32 noundef %61, i32 noundef 0, i8 noundef zeroext %63, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext 2), !range !4
+  %64 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.344, ptr noundef nonnull @.str.342, i32 noundef %61, i32 noundef 0, i8 noundef zeroext %63, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not31 = icmp eq i32 %64, 0
   br i1 %.not31, label %dissect_opensafety_siii.exit, label %opensafety_udp_transport_dissector.exit.thread
 
@@ -949,7 +949,7 @@ dissect_opensafety_siii.exit:                     ; preds = %13, %12, %10, %open
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_opensafety_mbtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_opensafety_mbtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @global_enable_mbtcp, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %6
@@ -969,7 +969,7 @@ define internal i32 @dissect_opensafety_mbtcp(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %7, %10
   %12 = phi ptr [ %2, %10 ], [ %9, %7 ]
-  %13 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 1, i8 noundef zeroext 0, ptr noundef %0, ptr noundef %1, ptr noundef %12, i8 noundef zeroext 0), !range !4
+  %13 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 1, i8 noundef zeroext 0, ptr noundef %0, ptr noundef %1, ptr noundef %12, i8 noundef zeroext 0)
   br label %14
 
 14:                                               ; preds = %4, %11
@@ -978,13 +978,13 @@ define internal i32 @dissect_opensafety_mbtcp(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_opensafety_pn_io(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_opensafety_pn_io(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %.b = load i1, ptr @bDissector_Called_Once_Before, align 4
   br i1 %.b, label %7, label %5
 
 5:                                                ; preds = %4
   store i1 true, ptr @bDissector_Called_Once_Before, align 4
-  %6 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.510, ptr noundef nonnull @.str.266, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0), !range !4
+  %6 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.510, ptr noundef nonnull @.str.266, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0)
   store i1 false, ptr @bDissector_Called_Once_Before, align 4
   br label %7
 
@@ -1151,7 +1151,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_opensafety_epl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_opensafety_epl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %.b = load i1, ptr @bDissector_Called_Once_Before, align 4
   br i1 %.b, label %12, label %5
 
@@ -1168,14 +1168,14 @@ define internal i32 @dissect_opensafety_epl(ptr noundef %0, ptr noundef %1, ptr 
   %8 = getelementptr inbounds i8, ptr %.010, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not15 = icmp eq ptr %9, null
-  br i1 %.not15, label %.critedge, label %6, !llvm.loop !5
+  br i1 %.not15, label %.critedge, label %6, !llvm.loop !4
 
 .critedge:                                        ; preds = %6, %7
   %10 = load i8, ptr %3, align 1
   %.off = add i8 %10, -3
   %switch = icmp ult i8 %.off, 2
   %. = select i1 %switch, i8 1, i8 2
-  %11 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.512, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %0, ptr noundef %1, ptr noundef %.010, i8 noundef zeroext %.), !range !4
+  %11 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.512, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %0, ptr noundef %1, ptr noundef %.010, i8 noundef zeroext %.)
   store i1 false, ptr @bDissector_Called_Once_Before, align 4
   br label %12
 
@@ -1185,7 +1185,7 @@ define internal i32 @dissect_opensafety_epl(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_opensafety_siii(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_opensafety_siii(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @heuristic_siii_dissection_enabled, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %19, label %6
@@ -1210,7 +1210,7 @@ define internal i32 @dissect_opensafety_siii(ptr noundef %0, ptr noundef %1, ptr
 14:                                               ; preds = %12, %7
   %15 = phi i8 [ 1, %12 ], [ 2, %7 ]
   %16 = phi ptr [ @.str.262, %12 ], [ @.str.342, %7 ]
-  %17 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.513, ptr noundef nonnull %16, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext %15), !range !4
+  %17 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.513, ptr noundef nonnull %16, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext %15)
   br label %18
 
 18:                                               ; preds = %14, %12
@@ -1260,7 +1260,7 @@ define internal void @setup_dissector() #0 {
   %16 = getelementptr i8, ptr %.011, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %15, %0
   %18 = tail call ptr @find_heur_dissector_by_unique_short_name(ptr noundef nonnull @.str.264) #10
@@ -1302,7 +1302,7 @@ declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @findSafetyFrame(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #10
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   br label %.outer
@@ -1503,7 +1503,7 @@ define internal fastcc noundef i32 @findSafetyFrame(ptr nocapture noundef readon
 .outer.backedge:                                  ; preds = %93, %.loopexit
   %.0152.be = phi i32 [ 12, %93 ], [ %104, %.loopexit ]
   %.0136.be = phi i32 [ %17, %93 ], [ %.pre-phi, %.loopexit ]
-  br label %.outer, !llvm.loop !8
+  br label %.outer, !llvm.loop !7
 
 .loopexit.loopexit:                               ; preds = %14, %93, %12, %11
   %.pre = add i32 %.0136, 1
@@ -1553,7 +1553,7 @@ define internal fastcc noundef i32 @findSafetyFrame(ptr nocapture noundef readon
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @opensafety_package_dissector(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i8 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @opensafety_package_dissector(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i8 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -1612,7 +1612,7 @@ define internal fastcc i32 @opensafety_package_dissector(ptr noundef %0, ptr nou
   %41 = add i8 %.0231298, 1
   %42 = zext i8 %41 to i32
   %43 = icmp ugt i32 %31, %42
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %44 = tail call ptr @tvb_new_real_data(ptr noundef nonnull %30, i32 noundef %13, i32 noundef %21) #10
@@ -1647,7 +1647,7 @@ define internal fastcc i32 @opensafety_package_dissector(ptr noundef %0, ptr nou
 54:                                               ; preds = %50
   %55 = load ptr, ptr %45, align 8
   %56 = call noalias ptr @wmem_alloc0(ptr noundef %55, i64 noundef 80) #10
-  %57 = call fastcc i32 @findSafetyFrame(ptr noundef %6, ptr noundef %.0225, i32 noundef %51, i32 noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %56), !range !4
+  %57 = call fastcc i32 @findSafetyFrame(ptr noundef %6, ptr noundef %.0225, i32 noundef %51, i32 noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %56)
   %.not256 = icmp eq i32 %57, 0
   br i1 %.not256, label %._crit_edge307, label %58
 
@@ -1723,7 +1723,7 @@ findFrame1Position.exit.thread282:                ; preds = %82
   %.0230.be = phi i32 [ %.0230303, %findFrame1Position.exit.thread282 ], [ %.0230303, %183 ], [ %.0230303, %195 ], [ %.0230303, %204 ], [ %.0230303, %234 ], [ %.0230303, %255 ], [ %.0230303, %172 ], [ %.0230303, %174 ], [ %65, %307 ], [ %65, %303 ]
   %.0229.be = phi i8 [ %.0229304, %findFrame1Position.exit.thread282 ], [ %.0229304, %183 ], [ %.0229304, %195 ], [ %.0229304, %204 ], [ %.0229304, %234 ], [ %.0229304, %255 ], [ %.0229304, %172 ], [ %.0229304, %174 ], [ %299, %307 ], [ %299, %303 ]
   %99 = icmp ult i32 %98, %13
-  br i1 %99, label %50, label %._crit_edge307, !llvm.loop !10
+  br i1 %99, label %50, label %._crit_edge307, !llvm.loop !9
 
 findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.exit, %82, %82, %68
   %100 = phi i32 [ %89, %findFrame1Position.exit ], [ 0, %68 ], [ 0, %82 ], [ 0, %82 ]
@@ -3903,7 +3903,7 @@ proto_item_set_generated.exit208.i.i:             ; preds = %1173, %1170, %proto
   %1184 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1159, i32 noundef %1183, ptr noundef %1098, i32 noundef %1181, i32 noundef 4, i32 noundef %1182, ptr noundef nonnull @.str.395, i32 noundef %.0195219.i.i, i32 noundef %1182) #10
   %1185 = add nuw nsw i32 %.0195219.i.i, 1
   %exitcond223.not.i.i = icmp eq i32 %1185, %umax.i.i
-  br i1 %exitcond223.not.i.i, label %dissect_opensafety_ssdo_payload.exit.i, label %.lr.ph220.i.i, !llvm.loop !11
+  br i1 %exitcond223.not.i.i, label %dissect_opensafety_ssdo_payload.exit.i, label %.lr.ph220.i.i, !llvm.loop !10
 
 .lr.ph217.i.i:                                    ; preds = %.preheader.i.i, %.loopexit213.i.i
   %.1216.i.i = phi i32 [ %1280, %.loopexit213.i.i ], [ 0, %.preheader.i.i ]
@@ -4019,7 +4019,7 @@ proto_item_set_generated.exit211.i.i:             ; preds = %1206, %1203, %1197
   %1248 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1215, i32 noundef %1247, ptr noundef %1098, i32 noundef %1245, i32 noundef 4, i32 noundef %1246, ptr noundef nonnull @.str.395, i32 noundef %.0194215.i.i, i32 noundef %1246) #10
   %1249 = add nuw nsw i32 %.0194215.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %1249, %1242
-  br i1 %exitcond.not.i.i, label %.loopexit213.i.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %.loopexit213.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 1250:                                             ; preds = %1235
   %1251 = icmp eq i8 %1188, 7
@@ -4070,7 +4070,7 @@ proto_item_set_generated.exit211.i.i:             ; preds = %1206, %1203, %1197
 .loopexit213.i.i:                                 ; preds = %.lr.ph.i.i, %1276, %1275, %1261, %1252, %1238
   %1280 = add i32 %1233, 1
   %1281 = icmp ult i32 %1280, %1117
-  br i1 %1281, label %.lr.ph217.i.i, label %dissect_opensafety_ssdo_payload.exit.i, !llvm.loop !13
+  br i1 %1281, label %.lr.ph217.i.i, label %dissect_opensafety_ssdo_payload.exit.i, !llvm.loop !12
 
 .thread.i114:                                     ; preds = %1080, %1079
   %1282 = load i32, ptr @hf_oss_ssdo_payload_size, align 4
@@ -4113,7 +4113,7 @@ proto_item_set_generated.exit423.i:               ; preds = %1287, %1284, %.thre
   %1303 = add nuw nsw i32 %1297, 4
   %1304 = and i32 %1303, 65535
   %1305 = icmp ult i32 %1304, %1073
-  br i1 %1305, label %.lr.ph.i, label %dissect_opensafety_ssdo_payload.exit.i, !llvm.loop !14
+  br i1 %1305, label %.lr.ph.i, label %dissect_opensafety_ssdo_payload.exit.i, !llvm.loop !13
 
 1306:                                             ; preds = %proto_item_set_generated.exit423.i
   %1307 = icmp eq i32 %.0367.i, 7
@@ -4800,7 +4800,7 @@ proto_item_set_generated.exit.i127:               ; preds = %1712, %1709, %1702
   store i8 %1771, ptr %1766, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %1772, label %.preheader.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %1772, label %.preheader.i, !llvm.loop !14
 
 1772:                                             ; preds = %.preheader.i
   br i1 %.not168.i, label %1773, label %1790
@@ -5487,15 +5487,14 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

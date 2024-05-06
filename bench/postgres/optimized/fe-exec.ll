@@ -661,7 +661,7 @@ PQresultAlloc.exit.i:                             ; preds = %22
 
 34:                                               ; preds = %PQresultAlloc.exit.i
   store i32 %24, ptr %27, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %26, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull readonly align 8 %26, i64 %31, i1 false)
   store i32 1, ptr %9, align 4
   %35 = load i32, ptr %27, align 4
   %36 = icmp sgt i32 %35, 0
@@ -887,7 +887,7 @@ define range(i32 0, 2) i32 @PQsetvalue(ptr noundef %0, i32 noundef %1, i32 nound
 check_field_number.exit.thread:                   ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %10, ptr noundef nonnull @.str.65, i32 noundef %2, i32 noundef %11)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %10, ptr noundef nonnull @.str.65, i32 noundef %2, i32 noundef %11)
   br label %93
 
 check_field_number.exit:                          ; preds = %8
@@ -1107,7 +1107,7 @@ define void @pqInternalNotice(ptr nocapture noundef readonly %0, ptr noundef %1,
   %21 = getelementptr inbounds i8, ptr %10, i64 156
   store i32 0, ptr %21, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #27
+  %22 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #27
   %23 = add i64 %22, 10
   %24 = call ptr @pqResultAlloc(ptr noundef nonnull %10, i64 noundef %23, i1 noundef zeroext true)
   %.not.i19 = icmp eq ptr %24, null
@@ -1117,7 +1117,7 @@ define void @pqInternalNotice(ptr nocapture noundef readonly %0, ptr noundef %1,
   %26 = getelementptr inbounds i8, ptr %24, i64 8
   store i8 77, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 9
-  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %3) #26
+  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %3) #26
   %29 = getelementptr inbounds i8, ptr %10, i64 168
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %24, align 8
@@ -1133,7 +1133,7 @@ pqSaveMessageField.exit:                          ; preds = %11, %25
   %33 = getelementptr inbounds i8, ptr %31, i64 8
   store i8 83, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %34, ptr noundef nonnull align 1 dereferenceable(7) @.str.17, i64 7, i1 false) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %34, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.17, i64 7, i1 false) #26
   %35 = getelementptr inbounds i8, ptr %10, i64 168
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %31, align 8
@@ -1149,7 +1149,7 @@ pqSaveMessageField.exit21:                        ; preds = %pqSaveMessageField.
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   store i8 86, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %40, ptr noundef nonnull align 1 dereferenceable(7) @.str.17, i64 7, i1 false) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %40, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.17, i64 7, i1 false) #26
   %41 = getelementptr inbounds i8, ptr %10, i64 168
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %37, align 8
@@ -1503,7 +1503,7 @@ define ptr @pqPrepareAsyncResult(ptr noundef %0) local_unnamed_addr #0 {
   store i64 216, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %28, i64 112
   %38 = getelementptr inbounds i8, ptr %0, i64 328
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull readonly align 8 dereferenceable(32) %38, i64 32, i1 false)
   %39 = getelementptr inbounds i8, ptr %0, i64 840
   %40 = load i32, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %28, i64 156
@@ -4929,7 +4929,7 @@ define ptr @PQfname(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 ._crit_edge.i:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
   br label %check_field_number.exit.thread
 
 check_field_number.exit:                          ; preds = %3
@@ -5119,7 +5119,7 @@ define i32 @PQftable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr
 ._crit_edge.i:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
   br label %check_field_number.exit.thread
 
 check_field_number.exit:                          ; preds = %3
@@ -5155,7 +5155,7 @@ define i32 @PQftablecol(ptr noundef readonly %0, i32 noundef %1) local_unnamed_a
 ._crit_edge.i:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
   br label %check_field_number.exit.thread
 
 check_field_number.exit:                          ; preds = %3
@@ -5191,7 +5191,7 @@ define i32 @PQfformat(ptr noundef readonly %0, i32 noundef %1) local_unnamed_add
 ._crit_edge.i:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
   br label %check_field_number.exit.thread
 
 check_field_number.exit:                          ; preds = %3
@@ -5227,7 +5227,7 @@ define i32 @PQftype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 ._crit_edge.i:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
   br label %check_field_number.exit.thread
 
 check_field_number.exit:                          ; preds = %3
@@ -5263,7 +5263,7 @@ define i32 @PQfsize(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 ._crit_edge.i:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
   br label %check_field_number.exit.thread
 
 check_field_number.exit:                          ; preds = %3
@@ -5299,7 +5299,7 @@ define i32 @PQfmod(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #
 ._crit_edge.i:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.65, i32 noundef %1, i32 noundef %6)
   br label %check_field_number.exit.thread
 
 check_field_number.exit:                          ; preds = %3
@@ -5540,7 +5540,7 @@ define ptr @PQgetvalue(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 112
   %8 = add i32 %.pre18.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, i32 noundef %1, i32 noundef %8)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.12, i32 noundef %1, i32 noundef %8)
   br label %check_tuple_field_number.exit.thread
 
 9:                                                ; preds = %4
@@ -5554,7 +5554,7 @@ define ptr @PQgetvalue(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) 
 ._crit_edge.i:                                    ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %11, ptr noundef nonnull @.str.65, i32 noundef %2, i32 noundef %12)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %11, ptr noundef nonnull @.str.65, i32 noundef %2, i32 noundef %12)
   br label %check_tuple_field_number.exit.thread
 
 check_tuple_field_number.exit:                    ; preds = %9
@@ -5588,7 +5588,7 @@ define range(i32 0, -1) i32 @PQgetlength(ptr noundef readonly %0, i32 noundef %1
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 112
   %8 = add i32 %.pre18.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, i32 noundef %1, i32 noundef %8)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.12, i32 noundef %1, i32 noundef %8)
   br label %check_tuple_field_number.exit.thread
 
 9:                                                ; preds = %4
@@ -5602,7 +5602,7 @@ define range(i32 0, -1) i32 @PQgetlength(ptr noundef readonly %0, i32 noundef %1
 ._crit_edge.i:                                    ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %11, ptr noundef nonnull @.str.65, i32 noundef %2, i32 noundef %12)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %11, ptr noundef nonnull @.str.65, i32 noundef %2, i32 noundef %12)
   br label %check_tuple_field_number.exit.thread
 
 check_tuple_field_number.exit:                    ; preds = %9
@@ -5638,7 +5638,7 @@ define range(i32 0, 2) i32 @PQgetisnull(ptr noundef readonly %0, i32 noundef %1,
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 112
   %8 = add i32 %.pre18.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, i32 noundef %1, i32 noundef %8)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.12, i32 noundef %1, i32 noundef %8)
   br label %check_tuple_field_number.exit.thread
 
 9:                                                ; preds = %4
@@ -5652,7 +5652,7 @@ define range(i32 0, 2) i32 @PQgetisnull(ptr noundef readonly %0, i32 noundef %1,
 ._crit_edge.i:                                    ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %11, ptr noundef nonnull @.str.65, i32 noundef %2, i32 noundef %12)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %11, ptr noundef nonnull @.str.65, i32 noundef %2, i32 noundef %12)
   br label %check_tuple_field_number.exit.thread
 
 check_tuple_field_number.exit:                    ; preds = %9
@@ -5704,7 +5704,7 @@ define i32 @PQparamtype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_a
 ._crit_edge.i:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = add i32 %.pre.i, -1
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %5, ptr noundef nonnull @.str.66, i32 noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.66, i32 noundef %1, i32 noundef %6)
   br label %check_param_number.exit.thread
 
 check_param_number.exit:                          ; preds = %3

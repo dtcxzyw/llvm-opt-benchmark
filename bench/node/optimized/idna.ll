@@ -1244,7 +1244,7 @@ while.end:                                        ; preds = %if.end18, %uv__get_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv_utf16_to_wtf8(ptr nocapture noundef readonly %w_source_ptr, i64 noundef %w_source_len, ptr noundef %target_ptr, ptr noundef %target_len_ptr) local_unnamed_addr #3 {
+define hidden range(i32 -105, 1) i32 @uv_utf16_to_wtf8(ptr nocapture noundef readonly %w_source_ptr, i64 noundef %w_source_len, ptr noundef %target_ptr, ptr noundef %target_len_ptr) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %target_ptr, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

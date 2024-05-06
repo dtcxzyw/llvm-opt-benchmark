@@ -260,7 +260,7 @@ while.body69:                                     ; preds = %while.body69.prehea
   %arrayidx71 = getelementptr inbounds [16 x i8], ptr %buffer, i64 0, i64 %9
   %10 = load i8, ptr %arrayidx71, align 1
   %call72 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7putbackEc(ptr noundef nonnull align 8 dereferenceable(16) %stream, i8 noundef signext %10)
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   %cmp68 = icmp sgt i32 %11, 1
   br i1 %cmp68, label %while.body69, label %STOP_READING, !llvm.loop !6
 

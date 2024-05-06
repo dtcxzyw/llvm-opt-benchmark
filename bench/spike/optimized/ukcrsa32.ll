@@ -158,7 +158,7 @@ define noundef i64 @_Z19fast_rv64i_ukcrsa32P11processor_t6insn_tm(ptr nocapture 
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 659712
   %34 = lshr i64 %28, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = trunc i64 %32 to i32
   %.not.i = icmp ugt i32 %36, %35
   %37 = tail call noundef i32 @llvm.usub.sat.i32(i32 %35, i32 %36)
@@ -174,7 +174,7 @@ define noundef i64 @_Z19fast_rv64i_ukcrsa32P11processor_t6insn_tm(ptr nocapture 
   %42 = shl nuw i64 %41, 32
   %43 = trunc i64 %28 to i32
   %44 = lshr i64 %32, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = add i32 %45, %43
   %47 = icmp ult i32 %46, %43
   %48 = select i1 %47, i32 -1, i32 %46
@@ -276,7 +276,7 @@ define noundef i64 @_Z21logged_rv64i_ukcrsa32P11processor_t6insn_tm(ptr noundef 
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 659712
   %34 = lshr i64 %28, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = trunc i64 %32 to i32
   %.not.i = icmp ugt i32 %36, %35
   %37 = tail call noundef i32 @llvm.usub.sat.i32(i32 %35, i32 %36)
@@ -292,7 +292,7 @@ define noundef i64 @_Z21logged_rv64i_ukcrsa32P11processor_t6insn_tm(ptr noundef 
   %42 = shl nuw i64 %41, 32
   %43 = trunc i64 %28 to i32
   %44 = lshr i64 %32, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = add i32 %45, %43
   %47 = icmp ult i32 %46, %43
   %48 = select i1 %47, i32 -1, i32 %46
@@ -493,7 +493,7 @@ define noundef i64 @_Z19fast_rv64e_ukcrsa32P11processor_t6insn_tm(ptr nocapture 
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 659712
   %55 = lshr i64 %42, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = trunc i64 %53 to i32
   %.not.i = icmp ugt i32 %57, %56
   %58 = tail call noundef i32 @llvm.usub.sat.i32(i32 %56, i32 %57)
@@ -509,7 +509,7 @@ define noundef i64 @_Z19fast_rv64e_ukcrsa32P11processor_t6insn_tm(ptr nocapture 
   %63 = shl nuw i64 %62, 32
   %64 = trunc i64 %42 to i32
   %65 = lshr i64 %53, 32
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw i64 %65 to i32
   %67 = add i32 %66, %64
   %68 = icmp ult i32 %67, %64
   %69 = select i1 %68, i32 -1, i32 %67
@@ -653,7 +653,7 @@ define noundef i64 @_Z21logged_rv64e_ukcrsa32P11processor_t6insn_tm(ptr noundef 
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 659712
   %55 = lshr i64 %42, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = trunc i64 %53 to i32
   %.not.i = icmp ugt i32 %57, %56
   %58 = tail call noundef i32 @llvm.usub.sat.i32(i32 %56, i32 %57)
@@ -669,7 +669,7 @@ define noundef i64 @_Z21logged_rv64e_ukcrsa32P11processor_t6insn_tm(ptr noundef 
   %63 = shl nuw i64 %62, 32
   %64 = trunc i64 %42 to i32
   %65 = lshr i64 %53, 32
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw i64 %65 to i32
   %67 = add i32 %66, %64
   %68 = icmp ult i32 %67, %64
   %69 = select i1 %68, i32 -1, i32 %67

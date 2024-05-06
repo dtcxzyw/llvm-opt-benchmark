@@ -191,7 +191,7 @@ define dso_local i32 @truncate_bdev_range(ptr noundef %0, i32 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bd_prepare_to_claim(ptr noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bd_prepare_to_claim(ptr noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) #1 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = icmp eq ptr %1, null
@@ -319,7 +319,7 @@ define dso_local void @bd_abort_claiming(ptr nocapture noundef readonly %0, ptr 
 declare dso_local i32 @invalidate_inode_pages2_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @set_blocksize(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @set_blocksize(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = add i32 %1, -512
   %4 = icmp ult i32 %3, 3585
   %5 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !17
@@ -2232,7 +2232,7 @@ declare void @llvm.assume(i1 noundef) #9
 declare dso_local void @inode_init_once(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bd_init_fs_context(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @bd_init_fs_context(ptr noundef %0) #1 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 1650746742) #12
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4

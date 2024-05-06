@@ -160,7 +160,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   switch i32 %2, label %43 [
     i32 1, label %7
     i32 2, label %23
@@ -1798,7 +1798,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !108
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

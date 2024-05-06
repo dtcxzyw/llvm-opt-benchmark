@@ -112,7 +112,7 @@ if.end:                                           ; preds = %evp_pkey_get0_RSA_i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_set1_EC_KEY(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_set1_EC_KEY(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EC_KEY_up_ref(ptr noundef %key) #2
   %tobool.not = icmp eq i32 %call, 0

@@ -313,7 +313,7 @@ _ZN3gmxL15print_IMD_errorEPKciPc.exit:            ; preds = %16, %8, %1, %3
 declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3gmx15imdsock_destroyEPNS_9IMDSocketE(ptr noundef %0) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @_ZN3gmx15imdsock_destroyEPNS_9IMDSocketE(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN3gmxL15print_IMD_errorEPKciPc.exit, label %3
 

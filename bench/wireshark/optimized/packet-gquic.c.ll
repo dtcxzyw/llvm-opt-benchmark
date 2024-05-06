@@ -2421,7 +2421,7 @@ switch.lookup:                                    ; preds = %133, %126, %123, %1
   %143 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %29, i32 noundef %140, ptr noundef %0, i32 noundef %.3.i, i32 noundef %switch.load, i32 noundef %142, ptr noundef nonnull %6) #4
   %144 = add nuw nsw i32 %switch.load, %.3.i
   %145 = trunc nuw nsw i32 %switch.load to i16
-  %146 = call fastcc i32 @is_gquic_unencrypt(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %144, i16 noundef zeroext %145, ptr noundef nonnull %.0152.i), !range !19
+  %146 = call fastcc i32 @is_gquic_unencrypt(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %144, i16 noundef zeroext %145, ptr noundef nonnull %.0152.i)
   %147 = icmp ne i32 %146, 0
   %148 = load i32, ptr @g_gquic_debug, align 4
   %149 = icmp ne i32 %148, 0
@@ -2594,7 +2594,7 @@ dissect_gquic_common.exit:                        ; preds = %9, %._crit_edge.i, 
   %256 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %179, i32 noundef %252, ptr noundef %0, i32 noundef %.0121.i, i32 noundef %253, i32 noundef %255, ptr noundef nonnull %5) #4
   %257 = add nuw nsw i32 %.0121.i, %253
   %258 = zext nneg i8 %183 to i16
-  %259 = call fastcc i32 @is_gquic_unencrypt(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %257, i16 noundef zeroext %258, ptr noundef nonnull %.0.i10), !range !19
+  %259 = call fastcc i32 @is_gquic_unencrypt(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %257, i16 noundef zeroext %258, ptr noundef nonnull %.0.i10)
   %260 = icmp ne i32 %259, 0
   %261 = load i32, ptr @g_gquic_debug, align 4
   %262 = icmp ne i32 %261, 0
@@ -2654,7 +2654,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_gquic_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_gquic_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %29, label %7
@@ -2741,7 +2741,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_gquic_unencrypt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_gquic_unencrypt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2) #4
   %7 = icmp slt i32 %6, 14
   br i1 %7, label %.loopexit, label %8
@@ -3023,7 +3023,7 @@ switch.lookup190:                                 ; preds = %83
   %.6 = phi i32 [ %29, %28 ], [ %64, %63 ], [ %56, %55 ], [ %54, %53 ], [ %52, %47 ], [ %39, %36 ], [ %31, %30 ], [ %op.rdx199, %73 ], [ %125, %120 ], [ %.3, %100 ], [ %151, %147 ], [ %146, %144 ], [ %153, %152 ]
   %155 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6) #4
   %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %21, label %.loopexit, !llvm.loop !20
+  br i1 %156, label %21, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %21, %28, %32, %36, %43, %switch.lookup, %73, %73, %94, %108, %111, %130, %136, %154, %16, %75, %78, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %78 ], [ 1, %75 ], [ 0, %16 ], [ 0, %21 ], [ 0, %28 ], [ 0, %32 ], [ 1, %36 ], [ 0, %43 ], [ 0, %switch.lookup ], [ 1, %73 ], [ 1, %73 ], [ 0, %94 ], [ 0, %108 ], [ 0, %111 ], [ 0, %130 ], [ 0, %136 ], [ 0, %154 ]
@@ -3072,7 +3072,7 @@ define internal fastcc noundef i32 @dissect_gquic_unencrypt(ptr noundef %0, ptr 
   %32 = tail call i32 @dissect_gquic_frame_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.131, i8 noundef zeroext %4, ptr noundef %5)
   %33 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %32) #4
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %.1.lcssa = phi i32 [ %.0, %29 ], [ %32, %.lr.ph ]
@@ -3119,6 +3119,5 @@ attributes #5 = { noreturn nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 0, i32 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

@@ -28,7 +28,7 @@ get_options.exit:                                 ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_outq_init(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 0, 9) i32 @lzma_outq_init(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp ugt i32 %3, 16384
   %6 = icmp ugt i64 %2, 281474976710655
   %or.cond.i = or i1 %6, %5
@@ -169,7 +169,7 @@ define dso_local zeroext i1 @lzma_outq_is_readable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noalias nocapture noundef writeonly %4, ptr noalias nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noalias nocapture noundef writeonly %4, ptr noalias nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0

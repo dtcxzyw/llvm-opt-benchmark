@@ -108,7 +108,7 @@ declare dso_local i32 @pci_read_config_word(ptr noundef, i32 noundef, ptr nounde
 declare dso_local i32 @pci_write_config_word(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_hcd_amd_remote_wakeup_quirk(ptr nocapture readnone %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @usb_hcd_amd_remote_wakeup_quirk(ptr nocapture readnone %0) #0 align 16 {
   tail call fastcc void @usb_amd_find_chipset_info()
   %2 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3), align 4
   %3 = and i32 %2, -2
@@ -355,7 +355,7 @@ define internal fastcc void @usb_amd_quirk_pll(i32 noundef %0) unnamed_addr #0 a
   %35 = shl nuw nsw i32 %34, 8
   %36 = or disjoint i32 %35, %26
   store i32 %36, ptr %2, align 4
-  %37 = trunc i32 %36 to i16
+  %37 = trunc nuw i32 %36 to i16
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 48, i16 %37) #8, !srcloc !12
   %38 = tail call i64 @llvm.read_register.i64(metadata !0)
   %39 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %38) #8, !srcloc !10
@@ -750,7 +750,7 @@ declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @uhci_check_and_reset_hc(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @uhci_check_and_reset_hc(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #8
   store i16 0, ptr %3, align 2, !annotation !6

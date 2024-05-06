@@ -88,7 +88,7 @@ if.end.i107:                                      ; preds = %if.end
 
 CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i107
   fence acquire
-  %.pre129 = load ptr, ptr %type_name, align 8
+  %.pre131 = load ptr, ptr %type_name, align 8
   br label %if.end3.i
 
 CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i107
@@ -96,7 +96,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i107
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %2 = phi ptr [ null, %CRYPTO_DOWN_REF.exit.i ], [ %.pre129, %CRYPTO_DOWN_REF.exit.thread.i ]
+  %2 = phi ptr [ null, %CRYPTO_DOWN_REF.exit.i ], [ %.pre131, %CRYPTO_DOWN_REF.exit.thread.i ]
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 73) #9
   %3 = load ptr, ptr %call.i, align 8
   tail call void @ossl_provider_free(ptr noundef %3) #9
@@ -390,12 +390,12 @@ for.inc:                                          ; preds = %for.cond, %if.end10
 for.end:                                          ; preds = %for.cond
   %cmp129 = icmp eq i32 %fnrandcnt.0, 3
   %cmp130 = icmp eq i32 %fnctxcnt.0, 3
-  %or.cond.not = select i1 %cmp129, i1 %cmp130, i1 false
+  %or.cond.not130 = select i1 %cmp129, i1 %cmp130, i1 false
   %or.cond1 = icmp ult i32 %fnenablelockcnt.0, 2
-  %or.cond86 = select i1 %or.cond.not, i1 %or.cond1, i1 false
+  %or.cond86.not129 = select i1 %or.cond.not130, i1 %or.cond1, i1 false
   %44 = and i32 %fnlockcnt.0, -3
   %or.cond2.not = icmp eq i32 %44, 0
-  %or.cond87 = select i1 %or.cond86, i1 %or.cond2.not, i1 false
+  %or.cond87 = select i1 %or.cond86.not129, i1 %or.cond2.not, i1 false
   br i1 %or.cond87, label %if.end139, label %if.end.i110
 
 if.end.i110:                                      ; preds = %for.end
@@ -592,7 +592,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_is_a(ptr noundef readonly %rand, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_RAND_is_a(ptr noundef readonly %rand, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %rand, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -1116,7 +1116,7 @@ return:                                           ; preds = %if.then.i6, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_RAND_generate(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_RAND_generate(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds i8, ptr %0, i64 112
@@ -1132,7 +1132,7 @@ evp_rand_lock.exit:                               ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %evp_rand_lock.exit
-  %call1 = tail call fastcc i32 @evp_rand_generate_locked(ptr noundef nonnull %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len), !range !6
+  %call1 = tail call fastcc i32 @evp_rand_generate_locked(ptr noundef nonnull %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len)
   %3 = load ptr, ptr %ctx, align 8
   %unlock.i = getelementptr inbounds i8, ptr %3, i64 120
   %4 = load ptr, ptr %unlock.i, align 8
@@ -1151,7 +1151,7 @@ return:                                           ; preds = %if.then.i4, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @evp_rand_generate_locked(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evp_rand_generate_locked(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len) unnamed_addr #0 {
 entry:
   %max_request = alloca i64, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -1195,7 +1195,7 @@ if.end6:                                          ; preds = %for.body
   %sub = sub i64 %outlen.addr.012, %cond
   %add.ptr = getelementptr inbounds i8, ptr %out.addr.013, i64 %cond
   %cmp1.not = icmp eq i64 %sub, 0
-  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !6
 
 return.sink.split:                                ; preds = %for.body, %entry
   %.sink14 = phi i32 [ 565, %entry ], [ 572, %for.body ]
@@ -1320,7 +1320,7 @@ return:                                           ; preds = %if.then.i5, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_RAND_nonce(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_RAND_nonce(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %params.i.i = alloca [2 x %struct.ossl_param_st], align 16
   %strength.i.i = alloca i32, align 4
@@ -1372,7 +1372,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.end5.i, label %evp_rand_nonce_locked.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = call fastcc i32 @evp_rand_generate_locked(ptr noundef nonnull %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %retval.0.i.i, i32 noundef 0, ptr noundef null, i64 noundef 0), !range !6
+  %call6.i = call fastcc i32 @evp_rand_generate_locked(ptr noundef nonnull readonly %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %retval.0.i.i, i32 noundef 0, ptr noundef null, i64 noundef 0)
   br label %evp_rand_nonce_locked.exit
 
 evp_rand_nonce_locked.exit:                       ; preds = %if.end, %if.end.i, %if.end5.i
@@ -1511,7 +1511,7 @@ return:                                           ; preds = %if.then.i9, %evp_ra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @evp_rand_can_seed(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @evp_rand_can_seed(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %get_seed = getelementptr inbounds i8, ptr %0, i64 184
@@ -1522,7 +1522,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @evp_rand_get_seed(ptr nocapture noundef readonly %ctx, ptr noundef %buffer, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr noundef %adin, i64 noundef %adin_len) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @evp_rand_get_seed(ptr nocapture noundef readonly %ctx, ptr noundef %buffer, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr noundef %adin, i64 noundef %adin_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds i8, ptr %0, i64 112
@@ -1665,5 +1665,4 @@ attributes #9 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

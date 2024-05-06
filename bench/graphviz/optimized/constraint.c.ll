@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [20 x i8] c"realloc failed: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cAdjust(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cAdjust(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @agnnodes(ptr noundef %0) #16
   %4 = sext i32 %3 to i64
   %5 = tail call fastcc ptr @gv_calloc(i64 noundef %4, i64 noundef 72)
@@ -409,7 +409,7 @@ closeGraph.exit:                                  ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @intersectY(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @intersectY(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 68
@@ -522,7 +522,7 @@ closeGraph.exit:                                  ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @intersectX(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @intersectX(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 64
@@ -545,7 +545,7 @@ define internal i32 @intersectX(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @intersectY0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @intersectY0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
@@ -607,7 +607,7 @@ define internal i32 @intersectY0(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @intersectX0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @intersectX0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 64
@@ -672,7 +672,7 @@ define internal i32 @intersectX0(ptr nocapture noundef readonly %0, ptr nocaptur
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @scAdjust(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @scAdjust(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @agnnodes(ptr noundef %0) #16
   %4 = sext i32 %3 to i64
   %5 = tail call fastcc ptr @gv_calloc(i64 noundef %4, i64 noundef 72)
@@ -1692,7 +1692,7 @@ mapGraphs.exit:                                   ; preds = %._crit_edge.i, %.cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @distX(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1073741824, 1073741824) i32 @distX(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 4
@@ -2037,7 +2037,7 @@ declare i32 @rank(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpitem(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #3 {
+define internal range(i32 -1, 2) i32 @cmpitem(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = icmp slt i32 %5, %6
@@ -2120,7 +2120,7 @@ declare ptr @agfstout(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @distY(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1073741824, 1073741824) i32 @distY(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -2149,7 +2149,7 @@ declare double @llvm.minnum.f64(double, double) #11
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @sortf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @sortf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp olt double %3, %4

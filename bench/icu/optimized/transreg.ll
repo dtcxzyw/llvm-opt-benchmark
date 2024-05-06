@@ -1068,7 +1068,7 @@ declare void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7519TransliteratorAlias11isRuleBasedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519TransliteratorAlias11isRuleBasedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #8 align 2 {
 entry:
   %type = getelementptr inbounds i8, ptr %this, i64 156
   %0 = load i32, ptr %type, align 4
@@ -1462,7 +1462,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7518TransliteratorSpec11hasFallbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518TransliteratorSpec11hasFallbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) local_unnamed_addr #8 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i16, ptr %fUnion.i.i, align 8

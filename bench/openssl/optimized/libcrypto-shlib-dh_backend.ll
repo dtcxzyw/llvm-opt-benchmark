@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_dh_key_from_pkcs8 = private unnamed_addr constant [23 x i8] c"ossl_dh_key_from_pkcs8\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dh_params_fromdata(ptr noundef %dh, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_params_fromdata(ptr noundef %dh, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %priv_len = alloca i64, align 8
   %call.i = tail call ptr @ossl_dh_get0_params(ptr noundef %dh) #2
@@ -50,7 +50,7 @@ declare i32 @OSSL_PARAM_get_long(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @DH_set_length(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dh_key_fromdata(ptr noundef %dh, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_key_fromdata(ptr noundef %dh, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %priv_key = alloca ptr, align 8
   %pub_key = alloca ptr, align 8
@@ -113,7 +113,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dh_params_todata(ptr noundef %dh, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_params_todata(ptr noundef %dh, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @DH_get_length(ptr noundef %dh) #2
   %call1 = tail call ptr @ossl_dh_get0_params(ptr noundef %dh) #2
@@ -147,7 +147,7 @@ declare ptr @ossl_dh_get0_params(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_param_build_set_long(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dh_key_todata(ptr noundef %dh, ptr noundef %bld, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_key_todata(ptr noundef %dh, ptr noundef %bld, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %priv = alloca ptr, align 8
   %pub = alloca ptr, align 8
@@ -192,7 +192,7 @@ declare void @DH_get0_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @ossl_param_build_set_bn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dh_is_foreign(ptr noundef %dh) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_is_foreign(ptr noundef %dh) local_unnamed_addr #0 {
 entry:
   %engine = getelementptr inbounds i8, ptr %dh, i64 168
   %0 = load ptr, ptr %engine, align 8

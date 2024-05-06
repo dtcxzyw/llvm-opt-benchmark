@@ -149,7 +149,7 @@ declare void @inode_release(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unlink(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unlink(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @nx_unlink(ptr noundef %0)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %7

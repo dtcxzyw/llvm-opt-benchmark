@@ -686,9 +686,9 @@ $_ZTIZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17s
 @_ZTVN5folly8ExecutorE = external unnamed_addr constant { [9 x ptr] }, align 8
 @_ZZN5folly9EventBaseD1EvE8vlocal__ = internal global %"struct.google::SiteFlag" zeroinitializer, align 8
 @.str.8 = private unnamed_addr constant [24 x i8] c"EventBase(): Destroyed.\00", align 1
-@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE26tls_lastDeferredReaderSlotEvE2tl = linkonce_odr thread_local global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
+@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE26tls_lastDeferredReaderSlotEvE2tl = linkonce_odr thread_local local_unnamed_addr global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
 @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state = linkonce_odr global { [257 x [256 x i8]], %"struct.std::atomic.207" } zeroinitializer, comdat, align 8
-@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_lastTokenlessSlotEvE2tl = linkonce_odr thread_local global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
+@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_lastTokenlessSlotEvE2tl = linkonce_odr thread_local local_unnamed_addr global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
 @.str.9 = private unnamed_addr constant [9 x i8] c"clearTag\00", align 1
 @_ZZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE8clearTagEmE30__folly_detail_safe_assert_arg = linkonce_odr constant %"struct.folly::detail::safe_assert_arg" { ptr @.str.10, ptr @.str.11, i32 411, ptr @.str.9, ptr @_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20safe_assert_msg_typeE1EEEEE5valueE }, comdat, align 8
 @.str.10 = private unnamed_addr constant [27 x i8] c"(tags_[index] & 0x80) != 0\00", align 1
@@ -9388,7 +9388,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPv
 declare ptr @event_base_new() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5folly9EventBase24getNotificationQueueSizeEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(584) %this) local_unnamed_addr #31 align 2 {
+define noundef range(i64 0, -9223372036854775808) i64 @_ZNK5folly9EventBase24getNotificationQueueSizeEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(584) %this) local_unnamed_addr #31 align 2 {
 entry:
   %queue_ = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %queue_, align 8, !tbaa !144
@@ -9876,7 +9876,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %mul.i.i.i = mul nsw i64 %ms.coerce, 1000
+  %mul.i.i.i = mul nuw nsw i64 %ms.coerce, 1000
   %maxLatencyLoopTime_ = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZN5folly9EventBase14SmoothLoopTime15setTimeIntervalENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr noundef nonnull align 8 dereferenceable(40) %maxLatencyLoopTime_, i64 %mul.i.i.i)
   %avgLoopTime_ = getelementptr inbounds i8, ptr %this, i64 240

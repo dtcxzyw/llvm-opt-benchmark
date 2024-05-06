@@ -82,7 +82,7 @@ define hidden void @_ZN4core9core_arch3x864sse215_mm_store_si12817h2c2d799b57d8d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h124a565eccf72137E(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define hidden range(i32 0, 65536) i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h124a565eccf72137E(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
   %2 = alloca <2 x i64>, align 16
   %3 = alloca <16 x i8>, align 16
   %4 = load <2 x i64>, ptr %0, align 16

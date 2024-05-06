@@ -6776,7 +6776,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_amqp_0_10_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_amqp_0_10_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_memeql(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.1058, i64 noundef 4) #12
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7
@@ -7971,7 +7971,7 @@ amqp_0_10_get_32bit_size_new.exit.i151:           ; preds = %595, %590
   br i1 %.not153.i, label %643, label %635
 
 635:                                              ; preds = %633
-  %trunc.i = trunc i32 %.0146.i to i8
+  %trunc.i = trunc nuw i32 %.0146.i to i8
   %switch.tableidx = add i8 %trunc.i, -1
   %636 = icmp ult i8 %switch.tableidx, 10
   br i1 %636, label %switch.lookup, label %.thread.i149
@@ -11533,7 +11533,7 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   br i1 %62, label %73, label %63
 
 63:                                               ; preds = %60
-  %trunc = trunc i32 %53 to i8
+  %trunc = trunc nuw i32 %53 to i8
   switch i8 %trunc, label %73 [
     i8 1, label %64
     i8 2, label %67
@@ -12184,11 +12184,11 @@ get_amqp_1_0_type_value_formatter.exit.i:         ; preds = %.lr.ph.i
   store i32 0, ptr %7, align 4
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
-  %111 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %.058, i32 noundef %107, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10), !range !17
+  %111 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %.058, i32 noundef %107, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %112 = load ptr, ptr %9, align 8
   %113 = load i32, ptr %10, align 4
   %114 = add i32 %113, %107
-  %115 = trunc i32 %111 to i8
+  %115 = trunc nuw i32 %111 to i8
   %116 = load i32, ptr %6, align 4
   %117 = load i32, ptr %7, align 4
   %118 = load ptr, ptr %8, align 8
@@ -12202,7 +12202,7 @@ get_amqp_1_0_type_value_formatter.exit.i:         ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %.not.i = icmp eq i32 %120, 0
-  br i1 %.not.i, label %dissect_amqp_1_0_AMQP_frame.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %dissect_amqp_1_0_AMQP_frame.exit, label %.lr.ph.i, !llvm.loop !17
 
 121:                                              ; preds = %83
   %122 = load i32, ptr @hf_amqp_method_arguments, align 4
@@ -12421,11 +12421,11 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   store i32 0, ptr %10, align 4
   store ptr null, ptr %11, align 8
   store ptr null, ptr %12, align 8
-  %62 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %.07782, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13), !range !17
+  %62 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %.07782, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
   %63 = load ptr, ptr %12, align 8
   %64 = load i32, ptr %13, align 4
   %65 = add i32 %64, %.07782
-  %66 = trunc i32 %62 to i8
+  %66 = trunc nuw i32 %62 to i8
   %67 = load i32, ptr %9, align 4
   %68 = load i32, ptr %10, align 4
   %69 = load ptr, ptr %11, align 8
@@ -12441,7 +12441,7 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = add i32 %71, %.07782
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !18
 
 .critedge.loopexit:                               ; preds = %.lr.ph
   %indvars94.le = trunc i64 %indvars.iv to i32
@@ -12479,7 +12479,7 @@ define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, p
   store i32 0, ptr %9, align 4
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  %13 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12), !range !17
+  %13 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
   %14 = icmp ne ptr %4, null
   %15 = load ptr, ptr %11, align 8
   %16 = icmp ne ptr %15, null
@@ -12504,7 +12504,7 @@ define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, p
   %.0 = phi ptr [ %24, %21 ], [ null, %7 ], [ %4, %17 ], [ %15, %19 ]
   %26 = load i32, ptr %12, align 4
   %27 = add i32 %26, %2
-  %28 = trunc i32 %13 to i8
+  %28 = trunc nuw i32 %13 to i8
   %29 = load i32, ptr %8, align 4
   %30 = load i32, ptr %9, align 4
   %31 = load ptr, ptr %10, align 8
@@ -12518,7 +12518,7 @@ define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, p
 declare ptr @proto_registrar_get_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #12
   %9 = add i32 %1, 1
   %10 = icmp eq i8 %8, 0
@@ -12594,13 +12594,13 @@ define internal fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noun
   %indvars.iv56 = phi i64 [ %indvars.iv.next, %45 ], [ 0, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv56, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond, label %.loopexit, label %45, !llvm.loop !20
+  br i1 %exitcond, label %.loopexit, label %45, !llvm.loop !19
 
 45:                                               ; preds = %.lr.ph
   %46 = getelementptr [27 x %struct.amqp_defined_types_t], ptr @amqp_1_0_defined_types, i64 0, i64 %indvars.iv.next
   %47 = load i32, ptr %46, align 16
   %48 = icmp eq i32 %47, %.045
-  br i1 %48, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %48, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %45, %42
   %.lcssa = phi ptr [ @amqp_1_0_defined_types, %42 ], [ %46, %45 ]
@@ -12649,13 +12649,13 @@ define internal fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr no
   %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %10 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.i, label %decode_fixed_type.exit.thread, label %20, !llvm.loop !21
+  br i1 %exitcond.i, label %decode_fixed_type.exit.thread, label %20, !llvm.loop !20
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr [33 x %struct.amqp1_typeinfo], ptr @amqp_1_0_fixed_types, i64 0, i64 %indvars.iv.next.i
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, %2
-  br i1 %23, label %decode_fixed_type.exit, label %.lr.ph, !llvm.loop !21
+  br i1 %23, label %decode_fixed_type.exit, label %.lr.ph, !llvm.loop !20
 
 decode_fixed_type.exit:                           ; preds = %20, %10
   %.lcssa154 = phi ptr [ @amqp_1_0_fixed_types, %10 ], [ %21, %20 ]
@@ -12735,7 +12735,7 @@ decode_fixed_type.exit:                           ; preds = %20, %10
   %47 = getelementptr i8, ptr %.0112178, i64 40
   %48 = load ptr, ptr %47, align 8
   %.not127 = icmp eq ptr %48, null
-  br i1 %.not127, label %.thread, label %.preheader, !llvm.loop !22
+  br i1 %.not127, label %.thread, label %.preheader, !llvm.loop !21
 
 .thread.sink.split:                               ; preds = %43, %40, %36, %32
   %.sink = phi ptr [ %34, %32 ], [ %38, %36 ], [ %42, %40 ], [ %45, %43 ]
@@ -12954,13 +12954,13 @@ decode_fixed_type.exit.thread:                    ; preds = %.lr.ph
   %indvars.iv.i138168 = phi i64 [ %indvars.iv.next.i139, %152 ], [ 0, %149 ]
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i138168, 1
   %exitcond.i140 = icmp eq i64 %indvars.iv.next.i139, 32
-  br i1 %exitcond.i140, label %decode_fixed_type.exit142.thread, label %152, !llvm.loop !21
+  br i1 %exitcond.i140, label %decode_fixed_type.exit142.thread, label %152, !llvm.loop !20
 
 152:                                              ; preds = %.lr.ph169
   %153 = getelementptr [33 x %struct.amqp1_typeinfo], ptr @amqp_1_0_fixed_types, i64 0, i64 %indvars.iv.next.i139
   %154 = load i8, ptr %153, align 8
   %155 = icmp eq i8 %154, %150
-  br i1 %155, label %decode_fixed_type.exit142, label %.lr.ph169, !llvm.loop !21
+  br i1 %155, label %decode_fixed_type.exit142, label %.lr.ph169, !llvm.loop !20
 
 decode_fixed_type.exit142:                        ; preds = %152, %149
   %.lcssa = phi ptr [ @amqp_1_0_fixed_types, %149 ], [ %153, %152 ]
@@ -12996,7 +12996,7 @@ decode_fixed_type.exit142.thread:                 ; preds = %.lr.ph169
   %.1.i = add i32 %.pn.i, %.091.i173
   %175 = add i32 %.194.i172, -1
   %.not103.i = icmp eq i32 %175, 0
-  br i1 %.not103.i, label %.critedge.i, label %.lr.ph174, !llvm.loop !23
+  br i1 %.not103.i, label %.critedge.i, label %.lr.ph174, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %174, %.lr.ph174, %140
   %.091.i.lcssa = phi i32 [ %128, %140 ], [ %.091.i173, %.lr.ph174 ], [ %.1.i, %174 ]
@@ -13055,7 +13055,7 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   %.080.i = phi i32 [ %188, %187 ], [ %183, %181 ]
   %198 = shl nuw nsw i32 %.083.i, 1
   %199 = add i32 %198, %3
-  %200 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %199, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %12), !range !17
+  %200 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %199, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %12)
   %201 = load i32, ptr %11, align 4
   %202 = add nuw nsw i32 %.083.i, 1
   %203 = add i32 %202, %.080.i
@@ -13099,7 +13099,7 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   br i1 %.not86.i, label %.critedge.i136, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %.preheader151
-  %221 = trunc i32 %200 to i8
+  %221 = trunc nuw i32 %200 to i8
   %222 = load i32, ptr %13, align 4
   %223 = load ptr, ptr %14, align 8
   %224 = zext i32 %6 to i64
@@ -13140,7 +13140,7 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   store i32 %spec.store.select, ptr %12, align 4
   %240 = add i32 %spec.store.select, %.079.i158
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.i136.thread, label %228, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge.i136.thread, label %228, !llvm.loop !23
 
 .critedge.i136.loopexit:                          ; preds = %228
   %indvars184.le = trunc i64 %indvars.iv to i32
@@ -13473,7 +13473,7 @@ define internal noundef i32 @dissect_amqp_1_0_timestamp(ptr noundef %0, ptr noca
   %9 = sdiv i64 %8, 1000
   store i64 %9, ptr %7, align 8
   %10 = srem i64 %8, 1000
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   %12 = mul nsw i32 %11, 1000000
   %13 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %12, ptr %13, align 8
@@ -13488,7 +13488,7 @@ define internal noundef i32 @format_amqp_1_0_timestamp(ptr noundef %0, i32 nound
   %7 = sdiv i64 %6, 1000
   store i64 %7, ptr %5, align 8
   %8 = srem i64 %6, 1000
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nsw i64 %8 to i32
   %10 = mul nsw i32 %9, 1000000
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %10, ptr %11, align 8
@@ -13703,7 +13703,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %112 = zext i32 %110 to i64
   %113 = icmp ult i64 %indvars.iv.next.i, %112
-  br i1 %113, label %.lr.ph.i, label %find_data_dissector.exit.thread32, !llvm.loop !25
+  br i1 %113, label %.lr.ph.i, label %find_data_dissector.exit.thread32, !llvm.loop !24
 
 find_data_dissector.exit.thread.sink.split:       ; preds = %30, %51, %26
   %114 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
@@ -13911,7 +13911,7 @@ attributes #14 = { "function-inline-cost-multiplier"="2" }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 256}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -13919,4 +13919,3 @@ attributes #14 = { "function-inline-cost-multiplier"="2" }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}

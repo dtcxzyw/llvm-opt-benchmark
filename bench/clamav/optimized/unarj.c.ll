@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [24 x i8] c"UNARJ: bounds exceeded\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_unarj_open(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_unarj_open(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca %struct.arj_main_hdr_tag, align 1
   %6 = alloca %struct.text_norm_state, align 8
@@ -103,7 +103,7 @@ is_arj_archive.exit:                              ; preds = %13
   br i1 %.not26.i.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr nonnull align 1 %26, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr nonnull align 1 %26, i64 %spec.select.i.i, i1 false)
   %.not.i7 = icmp ugt i64 %23, 1
   br i1 %.not.i7, label %27, label %arj_read_main_header.exit.thread
 
@@ -153,7 +153,7 @@ fmap_readn.exit.i:                                ; preds = %22
   br i1 %.not26.i94.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit96.i
 
 fmap_readn.exit96.i:                              ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %48, i64 %spec.select.i93.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %5, ptr nonnull align 1 %48, i64 %spec.select.i93.i, i1 false)
   %.not84.i = icmp ugt i64 %41, 29
   br i1 %.not84.i, label %49, label %arj_read_main_header.exit.thread
 
@@ -438,7 +438,7 @@ is_arj_archive.exit:                              ; preds = %17
   br i1 %.not26.i.i, label %arj_read_file_header.exit, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %26
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %3, ptr nonnull align 1 %30, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %3, ptr nonnull align 1 %30, i64 %spec.select.i.i, i1 false)
   %.not.i7 = icmp ugt i64 %27, 1
   br i1 %.not.i7, label %31, label %arj_read_file_header.exit
 
@@ -488,7 +488,7 @@ fmap_readn.exit.i:                                ; preds = %26
   br i1 %.not26.i114.i, label %arj_read_file_header.exit, label %fmap_readn.exit116.i
 
 fmap_readn.exit116.i:                             ; preds = %49
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull align 1 %52, i64 %spec.select.i113.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %4, ptr nonnull align 1 %52, i64 %spec.select.i113.i, i1 false)
   %.not97.i = icmp ugt i64 %45, 29
   br i1 %.not97.i, label %53, label %arj_read_file_header.exit
 
@@ -816,7 +816,7 @@ define i32 @cli_unarj_extract_file(ptr noundef %0, ptr noundef %1) local_unnamed
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   %27 = load i32, ptr %26, align 8
-  %28 = call fastcc i32 @arj_unstore(ptr noundef nonnull %1, i32 noundef %19, i32 noundef %27), !range !4
+  %28 = call fastcc i32 @arj_unstore(ptr noundef nonnull %1, i32 noundef %19, i32 noundef %27)
   br label %818
 
 29:                                               ; preds = %22, %22, %22
@@ -929,7 +929,7 @@ fmap_need_off_once_len.exit.i.i:                  ; preds = %65
   %83 = phi i8 [ 0, %78 ], [ %76, %72 ]
   store i32 8, ptr %45, align 4
   %84 = icmp sgt i32 %58, 8
-  br i1 %84, label %.lr.ph.split.i.i, label %._crit_edge.loopexit.i.i.loopexit109, !llvm.loop !5
+  br i1 %84, label %.lr.ph.split.i.i, label %._crit_edge.loopexit.i.i.loopexit109, !llvm.loop !4
 
 fmap_need_off_once_len.exit.thread.i.i:           ; preds = %fmap_need_off_once_len.exit.i.i, %65
   call void @free(ptr noundef %31) #12
@@ -1090,7 +1090,7 @@ fmap_need_off_once_len.exit.i227.i:               ; preds = %136
   %154 = phi i8 [ 0, %149 ], [ %147, %143 ]
   store i32 8, ptr %45, align 4
   %155 = icmp sgt i32 %129, 8
-  br i1 %155, label %.lr.ph.split.i218.i, label %._crit_edge.i212.i, !llvm.loop !5
+  br i1 %155, label %.lr.ph.split.i218.i, label %._crit_edge.i212.i, !llvm.loop !4
 
 ._crit_edge.i212.i:                               ; preds = %150, %._crit_edge.split.us.i233.i, %.._crit_edge_crit_edge.i210.i
   %156 = phi i16 [ 0, %.._crit_edge_crit_edge.i210.i ], [ %120, %._crit_edge.split.us.i233.i ], [ %132, %150 ]
@@ -1234,7 +1234,7 @@ fmap_need_off_once_len.exit.i202.i:               ; preds = %200
   %218 = phi i8 [ 0, %213 ], [ %211, %207 ]
   store i32 8, ptr %45, align 4
   %219 = icmp sgt i32 %193, 8
-  br i1 %219, label %.lr.ph.split.i193.i, label %._crit_edge.i187.i, !llvm.loop !5
+  br i1 %219, label %.lr.ph.split.i193.i, label %._crit_edge.i187.i, !llvm.loop !4
 
 ._crit_edge.i187.i:                               ; preds = %214, %._crit_edge.split.us.i208.i, %.._crit_edge_crit_edge.i185.i
   %220 = phi i16 [ %168, %.._crit_edge_crit_edge.i185.i ], [ %184, %._crit_edge.split.us.i208.i ], [ %196, %214 ]
@@ -1365,7 +1365,7 @@ fill_buf.exit184.thread.i:                        ; preds = %fmap_need_off_once_
   %277 = phi i8 [ 0, %272 ], [ %270, %266 ]
   store i32 8, ptr %45, align 4
   %278 = icmp sgt i32 %252, 8
-  br i1 %278, label %.lr.ph.split.i168.i, label %.preheader80.i.i.i, !llvm.loop !5
+  br i1 %278, label %.lr.ph.split.i168.i, label %.preheader80.i.i.i, !llvm.loop !4
 
 .preheader80.i.i.i:                               ; preds = %273, %._crit_edge.split.us.i183.i, %228
   %279 = phi i16 [ %243, %._crit_edge.split.us.i183.i ], [ %230, %228 ], [ %255, %273 ]
@@ -1582,7 +1582,7 @@ fmap_need_off_once_len.exit.i152.i:               ; preds = %359
   %377 = phi i8 [ 0, %372 ], [ %370, %366 ]
   store i32 8, ptr %45, align 4
   %378 = icmp sgt i32 %352, 8
-  br i1 %378, label %.lr.ph.split.i143.i, label %._crit_edge.i137.i, !llvm.loop !5
+  br i1 %378, label %.lr.ph.split.i143.i, label %._crit_edge.i137.i, !llvm.loop !4
 
 ._crit_edge.i137.i:                               ; preds = %373, %._crit_edge.split.us.i158.i, %.._crit_edge_crit_edge.i135.i
   %379 = phi i16 [ %327, %.._crit_edge_crit_edge.i135.i ], [ %343, %._crit_edge.split.us.i158.i ], [ %355, %373 ]
@@ -1740,7 +1740,7 @@ fill_buf.exit134.thread.i:                        ; preds = %fmap_need_off_once_
   %444 = phi i8 [ 0, %439 ], [ %437, %433 ]
   store i32 8, ptr %45, align 4
   %445 = icmp sgt i32 %419, 8
-  br i1 %445, label %.lr.ph.split.i118.i, label %._crit_edge.i112.i, !llvm.loop !5
+  br i1 %445, label %.lr.ph.split.i118.i, label %._crit_edge.i112.i, !llvm.loop !4
 
 ._crit_edge.i112.i:                               ; preds = %440, %._crit_edge.split.us.i133.i, %.._crit_edge_crit_edge.i110.i
   %446 = phi i16 [ %394, %.._crit_edge_crit_edge.i110.i ], [ %410, %._crit_edge.split.us.i133.i ], [ %422, %440 ]
@@ -1809,7 +1809,7 @@ fill_buf.exit134.thread.i:                        ; preds = %fmap_need_off_once_
   br i1 %471, label %.lr.ph95.i.i.i, label %.preheader81.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph98.i.i.i, %.preheader81.i.i.i
-  %472 = call fastcc i32 @make_table(ptr noundef nonnull %3, i32 noundef 510, ptr noundef nonnull %invariant.gep.i, i32 noundef 12, ptr noundef nonnull %97, i32 noundef 4096), !range !7
+  %472 = call fastcc i32 @make_table(ptr noundef nonnull %3, i32 noundef 510, ptr noundef nonnull %invariant.gep.i, i32 noundef 12, ptr noundef nonnull %97, i32 noundef 4096)
   br label %read_c_len.exit.i.i
 
 read_c_len.exit.i.i:                              ; preds = %fill_buf.exit159.i, %.loopexit85.i.i.i, %286, %._crit_edge.i.i.i, %463, %456, %fill_buf.exit134.thread.i, %.loopexit.i151.i, %302, %fill_buf.exit184.thread.i, %._crit_edge.i187.i, %.loopexit.i201.i, %fill_buf.exit234.i
@@ -1999,7 +1999,7 @@ fmap_need_off_once_len.exit.i102.i:               ; preds = %541
   %559 = phi i8 [ 0, %554 ], [ %552, %548 ]
   store i32 8, ptr %45, align 4
   %560 = icmp sgt i32 %534, 8
-  br i1 %560, label %.lr.ph.split.i93.i, label %._crit_edge.i87.i, !llvm.loop !5
+  br i1 %560, label %.lr.ph.split.i93.i, label %._crit_edge.i87.i, !llvm.loop !4
 
 ._crit_edge.i87.i:                                ; preds = %555, %._crit_edge.split.us.i108.i, %.._crit_edge_crit_edge.i85.i
   %561 = phi i16 [ %509, %.._crit_edge_crit_edge.i85.i ], [ %525, %._crit_edge.split.us.i108.i ], [ %537, %555 ]
@@ -2224,7 +2224,7 @@ fmap_need_off_once_len.exit.i277.i:               ; preds = %653
   %671 = phi i8 [ 0, %666 ], [ %664, %660 ]
   store i32 8, ptr %45, align 4
   %672 = icmp sgt i32 %646, 8
-  br i1 %672, label %.lr.ph.split.i268.i, label %._crit_edge.i262.i, !llvm.loop !5
+  br i1 %672, label %.lr.ph.split.i268.i, label %._crit_edge.i262.i, !llvm.loop !4
 
 ._crit_edge.i262.i:                               ; preds = %667, %._crit_edge.split.us.i283.i, %.._crit_edge_crit_edge.i260.i
   %673 = phi i16 [ %621, %.._crit_edge_crit_edge.i260.i ], [ %637, %._crit_edge.split.us.i283.i ], [ %649, %667 ]
@@ -2389,7 +2389,7 @@ fmap_need_off_once_len.exit.i252.i:               ; preds = %734
   %752 = phi i8 [ 0, %747 ], [ %745, %741 ]
   store i32 8, ptr %45, align 4
   %753 = icmp sgt i32 %727, 8
-  br i1 %753, label %.lr.ph.split.i243.i, label %._crit_edge.i237.i, !llvm.loop !5
+  br i1 %753, label %.lr.ph.split.i243.i, label %._crit_edge.i237.i, !llvm.loop !4
 
 ._crit_edge.i237.i:                               ; preds = %748, %._crit_edge.split.us.i258.i, %.._crit_edge_crit_edge.i235.i
   %754 = phi i16 [ %702, %.._crit_edge_crit_edge.i235.i ], [ %718, %._crit_edge.split.us.i258.i ], [ %730, %748 ]
@@ -2554,7 +2554,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @arj_unstore(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @arj_unstore(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %.not23 = icmp eq i32 %2, 0
@@ -2685,7 +2685,7 @@ fmap_need_off_once_len.exit.i102:                 ; preds = %23
   %.sroa.144.1 = phi i32 [ %21, %30 ], [ 0, %.lr.ph.split.i93 ]
   %.sroa.195279.1 = phi i8 [ %33, %30 ], [ 0, %.lr.ph.split.i93 ]
   %36 = icmp sgt i32 %16, 8
-  br i1 %36, label %.lr.ph.split.i93, label %.loopexit401, !llvm.loop !5
+  br i1 %36, label %.lr.ph.split.i93, label %.loopexit401, !llvm.loop !4
 
 37:                                               ; preds = %23, %fmap_need_off_once_len.exit.i102
   tail call void @free(ptr noundef %2) #12
@@ -2847,7 +2847,7 @@ fmap_need_off_once_len.exit.i152:                 ; preds = %92
   %.sroa.144.7 = phi i32 [ %90, %99 ], [ 0, %.lr.ph.split.i143 ]
   %.sroa.195279.7 = phi i8 [ %102, %99 ], [ 0, %.lr.ph.split.i143 ]
   %105 = icmp sgt i32 %85, 8
-  br i1 %105, label %.lr.ph.split.i143, label %._crit_edge.i137, !llvm.loop !5
+  br i1 %105, label %.lr.ph.split.i143, label %._crit_edge.i137, !llvm.loop !4
 
 ._crit_edge.i137:                                 ; preds = %104, %75, %68
   %.sroa.21.8 = phi i64 [ %.sroa.21.5, %68 ], [ %.sroa.21.5, %75 ], [ %.sroa.21.7, %104 ]
@@ -3001,7 +3001,7 @@ fmap_need_off_once_len.exit.i127:                 ; preds = %164
   %.sroa.144.12 = phi i32 [ %162, %171 ], [ 0, %.lr.ph.split.i118 ]
   %.sroa.195279.12 = phi i8 [ %174, %171 ], [ 0, %.lr.ph.split.i118 ]
   %177 = icmp sgt i32 %157, 8
-  br i1 %177, label %.lr.ph.split.i118, label %._crit_edge.i112, !llvm.loop !5
+  br i1 %177, label %.lr.ph.split.i118, label %._crit_edge.i112, !llvm.loop !4
 
 ._crit_edge.i112:                                 ; preds = %176, %147, %140
   %.sroa.21.13 = phi i64 [ %.sroa.21.10, %140 ], [ %.sroa.21.10, %147 ], [ %.sroa.21.12, %176 ]
@@ -3174,7 +3174,7 @@ fmap_need_off_once_len.exit.i:                    ; preds = %239
   %.sroa.144.18 = phi i32 [ %237, %246 ], [ 0, %.lr.ph.split.i ]
   %.sroa.195279.18 = phi i8 [ %249, %246 ], [ 0, %.lr.ph.split.i ]
   %252 = icmp sgt i32 %232, 8
-  br i1 %252, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !5
+  br i1 %252, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %251, %222, %215
   %.sroa.21.19 = phi i64 [ %.sroa.21.16, %215 ], [ %.sroa.21.16, %222 ], [ %.sroa.21.18, %251 ]
@@ -3367,7 +3367,7 @@ fmap_need_off_once_len.exit.i202:                 ; preds = %324
   %.sroa.144.24 = phi i32 [ %322, %331 ], [ 0, %.lr.ph.split.i193 ]
   %.sroa.195279.24 = phi i8 [ %334, %331 ], [ 0, %.lr.ph.split.i193 ]
   %337 = icmp sgt i32 %317, 8
-  br i1 %337, label %.lr.ph.split.i193, label %._crit_edge.i187, !llvm.loop !5
+  br i1 %337, label %.lr.ph.split.i193, label %._crit_edge.i187, !llvm.loop !4
 
 ._crit_edge.i187:                                 ; preds = %336, %307, %300
   %.sroa.21.25 = phi i64 [ %.sroa.21.22, %300 ], [ %.sroa.21.22, %307 ], [ %.sroa.21.24, %336 ]
@@ -3517,7 +3517,7 @@ fmap_need_off_once_len.exit.i177:                 ; preds = %396
   %.sroa.144.29 = phi i32 [ %394, %403 ], [ 0, %.lr.ph.split.i168 ]
   %.sroa.195279.29 = phi i8 [ %406, %403 ], [ 0, %.lr.ph.split.i168 ]
   %409 = icmp sgt i32 %389, 8
-  br i1 %409, label %.lr.ph.split.i168, label %._crit_edge.i162, !llvm.loop !5
+  br i1 %409, label %.lr.ph.split.i168, label %._crit_edge.i162, !llvm.loop !4
 
 ._crit_edge.i162:                                 ; preds = %408, %379, %372
   %.sroa.21.30 = phi i64 [ %.sroa.21.27, %372 ], [ %.sroa.21.27, %379 ], [ %.sroa.21.29, %408 ]
@@ -3833,7 +3833,7 @@ fmap_need_off_once_len.exit:                      ; preds = %56
   %74 = phi i8 [ 0, %72 ], [ %70, %66 ]
   store i32 8, ptr %21, align 4
   %75 = icmp sgt i32 %45, 8
-  br i1 %75, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !5
+  br i1 %75, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %73
   %.pre67 = load i16, ptr %7, align 2
@@ -3999,7 +3999,7 @@ define internal fastcc void @read_pt_len(ptr nocapture noundef %0, i32 noundef %
 ._crit_edge:                                      ; preds = %.lr.ph84, %.preheader66
   %62 = getelementptr inbounds i8, ptr %0, i64 12834
   %63 = getelementptr inbounds i8, ptr %0, i64 12854
-  %64 = tail call fastcc i32 @make_table(ptr noundef nonnull %0, i32 noundef 19, ptr noundef nonnull %62, i32 noundef 8, ptr noundef nonnull %63, i32 noundef 256), !range !7
+  %64 = tail call fastcc i32 @make_table(ptr noundef nonnull %0, i32 noundef 19, ptr noundef nonnull %62, i32 noundef 8, ptr noundef nonnull %63, i32 noundef 256)
   br label %.loopexit72
 
 .loopexit72:                                      ; preds = %43, %.loopexit70.thread, %15, %._crit_edge
@@ -4007,7 +4007,7 @@ define internal fastcc void @read_pt_len(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @make_table(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @make_table(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
 .preheader124:
   %6 = alloca [17 x i16], align 16
   %7 = alloca [17 x i16], align 16
@@ -4332,7 +4332,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 27}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.partial.disable"}
-!7 = !{i32 0, i32 8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.unswitch.partial.disable"}

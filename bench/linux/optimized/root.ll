@@ -137,7 +137,7 @@ declare dso_local i32 @proc_sys_init() local_unnamed_addr #1
 declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_init_fs_context(ptr nocapture noundef writeonly %0) #2 align 16 {
+define internal noundef range(i32 -12, 1) i32 @proc_init_fs_context(ptr nocapture noundef writeonly %0) #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 24) #9
   %4 = icmp eq ptr %3, null
@@ -236,7 +236,7 @@ define internal void @proc_fs_context_free(ptr nocapture noundef readonly %0) #2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_parse_param(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 -2147483648, 1) i32 @proc_parse_param(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.fs_parse_result, align 8
   %4 = alloca %struct.fs_parse_result, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48

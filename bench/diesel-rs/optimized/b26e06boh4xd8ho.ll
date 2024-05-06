@@ -40,7 +40,7 @@ define hidden void @"_ZN118_$LT$diesel..sqlite..connection..row..SqliteRow$u20$a
   unreachable
 
 15:                                               ; preds = %11
-  %16 = trunc i64 %.fca.1.extract to i32
+  %16 = trunc nuw nsw i64 %.fca.1.extract to i32
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %17, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

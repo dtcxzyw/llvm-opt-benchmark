@@ -168,7 +168,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.104 = private unnamed_addr constant [5 x i8] c"NONE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetDeltaCjLSetup(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetDeltaCjLSetup(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -199,7 +199,7 @@ define noundef i32 @IDASetDeltaCjLSetup(ptr noundef writeonly %0, double noundef
 declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetUserData(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetUserData(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -218,7 +218,7 @@ define noundef i32 @IDASetUserData(ptr noundef writeonly %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetEtaFixedStepBounds(ptr noundef writeonly %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetEtaFixedStepBounds(ptr noundef writeonly %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -251,7 +251,7 @@ define noundef i32 @IDASetEtaFixedStepBounds(ptr noundef writeonly %0, double no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetEtaMax(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetEtaMax(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -278,7 +278,7 @@ define noundef i32 @IDASetEtaMax(ptr noundef writeonly %0, double noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetEtaMin(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetEtaMin(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -307,7 +307,7 @@ define noundef i32 @IDASetEtaMin(ptr noundef writeonly %0, double noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetEtaLow(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetEtaLow(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -336,7 +336,7 @@ define noundef i32 @IDASetEtaLow(ptr noundef writeonly %0, double noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetEtaMinErrFail(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetEtaMinErrFail(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -365,7 +365,7 @@ define noundef i32 @IDASetEtaMinErrFail(ptr noundef writeonly %0, double noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetEtaConvFail(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetEtaConvFail(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -394,7 +394,7 @@ define noundef i32 @IDASetEtaConvFail(ptr noundef writeonly %0, double noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxOrd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetMaxOrd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -432,7 +432,7 @@ define noundef i32 @IDASetMaxOrd(ptr noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxNumSteps(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetMaxNumSteps(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -459,7 +459,7 @@ define noundef i32 @IDASetMaxNumSteps(ptr noundef writeonly %0, i64 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetInitStep(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetInitStep(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -478,7 +478,7 @@ define noundef i32 @IDASetInitStep(ptr noundef writeonly %0, double noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetMaxStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -515,7 +515,7 @@ define noundef i32 @IDASetMaxStep(ptr noundef %0, double noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMinStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetMinStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -550,7 +550,7 @@ define noundef i32 @IDASetMinStep(ptr noundef %0, double noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetStopTime(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetStopTime(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -591,7 +591,7 @@ define noundef i32 @IDASetStopTime(ptr noundef %0, double noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAClearStopTime(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAClearStopTime(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -610,7 +610,7 @@ define noundef i32 @IDAClearStopTime(ptr noundef writeonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetNonlinConvCoef(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetNonlinConvCoef(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -637,7 +637,7 @@ define noundef i32 @IDASetNonlinConvCoef(ptr noundef %0, double noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxErrTestFails(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetMaxErrTestFails(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -656,7 +656,7 @@ define noundef i32 @IDASetMaxErrTestFails(ptr noundef writeonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxConvFails(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetMaxConvFails(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -705,7 +705,7 @@ define i32 @IDASetMaxNonlinIters(ptr noundef readonly %0, i32 noundef %1) local_
 declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetSuppressAlg(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetSuppressAlg(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -724,7 +724,7 @@ define noundef i32 @IDASetSuppressAlg(ptr noundef writeonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetId(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetId(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -796,7 +796,7 @@ declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetConstraints(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetConstraints(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -918,7 +918,7 @@ define noundef i32 @IDASetConstraints(ptr noundef %0, ptr noundef %1) local_unna
 declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetRootDirection(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetRootDirection(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -962,7 +962,7 @@ define noundef i32 @IDASetRootDirection(ptr noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetNoInactiveRootWarn(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetNoInactiveRootWarn(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -981,7 +981,7 @@ define noundef i32 @IDASetNoInactiveRootWarn(ptr noundef writeonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetNonlinConvCoefIC(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetNonlinConvCoefIC(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1008,7 +1008,7 @@ define noundef i32 @IDASetNonlinConvCoefIC(ptr noundef %0, double noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxNumStepsIC(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetMaxNumStepsIC(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1035,7 +1035,7 @@ define noundef i32 @IDASetMaxNumStepsIC(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxNumJacsIC(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetMaxNumJacsIC(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1062,7 +1062,7 @@ define noundef i32 @IDASetMaxNumJacsIC(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxNumItersIC(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetMaxNumItersIC(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1089,7 +1089,7 @@ define noundef i32 @IDASetMaxNumItersIC(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetMaxBacksIC(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetMaxBacksIC(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1116,7 +1116,7 @@ define noundef i32 @IDASetMaxBacksIC(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetLineSearchOffIC(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASetLineSearchOffIC(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1135,7 +1135,7 @@ define noundef i32 @IDASetLineSearchOffIC(ptr noundef writeonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetStepToleranceIC(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDASetStepToleranceIC(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1162,7 +1162,7 @@ define noundef i32 @IDASetStepToleranceIC(ptr noundef %0, double noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumSteps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumSteps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1182,7 +1182,7 @@ define noundef i32 @IDAGetNumSteps(ptr noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumResEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumResEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1202,7 +1202,7 @@ define noundef i32 @IDAGetNumResEvals(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumLinSolvSetups(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumLinSolvSetups(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1222,7 +1222,7 @@ define noundef i32 @IDAGetNumLinSolvSetups(ptr noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumErrTestFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumErrTestFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1242,7 +1242,7 @@ define noundef i32 @IDAGetNumErrTestFails(ptr noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumBacktrackOps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumBacktrackOps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1263,7 +1263,7 @@ define noundef i32 @IDAGetNumBacktrackOps(ptr noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetConsistentIC(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDAGetConsistentIC(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1307,7 +1307,7 @@ define noundef i32 @IDAGetConsistentIC(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetLastOrder(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetLastOrder(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1327,7 +1327,7 @@ define noundef i32 @IDAGetLastOrder(ptr noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetCurrentOrder(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetCurrentOrder(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1347,7 +1347,7 @@ define noundef i32 @IDAGetCurrentOrder(ptr noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetCurrentCj(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetCurrentCj(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1367,7 +1367,7 @@ define noundef i32 @IDAGetCurrentCj(ptr noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetCurrentY(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetCurrentY(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1387,7 +1387,7 @@ define noundef i32 @IDAGetCurrentY(ptr noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetCurrentYp(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetCurrentYp(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1407,7 +1407,7 @@ define noundef i32 @IDAGetCurrentYp(ptr noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetActualInitStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetActualInitStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1427,7 +1427,7 @@ define noundef i32 @IDAGetActualInitStep(ptr noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetLastStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetLastStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1447,7 +1447,7 @@ define noundef i32 @IDAGetLastStep(ptr noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetCurrentStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetCurrentStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1467,7 +1467,7 @@ define noundef i32 @IDAGetCurrentStep(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetCurrentTime(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetCurrentTime(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1487,7 +1487,7 @@ define noundef i32 @IDAGetCurrentTime(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetTolScaleFactor(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetTolScaleFactor(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1507,7 +1507,7 @@ define noundef i32 @IDAGetTolScaleFactor(ptr noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetErrWeights(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetErrWeights(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1527,7 +1527,7 @@ define noundef i32 @IDAGetErrWeights(ptr noundef readonly %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetEstLocalErrors(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetEstLocalErrors(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1547,7 +1547,7 @@ define noundef i32 @IDAGetEstLocalErrors(ptr noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetWorkSpace(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetWorkSpace(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1570,7 +1570,7 @@ define noundef i32 @IDAGetWorkSpace(ptr noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetIntegratorStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetIntegratorStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #0 {
   %12 = icmp eq ptr %0, null
   br i1 %12, label %13, label %14
 
@@ -1617,7 +1617,7 @@ define noundef i32 @IDAGetIntegratorStats(ptr noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumGEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumGEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1637,7 +1637,7 @@ define noundef i32 @IDAGetNumGEvals(ptr noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetRootInfo(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetRootInfo(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1673,7 +1673,7 @@ define noundef i32 @IDAGetRootInfo(ptr noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumNonlinSolvIters(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumNonlinSolvIters(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1693,7 +1693,7 @@ define noundef i32 @IDAGetNumNonlinSolvIters(ptr noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumNonlinSolvConvFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumNonlinSolvConvFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1713,7 +1713,7 @@ define noundef i32 @IDAGetNumNonlinSolvConvFails(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNonlinSolvStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNonlinSolvStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1736,7 +1736,7 @@ define noundef i32 @IDAGetNonlinSolvStats(ptr noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumStepSolveFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNumStepSolveFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1756,7 +1756,7 @@ define noundef i32 @IDAGetNumStepSolveFails(ptr noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetUserData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetUserData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1776,7 +1776,7 @@ define noundef i32 @IDAGetUserData(ptr noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAPrintAllStats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

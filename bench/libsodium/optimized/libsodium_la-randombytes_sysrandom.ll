@@ -237,7 +237,7 @@ do.body.backedge.i.i:                             ; preds = %land.rhs.i.i, %land
 
 _randombytes_linux_getrandom.exit.i:              ; preds = %do.body.backedge.i.i, %land.rhs.i.i, %do.body.i
   %conv.lcssa.i.i = phi i32 [ %conv4.i.i, %do.body.i ], [ %conv6.i.i, %land.rhs.i.i ], [ %conv.i.i, %do.body.backedge.i.i ]
-  %conv8.i.i = trunc i64 %spec.select.i to i32
+  %conv8.i.i = trunc nuw nsw i64 %spec.select.i to i32
   %cmp9.i.not.i = icmp eq i32 %conv.lcssa.i.i, %conv8.i.i
   br i1 %cmp9.i.not.i, label %if.end3.i, label %if.then2
 
@@ -312,7 +312,7 @@ if.end8:                                          ; preds = %if.end3.i, %safe_re
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i32 @randombytes_sysrandom_close() #1 {
+define internal range(i32 -1, 1) i32 @randombytes_sysrandom_close() #1 {
 entry:
   %0 = load i32, ptr @stream.0, align 4
   %cmp.not = icmp eq i32 %0, -1

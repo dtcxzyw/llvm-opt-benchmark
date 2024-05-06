@@ -29,7 +29,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tty_get_pgrp
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_get_current_tty347, ptr @__UNIQUE_ID___addressable_tty_check_change346, ptr @__UNIQUE_ID___addressable_tty_get_pgrp356], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__tty_check_change(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @__tty_check_change(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1880
@@ -128,7 +128,7 @@ declare dso_local ptr @tty_driver_name(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @tty_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_check_change(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @tty_check_change(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @__tty_check_change(ptr noundef %0, i32 noundef 22), !range !8
   ret i32 %2
 }
@@ -847,7 +847,7 @@ define dso_local void @no_tty() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @tty_jobctrl_ioctl(ptr noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = inttoptr i64 %4 to ptr
   switch i32 %3, label %195 [
     i32 21538, label %7

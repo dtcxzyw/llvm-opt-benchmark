@@ -116471,7 +116471,7 @@ _ZN8pybind116detail7cast_opIRKSt6vectorI9LocalBaseILi0EESaIS4_EEEENS0_11type_cas
   %47 = ptrtoint ptr %.val2.i.i22.i to i64
   %48 = ptrtoint ptr %.val.i.i21.i to i64
   %49 = sub i64 %47, %48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !3351
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !3351
   %.not.i.i.i.i.i.i.i23.i = icmp eq ptr %.val2.i.i22.i, %.val.i.i21.i
   br i1 %.not.i.i.i.i.i.i.i23.i, label %.thread.i.i.i28.i, label %52
 

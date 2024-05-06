@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @BrotliReverseBits.kLut = internal unnamed_addr constant [16 x i64] [i64 0, i64 8, i64 4, i64 12, i64 2, i64 10, i64 6, i64 14, i64 1, i64 9, i64 5, i64 13, i64 3, i64 11, i64 7, i64 15], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @BrotliSetDepth(i32 noundef %p0, ptr nocapture noundef readonly %pool, ptr nocapture noundef writeonly %depth, i32 noundef %max_depth) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BrotliSetDepth(i32 noundef %p0, ptr nocapture noundef readonly %pool, ptr nocapture noundef writeonly %depth, i32 noundef %max_depth) local_unnamed_addr #0 {
 entry:
   %stack = alloca [16 x i32], align 16
   store i32 -1, ptr %stack, align 16
@@ -141,7 +141,7 @@ for.body.i:                                       ; preds = %for.cond.i.preheade
   %2 = load i64, ptr %arrayidx.i, align 4
   %tmp.i.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   %tmp.i.sroa.3122.0.extract.shift = lshr i64 %2, 48
-  %tmp.i.sroa.3122.0.extract.trunc = trunc i64 %tmp.i.sroa.3122.0.extract.shift to i16
+  %tmp.i.sroa.3122.0.extract.trunc = trunc nuw i64 %tmp.i.sroa.3122.0.extract.shift to i16
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %for.body.i
@@ -195,7 +195,7 @@ for.body16.i:                                     ; preds = %for.body11.i, %for.
   %8 = load i64, ptr %arrayidx19.i, align 4
   %tmp18.i.sroa.0.0.extract.trunc = trunc i64 %8 to i32
   %tmp18.i.sroa.3120.0.extract.shift = lshr i64 %8, 48
-  %tmp18.i.sroa.3120.0.extract.trunc = trunc i64 %tmp18.i.sroa.3120.0.extract.shift to i16
+  %tmp18.i.sroa.3120.0.extract.trunc = trunc nuw i64 %tmp18.i.sroa.3120.0.extract.shift to i16
   %cmp21.i.not133 = icmp ult i64 %i13.i.0138, %7
   br i1 %cmp21.i.not133, label %for.end32.i, label %land.rhs.i
 

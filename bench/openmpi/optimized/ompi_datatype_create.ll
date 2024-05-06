@@ -176,7 +176,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %7, %8
 declare i32 @opal_datatype_create_desc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_datatype_destroy(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @ompi_datatype_destroy(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 16
   %.val = load i16, ptr %3, align 8
@@ -247,7 +247,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_datatype_duplicate(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @ompi_datatype_duplicate(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load i64, ptr %4, align 8

@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [12 x i8] c"eim_support\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_cap_audit(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -95, 1) i32 @intel_cap_audit(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   switch i32 %0, label %853 [
     i32 0, label %3
     i32 1, label %3

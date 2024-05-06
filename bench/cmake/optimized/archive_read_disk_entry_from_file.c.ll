@@ -103,7 +103,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_entry_from_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca %struct.stat, align 8

@@ -300,7 +300,7 @@ define dso_local noundef i32 @pmi_kvs_put(ptr nocapture noundef readonly %0) loc
   %28 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %22) #15
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %22) #15
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %_find_kvs_by_name.exit, label %26
 
@@ -346,7 +346,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
   br i1 %.not44.i, label %49, label %56
 
 49:                                               ; preds = %45
-  %50 = trunc i64 %indvars.iv.i31 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i31 to i32
   %51 = load ptr, ptr %37, align 8
   %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv.i31
   tail call void @slurm_xfree(ptr noundef %52) #12
@@ -513,7 +513,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pmi_kvs_get(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pmi_kvs_get(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %union.pthread_attr_t, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1006,7 +1006,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %67 = phi i32 [ %40, %.lr.ph ], [ %40, %46 ], [ %.pre, %._crit_edge246 ]
   %.195 = phi i32 [ %.094171, %.lr.ph ], [ %.094171, %46 ], [ %65, %._crit_edge246 ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
-  %68 = trunc i64 %indvars.iv.next228 to i32
+  %68 = trunc nuw i64 %indvars.iv.next228 to i32
   %69 = icmp sgt i32 %67, %68
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 

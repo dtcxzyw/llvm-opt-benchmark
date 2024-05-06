@@ -198,7 +198,7 @@ declare ptr @INT32_it() #2
 declare ptr @BIGNUM_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_cb(i32 noundef %operation, ptr nocapture noundef %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal range(i32 0, 3) i32 @rsa_cb(i32 noundef %operation, ptr nocapture noundef %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
 entry:
   switch i32 %operation, label %return [
     i32 0, label %if.then

@@ -1739,7 +1739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %117 unwind label %120, !noalias !11
 
 117:                                              ; preds = %115
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !11
   br label %890
 
 118:                                              ; preds = %.noexc.i, %.noexc
@@ -1867,7 +1867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18.i: 
           to label %158 unwind label %120, !noalias !11
 
 158:                                              ; preds = %156
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !11
   br label %890
 
 159:                                              ; preds = %.noexc14.i, %122
@@ -2008,7 +2008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
           to label %200 unwind label %203, !noalias !17
 
 200:                                              ; preds = %198
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !17
   br label %_ZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS1_7integerE.exit.i
 
 201:                                              ; preds = %.noexc.i.i, %164
@@ -2395,7 +2395,7 @@ _ZNSt8functionIFvPKvRKS_IFvPKN3dap8TypeInfoES1_EERKS_IFvS5_RKNS2_5ErrorEEEEEC2ER
   %345 = getelementptr inbounds i8, ptr %66, i64 88
   %346 = load ptr, ptr %59, align 8, !noalias !17
   store ptr %346, ptr %345, align 8, !noalias !17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !17
   %347 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
           to label %.noexc36.i.i unwind label %374, !noalias !17
 
@@ -2469,7 +2469,7 @@ _ZNSt8functionIFvPKvRKS_IFvPKN3dap8TypeInfoES1_EERKS_IFvS5_RKNS2_5ErrorEEEEEC2ER
   br label %.body22.i.i
 
 _ZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS1_7integerEENUlvE_D2Ev.exit.sink.split.i.i: ; preds = %312, %309, %263
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !17
   br label %_ZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS1_7integerEENUlvE_D2Ev.exit.i.i
 
 _ZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS1_7integerEENUlvE_D2Ev.exit.i.i: ; preds = %_ZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS1_7integerEENUlvE_D2Ev.exit.sink.split.i.i, %361, %353
@@ -2652,7 +2652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i31.i
           to label %430 unwind label %433, !noalias !25
 
 430:                                              ; preds = %428
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !25
   br label %_ZN12_GLOBAL__N_14Impl12processEventEPN3dap4json19JsonCppDeserializerE.exit.i
 
 431:                                              ; preds = %.noexc.i30.i, %394
@@ -2835,7 +2835,7 @@ _ZNSt4pairIPKN3dap8TypeInfoESt8functionIFvPKvEEED2Ev.exit.i.i: ; preds = %486, %
           to label %495 unwind label %496, !noalias !25
 
 495:                                              ; preds = %493
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !25
   br label %_ZZN12_GLOBAL__N_14Impl12processEventEPN3dap4json19JsonCppDeserializerEENUlvE_D2Ev.exit.i.i
 
 496:                                              ; preds = %533, %531, %505, %503, %498, %493, %439
@@ -2885,7 +2885,7 @@ _ZNSt4pairIPKN3dap8TypeInfoESt8functionIFvPKvEEED2Ev.exit.i.i: ; preds = %486, %
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32.i.i: ; preds = %.noexc29.i.i
   %514 = getelementptr inbounds i8, ptr %51, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false), !noalias !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false), !noalias !25
   %515 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %516 unwind label %546, !noalias !25
 
@@ -2952,7 +2952,7 @@ _ZNSt8functionIFbPN3dap12DeserializerEEED2Ev.exit.i46.i: ; preds = %524, %522
   br label %543
 
 543:                                              ; preds = %542, %539
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !25
   br label %_ZZN12_GLOBAL__N_14Impl12processEventEPN3dap4json19JsonCppDeserializerEENUlvE_D2Ev.exit.i.i
 
 544:                                              ; preds = %.noexc28.i.i, %510
@@ -3039,20 +3039,20 @@ _ZNSt8functionIFvPKvEEC2ERKS3_.exit.i.i:          ; preds = %562, %556
   %577 = getelementptr inbounds i8, ptr %52, i64 40
   %578 = load ptr, ptr %44, align 8, !noalias !25
   store ptr %578, ptr %577, align 8, !noalias !25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !25
   %579 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
           to label %.noexc39.i.i unwind label %587, !noalias !25
 
 .noexc39.i.i:                                     ; preds = %_ZNSt8functionIFvPKvEEC2ERKS3_.exit.i.i
   %580 = getelementptr inbounds i8, ptr %579, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %579, i8 0, i64 24, i1 false), !noalias !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %579, i8 0, i64 24, i1 false), !noalias !25
   store ptr %573, ptr %580, align 8, !noalias !25
   %.not.i.i.not.i.i.i.i.i.i49.i = icmp eq ptr %574, null
   br i1 %.not.i.i.not.i.i.i.i.i.i49.i, label %583, label %581
 
 581:                                              ; preds = %.noexc39.i.i
   %582 = getelementptr inbounds i8, ptr %579, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %579, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %579, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !noalias !25
   store ptr %574, ptr %582, align 8, !noalias !25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %557, i8 0, i64 16, i1 false), !noalias !25
   br label %583
@@ -3061,7 +3061,7 @@ _ZNSt8functionIFvPKvEEC2ERKS3_.exit.i.i:          ; preds = %562, %556
   %584 = getelementptr inbounds i8, ptr %0, i64 24
   %585 = getelementptr inbounds i8, ptr %0, i64 16
   %586 = getelementptr inbounds i8, ptr %579, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %586, ptr noundef nonnull align 8 dereferenceable(16) %575, i64 16, i1 false), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %586, ptr noundef nonnull align 8 dereferenceable(16) %575, i64 16, i1 false), !noalias !25
   store ptr %579, ptr %0, align 8, !alias.scope !25
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_14Impl12processEventEPN3dap4json19JsonCppDeserializerEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %584, align 8, !alias.scope !25
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_14Impl12processEventEPN3dap4json19JsonCppDeserializerEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %585, align 8, !alias.scope !25
@@ -3976,7 +3976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit67.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35), !noalias !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36), !noalias !11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37), !noalias !11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !11
   br label %890
 
 886:                                              ; preds = %609
@@ -3986,7 +3986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit67.i.i
           to label %889 unwind label %120, !noalias !11
 
 889:                                              ; preds = %886
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !11
   br label %890
 
 .body25.i:                                        ; preds = %880, %.body35.i.i, %.body.i53.i, %_ZNSt8functionIFvPKvEED2Ev.exit47.i.i, %_ZNSt8functionIFvPKvRKS_IFvPKN3dap8TypeInfoES1_EERKS_IFvS5_RKNS2_5ErrorEEEEED2Ev.exit45.i.i, %.body16.i, %120, %.body.i
@@ -4536,7 +4536,7 @@ _ZN12_GLOBAL__N_14Impl13EventHandlers3putEiPKN3dap8TypeInfoERKSt8functionIFvPKvP
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @_ZN3dap4json17JsonCppSerializerC1Ev(ptr noundef nonnull align 8 dereferenceable(18) %11)
   %60 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %61 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %62 unwind label %72
 
@@ -4672,7 +4672,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfo
   store ptr %2, ptr %5, align 8
   call void @_ZN3dap4json17JsonCppSerializerC1Ev(ptr noundef nonnull align 8 dereferenceable(18) %6)
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %11 unwind label %21
 
@@ -5254,7 +5254,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt8functionIFvvEESaIS2_EE19_M_de
   %9 = load ptr, ptr %.029, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyISt8functionIFvvEEEvPT_.exit.i.i.i, %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyISt8functionIFvvEEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyISt8functionIFvvEEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
   %.05.i.i.i.ptr = getelementptr inbounds i8, ptr %9, i64 %.05.i.i.i.idx
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.ptr, i64 16
@@ -5402,7 +5402,7 @@ define internal void @_ZN12_GLOBAL__N_14Impl13EventHandlers5errorEPKcz(ptr nound
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  %8 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5) #22
+  %8 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef readonly %1, ptr noundef nonnull %5) #22
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.not.i = icmp eq ptr %10, null
@@ -6608,7 +6608,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap12Deseriali
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS3_7integerEEUlPNS3_12DeserializerEE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS3_7integerEEUlPNS3_12DeserializerEE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS3_7integerEEUlPNS3_12DeserializerEE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6640,7 +6640,7 @@ define internal void @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_14Impl14proces
   %15 = getelementptr inbounds i8, ptr %.val, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
   %16 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %17 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
           to label %18 unwind label %58
 
@@ -6662,7 +6662,7 @@ define internal void @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_14Impl14proces
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %26 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
           to label %27 unwind label %61
 
@@ -6973,7 +6973,7 @@ define internal void @_ZNSt17_Function_handlerIFvPKN3dap8TypeInfoEPKvEZZN12_GLOB
   %12 = load ptr, ptr %.val, align 8
   call void @_ZN3dap4json17JsonCppSerializerC1Ev(ptr noundef nonnull align 8 dereferenceable(18) %8)
   %13 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %14 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
           to label %15 unwind label %51
 
@@ -8119,7 +8119,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap15FieldSeri
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS3_7integerEENKUlvE_clEvENKUlPKNS3_8TypeInfoEPKvE_clESB_SD_EUlPNS3_15FieldSerializerEE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit
 
@@ -8375,7 +8375,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap10Serialize
   br label %_ZNSt14_Function_base13_Base_managerIZZZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS3_7integerEENKUlvE_clEvENKUlPKNS3_8TypeInfoEPKvE_clESB_SD_ENKUlPNS3_15FieldSerializerEE_clESG_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZZZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS3_7integerEENKUlvE_clEvENKUlPKNS3_8TypeInfoEPKvE_clESB_SD_ENKUlPNS3_15FieldSerializerEE_clESG_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZZZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS3_7integerEENKUlvE_clEvENKUlPKNS3_8TypeInfoEPKvE_clESB_SD_ENKUlPNS3_15FieldSerializerEE_clESG_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -8403,7 +8403,7 @@ define internal void @_ZNSt17_Function_handlerIFvPKN3dap8TypeInfoERKNS0_5ErrorEE
   %10 = load ptr, ptr %.val, align 8
   call void @_ZN3dap4json17JsonCppSerializerC1Ev(ptr noundef nonnull align 8 dereferenceable(18) %6)
   %11 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %13 unwind label %47
 
@@ -9413,7 +9413,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap15FieldSeri
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZZZN12_GLOBAL__N_14Impl14processRequestEPN3dap4json19JsonCppDeserializerENS3_7integerEENKUlvE_clEvENKUlPKNS3_8TypeInfoERKNS3_5ErrorEE_clESB_SE_EUlPNS3_15FieldSerializerEE_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit
 
@@ -9603,7 +9603,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap12Deseriali
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl12processEventEPN3dap4json19JsonCppDeserializerEEUlPNS3_12DeserializerEE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit
 
@@ -9772,7 +9772,7 @@ define internal void @_ZN12_GLOBAL__N_14Impl13EventHandlers12errorfLockedEPKcz(p
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  %6 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5) #22
+  %6 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef readonly %1, ptr noundef nonnull %5) #22
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.not.i = icmp eq ptr %8, null
@@ -10052,7 +10052,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap12Deseriali
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl15processResponseEPKN3dap12DeserializerEEUlS6_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl15processResponseEPKN3dap12DeserializerEEUlS6_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl15processResponseEPKN3dap12DeserializerEEUlS6_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -12156,7 +12156,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap15FieldSeri
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfoES6_PKvRKSt8functionIFvS8_PKNS3_5ErrorEEEEUlPNS3_15FieldSerializerEE_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit
 
@@ -12238,7 +12238,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap10Serialize
   br label %_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfoES6_PKvRKSt8functionIFvS8_PKNS3_5ErrorEEEENKUlPNS3_15FieldSerializerEE_clESI_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfoES6_PKvRKSt8functionIFvS8_PKNS3_5ErrorEEEENKUlPNS3_15FieldSerializerEE_clESI_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfoES6_PKvRKSt8functionIFvS8_PKNS3_5ErrorEEEENKUlPNS3_15FieldSerializerEE_clESI_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -12786,7 +12786,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap15FieldSeri
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfoEPKvEUlPNS3_15FieldSerializerEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
@@ -12868,7 +12868,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3dap10Serialize
   br label %_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfoEPKvENKUlPNS3_15FieldSerializerEE_clESA_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfoEPKvENKUlPNS3_15FieldSerializerEE_clESA_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZZN12_GLOBAL__N_14Impl4sendEPKN3dap8TypeInfoEPKvENKUlPNS3_15FieldSerializerEE_clESA_EUlPNS3_10SerializerEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4

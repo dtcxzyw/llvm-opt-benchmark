@@ -52604,7 +52604,7 @@ _ZNSt12__shared_ptrIN6duckdb17RowVersionManagerELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb8RowGroup14GetColumnCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %this) local_unnamed_addr #6 align 2 {
+define noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK6duckdb8RowGroup14GetColumnCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %this) local_unnamed_addr #6 align 2 {
 entry:
   %columns = getelementptr inbounds i8, ptr %this, i64 56
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64

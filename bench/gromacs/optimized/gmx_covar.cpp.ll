@@ -439,7 +439,7 @@ define noundef i32 @_Z9gmx_covariPPc(i32 noundef %0, ptr noundef %1) local_unnam
   br label %.loopexit.split-lp
 
 131:                                              ; preds = %130
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %13, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %13, i8 0, i64 36, i1 false)
   %132 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 25, i32 noundef 10, ptr noundef nonnull %30)
           to label %133 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1608,7 +1608,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit485:    ; preds = %_ZL13gmx_snew_implI
 .preheader666:                                    ; preds = %.preheader666.preheader, %685
   %.2387741 = phi i64 [ %686, %685 ], [ 0, %.preheader666.preheader ]
   %invariant.gep = getelementptr float, ptr %357, i64 %.2387741
-  %677 = mul nsw i64 %.2387741, %347
+  %677 = mul nuw nsw i64 %.2387741, %347
   %678 = getelementptr float, ptr %357, i64 %677
   br label %679
 
@@ -1624,7 +1624,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit485:    ; preds = %_ZL13gmx_snew_implI
   %.11402740 = phi i64 [ %.2387741, %.preheader666 ], [ %683, %679 ]
   %680 = getelementptr float, ptr %678, i64 %.11402740
   %681 = load float, ptr %680, align 4
-  %682 = mul nsw i64 %.11402740, %347
+  %682 = mul nuw nsw i64 %.11402740, %347
   %gep = getelementptr float, ptr %invariant.gep, i64 %682
   store float %681, ptr %gep, align 4
   %683 = add nuw nsw i64 %.11402740, 1
@@ -1688,7 +1688,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit487:       ; preds = %703, %706
 
 .preheader664.us:                                 ; preds = %.preheader664.us.preheader, %._crit_edge749.us
   %.3388750.us = phi i64 [ %722, %._crit_edge749.us ], [ 0, %.preheader664.us.preheader ]
-  %707 = mul nsw i64 %.3388750.us, %347
+  %707 = mul nuw nsw i64 %.3388750.us, %347
   %708 = getelementptr float, ptr %357, i64 %707
   br label %709
 
@@ -1744,7 +1744,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader: ; preds = %728
   %.0372757 = phi float [ 0.000000e+00, %.lr.ph758.preheader ], [ %.2374, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
   %.0379756 = phi float [ 0.000000e+00, %.lr.ph758.preheader ], [ %.2381, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
   %.4389755 = phi i64 [ 0, %.lr.ph758.preheader ], [ %741, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
-  %730 = mul nsw i64 %.4389755, %347
+  %730 = mul nuw nsw i64 %.4389755, %347
   %731 = getelementptr inbounds float, ptr %357, i64 %730
   %732 = getelementptr inbounds ptr, ptr %729, i64 %.4389755
   store ptr %731, ptr %732, align 8
@@ -2043,7 +2043,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit516:      ; preds = %.lr.ph764
 797:                                              ; preds = %793, %797
   %indvars.iv843 = phi i64 [ 0, %793 ], [ %indvars.iv.next844, %797 ]
   %798 = add nuw nsw i64 %792, %indvars.iv843
-  %799 = mul nsw i64 %798, %347
+  %799 = mul nuw nsw i64 %798, %347
   %gep766 = getelementptr float, ptr %invariant.gep765, i64 %799
   %800 = getelementptr float, ptr %gep766, i64 %indvars.iv843
   %801 = load float, ptr %800, align 4

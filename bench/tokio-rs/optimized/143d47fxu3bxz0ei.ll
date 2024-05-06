@@ -285,7 +285,7 @@ common.ret:                                       ; preds = %33, %"_ZN4core3ptr7
   ret void
 
 57:                                               ; preds = %50, %46
-  %58 = trunc i8 %30 to i1
+  %58 = trunc nuw i8 %30 to i1
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %58, label %66, label %60
 
@@ -462,7 +462,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
 
 30:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit"
   %31 = load i8, ptr %22, align 8, !range !130, !noundef !5
-  %trunc = trunc i8 %31 to i1
+  %trunc = trunc nuw i8 %31 to i1
   br i1 %trunc, label %35, label %33
 
 32:                                               ; preds = %33, %26
@@ -571,7 +571,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   %61 = load ptr, ptr %60, align 8, !invariant.load !5, !nonnull !5
   call void %61(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 %57, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %62 = load i64, ptr %6, align 8, !range !150, !noundef !5
-  %trunc34 = trunc i64 %62 to i1
+  %trunc34 = trunc nuw i64 %62 to i1
   br i1 %trunc34, label %76, label %67
 
 63:                                               ; preds = %23
@@ -721,7 +721,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore11add_permits17h
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN96_$LT$tokio_util..sync..poll_semaphore..PollSemaphore$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h87c88dc97ffb8321E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
-  tail call void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_many17h77f955ca657e9993E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 1)
+  tail call void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_many17h77f955ca657e9993E(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 1)
   ret void
 }
 

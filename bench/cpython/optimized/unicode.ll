@@ -442,7 +442,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.408 = private unnamed_addr constant [6 x i8] c"UnOnn\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Unicode(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Unicode(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyModule_GetDef(ptr noundef %m) #4
   store ptr %call, ptr @_testcapimodule, align 8
@@ -675,7 +675,7 @@ if.end36:                                         ; preds = %if.end.i1393
   tail call void @PyErr_Clear() #4
   tail call fastcc void @Py_XDECREF(ptr noundef null)
   %call37 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.100, i32 noundef 0, i32 noundef 0) #4
-  %call38 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call37, ptr noundef nonnull @.str.100), !range !4
+  %call38 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call37, ptr noundef nonnull @.str.100)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %Fail, label %if.end41
 
@@ -778,28 +778,28 @@ if.then1.i.i1423:                                 ; preds = %if.end.i.i1420
 
 Py_XDECREF.exit1424:                              ; preds = %if.then.i1417, %if.end.i.i1420, %if.then1.i.i1423
   %call75 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.105, i32 noundef 99, i32 noundef 0) #4
-  %call76 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call75, ptr noundef nonnull @.str.105), !range !4
+  %call76 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call75, ptr noundef nonnull @.str.105)
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %Fail, label %if.end79
 
 if.end79:                                         ; preds = %Py_XDECREF.exit1424
   tail call fastcc void @Py_XDECREF(ptr noundef %call75)
   %call80 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.106, i32 noundef 99, i32 noundef 0) #4
-  %call81 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call80, ptr noundef nonnull @.str.106), !range !4
+  %call81 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call80, ptr noundef nonnull @.str.106)
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %Fail, label %if.end84
 
 if.end84:                                         ; preds = %if.end79
   tail call fastcc void @Py_XDECREF(ptr noundef %call80)
   %call85 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.107, i32 noundef 99, i32 noundef 0) #4
-  %call86 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call85, ptr noundef nonnull @.str.107), !range !4
+  %call86 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call85, ptr noundef nonnull @.str.107)
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %Fail, label %if.end89
 
 if.end89:                                         ; preds = %if.end84
   tail call fastcc void @Py_XDECREF(ptr noundef %call85)
   %call90 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.108, i32 noundef 99, i32 noundef 0) #4
-  %call91 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call90, ptr noundef nonnull @.str.108), !range !4
+  %call91 = tail call fastcc i32 @check_raised_systemerror(ptr noundef %call90, ptr noundef nonnull @.str.108)
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %Fail, label %if.end94
 
@@ -14091,7 +14091,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_raised_systemerror(ptr noundef readnone %result, ptr noundef %msg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_raised_systemerror(ptr noundef readnone %result, ptr noundef %msg) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %result, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -14435,4 +14435,3 @@ attributes #5 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

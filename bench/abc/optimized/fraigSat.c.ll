@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @nMuxes = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_NodesAreEqual(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_NodesAreEqual(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %1, %2
   br i1 %6, label %19, label %7
 
@@ -29,7 +29,7 @@ define noundef i32 @Fraig_NodesAreEqual(ptr noundef %0, ptr noundef %1, ptr noun
   %15 = inttoptr i64 %14 to ptr
   %16 = and i64 %8, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call i32 @Fraig_NodeIsEquivalent(ptr noundef %0, ptr noundef %15, ptr noundef %17, i32 noundef %3, i32 noundef %4), !range !4
+  %18 = tail call i32 @Fraig_NodeIsEquivalent(ptr noundef %0, ptr noundef %15, ptr noundef %17, i32 noundef %3, i32 noundef %4)
   br label %19
 
 19:                                               ; preds = %7, %5, %12
@@ -38,7 +38,7 @@ define noundef i32 @Fraig_NodesAreEqual(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_NodeIsEquivalent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_NodeIsEquivalent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -125,7 +125,7 @@ define noundef i32 @Fraig_NodeIsEquivalent(ptr noundef %0, ptr noundef %1, ptr n
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
   store i32 0, ptr @nMuxes, align 4
@@ -210,7 +210,7 @@ Abc_Clock.exit130:                                ; preds = %Abc_Clock.exit, %71
   %113 = load ptr, ptr %91, align 8
   %114 = call i32 @Msat_IntVecReadSize(ptr noundef %113) #10
   %115 = icmp slt i32 %112, %114
-  br i1 %115, label %.lr.ph.i, label %Fraig_SetActivity.exit, !llvm.loop !7
+  br i1 %115, label %.lr.ph.i, label %Fraig_SetActivity.exit, !llvm.loop !6
 
 Fraig_SetActivity.exit:                           ; preds = %.lr.ph.i, %Abc_Clock.exit130, %85
   %116 = call i32 @Fraig_NodeComparePhase(ptr noundef %1, ptr noundef %2) #10
@@ -541,7 +541,7 @@ Abc_Clock.exit:                                   ; preds = %1
 28:                                               ; preds = %25
   %29 = load ptr, ptr %11, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call i32 @Fraig_NodeIsEquivalent(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %22, i32 noundef -1, i32 noundef %30), !range !4
+  %31 = call i32 @Fraig_NodeIsEquivalent(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %22, i32 noundef -1, i32 noundef %30)
   %.not27 = icmp eq i32 %31, 0
   br i1 %.not27, label %50, label %.sink.split
 
@@ -576,7 +576,7 @@ Abc_Clock.exit:                                   ; preds = %1
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %14, label %.loopexit, !llvm.loop !8
+  br i1 %55, label %14, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %50, %Abc_Clock.exit, %1
   ret void
@@ -587,7 +587,7 @@ declare i32 @Fraig_CompareSimInfo(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare i32 @Fraig_NodeComparePhase(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_ManCheckMiter(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Fraig_ManCheckMiter(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -620,7 +620,7 @@ define i32 @Fraig_ManCheckMiter(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !8
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
@@ -764,7 +764,7 @@ tailrecurse:                                      ; preds = %13
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Fraig_MarkTfi3_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Fraig_MarkTfi3_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -795,7 +795,7 @@ tailrecurse:                                      ; preds = %13
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  %22 = tail call i32 @Fraig_MarkTfi3_rec(ptr noundef nonnull %0, ptr noundef %21), !range !4
+  %22 = tail call i32 @Fraig_MarkTfi3_rec(ptr noundef nonnull %0, ptr noundef %21)
   %23 = getelementptr inbounds i8, ptr %.tr1522, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
@@ -849,7 +849,7 @@ define void @Fraig_VarsStudy(ptr nocapture noundef %0, ptr nocapture noundef %1,
   %23 = load i32, ptr %4, align 8
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %4, align 8
-  %25 = tail call i32 @Fraig_MarkTfi3_rec(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !4
+  %25 = tail call i32 @Fraig_MarkTfi3_rec(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not = icmp eq i32 %25, 0
   %26 = select i1 %.not, i32 45, i32 43
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %26)
@@ -1142,7 +1142,7 @@ Fraig_SupergateAddClausesMux.exit:                ; preds = %50, %153
   %199 = load i32, ptr %175, align 4
   %200 = sext i32 %199 to i64
   %201 = icmp slt i64 %indvars.iv.next.i, %200
-  br i1 %201, label %181, label %._crit_edge.i, !llvm.loop !10
+  br i1 %201, label %181, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %181, %170
   %202 = load ptr, ptr %31, align 8
@@ -1175,7 +1175,7 @@ Fraig_SupergateAddClausesMux.exit:                ; preds = %50, %153
   %220 = load i32, ptr %175, align 4
   %221 = sext i32 %220 to i64
   %222 = icmp slt i64 %indvars.iv.next38.i, %221
-  br i1 %222, label %206, label %Fraig_SupergateAddClauses.exit, !llvm.loop !11
+  br i1 %222, label %206, label %Fraig_SupergateAddClauses.exit, !llvm.loop !10
 
 Fraig_SupergateAddClauses.exit:                   ; preds = %206, %._crit_edge.i
   %223 = load ptr, ptr %31, align 8
@@ -1247,14 +1247,14 @@ Fraig_SupergateAddClauses.exit:                   ; preds = %206, %._crit_edge.i
   %263 = load i32, ptr %262, align 4
   %264 = sext i32 %263 to i64
   %265 = icmp slt i64 %indvars.iv.next, %264
-  br i1 %265, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %265, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %259, %236, %34
   %266 = add nuw nsw i32 %.069, 1
   %267 = load ptr, ptr %13, align 8
   %268 = call i32 @Msat_IntVecReadSize(ptr noundef %267) #10
   %269 = icmp slt i32 %266, %268
-  br i1 %269, label %34, label %._crit_edge, !llvm.loop !13
+  br i1 %269, label %34, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   %270 = load ptr, ptr %13, align 8
@@ -1319,12 +1319,12 @@ Fraig_SupergateAddClauses.exit:                   ; preds = %206, %._crit_edge.i
   %311 = load i32, ptr %310, align 4
   %312 = sext i32 %311 to i64
   %313 = icmp slt i64 %indvars.iv.next.i67, %312
-  br i1 %313, label %.lr.ph.i65, label %.loopexit42.i, !llvm.loop !14
+  br i1 %313, label %.lr.ph.i65, label %.loopexit42.i, !llvm.loop !13
 
 .loopexit42.i:                                    ; preds = %.lr.ph.i65, %291, %289, %276
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph49.i, label %276, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.lr.ph49.i, label %276, !llvm.loop !14
 
 .lr.ph49.i:                                       ; preds = %.loopexit42.i, %.loopexit.i
   %indvars.iv57.i = phi i64 [ %indvars.iv.next58.i, %.loopexit.i ], [ 0, %.loopexit42.i ]
@@ -1378,12 +1378,12 @@ Fraig_SupergateAddClauses.exit:                   ; preds = %206, %._crit_edge.i
   %348 = load i32, ptr %347, align 4
   %349 = sext i32 %348 to i64
   %350 = icmp slt i64 %indvars.iv.next55.i, %349
-  br i1 %350, label %.lr.ph47.i, label %.loopexit.i, !llvm.loop !16
+  br i1 %350, label %.lr.ph47.i, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %.lr.ph47.i, %.preheader.i, %326, %.lr.ph49.i
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
-  br i1 %exitcond61.not.i, label %Fraig_SetupAdjacentMark.exit, label %.lr.ph49.i, !llvm.loop !17
+  br i1 %exitcond61.not.i, label %Fraig_SetupAdjacentMark.exit, label %.lr.ph49.i, !llvm.loop !16
 
 Fraig_SetupAdjacentMark.exit:                     ; preds = %.loopexit.i, %._crit_edge
   ret void
@@ -1406,7 +1406,7 @@ declare void @Fraig_FeedBack(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare ptr @Msat_SolverReadModelArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_NodeIsImplification(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_NodeIsImplification(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -1457,7 +1457,7 @@ define noundef i32 @Fraig_NodeIsImplification(ptr noundef %0, ptr noundef %1, pt
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -1630,7 +1630,7 @@ Abc_Clock.exit64:                                 ; preds = %115, %118
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_ManCheckClauseUsingSat(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSat(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -1683,7 +1683,7 @@ define noundef i32 @Fraig_ManCheckClauseUsingSat(ptr noundef %0, ptr noundef %1,
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -2011,19 +2011,18 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

@@ -42,7 +42,7 @@ declare dso_local void @dm_unregister_target(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @dm_register_target(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @zero_ctr(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture readnone %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @zero_ctr(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture readnone %2) #2 align 16 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %7, label %5
 
@@ -66,7 +66,7 @@ define internal noundef i32 @zero_ctr(ptr nocapture noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @zero_map(ptr nocapture readnone %0, ptr noundef %1) #3 align 16 {
+define internal noundef range(i32 0, 5) i32 @zero_map(ptr nocapture readnone %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = trunc i32 %4 to i8

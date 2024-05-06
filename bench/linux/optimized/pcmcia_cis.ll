@@ -562,7 +562,7 @@ define dso_local i32 @pcmcia_get_mac_from_cis(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pcmcia_do_get_mac(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pcmcia_do_get_mac(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1

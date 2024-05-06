@@ -448,7 +448,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_tls_session_check_credentials(ptr noundef %session, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_tls_session_check_credentials(ptr noundef %session, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i58 = alloca %struct.timeval, align 8
   %_now.i.i43 = alloca %struct.timeval, align 8
@@ -931,7 +931,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qcrypto_tls_session_write(ptr nocapture noundef readonly %session, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @qcrypto_tls_session_write(ptr nocapture noundef readonly %session, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
@@ -959,7 +959,7 @@ declare i64 @gnutls_record_send(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qcrypto_tls_session_read(ptr nocapture noundef readonly %session, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @qcrypto_tls_session_read(ptr nocapture noundef readonly %session, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
@@ -1008,7 +1008,7 @@ entry:
 declare i64 @gnutls_record_check_pending(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_tls_session_handshake(ptr nocapture noundef %session, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @qcrypto_tls_session_handshake(ptr nocapture noundef %session, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
@@ -1037,7 +1037,7 @@ if.end6:                                          ; preds = %entry, %entry, %if.
 declare i32 @gnutls_handshake(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_tls_session_get_handshake_status(ptr nocapture noundef readonly %session) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @qcrypto_tls_session_get_handshake_status(ptr nocapture noundef readonly %session) local_unnamed_addr #0 {
 entry:
   %handshakeComplete = getelementptr inbounds i8, ptr %session, i64 32
   %0 = load i8, ptr %handshakeComplete, align 8
@@ -1060,7 +1060,7 @@ return:                                           ; preds = %if.else, %entry
 declare i32 @gnutls_record_get_direction(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_tls_session_get_key_size(ptr nocapture noundef readonly %session, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @qcrypto_tls_session_get_key_size(ptr nocapture noundef readonly %session, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8

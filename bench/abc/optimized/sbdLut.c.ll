@@ -42,7 +42,7 @@ define i32 @Sbd_ProblemCountParams(i32 noundef %0, ptr noundef readonly %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #1 {
   %6 = alloca [6 x i32], align 16
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %4, i64 %7
@@ -110,7 +110,7 @@ define noundef i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1, i32 no
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %3, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw nsw i64 %indvars.iv to i32
   %36 = lshr i32 %.05778, %35
   %37 = and i32 %36, 1
   %38 = shl nsw i32 %34, 1
@@ -195,11 +195,11 @@ define noundef i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %82, label %.preheader, label %.loopexit70.loopexit, !llvm.loop !10
 
 .loopexit70.loopexit:                             ; preds = %79
-  %83 = trunc i64 %indvars.iv.next102 to i32
+  %83 = trunc nsw i64 %indvars.iv.next102 to i32
   br label %.loopexit70
 
 .loopexit70.loopexit91:                           ; preds = %58
-  %84 = trunc i64 %indvars.iv.next96 to i32
+  %84 = trunc nsw i64 %indvars.iv.next96 to i32
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %.loopexit70.loopexit91, %.loopexit70.loopexit, %22, %.preheader69
@@ -384,7 +384,7 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nocapt
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %29 = trunc i64 %indvars.iv.next to i32
+  %29 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
@@ -493,7 +493,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %32
-  %34 = trunc i64 %indvars.iv.next to i32
+  %34 = trunc nsw i64 %indvars.iv.next to i32
   %.pre = load i64, ptr %9, align 8
   br label %._crit_edge
 
@@ -555,7 +555,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
   br i1 %64, label %55, label %.loopexit.loopexit, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %63
-  %65 = trunc i64 %indvars.iv.next52 to i32
+  %65 = trunc nsw i64 %indvars.iv.next52 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %._crit_edge
@@ -569,7 +569,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sbd_ProblemSolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Sbd_ProblemSolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #1 {
 Abc_Clock.exit:
   %10 = alloca %struct.timespec, align 8
   %11 = alloca [256 x i32], align 16
@@ -694,21 +694,21 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   %indvars.iv211 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next212, %.lr.ph178 ]
   %62 = add nsw i64 %indvars.iv211, %61
   %63 = getelementptr inbounds [256 x i32], ptr %12, i64 0, i64 %62
-  %64 = trunc i64 %indvars.iv211 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv211 to i32
   store i32 %64, ptr %63, align 4
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
   br i1 %exitcond215.not, label %._crit_edge, label %.lr.ph178, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph178
-  %65 = call i32 @Sbd_ProblemAddClauses(ptr noundef %19, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %11, ptr noundef %9), !range !25
+  %65 = call i32 @Sbd_ProblemAddClauses(ptr noundef %19, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %11, ptr noundef %9)
   call void @sat_solver_setnvars(ptr noundef %20, i32 noundef 1000) #15
   call void @Sbd_ProblemAddClausesInit(ptr noundef %20, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %12, ptr noundef %9)
   store i32 0, ptr %16, align 4
   br i1 %44, label %.lr.ph181, label %.preheader165
 
 .preheader165.critedge:                           ; preds = %.preheader166
-  %66 = call i32 @Sbd_ProblemAddClauses(ptr noundef %19, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %11, ptr noundef %9), !range !25
+  %66 = call i32 @Sbd_ProblemAddClauses(ptr noundef %19, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %11, ptr noundef %9)
   call void @sat_solver_setnvars(ptr noundef %20, i32 noundef 1000) #15
   call void @Sbd_ProblemAddClausesInit(ptr noundef %20, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %12, ptr noundef %9)
   store i32 0, ptr %16, align 4
@@ -803,7 +803,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %78, ptr %104, align 4
   %105 = add nuw nsw i32 %.5179, 1
   %exitcond216.not = icmp eq i32 %105, %.0.lcssa.i
-  br i1 %exitcond216.not, label %.preheader165, label %.lr.ph181thread-pre-split, !llvm.loop !26
+  br i1 %exitcond216.not, label %.preheader165, label %.lr.ph181thread-pre-split, !llvm.loop !25
 
 106:                                              ; preds = %.lr.ph195, %._crit_edge192
   %.0133194 = phi i32 [ 0, %.lr.ph195 ], [ %175, %._crit_edge192 ]
@@ -834,7 +834,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %.1136182, ptr %114, align 4
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count220
-  br i1 %exitcond221.not, label %.preheader164, label %.lr.ph185, !llvm.loop !27
+  br i1 %exitcond221.not, label %.preheader164, label %.lr.ph185, !llvm.loop !26
 
 .lr.ph189:                                        ; preds = %.preheader164, %.lr.ph189
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.lr.ph189 ], [ 0, %.preheader164 ]
@@ -857,7 +857,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val148 = load i32, ptr %21, align 4
   %127 = sext i32 %.val148 to i64
   %128 = icmp slt i64 %indvars.iv.next223, %127
-  br i1 %128, label %.lr.ph189, label %.critedge2, !llvm.loop !28
+  br i1 %128, label %.lr.ph189, label %.critedge2, !llvm.loop !27
 
 .critedge2:                                       ; preds = %.lr.ph189, %.preheader164
   %129 = load i32, ptr %72, align 4
@@ -870,7 +870,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %135 = or disjoint i32 %134, %133
   store i32 %135, ptr %13, align 4
   %136 = call i32 @sat_solver_addclause(ptr noundef %20, ptr noundef nonnull %13, ptr noundef nonnull %70) #15
-  %137 = call i32 @Sbd_ProblemAddClauses(ptr noundef %20, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %12, ptr noundef %9), !range !25
+  %137 = call i32 @Sbd_ProblemAddClauses(ptr noundef %20, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %12, ptr noundef %9)
   %.not = icmp eq i32 %137, 0
   br i1 %.not, label %thread-pre-split, label %138
 
@@ -956,12 +956,12 @@ Vec_IntPush.exit162:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %147, ptr %174, align 4
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %._crit_edge192, label %.lr.ph191, !llvm.loop !29
+  br i1 %exitcond229.not, label %._crit_edge192, label %.lr.ph191, !llvm.loop !28
 
 ._crit_edge192:                                   ; preds = %Vec_IntPush.exit162, %.preheader
   %175 = add nuw nsw i32 %.0133194, 1
   %exitcond230.not = icmp eq i32 %175, %67
-  br i1 %exitcond230.not, label %thread-pre-split, label %106, !llvm.loop !30
+  br i1 %exitcond230.not, label %thread-pre-split, label %106, !llvm.loop !29
 
 thread-pre-split:                                 ; preds = %138, %.critedge2, %._crit_edge192, %.preheader165
   %.val149.pr = load i32, ptr %16, align 4
@@ -1079,9 +1079,8 @@ attributes #17 = { nounwind allocsize(1) }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = !{i32 0, i32 2}
+!25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}

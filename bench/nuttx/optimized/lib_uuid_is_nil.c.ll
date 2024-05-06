@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @uuid_is_nil.nil = internal constant %struct.uuid zeroinitializer, align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @uuid_is_nil(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uuid_is_nil(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

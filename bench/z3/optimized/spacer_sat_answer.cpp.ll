@@ -2338,7 +2338,7 @@ invoke.cont24:                                    ; preds = %invoke.cont24.lr.ph
   %16 = load ptr, ptr %m_fact.i, align 8
   %m_mux.i = getelementptr inbounds i8, ptr %13, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = trunc i64 %indvars.iv.next to i32
+  %17 = trunc nuw i64 %indvars.iv.next to i32
   invoke void @_ZNK6spacer7sym_mux10shift_exprEP4exprjjR7obj_refIS1_11ast_managerEb(ptr noundef nonnull align 8 dereferenceable(56) %m_mux.i, ptr noundef %16, i32 noundef 0, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %f, i1 noundef zeroext true)
           to label %invoke.cont26 unwind label %lpad21
 
@@ -2571,7 +2571,7 @@ invoke.cont81:                                    ; preds = %if.then.i.i, %_ZN15
   %53 = load ptr, ptr %preds, align 8
   %arrayidx.i37 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv101
   %54 = load ptr, ptr %arrayidx.i37, align 8
-  %55 = trunc i64 %indvars.iv101 to i32
+  %55 = trunc nuw i64 %indvars.iv101 to i32
   invoke void @_ZN6spacer20ground_sat_answer_op25mk_child_subst_from_modelEP9func_decljR3refI5modelER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %54, i32 noundef %55, ptr noundef nonnull align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(16) %subst)
           to label %invoke.cont84 unwind label %lpad75.loopexit.split-lp
 

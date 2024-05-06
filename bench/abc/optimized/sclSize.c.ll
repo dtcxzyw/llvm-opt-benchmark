@@ -1576,7 +1576,7 @@ define void @Abc_SclTimeNode(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 Scl_LibHandleInputDriver.exit.i:                  ; preds = %53, %39
   %.sink.i.i = phi ptr [ %55, %53 ], [ null, %39 ]
   call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9)
-  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %13, ptr noundef nonnull %8, ptr noundef nonnull %43)
+  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull readonly %13, ptr noundef nonnull %8, ptr noundef nonnull %43)
   %56 = load <2 x float>, ptr %8, align 8
   %57 = load <2 x float>, ptr %7, align 8
   %58 = fsub <2 x float> %56, %57
@@ -1801,7 +1801,7 @@ Abc_SclTimeFanin.exit.us:                         ; preds = %172, %166, %Scl_Cel
   %178 = zext i32 %.val33.i.us to i64
   %179 = getelementptr inbounds %struct.SC_Pair_, ptr %.val34.i.us, i64 %178
   %180 = getelementptr inbounds %struct.SC_Pair_, ptr %.val32.i.us, i64 %178
-  tail call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.us, ptr noundef %180, ptr noundef %179, ptr noundef %164, ptr noundef %177, ptr noundef %176)
+  tail call fastcc void @Scl_LibPinArrival(ptr noundef readonly %.0.i.us, ptr noundef %180, ptr noundef %179, ptr noundef %164, ptr noundef %177, ptr noundef %176)
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %.val94.us = load i32, ptr %136, align 4
   %181 = sext i32 %.val94.us to i64
@@ -2180,7 +2180,7 @@ define internal fastcc void @Abc_SclDeptFanin(ptr noundef %0, ptr nocapture noun
   %33 = getelementptr inbounds i8, ptr %1, i64 24
   %34 = load float, ptr %11, align 4
   %35 = load float, ptr %15, align 4
-  %36 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %33, float noundef %34, float noundef %35)
+  %36 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %33, float noundef %34, float noundef %35)
   %37 = fadd float %32, %36
   %38 = fcmp ogt float %31, %37
   %39 = select i1 %38, float %31, float %37
@@ -2194,7 +2194,7 @@ define internal fastcc void @Abc_SclDeptFanin(ptr noundef %0, ptr nocapture noun
   %46 = load float, ptr %45, align 4
   %47 = getelementptr inbounds i8, ptr %15, i64 4
   %48 = load float, ptr %47, align 4
-  %49 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %44, float noundef %46, float noundef %48)
+  %49 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %44, float noundef %46, float noundef %48)
   %50 = fadd float %43, %49
   %51 = fcmp ogt float %41, %50
   %52 = select i1 %51, float %41, float %50
@@ -2216,7 +2216,7 @@ define internal fastcc void @Abc_SclDeptFanin(ptr noundef %0, ptr nocapture noun
   %61 = getelementptr inbounds i8, ptr %11, i64 4
   %62 = load float, ptr %61, align 4
   %63 = load float, ptr %15, align 4
-  %64 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %60, float noundef %62, float noundef %63)
+  %64 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %60, float noundef %62, float noundef %63)
   %65 = fadd float %59, %64
   %66 = fcmp ogt float %58, %65
   %67 = select i1 %66, float %58, float %65
@@ -2228,7 +2228,7 @@ define internal fastcc void @Abc_SclDeptFanin(ptr noundef %0, ptr nocapture noun
   %72 = load float, ptr %11, align 4
   %73 = getelementptr inbounds i8, ptr %15, i64 4
   %74 = load float, ptr %73, align 4
-  %75 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %71, float noundef %72, float noundef %74)
+  %75 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull readonly %71, float noundef %72, float noundef %74)
   %76 = fadd float %70, %75
   %77 = fcmp ogt float %68, %76
   %78 = select i1 %77, float %68, float %76
@@ -4926,8 +4926,8 @@ Vec_FltStart.exit.i:                              ; preds = %36, %Vec_IntStart.e
   store ptr %46, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %42, ptr %56, align 8
-  %.val72.val107.i = load i32, ptr %33, align 4
-  %57 = icmp sgt i32 %.val72.val107.i, 0
+  %.val72.val108.i = load i32, ptr %33, align 4
+  %57 = icmp sgt i32 %.val72.val108.i, 0
   br i1 %57, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %Vec_FltStart.exit.i, %Vec_QuePush.exit.i
@@ -5230,27 +5230,27 @@ Vec_IntStartFull.exit.i:                          ; preds = %187, %Vec_IntAlloc.
   store ptr %200, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %7, i64 224
   store ptr %198, ptr %202, align 8
-  %.val71109.i = load ptr, ptr %32, align 8
-  %203 = getelementptr i8, ptr %.val71109.i, i64 4
-  %.val71.val110.i = load i32, ptr %203, align 4
-  %204 = icmp sgt i32 %.val71.val110.i, 0
-  br i1 %204, label %.lr.ph113.i, label %.critedge.preheader.i
+  %.val71110.i = load ptr, ptr %32, align 8
+  %203 = getelementptr i8, ptr %.val71110.i, i64 4
+  %.val71.val111.i = load i32, ptr %203, align 4
+  %204 = icmp sgt i32 %.val71.val111.i, 0
+  br i1 %204, label %.lr.ph114.i, label %.critedge.preheader.i
 
-.critedge.preheader.i:                            ; preds = %.lr.ph113.i, %Vec_IntStartFull.exit.i
-  %.val119137.i = phi ptr [ %.val71109.i, %Vec_IntStartFull.exit.i ], [ %.val71.i, %.lr.ph113.i ]
+.critedge.preheader.i:                            ; preds = %.lr.ph114.i, %Vec_IntStartFull.exit.i
+  %.val120138.i = phi ptr [ %.val71110.i, %Vec_IntStartFull.exit.i ], [ %.val71.i, %.lr.ph114.i ]
   %205 = getelementptr i8, ptr %1, i64 56
-  %.val79114.i = load ptr, ptr %205, align 8
-  %206 = getelementptr i8, ptr %.val79114.i, i64 4
-  %.val79.val115.i = load i32, ptr %206, align 4
-  %207 = icmp sgt i32 %.val79.val115.i, 0
+  %.val79115.i = load ptr, ptr %205, align 8
+  %206 = getelementptr i8, ptr %.val79115.i, i64 4
+  %.val79.val116.i = load i32, ptr %206, align 4
+  %207 = icmp sgt i32 %.val79.val116.i, 0
   br i1 %207, label %.critedge.i, label %.critedge2.preheader.i
 
-.lr.ph113.i:                                      ; preds = %Vec_IntStartFull.exit.i, %.lr.ph113.i
-  %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %.lr.ph113.i ], [ 0, %Vec_IntStartFull.exit.i ]
-  %.val71112.i = phi ptr [ %.val71.i, %.lr.ph113.i ], [ %.val71109.i, %Vec_IntStartFull.exit.i ]
-  %208 = getelementptr i8, ptr %.val71112.i, i64 8
+.lr.ph114.i:                                      ; preds = %Vec_IntStartFull.exit.i, %.lr.ph114.i
+  %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %.lr.ph114.i ], [ 0, %Vec_IntStartFull.exit.i ]
+  %.val71113.i = phi ptr [ %.val71.i, %.lr.ph114.i ], [ %.val71110.i, %Vec_IntStartFull.exit.i ]
+  %208 = getelementptr i8, ptr %.val71113.i, i64 8
   %.val76.val.i = load ptr, ptr %208, align 8
-  %209 = getelementptr inbounds ptr, ptr %.val76.val.i, i64 %indvars.iv127.i
+  %209 = getelementptr inbounds ptr, ptr %.val76.val.i, i64 %indvars.iv128.i
   %210 = load ptr, ptr %209, align 8
   %.val77.i = load ptr, ptr %210, align 8
   %211 = getelementptr i8, ptr %210, i64 32
@@ -5272,59 +5272,59 @@ Vec_IntStartFull.exit.i:                          ; preds = %187, %Vec_IntAlloc.
   %223 = and i32 %220, 4095
   %224 = or disjoint i32 %223, %222
   store i32 %224, ptr %219, align 4
-  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
+  %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %.val71.i = load ptr, ptr %32, align 8
   %225 = getelementptr i8, ptr %.val71.i, i64 4
   %.val71.val.i = load i32, ptr %225, align 4
   %226 = sext i32 %.val71.val.i to i64
-  %227 = icmp slt i64 %indvars.iv.next128.i, %226
-  br i1 %227, label %.lr.ph113.i, label %.critedge.preheader.i, !llvm.loop !45
+  %227 = icmp slt i64 %indvars.iv.next129.i, %226
+  br i1 %227, label %.lr.ph114.i, label %.critedge.preheader.i, !llvm.loop !45
 
 .critedge2.preheader.loopexit.i:                  ; preds = %.critedge.i
-  %.val119.pre.i = load ptr, ptr %32, align 8
+  %.val120.pre.i = load ptr, ptr %32, align 8
   br label %.critedge2.preheader.i
 
 .critedge2.preheader.i:                           ; preds = %.critedge2.preheader.loopexit.i, %.critedge.preheader.i
-  %.val119.i = phi ptr [ %.val119.pre.i, %.critedge2.preheader.loopexit.i ], [ %.val119137.i, %.critedge.preheader.i ]
-  %228 = getelementptr i8, ptr %.val119.i, i64 4
-  %.val.val120.i = load i32, ptr %228, align 4
-  %229 = icmp sgt i32 %.val.val120.i, 0
+  %.val120.i = phi ptr [ %.val120.pre.i, %.critedge2.preheader.loopexit.i ], [ %.val120138.i, %.critedge.preheader.i ]
+  %228 = getelementptr i8, ptr %.val120.i, i64 4
+  %.val.val121.i = load i32, ptr %228, align 4
+  %229 = icmp sgt i32 %.val.val121.i, 0
   br i1 %229, label %.critedge2.i, label %Abc_SclManAlloc.exit
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
-  %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
-  %.val79117.i = phi ptr [ %.val79.i, %.critedge.i ], [ %.val79114.i, %.critedge.preheader.i ]
-  %230 = getelementptr i8, ptr %.val79117.i, i64 8
+  %indvars.iv131.i = phi i64 [ %indvars.iv.next132.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
+  %.val79118.i = phi ptr [ %.val79.i, %.critedge.i ], [ %.val79115.i, %.critedge.preheader.i ]
+  %230 = getelementptr i8, ptr %.val79118.i, i64 8
   %.val80.val.i = load ptr, ptr %230, align 8
-  %231 = getelementptr inbounds ptr, ptr %.val80.val.i, i64 %indvars.iv130.i
+  %231 = getelementptr inbounds ptr, ptr %.val80.val.i, i64 %indvars.iv131.i
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 56
-  %234 = trunc nuw nsw i64 %indvars.iv130.i to i32
+  %234 = trunc nuw nsw i64 %indvars.iv131.i to i32
   store i32 %234, ptr %233, align 8
-  %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
+  %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %.val79.i = load ptr, ptr %205, align 8
   %235 = getelementptr i8, ptr %.val79.i, i64 4
   %.val79.val.i = load i32, ptr %235, align 4
   %236 = sext i32 %.val79.val.i to i64
-  %237 = icmp slt i64 %indvars.iv.next131.i, %236
+  %237 = icmp slt i64 %indvars.iv.next132.i, %236
   br i1 %237, label %.critedge.i, label %.critedge2.preheader.loopexit.i, !llvm.loop !46
 
 .critedge2.i:                                     ; preds = %.critedge2.preheader.i, %.critedge2.i
-  %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %.critedge2.i ], [ 0, %.critedge2.preheader.i ]
-  %.val122.i = phi ptr [ %.val.i, %.critedge2.i ], [ %.val119.i, %.critedge2.preheader.i ]
-  %238 = getelementptr i8, ptr %.val122.i, i64 8
+  %indvars.iv134.i = phi i64 [ %indvars.iv.next135.i, %.critedge2.i ], [ 0, %.critedge2.preheader.i ]
+  %.val123.i = phi ptr [ %.val.i, %.critedge2.i ], [ %.val120.i, %.critedge2.preheader.i ]
+  %238 = getelementptr i8, ptr %.val123.i, i64 8
   %.val75.val.i = load ptr, ptr %238, align 8
-  %239 = getelementptr inbounds ptr, ptr %.val75.val.i, i64 %indvars.iv133.i
+  %239 = getelementptr inbounds ptr, ptr %.val75.val.i, i64 %indvars.iv134.i
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 56
-  %242 = trunc nuw nsw i64 %indvars.iv133.i to i32
+  %242 = trunc nuw nsw i64 %indvars.iv134.i to i32
   store i32 %242, ptr %241, align 8
-  %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
+  %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
   %.val.i = load ptr, ptr %32, align 8
   %243 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %243, align 4
   %244 = sext i32 %.val.val.i to i64
-  %245 = icmp slt i64 %indvars.iv.next134.i, %244
+  %245 = icmp slt i64 %indvars.iv.next135.i, %244
   br i1 %245, label %.critedge2.i, label %Abc_SclManAlloc.exit, !llvm.loop !47
 
 Abc_SclManAlloc.exit:                             ; preds = %.critedge2.i, %.critedge2.preheader.i
@@ -5453,10 +5453,10 @@ Abc_SclGetTotalArea.exit:                         ; preds = %257, %.critedge.loo
   br i1 %.not.i40, label %Abc_UtilStrsav.exit, label %303
 
 303:                                              ; preds = %301
-  %304 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %302) #25
+  %304 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %302) #25
   %305 = add i64 %304, 1
   %306 = tail call noalias ptr @malloc(i64 noundef %305) #26
-  %307 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %306, ptr noundef nonnull dereferenceable(1) %302) #24
+  %307 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %306, ptr noundef nonnull readonly dereferenceable(1) %302) #24
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %301, %303
@@ -6313,7 +6313,7 @@ declare ptr @Abc_NtkDupDfsNoBarBufs(ptr noundef) local_unnamed_addr #2
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_SclCheckCommonInputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_SclCheckCommonInputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 28
   %.val2124 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val2124, 0
@@ -6456,7 +6456,7 @@ define void @Abc_SclPrintFaninPairs(ptr nocapture noundef readnone %0, ptr nocap
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @Abc_SclCheckCommonInputs(ptr noundef nonnull %10, ptr noundef nonnull %25), !range !52
+  %32 = tail call i32 @Abc_SclCheckCommonInputs(ptr noundef nonnull %10, ptr noundef nonnull %25)
   %.val20.pre = load i32, ptr %15, align 4
   br label %33
 
@@ -6465,7 +6465,7 @@ define void @Abc_SclPrintFaninPairs(ptr nocapture noundef readnone %0, ptr nocap
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %.val20 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %18, label %.critedge2.loopexit, !llvm.loop !53
+  br i1 %35, label %18, label %.critedge2.loopexit, !llvm.loop !52
 
 .critedge2.loopexit:                              ; preds = %33
   %.pre = load ptr, ptr %3, align 8
@@ -6478,14 +6478,14 @@ define void @Abc_SclPrintFaninPairs(ptr nocapture noundef readnone %0, ptr nocap
   %.val = load i32, ptr %37, align 4
   %38 = sext i32 %.val to i64
   %39 = icmp slt i64 %indvars.iv.next35, %38
-  br i1 %39, label %.lr.ph32, label %.critedge, !llvm.loop !54
+  br i1 %39, label %.lr.ph32, label %.critedge, !llvm.loop !53
 
 .critedge:                                        ; preds = %.critedge2, %2
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_SclHasBufferFanout(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Abc_SclHasBufferFanout(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val, 0
@@ -6524,7 +6524,7 @@ Abc_ObjIsBuffer.exit:                             ; preds = %7
 Abc_ObjIsBuffer.exit.thread:                      ; preds = %7, %Abc_ObjIsBuffer.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !55
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !54
 
 .critedge:                                        ; preds = %Abc_ObjIsBuffer.exit, %Abc_ObjIsBuffer.exit.thread, %1
   %.06 = phi i32 [ 0, %1 ], [ 0, %Abc_ObjIsBuffer.exit.thread ], [ 1, %Abc_ObjIsBuffer.exit ]
@@ -6578,7 +6578,7 @@ Abc_ObjIsBuffer.exit.thread:                      ; preds = %7, %Abc_ObjIsBuffer
   %.1 = phi i32 [ %18, %16 ], [ %.018, %Abc_ObjIsBuffer.exit ], [ %.018, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !56
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !55
 
 .critedge:                                        ; preds = %Abc_ObjIsBuffer.exit.thread, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %Abc_ObjIsBuffer.exit.thread ]
@@ -6666,7 +6666,7 @@ Abc_ObjIsBuffer.exit:                             ; preds = %1
   %17 = add nsw i32 %16, %.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !57
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !56
 
 .critedge:                                        ; preds = %10, %.preheader, %1, %Abc_ObjIsBuffer.exit
   %.010 = phi i32 [ 1, %Abc_ObjIsBuffer.exit ], [ 1, %1 ], [ 0, %.preheader ], [ %17, %10 ]
@@ -6703,7 +6703,7 @@ define i32 @Abc_SclCountNonBufferFanouts(ptr nocapture noundef readonly %0) loca
   %14 = add nsw i32 %13, %.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !58
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !57
 
 .critedge:                                        ; preds = %7, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %14, %7 ]
@@ -6767,7 +6767,7 @@ Abc_ObjIsBuffer.exit.thread:                      ; preds = %2, %Abc_ObjIsBuffer
   %27 = fadd float %.01219, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !59
+  br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !58
 
 .critedge:                                        ; preds = %20, %.preheader, %Abc_ObjIsBuffer.exit.thread
   %.013 = phi float [ %19, %Abc_ObjIsBuffer.exit.thread ], [ 0.000000e+00, %.preheader ], [ %27, %20 ]
@@ -6804,7 +6804,7 @@ define float @Abc_SclCountNonBufferDelay(ptr nocapture noundef readonly %0, ptr 
   %15 = fadd float %.0811, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !60
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !59
 
 .critedge:                                        ; preds = %8, %2
   %.08.lcssa = phi float [ 0.000000e+00, %2 ], [ %15, %8 ]
@@ -6854,7 +6854,7 @@ Abc_ObjIsBuffer.exit:                             ; preds = %2
   %18 = fadd float %.01839, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %11, !llvm.loop !61
+  br i1 %exitcond.not, label %.critedge.loopexit, label %11, !llvm.loop !60
 
 .critedge.loopexit:                               ; preds = %11
   %19 = fpext float %18 to double
@@ -6947,7 +6947,7 @@ define float @Abc_SclCountNonBufferLoad(ptr nocapture noundef readonly %0, ptr n
   %15 = fadd float %.01320, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %8, !llvm.loop !62
+  br i1 %exitcond.not, label %.critedge.loopexit, label %8, !llvm.loop !61
 
 .critedge.loopexit:                               ; preds = %8
   %16 = fpext float %15 to double
@@ -6983,7 +6983,7 @@ define void @Abc_SclPrintBuffersOne(ptr nocapture noundef readonly %0, ptr nocap
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23)
   %6 = add nuw nsw i32 %.0159, 1
   %exitcond.not = icmp eq i32 %6, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %2, %.lr.ph ]
@@ -7005,7 +7005,7 @@ define void @Abc_SclPrintBuffersOne(ptr nocapture noundef readonly %0, ptr nocap
   %15 = phi ptr [ %13, %10 ], [ @.str.25, %._crit_edge ]
   %16 = getelementptr i8, ptr %1, i64 44
   %.val46 = load i32, ptr %16, align 4
-  %17 = tail call i32 @Abc_SclCountBufferFanoutsInt(ptr noundef nonnull %1)
+  %17 = tail call i32 @Abc_SclCountBufferFanoutsInt(ptr noundef nonnull readonly %1)
   %.val2.i.i = load i32, ptr %8, align 4
   %18 = and i32 %.val2.i.i, 15
   %.not.i.i = icmp eq i32 %18, 7
@@ -7047,7 +7047,7 @@ Abc_SclCountBufferFanouts.exit:                   ; preds = %14, %19
   %34 = add nsw i32 %33, %.011.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_SclCountNonBufferFanouts.exit, label %27, !llvm.loop !58
+  br i1 %exitcond.not.i, label %Abc_SclCountNonBufferFanouts.exit, label %27, !llvm.loop !57
 
 Abc_SclCountNonBufferFanouts.exit:                ; preds = %27, %Abc_SclCountBufferFanouts.exit
   %.0.lcssa.i = phi i32 [ 0, %Abc_SclCountBufferFanouts.exit ], [ %34, %27 ]
@@ -7060,7 +7060,7 @@ Abc_SclCountNonBufferFanouts.exit:                ; preds = %27, %Abc_SclCountBu
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23)
   %38 = add nuw i32 %.1160, 1
   %exitcond171.not = icmp eq i32 %38, 4
-  br i1 %exitcond171.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !64
+  br i1 %exitcond171.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !63
 
 ._crit_edge162:                                   ; preds = %.lr.ph161, %Abc_SclCountNonBufferFanouts.exit
   %.val52 = load i32, ptr %8, align 4
@@ -7181,11 +7181,11 @@ Abc_SclObjCell.exit:                              ; preds = %._crit_edge162
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds ptr, ptr %.val18.val.val.i, i64 %114
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call float @Abc_SclCountNonBufferLoadInt(ptr noundef %0, ptr noundef %116)
+  %117 = tail call float @Abc_SclCountNonBufferLoadInt(ptr noundef readonly %0, ptr noundef %116)
   %118 = fadd float %.01320.i, %117
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i61
-  br i1 %exitcond.not.i64, label %.critedge.loopexit.i, label %111, !llvm.loop !62
+  br i1 %exitcond.not.i64, label %.critedge.loopexit.i, label %111, !llvm.loop !61
 
 .critedge.loopexit.i:                             ; preds = %111
   %119 = fpext float %118 to double
@@ -7231,11 +7231,11 @@ Abc_SclCountNonBufferLoad.exit:                   ; preds = %106, %.critedge.loo
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds ptr, ptr %.val18.val.val.i73, i64 %140
   %142 = load ptr, ptr %141, align 8
-  %143 = tail call float @Abc_SclCountNonBufferLoadInt(ptr noundef %0, ptr noundef %142)
+  %143 = tail call float @Abc_SclCountNonBufferLoadInt(ptr noundef readonly %0, ptr noundef %142)
   %144 = fadd float %.01320.i76, %143
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i74
-  br i1 %exitcond.not.i78, label %.critedge.loopexit.i79, label %137, !llvm.loop !62
+  br i1 %exitcond.not.i78, label %.critedge.loopexit.i79, label %137, !llvm.loop !61
 
 .critedge.loopexit.i79:                           ; preds = %137
   %145 = fpext float %144 to double
@@ -7286,11 +7286,11 @@ Abc_SclCountNonBufferLoad.exit80:                 ; preds = %Abc_SclCountNonBuff
   %171 = sext i32 %170 to i64
   %172 = getelementptr inbounds ptr, ptr %.val9.val.val.i, i64 %171
   %173 = load ptr, ptr %172, align 8
-  %174 = tail call float @Abc_SclCountNonBufferDelayInt(ptr noundef %0, ptr noundef %173)
+  %174 = tail call float @Abc_SclCountNonBufferDelayInt(ptr noundef readonly %0, ptr noundef %173)
   %175 = fadd float %.0811.i, %174
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i84
-  br i1 %exitcond.not.i87, label %.lr.ph.i90, label %168, !llvm.loop !60
+  br i1 %exitcond.not.i87, label %.lr.ph.i90, label %168, !llvm.loop !59
 
 .lr.ph.i90:                                       ; preds = %168, %.lr.ph.i90
   %indvars.iv.i96 = phi i64 [ %indvars.iv.next.i98, %.lr.ph.i90 ], [ 0, %168 ]
@@ -7304,7 +7304,7 @@ Abc_SclCountNonBufferLoad.exit80:                 ; preds = %Abc_SclCountNonBuff
   %182 = add nsw i32 %181, %.011.i97
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i84
-  br i1 %exitcond.not.i99, label %Abc_SclCountNonBufferFanouts.exit100.loopexit, label %.lr.ph.i90, !llvm.loop !58
+  br i1 %exitcond.not.i99, label %Abc_SclCountNonBufferFanouts.exit100.loopexit, label %.lr.ph.i90, !llvm.loop !57
 
 Abc_SclCountNonBufferFanouts.exit100.loopexit:    ; preds = %.lr.ph.i90
   %183 = sitofp i32 %182 to float
@@ -7350,11 +7350,11 @@ Abc_SclCountNonBufferFanouts.exit128.thread:      ; preds = %Abc_SclCountNonBuff
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds ptr, ptr %.val9.val.val.i109, i64 %201
   %203 = load ptr, ptr %202, align 8
-  %204 = tail call float @Abc_SclCountNonBufferDelayInt(ptr noundef %0, ptr noundef %203)
+  %204 = tail call float @Abc_SclCountNonBufferDelayInt(ptr noundef readonly %0, ptr noundef %203)
   %205 = fadd float %.0811.i112, %204
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i110
-  br i1 %exitcond.not.i114, label %.lr.ph.i118, label %198, !llvm.loop !60
+  br i1 %exitcond.not.i114, label %.lr.ph.i118, label %198, !llvm.loop !59
 
 .lr.ph.i118:                                      ; preds = %198, %.lr.ph.i118
   %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i126, %.lr.ph.i118 ], [ 0, %198 ]
@@ -7368,7 +7368,7 @@ Abc_SclCountNonBufferFanouts.exit128.thread:      ; preds = %Abc_SclCountNonBuff
   %212 = add nsw i32 %211, %.011.i125
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, %wide.trip.count.i110
-  br i1 %exitcond.not.i127, label %Abc_SclCountNonBufferFanouts.exit128, label %.lr.ph.i118, !llvm.loop !58
+  br i1 %exitcond.not.i127, label %Abc_SclCountNonBufferFanouts.exit128, label %.lr.ph.i118, !llvm.loop !57
 
 Abc_SclCountNonBufferFanouts.exit128:             ; preds = %.lr.ph.i118
   %213 = sitofp i32 %212 to float
@@ -7402,11 +7402,11 @@ Abc_SclCountNonBufferFanouts.exit128:             ; preds = %.lr.ph.i118
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds ptr, ptr %.val18.val.val.i139, i64 %227
   %229 = load ptr, ptr %228, align 8
-  %230 = tail call float @Abc_SclCountNonBufferLoadInt(ptr noundef %0, ptr noundef %229)
+  %230 = tail call float @Abc_SclCountNonBufferLoadInt(ptr noundef readonly %0, ptr noundef %229)
   %231 = fadd float %.01320.i142, %230
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i141, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %wide.trip.count.i140
-  br i1 %exitcond.not.i144, label %.critedge.loopexit.i145, label %224, !llvm.loop !62
+  br i1 %exitcond.not.i144, label %.critedge.loopexit.i145, label %224, !llvm.loop !61
 
 .critedge.loopexit.i145:                          ; preds = %224
   %232 = fpext float %231 to double
@@ -7489,7 +7489,7 @@ Abc_ObjIsBuffer.exit.thread:                      ; preds = %8, %Abc_ObjIsBuffer
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %.val to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %8, label %.critedge, !llvm.loop !65
+  br i1 %21, label %8, label %.critedge, !llvm.loop !64
 
 .critedge:                                        ; preds = %Abc_ObjIsBuffer.exit.thread, %3
   ret void
@@ -7528,7 +7528,7 @@ Abc_ObjIsBuffer.exit:                             ; preds = %12
   br i1 %.not, label %36, label %Abc_SclCountBufferFanouts.exit
 
 Abc_SclCountBufferFanouts.exit:                   ; preds = %Abc_ObjIsBuffer.exit, %12
-  %16 = tail call i32 @Abc_SclCountBufferFanoutsInt(ptr noundef nonnull %10)
+  %16 = tail call i32 @Abc_SclCountBufferFanoutsInt(ptr noundef nonnull readonly %10)
   %17 = icmp sgt i32 %16, 3
   br i1 %17, label %18, label %36
 
@@ -7579,7 +7579,7 @@ Abc_ObjIsBuffer.exit29.thread:                    ; preds = %22, %Abc_ObjIsBuffe
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %.val23 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %22, label %.critedge2, !llvm.loop !66
+  br i1 %35, label %22, label %.critedge2, !llvm.loop !65
 
 .critedge2:                                       ; preds = %Abc_ObjIsBuffer.exit29.thread, %18
   %putchar = tail call i32 @putchar(i32 10)
@@ -7593,7 +7593,7 @@ Abc_ObjIsBuffer.exit29.thread:                    ; preds = %22, %Abc_ObjIsBuffe
   %.val = load i32, ptr %38, align 4
   %39 = sext i32 %.val to i64
   %40 = icmp slt i64 %indvars.iv.next40, %39
-  br i1 %40, label %.lr.ph37, label %.critedge, !llvm.loop !67
+  br i1 %40, label %.lr.ph37, label %.critedge, !llvm.loop !66
 
 .critedge:                                        ; preds = %36, %2
   ret void
@@ -8086,7 +8086,7 @@ attributes #28 = { nounwind allocsize(0,1) }
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
-!52 = !{i32 0, i32 2}
+!52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
@@ -8101,4 +8101,3 @@ attributes #28 = { nounwind allocsize(0,1) }
 !64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
 !66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5}

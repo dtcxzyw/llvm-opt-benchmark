@@ -897,7 +897,7 @@ define dso_local i32 @azx_get_position(ptr noundef %0, ptr noundef %1) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_attach_pcm_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_attach_pcm_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store ptr null, ptr %4, align 8, !annotation !16
@@ -1120,7 +1120,7 @@ define dso_local void @azx_stop_chip(ptr noundef %0) #1 align 16 {
 declare dso_local void @snd_hdac_bus_stop_chip(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @azx_interrupt(i32 %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @azx_interrupt(i32 %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1424
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 67108864
@@ -1309,7 +1309,7 @@ define dso_local void @snd_hda_bus_reset(ptr noundef %0) local_unnamed_addr #1 a
 declare dso_local void @snd_hda_bus_reset_codecs(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @azx_bus_init(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @azx_bus_init(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1400
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 640
@@ -1387,7 +1387,7 @@ declare dso_local i32 @snd_hdac_bus_init(ptr noundef, ptr noundef, ptr noundef) 
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @azx_probe_codecs(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -6, 1) i32 @azx_probe_codecs(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = icmp eq i32 %1, 0
@@ -1547,7 +1547,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @snd_hda_codec_new(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @azx_codec_configure(ptr noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @azx_codec_configure(ptr noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -1605,7 +1605,7 @@ declare dso_local i32 @snd_hda_codec_configure(ptr noundef) local_unnamed_addr #
 declare dso_local void @snd_hdac_device_unregister(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @azx_init_streams(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @azx_init_streams(ptr noundef %0) #1 align 16 {
   %2 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8
@@ -1829,7 +1829,7 @@ declare void @llvm.assume(i1 noundef) #10
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @azx_pcm_open(ptr noundef %0) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2340,7 +2340,7 @@ define internal i32 @azx_pcm_prepare(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @azx_pcm_trigger(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2549,7 +2549,7 @@ define internal noundef i32 @azx_pcm_trigger(ptr noundef %0, i32 noundef %1) #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @azx_pcm_pointer(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i64 0, 34359738361) i64 @azx_pcm_pointer(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2839,7 +2839,7 @@ declare dso_local void @ktime_get_real_ts64(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @get_device_system_crosststamp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @azx_get_sync_time(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 392
@@ -3100,7 +3100,7 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @azx_get_response(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define internal noundef range(i32 -11, 1) i32 @azx_get_response(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1560
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 256

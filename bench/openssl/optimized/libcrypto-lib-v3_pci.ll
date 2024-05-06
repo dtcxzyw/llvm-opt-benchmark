@@ -143,17 +143,17 @@ land.rhs:                                         ; preds = %if.then16, %for.bod
 
 for.body31:                                       ; preds = %land.rhs
   %call33 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call18, i32 noundef %j.042) #4
-  %call34 = call fastcc i32 @process_pci_value(ptr noundef %call33, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy), !range !4
+  %call34 = call fastcc i32 @process_pci_value(ptr noundef %call33, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy)
   %inc = add nuw nsw i32 %j.042, 1
   %tobool26.not = icmp eq i32 %call34, 0
-  br i1 %tobool26.not, label %err.critedge, label %land.rhs, !llvm.loop !5
+  br i1 %tobool26.not, label %err.critedge, label %land.rhs, !llvm.loop !4
 
 for.end:                                          ; preds = %land.rhs
   call void @X509V3_section_free(ptr noundef %ctx, ptr noundef nonnull %call18) #4
   br label %for.inc46
 
 if.else:                                          ; preds = %land.lhs.true
-  %call38 = call fastcc i32 @process_pci_value(ptr noundef nonnull %call4, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy), !range !4
+  %call38 = call fastcc i32 @process_pci_value(ptr noundef nonnull %call4, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.then40, label %for.inc46
 
@@ -170,7 +170,7 @@ for.inc46:                                        ; preds = %for.end, %if.else
   %inc47 = add nuw nsw i32 %i.050, 1
   %call2 = call i32 @OPENSSL_sk_num(ptr noundef %call) #4
   %cmp = icmp slt i32 %inc47, %call2
-  br i1 %cmp, label %for.body, label %for.end48, !llvm.loop !7
+  br i1 %cmp, label %for.body, label %for.end48, !llvm.loop !6
 
 for.end48:                                        ; preds = %for.inc46
   %.pre = load ptr, ptr %language, align 8
@@ -267,7 +267,7 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #0
 declare ptr @X509V3_get_section(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef %language, ptr noundef %pathlen, ptr nocapture noundef %policy) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef %language, ptr noundef %pathlen, ptr nocapture noundef %policy) unnamed_addr #1 {
 entry:
   %val_len = alloca i64, align 8
   %buf = alloca [2048 x i8], align 16
@@ -486,7 +486,7 @@ lor.rhs:                                          ; preds = %while.cond
 land.rhs:                                         ; preds = %lor.rhs
   %call97 = call i32 @BIO_test_flags(ptr noundef nonnull %call85, i32 noundef 8) #4
   %tobool98.not = icmp eq i32 %call97, 0
-  br i1 %tobool98.not, label %if.end183, label %while.cond, !llvm.loop !8
+  br i1 %tobool98.not, label %if.end183, label %while.cond, !llvm.loop !7
 
 if.end101:                                        ; preds = %while.cond
   %51 = load ptr, ptr %policy, align 8
@@ -538,7 +538,7 @@ if.end116:                                        ; preds = %if.end101
   %idxprom128 = sext i32 %68 to i64
   %arrayidx129 = getelementptr inbounds i8, ptr %67, i64 %idxprom128
   store i8 0, ptr %arrayidx129, align 1
-  br label %while.cond.outer, !llvm.loop !8
+  br label %while.cond.outer, !llvm.loop !7
 
 while.cond.outer:                                 ; preds = %cond.true81, %if.end116
   %tmp_data.0.ph = phi i1 [ false, %if.end116 ], [ true, %cond.true81 ]
@@ -713,8 +713,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

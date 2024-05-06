@@ -1141,7 +1141,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
 .lr.ph.i:                                         ; preds = %153, %157
   %155 = phi ptr [ %161, %157 ], [ %154, %153 ]
   %.09.i = phi i32 [ %158, %157 ], [ 0, %153 ]
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull dereferenceable(1) %155) #15
+  %156 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %113, ptr noundef nonnull dereferenceable(1) %155) #15
   %.not7.i = icmp eq i32 %156, 0
   br i1 %.not7.i, label %get_enum_name_val.exit, label %157
 
@@ -1244,7 +1244,7 @@ get_enum_name_val.exit.thread:                    ; preds = %157, %153, %get_enu
 187:                                              ; preds = %185
   store i32 0, ptr %32, align 4
   store i32 32, ptr %9, align 8
-  %188 = call fastcc i32 @add_hf(ptr noundef nonnull %5), !range !11
+  %188 = call fastcc i32 @add_hf(ptr noundef nonnull %5)
   %.not145 = icmp eq i32 %188, 0
   br i1 %.not145, label %fgetline.exit, label %189
 
@@ -1285,7 +1285,7 @@ get_enum_name_val.exit.thread:                    ; preds = %157, %153, %get_enu
   %204 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %200, %201 ]
   %205 = sext i32 %203 to i64
   %206 = getelementptr %struct.hf_register_info, ptr %204, i64 %205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %206, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %206, ptr noundef nonnull readonly align 8 dereferenceable(80) %5, i64 80, i1 false)
   %207 = add i32 %203, 1
   store i32 %207, ptr @hf_size, align 4
   %208 = zext i1 %93 to i8
@@ -1360,7 +1360,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_hf(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_hf(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = load i32, ptr @hf_size, align 4
   %3 = load i32, ptr @hf_allocated, align 4
   %.not = icmp slt i32 %2, %3
@@ -1650,7 +1650,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %102 = add i32 %.1178213, %14
   %103 = add nuw nsw i32 %.0157214, 1
   %exitcond.not = icmp eq i32 %103, %96
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %104 = add i32 %.0177221, %97
@@ -1772,7 +1772,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %160 = getelementptr inbounds i8, ptr %.0182217, i64 32
   %161 = load ptr, ptr %160, align 8
   %.not = icmp eq ptr %161, null
-  br i1 %.not, label %._crit_edge231.loopexit, label %15, !llvm.loop !13
+  br i1 %.not, label %._crit_edge231.loopexit, label %15, !llvm.loop !12
 
 ._crit_edge231.loopexit:                          ; preds = %155, %159
   %.pre = load i32, ptr %4, align 4
@@ -1808,7 +1808,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_tpncp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 16776965) i32 @get_tpncp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #13
   %7 = zext i16 %6 to i32
@@ -1868,6 +1868,5 @@ attributes #17 = { noreturn nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

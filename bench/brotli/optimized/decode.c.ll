@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.BrotliDecoderErrorString = private unnamed_addr constant [35 x ptr] [ptr @.str.29, ptr @.str.28, ptr @.str.30, ptr @.str.30, ptr @.str.27, ptr @.str.26, ptr @.str.25, ptr @.str.30, ptr @.str.30, ptr @.str.24, ptr @.str.23, ptr @.str.22, ptr @.str.21, ptr @.str.20, ptr @.str.30, ptr @.str.19, ptr @.str.18, ptr @.str.17, ptr @.str.16, ptr @.str.15, ptr @.str.14, ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.8, ptr @.str.7, ptr @.str.6, ptr @.str.5, ptr @.str.4, ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @BrotliDecoderSetParameter(ptr nocapture noundef %state, i32 noundef %p, i32 noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BrotliDecoderSetParameter(ptr nocapture noundef %state, i32 noundef %p, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -171,7 +171,7 @@ if.end:                                           ; preds = %entry, %if.else
 declare hidden void @BrotliDecoderStateCleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BrotliDecoderAttachDictionary(ptr nocapture noundef %state, i32 noundef %type, i64 noundef %data_size, ptr noundef %data) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliDecoderAttachDictionary(ptr nocapture noundef %state, i32 noundef %type, i64 noundef %data_size, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %dictionary = getelementptr inbounds i8, ptr %state, i64 800
   %0 = load i32, ptr %state, align 8
@@ -276,7 +276,7 @@ return:                                           ; preds = %for.inc, %for.body,
 declare i32 @BrotliSharedDictionaryAttach(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BrotliDecoderDecompress(i64 noundef %encoded_size, ptr noundef %encoded_buffer, ptr nocapture noundef %decoded_size, ptr noundef %decoded_buffer) local_unnamed_addr #1 {
+define i32 @BrotliDecoderDecompress(i64 noundef %encoded_size, ptr noundef %encoded_buffer, ptr nocapture noundef %decoded_size, ptr noundef %decoded_buffer) local_unnamed_addr #1 {
 entry:
   %s = alloca %struct.BrotliDecoderStateStruct, align 8
   %total_out = alloca i64, align 8
@@ -295,7 +295,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @BrotliDecoderDecompressStream(ptr noundef nonnull %s, ptr noundef nonnull %available_in, ptr noundef nonnull %next_in, ptr noundef nonnull %available_out, ptr noundef nonnull %next_out, ptr noundef nonnull %total_out), !range !6
+  %call1 = call i32 @BrotliDecoderDecompressStream(ptr noundef nonnull %s, ptr noundef nonnull %available_in, ptr noundef nonnull %next_in, ptr noundef nonnull %available_out, ptr noundef nonnull %next_out, ptr noundef nonnull %total_out)
   %1 = load i64, ptr %total_out, align 8
   store i64 %1, ptr %decoded_size, align 8
   call void @BrotliDecoderStateCleanup(ptr noundef nonnull %s) #16
@@ -309,7 +309,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BrotliDecoderDecompressStream(ptr noundef %s, ptr nocapture noundef %available_in, ptr nocapture noundef %next_in, ptr nocapture noundef %available_out, ptr noundef %next_out, ptr noundef writeonly %total_out) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @BrotliDecoderDecompressStream(ptr noundef %s, ptr nocapture noundef %available_in, ptr nocapture noundef %next_in, ptr nocapture noundef %available_out, ptr noundef %next_out, ptr noundef writeonly %total_out) local_unnamed_addr #1 {
 entry:
   %table_size.i = alloca i64, align 8
   %buffer.i = alloca [8 x i8], align 1
@@ -666,7 +666,7 @@ while.body:                                       ; preds = %if.else46, %while.b
   %dec56 = add i64 %46, -1
   store i64 %dec56, ptr %available_in, align 8
   %tobool49.not = icmp eq i64 %dec56, 0
-  br i1 %tobool49.not, label %for.end, label %while.body, !llvm.loop !7
+  br i1 %tobool49.not, label %for.end, label %while.body, !llvm.loop !6
 
 if.end57:                                         ; preds = %for.cond
   %47 = load i64, ptr %buffer_length, align 8
@@ -1184,7 +1184,7 @@ if.end75.i:                                       ; preds = %if.end57.i
   %or.i = or i32 %93, %conv76.i
   store i32 %or.i, ptr %meta_block_remaining_len.i, align 4
   %cmp51.i = icmp slt i32 %add58.i, %bf.clear50307.i
-  br i1 %cmp51.i, label %while.cond.i222.preheader.i, label %for.end.i, !llvm.loop !8
+  br i1 %cmp51.i, label %while.cond.i222.preheader.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %if.end75.i, %sw.bb45.i
   store i32 4, ptr %substate_metablock_header.i, align 8
@@ -1393,7 +1393,7 @@ if.end163.i:                                      ; preds = %if.end144.i
   %or169.i = or i32 %115, %conv167.i
   store i32 %or169.i, ptr %meta_block_remaining_len.i, align 4
   %cmp137.i = icmp slt i32 %add145.i, %bf.clear136299.i
-  br i1 %cmp137.i, label %while.cond.i.preheader.i, label %if.end124.sink.split, !llvm.loop !9
+  br i1 %cmp137.i, label %while.cond.i.preheader.i, label %if.end124.sink.split, !llvm.loop !8
 
 sw.epilog.i:                                      ; preds = %if.then37.i, %if.end.i
   %storemerge.i = phi i32 [ 5, %if.then37.i ], [ 2, %if.end.i ]
@@ -1512,7 +1512,7 @@ while.cond.i593:                                  ; preds = %if.end11.i, %while.
   %new_ringbuffer_size.0.i = phi i32 [ %shr.i594, %while.cond.i593 ], [ %shl.i583, %if.end11.i ]
   %shr.i594 = ashr i32 %new_ringbuffer_size.0.i, 1
   %cmp22.not.i = icmp slt i32 %shr.i594, %cond16.i
-  br i1 %cmp22.not.i, label %if.end24.i595, label %while.cond.i593, !llvm.loop !10
+  br i1 %cmp22.not.i, label %if.end24.i595, label %while.cond.i593, !llvm.loop !9
 
 if.end24.i595:                                    ; preds = %while.cond.i593, %if.end11.i
   %new_ringbuffer_size.1.i = phi i32 [ %shl.i583, %if.end11.i ], [ %new_ringbuffer_size.0.i, %while.cond.i593 ]
@@ -1549,7 +1549,7 @@ if.end177:                                        ; preds = %sw.bb171.thread, %s
   %132 = phi i32 [ 0, %sw.bb171.thread ], [ %.pre1972, %sw.bb171 ]
   %idxprom = sext i32 %132 to i64
   %arrayidx179 = getelementptr inbounds [3 x i64], ptr %num_block_types273, i64 0, i64 %idxprom
-  %call180 = call fastcc i32 @DecodeVarLenUint8(ptr noundef nonnull %s, ptr noundef nonnull %br1, ptr noundef nonnull %arrayidx179), !range !11
+  %call180 = call fastcc i32 @DecodeVarLenUint8(ptr noundef nonnull %s, ptr noundef nonnull %br1, ptr noundef nonnull %arrayidx179)
   %cmp181.not = icmp eq i32 %call180, 1
   br i1 %cmp181.not, label %if.end184, label %for.cond.backedge
 
@@ -1652,7 +1652,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i902
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i1762, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %next_in30, align 8
   %cmp.i.i895 = icmp ult i64 %146, 7
-  br i1 %cmp.i.i895, label %while.body.i.i902, label %if.then.i901, !llvm.loop !12
+  br i1 %cmp.i.i895, label %while.body.i.i902, label %if.then.i901, !llvm.loop !10
 
 if.then.i901:                                     ; preds = %if.end.i.i.i, %while.cond.i.i894.preheader.if.then.i901_crit_edge
   %149 = phi i64 [ %.pre1973, %while.cond.i.i894.preheader.if.then.i901_crit_edge ], [ %or.i.i.i, %if.end.i.i.i ]
@@ -1679,8 +1679,8 @@ if.then.i919:                                     ; preds = %if.then.i901
   %arrayidx.i.i925 = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i
   %152 = load i64, ptr %arrayidx.i.i925, align 8
   %and7.i = and i64 %152, %shr.i923
-  %153 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i914, i64 %and7.i
-  %add.ptr8.i = getelementptr %struct.HuffmanCode, ptr %153, i64 %conv6.i922
+  %153 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i914, i64 %and7.i
+  %add.ptr8.i = getelementptr inbounds %struct.HuffmanCode, ptr %153, i64 %conv6.i922
   %.pre1974 = load i8, ptr %add.ptr8.i, align 2
   br label %DecodeSymbol.exit
 
@@ -1735,8 +1735,8 @@ BitMask.exit.i603:                                ; preds = %if.end21.i
   %value30.i = getelementptr inbounds i8, ptr %add.ptr.i600, i64 2
   %162 = load i16, ptr %value30.i, align 2
   %conv31.i606 = zext i16 %162 to i64
-  %163 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i600, i64 %shr.i604
-  %add.ptr32.i = getelementptr %struct.HuffmanCode, ptr %163, i64 %conv31.i606
+  %163 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i600, i64 %shr.i604
+  %add.ptr32.i = getelementptr inbounds %struct.HuffmanCode, ptr %163, i64 %conv31.i606
   %164 = load i8, ptr %add.ptr32.i, align 2
   %conv34.i = zext i8 %164 to i64
   %cmp35.i = icmp ult i64 %sub.i605, %conv34.i
@@ -1807,7 +1807,7 @@ if.end.i833:                                      ; preds = %while.body.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i1768, i64 1
   store ptr %incdec.ptr.i, ptr %next_in30, align 8
   %cmp.i.i = icmp ult i64 %add.i837, %conv.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %if.end243, !llvm.loop !13
+  br i1 %cmp.i.i, label %while.body.i.i, label %if.end243, !llvm.loop !11
 
 if.then9.i:                                       ; preds = %while.body.i.i
   store i64 %index.i.3, ptr %block_length_index.i.i.i.i, align 8
@@ -1960,7 +1960,7 @@ while.body.i.i646:                                ; preds = %while.body.i.i646, 
   %cmp.i50.i = icmp ugt i64 %sub.i10.i.i, 7
   %cmp1.i.i = icmp ne i64 %dec.i.i, 0
   %204 = select i1 %cmp.i50.i, i1 %cmp1.i.i, i1 false
-  br i1 %204, label %while.body.i.i646, label %while.end.i.i638, !llvm.loop !14
+  br i1 %204, label %while.body.i.i646, label %while.end.i.i638, !llvm.loop !12
 
 while.end.i.i638:                                 ; preds = %while.body.i.i646, %sw.bb.i
   %num.addr.i.0.lcssa.i = phi i64 [ %conv14.i, %sw.bb.i ], [ %dec.i.i, %while.body.i.i646 ]
@@ -2151,7 +2151,7 @@ while.body.i.i667:                                ; preds = %while.body.i.i667, 
   %cmp.i58.i = icmp ugt i64 %sub.i10.i.i669, 7
   %cmp1.i.i673 = icmp ne i64 %dec.i.i672, 0
   %227 = select i1 %cmp.i58.i, i1 %cmp1.i.i673, i1 false
-  br i1 %227, label %while.body.i.i667, label %while.cond.i.while.end.i_crit_edge.i, !llvm.loop !14
+  br i1 %227, label %while.body.i.i667, label %while.cond.i.while.end.i_crit_edge.i, !llvm.loop !12
 
 while.cond.i.while.end.i_crit_edge.i:             ; preds = %while.body.i.i667
   store i64 %shr.i.i.i670, ptr %br1, align 8
@@ -2354,7 +2354,7 @@ if.end.i704:                                      ; preds = %if.end.i17.i, %whil
   %sext.i = shl i64 %257, 32
   %258 = ashr exact i64 %sext.i, 32
   %cmp.i710 = icmp slt i64 %indvars.iv.next.i, %258
-  br i1 %cmp.i710, label %while.cond.i.preheader.i701, label %if.end288, !llvm.loop !15
+  br i1 %cmp.i710, label %while.cond.i.preheader.i701, label %if.end288, !llvm.loop !13
 
 ReadContextModes.exit:                            ; preds = %while.body.i.lr.ph.i711
   %259 = trunc nsw i64 %indvars.iv.i to i32
@@ -2414,7 +2414,7 @@ for.body9.i:                                      ; preds = %for.body4.i, %for.b
   %272 = zext i8 %271 to i64
   %or34.i = or i64 %error.i.01743, %272
   %cmp7.i = icmp ult i64 %j.i.01742, 60
-  br i1 %cmp7.i, label %for.body9.i, label %for.end35.i, !llvm.loop !16
+  br i1 %cmp7.i, label %for.body9.i, label %for.end35.i, !llvm.loop !14
 
 for.end35.i:                                      ; preds = %for.body9.i
   %cmp36.i = icmp eq i64 %or34.i, 0
@@ -2434,7 +2434,7 @@ if.then.i657:                                     ; preds = %for.end35.i
 if.end.i656:                                      ; preds = %if.then.i657, %for.end35.i
   %inc43.i = add nuw i64 %i.i.11745, 1
   %exitcond.not = icmp eq i64 %inc43.i, %261
-  br i1 %exitcond.not, label %DetectTrivialLiteralBlockTypes.exit, label %for.body4.i, !llvm.loop !17
+  br i1 %exitcond.not, label %DetectTrivialLiteralBlockTypes.exit, label %for.body4.i, !llvm.loop !15
 
 DetectTrivialLiteralBlockTypes.exit:              ; preds = %if.end.i656, %for.body.i.preheader
   store i32 23, ptr %s, align 8
@@ -2472,7 +2472,7 @@ while.body.i675:                                  ; preds = %if.else.i665, %whil
   %tmp.i.0 = lshr i32 %tmp.i.0.in1746, 1
   %inc.i676 = add nuw nsw i32 %ndistbits.i.01747, 1
   %cmp6.i.not = icmp ult i32 %tmp.i.0.in1746, 4
-  br i1 %cmp6.i.not, label %while.end.i670, label %while.body.i675, !llvm.loop !18
+  br i1 %cmp6.i.not, label %while.end.i670, label %while.body.i675, !llvm.loop !16
 
 while.end.i670:                                   ; preds = %while.body.i675
   %shr8.i = lshr i32 %add5.i, %ndistbits.i.01747
@@ -2649,7 +2649,7 @@ if.end11.i754:                                    ; preds = %while.body.i750
   %306 = load i16, ptr %num_htrees.i, align 4
   %conv.i759 = zext i16 %306 to i32
   %cmp3.i760 = icmp slt i32 %inc.i758, %conv.i759
-  br i1 %cmp3.i760, label %while.body.i750, label %if.end364.loopexit, !llvm.loop !19
+  br i1 %cmp3.i760, label %while.body.i750, label %if.end364.loopexit, !llvm.loop !17
 
 HuffmanTreeGroupDecode.exit:                      ; preds = %while.body.i750
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %table_size.i)
@@ -2792,7 +2792,7 @@ for.body.i782:                                    ; preds = %if.end380, %for.bod
   store i64 %add.i784, ptr %arrayidx4.i, align 8
   %inc.i785 = add i64 %i.025.i, 1
   %exitcond.not.i = icmp eq i64 %add.i784, %340
-  br i1 %exitcond.not.i, label %while.cond.preheader.i, label %for.body.i782, !llvm.loop !20
+  br i1 %exitcond.not.i, label %while.cond.preheader.i, label %for.body.i782, !llvm.loop !18
 
 while.body.i788:                                  ; preds = %for.end26.i, %while.body.lr.ph.i787
   %i.132.i = phi i64 [ %i.0.lcssa.i, %while.body.lr.ph.i787 ], [ %inc23.i, %for.end26.i ]
@@ -2817,13 +2817,13 @@ for.body16.i:                                     ; preds = %for.body16.i, %whil
   %inc23.i = add i64 %i.227.i, 1
   %inc25.i = add nuw nsw i64 %j.128.i, 1
   %exitcond34.not.i = icmp eq i64 %inc25.i, %conv2.i
-  br i1 %exitcond34.not.i, label %for.end26.i, label %for.body16.i, !llvm.loop !21
+  br i1 %exitcond34.not.i, label %for.end26.i, label %for.body16.i, !llvm.loop !19
 
 for.end26.i:                                      ; preds = %for.body16.i
   %add27.i = add i64 %bits.030.i, %half.031.i
   %xor.i = xor i64 %half.031.i, 1
   %cmp6.i792 = icmp ult i64 %inc23.i, %conv.i779
-  br i1 %cmp6.i792, label %while.body.i788, label %CalculateDistanceLut.exit, !llvm.loop !22
+  br i1 %cmp6.i792, label %while.body.i788, label %CalculateDistanceLut.exit, !llvm.loop !20
 
 CalculateDistanceLut.exit:                        ; preds = %for.end26.i, %while.cond.preheader.i
   store i32 7, ptr %s, align 8
@@ -2932,8 +2932,8 @@ if.then.i.i211.i.i.i:                             ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i215.i.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i.i.i
   %360 = load i64, ptr %arrayidx.i.i.i215.i.i.i, align 8
   %and7.i.i.i.i.i = and i64 %360, %shr.i17.i.i.i.i.i
-  %361 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i.i.i, i64 %and7.i.i.i.i.i
-  %add.ptr8.i.i.i.i.i = getelementptr %struct.HuffmanCode, ptr %361, i64 %conv6.i.i.i.i.i
+  %361 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i.i.i, i64 %and7.i.i.i.i.i
+  %add.ptr8.i.i.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %361, i64 %conv6.i.i.i.i.i
   %.pre278.i.i = load i8, ptr %add.ptr8.i.i.i.i.i, align 2
   br label %ReadSymbol.exit.i.i.i
 
@@ -2988,8 +2988,8 @@ if.then.i.i.i36.i.i:                              ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i.i47.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i39.i.i
   %371 = load i64, ptr %arrayidx.i.i.i.i47.i.i, align 8
   %and7.i.i.i49.i.i = and i64 %371, %shr.i17.i.i.i42.i.i
-  %372 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i23.i.i, i64 %and7.i.i.i49.i.i
-  %add.ptr8.i.i.i51.i.i = getelementptr %struct.HuffmanCode, ptr %372, i64 %conv6.i.i.i44.i.i
+  %372 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i23.i.i, i64 %and7.i.i.i49.i.i
+  %add.ptr8.i.i.i51.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %372, i64 %conv6.i.i.i44.i.i
   %.pre279.i.i = load i8, ptr %add.ptr8.i.i.i51.i.i, align 2
   br label %ReadBlockLength.exit.i.i
 
@@ -3118,8 +3118,8 @@ if.then.i.i60.i.i:                                ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i64.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i.i
   %396 = load i64, ptr %arrayidx.i.i.i64.i.i, align 8
   %and7.i.i.i.i = and i64 %396, %shr.i17.i.i.i.i
-  %397 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i.i, i64 %and7.i.i.i.i
-  %add.ptr8.i.i.i.i = getelementptr %struct.HuffmanCode, ptr %397, i64 %conv6.i.i.i.i
+  %397 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i.i, i64 %and7.i.i.i.i
+  %add.ptr8.i.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %397, i64 %conv6.i.i.i.i
   %.pre1651.i = load i8, ptr %add.ptr8.i.i.i.i, align 2
   br label %ReadSymbol.exit.i.i
 
@@ -3398,7 +3398,7 @@ if.then97.i.i:                                    ; preds = %BrotliFillBitWindow
 if.end100.i.i:                                    ; preds = %BrotliFillBitWindow.exit.i.i
   %dec101.i.i = add nsw i32 %i.i.4.i, -1
   %cmp102.i.not.i = icmp eq i32 %dec101.i.i, 0
-  br i1 %cmp102.i.not.i, label %if.end174.i.i, label %do.body.i.i, !llvm.loop !23
+  br i1 %cmp102.i.not.i, label %if.end174.i.i, label %do.body.i.i, !llvm.loop !21
 
 if.else104.i.i:                                   ; preds = %CommandInner.i.i
   %446 = load ptr, ptr %ringbuffer, align 8
@@ -3492,8 +3492,8 @@ if.then.i.i120.i:                                 ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i131.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i123.i
   %467 = load i64, ptr %arrayidx.i.i.i131.i, align 8
   %and7.i.i133.i = and i64 %467, %shr.i17.i.i126.i
-  %468 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i110.i, i64 %and7.i.i133.i
-  %add.ptr8.i.i135.i = getelementptr %struct.HuffmanCode, ptr %468, i64 %conv6.i.i128.i
+  %468 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i110.i, i64 %and7.i.i133.i
+  %add.ptr8.i.i135.i = getelementptr inbounds %struct.HuffmanCode, ptr %468, i64 %conv6.i.i128.i
   %.pre1655.i = load i8, ptr %add.ptr8.i.i135.i, align 2
   br label %ReadSymbol.exit.i
 
@@ -3530,7 +3530,7 @@ if.then165.i.i:                                   ; preds = %ReadSymbol.exit.i
 if.end168.i.i:                                    ; preds = %ReadSymbol.exit.i
   %dec170.i.i = add nsw i32 %i.i.5.i, -1
   %cmp171.i.not.i = icmp eq i32 %dec170.i.i, 0
-  br i1 %cmp171.i.not.i, label %if.end174.i.i, label %do.body115.i.i, !llvm.loop !24
+  br i1 %cmp171.i.not.i, label %if.end174.i.i, label %do.body115.i.i, !llvm.loop !22
 
 if.end174.i.i:                                    ; preds = %if.end100.i.i, %if.end168.i.i
   %pos.i.4.i = add i32 %i.i.3.i, %pos.i.1.i
@@ -3622,8 +3622,8 @@ if.then.i.i211.i.i.i.i:                           ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i215.i.i.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i.i.i.i
   %490 = load i64, ptr %arrayidx.i.i.i215.i.i.i.i, align 8
   %and7.i.i.i.i.i.i = and i64 %490, %shr.i17.i.i.i.i.i.i
-  %491 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i.i.i.i, i64 %and7.i.i.i.i.i.i
-  %add.ptr8.i.i.i.i.i.i = getelementptr %struct.HuffmanCode, ptr %491, i64 %conv6.i.i.i.i.i.i
+  %491 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i.i.i.i, i64 %and7.i.i.i.i.i.i
+  %add.ptr8.i.i.i.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %491, i64 %conv6.i.i.i.i.i.i
   %.pre281.i.i = load i8, ptr %add.ptr8.i.i.i.i.i.i, align 2
   br label %ReadSymbol.exit.i.i.i.i
 
@@ -3678,8 +3678,8 @@ if.then.i.i.i30.i.i.i:                            ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i.i41.i.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i33.i.i.i
   %501 = load i64, ptr %arrayidx.i.i.i.i41.i.i.i, align 8
   %and7.i.i.i43.i.i.i = and i64 %501, %shr.i17.i.i.i36.i.i.i
-  %502 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i17.i.i.i, i64 %and7.i.i.i43.i.i.i
-  %add.ptr8.i.i.i45.i.i.i = getelementptr %struct.HuffmanCode, ptr %502, i64 %conv6.i.i.i38.i.i.i
+  %502 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i17.i.i.i, i64 %and7.i.i.i43.i.i.i
+  %add.ptr8.i.i.i45.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %502, i64 %conv6.i.i.i38.i.i.i
   %.pre282.i.i = load i8, ptr %add.ptr8.i.i.i45.i.i.i, align 2
   br label %ReadBlockLength.exit.i.i.i
 
@@ -3812,8 +3812,8 @@ if.then.i.i45.i.i:                                ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i49.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i1379.i
   %529 = load i64, ptr %arrayidx.i.i.i49.i.i, align 8
   %and7.i.i.i1385.i = and i64 %529, %shr.i17.i.i.i1382.i
-  %530 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i1346.i, i64 %and7.i.i.i1385.i
-  %add.ptr8.i.i.i1387.i = getelementptr %struct.HuffmanCode, ptr %530, i64 %conv6.i.i.i1384.i
+  %530 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i1346.i, i64 %and7.i.i.i1385.i
+  %add.ptr8.i.i.i1387.i = getelementptr inbounds %struct.HuffmanCode, ptr %530, i64 %conv6.i.i.i1384.i
   %.pre1657.i = load i8, ptr %add.ptr8.i.i.i1387.i, align 2
   br label %ReadSymbol.exit.i1348.i
 
@@ -3962,7 +3962,7 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
   %shr.i.i.i810 = ashr i32 %sub.i.i1446.i, %block_bits.0.i.i.i
   %cmp2.not.i.i.i = icmp eq i32 %shr.i.i.i810, 0
   %inc.i.i.i = add nuw nsw i32 %block_bits.0.i.i.i, 1
-  br i1 %cmp2.not.i.i.i, label %while.end.i.i.i, label %while.cond.i.i.i, !llvm.loop !25
+  br i1 %cmp2.not.i.i.i, label %while.end.i.i.i, label %while.cond.i.i.i, !llvm.loop !23
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   %sub3.i.i.i = add nsw i32 %block_bits.0.i.i.i, -8
@@ -3989,7 +3989,7 @@ while.cond9.i.i.i:                                ; preds = %while.cond9.i.i.i, 
   %arrayidx.i.i1448.i = getelementptr inbounds [16 x i32], ptr %chunk_offsets.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i
   %556 = load i32, ptr %arrayidx.i.i1448.i, align 4
   %cmp10.i.i.i = icmp slt i32 %556, %cursor.02.i.i.i
-  br i1 %cmp10.i.i.i, label %while.cond9.i.i.i, label %while.end13.i.i.i, !llvm.loop !26
+  br i1 %cmp10.i.i.i, label %while.cond9.i.i.i, label %while.end13.i.i.i, !llvm.loop !24
 
 while.end13.i.i.i:                                ; preds = %while.cond9.i.i.i
   %conv.i.i1449.i = trunc i64 %indvars.iv.i.i.i to i8
@@ -4000,7 +4000,7 @@ while.end13.i.i.i:                                ; preds = %while.cond9.i.i.i
   %add17.i.i.i = add nsw i32 %cursor.02.i.i.i, %shl.i.i1447.i
   %557 = load i32, ptr %total_size.i.i.i, align 4
   %cmp7.i.i.i = icmp slt i32 %add17.i.i.i, %557
-  br i1 %cmp7.i.i.i, label %while.cond9.preheader.i.i.i, label %EnsureCoumpoundDictionaryInitialized.exit.loopexit.i.i, !llvm.loop !27
+  br i1 %cmp7.i.i.i, label %while.cond9.preheader.i.i.i, label %EnsureCoumpoundDictionaryInitialized.exit.loopexit.i.i, !llvm.loop !25
 
 EnsureCoumpoundDictionaryInitialized.exit.loopexit.i.i: ; preds = %while.end13.i.i.i
   %.pre.i1450.i = load i32, ptr %block_bits1.i.i.i, align 8
@@ -4023,7 +4023,7 @@ while.cond.i1437.i:                               ; preds = %while.cond.i1437.i,
   %arrayidx2.i.i = getelementptr inbounds [16 x i32], ptr %chunk_offsets.i.i, i64 0, i64 %indvars.iv.next.i.i
   %561 = load i32, ptr %arrayidx2.i.i, align 4
   %cmp.not.i.i = icmp sgt i32 %561, %sub254.i.i
-  br i1 %cmp.not.i.i, label %while.end.i1438.i, label %while.cond.i1437.i, !llvm.loop !28
+  br i1 %cmp.not.i.i, label %while.end.i1438.i, label %while.cond.i1437.i, !llvm.loop !26
 
 while.end.i1438.i:                                ; preds = %while.cond.i1437.i
   %total_size.i1439.i = getelementptr inbounds i8, ptr %552, i64 4
@@ -4121,7 +4121,7 @@ if.then27.i1472.i:                                ; preds = %while.body.i1462.i
 if.end30.i.i:                                     ; preds = %if.then27.i1472.i, %while.body.i1462.i
   %581 = load i32, ptr %ringbuffer_size5.phi.trans.insert.phi.trans.insert.i.i, align 4
   %cmp32.i.i = icmp eq i32 %add20.i.i, %581
-  br i1 %cmp32.i.i, label %if.then263.i.i, label %while.cond.i1460.i, !llvm.loop !29
+  br i1 %cmp32.i.i, label %if.then263.i.i, label %while.cond.i1460.i, !llvm.loop !27
 
 CopyFromCompoundDictionary.exit.i:                ; preds = %while.cond.i1460.i
   %cmp261.i.not.i = icmp slt i32 %pos.addr.0.i.i, %.pre1658.i
@@ -4274,7 +4274,7 @@ if.end401.i.i:                                    ; preds = %if.end399.i.i, %lan
   %dist_remaining.i.1.i = phi i32 [ %sub400.i.i, %if.end399.i.i ], [ %dist_remaining.i.01600.i, %land.lhs.true365.i.i ], [ %dist_remaining.i.01600.i, %for.body.i.i ]
   %indvars.iv.next1649.i = add nuw nsw i64 %indvars.iv1648.i, 1
   %exitcond.not.i814 = icmp eq i64 %indvars.iv.next1649.i, %wide.trip.count.i
-  br i1 %exitcond.not.i814, label %if.end403.i.i, label %for.body.i.i, !llvm.loop !30
+  br i1 %exitcond.not.i814, label %if.end403.i.i, label %for.body.i.i, !llvm.loop !28
 
 if.end403.i.i:                                    ; preds = %if.end401.i.i, %BitMask.exit.i.i, %land.lhs.true340.i.i, %lor.lhs.false.i.i
   %words.i.0.i = phi ptr [ %603, %BitMask.exit.i.i ], [ %593, %land.lhs.true340.i.i ], [ %593, %lor.lhs.false.i.i ], [ %593, %if.end401.i.i ]
@@ -4438,7 +4438,7 @@ while.body.i.i826:                                ; preds = %while.cond.i.i795
   %indvars.iv.next1646.i = add nsw i64 %indvars.iv1645.i, 1
   %dec541.i.i = add nsw i32 %wrap_guard.i.0.i, -1
   %cmp542.i.i = icmp eq i32 %dec541.i.i, 0
-  br i1 %cmp542.i.i, label %if.then546.i.i, label %while.cond.i.i795, !llvm.loop !31
+  br i1 %cmp542.i.i, label %if.then546.i.i, label %while.cond.i.i795, !llvm.loop !29
 
 if.then546.i.i:                                   ; preds = %while.body.i.i826
   %628 = trunc nsw i64 %indvars.iv.next1646.i to i32
@@ -4507,8 +4507,8 @@ if.then.i.i211.i.i.i1535.i:                       ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i215.i.i.i1544.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i.i.i1538.i
   %641 = load i64, ptr %arrayidx.i.i.i215.i.i.i1544.i, align 8
   %and7.i.i.i.i.i1547.i = and i64 %641, %shr.i17.i.i.i.i.i1540.i
-  %642 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i.i.i1480.i, i64 %and7.i.i.i.i.i1547.i
-  %add.ptr8.i.i.i.i.i1548.i = getelementptr %struct.HuffmanCode, ptr %642, i64 %conv6.i.i.i.i.i1542.i
+  %642 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i.i.i1480.i, i64 %and7.i.i.i.i.i1547.i
+  %add.ptr8.i.i.i.i.i1548.i = getelementptr inbounds %struct.HuffmanCode, ptr %642, i64 %conv6.i.i.i.i.i1542.i
   %.pre288.i.i = load i8, ptr %add.ptr8.i.i.i.i.i1548.i, align 2
   br label %ReadSymbol.exit.i.i.i1482.i
 
@@ -4563,8 +4563,8 @@ if.then.i.i.i34.i.i.i:                            ; preds = %BrotliGet16BitsUnma
   %arrayidx.i.i.i.i45.i.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i37.i.i.i
   %652 = load i64, ptr %arrayidx.i.i.i.i45.i.i.i, align 8
   %and7.i.i.i47.i.i.i = and i64 %652, %shr.i17.i.i.i40.i.i.i
-  %653 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i20.i.i.i, i64 %and7.i.i.i47.i.i.i
-  %add.ptr8.i.i.i49.i.i.i = getelementptr %struct.HuffmanCode, ptr %653, i64 %conv6.i.i.i42.i.i.i
+  %653 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i20.i.i.i, i64 %and7.i.i.i47.i.i.i
+  %add.ptr8.i.i.i49.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %653, i64 %conv6.i.i.i42.i.i.i
   %.pre289.i.i = load i8, ptr %add.ptr8.i.i.i49.i.i.i, align 2
   br label %ReadBlockLength.exit.i.i1490.i
 
@@ -4771,7 +4771,7 @@ if.end.i.i.i124.i.i.i:                            ; preds = %while.body.i.i120.i
   %incdec.ptr.i.i.i133.i.i.i = getelementptr inbounds i8, ptr %685, i64 1
   store ptr %incdec.ptr.i.i.i133.i.i.i, ptr %next_in30, align 8
   %cmp.i.i102.i.i.i = icmp ult i64 %687, 7
-  br i1 %cmp.i.i102.i.i.i, label %while.body.i.i120.i.i.i, label %if.then.i115.i.i.i, !llvm.loop !12
+  br i1 %cmp.i.i102.i.i.i, label %while.body.i.i120.i.i.i, label %if.then.i115.i.i.i, !llvm.loop !10
 
 if.then.i115.i.i.i:                               ; preds = %if.end.i.i.i124.i.i.i, %if.then35.i.i
   %689 = phi ptr [ %683, %if.then35.i.i ], [ %incdec.ptr.i.i.i133.i.i.i, %if.end.i.i.i124.i.i.i ]
@@ -4798,8 +4798,8 @@ if.then.i151.i.i.i:                               ; preds = %if.then.i115.i.i.i
   %arrayidx.i.i156.i.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i.i1307
   %693 = load i64, ptr %arrayidx.i.i156.i.i.i, align 8
   %and7.i.i.i.i1311 = and i64 %shr.i154.i.i.i, %693
-  %694 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i.i1289, i64 %and7.i.i.i.i1311
-  %add.ptr8.i.i.i.i1312 = getelementptr %struct.HuffmanCode, ptr %694, i64 %conv6.i153.i.i.i
+  %694 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i.i1289, i64 %and7.i.i.i.i1311
+  %add.ptr8.i.i.i.i1312 = getelementptr inbounds %struct.HuffmanCode, ptr %694, i64 %conv6.i153.i.i.i
   %.pre.i.i1313 = load i8, ptr %add.ptr8.i.i.i.i1312, align 2
   br label %DecodeSymbol.exit.i.i.i
 
@@ -4849,8 +4849,8 @@ BitMask.exit.i.i1416.i:                           ; preds = %if.end21.i.i.i
   %value30.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1415.i, i64 2
   %701 = load i16, ptr %value30.i.i.i, align 2
   %conv31.i.i.i = zext i16 %701 to i64
-  %702 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i1415.i, i64 %shr.i.i1417.i
-  %add.ptr32.i.i.i = getelementptr %struct.HuffmanCode, ptr %702, i64 %conv31.i.i.i
+  %702 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i1415.i, i64 %shr.i.i1417.i
+  %add.ptr32.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %702, i64 %conv31.i.i.i
   %703 = load i8, ptr %add.ptr32.i.i.i, align 2
   %conv34.i.i.i = zext i8 %703 to i64
   %cmp35.i.i.i = icmp ult i64 %sub.i281.i.i, %conv34.i.i.i
@@ -4918,7 +4918,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i77.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %709, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_in30, align 8
   %cmp.i.i71.i.i.i = icmp ult i64 %711, 7
-  br i1 %cmp.i.i71.i.i.i, label %while.body.i.i77.i.i.i, label %if.then.i76.i.i.i, !llvm.loop !12
+  br i1 %cmp.i.i71.i.i.i, label %while.body.i.i77.i.i.i, label %if.then.i76.i.i.i, !llvm.loop !10
 
 if.then.i76.i.i.i:                                ; preds = %if.end.i.i.i.i.i.i, %while.cond.i.i70.ithread-pre-split.i.i
   %713 = phi ptr [ %704, %while.cond.i.i70.ithread-pre-split.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
@@ -4947,8 +4947,8 @@ if.then.i182.i.i.i:                               ; preds = %if.then.i76.i.i.i
   %arrayidx.i.i193.i.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i185.i.i.i
   %717 = load i64, ptr %arrayidx.i.i193.i.i.i, align 8
   %and7.i195.i.i.i = and i64 %shr.i191.i.i.i, %717
-  %718 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i172.i.i.i, i64 %and7.i195.i.i.i
-  %add.ptr8.i197.i.i.i = getelementptr %struct.HuffmanCode, ptr %718, i64 %conv6.i190.i.i.i
+  %718 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i172.i.i.i, i64 %and7.i195.i.i.i
+  %add.ptr8.i197.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %718, i64 %conv6.i190.i.i.i
   %.pre358.i.i = load i8, ptr %add.ptr8.i197.i.i.i, align 2
   br label %DecodeSymbol.exit201.i.i.i
 
@@ -5002,8 +5002,8 @@ BitMask.exit.i295.i.i:                            ; preds = %if.end21.i289.i.i
   %value30.i300.i.i = getelementptr inbounds i8, ptr %add.ptr.i287.i.i, i64 2
   %726 = load i16, ptr %value30.i300.i.i, align 2
   %conv31.i301.i.i = zext i16 %726 to i64
-  %727 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i287.i.i, i64 %shr.i298.i.i
-  %add.ptr32.i302.i.i = getelementptr %struct.HuffmanCode, ptr %727, i64 %conv31.i301.i.i
+  %727 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i287.i.i, i64 %shr.i298.i.i
+  %add.ptr32.i302.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %727, i64 %conv31.i301.i.i
   %728 = load i8, ptr %add.ptr32.i302.i.i, align 2
   %conv34.i303.i.i = zext i8 %728 to i64
   %cmp35.i304.i.i = icmp ult i64 %sub.i299.i.i, %conv34.i303.i.i
@@ -5074,7 +5074,7 @@ if.end.i55.i.i.i:                                 ; preds = %while.body.i.i.i.i.
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i354.i.i, i64 1
   store ptr %incdec.ptr.i.i.i.i, ptr %next_in30, align 8
   %cmp.i.i.i.i1413.i = icmp ult i64 %add.i59.i.i.i, %conv.i.i.i.i1293
-  br i1 %cmp.i.i.i.i1413.i, label %while.body.i.i.i.i.i, label %if.end12.i.i.i.i, !llvm.loop !13
+  br i1 %cmp.i.i.i.i1413.i, label %while.body.i.i.i.i.i, label %if.end12.i.i.i.i, !llvm.loop !11
 
 if.then9.i.i.i.i1305:                             ; preds = %while.body.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.le2085.i = ptrtoint ptr %681 to i64
@@ -5183,7 +5183,7 @@ if.end.i.i.i.i675.i:                              ; preds = %while.body.i.i.i671
   %incdec.ptr.i.i.i.i684.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i6842092.i, i64 1
   store ptr %incdec.ptr.i.i.i.i684.i, ptr %next_in30, align 8
   %cmp.i.i.i620.i = icmp ult i64 %753, 7
-  br i1 %cmp.i.i.i620.i, label %while.body.i.i.i671.i, label %if.then.i.i637.i, !llvm.loop !12
+  br i1 %cmp.i.i.i620.i, label %while.body.i.i.i671.i, label %if.then.i.i637.i, !llvm.loop !10
 
 if.then.i.i637.i:                                 ; preds = %if.end.i.i.i.i675.i, %if.else.i606.i
   %next_in.i.i609.promoted2095.i1961 = phi ptr [ %next_in.i.i609.promoted.i, %if.else.i606.i ], [ %incdec.ptr.i.i.i.i684.i, %if.end.i.i.i.i675.i ]
@@ -5210,8 +5210,8 @@ if.then.i49.i649.i:                               ; preds = %if.then.i.i637.i
   %arrayidx.i.i.i660.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i652.i
   %758 = load i64, ptr %arrayidx.i.i.i660.i, align 8
   %and7.i.i662.i = and i64 %shr.i.i658.i, %758
-  %759 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i639.i, i64 %and7.i.i662.i
-  %add.ptr8.i.i664.i = getelementptr %struct.HuffmanCode, ptr %759, i64 %conv6.i.i657.i
+  %759 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i639.i, i64 %and7.i.i662.i
+  %add.ptr8.i.i664.i = getelementptr inbounds %struct.HuffmanCode, ptr %759, i64 %conv6.i.i657.i
   %.pre2290.i = load i8, ptr %add.ptr8.i.i664.i, align 2
   br label %DecodeSymbol.exit.i642.i
 
@@ -5261,8 +5261,8 @@ BitMask.exit.i1425.i:                             ; preds = %if.end21.i.i1275
   %value30.i.i = getelementptr inbounds i8, ptr %add.ptr.i1422.i, i64 2
   %766 = load i16, ptr %value30.i.i, align 2
   %conv31.i.i = zext i16 %766 to i64
-  %767 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i1422.i, i64 %shr.i1427.i
-  %add.ptr32.i.i = getelementptr %struct.HuffmanCode, ptr %767, i64 %conv31.i.i
+  %767 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i1422.i, i64 %shr.i1427.i
+  %add.ptr32.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %767, i64 %conv31.i.i
   %768 = load i8, ptr %add.ptr32.i.i, align 2
   %conv34.i.i = zext i8 %768 to i64
   %cmp35.i.i = icmp ult i64 %sub.i1428.i, %conv34.i.i
@@ -5344,7 +5344,7 @@ if.end.i12.i765.i:                                ; preds = %while.body.i.i761.i
   %incdec.ptr.i.i774.i = getelementptr inbounds i8, ptr %773, i64 1
   store ptr %incdec.ptr.i.i774.i, ptr %next_in30, align 8
   %cmp.i.i748.i = icmp ult i64 %add.i.i772.i, %conv26.i553.i
-  br i1 %cmp.i.i748.i, label %while.body.i.i761.i, label %BrotliTakeBits.exit.i752.i, !llvm.loop !13
+  br i1 %cmp.i.i748.i, label %while.body.i.i761.i, label %BrotliTakeBits.exit.i752.i, !llvm.loop !11
 
 BrotliTakeBits.exit.i752.i:                       ; preds = %if.end.i12.i765.i, %while.cond.i.i746.preheader.i
   %next_in.i.i609.promoted2099.i1963 = phi ptr [ %next_in.i.i609.promoted2095.i, %while.cond.i.i746.preheader.i ], [ %incdec.ptr.i.i774.i, %if.end.i12.i765.i ]
@@ -5390,7 +5390,7 @@ if.end.i12.i.i:                                   ; preds = %while.body.i.i.i
   %incdec.ptr.i.i.i1272 = getelementptr inbounds i8, ptr %780, i64 1
   store ptr %incdec.ptr.i.i.i1272, ptr %next_in30, align 8
   %cmp.i.i703.i = icmp ult i64 %add.i.i715.i, %conv30.i583.i
-  br i1 %cmp.i.i703.i, label %while.body.i.i.i, label %BrotliTakeBits.exit.i.i, !llvm.loop !13
+  br i1 %cmp.i.i703.i, label %while.body.i.i.i, label %BrotliTakeBits.exit.i.i, !llvm.loop !11
 
 BrotliTakeBits.exit.i.i:                          ; preds = %if.end.i12.i.i, %while.cond.i.i.preheader.i
   %783 = phi i64 [ %778, %while.cond.i.i.preheader.i ], [ %or.i.i.i1271, %if.end.i12.i.i ]
@@ -5467,7 +5467,7 @@ if.else80.i.preheader.i:                          ; preds = %if.then60.i.i883
 
 do.body.i.i896:                                   ; preds = %if.end100.i.i893
   %cmp68.i.i897 = icmp eq i64 %dec.i.i890, 0
-  br i1 %cmp68.i.i897, label %if.then556.i.i, label %if.else80.i.i, !llvm.loop !23
+  br i1 %cmp68.i.i897, label %if.then556.i.i, label %if.else80.i.i, !llvm.loop !21
 
 if.else80.i.i:                                    ; preds = %do.body.i.i896, %if.else80.i.preheader.i
   %indvars.iv.i884 = phi i64 [ %789, %if.else80.i.preheader.i ], [ %indvars.iv.next.i891, %do.body.i.i896 ]
@@ -5504,7 +5504,7 @@ if.end.i.i.i618.i.i:                              ; preds = %while.body.i.i614.i
   %incdec.ptr.i.i.i627.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i627.i2105.i, i64 1
   store ptr %incdec.ptr.i.i.i627.i.i, ptr %next_in30, align 8
   %cmp.i.i596.i.i = icmp ult i64 %792, 7
-  br i1 %cmp.i.i596.i.i, label %while.body.i.i614.i.i, label %if.then.i609.i.i, !llvm.loop !12
+  br i1 %cmp.i.i596.i.i, label %while.body.i.i614.i.i, label %if.then.i609.i.i, !llvm.loop !10
 
 if.then.i609.i.i:                                 ; preds = %if.end.i.i.i618.i.i, %if.else80.i.if.then.i609.i_crit_edge.i
   %795 = phi i64 [ %.pre2294.i, %if.else80.i.if.then.i609.i_crit_edge.i ], [ %or.i.i.i623.i.i, %if.end.i.i.i618.i.i ]
@@ -5530,8 +5530,8 @@ if.then.i641.i.i:                                 ; preds = %if.then.i609.i.i
   %arrayidx.i.i.i.i1235 = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i
   %798 = load i64, ptr %arrayidx.i.i.i.i1235, align 8
   %and7.i.i.i = and i64 %shr.i.i.i1234, %798
-  %799 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i886, i64 %and7.i.i.i
-  %add.ptr8.i.i.i = getelementptr %struct.HuffmanCode, ptr %799, i64 %conv6.i.i.i1233
+  %799 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i886, i64 %and7.i.i.i
+  %add.ptr8.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %799, i64 %conv6.i.i.i1233
   %.pre2295.i = load i8, ptr %add.ptr8.i.i.i, align 2
   br label %DecodeSymbol.exit.i.i
 
@@ -5582,8 +5582,8 @@ BitMask.exit.i1444.i:                             ; preds = %if.end21.i1438.i
   %value30.i1449.i = getelementptr inbounds i8, ptr %add.ptr.i1436.i, i64 2
   %807 = load i16, ptr %value30.i1449.i, align 2
   %conv31.i1450.i = zext i16 %807 to i64
-  %808 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i1436.i, i64 %shr.i1447.i
-  %add.ptr32.i1451.i = getelementptr %struct.HuffmanCode, ptr %808, i64 %conv31.i1450.i
+  %808 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i1436.i, i64 %shr.i1447.i
+  %add.ptr32.i1451.i = getelementptr inbounds %struct.HuffmanCode, ptr %808, i64 %conv31.i1450.i
   %809 = load i8, ptr %add.ptr32.i1451.i, align 2
   %conv34.i1452.i = zext i8 %809 to i64
   %cmp35.i1453.i = icmp ult i64 %sub.i1448.i, %conv34.i1452.i
@@ -5632,7 +5632,7 @@ if.then97.i.i1230:                                ; preds = %if.end85.i.i
 if.end100.i.i893:                                 ; preds = %if.end85.i.i
   %dec101.i.i894 = add nsw i32 %i.i.42107.i, -1
   %cmp102.i.not.i895 = icmp eq i32 %dec101.i.i894, 0
-  br i1 %cmp102.i.not.i895, label %if.end174.i.i914, label %do.body.i.i896, !llvm.loop !23
+  br i1 %cmp102.i.not.i895, label %if.end174.i.i914, label %do.body.i.i896, !llvm.loop !21
 
 if.else104.i.i1237:                               ; preds = %CommandInner.i.i879
   br i1 %cmp123.i2121.i, label %if.then556.i.i, label %if.end128.i.preheader.i
@@ -5655,7 +5655,7 @@ if.end128.i.preheader.i:                          ; preds = %if.else104.i.i1237
 
 do.body115.i.i1263:                               ; preds = %if.end168.i.i1260
   %cmp123.i.i1264 = icmp eq i64 %dec158.i.i1258, 0
-  br i1 %cmp123.i.i1264, label %if.then556.i.i, label %if.end128.i.i1246, !llvm.loop !24
+  br i1 %cmp123.i.i1264, label %if.then556.i.i, label %if.end128.i.i1246, !llvm.loop !22
 
 if.end128.i.i1246:                                ; preds = %do.body115.i.i1263, %if.end128.i.preheader.i
   %indvars.iv2279.i = phi i64 [ %818, %if.end128.i.preheader.i ], [ %indvars.iv.next2280.i, %do.body115.i.i1263 ]
@@ -5710,7 +5710,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i2120.i, i64 1
   store ptr %incdec.ptr.i.i.i.i.i, ptr %next_in30, align 8
   %cmp.i.i.i.i1269 = icmp ult i64 %827, 7
-  br i1 %cmp.i.i.i.i1269, label %while.body.i.i.i.i, label %if.then.i574.i.i, !llvm.loop !12
+  br i1 %cmp.i.i.i.i1269, label %while.body.i.i.i.i, label %if.then.i574.i.i, !llvm.loop !10
 
 if.then.i574.i.i:                                 ; preds = %if.end.i.i.i.i.i, %if.end128.i.if.then.i574.i_crit_edge.i
   %830 = phi i64 [ %.pre2296.i, %if.end128.i.if.then.i574.i_crit_edge.i ], [ %or.i.i.i.i.i, %if.end.i.i.i.i.i ]
@@ -5736,8 +5736,8 @@ if.then.i664.i.i:                                 ; preds = %if.then.i574.i.i
   %arrayidx.i.i675.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i667.i.i
   %833 = load i64, ptr %arrayidx.i.i675.i.i, align 8
   %and7.i677.i.i = and i64 %shr.i673.i.i, %833
-  %834 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i654.i.i, i64 %and7.i677.i.i
-  %add.ptr8.i679.i.i = getelementptr %struct.HuffmanCode, ptr %834, i64 %conv6.i672.i.i
+  %834 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i654.i.i, i64 %and7.i677.i.i
+  %add.ptr8.i679.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %834, i64 %conv6.i672.i.i
   %.pre2297.i = load i8, ptr %add.ptr8.i679.i.i, align 2
   br label %DecodeSymbol.exit683.i.i
 
@@ -5788,8 +5788,8 @@ BitMask.exit.i1487.i:                             ; preds = %if.end21.i1481.i
   %value30.i1492.i = getelementptr inbounds i8, ptr %add.ptr.i1479.i, i64 2
   %842 = load i16, ptr %value30.i1492.i, align 2
   %conv31.i1493.i = zext i16 %842 to i64
-  %843 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i1479.i, i64 %shr.i1490.i
-  %add.ptr32.i1494.i = getelementptr %struct.HuffmanCode, ptr %843, i64 %conv31.i1493.i
+  %843 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i1479.i, i64 %shr.i1490.i
+  %add.ptr32.i1494.i = getelementptr inbounds %struct.HuffmanCode, ptr %843, i64 %conv31.i1493.i
   %844 = load i8, ptr %add.ptr32.i1494.i, align 2
   %conv34.i1495.i = zext i8 %844 to i64
   %cmp35.i1496.i = icmp ult i64 %sub.i1491.i, %conv34.i1495.i
@@ -5838,7 +5838,7 @@ if.then165.i.i1265:                               ; preds = %if.end150.i.i
 if.end168.i.i1260:                                ; preds = %if.end150.i.i
   %dec170.i.i1261 = add nsw i32 %i.i.52122.i, -1
   %cmp171.i.not.i1262 = icmp eq i32 %dec170.i.i1261, 0
-  br i1 %cmp171.i.not.i1262, label %if.end174.i.i914, label %do.body115.i.i1263, !llvm.loop !24
+  br i1 %cmp171.i.not.i1262, label %if.end174.i.i914, label %do.body115.i.i1263, !llvm.loop !22
 
 if.end174.i.i914:                                 ; preds = %if.end100.i.i893, %if.end168.i.i1260
   %pos.i.4.i915 = add i32 %i.i.3.i880, %pos.i.1.i881
@@ -5924,7 +5924,7 @@ if.end.i.i.i124.i.i.i.i:                          ; preds = %while.body.i.i120.i
   %incdec.ptr.i.i.i133.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i133.i.i346.i.i, i64 1
   store ptr %incdec.ptr.i.i.i133.i.i.i.i, ptr %next_in30, align 8
   %cmp.i.i102.i.i.i.i = icmp ult i64 %862, 7
-  br i1 %cmp.i.i102.i.i.i.i, label %while.body.i.i120.i.i.i.i, label %if.then.i115.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.i.i102.i.i.i.i, label %while.body.i.i120.i.i.i.i, label %if.then.i115.i.i.i.i, !llvm.loop !10
 
 if.then.i115.i.i.i.i:                             ; preds = %if.end.i.i.i124.i.i.i.i, %if.else.i.i.i1520.i
   %next_in.i.i.promoted349359.i.i = phi ptr [ %859, %if.else.i.i.i1520.i ], [ %incdec.ptr.i.i.i133.i.i.i.i, %if.end.i.i.i124.i.i.i.i ]
@@ -5951,8 +5951,8 @@ if.then.i151.i.i.i.i:                             ; preds = %if.then.i115.i.i.i.
   %arrayidx.i.i156.i.i.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i.i.i1213
   %867 = load i64, ptr %arrayidx.i.i156.i.i.i.i, align 8
   %and7.i.i.i.i.i1217 = and i64 %shr.i154.i.i.i.i, %867
-  %868 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i.i.i1196, i64 %and7.i.i.i.i.i1217
-  %add.ptr8.i.i.i.i.i1218 = getelementptr %struct.HuffmanCode, ptr %868, i64 %conv6.i153.i.i.i.i
+  %868 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i.i.i1196, i64 %and7.i.i.i.i.i1217
+  %add.ptr8.i.i.i.i.i1218 = getelementptr inbounds %struct.HuffmanCode, ptr %868, i64 %conv6.i153.i.i.i.i
   %.pre.i1542.i = load i8, ptr %add.ptr8.i.i.i.i.i1218, align 2
   br label %DecodeSymbol.exit.i.i.i.i
 
@@ -6002,8 +6002,8 @@ BitMask.exit.i.i1551.i:                           ; preds = %if.end21.i.i1547.i
   %value30.i.i1556.i = getelementptr inbounds i8, ptr %add.ptr.i282.i.i, i64 2
   %875 = load i16, ptr %value30.i.i1556.i, align 2
   %conv31.i.i1557.i = zext i16 %875 to i64
-  %876 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i282.i.i, i64 %shr.i.i1554.i
-  %add.ptr32.i.i1558.i = getelementptr %struct.HuffmanCode, ptr %876, i64 %conv31.i.i1557.i
+  %876 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i282.i.i, i64 %shr.i.i1554.i
+  %add.ptr32.i.i1558.i = getelementptr inbounds %struct.HuffmanCode, ptr %876, i64 %conv31.i.i1557.i
   %877 = load i8, ptr %add.ptr32.i.i1558.i, align 2
   %conv34.i.i1559.i = zext i8 %877 to i64
   %cmp35.i.i1560.i = icmp ult i64 %sub.i.i1555.i, %conv34.i.i1559.i
@@ -6072,7 +6072,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i77.i.
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i.i350.i.i, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_in30, align 8
   %cmp.i.i71.i.i.i.i = icmp ult i64 %882, 7
-  br i1 %cmp.i.i71.i.i.i.i, label %while.body.i.i77.i.i.i.i, label %if.then.i76.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.i.i71.i.i.i.i, label %while.body.i.i77.i.i.i.i, label %if.then.i76.i.i.i.i, !llvm.loop !10
 
 if.then.i76.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i.i, %while.cond.i.i70.i.ithread-pre-split.i.i
   %block_type.i.i.1.in380405.i.i = phi i16 [ %block_type.i.i.1.in.i.i, %while.cond.i.i70.i.ithread-pre-split.i.i ], [ %block_type.i.i.1.in380404.i.i, %if.end.i.i.i.i.i.i.i ]
@@ -6101,8 +6101,8 @@ if.then.i182.i.i.i.i:                             ; preds = %if.then.i76.i.i.i.i
   %arrayidx.i.i193.i.i.i.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i185.i.i.i.i
   %887 = load i64, ptr %arrayidx.i.i193.i.i.i.i, align 8
   %and7.i195.i.i.i.i = and i64 %shr.i191.i.i.i.i, %887
-  %888 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i172.i.i.i.i, i64 %and7.i195.i.i.i.i
-  %add.ptr8.i197.i.i.i.i = getelementptr %struct.HuffmanCode, ptr %888, i64 %conv6.i190.i.i.i.i
+  %888 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i172.i.i.i.i, i64 %and7.i195.i.i.i.i
+  %add.ptr8.i197.i.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %888, i64 %conv6.i190.i.i.i.i
   %.pre360.i.i = load i8, ptr %add.ptr8.i197.i.i.i.i, align 2
   br label %DecodeSymbol.exit201.i.i.i.i
 
@@ -6156,8 +6156,8 @@ BitMask.exit.i297.i.i:                            ; preds = %if.end21.i291.i.i
   %value30.i302.i.i = getelementptr inbounds i8, ptr %add.ptr.i289.i.i, i64 2
   %896 = load i16, ptr %value30.i302.i.i, align 2
   %conv31.i303.i.i = zext i16 %896 to i64
-  %897 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i289.i.i, i64 %shr.i300.i.i
-  %add.ptr32.i304.i.i = getelementptr %struct.HuffmanCode, ptr %897, i64 %conv31.i303.i.i
+  %897 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i289.i.i, i64 %shr.i300.i.i
+  %add.ptr32.i304.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %897, i64 %conv31.i303.i.i
   %898 = load i8, ptr %add.ptr32.i304.i.i, align 2
   %conv34.i305.i.i = zext i8 %898 to i64
   %cmp35.i306.i.i = icmp ult i64 %sub.i301.i.i, %conv34.i305.i.i
@@ -6228,7 +6228,7 @@ if.end.i55.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %incdec.ptr.i.i.i.i1539.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i356.i.i, i64 1
   store ptr %incdec.ptr.i.i.i.i1539.i, ptr %next_in30, align 8
   %cmp.i.i.i.i.i1540.i = icmp ult i64 %add.i59.i.i.i.i, %conv.i.i.i.i1525.i
-  br i1 %cmp.i.i.i.i.i1540.i, label %while.body.i.i.i.i.i.i, label %if.end12.i.i.i.i.i, !llvm.loop !13
+  br i1 %cmp.i.i.i.i.i1540.i, label %while.body.i.i.i.i.i.i, label %if.end12.i.i.i.i.i, !llvm.loop !11
 
 if.then9.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i.i
   store i64 %index.i.i.i.1.i.i, ptr %block_length_index.i.i.i.i, align 8
@@ -6340,7 +6340,7 @@ if.end.i.i.i.i1783.i:                             ; preds = %while.body.i.i.i177
   %incdec.ptr.i.i.i.i1792.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i17922144.i, i64 1
   store ptr %incdec.ptr.i.i.i.i1792.i, ptr %next_in30, align 8
   %cmp.i.i.i1728.i = icmp ult i64 %927, 7
-  br i1 %cmp.i.i.i1728.i, label %while.body.i.i.i1779.i, label %if.then.i.i1745.i, !llvm.loop !12
+  br i1 %cmp.i.i.i1728.i, label %while.body.i.i.i1779.i, label %if.then.i.i1745.i, !llvm.loop !10
 
 if.then.i.i1745.i:                                ; preds = %if.end.i.i.i.i1783.i, %if.then216.i.i
   %next_in.i.i1718.promoted21472302.i = phi ptr [ %919, %if.then216.i.i ], [ %incdec.ptr.i.i.i.i1792.i, %if.end.i.i.i.i1783.i ]
@@ -6367,8 +6367,8 @@ if.then.i34.i1757.i:                              ; preds = %if.then.i.i1745.i
   %arrayidx.i.i.i1768.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i1760.i
   %932 = load i64, ptr %arrayidx.i.i.i1768.i, align 8
   %and7.i.i1770.i = and i64 %shr.i.i1766.i, %932
-  %933 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i1747.i, i64 %and7.i.i1770.i
-  %add.ptr8.i.i1772.i = getelementptr %struct.HuffmanCode, ptr %933, i64 %conv6.i.i1765.i
+  %933 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i1747.i, i64 %and7.i.i1770.i
+  %add.ptr8.i.i1772.i = getelementptr inbounds %struct.HuffmanCode, ptr %933, i64 %conv6.i.i1765.i
   %.pre2299.i = load i8, ptr %add.ptr8.i.i1772.i, align 2
   br label %DecodeSymbol.exit.i1750.i
 
@@ -6418,8 +6418,8 @@ BitMask.exit.i1588.i:                             ; preds = %if.end21.i1582.i
   %value30.i1593.i = getelementptr inbounds i8, ptr %add.ptr.i1580.i, i64 2
   %940 = load i16, ptr %value30.i1593.i, align 2
   %conv31.i1594.i = zext i16 %940 to i64
-  %941 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i1580.i, i64 %shr.i1591.i
-  %add.ptr32.i1595.i = getelementptr %struct.HuffmanCode, ptr %941, i64 %conv31.i1594.i
+  %941 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i1580.i, i64 %shr.i1591.i
+  %add.ptr32.i1595.i = getelementptr inbounds %struct.HuffmanCode, ptr %941, i64 %conv31.i1594.i
   %942 = load i8, ptr %add.ptr32.i1595.i, align 2
   %conv34.i1596.i = zext i8 %942 to i64
   %cmp35.i1597.i = icmp ult i64 %sub.i1592.i, %conv34.i1596.i
@@ -6530,7 +6530,7 @@ if.end.i.i2140.i:                                 ; preds = %while.body.i2136.i
   %incdec.ptr.i.i2149.i = getelementptr inbounds i8, ptr %950, i64 1
   store ptr %incdec.ptr.i.i2149.i, ptr %next_in30, align 8
   %cmp.i2124.i = icmp ult i64 %add.i.i2147.i, %conv16.i1624.i
-  br i1 %cmp.i2124.i, label %while.body.i2136.i, label %BrotliTakeBits.exit.i2128.i, !llvm.loop !32
+  br i1 %cmp.i2124.i, label %while.body.i2136.i, label %BrotliTakeBits.exit.i2128.i, !llvm.loop !30
 
 BrotliTakeBits.exit.i2128.i:                      ; preds = %if.end.i.i2140.i, %while.cond.i2122.preheader.i
   %953 = phi i64 [ %943, %while.cond.i2122.preheader.i ], [ %or.i.i2145.i, %if.end.i.i2140.i ]
@@ -6622,7 +6622,7 @@ while.cond.i.i1633.i:                             ; preds = %while.cond.i.i1633.
   %shr.i.i1634.i = ashr i32 %sub.i.i1632.i, %block_bits.0.i.i.i1026
   %cmp2.not.i.i.i1027 = icmp eq i32 %shr.i.i1634.i, 0
   %inc.i.i.i1028 = add nuw nsw i32 %block_bits.0.i.i.i1026, 1
-  br i1 %cmp2.not.i.i.i1027, label %while.end.i.i1635.i, label %while.cond.i.i1633.i, !llvm.loop !25
+  br i1 %cmp2.not.i.i.i1027, label %while.end.i.i1635.i, label %while.cond.i.i1633.i, !llvm.loop !23
 
 while.end.i.i1635.i:                              ; preds = %while.cond.i.i1633.i
   %sub3.i.i.i1029 = add nsw i32 %block_bits.0.i.i.i1026, -8
@@ -6649,7 +6649,7 @@ while.cond9.i.i.i1038:                            ; preds = %while.cond9.i.i.i10
   %arrayidx.i.i1637.i = getelementptr inbounds [16 x i32], ptr %chunk_offsets.i.i.i1032, i64 0, i64 %indvars.iv.next.i.i.i1040
   %968 = load i32, ptr %arrayidx.i.i1637.i, align 4
   %cmp10.i.i.i1041 = icmp slt i32 %968, %cursor.02.i.i.i1036
-  br i1 %cmp10.i.i.i1041, label %while.cond9.i.i.i1038, label %while.end13.i.i.i1042, !llvm.loop !26
+  br i1 %cmp10.i.i.i1041, label %while.cond9.i.i.i1038, label %while.end13.i.i.i1042, !llvm.loop !24
 
 while.end13.i.i.i1042:                            ; preds = %while.cond9.i.i.i1038
   %conv.i.i.i1043 = trunc i64 %indvars.iv.i.i.i1039 to i8
@@ -6660,7 +6660,7 @@ while.end13.i.i.i1042:                            ; preds = %while.cond9.i.i.i10
   %add17.i.i.i1047 = add nsw i32 %cursor.02.i.i.i1036, %shl.i.i1636.i
   %969 = load i32, ptr %total_size.i.i.i1025, align 4
   %cmp7.i.i.i1048 = icmp slt i32 %add17.i.i.i1047, %969
-  br i1 %cmp7.i.i.i1048, label %while.cond9.preheader.i.i.i1034, label %EnsureCoumpoundDictionaryInitialized.exit.loopexit.i.i1049, !llvm.loop !27
+  br i1 %cmp7.i.i.i1048, label %while.cond9.preheader.i.i.i1034, label %EnsureCoumpoundDictionaryInitialized.exit.loopexit.i.i1049, !llvm.loop !25
 
 EnsureCoumpoundDictionaryInitialized.exit.loopexit.i.i1049: ; preds = %while.end13.i.i.i1042
   %.pre.i1638.i = load i32, ptr %block_bits1.i.i.i982, align 8
@@ -6683,7 +6683,7 @@ while.cond.i1621.i:                               ; preds = %while.cond.i1621.i,
   %arrayidx2.i.i989 = getelementptr inbounds [16 x i32], ptr %chunk_offsets.i.i986, i64 0, i64 %indvars.iv.next.i.i988
   %973 = load i32, ptr %arrayidx2.i.i989, align 4
   %cmp.not.i.i990 = icmp sgt i32 %973, %sub254.i.i981
-  br i1 %cmp.not.i.i990, label %while.end.i1622.i, label %while.cond.i1621.i, !llvm.loop !28
+  br i1 %cmp.not.i.i990, label %while.end.i1622.i, label %while.cond.i1621.i, !llvm.loop !26
 
 while.end.i1622.i:                                ; preds = %while.cond.i1621.i
   %total_size.i1623.i = getelementptr inbounds i8, ptr %964, i64 4
@@ -6781,7 +6781,7 @@ if.then27.i.i1021:                                ; preds = %while.body.i1649.i
 if.end30.i.i1018:                                 ; preds = %if.then27.i.i1021, %while.body.i1649.i
   %993 = load i32, ptr %ringbuffer_size5.phi.trans.insert.phi.trans.insert.i.i, align 4
   %cmp32.i.i1019 = icmp eq i32 %add20.i.i1015, %993
-  br i1 %cmp32.i.i1019, label %if.then263.i.i1020, label %while.cond.i1647.i, !llvm.loop !29
+  br i1 %cmp32.i.i1019, label %if.then263.i.i1020, label %while.cond.i1647.i, !llvm.loop !27
 
 CopyFromCompoundDictionary.exit.i1022:            ; preds = %while.cond.i1647.i
   %cmp261.i.not.i1023 = icmp slt i32 %pos.addr.0.i.i1005, %.pre2303.i
@@ -6934,7 +6934,7 @@ if.end401.i.i1165:                                ; preds = %if.end399.i.i1163, 
   %dist_remaining.i.1.i1166 = phi i32 [ %sub400.i.i1164, %if.end399.i.i1163 ], [ %dist_remaining.i.02150.i, %land.lhs.true365.i.i1152 ], [ %dist_remaining.i.02150.i, %for.body.i.i1149 ]
   %indvars.iv.next2285.i = add nuw nsw i64 %indvars.iv2284.i, 1
   %exitcond.not.i1167 = icmp eq i64 %indvars.iv.next2285.i, %wide.trip.count.i1148
-  br i1 %exitcond.not.i1167, label %if.end403.i.i1108, label %for.body.i.i1149, !llvm.loop !30
+  br i1 %exitcond.not.i1167, label %if.end403.i.i1108, label %for.body.i.i1149, !llvm.loop !28
 
 if.end403.i.i1108:                                ; preds = %if.end401.i.i1165, %BitMask.exit.i.i1172, %land.lhs.true340.i.i1105, %lor.lhs.false.i.i1184
   %words.i.0.i1109 = phi ptr [ %1015, %BitMask.exit.i.i1172 ], [ %1005, %land.lhs.true340.i.i1105 ], [ %1005, %lor.lhs.false.i.i1184 ], [ %1005, %if.end401.i.i1165 ]
@@ -7098,7 +7098,7 @@ while.body.i.i1316:                               ; preds = %while.cond.i.i845
   %indvars.iv.next2282.i = add nsw i64 %indvars.iv2281.i, 1
   %dec541.i.i1322 = add nsw i32 %wrap_guard.i.0.i847, -1
   %cmp542.i.i1323 = icmp eq i32 %dec541.i.i1322, 0
-  br i1 %cmp542.i.i1323, label %if.then546.i.i1324, label %while.cond.i.i845, !llvm.loop !31
+  br i1 %cmp542.i.i1323, label %if.then546.i.i1324, label %while.cond.i.i845, !llvm.loop !29
 
 if.then546.i.i1324:                               ; preds = %while.body.i.i1316
   %1040 = trunc nsw i64 %indvars.iv.next2282.i to i32
@@ -7150,7 +7150,7 @@ if.end.i.i.i124.i.i.i1802.i:                      ; preds = %while.body.i.i120.i
   %incdec.ptr.i.i.i133.i.i.i1807.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i133.i.i353.i.i, i64 1
   store ptr %incdec.ptr.i.i.i133.i.i.i1807.i, ptr %next_in30, align 8
   %cmp.i.i102.i.i.i1808.i = icmp ult i64 %1051, 7
-  br i1 %cmp.i.i102.i.i.i1808.i, label %while.body.i.i120.i.i.i1800.i, label %if.then.i115.i.i.i1670.i, !llvm.loop !12
+  br i1 %cmp.i.i102.i.i.i1808.i, label %while.body.i.i120.i.i.i1800.i, label %if.then.i115.i.i.i1670.i, !llvm.loop !10
 
 if.then.i115.i.i.i1670.i:                         ; preds = %if.end.i.i.i124.i.i.i1802.i, %if.else.i.i.i1664.i
   %next_in.i.i.promoted356366.i.i = phi ptr [ %1048, %if.else.i.i.i1664.i ], [ %incdec.ptr.i.i.i133.i.i.i1807.i, %if.end.i.i.i124.i.i.i1802.i ]
@@ -7177,8 +7177,8 @@ if.then.i151.i.i.i1781.i:                         ; preds = %if.then.i115.i.i.i1
   %arrayidx.i.i156.i.i.i1791.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i.i.i.i1784.i
   %1056 = load i64, ptr %arrayidx.i.i156.i.i.i1791.i, align 8
   %and7.i.i.i.i1794.i = and i64 %shr.i154.i.i.i1789.i, %1056
-  %1057 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i.i.i1672.i, i64 %and7.i.i.i.i1794.i
-  %add.ptr8.i.i.i.i1795.i = getelementptr %struct.HuffmanCode, ptr %1057, i64 %conv6.i153.i.i.i1788.i
+  %1057 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i.i.i1672.i, i64 %and7.i.i.i.i1794.i
+  %add.ptr8.i.i.i.i1795.i = getelementptr inbounds %struct.HuffmanCode, ptr %1057, i64 %conv6.i153.i.i.i1788.i
   %.pre.i1796.i = load i8, ptr %add.ptr8.i.i.i.i1795.i, align 2
   br label %DecodeSymbol.exit.i.i.i1674.i
 
@@ -7228,8 +7228,8 @@ BitMask.exit.i.i1819.i:                           ; preds = %if.end21.i.i1815.i
   %value30.i.i1824.i = getelementptr inbounds i8, ptr %add.ptr.i.i1813.i, i64 2
   %1064 = load i16, ptr %value30.i.i1824.i, align 2
   %conv31.i.i1825.i = zext i16 %1064 to i64
-  %1065 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i.i1813.i, i64 %shr.i.i1822.i
-  %add.ptr32.i.i1826.i = getelementptr %struct.HuffmanCode, ptr %1065, i64 %conv31.i.i1825.i
+  %1065 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i.i1813.i, i64 %shr.i.i1822.i
+  %add.ptr32.i.i1826.i = getelementptr inbounds %struct.HuffmanCode, ptr %1065, i64 %conv31.i.i1825.i
   %1066 = load i8, ptr %add.ptr32.i.i1826.i, align 2
   %conv34.i.i1827.i = zext i8 %1066 to i64
   %cmp35.i.i1828.i = icmp ult i64 %sub.i.i1823.i, %conv34.i.i1827.i
@@ -7298,7 +7298,7 @@ if.end.i.i.i.i.i.i1773.i:                         ; preds = %while.body.i.i77.i.
   %incdec.ptr.i.i.i.i.i.i1778.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i.i357.i.i, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i1778.i, ptr %next_in30, align 8
   %cmp.i.i71.i.i.i1779.i = icmp ult i64 %1071, 7
-  br i1 %cmp.i.i71.i.i.i1779.i, label %while.body.i.i77.i.i.i1771.i, label %if.then.i76.i.i.i1741.i, !llvm.loop !12
+  br i1 %cmp.i.i71.i.i.i1779.i, label %while.body.i.i77.i.i.i1771.i, label %if.then.i76.i.i.i1741.i, !llvm.loop !10
 
 if.then.i76.i.i.i1741.i:                          ; preds = %if.end.i.i.i.i.i.i1773.i, %while.cond.i.i70.i.ithread-pre-split.i1740.i
   %block_type.i2.i.1.in387412.i.i = phi i16 [ %block_type.i2.i.1.in.i.i, %while.cond.i.i70.i.ithread-pre-split.i1740.i ], [ %block_type.i2.i.1.in387411.i.i, %if.end.i.i.i.i.i.i1773.i ]
@@ -7327,8 +7327,8 @@ if.then.i182.i.i.i1752.i:                         ; preds = %if.then.i76.i.i.i17
   %arrayidx.i.i193.i.i.i1762.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i185.i.i.i1755.i
   %1076 = load i64, ptr %arrayidx.i.i193.i.i.i1762.i, align 8
   %and7.i195.i.i.i1765.i = and i64 %shr.i191.i.i.i1760.i, %1076
-  %1077 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i172.i.i.i1743.i, i64 %and7.i195.i.i.i1765.i
-  %add.ptr8.i197.i.i.i1766.i = getelementptr %struct.HuffmanCode, ptr %1077, i64 %conv6.i190.i.i.i1759.i
+  %1077 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i172.i.i.i1743.i, i64 %and7.i195.i.i.i1765.i
+  %add.ptr8.i197.i.i.i1766.i = getelementptr inbounds %struct.HuffmanCode, ptr %1077, i64 %conv6.i190.i.i.i1759.i
   %.pre367.i.i = load i8, ptr %add.ptr8.i197.i.i.i1766.i, align 2
   br label %DecodeSymbol.exit201.i.i.i1745.i
 
@@ -7382,8 +7382,8 @@ BitMask.exit.i304.i.i:                            ; preds = %if.end21.i298.i.i
   %value30.i309.i.i = getelementptr inbounds i8, ptr %add.ptr.i296.i.i, i64 2
   %1085 = load i16, ptr %value30.i309.i.i, align 2
   %conv31.i310.i.i = zext i16 %1085 to i64
-  %1086 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i296.i.i, i64 %shr.i307.i.i
-  %add.ptr32.i311.i.i = getelementptr %struct.HuffmanCode, ptr %1086, i64 %conv31.i310.i.i
+  %1086 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i296.i.i, i64 %shr.i307.i.i
+  %add.ptr32.i311.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %1086, i64 %conv31.i310.i.i
   %1087 = load i8, ptr %add.ptr32.i311.i.i, align 2
   %conv34.i312.i.i = zext i8 %1087 to i64
   %cmp35.i313.i.i = icmp ult i64 %sub.i308.i.i, %conv34.i312.i.i
@@ -7454,7 +7454,7 @@ if.end.i55.i.i.i1728.i:                           ; preds = %while.body.i.i.i.i.
   %incdec.ptr.i.i.i.i1733.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i363.i.i, i64 1
   store ptr %incdec.ptr.i.i.i.i1733.i, ptr %next_in30, align 8
   %cmp.i.i.i.i.i1734.i = icmp ult i64 %add.i59.i.i.i1732.i, %conv.i.i.i.i1691.i
-  br i1 %cmp.i.i.i.i.i1734.i, label %while.body.i.i.i.i.i1726.i, label %if.end12.i.i.i.i1697.i, !llvm.loop !13
+  br i1 %cmp.i.i.i.i.i1734.i, label %while.body.i.i.i.i.i1726.i, label %if.end12.i.i.i.i1697.i, !llvm.loop !11
 
 if.then9.i.i.i.i1735.i:                           ; preds = %while.body.i.i.i.i.i1726.i
   %sub.ptr.lhs.cast.i.i.i.i1667.le2139.i = ptrtoint ptr %1049 to i64
@@ -7770,7 +7770,7 @@ if.then27.i:                                      ; preds = %while.body.i1394
 if.end30.i1405:                                   ; preds = %if.then27.i, %while.body.i1394
   %1151 = load i32, ptr %ringbuffer_size5.phi.trans.insert.phi.trans.insert.i.i, align 4
   %cmp32.i = icmp eq i32 %add20.i1404, %1151
-  br i1 %cmp32.i, label %CopyFromCompoundDictionary.exit, label %while.cond.i1392, !llvm.loop !29
+  br i1 %cmp32.i, label %CopyFromCompoundDictionary.exit, label %while.cond.i1392, !llvm.loop !27
 
 CopyFromCompoundDictionary.exit:                  ; preds = %while.cond.i1392, %if.end30.i1405
   %1152 = phi i32 [ %add20.i1404, %if.end30.i1405 ], [ %1138, %while.cond.i1392 ]
@@ -8067,7 +8067,7 @@ declare hidden i32 @BrotliWarmupBitReader(ptr noundef) local_unnamed_addr #3
 declare hidden void @BrotliDecoderStateMetablockBegin(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @DecodeVarLenUint8(ptr nocapture noundef %s, ptr nocapture noundef %br, ptr nocapture noundef %value) unnamed_addr #5 {
+define internal fastcc range(i32 -31, 3) i32 @DecodeVarLenUint8(ptr nocapture noundef %s, ptr nocapture noundef %br, ptr nocapture noundef %value) unnamed_addr #5 {
 entry:
   %substate_decode_uint8 = getelementptr inbounds i8, ptr %s, i64 760
   %0 = load i32, ptr %substate_decode_uint8, align 8
@@ -8217,7 +8217,7 @@ if.end.i137:                                      ; preds = %while.body.i
   %incdec.ptr.i145 = getelementptr inbounds i8, ptr %12, i64 1
   store ptr %incdec.ptr.i145, ptr %next_in.i134, align 8
   %cmp.i = icmp ult i64 %add.i143, %10
-  br i1 %cmp.i, label %while.body.i, label %if.end29, !llvm.loop !13
+  br i1 %cmp.i, label %while.body.i, label %if.end29, !llvm.loop !11
 
 if.then27:                                        ; preds = %while.body.i
   store i32 2, ptr %substate_decode_uint8, align 8
@@ -8377,7 +8377,7 @@ while.body.i48.i:                                 ; preds = %sw.bb14, %while.bod
   %shr.i49.i = lshr i64 %x.addr.i.049.i, 1
   %inc.i.i = add nuw nsw i64 %result.i.048.i, 1
   %tobool.i46.not.i = icmp ult i64 %x.addr.i.049.i, 2
-  br i1 %tobool.i46.not.i, label %Log2Floor.exit.i, label %while.body.i48.i, !llvm.loop !33
+  br i1 %tobool.i46.not.i, label %Log2Floor.exit.i, label %while.body.i48.i, !llvm.loop !31
 
 Log2Floor.exit.i:                                 ; preds = %while.body.i48.i, %sw.bb14
   %result.i.0.lcssa.i = phi i64 [ 0, %sw.bb14 ], [ %inc.i.i, %while.body.i48.i ]
@@ -8433,7 +8433,7 @@ if.end.i41.i:                                     ; preds = %while.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i55.i, i64 1
   store ptr %incdec.ptr.i.i, ptr %next_in.i, align 8
   %cmp.i.i = icmp ult i64 %add.i.i, %result.i.0.lcssa.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %if.end.i, !llvm.loop !13
+  br i1 %cmp.i.i, label %while.body.i.i, label %if.end.i, !llvm.loop !11
 
 if.then.i:                                        ; preds = %while.body.i.i
   store i64 %i.057.i, ptr %sub_loop_counter, align 8
@@ -8458,11 +8458,11 @@ if.end8.i:                                        ; preds = %if.end.i
   store i16 %conv9.i, ptr %arrayidx.i, align 2
   %inc.i = add i64 %i.057.i, 1
   %cmp.not.i = icmp ugt i64 %inc.i, %10
-  br i1 %cmp.not.i, label %for.cond.preheader.i, label %while.cond.i.preheader.i, !llvm.loop !34
+  br i1 %cmp.not.i, label %for.cond.preheader.i, label %while.cond.i.preheader.i, !llvm.loop !32
 
 for.cond.loopexit.i:                              ; preds = %for.cond12.i
   %exitcond.not.i = icmp eq i64 %add.i109, %10
-  br i1 %exitcond.not.i, label %sw.bb19, label %for.body15.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %sw.bb19, label %for.body15.lr.ph.i, !llvm.loop !33
 
 for.body15.lr.ph.i:                               ; preds = %for.cond.loopexit.i, %for.body.lr.ph.i
   %i.161.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i109, %for.cond.loopexit.i ]
@@ -8474,7 +8474,7 @@ for.body15.lr.ph.i:                               ; preds = %for.cond.loopexit.i
 for.cond12.i:                                     ; preds = %for.body15.i
   %inc26.i = add i64 %k.059.i, 1
   %cmp13.not.i = icmp ugt i64 %inc26.i, %10
-  br i1 %cmp13.not.i, label %for.cond.loopexit.i, label %for.body15.i, !llvm.loop !36
+  br i1 %cmp13.not.i, label %for.cond.loopexit.i, label %for.body15.i, !llvm.loop !34
 
 for.body15.i:                                     ; preds = %for.cond12.i, %for.body15.lr.ph.i
   %k.059.i = phi i64 [ %add.i109, %for.body15.lr.ph.i ], [ %inc26.i, %for.cond12.i ]
@@ -8664,7 +8664,7 @@ for.inc.i:                                        ; preds = %if.then27.i, %if.en
   %space.1.i = phi i64 [ %sub.i122, %if.then27.i ], [ %space.057.i, %if.end18.i ]
   %inc37.i = add i64 %i.059.i, 1
   %exitcond.not.i120 = icmp eq i64 %inc37.i, 18
-  br i1 %exitcond.not.i120, label %for.end.i, label %for.body.i, !llvm.loop !37
+  br i1 %exitcond.not.i120, label %for.end.i, label %for.body.i, !llvm.loop !35
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then27.i, %sw.bb37
   %num_codes.2.i = phi i64 [ %25, %sw.bb37 ], [ %num_codes.1.i, %for.inc.i ], [ %inc.i123, %if.then27.i ]
@@ -8694,7 +8694,7 @@ for.body:                                         ; preds = %if.end43, %for.body
   store i16 -1, ptr %arrayidx59, align 2
   %inc = add nuw nsw i64 %i.0266, 1
   %exitcond.not = icmp eq i64 %inc, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %for.body
   %symbol60 = getelementptr inbounds i8, ptr %s, i64 888
@@ -8866,7 +8866,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %conv17.i.i = trunc i64 %symbol.1.i to i32
   %inc.i71.i = add i64 %symbol.1.i, 1
   %cmp18.i.not.i = icmp eq i64 %inc.i71.i, %add9.i.i
-  br i1 %cmp18.i.not.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !39
+  br i1 %cmp18.i.not.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !37
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   store i32 %conv17.i.i, ptr %arrayidx.i68.i, align 4
@@ -8889,7 +8889,7 @@ if.end34.i:                                       ; preds = %do.end.i.i, %if.end
   %cmp.i142 = icmp ult i64 %symbol.2.i, %alphabet_size_limit
   %cmp11.i143 = icmp ne i64 %space.2.i141, 0
   %64 = select i1 %cmp.i142, i1 %cmp11.i143, i1 false
-  br i1 %64, label %while.body.i133, label %ReadSymbolCodeLengths.exit.thread219, !llvm.loop !40
+  br i1 %64, label %while.body.i133, label %ReadSymbolCodeLengths.exit.thread219, !llvm.loop !38
 
 ReadSymbolCodeLengths.exit.thread219:             ; preds = %if.else.i, %if.end34.i, %while.cond.preheader.i
   %space.0.lcssa.sink.i.ph = phi i64 [ %45, %while.cond.preheader.i ], [ 1048575, %if.else.i ], [ %space.2.i141, %if.end34.i ]
@@ -9095,7 +9095,7 @@ do.body.i.i186:                                   ; preds = %do.body.i.i186, %if
   %inc.i93.i = add i64 %93, 1
   store i64 %inc.i93.i, ptr %symbol2.i, align 8
   %cmp18.i.not.i190 = icmp eq i64 %inc.i93.i, %add9.i.i181
-  br i1 %cmp18.i.not.i190, label %do.end.i.i191, label %do.body.i.i186, !llvm.loop !39
+  br i1 %cmp18.i.not.i190, label %do.end.i.i191, label %do.body.i.i186, !llvm.loop !37
 
 do.end.i.i191:                                    ; preds = %do.body.i.i186
   %94 = load i64, ptr %repeat_code_len6.i, align 8
@@ -9123,7 +9123,7 @@ while.cond.backedge.i:                            ; preds = %if.else.i89.i, %do.
   %99 = phi i64 [ %66, %BitMask.exit57.i ], [ %66, %if.else.i168 ], [ %.pre99.i, %do.end.i.i191 ], [ %add9.i.i181, %if.else.i89.i ], [ %inc6.i.i210, %ProcessSingleCodeLength.exit.i209 ]
   %tobool.not.be.i = phi i1 [ false, %BitMask.exit57.i ], [ false, %if.else.i168 ], [ true, %do.end.i.i191 ], [ true, %if.else.i89.i ], [ true, %ProcessSingleCodeLength.exit.i209 ]
   %cmp.i197 = icmp ult i64 %99, %alphabet_size_limit
-  br i1 %cmp.i197, label %land.rhs.i, label %if.end76thread-pre-split, !llvm.loop !41
+  br i1 %cmp.i197, label %land.rhs.i, label %if.end76thread-pre-split, !llvm.loop !39
 
 if.end76thread-pre-split:                         ; preds = %while.cond.backedge.i, %if.then70
   %.pr = load i64, ptr %space, align 8
@@ -9155,7 +9155,7 @@ return:                                           ; preds = %for.cond, %while.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @DecodeContextMap(i64 noundef %context_map_size, ptr nocapture noundef %num_htrees, ptr nocapture noundef %context_map_arg, ptr noundef %s) unnamed_addr #1 {
+define internal fastcc i32 @DecodeContextMap(i64 noundef %context_map_size, ptr nocapture noundef %num_htrees, ptr nocapture noundef %context_map_arg, ptr noundef %s) unnamed_addr #1 {
 entry:
   %br1 = getelementptr inbounds i8, ptr %s, i64 8
   %substate_context_map = getelementptr inbounds i8, ptr %s, i64 852
@@ -9179,7 +9179,7 @@ entry.sw.bb19_crit_edge:                          ; preds = %entry
   br label %sw.bb19
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call fastcc i32 @DecodeVarLenUint8(ptr noundef nonnull %s, ptr noundef nonnull %br1, ptr noundef %num_htrees), !range !11
+  %call = tail call fastcc i32 @DecodeVarLenUint8(ptr noundef nonnull %s, ptr noundef nonnull %br1, ptr noundef %num_htrees)
   %cmp.not = icmp eq i32 %call, 1
   br i1 %cmp.not, label %if.end, label %return
 
@@ -9333,7 +9333,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i200, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %next_in.i.i.i, align 8
   %cmp.i.i196 = icmp ult i64 %18, 7
-  br i1 %cmp.i.i196, label %while.body.i.i, label %if.then.i200, !llvm.loop !12
+  br i1 %cmp.i.i196, label %while.body.i.i, label %if.then.i200, !llvm.loop !10
 
 if.then.i200:                                     ; preds = %if.end.i.i.i, %if.then39.if.then.i200_crit_edge
   %21 = phi i64 [ %.pre226, %if.then39.if.then.i200_crit_edge ], [ %or.i.i.i, %if.end.i.i.i ]
@@ -9358,8 +9358,8 @@ if.then.i214:                                     ; preds = %if.then.i200
   %arrayidx.i.i218 = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %conv5.i
   %24 = load i64, ptr %arrayidx.i.i218, align 8
   %and7.i = and i64 %24, %shr.i216
-  %25 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i, i64 %and7.i
-  %add.ptr8.i = getelementptr %struct.HuffmanCode, ptr %25, i64 %conv6.i
+  %25 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i, i64 %and7.i
+  %add.ptr8.i = getelementptr inbounds %struct.HuffmanCode, ptr %25, i64 %conv6.i
   %.pre227 = load i8, ptr %add.ptr8.i, align 2
   br label %DecodeSymbol.exit
 
@@ -9410,8 +9410,8 @@ BitMask.exit.i:                                   ; preds = %if.end21.i
   %value30.i = getelementptr inbounds i8, ptr %add.ptr.i151, i64 2
   %33 = load i16, ptr %value30.i, align 2
   %conv31.i = zext i16 %33 to i64
-  %34 = getelementptr %struct.HuffmanCode, ptr %add.ptr.i151, i64 %shr.i154
-  %add.ptr32.i = getelementptr %struct.HuffmanCode, ptr %34, i64 %conv31.i
+  %34 = getelementptr inbounds %struct.HuffmanCode, ptr %add.ptr.i151, i64 %shr.i154
+  %add.ptr32.i = getelementptr inbounds %struct.HuffmanCode, ptr %34, i64 %conv31.i
   %35 = load i8, ptr %add.ptr32.i, align 2
   %conv34.i = zext i8 %35 to i64
   %cmp35.i = icmp ult i64 %sub.i155, %conv34.i
@@ -9460,7 +9460,7 @@ while.cond.backedge:                              ; preds = %do.body.preheader, 
   %code32.0.be = phi i64 [ 0, %if.then50 ], [ %code32.2, %if.then55 ], [ %code32.3, %do.body.preheader ]
   %context_index28.0.be = phi i64 [ %inc51, %if.then50 ], [ %inc57, %if.then55 ], [ %add70, %do.body.preheader ]
   %cmp35 = icmp ult i64 %context_index28.0.be, %context_map_size
-  br i1 %cmp35, label %while.body, label %sw.bb78, !llvm.loop !42
+  br i1 %cmp35, label %while.body, label %sw.bb78, !llvm.loop !40
 
 if.end52:                                         ; preds = %if.end47
   %cmp53 = icmp ult i64 %14, %code32.2
@@ -9507,7 +9507,7 @@ if.end.i146:                                      ; preds = %while.body.i98
   %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i206, i64 1
   store ptr %incdec.ptr.i, ptr %next_in.i.i.i, align 8
   %cmp.i96 = icmp ult i64 %add.i, %code32.3
-  br i1 %cmp.i96, label %while.body.i98, label %if.end67, !llvm.loop !13
+  br i1 %cmp.i96, label %while.body.i98, label %if.end67, !llvm.loop !11
 
 if.then64:                                        ; preds = %while.body.i98
   store i64 %code32.3, ptr %code33, align 8
@@ -9597,7 +9597,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   store i32 %add.i159, ptr %arrayidx3.i, align 4
   %inc.i = add nuw i64 %i.0.i, 1
   %exitcond.i = icmp eq i64 %inc.i, %umax.i
-  br i1 %exitcond.i, label %for.cond.preheader.i, label %do.body.i, !llvm.loop !43
+  br i1 %exitcond.i, label %for.cond.preheader.i, label %do.body.i, !llvm.loop !41
 
 for.cond.preheader.i:                             ; preds = %do.body.i
   %cmp426.not.i = icmp eq i64 %context_map_size, 0
@@ -9622,7 +9622,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %or.i160 = or i64 %upper_bound.027.i, %idxprom.i
   %inc21.i = add nuw i64 %i.128.i, 1
   %exitcond30.not.i = icmp eq i64 %inc21.i, %context_map_size
-  br i1 %exitcond30.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !44
+  br i1 %exitcond30.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !42
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %53 = lshr i64 %or.i160, 2
@@ -9647,7 +9647,7 @@ declare hidden i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef, ptr noundef, 
 declare hidden void @BrotliDecoderStateCleanupAfterMetablock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BrotliDecoderHasMoreOutput(ptr nocapture noundef readonly %s) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @BrotliDecoderHasMoreOutput(ptr nocapture noundef readonly %s) local_unnamed_addr #6 {
 entry:
   %error_code = getelementptr inbounds i8, ptr %s, i64 128
   %0 = load i32, ptr %error_code, align 8
@@ -9800,7 +9800,7 @@ return:                                           ; preds = %if.then.i19, %land.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BrotliDecoderIsUsed(ptr nocapture noundef readonly %s) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @BrotliDecoderIsUsed(ptr nocapture noundef readonly %s) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %s, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -9819,7 +9819,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BrotliDecoderIsFinished(ptr nocapture noundef readonly %s) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @BrotliDecoderIsFinished(ptr nocapture noundef readonly %s) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %s, align 8
   %cmp = icmp eq i32 %0, 26
@@ -9965,12 +9965,12 @@ attributes #16 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 4}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 -31, i32 3}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -10002,5 +10002,3 @@ attributes #16 = { nounwind }
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}

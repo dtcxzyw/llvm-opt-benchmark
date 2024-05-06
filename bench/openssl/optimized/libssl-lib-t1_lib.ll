@@ -1364,14 +1364,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %i.011.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds %struct.tls_group_info_st, ptr %6, i64 %i.011.i
   %7 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %etmp) #16
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %etmp) #16
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %tls1_group_name2id.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %realname.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %8 = load ptr, ptr %realname.i, align 8
-  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %etmp) #16
+  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %etmp) #16
   %cmp5.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.i, label %tls1_group_name2id.exit, label %for.inc.i
 
@@ -5448,7 +5448,7 @@ if.end2:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end2
   %sigalgs = getelementptr inbounds i8, ptr %sig, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i, ptr nonnull align 8 %sigalgs, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i, ptr nonnull readonly align 8 %sigalgs, i64 %mul.i, i1 false)
   %tobool.not.i = icmp eq i32 %client, 0
   %..i = select i1 %tobool.not.i, i64 64, i64 80
   %.15.i = select i1 %tobool.not.i, i32 2968, i32 2964
@@ -6449,7 +6449,7 @@ has_usable_cert.exit:                             ; preds = %ssl_has_cert.exit.i
   %privatekey.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %17 = load ptr, ptr %privatekey.i, align 8
   %sig.val.i = load i32, ptr %hash, align 4
-  %call7.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull %s, i32 %sig.val.i, ptr noundef %16, ptr noundef %17)
+  %call7.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull readonly %s, i32 %sig.val.i, ptr noundef %16, ptr noundef %17)
   %tobool13.not = icmp eq i32 %call7.i, 0
   br i1 %tobool13.not, label %for.inc, label %cond.false
 
@@ -6474,7 +6474,7 @@ is_cert_usable.exit.thread:                       ; preds = %land.lhs.true16, %i
 
 is_cert_usable.exit:                              ; preds = %if.end.i37
   %sig.val.i40 = load i32, ptr %hash, align 4
-  %call5.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull %s, i32 %sig.val.i40, ptr noundef %x, ptr noundef nonnull %pkey)
+  %call5.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull readonly %s, i32 %sig.val.i40, ptr noundef %x, ptr noundef nonnull %pkey)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i)
   %tobool18.not = icmp eq i32 %call5.i, 0
   br i1 %tobool18.not, label %for.inc, label %cond.end
@@ -7546,7 +7546,7 @@ has_usable_cert.exit:                             ; preds = %ssl_has_cert.exit.i
   %52 = load ptr, ptr %privatekey.i93, align 8
   %53 = getelementptr i8, ptr %21, i64 12
   %sig.val.i = load i32, ptr %53, align 4
-  %call7.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull %s, i32 %sig.val.i, ptr noundef %51, ptr noundef %52)
+  %call7.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull readonly %s, i32 %sig.val.i, ptr noundef %51, ptr noundef %52)
   %tobool78.not = icmp eq i32 %call7.i, 0
   br i1 %tobool78.not, label %for.inc, label %if.end80
 
@@ -7814,7 +7814,7 @@ has_usable_cert.exit154:                          ; preds = %ssl_has_cert.exit.i
   %privatekey.i141 = getelementptr inbounds i8, ptr %arrayidx.i140, i64 8
   %87 = load ptr, ptr %privatekey.i141, align 8
   %sig.val.i142 = load i32, ptr %74, align 4
-  %call7.i143 = tail call fastcc i32 @check_cert_usable(ptr noundef nonnull %s, i32 %sig.val.i142, ptr noundef %86, ptr noundef %87)
+  %call7.i143 = tail call fastcc i32 @check_cert_usable(ptr noundef nonnull readonly %s, i32 %sig.val.i142, ptr noundef %86, ptr noundef %87)
   %tobool153.not = icmp eq i32 %call7.i143, 0
   br i1 %tobool153.not, label %for.inc156, label %for.end158
 

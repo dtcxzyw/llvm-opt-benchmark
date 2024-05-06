@@ -142,7 +142,7 @@ do_table2string.exit:                             ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_REQUEST_print(ptr noundef %bp, ptr nocapture noundef readonly %o, i64 noundef %flags) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OCSP_REQUEST_print(ptr noundef %bp, ptr nocapture noundef readonly %o, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
   %optionalSignature = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8
@@ -287,7 +287,7 @@ declare i32 @X509_print(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @PEM_write_bio_X509(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_RESPONSE_print(ptr noundef %bp, ptr noundef %o, i64 noundef %flags) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OCSP_RESPONSE_print(ptr noundef %bp, ptr noundef %o, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
   %responseBytes = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %responseBytes, align 8

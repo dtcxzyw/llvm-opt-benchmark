@@ -1751,7 +1751,7 @@ define internal noundef i32 @_ZN3gmx12_GLOBAL__N_115InsertMolecules3runEv(ptr no
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds i8, ptr %0, i64 1016
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %89, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %89, i8 0, i64 32, i1 false)
   %90 = getelementptr inbounds i8, ptr %0, i64 152
   %91 = load float, ptr %90, align 8
   store float %91, ptr %89, align 8

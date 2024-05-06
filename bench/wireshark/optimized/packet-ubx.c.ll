@@ -1620,7 +1620,7 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw i64 %indvars.iv to i32
   %25 = shl nuw nsw i32 %24, 3
   %26 = or disjoint i32 %25, 4
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #5
@@ -2043,7 +2043,7 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr nocapture noundef r
   %57 = load i32, ptr @ett_ubx_nav_sat_flags, align 4
   %58 = tail call ptr @proto_tree_add_bitmask(ptr noundef %39, ptr noundef %0, i32 noundef %30, i32 noundef %56, i32 noundef %57, ptr noundef nonnull @ubx_nav_sat_flags_fields, i32 noundef -2147483648) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = trunc i64 %indvars.iv.next to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
@@ -2126,7 +2126,7 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr nocapture noundef 
   %63 = add nuw nsw i32 %32, 22
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef -2147483648) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = trunc i64 %indvars.iv.next to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
@@ -2557,7 +2557,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   %49 = add i32 %48, 8
   %50 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %49, i32 noundef -2147483648) #5
   %51 = lshr i32 %50, 24
-  %52 = trunc i32 %51 to i8
+  %52 = trunc nuw i32 %51 to i8
   store i8 %52, ptr %47, align 1
   %53 = lshr i32 %50, 16
   %54 = trunc i32 %53 to i8

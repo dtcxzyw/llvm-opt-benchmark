@@ -572,7 +572,7 @@ query.exit.thread19.i:                            ; preds = %40
   %59 = load i32, ptr %4, align 4
   %60 = getelementptr inbounds i8, ptr %46, i64 44
   %61 = getelementptr inbounds i8, ptr %46, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %61, ptr noundef nonnull align 8 dereferenceable(320) %25, i64 320, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %61, ptr noundef nonnull readonly align 8 dereferenceable(320) %25, i64 320, i1 false)
   %62 = getelementptr inbounds i8, ptr %46, i64 368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %62, ptr noundef nonnull align 8 dereferenceable(424) %43, i64 424, i1 false)
   %63 = load ptr, ptr %5, align 8
@@ -713,7 +713,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 declare i32 @opal_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @avail_io_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @avail_io_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 44

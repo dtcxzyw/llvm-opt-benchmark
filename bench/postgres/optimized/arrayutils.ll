@@ -335,7 +335,7 @@ define dso_local void @mda_get_offset_values(i32 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @mda_next_tuple(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2147483647) i32 @mda_next_tuple(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
   %4 = icmp slt i32 %0, 1
   br i1 %4, label %.critedge, label %5
 

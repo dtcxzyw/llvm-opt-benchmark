@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"lib/zlib_deflate/deflate.c\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @zlib_deflateInit2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateInit2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %79, label %8
 
@@ -122,7 +122,7 @@ define dso_local noundef i32 @zlib_deflateInit2(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @zlib_deflateReset(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateReset(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %69, label %3
 
@@ -239,7 +239,7 @@ define dso_local noundef i32 @zlib_deflateReset(ptr noundef %0) local_unnamed_ad
 declare dso_local void @zlib_tr_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @zlib_deflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -5, 2) i32 @zlib_deflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %293, label %4
 
@@ -832,7 +832,7 @@ declare dso_local void @zlib_tr_stored_block(ptr noundef, ptr noundef, i64 nound
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @zlib_deflateEnd(ptr noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @zlib_deflateEnd(ptr noundef %0) local_unnamed_addr #4 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -863,7 +863,7 @@ define dso_local noundef i32 @zlib_deflateEnd(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @zlib_deflate_workspacesize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 5960, 0) i32 @zlib_deflate_workspacesize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
   %4 = add i32 %1, -9
   %5 = icmp ult i32 %4, -8
@@ -894,7 +894,7 @@ define dso_local noundef i32 @zlib_deflate_dfltcc_enabled() local_unnamed_addr #
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -5
@@ -1415,7 +1415,7 @@ define internal noundef i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deflate_fast(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1949,7 +1949,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deflate_slow(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 4) i32 @deflate_slow(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 104

@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
-@tsd_tls = external thread_local(initialexec) global %struct.tsd_s, align 8
+@tsd_tls = external thread_local(initialexec) local_unnamed_addr global %struct.tsd_s, align 8
 @sz_size2index_tab = external local_unnamed_addr global [0 x i8], align 1
 @sz_index2size_tab = external local_unnamed_addr global [232 x i64], align 16
 @opt_experimental_infallible_new = external local_unnamed_addr global i8, align 1
@@ -1131,21 +1131,21 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %conv.i = trunc i64 %alignment to i32
+  %conv.i = trunc nuw nsw i64 %alignment to i32
   %.not46 = icmp eq i32 %conv.i, 0
   br i1 %.not46, label %if.then.i4, label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %shr.i = lshr i64 %alignment, 32
-  %conv3.i = trunc i64 %shr.i to i32
-  %cttz = tail call i32 @llvm.cttz.i32(i32 %conv3.i, i1 true), !range !28
+  %conv3.i = trunc nuw i64 %shr.i to i32
+  %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv3.i, i1 true)
   %.not = icmp eq i32 %conv3.i, 0
   %0 = or disjoint i32 %cttz, 32
   %add.i = select i1 %.not, i32 31, i32 %0
   br label %if.then.i4
 
 cond.end.i:                                       ; preds = %cond.true.i
-  %cttz45 = tail call i32 @llvm.cttz.i32(i32 %conv.i, i1 true), !range !28
+  %cttz45 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv.i, i1 true)
   %cmp.i3.not = icmp eq i32 %cttz45, 0
   br i1 %cmp.i3.not, label %lor.lhs.false.i, label %if.then.i4
 
@@ -1215,21 +1215,21 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %conv.i = trunc i64 %alignment to i32
+  %conv.i = trunc nuw nsw i64 %alignment to i32
   %.not46 = icmp eq i32 %conv.i, 0
   br i1 %.not46, label %if.then.i4, label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %shr.i = lshr i64 %alignment, 32
-  %conv3.i = trunc i64 %shr.i to i32
-  %cttz = tail call i32 @llvm.cttz.i32(i32 %conv3.i, i1 true), !range !28
+  %conv3.i = trunc nuw i64 %shr.i to i32
+  %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv3.i, i1 true)
   %.not = icmp eq i32 %conv3.i, 0
   %0 = or disjoint i32 %cttz, 32
   %add.i = select i1 %.not, i32 31, i32 %0
   br label %if.then.i4
 
 cond.end.i:                                       ; preds = %cond.true.i
-  %cttz45 = tail call i32 @llvm.cttz.i32(i32 %conv.i, i1 true), !range !28
+  %cttz45 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv.i, i1 true)
   %cmp.i3.not = icmp eq i32 %cttz45, 0
   br i1 %cmp.i3.not, label %lor.lhs.false.i, label %if.then.i4
 
@@ -1360,7 +1360,7 @@ catch:                                            ; preds = %lpad
 try.cont:                                         ; preds = %if.end5
   %call6 = tail call noalias ptr @malloc(i64 noundef %size) #19
   %cmp1 = icmp eq ptr %call6, null
-  br i1 %cmp1, label %while.body, label %return, !llvm.loop !29
+  br i1 %cmp1, label %while.body, label %return, !llvm.loop !28
 
 while.end:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %catch
   br i1 %nothrow, label %return, label %if.then9
@@ -1462,6 +1462,5 @@ attributes #19 = { nounwind allocsize(0) }
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: %agg.result"}
 !27 = distinct !{!27, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!28 = !{i32 0, i32 33}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.mustprogress"}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}

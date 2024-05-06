@@ -18,7 +18,7 @@ define ptr @aggetrec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %.021, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %8) #5
+  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %8) #5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.critedge, label %11
 
@@ -93,7 +93,7 @@ define ptr @agbindrec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr %.021.i, align 8
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #5
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %10) #5
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.critedge.i, label %13
 
@@ -195,7 +195,7 @@ objputrec.exit:                                   ; preds = %objputrec.exit.sink
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %.021.i21, align 8
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %53) #5
+  %54 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %53) #5
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %.critedge.i24, label %56
 
@@ -250,7 +250,7 @@ declare ptr @agalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agdelrec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agraphof(ptr noundef %0) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -263,7 +263,7 @@ define noundef i32 @agdelrec(ptr noundef %0, ptr nocapture noundef readonly %1) 
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %.021.i, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %8) #5
+  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %8) #5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.critedge.i, label %11
 
@@ -498,7 +498,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
 
 .lr.ph26.split.us:                                ; preds = %.lr.ph26, %.lr.ph26.split.us
   %.01725.us = phi ptr [ %10, %.lr.ph26.split.us ], [ %7, %.lr.ph26 ]
-  %9 = tail call i32 @agdelrec(ptr noundef nonnull %.01725.us, ptr noundef %2), !range !4
+  %9 = tail call i32 @agdelrec(ptr noundef nonnull %.01725.us, ptr noundef %2)
   %10 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01725.us) #6
   %.not.us = icmp eq ptr %10, null
   br i1 %.not.us, label %.loopexit19, label %.lr.ph26.split.us
@@ -523,7 +523,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr %.021.i.i, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #5
+  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %17) #5
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.critedge.i.i, label %20
 
@@ -621,7 +621,7 @@ agdelrec.exit:                                    ; preds = %15, %20, %objdelrec
 
 ; Function Attrs: nounwind uwtable
 define internal void @simple_delrec(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = tail call i32 @agdelrec(ptr noundef %1, ptr noundef %2), !range !4
+  %4 = tail call i32 @agdelrec(ptr noundef %1, ptr noundef %2)
   ret void
 }
 
@@ -666,4 +666,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

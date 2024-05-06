@@ -282,7 +282,7 @@ define noundef i32 @prte_plm_base_prted_terminate_job(ptr noundef %0) local_unna
   %19 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   %21 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i64 0, i32 6), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i = icmp eq ptr %22, null
@@ -314,7 +314,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %17
   %32 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 1, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %33, i8 0, i64 64, i1 false)
   %34 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_proc_t_class, i64 0, i32 6), align 8
   %35 = load ptr, ptr %34, align 8
   %.not6.i9 = icmp eq ptr %35, null
@@ -456,7 +456,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %29 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %28, i32 noundef 1, i16 noundef zeroext 22) #9
   switch i32 %29, label %30 [
     i32 0, label %._crit_edge
-    i32 -2, label %.loopexit54
+    i32 -2, label %.loopexit55
   ]
 
 ._crit_edge:                                      ; preds = %27
@@ -466,9 +466,9 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
 30:                                               ; preds = %27
   %31 = call ptr @PMIx_Error_string(i32 noundef %29) #9
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %31, ptr noundef nonnull @.str.2, i32 noundef 183) #9
-  br label %.loopexit54
+  br label %.loopexit55
 
-.loopexit54:                                      ; preds = %27, %30
+.loopexit55:                                      ; preds = %27, %30
   call void @PMIx_Data_buffer_destruct(ptr noundef nonnull %2) #9
   br label %85
 
@@ -593,8 +593,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %71
   call void @free(ptr noundef nonnull %37) #9
   br label %85
 
-85:                                               ; preds = %65, %84, %82, %.loopexit54, %16
-  %.0 = phi i32 [ %13, %16 ], [ %29, %.loopexit54 ], [ %57, %82 ], [ %57, %84 ], [ %57, %65 ]
+85:                                               ; preds = %65, %84, %82, %.loopexit55, %16
+  %.0 = phi i32 [ %13, %16 ], [ %29, %.loopexit55 ], [ %57, %82 ], [ %57, %84 ], [ %57, %65 ]
   ret i32 %.0
 }
 

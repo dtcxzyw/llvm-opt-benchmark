@@ -8409,11 +8409,11 @@ invoke.cont69:                                    ; preds = %.noexc119
   store ptr %42, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %level_stats.i, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %level_stats.i, i32 noundef 0, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %div, ptr noundef nonnull align 8 dereferenceable(188) %interval_stats)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %level_stats.i, i32 noundef 0, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %div, ptr noundef nonnull readonly align 8 dereferenceable(188) %interval_stats)
           to label %invoke.cont.i unwind label %lpad.i122
 
 invoke.cont.i:                                    ; preds = %invoke.cont69
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef nonnull %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(48) %level_stats.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(48) %level_stats.i)
           to label %invoke.cont1.i unwind label %lpad.i122
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i

@@ -478,7 +478,7 @@ define dso_local void @__delayacct_thrashing_start(ptr nocapture noundef writeon
   %6 = and i16 %5, 1024
   %7 = icmp eq i16 %6, 0
   %8 = lshr exact i16 %6, 10
-  %9 = trunc i16 %8 to i8
+  %9 = trunc nuw nsw i16 %8 to i8
   store i8 %9, ptr %0, align 1
   br i1 %7, label %10, label %17
 

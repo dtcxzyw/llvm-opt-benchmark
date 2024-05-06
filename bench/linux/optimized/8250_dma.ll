@@ -38,7 +38,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_serial8250_r
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_serial8250_release_dma433, ptr @__UNIQUE_ID___addressable_serial8250_request_dma432, ptr @__UNIQUE_ID___addressable_serial8250_rx_dma_flush431, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @serial8250_tx_dma(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @serial8250_tx_dma(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.scatterlist, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 632
   %4 = load ptr, ptr %3, align 8
@@ -315,7 +315,7 @@ define internal void @__dma_tx_complete(ptr noundef %0) #0 align 16 {
 declare dso_local void @dma_sync_single_for_device(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @serial8250_rx_dma(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @serial8250_rx_dma(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.scatterlist, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 632
   %4 = load ptr, ptr %3, align 8

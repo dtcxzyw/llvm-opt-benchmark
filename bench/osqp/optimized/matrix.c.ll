@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [60 x i8] c"row selection not implemented for partially filled matrices\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @OSQPMatrix_is_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @OSQPMatrix_is_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8

@@ -391,7 +391,7 @@ if.then40:                                        ; preds = %do.body37, %_add_er
   br label %return
 
 do.body43:                                        ; preds = %_add_errcode.exit502
-  %call44 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.8, i32 noundef 51), !range !5
+  %call44 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.8, i32 noundef 51)
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %if.then46, label %do.body49
 
@@ -400,7 +400,7 @@ if.then46:                                        ; preds = %do.body43
   br label %return
 
 do.body49:                                        ; preds = %do.body43
-  %call50 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.9, i32 noundef 61), !range !5
+  %call50 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.9, i32 noundef 61)
   %cmp51 = icmp slt i32 %call50, 0
   br i1 %cmp51, label %if.then52, label %do.body55
 
@@ -409,7 +409,7 @@ if.then52:                                        ; preds = %do.body49
   br label %return
 
 do.body55:                                        ; preds = %do.body49
-  %call56 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.10, i32 noundef 15), !range !5
+  %call56 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.10, i32 noundef 15)
   %cmp57 = icmp slt i32 %call56, 0
   br i1 %cmp57, label %if.then58, label %do.body61
 
@@ -418,7 +418,7 @@ if.then58:                                        ; preds = %do.body55
   br label %return
 
 do.body61:                                        ; preds = %do.body55
-  %call62 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.11, i32 noundef 38), !range !5
+  %call62 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.11, i32 noundef 38)
   %cmp63 = icmp slt i32 %call62, 0
   br i1 %cmp63, label %if.then64, label %do.body67
 
@@ -427,7 +427,7 @@ if.then64:                                        ; preds = %do.body61
   br label %return
 
 do.body67:                                        ; preds = %do.body61
-  %call68 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.12, i32 noundef 32), !range !5
+  %call68 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.12, i32 noundef 32)
   %cmp69 = icmp slt i32 %call68, 0
   br i1 %cmp69, label %if.then70, label %do.body73
 
@@ -436,7 +436,7 @@ if.then70:                                        ; preds = %do.body67
   br label %return
 
 do.body73:                                        ; preds = %do.body67
-  %call74 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.13, i32 noundef 22), !range !5
+  %call74 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.13, i32 noundef 22)
   %cmp75 = icmp slt i32 %call74, 0
   br i1 %cmp75, label %if.then76, label %do.body79
 
@@ -445,7 +445,7 @@ if.then76:                                        ; preds = %do.body73
   br label %return
 
 do.body79:                                        ; preds = %do.body73
-  %call80 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.14, i32 noundef 75), !range !5
+  %call80 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.14, i32 noundef 75)
   %cmp81 = icmp slt i32 %call80, 0
   br i1 %cmp81, label %if.then82, label %do.body85
 
@@ -454,7 +454,7 @@ if.then82:                                        ; preds = %do.body79
   br label %return
 
 do.body85:                                        ; preds = %do.body79
-  %call86 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.15, i32 noundef 68), !range !5
+  %call86 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.15, i32 noundef 68)
   %cmp87 = icmp slt i32 %call86, 0
   br i1 %cmp87, label %if.then88, label %do.body91
 
@@ -463,7 +463,7 @@ if.then88:                                        ; preds = %do.body85
   br label %return
 
 do.body91:                                        ; preds = %do.body85
-  %call92 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.16, i32 noundef 4), !range !5
+  %call92 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.16, i32 noundef 4)
   %cmp93 = icmp slt i32 %call92, 0
   br i1 %cmp93, label %if.then94, label %do.body97
 
@@ -472,7 +472,7 @@ if.then94:                                        ; preds = %do.body91
   br label %return
 
 do.body97:                                        ; preds = %do.body91
-  %call98 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.17, i32 noundef 87), !range !5
+  %call98 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.17, i32 noundef 87)
   %cmp99 = icmp slt i32 %call98, 0
   br i1 %cmp99, label %if.then100, label %do.body103
 
@@ -481,7 +481,7 @@ if.then100:                                       ; preds = %do.body97
   br label %return
 
 do.body103:                                       ; preds = %do.body97
-  %call104 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.18, i32 noundef 39), !range !5
+  %call104 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.18, i32 noundef 39)
   %cmp105 = icmp slt i32 %call104, 0
   br i1 %cmp105, label %if.then106, label %do.body109
 
@@ -490,7 +490,7 @@ if.then106:                                       ; preds = %do.body103
   br label %return
 
 do.body109:                                       ; preds = %do.body103
-  %call110 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.19, i32 noundef 105), !range !5
+  %call110 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.19, i32 noundef 105)
   %cmp111 = icmp slt i32 %call110, 0
   br i1 %cmp111, label %if.then112, label %do.body115
 
@@ -499,7 +499,7 @@ if.then112:                                       ; preds = %do.body109
   br label %return
 
 do.body115:                                       ; preds = %do.body109
-  %call116 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.20, i32 noundef 71), !range !5
+  %call116 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.20, i32 noundef 71)
   %cmp117 = icmp slt i32 %call116, 0
   br i1 %cmp117, label %if.then118, label %do.body121
 
@@ -508,7 +508,7 @@ if.then118:                                       ; preds = %do.body115
   br label %return
 
 do.body121:                                       ; preds = %do.body115
-  %call122 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.21, i32 noundef 66), !range !5
+  %call122 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.21, i32 noundef 66)
   %cmp123 = icmp slt i32 %call122, 0
   br i1 %cmp123, label %if.then124, label %do.body127
 
@@ -517,7 +517,7 @@ if.then124:                                       ; preds = %do.body121
   br label %return
 
 do.body127:                                       ; preds = %do.body121
-  %call128 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.22, i32 noundef 119), !range !5
+  %call128 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.22, i32 noundef 119)
   %cmp129 = icmp slt i32 %call128, 0
   br i1 %cmp129, label %if.then130, label %do.body133
 
@@ -526,7 +526,7 @@ if.then130:                                       ; preds = %do.body127
   br label %return
 
 do.body133:                                       ; preds = %do.body127
-  %call134 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, i32 noundef 10), !range !5
+  %call134 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, i32 noundef 10)
   %cmp135 = icmp slt i32 %call134, 0
   br i1 %cmp135, label %if.then136, label %do.body139
 
@@ -535,7 +535,7 @@ if.then136:                                       ; preds = %do.body133
   br label %return
 
 do.body139:                                       ; preds = %do.body133
-  %call140 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.24, i32 noundef 40), !range !5
+  %call140 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.24, i32 noundef 40)
   %cmp141 = icmp slt i32 %call140, 0
   br i1 %cmp141, label %if.then142, label %do.body145
 
@@ -544,7 +544,7 @@ if.then142:                                       ; preds = %do.body139
   br label %return
 
 do.body145:                                       ; preds = %do.body139
-  %call146 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.25, i32 noundef 18), !range !5
+  %call146 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.25, i32 noundef 18)
   %cmp147 = icmp slt i32 %call146, 0
   br i1 %cmp147, label %if.then148, label %do.body151
 
@@ -553,7 +553,7 @@ if.then148:                                       ; preds = %do.body145
   br label %return
 
 do.body151:                                       ; preds = %do.body145
-  %call152 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.26, i32 noundef 7), !range !5
+  %call152 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.26, i32 noundef 7)
   %cmp153 = icmp slt i32 %call152, 0
   br i1 %cmp153, label %if.then154, label %do.body157
 
@@ -562,7 +562,7 @@ if.then154:                                       ; preds = %do.body151
   br label %return
 
 do.body157:                                       ; preds = %do.body151
-  %call158 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.27, i32 noundef 3), !range !5
+  %call158 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.27, i32 noundef 3)
   %cmp159 = icmp slt i32 %call158, 0
   br i1 %cmp159, label %if.then160, label %do.body163
 
@@ -571,7 +571,7 @@ if.then160:                                       ; preds = %do.body157
   br label %return
 
 do.body163:                                       ; preds = %do.body157
-  %call164 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.28, i32 noundef 90), !range !5
+  %call164 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.28, i32 noundef 90)
   %cmp165 = icmp slt i32 %call164, 0
   br i1 %cmp165, label %if.then166, label %do.body169
 
@@ -580,7 +580,7 @@ if.then166:                                       ; preds = %do.body163
   br label %return
 
 do.body169:                                       ; preds = %do.body163
-  %call170 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.29, i32 noundef 97), !range !5
+  %call170 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.29, i32 noundef 97)
   %cmp171 = icmp slt i32 %call170, 0
   br i1 %cmp171, label %if.then172, label %do.body175
 
@@ -589,7 +589,7 @@ if.then172:                                       ; preds = %do.body169
   br label %return
 
 do.body175:                                       ; preds = %do.body169
-  %call176 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.30, i32 noundef 53), !range !5
+  %call176 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.30, i32 noundef 53)
   %cmp177 = icmp slt i32 %call176, 0
   br i1 %cmp177, label %if.then178, label %do.body181
 
@@ -598,7 +598,7 @@ if.then178:                                       ; preds = %do.body175
   br label %return
 
 do.body181:                                       ; preds = %do.body175
-  %call182 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.31, i32 noundef 112), !range !5
+  %call182 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.31, i32 noundef 112)
   %cmp183 = icmp slt i32 %call182, 0
   br i1 %cmp183, label %if.then184, label %do.body187
 
@@ -607,7 +607,7 @@ if.then184:                                       ; preds = %do.body181
   br label %return
 
 do.body187:                                       ; preds = %do.body181
-  %call188 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.32, i32 noundef 96), !range !5
+  %call188 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.32, i32 noundef 96)
   %cmp189 = icmp slt i32 %call188, 0
   br i1 %cmp189, label %if.then190, label %do.body193
 
@@ -616,7 +616,7 @@ if.then190:                                       ; preds = %do.body187
   br label %return
 
 do.body193:                                       ; preds = %do.body187
-  %call194 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.33, i32 noundef 92), !range !5
+  %call194 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.33, i32 noundef 92)
   %cmp195 = icmp slt i32 %call194, 0
   br i1 %cmp195, label %if.then196, label %do.body199
 
@@ -625,7 +625,7 @@ if.then196:                                       ; preds = %do.body193
   br label %return
 
 do.body199:                                       ; preds = %do.body193
-  %call200 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.34, i32 noundef 16), !range !5
+  %call200 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.34, i32 noundef 16)
   %cmp201 = icmp slt i32 %call200, 0
   br i1 %cmp201, label %if.then202, label %do.body205
 
@@ -634,7 +634,7 @@ if.then202:                                       ; preds = %do.body199
   br label %return
 
 do.body205:                                       ; preds = %do.body199
-  %call206 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.35, i32 noundef 11), !range !5
+  %call206 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.35, i32 noundef 11)
   %cmp207 = icmp slt i32 %call206, 0
   br i1 %cmp207, label %if.then208, label %do.body211
 
@@ -643,7 +643,7 @@ if.then208:                                       ; preds = %do.body205
   br label %return
 
 do.body211:                                       ; preds = %do.body205
-  %call212 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.36, i32 noundef 77), !range !5
+  %call212 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.36, i32 noundef 77)
   %cmp213 = icmp slt i32 %call212, 0
   br i1 %cmp213, label %if.then214, label %do.body217
 
@@ -652,7 +652,7 @@ if.then214:                                       ; preds = %do.body211
   br label %return
 
 do.body217:                                       ; preds = %do.body211
-  %call218 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.37, i32 noundef 73), !range !5
+  %call218 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.37, i32 noundef 73)
   %cmp219 = icmp slt i32 %call218, 0
   br i1 %cmp219, label %if.then220, label %do.body223
 
@@ -661,7 +661,7 @@ if.then220:                                       ; preds = %do.body217
   br label %return
 
 do.body223:                                       ; preds = %do.body217
-  %call224 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.38, i32 noundef 106), !range !5
+  %call224 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.38, i32 noundef 106)
   %cmp225 = icmp slt i32 %call224, 0
   br i1 %cmp225, label %if.then226, label %do.body229
 
@@ -670,7 +670,7 @@ if.then226:                                       ; preds = %do.body223
   br label %return
 
 do.body229:                                       ; preds = %do.body223
-  %call230 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.39, i32 noundef 55), !range !5
+  %call230 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.39, i32 noundef 55)
   %cmp231 = icmp slt i32 %call230, 0
   br i1 %cmp231, label %if.then232, label %do.body235
 
@@ -679,7 +679,7 @@ if.then232:                                       ; preds = %do.body229
   br label %return
 
 do.body235:                                       ; preds = %do.body229
-  %call236 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.40, i32 noundef 108), !range !5
+  %call236 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.40, i32 noundef 108)
   %cmp237 = icmp slt i32 %call236, 0
   br i1 %cmp237, label %if.then238, label %do.body241
 
@@ -688,7 +688,7 @@ if.then238:                                       ; preds = %do.body235
   br label %return
 
 do.body241:                                       ; preds = %do.body235
-  %call242 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.41, i32 noundef 44), !range !5
+  %call242 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.41, i32 noundef 44)
   %cmp243 = icmp slt i32 %call242, 0
   br i1 %cmp243, label %if.then244, label %do.body247
 
@@ -697,7 +697,7 @@ if.then244:                                       ; preds = %do.body241
   br label %return
 
 do.body247:                                       ; preds = %do.body241
-  %call248 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.42, i32 noundef 80), !range !5
+  %call248 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.42, i32 noundef 80)
   %cmp249 = icmp slt i32 %call248, 0
   br i1 %cmp249, label %if.then250, label %do.body253
 
@@ -706,7 +706,7 @@ if.then250:                                       ; preds = %do.body247
   br label %return
 
 do.body253:                                       ; preds = %do.body247
-  %call254 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.43, i32 noundef 64), !range !5
+  %call254 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.43, i32 noundef 64)
   %cmp255 = icmp slt i32 %call254, 0
   br i1 %cmp255, label %if.then256, label %do.body259
 
@@ -715,7 +715,7 @@ if.then256:                                       ; preds = %do.body253
   br label %return
 
 do.body259:                                       ; preds = %do.body253
-  %call260 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.44, i32 noundef 52), !range !5
+  %call260 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.44, i32 noundef 52)
   %cmp261 = icmp slt i32 %call260, 0
   br i1 %cmp261, label %if.then262, label %do.body265
 
@@ -724,7 +724,7 @@ if.then262:                                       ; preds = %do.body259
   br label %return
 
 do.body265:                                       ; preds = %do.body259
-  %call266 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.45, i32 noundef 9), !range !5
+  %call266 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.45, i32 noundef 9)
   %cmp267 = icmp slt i32 %call266, 0
   br i1 %cmp267, label %if.then268, label %do.body271
 
@@ -733,7 +733,7 @@ if.then268:                                       ; preds = %do.body265
   br label %return
 
 do.body271:                                       ; preds = %do.body265
-  %call272 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.46, i32 noundef 72), !range !5
+  %call272 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.46, i32 noundef 72)
   %cmp273 = icmp slt i32 %call272, 0
   br i1 %cmp273, label %if.then274, label %do.body277
 
@@ -742,7 +742,7 @@ if.then274:                                       ; preds = %do.body271
   br label %return
 
 do.body277:                                       ; preds = %do.body271
-  %call278 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.47, i32 noundef 5), !range !5
+  %call278 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.47, i32 noundef 5)
   %cmp279 = icmp slt i32 %call278, 0
   br i1 %cmp279, label %if.then280, label %do.body283
 
@@ -751,7 +751,7 @@ if.then280:                                       ; preds = %do.body277
   br label %return
 
 do.body283:                                       ; preds = %do.body277
-  %call284 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.48, i32 noundef 49), !range !5
+  %call284 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.48, i32 noundef 49)
   %cmp285 = icmp slt i32 %call284, 0
   br i1 %cmp285, label %if.then286, label %do.body289
 
@@ -760,7 +760,7 @@ if.then286:                                       ; preds = %do.body283
   br label %return
 
 do.body289:                                       ; preds = %do.body283
-  %call290 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.49, i32 noundef 91), !range !5
+  %call290 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.49, i32 noundef 91)
   %cmp291 = icmp slt i32 %call290, 0
   br i1 %cmp291, label %if.then292, label %do.body295
 
@@ -769,7 +769,7 @@ if.then292:                                       ; preds = %do.body289
   br label %return
 
 do.body295:                                       ; preds = %do.body289
-  %call296 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.50, i32 noundef 28), !range !5
+  %call296 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.50, i32 noundef 28)
   %cmp297 = icmp slt i32 %call296, 0
   br i1 %cmp297, label %if.then298, label %do.body301
 
@@ -778,7 +778,7 @@ if.then298:                                       ; preds = %do.body295
   br label %return
 
 do.body301:                                       ; preds = %do.body295
-  %call302 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.51, i32 noundef 8), !range !5
+  %call302 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.51, i32 noundef 8)
   %cmp303 = icmp slt i32 %call302, 0
   br i1 %cmp303, label %if.then304, label %do.body307
 
@@ -787,7 +787,7 @@ if.then304:                                       ; preds = %do.body301
   br label %return
 
 do.body307:                                       ; preds = %do.body301
-  %call308 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.52, i32 noundef 114), !range !5
+  %call308 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.52, i32 noundef 114)
   %cmp309 = icmp slt i32 %call308, 0
   br i1 %cmp309, label %if.then310, label %do.body313
 
@@ -796,7 +796,7 @@ if.then310:                                       ; preds = %do.body307
   br label %return
 
 do.body313:                                       ; preds = %do.body307
-  %call314 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.53, i32 noundef 100), !range !5
+  %call314 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.53, i32 noundef 100)
   %cmp315 = icmp slt i32 %call314, 0
   br i1 %cmp315, label %if.then316, label %do.body319
 
@@ -805,7 +805,7 @@ if.then316:                                       ; preds = %do.body313
   br label %return
 
 do.body319:                                       ; preds = %do.body313
-  %call320 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.54, i32 noundef 118), !range !5
+  %call320 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.54, i32 noundef 118)
   %cmp321 = icmp slt i32 %call320, 0
   br i1 %cmp321, label %if.then322, label %do.body325
 
@@ -814,7 +814,7 @@ if.then322:                                       ; preds = %do.body319
   br label %return
 
 do.body325:                                       ; preds = %do.body319
-  %call326 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.55, i32 noundef 13), !range !5
+  %call326 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.55, i32 noundef 13)
   %cmp327 = icmp slt i32 %call326, 0
   br i1 %cmp327, label %if.then328, label %do.body331
 
@@ -823,7 +823,7 @@ if.then328:                                       ; preds = %do.body325
   br label %return
 
 do.body331:                                       ; preds = %do.body325
-  %call332 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.56, i32 noundef 48), !range !5
+  %call332 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.56, i32 noundef 48)
   %cmp333 = icmp slt i32 %call332, 0
   br i1 %cmp333, label %if.then334, label %do.body337
 
@@ -832,7 +832,7 @@ if.then334:                                       ; preds = %do.body331
   br label %return
 
 do.body337:                                       ; preds = %do.body331
-  %call338 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.57, i32 noundef 84), !range !5
+  %call338 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.57, i32 noundef 84)
   %cmp339 = icmp slt i32 %call338, 0
   br i1 %cmp339, label %if.then340, label %do.body343
 
@@ -841,7 +841,7 @@ if.then340:                                       ; preds = %do.body337
   br label %return
 
 do.body343:                                       ; preds = %do.body337
-  %call344 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.58, i32 noundef 20), !range !5
+  %call344 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.58, i32 noundef 20)
   %cmp345 = icmp slt i32 %call344, 0
   br i1 %cmp345, label %if.then346, label %do.body349
 
@@ -850,7 +850,7 @@ if.then346:                                       ; preds = %do.body343
   br label %return
 
 do.body349:                                       ; preds = %do.body343
-  %call350 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.59, i32 noundef 76), !range !5
+  %call350 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.59, i32 noundef 76)
   %cmp351 = icmp slt i32 %call350, 0
   br i1 %cmp351, label %if.then352, label %do.body355
 
@@ -859,7 +859,7 @@ if.then352:                                       ; preds = %do.body349
   br label %return
 
 do.body355:                                       ; preds = %do.body349
-  %call356 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.60, i32 noundef 1), !range !5
+  %call356 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.60, i32 noundef 1)
   %cmp357 = icmp slt i32 %call356, 0
   br i1 %cmp357, label %if.then358, label %do.body361
 
@@ -868,7 +868,7 @@ if.then358:                                       ; preds = %do.body355
   br label %return
 
 do.body361:                                       ; preds = %do.body355
-  %call362 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.61, i32 noundef 33), !range !5
+  %call362 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.61, i32 noundef 33)
   %cmp363 = icmp slt i32 %call362, 0
   br i1 %cmp363, label %if.then364, label %do.body367
 
@@ -877,7 +877,7 @@ if.then364:                                       ; preds = %do.body361
   br label %return
 
 do.body367:                                       ; preds = %do.body361
-  %call368 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.62, i32 noundef 54), !range !5
+  %call368 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.62, i32 noundef 54)
   %cmp369 = icmp slt i32 %call368, 0
   br i1 %cmp369, label %if.then370, label %do.body373
 
@@ -886,7 +886,7 @@ if.then370:                                       ; preds = %do.body367
   br label %return
 
 do.body373:                                       ; preds = %do.body367
-  %call374 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.63, i32 noundef 111), !range !5
+  %call374 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.63, i32 noundef 111)
   %cmp375 = icmp slt i32 %call374, 0
   br i1 %cmp375, label %if.then376, label %do.body379
 
@@ -895,7 +895,7 @@ if.then376:                                       ; preds = %do.body373
   br label %return
 
 do.body379:                                       ; preds = %do.body373
-  %call380 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.64, i32 noundef 21), !range !5
+  %call380 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.64, i32 noundef 21)
   %cmp381 = icmp slt i32 %call380, 0
   br i1 %cmp381, label %if.then382, label %do.body385
 
@@ -904,7 +904,7 @@ if.then382:                                       ; preds = %do.body379
   br label %return
 
 do.body385:                                       ; preds = %do.body379
-  %call386 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.65, i32 noundef 93), !range !5
+  %call386 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.65, i32 noundef 93)
   %cmp387 = icmp slt i32 %call386, 0
   br i1 %cmp387, label %if.then388, label %do.body391
 
@@ -913,7 +913,7 @@ if.then388:                                       ; preds = %do.body385
   br label %return
 
 do.body391:                                       ; preds = %do.body385
-  %call392 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.66, i32 noundef 30), !range !5
+  %call392 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.66, i32 noundef 30)
   %cmp393 = icmp slt i32 %call392, 0
   br i1 %cmp393, label %if.then394, label %do.body397
 
@@ -922,7 +922,7 @@ if.then394:                                       ; preds = %do.body391
   br label %return
 
 do.body397:                                       ; preds = %do.body391
-  %call398 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.67, i32 noundef 99), !range !5
+  %call398 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.67, i32 noundef 99)
   %cmp399 = icmp slt i32 %call398, 0
   br i1 %cmp399, label %if.then400, label %do.body403
 
@@ -931,7 +931,7 @@ if.then400:                                       ; preds = %do.body397
   br label %return
 
 do.body403:                                       ; preds = %do.body397
-  %call404 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.68, i32 noundef 43), !range !5
+  %call404 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.68, i32 noundef 43)
   %cmp405 = icmp slt i32 %call404, 0
   br i1 %cmp405, label %if.then406, label %do.body409
 
@@ -940,7 +940,7 @@ if.then406:                                       ; preds = %do.body403
   br label %return
 
 do.body409:                                       ; preds = %do.body403
-  %call410 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.69, i32 noundef 70), !range !5
+  %call410 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.69, i32 noundef 70)
   %cmp411 = icmp slt i32 %call410, 0
   br i1 %cmp411, label %if.then412, label %do.body415
 
@@ -949,7 +949,7 @@ if.then412:                                       ; preds = %do.body409
   br label %return
 
 do.body415:                                       ; preds = %do.body409
-  %call416 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.70, i32 noundef 69), !range !5
+  %call416 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.70, i32 noundef 69)
   %cmp417 = icmp slt i32 %call416, 0
   br i1 %cmp417, label %if.then418, label %do.body421
 
@@ -958,7 +958,7 @@ if.then418:                                       ; preds = %do.body415
   br label %return
 
 do.body421:                                       ; preds = %do.body415
-  %call422 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.71, i32 noundef 121), !range !5
+  %call422 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.71, i32 noundef 121)
   %cmp423 = icmp slt i32 %call422, 0
   br i1 %cmp423, label %if.then424, label %do.body427
 
@@ -967,7 +967,7 @@ if.then424:                                       ; preds = %do.body421
   br label %return
 
 do.body427:                                       ; preds = %do.body421
-  %call428 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.72, i32 noundef 47), !range !5
+  %call428 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.72, i32 noundef 47)
   %cmp429 = icmp slt i32 %call428, 0
   br i1 %cmp429, label %if.then430, label %do.body433
 
@@ -976,7 +976,7 @@ if.then430:                                       ; preds = %do.body427
   br label %return
 
 do.body433:                                       ; preds = %do.body427
-  %call434 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.73, i32 noundef 74), !range !5
+  %call434 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.73, i32 noundef 74)
   %cmp435 = icmp slt i32 %call434, 0
   br i1 %cmp435, label %if.then436, label %do.body439
 
@@ -985,7 +985,7 @@ if.then436:                                       ; preds = %do.body433
   br label %return
 
 do.body439:                                       ; preds = %do.body433
-  %call440 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.74, i32 noundef 23), !range !5
+  %call440 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.74, i32 noundef 23)
   %cmp441 = icmp slt i32 %call440, 0
   br i1 %cmp441, label %if.then442, label %do.body445
 
@@ -994,7 +994,7 @@ if.then442:                                       ; preds = %do.body439
   br label %return
 
 do.body445:                                       ; preds = %do.body439
-  %call446 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.75, i32 noundef 82), !range !5
+  %call446 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.75, i32 noundef 82)
   %cmp447 = icmp slt i32 %call446, 0
   br i1 %cmp447, label %if.then448, label %do.body451
 
@@ -1003,7 +1003,7 @@ if.then448:                                       ; preds = %do.body445
   br label %return
 
 do.body451:                                       ; preds = %do.body445
-  %call452 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.76, i32 noundef 29), !range !5
+  %call452 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.76, i32 noundef 29)
   %cmp453 = icmp slt i32 %call452, 0
   br i1 %cmp453, label %if.then454, label %do.body457
 
@@ -1012,7 +1012,7 @@ if.then454:                                       ; preds = %do.body451
   br label %return
 
 do.body457:                                       ; preds = %do.body451
-  %call458 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.77, i32 noundef 67), !range !5
+  %call458 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.77, i32 noundef 67)
   %cmp459 = icmp slt i32 %call458, 0
   br i1 %cmp459, label %if.then460, label %do.body463
 
@@ -1021,7 +1021,7 @@ if.then460:                                       ; preds = %do.body457
   br label %return
 
 do.body463:                                       ; preds = %do.body457
-  %call464 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.78, i32 noundef 102), !range !5
+  %call464 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.78, i32 noundef 102)
   %cmp465 = icmp slt i32 %call464, 0
   br i1 %cmp465, label %if.then466, label %do.body469
 
@@ -1030,7 +1030,7 @@ if.then466:                                       ; preds = %do.body463
   br label %return
 
 do.body469:                                       ; preds = %do.body463
-  %call470 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.79, i32 noundef 110), !range !5
+  %call470 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.79, i32 noundef 110)
   %cmp471 = icmp slt i32 %call470, 0
   br i1 %cmp471, label %if.then472, label %do.body475
 
@@ -1039,7 +1039,7 @@ if.then472:                                       ; preds = %do.body469
   br label %return
 
 do.body475:                                       ; preds = %do.body469
-  %call476 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.80, i32 noundef 2), !range !5
+  %call476 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.80, i32 noundef 2)
   %cmp477 = icmp slt i32 %call476, 0
   br i1 %cmp477, label %if.then478, label %do.body481
 
@@ -1048,7 +1048,7 @@ if.then478:                                       ; preds = %do.body475
   br label %return
 
 do.body481:                                       ; preds = %do.body475
-  %call482 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.81, i32 noundef 17), !range !5
+  %call482 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.81, i32 noundef 17)
   %cmp483 = icmp slt i32 %call482, 0
   br i1 %cmp483, label %if.then484, label %do.body487
 
@@ -1057,7 +1057,7 @@ if.then484:                                       ; preds = %do.body481
   br label %return
 
 do.body487:                                       ; preds = %do.body481
-  %call488 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.82, i32 noundef 122), !range !5
+  %call488 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.82, i32 noundef 122)
   %cmp489 = icmp slt i32 %call488, 0
   br i1 %cmp489, label %if.then490, label %do.body493
 
@@ -1066,7 +1066,7 @@ if.then490:                                       ; preds = %do.body487
   br label %return
 
 do.body493:                                       ; preds = %do.body487
-  %call494 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.83, i32 noundef 60), !range !5
+  %call494 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.83, i32 noundef 60)
   %cmp495 = icmp slt i32 %call494, 0
   br i1 %cmp495, label %if.then496, label %do.body499
 
@@ -1075,7 +1075,7 @@ if.then496:                                       ; preds = %do.body493
   br label %return
 
 do.body499:                                       ; preds = %do.body493
-  %call500 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.84, i32 noundef 57), !range !5
+  %call500 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.84, i32 noundef 57)
   %cmp501 = icmp slt i32 %call500, 0
   br i1 %cmp501, label %if.then502, label %do.body505
 
@@ -1084,7 +1084,7 @@ if.then502:                                       ; preds = %do.body499
   br label %return
 
 do.body505:                                       ; preds = %do.body499
-  %call506 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.85, i32 noundef 56), !range !5
+  %call506 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.85, i32 noundef 56)
   %cmp507 = icmp slt i32 %call506, 0
   br i1 %cmp507, label %if.then508, label %do.body511
 
@@ -1093,7 +1093,7 @@ if.then508:                                       ; preds = %do.body505
   br label %return
 
 do.body511:                                       ; preds = %do.body505
-  %call512 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.86, i32 noundef 79), !range !5
+  %call512 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.86, i32 noundef 79)
   %cmp513 = icmp slt i32 %call512, 0
   br i1 %cmp513, label %if.then514, label %do.body517
 
@@ -1102,7 +1102,7 @@ if.then514:                                       ; preds = %do.body511
   br label %return
 
 do.body517:                                       ; preds = %do.body511
-  %call518 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.87, i32 noundef 14), !range !5
+  %call518 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.87, i32 noundef 14)
   %cmp519 = icmp slt i32 %call518, 0
   br i1 %cmp519, label %if.then520, label %do.body523
 
@@ -1111,7 +1111,7 @@ if.then520:                                       ; preds = %do.body517
   br label %return
 
 do.body523:                                       ; preds = %do.body517
-  %call524 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.88, i32 noundef 27), !range !5
+  %call524 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.88, i32 noundef 27)
   %cmp525 = icmp slt i32 %call524, 0
   br i1 %cmp525, label %if.then526, label %do.body529
 
@@ -1120,7 +1120,7 @@ if.then526:                                       ; preds = %do.body523
   br label %return
 
 do.body529:                                       ; preds = %do.body523
-  %call530 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.89, i32 noundef 35), !range !5
+  %call530 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.89, i32 noundef 35)
   %cmp531 = icmp slt i32 %call530, 0
   br i1 %cmp531, label %if.then532, label %do.body535
 
@@ -1129,7 +1129,7 @@ if.then532:                                       ; preds = %do.body529
   br label %return
 
 do.body535:                                       ; preds = %do.body529
-  %call536 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.90, i32 noundef 107), !range !5
+  %call536 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.90, i32 noundef 107)
   %cmp537 = icmp slt i32 %call536, 0
   br i1 %cmp537, label %if.then538, label %do.body541
 
@@ -1138,7 +1138,7 @@ if.then538:                                       ; preds = %do.body535
   br label %return
 
 do.body541:                                       ; preds = %do.body535
-  %call542 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.91, i32 noundef 89), !range !5
+  %call542 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.91, i32 noundef 89)
   %cmp543 = icmp slt i32 %call542, 0
   br i1 %cmp543, label %if.then544, label %do.body547
 
@@ -1147,7 +1147,7 @@ if.then544:                                       ; preds = %do.body541
   br label %return
 
 do.body547:                                       ; preds = %do.body541
-  %call548 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.92, i32 noundef 81), !range !5
+  %call548 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.92, i32 noundef 81)
   %cmp549 = icmp slt i32 %call548, 0
   br i1 %cmp549, label %if.then550, label %do.body553
 
@@ -1156,7 +1156,7 @@ if.then550:                                       ; preds = %do.body547
   br label %return
 
 do.body553:                                       ; preds = %do.body547
-  %call554 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.93, i32 noundef 37), !range !5
+  %call554 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.93, i32 noundef 37)
   %cmp555 = icmp slt i32 %call554, 0
   br i1 %cmp555, label %if.then556, label %do.body559
 
@@ -1165,7 +1165,7 @@ if.then556:                                       ; preds = %do.body553
   br label %return
 
 do.body559:                                       ; preds = %do.body553
-  %call560 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.94, i32 noundef 120), !range !5
+  %call560 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.94, i32 noundef 120)
   %cmp561 = icmp slt i32 %call560, 0
   br i1 %cmp561, label %if.then562, label %do.body565
 
@@ -1174,7 +1174,7 @@ if.then562:                                       ; preds = %do.body559
   br label %return
 
 do.body565:                                       ; preds = %do.body559
-  %call566 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.95, i32 noundef 103), !range !5
+  %call566 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.95, i32 noundef 103)
   %cmp567 = icmp slt i32 %call566, 0
   br i1 %cmp567, label %if.then568, label %do.body571
 
@@ -1183,7 +1183,7 @@ if.then568:                                       ; preds = %do.body565
   br label %return
 
 do.body571:                                       ; preds = %do.body565
-  %call572 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.96, i32 noundef 101), !range !5
+  %call572 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.96, i32 noundef 101)
   %cmp573 = icmp slt i32 %call572, 0
   br i1 %cmp573, label %if.then574, label %do.body577
 
@@ -1192,7 +1192,7 @@ if.then574:                                       ; preds = %do.body571
   br label %return
 
 do.body577:                                       ; preds = %do.body571
-  %call578 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.97, i32 noundef 116), !range !5
+  %call578 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.97, i32 noundef 116)
   %cmp579 = icmp slt i32 %call578, 0
   br i1 %cmp579, label %if.then580, label %do.body583
 
@@ -1201,7 +1201,7 @@ if.then580:                                       ; preds = %do.body577
   br label %return
 
 do.body583:                                       ; preds = %do.body577
-  %call584 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.98, i32 noundef 63), !range !5
+  %call584 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.98, i32 noundef 63)
   %cmp585 = icmp slt i32 %call584, 0
   br i1 %cmp585, label %if.then586, label %do.body589
 
@@ -1210,7 +1210,7 @@ if.then586:                                       ; preds = %do.body583
   br label %return
 
 do.body589:                                       ; preds = %do.body583
-  %call590 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.99, i32 noundef 12), !range !5
+  %call590 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.99, i32 noundef 12)
   %cmp591 = icmp slt i32 %call590, 0
   br i1 %cmp591, label %if.then592, label %do.body595
 
@@ -1219,7 +1219,7 @@ if.then592:                                       ; preds = %do.body589
   br label %return
 
 do.body595:                                       ; preds = %do.body589
-  %call596 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.100, i32 noundef 88), !range !5
+  %call596 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.100, i32 noundef 88)
   %cmp597 = icmp slt i32 %call596, 0
   br i1 %cmp597, label %if.then598, label %do.body601
 
@@ -1228,7 +1228,7 @@ if.then598:                                       ; preds = %do.body595
   br label %return
 
 do.body601:                                       ; preds = %do.body595
-  %call602 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.101, i32 noundef 86), !range !5
+  %call602 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.101, i32 noundef 86)
   %cmp603 = icmp slt i32 %call602, 0
   br i1 %cmp603, label %if.then604, label %do.body607
 
@@ -1237,7 +1237,7 @@ if.then604:                                       ; preds = %do.body601
   br label %return
 
 do.body607:                                       ; preds = %do.body601
-  %call608 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.102, i32 noundef 31), !range !5
+  %call608 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.102, i32 noundef 31)
   %cmp609 = icmp slt i32 %call608, 0
   br i1 %cmp609, label %if.then610, label %do.body613
 
@@ -1246,7 +1246,7 @@ if.then610:                                       ; preds = %do.body607
   br label %return
 
 do.body613:                                       ; preds = %do.body607
-  %call614 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.103, i32 noundef 34), !range !5
+  %call614 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.103, i32 noundef 34)
   %cmp615 = icmp slt i32 %call614, 0
   br i1 %cmp615, label %if.then616, label %do.body619
 
@@ -1255,7 +1255,7 @@ if.then616:                                       ; preds = %do.body613
   br label %return
 
 do.body619:                                       ; preds = %do.body613
-  %call620 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.104, i32 noundef 83), !range !5
+  %call620 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.104, i32 noundef 83)
   %cmp621 = icmp slt i32 %call620, 0
   br i1 %cmp621, label %if.then622, label %do.body625
 
@@ -1264,7 +1264,7 @@ if.then622:                                       ; preds = %do.body619
   br label %return
 
 do.body625:                                       ; preds = %do.body619
-  %call626 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.105, i32 noundef 46), !range !5
+  %call626 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.105, i32 noundef 46)
   %cmp627 = icmp slt i32 %call626, 0
   br i1 %cmp627, label %if.then628, label %do.body631
 
@@ -1273,7 +1273,7 @@ if.then628:                                       ; preds = %do.body625
   br label %return
 
 do.body631:                                       ; preds = %do.body625
-  %call632 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.106, i32 noundef 104), !range !5
+  %call632 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.106, i32 noundef 104)
   %cmp633 = icmp slt i32 %call632, 0
   br i1 %cmp633, label %if.then634, label %do.body637
 
@@ -1282,7 +1282,7 @@ if.then634:                                       ; preds = %do.body631
   br label %return
 
 do.body637:                                       ; preds = %do.body631
-  %call638 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.107, i32 noundef 98), !range !5
+  %call638 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.107, i32 noundef 98)
   %cmp639 = icmp slt i32 %call638, 0
   br i1 %cmp639, label %if.then640, label %do.body643
 
@@ -1291,7 +1291,7 @@ if.then640:                                       ; preds = %do.body637
   br label %return
 
 do.body643:                                       ; preds = %do.body637
-  %call644 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.108, i32 noundef 95), !range !5
+  %call644 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.108, i32 noundef 95)
   %cmp645 = icmp slt i32 %call644, 0
   br i1 %cmp645, label %if.then646, label %do.body649
 
@@ -1300,7 +1300,7 @@ if.then646:                                       ; preds = %do.body643
   br label %return
 
 do.body649:                                       ; preds = %do.body643
-  %call650 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.109, i32 noundef 78), !range !5
+  %call650 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.109, i32 noundef 78)
   %cmp651 = icmp slt i32 %call650, 0
   br i1 %cmp651, label %if.then652, label %do.body655
 
@@ -1309,7 +1309,7 @@ if.then652:                                       ; preds = %do.body649
   br label %return
 
 do.body655:                                       ; preds = %do.body649
-  %call656 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.110, i32 noundef 11), !range !5
+  %call656 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.110, i32 noundef 11)
   %cmp657 = icmp slt i32 %call656, 0
   br i1 %cmp657, label %if.then658, label %do.body661
 
@@ -1318,7 +1318,7 @@ if.then658:                                       ; preds = %do.body655
   br label %return
 
 do.body661:                                       ; preds = %do.body655
-  %call662 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.111, i32 noundef 36), !range !5
+  %call662 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.111, i32 noundef 36)
   %cmp663 = icmp slt i32 %call662, 0
   br i1 %cmp663, label %if.then664, label %do.body667
 
@@ -1327,7 +1327,7 @@ if.then664:                                       ; preds = %do.body661
   br label %return
 
 do.body667:                                       ; preds = %do.body661
-  %call668 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.112, i32 noundef 25), !range !5
+  %call668 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.112, i32 noundef 25)
   %cmp669 = icmp slt i32 %call668, 0
   br i1 %cmp669, label %if.then670, label %do.body673
 
@@ -1336,7 +1336,7 @@ if.then670:                                       ; preds = %do.body667
   br label %return
 
 do.body673:                                       ; preds = %do.body667
-  %call674 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.113, i32 noundef 85), !range !5
+  %call674 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.113, i32 noundef 85)
   %cmp675 = icmp slt i32 %call674, 0
   br i1 %cmp675, label %if.then676, label %do.body679
 
@@ -1345,7 +1345,7 @@ if.then676:                                       ; preds = %do.body673
   br label %return
 
 do.body679:                                       ; preds = %do.body673
-  %call680 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.114, i32 noundef 94), !range !5
+  %call680 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.114, i32 noundef 94)
   %cmp681 = icmp slt i32 %call680, 0
   br i1 %cmp681, label %if.then682, label %do.body685
 
@@ -1354,7 +1354,7 @@ if.then682:                                       ; preds = %do.body679
   br label %return
 
 do.body685:                                       ; preds = %do.body679
-  %call686 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.115, i32 noundef 62), !range !5
+  %call686 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.115, i32 noundef 62)
   %cmp687 = icmp slt i32 %call686, 0
   br i1 %cmp687, label %if.then688, label %do.body691
 
@@ -1363,7 +1363,7 @@ if.then688:                                       ; preds = %do.body685
   br label %return
 
 do.body691:                                       ; preds = %do.body685
-  %call692 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.116, i32 noundef 59), !range !5
+  %call692 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.116, i32 noundef 59)
   %cmp693 = icmp slt i32 %call692, 0
   br i1 %cmp693, label %if.then694, label %do.body697
 
@@ -1372,7 +1372,7 @@ if.then694:                                       ; preds = %do.body691
   br label %return
 
 do.body697:                                       ; preds = %do.body691
-  %call698 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.117, i32 noundef 35), !range !5
+  %call698 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.117, i32 noundef 35)
   %cmp699 = icmp slt i32 %call698, 0
   br i1 %cmp699, label %if.then700, label %do.body703
 
@@ -1381,7 +1381,7 @@ if.then700:                                       ; preds = %do.body697
   br label %return
 
 do.body703:                                       ; preds = %do.body697
-  %call704 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.118, i32 noundef 109), !range !5
+  %call704 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.118, i32 noundef 109)
   %cmp705 = icmp slt i32 %call704, 0
   br i1 %cmp705, label %if.then706, label %do.body709
 
@@ -1390,7 +1390,7 @@ if.then706:                                       ; preds = %do.body703
   br label %return
 
 do.body709:                                       ; preds = %do.body703
-  %call710 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.119, i32 noundef 24), !range !5
+  %call710 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.119, i32 noundef 24)
   %cmp711 = icmp slt i32 %call710, 0
   br i1 %cmp711, label %if.then712, label %do.body715
 
@@ -1399,7 +1399,7 @@ if.then712:                                       ; preds = %do.body709
   br label %return
 
 do.body715:                                       ; preds = %do.body709
-  %call716 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.120, i32 noundef 26), !range !5
+  %call716 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.120, i32 noundef 26)
   %cmp717 = icmp slt i32 %call716, 0
   br i1 %cmp717, label %if.then718, label %do.body721
 
@@ -1408,7 +1408,7 @@ if.then718:                                       ; preds = %do.body715
   br label %return
 
 do.body721:                                       ; preds = %do.body715
-  %call722 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.121, i32 noundef 115), !range !5
+  %call722 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.121, i32 noundef 115)
   %cmp723 = icmp slt i32 %call722, 0
   br i1 %cmp723, label %if.then724, label %do.body727
 
@@ -1417,7 +1417,7 @@ if.then724:                                       ; preds = %do.body721
   br label %return
 
 do.body727:                                       ; preds = %do.body721
-  %call728 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.122, i32 noundef 6), !range !5
+  %call728 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.122, i32 noundef 6)
   %cmp729 = icmp slt i32 %call728, 0
   br i1 %cmp729, label %if.then730, label %do.body733
 
@@ -1426,7 +1426,7 @@ if.then730:                                       ; preds = %do.body727
   br label %return
 
 do.body733:                                       ; preds = %do.body727
-  %call734 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.123, i32 noundef 65), !range !5
+  %call734 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.123, i32 noundef 65)
   %cmp735 = icmp slt i32 %call734, 0
   br i1 %cmp735, label %if.then736, label %do.body739
 
@@ -1435,7 +1435,7 @@ if.then736:                                       ; preds = %do.body733
   br label %return
 
 do.body739:                                       ; preds = %do.body733
-  %call740 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.124, i32 noundef 123), !range !5
+  %call740 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.124, i32 noundef 123)
   %cmp741 = icmp slt i32 %call740, 0
   br i1 %cmp741, label %if.then742, label %do.body745
 
@@ -1444,7 +1444,7 @@ if.then742:                                       ; preds = %do.body739
   br label %return
 
 do.body745:                                       ; preds = %do.body739
-  %call746 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.125, i32 noundef 124), !range !5
+  %call746 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.125, i32 noundef 124)
   %cmp747 = icmp slt i32 %call746, 0
   br i1 %cmp747, label %if.then748, label %do.body751
 
@@ -1453,7 +1453,7 @@ if.then748:                                       ; preds = %do.body745
   br label %return
 
 do.body751:                                       ; preds = %do.body745
-  %call752 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.126, i32 noundef 125), !range !5
+  %call752 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.126, i32 noundef 125)
   %cmp753 = icmp slt i32 %call752, 0
   br i1 %cmp753, label %if.then754, label %do.body757
 
@@ -1462,7 +1462,7 @@ if.then754:                                       ; preds = %do.body751
   br label %return
 
 do.body757:                                       ; preds = %do.body751
-  %call758 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.127, i32 noundef 126), !range !5
+  %call758 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.127, i32 noundef 126)
   %cmp759 = icmp slt i32 %call758, 0
   br i1 %cmp759, label %if.then760, label %do.body763
 
@@ -1471,7 +1471,7 @@ if.then760:                                       ; preds = %do.body757
   br label %return
 
 do.body763:                                       ; preds = %do.body757
-  %call764 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.128, i32 noundef 127), !range !5
+  %call764 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.128, i32 noundef 127)
   %cmp765 = icmp slt i32 %call764, 0
   br i1 %cmp765, label %if.then766, label %do.body769
 
@@ -1480,7 +1480,7 @@ if.then766:                                       ; preds = %do.body763
   br label %return
 
 do.body769:                                       ; preds = %do.body763
-  %call770 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.129, i32 noundef 128), !range !5
+  %call770 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.129, i32 noundef 128)
   %cmp771 = icmp slt i32 %call770, 0
   br i1 %cmp771, label %if.then772, label %do.body775
 
@@ -1489,7 +1489,7 @@ if.then772:                                       ; preds = %do.body769
   br label %return
 
 do.body775:                                       ; preds = %do.body769
-  %call776 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.130, i32 noundef 129), !range !5
+  %call776 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.130, i32 noundef 129)
   %cmp777 = icmp slt i32 %call776, 0
   br i1 %cmp777, label %if.then778, label %do.body781
 
@@ -1498,7 +1498,7 @@ if.then778:                                       ; preds = %do.body775
   br label %return
 
 do.body781:                                       ; preds = %do.body775
-  %call782 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.131, i32 noundef 130), !range !5
+  %call782 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.131, i32 noundef 130)
   %cmp783 = icmp slt i32 %call782, 0
   br i1 %cmp783, label %if.then784, label %do.body787
 
@@ -1507,7 +1507,7 @@ if.then784:                                       ; preds = %do.body781
   br label %return
 
 do.body787:                                       ; preds = %do.body781
-  %call788 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.132, i32 noundef 131), !range !5
+  %call788 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.132, i32 noundef 131)
   %cmp789 = icmp slt i32 %call788, 0
   br i1 %cmp789, label %if.then790, label %do.body793
 
@@ -1516,7 +1516,7 @@ if.then790:                                       ; preds = %do.body787
   br label %return
 
 do.body793:                                       ; preds = %do.body787
-  %call794 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.133, i32 noundef 132), !range !5
+  %call794 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.133, i32 noundef 132)
   %cmp795 = icmp slt i32 %call794, 0
   br i1 %cmp795, label %if.then796, label %do.body799
 
@@ -1525,7 +1525,7 @@ if.then796:                                       ; preds = %do.body793
   br label %return
 
 do.body799:                                       ; preds = %do.body793
-  %call800 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.126, i32 noundef 125), !range !5
+  %call800 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.126, i32 noundef 125)
   %cmp801 = icmp slt i32 %call800, 0
   br i1 %cmp801, label %if.then802, label %do.body805
 
@@ -1534,7 +1534,7 @@ if.then802:                                       ; preds = %do.body799
   br label %return
 
 do.body805:                                       ; preds = %do.body799
-  %call806 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.134, i32 noundef 95), !range !5
+  %call806 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.134, i32 noundef 95)
   %cmp807 = icmp slt i32 %call806, 0
   br i1 %cmp807, label %if.then808, label %do.body811
 
@@ -1543,7 +1543,7 @@ if.then808:                                       ; preds = %do.body805
   br label %return
 
 do.body811:                                       ; preds = %do.body805
-  %call812 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.131, i32 noundef 130), !range !5
+  %call812 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.131, i32 noundef 130)
   %cmp813 = icmp slt i32 %call812, 0
   br i1 %cmp813, label %if.then814, label %do.body817
 
@@ -1552,7 +1552,7 @@ if.then814:                                       ; preds = %do.body811
   br label %return
 
 do.body817:                                       ; preds = %do.body811
-  %call818 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.132, i32 noundef 131), !range !5
+  %call818 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.132, i32 noundef 131)
   tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
   %call818.lobit = ashr i32 %call818, 31
   br label %return
@@ -1569,7 +1569,7 @@ declare ptr @PyDict_New() local_unnamed_addr #1
 declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_add_errcode(ptr noundef %module_dict, ptr noundef %error_dict, ptr noundef %name_str, i32 noundef %code_int) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_add_errcode(ptr noundef %module_dict, ptr noundef %error_dict, ptr noundef %name_str, i32 noundef %code_int) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %name_str) #2
   %tobool.not = icmp eq ptr %call, null
@@ -1626,4 +1626,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

@@ -1055,7 +1055,7 @@ define void @_ZN14DragDropTabBar14mouseMoveEventEP11QMouseEvent(ptr noundef nonn
 64:                                               ; preds = %54
   %.sroa.066.0.extract.trunc = trunc i64 %63 to i32
   %.sroa.267.0.extract.shift = lshr i64 %63, 32
-  %.sroa.267.0.extract.trunc = trunc i64 %.sroa.267.0.extract.shift to i32
+  %.sroa.267.0.extract.trunc = trunc nuw i64 %.sroa.267.0.extract.shift to i32
   %65 = sitofp i32 %.sroa.066.0.extract.trunc to double
   store double %65, ptr %6, align 8
   %66 = getelementptr inbounds i8, ptr %6, i64 8

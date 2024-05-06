@@ -53,7 +53,7 @@ declare i32 @cf_retap_packets(ptr noundef) local_unnamed_addr #1
 declare void @remove_tap_listener_rtpstream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rtpstream_save(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rtpstream_save(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %44, label %5
 

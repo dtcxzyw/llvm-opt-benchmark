@@ -662,7 +662,7 @@ return:                                           ; preds = %DSA_new.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_generate_key(ptr nocapture noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_generate_key(ptr nocapture noundef %dsa) local_unnamed_addr #0 {
 entry:
   %prk = alloca %struct.bignum_st, align 8
   %call = tail call ptr @BN_CTX_new() #8
@@ -846,7 +846,7 @@ lor.lhs.false12:                                  ; preds = %redo
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %lor.lhs.false12, %redo
-  %call16 = call i32 @DSA_sign_setup(ptr noundef nonnull %dsa, ptr noundef nonnull %call6, ptr noundef nonnull %kinv, ptr noundef nonnull %r), !range !13
+  %call16 = call i32 @DSA_sign_setup(ptr noundef nonnull %dsa, ptr noundef nonnull %call6, ptr noundef nonnull %kinv, ptr noundef nonnull %r)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.then15.if.then83.loopexit_crit_edge, label %if.end24
 
@@ -959,7 +959,7 @@ if.end84:                                         ; preds = %err, %if.then83
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %out_kinv, ptr nocapture noundef %out_r) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %out_kinv, ptr nocapture noundef %out_r) local_unnamed_addr #0 {
 entry:
   %k = alloca %struct.bignum_st, align 8
   %kq = alloca %struct.bignum_st, align 8
@@ -1010,7 +1010,7 @@ do.body:                                          ; preds = %if.end8, %do.cond
 do.cond:                                          ; preds = %do.body
   %call18 = call i32 @BN_is_zero(ptr noundef nonnull %k) #8
   %tobool19.not = icmp eq i32 %call18, 0
-  br i1 %tobool19.not, label %do.end, label %do.body, !llvm.loop !14
+  br i1 %tobool19.not, label %do.end, label %do.body, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond
   call void @BN_set_flags(ptr noundef nonnull %k, i32 noundef 4) #8
@@ -1111,7 +1111,7 @@ declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 define hidden i32 @DSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr nocapture noundef readonly %sig, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %valid = alloca i32, align 4
-  %call = call i32 @DSA_do_check_signature(ptr noundef nonnull %valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr noundef %dsa), !range !13
+  %call = call i32 @DSA_do_check_signature(ptr noundef nonnull %valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr noundef %dsa)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load i32, ptr %valid, align 4
   %retval.0 = select i1 %tobool.not, i32 -1, i32 %0
@@ -1119,7 +1119,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_do_check_signature(ptr nocapture noundef writeonly %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr nocapture noundef readonly %sig, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_do_check_signature(ptr nocapture noundef writeonly %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr nocapture noundef readonly %sig, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %u1 = alloca %struct.bignum_st, align 8
   %u2 = alloca %struct.bignum_st, align 8
@@ -1223,7 +1223,7 @@ if.end44:                                         ; preds = %lor.lhs.false38
   br i1 %cmp48, label %if.then96, label %if.end50
 
 if.end50:                                         ; preds = %if.end44
-  %shr = lshr i32 %call, 3
+  %shr = lshr exact i32 %call, 3
   %conv = zext nneg i32 %shr to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %conv, i64 %digest_len)
   %call57 = call ptr @BN_bin2bn(ptr noundef %digest, i64 noundef %spec.select, ptr noundef nonnull %u1) #8
@@ -1305,7 +1305,7 @@ declare i32 @BN_MONT_CTX_set_locked(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @BN_mod_exp2_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_sign(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %out_sig, ptr nocapture noundef writeonly %out_siglen, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %out_sig, ptr nocapture noundef writeonly %out_siglen, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %out_sig.addr = alloca ptr, align 8
   store ptr %out_sig, ptr %out_sig.addr, align 8
@@ -1339,7 +1339,7 @@ declare i32 @i2d_DSA_SIG(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden i32 @DSA_verify(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %valid = alloca i32, align 4
-  %call = call i32 @DSA_check_signature(ptr noundef nonnull %valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %dsa), !range !13
+  %call = call i32 @DSA_check_signature(ptr noundef nonnull %valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %dsa)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load i32, ptr %valid, align 4
   %retval.0 = select i1 %tobool.not, i32 -1, i32 %0
@@ -1347,7 +1347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_check_signature(ptr nocapture noundef writeonly %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_check_signature(ptr nocapture noundef writeonly %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %der = alloca ptr, align 8
@@ -1385,7 +1385,7 @@ lor.lhs.false11:                                  ; preds = %if.end5
 
 if.end14:                                         ; preds = %lor.lhs.false11
   %2 = load ptr, ptr %s, align 8
-  %call15 = call i32 @DSA_do_check_signature(ptr noundef %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %2, ptr noundef %dsa), !range !13
+  %call15 = call i32 @DSA_do_check_signature(ptr noundef %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %2, ptr noundef %dsa)
   %.pre = load ptr, ptr %der, align 8
   br label %err
 
@@ -1432,7 +1432,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %inc.i = add nuw nsw i64 %ret.05.i, 1
   %shr.i = lshr i64 %len.addr.04.i, 8
   %cmp1.not.i = icmp ult i64 %len.addr.04.i, 256
-  br i1 %cmp1.not.i, label %der_len_len.exit, label %while.body.i, !llvm.loop !15
+  br i1 %cmp1.not.i, label %der_len_len.exit, label %while.body.i, !llvm.loop !14
 
 der_len_len.exit:                                 ; preds = %while.body.i, %entry
   %retval.0.i = phi i64 [ 1, %entry ], [ %inc.i, %while.body.i ]
@@ -1454,7 +1454,7 @@ while.body.i10:                                   ; preds = %if.end9, %while.bod
   %inc.i13 = add nuw nsw i64 %ret.05.i11, 1
   %shr.i14 = lshr i64 %len.addr.04.i12, 8
   %cmp1.not.i15 = icmp ult i64 %len.addr.04.i12, 256
-  br i1 %cmp1.not.i15, label %der_len_len.exit17, label %while.body.i10, !llvm.loop !15
+  br i1 %cmp1.not.i15, label %der_len_len.exit17, label %while.body.i10, !llvm.loop !14
 
 der_len_len.exit17:                               ; preds = %while.body.i10, %if.end9
   %retval.0.i16 = phi i64 [ 1, %if.end9 ], [ %inc.i13, %while.body.i10 ]
@@ -1635,6 +1635,5 @@ attributes #8 = { nounwind }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}

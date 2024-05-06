@@ -47,7 +47,7 @@ define void @dsysv_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 33:                                               ; preds = %30
   %34 = shl nuw i32 %21, 1
-  %35 = mul nsw i32 %21, 3
+  %35 = mul nuw nsw i32 %21, 3
   %36 = add nsw i32 %35, -2
   %37 = load i32, ptr %9, align 4, !tbaa !3
   %38 = tail call i32 @llvm.smax.i32(i32 %34, i32 %36)

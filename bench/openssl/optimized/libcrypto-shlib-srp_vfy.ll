@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SRP_user_pwd_set1_ids(ptr nocapture noundef %vinfo, ptr noundef %id, ptr noundef %info) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_user_pwd_set1_ids(ptr nocapture noundef %vinfo, ptr noundef %id, ptr noundef %info) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vinfo, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 215) #7
@@ -102,7 +102,7 @@ return:                                           ; preds = %if.end, %lor.rhs, %
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SRP_user_pwd_set0_sv(ptr nocapture noundef %vinfo, ptr noundef %s, ptr noundef %v) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_user_pwd_set0_sv(ptr nocapture noundef %vinfo, ptr noundef %s, ptr noundef %v) local_unnamed_addr #0 {
 entry:
   %s1 = getelementptr inbounds i8, ptr %vinfo, i64 8
   %0 = load ptr, ptr %s1, align 8
@@ -203,7 +203,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SRP_VBASE_init(ptr nocapture noundef %vb, ptr noundef %verifier_file) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @SRP_VBASE_init(ptr nocapture noundef %vb, ptr noundef %verifier_file) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca [2500 x i8], align 16
   %call = tail call ptr @OPENSSL_sk_new_null() #7
@@ -643,7 +643,7 @@ declare void @TXT_DB_free(ptr noundef) local_unnamed_addr #1
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SRP_VBASE_add0_user(ptr nocapture noundef readonly %vb, ptr noundef %user_pwd) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_VBASE_add0_user(ptr nocapture noundef readonly %vb, ptr noundef %user_pwd) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vb, align 8
   %call2 = tail call i32 @OPENSSL_sk_push(ptr noundef %0, ptr noundef %user_pwd) #7
@@ -678,7 +678,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %2 = load ptr, ptr %vb, align 8
   %call5.i = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.08.i) #7
   %3 = load ptr, ptr %call5.i, align 8
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %username) #8
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %username) #8
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %find_user.exit, label %for.cond.i
 
@@ -713,7 +713,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %2 = load ptr, ptr %vb, align 8
   %call5.i = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.08.i) #7
   %3 = load ptr, ptr %call5.i, align 8
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %username) #8
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %username) #8
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %if.then2, label %for.cond.i
 
@@ -867,7 +867,7 @@ if.end48:                                         ; preds = %lor.lhs.false43
   call void @EVP_MD_free(ptr noundef nonnull %call24) #7
   %call50 = call ptr @BN_bin2bn(ptr noundef nonnull %digs, i32 noundef 20, ptr noundef null) #7
   %call52 = call ptr @BN_bin2bn(ptr noundef nonnull %digv, i32 noundef 20, ptr noundef null) #7
-  %call53 = call i32 @SRP_user_pwd_set0_sv(ptr noundef nonnull %call.i, ptr noundef %call50, ptr noundef %call52), !range !9
+  %call53 = call i32 @SRP_user_pwd_set0_sv(ptr noundef nonnull %call.i, ptr noundef %call50, ptr noundef %call52)
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %SRP_user_pwd_free.exit, label %return
 
@@ -998,7 +998,7 @@ if.end49:                                         ; preds = %if.else41, %if.then
   br i1 %cmp50, label %err, label %if.end52
 
 if.end52:                                         ; preds = %if.end49
-  %call53 = call i32 @SRP_create_verifier_BN_ex(ptr noundef nonnull %user, ptr noundef nonnull %pass, ptr noundef nonnull %s, ptr noundef nonnull %v, ptr noundef %N_bn.0, ptr noundef %g_bn.0, ptr noundef %libctx, ptr noundef %propq), !range !9
+  %call53 = call i32 @SRP_create_verifier_BN_ex(ptr noundef nonnull %user, ptr noundef nonnull %pass, ptr noundef nonnull %s, ptr noundef nonnull %v, ptr noundef %N_bn.0, ptr noundef %g_bn.0, ptr noundef %libctx, ptr noundef %propq)
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %err, label %if.end56
 
@@ -1024,7 +1024,7 @@ if.end67:                                         ; preds = %if.end61
   %call69 = call i32 @BN_num_bits(ptr noundef %12) #7
   %add70 = add nsw i32 %call69, 7
   %div71 = sdiv i32 %add70, 8
-  %call72 = call fastcc i32 @t_tob64(ptr noundef nonnull %call63, ptr noundef nonnull %tmp, i32 noundef %div71), !range !9
+  %call72 = call fastcc i32 @t_tob64(ptr noundef nonnull %call63, ptr noundef nonnull %tmp, i32 noundef %div71)
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %err, label %if.end75
 
@@ -1039,7 +1039,7 @@ if.then78:                                        ; preds = %if.end75
   br i1 %cmp80, label %err, label %if.end83
 
 if.end83:                                         ; preds = %if.then78
-  %call85 = call fastcc i32 @t_tob64(ptr noundef nonnull %call79, ptr noundef nonnull %tmp2, i32 noundef 20), !range !9
+  %call85 = call fastcc i32 @t_tob64(ptr noundef nonnull %call79, ptr noundef nonnull %tmp2, i32 noundef 20)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then87, label %if.end88
 
@@ -1092,7 +1092,7 @@ while.cond:                                       ; preds = %while.body, %entry
 
 while.body:                                       ; preds = %while.cond, %while.cond, %while.cond
   %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.0, i64 1
-  br label %while.cond, !llvm.loop !10
+  br label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %while.cond
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src.addr.0) #8
@@ -1124,7 +1124,7 @@ if.end22:                                         ; preds = %if.end18
   br i1 %cmp23.not, label %if.end30, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end22
-  %conv25 = trunc i64 %and8 to i32
+  %conv25 = trunc nuw nsw i64 %and8 to i32
   %call26 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call14, ptr noundef %a, ptr noundef nonnull %outl, ptr noundef nonnull @.str.3, i32 noundef %conv25) #7
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %if.then29, label %if.end30
@@ -1134,7 +1134,7 @@ if.then29:                                        ; preds = %land.lhs.true
   br label %err
 
 if.end30:                                         ; preds = %land.lhs.true, %if.end22
-  %conv31 = trunc i64 %call to i32
+  %conv31 = trunc nuw nsw i64 %call to i32
   %call32 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call14, ptr noundef %a, ptr noundef nonnull %outl2, ptr noundef nonnull %src.addr.0, i32 noundef %conv31) #7
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %if.then35, label %if.end36
@@ -1158,7 +1158,7 @@ if.end36:                                         ; preds = %if.end30
   br i1 %cmp23.not, label %err, label %if.then42
 
 if.then42:                                        ; preds = %if.end36
-  %conv43 = trunc i64 %and8 to i32
+  %conv43 = trunc nuw nsw i64 %and8 to i32
   %cmp44.not = icmp sgt i32 %add39, %conv43
   br i1 %cmp44.not, label %if.end47, label %if.then46
 
@@ -1188,7 +1188,7 @@ return:                                           ; preds = %if.end, %while.end,
 declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SRP_create_verifier_BN_ex(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef writeonly %verifier, ptr noundef %N, ptr noundef %g, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_create_verifier_BN_ex(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef writeonly %verifier, ptr noundef %N, ptr noundef %g, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %tmp2 = alloca [2500 x i8], align 16
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %libctx) #7
@@ -1275,7 +1275,7 @@ declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @t_tob64(ptr noundef %dst, ptr noundef %src, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @t_tob64(ptr noundef %dst, ptr noundef %src, i32 noundef %size) unnamed_addr #0 {
 entry:
   %outl = alloca i32, align 4
   %outl2 = alloca i32, align 4
@@ -1366,9 +1366,9 @@ declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SRP_create_verifier_BN(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef %verifier, ptr noundef %N, ptr noundef %g) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_create_verifier_BN(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef %verifier, ptr noundef %N, ptr noundef %g) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @SRP_create_verifier_BN_ex(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef %verifier, ptr noundef %N, ptr noundef %g, ptr noundef null, ptr noundef null), !range !9
+  %call = tail call i32 @SRP_create_verifier_BN_ex(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef %verifier, ptr noundef %N, ptr noundef %g, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -1432,5 +1432,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
-!10 = distinct !{!10, !5}
+!9 = distinct !{!9, !5}

@@ -440,7 +440,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
   br label %.outer.i, !llvm.loop !11
 
 184:                                              ; preds = %163
-  %185 = trunc i64 %indvars.iv to i32
+  %185 = trunc nsw i64 %indvars.iv to i32
   call void @endpwent() #12
   call void @slurm_xfree(ptr noundef nonnull %3) #12
   %186 = load ptr, ptr %7, align 8
@@ -479,7 +479,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
   br i1 %202, label %203, label %204
 
 203:                                              ; preds = %193
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %200, ptr align 1 %186, i64 %198, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %200, ptr readonly align 1 %186, i64 %198, i1 false)
   br label %204
 
 204:                                              ; preds = %203, %193
@@ -744,7 +744,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_uid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @_uid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4

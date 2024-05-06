@@ -30,7 +30,7 @@ declare i32 @ossl_ffc_params_simple_validate(ptr noundef, ptr noundef, i32 nound
 declare i32 @ossl_ffc_params_full_validate(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dsa_check_pub_key(ptr noundef %dsa, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_check_pub_key(ptr noundef %dsa, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %call = tail call i32 @ossl_ffc_validate_public_key(ptr noundef nonnull %params, ptr noundef %pub_key, ptr noundef %ret) #2
@@ -51,7 +51,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @ossl_ffc_validate_public_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dsa_check_pub_key_partial(ptr noundef %dsa, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_check_pub_key_partial(ptr noundef %dsa, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %call = tail call i32 @ossl_ffc_validate_public_key_partial(ptr noundef nonnull %params, ptr noundef %pub_key, ptr noundef %ret) #2
@@ -72,7 +72,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @ossl_ffc_validate_public_key_partial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dsa_check_priv_key(ptr nocapture noundef readonly %dsa, ptr noundef %priv_key, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_check_priv_key(ptr nocapture noundef readonly %dsa, ptr noundef %priv_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %q = getelementptr inbounds i8, ptr %dsa, i64 16
@@ -94,7 +94,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @ossl_ffc_validate_private_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dsa_check_pairwise(ptr noundef %dsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_check_pairwise(ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8

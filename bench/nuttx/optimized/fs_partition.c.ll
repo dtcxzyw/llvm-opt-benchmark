@@ -39,7 +39,7 @@ define i32 @read_partition_block(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @parse_block_partition(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @parse_block_partition(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca %struct.partition_state_s, align 8
   %5 = alloca %struct.mtd_geometry_s, align 4
   %6 = alloca %struct.geometry, align 4
@@ -127,7 +127,7 @@ declare i32 @open_blockdriver(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare i32 @close_blockdriver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @parse_mtd_partition(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @parse_mtd_partition(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mtd_geometry_s, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8

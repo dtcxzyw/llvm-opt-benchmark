@@ -66,7 +66,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h90e75ea91593166
   store <2 x i64> %9, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !7, !noalias !10
   store <2 x i64> %5, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !7, !noalias !10
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !7, !noalias !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !7, !noalias !10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !12, !noalias !15, !nonnull !20, !noundef !20
@@ -168,7 +168,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17ha61f5e941fb2aa1
   store <2 x i64> %10, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !32, !noalias !35
   store <2 x i64> %6, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !32, !noalias !35
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !32, !noalias !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !32, !noalias !35
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17he4ec190acadcb9bcE.llvm.10739575301585299145"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !37
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !40
   store i8 -1, ptr %4, align 1, !noalias !40
@@ -265,7 +265,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hb73168977208b88
   store <2 x i64> %9, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !54, !noalias !57
   store <2 x i64> %5, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !54, !noalias !57
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !54, !noalias !57
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !54, !noalias !57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %10 = load ptr, ptr %1, align 8, !alias.scope !59, !noalias !62, !nonnull !20, !align !67, !noundef !20
   %11 = getelementptr inbounds i8, ptr %1, i64 8

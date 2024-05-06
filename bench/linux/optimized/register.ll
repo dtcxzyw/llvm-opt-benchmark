@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_io_uring_register.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace482, ptr @trace_io_uring_register.__UNIQUE_ID___addressable___SCK__tp_func_io_uring_register481], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_eventfd_unregister(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -6, 1) i32 @io_eventfd_unregister(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -94,7 +94,7 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare dso_local void @io_eventfd_ops(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_unregister_personality(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_unregister_personality(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1016
   %4 = zext i32 %1 to i64
   %5 = tail call ptr @xa_erase(ptr noundef %3, i64 noundef %4) #11
@@ -332,7 +332,7 @@ define internal fastcc i64 @__se_sys_io_uring_register(i64 noundef %0, i64 nound
   br i1 %107, label %188, label %108
 
 108:                                              ; preds = %104
-  %109 = tail call fastcc i32 @io_probe(ptr noundef %7, i32 noundef %8) #13, !range !22
+  %109 = tail call fastcc i32 @io_probe(ptr noundef %7, i32 noundef %8) #13
   br label %188
 
 110:                                              ; preds = %66
@@ -632,7 +632,7 @@ define internal fastcc i32 @io_eventfd_register(ptr noundef %0, ptr noundef %1, 
   store i32 %25, ptr %26, align 4
   call void @_raw_spin_unlock(ptr noundef %23) #11
   %27 = getelementptr inbounds i8, ptr %13, i64 8
-  %28 = trunc i32 %2 to i8
+  %28 = trunc nuw nsw i32 %2 to i8
   %29 = load i8, ptr %27, align 8
   %30 = and i8 %28, 1
   %31 = and i8 %29, -2
@@ -657,7 +657,7 @@ define internal fastcc i32 @io_eventfd_register(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @io_probe(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @io_probe(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = zext nneg i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 16
@@ -708,7 +708,7 @@ define internal fastcc i32 @io_probe(ptr noundef %0, i32 noundef %1) unnamed_add
   br i1 %32, label %33, label %20, !llvm.loop !33
 
 33:                                               ; preds = %30
-  %34 = trunc i32 %17 to i8
+  %34 = trunc nuw nsw i32 %17 to i8
   br label %35
 
 35:                                               ; preds = %33, %14
@@ -783,7 +783,7 @@ define internal fastcc i32 @io_register_personality(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @io_register_enable_rings(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -77, 1) i32 @io_register_enable_rings(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load i32, ptr %0, align 64
   %3 = and i32 %2, 64
   %4 = icmp eq i32 %3, 0

@@ -121,7 +121,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_scsi_que
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable_ata_common_sdev_groups462, ptr @__UNIQUE_ID___addressable_ata_sas_scsi_ioctl465, ptr @__UNIQUE_ID___addressable_ata_scsi_dma_need_drain469, ptr @__UNIQUE_ID___addressable_ata_scsi_ioctl466, ptr @__UNIQUE_ID___addressable_ata_scsi_queuecmd493, ptr @__UNIQUE_ID___addressable_ata_scsi_slave_alloc476, ptr @__UNIQUE_ID___addressable_ata_scsi_slave_config477, ptr @__UNIQUE_ID___addressable_ata_scsi_slave_destroy478, ptr @__UNIQUE_ID___addressable_ata_scsi_unlock_native_capacity464, ptr @__UNIQUE_ID___addressable_ata_std_bios_param463, ptr @__UNIQUE_ID___addressable_dev_attr_unload_heads461], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ata_scsi_park_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -440
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2064
@@ -784,7 +784,7 @@ declare dso_local void @ata_port_schedule_eh(ptr noundef) local_unnamed_addr #3
 declare dso_local void @ata_port_wait_eh(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_cmd_ioctl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ata_cmd_ioctl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [96 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [4 x i8], align 4
@@ -973,7 +973,7 @@ declare dso_local i32 @scsi_execute_cmd(ptr noundef, ptr noundef, i32 noundef, p
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_task_ioctl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ata_task_ioctl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [96 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [7 x i8], align 1
@@ -1434,7 +1434,7 @@ define dso_local zeroext i1 @ata_scsi_dma_need_drain(ptr nocapture noundef reado
 declare dso_local i32 @atapi_cmd_type(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_scsi_dev_config(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_dev_config(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 1056
@@ -1644,7 +1644,7 @@ declare dso_local void @blk_queue_update_dma_alignment(ptr noundef, i32 noundef)
 declare dso_local i32 @scsi_change_queue_depth(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_scsi_slave_alloc(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @ata_scsi_slave_alloc(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 2064
   %4 = load ptr, ptr %3, align 8
@@ -1686,7 +1686,7 @@ define dso_local noundef i32 @ata_scsi_slave_alloc(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @device_link_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_scsi_slave_config(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 2064
   %4 = load ptr, ptr %3, align 8
@@ -1902,7 +1902,7 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
 declare dso_local void @device_link_remove(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 64
   %4 = load ptr, ptr %3, align 64
   %5 = getelementptr inbounds i8, ptr %0, i64 164
@@ -2644,7 +2644,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 
 .thread:                                          ; preds = %85, %92
   %134 = icmp eq i8 %71, 1
-  %135 = tail call fastcc i32 @ata_msense_control(ptr noundef %0, ptr noundef %81, i8 noundef zeroext %84, i1 noundef zeroext %134), !range !24
+  %135 = tail call fastcc i32 @ata_msense_control(ptr noundef %0, ptr noundef %81, i8 noundef zeroext %84, i1 noundef zeroext %134)
   %136 = zext nneg i32 %135 to i64
   %137 = getelementptr i8, ptr %81, i64 %136
   br label %178
@@ -2707,7 +2707,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %173 = or i8 %172, %170
   store i8 %173, ptr %171, align 1
   %174 = getelementptr i8, ptr %81, i64 32
-  %175 = tail call fastcc i32 @ata_msense_control(ptr noundef %0, ptr noundef %174, i8 noundef zeroext %84, i1 noundef zeroext %139), !range !24
+  %175 = tail call fastcc i32 @ata_msense_control(ptr noundef %0, ptr noundef %174, i8 noundef zeroext %84, i1 noundef zeroext %139)
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr i8, ptr %174, i64 %176
   br label %178
@@ -3056,7 +3056,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 declare dso_local void @scsi_done(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_scsi_queuecmd(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2064
   %5 = load ptr, ptr %4, align 8
@@ -3157,7 +3157,7 @@ define dso_local i32 @ata_scsi_queuecmd(ptr nocapture noundef readonly %0, ptr n
   ], !prof !8
 
 select.unfold:                                    ; preds = %63, %63, %63, %63, %63
-  %66 = tail call i32 @__ata_scsi_queuecmd(ptr noundef %1, ptr noundef nonnull %61), !range !25
+  %66 = tail call i32 @__ata_scsi_queuecmd(ptr noundef %1, ptr noundef nonnull %61)
   br label %68
 
 .thread6:                                         ; preds = %63, %51, %45, %20, %12, %24, %16, %60
@@ -3352,7 +3352,7 @@ define internal noundef i32 @ata_scsiop_inq_00(ptr nocapture noundef readonly %0
   %21 = phi i32 [ %19, %14 ], [ %5, %8 ]
   %22 = add nuw nsw i64 %4, 1
   %23 = icmp eq i64 %22, 9
-  br i1 %23, label %24, label %3, !llvm.loop !26
+  br i1 %23, label %24, label %3, !llvm.loop !24
 
 24:                                               ; preds = %20
   %25 = trunc i32 %21 to i8
@@ -3721,7 +3721,7 @@ define internal noundef i32 @ata_scsiop_inq_b9(ptr nocapture noundef readonly %0
   %36 = load i8, ptr %5, align 8
   %37 = zext i8 %36 to i64
   %38 = icmp ult i64 %34, %37
-  br i1 %38, label %18, label %.loopexit, !llvm.loop !27
+  br i1 %38, label %18, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %18, %2
   ret i32 0
@@ -4051,7 +4051,7 @@ define dso_local i32 @ata_scsi_add_hosts(ptr nocapture noundef readonly %0, ptr 
   %43 = load i32, ptr %3, align 8
   %44 = icmp ult i32 %42, %43
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %44, label %8, label %.loopexit, !llvm.loop !28
+  br i1 %44, label %8, label %.loopexit, !llvm.loop !26
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv8 = phi i64 [ %40, %.preheader.preheader ], [ %indvars.iv.next9, %.preheader ]
@@ -4061,7 +4061,7 @@ define dso_local i32 @ata_scsi_add_hosts(ptr nocapture noundef readonly %0, ptr 
   tail call void @scsi_remove_host(ptr noundef %47) #19
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, -1
   %.not = icmp eq i64 %indvars.iv8, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %41, %.preheader, %37, %2
   %48 = phi i32 [ %.ph, %37 ], [ 0, %2 ], [ %.ph, %.preheader ], [ 0, %41 ]
@@ -4151,12 +4151,12 @@ define dso_local void @ata_scsi_scan_host(ptr noundef %0, i32 noundef %1) local_
 42:                                               ; preds = %41, %40, %16
   %43 = tail call ptr @ata_dev_next(ptr noundef nonnull %17, ptr noundef nonnull %11, i32 noundef 0) #19
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.loopexit16, label %16, !llvm.loop !30
+  br i1 %44, label %.loopexit16, label %16, !llvm.loop !28
 
 .loopexit16:                                      ; preds = %42, %.preheader18
   %45 = tail call ptr @ata_link_next(ptr noundef nonnull %11, ptr noundef %0, i32 noundef 0) #19
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit19, label %.preheader18, !llvm.loop !31
+  br i1 %46, label %.loopexit19, label %.preheader18, !llvm.loop !29
 
 .loopexit19:                                      ; preds = %.loopexit16, %7
   %47 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #19
@@ -4179,12 +4179,12 @@ define dso_local void @ata_scsi_scan_host(ptr noundef %0, i32 noundef %1) local_
 56:                                               ; preds = %.preheader
   %57 = tail call ptr @ata_dev_next(ptr noundef nonnull %52, ptr noundef nonnull %49, i32 noundef 0) #19
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %56, %.preheader17
   %59 = tail call ptr @ata_link_next(ptr noundef nonnull %49, ptr noundef %0, i32 noundef 0) #19
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.thread, label %.preheader17, !llvm.loop !33
+  br i1 %60, label %.thread, label %.preheader17, !llvm.loop !31
 
 61:                                               ; preds = %.preheader
   br i1 %3, label %.loopexit21, label %62
@@ -4242,7 +4242,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #3
 declare dso_local i64 @round_jiffies_relative(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_scsi_offline_dev(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ata_scsi_offline_dev(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4304,7 +4304,7 @@ define dso_local void @ata_scsi_hotplug(ptr noundef %0) local_unnamed_addr #0 al
   tail call fastcc void @ata_scsi_handle_link_detach(ptr noundef %15)
   %16 = add nuw nsw i64 %13, 1
   %17 = icmp eq i64 %16, 15
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !34
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.preheader, %7
   tail call void @ata_scsi_scan_host(ptr noundef %2, i32 noundef 0)
@@ -4369,9 +4369,9 @@ define internal fastcc void @ata_scsi_handle_link_detach(ptr noundef %0) unnamed
   br label %35
 
 34:                                               ; preds = %29
-  tail call void asm sideeffect "494: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 494b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 494) #19, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 4555, i32 2305, i64 12) #19, !srcloc !36
-  tail call void asm sideeffect "495: nop\0A\09.pushsection .discard.instr_end\0A\09.long 495b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 495) #19, !srcloc !37
+  tail call void asm sideeffect "494: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 494b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 494) #19, !srcloc !33
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 4555, i32 2305, i64 12) #19, !srcloc !34
+  tail call void asm sideeffect "495: nop\0A\09.pushsection .discard.instr_end\0A\09.long 495b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 495) #19, !srcloc !35
   br label %35
 
 35:                                               ; preds = %34, %32, %13
@@ -4414,7 +4414,7 @@ define internal fastcc void @ata_scsi_handle_link_detach(ptr noundef %0) unnamed
 60:                                               ; preds = %57, %35, %7
   %61 = tail call ptr @ata_dev_next(ptr noundef nonnull %8, ptr noundef %0, i32 noundef 2) #19
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit, label %7, !llvm.loop !38
+  br i1 %62, label %.loopexit, label %7, !llvm.loop !36
 
 .loopexit:                                        ; preds = %60, %1
   ret void
@@ -4424,7 +4424,7 @@ define internal fastcc void @ata_scsi_handle_link_detach(ptr noundef %0) unnamed
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_scsi_user_scan(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2064
   %6 = load ptr, ptr %5, align 8
   %7 = add i64 %3, -1
@@ -4472,7 +4472,7 @@ define dso_local noundef i32 @ata_scsi_user_scan(ptr nocapture noundef readonly 
   store i32 %34, ptr %32, align 8
   %35 = tail call ptr @ata_link_next(ptr noundef nonnull %28, ptr noundef %6, i32 noundef 0) #19
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !37
 
 37:                                               ; preds = %19
   %38 = load i32, ptr %10, align 8
@@ -4616,13 +4616,13 @@ select.unfold:                                    ; preds = %28, %23, %25
   %.ph = phi i64 [ %16, %25 ], [ %16, %23 ], [ %32, %28 ]
   %34 = tail call ptr @ata_dev_next(ptr noundef nonnull %17, ptr noundef nonnull %12, i32 noundef 0) #19
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !40
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %select.unfold, %11
   %36 = phi i64 [ %13, %11 ], [ %.ph, %select.unfold ]
   %37 = tail call ptr @ata_link_next(ptr noundef nonnull %12, ptr noundef %2, i32 noundef 0) #19
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.critedge, label %11, !llvm.loop !41
+  br i1 %38, label %.critedge, label %11, !llvm.loop !39
 
 39:                                               ; preds = %28
   %40 = load ptr, ptr %4, align 16
@@ -4686,7 +4686,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 declare dso_local void @ata_id_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_rw_xlat(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_rw_xlat(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 164
@@ -4858,7 +4858,7 @@ define internal noundef i32 @ata_scsi_rw_xlat(ptr noundef %0) unnamed_addr #0 al
   switch i32 %130, label %131 [
     i32 0, label %153
     i32 -34, label %143
-  ], !prof !42
+  ], !prof !40
 
 131:                                              ; preds = %120, %106, %80, %72, %44, %36, %13, %11
   %132 = phi i16 [ 0, %106 ], [ 0, %72 ], [ 0, %36 ], [ 9, %13 ], [ 5, %44 ], [ 15, %80 ], [ 0, %11 ], [ 0, %120 ]
@@ -4897,7 +4897,7 @@ define internal noundef i32 @ata_scsi_rw_xlat(ptr noundef %0) unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_write_same_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_write_same_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -4994,9 +4994,9 @@ define internal noundef i32 @ata_scsi_write_same_xlat(ptr nocapture noundef %0) 
   br i1 %68, label %69, label %70, !prof !20
 
 69:                                               ; preds = %67
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #19, !srcloc !43
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3135, i32 2305, i64 12) #19, !srcloc !44
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #19, !srcloc !45
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #19, !srcloc !41
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3135, i32 2305, i64 12) #19, !srcloc !42
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #19, !srcloc !43
   br label %70
 
 70:                                               ; preds = %69, %67
@@ -5173,7 +5173,7 @@ define internal noundef i32 @ata_scsi_flush_xlat(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_verify_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5407,7 +5407,7 @@ define internal noundef i32 @ata_scsi_verify_xlat(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_pass_thru(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -5891,7 +5891,7 @@ define internal noundef i32 @ata_scsi_pass_thru(ptr nocapture noundef %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_var_len_cdb_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_var_len_cdb_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 172
@@ -5900,7 +5900,7 @@ define internal noundef i32 @ata_scsi_var_len_cdb_xlat(ptr nocapture noundef %0)
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @ata_scsi_pass_thru(ptr noundef %0), !range !46
+  %8 = tail call i32 @ata_scsi_pass_thru(ptr noundef %0), !range !44
   br label %9
 
 9:                                                ; preds = %7, %1
@@ -5909,7 +5909,7 @@ define internal noundef i32 @ata_scsi_var_len_cdb_xlat(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_mode_select_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca [64 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6113,7 +6113,7 @@ define internal noundef i32 @ata_scsi_mode_select_xlat(ptr nocapture noundef %0)
   ]
 
 136:                                              ; preds = %135
-  %137 = call fastcc i32 @ata_mselect_caching(ptr noundef %0, ptr noundef %131, i32 noundef %132, ptr noundef nonnull %2), !range !47
+  %137 = call fastcc i32 @ata_mselect_caching(ptr noundef %0, ptr noundef %131, i32 noundef %132, ptr noundef nonnull %2), !range !45
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %139, label %157
 
@@ -6125,7 +6125,7 @@ define internal noundef i32 @ata_scsi_mode_select_xlat(ptr nocapture noundef %0)
   br label %172
 
 144:                                              ; preds = %135
-  %145 = call fastcc i32 @ata_mselect_control(ptr noundef %0, i8 noundef zeroext %133, ptr noundef %131, i32 noundef %132, ptr noundef nonnull %2), !range !48
+  %145 = call fastcc i32 @ata_mselect_control(ptr noundef %0, i8 noundef zeroext %133, ptr noundef %131, i32 noundef %132, ptr noundef nonnull %2), !range !46
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %147, label %152
 
@@ -6202,7 +6202,7 @@ define internal noundef i32 @ata_scsi_mode_select_xlat(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_zbc_in_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_zbc_in_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6441,7 +6441,7 @@ define internal noundef i32 @ata_scsi_zbc_in_xlat(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_zbc_out_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_zbc_out_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6588,7 +6588,7 @@ define internal noundef i32 @ata_scsi_zbc_out_xlat(ptr nocapture noundef %0) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_security_inout_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_security_inout_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 164
@@ -6724,7 +6724,7 @@ define internal noundef i32 @ata_scsi_security_inout_xlat(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsi_start_stop_xlat(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_start_stop_xlat(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 156
@@ -6802,7 +6802,7 @@ declare dso_local i64 @sg_copy_from_buffer(ptr noundef, i32 noundef, ptr noundef
 declare dso_local i64 @sg_copy_to_buffer(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @ata_mselect_caching(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #11 align 16 {
   %5 = alloca [20 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6864,7 +6864,7 @@ define internal fastcc noundef i32 @ata_mselect_caching(ptr nocapture noundef %0
 42:                                               ; preds = %33, %30
   %43 = add nuw nsw i64 %31, 1
   %44 = icmp eq i64 %43, 18
-  br i1 %44, label %45, label %30, !llvm.loop !49
+  br i1 %44, label %45, label %30, !llvm.loop !47
 
 45:                                               ; preds = %42
   %46 = load i64, ptr %6, align 8
@@ -6889,7 +6889,7 @@ define internal fastcc noundef i32 @ata_mselect_caching(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ata_mselect_control(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
   switch i8 %1, label %81 [
     i8 0, label %6
     i8 -14, label %39
@@ -6935,7 +6935,7 @@ define internal fastcc noundef i32 @ata_mselect_control(ptr nocapture noundef %0
 29:                                               ; preds = %20, %17
   %30 = add nuw nsw i64 %18, 1
   %31 = icmp eq i64 %30, 10
-  br i1 %31, label %32, label %17, !llvm.loop !50
+  br i1 %31, label %32, label %17, !llvm.loop !48
 
 32:                                               ; preds = %29
   %33 = and i8 %14, 4
@@ -7062,10 +7062,10 @@ define internal void @ata_scsi_report_zones_complete(ptr noundef %0) #0 align 16
   call void @sg_miter_start(ptr noundef nonnull %3, ptr noundef %7, i32 noundef %9, i32 noundef 3) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
   store i64 0, ptr %2, align 8, !annotation !9
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #19, !srcloc !51
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #19, !srcloc !49
   %10 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !52
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
   %11 = call zeroext i1 @sg_miter_next(ptr noundef nonnull %3) #19
   br i1 %11, label %12, label %.loopexit3
 
@@ -7077,7 +7077,7 @@ define internal void @ata_scsi_report_zones_complete(ptr noundef %0) #0 align 16
 .loopexit:                                        ; preds = %64, %34
   %15 = phi i32 [ %36, %34 ], [ %66, %64 ]
   %16 = call zeroext i1 @sg_miter_next(ptr noundef nonnull %3) #19
-  br i1 %16, label %17, label %.loopexit3, !llvm.loop !53
+  br i1 %16, label %17, label %.loopexit3, !llvm.loop !51
 
 17:                                               ; preds = %.loopexit, %12
   %18 = phi i32 [ 0, %12 ], [ %15, %.loopexit ]
@@ -7144,9 +7144,9 @@ define internal void @ata_scsi_report_zones_complete(ptr noundef %0) #0 align 16
   br i1 %62, label %63, label %64, !prof !20
 
 63:                                               ; preds = %.preheader
-  call void asm sideeffect "485: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 485b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 485) #19, !srcloc !54
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3427, i32 2305, i64 12) #19, !srcloc !55
-  call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_end\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #19, !srcloc !56
+  call void asm sideeffect "485: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 485b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 485) #19, !srcloc !52
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3427, i32 2305, i64 12) #19, !srcloc !53
+  call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_end\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #19, !srcloc !54
   %.pre = load i64, ptr %14, align 8
   br label %64
 
@@ -7154,7 +7154,7 @@ define internal void @ata_scsi_report_zones_complete(ptr noundef %0) #0 align 16
   %65 = phi i64 [ %.pre, %63 ], [ %61, %.preheader ]
   %66 = add i32 %41, 64
   %67 = icmp ugt i64 %65, %60
-  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !57
+  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !55
 
 .loopexit3:                                       ; preds = %.loopexit, %1
   call void @sg_miter_stop(ptr noundef nonnull %3) #19
@@ -7163,7 +7163,7 @@ define internal void @ata_scsi_report_zones_complete(ptr noundef %0) #0 align 16
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %.loopexit3
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !58
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !56
   br label %71
 
 71:                                               ; preds = %70, %.loopexit3
@@ -7276,7 +7276,7 @@ define internal void @ata_scsi_qc_complete(ptr noundef %0) #0 align 16 {
   %54 = getelementptr [14 x [4 x i8]], ptr @ata_to_sense_error.sense_table, i64 0, i64 %53
   %55 = load i8, ptr %54, align 4
   %56 = icmp eq i64 %53, 13
-  br i1 %56, label %.loopexit3.preheader, label %.preheader, !llvm.loop !59
+  br i1 %56, label %.loopexit3.preheader, label %.preheader, !llvm.loop !57
 
 .preheader:                                       ; preds = %._crit_edge, %52
   %57 = phi i64 [ %53, %52 ], [ 0, %._crit_edge ]
@@ -7294,7 +7294,7 @@ define internal void @ata_scsi_qc_complete(ptr noundef %0) #0 align 16 {
   %65 = getelementptr [6 x [4 x i8]], ptr @ata_to_sense_error.stat_table, i64 0, i64 %64
   %66 = load i8, ptr %65, align 4
   %67 = icmp eq i64 %64, 5
-  br i1 %67, label %.loopexit, label %.loopexit3, !llvm.loop !60
+  br i1 %67, label %.loopexit, label %.loopexit3, !llvm.loop !58
 
 .loopexit3:                                       ; preds = %.loopexit3.preheader, %63
   %68 = phi i64 [ %64, %63 ], [ 0, %.loopexit3.preheader ]
@@ -7405,7 +7405,7 @@ define internal fastcc void @ata_gen_passthru_sense(ptr nocapture noundef readon
   %22 = getelementptr [14 x [4 x i8]], ptr @ata_to_sense_error.sense_table, i64 0, i64 %21
   %23 = load i8, ptr %22, align 4
   %24 = icmp eq i64 %21, 13
-  br i1 %24, label %.loopexit4.preheader, label %.preheader, !llvm.loop !59
+  br i1 %24, label %.loopexit4.preheader, label %.preheader, !llvm.loop !57
 
 .preheader:                                       ; preds = %._crit_edge, %20
   %25 = phi i64 [ %21, %20 ], [ 0, %._crit_edge ]
@@ -7423,7 +7423,7 @@ define internal fastcc void @ata_gen_passthru_sense(ptr nocapture noundef readon
   %33 = getelementptr [6 x [4 x i8]], ptr @ata_to_sense_error.stat_table, i64 0, i64 %32
   %34 = load i8, ptr %33, align 4
   %35 = icmp eq i64 %32, 5
-  br i1 %35, label %.loopexit, label %.loopexit4, !llvm.loop !60
+  br i1 %35, label %.loopexit, label %.loopexit4, !llvm.loop !58
 
 .loopexit4:                                       ; preds = %.loopexit4.preheader, %31
   %36 = phi i64 [ %32, %31 ], [ 0, %.loopexit4.preheader ]
@@ -7654,7 +7654,7 @@ define internal void @atapi_qc_complete(ptr noundef %0) #0 align 16 {
   %10 = and i64 %9, 131072
   %11 = icmp eq i64 %10, 0
   %or.cond = select i1 %7, i1 %11, i1 false
-  br i1 %or.cond, label %31, label %._crit_edge, !prof !61
+  br i1 %or.cond, label %31, label %._crit_edge, !prof !59
 
 ._crit_edge:                                      ; preds = %1
   %12 = and i64 %9, 131072
@@ -7755,7 +7755,7 @@ declare dso_local void @ata_qc_issue(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @ata_msense_control(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #14 align 16 {
+define internal fastcc noundef range(i32 0, 493) i32 @ata_msense_control(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #14 align 16 {
   switch i8 %2, label %.loopexit [
     i8 0, label %5
     i8 7, label %18
@@ -7858,7 +7858,7 @@ define internal fastcc noundef i32 @ata_msense_control(ptr nocapture noundef rea
   %68 = getelementptr i8, ptr %43, i64 32
   %69 = getelementptr i8, ptr %42, i64 32
   %70 = icmp eq i32 %67, 7
-  br i1 %70, label %.loopexit, label %40, !llvm.loop !62
+  br i1 %70, label %.loopexit, label %40, !llvm.loop !60
 
 71:                                               ; preds = %4
   store i8 74, ptr %1, align 1
@@ -7968,7 +7968,7 @@ define internal fastcc noundef i32 @ata_msense_control(ptr nocapture noundef rea
   %141 = getelementptr i8, ptr %116, i64 32
   %142 = getelementptr i8, ptr %115, i64 32
   %143 = icmp eq i32 %140, 7
-  br i1 %143, label %144, label %113, !llvm.loop !62
+  br i1 %143, label %144, label %113, !llvm.loop !60
 
 144:                                              ; preds = %113
   %145 = getelementptr i8, ptr %1, i64 244
@@ -8031,7 +8031,7 @@ define internal fastcc noundef i32 @ata_msense_control(ptr nocapture noundef rea
   %189 = getelementptr i8, ptr %164, i64 32
   %190 = getelementptr i8, ptr %163, i64 32
   %191 = icmp eq i32 %188, 7
-  br i1 %191, label %192, label %161, !llvm.loop !62
+  br i1 %191, label %192, label %161, !llvm.loop !60
 
 192:                                              ; preds = %161
   %193 = getelementptr i8, ptr %1, i64 476
@@ -8132,8 +8132,8 @@ attributes #22 = { cold nounwind }
 !21 = !{i64 2157908796, i64 2157908605, i64 2157908657, i64 2157908703, i64 2157908731}
 !22 = !{i64 2157908870, i64 2157908899, i64 2157908945, i64 2157909003, i64 2157909057, i64 2157909111, i64 2157909166, i64 2157909197, i64 2157909505, i64 2157909511, i64 2157909558, i64 2157909581, i64 2157909607}
 !23 = !{i64 2157910065, i64 2157909876, i64 2157909926, i64 2157909972, i64 2157910000}
-!24 = !{i32 0, i32 493}
-!25 = !{i32 0, i32 4183}
+!24 = distinct !{!24, !16, !17}
+!25 = distinct !{!25, !16, !17}
 !26 = distinct !{!26, !16, !17}
 !27 = distinct !{!27, !16, !17}
 !28 = distinct !{!28, !16, !17}
@@ -8141,33 +8141,31 @@ attributes #22 = { cold nounwind }
 !30 = distinct !{!30, !16, !17}
 !31 = distinct !{!31, !16, !17}
 !32 = distinct !{!32, !16, !17}
-!33 = distinct !{!33, !16, !17}
-!34 = distinct !{!34, !16, !17}
-!35 = !{i64 2158022777, i64 2158022586, i64 2158022638, i64 2158022684, i64 2158022712}
-!36 = !{i64 2158022851, i64 2158022880, i64 2158022926, i64 2158022984, i64 2158023038, i64 2158023092, i64 2158023147, i64 2158023178, i64 2158023486, i64 2158023492, i64 2158023539, i64 2158023562, i64 2158023588}
-!37 = !{i64 2158024047, i64 2158023858, i64 2158023908, i64 2158023954, i64 2158023982}
+!33 = !{i64 2158022777, i64 2158022586, i64 2158022638, i64 2158022684, i64 2158022712}
+!34 = !{i64 2158022851, i64 2158022880, i64 2158022926, i64 2158022984, i64 2158023038, i64 2158023092, i64 2158023147, i64 2158023178, i64 2158023486, i64 2158023492, i64 2158023539, i64 2158023562, i64 2158023588}
+!35 = !{i64 2158024047, i64 2158023858, i64 2158023908, i64 2158023954, i64 2158023982}
+!36 = distinct !{!36, !16, !17}
+!37 = distinct !{!37, !16, !17}
 !38 = distinct !{!38, !16, !17}
 !39 = distinct !{!39, !16, !17}
-!40 = distinct !{!40, !16, !17}
-!41 = distinct !{!41, !16, !17}
-!42 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!43 = !{i64 2157978414, i64 2157978223, i64 2157978275, i64 2157978321, i64 2157978349}
-!44 = !{i64 2157978488, i64 2157978517, i64 2157978563, i64 2157978621, i64 2157978675, i64 2157978729, i64 2157978784, i64 2157978815, i64 2157979123, i64 2157979129, i64 2157979176, i64 2157979199, i64 2157979225}
-!45 = !{i64 2157979684, i64 2157979495, i64 2157979545, i64 2157979591, i64 2157979619}
-!46 = !{i32 0, i32 2}
-!47 = !{i32 -22, i32 1}
-!48 = !{i32 -22, i32 2}
-!49 = distinct !{!49, !16, !17}
-!50 = distinct !{!50, !16, !17}
-!51 = !{i64 1908020, i64 1908041}
-!52 = !{i64 1908224}
-!53 = distinct !{!53, !16, !17}
-!54 = !{i64 2157982604, i64 2157982413, i64 2157982465, i64 2157982511, i64 2157982539}
-!55 = !{i64 2157982678, i64 2157982707, i64 2157982753, i64 2157982811, i64 2157982865, i64 2157982919, i64 2157982974, i64 2157983005, i64 2157983313, i64 2157983319, i64 2157983366, i64 2157983389, i64 2157983415}
-!56 = !{i64 2157983874, i64 2157983685, i64 2157983735, i64 2157983781, i64 2157983809}
+!40 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!41 = !{i64 2157978414, i64 2157978223, i64 2157978275, i64 2157978321, i64 2157978349}
+!42 = !{i64 2157978488, i64 2157978517, i64 2157978563, i64 2157978621, i64 2157978675, i64 2157978729, i64 2157978784, i64 2157978815, i64 2157979123, i64 2157979129, i64 2157979176, i64 2157979199, i64 2157979225}
+!43 = !{i64 2157979684, i64 2157979495, i64 2157979545, i64 2157979591, i64 2157979619}
+!44 = !{i32 0, i32 2}
+!45 = !{i32 -22, i32 1}
+!46 = !{i32 -22, i32 2}
+!47 = distinct !{!47, !16, !17}
+!48 = distinct !{!48, !16, !17}
+!49 = !{i64 1908020, i64 1908041}
+!50 = !{i64 1908224}
+!51 = distinct !{!51, !16, !17}
+!52 = !{i64 2157982604, i64 2157982413, i64 2157982465, i64 2157982511, i64 2157982539}
+!53 = !{i64 2157982678, i64 2157982707, i64 2157982753, i64 2157982811, i64 2157982865, i64 2157982919, i64 2157982974, i64 2157983005, i64 2157983313, i64 2157983319, i64 2157983366, i64 2157983389, i64 2157983415}
+!54 = !{i64 2157983874, i64 2157983685, i64 2157983735, i64 2157983781, i64 2157983809}
+!55 = distinct !{!55, !16, !17}
+!56 = !{i64 1908316}
 !57 = distinct !{!57, !16, !17}
-!58 = !{i64 1908316}
-!59 = distinct !{!59, !16, !17}
+!58 = distinct !{!58, !16, !17}
+!59 = !{!"branch_weights", i32 4000000, i32 4001}
 !60 = distinct !{!60, !16, !17}
-!61 = !{!"branch_weights", i32 4000000, i32 4001}
-!62 = distinct !{!62, !16, !17}

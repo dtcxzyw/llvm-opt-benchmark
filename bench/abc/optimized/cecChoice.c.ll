@@ -40,10 +40,10 @@ define ptr @Cec_ManCombSpecReduce(ptr noundef %0, ptr nocapture noundef %1, i32 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #16
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #17
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #15
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %7
@@ -55,10 +55,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %7
   br i1 %.not.i213, label %Abc_UtilStrsav.exit214, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #16
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #16
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #17
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #15
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #15
   br label %Abc_UtilStrsav.exit214
 
 Abc_UtilStrsav.exit214:                           ; preds = %Abc_UtilStrsav.exit, %15
@@ -273,13 +273,13 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %134 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %108, i64 %133, i32 1
   %135 = load i32, ptr %134, align 4
   %136 = lshr i64 %122, 61
-  %137 = trunc i64 %136 to i32
+  %137 = trunc nuw nsw i64 %136 to i32
   %138 = and i32 %137, 1
   %139 = xor i32 %138, %135
   %140 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %130, i32 noundef %139) #15
   %.val200 = load i64, ptr %108, align 4
   %.val200.lobit = lshr i64 %.val200, 63
-  %141 = trunc i64 %.val200.lobit to i32
+  %141 = trunc nuw nsw i64 %.val200.lobit to i32
   %142 = xor i32 %140, %141
   %.not178 = icmp eq i32 %142, 0
   br i1 %.not178, label %Gia_ObjIsHead.exit.thread, label %143
@@ -418,7 +418,7 @@ Vec_IntPush.exit221:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %205, ptr %177, align 4
   %206 = sext i32 %204 to i64
   %207 = getelementptr inbounds i32, ptr %203, i64 %206
-  %208 = trunc i64 %indvars.iv328 to i32
+  %208 = trunc nuw nsw i64 %indvars.iv328 to i32
   store i32 %208, ptr %207, align 4
   %209 = load i32, ptr %99, align 4
   %210 = load i32, ptr %98, align 8
@@ -482,7 +482,7 @@ Gia_ObjIsHead.exit:                               ; preds = %107
   br i1 %234, label %Gia_ObjIsHead.exit.thread, label %.lr.ph318.preheader
 
 .lr.ph318.preheader:                              ; preds = %Gia_ObjIsHead.exit
-  %235 = trunc i64 %indvars.iv328 to i32
+  %235 = trunc nuw nsw i64 %indvars.iv328 to i32
   br label %.lr.ph318
 
 .lr.ph318:                                        ; preds = %.lr.ph318.preheader, %401
@@ -517,7 +517,7 @@ Gia_ObjIsHead.exit:                               ; preds = %107
   %259 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %237, i64 %258, i32 1
   %260 = load i32, ptr %259, align 4
   %261 = lshr i64 %247, 61
-  %262 = trunc i64 %261 to i32
+  %262 = trunc nuw nsw i64 %261 to i32
   %263 = and i32 %262, 1
   %264 = xor i32 %263, %260
   %265 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %255, i32 noundef %264) #15
@@ -550,7 +550,7 @@ Gia_ObjIsHead.exit:                               ; preds = %107
   %289 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %267, i64 %288, i32 1
   %290 = load i32, ptr %289, align 4
   %291 = lshr i64 %277, 61
-  %292 = trunc i64 %291 to i32
+  %292 = trunc nuw nsw i64 %291 to i32
   %293 = and i32 %292, 1
   %294 = xor i32 %293, %290
   %295 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %285, i32 noundef %294) #15
@@ -560,13 +560,13 @@ Gia_ObjIsHead.exit:                               ; preds = %107
   %.val202 = load i64, ptr %296, align 4
   %297 = xor i64 %.val202, %.val201
   %.lobit306 = lshr i64 %297, 63
-  %298 = trunc i64 %.lobit306 to i32
+  %298 = trunc nuw nsw i64 %.lobit306 to i32
   %299 = xor i32 %265, %298
   %300 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val186, i64 %266
   %.val204 = load i64, ptr %300, align 4
   %301 = xor i64 %.val204, %.val201
   %.lobit307 = lshr i64 %301, 63
-  %302 = trunc i64 %.lobit307 to i32
+  %302 = trunc nuw nsw i64 %.lobit307 to i32
   %303 = xor i32 %295, %302
   %304 = icmp ne i32 %299, %303
   %305 = icmp ne i32 %299, 0
@@ -812,7 +812,7 @@ Vec_IntPush.exit250:                              ; preds = %.Vec_IntGrow.exit10
   %427 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %405, i64 %426, i32 1
   %428 = load i32, ptr %427, align 4
   %429 = lshr i64 %415, 61
-  %430 = trunc i64 %429 to i32
+  %430 = trunc nuw nsw i64 %429 to i32
   %431 = and i32 %430, 1
   %432 = xor i32 %431, %428
   %433 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %423, i32 noundef %432) #15
@@ -844,7 +844,7 @@ Vec_IntPush.exit250:                              ; preds = %.Vec_IntGrow.exit10
   %456 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %434, i64 %455, i32 1
   %457 = load i32, ptr %456, align 4
   %458 = lshr i64 %444, 61
-  %459 = trunc i64 %458 to i32
+  %459 = trunc nuw nsw i64 %458 to i32
   %460 = and i32 %459, 1
   %461 = xor i32 %460, %457
   %462 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %452, i32 noundef %461) #15
@@ -854,13 +854,13 @@ Vec_IntPush.exit250:                              ; preds = %.Vec_IntGrow.exit10
   %.val206 = load i64, ptr %463, align 4
   %464 = xor i64 %.val206, %.val205
   %.lobit = lshr i64 %464, 63
-  %465 = trunc i64 %.lobit to i32
+  %465 = trunc nuw nsw i64 %.lobit to i32
   %466 = xor i32 %433, %465
   %467 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val190, i64 %indvars.iv328
   %.val208 = load i64, ptr %467, align 4
   %468 = xor i64 %.val208, %.val205
   %.lobit305 = lshr i64 %468, 63
-  %469 = trunc i64 %.lobit305 to i32
+  %469 = trunc nuw nsw i64 %.lobit305 to i32
   %470 = xor i32 %462, %469
   %471 = icmp ne i32 %466, %470
   %472 = icmp ne i32 %466, 0
@@ -1127,7 +1127,7 @@ Gia_ObjReprObj.exit:                              ; preds = %570
   %604 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %579, i64 %603, i32 1
   %605 = load i32, ptr %604, align 4
   %606 = lshr i64 %592, 61
-  %607 = trunc i64 %606 to i32
+  %607 = trunc nuw nsw i64 %606 to i32
   %608 = and i32 %607, 1
   %609 = xor i32 %608, %605
   %610 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %600, i32 noundef %609) #15
@@ -1161,7 +1161,7 @@ Gia_ObjReprObj.exit:                              ; preds = %570
   %634 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %571, i64 %633, i32 1
   %635 = load i32, ptr %634, align 4
   %636 = lshr i64 %622, 61
-  %637 = trunc i64 %636 to i32
+  %637 = trunc nuw nsw i64 %636 to i32
   %638 = and i32 %637, 1
   %639 = xor i32 %638, %635
   %640 = tail call i32 @Gia_ManHashAnd(ptr noundef %5, i32 noundef %630, i32 noundef %639) #15
@@ -1169,7 +1169,7 @@ Gia_ObjReprObj.exit:                              ; preds = %570
   %.val210 = load i64, ptr %571, align 4
   %641 = xor i64 %.val210, %.val209
   %.lobit309 = lshr i64 %641, 63
-  %642 = trunc i64 %.lobit309 to i32
+  %642 = trunc nuw nsw i64 %.lobit309 to i32
   %643 = xor i32 %640, %642
   %.not174 = icmp eq i32 %612, %643
   br i1 %.not174, label %Gia_ObjReprObj.exit.thread, label %644
@@ -2152,7 +2152,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #15
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #15
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2171,7 +2171,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2274,7 +2274,7 @@ define ptr @Cec_ComputeChoices(ptr noundef %0, ptr nocapture noundef readonly %1
   %21 = load i32, ptr %4, align 4
   %22 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 %21, ptr %22, align 4
-  %23 = call i32 @Cec_ManChoiceComputation_int(ptr noundef %0, ptr noundef nonnull %3)
+  %23 = call i32 @Cec_ManChoiceComputation_int(ptr noundef %0, ptr noundef nonnull readonly %3)
   %24 = call ptr @Gia_ManEquivToChoices(ptr noundef %0, i32 noundef 3) #15
   %25 = getelementptr i8, ptr %24, i64 16
   %.val = load i32, ptr %25, align 8
@@ -2542,7 +2542,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %.val16 = load i64, ptr %2, align 4
   %24 = xor i64 %.val16, %.val17
   %.lobit = lshr i64 %24, 63
-  %25 = trunc i64 %.lobit to i32
+  %25 = trunc nuw nsw i64 %.lobit to i32
   %26 = xor i32 %23, %25
   br label %common.ret.sink.split
 
@@ -2573,7 +2573,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %6
   %48 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %47, i32 1
   %49 = load i32, ptr %48, align 4
   %50 = lshr i64 %36, 61
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = and i32 %51, 1
   %53 = xor i32 %52, %49
   %54 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %44, i32 noundef %53) #15
@@ -2589,16 +2589,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12

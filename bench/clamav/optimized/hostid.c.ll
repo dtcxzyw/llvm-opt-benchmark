@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [21 x i8] c"HostID is valid: %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @is_valid_hostid() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @is_valid_hostid() local_unnamed_addr #0 {
   %1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @hostid) #6
   %.not = icmp eq i64 %1, 36
   br i1 %.not, label %.preheader, label %16

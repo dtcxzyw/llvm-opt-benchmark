@@ -321,7 +321,7 @@ return:                                           ; preds = %if.end11, %if.end18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @MOZ_Z_adler32_combine(i64 noundef %adler1, i64 noundef %adler2, i64 noundef %len2) local_unnamed_addr #1 {
+define dso_local range(i64 0, 8589934592) i64 @MOZ_Z_adler32_combine(i64 noundef %adler1, i64 noundef %adler2, i64 noundef %len2) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i64 %len2, 0
   br i1 %cmp.i, label %adler32_combine_.exit, label %if.end.i
@@ -330,7 +330,7 @@ if.end.i:                                         ; preds = %entry
   %rem1.i = urem i64 %len2, 65521
   %and.i = and i64 %adler1, 65535
   %mul.i = mul nuw nsw i64 %rem1.i, %and.i
-  %rem3.lhs.trunc.i = trunc i64 %mul.i to i32
+  %rem3.lhs.trunc.i = trunc nuw i64 %mul.i to i32
   %rem318.i = urem i32 %rem3.lhs.trunc.i, 65521
   %rem3.zext.i = zext nneg i32 %rem318.i to i64
   %and4.i = and i64 %adler2, 65535
@@ -366,7 +366,7 @@ adler32_combine_.exit:                            ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @MOZ_Z_adler32_combine64(i64 noundef %adler1, i64 noundef %adler2, i64 noundef %len2) local_unnamed_addr #1 {
+define dso_local range(i64 0, 8589934592) i64 @MOZ_Z_adler32_combine64(i64 noundef %adler1, i64 noundef %adler2, i64 noundef %len2) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i64 %len2, 0
   br i1 %cmp.i, label %adler32_combine_.exit, label %if.end.i
@@ -375,7 +375,7 @@ if.end.i:                                         ; preds = %entry
   %rem1.i = urem i64 %len2, 65521
   %and.i = and i64 %adler1, 65535
   %mul.i = mul nuw nsw i64 %rem1.i, %and.i
-  %rem3.lhs.trunc.i = trunc i64 %mul.i to i32
+  %rem3.lhs.trunc.i = trunc nuw i64 %mul.i to i32
   %rem318.i = urem i32 %rem3.lhs.trunc.i, 65521
   %rem3.zext.i = zext nneg i32 %rem318.i to i64
   %and4.i = and i64 %adler2, 65535

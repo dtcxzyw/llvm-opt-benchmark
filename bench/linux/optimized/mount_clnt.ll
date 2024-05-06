@@ -313,7 +313,7 @@ define internal void @mnt_xdr_enc_dirpath(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mnt_xdr_dec_mountres(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @mnt_xdr_dec_mountres(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6, !prof !7
@@ -381,7 +381,7 @@ declare i32 @llvm.bswap.i32(i32) #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mnt_xdr_dec_mountres3(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @mnt_xdr_dec_mountres3(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6, !prof !7
@@ -436,7 +436,7 @@ define internal noundef i32 @mnt_xdr_dec_mountres3(ptr nocapture readnone %0, pt
   br i1 %34, label %44, label %35, !prof !7
 
 35:                                               ; preds = %31
-  %36 = trunc i32 %28 to i16
+  %36 = trunc nuw i32 %28 to i16
   store i16 %36, ptr %23, align 2
   %37 = getelementptr inbounds i8, ptr %23, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %37, ptr nonnull align 4 %33, i64 %32, i1 false)

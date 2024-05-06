@@ -921,9 +921,9 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %48 = load i32, ptr %40, align 4
   %49 = sub nsw i32 %47, %48
   %50 = udiv i64 %indvars.iv129, 3
-  %51 = getelementptr i8, ptr %46, i64 4
+  %51 = getelementptr inbounds i8, ptr %46, i64 4
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr i8, ptr %46, i64 8
+  %53 = getelementptr inbounds i8, ptr %46, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds [3 x float], ptr %4, i64 %55
@@ -999,9 +999,9 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %102 = load i32, ptr %40, align 4
   %103 = sub nsw i32 %101, %102
   %104 = udiv i64 %indvars.iv126, 3
-  %105 = getelementptr i8, ptr %100, i64 4
+  %105 = getelementptr inbounds i8, ptr %100, i64 4
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr i8, ptr %100, i64 8
+  %107 = getelementptr inbounds i8, ptr %100, i64 8
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %106 to i64
   %110 = getelementptr inbounds [3 x float], ptr %4, i64 %109
@@ -1396,9 +1396,9 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %182 = add nuw i64 %indvars.iv265, %46
   %183 = trunc i64 %182 to i32
   %184 = sdiv i32 %183, 3
-  %185 = getelementptr i8, ptr %55, i64 4
+  %185 = getelementptr inbounds i8, ptr %55, i64 4
   %186 = load i32, ptr %185, align 4
-  %187 = getelementptr i8, ptr %55, i64 8
+  %187 = getelementptr inbounds i8, ptr %55, i64 8
   %188 = load i32, ptr %187, align 4
   %189 = sext i32 %186 to i64
   %190 = getelementptr inbounds [3 x float], ptr %3, i64 %189

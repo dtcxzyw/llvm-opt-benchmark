@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID_minstrel_vht_only2956, ptr @__UNIQUE_ID_minstrel_vht_onlytype2955, ptr @__param_minstrel_vht_only], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @minstrel_ht_get_tp_avg(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 1048576) i32 @minstrel_ht_get_tp_avg(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %3, 409
@@ -1260,7 +1260,7 @@ define internal void @minstrel_ht_get_rate(ptr nocapture noundef readonly %0, pt
   %38 = zext i8 %37 to i16
   %39 = add nuw nsw i16 %38, 1
   %40 = urem i16 %39, 6
-  %41 = trunc i16 %40 to i8
+  %41 = trunc nuw nsw i16 %40 to i8
   store i8 %41, ptr %36, align 2
   %42 = zext i8 %37 to i64
   %43 = getelementptr [6 x i8], ptr @minstrel_sample_seq, i64 0, i64 %42
@@ -1371,7 +1371,7 @@ define internal void @minstrel_ht_get_rate(ptr nocapture noundef readonly %0, pt
   br label %121
 
 114:                                              ; preds = %96
-  %115 = trunc i16 %64 to i8
+  %115 = trunc nuw nsw i16 %64 to i8
   %116 = getelementptr inbounds i8, ptr %63, i64 2
   %117 = load i8, ptr %116, align 2
   %118 = shl i8 %117, 3
@@ -1394,7 +1394,7 @@ define internal void @minstrel_ht_get_rate(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @minstrel_ht_get_expected_throughput(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2097152, 2097152) i32 @minstrel_ht_get_expected_throughput(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i16, ptr %2, align 4
   %4 = lshr i16 %3, 4
@@ -3759,7 +3759,7 @@ minstrel_ht_sort_best_tp_rates.exit52:            ; preds = %797, %799
   %1247 = zext i8 %1246 to i16
   %1248 = add nuw nsw i16 %1247, 1
   %1249 = urem i16 %1248, 42
-  %1250 = trunc i16 %1249 to i8
+  %1250 = trunc nuw nsw i16 %1249 to i8
   %1251 = zext nneg i16 %1249 to i64
   %1252 = getelementptr [42 x i16], ptr %34, i64 0, i64 %1251
   %1253 = load i16, ptr %1252, align 2
@@ -3838,7 +3838,7 @@ minstrel_ht_sort_best_tp_rates.exit52:            ; preds = %797, %799
   br label %.loopexit67
 
 1301:                                             ; preds = %1286, %1295
-  %1302 = trunc i32 %1285 to i16
+  %1302 = trunc nuw nsw i32 %1285 to i16
   store i8 %1250, ptr %1232, align 2
   %1303 = getelementptr i16, ptr %1196, i64 %1242
   store i16 %1302, ptr %1303, align 2
@@ -3980,7 +3980,7 @@ minstrel_ht_sort_best_tp_rates.exit52:            ; preds = %797, %799
   %1396 = zext i8 %1393 to i16
   %1397 = add nuw nsw i16 %1396, 1
   %1398 = urem i16 %1397, 42
-  %1399 = trunc i16 %1398 to i8
+  %1399 = trunc nuw nsw i16 %1398 to i8
   %1400 = zext nneg i16 %1398 to i64
   %1401 = getelementptr [42 x i16], ptr %34, i64 0, i64 %1400
   %1402 = load i16, ptr %1401, align 2

@@ -2382,7 +2382,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   br i1 %197, label %.lr.ph.i.i.i.i.i60.preheader, label %._crit_edge.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i60.preheader:                     ; preds = %193
-  %invariant.gep = getelementptr i8, ptr %92, i64 48
+  %invariant.gep = getelementptr inbounds i8, ptr %92, i64 48
   br label %.lr.ph.i.i.i.i.i60
 
 .lr.ph.i.i.i.i.i60:                               ; preds = %.lr.ph.i.i.i.i.i60.preheader, %.lr.ph.i.i.i.i.i60
@@ -2394,7 +2394,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   %199 = load <2 x double>, ptr %198, align 16
   %200 = fmul <2 x double> %199, %199
   %201 = fadd <2 x double> %.07275.i.i.i.i.i64, %200
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.054.in77.i.i.i.i.i62
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %.054.in77.i.i.i.i.i62
   %202 = load <2 x double>, ptr %gep, align 16
   %203 = fmul <2 x double> %202, %202
   %204 = fadd <2 x double> %storemerge76.i.i.i.i.i63, %203
@@ -3103,7 +3103,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br i1 %27, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %28 = mul nsw i64 %.0810.i, %20
+  %28 = mul nuw nsw i64 %.0810.i, %20
   %29 = getelementptr double, ptr %22, i64 %28
   br label %.lr.ph.i
 

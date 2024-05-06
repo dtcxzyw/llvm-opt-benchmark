@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.test_immortal_small_ints = private unnamed_addr constant [59 x i8] c"PyObject *test_immortal_small_ints(PyObject *, PyObject *)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @verify_immortality(ptr noundef %object) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @verify_immortality(ptr noundef %object) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %object, align 8
   %1 = and i64 %0, 2147483648
@@ -70,7 +70,7 @@ for.end:                                          ; preds = %for.inc
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Immortal(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Immortal(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %mod, ptr noundef nonnull @test_methods) #4
   %call.lobit = ashr i32 %call, 31
@@ -82,7 +82,7 @@ declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_immortal_builtins(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @test_immortal_builtins(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   br label %for.body
 
@@ -140,7 +140,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_immortal_small_ints(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @test_immortal_small_ints(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   br label %for.body
 

@@ -336,7 +336,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %22 = extractvalue { i64, ptr } %17, 1
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %.sroa.6.0.val, i64 %.sroa.6.0.val13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %.sroa.6.0.val, i64 %.sroa.6.0.val13, i1 false)
   %24 = getelementptr inbounds [0 x { [3 x i64] }], ptr %7, i64 0, i64 %.sroa.7.030
   store i64 %21, ptr %24, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
@@ -493,7 +493,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %5, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %5, i64 %6, i1 false)
   store i64 %8, ptr %0, align 8, !alias.scope !58, !noalias !63
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !63
@@ -545,7 +545,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %25 = extractvalue { i64, ptr } %20, 1
   %26 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %26)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %.sroa.6.0.val.i, i64 %.sroa.6.0.val13.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %.sroa.6.0.val.i, i64 %.sroa.6.0.val13.i, i1 false)
   %27 = getelementptr inbounds [0 x { [3 x i64] }], ptr %10, i64 0, i64 %.sroa.7.030.i
   store i64 %24, ptr %27, align 8
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -573,7 +573,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hfb5d83dda7514c75E.llvm.7804422630974494944.exit": ; preds = %.lr.ph.i, %21, %2
   store i64 %7, ptr %12, align 8, !noalias !67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !67
   ret void
 }

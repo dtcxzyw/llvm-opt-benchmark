@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [15 x i8] c"after dfa pass\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_dfa_analyze_op_array(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_dfa_analyze_op_array(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -1858,7 +1858,7 @@ define hidden void @zend_dfa_optimize_op_array(ptr noundef %0, ptr noundef %1, p
 
 can_elide_return_type_check.exit:                 ; preds = %687
   %691 = load ptr, ptr %682, align 8
-  %692 = call fastcc zeroext i1 @can_elide_list_type(ptr noundef %673, ptr noundef nonnull %0, ptr noundef nonnull %676, ptr %691, i32 %684)
+  %692 = call fastcc zeroext i1 @can_elide_list_type(ptr noundef %673, ptr noundef nonnull %0, ptr noundef nonnull readonly %676, ptr %691, i32 %684)
   br i1 %692, label %can_elide_return_type_check.exit.thread, label %can_elide_return_type_check.exit.thread1584
 
 can_elide_return_type_check.exit.thread:          ; preds = %672, %can_elide_return_type_check.exit
@@ -5764,7 +5764,7 @@ define hidden void @zend_optimize_dfa(ptr noundef %0, ptr noundef %1) local_unna
   %3 = alloca %struct._zend_ssa, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = call i32 @zend_dfa_analyze_op_array(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3), !range !4
+  %6 = call i32 @zend_dfa_analyze_op_array(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %22
 
@@ -5775,20 +5775,20 @@ define hidden void @zend_optimize_dfa(ptr noundef %0, ptr noundef %1) local_unna
   %12 = icmp ugt ptr %5, %11
   %13 = icmp ule ptr %5, %9
   %14 = or i1 %13, %12
-  br i1 %14, label %.lr.ph47, label %._crit_edge48
+  br i1 %14, label %.lr.ph45, label %._crit_edge46
 
-.lr.ph47:                                         ; preds = %8, %.lr.ph47
-  %.045 = phi ptr [ %16, %.lr.ph47 ], [ %9, %8 ]
-  %15 = getelementptr inbounds i8, ptr %.045, i64 16
+.lr.ph45:                                         ; preds = %8, %.lr.ph45
+  %.043 = phi ptr [ %16, %.lr.ph45 ], [ %9, %8 ]
+  %15 = getelementptr inbounds i8, ptr %.043, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void @_efree(ptr noundef nonnull %.045) #10
+  call void @_efree(ptr noundef nonnull %.043) #10
   store ptr %16, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ugt ptr %5, %18
   %20 = icmp ule ptr %5, %16
   %21 = or i1 %20, %19
-  br i1 %21, label %.lr.ph47, label %._crit_edge48
+  br i1 %21, label %.lr.ph45, label %._crit_edge46
 
 22:                                               ; preds = %2
   call void @zend_dfa_optimize_op_array(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef null)
@@ -5798,23 +5798,23 @@ define hidden void @zend_optimize_dfa(ptr noundef %0, ptr noundef %1) local_unna
   %26 = icmp ugt ptr %5, %25
   %27 = icmp ule ptr %5, %23
   %28 = or i1 %27, %26
-  br i1 %28, label %.lr.ph, label %._crit_edge48
+  br i1 %28, label %.lr.ph, label %._crit_edge46
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
-  %.04044 = phi ptr [ %30, %.lr.ph ], [ %23, %22 ]
-  %29 = getelementptr inbounds i8, ptr %.04044, i64 16
+  %.04042 = phi ptr [ %30, %.lr.ph ], [ %23, %22 ]
+  %29 = getelementptr inbounds i8, ptr %.04042, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void @_efree(ptr noundef nonnull %.04044) #10
+  call void @_efree(ptr noundef nonnull %.04042) #10
   store ptr %30, ptr %1, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ugt ptr %5, %32
   %34 = icmp ule ptr %5, %30
   %35 = or i1 %34, %33
-  br i1 %35, label %.lr.ph, label %._crit_edge48
+  br i1 %35, label %.lr.ph, label %._crit_edge46
 
-._crit_edge48:                                    ; preds = %.lr.ph, %.lr.ph47, %22, %8
-  %.040.lcssa.sink = phi ptr [ %9, %8 ], [ %23, %22 ], [ %16, %.lr.ph47 ], [ %30, %.lr.ph ]
+._crit_edge46:                                    ; preds = %.lr.ph, %.lr.ph45, %22, %8
+  %.040.lcssa.sink = phi ptr [ %9, %8 ], [ %23, %22 ], [ %16, %.lr.ph45 ], [ %30, %.lr.ph ]
   store ptr %5, ptr %.040.lcssa.sink, align 8
   ret void
 }
@@ -6509,4 +6509,3 @@ attributes #11 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

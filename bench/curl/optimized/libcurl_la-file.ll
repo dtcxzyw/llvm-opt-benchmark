@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [25 x i8] c"Can't get the size of %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @file_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture readnone %conn) #0 {
+define internal range(i32 0, 28) i32 @file_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture readnone %conn) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 24) #9

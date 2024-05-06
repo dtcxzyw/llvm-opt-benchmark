@@ -167,8 +167,8 @@ if.end:                                           ; preds = %if.then, %entry
   call void @strbuf_init(ptr noundef nonnull %remainder, i64 noundef 0) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %b.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a.i, ptr noundef nonnull align 8 dereferenceable(16) %mf1, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b.i, ptr noundef nonnull align 8 dereferenceable(16) %mf2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %mf1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %mf2, i64 16, i1 false)
   %size.i = getelementptr inbounds i8, ptr %mf1, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ugt i64 %2, 1072693248
@@ -279,7 +279,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xdiff_outf(ptr noundef %priv_, ptr nocapture noundef readonly %mb, i32 noundef %nbuf) #0 {
+define internal range(i32 -1, 2) i32 @xdiff_outf(ptr noundef %priv_, ptr nocapture noundef readonly %mb, i32 noundef %nbuf) #0 {
 entry:
   %line_fn = getelementptr inbounds i8, ptr %priv_, i64 8
   %0 = load ptr, ptr %line_fn, align 8
@@ -463,7 +463,7 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @read_mmfile(ptr nocapture noundef writeonly %ptr, ptr noundef %filename) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @read_mmfile(ptr nocapture noundef writeonly %ptr, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %st) #13
@@ -568,11 +568,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %call, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %call, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %call, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %call, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -623,7 +623,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #5
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @buffer_is_binary(ptr noundef readonly %ptr, i64 noundef %size) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @buffer_is_binary(ptr noundef readonly %ptr, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %size, i64 8000)
   %call = tail call ptr @memchr(ptr noundef %ptr, i32 noundef 0, i64 noundef %spec.store.select) #15
@@ -757,7 +757,7 @@ for.end47:                                        ; preds = %if.end42, %st_mult.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ff_regexp(ptr noundef %line, i64 noundef %len, ptr nocapture noundef writeonly %buffer, i64 noundef %buffer_size, ptr nocapture noundef readonly %priv) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @ff_regexp(ptr noundef %line, i64 noundef %len, ptr nocapture noundef writeonly %buffer, i64 noundef %buffer_size, ptr nocapture noundef readonly %priv) #0 {
 entry:
   %pmatch = alloca [2 x %struct.regmatch_t], align 16
   %cmp = icmp sgt i64 %len, 0

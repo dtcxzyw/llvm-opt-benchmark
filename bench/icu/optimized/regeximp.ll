@@ -146,7 +146,7 @@ declare i32 @utext_next32_75(ptr noundef) local_unnamed_addr #3
 declare i32 @ucase_toFullFolding_75(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZN6icu_7524CaseFoldingUTextIterator11inExpansionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7524CaseFoldingUTextIterator11inExpansionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
   %fFoldChars = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fFoldChars, align 8
@@ -300,7 +300,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZN6icu_7524CaseFoldingUCharIterator11inExpansionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7524CaseFoldingUCharIterator11inExpansionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
 entry:
   %fFoldChars = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fFoldChars, align 8

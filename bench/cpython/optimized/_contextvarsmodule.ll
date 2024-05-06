@@ -42,7 +42,7 @@ entry:
 declare ptr @PyContext_CopyCurrent() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_contextvars_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @_contextvars_exec(ptr noundef %m) #0 {
 entry:
   %call = tail call i32 @PyModule_AddType(ptr noundef %m, ptr noundef nonnull @PyContext_Type) #2
   %cmp = icmp slt i32 %call, 0

@@ -396,7 +396,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow8internal8unpack64EPKhPmii(ptr noundef %in, ptr noundef %out, i32 noundef %batch_size, i32 noundef %num_bits) local_unnamed_addr #0 {
+define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal8unpack64EPKhPmii(ptr noundef %in, ptr noundef %out, i32 noundef %batch_size, i32 noundef %num_bits) local_unnamed_addr #0 {
 entry:
   %div.i = sdiv i32 %batch_size, 32
   switch i32 %num_bits, label %_ZN5arrow8internal12_GLOBAL__N_116unpack64_defaultEPKhPmii.exit [
@@ -11126,7 +11126,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN5arrow8internal12_GLOBAL__N_116unpack32_defaultEPKjPjii(ptr noundef %in, ptr noundef %out, i32 noundef %batch_size, i32 noundef %num_bits) #0 {
+define internal noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal12_GLOBAL__N_116unpack32_defaultEPKjPjii(ptr noundef %in, ptr noundef %out, i32 noundef %batch_size, i32 noundef %num_bits) #0 {
 entry:
   %div = sdiv i32 %batch_size, 32
   switch i32 %num_bits, label %sw.epilog [

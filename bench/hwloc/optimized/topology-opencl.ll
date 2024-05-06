@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [8 x i8] c"Backend\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @hwloc_opencl_component_init(i64 noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @hwloc_opencl_component_init(i64 noundef %0) #0 {
   %.not = icmp ne i64 %0, 0
   %spec.select = sext i1 %.not to i32
   ret i32 %spec.select
@@ -57,7 +57,7 @@ define internal ptr @hwloc_opencl_component_instantiate(ptr noundef %0, ptr noun
 declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc_opencl_discover(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
   %3 = alloca %union.hwloc_cl_device_topology_amd, align 4
   %4 = alloca %struct.hwloc_cl_device_pci_bus_info_khr, align 4
   %5 = alloca i32, align 4
@@ -157,7 +157,7 @@ define internal noundef i32 @hwloc_opencl_discover(ptr nocapture noundef readonl
   br i1 %or.cond187, label %.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %58
-  %62 = trunc i64 %indvars.iv182 to i32
+  %62 = trunc nuw i64 %indvars.iv182 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %182
@@ -175,7 +175,7 @@ define internal noundef i32 @hwloc_opencl_discover(ptr nocapture noundef readonl
 
 69:                                               ; preds = %.lr.ph
   %70 = call ptr @hwloc_alloc_setup_object(ptr noundef %17, i32 noundef 16, i32 noundef -1) #9
-  %71 = trunc i64 %indvars.iv to i32
+  %71 = trunc nuw i64 %indvars.iv to i32
   %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %62, i32 noundef %71) #9
   %73 = call noalias ptr @strdup(ptr noundef nonnull %15) #9
   %74 = getelementptr inbounds i8, ptr %70, i64 24
@@ -372,7 +372,7 @@ define internal noundef i32 @hwloc_opencl_discover(ptr nocapture noundef readonl
   br i1 %.not105, label %178, label %180
 
 178:                                              ; preds = %.thread144, %176
-  %179 = call ptr @hwloc_get_obj_by_depth(ptr noundef %17, i32 noundef 0, i32 noundef 0) #12
+  %179 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %17, i32 noundef 0, i32 noundef 0) #12
   br label %180
 
 180:                                              ; preds = %178, %176

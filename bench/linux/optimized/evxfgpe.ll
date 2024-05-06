@@ -261,7 +261,7 @@ define dso_local i32 @acpi_mask_gpe(ptr noundef %0, i32 noundef %1, i8 noundef z
 declare dso_local i32 @acpi_ev_mask_gpe(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_mark_gpe_for_wake(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_mark_gpe_for_wake(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   %4 = tail call i64 @acpi_os_acquire_lock(ptr noundef %3) #4
   %5 = tail call ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1) #4
@@ -283,7 +283,7 @@ define dso_local noundef i32 @acpi_mark_gpe_for_wake(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_setup_gpe_for_wake(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_setup_gpe_for_wake(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = ptrtoint ptr %0 to i64
   switch i64 %5, label %8 [
@@ -407,7 +407,7 @@ define dso_local noundef i32 @acpi_setup_gpe_for_wake(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_set_gpe_wake_mask(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_set_gpe_wake_mask(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   %5 = tail call i64 @acpi_os_acquire_lock(ptr noundef %4) #4
   %6 = tail call ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1) #4
@@ -599,7 +599,7 @@ define dso_local i32 @acpi_enable_all_wakeup_gpes() #0 align 16 {
 declare dso_local i32 @acpi_hw_enable_all_wakeup_gpes() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_any_gpe_status_set(i32 noundef %0) #0 align 16 {
+define dso_local range(i32 0, 256) i32 @acpi_any_gpe_status_set(i32 noundef %0) #0 align 16 {
   %2 = alloca %struct.acpi_gpe_device_info, align 8
   %3 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 3) #4
   %4 = icmp eq i32 %3, 0

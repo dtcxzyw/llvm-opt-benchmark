@@ -61,7 +61,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %29 = load i32, ptr %21, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %6, i64 %30
-  %32 = trunc i64 %indvars.iv.next to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %32, ptr %31, align 4
   br label %33
 
@@ -78,7 +78,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not53, label %37, label %40
 
 37:                                               ; preds = %.lr.ph61
-  %38 = trunc i64 %indvars.iv64 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv64 to i32
   %39 = tail call i32 @cs_tdfs(i32 noundef %38, i32 noundef %.04659, ptr noundef nonnull %6, ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef nonnull %16) #3
   br label %40
 

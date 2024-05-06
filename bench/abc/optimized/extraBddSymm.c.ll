@@ -1300,7 +1300,7 @@ define ptr @Extra_zddSelectOneSubset(ptr noundef %0, ptr noundef %1) local_unnam
 declare ptr @Cudd_zddDiff(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Extra_bddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Extra_bddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 344
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
@@ -1698,7 +1698,7 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Extra_bddCheckVarsSymmetricNaive(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Extra_bddCheckVarsSymmetricNaive(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 344
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64

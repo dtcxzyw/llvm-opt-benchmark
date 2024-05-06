@@ -142,7 +142,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %mul = mul i32 %call1, %2
   %add = add i32 %mul, %call
   %3 = load ptr, ptr %key, align 8
@@ -651,8 +651,8 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   %e.0112 = phi ptr [ %call.i81, %for.body82.lr.ph ], [ %call89, %add_key_to_filter.exit ]
   %path83 = getelementptr inbounds i8, ptr %e.0112, i64 16
   %call87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path83) #15
-  %call.i82 = call i32 @murmur3_seeded(i32 noundef 691726191, ptr noundef nonnull %path83, i64 noundef %call87)
-  %call1.i = call i32 @murmur3_seeded(i32 noundef 2120511020, ptr noundef nonnull %path83, i64 noundef %call87)
+  %call.i82 = call i32 @murmur3_seeded(i32 noundef 691726191, ptr noundef nonnull readonly %path83, i64 noundef %call87)
+  %call1.i = call i32 @murmur3_seeded(i32 noundef 2120511020, ptr noundef nonnull readonly %path83, i64 noundef %call87)
   %53 = load i32, ptr %num_hashes.i, align 4
   %conv.i = zext i32 %53 to i64
   %call2.i = call ptr @xcalloc(i64 noundef %conv.i, i64 noundef 4) #14
@@ -662,7 +662,7 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
 
 for.body.i:                                       ; preds = %for.body82, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body82 ]
-  %55 = trunc i64 %indvars.iv.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   %mul.i83 = mul i32 %call1.i, %55
   %add.i84 = add i32 %mul.i83, %call.i82
   %arrayidx.i = getelementptr inbounds i32, ptr %call2.i, i64 %indvars.iv.i
@@ -794,7 +794,7 @@ declare ptr @hashmap_iter_next(ptr noundef) local_unnamed_addr #2
 declare void @hashmap_clear_(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @bloom_filter_contains(ptr nocapture noundef readonly %filter, ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %settings) local_unnamed_addr #10 {
+define dso_local range(i32 -1, 2) i32 @bloom_filter_contains(ptr nocapture noundef readonly %filter, ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %settings) local_unnamed_addr #10 {
 entry:
   %len = getelementptr inbounds i8, ptr %filter, i64 8
   %0 = load i64, ptr %len, align 8

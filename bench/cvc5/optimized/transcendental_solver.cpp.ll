@@ -5095,7 +5095,7 @@ ehcleanup:                                        ; preds = %lpad.i.i7, %lpad.i.
 declare noundef i64 @_ZN4cvc58internal6theory5arith2nl14transcendental15TaylorGenerator37getPolynomialApproximationBoundForArgENS0_4kind6Kind_tENS0_12NodeTemplateILb1EEEmRNS5_19ApproximationBoundsE(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolver17regionToConcavityENS0_4kind6Kind_tEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(960) %this, i32 noundef %k, i32 noundef %region) local_unnamed_addr #10 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolver17regionToConcavityENS0_4kind6Kind_tEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(960) %this, i32 noundef %k, i32 noundef %region) local_unnamed_addr #10 align 2 {
 entry:
   switch i32 %k, label %if.end17 [
     i32 51, label %if.then

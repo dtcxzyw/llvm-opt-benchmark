@@ -26166,56 +26166,56 @@ if.then12:                                        ; preds = %entry
   %first.1.i124 = select i1 %cmp.i122, i32 %spec.select.i129, i32 %conv.i118
   store i32 %first.1.i124, ptr %range, align 4
   %conv22 = sitofp i32 %9 to float
-  %add1.i135 = fadd float %1, %conv22
-  %mul.i136 = fmul float %5, %add1.i135
-  %add4.i139 = fadd float %mul.i136, 5.000000e-01
-  %call.i140 = tail call float @stbir_simd_floorf(float noundef %add4.i139) #24
-  %sub5.i142 = fadd float %mul.i136, -5.000000e-01
-  %call6.i143 = tail call float @stbir_simd_floorf(float noundef %sub5.i142) #24
-  %conv7.i144 = fptosi float %call6.i143 to i32
-  %mul15.i153 = shl nsw i32 %3, 1
-  %cmp16.not.i154 = icmp sgt i32 %mul15.i153, %conv7.i144
-  %sub20.i155 = add nsw i32 %mul15.i153, -1
-  %spec.select10.i156 = select i1 %cmp16.not.i154, i32 %conv7.i144, i32 %sub20.i155
-  %last.0.i146 = select i1 %cmp.i122, i32 %spec.select10.i156, i32 %conv7.i144
+  %add1.i137 = fadd float %1, %conv22
+  %mul.i138 = fmul float %5, %add1.i137
+  %add4.i141 = fadd float %mul.i138, 5.000000e-01
+  %call.i142 = tail call float @stbir_simd_floorf(float noundef %add4.i141) #24
+  %sub5.i144 = fadd float %mul.i138, -5.000000e-01
+  %call6.i145 = tail call float @stbir_simd_floorf(float noundef %sub5.i144) #24
+  %conv7.i146 = fptosi float %call6.i145 to i32
+  %mul15.i155 = shl nsw i32 %3, 1
+  %cmp16.not.i156 = icmp sgt i32 %mul15.i155, %conv7.i146
+  %sub20.i157 = add nsw i32 %mul15.i155, -1
+  %spec.select10.i158 = select i1 %cmp16.not.i156, i32 %conv7.i146, i32 %sub20.i157
+  %last.0.i148 = select i1 %cmp.i122, i32 %spec.select10.i158, i32 %conv7.i146
   %n123 = getelementptr inbounds i8, ptr %range, i64 4
-  store i32 %last.0.i146, ptr %n123, align 4
+  store i32 %last.0.i148, ptr %n123, align 4
   %10 = load i32, ptr %range, align 4
   %add25 = add nsw i32 %10, 1
   %sub26 = sub nsw i32 0, %8
-  %cmp27.not186 = icmp slt i32 %add25, %sub26
-  br i1 %cmp27.not186, label %while.end, label %while.body.lr.ph
+  %cmp27.not188 = icmp slt i32 %add25, %sub26
+  br i1 %cmp27.not188, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then12
   %sub12.i = add nsw i32 %9, -1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end40
-  %n.0187 = phi i32 [ %add25, %while.body.lr.ph ], [ %dec, %if.end40 ]
-  %conv29 = sitofp i32 %n.0187 to float
+  %n.0189 = phi i32 [ %add25, %while.body.lr.ph ], [ %dec, %if.end40 ]
+  %conv29 = sitofp i32 %n.0189 to float
   %add30 = fadd float %conv29, 5.000000e-01
-  %sub.i158 = fsub float %add30, %mul14
-  %add.i159 = fadd float %mul14, %add30
-  %mul.i160 = fmul float %0, %sub.i158
-  %sub1.i = fsub float %mul.i160, %1
-  %mul2.i = fmul float %0, %add.i159
+  %sub.i160 = fsub float %add30, %mul14
+  %add.i161 = fadd float %mul14, %add30
+  %mul.i162 = fmul float %0, %sub.i160
+  %sub1.i = fsub float %mul.i162, %1
+  %mul2.i = fmul float %0, %add.i161
   %sub3.i = fsub float %mul2.i, %1
-  %add4.i161 = fadd float %sub1.i, 5.000000e-01
-  %call.i162 = tail call float @stbir_simd_floorf(float noundef %add4.i161) #24
-  %sub5.i163 = fadd float %sub3.i, -5.000000e-01
-  %call6.i164 = tail call float @stbir_simd_floorf(float noundef %sub5.i163) #24
-  %conv7.i165 = fptosi float %call6.i164 to i32
-  %cmp9.not.i = icmp sgt i32 %9, %conv7.i165
-  %spec.select.i166 = select i1 %cmp9.not.i, i32 %conv7.i165, i32 %sub12.i
-  %conv.i167 = fptosi float %call.i162 to i32
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %conv.i167, i32 0)
-  %cmp31 = icmp sgt i32 %spec.store.select.i, %spec.select.i166
+  %add4.i163 = fadd float %sub1.i, 5.000000e-01
+  %call.i164 = tail call float @stbir_simd_floorf(float noundef %add4.i163) #24
+  %sub5.i165 = fadd float %sub3.i, -5.000000e-01
+  %call6.i166 = tail call float @stbir_simd_floorf(float noundef %sub5.i165) #24
+  %conv7.i167 = fptosi float %call6.i166 to i32
+  %cmp9.not.i = icmp sgt i32 %9, %conv7.i167
+  %spec.select.i168 = select i1 %cmp9.not.i, i32 %conv7.i167, i32 %sub12.i
+  %conv.i169 = fptosi float %call.i164 to i32
+  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %conv.i169, i32 0)
+  %cmp31 = icmp sgt i32 %spec.store.select.i, %spec.select.i168
   br i1 %cmp31, label %while.end.loopexit, label %if.end40
 
 if.end40:                                         ; preds = %while.body
-  store i32 %n.0187, ptr %range, align 4
-  %dec = add nsw i32 %n.0187, -1
-  %cmp27.not.not = icmp sgt i32 %n.0187, %sub26
+  store i32 %n.0189, ptr %range, align 4
+  %dec = add nsw i32 %n.0189, -1
+  %cmp27.not.not = icmp sgt i32 %n.0189, %sub26
   br i1 %cmp27.not.not, label %while.body, label %while.end.loopexit, !llvm.loop !825
 
 while.end.loopexit:                               ; preds = %while.body, %if.end40
@@ -26223,42 +26223,42 @@ while.end.loopexit:                               ; preds = %while.body, %if.end
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.then12
-  %11 = phi i32 [ %.pre, %while.end.loopexit ], [ %last.0.i146, %if.then12 ]
+  %11 = phi i32 [ %.pre, %while.end.loopexit ], [ %last.0.i148, %if.then12 ]
   %add44 = add nsw i32 %11, %8
-  %cmp46.not188 = icmp slt i32 %8, -1
-  br i1 %cmp46.not188, label %if.end67thread-pre-split, label %while.body48.lr.ph
+  %cmp46.not190 = icmp slt i32 %8, -1
+  br i1 %cmp46.not190, label %if.end67thread-pre-split, label %while.body48.lr.ph
 
 while.body48.lr.ph:                               ; preds = %while.end
   %sub42 = add nsw i32 %11, -1
-  %sub12.i180 = add nsw i32 %9, -1
+  %sub12.i182 = add nsw i32 %9, -1
   br label %while.body48
 
 while.body48:                                     ; preds = %while.body48.lr.ph, %if.end64
-  %n.1189 = phi i32 [ %sub42, %while.body48.lr.ph ], [ %inc, %if.end64 ]
-  %conv51 = sitofp i32 %n.1189 to float
+  %n.1191 = phi i32 [ %sub42, %while.body48.lr.ph ], [ %inc, %if.end64 ]
+  %conv51 = sitofp i32 %n.1191 to float
   %add52 = fadd float %conv51, 5.000000e-01
-  %sub.i168 = fsub float %add52, %mul14
-  %add.i169 = fadd float %mul14, %add52
-  %mul.i170 = fmul float %0, %sub.i168
-  %sub1.i171 = fsub float %mul.i170, %1
-  %mul2.i172 = fmul float %0, %add.i169
-  %sub3.i173 = fsub float %mul2.i172, %1
-  %add4.i174 = fadd float %sub1.i171, 5.000000e-01
-  %call.i175 = tail call float @stbir_simd_floorf(float noundef %add4.i174) #24
-  %sub5.i176 = fadd float %sub3.i173, -5.000000e-01
-  %call6.i177 = tail call float @stbir_simd_floorf(float noundef %sub5.i176) #24
-  %conv7.i178 = fptosi float %call6.i177 to i32
-  %cmp9.not.i179 = icmp sgt i32 %9, %conv7.i178
-  %spec.select.i181 = select i1 %cmp9.not.i179, i32 %conv7.i178, i32 %sub12.i180
-  %conv.i182 = fptosi float %call.i175 to i32
-  %spec.store.select.i183 = tail call i32 @llvm.smax.i32(i32 %conv.i182, i32 0)
-  %cmp53 = icmp sgt i32 %spec.store.select.i183, %spec.select.i181
+  %sub.i170 = fsub float %add52, %mul14
+  %add.i171 = fadd float %mul14, %add52
+  %mul.i172 = fmul float %0, %sub.i170
+  %sub1.i173 = fsub float %mul.i172, %1
+  %mul2.i174 = fmul float %0, %add.i171
+  %sub3.i175 = fsub float %mul2.i174, %1
+  %add4.i176 = fadd float %sub1.i173, 5.000000e-01
+  %call.i177 = tail call float @stbir_simd_floorf(float noundef %add4.i176) #24
+  %sub5.i178 = fadd float %sub3.i175, -5.000000e-01
+  %call6.i179 = tail call float @stbir_simd_floorf(float noundef %sub5.i178) #24
+  %conv7.i180 = fptosi float %call6.i179 to i32
+  %cmp9.not.i181 = icmp sgt i32 %9, %conv7.i180
+  %spec.select.i183 = select i1 %cmp9.not.i181, i32 %conv7.i180, i32 %sub12.i182
+  %conv.i184 = fptosi float %call.i177 to i32
+  %spec.store.select.i185 = tail call i32 @llvm.smax.i32(i32 %conv.i184, i32 0)
+  %cmp53 = icmp sgt i32 %spec.store.select.i185, %spec.select.i183
   br i1 %cmp53, label %if.end67thread-pre-split, label %if.end64
 
 if.end64:                                         ; preds = %while.body48
-  store i32 %n.1189, ptr %n123, align 4
-  %inc = add nsw i32 %n.1189, 1
-  %cmp46.not.not = icmp slt i32 %n.1189, %add44
+  store i32 %n.1191, ptr %n123, align 4
+  %inc = add nsw i32 %n.1191, 1
+  %cmp46.not.not = icmp slt i32 %n.1191, %add44
   br i1 %cmp46.not.not, label %while.body48, label %if.end67thread-pre-split, !llvm.loop !826
 
 if.end67thread-pre-split:                         ; preds = %while.body48, %if.end64, %while.end, %if.then
@@ -26398,7 +26398,7 @@ if.end5:                                          ; preds = %if.then, %if.then2,
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @stbir__get_max_split(i32 noundef %splits, i32 noundef %height) local_unnamed_addr #13 {
+define range(i32 0, -2147483648) i32 @stbir__get_max_split(i32 noundef %splits, i32 noundef %height) local_unnamed_addr #13 {
 entry:
   %cmp8 = icmp sgt i32 %splits, 0
   br i1 %cmp8, label %for.body, label %for.end
@@ -26421,7 +26421,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stbir__should_do_vertical_first(ptr nocapture noundef readonly %weights_table, i32 noundef %horizontal_filter_pixel_width, float noundef %horizontal_scale, i32 noundef %horizontal_output_size, i32 noundef %vertical_filter_pixel_width, float noundef %vertical_scale, i32 noundef %vertical_output_size, i32 noundef %is_gather, ptr noundef %info) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stbir__should_do_vertical_first(ptr nocapture noundef readonly %weights_table, i32 noundef %horizontal_filter_pixel_width, float noundef %horizontal_scale, i32 noundef %horizontal_output_size, i32 noundef %vertical_filter_pixel_width, float noundef %vertical_scale, i32 noundef %vertical_output_size, i32 noundef %is_gather, ptr noundef %info) local_unnamed_addr #8 {
 entry:
   %cmp = icmp slt i32 %vertical_output_size, 5
   %cmp1 = icmp slt i32 %horizontal_output_size, 5
@@ -27609,7 +27609,7 @@ if.end14:                                         ; preds = %if.then6, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @stbir__double_to_rational(double noundef %f, i32 noundef %limit, ptr nocapture noundef writeonly %numer, ptr nocapture noundef writeonly %denom, i32 noundef %limit_denom) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @stbir__double_to_rational(double noundef %f, i32 noundef %limit, ptr nocapture noundef writeonly %numer, ptr nocapture noundef writeonly %denom, i32 noundef %limit_denom) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq i32 %limit_denom, 0
   %conv1 = zext i32 %limit to i64
@@ -27745,7 +27745,7 @@ return:                                           ; preds = %if.end38, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @stbir__calculate_region_transform(ptr nocapture noundef writeonly %scale_info, i32 noundef %output_full_range, ptr nocapture noundef %output_offset, i32 noundef %output_sub_range, i32 noundef %input_full_range, double noundef %input_s0, double noundef %input_s1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @stbir__calculate_region_transform(ptr nocapture noundef writeonly %scale_info, i32 noundef %output_full_range, ptr nocapture noundef %output_offset, i32 noundef %output_sub_range, i32 noundef %input_full_range, double noundef %input_s0, double noundef %input_s1) local_unnamed_addr #5 {
 entry:
   %sub = fsub double %input_s1, %input_s0
   %cmp = icmp eq i32 %output_full_range, 0
@@ -27838,7 +27838,7 @@ if.end27:                                         ; preds = %stbir__clip.exit
   %scale_denominator = getelementptr inbounds i8, ptr %scale_info, i64 28
   %cmp33 = fcmp oge double %mul, 1.000000e+00
   %conv34 = zext i1 %cmp33 to i32
-  %call = tail call i32 @stbir__double_to_rational(double noundef %mul, i32 noundef %cond, ptr noundef nonnull %scale_numerator, ptr noundef nonnull %scale_denominator, i32 noundef %conv34), !range !832
+  %call = tail call i32 @stbir__double_to_rational(double noundef %mul, i32 noundef %cond, ptr noundef nonnull %scale_numerator, ptr noundef nonnull %scale_denominator, i32 noundef %conv34)
   %scale_is_rational = getelementptr inbounds i8, ptr %scale_info, i64 20
   store i32 %call, ptr %scale_is_rational, align 4
   store i32 %input_full_range, ptr %scale_info, align 4
@@ -28116,7 +28116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @stbir_set_input_subrect(ptr nocapture noundef writeonly %resize, double noundef %s0, double noundef %t0, double noundef %s1, double noundef %t1) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @stbir_set_input_subrect(ptr nocapture noundef writeonly %resize, double noundef %s0, double noundef %t0, double noundef %s1, double noundef %t1) local_unnamed_addr #16 {
 entry:
   %input_s0 = getelementptr inbounds i8, ptr %resize, i64 24
   store double %s0, ptr %input_s0, align 8
@@ -28154,7 +28154,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stbir_set_output_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
 entry:
   %output_subx = getelementptr inbounds i8, ptr %resize, i64 80
   store i32 %subx, ptr %output_subx, align 8
@@ -28196,7 +28196,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stbir_set_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stbir_set_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
 entry:
   %0 = insertelement <2 x i32> poison, i32 %subx, i64 0
   %1 = insertelement <2 x i32> %0, i32 %suby, i64 1
@@ -28250,7 +28250,7 @@ return:                                           ; preds = %lor.lhs.false23, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stbir__perform_build(ptr nocapture noundef %resize, i32 noundef %splits) local_unnamed_addr #2 {
+define range(i32 -536870912, -2147483648) i32 @stbir__perform_build(ptr nocapture noundef %resize, i32 noundef %splits) local_unnamed_addr #2 {
 entry:
   %conservative = alloca %struct.stbir__contributors, align 8
   %horizontal = alloca %struct.stbir__sampler, align 8
@@ -28295,7 +28295,7 @@ if.end8:                                          ; preds = %if.end2
   %8 = load double, ptr %input_s0, align 8
   %input_s1 = getelementptr inbounds i8, ptr %resize, i64 40
   %9 = load double, ptr %input_s1, align 8
-  %call = call i32 @stbir__calculate_region_transform(ptr noundef nonnull %scale_info, i32 noundef %5, ptr noundef nonnull %new_output_subx, i32 noundef %6, i32 noundef %7, double noundef %8, double noundef %9), !range !832
+  %call = call i32 @stbir__calculate_region_transform(ptr noundef nonnull %scale_info, i32 noundef %5, ptr noundef nonnull %new_output_subx, i32 noundef %6, i32 noundef %7, double noundef %8, double noundef %9)
   %tobool9.not = icmp eq i32 %call, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
@@ -28311,7 +28311,7 @@ if.end11:                                         ; preds = %if.end8
   %13 = load double, ptr %input_t0, align 8
   %input_t1 = getelementptr inbounds i8, ptr %resize, i64 48
   %14 = load double, ptr %input_t1, align 8
-  %call13 = call i32 @stbir__calculate_region_transform(ptr noundef nonnull %scale_info12, i32 noundef %10, ptr noundef nonnull %new_output_suby, i32 noundef %11, i32 noundef %12, double noundef %13, double noundef %14), !range !832
+  %call13 = call i32 @stbir__calculate_region_transform(ptr noundef nonnull %scale_info12, i32 noundef %10, ptr noundef nonnull %new_output_suby, i32 noundef %11, i32 noundef %12, double noundef %13, double noundef %14)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %if.end16
 
@@ -28418,7 +28418,7 @@ if.end:                                           ; preds = %stbir__free_interna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stbir_build_samplers_with_splits(ptr nocapture noundef %resize, i32 noundef %splits) local_unnamed_addr #2 {
+define range(i32 -536870912, -2147483648) i32 @stbir_build_samplers_with_splits(ptr nocapture noundef %resize, i32 noundef %splits) local_unnamed_addr #2 {
 entry:
   %samplers = getelementptr inbounds i8, ptr %resize, i64 192
   %0 = load ptr, ptr %samplers, align 8
@@ -28449,7 +28449,7 @@ stbir_free_samplers.exit:                         ; preds = %if.then.i.i, %if.th
 if.end:                                           ; preds = %entry, %stbir_free_samplers.exit
   %called_alloc = getelementptr inbounds i8, ptr %resize, i64 124
   store i32 1, ptr %called_alloc, align 4
-  %call = tail call i32 @stbir__perform_build(ptr noundef nonnull %resize, i32 noundef %splits), !range !833
+  %call = tail call i32 @stbir__perform_build(ptr noundef nonnull %resize, i32 noundef %splits)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.end
@@ -28458,7 +28458,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stbir_build_samplers(ptr nocapture noundef %resize) local_unnamed_addr #2 {
+define range(i32 -536870912, -2147483648) i32 @stbir_build_samplers(ptr nocapture noundef %resize) local_unnamed_addr #2 {
 entry:
   %samplers.i = getelementptr inbounds i8, ptr %resize, i64 192
   %0 = load ptr, ptr %samplers.i, align 8
@@ -28489,7 +28489,7 @@ stbir_free_samplers.exit.i:                       ; preds = %if.then2.i.i.i, %if
 if.end.i:                                         ; preds = %stbir_free_samplers.exit.i, %entry
   %called_alloc.i = getelementptr inbounds i8, ptr %resize, i64 124
   store i32 1, ptr %called_alloc.i, align 4
-  %call.i = tail call i32 @stbir__perform_build(ptr noundef nonnull %resize, i32 noundef 1), !range !833
+  %call.i = tail call i32 @stbir__perform_build(ptr noundef nonnull %resize, i32 noundef 1)
   br label %stbir_build_samplers_with_splits.exit
 
 stbir_build_samplers_with_splits.exit:            ; preds = %lor.lhs.false.i, %if.end.i
@@ -28498,7 +28498,7 @@ stbir_build_samplers_with_splits.exit:            ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stbir_resize_extended(ptr nocapture noundef %resize) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbir_resize_extended(ptr nocapture noundef %resize) local_unnamed_addr #2 {
 entry:
   %samplers = getelementptr inbounds i8, ptr %resize, i64 192
   %0 = load ptr, ptr %samplers, align 8
@@ -28537,7 +28537,7 @@ stbir_build_samplers.exit:                        ; preds = %if.then.thread, %st
   %5 = phi i32 [ %1, %if.then.thread ], [ %3, %stbir__free_internal_mem.exit ]
   %called_alloc19 = phi ptr [ %called_alloc18, %if.then.thread ], [ %called_alloc, %stbir__free_internal_mem.exit ]
   store i32 1, ptr %called_alloc19, align 4
-  %call.i.i = tail call i32 @stbir__perform_build(ptr noundef nonnull %resize, i32 noundef 1), !range !833
+  %call.i.i = tail call i32 @stbir__perform_build(ptr noundef nonnull %resize, i32 noundef 1)
   %tobool6.not = icmp eq i32 %call.i.i, 0
   br i1 %tobool6.not, label %return, label %if.end8
 
@@ -28602,7 +28602,7 @@ return:                                           ; preds = %stbir__perform_resi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stbir_resize_extended_split(ptr nocapture noundef %resize, i32 noundef %split_start, i32 noundef %split_count) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbir_resize_extended_split(ptr nocapture noundef %resize, i32 noundef %split_start, i32 noundef %split_count) local_unnamed_addr #2 {
 entry:
   switch i32 %split_start, label %if.end [
     i32 -1, label %if.then
@@ -28616,7 +28616,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %land.lhs.true
-  %call = tail call i32 @stbir_resize_extended(ptr noundef %resize), !range !832
+  %call = tail call i32 @stbir_resize_extended(ptr noundef %resize)
   br label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true
@@ -28670,7 +28670,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @stbir__check_output_stuff(ptr nocapture noundef writeonly %ret_ptr, ptr nocapture noundef writeonly %ret_pitch, ptr noundef readnone %output_pixels, i32 noundef %type_size, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @stbir__check_output_stuff(ptr nocapture noundef writeonly %ret_ptr, ptr nocapture noundef writeonly %ret_pitch, ptr noundef readnone %output_pixels, i32 noundef %type_size, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #20 {
 entry:
   %mul = mul nsw i32 %output_w, %type_size
   %idxprom = zext i32 %pixel_layout to i64
@@ -28715,7 +28715,7 @@ return:                                           ; preds = %if.end16, %if.end23
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbir_resize_uint8_linear(ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #2 {
+define ptr @stbir_resize_uint8_linear(ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #2 {
 entry:
   %resize = alloca %struct.STBIR_RESIZE, align 8
   %idxprom = zext i32 %pixel_layout to i64
@@ -28804,7 +28804,7 @@ if.end:                                           ; preds = %if.then19.i, %if.en
   store i32 %pixel_layout, ptr %output_pixel_layout_public.i.i, align 4
   %needs_rebuild.i.i = getelementptr inbounds i8, ptr %resize, i64 120
   store i32 1, ptr %needs_rebuild.i.i, align 8
-  %call2 = call i32 @stbir_resize_extended(ptr noundef nonnull %resize), !range !832
+  %call2 = call i32 @stbir_resize_extended(ptr noundef nonnull %resize)
   %tobool3.not = icmp ne i32 %call2, 0
   %brmerge = or i1 %tobool1.not, %tobool3.not
   %cond.mux = select i1 %tobool3.not, ptr %cond, ptr null
@@ -28820,7 +28820,7 @@ return:                                           ; preds = %if.end, %if.then19.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbir_resize_uint8_srgb(ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #2 {
+define ptr @stbir_resize_uint8_srgb(ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #2 {
 entry:
   %resize = alloca %struct.STBIR_RESIZE, align 8
   %idxprom = zext i32 %pixel_layout to i64
@@ -28909,7 +28909,7 @@ if.end:                                           ; preds = %if.then19.i, %if.en
   store i32 %pixel_layout, ptr %output_pixel_layout_public.i.i, align 4
   %needs_rebuild.i.i = getelementptr inbounds i8, ptr %resize, i64 120
   store i32 1, ptr %needs_rebuild.i.i, align 8
-  %call2 = call i32 @stbir_resize_extended(ptr noundef nonnull %resize), !range !832
+  %call2 = call i32 @stbir_resize_extended(ptr noundef nonnull %resize)
   %tobool3.not = icmp ne i32 %call2, 0
   %brmerge = or i1 %tobool1.not, %tobool3.not
   %cond.mux = select i1 %tobool3.not, ptr %cond, ptr null
@@ -28925,7 +28925,7 @@ return:                                           ; preds = %if.end, %if.then19.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbir_resize_float_linear(ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #2 {
+define ptr @stbir_resize_float_linear(ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #2 {
 entry:
   %resize = alloca %struct.STBIR_RESIZE, align 8
   %idxprom = zext i32 %pixel_layout to i64
@@ -29015,7 +29015,7 @@ if.end:                                           ; preds = %if.then19.i, %if.en
   store i32 %pixel_layout, ptr %output_pixel_layout_public.i.i, align 4
   %needs_rebuild.i.i = getelementptr inbounds i8, ptr %resize, i64 120
   store i32 1, ptr %needs_rebuild.i.i, align 8
-  %call2 = call i32 @stbir_resize_extended(ptr noundef nonnull %resize), !range !832
+  %call2 = call i32 @stbir_resize_extended(ptr noundef nonnull %resize)
   %tobool3.not = icmp ne i32 %call2, 0
   %brmerge = or i1 %tobool1.not, %tobool3.not
   %cond.mux = select i1 %tobool3.not, ptr %cond, ptr null
@@ -29031,7 +29031,7 @@ return:                                           ; preds = %if.end, %if.then19.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbir_resize(ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout, i32 noundef %data_type, i32 noundef %edge, i32 noundef %filter) local_unnamed_addr #2 {
+define ptr @stbir_resize(ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout, i32 noundef %data_type, i32 noundef %edge, i32 noundef %filter) local_unnamed_addr #2 {
 entry:
   %resize = alloca %struct.STBIR_RESIZE, align 8
   %idxprom = zext i32 %data_type to i64
@@ -29132,7 +29132,7 @@ if.end:                                           ; preds = %if.then19.i, %if.en
   store i32 %filter, ptr %horizontal_filter.i.i, align 8
   %vertical_filter = getelementptr inbounds i8, ptr %resize, i64 148
   store i32 %filter, ptr %vertical_filter, align 4
-  %call4 = call i32 @stbir_resize_extended(ptr noundef nonnull %resize), !range !832
+  %call4 = call i32 @stbir_resize_extended(ptr noundef nonnull %resize)
   %tobool5.not = icmp ne i32 %call4, 0
   %brmerge = or i1 %tobool3.not, %tobool5.not
   %cond.mux = select i1 %tobool5.not, ptr %cond, ptr null
@@ -30041,5 +30041,3 @@ attributes #25 = { nounwind allocsize(0) }
 !829 = distinct !{!829, !6}
 !830 = distinct !{!830, !6}
 !831 = distinct !{!831, !6}
-!832 = !{i32 0, i32 2}
-!833 = !{i32 -536870912, i32 -2147483648}

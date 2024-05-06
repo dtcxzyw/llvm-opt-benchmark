@@ -116,7 +116,7 @@ define void @_Z21tMPI_Coll_env_destroyP8coll_env(ptr nocapture noundef readonly 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4

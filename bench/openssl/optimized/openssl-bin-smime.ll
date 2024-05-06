@@ -1293,7 +1293,7 @@ if.then560:                                       ; preds = %if.then557
   %49 = load ptr, ptr %p7, align 8
   %50 = load ptr, ptr %other, align 8
   %call565 = call ptr @PKCS7_get0_signers(ptr noundef %49, ptr noundef %50, i32 noundef %flags.6) #3
-  %call566 = call fastcc i32 @save_certs(ptr noundef %signerfile.5, ptr noundef %call565), !range !10
+  %call566 = call fastcc i32 @save_certs(ptr noundef %signerfile.5, ptr noundef %call565)
   %tobool567.not = icmp eq i32 %call566, 0
   br i1 %tobool567.not, label %if.then568, label %if.end570
 
@@ -1610,7 +1610,7 @@ declare i32 @PKCS7_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare ptr @PKCS7_get0_signers(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @save_certs(ptr noundef %signerfile, ptr noundef %signers) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @save_certs(ptr noundef %signerfile, ptr noundef %signers) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %signerfile, null
   br i1 %cmp, label %return, label %if.end
@@ -1632,7 +1632,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw nsw i32 %i.09, 1
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %signers) #3
   %cmp6 = icmp slt i32 %inc, %call5
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %call10 = tail call i32 @BIO_free(ptr noundef nonnull %call) #3
@@ -1696,5 +1696,4 @@ attributes #3 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 2}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}

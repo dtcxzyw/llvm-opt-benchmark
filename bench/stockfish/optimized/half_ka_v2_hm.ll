@@ -47,7 +47,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21a
   %7 = getelementptr inbounds i8, ptr %0, i64 320
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %6, %8
-  %10 = tail call i64 @llvm.cttz.i64(i64 %9, i1 true), !range !5
+  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %9, i1 true)
   %11 = getelementptr inbounds [64 x i32], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm9OrientTBLE, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds [64 x i32], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11KingBucketsE, i64 0, i64 %10
@@ -57,8 +57,8 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21a
 
 16:                                               ; preds = %.lr.ph, %16
   %.09 = phi i64 [ %4, %.lr.ph ], [ %20, %16 ]
-  %17 = tail call i64 @llvm.cttz.i64(i64 %.09, i1 true), !range !5
-  %18 = trunc i64 %17 to i32
+  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.09, i1 true)
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = add i64 %.09, -1
   %20 = and i64 %19, %.09
   %21 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %17
@@ -75,7 +75,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21a
   %31 = getelementptr inbounds [32 x i32], ptr %1, i64 0, i64 %29
   store i32 %28, ptr %31, align 4
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %16, %2
   ret void
@@ -94,7 +94,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21a
   %7 = getelementptr inbounds i8, ptr %0, i64 328
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %6, %8
-  %10 = tail call i64 @llvm.cttz.i64(i64 %9, i1 true), !range !5
+  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %9, i1 true)
   %11 = getelementptr inbounds [2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm9OrientTBLE, i64 0, i64 1, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds [2 x [64 x i32]], ptr @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm11KingBucketsE, i64 0, i64 1, i64 %10
@@ -104,8 +104,8 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21a
 
 16:                                               ; preds = %.lr.ph, %16
   %.09 = phi i64 [ %4, %.lr.ph ], [ %20, %16 ]
-  %17 = tail call i64 @llvm.cttz.i64(i64 %.09, i1 true), !range !5
-  %18 = trunc i64 %17 to i32
+  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.09, i1 true)
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = add i64 %.09, -1
   %20 = and i64 %19, %.09
   %21 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %17
@@ -122,7 +122,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm21a
   %31 = getelementptr inbounds [32 x i32], ptr %1, i64 0, i64 %29
   store i32 %28, ptr %31, align 4
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %16, %2
   ret void
@@ -199,7 +199,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22a
   %50 = load i32, ptr %1, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %15, label %._crit_edge, !llvm.loop !9
+  br i1 %52, label %15, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %49, %4
   ret void
@@ -276,7 +276,7 @@ define weak_odr dso_local void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22a
   %50 = load i32, ptr %1, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %15, label %._crit_edge, !llvm.loop !10
+  br i1 %52, label %15, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49, %4
   ret void
@@ -335,9 +335,8 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

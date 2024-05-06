@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN23wasmtime_component_util104_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$usize$GT$4from17hbb947fdc57ded86cE" = private unnamed_addr constant [3 x i64] [i64 1, i64 2, i64 4], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i8 @_ZN23wasmtime_component_util16DiscriminantSize10from_count17h071dcd0ed9c87d1bE(i64 %0) unnamed_addr #0 {
+define range(i8 0, 4) i8 @_ZN23wasmtime_component_util16DiscriminantSize10from_count17h071dcd0ed9c87d1bE(i64 %0) unnamed_addr #0 {
   %2 = icmp ult i64 %0, 256
   br i1 %2, label %7, label %3
 
@@ -33,7 +33,7 @@ define i8 @_ZN23wasmtime_component_util16DiscriminantSize10from_count17h071dcd0e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN23wasmtime_component_util16DiscriminantSize9byte_size17hd963bad45e7f2004E(ptr nocapture readonly align 1 %0) unnamed_addr #1 {
+define range(i32 1, 5) i32 @_ZN23wasmtime_component_util16DiscriminantSize9byte_size17hd963bad45e7f2004E(ptr nocapture readonly align 1 %0) unnamed_addr #1 {
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !3, !noundef !4
   %2 = zext nneg i8 %1 to i64
@@ -43,7 +43,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17h71f2ddd67cf0a6e5E"(i8 %0) unnamed_addr #0 {
+define range(i32 1, 5) i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17h71f2ddd67cf0a6e5E"(i8 %0) unnamed_addr #0 {
 switch.lookup:
   %1 = sext i8 %0 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17h71f2ddd67cf0a6e5E", i64 0, i64 %1
@@ -52,7 +52,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN23wasmtime_component_util104_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$usize$GT$4from17hbb947fdc57ded86cE"(i8 %0) unnamed_addr #0 {
+define range(i64 1, 5) i64 @"_ZN23wasmtime_component_util104_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$usize$GT$4from17hbb947fdc57ded86cE"(i8 %0) unnamed_addr #0 {
 switch.lookup:
   %1 = sext i8 %0 to i64
   %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN23wasmtime_component_util104_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$usize$GT$4from17hbb947fdc57ded86cE", i64 0, i64 %1

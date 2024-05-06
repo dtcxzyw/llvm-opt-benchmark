@@ -303,7 +303,7 @@ if.then87:                                        ; preds = %if.end81
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %div61 = lshr i64 %indvars.iv, 3
   %idxprom = and i64 %div61, 536870911
   %arrayidx = getelementptr [96 x i8], ptr %keymap, i64 0, i64 %idxprom

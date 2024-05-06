@@ -329,7 +329,7 @@ land.rhs:                                         ; preds = %entry, %if.end61
   %3 = phi ptr [ %9, %if.end61 ], [ %2, %entry ]
   %4 = phi i64 [ %inc, %if.end61 ], [ %0, %entry ]
   %escaped.025 = phi i8 [ %escaped.1, %if.end61 ], [ 0, %entry ]
-  %tobool = trunc i8 %escaped.025 to i1
+  %tobool = trunc nuw i8 %escaped.025 to i1
   %arrayidx.i3 = getelementptr inbounds i8, ptr %3, i64 %4
   %5 = load i8, ptr %arrayidx.i3, align 1
   br i1 %tobool, label %if.then, label %lor.rhs
@@ -379,7 +379,7 @@ if.end61:                                         ; preds = %lor.rhs, %if.else52
 
 while.end:                                        ; preds = %if.end61, %lor.rhs
   %escaped.0.lcssa.ph = phi i8 [ %escaped.1, %if.end61 ], [ %escaped.025, %lor.rhs ]
-  %10 = trunc i8 %escaped.0.lcssa.ph to i1
+  %10 = trunc nuw i8 %escaped.0.lcssa.ph to i1
   br i1 %10, label %invoke.cont71, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry, %while.end

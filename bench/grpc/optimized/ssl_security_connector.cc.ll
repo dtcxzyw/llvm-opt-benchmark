@@ -197,11 +197,11 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i.i: ; preds =
   %cmp.i.i = icmp eq ptr %overridden_target_name, null
   %cond.i.i = select i1 %cmp.i.i, ptr @.str.10, ptr %overridden_target_name
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #17, !noalias !4
-  %call.i13.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name_.i.i)
+  %call.i14.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name_.i.i)
           to label %call.i.noexc.i.i unwind label %lpad4.i.i, !noalias !4
 
 call.i.noexc.i.i:                                 ; preds = %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %overridden_target_name_.i.i, ptr noundef %call.i13.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %overridden_target_name_.i.i, ptr noundef %call.i14.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %.noexc.i.i unwind label %lpad4.i.i, !noalias !4
 
 .noexc.i.i:                                       ; preds = %call.i.noexc.i.i
@@ -223,8 +223,8 @@ invoke.cont5.i.i:                                 ; preds = %.noexc.i.i
   store ptr %verify_options.i.i, ptr %verify_options_.i.i, align 8, !noalias !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %host.i.i, i8 0, i64 16, i1 false), !noalias !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %port.i.i, i8 0, i64 16, i1 false), !noalias !4
-  %call.i.i14.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %target_name) #17, !noalias !4
-  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPS3_S4_(i64 %call.i.i14.i.i, ptr nonnull %target_name, ptr noundef nonnull %host.i.i, ptr noundef nonnull %port.i.i)
+  %call.i.i15.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %target_name) #17, !noalias !4
+  %call.i.i = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPS3_S4_(i64 %call.i.i15.i.i, ptr nonnull %target_name, ptr noundef nonnull %host.i.i, ptr noundef nonnull %port.i.i)
           to label %invoke.cont8.i.i unwind label %lpad7.i.i, !noalias !4
 
 invoke.cont8.i.i:                                 ; preds = %invoke.cont5.i.i
@@ -247,37 +247,37 @@ lpad.i.i:                                         ; preds = %if.end
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = load ptr, ptr %agg.tmp3.i.i, align 8, !noalias !4
-  %cmp.not.i17.i.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i17.i.i, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit24.i.i, label %if.then.i18.i.i
+  %cmp.not.i18.i.i = icmp eq ptr %15, null
+  br i1 %cmp.not.i18.i.i, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit25.i.i, label %if.then.i19.i.i
 
-if.then.i18.i.i:                                  ; preds = %lpad.i.i
-  %refs_.i.i19.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = atomicrmw sub ptr %refs_.i.i19.i.i, i64 1 acq_rel, align 8, !noalias !4
-  %cmp.i.i.i20.i.i = icmp eq i64 %16, 1
-  br i1 %cmp.i.i.i20.i.i, label %if.then.i.i21.i.i, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit24.i.i
+if.then.i19.i.i:                                  ; preds = %lpad.i.i
+  %refs_.i.i20.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = atomicrmw sub ptr %refs_.i.i20.i.i, i64 1 acq_rel, align 8, !noalias !4
+  %cmp.i.i.i21.i.i = icmp eq i64 %16, 1
+  br i1 %cmp.i.i.i21.i.i, label %if.then.i.i22.i.i, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit25.i.i
 
-if.then.i.i21.i.i:                                ; preds = %if.then.i18.i.i
-  %vtable.i.i.i22.i.i = load ptr, ptr %15, align 8, !noalias !4
-  %vfn.i.i.i23.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i22.i.i, i64 8
-  %17 = load ptr, ptr %vfn.i.i.i23.i.i, align 8, !noalias !4
+if.then.i.i22.i.i:                                ; preds = %if.then.i19.i.i
+  %vtable.i.i.i23.i.i = load ptr, ptr %15, align 8, !noalias !4
+  %vfn.i.i.i24.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i23.i.i, i64 8
+  %17 = load ptr, ptr %vfn.i.i.i24.i.i, align 8, !noalias !4
   call void %17(ptr noundef nonnull align 8 dereferenceable(20) %15) #17, !noalias !4
-  br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit24.i.i
+  br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit25.i.i
 
-_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit24.i.i: ; preds = %if.then.i.i21.i.i, %if.then.i18.i.i, %lpad.i.i
+_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit25.i.i: ; preds = %if.then.i.i22.i.i, %if.then.i19.i.i, %lpad.i.i
   %18 = load ptr, ptr %agg.tmp2.i.i, align 8, !noalias !4
-  %cmp.not.i25.i.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i25.i.i, label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i, label %if.then.i26.i.i
+  %cmp.not.i26.i.i = icmp eq ptr %18, null
+  br i1 %cmp.not.i26.i.i, label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i, label %if.then.i27.i.i
 
-if.then.i26.i.i:                                  ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit24.i.i
-  %refs_.i.i27.i.i = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = atomicrmw sub ptr %refs_.i.i27.i.i, i64 1 acq_rel, align 8, !noalias !4
-  %cmp.i.i.i28.i.i = icmp eq i64 %19, 1
-  br i1 %cmp.i.i.i28.i.i, label %if.then.i.i29.i.i, label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i
+if.then.i27.i.i:                                  ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit25.i.i
+  %refs_.i.i28.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = atomicrmw sub ptr %refs_.i.i28.i.i, i64 1 acq_rel, align 8, !noalias !4
+  %cmp.i.i.i29.i.i = icmp eq i64 %19, 1
+  br i1 %cmp.i.i.i29.i.i, label %if.then.i.i30.i.i, label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i
 
-if.then.i.i29.i.i:                                ; preds = %if.then.i26.i.i
-  %vtable.i.i.i30.i.i = load ptr, ptr %18, align 8, !noalias !4
-  %vfn.i.i.i31.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i30.i.i, i64 8
-  %20 = load ptr, ptr %vfn.i.i.i31.i.i, align 8, !noalias !4
+if.then.i.i30.i.i:                                ; preds = %if.then.i27.i.i
+  %vtable.i.i.i31.i.i = load ptr, ptr %18, align 8, !noalias !4
+  %vfn.i.i.i32.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i31.i.i, i64 8
+  %20 = load ptr, ptr %vfn.i.i.i32.i.i, align 8, !noalias !4
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18) #17, !noalias !4
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i
 
@@ -313,8 +313,8 @@ ehcleanup15.i.i:                                  ; preds = %ehcleanup.i.i, %lpa
   call void @_ZN31grpc_channel_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i) #17, !noalias !4
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i
 
-_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i: ; preds = %ehcleanup15.i.i, %if.then.i.i29.i.i, %if.then.i26.i.i, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit24.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.i.i, %ehcleanup15.i.i ], [ %14, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit24.i.i ], [ %14, %if.then.i26.i.i ], [ %14, %if.then.i.i29.i.i ]
+_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i: ; preds = %ehcleanup15.i.i, %if.then.i.i30.i.i, %if.then.i27.i.i, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit25.i.i
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.i.i, %ehcleanup15.i.i ], [ %14, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit25.i.i ], [ %14, %if.then.i27.i.i ], [ %14, %if.then.i.i30.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %call.i) #18, !noalias !4
   resume { ptr, i32 } %eh.lpad-body.i
 

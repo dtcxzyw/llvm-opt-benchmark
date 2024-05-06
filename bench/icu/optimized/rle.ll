@@ -8,13 +8,13 @@ define dso_local i32 @usArrayToRLEString(ptr nocapture noundef readonly %src, i3
 entry:
   %idx.ext = sext i32 %bufLen to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %bufLen, 0
   br i1 %cmp, label %if.then, label %if.else20
 
 if.then:                                          ; preds = %entry
   %shr = lshr i32 %srcLen, 16
-  %conv = trunc i32 %shr to i16
+  %conv = trunc nuw i32 %shr to i16
   %incdec.ptr = getelementptr inbounds i8, ptr %buffer, i64 2
   store i16 %conv, ptr %buffer, align 2
   %cmp1.not = icmp eq i32 %bufLen, 1
@@ -63,7 +63,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
   %j.038.us.i = phi i32 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %buffer.addr.037.us.i = phi ptr [ %buffer.addr.2.us.i, %for.inc.us.i ], [ %buffer.addr.0102, %for.body.lr.ph.i ]
-  %cmp5.us.i = icmp ult ptr %buffer.addr.037.us.i, %add.ptr.ptr
+  %cmp5.us.i = icmp ult ptr %buffer.addr.037.us.i, %add.ptr
   br i1 %cmp5.us.i, label %if.then7.us.i, label %if.else.us.i
 
 if.else.us.i:                                     ; preds = %for.body.us.i
@@ -77,7 +77,7 @@ if.then7.us.i:                                    ; preds = %for.body.us.i
 
 do.body9.us.i:                                    ; preds = %if.then7.us.i, %if.else.us.i
   %buffer.addr.1.us.i = phi ptr [ %incdec.ptr.us.i, %if.then7.us.i ], [ %buffer.addr.037.us.i, %if.else.us.i ]
-  %cmp10.us.i = icmp ult ptr %buffer.addr.1.us.i, %add.ptr.ptr
+  %cmp10.us.i = icmp ult ptr %buffer.addr.1.us.i, %add.ptr
   br i1 %cmp10.us.i, label %if.then12.us.i, label %if.else14.us.i
 
 if.else14.us.i:                                   ; preds = %do.body9.us.i
@@ -98,7 +98,7 @@ for.inc.us.i:                                     ; preds = %if.then12.us.i, %if
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %j.038.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %buffer.addr.037.i = phi ptr [ %buffer.addr.2.i, %for.inc.i ], [ %buffer.addr.0102, %for.body.lr.ph.i ]
-  %cmp10.i = icmp ult ptr %buffer.addr.037.i, %add.ptr.ptr
+  %cmp10.i = icmp ult ptr %buffer.addr.037.i, %add.ptr
   br i1 %cmp10.i, label %if.then12.i, label %if.else14.i
 
 if.then12.i:                                      ; preds = %for.body.i
@@ -125,7 +125,7 @@ if.then20.i:                                      ; preds = %if.else17.i
   br i1 %cmp22.i, label %do.body25.i, label %do.body34.i
 
 do.body25.i:                                      ; preds = %if.then20.i
-  %cmp26.i = icmp ult ptr %buffer.addr.0102, %add.ptr.ptr
+  %cmp26.i = icmp ult ptr %buffer.addr.0102, %add.ptr
   br i1 %cmp26.i, label %if.then28.i, label %if.else30.i
 
 if.then28.i:                                      ; preds = %do.body25.i
@@ -139,7 +139,7 @@ if.else30.i:                                      ; preds = %do.body25.i
 
 do.body34.i:                                      ; preds = %if.else30.i, %if.then28.i, %if.then20.i
   %buffer.addr.3.i = phi ptr [ %incdec.ptr29.i, %if.then28.i ], [ %buffer.addr.0102, %if.else30.i ], [ %buffer.addr.0102, %if.then20.i ]
-  %cmp35.i = icmp ult ptr %buffer.addr.3.i, %add.ptr.ptr
+  %cmp35.i = icmp ult ptr %buffer.addr.3.i, %add.ptr
   br i1 %cmp35.i, label %if.then37.i, label %if.else39.i
 
 if.then37.i:                                      ; preds = %do.body34.i
@@ -154,7 +154,7 @@ if.else39.i:                                      ; preds = %do.body34.i
 do.body43.i:                                      ; preds = %if.else39.i, %if.then37.i, %if.else17.i
   %length.addr.0.i = phi i32 [ %runLength.0100, %if.else17.i ], [ 42404, %if.then37.i ], [ 42404, %if.else39.i ]
   %buffer.addr.5.i = phi ptr [ %buffer.addr.0102, %if.else17.i ], [ %incdec.ptr38.i, %if.then37.i ], [ %buffer.addr.3.i, %if.else39.i ]
-  %cmp44.i = icmp ult ptr %buffer.addr.5.i, %add.ptr.ptr
+  %cmp44.i = icmp ult ptr %buffer.addr.5.i, %add.ptr
   br i1 %cmp44.i, label %if.then46.i, label %if.else48.i
 
 if.then46.i:                                      ; preds = %do.body43.i
@@ -168,7 +168,7 @@ if.else48.i:                                      ; preds = %do.body43.i
 
 do.body51.i:                                      ; preds = %if.else48.i, %if.then46.i
   %buffer.addr.6.i = phi ptr [ %incdec.ptr47.i, %if.then46.i ], [ %buffer.addr.5.i, %if.else48.i ]
-  %cmp52.i = icmp ult ptr %buffer.addr.6.i, %add.ptr.ptr
+  %cmp52.i = icmp ult ptr %buffer.addr.6.i, %add.ptr
   br i1 %cmp52.i, label %if.then54.i, label %if.else57.i
 
 if.then54.i:                                      ; preds = %do.body51.i
@@ -183,7 +183,7 @@ if.else57.i:                                      ; preds = %do.body51.i
 
 do.body60.i:                                      ; preds = %if.else57.i, %if.then54.i
   %buffer.addr.7.i = phi ptr [ %incdec.ptr56.i, %if.then54.i ], [ %buffer.addr.6.i, %if.else57.i ]
-  %cmp61.i = icmp ult ptr %buffer.addr.7.i, %add.ptr.ptr
+  %cmp61.i = icmp ult ptr %buffer.addr.7.i, %add.ptr
   br i1 %cmp61.i, label %if.then63.i, label %if.else65.i
 
 if.then63.i:                                      ; preds = %do.body60.i
@@ -221,7 +221,7 @@ for.body.lr.ph.i65:                               ; preds = %if.then3, %for.cond
 for.body.us.i78:                                  ; preds = %for.body.lr.ph.i65, %for.inc.us.i87
   %j.038.us.i79 = phi i32 [ %inc.us.i89, %for.inc.us.i87 ], [ 0, %for.body.lr.ph.i65 ]
   %buffer.addr.037.us.i80 = phi ptr [ %buffer.addr.2.us.i88, %for.inc.us.i87 ], [ %buffer.addr.0.lcssa113118, %for.body.lr.ph.i65 ]
-  %cmp5.us.i81 = icmp ult ptr %buffer.addr.037.us.i80, %add.ptr.ptr
+  %cmp5.us.i81 = icmp ult ptr %buffer.addr.037.us.i80, %add.ptr
   br i1 %cmp5.us.i81, label %if.then7.us.i93, label %if.else.us.i82
 
 if.else.us.i82:                                   ; preds = %for.body.us.i78
@@ -235,7 +235,7 @@ if.then7.us.i93:                                  ; preds = %for.body.us.i78
 
 do.body9.us.i83:                                  ; preds = %if.then7.us.i93, %if.else.us.i82
   %buffer.addr.1.us.i84 = phi ptr [ %incdec.ptr.us.i94, %if.then7.us.i93 ], [ %buffer.addr.037.us.i80, %if.else.us.i82 ]
-  %cmp10.us.i85 = icmp ult ptr %buffer.addr.1.us.i84, %add.ptr.ptr
+  %cmp10.us.i85 = icmp ult ptr %buffer.addr.1.us.i84, %add.ptr
   br i1 %cmp10.us.i85, label %if.then12.us.i91, label %if.else14.us.i86
 
 if.else14.us.i86:                                 ; preds = %do.body9.us.i83
@@ -256,7 +256,7 @@ for.inc.us.i87:                                   ; preds = %if.then12.us.i91, %
 for.body.i67:                                     ; preds = %for.body.lr.ph.i65, %for.inc.i72
   %j.038.i68 = phi i32 [ %inc.i74, %for.inc.i72 ], [ 0, %for.body.lr.ph.i65 ]
   %buffer.addr.037.i69 = phi ptr [ %buffer.addr.2.i73, %for.inc.i72 ], [ %buffer.addr.0.lcssa113118, %for.body.lr.ph.i65 ]
-  %cmp10.i70 = icmp ult ptr %buffer.addr.037.i69, %add.ptr.ptr
+  %cmp10.i70 = icmp ult ptr %buffer.addr.037.i69, %add.ptr
   br i1 %cmp10.i70, label %if.then12.i76, label %if.else14.i71
 
 if.then12.i76:                                    ; preds = %for.body.i67
@@ -283,7 +283,7 @@ if.then20.i50:                                    ; preds = %if.else17.i27
   br i1 %cmp22.i51, label %do.body25.i58, label %do.body34.i52
 
 do.body25.i58:                                    ; preds = %if.then20.i50
-  %cmp26.i59 = icmp ult ptr %buffer.addr.1, %add.ptr.ptr
+  %cmp26.i59 = icmp ult ptr %buffer.addr.1, %add.ptr
   br i1 %cmp26.i59, label %if.then28.i61, label %if.else30.i60
 
 if.then28.i61:                                    ; preds = %do.body25.i58
@@ -297,7 +297,7 @@ if.else30.i60:                                    ; preds = %do.body25.i58
 
 do.body34.i52:                                    ; preds = %if.else30.i60, %if.then28.i61, %if.then20.i50
   %buffer.addr.3.i53 = phi ptr [ %incdec.ptr29.i62, %if.then28.i61 ], [ %buffer.addr.1, %if.else30.i60 ], [ %buffer.addr.1, %if.then20.i50 ]
-  %cmp35.i54 = icmp ult ptr %buffer.addr.3.i53, %add.ptr.ptr
+  %cmp35.i54 = icmp ult ptr %buffer.addr.3.i53, %add.ptr
   br i1 %cmp35.i54, label %if.then37.i56, label %if.else39.i55
 
 if.then37.i56:                                    ; preds = %do.body34.i52
@@ -312,7 +312,7 @@ if.else39.i55:                                    ; preds = %do.body34.i52
 do.body43.i29:                                    ; preds = %if.else39.i55, %if.then37.i56, %if.else17.i27
   %length.addr.0.i30 = phi i32 [ %runLength.1, %if.else17.i27 ], [ 42404, %if.then37.i56 ], [ 42404, %if.else39.i55 ]
   %buffer.addr.5.i31 = phi ptr [ %buffer.addr.1, %if.else17.i27 ], [ %incdec.ptr38.i57, %if.then37.i56 ], [ %buffer.addr.3.i53, %if.else39.i55 ]
-  %cmp44.i32 = icmp ult ptr %buffer.addr.5.i31, %add.ptr.ptr
+  %cmp44.i32 = icmp ult ptr %buffer.addr.5.i31, %add.ptr
   br i1 %cmp44.i32, label %if.then46.i48, label %if.else48.i33
 
 if.then46.i48:                                    ; preds = %do.body43.i29
@@ -326,7 +326,7 @@ if.else48.i33:                                    ; preds = %do.body43.i29
 
 do.body51.i34:                                    ; preds = %if.else48.i33, %if.then46.i48
   %buffer.addr.6.i35 = phi ptr [ %incdec.ptr47.i49, %if.then46.i48 ], [ %buffer.addr.5.i31, %if.else48.i33 ]
-  %cmp52.i36 = icmp ult ptr %buffer.addr.6.i35, %add.ptr.ptr
+  %cmp52.i36 = icmp ult ptr %buffer.addr.6.i35, %add.ptr
   br i1 %cmp52.i36, label %if.then54.i45, label %if.else57.i37
 
 if.then54.i45:                                    ; preds = %do.body51.i34
@@ -341,7 +341,7 @@ if.else57.i37:                                    ; preds = %do.body51.i34
 
 do.body60.i38:                                    ; preds = %if.else57.i37, %if.then54.i45
   %buffer.addr.7.i39 = phi ptr [ %incdec.ptr56.i47, %if.then54.i45 ], [ %buffer.addr.6.i35, %if.else57.i37 ]
-  %cmp61.i40 = icmp ult ptr %buffer.addr.7.i39, %add.ptr.ptr
+  %cmp61.i40 = icmp ult ptr %buffer.addr.7.i39, %add.ptr
   br i1 %cmp61.i40, label %if.then63.i43, label %if.else65.i41
 
 if.then63.i43:                                    ; preds = %do.body60.i38
@@ -377,13 +377,13 @@ entry:
   %state = alloca [2 x i8], align 2
   %idx.ext = sext i32 %bufLen to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %bufLen, 0
   br i1 %cmp, label %if.then, label %if.else29
 
 if.then:                                          ; preds = %entry
   %shr = lshr i32 %srcLen, 16
-  %conv = trunc i32 %shr to i16
+  %conv = trunc nuw i32 %shr to i16
   %incdec.ptr = getelementptr inbounds i8, ptr %buffer, i64 2
   store i16 %conv, ptr %buffer, align 2
   %cmp1.not = icmp eq i32 %bufLen, 1
@@ -419,7 +419,7 @@ if.then15:                                        ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.033, ptr noundef nonnull %add.ptr.ptr, i8 noundef zeroext %runValue.030, i32 noundef %runLength.031, ptr noundef nonnull %state, ptr noundef %status)
+  %call = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.033, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.030, i32 noundef %runLength.031, ptr noundef nonnull %state, ptr noundef %status)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then15, %if.else
@@ -434,7 +434,7 @@ for.end:                                          ; preds = %for.inc, %if.then3
   %runValue.0.lcssa = phi i8 [ %0, %if.then3 ], [ %runValue.1, %for.inc ]
   %runLength.0.lcssa = phi i32 [ 1, %if.then3 ], [ %runLength.1, %for.inc ]
   %buffer.addr.0.lcssa = phi ptr [ %incdec.ptr5, %if.then3 ], [ %buffer.addr.1, %for.inc ]
-  %call18 = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.0.lcssa, ptr noundef nonnull %add.ptr.ptr, i8 noundef zeroext %runValue.0.lcssa, i32 noundef %runLength.0.lcssa, ptr noundef nonnull %state, ptr noundef %status)
+  %call18 = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.0.lcssa, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.0.lcssa, i32 noundef %runLength.0.lcssa, ptr noundef nonnull %state, ptr noundef %status)
   %2 = load i8, ptr %state, align 2
   %cmp21.not = icmp eq i8 %2, 0
   br i1 %cmp21.not, label %if.end30, label %if.then23
@@ -449,7 +449,7 @@ lor.lhs.false.i:                                  ; preds = %if.then23
   br i1 %cmp.i, label %if.end30, label %if.then3.i
 
 if.then3.i:                                       ; preds = %lor.lhs.false.i
-  %cmp8.i = icmp ult ptr %call18, %add.ptr.ptr
+  %cmp8.i = icmp ult ptr %call18, %add.ptr
   br i1 %cmp8.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.then3.i
@@ -926,7 +926,7 @@ if.else46:                                        ; preds = %for.body
   br label %for.inc51
 
 for.inc51.loopexit:                               ; preds = %for.body40
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.inc51
 
 for.inc51:                                        ; preds = %for.inc51.loopexit, %if.else, %if.else46, %if.then29
@@ -1078,11 +1078,11 @@ if.then54:                                        ; preds = %for.body51
   br i1 %exitcond54.not, label %sw.epilog.loopexit, label %for.body51, !llvm.loop !14
 
 if.else58:                                        ; preds = %for.body51
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nsw i64 %indvars.iv to i32
   br label %return.sink.split
 
 sw.epilog.loopexit:                               ; preds = %if.then54
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nsw i64 %indvars.iv.next to i32
   br label %sw.epilog
 
 default.unreachable:                              ; preds = %if.end26

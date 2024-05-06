@@ -51,7 +51,7 @@ define { ptr, i64 } @_ZN5serde9__private2de7content7Content6as_str17h00b81541b0a
   %19 = load i64, ptr %18, align 8, !noundef !5
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19)
   %20 = load i64, ptr %2, align 8, !range !7, !noundef !5
-  %trunc8 = trunc i64 %20 to i1
+  %trunc8 = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !6
   %23 = getelementptr inbounds i8, ptr %2, i64 16
@@ -69,7 +69,7 @@ define { ptr, i64 } @_ZN5serde9__private2de7content7Content6as_str17h00b81541b0a
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef %29)
   %30 = load i64, ptr %3, align 8, !range !7, !noundef !5
-  %trunc = trunc i64 %30 to i1
+  %trunc = trunc nuw i64 %30 to i1
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !5, !align !6
   %33 = getelementptr inbounds i8, ptr %3, i64 16

@@ -172,7 +172,7 @@ opal_thread_swap_ptr.exit:                        ; preds = %45, %47
 }
 
 ; Function Attrs: alwaysinline nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_part_persist_free(ptr nocapture noundef %0) #2 {
+define internal range(i32 -1, 1) i32 @mca_part_persist_free(ptr nocapture noundef %0) #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 164
   %4 = load volatile i32, ptr %3, align 4

@@ -3736,11 +3736,11 @@ define void @_ZThn16_N21EditReferencingPlugin8decorateER9MeshModelP6GLAreaP8QPai
   ]
 
 8:                                                ; preds = %4
-  tail call void @_ZN21EditReferencingPlugin16DecorateAbsoluteER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr poison, ptr noundef %3)
+  tail call void @_ZN21EditReferencingPlugin16DecorateAbsoluteER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr readnone poison, ptr noundef %3)
   br label %_ZN21EditReferencingPlugin8decorateER9MeshModelP6GLAreaP8QPainter.exit
 
 9:                                                ; preds = %4
-  tail call void @_ZN21EditReferencingPlugin13DecorateScaleER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr poison, ptr noundef %3)
+  tail call void @_ZN21EditReferencingPlugin13DecorateScaleER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr readnone poison, ptr noundef %3)
   br label %_ZN21EditReferencingPlugin8decorateER9MeshModelP6GLAreaP8QPainter.exit
 
 _ZN21EditReferencingPlugin8decorateER9MeshModelP6GLAreaP8QPainter.exit: ; preds = %4, %8, %9
@@ -12937,8 +12937,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEELin1ELi1ELb0EEE
   br i1 %210, label %211, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.thread
 
 211:                                              ; preds = %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit
-  %212 = getelementptr double, ptr %0, i64 %.sroa.0.1.i.i
-  %213 = getelementptr double, ptr %212, i64 %.0100
+  %212 = getelementptr inbounds double, ptr %0, i64 %.sroa.0.1.i.i
+  %213 = getelementptr inbounds double, ptr %212, i64 %.0100
   %214 = load double, ptr %213, align 8
   store double %214, ptr %202, align 8
   store double %203, ptr %213, align 8
@@ -13329,7 +13329,7 @@ define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi4E
   %20 = getelementptr inbounds i8, ptr %8, i64 24
   %21 = load <2 x double>, ptr %20, align 1
   %22 = fmul <2 x double> %21, %21
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %8, i64 56
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
   %23 = icmp ugt i64 %7, 7
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -13342,7 +13342,7 @@ define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi4E
   %25 = load <2 x double>, ptr %24, align 1
   %26 = fmul <2 x double> %25, %25
   %27 = fadd <2 x double> %.07275.i.i.i.i, %26
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %28 = load <2 x double>, ptr %gep.i.i.i.i, align 1
   %29 = fmul <2 x double> %28, %28
   %30 = fadd <2 x double> %storemerge76.i.i.i.i, %29

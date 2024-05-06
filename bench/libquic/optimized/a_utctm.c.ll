@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [26 x i8] c"%02d%02d%02d%02d%02d%02dZ\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @asn1_utctime_to_tm(ptr noundef %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load i32, ptr %type, align 4
@@ -222,7 +222,7 @@ if.then109:                                       ; preds = %for.end, %for.end
   br i1 %cmp118, label %return, label %if.end121
 
 if.end121:                                        ; preds = %if.then109
-  %invariant.gep = getelementptr i8, ptr %2, i64 1
+  %invariant.gep = getelementptr inbounds i8, ptr %2, i64 1
   %22 = add nuw nsw i64 %idxprom91, 1
   br i1 %tobool77.not, label %for.body125.us, label %for.body125
 
@@ -236,7 +236,7 @@ for.body125.us:                                   ; preds = %if.end121, %if.end1
   br i1 %or.cond92.us, label %return, label %if.end138.us
 
 if.end138.us:                                     ; preds = %for.body125.us
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv144
+  %gep.us = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv144
   %25 = load i8, ptr %gep.us, align 1
   %26 = add i8 %25, -58
   %or.cond93.us = icmp ult i8 %26, -10
@@ -280,7 +280,7 @@ for.body125:                                      ; preds = %if.end121, %if.end1
   br i1 %or.cond92, label %return, label %if.end138
 
 if.end138:                                        ; preds = %for.body125
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv136
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv136
   %33 = load i8, ptr %gep, align 1
   %34 = add i8 %33, -58
   %or.cond93 = icmp ult i8 %34, -10
@@ -341,14 +341,14 @@ return:                                           ; preds = %if.end65, %lor.lhs.
 declare i32 @OPENSSL_gmtime_adj(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_UTCTIME_check(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_check(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @asn1_utctime_to_tm(ptr noundef null, ptr noundef %d), !range !10
+  %call = tail call i32 @asn1_utctime_to_tm(ptr noundef null, ptr noundef %d)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_UTCTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %t = alloca %struct.asn1_string_st, align 8
   %type = getelementptr inbounds i8, ptr %t, i64 4
@@ -358,7 +358,7 @@ entry:
   store i32 %conv, ptr %t, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 8
   store ptr %str, ptr %data, align 8
-  %call.i = call i32 @asn1_utctime_to_tm(ptr noundef null, ptr noundef nonnull %t), !range !10
+  %call.i = call i32 @asn1_utctime_to_tm(ptr noundef null, ptr noundef nonnull readonly %t)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -517,7 +517,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_UTCTIME_cmp_time_t(ptr nocapture noundef readonly %s, i64 noundef %t) local_unnamed_addr #0 {
+define hidden range(i32 -2, 2) i32 @ASN1_UTCTIME_cmp_time_t(ptr nocapture noundef readonly %s, i64 noundef %t) local_unnamed_addr #0 {
 entry:
   %t.addr = alloca i64, align 8
   %stm = alloca %struct.tm, align 8
@@ -525,7 +525,7 @@ entry:
   %day = alloca i32, align 4
   %sec = alloca i32, align 4
   store i64 %t, ptr %t.addr, align 8
-  %call = call i32 @asn1_utctime_to_tm(ptr noundef nonnull %stm, ptr noundef %s), !range !10
+  %call = call i32 @asn1_utctime_to_tm(ptr noundef nonnull %stm, ptr noundef %s)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -586,4 +586,3 @@ attributes #7 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 0, i32 2}

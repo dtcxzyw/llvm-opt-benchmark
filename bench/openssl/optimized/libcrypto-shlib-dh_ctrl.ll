@@ -480,7 +480,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PKEY_CTX_get_dh_kdf_outlen(ptr noundef %ctx, ptr nocapture noundef writeonly %plen) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @EVP_PKEY_CTX_get_dh_kdf_outlen(ptr noundef %ctx, ptr nocapture noundef writeonly %plen) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -540,7 +540,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %conv = trunc i64 %4 to i32
+  %conv = trunc nuw nsw i64 %4 to i32
   store i32 %conv, ptr %plen, align 4
   br label %return
 
@@ -621,7 +621,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_CTX_get0_dh_kdf_ukm(ptr noundef %ctx, ptr noundef %pukm) local_unnamed_addr #0 {
+define range(i32 -2, -2147483648) i32 @EVP_PKEY_CTX_get0_dh_kdf_ukm(ptr noundef %ctx, ptr noundef %pukm) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -677,7 +677,7 @@ if.end9:                                          ; preds = %if.end
   %return_size = getelementptr inbounds i8, ptr %params, i64 32
   %4 = load i64, ptr %return_size, align 16
   %cmp10 = icmp ugt i64 %4, 2147483647
-  %conv = trunc i64 %4 to i32
+  %conv = trunc nuw nsw i64 %4 to i32
   %spec.select = select i1 %cmp10, i32 -1, i32 %conv
   br label %return
 

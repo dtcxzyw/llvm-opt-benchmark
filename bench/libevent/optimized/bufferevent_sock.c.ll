@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bufferevent_ops_pair = external constant %struct.bufferevent_ops, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @be_socket_enable(ptr noundef %bufev, i16 noundef signext %event) #0 {
+define internal range(i32 -1, 1) i32 @be_socket_enable(ptr noundef %bufev, i16 noundef signext %event) #0 {
 entry:
   %conv5 = zext i16 %event to i32
   %and = and i32 %conv5, 2
@@ -50,7 +50,7 @@ return:                                           ; preds = %land.lhs.true5, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @be_socket_disable(ptr noundef %bufev, i16 noundef signext %event) #0 {
+define internal range(i32 -1, 1) i32 @be_socket_disable(ptr noundef %bufev, i16 noundef signext %event) #0 {
 entry:
   %conv4 = zext i16 %event to i32
   %and = and i32 %conv4, 2
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @be_socket_ctrl(ptr noundef %bev, i32 noundef %op, ptr nocapture noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @be_socket_ctrl(ptr noundef %bev, i32 noundef %op, ptr nocapture noundef %data) #0 {
 entry:
   switch i32 %op, label %return [
     i32 0, label %sw.bb
@@ -579,7 +579,7 @@ if.end10:                                         ; preds = %if.then, %land.lhs.
 declare i32 @evbuffer_freeze(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_socket_connect(ptr noundef %bev, ptr noundef %sa, i32 noundef %socklen) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_socket_connect(ptr noundef %bev, ptr noundef %sa, i32 noundef %socklen) local_unnamed_addr #0 {
 entry:
   %fd = alloca i32, align 4
   tail call void @bufferevent_incref_and_lock_(ptr noundef %bev) #10
@@ -681,7 +681,7 @@ declare i32 @evutil_closesocket(i32 noundef) local_unnamed_addr #1
 declare i32 @bufferevent_decref_and_unlock_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_socket_connect_hostname(ptr noundef %bev, ptr noundef %evdns_base, i32 noundef %family, ptr noundef %hostname, i32 noundef %port) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_socket_connect_hostname(ptr noundef %bev, ptr noundef %evdns_base, i32 noundef %family, ptr noundef %hostname, i32 noundef %port) local_unnamed_addr #0 {
 entry:
   %hint = alloca %struct.addrinfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hint, i8 0, i64 48, i1 false)
@@ -691,7 +691,7 @@ entry:
   store i32 6, ptr %ai_protocol, align 4
   %ai_socktype = getelementptr inbounds i8, ptr %hint, i64 8
   store i32 1, ptr %ai_socktype, align 8
-  %call = call i32 @bufferevent_socket_connect_hostname_hints(ptr noundef %bev, ptr noundef %evdns_base, ptr noundef nonnull %hint, ptr noundef %hostname, i32 noundef %port), !range !5
+  %call = call i32 @bufferevent_socket_connect_hostname_hints(ptr noundef %bev, ptr noundef %evdns_base, ptr noundef nonnull %hint, ptr noundef %hostname, i32 noundef %port)
   ret i32 %call
 }
 
@@ -699,7 +699,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_socket_connect_hostname_hints(ptr noundef %bev, ptr noundef %evdns_base, ptr noundef %hints_in, ptr noundef %hostname, i32 noundef %port) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_socket_connect_hostname_hints(ptr noundef %bev, ptr noundef %evdns_base, ptr noundef %hints_in, ptr noundef %hostname, i32 noundef %port) local_unnamed_addr #0 {
 entry:
   %portbuf = alloca [10 x i8], align 1
   %ai_family = getelementptr inbounds i8, ptr %hints_in, i64 4
@@ -808,10 +808,10 @@ if.end15:                                         ; preds = %do.end4
   %3 = load i32, ptr %ai_addrlen, align 8
   %conv = sext i32 %3 to i64
   %conn_address.i = getelementptr inbounds i8, ptr %arg, i64 480
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %conn_address.i, ptr align 2 %2, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %conn_address.i, ptr readonly align 2 %2, i64 %conv, i1 false)
   %4 = load ptr, ptr %ai_addr, align 8
   %5 = load i32, ptr %ai_addrlen, align 8
-  %call18 = tail call i32 @bufferevent_socket_connect(ptr noundef nonnull %arg, ptr noundef %4, i32 noundef %5), !range !5
+  %call18 = tail call i32 @bufferevent_socket_connect(ptr noundef nonnull %arg, ptr noundef %4, i32 noundef %5)
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %if.then21, label %if.end22
 
@@ -878,7 +878,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_priority_set(ptr noundef %bufev, i32 noundef %priority) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_priority_set(ptr noundef %bufev, i32 noundef %priority) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -1059,4 +1059,3 @@ attributes #11 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

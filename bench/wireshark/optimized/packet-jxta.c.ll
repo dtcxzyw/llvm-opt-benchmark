@@ -502,7 +502,7 @@ define internal i32 @dissect_jxta_stream(ptr noundef %0, ptr noundef %1, ptr nou
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %1, i64 216
   %31 = load ptr, ptr %30, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   store i32 %27, ptr %25, align 8
   %32 = icmp eq i32 %29, 0
   br i1 %32, label %copy_address_wmem.exit, label %33
@@ -554,7 +554,7 @@ copy_address_wmem.exit:                           ; preds = %19, %33
   %60 = load i32, ptr %59, align 4
   %61 = getelementptr inbounds i8, ptr %1, i64 216
   %62 = load ptr, ptr %61, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   store i32 %58, ptr %49, align 8
   %63 = icmp eq i32 %60, 0
   br i1 %63, label %copy_address_wmem.exit140, label %64
@@ -591,7 +591,7 @@ copy_address_wmem.exit140:                        ; preds = %46, %64
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr inbounds i8, ptr %1, i64 216
   %84 = load ptr, ptr %83, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   store i32 %80, ptr %78, align 8
   %85 = icmp eq i32 %82, 0
   br i1 %85, label %copy_address_wmem.exit141, label %86
@@ -1624,7 +1624,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_jxta_UDP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_jxta_UDP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @JXTA_UDP_SIG, i64 noundef 4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %10
@@ -1646,7 +1646,7 @@ define internal noundef i32 @dissect_jxta_UDP_heur(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_jxta_TCP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_jxta_TCP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 332
   %6 = load <2 x i32>, ptr %5, align 4
   %7 = tail call i32 @dissect_jxta_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
@@ -1663,7 +1663,7 @@ define internal noundef i32 @dissect_jxta_TCP_heur(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_jxta_SCTP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_jxta_SCTP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 332
   %6 = load <2 x i32>, ptr %5, align 4
   %7 = tail call i32 @dissect_jxta_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
@@ -2091,7 +2091,7 @@ define internal fastcc ptr @get_tpt_conversation(ptr noundef %0) unnamed_addr #0
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 216
   %19 = load ptr, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 %15, ptr %13, align 8
   %20 = icmp eq i32 %17, 0
   br i1 %20, label %copy_address_wmem.exit, label %21
@@ -2122,7 +2122,7 @@ copy_address_wmem.exit:                           ; preds = %7, %21
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %0, i64 240
   %38 = load ptr, ptr %37, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i32 %34, ptr %32, align 8
   %39 = icmp eq i32 %36, 0
   br i1 %39, label %copy_address_wmem.exit22, label %40

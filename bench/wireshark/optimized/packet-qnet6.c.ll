@@ -2350,7 +2350,7 @@ display_coid.exit:                                ; preds = %214, %241, %242
   %274 = load i32, ptr %3, align 4
   %275 = add i32 %274, 4
   store i32 %275, ptr %3, align 4
-  %276 = tail call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %.0507, ptr noundef nonnull %3, i32 noundef %4), !range !6
+  %276 = tail call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %.0507, ptr noundef nonnull %3, i32 noundef %4)
   %.not533 = icmp ne i32 %276, 0
   %277 = and i32 %269, 256
   %.not534 = icmp eq i32 %277, 0
@@ -2776,7 +2776,7 @@ define internal fastcc void @dissect_qnet6_lr(ptr noundef %0, ptr nocapture noun
   %.0127157 = phi i32 [ -1, %5 ], [ %.1128, %proto_item_set_generated.exit ]
   %.0129156 = phi i32 [ -1, %5 ], [ %.1130, %proto_item_set_generated.exit ]
   %.0132154 = phi ptr [ null, %5 ], [ %.1133, %proto_item_set_generated.exit ]
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %49, label %92 [
     i32 0, label %50
     i32 1, label %57
@@ -2937,7 +2937,7 @@ define internal fastcc void @dissect_qnet6_lr(ptr noundef %0, ptr nocapture noun
 proto_item_set_generated.exit:                    ; preds = %133, %130, %124, %115, %112, %106, %139, %137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %141, label %48, !llvm.loop !7
+  br i1 %exitcond.not, label %141, label %48, !llvm.loop !6
 
 141:                                              ; preds = %proto_item_set_generated.exit
   switch i8 %23, label %174 [
@@ -3030,7 +3030,7 @@ define internal fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %1
 18:                                               ; preds = %.preheader
   %19 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %.030, %6
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !7
 
 20:                                               ; preds = %.preheader
   %21 = add i32 %13, %7
@@ -3064,7 +3064,7 @@ declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) loca
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %5) #5
   %7 = icmp slt i32 %6, 44
@@ -3174,7 +3174,7 @@ define internal fastcc noundef i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr n
   store i32 %81, ptr %2, align 4
   %82 = add nuw i32 %.13, 4
   %83 = icmp ugt i32 %.11152, 4
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %72, %73
   %.01177 = phi ptr [ %75, %73 ], [ null, %72 ], [ %75, %.lr.ph ]
@@ -3198,7 +3198,7 @@ define internal fastcc noundef i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr n
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca [20 x i8], align 16
   %8 = alloca [20 x i8], align 16
@@ -3360,7 +3360,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   store i32 %109, ptr %3, align 4
   %110 = zext i16 %87 to i32
   %111 = icmp ult i32 %44, %110
-  %112 = trunc i32 %44 to i16
+  %112 = trunc nuw i32 %44 to i16
   %spec.select = select i1 %111, i16 %112, i16 %87
   %113 = zext i16 %spec.select to i32
   %.not302 = icmp eq i16 %spec.select, 0
@@ -3393,11 +3393,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not303, label %142, label %129
 
 129:                                              ; preds = %127
-  %130 = trunc i32 %128 to i16
+  %130 = trunc nuw nsw i32 %128 to i16
   %131 = sub nuw nsw i16 8, %130
   %132 = zext nneg i16 %131 to i32
   %133 = icmp ult i32 %.0289, %132
-  %134 = trunc i32 %.0289 to i16
+  %134 = trunc nuw nsw i32 %.0289 to i16
   %spec.select304 = select i1 %133, i16 %134, i16 %131
   %135 = zext nneg i16 %spec.select304 to i32
   %136 = load i32, ptr @hf_qnet6_kif_msg_connect_pad_data, align 4
@@ -4612,7 +4612,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %826, %847, %851
 
 932:                                              ; preds = %924
   store i64 0, ptr %6, align 8
-  %933 = trunc i64 %923 to i32
+  %933 = trunc nuw nsw i64 %923 to i32
   %934 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %933, ptr %934, align 8
   br label %937
@@ -4703,7 +4703,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %826, %847, %851
   %.1.i = phi i32 [ %981, %972 ], [ %.0.i343480, %970 ]
   %983 = shl nuw nsw i32 %.0143.i478, 1
   %984 = icmp ult i32 %.0143.i478, 4
-  br i1 %984, label %958, label %985, !llvm.loop !10
+  br i1 %984, label %958, label %985, !llvm.loop !9
 
 985:                                              ; preds = %982
   %986 = load i32, ptr @hf_qnet6_kif_msg_io_notify_fds, align 4
@@ -4714,7 +4714,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %826, %847, %851
   store i32 %990, ptr %3, align 4
   %991 = add nuw i32 %.0144.i481, 1
   %exitcond.not = icmp eq i32 %991, %909
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %985, %945
   %992 = sub i32 %943, %944
@@ -4748,7 +4748,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit377:      ; preds = %._crit_edge, %997, 
   br i1 %or.cond.i342, label %1009, label %dissect_qnet6_kif_msgsend_msg_notify.exit
 
 1009:                                             ; preds = %dissect_qnet6_kif_msgsend_msg_extra.exit377
-  %1010 = call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef nonnull %3, i32 noundef %4), !range !6
+  %1010 = call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef nonnull %3, i32 noundef %4)
   br label %dissect_qnet6_kif_msgsend_msg_notify.exit
 
 dissect_qnet6_kif_msgsend_msg_notify.exit:        ; preds = %937, %dissect_qnet6_kif_msgsend_msg_extra.exit377, %1009
@@ -4973,9 +4973,8 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 1}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

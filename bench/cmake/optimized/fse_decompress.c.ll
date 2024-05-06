@@ -8,13 +8,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FSE_DState_t = type { i64, ptr }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @FSE_buildDTable_wksp(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #0 {
-  %7 = tail call fastcc i64 @FSE_buildDTable_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5), !range !5
+define dso_local range(i64 -46, 1) i64 @FSE_buildDTable_wksp(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+  %7 = tail call fastcc i64 @FSE_buildDTable_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5)
   ret i64 %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds i16, ptr %4, i64 %8
@@ -74,7 +74,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   store i16 %.sink, ptr %38, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %37
   store i16 %24, ptr %0, align 4
@@ -120,7 +120,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   store i64 %.0121155, ptr %53, align 1
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 8
   %54 = icmp ult i64 %indvars.iv.next169, %52
-  br i1 %54, label %.lr.ph152, label %._crit_edge153, !llvm.loop !8
+  br i1 %54, label %.lr.ph152, label %._crit_edge153, !llvm.loop !7
 
 ._crit_edge153:                                   ; preds = %.lr.ph152, %.lr.ph158
   %55 = sext i16 %49 to i64
@@ -128,7 +128,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %57 = add i64 %.0121155, 72340172838076673
   %exitcond176.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count175
-  br i1 %exitcond176.not, label %.preheader134, label %.lr.ph158, !llvm.loop !9
+  br i1 %exitcond176.not, label %.preheader134, label %.lr.ph158, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader134, %.preheader
   %.0122161 = phi i64 [ 0, %.preheader134 ], [ %70, %.preheader ]
@@ -149,7 +149,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %69 = and i64 %68, %41
   %70 = add nuw nsw i64 %.0122161, 2
   %71 = icmp ult i64 %70, %46
-  br i1 %71, label %.preheader, label %.loopexit135, !llvm.loop !10
+  br i1 %71, label %.preheader, label %.loopexit135, !llvm.loop !9
 
 .preheader136.lr.ph:                              ; preds = %._crit_edge
   %72 = lshr i32 %12, 3
@@ -184,20 +184,20 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %.pn = add i32 %74, %.1116.pn
   %.2 = and i32 %.pn, %13
   %83 = icmp ugt i32 %.2, %.1
-  br i1 %83, label %82, label %84, !llvm.loop !11
+  br i1 %83, label %82, label %84, !llvm.loop !10
 
 84:                                               ; preds = %82
   %85 = add nuw nsw i32 %.0114142, 1
   %86 = load i16, ptr %75, align 2
   %87 = sext i16 %86 to i32
   %88 = icmp slt i32 %85, %87
-  br i1 %88, label %79, label %._crit_edge144, !llvm.loop !12
+  br i1 %88, label %79, label %._crit_edge144, !llvm.loop !11
 
 ._crit_edge144:                                   ; preds = %84, %.preheader136
   %.1116.lcssa = phi i32 [ %.0115147, %.preheader136 ], [ %.2, %84 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %._crit_edge148, label %.preheader136, !llvm.loop !13
+  br i1 %exitcond167.not, label %._crit_edge148, label %.preheader136, !llvm.loop !12
 
 ._crit_edge148:                                   ; preds = %._crit_edge144
   %.not = icmp eq i32 %.1116.lcssa, 0
@@ -222,7 +222,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %96 = add i16 %95, 1
   store i16 %96, ptr %94, align 2
   %97 = zext i16 %95 to i32
-  %98 = tail call i32 @llvm.ctlz.i32(i32 %97, i1 true), !range !14
+  %98 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %97, i1 true)
   %99 = xor i32 %98, 31
   %100 = sub nsw i32 %3, %99
   %101 = trunc nsw i32 %100 to i8
@@ -235,7 +235,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   store i16 %106, ptr %90, align 2
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count181.pre-phi
-  br i1 %exitcond182.not, label %.loopexit, label %89, !llvm.loop !15
+  br i1 %exitcond182.not, label %.loopexit, label %89, !llvm.loop !13
 
 .loopexit:                                        ; preds = %89, %._crit_edge148, %22, %6
   %.0 = phi i64 [ -46, %6 ], [ -44, %22 ], [ -1, %._crit_edge148 ], [ 0, %89 ]
@@ -304,7 +304,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %.neg436.i = add i64 %6, -516
   %49 = sub i64 %.neg436.i, %47
   %50 = getelementptr inbounds i8, ptr %5, i64 512
-  %51 = call fastcc i64 @FSE_buildDTable_internal(ptr noundef nonnull %50, ptr noundef %5, i32 noundef %30, i32 noundef %22, ptr noundef nonnull %48, i64 noundef %49), !range !5
+  %51 = call fastcc i64 @FSE_buildDTable_internal(ptr noundef nonnull %50, ptr noundef %5, i32 noundef %30, i32 noundef %22, ptr noundef nonnull %48, i64 noundef %49)
   %52 = icmp ult i64 %51, -119
   br i1 %52, label %53, label %FSE_decompress_wksp_body_default.exit
 
@@ -317,7 +317,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %.not294.i, label %233, label %58
 
 58:                                               ; preds = %53
-  %59 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %12, ptr noundef %25, i64 noundef %26), !range !16
+  %59 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %12, ptr noundef %25, i64 noundef %26)
   %60 = icmp ult i64 %59, -119
   br i1 %60, label %61, label %FSE_decompress_wksp_body_default.exit
 
@@ -484,7 +484,7 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   store i8 %.sroa.2.0.copyload.i333.i, ptr %150, align 1
   %151 = getelementptr inbounds i8, ptr %.0266.i35, i64 4
   %152 = icmp ugt i32 %147, 64
-  br i1 %152, label %.preheader437.i, label %.lr.ph, !llvm.loop !17
+  br i1 %152, label %.preheader437.i, label %.lr.ph, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %.preheader437.i, %223
   %153 = phi ptr [ %224, %223 ], [ %.promoted492634.i, %.preheader437.i ]
@@ -645,7 +645,7 @@ BIT_reloadDStreamFast.exit364.i:                  ; preds = %207
   br label %FSE_decompress_wksp_body_default.exit
 
 233:                                              ; preds = %53
-  %234 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %9, ptr noundef %25, i64 noundef %26), !range !16
+  %234 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %9, ptr noundef %25, i64 noundef %26)
   %235 = icmp ult i64 %234, -119
   br i1 %235, label %236, label %FSE_decompress_wksp_body_default.exit
 
@@ -816,7 +816,7 @@ BIT_reloadDStreamFast.exit374.i:                  ; preds = %.lr.ph56
   store i8 %.sroa.2.0.copyload.i394.i, ptr %327, align 1
   %328 = getelementptr inbounds i8, ptr %.0264.i55, i64 4
   %329 = icmp ugt i32 %318, 64
-  br i1 %329, label %.preheader.i, label %.lr.ph56, !llvm.loop !17
+  br i1 %329, label %.preheader.i, label %.lr.ph56, !llvm.loop !14
 
 .lr.ph521.i:                                      ; preds = %.preheader.i, %400
   %330 = phi ptr [ %401, %400 ], [ %.promoted533642.i, %.preheader.i ]
@@ -997,7 +997,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -1033,7 +1033,7 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
 
 18:                                               ; preds = %11
   %19 = zext i8 %16 to i32
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !14
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = xor i32 %20, 31
   %22 = sub nuw nsw i32 8, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1128,7 +1128,7 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
 
 74:                                               ; preds = %69
   %75 = zext i8 %72 to i32
-  %76 = tail call i32 @llvm.ctlz.i32(i32 %75, i1 true), !range !14
+  %76 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %75, i1 true)
   %77 = getelementptr inbounds i8, ptr %0, i64 8
   %78 = trunc nuw i64 %2 to i32
   %79 = shl nuw nsw i32 %78, 3
@@ -1251,16 +1251,13 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 -46, i64 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{i32 0, i32 33}
-!15 = distinct !{!15, !7}
-!16 = !{i64 1, i64 0}
-!17 = distinct !{!17, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

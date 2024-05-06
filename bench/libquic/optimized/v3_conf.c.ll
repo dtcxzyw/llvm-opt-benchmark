@@ -501,7 +501,7 @@ return:                                           ; preds = %merr, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %sk) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %sk) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_section(ptr noundef %conf, ptr noundef %section) #10
   %tobool.not = icmp eq ptr %call, null
@@ -569,7 +569,7 @@ declare ptr @X509v3_add_ext(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @X509_EXTENSION_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509V3_EXT_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef readonly %cert) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef readonly %cert) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %cert, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -581,12 +581,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %sk.0 = phi ptr [ %extensions, %if.then ], [ null, %entry ]
-  %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %sk.0), !range !11
+  %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %sk.0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef readonly %crl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef readonly %crl) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %crl, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -598,7 +598,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %sk.0 = phi ptr [ %extensions, %if.then ], [ null, %entry ]
-  %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %sk.0), !range !11
+  %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %sk.0)
   ret i32 %call
 }
 
@@ -609,7 +609,7 @@ entry:
   store ptr null, ptr %extlist, align 8
   %tobool = icmp ne ptr %req, null
   %spec.store.select = select i1 %tobool, ptr %extlist, ptr null
-  %call = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.store.select), !range !11
+  %call = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.store.select)
   %tobool1 = icmp ne i32 %call, 0
   %or.cond = and i1 %tobool, %tobool1
   br i1 %or.cond, label %if.end4, label %return
@@ -859,4 +859,3 @@ attributes #11 = { nounwind allocsize(0) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = !{i32 0, i32 2}

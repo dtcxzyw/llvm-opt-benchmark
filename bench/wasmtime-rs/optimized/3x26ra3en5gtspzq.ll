@@ -1615,7 +1615,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState9peekn_mut17hf414566f25f2d02dE.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i16 @_ZN14cranelift_wasm15code_translator7type_of17hb04878cd31657181E(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #2 {
+define noundef range(i16 137, 183) i16 @_ZN14cranelift_wasm15code_translator7type_of17hb04878cd31657181E(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #2 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca ptr, align 8

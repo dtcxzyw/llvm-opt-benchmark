@@ -229,8 +229,8 @@ if.then93:                                        ; preds = %sw.bb90
 if.end95:                                         ; preds = %sw.bb90
   %21 = load ptr, ptr %out_iov.addr, align 8
   %22 = load i32, ptr %out_num.addr, align 4
-  %call96 = call i32 @virtio_blk_discard_write_zeroes(ptr noundef nonnull %handler, ptr noundef %21, i32 noundef %22, i32 noundef %6), !range !5
-  %conv97 = trunc i32 %call96 to i8
+  %call96 = call i32 @virtio_blk_discard_write_zeroes(ptr noundef nonnull %handler, ptr noundef %21, i32 noundef %22, i32 noundef %6)
+  %conv97 = trunc nuw nsw i32 %call96 to i8
   store i8 %conv97, ptr %add.ptr21, align 1
   br label %return
 
@@ -297,7 +297,7 @@ declare i32 @blk_co_flush(ptr noundef) #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_blk_discard_write_zeroes(ptr nocapture noundef readonly %handler, ptr noundef %iov, i32 noundef %iovcnt, i32 noundef %type) #0 {
+define internal range(i32 0, 3) i32 @virtio_blk_discard_write_zeroes(ptr nocapture noundef readonly %handler, ptr noundef %iov, i32 noundef %iovcnt, i32 noundef %type) #0 {
 entry:
   %total_sectors.i = alloca i64, align 8
   %desc = alloca %struct.virtio_blk_discard_write_zeroes, align 8
@@ -438,4 +438,3 @@ attributes #7 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}

@@ -299,7 +299,7 @@ _hash_firstfreebit.exit:                          ; preds = %100
   br i1 %exitcond.not.i176, label %.loopexit313, label %.lr.ph.i, !llvm.loop !8
 
 .critedge.loopexit.split.loop.exit13.i:           ; preds = %.lr.ph.i
-  %120 = trunc i64 %indvars.iv.i to i32
+  %120 = trunc nuw i64 %indvars.iv.i to i32
   br label %.loopexit313
 
 121:                                              ; preds = %.lr.ph
@@ -373,7 +373,7 @@ _hash_firstfreebit.exit:                          ; preds = %100
   br i1 %exitcond.not.i184, label %.loopexit, label %.lr.ph.i180, !llvm.loop !8
 
 .critedge.loopexit.split.loop.exit13.i182:        ; preds = %.lr.ph.i180
-  %158 = trunc i64 %indvars.iv.i181 to i32
+  %158 = trunc nuw i64 %indvars.iv.i181 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %157, %.critedge.loopexit.split.loop.exit13.i182, %151
@@ -412,7 +412,7 @@ _hash_firstfreebit.exit:                          ; preds = %100
   br i1 %exitcond.not.i193, label %.loopexit312, label %.lr.ph.i189, !llvm.loop !8
 
 .critedge.loopexit.split.loop.exit13.i191:        ; preds = %.lr.ph.i189
-  %171 = trunc i64 %indvars.iv.i190 to i32
+  %171 = trunc nuw i64 %indvars.iv.i190 to i32
   br label %.loopexit312
 
 .loopexit313:                                     ; preds = %119, %.critedge.loopexit.split.loop.exit13.i, %_hash_firstfreebit.exit
@@ -643,7 +643,7 @@ BufferGetPage.exit196:                            ; preds = %239, %245
 BufferGetPage.exit198:                            ; preds = %287, %293
   %.0.i.i197 = phi ptr [ %292, %287 ], [ %298, %293 ]
   %299 = lshr i64 %286, 32
-  %300 = trunc i64 %299 to i32
+  %300 = trunc nuw i64 %299 to i32
   store i32 %300, ptr %.0.i.i197, align 4
   %301 = trunc i64 %286 to i32
   %302 = getelementptr inbounds i8, ptr %.0.i.i197, i64 4
@@ -1303,7 +1303,7 @@ BufferGetPage.exit162:                            ; preds = %147, %153
 BufferGetPage.exit164:                            ; preds = %229, %235
   %.0.i.i163 = phi ptr [ %234, %229 ], [ %240, %235 ]
   %241 = lshr i64 %226, 32
-  %242 = trunc i64 %241 to i32
+  %242 = trunc nuw i64 %241 to i32
   store i32 %242, ptr %.0.i.i163, align 4
   %243 = trunc i64 %226 to i32
   %244 = getelementptr inbounds i8, ptr %.0.i.i163, i64 4
@@ -1332,7 +1332,7 @@ BufferGetPage.exit164:                            ; preds = %229, %235
 BufferGetPage.exit166:                            ; preds = %246, %252
   %.0.i.i165 = phi ptr [ %251, %246 ], [ %257, %252 ]
   %258 = lshr i64 %226, 32
-  %259 = trunc i64 %258 to i32
+  %259 = trunc nuw i64 %258 to i32
   store i32 %259, ptr %.0.i.i165, align 4
   %260 = trunc i64 %226 to i32
   %261 = getelementptr inbounds i8, ptr %.0.i.i165, i64 4
@@ -1813,7 +1813,7 @@ BufferGetPage.exit173:                            ; preds = %36, %42
 BufferGetPage.exit175:                            ; preds = %156, %162
   %.0.i.i174 = phi ptr [ %161, %156 ], [ %167, %162 ]
   %168 = lshr i64 %154, 32
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw i64 %168 to i32
   store i32 %169, ptr %.0.i.i174, align 4
   %170 = trunc i64 %154 to i32
   %171 = getelementptr inbounds i8, ptr %.0.i.i174, i64 4

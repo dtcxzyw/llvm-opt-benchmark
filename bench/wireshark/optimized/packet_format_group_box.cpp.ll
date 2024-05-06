@@ -1323,7 +1323,7 @@ define noundef zeroext i1 @_ZN20PacketFormatGroupBox18allExpandedEnabledEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN20PacketFormatGroupBox17getHexdumpOptionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN20PacketFormatGroupBox17getHexdumpOptionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64

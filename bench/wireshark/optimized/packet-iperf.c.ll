@@ -430,9 +430,9 @@ define internal void @format_version(ptr nocapture noundef writeonly %0, i32 nou
 ; Function Attrs: nofree nounwind uwtable
 define internal void @format_version_long(ptr nocapture noundef writeonly %0, i64 noundef %1) #1 {
   %3 = lshr i64 %1, 48
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %5 = lshr i64 %1, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = and i32 %6, 65535
   %8 = trunc i64 %1 to i32
   %9 = lshr i32 %8, 16

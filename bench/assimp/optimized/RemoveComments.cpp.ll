@@ -22,7 +22,7 @@ for.body:                                         ; preds = %entry, %for.inc
   ]
 
 if.then7:                                         ; preds = %for.body, %for.body
-  %1 = add nuw i64 %i.037, 1
+  %1 = add i64 %i.037, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %call1, i64 %1)
   br label %while.cond
 

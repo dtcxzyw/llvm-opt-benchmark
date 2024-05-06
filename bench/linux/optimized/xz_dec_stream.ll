@@ -596,7 +596,7 @@ define dso_local i32 @xz_dec_run(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %399
 
 349:                                              ; preds = %44
-  %350 = tail call fastcc i32 @dec_index(ptr noundef %0, ptr noundef %1), !range !14
+  %350 = tail call fastcc i32 @dec_index(ptr noundef %0, ptr noundef %1)
   %351 = icmp eq i32 %350, 1
   br i1 %351, label %352, label %.thread
 
@@ -635,7 +635,7 @@ define dso_local i32 @xz_dec_run(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %369 = getelementptr i8, ptr %367, i64 %355
   %370 = load i8, ptr %369, align 1
   %371 = icmp eq i8 %370, 0
-  br i1 %371, label %354, label %.thread, !llvm.loop !15
+  br i1 %371, label %354, label %.thread, !llvm.loop !14
 
 372:                                              ; preds = %354
   tail call fastcc void @index_update(ptr noundef %0, ptr noundef %1)
@@ -649,7 +649,7 @@ define dso_local i32 @xz_dec_run(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %44, %376
-  %377 = tail call fastcc i32 @crc32_validate(ptr noundef %0, ptr noundef %1), !range !14
+  %377 = tail call fastcc i32 @crc32_validate(ptr noundef %0, ptr noundef %1), !range !15
   %378 = icmp eq i32 %377, 1
   br i1 %378, label %379, label %.thread
 
@@ -854,7 +854,7 @@ define dso_local void @xz_dec_end(ptr noundef %0) local_unnamed_addr #0 align 16
 declare dso_local void @xz_dec_lzma2_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @crc32_validate(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 8) i32 @crc32_validate(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -898,7 +898,7 @@ define internal fastcc noundef i32 @crc32_validate(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define internal fastcc noundef i32 @dec_index(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 0, 8) i32 @dec_index(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1052,7 +1052,7 @@ define internal fastcc void @index_update(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-define internal fastcc i32 @dec_stream_footer(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc range(i32 1, 8) i32 @dec_stream_footer(ptr noundef %0) unnamed_addr #7 align 16 {
   %2 = getelementptr i8, ptr %0, i64 194
   %3 = tail call i32 @bcmp(ptr noundef dereferenceable(2) %2, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2)
   %4 = icmp eq i32 %3, 0
@@ -1160,7 +1160,7 @@ attributes #15 = { nounwind allocsize(2) }
 !11 = !{}
 !12 = distinct !{!12, !8, !6}
 !13 = distinct !{!13, !8, !6}
-!14 = !{i32 0, i32 8}
-!15 = distinct !{!15, !8, !6}
+!14 = distinct !{!14, !8, !6}
+!15 = !{i32 0, i32 8}
 !16 = !{i32 1, i32 8}
 !17 = distinct !{!17, !8, !6}

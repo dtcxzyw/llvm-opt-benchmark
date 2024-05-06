@@ -1762,7 +1762,7 @@ define internal i32 @dissect_wccp2_router_identity_info(ptr noundef %0, i32 noun
   %17 = load i32, ptr @hf_router_identity_ip_index, align 4
   %18 = load i32, ptr @hf_router_identity_ipv4, align 4
   %19 = load i32, ptr @hf_router_identity_ipv6, align 4
-  %20 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %1, ptr noundef %5)
+  %20 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
   %21 = load i32, ptr @hf_router_identity_receive_id, align 4
   %22 = add i32 %1, 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #7
@@ -1865,7 +1865,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %13 = load i32, ptr @hf_assignment_key_ip_index, align 4
   %14 = load i32, ptr @hf_assignment_key_ipv4, align 4
   %15 = load i32, ptr @hf_assignment_key_ipv6, align 4
-  %16 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %12, ptr noundef %5)
+  %16 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %12, ptr noundef readonly %5)
   %17 = add i32 %1, 8
   %18 = load i32, ptr @hf_assignment_key_change_num, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0) #7
@@ -2026,7 +2026,7 @@ define internal i32 @dissect_wccp2_web_cache_view_info(ptr noundef %0, i32 nound
   %29 = load i32, ptr @hf_router_identity_ip_index, align 4
   %30 = load i32, ptr @hf_router_identity_ipv4, align 4
   %31 = load i32, ptr @hf_router_identity_ipv6, align 4
-  %32 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %.06188, ptr noundef %5)
+  %32 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %.06188, ptr noundef readonly %5)
   %33 = load i32, ptr @hf_router_identity_receive_id, align 4
   %34 = add i32 %.061.in86, 12
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0) #7
@@ -2112,7 +2112,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %12 = load i32, ptr @hf_assignment_key_ip_index, align 4
   %13 = load i32, ptr @hf_assignment_key_ipv4, align 4
   %14 = load i32, ptr @hf_assignment_key_ipv6, align 4
-  %15 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %1, ptr noundef %5)
+  %15 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
   %16 = add i32 %1, 4
   %17 = load i32, ptr @hf_assignment_key_change_num, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #7
@@ -2211,7 +2211,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %50 = load i32, ptr @hf_hash_buckets_assignment_wc_ip_index, align 4
   %51 = load i32, ptr @hf_hash_buckets_assignment_wc_ipv4, align 4
   %52 = load i32, ptr @hf_hash_buckets_assignment_wc_ipv6, align 4
-  %53 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %44, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.04012.i95, ptr noundef %5)
+  %53 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %44, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.04012.i95, ptr noundef readonly %5)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.431, i32 noundef %.0439.i97) #7
   %54 = add nuw nsw i32 %.0439.i97, 1
   %.041.i = add nsw i32 %.04111.i96, -4
@@ -2297,7 +2297,7 @@ define internal noundef i32 @dissect_wccp2_router_query_info(ptr noundef %0, i32
   %9 = load i32, ptr @hf_router_identity_ip_index, align 4
   %10 = load i32, ptr @hf_router_identity_ipv4, align 4
   %11 = load i32, ptr @hf_router_identity_ipv6, align 4
-  %12 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %1, ptr noundef %5)
+  %12 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
   %13 = load i32, ptr @hf_router_identity_receive_id, align 4
   %14 = add i32 %1, 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #7
@@ -2556,7 +2556,7 @@ dissect_wccp2_assignment_key_element.exit.thread: ; preds = %28
   %31 = load i32, ptr @hf_assignment_key_ip_index, align 4
   %32 = load i32, ptr @hf_assignment_key_ipv4, align 4
   %33 = load i32, ptr @hf_assignment_key_ipv6, align 4
-  %34 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef %19, ptr noundef %5)
+  %34 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef %19, ptr noundef readonly %5)
   %35 = add i32 %1, 8
   %36 = load i32, ptr @hf_assignment_key_change_num, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #7
@@ -2874,7 +2874,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 108:                                              ; preds = %107
   %109 = load i32, ptr @hf_address_table_element, align 4
   %110 = add nuw nsw i64 %indvars.iv, 1
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw nsw i64 %110 to i32
   %112 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %23, i32 noundef %109, ptr noundef %0, i32 noundef %.099118, i32 noundef %71, ptr noundef %.098, ptr noundef nonnull @.str.457, i32 noundef %111, ptr noundef %.098) #7
   %113 = load i16, ptr %68, align 8
   %114 = zext i16 %113 to i64
@@ -3238,7 +3238,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   br label %dissect_wccp2_extended_assignment_data_element.exit
 
 71:                                               ; preds = %65
-  %72 = call fastcc i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %55, i32 noundef %.0.i, ptr noundef %45, ptr noundef %5)
+  %72 = call fastcc i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %55, i32 noundef %.0.i, ptr noundef %45, ptr noundef readonly %5)
   %73 = sub nsw i32 %54, %.0.i
   br label %dissect_wccp2_extended_assignment_data_element.exit
 
@@ -3255,7 +3255,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
 .preheader.i.i:                                   ; preds = %78, %84
   %.034.i.i = phi i32 [ %79, %84 ], [ %.0.i, %78 ]
   %.033.i.i = phi i32 [ %83, %84 ], [ %55, %78 ]
-  %79 = call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %.033.i.i, i32 noundef %.034.i.i, ptr noundef %76, ptr noundef %5)
+  %79 = call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %.033.i.i, i32 noundef %.034.i.i, ptr noundef %76, ptr noundef readonly %5)
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, label %81
 
@@ -3522,12 +3522,12 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   %47 = add i32 %.05410.i, 8
   %48 = add i32 %.05410.i, 10
   %49 = add i32 %.05410.i, 12
-  %50 = call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %49, ptr noundef %4)
+  %50 = call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
   %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %37, ptr noundef %0, i32 noundef %.05410.i, i32 noundef 16, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.421, i32 noundef %.0559.i, ptr noundef %50) #7
   %52 = load i32, ptr @hf_value_element_src_ip_index, align 4
   %53 = load i32, ptr @hf_value_element_src_ipv4, align 4
   %54 = load i32, ptr @hf_value_element_src_ipv6, align 4
-  %55 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.05410.i, ptr noundef %4)
+  %55 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.05410.i, ptr noundef readonly %4)
   %56 = icmp ult i32 %.0568.i, 8
   br i1 %56, label %57, label %59
 
@@ -3540,7 +3540,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   %61 = load i32, ptr @hf_value_element_dest_ip_index, align 4
   %62 = load i32, ptr @hf_value_element_dest_ipv4, align 4
   %63 = load i32, ptr @hf_value_element_dest_ipv6, align 4
-  %64 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %60, ptr noundef %4)
+  %64 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %60, ptr noundef readonly %4)
   %65 = icmp ult i32 %.0568.i, 10
   br i1 %65, label %66, label %68
 
@@ -3572,7 +3572,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   %81 = load i32, ptr @hf_value_element_web_cache_ip_index, align 4
   %82 = load i32, ptr @hf_value_element_web_cache_ipv4, align 4
   %83 = load i32, ptr @hf_value_element_web_cache_ipv6, align 4
-  %84 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %81, i32 noundef %82, i32 noundef %83, ptr noundef %0, i32 noundef %49, ptr noundef %4)
+  %84 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %81, i32 noundef %82, i32 noundef %83, ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
   %.not63.i = icmp slt i32 %.05410.i, 2147483632
   br i1 %.not63.i, label %85, label %dissect_wccp2_mask_value_set_element.exit.thread2
 
@@ -3908,7 +3908,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %44 = load i32, ptr @hf_web_cache_value_element_wc_address_index, align 4
   %45 = load i32, ptr @hf_web_cache_value_element_wc_address_ipv4, align 4
   %46 = load i32, ptr @hf_web_cache_value_element_wc_address_ipv6, align 4
-  %47 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %36, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef %.06018.i, ptr noundef %4)
+  %47 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %36, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef %.06018.i, ptr noundef readonly %4)
   %48 = load i32, ptr @ett_web_cache_value_element_list, align 4
   %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #7
   %50 = icmp ult i32 %.06315.i, 8
@@ -4003,7 +4003,7 @@ define internal fastcc void @dissect_wccp2_router_assignment_element(ptr noundef
   %6 = load i32, ptr @hf_router_identity_ip_index, align 4
   %7 = load i32, ptr @hf_router_identity_ipv4, align 4
   %8 = load i32, ptr @hf_router_identity_ipv6, align 4
-  %9 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %3, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef %1, ptr noundef %4)
+  %9 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %3, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef %1, ptr noundef readonly %4)
   %10 = load i32, ptr @hf_router_identity_receive_id, align 4
   %11 = add i32 %1, 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #7

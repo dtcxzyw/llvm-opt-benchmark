@@ -3041,7 +3041,7 @@ force_unbind.exit:                                ; preds = %78, %87, %102, %104
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @kref_get_unless_zero(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0) unnamed_addr #3 align 16 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %.preheader
@@ -4104,7 +4104,7 @@ define dso_local void @i915_vma_module_exit() local_unnamed_addr #0 align 16 {
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @i915_vma_module_init() local_unnamed_addr #8 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @i915_vma_module_init() local_unnamed_addr #8 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.2, i32 noundef 608, i32 noundef 8, i32 noundef 8192, ptr noundef null) #17
   store ptr %1, ptr @slab_vmas, align 8
   %2 = icmp eq ptr %1, null
@@ -4128,7 +4128,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local void @__i915_active_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @__i915_vma_active(ptr noundef readonly %0) #0 align 16 {
+define internal range(i32 -2, 1) i32 @__i915_vma_active(ptr noundef readonly %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -88
   %3 = load ptr, ptr %2, align 8
   %4 = load volatile i32, ptr %3, align 4

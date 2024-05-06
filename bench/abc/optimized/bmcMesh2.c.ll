@@ -1155,59 +1155,59 @@ Bmc_MeshAddOneHotness2.exit526.us:                ; preds = %.loopexit.i517.us, 
   %451 = add nsw i32 %399, 16
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %.val.i528.us = load ptr, ptr %375, align 8
-  %wide.trip.count.i529.us = sext i32 %451 to i64
+  %.val.i529.us = load ptr, ptr %375, align 8
+  %wide.trip.count.i530.us = sext i32 %451 to i64
   br label %452
 
 452:                                              ; preds = %460, %Bmc_MeshAddOneHotness2.exit526.us
-  %indvars.iv.i530.us = phi i64 [ %.pre-phi920, %Bmc_MeshAddOneHotness2.exit526.us ], [ %indvars.iv.next.i534.us, %460 ]
-  %.02229.i531.us = phi i32 [ 0, %Bmc_MeshAddOneHotness2.exit526.us ], [ %.123.i533.us, %460 ]
-  %453 = getelementptr inbounds i32, ptr %.val.i528.us, i64 %indvars.iv.i530.us
+  %indvars.iv.i531.us = phi i64 [ %.pre-phi920, %Bmc_MeshAddOneHotness2.exit526.us ], [ %indvars.iv.next.i535.us, %460 ]
+  %.02229.i532.us = phi i32 [ 0, %Bmc_MeshAddOneHotness2.exit526.us ], [ %.123.i534.us, %460 ]
+  %453 = getelementptr inbounds i32, ptr %.val.i529.us, i64 %indvars.iv.i531.us
   %454 = load i32, ptr %453, align 4
-  %.not.i532.us = icmp eq i32 %454, 1
-  br i1 %.not.i532.us, label %455, label %460
+  %.not.i533.us = icmp eq i32 %454, 1
+  br i1 %.not.i533.us, label %455, label %460
 
 455:                                              ; preds = %452
-  %456 = add nsw i32 %.02229.i531.us, 1
-  %457 = sext i32 %.02229.i531.us to i64
+  %456 = add nsw i32 %.02229.i532.us, 1
+  %457 = sext i32 %.02229.i532.us to i64
   %458 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %457
-  %459 = trunc nsw i64 %indvars.iv.i530.us to i32
+  %459 = trunc nsw i64 %indvars.iv.i531.us to i32
   store i32 %459, ptr %458, align 4
   br label %460
 
 460:                                              ; preds = %455, %452
-  %.123.i533.us = phi i32 [ %456, %455 ], [ %.02229.i531.us, %452 ]
-  %indvars.iv.next.i534.us = add nsw i64 %indvars.iv.i530.us, 1
-  %exitcond.not.i535.us = icmp eq i64 %indvars.iv.next.i534.us, %wide.trip.count.i529.us
-  br i1 %exitcond.not.i535.us, label %._crit_edge.i536.us, label %452, !llvm.loop !4
+  %.123.i534.us = phi i32 [ %456, %455 ], [ %.02229.i532.us, %452 ]
+  %indvars.iv.next.i535.us = add nsw i64 %indvars.iv.i531.us, 1
+  %exitcond.not.i536.us = icmp eq i64 %indvars.iv.next.i535.us, %wide.trip.count.i530.us
+  br i1 %exitcond.not.i536.us, label %._crit_edge.i537.us, label %452, !llvm.loop !4
 
-._crit_edge.i536.us:                              ; preds = %460
+._crit_edge.i537.us:                              ; preds = %460
   %461 = add nsw i32 %425, %.0.i500.us
-  %462 = icmp slt i32 %.123.i533.us, 2
-  br i1 %462, label %Bmc_MeshAddOneHotness2.exit553.us, label %.preheader.i537.us
+  %462 = icmp slt i32 %.123.i534.us, 2
+  br i1 %462, label %Bmc_MeshAddOneHotness2.exit553.us, label %.preheader.i538.us
 
-.preheader.i537.us:                               ; preds = %._crit_edge.i536.us
-  %463 = zext nneg i32 %.123.i533.us to i64
+.preheader.i538.us:                               ; preds = %._crit_edge.i537.us
+  %463 = zext nneg i32 %.123.i534.us to i64
   br label %464
 
-464:                                              ; preds = %.loopexit.i543.us, %.preheader.i537.us
-  %indvars.iv45.i539.us = phi i64 [ 0, %.preheader.i537.us ], [ %indvars.iv.next46.i542.us, %.loopexit.i543.us ]
-  %indvars.iv38.i540.us = phi i64 [ 1, %.preheader.i537.us ], [ %indvars.iv.next39.i545.us, %.loopexit.i543.us ]
-  %.02136.i541.us = phi i32 [ 0, %.preheader.i537.us ], [ %.1.lcssa.i544.us, %.loopexit.i543.us ]
-  %indvars.iv.next46.i542.us = add nuw nsw i64 %indvars.iv45.i539.us, 1
-  %465 = icmp ult i64 %indvars.iv.next46.i542.us, %463
-  br i1 %465, label %.lr.ph33.i548.us, label %.loopexit.i543.us
+464:                                              ; preds = %.loopexit.i544.us, %.preheader.i538.us
+  %indvars.iv45.i540.us = phi i64 [ 0, %.preheader.i538.us ], [ %indvars.iv.next46.i543.us, %.loopexit.i544.us ]
+  %indvars.iv38.i541.us = phi i64 [ 1, %.preheader.i538.us ], [ %indvars.iv.next39.i546.us, %.loopexit.i544.us ]
+  %.02136.i542.us = phi i32 [ 0, %.preheader.i538.us ], [ %.1.lcssa.i545.us, %.loopexit.i544.us ]
+  %indvars.iv.next46.i543.us = add nuw nsw i64 %indvars.iv45.i540.us, 1
+  %465 = icmp ult i64 %indvars.iv.next46.i543.us, %463
+  br i1 %465, label %.lr.ph33.i548.us, label %.loopexit.i544.us
 
 .lr.ph33.i548.us:                                 ; preds = %464
-  %466 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %indvars.iv45.i539.us
+  %466 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %indvars.iv45.i540.us
   %467 = load i32, ptr %466, align 4
   %468 = shl nsw i32 %467, 1
   %469 = or disjoint i32 %468, 1
   br label %470
 
 470:                                              ; preds = %470, %.lr.ph33.i548.us
-  %indvars.iv40.i549.us = phi i64 [ %indvars.iv38.i540.us, %.lr.ph33.i548.us ], [ %indvars.iv.next41.i551.us, %470 ]
-  %.131.i550.us = phi i32 [ %.02136.i541.us, %.lr.ph33.i548.us ], [ %476, %470 ]
+  %indvars.iv40.i549.us = phi i64 [ %indvars.iv38.i541.us, %.lr.ph33.i548.us ], [ %indvars.iv.next41.i551.us, %470 ]
+  %.131.i550.us = phi i32 [ %.02136.i542.us, %.lr.ph33.i548.us ], [ %476, %470 ]
   store i32 %469, ptr %8, align 4
   %471 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %indvars.iv40.i549.us
   %472 = load i32, ptr %471, align 4
@@ -1218,19 +1218,19 @@ Bmc_MeshAddOneHotness2.exit526.us:                ; preds = %.loopexit.i517.us, 
   %476 = add nsw i32 %.131.i550.us, 1
   %indvars.iv.next41.i551.us = add nuw nsw i64 %indvars.iv40.i549.us, 1
   %exitcond44.not.i552.us = icmp eq i64 %indvars.iv.next41.i551.us, %463
-  br i1 %exitcond44.not.i552.us, label %.loopexit.i543.us, label %470, !llvm.loop !7
+  br i1 %exitcond44.not.i552.us, label %.loopexit.i544.us, label %470, !llvm.loop !7
 
-.loopexit.i543.us:                                ; preds = %470, %464
-  %.1.lcssa.i544.us = phi i32 [ %.02136.i541.us, %464 ], [ %476, %470 ]
-  %indvars.iv.next39.i545.us = add nuw nsw i64 %indvars.iv38.i540.us, 1
-  %exitcond49.not.i546.us = icmp eq i64 %indvars.iv.next46.i542.us, %463
-  br i1 %exitcond49.not.i546.us, label %Bmc_MeshAddOneHotness2.exit553.us, label %464, !llvm.loop !6
+.loopexit.i544.us:                                ; preds = %470, %464
+  %.1.lcssa.i545.us = phi i32 [ %.02136.i542.us, %464 ], [ %476, %470 ]
+  %indvars.iv.next39.i546.us = add nuw nsw i64 %indvars.iv38.i541.us, 1
+  %exitcond49.not.i547.us = icmp eq i64 %indvars.iv.next46.i543.us, %463
+  br i1 %exitcond49.not.i547.us, label %Bmc_MeshAddOneHotness2.exit553.us, label %464, !llvm.loop !6
 
-Bmc_MeshAddOneHotness2.exit553.us:                ; preds = %.loopexit.i543.us, %._crit_edge.i536.us
-  %.0.i547.us = phi i32 [ 0, %._crit_edge.i536.us ], [ %.1.lcssa.i544.us, %.loopexit.i543.us ]
+Bmc_MeshAddOneHotness2.exit553.us:                ; preds = %.loopexit.i544.us, %._crit_edge.i537.us
+  %.0.i527.us = phi i32 [ 0, %._crit_edge.i537.us ], [ %.1.lcssa.i545.us, %.loopexit.i544.us ]
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %477 = add nsw i32 %461, %.0.i547.us
+  %477 = add nsw i32 %461, %.0.i527.us
   br label %509
 
 478:                                              ; preds = %392, %391

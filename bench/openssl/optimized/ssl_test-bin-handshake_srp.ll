@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [5 x i8] c"2048\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @configure_handshake_ctx_for_srp(ptr noundef %server_ctx, ptr noundef %server2_ctx, ptr noundef %client_ctx, ptr nocapture noundef readonly %extra, ptr noundef %server_ctx_data, ptr noundef %server2_ctx_data, ptr noundef %client_ctx_data) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @configure_handshake_ctx_for_srp(ptr noundef %server_ctx, ptr noundef %server2_ctx, ptr noundef %client_ctx, ptr nocapture noundef readonly %extra, ptr noundef %server_ctx_data, ptr noundef %server2_ctx_data, ptr noundef %client_ctx_data) local_unnamed_addr #0 {
 entry:
   %srp_user = getelementptr inbounds i8, ptr %extra, i64 104
   %0 = load ptr, ptr %srp_user, align 8
@@ -119,7 +119,7 @@ return:                                           ; preds = %if.end46, %if.end67
 declare i32 @SSL_CTX_set_srp_username_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @server_srp_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 3) i32 @server_srp_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %srp_user = getelementptr inbounds i8, ptr %arg, i64 32
   %0 = load ptr, ptr %srp_user, align 8

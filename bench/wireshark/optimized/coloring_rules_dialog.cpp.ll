@@ -11769,7 +11769,7 @@ define linkonce_odr void @_ZSt6__sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cx
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 24
-  %8 = tail call i64 @llvm.ctlz.i64(i64 %7, i1 true), !range !91
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
   %9 = shl nuw nsw i64 %8, 1
   %10 = xor i64 %9, 126
   tail call void @_ZSt16__introsort_loopIN5QListI11QModelIndexE8iteratorExN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr %0, ptr %1, i64 noundef %10)
@@ -11832,7 +11832,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclI11QModelIndexN5QListIS3_E8iteratorEEEbRT_
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclI11QModelIndexN5QListIS3_E8iteratorEEEbRT_T0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI11QModelIndexN5QListIS3_E8iteratorEEEbRT_T0_.exit.i.i.i, %25, %19, %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.011.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i.i.i, i64 24, i1 false)
-  br label %14, !llvm.loop !92
+  br label %14, !llvm.loop !91
 
 _ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI11QModelIndexN5QListIS3_E8iteratorEEEbRT_T0_.exit.i.i.i, %29, %23, %17
   store i32 %.sroa.03.0.copyload.i.i.i, ptr %.sroa.011.0.i.i.i, align 8
@@ -11844,7 +11844,7 @@ _ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__op
   store ptr %.sroa.5.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx9.i.i.i, align 8
   %34 = getelementptr i8, ptr %.sroa.0.06.i.i, i64 24
   %.not.i.i = icmp eq ptr %34, %1
-  br i1 %.not.i.i, label %_ZSt22__final_insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !93
+  br i1 %.not.i.i, label %_ZSt22__final_insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !92
 
 35:                                               ; preds = %3
   tail call void @_ZSt16__insertion_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr %0, ptr %1)
@@ -11869,7 +11869,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListI11QModelIndexE8iterator
 
 .lr.ph:                                           ; preds = %.lr.ph30
   %10 = icmp eq i64 %21, 0
-  br i1 %10, label %.split.i.i, label %.lr.ph30, !llvm.loop !94
+  br i1 %10, label %.split.i.i, label %.lr.ph30, !llvm.loop !93
 
 .split.i.i:                                       ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ %7, %.lr.ph.preheader ], [ %24, %.lr.ph ]
@@ -11885,7 +11885,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListI11QModelIndexE8iterator
   tail call void @_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %11, ptr noundef nonnull byval(%class.QModelIndex) align 8 %phi.call.i.i)
   %14 = icmp eq i64 %.0.i.i, 0
   %15 = add nsw i64 %.0.i.i, -1
-  br i1 %14, label %.lr.ph.i.i, label %.split9.i.i, !llvm.loop !95
+  br i1 %14, label %.lr.ph.i.i, label %.split9.i.i, !llvm.loop !94
 
 .lr.ph.i.i:                                       ; preds = %.split9.i.i, %.lr.ph.i.i
   %.sroa.0.06.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %storemerge17.lcssa, %.split9.i.i ]
@@ -11899,7 +11899,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListI11QModelIndexE8iterator
   tail call void @_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr %0, i64 noundef 0, i64 noundef %19, ptr noundef nonnull byval(%class.QModelIndex) align 8 %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %20 = icmp sgt i64 %18, 24
-  br i1 %20, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !96
+  br i1 %20, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !95
 
 .lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %storemerge1729 = phi ptr [ %22, %.lr.ph ], [ %1, %.lr.ph.preheader ]
@@ -11910,7 +11910,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListI11QModelIndexE8iterator
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %23, %5
   %25 = icmp sgt i64 %24, 384
-  br i1 %25, label %.lr.ph, label %_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !94
+  br i1 %25, label %.lr.ph, label %_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !93
 
 _ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit: ; preds = %.lr.ph30, %.lr.ph.i.i, %3
   ret void
@@ -11982,7 +11982,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.i, %28, %21, %16
   %39 = getelementptr i8, ptr %.sroa.011.1.i, i64 24
-  br label %16, !llvm.loop !97
+  br label %16, !llvm.loop !96
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i.backedge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i.preheader
   %.sroa.0.0.pn.i = phi ptr [ %.sroa.0.0.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i.preheader ], [ %.sroa.0.1.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i.backedge ]
@@ -12025,7 +12025,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_
   br i1 %61, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit9.thread17.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i.backedge: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit9.i, %51, %44, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i, !llvm.loop !98
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread15.i, !llvm.loop !97
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit9.thread17.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit9.i, %56, %49, %42
   %62 = icmp ult ptr %.sroa.011.1.i, %.sroa.0.1.i
@@ -12038,7 +12038,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.1.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %64 = getelementptr i8, ptr %.sroa.011.1.i, i64 24
-  br label %14, !llvm.loop !99
+  br label %14, !llvm.loop !98
 
 _ZSt21__unguarded_partitionIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_S7_T0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit9.thread17.i
   ret ptr %.sroa.011.1.i
@@ -12109,7 +12109,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_
   %41 = getelementptr %class.QModelIndex, ptr %0, i64 %.046
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   %42 = icmp slt i64 %39, %6
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !100
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread44, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %39, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread44 ]
@@ -12186,7 +12186,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5QListI11QModelIndexE8iteratorES4_EEbT_R
   %76 = getelementptr %class.QModelIndex, ptr %0, i64 %.020.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
   %77 = icmp sgt i64 %.0921.i, %1
-  br i1 %77, label %.lr.ph.i, label %_ZSt11__push_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit, !llvm.loop !101
+  br i1 %77, label %.lr.ph.i, label %_ZSt11__push_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit, !llvm.loop !100
 
 _ZSt11__push_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit: ; preds = %59, %65, %71, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5QListI11QModelIndexE8iteratorES4_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5QListI11QModelIndexE8iteratorES4_EEbT_RT0_.exit.thread.i, %54
   %.0.lcssa.i = phi i64 [ %.1, %54 ], [ %.020.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5QListI11QModelIndexE8iteratorES4_EEbT_RT0_.exit.i ], [ %.0921.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5QListI11QModelIndexE8iteratorES4_EEbT_RT0_.exit.thread.i ], [ %.020.i, %59 ], [ %.020.i, %65 ], [ %.020.i, %71 ]
@@ -12547,7 +12547,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   %40 = add nsw i64 %.010.i.i.i.i.i, -1
   %41 = icmp ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !102
+  br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !101
 
 _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
@@ -12599,7 +12599,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclI11QModelIndexN5QListIS3_E8iteratorEEEbRT_
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclI11QModelIndexN5QListIS3_E8iteratorEEEbRT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI11QModelIndexN5QListIS3_E8iteratorEEEbRT_T0_.exit.i, %53, %47, %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.011.0.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i, i64 24, i1 false)
-  br label %42, !llvm.loop !92
+  br label %42, !llvm.loop !91
 
 _ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %45, %51, %57, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI11QModelIndexN5QListIS3_E8iteratorEEEbRT_T0_.exit.i
   store i32 %10, ptr %.sroa.011.0.i, align 8
@@ -12614,7 +12614,7 @@ _ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__op
 62:                                               ; preds = %_ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit, %_ZSt25__unguarded_linear_insertIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %.sroa.0.0 = getelementptr i8, ptr %.sroa.0.021, i64 24
   %.not = icmp eq ptr %.sroa.0.0, %1
-  br i1 %.not, label %.loopexit, label %9, !llvm.loop !103
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !102
 
 .loopexit:                                        ; preds = %62, %.preheader, %2
   ret void
@@ -13023,7 +13023,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE12fin
   %44 = getelementptr [128 x i8], ptr %43, i64 0, i64 %42
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, -1
-  br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !104
+  br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !103
 
 _ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit: ; preds = %38, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit.loopexit_crit_edge, %6
   %.pre-phi20 = phi i64 [ %24, %6 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit.loopexit_crit_edge ], [ %41, %38 ]
@@ -13103,7 +13103,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit: ; preds = %38,
   %95 = getelementptr [128 x i8], ptr %94, i64 0, i64 %93
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, -1
-  br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit11, label %.lr.ph.i5, !llvm.loop !104
+  br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit11, label %.lr.ph.i5, !llvm.loop !103
 
 _ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit11: ; preds = %89, %.lr.ph.i5, %._ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit11_crit_edge, %56
   %98 = phi ptr [ %.pre18, %._ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit11_crit_edge ], [ %74, %56 ], [ %74, %.lr.ph.i5 ], [ %74, %89 ]
@@ -13152,7 +13152,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit11: ; preds = %8
   %119 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QModelIndex>>::Entry", ptr %111, i64 %.011.i.i
   store i8 %118, ptr %119, align 1
   %exitcond.not.i.i = icmp eq i64 %117, %109
-  br i1 %exitcond.not.i.i, label %120, label %116, !llvm.loop !105
+  br i1 %exitcond.not.i.i, label %120, label %116, !llvm.loop !104
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds i8, ptr %100, i64 128
@@ -13221,7 +13221,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE6reha
 8:                                                ; preds = %7
   %9 = shl nuw i64 %.0, 1
   %10 = add i64 %9, -1
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !91
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
   %13 = shl i64 2, %12
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -13342,7 +13342,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   %86 = getelementptr [128 x i8], ptr %85, i64 0, i64 %84
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, -1
-  br i1 %88, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !104
+  br i1 %88, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !103
 
 _ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit: ; preds = %80, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit.loopexit_crit_edge, %46
   %.pre-phi37 = phi i64 [ %67, %46 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit.loopexit_crit_edge ], [ %84, %80 ]
@@ -13385,7 +13385,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit: ; preds = %80,
   %107 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QModelIndex>>::Entry", ptr %99, i64 %.011.i.i
   store i8 %106, ptr %107, align 1
   %exitcond.not.i.i = icmp eq i64 %105, %97
-  br i1 %exitcond.not.i.i, label %108, label %104, !llvm.loop !105
+  br i1 %exitcond.not.i.i, label %108, label %104, !llvm.loop !104
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %89, i64 128
@@ -13420,7 +13420,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit: ; preds = %._cr
 120:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit
   %121 = add nuw nsw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %121, 128
-  br i1 %exitcond.not, label %122, label %43, !llvm.loop !106
+  br i1 %exitcond.not, label %122, label %43, !llvm.loop !105
 
 122:                                              ; preds = %120
   %123 = load ptr, ptr %42, align 8
@@ -13435,7 +13435,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit: ; preds = %._cr
 _ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE8freeDataEv.exit: ; preds = %122, %124
   %125 = add nuw nsw i64 %.02233, 1
   %exitcond35.not = icmp eq i64 %125, %38
-  br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !107
+  br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.loopexit31
   %126 = icmp eq ptr %15, null
@@ -13503,7 +13503,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIi11QModelIndexE
 9:                                                ; preds = %8
   %10 = shl nuw i64 %1, 1
   %11 = add i64 %10, -1
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %11, i1 true), !range !91
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
   %14 = shl i64 2, %13
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
@@ -13658,7 +13658,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi11QModelIndexEEEC2ERK
 17:                                               ; preds = %16
   %18 = shl nuw i64 %.sroa.speculated, 1
   %19 = add i64 %18, -1
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !91
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %21 = xor i64 %20, 63
   %22 = shl i64 2, %21
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -13782,7 +13782,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %98 = getelementptr [128 x i8], ptr %97, i64 0, i64 %96
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, -1
-  br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !104
+  br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !103
 
 101:                                              ; preds = %57
   %102 = add nuw nsw i64 %.02331, %53
@@ -13832,7 +13832,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit: ; preds = %92,
   %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QModelIndex>>::Entry", ptr %116, i64 %.011.i.i
   store i8 %123, ptr %124, align 1
   %exitcond.not.i.i = icmp eq i64 %122, %114
-  br i1 %exitcond.not.i.i, label %125, label %121, !llvm.loop !105
+  br i1 %exitcond.not.i.i, label %125, label %121, !llvm.loop !104
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds i8, ptr %105, i64 128
@@ -13867,12 +13867,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit: ; preds = %._cr
 137:                                              ; preds = %54, %_ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit
   %138 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %138, 128
-  br i1 %exitcond.not, label %139, label %54, !llvm.loop !108
+  br i1 %exitcond.not, label %139, label %54, !llvm.loop !107
 
 139:                                              ; preds = %137
   %140 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %140, %47
-  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !109
+  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %139, %.loopexit
   ret void
@@ -14070,7 +14070,7 @@ attributes #24 = { noreturn }
 !88 = distinct !{!88, !5}
 !89 = distinct !{!89, !5}
 !90 = distinct !{!90, !5}
-!91 = !{i64 0, i64 65}
+!91 = distinct !{!91, !5}
 !92 = distinct !{!92, !5}
 !93 = distinct !{!93, !5}
 !94 = distinct !{!94, !5}
@@ -14088,4 +14088,3 @@ attributes #24 = { noreturn }
 !106 = distinct !{!106, !5}
 !107 = distinct !{!107, !5}
 !108 = distinct !{!108, !5}
-!109 = distinct !{!109, !5}

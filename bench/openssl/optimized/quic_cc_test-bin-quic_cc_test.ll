@@ -70,7 +70,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_simulate() #0 {
+define internal range(i32 0, 2) i32 @test_simulate() #0 {
 entry:
   %mdpl = alloca i64, align 8
   %diag_cur_bytes_in_flight = alloca i64, align 8
@@ -103,7 +103,7 @@ if.end:                                           ; preds = %entry
   %spare_capacity.i = getelementptr inbounds i8, ptr %sim, i64 32
   store i64 16000, ptr %spare_capacity.i, align 8
   %total_acked.i = getelementptr inbounds i8, ptr %sim, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_acked.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %total_acked.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @net_pkt_cmp) #8
   %pkts.i = getelementptr inbounds i8, ptr %sim, i64 40
   store ptr %call.i.i, ptr %pkts.i, align 8
@@ -323,7 +323,7 @@ if.end100:                                        ; preds = %if.then99, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sanity() #0 {
+define internal range(i32 0, 2) i32 @test_sanity() #0 {
 entry:
   %loss_info = alloca %struct.ossl_cc_loss_info_st, align 8
   %ack_info = alloca %struct.ossl_cc_ack_info_st, align 8
@@ -784,7 +784,7 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare i32 @test_double_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @net_pkt_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @net_pkt_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
   %next_time = getelementptr inbounds i8, ptr %a, i64 24
   %next_time1 = getelementptr inbounds i8, ptr %b, i64 24

@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15fast_rv32i_smdsP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_smdsP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -144,8 +144,8 @@ define noundef i64 @_Z15fast_rv32i_smdsP11processor_t6insn_tm(ptr nocapture noun
   br i1 %.not, label %52, label %44
 
 44:                                               ; preds = %.lr.ph
-  %45 = trunc i64 %42 to i32
-  %46 = trunc i64 %40 to i32
+  %45 = trunc nuw i64 %42 to i32
+  %46 = trunc nuw i64 %40 to i32
   %sext53 = shl i32 %46, 16
   %47 = ashr exact i32 %sext53, 16
   %sext54 = shl i32 %45, 16
@@ -338,7 +338,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %64, %67
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17logged_rv32i_smdsP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_smdsP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -406,8 +406,8 @@ define noundef i64 @_Z17logged_rv32i_smdsP11processor_t6insn_tm(ptr noundef %0, 
   br i1 %.not, label %52, label %44
 
 44:                                               ; preds = %.lr.ph
-  %45 = trunc i64 %42 to i32
-  %46 = trunc i64 %40 to i32
+  %45 = trunc nuw i64 %42 to i32
+  %46 = trunc nuw i64 %40 to i32
   %sext56 = shl i32 %46, 16
   %47 = ashr exact i32 %sext56, 16
   %sext57 = shl i32 %45, 16
@@ -700,7 +700,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z15fast_rv32e_smdsP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_smdsP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -800,8 +800,8 @@ define noundef i64 @_Z15fast_rv32e_smdsP11processor_t6insn_tm(ptr nocapture noun
   br i1 %.not, label %66, label %58
 
 58:                                               ; preds = %.lr.ph
-  %59 = trunc i64 %56 to i32
-  %60 = trunc i64 %54 to i32
+  %59 = trunc nuw i64 %56 to i32
+  %60 = trunc nuw i64 %54 to i32
   %sext61 = shl i32 %60, 16
   %61 = ashr exact i32 %sext61, 16
   %sext62 = shl i32 %59, 16
@@ -1044,7 +1044,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %87, %88
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17logged_rv32e_smdsP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_smdsP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -1144,8 +1144,8 @@ define noundef i64 @_Z17logged_rv32e_smdsP11processor_t6insn_tm(ptr noundef %0, 
   br i1 %.not, label %66, label %58
 
 58:                                               ; preds = %.lr.ph
-  %59 = trunc i64 %56 to i32
-  %60 = trunc i64 %54 to i32
+  %59 = trunc nuw i64 %56 to i32
+  %60 = trunc nuw i64 %54 to i32
   %sext64 = shl i32 %60, 16
   %61 = ashr exact i32 %sext64, 16
   %sext65 = shl i32 %59, 16

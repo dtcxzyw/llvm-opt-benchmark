@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [22 x i8] c"retrieved_defctx_path\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_default_libctx) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_explicit_libctx) #2
@@ -29,7 +29,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_default_libctx() #0 {
+define internal range(i32 0, 2) i32 @test_default_libctx() #0 {
 entry:
   %call = tail call i32 @OSSL_PROVIDER_set_default_search_path(ptr noundef null, ptr noundef nonnull @.str.2) #2
   %cmp = icmp ne i32 %call, 0
@@ -56,7 +56,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_libctx() #0 {
+define internal range(i32 0, 2) i32 @test_explicit_libctx() #0 {
 entry:
   %call = tail call i32 @OSSL_PROVIDER_set_default_search_path(ptr noundef null, ptr noundef nonnull @.str.2) #2
   %cmp = icmp ne i32 %call, 0

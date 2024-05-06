@@ -37,7 +37,7 @@ entry:
   ]
 
 if.then2:                                         ; preds = %entry
-  %call = tail call i32 @obj_trust(i32 noundef 910, ptr noundef %x, i32 poison), !range !7
+  %call = tail call i32 @obj_trust(i32 noundef 910, ptr noundef %x, i32 poison)
   %cmp3.not = icmp eq i32 %call, 3
   br i1 %cmp3.not, label %if.end5, label %return
 
@@ -126,7 +126,7 @@ return:                                           ; preds = %if.then2, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @obj_trust(i32 noundef %id, ptr nocapture noundef readonly %x, i32 %flags) #1 {
+define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %id, ptr nocapture noundef readonly %x, i32 %flags) #1 {
 entry:
   %aux = getelementptr inbounds i8, ptr %x, i64 168
   %0 = load ptr, ptr %aux, align 8
@@ -149,7 +149,7 @@ for.cond:                                         ; preds = %for.body
   %2 = load ptr, ptr %reject, align 8
   %call = tail call i64 @sk_num(ptr noundef %2) #9
   %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %if.end10, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %if.end10, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.018 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -174,7 +174,7 @@ for.cond13:                                       ; preds = %for.body17
   %5 = load ptr, ptr %0, align 8
   %call15 = tail call i64 @sk_num(ptr noundef %5) #9
   %cmp16 = icmp ult i64 %inc25, %call15
-  br i1 %cmp16, label %for.body17, label %return, !llvm.loop !10
+  br i1 %cmp16, label %for.body17, label %return, !llvm.loop !9
 
 for.body17:                                       ; preds = %for.cond13.preheader, %for.cond13
   %i.121 = phi i64 [ %inc25, %for.cond13 ], [ 0, %for.cond13.preheader ]
@@ -190,7 +190,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @trust_compat(ptr nocapture readnone %trust, ptr noundef %x, i32 %flags) #1 {
+define internal range(i32 1, 4) i32 @trust_compat(ptr nocapture readnone %trust, ptr noundef %x, i32 %flags) #1 {
 entry:
   %call = tail call i32 @X509_check_purpose(ptr noundef %x, i32 noundef -1, i32 noundef 0) #9
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
@@ -284,7 +284,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_TRUST_set(ptr nocapture noundef writeonly %t, i32 noundef %trust) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @X509_TRUST_set(ptr nocapture noundef writeonly %t, i32 noundef %trust) local_unnamed_addr #1 {
 entry:
   %tmp.i = alloca %struct.x509_trust_st, align 8
   %idx.i = alloca i64, align 8
@@ -339,7 +339,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_TRUST_add(i32 noundef %id, i32 noundef %flags, ptr noundef %ck, ptr noundef %name, i32 noundef %arg1, ptr noundef %arg2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @X509_TRUST_add(i32 noundef %id, i32 noundef %flags, ptr noundef %ck, ptr noundef %name, i32 noundef %arg1, ptr noundef %arg2) local_unnamed_addr #1 {
 entry:
   %tmp.i = alloca %struct.x509_trust_st, align 8
   %idx.i = alloca i64, align 8
@@ -612,7 +612,7 @@ if.end7.i:                                        ; preds = %if.then6.i, %if.the
 trtable_free.exit:                                ; preds = %for.body, %if.end7.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %trtable_free.exit
   %2 = load ptr, ptr @trtable, align 8
@@ -647,7 +647,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @trust_1oidany(ptr nocapture noundef readonly %trust, ptr noundef %x, i32 %flags) #1 {
+define internal range(i32 1, 4) i32 @trust_1oidany(ptr nocapture noundef readonly %trust, ptr noundef %x, i32 %flags) #1 {
 entry:
   %aux = getelementptr inbounds i8, ptr %x, i64 168
   %0 = load ptr, ptr %aux, align 8
@@ -668,7 +668,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
   %arg1 = getelementptr inbounds i8, ptr %trust, i64 24
   %3 = load i32, ptr %arg1, align 8
-  %call = tail call i32 @obj_trust(i32 noundef %3, ptr noundef nonnull %x, i32 poison), !range !7
+  %call = tail call i32 @obj_trust(i32 noundef %3, ptr noundef nonnull %x, i32 poison)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
@@ -686,7 +686,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @trust_1oid(ptr nocapture noundef readonly %trust, ptr nocapture noundef readonly %x, i32 %flags) #1 {
+define internal range(i32 1, 4) i32 @trust_1oid(ptr nocapture noundef readonly %trust, ptr nocapture noundef readonly %x, i32 %flags) #1 {
 entry:
   %aux = getelementptr inbounds i8, ptr %x, i64 168
   %0 = load ptr, ptr %aux, align 8
@@ -696,7 +696,7 @@ entry:
 if.then:                                          ; preds = %entry
   %arg1 = getelementptr inbounds i8, ptr %trust, i64 24
   %1 = load i32, ptr %arg1, align 8
-  %call = tail call i32 @obj_trust(i32 noundef %1, ptr noundef nonnull %x, i32 poison), !range !7
+  %call = tail call i32 @obj_trust(i32 noundef %1, ptr noundef nonnull %x, i32 poison)
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -735,8 +735,7 @@ attributes #10 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 1, i32 4}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

@@ -95,7 +95,7 @@ define hidden void @mbedtls_des_key_set_parity(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @mbedtls_des_key_check_key_parity(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_key_parity(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   br label %3
 
 2:                                                ; preds = %3
@@ -120,7 +120,7 @@ define hidden noundef i32 @mbedtls_des_key_check_key_parity(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden noundef i32 @mbedtls_des_key_check_weak(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_weak(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   br label %3
 
 2:                                                ; preds = %3
@@ -497,10 +497,10 @@ define hidden noundef i32 @mbedtls_des_setkey_dec(ptr nocapture noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_des3_set2key_enc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca [96 x i32], align 16
-  tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef %1)
+  tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef readonly %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 128
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @mbedtls_des_setkey(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %4, ptr noundef nonnull readonly %5)
   br label %6
 
 6:                                                ; preds = %6, %2
@@ -544,10 +544,10 @@ des3_set2key.exit:                                ; preds = %6
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_des3_set2key_dec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca [96 x i32], align 16
-  call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef %1)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef readonly %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @mbedtls_des_setkey(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  tail call void @mbedtls_des_setkey(ptr noundef nonnull %4, ptr noundef nonnull readonly %5)
   br label %6
 
 6:                                                ; preds = %6, %2
@@ -591,13 +591,13 @@ des3_set2key.exit:                                ; preds = %6
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_des3_set3key_enc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca [96 x i32], align 16
-  tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef %1)
+  tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef readonly %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 128
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @mbedtls_des_setkey(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %4, ptr noundef nonnull readonly %5)
   %6 = getelementptr inbounds i8, ptr %0, i64 256
   %7 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull %7)
+  tail call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull readonly %7)
   br label %8
 
 8:                                                ; preds = %8, %2
@@ -631,13 +631,13 @@ des3_set3key.exit:                                ; preds = %8
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_des3_set3key_dec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca [96 x i32], align 16
-  call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef %1)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef readonly %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @mbedtls_des_setkey(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  tail call void @mbedtls_des_setkey(ptr noundef nonnull %4, ptr noundef nonnull readonly %5)
   %6 = getelementptr inbounds i8, ptr %3, i64 256
   %7 = getelementptr inbounds i8, ptr %1, i64 16
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull readonly %7)
   br label %8
 
 8:                                                ; preds = %8, %2
@@ -916,7 +916,7 @@ define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #9 {
+define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #9 {
   %7 = and i64 %2, 7
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %.loopexit
@@ -1480,7 +1480,7 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_des3_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #9 {
+define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #9 {
   %7 = and i64 %2, 7
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %.loopexit
@@ -1559,7 +1559,7 @@ define hidden noundef i32 @mbedtls_des3_crypt_cbc(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_des_self_test(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 -50, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca [96 x i32], align 16
   %3 = alloca [96 x i32], align 16
   %4 = alloca [96 x i32], align 16
@@ -1568,8 +1568,8 @@ define hidden noundef i32 @mbedtls_des_self_test(i32 noundef %0) local_unnamed_a
   %7 = alloca %struct.mbedtls_des3_context, align 4
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(384) %7, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(128) %6, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(384) %7, i8 0, i64 384, i1 false)
   %.not74 = icmp eq i32 %0, 0
   %10 = getelementptr inbounds i8, ptr %4, i64 128
   %11 = getelementptr inbounds i8, ptr %7, i64 128
@@ -1603,7 +1603,7 @@ define hidden noundef i32 @mbedtls_des_self_test(i32 noundef %0) local_unnamed_a
   ]
 
 23:                                               ; preds = %22
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull readonly @des3_test_keys)
   br label %24
 
 24:                                               ; preds = %24, %23
@@ -1628,13 +1628,13 @@ define hidden noundef i32 @mbedtls_des_self_test(i32 noundef %0) local_unnamed_a
   br i1 %36, label %24, label %mbedtls_des_setkey_dec.exit, !llvm.loop !9
 
 mbedtls_des_setkey_dec.exit.thread140:            ; preds = %22
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull writeonly %6, ptr noundef nonnull readonly @des3_test_keys)
   br label %mbedtls_des_setkey_dec.exit.split.us.preheader
 
 37:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %5, ptr noundef nonnull @des3_test_keys)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
+  call void @mbedtls_des_setkey(ptr noundef nonnull %5, ptr noundef nonnull readonly @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull readonly getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
   br label %38
 
 38:                                               ; preds = %38, %37
@@ -1677,8 +1677,8 @@ mbedtls_des3_set2key_dec.exit:                    ; preds = %38
 
 61:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %10, ptr noundef nonnull getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
+  call void @mbedtls_des_setkey(ptr noundef nonnull %7, ptr noundef nonnull readonly @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %10, ptr noundef nonnull readonly getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
   br label %62
 
 62:                                               ; preds = %62, %61
@@ -1831,7 +1831,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   ]
 
 118:                                              ; preds = %117
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull readonly @des3_test_keys)
   br label %119
 
 119:                                              ; preds = %119, %118
@@ -1856,13 +1856,13 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   br i1 %131, label %119, label %mbedtls_des_setkey_dec.exit87, !llvm.loop !9
 
 132:                                              ; preds = %117
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull writeonly %6, ptr noundef nonnull readonly @des3_test_keys)
   br label %.preheader117
 
 133:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef nonnull @des3_test_keys)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
+  call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef nonnull readonly @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull readonly getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
   br label %134
 
 134:                                              ; preds = %134, %133
@@ -1905,8 +1905,8 @@ mbedtls_des3_set2key_dec.exit90:                  ; preds = %134
 
 157:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
-  call void @mbedtls_des_setkey(ptr noundef nonnull %106, ptr noundef nonnull getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
+  call void @mbedtls_des_setkey(ptr noundef nonnull %7, ptr noundef nonnull readonly @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %106, ptr noundef nonnull readonly getelementptr inbounds ([24 x i8], ptr @des3_test_keys, i64 0, i64 8))
   br label %158
 
 158:                                              ; preds = %158, %157
@@ -1981,7 +1981,7 @@ mbedtls_des_setkey_dec.exit87:                    ; preds = %119, %mbedtls_des3_
   br i1 %exitcond70.not.i.us, label %mbedtls_des_crypt_cbc.exit105.loopexit.us, label %186, !llvm.loop !13
 
 mbedtls_des_crypt_cbc.exit105.loopexit.us:        ; preds = %186
-  %192 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %8)
+  %192 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull readonly %6, ptr noundef nonnull %8, ptr noundef nonnull %8)
   %193 = load i64, ptr %8, align 8
   store i64 %193, ptr %9, align 8
   store i64 %.sroa.02.0124.us, ptr %8, align 8
@@ -1999,7 +1999,7 @@ mbedtls_des_crypt_cbc.exit105.loopexit.us:        ; preds = %186
 .lr.ph.i.preheader.us:                            ; preds = %.preheader, %mbedtls_des_crypt_cbc.exit.loopexit.us
   %.160127.us = phi i32 [ %203, %mbedtls_des_crypt_cbc.exit.loopexit.us ], [ 0, %.preheader ]
   %.sroa.0.0.copyload.i.us = load i64, ptr %8, align 8
-  %196 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %8)
+  %196 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull readonly %6, ptr noundef nonnull %8, ptr noundef nonnull %8)
   br label %197
 
 197:                                              ; preds = %197, %.lr.ph.i.preheader.us
@@ -2023,7 +2023,7 @@ mbedtls_des_crypt_cbc.exit.loopexit.us:           ; preds = %197
 .lr.ph.i96.preheader:                             ; preds = %.lr.ph.i96.preheader.preheader, %mbedtls_des_crypt_cbc.exit.loopexit115
   %.160127 = phi i32 [ %211, %mbedtls_des_crypt_cbc.exit.loopexit115 ], [ 0, %.lr.ph.i96.preheader.preheader ]
   %.sroa.0.0.copyload.i100 = load i64, ptr %8, align 8
-  %204 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %8)
+  %204 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull readonly %7, ptr noundef nonnull %8, ptr noundef nonnull %8)
   br label %205
 
 205:                                              ; preds = %205, %.lr.ph.i96.preheader
@@ -2062,7 +2062,7 @@ mbedtls_des_crypt_cbc.exit.loopexit115:           ; preds = %205
   br i1 %exitcond70.not.i112, label %mbedtls_des_crypt_cbc.exit105.loopexit116, label %212, !llvm.loop !20
 
 mbedtls_des_crypt_cbc.exit105.loopexit116:        ; preds = %212
-  %218 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %8)
+  %218 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull readonly %7, ptr noundef nonnull %8, ptr noundef nonnull %8)
   %219 = load i64, ptr %8, align 8
   store i64 %219, ptr %9, align 8
   store i64 %.sroa.02.0124, ptr %8, align 8

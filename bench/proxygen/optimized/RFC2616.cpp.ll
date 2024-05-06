@@ -223,7 +223,7 @@ $_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr = comdat any
 @.str.14 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN8proxygen7RFC261620isRequestBodyAllowedEN5folly8OptionalINS_10HTTPMethodEEE(ptr nocapture noundef readonly %method) local_unnamed_addr #0 {
+define noundef range(i32 0, 3) i32 @_ZN8proxygen7RFC261620isRequestBodyAllowedEN5folly8OptionalINS_10HTTPMethodEEE(ptr nocapture noundef readonly %method) local_unnamed_addr #0 {
 entry:
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %method, i64 4
   %0 = load i8, ptr %hasValue.i.i.i, align 4

@@ -892,7 +892,7 @@ declare dso_local i32 @e1000e_copper_link_setup_igp(ptr noundef) local_unnamed_a
 declare dso_local i32 @e1000e_setup_copper_link(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_get_hw_semaphore_82574(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @e1000_get_hw_semaphore_82574(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @swflag_mutex) #5
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -1703,7 +1703,7 @@ declare dso_local i32 @e1000e_setup_link_generic(ptr noundef) local_unnamed_addr
 declare dso_local i32 @e1000_read_mac_addr_generic(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_get_hw_semaphore_82571(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @e1000_get_hw_semaphore_82571(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1136
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
@@ -1790,7 +1790,7 @@ declare dso_local i32 @e1000e_check_reset_block_generic(ptr noundef) #3
 declare dso_local i32 @e1000e_phy_force_speed_duplex_igp(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_get_cfg_done_82571(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_82571(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   br label %3
 

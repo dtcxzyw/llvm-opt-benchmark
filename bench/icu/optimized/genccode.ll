@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [9 x i8] c"assembly\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   store ptr @.str, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
   %call = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 11, ptr noundef nonnull @options) #4

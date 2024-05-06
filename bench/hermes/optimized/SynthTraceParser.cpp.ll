@@ -2934,7 +2934,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -4390,7 +4390,7 @@ if.then56:                                        ; preds = %land.lhs.true.i969
   %agg.tmp58.sroa.2.0.call59.sroa_idx = getelementptr inbounds i8, ptr %157, i64 8
   %agg.tmp58.sroa.2.0.copyload = load i64, ptr %agg.tmp58.sroa.2.0.call59.sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp57, i8 0, i64 20, i1 false), !alias.scope !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(20) %ref.tmp57, i8 0, i64 20, i1 false), !alias.scope !30
   %cmp.not.i975 = icmp eq i64 %agg.tmp58.sroa.2.0.copyload, 40
   br i1 %cmp.not.i975, label %for.body.i, label %if.then.i976
 
@@ -11795,7 +11795,7 @@ if.end:                                           ; preds = %for.inc.i
   %cmp = fcmp oge double %add.i.i, 0x4340000000000000
   %tobool.not.i = icmp ne i32 %radix, 0
   %or.cond34.not36 = and i1 %tobool.not.i, %cmp
-  %3 = tail call i32 @llvm.ctpop.i32(i32 %radix), !range !259
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %radix)
   %tobool1.not.i = icmp ult i32 %3, 2
   %or.cond35 = select i1 %or.cond34.not36, i1 %tobool1.not.i, i1 false
   br i1 %or.cond35, label %for.cond.preheader, label %return
@@ -11873,7 +11873,7 @@ for.cond.backedge:                                ; preds = %sw.bb31, %if.then38
   %lastMantissaBit.0.be = phi i8 [ %lastMantissaBit.0, %if.end24 ], [ %lastMantissaBit.0, %sw.bb50 ], [ %lastMantissaBit.0, %sw.bb45 ], [ %lastMantissaBit.0, %sw.bb42 ], [ %frombool26, %if.then38 ], [ %lastMantissaBit.0, %sw.bb31 ], [ %lastMantissaBit.0, %if.then29 ], [ %lastMantissaBit.0, %sw.bb ]
   %expFactor.0.be = phi double [ %expFactor.0, %if.end24 ], [ %mul51, %sw.bb50 ], [ %mul49, %sw.bb45 ], [ 2.000000e+00, %sw.bb42 ], [ %expFactor.0, %if.then38 ], [ %expFactor.0, %sw.bb31 ], [ %expFactor.0, %if.then29 ], [ %expFactor.0, %sw.bb ]
   %remainingMantissa.0.be = phi i64 [ %remainingMantissa.0, %if.end24 ], [ %remainingMantissa.0, %sw.bb50 ], [ %remainingMantissa.0, %sw.bb45 ], [ %remainingMantissa.0, %sw.bb42 ], [ 0, %if.then38 ], [ %dec36, %sw.bb31 ], [ %dec, %if.then29 ], [ %remainingMantissa.0, %sw.bb ]
-  br label %for.cond, !llvm.loop !260
+  br label %for.cond, !llvm.loop !259
 
 if.then38:                                        ; preds = %sw.bb31
   br label %for.cond.backedge
@@ -11897,15 +11897,15 @@ for.end:                                          ; preds = %if.then7
   ]
 
 sw.bb53:                                          ; preds = %for.end
-  %tobool54 = trunc i8 %lowestExponentBit.0 to i1
-  %8 = uitofp i8 %lastMantissaBit.0 to double
+  %tobool54 = trunc nuw i8 %lowestExponentBit.0 to i1
+  %8 = uitofp nneg i8 %lastMantissaBit.0 to double
   %conv57 = select i1 %tobool54, double %8, double 0.000000e+00
   %add58 = fadd double %result.2, %conv57
   %mul59 = fmul double %expFactor.0, %add58
   br label %return
 
 sw.bb60:                                          ; preds = %for.end
-  %conv63 = uitofp i8 %lowestExponentBit.0 to double
+  %conv63 = uitofp nneg i8 %lowestExponentBit.0 to double
   %add64 = fadd double %result.2, %conv63
   %mul65 = fmul double %add64, %expFactor.0
   br label %return
@@ -11996,7 +11996,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17GetPropertyRecord4defsEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !261
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !260
   %value_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %0, -4
@@ -12090,35 +12090,35 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17SetPropertyRecord4usesEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
   %objID_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load i64, ptr %objID_.i, align 8, !noalias !264
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !264
-  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !264
+  %0 = load i64, ptr %objID_.i, align 8, !noalias !263
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !263
+  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !263
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !264
-  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !264
+  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !263
+  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !263
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !264
+  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !263
   %propID_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load i32, ptr %propID_.i, align 8, !noalias !264
+  %1 = load i32, ptr %propID_.i, align 8, !noalias !263
   %.off.i.i.i = add i32 %1, -4
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 5
   br i1 %switch.i.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i, label %_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %entry
   %val_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load i64, ptr %val_.i.i.i, align 8, !noalias !264
-  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !264
+  %2 = load i64, ptr %val_.i.i.i, align 8, !noalias !263
+  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !263
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 8
-  store i64 %2, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !264
-  store i64 %0, ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !264
+  store i64 %2, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !263
+  store i64 %0, ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !263
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #19, !noalias !264
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !264
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !264
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !264
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #19, !noalias !263
+  store ptr %call5.i.i.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !263
+  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !263
+  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !263
   br label %_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit
 
 _ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit: ; preds = %entry, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i
@@ -12205,7 +12205,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace15ArrayReadRecord4defsEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !267
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !266
   %value_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %0, -4
@@ -12271,17 +12271,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace16ArrayWriteRecord4usesEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   %objID_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load i64, ptr %objID_.i, align 8, !noalias !270
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !270
-  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !270
+  %0 = load i64, ptr %objID_.i, align 8, !noalias !269
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !269
+  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !269
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !270
-  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !270
+  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !269
+  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !269
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !270
+  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !269
   %value_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %1, -4
@@ -12351,17 +12351,17 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace20CallFromNativeRecord4usesEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %objs = alloca %"class.std::vector.165", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
   %functionID_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load i64, ptr %functionID_.i, align 8, !noalias !273
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !273
-  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !273
+  %0 = load i64, ptr %functionID_.i, align 8, !noalias !272
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !272
+  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !272
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !273
-  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !273
+  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !272
+  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !272
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !273
+  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !272
   call void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord16getArgTrackedIDsEv(ptr nonnull sret(%"class.std::vector.165") align 8 %objs, ptr noundef nonnull align 8 dereferenceable(64) %this)
   %1 = load ptr, ptr %objs, align 8
   %_M_finish.i1 = getelementptr inbounds i8, ptr %objs, i64 8
@@ -12767,7 +12767,7 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace18CallToNativeRecord4defsEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %objs = alloca %"class.std::vector.165", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !276
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !275
   call void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord16getArgTrackedIDsEv(ptr nonnull sret(%"class.std::vector.165") align 8 %objs, ptr noundef nonnull align 8 dereferenceable(64) %this)
   %0 = load ptr, ptr %objs, align 8
   %_M_finish.i1 = getelementptr inbounds i8, ptr %objs, i64 8
@@ -12877,7 +12877,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !279
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !278
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -12893,7 +12893,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
-  br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !279
+  br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !278
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19: ; preds = %for.body.i.i.i12, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %__cur.0.lcssa.i.i.i18 = phi ptr [ %incdec.ptr, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %incdec.ptr1.i.i.i16, %for.body.i.i.i12 ]
@@ -13279,24 +13279,23 @@ attributes #20 = { nounwind willreturn memory(read) }
 !256 = !{!257}
 !257 = distinct !{!257, !255, !"_ZSt19__relocate_object_aISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EES8_SaIS8_EEvPT_PT0_RT1_: %__orig"}
 !258 = distinct !{!258, !8}
-!259 = !{i32 0, i32 33}
-!260 = distinct !{!260, !8}
-!261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
-!263 = distinct !{!263, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv: %agg.result"}
-!266 = distinct !{!266, !"_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv"}
-!267 = !{!268}
-!268 = distinct !{!268, !269, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
-!269 = distinct !{!269, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
-!270 = !{!271}
-!271 = distinct !{!271, !272, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv: %agg.result"}
-!272 = distinct !{!272, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv"}
-!273 = !{!274}
-!274 = distinct !{!274, !275, !"_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv: %agg.result"}
-!275 = distinct !{!275, !"_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv"}
-!276 = !{!277}
-!277 = distinct !{!277, !278, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
-!278 = distinct !{!278, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
-!279 = distinct !{!279, !8}
+!259 = distinct !{!259, !8}
+!260 = !{!261}
+!261 = distinct !{!261, !262, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
+!262 = distinct !{!262, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
+!263 = !{!264}
+!264 = distinct !{!264, !265, !"_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv: %agg.result"}
+!265 = distinct !{!265, !"_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv"}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
+!268 = distinct !{!268, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
+!269 = !{!270}
+!270 = distinct !{!270, !271, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv: %agg.result"}
+!271 = distinct !{!271, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv"}
+!272 = !{!273}
+!273 = distinct !{!273, !274, !"_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv: %agg.result"}
+!274 = distinct !{!274, !"_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv"}
+!275 = !{!276}
+!276 = distinct !{!276, !277, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
+!277 = distinct !{!277, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
+!278 = distinct !{!278, !8}

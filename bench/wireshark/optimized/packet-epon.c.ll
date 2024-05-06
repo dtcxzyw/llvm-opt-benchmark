@@ -205,7 +205,7 @@ define internal i32 @dissect_epon(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %55, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #2
   %57 = add nuw nsw i32 %.082, 5
   %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #2
-  %59 = trunc i32 %.082 to i8
+  %59 = trunc nuw nsw i32 %.082 to i8
   %60 = tail call zeroext i8 @get_crc8_ieee8023_epon(ptr noundef %0, i8 noundef zeroext 5, i8 noundef zeroext %59) #2
   %61 = zext i8 %60 to i32
   %62 = load i32, ptr @hf_epon_checksum, align 4

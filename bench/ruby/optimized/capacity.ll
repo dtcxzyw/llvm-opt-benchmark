@@ -19,7 +19,7 @@ define void @Init_string_capacity(i64 noundef %0) local_unnamed_addr #0 {
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal i64 @bug_str_capacity(i64 %0, i64 noundef %1) #2 {
+define internal range(i64 1, 0) i64 @bug_str_capacity(i64 %0, i64 noundef %1) #2 {
   %3 = inttoptr i64 %1 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 24576

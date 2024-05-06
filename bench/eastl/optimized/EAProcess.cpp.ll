@@ -37,7 +37,7 @@ return:                                           ; preds = %entry, %if.then
 declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDsii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, 2147483648) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDsii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
@@ -113,7 +113,7 @@ return:                                           ; preds = %if.else10, %for.end
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDsii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, 2147483648) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDsii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
@@ -166,7 +166,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDiii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, 2147483648) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDiii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
@@ -198,7 +198,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKcmm(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDiii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, 2147483648) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDiii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
@@ -256,7 +256,7 @@ entry:
   %name8 = alloca [260 x i8], align 16
   %value8 = alloca [260 x i8], align 16
   %call = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef nonnull %name8, ptr noundef %pName, i64 noundef 260, i64 noundef -1)
-  %call.i = call ptr @getenv(ptr noundef nonnull %name8) #14
+  %call.i = call ptr @getenv(ptr noundef nonnull readonly %name8) #14
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %_ZN2EA4StdC17GetEnvironmentVarEPKcPcm.exit
 
@@ -343,7 +343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA4StdC5SpawnEPKcPKS2_b(ptr noundef %pPath, ptr noundef %pArgumentArray, i1 noundef zeroext %wait) local_unnamed_addr #3 {
+define dso_local noundef range(i32 -1, 256) i32 @_ZN2EA4StdC5SpawnEPKcPKS2_b(ptr noundef %pPath, ptr noundef %pArgumentArray, i1 noundef zeroext %wait) local_unnamed_addr #3 {
 entry:
   %status = alloca i32, align 4
   %call = tail call i32 @fork() #14
@@ -396,7 +396,7 @@ define dso_local noundef i32 @_ZN2EA4StdC19ExecuteShellCommandEPKDs(ptr noundef 
 entry:
   %command8 = alloca [260 x i8], align 16
   %call = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef nonnull %command8, ptr noundef %pCommand, i64 noundef 260, i64 noundef -1)
-  %call.i = call noundef i32 @system(ptr noundef nonnull %command8)
+  %call.i = call noundef i32 @system(ptr noundef nonnull readonly %command8)
   ret i32 %call.i
 }
 

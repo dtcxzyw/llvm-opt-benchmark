@@ -248,7 +248,7 @@ define dso_local noundef ptr @fsnotify_alloc_group(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fsnotify_fasync(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -5, 1) i32 @fsnotify_fasync(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 136

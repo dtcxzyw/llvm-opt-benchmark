@@ -35,7 +35,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %call = tail call noundef double @_ZN4absl15random_internal21InverseNormalSurvivalEd(double noundef %sub)
-  %mul = mul nsw i32 %dof, 9
+  %mul = mul nuw nsw i32 %dof, 9
   %conv = sitofp i32 %mul to double
   %div = fdiv double 2.000000e+00, %conv
   %cmp8 = fcmp une double %div, 0.000000e+00
@@ -98,7 +98,7 @@ if.then:                                          ; preds = %entry
   %conv = sitofp i32 %dof to double
   %div = fdiv double %chi_square, %conv
   %call = tail call double @pow(double noundef %div, double noundef 0x3FD5555555555555) #8
-  %mul = mul nsw i32 %dof, 9
+  %mul = mul nuw nsw i32 %dof, 9
   %conv1 = sitofp i32 %mul to double
   %div2 = fdiv double 2.000000e+00, %conv1
   %cmp6 = fcmp une double %div2, 0.000000e+00

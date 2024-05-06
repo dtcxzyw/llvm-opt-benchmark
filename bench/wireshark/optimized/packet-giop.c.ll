@@ -842,7 +842,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @is_big_endian(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @is_big_endian(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 5
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %12 [
@@ -1724,7 +1724,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
 267:                                              ; preds = %18
   %268 = getelementptr inbounds i8, ptr %1, i64 408
   %269 = load ptr, ptr %268, align 8
-  %270 = call i32 @get_CDR_wstring(ptr noundef %269, ptr noundef %0, ptr noundef nonnull %12, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7), !range !10
+  %270 = call i32 @get_CDR_wstring(ptr noundef %269, ptr noundef %0, ptr noundef nonnull %12, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %271
 
@@ -1755,7 +1755,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_CDR_boolean(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @get_CDR_boolean(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #14
   %5 = load i32, ptr %1, align 4
@@ -1909,10 +1909,10 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %36 = add nuw nsw i32 %.0103, 1
   %exitcond.not = icmp eq i32 %36, %25
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %37 = trunc i64 %indvars.iv.next to i32
+  %37 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %22
@@ -1986,7 +1986,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count143
-  br i1 %exitcond144.not, label %._crit_edge111.loopexit, label %.lr.ph110, !llvm.loop !12
+  br i1 %exitcond144.not, label %._crit_edge111.loopexit, label %.lr.ph110, !llvm.loop !11
 
 ._crit_edge111.loopexit:                          ; preds = %.lr.ph110
   %66 = sub i32 %61, %6
@@ -2019,7 +2019,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %.4 = add i32 %.4115, 1
   %77 = icmp ult i64 %indvars.iv.next146, %71
-  br i1 %77, label %.lr.ph117, label %._crit_edge118, !llvm.loop !13
+  br i1 %77, label %.lr.ph117, label %._crit_edge118, !llvm.loop !12
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %._crit_edge111
   %.4.lcssa = phi i32 [ %.4113, %._crit_edge111 ], [ %.4, %.lr.ph117 ]
@@ -2047,7 +2047,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
-  br i1 %exitcond135.not, label %._crit_edge.loopexit, label %.lr.ph106, !llvm.loop !14
+  br i1 %exitcond135.not, label %._crit_edge.loopexit, label %.lr.ph106, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %85
   %88 = sub i32 %60, %6
@@ -2211,7 +2211,7 @@ get_CDR_ulong.exit:                               ; preds = %40, %42
   tail call fastcc void @decode_TaggedProfile(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef %24)
   %49 = add nuw i32 %.036, 1
   %exitcond.not = icmp eq i32 %49, %44
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %get_CDR_ulong.exit
   ret void
@@ -2577,7 +2577,7 @@ define i32 @get_CDR_wchar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %22 = add i32 %21, %.016
   store i32 %22, ptr %3, align 4
   %23 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %16) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %17, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %17, i64 %19, i1 false)
   %24 = load ptr, ptr @g_ascii_table, align 8
   br label %25
 
@@ -2615,7 +2615,7 @@ make_printable_string.exit:                       ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_CDR_wstring(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define range(i32 0, 401) i32 @get_CDR_wstring(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %.promoted.i = load i32, ptr %3, align 4
   %8 = add i32 %.promoted.i, %5
@@ -2683,7 +2683,7 @@ get_CDR_ulong.exit:                               ; preds = %12, %14
   %39 = add i32 %38, %.2
   store i32 %39, ptr %3, align 4
   %40 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %33) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %34, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr readonly align 1 %34, i64 %36, i1 false)
   %41 = load ptr, ptr @g_ascii_table, align 8
   br label %42
 
@@ -2719,13 +2719,13 @@ make_printable_string.exit:                       ; preds = %50
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_giop(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @dissect_giop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null), !range !16
+define hidden range(i32 0, 2) i32 @dissect_giop(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @dissect_giop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_giop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_giop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
   %6 = icmp ult i32 %5, 12
   br i1 %6, label %dissect_giop_tcp.exit, label %7
@@ -2971,7 +2971,7 @@ giop_getline.exit.i:                              ; preds = %string_to_IOR.exit.
   store i8 %56, ptr %59, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %60 = icmp ult i64 %indvars.iv.next.i.i, %26
-  br i1 %60, label %27, label %string_to_IOR.exit.i, !llvm.loop !17
+  br i1 %60, label %27, label %string_to_IOR.exit.i, !llvm.loop !15
 
 string_to_IOR.exit.i:                             ; preds = %53, %34, %27
   %.0.lcssa.ph.in.i.i = phi i64 [ %indvars.iv.next.i.i, %53 ], [ %indvars.iv.i.i, %34 ], [ %indvars.iv.i.i, %27 ]
@@ -2995,7 +2995,7 @@ string_to_IOR.exit.thread.i:                      ; preds = %62, %string_to_IOR.
   tail call void @wmem_free(ptr noundef null, ptr noundef %22) #14
   %67 = tail call ptr @fgets(ptr noundef %13, i32 noundef 601, ptr noundef nonnull %5)
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %giop_getline.exit.thread.i, label %giop_getline.exit.i, !llvm.loop !18
+  br i1 %68, label %giop_getline.exit.thread.i, label %giop_getline.exit.i, !llvm.loop !16
 
 giop_getline.exit.thread.i:                       ; preds = %string_to_IOR.exit.thread.i, %giop_getline.exit.i, %12
   %69 = tail call i32 @fclose(ptr noundef nonnull %5)
@@ -3055,7 +3055,7 @@ define internal i32 @giop_hash_module_hash(ptr nocapture noundef readonly %0) #5
   %9 = add i32 %.089, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.08.lcssa = phi i32 [ 0, %1 ], [ %9, %.lr.ph ]
@@ -3063,7 +3063,7 @@ define internal i32 @giop_hash_module_hash(ptr nocapture noundef readonly %0) #5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @giop_hash_module_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @giop_hash_module_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #17
@@ -3239,7 +3239,7 @@ get_CDR_ulong.exit:                               ; preds = %26, %28
   %48 = add nuw i32 %.044, 1
   %49 = load i32, ptr %14, align 4
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
   ret void
@@ -3350,7 +3350,7 @@ get_CDR_ulong.exit:                               ; preds = %38, %40
   tail call void @wmem_destroy_list(ptr noundef %55) #14
   %57 = add nuw i32 %.060, 1
   %exitcond.not = icmp eq i32 %57, %42
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %52, %get_CDR_ulong.exit, %50
   ret void
@@ -3421,7 +3421,7 @@ get_CDR_ulong.exit:                               ; preds = %22, %24
   %34 = add nuw i32 %.01, 1
   %35 = load i32, ptr %10, align 4
   %36 = icmp ult i32 %34, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %get_CDR_ulong.exit
   ret void
@@ -3634,7 +3634,7 @@ get_CDR_ulong.exit:                               ; preds = %20, %22
   tail call void @wmem_destroy_list(ptr noundef %35) #14
   %37 = add nuw i32 %.029, 1
   %exitcond.not = icmp eq i32 %37, %24
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %32, %30
   ret void
@@ -3758,7 +3758,7 @@ get_CDR_short.exit61.us.us:                       ; preds = %.lr.ph.preheader.i5
   store i32 %55, ptr %3, align 4
   %56 = add nuw i32 %.062.us.us, 1
   %exitcond76.not = icmp eq i32 %56, %41
-  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !24
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !22
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %get_CDR_short.exit61.us
   %.062.us = phi i32 [ %67, %get_CDR_short.exit61.us ], [ 0, %.lr.ph.split.us ]
@@ -3787,7 +3787,7 @@ get_CDR_short.exit61.us:                          ; preds = %.lr.ph.preheader.i5
   store i32 %66, ptr %3, align 4
   %67 = add nuw i32 %.062.us, 1
   %exitcond75.not = icmp eq i32 %67, %41
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !24
+  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not9.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -3822,7 +3822,7 @@ get_CDR_short.exit61.us68:                        ; preds = %.lr.ph.preheader.i5
   %80 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %78, ptr noundef %0, i32 noundef %76, i32 noundef 2, i32 noundef %79) #14
   %81 = add nuw i32 %.062.us63, 1
   %exitcond74.not = icmp eq i32 %81, %41
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !24
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !22
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %get_CDR_short.exit61
   %.062 = phi i32 [ %95, %get_CDR_short.exit61 ], [ 0, %.lr.ph.split ]
@@ -3854,7 +3854,7 @@ get_CDR_short.exit61:                             ; preds = %.lr.ph.preheader.i5
   %94 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %92, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef %93) #14
   %95 = add nuw i32 %.062, 1
   %exitcond.not = icmp eq i32 %95, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %get_CDR_short.exit61, %get_CDR_short.exit61.us68, %get_CDR_short.exit61.us, %get_CDR_short.exit61.us.us, %get_CDR_ulong.exit
   ret void
@@ -4584,7 +4584,7 @@ get_CDR_ulong.exit158:                            ; preds = %115, %117
   %137 = load i32, ptr @hf_giop_req_principal, align 4
   %138 = load ptr, ptr %129, align 8
   %139 = call noalias ptr @wmem_alloc0(ptr noundef %138, i64 noundef %132) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %139, ptr align 1 %133, i64 %134, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %139, ptr readonly align 1 %133, i64 %134, i1 false)
   %140 = load ptr, ptr @g_ascii_table, align 8
   br label %141
 
@@ -4660,7 +4660,7 @@ get_repoid_from_objkey.exit:                      ; preds = %165
   br i1 %173, label %174, label %.critedge144
 
 174:                                              ; preds = %171, %get_repoid_from_objkey.exit, %get_repoid_from_objkey.exit.thread
-  %175 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %99), !range !16
+  %175 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %99)
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %.critedge144
 
@@ -4851,7 +4851,7 @@ get_CDR_string.exit:                              ; preds = %42, %44
   %67 = add i32 %66, 1
   %68 = and i32 %67, 7
   %.not.i87 = icmp eq i32 %68, 4
-  br i1 %.not.i87, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i87, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   store i32 %67, ptr %7, align 4
@@ -4887,7 +4887,7 @@ set_new_alignment.exit:                           ; preds = %._crit_edge.i, %61
   br i1 %85, label %86, label %.critedge85
 
 86:                                               ; preds = %83, %82
-  %87 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %50), !range !16
+  %87 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %50)
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %.critedge85
 
@@ -5090,7 +5090,7 @@ cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.th
   %78 = getelementptr inbounds i8, ptr %.018.i, i64 16
   %79 = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %get_mfn_from_fn_and_reqid.exit, label %53, !llvm.loop !26
+  br i1 %.not.i, label %get_mfn_from_fn_and_reqid.exit, label %53, !llvm.loop !24
 
 get_mfn_from_fn_and_reqid.exit:                   ; preds = %cmp_address.exit.thread.i, %43, %76
   %.012.i = phi i32 [ %77, %76 ], [ %45, %43 ], [ %45, %cmp_address.exit.thread.i ]
@@ -5191,7 +5191,7 @@ get_CDR_ulong.exit47:                             ; preds = %20, %22
   %31 = add i32 %30, 1
   %32 = and i32 %31, 7
   %.not.i = icmp eq i32 %32, 4
-  br i1 %.not.i, label %set_new_alignment.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %set_new_alignment.exit, label %.lr.ph.i, !llvm.loop !23
 
 set_new_alignment.exit:                           ; preds = %.lr.ph.i, %get_CDR_ulong.exit47
   %33 = phi i32 [ %.promoted.i48, %get_CDR_ulong.exit47 ], [ %31, %.lr.ph.i ]
@@ -5268,7 +5268,7 @@ cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.th
   %74 = getelementptr inbounds i8, ptr %.018.i, i64 16
   %75 = load ptr, ptr %74, align 8
   %.not.i50 = icmp eq ptr %75, null
-  br i1 %.not.i50, label %get_mfn_from_fn_and_reqid.exit, label %49, !llvm.loop !26
+  br i1 %.not.i50, label %get_mfn_from_fn_and_reqid.exit, label %49, !llvm.loop !24
 
 get_mfn_from_fn_and_reqid.exit:                   ; preds = %cmp_address.exit.thread.i, %39, %72
   %.012.i = phi i32 [ %73, %72 ], [ %41, %39 ], [ %41, %cmp_address.exit.thread.i ]
@@ -5452,7 +5452,7 @@ get_CDR_ulong.exit33:                             ; preds = %19, %21
   %30 = and i32 %29, 7
   %.not = icmp eq i32 %30, 4
   %31 = add i32 %29, 1
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader
   store i32 %29, ptr %6, align 4
@@ -5644,7 +5644,7 @@ get_CDR_ulong.exit99:                             ; preds = %37, %39
   br label %113
 
 67:                                               ; preds = %57
-  %trunc = trunc i32 %41 to i8
+  %trunc = trunc nuw i32 %41 to i8
   %68 = load i32, ptr %8, align 4
   %69 = load i32, ptr %9, align 4
   switch i8 %trunc, label %111 [
@@ -5786,7 +5786,7 @@ decode_RTCorbaPriority.exit:                      ; preds = %102, %104
   call void @proto_item_set_end(ptr noundef %45, ptr noundef %0, i32 noundef %125) #14
   %126 = add nuw i32 %.0107, 1
   %exitcond.not = icmp eq i32 %126, %21
-  br i1 %exitcond.not, label %127, label %.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %127, label %.preheader, !llvm.loop !26
 
 127:                                              ; preds = %124
   %128 = load ptr, ptr %7, align 8
@@ -6203,7 +6203,7 @@ get_CDR_ulong.exit148.i:                          ; preds = %182, %180
   %206 = load i32, ptr @hf_giop_component_data, align 4
   %207 = load ptr, ptr %160, align 8
   %208 = call noalias ptr @wmem_alloc0(ptr noundef %207, i64 noundef %199) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %208, ptr align 1 %200, i64 %202, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %208, ptr readonly align 1 %200, i64 %202, i1 false)
   br label %209
 
 209:                                              ; preds = %217, %.lr.ph.i.i
@@ -6233,7 +6233,7 @@ make_printable_string.exit.i:                     ; preds = %217
 219:                                              ; preds = %make_printable_string.exit.i, %195
   %220 = add nuw i32 %.0152.i, 1
   %exitcond.not.i = icmp eq i32 %220, %155
-  br i1 %exitcond.not.i, label %decode_IIOP_IOR_profile.exit, label %162, !llvm.loop !29
+  br i1 %exitcond.not.i, label %decode_IIOP_IOR_profile.exit, label %162, !llvm.loop !27
 
 221:                                              ; preds = %145
   %222 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %45, ptr noundef nonnull @ei_giop_invalid_v_minor, ptr noundef nonnull @.str.270, i32 noundef %44) #14
@@ -6267,7 +6267,7 @@ make_printable_string.exit.i:                     ; preds = %217
   %242 = load i32, ptr @hf_giop_profile_data, align 4
   %243 = load ptr, ptr %232, align 8
   %244 = tail call noalias ptr @wmem_alloc0(ptr noundef %243, i64 noundef %235) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %244, ptr align 1 %236, i64 %238, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %244, ptr readonly align 1 %236, i64 %238, i1 false)
   %.not13.i = icmp eq i32 %224, 0
   br i1 %.not13.i, label %make_printable_string.exit, label %.lr.ph.i36
 
@@ -6329,7 +6329,7 @@ define internal fastcc ptr @insert_in_comp_req_list(ptr noundef %0, i32 noundef 
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store i32 %18, ptr %17, align 8
   %23 = icmp eq i32 %20, 0
   br i1 %23, label %copy_address_wmem.exit, label %24
@@ -6419,7 +6419,7 @@ get_modname_from_repoid.exit:                     ; preds = %.preheader.i, %.pre
   %43 = getelementptr inbounds i8, ptr %.079.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %add_sub_handle_repoid_to_comp_req_list.exit, label %.lr.ph.i.i, !llvm.loop !30
+  br i1 %.not.i.i, label %add_sub_handle_repoid_to_comp_req_list.exit, label %.lr.ph.i.i, !llvm.loop !28
 
 find_fn_in_list.exit.i:                           ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds i8, ptr %39, i64 16
@@ -6458,7 +6458,7 @@ get_modname_from_repoid.exit.thread:              ; preds = %7, %26, %50, %54, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._packet_info, align 8
   %8 = load ptr, ptr @giop_sub_list, align 8
   %9 = tail call i32 @g_slist_length(ptr noundef %8) #14
@@ -6577,7 +6577,7 @@ is_big_endian.exit.thread:                        ; preds = %11, %is_big_endian.
 69:                                               ; preds = %.lr.ph, %68
   %70 = add nuw nsw i32 %.04354, 1
   %exitcond.not = icmp eq i32 %70, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %69, %.preheader
   %71 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6617,7 +6617,7 @@ define internal fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr no
   %18 = load i32, ptr @hf_giop_context_data, align 4
   %19 = load ptr, ptr %7, align 8
   %20 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef %11) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %12, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr readonly align 1 %12, i64 %14, i1 false)
   %21 = load ptr, ptr @g_ascii_table, align 8
   br label %22
 
@@ -6778,7 +6778,7 @@ get_CDR_ulong.exit:                               ; preds = %24, %26
   %51 = load i32, ptr @hf_giop_target_address_key_addr, align 4
   %52 = load ptr, ptr %40, align 8
   %53 = tail call noalias ptr @wmem_alloc0(ptr noundef %52, i64 noundef %44) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %45, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr readonly align 1 %45, i64 %47, i1 false)
   %54 = load ptr, ptr @g_ascii_table, align 8
   br label %55
 
@@ -6960,7 +6960,7 @@ get_mfn_from_fn.exit:                             ; preds = %37, %42
   %53 = getelementptr inbounds i8, ptr %.079.i, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not.i78 = icmp eq ptr %54, null
-  br i1 %.not.i78, label %.critedge77, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i78, label %.critedge77, label %.lr.ph.i, !llvm.loop !28
 
 find_fn_in_list.exit:                             ; preds = %.lr.ph.i
   %55 = getelementptr inbounds i8, ptr %49, i64 8
@@ -6990,7 +6990,7 @@ find_fn_in_list.exit:                             ; preds = %.lr.ph.i
 
 65:                                               ; preds = %._crit_edge, %59
   %66 = phi ptr [ %.pre, %._crit_edge ], [ %56, %59 ]
-  %67 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %66), !range !16
+  %67 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %66)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %.critedge77
 
@@ -7271,7 +7271,7 @@ define internal i32 @giop_hash_objkey_hash(ptr nocapture noundef readonly %0) #9
   %9 = add i32 %.09, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %5, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %9, %5 ]
@@ -7279,7 +7279,7 @@ define internal i32 @giop_hash_objkey_hash(ptr nocapture noundef readonly %0) #9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @giop_hash_objkey_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @giop_hash_objkey_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7308,7 +7308,7 @@ define internal i32 @complete_reply_hash_fn(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @complete_reply_equal_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @complete_reply_equal_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -7392,13 +7392,13 @@ attributes #17 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 401}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 0, i32 2}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
@@ -7413,5 +7413,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}

@@ -509,7 +509,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PEM_X509_INFO_write_bio(ptr noundef %bp, ptr noundef %xi, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %bp, ptr noundef %xi, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.evp_cipher_ctx_st, align 8
   %buf = alloca [1024 x i8], align 16

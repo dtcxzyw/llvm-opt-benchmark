@@ -511,7 +511,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7512CollationKey9compareToERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %target) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZNK6icu_7512CollationKey9compareToERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %target) local_unnamed_addr #10 align 2 {
 if.then.i:
   %fFlagAndLength.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength.i.i, align 8
@@ -558,7 +558,7 @@ _ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0

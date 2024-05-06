@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.core_yylex = private unnamed_addr constant [11 x i8] c"\08\08\0C\08\08\08\0A\08\0D\09\0B", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @core_yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -128, 65536) i32 @core_yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ErrorSaveContext, align 8
   %5 = alloca %struct.ErrorSaveContext, align 8
   %6 = alloca %struct.ErrorSaveContext, align 8
@@ -528,9 +528,9 @@ addlitchar.exit:                                  ; preds = %151, %168
 
 198:                                              ; preds = %189
   %199 = add i32 %195, 1
-  %200 = tail call i32 @llvm.ctpop.i32(i32 %199), !range !7
+  %200 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
   %201 = icmp ult i32 %200, 2
-  %202 = tail call i32 @llvm.ctlz.i32(i32 %199, i1 true), !range !7
+  %202 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %199, i1 true)
   %203 = xor i32 %202, 31
   %204 = shl nuw i32 2, %203
   %.0.i.i = select i1 %201, i32 %199, i32 %204
@@ -558,7 +558,7 @@ addlit.exit:                                      ; preds = %189, %198
   %218 = sext i32 %214 to i64
   %219 = getelementptr i8, ptr %217, i64 %218
   %220 = sext i32 %191 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %219, ptr align 1 %190, i64 %220, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %219, ptr readonly align 1 %190, i64 %220, i1 false)
   %221 = load ptr, ptr %2, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 48
   %223 = load i32, ptr %222, align 8
@@ -953,9 +953,9 @@ addlitchar.exit741:                               ; preds = %436, %443
 
 473:                                              ; preds = %464
   %474 = add i32 %470, 1
-  %475 = tail call i32 @llvm.ctpop.i32(i32 %474), !range !7
+  %475 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %474)
   %476 = icmp ult i32 %475, 2
-  %477 = tail call i32 @llvm.ctlz.i32(i32 %474, i1 true), !range !7
+  %477 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %474, i1 true)
   %478 = xor i32 %477, 31
   %479 = shl nuw i32 2, %478
   %.0.i.i743 = select i1 %476, i32 %474, i32 %479
@@ -983,7 +983,7 @@ addlit.exit747:                                   ; preds = %464, %473
   %493 = sext i32 %489 to i64
   %494 = getelementptr i8, ptr %492, i64 %493
   %495 = sext i32 %466 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %494, ptr align 1 %465, i64 %495, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %494, ptr readonly align 1 %465, i64 %495, i1 false)
   %496 = load ptr, ptr %2, align 8
   %497 = getelementptr inbounds i8, ptr %496, i64 48
   %498 = load i32, ptr %497, align 8
@@ -1005,9 +1005,9 @@ addlit.exit747:                                   ; preds = %464, %473
 
 509:                                              ; preds = %500
   %510 = add i32 %506, 1
-  %511 = tail call i32 @llvm.ctpop.i32(i32 %510), !range !7
+  %511 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %510)
   %512 = icmp ult i32 %511, 2
-  %513 = tail call i32 @llvm.ctlz.i32(i32 %510, i1 true), !range !7
+  %513 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %510, i1 true)
   %514 = xor i32 %513, 31
   %515 = shl nuw i32 2, %514
   %.0.i.i749 = select i1 %512, i32 %510, i32 %515
@@ -1035,7 +1035,7 @@ addlit.exit753:                                   ; preds = %500, %509
   %529 = sext i32 %525 to i64
   %530 = getelementptr i8, ptr %528, i64 %529
   %531 = sext i32 %502 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %530, ptr align 1 %501, i64 %531, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %530, ptr readonly align 1 %501, i64 %531, i1 false)
   %532 = load ptr, ptr %2, align 8
   %533 = getelementptr inbounds i8, ptr %532, i64 48
   %534 = load i32, ptr %533, align 8
@@ -1307,7 +1307,7 @@ scanner_errposition.exit13.i:                     ; preds = %694, %687
   br label %check_string_escape_warning.exit
 
 703:                                              ; preds = %645
-  tail call fastcc void @check_escape_warning(ptr noundef nonnull %2)
+  tail call fastcc void @check_escape_warning(ptr noundef nonnull readonly %2)
   br label %check_string_escape_warning.exit
 
 check_string_escape_warning.exit:                 ; preds = %673, %700, %703
@@ -1331,7 +1331,7 @@ check_string_escape_warning.exit:                 ; preds = %673, %700, %703
   br label %unescape_single_char.exit
 
 switch.hole_check:                                ; preds = %check_string_escape_warning.exit
-  %switch.maskindex = trunc i32 %709 to i16
+  %switch.maskindex = trunc nuw i32 %709 to i16
   %switch.shifted = lshr i16 1861, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %711
@@ -1649,9 +1649,9 @@ addlitchar.exit773:                               ; preds = %821, %830
 
 912:                                              ; preds = %904
   %913 = add i32 %908, %905
-  %914 = tail call i32 @llvm.ctpop.i32(i32 %913), !range !7
+  %914 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %913)
   %915 = icmp ult i32 %914, 2
-  %916 = tail call i32 @llvm.ctlz.i32(i32 %913, i1 true), !range !7
+  %916 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %913, i1 true)
   %917 = xor i32 %916, 31
   %918 = shl nuw i32 2, %917
   %.0.i.i775 = select i1 %915, i32 %913, i32 %918
@@ -1679,7 +1679,7 @@ addlit.exit779:                                   ; preds = %904, %912
   %932 = sext i32 %928 to i64
   %933 = getelementptr i8, ptr %931, i64 %932
   %934 = sext i32 %906 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %933, ptr align 1 %883, i64 %934, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %933, ptr readonly align 1 %883, i64 %934, i1 false)
   %935 = load ptr, ptr %2, align 8
   %936 = getelementptr inbounds i8, ptr %935, i64 48
   %937 = load i32, ptr %936, align 8
@@ -1714,9 +1714,9 @@ addlit.exit779:                                   ; preds = %904, %912
 
 954:                                              ; preds = %945
   %955 = add i32 %951, 1
-  %956 = tail call i32 @llvm.ctpop.i32(i32 %955), !range !7
+  %956 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %955)
   %957 = icmp ult i32 %956, 2
-  %958 = tail call i32 @llvm.ctlz.i32(i32 %955, i1 true), !range !7
+  %958 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %955, i1 true)
   %959 = xor i32 %958, 31
   %960 = shl nuw i32 2, %959
   %.0.i.i781 = select i1 %957, i32 %955, i32 %960
@@ -1744,7 +1744,7 @@ addlit.exit785:                                   ; preds = %945, %954
   %974 = sext i32 %970 to i64
   %975 = getelementptr i8, ptr %973, i64 %974
   %976 = sext i32 %947 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %975, ptr align 1 %946, i64 %976, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %975, ptr readonly align 1 %946, i64 %976, i1 false)
   %977 = load ptr, ptr %2, align 8
   %978 = getelementptr inbounds i8, ptr %977, i64 48
   %979 = load i32, ptr %978, align 8
@@ -1766,9 +1766,9 @@ addlit.exit785:                                   ; preds = %945, %954
 
 990:                                              ; preds = %981
   %991 = add i32 %987, 1
-  %992 = tail call i32 @llvm.ctpop.i32(i32 %991), !range !7
+  %992 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %991)
   %993 = icmp ult i32 %992, 2
-  %994 = tail call i32 @llvm.ctlz.i32(i32 %991, i1 true), !range !7
+  %994 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %991, i1 true)
   %995 = xor i32 %994, 31
   %996 = shl nuw i32 2, %995
   %.0.i.i787 = select i1 %993, i32 %991, i32 %996
@@ -1796,7 +1796,7 @@ addlit.exit791:                                   ; preds = %981, %990
   %1010 = sext i32 %1006 to i64
   %1011 = getelementptr i8, ptr %1009, i64 %1010
   %1012 = sext i32 %983 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1011, ptr align 1 %982, i64 %1012, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1011, ptr readonly align 1 %982, i64 %1012, i1 false)
   %1013 = load ptr, ptr %2, align 8
   %1014 = getelementptr inbounds i8, ptr %1013, i64 48
   %1015 = load i32, ptr %1014, align 8
@@ -2007,9 +2007,9 @@ addlitchar.exit801:                               ; preds = %1108, %1115
 
 1145:                                             ; preds = %1136
   %1146 = add i32 %1142, 1
-  %1147 = tail call i32 @llvm.ctpop.i32(i32 %1146), !range !7
+  %1147 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1146)
   %1148 = icmp ult i32 %1147, 2
-  %1149 = tail call i32 @llvm.ctlz.i32(i32 %1146, i1 true), !range !7
+  %1149 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1146, i1 true)
   %1150 = xor i32 %1149, 31
   %1151 = shl nuw i32 2, %1150
   %.0.i.i803 = select i1 %1148, i32 %1146, i32 %1151
@@ -2037,7 +2037,7 @@ addlit.exit807:                                   ; preds = %1136, %1145
   %1165 = sext i32 %1161 to i64
   %1166 = getelementptr i8, ptr %1164, i64 %1165
   %1167 = sext i32 %1138 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1166, ptr align 1 %1137, i64 %1167, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1166, ptr readonly align 1 %1137, i64 %1167, i1 false)
   %1168 = load ptr, ptr %2, align 8
   %1169 = getelementptr inbounds i8, ptr %1168, i64 48
   %1170 = load i32, ptr %1169, align 8
@@ -2246,9 +2246,9 @@ addlit.exit807:                                   ; preds = %1136, %1145
 
 1296:                                             ; preds = %.lr.ph1454
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %1297 = trunc i64 %indvars.iv to i32
+  %1297 = trunc nuw i64 %indvars.iv to i32
   %1298 = icmp sgt i32 %1297, 0
-  br i1 %1298, label %.lr.ph1454, label %.critedge30.preheader, !llvm.loop !8
+  br i1 %1298, label %.lr.ph1454, label %.critedge30.preheader, !llvm.loop !7
 
 .lr.ph1456:                                       ; preds = %.critedge30.preheader, %.critedge30.backedge
   %indvars.iv1747 = phi i64 [ %indvars.iv.next1748, %.critedge30.backedge ], [ %1288, %.critedge30.preheader ]
@@ -2261,7 +2261,7 @@ addlit.exit807:                                   ; preds = %1136, %1145
   ]
 
 .critedge30.backedge:                             ; preds = %.lr.ph1456, %.lr.ph1456
-  %1300 = trunc i64 %indvars.iv1747 to i32
+  %1300 = trunc nuw i64 %indvars.iv1747 to i32
   %1301 = icmp sgt i32 %1300, 3
   br i1 %1301, label %.lr.ph1456, label %.critedge
 
@@ -2891,7 +2891,7 @@ process_integer_literal.exit816:                  ; preds = %1498, %1500
   %1682 = getelementptr %struct.yy_trans_info, ptr %.013.i, i64 %1681
   %1683 = getelementptr i8, ptr %.01112.i, i64 1
   %exitcond.not.i = icmp eq ptr %1683, %1671
-  br i1 %exitcond.not.i, label %yy_get_previous_state.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %yy_get_previous_state.exit, label %.lr.ph.i, !llvm.loop !8
 
 yy_get_previous_state.exit:                       ; preds = %.lr.ph.i, %1665
   %.0.lcssa.i = phi ptr [ %1675, %1665 ], [ %1682, %.lr.ph.i ]
@@ -2960,7 +2960,7 @@ yy_get_previous_state.exit:                       ; preds = %.lr.ph.i, %1665
   store i8 %1714, ptr %.0131165.i, align 1
   %1716 = add nuw nsw i32 %.0133163.i, 1
   %exitcond.not.i823 = icmp eq i32 %1716, %1711
-  br i1 %exitcond.not.i823, label %._crit_edge.loopexit.i, label %.lr.ph.i822, !llvm.loop !10
+  br i1 %exitcond.not.i823, label %._crit_edge.loopexit.i, label %.lr.ph.i822, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i822
   %.pre.i824 = load ptr, ptr %81, align 8
@@ -3063,7 +3063,7 @@ core_yyrealloc.exit.i821:                         ; preds = %1750, %1748
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0134.i = add i32 %.pn.i, %1726
   %1759 = icmp slt i32 %.0134.i, 1
-  br i1 %1759, label %.lr.ph170.i, label %._crit_edge171.i, !llvm.loop !11
+  br i1 %1759, label %.lr.ph170.i, label %._crit_edge171.i, !llvm.loop !10
 
 ._crit_edge171.i:                                 ; preds = %1752, %1725
   %1760 = phi ptr [ %1717, %1725 ], [ %1758, %1752 ]
@@ -3102,10 +3102,10 @@ core_yyrealloc.exit.i821:                         ; preds = %1750, %1748
   store i8 %1769, ptr %1777, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond181.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond181.not.i, label %.critedge.i, label %1765, !llvm.loop !12
+  br i1 %exitcond181.not.i, label %.critedge.i, label %1765, !llvm.loop !11
 
 .critedge.split.loop.exit.i:                      ; preds = %1765, %1765
-  %1778 = trunc i64 %indvars.iv.i to i32
+  %1778 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1768, %.critedge.split.loop.exit.i
@@ -3195,7 +3195,7 @@ core_yyrealloc.exit.i821:                         ; preds = %1750, %1748
   %1825 = trunc i64 %1824 to i32
   store i32 %1825, ptr %83, align 4
   %1826 = icmp eq i32 %1825, 0
-  br i1 %1826, label %.lr.ph174.i, label %.critedge2.i, !llvm.loop !13
+  br i1 %1826, label %.lr.ph174.i, label %.critedge2.i, !llvm.loop !12
 
 .critedge2.i:                                     ; preds = %1814, %.lr.ph174.i, %1794, %1793
   %1827 = phi i32 [ %1807, %1794 ], [ %.1158.i, %1793 ], [ 0, %.lr.ph174.i ], [ %1825, %1814 ]
@@ -3376,7 +3376,7 @@ yy_get_next_buffer.exit.thread:                   ; preds = %1705, %yy_get_next_
   %1927 = getelementptr %struct.yy_trans_info, ptr %.013.i829, i64 %1926
   %1928 = getelementptr i8, ptr %.01112.i830, i64 1
   %exitcond.not.i833 = icmp eq ptr %1928, %1916
-  br i1 %exitcond.not.i833, label %.backedge860, label %.lr.ph.i828, !llvm.loop !9
+  br i1 %exitcond.not.i833, label %.backedge860, label %.lr.ph.i828, !llvm.loop !8
 
 yy_get_next_buffer.exit.thread855:                ; preds = %1705, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread855_crit_edge
   %.pre-phi = phi i64 [ %.pre1764, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread855_crit_edge ], [ %1663, %1705 ]
@@ -3410,7 +3410,7 @@ yy_get_next_buffer.exit.thread855:                ; preds = %1705, %yy_get_next_
   %1942 = getelementptr %struct.yy_trans_info, ptr %.013.i838, i64 %1941
   %1943 = getelementptr i8, ptr %.01112.i839, i64 1
   %exitcond.not.i842 = icmp eq ptr %1943, %1931
-  br i1 %exitcond.not.i842, label %.preheader.backedge, label %.lr.ph.i837, !llvm.loop !9
+  br i1 %exitcond.not.i842, label %.preheader.backedge, label %.lr.ph.i837, !llvm.loop !8
 
 1944:                                             ; preds = %119
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.28) #24
@@ -3709,9 +3709,9 @@ define internal fastcc void @addunicode(i32 noundef %0, ptr noundef %1) unnamed_
 
 26:                                               ; preds = %8
   %27 = add i32 %23, 1
-  %28 = call i32 @llvm.ctpop.i32(i32 %27), !range !7
+  %28 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
   %29 = icmp ult i32 %28, 2
-  %30 = call i32 @llvm.ctlz.i32(i32 %27, i1 true), !range !7
+  %30 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %31 = xor i32 %30, 31
   %32 = shl nuw i32 2, %31
   %.0.i.i = select i1 %29, i32 %27, i32 %32
@@ -3740,7 +3740,7 @@ addlit.exit:                                      ; preds = %8, %26
   %47 = getelementptr i8, ptr %45, i64 %46
   %sext = shl i64 %18, 32
   %48 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 16 %4, i64 %48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull readonly align 16 %4, i64 %48, i1 false)
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 48
   %51 = load i32, ptr %50, align 8
@@ -4312,7 +4312,7 @@ core_yyrealloc.exit.i:                            ; preds = %13
 
 core_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %23
   %26 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %23 ]
-  %27 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
+  %27 = load ptr, ptr %5, align 8, !nonnull !13, !noundef !13
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = getelementptr ptr, ptr %27, i64 %26
   %30 = load ptr, ptr %29, align 8
@@ -4566,7 +4566,7 @@ define dso_local ptr @core_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %12 = add i32 %1, 1
@@ -4832,7 +4832,7 @@ define dso_local void @core_yyset_lloc(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @core_yylex_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @core_yylex_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -4863,8 +4863,8 @@ define dso_local noundef i32 @core_yylex_init(ptr noundef %0) local_unnamed_addr
   %15 = getelementptr inbounds i8, ptr %11, i64 96
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br label %17
 
 17:                                               ; preds = %10, %8, %3
@@ -4879,7 +4879,7 @@ declare ptr @__errno_location() local_unnamed_addr #11
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @core_yylex_init_extra(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @core_yylex_init_extra(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -4912,8 +4912,8 @@ define dso_local noundef i32 @core_yylex_init_extra(ptr noundef %0, ptr noundef 
   %17 = getelementptr inbounds i8, ptr %13, i64 96
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %19
 
 19:                                               ; preds = %11, %9, %4
@@ -5045,7 +5045,7 @@ core_yypop_buffer_state.exit:                     ; preds = %24, %44, %47
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not21 = icmp eq ptr %59, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph41, !llvm.loop !16
+  br i1 %.not21, label %._crit_edge, label %.lr.ph41, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %core_yypop_buffer_state.exit, %.lr.ph
   %.lcssa = phi ptr [ %3, %.lr.ph ], [ %56, %core_yypop_buffer_state.exit ]
@@ -5071,8 +5071,8 @@ core_yyfree.exit28:                               ; preds = %core_yyfree.exit, %
   store i32 0, ptr %65, align 8
   store ptr null, ptr %60, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %66, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   tail call void @pfree(ptr noundef nonnull %0) #23
   ret i32 0
 }
@@ -5386,13 +5386,12 @@ attributes #27 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 33}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = !{}
+!13 = !{}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

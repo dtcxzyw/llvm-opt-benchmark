@@ -816,7 +816,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cba_filter_valid(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @cba_filter_valid(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_ICBAAccoMgt, align 4
@@ -935,7 +935,7 @@ declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 nounde
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_CBA_Connection_Data_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_CBA_Connection_Data_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i16
   %7 = trunc i64 %5 to i32
@@ -991,7 +991,7 @@ define internal noundef i32 @dissect_CBA_Connection_Data_heur(ptr noundef %0, pt
 
 28:                                               ; preds = %.lr.ph.i
   %29 = getelementptr inbounds i8, ptr %24, i64 46
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %29, ptr noundef nonnull dereferenceable(6) %19, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %29, ptr noundef nonnull readonly dereferenceable(6) %19, i64 6)
   %30 = icmp eq i32 %bcmp.i, 0
   br i1 %30, label %31, label %cba_packet_in_range.exit.thread.i
 
@@ -5699,7 +5699,7 @@ cba_ldev_link_acco.exit:                          ; preds = %74, %70, %66
 
 140:                                              ; preds = %.lr.ph.i
   %141 = getelementptr inbounds i8, ptr %136, i64 46
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %141, ptr noundef nonnull dereferenceable(6) %10, i64 6)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %141, ptr noundef nonnull readonly dereferenceable(6) %10, i64 6)
   %142 = icmp eq i32 %bcmp.i, 0
   br i1 %142, label %143, label %cba_packet_in_range.exit.thread.i
 
@@ -5754,7 +5754,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %164, i8 0, i64 16, i1 false)
   store i16 %135, ptr %165, align 4
   %166 = getelementptr inbounds i8, ptr %160, i64 46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %166, ptr noundef nonnull align 1 dereferenceable(6) %10, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %166, ptr noundef nonnull readonly align 1 dereferenceable(6) %10, i64 6, i1 false)
   %167 = getelementptr inbounds i8, ptr %160, i64 52
   store i16 %134, ptr %167, align 4
   %168 = getelementptr inbounds i8, ptr %160, i64 64

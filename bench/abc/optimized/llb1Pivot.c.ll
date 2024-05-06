@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [50 x i8] c"Obj =%5d.  Lev =%3d.  Fanout =%5d.  Count = %3d.\0A\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Llb_ManTracePaths_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Llb_ManTracePaths_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 32
@@ -89,7 +89,7 @@ Saig_ObjIsPo.exit.thread:                         ; preds = %8
 
 Aig_ManObj.exit:                                  ; preds = %32, %36
   %42 = phi ptr [ %41, %36 ], [ null, %32 ]
-  %43 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %2), !range !6
+  %43 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %2)
   %.not35 = icmp eq i32 %43, 0
   br i1 %.not35, label %44, label %16
 
@@ -138,12 +138,12 @@ define i32 @Llb_ManTracePaths(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds ptr, ptr %.val, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %1), !range !6
+  %14 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %1)
   %15 = add nuw nsw i32 %14, %.017
   %16 = add nuw nsw i32 %.01216, 1
   %.val13 = load i32, ptr %3, align 8
   %17 = icmp slt i32 %16, %.val13
-  br i1 %17, label %7, label %.critedge, !llvm.loop !7
+  br i1 %17, label %7, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %7, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %15, %7 ]
@@ -207,22 +207,22 @@ define void @Llb_ManTestCuts(ptr noundef %0) local_unnamed_addr #1 {
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds ptr, ptr %.val.i, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %28, ptr noundef nonnull %13), !range !6
+  %29 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %28, ptr noundef nonnull %13)
   %30 = add nuw nsw i32 %29, %.017.i
   %31 = add nuw nsw i32 %.01216.i, 1
   %.val13.i = load i32, ptr %6, align 8
   %32 = icmp slt i32 %31, %.val13.i
-  br i1 %32, label %.lr.ph.i, label %Llb_ManTracePaths.exit, !llvm.loop !7
+  br i1 %32, label %.lr.ph.i, label %Llb_ManTracePaths.exit, !llvm.loop !6
 
 Llb_ManTracePaths.exit:                           ; preds = %.lr.ph.i, %21
   %.0.lcssa.i = phi i32 [ 0, %21 ], [ %30, %.lr.ph.i ]
   %.val20 = load i64, ptr %16, align 8
   %33 = lshr i64 %.val20, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = and i32 %34, 16777215
   %36 = trunc i64 %.val20 to i32
   %37 = lshr i32 %36, 6
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %38, i32 noundef %35, i32 noundef %37, i32 noundef %.0.lcssa.i)
   %.pre = load ptr, ptr %2, align 8
   br label %40
@@ -234,7 +234,7 @@ Llb_ManTracePaths.exit:                           ; preds = %.lr.ph.i, %21
   %.val16 = load i32, ptr %42, align 4
   %43 = sext i32 %.val16 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %9, label %.critedge, !llvm.loop !8
+  br i1 %44, label %9, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %40, %1
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #7
@@ -326,7 +326,7 @@ define void @Llb_ManLabelLiCones(ptr nocapture noundef readonly %0) local_unname
   %.val19 = load i32, ptr %22, align 4
   %23 = sext i32 %.val19 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.critedge.preheader, !llvm.loop !9
+  br i1 %24, label %.lr.ph, label %.critedge.preheader, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph26, %.critedge
   %.125 = phi i32 [ 0, %.lr.ph26 ], [ %35, %.critedge ]
@@ -347,7 +347,7 @@ define void @Llb_ManLabelLiCones(ptr nocapture noundef readonly %0) local_unname
   %35 = add nuw nsw i32 %.125, 1
   %.val18 = load i32, ptr %10, align 8
   %36 = icmp slt i32 %35, %.val18
-  br i1 %36, label %.critedge, label %.critedge2, !llvm.loop !10
+  br i1 %36, label %.critedge, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   ret void
@@ -399,7 +399,7 @@ define void @Llb_ManMarkInternalPivots(ptr noundef %0) local_unnamed_addr #1 {
   %.val19.i = load i32, ptr %23, align 4
   %24 = sext i32 %.val19.i to i64
   %25 = icmp slt i64 %indvars.iv.next.i, %24
-  br i1 %25, label %.lr.ph.i, label %.critedge.preheader.i, !llvm.loop !9
+  br i1 %25, label %.lr.ph.i, label %.critedge.preheader.i, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %.critedge.i, %.lr.ph26.i
   %.125.i = phi i32 [ 0, %.lr.ph26.i ], [ %36, %.critedge.i ]
@@ -416,11 +416,11 @@ define void @Llb_ManMarkInternalPivots(ptr noundef %0) local_unnamed_addr #1 {
   %33 = ptrtoint ptr %.val20.i to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
-  tail call void @Llb_ManLabelLiCones_rec(ptr noundef nonnull %0, ptr noundef %35)
+  tail call void @Llb_ManLabelLiCones_rec(ptr noundef nonnull readonly %0, ptr noundef %35)
   %36 = add nuw nsw i32 %.125.i, 1
   %.val18.i = load i32, ptr %11, align 8
   %37 = icmp slt i32 %36, %.val18.i
-  br i1 %37, label %.critedge.i, label %Llb_ManLabelLiCones.exit, !llvm.loop !10
+  br i1 %37, label %.critedge.i, label %Llb_ManLabelLiCones.exit, !llvm.loop !9
 
 Llb_ManLabelLiCones.exit:                         ; preds = %.critedge.i, %.critedge.preheader.i
   tail call void @Aig_ManFanoutStart(ptr noundef nonnull %0) #7
@@ -480,12 +480,12 @@ Llb_ManLabelLiCones.exit:                         ; preds = %.critedge.i, %.crit
   %62 = sext i32 %60 to i64
   %63 = getelementptr inbounds ptr, ptr %.val.i31, i64 %62
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %64, ptr noundef nonnull %47), !range !6
+  %65 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %64, ptr noundef nonnull %47)
   %66 = add nuw nsw i32 %65, %.017.i
   %67 = add nuw nsw i32 %.01216.i, 1
   %.val13.i = load i32, ptr %11, align 8
   %68 = icmp slt i32 %67, %.val13.i
-  br i1 %68, label %.lr.ph.i30, label %Llb_ManTracePaths.exit, !llvm.loop !7
+  br i1 %68, label %.lr.ph.i30, label %Llb_ManTracePaths.exit, !llvm.loop !6
 
 Llb_ManTracePaths.exit:                           ; preds = %.lr.ph.i30
   %.not = icmp eq i32 %66, 0
@@ -508,7 +508,7 @@ Llb_ManTracePaths.exit.thread:                    ; preds = %57, %69, %Llb_ManTr
   %.val27 = load i32, ptr %74, align 4
   %75 = sext i32 %.val27 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %43, label %.critedge, !llvm.loop !11
+  br i1 %76, label %43, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %72, %Llb_ManLabelLiCones.exit
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #7
@@ -573,7 +573,7 @@ define noalias noundef ptr @Llb_ManMarkPivotNodes(ptr noundef %0, i32 noundef %1
   %.val62 = load i32, ptr %19, align 4
   %20 = sext i32 %.val62 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.critedge.preheader, !llvm.loop !12
+  br i1 %21, label %.lr.ph, label %.critedge.preheader, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph87, %.critedge
   %.186 = phi i32 [ 0, %.lr.ph87 ], [ %31, %.critedge ]
@@ -592,7 +592,7 @@ define noalias noundef ptr @Llb_ManMarkPivotNodes(ptr noundef %0, i32 noundef %1
   %31 = add nuw nsw i32 %.186, 1
   %.val59 = load i32, ptr %7, align 8
   %32 = icmp slt i32 %31, %.val59
-  br i1 %32, label %.critedge, label %.critedge2, !llvm.loop !13
+  br i1 %32, label %.critedge, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.not = icmp eq i32 %1, 0
@@ -706,7 +706,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val61 = load i32, ptr %83, align 4
   %84 = sext i32 %.val61 to i64
   %85 = icmp slt i64 %indvars.iv.next99, %84
-  br i1 %85, label %.lr.ph90, label %.critedge4.preheader, !llvm.loop !14
+  br i1 %85, label %.lr.ph90, label %.critedge4.preheader, !llvm.loop !13
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
   %.val5894 = load i32, ptr %7, align 8
@@ -814,7 +814,7 @@ Vec_IntPush.exit74:                               ; preds = %.Vec_IntGrow.exit10
   %.val60 = load i32, ptr %130, align 4
   %131 = sext i32 %.val60 to i64
   %132 = icmp slt i64 %indvars.iv.next102, %131
-  br i1 %132, label %.lr.ph93, label %.critedge6.preheader, !llvm.loop !15
+  br i1 %132, label %.lr.ph93, label %.critedge6.preheader, !llvm.loop !14
 
 133:                                              ; preds = %.lr.ph96, %Vec_IntPush.exit81
   %.495 = phi i32 [ 0, %.lr.ph96 ], [ %168, %Vec_IntPush.exit81 ]
@@ -892,7 +892,7 @@ Vec_IntPush.exit81:                               ; preds = %.Vec_IntGrow.exit10
   %168 = add nuw nsw i32 %.495, 1
   %.val58 = load i32, ptr %7, align 8
   %169 = icmp slt i32 %168, %.val58
-  br i1 %169, label %133, label %.critedge8, !llvm.loop !16
+  br i1 %169, label %133, label %.critedge8, !llvm.loop !15
 
 .critedge8:                                       ; preds = %Vec_IntPush.exit81, %.critedge6.preheader
   ret ptr %39
@@ -926,7 +926,7 @@ attributes #9 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -936,4 +936,3 @@ attributes #9 = { nounwind allocsize(1) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

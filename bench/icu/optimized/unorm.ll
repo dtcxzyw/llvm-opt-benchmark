@@ -357,7 +357,7 @@ lpad34:                                           ; preds = %invoke.cont31
 
 if.end37:                                         ; preds = %if.then29, %invoke.cont35
   %rightLength.lobit = lshr i32 %rightLength, 31
-  %conv = trunc i32 %rightLength.lobit to i8
+  %conv = trunc nuw nsw i32 %rightLength.lobit to i8
   store ptr %right, ptr %agg.tmp39, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp39, i32 noundef %rightLength)
           to label %invoke.cont42 unwind label %lpad41

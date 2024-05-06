@@ -336,7 +336,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br label %79
 
 79:                                               ; preds = %78, %67
-  %80 = call fastcc i32 @_wait_nodes_ready(ptr noundef nonnull %39), !range !10
+  %80 = call fastcc i32 @_wait_nodes_ready(ptr noundef nonnull %39)
   %.not62 = icmp eq i32 %80, 0
   br i1 %.not62, label %81, label %job_desc_msg_destroy.exit
 
@@ -797,7 +797,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 declare void @slurm_setup_remote_working_cluster(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_wait_nodes_ready(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   store i32 %3, ptr @pending_job_id, align 4
@@ -1005,7 +1005,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   tail call void @list_append(ptr noundef %2, ptr noundef nonnull %14) #9
   %22 = tail call ptr @list_next(ptr noundef %4) #9
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %18
   tail call void @list_iterator_destroy(ptr noundef %4) #9
@@ -1060,7 +1060,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %43 = getelementptr inbounds [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
   %44 = load i32, ptr %43, align 4
   %.not105 = icmp eq i32 %44, 0
-  br i1 %.not105, label %._crit_edge145, label %.lr.ph144, !llvm.loop !12
+  br i1 %.not105, label %._crit_edge145, label %.lr.ph144, !llvm.loop !11
 
 ._crit_edge145:                                   ; preds = %.lr.ph144, %31
   store i1 true, ptr @is_het_job, align 1
@@ -1203,9 +1203,9 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br label %110
 
 110:                                              ; preds = %109, %98
-  %111 = call fastcc i32 @_wait_nodes_ready(ptr noundef nonnull %72), !range !10
+  %111 = call fastcc i32 @_wait_nodes_ready(ptr noundef nonnull %72)
   %.not117 = icmp eq i32 %111, 0
-  br i1 %.not117, label %112, label %69, !llvm.loop !13
+  br i1 %.not117, label %112, label %69, !llvm.loop !12
 
 112:                                              ; preds = %110
   %113 = load i32, ptr @destroy_job, align 4
@@ -1498,7 +1498,6 @@ attributes #11 = { nounwind willreturn memory(none) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}

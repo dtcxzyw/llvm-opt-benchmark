@@ -47,7 +47,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pingv6_prot:
 declare dso_local void @ping_close(ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @ping_v6_pre_connect(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ping_v6_pre_connect(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2) #1 align 16 {
   %4 = icmp slt i32 %2, 24
   %5 = select i1 %4, i32 -22, i32 0
   ret i32 %5
@@ -617,7 +617,7 @@ declare dso_local i32 @ip6_dst_hoplimit(ptr noundef) local_unnamed_addr #0
 declare dso_local void @lock_sock_nested(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ping_v6_proc_init_net(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 -12, 1) i32 @ping_v6_proc_init_net(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @ping_v6_seq_ops, i32 noundef 16, ptr noundef null) #8

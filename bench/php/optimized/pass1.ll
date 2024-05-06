@@ -584,7 +584,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %or.cond, label %291, label %367
 
 291:                                              ; preds = %281
-  %292 = trunc i8 %.0416503 to i1
+  %292 = trunc nuw i8 %.0416503 to i1
   br i1 %292, label %293, label %298
 
 293:                                              ; preds = %291
@@ -899,7 +899,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %.critedge
 
 472:                                              ; preds = %27
-  %473 = trunc i8 %.0416503 to i1
+  %473 = trunc nuw i8 %.0416503 to i1
   br i1 %473, label %474, label %.critedge
 
 474:                                              ; preds = %472

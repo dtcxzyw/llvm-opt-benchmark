@@ -365,7 +365,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = zext i8 %16 to i32
-  %18 = call fastcc i32 @zbee_security_parse_key(ptr noundef %14, ptr noundef nonnull %3, i32 noundef %17), !range !7
+  %18 = call fastcc i32 @zbee_security_parse_key(ptr noundef %14, ptr noundef nonnull %3, i32 noundef %17)
   %.not12 = icmp eq i32 %18, 0
   br i1 %.not12, label %19, label %23
 
@@ -432,7 +432,7 @@ define internal void @uat_key_record_post_update() #0 {
   %18 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = zext i8 %19 to i32
-  %21 = call fastcc i32 @zbee_security_parse_key(ptr noundef %17, ptr noundef nonnull %2, i32 noundef %20), !range !7
+  %21 = call fastcc i32 @zbee_security_parse_key(ptr noundef %17, ptr noundef nonnull %2, i32 noundef %20)
   %.not7 = icmp eq i32 %21, 0
   br i1 %.not7, label %29, label %22
 
@@ -459,7 +459,7 @@ define internal void @uat_key_record_post_update() #0 {
   %33 = zext i32 %30 to i64
   %34 = icmp ult i64 %indvars.iv.next, %33
   %35 = select i1 %32, i1 %34, i1 false
-  br i1 %35, label %13, label %._crit_edge, !llvm.loop !8
+  br i1 %35, label %13, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %29, %5
   ret void
@@ -812,7 +812,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.0200263.us = phi ptr [ %195, %193 ], [ %185, %.lr.ph ]
   %189 = load ptr, ptr %.0200263.us, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 16
-  %191 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef %25, i8 noundef signext %186, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %190), !range !7
+  %191 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef %25, i8 noundef signext %186, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %190)
   %.not245.us = icmp eq i32 %191, 0
   br i1 %.not245.us, label %193, label %.thread291
 
@@ -826,13 +826,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %195 = load ptr, ptr %194, align 8
   %196 = icmp ne ptr %195, null
   %197 = and i1 %.not245.us, %196
-  br i1 %197, label %.lr.ph.split.us, label %.loopexit262, !llvm.loop !9
+  br i1 %197, label %.lr.ph.split.us, label %.loopexit262, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %202
   %.0200263 = phi ptr [ %204, %202 ], [ %185, %.lr.ph ]
   %198 = load ptr, ptr %.0200263, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 16
-  %200 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef %25, i8 noundef signext %186, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %199), !range !7
+  %200 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef %25, i8 noundef signext %186, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %199)
   %.not245 = icmp eq i32 %200, 0
   br i1 %.not245, label %202, label %.thread295
 
@@ -846,7 +846,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %204 = load ptr, ptr %203, align 8
   %205 = icmp ne ptr %204, null
   %206 = and i1 %.not245, %205
-  br i1 %206, label %.lr.ph.split, label %.loopexit262, !llvm.loop !9
+  br i1 %206, label %.lr.ph.split, label %.loopexit262, !llvm.loop !8
 
 .loopexit262:                                     ; preds = %202, %193, %184, %181
   %207 = load ptr, ptr @zbee_pc_keyring, align 8
@@ -863,7 +863,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.2202268.us = phi ptr [ %217, %215 ], [ %207, %.lr.ph270 ]
   %211 = load ptr, ptr %.2202268.us, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 16
-  %213 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef %25, i8 noundef signext %208, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %212), !range !7
+  %213 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef %25, i8 noundef signext %208, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %212)
   %.not244.us = icmp eq i32 %213, 0
   br i1 %.not244.us, label %215, label %.thread302
 
@@ -877,13 +877,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %217 = load ptr, ptr %216, align 8
   %218 = icmp ne ptr %217, null
   %219 = and i1 %.not244.us, %218
-  br i1 %219, label %.lr.ph270.split.us, label %.thread258, !llvm.loop !10
+  br i1 %219, label %.lr.ph270.split.us, label %.thread258, !llvm.loop !9
 
 .lr.ph270.split:                                  ; preds = %.lr.ph270, %224
   %.2202268 = phi ptr [ %226, %224 ], [ %207, %.lr.ph270 ]
   %220 = load ptr, ptr %.2202268, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 16
-  %222 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef %25, i8 noundef signext %208, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %221), !range !7
+  %222 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef %25, i8 noundef signext %208, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %221)
   %.not244 = icmp eq i32 %222, 0
   br i1 %.not244, label %224, label %.thread306
 
@@ -897,13 +897,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %226 = load ptr, ptr %225, align 8
   %227 = icmp ne ptr %226, null
   %228 = and i1 %.not244, %227
-  br i1 %228, label %.lr.ph270.split, label %.thread258, !llvm.loop !10
+  br i1 %228, label %.lr.ph270.split, label %.thread258, !llvm.loop !9
 
 .loopexit:                                        ; preds = %177, %174
   %.sink326 = phi ptr [ %176, %174 ], [ %179, %177 ]
   %229 = trunc i32 %.1 to i8
   %230 = getelementptr inbounds i8, ptr %.sink326, i64 16
-  %231 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef nonnull %25, i8 noundef signext %229, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %230), !range !7
+  %231 = call fastcc i32 @zbee_sec_decrypt_payload(ptr noundef nonnull %5, ptr noundef nonnull %25, i8 noundef signext %229, ptr noundef %165, i32 noundef %150, i32 noundef %.0204256, ptr noundef nonnull %230)
   %.not249 = icmp eq i32 %231, 0
   br i1 %.not249, label %.thread258, label %.loopexit.thread314
 
@@ -1033,7 +1033,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zbee_sec_decrypt_payload(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zbee_sec_decrypt_payload(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
   %10 = alloca [13 x i8], align 1
@@ -1063,7 +1063,7 @@ define internal fastcc i32 @zbee_sec_decrypt_payload(ptr nocapture noundef reado
   store i8 %19, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %16, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.preheader.i, label %16, !llvm.loop !10
 
 .preheader.i:                                     ; preds = %16, %.preheader.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %16 ]
@@ -1074,7 +1074,7 @@ define internal fastcc i32 @zbee_sec_decrypt_payload(ptr nocapture noundef reado
   store i8 %23, ptr %24, align 1
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 16
-  br i1 %exitcond20.not.i, label %zbee_sec_key_hash.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond20.not.i, label %zbee_sec_key_hash.exit, label %.preheader.i, !llvm.loop !11
 
 zbee_sec_key_hash.exit:                           ; preds = %.preheader.i
   %25 = getelementptr inbounds i8, ptr %11, i64 16
@@ -1098,7 +1098,7 @@ zbee_sec_key_hash.exit:                           ; preds = %.preheader.i
   store i8 %31, ptr %32, align 1
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 16
-  br i1 %exitcond.not.i16, label %.preheader.i17, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i16, label %.preheader.i17, label %28, !llvm.loop !10
 
 .preheader.i17:                                   ; preds = %28, %.preheader.i17
   %indvars.iv17.i18 = phi i64 [ %indvars.iv.next18.i19, %.preheader.i17 ], [ 0, %28 ]
@@ -1109,7 +1109,7 @@ zbee_sec_key_hash.exit:                           ; preds = %.preheader.i
   store i8 %35, ptr %36, align 1
   %indvars.iv.next18.i19 = add nuw nsw i64 %indvars.iv17.i18, 1
   %exitcond20.not.i20 = icmp eq i64 %indvars.iv.next18.i19, 16
-  br i1 %exitcond20.not.i20, label %zbee_sec_key_hash.exit21, label %.preheader.i17, !llvm.loop !12
+  br i1 %exitcond20.not.i20, label %zbee_sec_key_hash.exit21, label %.preheader.i17, !llvm.loop !11
 
 zbee_sec_key_hash.exit21:                         ; preds = %.preheader.i17
   %37 = getelementptr inbounds i8, ptr %11, i64 16
@@ -1151,7 +1151,7 @@ zbee_sec_key_hash.exit21:                         ; preds = %.preheader.i17
   %60 = getelementptr inbounds i8, ptr %10, i64 6
   store i8 %59, ptr %60, align 1
   %61 = lshr i64 %41, 56
-  %62 = trunc i64 %61 to i8
+  %62 = trunc nuw i64 %61 to i8
   %63 = getelementptr inbounds i8, ptr %10, i64 7
   store i8 %62, ptr %63, align 1
   %64 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1168,7 +1168,7 @@ zbee_sec_key_hash.exit21:                         ; preds = %.preheader.i17
   %73 = getelementptr inbounds i8, ptr %10, i64 10
   store i8 %72, ptr %73, align 1
   %74 = lshr i32 %66, 24
-  %75 = trunc i32 %74 to i8
+  %75 = trunc nuw i32 %74 to i8
   %76 = getelementptr inbounds i8, ptr %10, i64 11
   store i8 %75, ptr %76, align 1
   %77 = getelementptr inbounds i8, ptr %10, i64 12
@@ -1177,7 +1177,7 @@ zbee_sec_key_hash.exit21:                         ; preds = %.preheader.i17
   %79 = sext i8 %2 to i32
   %80 = sext i8 %2 to i64
   %81 = getelementptr i8, ptr %1, i64 %80
-  %82 = call i32 @zbee_sec_ccm_decrypt(ptr noundef %.0, ptr noundef nonnull %10, ptr noundef %1, ptr noundef %81, ptr noundef %3, i32 noundef %79, i32 noundef %4, i32 noundef %5), !range !7
+  %82 = call i32 @zbee_sec_ccm_decrypt(ptr noundef %.0, ptr noundef nonnull %10, ptr noundef %1, ptr noundef %81, ptr noundef %3, i32 noundef %79, i32 noundef %4, i32 noundef %5)
   ret i32 %82
 }
 
@@ -1190,7 +1190,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
   %10 = alloca [16 x i8], align 16
   %11 = alloca [16 x i8], align 16
@@ -1284,7 +1284,7 @@ define hidden i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr nocapture noundef re
   %.not69 = icmp eq i32 %5, 0
   %54 = select i1 %.not69, i32 0, i32 64
   %55 = or disjoint i32 %53, %54
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nuw nsw i32 %55 to i8
   %57 = or disjoint i8 %56, 1
   store i8 %57, ptr %9, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %16, ptr noundef nonnull align 1 dereferenceable(13) %1, i64 13, i1 false)
@@ -1327,15 +1327,15 @@ define hidden i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not86, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader74
-  %scevgep90 = getelementptr i8, ptr %16, i64 %86
-  %scevgep92 = getelementptr i8, ptr %73, i64 %86
-  %narrow107 = xor i32 %.1, 15
-  %77 = zext nneg i32 %narrow107 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep90, ptr noundef nonnull align 1 dereferenceable(1) %scevgep92, i64 %77, i1 false)
+  %scevgep93 = getelementptr i8, ptr %16, i64 %86
+  %scevgep95 = getelementptr i8, ptr %73, i64 %86
+  %narrow110 = xor i32 %.1, 15
+  %77 = zext nneg i32 %narrow110 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep93, ptr noundef nonnull align 1 dereferenceable(1) %scevgep95, i64 %77, i1 false)
   br label %.loopexit
 
 78:                                               ; preds = %68, %85
-  %indvars.iv = phi i64 [ 0, %68 ], [ %indvars.iv.next, %85 ]
+  %indvars.iv90 = phi i64 [ 0, %68 ], [ %indvars.iv.next91, %85 ]
   %.079 = phi i32 [ 2, %68 ], [ %93, %85 ]
   %79 = icmp ugt i32 %.079, 15
   br i1 %79, label %80, label %85
@@ -1356,15 +1356,15 @@ define hidden i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr nocapture noundef re
   %86 = zext nneg i32 %.1 to i64
   %87 = getelementptr [16 x i8], ptr %10, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
-  %89 = getelementptr i8, ptr %2, i64 %indvars.iv
+  %89 = getelementptr i8, ptr %2, i64 %indvars.iv90
   %90 = load i8, ptr %89, align 1
   %91 = xor i8 %90, %88
   %92 = getelementptr [16 x i8], ptr %9, i64 0, i64 %86
   store i8 %91, ptr %92, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %93 = add nuw nsw i32 %.1, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader74, label %78, !llvm.loop !13
+  %exitcond.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
+  br i1 %exitcond.not, label %.preheader74, label %78, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.preheader74, %67
   %.3 = phi i32 [ 0, %67 ], [ 16, %.preheader74 ], [ 16, %.lr.ph.preheader ]
@@ -1378,15 +1378,15 @@ define hidden i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr nocapture noundef re
 
 .lr.ph85.preheader:                               ; preds = %.preheader
   %95 = zext nneg i32 %.4.lcssa to i64
-  %scevgep101 = getelementptr i8, ptr %9, i64 %95
-  %scevgep102 = getelementptr i8, ptr %10, i64 %95
+  %scevgep104 = getelementptr i8, ptr %9, i64 %95
+  %scevgep105 = getelementptr i8, ptr %10, i64 %95
   %narrow = sub nuw nsw i32 16, %.4.lcssa
   %96 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep101, ptr align 1 %scevgep102, i64 %96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep104, ptr align 1 %scevgep105, i64 %96, i1 false)
   br label %._crit_edge
 
 .lr.ph83:                                         ; preds = %.loopexit, %103
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %103 ], [ 0, %.loopexit ]
+  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %103 ], [ 0, %.loopexit ]
   %.482 = phi i32 [ %111, %103 ], [ %.3, %.loopexit ]
   %97 = icmp ugt i32 %.482, 15
   br i1 %97, label %98, label %103
@@ -1407,15 +1407,15 @@ define hidden i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr nocapture noundef re
   %104 = zext nneg i32 %.5 to i64
   %105 = getelementptr [16 x i8], ptr %10, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1
-  %107 = getelementptr i8, ptr %4, i64 %indvars.iv96
+  %107 = getelementptr i8, ptr %4, i64 %indvars.iv99
   %108 = load i8, ptr %107, align 1
   %109 = xor i8 %108, %106
   %110 = getelementptr [16 x i8], ptr %9, i64 0, i64 %104
   store i8 %109, ptr %110, align 1
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %111 = add nuw nsw i32 %.5, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %28
-  br i1 %exitcond100.not, label %.preheader, label %.lr.ph83, !llvm.loop !14
+  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %28
+  br i1 %exitcond103.not, label %.preheader, label %.lr.ph83, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph85.preheader, %.preheader
   %112 = load ptr, ptr %12, align 8
@@ -1537,7 +1537,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #1
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @zbee_security_parse_key(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
@@ -1583,7 +1583,7 @@ define internal fastcc noundef i32 @zbee_security_parse_key(ptr noundef readonly
   %20 = add nsw i32 %.03851.us, -1
   %.not59 = icmp eq i32 %.03851.us, 0
   %indvars.iv.next57 = add i64 %indvars.iv56, %.137.v63
-  br i1 %.not59, label %.loopexit, label %.split.us, !llvm.loop !15
+  br i1 %.not59, label %.loopexit, label %.split.us, !llvm.loop !14
 
 .split:                                           ; preds = %.split.preheader, %38
   %indvars.iv = phi i64 [ %8, %.split.preheader ], [ %indvars.iv.next, %38 ]
@@ -1636,7 +1636,7 @@ define internal fastcc noundef i32 @zbee_security_parse_key(ptr noundef readonly
   %44 = add nsw i32 %.03851, -1
   %.not58 = icmp eq i32 %.03851, 0
   %indvars.iv.next = add i64 %indvars.iv, %.137.v
-  br i1 %.not58, label %.loopexit, label %.split, !llvm.loop !15
+  br i1 %.not58, label %.loopexit, label %.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %24, %29, %38, %17, %.split.us, %3
   %.039 = phi i32 [ 0, %3 ], [ 1, %17 ], [ 0, %.split.us ], [ 1, %38 ], [ 0, %29 ], [ 0, %24 ]
@@ -1710,12 +1710,12 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef readonly %0, i3
   store i8 %23, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit39, label %18, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit39, label %18, !llvm.loop !15
 
 .loopexit39:                                      ; preds = %18, %.lr.ph
   %.2 = phi i32 [ %9, %.lr.ph ], [ 0, %18 ]
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit39
   %24 = zext nneg i32 %.2 to i64
@@ -1753,7 +1753,7 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef readonly %0, i3
   store i8 %37, ptr %35, align 1
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 16
-  br i1 %exitcond61.not, label %.loopexit, label %32, !llvm.loop !18
+  br i1 %exitcond61.not, label %.loopexit, label %32, !llvm.loop !17
 
 .loopexit:                                        ; preds = %32, %.lr.ph49
   %.5 = phi i32 [ %.347, %.lr.ph49 ], [ 0, %32 ]
@@ -1762,7 +1762,7 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef readonly %0, i3
   store i8 0, ptr %39, align 1
   %.3 = add nuw nsw i32 %.5, 1
   %.not38 = icmp eq i32 %.3, 14
-  br i1 %.not38, label %._crit_edge50, label %.lr.ph49, !llvm.loop !19
+  br i1 %.not38, label %._crit_edge50, label %.lr.ph49, !llvm.loop !18
 
 ._crit_edge50:                                    ; preds = %.loopexit, %._crit_edge
   %40 = lshr i32 %1, 5
@@ -1789,7 +1789,7 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef readonly %0, i3
   store i8 %54, ptr %52, align 1
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 16
-  br i1 %exitcond65.not, label %55, label %49, !llvm.loop !20
+  br i1 %exitcond65.not, label %55, label %49, !llvm.loop !19
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %5, align 8
@@ -1835,7 +1835,7 @@ attributes #15 = { nounwind willreturn memory(none) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -1848,4 +1848,3 @@ attributes #15 = { nounwind willreturn memory(none) }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

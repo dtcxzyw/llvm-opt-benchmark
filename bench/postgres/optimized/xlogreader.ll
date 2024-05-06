@@ -2408,7 +2408,7 @@ define dso_local void @XLogRecGetBlockTag(ptr nocapture noundef readonly %0, i8 
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %14, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
   br label %20
 
 20:                                               ; preds = %18, %17

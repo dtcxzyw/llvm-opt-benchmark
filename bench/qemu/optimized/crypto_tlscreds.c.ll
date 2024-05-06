@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_qcrypto_tls_creds_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef %creds, ptr noundef %filename, ptr noundef %dh_params, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef %creds, ptr noundef %filename, ptr noundef %dh_params, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %gerr = alloca ptr, align 8
@@ -190,7 +190,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @gnutls_dh_params_import_pkcs3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_tls_creds_get_path(ptr noundef %creds, ptr noundef %filename, i1 noundef zeroext %required, ptr nocapture noundef %cred, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_tls_creds_get_path(ptr noundef %creds, ptr noundef %filename, i1 noundef zeroext %required, ptr nocapture noundef %cred, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %sb = alloca %struct.stat, align 8

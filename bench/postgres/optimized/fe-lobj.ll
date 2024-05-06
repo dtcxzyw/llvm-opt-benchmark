@@ -35,7 +35,7 @@ define i32 @lo_open(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unname
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [2 x %struct.PQArgBlock], align 16
-  %7 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %7 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %22, label %9
 
@@ -68,7 +68,7 @@ define i32 @lo_open(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @lo_initialize(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @lo_initialize(ptr noundef %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %119, label %3
 
@@ -238,7 +238,7 @@ define internal fastcc noundef i32 @lo_initialize(ptr noundef %0) unnamed_addr #
   %92 = add nuw nsw i32 %.0105110, 1
   %93 = tail call i32 @PQntuples(ptr noundef nonnull %12) #10
   %94 = icmp slt i32 %92, %93
-  br i1 %94, label %33, label %._crit_edge, !llvm.loop !5
+  br i1 %94, label %33, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %83
   %95 = icmp eq i32 %91, 0
@@ -333,7 +333,7 @@ define i32 @lo_close(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.PQArgBlock], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %19, label %8
 
@@ -365,7 +365,7 @@ define i32 @lo_truncate(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_un
   %4 = alloca [2 x %struct.PQArgBlock], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %7 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %30, label %9
 
@@ -423,7 +423,7 @@ define i32 @lo_truncate64(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_
   %5 = alloca [2 x %struct.PQArgBlock], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %8 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %27, label %10
 
@@ -470,7 +470,7 @@ define i32 @lo_truncate64(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_
 define i32 @lo_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct.PQArgBlock], align 16
   %6 = alloca i32, align 4
-  %7 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %7 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %27, label %9
 
@@ -517,7 +517,7 @@ define i32 @lo_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef
   %5 = alloca [2 x %struct.PQArgBlock], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %8 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %28, label %10
 
@@ -564,7 +564,7 @@ define i32 @lo_lseek(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef
   %5 = alloca [3 x %struct.PQArgBlock], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %8 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %27, label %10
 
@@ -609,7 +609,7 @@ define noundef i64 @lo_lseek64(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
   %6 = alloca [3 x %struct.PQArgBlock], align 16
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
-  %9 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %9 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %35, label %11
 
@@ -669,7 +669,7 @@ define i32 @lo_creat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.PQArgBlock], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %19, label %8
 
@@ -701,7 +701,7 @@ define i32 @lo_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.PQArgBlock], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %22, label %8
 
@@ -741,7 +741,7 @@ define i32 @lo_tell(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %struct.PQArgBlock], align 16
   %5 = alloca i32, align 4
-  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %19, label %8
 
@@ -773,7 +773,7 @@ define noundef i64 @lo_tell64(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %3 = alloca i64, align 8
   %4 = alloca [1 x %struct.PQArgBlock], align 16
   %5 = alloca i32, align 4
-  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %26, label %8
 
@@ -819,7 +819,7 @@ define i32 @lo_unlink(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.PQArgBlock], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %6 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %19, label %8
 
@@ -895,7 +895,7 @@ define internal fastcc i32 @lo_import_internal(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  %31 = tail call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
+  %31 = tail call fastcc i32 @lo_initialize(ptr noundef nonnull %0)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %lo_creat.exit, label %33
 
@@ -941,7 +941,7 @@ lo_creat.exit:                                    ; preds = %30, %33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %51 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
+  %51 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0)
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %lo_open.exit.thread, label %53
 
@@ -994,7 +994,7 @@ lo_open.exit:                                     ; preds = %53
   %73 = and i64 %69, 2147483647
   %74 = call i32 @lo_write(ptr noundef nonnull %0, i32 noundef %65, ptr noundef nonnull %16, i64 noundef %73)
   %.not42 = icmp eq i32 %74, %70
-  br i1 %.not42, label %.preheader, label %75, !llvm.loop !7
+  br i1 %.not42, label %.preheader, label %75, !llvm.loop !6
 
 75:                                               ; preds = %72
   %76 = call i32 @close(i32 noundef %22) #10
@@ -1010,7 +1010,7 @@ lo_open.exit:                                     ; preds = %53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %82 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
+  %82 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0)
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %lo_close.exit, label %84
 
@@ -1044,7 +1044,7 @@ lo_close.exit:                                    ; preds = %79, %84
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %96 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
+  %96 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0)
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %lo_close.exit49.thread, label %98
 
@@ -1091,7 +1091,7 @@ define i32 @lo_import_with_oid(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lo_export(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @lo_export(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.PQArgBlock], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1111,7 +1111,7 @@ define noundef i32 @lo_export(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %20 = tail call fastcc i32 @lo_initialize(ptr noundef %0), !range !4
+  %20 = tail call fastcc i32 @lo_initialize(ptr noundef %0)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %lo_open.exit.thread, label %22
 
@@ -1169,7 +1169,7 @@ lo_open.exit:                                     ; preds = %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  %47 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
+  %47 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0)
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %lo_close.exit, label %49
 
@@ -1202,7 +1202,7 @@ lo_close.exit:                                    ; preds = %44, %49
 60:                                               ; preds = %.preheader, %72
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %61 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
+  %61 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0)
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.thread, label %63
 
@@ -1239,7 +1239,7 @@ lo_read.exit:                                     ; preds = %63
   %74 = call i64 @write(i32 noundef %37, ptr noundef nonnull %18, i64 noundef %73) #10
   %75 = trunc i64 %74 to i32
   %.not39 = icmp eq i32 %70, %75
-  br i1 %.not39, label %60, label %76, !llvm.loop !8
+  br i1 %.not39, label %60, label %76, !llvm.loop !7
 
 76:                                               ; preds = %72
   %77 = tail call ptr @__errno_location() #12
@@ -1247,7 +1247,7 @@ lo_read.exit:                                     ; preds = %63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %79 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
+  %79 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0)
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %lo_close.exit46, label %81
 
@@ -1286,7 +1286,7 @@ lo_close.exit46:                                  ; preds = %76, %81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %96 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
+  %96 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0)
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %lo_close.exit49.thread, label %98
 
@@ -1405,8 +1405,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

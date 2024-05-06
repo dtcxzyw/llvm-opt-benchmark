@@ -125,7 +125,7 @@ define hidden noalias noundef ptr @extcap_parse_complex(i32 noundef %0, ptr noun
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @extcap_compare_is_default(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @extcap_compare_is_default(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -1949,7 +1949,7 @@ declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @glist_find_numbered_arg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @glist_find_numbered_arg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = icmp ne i32 %3, %4
@@ -1980,7 +1980,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @glist_find_numbered_control(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @glist_find_numbered_control(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = icmp ne i32 %3, %4

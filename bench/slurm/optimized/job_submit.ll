@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [11 x i8] c"job_modify\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @job_submit_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8

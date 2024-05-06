@@ -817,7 +817,7 @@ declare dso_local i32 @drm_add_modes_noedid(ptr noundef, i32 noundef, i32 nounde
 declare dso_local void @drm_set_preferred_mode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__drm_helper_update_and_validate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -35, 1) i32 @__drm_helper_update_and_validate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   tail call void @drm_connector_list_update(ptr noundef %0) #6
   %6 = getelementptr inbounds i8, ptr %0, i64 160
@@ -1830,7 +1830,7 @@ declare dso_local ptr @drm_connector_list_iter_next(ptr noundef) local_unnamed_a
 declare dso_local void @drm_connector_list_iter_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @drm_crtc_helper_mode_valid_fixed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define dso_local range(i32 0, 34) i32 @drm_crtc_helper_mode_valid_fixed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i16, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1880,7 +1880,7 @@ declare dso_local i32 @drm_add_edid_modes(ptr noundef, ptr noundef) local_unname
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_helper_get_modes_fixed(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @drm_connector_helper_get_modes_fixed(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @drm_mode_duplicate(ptr noundef %3, ptr noundef %1) #6
   %5 = icmp eq ptr %4, null

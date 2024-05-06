@@ -54,7 +54,7 @@ define internal i32 @segment_create(ptr noundef %0, ptr noundef readonly %1, i64
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %11, i8 0, i64 4097, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %11, i8 0, i64 4097, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr inttoptr (i64 -1 to ptr), ptr %12, align 8
   %13 = load i32, ptr @opal_shmem_mmap_relocate_backing_file, align 4
@@ -64,7 +64,7 @@ define internal i32 @segment_create(ptr noundef %0, ptr noundef readonly %1, i64
 14:                                               ; preds = %3
   %15 = load ptr, ptr @opal_shmem_mmap_backing_file_base_dir, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
-  %16 = call i32 @stat(ptr noundef %15, ptr noundef nonnull %6) #15
+  %16 = call i32 @stat(ptr noundef readonly %15, ptr noundef nonnull %6) #15
   %17 = tail call ptr @__errno_location() #16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, 0
@@ -169,7 +169,7 @@ opal_gethostname.exit:                            ; preds = %58, %61
 66:                                               ; preds = %opal_gethostname.exit, %56, %53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  %67 = call noalias ptr @strdup(ptr noundef nonnull %.152) #15
+  %67 = call noalias ptr @strdup(ptr noundef nonnull readonly %.152) #15
   %68 = icmp eq ptr %67, null
   br i1 %68, label %enough_space.exit.thread, label %enough_space.exit
 
@@ -349,7 +349,7 @@ opal_gethostname.exit75:                          ; preds = %117, %122
   store i8 0, ptr %8, align 4
   store i32 -1, ptr %9, align 8
   store i64 0, ptr %10, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %11, i8 0, i64 4097, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %11, i8 0, i64 4097, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %12, align 8
   br label %151
 
@@ -469,7 +469,7 @@ opal_gethostname.exit24:                          ; preds = %42, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @segment_detach(ptr nocapture noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @segment_detach(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -506,13 +506,13 @@ opal_gethostname.exit:                            ; preds = %7, %12
   store i32 -1, ptr %20, align 8
   store i64 0, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %21, i8 0, i64 4097, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %21, i8 0, i64 4097, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @segment_unlink(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @segment_unlink(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = tail call i32 @unlink(ptr noundef nonnull %2) #15
   %4 = icmp eq i32 %3, -1

@@ -254,7 +254,7 @@ define dso_local void @exit_aio(ptr noundef %0) local_unnamed_addr #1 align 16 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @kill_ioctx(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @kill_ioctx(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1128
   tail call void @_raw_spin_lock(ptr noundef %4) #14
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -546,7 +546,7 @@ define dso_local i64 @__ia32_compat_sys_io_setup(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @__x64_sys_io_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @__x64_sys_io_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = tail call fastcc i64 @__se_sys_io_destroy(i64 noundef %3), !range !31
@@ -554,7 +554,7 @@ define dso_local noundef i64 @__x64_sys_io_destroy(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @__se_sys_io_destroy(i64 noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_io_destroy(i64 noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca %struct.ctx_rq_wait, align 8
   %3 = tail call fastcc ptr @lookup_ioctx(i64 noundef %0)
   %4 = icmp eq ptr %3, null
@@ -619,7 +619,7 @@ define internal fastcc noundef i64 @__se_sys_io_destroy(i64 noundef %0) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @__ia32_sys_io_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @__ia32_sys_io_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -900,21 +900,21 @@ define dso_local i64 @__ia32_compat_sys_io_submit(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @__x64_sys_io_cancel(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_io_cancel(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_io_cancel(i64 noundef %3, i64 noundef %5), !range !36
+  %6 = tail call fastcc i64 @__se_sys_io_cancel(i64 noundef %3, i64 noundef %5)
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @__se_sys_io_cancel(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_io_cancel(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = inttoptr i64 %1 to ptr
   %4 = tail call i64 @llvm.read_register.i64(metadata !0)
   %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %5, i64 4, i64 %4) #14, !srcloc !37
+  %6 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %5, i64 4, i64 %4) #14, !srcloc !36
   %7 = extractvalue { ptr, i32, i64 } %6, 0
   %8 = extractvalue { ptr, i32, i64 } %6, 2
   %9 = ptrtoint ptr %7 to i64
@@ -953,7 +953,7 @@ define internal fastcc noundef i64 @__se_sys_io_cancel(i64 noundef %0, i64 nound
   %26 = getelementptr i8, ptr %23, i64 -24
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, %1
-  br i1 %28, label %29, label %21, !llvm.loop !38
+  br i1 %28, label %29, label %21, !llvm.loop !37
 
 29:                                               ; preds = %25
   %30 = getelementptr i8, ptr %23, i64 -144
@@ -1014,19 +1014,19 @@ define internal fastcc noundef i64 @__se_sys_io_cancel(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @__ia32_sys_io_cancel(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_io_cancel(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_io_cancel(i64 noundef %4, i64 noundef %7), !range !36
+  %8 = tail call fastcc i64 @__se_sys_io_cancel(i64 noundef %4, i64 noundef %7)
   ret i64 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_io_getevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_io_getevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -1085,7 +1085,7 @@ define dso_local i64 @__x64_sys_io_getevents(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_io_getevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_io_getevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -1151,7 +1151,7 @@ define dso_local i64 @__ia32_sys_io_getevents(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_io_pgetevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_io_pgetevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1164,12 +1164,12 @@ define dso_local i64 @__x64_sys_io_pgetevents(ptr nocapture noundef readonly %0)
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8
-  %14 = tail call fastcc i64 @__se_sys_io_pgetevents(i64 noundef %3, i64 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11, i64 noundef %13), !range !36
+  %14 = tail call fastcc i64 @__se_sys_io_pgetevents(i64 noundef %3, i64 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11, i64 noundef %13), !range !38
   ret i64 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_io_pgetevents(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_io_pgetevents(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca %struct.__aio_sigset, align 8
   %8 = alloca %struct.timespec64, align 8
   %9 = inttoptr i64 %3 to ptr
@@ -1279,7 +1279,7 @@ define internal fastcc i64 @__se_sys_io_pgetevents(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_io_pgetevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_io_pgetevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -1300,12 +1300,12 @@ define dso_local i64 @__ia32_sys_io_pgetevents(ptr nocapture noundef readonly %0
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 4294967295
-  %22 = tail call fastcc i64 @__se_sys_io_pgetevents(i64 noundef %4, i64 noundef %8, i64 noundef %12, i64 noundef %15, i64 noundef %18, i64 noundef %21), !range !36
+  %22 = tail call fastcc i64 @__se_sys_io_pgetevents(i64 noundef %4, i64 noundef %8, i64 noundef %12, i64 noundef %15, i64 noundef %18, i64 noundef %21), !range !38
   ret i64 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_io_getevents_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_io_getevents_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -1369,7 +1369,7 @@ define dso_local i64 @__x64_sys_io_getevents_time32(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_io_getevents_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_io_getevents_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -1435,7 +1435,7 @@ define dso_local i64 @__ia32_sys_io_getevents_time32(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_io_pgetevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_io_pgetevents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.__compat_aio_sigset, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1568,7 +1568,7 @@ define dso_local i64 @__ia32_compat_sys_io_pgetevents(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_io_pgetevents_time64(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_io_pgetevents_time64(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.__compat_aio_sigset, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1701,7 +1701,7 @@ define dso_local i64 @__ia32_compat_sys_io_pgetevents_time64(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @aio_init_fs_context(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @aio_init_fs_context(ptr noundef %0) #1 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 2701791393) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
@@ -2064,7 +2064,7 @@ define internal void @free_ioctx_reqs(ptr noundef %0) #1 align 16 {
 declare dso_local noalias ptr @__alloc_percpu(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @aio_setup_ring(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !26
   %5 = inttoptr i64 %4 to ptr
@@ -2315,7 +2315,7 @@ define internal fastcc void @percpu_ref_get(ptr noundef %0) unnamed_addr #11 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ioctx_add_table(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @ioctx_add_table(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1128
   tail call void @_raw_spin_lock(ptr noundef %3) #14
   %4 = getelementptr inbounds i8, ptr %1, i64 1136
@@ -2761,7 +2761,7 @@ declare dso_local void @down_write(ptr noundef) local_unnamed_addr #3
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @aio_ring_mremap(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -22, 1) i32 @aio_ring_mremap(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4727,7 +4727,7 @@ define internal void @aio_poll_queue_proc(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @aio_poll_wake(ptr noundef %0, i32 %1, i32 %2, ptr noundef %3) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @aio_poll_wake(ptr noundef %0, i32 %1, i32 %2, ptr noundef %3) #1 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %0, i64 -24
   %7 = ptrtoint ptr %3 to i64
@@ -5368,9 +5368,9 @@ attributes #18 = { nounwind memory(read) }
 !33 = distinct !{!33, !13, !14}
 !34 = !{i64 2157376901}
 !35 = distinct !{!35, !13, !14}
-!36 = !{i64 -2147483648, i64 2147483648}
-!37 = !{i64 2157394362}
-!38 = distinct !{!38, !13, !14}
+!36 = !{i64 2157394362}
+!37 = distinct !{!37, !13, !14}
+!38 = !{i64 -2147483648, i64 2147483648}
 !39 = !{i64 2153000623, i64 2153000432, i64 2153000484, i64 2153000530, i64 2153000558}
 !40 = !{i64 2153000697, i64 2153000726, i64 2153000772, i64 2153000830, i64 2153000884, i64 2153000938, i64 2153000993, i64 2153001024, i64 2153001332, i64 2153001338, i64 2153001385, i64 2153001408, i64 2153001434}
 !41 = !{i64 2153001895, i64 2153001706, i64 2153001756, i64 2153001802, i64 2153001830}

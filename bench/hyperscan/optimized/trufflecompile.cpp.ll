@@ -28,7 +28,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.body.i.i
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 6
-  %1 = tail call noundef i64 @llvm.cttz.i64(i64 %0, i1 true), !range !7
+  %1 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
   %add.i.i = or disjoint i64 %1, %mul.i.i
   %cmp.not16 = icmp eq i64 %add.i.i, 256
   br i1 %cmp.not16, label %for.end, label %do.end.preheader
@@ -44,7 +44,7 @@ do.end.preheader:                                 ; preds = %_ZNK3ue29CharReach1
   %shl40 = shl nuw nsw i32 1, %conv339
   %arrayidx41 = getelementptr inbounds i8, ptr %cond37, i64 %conv38
   %5 = load i8, ptr %arrayidx41, align 1
-  %6 = trunc i32 %shl40 to i8
+  %6 = trunc nuw i32 %shl40 to i8
   %conv642 = or i8 %5, %6
   store i8 %conv642, ptr %arrayidx41, align 1
   %cmp.not.i.i43 = icmp ult i64 %add.i.i, 256
@@ -70,7 +70,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i11 = and i64 %v.01744, 192
-  %8 = tail call i64 @llvm.cttz.i64(i64 %and.i.i, i1 true), !range !8
+  %8 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 true)
   %add9.i.i = or disjoint i64 %8, %mul.i.i11
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
@@ -84,11 +84,11 @@ for.body.i.i12:                                   ; preds = %for.cond.i.i
   %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %i.0.i.i
   %9 = load i64, ptr %arrayidx.i.i13.i.i, align 8
   %tobool17.not.i.i = icmp eq i64 %9, 0
-  br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !9
+  br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !7
 
 if.then18.i.i:                                    ; preds = %for.body.i.i12
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i, 6
-  %10 = tail call noundef i64 @llvm.cttz.i64(i64 %9, i1 true), !range !7
+  %10 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %9, i1 true)
   %add21.i.i = or disjoint i64 %10, %mul19.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
@@ -104,11 +104,11 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.t
   %shl = shl nuw nsw i32 1, %conv3
   %arrayidx = getelementptr inbounds i8, ptr %cond, i64 %conv
   %13 = load i8, ptr %arrayidx, align 1
-  %14 = trunc i32 %shl to i8
+  %14 = trunc nuw i32 %shl to i8
   %conv6 = or i8 %13, %14
   store i8 %conv6, ptr %arrayidx, align 1
   %cmp.not.i.i = icmp ult i64 %retval.0.i.i8, 256
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %for.end, !llvm.loop !10
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc.i.i, %_ZNK3ue29CharReach9find_nextEm.exit, %for.cond.i.i, %do.end.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
   ret void
@@ -136,7 +136,7 @@ while.body.preheader:                             ; preds = %for.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %bits_456.020 = phi i32 [ %asmresult1.i22, %while.body ], [ %conv1, %while.body.preheader ]
-  %1 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %bits_456.020) #4, !srcloc !11
+  %1 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %bits_456.020) #4, !srcloc !9
   %asmresult.i21 = extractvalue { i32, i32 } %1, 0
   %asmresult1.i22 = extractvalue { i32, i32 } %1, 1
   %asmresult.i21.tr = zext i32 %asmresult.i21 to i64
@@ -151,7 +151,7 @@ while.body:                                       ; preds = %while.body.preheade
   %or.i.i = or i64 %shl.i.i.i, %5
   store i64 %or.i.i, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not = icmp eq i32 %asmresult1.i22, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !12
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %for.body
   %arrayidx5 = getelementptr inbounds i8, ptr %highset, i64 %indvars.iv
@@ -165,7 +165,7 @@ while.body9.preheader:                            ; preds = %while.end
 
 while.body9:                                      ; preds = %while.body9.preheader, %while.body9
   %bits_456.122 = phi i32 [ %asmresult1.i, %while.body9 ], [ %conv6, %while.body9.preheader ]
-  %7 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %bits_456.122) #4, !srcloc !11
+  %7 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %bits_456.122) #4, !srcloc !9
   %asmresult.i = extractvalue { i32, i32 } %7, 0
   %asmresult1.i = extractvalue { i32, i32 } %7, 1
   %asmresult.i.tr = zext i32 %asmresult.i to i64
@@ -181,12 +181,12 @@ while.body9:                                      ; preds = %while.body9.prehead
   %or.i.i18 = or i64 %shl.i.i.i15, %10
   store i64 %or.i.i18, ptr %arrayidx.i.i.i.i17, align 8
   %tobool8.not = icmp eq i32 %asmresult1.i, 0
-  br i1 %tobool8.not, label %for.inc, label %while.body9, !llvm.loop !13
+  br i1 %tobool8.not, label %for.inc, label %while.body9, !llvm.loop !11
 
 for.inc:                                          ; preds = %while.body9, %while.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -210,11 +210,9 @@ attributes #4 = { nounwind memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
-!8 = !{i64 1, i64 65}
-!9 = distinct !{!9, !6}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{i64 4067735, i64 4067764}
 !10 = distinct !{!10, !6}
-!11 = !{i64 4067735, i64 4067764}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

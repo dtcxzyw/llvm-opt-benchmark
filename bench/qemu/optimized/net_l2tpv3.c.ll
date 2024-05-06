@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [40 x i8] c"iovec too long %d > %d, change l2tpv3.h\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @net_init_l2tpv3(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_l2tpv3(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %result = alloca ptr, align 8
@@ -736,7 +736,7 @@ if.end28:                                         ; preds = %if.then.i22, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @net_l2tpv3_receive_dgram_iov(ptr noundef %nc, ptr noundef %iov, i32 noundef %iovcnt) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @net_l2tpv3_receive_dgram_iov(ptr noundef %nc, ptr noundef %iov, i32 noundef %iovcnt) #0 {
 entry:
   %message = alloca %struct.msghdr, align 8
   %cmp = icmp sgt i32 %iovcnt, 127

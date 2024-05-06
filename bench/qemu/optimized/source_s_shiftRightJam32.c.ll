@@ -10,7 +10,7 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %sh_prom = trunc i64 %dist to i32
+  %sh_prom = trunc nuw i64 %dist to i32
   %shr = lshr i32 %a, %sh_prom
   %0 = sub nsw i32 0, %sh_prom
   %sh_prom1 = and i32 %0, 31

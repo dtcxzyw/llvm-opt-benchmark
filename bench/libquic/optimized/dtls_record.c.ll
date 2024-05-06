@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [121 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/dtls_record.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dtls_open_record(ptr noundef %ssl, ptr nocapture noundef writeonly %out_type, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef writeonly %out_consumed, ptr nocapture noundef writeonly %out_alert, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @dtls_open_record(ptr noundef %ssl, ptr nocapture noundef writeonly %out_type, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef writeonly %out_consumed, ptr nocapture noundef writeonly %out_alert, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %type = alloca i8, align 1
@@ -98,7 +98,7 @@ if.end26:                                         ; preds = %if.then24, %if.end
 
 lor.lhs.false36:                                  ; preds = %if.end26
   %bitmap = getelementptr inbounds i8, ptr %7, i64 280
-  %call39 = call fastcc i32 @dtls1_bitmap_should_discard(ptr noundef nonnull %bitmap, ptr noundef nonnull %sequence), !range !7
+  %call39 = call fastcc i32 @dtls1_bitmap_should_discard(ptr noundef nonnull %bitmap, ptr noundef nonnull %sequence)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.end43, label %if.then41
 
@@ -168,7 +168,7 @@ declare i32 @CBS_get_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @dtls1_bitmap_should_discard(ptr nocapture noundef readonly %bitmap, ptr nocapture noundef readonly %seq_num) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @dtls1_bitmap_should_discard(ptr nocapture noundef readonly %bitmap, ptr nocapture noundef readonly %seq_num) unnamed_addr #2 {
 entry:
   br label %for.body.i
 
@@ -182,7 +182,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %or.i = or disjoint i64 %shl.i, %conv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %to_u64_be.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %to_u64_be.exit, label %for.body.i, !llvm.loop !7
 
 to_u64_be.exit:                                   ; preds = %for.body.i
   %max_seq_num = getelementptr inbounds i8, ptr %bitmap, i64 8
@@ -231,7 +231,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %or.i = or disjoint i64 %shl.i, %conv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %to_u64_be.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %to_u64_be.exit, label %for.body.i, !llvm.loop !7
 
 to_u64_be.exit:                                   ; preds = %for.body.i
   %max_seq_num = getelementptr inbounds i8, ptr %bitmap, i64 8
@@ -273,7 +273,7 @@ if.end13:                                         ; preds = %if.then10, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dtls_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len, i32 noundef %use_epoch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @dtls_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len, i32 noundef %use_epoch) local_unnamed_addr #0 {
 entry:
   %ciphertext_len = alloca i64, align 8
   %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
@@ -326,14 +326,14 @@ cond.true:                                        ; preds = %if.end17
 cond.end:                                         ; preds = %if.end17, %cond.true
   %cond = phi i16 [ %7, %cond.true ], [ -257, %if.end17 ]
   %shr = lshr i16 %cond, 8
-  %conv22 = trunc i16 %shr to i8
+  %conv22 = trunc nuw i16 %shr to i8
   %arrayidx23 = getelementptr inbounds i8, ptr %out, i64 1
   store i8 %conv22, ptr %arrayidx23, align 1
   %conv25 = trunc i16 %cond to i8
   %arrayidx26 = getelementptr inbounds i8, ptr %out, i64 2
   store i8 %conv25, ptr %arrayidx26, align 1
   %shr28 = lshr i16 %epoch.0, 8
-  %conv29 = trunc i16 %shr28 to i8
+  %conv29 = trunc nuw i16 %shr28 to i8
   %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 3
   store i8 %conv29, ptr %arrayidx30, align 1
   %conv33 = trunc i16 %epoch.0 to i8
@@ -363,7 +363,7 @@ if.then48:                                        ; preds = %if.end45
 
 if.end49:                                         ; preds = %if.end45
   %shr50 = lshr i64 %8, 8
-  %conv51 = trunc i64 %shr50 to i8
+  %conv51 = trunc nuw i64 %shr50 to i8
   %arrayidx52 = getelementptr inbounds i8, ptr %out, i64 11
   store i8 %conv51, ptr %arrayidx52, align 1
   %conv54 = trunc i64 %8 to i8
@@ -410,6 +410,5 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

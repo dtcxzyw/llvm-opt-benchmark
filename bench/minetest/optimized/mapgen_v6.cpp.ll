@@ -141,7 +141,7 @@ $_ZTV13BaseException = comdat any
 @.str.42 = private unnamed_addr constant [19 x i8] c"mapgen_mossycobble\00", align 1
 @.str.43 = private unnamed_addr constant [20 x i8] c"mapgen_stair_cobble\00", align 1
 @.str.44 = private unnamed_addr constant [26 x i8] c"mapgen_stair_desert_stone\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.45 = private unnamed_addr constant [51 x i8] c"Mapgen v6: Mapgen alias 'mapgen_stone' is invalid!\00", align 1
 @.str.46 = private unnamed_addr constant [50 x i8] c"Mapgen v6: Mapgen alias 'mapgen_dirt' is invalid!\00", align 1
 @.str.47 = private unnamed_addr constant [61 x i8] c"Mapgen v6: Mapgen alias 'mapgen_dirt_with_grass' is invalid!\00", align 1
@@ -5251,7 +5251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8MapgenV620getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr noundef nonnull align 8 dereferenceable(422) %this, i32 %p.coerce) unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -32768, 32768) i32 @_ZN8MapgenV620getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr noundef nonnull align 8 dereferenceable(422) %this, i32 %p.coerce) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !15
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
@@ -5271,7 +5271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8MapgenV68getBiomeEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(422) %this, i32 %p.coerce) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN8MapgenV68getBiomeEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(422) %this, i32 %p.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %conv = ashr i32 %p.coerce, 16
   %full_node_min = getelementptr inbounds i8, ptr %this, i64 220
@@ -5294,7 +5294,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8MapgenV68getBiomeEiN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(422) %this, i32 noundef %index, i32 %p.coerce) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN8MapgenV68getBiomeEiN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(422) %this, i32 noundef %index, i32 %p.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %noise_biome = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load ptr, ptr %noise_biome, align 8, !tbaa !63
@@ -6007,7 +6007,7 @@ if.end207:                                        ; preds = %if.then186, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8MapgenV614generateGroundEv(ptr noundef nonnull align 8 dereferenceable(422) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -31007, 32768) i32 @_ZN8MapgenV614generateGroundEv(ptr noundef nonnull align 8 dereferenceable(422) %this) local_unnamed_addr #4 align 2 {
 entry:
   %c_water_source = getelementptr inbounds i8, ptr %this, i64 396
   %0 = load i16, ptr %c_water_source, align 4, !tbaa !71

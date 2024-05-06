@@ -76,7 +76,7 @@ define i32 @ompi_coll_tuned_read_rules_config_file(ptr noundef readonly %0, ptr 
   br i1 %.not103, label %37, label %.thread
 
 37:                                               ; preds = %33
-  %38 = trunc i64 %31 to i32
+  %38 = trunc nuw nsw i64 %31 to i32
   store i32 %38, ptr %34, align 8
   %39 = getelementptr inbounds i8, ptr %34, i64 4
   store i32 0, ptr %39, align 4
@@ -135,7 +135,7 @@ define i32 @ompi_coll_tuned_read_rules_config_file(ptr noundef readonly %0, ptr 
   %71 = trunc i64 %70 to i32
   %72 = load i64, ptr %6, align 8
   %73 = trunc i64 %72 to i32
-  %74 = trunc i64 %indvars.iv135 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv135 to i32
   %75 = call ptr @ompi_coll_tuned_mk_msg_rules(i32 noundef %69, i32 noundef %71, i32 noundef %74, i32 noundef %73) #3
   %76 = getelementptr inbounds i8, ptr %54, i64 16
   store ptr %75, ptr %76, align 8

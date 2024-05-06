@@ -4,3 +4,4 @@ CHANGELOGS
 test.log
 patch.diff
 *.bench_tmp.ll
+.vscode

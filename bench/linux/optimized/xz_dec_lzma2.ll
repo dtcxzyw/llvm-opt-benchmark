@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @xz_dec_lzma2_run(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = getelementptr inbounds i8, ptr %0, i64 116
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -428,7 +428,7 @@ define dso_local noundef i32 @xz_dec_lzma2_run(ptr noundef %0, ptr nocapture nou
 
 251:                                              ; preds = %245
   %252 = load i32, ptr %4, align 4
-  %253 = trunc i64 %246 to i32
+  %253 = trunc nuw i64 %246 to i32
   %254 = sub i32 %252, %253
   store i32 %254, ptr %4, align 4
   %255 = zext i32 %247 to i64
@@ -497,7 +497,7 @@ define dso_local noundef i32 @xz_dec_lzma2_run(ptr noundef %0, ptr nocapture nou
   br i1 %289, label %.loopexit, label %290
 
 290:                                              ; preds = %283
-  %291 = trunc i64 %286 to i32
+  %291 = trunc nuw i64 %286 to i32
   %292 = sub i32 %287, %291
   store i32 %292, ptr %4, align 4
   store i64 %284, ptr %9, align 8
@@ -515,7 +515,7 @@ define dso_local noundef i32 @xz_dec_lzma2_run(ptr noundef %0, ptr nocapture nou
   %298 = load ptr, ptr %1, align 8
   %299 = getelementptr i8, ptr %298, i64 %294
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr align 1 %299, i64 %297, i1 false)
-  %300 = trunc i64 %297 to i32
+  %300 = trunc nuw nsw i64 %297 to i32
   store i32 %300, ptr %28, align 4
   %301 = load i64, ptr %9, align 8
   %302 = add i64 %301, %297
@@ -629,7 +629,7 @@ define dso_local noundef i32 @xz_dec_lzma2_run(ptr noundef %0, ptr nocapture nou
   %366 = tail call i64 @llvm.umin.i64(i64 %362, i64 %365)
   %367 = zext i32 %.pr23 to i64
   %368 = tail call i64 @llvm.umin.i64(i64 %366, i64 %367)
-  %369 = trunc i64 %368 to i32
+  %369 = trunc nuw i64 %368 to i32
   %370 = sub i32 %.pr23, %369
   store i32 %370, ptr %4, align 4
   %371 = load ptr, ptr %11, align 8
@@ -745,7 +745,7 @@ declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xz_dec_lzma2_reset(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 7) i32 @xz_dec_lzma2_reset(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ugt i8 %1, 39
   br i1 %3, label %39, label %4
 
@@ -874,7 +874,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %24 = sub i64 %6, %4
   %25 = zext i32 %10 to i64
   %26 = tail call i64 @llvm.umin.i64(i64 %24, i64 %25)
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = sub i32 %10, %27
   store i32 %28, ptr %9, align 4
   %29 = xor i64 %15, -1
@@ -1008,7 +1008,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i32 %123, ptr %0, align 8
   %126 = sub nsw i32 2048, %122
   %127 = ashr i32 %126, 5
-  %128 = trunc i32 %127 to i16
+  %128 = trunc nsw i32 %127 to i16
   %129 = add i16 %121, %128
   store i16 %129, ptr %104, align 2
   %130 = add i64 %93, -1
@@ -1088,7 +1088,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 184:                                              ; preds = %175
   %185 = sub nsw i32 2048, %181
   %186 = ashr i32 %185, 5
-  %187 = trunc i32 %186 to i16
+  %187 = trunc nsw i32 %186 to i16
   %188 = add i16 %180, %187
   br label %194
 
@@ -1184,7 +1184,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 249:                                              ; preds = %240
   %250 = sub nsw i32 2048, %246
   %251 = ashr i32 %250, 5
-  %252 = trunc i32 %251 to i16
+  %252 = trunc nsw i32 %251 to i16
   %253 = add i16 %245, %252
   br label %259
 
@@ -1327,7 +1327,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i32 %335, ptr %0, align 8
   %338 = sub nsw i32 2048, %334
   %339 = ashr i32 %338, 5
-  %340 = trunc i32 %339 to i16
+  %340 = trunc nsw i32 %339 to i16
   %341 = add i16 %333, %340
   store i16 %341, ptr %317, align 2
   %342 = icmp ult i32 %335, 16777216
@@ -1372,7 +1372,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i32 %359, ptr %0, align 8
   %367 = sub nsw i32 2048, %358
   %368 = ashr i32 %367, 5
-  %369 = trunc i32 %368 to i16
+  %369 = trunc nsw i32 %368 to i16
   %370 = add i16 %357, %369
   store i16 %370, ptr %343, align 2
   %371 = icmp ult i32 %101, 7
@@ -1421,7 +1421,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i32 %396, ptr %0, align 8
   %399 = sub nsw i32 2048, %395
   %400 = ashr i32 %399, 5
-  %401 = trunc i32 %400 to i16
+  %401 = trunc nsw i32 %400 to i16
   %402 = add i16 %394, %401
   store i16 %402, ptr %379, align 2
   %403 = load i32, ptr %78, align 4
@@ -1465,7 +1465,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 428:                                              ; preds = %420
   %429 = sub nsw i32 2048, %425
   %430 = ashr i32 %429, 5
-  %431 = trunc i32 %430 to i16
+  %431 = trunc nsw i32 %430 to i16
   %432 = add i16 %424, %431
   %433 = load i32, ptr %77, align 4
   br label %441
@@ -1509,7 +1509,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i32 %310, ptr %0, align 8
   %451 = sub nsw i32 2048, %309
   %452 = ashr i32 %451, 5
-  %453 = trunc i32 %452 to i16
+  %453 = trunc nsw i32 %452 to i16
   %454 = add i16 %308, %453
   store i16 %454, ptr %292, align 2
   %455 = icmp ult i32 %101, 7
@@ -1569,7 +1569,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 493:                                              ; preds = %485
   %494 = sub nsw i32 2048, %490
   %495 = ashr i32 %494, 5
-  %496 = trunc i32 %495 to i16
+  %496 = trunc nsw i32 %495 to i16
   %497 = add i16 %489, %496
   br label %503
 
@@ -1663,7 +1663,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %555 = zext i16 %554 to i32
   %556 = sub nsw i32 2048, %555
   %557 = ashr i32 %556, 5
-  %558 = trunc i32 %557 to i16
+  %558 = trunc nsw i32 %557 to i16
   %559 = add i16 %554, %558
   store i16 %559, ptr %532, align 2
   br label %570
@@ -1778,7 +1778,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 .thread81:                                        ; preds = %626
   %634 = sub nsw i32 2048, %631
   %635 = ashr i32 %634, 5
-  %636 = trunc i32 %635 to i16
+  %636 = trunc nsw i32 %635 to i16
   %637 = add i16 %630, %636
   %638 = shl i32 %611, 1
   br label %648
@@ -1827,7 +1827,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %665 = load i32, ptr %81, align 4
   %666 = zext i32 %665 to i64
   %667 = tail call i64 @llvm.umin.i64(i64 %664, i64 %666)
-  %668 = trunc i64 %667 to i32
+  %668 = trunc nuw i64 %667 to i32
   %669 = sub i32 %665, %668
   store i32 %669, ptr %81, align 4
   %670 = xor i64 %655, -1
@@ -1958,7 +1958,7 @@ define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture no
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 2048, %31
   %33 = ashr i32 %32, 5
-  %34 = trunc i32 %33 to i16
+  %34 = trunc nsw i32 %33 to i16
   %35 = add i16 %30, %34
   store i16 %35, ptr %1, align 2
   %36 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2014,7 +2014,7 @@ define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture no
   %70 = zext i16 %69 to i32
   %71 = sub nsw i32 2048, %70
   %72 = ashr i32 %71, 5
-  %73 = trunc i32 %72 to i16
+  %73 = trunc nsw i32 %72 to i16
   %74 = add i16 %69, %73
   store i16 %74, ptr %45, align 2
   %75 = getelementptr inbounds i8, ptr %1, i64 260
@@ -2084,7 +2084,7 @@ define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture no
   %118 = zext i16 %117 to i32
   %119 = sub nsw i32 2048, %118
   %120 = ashr i32 %119, 5
-  %121 = trunc i32 %120 to i16
+  %121 = trunc nsw i32 %120 to i16
   %122 = add i16 %117, %121
   br label %129
 

@@ -57,7 +57,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @demultiplex_sideband(ptr noundef %me, i32 noundef %status, ptr noundef %buf, i32 noundef %len, i32 noundef %die_on_error, ptr noundef %scratch, ptr nocapture noundef writeonly %sideband_type) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @demultiplex_sideband(ptr noundef %me, i32 noundef %status, ptr noundef %buf, i32 noundef %len, i32 noundef %die_on_error, ptr noundef %scratch, ptr nocapture noundef writeonly %sideband_type) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @demultiplex_sideband.suffix, align 8
   %tobool.not = icmp eq ptr %0, null

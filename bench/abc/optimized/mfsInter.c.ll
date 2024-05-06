@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_MfsSatAddXor(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_MfsSatAddXor(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [3 x i32], align 4
   %6 = shl nsw i32 %1, 1
   %7 = or disjoint i32 %6, 1
@@ -436,7 +436,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %217 = getelementptr inbounds i32, ptr %.val135, i64 %216
   %218 = load i32, ptr %217, align 4
   %219 = add nsw i32 %218, %211
-  %220 = call i32 @Abc_MfsSatAddXor(ptr noundef %95, i32 noundef %218, i32 noundef %219, i32 noundef %208), !range !11
+  %220 = call i32 @Abc_MfsSatAddXor(ptr noundef %95, i32 noundef %218, i32 noundef %219, i32 noundef %208)
   %.not124 = icmp eq i32 %220, 0
   br i1 %.not124, label %221, label %222
 
@@ -481,9 +481,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %239 = load i32, ptr %238, align 8
   %240 = add nsw i32 %239, %236
   %241 = shl nsw i32 %239, 1
-  %242 = trunc i64 %indvars.iv176 to i32
+  %242 = trunc nuw nsw i64 %indvars.iv176 to i32
   %243 = add nsw i32 %241, %242
-  %244 = call i32 @Abc_MfsSatAddXor(ptr noundef %95, i32 noundef %236, i32 noundef %240, i32 noundef %243), !range !11
+  %244 = call i32 @Abc_MfsSatAddXor(ptr noundef %95, i32 noundef %236, i32 noundef %240, i32 noundef %243)
   %.not123 = icmp eq i32 %244, 0
   br i1 %.not123, label %245, label %246
 
@@ -570,7 +570,7 @@ Vec_IntPush.exit144:                              ; preds = %.Vec_IntGrow.exit10
   %.val137 = load i32, ptr %285, align 4
   %286 = sext i32 %.val137 to i64
   %287 = icmp slt i64 %indvars.iv.next177, %286
-  br i1 %287, label %.lr.ph158, label %.critedge2, !llvm.loop !12
+  br i1 %287, label %.lr.ph158, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit144, %226
   %288 = call i32 @sat_solver_simplify(ptr noundef %95) #4
@@ -656,7 +656,7 @@ define ptr @Abc_NtkMfsInterplateTruth(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %37, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %24, %16
   %39 = load ptr, ptr %18, align 8
@@ -681,7 +681,7 @@ declare i32 @Int_ManInterpolate(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare void @Sto_ManFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkMfsInterplateEval(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 131621) i32 @Abc_NtkMfsInterplateEval(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Abc_NtkMfsInterplateTruth(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0)
   %5 = icmp eq i32 %2, 6
   br i1 %5, label %6, label %16
@@ -808,7 +808,7 @@ define ptr @Abc_NtkMfsInterplate(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   store i32 %36, ptr %37, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %23, %15
   %38 = load ptr, ptr %17, align 8
@@ -864,7 +864,6 @@ attributes #6 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

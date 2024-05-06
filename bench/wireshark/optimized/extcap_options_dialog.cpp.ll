@@ -11604,7 +11604,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QStringP7QWidgetEEE6r
 8:                                                ; preds = %7
   %9 = shl nuw i64 %.0, 1
   %10 = add i64 %9, -1
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !105
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
   %13 = shl i64 2, %12
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -11822,7 +11822,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE6insertEm.exit: ; preds = %.
 128:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE6insertEm.exit
   %129 = add nuw nsw i64 %.02333, 1
   %exitcond.not = icmp eq i64 %129, 128
-  br i1 %exitcond.not, label %130, label %43, !llvm.loop !106
+  br i1 %exitcond.not, label %130, label %43, !llvm.loop !105
 
 130:                                              ; preds = %128
   %131 = load ptr, ptr %42, align 8
@@ -11874,7 +11874,7 @@ _ZN12QHashPrivate4NodeI7QStringP7QWidgetED2Ev.exit.i: ; preds = %139, %_ZN17QArr
 _ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit: ; preds = %130, %146
   %147 = add nuw nsw i64 %.02234, 1
   %exitcond36.not = icmp eq i64 %147, %38
-  br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !107
+  br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.loopexit32
   %148 = icmp eq ptr %15, null
@@ -11988,7 +11988,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeI7QStringP7QWidg
 9:                                                ; preds = %8
   %10 = shl nuw i64 %1, 1
   %11 = add i64 %10, -1
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %11, i1 true), !range !105
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
   %14 = shl i64 2, %13
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
@@ -12180,7 +12180,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QStringP7QWidgetEEEC2
 17:                                               ; preds = %16
   %18 = shl nuw i64 %.sroa.speculated, 1
   %19 = add i64 %18, -1
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !105
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %21 = xor i64 %20, 63
   %22 = shl i64 2, %21
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -12412,12 +12412,12 @@ _ZN12QHashPrivate4NodeI7QStringP7QWidgetEC2ERKS4_.exit: ; preds = %_ZN12QHashPri
 147:                                              ; preds = %54, %_ZN12QHashPrivate4NodeI7QStringP7QWidgetEC2ERKS4_.exit
   %148 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %148, 128
-  br i1 %exitcond.not, label %149, label %54, !llvm.loop !108
+  br i1 %exitcond.not, label %149, label %54, !llvm.loop !107
 
 149:                                              ; preds = %147
   %150 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %150, %47
-  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !109
+  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %149, %.loopexit
   ret void
@@ -12909,7 +12909,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM19ExtcapOptionsDialogFvvEN
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !110
+  %17 = load ptr, ptr %16, align 8, !nosanitize !109
   br label %_ZN9QtPrivate15FunctionPointerIM19ExtcapOptionsDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -14260,7 +14260,7 @@ _ZN11ExtcapValueaSERKS_.exit:                     ; preds = %_ZN17QArrayDataPoin
   %131 = add i64 %.028, -1
   %132 = load i64, ptr %18, align 8
   %.not7 = icmp eq i64 %131, %132
-  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %_ZN11ExtcapValueaSERKS_.exit, %_ZN11ExtcapValueC2ERKS_.exit13
   %133 = load ptr, ptr %13, align 8
@@ -14593,7 +14593,7 @@ _ZN11ExtcapValueC2ERKS_.exit.i:                   ; preds = %65, %_ZN7QStringC2E
   %69 = add i64 %68, 1
   store i64 %69, ptr %27, align 16
   %70 = icmp ult ptr %67, %24
-  br i1 %70, label %28, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10copyAppendEPKS1_S4_.exit, !llvm.loop !112
+  br i1 %70, label %28, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10copyAppendEPKS1_S4_.exit, !llvm.loop !111
 
 71:                                               ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit
   %72 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14684,7 +14684,7 @@ _ZN11ExtcapValueC2ERKS_.exit.i27:                 ; preds = %115, %_ZN7QStringC2
   %119 = add i64 %118, 1
   store i64 %119, ptr %77, align 16
   %120 = icmp ult ptr %117, %74
-  br i1 %120, label %78, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10copyAppendEPKS1_S4_.exit, !llvm.loop !113
+  br i1 %120, label %78, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10copyAppendEPKS1_S4_.exit, !llvm.loop !112
 
 _ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10copyAppendEPKS1_S4_.exit: ; preds = %_ZN11ExtcapValueC2ERKS_.exit.i27, %_ZN11ExtcapValueC2ERKS_.exit.i, %71, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.thread, %13
   %121 = load ptr, ptr %0, align 8
@@ -14840,7 +14840,7 @@ _ZN11ExtcapValueC2ERKS_.exit:                     ; preds = %_ZN7QStringC2ERKS_.
   store ptr %49, ptr %4, align 8
   %50 = getelementptr i8, ptr %.0, i64 88
   %.not = icmp eq ptr %49, %9
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !114
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge.loopexit:                             ; preds = %_ZN11ExtcapValueC2ERKS_.exit
   %.pre = load ptr, ptr %5, align 8
@@ -14926,7 +14926,7 @@ _ZN11ExtcapValueaSERKS_.exit:                     ; preds = %_ZN17QArrayDataPoin
   store ptr %85, ptr %4, align 8
   %86 = getelementptr i8, ptr %.2, i64 88
   %.not6 = icmp eq ptr %85, %7
-  br i1 %.not6, label %._crit_edge16, label %.lr.ph15, !llvm.loop !115
+  br i1 %.not6, label %._crit_edge16, label %.lr.ph15, !llvm.loop !114
 
 ._crit_edge16:                                    ; preds = %_ZN11ExtcapValueaSERKS_.exit, %._crit_edge
   %.3 = phi ptr [ %.1, %._crit_edge ], [ %86, %_ZN11ExtcapValueaSERKS_.exit ]
@@ -14941,7 +14941,7 @@ _ZN11ExtcapValueaSERKS_.exit:                     ; preds = %_ZN17QArrayDataPoin
   %90 = load ptr, ptr %89, align 8
   call void %90(ptr noundef nonnull align 8 dereferenceable(88) %88) #20
   %.not7 = icmp eq ptr %88, %10
-  br i1 %.not7, label %._crit_edge20.loopexit, label %.lr.ph19, !llvm.loop !116
+  br i1 %.not7, label %._crit_edge20.loopexit, label %.lr.ph19, !llvm.loop !115
 
 ._crit_edge20.loopexit:                           ; preds = %.lr.ph19
   %.pre28 = load ptr, ptr %5, align 8
@@ -14973,7 +14973,7 @@ _ZN11ExtcapValueaSERKS_.exit:                     ; preds = %_ZN17QArrayDataPoin
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %105, %106
-  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveIP11ExtcapValuexEEvT_T0_S3_EN10DestructorD2Ev.exit, label %96, !llvm.loop !117
+  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveIP11ExtcapValuexEEvT_T0_S3_EN10DestructorD2Ev.exit, label %96, !llvm.loop !116
 
 _ZZN9QtPrivate30q_relocate_overlap_n_left_moveIP11ExtcapValuexEEvT_T0_S3_EN10DestructorD2Ev.exit: ; preds = %96, %._crit_edge20
   ret void
@@ -15075,7 +15075,7 @@ _ZN11ExtcapValueC2ERKS_.exit:                     ; preds = %_ZN7QStringC2ERKS_.
   store ptr %57, ptr %0, align 8
   %58 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %58, %12
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !118
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !117
 
 ._crit_edge.loopexit:                             ; preds = %_ZN11ExtcapValueC2ERKS_.exit
   %.pre = load ptr, ptr %4, align 8
@@ -15163,7 +15163,7 @@ _ZN11ExtcapValueaSERKS_.exit:                     ; preds = %_ZN17QArrayDataPoin
   store ptr %96, ptr %0, align 8
   %97 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %97, %9
-  br i1 %.not6, label %._crit_edge12, label %.lr.ph11, !llvm.loop !119
+  br i1 %.not6, label %._crit_edge12, label %.lr.ph11, !llvm.loop !118
 
 ._crit_edge12:                                    ; preds = %_ZN11ExtcapValueaSERKS_.exit, %._crit_edge
   %98 = phi ptr [ %59, %._crit_edge ], [ %96, %_ZN11ExtcapValueaSERKS_.exit ]
@@ -15180,7 +15180,7 @@ _ZN11ExtcapValueaSERKS_.exit:                     ; preds = %_ZN17QArrayDataPoin
   call void %102(ptr noundef nonnull align 8 dereferenceable(88) %99) #20
   %103 = load ptr, ptr %0, align 8
   %.not7 = icmp eq ptr %103, %13
-  br i1 %.not7, label %._crit_edge16.loopexit, label %.lr.ph15, !llvm.loop !120
+  br i1 %.not7, label %._crit_edge16.loopexit, label %.lr.ph15, !llvm.loop !119
 
 ._crit_edge16.loopexit:                           ; preds = %.lr.ph15
   %.pre19 = load ptr, ptr %4, align 8
@@ -15213,7 +15213,7 @@ _ZN11ExtcapValueaSERKS_.exit:                     ; preds = %_ZN17QArrayDataPoin
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %118, %119
-  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reverse_iteratorIP11ExtcapValueExEEvT_T0_S5_EN10DestructorD2Ev.exit, label %108, !llvm.loop !121
+  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reverse_iteratorIP11ExtcapValueExEEvT_T0_S5_EN10DestructorD2Ev.exit, label %108, !llvm.loop !120
 
 _ZZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reverse_iteratorIP11ExtcapValueExEEvT_T0_S5_EN10DestructorD2Ev.exit: ; preds = %108, %._crit_edge16
   ret void
@@ -15495,12 +15495,12 @@ attributes #25 = { noreturn }
 !102 = distinct !{!102, !5}
 !103 = distinct !{!103, !5}
 !104 = distinct !{!104, !5}
-!105 = !{i64 0, i64 65}
+!105 = distinct !{!105, !5}
 !106 = distinct !{!106, !5}
 !107 = distinct !{!107, !5}
 !108 = distinct !{!108, !5}
-!109 = distinct !{!109, !5}
-!110 = !{}
+!109 = !{}
+!110 = distinct !{!110, !5}
 !111 = distinct !{!111, !5}
 !112 = distinct !{!112, !5}
 !113 = distinct !{!113, !5}
@@ -15511,4 +15511,3 @@ attributes #25 = { noreturn }
 !118 = distinct !{!118, !5}
 !119 = distinct !{!119, !5}
 !120 = distinct !{!120, !5}
-!121 = distinct !{!121, !5}

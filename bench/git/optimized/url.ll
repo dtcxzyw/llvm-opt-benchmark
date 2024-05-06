@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hexval_table = external local_unnamed_addr constant [256 x i8], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @is_urlschemechar(i32 noundef %first_flag, i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @is_urlschemechar(i32 noundef %first_flag, i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %ch, 0
   br i1 %cmp, label %land.rhs, label %land.end
@@ -42,7 +42,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @is_url(ptr noundef readonly %url) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @is_url(ptr noundef readonly %url) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %url, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -189,8 +189,8 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 define internal fastcc ptr @url_decode_internal(ptr nocapture noundef %query, i32 noundef %len, ptr noundef readonly %stop_at, ptr noundef %out, i32 noundef %decode_plus) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %query, align 8
-  %tobool.not58 = icmp eq i32 %len, 0
-  br i1 %tobool.not58, label %while.end, label %while.body.lr.ph
+  %tobool.not59 = icmp eq i32 %len, 0
+  br i1 %tobool.not59, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %tobool2.not = icmp eq ptr %stop_at, null
@@ -200,9 +200,9 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %len.addr.062 = phi i32 [ %len, %while.body.lr.ph ], [ %sub, %while.cond.backedge ]
-  %q.059 = phi ptr [ %0, %while.body.lr.ph ], [ %add.ptr18, %while.cond.backedge ]
-  %1 = load i8, ptr %q.059, align 1
+  %len.addr.063 = phi i32 [ %len, %while.body.lr.ph ], [ %sub, %while.cond.backedge ]
+  %q.060 = phi ptr [ %0, %while.body.lr.ph ], [ %add.ptr18, %while.cond.backedge ]
+  %1 = load i8, ptr %q.060, align 1
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %while.end, label %if.end
 
@@ -216,17 +216,17 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  %incdec.ptr = getelementptr inbounds i8, ptr %q.059, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %q.060, i64 1
   br label %while.end
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
   %cmp = icmp eq i8 %1, 37
-  %or.cond = icmp ugt i32 %len.addr.062, 2
+  %or.cond = icmp ugt i32 %len.addr.063, 2
   %or.cond22 = and i1 %or.cond, %cmp
   br i1 %or.cond22, label %if.then13, label %if.end20
 
 if.then13:                                        ; preds = %if.end5
-  %add.ptr = getelementptr inbounds i8, ptr %q.059, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %q.060, i64 1
   %2 = load i8, ptr %add.ptr, align 1
   %idxprom.i.i = zext i8 %2 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i
@@ -237,7 +237,7 @@ if.then13:                                        ; preds = %if.end5
 
 cond.false.i:                                     ; preds = %if.then13
   %shl.i = shl nuw nsw i32 %conv.i.i, 4
-  %arrayidx1.i = getelementptr inbounds i8, ptr %q.059, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %q.060, i64 2
   %4 = load i8, ptr %arrayidx1.i, align 1
   %idxprom.i4.i = zext i8 %4 to i64
   %arrayidx.i5.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i
@@ -274,22 +274,22 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %conv.i = trunc i32 %cond.i to i8
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %strbuf_avail.exit.i25, %if.then.i34, %strbuf_avail.exit.i40, %if.then.i49, %strbuf_addch.exit
-  %inc.pre-phi.i.sink = phi i64 [ %inc.pre-phi.i, %strbuf_addch.exit ], [ %.pre8.i37, %if.then.i34 ], [ %.neg.i27, %strbuf_avail.exit.i25 ], [ %.pre8.i52, %if.then.i49 ], [ %.neg.i42, %strbuf_avail.exit.i40 ]
-  %.sink76 = phi i64 [ %8, %strbuf_addch.exit ], [ %.pre.i36, %if.then.i34 ], [ %13, %strbuf_avail.exit.i25 ], [ %.pre.i51, %if.then.i49 ], [ %15, %strbuf_avail.exit.i40 ]
-  %conv.i.sink = phi i8 [ %conv.i, %strbuf_addch.exit ], [ 32, %if.then.i34 ], [ 32, %strbuf_avail.exit.i25 ], [ %1, %if.then.i49 ], [ %1, %strbuf_avail.exit.i40 ]
-  %.sink67 = phi i64 [ 3, %strbuf_addch.exit ], [ 1, %if.then.i34 ], [ 1, %strbuf_avail.exit.i25 ], [ 1, %if.then.i49 ], [ 1, %strbuf_avail.exit.i40 ]
-  %.sink = phi i32 [ -3, %strbuf_addch.exit ], [ -1, %if.then.i34 ], [ -1, %strbuf_avail.exit.i25 ], [ -1, %if.then.i49 ], [ -1, %strbuf_avail.exit.i40 ]
+while.cond.backedge:                              ; preds = %strbuf_avail.exit.i25, %if.then.i34, %strbuf_avail.exit.i40, %if.then.i50, %strbuf_addch.exit
+  %inc.pre-phi.i.sink = phi i64 [ %inc.pre-phi.i, %strbuf_addch.exit ], [ %.pre8.i37, %if.then.i34 ], [ %.neg.i27, %strbuf_avail.exit.i25 ], [ %.pre8.i53, %if.then.i50 ], [ %.neg.i42, %strbuf_avail.exit.i40 ]
+  %.sink77 = phi i64 [ %8, %strbuf_addch.exit ], [ %.pre.i36, %if.then.i34 ], [ %13, %strbuf_avail.exit.i25 ], [ %.pre.i52, %if.then.i50 ], [ %15, %strbuf_avail.exit.i40 ]
+  %conv.i.sink = phi i8 [ %conv.i, %strbuf_addch.exit ], [ 32, %if.then.i34 ], [ 32, %strbuf_avail.exit.i25 ], [ %1, %if.then.i50 ], [ %1, %strbuf_avail.exit.i40 ]
+  %.sink68 = phi i64 [ 3, %strbuf_addch.exit ], [ 1, %if.then.i34 ], [ 1, %strbuf_avail.exit.i25 ], [ 1, %if.then.i50 ], [ 1, %strbuf_avail.exit.i40 ]
+  %.sink = phi i32 [ -3, %strbuf_addch.exit ], [ -1, %if.then.i34 ], [ -1, %strbuf_avail.exit.i25 ], [ -1, %if.then.i50 ], [ -1, %strbuf_avail.exit.i40 ]
   %9 = load ptr, ptr %buf.i30, align 8
   store i64 %inc.pre-phi.i.sink, ptr %len.i.i26, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %.sink76
+  %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %.sink77
   store i8 %conv.i.sink, ptr %arrayidx.i, align 1
   %10 = load ptr, ptr %buf.i30, align 8
   %11 = load i64, ptr %len.i.i26, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %10, i64 %11
   store i8 0, ptr %arrayidx3.i, align 1
-  %add.ptr18 = getelementptr inbounds i8, ptr %q.059, i64 %.sink67
-  %sub = add nsw i32 %len.addr.062, %.sink
+  %add.ptr18 = getelementptr inbounds i8, ptr %q.060, i64 %.sink68
+  %sub = add nsw i32 %len.addr.063, %.sink
   %tobool.not = icmp eq i32 %sub, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
@@ -318,22 +318,22 @@ if.then.i34:                                      ; preds = %strbuf_avail.exit.i
 if.else:                                          ; preds = %hex2chr.exit, %if.end20
   %14 = load i64, ptr %out, align 8
   %tobool.not.i.i39 = icmp eq i64 %14, 0
-  br i1 %tobool.not.i.i39, label %if.then.i49, label %strbuf_avail.exit.i40
+  br i1 %tobool.not.i.i39, label %if.then.i50, label %strbuf_avail.exit.i40
 
 strbuf_avail.exit.i40:                            ; preds = %if.else
   %15 = load i64, ptr %len.i.i26, align 8
   %.neg.i42 = add i64 %15, 1
   %tobool.not.i43 = icmp eq i64 %14, %.neg.i42
-  br i1 %tobool.not.i43, label %if.then.i49, label %while.cond.backedge
+  br i1 %tobool.not.i43, label %if.then.i50, label %while.cond.backedge
 
-if.then.i49:                                      ; preds = %strbuf_avail.exit.i40, %if.else
+if.then.i50:                                      ; preds = %strbuf_avail.exit.i40, %if.else
   tail call void @strbuf_grow(ptr noundef nonnull %out, i64 noundef 1) #9
-  %.pre.i51 = load i64, ptr %len.i.i26, align 8
-  %.pre8.i52 = add i64 %.pre.i51, 1
+  %.pre.i52 = load i64, ptr %len.i.i26, align 8
+  %.pre8.i53 = add i64 %.pre.i52, 1
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %while.body, %entry, %if.then4
-  %q.1 = phi ptr [ %incdec.ptr, %if.then4 ], [ %0, %entry ], [ %add.ptr18, %while.cond.backedge ], [ %q.059, %while.body ]
+  %q.1 = phi ptr [ %incdec.ptr, %if.then4 ], [ %0, %entry ], [ %add.ptr18, %while.cond.backedge ], [ %q.060, %while.body ]
   store ptr %q.1, ptr %query, align 8
   %call31 = tail call ptr @strbuf_detach(ptr noundef %out, ptr noundef null) #9
   ret ptr %call31

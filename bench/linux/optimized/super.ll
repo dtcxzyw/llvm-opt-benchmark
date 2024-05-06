@@ -88,7 +88,7 @@ define dso_local void @cleanup_module() #0 section ".exit.text" align 16 {
 declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @efivarfs_init_fs_context(ptr nocapture noundef writeonly %0) #2 align 16 {
+define internal noundef range(i32 -95, 1) i32 @efivarfs_init_fs_context(ptr nocapture noundef writeonly %0) #2 align 16 {
   %2 = tail call zeroext i1 @efivar_is_available() #17
   br i1 %2, label %3, label %12
 
@@ -148,7 +148,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @efivarfs_parse_param(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 -2147483648, 1) i32 @efivarfs_parse_param(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.fs_parse_result, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -196,7 +196,7 @@ define internal i32 @efivarfs_get_tree(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @efivarfs_reconfigure(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @efivarfs_reconfigure(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = tail call zeroext i1 @efivar_supports_writes() #17
   br i1 %2, label %10, label %3
 
@@ -301,7 +301,7 @@ declare dso_local ptr @efivarfs_get_inode(ptr noundef, ptr noundef, i32 noundef,
 declare dso_local ptr @d_make_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @efivarfs_ops_notifier(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2) #8 align 16 {
+define internal noundef range(i32 0, 2) i32 @efivarfs_ops_notifier(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2) #8 align 16 {
   switch i64 %1, label %16 [
     i64 0, label %4
     i64 1, label %10
@@ -504,7 +504,7 @@ define internal i32 @efivarfs_callback(ptr nocapture noundef readonly %0, i64 %1
   %109 = phi i64 [ %68, %75 ], [ %107, %.preheader ]
   %110 = mul i64 %109, 7046029254386353131
   %111 = lshr i64 %110, 32
-  %112 = trunc i64 %111 to i32
+  %112 = trunc nuw i64 %111 to i32
   store i32 %112, ptr %7, align 8
   %113 = call ptr @d_alloc(ptr noundef %13, ptr noundef nonnull %7) #17
   %114 = icmp eq ptr %113, null
@@ -697,7 +697,7 @@ declare dso_local i64 @efivar_reserved_space() local_unnamed_addr #10
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @efivarfs_d_hash(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -773,7 +773,7 @@ define internal noundef i32 @efivarfs_d_hash(ptr noundef %0, ptr nocapture nound
   %52 = phi i64 [ %9, %17 ], [ %50, %.preheader ]
   %53 = mul i64 %52, 7046029254386353131
   %54 = lshr i64 %53, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   store i32 %55, ptr %1, align 8
   br label %56
 

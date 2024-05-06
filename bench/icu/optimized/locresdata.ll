@@ -764,14 +764,14 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uloc_getCharacterOrientation_75(ptr noundef %localeId, ptr noundef %status) local_unnamed_addr #1 {
+define noundef range(i32 0, 5) i32 @uloc_getCharacterOrientation_75(ptr noundef %localeId, ptr noundef %status) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode(ptr noundef %localeId, ptr noundef nonnull @.str.3, ptr noundef %status), !range !4
+  %call = tail call fastcc noundef i32 @_ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode(ptr noundef %localeId, ptr noundef nonnull @.str.3, ptr noundef %status)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode(ptr noundef %localeId, ptr noundef %key, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 5) i32 @_ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode(ptr noundef %localeId, ptr noundef %key, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %localeBuffer = alloca %"class.icu_75::CharString", align 8
   %sink = alloca %"class.icu_75::CharStringByteSink", align 8
@@ -864,9 +864,9 @@ if.end17:                                         ; preds = %if.end16, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uloc_getLineOrientation_75(ptr noundef %localeId, ptr noundef %status) local_unnamed_addr #1 {
+define noundef range(i32 0, 5) i32 @uloc_getLineOrientation_75(ptr noundef %localeId, ptr noundef %status) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode(ptr noundef %localeId, ptr noundef nonnull @.str.4, ptr noundef %status), !range !4
+  %call = tail call fastcc noundef i32 @_ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode(ptr noundef %localeId, ptr noundef nonnull @.str.4, ptr noundef %status)
   ret i32 %call
 }
 
@@ -906,4 +906,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 5}

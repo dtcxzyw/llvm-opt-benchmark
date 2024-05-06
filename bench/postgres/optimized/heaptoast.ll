@@ -739,8 +739,8 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not110, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
-  %47 = trunc i64 %21 to i32
-  %48 = trunc i64 %27 to i32
+  %47 = trunc nuw nsw i64 %21 to i32
+  %48 = trunc nuw nsw i64 %27 to i32
   %49 = getelementptr inbounds i8, ptr %5, i64 4
   %50 = mul i32 %17, -1996
   %51 = add i32 %50, %2

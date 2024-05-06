@@ -138,7 +138,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12v1_decoder_t19one_byte_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture readnone %0) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12v1_decoder_t19one_byte_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture readnone %0) #0 align 2 {
 entry:
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i8, ptr %_tmpbuf, align 8
@@ -300,7 +300,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12v1_decoder_t21eight_byte_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture readnone %0) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12v1_decoder_t21eight_byte_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture readnone %0) #0 align 2 {
 entry:
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i8, ptr %_tmpbuf, align 8

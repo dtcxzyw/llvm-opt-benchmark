@@ -394,7 +394,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tree_traverse_pre_order(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tree_traverse_pre_order(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @diam_tree_to_csv(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.loopexit

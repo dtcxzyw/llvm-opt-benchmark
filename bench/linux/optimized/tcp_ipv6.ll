@@ -543,7 +543,7 @@ define internal ptr @tcp_v6_md5_lookup(ptr noundef %0, ptr noundef %1) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcp_v6_md5_hash_skb(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @tcp_v6_md5_hash_skb(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) #1 align 16 {
   %5 = alloca %struct.scatterlist, align 8
   %6 = alloca %struct.tcp_sigpool, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 192
@@ -1571,7 +1571,7 @@ declare dso_local zeroext i1 @ipv6_opt_accepted(ptr noundef, ptr noundef, ptr no
 declare dso_local void @consume_skb(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.tcp_key, align 8
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
@@ -2558,7 +2558,7 @@ tcp_v6_timewait_ack.exit:                         ; preds = %.thread53, %560, %5
   %598 = load i32, ptr %597, align 8
   %599 = getelementptr inbounds i8, ptr %404, i64 148
   %600 = load i32, ptr %599, align 4
-  call fastcc void @tcp_v6_send_response(ptr noundef nonnull %404, ptr noundef %0, i32 noundef %567, i32 noundef %569, i32 noundef %582, i32 noundef %586, i32 noundef %588, i32 noundef %590, i32 noundef 0, i8 noundef zeroext %593, i32 noundef %596, i32 noundef %598, i32 noundef %600, ptr noundef nonnull %2)
+  call fastcc void @tcp_v6_send_response(ptr noundef nonnull %404, ptr noundef readonly %0, i32 noundef %567, i32 noundef %569, i32 noundef %582, i32 noundef %586, i32 noundef %588, i32 noundef %590, i32 noundef 0, i8 noundef zeroext %593, i32 noundef %596, i32 noundef %598, i32 noundef %600, ptr noundef nonnull %2)
   call void @inet_twsk_put(ptr noundef nonnull %404) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
   br label %.loopexit
@@ -4295,7 +4295,7 @@ define internal void @tcp_v6_mtu_reduced(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcp6_proc_init(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @tcp6_proc_init(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.1, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @tcp6_seq_ops, i32 noundef 48, ptr noundef nonnull @tcp6_seq_afinfo) #15
@@ -4322,7 +4322,7 @@ declare dso_local void @remove_proc_entry(ptr noundef, ptr noundef) local_unname
 declare dso_local void @tcp_close(ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @tcp_v6_pre_connect(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2) #6 align 16 {
+define internal noundef range(i32 -22, 1) i32 @tcp_v6_pre_connect(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2) #6 align 16 {
   %4 = icmp slt i32 %2, 24
   %5 = select i1 %4, i32 -22, i32 0
   ret i32 %5
@@ -6138,7 +6138,7 @@ declare dso_local i32 @tcp_twsk_unique(ptr noundef, ptr noundef, ptr noundef) #0
 declare dso_local void @tcp_twsk_destructor(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcp_v6_err(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #1 align 16 {
+define internal noundef range(i32 -2, 1) i32 @tcp_v6_err(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #1 align 16 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 200
   %9 = load ptr, ptr %8, align 8

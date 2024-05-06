@@ -11435,7 +11435,7 @@ _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvENS3_19exceptions_internal14DefaultFactoryIS8_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i.i.i, align 8, !noalias !99
   %_M_manager.i.i2.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 16
   %_M_invoker.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.i.i, i8 0, i64 16, i1 false), !noalias !99
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp4.i.i, i8 0, i64 16, i1 false), !noalias !99
   store ptr @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEZNS0_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i3.i.i, align 8, !noalias !99
   store ptr @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEZNS0_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i2.i.i, align 8, !noalias !99
   %contracts_.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -13954,7 +13954,7 @@ _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvENS3_19exceptions_internal14DefaultFactoryISA_EEE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i.i.i, align 8, !noalias !148
   %_M_manager.i.i2.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 16
   %_M_invoker.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.i.i, i8 0, i64 16, i1 false), !noalias !148
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp4.i.i, i8 0, i64 16, i1 false), !noalias !148
   store ptr @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEZNS0_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOSA_", ptr %_M_invoker.i3.i.i, align 8, !noalias !148
   store ptr @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEZNS0_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i2.i.i, align 8, !noalias !148
   %contracts_.i.i = getelementptr inbounds i8, ptr %this, i64 144

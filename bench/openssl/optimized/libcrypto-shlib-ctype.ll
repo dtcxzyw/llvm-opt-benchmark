@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ctype_char_map = internal unnamed_addr constant [128 x i16] [i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 104, i16 72, i16 72, i16 72, i16 72, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 2344, i16 896, i16 896, i16 896, i16 896, i16 896, i16 896, i16 2944, i16 2944, i16 2944, i16 896, i16 3968, i16 2944, i16 2944, i16 2944, i16 3968, i16 3476, i16 3476, i16 3476, i16 3476, i16 3476, i16 3476, i16 3476, i16 3476, i16 3476, i16 3476, i16 2944, i16 896, i16 896, i16 3968, i16 896, i16 2944, i16 896, i16 3474, i16 3474, i16 3474, i16 3474, i16 3474, i16 3474, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 3458, i16 896, i16 896, i16 896, i16 896, i16 896, i16 896, i16 3473, i16 3473, i16 3473, i16 3473, i16 3473, i16 3473, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 3457, i16 896, i16 896, i16 896, i16 896, i16 64], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_ctype_check(i32 noundef %c, i32 noundef %mask) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ctype_check(i32 noundef %c, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %or.cond = icmp ult i32 %c, 128
   br i1 %or.cond, label %land.rhs, label %land.end
@@ -27,7 +27,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_isdigit(i32 noundef %c) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_isdigit(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %c, -48
   %1 = icmp ult i32 %0, 10
@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_isupper(i32 noundef %c) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_isupper(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %c, -65
   %1 = icmp ult i32 %0, 26
@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_islower(i32 noundef %c) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_islower(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %c, -97
   %1 = icmp ult i32 %0, 26
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_tolower(i32 noundef %c) local_unnamed_addr #0 {
+define noundef i32 @ossl_tolower(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %c, -65
   %or.cond = icmp ult i32 %0, 26
@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_toupper(i32 noundef %c) local_unnamed_addr #0 {
+define noundef i32 @ossl_toupper(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %c, -97
   %or.cond = icmp ult i32 %0, 26
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_ascii_isdigit(i32 noundef %c) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ascii_isdigit(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %c, -48
   %1 = icmp ult i32 %0, 10

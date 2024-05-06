@@ -321,7 +321,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !106, !noalias !103
   %12 = trunc i32 %1 to i8
@@ -333,7 +333,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !106, !noalias !103
   %19 = lshr i32 %1, 6
@@ -393,7 +393,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !109, !noalias !114, !nonnull !5, !noundef !5
   %52 = getelementptr inbounds i8, ptr %51, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
   %53 = load i64, ptr %43, align 8, !alias.scope !109, !noalias !114, !noundef !5
   %54 = add i64 %53, %42
   store i64 %54, ptr %43, align 8, !alias.scope !109, !noalias !114
@@ -401,7 +401,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !119, !noundef !5
   %58 = load i64, ptr %0, align 8, !alias.scope !119, !noundef !5
@@ -447,7 +447,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !122, !noalias !127, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %14 = load i64, ptr %4, align 8, !alias.scope !122, !noalias !127, !noundef !5
   %15 = add i64 %14, %2
   store i64 %15, ptr %4, align 8, !alias.scope !122, !noalias !127
@@ -511,7 +511,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %33 unwind label %.loopexit
 
 32:                                               ; preds = %.body169.thread
-  %.pre = trunc i8 %.0106238 to i1
+  %.pre = trunc nuw i8 %.0106238 to i1
   br i1 %.pre, label %.thread, label %.thread251
 
 .loopexit:                                        ; preds = %31, %77
@@ -722,7 +722,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 93:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h43ff86d15b39428cE.exit166"
   %94 = load i64, ptr %21, align 8, !range !185, !noundef !5
-  %trunc = trunc i64 %94 to i1
+  %trunc = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -743,7 +743,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 .body169:                                         ; preds = %100, %.thread254
   %.0106 = phi i8 [ %.2108, %.thread254 ], [ %.1107, %100 ]
   %.pn143 = phi { ptr, i32 } [ %.pn141, %.thread254 ], [ %101, %100 ]
-  %99 = trunc i8 %.0106 to i1
+  %99 = trunc nuw i8 %.0106 to i1
   br i1 %99, label %.body169.thread, label %.thread251
 
 100:                                              ; preds = %129, %198, %96
@@ -888,7 +888,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 .body174:                                         ; preds = %141, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit188"
   %.098 = phi i8 [ %.2100, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit188" ], [ %.199, %141 ]
   %.pn137 = phi { ptr, i32 } [ %.pn135, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit188" ], [ %142, %141 ]
-  %140 = trunc i8 %.098 to i1
+  %140 = trunc nuw i8 %.098 to i1
   br i1 %140, label %.body174.thread, label %.thread254
 
 141:                                              ; preds = %169, %197, %117
@@ -1013,7 +1013,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 174:                                              ; preds = %158
   %175 = load i64, ptr %9, align 8, !range !185, !noundef !5
-  %trunc129 = trunc i64 %175 to i1
+  %trunc129 = trunc nuw i64 %175 to i1
   %176 = getelementptr inbounds i8, ptr %9, i64 8
   br i1 %trunc129, label %.thread230, label %177
 
@@ -1064,7 +1064,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 189:                                              ; preds = %184
   %190 = load i64, ptr %6, align 8, !range !185, !noundef !5
-  %trunc130 = trunc i64 %190 to i1
+  %trunc130 = trunc nuw i64 %190 to i1
   %191 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.634, ptr noundef nonnull align 8 dereferenceable(24) %191, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -1217,7 +1217,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd2127d22adb96bc6E.exit"
 
 231:                                              ; preds = %.body174.thread
-  %.pre249 = trunc i8 %.098242 to i1
+  %.pre249 = trunc nuw i8 %.098242 to i1
   br i1 %.pre249, label %245, label %.thread254
 
 .thread231:                                       ; preds = %223, %226
@@ -1357,7 +1357,7 @@ define void @"_ZN75_$LT$diesel_table_macro_syntax..PrimaryKey$u20$as$u20$syn..pa
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @_ZN3syn5group12parse_parens17hb6882e4be9e6b9bdE(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 %1)
   %6 = load i64, ptr %4, align 8, !range !185, !noundef !5
-  %trunc = trunc i64 %6 to i1
+  %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   br i1 %trunc, label %.thread23, label %8
 
@@ -1508,7 +1508,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..par
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @_ZN3syn4attr9Attribute11parse_outer17h25257ddaf000d93cE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 %1)
   %15 = load i64, ptr %13, align 8, !range !185, !noundef !5
-  %trunc = trunc i64 %15 to i1
+  %trunc = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -1630,7 +1630,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..par
 
 50:                                               ; preds = %44
   %51 = load i64, ptr %6, align 8, !range !185, !noundef !5
-  %trunc83 = trunc i64 %51 to i1
+  %trunc83 = trunc nuw i64 %51 to i1
   %52 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.627, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -2100,7 +2100,7 @@ common.resume:                                    ; preds = %35, %26
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h4391fcf60ceec164E.exit": ; preds = %28
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !388
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !393
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !393
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !388
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !388
   br label %33

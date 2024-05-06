@@ -2019,7 +2019,7 @@ declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #2 s
 declare dso_local i32 @__SCT__tp_func_cfg80211_pmsr_report(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nl80211_pmsr_send_ftm_res(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

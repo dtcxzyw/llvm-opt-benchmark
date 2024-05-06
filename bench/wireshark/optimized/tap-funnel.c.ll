@@ -42,7 +42,7 @@ define hidden void @funnel_dump_all_text_windows() local_unnamed_addr #0 {
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %8, ptr noundef %11)
   %13 = load ptr, ptr @text_windows, align 8
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   %15 = tail call ptr @g_ptr_array_remove_index(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %16) #6

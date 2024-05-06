@@ -899,7 +899,7 @@ define void @Scl_Init(ptr noundef %0) local_unnamed_addr #0 {
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandReadLib(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #11
@@ -1317,7 +1317,7 @@ Abc_SclLoad.exit:                                 ; preds = %135, %132
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandWriteLib(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandWriteLib(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.50) #10
   %.not = icmp eq i32 %4, -1
@@ -1379,7 +1379,7 @@ define internal noundef i32 @Scl_CommandWriteLib(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandPrintLib(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %.outer
 
@@ -1505,7 +1505,7 @@ define internal noundef i32 @Scl_CommandPrintLib(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandLeak2Area(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %.outer
 
@@ -1615,7 +1615,7 @@ define internal noundef i32 @Scl_CommandLeak2Area(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandReadScl(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %4
 
@@ -1714,7 +1714,7 @@ Abc_SclLoad.exit:                                 ; preds = %32, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandWriteScl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandWriteScl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.50) #10
   %.not = icmp eq i32 %4, -1
@@ -1776,7 +1776,7 @@ define internal noundef i32 @Scl_CommandWriteScl(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandDumpGen(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %.outer
 
@@ -1934,7 +1934,7 @@ define internal noundef i32 @Scl_CommandDumpGen(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.50) #10
   %.not = icmp eq i32 %4, -1
@@ -1997,7 +1997,7 @@ define internal noundef i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandStime(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %.outer
 
@@ -2162,7 +2162,7 @@ define internal noundef i32 @Scl_CommandStime(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %5
@@ -2229,7 +2229,7 @@ define internal noundef i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %.outer
@@ -2326,7 +2326,7 @@ define internal noundef i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.SC_BusPars_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   %6 = getelementptr inbounds i8, ptr %4, i64 20
@@ -2583,7 +2583,7 @@ define internal noundef i32 @Scl_CommandBuffer(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandMinsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %5
@@ -2672,7 +2672,7 @@ define internal noundef i32 @Scl_CommandMinsize(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %5
@@ -2761,7 +2761,7 @@ define internal noundef i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandUpsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.SC_SizePars_, align 16
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   %6 = getelementptr inbounds i8, ptr %4, i64 40
@@ -3286,7 +3286,7 @@ define internal noundef i32 @Scl_CommandUpsize(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandDnsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.SC_SizePars_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   %6 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3710,7 +3710,7 @@ define internal noundef i32 @Scl_CommandDnsize(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %5
@@ -3803,7 +3803,7 @@ define internal noundef i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandReadConstr(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %5
@@ -3870,7 +3870,7 @@ define internal noundef i32 @Scl_CommandReadConstr(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandWriteConstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #10
@@ -3958,7 +3958,7 @@ define internal noundef i32 @Scl_CommandWriteConstr(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandPrintConstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandPrintConstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #10
@@ -4006,7 +4006,7 @@ define internal noundef i32 @Scl_CommandPrintConstr(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Scl_CommandResetConstr(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Scl_CommandResetConstr(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %4
 
@@ -4532,7 +4532,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %19
 
 19:                                               ; preds = %12, %7, %13, %16, %8, %10
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %20 = call i32 (...) @Abc_FrameIsBridgeMode() #10
   %.not9 = icmp eq i32 %20, 0
   br i1 %.not9, label %27, label %21
@@ -4551,7 +4551,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %29
 
 29:                                               ; preds = %27, %21
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %2, %29
@@ -4585,19 +4585,13 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare void @Abc_SclPrintCells(ptr noundef, float noundef, float noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4642,7 +4636,7 @@ declare void @Abc_SclPrintBuffers(ptr noundef, ptr noundef, i32 noundef) local_u
 declare void @Abc_SclReadTimingConstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 declare ptr @Extra_FileNameExtension(ptr noundef) local_unnamed_addr #1
 
@@ -4831,7 +4825,7 @@ define internal fastcc void @Scl_ConWrite(ptr nocapture noundef readonly %0, ptr
 93:                                               ; preds = %89
   %94 = load ptr, ptr %68, align 8
   %95 = add nuw nsw i64 %indvars.iv162, 1
-  %96 = trunc i64 %95 to i32
+  %96 = trunc nuw nsw i64 %95 to i32
   %97 = tail call ptr @Abc_NamStr(ptr noundef %94, i32 noundef %96) #10
   %98 = sitofp i32 %91 to float
   %99 = fdiv float %98, 1.000000e+03
@@ -4875,7 +4869,7 @@ define internal fastcc void @Scl_ConWrite(ptr nocapture noundef readonly %0, ptr
 112:                                              ; preds = %108
   %113 = load ptr, ptr %88, align 8
   %114 = add nuw nsw i64 %indvars.iv165, 1
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw nsw i64 %114 to i32
   %116 = tail call ptr @Abc_NamStr(ptr noundef %113, i32 noundef %115) #10
   %117 = sitofp i32 %110 to float
   %118 = fdiv float %117, 1.000000e+03
@@ -4919,7 +4913,7 @@ define internal fastcc void @Scl_ConWrite(ptr nocapture noundef readonly %0, ptr
 131:                                              ; preds = %127
   %132 = load ptr, ptr %107, align 8
   %133 = add nuw nsw i64 %indvars.iv168, 1
-  %134 = trunc i64 %133 to i32
+  %134 = trunc nuw nsw i64 %133 to i32
   %135 = tail call ptr @Abc_NamStr(ptr noundef %132, i32 noundef %134) #10
   %136 = sitofp i32 %129 to float
   %137 = fdiv float %136, 1.000000e+03
@@ -4963,7 +4957,7 @@ define internal fastcc void @Scl_ConWrite(ptr nocapture noundef readonly %0, ptr
 150:                                              ; preds = %146
   %151 = load ptr, ptr %126, align 8
   %152 = add nuw nsw i64 %indvars.iv171, 1
-  %153 = trunc i64 %152 to i32
+  %153 = trunc nuw nsw i64 %152 to i32
   %154 = tail call ptr @Abc_NamStr(ptr noundef %151, i32 noundef %153) #10
   %155 = sitofp i32 %148 to float
   %156 = fdiv float %155, 1.000000e+03
@@ -4996,7 +4990,7 @@ define internal fastcc void @Scl_ConWrite(ptr nocapture noundef readonly %0, ptr
 165:                                              ; preds = %161
   %166 = load ptr, ptr %145, align 8
   %167 = add nuw nsw i64 %indvars.iv174, 1
-  %168 = trunc i64 %167 to i32
+  %168 = trunc nuw nsw i64 %167 to i32
   %169 = tail call ptr @Abc_NamStr(ptr noundef %166, i32 noundef %168) #10
   %170 = sitofp i32 %163 to float
   %171 = fdiv float %170, 1.000000e+03
@@ -5031,6 +5025,12 @@ declare void @Abc_FrameSetDrivingCell(ptr noundef) local_unnamed_addr #1
 
 declare void @Abc_FrameSetMaxLoad(float noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
@@ -5044,8 +5044,8 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0) }

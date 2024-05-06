@@ -549,7 +549,7 @@ define void @satoko_configure(ptr nocapture noundef writeonly %0, ptr nocapture 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @satoko_simplify(ptr noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @satoko_simplify(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @solver_propagate(ptr noundef %0) #27
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %3, label %63
@@ -1931,7 +1931,7 @@ heap_percolate_up.exit:                           ; preds = %69, %..split24_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @satoko_add_clause(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @satoko_add_clause(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = sext i32 %2 to i64
   tail call void @qsort(ptr noundef %1, i64 noundef %4, i64 noundef 4, ptr noundef nonnull @stk_uint_compare) #27
   %5 = getelementptr i32, ptr %1, i64 %4
@@ -2209,7 +2209,7 @@ solver_enqueue.exit:                              ; preds = %65, %101, %vec_uint
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @stk_uint_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @stk_uint_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -2303,7 +2303,7 @@ define void @satoko_assump_pop(ptr noundef %0) local_unnamed_addr #3 {
 declare void @solver_cancel_until(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @satoko_solve(ptr noundef %0) local_unnamed_addr #3 {
+define range(i32 -128, 128) i32 @satoko_solve(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = getelementptr inbounds i8, ptr %0, i64 360
@@ -2328,7 +2328,7 @@ define i32 @satoko_solve(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @satoko_simplify(ptr noundef nonnull %0), !range !20
+  %15 = tail call i32 @satoko_simplify(ptr noundef nonnull %0)
   %.not20.not = icmp eq i32 %15, 0
   br i1 %.not20.not, label %72, label %16
 
@@ -2419,7 +2419,7 @@ Abc_Clock.exit:                                   ; preds = %37, %40
   br i1 %.old, label %.backedge.backedge, label %solver_check_limits.exit.thread
 
 .backedge.backedge:                               ; preds = %54, %50
-  br label %.backedge, !llvm.loop !21
+  br label %.backedge, !llvm.loop !20
 
 solver_check_limits.exit.thread:                  ; preds = %29, %50, %Abc_Clock.exit, %solver_check_limits.exit, %solver_stop.exit, %54
   %55 = sext i8 %26 to i32
@@ -2459,12 +2459,12 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare signext i8 @solver_search(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @satoko_solve_assumptions(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -128, 128) i32 @satoko_solve_assumptions(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3
-  %5 = tail call i32 @satoko_solve(ptr noundef %0), !range !22
+  %5 = tail call i32 @satoko_solve(ptr noundef %0)
   br label %._crit_edge17
 
 .lr.ph:                                           ; preds = %3
@@ -2536,10 +2536,10 @@ satoko_assump_push.exit:                          ; preds = %8, %21, %vec_uint_r
   store i8 %39, ptr %42, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %satoko_assump_push.exit
-  %43 = tail call i32 @satoko_solve(ptr noundef nonnull %0), !range !22
+  %43 = tail call i32 @satoko_solve(ptr noundef nonnull %0)
   br i1 %4, label %.lr.ph16, label %._crit_edge17
 
 .lr.ph16:                                         ; preds = %._crit_edge
@@ -2559,7 +2559,7 @@ satoko_assump_push.exit:                          ; preds = %8, %21, %vec_uint_r
   tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %.val.i12) #27
   %52 = add nuw nsw i32 %.114, 1
   %exitcond19.not = icmp eq i32 %52, %2
-  br i1 %exitcond19.not, label %._crit_edge17, label %45, !llvm.loop !24
+  br i1 %exitcond19.not, label %._crit_edge17, label %45, !llvm.loop !22
 
 ._crit_edge17:                                    ; preds = %45, %._crit_edge.thread, %._crit_edge
   %53 = phi i32 [ %5, %._crit_edge.thread ], [ %43, %._crit_edge ], [ %43, %45 ]
@@ -2567,7 +2567,7 @@ satoko_assump_push.exit:                          ; preds = %8, %21, %vec_uint_r
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @satoko_solve_assumptions_limit(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define range(i32 -128, 128) i32 @satoko_solve_assumptions_limit(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 384
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i32 %3, 0
@@ -2583,7 +2583,7 @@ define i32 @satoko_solve_assumptions_limit(ptr noundef %0, ptr nocapture noundef
 12:                                               ; preds = %4, %7
   %13 = phi i64 [ %11, %7 ], [ 0, %4 ]
   store i64 %13, ptr %5, align 8
-  %14 = tail call i32 @satoko_solve_assumptions(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2), !range !22
+  %14 = tail call i32 @satoko_solve_assumptions(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %sext = shl i64 %6, 32
   %15 = ashr exact i64 %sext, 32
   store i64 %15, ptr %5, align 8
@@ -2625,7 +2625,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexi
 satoko_solve_assumptions_limit.exit:              ; preds = %tailrecurse._crit_edge, %15
   %20 = phi i64 [ %19, %15 ], [ 0, %tailrecurse._crit_edge ]
   store i64 %20, ptr %13, align 8
-  %21 = tail call i32 @satoko_solve(ptr noundef nonnull %0), !range !22
+  %21 = tail call i32 @satoko_solve(ptr noundef nonnull %0)
   %sext.i = shl i64 %14, 32
   %22 = ashr exact i64 %sext.i, 32
   store i64 %22, ptr %13, align 8
@@ -2706,7 +2706,7 @@ satoko_assump_push.exit:                          ; preds = %.lr.ph, %40, %vec_u
   store i8 %58, ptr %61, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %satoko_assump_push.exit, %25
   %62 = load i64, ptr %8, align 8
@@ -2720,7 +2720,7 @@ satoko_assump_push.exit:                          ; preds = %.lr.ph, %40, %vec_u
 satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
   %66 = phi i64 [ %65, %63 ], [ 0, %._crit_edge ]
   store i64 %66, ptr %8, align 8
-  %67 = tail call i32 @satoko_solve(ptr noundef nonnull %0), !range !22
+  %67 = tail call i32 @satoko_solve(ptr noundef nonnull %0)
   %sext.i89 = shl i64 %62, 32
   %68 = ashr exact i64 %sext.i89, 32
   store i64 %68, ptr %8, align 8
@@ -2743,7 +2743,7 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
   tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %.val.i91) #27
   %76 = add nuw nsw i32 %.1116, 1
   %exitcond145.not = icmp eq i32 %76, %26
-  br i1 %exitcond145.not, label %tailrecurse.loopexit, label %.lr.ph117, !llvm.loop !26
+  br i1 %exitcond145.not, label %tailrecurse.loopexit, label %.lr.ph117, !llvm.loop !24
 
 77:                                               ; preds = %satoko_solve_assumptions_limit.exit90
   %78 = sub nsw i32 %.tr106119, %26
@@ -2780,7 +2780,7 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
   tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %.val.i92) #27
   %95 = add nuw nsw i32 %.2122, 1
   %exitcond146.not = icmp eq i32 %95, %26
-  br i1 %exitcond146.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !27
+  br i1 %exitcond146.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !25
 
 ._crit_edge125:                                   ; preds = %.lr.ph124
   %96 = getelementptr inbounds i8, ptr %0, i64 152
@@ -2858,7 +2858,7 @@ vec_uint_push_back.exit:                          ; preds = %.lr.ph128, %114, %v
   store i32 %128, ptr %105, align 4
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.preheader110, label %.lr.ph128, !llvm.loop !28
+  br i1 %exitcond151.not, label %.preheader110, label %.lr.ph128, !llvm.loop !26
 
 .preheader109:                                    ; preds = %.lr.ph130, %.preheader110
   br i1 %27, label %.lr.ph132.preheader, label %.preheader108
@@ -2877,7 +2877,7 @@ vec_uint_push_back.exit:                          ; preds = %.lr.ph128, %114, %v
   store i32 %130, ptr %131, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.preheader109, label %.lr.ph130, !llvm.loop !29
+  br i1 %exitcond156.not, label %.preheader109, label %.lr.ph130, !llvm.loop !27
 
 .preheader108:                                    ; preds = %.lr.ph132, %.preheader109
   br i1 %100, label %.lr.ph134, label %._crit_edge135
@@ -2897,7 +2897,7 @@ vec_uint_push_back.exit:                          ; preds = %.lr.ph128, %114, %v
   store i32 %135, ptr %gep174, align 4
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %.preheader108, label %.lr.ph132, !llvm.loop !30
+  br i1 %exitcond161.not, label %.preheader108, label %.lr.ph132, !llvm.loop !28
 
 136:                                              ; preds = %.lr.ph134, %satoko_assump_push.exit99
   %indvars.iv162 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next163, %satoko_assump_push.exit99 ]
@@ -2962,7 +2962,7 @@ satoko_assump_push.exit99:                        ; preds = %136, %149, %vec_uin
   store i8 %167, ptr %170, align 1
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge135, label %136, !llvm.loop !31
+  br i1 %exitcond166.not, label %._crit_edge135, label %136, !llvm.loop !29
 
 ._crit_edge135:                                   ; preds = %satoko_assump_push.exit99, %.preheader108
   %171 = load i64, ptr %8, align 8
@@ -2976,7 +2976,7 @@ satoko_assump_push.exit99:                        ; preds = %136, %149, %vec_uin
 satoko_solve_assumptions_limit.exit102:           ; preds = %._crit_edge135, %172
   %175 = phi i64 [ %174, %172 ], [ 0, %._crit_edge135 ]
   store i64 %175, ptr %8, align 8
-  %176 = tail call i32 @satoko_solve(ptr noundef nonnull %0), !range !22
+  %176 = tail call i32 @satoko_solve(ptr noundef nonnull %0)
   %sext.i101 = shl i64 %171, 32
   %177 = ashr exact i64 %sext.i101, 32
   store i64 %177, ptr %8, align 8
@@ -2999,7 +2999,7 @@ satoko_solve_assumptions_limit.exit102:           ; preds = %._crit_edge135, %17
   tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %.val.i103) #27
   %185 = add nuw nsw i32 %.7140, 1
   %exitcond168.not = icmp eq i32 %185, %85
-  br i1 %exitcond168.not, label %.loopexit, label %.lr.ph141, !llvm.loop !32
+  br i1 %exitcond168.not, label %.loopexit, label %.lr.ph141, !llvm.loop !30
 
 186:                                              ; preds = %satoko_solve_assumptions_limit.exit102
   %187 = and i32 %.tr106119, -2
@@ -3029,7 +3029,7 @@ satoko_solve_assumptions_limit.exit102:           ; preds = %._crit_edge135, %17
   tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %.val.i104) #27
   %201 = add nuw nsw i32 %.8136, 1
   %exitcond167.not = icmp eq i32 %201, %85
-  br i1 %exitcond167.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !33
+  br i1 %exitcond167.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !31
 
 ._crit_edge139:                                   ; preds = %.lr.ph138, %193
   %202 = add nsw i32 %194, %85
@@ -3151,7 +3151,7 @@ define void @satoko_reset(ptr nocapture noundef %0) local_unnamed_addr #17 {
   %27 = load i32, ptr %19, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp ult i64 %indvars.iv.next.i, %28
-  br i1 %29, label %22, label %vec_wl_clean.exit, !llvm.loop !34
+  br i1 %29, label %22, label %vec_wl_clean.exit, !llvm.loop !32
 
 vec_wl_clean.exit:                                ; preds = %22, %1
   store i32 0, ptr %19, align 4
@@ -3196,12 +3196,12 @@ vec_wl_clean.exit:                                ; preds = %22, %1
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   store i32 0, ptr %59, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   %61 = getelementptr inbounds i8, ptr %0, i64 192
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   store i32 0, ptr %62, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   %64 = getelementptr inbounds i8, ptr %0, i64 152
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 4
@@ -3321,7 +3321,7 @@ clause_fetch.exit:                                ; preds = %30, %33
   store ptr %38, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %30, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge.preheader, label %30, !llvm.loop !33
 
 .critedge2.preheader:                             ; preds = %clause_fetch.exit94, %.critedge.preheader
   %.not103 = icmp eq i32 %18, 0
@@ -3355,7 +3355,7 @@ clause_fetch.exit94:                              ; preds = %41, %44
   store ptr %49, ptr %53, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.critedge2.preheader, label %41, !llvm.loop !36
+  br i1 %exitcond109.not, label %.critedge2.preheader, label %41, !llvm.loop !34
 
 .critedge2:                                       ; preds = %.lr.ph99, %.critedge2
   %indvars.iv110 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next111, %.critedge2 ]
@@ -3375,7 +3375,7 @@ clause_fetch.exit94:                              ; preds = %41, %44
   store i32 %64, ptr %56, align 4
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %65 = icmp ult i64 %indvars.iv.next111, %19
-  br i1 %65, label %.critedge2, label %.critedge2._crit_edge.loopexit, !llvm.loop !37
+  br i1 %65, label %.critedge2, label %.critedge2._crit_edge.loopexit, !llvm.loop !35
 
 .critedge2._crit_edge.loopexit:                   ; preds = %.critedge2
   %.pre = load ptr, ptr %2, align 8
@@ -3425,7 +3425,7 @@ clause_fetch.exit94:                              ; preds = %41, %44
   %89 = shl i32 %.val91, 1
   %90 = zext i32 %89 to i64
   %91 = icmp ult i64 %indvars.iv.next114, %90
-  br i1 %91, label %80, label %._crit_edge.loopexit, !llvm.loop !38
+  br i1 %91, label %80, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %80
   %.pre117 = load i32, ptr %12, align 4
@@ -3585,7 +3585,7 @@ heap_in_heap.exit.thread:                         ; preds = %20, %heap_in_heap.e
 40:                                               ; preds = %heap_in_heap.exit, %heap_in_heap.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %40, %16
   ret void
@@ -3613,7 +3613,7 @@ define void @satoko_unmark_cone(ptr nocapture noundef readonly %0, ptr nocapture
   store i8 0, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %6, %3
   ret void
@@ -3706,7 +3706,7 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %.val60.us = load i32, ptr %46, align 4
   %47 = zext i32 %.val60.us to i64
   %48 = icmp ult i64 %indvars.iv.next94.pre-phi, %47
-  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !41
+  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !39
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %49 = phi ptr [ %60, %59 ], [ %30, %.lr.ph ]
@@ -3734,7 +3734,7 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %.val60 = load i32, ptr %61, align 4
   %62 = zext i32 %.val60 to i64
   %63 = icmp ult i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph.split, label %._crit_edge, !llvm.loop !41
+  br i1 %63, label %.lr.ph.split, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %59, %44, %25
   %64 = load ptr, ptr %8, align 8
@@ -3792,7 +3792,7 @@ clause_fetch.exit:                                ; preds = %69, %72
   %90 = load i32, ptr %78, align 4
   %91 = zext i32 %90 to i64
   %92 = icmp ult i64 %indvars.iv.next.i, %91
-  br i1 %92, label %81, label %._crit_edge.i, !llvm.loop !42
+  br i1 %92, label %81, label %._crit_edge.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %81, %clause_fetch.exit
   br i1 %.not52, label %93, label %95
@@ -3812,7 +3812,7 @@ clause_dump.exit:                                 ; preds = %93, %95
   %.val = load i32, ptr %97, align 4
   %98 = zext i32 %.val to i64
   %99 = icmp ult i64 %indvars.iv.next97, %98
-  br i1 %99, label %69, label %._crit_edge84, !llvm.loop !43
+  br i1 %99, label %69, label %._crit_edge84, !llvm.loop !41
 
 ._crit_edge84:                                    ; preds = %clause_dump.exit, %._crit_edge
   br i1 %.not50, label %.loopexit, label %100
@@ -3872,7 +3872,7 @@ clause_fetch.exit68:                              ; preds = %105, %108
   %126 = load i32, ptr %114, align 4
   %127 = zext i32 %126 to i64
   %128 = icmp ult i64 %indvars.iv.next.i73, %127
-  br i1 %128, label %117, label %._crit_edge.i74, !llvm.loop !42
+  br i1 %128, label %117, label %._crit_edge.i74, !llvm.loop !40
 
 ._crit_edge.i74:                                  ; preds = %117, %clause_fetch.exit68
   br i1 %.not51, label %129, label %131
@@ -3888,7 +3888,7 @@ clause_fetch.exit68:                              ; preds = %105, %108
 clause_dump.exit77:                               ; preds = %129, %131
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %105, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %105, !llvm.loop !42
 
 .loopexit:                                        ; preds = %clause_dump.exit77, %100, %._crit_edge84
   %132 = tail call i32 @fclose(ptr noundef nonnull %.0)
@@ -3955,7 +3955,7 @@ define void @satoko_set_runid(ptr nocapture noundef writeonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @satoko_read_cex_varvalue(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @satoko_read_cex_varvalue(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -4151,9 +4151,9 @@ attributes #28 = { nounwind allocsize(1) }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 0, i32 2}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = !{i32 -128, i32 128}
+!22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
@@ -4174,5 +4174,3 @@ attributes #28 = { nounwind allocsize(1) }
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}

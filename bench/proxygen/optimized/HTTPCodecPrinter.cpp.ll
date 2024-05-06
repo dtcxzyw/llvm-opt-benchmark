@@ -980,7 +980,7 @@ lpad.i.i.i.i:                                     ; preds = %if.end.i.i.i.i
 
 _ZN5folly2toItN8proxygen10SettingsIdEEENSt9enable_ifIXaaaasr3std7is_enumIT0_EE5valuentsr3std7is_sameIS4_T_EE5valuentsr3std14is_convertibleIS5_NS_5RangeIPKcEEEE5valueES5_E4typeERKS4_.exit: ; preds = %for.body
   %ref.tmp.sroa.3.0.extract.shift.i.i = lshr i32 %retval.sroa.0.0.insert.insert.i.i.i.i, 16
-  %ref.tmp.sroa.3.0.extract.trunc.i.i = trunc i32 %ref.tmp.sroa.3.0.extract.shift.i.i to i16
+  %ref.tmp.sroa.3.0.extract.trunc.i.i = trunc nuw i32 %ref.tmp.sroa.3.0.extract.shift.i.i to i16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp1.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -2392,7 +2392,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit: ; preds = %entry, %if.then.i
-  %call.i12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v3)
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v3)
   %2 = load i64, ptr %v5, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   br label %for.body.i.i.i.i.i.i
@@ -2448,7 +2448,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %6 = lshr i16 %5, 8
-  %conv4.i.i.i.i.i = trunc i16 %6 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %6 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 

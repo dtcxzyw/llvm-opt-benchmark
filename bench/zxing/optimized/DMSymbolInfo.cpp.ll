@@ -119,22 +119,22 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
   br i1 %15, label %52, label %16
 
 16:                                               ; preds = %13, %10, %.split.us
-  %17 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9), !range !6
+  %17 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %18 = getelementptr inbounds i8, ptr %9, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = mul nsw i32 %19, %17
-  %21 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9), !range !6
+  %21 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %22 = shl nuw nsw i32 %21, 1
   %23 = add nsw i32 %22, %20
   %24 = icmp slt i32 %23, %2
   br i1 %24, label %52, label %25
 
 25:                                               ; preds = %16
-  %26 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9), !range !6
+  %26 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %27 = getelementptr inbounds i8, ptr %9, i64 16
   %28 = load i32, ptr %27, align 16
   %29 = mul nsw i32 %28, %26
-  %30 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9), !range !6
+  %30 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %31 = shl nuw nsw i32 %30, 1
   %32 = add nsw i32 %31, %29
   %33 = icmp slt i32 %32, %3
@@ -144,18 +144,18 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
   br i1 %or.cond3, label %35, label %49
 
 35:                                               ; preds = %34
-  %36 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9), !range !6
+  %36 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %37 = mul nsw i32 %19, %36
-  %38 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9), !range !6
+  %38 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %39 = shl nuw nsw i32 %38, 1
   %40 = add nsw i32 %39, %37
   %41 = icmp sgt i32 %40, %4
   br i1 %41, label %52, label %42
 
 42:                                               ; preds = %35
-  %43 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9), !range !6
+  %43 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %44 = mul nsw i32 %28, %43
-  %45 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9), !range !6
+  %45 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %9)
   %46 = shl nuw nsw i32 %45, 1
   %47 = add nsw i32 %46, %44
   %48 = icmp sgt i32 %47, %5
@@ -194,22 +194,22 @@ define noundef ptr @_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeE
   br i1 %60, label %82, label %61
 
 61:                                               ; preds = %58, %55, %.split.split.us
-  %62 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %54), !range !6
+  %62 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %54)
   %63 = getelementptr inbounds i8, ptr %54, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = mul nsw i32 %64, %62
-  %66 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %54), !range !6
+  %66 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %54)
   %67 = shl nuw nsw i32 %66, 1
   %68 = add nsw i32 %67, %65
   %69 = icmp sgt i32 %68, %4
   br i1 %69, label %82, label %70
 
 70:                                               ; preds = %61
-  %71 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %54), !range !6
+  %71 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %54)
   %72 = getelementptr inbounds i8, ptr %54, i64 16
   %73 = load i32, ptr %72, align 16
   %74 = mul nsw i32 %73, %71
-  %75 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %54), !range !6
+  %75 = tail call noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr noundef nonnull align 4 dereferenceable(32) %54)
   %76 = shl nuw nsw i32 %75, 1
   %77 = add nsw i32 %76, %74
   %78 = icmp sgt i32 %77, %5
@@ -327,7 +327,7 @@ _ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %8 [
@@ -384,7 +384,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19verticalDataRegionsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %7 [
@@ -439,4 +439,3 @@ attributes #5 = { noreturn }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 1, i32 7}

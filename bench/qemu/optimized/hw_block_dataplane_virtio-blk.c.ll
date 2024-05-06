@@ -196,7 +196,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @virtio_blk_data_plane_start(ptr noundef %vdev) local_unnamed_addr #0 {
+define dso_local range(i32 -38, 1) i32 @virtio_blk_data_plane_start(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_err = alloca ptr, align 8

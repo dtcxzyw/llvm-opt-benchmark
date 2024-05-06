@@ -37,7 +37,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17ha6de804f83a3b892E(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @_ZN4core3ops8function6FnOnce9call_once17hbd5dd4c421952836E(i1 zeroext %0) unnamed_addr #0 {
+define hidden range(i8 0, 3) i8 @_ZN4core3ops8function6FnOnce9call_once17hbd5dd4c421952836E(i1 zeroext %0) unnamed_addr #0 {
   %2 = tail call i8 @_ZN4core6option6Option4Some17h8b1a0750e9755fbeE(i1 zeroext %0), !range !3
   ret i8 %2
 }

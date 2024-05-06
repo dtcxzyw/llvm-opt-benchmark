@@ -88,7 +88,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_hti_dpll_mask(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 16) i32 @intel_hti_dpll_mask(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2616
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1

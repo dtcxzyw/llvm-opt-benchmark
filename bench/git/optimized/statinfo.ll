@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @match_stat_data(ptr nocapture noundef readonly %sd, ptr nocapture noundef readonly %st) local_unnamed_addr #1 {
+define dso_local range(i32 0, 64) i32 @match_stat_data(ptr nocapture noundef readonly %sd, ptr nocapture noundef readonly %st) local_unnamed_addr #1 {
 entry:
   %sd_mtime = getelementptr inbounds i8, ptr %sd, i64 8
   %0 = load i32, ptr %sd_mtime, align 4
@@ -201,7 +201,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @stat_validity_check(ptr nocapture noundef readonly %sv, ptr nocapture noundef readonly %path) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @stat_validity_check(ptr nocapture noundef readonly %sv, ptr nocapture noundef readonly %path) local_unnamed_addr #4 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %path, ptr noundef nonnull %st) #8

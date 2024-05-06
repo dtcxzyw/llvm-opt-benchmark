@@ -119,7 +119,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.tcg_gen_gvec_cmps = private unnamed_addr constant [96 x i8] c"void tcg_gen_gvec_cmps(TCGCond, unsigned int, uint32_t, uint32_t, TCGv_i64, uint32_t, uint32_t)\00", align 1
 @tcg_gen_gvec_bitsel.g = internal constant %struct.GVecGen4 { ptr @tcg_gen_bitsel_i64, ptr null, ptr @tcg_gen_bitsel_vec, ptr @gen_helper_gvec_bitsel, ptr null, i32 0, i8 0, i8 0, i8 0 }, align 8
 @helper_info_gvec_mov = external global %struct.TCGHelperInfo, align 8
-@tcg_ctx = external thread_local global ptr, align 8
+@tcg_ctx = external thread_local local_unnamed_addr global ptr, align 8
 @.str.5 = private unnamed_addr constant [32 x i8] c"vece <= (in_32 ? MO_32 : MO_64)\00", align 1
 @__PRETTY_FUNCTION__.do_dup = private unnamed_addr constant [86 x i8] c"void do_dup(unsigned int, uint32_t, uint32_t, uint32_t, TCGv_i32, TCGv_i64, uint64_t)\00", align 1
 @.str.6 = private unnamed_addr constant [31 x i8] c"in_32 == NULL || in_64 == NULL\00", align 1
@@ -328,11 +328,11 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   %1 = add i32 %sub, 768
   %2 = and i32 %1, 768
   %and6.i = select i1 %cmp3, i32 512, i32 %2
-  %shl57.i14 = and i32 %sub2, 255
-  %or.i = or disjoint i32 %shl57.i14, %and6.i
-  %shl57.i16 = shl nsw i32 %data, 10
-  %or.i18 = or disjoint i32 %or.i, %shl57.i16
-  ret i32 %or.i18
+  %shl57.i15 = and i32 %sub2, 255
+  %or.i = or disjoint i32 %shl57.i15, %and6.i
+  %shl57.i18 = shl nsw i32 %data, 10
+  %or.i20 = or disjoint i32 %or.i, %shl57.i18
+  ret i32 %or.i20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -373,11 +373,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
@@ -436,11 +436,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
@@ -493,11 +493,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call4 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -555,11 +555,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call4 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -622,11 +622,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call4 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -694,11 +694,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
@@ -751,11 +751,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call4 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -813,11 +813,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call4 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -880,11 +880,11 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i14.i, %and6.i.i
-  %shl57.i16.i = shl nsw i32 %data, 10
-  %or.i18.i = or disjoint i32 %or.i.i, %shl57.i16.i
-  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i18.i) #7
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
+  %shl57.i18.i = shl nsw i32 %data, 10
+  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call4 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -1093,7 +1093,7 @@ if.end:                                           ; preds = %check_overlap_2.exi
   %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 45
   %3 = load i8, ptr %prefer_i64, align 1
   %tobool3 = trunc i8 %3 to i1
-  %call4 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool3), !range !5
+  %call4 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool3)
   switch i32 %call4, label %do.body [
     i32 5, label %sw.bb
     i32 4, label %sw.bb14
@@ -1181,7 +1181,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call1.i, ptr noundef %17, i64 noundef %conv3.us.i) #7
   %add6.us.i = add i32 %i.012.us.i, 8
   %cmp.us.i = icmp ult i32 %add6.us.i, %oprsz
-  br i1 %cmp.us.i, label %for.body.us.i, label %expand_2_i64.exit, !llvm.loop !6
+  br i1 %cmp.us.i, label %for.body.us.i, label %expand_2_i64.exit, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %i.012.i = phi i32 [ %add6.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
@@ -1196,7 +1196,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call1.i, ptr noundef %19, i64 noundef %conv5.i) #7
   %add6.i = add i32 %i.012.i, 8
   %cmp.i70 = icmp ult i32 %add6.i, %oprsz
-  br i1 %cmp.i70, label %for.body.i, label %expand_2_i64.exit, !llvm.loop !6
+  br i1 %cmp.i70, label %for.body.i, label %expand_2_i64.exit, !llvm.loop !5
 
 expand_2_i64.exit:                                ; preds = %for.body.i, %for.body.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %call.i) #7
@@ -1241,7 +1241,7 @@ for.body.us.i94:                                  ; preds = %for.body.lr.ph.i85,
   tail call void @tcg_gen_st_i32(ptr noundef %call1.i83, ptr noundef %24, i64 noundef %conv3.us.i99) #7
   %add6.us.i100 = add i32 %i.012.us.i95, 4
   %cmp.us.i101 = icmp ult i32 %add6.us.i100, %oprsz
-  br i1 %cmp.us.i101, label %for.body.us.i94, label %expand_2_i32.exit, !llvm.loop !8
+  br i1 %cmp.us.i101, label %for.body.us.i94, label %expand_2_i32.exit, !llvm.loop !7
 
 for.body.i86:                                     ; preds = %for.body.lr.ph.i85, %for.body.i86
   %i.012.i87 = phi i32 [ %add6.i92, %for.body.i86 ], [ 0, %for.body.lr.ph.i85 ]
@@ -1256,7 +1256,7 @@ for.body.i86:                                     ; preds = %for.body.lr.ph.i85,
   tail call void @tcg_gen_st_i32(ptr noundef %call1.i83, ptr noundef %26, i64 noundef %conv5.i91) #7
   %add6.i92 = add i32 %i.012.i87, 4
   %cmp.i93 = icmp ult i32 %add6.i92, %oprsz
-  br i1 %cmp.i93, label %for.body.i86, label %expand_2_i32.exit, !llvm.loop !8
+  br i1 %cmp.i93, label %for.body.i86, label %expand_2_i32.exit, !llvm.loop !7
 
 expand_2_i32.exit:                                ; preds = %for.body.i86, %for.body.us.i94
   tail call void @tcg_temp_free_i32(ptr noundef %call.i82) #7
@@ -1301,7 +1301,7 @@ if.end57:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @choose_vector_type(ptr noundef %list, i32 noundef %vece, i32 noundef %size, i1 noundef zeroext %prefer_i64) unnamed_addr #1 {
+define internal fastcc range(i32 0, 6) i32 @choose_vector_type(ptr noundef %list, i32 noundef %vece, i32 noundef %size, i1 noundef zeroext %prefer_i64) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
   %and = and i32 %0, 1024
@@ -1316,7 +1316,7 @@ check_size_impl.exit:                             ; preds = %entry
   %and.i = and i32 %size, 7
   %cmp1.i = icmp eq i32 %and.i, 0
   tail call void @llvm.assume(i1 %cmp1.i)
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %rem.i), !range !9
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %rem.i)
   %add.i = add nuw nsw i32 %1, %div.i40
   %cmp10.i = icmp ult i32 %add.i, 5
   br i1 %cmp10.i, label %land.lhs.true1, label %if.end
@@ -1447,7 +1447,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call1.us, ptr noundef %2, i64 noundef %conv3.us) #7
   %add6.us = add i32 %i.011.us, %tysz
   %cmp.us = icmp ult i32 %add6.us, %oprsz
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !10
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.011 = phi i32 [ %add6, %for.body ], [ 0, %for.body.lr.ph ]
@@ -1464,7 +1464,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call1, ptr noundef %4, i64 noundef %conv5) #7
   %add6 = add i32 %i.011, %tysz
   %cmp = icmp ult i32 %add6, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
   ret void
@@ -1531,7 +1531,7 @@ if.end:                                           ; preds = %check_overlap_2.exi
   %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 49
   %3 = load i8, ptr %prefer_i64, align 1
   %tobool3 = trunc i8 %3 to i1
-  %call4 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool3), !range !5
+  %call4 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool3)
   switch i32 %call4, label %do.body [
     i32 5, label %sw.bb
     i32 4, label %sw.bb14
@@ -1619,7 +1619,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call1.i, ptr noundef %17, i64 noundef %conv3.us.i) #7
   %add6.us.i = add i32 %i.012.us.i, 8
   %cmp.us.i = icmp ult i32 %add6.us.i, %oprsz
-  br i1 %cmp.us.i, label %for.body.us.i, label %expand_2i_i64.exit, !llvm.loop !11
+  br i1 %cmp.us.i, label %for.body.us.i, label %expand_2i_i64.exit, !llvm.loop !9
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %i.012.i = phi i32 [ %add6.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
@@ -1634,7 +1634,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call1.i, ptr noundef %19, i64 noundef %conv5.i) #7
   %add6.i = add i32 %i.012.i, 8
   %cmp.i81 = icmp ult i32 %add6.i, %oprsz
-  br i1 %cmp.i81, label %for.body.i, label %expand_2i_i64.exit, !llvm.loop !11
+  br i1 %cmp.i81, label %for.body.i, label %expand_2i_i64.exit, !llvm.loop !9
 
 expand_2i_i64.exit:                               ; preds = %for.body.i, %for.body.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %call.i) #7
@@ -1680,7 +1680,7 @@ for.body.us.i105:                                 ; preds = %for.body.lr.ph.i96,
   tail call void @tcg_gen_st_i32(ptr noundef %call1.i94, ptr noundef %24, i64 noundef %conv3.us.i110) #7
   %add6.us.i111 = add i32 %i.012.us.i106, 4
   %cmp.us.i112 = icmp ult i32 %add6.us.i111, %oprsz
-  br i1 %cmp.us.i112, label %for.body.us.i105, label %expand_2i_i32.exit, !llvm.loop !12
+  br i1 %cmp.us.i112, label %for.body.us.i105, label %expand_2i_i32.exit, !llvm.loop !10
 
 for.body.i97:                                     ; preds = %for.body.lr.ph.i96, %for.body.i97
   %i.012.i98 = phi i32 [ %add6.i103, %for.body.i97 ], [ 0, %for.body.lr.ph.i96 ]
@@ -1695,7 +1695,7 @@ for.body.i97:                                     ; preds = %for.body.lr.ph.i96,
   tail call void @tcg_gen_st_i32(ptr noundef %call1.i94, ptr noundef %26, i64 noundef %conv5.i102) #7
   %add6.i103 = add i32 %i.012.i98, 4
   %cmp.i104 = icmp ult i32 %add6.i103, %oprsz
-  br i1 %cmp.i104, label %for.body.i97, label %expand_2i_i32.exit, !llvm.loop !12
+  br i1 %cmp.i104, label %for.body.i97, label %expand_2i_i32.exit, !llvm.loop !10
 
 expand_2i_i32.exit:                               ; preds = %for.body.i97, %for.body.us.i105
   tail call void @tcg_temp_free_i32(ptr noundef %call.i93) #7
@@ -1768,7 +1768,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call1.us, ptr noundef %2, i64 noundef %conv3.us) #7
   %add6.us = add i32 %i.011.us, %tysz
   %cmp.us = icmp ult i32 %add6.us, %oprsz
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !13
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.011 = phi i32 [ %add6, %for.body ], [ 0, %for.body.lr.ph ]
@@ -1785,7 +1785,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call1, ptr noundef %4, i64 noundef %conv5) #7
   %add6 = add i32 %i.011, %tysz
   %cmp = icmp ult i32 %add6, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
   ret void
@@ -1851,7 +1851,7 @@ if.end:                                           ; preds = %check_overlap_2.exi
   %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 45
   %3 = load i8, ptr %prefer_i64, align 1
   %tobool1 = trunc i8 %3 to i1
-  %call = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool1), !range !5
+  %call = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool1)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.else, label %if.then3
 
@@ -2051,7 +2051,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call1.us, ptr noundef %1, i64 noundef %conv3.us) #7
   %add4.us = add i32 %i.013.us, %tysz
   %cmp.us = icmp ult i32 %add4.us, %oprsz
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !14
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.013 = phi i32 [ %add4, %for.body ], [ 0, %for.body.lr.ph ]
@@ -2068,7 +2068,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call1, ptr noundef %3, i64 noundef %conv3) #7
   %add4 = add i32 %i.013, %tysz
   %cmp = icmp ult i32 %add4, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
   ret void
@@ -2102,7 +2102,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_i64(ptr noundef %call1, ptr noundef %1, i64 noundef %conv3.us) #7
   %add4.us = add i32 %i.013.us, 8
   %cmp.us = icmp ult i32 %add4.us, %oprsz
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !15
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.013 = phi i32 [ %add4, %for.body ], [ 0, %for.body.lr.ph ]
@@ -2117,7 +2117,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_i64(ptr noundef %call1, ptr noundef %3, i64 noundef %conv3) #7
   %add4 = add i32 %i.013, 8
   %cmp = icmp ult i32 %add4, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
   tail call void @tcg_temp_free_i64(ptr noundef %call) #7
@@ -2155,7 +2155,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_i32(ptr noundef %call1, ptr noundef %1, i64 noundef %conv3.us) #7
   %add4.us = add i32 %i.013.us, 4
   %cmp.us = icmp ult i32 %add4.us, %oprsz
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !16
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !14
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.013 = phi i32 [ %add4, %for.body ], [ 0, %for.body.lr.ph ]
@@ -2170,7 +2170,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_i32(ptr noundef %call1, ptr noundef %3, i64 noundef %conv3) #7
   %add4 = add i32 %i.013, 4
   %cmp = icmp ult i32 %add4, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
   tail call void @tcg_temp_free_i32(ptr noundef %call) #7
@@ -2264,7 +2264,7 @@ if.end:                                           ; preds = %check_overlap_3.exi
   %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 45
   %3 = load i8, ptr %prefer_i64, align 1
   %tobool4 = trunc i8 %3 to i1
-  %call5 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool4), !range !5
+  %call5 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool4)
   switch i32 %call5, label %do.body [
     i32 5, label %sw.bb
     i32 4, label %sw.bb16
@@ -2359,7 +2359,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call2.i, ptr noundef %18, i64 noundef %conv6.us.i) #7
   %add9.us.i = add i32 %i.015.us.i, 8
   %cmp.us.i = icmp ult i32 %add9.us.i, %oprsz
-  br i1 %cmp.us.i, label %for.body.us.i, label %expand_3_i64.exit, !llvm.loop !17
+  br i1 %cmp.us.i, label %for.body.us.i, label %expand_3_i64.exit, !llvm.loop !15
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %i.015.i = phi i32 [ %add9.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
@@ -2378,7 +2378,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call2.i, ptr noundef %21, i64 noundef %conv8.i) #7
   %add9.i = add i32 %i.015.i, 8
   %cmp.i77 = icmp ult i32 %add9.i, %oprsz
-  br i1 %cmp.i77, label %for.body.i, label %expand_3_i64.exit, !llvm.loop !17
+  br i1 %cmp.i77, label %for.body.i, label %expand_3_i64.exit, !llvm.loop !15
 
 expand_3_i64.exit:                                ; preds = %for.body.i, %for.body.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %call2.i) #7
@@ -2429,7 +2429,7 @@ for.body.us.i104:                                 ; preds = %for.body.lr.ph.i93,
   tail call void @tcg_gen_st_i32(ptr noundef %call2.i91, ptr noundef %27, i64 noundef %conv6.us.i111) #7
   %add9.us.i112 = add i32 %i.015.us.i105, 4
   %cmp.us.i113 = icmp ult i32 %add9.us.i112, %oprsz
-  br i1 %cmp.us.i113, label %for.body.us.i104, label %expand_3_i32.exit, !llvm.loop !18
+  br i1 %cmp.us.i113, label %for.body.us.i104, label %expand_3_i32.exit, !llvm.loop !16
 
 for.body.i94:                                     ; preds = %for.body.lr.ph.i93, %for.body.i94
   %i.015.i95 = phi i32 [ %add9.i102, %for.body.i94 ], [ 0, %for.body.lr.ph.i93 ]
@@ -2448,7 +2448,7 @@ for.body.i94:                                     ; preds = %for.body.lr.ph.i93,
   tail call void @tcg_gen_st_i32(ptr noundef %call2.i91, ptr noundef %30, i64 noundef %conv8.i101) #7
   %add9.i102 = add i32 %i.015.i95, 4
   %cmp.i103 = icmp ult i32 %add9.i102, %oprsz
-  br i1 %cmp.i103, label %for.body.i94, label %expand_3_i32.exit, !llvm.loop !18
+  br i1 %cmp.i103, label %for.body.i94, label %expand_3_i32.exit, !llvm.loop !16
 
 expand_3_i32.exit:                                ; preds = %for.body.i94, %for.body.us.i104
   tail call void @tcg_temp_free_i32(ptr noundef %call2.i91) #7
@@ -2524,7 +2524,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call2.us, ptr noundef %3, i64 noundef %conv6.us) #7
   %add9.us = add i32 %i.014.us, %tysz
   %cmp.us = icmp ult i32 %add9.us, %oprsz
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !19
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !17
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.014 = phi i32 [ %add9, %for.body ], [ 0, %for.body.lr.ph ]
@@ -2546,7 +2546,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call2, ptr noundef %6, i64 noundef %conv8) #7
   %add9 = add i32 %i.014, %tysz
   %cmp = icmp ult i32 %add9, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
   ret void
@@ -2636,7 +2636,7 @@ if.end:                                           ; preds = %check_overlap_3.exi
   %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 41
   %3 = load i8, ptr %prefer_i64, align 1
   %tobool4 = trunc i8 %3 to i1
-  %call5 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool4), !range !5
+  %call5 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool4)
   switch i32 %call5, label %do.body [
     i32 5, label %sw.bb
     i32 4, label %sw.bb16
@@ -2731,7 +2731,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call2.i, ptr noundef %18, i64 noundef %conv6.us.i) #7
   %add9.us.i = add i32 %i.015.us.i, 8
   %cmp.us.i = icmp ult i32 %add9.us.i, %oprsz
-  br i1 %cmp.us.i, label %for.body.us.i, label %expand_3i_i64.exit, !llvm.loop !20
+  br i1 %cmp.us.i, label %for.body.us.i, label %expand_3i_i64.exit, !llvm.loop !18
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %i.015.i = phi i32 [ %add9.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
@@ -2750,7 +2750,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call2.i, ptr noundef %21, i64 noundef %conv8.i) #7
   %add9.i = add i32 %i.015.i, 8
   %cmp.i81 = icmp ult i32 %add9.i, %oprsz
-  br i1 %cmp.i81, label %for.body.i, label %expand_3i_i64.exit, !llvm.loop !20
+  br i1 %cmp.i81, label %for.body.i, label %expand_3i_i64.exit, !llvm.loop !18
 
 expand_3i_i64.exit:                               ; preds = %for.body.i, %for.body.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %call.i) #7
@@ -2802,7 +2802,7 @@ for.body.us.i108:                                 ; preds = %for.body.lr.ph.i97,
   tail call void @tcg_gen_st_i32(ptr noundef %call2.i95, ptr noundef %27, i64 noundef %conv6.us.i115) #7
   %add9.us.i116 = add i32 %i.015.us.i109, 4
   %cmp.us.i117 = icmp ult i32 %add9.us.i116, %oprsz
-  br i1 %cmp.us.i117, label %for.body.us.i108, label %expand_3i_i32.exit, !llvm.loop !21
+  br i1 %cmp.us.i117, label %for.body.us.i108, label %expand_3i_i32.exit, !llvm.loop !19
 
 for.body.i98:                                     ; preds = %for.body.lr.ph.i97, %for.body.i98
   %i.015.i99 = phi i32 [ %add9.i106, %for.body.i98 ], [ 0, %for.body.lr.ph.i97 ]
@@ -2821,7 +2821,7 @@ for.body.i98:                                     ; preds = %for.body.lr.ph.i97,
   tail call void @tcg_gen_st_i32(ptr noundef %call2.i95, ptr noundef %30, i64 noundef %conv8.i105) #7
   %add9.i106 = add i32 %i.015.i99, 4
   %cmp.i107 = icmp ult i32 %add9.i106, %oprsz
-  br i1 %cmp.i107, label %for.body.i98, label %expand_3i_i32.exit, !llvm.loop !21
+  br i1 %cmp.i107, label %for.body.i98, label %expand_3i_i32.exit, !llvm.loop !19
 
 expand_3i_i32.exit:                               ; preds = %for.body.i98, %for.body.us.i108
   tail call void @tcg_temp_free_i32(ptr noundef %call.i93) #7
@@ -2896,7 +2896,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call2.us, ptr noundef %3, i64 noundef %conv6.us) #7
   %add9.us = add i32 %i.014.us, %tysz
   %cmp.us = icmp ult i32 %add9.us, %oprsz
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !22
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !20
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.014 = phi i32 [ %add9, %for.body ], [ 0, %for.body.lr.ph ]
@@ -2918,7 +2918,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call2, ptr noundef %6, i64 noundef %conv8) #7
   %add9 = add i32 %i.014, %tysz
   %cmp = icmp ult i32 %add9, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
   ret void
@@ -3046,7 +3046,7 @@ if.end:                                           ; preds = %check_overlap_4.exi
   %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 45
   %3 = load i8, ptr %prefer_i64, align 1
   %tobool5 = trunc i8 %3 to i1
-  %call6 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool5), !range !5
+  %call6 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool5)
   switch i32 %call6, label %do.body [
     i32 5, label %sw.bb
     i32 4, label %sw.bb18
@@ -3148,7 +3148,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call1.i, ptr noundef %19, i64 noundef %conv.us.i) #7
   %add12.us.i = add i32 %i.018.us.i, 8
   %cmp.us.i = icmp ult i32 %add12.us.i, %oprsz
-  br i1 %cmp.us.i, label %for.body.us.i, label %expand_4_i64.exit, !llvm.loop !23
+  br i1 %cmp.us.i, label %for.body.us.i, label %expand_4_i64.exit, !llvm.loop !21
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %i.018.i = phi i32 [ %add12.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
@@ -3171,7 +3171,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   tail call void @tcg_gen_st_i64(ptr noundef %call.i, ptr noundef %23, i64 noundef %conv9.i) #7
   %add12.i = add i32 %i.018.i, 8
   %cmp.i86 = icmp ult i32 %add12.i, %oprsz
-  br i1 %cmp.i86, label %for.body.i, label %expand_4_i64.exit, !llvm.loop !23
+  br i1 %cmp.i86, label %for.body.i, label %expand_4_i64.exit, !llvm.loop !21
 
 expand_4_i64.exit:                                ; preds = %for.body.i, %for.body.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %call3.i) #7
@@ -3228,7 +3228,7 @@ for.body.us.i116:                                 ; preds = %for.body.lr.ph.i103
   tail call void @tcg_gen_st_i32(ptr noundef %call1.i99, ptr noundef %30, i64 noundef %conv.us.i119) #7
   %add12.us.i126 = add i32 %i.018.us.i117, 4
   %cmp.us.i127 = icmp ult i32 %add12.us.i126, %oprsz
-  br i1 %cmp.us.i127, label %for.body.us.i116, label %expand_4_i32.exit, !llvm.loop !24
+  br i1 %cmp.us.i127, label %for.body.us.i116, label %expand_4_i32.exit, !llvm.loop !22
 
 for.body.i104:                                    ; preds = %for.body.lr.ph.i103, %for.body.i104
   %i.018.i105 = phi i32 [ %add12.i114, %for.body.i104 ], [ 0, %for.body.lr.ph.i103 ]
@@ -3251,7 +3251,7 @@ for.body.i104:                                    ; preds = %for.body.lr.ph.i103
   tail call void @tcg_gen_st_i32(ptr noundef %call.i98, ptr noundef %34, i64 noundef %conv9.i113) #7
   %add12.i114 = add i32 %i.018.i105, 4
   %cmp.i115 = icmp ult i32 %add12.i114, %oprsz
-  br i1 %cmp.i115, label %for.body.i104, label %expand_4_i32.exit, !llvm.loop !24
+  br i1 %cmp.i115, label %for.body.i104, label %expand_4_i32.exit, !llvm.loop !22
 
 expand_4_i32.exit:                                ; preds = %for.body.i104, %for.body.us.i116
   tail call void @tcg_temp_free_i32(ptr noundef %call3.i101) #7
@@ -3333,7 +3333,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call1.us, ptr noundef %4, i64 noundef %conv.us) #7
   %add12.us = add i32 %i.017.us, %tysz
   %cmp.us = icmp ult i32 %add12.us, %oprsz
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !25
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !23
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.017 = phi i32 [ %add12, %for.body ], [ 0, %for.body.lr.ph ]
@@ -3360,7 +3360,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @tcg_gen_st_vec(ptr noundef %call, ptr noundef %8, i64 noundef %conv9) #7
   %add12 = add i32 %i.017, %tysz
   %cmp = icmp ult i32 %add12, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
   ret void
@@ -3488,7 +3488,7 @@ if.end:                                           ; preds = %check_overlap_4.exi
   %prefer_i64 = getelementptr inbounds i8, ptr %g, i64 41
   %3 = load i8, ptr %prefer_i64, align 1
   %tobool5 = trunc i8 %3 to i1
-  %call6 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool5), !range !5
+  %call6 = tail call fastcc i32 @choose_vector_type(ptr noundef %1, i32 noundef %conv, i32 noundef %oprsz, i1 noundef zeroext %tobool5)
   switch i32 %call6, label %do.body [
     i32 5, label %sw.bb
     i32 4, label %sw.bb17
@@ -3576,7 +3576,7 @@ for.body.i:                                       ; preds = %if.then29, %for.bod
   tail call void @tcg_gen_st_i64(ptr noundef %call.i, ptr noundef %14, i64 noundef %conv9.i) #7
   %add10.i = add i32 %i.015.i, 8
   %cmp.i85 = icmp ult i32 %add10.i, %oprsz
-  br i1 %cmp.i85, label %for.body.i, label %expand_4i_i64.exit, !llvm.loop !26
+  br i1 %cmp.i85, label %for.body.i, label %expand_4i_i64.exit, !llvm.loop !24
 
 expand_4i_i64.exit:                               ; preds = %for.body.i
   tail call void @tcg_temp_free_i64(ptr noundef %call3.i) #7
@@ -3629,7 +3629,7 @@ for.body.i102:                                    ; preds = %if.then35, %for.bod
   tail call void @tcg_gen_st_i32(ptr noundef %call.i97, ptr noundef %19, i64 noundef %conv9.i111) #7
   %add10.i112 = add i32 %i.015.i103, 4
   %cmp.i113 = icmp ult i32 %add10.i112, %oprsz
-  br i1 %cmp.i113, label %for.body.i102, label %expand_4i_i32.exit, !llvm.loop !27
+  br i1 %cmp.i113, label %for.body.i102, label %expand_4i_i32.exit, !llvm.loop !25
 
 expand_4i_i32.exit:                               ; preds = %for.body.i102
   tail call void @tcg_temp_free_i32(ptr noundef %call3.i100) #7
@@ -3705,7 +3705,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @tcg_gen_st_vec(ptr noundef %call, ptr noundef %3, i64 noundef %conv9) #7
   %add10 = add i32 %i.014, %tysz
   %cmp = icmp ult i32 %add10, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -3909,7 +3909,7 @@ land.end:                                         ; preds = %land.rhs, %if.end52
   %oprsz.addr.0169 = phi i32 [ %oprsz.tr241361, %if.end52 ], [ %oprsz.addr.0170, %land.rhs ]
   %in_c.addr.0167 = phi i64 [ %in_c.tr245357, %if.end52 ], [ %in_c.addr.0168, %land.rhs ]
   %1 = phi i1 [ false, %if.end52 ], [ %0, %land.rhs ]
-  %call59 = tail call fastcc i32 @choose_vector_type(ptr noundef null, i32 noundef %vece.addr.0171, i32 noundef %oprsz.addr.0169, i1 noundef zeroext %1), !range !5
+  %call59 = tail call fastcc i32 @choose_vector_type(ptr noundef null, i32 noundef %vece.addr.0171, i32 noundef %oprsz.addr.0169, i1 noundef zeroext %1)
   %cmp60.not = icmp eq i32 %call59, 0
   br i1 %cmp60.not, label %if.end72, label %if.then62
 
@@ -4014,7 +4014,7 @@ for.body:                                         ; preds = %if.end108, %for.bod
   tail call void @tcg_gen_st_i32(ptr noundef nonnull %t_32.0, ptr noundef %4, i64 noundef %conv113) #7
   %add114 = add i32 %i.0235, 4
   %cmp111 = icmp ult i32 %add114, %oprsz.addr.0169
-  br i1 %cmp111, label %for.body, label %for.end, !llvm.loop !29
+  br i1 %cmp111, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body
   tail call void @tcg_temp_free_i32(ptr noundef nonnull %t_32.0) #7
@@ -4033,7 +4033,7 @@ for.body121:                                      ; preds = %if.end115, %for.bod
   tail call void @tcg_gen_st_i64(ptr noundef nonnull %t_64.0.ph, ptr noundef %5, i64 noundef %conv123) #7
   %add125 = add i32 %i.1234, 8
   %cmp119 = icmp ult i32 %add125, %oprsz.addr.0169
-  br i1 %cmp119, label %for.body121, label %for.end126, !llvm.loop !30
+  br i1 %cmp119, label %for.body121, label %for.end126, !llvm.loop !28
 
 for.end126:                                       ; preds = %for.body121
   tail call void @tcg_temp_free_i64(ptr noundef nonnull %t_64.0.ph) #7
@@ -4131,8 +4131,8 @@ simd_desc.exit:                                   ; preds = %if.end153, %do.body
   %18 = add i32 %sub.i, 768
   %19 = and i32 %18, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %19
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %and6.i.i, %shl57.i14.i
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i.i, %shl57.i15.i
   %call155 = tail call ptr @tcg_constant_i32(i32 noundef %or.i.i) #7
   %cmp156 = icmp eq i32 %vece.addr.0171, 3
   br i1 %cmp156, label %if.then158, label %if.else164
@@ -4290,7 +4290,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   br i1 %cmp, label %if.then, label %if.else17
 
 if.then:                                          ; preds = %check_size_align.exit
-  %call = tail call fastcc i32 @choose_vector_type(ptr noundef null, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext false), !range !5
+  %call = tail call fastcc i32 @choose_vector_type(ptr noundef null, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext false)
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.else, label %if.then2
 
@@ -4372,7 +4372,7 @@ for.body:                                         ; preds = %if.then25, %for.bod
   tail call void @tcg_gen_st_vec(ptr noundef %call27, ptr noundef %5, i64 noundef %conv33) #7
   %add34 = add i32 %i.0122, 16
   %cmp31 = icmp ult i32 %add34, %oprsz
-  br i1 %cmp31, label %for.body, label %if.end56, !llvm.loop !31
+  br i1 %cmp31, label %for.body, label %if.end56, !llvm.loop !29
 
 if.else35:                                        ; preds = %do.body
   %call36 = tail call ptr @tcg_temp_ebb_new_i64() #7
@@ -4401,7 +4401,7 @@ for.body47:                                       ; preds = %if.else35, %for.bod
   tail call void @tcg_gen_st_i64(ptr noundef %call37, ptr noundef %9, i64 noundef %conv52) #7
   %add54 = add i32 %i.1124, 16
   %cmp45 = icmp ult i32 %add54, %oprsz
-  br i1 %cmp45, label %for.body47, label %for.end55, !llvm.loop !32
+  br i1 %cmp45, label %for.body47, label %for.end55, !llvm.loop !30
 
 for.end55:                                        ; preds = %for.body47, %if.else35
   tail call void @tcg_temp_free_i64(ptr noundef %call36) #7
@@ -4447,7 +4447,7 @@ for.body91:                                       ; preds = %if.then81, %for.bod
   tail call void @tcg_gen_st_vec(ptr noundef %call83, ptr noundef %12, i64 noundef %conv93) #7
   %add95 = add i32 %i66.0113, 32
   %cmp89 = icmp ult i32 %add95, %oprsz
-  br i1 %cmp89, label %for.body91, label %if.end170, !llvm.loop !33
+  br i1 %cmp89, label %for.body91, label %if.end170, !llvm.loop !31
 
 if.else97:                                        ; preds = %do.body67
   %and98 = and i32 %10, 512
@@ -4481,7 +4481,7 @@ for.body114:                                      ; preds = %if.then100, %for.bo
   tail call void @tcg_gen_st_vec(ptr noundef %call104, ptr noundef %16, i64 noundef %conv119) #7
   %add121 = add i32 %i66.1115, 32
   %cmp112 = icmp ult i32 %add121, %oprsz
-  br i1 %cmp112, label %for.body114, label %if.end170, !llvm.loop !34
+  br i1 %cmp112, label %for.body114, label %if.end170, !llvm.loop !32
 
 for.body128:                                      ; preds = %if.else97, %for.body128
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body128 ], [ 0, %if.else97 ]
@@ -4496,7 +4496,7 @@ for.body128:                                      ; preds = %if.else97, %for.bod
   tail call void @tcg_gen_ld_i64(ptr noundef %call129, ptr noundef %17, i64 noundef %conv134) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end136, label %for.body128, !llvm.loop !35
+  br i1 %exitcond.not, label %for.end136, label %for.body128, !llvm.loop !33
 
 for.end136:                                       ; preds = %for.body128
   %cmp137 = icmp eq i32 %aofs, %dofs
@@ -4521,12 +4521,12 @@ for.body147:                                      ; preds = %for.cond144.prehead
   tail call void @tcg_gen_st_i64(ptr noundef %19, ptr noundef %20, i64 noundef %conv153) #7
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, 4
-  br i1 %exitcond133.not, label %for.inc157, label %for.body147, !llvm.loop !36
+  br i1 %exitcond133.not, label %for.inc157, label %for.body147, !llvm.loop !34
 
 for.inc157:                                       ; preds = %for.body147
   %add158 = add i32 %i66.2119, 32
   %cmp141 = icmp ult i32 %add158, %oprsz
-  br i1 %cmp141, label %for.cond144.preheader, label %for.body163.preheader, !llvm.loop !37
+  br i1 %cmp141, label %for.cond144.preheader, label %for.body163.preheader, !llvm.loop !35
 
 for.body163.preheader:                            ; preds = %for.inc157, %for.end136
   br label %for.body163
@@ -4538,7 +4538,7 @@ for.body163:                                      ; preds = %for.body163.prehead
   tail call void @tcg_temp_free_i64(ptr noundef %22) #7
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 4
-  br i1 %exitcond137.not, label %if.end170, label %for.body163, !llvm.loop !38
+  br i1 %exitcond137.not, label %if.end170, label %for.body163, !llvm.loop !36
 
 if.end170:                                        ; preds = %for.body91, %for.body114, %for.body163, %if.then81, %if.then100
   %cmp171 = icmp ult i32 %oprsz, %maxsz
@@ -4601,7 +4601,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   tail call void @tcg_gen_stl_vec(ptr noundef %t_vec, ptr noundef %1, i64 noundef %conv8, i32 noundef 5) #7
   %add4 = add i32 %add432, 32
   %cmp5.not = icmp ugt i32 %add4, %oprsz
-  br i1 %cmp5.not, label %sw.bb10, label %for.body, !llvm.loop !39
+  br i1 %cmp5.not, label %sw.bb10, label %for.body, !llvm.loop !37
 
 sw.bb10:                                          ; preds = %for.body, %for.cond.preheader, %if.end3
   %i.2 = phi i32 [ %i.0, %if.end3 ], [ %i.0, %for.cond.preheader ], [ %add432, %for.body ]
@@ -4618,7 +4618,7 @@ for.body15:                                       ; preds = %sw.bb10, %for.body1
   tail call void @tcg_gen_stl_vec(ptr noundef %t_vec, ptr noundef %2, i64 noundef %conv17, i32 noundef 4) #7
   %add12 = add i32 %add1236, 16
   %cmp13.not = icmp ugt i32 %add12, %oprsz
-  br i1 %cmp13.not, label %sw.epilog, label %for.body15, !llvm.loop !40
+  br i1 %cmp13.not, label %sw.epilog, label %for.body15, !llvm.loop !38
 
 for.body25:                                       ; preds = %for.cond22.preheader, %for.body25
   %i.428 = phi i32 [ %add29, %for.body25 ], [ %i.0, %for.cond22.preheader ]
@@ -4628,7 +4628,7 @@ for.body25:                                       ; preds = %for.cond22.preheade
   tail call void @tcg_gen_stl_vec(ptr noundef %t_vec, ptr noundef %3, i64 noundef %conv27, i32 noundef 3) #7
   %add29 = add i32 %i.428, 8
   %cmp23 = icmp ult i32 %add29, %oprsz
-  br i1 %cmp23, label %for.body25, label %sw.epilog, !llvm.loop !41
+  br i1 %cmp23, label %for.body25, label %sw.epilog, !llvm.loop !39
 
 do.body31:                                        ; preds = %if.end3
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 511, ptr noundef nonnull @__func__.do_dup_store, ptr noundef null) #8
@@ -7901,7 +7901,7 @@ lor.lhs.false2.i:                                 ; preds = %check_size_align.ex
 check_overlap_2.exit:                             ; preds = %check_size_align.exit, %lor.lhs.false2.i
   %s_list = getelementptr inbounds i8, ptr %g, i64 64
   %cmp = icmp eq i32 %vece, 3
-  %call = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull %s_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp), !range !5
+  %call = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull %s_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp)
   switch i32 %call, label %do.body [
     i32 0, label %if.end11
     i32 5, label %sw.bb
@@ -7936,7 +7936,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i, ptr noundef %4, i64 noundef %conv3.i) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %cmp.i119 = icmp ult i64 %indvars.iv.next, %1
-  br i1 %cmp.i119, label %for.body.i, label %expand_2sh_vec.exit, !llvm.loop !42
+  br i1 %cmp.i119, label %for.body.i, label %expand_2sh_vec.exit, !llvm.loop !40
 
 expand_2sh_vec.exit:                              ; preds = %for.body.i, %sw.bb
   %cmp2 = icmp eq i32 %div116, %oprsz
@@ -7974,7 +7974,7 @@ for.body.i121:                                    ; preds = %sw.bb6, %for.body.i
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i124, ptr noundef %7, i64 noundef %conv3.i128) #7
   %add4.i129 = add i32 %i.08.i122, 16
   %cmp.i130 = icmp ult i32 %add4.i129, %oprsz.addr.0
-  br i1 %cmp.i130, label %for.body.i121, label %clear_tail, !llvm.loop !42
+  br i1 %cmp.i130, label %for.body.i121, label %clear_tail, !llvm.loop !40
 
 sw.bb8:                                           ; preds = %check_overlap_2.exit
   %fniv_s9 = getelementptr inbounds i8, ptr %g, i64 16
@@ -7997,7 +7997,7 @@ for.body.i133:                                    ; preds = %sw.bb8, %for.body.i
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i136, ptr noundef %10, i64 noundef %conv3.i140) #7
   %add4.i141 = add i32 %i.08.i134, 8
   %cmp.i142 = icmp ult i32 %add4.i141, %oprsz
-  br i1 %cmp.i142, label %for.body.i133, label %clear_tail, !llvm.loop !42
+  br i1 %cmp.i142, label %for.body.i133, label %clear_tail, !llvm.loop !40
 
 do.body:                                          ; preds = %check_overlap_2.exit
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3152, ptr noundef nonnull @__func__.do_gvec_shifts, ptr noundef null) #8
@@ -8005,7 +8005,7 @@ do.body:                                          ; preds = %check_overlap_2.exi
 
 if.end11:                                         ; preds = %check_overlap_2.exit
   %v_list = getelementptr inbounds i8, ptr %g, i64 72
-  %call14 = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull %v_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp), !range !5
+  %call14 = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull %v_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end43, label %if.then16
 
@@ -8058,7 +8058,7 @@ for.body.i144:                                    ; preds = %for.body.i144.prehe
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i146, ptr noundef %15, i64 noundef %conv3.i150) #7
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 32
   %cmp.i152 = icmp ult i64 %indvars.iv.next226, %12
-  br i1 %cmp.i152, label %for.body.i144, label %expand_2s_vec.exit, !llvm.loop !14
+  br i1 %cmp.i152, label %for.body.i144, label %expand_2s_vec.exit, !llvm.loop !12
 
 expand_2s_vec.exit:                               ; preds = %for.body.i144, %sw.bb24
   %cmp27 = icmp eq i32 %div25115, %oprsz
@@ -8096,7 +8096,7 @@ for.body.i155:                                    ; preds = %sw.bb34, %for.body.
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i158, ptr noundef %18, i64 noundef %conv3.i162) #7
   %add4.i163 = add i32 %i.013.i156, 16
   %cmp.i164 = icmp ult i32 %add4.i163, %oprsz.addr.2
-  br i1 %cmp.i164, label %for.body.i155, label %sw.epilog41, !llvm.loop !14
+  br i1 %cmp.i164, label %for.body.i155, label %sw.epilog41, !llvm.loop !12
 
 sw.bb36:                                          ; preds = %if.end23
   %fniv_v37 = getelementptr inbounds i8, ptr %g, i64 24
@@ -8119,7 +8119,7 @@ for.body.i168:                                    ; preds = %sw.bb36, %for.body.
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i171, ptr noundef %21, i64 noundef %conv3.i175) #7
   %add4.i176 = add i32 %i.013.i169, 8
   %cmp.i177 = icmp ult i32 %add4.i176, %oprsz
-  br i1 %cmp.i177, label %for.body.i168, label %sw.epilog41, !llvm.loop !14
+  br i1 %cmp.i177, label %for.body.i168, label %sw.epilog41, !llvm.loop !12
 
 do.body39:                                        ; preds = %if.end23
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3195, ptr noundef nonnull @__func__.do_gvec_shifts, ptr noundef null) #8
@@ -8166,7 +8166,7 @@ for.body.i185:                                    ; preds = %for.body.i185, %for
   tail call void @tcg_gen_st_i32(ptr noundef %call1.i182, ptr noundef %24, i64 noundef %conv3.i190) #7
   %add4.i191 = add i32 %i.013.i186, 4
   %cmp.i192 = icmp ult i32 %add4.i191, %oprsz
-  br i1 %cmp.i192, label %for.body.i185, label %expand_2s_i32.exit, !llvm.loop !16
+  br i1 %cmp.i192, label %for.body.i185, label %expand_2s_i32.exit, !llvm.loop !14
 
 expand_2s_i32.exit:                               ; preds = %for.body.i185
   tail call void @tcg_temp_free_i32(ptr noundef %call.i181) #7
@@ -8207,7 +8207,7 @@ for.body.i208:                                    ; preds = %for.body.i208, %for
   tail call void @tcg_gen_st_i64(ptr noundef %call1.i205, ptr noundef %27, i64 noundef %conv3.i213) #7
   %add4.i214 = add i32 %i.013.i209, 8
   %cmp.i215 = icmp ult i32 %add4.i214, %oprsz
-  br i1 %cmp.i215, label %for.body.i208, label %expand_2s_i64.exit, !llvm.loop !15
+  br i1 %cmp.i215, label %for.body.i208, label %expand_2s_i64.exit, !llvm.loop !13
 
 expand_2s_i64.exit:                               ; preds = %for.body.i208
   tail call void @tcg_temp_free_i64(ptr noundef %call.i204) #7
@@ -8245,8 +8245,8 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %28 = add i32 %sub.i, 768
   %29 = and i32 %28, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %29
-  %shl57.i14.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %and6.i.i, %shl57.i14.i
+  %shl57.i15.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i.i, %shl57.i15.i
   tail call void @tcg_gen_ori_i32(ptr noundef %call57, ptr noundef %call57, i32 noundef %or.i.i) #7
   %30 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
@@ -8993,7 +8993,7 @@ if.then:                                          ; preds = %check_overlap_3.exi
 
 if.end:                                           ; preds = %check_overlap_3.exit
   %cmp5 = icmp eq i32 %vece, 3
-  %call7 = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull @tcg_gen_gvec_cmp.cmp_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp5), !range !5
+  %call7 = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull @tcg_gen_gvec_cmp.cmp_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp5)
   switch i32 %call7, label %do.body [
     i32 5, label %sw.bb
     i32 4, label %sw.bb16
@@ -9064,7 +9064,7 @@ for.body.i:                                       ; preds = %if.then23, %for.bod
   tail call void @tcg_gen_st_i64(ptr noundef %call.i, ptr noundef %2, i64 noundef %conv5.i) #7
   %add6.i = add i32 %i.012.i, 8
   %cmp.i80 = icmp ult i32 %add6.i, %oprsz
-  br i1 %cmp.i80, label %for.body.i, label %expand_cmp_i64.exit, !llvm.loop !43
+  br i1 %cmp.i80, label %for.body.i, label %expand_cmp_i64.exit, !llvm.loop !41
 
 expand_cmp_i64.exit:                              ; preds = %for.body.i
   tail call void @tcg_temp_free_i64(ptr noundef %call1.i) #7
@@ -9106,7 +9106,7 @@ for.body.i95:                                     ; preds = %if.then29, %for.bod
   tail call void @tcg_gen_st_i32(ptr noundef %call.i92, ptr noundef %5, i64 noundef %conv5.i102) #7
   %add6.i103 = add i32 %i.012.i96, 4
   %cmp.i104 = icmp ult i32 %add6.i103, %oprsz
-  br i1 %cmp.i104, label %for.body.i95, label %expand_cmp_i32.exit, !llvm.loop !44
+  br i1 %cmp.i104, label %for.body.i95, label %expand_cmp_i32.exit, !llvm.loop !42
 
 expand_cmp_i32.exit:                              ; preds = %for.body.i95
   tail call void @tcg_temp_free_i32(ptr noundef %call1.i93) #7
@@ -9602,7 +9602,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @tcg_gen_st_vec(ptr noundef %call2, ptr noundef %2, i64 noundef %conv6) #7
   %add7 = add i32 %i.011, %tysz
   %cmp = icmp ult i32 %add7, %oprsz
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !45
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !43
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -9663,7 +9663,7 @@ if.then:                                          ; preds = %check_overlap_2.exi
 
 if.end:                                           ; preds = %check_overlap_2.exit
   %cmp4 = icmp eq i32 %vece, 3
-  %call = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull @tcg_gen_gvec_cmps.cmp_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp4), !range !5
+  %call = tail call fastcc i32 @choose_vector_type(ptr noundef nonnull @tcg_gen_gvec_cmps.cmp_list, i32 noundef %vece, i32 noundef %oprsz, i1 noundef zeroext %cmp4)
   %cmp6.not = icmp eq i32 %call, 0
   br i1 %cmp6.not, label %if.else, label %if.then8
 
@@ -9701,7 +9701,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @tcg_gen_st_vec(ptr noundef %call.i, ptr noundef %3, i64 noundef %conv3.i) #7
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 32
   %cmp.i96 = icmp ult i64 %indvars.iv.next147, %0
-  br i1 %cmp.i96, label %for.body.i, label %expand_cmps_vec.exit, !llvm.loop !46
+  br i1 %cmp.i96, label %for.body.i, label %expand_cmps_vec.exit, !llvm.loop !44
 
 expand_cmps_vec.exit:                             ; preds = %for.body.i, %sw.bb
   %add = add i32 %div92, %aofs
@@ -9739,7 +9739,7 @@ for.body.i100:                                    ; preds = %for.body.i100.prehe
   tail call void @tcg_gen_st_vec(ptr noundef %call.i97, ptr noundef %7, i64 noundef %conv3.i105) #7
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 16
   %cmp.i107 = icmp ult i64 %indvars.iv.next150, %4
-  br i1 %cmp.i107, label %for.body.i100, label %sw.epilog, !llvm.loop !46
+  br i1 %cmp.i107, label %for.body.i100, label %sw.epilog, !llvm.loop !44
 
 sw.bb17:                                          ; preds = %if.then8
   %div1891 = and i32 %oprsz, -8
@@ -9766,7 +9766,7 @@ for.body.i112:                                    ; preds = %for.body.i112.prehe
   tail call void @tcg_gen_st_vec(ptr noundef %call.i109, ptr noundef %11, i64 noundef %conv3.i117) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %cmp.i119 = icmp ult i64 %indvars.iv.next, %8
-  br i1 %cmp.i119, label %for.body.i112, label %sw.epilog, !llvm.loop !46
+  br i1 %cmp.i119, label %for.body.i112, label %sw.epilog, !llvm.loop !44
 
 do.body:                                          ; preds = %if.then8
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3908, ptr noundef nonnull @__func__.tcg_gen_gvec_cmps, ptr noundef null) #8
@@ -9810,7 +9810,7 @@ for.body:                                         ; preds = %if.then25, %for.bod
   tail call void @tcg_gen_st_i64(ptr noundef %call26, ptr noundef %13, i64 noundef %conv32) #7
   %add33 = add i32 %i.0143, 8
   %cmp27 = icmp ult i32 %add33, %oprsz
-  br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !47
+  br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !45
 
 for.end:                                          ; preds = %for.body
   tail call void @tcg_temp_free_i64(ptr noundef %call26) #7
@@ -9848,7 +9848,7 @@ for.body48:                                       ; preds = %for.body48.preheade
   tail call void @tcg_gen_st_i32(ptr noundef %call42, ptr noundef %15, i64 noundef %conv52) #7
   %add54 = add i32 %i44.0142, 8
   %cmp46 = icmp ult i32 %add54, %oprsz
-  br i1 %cmp46, label %for.body48, label %for.end55, !llvm.loop !48
+  br i1 %cmp46, label %for.body48, label %for.end55, !llvm.loop !46
 
 for.end55:                                        ; preds = %for.body48
   tail call void @tcg_temp_free_i32(ptr noundef %call42) #7
@@ -10457,47 +10457,45 @@ attributes #8 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 6}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i32 0, i32 33}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}

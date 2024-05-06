@@ -938,7 +938,7 @@ define void @_ZN24InterfaceToolbarLineEdit11resizeEventEP12QResizeEvent(ptr noun
   %20 = tail call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %21 = extractvalue { i64, i64 } %20, 0
   %.sroa.16.0.extract.shift = lshr i64 %21, 32
-  %.sroa.16.0.extract.trunc = trunc i64 %.sroa.16.0.extract.shift to i32
+  %.sroa.16.0.extract.trunc = trunc nuw i64 %.sroa.16.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %19, ptr %3, align 4
   %22 = getelementptr inbounds i8, ptr %3, i64 4
@@ -949,10 +949,10 @@ define void @_ZN24InterfaceToolbarLineEdit11resizeEventEP12QResizeEvent(ptr noun
   %24 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %25 = extractvalue { i64, i64 } %24, 0
   %.sroa.12.0.extract.shift = lshr i64 %25, 32
-  %.sroa.12.0.extract.trunc = trunc i64 %.sroa.12.0.extract.shift to i32
+  %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
   %26 = extractvalue { i64, i64 } %24, 1
   %.sroa.34.8.extract.shift = lshr i64 %26, 32
-  %.sroa.34.8.extract.trunc = trunc i64 %.sroa.34.8.extract.shift to i32
+  %.sroa.34.8.extract.trunc = trunc nuw i64 %.sroa.34.8.extract.shift to i32
   %27 = add i32 %.sroa.34.8.extract.trunc, 1
   %28 = sub i32 %27, %.sroa.12.0.extract.trunc
   call void @_ZN7QWidget16setMinimumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef %28)
@@ -960,10 +960,10 @@ define void @_ZN24InterfaceToolbarLineEdit11resizeEventEP12QResizeEvent(ptr noun
   %30 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %31 = extractvalue { i64, i64 } %30, 0
   %.sroa.1.0.extract.shift = lshr i64 %31, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %32 = extractvalue { i64, i64 } %30, 1
   %.sroa.3.8.extract.shift = lshr i64 %32, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %33 = add i32 %.sroa.3.8.extract.trunc, 1
   %34 = sub i32 %33, %.sroa.1.0.extract.trunc
   call void @_ZN7QWidget16setMaximumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %29, i32 noundef %34)

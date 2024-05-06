@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_sha3_224_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 396
   store i32 144, ptr %2, align 4
   ret void
@@ -15,7 +15,7 @@ define dso_local void @rhash_sha3_224_init(ptr nocapture noundef writeonly %0) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_sha3_256_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 396
   store i32 136, ptr %2, align 4
   ret void
@@ -23,7 +23,7 @@ define dso_local void @rhash_sha3_256_init(ptr nocapture noundef writeonly %0) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_sha3_384_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 396
   store i32 104, ptr %2, align 4
   ret void
@@ -31,7 +31,7 @@ define dso_local void @rhash_sha3_384_init(ptr nocapture noundef writeonly %0) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_sha3_512_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 396
   store i32 72, ptr %2, align 4
   ret void
@@ -51,7 +51,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
 10:                                               ; preds = %3
   %11 = add i64 %6, %2
   %12 = urem i64 %11, %9
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   store i32 %13, ptr %4, align 8
   %.not51 = icmp eq i32 %5, 0
   br i1 %.not51, label %23, label %14

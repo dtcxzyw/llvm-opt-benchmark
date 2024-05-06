@@ -65,7 +65,7 @@ $_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev = comdat 
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %bio.i = alloca %"class.std::unique_ptr.10", align 8
   %p12.i = alloca %"class.std::unique_ptr.18", align 8

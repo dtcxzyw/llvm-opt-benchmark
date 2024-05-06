@@ -2623,7 +2623,7 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   %156 = load i64, ptr %155, align 8
   %157 = sdiv i64 %156, 1000000000
   %158 = srem i64 %156, 1000000000
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nsw i64 %158 to i32
   store i64 %157, ptr %6, align 8
   %160 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %159, ptr %160, align 8

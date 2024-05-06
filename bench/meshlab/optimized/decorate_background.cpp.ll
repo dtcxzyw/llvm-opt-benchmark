@@ -2999,7 +2999,7 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %75 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %indvars.iv98
   %76 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 %indvars.iv98
   %77 = getelementptr inbounds [3 x float], ptr %19, i64 0, i64 %indvars.iv98
-  %78 = trunc i64 %indvars.iv98 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv98 to i32
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.preheader, %104
@@ -3017,7 +3017,7 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   store float 0.000000e+00, ptr %51, align 8
   store <2 x float> %62, ptr %20, align 8
   store float %63, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %trunc = trunc i32 %.08694 to i1
+  %trunc = trunc nuw i32 %.08694 to i1
   %.sink45.i = select i1 %trunc, ptr %64, ptr %65
   %.sink.i = select i1 %trunc, float -1.000000e+00, float 1.000000e+00
   %79 = load float, ptr %.sink45.i, align 4

@@ -355,7 +355,7 @@ entry:
   %filter = alloca %struct.lzma_filter, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filter, ptr noundef nonnull align 8 dereferenceable(16) @__const._lzma__encode_filter_properties.filter, i64 16, i1 false)
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
-  %call1 = call fastcc i32 @lzma_filter_converter(ptr noundef %call.i, ptr noundef %arg, ptr noundef nonnull %filter), !range !4
+  %call1 = call fastcc i32 @lzma_filter_converter(ptr noundef %call.i, ptr noundef %arg, ptr noundef nonnull %filter)
   %tobool.not = icmp eq i32 %call1, 0
   %.pre = load i64, ptr %filter, align 8
   br i1 %tobool.not, label %exit, label %if.end
@@ -370,7 +370,7 @@ if.end:                                           ; preds = %entry
   store ptr %1, ptr %2, align 8
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call1.i = call i32 @lzma_properties_size(ptr noundef nonnull %encoded_size.i, ptr noundef nonnull %filter.i) #9
-  %call2.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i.i, i32 noundef %call1.i), !range !4
+  %call2.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i.i, i32 noundef %call1.i)
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %_lzma__encode_filter_properties_impl.exit
 
@@ -384,7 +384,7 @@ if.end.i:                                         ; preds = %if.end
 if.end6.i:                                        ; preds = %if.end.i
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   %call8.i = call i32 @lzma_properties_encode(ptr noundef nonnull %filter.i, ptr noundef nonnull %ob_sval.i.i) #9
-  %call9.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i.i, i32 noundef %call8.i), !range !4
+  %call9.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i.i, i32 noundef %call8.i)
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %_lzma__encode_filter_properties_impl.exit, label %if.then.i.i
 
@@ -461,7 +461,7 @@ if.end10:                                         ; preds = %if.end5
   %len.i = getelementptr inbounds i8, ptr %encoded_props, i64 16
   %3 = load i64, ptr %len.i, align 8
   %call1.i4 = call i32 @lzma_properties_decode(ptr noundef nonnull %filter.i, ptr noundef null, ptr noundef %2, i64 noundef %3) #9
-  %call2.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i.i, i32 noundef %call1.i4), !range !4
+  %call2.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i.i, i32 noundef %call1.i4)
   %tobool.not.i5 = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i5, label %if.end.i, label %_lzma__decode_filter_properties_impl.exit
 
@@ -612,7 +612,7 @@ declare zeroext i8 @lzma_check_is_supported(i32 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lzma_filter_converter(ptr nocapture noundef readonly %state, ptr noundef %spec, ptr nocapture noundef %ptr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lzma_filter_converter(ptr nocapture noundef readonly %state, ptr noundef %spec, ptr nocapture noundef %ptr) unnamed_addr #0 {
 entry:
   %id.i = alloca ptr, align 8
   %start_offset.i = alloca i32, align 4
@@ -899,7 +899,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uint32_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
+define internal range(i32 0, 2) i32 @uint32_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
 entry:
   %call = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef %obj) #9
   %call1 = tail call ptr @PyErr_Occurred() #9
@@ -935,7 +935,7 @@ declare zeroext i8 @lzma_lzma_preset(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lzma_mode_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
+define internal range(i32 0, 2) i32 @lzma_mode_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
 entry:
   %call = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef %obj) #9
   %call1 = tail call ptr @PyErr_Occurred() #9
@@ -962,7 +962,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lzma_mf_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
+define internal range(i32 0, 2) i32 @lzma_mf_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
 entry:
   %call = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef %obj) #9
   %call1 = tail call ptr @PyErr_Occurred() #9
@@ -992,7 +992,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 declare i32 @lzma_properties_size(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @catch_lzma_error(ptr nocapture noundef readonly %state, i32 noundef %lzret) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @catch_lzma_error(ptr nocapture noundef readonly %state, i32 noundef %lzret) unnamed_addr #0 {
 entry:
   switch i32 %lzret, label %sw.default [
     i32 0, label %return
@@ -1158,7 +1158,7 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
 declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lzma_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @lzma_exec(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call1 = tail call ptr @PyTuple_New(i64 noundef 0) #9
@@ -1556,19 +1556,19 @@ if.then32:                                        ; preds = %sw.bb
 if.end33:                                         ; preds = %if.then32, %sw.bb
   %15 = phi i32 [ 4, %if.then32 ], [ %14, %sw.bb ]
   %16 = load ptr, ptr %filterspecs, align 8
-  %call35 = call fastcc i32 @Compressor_init_xz(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %15, i32 noundef %preset.1, ptr noundef %16), !range !5
+  %call35 = call fastcc i32 @Compressor_init_xz(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %15, i32 noundef %preset.1, ptr noundef %16)
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %return, label %error
 
 sw.bb39:                                          ; preds = %if.end30
   %17 = load ptr, ptr %filterspecs, align 8
-  %call41 = call fastcc i32 @Compressor_init_alone(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %preset.1, ptr noundef %17), !range !5
+  %call41 = call fastcc i32 @Compressor_init_alone(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %preset.1, ptr noundef %17)
   %cmp42.not = icmp eq i32 %call41, 0
   br i1 %cmp42.not, label %return, label %error
 
 sw.bb45:                                          ; preds = %if.end30
   %18 = load ptr, ptr %filterspecs, align 8
-  %call47 = call fastcc i32 @Compressor_init_raw(ptr noundef %call, ptr noundef nonnull %lzs, ptr noundef %18), !range !5
+  %call47 = call fastcc i32 @Compressor_init_raw(ptr noundef %call, ptr noundef nonnull %lzs, ptr noundef %18)
   %cmp48.not = icmp eq i32 %call47, 0
   br i1 %cmp48.not, label %return, label %error
 
@@ -1807,7 +1807,7 @@ land.lhs.true11.us:                               ; preds = %for.cond.us
 
 if.end16.us:                                      ; preds = %land.lhs.true11.us, %for.cond.us
   %lzret.0.us = phi i32 [ %call8.us, %for.cond.us ], [ %spec.select.us, %land.lhs.true11.us ]
-  %call17.us = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %lzret.0.us), !range !4
+  %call17.us = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %lzret.0.us)
   %tobool.not.us = icmp eq i32 %call17.us, 0
   br i1 %tobool.not.us, label %if.end19.us, label %error
 
@@ -1836,7 +1836,7 @@ if.end.split.split.us:                            ; preds = %if.end.split
   %call6.us3166 = tail call ptr @PyEval_SaveThread() #9
   %call8.us3267 = tail call i32 @lzma_code(ptr noundef nonnull %lzs, i32 noundef %action) #9
   tail call void @PyEval_RestoreThread(ptr noundef %call6.us3166) #9
-  %call17.us3768 = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %call8.us3267), !range !4
+  %call17.us3768 = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %call8.us3267)
   %tobool.not.us3869 = icmp eq i32 %call17.us3768, 0
   br i1 %tobool.not.us3869, label %if.end19.us39.lr.ph, label %error
 
@@ -1857,7 +1857,7 @@ if.end42.us45.us:                                 ; preds = %if.then32.us42.us, 
   %call6.us31.us = tail call ptr @PyEval_SaveThread() #9
   %call8.us32.us = tail call i32 @lzma_code(ptr noundef nonnull %lzs, i32 noundef %action) #9
   tail call void @PyEval_RestoreThread(ptr noundef %call6.us31.us) #9
-  %call17.us37.us = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %call8.us32.us), !range !4
+  %call17.us37.us = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %call8.us32.us)
   %tobool.not.us38.us = icmp eq i32 %call17.us37.us, 0
   br i1 %tobool.not.us38.us, label %if.end19.us39.us, label %error
 
@@ -1880,7 +1880,7 @@ if.end42.us45:                                    ; preds = %if.then32.us42, %if
   %call6.us31 = tail call ptr @PyEval_SaveThread() #9
   %call8.us32 = tail call i32 @lzma_code(ptr noundef nonnull %lzs, i32 noundef 3) #9
   tail call void @PyEval_RestoreThread(ptr noundef %call6.us31) #9
-  %call17.us37 = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %call8.us32), !range !4
+  %call17.us37 = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %call8.us32)
   %tobool.not.us38 = icmp eq i32 %call17.us37, 0
   br i1 %tobool.not.us38, label %if.end19.us39, label %error
 
@@ -1902,7 +1902,7 @@ land.lhs.true11.us50:                             ; preds = %for.cond.us46
 
 if.end16.us53:                                    ; preds = %land.lhs.true11.us50, %for.cond.us46
   %lzret.0.us54 = phi i32 [ %call8.us48, %for.cond.us46 ], [ %spec.select.us52, %land.lhs.true11.us50 ]
-  %call17.us55 = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %lzret.0.us54), !range !4
+  %call17.us55 = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %lzret.0.us54)
   %tobool.not.us56 = icmp eq i32 %call17.us55, 0
   br i1 %tobool.not.us56, label %if.end19.us57, label %error
 
@@ -1934,7 +1934,7 @@ land.lhs.true11:                                  ; preds = %for.cond
 
 if.end16:                                         ; preds = %land.lhs.true11, %for.cond
   %lzret.0 = phi i32 [ %call8, %for.cond ], [ %spec.select, %land.lhs.true11 ]
-  %call17 = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %lzret.0), !range !4
+  %call17 = tail call fastcc i32 @catch_lzma_error(ptr noundef %call1, i32 noundef %lzret.0)
   %tobool.not = icmp eq i32 %call17, 0
   br i1 %tobool.not, label %if.end19, label %error
 
@@ -2196,7 +2196,7 @@ for.body.i:                                       ; preds = %if.then19.i, %for.b
   %add.ptr.i = getelementptr i8, ptr %posi.045.i, i64 %.val38.i
   %inc.i = add nuw nsw i64 %i.046.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub21.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i, %if.then19.i
   %posi.0.lcssa.i = phi ptr [ %ob_sval.i.i, %if.then19.i ], [ %add.ptr.i, %for.body.i ]
@@ -2275,7 +2275,7 @@ entry:
 declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Compressor_init_xz(ptr nocapture noundef readonly %state, ptr noundef %lzs, i32 noundef %check, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr nocapture noundef readonly %state, ptr noundef %lzs, i32 noundef %check, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
   %cmp = icmp eq ptr %filterspecs, @_Py_NoneStruct
@@ -2286,7 +2286,7 @@ if.then:                                          ; preds = %entry
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %call1 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs), !range !5
+  %call1 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs)
   %cmp2 = icmp eq i32 %call1, -1
   br i1 %cmp2, label %return, label %if.end
 
@@ -2307,11 +2307,11 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %arrayidx.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom.i
   %2 = load i64, ptr %arrayidx.i, align 16
   %cmp.not.i = icmp eq i64 %2, -1
-  br i1 %cmp.not.i, label %if.end7, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %if.end7, label %for.body.i, !llvm.loop !6
 
 if.end7:                                          ; preds = %for.body.i, %if.end, %if.then
   %lzret.0 = phi i32 [ %call, %if.then ], [ %call5, %if.end ], [ %call5, %for.body.i ]
-  %call8 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %lzret.0), !range !4
+  %call8 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %lzret.0)
   %sext = sub nsw i32 0, %call8
   br label %return
 
@@ -2321,7 +2321,7 @@ return:                                           ; preds = %if.end7, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Compressor_init_alone(ptr nocapture noundef readonly %state, ptr noundef %lzs, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr nocapture noundef readonly %state, ptr noundef %lzs, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %options = alloca %struct.lzma_options_lzma, align 8
   %filters = alloca [5 x %struct.lzma_filter], align 16
@@ -2344,7 +2344,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end19
 
 if.else:                                          ; preds = %entry
-  %call4 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs), !range !5
+  %call4 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs)
   %cmp5 = icmp eq i32 %call4, -1
   br i1 %cmp5, label %return, label %if.end7
 
@@ -2384,7 +2384,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %arrayidx.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom.i
   %6 = load i64, ptr %arrayidx.i, align 16
   %cmp.not.i = icmp eq i64 %6, -1
-  br i1 %cmp.not.i, label %if.end19, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %if.end19, label %for.body.i, !llvm.loop !6
 
 if.end19:                                         ; preds = %for.body.i, %if.end17, %if.end
   %lzret.1 = phi i32 [ %call3, %if.end ], [ 11, %if.end17 ], [ %lzret.08, %for.body.i ]
@@ -2393,7 +2393,7 @@ if.end19:                                         ; preds = %for.body.i, %if.end
   br i1 %tobool21.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end19
-  %call22 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %lzret.1), !range !4
+  %call22 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %lzret.1)
   %sext = sub nsw i32 0, %call22
   br label %return
 
@@ -2403,7 +2403,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Compressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
   %cmp = icmp eq ptr %filterspecs, @_Py_NoneStruct
@@ -2415,7 +2415,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs), !range !5
+  %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs)
   %cmp1 = icmp eq i32 %call, -1
   br i1 %cmp1, label %return, label %if.end3
 
@@ -2436,10 +2436,10 @@ for.body.i:                                       ; preds = %if.end3, %for.body.
   %arrayidx.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom.i
   %3 = load i64, ptr %arrayidx.i, align 16
   %cmp.not.i = icmp eq i64 %3, -1
-  br i1 %cmp.not.i, label %free_filter_chain.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %free_filter_chain.exit, label %for.body.i, !llvm.loop !6
 
 free_filter_chain.exit:                           ; preds = %for.body.i, %if.end3
-  %call7 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %call5), !range !4
+  %call7 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %call5)
   %sext = sub nsw i32 0, %call7
   br label %return
 
@@ -2456,7 +2456,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare i32 @lzma_easy_encoder(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_filter_chain_spec(ptr nocapture noundef readonly %state, ptr nocapture noundef %filters, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr nocapture noundef readonly %state, ptr nocapture noundef %filters, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %call = tail call i64 @PySequence_Size(ptr noundef %filterspecs) #9
   %cmp = icmp eq i64 %call, -1
@@ -2483,7 +2483,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 lor.lhs.false:                                    ; preds = %for.body
   %arrayidx = getelementptr %struct.lzma_filter, ptr %filters, i64 %i.028
-  %call8 = tail call fastcc i32 @lzma_filter_converter(ptr noundef %state, ptr noundef nonnull %call6, ptr noundef %arrayidx), !range !4
+  %call8 = tail call fastcc i32 @lzma_filter_converter(ptr noundef %state, ptr noundef nonnull %call6, ptr noundef %arrayidx)
   %tobool.not = icmp eq i32 %call8, 0
   %1 = load i64, ptr %call6, align 8
   %2 = and i64 %1, 2147483648
@@ -2506,7 +2506,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 Py_XDECREF.exit:                                  ; preds = %if.then.i, %if.end.i.i, %if.then1.i.i
   %inc = add nuw nsw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 if.then.i15:                                      ; preds = %lor.lhs.false
   br i1 %cmp.i2.not.i16, label %if.end.i.i17, label %Py_XDECREF.exit21
@@ -2539,7 +2539,7 @@ for.body.i:                                       ; preds = %Py_XDECREF.exit21, 
   %arrayidx.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom.i
   %5 = load i64, ptr %arrayidx.i, align 8
   %cmp.not.i22 = icmp eq i64 %5, -1
-  br i1 %cmp.not.i22, label %return, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i22, label %return, label %for.body.i, !llvm.loop !6
 
 for.end:                                          ; preds = %Py_XDECREF.exit, %for.cond.preheader
   %arrayidx15 = getelementptr %struct.lzma_filter, ptr %filters, i64 %call
@@ -2859,26 +2859,26 @@ if.end35.i:                                       ; preds = %Py_XDECREF.exit.i
 
 sw.bb.i:                                          ; preds = %if.end35.i
   %call37.i = call i32 @lzma_auto_decoder(ptr noundef nonnull %lzs.i, i64 noundef %memlimit_.051.i, i32 noundef 5) #9
-  %call38.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i43, i32 noundef %call37.i), !range !4
+  %call38.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i43, i32 noundef %call37.i)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %exit, label %error.i
 
 sw.bb42.i:                                        ; preds = %if.end35.i
   %call44.i = call i32 @lzma_stream_decoder(ptr noundef nonnull %lzs.i, i64 noundef %memlimit_.051.i, i32 noundef 5) #9
-  %call45.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i43, i32 noundef %call44.i), !range !4
+  %call45.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i43, i32 noundef %call44.i)
   %tobool46.not.i = icmp eq i32 %call45.i, 0
   br i1 %tobool46.not.i, label %exit, label %error.i
 
 sw.bb49.i:                                        ; preds = %if.end35.i
   store i32 0, ptr %check.i, align 8
   %call52.i = call i32 @lzma_alone_decoder(ptr noundef nonnull %lzs.i, i64 noundef %memlimit_.051.i) #9
-  %call53.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i43, i32 noundef %call52.i), !range !4
+  %call53.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i43, i32 noundef %call52.i)
   %tobool54.not.i = icmp eq i32 %call53.i, 0
   br i1 %tobool54.not.i, label %exit, label %error.i
 
 sw.bb57.i:                                        ; preds = %if.end35.i
   store i32 0, ptr %check.i, align 8
-  %call60.i = call fastcc i32 @Decompressor_init_raw(ptr noundef %call.i43, ptr noundef nonnull %lzs.i, ptr noundef %filters.041), !range !5
+  %call60.i = call fastcc i32 @Decompressor_init_raw(ptr noundef %call.i43, ptr noundef nonnull %lzs.i, ptr noundef %filters.041)
   %cmp61.i = icmp eq i32 %call60.i, -1
   br i1 %cmp61.i, label %error.i, label %exit
 
@@ -3180,7 +3180,7 @@ land.lhs.true8.i.i.i:                             ; preds = %land.lhs.true.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %land.lhs.true8.i.i.i, %land.lhs.true.i.i.i, %for.cond.i.i.i
   %lzret.0.i.i.i = phi i32 [ 10, %land.lhs.true.i.i.i ], [ %call5.i.i.i, %for.cond.i.i.i ], [ %spec.select.i.i.i, %land.lhs.true8.i.i.i ]
-  %call13.i.i.i = call fastcc i32 @catch_lzma_error(ptr noundef %call2.i.i.i, i32 noundef %lzret.0.i.i.i), !range !4
+  %call13.i.i.i = call fastcc i32 @catch_lzma_error(ptr noundef %call2.i.i.i, i32 noundef %lzret.0.i.i.i)
   %tobool.not.i.i.i = icmp eq i32 %call13.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end15.i.i.i, label %error.i.i.i
 
@@ -3438,10 +3438,10 @@ declare i32 @lzma_stream_decoder(ptr noundef, i64 noundef, i32 noundef) local_un
 declare i32 @lzma_alone_decoder(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Decompressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Decompressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
-  %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs), !range !5
+  %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -3462,10 +3462,10 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %arrayidx.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom.i
   %2 = load i64, ptr %arrayidx.i, align 16
   %cmp.not.i = icmp eq i64 %2, -1
-  br i1 %cmp.not.i, label %free_filter_chain.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %free_filter_chain.exit, label %for.body.i, !llvm.loop !6
 
 free_filter_chain.exit:                           ; preds = %for.body.i, %if.end
-  %call4 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %call2), !range !4
+  %call4 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %call2)
   %sext = sub nsw i32 0, %call4
   br label %return
 
@@ -3507,9 +3507,7 @@ attributes #10 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

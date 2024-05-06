@@ -132,8 +132,8 @@ $_ZTVSt15_Sp_counted_ptrIPN7rocksdb13MergeOperatorELN9__gnu_cxx12_Lock_policyE2E
 
 @_ZZN7rocksdb13MergeOperator16CreateFromStringERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS0_EE4once = internal global %"struct.std::once_flag" zeroinitializer, align 4
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @_ZTVN7rocksdb13ObjectLibrary12PatternEntryE = external unnamed_addr constant { [6 x ptr] }, align 8
 @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEED2Ev, ptr @_ZN7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEED0Ev, ptr @_ZNK7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEE7MatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7rocksdb13ObjectLibrary12FactoryEntryINS_13MergeOperatorEE4NameEv] }, comdat, align 8
@@ -1286,7 +1286,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont11.i.i.i
 invoke.cont13.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i.i.i.i.i.i, %.noexc58.i.i.i.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp15.i.i.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp15.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp15.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_0E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %call19.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.i.i.i.i.i.i)
@@ -1446,7 +1446,7 @@ if.else.i.i95.i.i.i.i.i.i:                        ; preds = %invoke.cont38.i.i.i
 invoke.cont40.i.i.i.i.i.i:                        ; preds = %if.else.i.i95.i.i.i.i.i.i, %.noexc97.i.i.i.i.i.i
   %_M_manager.i.i100.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp42.i.i.i.i.i.i, i64 16
   %_M_invoker.i101.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp42.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp42.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_1E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i101.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_1E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i100.i.i.i.i.i.i, align 8
   %call46.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp24.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42.i.i.i.i.i.i)
@@ -1627,7 +1627,7 @@ if.else.i.i164.i.i.i.i.i.i:                       ; preds = %invoke.cont67.i.i.i
 invoke.cont69.i.i.i.i.i.i:                        ; preds = %if.else.i.i164.i.i.i.i.i.i, %.noexc166.i.i.i.i.i.i
   %_M_manager.i.i169.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp71.i.i.i.i.i.i, i64 16
   %_M_invoker.i170.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp71.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp71.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_2E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i170.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_2E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i169.i.i.i.i.i.i, align 8
   %call75.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp53.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.i.i.i.i.i.i)
@@ -1829,7 +1829,7 @@ if.else.i.i233.i.i.i.i.i.i:                       ; preds = %invoke.cont96.i.i.i
 invoke.cont98.i.i.i.i.i.i:                        ; preds = %if.else.i.i233.i.i.i.i.i.i, %.noexc235.i.i.i.i.i.i
   %_M_manager.i.i238.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp100.i.i.i.i.i.i, i64 16
   %_M_invoker.i239.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp100.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp100.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp100.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_3E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i239.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_3E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i238.i.i.i.i.i.i, align 8
   %call104.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp82.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100.i.i.i.i.i.i)
@@ -2010,7 +2010,7 @@ if.else.i.i302.i.i.i.i.i.i:                       ; preds = %invoke.cont125.i.i.
 invoke.cont127.i.i.i.i.i.i:                       ; preds = %if.else.i.i302.i.i.i.i.i.i, %.noexc304.i.i.i.i.i.i
   %_M_manager.i.i307.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp129.i.i.i.i.i.i, i64 16
   %_M_invoker.i308.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp129.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp129.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp129.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_4E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i308.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_4E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i307.i.i.i.i.i.i, align 8
   %call133.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp111.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp129.i.i.i.i.i.i)
@@ -2212,7 +2212,7 @@ if.else.i.i371.i.i.i.i.i.i:                       ; preds = %invoke.cont154.i.i.
 invoke.cont156.i.i.i.i.i.i:                       ; preds = %if.else.i.i371.i.i.i.i.i.i, %.noexc373.i.i.i.i.i.i
   %_M_manager.i.i376.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp158.i.i.i.i.i.i, i64 16
   %_M_invoker.i377.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp158.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp158.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp158.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_5E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i377.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_5E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i376.i.i.i.i.i.i, align 8
   %call162.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp140.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158.i.i.i.i.i.i)
@@ -2414,7 +2414,7 @@ if.else.i.i440.i.i.i.i.i.i:                       ; preds = %invoke.cont183.i.i.
 invoke.cont185.i.i.i.i.i.i:                       ; preds = %if.else.i.i440.i.i.i.i.i.i, %.noexc442.i.i.i.i.i.i
   %_M_manager.i.i445.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp187.i.i.i.i.i.i, i64 16
   %_M_invoker.i446.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp187.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp187.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp187.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_6E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i446.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_6E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i445.i.i.i.i.i.i, align 8
   %call191.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp169.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp187.i.i.i.i.i.i)
@@ -2554,7 +2554,7 @@ invoke.cont205.i.i.i.i.i.i:                       ; preds = %invoke.cont203.i.i.
   store i64 %call.i492.i.i.i.i.i.i, ptr %nlength_.i493.i.i.i.i.i.i, align 8
   %_M_manager.i.i496.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp206.i.i.i.i.i.i, i64 16
   %_M_invoker.i497.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp206.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp206.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp206.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_7E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i497.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZNS0_L29RegisterBuiltinMergeOperatorsERNS0_13ObjectLibraryESA_E3$_7E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager.i.i496.i.i.i.i.i.i, align 8
   %call210.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp198.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp206.i.i.i.i.i.i)

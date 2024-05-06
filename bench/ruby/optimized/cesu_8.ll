@@ -25,7 +25,7 @@ define void @Init_cesu_8() local_unnamed_addr #0 {
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
@@ -149,7 +149,7 @@ define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 0, 2) i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
@@ -167,7 +167,7 @@ define internal noundef i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mbc_to_code(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -2, 1114112) i32 @mbc_to_code(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
@@ -365,7 +365,7 @@ mbc_enc_len.exit.thread:                          ; preds = %56, %48, %31, %46, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #3 {
+define internal range(i32 -401, 7) i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #3 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %11, label %4
 

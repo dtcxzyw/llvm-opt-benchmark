@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SHA512_Final(ptr noundef writeonly %md, ptr noundef %c) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly %md, ptr noundef %c) local_unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 80
   %num = getelementptr inbounds i8, ptr %c, i64 208
@@ -166,7 +166,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx28 = getelementptr inbounds i8, ptr %c, i64 201
   store i8 %conv27, ptr %arrayidx28, align 1
   %shr30 = lshr i64 %1, 56
-  %conv31 = trunc i64 %shr30 to i8
+  %conv31 = trunc nuw i64 %shr30 to i8
   %arrayidx32 = getelementptr inbounds i8, ptr %c, i64 200
   store i8 %conv31, ptr %arrayidx32, align 1
   %Nh = getelementptr inbounds i8, ptr %c, i64 72
@@ -199,7 +199,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx58 = getelementptr inbounds i8, ptr %c, i64 193
   store i8 %conv57, ptr %arrayidx58, align 1
   %shr60 = lshr i64 %2, 56
-  %conv61 = trunc i64 %shr60 to i8
+  %conv61 = trunc nuw i64 %shr60 to i8
   %arrayidx62 = getelementptr inbounds i8, ptr %c, i64 192
   store i8 %conv61, ptr %arrayidx62, align 1
   tail call void @sha512_block_data_order(ptr noundef nonnull %c, ptr noundef nonnull %u, i64 noundef 1) #6
@@ -224,7 +224,7 @@ for.body:                                         ; preds = %if.end66, %for.body
   %arrayidx69 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %n.1139
   %6 = load i64, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %6, 56
-  %conv71 = trunc i64 %shr70 to i8
+  %conv71 = trunc nuw i64 %shr70 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %md.addr.0140, i64 1
   store i8 %conv71, ptr %md.addr.0140, align 1
   %shr72 = lshr i64 %6, 48
@@ -262,7 +262,7 @@ for.end:                                          ; preds = %for.body
   %arrayidx95 = getelementptr inbounds i8, ptr %c, i64 24
   %7 = load i64, ptr %arrayidx95, align 8
   %shr96 = lshr i64 %7, 56
-  %conv97 = trunc i64 %shr96 to i8
+  %conv97 = trunc nuw i64 %shr96 to i8
   %incdec.ptr98 = getelementptr inbounds i8, ptr %md.addr.0140, i64 9
   store i8 %conv97, ptr %incdec.ptr91, align 1
   %shr99 = lshr i64 %7, 48
@@ -284,7 +284,7 @@ for.body112:                                      ; preds = %if.end66, %for.body
   %arrayidx115 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %n.2137
   %8 = load i64, ptr %arrayidx115, align 8
   %shr116 = lshr i64 %8, 56
-  %conv117 = trunc i64 %shr116 to i8
+  %conv117 = trunc nuw i64 %shr116 to i8
   %incdec.ptr118 = getelementptr inbounds i8, ptr %md.addr.1138, i64 1
   store i8 %conv117, ptr %md.addr.1138, align 1
   %shr119 = lshr i64 %8, 48
@@ -324,7 +324,7 @@ for.body146:                                      ; preds = %if.end66, %for.body
   %arrayidx149 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %n.3135
   %9 = load i64, ptr %arrayidx149, align 8
   %shr150 = lshr i64 %9, 56
-  %conv151 = trunc i64 %shr150 to i8
+  %conv151 = trunc nuw i64 %shr150 to i8
   %incdec.ptr152 = getelementptr inbounds i8, ptr %md.addr.2136, i64 1
   store i8 %conv151, ptr %md.addr.2136, align 1
   %shr153 = lshr i64 %9, 48
@@ -364,7 +364,7 @@ for.body180:                                      ; preds = %if.end66, %for.body
   %arrayidx183 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %n.4133
   %10 = load i64, ptr %arrayidx183, align 8
   %shr184 = lshr i64 %10, 56
-  %conv185 = trunc i64 %shr184 to i8
+  %conv185 = trunc nuw i64 %shr184 to i8
   %incdec.ptr186 = getelementptr inbounds i8, ptr %md.addr.3134, i64 1
   store i8 %conv185, ptr %md.addr.3134, align 1
   %shr187 = lshr i64 %10, 48
@@ -409,9 +409,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @sha512_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SHA384_Final(ptr noundef %md, ptr noundef %c) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SHA384_Final(ptr noundef %md, ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @SHA512_Final(ptr noundef %md, ptr noundef %c), !range !9
+  %call = tail call i32 @SHA512_Final(ptr noundef %md, ptr noundef %c)
   ret i32 %call
 }
 
@@ -487,7 +487,7 @@ if.end31:                                         ; preds = %if.then28, %if.end2
 
 if.then34:                                        ; preds = %if.end31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %u, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
-  %conv35 = trunc i64 %len.addr.1 to i32
+  %conv35 = trunc nuw nsw i64 %len.addr.1 to i32
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then13, %if.then34
@@ -573,7 +573,7 @@ if.end31.i:                                       ; preds = %if.then28.i, %if.en
 
 if.then34.i:                                      ; preds = %if.end31.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %u.i, ptr align 1 %data.1.i, i64 %len.addr.1.i, i1 false)
-  %conv35.i = trunc i64 %len.addr.1.i to i32
+  %conv35.i = trunc nuw nsw i64 %len.addr.1.i to i32
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then34.i, %if.then13.i
@@ -614,4 +614,3 @@ attributes #6 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}

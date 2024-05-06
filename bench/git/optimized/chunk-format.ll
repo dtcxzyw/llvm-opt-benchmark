@@ -172,7 +172,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %size = getelementptr inbounds %struct.chunk_info, ptr %12, i64 %indvars.iv, i32 1
   %13 = load i64, ptr %size, align 8
   %add10 = add i64 %13, %cur_offset.059
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i64, ptr %chunks_nr, align 8
   %cmp = icmp ugt i64 %14, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
@@ -205,7 +205,7 @@ for.body19.lr.ph:                                 ; preds = %for.end
   br label %for.body19
 
 for.cond14:                                       ; preds = %if.end
-  %indvars.iv.next69 = add nuw i64 %indvars.iv68, 1
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %19 = load i64, ptr %chunks_nr, align 8
   %cmp17 = icmp ugt i64 %19, %indvars.iv.next69
   br i1 %cmp17, label %for.body19, label %cleanup, !llvm.loop !9
@@ -260,7 +260,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @read_table_of_contents(ptr nocapture noundef %cf, ptr noundef %mfile, i64 noundef %mfile_size, i64 noundef %toc_offset, i32 noundef %toc_length, i32 noundef %expected_alignment) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @read_table_of_contents(ptr nocapture noundef %cf, ptr noundef %mfile, i64 noundef %mfile_size, i64 noundef %toc_offset, i32 noundef %toc_length, i32 noundef %expected_alignment) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %mfile, i64 %toc_offset
   %conv = sext i32 %toc_length to i64
@@ -655,7 +655,7 @@ return:                                           ; preds = %for.cond, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i8 @oid_version(ptr noundef %algop) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 1, 3) i8 @oid_version(ptr noundef %algop) local_unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %algop to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, ptrtoint (ptr @hash_algos to i64)

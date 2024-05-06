@@ -124,7 +124,7 @@ define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 
   br i1 %.not45, label %23, label %144
 
 23:                                               ; preds = %19
-  %24 = trunc i8 %.04093 to i1
+  %24 = trunc nuw i8 %.04093 to i1
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %23
@@ -419,7 +419,7 @@ php_ini_displayer_cb.exit90:                      ; preds = %113, %141, %.thread
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %144
-  %146 = trunc i8 %.2 to i1
+  %146 = trunc nuw i8 %.2 to i1
   br i1 %146, label %._crit_edge.thread, label %147
 
 147:                                              ; preds = %._crit_edge
@@ -1725,7 +1725,7 @@ define void @php_ini_activate_config(ptr nocapture noundef readonly %0, i32 noun
 declare i32 @zend_alter_ini_entry_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @php_ini_has_per_dir_config() local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @php_ini_has_per_dir_config() local_unnamed_addr #11 {
   %.b = load i1, ptr @has_per_dir_config, align 4
   %1 = zext i1 %.b to i32
   ret i32 %1
@@ -1775,7 +1775,7 @@ define void @php_ini_activate_per_dir_config(ptr noundef %0, i64 noundef %1) loc
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @php_ini_has_per_host_config() local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @php_ini_has_per_host_config() local_unnamed_addr #11 {
   %.b = load i1, ptr @has_per_host_config, align 4
   %1 = zext i1 %.b to i32
   ret i32 %1
@@ -1819,7 +1819,7 @@ define ptr @cfg_get_entry(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cfg_get_long(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cfg_get_long(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @configuration_hash, ptr noundef %0, i64 noundef %3) #15
   %5 = icmp eq ptr %4, null
@@ -1847,7 +1847,7 @@ define noundef i32 @cfg_get_long(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cfg_get_double(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cfg_get_double(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @configuration_hash, ptr noundef %0, i64 noundef %3) #15
   %5 = icmp eq ptr %4, null
@@ -1875,7 +1875,7 @@ define noundef i32 @cfg_get_double(ptr noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cfg_get_string(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cfg_get_string(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @configuration_hash, ptr noundef %0, i64 noundef %3) #15
   %5 = icmp eq ptr %4, null

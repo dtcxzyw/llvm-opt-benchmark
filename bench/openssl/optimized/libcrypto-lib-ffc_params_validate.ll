@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_ffc_params_full_validate = private unnamed_addr constant [30 x i8] c"ossl_ffc_params_full_validate\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %p, ptr noundef %q, ptr noundef %g, ptr noundef %tmp, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %p, ptr noundef %q, ptr noundef %g, ptr noundef %tmp, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_value_one() #3
   %call1 = tail call i32 @BN_cmp(ptr noundef %g, ptr noundef %call) #3
@@ -123,7 +123,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_simple_validate(ptr noundef %libctx, ptr noundef %params, i32 noundef %paramstype, ptr noundef %res) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_params_simple_validate(ptr noundef %libctx, ptr noundef %params, i32 noundef %paramstype, ptr noundef %res) local_unnamed_addr #0 {
 entry:
   %tmpres = alloca i32, align 4
   %tmpparams = alloca %struct.ffc_params_st, align 8
@@ -298,7 +298,7 @@ if.end.i26:                                       ; preds = %lor.lhs.false2.i23
   br label %return
 
 if.else8:                                         ; preds = %if.end
-  %call9 = call i32 @ossl_ffc_params_simple_validate(ptr noundef %libctx, ptr noundef nonnull %params, i32 noundef %paramstype, ptr noundef nonnull %spec.store.select), !range !4
+  %call9 = call i32 @ossl_ffc_params_simple_validate(ptr noundef %libctx, ptr noundef nonnull %params, i32 noundef %paramstype, ptr noundef nonnull %spec.store.select)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.then11
 
@@ -355,4 +355,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

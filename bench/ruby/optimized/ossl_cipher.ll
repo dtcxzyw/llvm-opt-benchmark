@@ -1127,7 +1127,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_cipher_is_authenticated(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_cipher_is_authenticated(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_cipher_type) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1187,7 +1187,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_cipher_key_length(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_cipher_key_length(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_cipher_type) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1336,7 +1336,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_cipher_iv_length(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_cipher_iv_length(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_cipher_type) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1373,7 +1373,7 @@ define internal i64 @ossl_cipher_iv_length(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_cipher_block_size(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_cipher_block_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_cipher_type) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

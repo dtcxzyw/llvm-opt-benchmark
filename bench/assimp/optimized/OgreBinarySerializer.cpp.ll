@@ -574,7 +574,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr align 1 %1, i64 %numBytes, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %dest, ptr align 1 %1, i64 %numBytes, i1 false)
   ret void
 }
 
@@ -650,7 +650,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr align 1 %1, i64 %numBytes, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %dest, ptr align 1 %1, i64 %numBytes, i1 false)
   ret void
 }
 
@@ -689,7 +689,7 @@ lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm.exit: ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %1, i64 %numBytes, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call, ptr align 1 %1, i64 %numBytes, i1 false)
   ret ptr %call
 }
 
@@ -847,7 +847,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %1, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call, ptr align 1 %1, i64 %len, i1 false)
   ret void
 }
 
@@ -1432,7 +1432,7 @@ sw.bb39:                                          ; preds = %while.body
 
 sw.bb40:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
+  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %this)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %skeletonRef.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -1955,7 +1955,7 @@ lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit: ; preds = %if.then
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %27, i64 %conv28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call.i, ptr align 1 %27, i64 %conv28, i1 false)
   %call31 = call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 40)
   %31 = load i32, ptr %numBytes, align 4
   %conv32 = zext i32 %31 to i64
@@ -2225,10 +2225,10 @@ sw.bb71:                                          ; preds = %land.rhs
 sw.bb73:                                          ; preds = %land.rhs
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
+  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %this)
   %call.i52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasName.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
-  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
+  call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %this)
   %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasRef.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -4911,7 +4911,7 @@ lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit: ; preds = %if.end11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %14, i64 %conv13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call.i, ptr align 1 %14, i64 %conv13, i1 false)
   %call15 = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 40)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp14MemoryIOStreamE, i64 0, i32 0, i64 2), ptr %call15, align 8
   %buffer.i = getelementptr inbounds i8, ptr %call15, i64 8
@@ -5635,7 +5635,7 @@ lpad.i.i.i17:                                     ; preds = %if.then.i.i.i15
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %offset.i, ptr noundef nonnull align 1 dereferenceable(12) %12, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %offset.i, ptr noundef nonnull align 1 dereferenceable(12) %12, i64 12, i1 false)
   %16 = load i8, ptr %hasNormals, align 2
   %tobool = trunc i8 %16 to i1
   br i1 %tobool, label %if.then5, label %if.end
@@ -5670,7 +5670,7 @@ lpad.i.i.i29:                                     ; preds = %if.then.i.i.i27
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit31: ; preds = %if.then5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %normal, ptr noundef nonnull align 1 dereferenceable(12) %18, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %normal, ptr noundef nonnull align 1 dereferenceable(12) %18, i64 12, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit31, %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
@@ -6239,7 +6239,7 @@ lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   br label %lpad.body
 
 invoke.cont17:                                    ; preds = %call.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i31, ptr align 1 %21, i64 %mul16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call.i31, ptr align 1 %21, i64 %mul16, i1 false)
   %call20 = invoke noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 40)
           to label %invoke.cont19 unwind label %lpad.loopexit216
 
@@ -7818,7 +7818,7 @@ if.end38:                                         ; preds = %invoke.cont35, %sw.
 
 sw.bb40:                                          ; preds = %invoke.cont17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.ensured.i)
-  invoke void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
+  invoke void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %this)
           to label %.noexc27 unwind label %lpad2.loopexit.split-lp.loopexit
 
 .noexc27:                                         ; preds = %sw.bb40
@@ -8414,7 +8414,7 @@ lpad.i.i.i9:                                      ; preds = %if.then.i.i.i7
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
   %position = getelementptr inbounds i8, ptr %call, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %position, ptr noundef nonnull align 1 dereferenceable(12) %6, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %position, ptr noundef nonnull align 1 dereferenceable(12) %6, i64 12, i1 false)
   %10 = load ptr, ptr %m_reader.i, align 8
   %mCurrent.i.i.i12 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %mCurrent.i.i.i12, align 8
@@ -8485,7 +8485,7 @@ lpad.i.i.i33:                                     ; preds = %if.then.i.i.i31
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit35: ; preds = %if.then
   %scale = getelementptr inbounds i8, ptr %call, i64 108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scale, ptr noundef nonnull align 1 dereferenceable(12) %19, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %scale, ptr noundef nonnull align 1 dereferenceable(12) %19, i64 12, i1 false)
   br label %if.end
 
 lpad:                                             ; preds = %entry
@@ -9461,7 +9461,7 @@ lpad.i.i.i19:                                     ; preds = %if.then.i.i.i17
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
   %position = getelementptr inbounds i8, ptr %keyframe, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %position, ptr noundef nonnull align 1 dereferenceable(12) %13, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %position, ptr noundef nonnull align 1 dereferenceable(12) %13, i64 12, i1 false)
   %17 = load i32, ptr %this, align 8
   %cmp = icmp ugt i32 %17, 38
   br i1 %cmp, label %if.then, label %if.end
@@ -9497,7 +9497,7 @@ lpad.i.i.i31:                                     ; preds = %if.then.i.i.i29
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit33: ; preds = %if.then
   %scale = getelementptr inbounds i8, ptr %keyframe, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scale, ptr noundef nonnull align 1 dereferenceable(12) %19, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %scale, ptr noundef nonnull align 1 dereferenceable(12) %19, i64 12, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit33, %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit

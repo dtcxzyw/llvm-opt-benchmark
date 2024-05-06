@@ -134,7 +134,7 @@ define internal i32 @linkmodes_reply_size(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @linkmodes_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -335,7 +335,7 @@ define internal i32 @ethnl_set_linkmodes_validate(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ethnl_set_linkmodes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 2) i32 @ethnl_set_linkmodes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca [2 x i64], align 16
   %4 = alloca %struct.ethtool_link_ksettings, align 8
   %5 = alloca i8, align 1

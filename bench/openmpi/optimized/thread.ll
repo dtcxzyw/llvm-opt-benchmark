@@ -25,7 +25,7 @@ define internal void @pmix_thread_construct(ptr nocapture noundef writeonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_thread_start(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @pmix_thread_start(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
@@ -39,7 +39,7 @@ define i32 @pmix_thread_start(ptr noundef %0) local_unnamed_addr #1 {
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_thread_join(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @pmix_thread_join(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @pthread_join(i64 noundef %4, ptr noundef %1) #11

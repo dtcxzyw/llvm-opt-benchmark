@@ -61,7 +61,7 @@ define dso_local void @n_tty_init() local_unnamed_addr #2 section ".init.text" a
 declare dso_local i32 @tty_register_ldisc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @n_tty_open(ptr noundef %0) #4 align 16 {
+define internal noundef range(i32 -12, 1) i32 @n_tty_open(ptr noundef %0) #4 align 16 {
   %2 = tail call noalias dereferenceable_or_null(8904) ptr @vzalloc(i64 noundef 8904) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %12, label %4
@@ -1567,7 +1567,7 @@ define internal void @n_tty_set_termios(ptr noundef %0, ptr noundef readonly %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @n_tty_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 align 16 {
+define internal range(i32 0, 384) i32 @n_tty_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 520
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.thread, label %6
@@ -2539,7 +2539,7 @@ define internal fastcc i64 @__process_echoes(ptr noundef %0) unnamed_addr #4 ali
 declare dso_local i32 @tty_write_room(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_output_char(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc range(i32 -1, 9) i32 @do_output_char(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 576
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i32 %2, 0

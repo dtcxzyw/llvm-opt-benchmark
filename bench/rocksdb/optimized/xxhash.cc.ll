@@ -84,7 +84,7 @@ if.end26.thread.i:                                ; preds = %do.body.i
 
 if.end26.i:                                       ; preds = %if.end3.i
   %add25.i = add i32 %seed, 374761393
-  %conv.i = trunc i64 %len to i32
+  %conv.i = trunc nuw i64 %len to i32
   %add27.i = add i32 %add25.i, %conv.i
   br label %if.end3.i.i
 
@@ -167,7 +167,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ROCKSDB_XXH32_copyState(ptr nocapture noundef writeonly %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %dstState, ptr noundef nonnull align 1 dereferenceable(48) %srcState, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(48) %dstState, ptr noundef nonnull readonly align 1 dereferenceable(48) %srcState, i64 48, i1 false)
   ret void
 }
 
@@ -229,7 +229,7 @@ if.end3:                                          ; preds = %entry
 if.then13:                                        ; preds = %if.end3
   %mem32 = getelementptr inbounds i8, ptr %state, i64 24
   %add.ptr15 = getelementptr inbounds i8, ptr %mem32, i64 %conv10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr15, ptr nonnull align 1 %input, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr15, ptr nonnull readonly align 1 %input, i64 %len, i1 false)
   %3 = load i32, ptr %memsize, align 4
   %add18 = add i32 %3, %conv
   store i32 %add18, ptr %memsize, align 4
@@ -244,7 +244,7 @@ if.then21:                                        ; preds = %if.end19
   %add.ptr26 = getelementptr inbounds i8, ptr %mem3222, i64 %conv10
   %sub = sub i32 16, %2
   %conv28 = zext i32 %sub to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr26, ptr nonnull align 1 %input, i64 %conv28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr26, ptr nonnull readonly align 1 %input, i64 %conv28, i1 false)
   %v = getelementptr inbounds i8, ptr %state, i64 8
   %4 = load i32, ptr %v, align 4
   %mem3222.val = load i32, ptr %mem3222, align 1
@@ -355,7 +355,7 @@ if.then97:                                        ; preds = %if.end95
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem3298, ptr nonnull align 1 %p.2, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %mem3298, ptr nonnull readonly align 1 %p.2, i64 %sub.ptr.sub, i1 false)
   %conv104 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv104, ptr %memsize, align 4
   br label %return
@@ -656,7 +656,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ROCKSDB_XXH64_copyState(ptr nocapture noundef writeonly %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %dstState, ptr noundef nonnull align 1 dereferenceable(88) %srcState, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(88) %dstState, ptr noundef nonnull readonly align 1 dereferenceable(88) %srcState, i64 88, i1 false)
   ret void
 }
 
@@ -706,7 +706,7 @@ if.end3:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.end3
   %mem64 = getelementptr inbounds i8, ptr %state, i64 40
   %add.ptr8 = getelementptr inbounds i8, ptr %mem64, i64 %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr8, ptr nonnull align 1 %input, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr8, ptr nonnull readonly align 1 %input, i64 %len, i1 false)
   %conv9 = trunc i64 %len to i32
   %2 = load i32, ptr %memsize, align 8
   %add11 = add i32 %2, %conv9
@@ -722,7 +722,7 @@ if.then14:                                        ; preds = %if.end12
   %add.ptr19 = getelementptr inbounds i8, ptr %mem6415, i64 %conv
   %sub = sub i32 32, %1
   %conv21 = zext i32 %sub to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19, ptr nonnull align 1 %input, i64 %conv21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr19, ptr nonnull readonly align 1 %input, i64 %conv21, i1 false)
   %v = getelementptr inbounds i8, ptr %state, i64 8
   %3 = load <4 x i64>, ptr %v, align 8
   %4 = load <4 x i64>, ptr %mem6415, align 1
@@ -803,7 +803,7 @@ if.then98:                                        ; preds = %if.end96
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem6499, ptr align 1 %p.2, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %mem6499, ptr readonly align 1 %p.2, i64 %sub.ptr.sub, i1 false)
   %conv105 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv105, ptr %memsize, align 8
   br label %return
@@ -1342,7 +1342,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv.i = trunc i64 %len to i32
+  %conv.i = trunc nuw i64 %len to i32
   %add.ptr15.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr16.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 -16
   %add.ptr18.i47 = getelementptr inbounds i8, ptr %secret, i64 119
@@ -1455,7 +1455,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %mul.i.i.i = shl i64 %n.06.i.i.i, 6
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i.i.i
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i = shl i64 %n.06.i.i.i, 3
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i
   %1 = load <8 x i64>, ptr %add.ptr.i.i.i, align 1
@@ -1503,7 +1503,7 @@ for.body.i34.i.i:                                 ; preds = %for.end.i.i, %for.b
   %mul.i37.i.i = shl i64 %n.06.i36.i.i, 6
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %add.ptr19.i.i, i64 %mul.i37.i.i
   %add.ptr1.i39.i.i = getelementptr inbounds i8, ptr %add.ptr.i38.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i39.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i = shl i64 %n.06.i36.i.i, 3
   %add.ptr3.i41.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i40.i.i
   %16 = load <8 x i64>, ptr %add.ptr.i38.i.i, align 1
@@ -1613,7 +1613,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %mul.i.i.i = shl i64 %n.06.i.i.i, 6
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i.i.i
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i = shl i64 %n.06.i.i.i, 3
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %secret, i64 %mul2.i.i.i
   %1 = load <8 x i64>, ptr %add.ptr.i.i.i, align 1
@@ -1663,7 +1663,7 @@ for.body.i34.i.i:                                 ; preds = %for.end.i.i, %for.b
   %mul.i37.i.i = shl i64 %n.06.i36.i.i, 6
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %add.ptr19.i.i, i64 %mul.i37.i.i
   %add.ptr1.i39.i.i = getelementptr inbounds i8, ptr %add.ptr.i38.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i39.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i = shl i64 %n.06.i36.i.i, 3
   %add.ptr3.i41.i.i = getelementptr inbounds i8, ptr %secret, i64 %mul2.i40.i.i
   %16 = load <8 x i64>, ptr %add.ptr.i38.i.i, align 1
@@ -1775,7 +1775,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %mul.i.i.i.i = shl i64 %n.06.i.i.i.i, 6
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.i.i.i.i
   %add.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i.i = shl i64 %n.06.i.i.i.i, 3
   %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i.i.i.i
   %1 = load <8 x i64>, ptr %add.ptr.i.i.i.i, align 1
@@ -1823,7 +1823,7 @@ for.body.i34.i.i.i:                               ; preds = %for.end.i.i.i, %for
   %mul.i37.i.i.i = shl i64 %n.06.i36.i.i.i, 6
   %add.ptr.i38.i.i.i = getelementptr inbounds i8, ptr %add.ptr19.i.i.i, i64 %mul.i37.i.i.i
   %add.ptr1.i39.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i38.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i39.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i.i = shl i64 %n.06.i36.i.i.i, 3
   %add.ptr3.i41.i.i.i = getelementptr inbounds i8, ptr @_ZL12XXH3_kSecret, i64 %mul2.i40.i.i.i
   %16 = load <8 x i64>, ptr %add.ptr.i38.i.i.i, align 1
@@ -1933,7 +1933,7 @@ for.body.i.i.i18.i:                               ; preds = %for.body.i.i.i18.i,
   %mul.i.i.i21.i = shl i64 %n.06.i.i.i20.i, 6
   %add.ptr.i.i.i22.i = getelementptr inbounds i8, ptr %add.ptr.i.i17.i, i64 %mul.i.i.i21.i
   %add.ptr1.i.i.i23.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i22.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i23.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i23.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i24.i = shl i64 %n.06.i.i.i20.i, 3
   %add.ptr3.i.i.i25.i = getelementptr inbounds i8, ptr %secret.i, i64 %mul2.i.i.i24.i
   %39 = load <8 x i64>, ptr %add.ptr.i.i.i22.i, align 1
@@ -1981,7 +1981,7 @@ for.body.i34.i.i45.i:                             ; preds = %for.end.i.i36.i, %f
   %mul.i37.i.i48.i = shl i64 %n.06.i36.i.i47.i, 6
   %add.ptr.i38.i.i49.i = getelementptr inbounds i8, ptr %add.ptr19.i.i43.i, i64 %mul.i37.i.i48.i
   %add.ptr1.i39.i.i50.i = getelementptr inbounds i8, ptr %add.ptr.i38.i.i49.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i39.i.i50.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i50.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i51.i = shl i64 %n.06.i36.i.i47.i, 3
   %add.ptr3.i41.i.i52.i = getelementptr inbounds i8, ptr %secret.i, i64 %mul2.i40.i.i51.i
   %54 = load <8 x i64>, ptr %add.ptr.i38.i.i49.i, align 1
@@ -2099,7 +2099,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %mul.i.i.i.i = shl i64 %n.06.i.i.i.i, 6
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.i.i.i.i
   %add.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i.i = shl i64 %n.06.i.i.i.i, 3
   %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %secret, i64 %mul2.i.i.i.i
   %1 = load <8 x i64>, ptr %add.ptr.i.i.i.i, align 1
@@ -2147,7 +2147,7 @@ for.body.i34.i.i.i:                               ; preds = %for.end.i.i.i, %for
   %mul.i37.i.i.i = shl i64 %n.06.i36.i.i.i, 6
   %add.ptr.i38.i.i.i = getelementptr inbounds i8, ptr %add.ptr19.i.i.i, i64 %mul.i37.i.i.i
   %add.ptr1.i39.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i38.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i39.i.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i.i = shl i64 %n.06.i36.i.i.i, 3
   %add.ptr3.i41.i.i.i = getelementptr inbounds i8, ptr %secret, i64 %mul2.i40.i.i.i
   %16 = load <8 x i64>, ptr %add.ptr.i38.i.i.i, align 1
@@ -2236,7 +2236,7 @@ if.end:                                           ; preds = %entry
   %rem.i = and i64 %1, 63
   %cmp16.i = icmp eq i64 %rem.i, 0
   tail call void @llvm.assume(i1 %cmp16.i)
-  %conv.i = trunc i64 %sub15.i to i8
+  %conv.i = trunc nuw nsw i64 %sub15.i to i8
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -1
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %seed = getelementptr inbounds i8, ptr %add.ptr.i, i64 552
@@ -2270,19 +2270,19 @@ _ZL15XXH_alignedFreePv.exit:                      ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ROCKSDB_XXH3_copyState(ptr nocapture noundef writeonly %dst_state, ptr nocapture noundef readonly %src_state) local_unnamed_addr #4 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(576) %dst_state, ptr noundef nonnull align 1 dereferenceable(576) %src_state, i64 576, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(576) %dst_state, ptr noundef nonnull readonly align 1 dereferenceable(576) %src_state, i64 576, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ROCKSDB_XXH3_64bits_reset(ptr nocapture noundef writeonly %statePtr) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset(ptr nocapture noundef writeonly %statePtr) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i, align 32
@@ -2302,14 +2302,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define noundef i32 @ROCKSDB_XXH3_64bits_reset_withSecret(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecret(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i, align 32
@@ -2335,7 +2335,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define noundef i32 @ROCKSDB_XXH3_64bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #17 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   br i1 %cmp, label %return, label %if.end
@@ -2346,7 +2346,7 @@ if.end:                                           ; preds = %entry
 
 ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %if.end
   %add.ptr.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
@@ -2391,7 +2391,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 
 if.end8:                                          ; preds = %for.body.i, %lor.lhs.false
   %add.ptr.i10 = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i10, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i, align 32
@@ -2416,7 +2416,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ROCKSDB_XXH3_64bits_reset_withSecretandSeed(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize, i64 noundef %seed64) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecretandSeed(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize, i64 noundef %seed64) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   %cmp1 = icmp eq ptr %secret, null
@@ -2427,7 +2427,7 @@ entry:
 
 if.end6:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i, align 32
@@ -2493,7 +2493,7 @@ if.end3:                                          ; preds = %entry
 if.then17:                                        ; preds = %if.end3
   %buffer = getelementptr inbounds i8, ptr %state, i64 256
   %add.ptr20 = getelementptr inbounds i8, ptr %buffer, i64 %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr20, ptr nonnull align 1 %input, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr20, ptr nonnull readonly align 1 %input, i64 %len, i1 false)
   %conv21 = trunc i64 %len to i32
   %3 = load i32, ptr %bufferedSize, align 64
   %add23 = add i32 %3, %conv21
@@ -2514,7 +2514,7 @@ if.then26:                                        ; preds = %do.end
   %conv28 = zext nneg i32 %sub to i64
   %buffer29 = getelementptr inbounds i8, ptr %state, i64 256
   %add.ptr33 = getelementptr inbounds i8, ptr %buffer29, i64 %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr33, ptr nonnull align 1 %input, i64 %conv28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr33, ptr nonnull readonly align 1 %input, i64 %conv28, i1 false)
   %add.ptr35 = getelementptr inbounds i8, ptr %input, i64 %conv28
   %nbStripesSoFar = getelementptr inbounds i8, ptr %state, i64 520
   %nbStripesPerBlock = getelementptr inbounds i8, ptr %state, i64 536
@@ -2543,7 +2543,7 @@ for.body.i.i:                                     ; preds = %if.then26, %for.bod
   %mul.i.i = shl i64 %n.06.i.i, 6
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer29, i64 %mul.i.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i = shl i64 %n.06.i.i, 3
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr13.i, i64 %mul2.i.i
   %8 = load <8 x i64>, ptr %add.ptr.i.i, align 64
@@ -2586,7 +2586,7 @@ for.body.i32.i:                                   ; preds = %_ZL22XXH3_accumulat
   %mul.i35.i = shl i64 %n.06.i34.i, 6
   %add.ptr.i36.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %mul.i35.i
   %add.ptr1.i37.i = getelementptr inbounds i8, ptr %add.ptr.i36.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i37.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i37.i, i32 0, i32 3, i32 1)
   %mul2.i38.i = shl i64 %n.06.i34.i, 3
   %add.ptr3.i39.i = getelementptr inbounds i8, ptr %cond, i64 %mul2.i38.i
   %24 = load <8 x i64>, ptr %add.ptr.i36.i, align 64
@@ -2609,7 +2609,7 @@ for.body.i52.i:                                   ; preds = %if.then26, %for.bod
   %mul.i55.i = shl i64 %n.06.i54.i, 6
   %add.ptr.i56.i = getelementptr inbounds i8, ptr %buffer29, i64 %mul.i55.i
   %add.ptr1.i57.i = getelementptr inbounds i8, ptr %add.ptr.i56.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i57.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i57.i, i32 0, i32 3, i32 1)
   %mul2.i58.i = shl i64 %n.06.i54.i, 3
   %add.ptr3.i59.i = getelementptr inbounds i8, ptr %add.ptr13.i, i64 %mul2.i58.i
   %30 = load <8 x i64>, ptr %add.ptr.i56.i, align 64
@@ -2678,7 +2678,7 @@ for.body.i:                                       ; preds = %if.then45, %for.bod
   %mul.i = shl i64 %n.06.i, 6
   %add.ptr.i = getelementptr inbounds i8, ptr %input.addr.0, i64 %mul.i
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i, i32 0, i32 3, i32 1)
   %mul2.i = shl i64 %n.06.i, 3
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr63, i64 %mul2.i
   %39 = load <8 x i64>, ptr %add.ptr.i, align 1
@@ -2737,7 +2737,7 @@ for.body.i122:                                    ; preds = %while.body, %for.bo
   %mul.i125 = shl i64 %n.06.i124, 6
   %add.ptr.i126 = getelementptr inbounds i8, ptr %input.addr.14, i64 %mul.i125
   %add.ptr1.i127 = getelementptr inbounds i8, ptr %add.ptr.i126, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i127, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i127, i32 0, i32 3, i32 1)
   %mul2.i128 = shl i64 %n.06.i124, 3
   %add.ptr3.i129 = getelementptr inbounds i8, ptr %cond, i64 %mul2.i128
   %57 = load <8 x i64>, ptr %add.ptr.i126, align 1
@@ -2786,7 +2786,7 @@ for.body.i145:                                    ; preds = %while.end, %for.bod
   %mul.i148 = shl i64 %n.06.i147, 6
   %add.ptr.i149 = getelementptr inbounds i8, ptr %input.addr.1.lcssa, i64 %mul.i148
   %add.ptr1.i150 = getelementptr inbounds i8, ptr %add.ptr.i149, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i150, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i150, i32 0, i32 3, i32 1)
   %mul2.i151 = shl i64 %n.06.i147, 3
   %add.ptr3.i152 = getelementptr inbounds i8, ptr %cond, i64 %mul2.i151
   %74 = load <8 x i64>, ptr %add.ptr.i149, align 1
@@ -2811,7 +2811,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit159:     ; preds = %for.body.i145, %whi
   store i64 %nbStripes.0.lcssa, ptr %nbStripesSoFar51, align 8
   %add.ptr89 = getelementptr inbounds i8, ptr %state, i64 448
   %add.ptr90 = getelementptr inbounds i8, ptr %add.ptr81, i64 -64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %add.ptr89, ptr noundef nonnull align 1 dereferenceable(64) %add.ptr90, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %add.ptr89, ptr noundef nonnull readonly align 1 dereferenceable(64) %add.ptr90, i64 64, i1 false)
   %sub.ptr.rhs.cast93 = ptrtoint ptr %add.ptr81 to i64
   %sub.ptr.sub94 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast93
   %cmp95 = icmp slt i64 %sub.ptr.sub94, 65
@@ -2855,7 +2855,7 @@ for.body.i.i170:                                  ; preds = %do.body104, %for.bo
   %mul.i.i173 = shl i64 %n.06.i.i172, 6
   %add.ptr.i.i174 = getelementptr inbounds i8, ptr %input.addr.2, i64 %mul.i.i173
   %add.ptr1.i.i175 = getelementptr inbounds i8, ptr %add.ptr.i.i174, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i175, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i175, i32 0, i32 3, i32 1)
   %mul2.i.i176 = shl i64 %n.06.i.i172, 3
   %add.ptr3.i.i177 = getelementptr inbounds i8, ptr %add.ptr13.i165, i64 %mul2.i.i176
   %82 = load <8 x i64>, ptr %add.ptr.i.i174, align 1
@@ -2897,7 +2897,7 @@ for.body.i32.i191:                                ; preds = %_ZL22XXH3_accumulat
   %mul.i35.i194 = shl i64 %n.06.i34.i193, 6
   %add.ptr.i36.i195 = getelementptr inbounds i8, ptr %add.ptr10.i189, i64 %mul.i35.i194
   %add.ptr1.i37.i196 = getelementptr inbounds i8, ptr %add.ptr.i36.i195, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i37.i196, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i37.i196, i32 0, i32 3, i32 1)
   %mul2.i38.i197 = shl i64 %n.06.i34.i193, 3
   %add.ptr3.i39.i198 = getelementptr inbounds i8, ptr %cond, i64 %mul2.i38.i197
   %98 = load <8 x i64>, ptr %add.ptr.i36.i195, align 1
@@ -2920,7 +2920,7 @@ for.body.i52.i210:                                ; preds = %do.body104, %for.bo
   %mul.i55.i213 = shl i64 %n.06.i54.i212, 6
   %add.ptr.i56.i214 = getelementptr inbounds i8, ptr %input.addr.2, i64 %mul.i55.i213
   %add.ptr1.i57.i215 = getelementptr inbounds i8, ptr %add.ptr.i56.i214, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i57.i215, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i57.i215, i32 0, i32 3, i32 1)
   %mul2.i58.i216 = shl i64 %n.06.i54.i212, 3
   %add.ptr3.i59.i217 = getelementptr inbounds i8, ptr %add.ptr13.i165, i64 %mul2.i58.i216
   %104 = load <8 x i64>, ptr %add.ptr.i56.i214, align 1
@@ -2951,7 +2951,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227: ; preds = %
 do.end110:                                        ; preds = %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227
   %add.ptr114 = getelementptr inbounds i8, ptr %state, i64 448
   %add.ptr115 = getelementptr inbounds i8, ptr %input.addr.2, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %add.ptr114, ptr noundef nonnull align 1 dereferenceable(64) %add.ptr115, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %add.ptr114, ptr noundef nonnull readonly align 1 dereferenceable(64) %add.ptr115, i64 64, i1 false)
   %.pre9 = ptrtoint ptr %add.ptr108 to i64
   %.pre10 = sub i64 %sub.ptr.lhs.cast, %.pre9
   br label %if.end118
@@ -2964,7 +2964,7 @@ if.end118:                                        ; preds = %if.else, %do.end110
   %cmp125 = icmp slt i64 %sub.ptr.sub124.pre-phi, 257
   tail call void @llvm.assume(i1 %cmp125)
   %buffer132 = getelementptr inbounds i8, ptr %state, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer132, ptr align 1 %input.addr.3, i64 %sub.ptr.sub124.pre-phi, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %buffer132, ptr readonly align 1 %input.addr.3, i64 %sub.ptr.sub124.pre-phi, i1 false)
   %conv141 = trunc i64 %sub.ptr.sub124.pre-phi to i32
   store i32 %conv141, ptr %bufferedSize, align 64
   br label %return
@@ -3053,7 +3053,7 @@ return:                                           ; preds = %if.end10, %if.then6
 define internal fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef %acc, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %secret) unnamed_addr #14 {
 entry:
   %lastStripe = alloca [64 x i8], align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %acc, ptr noundef nonnull align 1 dereferenceable(64) %state, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %acc, ptr noundef nonnull readonly align 1 dereferenceable(64) %state, i64 64, i1 false)
   %bufferedSize = getelementptr inbounds i8, ptr %state, i64 512
   %0 = load i32, ptr %bufferedSize, align 64
   %cmp = icmp ugt i32 %0, 63
@@ -3090,7 +3090,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %mul.i.i = shl i64 %n.06.i.i, 6
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer, i64 %mul.i.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i = shl i64 %n.06.i.i, 3
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr13.i, i64 %mul2.i.i
   %4 = load <8 x i64>, ptr %add.ptr.i.i, align 1
@@ -3133,7 +3133,7 @@ for.body.i32.i:                                   ; preds = %_ZL22XXH3_accumulat
   %mul.i35.i = shl i64 %n.06.i34.i, 6
   %add.ptr.i36.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %mul.i35.i
   %add.ptr1.i37.i = getelementptr inbounds i8, ptr %add.ptr.i36.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i37.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i37.i, i32 0, i32 3, i32 1)
   %mul2.i38.i = shl i64 %n.06.i34.i, 3
   %add.ptr3.i39.i = getelementptr inbounds i8, ptr %secret, i64 %mul2.i38.i
   %20 = load <8 x i64>, ptr %add.ptr.i36.i, align 1
@@ -3167,7 +3167,7 @@ for.body.i52.i:                                   ; preds = %if.else.i, %for.bod
   %mul.i55.i = shl i64 %n.06.i54.i, 6
   %add.ptr.i56.i = getelementptr inbounds i8, ptr %buffer, i64 %mul.i55.i
   %add.ptr1.i57.i = getelementptr inbounds i8, ptr %add.ptr.i56.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i57.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i57.i, i32 0, i32 3, i32 1)
   %mul2.i58.i = shl i64 %n.06.i54.i, 3
   %add.ptr3.i59.i = getelementptr inbounds i8, ptr %add.ptr13.i, i64 %mul2.i58.i
   %27 = load <8 x i64>, ptr %add.ptr.i56.i, align 1
@@ -3214,10 +3214,10 @@ if.else:                                          ; preds = %entry
   %buffer19 = getelementptr inbounds i8, ptr %state, i64 256
   %idx.neg = sub nsw i64 0, %conv14
   %add.ptr22 = getelementptr inbounds i8, ptr %bufferedSize, i64 %idx.neg
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %lastStripe, ptr nonnull align 1 %add.ptr22, i64 %conv14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %lastStripe, ptr nonnull readonly align 1 %add.ptr22, i64 %conv14, i1 false)
   %add.ptr25 = getelementptr inbounds i8, ptr %lastStripe, i64 %conv14
   %conv29 = zext nneg i32 %0 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr nonnull align 1 %buffer19, i64 %conv29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr25, ptr nonnull readonly align 1 %buffer19, i64 %conv29, i1 false)
   %secretLimit32 = getelementptr inbounds i8, ptr %state, i64 544
   %42 = load i64, ptr %secretLimit32, align 32
   %add.ptr33 = getelementptr inbounds i8, ptr %secret, i64 %42
@@ -3290,7 +3290,7 @@ if.then2.i:                                       ; preds = %if.then2
   %mul.i.i.i = mul nuw i128 %conv.i.i.i, 11400714785074694791
   %conv2.i.i.i = trunc i128 %mul.i.i.i to i64
   %shr.i.i.i = lshr i128 %mul.i.i.i, 64
-  %conv3.i.i.i = trunc i128 %shr.i.i.i to i64
+  %conv3.i.i.i = trunc nuw i128 %shr.i.i.i to i64
   %sub22.i.i = shl nuw nsw i64 %len, 54
   %shl.i.i = add nsw i64 %sub22.i.i, -18014398509481984
   %add23.i.i = add i64 %shl.i.i, %conv2.i.i.i
@@ -3305,7 +3305,7 @@ if.then2.i:                                       ; preds = %if.then2
   %mul.i22.i.i = mul nuw i128 %conv.i21.i.i, 14029467366897019727
   %conv2.i23.i.i = trunc i128 %mul.i22.i.i to i64
   %shr.i24.i.i = lshr i128 %mul.i22.i.i, 64
-  %conv3.i25.i.i = trunc i128 %shr.i24.i.i to i64
+  %conv3.i25.i.i = trunc nuw i128 %shr.i24.i.i to i64
   %mul35.i.i = mul i64 %add27.i.i, -4417276706812531889
   %add37.i.i = add i64 %mul35.i.i, %conv3.i25.i.i
   %shr.i.i.i.i = lshr i64 %conv2.i23.i.i, 37
@@ -3354,7 +3354,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   %mul.i.i32.i = mul nuw i128 %conv.i.i31.i, %conv1.i.i.i
   %conv2.i.i33.i = trunc i128 %mul.i.i32.i to i64
   %shr.i.i34.i = lshr i128 %mul.i.i32.i, 64
-  %conv3.i.i35.i = trunc i128 %shr.i.i34.i to i64
+  %conv3.i.i35.i = trunc nuw i128 %shr.i.i34.i to i64
   %shl25.i.i = shl i64 %conv2.i.i33.i, 1
   %add26.i36.i = add i64 %shl25.i.i, %conv3.i.i35.i
   %shr.i.i = lshr i64 %add26.i36.i, 3
@@ -3390,7 +3390,7 @@ if.then8.i:                                       ; preds = %if.end7.i
   %conv10.i.i = zext i8 %2 to i32
   %shl11.i.i = shl nuw i32 %conv10.i.i, 24
   %conv12.i48.i = zext i8 %4 to i32
-  %conv15.i.i = trunc i64 %len to i32
+  %conv15.i.i = trunc nuw nsw i64 %len to i32
   %shl16.i.i = shl nuw nsw i32 %conv15.i.i, 8
   %or.i.i = or disjoint i32 %shl.i47.i, %shl16.i.i
   %or14.i.i = or disjoint i32 %or.i.i, %shl11.i.i
@@ -3768,7 +3768,7 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.body21.lr.ph.i:                               ; preds = %for.end.i
   %add.ptr30.i = getelementptr inbounds i8, ptr %secret, i64 3
-  %30 = trunc i64 %len to i32
+  %30 = trunc nuw i64 %len to i32
   br label %for.body21.i
 
 for.body21.i:                                     ; preds = %for.body21.i, %for.body21.lr.ph.i
@@ -3939,7 +3939,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192)
+  %call.i = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef readonly %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192)
   br label %_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
 
 if.end.i:                                         ; preds = %entry
@@ -3961,7 +3961,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %for.body.i.i, !llvm.loop !21
 
 _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %for.body.i.i
-  %call2.i = call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef nonnull %secret.i, i64 noundef 192)
+  %call2.i = call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef readonly %input, i64 noundef %len, ptr noundef nonnull %secret.i, i64 noundef 192)
   br label %_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
 
 _ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit: ; preds = %if.then.i, %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i
@@ -3981,7 +3981,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef %secret, i64 noundef %secretSize)
+  %call.i = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef readonly %input, i64 noundef %len, ptr noundef readonly %secret, i64 noundef %secretSize)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -3997,14 +3997,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ROCKSDB_XXH3_128bits_reset(ptr nocapture noundef writeonly %statePtr) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset(ptr nocapture noundef writeonly %statePtr) local_unnamed_addr #10 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   br i1 %cmp.i, label %ROCKSDB_XXH3_64bits_reset.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
@@ -4024,14 +4024,14 @@ ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define noundef i32 @ROCKSDB_XXH3_128bits_reset_withSecret(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecret(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   br i1 %cmp.i, label %ROCKSDB_XXH3_64bits_reset_withSecret.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
@@ -4057,7 +4057,7 @@ ROCKSDB_XXH3_64bits_reset_withSecret.exit:        ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define noundef i32 @ROCKSDB_XXH3_128bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #17 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   br i1 %cmp.i, label %ROCKSDB_XXH3_64bits_reset_withSeed.exit, label %if.end.i
@@ -4068,7 +4068,7 @@ if.end.i:                                         ; preds = %entry
 
 ROCKSDB_XXH3_64bits_reset.exit.i:                 ; preds = %if.end.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i.i, align 32
@@ -4113,7 +4113,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
 
 if.end8.i:                                        ; preds = %for.body.i.i, %lor.lhs.false.i
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i10.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i10.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
@@ -4138,7 +4138,7 @@ ROCKSDB_XXH3_64bits_reset_withSeed.exit:          ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ROCKSDB_XXH3_128bits_reset_withSecretandSeed(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecretandSeed(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #10 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   %cmp1.i = icmp eq ptr %secret, null
@@ -4149,7 +4149,7 @@ entry:
 
 if.end6.i:                                        ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
@@ -4301,7 +4301,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i32 @ROCKSDB_XXH128_isEqual(i64 %h1.coerce0, i64 %h1.coerce1, i64 %h2.coerce0, i64 %h2.coerce1) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH128_isEqual(i64 %h1.coerce0, i64 %h1.coerce1, i64 %h2.coerce0, i64 %h2.coerce1) local_unnamed_addr #22 {
 entry:
   %h1 = alloca %struct.XXH128_hash_t, align 8
   %h2 = alloca %struct.XXH128_hash_t, align 8
@@ -4318,7 +4318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ROCKSDB_XXH128_cmp(ptr nocapture noundef readonly %h128_1, ptr nocapture noundef readonly %h128_2) local_unnamed_addr #11 {
+define range(i32 -1, 2) i32 @ROCKSDB_XXH128_cmp(ptr nocapture noundef readonly %h128_1, ptr nocapture noundef readonly %h128_2) local_unnamed_addr #11 {
 entry:
   %h1.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %h128_1, i64 8
   %h1.sroa.3.0.copyload = load i64, ptr %h1.sroa.3.0..sroa_idx, align 8
@@ -4375,7 +4375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @ROCKSDB_XXH3_generateSecret(ptr nocapture noundef %secretBuffer, i64 noundef %secretSize, ptr nocapture noundef %customSeed, i64 noundef %customSeedSize) local_unnamed_addr #24 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_generateSecret(ptr nocapture noundef %secretBuffer, i64 noundef %secretSize, ptr nocapture noundef %customSeed, i64 noundef %customSeedSize) local_unnamed_addr #24 {
 entry:
   %cmp = icmp eq ptr %secretBuffer, null
   %cmp1 = icmp ult i64 %secretSize, 136
@@ -4422,7 +4422,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11400714785074694791
   %conv2.i.i.i.i = trunc i128 %mul.i.i.i.i to i64
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
-  %conv3.i.i.i.i = trunc i128 %shr.i.i.i.i to i64
+  %conv3.i.i.i.i = trunc nuw i128 %shr.i.i.i.i to i64
   %add23.i.i.i = add i64 %conv2.i.i.i.i, 270215977642229760
   %xor24.i.i.i = xor i64 %add.i.i.i, %or19.i2.i
   %conv25.i.i.i = and i64 %xor24.i.i.i, 4294967295
@@ -4435,7 +4435,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i22.i.i.i = mul nuw i128 %conv.i21.i.i.i, 14029467366897019727
   %conv2.i23.i.i.i = trunc i128 %mul.i22.i.i.i to i64
   %shr.i24.i.i.i = lshr i128 %mul.i22.i.i.i, 64
-  %conv3.i25.i.i.i = trunc i128 %shr.i24.i.i.i to i64
+  %conv3.i25.i.i.i = trunc nuw i128 %shr.i24.i.i.i to i64
   %mul35.i.i.i = mul i64 %add27.i.i.i, -4417276706812531889
   %add37.i.i.i = add i64 %mul35.i.i.i, %conv3.i25.i.i.i
   %mul = shl nuw i64 %n.038, 4
@@ -4545,7 +4545,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %mul.i.i = shl i64 %n.06.i.i, 6
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul.i.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i = shl i64 %n.06.i.i, 3
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %secret, i64 %mul2.i.i
   %1 = load <8 x i64>, ptr %add.ptr.i.i, align 1
@@ -4595,7 +4595,7 @@ for.body.i34.i:                                   ; preds = %for.end.i, %for.bod
   %mul.i37.i = shl i64 %n.06.i36.i, 6
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %add.ptr19.i, i64 %mul.i37.i
   %add.ptr1.i39.i = getelementptr inbounds i8, ptr %add.ptr.i38.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i39.i, i32 0, i32 3, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i, i32 0, i32 3, i32 1)
   %mul2.i40.i = shl i64 %n.06.i36.i, 3
   %add.ptr3.i41.i = getelementptr inbounds i8, ptr %secret, i64 %mul2.i40.i
   %16 = load <8 x i64>, ptr %add.ptr.i38.i, align 1

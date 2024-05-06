@@ -187,7 +187,7 @@ define internal noundef i64 @ossl_dh_initialize(i32 noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_dh_is_public(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_dh_is_public(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #4
   %.not = icmp eq ptr %3, null
@@ -218,7 +218,7 @@ define internal i64 @ossl_dh_is_public(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_dh_is_private(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_dh_is_private(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #4
   %.not = icmp eq ptr %3, null
@@ -388,7 +388,7 @@ RSTRING_PTR.exit17:                               ; preds = %28, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_dh_check_params(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_dh_check_params(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

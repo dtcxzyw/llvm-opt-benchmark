@@ -640,7 +640,7 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
   %10 = load i8, ptr %.03546, align 1
   %11 = zext i8 %10 to i32
   %12 = lshr i32 %11, %.048
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = icmp ne ptr %.03546, %1
   %15 = icmp eq i32 %.048, 7
   %or.cond = select i1 %14, i1 true, i1 %15
@@ -651,8 +651,8 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
   %18 = shl i32 %11, %17
   %19 = and i32 %18, 127
   %20 = or i32 %19, %.03645
-  %21 = trunc i32 %20 to i8
-  %22 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %7, i8 noundef zeroext %21, i32 noundef %.03347), !range !12
+  %21 = trunc nuw i32 %20 to i8
+  %22 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %7, i8 noundef zeroext %21, i32 noundef %.03347)
   %23 = add nsw i32 %.03844, 1
   br label %24
 
@@ -665,7 +665,7 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
   br i1 %or.cond43, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %7, i8 noundef zeroext %13, i32 noundef %.134), !range !12
+  %28 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %7, i8 noundef zeroext %13, i32 noundef %.134)
   %29 = add nsw i32 %.139, 1
   br label %32
 
@@ -680,7 +680,7 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
   %.1 = phi i32 [ 7, %27 ], [ %31, %30 ]
   %33 = getelementptr i8, ptr %.03546, i64 1
   %34 = icmp slt i32 %.240, %3
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %32
   %35 = icmp eq i32 %.2, 0
@@ -696,7 +696,7 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @handle_ts_23_038_char(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @handle_ts_23_038_char(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i8 %1, 27
   br i1 %.not, label %21, label %4
 
@@ -784,10 +784,10 @@ define ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr nocapture no
   %.0910 = phi ptr [ %8, %.lr.ph ], [ %1, %3 ]
   %8 = getelementptr i8, ptr %.0910, i64 1
   %9 = load i8, ptr %.0910, align 1
-  %10 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %6, i8 noundef zeroext %9, i32 noundef %.012), !range !12
+  %10 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %6, i8 noundef zeroext %9, i32 noundef %.012)
   %11 = add nuw nsw i32 %.0811, 1
   %exitcond.not = icmp eq i32 %11, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %12 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6) #6
@@ -907,7 +907,7 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr nocapture nou
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %.lr.ph.split
-  %63 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %39, i8 noundef zeroext %60, i32 noundef %.05364), !range !12
+  %63 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %39, i8 noundef zeroext %60, i32 noundef %.05364)
   br label %69
 
 64:                                               ; preds = %.lr.ph.split
@@ -922,7 +922,7 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr nocapture nou
   %.1 = phi i32 [ %63, %62 ], [ %.05364, %64 ]
   %70 = add nuw nsw i32 %.05463, 1
   %exitcond.not = icmp eq i32 %70, %35
-  br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !15
+  br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !14
 
 get_ucs_2_string.exit:                            ; preds = %69, %56, %32, %46, %40, %27, %._crit_edge.i, %30, %5
   %.sink66 = phi ptr [ %31, %30 ], [ %6, %5 ], [ %14, %._crit_edge.i ], [ %14, %27 ], [ %39, %40 ], [ %39, %46 ], [ %39, %32 ], [ %39, %56 ], [ %39, %69 ]
@@ -956,7 +956,7 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly %1, i32 
   %12 = add i32 %.038, -1
   %13 = shl i32 %11, %12
   %14 = and i32 %13, 127
-  %15 = trunc i32 %14 to i8
+  %15 = trunc nuw nsw i32 %14 to i8
   %16 = icmp ne ptr %.02837, %1
   %17 = icmp eq i32 %.038, 7
   %or.cond = select i1 %16, i1 true, i1 %17
@@ -966,7 +966,7 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly %1, i32 
   %19 = sub i32 8, %.038
   %20 = lshr i32 %11, %19
   %21 = or i32 %20, %.02936
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext %22) #6
   %23 = add nsw i32 %.03135, 1
   br label %24
@@ -989,7 +989,7 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly %1, i32 
   %.1 = phi i32 [ 7, %27 ], [ %12, %24 ]
   %30 = getelementptr i8, ptr %.02837, i64 1
   %31 = icmp slt i32 %.2, %3
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %29, %4
   %32 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7) #6
@@ -1016,7 +1016,7 @@ define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr nocapture noundef r
   %14 = getelementptr i8, ptr %.011, i64 1
   %15 = add nsw i32 %.0910, -1
   %16 = icmp ugt i32 %.0910, 1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %17 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7) #6
@@ -1117,7 +1117,7 @@ thread-pre-split:                                 ; preds = %34
   store i64 %.0323540, ptr %8, align 8
   %35 = call i64 @g_iconv(ptr noundef %10, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #6
   %36 = icmp eq i64 %35, -1
-  br i1 %36, label %thread-pre-split, label %.critedge, !llvm.loop !18
+  br i1 %36, label %thread-pre-split, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %34, %thread-pre-split
   %37 = call i64 @llvm.umax.i64(i64 %.0323540, i64 1)
@@ -1141,7 +1141,7 @@ thread-pre-split:                                 ; preds = %34
 44:                                               ; preds = %22, %.critedge, %28
   %.pr38 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %.pr38, 0
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %44, %.thread, %13
   call void @g_free(ptr noundef %20) #6
@@ -1273,7 +1273,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   %56 = getelementptr i8, ptr %.137, i64 1
   %57 = add nsw i32 %.1, 1
   %58 = icmp slt i32 %57, %2
-  br i1 %58, label %9, label %._crit_edge, !llvm.loop !20
+  br i1 %58, label %9, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %55, %3
   %59 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6) #6
@@ -1308,7 +1308,7 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr nocapture noundef
   %15 = getelementptr i8, ptr %.01316, i64 1
   %16 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %16, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %14, %3
   %17 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6) #6
@@ -1359,7 +1359,7 @@ attributes #9 = { nounwind willreturn memory(none) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
@@ -1368,4 +1368,3 @@ attributes #9 = { nounwind willreturn memory(none) }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

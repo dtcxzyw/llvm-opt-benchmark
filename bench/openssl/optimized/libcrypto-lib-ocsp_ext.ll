@@ -95,7 +95,7 @@ entry:
 declare i32 @X509V3_add1_i2d(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_REQUEST_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_REQUEST_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %requestExtensions = getelementptr inbounds i8, ptr %x, i64 24
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %requestExtensions, ptr noundef %ex, i32 noundef %loc) #3
@@ -178,7 +178,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_ONEREQ_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_ONEREQ_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %singleRequestExtensions = getelementptr inbounds i8, ptr %x, i64 8
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %singleRequestExtensions, ptr noundef %ex, i32 noundef %loc) #3
@@ -259,7 +259,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_BASICRESP_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_BASICRESP_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %responseExtensions = getelementptr inbounds i8, ptr %x, i64 40
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %responseExtensions, ptr noundef %ex, i32 noundef %loc) #3
@@ -340,7 +340,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_SINGLERESP_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_SINGLERESP_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %singleExtensions = getelementptr inbounds i8, ptr %x, i64 32
   %call = tail call ptr @X509v3_add_ext(ptr noundef nonnull %singleExtensions, ptr noundef %ex, i32 noundef %loc) #3
@@ -350,15 +350,15 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_request_add1_nonce(ptr noundef %req, ptr noundef %val, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_request_add1_nonce(ptr noundef %req, ptr noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %requestExtensions = getelementptr inbounds i8, ptr %req, i64 24
-  %call = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %requestExtensions, ptr noundef %val, i32 noundef %len), !range !4
+  %call = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %requestExtensions, ptr noundef %val, i32 noundef %len)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ocsp_add1_nonce(ptr noundef %exts, ptr noundef readonly %val, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ocsp_add1_nonce(ptr noundef %exts, ptr noundef readonly %val, i32 noundef %len) unnamed_addr #0 {
 entry:
   %tmpval = alloca ptr, align 8
   %os = alloca %struct.asn1_string_st, align 8
@@ -413,15 +413,15 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_basic_add1_nonce(ptr noundef %resp, ptr noundef %val, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_basic_add1_nonce(ptr noundef %resp, ptr noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %responseExtensions = getelementptr inbounds i8, ptr %resp, i64 40
-  %call = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %responseExtensions, ptr noundef %val, i32 noundef %len), !range !4
+  %call = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %responseExtensions, ptr noundef %val, i32 noundef %len)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_check_nonce(ptr nocapture noundef readonly %req, ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
+define range(i32 -1, 4) i32 @OCSP_check_nonce(ptr nocapture noundef readonly %req, ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
 entry:
   %requestExtensions.i = getelementptr inbounds i8, ptr %req, i64 24
   %0 = load ptr, ptr %requestExtensions.i, align 8
@@ -466,7 +466,7 @@ declare i32 @ASN1_OCTET_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_copy_nonce(ptr noundef %resp, ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @OCSP_copy_nonce(ptr noundef %resp, ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
 entry:
   %requestExtensions.i = getelementptr inbounds i8, ptr %req, i64 24
   %0 = load ptr, ptr %requestExtensions.i, align 8
@@ -785,4 +785,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

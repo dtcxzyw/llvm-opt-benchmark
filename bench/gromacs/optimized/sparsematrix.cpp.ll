@@ -487,7 +487,7 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr nocapture noun
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL15compare_columnsPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef range(i32 -1, 2) i32 @_ZL15compare_columnsPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

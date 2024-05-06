@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyUOpOptimizer_Type = hidden global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr @PyType_Type }, i64 0 }, ptr @.str.7, i64 32, i64 0, ptr @uop_opt_dealloc, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 128, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, i8 0 }, align 8
 @PyExc_SystemError = external local_unnamed_addr global ptr, align 8
 @.str.8 = private unnamed_addr constant [33 x i8] c"Should never call error_optimize\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.9 = private unnamed_addr constant [9 x i8] c"is_valid\00", align 1
 @.str.10 = private unnamed_addr constant [10 x i8] c"get_count\00", align 1
 @PyExc_IndexError = external local_unnamed_addr global ptr, align 8
@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyUOp_Replacements = internal unnamed_addr constant <{ [367 x i16], [145 x i16] }> <{ [367 x i16] [i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 356, i16 0, i16 0, i16 359, i16 0, i16 0, i16 0, i16 363, i16 0, i16 0, i16 0, i16 367], [145 x i16] zeroinitializer }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyUnstable_Replace_Executor(ptr nocapture noundef readonly %code, ptr nocapture noundef %instr, ptr noundef %new) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnstable_Replace_Executor(ptr nocapture noundef readonly %code, ptr nocapture noundef %instr, ptr noundef %new) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %instr, align 2
   %cmp.not = icmp eq i8 %0, 70
@@ -234,7 +234,7 @@ Py_DECREF.exit:                                   ; preds = %Py_INCREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyOptimizer_BackEdge(ptr noundef %frame, ptr nocapture noundef %src, ptr noundef %dest, ptr noundef %stack_pointer) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @_PyOptimizer_BackEdge(ptr noundef %frame, ptr nocapture noundef %src, ptr noundef %dest, ptr noundef %stack_pointer) local_unnamed_addr #0 {
 entry:
   %executor = alloca ptr, align 8
   %0 = load ptr, ptr %frame, align 8
@@ -594,7 +594,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @counter_optimize(ptr noundef %self, ptr nocapture readnone %code, ptr noundef %instr, ptr nocapture noundef writeonly %exec_ptr, i32 %_unused_curr_stackentries) #0 {
+define internal range(i32 -1, 2) i32 @counter_optimize(ptr noundef %self, ptr nocapture readnone %code, ptr noundef %instr, ptr nocapture noundef writeonly %exec_ptr, i32 %_unused_curr_stackentries) #0 {
 entry:
   %call = tail call ptr @_PyObject_New(ptr noundef nonnull @_PyCounterExecutor_Type) #17
   %cmp = icmp eq ptr %call, null
@@ -879,13 +879,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uop_optimize(ptr nocapture readnone %self, ptr noundef %code, ptr noundef %instr, ptr nocapture noundef writeonly %exec_ptr, i32 noundef %curr_stackentries) #0 {
+define internal range(i32 -1, 2) i32 @uop_optimize(ptr nocapture readnone %self, ptr noundef %code, ptr noundef %instr, ptr nocapture noundef writeonly %exec_ptr, i32 noundef %curr_stackentries) #0 {
 entry:
   %used.i = alloca [16 x i32], align 16
   %trace_stack.i = alloca [5 x %struct.anon.5], align 16
   %dependencies = alloca %struct._bloom_filter, align 4
   %buffer = alloca [512 x %struct._PyUOpInstruction], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %dependencies, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %dependencies, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %trace_stack.i)
   %0 = ptrtoint ptr %code to i64
   br label %for.body.i.i.i
@@ -1032,7 +1032,7 @@ sw.bb.i:                                          ; preds = %if.end54.i, %if.end
 if.end59.i:                                       ; preds = %sw.bb.i
   %arrayidx60.i = getelementptr i8, ptr %instr.addr.2.i, i64 2
   %10 = load i16, ptr %arrayidx60.i, align 2
-  %11 = tail call i16 @llvm.ctpop.i16(i16 %10), !range !9
+  %11 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %10)
   %12 = zext nneg i16 %11 to i32
   %cmp62.i = icmp ugt i16 %11, 8
   %sub.i = sub nuw nsw i32 16, %12
@@ -1257,10 +1257,10 @@ for.inc.us.i:                                     ; preds = %sw.epilog.us.i, %sw
   %target.1249.us.i = phi i32 [ %add216.us.i, %sw.epilog.thread.us.i ], [ %target.0335.us.i, %sw.epilog.us.i ]
   %indvars.iv.next584.i = add nuw nsw i64 %indvars.iv583.i, 1
   %exitcond587.not.i = icmp eq i64 %indvars.iv.next584.i, %wide.trip.count586.i
-  br i1 %exitcond587.not.i, label %sw.epilog375.i, label %for.body.us.i, !llvm.loop !10
+  br i1 %exitcond587.not.i, label %sw.epilog375.i, label %for.body.us.i, !llvm.loop !9
 
 for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i
-  %conv254244.i = trunc i32 %oparg26.1.i to i16
+  %conv254244.i = trunc nuw i32 %oparg26.1.i to i16
   %add214.i = add nuw nsw i32 %oparg26.1.i, 3
   br label %for.body.i
 
@@ -1538,7 +1538,7 @@ for.inc.i:                                        ; preds = %sw.epilog.i, %sw.ep
   %target.1249.i = phi i32 [ %add216.i, %sw.epilog.thread.i ], [ %target.0335.i, %sw.epilog.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count586.i
-  br i1 %exitcond.not.i, label %sw.epilog375.i, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %sw.epilog375.i, label %for.body.i, !llvm.loop !9
 
 sw.epilog375.i:                                   ; preds = %for.inc.i, %for.inc.us.i, %if.end138.i, %if.end71.i
   %confidence.3.i = phi i32 [ %confidence.1360.i, %if.end138.i ], [ %confidence.2427.i, %if.end71.i ], [ %confidence.1360.i, %for.inc.us.i ], [ %confidence.1360.i, %for.inc.i ]
@@ -1616,7 +1616,7 @@ if.end12:                                         ; preds = %if.then5, %lor.lhs.
 for.body.i.i6:                                    ; preds = %for.inc.i.i, %if.end12
   %indvars.iv.i.i = phi i64 [ 0, %if.end12 ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %count.023.i.i = phi i32 [ 0, %if.end12 ], [ %count.1.i.i, %for.inc.i.i ]
-  %39 = trunc i64 %indvars.iv.i.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shr.i.i7 = lshr i64 %indvars.iv.i.i, 5
   %idxprom.i.i = and i64 %shr.i.i7, 134217727
   %arrayidx1.i.i = getelementptr i32, ptr %used.i, i64 %idxprom.i.i
@@ -1682,7 +1682,7 @@ for.inc.i.i:                                      ; preds = %if.then40.i.i, %if.
   %count.1.i.i = phi i32 [ %inc.i.i10, %if.end.i.i ], [ %count.023.i.i, %if.then40.i.i ], [ %inc.i.i10, %if.end37.i.i ], [ %count.023.i.i, %for.body.i.i6 ], [ %inc.i.i10, %if.end.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i11 = icmp eq i64 %indvars.iv.next.i.i, 512
-  br i1 %exitcond.not.i.i11, label %compute_used.exit.i, label %for.body.i.i6, !llvm.loop !11
+  br i1 %exitcond.not.i.i11, label %compute_used.exit.i, label %for.body.i.i6, !llvm.loop !10
 
 compute_used.exit.i:                              ; preds = %for.inc.i.i
   %conv.i12 = sext i32 %count.1.i.i to i64
@@ -1702,7 +1702,7 @@ if.end.i14:                                       ; preds = %compute_used.exit.i
 for.body.i16:                                     ; preds = %for.inc.i26, %if.end.i14
   %indvars.iv.i17 = phi i64 [ 511, %if.end.i14 ], [ %indvars.iv.next.i27, %for.inc.i26 ]
   %dest.029.i = phi i32 [ %sub.i15, %if.end.i14 ], [ %dest.1.i, %for.inc.i26 ]
-  %48 = trunc i64 %indvars.iv.i17 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %shr.i18 = lshr i64 %indvars.iv.i17, 5
   %idxprom.i19 = and i64 %shr.i18, 134217727
   %arrayidx.i20 = getelementptr [16 x i32], ptr %used.i, i64 0, i64 %idxprom.i19
@@ -1743,7 +1743,7 @@ for.inc.i26:                                      ; preds = %if.end33.i, %for.bo
   %dest.1.i = phi i32 [ %dec.i25, %if.end33.i ], [ %dest.029.i, %for.body.i16 ]
   %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i17, -1
   %cmp3.not.i = icmp eq i64 %indvars.iv.i17, 0
-  br i1 %cmp3.not.i, label %for.end.i, label %for.body.i16, !llvm.loop !12
+  br i1 %cmp3.not.i, label %for.end.i, label %for.body.i16, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i26
   %execute.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -1859,7 +1859,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 %0, ptr %arrayidx4, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -1992,7 +1992,7 @@ _Py_BloomFilter_Add.exit:                         ; preds = %for.body.i
 define dso_local void @_Py_Executors_InvalidateDependency(ptr nocapture noundef readonly %interp, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %obj_filter = alloca %struct._bloom_filter, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %obj_filter, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %obj_filter, i8 0, i64 32, i1 false)
   %0 = ptrtoint ptr %obj to i64
   br label %for.body.i.i
 
@@ -2049,7 +2049,7 @@ for.cond.i:                                       ; preds = %for.body, %for.body
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i, %for.body.i5 ], [ 0, %for.body ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %if.then, label %for.body.i5, !llvm.loop !14
+  br i1 %exitcond.i, label %if.then, label %for.body.i5, !llvm.loop !13
 
 for.body.i5:                                      ; preds = %for.cond.i
   %arrayidx.i6 = getelementptr [8 x i32], ptr %bloom, i64 0, i64 %indvars.iv.next.i
@@ -2058,7 +2058,7 @@ for.body.i5:                                      ; preds = %for.cond.i
   %7 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %7, %6
   %cmp7.not.i = icmp eq i32 %and.i, %7
-  br i1 %cmp7.not.i, label %for.cond.i, label %bloom_filter_may_contain.exit, !llvm.loop !14
+  br i1 %cmp7.not.i, label %for.cond.i, label %bloom_filter_may_contain.exit, !llvm.loop !13
 
 bloom_filter_may_contain.exit:                    ; preds = %for.body.i5
   %cmp.i.le = icmp ugt i64 %indvars.iv.i9, 6
@@ -2104,7 +2104,7 @@ if.end14.i:                                       ; preds = %if.else.i, %if.then
 
 if.end:                                           ; preds = %for.body, %if.end14.i, %if.then, %bloom_filter_may_contain.exit
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %if.end, %_Py_BloomFilter_Add.exit
   ret void
@@ -2128,7 +2128,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i8 0, ptr %linked, align 1
   %cmp.not = icmp eq ptr %1, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %links, i8 0, i64 16, i1 false)
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %entry
   store ptr null, ptr %executor_list_head, align 8
@@ -2277,11 +2277,10 @@ attributes #20 = { cold }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i16 0, i16 17}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

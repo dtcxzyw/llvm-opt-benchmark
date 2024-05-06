@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [11 x i8] c"properties\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_fromdata(ptr noundef %ffc, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_params_fromdata(ptr noundef %ffc, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %q = alloca ptr, align 8

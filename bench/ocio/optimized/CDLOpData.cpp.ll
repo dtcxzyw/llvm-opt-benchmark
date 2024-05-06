@@ -173,7 +173,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev9CDLOpData8GetStyleEPKc(ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN19OpenColorIO_v2_4dev9CDLOpData8GetStyleEPKc(ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.end31, label %land.lhs.true
@@ -287,7 +287,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev9CDLOpData12ConvertStyleENS_8CDLStyleENS_18TransformDirectionE(i32 noundef %style, i32 noundef %dir) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN19OpenColorIO_v2_4dev9CDLOpData12ConvertStyleENS_8CDLStyleENS_18TransformDirectionE(i32 noundef %style, i32 noundef %dir) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -421,7 +421,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev9CDLOpData12ConvertStyleENS0_5StyleE(i32 noundef %style) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN19OpenColorIO_v2_4dev9CDLOpData12ConvertStyleENS0_5StyleE(i32 noundef %style) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -819,7 +819,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev9CDLOpData12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZNK19OpenColorIO_v2_4dev9CDLOpData12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %m_style, align 8
@@ -3185,7 +3185,7 @@ invoke.cont17:                                    ; preds = %switch.lookup
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   %m_slopeParams.i = getelementptr inbounds i8, ptr %this, i64 176
-  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_slopeParams.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull readonly byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_slopeParams.i)
           to label %invoke.cont21 unwind label %lpad2
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -3199,7 +3199,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 invoke.cont25:                                    ; preds = %invoke.cont23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %m_offsetParams.i = getelementptr inbounds i8, ptr %this, i64 200
-  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27, ptr noundef nonnull byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_offsetParams.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27, ptr noundef nonnull readonly byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_offsetParams.i)
           to label %invoke.cont28 unwind label %lpad2
 
 invoke.cont28:                                    ; preds = %invoke.cont25
@@ -3213,7 +3213,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
 invoke.cont32:                                    ; preds = %invoke.cont30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #19
   %m_powerParams.i = getelementptr inbounds i8, ptr %this, i64 224
-  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp34, ptr noundef nonnull byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_powerParams.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp34, ptr noundef nonnull readonly byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_powerParams.i)
           to label %invoke.cont35 unwind label %lpad2
 
 invoke.cont35:                                    ; preds = %invoke.cont32

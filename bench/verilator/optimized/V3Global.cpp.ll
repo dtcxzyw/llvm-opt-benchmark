@@ -2647,7 +2647,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN8V3Global7p
   %.0 = phi i32 [ %18, %15 ], [ %21, %25 ]
   %20 = urem i32 %.0, 26
   %21 = udiv i32 %.0, 26
-  %22 = trunc i32 %20 to i8
+  %22 = trunc nuw nsw i32 %20 to i8
   %23 = add nuw nsw i8 %22, 65
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef signext %23)
           to label %25 unwind label %.loopexit

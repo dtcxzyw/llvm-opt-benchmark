@@ -42,7 +42,7 @@ declare i32 @file_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr
 declare i64 @file_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @pread(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @pread(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %5) #2
   %7 = zext i32 %6 to i64

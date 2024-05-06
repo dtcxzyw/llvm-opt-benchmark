@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.26 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.11, [16 x i8] c"$\00\00\00\00\00\00\00<\03\00\00-\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17h8fb2a1ce22a02f5bE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17h8fb2a1ce22a02f5bE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = tail call i8 @"_ZN71_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..cmp..Ord$GT$3cmp17h2b6f1a21859d6a38E"(ptr nonnull align 8 %3, ptr nonnull align 8 %4), !range !5
@@ -34,7 +34,7 @@ define i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h2455b986d4157410E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define range(i8 -1, 3) i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h2455b986d4157410E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = tail call i8 @"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE"(ptr nonnull align 8 %3, ptr nonnull align 8 %4), !range !6
@@ -42,7 +42,7 @@ define i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17ha809df55f457b5c6E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define range(i8 -1, 3) i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17ha809df55f457b5c6E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = tail call i8 @"_ZN78_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2835827e623ff46dE"(ptr nonnull align 8 %3, ptr nonnull align 8 %4), !range !6
@@ -532,7 +532,7 @@ define hidden void @"_ZN14cranelift_isle9serialize13Decomposition17make_control_
   unreachable
 
 "_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit": ; preds = %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 }
@@ -751,7 +751,7 @@ _ZN14cranelift_isle9serialize5Score6update17h1c1f9b19e879762dE.exit: ; preds = %
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17he4cd144c1175d446E"(ptr nocapture readnone align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define hidden range(i8 -1, 2) i8 @"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17he4cd144c1175d446E"(ptr nocapture readnone align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = tail call i8 @"_ZN76_$LT$cranelift_isle..serialize..EqualCandidate$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b257d88d30854bbE"(ptr align 8 %2, ptr align 8 %1), !range !5
   ret i8 %4
 }
@@ -1122,7 +1122,7 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
   unreachable
 
 "_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i": ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %29 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -1153,7 +1153,7 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
   unreachable
 
 "_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17hebb0daa0d6467d2fE.exit": ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %45 = call zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE"(ptr nonnull align 16 %7, ptr nonnull align 16 %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)

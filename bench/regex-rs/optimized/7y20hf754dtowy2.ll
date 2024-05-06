@@ -44,7 +44,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   %5 = load i32, ptr %4, align 8, !range !4, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4
-  %trunc = trunc i32 %5 to i1
+  %trunc = trunc nuw i32 %5 to i1
   br i1 %trunc, label %8, label %46
 
 8:                                                ; preds = %3
@@ -215,7 +215,7 @@ define internal void @"_ZN4core3ptr99drop_in_place$LT$$LT$regex..regex..string..
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h03b6be75b19915baE"(ptr noalias noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i8, ptr %0, align 1, !range !10, !noundef !5
-  %trunc = trunc i8 %4 to i1
+  %trunc = trunc nuw i8 %4 to i1
   br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
@@ -603,7 +603,7 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !66
   call void @"_ZN112_$LT$regex_automata..util..captures..GroupInfoPatternNames$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h275f92c4cb50a20aE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !70
   %23 = load i64, ptr %3, align 8, !range !71, !noalias !66, !noundef !5
-  %trunc.i27 = trunc i64 %23 to i1
+  %trunc.i27 = trunc nuw i64 %23 to i1
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8, !noalias !66, !align !45
   %26 = getelementptr inbounds i8, ptr %3, i64 16
@@ -640,7 +640,7 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i64 noundef %37)
   %39 = load i64, ptr %4, align 8, !range !71, !noundef !5
-  %trunc8 = trunc i64 %39 to i1
+  %trunc8 = trunc nuw i64 %39 to i1
   br i1 %trunc8, label %42, label %40
 
 40:                                               ; preds = %34
@@ -666,7 +666,7 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !74
   call void @"_ZN112_$LT$regex_automata..util..captures..GroupInfoPatternNames$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h275f92c4cb50a20aE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !70
   %48 = load i64, ptr %3, align 8, !range !71, !noalias !74, !noundef !5
-  %trunc.i = trunc i64 %48 to i1
+  %trunc.i = trunc nuw i64 %48 to i1
   %49 = load ptr, ptr %24, align 8, !noalias !74, !align !45
   %50 = load i64, ptr %26, align 8, !noalias !74
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !74
@@ -850,7 +850,7 @@ define { ptr, i64 } @"_ZN87_$LT$regex..regex..string..Captures$u20$as$u20$core..
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = load i64, ptr %6, align 8, !range !71, !noundef !5
-  %trunc = trunc i64 %11 to i1
+  %trunc = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !align !45
   %14 = getelementptr inbounds i8, ptr %6, i64 8
@@ -945,7 +945,7 @@ define { ptr, i64 } @"_ZN89_$LT$regex..regex..string..Captures$u20$as$u20$core..
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8, !noundef !5
   %13 = load i64, ptr %7, align 8, !range !71, !noundef !5
-  %trunc = trunc i64 %13 to i1
+  %trunc = trunc nuw i64 %13 to i1
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !align !45
   %16 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1048,7 +1048,7 @@ define void @"_ZN58_$LT$$RF$str$u20$as$u20$regex..regex..string..Replacer$GT$12n
   %5 = load i64, ptr %4, align 8, !alias.scope !144, !noalias !139, !noundef !5
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !147
-  %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull %3, ptr noundef nonnull %6), !noalias !154
+  %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %6), !noalias !154
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %8, 0
   %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
   br i1 %switch8.i.not.i.i.i, label %9, label %10
@@ -1062,7 +1062,7 @@ define void @"_ZN58_$LT$$RF$str$u20$as$u20$regex..regex..string..Replacer$GT$12n
 
 10:                                               ; preds = %2
   %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %8, 1
-  %11 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull %3)
+  %11 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull readonly %3)
   br label %_ZN5regex5regex6string12no_expansion17h5674428d6792449dE.exit
 
 _ZN5regex5regex6string12no_expansion17h5674428d6792449dE.exit: ; preds = %9, %10
@@ -1093,7 +1093,7 @@ define void @"_ZN81_$LT$regex..regex..string..NoExpand$u20$as$u20$regex..regex..
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !155, !noalias !160, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %4, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %4, i64 %6, i1 false)
   %17 = load i64, ptr %7, align 8, !alias.scope !155, !noalias !160, !noundef !5
   %18 = add i64 %17, %6
   store i64 %18, ptr %7, align 8, !alias.scope !155, !noalias !160

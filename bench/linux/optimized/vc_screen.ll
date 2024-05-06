@@ -379,7 +379,7 @@ define internal i64 @vcs_read(ptr nocapture noundef readonly %0, ptr noundef %1,
   br i1 %100, label %101, label %121
 
 101:                                              ; preds = %98
-  %102 = trunc i64 %37 to i32
+  %102 = trunc nuw nsw i64 %37 to i32
   %103 = lshr i32 %102, 2
   %104 = udiv i32 %103, %75
   %105 = urem i32 %103, %75
@@ -408,7 +408,7 @@ define internal i64 @vcs_read(ptr nocapture noundef readonly %0, ptr noundef %1,
   br label %.thread32
 
 123:                                              ; preds = %91
-  %124 = trunc i64 %37 to i32
+  %124 = trunc nuw nsw i64 %37 to i32
   br i1 %17, label %125, label %153
 
 125:                                              ; preds = %123
@@ -460,11 +460,11 @@ define internal i64 @vcs_read(ptr nocapture noundef readonly %0, ptr noundef %1,
 
 155:                                              ; preds = %153
   %156 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
-  %157 = trunc i32 %156 to i8
+  %157 = trunc nuw i32 %156 to i8
   store i8 %157, ptr %8, align 1
   %158 = load i32, ptr %74, align 4
   %159 = tail call i32 @llvm.umin.i32(i32 %158, i32 255)
-  %160 = trunc i32 %159 to i8
+  %160 = trunc nuw i32 %159 to i8
   store i8 %160, ptr %34, align 1
   tail call void @getconsxy(ptr noundef nonnull %59, ptr noundef %35) #8
   %161 = add i32 %97, %124
@@ -847,10 +847,10 @@ define internal i64 @vcs_write(ptr nocapture noundef readonly %0, ptr noundef %1
   %148 = zext i32 %97 to i64
   %149 = sub nsw i64 %145, %73
   %150 = icmp slt i64 %149, %148
-  %151 = trunc i64 %149 to i32
+  %151 = trunc nsw i64 %149 to i32
   %152 = select i1 %150, i32 %151, i32 %97
   %153 = freeze i32 %152
-  %154 = trunc i64 %73 to i32
+  %154 = trunc nuw nsw i64 %73 to i32
   br i1 %20, label %251, label %155
 
 155:                                              ; preds = %147
@@ -876,7 +876,7 @@ define internal i64 @vcs_write(ptr nocapture noundef readonly %0, ptr noundef %1
   %167 = zext i32 %162 to i64
   %168 = xor i64 %160, 3
   %169 = call i64 @llvm.umin.i64(i64 %167, i64 %168)
-  %170 = trunc i64 %169 to i32
+  %170 = trunc nuw nsw i64 %169 to i32
   %171 = sub i32 %162, %170
   %172 = getelementptr i8, ptr %71, i64 %169
   %173 = add nuw nsw i64 %73, 1
@@ -1094,7 +1094,7 @@ define internal i64 @vcs_write(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vcs_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 325, 350) i32 @vcs_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc ptr @vcs_poll_data_get(ptr noundef %0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
@@ -1137,7 +1137,7 @@ define internal noundef i32 @vcs_poll(ptr noundef %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vcs_open(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 -95, 1) i32 @vcs_open(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 63
@@ -1322,7 +1322,7 @@ define internal fastcc ptr @vcs_poll_data_get(ptr noundef %0) unnamed_addr #0 al
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vcs_notifier(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @vcs_notifier(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8

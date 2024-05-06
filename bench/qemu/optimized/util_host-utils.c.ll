@@ -128,7 +128,7 @@ if.then:                                          ; preds = %entry
   %rem.i.decomposed = sub i128 %.frozen, %2
   %extract.t248 = trunc i128 %rem.i.decomposed to i64
   %extract251 = lshr i128 %rem.i.decomposed, 64
-  %extract.t252 = trunc i128 %extract251 to i64
+  %extract.t252 = trunc nuw i128 %extract251 to i64
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -136,14 +136,14 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %divisor.coerce1, i1 true), !range !5
-  %cast.i = trunc i64 %3 to i32
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %divisor.coerce1, i1 true)
+  %cast.i = trunc nuw nsw i64 %3 to i32
   br label %clz128.exit
 
 if.else.i:                                        ; preds = %if.else
   %tobool3.not.i = icmp eq i64 %divisor.coerce0, 0
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %divisor.coerce0, i1 true), !range !5
-  %cast5.i = trunc i64 %4 to i32
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %divisor.coerce0, i1 true)
+  %cast5.i = trunc nuw nsw i64 %4 to i32
   %add.i = or disjoint i32 %cast5.i, 64
   %cond.i = select i1 %tobool3.not.i, i32 128, i32 %add.i
   br label %clz128.exit
@@ -157,10 +157,10 @@ clz128.exit:                                      ; preds = %if.then.i, %if.else
 if.then19:                                        ; preds = %clz128.exit
   %extract.t45 = trunc i128 %1 to i64
   %extract48 = lshr i128 %1, 64
-  %extract.t49 = trunc i128 %extract48 to i64
+  %extract.t49 = trunc nuw i128 %extract48 to i64
   %extract.t231 = trunc i128 %0 to i64
   %extract235 = lshr i128 %0, 64
-  %extract.t236 = trunc i128 %extract235 to i64
+  %extract.t236 = trunc nuw i128 %extract235 to i64
   br i1 %cmp.not, label %if.end, label %if.then20
 
 if.then20:                                        ; preds = %if.then19
@@ -174,10 +174,10 @@ if.then20:                                        ; preds = %if.then19
   %shl.i129 = shl i128 %1, %sh_prom.i
   %retval.sroa.0.0.extract.trunc.i130 = trunc i128 %shl.i129 to i64
   %retval.sroa.2.0.extract.shift.i131 = lshr i128 %shl.i129, 64
-  %retval.sroa.2.0.extract.trunc.i132 = trunc i128 %retval.sroa.2.0.extract.shift.i131 to i64
+  %retval.sroa.2.0.extract.trunc.i132 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i131 to i64
   %extract.t230 = trunc i128 %or.i to i64
   %extract233 = lshr i128 %or.i, 64
-  %extract.t234 = trunc i128 %extract233 to i64
+  %extract.t234 = trunc nuw i128 %extract233 to i64
   br label %if.end
 
 if.end:                                           ; preds = %if.then20, %if.then19
@@ -201,17 +201,17 @@ if.then45:                                        ; preds = %if.else43
   %shr.i151 = ashr i128 %0, %sh_prom.i150
   %retval.sroa.0.0.extract.trunc.i152 = trunc i128 %shr.i151 to i64
   %retval.sroa.2.0.extract.shift.i153 = lshr i128 %shr.i151, 64
-  %retval.sroa.2.0.extract.trunc.i154 = trunc i128 %retval.sroa.2.0.extract.shift.i153 to i64
+  %retval.sroa.2.0.extract.trunc.i154 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i153 to i64
   %shl.i162 = shl i128 %0, %sh_prom.i139
   %shr.i173 = lshr i128 %1, %sh_prom.i150
   %or.i187 = or i128 %shr.i173, %shl.i162
   %retval.sroa.2.0.extract.shift.i189 = lshr i128 %or.i187, 64
-  %retval.sroa.2.0.extract.trunc.i190 = trunc i128 %retval.sroa.2.0.extract.shift.i189 to i64
+  %retval.sroa.2.0.extract.trunc.i190 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i189 to i64
   store i128 %or.i187, ptr %dhi, align 16
   %shl.i198 = shl i128 %1, %sh_prom.i139
   %retval.sroa.0.0.extract.trunc.i199 = trunc i128 %shl.i198 to i64
   %retval.sroa.2.0.extract.shift.i200 = lshr i128 %shl.i198, 64
-  %retval.sroa.2.0.extract.trunc.i201 = trunc i128 %retval.sroa.2.0.extract.shift.i200 to i64
+  %retval.sroa.2.0.extract.trunc.i201 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i200 to i64
   %coerce68.sroa.0.0.extract.trunc = trunc i128 %or.i187 to i64
   %call69 = call fastcc { i64, i64 } @udiv256_qrnnd(ptr noundef nonnull %dhi, i64 noundef %retval.sroa.0.0.extract.trunc.i152, i64 noundef %retval.sroa.2.0.extract.trunc.i154, i64 noundef %coerce68.sroa.0.0.extract.trunc, i64 noundef %retval.sroa.2.0.extract.trunc.i190, i128 noundef %shl.i140)
   %5 = extractvalue { i64, i64 } %call69, 0
@@ -223,17 +223,17 @@ if.then45:                                        ; preds = %if.else43
   %.pre = load i128, ptr %dhi, align 16
   %extract.t224 = trunc i128 %.pre to i64
   %extract227 = lshr i128 %.pre, 64
-  %extract.t228 = trunc i128 %extract227 to i64
+  %extract.t228 = trunc nuw i128 %extract227 to i64
   br label %if.end78
 
 if.else71:                                        ; preds = %if.else43
   %a.sroa.0.0.insert.insert.i208 = sub i128 %0, %divisor.sroa.0.0.insert.ext
   %7 = lshr i128 %a.sroa.0.0.insert.insert.i208, 64
-  %.tr.i = trunc i128 %7 to i64
+  %.tr.i = trunc nuw i128 %7 to i64
   %.narrow.i = sub i64 %.tr.i, %divisor.coerce1
   %extract.t = trunc i128 %1 to i64
   %extract = lshr i128 %1, 64
-  %extract.t40 = trunc i128 %extract to i64
+  %extract.t40 = trunc nuw i128 %extract to i64
   %extract.t223 = trunc i128 %a.sroa.0.0.insert.insert.i208 to i64
   br label %if.end78
 
@@ -262,7 +262,7 @@ if.end83:                                         ; preds = %if.end78, %if.end
   %shr.i217 = lshr i128 %10, %sh_prom.i216
   %extract.t247 = trunc i128 %shr.i217 to i64
   %extract249 = lshr i128 %shr.i217, 64
-  %extract.t250 = trunc i128 %extract249 to i64
+  %extract.t250 = trunc nuw i128 %extract249 to i64
   br label %return
 
 return:                                           ; preds = %if.end83, %if.then
@@ -277,7 +277,7 @@ return:                                           ; preds = %if.end83, %if.then
 define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr nocapture noundef writeonly %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #1 {
 entry:
   %coerce.sroa.2.0.extract.shift = lshr i128 %d, 64
-  %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
+  %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
   %a.sroa.2.0.insert.ext.i = zext i64 %n1.coerce1 to i128
   %a.sroa.2.0.insert.shift.i = shl nuw i128 %a.sroa.2.0.insert.ext.i, 64
   %a.sroa.0.0.insert.ext.i = zext i64 %n1.coerce0 to i128
@@ -286,12 +286,12 @@ entry:
   %div.i = udiv i128 %a.sroa.0.0.insert.insert.i.frozen, %coerce.sroa.2.0.extract.shift
   %0 = mul i128 %div.i, %coerce.sroa.2.0.extract.shift
   %rem.i.decomposed = sub i128 %a.sroa.0.0.insert.insert.i.frozen, %0
-  %retval.sroa.0.0.extract.trunc.i = trunc i128 %rem.i.decomposed to i64
+  %retval.sroa.0.0.extract.trunc.i = trunc nuw i128 %rem.i.decomposed to i64
   %retval.sroa.0.0.extract.trunc.i91 = trunc i128 %div.i to i64
   %1 = and i128 %d, 18446744073709551615
   %2 = mul i128 %div.i, %1
   %shr.i = lshr i128 %2, 64
-  %conv3.i = trunc i128 %shr.i to i64
+  %conv3.i = trunc nuw i128 %shr.i to i64
   %a.sroa.2.0.insert.shift.i101 = shl nuw i128 %rem.i.decomposed, 64
   %a.sroa.0.0.insert.ext.i102 = zext i64 %n0.coerce1 to i128
   %a.sroa.0.0.insert.insert.i103 = or disjoint i128 %a.sroa.2.0.insert.shift.i101, %a.sroa.0.0.insert.ext.i102
@@ -304,7 +304,7 @@ if.then:                                          ; preds = %entry
   %a.sroa.0.0.insert.insert.i117 = add i128 %a.sroa.0.0.insert.insert.i103, %1
   %retval.sroa.0.0.extract.trunc.i118 = trunc i128 %a.sroa.0.0.insert.insert.i117 to i64
   %3 = lshr i128 %a.sroa.0.0.insert.insert.i117, 64
-  %.tr.i119 = trunc i128 %3 to i64
+  %.tr.i119 = trunc nuw i128 %3 to i64
   %.narrow.i = add i64 %.tr.i119, %coerce.sroa.2.0.extract.trunc
   %a.sroa.2.0.insert.ext.i122 = zext i64 %.narrow.i to i128
   %a.sroa.2.0.insert.shift.i123 = shl nuw i128 %a.sroa.2.0.insert.ext.i122, 64
@@ -317,96 +317,96 @@ if.then:                                          ; preds = %entry
 
 if.then52:                                        ; preds = %if.then
   %retval.sroa.0.0.extract.trunc.i145 = add i64 %retval.sroa.0.0.extract.trunc.i91, -2
-  %a.sroa.0.0.insert.insert.i154 = add i128 %a.sroa.0.0.insert.insert.i125, %1
-  %retval.sroa.0.0.extract.trunc.i155 = trunc i128 %a.sroa.0.0.insert.insert.i154 to i64
-  %4 = lshr i128 %a.sroa.0.0.insert.insert.i154, 64
-  %.tr.i156 = trunc i128 %4 to i64
-  %.narrow.i157 = add i64 %.tr.i156, %coerce.sroa.2.0.extract.trunc
+  %a.sroa.0.0.insert.insert.i155 = add i128 %a.sroa.0.0.insert.insert.i125, %1
+  %retval.sroa.0.0.extract.trunc.i156 = trunc i128 %a.sroa.0.0.insert.insert.i155 to i64
+  %4 = lshr i128 %a.sroa.0.0.insert.insert.i155, 64
+  %.tr.i157 = trunc nuw i128 %4 to i64
+  %.narrow.i158 = add i64 %.tr.i157, %coerce.sroa.2.0.extract.trunc
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then, %if.then52, %entry
-  %r1.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i155, %if.then52 ], [ %retval.sroa.0.0.extract.trunc.i118, %if.then ], [ %n0.coerce1, %entry ]
-  %r1.0.off64 = phi i64 [ %.narrow.i157, %if.then52 ], [ %.narrow.i, %if.then ], [ %retval.sroa.0.0.extract.trunc.i, %entry ]
+  %r1.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i156, %if.then52 ], [ %retval.sroa.0.0.extract.trunc.i118, %if.then ], [ %n0.coerce1, %entry ]
+  %r1.0.off64 = phi i64 [ %.narrow.i158, %if.then52 ], [ %.narrow.i, %if.then ], [ %retval.sroa.0.0.extract.trunc.i, %entry ]
   %q1.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i145, %if.then52 ], [ %retval.sroa.0.0.extract.trunc.i109, %if.then ], [ %retval.sroa.0.0.extract.trunc.i91, %entry ]
-  %a.sroa.0.0.insert.ext.i162 = zext i64 %r1.0.off0 to i128
-  %b.sroa.0.0.insert.insert.neg.i164 = sub nsw i128 %a.sroa.0.0.insert.ext.i162, %b.sroa.0.0.insert.ext.i104
-  %5 = lshr i128 %b.sroa.0.0.insert.insert.neg.i164, 64
-  %.tr = trunc i128 %5 to i64
+  %a.sroa.0.0.insert.ext.i163 = zext i64 %r1.0.off0 to i128
+  %b.sroa.0.0.insert.insert.neg.i165 = sub nsw i128 %a.sroa.0.0.insert.ext.i163, %b.sroa.0.0.insert.ext.i104
+  %5 = lshr i128 %b.sroa.0.0.insert.insert.neg.i165, 64
+  %.tr = trunc nuw i128 %5 to i64
   %.narrow = add i64 %r1.0.off64, %.tr
-  %.narrow.i168 = sub i64 %.narrow, %conv3.i
-  %a.sroa.2.0.insert.ext.i171 = zext i64 %.narrow.i168 to i128
-  %a.sroa.2.0.insert.shift.i172 = shl nuw i128 %a.sroa.2.0.insert.ext.i171, 64
-  %a.sroa.0.0.insert.ext.i173 = and i128 %b.sroa.0.0.insert.insert.neg.i164, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i174 = or disjoint i128 %a.sroa.2.0.insert.shift.i172, %a.sroa.0.0.insert.ext.i173
-  %a.sroa.0.0.insert.insert.i174.frozen = freeze i128 %a.sroa.0.0.insert.insert.i174
-  %div.i187 = udiv i128 %a.sroa.0.0.insert.insert.i174.frozen, %coerce.sroa.2.0.extract.shift
-  %6 = mul i128 %div.i187, %coerce.sroa.2.0.extract.shift
-  %rem.i176.decomposed = sub i128 %a.sroa.0.0.insert.insert.i174.frozen, %6
-  %retval.sroa.0.0.extract.trunc.i177 = trunc i128 %rem.i176.decomposed to i64
-  %retval.sroa.0.0.extract.trunc.i188 = trunc i128 %div.i187 to i64
-  %retval.sroa.2.0.extract.shift.i189 = lshr i128 %div.i187, 64
-  %retval.sroa.2.0.extract.trunc.i190 = trunc i128 %retval.sroa.2.0.extract.shift.i189 to i64
-  %7 = mul i128 %div.i187, %1
-  %a.sroa.2.0.insert.shift.i205 = shl nuw i128 %rem.i176.decomposed, 64
-  %a.sroa.0.0.insert.ext.i206 = zext i64 %n0.coerce0 to i128
-  %a.sroa.0.0.insert.insert.i207 = or disjoint i128 %a.sroa.2.0.insert.shift.i205, %a.sroa.0.0.insert.ext.i206
-  %cmp.i212 = icmp ult i128 %a.sroa.0.0.insert.insert.i207, %7
-  br i1 %cmp.i212, label %if.then95, label %if.end126
+  %.narrow.i169 = sub i64 %.narrow, %conv3.i
+  %a.sroa.2.0.insert.ext.i172 = zext i64 %.narrow.i169 to i128
+  %a.sroa.2.0.insert.shift.i173 = shl nuw i128 %a.sroa.2.0.insert.ext.i172, 64
+  %a.sroa.0.0.insert.ext.i174 = and i128 %b.sroa.0.0.insert.insert.neg.i165, 18446744073709551615
+  %a.sroa.0.0.insert.insert.i175 = or disjoint i128 %a.sroa.2.0.insert.shift.i173, %a.sroa.0.0.insert.ext.i174
+  %a.sroa.0.0.insert.insert.i175.frozen = freeze i128 %a.sroa.0.0.insert.insert.i175
+  %div.i190 = udiv i128 %a.sroa.0.0.insert.insert.i175.frozen, %coerce.sroa.2.0.extract.shift
+  %6 = mul i128 %div.i190, %coerce.sroa.2.0.extract.shift
+  %rem.i178.decomposed = sub i128 %a.sroa.0.0.insert.insert.i175.frozen, %6
+  %retval.sroa.0.0.extract.trunc.i179 = trunc nuw i128 %rem.i178.decomposed to i64
+  %retval.sroa.0.0.extract.trunc.i191 = trunc i128 %div.i190 to i64
+  %retval.sroa.2.0.extract.shift.i192 = lshr i128 %div.i190, 64
+  %retval.sroa.2.0.extract.trunc.i193 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i192 to i64
+  %7 = mul i128 %div.i190, %1
+  %a.sroa.2.0.insert.shift.i208 = shl nuw i128 %rem.i178.decomposed, 64
+  %a.sroa.0.0.insert.ext.i209 = zext i64 %n0.coerce0 to i128
+  %a.sroa.0.0.insert.insert.i210 = or disjoint i128 %a.sroa.2.0.insert.shift.i208, %a.sroa.0.0.insert.ext.i209
+  %cmp.i215 = icmp ult i128 %a.sroa.0.0.insert.insert.i210, %7
+  br i1 %cmp.i215, label %if.then95, label %if.end126
 
 if.then95:                                        ; preds = %if.end64
-  %a.sroa.0.0.insert.insert.i217 = add i128 %div.i187, -1
-  %retval.sroa.0.0.extract.trunc.i218 = trunc i128 %a.sroa.0.0.insert.insert.i217 to i64
-  %8 = lshr i128 %a.sroa.0.0.insert.insert.i217, 64
-  %.tr.i219 = trunc i128 %8 to i64
-  %a.sroa.0.0.insert.insert.i227 = add i128 %a.sroa.0.0.insert.insert.i207, %1
-  %retval.sroa.0.0.extract.trunc.i228 = trunc i128 %a.sroa.0.0.insert.insert.i227 to i64
-  %9 = lshr i128 %a.sroa.0.0.insert.insert.i227, 64
-  %.tr.i229 = trunc i128 %9 to i64
-  %.narrow.i230 = add i64 %.tr.i229, %coerce.sroa.2.0.extract.trunc
-  %a.sroa.2.0.insert.ext.i233 = zext i64 %.narrow.i230 to i128
-  %a.sroa.2.0.insert.shift.i234 = shl nuw i128 %a.sroa.2.0.insert.ext.i233, 64
-  %a.sroa.0.0.insert.ext.i235 = and i128 %a.sroa.0.0.insert.insert.i227, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i236 = or disjoint i128 %a.sroa.2.0.insert.shift.i234, %a.sroa.0.0.insert.ext.i235
-  %cmp.i241 = icmp uge i128 %a.sroa.0.0.insert.insert.i236, %d
-  %cmp.i250 = icmp ult i128 %a.sroa.0.0.insert.insert.i236, %7
-  %or.cond312 = and i1 %cmp.i241, %cmp.i250
-  br i1 %or.cond312, label %if.then113, label %if.end126
+  %a.sroa.0.0.insert.insert.i220 = add i128 %div.i190, -1
+  %retval.sroa.0.0.extract.trunc.i221 = trunc i128 %a.sroa.0.0.insert.insert.i220 to i64
+  %8 = lshr i128 %a.sroa.0.0.insert.insert.i220, 64
+  %.tr.i222 = trunc nuw i128 %8 to i64
+  %a.sroa.0.0.insert.insert.i231 = add i128 %a.sroa.0.0.insert.insert.i210, %1
+  %retval.sroa.0.0.extract.trunc.i232 = trunc i128 %a.sroa.0.0.insert.insert.i231 to i64
+  %9 = lshr i128 %a.sroa.0.0.insert.insert.i231, 64
+  %.tr.i233 = trunc nuw i128 %9 to i64
+  %.narrow.i234 = add i64 %.tr.i233, %coerce.sroa.2.0.extract.trunc
+  %a.sroa.2.0.insert.ext.i237 = zext i64 %.narrow.i234 to i128
+  %a.sroa.2.0.insert.shift.i238 = shl nuw i128 %a.sroa.2.0.insert.ext.i237, 64
+  %a.sroa.0.0.insert.ext.i239 = and i128 %a.sroa.0.0.insert.insert.i231, 18446744073709551615
+  %a.sroa.0.0.insert.insert.i240 = or disjoint i128 %a.sroa.2.0.insert.shift.i238, %a.sroa.0.0.insert.ext.i239
+  %cmp.i245 = icmp uge i128 %a.sroa.0.0.insert.insert.i240, %d
+  %cmp.i254 = icmp ult i128 %a.sroa.0.0.insert.insert.i240, %7
+  %or.cond317 = and i1 %cmp.i245, %cmp.i254
+  br i1 %or.cond317, label %if.then113, label %if.end126
 
 if.then113:                                       ; preds = %if.then95
-  %a.sroa.0.0.insert.insert.i255 = add i128 %div.i187, -2
-  %retval.sroa.0.0.extract.trunc.i256 = trunc i128 %a.sroa.0.0.insert.insert.i255 to i64
-  %10 = lshr i128 %a.sroa.0.0.insert.insert.i255, 64
-  %.tr.i257 = trunc i128 %10 to i64
-  %a.sroa.0.0.insert.insert.i265 = add i128 %a.sroa.0.0.insert.insert.i236, %1
-  %retval.sroa.0.0.extract.trunc.i266 = trunc i128 %a.sroa.0.0.insert.insert.i265 to i64
-  %11 = lshr i128 %a.sroa.0.0.insert.insert.i265, 64
-  %.tr.i267 = trunc i128 %11 to i64
-  %.narrow.i268 = add i64 %.tr.i267, %coerce.sroa.2.0.extract.trunc
+  %a.sroa.0.0.insert.insert.i259 = add i128 %div.i190, -2
+  %retval.sroa.0.0.extract.trunc.i260 = trunc i128 %a.sroa.0.0.insert.insert.i259 to i64
+  %10 = lshr i128 %a.sroa.0.0.insert.insert.i259, 64
+  %.tr.i261 = trunc nuw i128 %10 to i64
+  %a.sroa.0.0.insert.insert.i270 = add i128 %a.sroa.0.0.insert.insert.i240, %1
+  %retval.sroa.0.0.extract.trunc.i271 = trunc i128 %a.sroa.0.0.insert.insert.i270 to i64
+  %11 = lshr i128 %a.sroa.0.0.insert.insert.i270, 64
+  %.tr.i272 = trunc nuw i128 %11 to i64
+  %.narrow.i273 = add i64 %.tr.i272, %coerce.sroa.2.0.extract.trunc
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then95, %if.then113, %if.end64
-  %r0.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i266, %if.then113 ], [ %retval.sroa.0.0.extract.trunc.i228, %if.then95 ], [ %n0.coerce0, %if.end64 ]
-  %r0.0.off64 = phi i64 [ %.narrow.i268, %if.then113 ], [ %.narrow.i230, %if.then95 ], [ %retval.sroa.0.0.extract.trunc.i177, %if.end64 ]
-  %q0.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i256, %if.then113 ], [ %retval.sroa.0.0.extract.trunc.i218, %if.then95 ], [ %retval.sroa.0.0.extract.trunc.i188, %if.end64 ]
-  %q0.0.off64 = phi i64 [ %.tr.i257, %if.then113 ], [ %.tr.i219, %if.then95 ], [ %retval.sroa.2.0.extract.trunc.i190, %if.end64 ]
-  %b.sroa.0.0.insert.ext.i210 = and i128 %7, 18446744073709551615
-  %shr.i198 = lshr i128 %7, 64
-  %conv3.i199 = trunc i128 %shr.i198 to i64
-  %a.sroa.0.0.insert.ext.i273 = zext i64 %r0.0.off0 to i128
-  %b.sroa.0.0.insert.insert.neg.i275 = sub nsw i128 %a.sroa.0.0.insert.ext.i273, %b.sroa.0.0.insert.ext.i210
-  %12 = lshr i128 %b.sroa.0.0.insert.insert.neg.i275, 64
-  %.tr313 = trunc i128 %12 to i64
-  %.narrow314 = add i64 %r0.0.off64, %.tr313
-  %.narrow.i279 = sub i64 %.narrow314, %conv3.i199
-  %coerce130.sroa.2.0.insert.ext = zext i64 %.narrow.i279 to i128
+  %r0.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i271, %if.then113 ], [ %retval.sroa.0.0.extract.trunc.i232, %if.then95 ], [ %n0.coerce0, %if.end64 ]
+  %r0.0.off64 = phi i64 [ %.narrow.i273, %if.then113 ], [ %.narrow.i234, %if.then95 ], [ %retval.sroa.0.0.extract.trunc.i179, %if.end64 ]
+  %q0.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i260, %if.then113 ], [ %retval.sroa.0.0.extract.trunc.i221, %if.then95 ], [ %retval.sroa.0.0.extract.trunc.i191, %if.end64 ]
+  %q0.0.off64 = phi i64 [ %.tr.i261, %if.then113 ], [ %.tr.i222, %if.then95 ], [ %retval.sroa.2.0.extract.trunc.i193, %if.end64 ]
+  %b.sroa.0.0.insert.ext.i213 = and i128 %7, 18446744073709551615
+  %shr.i201 = lshr i128 %7, 64
+  %conv3.i202 = trunc nuw i128 %shr.i201 to i64
+  %a.sroa.0.0.insert.ext.i278 = zext i64 %r0.0.off0 to i128
+  %b.sroa.0.0.insert.insert.neg.i280 = sub nsw i128 %a.sroa.0.0.insert.ext.i278, %b.sroa.0.0.insert.ext.i213
+  %12 = lshr i128 %b.sroa.0.0.insert.insert.neg.i280, 64
+  %.tr318 = trunc nuw i128 %12 to i64
+  %.narrow319 = add i64 %r0.0.off64, %.tr318
+  %.narrow.i284 = sub i64 %.narrow319, %conv3.i202
+  %coerce130.sroa.2.0.insert.ext = zext i64 %.narrow.i284 to i128
   %coerce130.sroa.2.0.insert.shift = shl nuw i128 %coerce130.sroa.2.0.insert.ext, 64
-  %coerce130.sroa.0.0.insert.ext = and i128 %b.sroa.0.0.insert.insert.neg.i275, 18446744073709551615
+  %coerce130.sroa.0.0.insert.ext = and i128 %b.sroa.0.0.insert.insert.neg.i280, 18446744073709551615
   %coerce130.sroa.0.0.insert.insert = or disjoint i128 %coerce130.sroa.2.0.insert.shift, %coerce130.sroa.0.0.insert.ext
   store i128 %coerce130.sroa.0.0.insert.insert, ptr %r, align 16
   %13 = or i64 %q0.0.off64, %q1.0.off0
-  %.fca.0.insert.i304 = insertvalue { i64, i64 } poison, i64 %q0.0.off0, 0
-  %.fca.1.insert.i305 = insertvalue { i64, i64 } %.fca.0.insert.i304, i64 %13, 1
-  ret { i64, i64 } %.fca.1.insert.i305
+  %.fca.0.insert.i309 = insertvalue { i64, i64 } poison, i64 %q0.0.off0, 0
+  %.fca.1.insert.i310 = insertvalue { i64, i64 } %.fca.0.insert.i309, i64 %13, 1
+  ret { i64, i64 } %.fca.1.insert.i310
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
@@ -419,7 +419,7 @@ entry:
   %1 = load i128, ptr %plow, align 16
   store i128 %1, ptr %unsig_lo, align 16
   %coerce.sroa.2.0.extract.shift = lshr i128 %0, 64
-  %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
+  %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
   %cmp.i = icmp sgt i128 %0, -1
   br i1 %cmp.i, label %if.end17, label %if.then
 
@@ -439,7 +439,7 @@ if.then7:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %a.sroa.0.0.insert.ext.i = and i128 %1, 18446744073709551615
   %coerce5.sroa.2.0.extract.shift = lshr i128 %1, 64
-  %coerce5.sroa.2.0.extract.trunc = trunc i128 %coerce5.sroa.2.0.extract.shift to i64
+  %coerce5.sroa.2.0.extract.trunc = trunc nuw i128 %coerce5.sroa.2.0.extract.shift to i64
   %not.i = xor i128 %0, -1
   store i128 %not.i, ptr %unsig_hi, align 16
   %a.coerce1.neg.i32 = sub i64 0, %coerce5.sroa.2.0.extract.trunc
@@ -463,7 +463,7 @@ if.then20:                                        ; preds = %if.end17
   %a.sroa.0.0.insert.insert.neg.i47 = sub nuw i128 %a.sroa.2.0.insert.shift.neg.i45, %a.sroa.0.0.insert.ext.i46
   %retval.sroa.0.0.extract.trunc.i48 = trunc i128 %a.sroa.0.0.insert.insert.neg.i47 to i64
   %retval.sroa.2.0.extract.shift.i49 = lshr i128 %a.sroa.0.0.insert.insert.neg.i47, 64
-  %retval.sroa.2.0.extract.trunc.i50 = trunc i128 %retval.sroa.2.0.extract.shift.i49 to i64
+  %retval.sroa.2.0.extract.trunc.i50 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i49 to i64
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then20, %if.end17
@@ -473,7 +473,7 @@ if.end27:                                         ; preds = %if.then20, %if.end1
   %call29 = call { i64, i64 } @divu256(ptr noundef nonnull %unsig_lo, ptr noundef nonnull %unsig_hi, i64 noundef %divisor.addr.0.off0, i64 noundef %divisor.addr.0.off64)
   %2 = extractvalue { i64, i64 } %call29, 0
   %3 = extractvalue { i64, i64 } %call29, 1
-  %tobool31 = trunc i8 %neg_quotient.1 to i1
+  %tobool31 = trunc nuw i8 %neg_quotient.1 to i1
   br i1 %tobool31, label %if.then32, label %if.else49
 
 if.then32:                                        ; preds = %if.end27
@@ -484,7 +484,7 @@ if.then32:                                        ; preds = %if.end27
 if.then35:                                        ; preds = %if.then32
   %5 = load i128, ptr %unsig_hi, align 16
   %coerce36.sroa.2.0.extract.shift = lshr i128 %5, 64
-  %coerce36.sroa.2.0.extract.trunc = trunc i128 %coerce36.sroa.2.0.extract.shift to i64
+  %coerce36.sroa.2.0.extract.trunc = trunc nuw i128 %coerce36.sroa.2.0.extract.shift to i64
   %a.coerce1.neg.i58 = sub i64 0, %coerce36.sroa.2.0.extract.trunc
   %a.coerce1.neg.z.i59 = zext i64 %a.coerce1.neg.i58 to i128
   %a.sroa.2.0.insert.shift.neg.i60 = shl nuw i128 %a.coerce1.neg.z.i59, 64
@@ -496,7 +496,7 @@ if.then35:                                        ; preds = %if.then32
 if.else41:                                        ; preds = %if.then32
   %a.sroa.0.0.insert.ext.i55 = and i128 %4, 18446744073709551615
   %coerce33.sroa.2.0.extract.shift = lshr i128 %4, 64
-  %coerce33.sroa.2.0.extract.trunc = trunc i128 %coerce33.sroa.2.0.extract.shift to i64
+  %coerce33.sroa.2.0.extract.trunc = trunc nuw i128 %coerce33.sroa.2.0.extract.shift to i64
   %6 = load i128, ptr %unsig_hi, align 16
   %not.i72 = xor i128 %6, -1
   store i128 %not.i72, ptr %phigh, align 16
@@ -515,7 +515,7 @@ if.else49:                                        ; preds = %if.end27
 if.end50:                                         ; preds = %if.then35, %if.else41, %if.else49
   %.sink = phi i128 [ 0, %if.then35 ], [ %a.sroa.0.0.insert.insert.neg.i82, %if.else41 ], [ %8, %if.else49 ]
   store i128 %.sink, ptr %plow, align 16
-  %tobool51 = trunc i8 %neg_quotient.0 to i1
+  %tobool51 = trunc nuw i8 %neg_quotient.0 to i1
   br i1 %tobool51, label %if.then52, label %return
 
 if.then52:                                        ; preds = %if.end50
@@ -526,7 +526,7 @@ if.then52:                                        ; preds = %if.end50
   %a.sroa.0.0.insert.insert.neg.i92 = sub i128 %a.sroa.2.0.insert.shift.neg.i90, %a.sroa.0.0.insert.ext.i91
   %retval.sroa.0.0.extract.trunc.i93 = trunc i128 %a.sroa.0.0.insert.insert.neg.i92 to i64
   %retval.sroa.2.0.extract.shift.i94 = lshr i128 %a.sroa.0.0.insert.insert.neg.i92, 64
-  %retval.sroa.2.0.extract.trunc.i95 = trunc i128 %retval.sroa.2.0.extract.shift.i94 to i64
+  %retval.sroa.2.0.extract.trunc.i95 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i94 to i64
   %.fca.0.insert.i96 = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.extract.trunc.i93, 0
   %.fca.1.insert.i97 = insertvalue { i64, i64 } %.fca.0.insert.i96, i64 %retval.sroa.2.0.extract.trunc.i95, 1
   br label %return
@@ -550,4 +550,3 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}

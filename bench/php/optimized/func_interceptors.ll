@@ -2995,7 +2995,7 @@ define internal fastcc void @phar_fancy_stat(ptr nocapture noundef readonly %0, 
   br label %256
 
 91:                                               ; preds = %78
-  %trunc = trunc i32 %81 to i16
+  %trunc = trunc nuw i32 %81 to i16
   switch i16 %trunc, label %108 [
     i16 16384, label %92
     i16 -32768, label %100

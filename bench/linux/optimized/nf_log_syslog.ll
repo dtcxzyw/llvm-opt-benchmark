@@ -211,7 +211,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [15 x ptr] [ptr @__UNIQUE_ID___addressable_cleanup_module894, ptr @__UNIQUE_ID___addressable_init_module893, ptr @__UNIQUE_ID_alias898, ptr @__UNIQUE_ID_alias899, ptr @__UNIQUE_ID_alias900, ptr @__UNIQUE_ID_alias901, ptr @__UNIQUE_ID_alias902, ptr @__UNIQUE_ID_alias903, ptr @__UNIQUE_ID_alias904, ptr @__UNIQUE_ID_alias905, ptr @__UNIQUE_ID_alias906, ptr @__UNIQUE_ID_alias907, ptr @__UNIQUE_ID_author895, ptr @__UNIQUE_ID_description896, ptr @__UNIQUE_ID_license897], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @init_module() #0 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @init_module() #0 section ".init.text" align 16 {
   %1 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @nf_log_syslog_net_ops) #7
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %28, label %3
@@ -800,7 +800,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %171 = and i8 %170, 60
   %172 = zext nneg i8 %171 to i32
   %173 = add i32 %172, %4
-  %174 = call fastcc i32 @nf_log_dump_tcp_header(ptr noundef %1, ptr noundef %3, i32 noundef %168, i32 noundef %173, i32 noundef %18), !range !11
+  %174 = call fastcc i32 @nf_log_dump_tcp_header(ptr noundef %1, ptr noundef %3, i32 noundef %168, i32 noundef %173, i32 noundef %18)
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %362, label %413
 
@@ -1218,7 +1218,7 @@ declare i16 @llvm.bswap.i16(i16) #5
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nf_log_dump_tcp_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.tcphdr, align 4
   %7 = alloca [40 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #7
@@ -1465,7 +1465,7 @@ define internal fastcc noundef i32 @nf_log_dump_tcp_header(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nf_log_dump_udp_header(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.udphdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   %7 = icmp eq i8 %2, 17
@@ -2174,7 +2174,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, pt
   br label %65, !llvm.loop !13
 
 209:                                              ; preds = %65
-  %210 = call fastcc i32 @nf_log_dump_tcp_header(ptr noundef %1, ptr noundef %3, i32 noundef %68, i32 noundef %66, i32 noundef %20), !range !11
+  %210 = call fastcc i32 @nf_log_dump_tcp_header(ptr noundef %1, ptr noundef %3, i32 noundef %68, i32 noundef %66, i32 noundef %20)
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %276, label %326
 

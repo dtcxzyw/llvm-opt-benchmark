@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [4 x i8] c"N/A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @version_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @version_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @opt_init(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @version_options) #4
   br label %while.cond

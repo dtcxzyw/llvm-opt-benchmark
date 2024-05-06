@@ -282,7 +282,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @cm_zlib_gzbuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @cm_zlib_gzbuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %13, label %4
 
@@ -314,7 +314,7 @@ define dso_local noundef i32 @cm_zlib_gzbuffer(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_gzrewind(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cm_zlib_gzrewind(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %35, label %3
 
@@ -525,7 +525,7 @@ cm_zlib_gz_error.exit:                            ; preds = %45, %53
   br i1 %64, label %.thread69, label %65
 
 65:                                               ; preds = %60
-  %66 = tail call i32 @cm_zlib_gzrewind(ptr noundef nonnull %0), !range !7
+  %66 = tail call i32 @cm_zlib_gzrewind(ptr noundef nonnull %0)
   %67 = icmp eq i32 %66, -1
   br i1 %67, label %.thread69, label %68
 
@@ -539,7 +539,7 @@ cm_zlib_gz_error.exit:                            ; preds = %45, %53
   %70 = load i32, ptr %0, align 8
   %71 = zext i32 %70 to i64
   %72 = icmp ult i64 %.172, %71
-  %73 = trunc i64 %.172 to i32
+  %73 = trunc nuw i64 %.172 to i32
   %74 = select i1 %72, i32 %73, i32 %70
   %75 = sub i32 %70, %74
   store i32 %75, ptr %0, align 8
@@ -938,4 +938,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}

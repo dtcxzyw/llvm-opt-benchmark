@@ -56,7 +56,7 @@ notes_cache_match_validity.exit:                  ; preds = %if.end.i
   call void @strbuf_trim(ptr noundef nonnull %msg.i) #6
   %buf.i = getelementptr inbounds i8, ptr %msg.i, i64 16
   %1 = load ptr, ptr %buf.i, align 8
-  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %validity) #7
+  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %validity) #7
   %call4.i.fr = freeze i32 %call4.i
   %tobool5.not.i.not = icmp eq i32 %call4.i.fr, 0
   call void @strbuf_release(ptr noundef nonnull %msg.i) #6
@@ -93,7 +93,7 @@ declare i32 @combine_notes_overwrite(ptr noundef, ptr noundef) #3
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @notes_cache_write(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @notes_cache_write(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %tree_oid = alloca %struct.object_id, align 4
   %commit_oid = alloca %struct.object_id, align 4

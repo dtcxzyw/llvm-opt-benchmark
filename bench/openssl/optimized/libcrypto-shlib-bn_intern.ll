@@ -119,7 +119,7 @@ lor.rhs.us:                                       ; preds = %while.cond.us
 if.end72.us:                                      ; preds = %lor.rhs.us, %land.lhs.true.us, %if.end61.us, %while.body.us
   %window_val.1.us = phi i32 [ %sub62.us, %land.lhs.true.us ], [ 0, %if.end61.us ], [ %window_val.0.us, %while.body.us ], [ 0, %lor.rhs.us ]
   %digit.1.us = phi i32 [ %digit.0.us, %land.lhs.true.us ], [ %digit.0.us, %if.end61.us ], [ 0, %while.body.us ], [ 0, %lor.rhs.us ]
-  %conv73.us = trunc i32 %digit.1.us to i8
+  %conv73.us = trunc nsw i32 %digit.1.us to i8
   %inc.us = add i64 %j.0.us, 1
   %arrayidx74.us = getelementptr inbounds i8, ptr %call19, i64 %j.0.us
   store i8 %conv73.us, ptr %arrayidx74.us, align 1
@@ -291,7 +291,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @bn_copy_words(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i32 noundef %size) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @bn_copy_words(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i32 noundef %size) local_unnamed_addr #4 {
 entry:
   %top = getelementptr inbounds i8, ptr %in, i64 8
   %0 = load i32, ptr %top, align 8
@@ -352,7 +352,7 @@ entry:
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_set_words(ptr noundef %a, ptr nocapture noundef readonly %words, i32 noundef %num_words) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_set_words(ptr noundef %a, ptr nocapture noundef readonly %words, i32 noundef %num_words) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @bn_wexpand(ptr noundef %a, i32 noundef %num_words) #7
   %cmp = icmp eq ptr %call, null

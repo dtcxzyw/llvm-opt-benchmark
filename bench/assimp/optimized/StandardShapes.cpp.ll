@@ -5854,7 +5854,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE9push_backERKS1_.exit2567: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6Assimp14StandardShapes16MakeDodecahedronERSt6vectorI10aiVector3tIfESaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(24) %positions, i1 noundef zeroext %polygons) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 3, 6) i32 @_ZN6Assimp14StandardShapes16MakeDodecahedronERSt6vectorI10aiVector3tIfESaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(24) %positions, i1 noundef zeroext %polygons) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %positions, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -21926,7 +21926,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE9push_backERKS1_.exit462: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6Assimp14StandardShapes14MakeHexahedronERSt6vectorI10aiVector3tIfESaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(24) %positions, i1 noundef zeroext %polygons) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 3, 5) i32 @_ZN6Assimp14StandardShapes14MakeHexahedronERSt6vectorI10aiVector3tIfESaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(24) %positions, i1 noundef zeroext %polygons) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %positions, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8

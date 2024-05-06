@@ -1006,7 +1006,7 @@ define hidden void @proto_reg_handoff_rtmpt() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rtmpt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rtmpt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %6 = icmp ugt i32 %5, 11
   br i1 %6, label %7, label %21
@@ -4171,7 +4171,7 @@ amf_get_u29.exit443:                              ; preds = %.thread470, %269, %
   %299 = load i32, ptr @hf_amf_traitcount, align 4
   %300 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %299, ptr noundef %0, i32 noundef %29, i32 noundef %.sink.i441, i32 noundef %298) #8
   %301 = add i32 %.sink.i441, %29
-  %302 = call fastcc i32 @amf_get_u29(ptr noundef %0, i32 noundef %301, ptr noundef nonnull %6), !range !17
+  %302 = call fastcc i32 @amf_get_u29(ptr noundef %0, i32 noundef %301, ptr noundef nonnull %6)
   %303 = and i32 %302, 1
   %.not406 = icmp eq i32 %303, 0
   br i1 %.not406, label %320, label %304
@@ -4283,7 +4283,7 @@ amf_get_u29.exit449:                              ; preds = %.lr.ph, %332, %339,
   %.5 = phi i32 [ %365, %353 ], [ %370, %366 ]
   %372 = add nuw nsw i32 %.1381475, 1
   %exitcond.not = icmp eq i32 %372, %298
-  br i1 %exitcond.not, label %.preheader473, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.preheader473, label %.lr.ph, !llvm.loop !17
 
 .lr.ph480:                                        ; preds = %.preheader473, %.lr.ph480
   %.6479 = phi i32 [ %373, %.lr.ph480 ], [ %.5, %.preheader473 ]
@@ -4291,7 +4291,7 @@ amf_get_u29.exit449:                              ; preds = %.lr.ph, %332, %339,
   %373 = call fastcc i32 @dissect_amf3_value_type(ptr noundef %0, i32 noundef %.6479, ptr noundef %.0378, ptr noundef null)
   %374 = add nuw nsw i32 %.2382478, 1
   %exitcond496.not = icmp eq i32 %374, %298
-  br i1 %exitcond496.not, label %._crit_edge, label %.lr.ph480, !llvm.loop !19
+  br i1 %exitcond496.not, label %._crit_edge, label %.lr.ph480, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph480, %328, %.preheader473
   %.6.lcssa = phi i32 [ %.5, %.preheader473 ], [ %.3, %328 ], [ %373, %.lr.ph480 ]
@@ -4729,7 +4729,7 @@ define internal fastcc noundef i32 @dissect_amf0_value_type(ptr noundef %0, i32 
   %94 = tail call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %.0183200, ptr noundef %37, ptr noundef %3, ptr noundef null)
   %95 = add nuw i32 %.0182201, 1
   %exitcond.not = icmp eq i32 %95, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread197
   %.0183.lcssa = phi i32 [ %44, %.thread197 ], [ %94, %.lr.ph ]
@@ -4840,7 +4840,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @amf_get_u29(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 536870912) i32 @amf_get_u29(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #8
   %5 = and i8 %4, 127
   %6 = zext nneg i8 %5 to i32
@@ -5010,7 +5010,6 @@ attributes #9 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 536870912}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

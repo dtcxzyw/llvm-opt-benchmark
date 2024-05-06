@@ -24920,7 +24920,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
   %124 = getelementptr inbounds i8, ptr %.0..0..0..0.140, i64 10328
   store i32 %123, ptr %124, align 8
   %125 = load i32, ptr @hf_x11_success, align 4
-  %126 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %125, i32 noundef %.0..0..0..0.129), !range !4
+  %126 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %125, i32 noundef %.0..0..0..0.129)
   %.not.i = icmp eq i32 %126, 0
   br i1 %.not.i, label %132, label %127
 
@@ -24934,17 +24934,17 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
 
 132:                                              ; preds = %118
   %133 = load i32, ptr @hf_x11_length_of_reason, align 4
-  %134 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %133, i32 noundef %.0..0..0..0.129), !range !4
+  %134 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %133, i32 noundef %.0..0..0..0.129)
   br label %135
 
 135:                                              ; preds = %132, %127
   %.0.i = phi i32 [ 0, %127 ], [ %134, %132 ]
   %136 = load i32, ptr @hf_x11_protocol_major_version, align 4
-  %137 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %136, i32 noundef %.0..0..0..0.129), !range !5
+  %137 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %136, i32 noundef %.0..0..0..0.129)
   %138 = load i32, ptr @hf_x11_protocol_minor_version, align 4
-  %139 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %138, i32 noundef %.0..0..0..0.129), !range !5
+  %139 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %138, i32 noundef %.0..0..0..0.129)
   %140 = load i32, ptr @hf_x11_replylength, align 4
-  %141 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %140, i32 noundef %.0..0..0..0.129), !range !5
+  %141 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %140, i32 noundef %.0..0..0..0.129)
   br i1 %.not.i, label %333, label %142
 
 142:                                              ; preds = %135
@@ -24957,25 +24957,25 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
   %149 = load i32, ptr @hf_x11_motion_buffer_size, align 4
   %150 = call fastcc i32 @field32(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %149, i32 noundef %.0..0..0..0.129)
   %151 = load i32, ptr @hf_x11_length_of_vendor, align 4
-  %152 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %151, i32 noundef %.0..0..0..0.129), !range !5
+  %152 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %151, i32 noundef %.0..0..0..0.129)
   %153 = load i32, ptr @hf_x11_maximum_request_length, align 4
-  %154 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %153, i32 noundef %.0..0..0..0.129), !range !5
+  %154 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %153, i32 noundef %.0..0..0..0.129)
   %155 = load i32, ptr @hf_x11_number_of_screens_in_roots, align 4
-  %156 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %155, i32 noundef %.0..0..0..0.129), !range !4
+  %156 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %155, i32 noundef %.0..0..0..0.129)
   %157 = load i32, ptr @hf_x11_number_of_formats_in_pixmap_formats, align 4
-  %158 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %157, i32 noundef %.0..0..0..0.129), !range !4
+  %158 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %157, i32 noundef %.0..0..0..0.129)
   %159 = load i32, ptr @hf_x11_image_byte_order, align 4
-  %160 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %159, i32 noundef %.0..0..0..0.129), !range !4
+  %160 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %159, i32 noundef %.0..0..0..0.129)
   %161 = load i32, ptr @hf_x11_bitmap_format_bit_order, align 4
-  %162 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %161, i32 noundef %.0..0..0..0.129), !range !4
+  %162 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %161, i32 noundef %.0..0..0..0.129)
   %163 = load i32, ptr @hf_x11_bitmap_format_scanline_unit, align 4
-  %164 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %163, i32 noundef %.0..0..0..0.129), !range !4
+  %164 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %163, i32 noundef %.0..0..0..0.129)
   %165 = load i32, ptr @hf_x11_bitmap_format_scanline_pad, align 4
-  %166 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %165, i32 noundef %.0..0..0..0.129), !range !4
+  %166 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %165, i32 noundef %.0..0..0..0.129)
   %167 = load i32, ptr @hf_x11_min_keycode, align 4
-  %168 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %167, i32 noundef %.0..0..0..0.129), !range !4
+  %168 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %167, i32 noundef %.0..0..0..0.129)
   %169 = load i32, ptr @hf_x11_max_keycode, align 4
-  %170 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %169, i32 noundef %.0..0..0..0.129), !range !4
+  %170 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %122, i32 noundef %169, i32 noundef %.0..0..0..0.129)
   %171 = load i32, ptr @hf_x11_unused, align 4
   %172 = load i32, ptr %5, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %171, ptr noundef %.0..0..0..0.147, i32 noundef %172, i32 noundef 4, i32 noundef 0) #10
@@ -25025,7 +25025,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
   %206 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %205, ptr noundef %.0..0..0..0.147, i32 noundef %204, i32 noundef 5, i32 noundef %.0..0..0..0.129) #10
   %207 = add i32 %190, 8
   %.not.i.i = icmp eq i32 %191, 0
-  br i1 %.not.i.i, label %listOfPixmapFormat.exit.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %listOfPixmapFormat.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 listOfPixmapFormat.exit.i:                        ; preds = %.lr.ph.i.i, %184
   %.promoted7.i = phi i32 [ %.pre.i.i, %184 ], [ %207, %.lr.ph.i.i ]
@@ -25178,17 +25178,17 @@ listOfPixmapFormat.exit.i:                        ; preds = %.lr.ph.i.i, %184
   %331 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %330, ptr noundef %.0..0..0..0.147, i32 noundef %329, i32 noundef 4, i32 noundef %.0..0..0..0.129) #10
   %332 = add i32 %303, 24
   %.not.i.i.i.i = icmp eq i32 %304, 0
-  br i1 %.not.i.i.i.i, label %listOfVisualTypes.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i, label %listOfVisualTypes.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
 listOfVisualTypes.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i
   %.lcssa35.i = phi i32 [ %298, %.lr.ph.i.i.i ], [ %332, %.lr.ph.i.i.i.i ]
   %.not.i.i.i = icmp eq i32 %278, 0
-  br i1 %.not.i.i.i, label %listOfDepth.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %listOfDepth.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 listOfDepth.exit.i.i:                             ; preds = %listOfVisualTypes.exit.i.i.i, %.lr.ph.i127.i
   %.lcssa35.lcssa8.i = phi i32 [ %272, %.lr.ph.i127.i ], [ %.lcssa35.i, %listOfVisualTypes.exit.i.i.i ]
   %.not.i128.i = icmp eq i32 %212, 0
-  br i1 %.not.i128.i, label %listOfScreen.exit.i, label %.lr.ph.i127.i, !llvm.loop !10
+  br i1 %.not.i128.i, label %listOfScreen.exit.i, label %.lr.ph.i127.i, !llvm.loop !8
 
 333:                                              ; preds = %135
   %334 = load i32, ptr @hf_x11_reason, align 4
@@ -25395,7 +25395,7 @@ dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i
   %411 = load i32, ptr @ett_x11, align 4
   %412 = call ptr @proto_item_add_subtree(ptr noundef %410, i32 noundef %411) #10
   %413 = load i32, ptr @hf_x11_error, align 4
-  %414 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.149, ptr noundef nonnull %4, ptr noundef %412, i32 noundef %413, i32 noundef %.0..0..0..0.130), !range !4
+  %414 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.149, ptr noundef nonnull %4, ptr noundef %412, i32 noundef %413, i32 noundef %.0..0..0..0.130)
   %415 = load i32, ptr %4, align 4
   %416 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0..0..0..0.149, i32 noundef %415) #10
   %417 = load ptr, ptr %44, align 8
@@ -25414,7 +25414,7 @@ dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i
 
 426:                                              ; preds = %408
   %427 = load i32, ptr @hf_x11_error_sequencenumber, align 4
-  %428 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.149, ptr noundef nonnull %4, ptr noundef %412, i32 noundef %427, i32 noundef %.0..0..0..0.130), !range !5
+  %428 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.149, ptr noundef nonnull %4, ptr noundef %412, i32 noundef %427, i32 noundef %.0..0..0..0.130)
   switch i8 %416, label %435 [
     i8 2, label %429
     i8 3, label %432
@@ -25447,9 +25447,9 @@ dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i
 
 440:                                              ; preds = %435, %432, %429
   %441 = load i32, ptr @hf_x11_minor_opcode, align 4
-  %442 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.149, ptr noundef nonnull %4, ptr noundef %412, i32 noundef %441, i32 noundef %.0..0..0..0.130), !range !5
+  %442 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.149, ptr noundef nonnull %4, ptr noundef %412, i32 noundef %441, i32 noundef %.0..0..0..0.130)
   %443 = load i32, ptr @hf_x11_major_opcode, align 4
-  %444 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.149, ptr noundef nonnull %4, ptr noundef %412, i32 noundef %443, i32 noundef %.0..0..0..0.130), !range !4
+  %444 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.149, ptr noundef nonnull %4, ptr noundef %412, i32 noundef %443, i32 noundef %.0..0..0..0.130)
   %445 = load i32, ptr %4, align 4
   %446 = call i32 @tvb_reported_length_remaining(ptr noundef %.0..0..0..0.149, i32 noundef %445) #10
   %447 = icmp sgt i32 %446, 0
@@ -26085,7 +26085,7 @@ dissect_x11_error.exit:                           ; preds = %408, %440, %448
   %.0..0..0..0.183 = load volatile i32, ptr %6, align 4
   %688 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.183) #10
   %689 = icmp sgt i32 %688, 0
-  br i1 %689, label %61, label %.loopexit, !llvm.loop !11
+  br i1 %689, label %61, label %.loopexit, !llvm.loop !9
 
 .loopexit.sink.split:                             ; preds = %68, %94, %384, %496, %566, %629
   %.sink = phi i32 [ %631, %629 ], [ %568, %566 ], [ %498, %496 ], [ %386, %384 ], [ %96, %94 ], [ 268435455, %68 ]
@@ -26439,20 +26439,20 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
   %155 = load i32, ptr @ett_x11, align 4
   %156 = call ptr @proto_item_add_subtree(ptr noundef %154, i32 noundef %155) #10
   %157 = load i32, ptr @hf_x11_byte_order, align 4
-  %158 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %157, i32 noundef %.0..0..0..0.67), !range !4
+  %158 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %157, i32 noundef %.0..0..0..0.67)
   %159 = load i32, ptr @hf_x11_unused, align 4
   %160 = load i32, ptr %4, align 4
   %161 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %159, ptr noundef %.0..0..0..0.27, i32 noundef %160, i32 noundef 1, i32 noundef 0) #10
   %162 = add i32 %160, 1
   store i32 %162, ptr %4, align 4
   %163 = load i32, ptr @hf_x11_protocol_major_version, align 4
-  %164 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %163, i32 noundef %.0..0..0..0.67), !range !5
+  %164 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %163, i32 noundef %.0..0..0..0.67)
   %165 = load i32, ptr @hf_x11_protocol_minor_version, align 4
-  %166 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %165, i32 noundef %.0..0..0..0.67), !range !5
+  %166 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %165, i32 noundef %.0..0..0..0.67)
   %167 = load i32, ptr @hf_x11_authorization_protocol_name_length, align 4
-  %168 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %167, i32 noundef %.0..0..0..0.67), !range !5
+  %168 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %167, i32 noundef %.0..0..0..0.67)
   %169 = load i32, ptr @hf_x11_authorization_protocol_data_length, align 4
-  %170 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %169, i32 noundef %.0..0..0..0.67), !range !5
+  %170 = call fastcc i32 @field16(ptr noundef %.0..0..0..0.27, ptr noundef nonnull %4, ptr noundef %156, i32 noundef %169, i32 noundef %.0..0..0..0.67)
   %171 = load i32, ptr @hf_x11_unused, align 4
   %172 = load i32, ptr %4, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %171, ptr noundef %.0..0..0..0.27, i32 noundef %172, i32 noundef 2, i32 noundef 0) #10
@@ -26591,7 +26591,7 @@ dissect_x11_initial_conn.exit:                    ; preds = %191, %195
   %.0..0..0..0.74 = load volatile i32, ptr %5, align 4
   %237 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.74) #10
   %238 = icmp sgt i32 %237, 0
-  br i1 %238, label %25, label %.loopexit, !llvm.loop !12
+  br i1 %238, label %25, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %233, %3, %123, %111, %91, %54, %32
   ret void
@@ -26637,7 +26637,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %.not, label %.preheader56, label %7, !llvm.loop !13
+  br i1 %.not, label %.preheader56, label %7, !llvm.loop !11
 
 .preheader55:                                     ; preds = %20, %.preheader56
   %19 = getelementptr inbounds i8, ptr %3, i64 4128
@@ -26652,7 +26652,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
   %23 = and i64 %indvars.iv.next68, 4294967295
   %exitcond.not = icmp eq i64 %23, 257
-  br i1 %exitcond.not, label %.preheader55, label %20, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader55, label %20, !llvm.loop !12
 
 24:                                               ; preds = %.preheader55, %24
   %indvars.iv70 = phi i64 [ 0, %.preheader55 ], [ %indvars.iv.next71, %24 ]
@@ -26668,7 +26668,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %exitcond73 = icmp eq i64 %indvars.iv.next71, 18
-  br i1 %exitcond73, label %.lr.ph61, label %24, !llvm.loop !15
+  br i1 %exitcond73, label %.lr.ph61, label %24, !llvm.loop !13
 
 .preheader53:                                     ; preds = %.lr.ph61
   %33 = getelementptr inbounds i8, ptr %3, i64 8240
@@ -26682,7 +26682,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
   store ptr null, ptr %35, align 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 257
-  br i1 %exitcond77.not, label %.preheader53, label %.lr.ph61, !llvm.loop !16
+  br i1 %exitcond77.not, label %.preheader53, label %.lr.ph61, !llvm.loop !14
 
 36:                                               ; preds = %.preheader53, %36
   %indvars.iv78 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next79, %36 ]
@@ -26698,7 +26698,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %exitcond81 = icmp eq i64 %indvars.iv.next79, 34
-  br i1 %exitcond81, label %.lr.ph64, label %36, !llvm.loop !17
+  br i1 %exitcond81, label %.lr.ph64, label %36, !llvm.loop !15
 
 .lr.ph64:                                         ; preds = %36, %.lr.ph64
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph64 ], [ 34, %36 ]
@@ -26708,7 +26708,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
   store ptr null, ptr %46, align 8
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 129
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph64, !llvm.loop !18
+  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph64, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph64
   %47 = tail call ptr @wmem_file_scope() #10
@@ -26755,8 +26755,8 @@ define internal fastcc i32 @guess_byte_ordering(ptr noundef %0, ptr nocapture no
   br i1 %12, label %30, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call fastcc i32 @x_endian_match(ptr noundef %0, i32 noundef -2147483648), !range !19
-  %15 = tail call fastcc i32 @x_endian_match(ptr noundef %0, i32 noundef 0), !range !19
+  %14 = tail call fastcc i32 @x_endian_match(ptr noundef %0, i32 noundef -2147483648)
+  %15 = tail call fastcc i32 @x_endian_match(ptr noundef %0, i32 noundef 0)
   %16 = icmp eq i32 %14, %15
   br i1 %16, label %17, label %22
 
@@ -26934,7 +26934,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 65:                                               ; preds = %73
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.loopexit76.i, label %.preheader75.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.loopexit76.i, label %.preheader75.i, !llvm.loop !17
 
 .preheader75.i:                                   ; preds = %61, %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %61 ]
@@ -26965,7 +26965,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %78 = add nuw nsw i32 %.06788.i, 1
   %79 = getelementptr i8, ptr %.06689.i, i64 8
   %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %.critedge.i, label %61, !llvm.loop !21
+  br i1 %.not.i, label %.critedge.i, label %61, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %.loopexit76.i, %61, %50
   %80 = load ptr, ptr @event_table, align 8
@@ -26992,7 +26992,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 90:                                               ; preds = %99
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %exitcond111.not.i = icmp eq i64 %indvars.iv.next109.i, 128
-  br i1 %exitcond111.not.i, label %.loopexit74.i, label %.preheader73.i, !llvm.loop !22
+  br i1 %exitcond111.not.i, label %.loopexit74.i, label %.preheader73.i, !llvm.loop !19
 
 .preheader73.i:                                   ; preds = %86, %90
   %indvars.iv108.i = phi i64 [ %indvars.iv.next109.i, %90 ], [ 0, %86 ]
@@ -27004,7 +27004,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 
 95:                                               ; preds = %.preheader73.i
   %96 = getelementptr inbounds i8, ptr %91, i64 8
-  %97 = trunc i64 %indvars.iv112.i to i32
+  %97 = trunc nuw i64 %indvars.iv112.i to i32
   store i32 %97, ptr %91, align 8
   %98 = load ptr, ptr %.06595.i, align 8
   store ptr %98, ptr %96, align 8
@@ -27030,7 +27030,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %110 = getelementptr i8, ptr %.06595.i, i64 16
   %.not70.i = icmp eq ptr %110, null
-  br i1 %.not70.i, label %.critedge2.i, label %86, !llvm.loop !23
+  br i1 %.not70.i, label %.critedge2.i, label %86, !llvm.loop !20
 
 .critedge2.i:                                     ; preds = %.loopexit74.i, %86, %.critedge.i
   %111 = load ptr, ptr @reply_table, align 8
@@ -27067,7 +27067,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %131 = getelementptr inbounds i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not72.i = icmp eq ptr %132, null
-  br i1 %.not72.i, label %register_extension.exit, label %117, !llvm.loop !24
+  br i1 %.not72.i, label %register_extension.exit, label %117, !llvm.loop !21
 
 register_extension.exit:                          ; preds = %117, %.critedge2.i, %.preheader.i
   %133 = load ptr, ptr %47, align 8
@@ -27120,7 +27120,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 137:                                              ; preds = %136
   %138 = load i32, ptr @hf_x11_reply, align 4
-  %139 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %138, i32 noundef %5), !range !4
+  %139 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %138, i32 noundef %5)
   %140 = load i32, ptr @hf_x11_undecoded, align 4
   %141 = load i32, ptr %7, align 4
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %140, ptr noundef %0, i32 noundef %141, i32 noundef 1, i32 noundef 0) #10
@@ -27146,9 +27146,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 159:                                              ; preds = %136
   %160 = load i32, ptr @hf_x11_reply, align 4
-  %161 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %160, i32 noundef %5), !range !4
+  %161 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %160, i32 noundef %5)
   %162 = load i32, ptr @hf_x11_depth, align 4
-  %163 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %162, i32 noundef %5), !range !4
+  %163 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %162, i32 noundef %5)
   %164 = load i32, ptr %7, align 4
   %165 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %164, i32 noundef %5) #10
   %166 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
@@ -27163,15 +27163,15 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %174 = load i32, ptr @hf_x11_rootwindow, align 4
   %175 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %174, i32 noundef %5)
   %176 = load i32, ptr @hf_x11_x, align 4
-  %177 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %176, i32 noundef %5), !range !5
+  %177 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %176, i32 noundef %5)
   %178 = load i32, ptr @hf_x11_y, align 4
-  %179 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %178, i32 noundef %5), !range !5
+  %179 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %178, i32 noundef %5)
   %180 = load i32, ptr @hf_x11_width, align 4
-  %181 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %180, i32 noundef %5), !range !5
+  %181 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %180, i32 noundef %5)
   %182 = load i32, ptr @hf_x11_height, align 4
-  %183 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %182, i32 noundef %5), !range !5
+  %183 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %182, i32 noundef %5)
   %184 = load i32, ptr @hf_x11_border_width, align 4
-  %185 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %184, i32 noundef %5), !range !5
+  %185 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %184, i32 noundef %5)
   %186 = load i32, ptr @hf_x11_unused, align 4
   %187 = load i32, ptr %7, align 4
   %188 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %186, ptr noundef %0, i32 noundef %187, i32 noundef 10, i32 noundef 0) #10
@@ -27181,7 +27181,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 190:                                              ; preds = %136
   %191 = load i32, ptr @hf_x11_reply, align 4
-  %192 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %191, i32 noundef %5), !range !4
+  %192 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %191, i32 noundef %5)
   %193 = load i32, ptr @hf_x11_undecoded, align 4
   %194 = load i32, ptr %7, align 4
   %195 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %193, ptr noundef %0, i32 noundef %194, i32 noundef 1, i32 noundef 0) #10
@@ -27207,7 +27207,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 212:                                              ; preds = %136
   %213 = load i32, ptr @hf_x11_reply, align 4
-  %214 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %213, i32 noundef %5), !range !4
+  %214 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %213, i32 noundef %5)
   %215 = load i32, ptr @hf_x11_unused, align 4
   %216 = load i32, ptr %7, align 4
   %217 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %215, ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef 0) #10
@@ -27233,7 +27233,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 233:                                              ; preds = %136
   %234 = load i32, ptr @hf_x11_reply, align 4
-  %235 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %234, i32 noundef %5), !range !4
+  %235 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %234, i32 noundef %5)
   %236 = load i32, ptr @hf_x11_undecoded, align 4
   %237 = load i32, ptr %7, align 4
   %238 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %236, ptr noundef %0, i32 noundef %237, i32 noundef 1, i32 noundef 0) #10
@@ -27259,9 +27259,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 255:                                              ; preds = %136
   %256 = load i32, ptr @hf_x11_reply, align 4
-  %257 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %256, i32 noundef %5), !range !4
+  %257 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %256, i32 noundef %5)
   %258 = load i32, ptr @hf_x11_format, align 4
-  %259 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %258, i32 noundef %5), !range !4
+  %259 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %258, i32 noundef %5)
   %260 = load i32, ptr %7, align 4
   %261 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %260, i32 noundef %5) #10
   %262 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
@@ -27288,7 +27288,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 279:                                              ; preds = %136
   %280 = load i32, ptr @hf_x11_reply, align 4
-  %281 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %280, i32 noundef %5), !range !4
+  %281 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %280, i32 noundef %5)
   %282 = load i32, ptr @hf_x11_unused, align 4
   %283 = load i32, ptr %7, align 4
   %284 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %282, ptr noundef %0, i32 noundef %283, i32 noundef 1, i32 noundef 0) #10
@@ -27304,7 +27304,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %293 = load i32, ptr @hf_x11_replylength, align 4
   %294 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %293, i32 noundef %5)
   %295 = load i32, ptr @hf_x11_property_number, align 4
-  %296 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %295, i32 noundef %5), !range !5
+  %296 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %295, i32 noundef %5)
   %297 = load i32, ptr @hf_x11_unused, align 4
   %298 = load i32, ptr %7, align 4
   %299 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %297, ptr noundef %0, i32 noundef %298, i32 noundef 22, i32 noundef 0) #10
@@ -27316,7 +27316,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 302:                                              ; preds = %136
   %303 = load i32, ptr @hf_x11_reply, align 4
-  %304 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %303, i32 noundef %5), !range !4
+  %304 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %303, i32 noundef %5)
   %305 = load i32, ptr @hf_x11_unused, align 4
   %306 = load i32, ptr %7, align 4
   %307 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %305, ptr noundef %0, i32 noundef %306, i32 noundef 1, i32 noundef 0) #10
@@ -27342,9 +27342,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 324:                                              ; preds = %136, %136
   %325 = load i32, ptr @hf_x11_reply, align 4
-  %326 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %325, i32 noundef %5), !range !4
+  %326 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %325, i32 noundef %5)
   %327 = load i32, ptr @hf_x11_grab_status, align 4
-  %328 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %327, i32 noundef %5), !range !4
+  %328 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %327, i32 noundef %5)
   %329 = load i32, ptr %7, align 4
   %330 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %329, i32 noundef %5) #10
   %331 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
@@ -27365,9 +27365,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 343:                                              ; preds = %136
   %344 = load i32, ptr @hf_x11_reply, align 4
-  %345 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %344, i32 noundef %5), !range !4
+  %345 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %344, i32 noundef %5)
   %346 = load i32, ptr @hf_x11_same_screen, align 4
-  %347 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %346), !range !4
+  %347 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %346)
   %348 = load i32, ptr %7, align 4
   %349 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %348, i32 noundef %5) #10
   %350 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
@@ -27384,13 +27384,13 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %360 = load i32, ptr @hf_x11_childwindow, align 4
   %361 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %360, i32 noundef %5)
   %362 = load i32, ptr @hf_x11_root_x, align 4
-  %363 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %362, i32 noundef %5), !range !5
+  %363 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %362, i32 noundef %5)
   %364 = load i32, ptr @hf_x11_root_y, align 4
-  %365 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %364, i32 noundef %5), !range !5
+  %365 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %364, i32 noundef %5)
   %366 = load i32, ptr @hf_x11_win_x, align 4
-  %367 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %366, i32 noundef %5), !range !5
+  %367 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %366, i32 noundef %5)
   %368 = load i32, ptr @hf_x11_win_y, align 4
-  %369 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %368, i32 noundef %5), !range !5
+  %369 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %368, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %5, i32 noundef 1)
   %370 = load i32, ptr @hf_x11_unused, align 4
   %371 = load i32, ptr %7, align 4
@@ -27401,7 +27401,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 374:                                              ; preds = %136
   %375 = load i32, ptr @hf_x11_reply, align 4
-  %376 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %375, i32 noundef %5), !range !4
+  %376 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %375, i32 noundef %5)
   %377 = load i32, ptr @hf_x11_undecoded, align 4
   %378 = load i32, ptr %7, align 4
   %379 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %377, ptr noundef %0, i32 noundef %378, i32 noundef 1, i32 noundef 0) #10
@@ -27427,9 +27427,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 396:                                              ; preds = %136
   %397 = load i32, ptr @hf_x11_reply, align 4
-  %398 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %397, i32 noundef %5), !range !4
+  %398 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %397, i32 noundef %5)
   %399 = load i32, ptr @hf_x11_same_screen, align 4
-  %400 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %399), !range !4
+  %400 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %399)
   %401 = load i32, ptr %7, align 4
   %402 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %401, i32 noundef %5) #10
   %403 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
@@ -27444,9 +27444,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %411 = load i32, ptr @hf_x11_childwindow, align 4
   %412 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %411, i32 noundef %5)
   %413 = load i32, ptr @hf_x11_dst_x, align 4
-  %414 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %413, i32 noundef %5), !range !5
+  %414 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %413, i32 noundef %5)
   %415 = load i32, ptr @hf_x11_dst_y, align 4
-  %416 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %415, i32 noundef %5), !range !5
+  %416 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %415, i32 noundef %5)
   %417 = load i32, ptr @hf_x11_unused, align 4
   %418 = load i32, ptr %7, align 4
   %419 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %417, ptr noundef %0, i32 noundef %418, i32 noundef 16, i32 noundef 0) #10
@@ -27456,9 +27456,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 421:                                              ; preds = %136
   %422 = load i32, ptr @hf_x11_reply, align 4
-  %423 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %422, i32 noundef %5), !range !4
+  %423 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %422, i32 noundef %5)
   %424 = load i32, ptr @hf_x11_revert_to, align 4
-  %425 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %424, i32 noundef %5), !range !4
+  %425 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %424, i32 noundef %5)
   %426 = load i32, ptr %7, align 4
   %427 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %426, i32 noundef %5) #10
   %428 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
@@ -27481,7 +27481,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 442:                                              ; preds = %136
   %443 = load i32, ptr @hf_x11_reply, align 4
-  %444 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %443, i32 noundef %5), !range !4
+  %444 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %443, i32 noundef %5)
   %445 = load i32, ptr @hf_x11_unused, align 4
   %446 = load i32, ptr %7, align 4
   %447 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %445, ptr noundef %0, i32 noundef %446, i32 noundef 1, i32 noundef 0) #10
@@ -27505,7 +27505,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 462:                                              ; preds = %136, %136, %136, %136, %136
   %463 = load i32, ptr @hf_x11_reply, align 4
-  %464 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %463, i32 noundef %5), !range !4
+  %464 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %463, i32 noundef %5)
   %465 = load i32, ptr @hf_x11_undecoded, align 4
   %466 = load i32, ptr %7, align 4
   %467 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %465, ptr noundef %0, i32 noundef %466, i32 noundef 1, i32 noundef 0) #10
@@ -27531,7 +27531,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 484:                                              ; preds = %136
   %485 = load i32, ptr @hf_x11_reply, align 4
-  %486 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %485, i32 noundef %5), !range !4
+  %486 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %485, i32 noundef %5)
   %487 = load i32, ptr @hf_x11_unused, align 4
   %488 = load i32, ptr %7, align 4
   %489 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %487, ptr noundef %0, i32 noundef %488, i32 noundef 1, i32 noundef 0) #10
@@ -27547,11 +27547,11 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %498 = load i32, ptr @hf_x11_replylength, align 4
   %499 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %498, i32 noundef %5)
   %500 = load i32, ptr @hf_x11_red, align 4
-  %501 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %500, i32 noundef %5), !range !5
+  %501 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %500, i32 noundef %5)
   %502 = load i32, ptr @hf_x11_green, align 4
-  %503 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %502, i32 noundef %5), !range !5
+  %503 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %502, i32 noundef %5)
   %504 = load i32, ptr @hf_x11_blue, align 4
-  %505 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %504, i32 noundef %5), !range !5
+  %505 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %504, i32 noundef %5)
   %506 = load i32, ptr @hf_x11_unused, align 4
   %507 = load i32, ptr %7, align 4
   %508 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %506, ptr noundef %0, i32 noundef %507, i32 noundef 2, i32 noundef 0) #10
@@ -27568,7 +27568,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 516:                                              ; preds = %136
   %517 = load i32, ptr @hf_x11_reply, align 4
-  %518 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %517, i32 noundef %5), !range !4
+  %518 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %517, i32 noundef %5)
   %519 = load i32, ptr @hf_x11_undecoded, align 4
   %520 = load i32, ptr %7, align 4
   %521 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %519, ptr noundef %0, i32 noundef %520, i32 noundef 1, i32 noundef 0) #10
@@ -27594,7 +27594,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 538:                                              ; preds = %136
   %539 = load i32, ptr @hf_x11_reply, align 4
-  %540 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %539, i32 noundef %5), !range !4
+  %540 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %539, i32 noundef %5)
   %541 = load i32, ptr @hf_x11_unused, align 4
   %542 = load i32, ptr %7, align 4
   %543 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %541, ptr noundef %0, i32 noundef %542, i32 noundef 1, i32 noundef 0) #10
@@ -27610,17 +27610,17 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %552 = load i32, ptr @hf_x11_replylength, align 4
   %553 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %552, i32 noundef %5)
   %554 = load i32, ptr @hf_x11_exact_red, align 4
-  %555 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %554, i32 noundef %5), !range !5
+  %555 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %554, i32 noundef %5)
   %556 = load i32, ptr @hf_x11_exact_green, align 4
-  %557 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %556, i32 noundef %5), !range !5
+  %557 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %556, i32 noundef %5)
   %558 = load i32, ptr @hf_x11_exact_blue, align 4
-  %559 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %558, i32 noundef %5), !range !5
+  %559 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %558, i32 noundef %5)
   %560 = load i32, ptr @hf_x11_visual_red, align 4
-  %561 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %560, i32 noundef %5), !range !5
+  %561 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %560, i32 noundef %5)
   %562 = load i32, ptr @hf_x11_visual_green, align 4
-  %563 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %562, i32 noundef %5), !range !5
+  %563 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %562, i32 noundef %5)
   %564 = load i32, ptr @hf_x11_visual_blue, align 4
-  %565 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %564, i32 noundef %5), !range !5
+  %565 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %564, i32 noundef %5)
   %566 = load i32, ptr @hf_x11_unused, align 4
   %567 = load i32, ptr %7, align 4
   %568 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %566, ptr noundef %0, i32 noundef %567, i32 noundef 12, i32 noundef 0) #10
@@ -27630,7 +27630,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 570:                                              ; preds = %136
   %571 = load i32, ptr @hf_x11_reply, align 4
-  %572 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %571, i32 noundef %5), !range !4
+  %572 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %571, i32 noundef %5)
   %573 = load i32, ptr @hf_x11_unused, align 4
   %574 = load i32, ptr %7, align 4
   %575 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %573, ptr noundef %0, i32 noundef %574, i32 noundef 1, i32 noundef 0) #10
@@ -27646,9 +27646,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %584 = load i32, ptr @hf_x11_replylength, align 4
   %585 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %584, i32 noundef %5)
   %586 = load i32, ptr @hf_x11_width, align 4
-  %587 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %586, i32 noundef %5), !range !5
+  %587 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %586, i32 noundef %5)
   %588 = load i32, ptr @hf_x11_height, align 4
-  %589 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %588, i32 noundef %5), !range !5
+  %589 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %588, i32 noundef %5)
   %590 = load i32, ptr @hf_x11_unused, align 4
   %591 = load i32, ptr %7, align 4
   %592 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %590, ptr noundef %0, i32 noundef %591, i32 noundef 20, i32 noundef 0) #10
@@ -27658,7 +27658,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 594:                                              ; preds = %136
   %595 = load i32, ptr @hf_x11_reply, align 4
-  %596 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %595, i32 noundef %5), !range !4
+  %596 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %595, i32 noundef %5)
   %597 = load i32, ptr @hf_x11_unused, align 4
   %598 = load i32, ptr %7, align 4
   %599 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %597, ptr noundef %0, i32 noundef %598, i32 noundef 1, i32 noundef 0) #10
@@ -27674,13 +27674,13 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %608 = load i32, ptr @hf_x11_replylength, align 4
   %609 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %608, i32 noundef %5)
   %610 = load i32, ptr @hf_x11_present, align 4
-  %611 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %610), !range !4
+  %611 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %610)
   %612 = load i32, ptr @hf_x11_major_opcode, align 4
-  %613 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %612, i32 noundef %5), !range !4
+  %613 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %612, i32 noundef %5)
   %614 = load i32, ptr @hf_x11_first_event, align 4
-  %615 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %614, i32 noundef %5), !range !4
+  %615 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %614, i32 noundef %5)
   %616 = load i32, ptr @hf_x11_first_error, align 4
-  %617 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %616, i32 noundef %5), !range !4
+  %617 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %616, i32 noundef %5)
   %618 = load i32, ptr @hf_x11_unused, align 4
   %619 = load i32, ptr %7, align 4
   %620 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %618, ptr noundef %0, i32 noundef %619, i32 noundef 20, i32 noundef 0) #10
@@ -27690,7 +27690,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 622:                                              ; preds = %136
   %623 = load i32, ptr @hf_x11_reply, align 4
-  %624 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %623, i32 noundef %5), !range !4
+  %624 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %623, i32 noundef %5)
   %625 = load i32, ptr @hf_x11_undecoded, align 4
   %626 = load i32, ptr %7, align 4
   %627 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %625, ptr noundef %0, i32 noundef %626, i32 noundef 1, i32 noundef 0) #10
@@ -27720,9 +27720,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %647 = getelementptr inbounds i8, ptr %4, i64 12396
   store i32 %646, ptr %647, align 4
   %648 = load i32, ptr @hf_x11_reply, align 4
-  %649 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %648, i32 noundef %5), !range !4
+  %649 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %648, i32 noundef %5)
   %650 = load i32, ptr @hf_x11_keysyms_per_keycode, align 4
-  %651 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %650, i32 noundef %5), !range !4
+  %651 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %650, i32 noundef %5)
   %652 = getelementptr inbounds i8, ptr %4, i64 12392
   store i32 %651, ptr %652, align 8
   %653 = load i32, ptr %7, align 4
@@ -27760,7 +27760,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 676:                                              ; preds = %136
   %677 = load i32, ptr @hf_x11_reply, align 4
-  %678 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %677, i32 noundef %5), !range !4
+  %678 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %677, i32 noundef %5)
   %679 = load i32, ptr @hf_x11_undecoded, align 4
   %680 = load i32, ptr %7, align 4
   %681 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %679, ptr noundef %0, i32 noundef %680, i32 noundef 1, i32 noundef 0) #10
@@ -27786,7 +27786,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 698:                                              ; preds = %136
   %699 = load i32, ptr @hf_x11_reply, align 4
-  %700 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %699, i32 noundef %5), !range !4
+  %700 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %699, i32 noundef %5)
   %701 = load i32, ptr @hf_x11_unused, align 4
   %702 = load i32, ptr %7, align 4
   %703 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %701, ptr noundef %0, i32 noundef %702, i32 noundef 1, i32 noundef 0) #10
@@ -27802,11 +27802,11 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %712 = load i32, ptr @hf_x11_replylength, align 4
   %713 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %712, i32 noundef %5)
   %714 = load i32, ptr @hf_x11_acceleration_numerator, align 4
-  %715 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %714, i32 noundef %5), !range !5
+  %715 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %714, i32 noundef %5)
   %716 = load i32, ptr @hf_x11_acceleration_denominator, align 4
-  %717 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %716, i32 noundef %5), !range !5
+  %717 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %716, i32 noundef %5)
   %718 = load i32, ptr @hf_x11_threshold, align 4
-  %719 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %718, i32 noundef %5), !range !5
+  %719 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %718, i32 noundef %5)
   %720 = load i32, ptr @hf_x11_unused, align 4
   %721 = load i32, ptr %7, align 4
   %722 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %720, ptr noundef %0, i32 noundef %721, i32 noundef 18, i32 noundef 0) #10
@@ -27816,7 +27816,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 724:                                              ; preds = %136
   %725 = load i32, ptr @hf_x11_reply, align 4
-  %726 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %725, i32 noundef %5), !range !4
+  %726 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %725, i32 noundef %5)
   %727 = load i32, ptr @hf_x11_unused, align 4
   %728 = load i32, ptr %7, align 4
   %729 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %727, ptr noundef %0, i32 noundef %728, i32 noundef 1, i32 noundef 0) #10
@@ -27832,13 +27832,13 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %738 = load i32, ptr @hf_x11_replylength, align 4
   %739 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %738, i32 noundef %5)
   %740 = load i32, ptr @hf_x11_timeout, align 4
-  %741 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %740, i32 noundef %5), !range !5
+  %741 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %740, i32 noundef %5)
   %742 = load i32, ptr @hf_x11_interval, align 4
-  %743 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %742, i32 noundef %5), !range !5
+  %743 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %742, i32 noundef %5)
   %744 = load i32, ptr @hf_x11_prefer_blanking, align 4
-  %745 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %744, i32 noundef %5), !range !4
+  %745 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %744, i32 noundef %5)
   %746 = load i32, ptr @hf_x11_allow_exposures, align 4
-  %747 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %746, i32 noundef %5), !range !4
+  %747 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %746, i32 noundef %5)
   %748 = load i32, ptr @hf_x11_unused, align 4
   %749 = load i32, ptr %7, align 4
   %750 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %748, ptr noundef %0, i32 noundef %749, i32 noundef 18, i32 noundef 0) #10
@@ -27848,7 +27848,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 752:                                              ; preds = %136, %136, %136, %136
   %753 = load i32, ptr @hf_x11_reply, align 4
-  %754 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %753, i32 noundef %5), !range !4
+  %754 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %753, i32 noundef %5)
   %755 = load i32, ptr @hf_x11_undecoded, align 4
   %756 = load i32, ptr %7, align 4
   %757 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %755, ptr noundef %0, i32 noundef %756, i32 noundef 1, i32 noundef 0) #10
@@ -27874,9 +27874,9 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 774:                                              ; preds = %136
   %775 = load i32, ptr @hf_x11_reply, align 4
-  %776 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %775, i32 noundef %5), !range !4
+  %776 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %775, i32 noundef %5)
   %777 = load i32, ptr @hf_x11_keycodes_per_modifier, align 4
-  %778 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %777, i32 noundef %5), !range !4
+  %778 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %777, i32 noundef %5)
   %779 = getelementptr inbounds i8, ptr %4, i64 12464
   store i32 %778, ptr %779, align 8
   %780 = load i32, ptr %7, align 4
@@ -27903,7 +27903,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 
 797:                                              ; preds = %136
   %798 = load i32, ptr @hf_x11_reply, align 4
-  %799 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %798, i32 noundef %5), !range !4
+  %799 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %798, i32 noundef %5)
   %800 = load i32, ptr @hf_x11_undecoded, align 4
   %801 = load i32, ptr %7, align 4
   %802 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %800, ptr noundef %0, i32 noundef %801, i32 noundef 1, i32 noundef 0) #10
@@ -27991,7 +27991,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @x_endian_match(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @x_endian_match(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 4) #10
   %.not63 = icmp eq i32 %3, 0
   br i1 %.not63, label %consistentWithOrder.exit.thread53, label %.lr.ph
@@ -28156,7 +28156,7 @@ define internal fastcc noundef i32 @x_endian_match(ptr noundef %0, i32 noundef %
   %25 = add i32 %20, %.0711.i45
   %26 = add i32 %25, %24
   %.not.i47 = icmp eq i32 %13, 0
-  br i1 %.not.i47, label %numberOfBitSet.exit49, label %.lr.ph.i43, !llvm.loop !25
+  br i1 %.not.i47, label %numberOfBitSet.exit49, label %.lr.ph.i43, !llvm.loop !22
 
 numberOfBitSet.exit49:                            ; preds = %.lr.ph.i43
   %27 = add i32 %26, 8
@@ -28192,7 +28192,7 @@ numberOfBitSet.exit49:                            ; preds = %.lr.ph.i43
   %46 = add i32 %41, %.0711.i38
   %47 = add i32 %46, %45
   %.not.i40 = icmp eq i32 %34, 0
-  br i1 %.not.i40, label %numberOfBitSet.exit42, label %.lr.ph.i36, !llvm.loop !25
+  br i1 %.not.i40, label %numberOfBitSet.exit42, label %.lr.ph.i36, !llvm.loop !22
 
 numberOfBitSet.exit42:                            ; preds = %.lr.ph.i36
   %48 = add i32 %47, 3
@@ -28238,7 +28238,7 @@ numberOfBitSet.exit42:                            ; preds = %.lr.ph.i36
   %73 = add i32 %68, %.0711.i31
   %74 = add i32 %73, %72
   %.not.i33 = icmp eq i32 %61, 0
-  br i1 %.not.i33, label %numberOfBitSet.exit35, label %.lr.ph.i29, !llvm.loop !25
+  br i1 %.not.i33, label %numberOfBitSet.exit35, label %.lr.ph.i29, !llvm.loop !22
 
 numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   %75 = add i32 %74, 3
@@ -28419,7 +28419,7 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   %168 = add i32 %164, %.02032.i
   %169 = sub nsw i32 %.01933.i, %164
   %.not.i27 = icmp eq i32 %158, 0
-  br i1 %.not.i27, label %._crit_edge.i, label %.lr.ph.i26, !llvm.loop !26
+  br i1 %.not.i27, label %._crit_edge.i, label %.lr.ph.i26, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %167, %160, %.preheader.i
   %.019.lcssa.i = phi i32 [ %152, %.preheader.i ], [ %169, %167 ], [ %.01933.i, %160 ]
@@ -28455,7 +28455,7 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   %187 = add i32 %182, %.0711.i22
   %188 = add i32 %187, %186
   %.not.i24 = icmp eq i32 %175, 0
-  br i1 %.not.i24, label %numberOfBitSet.exit25, label %.lr.ph.i20, !llvm.loop !25
+  br i1 %.not.i24, label %numberOfBitSet.exit25, label %.lr.ph.i20, !llvm.loop !22
 
 numberOfBitSet.exit25:                            ; preds = %.lr.ph.i20
   %189 = add i32 %188, 4
@@ -28622,7 +28622,7 @@ numberOfBitSet.exit25:                            ; preds = %.lr.ph.i20
   %284 = add i32 %279, %.0711.i
   %285 = add i32 %284, %283
   %.not.i19 = icmp eq i32 %272, 0
-  br i1 %.not.i19, label %numberOfBitSet.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i19, label %numberOfBitSet.exit, label %.lr.ph.i, !llvm.loop !22
 
 numberOfBitSet.exit:                              ; preds = %.lr.ph.i
   %286 = add i32 %285, 2
@@ -28676,7 +28676,7 @@ consistentWithOrder.exit.thread:                  ; preds = %.lr.ph.i26, %165, %
   %314 = add i32 %313, %.01564
   %315 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %314, i32 noundef 4) #10
   %.not = icmp eq i32 %315, 0
-  br i1 %.not, label %consistentWithOrder.exit.thread53, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %consistentWithOrder.exit.thread53, label %.lr.ph, !llvm.loop !24
 
 consistentWithOrder.exit.thread53:                ; preds = %.lr.ph, %consistentWithOrder.exit, %consistentWithOrder.exit.thread, %203, %91, %146, %215, %237, %150, %162, %2
   %.0 = phi i32 [ 0, %2 ], [ -1, %162 ], [ -1, %.lr.ph ], [ -1, %consistentWithOrder.exit ], [ 1, %consistentWithOrder.exit.thread ], [ -1, %203 ], [ -1, %91 ], [ -1, %146 ], [ -1, %215 ], [ -1, %237 ], [ -1, %150 ]
@@ -28696,7 +28696,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @field8(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 256) i32 @field8(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #10
   %8 = zext i8 %7 to i32
@@ -28734,7 +28734,7 @@ define internal fastcc i32 @field8(ptr noundef %0, ptr nocapture noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @field16(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 65536) i32 @field16(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %6, i32 noundef %4) #10
   %8 = zext i16 %7 to i32
@@ -28885,14 +28885,14 @@ define internal fastcc void @listOfAtom(ptr noundef %0, ptr nocapture noundef %1
   %13 = load i32, ptr @hf_x11_properties_item, align 4
   tail call fastcc void @atom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %13, i32 noundef %5)
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_boolean(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 256) i32 @add_boolean(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #10
   %7 = zext i8 %6 to i32
@@ -29085,7 +29085,7 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %57, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader93, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader93, label %.lr.ph, !llvm.loop !26
 
 58:                                               ; preds = %.lr.ph97, %62
   %.196 = phi i32 [ 1, %.lr.ph97 ], [ %63, %62 ]
@@ -29098,7 +29098,7 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
 62:                                               ; preds = %58
   %63 = add nuw nsw i32 %.196, 1
   %exitcond113.not = icmp eq i32 %63, %9
-  br i1 %exitcond113.not, label %._crit_edge.thread, label %58, !llvm.loop !30
+  br i1 %exitcond113.not, label %._crit_edge.thread, label %58, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %58, %38, %.preheader93
   %.1.lcssa = phi i32 [ 1, %.preheader93 ], [ 1, %38 ], [ %.196, %58 ]
@@ -29138,10 +29138,10 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
 77:                                               ; preds = %74
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge102, label %74, !llvm.loop !31
+  br i1 %exitcond118.not, label %._crit_edge102, label %74, !llvm.loop !28
 
 ._crit_edge102.split.loop.exit123:                ; preds = %74
-  %78 = trunc i64 %indvars.iv114 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv114 to i32
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %77, %._crit_edge102.split.loop.exit123
@@ -29166,7 +29166,7 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
   %88 = add i32 %.087106, 1
   %89 = add nsw i32 %.0108, -1
   %90 = icmp sgt i32 %.0108, 1
-  br i1 %90, label %30, label %._crit_edge110, !llvm.loop !32
+  br i1 %90, label %30, label %._crit_edge110, !llvm.loop !29
 
 ._crit_edge110:                                   ; preds = %._crit_edge102.thread, %.preheader94
   ret void
@@ -29204,7 +29204,7 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef
 22:                                               ; preds = %.lr.ph.us, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %._crit_edge ]
   %23 = load i32, ptr %1, align 4
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = add i32 %23, %24
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #10
   %.not.us = icmp eq i8 %26, 0
@@ -29223,7 +29223,7 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef
   store i32 %.pre-phi, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond39.not, label %._crit_edge.us, label %22, !llvm.loop !33
+  br i1 %exitcond39.not, label %._crit_edge.us, label %22, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %._crit_edge
   %32 = add nuw nsw i64 %.034.us, 1
@@ -29231,7 +29231,7 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef
   %34 = add i32 %33, %5
   store i32 %34, ptr %1, align 4
   %exitcond40.not = icmp eq i64 %32, 8
-  br i1 %exitcond40.not, label %.split36.us, label %.lr.ph.us, !llvm.loop !34
+  br i1 %exitcond40.not, label %.split36.us, label %.lr.ph.us, !llvm.loop !31
 
 .split:                                           ; preds = %6, %.split
   %35 = phi i32 [ %43, %.split ], [ %.pre41, %6 ]
@@ -29247,7 +29247,7 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef
   %43 = add i32 %42, %5
   store i32 %43, ptr %1, align 4
   %exitcond.not = icmp eq i64 %41, 8
-  br i1 %exitcond.not, label %.split36.us, label %.split, !llvm.loop !34
+  br i1 %exitcond.not, label %.split36.us, label %.split, !llvm.loop !31
 
 .split36.us:                                      ; preds = %.split, %._crit_edge.us
   ret void
@@ -29269,7 +29269,7 @@ define internal fastcc void @tryExtensionReply(i32 noundef %0, ptr noundef %1, p
 
 14:                                               ; preds = %7
   %15 = load i32, ptr @hf_x11_reply, align 4
-  %16 = tail call fastcc i32 @field8(ptr noundef %1, ptr noundef %3, ptr noundef %4, i32 noundef %15, i32 noundef %6), !range !4
+  %16 = tail call fastcc i32 @field8(ptr noundef %1, ptr noundef %3, ptr noundef %4, i32 noundef %15, i32 noundef %6)
   %17 = load i32, ptr @hf_x11_undecoded, align 4
   %18 = load i32, ptr %3, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %17, ptr noundef %1, i32 noundef %18, i32 noundef 1, i32 noundef 0) #10
@@ -29422,7 +29422,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %44 = getelementptr ptr, ptr %26, i64 %indvars.iv.next242.i
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %keycode2keysymString.exit, label %.lr.ph.split.us185.i, !llvm.loop !35
+  br i1 %46, label %keycode2keysymString.exit, label %.lr.ph.split.us185.i, !llvm.loop !32
 
 47:                                               ; preds = %.lr.ph.split.us185.i, %54
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us185.i ], [ %indvars.iv.next.i, %54 ]
@@ -29458,11 +29458,11 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %.297.us.i = phi i32 [ %.196153.us180.i, %47 ], [ %56, %50 ], [ %.196153.us180.i, %51 ], [ %.196153.us180.i, %52 ], [ %.196153.us180.i, %53 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %47, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %47, !llvm.loop !33
 
 ._crit_edge.us.i:                                 ; preds = %54
   %exitcond244.not.i = icmp eq i64 %indvars.iv241.i, 255
-  br i1 %exitcond244.not.i, label %._crit_edge174.i, label %.preheader137.us.i, !llvm.loop !35
+  br i1 %exitcond244.not.i, label %._crit_edge174.i, label %.preheader137.us.i, !llvm.loop !32
 
 .lr.ph.split.us185.i:                             ; preds = %.preheader137.us.i, %.lr.ph.split.us185.preheader.i
   %indvars.iv241.i = phi i64 [ %40, %.lr.ph.split.us185.preheader.i ], [ %indvars.iv.next242.i, %.preheader137.us.i ]
@@ -29471,7 +29471,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %.0108170.us198.i = phi i32 [ -1, %.lr.ph.split.us185.preheader.i ], [ %.2110.us.i, %.preheader137.us.i ]
   %.098171.us197.i = phi i32 [ 0, %.lr.ph.split.us185.preheader.i ], [ %.2100.us.i, %.preheader137.us.i ]
   %.095172.us196.i = phi i32 [ 0, %.lr.ph.split.us185.preheader.i ], [ %.297.us.i, %.preheader137.us.i ]
-  %56 = trunc i64 %indvars.iv241.i to i32
+  %56 = trunc nsw i64 %indvars.iv241.i to i32
   br label %47
 
 ._crit_edge174.i:                                 ; preds = %._crit_edge.us.i, %.preheader137.lr.ph.i, %.preheader138.i
@@ -29499,7 +29499,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %.0102209.us.i = phi i32 [ -1, %.preheader135.us.preheader.i ], [ %.2104.us.i, %._crit_edge.us211.i ]
   %61 = getelementptr ptr, ptr %31, i64 %indvars.iv250.i
   %62 = load ptr, ptr %61, align 8
-  %63 = trunc i64 %indvars.iv250.i to i32
+  %63 = trunc nuw nsw i64 %indvars.iv250.i to i32
   br label %64
 
 64:                                               ; preds = %64, %.preheader135.us.i
@@ -29515,14 +29515,14 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %.2104.us.i = select i1 %67, i32 %.1103205.us.i, i32 %spec.select.us.i
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 1
   %exitcond249.not.i = icmp eq i64 %indvars.iv.next246.i, %wide.trip.count248.i
-  br i1 %exitcond249.not.i, label %._crit_edge.us211.i, label %64, !llvm.loop !37
+  br i1 %exitcond249.not.i, label %._crit_edge.us211.i, label %64, !llvm.loop !34
 
 ._crit_edge.us211.i:                              ; preds = %64
   %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
   %69 = icmp ult i64 %indvars.iv250.i, 7
   %70 = icmp eq i32 %.2107.us.i, -1
   %71 = select i1 %69, i1 %70, i1 false
-  br i1 %71, label %.preheader135.us.i, label %.preheader.i, !llvm.loop !38
+  br i1 %71, label %.preheader135.us.i, label %.preheader.i, !llvm.loop !35
 
 .preheader.i:                                     ; preds = %._crit_edge.us211.i
   %72 = getelementptr i8, ptr %4, i64 12408
@@ -29541,19 +29541,19 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %indvars.iv253.i9751006 = phi i64 [ %indvars.iv.next254.i, %83 ], [ 0, %.lr.ph ]
   %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i9751006, 1
   %exitcond256.i = icmp eq i64 %indvars.iv.next254.i, %wide.trip.count248.i
-  br i1 %exitcond256.i, label %._crit_edge.i.loopexit, label %79, !llvm.loop !39
+  br i1 %exitcond256.i, label %._crit_edge.i.loopexit, label %79, !llvm.loop !36
 
 79:                                               ; preds = %.lr.ph1007
   %80 = getelementptr i32, ptr %73, i64 %indvars.iv.next254.i
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, %.098.lcssa.i
-  br i1 %82, label %._crit_edge.i.loopexit, label %83, !llvm.loop !39
+  br i1 %82, label %._crit_edge.i.loopexit, label %83, !llvm.loop !36
 
 83:                                               ; preds = %79
   %84 = getelementptr i32, ptr %76, i64 %indvars.iv.next254.i
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, %.095.lcssa.i
-  br i1 %86, label %._crit_edge.i.loopexit, label %.lr.ph1007, !llvm.loop !39
+  br i1 %86, label %._crit_edge.i.loopexit, label %.lr.ph1007, !llvm.loop !36
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph1007, %79, %83
   %.3101.i.ph = phi i32 [ 0, %83 ], [ %.098.lcssa.i, %79 ], [ %.098.lcssa.i, %.lr.ph1007 ]
@@ -29582,7 +29582,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
 92:                                               ; preds = %.lr.ph228.i
   %93 = add nsw i32 %.0116226.i, -1
   %94 = icmp sgt i32 %.0116226.i, 3
-  br i1 %94, label %.lr.ph228.i, label %.critedge.thread.i, !llvm.loop !40
+  br i1 %94, label %.lr.ph228.i, label %.critedge.thread.i, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %.lr.ph228.i
   %95 = icmp sgt i32 %.us-phi213262.i, -1
@@ -29779,7 +29779,7 @@ keycode2keysymString.exit:                        ; preds = %.preheader137.us.i,
   %182 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %3, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %22, ptr noundef nonnull @.str.14694, i32 noundef %22, ptr noundef %.0115.i) #10
   store i32 2, ptr %13, align 4
   %183 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %184 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %183, i32 noundef %5), !range !5
+  %184 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %183, i32 noundef %5)
   %185 = load i32, ptr @hf_x11_time, align 4
   %186 = load i32, ptr %13, align 4
   %187 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %186, i32 noundef %5) #10
@@ -29806,13 +29806,13 @@ timestamp.exit:                                   ; preds = %188, %192
   %199 = load i32, ptr @hf_x11_childwindow, align 4
   %200 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %199, i32 noundef %5)
   %201 = load i32, ptr @hf_x11_root_x, align 4
-  %202 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %201, i32 noundef %5), !range !5
+  %202 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %201, i32 noundef %5)
   %203 = load i32, ptr @hf_x11_root_y, align 4
-  %204 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %203, i32 noundef %5), !range !5
+  %204 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %203, i32 noundef %5)
   %205 = load i32, ptr @hf_x11_event_x, align 4
-  %206 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %205, i32 noundef %5), !range !5
+  %206 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %205, i32 noundef %5)
   %207 = load i32, ptr @hf_x11_event_y, align 4
-  %208 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %207, i32 noundef %5), !range !5
+  %208 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %207, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %5, i32 noundef 1)
   %209 = load i32, ptr @hf_x11_same_screen, align 4
   %210 = load i32, ptr %13, align 4
@@ -29828,9 +29828,9 @@ timestamp.exit:                                   ; preds = %188, %192
 
 218:                                              ; preds = %6, %6
   %219 = load i32, ptr @hf_x11_eventbutton, align 4
-  %220 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %219, i32 noundef %5), !range !4
+  %220 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %219, i32 noundef %5)
   %221 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %222 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %221, i32 noundef %5), !range !5
+  %222 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %221, i32 noundef %5)
   %223 = load i32, ptr @hf_x11_time, align 4
   %224 = load i32, ptr %13, align 4
   %225 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %224, i32 noundef %5) #10
@@ -29857,13 +29857,13 @@ timestamp.exit895:                                ; preds = %226, %230
   %237 = load i32, ptr @hf_x11_childwindow, align 4
   %238 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %237, i32 noundef %5)
   %239 = load i32, ptr @hf_x11_root_x, align 4
-  %240 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %239, i32 noundef %5), !range !5
+  %240 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %239, i32 noundef %5)
   %241 = load i32, ptr @hf_x11_root_y, align 4
-  %242 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %241, i32 noundef %5), !range !5
+  %242 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %241, i32 noundef %5)
   %243 = load i32, ptr @hf_x11_event_x, align 4
-  %244 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %243, i32 noundef %5), !range !5
+  %244 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %243, i32 noundef %5)
   %245 = load i32, ptr @hf_x11_event_y, align 4
-  %246 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %245, i32 noundef %5), !range !5
+  %246 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %245, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %5, i32 noundef 1)
   %247 = load i32, ptr @hf_x11_same_screen, align 4
   %248 = load i32, ptr %13, align 4
@@ -29879,9 +29879,9 @@ timestamp.exit895:                                ; preds = %226, %230
 
 256:                                              ; preds = %6
   %257 = load i32, ptr @hf_x11_detail, align 4
-  %258 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %257, i32 noundef %5), !range !4
+  %258 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %257, i32 noundef %5)
   %259 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %260 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %259, i32 noundef %5), !range !5
+  %260 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %259, i32 noundef %5)
   %261 = load i32, ptr @hf_x11_time, align 4
   %262 = load i32, ptr %13, align 4
   %263 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %262, i32 noundef %5) #10
@@ -29908,13 +29908,13 @@ timestamp.exit897:                                ; preds = %264, %268
   %275 = load i32, ptr @hf_x11_childwindow, align 4
   %276 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %275, i32 noundef %5)
   %277 = load i32, ptr @hf_x11_root_x, align 4
-  %278 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %277, i32 noundef %5), !range !5
+  %278 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %277, i32 noundef %5)
   %279 = load i32, ptr @hf_x11_root_y, align 4
-  %280 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %279, i32 noundef %5), !range !5
+  %280 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %279, i32 noundef %5)
   %281 = load i32, ptr @hf_x11_event_x, align 4
-  %282 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %281, i32 noundef %5), !range !5
+  %282 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %281, i32 noundef %5)
   %283 = load i32, ptr @hf_x11_event_y, align 4
-  %284 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %283, i32 noundef %5), !range !5
+  %284 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %283, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %5, i32 noundef 1)
   %285 = load i32, ptr @hf_x11_same_screen, align 4
   %286 = load i32, ptr %13, align 4
@@ -29930,9 +29930,9 @@ timestamp.exit897:                                ; preds = %264, %268
 
 294:                                              ; preds = %6, %6
   %295 = load i32, ptr @hf_x11_event_detail, align 4
-  %296 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %295, i32 noundef %5), !range !4
+  %296 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %295, i32 noundef %5)
   %297 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %298 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %297, i32 noundef %5), !range !5
+  %298 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %297, i32 noundef %5)
   %299 = load i32, ptr @hf_x11_time, align 4
   %300 = load i32, ptr %13, align 4
   %301 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %300, i32 noundef %5) #10
@@ -29959,16 +29959,16 @@ timestamp.exit899:                                ; preds = %302, %306
   %313 = load i32, ptr @hf_x11_childwindow, align 4
   %314 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %313, i32 noundef %5)
   %315 = load i32, ptr @hf_x11_root_x, align 4
-  %316 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %315, i32 noundef %5), !range !5
+  %316 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %315, i32 noundef %5)
   %317 = load i32, ptr @hf_x11_root_y, align 4
-  %318 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %317, i32 noundef %5), !range !5
+  %318 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %317, i32 noundef %5)
   %319 = load i32, ptr @hf_x11_event_x, align 4
-  %320 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %319, i32 noundef %5), !range !5
+  %320 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %319, i32 noundef %5)
   %321 = load i32, ptr @hf_x11_event_y, align 4
-  %322 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %321, i32 noundef %5), !range !5
+  %322 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %321, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %5, i32 noundef 1)
   %323 = load i32, ptr @hf_x11_grab_mode, align 4
-  %324 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %323, i32 noundef %5), !range !4
+  %324 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %323, i32 noundef %5)
   %325 = load i32, ptr %13, align 4
   %326 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %325) #10
   %327 = zext i8 %326 to i32
@@ -29987,13 +29987,13 @@ timestamp.exit899:                                ; preds = %302, %306
 
 338:                                              ; preds = %6, %6
   %339 = load i32, ptr @hf_x11_focus_detail, align 4
-  %340 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %339, i32 noundef %5), !range !4
+  %340 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %339, i32 noundef %5)
   %341 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %342 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %341, i32 noundef %5), !range !5
+  %342 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %341, i32 noundef %5)
   %343 = load i32, ptr @hf_x11_eventwindow, align 4
   %344 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %343, i32 noundef %5)
   %345 = load i32, ptr @hf_x11_focus_mode, align 4
-  %346 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %345, i32 noundef %5), !range !4
+  %346 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %345, i32 noundef %5)
   %347 = load i32, ptr @hf_x11_unused, align 4
   %348 = load i32, ptr %13, align 4
   %349 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %347, ptr noundef %0, i32 noundef %348, i32 noundef 23, i32 noundef 0) #10
@@ -30006,19 +30006,19 @@ timestamp.exit899:                                ; preds = %302, %306
   %353 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %352, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %354 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %355 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %354, i32 noundef %5), !range !5
+  %355 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %354, i32 noundef %5)
   %356 = load i32, ptr @hf_x11_eventwindow, align 4
   %357 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %356, i32 noundef %5)
   %358 = load i32, ptr @hf_x11_x, align 4
-  %359 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %358, i32 noundef %5), !range !5
+  %359 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %358, i32 noundef %5)
   %360 = load i32, ptr @hf_x11_y, align 4
-  %361 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %360, i32 noundef %5), !range !5
+  %361 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %360, i32 noundef %5)
   %362 = load i32, ptr @hf_x11_width, align 4
-  %363 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %362, i32 noundef %5), !range !5
+  %363 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %362, i32 noundef %5)
   %364 = load i32, ptr @hf_x11_height, align 4
-  %365 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %364, i32 noundef %5), !range !5
+  %365 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %364, i32 noundef %5)
   %366 = load i32, ptr @hf_x11_count, align 4
-  %367 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %366, i32 noundef %5), !range !5
+  %367 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %366, i32 noundef %5)
   %368 = load i32, ptr @hf_x11_unused, align 4
   %369 = load i32, ptr %13, align 4
   %370 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %368, ptr noundef %0, i32 noundef %369, i32 noundef 14, i32 noundef 0) #10
@@ -30031,23 +30031,23 @@ timestamp.exit899:                                ; preds = %302, %306
   %374 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %373, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %375 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %376 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %375, i32 noundef %5), !range !5
+  %376 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %375, i32 noundef %5)
   %377 = load i32, ptr @hf_x11_drawable, align 4
   %378 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %377, i32 noundef %5)
   %379 = load i32, ptr @hf_x11_x, align 4
-  %380 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %379, i32 noundef %5), !range !5
+  %380 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %379, i32 noundef %5)
   %381 = load i32, ptr @hf_x11_y, align 4
-  %382 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %381, i32 noundef %5), !range !5
+  %382 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %381, i32 noundef %5)
   %383 = load i32, ptr @hf_x11_width, align 4
-  %384 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %383, i32 noundef %5), !range !5
+  %384 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %383, i32 noundef %5)
   %385 = load i32, ptr @hf_x11_height, align 4
-  %386 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %385, i32 noundef %5), !range !5
+  %386 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %385, i32 noundef %5)
   %387 = load i32, ptr @hf_x11_minor_opcode, align 4
-  %388 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %387, i32 noundef %5), !range !5
+  %388 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %387, i32 noundef %5)
   %389 = load i32, ptr @hf_x11_count, align 4
-  %390 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %389, i32 noundef %5), !range !5
+  %390 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %389, i32 noundef %5)
   %391 = load i32, ptr @hf_x11_major_opcode, align 4
-  %392 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %391, i32 noundef %5), !range !4
+  %392 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %391, i32 noundef %5)
   %393 = load i32, ptr @hf_x11_unused, align 4
   %394 = load i32, ptr %13, align 4
   %395 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %393, ptr noundef %0, i32 noundef %394, i32 noundef 11, i32 noundef 0) #10
@@ -30060,13 +30060,13 @@ timestamp.exit899:                                ; preds = %302, %306
   %399 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %398, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %400 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %401 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %400, i32 noundef %5), !range !5
+  %401 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %400, i32 noundef %5)
   %402 = load i32, ptr @hf_x11_drawable, align 4
   %403 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %402, i32 noundef %5)
   %404 = load i32, ptr @hf_x11_minor_opcode, align 4
-  %405 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %404, i32 noundef %5), !range !5
+  %405 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %404, i32 noundef %5)
   %406 = load i32, ptr @hf_x11_major_opcode, align 4
-  %407 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %406, i32 noundef %5), !range !4
+  %407 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %406, i32 noundef %5)
   %408 = load i32, ptr @hf_x11_unused, align 4
   %409 = load i32, ptr %13, align 4
   %410 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %408, ptr noundef %0, i32 noundef %409, i32 noundef 21, i32 noundef 0) #10
@@ -30079,11 +30079,11 @@ timestamp.exit899:                                ; preds = %302, %306
   %414 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %413, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %415 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %416 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %415, i32 noundef %5), !range !5
+  %416 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %415, i32 noundef %5)
   %417 = load i32, ptr @hf_x11_eventwindow, align 4
   %418 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %417, i32 noundef %5)
   %419 = load i32, ptr @hf_x11_visibility_state, align 4
-  %420 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %419, i32 noundef %5), !range !4
+  %420 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %419, i32 noundef %5)
   %421 = load i32, ptr @hf_x11_unused, align 4
   %422 = load i32, ptr %13, align 4
   %423 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %421, ptr noundef %0, i32 noundef %422, i32 noundef 23, i32 noundef 0) #10
@@ -30096,21 +30096,21 @@ timestamp.exit899:                                ; preds = %302, %306
   %427 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %426, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %428 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %429 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %428, i32 noundef %5), !range !5
+  %429 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %428, i32 noundef %5)
   %430 = load i32, ptr @hf_x11_parent, align 4
   %431 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %430, i32 noundef %5)
   %432 = load i32, ptr @hf_x11_eventwindow, align 4
   %433 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %432, i32 noundef %5)
   %434 = load i32, ptr @hf_x11_x, align 4
-  %435 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %434, i32 noundef %5), !range !5
+  %435 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %434, i32 noundef %5)
   %436 = load i32, ptr @hf_x11_y, align 4
-  %437 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %436, i32 noundef %5), !range !5
+  %437 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %436, i32 noundef %5)
   %438 = load i32, ptr @hf_x11_width, align 4
-  %439 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %438, i32 noundef %5), !range !5
+  %439 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %438, i32 noundef %5)
   %440 = load i32, ptr @hf_x11_height, align 4
-  %441 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %440, i32 noundef %5), !range !5
+  %441 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %440, i32 noundef %5)
   %442 = load i32, ptr @hf_x11_border_width, align 4
-  %443 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %442, i32 noundef %5), !range !5
+  %443 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %442, i32 noundef %5)
   %444 = load i32, ptr @hf_x11_override_redirect, align 4
   %445 = load i32, ptr %13, align 4
   %446 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %445) #10
@@ -30128,7 +30128,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %455 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %454, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %456 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %457 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %456, i32 noundef %5), !range !5
+  %457 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %456, i32 noundef %5)
   %458 = load i32, ptr @hf_x11_eventwindow, align 4
   %459 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %458, i32 noundef %5)
   %460 = load i32, ptr @hf_x11_window, align 4
@@ -30145,7 +30145,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %468 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %467, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %469 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %470 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %469, i32 noundef %5), !range !5
+  %470 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %469, i32 noundef %5)
   %471 = load i32, ptr @hf_x11_eventwindow, align 4
   %472 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %471, i32 noundef %5)
   %473 = load i32, ptr @hf_x11_window, align 4
@@ -30167,7 +30167,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %486 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %485, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %487 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %488 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %487, i32 noundef %5), !range !5
+  %488 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %487, i32 noundef %5)
   %489 = load i32, ptr @hf_x11_eventwindow, align 4
   %490 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %489, i32 noundef %5)
   %491 = load i32, ptr @hf_x11_window, align 4
@@ -30189,7 +30189,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %504 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %503, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %505 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %506 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %505, i32 noundef %5), !range !5
+  %506 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %505, i32 noundef %5)
   %507 = load i32, ptr @hf_x11_parent, align 4
   %508 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %507, i32 noundef %5)
   %509 = load i32, ptr @hf_x11_eventwindow, align 4
@@ -30206,7 +30206,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %517 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %516, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %518 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %519 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %518, i32 noundef %5), !range !5
+  %519 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %518, i32 noundef %5)
   %520 = load i32, ptr @hf_x11_eventwindow, align 4
   %521 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %520, i32 noundef %5)
   %522 = load i32, ptr @hf_x11_window, align 4
@@ -30214,9 +30214,9 @@ timestamp.exit899:                                ; preds = %302, %306
   %524 = load i32, ptr @hf_x11_parent, align 4
   %525 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %524, i32 noundef %5)
   %526 = load i32, ptr @hf_x11_x, align 4
-  %527 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %526, i32 noundef %5), !range !5
+  %527 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %526, i32 noundef %5)
   %528 = load i32, ptr @hf_x11_y, align 4
-  %529 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %528, i32 noundef %5), !range !5
+  %529 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %528, i32 noundef %5)
   %530 = load i32, ptr @hf_x11_override_redirect, align 4
   %531 = load i32, ptr %13, align 4
   %532 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %531) #10
@@ -30234,7 +30234,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %541 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %540, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %542 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %543 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %542, i32 noundef %5), !range !5
+  %543 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %542, i32 noundef %5)
   %544 = load i32, ptr @hf_x11_eventwindow, align 4
   %545 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %544, i32 noundef %5)
   %546 = load i32, ptr @hf_x11_window, align 4
@@ -30242,15 +30242,15 @@ timestamp.exit899:                                ; preds = %302, %306
   %548 = load i32, ptr @hf_x11_above_sibling, align 4
   %549 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %548, i32 noundef %5)
   %550 = load i32, ptr @hf_x11_x, align 4
-  %551 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %550, i32 noundef %5), !range !5
+  %551 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %550, i32 noundef %5)
   %552 = load i32, ptr @hf_x11_y, align 4
-  %553 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %552, i32 noundef %5), !range !5
+  %553 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %552, i32 noundef %5)
   %554 = load i32, ptr @hf_x11_width, align 4
-  %555 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %554, i32 noundef %5), !range !5
+  %555 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %554, i32 noundef %5)
   %556 = load i32, ptr @hf_x11_height, align 4
-  %557 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %556, i32 noundef %5), !range !5
+  %557 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %556, i32 noundef %5)
   %558 = load i32, ptr @hf_x11_border_width, align 4
-  %559 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %558, i32 noundef %5), !range !5
+  %559 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %558, i32 noundef %5)
   %560 = load i32, ptr @hf_x11_override_redirect, align 4
   %561 = load i32, ptr %13, align 4
   %562 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %561) #10
@@ -30268,15 +30268,15 @@ timestamp.exit899:                                ; preds = %302, %306
   %571 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %570, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %572 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %573 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %572, i32 noundef %5), !range !5
+  %573 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %572, i32 noundef %5)
   %574 = load i32, ptr @hf_x11_eventwindow, align 4
   %575 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %574, i32 noundef %5)
   %576 = load i32, ptr @hf_x11_window, align 4
   %577 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %576, i32 noundef %5)
   %578 = load i32, ptr @hf_x11_x, align 4
-  %579 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %578, i32 noundef %5), !range !5
+  %579 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %578, i32 noundef %5)
   %580 = load i32, ptr @hf_x11_y, align 4
-  %581 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %580, i32 noundef %5), !range !5
+  %581 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %580, i32 noundef %5)
   %582 = load i32, ptr @hf_x11_unused, align 4
   %583 = load i32, ptr %13, align 4
   %584 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %582, ptr noundef %0, i32 noundef %583, i32 noundef 16, i32 noundef 0) #10
@@ -30289,13 +30289,13 @@ timestamp.exit899:                                ; preds = %302, %306
   %588 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %587, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %589 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %590 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %589, i32 noundef %5), !range !5
+  %590 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %589, i32 noundef %5)
   %591 = load i32, ptr @hf_x11_eventwindow, align 4
   %592 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %591, i32 noundef %5)
   %593 = load i32, ptr @hf_x11_width, align 4
-  %594 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %593, i32 noundef %5), !range !5
+  %594 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %593, i32 noundef %5)
   %595 = load i32, ptr @hf_x11_height, align 4
-  %596 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %595, i32 noundef %5), !range !5
+  %596 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %595, i32 noundef %5)
   %597 = load i32, ptr @hf_x11_unused, align 4
   %598 = load i32, ptr %13, align 4
   %599 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %597, ptr noundef %0, i32 noundef %598, i32 noundef 20, i32 noundef 0) #10
@@ -30308,7 +30308,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %603 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %602, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %604 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %605 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %604, i32 noundef %5), !range !5
+  %605 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %604, i32 noundef %5)
   %606 = load i32, ptr @hf_x11_eventwindow, align 4
   %607 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %606, i32 noundef %5)
   %608 = load i32, ptr @hf_x11_window, align 4
@@ -30319,7 +30319,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %613 = add i32 %611, 4
   store i32 %613, ptr %13, align 4
   %614 = load i32, ptr @hf_x11_place, align 4
-  %615 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %614, i32 noundef %5), !range !4
+  %615 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %614, i32 noundef %5)
   %616 = load i32, ptr @hf_x11_unused, align 4
   %617 = load i32, ptr %13, align 4
   %618 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %616, ptr noundef %0, i32 noundef %617, i32 noundef 15, i32 noundef 0) #10
@@ -30332,7 +30332,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %622 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %621, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %623 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %624 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %623, i32 noundef %5), !range !5
+  %624 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %623, i32 noundef %5)
   %625 = load i32, ptr @hf_x11_parent, align 4
   %626 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %625, i32 noundef %5)
   %627 = load i32, ptr @hf_x11_eventwindow, align 4
@@ -30343,7 +30343,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %632 = add i32 %630, 4
   store i32 %632, ptr %13, align 4
   %633 = load i32, ptr @hf_x11_place, align 4
-  %634 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %633, i32 noundef %5), !range !4
+  %634 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %633, i32 noundef %5)
   %635 = load i32, ptr @hf_x11_unused, align 4
   %636 = load i32, ptr %13, align 4
   %637 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %635, ptr noundef %0, i32 noundef %636, i32 noundef 15, i32 noundef 0) #10
@@ -30356,7 +30356,7 @@ timestamp.exit899:                                ; preds = %302, %306
   %641 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %640, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %642 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %643 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %642, i32 noundef %5), !range !5
+  %643 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %642, i32 noundef %5)
   %644 = load i32, ptr @hf_x11_eventwindow, align 4
   %645 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %644, i32 noundef %5)
   %646 = load i32, ptr @hf_x11_atom, align 4
@@ -30414,7 +30414,7 @@ timestamp.exit903:                                ; preds = %667, %671
   %673 = add i32 %647, 8
   store i32 %673, ptr %13, align 4
   %674 = load i32, ptr @hf_x11_property_state, align 4
-  %675 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %674, i32 noundef %5), !range !4
+  %675 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %674, i32 noundef %5)
   %676 = load i32, ptr @hf_x11_unused, align 4
   %677 = load i32, ptr %13, align 4
   %678 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %676, ptr noundef %0, i32 noundef %677, i32 noundef 15, i32 noundef 0) #10
@@ -30427,7 +30427,7 @@ timestamp.exit903:                                ; preds = %667, %671
   %682 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %681, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %683 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %684 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %683, i32 noundef %5), !range !5
+  %684 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %683, i32 noundef %5)
   %685 = load i32, ptr @hf_x11_time, align 4
   %686 = load i32, ptr %13, align 4
   %687 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %686, i32 noundef %5) #10
@@ -30496,7 +30496,7 @@ atom.exit912:                                     ; preds = %701, %705, %706, %7
   %721 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %720, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %722 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %723 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %722, i32 noundef %5), !range !5
+  %723 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %722, i32 noundef %5)
   %724 = load i32, ptr @hf_x11_time, align 4
   %725 = load i32, ptr %13, align 4
   %726 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %725, i32 noundef %5) #10
@@ -30638,7 +30638,7 @@ atom.exit935:                                     ; preds = %778, %782, %783, %7
   %798 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %797, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %799 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %800 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %799, i32 noundef %5), !range !5
+  %800 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %799, i32 noundef %5)
   %801 = load i32, ptr @hf_x11_time, align 4
   %802 = load i32, ptr %13, align 4
   %803 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %802, i32 noundef %5) #10
@@ -30778,7 +30778,7 @@ atom.exit958:                                     ; preds = %853, %857, %858, %8
   %873 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %872, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %874 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %875 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %874, i32 noundef %5), !range !5
+  %875 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %874, i32 noundef %5)
   %876 = load i32, ptr @hf_x11_eventwindow, align 4
   %877 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %876, i32 noundef %5)
   %878 = load i32, ptr @hf_x11_cmap, align 4
@@ -30791,7 +30791,7 @@ atom.exit958:                                     ; preds = %853, %857, %858, %8
   %885 = add i32 %881, 1
   store i32 %885, ptr %13, align 4
   %886 = load i32, ptr @hf_x11_colormap_state, align 4
-  %887 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %886, i32 noundef %5), !range !4
+  %887 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %886, i32 noundef %5)
   %888 = load i32, ptr @hf_x11_unused, align 4
   %889 = load i32, ptr %13, align 4
   %890 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %888, ptr noundef %0, i32 noundef %889, i32 noundef 18, i32 noundef 0) #10
@@ -30801,9 +30801,9 @@ atom.exit958:                                     ; preds = %853, %857, %858, %8
 
 892:                                              ; preds = %6
   %893 = load i32, ptr @hf_x11_format, align 4
-  %894 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %893, i32 noundef %5), !range !4
+  %894 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %893, i32 noundef %5)
   %895 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %896 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %895, i32 noundef %5), !range !5
+  %896 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %895, i32 noundef %5)
   %897 = load i32, ptr @hf_x11_eventwindow, align 4
   %898 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %897, i32 noundef %5)
   %899 = load i32, ptr @hf_x11_type, align 4
@@ -30853,13 +30853,13 @@ atom.exit965:                                     ; preds = %903, %907, %908, %9
   %923 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %922, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %13, align 4
   %924 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %925 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %924, i32 noundef %5), !range !5
+  %925 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %924, i32 noundef %5)
   %926 = load i32, ptr @hf_x11_mapping_request, align 4
-  %927 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %926, i32 noundef %5), !range !4
+  %927 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %926, i32 noundef %5)
   %928 = load i32, ptr @hf_x11_first_keycode, align 4
-  %929 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %928, i32 noundef %5), !range !4
+  %929 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %928, i32 noundef %5)
   %930 = load i32, ptr @hf_x11_count, align 4
-  %931 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %930, i32 noundef %5), !range !4
+  %931 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %930, i32 noundef %5)
   %932 = load i32, ptr @hf_x11_unused, align 4
   %933 = load i32, ptr %13, align 4
   %934 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %932, ptr noundef %0, i32 noundef %933, i32 noundef 25, i32 noundef 0) #10
@@ -30887,7 +30887,7 @@ atom.exit965:                                     ; preds = %903, %907, %908, %9
 
 946:                                              ; preds = %944, %942
   %947 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %948 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %947, i32 noundef %5), !range !5
+  %948 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %947, i32 noundef %5)
   %949 = load i32, ptr @hf_x11_eventlength, align 4
   %950 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %949, i32 noundef %5)
   %951 = shl i32 %950, 2
@@ -30923,12 +30923,12 @@ atom.exit965:                                     ; preds = %903, %907, %908, %9
   %967 = getelementptr inbounds i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
   %.not52.i = icmp eq ptr %968, null
-  br i1 %.not52.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not52.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .lr.ph.i:                                         ; preds = %.lr.ph1005
   %969 = load i16, ptr %966, align 8
   %970 = icmp eq i16 %969, %959
-  br i1 %970, label %.lr.ph.i._crit_edge, label %.lr.ph1005, !llvm.loop !41
+  br i1 %970, label %.lr.ph.i._crit_edge, label %.lr.ph1005, !llvm.loop !38
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ %961, %.lr.ph.i.preheader ], [ %968, %.lr.ph.i ]
@@ -30939,7 +30939,7 @@ atom.exit965:                                     ; preds = %903, %907, %908, %9
 
 .loopexit.i:                                      ; preds = %.lr.ph1005, %958, %955, %946
   %972 = load i32, ptr @hf_x11_minor_opcode, align 4
-  %973 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %972, i32 noundef %5), !range !5
+  %973 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %972, i32 noundef %5)
   br label %tryGenericExtensionEvent.exit
 
 974:                                              ; preds = %6
@@ -31495,7 +31495,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 46:                                               ; preds = %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !42
+  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !39
 
 47:                                               ; preds = %40, %46
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %46 ]
@@ -31693,24 +31693,24 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 98:                                               ; preds = %97
   %99 = load i32, ptr @hf_x11_depth, align 4
-  %100 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %99, i32 noundef %5), !range !4
+  %100 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %99, i32 noundef %5)
   %101 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %102 = load i32, ptr @hf_x11_wid, align 4
   %103 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %102, i32 noundef %5)
   %104 = load i32, ptr @hf_x11_parent, align 4
   %105 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %104, i32 noundef %5)
   %106 = load i32, ptr @hf_x11_x, align 4
-  %107 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %106, i32 noundef %5), !range !5
+  %107 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %106, i32 noundef %5)
   %108 = load i32, ptr @hf_x11_y, align 4
-  %109 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %108, i32 noundef %5), !range !5
+  %109 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %108, i32 noundef %5)
   %110 = load i32, ptr @hf_x11_width, align 4
-  %111 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %110, i32 noundef %5), !range !5
+  %111 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %110, i32 noundef %5)
   %112 = load i32, ptr @hf_x11_height, align 4
-  %113 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %112, i32 noundef %5), !range !5
+  %113 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %112, i32 noundef %5)
   %114 = load i32, ptr @hf_x11_border_width, align 4
-  %115 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %114, i32 noundef %5), !range !5
+  %115 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %114, i32 noundef %5)
   %116 = load i32, ptr @hf_x11_window_class, align 4
-  %117 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %116, i32 noundef %5), !range !5
+  %117 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %116, i32 noundef %5)
   %118 = load i32, ptr %7, align 4
   %119 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %118, i32 noundef %5) #10
   %120 = load i32, ptr @hf_x11_visual, align 4
@@ -31743,7 +31743,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 136:                                              ; preds = %97
   %137 = load i32, ptr @hf_x11_save_set_mode, align 4
-  %138 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %137, i32 noundef %5), !range !4
+  %138 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %137, i32 noundef %5)
   %139 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %140 = load i32, ptr @hf_x11_window, align 4
   %141 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %140, i32 noundef %5)
@@ -31759,9 +31759,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %148 = load i32, ptr @hf_x11_parent, align 4
   %149 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %148, i32 noundef %5)
   %150 = load i32, ptr @hf_x11_x, align 4
-  %151 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %150, i32 noundef %5), !range !5
+  %151 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %150, i32 noundef %5)
   %152 = load i32, ptr @hf_x11_y, align 4
-  %153 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %152, i32 noundef %5), !range !5
+  %153 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %152, i32 noundef %5)
   br label %1635
 
 154:                                              ; preds = %97, %97, %97, %97
@@ -31913,7 +31913,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 249:                                              ; preds = %97
   %250 = load i32, ptr @hf_x11_direction, align 4
-  %251 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %250, i32 noundef %5), !range !4
+  %251 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %250, i32 noundef %5)
   %252 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %253 = load i32, ptr @hf_x11_window, align 4
   %254 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %253, i32 noundef %5)
@@ -31930,10 +31930,10 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 261:                                              ; preds = %97
   %262 = load i32, ptr @hf_x11_only_if_exists, align 4
-  %263 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %262), !range !4
+  %263 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %262)
   %264 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %265 = load i32, ptr @hf_x11_name_length, align 4
-  %266 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %265, i32 noundef %5), !range !5
+  %266 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %265, i32 noundef %5)
   %267 = load i32, ptr @hf_x11_unused, align 4
   %268 = load i32, ptr %7, align 4
   %269 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %267, ptr noundef %0, i32 noundef %268, i32 noundef 2, i32 noundef 0) #10
@@ -31965,7 +31965,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 285:                                              ; preds = %97
   %286 = load i32, ptr @hf_x11_mode, align 4
-  %287 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %286, i32 noundef %5), !range !4
+  %287 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %286, i32 noundef %5)
   %288 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %289 = load i32, ptr @hf_x11_window, align 4
   %290 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %289, i32 noundef %5)
@@ -31974,7 +31974,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %292 = load i32, ptr @hf_x11_type, align 4
   call fastcc void @atom(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %292, i32 noundef %5)
   %293 = load i32, ptr @hf_x11_format, align 4
-  %294 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %293, i32 noundef %5), !range !4
+  %294 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %293, i32 noundef %5)
   %295 = load i32, ptr @hf_x11_unused, align 4
   %296 = load i32, ptr %7, align 4
   %297 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %295, ptr noundef %0, i32 noundef %296, i32 noundef 3, i32 noundef 0) #10
@@ -31982,7 +31982,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 %298, ptr %7, align 4
   %299 = load i32, ptr @hf_x11_data_length, align 4
   %300 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %299, i32 noundef %5)
-  %trunc = trunc i32 %294 to i8
+  %trunc = trunc nuw i32 %294 to i8
   switch i8 %trunc, label %317 [
     i8 8, label %301
     i8 16, label %307
@@ -32056,7 +32056,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 334:                                              ; preds = %97
   %335 = load i32, ptr @hf_x11_delete, align 4
-  %336 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %335), !range !4
+  %336 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %335)
   %337 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %338 = load i32, ptr @hf_x11_window, align 4
   %339 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %338, i32 noundef %5)
@@ -32120,7 +32120,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 375:                                              ; preds = %97
   %376 = load i32, ptr @hf_x11_propagate, align 4
-  %377 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %376), !range !4
+  %377 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %376)
   %378 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %379 = load i32, ptr @hf_x11_destination, align 4
   %380 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %379, i32 noundef %5)
@@ -32146,7 +32146,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 396:                                              ; preds = %97
   %397 = load i32, ptr @hf_x11_owner_events, align 4
-  %398 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %397), !range !4
+  %398 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %397)
   %399 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %400 = load i32, ptr @hf_x11_grab_window, align 4
   %401 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %400, i32 noundef %5)
@@ -32157,9 +32157,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %406 = add i32 %402, 2
   store i32 %406, ptr %7, align 4
   %407 = load i32, ptr @hf_x11_pointer_mode, align 4
-  %408 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %407, i32 noundef %5), !range !4
+  %408 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %407, i32 noundef %5)
   %409 = load i32, ptr @hf_x11_keyboard_mode, align 4
-  %410 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %409, i32 noundef %5), !range !4
+  %410 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %409, i32 noundef %5)
   %411 = load i32, ptr @hf_x11_confine_to, align 4
   %412 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %411, i32 noundef %5)
   %413 = load i32, ptr @hf_x11_cursor, align 4
@@ -32179,7 +32179,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 421:                                              ; preds = %97
   %422 = load i32, ptr @hf_x11_owner_events, align 4
-  %423 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %422), !range !4
+  %423 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %422)
   %424 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %425 = load i32, ptr @hf_x11_grab_window, align 4
   %426 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %425, i32 noundef %5)
@@ -32190,15 +32190,15 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %431 = add i32 %427, 2
   store i32 %431, ptr %7, align 4
   %432 = load i32, ptr @hf_x11_pointer_mode, align 4
-  %433 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %432, i32 noundef %5), !range !4
+  %433 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %432, i32 noundef %5)
   %434 = load i32, ptr @hf_x11_keyboard_mode, align 4
-  %435 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %434, i32 noundef %5), !range !4
+  %435 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %434, i32 noundef %5)
   %436 = load i32, ptr @hf_x11_confine_to, align 4
   %437 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %436, i32 noundef %5)
   %438 = load i32, ptr @hf_x11_cursor, align 4
   %439 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %438, i32 noundef %5)
   %440 = load i32, ptr @hf_x11_button, align 4
-  %441 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %440, i32 noundef %5), !range !4
+  %441 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %440, i32 noundef %5)
   %442 = load i32, ptr @hf_x11_unused, align 4
   %443 = load i32, ptr %7, align 4
   %444 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %442, ptr noundef %0, i32 noundef %443, i32 noundef 1, i32 noundef 0) #10
@@ -32209,7 +32209,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 446:                                              ; preds = %97
   %447 = load i32, ptr @hf_x11_button, align 4
-  %448 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %447, i32 noundef %5), !range !4
+  %448 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %447, i32 noundef %5)
   %449 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %450 = load i32, ptr @hf_x11_grab_window, align 4
   %451 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %450, i32 noundef %5)
@@ -32243,16 +32243,16 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 471:                                              ; preds = %97
   %472 = load i32, ptr @hf_x11_owner_events, align 4
-  %473 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %472), !range !4
+  %473 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %472)
   %474 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %475 = load i32, ptr @hf_x11_grab_window, align 4
   %476 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %475, i32 noundef %5)
   %477 = load i32, ptr @hf_x11_time, align 4
   call fastcc void @timestamp(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %477, i32 noundef %5)
   %478 = load i32, ptr @hf_x11_pointer_mode, align 4
-  %479 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %478, i32 noundef %5), !range !4
+  %479 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %478, i32 noundef %5)
   %480 = load i32, ptr @hf_x11_keyboard_mode, align 4
-  %481 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %480, i32 noundef %5), !range !4
+  %481 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %480, i32 noundef %5)
   %482 = load i32, ptr @hf_x11_unused, align 4
   %483 = load i32, ptr %7, align 4
   %484 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %482, ptr noundef %0, i32 noundef %483, i32 noundef 2, i32 noundef 0) #10
@@ -32271,17 +32271,17 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 491:                                              ; preds = %97
   %492 = load i32, ptr @hf_x11_owner_events, align 4
-  %493 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %492), !range !4
+  %493 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %492)
   %494 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %495 = load i32, ptr @hf_x11_grab_window, align 4
   %496 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %495, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5, i32 noundef 0)
   %497 = load i32, ptr @hf_x11_key, align 4
-  %498 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %497, i32 noundef %5), !range !4
+  %498 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %497, i32 noundef %5)
   %499 = load i32, ptr @hf_x11_pointer_mode, align 4
-  %500 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %499, i32 noundef %5), !range !4
+  %500 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %499, i32 noundef %5)
   %501 = load i32, ptr @hf_x11_keyboard_mode, align 4
-  %502 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %501, i32 noundef %5), !range !4
+  %502 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %501, i32 noundef %5)
   %503 = load i32, ptr @hf_x11_unused, align 4
   %504 = load i32, ptr %7, align 4
   %505 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef 3, i32 noundef 0) #10
@@ -32291,7 +32291,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 507:                                              ; preds = %97
   %508 = load i32, ptr @hf_x11_key, align 4
-  %509 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %508, i32 noundef %5), !range !4
+  %509 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %508, i32 noundef %5)
   %510 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %511 = load i32, ptr @hf_x11_grab_window, align 4
   %512 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %511, i32 noundef %5)
@@ -32305,7 +32305,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 517:                                              ; preds = %97
   %518 = load i32, ptr @hf_x11_allow_events_mode, align 4
-  %519 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %518, i32 noundef %5), !range !4
+  %519 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %518, i32 noundef %5)
   %520 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %521 = load i32, ptr @hf_x11_time, align 4
   call fastcc void @timestamp(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %521, i32 noundef %5)
@@ -32357,9 +32357,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %550 = load i32, ptr @hf_x11_dst_window, align 4
   %551 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %550, i32 noundef %5)
   %552 = load i32, ptr @hf_x11_src_x, align 4
-  %553 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %552, i32 noundef %5), !range !5
+  %553 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %552, i32 noundef %5)
   %554 = load i32, ptr @hf_x11_src_y, align 4
-  %555 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %554, i32 noundef %5), !range !5
+  %555 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %554, i32 noundef %5)
   br label %1635
 
 556:                                              ; preds = %97
@@ -32372,22 +32372,22 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %562 = load i32, ptr @hf_x11_warp_pointer_dst_window, align 4
   %563 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %562, i32 noundef %5)
   %564 = load i32, ptr @hf_x11_src_x, align 4
-  %565 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %564, i32 noundef %5), !range !5
+  %565 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %564, i32 noundef %5)
   %566 = load i32, ptr @hf_x11_src_y, align 4
-  %567 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %566, i32 noundef %5), !range !5
+  %567 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %566, i32 noundef %5)
   %568 = load i32, ptr @hf_x11_src_width, align 4
-  %569 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %568, i32 noundef %5), !range !5
+  %569 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %568, i32 noundef %5)
   %570 = load i32, ptr @hf_x11_src_height, align 4
-  %571 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %570, i32 noundef %5), !range !5
+  %571 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %570, i32 noundef %5)
   %572 = load i32, ptr @hf_x11_dst_x, align 4
-  %573 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %572, i32 noundef %5), !range !5
+  %573 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %572, i32 noundef %5)
   %574 = load i32, ptr @hf_x11_dst_y, align 4
-  %575 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %574, i32 noundef %5), !range !5
+  %575 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %574, i32 noundef %5)
   br label %1635
 
 576:                                              ; preds = %97
   %577 = load i32, ptr @hf_x11_revert_to, align 4
-  %578 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %577, i32 noundef %5), !range !4
+  %578 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %577, i32 noundef %5)
   %579 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %580 = load i32, ptr @hf_x11_focus, align 4
   %581 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %580, i32 noundef %5)
@@ -32417,7 +32417,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %595 = load i32, ptr @hf_x11_fid, align 4
   %596 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %595, i32 noundef %5)
   %597 = load i32, ptr @hf_x11_name_length, align 4
-  %598 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %597, i32 noundef %5), !range !5
+  %598 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %597, i32 noundef %5)
   %599 = load i32, ptr @hf_x11_unused, align 4
   %600 = load i32, ptr %7, align 4
   %601 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %599, ptr noundef %0, i32 noundef %600, i32 noundef 2, i32 noundef 0) #10
@@ -32458,7 +32458,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 624:                                              ; preds = %97
   %625 = load i32, ptr @hf_x11_odd_length, align 4
-  %626 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %625), !range !4
+  %626 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %625)
   %627 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %628 = load i32, ptr @hf_x11_font, align 4
   %629 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %628, i32 noundef %5)
@@ -32491,9 +32491,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 2, ptr %7, align 4
   %646 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %647 = load i32, ptr @hf_x11_max_names, align 4
-  %648 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %647, i32 noundef %5), !range !5
+  %648 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %647, i32 noundef %5)
   %649 = load i32, ptr @hf_x11_pattern_length, align 4
-  %650 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %649, i32 noundef %5), !range !5
+  %650 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %649, i32 noundef %5)
   %651 = load i32, ptr @hf_x11_pattern, align 4
   %652 = load i32, ptr %7, align 4
   %653 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %651, ptr noundef %0, i32 noundef %652, i32 noundef %650, i32 noundef 0) #10
@@ -32517,9 +32517,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 2, ptr %7, align 4
   %664 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %665 = load i32, ptr @hf_x11_max_names, align 4
-  %666 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %665, i32 noundef %5), !range !5
+  %666 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %665, i32 noundef %5)
   %667 = load i32, ptr @hf_x11_pattern_length, align 4
-  %668 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %667, i32 noundef %5), !range !5
+  %668 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %667, i32 noundef %5)
   %669 = load i32, ptr @hf_x11_pattern, align 4
   %670 = load i32, ptr %7, align 4
   %671 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %669, ptr noundef %0, i32 noundef %670, i32 noundef %668, i32 noundef 0) #10
@@ -32543,7 +32543,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 2, ptr %7, align 4
   %682 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %683 = load i32, ptr @hf_x11_str_number_in_path, align 4
-  %684 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %683, i32 noundef %5), !range !5
+  %684 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %683, i32 noundef %5)
   %685 = load i32, ptr @hf_x11_unused, align 4
   %686 = load i32, ptr %7, align 4
   %687 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %685, ptr noundef %0, i32 noundef %686, i32 noundef 2, i32 noundef 0) #10
@@ -32575,16 +32575,16 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 702:                                              ; preds = %97
   %703 = load i32, ptr @hf_x11_depth, align 4
-  %704 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %703, i32 noundef %5), !range !4
+  %704 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %703, i32 noundef %5)
   %705 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %706 = load i32, ptr @hf_x11_pid, align 4
   %707 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %706, i32 noundef %5)
   %708 = load i32, ptr @hf_x11_drawable, align 4
   %709 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %708, i32 noundef %5)
   %710 = load i32, ptr @hf_x11_width, align 4
-  %711 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %710, i32 noundef %5), !range !5
+  %711 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %710, i32 noundef %5)
   %712 = load i32, ptr @hf_x11_height, align 4
-  %713 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %712, i32 noundef %5), !range !5
+  %713 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %712, i32 noundef %5)
   br label %1635
 
 714:                                              ; preds = %97
@@ -32643,9 +32643,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %751 = load i32, ptr @hf_x11_gc, align 4
   %752 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %751, i32 noundef %5)
   %753 = load i32, ptr @hf_x11_dash_offset, align 4
-  %754 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %753, i32 noundef %5), !range !5
+  %754 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %753, i32 noundef %5)
   %755 = load i32, ptr @hf_x11_dashes_length, align 4
-  %756 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %755, i32 noundef %5), !range !5
+  %756 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %755, i32 noundef %5)
   %757 = load i32, ptr @hf_x11_dashes, align 4
   %758 = tail call i32 @llvm.umax.i32(i32 %756, i32 1)
   %759 = load i32, ptr %7, align 4
@@ -32666,14 +32666,14 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 768:                                              ; preds = %97
   %769 = load i32, ptr @hf_x11_ordering, align 4
-  %770 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %769, i32 noundef %5), !range !4
+  %770 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %769, i32 noundef %5)
   %771 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %772 = load i32, ptr @hf_x11_gc, align 4
   %773 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %772, i32 noundef %5)
   %774 = load i32, ptr @hf_x11_clip_x_origin, align 4
-  %775 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %774, i32 noundef %5), !range !5
+  %775 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %774, i32 noundef %5)
   %776 = load i32, ptr @hf_x11_clip_y_origin, align 4
-  %777 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %776, i32 noundef %5), !range !5
+  %777 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %776, i32 noundef %5)
   %778 = load i32, ptr @hf_x11_rectangles, align 4
   %779 = load i32, ptr %7, align 4
   %780 = sub i32 %.02784, %779
@@ -32692,18 +32692,18 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 788:                                              ; preds = %97
   %789 = load i32, ptr @hf_x11_exposures, align 4
-  %790 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %789), !range !4
+  %790 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %789)
   %791 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %792 = load i32, ptr @hf_x11_window, align 4
   %793 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %792, i32 noundef %5)
   %794 = load i32, ptr @hf_x11_x, align 4
-  %795 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %794, i32 noundef %5), !range !5
+  %795 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %794, i32 noundef %5)
   %796 = load i32, ptr @hf_x11_y, align 4
-  %797 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %796, i32 noundef %5), !range !5
+  %797 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %796, i32 noundef %5)
   %798 = load i32, ptr @hf_x11_width, align 4
-  %799 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %798, i32 noundef %5), !range !5
+  %799 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %798, i32 noundef %5)
   %800 = load i32, ptr @hf_x11_height, align 4
-  %801 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %800, i32 noundef %5), !range !5
+  %801 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %800, i32 noundef %5)
   br label %1635
 
 802:                                              ; preds = %97
@@ -32718,17 +32718,17 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %810 = load i32, ptr @hf_x11_gc, align 4
   %811 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %810, i32 noundef %5)
   %812 = load i32, ptr @hf_x11_src_x, align 4
-  %813 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %812, i32 noundef %5), !range !5
+  %813 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %812, i32 noundef %5)
   %814 = load i32, ptr @hf_x11_src_y, align 4
-  %815 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %814, i32 noundef %5), !range !5
+  %815 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %814, i32 noundef %5)
   %816 = load i32, ptr @hf_x11_dst_x, align 4
-  %817 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %816, i32 noundef %5), !range !5
+  %817 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %816, i32 noundef %5)
   %818 = load i32, ptr @hf_x11_dst_y, align 4
-  %819 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %818, i32 noundef %5), !range !5
+  %819 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %818, i32 noundef %5)
   %820 = load i32, ptr @hf_x11_width, align 4
-  %821 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %820, i32 noundef %5), !range !5
+  %821 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %820, i32 noundef %5)
   %822 = load i32, ptr @hf_x11_height, align 4
-  %823 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %822, i32 noundef %5), !range !5
+  %823 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %822, i32 noundef %5)
   br label %1635
 
 824:                                              ; preds = %97
@@ -32743,24 +32743,24 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %832 = load i32, ptr @hf_x11_gc, align 4
   %833 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %832, i32 noundef %5)
   %834 = load i32, ptr @hf_x11_src_x, align 4
-  %835 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %834, i32 noundef %5), !range !5
+  %835 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %834, i32 noundef %5)
   %836 = load i32, ptr @hf_x11_src_y, align 4
-  %837 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %836, i32 noundef %5), !range !5
+  %837 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %836, i32 noundef %5)
   %838 = load i32, ptr @hf_x11_dst_x, align 4
-  %839 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %838, i32 noundef %5), !range !5
+  %839 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %838, i32 noundef %5)
   %840 = load i32, ptr @hf_x11_dst_y, align 4
-  %841 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %840, i32 noundef %5), !range !5
+  %841 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %840, i32 noundef %5)
   %842 = load i32, ptr @hf_x11_width, align 4
-  %843 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %842, i32 noundef %5), !range !5
+  %843 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %842, i32 noundef %5)
   %844 = load i32, ptr @hf_x11_height, align 4
-  %845 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %844, i32 noundef %5), !range !5
+  %845 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %844, i32 noundef %5)
   %846 = load i32, ptr @hf_x11_bit_plane, align 4
   %847 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %846, i32 noundef %5)
   br label %1635
 
 848:                                              ; preds = %97
   %849 = load i32, ptr @hf_x11_coordinate_mode, align 4
-  %850 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %849, i32 noundef %5), !range !4
+  %850 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %849, i32 noundef %5)
   %851 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %852 = load i32, ptr @hf_x11_drawable, align 4
   %853 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %852, i32 noundef %5)
@@ -32775,7 +32775,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 860:                                              ; preds = %97
   %861 = load i32, ptr @hf_x11_coordinate_mode, align 4
-  %862 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %861, i32 noundef %5), !range !4
+  %862 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %861, i32 noundef %5)
   %863 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %864 = load i32, ptr @hf_x11_drawable, align 4
   %865 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %864, i32 noundef %5)
@@ -32846,9 +32846,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %914 = load i32, ptr @hf_x11_gc, align 4
   %915 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %914, i32 noundef %5)
   %916 = load i32, ptr @hf_x11_shape, align 4
-  %917 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %916, i32 noundef %5), !range !4
+  %917 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %916, i32 noundef %5)
   %918 = load i32, ptr @hf_x11_coordinate_mode, align 4
-  %919 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %918, i32 noundef %5), !range !4
+  %919 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %918, i32 noundef %5)
   %920 = load i32, ptr @hf_x11_unused, align 4
   %921 = load i32, ptr %7, align 4
   %922 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %920, ptr noundef %0, i32 noundef %921, i32 noundef 2, i32 noundef 0) #10
@@ -32895,24 +32895,24 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 952:                                              ; preds = %97
   %953 = load i32, ptr @hf_x11_image_format, align 4
-  %954 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %953, i32 noundef %5), !range !4
+  %954 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %953, i32 noundef %5)
   %955 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %956 = load i32, ptr @hf_x11_drawable, align 4
   %957 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %956, i32 noundef %5)
   %958 = load i32, ptr @hf_x11_gc, align 4
   %959 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %958, i32 noundef %5)
   %960 = load i32, ptr @hf_x11_width, align 4
-  %961 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %960, i32 noundef %5), !range !5
+  %961 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %960, i32 noundef %5)
   %962 = load i32, ptr @hf_x11_height, align 4
-  %963 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %962, i32 noundef %5), !range !5
+  %963 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %962, i32 noundef %5)
   %964 = load i32, ptr @hf_x11_dst_x, align 4
-  %965 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %964, i32 noundef %5), !range !5
+  %965 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %964, i32 noundef %5)
   %966 = load i32, ptr @hf_x11_dst_y, align 4
-  %967 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %966, i32 noundef %5), !range !5
+  %967 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %966, i32 noundef %5)
   %968 = load i32, ptr @hf_x11_left_pad, align 4
-  %969 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %968, i32 noundef %5), !range !4
+  %969 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %968, i32 noundef %5)
   %970 = load i32, ptr @hf_x11_depth, align 4
-  %971 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %970, i32 noundef %5), !range !4
+  %971 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %970, i32 noundef %5)
   %972 = load i32, ptr @hf_x11_unused, align 4
   %973 = load i32, ptr %7, align 4
   %974 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %972, ptr noundef %0, i32 noundef %973, i32 noundef 2, i32 noundef 0) #10
@@ -32938,18 +32938,18 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 987:                                              ; preds = %97
   %988 = load i32, ptr @hf_x11_image_pixmap_format, align 4
-  %989 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %988, i32 noundef %5), !range !4
+  %989 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %988, i32 noundef %5)
   %990 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %991 = load i32, ptr @hf_x11_drawable, align 4
   %992 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %991, i32 noundef %5)
   %993 = load i32, ptr @hf_x11_x, align 4
-  %994 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %993, i32 noundef %5), !range !5
+  %994 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %993, i32 noundef %5)
   %995 = load i32, ptr @hf_x11_y, align 4
-  %996 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %995, i32 noundef %5), !range !5
+  %996 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %995, i32 noundef %5)
   %997 = load i32, ptr @hf_x11_width, align 4
-  %998 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %997, i32 noundef %5), !range !5
+  %998 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %997, i32 noundef %5)
   %999 = load i32, ptr @hf_x11_height, align 4
-  %1000 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %999, i32 noundef %5), !range !5
+  %1000 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %999, i32 noundef %5)
   %1001 = load i32, ptr @hf_x11_plane_mask, align 4
   %1002 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1001, i32 noundef %5)
   br label %1635
@@ -32964,9 +32964,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1009 = load i32, ptr @hf_x11_gc, align 4
   %1010 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1009, i32 noundef %5)
   %1011 = load i32, ptr @hf_x11_x, align 4
-  %1012 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1011, i32 noundef %5), !range !5
+  %1012 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1011, i32 noundef %5)
   %1013 = load i32, ptr @hf_x11_y, align 4
-  %1014 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1013, i32 noundef %5), !range !5
+  %1014 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1013, i32 noundef %5)
   %1015 = load i32, ptr @hf_x11_items, align 4
   call fastcc void @listOfTextItem(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1015, i32 noundef 0, i32 noundef %.02784, i32 noundef %5)
   %1016 = load i32, ptr %7, align 4
@@ -32993,9 +32993,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1029 = load i32, ptr @hf_x11_gc, align 4
   %1030 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1029, i32 noundef %5)
   %1031 = load i32, ptr @hf_x11_x, align 4
-  %1032 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1031, i32 noundef %5), !range !5
+  %1032 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1031, i32 noundef %5)
   %1033 = load i32, ptr @hf_x11_y, align 4
-  %1034 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1033, i32 noundef %5), !range !5
+  %1034 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1033, i32 noundef %5)
   %1035 = load i32, ptr @hf_x11_items, align 4
   call fastcc void @listOfTextItem(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1035, i32 noundef 1, i32 noundef %.02784, i32 noundef %5)
   %1036 = load i32, ptr %7, align 4
@@ -33014,16 +33014,16 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1043:                                             ; preds = %97
   %1044 = load i32, ptr @hf_x11_string_length, align 4
-  %1045 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1044, i32 noundef %5), !range !4
+  %1045 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1044, i32 noundef %5)
   %1046 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1047 = load i32, ptr @hf_x11_drawable, align 4
   %1048 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1047, i32 noundef %5)
   %1049 = load i32, ptr @hf_x11_gc, align 4
   %1050 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1049, i32 noundef %5)
   %1051 = load i32, ptr @hf_x11_x, align 4
-  %1052 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1051, i32 noundef %5), !range !5
+  %1052 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1051, i32 noundef %5)
   %1053 = load i32, ptr @hf_x11_y, align 4
-  %1054 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1053, i32 noundef %5), !range !5
+  %1054 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1053, i32 noundef %5)
   %1055 = load i32, ptr @hf_x11_string, align 4
   %1056 = load i32, ptr %7, align 4
   %1057 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1055, ptr noundef %0, i32 noundef %1056, i32 noundef %1045, i32 noundef 0) #10
@@ -33043,16 +33043,16 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1065:                                             ; preds = %97
   %1066 = load i32, ptr @hf_x11_string_length, align 4
-  %1067 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1066, i32 noundef %5), !range !4
+  %1067 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1066, i32 noundef %5)
   %1068 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1069 = load i32, ptr @hf_x11_drawable, align 4
   %1070 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1069, i32 noundef %5)
   %1071 = load i32, ptr @hf_x11_gc, align 4
   %1072 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1071, i32 noundef %5)
   %1073 = load i32, ptr @hf_x11_x, align 4
-  %1074 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1073, i32 noundef %5), !range !5
+  %1074 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1073, i32 noundef %5)
   %1075 = load i32, ptr @hf_x11_y, align 4
-  %1076 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1075, i32 noundef %5), !range !5
+  %1076 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1075, i32 noundef %5)
   %1077 = load i32, ptr @hf_x11_string16, align 4
   %1078 = load i32, ptr @hf_x11_string16_bytes, align 4
   call fastcc void @string16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1077, i32 noundef %1078, i32 noundef %1067, i32 noundef %5)
@@ -33072,7 +33072,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1086:                                             ; preds = %97
   %1087 = load i32, ptr @hf_x11_alloc, align 4
-  %1088 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1087, i32 noundef %5), !range !4
+  %1088 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1087, i32 noundef %5)
   %1089 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1090 = load i32, ptr @hf_x11_mid, align 4
   %1091 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1090, i32 noundef %5)
@@ -33143,11 +33143,11 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1136 = load i32, ptr @hf_x11_cmap, align 4
   %1137 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1136, i32 noundef %5)
   %1138 = load i32, ptr @hf_x11_red, align 4
-  %1139 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1138, i32 noundef %5), !range !5
+  %1139 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1138, i32 noundef %5)
   %1140 = load i32, ptr @hf_x11_green, align 4
-  %1141 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1140, i32 noundef %5), !range !5
+  %1141 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1140, i32 noundef %5)
   %1142 = load i32, ptr @hf_x11_blue, align 4
-  %1143 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1142, i32 noundef %5), !range !5
+  %1143 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1142, i32 noundef %5)
   %1144 = load i32, ptr @hf_x11_unused, align 4
   %1145 = load i32, ptr %7, align 4
   %1146 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1144, ptr noundef %0, i32 noundef %1145, i32 noundef 2, i32 noundef 0) #10
@@ -33163,7 +33163,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1152 = load i32, ptr @hf_x11_cmap, align 4
   %1153 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1152, i32 noundef %5)
   %1154 = load i32, ptr @hf_x11_name_length, align 4
-  %1155 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1154, i32 noundef %5), !range !5
+  %1155 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1154, i32 noundef %5)
   %1156 = load i32, ptr @hf_x11_unused, align 4
   %1157 = load i32, ptr %7, align 4
   %1158 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1156, ptr noundef %0, i32 noundef %1157, i32 noundef 2, i32 noundef 0) #10
@@ -33186,30 +33186,30 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1169:                                             ; preds = %97
   %1170 = load i32, ptr @hf_x11_contiguous, align 4
-  %1171 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1170), !range !4
+  %1171 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1170)
   %1172 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1173 = load i32, ptr @hf_x11_cmap, align 4
   %1174 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1173, i32 noundef %5)
   %1175 = load i32, ptr @hf_x11_colors, align 4
-  %1176 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1175, i32 noundef %5), !range !5
+  %1176 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1175, i32 noundef %5)
   %1177 = load i32, ptr @hf_x11_planes, align 4
-  %1178 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1177, i32 noundef %5), !range !5
+  %1178 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1177, i32 noundef %5)
   br label %1635
 
 1179:                                             ; preds = %97
   %1180 = load i32, ptr @hf_x11_contiguous, align 4
-  %1181 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1180), !range !4
+  %1181 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1180)
   %1182 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1183 = load i32, ptr @hf_x11_cmap, align 4
   %1184 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1183, i32 noundef %5)
   %1185 = load i32, ptr @hf_x11_colors, align 4
-  %1186 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1185, i32 noundef %5), !range !5
+  %1186 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1185, i32 noundef %5)
   %1187 = load i32, ptr @hf_x11_reds, align 4
-  %1188 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1187, i32 noundef %5), !range !5
+  %1188 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1187, i32 noundef %5)
   %1189 = load i32, ptr @hf_x11_greens, align 4
-  %1190 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1189, i32 noundef %5), !range !5
+  %1190 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1189, i32 noundef %5)
   %1191 = load i32, ptr @hf_x11_blues, align 4
-  %1192 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1191, i32 noundef %5), !range !5
+  %1192 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1191, i32 noundef %5)
   br label %1635
 
 1193:                                             ; preds = %97
@@ -33251,7 +33251,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1220 = load i32, ptr @hf_x11_pixel, align 4
   %1221 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1220, i32 noundef %5)
   %1222 = load i32, ptr @hf_x11_name_length, align 4
-  %1223 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1222, i32 noundef %5), !range !5
+  %1223 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1222, i32 noundef %5)
   %1224 = load i32, ptr @hf_x11_unused, align 4
   %1225 = load i32, ptr %7, align 4
   %1226 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1224, ptr noundef %0, i32 noundef %1225, i32 noundef 2, i32 noundef 0) #10
@@ -33295,7 +33295,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1252 = load i32, ptr @hf_x11_cmap, align 4
   %1253 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1252, i32 noundef %5)
   %1254 = load i32, ptr @hf_x11_name_length, align 4
-  %1255 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1254, i32 noundef %5), !range !5
+  %1255 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1254, i32 noundef %5)
   %1256 = load i32, ptr @hf_x11_unused, align 4
   %1257 = load i32, ptr %7, align 4
   %1258 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1256, ptr noundef %0, i32 noundef %1257, i32 noundef 2, i32 noundef 0) #10
@@ -33328,21 +33328,21 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1277 = load i32, ptr @hf_x11_mask, align 4
   %1278 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1277, i32 noundef %5)
   %1279 = load i32, ptr @hf_x11_fore_red, align 4
-  %1280 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1279, i32 noundef %5), !range !5
+  %1280 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1279, i32 noundef %5)
   %1281 = load i32, ptr @hf_x11_fore_green, align 4
-  %1282 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1281, i32 noundef %5), !range !5
+  %1282 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1281, i32 noundef %5)
   %1283 = load i32, ptr @hf_x11_fore_blue, align 4
-  %1284 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1283, i32 noundef %5), !range !5
+  %1284 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1283, i32 noundef %5)
   %1285 = load i32, ptr @hf_x11_back_red, align 4
-  %1286 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1285, i32 noundef %5), !range !5
+  %1286 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1285, i32 noundef %5)
   %1287 = load i32, ptr @hf_x11_back_green, align 4
-  %1288 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1287, i32 noundef %5), !range !5
+  %1288 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1287, i32 noundef %5)
   %1289 = load i32, ptr @hf_x11_back_blue, align 4
-  %1290 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1289, i32 noundef %5), !range !5
+  %1290 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1289, i32 noundef %5)
   %1291 = load i32, ptr @hf_x11_x, align 4
-  %1292 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1291, i32 noundef %5), !range !5
+  %1292 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1291, i32 noundef %5)
   %1293 = load i32, ptr @hf_x11_y, align 4
-  %1294 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1293, i32 noundef %5), !range !5
+  %1294 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1293, i32 noundef %5)
   br label %1635
 
 1295:                                             ; preds = %97
@@ -33357,21 +33357,21 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1303 = load i32, ptr @hf_x11_mask_font, align 4
   %1304 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1303, i32 noundef %5)
   %1305 = load i32, ptr @hf_x11_source_char, align 4
-  %1306 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1305, i32 noundef %5), !range !5
+  %1306 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1305, i32 noundef %5)
   %1307 = load i32, ptr @hf_x11_mask_char, align 4
-  %1308 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1307, i32 noundef %5), !range !5
+  %1308 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1307, i32 noundef %5)
   %1309 = load i32, ptr @hf_x11_fore_red, align 4
-  %1310 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1309, i32 noundef %5), !range !5
+  %1310 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1309, i32 noundef %5)
   %1311 = load i32, ptr @hf_x11_fore_green, align 4
-  %1312 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1311, i32 noundef %5), !range !5
+  %1312 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1311, i32 noundef %5)
   %1313 = load i32, ptr @hf_x11_fore_blue, align 4
-  %1314 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1313, i32 noundef %5), !range !5
+  %1314 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1313, i32 noundef %5)
   %1315 = load i32, ptr @hf_x11_back_red, align 4
-  %1316 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1315, i32 noundef %5), !range !5
+  %1316 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1315, i32 noundef %5)
   %1317 = load i32, ptr @hf_x11_back_green, align 4
-  %1318 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1317, i32 noundef %5), !range !5
+  %1318 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1317, i32 noundef %5)
   %1319 = load i32, ptr @hf_x11_back_blue, align 4
-  %1320 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1319, i32 noundef %5), !range !5
+  %1320 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1319, i32 noundef %5)
   br label %1635
 
 1321:                                             ; preds = %97
@@ -33391,29 +33391,29 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1331 = load i32, ptr @hf_x11_cursor, align 4
   %1332 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1331, i32 noundef %5)
   %1333 = load i32, ptr @hf_x11_fore_red, align 4
-  %1334 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1333, i32 noundef %5), !range !5
+  %1334 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1333, i32 noundef %5)
   %1335 = load i32, ptr @hf_x11_fore_green, align 4
-  %1336 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1335, i32 noundef %5), !range !5
+  %1336 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1335, i32 noundef %5)
   %1337 = load i32, ptr @hf_x11_fore_blue, align 4
-  %1338 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1337, i32 noundef %5), !range !5
+  %1338 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1337, i32 noundef %5)
   %1339 = load i32, ptr @hf_x11_back_red, align 4
-  %1340 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1339, i32 noundef %5), !range !5
+  %1340 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1339, i32 noundef %5)
   %1341 = load i32, ptr @hf_x11_back_green, align 4
-  %1342 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1341, i32 noundef %5), !range !5
+  %1342 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1341, i32 noundef %5)
   %1343 = load i32, ptr @hf_x11_back_blue, align 4
-  %1344 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1343, i32 noundef %5), !range !5
+  %1344 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1343, i32 noundef %5)
   br label %1635
 
 1345:                                             ; preds = %97
   %1346 = load i32, ptr @hf_x11_class, align 4
-  %1347 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1346, i32 noundef %5), !range !4
+  %1347 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1346, i32 noundef %5)
   %1348 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1349 = load i32, ptr @hf_x11_drawable, align 4
   %1350 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1349, i32 noundef %5)
   %1351 = load i32, ptr @hf_x11_width, align 4
-  %1352 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1351, i32 noundef %5), !range !5
+  %1352 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1351, i32 noundef %5)
   %1353 = load i32, ptr @hf_x11_height, align 4
-  %1354 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1353, i32 noundef %5), !range !5
+  %1354 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1353, i32 noundef %5)
   br label %1635
 
 1355:                                             ; preds = %97
@@ -33422,7 +33422,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 2, ptr %7, align 4
   %1358 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1359 = load i32, ptr @hf_x11_name_length, align 4
-  %1360 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1359, i32 noundef %5), !range !5
+  %1360 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1359, i32 noundef %5)
   %1361 = load i32, ptr @hf_x11_unused, align 4
   %1362 = load i32, ptr %7, align 4
   %1363 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1361, ptr noundef %0, i32 noundef %1362, i32 noundef 2, i32 noundef 0) #10
@@ -33452,12 +33452,12 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1378:                                             ; preds = %97
   %1379 = load i32, ptr @hf_x11_keycode_count, align 4
-  %1380 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1379, i32 noundef %5), !range !4
+  %1380 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1379, i32 noundef %5)
   %1381 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1382 = load i32, ptr @hf_x11_first_keycode, align 4
-  %1383 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1382, i32 noundef %5), !range !4
+  %1383 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1382, i32 noundef %5)
   %1384 = load i32, ptr @hf_x11_keysyms_per_keycode, align 4
-  %1385 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1384, i32 noundef %5), !range !4
+  %1385 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1384, i32 noundef %5)
   %1386 = load i32, ptr @hf_x11_unused, align 4
   %1387 = load i32, ptr %7, align 4
   %1388 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1386, ptr noundef %0, i32 noundef %1387, i32 noundef 2, i32 noundef 0) #10
@@ -33475,11 +33475,11 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 2, ptr %7, align 4
   %1396 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1397 = load i32, ptr @hf_x11_first_keycode, align 4
-  %1398 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1397, i32 noundef %5), !range !4
+  %1398 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1397, i32 noundef %5)
   %1399 = getelementptr inbounds i8, ptr %4, i64 12468
   store i32 %1398, ptr %1399, align 4
   %1400 = load i32, ptr @hf_x11_count, align 4
-  %1401 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1400, i32 noundef %5), !range !4
+  %1401 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1400, i32 noundef %5)
   %1402 = load i32, ptr @hf_x11_unused, align 4
   %1403 = load i32, ptr %7, align 4
   %1404 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1402, ptr noundef %0, i32 noundef %1403, i32 noundef 2, i32 noundef 0) #10
@@ -33634,7 +33634,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1498:                                             ; preds = %97
   %1499 = load i32, ptr @hf_x11_percent, align 4
-  %1500 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1499, i32 noundef %5), !range !4
+  %1500 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1499, i32 noundef %5)
   %1501 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   br label %1635
 
@@ -33644,15 +33644,15 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 2, ptr %7, align 4
   %1505 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1506 = load i32, ptr @hf_x11_acceleration_numerator, align 4
-  %1507 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1506, i32 noundef %5), !range !5
+  %1507 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1506, i32 noundef %5)
   %1508 = load i32, ptr @hf_x11_acceleration_denominator, align 4
-  %1509 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1508, i32 noundef %5), !range !5
+  %1509 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1508, i32 noundef %5)
   %1510 = load i32, ptr @hf_x11_threshold, align 4
-  %1511 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1510, i32 noundef %5), !range !5
+  %1511 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1510, i32 noundef %5)
   %1512 = load i32, ptr @hf_x11_do_acceleration, align 4
-  %1513 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1512), !range !4
+  %1513 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1512)
   %1514 = load i32, ptr @hf_x11_do_threshold, align 4
-  %1515 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1514), !range !4
+  %1515 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1514)
   br label %1635
 
 1516:                                             ; preds = %97
@@ -33668,13 +33668,13 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 2, ptr %7, align 4
   %1523 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1524 = load i32, ptr @hf_x11_timeout, align 4
-  %1525 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1524, i32 noundef %5), !range !5
+  %1525 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1524, i32 noundef %5)
   %1526 = load i32, ptr @hf_x11_interval, align 4
-  %1527 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1526, i32 noundef %5), !range !5
+  %1527 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1526, i32 noundef %5)
   %1528 = load i32, ptr @hf_x11_prefer_blanking, align 4
-  %1529 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1528, i32 noundef %5), !range !4
+  %1529 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1528, i32 noundef %5)
   %1530 = load i32, ptr @hf_x11_allow_exposures, align 4
-  %1531 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1530, i32 noundef %5), !range !4
+  %1531 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1530, i32 noundef %5)
   %1532 = load i32, ptr @hf_x11_unused, align 4
   %1533 = load i32, ptr %7, align 4
   %1534 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1532, ptr noundef %0, i32 noundef %1533, i32 noundef 2, i32 noundef 0) #10
@@ -33691,17 +33691,17 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1540:                                             ; preds = %97
   %1541 = load i32, ptr @hf_x11_change_host_mode, align 4
-  %1542 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1541, i32 noundef %5), !range !4
+  %1542 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1541, i32 noundef %5)
   %1543 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1544 = load i32, ptr @hf_x11_family, align 4
-  %1545 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1544, i32 noundef %5), !range !4
+  %1545 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1544, i32 noundef %5)
   %1546 = load i32, ptr @hf_x11_unused, align 4
   %1547 = load i32, ptr %7, align 4
   %1548 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1546, ptr noundef %0, i32 noundef %1547, i32 noundef 1, i32 noundef 0) #10
   %1549 = add i32 %1547, 1
   store i32 %1549, ptr %7, align 4
   %1550 = load i32, ptr @hf_x11_address_length, align 4
-  %1551 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1550, i32 noundef %5), !range !5
+  %1551 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1550, i32 noundef %5)
   %1552 = icmp eq i32 %1545, 0
   %1553 = icmp eq i32 %1551, 4
   %or.cond4 = select i1 %1552, i1 %1553, i1 false
@@ -33733,13 +33733,13 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1569:                                             ; preds = %97
   %1570 = load i32, ptr @hf_x11_access_mode, align 4
-  %1571 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1570, i32 noundef %5), !range !4
+  %1571 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1570, i32 noundef %5)
   %1572 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   br label %1635
 
 1573:                                             ; preds = %97
   %1574 = load i32, ptr @hf_x11_close_down_mode, align 4
-  %1575 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1574, i32 noundef %5), !range !4
+  %1575 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1574, i32 noundef %5)
   %1576 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   br label %1635
 
@@ -33760,9 +33760,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1587 = load i32, ptr @hf_x11_window, align 4
   %1588 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1587, i32 noundef %5)
   %1589 = load i32, ptr @hf_x11_property_number, align 4
-  %1590 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1589, i32 noundef %5), !range !5
+  %1590 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1589, i32 noundef %5)
   %1591 = load i32, ptr @hf_x11_delta, align 4
-  %1592 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1591, i32 noundef %5), !range !5
+  %1592 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1591, i32 noundef %5)
   %1593 = load i32, ptr @hf_x11_properties, align 4
   %1594 = and i32 %1586, 65535
   %1595 = add nsw i32 %1594, -12
@@ -33772,13 +33772,13 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1597:                                             ; preds = %97
   %1598 = load i32, ptr @hf_x11_screen_saver_mode, align 4
-  %1599 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1598, i32 noundef %5), !range !4
+  %1599 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1598, i32 noundef %5)
   %1600 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   br label %1635
 
 1601:                                             ; preds = %97
   %1602 = load i32, ptr @hf_x11_map_length, align 4
-  %1603 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1602, i32 noundef %5), !range !4
+  %1603 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1602, i32 noundef %5)
   %1604 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1605 = load i32, ptr @hf_x11_map, align 4
   %1606 = tail call i32 @llvm.umax.i32(i32 %1603, i32 1)
@@ -33807,7 +33807,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 1620:                                             ; preds = %97
   %1621 = load i32, ptr @hf_x11_keycodes_per_modifier, align 4
-  %1622 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1621, i32 noundef %5), !range !4
+  %1622 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1621, i32 noundef %5)
   %1623 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1624 = load i32, ptr @hf_x11_keycodes, align 4
   %1625 = getelementptr inbounds i8, ptr %4, i64 12400
@@ -34158,7 +34158,7 @@ define internal fastcc void @listOfCard16(ptr noundef %0, ptr nocapture noundef 
   %17 = add i32 %16, 2
   store i32 %17, ptr %1, align 4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   ret void
@@ -34187,7 +34187,7 @@ define internal fastcc void @listOfCard32(ptr noundef %0, ptr nocapture noundef 
   %17 = add i32 %16, 4
   store i32 %17, ptr %1, align 4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   ret void
@@ -34215,7 +34215,7 @@ define internal fastcc void @string16(ptr noundef %0, ptr nocapture noundef %1, 
   %12 = add i32 %.059.i, 2
   %13 = add i32 %.010.i, -1
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !42
 
 .loopexit.loopexit:                               ; preds = %11
   %.pre = load i32, ptr %1, align 4
@@ -34249,7 +34249,7 @@ define internal fastcc void @string16(ptr noundef %0, ptr nocapture noundef %1, 
 25:                                               ; preds = %24, %23
   %26 = add i32 %.012.i, 2
   %.not.i22 = icmp eq i32 %19, 0
-  br i1 %.not.i22, label %tvb_get_ascii_string16.exit, label %.lr.ph.i21, !llvm.loop !46
+  br i1 %.not.i22, label %tvb_get_ascii_string16.exit, label %.lr.ph.i21, !llvm.loop !43
 
 tvb_get_ascii_string16.exit:                      ; preds = %25, %.loopexit
   %27 = tail call ptr @wmem_strbuf_finalize(ptr noundef %18) #10
@@ -34284,7 +34284,7 @@ define internal fastcc void @listOfString8(ptr noundef %0, ptr nocapture noundef
   %12 = add i32 %11, %10
   %13 = add i32 %.03134, -1
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %1, align 4
@@ -34320,7 +34320,7 @@ define internal fastcc void @listOfString8(ptr noundef %0, ptr nocapture noundef
   %31 = add i32 %30, %28
   store i32 %31, ptr %1, align 4
   %.not32 = icmp eq i32 %20, 0
-  br i1 %.not32, label %._crit_edge40, label %.lr.ph39, !llvm.loop !48
+  br i1 %.not32, label %._crit_edge40, label %.lr.ph39, !llvm.loop !45
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
   ret void
@@ -34800,7 +34800,7 @@ define internal fastcc void @listOfRectangle(ptr noundef %0, ptr nocapture nound
   %49 = add i32 %48, 2
   store i32 %49, ptr %1, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -34847,7 +34847,7 @@ define internal fastcc void @listOfPoint(ptr noundef %0, ptr nocapture noundef %
   %33 = add i32 %32, 2
   store i32 %33, ptr %1, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -34912,7 +34912,7 @@ define internal fastcc void @listOfSegment(ptr noundef %0, ptr nocapture noundef
   %49 = add i32 %48, 2
   store i32 %49, ptr %1, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -34999,7 +34999,7 @@ define internal fastcc void @listOfArc(ptr noundef %0, ptr nocapture noundef %1,
   %69 = add i32 %68, 2
   store i32 %69, ptr %1, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -35031,7 +35031,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
   %17 = select i1 %15, i32 4, i32 %16
   %18 = add i32 %17, %11
   %19 = icmp slt i32 %18, %5
-  br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !53
+  br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
   %.0112 = phi i32 [ %28, %22 ], [ %8, %.lr.ph ]
@@ -35050,7 +35050,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
   %27 = select i1 %25, i32 4, i32 %26
   %28 = add i32 %27, %21
   %29 = icmp slt i32 %28, %5
-  br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !53
+  br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph.split, %12, %.lr.ph.split.us, %7
   %.099.lcssa = phi i32 [ 0, %7 ], [ %.099111.us, %.lr.ph.split.us ], [ %14, %12 ], [ %.099111, %.lr.ph.split ], [ %24, %22 ]
@@ -35118,7 +35118,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
   store i32 %73, ptr %1, align 4
   %74 = add i32 %37, -1
   %.not103.us = icmp eq i32 %37, 0
-  br i1 %.not103.us, label %._crit_edge123, label %.lr.ph122.split.us, !llvm.loop !54
+  br i1 %.not103.us, label %._crit_edge123, label %.lr.ph122.split.us, !llvm.loop !51
 
 .lr.ph122.split:                                  ; preds = %.lr.ph122, %145
   %75 = phi i32 [ %146, %145 ], [ %.pre130, %.lr.ph122 ]
@@ -35155,7 +35155,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
 92:                                               ; preds = %.lr.ph.i
   %93 = add nsw i32 %.010.i, -1
   %.not.i = icmp eq i32 %93, 0
-  br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !42
 
 .loopexit.loopexit:                               ; preds = %92
   %.pre129 = load i32, ptr %1, align 4
@@ -35189,7 +35189,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
 
 105:                                              ; preds = %104, %103
   %.not.i108 = icmp eq i32 %99, 0
-  br i1 %.not.i108, label %tvb_get_ascii_string16.exit, label %.lr.ph.i107, !llvm.loop !46
+  br i1 %.not.i108, label %tvb_get_ascii_string16.exit, label %.lr.ph.i107, !llvm.loop !43
 
 tvb_get_ascii_string16.exit:                      ; preds = %105, %.loopexit
   %106 = tail call ptr @wmem_strbuf_finalize(ptr noundef %98) #10
@@ -35246,7 +35246,7 @@ stringIsActuallyAn8BitString.exit:                ; preds = %.lr.ph.i
   store i32 %146, ptr %1, align 4
   %147 = add i32 %76, -1
   %.not103 = icmp eq i32 %76, 0
-  br i1 %.not103, label %._crit_edge123, label %.lr.ph122.split, !llvm.loop !54
+  br i1 %.not103, label %._crit_edge123, label %.lr.ph122.split, !llvm.loop !51
 
 ._crit_edge123:                                   ; preds = %145, %71, %._crit_edge
   ret void
@@ -35348,7 +35348,7 @@ define internal fastcc void @listOfColorItem(ptr noundef %0, ptr nocapture nound
   %67 = add i32 %66, 1
   store i32 %67, ptr %1, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %39, %6
   ret void
@@ -35543,7 +35543,7 @@ declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #0
 define internal void @dispatch_bigreq(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_bigreq_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -35580,7 +35580,7 @@ define internal void @bigreqEnable_Reply(ptr noundef %0, ptr nocapture noundef r
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14729) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -35614,7 +35614,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 define internal void @dispatch_composite(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_composite_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -35642,7 +35642,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @composite_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %103 [
     i8 0, label %25
     i8 1, label %33
@@ -35674,7 +35674,7 @@ requestLength.exit:                               ; preds = %5, %16
   %38 = add i32 %37, 4
   store i32 %38, ptr %2, align 4
   %39 = load i32, ptr @hf_x11_composite_RedirectWindow_update, align 4
-  %40 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %39, i32 noundef %4), !range !4
+  %40 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %39, i32 noundef %4)
   %41 = load i32, ptr @hf_x11_unused, align 4
   %42 = load i32, ptr %2, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 3, i32 noundef 0) #10
@@ -35688,7 +35688,7 @@ requestLength.exit:                               ; preds = %5, %16
   %49 = add i32 %48, 4
   store i32 %49, ptr %2, align 4
   %50 = load i32, ptr @hf_x11_composite_RedirectSubwindows_update, align 4
-  %51 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %50, i32 noundef %4), !range !4
+  %51 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %50, i32 noundef %4)
   %52 = load i32, ptr @hf_x11_unused, align 4
   %53 = load i32, ptr %2, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 3, i32 noundef 0) #10
@@ -35702,7 +35702,7 @@ requestLength.exit:                               ; preds = %5, %16
   %60 = add i32 %59, 4
   store i32 %60, ptr %2, align 4
   %61 = load i32, ptr @hf_x11_composite_UnredirectWindow_update, align 4
-  %62 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %61, i32 noundef %4), !range !4
+  %62 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %61, i32 noundef %4)
   %63 = load i32, ptr @hf_x11_unused, align 4
   %64 = load i32, ptr %2, align 4
   %65 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 3, i32 noundef 0) #10
@@ -35716,7 +35716,7 @@ requestLength.exit:                               ; preds = %5, %16
   %71 = add i32 %70, 4
   store i32 %71, ptr %2, align 4
   %72 = load i32, ptr @hf_x11_composite_UnredirectSubwindows_update, align 4
-  %73 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %72, i32 noundef %4), !range !4
+  %73 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %72, i32 noundef %4)
   %74 = load i32, ptr @hf_x11_unused, align 4
   %75 = load i32, ptr %2, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %74, ptr noundef %0, i32 noundef %75, i32 noundef 3, i32 noundef 0) #10
@@ -35773,7 +35773,7 @@ define internal void @compositeQueryVersion_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -35817,7 +35817,7 @@ define internal void @compositeGetOverlayWindow_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14733) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -35854,7 +35854,7 @@ define internal void @compositeGetOverlayWindow_Reply(ptr noundef %0, ptr nocapt
 define internal void @dispatch_damage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_damage_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -35882,7 +35882,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @damage_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %78 [
     i8 0, label %25
     i8 1, label %35
@@ -35918,7 +35918,7 @@ requestLength.exit:                               ; preds = %5, %16
   %44 = add i32 %43, 4
   store i32 %44, ptr %2, align 4
   %45 = load i32, ptr @hf_x11_damage_Create_level, align 4
-  %46 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %45, i32 noundef %4), !range !4
+  %46 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %45, i32 noundef %4)
   %47 = load i32, ptr @hf_x11_unused, align 4
   %48 = load i32, ptr %2, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %47, ptr noundef %0, i32 noundef %48, i32 noundef 3, i32 noundef 0) #10
@@ -35973,7 +35973,7 @@ define internal void @damageQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -36015,7 +36015,7 @@ define internal void @damageQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
 define internal void @dispatch_dbe(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_dbe_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -36043,7 +36043,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dbe_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %dbeSwapBuffers.exit [
     i8 0, label %25
     i8 1, label %37
@@ -36122,7 +36122,7 @@ requestLength.exit:                               ; preds = %5, %16
   %75 = add i32 %74, 4
   store i32 %75, ptr %2, align 4
   %76 = load i32, ptr @hf_x11_struct_dbe_SwapInfo_swap_action, align 4
-  %77 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %70, i32 noundef %76, i32 noundef %4), !range !4
+  %77 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %70, i32 noundef %76, i32 noundef %4)
   %78 = load i32, ptr @hf_x11_unused, align 4
   %79 = load i32, ptr %2, align 4
   %80 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef 3, i32 noundef 0) #10
@@ -36131,7 +36131,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %82, ptr %2, align 4
   %83 = add nuw nsw i32 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %83, %59
-  br i1 %exitcond.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i, !llvm.loop !53
 
 84:                                               ; preds = %requestLength.exit
   %85 = load i32, ptr %2, align 4
@@ -36164,7 +36164,7 @@ requestLength.exit:                               ; preds = %5, %16
   %102 = add i32 %101, 4
   store i32 %102, ptr %2, align 4
   %.not.i.i = icmp eq i32 %99, 0
-  br i1 %.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i58, !llvm.loop !44
+  br i1 %.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i58, !llvm.loop !41
 
 103:                                              ; preds = %requestLength.exit
   %104 = load i32, ptr @hf_x11_dbe_GetBackBufferAttributes_buffer, align 4
@@ -36189,7 +36189,7 @@ define internal void @dbeQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -36233,7 +36233,7 @@ define internal void @dbeGetVisualInfo_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14741) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -36319,13 +36319,13 @@ define internal void @dbeGetVisualInfo_Reply(ptr noundef %0, ptr nocapture nound
   store i32 %74, ptr %2, align 4
   %75 = add nuw nsw i32 %.025.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %75, %46
-  br i1 %exitcond.not.i.i, label %struct_dbe_VisualInfo.exit.i, label %.lr.ph.i.i, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %struct_dbe_VisualInfo.exit.i, label %.lr.ph.i.i, !llvm.loop !54
 
 struct_dbe_VisualInfo.exit.i:                     ; preds = %.lr.ph.i.i, %.lr.ph.i
   %76 = phi i32 [ %51, %.lr.ph.i ], [ %74, %.lr.ph.i.i ]
   %77 = add nuw nsw i32 %.022.i, 1
   %exitcond.not.i = icmp eq i32 %77, %26
-  br i1 %exitcond.not.i, label %struct_dbe_VisualInfos.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond.not.i, label %struct_dbe_VisualInfos.exit, label %.lr.ph.i, !llvm.loop !55
 
 struct_dbe_VisualInfos.exit:                      ; preds = %struct_dbe_VisualInfo.exit.i, %5
   ret void
@@ -36337,7 +36337,7 @@ define internal void @dbeGetBackBufferAttributes_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14743) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -36379,7 +36379,7 @@ define internal void @dbeGetBackBufferAttributes_Reply(ptr noundef %0, ptr nocap
 define internal void @dispatch_dpms(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_dpms_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -36407,7 +36407,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dpms_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %59 [
     i8 0, label %25
     i8 8, label %52
@@ -36450,7 +36450,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 49:                                               ; preds = %requestLength.exit
   %50 = load i32, ptr @hf_x11_dpms_ForceLevel_power_level, align 4
-  %51 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %50, i32 noundef %4), !range !5
+  %51 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %50, i32 noundef %4)
   br label %59
 
 52:                                               ; preds = %requestLength.exit
@@ -36473,7 +36473,7 @@ define internal void @dpmsGetVersion_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -36512,7 +36512,7 @@ define internal void @dpmsCapable_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14748) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -36551,7 +36551,7 @@ define internal void @dpmsGetTimeouts_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14750) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -36600,7 +36600,7 @@ define internal void @dpmsInfo_Reply(ptr noundef %0, ptr nocapture noundef reado
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14752) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -36621,7 +36621,7 @@ define internal void @dpmsInfo_Reply(ptr noundef %0, ptr nocapture noundef reado
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_dpms_Info_reply_power_level, align 4
-  %27 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !5
+  %27 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_dpms_Info_reply_state, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef %4) #10
@@ -36640,7 +36640,7 @@ define internal void @dpmsInfo_Reply(ptr noundef %0, ptr nocapture noundef reado
 define internal void @dispatch_dri2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_dri2_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -36671,7 +36671,7 @@ requestLength.exit:                               ; preds = %5, %16
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dri2_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %dri2GetBuffers.exit [
     i8 0, label %27
     i8 1, label %37
@@ -36782,7 +36782,7 @@ requestLength.exit:                               ; preds = %5, %16
   %88 = add i32 %87, 4
   store i32 %88, ptr %2, align 4
   %.not.i.i = icmp eq i32 %85, 0
-  br i1 %.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i, !llvm.loop !41
 
 89:                                               ; preds = %requestLength.exit
   %90 = load i32, ptr @hf_x11_dri2_CopyRegion_drawable, align 4
@@ -36842,7 +36842,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %131, ptr %2, align 4
   %132 = add nuw nsw i32 %.015.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %132, %118
-  br i1 %exitcond.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i94, !llvm.loop !59
+  br i1 %exitcond.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i94, !llvm.loop !56
 
 133:                                              ; preds = %requestLength.exit
   %134 = load i32, ptr @hf_x11_dri2_SwapBuffers_drawable, align 4
@@ -36991,7 +36991,7 @@ define internal void @dri2InvalidateBuffers(ptr noundef %0, ptr nocapture nounde
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_dri2_InvalidateBuffers_drawable, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -37007,7 +37007,7 @@ define internal void @dri2QueryVersion_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37046,7 +37046,7 @@ define internal void @dri2Connect_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14757) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37115,7 +37115,7 @@ define internal void @dri2Authenticate_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14759) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37149,7 +37149,7 @@ define internal void @dri2GetBuffers_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14761) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37201,7 +37201,7 @@ define internal void @dri2CopyRegion_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14763) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37230,7 +37230,7 @@ define internal void @dri2GetBuffersWithFormat_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14765) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37282,7 +37282,7 @@ define internal void @dri2SwapBuffers_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14767) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37321,7 +37321,7 @@ define internal void @dri2GetMSC_Reply(ptr noundef %0, ptr nocapture noundef rea
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14769) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37380,7 +37380,7 @@ define internal void @dri2WaitMSC_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14771) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37439,7 +37439,7 @@ define internal void @dri2WaitSBC_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14773) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37498,7 +37498,7 @@ define internal void @dri2GetParam_Reply(ptr noundef %0, ptr nocapture noundef r
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14775) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_dri2_GetParam_reply_is_param_recognized, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -37572,7 +37572,7 @@ define internal fastcc void @struct_dri2_DRI2Buffer(ptr noundef %0, ptr nocaptur
   store i32 %30, ptr %1, align 4
   %31 = add nuw nsw i32 %.030, 1
   %exitcond.not = icmp eq i32 %31, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -37582,7 +37582,7 @@ define internal fastcc void @struct_dri2_DRI2Buffer(ptr noundef %0, ptr nocaptur
 define internal void @dispatch_dri3(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_dri3_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -37610,7 +37610,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dri3_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %209 [
     i8 0, label %25
     i8 1, label %33
@@ -37878,7 +37878,7 @@ define internal void @dri3QueryVersion_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -37917,7 +37917,7 @@ define internal void @dri3Open_Reply(ptr noundef %0, ptr nocapture noundef reado
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14779) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_dri3_Open_reply_nfd, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -37951,7 +37951,7 @@ define internal void @dri3BufferFromPixmap_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14781) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_dri3_BufferFromPixmap_reply_nfd, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -38015,7 +38015,7 @@ define internal void @dri3FDFromFence_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14783) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_dri3_FDFromFence_reply_nfd, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -38049,7 +38049,7 @@ define internal void @dri3GetSupportedModifiers_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14785) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -38107,7 +38107,7 @@ define internal void @dri3GetSupportedModifiers_Reply(ptr noundef %0, ptr nocapt
   %52 = add i32 %51, 8
   store i32 %52, ptr %2, align 4
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %listOfCard64.exit, label %.lr.ph.i, !llvm.loop !61
+  br i1 %.not.i, label %listOfCard64.exit, label %.lr.ph.i, !llvm.loop !58
 
 listOfCard64.exit:                                ; preds = %.lr.ph.i, %5
   %53 = phi i32 [ %.pre, %5 ], [ %52, %.lr.ph.i ]
@@ -38133,7 +38133,7 @@ listOfCard64.exit:                                ; preds = %.lr.ph.i, %5
   %64 = add i32 %63, 8
   store i32 %64, ptr %2, align 4
   %.not.i57 = icmp eq i32 %61, 0
-  br i1 %.not.i57, label %listOfCard64.exit58, label %.lr.ph.i55, !llvm.loop !61
+  br i1 %.not.i57, label %listOfCard64.exit58, label %.lr.ph.i55, !llvm.loop !58
 
 listOfCard64.exit58:                              ; preds = %.lr.ph.i55, %listOfCard64.exit
   ret void
@@ -38145,7 +38145,7 @@ define internal void @dri3BuffersFromPixmap_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14787) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr %2, align 4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #10
   %12 = zext i8 %11 to i32
@@ -38222,7 +38222,7 @@ define internal void @dri3BuffersFromPixmap_Reply(ptr noundef %0, ptr nocapture 
   %67 = add i32 %66, 4
   store i32 %67, ptr %2, align 4
   %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %68 = phi i32 [ %.pre, %5 ], [ %67, %.lr.ph.i ]
@@ -38246,7 +38246,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %78 = add i32 %77, 4
   store i32 %78, ptr %2, align 4
   %.not.i73 = icmp eq i32 %75, 0
-  br i1 %.not.i73, label %listOfCard32.exit74, label %.lr.ph.i71, !llvm.loop !44
+  br i1 %.not.i73, label %listOfCard32.exit74, label %.lr.ph.i71, !llvm.loop !41
 
 listOfCard32.exit74:                              ; preds = %.lr.ph.i71, %listOfCard32.exit
   ret void
@@ -38256,7 +38256,7 @@ listOfCard32.exit74:                              ; preds = %.lr.ph.i71, %listOf
 define internal void @dispatch_ge(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_ge_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -38311,7 +38311,7 @@ define internal void @geQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -38353,7 +38353,7 @@ define internal void @geQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef
 define internal void @dispatch_glx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_glx_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -38384,7 +38384,7 @@ requestLength.exit:                               ; preds = %5, %16
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @glx_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %213 [
     i8 1, label %27
     i8 2, label %28
@@ -39345,7 +39345,7 @@ define internal fastcc void @glxCreatePixmap(ptr noundef %0, ptr nocapture nound
   %39 = add i32 %38, 4
   store i32 %39, ptr %1, align 4
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39466,7 +39466,7 @@ define internal fastcc void @glxCreatePbuffer(ptr noundef %0, ptr nocapture noun
   %35 = add i32 %34, 4
   store i32 %35, ptr %1, align 4
   %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39510,7 +39510,7 @@ define internal fastcc void @glxChangeDrawableAttributes(ptr noundef %0, ptr noc
   %27 = add i32 %26, 4
   store i32 %27, ptr %1, align 4
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39569,7 +39569,7 @@ define internal fastcc void @glxCreateWindow(ptr noundef %0, ptr nocapture nound
   %39 = add i32 %38, 4
   store i32 %39, ptr %1, align 4
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39629,7 +39629,7 @@ define internal fastcc void @glxSetClientInfoARB(ptr noundef %0, ptr nocapture n
   %43 = add i32 %42, 4
   store i32 %43, ptr %1, align 4
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   %44 = phi i32 [ %.pre, %4 ], [ %43, %.lr.ph.i ]
@@ -39728,7 +39728,7 @@ define internal fastcc void @glxCreateContextAttribsARB(ptr noundef %0, ptr noca
   %47 = add i32 %46, 4
   store i32 %47, ptr %1, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -39791,7 +39791,7 @@ define internal fastcc void @glxSetClientInfo2ARB(ptr noundef %0, ptr nocapture 
   %43 = add i32 %42, 4
   store i32 %43, ptr %1, align 4
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   %44 = phi i32 [ %.pre, %4 ], [ %43, %.lr.ph.i ]
@@ -40642,7 +40642,7 @@ define internal fastcc void @glxAreTexturesResident(ptr noundef %0, ptr nocaptur
   %26 = add i32 %25, 4
   store i32 %26, ptr %1, align 4
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -40685,7 +40685,7 @@ define internal fastcc void @glxDeleteTextures(ptr noundef %0, ptr nocapture nou
   %26 = add i32 %25, 4
   store i32 %26, ptr %1, align 4
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -41114,7 +41114,7 @@ define internal fastcc void @glxDeleteQueriesARB(ptr noundef %0, ptr nocapture n
   %26 = add i32 %25, 4
   store i32 %26, ptr %1, align 4
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -41704,7 +41704,7 @@ define internal fastcc void @dispatch_glx_render(ptr noundef %0, ptr noundef %1,
   %82 = add i32 %81, 2
   store i32 %82, ptr %2, align 4
   %.not.i.i = icmp eq i32 %79, 0
-  br i1 %.not.i.i, label %listOfInt16.exit.i, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not.i.i, label %listOfInt16.exit.i, label %.lr.ph.i.i, !llvm.loop !59
 
 listOfInt16.exit.i:                               ; preds = %.lr.ph.i.i, %71
   %83 = phi i32 [ %.pre184.i, %71 ], [ %82, %.lr.ph.i.i ]
@@ -41734,7 +41734,7 @@ listOfInt16.exit.i:                               ; preds = %.lr.ph.i.i, %71
   %99 = add i32 %98, 2
   store i32 %99, ptr %2, align 4
   %.not.i139.i = icmp eq i32 %96, 0
-  br i1 %.not.i139.i, label %listOfCard16.exit.i, label %.lr.ph.i137.i, !llvm.loop !43
+  br i1 %.not.i139.i, label %listOfCard16.exit.i, label %.lr.ph.i137.i, !llvm.loop !40
 
 listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %100 = phi i32 [ %.pre183.i, %88 ], [ %99, %.lr.ph.i137.i ]
@@ -41767,7 +41767,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %116 = add i32 %115, 4
   store i32 %116, ptr %2, align 4
   %.not.i145.i = icmp eq i32 %113, 0
-  br i1 %.not.i145.i, label %mesa_CallLists.exit, label %.lr.ph.i143.i, !llvm.loop !63
+  br i1 %.not.i145.i, label %mesa_CallLists.exit, label %.lr.ph.i143.i, !llvm.loop !60
 
 117:                                              ; preds = %40
   %118 = load i32, ptr @hf_x11_glx_render_CallLists_lists, align 4
@@ -41792,7 +41792,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %128 = add i32 %127, 4
   store i32 %128, ptr %2, align 4
   %.not.i151.i = icmp eq i32 %125, 0
-  br i1 %.not.i151.i, label %mesa_CallLists.exit, label %.lr.ph.i149.i, !llvm.loop !44
+  br i1 %.not.i151.i, label %mesa_CallLists.exit, label %.lr.ph.i149.i, !llvm.loop !41
 
 129:                                              ; preds = %40
   %130 = load i32, ptr @hf_x11_glx_render_CallLists_lists, align 4
@@ -41817,7 +41817,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %140 = add i32 %139, 4
   store i32 %140, ptr %2, align 4
   %.not.i157.i = icmp eq i32 %137, 0
-  br i1 %.not.i157.i, label %mesa_CallLists.exit, label %.lr.ph.i155.i, !llvm.loop !64
+  br i1 %.not.i157.i, label %mesa_CallLists.exit, label %.lr.ph.i155.i, !llvm.loop !61
 
 141:                                              ; preds = %40
   %142 = load i32, ptr @hf_x11_glx_render_CallLists_lists, align 4
@@ -41839,7 +41839,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i137.i, %88
   %152 = add i32 %151, 2
   store i32 %152, ptr %2, align 4
   %.not.i163.i = icmp eq i32 %149, 0
-  br i1 %.not.i163.i, label %listOfCard16.exit164.i, label %.lr.ph.i161.i, !llvm.loop !43
+  br i1 %.not.i163.i, label %listOfCard16.exit164.i, label %.lr.ph.i161.i, !llvm.loop !40
 
 listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %153 = phi i32 [ %.pre.i, %141 ], [ %152, %.lr.ph.i161.i ]
@@ -41885,7 +41885,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %179 = add i32 %178, 4
   store i32 %179, ptr %2, align 4
   %.not.i170.i = icmp eq i32 %176, 0
-  br i1 %.not.i170.i, label %mesa_CallLists.exit, label %.lr.ph.i168.i, !llvm.loop !44
+  br i1 %.not.i170.i, label %mesa_CallLists.exit, label %.lr.ph.i168.i, !llvm.loop !41
 
 180:                                              ; preds = %40
   %181 = load i32, ptr @hf_x11_undecoded, align 4
@@ -42011,7 +42011,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %269 = add i32 %268, 8
   store i32 %269, ptr %2, align 4
   %.not.i.i1850 = icmp eq i32 %266, 0
-  br i1 %.not.i.i1850, label %mesa_CallLists.exit, label %.lr.ph.i.i1848, !llvm.loop !65
+  br i1 %.not.i.i1850, label %mesa_CallLists.exit, label %.lr.ph.i.i1848, !llvm.loop !62
 
 270:                                              ; preds = %34
   %271 = load i32, ptr @hf_x11_glx_render_Color3fv_v, align 4
@@ -42031,7 +42031,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %280 = add i32 %279, 4
   store i32 %280, ptr %2, align 4
   %.not.i.i1854 = icmp eq i32 %277, 0
-  br i1 %.not.i.i1854, label %mesa_CallLists.exit, label %.lr.ph.i.i1852, !llvm.loop !64
+  br i1 %.not.i.i1854, label %mesa_CallLists.exit, label %.lr.ph.i.i1852, !llvm.loop !61
 
 281:                                              ; preds = %34
   %282 = load i32, ptr @hf_x11_glx_render_Color3iv_v, align 4
@@ -42051,7 +42051,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %291 = add i32 %290, 4
   store i32 %291, ptr %2, align 4
   %.not.i.i1858 = icmp eq i32 %288, 0
-  br i1 %.not.i.i1858, label %mesa_CallLists.exit, label %.lr.ph.i.i1856, !llvm.loop !63
+  br i1 %.not.i.i1858, label %mesa_CallLists.exit, label %.lr.ph.i.i1856, !llvm.loop !60
 
 292:                                              ; preds = %34
   %293 = load i32, ptr @hf_x11_glx_render_Color3sv_v, align 4
@@ -42071,7 +42071,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %302 = add i32 %301, 2
   store i32 %302, ptr %2, align 4
   %.not.i.i1862 = icmp eq i32 %299, 0
-  br i1 %.not.i.i1862, label %mesa_CallLists.exit, label %.lr.ph.i.i1860, !llvm.loop !62
+  br i1 %.not.i.i1862, label %mesa_CallLists.exit, label %.lr.ph.i.i1860, !llvm.loop !59
 
 303:                                              ; preds = %34
   %304 = load i32, ptr @hf_x11_glx_render_Color3ubv_v, align 4
@@ -42096,7 +42096,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %316 = add i32 %315, 4
   store i32 %316, ptr %2, align 4
   %.not.i.i1867 = icmp eq i32 %313, 0
-  br i1 %.not.i.i1867, label %mesa_CallLists.exit, label %.lr.ph.i.i1865, !llvm.loop !44
+  br i1 %.not.i.i1867, label %mesa_CallLists.exit, label %.lr.ph.i.i1865, !llvm.loop !41
 
 317:                                              ; preds = %34
   %318 = load i32, ptr @hf_x11_glx_render_Color3usv_v, align 4
@@ -42116,7 +42116,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %327 = add i32 %326, 2
   store i32 %327, ptr %2, align 4
   %.not.i.i1871 = icmp eq i32 %324, 0
-  br i1 %.not.i.i1871, label %mesa_CallLists.exit, label %.lr.ph.i.i1869, !llvm.loop !43
+  br i1 %.not.i.i1871, label %mesa_CallLists.exit, label %.lr.ph.i.i1869, !llvm.loop !40
 
 328:                                              ; preds = %34
   %329 = load i32, ptr @hf_x11_glx_render_Color4bv_v, align 4
@@ -42141,7 +42141,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %341 = add i32 %340, 8
   store i32 %341, ptr %2, align 4
   %.not.i.i1876 = icmp eq i32 %338, 0
-  br i1 %.not.i.i1876, label %mesa_CallLists.exit, label %.lr.ph.i.i1874, !llvm.loop !65
+  br i1 %.not.i.i1876, label %mesa_CallLists.exit, label %.lr.ph.i.i1874, !llvm.loop !62
 
 342:                                              ; preds = %34
   %343 = load i32, ptr @hf_x11_glx_render_Color4fv_v, align 4
@@ -42161,7 +42161,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %352 = add i32 %351, 4
   store i32 %352, ptr %2, align 4
   %.not.i.i1880 = icmp eq i32 %349, 0
-  br i1 %.not.i.i1880, label %mesa_CallLists.exit, label %.lr.ph.i.i1878, !llvm.loop !64
+  br i1 %.not.i.i1880, label %mesa_CallLists.exit, label %.lr.ph.i.i1878, !llvm.loop !61
 
 353:                                              ; preds = %34
   %354 = load i32, ptr @hf_x11_glx_render_Color4iv_v, align 4
@@ -42181,7 +42181,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %363 = add i32 %362, 4
   store i32 %363, ptr %2, align 4
   %.not.i.i1884 = icmp eq i32 %360, 0
-  br i1 %.not.i.i1884, label %mesa_CallLists.exit, label %.lr.ph.i.i1882, !llvm.loop !63
+  br i1 %.not.i.i1884, label %mesa_CallLists.exit, label %.lr.ph.i.i1882, !llvm.loop !60
 
 364:                                              ; preds = %34
   %365 = load i32, ptr @hf_x11_glx_render_Color4sv_v, align 4
@@ -42201,7 +42201,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %374 = add i32 %373, 2
   store i32 %374, ptr %2, align 4
   %.not.i.i1888 = icmp eq i32 %371, 0
-  br i1 %.not.i.i1888, label %mesa_CallLists.exit, label %.lr.ph.i.i1886, !llvm.loop !62
+  br i1 %.not.i.i1888, label %mesa_CallLists.exit, label %.lr.ph.i.i1886, !llvm.loop !59
 
 375:                                              ; preds = %34
   %376 = load i32, ptr @hf_x11_glx_render_Color4ubv_v, align 4
@@ -42226,7 +42226,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %388 = add i32 %387, 4
   store i32 %388, ptr %2, align 4
   %.not.i.i1893 = icmp eq i32 %385, 0
-  br i1 %.not.i.i1893, label %mesa_CallLists.exit, label %.lr.ph.i.i1891, !llvm.loop !44
+  br i1 %.not.i.i1893, label %mesa_CallLists.exit, label %.lr.ph.i.i1891, !llvm.loop !41
 
 389:                                              ; preds = %34
   %390 = load i32, ptr @hf_x11_glx_render_Color4usv_v, align 4
@@ -42246,7 +42246,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %399 = add i32 %398, 2
   store i32 %399, ptr %2, align 4
   %.not.i.i1897 = icmp eq i32 %396, 0
-  br i1 %.not.i.i1897, label %mesa_CallLists.exit, label %.lr.ph.i.i1895, !llvm.loop !43
+  br i1 %.not.i.i1897, label %mesa_CallLists.exit, label %.lr.ph.i.i1895, !llvm.loop !40
 
 400:                                              ; preds = %34
   %401 = load i32, ptr @hf_x11_glx_render_EdgeFlagv_flag, align 4
@@ -42316,7 +42316,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %444 = add i32 %443, 8
   store i32 %444, ptr %2, align 4
   %.not.i.i1910 = icmp eq i32 %441, 0
-  br i1 %.not.i.i1910, label %mesa_CallLists.exit, label %.lr.ph.i.i1908, !llvm.loop !65
+  br i1 %.not.i.i1910, label %mesa_CallLists.exit, label %.lr.ph.i.i1908, !llvm.loop !62
 
 445:                                              ; preds = %34
   %446 = load i32, ptr @hf_x11_glx_render_Normal3fv_v, align 4
@@ -42336,7 +42336,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %455 = add i32 %454, 4
   store i32 %455, ptr %2, align 4
   %.not.i.i1914 = icmp eq i32 %452, 0
-  br i1 %.not.i.i1914, label %mesa_CallLists.exit, label %.lr.ph.i.i1912, !llvm.loop !64
+  br i1 %.not.i.i1914, label %mesa_CallLists.exit, label %.lr.ph.i.i1912, !llvm.loop !61
 
 456:                                              ; preds = %34
   %457 = load i32, ptr @hf_x11_glx_render_Normal3iv_v, align 4
@@ -42356,7 +42356,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %466 = add i32 %465, 4
   store i32 %466, ptr %2, align 4
   %.not.i.i1918 = icmp eq i32 %463, 0
-  br i1 %.not.i.i1918, label %mesa_CallLists.exit, label %.lr.ph.i.i1916, !llvm.loop !63
+  br i1 %.not.i.i1918, label %mesa_CallLists.exit, label %.lr.ph.i.i1916, !llvm.loop !60
 
 467:                                              ; preds = %34
   %468 = load i32, ptr @hf_x11_glx_render_Normal3sv_v, align 4
@@ -42376,7 +42376,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %477 = add i32 %476, 2
   store i32 %477, ptr %2, align 4
   %.not.i.i1922 = icmp eq i32 %474, 0
-  br i1 %.not.i.i1922, label %mesa_CallLists.exit, label %.lr.ph.i.i1920, !llvm.loop !62
+  br i1 %.not.i.i1922, label %mesa_CallLists.exit, label %.lr.ph.i.i1920, !llvm.loop !59
 
 478:                                              ; preds = %34
   %479 = load i32, ptr @hf_x11_glx_render_RasterPos2dv_v, align 4
@@ -42396,7 +42396,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %488 = add i32 %487, 8
   store i32 %488, ptr %2, align 4
   %.not.i.i1927 = icmp eq i32 %485, 0
-  br i1 %.not.i.i1927, label %mesa_CallLists.exit, label %.lr.ph.i.i1925, !llvm.loop !65
+  br i1 %.not.i.i1927, label %mesa_CallLists.exit, label %.lr.ph.i.i1925, !llvm.loop !62
 
 489:                                              ; preds = %34
   %490 = load i32, ptr @hf_x11_glx_render_RasterPos2fv_v, align 4
@@ -42416,7 +42416,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %499 = add i32 %498, 4
   store i32 %499, ptr %2, align 4
   %.not.i.i1931 = icmp eq i32 %496, 0
-  br i1 %.not.i.i1931, label %mesa_CallLists.exit, label %.lr.ph.i.i1929, !llvm.loop !64
+  br i1 %.not.i.i1931, label %mesa_CallLists.exit, label %.lr.ph.i.i1929, !llvm.loop !61
 
 500:                                              ; preds = %34
   %501 = load i32, ptr @hf_x11_glx_render_RasterPos2iv_v, align 4
@@ -42436,7 +42436,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %510 = add i32 %509, 4
   store i32 %510, ptr %2, align 4
   %.not.i.i1935 = icmp eq i32 %507, 0
-  br i1 %.not.i.i1935, label %mesa_CallLists.exit, label %.lr.ph.i.i1933, !llvm.loop !63
+  br i1 %.not.i.i1935, label %mesa_CallLists.exit, label %.lr.ph.i.i1933, !llvm.loop !60
 
 511:                                              ; preds = %34
   %512 = load i32, ptr @hf_x11_glx_render_RasterPos2sv_v, align 4
@@ -42456,7 +42456,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %521 = add i32 %520, 2
   store i32 %521, ptr %2, align 4
   %.not.i.i1939 = icmp eq i32 %518, 0
-  br i1 %.not.i.i1939, label %mesa_CallLists.exit, label %.lr.ph.i.i1937, !llvm.loop !62
+  br i1 %.not.i.i1939, label %mesa_CallLists.exit, label %.lr.ph.i.i1937, !llvm.loop !59
 
 522:                                              ; preds = %34
   %523 = load i32, ptr @hf_x11_glx_render_RasterPos3dv_v, align 4
@@ -42476,7 +42476,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %532 = add i32 %531, 8
   store i32 %532, ptr %2, align 4
   %.not.i.i1944 = icmp eq i32 %529, 0
-  br i1 %.not.i.i1944, label %mesa_CallLists.exit, label %.lr.ph.i.i1942, !llvm.loop !65
+  br i1 %.not.i.i1944, label %mesa_CallLists.exit, label %.lr.ph.i.i1942, !llvm.loop !62
 
 533:                                              ; preds = %34
   %534 = load i32, ptr @hf_x11_glx_render_RasterPos3fv_v, align 4
@@ -42496,7 +42496,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %543 = add i32 %542, 4
   store i32 %543, ptr %2, align 4
   %.not.i.i1948 = icmp eq i32 %540, 0
-  br i1 %.not.i.i1948, label %mesa_CallLists.exit, label %.lr.ph.i.i1946, !llvm.loop !64
+  br i1 %.not.i.i1948, label %mesa_CallLists.exit, label %.lr.ph.i.i1946, !llvm.loop !61
 
 544:                                              ; preds = %34
   %545 = load i32, ptr @hf_x11_glx_render_RasterPos3iv_v, align 4
@@ -42516,7 +42516,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %554 = add i32 %553, 4
   store i32 %554, ptr %2, align 4
   %.not.i.i1952 = icmp eq i32 %551, 0
-  br i1 %.not.i.i1952, label %mesa_CallLists.exit, label %.lr.ph.i.i1950, !llvm.loop !63
+  br i1 %.not.i.i1952, label %mesa_CallLists.exit, label %.lr.ph.i.i1950, !llvm.loop !60
 
 555:                                              ; preds = %34
   %556 = load i32, ptr @hf_x11_glx_render_RasterPos3sv_v, align 4
@@ -42536,7 +42536,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %565 = add i32 %564, 2
   store i32 %565, ptr %2, align 4
   %.not.i.i1956 = icmp eq i32 %562, 0
-  br i1 %.not.i.i1956, label %mesa_CallLists.exit, label %.lr.ph.i.i1954, !llvm.loop !62
+  br i1 %.not.i.i1956, label %mesa_CallLists.exit, label %.lr.ph.i.i1954, !llvm.loop !59
 
 566:                                              ; preds = %34
   %567 = load i32, ptr @hf_x11_glx_render_RasterPos4dv_v, align 4
@@ -42556,7 +42556,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %576 = add i32 %575, 8
   store i32 %576, ptr %2, align 4
   %.not.i.i1961 = icmp eq i32 %573, 0
-  br i1 %.not.i.i1961, label %mesa_CallLists.exit, label %.lr.ph.i.i1959, !llvm.loop !65
+  br i1 %.not.i.i1961, label %mesa_CallLists.exit, label %.lr.ph.i.i1959, !llvm.loop !62
 
 577:                                              ; preds = %34
   %578 = load i32, ptr @hf_x11_glx_render_RasterPos4fv_v, align 4
@@ -42576,7 +42576,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %587 = add i32 %586, 4
   store i32 %587, ptr %2, align 4
   %.not.i.i1965 = icmp eq i32 %584, 0
-  br i1 %.not.i.i1965, label %mesa_CallLists.exit, label %.lr.ph.i.i1963, !llvm.loop !64
+  br i1 %.not.i.i1965, label %mesa_CallLists.exit, label %.lr.ph.i.i1963, !llvm.loop !61
 
 588:                                              ; preds = %34
   %589 = load i32, ptr @hf_x11_glx_render_RasterPos4iv_v, align 4
@@ -42596,7 +42596,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %598 = add i32 %597, 4
   store i32 %598, ptr %2, align 4
   %.not.i.i1969 = icmp eq i32 %595, 0
-  br i1 %.not.i.i1969, label %mesa_CallLists.exit, label %.lr.ph.i.i1967, !llvm.loop !63
+  br i1 %.not.i.i1969, label %mesa_CallLists.exit, label %.lr.ph.i.i1967, !llvm.loop !60
 
 599:                                              ; preds = %34
   %600 = load i32, ptr @hf_x11_glx_render_RasterPos4sv_v, align 4
@@ -42616,7 +42616,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %609 = add i32 %608, 2
   store i32 %609, ptr %2, align 4
   %.not.i.i1973 = icmp eq i32 %606, 0
-  br i1 %.not.i.i1973, label %mesa_CallLists.exit, label %.lr.ph.i.i1971, !llvm.loop !62
+  br i1 %.not.i.i1973, label %mesa_CallLists.exit, label %.lr.ph.i.i1971, !llvm.loop !59
 
 610:                                              ; preds = %34
   %611 = load i32, ptr @hf_x11_glx_render_Rectdv_v1, align 4
@@ -42636,7 +42636,7 @@ listOfCard16.exit164.i:                           ; preds = %.lr.ph.i161.i, %141
   %620 = add i32 %619, 8
   store i32 %620, ptr %2, align 4
   %.not.i.i1978 = icmp eq i32 %617, 0
-  br i1 %.not.i.i1978, label %listOfDouble.exit.i, label %.lr.ph.i.i1976, !llvm.loop !65
+  br i1 %.not.i.i1978, label %listOfDouble.exit.i, label %.lr.ph.i.i1976, !llvm.loop !62
 
 listOfDouble.exit.i:                              ; preds = %.lr.ph.i.i1976
   %621 = load i32, ptr @hf_x11_glx_render_Rectdv_v2, align 4
@@ -42656,7 +42656,7 @@ listOfDouble.exit.i:                              ; preds = %.lr.ph.i.i1976
   %630 = add i32 %629, 8
   store i32 %630, ptr %2, align 4
   %.not.i10.i = icmp eq i32 %627, 0
-  br i1 %.not.i10.i, label %mesa_CallLists.exit, label %.lr.ph.i8.i, !llvm.loop !65
+  br i1 %.not.i10.i, label %mesa_CallLists.exit, label %.lr.ph.i8.i, !llvm.loop !62
 
 631:                                              ; preds = %34
   %632 = load i32, ptr @hf_x11_glx_render_Rectfv_v1, align 4
@@ -42676,7 +42676,7 @@ listOfDouble.exit.i:                              ; preds = %.lr.ph.i.i1976
   %641 = add i32 %640, 4
   store i32 %641, ptr %2, align 4
   %.not.i.i1982 = icmp eq i32 %638, 0
-  br i1 %.not.i.i1982, label %listOfFloat.exit.i, label %.lr.ph.i.i1980, !llvm.loop !64
+  br i1 %.not.i.i1982, label %listOfFloat.exit.i, label %.lr.ph.i.i1980, !llvm.loop !61
 
 listOfFloat.exit.i:                               ; preds = %.lr.ph.i.i1980
   %642 = load i32, ptr @hf_x11_glx_render_Rectfv_v2, align 4
@@ -42696,7 +42696,7 @@ listOfFloat.exit.i:                               ; preds = %.lr.ph.i.i1980
   %651 = add i32 %650, 4
   store i32 %651, ptr %2, align 4
   %.not.i10.i1986 = icmp eq i32 %648, 0
-  br i1 %.not.i10.i1986, label %mesa_CallLists.exit, label %.lr.ph.i8.i1984, !llvm.loop !64
+  br i1 %.not.i10.i1986, label %mesa_CallLists.exit, label %.lr.ph.i8.i1984, !llvm.loop !61
 
 652:                                              ; preds = %34
   %653 = load i32, ptr @hf_x11_glx_render_Rectiv_v1, align 4
@@ -42716,7 +42716,7 @@ listOfFloat.exit.i:                               ; preds = %.lr.ph.i.i1980
   %662 = add i32 %661, 4
   store i32 %662, ptr %2, align 4
   %.not.i.i1990 = icmp eq i32 %659, 0
-  br i1 %.not.i.i1990, label %listOfInt32.exit.i, label %.lr.ph.i.i1988, !llvm.loop !63
+  br i1 %.not.i.i1990, label %listOfInt32.exit.i, label %.lr.ph.i.i1988, !llvm.loop !60
 
 listOfInt32.exit.i:                               ; preds = %.lr.ph.i.i1988
   %663 = load i32, ptr @hf_x11_glx_render_Rectiv_v2, align 4
@@ -42736,7 +42736,7 @@ listOfInt32.exit.i:                               ; preds = %.lr.ph.i.i1988
   %672 = add i32 %671, 4
   store i32 %672, ptr %2, align 4
   %.not.i10.i1994 = icmp eq i32 %669, 0
-  br i1 %.not.i10.i1994, label %mesa_CallLists.exit, label %.lr.ph.i8.i1992, !llvm.loop !63
+  br i1 %.not.i10.i1994, label %mesa_CallLists.exit, label %.lr.ph.i8.i1992, !llvm.loop !60
 
 673:                                              ; preds = %34
   %674 = load i32, ptr @hf_x11_glx_render_Rectsv_v1, align 4
@@ -42756,7 +42756,7 @@ listOfInt32.exit.i:                               ; preds = %.lr.ph.i.i1988
   %683 = add i32 %682, 2
   store i32 %683, ptr %2, align 4
   %.not.i.i1998 = icmp eq i32 %680, 0
-  br i1 %.not.i.i1998, label %listOfInt16.exit.i1999, label %.lr.ph.i.i1996, !llvm.loop !62
+  br i1 %.not.i.i1998, label %listOfInt16.exit.i1999, label %.lr.ph.i.i1996, !llvm.loop !59
 
 listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %684 = load i32, ptr @hf_x11_glx_render_Rectsv_v2, align 4
@@ -42776,7 +42776,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %693 = add i32 %692, 2
   store i32 %693, ptr %2, align 4
   %.not.i10.i2003 = icmp eq i32 %690, 0
-  br i1 %.not.i10.i2003, label %mesa_CallLists.exit, label %.lr.ph.i8.i2001, !llvm.loop !62
+  br i1 %.not.i10.i2003, label %mesa_CallLists.exit, label %.lr.ph.i8.i2001, !llvm.loop !59
 
 694:                                              ; preds = %34
   %695 = load i32, ptr @hf_x11_glx_render_TexCoord1dv_v, align 4
@@ -42836,7 +42836,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %732 = add i32 %731, 8
   store i32 %732, ptr %2, align 4
   %.not.i.i2015 = icmp eq i32 %729, 0
-  br i1 %.not.i.i2015, label %mesa_CallLists.exit, label %.lr.ph.i.i2013, !llvm.loop !65
+  br i1 %.not.i.i2015, label %mesa_CallLists.exit, label %.lr.ph.i.i2013, !llvm.loop !62
 
 733:                                              ; preds = %34
   %734 = load i32, ptr @hf_x11_glx_render_TexCoord2fv_v, align 4
@@ -42856,7 +42856,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %743 = add i32 %742, 4
   store i32 %743, ptr %2, align 4
   %.not.i.i2020 = icmp eq i32 %740, 0
-  br i1 %.not.i.i2020, label %mesa_CallLists.exit, label %.lr.ph.i.i2018, !llvm.loop !64
+  br i1 %.not.i.i2020, label %mesa_CallLists.exit, label %.lr.ph.i.i2018, !llvm.loop !61
 
 744:                                              ; preds = %34
   %745 = load i32, ptr @hf_x11_glx_render_TexCoord2iv_v, align 4
@@ -42876,7 +42876,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %754 = add i32 %753, 4
   store i32 %754, ptr %2, align 4
   %.not.i.i2025 = icmp eq i32 %751, 0
-  br i1 %.not.i.i2025, label %mesa_CallLists.exit, label %.lr.ph.i.i2023, !llvm.loop !63
+  br i1 %.not.i.i2025, label %mesa_CallLists.exit, label %.lr.ph.i.i2023, !llvm.loop !60
 
 755:                                              ; preds = %34
   %756 = load i32, ptr @hf_x11_glx_render_TexCoord2sv_v, align 4
@@ -42896,7 +42896,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %765 = add i32 %764, 2
   store i32 %765, ptr %2, align 4
   %.not.i.i2030 = icmp eq i32 %762, 0
-  br i1 %.not.i.i2030, label %mesa_CallLists.exit, label %.lr.ph.i.i2028, !llvm.loop !62
+  br i1 %.not.i.i2030, label %mesa_CallLists.exit, label %.lr.ph.i.i2028, !llvm.loop !59
 
 766:                                              ; preds = %34
   %767 = load i32, ptr @hf_x11_glx_render_TexCoord3dv_v, align 4
@@ -42916,7 +42916,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %776 = add i32 %775, 8
   store i32 %776, ptr %2, align 4
   %.not.i.i2035 = icmp eq i32 %773, 0
-  br i1 %.not.i.i2035, label %mesa_CallLists.exit, label %.lr.ph.i.i2033, !llvm.loop !65
+  br i1 %.not.i.i2035, label %mesa_CallLists.exit, label %.lr.ph.i.i2033, !llvm.loop !62
 
 777:                                              ; preds = %34
   %778 = load i32, ptr @hf_x11_glx_render_TexCoord3fv_v, align 4
@@ -42936,7 +42936,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %787 = add i32 %786, 4
   store i32 %787, ptr %2, align 4
   %.not.i.i2040 = icmp eq i32 %784, 0
-  br i1 %.not.i.i2040, label %mesa_CallLists.exit, label %.lr.ph.i.i2038, !llvm.loop !64
+  br i1 %.not.i.i2040, label %mesa_CallLists.exit, label %.lr.ph.i.i2038, !llvm.loop !61
 
 788:                                              ; preds = %34
   %789 = load i32, ptr @hf_x11_glx_render_TexCoord3iv_v, align 4
@@ -42956,7 +42956,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %798 = add i32 %797, 4
   store i32 %798, ptr %2, align 4
   %.not.i.i2045 = icmp eq i32 %795, 0
-  br i1 %.not.i.i2045, label %mesa_CallLists.exit, label %.lr.ph.i.i2043, !llvm.loop !63
+  br i1 %.not.i.i2045, label %mesa_CallLists.exit, label %.lr.ph.i.i2043, !llvm.loop !60
 
 799:                                              ; preds = %34
   %800 = load i32, ptr @hf_x11_glx_render_TexCoord3sv_v, align 4
@@ -42976,7 +42976,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %809 = add i32 %808, 2
   store i32 %809, ptr %2, align 4
   %.not.i.i2050 = icmp eq i32 %806, 0
-  br i1 %.not.i.i2050, label %mesa_CallLists.exit, label %.lr.ph.i.i2048, !llvm.loop !62
+  br i1 %.not.i.i2050, label %mesa_CallLists.exit, label %.lr.ph.i.i2048, !llvm.loop !59
 
 810:                                              ; preds = %34
   %811 = load i32, ptr @hf_x11_glx_render_TexCoord4dv_v, align 4
@@ -42996,7 +42996,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %820 = add i32 %819, 8
   store i32 %820, ptr %2, align 4
   %.not.i.i2055 = icmp eq i32 %817, 0
-  br i1 %.not.i.i2055, label %mesa_CallLists.exit, label %.lr.ph.i.i2053, !llvm.loop !65
+  br i1 %.not.i.i2055, label %mesa_CallLists.exit, label %.lr.ph.i.i2053, !llvm.loop !62
 
 821:                                              ; preds = %34
   %822 = load i32, ptr @hf_x11_glx_render_TexCoord4fv_v, align 4
@@ -43016,7 +43016,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %831 = add i32 %830, 4
   store i32 %831, ptr %2, align 4
   %.not.i.i2060 = icmp eq i32 %828, 0
-  br i1 %.not.i.i2060, label %mesa_CallLists.exit, label %.lr.ph.i.i2058, !llvm.loop !64
+  br i1 %.not.i.i2060, label %mesa_CallLists.exit, label %.lr.ph.i.i2058, !llvm.loop !61
 
 832:                                              ; preds = %34
   %833 = load i32, ptr @hf_x11_glx_render_TexCoord4iv_v, align 4
@@ -43036,7 +43036,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %842 = add i32 %841, 4
   store i32 %842, ptr %2, align 4
   %.not.i.i2065 = icmp eq i32 %839, 0
-  br i1 %.not.i.i2065, label %mesa_CallLists.exit, label %.lr.ph.i.i2063, !llvm.loop !63
+  br i1 %.not.i.i2065, label %mesa_CallLists.exit, label %.lr.ph.i.i2063, !llvm.loop !60
 
 843:                                              ; preds = %34
   %844 = load i32, ptr @hf_x11_glx_render_TexCoord4sv_v, align 4
@@ -43056,7 +43056,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %853 = add i32 %852, 2
   store i32 %853, ptr %2, align 4
   %.not.i.i2070 = icmp eq i32 %850, 0
-  br i1 %.not.i.i2070, label %mesa_CallLists.exit, label %.lr.ph.i.i2068, !llvm.loop !62
+  br i1 %.not.i.i2070, label %mesa_CallLists.exit, label %.lr.ph.i.i2068, !llvm.loop !59
 
 854:                                              ; preds = %34
   %855 = load i32, ptr @hf_x11_glx_render_Vertex2dv_v, align 4
@@ -43076,7 +43076,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %864 = add i32 %863, 8
   store i32 %864, ptr %2, align 4
   %.not.i.i2075 = icmp eq i32 %861, 0
-  br i1 %.not.i.i2075, label %mesa_CallLists.exit, label %.lr.ph.i.i2073, !llvm.loop !65
+  br i1 %.not.i.i2075, label %mesa_CallLists.exit, label %.lr.ph.i.i2073, !llvm.loop !62
 
 865:                                              ; preds = %34
   %866 = load i32, ptr @hf_x11_glx_render_Vertex2fv_v, align 4
@@ -43096,7 +43096,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %875 = add i32 %874, 4
   store i32 %875, ptr %2, align 4
   %.not.i.i2080 = icmp eq i32 %872, 0
-  br i1 %.not.i.i2080, label %mesa_CallLists.exit, label %.lr.ph.i.i2078, !llvm.loop !64
+  br i1 %.not.i.i2080, label %mesa_CallLists.exit, label %.lr.ph.i.i2078, !llvm.loop !61
 
 876:                                              ; preds = %34
   %877 = load i32, ptr @hf_x11_glx_render_Vertex2iv_v, align 4
@@ -43116,7 +43116,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %886 = add i32 %885, 4
   store i32 %886, ptr %2, align 4
   %.not.i.i2085 = icmp eq i32 %883, 0
-  br i1 %.not.i.i2085, label %mesa_CallLists.exit, label %.lr.ph.i.i2083, !llvm.loop !63
+  br i1 %.not.i.i2085, label %mesa_CallLists.exit, label %.lr.ph.i.i2083, !llvm.loop !60
 
 887:                                              ; preds = %34
   %888 = load i32, ptr @hf_x11_glx_render_Vertex2sv_v, align 4
@@ -43136,7 +43136,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %897 = add i32 %896, 2
   store i32 %897, ptr %2, align 4
   %.not.i.i2090 = icmp eq i32 %894, 0
-  br i1 %.not.i.i2090, label %mesa_CallLists.exit, label %.lr.ph.i.i2088, !llvm.loop !62
+  br i1 %.not.i.i2090, label %mesa_CallLists.exit, label %.lr.ph.i.i2088, !llvm.loop !59
 
 898:                                              ; preds = %34
   %899 = load i32, ptr @hf_x11_glx_render_Vertex3dv_v, align 4
@@ -43156,7 +43156,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %908 = add i32 %907, 8
   store i32 %908, ptr %2, align 4
   %.not.i.i2095 = icmp eq i32 %905, 0
-  br i1 %.not.i.i2095, label %mesa_CallLists.exit, label %.lr.ph.i.i2093, !llvm.loop !65
+  br i1 %.not.i.i2095, label %mesa_CallLists.exit, label %.lr.ph.i.i2093, !llvm.loop !62
 
 909:                                              ; preds = %34
   %910 = load i32, ptr @hf_x11_glx_render_Vertex3fv_v, align 4
@@ -43176,7 +43176,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %919 = add i32 %918, 4
   store i32 %919, ptr %2, align 4
   %.not.i.i2100 = icmp eq i32 %916, 0
-  br i1 %.not.i.i2100, label %mesa_CallLists.exit, label %.lr.ph.i.i2098, !llvm.loop !64
+  br i1 %.not.i.i2100, label %mesa_CallLists.exit, label %.lr.ph.i.i2098, !llvm.loop !61
 
 920:                                              ; preds = %34
   %921 = load i32, ptr @hf_x11_glx_render_Vertex3iv_v, align 4
@@ -43196,7 +43196,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %930 = add i32 %929, 4
   store i32 %930, ptr %2, align 4
   %.not.i.i2105 = icmp eq i32 %927, 0
-  br i1 %.not.i.i2105, label %mesa_CallLists.exit, label %.lr.ph.i.i2103, !llvm.loop !63
+  br i1 %.not.i.i2105, label %mesa_CallLists.exit, label %.lr.ph.i.i2103, !llvm.loop !60
 
 931:                                              ; preds = %34
   %932 = load i32, ptr @hf_x11_glx_render_Vertex3sv_v, align 4
@@ -43216,7 +43216,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %941 = add i32 %940, 2
   store i32 %941, ptr %2, align 4
   %.not.i.i2110 = icmp eq i32 %938, 0
-  br i1 %.not.i.i2110, label %mesa_CallLists.exit, label %.lr.ph.i.i2108, !llvm.loop !62
+  br i1 %.not.i.i2110, label %mesa_CallLists.exit, label %.lr.ph.i.i2108, !llvm.loop !59
 
 942:                                              ; preds = %34
   %943 = load i32, ptr @hf_x11_glx_render_Vertex4dv_v, align 4
@@ -43236,7 +43236,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %952 = add i32 %951, 8
   store i32 %952, ptr %2, align 4
   %.not.i.i2115 = icmp eq i32 %949, 0
-  br i1 %.not.i.i2115, label %mesa_CallLists.exit, label %.lr.ph.i.i2113, !llvm.loop !65
+  br i1 %.not.i.i2115, label %mesa_CallLists.exit, label %.lr.ph.i.i2113, !llvm.loop !62
 
 953:                                              ; preds = %34
   %954 = load i32, ptr @hf_x11_glx_render_Vertex4fv_v, align 4
@@ -43256,7 +43256,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %963 = add i32 %962, 4
   store i32 %963, ptr %2, align 4
   %.not.i.i2120 = icmp eq i32 %960, 0
-  br i1 %.not.i.i2120, label %mesa_CallLists.exit, label %.lr.ph.i.i2118, !llvm.loop !64
+  br i1 %.not.i.i2120, label %mesa_CallLists.exit, label %.lr.ph.i.i2118, !llvm.loop !61
 
 964:                                              ; preds = %34
   %965 = load i32, ptr @hf_x11_glx_render_Vertex4iv_v, align 4
@@ -43276,7 +43276,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %974 = add i32 %973, 4
   store i32 %974, ptr %2, align 4
   %.not.i.i2125 = icmp eq i32 %971, 0
-  br i1 %.not.i.i2125, label %mesa_CallLists.exit, label %.lr.ph.i.i2123, !llvm.loop !63
+  br i1 %.not.i.i2125, label %mesa_CallLists.exit, label %.lr.ph.i.i2123, !llvm.loop !60
 
 975:                                              ; preds = %34
   %976 = load i32, ptr @hf_x11_glx_render_Vertex4sv_v, align 4
@@ -43296,7 +43296,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %985 = add i32 %984, 2
   store i32 %985, ptr %2, align 4
   %.not.i.i2130 = icmp eq i32 %982, 0
-  br i1 %.not.i.i2130, label %mesa_CallLists.exit, label %.lr.ph.i.i2128, !llvm.loop !62
+  br i1 %.not.i.i2130, label %mesa_CallLists.exit, label %.lr.ph.i.i2128, !llvm.loop !59
 
 986:                                              ; preds = %34
   %987 = load i32, ptr @hf_x11_glx_render_ClipPlane_plane, align 4
@@ -43321,7 +43321,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1000 = add i32 %999, 8
   store i32 %1000, ptr %2, align 4
   %.not.i.i2135 = icmp eq i32 %997, 0
-  br i1 %.not.i.i2135, label %mesa_CallLists.exit, label %.lr.ph.i.i2133, !llvm.loop !65
+  br i1 %.not.i.i2135, label %mesa_CallLists.exit, label %.lr.ph.i.i2133, !llvm.loop !62
 
 1001:                                             ; preds = %34
   %1002 = load i32, ptr @hf_x11_glx_render_ColorMaterial_face, align 4
@@ -43379,7 +43379,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1035 = add i32 %1034, 4
   store i32 %1035, ptr %2, align 4
   %.not.i.i2141 = icmp eq i32 %1032, 0
-  br i1 %.not.i.i2141, label %mesa_CallLists.exit, label %.lr.ph.i.i2139, !llvm.loop !64
+  br i1 %.not.i.i2141, label %mesa_CallLists.exit, label %.lr.ph.i.i2139, !llvm.loop !61
 
 1036:                                             ; preds = %34
   %1037 = load i32, ptr @hf_x11_glx_render_Fogi_pname, align 4
@@ -43422,7 +43422,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1060 = add i32 %1059, 4
   store i32 %1060, ptr %2, align 4
   %.not.i.i2149 = icmp eq i32 %1057, 0
-  br i1 %.not.i.i2149, label %mesa_CallLists.exit, label %.lr.ph.i.i2147, !llvm.loop !63
+  br i1 %.not.i.i2149, label %mesa_CallLists.exit, label %.lr.ph.i.i2147, !llvm.loop !60
 
 1061:                                             ; preds = %34
   %1062 = load i32, ptr @hf_x11_glx_render_FrontFace_mode, align 4
@@ -43490,7 +43490,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1103 = add i32 %1102, 4
   store i32 %1103, ptr %2, align 4
   %.not.i.i2157 = icmp eq i32 %1100, 0
-  br i1 %.not.i.i2157, label %mesa_CallLists.exit, label %.lr.ph.i.i2155, !llvm.loop !64
+  br i1 %.not.i.i2157, label %mesa_CallLists.exit, label %.lr.ph.i.i2155, !llvm.loop !61
 
 1104:                                             ; preds = %34
   %1105 = load i32, ptr @hf_x11_glx_render_Lighti_light, align 4
@@ -43543,7 +43543,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1136 = add i32 %1135, 4
   store i32 %1136, ptr %2, align 4
   %.not.i.i2165 = icmp eq i32 %1133, 0
-  br i1 %.not.i.i2165, label %mesa_CallLists.exit, label %.lr.ph.i.i2163, !llvm.loop !63
+  br i1 %.not.i.i2165, label %mesa_CallLists.exit, label %.lr.ph.i.i2163, !llvm.loop !60
 
 1137:                                             ; preds = %34
   %1138 = load i32, ptr @hf_x11_glx_render_LightModelf_pname, align 4
@@ -43586,7 +43586,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1161 = add i32 %1160, 4
   store i32 %1161, ptr %2, align 4
   %.not.i.i2173 = icmp eq i32 %1158, 0
-  br i1 %.not.i.i2173, label %mesa_CallLists.exit, label %.lr.ph.i.i2171, !llvm.loop !64
+  br i1 %.not.i.i2173, label %mesa_CallLists.exit, label %.lr.ph.i.i2171, !llvm.loop !61
 
 1162:                                             ; preds = %34
   %1163 = load i32, ptr @hf_x11_glx_render_LightModeli_pname, align 4
@@ -43629,7 +43629,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1186 = add i32 %1185, 4
   store i32 %1186, ptr %2, align 4
   %.not.i.i2181 = icmp eq i32 %1183, 0
-  br i1 %.not.i.i2181, label %mesa_CallLists.exit, label %.lr.ph.i.i2179, !llvm.loop !63
+  br i1 %.not.i.i2181, label %mesa_CallLists.exit, label %.lr.ph.i.i2179, !llvm.loop !60
 
 1187:                                             ; preds = %34
   %1188 = load i32, ptr @hf_x11_glx_render_LineStipple_factor, align 4
@@ -43697,7 +43697,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1229 = add i32 %1228, 4
   store i32 %1229, ptr %2, align 4
   %.not.i.i2189 = icmp eq i32 %1226, 0
-  br i1 %.not.i.i2189, label %mesa_CallLists.exit, label %.lr.ph.i.i2187, !llvm.loop !64
+  br i1 %.not.i.i2189, label %mesa_CallLists.exit, label %.lr.ph.i.i2187, !llvm.loop !61
 
 1230:                                             ; preds = %34
   %1231 = load i32, ptr @hf_x11_glx_render_Materiali_face, align 4
@@ -43750,7 +43750,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1262 = add i32 %1261, 4
   store i32 %1262, ptr %2, align 4
   %.not.i.i2197 = icmp eq i32 %1259, 0
-  br i1 %.not.i.i2197, label %mesa_CallLists.exit, label %.lr.ph.i.i2195, !llvm.loop !63
+  br i1 %.not.i.i2197, label %mesa_CallLists.exit, label %.lr.ph.i.i2195, !llvm.loop !60
 
 1263:                                             ; preds = %34
   %1264 = load i32, ptr @hf_x11_glx_render_PointSize_size, align 4
@@ -43885,7 +43885,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1355 = add i32 %1354, 4
   store i32 %1355, ptr %2, align 4
   %.not.i.i2206 = icmp eq i32 %1352, 0
-  br i1 %.not.i.i2206, label %mesa_CallLists.exit, label %.lr.ph.i.i2204, !llvm.loop !64
+  br i1 %.not.i.i2206, label %mesa_CallLists.exit, label %.lr.ph.i.i2204, !llvm.loop !61
 
 1356:                                             ; preds = %34
   %1357 = load i32, ptr @hf_x11_glx_render_TexParameteri_target, align 4
@@ -43938,7 +43938,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1388 = add i32 %1387, 4
   store i32 %1388, ptr %2, align 4
   %.not.i.i2214 = icmp eq i32 %1385, 0
-  br i1 %.not.i.i2214, label %mesa_CallLists.exit, label %.lr.ph.i.i2212, !llvm.loop !63
+  br i1 %.not.i.i2214, label %mesa_CallLists.exit, label %.lr.ph.i.i2212, !llvm.loop !60
 
 1389:                                             ; preds = %34
   %1390 = load i32, ptr @hf_x11_glx_render_TexImage1D_swapbytes, align 4
@@ -44150,7 +44150,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1545 = add i32 %1544, 4
   store i32 %1545, ptr %2, align 4
   %.not.i.i2224 = icmp eq i32 %1542, 0
-  br i1 %.not.i.i2224, label %mesa_CallLists.exit, label %.lr.ph.i.i2222, !llvm.loop !64
+  br i1 %.not.i.i2224, label %mesa_CallLists.exit, label %.lr.ph.i.i2222, !llvm.loop !61
 
 1546:                                             ; preds = %34
   %1547 = load i32, ptr @hf_x11_glx_render_TexEnvi_target, align 4
@@ -44203,7 +44203,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1578 = add i32 %1577, 4
   store i32 %1578, ptr %2, align 4
   %.not.i.i2232 = icmp eq i32 %1575, 0
-  br i1 %.not.i.i2232, label %mesa_CallLists.exit, label %.lr.ph.i.i2230, !llvm.loop !63
+  br i1 %.not.i.i2232, label %mesa_CallLists.exit, label %.lr.ph.i.i2230, !llvm.loop !60
 
 1579:                                             ; preds = %34
   %1580 = load i32, ptr @hf_x11_glx_render_TexGend_coord, align 4
@@ -44256,7 +44256,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1611 = add i32 %1610, 8
   store i32 %1611, ptr %2, align 4
   %.not.i.i2240 = icmp eq i32 %1608, 0
-  br i1 %.not.i.i2240, label %mesa_CallLists.exit, label %.lr.ph.i.i2238, !llvm.loop !65
+  br i1 %.not.i.i2240, label %mesa_CallLists.exit, label %.lr.ph.i.i2238, !llvm.loop !62
 
 1612:                                             ; preds = %34
   %1613 = load i32, ptr @hf_x11_glx_render_TexGenf_coord, align 4
@@ -44309,7 +44309,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1644 = add i32 %1643, 4
   store i32 %1644, ptr %2, align 4
   %.not.i.i2248 = icmp eq i32 %1641, 0
-  br i1 %.not.i.i2248, label %mesa_CallLists.exit, label %.lr.ph.i.i2246, !llvm.loop !64
+  br i1 %.not.i.i2248, label %mesa_CallLists.exit, label %.lr.ph.i.i2246, !llvm.loop !61
 
 1645:                                             ; preds = %34
   %1646 = load i32, ptr @hf_x11_glx_render_TexGeni_coord, align 4
@@ -44362,7 +44362,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1677 = add i32 %1676, 4
   store i32 %1677, ptr %2, align 4
   %.not.i.i2256 = icmp eq i32 %1674, 0
-  br i1 %.not.i.i2256, label %mesa_CallLists.exit, label %.lr.ph.i.i2254, !llvm.loop !63
+  br i1 %.not.i.i2256, label %mesa_CallLists.exit, label %.lr.ph.i.i2254, !llvm.loop !60
 
 1678:                                             ; preds = %34
   %1679 = load i32, ptr @hf_x11_glx_render_LoadName_name, align 4
@@ -44555,7 +44555,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1805 = add i32 %1804, 8
   store i32 %1805, ptr %2, align 4
   %.not.i.i2264 = icmp eq i32 %1802, 0
-  br i1 %.not.i.i2264, label %mesa_CallLists.exit, label %.lr.ph.i.i2262, !llvm.loop !65
+  br i1 %.not.i.i2264, label %mesa_CallLists.exit, label %.lr.ph.i.i2262, !llvm.loop !62
 
 1806:                                             ; preds = %34
   %1807 = load i32, ptr @hf_x11_glx_render_Map1f_target, align 4
@@ -44608,7 +44608,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1839 = add i32 %1838, 4
   store i32 %1839, ptr %2, align 4
   %.not.i.i2272 = icmp eq i32 %1836, 0
-  br i1 %.not.i.i2272, label %mesa_CallLists.exit, label %.lr.ph.i.i2270, !llvm.loop !64
+  br i1 %.not.i.i2272, label %mesa_CallLists.exit, label %.lr.ph.i.i2270, !llvm.loop !61
 
 1840:                                             ; preds = %34
   %1841 = load i32, ptr @hf_x11_glx_render_Map2d_target, align 4
@@ -44681,7 +44681,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1889 = add i32 %1888, 8
   store i32 %1889, ptr %2, align 4
   %.not.i.i2280 = icmp eq i32 %1886, 0
-  br i1 %.not.i.i2280, label %mesa_CallLists.exit, label %.lr.ph.i.i2278, !llvm.loop !65
+  br i1 %.not.i.i2280, label %mesa_CallLists.exit, label %.lr.ph.i.i2278, !llvm.loop !62
 
 1890:                                             ; preds = %34
   %1891 = load i32, ptr @hf_x11_glx_render_Map2f_target, align 4
@@ -44754,7 +44754,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1939 = add i32 %1938, 4
   store i32 %1939, ptr %2, align 4
   %.not.i.i2288 = icmp eq i32 %1936, 0
-  br i1 %.not.i.i2288, label %mesa_CallLists.exit, label %.lr.ph.i.i2286, !llvm.loop !64
+  br i1 %.not.i.i2288, label %mesa_CallLists.exit, label %.lr.ph.i.i2286, !llvm.loop !61
 
 1940:                                             ; preds = %34
   %1941 = load i32, ptr @hf_x11_glx_render_MapGrid1d_un, align 4
@@ -44884,7 +44884,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2032 = add i32 %2031, 8
   store i32 %2032, ptr %2, align 4
   %.not.i.i2297 = icmp eq i32 %2029, 0
-  br i1 %.not.i.i2297, label %mesa_CallLists.exit, label %.lr.ph.i.i2295, !llvm.loop !65
+  br i1 %.not.i.i2297, label %mesa_CallLists.exit, label %.lr.ph.i.i2295, !llvm.loop !62
 
 2033:                                             ; preds = %34
   %2034 = load i32, ptr @hf_x11_glx_render_EvalCoord2fv_u, align 4
@@ -44904,7 +44904,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2043 = add i32 %2042, 4
   store i32 %2043, ptr %2, align 4
   %.not.i.i2302 = icmp eq i32 %2040, 0
-  br i1 %.not.i.i2302, label %mesa_CallLists.exit, label %.lr.ph.i.i2300, !llvm.loop !64
+  br i1 %.not.i.i2302, label %mesa_CallLists.exit, label %.lr.ph.i.i2300, !llvm.loop !61
 
 2044:                                             ; preds = %34
   %2045 = load i32, ptr @hf_x11_glx_render_EvalMesh1_mode, align 4
@@ -45086,7 +45086,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2168 = add i32 %2167, 4
   store i32 %2168, ptr %2, align 4
   %.not.i.i2309 = icmp eq i32 %2165, 0
-  br i1 %.not.i.i2309, label %mesa_CallLists.exit, label %.lr.ph.i.i2307, !llvm.loop !64
+  br i1 %.not.i.i2309, label %mesa_CallLists.exit, label %.lr.ph.i.i2307, !llvm.loop !61
 
 2169:                                             ; preds = %34
   %2170 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_map, align 4
@@ -45123,7 +45123,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2190 = add i32 %2189, 4
   store i32 %2190, ptr %2, align 4
   %.not.i.i2316 = icmp eq i32 %2187, 0
-  br i1 %.not.i.i2316, label %mesa_CallLists.exit, label %.lr.ph.i.i2314, !llvm.loop !44
+  br i1 %.not.i.i2316, label %mesa_CallLists.exit, label %.lr.ph.i.i2314, !llvm.loop !41
 
 2191:                                             ; preds = %34
   %2192 = load i32, ptr @hf_x11_glx_render_PixelMapusv_map, align 4
@@ -45160,7 +45160,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2212 = add i32 %2211, 2
   store i32 %2212, ptr %2, align 4
   %.not.i.i2322 = icmp eq i32 %2209, 0
-  br i1 %.not.i.i2322, label %mesa_CallLists.exit, label %.lr.ph.i.i2320, !llvm.loop !43
+  br i1 %.not.i.i2322, label %mesa_CallLists.exit, label %.lr.ph.i.i2320, !llvm.loop !40
 
 2213:                                             ; preds = %34
   %2214 = load i32, ptr @hf_x11_glx_render_ReadBuffer_mode, align 4
@@ -45312,7 +45312,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2323 = add i32 %2322, 4
   store i32 %2323, ptr %2, align 4
   %.not.i.i2328 = icmp eq i32 %2320, 0
-  br i1 %.not.i.i2328, label %mesa_CallLists.exit, label %.lr.ph.i.i2326, !llvm.loop !64
+  br i1 %.not.i.i2328, label %mesa_CallLists.exit, label %.lr.ph.i.i2326, !llvm.loop !61
 
 2324:                                             ; preds = %34
   %2325 = load i32, ptr @hf_x11_glx_render_LoadMatrixd_m, align 4
@@ -45332,7 +45332,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2334 = add i32 %2333, 8
   store i32 %2334, ptr %2, align 4
   %.not.i.i2333 = icmp eq i32 %2331, 0
-  br i1 %.not.i.i2333, label %mesa_CallLists.exit, label %.lr.ph.i.i2331, !llvm.loop !65
+  br i1 %.not.i.i2333, label %mesa_CallLists.exit, label %.lr.ph.i.i2331, !llvm.loop !62
 
 2335:                                             ; preds = %34
   %2336 = load i32, ptr @hf_x11_glx_render_MatrixMode_mode, align 4
@@ -45357,7 +45357,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2348 = add i32 %2347, 4
   store i32 %2348, ptr %2, align 4
   %.not.i.i2338 = icmp eq i32 %2345, 0
-  br i1 %.not.i.i2338, label %mesa_CallLists.exit, label %.lr.ph.i.i2336, !llvm.loop !64
+  br i1 %.not.i.i2338, label %mesa_CallLists.exit, label %.lr.ph.i.i2336, !llvm.loop !61
 
 2349:                                             ; preds = %34
   %2350 = load i32, ptr @hf_x11_glx_render_MultMatrixd_m, align 4
@@ -45377,7 +45377,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2359 = add i32 %2358, 8
   store i32 %2359, ptr %2, align 4
   %.not.i.i2343 = icmp eq i32 %2356, 0
-  br i1 %.not.i.i2343, label %mesa_CallLists.exit, label %.lr.ph.i.i2341, !llvm.loop !65
+  br i1 %.not.i.i2343, label %mesa_CallLists.exit, label %.lr.ph.i.i2341, !llvm.loop !62
 
 2360:                                             ; preds = %34
   %2361 = load i32, ptr @hf_x11_glx_render_Ortho_left, align 4
@@ -45739,7 +45739,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2625 = add i32 %2624, 8
   store i32 %2625, ptr %2, align 4
   %.not.i.i2357 = icmp eq i32 %2622, 0
-  br i1 %.not.i.i2357, label %mesa_CallLists.exit, label %.lr.ph.i.i2355, !llvm.loop !65
+  br i1 %.not.i.i2357, label %mesa_CallLists.exit, label %.lr.ph.i.i2355, !llvm.loop !62
 
 2626:                                             ; preds = %34
   %2627 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2fvARB_target, align 4
@@ -45764,7 +45764,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2640 = add i32 %2639, 4
   store i32 %2640, ptr %2, align 4
   %.not.i.i2362 = icmp eq i32 %2637, 0
-  br i1 %.not.i.i2362, label %mesa_CallLists.exit, label %.lr.ph.i.i2360, !llvm.loop !64
+  br i1 %.not.i.i2362, label %mesa_CallLists.exit, label %.lr.ph.i.i2360, !llvm.loop !61
 
 2641:                                             ; preds = %34
   %2642 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2iv_target, align 4
@@ -45789,7 +45789,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2655 = add i32 %2654, 4
   store i32 %2655, ptr %2, align 4
   %.not.i.i2367 = icmp eq i32 %2652, 0
-  br i1 %.not.i.i2367, label %mesa_CallLists.exit, label %.lr.ph.i.i2365, !llvm.loop !63
+  br i1 %.not.i.i2367, label %mesa_CallLists.exit, label %.lr.ph.i.i2365, !llvm.loop !60
 
 2656:                                             ; preds = %34
   %2657 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2sv_target, align 4
@@ -45814,7 +45814,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2670 = add i32 %2669, 2
   store i32 %2670, ptr %2, align 4
   %.not.i.i2372 = icmp eq i32 %2667, 0
-  br i1 %.not.i.i2372, label %mesa_CallLists.exit, label %.lr.ph.i.i2370, !llvm.loop !62
+  br i1 %.not.i.i2372, label %mesa_CallLists.exit, label %.lr.ph.i.i2370, !llvm.loop !59
 
 2671:                                             ; preds = %34
   %2672 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3dv_target, align 4
@@ -45839,7 +45839,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2685 = add i32 %2684, 8
   store i32 %2685, ptr %2, align 4
   %.not.i.i2377 = icmp eq i32 %2682, 0
-  br i1 %.not.i.i2377, label %mesa_CallLists.exit, label %.lr.ph.i.i2375, !llvm.loop !65
+  br i1 %.not.i.i2377, label %mesa_CallLists.exit, label %.lr.ph.i.i2375, !llvm.loop !62
 
 2686:                                             ; preds = %34
   %2687 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3fvARB_target, align 4
@@ -45864,7 +45864,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2700 = add i32 %2699, 4
   store i32 %2700, ptr %2, align 4
   %.not.i.i2382 = icmp eq i32 %2697, 0
-  br i1 %.not.i.i2382, label %mesa_CallLists.exit, label %.lr.ph.i.i2380, !llvm.loop !64
+  br i1 %.not.i.i2382, label %mesa_CallLists.exit, label %.lr.ph.i.i2380, !llvm.loop !61
 
 2701:                                             ; preds = %34
   %2702 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3iv_target, align 4
@@ -45889,7 +45889,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2715 = add i32 %2714, 4
   store i32 %2715, ptr %2, align 4
   %.not.i.i2387 = icmp eq i32 %2712, 0
-  br i1 %.not.i.i2387, label %mesa_CallLists.exit, label %.lr.ph.i.i2385, !llvm.loop !63
+  br i1 %.not.i.i2387, label %mesa_CallLists.exit, label %.lr.ph.i.i2385, !llvm.loop !60
 
 2716:                                             ; preds = %34
   %2717 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3sv_target, align 4
@@ -45914,7 +45914,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2730 = add i32 %2729, 2
   store i32 %2730, ptr %2, align 4
   %.not.i.i2392 = icmp eq i32 %2727, 0
-  br i1 %.not.i.i2392, label %mesa_CallLists.exit, label %.lr.ph.i.i2390, !llvm.loop !62
+  br i1 %.not.i.i2392, label %mesa_CallLists.exit, label %.lr.ph.i.i2390, !llvm.loop !59
 
 2731:                                             ; preds = %34
   %2732 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4dv_target, align 4
@@ -45939,7 +45939,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2745 = add i32 %2744, 8
   store i32 %2745, ptr %2, align 4
   %.not.i.i2397 = icmp eq i32 %2742, 0
-  br i1 %.not.i.i2397, label %mesa_CallLists.exit, label %.lr.ph.i.i2395, !llvm.loop !65
+  br i1 %.not.i.i2397, label %mesa_CallLists.exit, label %.lr.ph.i.i2395, !llvm.loop !62
 
 2746:                                             ; preds = %34
   %2747 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4fvARB_target, align 4
@@ -45964,7 +45964,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2760 = add i32 %2759, 4
   store i32 %2760, ptr %2, align 4
   %.not.i.i2402 = icmp eq i32 %2757, 0
-  br i1 %.not.i.i2402, label %mesa_CallLists.exit, label %.lr.ph.i.i2400, !llvm.loop !64
+  br i1 %.not.i.i2402, label %mesa_CallLists.exit, label %.lr.ph.i.i2400, !llvm.loop !61
 
 2761:                                             ; preds = %34
   %2762 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4iv_target, align 4
@@ -45989,7 +45989,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2775 = add i32 %2774, 4
   store i32 %2775, ptr %2, align 4
   %.not.i.i2407 = icmp eq i32 %2772, 0
-  br i1 %.not.i.i2407, label %mesa_CallLists.exit, label %.lr.ph.i.i2405, !llvm.loop !63
+  br i1 %.not.i.i2407, label %mesa_CallLists.exit, label %.lr.ph.i.i2405, !llvm.loop !60
 
 2776:                                             ; preds = %34
   %2777 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4sv_target, align 4
@@ -46014,7 +46014,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %2790 = add i32 %2789, 2
   store i32 %2790, ptr %2, align 4
   %.not.i.i2412 = icmp eq i32 %2787, 0
-  br i1 %.not.i.i2412, label %mesa_CallLists.exit, label %.lr.ph.i.i2410, !llvm.loop !62
+  br i1 %.not.i.i2412, label %mesa_CallLists.exit, label %.lr.ph.i.i2410, !llvm.loop !59
 
 2791:                                             ; preds = %34
   %2792 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_target, align 4
@@ -46317,7 +46317,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3018 = add i32 %3017, 4
   store i32 %3018, ptr %2, align 4
   %.not.i.i2423 = icmp eq i32 %3015, 0
-  br i1 %.not.i.i2423, label %mesa_CallLists.exit, label %.lr.ph.i.i2421, !llvm.loop !64
+  br i1 %.not.i.i2423, label %mesa_CallLists.exit, label %.lr.ph.i.i2421, !llvm.loop !61
 
 3019:                                             ; preds = %34
   %3020 = load i32, ptr @hf_x11_glx_render_BeginQuery_target, align 4
@@ -46364,7 +46364,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3046 = add i32 %3045, 4
   store i32 %3046, ptr %2, align 4
   %.not.i.i2430 = icmp eq i32 %3043, 0
-  br i1 %.not.i.i2430, label %mesa_CallLists.exit, label %.lr.ph.i.i2428, !llvm.loop !44
+  br i1 %.not.i.i2430, label %mesa_CallLists.exit, label %.lr.ph.i.i2428, !llvm.loop !41
 
 3047:                                             ; preds = %34
   %3048 = load i32, ptr @hf_x11_glx_render_SampleMaskSGIS_value, align 4
@@ -46416,7 +46416,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3078 = add i32 %3077, 4
   store i32 %3078, ptr %2, align 4
   %.not.i.i2436 = icmp eq i32 %3075, 0
-  br i1 %.not.i.i2436, label %mesa_CallLists.exit, label %.lr.ph.i.i2434, !llvm.loop !64
+  br i1 %.not.i.i2436, label %mesa_CallLists.exit, label %.lr.ph.i.i2434, !llvm.loop !61
 
 3079:                                             ; preds = %34
   %3080 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_target, align 4
@@ -46453,7 +46453,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3100 = add i32 %3099, 4
   store i32 %3100, ptr %2, align 4
   %.not.i.i2443 = icmp eq i32 %3097, 0
-  br i1 %.not.i.i2443, label %mesa_CallLists.exit, label %.lr.ph.i.i2441, !llvm.loop !64
+  br i1 %.not.i.i2443, label %mesa_CallLists.exit, label %.lr.ph.i.i2441, !llvm.loop !61
 
 3101:                                             ; preds = %34
   %3102 = load i32, ptr @hf_x11_glx_render_ColorTable_swapbytes, align 4
@@ -46558,7 +46558,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3174 = add i32 %3173, 4
   store i32 %3174, ptr %2, align 4
   %.not.i.i2452 = icmp eq i32 %3171, 0
-  br i1 %.not.i.i2452, label %mesa_CallLists.exit, label %.lr.ph.i.i2450, !llvm.loop !64
+  br i1 %.not.i.i2452, label %mesa_CallLists.exit, label %.lr.ph.i.i2450, !llvm.loop !61
 
 3175:                                             ; preds = %34
   %3176 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_target, align 4
@@ -46596,7 +46596,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3196 = add i32 %3195, 4
   store i32 %3196, ptr %2, align 4
   %.not.i.i2460 = icmp eq i32 %3193, 0
-  br i1 %.not.i.i2460, label %mesa_CallLists.exit, label %.lr.ph.i.i2458, !llvm.loop !63
+  br i1 %.not.i.i2460, label %mesa_CallLists.exit, label %.lr.ph.i.i2458, !llvm.loop !60
 
 3197:                                             ; preds = %34
   %3198 = load i32, ptr @hf_x11_glx_render_CopyColorTable_target, align 4
@@ -46867,7 +46867,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3400 = add i32 %3399, 4
   store i32 %3400, ptr %2, align 4
   %.not.i.i2469 = icmp eq i32 %3397, 0
-  br i1 %.not.i.i2469, label %mesa_CallLists.exit, label %.lr.ph.i.i2467, !llvm.loop !64
+  br i1 %.not.i.i2469, label %mesa_CallLists.exit, label %.lr.ph.i.i2467, !llvm.loop !61
 
 3401:                                             ; preds = %34
   %3402 = load i32, ptr @hf_x11_glx_render_PointParameterf_pname, align 4
@@ -46910,7 +46910,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3425 = add i32 %3424, 4
   store i32 %3425, ptr %2, align 4
   %.not.i.i2477 = icmp eq i32 %3422, 0
-  br i1 %.not.i.i2477, label %mesa_CallLists.exit, label %.lr.ph.i.i2475, !llvm.loop !64
+  br i1 %.not.i.i2477, label %mesa_CallLists.exit, label %.lr.ph.i.i2475, !llvm.loop !61
 
 3426:                                             ; preds = %34
   %3427 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
@@ -46942,7 +46942,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3443 = add i32 %3442, 4
   store i32 %3443, ptr %2, align 4
   %.not.i.i2484 = icmp eq i32 %3440, 0
-  br i1 %.not.i.i2484, label %mesa_CallLists.exit, label %.lr.ph.i.i2482, !llvm.loop !64
+  br i1 %.not.i.i2484, label %mesa_CallLists.exit, label %.lr.ph.i.i2482, !llvm.loop !61
 
 3444:                                             ; preds = %34
   %3445 = load i32, ptr @hf_x11_glx_render_ReferencePlaneSGIX_equation, align 4
@@ -46962,7 +46962,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3454 = add i32 %3453, 8
   store i32 %3454, ptr %2, align 4
   %.not.i.i2489 = icmp eq i32 %3451, 0
-  br i1 %.not.i.i2489, label %mesa_CallLists.exit, label %.lr.ph.i.i2487, !llvm.loop !65
+  br i1 %.not.i.i2489, label %mesa_CallLists.exit, label %.lr.ph.i.i2487, !llvm.loop !62
 
 3455:                                             ; preds = %34
   %3456 = load i32, ptr @hf_x11_glx_render_FrameZoomSGIX_factor, align 4
@@ -47368,7 +47368,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3759 = add i32 %3758, 4
   store i32 %3759, ptr %2, align 4
   %.not.i.i2501 = icmp eq i32 %3756, 0
-  br i1 %.not.i.i2501, label %mesa_CallLists.exit, label %.lr.ph.i.i2499, !llvm.loop !64
+  br i1 %.not.i.i2501, label %mesa_CallLists.exit, label %.lr.ph.i.i2499, !llvm.loop !61
 
 3760:                                             ; preds = %34
   %3761 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteri_target, align 4
@@ -47421,7 +47421,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %3792 = add i32 %3791, 4
   store i32 %3792, ptr %2, align 4
   %.not.i.i2509 = icmp eq i32 %3789, 0
-  br i1 %.not.i.i2509, label %mesa_CallLists.exit, label %.lr.ph.i.i2507, !llvm.loop !63
+  br i1 %.not.i.i2509, label %mesa_CallLists.exit, label %.lr.ph.i.i2507, !llvm.loop !60
 
 3793:                                             ; preds = %34
   %3794 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_target, align 4
@@ -47786,7 +47786,7 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %4067 = add i32 %4066, 4
   store i32 %4067, ptr %2, align 4
   %.not.i.i2518 = icmp eq i32 %4064, 0
-  br i1 %.not.i.i2518, label %listOfCard32.exit.i, label %.lr.ph.i.i2516, !llvm.loop !44
+  br i1 %.not.i.i2518, label %listOfCard32.exit.i, label %.lr.ph.i.i2516, !llvm.loop !41
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %4050
   %4068 = phi i32 [ %.pre.i2515, %4050 ], [ %4067, %.lr.ph.i.i2516 ]
@@ -47810,7 +47810,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4078 = add i32 %4077, 4
   store i32 %4078, ptr %2, align 4
   %.not.i22.i = icmp eq i32 %4075, 0
-  br i1 %.not.i22.i, label %mesa_CallLists.exit, label %.lr.ph.i20.i, !llvm.loop !64
+  br i1 %.not.i22.i, label %mesa_CallLists.exit, label %.lr.ph.i20.i, !llvm.loop !61
 
 4079:                                             ; preds = %34
   %4080 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_target, align 4
@@ -48045,7 +48045,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4253 = add i32 %4252, 2
   store i32 %4253, ptr %2, align 4
   %.not.i.i2527 = icmp eq i32 %4250, 0
-  br i1 %.not.i.i2527, label %mesa_CallLists.exit, label %.lr.ph.i.i2525, !llvm.loop !62
+  br i1 %.not.i.i2527, label %mesa_CallLists.exit, label %.lr.ph.i.i2525, !llvm.loop !59
 
 4254:                                             ; preds = %34
   %4255 = load i32, ptr @hf_x11_glx_render_SecondaryColor3iv_v, align 4
@@ -48065,7 +48065,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4264 = add i32 %4263, 4
   store i32 %4264, ptr %2, align 4
   %.not.i.i2532 = icmp eq i32 %4261, 0
-  br i1 %.not.i.i2532, label %mesa_CallLists.exit, label %.lr.ph.i.i2530, !llvm.loop !63
+  br i1 %.not.i.i2532, label %mesa_CallLists.exit, label %.lr.ph.i.i2530, !llvm.loop !60
 
 4265:                                             ; preds = %34
   %4266 = load i32, ptr @hf_x11_glx_render_SecondaryColor3fvEXT_v, align 4
@@ -48085,7 +48085,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4275 = add i32 %4274, 4
   store i32 %4275, ptr %2, align 4
   %.not.i.i2537 = icmp eq i32 %4272, 0
-  br i1 %.not.i.i2537, label %mesa_CallLists.exit, label %.lr.ph.i.i2535, !llvm.loop !64
+  br i1 %.not.i.i2537, label %mesa_CallLists.exit, label %.lr.ph.i.i2535, !llvm.loop !61
 
 4276:                                             ; preds = %34
   %4277 = load i32, ptr @hf_x11_glx_render_SecondaryColor3dv_v, align 4
@@ -48105,7 +48105,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4286 = add i32 %4285, 8
   store i32 %4286, ptr %2, align 4
   %.not.i.i2542 = icmp eq i32 %4283, 0
-  br i1 %.not.i.i2542, label %mesa_CallLists.exit, label %.lr.ph.i.i2540, !llvm.loop !65
+  br i1 %.not.i.i2542, label %mesa_CallLists.exit, label %.lr.ph.i.i2540, !llvm.loop !62
 
 4287:                                             ; preds = %34
   %4288 = load i32, ptr @hf_x11_glx_render_SecondaryColor3ubv_v, align 4
@@ -48130,7 +48130,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4300 = add i32 %4299, 2
   store i32 %4300, ptr %2, align 4
   %.not.i.i2547 = icmp eq i32 %4297, 0
-  br i1 %.not.i.i2547, label %mesa_CallLists.exit, label %.lr.ph.i.i2545, !llvm.loop !43
+  br i1 %.not.i.i2547, label %mesa_CallLists.exit, label %.lr.ph.i.i2545, !llvm.loop !40
 
 4301:                                             ; preds = %34
   %4302 = load i32, ptr @hf_x11_glx_render_SecondaryColor3uiv_v, align 4
@@ -48150,7 +48150,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4311 = add i32 %4310, 4
   store i32 %4311, ptr %2, align 4
   %.not.i.i2552 = icmp eq i32 %4308, 0
-  br i1 %.not.i.i2552, label %mesa_CallLists.exit, label %.lr.ph.i.i2550, !llvm.loop !44
+  br i1 %.not.i.i2552, label %mesa_CallLists.exit, label %.lr.ph.i.i2550, !llvm.loop !41
 
 4312:                                             ; preds = %34
   %4313 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_sfactorRGB, align 4
@@ -48223,7 +48223,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4358 = add i32 %4357, 4
   store i32 %4358, ptr %2, align 4
   %.not.i.i2562 = icmp eq i32 %4355, 0
-  br i1 %.not.i.i2562, label %mesa_CallLists.exit, label %.lr.ph.i.i2560, !llvm.loop !64
+  br i1 %.not.i.i2562, label %mesa_CallLists.exit, label %.lr.ph.i.i2560, !llvm.loop !61
 
 4359:                                             ; preds = %34
   %4360 = load i32, ptr @hf_x11_glx_render_CombinerParameteriNV_pname, align 4
@@ -48266,7 +48266,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4383 = add i32 %4382, 4
   store i32 %4383, ptr %2, align 4
   %.not.i.i2570 = icmp eq i32 %4380, 0
-  br i1 %.not.i.i2570, label %mesa_CallLists.exit, label %.lr.ph.i.i2568, !llvm.loop !63
+  br i1 %.not.i.i2570, label %mesa_CallLists.exit, label %.lr.ph.i.i2568, !llvm.loop !60
 
 4384:                                             ; preds = %34
   %4385 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_stage, align 4
@@ -48406,7 +48406,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4486 = add i32 %4485, 4
   store i32 %4486, ptr %2, align 4
   %.not.i.i2575 = icmp eq i32 %4483, 0
-  br i1 %.not.i.i2575, label %mesa_CallLists.exit, label %.lr.ph.i.i2573, !llvm.loop !64
+  br i1 %.not.i.i2575, label %mesa_CallLists.exit, label %.lr.ph.i.i2573, !llvm.loop !61
 
 4487:                                             ; preds = %34
   %4488 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
@@ -48438,7 +48438,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4504 = add i32 %4503, 4
   store i32 %4504, ptr %2, align 4
   %.not.i.i2582 = icmp eq i32 %4501, 0
-  br i1 %.not.i.i2582, label %mesa_CallLists.exit, label %.lr.ph.i.i2580, !llvm.loop !44
+  br i1 %.not.i.i2582, label %mesa_CallLists.exit, label %.lr.ph.i.i2580, !llvm.loop !41
 
 4505:                                             ; preds = %34
   %4506 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_target, align 4
@@ -48491,7 +48491,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4540 = add i32 %4539, 4
   store i32 %4540, ptr %2, align 4
   %.not.i.i2588 = icmp eq i32 %4537, 0
-  br i1 %.not.i.i2588, label %mesa_CallLists.exit, label %.lr.ph.i.i2586, !llvm.loop !64
+  br i1 %.not.i.i2588, label %mesa_CallLists.exit, label %.lr.ph.i.i2586, !llvm.loop !61
 
 4541:                                             ; preds = %34
   %4542 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_target, align 4
@@ -48521,7 +48521,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4559 = add i32 %4558, 8
   store i32 %4559, ptr %2, align 4
   %.not.i.i2593 = icmp eq i32 %4556, 0
-  br i1 %.not.i.i2593, label %mesa_CallLists.exit, label %.lr.ph.i.i2591, !llvm.loop !65
+  br i1 %.not.i.i2593, label %mesa_CallLists.exit, label %.lr.ph.i.i2591, !llvm.loop !62
 
 4560:                                             ; preds = %34
   %4561 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_target, align 4
@@ -48563,7 +48563,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4585 = add i32 %4584, 4
   store i32 %4585, ptr %2, align 4
   %.not.i.i2600 = icmp eq i32 %4582, 0
-  br i1 %.not.i.i2600, label %mesa_CallLists.exit, label %.lr.ph.i.i2598, !llvm.loop !64
+  br i1 %.not.i.i2600, label %mesa_CallLists.exit, label %.lr.ph.i.i2598, !llvm.loop !61
 
 4586:                                             ; preds = %34
   %4587 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_target, align 4
@@ -48605,7 +48605,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4611 = add i32 %4610, 8
   store i32 %4611, ptr %2, align 4
   %.not.i.i2607 = icmp eq i32 %4608, 0
-  br i1 %.not.i.i2607, label %mesa_CallLists.exit, label %.lr.ph.i.i2605, !llvm.loop !65
+  br i1 %.not.i.i2607, label %mesa_CallLists.exit, label %.lr.ph.i.i2605, !llvm.loop !62
 
 4612:                                             ; preds = %34
   %4613 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_target, align 4
@@ -48665,7 +48665,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4652 = add i32 %4651, 2
   store i32 %4652, ptr %2, align 4
   %.not.i.i2614 = icmp eq i32 %4649, 0
-  br i1 %.not.i.i2614, label %mesa_CallLists.exit, label %.lr.ph.i.i2612, !llvm.loop !62
+  br i1 %.not.i.i2614, label %mesa_CallLists.exit, label %.lr.ph.i.i2612, !llvm.loop !59
 
 4653:                                             ; preds = %34
   %4654 = load i32, ptr @hf_x11_glx_render_VertexAttrib3sv_index, align 4
@@ -48690,7 +48690,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4667 = add i32 %4666, 2
   store i32 %4667, ptr %2, align 4
   %.not.i.i2619 = icmp eq i32 %4664, 0
-  br i1 %.not.i.i2619, label %mesa_CallLists.exit, label %.lr.ph.i.i2617, !llvm.loop !62
+  br i1 %.not.i.i2619, label %mesa_CallLists.exit, label %.lr.ph.i.i2617, !llvm.loop !59
 
 4668:                                             ; preds = %34
   %4669 = load i32, ptr @hf_x11_glx_render_VertexAttrib4sv_index, align 4
@@ -48715,7 +48715,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4682 = add i32 %4681, 2
   store i32 %4682, ptr %2, align 4
   %.not.i.i2624 = icmp eq i32 %4679, 0
-  br i1 %.not.i.i2624, label %mesa_CallLists.exit, label %.lr.ph.i.i2622, !llvm.loop !62
+  br i1 %.not.i.i2624, label %mesa_CallLists.exit, label %.lr.ph.i.i2622, !llvm.loop !59
 
 4683:                                             ; preds = %34
   %4684 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvARB_index, align 4
@@ -48755,7 +48755,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4708 = add i32 %4707, 4
   store i32 %4708, ptr %2, align 4
   %.not.i.i2631 = icmp eq i32 %4705, 0
-  br i1 %.not.i.i2631, label %mesa_CallLists.exit, label %.lr.ph.i.i2629, !llvm.loop !64
+  br i1 %.not.i.i2631, label %mesa_CallLists.exit, label %.lr.ph.i.i2629, !llvm.loop !61
 
 4709:                                             ; preds = %34
   %4710 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvARB_index, align 4
@@ -48780,7 +48780,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4723 = add i32 %4722, 4
   store i32 %4723, ptr %2, align 4
   %.not.i.i2636 = icmp eq i32 %4720, 0
-  br i1 %.not.i.i2636, label %mesa_CallLists.exit, label %.lr.ph.i.i2634, !llvm.loop !64
+  br i1 %.not.i.i2636, label %mesa_CallLists.exit, label %.lr.ph.i.i2634, !llvm.loop !61
 
 4724:                                             ; preds = %34
   %4725 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvARB_index, align 4
@@ -48805,7 +48805,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4738 = add i32 %4737, 4
   store i32 %4738, ptr %2, align 4
   %.not.i.i2641 = icmp eq i32 %4735, 0
-  br i1 %.not.i.i2641, label %mesa_CallLists.exit, label %.lr.ph.i.i2639, !llvm.loop !64
+  br i1 %.not.i.i2641, label %mesa_CallLists.exit, label %.lr.ph.i.i2639, !llvm.loop !61
 
 4739:                                             ; preds = %34
   %4740 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dv_index, align 4
@@ -48845,7 +48845,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4764 = add i32 %4763, 8
   store i32 %4764, ptr %2, align 4
   %.not.i.i2648 = icmp eq i32 %4761, 0
-  br i1 %.not.i.i2648, label %mesa_CallLists.exit, label %.lr.ph.i.i2646, !llvm.loop !65
+  br i1 %.not.i.i2648, label %mesa_CallLists.exit, label %.lr.ph.i.i2646, !llvm.loop !62
 
 4765:                                             ; preds = %34
   %4766 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dv_index, align 4
@@ -48870,7 +48870,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4779 = add i32 %4778, 8
   store i32 %4779, ptr %2, align 4
   %.not.i.i2653 = icmp eq i32 %4776, 0
-  br i1 %.not.i.i2653, label %mesa_CallLists.exit, label %.lr.ph.i.i2651, !llvm.loop !65
+  br i1 %.not.i.i2653, label %mesa_CallLists.exit, label %.lr.ph.i.i2651, !llvm.loop !62
 
 4780:                                             ; preds = %34
   %4781 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dv_index, align 4
@@ -48895,7 +48895,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4794 = add i32 %4793, 8
   store i32 %4794, ptr %2, align 4
   %.not.i.i2658 = icmp eq i32 %4791, 0
-  br i1 %.not.i.i2658, label %mesa_CallLists.exit, label %.lr.ph.i.i2656, !llvm.loop !65
+  br i1 %.not.i.i2658, label %mesa_CallLists.exit, label %.lr.ph.i.i2656, !llvm.loop !62
 
 4795:                                             ; preds = %34
   %4796 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nubv_index, align 4
@@ -48942,7 +48942,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4823 = add i32 %4822, 2
   store i32 %4823, ptr %2, align 4
   %.not.i.i2665 = icmp eq i32 %4820, 0
-  br i1 %.not.i.i2665, label %mesa_CallLists.exit, label %.lr.ph.i.i2663, !llvm.loop !62
+  br i1 %.not.i.i2665, label %mesa_CallLists.exit, label %.lr.ph.i.i2663, !llvm.loop !59
 
 4824:                                             ; preds = %34
   %4825 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_index, align 4
@@ -48979,7 +48979,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4845 = add i32 %4844, 2
   store i32 %4845, ptr %2, align 4
   %.not.i.i2672 = icmp eq i32 %4842, 0
-  br i1 %.not.i.i2672, label %mesa_CallLists.exit, label %.lr.ph.i.i2670, !llvm.loop !62
+  br i1 %.not.i.i2672, label %mesa_CallLists.exit, label %.lr.ph.i.i2670, !llvm.loop !59
 
 4846:                                             ; preds = %34
   %4847 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_index, align 4
@@ -49016,7 +49016,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4867 = add i32 %4866, 2
   store i32 %4867, ptr %2, align 4
   %.not.i.i2679 = icmp eq i32 %4864, 0
-  br i1 %.not.i.i2679, label %mesa_CallLists.exit, label %.lr.ph.i.i2677, !llvm.loop !62
+  br i1 %.not.i.i2679, label %mesa_CallLists.exit, label %.lr.ph.i.i2677, !llvm.loop !59
 
 4868:                                             ; preds = %34
   %4869 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_index, align 4
@@ -49053,7 +49053,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4889 = add i32 %4888, 2
   store i32 %4889, ptr %2, align 4
   %.not.i.i2686 = icmp eq i32 %4886, 0
-  br i1 %.not.i.i2686, label %mesa_CallLists.exit, label %.lr.ph.i.i2684, !llvm.loop !62
+  br i1 %.not.i.i2686, label %mesa_CallLists.exit, label %.lr.ph.i.i2684, !llvm.loop !59
 
 4890:                                             ; preds = %34
   %4891 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_index, align 4
@@ -49090,7 +49090,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4911 = add i32 %4910, 4
   store i32 %4911, ptr %2, align 4
   %.not.i.i2693 = icmp eq i32 %4908, 0
-  br i1 %.not.i.i2693, label %mesa_CallLists.exit, label %.lr.ph.i.i2691, !llvm.loop !64
+  br i1 %.not.i.i2693, label %mesa_CallLists.exit, label %.lr.ph.i.i2691, !llvm.loop !61
 
 4912:                                             ; preds = %34
   %4913 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_index, align 4
@@ -49127,7 +49127,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4933 = add i32 %4932, 4
   store i32 %4933, ptr %2, align 4
   %.not.i.i2700 = icmp eq i32 %4930, 0
-  br i1 %.not.i.i2700, label %mesa_CallLists.exit, label %.lr.ph.i.i2698, !llvm.loop !64
+  br i1 %.not.i.i2700, label %mesa_CallLists.exit, label %.lr.ph.i.i2698, !llvm.loop !61
 
 4934:                                             ; preds = %34
   %4935 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_index, align 4
@@ -49164,7 +49164,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4955 = add i32 %4954, 4
   store i32 %4955, ptr %2, align 4
   %.not.i.i2707 = icmp eq i32 %4952, 0
-  br i1 %.not.i.i2707, label %mesa_CallLists.exit, label %.lr.ph.i.i2705, !llvm.loop !64
+  br i1 %.not.i.i2707, label %mesa_CallLists.exit, label %.lr.ph.i.i2705, !llvm.loop !61
 
 4956:                                             ; preds = %34
   %4957 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_index, align 4
@@ -49201,7 +49201,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4977 = add i32 %4976, 4
   store i32 %4977, ptr %2, align 4
   %.not.i.i2714 = icmp eq i32 %4974, 0
-  br i1 %.not.i.i2714, label %mesa_CallLists.exit, label %.lr.ph.i.i2712, !llvm.loop !64
+  br i1 %.not.i.i2714, label %mesa_CallLists.exit, label %.lr.ph.i.i2712, !llvm.loop !61
 
 4978:                                             ; preds = %34
   %4979 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_index, align 4
@@ -49238,7 +49238,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %4999 = add i32 %4998, 8
   store i32 %4999, ptr %2, align 4
   %.not.i.i2721 = icmp eq i32 %4996, 0
-  br i1 %.not.i.i2721, label %mesa_CallLists.exit, label %.lr.ph.i.i2719, !llvm.loop !65
+  br i1 %.not.i.i2721, label %mesa_CallLists.exit, label %.lr.ph.i.i2719, !llvm.loop !62
 
 5000:                                             ; preds = %34
   %5001 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_index, align 4
@@ -49275,7 +49275,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5021 = add i32 %5020, 8
   store i32 %5021, ptr %2, align 4
   %.not.i.i2728 = icmp eq i32 %5018, 0
-  br i1 %.not.i.i2728, label %mesa_CallLists.exit, label %.lr.ph.i.i2726, !llvm.loop !65
+  br i1 %.not.i.i2728, label %mesa_CallLists.exit, label %.lr.ph.i.i2726, !llvm.loop !62
 
 5022:                                             ; preds = %34
   %5023 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_index, align 4
@@ -49312,7 +49312,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5043 = add i32 %5042, 8
   store i32 %5043, ptr %2, align 4
   %.not.i.i2735 = icmp eq i32 %5040, 0
-  br i1 %.not.i.i2735, label %mesa_CallLists.exit, label %.lr.ph.i.i2733, !llvm.loop !65
+  br i1 %.not.i.i2735, label %mesa_CallLists.exit, label %.lr.ph.i.i2733, !llvm.loop !62
 
 5044:                                             ; preds = %34
   %5045 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_index, align 4
@@ -49349,7 +49349,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5065 = add i32 %5064, 8
   store i32 %5065, ptr %2, align 4
   %.not.i.i2742 = icmp eq i32 %5062, 0
-  br i1 %.not.i.i2742, label %mesa_CallLists.exit, label %.lr.ph.i.i2740, !llvm.loop !65
+  br i1 %.not.i.i2742, label %mesa_CallLists.exit, label %.lr.ph.i.i2740, !llvm.loop !62
 
 5066:                                             ; preds = %34
   %5067 = load i32, ptr @hf_x11_glx_render_VertexAttribs4ubvNV_index, align 4
@@ -49397,7 +49397,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5097 = add i32 %5096, 4
   store i32 %5097, ptr %2, align 4
   %.not.i.i2748 = icmp eq i32 %5094, 0
-  br i1 %.not.i.i2748, label %mesa_CallLists.exit, label %.lr.ph.i.i2746, !llvm.loop !64
+  br i1 %.not.i.i2748, label %mesa_CallLists.exit, label %.lr.ph.i.i2746, !llvm.loop !61
 
 5098:                                             ; preds = %34
   %5099 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_target, align 4
@@ -49427,7 +49427,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5116 = add i32 %5115, 8
   store i32 %5116, ptr %2, align 4
   %.not.i.i2753 = icmp eq i32 %5113, 0
-  br i1 %.not.i.i2753, label %mesa_CallLists.exit, label %.lr.ph.i.i2751, !llvm.loop !65
+  br i1 %.not.i.i2753, label %mesa_CallLists.exit, label %.lr.ph.i.i2751, !llvm.loop !62
 
 5117:                                             ; preds = %34
   %5118 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_target, align 4
@@ -49488,7 +49488,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5158 = add i32 %5157, 4
   store i32 %5158, ptr %2, align 4
   %.not.i.i2760 = icmp eq i32 %5155, 0
-  br i1 %.not.i.i2760, label %mesa_CallLists.exit, label %.lr.ph.i.i2758, !llvm.loop !64
+  br i1 %.not.i.i2760, label %mesa_CallLists.exit, label %.lr.ph.i.i2758, !llvm.loop !61
 
 5159:                                             ; preds = %34
   %5160 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_id, align 4
@@ -49526,7 +49526,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5183 = add i32 %5182, 8
   store i32 %5183, ptr %2, align 4
   %.not.i.i2766 = icmp eq i32 %5180, 0
-  br i1 %.not.i.i2766, label %mesa_CallLists.exit, label %.lr.ph.i.i2764, !llvm.loop !65
+  br i1 %.not.i.i2766, label %mesa_CallLists.exit, label %.lr.ph.i.i2764, !llvm.loop !62
 
 5184:                                             ; preds = %34
   %5185 = load i32, ptr @hf_x11_glx_render_ActiveStencilFaceEXT_face, align 4
@@ -49574,7 +49574,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5211 = add i32 %5210, 4
   store i32 %5211, ptr %2, align 4
   %.not.i.i2774 = icmp eq i32 %5208, 0
-  br i1 %.not.i.i2774, label %mesa_CallLists.exit, label %.lr.ph.i.i2772, !llvm.loop !63
+  br i1 %.not.i.i2774, label %mesa_CallLists.exit, label %.lr.ph.i.i2772, !llvm.loop !60
 
 5212:                                             ; preds = %34
   %5213 = load i32, ptr @hf_x11_glx_render_BlendEquationSeparate_modeRGB, align 4
@@ -49629,7 +49629,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5247 = add i32 %5246, 4
   store i32 %5247, ptr %2, align 4
   %.not.i.i2779 = icmp eq i32 %5244, 0
-  br i1 %.not.i.i2779, label %mesa_CallLists.exit, label %.lr.ph.i.i2777, !llvm.loop !63
+  br i1 %.not.i.i2779, label %mesa_CallLists.exit, label %.lr.ph.i.i2777, !llvm.loop !60
 
 5248:                                             ; preds = %34
   %5249 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubv_index, align 4
@@ -49664,7 +49664,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5269 = add i32 %5268, 2
   store i32 %5269, ptr %2, align 4
   %.not.i.i2784 = icmp eq i32 %5266, 0
-  br i1 %.not.i.i2784, label %mesa_CallLists.exit, label %.lr.ph.i.i2782, !llvm.loop !43
+  br i1 %.not.i.i2784, label %mesa_CallLists.exit, label %.lr.ph.i.i2782, !llvm.loop !40
 
 5270:                                             ; preds = %34
   %5271 = load i32, ptr @hf_x11_glx_render_VertexAttrib4uiv_index, align 4
@@ -49689,7 +49689,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5284 = add i32 %5283, 4
   store i32 %5284, ptr %2, align 4
   %.not.i.i2789 = icmp eq i32 %5281, 0
-  br i1 %.not.i.i2789, label %mesa_CallLists.exit, label %.lr.ph.i.i2787, !llvm.loop !44
+  br i1 %.not.i.i2789, label %mesa_CallLists.exit, label %.lr.ph.i.i2787, !llvm.loop !41
 
 5285:                                             ; preds = %34
   %5286 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nbv_index, align 4
@@ -49724,7 +49724,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5306 = add i32 %5305, 2
   store i32 %5306, ptr %2, align 4
   %.not.i.i2794 = icmp eq i32 %5303, 0
-  br i1 %.not.i.i2794, label %mesa_CallLists.exit, label %.lr.ph.i.i2792, !llvm.loop !62
+  br i1 %.not.i.i2794, label %mesa_CallLists.exit, label %.lr.ph.i.i2792, !llvm.loop !59
 
 5307:                                             ; preds = %34
   %5308 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Niv_index, align 4
@@ -49749,7 +49749,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5321 = add i32 %5320, 4
   store i32 %5321, ptr %2, align 4
   %.not.i.i2799 = icmp eq i32 %5318, 0
-  br i1 %.not.i.i2799, label %mesa_CallLists.exit, label %.lr.ph.i.i2797, !llvm.loop !63
+  br i1 %.not.i.i2799, label %mesa_CallLists.exit, label %.lr.ph.i.i2797, !llvm.loop !60
 
 5322:                                             ; preds = %34
   %5323 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nusv_index, align 4
@@ -49774,7 +49774,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5336 = add i32 %5335, 2
   store i32 %5336, ptr %2, align 4
   %.not.i.i2804 = icmp eq i32 %5333, 0
-  br i1 %.not.i.i2804, label %mesa_CallLists.exit, label %.lr.ph.i.i2802, !llvm.loop !43
+  br i1 %.not.i.i2804, label %mesa_CallLists.exit, label %.lr.ph.i.i2802, !llvm.loop !40
 
 5337:                                             ; preds = %34
   %5338 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nuiv_index, align 4
@@ -49799,7 +49799,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5351 = add i32 %5350, 4
   store i32 %5351, ptr %2, align 4
   %.not.i.i2809 = icmp eq i32 %5348, 0
-  br i1 %.not.i.i2809, label %mesa_CallLists.exit, label %.lr.ph.i.i2807, !llvm.loop !44
+  br i1 %.not.i.i2809, label %mesa_CallLists.exit, label %.lr.ph.i.i2807, !llvm.loop !41
 
 5352:                                             ; preds = %34
   %5353 = load i32, ptr @hf_x11_glx_render_VertexAttrib1svNV_index, align 4
@@ -49839,7 +49839,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5377 = add i32 %5376, 2
   store i32 %5377, ptr %2, align 4
   %.not.i.i2816 = icmp eq i32 %5374, 0
-  br i1 %.not.i.i2816, label %mesa_CallLists.exit, label %.lr.ph.i.i2814, !llvm.loop !62
+  br i1 %.not.i.i2816, label %mesa_CallLists.exit, label %.lr.ph.i.i2814, !llvm.loop !59
 
 5378:                                             ; preds = %34
   %5379 = load i32, ptr @hf_x11_glx_render_VertexAttrib3svNV_index, align 4
@@ -49864,7 +49864,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5392 = add i32 %5391, 2
   store i32 %5392, ptr %2, align 4
   %.not.i.i2821 = icmp eq i32 %5389, 0
-  br i1 %.not.i.i2821, label %mesa_CallLists.exit, label %.lr.ph.i.i2819, !llvm.loop !62
+  br i1 %.not.i.i2821, label %mesa_CallLists.exit, label %.lr.ph.i.i2819, !llvm.loop !59
 
 5393:                                             ; preds = %34
   %5394 = load i32, ptr @hf_x11_glx_render_VertexAttrib4svNV_index, align 4
@@ -49889,7 +49889,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5407 = add i32 %5406, 2
   store i32 %5407, ptr %2, align 4
   %.not.i.i2826 = icmp eq i32 %5404, 0
-  br i1 %.not.i.i2826, label %mesa_CallLists.exit, label %.lr.ph.i.i2824, !llvm.loop !62
+  br i1 %.not.i.i2826, label %mesa_CallLists.exit, label %.lr.ph.i.i2824, !llvm.loop !59
 
 5408:                                             ; preds = %34
   %5409 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvNV_index, align 4
@@ -49929,7 +49929,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5433 = add i32 %5432, 4
   store i32 %5433, ptr %2, align 4
   %.not.i.i2833 = icmp eq i32 %5430, 0
-  br i1 %.not.i.i2833, label %mesa_CallLists.exit, label %.lr.ph.i.i2831, !llvm.loop !64
+  br i1 %.not.i.i2833, label %mesa_CallLists.exit, label %.lr.ph.i.i2831, !llvm.loop !61
 
 5434:                                             ; preds = %34
   %5435 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvNV_index, align 4
@@ -49954,7 +49954,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5448 = add i32 %5447, 4
   store i32 %5448, ptr %2, align 4
   %.not.i.i2838 = icmp eq i32 %5445, 0
-  br i1 %.not.i.i2838, label %mesa_CallLists.exit, label %.lr.ph.i.i2836, !llvm.loop !64
+  br i1 %.not.i.i2838, label %mesa_CallLists.exit, label %.lr.ph.i.i2836, !llvm.loop !61
 
 5449:                                             ; preds = %34
   %5450 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvNV_index, align 4
@@ -49979,7 +49979,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5463 = add i32 %5462, 4
   store i32 %5463, ptr %2, align 4
   %.not.i.i2843 = icmp eq i32 %5460, 0
-  br i1 %.not.i.i2843, label %mesa_CallLists.exit, label %.lr.ph.i.i2841, !llvm.loop !64
+  br i1 %.not.i.i2843, label %mesa_CallLists.exit, label %.lr.ph.i.i2841, !llvm.loop !61
 
 5464:                                             ; preds = %34
   %5465 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dvNV_index, align 4
@@ -50019,7 +50019,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5489 = add i32 %5488, 8
   store i32 %5489, ptr %2, align 4
   %.not.i.i2850 = icmp eq i32 %5486, 0
-  br i1 %.not.i.i2850, label %mesa_CallLists.exit, label %.lr.ph.i.i2848, !llvm.loop !65
+  br i1 %.not.i.i2850, label %mesa_CallLists.exit, label %.lr.ph.i.i2848, !llvm.loop !62
 
 5490:                                             ; preds = %34
   %5491 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dvNV_index, align 4
@@ -50044,7 +50044,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5504 = add i32 %5503, 8
   store i32 %5504, ptr %2, align 4
   %.not.i.i2855 = icmp eq i32 %5501, 0
-  br i1 %.not.i.i2855, label %mesa_CallLists.exit, label %.lr.ph.i.i2853, !llvm.loop !65
+  br i1 %.not.i.i2855, label %mesa_CallLists.exit, label %.lr.ph.i.i2853, !llvm.loop !62
 
 5505:                                             ; preds = %34
   %5506 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dvNV_index, align 4
@@ -50069,7 +50069,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5519 = add i32 %5518, 8
   store i32 %5519, ptr %2, align 4
   %.not.i.i2860 = icmp eq i32 %5516, 0
-  br i1 %.not.i.i2860, label %mesa_CallLists.exit, label %.lr.ph.i.i2858, !llvm.loop !65
+  br i1 %.not.i.i2860, label %mesa_CallLists.exit, label %.lr.ph.i.i2858, !llvm.loop !62
 
 5520:                                             ; preds = %34
   %5521 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubvNV_index, align 4
@@ -50124,7 +50124,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5553 = add i32 %5552, 2
   store i32 %5553, ptr %2, align 4
   %.not.i.i2868 = icmp eq i32 %5550, 0
-  br i1 %.not.i.i2868, label %mesa_CallLists.exit, label %.lr.ph.i.i2866, !llvm.loop !43
+  br i1 %.not.i.i2868, label %mesa_CallLists.exit, label %.lr.ph.i.i2866, !llvm.loop !40
 
 5554:                                             ; preds = %34
   %5555 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
@@ -50156,7 +50156,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5571 = add i32 %5570, 4
   store i32 %5571, ptr %2, align 4
   %.not.i.i2875 = icmp eq i32 %5568, 0
-  br i1 %.not.i.i2875, label %mesa_CallLists.exit, label %.lr.ph.i.i2873, !llvm.loop !44
+  br i1 %.not.i.i2875, label %mesa_CallLists.exit, label %.lr.ph.i.i2873, !llvm.loop !41
 
 5572:                                             ; preds = %34
   %5573 = load i32, ptr @hf_x11_glx_render_CurrentPaletteMatrixARB_index, align 4
@@ -50199,7 +50199,7 @@ mesa_CallLists.exit:                              ; preds = %.lr.ph.i.i2873, %.l
   %5591 = phi i32 [ %5583, %5586 ], [ %5584, %mesa_CallLists.exit ]
   %5592 = sub nsw i32 %.03064, %.018432879
   %5593 = icmp sgt i32 %5592, 3
-  br i1 %5593, label %.lr.ph, label %._crit_edge, !llvm.loop !66
+  br i1 %5593, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %5590, %6
   ret void
@@ -50214,7 +50214,7 @@ define internal void @glxBufferSwapComplete(ptr noundef %0, ptr nocapture nounde
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_glx_BufferSwapComplete_event_type, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 2, i32 noundef %3) #10
@@ -50265,7 +50265,7 @@ define internal void @glxMakeCurrent_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14807) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50304,7 +50304,7 @@ define internal void @glxIsDirect_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14809) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50343,7 +50343,7 @@ define internal void @glxQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50387,7 +50387,7 @@ define internal void @glxGetVisualConfigs_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14812) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50446,7 +50446,7 @@ define internal void @glxGetVisualConfigs_Reply(ptr noundef %0, ptr nocapture no
   %50 = add i32 %49, 4
   store i32 %50, ptr %2, align 4
   %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -50458,7 +50458,7 @@ define internal void @glxVendorPrivateWithReply_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14814) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50506,7 +50506,7 @@ define internal void @glxQueryExtensionsString_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14816) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50550,7 +50550,7 @@ define internal void @glxQueryServerString_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14818) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50602,7 +50602,7 @@ define internal void @glxGetFBConfigs_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14820) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50661,7 +50661,7 @@ define internal void @glxGetFBConfigs_Reply(ptr noundef %0, ptr nocapture nounde
   %50 = add i32 %49, 4
   store i32 %50, ptr %2, align 4
   %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -50673,7 +50673,7 @@ define internal void @glxQueryContext_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14822) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50728,7 +50728,7 @@ define internal void @glxQueryContext_Reply(ptr noundef %0, ptr nocapture nounde
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -50740,7 +50740,7 @@ define internal void @glxMakeContextCurrent_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14824) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50779,7 +50779,7 @@ define internal void @glxGetDrawableAttributes_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14826) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50834,7 +50834,7 @@ define internal void @glxGetDrawableAttributes_Reply(ptr noundef %0, ptr nocaptu
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -50846,7 +50846,7 @@ define internal void @glxGenLists_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14828) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50880,7 +50880,7 @@ define internal void @glxRenderMode_Reply(ptr noundef %0, ptr nocapture noundef 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14830) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50944,7 +50944,7 @@ define internal void @glxRenderMode_Reply(ptr noundef %0, ptr nocapture noundef 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -50956,7 +50956,7 @@ define internal void @glxFinish_Reply(ptr noundef %0, ptr nocapture noundef read
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14832) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -50985,7 +50985,7 @@ define internal void @glxReadPixels_Reply(ptr noundef %0, ptr nocapture noundef 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14834) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51028,7 +51028,7 @@ define internal void @glxGetBooleanv_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14836) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51085,7 +51085,7 @@ define internal void @glxGetClipPlane_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14838) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51136,7 +51136,7 @@ define internal void @glxGetClipPlane_Reply(ptr noundef %0, ptr nocapture nounde
   %43 = add i32 %42, 8
   store i32 %43, ptr %2, align 4
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !65
+  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !62
 
 listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51148,7 +51148,7 @@ define internal void @glxGetDoublev_Reply(ptr noundef %0, ptr nocapture noundef 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14840) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51212,7 +51212,7 @@ define internal void @glxGetDoublev_Reply(ptr noundef %0, ptr nocapture noundef 
   %54 = add i32 %53, 8
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !65
+  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !62
 
 listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51224,7 +51224,7 @@ define internal void @glxGetError_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14842) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51258,7 +51258,7 @@ define internal void @glxGetFloatv_Reply(ptr noundef %0, ptr nocapture noundef r
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14844) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51322,7 +51322,7 @@ define internal void @glxGetFloatv_Reply(ptr noundef %0, ptr nocapture noundef r
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51334,7 +51334,7 @@ define internal void @glxGetIntegerv_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14846) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51398,7 +51398,7 @@ define internal void @glxGetIntegerv_Reply(ptr noundef %0, ptr nocapture noundef
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51410,7 +51410,7 @@ define internal void @glxGetLightfv_Reply(ptr noundef %0, ptr nocapture noundef 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14848) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51474,7 +51474,7 @@ define internal void @glxGetLightfv_Reply(ptr noundef %0, ptr nocapture noundef 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51486,7 +51486,7 @@ define internal void @glxGetLightiv_Reply(ptr noundef %0, ptr nocapture noundef 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14850) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51550,7 +51550,7 @@ define internal void @glxGetLightiv_Reply(ptr noundef %0, ptr nocapture noundef 
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51562,7 +51562,7 @@ define internal void @glxGetMapdv_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14852) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51626,7 +51626,7 @@ define internal void @glxGetMapdv_Reply(ptr noundef %0, ptr nocapture noundef re
   %54 = add i32 %53, 8
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !65
+  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !62
 
 listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -51638,7 +51638,7 @@ define internal void @glxGetMapfv_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14854) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51702,7 +51702,7 @@ define internal void @glxGetMapfv_Reply(ptr noundef %0, ptr nocapture noundef re
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51714,7 +51714,7 @@ define internal void @glxGetMapiv_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14856) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51778,7 +51778,7 @@ define internal void @glxGetMapiv_Reply(ptr noundef %0, ptr nocapture noundef re
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51790,7 +51790,7 @@ define internal void @glxGetMaterialfv_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14858) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51854,7 +51854,7 @@ define internal void @glxGetMaterialfv_Reply(ptr noundef %0, ptr nocapture nound
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51866,7 +51866,7 @@ define internal void @glxGetMaterialiv_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14860) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -51930,7 +51930,7 @@ define internal void @glxGetMaterialiv_Reply(ptr noundef %0, ptr nocapture nound
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -51942,7 +51942,7 @@ define internal void @glxGetPixelMapfv_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14862) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52006,7 +52006,7 @@ define internal void @glxGetPixelMapfv_Reply(ptr noundef %0, ptr nocapture nound
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52018,7 +52018,7 @@ define internal void @glxGetPixelMapuiv_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14864) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52082,7 +52082,7 @@ define internal void @glxGetPixelMapuiv_Reply(ptr noundef %0, ptr nocapture noun
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -52094,7 +52094,7 @@ define internal void @glxGetPixelMapusv_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14866) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52158,7 +52158,7 @@ define internal void @glxGetPixelMapusv_Reply(ptr noundef %0, ptr nocapture noun
   %54 = add i32 %53, 2
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -52170,7 +52170,7 @@ define internal void @glxGetPolygonStipple_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14868) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52213,7 +52213,7 @@ define internal void @glxGetString_Reply(ptr noundef %0, ptr nocapture noundef r
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14870) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52265,7 +52265,7 @@ define internal void @glxGetTexEnvfv_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14872) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52329,7 +52329,7 @@ define internal void @glxGetTexEnvfv_Reply(ptr noundef %0, ptr nocapture noundef
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52341,7 +52341,7 @@ define internal void @glxGetTexEnviv_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14874) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52405,7 +52405,7 @@ define internal void @glxGetTexEnviv_Reply(ptr noundef %0, ptr nocapture noundef
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52417,7 +52417,7 @@ define internal void @glxGetTexGendv_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14876) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52481,7 +52481,7 @@ define internal void @glxGetTexGendv_Reply(ptr noundef %0, ptr nocapture noundef
   %54 = add i32 %53, 8
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !65
+  br i1 %.not.i, label %listOfDouble.exit, label %.lr.ph.i, !llvm.loop !62
 
 listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -52493,7 +52493,7 @@ define internal void @glxGetTexGenfv_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14878) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52557,7 +52557,7 @@ define internal void @glxGetTexGenfv_Reply(ptr noundef %0, ptr nocapture noundef
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52569,7 +52569,7 @@ define internal void @glxGetTexGeniv_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14880) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52633,7 +52633,7 @@ define internal void @glxGetTexGeniv_Reply(ptr noundef %0, ptr nocapture noundef
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52645,7 +52645,7 @@ define internal void @glxGetTexImage_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14882) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52708,7 +52708,7 @@ define internal void @glxGetTexParameterfv_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14884) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52772,7 +52772,7 @@ define internal void @glxGetTexParameterfv_Reply(ptr noundef %0, ptr nocapture n
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52784,7 +52784,7 @@ define internal void @glxGetTexParameteriv_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14886) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52848,7 +52848,7 @@ define internal void @glxGetTexParameteriv_Reply(ptr noundef %0, ptr nocapture n
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52860,7 +52860,7 @@ define internal void @glxGetTexLevelParameterfv_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14888) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -52924,7 +52924,7 @@ define internal void @glxGetTexLevelParameterfv_Reply(ptr noundef %0, ptr nocapt
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -52936,7 +52936,7 @@ define internal void @glxGetTexLevelParameteriv_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14890) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53000,7 +53000,7 @@ define internal void @glxGetTexLevelParameteriv_Reply(ptr noundef %0, ptr nocapt
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53012,7 +53012,7 @@ define internal void @glxIsEnabled_Reply(ptr noundef %0, ptr nocapture noundef r
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14892) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53046,7 +53046,7 @@ define internal void @glxIsList_Reply(ptr noundef %0, ptr nocapture noundef read
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14894) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53080,7 +53080,7 @@ define internal void @glxAreTexturesResident_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14896) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53128,7 +53128,7 @@ define internal void @glxGenTextures_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14898) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53177,7 +53177,7 @@ define internal void @glxGenTextures_Reply(ptr noundef %0, ptr nocapture noundef
   %42 = add i32 %41, 4
   store i32 %42, ptr %2, align 4
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -53189,7 +53189,7 @@ define internal void @glxIsTexture_Reply(ptr noundef %0, ptr nocapture noundef r
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14900) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53223,7 +53223,7 @@ define internal void @glxGetColorTable_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14902) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53276,7 +53276,7 @@ define internal void @glxGetColorTableParameterfv_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14904) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53340,7 +53340,7 @@ define internal void @glxGetColorTableParameterfv_Reply(ptr noundef %0, ptr noca
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53352,7 +53352,7 @@ define internal void @glxGetColorTableParameteriv_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14906) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53416,7 +53416,7 @@ define internal void @glxGetColorTableParameteriv_Reply(ptr noundef %0, ptr noca
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53428,7 +53428,7 @@ define internal void @glxGetConvolutionFilter_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14908) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53486,7 +53486,7 @@ define internal void @glxGetConvolutionParameterfv_Reply(ptr noundef %0, ptr noc
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14910) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53550,7 +53550,7 @@ define internal void @glxGetConvolutionParameterfv_Reply(ptr noundef %0, ptr noc
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53562,7 +53562,7 @@ define internal void @glxGetConvolutionParameteriv_Reply(ptr noundef %0, ptr noc
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14912) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53626,7 +53626,7 @@ define internal void @glxGetConvolutionParameteriv_Reply(ptr noundef %0, ptr noc
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53638,7 +53638,7 @@ define internal void @glxGetSeparableFilter_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14914) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53696,7 +53696,7 @@ define internal void @glxGetHistogram_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14916) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53749,7 +53749,7 @@ define internal void @glxGetHistogramParameterfv_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14918) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53813,7 +53813,7 @@ define internal void @glxGetHistogramParameterfv_Reply(ptr noundef %0, ptr nocap
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53825,7 +53825,7 @@ define internal void @glxGetHistogramParameteriv_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14920) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53889,7 +53889,7 @@ define internal void @glxGetHistogramParameteriv_Reply(ptr noundef %0, ptr nocap
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -53901,7 +53901,7 @@ define internal void @glxGetMinmax_Reply(ptr noundef %0, ptr nocapture noundef r
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14922) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -53944,7 +53944,7 @@ define internal void @glxGetMinmaxParameterfv_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14924) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54008,7 +54008,7 @@ define internal void @glxGetMinmaxParameterfv_Reply(ptr noundef %0, ptr nocaptur
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %listOfFloat.exit, label %.lr.ph.i, !llvm.loop !61
 
 listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54020,7 +54020,7 @@ define internal void @glxGetMinmaxParameteriv_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14926) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54084,7 +54084,7 @@ define internal void @glxGetMinmaxParameteriv_Reply(ptr noundef %0, ptr nocaptur
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54096,7 +54096,7 @@ define internal void @glxGetCompressedTexImageARB_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14928) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54149,7 +54149,7 @@ define internal void @glxGenQueriesARB_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14930) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54198,7 +54198,7 @@ define internal void @glxGenQueriesARB_Reply(ptr noundef %0, ptr nocapture nound
   %42 = add i32 %41, 4
   store i32 %42, ptr %2, align 4
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -54210,7 +54210,7 @@ define internal void @glxIsQueryARB_Reply(ptr noundef %0, ptr nocapture noundef 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14932) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54244,7 +54244,7 @@ define internal void @glxGetQueryivARB_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14934) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54308,7 +54308,7 @@ define internal void @glxGetQueryivARB_Reply(ptr noundef %0, ptr nocapture nound
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54320,7 +54320,7 @@ define internal void @glxGetQueryObjectivARB_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14936) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54384,7 +54384,7 @@ define internal void @glxGetQueryObjectivARB_Reply(ptr noundef %0, ptr nocapture
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -54396,7 +54396,7 @@ define internal void @glxGetQueryObjectuivARB_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14938) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54460,7 +54460,7 @@ define internal void @glxGetQueryObjectuivARB_Reply(ptr noundef %0, ptr nocaptur
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -54470,7 +54470,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 define internal void @dispatch_present(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_present_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -54500,7 +54500,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @present_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %25) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %148 [
     i8 0, label %26
     i8 1, label %36
@@ -54702,7 +54702,7 @@ define internal fastcc void @struct_present_Notify(ptr noundef %0, ptr nocapture
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -54714,9 +54714,9 @@ define internal void @presentCompleteNotify(ptr noundef %0, i32 %1, ptr nocaptur
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.14941) #10
   %9 = load i32, ptr @hf_x11_present_CompleteNotify_kind, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !4
+  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_present_CompleteNotify_mode, align 4
-  %12 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4), !range !4
+  %12 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_present_CompleteNotify_event, align 4
   %14 = load i32, ptr %2, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef %4) #10
@@ -54934,7 +54934,7 @@ define internal fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr nocaptu
   store i32 %28, ptr %1, align 4
   %29 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -54946,7 +54946,7 @@ define internal void @presentQueryVersion_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -54985,7 +54985,7 @@ define internal void @presentQueryCapabilities_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14945) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -55017,7 +55017,7 @@ define internal void @presentQueryCapabilities_Reply(ptr noundef %0, ptr nocaptu
 define internal void @dispatch_randr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_randr_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -55048,7 +55048,7 @@ requestLength.exit:                               ; preds = %5, %16
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @randr_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %randrConfigureOutputProperty.exit [
     i8 0, label %27
     i8 2, label %37
@@ -55315,7 +55315,7 @@ requestLength.exit:                               ; preds = %5, %16
   %182 = add i32 %181, 4
   store i32 %182, ptr %2, align 4
   %.not.i.i = icmp eq i32 %179, 0
-  br i1 %.not.i.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i, !llvm.loop !63
+  br i1 %.not.i.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i, !llvm.loop !60
 
 183:                                              ; preds = %requestLength.exit
   %184 = load i32, ptr @hf_x11_randr_ChangeOutputProperty_output, align 4
@@ -55343,7 +55343,7 @@ requestLength.exit:                               ; preds = %5, %16
   %203 = add i32 %202, 1
   store i32 %203, ptr %2, align 4
   %204 = load i32, ptr @hf_x11_randr_ChangeOutputProperty_mode, align 4
-  %205 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %204, i32 noundef %4), !range !4
+  %205 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %204, i32 noundef %4)
   %206 = load i32, ptr @hf_x11_unused, align 4
   %207 = load i32, ptr %2, align 4
   %208 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %206, ptr noundef %0, i32 noundef %207, i32 noundef 2, i32 noundef 0) #10
@@ -55559,7 +55559,7 @@ requestLength.exit:                               ; preds = %5, %16
   %360 = add i32 %359, 4
   store i32 %360, ptr %2, align 4
   %.not.i.i287 = icmp eq i32 %357, 0
-  br i1 %.not.i.i287, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i285, !llvm.loop !44
+  br i1 %.not.i.i287, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i285, !llvm.loop !41
 
 361:                                              ; preds = %requestLength.exit
   %362 = load i32, ptr @hf_x11_randr_GetCrtcGammaSize_crtc, align 4
@@ -55618,7 +55618,7 @@ requestLength.exit:                               ; preds = %5, %16
   %400 = add i32 %399, 2
   store i32 %400, ptr %2, align 4
   %.not.i.i292 = icmp eq i32 %397, 0
-  br i1 %.not.i.i292, label %listOfCard16.exit.i, label %.lr.ph.i.i290, !llvm.loop !43
+  br i1 %.not.i.i292, label %listOfCard16.exit.i, label %.lr.ph.i.i290, !llvm.loop !40
 
 listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i290, %373
   %401 = phi i32 [ %.pre.i289, %373 ], [ %400, %.lr.ph.i.i290 ]
@@ -55639,7 +55639,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i290, %373
   %411 = add i32 %410, 2
   store i32 %411, ptr %2, align 4
   %.not.i42.i = icmp eq i32 %408, 0
-  br i1 %.not.i42.i, label %listOfCard16.exit43.i, label %.lr.ph.i40.i, !llvm.loop !43
+  br i1 %.not.i42.i, label %listOfCard16.exit43.i, label %.lr.ph.i40.i, !llvm.loop !40
 
 listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %listOfCard16.exit.i
   %412 = phi i32 [ %.pre1.i, %listOfCard16.exit.i ], [ %411, %.lr.ph.i40.i ]
@@ -55663,7 +55663,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %422 = add i32 %421, 2
   store i32 %422, ptr %2, align 4
   %.not.i49.i = icmp eq i32 %419, 0
-  br i1 %.not.i49.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i47.i, !llvm.loop !43
+  br i1 %.not.i49.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i47.i, !llvm.loop !40
 
 423:                                              ; preds = %requestLength.exit
   %424 = load i32, ptr @hf_x11_randr_GetScreenResourcesCurrent_window, align 4
@@ -55744,7 +55744,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %475 = add i32 %474, 4
   store i32 %475, ptr %2, align 4
   %.not.i.i298 = icmp eq i32 %472, 0
-  br i1 %.not.i.i298, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i296, !llvm.loop !63
+  br i1 %.not.i.i298, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i296, !llvm.loop !60
 
 476:                                              ; preds = %requestLength.exit
   %477 = load i32, ptr @hf_x11_randr_GetCrtcTransform_crtc, align 4
@@ -55996,7 +55996,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %655 = add i32 %654, 4
   store i32 %655, ptr %2, align 4
   %.not.i.i305 = icmp eq i32 %652, 0
-  br i1 %.not.i.i305, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i303, !llvm.loop !63
+  br i1 %.not.i.i305, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i303, !llvm.loop !60
 
 656:                                              ; preds = %requestLength.exit
   %657 = load i32, ptr @hf_x11_randr_ChangeProviderProperty_provider, align 4
@@ -56193,7 +56193,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %801 = add i32 %800, 4
   store i32 %801, ptr %2, align 4
   %.not.i.i311 = icmp eq i32 %798, 0
-  br i1 %.not.i.i311, label %listOfCard32.exit.i, label %.lr.ph.i.i309, !llvm.loop !44
+  br i1 %.not.i.i311, label %listOfCard32.exit.i, label %.lr.ph.i.i309, !llvm.loop !41
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i309, %767
   %802 = phi i32 [ %.pre.i308, %767 ], [ %801, %.lr.ph.i.i309 ]
@@ -56219,7 +56219,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i309, %767
   %813 = add i32 %812, 4
   store i32 %813, ptr %2, align 4
   %.not.i44.i = icmp eq i32 %810, 0
-  br i1 %.not.i44.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i42.i, !llvm.loop !44
+  br i1 %.not.i44.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i42.i, !llvm.loop !41
 
 814:                                              ; preds = %requestLength.exit
   %815 = load i32, ptr @hf_x11_randr_FreeLease_lid, align 4
@@ -56324,7 +56324,7 @@ define internal fastcc void @struct_randr_ModeInfo(ptr noundef %0, ptr nocapture
   store i32 %65, ptr %1, align 4
   %66 = add nuw nsw i32 %.071, 1
   %exitcond.not = icmp eq i32 %66, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -56480,12 +56480,12 @@ define internal fastcc void @struct_randr_MonitorInfo(ptr noundef %0, ptr nocapt
   %71 = add i32 %70, 4
   store i32 %71, ptr %1, align 4
   %.not.i = icmp eq i32 %68, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %72 = add nuw nsw i32 %.067, 1
   %exitcond.not = icmp eq i32 %72, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -56494,9 +56494,9 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
 ; Function Attrs: nounwind uwtable
 define internal void @randrNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_randr_Notify_subCode, align 4
-  %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !4
+  %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3), !range !5
+  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_union_randr_NotifyData, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 28, i32 noundef 0) #10
@@ -56599,9 +56599,9 @@ define internal void @randrNotify(ptr noundef %0, ptr nocapture noundef %1, ptr 
   %91 = add i32 %90, 2
   store i32 %91, ptr %1, align 4
   %92 = load i32, ptr @hf_x11_struct_randr_OutputChange_connection, align 4
-  %93 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %61, i32 noundef %92, i32 noundef %3), !range !4
+  %93 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %61, i32 noundef %92, i32 noundef %3)
   %94 = load i32, ptr @hf_x11_struct_randr_OutputChange_subpixel_order, align 4
-  %95 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %61, i32 noundef %94, i32 noundef %3), !range !4
+  %95 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %61, i32 noundef %94, i32 noundef %3)
   store i32 %9, ptr %1, align 4
   %96 = load i32, ptr @hf_x11_struct_randr_OutputProperty, align 4
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %96, ptr noundef %0, i32 noundef %9, i32 noundef 28, i32 noundef 0) #10
@@ -56629,7 +56629,7 @@ define internal void @randrNotify(ptr noundef %0, ptr nocapture noundef %1, ptr 
   %116 = add i32 %115, 4
   store i32 %116, ptr %1, align 4
   %117 = load i32, ptr @hf_x11_struct_randr_OutputProperty_status, align 4
-  %118 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %99, i32 noundef %117, i32 noundef %3), !range !4
+  %118 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %99, i32 noundef %117, i32 noundef %3)
   %119 = load i32, ptr @hf_x11_unused, align 4
   %120 = load i32, ptr %1, align 4
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %119, ptr noundef %0, i32 noundef %120, i32 noundef 11, i32 noundef 0) #10
@@ -56746,7 +56746,7 @@ define internal void @randrQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -56790,9 +56790,9 @@ define internal void @randrSetScreenConfig_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14954) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_randr_SetScreenConfig_reply_status, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr %2, align 4
   %13 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %12, i32 noundef %4) #10
   %14 = zext i16 %13 to i32
@@ -56823,7 +56823,7 @@ define internal void @randrSetScreenConfig_Reply(ptr noundef %0, ptr nocapture n
   %35 = add i32 %34, 4
   store i32 %35, ptr %2, align 4
   %36 = load i32, ptr @hf_x11_randr_SetScreenConfig_reply_subpixel_order, align 4
-  %37 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %36, i32 noundef %4), !range !5
+  %37 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %36, i32 noundef %4)
   %38 = load i32, ptr @hf_x11_unused, align 4
   %39 = load i32, ptr %2, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef 10, i32 noundef 0) #10
@@ -56839,7 +56839,7 @@ define internal void @randrGetScreenInfo_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14956) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr %2, align 4
   %11 = load i32, ptr @hf_x11_randr_GetScreenInfo_reply_rotations, align 4
   %12 = load i32, ptr @ett_x11_rectangle, align 4
@@ -56945,7 +56945,7 @@ define internal void @randrGetScreenInfo_Reply(ptr noundef %0, ptr nocapture nou
   store i32 %91, ptr %2, align 4
   %92 = add nuw nsw i32 %.026.i, 1
   %exitcond.not.i = icmp eq i32 %92, %40
-  br i1 %exitcond.not.i, label %struct_randr_ScreenSize.exit, label %.lr.ph.i, !llvm.loop !71
+  br i1 %exitcond.not.i, label %struct_randr_ScreenSize.exit, label %.lr.ph.i, !llvm.loop !68
 
 struct_randr_ScreenSize.exit:                     ; preds = %.lr.ph.i, %5
   %93 = sub nsw i32 %60, %40
@@ -56994,12 +56994,12 @@ struct_randr_ScreenSize.exit:                     ; preds = %.lr.ph.i, %5
   %122 = add i32 %121, 2
   store i32 %122, ptr %2, align 4
   %.not.i.i = icmp eq i32 %119, 0
-  br i1 %.not.i.i, label %listOfCard16.exit.i, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %listOfCard16.exit.i, label %.lr.ph.i.i, !llvm.loop !40
 
 listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.i84
   %123 = add nuw nsw i32 %.022.i, 1
   %exitcond.not.i85 = icmp eq i32 %123, %93
-  br i1 %exitcond.not.i85, label %struct_randr_RefreshRates.exit, label %.lr.ph.i84, !llvm.loop !72
+  br i1 %exitcond.not.i85, label %struct_randr_RefreshRates.exit, label %.lr.ph.i84, !llvm.loop !69
 
 struct_randr_RefreshRates.exit:                   ; preds = %listOfCard16.exit.i, %struct_randr_ScreenSize.exit
   ret void
@@ -57011,7 +57011,7 @@ define internal void @randrGetScreenSizeRange_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14958) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -57065,7 +57065,7 @@ define internal void @randrGetScreenResources_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14960) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -57149,7 +57149,7 @@ define internal void @randrGetScreenResources_Reply(ptr noundef %0, ptr nocaptur
   %74 = add i32 %73, 4
   store i32 %74, ptr %2, align 4
   %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %75 = phi i32 [ %.pre, %5 ], [ %74, %.lr.ph.i ]
@@ -57175,7 +57175,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %86 = add i32 %85, 4
   store i32 %86, ptr %2, align 4
   %.not.i93 = icmp eq i32 %83, 0
-  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !44
+  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !41
 
 listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOfCard32.exit
   %87 = zext i16 %48 to i32
@@ -57197,9 +57197,9 @@ define internal void @randrGetOutputInfo_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14962) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_randr_GetOutputInfo_reply_status, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr %2, align 4
   %13 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %12, i32 noundef %4) #10
   %14 = zext i16 %13 to i32
@@ -57235,9 +57235,9 @@ define internal void @randrGetOutputInfo_Reply(ptr noundef %0, ptr nocapture nou
   %39 = add i32 %38, 4
   store i32 %39, ptr %2, align 4
   %40 = load i32, ptr @hf_x11_randr_GetOutputInfo_reply_connection, align 4
-  %41 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %40, i32 noundef %4), !range !4
+  %41 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %40, i32 noundef %4)
   %42 = load i32, ptr @hf_x11_randr_GetOutputInfo_reply_subpixel_order, align 4
-  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %42, i32 noundef %4), !range !4
+  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %42, i32 noundef %4)
   %44 = load i32, ptr %2, align 4
   %45 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %44, i32 noundef %4) #10
   %46 = zext i16 %45 to i32
@@ -57294,7 +57294,7 @@ define internal void @randrGetOutputInfo_Reply(ptr noundef %0, ptr nocapture nou
   %86 = add i32 %85, 4
   store i32 %86, ptr %2, align 4
   %.not.i = icmp eq i32 %83, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %87 = phi i32 [ %.pre, %5 ], [ %86, %.lr.ph.i ]
@@ -57317,7 +57317,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %98 = add i32 %97, 4
   store i32 %98, ptr %2, align 4
   %.not.i112 = icmp eq i32 %95, 0
-  br i1 %.not.i112, label %listOfCard32.exit113, label %.lr.ph.i110, !llvm.loop !44
+  br i1 %.not.i112, label %listOfCard32.exit113, label %.lr.ph.i110, !llvm.loop !41
 
 listOfCard32.exit113:                             ; preds = %.lr.ph.i110, %listOfCard32.exit
   %99 = phi i32 [ %.pre121, %listOfCard32.exit ], [ %98, %.lr.ph.i110 ]
@@ -57340,7 +57340,7 @@ listOfCard32.exit113:                             ; preds = %.lr.ph.i110, %listO
   %110 = add i32 %109, 4
   store i32 %110, ptr %2, align 4
   %.not.i119 = icmp eq i32 %107, 0
-  br i1 %.not.i119, label %listOfCard32.exit120, label %.lr.ph.i117, !llvm.loop !44
+  br i1 %.not.i119, label %listOfCard32.exit120, label %.lr.ph.i117, !llvm.loop !41
 
 listOfCard32.exit120:                             ; preds = %.lr.ph.i117, %listOfCard32.exit113
   %111 = phi i32 [ %.pre122, %listOfCard32.exit113 ], [ %110, %.lr.ph.i117 ]
@@ -57360,7 +57360,7 @@ define internal void @randrListOutputProperties_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14964) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -57415,7 +57415,7 @@ define internal void @randrListOutputProperties_Reply(ptr noundef %0, ptr nocapt
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -57427,7 +57427,7 @@ define internal void @randrQueryOutputProperty_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14966) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -57491,7 +57491,7 @@ define internal void @randrQueryOutputProperty_Reply(ptr noundef %0, ptr nocaptu
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -57503,7 +57503,7 @@ define internal void @randrGetOutputProperty_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14968) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr %2, align 4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #10
   %12 = load i32, ptr @hf_x11_randr_GetOutputProperty_reply_format, align 4
@@ -57563,7 +57563,7 @@ define internal void @randrCreateMode_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14970) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -57602,9 +57602,9 @@ define internal void @randrGetCrtcInfo_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14972) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_randr_GetCrtcInfo_reply_status, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr %2, align 4
   %13 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %12, i32 noundef %4) #10
   %14 = zext i16 %13 to i32
@@ -57696,7 +57696,7 @@ define internal void @randrGetCrtcInfo_Reply(ptr noundef %0, ptr nocapture nound
   %82 = add i32 %81, 4
   store i32 %82, ptr %2, align 4
   %.not.i = icmp eq i32 %79, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %83 = phi i32 [ %.pre, %5 ], [ %82, %.lr.ph.i ]
@@ -57722,7 +57722,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %94 = add i32 %93, 4
   store i32 %94, ptr %2, align 4
   %.not.i93 = icmp eq i32 %91, 0
-  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !44
+  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !41
 
 listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOfCard32.exit
   ret void
@@ -57734,9 +57734,9 @@ define internal void @randrSetCrtcConfig_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14974) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_randr_SetCrtcConfig_reply_status, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr %2, align 4
   %13 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %12, i32 noundef %4) #10
   %14 = zext i16 %13 to i32
@@ -57770,7 +57770,7 @@ define internal void @randrGetCrtcGammaSize_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14976) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -57809,7 +57809,7 @@ define internal void @randrGetCrtcGamma_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14978) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -57861,7 +57861,7 @@ define internal void @randrGetCrtcGamma_Reply(ptr noundef %0, ptr nocapture noun
   %47 = add i32 %46, 2
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   %48 = phi i32 [ %.pre, %5 ], [ %47, %.lr.ph.i ]
@@ -57882,7 +57882,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   %58 = add i32 %57, 2
   store i32 %58, ptr %2, align 4
   %.not.i54 = icmp eq i32 %55, 0
-  br i1 %.not.i54, label %listOfCard16.exit55, label %.lr.ph.i52, !llvm.loop !43
+  br i1 %.not.i54, label %listOfCard16.exit55, label %.lr.ph.i52, !llvm.loop !40
 
 listOfCard16.exit55:                              ; preds = %.lr.ph.i52, %listOfCard16.exit
   %59 = phi i32 [ %.pre63, %listOfCard16.exit ], [ %58, %.lr.ph.i52 ]
@@ -57906,7 +57906,7 @@ listOfCard16.exit55:                              ; preds = %.lr.ph.i52, %listOf
   %69 = add i32 %68, 2
   store i32 %69, ptr %2, align 4
   %.not.i61 = icmp eq i32 %66, 0
-  br i1 %.not.i61, label %listOfCard16.exit62, label %.lr.ph.i59, !llvm.loop !43
+  br i1 %.not.i61, label %listOfCard16.exit62, label %.lr.ph.i59, !llvm.loop !40
 
 listOfCard16.exit62:                              ; preds = %.lr.ph.i59, %listOfCard16.exit55
   ret void
@@ -57918,7 +57918,7 @@ define internal void @randrGetScreenResourcesCurrent_Reply(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14980) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -58002,7 +58002,7 @@ define internal void @randrGetScreenResourcesCurrent_Reply(ptr noundef %0, ptr n
   %74 = add i32 %73, 4
   store i32 %74, ptr %2, align 4
   %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %75 = phi i32 [ %.pre, %5 ], [ %74, %.lr.ph.i ]
@@ -58028,7 +58028,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %86 = add i32 %85, 4
   store i32 %86, ptr %2, align 4
   %.not.i93 = icmp eq i32 %83, 0
-  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !44
+  br i1 %.not.i93, label %listOfCard32.exit94, label %.lr.ph.i91, !llvm.loop !41
 
 listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOfCard32.exit
   %87 = zext i16 %48 to i32
@@ -58050,7 +58050,7 @@ define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14982) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -58162,7 +58162,7 @@ define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr nocapture 
   %92 = add i32 %91, 4
   store i32 %92, ptr %2, align 4
   %.not.i = icmp eq i32 %89, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %80
   %93 = phi i32 [ %.pre, %80 ], [ %92, %.lr.ph.i ]
@@ -58212,7 +58212,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %80
   %119 = add i32 %118, 4
   store i32 %119, ptr %2, align 4
   %.not.i118 = icmp eq i32 %116, 0
-  br i1 %.not.i118, label %listOfInt32.exit119, label %.lr.ph.i116, !llvm.loop !63
+  br i1 %.not.i118, label %listOfInt32.exit119, label %.lr.ph.i116, !llvm.loop !60
 
 listOfInt32.exit119:                              ; preds = %.lr.ph.i116, %106
   ret void
@@ -58224,9 +58224,9 @@ define internal void @randrGetPanning_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14984) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_randr_GetPanning_reply_status, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr %2, align 4
   %13 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %12, i32 noundef %4) #10
   %14 = zext i16 %13 to i32
@@ -58315,9 +58315,9 @@ define internal void @randrSetPanning_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14986) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_randr_SetPanning_reply_status, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr %2, align 4
   %13 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %12, i32 noundef %4) #10
   %14 = zext i16 %13 to i32
@@ -58346,7 +58346,7 @@ define internal void @randrGetOutputPrimary_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14988) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -58380,7 +58380,7 @@ define internal void @randrGetProviders_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14990) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -58440,7 +58440,7 @@ define internal void @randrGetProviders_Reply(ptr noundef %0, ptr nocapture noun
   %51 = add i32 %50, 4
   store i32 %51, ptr %2, align 4
   %.not.i = icmp eq i32 %48, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -58452,7 +58452,7 @@ define internal void @randrGetProviderInfo_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14992) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_randr_GetProviderInfo_reply_status, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -58538,7 +58538,7 @@ define internal void @randrGetProviderInfo_Reply(ptr noundef %0, ptr nocapture n
   %76 = add i32 %75, 4
   store i32 %76, ptr %2, align 4
   %.not.i = icmp eq i32 %73, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %77 = phi i32 [ %.pre, %5 ], [ %76, %.lr.ph.i ]
@@ -58561,7 +58561,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %88 = add i32 %87, 4
   store i32 %88, ptr %2, align 4
   %.not.i99 = icmp eq i32 %85, 0
-  br i1 %.not.i99, label %listOfCard32.exit100, label %.lr.ph.i97, !llvm.loop !44
+  br i1 %.not.i99, label %listOfCard32.exit100, label %.lr.ph.i97, !llvm.loop !41
 
 listOfCard32.exit100:                             ; preds = %.lr.ph.i97, %listOfCard32.exit
   %89 = phi i32 [ %.pre115, %listOfCard32.exit ], [ %88, %.lr.ph.i97 ]
@@ -58584,7 +58584,7 @@ listOfCard32.exit100:                             ; preds = %.lr.ph.i97, %listOf
   %100 = add i32 %99, 4
   store i32 %100, ptr %2, align 4
   %.not.i106 = icmp eq i32 %97, 0
-  br i1 %.not.i106, label %listOfCard32.exit107, label %.lr.ph.i104, !llvm.loop !44
+  br i1 %.not.i106, label %listOfCard32.exit107, label %.lr.ph.i104, !llvm.loop !41
 
 listOfCard32.exit107:                             ; preds = %.lr.ph.i104, %listOfCard32.exit100
   %101 = phi i32 [ %.pre116, %listOfCard32.exit100 ], [ %100, %.lr.ph.i104 ]
@@ -58605,7 +58605,7 @@ listOfCard32.exit107:                             ; preds = %.lr.ph.i104, %listO
   %111 = add i32 %110, 4
   store i32 %111, ptr %2, align 4
   %.not.i113 = icmp eq i32 %108, 0
-  br i1 %.not.i113, label %listOfCard32.exit114, label %.lr.ph.i111, !llvm.loop !44
+  br i1 %.not.i113, label %listOfCard32.exit114, label %.lr.ph.i111, !llvm.loop !41
 
 listOfCard32.exit114:                             ; preds = %.lr.ph.i111, %listOfCard32.exit107
   %112 = phi i32 [ %.pre117, %listOfCard32.exit107 ], [ %111, %.lr.ph.i111 ]
@@ -58625,7 +58625,7 @@ define internal void @randrListProviderProperties_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14994) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -58680,7 +58680,7 @@ define internal void @randrListProviderProperties_Reply(ptr noundef %0, ptr noca
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -58692,7 +58692,7 @@ define internal void @randrQueryProviderProperty_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14996) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -58756,7 +58756,7 @@ define internal void @randrQueryProviderProperty_Reply(ptr noundef %0, ptr nocap
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
   ret void
@@ -58768,7 +58768,7 @@ define internal void @randrGetProviderProperty_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14998) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr %2, align 4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #10
   %12 = load i32, ptr @hf_x11_randr_GetProviderProperty_reply_format, align 4
@@ -58830,7 +58830,7 @@ define internal void @randrGetMonitors_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15000) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -58882,7 +58882,7 @@ define internal void @randrCreateLease_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15002) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_randr_CreateLease_reply_nfd, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -58914,7 +58914,7 @@ define internal void @randrCreateLease_Reply(ptr noundef %0, ptr nocapture nound
 define internal void @dispatch_record(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_record_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -58942,7 +58942,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @record_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %recordUnregisterClients.exit [
     i8 0, label %25
     i8 1, label %35
@@ -59021,7 +59021,7 @@ requestLength.exit:                               ; preds = %5, %16
   %71 = add i32 %70, 4
   store i32 %71, ptr %2, align 4
   %.not.i.i = icmp eq i32 %68, 0
-  br i1 %.not.i.i, label %recordCreateContext.exit, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %recordCreateContext.exit, label %.lr.ph.i.i, !llvm.loop !41
 
 recordCreateContext.exit:                         ; preds = %.lr.ph.i.i, %35
   call fastcc void @struct_record_Range(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %55)
@@ -59080,7 +59080,7 @@ recordCreateContext.exit:                         ; preds = %.lr.ph.i.i, %35
   %108 = add i32 %107, 4
   store i32 %108, ptr %2, align 4
   %.not.i.i63 = icmp eq i32 %105, 0
-  br i1 %.not.i.i63, label %recordRegisterClients.exit, label %.lr.ph.i.i61, !llvm.loop !44
+  br i1 %.not.i.i63, label %recordRegisterClients.exit, label %.lr.ph.i.i61, !llvm.loop !41
 
 recordRegisterClients.exit:                       ; preds = %.lr.ph.i.i61, %72
   call fastcc void @struct_record_Range(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %92)
@@ -59122,7 +59122,7 @@ recordRegisterClients.exit:                       ; preds = %.lr.ph.i.i61, %72
   %131 = add i32 %130, 4
   store i32 %131, ptr %2, align 4
   %.not.i.i69 = icmp eq i32 %128, 0
-  br i1 %.not.i.i69, label %recordUnregisterClients.exit, label %.lr.ph.i.i67, !llvm.loop !44
+  br i1 %.not.i.i69, label %recordUnregisterClients.exit, label %.lr.ph.i.i67, !llvm.loop !41
 
 132:                                              ; preds = %requestLength.exit
   %133 = load i32, ptr @hf_x11_record_GetContext_context, align 4
@@ -59271,7 +59271,7 @@ define internal fastcc void @struct_record_Range(ptr noundef %0, ptr nocapture n
   store i32 %86, ptr %1, align 4
   %87 = add nuw nsw i32 %.044, 1
   %exitcond.not = icmp eq i32 %87, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -59325,7 +59325,7 @@ define internal void @recordQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -59364,7 +59364,7 @@ define internal void @recordGetContext_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15007) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_record_GetContext_reply_enabled, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -59436,7 +59436,7 @@ define internal void @recordGetContext_Reply(ptr noundef %0, ptr nocapture nound
   tail call fastcc void @struct_record_Range(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %53, i32 noundef %4, i32 noundef %59)
   %65 = add nuw nsw i32 %.027.i, 1
   %exitcond.not.i = icmp eq i32 %65, %34
-  br i1 %exitcond.not.i, label %struct_record_ClientInfo.exit, label %.lr.ph.i, !llvm.loop !74
+  br i1 %exitcond.not.i, label %struct_record_ClientInfo.exit, label %.lr.ph.i, !llvm.loop !71
 
 struct_record_ClientInfo.exit:                    ; preds = %.lr.ph.i, %5
   ret void
@@ -59448,7 +59448,7 @@ define internal void @recordEnableContext_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15009) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_record_EnableContext_reply_category, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -59519,7 +59519,7 @@ define internal void @recordEnableContext_Reply(ptr noundef %0, ptr nocapture no
 define internal void @dispatch_render(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_render_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -59550,7 +59550,7 @@ requestLength.exit:                               ; preds = %5, %16
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @render_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %renderCreatePicture.exit [
     i8 0, label %27
     i8 36, label %1016
@@ -60010,7 +60010,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 281:                                              ; preds = %requestLength.exit
   %282 = load i32, ptr @hf_x11_render_Composite_op, align 4
-  %283 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %282, i32 noundef %4), !range !4
+  %283 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %282, i32 noundef %4)
   %284 = load i32, ptr @hf_x11_unused, align 4
   %285 = load i32, ptr %2, align 4
   %286 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %284, ptr noundef %0, i32 noundef %285, i32 noundef 3, i32 noundef 0) #10
@@ -60074,7 +60074,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 332:                                              ; preds = %requestLength.exit
   %333 = load i32, ptr @hf_x11_render_Trapezoids_op, align 4
-  %334 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %333, i32 noundef %4), !range !4
+  %334 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %333, i32 noundef %4)
   %335 = load i32, ptr @hf_x11_unused, align 4
   %336 = load i32, ptr %2, align 4
   %337 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %335, ptr noundef %0, i32 noundef %336, i32 noundef 3, i32 noundef 0) #10
@@ -60133,11 +60133,11 @@ requestLength.exit:                               ; preds = %5, %16
   call fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %367, i32 noundef %4)
   %377 = add nuw nsw i32 %.024.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %377, %361
-  br i1 %exitcond.not.i.i, label %renderCreatePicture.exit, label %.lr.ph.i.i, !llvm.loop !75
+  br i1 %exitcond.not.i.i, label %renderCreatePicture.exit, label %.lr.ph.i.i, !llvm.loop !72
 
 378:                                              ; preds = %requestLength.exit
   %379 = load i32, ptr @hf_x11_render_Triangles_op, align 4
-  %380 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %379, i32 noundef %4), !range !4
+  %380 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %379, i32 noundef %4)
   %381 = load i32, ptr @hf_x11_unused, align 4
   %382 = load i32, ptr %2, align 4
   %383 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %381, ptr noundef %0, i32 noundef %382, i32 noundef 3, i32 noundef 0) #10
@@ -60229,11 +60229,11 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %452, ptr %2, align 4
   %453 = add nuw nsw i32 %.029.i.i, 1
   %exitcond.not.i.i200 = icmp eq i32 %453, %407
-  br i1 %exitcond.not.i.i200, label %renderCreatePicture.exit, label %.lr.ph.i.i199, !llvm.loop !76
+  br i1 %exitcond.not.i.i200, label %renderCreatePicture.exit, label %.lr.ph.i.i199, !llvm.loop !73
 
 454:                                              ; preds = %requestLength.exit
   %455 = load i32, ptr @hf_x11_render_TriStrip_op, align 4
-  %456 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %455, i32 noundef %4), !range !4
+  %456 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %455, i32 noundef %4)
   %457 = load i32, ptr @hf_x11_unused, align 4
   %458 = load i32, ptr %2, align 4
   %459 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %457, ptr noundef %0, i32 noundef %458, i32 noundef 3, i32 noundef 0) #10
@@ -60272,7 +60272,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 484:                                              ; preds = %requestLength.exit
   %485 = load i32, ptr @hf_x11_render_TriFan_op, align 4
-  %486 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %485, i32 noundef %4), !range !4
+  %486 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %485, i32 noundef %4)
   %487 = load i32, ptr @hf_x11_unused, align 4
   %488 = load i32, ptr %2, align 4
   %489 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %487, ptr noundef %0, i32 noundef %488, i32 noundef 3, i32 noundef 0) #10
@@ -60379,7 +60379,7 @@ requestLength.exit:                               ; preds = %5, %16
   %562 = add i32 %561, 4
   store i32 %562, ptr %2, align 4
   %.not.i.i = icmp eq i32 %559, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i202, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i202, !llvm.loop !41
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i202
   %563 = icmp sgt i32 %546, 0
@@ -60425,7 +60425,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i202
   store i32 %593, ptr %2, align 4
   %594 = add nuw nsw i32 %.036.i.i, 1
   %exitcond.not.i.i203 = icmp eq i32 %594, %546
-  br i1 %exitcond.not.i.i203, label %renderAddGlyphs.exit, label %.lr.ph.i33.i, !llvm.loop !77
+  br i1 %exitcond.not.i.i203, label %renderAddGlyphs.exit, label %.lr.ph.i33.i, !llvm.loop !74
 
 renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540, %listOfCard32.exit.i
   %595 = phi i32 [ %.pre.i201, %540 ], [ %562, %listOfCard32.exit.i ], [ %593, %.lr.ph.i33.i ]
@@ -60472,11 +60472,11 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   %620 = add i32 %619, 4
   store i32 %620, ptr %2, align 4
   %.not.i.i207 = icmp eq i32 %617, 0
-  br i1 %.not.i.i207, label %renderCreatePicture.exit, label %.lr.ph.i.i205, !llvm.loop !44
+  br i1 %.not.i.i207, label %renderCreatePicture.exit, label %.lr.ph.i.i205, !llvm.loop !41
 
 621:                                              ; preds = %requestLength.exit
   %622 = load i32, ptr @hf_x11_render_CompositeGlyphs8_op, align 4
-  %623 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %622, i32 noundef %4), !range !4
+  %623 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %622, i32 noundef %4)
   %624 = load i32, ptr @hf_x11_unused, align 4
   %625 = load i32, ptr %2, align 4
   %626 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %624, ptr noundef %0, i32 noundef %625, i32 noundef 3, i32 noundef 0) #10
@@ -60524,7 +60524,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
 
 658:                                              ; preds = %requestLength.exit
   %659 = load i32, ptr @hf_x11_render_CompositeGlyphs16_op, align 4
-  %660 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %659, i32 noundef %4), !range !4
+  %660 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %659, i32 noundef %4)
   %661 = load i32, ptr @hf_x11_unused, align 4
   %662 = load i32, ptr %2, align 4
   %663 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %661, ptr noundef %0, i32 noundef %662, i32 noundef 3, i32 noundef 0) #10
@@ -60572,7 +60572,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
 
 695:                                              ; preds = %requestLength.exit
   %696 = load i32, ptr @hf_x11_render_CompositeGlyphs32_op, align 4
-  %697 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %696, i32 noundef %4), !range !4
+  %697 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %696, i32 noundef %4)
   %698 = load i32, ptr @hf_x11_unused, align 4
   %699 = load i32, ptr %2, align 4
   %700 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %698, ptr noundef %0, i32 noundef %699, i32 noundef 3, i32 noundef 0) #10
@@ -60620,7 +60620,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
 
 732:                                              ; preds = %requestLength.exit
   %733 = load i32, ptr @hf_x11_render_FillRectangles_op, align 4
-  %734 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %733, i32 noundef %4), !range !4
+  %734 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %733, i32 noundef %4)
   %735 = load i32, ptr @hf_x11_unused, align 4
   %736 = load i32, ptr %2, align 4
   %737 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %735, ptr noundef %0, i32 noundef %736, i32 noundef 3, i32 noundef 0) #10
@@ -60749,7 +60749,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   %821 = add i32 %820, 4
   store i32 %821, ptr %2, align 4
   %.not.i.i218 = icmp eq i32 %818, 0
-  br i1 %.not.i.i218, label %renderCreatePicture.exit, label %.lr.ph.i.i216, !llvm.loop !63
+  br i1 %.not.i.i218, label %renderCreatePicture.exit, label %.lr.ph.i.i216, !llvm.loop !60
 
 822:                                              ; preds = %requestLength.exit
   %823 = load i32, ptr @hf_x11_render_CreateAnimCursor_cid, align 4
@@ -60783,7 +60783,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   store i32 %844, ptr %2, align 4
   %845 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i220 = icmp eq i32 %845, %829
-  br i1 %exitcond.not.i.i220, label %renderCreatePicture.exit, label %.lr.ph.i.i219, !llvm.loop !78
+  br i1 %exitcond.not.i.i220, label %renderCreatePicture.exit, label %.lr.ph.i.i219, !llvm.loop !75
 
 846:                                              ; preds = %requestLength.exit
   %847 = load i32, ptr @hf_x11_render_AddTraps_picture, align 4
@@ -60857,7 +60857,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   store i32 %902, ptr %2, align 4
   %903 = add nuw nsw i32 %.014.i.i222, 1
   %exitcond.not.i.i223 = icmp eq i32 %903, %861
-  br i1 %exitcond.not.i.i223, label %renderCreatePicture.exit, label %.lr.ph.i.i221, !llvm.loop !79
+  br i1 %exitcond.not.i.i223, label %renderCreatePicture.exit, label %.lr.ph.i.i221, !llvm.loop !76
 
 904:                                              ; preds = %requestLength.exit
   %905 = load i32, ptr @hf_x11_render_CreateSolidFill_picture, align 4
@@ -60935,7 +60935,7 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   %958 = add i32 %957, 4
   store i32 %958, ptr %2, align 4
   %.not.i.i228 = icmp eq i32 %955, 0
-  br i1 %.not.i.i228, label %renderCreateLinearGradient.exit, label %.lr.ph.i40.i, !llvm.loop !63
+  br i1 %.not.i.i228, label %renderCreateLinearGradient.exit, label %.lr.ph.i40.i, !llvm.loop !60
 
 renderCreateLinearGradient.exit:                  ; preds = %.lr.ph.i40.i, %910
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %942)
@@ -61017,7 +61017,7 @@ renderCreateLinearGradient.exit:                  ; preds = %.lr.ph.i40.i, %910
   %1015 = add i32 %1014, 4
   store i32 %1015, ptr %2, align 4
   %.not.i.i233 = icmp eq i32 %1012, 0
-  br i1 %.not.i.i233, label %renderCreateRadialGradient.exit, label %.lr.ph.i50.i, !llvm.loop !63
+  br i1 %.not.i.i233, label %renderCreateRadialGradient.exit, label %.lr.ph.i50.i, !llvm.loop !60
 
 renderCreateRadialGradient.exit:                  ; preds = %.lr.ph.i50.i, %959
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %999)
@@ -61079,7 +61079,7 @@ renderCreateRadialGradient.exit:                  ; preds = %.lr.ph.i50.i, %959
   %1055 = add i32 %1054, 4
   store i32 %1055, ptr %2, align 4
   %.not.i.i238 = icmp eq i32 %1052, 0
-  br i1 %.not.i.i238, label %renderCreateConicalGradient.exit, label %.lr.ph.i36.i, !llvm.loop !63
+  br i1 %.not.i.i238, label %renderCreateConicalGradient.exit, label %.lr.ph.i36.i, !llvm.loop !60
 
 renderCreateConicalGradient.exit:                 ; preds = %.lr.ph.i36.i, %1016
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %1039)
@@ -61160,7 +61160,7 @@ define internal fastcc void @struct_render_POINTFIX(ptr noundef %0, ptr nocaptur
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -61205,7 +61205,7 @@ define internal fastcc void @struct_render_COLOR(ptr noundef %0, ptr nocapture n
   store i32 %28, ptr %1, align 4
   %29 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -61217,7 +61217,7 @@ define internal void @renderQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -61261,7 +61261,7 @@ define internal void @renderQueryPictFormats_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15017) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -61334,7 +61334,7 @@ define internal void @renderQueryPictFormats_Reply(ptr noundef %0, ptr nocapture
   %66 = add i32 %65, 4
   store i32 %66, ptr %2, align 4
   %67 = load i32, ptr @hf_x11_struct_render_PICTFORMINFO_type, align 4
-  %68 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %61, i32 noundef %67, i32 noundef %4), !range !4
+  %68 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %61, i32 noundef %67, i32 noundef %4)
   %69 = load i32, ptr @hf_x11_struct_render_PICTFORMINFO_depth, align 4
   %70 = load i32, ptr %2, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef %4) #10
@@ -61398,7 +61398,7 @@ define internal void @renderQueryPictFormats_Reply(ptr noundef %0, ptr nocapture
   store i32 %118, ptr %2, align 4
   %119 = add nuw nsw i32 %.033.i, 1
   %exitcond.not.i = icmp eq i32 %119, %26
-  br i1 %exitcond.not.i, label %struct_render_PICTFORMINFO.exit, label %.lr.ph.i, !llvm.loop !82
+  br i1 %exitcond.not.i, label %struct_render_PICTFORMINFO.exit, label %.lr.ph.i, !llvm.loop !79
 
 struct_render_PICTFORMINFO.exit:                  ; preds = %.lr.ph.i, %5
   %.pre.i76 = phi i32 [ %55, %5 ], [ %118, %.lr.ph.i ]
@@ -61426,7 +61426,7 @@ struct_render_PICTFORMINFO.exit:                  ; preds = %.lr.ph.i, %5
   %132 = add i32 %131, %130
   %133 = add nuw nsw i32 %.01213.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %133, %123
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !83
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !80
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %134 = add i32 %132, 8
@@ -61512,19 +61512,19 @@ struct_size_render_PICTSCREEN.exit.i:             ; preds = %._crit_edge.loopexi
   store i32 %193, ptr %2, align 4
   %194 = add nuw nsw i32 %.016.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %194, %170
-  br i1 %exitcond.not.i.i.i, label %struct_render_PICTVISUAL.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !84
+  br i1 %exitcond.not.i.i.i, label %struct_render_PICTVISUAL.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !81
 
 struct_render_PICTVISUAL.exit.i.i:                ; preds = %.lr.ph.i.i.i, %.lr.ph.i27.i
   %195 = phi i32 [ %179, %.lr.ph.i27.i ], [ %193, %.lr.ph.i.i.i ]
   %196 = add nuw nsw i32 %.035.i.i, 1
   %exitcond.not.i28.i = icmp eq i32 %196, %139
-  br i1 %exitcond.not.i28.i, label %struct_render_PICTDEPTH.exit.i, label %.lr.ph.i27.i, !llvm.loop !85
+  br i1 %exitcond.not.i28.i, label %struct_render_PICTDEPTH.exit.i, label %.lr.ph.i27.i, !llvm.loop !82
 
 struct_render_PICTDEPTH.exit.i:                   ; preds = %struct_render_PICTVISUAL.exit.i.i, %struct_size_render_PICTSCREEN.exit.i
   %197 = phi i32 [ %148, %struct_size_render_PICTSCREEN.exit.i ], [ %195, %struct_render_PICTVISUAL.exit.i.i ]
   %198 = add nuw nsw i32 %.030.i, 1
   %exitcond.not.i78 = icmp eq i32 %198, %32
-  br i1 %exitcond.not.i78, label %struct_render_PICTSCREEN.exit, label %.lr.ph.i77, !llvm.loop !86
+  br i1 %exitcond.not.i78, label %struct_render_PICTSCREEN.exit, label %.lr.ph.i77, !llvm.loop !83
 
 struct_render_PICTSCREEN.exit:                    ; preds = %struct_render_PICTDEPTH.exit.i, %struct_render_PICTFORMINFO.exit
   %199 = phi i32 [ %.pre.i76, %struct_render_PICTFORMINFO.exit ], [ %197, %struct_render_PICTDEPTH.exit.i ]
@@ -61550,7 +61550,7 @@ struct_render_PICTSCREEN.exit:                    ; preds = %struct_render_PICTD
   %210 = add i32 %209, 4
   store i32 %210, ptr %2, align 4
   %.not.i = icmp eq i32 %207, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i81, %struct_render_PICTSCREEN.exit
   ret void
@@ -61562,7 +61562,7 @@ define internal void @renderQueryPictIndexValues_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15019) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -61632,7 +61632,7 @@ define internal void @renderQueryPictIndexValues_Reply(ptr noundef %0, ptr nocap
   store i32 %62, ptr %2, align 4
   %63 = add nuw nsw i32 %.031.i, 1
   %exitcond.not.i = icmp eq i32 %63, %26
-  br i1 %exitcond.not.i, label %struct_render_INDEXVALUE.exit, label %.lr.ph.i, !llvm.loop !87
+  br i1 %exitcond.not.i, label %struct_render_INDEXVALUE.exit, label %.lr.ph.i, !llvm.loop !84
 
 struct_render_INDEXVALUE.exit:                    ; preds = %.lr.ph.i, %5
   ret void
@@ -61644,7 +61644,7 @@ define internal void @renderQueryFilters_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15021) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -61705,7 +61705,7 @@ define internal void @renderQueryFilters_Reply(ptr noundef %0, ptr nocapture nou
   %52 = add i32 %51, 2
   store i32 %52, ptr %2, align 4
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   tail call fastcc void @struct_xproto_STR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %32)
@@ -61748,7 +61748,7 @@ define internal fastcc void @struct_xproto_STR(ptr noundef %0, ptr nocapture nou
   store i32 %27, ptr %1, align 4
   %28 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %28, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -61758,7 +61758,7 @@ define internal fastcc void @struct_xproto_STR(ptr noundef %0, ptr nocapture nou
 define internal void @dispatch_res(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_res_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -61786,7 +61786,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @res_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %resQueryResourceBytes.exit [
     i8 0, label %25
     i8 5, label %55
@@ -61876,7 +61876,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %81, ptr %2, align 4
   %82 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %82, %61
-  br i1 %exitcond.not.i.i, label %resQueryResourceBytes.exit, label %.lr.ph.i.i, !llvm.loop !89
+  br i1 %exitcond.not.i.i, label %resQueryResourceBytes.exit, label %.lr.ph.i.i, !llvm.loop !86
 
 resQueryResourceBytes.exit:                       ; preds = %.lr.ph.i.i, %55, %47, %41, %35, %25, %requestLength.exit
   ret void
@@ -61912,7 +61912,7 @@ define internal fastcc void @struct_res_ClientIdSpec(ptr noundef %0, ptr nocaptu
   store i32 %21, ptr %1, align 4
   %22 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %22, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -61924,7 +61924,7 @@ define internal void @resQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -61963,7 +61963,7 @@ define internal void @resQueryClients_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15025) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -62018,7 +62018,7 @@ define internal void @resQueryClients_Reply(ptr noundef %0, ptr nocapture nounde
   store i32 %50, ptr %2, align 4
   %51 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %51, %26
-  br i1 %exitcond.not.i, label %struct_res_Client.exit, label %.lr.ph.i, !llvm.loop !91
+  br i1 %exitcond.not.i, label %struct_res_Client.exit, label %.lr.ph.i, !llvm.loop !88
 
 struct_res_Client.exit:                           ; preds = %.lr.ph.i, %5
   ret void
@@ -62030,7 +62030,7 @@ define internal void @resQueryClientResources_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15027) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -62085,7 +62085,7 @@ define internal void @resQueryClientResources_Reply(ptr noundef %0, ptr nocaptur
   store i32 %50, ptr %2, align 4
   %51 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %51, %26
-  br i1 %exitcond.not.i, label %struct_res_Type.exit, label %.lr.ph.i, !llvm.loop !92
+  br i1 %exitcond.not.i, label %struct_res_Type.exit, label %.lr.ph.i, !llvm.loop !89
 
 struct_res_Type.exit:                             ; preds = %.lr.ph.i, %5
   ret void
@@ -62097,7 +62097,7 @@ define internal void @resQueryClientPixmapBytes_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15029) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -62136,7 +62136,7 @@ define internal void @resQueryClientIds_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15031) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -62216,12 +62216,12 @@ define internal void @resQueryClientIds_Reply(ptr noundef %0, ptr nocapture noun
   %65 = add i32 %64, 4
   store i32 %65, ptr %2, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !41
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.i
   %66 = add nuw nsw i32 %.026.i, 1
   %exitcond.not.i = icmp eq i32 %66, %26
-  br i1 %exitcond.not.i, label %struct_res_ClientIdValue.exit, label %.lr.ph.i, !llvm.loop !93
+  br i1 %exitcond.not.i, label %struct_res_ClientIdValue.exit, label %.lr.ph.i, !llvm.loop !90
 
 struct_res_ClientIdValue.exit:                    ; preds = %listOfCard32.exit.i, %5
   ret void
@@ -62233,7 +62233,7 @@ define internal void @resQueryResourceBytes_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15033) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -62291,7 +62291,7 @@ define internal void @resQueryResourceBytes_Reply(ptr noundef %0, ptr nocapture 
   tail call fastcc void @struct_res_ResourceSizeSpec(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %45, i32 noundef %4, i32 noundef %47)
   %53 = add nuw nsw i32 %.026.i, 1
   %exitcond.not.i = icmp eq i32 %53, %26
-  br i1 %exitcond.not.i, label %struct_res_ResourceSizeValue.exit, label %.lr.ph.i, !llvm.loop !94
+  br i1 %exitcond.not.i, label %struct_res_ResourceSizeValue.exit, label %.lr.ph.i, !llvm.loop !91
 
 struct_res_ResourceSizeValue.exit:                ; preds = %.lr.ph.i, %5
   ret void
@@ -62346,7 +62346,7 @@ define internal fastcc void @struct_res_ResourceSizeSpec(ptr noundef %0, ptr noc
   store i32 %36, ptr %1, align 4
   %37 = add nuw nsw i32 %.025, 1
   %exitcond.not = icmp eq i32 %37, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -62356,7 +62356,7 @@ define internal fastcc void @struct_res_ResourceSizeSpec(ptr noundef %0, ptr noc
 define internal void @dispatch_screensaver(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_screensaver_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -62384,7 +62384,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @screensaver_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %screensaverSetAttributes.exit [
     i8 0, label %25
     i8 1, label %39
@@ -62470,7 +62470,7 @@ requestLength.exit:                               ; preds = %5, %16
   %81 = add i32 %80, 2
   store i32 %81, ptr %2, align 4
   %82 = load i32, ptr @hf_x11_screensaver_SetAttributes_class, align 4
-  %83 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %82, i32 noundef %4), !range !4
+  %83 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %82, i32 noundef %4)
   %84 = load i32, ptr @hf_x11_screensaver_SetAttributes_depth, align 4
   %85 = load i32, ptr %2, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 1, i32 noundef %4) #10
@@ -62701,7 +62701,7 @@ define internal void @screensaverQueryVersion_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -62745,7 +62745,7 @@ define internal void @screensaverQueryInfo_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15037) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_screensaver_QueryInfo_reply_state, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -62786,7 +62786,7 @@ define internal void @screensaverQueryInfo_Reply(ptr noundef %0, ptr nocapture n
   %41 = add i32 %40, 4
   store i32 %41, ptr %2, align 4
   %42 = load i32, ptr @hf_x11_screensaver_QueryInfo_reply_kind, align 4
-  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %42, i32 noundef %4), !range !4
+  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %42, i32 noundef %4)
   %44 = load i32, ptr @hf_x11_unused, align 4
   %45 = load i32, ptr %2, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 7, i32 noundef 0) #10
@@ -62800,7 +62800,7 @@ define internal void @screensaverQueryInfo_Reply(ptr noundef %0, ptr nocapture n
 define internal void @dispatch_shape(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_shape_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -62830,7 +62830,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @shape_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %25) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %164 [
     i8 8, label %151
     i8 1, label %26
@@ -62845,11 +62845,11 @@ requestLength.exit:                               ; preds = %5, %16
 26:                                               ; preds = %requestLength.exit
   %27 = shl i32 %22, 2
   %28 = load i32, ptr @hf_x11_shape_Rectangles_operation, align 4
-  %29 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %28, i32 noundef %4), !range !4
+  %29 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %28, i32 noundef %4)
   %30 = load i32, ptr @hf_x11_shape_Rectangles_destination_kind, align 4
-  %31 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %30, i32 noundef %4), !range !4
+  %31 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %30, i32 noundef %4)
   %32 = load i32, ptr @hf_x11_shape_Rectangles_ordering, align 4
-  %33 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %32, i32 noundef %4), !range !4
+  %33 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %32, i32 noundef %4)
   %34 = load i32, ptr @hf_x11_unused, align 4
   %35 = load i32, ptr %2, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0) #10
@@ -62878,9 +62878,9 @@ requestLength.exit:                               ; preds = %5, %16
 
 53:                                               ; preds = %requestLength.exit
   %54 = load i32, ptr @hf_x11_shape_Mask_operation, align 4
-  %55 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %54, i32 noundef %4), !range !4
+  %55 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %54, i32 noundef %4)
   %56 = load i32, ptr @hf_x11_shape_Mask_destination_kind, align 4
-  %57 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %56, i32 noundef %4), !range !4
+  %57 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %56, i32 noundef %4)
   %58 = load i32, ptr @hf_x11_unused, align 4
   %59 = load i32, ptr %2, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %58, ptr noundef %0, i32 noundef %59, i32 noundef 2, i32 noundef 0) #10
@@ -62908,11 +62908,11 @@ requestLength.exit:                               ; preds = %5, %16
 
 77:                                               ; preds = %requestLength.exit
   %78 = load i32, ptr @hf_x11_shape_Combine_operation, align 4
-  %79 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %78, i32 noundef %4), !range !4
+  %79 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %78, i32 noundef %4)
   %80 = load i32, ptr @hf_x11_shape_Combine_destination_kind, align 4
-  %81 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %80, i32 noundef %4), !range !4
+  %81 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %80, i32 noundef %4)
   %82 = load i32, ptr @hf_x11_shape_Combine_source_kind, align 4
-  %83 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %82, i32 noundef %4), !range !4
+  %83 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %82, i32 noundef %4)
   %84 = load i32, ptr @hf_x11_unused, align 4
   %85 = load i32, ptr %2, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 1, i32 noundef 0) #10
@@ -62943,7 +62943,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 105:                                              ; preds = %requestLength.exit
   %106 = load i32, ptr @hf_x11_shape_Offset_destination_kind, align 4
-  %107 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %106, i32 noundef %4), !range !4
+  %107 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %106, i32 noundef %4)
   %108 = load i32, ptr @hf_x11_unused, align 4
   %109 = load i32, ptr %2, align 4
   %110 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef 3, i32 noundef 0) #10
@@ -63012,7 +63012,7 @@ requestLength.exit:                               ; preds = %5, %16
   %156 = add i32 %155, 4
   store i32 %156, ptr %2, align 4
   %157 = load i32, ptr @hf_x11_shape_GetRectangles_source_kind, align 4
-  %158 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %157, i32 noundef %4), !range !4
+  %158 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %157, i32 noundef %4)
   %159 = load i32, ptr @hf_x11_unused, align 4
   %160 = load i32, ptr %2, align 4
   %161 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %159, ptr noundef %0, i32 noundef %160, i32 noundef 3, i32 noundef 0) #10
@@ -63031,7 +63031,7 @@ define internal void @shapeQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -63070,7 +63070,7 @@ define internal void @shapeQueryExtents_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15041) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -63154,7 +63154,7 @@ define internal void @shapeInputSelected_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15043) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_shape_InputSelected_reply_enabled, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -63183,9 +63183,9 @@ define internal void @shapeGetRectangles_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15045) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_shape_GetRectangles_reply_ordering, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr %2, align 4
   %13 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %12, i32 noundef %4) #10
   %14 = zext i16 %13 to i32
@@ -63220,7 +63220,7 @@ define internal void @shapeGetRectangles_Reply(ptr noundef %0, ptr nocapture nou
 define internal void @dispatch_shm(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_shm_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -63248,7 +63248,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @shm_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %211 [
     i8 7, label %193
     i8 1, label %25
@@ -63513,7 +63513,7 @@ define internal void @shmQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_shm_QueryVersion_reply_shared_pixmaps, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -63572,7 +63572,7 @@ define internal void @shmGetImage_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15050) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_shm_GetImage_reply_depth, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -63611,7 +63611,7 @@ define internal void @shmCreateSegment_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15052) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_shm_CreateSegment_reply_nfd, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -63643,7 +63643,7 @@ define internal void @shmCreateSegment_Reply(ptr noundef %0, ptr nocapture nound
 define internal void @dispatch_sync(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_sync_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -63674,7 +63674,7 @@ requestLength.exit:                               ; preds = %5, %16
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @sync_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %syncAwait.exit [
     i8 0, label %27
     i8 19, label %304
@@ -63819,7 +63819,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %116, ptr %2, align 4
   %117 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %117, %96
-  br i1 %exitcond.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i, !llvm.loop !96
+  br i1 %exitcond.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i, !llvm.loop !93
 
 118:                                              ; preds = %requestLength.exit
   %119 = load i32, ptr @hf_x11_sync_CreateAlarm_id, align 4
@@ -64128,7 +64128,7 @@ requestLength.exit:                               ; preds = %5, %16
   %317 = add i32 %316, 4
   store i32 %317, ptr %2, align 4
   %.not.i.i = icmp eq i32 %314, 0
-  br i1 %.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i138, !llvm.loop !44
+  br i1 %.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i138, !llvm.loop !41
 
 syncAwait.exit.sink.split:                        ; preds = %27, %35, %52, %69, %86, %90, %256, %260, %264, %272, %276, %288, %292, %296, %300, %183, %252
   %.sink144 = phi i32 [ 4, %252 ], [ 4, %183 ], [ 4, %300 ], [ 4, %296 ], [ 4, %292 ], [ 4, %288 ], [ 1, %276 ], [ 4, %272 ], [ 4, %264 ], [ 4, %260 ], [ 4, %256 ], [ 4, %90 ], [ 4, %86 ], [ 4, %69 ], [ 4, %52 ], [ 4, %35 ], [ 1, %27 ]
@@ -64187,7 +64187,7 @@ define internal void @syncAlarmNotify(ptr noundef %0, ptr nocapture noundef %1, 
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_sync_AlarmNotify_alarm, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -64230,7 +64230,7 @@ define internal void @syncAlarmNotify(ptr noundef %0, ptr nocapture noundef %1, 
   %46 = add i32 %45, 4
   store i32 %46, ptr %1, align 4
   %47 = load i32, ptr @hf_x11_sync_AlarmNotify_state, align 4
-  %48 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %47, i32 noundef %3), !range !4
+  %48 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %47, i32 noundef %3)
   %49 = load i32, ptr @hf_x11_unused, align 4
   %50 = load i32, ptr %1, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %50, i32 noundef 3, i32 noundef 0) #10
@@ -64246,7 +64246,7 @@ define internal void @syncInitialize_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15058) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64290,7 +64290,7 @@ define internal void @syncListSystemCounters_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15060) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64392,7 +64392,7 @@ define internal void @syncListSystemCounters_Reply(ptr noundef %0, ptr nocapture
   %87 = phi i32 [ %77, %.lr.ph.i ], [ %85, %79 ]
   %88 = add nuw nsw i32 %.039.i, 1
   %exitcond.not.i = icmp eq i32 %88, %26
-  br i1 %exitcond.not.i, label %struct_sync_SYSTEMCOUNTER.exit, label %.lr.ph.i, !llvm.loop !97
+  br i1 %exitcond.not.i, label %struct_sync_SYSTEMCOUNTER.exit, label %.lr.ph.i, !llvm.loop !94
 
 struct_sync_SYSTEMCOUNTER.exit:                   ; preds = %86, %5
   ret void
@@ -64404,7 +64404,7 @@ define internal void @syncQueryCounter_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15062) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64448,7 +64448,7 @@ define internal void @syncQueryAlarm_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15064) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64491,7 +64491,7 @@ define internal void @syncQueryAlarm_Reply(ptr noundef %0, ptr nocapture noundef
   %43 = add i32 %42, 1
   store i32 %43, ptr %2, align 4
   %44 = load i32, ptr @hf_x11_sync_QueryAlarm_reply_state, align 4
-  %45 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %44, i32 noundef %4), !range !4
+  %45 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %44, i32 noundef %4)
   %46 = load i32, ptr @hf_x11_unused, align 4
   %47 = load i32, ptr %2, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0) #10
@@ -64507,7 +64507,7 @@ define internal void @syncGetPriority_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15066) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64541,7 +64541,7 @@ define internal void @syncQueryFence_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15068) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64578,7 +64578,7 @@ define internal void @syncQueryFence_Reply(ptr noundef %0, ptr nocapture noundef
 define internal void @dispatch_xc_misc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xc_misc_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -64606,7 +64606,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xc_misc_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %39 [
     i8 0, label %25
     i8 2, label %33
@@ -64646,7 +64646,7 @@ define internal void @xc_miscGetVersion_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64685,7 +64685,7 @@ define internal void @xc_miscGetXIDRange_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15072) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64724,7 +64724,7 @@ define internal void @xc_miscGetXIDList_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15074) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64778,7 +64778,7 @@ define internal void @xc_miscGetXIDList_Reply(ptr noundef %0, ptr nocapture noun
   %46 = add i32 %45, 4
   store i32 %46, ptr %2, align 4
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -64788,7 +64788,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 define internal void @dispatch_xevie(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xevie_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -64816,7 +64816,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xevie_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %64 [
     i8 0, label %25
     i8 1, label %33
@@ -64892,7 +64892,7 @@ define internal void @xevieQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64936,7 +64936,7 @@ define internal void @xevieStart_Reply(ptr noundef %0, ptr nocapture noundef rea
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15078) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -64970,7 +64970,7 @@ define internal void @xevieEnd_Reply(ptr noundef %0, ptr nocapture noundef reado
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15080) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65004,7 +65004,7 @@ define internal void @xevieSend_Reply(ptr noundef %0, ptr nocapture noundef read
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15082) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65038,7 +65038,7 @@ define internal void @xevieSelectInput_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15084) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65070,7 +65070,7 @@ define internal void @xevieSelectInput_Reply(ptr noundef %0, ptr nocapture nound
 define internal void @dispatch_xf86dri(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xf86dri_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -65098,7 +65098,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xf86dri_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %78 [
     i8 11, label %69
     i8 1, label %25
@@ -65212,7 +65212,7 @@ define internal void @xf86driQueryVersion_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65256,7 +65256,7 @@ define internal void @xf86driQueryDirectRenderingCapable_Reply(ptr noundef %0, p
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15088) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65290,7 +65290,7 @@ define internal void @xf86driOpenConnection_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15090) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65347,7 +65347,7 @@ define internal void @xf86driGetClientDriverName_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15092) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65409,7 +65409,7 @@ define internal void @xf86driCreateContext_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15094) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65443,7 +65443,7 @@ define internal void @xf86driCreateDrawable_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15096) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65477,7 +65477,7 @@ define internal void @xf86driGetDrawableInfo_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15098) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65562,7 +65562,7 @@ define internal void @xf86driGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15100) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65636,7 +65636,7 @@ define internal void @xf86driGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture n
   %62 = add i32 %61, 4
   store i32 %62, ptr %2, align 4
   %.not.i = icmp eq i32 %59, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -65648,7 +65648,7 @@ define internal void @xf86driAuthConnection_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15102) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -65715,7 +65715,7 @@ define internal fastcc void @struct_xf86dri_DrmClipRect(ptr noundef %0, ptr noca
   store i32 %28, ptr %1, align 4
   %29 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -65725,7 +65725,7 @@ define internal fastcc void @struct_xf86dri_DrmClipRect(ptr noundef %0, ptr noca
 define internal void @dispatch_xf86vidmode(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xf86vidmode_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -65753,7 +65753,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xf86vidmode_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %xf86vidmodeSetGammaRamp.exit [
     i8 20, label %585
     i8 1, label %25
@@ -66461,7 +66461,7 @@ requestLength.exit:                               ; preds = %5, %16
   %554 = add i32 %553, 2
   store i32 %554, ptr %2, align 4
   %.not.i.i = icmp eq i32 %551, 0
-  br i1 %.not.i.i, label %listOfCard16.exit.i, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %listOfCard16.exit.i, label %.lr.ph.i.i, !llvm.loop !40
 
 listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i, %529
   %555 = phi i32 [ %.pre.i140, %529 ], [ %554, %.lr.ph.i.i ]
@@ -66482,7 +66482,7 @@ listOfCard16.exit.i:                              ; preds = %.lr.ph.i.i, %529
   %565 = add i32 %564, 2
   store i32 %565, ptr %2, align 4
   %.not.i38.i = icmp eq i32 %562, 0
-  br i1 %.not.i38.i, label %listOfCard16.exit39.i, label %.lr.ph.i36.i, !llvm.loop !43
+  br i1 %.not.i38.i, label %listOfCard16.exit39.i, label %.lr.ph.i36.i, !llvm.loop !40
 
 listOfCard16.exit39.i:                            ; preds = %.lr.ph.i36.i, %listOfCard16.exit.i
   %566 = phi i32 [ %.pre1.i, %listOfCard16.exit.i ], [ %565, %.lr.ph.i36.i ]
@@ -66506,7 +66506,7 @@ listOfCard16.exit39.i:                            ; preds = %.lr.ph.i36.i, %list
   %576 = add i32 %575, 2
   store i32 %576, ptr %2, align 4
   %.not.i45.i = icmp eq i32 %573, 0
-  br i1 %.not.i45.i, label %xf86vidmodeSetGammaRamp.exit, label %.lr.ph.i43.i, !llvm.loop !43
+  br i1 %.not.i45.i, label %xf86vidmodeSetGammaRamp.exit, label %.lr.ph.i43.i, !llvm.loop !40
 
 577:                                              ; preds = %requestLength.exit
   %578 = load i32, ptr @hf_x11_xf86vidmode_GetGammaRampSize_screen, align 4
@@ -66547,7 +66547,7 @@ define internal void @xf86vidmodeQueryVersion_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -66586,7 +66586,7 @@ define internal void @xf86vidmodeGetModeLine_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15113) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -66694,7 +66694,7 @@ define internal void @xf86vidmodeGetMonitor_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15115) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -66768,7 +66768,7 @@ define internal void @xf86vidmodeGetMonitor_Reply(ptr noundef %0, ptr nocapture 
   %66 = add i32 %65, 4
   store i32 %66, ptr %2, align 4
   %.not.i = icmp eq i32 %63, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %67 = phi i32 [ %.pre, %5 ], [ %66, %.lr.ph.i ]
@@ -66791,7 +66791,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %78 = add i32 %77, 4
   store i32 %78, ptr %2, align 4
   %.not.i85 = icmp eq i32 %75, 0
-  br i1 %.not.i85, label %listOfCard32.exit86, label %.lr.ph.i83, !llvm.loop !44
+  br i1 %.not.i85, label %listOfCard32.exit86, label %.lr.ph.i83, !llvm.loop !41
 
 listOfCard32.exit86:                              ; preds = %.lr.ph.i83, %listOfCard32.exit
   %79 = phi i32 [ %.pre89, %listOfCard32.exit ], [ %78, %.lr.ph.i83 ]
@@ -66827,7 +66827,7 @@ define internal void @xf86vidmodeGetAllModeLines_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15117) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -66943,7 +66943,7 @@ define internal void @xf86vidmodeGetAllModeLines_Reply(ptr noundef %0, ptr nocap
   store i32 %99, ptr %2, align 4
   %100 = add nuw nsw i32 %.074.i, 1
   %exitcond.not.i = icmp eq i32 %100, %26
-  br i1 %exitcond.not.i, label %struct_xf86vidmode_ModeInfo.exit, label %.lr.ph.i, !llvm.loop !99
+  br i1 %exitcond.not.i, label %struct_xf86vidmode_ModeInfo.exit, label %.lr.ph.i, !llvm.loop !96
 
 struct_xf86vidmode_ModeInfo.exit:                 ; preds = %.lr.ph.i, %5
   ret void
@@ -66955,7 +66955,7 @@ define internal void @xf86vidmodeValidateModeLine_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15119) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -66994,7 +66994,7 @@ define internal void @xf86vidmodeGetViewPort_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15121) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -67038,7 +67038,7 @@ define internal void @xf86vidmodeGetDotClocks_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15123) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -67108,7 +67108,7 @@ define internal void @xf86vidmodeGetDotClocks_Reply(ptr noundef %0, ptr nocaptur
   %60 = add i32 %59, 4
   store i32 %60, ptr %2, align 4
   %.not.i = icmp eq i32 %57, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -67120,7 +67120,7 @@ define internal void @xf86vidmodeGetGamma_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15125) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -67169,7 +67169,7 @@ define internal void @xf86vidmodeGetGammaRamp_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15127) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -67223,7 +67223,7 @@ define internal void @xf86vidmodeGetGammaRamp_Reply(ptr noundef %0, ptr nocaptur
   %49 = add i32 %48, 2
   store i32 %49, ptr %2, align 4
   %.not.i = icmp eq i32 %46, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   %50 = phi i32 [ %.pre, %5 ], [ %49, %.lr.ph.i ]
@@ -67244,7 +67244,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
   %60 = add i32 %59, 2
   store i32 %60, ptr %2, align 4
   %.not.i54 = icmp eq i32 %57, 0
-  br i1 %.not.i54, label %listOfCard16.exit55, label %.lr.ph.i52, !llvm.loop !43
+  br i1 %.not.i54, label %listOfCard16.exit55, label %.lr.ph.i52, !llvm.loop !40
 
 listOfCard16.exit55:                              ; preds = %.lr.ph.i52, %listOfCard16.exit
   %61 = phi i32 [ %.pre63, %listOfCard16.exit ], [ %60, %.lr.ph.i52 ]
@@ -67268,7 +67268,7 @@ listOfCard16.exit55:                              ; preds = %.lr.ph.i52, %listOf
   %71 = add i32 %70, 2
   store i32 %71, ptr %2, align 4
   %.not.i61 = icmp eq i32 %68, 0
-  br i1 %.not.i61, label %listOfCard16.exit62, label %.lr.ph.i59, !llvm.loop !43
+  br i1 %.not.i61, label %listOfCard16.exit62, label %.lr.ph.i59, !llvm.loop !40
 
 listOfCard16.exit62:                              ; preds = %.lr.ph.i59, %listOfCard16.exit55
   ret void
@@ -67280,7 +67280,7 @@ define internal void @xf86vidmodeGetGammaRampSize_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15129) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -67319,7 +67319,7 @@ define internal void @xf86vidmodeGetPermissions_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15131) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -67357,7 +67357,7 @@ define internal void @xf86vidmodeGetPermissions_Reply(ptr noundef %0, ptr nocapt
 define internal void @dispatch_xfixes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xfixes_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -67388,7 +67388,7 @@ requestLength.exit:                               ; preds = %5, %16
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xfixes_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %xfixesCreatePointerBarrier.exit [
     i8 0, label %27
     i8 1, label %37
@@ -67440,11 +67440,11 @@ requestLength.exit:                               ; preds = %5, %16
 
 37:                                               ; preds = %requestLength.exit
   %38 = load i32, ptr @hf_x11_xfixes_ChangeSaveSet_mode, align 4
-  %39 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %38, i32 noundef %4), !range !4
+  %39 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %38, i32 noundef %4)
   %40 = load i32, ptr @hf_x11_xfixes_ChangeSaveSet_target, align 4
-  %41 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %40, i32 noundef %4), !range !4
+  %41 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %40, i32 noundef %4)
   %42 = load i32, ptr @hf_x11_xfixes_ChangeSaveSet_map, align 4
-  %43 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %42, i32 noundef %4), !range !4
+  %43 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %42, i32 noundef %4)
   %44 = load i32, ptr @hf_x11_unused, align 4
   %45 = load i32, ptr %2, align 4
   %46 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0) #10
@@ -67532,7 +67532,7 @@ requestLength.exit:                               ; preds = %5, %16
   %106 = add i32 %105, 4
   store i32 %106, ptr %2, align 4
   %107 = load i32, ptr @hf_x11_xfixes_CreateRegionFromWindow_kind, align 4
-  %108 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %107, i32 noundef %4), !range !4
+  %108 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %107, i32 noundef %4)
   %109 = load i32, ptr @hf_x11_unused, align 4
   %110 = load i32, ptr %2, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %109, ptr noundef %0, i32 noundef %110, i32 noundef 3, i32 noundef 0) #10
@@ -67749,7 +67749,7 @@ requestLength.exit:                               ; preds = %5, %16
   %263 = add i32 %262, 4
   store i32 %263, ptr %2, align 4
   %264 = load i32, ptr @hf_x11_xfixes_SetWindowShapeRegion_dest_kind, align 4
-  %265 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %264, i32 noundef %4), !range !4
+  %265 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %264, i32 noundef %4)
   %266 = load i32, ptr @hf_x11_unused, align 4
   %267 = load i32, ptr %2, align 4
   %268 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %266, ptr noundef %0, i32 noundef %267, i32 noundef 3, i32 noundef 0) #10
@@ -67996,7 +67996,7 @@ requestLength.exit:                               ; preds = %5, %16
   %448 = add i32 %447, 2
   store i32 %448, ptr %2, align 4
   %.not.i.i = icmp eq i32 %445, 0
-  br i1 %.not.i.i, label %xfixesCreatePointerBarrier.exit, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %xfixesCreatePointerBarrier.exit, label %.lr.ph.i.i, !llvm.loop !40
 
 449:                                              ; preds = %requestLength.exit
   %450 = load i32, ptr @hf_x11_xfixes_DeletePointerBarrier_barrier, align 4
@@ -68024,9 +68024,9 @@ xfixesCreatePointerBarrier.exit:                  ; preds = %.lr.ph.i.i, %396, %
 ; Function Attrs: nounwind uwtable
 define internal void @xfixesCursorNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xfixes_CursorNotify_subtype, align 4
-  %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !4
+  %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3), !range !5
+  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr @hf_x11_xfixes_CursorNotify_window, align 4
   %10 = load i32, ptr %1, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef %3) #10
@@ -68060,7 +68060,7 @@ define internal void @xfixesQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68104,7 +68104,7 @@ define internal void @xfixesGetCursorImage_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15137) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68193,7 +68193,7 @@ define internal void @xfixesGetCursorImage_Reply(ptr noundef %0, ptr nocapture n
   %75 = add i32 %74, 4
   store i32 %75, ptr %2, align 4
   %.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -68205,7 +68205,7 @@ define internal void @xfixesFetchRegion_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15139) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68245,7 +68245,7 @@ define internal void @xfixesGetCursorName_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15141) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68296,7 +68296,7 @@ define internal void @xfixesGetCursorImageAndName_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15143) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68392,7 +68392,7 @@ define internal void @xfixesGetCursorImageAndName_Reply(ptr noundef %0, ptr noca
   %84 = add i32 %83, 4
   store i32 %84, ptr %2, align 4
   %.not.i = icmp eq i32 %81, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %85 = phi i32 [ %.pre, %5 ], [ %84, %.lr.ph.i ]
@@ -68412,7 +68412,7 @@ define internal void @xfixesGetClientDisconnectMode_Reply(ptr noundef %0, ptr no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15145) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68450,7 +68450,7 @@ define internal void @xfixesGetClientDisconnectMode_Reply(ptr noundef %0, ptr no
 define internal void @dispatch_xinerama(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xinerama_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -68478,7 +68478,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xinerama_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %51 [
     i8 0, label %25
     i8 1, label %33
@@ -68537,7 +68537,7 @@ define internal void @xineramaQueryVersion_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68576,7 +68576,7 @@ define internal void @xineramaGetState_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15149) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinerama_GetState_reply_state, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68610,7 +68610,7 @@ define internal void @xineramaGetScreenCount_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15151) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinerama_GetScreenCount_reply_screen_count, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68644,7 +68644,7 @@ define internal void @xineramaGetScreenSize_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15153) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68693,7 +68693,7 @@ define internal void @xineramaIsActive_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15155) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68727,7 +68727,7 @@ define internal void @xineramaQueryScreens_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15157) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -68792,7 +68792,7 @@ define internal void @xineramaQueryScreens_Reply(ptr noundef %0, ptr nocapture n
   store i32 %58, ptr %2, align 4
   %59 = add nuw nsw i32 %.026.i, 1
   %exitcond.not.i = icmp eq i32 %59, %26
-  br i1 %exitcond.not.i, label %struct_xinerama_ScreenInfo.exit, label %.lr.ph.i, !llvm.loop !100
+  br i1 %exitcond.not.i, label %struct_xinerama_ScreenInfo.exit, label %.lr.ph.i, !llvm.loop !97
 
 struct_xinerama_ScreenInfo.exit:                  ; preds = %.lr.ph.i, %5
   ret void
@@ -68802,7 +68802,7 @@ struct_xinerama_ScreenInfo.exit:                  ; preds = %.lr.ph.i, %5
 define internal void @dispatch_xinput(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xinput_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -68830,7 +68830,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xinput_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %105 [
     i8 1, label %25
     i8 61, label %104
@@ -69224,7 +69224,7 @@ define internal fastcc void @xinputSetDeviceMode(ptr noundef %0, ptr nocapture n
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_xinput_SetDeviceMode_mode, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_unused, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 2, i32 noundef 0) #10
@@ -69277,7 +69277,7 @@ define internal fastcc void @xinputSelectExtensionEvent(ptr noundef %0, ptr noca
   %31 = add i32 %30, 4
   store i32 %31, ptr %1, align 4
   %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69300,7 +69300,7 @@ define internal fastcc void @xinputChangeDeviceDontPropagateList(ptr noundef %0,
   %16 = add i32 %15, 2
   store i32 %16, ptr %1, align 4
   %17 = load i32, ptr @hf_x11_xinput_ChangeDeviceDontPropagateList_mode, align 4
-  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3), !range !4
+  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3)
   %19 = load i32, ptr @hf_x11_unused, align 4
   %20 = load i32, ptr %1, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #10
@@ -69329,7 +69329,7 @@ define internal fastcc void @xinputChangeDeviceDontPropagateList(ptr noundef %0,
   %34 = add i32 %33, 4
   store i32 %34, ptr %1, align 4
   %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69421,9 +69421,9 @@ define internal fastcc void @xinputGrabDevice(ptr noundef %0, ptr nocapture noun
   %19 = add i32 %18, 2
   store i32 %19, ptr %1, align 4
   %20 = load i32, ptr @hf_x11_xinput_GrabDevice_this_device_mode, align 4
-  %21 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %20, i32 noundef %3), !range !4
+  %21 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %20, i32 noundef %3)
   %22 = load i32, ptr @hf_x11_xinput_GrabDevice_other_device_mode, align 4
-  %23 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %22, i32 noundef %3), !range !4
+  %23 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %22, i32 noundef %3)
   %24 = load i32, ptr @hf_x11_xinput_GrabDevice_owner_events, align 4
   %25 = load i32, ptr %1, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef %3) #10
@@ -69462,7 +69462,7 @@ define internal fastcc void @xinputGrabDevice(ptr noundef %0, ptr nocapture noun
   %47 = add i32 %46, 4
   store i32 %47, ptr %1, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69509,7 +69509,7 @@ define internal fastcc void @xinputGrabDeviceKey(ptr noundef %0, ptr nocapture n
   %21 = add i32 %20, 2
   store i32 %21, ptr %1, align 4
   %22 = load i32, ptr @hf_x11_xinput_GrabDeviceKey_modifier_device, align 4
-  %23 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %22, i32 noundef %3), !range !4
+  %23 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %22, i32 noundef %3)
   %24 = load i32, ptr @hf_x11_xinput_GrabDeviceKey_grabbed_device, align 4
   %25 = load i32, ptr %1, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef %3) #10
@@ -69517,11 +69517,11 @@ define internal fastcc void @xinputGrabDeviceKey(ptr noundef %0, ptr nocapture n
   %28 = add i32 %27, 1
   store i32 %28, ptr %1, align 4
   %29 = load i32, ptr @hf_x11_xinput_GrabDeviceKey_key, align 4
-  %30 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %29, i32 noundef %3), !range !4
+  %30 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %29, i32 noundef %3)
   %31 = load i32, ptr @hf_x11_xinput_GrabDeviceKey_this_device_mode, align 4
-  %32 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %31, i32 noundef %3), !range !4
+  %32 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %31, i32 noundef %3)
   %33 = load i32, ptr @hf_x11_xinput_GrabDeviceKey_other_device_mode, align 4
-  %34 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %33, i32 noundef %3), !range !4
+  %34 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %33, i32 noundef %3)
   %35 = load i32, ptr @hf_x11_xinput_GrabDeviceKey_owner_events, align 4
   %36 = load i32, ptr %1, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef %3) #10
@@ -69555,7 +69555,7 @@ define internal fastcc void @xinputGrabDeviceKey(ptr noundef %0, ptr nocapture n
   %54 = add i32 %53, 4
   store i32 %54, ptr %1, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69576,9 +69576,9 @@ define internal fastcc void @xinputUngrabDeviceKey(ptr noundef %0, ptr nocapture
   %14 = add i32 %13, 2
   store i32 %14, ptr %1, align 4
   %15 = load i32, ptr @hf_x11_xinput_UngrabDeviceKey_modifier_device, align 4
-  %16 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %15, i32 noundef %3), !range !4
+  %16 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %15, i32 noundef %3)
   %17 = load i32, ptr @hf_x11_xinput_UngrabDeviceKey_key, align 4
-  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3), !range !4
+  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3)
   %19 = load i32, ptr @hf_x11_xinput_UngrabDeviceKey_grabbed_device, align 4
   %20 = load i32, ptr %1, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef %3) #10
@@ -69602,7 +69602,7 @@ define internal fastcc void @xinputGrabDeviceButton(ptr noundef %0, ptr nocaptur
   %13 = add i32 %12, 1
   store i32 %13, ptr %1, align 4
   %14 = load i32, ptr @hf_x11_xinput_GrabDeviceButton_modifier_device, align 4
-  %15 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %14, i32 noundef %3), !range !4
+  %15 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %14, i32 noundef %3)
   %16 = load i32, ptr %1, align 4
   %17 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %16, i32 noundef %3) #10
   %18 = zext i16 %17 to i32
@@ -69619,11 +69619,11 @@ define internal fastcc void @xinputGrabDeviceButton(ptr noundef %0, ptr nocaptur
   %28 = add i32 %27, 2
   store i32 %28, ptr %1, align 4
   %29 = load i32, ptr @hf_x11_xinput_GrabDeviceButton_this_device_mode, align 4
-  %30 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %29, i32 noundef %3), !range !4
+  %30 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %29, i32 noundef %3)
   %31 = load i32, ptr @hf_x11_xinput_GrabDeviceButton_other_device_mode, align 4
-  %32 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %31, i32 noundef %3), !range !4
+  %32 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %31, i32 noundef %3)
   %33 = load i32, ptr @hf_x11_xinput_GrabDeviceButton_button, align 4
-  %34 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %33, i32 noundef %3), !range !4
+  %34 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %33, i32 noundef %3)
   %35 = load i32, ptr @hf_x11_xinput_GrabDeviceButton_owner_events, align 4
   %36 = load i32, ptr %1, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef %3) #10
@@ -69657,7 +69657,7 @@ define internal fastcc void @xinputGrabDeviceButton(ptr noundef %0, ptr nocaptur
   %54 = add i32 %53, 4
   store i32 %54, ptr %1, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -69678,9 +69678,9 @@ define internal fastcc void @xinputUngrabDeviceButton(ptr noundef %0, ptr nocapt
   %14 = add i32 %13, 2
   store i32 %14, ptr %1, align 4
   %15 = load i32, ptr @hf_x11_xinput_UngrabDeviceButton_modifier_device, align 4
-  %16 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %15, i32 noundef %3), !range !4
+  %16 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %15, i32 noundef %3)
   %17 = load i32, ptr @hf_x11_xinput_UngrabDeviceButton_button, align 4
-  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3), !range !4
+  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3)
   %19 = load i32, ptr @hf_x11_xinput_UngrabDeviceButton_grabbed_device, align 4
   %20 = load i32, ptr %1, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef %3) #10
@@ -69700,7 +69700,7 @@ define internal fastcc void @xinputAllowDeviceEvents(ptr noundef %0, ptr nocaptu
   %5 = load i32, ptr @hf_x11_xinput_AllowDeviceEvents_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_AllowDeviceEvents_mode, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr @hf_x11_xinput_AllowDeviceEvents_device_id, align 4
   %10 = load i32, ptr %1, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef %3) #10
@@ -69738,7 +69738,7 @@ define internal fastcc void @xinputSetDeviceFocus(ptr noundef %0, ptr nocapture 
   %7 = load i32, ptr @hf_x11_xinput_SetDeviceFocus_time, align 4
   %8 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr @hf_x11_xinput_SetDeviceFocus_revert_to, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %3), !range !4
+  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %3)
   %11 = load i32, ptr @hf_x11_xinput_SetDeviceFocus_device_id, align 4
   %12 = load i32, ptr %1, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %3) #10
@@ -69798,7 +69798,7 @@ define internal fastcc void @xinputChangeFeedbackControl(ptr noundef %0, ptr noc
   %25 = load i32, ptr @ett_x11_rectangle, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #10
   %27 = load i32, ptr @hf_x11_struct_xinput_FeedbackCtl_class_id, align 4
-  %28 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 noundef %27, i32 noundef %3), !range !4
+  %28 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 noundef %27, i32 noundef %3)
   %29 = load i32, ptr @hf_x11_struct_xinput_FeedbackCtl_feedback_id, align 4
   %30 = load i32, ptr %1, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef %3) #10
@@ -69810,7 +69810,7 @@ define internal fastcc void @xinputChangeFeedbackControl(ptr noundef %0, ptr noc
   %36 = load i32, ptr %1, align 4
   %37 = add i32 %36, 2
   store i32 %37, ptr %1, align 4
-  %trunc.i = trunc i32 %28 to i8
+  %trunc.i = trunc nuw i32 %28 to i8
   switch i8 %trunc.i, label %struct_xinput_FeedbackCtl.exit [
     i8 0, label %38
     i8 1, label %69
@@ -69916,7 +69916,7 @@ define internal fastcc void @xinputChangeFeedbackControl(ptr noundef %0, ptr noc
   %106 = add i32 %105, 4
   store i32 %106, ptr %1, align 4
   %.not.i.i = icmp eq i32 %103, 0
-  br i1 %.not.i.i, label %struct_xinput_FeedbackCtl.exit, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %struct_xinput_FeedbackCtl.exit, label %.lr.ph.i.i, !llvm.loop !41
 
 107:                                              ; preds = %4
   %108 = load i32, ptr @hf_x11_struct_xinput_FeedbackCtl_Integer_int_to_display, align 4
@@ -70042,7 +70042,7 @@ define internal fastcc void @xinputChangeDeviceKeyMapping(ptr noundef %0, ptr no
   %39 = add i32 %38, 4
   store i32 %39, ptr %1, align 4
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -70217,7 +70217,7 @@ define internal fastcc void @xinputSendExtensionEvent(ptr noundef %0, ptr nocapt
   %45 = add i32 %44, 4
   store i32 %45, ptr %1, align 4
   %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -70297,7 +70297,7 @@ define internal fastcc void @xinputSetDeviceValuators(ptr noundef %0, ptr nocapt
   %35 = add i32 %34, 4
   store i32 %35, ptr %1, align 4
   %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !60
 
 listOfInt32.exit:                                 ; preds = %.lr.ph.i, %4
   ret void
@@ -70306,7 +70306,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xinputGetDeviceControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceControl_control_id, align 4
-  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !5
+  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_GetDeviceControl_device_id, align 4
   %8 = load i32, ptr %1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %3) #10
@@ -70324,7 +70324,7 @@ define internal fastcc void @xinputGetDeviceControl(ptr noundef %0, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xinputChangeDeviceControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceControl_control_id, align 4
-  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !5
+  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_ChangeDeviceControl_device_id, align 4
   %8 = load i32, ptr %1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %3) #10
@@ -70341,14 +70341,14 @@ define internal fastcc void @xinputChangeDeviceControl(ptr noundef %0, ptr nocap
   %18 = load i32, ptr @ett_x11_rectangle, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #10
   %20 = load i32, ptr @hf_x11_struct_xinput_DeviceCtl_control_id, align 4
-  %21 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %19, i32 noundef %20, i32 noundef %3), !range !5
+  %21 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %19, i32 noundef %20, i32 noundef %3)
   %22 = load i32, ptr @hf_x11_struct_xinput_DeviceCtl_len, align 4
   %23 = load i32, ptr %1, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef %3) #10
   %25 = load i32, ptr %1, align 4
   %26 = add i32 %25, 2
   store i32 %26, ptr %1, align 4
-  %trunc.i = trunc i32 %21 to i16
+  %trunc.i = trunc nuw i32 %21 to i16
   switch i16 %trunc.i, label %struct_xinput_DeviceCtl.exit [
     i16 1, label %27
     i16 2, label %54
@@ -70398,7 +70398,7 @@ define internal fastcc void @xinputChangeDeviceControl(ptr noundef %0, ptr nocap
   %53 = add i32 %52, 4
   store i32 %53, ptr %1, align 4
   %.not.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i, label %struct_xinput_DeviceCtl.exit, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %struct_xinput_DeviceCtl.exit, label %.lr.ph.i.i, !llvm.loop !41
 
 54:                                               ; preds = %4
   %55 = load i32, ptr @hf_x11_struct_xinput_DeviceCtl_abs_calib_min_x, align 4
@@ -70536,9 +70536,9 @@ define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr noca
   %17 = add i32 %16, 1
   store i32 %17, ptr %1, align 4
   %18 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_format, align 4
-  %19 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %18, i32 noundef %3), !range !4
+  %19 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %18, i32 noundef %3)
   %20 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_mode, align 4
-  %21 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %20, i32 noundef %3), !range !4
+  %21 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %20, i32 noundef %3)
   %22 = load i32, ptr @hf_x11_unused, align 4
   %23 = load i32, ptr %1, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0) #10
@@ -70552,7 +70552,7 @@ define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr noca
   %31 = load i32, ptr %1, align 4
   %32 = add i32 %31, 4
   store i32 %32, ptr %1, align 4
-  %trunc = trunc i32 %19 to i8
+  %trunc = trunc nuw i32 %19 to i8
   switch i8 %trunc, label %listOfCard32.exit [
     i8 8, label %33
     i8 16, label %46
@@ -70601,7 +70601,7 @@ define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr noca
   %57 = add i32 %56, 2
   store i32 %57, ptr %1, align 4
   %.not.i = icmp eq i32 %54, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %46
   %58 = phi i32 [ %.pre, %46 ], [ %57, %.lr.ph.i ]
@@ -70649,7 +70649,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %46
   %82 = add i32 %81, 4
   store i32 %82, ptr %1, align 4
   %.not.i83 = icmp eq i32 %79, 0
-  br i1 %.not.i83, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !44
+  br i1 %.not.i83, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i81, %70, %39, %33, %4, %67
   ret void
@@ -70726,7 +70726,7 @@ define internal fastcc void @xinputXIQueryPointer(ptr noundef %0, ptr nocapture 
   %9 = add i32 %8, 4
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_xinput_XIQueryPointer_deviceid, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_unused, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 2, i32 noundef 0) #10
@@ -70780,7 +70780,7 @@ define internal fastcc void @xinputXIWarpPointer(ptr noundef %0, ptr nocapture n
   %37 = add i32 %36, 4
   store i32 %37, ptr %1, align 4
   %38 = load i32, ptr @hf_x11_xinput_XIWarpPointer_deviceid, align 4
-  %39 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %38, i32 noundef %3), !range !5
+  %39 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %38, i32 noundef %3)
   %40 = load i32, ptr @hf_x11_unused, align 4
   %41 = load i32, ptr %1, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0) #10
@@ -70804,7 +70804,7 @@ define internal fastcc void @xinputXIChangeCursor(ptr noundef %0, ptr nocapture 
   %13 = add i32 %12, 4
   store i32 %13, ptr %1, align 4
   %14 = load i32, ptr @hf_x11_xinput_XIChangeCursor_deviceid, align 4
-  %15 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %14, i32 noundef %3), !range !5
+  %15 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %14, i32 noundef %3)
   %16 = load i32, ptr @hf_x11_unused, align 4
   %17 = load i32, ptr %1, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef 0) #10
@@ -70841,14 +70841,14 @@ define internal fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr nocaptu
   %20 = load i32, ptr @ett_x11_rectangle, align 4
   %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #10
   %22 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_type, align 4
-  %23 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %22, i32 noundef %3), !range !5
+  %23 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %22, i32 noundef %3)
   %24 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_len, align 4
   %25 = load i32, ptr %1, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef %25, i32 noundef 2, i32 noundef %3) #10
   %27 = load i32, ptr %1, align 4
   %28 = add i32 %27, 2
   store i32 %28, ptr %1, align 4
-  %trunc.i = trunc i32 %23 to i16
+  %trunc.i = trunc nuw i32 %23 to i16
   switch i16 %trunc.i, label %85 [
     i16 1, label %29
     i16 2, label %58
@@ -70898,9 +70898,9 @@ define internal fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr nocaptu
 
 58:                                               ; preds = %.lr.ph.i
   %59 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_RemoveMaster_deviceid, align 4
-  %60 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %59, i32 noundef %3), !range !5
+  %60 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %59, i32 noundef %3)
   %61 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_RemoveMaster_return_mode, align 4
-  %62 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %61, i32 noundef %3), !range !4
+  %62 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %61, i32 noundef %3)
   %63 = load i32, ptr @hf_x11_unused, align 4
   %64 = load i32, ptr %1, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef 0) #10
@@ -70908,21 +70908,21 @@ define internal fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr nocaptu
   %67 = add i32 %66, 1
   store i32 %67, ptr %1, align 4
   %68 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_RemoveMaster_return_pointer, align 4
-  %69 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %68, i32 noundef %3), !range !5
+  %69 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %68, i32 noundef %3)
   %70 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_RemoveMaster_return_keyboard, align 4
-  %71 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %70, i32 noundef %3), !range !5
+  %71 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %70, i32 noundef %3)
   br label %85
 
 72:                                               ; preds = %.lr.ph.i
   %73 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_AttachSlave_deviceid, align 4
-  %74 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %73, i32 noundef %3), !range !5
+  %74 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %73, i32 noundef %3)
   %75 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_AttachSlave_master, align 4
-  %76 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %75, i32 noundef %3), !range !5
+  %76 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %75, i32 noundef %3)
   br label %85
 
 77:                                               ; preds = %.lr.ph.i
   %78 = load i32, ptr @hf_x11_struct_xinput_HierarchyChange_DetachSlave_deviceid, align 4
-  %79 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %78, i32 noundef %3), !range !5
+  %79 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, i32 noundef %78, i32 noundef %3)
   %80 = load i32, ptr @hf_x11_unused, align 4
   %81 = load i32, ptr %1, align 4
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %80, ptr noundef %0, i32 noundef %81, i32 noundef 2, i32 noundef 0) #10
@@ -70934,7 +70934,7 @@ define internal fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr nocaptu
 85:                                               ; preds = %77, %72, %58, %51, %29, %.lr.ph.i
   %86 = add nuw nsw i32 %.089.i, 1
   %exitcond.not.i = icmp eq i32 %86, %7
-  br i1 %exitcond.not.i, label %struct_xinput_HierarchyChange.exit, label %.lr.ph.i, !llvm.loop !101
+  br i1 %exitcond.not.i, label %struct_xinput_HierarchyChange.exit, label %.lr.ph.i, !llvm.loop !98
 
 struct_xinput_HierarchyChange.exit:               ; preds = %85, %4
   ret void
@@ -70949,7 +70949,7 @@ define internal fastcc void @xinputXISetClientPointer(ptr noundef %0, ptr nocapt
   %9 = add i32 %8, 4
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_xinput_XISetClientPointer_deviceid, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_unused, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 2, i32 noundef 0) #10
@@ -71003,7 +71003,7 @@ define internal fastcc void @xinputXIQueryVersion(ptr noundef %0, ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xinputXIQueryDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIQueryDevice_deviceid, align 4
-  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !5
+  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
   %8 = load i32, ptr %1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #10
@@ -71024,7 +71024,7 @@ define internal fastcc void @xinputXISetFocus(ptr noundef %0, ptr nocapture noun
   %10 = load i32, ptr @hf_x11_xinput_XISetFocus_time, align 4
   %11 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xinput_XISetFocus_deviceid, align 4
-  %13 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %12, i32 noundef %3), !range !5
+  %13 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %12, i32 noundef %3)
   %14 = load i32, ptr @hf_x11_unused, align 4
   %15 = load i32, ptr %1, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef 0) #10
@@ -71037,7 +71037,7 @@ define internal fastcc void @xinputXISetFocus(ptr noundef %0, ptr nocapture noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xinputXIGetFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIGetFocus_deviceid, align 4
-  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !5
+  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
   %8 = load i32, ptr %1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #10
@@ -71064,13 +71064,13 @@ define internal fastcc void @xinputXIGrabDevice(ptr noundef %0, ptr nocapture no
   %16 = add i32 %15, 4
   store i32 %16, ptr %1, align 4
   %17 = load i32, ptr @hf_x11_xinput_XIGrabDevice_deviceid, align 4
-  %18 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3), !range !5
+  %18 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3)
   %19 = load i32, ptr @hf_x11_xinput_XIGrabDevice_mode, align 4
-  %20 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %19, i32 noundef %3), !range !4
+  %20 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %19, i32 noundef %3)
   %21 = load i32, ptr @hf_x11_xinput_XIGrabDevice_paired_device_mode, align 4
-  %22 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %21, i32 noundef %3), !range !4
+  %22 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %21, i32 noundef %3)
   %23 = load i32, ptr @hf_x11_xinput_XIGrabDevice_owner_events, align 4
-  %24 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %23, i32 noundef %3), !range !4
+  %24 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %23, i32 noundef %3)
   %25 = load i32, ptr @hf_x11_unused, align 4
   %26 = load i32, ptr %1, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0) #10
@@ -71107,7 +71107,7 @@ define internal fastcc void @xinputXIGrabDevice(ptr noundef %0, ptr nocapture no
   %47 = add i32 %46, 4
   store i32 %47, ptr %1, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -71118,7 +71118,7 @@ define internal fastcc void @xinputXIUngrabDevice(ptr noundef %0, ptr nocapture 
   %5 = load i32, ptr @hf_x11_xinput_XIUngrabDevice_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIUngrabDevice_deviceid, align 4
-  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3), !range !5
+  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr @hf_x11_unused, align 4
   %10 = load i32, ptr %1, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 2, i32 noundef 0) #10
@@ -71133,9 +71133,9 @@ define internal fastcc void @xinputXIAllowEvents(ptr noundef %0, ptr nocapture n
   %5 = load i32, ptr @hf_x11_xinput_XIAllowEvents_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIAllowEvents_deviceid, align 4
-  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3), !range !5
+  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr @hf_x11_xinput_XIAllowEvents_event_mode, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %3), !range !4
+  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %3)
   %11 = load i32, ptr @hf_x11_unused, align 4
   %12 = load i32, ptr %1, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef 0) #10
@@ -71176,7 +71176,7 @@ define internal fastcc void @xinputXIPassiveGrabDevice(ptr noundef %0, ptr nocap
   %19 = add i32 %18, 4
   store i32 %19, ptr %1, align 4
   %20 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_deviceid, align 4
-  %21 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %20, i32 noundef %3), !range !5
+  %21 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %20, i32 noundef %3)
   %22 = load i32, ptr %1, align 4
   %23 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %22, i32 noundef %3) #10
   %24 = zext i16 %23 to i32
@@ -71195,13 +71195,13 @@ define internal fastcc void @xinputXIPassiveGrabDevice(ptr noundef %0, ptr nocap
   %36 = add i32 %35, 2
   store i32 %36, ptr %1, align 4
   %37 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_grab_type, align 4
-  %38 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %37, i32 noundef %3), !range !4
+  %38 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %37, i32 noundef %3)
   %39 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_grab_mode, align 4
-  %40 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %39, i32 noundef %3), !range !4
+  %40 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %39, i32 noundef %3)
   %41 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_paired_device_mode, align 4
-  %42 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %41, i32 noundef %3), !range !4
+  %42 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %41, i32 noundef %3)
   %43 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_owner_events, align 4
-  %44 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %43, i32 noundef %3), !range !4
+  %44 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %43, i32 noundef %3)
   %45 = load i32, ptr @hf_x11_unused, align 4
   %46 = load i32, ptr %1, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef 2, i32 noundef 0) #10
@@ -71227,7 +71227,7 @@ define internal fastcc void @xinputXIPassiveGrabDevice(ptr noundef %0, ptr nocap
   %60 = add i32 %59, 4
   store i32 %60, ptr %1, align 4
   %.not.i = icmp eq i32 %57, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   %61 = phi i32 [ %.pre, %4 ], [ %60, %.lr.ph.i ]
@@ -71253,7 +71253,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   %72 = add i32 %71, 4
   store i32 %72, ptr %1, align 4
   %.not.i77 = icmp eq i32 %69, 0
-  br i1 %.not.i77, label %listOfCard32.exit78, label %.lr.ph.i75, !llvm.loop !44
+  br i1 %.not.i77, label %listOfCard32.exit78, label %.lr.ph.i75, !llvm.loop !41
 
 listOfCard32.exit78:                              ; preds = %.lr.ph.i75, %listOfCard32.exit
   ret void
@@ -71273,7 +71273,7 @@ define internal fastcc void @xinputXIPassiveUngrabDevice(ptr noundef %0, ptr noc
   %13 = add i32 %12, 4
   store i32 %13, ptr %1, align 4
   %14 = load i32, ptr @hf_x11_xinput_XIPassiveUngrabDevice_deviceid, align 4
-  %15 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %14, i32 noundef %3), !range !5
+  %15 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %14, i32 noundef %3)
   %16 = load i32, ptr %1, align 4
   %17 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %16, i32 noundef %3) #10
   %18 = zext i16 %17 to i32
@@ -71284,7 +71284,7 @@ define internal fastcc void @xinputXIPassiveUngrabDevice(ptr noundef %0, ptr noc
   %23 = add i32 %22, 2
   store i32 %23, ptr %1, align 4
   %24 = load i32, ptr @hf_x11_xinput_XIPassiveUngrabDevice_grab_type, align 4
-  %25 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %24, i32 noundef %3), !range !4
+  %25 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %24, i32 noundef %3)
   %26 = load i32, ptr @hf_x11_unused, align 4
   %27 = load i32, ptr %1, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef 3, i32 noundef 0) #10
@@ -71313,7 +71313,7 @@ define internal fastcc void @xinputXIPassiveUngrabDevice(ptr noundef %0, ptr noc
   %41 = add i32 %40, 4
   store i32 %41, ptr %1, align 4
   %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
   ret void
@@ -71322,7 +71322,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xinputXIListProperties(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIListProperties_deviceid, align 4
-  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !5
+  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
   %8 = load i32, ptr %1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #10
@@ -71335,11 +71335,11 @@ define internal fastcc void @xinputXIListProperties(ptr noundef %0, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIChangeProperty_deviceid, align 4
-  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !5
+  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIChangeProperty_mode, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr @hf_x11_xinput_XIChangeProperty_format, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %3), !range !4
+  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef %3)
   %11 = load i32, ptr @hf_x11_xinput_XIChangeProperty_property, align 4
   %12 = load i32, ptr %1, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef %3) #10
@@ -71358,7 +71358,7 @@ define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr nocaptur
   %24 = load i32, ptr %1, align 4
   %25 = add i32 %24, 4
   store i32 %25, ptr %1, align 4
-  %trunc = trunc i32 %10 to i8
+  %trunc = trunc nuw i32 %10 to i8
   switch i8 %trunc, label %listOfCard32.exit [
     i8 8, label %26
     i8 16, label %39
@@ -71407,7 +71407,7 @@ define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr nocaptur
   %50 = add i32 %49, 2
   store i32 %50, ptr %1, align 4
   %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %39
   %51 = phi i32 [ %.pre, %39 ], [ %50, %.lr.ph.i ]
@@ -71455,7 +71455,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %39
   %75 = add i32 %74, 4
   store i32 %75, ptr %1, align 4
   %.not.i78 = icmp eq i32 %72, 0
-  br i1 %.not.i78, label %listOfCard32.exit, label %.lr.ph.i76, !llvm.loop !44
+  br i1 %.not.i78, label %listOfCard32.exit, label %.lr.ph.i76, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i76, %63, %32, %26, %4, %60
   ret void
@@ -71464,7 +71464,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i76, %63, %3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xinputXIDeleteProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIDeleteProperty_deviceid, align 4
-  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !5
+  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
   %8 = load i32, ptr %1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #10
@@ -71482,7 +71482,7 @@ define internal fastcc void @xinputXIDeleteProperty(ptr noundef %0, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xinputXIGetProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIGetProperty_deviceid, align 4
-  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !5
+  %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIGetProperty_delete, align 4
   %8 = load i32, ptr %1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %3) #10
@@ -71560,7 +71560,7 @@ define internal fastcc void @xinputXIBarrierReleasePointer(ptr noundef %0, ptr n
   store i32 %34, ptr %1, align 4
   %35 = add nuw nsw i32 %.025.i, 1
   %exitcond.not.i = icmp eq i32 %35, %6
-  br i1 %exitcond.not.i, label %struct_xinput_BarrierReleasePointerInfo.exit, label %.lr.ph.i, !llvm.loop !102
+  br i1 %exitcond.not.i, label %struct_xinput_BarrierReleasePointerInfo.exit, label %.lr.ph.i, !llvm.loop !99
 
 struct_xinput_BarrierReleasePointerInfo.exit:     ; preds = %.lr.ph.i, %4
   ret void
@@ -71584,7 +71584,7 @@ define internal fastcc void @struct_xinput_EventMask(ptr noundef %0, ptr nocaptu
   %15 = load i32, ptr @ett_x11_rectangle, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #10
   %17 = load i32, ptr @hf_x11_struct_xinput_EventMask_deviceid, align 4
-  %18 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, i32 noundef %17, i32 noundef %3), !range !5
+  %18 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, i32 noundef %17, i32 noundef %3)
   %19 = load i32, ptr %1, align 4
   %20 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %19, i32 noundef %3) #10
   %21 = zext i16 %20 to i32
@@ -71616,12 +71616,12 @@ define internal fastcc void @struct_xinput_EventMask(ptr noundef %0, ptr nocaptu
   %37 = add i32 %36, 4
   store i32 %37, ptr %1, align 4
   %.not.i = icmp eq i32 %34, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %38 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %38, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -71636,7 +71636,7 @@ define internal void @xinputDeviceKeyPress(ptr noundef %0, ptr nocapture noundef
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xinput_DeviceKeyPress_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -71698,9 +71698,9 @@ define internal void @xinputDeviceKeyPress(ptr noundef %0, ptr nocapture noundef
 ; Function Attrs: nounwind uwtable
 define internal void @xinputDeviceFocusIn(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceFocusIn_detail, align 4
-  %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !4
+  %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3), !range !5
+  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr @hf_x11_xinput_DeviceFocusIn_time, align 4
   %10 = load i32, ptr %1, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef %3) #10
@@ -71713,7 +71713,7 @@ define internal void @xinputDeviceFocusIn(ptr noundef %0, ptr nocapture noundef 
   %17 = add i32 %16, 4
   store i32 %17, ptr %1, align 4
   %18 = load i32, ptr @hf_x11_xinput_DeviceFocusIn_mode, align 4
-  %19 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %18, i32 noundef %3), !range !4
+  %19 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %18, i32 noundef %3)
   %20 = load i32, ptr @hf_x11_xinput_DeviceFocusIn_device_id, align 4
   %21 = load i32, ptr %1, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef %3) #10
@@ -71737,7 +71737,7 @@ define internal void @xinputDeviceStateNotify(ptr noundef %0, ptr nocapture noun
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xinput_DeviceStateNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -71792,7 +71792,7 @@ define internal void @xinputDeviceStateNotify(ptr noundef %0, ptr nocapture noun
   %51 = add i32 %50, 4
   store i32 %51, ptr %1, align 4
   %.not.i = icmp eq i32 %48, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i
   ret void
@@ -71807,9 +71807,9 @@ define internal void @xinputDeviceMappingNotify(ptr noundef %0, ptr nocapture no
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xinput_DeviceMappingNotify_request, align 4
-  %13 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %12, i32 noundef %3), !range !4
+  %13 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %12, i32 noundef %3)
   %14 = load i32, ptr @hf_x11_xinput_DeviceMappingNotify_first_keycode, align 4
   %15 = load i32, ptr %1, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef %3) #10
@@ -71848,7 +71848,7 @@ define internal void @xinputChangeDeviceNotify(ptr noundef %0, ptr nocapture nou
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xinput_ChangeDeviceNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -71856,7 +71856,7 @@ define internal void @xinputChangeDeviceNotify(ptr noundef %0, ptr nocapture nou
   %16 = add i32 %15, 4
   store i32 %16, ptr %1, align 4
   %17 = load i32, ptr @hf_x11_xinput_ChangeDeviceNotify_request, align 4
-  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3), !range !4
+  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3)
   %19 = load i32, ptr @hf_x11_unused, align 4
   %20 = load i32, ptr %1, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 23, i32 noundef 0) #10
@@ -71875,7 +71875,7 @@ define internal void @xinputDeviceKeyStateNotify(ptr noundef %0, ptr nocapture n
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xinput_DeviceKeyStateNotify_keys, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 28, i32 noundef %3) #10
@@ -71894,7 +71894,7 @@ define internal void @xinputDeviceButtonStateNotify(ptr noundef %0, ptr nocaptur
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xinput_DeviceButtonStateNotify_buttons, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 28, i32 noundef %3) #10
@@ -71913,7 +71913,7 @@ define internal void @xinputDevicePresenceNotify(ptr noundef %0, ptr nocapture n
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xinput_DevicePresenceNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -71921,7 +71921,7 @@ define internal void @xinputDevicePresenceNotify(ptr noundef %0, ptr nocapture n
   %16 = add i32 %15, 4
   store i32 %16, ptr %1, align 4
   %17 = load i32, ptr @hf_x11_xinput_DevicePresenceNotify_devchange, align 4
-  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3), !range !4
+  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %17, i32 noundef %3)
   %19 = load i32, ptr @hf_x11_xinput_DevicePresenceNotify_device_id, align 4
   %20 = load i32, ptr %1, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #10
@@ -71944,9 +71944,9 @@ define internal void @xinputDevicePresenceNotify(ptr noundef %0, ptr nocapture n
 ; Function Attrs: nounwind uwtable
 define internal void @xinputDevicePropertyNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DevicePropertyNotify_state, align 4
-  %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3), !range !4
+  %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3), !range !5
+  %8 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %3)
   %9 = load i32, ptr @hf_x11_xinput_DevicePropertyNotify_time, align 4
   %10 = load i32, ptr %1, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef %3) #10
@@ -71977,7 +71977,7 @@ define internal void @xinputDeviceChanged(ptr noundef %0, i32 %1, ptr nocapture 
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.15174) #10
   %9 = load i32, ptr @hf_x11_xinput_DeviceChanged_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_DeviceChanged_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr %2, align 4
@@ -71990,9 +71990,9 @@ define internal void @xinputDeviceChanged(ptr noundef %0, i32 %1, ptr nocapture 
   %20 = add i32 %19, 2
   store i32 %20, ptr %2, align 4
   %21 = load i32, ptr @hf_x11_xinput_DeviceChanged_sourceid, align 4
-  %22 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %21, i32 noundef %4), !range !5
+  %22 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %21, i32 noundef %4)
   %23 = load i32, ptr @hf_x11_xinput_DeviceChanged_reason, align 4
-  %24 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %23, i32 noundef %4), !range !4
+  %24 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %23, i32 noundef %4)
   %25 = load i32, ptr @hf_x11_unused, align 4
   %26 = load i32, ptr %2, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %25, ptr noundef %0, i32 noundef %26, i32 noundef 11, i32 noundef 0) #10
@@ -72009,7 +72009,7 @@ define internal void @xinputKeyPress(ptr noundef %0, i32 %1, ptr nocapture nound
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.15175) #10
   %9 = load i32, ptr @hf_x11_xinput_KeyPress_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_KeyPress_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_KeyPress_detail, align 4
@@ -72070,7 +72070,7 @@ define internal void @xinputKeyPress(ptr noundef %0, i32 %1, ptr nocapture nound
   %59 = add i32 %58, 2
   store i32 %59, ptr %2, align 4
   %60 = load i32, ptr @hf_x11_xinput_KeyPress_sourceid, align 4
-  %61 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %60, i32 noundef %4), !range !5
+  %61 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %60, i32 noundef %4)
   %62 = load i32, ptr @hf_x11_unused, align 4
   %63 = load i32, ptr %2, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef 0) #10
@@ -72108,7 +72108,7 @@ define internal void @xinputKeyPress(ptr noundef %0, i32 %1, ptr nocapture nound
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %.not = icmp eq i16 %53, 0
@@ -72124,7 +72124,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %88 = add i32 %87, %.0110119
   %89 = add nuw nsw i32 %.0120, 1
   %exitcond.not = icmp eq i32 %89, %54
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit
   %.0110.lcssa = phi i32 [ 0, %listOfCard32.exit ], [ %88, %.lr.ph ]
@@ -72150,7 +72150,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %101 = add i32 %100, 4
   store i32 %101, ptr %2, align 4
   %.not.i117 = icmp eq i32 %98, 0
-  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !44
+  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !41
 
 listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110.lcssa)
@@ -72163,7 +72163,7 @@ define internal void @xinputButtonPress(ptr noundef %0, i32 %1, ptr nocapture no
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 4, ptr noundef nonnull @.str.15176) #10
   %9 = load i32, ptr @hf_x11_xinput_ButtonPress_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_ButtonPress_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_ButtonPress_detail, align 4
@@ -72224,7 +72224,7 @@ define internal void @xinputButtonPress(ptr noundef %0, i32 %1, ptr nocapture no
   %59 = add i32 %58, 2
   store i32 %59, ptr %2, align 4
   %60 = load i32, ptr @hf_x11_xinput_ButtonPress_sourceid, align 4
-  %61 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %60, i32 noundef %4), !range !5
+  %61 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %60, i32 noundef %4)
   %62 = load i32, ptr @hf_x11_unused, align 4
   %63 = load i32, ptr %2, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef 0) #10
@@ -72262,7 +72262,7 @@ define internal void @xinputButtonPress(ptr noundef %0, i32 %1, ptr nocapture no
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %.not = icmp eq i16 %53, 0
@@ -72278,7 +72278,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %88 = add i32 %87, %.0110119
   %89 = add nuw nsw i32 %.0120, 1
   %exitcond.not = icmp eq i32 %89, %54
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit
   %.0110.lcssa = phi i32 [ 0, %listOfCard32.exit ], [ %88, %.lr.ph ]
@@ -72304,7 +72304,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %101 = add i32 %100, 4
   store i32 %101, ptr %2, align 4
   %.not.i117 = icmp eq i32 %98, 0
-  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !44
+  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !41
 
 listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110.lcssa)
@@ -72317,15 +72317,15 @@ define internal void @xinputEnter(ptr noundef %0, i32 %1, ptr nocapture noundef 
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 7, ptr noundef nonnull @.str.15177) #10
   %9 = load i32, ptr @hf_x11_xinput_Enter_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_Enter_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_Enter_sourceid, align 4
-  %14 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %13, i32 noundef %4), !range !5
+  %14 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %13, i32 noundef %4)
   %15 = load i32, ptr @hf_x11_xinput_Enter_mode, align 4
-  %16 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %15, i32 noundef %4), !range !4
+  %16 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %15, i32 noundef %4)
   %17 = load i32, ptr @hf_x11_xinput_Enter_detail, align 4
-  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %17, i32 noundef %4), !range !4
+  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %17, i32 noundef %4)
   %19 = load i32, ptr @hf_x11_xinput_Enter_root, align 4
   %20 = load i32, ptr %2, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef %4) #10
@@ -72405,7 +72405,7 @@ define internal void @xinputEnter(ptr noundef %0, i32 %1, ptr nocapture noundef 
   %74 = add i32 %73, 4
   store i32 %74, ptr %2, align 4
   %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -72417,7 +72417,7 @@ define internal void @xinputHierarchy(ptr noundef %0, i32 %1, ptr nocapture noun
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 11, ptr noundef nonnull @.str.15178) #10
   %9 = load i32, ptr @hf_x11_xinput_Hierarchy_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_Hierarchy_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr %2, align 4
@@ -72451,11 +72451,11 @@ define internal void @xinputHierarchy(ptr noundef %0, i32 %1, ptr nocapture noun
   %33 = load i32, ptr @ett_x11_rectangle, align 4
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #10
   %35 = load i32, ptr @hf_x11_struct_xinput_HierarchyInfo_deviceid, align 4
-  %36 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %34, i32 noundef %35, i32 noundef %4), !range !5
+  %36 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %34, i32 noundef %35, i32 noundef %4)
   %37 = load i32, ptr @hf_x11_struct_xinput_HierarchyInfo_attachment, align 4
-  %38 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %34, i32 noundef %37, i32 noundef %4), !range !5
+  %38 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %34, i32 noundef %37, i32 noundef %4)
   %39 = load i32, ptr @hf_x11_struct_xinput_HierarchyInfo_type, align 4
-  %40 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %34, i32 noundef %39, i32 noundef %4), !range !4
+  %40 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %34, i32 noundef %39, i32 noundef %4)
   %41 = load i32, ptr @hf_x11_struct_xinput_HierarchyInfo_enabled, align 4
   %42 = load i32, ptr %2, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef %4) #10
@@ -72475,7 +72475,7 @@ define internal void @xinputHierarchy(ptr noundef %0, i32 %1, ptr nocapture noun
   store i32 %54, ptr %2, align 4
   %55 = add nuw nsw i32 %.032.i, 1
   %exitcond.not.i = icmp eq i32 %55, %20
-  br i1 %exitcond.not.i, label %struct_xinput_HierarchyInfo.exit, label %.lr.ph.i, !llvm.loop !106
+  br i1 %exitcond.not.i, label %struct_xinput_HierarchyInfo.exit, label %.lr.ph.i, !llvm.loop !103
 
 struct_xinput_HierarchyInfo.exit:                 ; preds = %.lr.ph.i, %5
   ret void
@@ -72487,7 +72487,7 @@ define internal void @xinputProperty(ptr noundef %0, i32 %1, ptr nocapture nound
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 12, ptr noundef nonnull @.str.15179) #10
   %9 = load i32, ptr @hf_x11_xinput_Property_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_Property_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_Property_property, align 4
@@ -72497,7 +72497,7 @@ define internal void @xinputProperty(ptr noundef %0, i32 %1, ptr nocapture nound
   %17 = add i32 %16, 4
   store i32 %17, ptr %2, align 4
   %18 = load i32, ptr @hf_x11_xinput_Property_what, align 4
-  %19 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %18, i32 noundef %4), !range !4
+  %19 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %18, i32 noundef %4)
   %20 = load i32, ptr @hf_x11_unused, align 4
   %21 = load i32, ptr %2, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef 11, i32 noundef 0) #10
@@ -72513,7 +72513,7 @@ define internal void @xinputRawKeyPress(ptr noundef %0, i32 %1, ptr nocapture no
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 13, ptr noundef nonnull @.str.15180) #10
   %9 = load i32, ptr @hf_x11_xinput_RawKeyPress_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_RawKeyPress_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_RawKeyPress_detail, align 4
@@ -72559,7 +72559,7 @@ define internal void @xinputRawKeyPress(ptr noundef %0, i32 %1, ptr nocapture no
   %42 = add i32 %41, %.06062
   %43 = add nuw nsw i32 %.063, 1
   %exitcond.not = icmp eq i32 %43, %23
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %2, align 4
@@ -72589,7 +72589,7 @@ define internal void @xinputRawKeyPress(ptr noundef %0, i32 %1, ptr nocapture no
   %55 = add i32 %54, 4
   store i32 %55, ptr %2, align 4
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %.060.lcssa)
@@ -72603,7 +72603,7 @@ define internal void @xinputRawButtonPress(ptr noundef %0, i32 %1, ptr nocapture
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 15, ptr noundef nonnull @.str.15181) #10
   %9 = load i32, ptr @hf_x11_xinput_RawButtonPress_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_RawButtonPress_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_RawButtonPress_detail, align 4
@@ -72649,7 +72649,7 @@ define internal void @xinputRawButtonPress(ptr noundef %0, i32 %1, ptr nocapture
   %42 = add i32 %41, %.06062
   %43 = add nuw nsw i32 %.063, 1
   %exitcond.not = icmp eq i32 %43, %23
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !108
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !105
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %2, align 4
@@ -72679,7 +72679,7 @@ define internal void @xinputRawButtonPress(ptr noundef %0, i32 %1, ptr nocapture
   %55 = add i32 %54, 4
   store i32 %55, ptr %2, align 4
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %.060.lcssa)
@@ -72693,7 +72693,7 @@ define internal void @xinputTouchBegin(ptr noundef %0, i32 %1, ptr nocapture nou
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 18, ptr noundef nonnull @.str.15182) #10
   %9 = load i32, ptr @hf_x11_xinput_TouchBegin_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_TouchBegin_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_TouchBegin_detail, align 4
@@ -72754,7 +72754,7 @@ define internal void @xinputTouchBegin(ptr noundef %0, i32 %1, ptr nocapture nou
   %59 = add i32 %58, 2
   store i32 %59, ptr %2, align 4
   %60 = load i32, ptr @hf_x11_xinput_TouchBegin_sourceid, align 4
-  %61 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %60, i32 noundef %4), !range !5
+  %61 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %60, i32 noundef %4)
   %62 = load i32, ptr @hf_x11_unused, align 4
   %63 = load i32, ptr %2, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef 0) #10
@@ -72792,7 +72792,7 @@ define internal void @xinputTouchBegin(ptr noundef %0, i32 %1, ptr nocapture nou
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %.not = icmp eq i16 %53, 0
@@ -72808,7 +72808,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %88 = add i32 %87, %.0110119
   %89 = add nuw nsw i32 %.0120, 1
   %exitcond.not = icmp eq i32 %89, %54
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit
   %.0110.lcssa = phi i32 [ 0, %listOfCard32.exit ], [ %88, %.lr.ph ]
@@ -72834,7 +72834,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %101 = add i32 %100, 4
   store i32 %101, ptr %2, align 4
   %.not.i117 = icmp eq i32 %98, 0
-  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !44
+  br i1 %.not.i117, label %listOfCard32.exit118, label %.lr.ph.i115, !llvm.loop !41
 
 listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110.lcssa)
@@ -72847,7 +72847,7 @@ define internal void @xinputTouchOwnership(ptr noundef %0, i32 %1, ptr nocapture
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 21, ptr noundef nonnull @.str.15183) #10
   %9 = load i32, ptr @hf_x11_xinput_TouchOwnership_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_TouchOwnership_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_TouchOwnership_touchid, align 4
@@ -72872,7 +72872,7 @@ define internal void @xinputTouchOwnership(ptr noundef %0, i32 %1, ptr nocapture
   %29 = add i32 %28, 4
   store i32 %29, ptr %2, align 4
   %30 = load i32, ptr @hf_x11_xinput_TouchOwnership_sourceid, align 4
-  %31 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %30, i32 noundef %4), !range !5
+  %31 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %30, i32 noundef %4)
   %32 = load i32, ptr @hf_x11_unused, align 4
   %33 = load i32, ptr %2, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef 0) #10
@@ -72896,7 +72896,7 @@ define internal void @xinputRawTouchBegin(ptr noundef %0, i32 %1, ptr nocapture 
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 22, ptr noundef nonnull @.str.15184) #10
   %9 = load i32, ptr @hf_x11_xinput_RawTouchBegin_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_RawTouchBegin_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_RawTouchBegin_detail, align 4
@@ -72942,7 +72942,7 @@ define internal void @xinputRawTouchBegin(ptr noundef %0, i32 %1, ptr nocapture 
   %42 = add i32 %41, %.06062
   %43 = add nuw nsw i32 %.063, 1
   %exitcond.not = icmp eq i32 %43, %23
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !110
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !107
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %2, align 4
@@ -72972,7 +72972,7 @@ define internal void @xinputRawTouchBegin(ptr noundef %0, i32 %1, ptr nocapture 
   %55 = add i32 %54, 4
   store i32 %55, ptr %2, align 4
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_edge
   tail call fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %.060.lcssa)
@@ -72987,7 +72987,7 @@ define internal void @xinputBarrierHit(ptr noundef %0, i32 %1, ptr nocapture nou
   %6 = load i32, ptr %2, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 25, ptr noundef nonnull @.str.15185) #10
   %8 = load i32, ptr @hf_x11_xinput_BarrierHit_deviceid, align 4
-  %9 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !5
+  %9 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_BarrierHit_time, align 4
   %11 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr @hf_x11_xinput_BarrierHit_eventid, align 4
@@ -73023,7 +73023,7 @@ define internal void @xinputBarrierHit(ptr noundef %0, i32 %1, ptr nocapture nou
   %37 = add i32 %36, 4
   store i32 %37, ptr %2, align 4
   %38 = load i32, ptr @hf_x11_xinput_BarrierHit_sourceid, align 4
-  %39 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %38, i32 noundef %4), !range !5
+  %39 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %38, i32 noundef %4)
   %40 = load i32, ptr @hf_x11_unused, align 4
   %41 = load i32, ptr %2, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0) #10
@@ -73079,7 +73079,7 @@ define internal void @xinputGesturePinchBegin(ptr noundef %0, i32 %1, ptr nocapt
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 27, ptr noundef nonnull @.str.15186) #10
   %9 = load i32, ptr @hf_x11_xinput_GesturePinchBegin_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_GesturePinchBegin_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_GesturePinchBegin_detail, align 4
@@ -73154,7 +73154,7 @@ define internal void @xinputGesturePinchBegin(ptr noundef %0, i32 %1, ptr nocapt
   %69 = add i32 %68, 4
   store i32 %69, ptr %2, align 4
   %70 = load i32, ptr @hf_x11_xinput_GesturePinchBegin_sourceid, align 4
-  %71 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %70, i32 noundef %4), !range !5
+  %71 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %70, i32 noundef %4)
   %72 = load i32, ptr @hf_x11_unused, align 4
   %73 = load i32, ptr %2, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef 2, i32 noundef 0) #10
@@ -73179,7 +73179,7 @@ define internal void @xinputGestureSwipeBegin(ptr noundef %0, i32 %1, ptr nocapt
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 30, ptr noundef nonnull @.str.15187) #10
   %9 = load i32, ptr @hf_x11_xinput_GestureSwipeBegin_deviceid, align 4
-  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4), !range !5
+  %10 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %9, i32 noundef %4)
   %11 = load i32, ptr @hf_x11_xinput_GestureSwipeBegin_time, align 4
   %12 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %11, i32 noundef %4)
   %13 = load i32, ptr @hf_x11_xinput_GestureSwipeBegin_detail, align 4
@@ -73244,7 +73244,7 @@ define internal void @xinputGestureSwipeBegin(ptr noundef %0, i32 %1, ptr nocapt
   %61 = add i32 %60, 4
   store i32 %61, ptr %2, align 4
   %62 = load i32, ptr @hf_x11_xinput_GestureSwipeBegin_sourceid, align 4
-  %63 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %62, i32 noundef %4), !range !5
+  %63 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %62, i32 noundef %4)
   %64 = load i32, ptr @hf_x11_unused, align 4
   %65 = load i32, ptr %2, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %64, ptr noundef %0, i32 noundef %65, i32 noundef 2, i32 noundef 0) #10
@@ -73276,7 +73276,7 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nocap
   %10 = load i32, ptr @ett_x11_rectangle, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #10
   %12 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_type, align 4
-  %13 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %12, i32 noundef %3), !range !5
+  %13 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %12, i32 noundef %3)
   %14 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_len, align 4
   %15 = load i32, ptr %1, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef %3) #10
@@ -73288,7 +73288,7 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nocap
   %21 = load i32, ptr %1, align 4
   %22 = add i32 %21, 2
   store i32 %22, ptr %1, align 4
-  %trunc = trunc i32 %13 to i16
+  %trunc = trunc nuw i32 %13 to i16
   switch i16 %trunc, label %listOfCard32.exit [
     i16 0, label %23
     i16 1, label %42
@@ -73329,7 +73329,7 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nocap
   %41 = add i32 %40, 4
   store i32 %41, ptr %1, align 4
   %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 42:                                               ; preds = %.lr.ph
   %43 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %22, i32 noundef %3) #10
@@ -73361,7 +73361,7 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nocap
   %62 = add i32 %61, 4
   store i32 %62, ptr %1, align 4
   %.not.i140 = icmp eq i32 %59, 0
-  br i1 %.not.i140, label %listOfCard32.exit141, label %.lr.ph.i138, !llvm.loop !44
+  br i1 %.not.i140, label %listOfCard32.exit141, label %.lr.ph.i138, !llvm.loop !41
 
 listOfCard32.exit141:                             ; preds = %.lr.ph.i138, %42
   %63 = phi i32 [ %.pre, %42 ], [ %62, %.lr.ph.i138 ]
@@ -73386,7 +73386,7 @@ listOfCard32.exit141:                             ; preds = %.lr.ph.i138, %42
   %74 = add i32 %73, 4
   store i32 %74, ptr %1, align 4
   %.not.i147 = icmp eq i32 %71, 0
-  br i1 %.not.i147, label %listOfCard32.exit, label %.lr.ph.i145, !llvm.loop !44
+  br i1 %.not.i147, label %listOfCard32.exit, label %.lr.ph.i145, !llvm.loop !41
 
 .lr.ph.i151:                                      ; preds = %.lr.ph
   %75 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_number, align 4
@@ -73450,7 +73450,7 @@ listOfCard32.exit141:                             ; preds = %.lr.ph.i138, %42
   %125 = add i32 %124, 4
   store i32 %125, ptr %1, align 4
   %126 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_mode, align 4
-  %127 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %126, i32 noundef %3), !range !4
+  %127 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %126, i32 noundef %3)
   %128 = load i32, ptr @hf_x11_unused, align 4
   %129 = load i32, ptr %1, align 4
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %128, ptr noundef %0, i32 noundef %129, i32 noundef 3, i32 noundef 0) #10
@@ -73463,7 +73463,7 @@ listOfCard32.exit141:                             ; preds = %.lr.ph.i138, %42
   %134 = add i32 %133, 2
   store i32 %134, ptr %1, align 4
   %135 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Scroll_scroll_type, align 4
-  %136 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %135, i32 noundef %3), !range !5
+  %136 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %135, i32 noundef %3)
   %137 = load i32, ptr @hf_x11_unused, align 4
   %138 = load i32, ptr %1, align 4
   %139 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %137, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef 0) #10
@@ -73492,7 +73492,7 @@ listOfCard32.exit141:                             ; preds = %.lr.ph.i138, %42
 
 158:                                              ; preds = %.lr.ph
   %159 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Touch_mode, align 4
-  %160 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %159, i32 noundef %3), !range !4
+  %160 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %159, i32 noundef %3)
   %161 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Touch_num_touches, align 4
   %162 = load i32, ptr %1, align 4
   %163 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %161, ptr noundef %0, i32 noundef %162, i32 noundef 1, i32 noundef %3) #10
@@ -73518,7 +73518,7 @@ listOfCard32.exit.sink.split:                     ; preds = %164, %.lr.ph.i151, 
 listOfCard32.exit:                                ; preds = %.lr.ph.i145, %.lr.ph.i, %listOfCard32.exit.sink.split, %listOfCard32.exit141, %23, %.lr.ph
   %173 = add nuw nsw i32 %.0174, 1
   %exitcond.not = icmp eq i32 %173, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -73553,7 +73553,7 @@ define internal fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr nocapture 
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -73629,7 +73629,7 @@ define internal void @xinputGetExtensionVersion_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15188) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetExtensionVersion_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -73678,7 +73678,7 @@ define internal void @xinputListInputDevices_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15190) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_ListInputDevices_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -73738,7 +73738,7 @@ define internal void @xinputListInputDevices_Reply(ptr noundef %0, ptr nocapture
   %54 = add i32 %53, 1
   store i32 %54, ptr %2, align 4
   %55 = load i32, ptr @hf_x11_struct_xinput_DeviceInfo_device_use, align 4
-  %56 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %55, i32 noundef %4), !range !4
+  %56 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %55, i32 noundef %4)
   %57 = load i32, ptr @hf_x11_unused, align 4
   %58 = load i32, ptr %2, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 0) #10
@@ -73747,7 +73747,7 @@ define internal void @xinputListInputDevices_Reply(ptr noundef %0, ptr nocapture
   store i32 %61, ptr %2, align 4
   %62 = add nuw nsw i32 %.029.i, 1
   %exitcond.not.i = icmp eq i32 %62, %27
-  br i1 %exitcond.not.i, label %struct_xinput_DeviceInfo.exit, label %.lr.ph.i, !llvm.loop !113
+  br i1 %exitcond.not.i, label %struct_xinput_DeviceInfo.exit, label %.lr.ph.i, !llvm.loop !110
 
 struct_xinput_DeviceInfo.exit:                    ; preds = %.lr.ph.i, %5
   tail call fastcc void @struct_xproto_STR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %27)
@@ -73777,7 +73777,7 @@ define internal void @xinputOpenDevice_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15192) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_OpenDevice_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -73821,7 +73821,7 @@ define internal void @xinputOpenDevice_Reply(ptr noundef %0, ptr nocapture nound
   %40 = load i32, ptr @ett_x11_rectangle, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #10
   %42 = load i32, ptr @hf_x11_struct_xinput_InputClassInfo_class_id, align 4
-  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %42, i32 noundef %4), !range !4
+  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %42, i32 noundef %4)
   %44 = load i32, ptr @hf_x11_struct_xinput_InputClassInfo_event_type_base, align 4
   %45 = load i32, ptr %2, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef %4) #10
@@ -73830,7 +73830,7 @@ define internal void @xinputOpenDevice_Reply(ptr noundef %0, ptr nocapture nound
   store i32 %48, ptr %2, align 4
   %49 = add nuw nsw i32 %.015.i, 1
   %exitcond.not.i = icmp eq i32 %49, %27
-  br i1 %exitcond.not.i, label %struct_xinput_InputClassInfo.exit, label %.lr.ph.i, !llvm.loop !114
+  br i1 %exitcond.not.i, label %struct_xinput_InputClassInfo.exit, label %.lr.ph.i, !llvm.loop !111
 
 struct_xinput_InputClassInfo.exit:                ; preds = %.lr.ph.i, %5
   %50 = phi i32 [ %36, %5 ], [ %48, %.lr.ph.i ]
@@ -73859,7 +73859,7 @@ define internal void @xinputSetDeviceMode_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15194) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_SetDeviceMode_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -73880,7 +73880,7 @@ define internal void @xinputSetDeviceMode_Reply(ptr noundef %0, ptr nocapture no
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_SetDeviceMode_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -73896,7 +73896,7 @@ define internal void @xinputGetSelectedExtensionEvents_Reply(ptr noundef %0, ptr
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15196) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetSelectedExtensionEvents_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -73956,7 +73956,7 @@ define internal void @xinputGetSelectedExtensionEvents_Reply(ptr noundef %0, ptr
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %55 = phi i32 [ %.pre, %5 ], [ %54, %.lr.ph.i ]
@@ -73982,7 +73982,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %66 = add i32 %65, 4
   store i32 %66, ptr %2, align 4
   %.not.i58 = icmp eq i32 %63, 0
-  br i1 %.not.i58, label %listOfCard32.exit59, label %.lr.ph.i56, !llvm.loop !44
+  br i1 %.not.i58, label %listOfCard32.exit59, label %.lr.ph.i56, !llvm.loop !41
 
 listOfCard32.exit59:                              ; preds = %.lr.ph.i56, %listOfCard32.exit
   ret void
@@ -73994,7 +73994,7 @@ define internal void @xinputGetDeviceDontPropagateList_Reply(ptr noundef %0, ptr
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15198) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetDeviceDontPropagateList_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74049,7 +74049,7 @@ define internal void @xinputGetDeviceDontPropagateList_Reply(ptr noundef %0, ptr
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -74061,7 +74061,7 @@ define internal void @xinputGetDeviceMotionEvents_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15200) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetDeviceMotionEvents_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74097,7 +74097,7 @@ define internal void @xinputGetDeviceMotionEvents_Reply(ptr noundef %0, ptr noca
   %38 = add i32 %37, 1
   store i32 %38, ptr %2, align 4
   %39 = load i32, ptr @hf_x11_xinput_GetDeviceMotionEvents_reply_device_mode, align 4
-  %40 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %39, i32 noundef %4), !range !4
+  %40 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %39, i32 noundef %4)
   %41 = load i32, ptr @hf_x11_unused, align 4
   %42 = load i32, ptr %2, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 18, i32 noundef 0) #10
@@ -74132,7 +74132,7 @@ listOfInt32.exit.us.i:                            ; preds = %.lr.ph.i, %listOfIn
   %62 = tail call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61) #10
   %63 = add nuw nsw i32 %.020.us.i, 1
   %exitcond22.not.i = icmp eq i32 %63, %26
-  br i1 %exitcond22.not.i, label %struct_xinput_DeviceTimeCoord.exit, label %listOfInt32.exit.us.i, !llvm.loop !115
+  br i1 %exitcond22.not.i, label %struct_xinput_DeviceTimeCoord.exit, label %listOfInt32.exit.us.i, !llvm.loop !112
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i, %listOfInt32.exit.loopexit.i
   %64 = phi i32 [ %83, %listOfInt32.exit.loopexit.i ], [ %45, %.lr.ph.i ]
@@ -74164,12 +74164,12 @@ listOfInt32.exit.us.i:                            ; preds = %.lr.ph.i, %listOfIn
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i.i = icmp eq i32 %80, 0
-  br i1 %.not.i.i, label %listOfInt32.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !63
+  br i1 %.not.i.i, label %listOfInt32.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !60
 
 listOfInt32.exit.loopexit.i:                      ; preds = %.lr.ph.i.i
   %84 = add nuw nsw i32 %.020.i, 1
   %exitcond.not.i = icmp eq i32 %84, %26
-  br i1 %exitcond.not.i, label %struct_xinput_DeviceTimeCoord.exit, label %.lr.ph.preheader.i.i, !llvm.loop !115
+  br i1 %exitcond.not.i, label %struct_xinput_DeviceTimeCoord.exit, label %.lr.ph.preheader.i.i, !llvm.loop !112
 
 struct_xinput_DeviceTimeCoord.exit:               ; preds = %listOfInt32.exit.loopexit.i, %listOfInt32.exit.us.i, %5
   ret void
@@ -74181,7 +74181,7 @@ define internal void @xinputChangeKeyboardDevice_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15202) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_ChangeKeyboardDevice_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74202,7 +74202,7 @@ define internal void @xinputChangeKeyboardDevice_Reply(ptr noundef %0, ptr nocap
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_ChangeKeyboardDevice_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -74218,7 +74218,7 @@ define internal void @xinputChangePointerDevice_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15204) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_ChangePointerDevice_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74239,7 +74239,7 @@ define internal void @xinputChangePointerDevice_Reply(ptr noundef %0, ptr nocapt
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_ChangePointerDevice_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -74255,7 +74255,7 @@ define internal void @xinputGrabDevice_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15206) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GrabDevice_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74276,7 +74276,7 @@ define internal void @xinputGrabDevice_Reply(ptr noundef %0, ptr nocapture nound
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_GrabDevice_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -74292,7 +74292,7 @@ define internal void @xinputGetDeviceFocus_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15208) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetDeviceFocus_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74321,7 +74321,7 @@ define internal void @xinputGetDeviceFocus_Reply(ptr noundef %0, ptr nocapture n
   %32 = add i32 %31, 4
   store i32 %32, ptr %2, align 4
   %33 = load i32, ptr @hf_x11_xinput_GetDeviceFocus_reply_revert_to, align 4
-  %34 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %33, i32 noundef %4), !range !4
+  %34 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %33, i32 noundef %4)
   %35 = load i32, ptr @hf_x11_unused, align 4
   %36 = load i32, ptr %2, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef 15, i32 noundef 0) #10
@@ -74337,7 +74337,7 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15210) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetFeedbackControl_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74381,7 +74381,7 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocaptu
   %40 = load i32, ptr @ett_x11_rectangle, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #10
   %42 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_class_id, align 4
-  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %42, i32 noundef %4), !range !4
+  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %42, i32 noundef %4)
   %44 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_feedback_id, align 4
   %45 = load i32, ptr %2, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef %4) #10
@@ -74393,7 +74393,7 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocaptu
   %51 = load i32, ptr %2, align 4
   %52 = add i32 %51, 2
   store i32 %52, ptr %2, align 4
-  %trunc.i = trunc i32 %43 to i8
+  %trunc.i = trunc nuw i32 %43 to i8
   switch i8 %trunc.i, label %listOfCard32.exit.i [
     i8 0, label %53
     i8 1, label %88
@@ -74504,7 +74504,7 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocaptu
   %125 = add i32 %124, 4
   store i32 %125, ptr %2, align 4
   %.not.i.i = icmp eq i32 %122, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !41
 
 126:                                              ; preds = %.lr.ph.i
   %127 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Integer_resolution, align 4
@@ -74561,7 +74561,7 @@ listOfCard32.exit.sink.split.i:                   ; preds = %144, %137, %126, %8
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %listOfCard32.exit.sink.split.i, %103, %.lr.ph.i
   %161 = add nuw nsw i32 %.0153.i, 1
   %exitcond.not.i = icmp eq i32 %161, %27
-  br i1 %exitcond.not.i, label %struct_xinput_FeedbackState.exit, label %.lr.ph.i, !llvm.loop !116
+  br i1 %exitcond.not.i, label %struct_xinput_FeedbackState.exit, label %.lr.ph.i, !llvm.loop !113
 
 struct_xinput_FeedbackState.exit:                 ; preds = %listOfCard32.exit.i, %5
   ret void
@@ -74573,7 +74573,7 @@ define internal void @xinputGetDeviceKeyMapping_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15212) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetDeviceKeyMapping_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74627,7 +74627,7 @@ define internal void @xinputGetDeviceKeyMapping_Reply(ptr noundef %0, ptr nocapt
   %46 = add i32 %45, 4
   store i32 %46, ptr %2, align 4
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -74639,7 +74639,7 @@ define internal void @xinputGetDeviceModifierMapping_Reply(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15214) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetDeviceModifierMapping_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74688,7 +74688,7 @@ define internal void @xinputSetDeviceModifierMapping_Reply(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15216) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_SetDeviceModifierMapping_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74709,7 +74709,7 @@ define internal void @xinputSetDeviceModifierMapping_Reply(ptr noundef %0, ptr n
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_SetDeviceModifierMapping_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -74725,7 +74725,7 @@ define internal void @xinputGetDeviceButtonMapping_Reply(ptr noundef %0, ptr noc
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15218) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetDeviceButtonMapping_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74789,7 +74789,7 @@ define internal void @xinputSetDeviceButtonMapping_Reply(ptr noundef %0, ptr noc
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15220) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_SetDeviceButtonMapping_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74810,7 +74810,7 @@ define internal void @xinputSetDeviceButtonMapping_Reply(ptr noundef %0, ptr noc
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_SetDeviceButtonMapping_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -74826,7 +74826,7 @@ define internal void @xinputQueryDeviceState_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15222) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_QueryDeviceState_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74870,14 +74870,14 @@ define internal void @xinputQueryDeviceState_Reply(ptr noundef %0, ptr nocapture
   %40 = load i32, ptr @ett_x11_rectangle, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #10
   %42 = load i32, ptr @hf_x11_struct_xinput_InputState_class_id, align 4
-  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %42, i32 noundef %4), !range !4
+  %43 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %42, i32 noundef %4)
   %44 = load i32, ptr @hf_x11_struct_xinput_InputState_len, align 4
   %45 = load i32, ptr %2, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef %4) #10
   %47 = load i32, ptr %2, align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr %2, align 4
-  %trunc.i = trunc i32 %43 to i8
+  %trunc.i = trunc nuw i32 %43 to i8
   switch i8 %trunc.i, label %listOfInt32.exit.i [
     i8 0, label %listOfInt32.exit.sink.split.i
     i8 1, label %49
@@ -74924,7 +74924,7 @@ define internal void @xinputQueryDeviceState_Reply(ptr noundef %0, ptr nocapture
   %73 = add i32 %72, 4
   store i32 %73, ptr %2, align 4
   %.not.i.i = icmp eq i32 %70, 0
-  br i1 %.not.i.i, label %listOfInt32.exit.i, label %.lr.ph.i.i, !llvm.loop !63
+  br i1 %.not.i.i, label %listOfInt32.exit.i, label %.lr.ph.i.i, !llvm.loop !60
 
 listOfInt32.exit.sink.split.i:                    ; preds = %49, %.lr.ph.i
   %hf_x11_struct_xinput_InputState_Key_num_keys.sink.i = phi ptr [ @hf_x11_struct_xinput_InputState_Button_num_buttons, %49 ], [ @hf_x11_struct_xinput_InputState_Key_num_keys, %.lr.ph.i ]
@@ -74949,7 +74949,7 @@ listOfInt32.exit.sink.split.i:                    ; preds = %49, %.lr.ph.i
 listOfInt32.exit.i:                               ; preds = %.lr.ph.i.i, %listOfInt32.exit.sink.split.i, %50, %.lr.ph.i
   %86 = add nuw nsw i32 %.064.i, 1
   %exitcond.not.i = icmp eq i32 %86, %27
-  br i1 %exitcond.not.i, label %struct_xinput_InputState.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %struct_xinput_InputState.exit, label %.lr.ph.i, !llvm.loop !114
 
 struct_xinput_InputState.exit:                    ; preds = %listOfInt32.exit.i, %5
   ret void
@@ -74961,7 +74961,7 @@ define internal void @xinputSetDeviceValuators_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15224) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_SetDeviceValuators_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -74982,7 +74982,7 @@ define internal void @xinputSetDeviceValuators_Reply(ptr noundef %0, ptr nocaptu
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_SetDeviceValuators_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -74998,7 +74998,7 @@ define internal void @xinputGetDeviceControl_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15226) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetDeviceControl_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -75019,7 +75019,7 @@ define internal void @xinputGetDeviceControl_Reply(ptr noundef %0, ptr nocapture
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_GetDeviceControl_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -75031,14 +75031,14 @@ define internal void @xinputGetDeviceControl_Reply(ptr noundef %0, ptr nocapture
   %35 = load i32, ptr @ett_x11_rectangle, align 4
   %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #10
   %37 = load i32, ptr @hf_x11_struct_xinput_DeviceState_control_id, align 4
-  %38 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %36, i32 noundef %37, i32 noundef %4), !range !5
+  %38 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %36, i32 noundef %37, i32 noundef %4)
   %39 = load i32, ptr @hf_x11_struct_xinput_DeviceState_len, align 4
   %40 = load i32, ptr %2, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 2, i32 noundef %4) #10
   %42 = load i32, ptr %2, align 4
   %43 = add i32 %42, 2
   store i32 %43, ptr %2, align 4
-  %trunc.i = trunc i32 %38 to i16
+  %trunc.i = trunc nuw i32 %38 to i16
   switch i16 %trunc.i, label %struct_xinput_DeviceState.exit [
     i16 1, label %44
     i16 2, label %84
@@ -75074,7 +75074,7 @@ define internal void @xinputGetDeviceControl_Reply(ptr noundef %0, ptr nocapture
   %61 = add i32 %60, 4
   store i32 %61, ptr %2, align 4
   %.not.i.i = icmp eq i32 %58, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !41
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %44
   %62 = phi i32 [ %.pre.i, %44 ], [ %61, %.lr.ph.i.i ]
@@ -75095,7 +75095,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %44
   %72 = add i32 %71, 4
   store i32 %72, ptr %2, align 4
   %.not.i144.i = icmp eq i32 %69, 0
-  br i1 %.not.i144.i, label %listOfCard32.exit145.i, label %.lr.ph.i142.i, !llvm.loop !44
+  br i1 %.not.i144.i, label %listOfCard32.exit145.i, label %.lr.ph.i142.i, !llvm.loop !41
 
 listOfCard32.exit145.i:                           ; preds = %.lr.ph.i142.i, %listOfCard32.exit.i
   %73 = phi i32 [ %.pre153.i, %listOfCard32.exit.i ], [ %72, %.lr.ph.i142.i ]
@@ -75119,7 +75119,7 @@ listOfCard32.exit145.i:                           ; preds = %.lr.ph.i142.i, %lis
   %83 = add i32 %82, 4
   store i32 %83, ptr %2, align 4
   %.not.i151.i = icmp eq i32 %80, 0
-  br i1 %.not.i151.i, label %struct_xinput_DeviceState.exit, label %.lr.ph.i149.i, !llvm.loop !44
+  br i1 %.not.i151.i, label %struct_xinput_DeviceState.exit, label %.lr.ph.i149.i, !llvm.loop !41
 
 84:                                               ; preds = %5
   %85 = load i32, ptr @hf_x11_struct_xinput_DeviceState_abs_calib_min_x, align 4
@@ -75233,7 +75233,7 @@ define internal void @xinputChangeDeviceControl_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15228) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_ChangeDeviceControl_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -75254,7 +75254,7 @@ define internal void @xinputChangeDeviceControl_Reply(ptr noundef %0, ptr nocapt
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_ChangeDeviceControl_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -75270,7 +75270,7 @@ define internal void @xinputListDeviceProperties_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15230) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_ListDeviceProperties_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -75325,7 +75325,7 @@ define internal void @xinputListDeviceProperties_Reply(ptr noundef %0, ptr nocap
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -75337,7 +75337,7 @@ define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15232) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_xi_reply_type, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -75375,7 +75375,7 @@ define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr nocaptur
   %39 = add i32 %38, 4
   store i32 %39, ptr %2, align 4
   %40 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_format, align 4
-  %41 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %40, i32 noundef %4), !range !4
+  %41 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %40, i32 noundef %4)
   %42 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_device_id, align 4
   %43 = load i32, ptr %2, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef %4) #10
@@ -75387,7 +75387,7 @@ define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr nocaptur
   %49 = load i32, ptr %2, align 4
   %50 = add i32 %49, 10
   store i32 %50, ptr %2, align 4
-  %trunc = trunc i32 %41 to i8
+  %trunc = trunc nuw i32 %41 to i8
   switch i8 %trunc, label %listOfCard32.exit [
     i8 8, label %51
     i8 16, label %64
@@ -75436,7 +75436,7 @@ define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr nocaptur
   %75 = add i32 %74, 2
   store i32 %75, ptr %2, align 4
   %.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %64
   %76 = phi i32 [ %.pre, %64 ], [ %75, %.lr.ph.i ]
@@ -75484,7 +75484,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %64
   %100 = add i32 %99, 4
   store i32 %100, ptr %2, align 4
   %.not.i94 = icmp eq i32 %97, 0
-  br i1 %.not.i94, label %listOfCard32.exit, label %.lr.ph.i92, !llvm.loop !44
+  br i1 %.not.i94, label %listOfCard32.exit, label %.lr.ph.i92, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i92, %88, %57, %51, %5, %85
   ret void
@@ -75496,7 +75496,7 @@ define internal void @xinputXIQueryPointer_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15234) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -75589,7 +75589,7 @@ define internal void @xinputXIQueryPointer_Reply(ptr noundef %0, ptr nocapture n
   %76 = add i32 %75, 4
   store i32 %76, ptr %2, align 4
   %.not.i = icmp eq i32 %73, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -75601,7 +75601,7 @@ define internal void @xinputXIGetClientPointer_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15236) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -75632,7 +75632,7 @@ define internal void @xinputXIGetClientPointer_Reply(ptr noundef %0, ptr nocaptu
   %33 = add i32 %32, 1
   store i32 %33, ptr %2, align 4
   %34 = load i32, ptr @hf_x11_xinput_XIGetClientPointer_reply_deviceid, align 4
-  %35 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %34, i32 noundef %4), !range !5
+  %35 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %34, i32 noundef %4)
   %36 = load i32, ptr @hf_x11_unused, align 4
   %37 = load i32, ptr %2, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 20, i32 noundef 0) #10
@@ -75648,7 +75648,7 @@ define internal void @xinputXIQueryVersion_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15238) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -75692,7 +75692,7 @@ define internal void @xinputXIQueryDevice_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15240) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -75748,11 +75748,11 @@ define internal void @xinputXIQueryDevice_Reply(ptr noundef %0, ptr nocapture no
   %52 = load i32, ptr @ett_x11_rectangle, align 4
   %53 = tail call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52) #10
   %54 = load i32, ptr @hf_x11_struct_xinput_XIDeviceInfo_deviceid, align 4
-  %55 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %53, i32 noundef %54, i32 noundef %4), !range !5
+  %55 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %53, i32 noundef %54, i32 noundef %4)
   %56 = load i32, ptr @hf_x11_struct_xinput_XIDeviceInfo_type, align 4
-  %57 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %53, i32 noundef %56, i32 noundef %4), !range !5
+  %57 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %53, i32 noundef %56, i32 noundef %4)
   %58 = load i32, ptr @hf_x11_struct_xinput_XIDeviceInfo_attachment, align 4
-  %59 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %53, i32 noundef %58, i32 noundef %4), !range !5
+  %59 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %53, i32 noundef %58, i32 noundef %4)
   %60 = load i32, ptr %2, align 4
   %61 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %60, i32 noundef %4) #10
   %62 = zext i16 %61 to i32
@@ -75805,7 +75805,7 @@ define internal void @xinputXIQueryDevice_Reply(ptr noundef %0, ptr nocapture no
   tail call fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %53, i32 noundef %4, i32 noundef %62)
   %97 = add nuw nsw i32 %.064.i, 1
   %exitcond.not.i = icmp eq i32 %97, %27
-  br i1 %exitcond.not.i, label %struct_xinput_XIDeviceInfo.exit, label %.lr.ph.i, !llvm.loop !118
+  br i1 %exitcond.not.i, label %struct_xinput_XIDeviceInfo.exit, label %.lr.ph.i, !llvm.loop !115
 
 struct_xinput_XIDeviceInfo.exit:                  ; preds = %96, %5
   ret void
@@ -75817,7 +75817,7 @@ define internal void @xinputXIGetFocus_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15242) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -75856,7 +75856,7 @@ define internal void @xinputXIGrabDevice_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15244) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -75877,7 +75877,7 @@ define internal void @xinputXIGrabDevice_Reply(ptr noundef %0, ptr nocapture nou
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
   %26 = load i32, ptr @hf_x11_xinput_XIGrabDevice_reply_status, align 4
-  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4), !range !4
+  %27 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %26, i32 noundef %4)
   %28 = load i32, ptr @hf_x11_unused, align 4
   %29 = load i32, ptr %2, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 23, i32 noundef 0) #10
@@ -75893,7 +75893,7 @@ define internal void @xinputXIPassiveGrabDevice_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15246) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -75939,7 +75939,7 @@ define internal void @xinputXIPassiveGrabDevice_Reply(ptr noundef %0, ptr nocapt
   %42 = load i32, ptr @hf_x11_struct_xinput_GrabModifierInfo_modifiers, align 4
   %43 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %42, i32 noundef %4)
   %44 = load i32, ptr @hf_x11_struct_xinput_GrabModifierInfo_status, align 4
-  %45 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %44, i32 noundef %4), !range !4
+  %45 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %41, i32 noundef %44, i32 noundef %4)
   %46 = load i32, ptr @hf_x11_unused, align 4
   %47 = load i32, ptr %2, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef 3, i32 noundef 0) #10
@@ -75948,7 +75948,7 @@ define internal void @xinputXIPassiveGrabDevice_Reply(ptr noundef %0, ptr nocapt
   store i32 %50, ptr %2, align 4
   %51 = add nuw nsw i32 %.018.i, 1
   %exitcond.not.i = icmp eq i32 %51, %27
-  br i1 %exitcond.not.i, label %struct_xinput_GrabModifierInfo.exit, label %.lr.ph.i, !llvm.loop !119
+  br i1 %exitcond.not.i, label %struct_xinput_GrabModifierInfo.exit, label %.lr.ph.i, !llvm.loop !116
 
 struct_xinput_GrabModifierInfo.exit:              ; preds = %.lr.ph.i, %5
   ret void
@@ -75960,7 +75960,7 @@ define internal void @xinputXIListProperties_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15248) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -76015,7 +76015,7 @@ define internal void @xinputXIListProperties_Reply(ptr noundef %0, ptr nocapture
   %47 = add i32 %46, 4
   store i32 %47, ptr %2, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -76027,7 +76027,7 @@ define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15250) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -76065,14 +76065,14 @@ define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr nocapture no
   %39 = add i32 %38, 4
   store i32 %39, ptr %2, align 4
   %40 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_format, align 4
-  %41 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %40, i32 noundef %4), !range !4
+  %41 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %40, i32 noundef %4)
   %42 = load i32, ptr @hf_x11_unused, align 4
   %43 = load i32, ptr %2, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef %43, i32 noundef 11, i32 noundef 0) #10
   %45 = load i32, ptr %2, align 4
   %46 = add i32 %45, 11
   store i32 %46, ptr %2, align 4
-  %trunc = trunc i32 %41 to i8
+  %trunc = trunc nuw i32 %41 to i8
   switch i8 %trunc, label %listOfCard32.exit [
     i8 8, label %47
     i8 16, label %60
@@ -76121,7 +76121,7 @@ define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr nocapture no
   %71 = add i32 %70, 2
   store i32 %71, ptr %2, align 4
   %.not.i = icmp eq i32 %68, 0
-  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
 listOfCard16.exit:                                ; preds = %.lr.ph.i, %60
   %72 = phi i32 [ %.pre, %60 ], [ %71, %.lr.ph.i ]
@@ -76169,7 +76169,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %60
   %96 = add i32 %95, 4
   store i32 %96, ptr %2, align 4
   %.not.i88 = icmp eq i32 %93, 0
-  br i1 %.not.i88, label %listOfCard32.exit, label %.lr.ph.i86, !llvm.loop !44
+  br i1 %.not.i88, label %listOfCard32.exit, label %.lr.ph.i86, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i86, %84, %53, %47, %5, %81
   ret void
@@ -76181,7 +76181,7 @@ define internal void @xinputXIGetSelectedEvents_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15252) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -76222,7 +76222,7 @@ define internal void @xinputXIGetSelectedEvents_Reply(ptr noundef %0, ptr nocapt
 define internal void @dispatch_xkb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xkb_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -76250,7 +76250,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xkb_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %xkbSelectEvents.exit [
     i8 0, label %25
     i8 1, label %35
@@ -76664,7 +76664,7 @@ requestLength.exit:                               ; preds = %5, %16
   %298 = add i32 %297, 1
   store i32 %298, ptr %2, align 4
   %299 = load i32, ptr @hf_x11_xkb_LatchLockState_groupLock, align 4
-  %300 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %299, i32 noundef %4), !range !4
+  %300 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %299, i32 noundef %4)
   %301 = load i32, ptr %2, align 4
   %302 = load i32, ptr @hf_x11_xkb_LatchLockState_affectModLatches, align 4
   %303 = load i32, ptr @ett_x11_rectangle, align 4
@@ -77225,7 +77225,7 @@ requestLength.exit:                               ; preds = %5, %16
   call fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %711, i32 noundef %4, i32 noundef %750)
   %751 = add nuw nsw i32 %.058.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %751, %695
-  br i1 %exitcond.not.i.i, label %struct_xkb_SetKeyType.exit.i, label %.lr.ph.i.i, !llvm.loop !120
+  br i1 %exitcond.not.i.i, label %struct_xkb_SetKeyType.exit.i, label %.lr.ph.i.i, !llvm.loop !117
 
 struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %556
   %752 = and i32 %563, 2
@@ -77284,7 +77284,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
 
 776:                                              ; preds = %774
   %777 = load i32, ptr @hf_x11_xkb_SetMap_VirtualMods_vmods, align 4
-  %778 = call i16 @llvm.ctpop.i16(i16 %686), !range !121
+  %778 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %686)
   %779 = call i16 @llvm.umax.i16(i16 %778, i16 1)
   %780 = zext nneg i16 %779 to i32
   %781 = load i32, ptr %2, align 4
@@ -77413,7 +77413,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %864 = add i32 %863, 2
   store i32 %864, ptr %2, align 4
   call fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %855)
-  %865 = call i8 @llvm.ctpop.i8(i8 %843), !range !122
+  %865 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %843)
   %866 = zext nneg i8 %865 to i32
   call fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %866)
   br label %xkbSelectEvents.exit
@@ -77471,8 +77471,8 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %906 = add i32 %905, 4
   store i32 %906, ptr %2, align 4
   %907 = sext i32 %901 to i64
-  %908 = call i64 @llvm.ctpop.i64(i64 %907), !range !123
-  %909 = trunc i64 %908 to i32
+  %908 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %907)
+  %909 = trunc nuw nsw i64 %908 to i32
   call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %909)
   br label %xkbSelectEvents.exit
 
@@ -77484,9 +77484,9 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %915 = add i32 %914, 2
   store i32 %915, ptr %2, align 4
   %916 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_ledClass, align 4
-  %917 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %916, i32 noundef %4), !range !5
+  %917 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %916, i32 noundef %4)
   %918 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_ledID, align 4
-  %919 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %918, i32 noundef %4), !range !5
+  %919 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %918, i32 noundef %4)
   %920 = load i32, ptr @hf_x11_unused, align 4
   %921 = load i32, ptr %2, align 4
   %922 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %920, ptr noundef %0, i32 noundef %921, i32 noundef 2, i32 noundef 0) #10
@@ -77508,9 +77508,9 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %934 = add i32 %933, 2
   store i32 %934, ptr %2, align 4
   %935 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_ledClass, align 4
-  %936 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %935, i32 noundef %4), !range !5
+  %936 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %935, i32 noundef %4)
   %937 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_ledID, align 4
-  %938 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %937, i32 noundef %4), !range !5
+  %938 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %937, i32 noundef %4)
   %939 = load i32, ptr @hf_x11_unused, align 4
   %940 = load i32, ptr %2, align 4
   %941 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %939, ptr noundef %0, i32 noundef %940, i32 noundef 2, i32 noundef 0) #10
@@ -77822,7 +77822,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %1163 = add i32 %1162, 4
   store i32 %1163, ptr %2, align 4
   %.not.i.i = icmp eq i32 %1160, 0
-  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i156, !llvm.loop !44
+  br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i156, !llvm.loop !41
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i156, %1149
   %1164 = and i32 %1031, 128
@@ -77848,7 +77848,7 @@ listOfCard32.exit.thread.i:                       ; preds = %1152
   %1170 = add i32 %.02141.i, %1169
   %1171 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %1171, %1043
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !124
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !118
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i, %listOfCard32.exit.thread.i
   %.0214.lcssa.i = phi i32 [ 0, %.preheader.i ], [ 0, %listOfCard32.exit.thread.i ], [ %1170, %.lr.ph.i ]
@@ -77898,7 +77898,7 @@ listOfCard32.exit.thread.i:                       ; preds = %1152
   %1197 = add i32 %1196, 4
   store i32 %1197, ptr %2, align 4
   %.not.i237.i = icmp eq i32 %1194, 0
-  br i1 %.not.i237.i, label %listOfCard32.exit238.i, label %.lr.ph.i235.i, !llvm.loop !44
+  br i1 %.not.i237.i, label %listOfCard32.exit238.i, label %.lr.ph.i235.i, !llvm.loop !41
 
 listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %1185, %listOfCard32.exit.thread.i, %listOfCard32.exit.i
   %1198 = and i32 %1031, 256
@@ -77909,8 +77909,8 @@ listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %118
   %1200 = load i32, ptr @hf_x11_xkb_SetNames_IndicatorNames_indicatorNames, align 4
   %1201 = load i32, ptr @hf_x11_xkb_SetNames_IndicatorNames_indicatorNames_item, align 4
   %1202 = sext i32 %1057 to i64
-  %1203 = call i64 @llvm.ctpop.i64(i64 %1202), !range !123
-  %1204 = trunc i64 %1203 to i32
+  %1203 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1202)
+  %1204 = trunc nuw nsw i64 %1203 to i32
   %1205 = load i32, ptr %2, align 4
   %1206 = shl nuw nsw i32 %1204, 2
   %1207 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1200, ptr noundef %0, i32 noundef %1205, i32 noundef %1206, i32 noundef %4) #10
@@ -77932,7 +77932,7 @@ listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %118
   %1214 = add i32 %1213, 4
   store i32 %1214, ptr %2, align 4
   %.not.i244.i = icmp eq i32 %1211, 0
-  br i1 %.not.i244.i, label %listOfCard32.exit245.i, label %.lr.ph.i242.i, !llvm.loop !44
+  br i1 %.not.i244.i, label %listOfCard32.exit245.i, label %.lr.ph.i242.i, !llvm.loop !41
 
 listOfCard32.exit245.i:                           ; preds = %.lr.ph.i242.i, %1199, %listOfCard32.exit238.i
   %1215 = and i32 %1031, 2048
@@ -77942,7 +77942,7 @@ listOfCard32.exit245.i:                           ; preds = %.lr.ph.i242.i, %119
 1216:                                             ; preds = %listOfCard32.exit245.i
   %1217 = load i32, ptr @hf_x11_xkb_SetNames_VirtualModNames_virtualModNames, align 4
   %1218 = load i32, ptr @hf_x11_xkb_SetNames_VirtualModNames_virtualModNames_item, align 4
-  %1219 = call i16 @llvm.ctpop.i16(i16 %1024), !range !121
+  %1219 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %1024)
   %1220 = zext nneg i16 %1219 to i32
   %1221 = load i32, ptr %2, align 4
   %1222 = shl nuw nsw i32 %1220, 2
@@ -77965,7 +77965,7 @@ listOfCard32.exit245.i:                           ; preds = %.lr.ph.i242.i, %119
   %1230 = add i32 %1229, 4
   store i32 %1230, ptr %2, align 4
   %.not.i251.i = icmp eq i32 %1227, 0
-  br i1 %.not.i251.i, label %listOfCard32.exit252.i, label %.lr.ph.i249.i, !llvm.loop !44
+  br i1 %.not.i251.i, label %listOfCard32.exit252.i, label %.lr.ph.i249.i, !llvm.loop !41
 
 listOfCard32.exit252.i:                           ; preds = %.lr.ph.i249.i, %1216, %listOfCard32.exit245.i
   %1231 = and i32 %1031, 4096
@@ -77975,7 +77975,7 @@ listOfCard32.exit252.i:                           ; preds = %.lr.ph.i249.i, %121
 1232:                                             ; preds = %listOfCard32.exit252.i
   %1233 = load i32, ptr @hf_x11_xkb_SetNames_GroupNames_groups, align 4
   %1234 = load i32, ptr @hf_x11_xkb_SetNames_GroupNames_groups_item, align 4
-  %1235 = call i8 @llvm.ctpop.i8(i8 %1063), !range !122
+  %1235 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1063)
   %1236 = zext nneg i8 %1235 to i32
   %1237 = load i32, ptr %2, align 4
   %1238 = shl nuw nsw i32 %1236, 2
@@ -77998,7 +77998,7 @@ listOfCard32.exit252.i:                           ; preds = %.lr.ph.i249.i, %121
   %1246 = add i32 %1245, 4
   store i32 %1246, ptr %2, align 4
   %.not.i258.i = icmp eq i32 %1243, 0
-  br i1 %.not.i258.i, label %listOfCard32.exit259.i, label %.lr.ph.i256.i, !llvm.loop !44
+  br i1 %.not.i258.i, label %listOfCard32.exit259.i, label %.lr.ph.i256.i, !llvm.loop !41
 
 listOfCard32.exit259.i:                           ; preds = %.lr.ph.i256.i, %1232, %listOfCard32.exit252.i
   %1247 = and i32 %1031, 512
@@ -78026,7 +78026,7 @@ listOfCard32.exit259.i:                           ; preds = %.lr.ph.i256.i, %123
   store i32 %1258, ptr %2, align 4
   %1259 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i159 = icmp eq i32 %1259, %1082
-  br i1 %exitcond.not.i.i159, label %struct_xkb_KeyName.exit.i, label %.lr.ph.i262.i, !llvm.loop !125
+  br i1 %exitcond.not.i.i159, label %struct_xkb_KeyName.exit.i, label %.lr.ph.i262.i, !llvm.loop !119
 
 struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i262.i, %listOfCard32.exit259.i
   %1260 = and i32 %1031, 1024
@@ -78066,7 +78066,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i262.i, %lis
   %1276 = add i32 %1275, 4
   store i32 %1276, ptr %2, align 4
   %.not.i268.i = icmp eq i32 %1273, 0
-  br i1 %.not.i268.i, label %xkbSelectEvents.exit, label %.lr.ph.i266.i, !llvm.loop !44
+  br i1 %.not.i268.i, label %xkbSelectEvents.exit, label %.lr.ph.i266.i, !llvm.loop !41
 
 1277:                                             ; preds = %requestLength.exit
   %1278 = load i32, ptr @hf_x11_xkb_PerClientFlags_deviceSpec, align 4
@@ -78191,9 +78191,9 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i262.i, %lis
   %1372 = add i32 %1371, 1
   store i32 %1372, ptr %2, align 4
   %1373 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_ledClass, align 4
-  %1374 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %1373, i32 noundef %4), !range !5
+  %1374 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %1373, i32 noundef %4)
   %1375 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_ledID, align 4
-  %1376 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %1375, i32 noundef %4), !range !5
+  %1376 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %1375, i32 noundef %4)
   br label %xkbSelectEvents.exit
 
 1377:                                             ; preds = %requestLength.exit
@@ -78344,12 +78344,12 @@ define internal fastcc void @struct_xkb_KeySymMap(ptr noundef %0, ptr nocapture 
   %47 = add i32 %46, 4
   store i32 %47, ptr %1, align 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %48 = add nuw nsw i32 %.036, 1
   %exitcond.not = icmp eq i32 %48, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -78374,7 +78374,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %14 = load i32, ptr @ett_x11_rectangle, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #10
   %16 = load i32, ptr @hf_x11_struct_xkb_SANoAction_type, align 4
-  %17 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, i32 noundef %16, i32 noundef %3), !range !4
+  %17 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, i32 noundef %16, i32 noundef %3)
   %18 = load i32, ptr @hf_x11_unused, align 4
   %19 = load i32, ptr %1, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef 7, i32 noundef 0) #10
@@ -78396,7 +78396,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %23 = load i32, ptr @ett_x11_rectangle, align 4
   %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23) #10
   %25 = load i32, ptr @hf_x11_struct_xkb_SAMovePtr_type, align 4
-  %26 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %24, i32 noundef %25, i32 noundef %3), !range !4
+  %26 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %24, i32 noundef %25, i32 noundef %3)
   %27 = load i32, ptr %1, align 4
   %28 = load i32, ptr @hf_x11_struct_xkb_SAMovePtr_flags, align 4
   %29 = load i32, ptr @ett_x11_rectangle, align 4
@@ -78432,7 +78432,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %53 = load i32, ptr @ett_x11_rectangle, align 4
   %54 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #10
   %55 = load i32, ptr @hf_x11_struct_xkb_SAPtrBtn_type, align 4
-  %56 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %55, i32 noundef %3), !range !4
+  %56 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %55, i32 noundef %3)
   %57 = load i32, ptr @hf_x11_struct_xkb_SAPtrBtn_flags, align 4
   %58 = load i32, ptr %1, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef %3) #10
@@ -78457,7 +78457,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %74 = load i32, ptr @ett_x11_rectangle, align 4
   %75 = tail call ptr @proto_item_add_subtree(ptr noundef %73, i32 noundef %74) #10
   %76 = load i32, ptr @hf_x11_struct_xkb_SALockPtrBtn_type, align 4
-  %77 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %75, i32 noundef %76, i32 noundef %3), !range !4
+  %77 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %75, i32 noundef %76, i32 noundef %3)
   %78 = load i32, ptr @hf_x11_struct_xkb_SALockPtrBtn_flags, align 4
   %79 = load i32, ptr %1, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef 1, i32 noundef %3) #10
@@ -78482,7 +78482,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %95 = load i32, ptr @ett_x11_rectangle, align 4
   %96 = tail call ptr @proto_item_add_subtree(ptr noundef %94, i32 noundef %95) #10
   %97 = load i32, ptr @hf_x11_struct_xkb_SASetPtrDflt_type, align 4
-  %98 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %96, i32 noundef %97, i32 noundef %3), !range !4
+  %98 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %96, i32 noundef %97, i32 noundef %3)
   %99 = load i32, ptr %1, align 4
   %100 = load i32, ptr @hf_x11_struct_xkb_SASetPtrDflt_flags, align 4
   %101 = load i32, ptr @ett_x11_rectangle, align 4
@@ -78509,7 +78509,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %118 = load i32, ptr @ett_x11_rectangle, align 4
   %119 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118) #10
   %120 = load i32, ptr @hf_x11_struct_xkb_SAIsoLock_type, align 4
-  %121 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %119, i32 noundef %120, i32 noundef %3), !range !4
+  %121 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %119, i32 noundef %120, i32 noundef %3)
   %122 = load i32, ptr %1, align 4
   %123 = load i32, ptr @hf_x11_struct_xkb_SAIsoLock_flags, align 4
   %124 = load i32, ptr @ett_x11_rectangle, align 4
@@ -78555,7 +78555,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %157 = load i32, ptr @ett_x11_rectangle, align 4
   %158 = tail call ptr @proto_item_add_subtree(ptr noundef %156, i32 noundef %157) #10
   %159 = load i32, ptr @hf_x11_struct_xkb_SATerminate_type, align 4
-  %160 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %158, i32 noundef %159, i32 noundef %3), !range !4
+  %160 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %158, i32 noundef %159, i32 noundef %3)
   %161 = load i32, ptr @hf_x11_unused, align 4
   %162 = load i32, ptr %1, align 4
   %163 = tail call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %161, ptr noundef %0, i32 noundef %162, i32 noundef 7, i32 noundef 0) #10
@@ -78565,7 +78565,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %166 = load i32, ptr @ett_x11_rectangle, align 4
   %167 = tail call ptr @proto_item_add_subtree(ptr noundef %165, i32 noundef %166) #10
   %168 = load i32, ptr @hf_x11_struct_xkb_SASwitchScreen_type, align 4
-  %169 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %167, i32 noundef %168, i32 noundef %3), !range !4
+  %169 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %167, i32 noundef %168, i32 noundef %3)
   %170 = load i32, ptr @hf_x11_struct_xkb_SASwitchScreen_flags, align 4
   %171 = load i32, ptr %1, align 4
   %172 = tail call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %170, ptr noundef %0, i32 noundef %171, i32 noundef 1, i32 noundef %3) #10
@@ -78589,7 +78589,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %183 = load i32, ptr @ett_x11_rectangle, align 4
   %184 = tail call ptr @proto_item_add_subtree(ptr noundef %182, i32 noundef %183) #10
   %185 = load i32, ptr @hf_x11_struct_xkb_SAActionMessage_type, align 4
-  %186 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %184, i32 noundef %185, i32 noundef %3), !range !4
+  %186 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %184, i32 noundef %185, i32 noundef %3)
   %187 = load i32, ptr %1, align 4
   %188 = load i32, ptr @hf_x11_struct_xkb_SAActionMessage_flags, align 4
   %189 = load i32, ptr @ett_x11_rectangle, align 4
@@ -78605,7 +78605,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %197 = load i32, ptr @ett_x11_rectangle, align 4
   %198 = tail call ptr @proto_item_add_subtree(ptr noundef %196, i32 noundef %197) #10
   %199 = load i32, ptr @hf_x11_struct_xkb_SARedirectKey_type, align 4
-  %200 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %198, i32 noundef %199, i32 noundef %3), !range !4
+  %200 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %198, i32 noundef %199, i32 noundef %3)
   %201 = load i32, ptr @hf_x11_struct_xkb_SARedirectKey_newkey, align 4
   %202 = load i32, ptr %1, align 4
   %203 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %201, ptr noundef %0, i32 noundef %202, i32 noundef 1, i32 noundef %3) #10
@@ -78651,7 +78651,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %236 = load i32, ptr @ett_x11_rectangle, align 4
   %237 = tail call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236) #10
   %238 = load i32, ptr @hf_x11_struct_xkb_SADeviceBtn_type, align 4
-  %239 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %237, i32 noundef %238, i32 noundef %3), !range !4
+  %239 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %237, i32 noundef %238, i32 noundef %3)
   %240 = load i32, ptr @hf_x11_struct_xkb_SADeviceBtn_flags, align 4
   %241 = load i32, ptr %1, align 4
   %242 = tail call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef 1, i32 noundef %3) #10
@@ -78681,7 +78681,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %261 = load i32, ptr @ett_x11_rectangle, align 4
   %262 = tail call ptr @proto_item_add_subtree(ptr noundef %260, i32 noundef %261) #10
   %263 = load i32, ptr @hf_x11_struct_xkb_SALockDeviceBtn_type, align 4
-  %264 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %262, i32 noundef %263, i32 noundef %3), !range !4
+  %264 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %262, i32 noundef %263, i32 noundef %3)
   %265 = load i32, ptr %1, align 4
   %266 = load i32, ptr @hf_x11_struct_xkb_SALockDeviceBtn_flags, align 4
   %267 = load i32, ptr @ett_x11_rectangle, align 4
@@ -78712,7 +78712,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %287 = load i32, ptr @ett_x11_rectangle, align 4
   %288 = tail call ptr @proto_item_add_subtree(ptr noundef %286, i32 noundef %287) #10
   %289 = load i32, ptr @hf_x11_struct_xkb_SADeviceValuator_type, align 4
-  %290 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %288, i32 noundef %289, i32 noundef %3), !range !4
+  %290 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %288, i32 noundef %289, i32 noundef %3)
   %291 = load i32, ptr @hf_x11_struct_xkb_SADeviceValuator_device, align 4
   %292 = load i32, ptr %1, align 4
   %293 = tail call ptr @proto_tree_add_item(ptr noundef %288, i32 noundef %291, ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef %3) #10
@@ -78720,7 +78720,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %295 = add i32 %294, 1
   store i32 %295, ptr %1, align 4
   %296 = load i32, ptr @hf_x11_struct_xkb_SADeviceValuator_val1what, align 4
-  %297 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %288, i32 noundef %296, i32 noundef %3), !range !4
+  %297 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %288, i32 noundef %296, i32 noundef %3)
   %298 = load i32, ptr @hf_x11_struct_xkb_SADeviceValuator_val1index, align 4
   %299 = load i32, ptr %1, align 4
   %300 = tail call ptr @proto_tree_add_item(ptr noundef %288, i32 noundef %298, ptr noundef %0, i32 noundef %299, i32 noundef 1, i32 noundef %3) #10
@@ -78733,7 +78733,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %306 = add i32 %305, 1
   store i32 %306, ptr %1, align 4
   %307 = load i32, ptr @hf_x11_struct_xkb_SADeviceValuator_val2what, align 4
-  %308 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %288, i32 noundef %307, i32 noundef %3), !range !4
+  %308 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %288, i32 noundef %307, i32 noundef %3)
   %309 = load i32, ptr @hf_x11_struct_xkb_SADeviceValuator_val2index, align 4
   %310 = load i32, ptr %1, align 4
   %311 = tail call ptr @proto_tree_add_item(ptr noundef %288, i32 noundef %309, ptr noundef %0, i32 noundef %310, i32 noundef 1, i32 noundef %3) #10
@@ -78744,11 +78744,11 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %315 = tail call ptr @proto_tree_add_item(ptr noundef %288, i32 noundef %314, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef %3) #10
   store i32 %.0142143, ptr %1, align 4
   %316 = load i32, ptr @hf_x11_union_xkb_Action_type, align 4
-  %317 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %316, i32 noundef %3), !range !4
+  %317 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %316, i32 noundef %3)
   %318 = add i32 %.0142143, 8
   %319 = add nuw nsw i32 %.0144, 1
   %exitcond.not = icmp eq i32 %319, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0142.lcssa = phi i32 [ %6, %5 ], [ %318, %.lr.ph ]
@@ -78924,7 +78924,7 @@ define internal fastcc void @struct_xkb_SetBehavior(ptr noundef %0, ptr nocaptur
   store i32 %137, ptr %1, align 4
   %138 = add nuw nsw i32 %.019, 1
   %exitcond.not = icmp eq i32 %138, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -78960,7 +78960,7 @@ define internal fastcc void @struct_xkb_SetExplicit(ptr noundef %0, ptr nocaptur
   store i32 %21, ptr %1, align 4
   %22 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %22, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -78996,7 +78996,7 @@ define internal fastcc void @struct_xkb_KeyModMap(ptr noundef %0, ptr nocapture 
   store i32 %21, ptr %1, align 4
   %22 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %22, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79037,7 +79037,7 @@ define internal fastcc void @struct_xkb_KeyVModMap(ptr noundef %0, ptr nocapture
   store i32 %25, ptr %1, align 4
   %26 = add nuw nsw i32 %.020, 1
   %exitcond.not = icmp eq i32 %26, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79079,7 +79079,7 @@ define internal fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr nocapt
   store i32 %26, ptr %1, align 4
   %27 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %27, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79094,7 +79094,7 @@ define internal fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr nocapture 
   %7 = load i32, ptr @ett_x11_rectangle, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #10
   %9 = load i32, ptr @hf_x11_struct_xkb_SASetMods_type, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %8, i32 noundef %9, i32 noundef %3), !range !4
+  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %8, i32 noundef %9, i32 noundef %3)
   %11 = load i32, ptr %1, align 4
   %12 = load i32, ptr @hf_x11_struct_xkb_SASetMods_flags, align 4
   %13 = load i32, ptr @ett_x11_rectangle, align 4
@@ -79143,7 +79143,7 @@ define internal fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr nocapture
   %7 = load i32, ptr @ett_x11_rectangle, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #10
   %9 = load i32, ptr @hf_x11_struct_xkb_SASetGroup_type, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %8, i32 noundef %9, i32 noundef %3), !range !4
+  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %8, i32 noundef %9, i32 noundef %3)
   %11 = load i32, ptr %1, align 4
   %12 = load i32, ptr @hf_x11_struct_xkb_SASetGroup_flags, align 4
   %13 = load i32, ptr @ett_x11_rectangle, align 4
@@ -79173,7 +79173,7 @@ define internal fastcc void @struct_xkb_SASetControls(ptr noundef %0, ptr nocapt
   %7 = load i32, ptr @ett_x11_rectangle, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #10
   %9 = load i32, ptr @hf_x11_struct_xkb_SASetControls_type, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %8, i32 noundef %9, i32 noundef %3), !range !4
+  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %8, i32 noundef %9, i32 noundef %3)
   %11 = load i32, ptr @hf_x11_unused, align 4
   %12 = load i32, ptr %1, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0) #10
@@ -79229,7 +79229,7 @@ define internal fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr nocaptu
   %21 = add i32 %20, 1
   store i32 %21, ptr %1, align 4
   %22 = load i32, ptr @hf_x11_struct_xkb_SymInterpret_match, align 4
-  %23 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %22, i32 noundef %3), !range !4
+  %23 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %22, i32 noundef %3)
   %24 = load i32, ptr %1, align 4
   %25 = load i32, ptr @hf_x11_struct_xkb_SymInterpret_virtualMod, align 4
   %26 = load i32, ptr @ett_x11_rectangle, align 4
@@ -79247,7 +79247,7 @@ define internal fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr nocaptu
   %36 = load i32, ptr @ett_x11_rectangle, align 4
   %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #10
   %38 = load i32, ptr @hf_x11_struct_xkb_SIAction_type, align 4
-  %39 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37, i32 noundef %38, i32 noundef %3), !range !4
+  %39 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37, i32 noundef %38, i32 noundef %3)
   %40 = load i32, ptr @hf_x11_struct_xkb_SIAction_data, align 4
   %41 = load i32, ptr %1, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 7, i32 noundef %3) #10
@@ -79256,7 +79256,7 @@ define internal fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr nocaptu
   store i32 %44, ptr %1, align 4
   %45 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %45, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79299,7 +79299,7 @@ define internal fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr nocapture nou
   store i32 %27, ptr %1, align 4
   %28 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %28, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79322,13 +79322,13 @@ define internal fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr nocaptu
   %10 = load i32, ptr @ett_x11_rectangle, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #10
   %12 = load i32, ptr @hf_x11_struct_xkb_IndicatorMap_flags, align 4
-  %13 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %12, i32 noundef %3), !range !4
+  %13 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %12, i32 noundef %3)
   %14 = load i32, ptr @hf_x11_struct_xkb_IndicatorMap_whichGroups, align 4
-  %15 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %14, i32 noundef %3), !range !4
+  %15 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %14, i32 noundef %3)
   %16 = load i32, ptr @hf_x11_struct_xkb_IndicatorMap_groups, align 4
-  %17 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %16, i32 noundef %3), !range !4
+  %17 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %16, i32 noundef %3)
   %18 = load i32, ptr @hf_x11_struct_xkb_IndicatorMap_whichMods, align 4
-  %19 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %18, i32 noundef %3), !range !4
+  %19 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %18, i32 noundef %3)
   %20 = load i32, ptr %1, align 4
   %21 = load i32, ptr @hf_x11_struct_xkb_IndicatorMap_mods, align 4
   %22 = load i32, ptr @ett_x11_rectangle, align 4
@@ -79356,7 +79356,7 @@ define internal fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr nocaptu
   store i32 %40, ptr %1, align 4
   %41 = add nuw nsw i32 %.042, 1
   %exitcond.not = icmp eq i32 %41, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79391,7 +79391,7 @@ define internal fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr nocapture n
   store i32 %20, ptr %1, align 4
   %21 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -79412,12 +79412,12 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
   %12 = add i32 %11, 8
   %13 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %12, i32 noundef %3) #10
   %14 = sext i32 %10 to i64
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %14), !range !123
-  %16 = trunc i64 %15 to i32
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14)
+  %16 = trunc nuw nsw i64 %15 to i32
   %17 = shl nuw nsw i32 %16, 2
   %18 = sext i32 %13 to i64
-  %19 = tail call i64 @llvm.ctpop.i64(i64 %18), !range !123
-  %20 = trunc i64 %19 to i32
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = mul nuw nsw i32 %20, 12
   %22 = add nuw nsw i32 %17, 20
   %23 = add nuw nsw i32 %22, %21
@@ -79425,9 +79425,9 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
   %25 = load i32, ptr @ett_x11_rectangle, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #10
   %27 = load i32, ptr @hf_x11_struct_xkb_DeviceLedInfo_ledClass, align 4
-  %28 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 noundef %27, i32 noundef %3), !range !5
+  %28 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 noundef %27, i32 noundef %3)
   %29 = load i32, ptr @hf_x11_struct_xkb_DeviceLedInfo_ledID, align 4
-  %30 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 noundef %29, i32 noundef %3), !range !5
+  %30 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 noundef %29, i32 noundef %3)
   %31 = load i32, ptr %1, align 4
   %32 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %31, i32 noundef %3) #10
   %33 = load i32, ptr @hf_x11_struct_xkb_DeviceLedInfo_namesPresent, align 4
@@ -79456,8 +79456,8 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
   %52 = load i32, ptr @hf_x11_struct_xkb_DeviceLedInfo_names, align 4
   %53 = load i32, ptr @hf_x11_struct_xkb_DeviceLedInfo_names_item, align 4
   %54 = sext i32 %32 to i64
-  %55 = tail call i64 @llvm.ctpop.i64(i64 %54), !range !123
-  %56 = trunc i64 %55 to i32
+  %55 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %54)
+  %56 = trunc nuw nsw i64 %55 to i32
   %57 = shl nuw nsw i32 %56, 2
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef %57, i32 noundef %3) #10
   %59 = load i32, ptr @ett_x11_list_of_card32, align 4
@@ -79478,16 +79478,16 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
   %65 = add i32 %64, 4
   store i32 %65, ptr %1, align 4
   %.not.i = icmp eq i32 %62, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %66 = sext i32 %38 to i64
-  %67 = tail call i64 @llvm.ctpop.i64(i64 %66), !range !123
-  %68 = trunc i64 %67 to i32
+  %67 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %66)
+  %68 = trunc nuw nsw i64 %67 to i32
   tail call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 noundef %3, i32 noundef %68)
   %69 = add nuw nsw i32 %.053, 1
   %exitcond.not = icmp eq i32 %69, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5
   ret void
@@ -79502,7 +79502,7 @@ define internal void @xkbMapNotify(ptr noundef %0, ptr nocapture noundef %1, ptr
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_MapNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -79628,7 +79628,7 @@ define internal void @xkbStateNotify(ptr noundef %0, ptr nocapture noundef %1, p
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_StateNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -79665,7 +79665,7 @@ define internal void @xkbStateNotify(ptr noundef %0, ptr nocapture noundef %1, p
   %40 = add i32 %39, 1
   store i32 %40, ptr %1, align 4
   %41 = load i32, ptr @hf_x11_xkb_StateNotify_group, align 4
-  %42 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %41, i32 noundef %3), !range !4
+  %42 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %41, i32 noundef %3)
   %43 = load i32, ptr @hf_x11_xkb_StateNotify_baseGroup, align 4
   %44 = load i32, ptr %1, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef %3) #10
@@ -79678,7 +79678,7 @@ define internal void @xkbStateNotify(ptr noundef %0, ptr nocapture noundef %1, p
   %51 = add i32 %50, 2
   store i32 %51, ptr %1, align 4
   %52 = load i32, ptr @hf_x11_xkb_StateNotify_lockedGroup, align 4
-  %53 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %52, i32 noundef %3), !range !4
+  %53 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %52, i32 noundef %3)
   %54 = load i32, ptr %1, align 4
   %55 = load i32, ptr @hf_x11_xkb_StateNotify_compatState, align 4
   %56 = load i32, ptr @ett_x11_rectangle, align 4
@@ -79754,7 +79754,7 @@ define internal void @xkbControlsNotify(ptr noundef %0, ptr nocapture noundef %1
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_ControlsNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -79831,7 +79831,7 @@ define internal void @xkbIndicatorStateNotify(ptr noundef %0, ptr nocapture noun
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_IndicatorStateNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -79875,7 +79875,7 @@ define internal void @xkbIndicatorMapNotify(ptr noundef %0, ptr nocapture nounde
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_IndicatorMapNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -79919,7 +79919,7 @@ define internal void @xkbNamesNotify(ptr noundef %0, ptr nocapture noundef %1, p
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_NamesNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -80021,7 +80021,7 @@ define internal void @xkbCompatMapNotify(ptr noundef %0, ptr nocapture noundef %
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_CompatMapNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -80071,7 +80071,7 @@ define internal void @xkbBellNotify(ptr noundef %0, ptr nocapture noundef %1, pt
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_BellNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -80084,7 +80084,7 @@ define internal void @xkbBellNotify(ptr noundef %0, ptr nocapture noundef %1, pt
   %20 = add i32 %19, 1
   store i32 %20, ptr %1, align 4
   %21 = load i32, ptr @hf_x11_xkb_BellNotify_bellClass, align 4
-  %22 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %21, i32 noundef %3), !range !4
+  %22 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %21, i32 noundef %3)
   %23 = load i32, ptr @hf_x11_xkb_BellNotify_bellID, align 4
   %24 = load i32, ptr %1, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef %3) #10
@@ -80138,7 +80138,7 @@ define internal void @xkbActionMessage(ptr noundef %0, ptr nocapture noundef %1,
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_ActionMessage_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -80172,7 +80172,7 @@ define internal void @xkbActionMessage(ptr noundef %0, ptr nocapture noundef %1,
   %37 = add i32 %36, 1
   store i32 %37, ptr %1, align 4
   %38 = load i32, ptr @hf_x11_xkb_ActionMessage_group, align 4
-  %39 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %38, i32 noundef %3), !range !4
+  %39 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %38, i32 noundef %3)
   %40 = load i32, ptr @hf_x11_xkb_ActionMessage_message, align 4
   %41 = load i32, ptr %1, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 8, i32 noundef %3) #10
@@ -80196,7 +80196,7 @@ define internal void @xkbAccessXNotify(ptr noundef %0, ptr nocapture noundef %1,
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_AccessXNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -80246,7 +80246,7 @@ define internal void @xkbExtensionDeviceNotify(ptr noundef %0, ptr nocapture nou
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xkb_ExtensionDeviceNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -80270,7 +80270,7 @@ define internal void @xkbExtensionDeviceNotify(ptr noundef %0, ptr nocapture nou
   %29 = add i32 %28, 2
   store i32 %29, ptr %1, align 4
   %30 = load i32, ptr @hf_x11_xkb_ExtensionDeviceNotify_ledClass, align 4
-  %31 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %30, i32 noundef %3), !range !5
+  %31 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %30, i32 noundef %3)
   %32 = load i32, ptr @hf_x11_xkb_ExtensionDeviceNotify_ledID, align 4
   %33 = load i32, ptr %1, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef %3) #10
@@ -80323,7 +80323,7 @@ define internal void @xkbUseExtension_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15267) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_UseExtension_reply_supported, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -80367,7 +80367,7 @@ define internal void @xkbGetState_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15149) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetState_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -80412,9 +80412,9 @@ define internal void @xkbGetState_Reply(ptr noundef %0, ptr nocapture noundef re
   %45 = add i32 %44, 1
   store i32 %45, ptr %2, align 4
   %46 = load i32, ptr @hf_x11_xkb_GetState_reply_group, align 4
-  %47 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %46, i32 noundef %4), !range !4
+  %47 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %46, i32 noundef %4)
   %48 = load i32, ptr @hf_x11_xkb_GetState_reply_lockedGroup, align 4
-  %49 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %48, i32 noundef %4), !range !4
+  %49 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %48, i32 noundef %4)
   %50 = load i32, ptr @hf_x11_xkb_GetState_reply_baseGroup, align 4
   %51 = load i32, ptr %2, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef 2, i32 noundef %4) #10
@@ -80481,7 +80481,7 @@ define internal void @xkbGetControls_Reply(ptr noundef %0, ptr nocapture noundef
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15270) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetControls_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -80662,7 +80662,7 @@ define internal void @xkbGetMap_Reply(ptr noundef %0, ptr nocapture noundef read
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15272) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetMap_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -80913,7 +80913,7 @@ define internal void @xkbGetMap_Reply(ptr noundef %0, ptr nocapture noundef read
 
 193:                                              ; preds = %191
   %194 = load i32, ptr @hf_x11_xkb_GetMap_reply_VirtualMods_vmods_rtrn, align 4
-  %195 = tail call i16 @llvm.ctpop.i16(i16 %156), !range !121
+  %195 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %156)
   %196 = tail call i16 @llvm.umax.i16(i16 %195, i16 1)
   %197 = zext nneg i16 %196 to i32
   %198 = load i32, ptr %2, align 4
@@ -81001,7 +81001,7 @@ define internal void @xkbGetCompatMap_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15274) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetCompatMap_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -81058,7 +81058,7 @@ define internal void @xkbGetCompatMap_Reply(ptr noundef %0, ptr nocapture nounde
   %55 = add i32 %54, 16
   store i32 %55, ptr %2, align 4
   tail call fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %42)
-  %56 = tail call i8 @llvm.ctpop.i8(i8 %26), !range !122
+  %56 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %26)
   %57 = zext nneg i8 %56 to i32
   tail call fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %57)
   ret void
@@ -81070,7 +81070,7 @@ define internal void @xkbGetIndicatorState_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15276) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetIndicatorState_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -81109,7 +81109,7 @@ define internal void @xkbGetIndicatorMap_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15278) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetIndicatorMap_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -81152,8 +81152,8 @@ define internal void @xkbGetIndicatorMap_Reply(ptr noundef %0, ptr nocapture nou
   %43 = add i32 %42, 15
   store i32 %43, ptr %2, align 4
   %44 = sext i32 %26 to i64
-  %45 = tail call i64 @llvm.ctpop.i64(i64 %44), !range !123
-  %46 = trunc i64 %45 to i32
+  %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
+  %46 = trunc nuw nsw i64 %45 to i32
   tail call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %46)
   ret void
 }
@@ -81164,7 +81164,7 @@ define internal void @xkbGetNamedIndicator_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15280) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -81276,7 +81276,7 @@ define internal void @xkbGetNames_Reply(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15282) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetNames_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -81495,7 +81495,7 @@ define internal void @xkbGetNames_Reply(ptr noundef %0, ptr nocapture noundef re
   %161 = add i32 %160, 4
   store i32 %161, ptr %2, align 4
   %.not.i = icmp eq i32 %158, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %147
   %162 = and i32 %26, 128
@@ -81521,7 +81521,7 @@ listOfCard32.exit.thread:                         ; preds = %150
   %168 = add i32 %.0209264, %167
   %169 = add nuw nsw i32 %.0265, 1
   %exitcond.not = icmp eq i32 %169, %42
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !138
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit.thread, %.preheader
   %.0209.lcssa = phi i32 [ 0, %.preheader ], [ 0, %listOfCard32.exit.thread ], [ %168, %.lr.ph ]
@@ -81571,7 +81571,7 @@ listOfCard32.exit.thread:                         ; preds = %150
   %195 = add i32 %194, 4
   store i32 %195, ptr %2, align 4
   %.not.i231 = icmp eq i32 %192, 0
-  br i1 %.not.i231, label %listOfCard32.exit232, label %.lr.ph.i229, !llvm.loop !44
+  br i1 %.not.i231, label %listOfCard32.exit232, label %.lr.ph.i229, !llvm.loop !41
 
 listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listOfCard32.exit.thread, %183, %listOfCard32.exit
   %196 = and i32 %26, 256
@@ -81582,8 +81582,8 @@ listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listO
   %198 = load i32, ptr @hf_x11_xkb_GetNames_reply_IndicatorNames_indicatorNames, align 4
   %199 = load i32, ptr @hf_x11_xkb_GetNames_reply_IndicatorNames_indicatorNames_item, align 4
   %200 = sext i32 %73 to i64
-  %201 = tail call i64 @llvm.ctpop.i64(i64 %200), !range !123
-  %202 = trunc i64 %201 to i32
+  %201 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %200)
+  %202 = trunc nuw nsw i64 %201 to i32
   %203 = load i32, ptr %2, align 4
   %204 = shl nuw nsw i32 %202, 2
   %205 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %198, ptr noundef %0, i32 noundef %203, i32 noundef %204, i32 noundef %4) #10
@@ -81605,7 +81605,7 @@ listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listO
   %212 = add i32 %211, 4
   store i32 %212, ptr %2, align 4
   %.not.i238 = icmp eq i32 %209, 0
-  br i1 %.not.i238, label %listOfCard32.exit239, label %.lr.ph.i236, !llvm.loop !44
+  br i1 %.not.i238, label %listOfCard32.exit239, label %.lr.ph.i236, !llvm.loop !41
 
 listOfCard32.exit239:                             ; preds = %.lr.ph.i236, %197, %listOfCard32.exit232
   %213 = and i32 %26, 2048
@@ -81615,7 +81615,7 @@ listOfCard32.exit239:                             ; preds = %.lr.ph.i236, %197, 
 214:                                              ; preds = %listOfCard32.exit239
   %215 = load i32, ptr @hf_x11_xkb_GetNames_reply_VirtualModNames_virtualModNames, align 4
   %216 = load i32, ptr @hf_x11_xkb_GetNames_reply_VirtualModNames_virtualModNames_item, align 4
-  %217 = tail call i16 @llvm.ctpop.i16(i16 %55), !range !121
+  %217 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %55)
   %218 = zext nneg i16 %217 to i32
   %219 = load i32, ptr %2, align 4
   %220 = shl nuw nsw i32 %218, 2
@@ -81638,7 +81638,7 @@ listOfCard32.exit239:                             ; preds = %.lr.ph.i236, %197, 
   %228 = add i32 %227, 4
   store i32 %228, ptr %2, align 4
   %.not.i245 = icmp eq i32 %225, 0
-  br i1 %.not.i245, label %listOfCard32.exit246, label %.lr.ph.i243, !llvm.loop !44
+  br i1 %.not.i245, label %listOfCard32.exit246, label %.lr.ph.i243, !llvm.loop !41
 
 listOfCard32.exit246:                             ; preds = %.lr.ph.i243, %214, %listOfCard32.exit239
   %229 = and i32 %26, 4096
@@ -81648,7 +81648,7 @@ listOfCard32.exit246:                             ; preds = %.lr.ph.i243, %214, 
 230:                                              ; preds = %listOfCard32.exit246
   %231 = load i32, ptr @hf_x11_xkb_GetNames_reply_GroupNames_groups, align 4
   %232 = load i32, ptr @hf_x11_xkb_GetNames_reply_GroupNames_groups_item, align 4
-  %233 = tail call i8 @llvm.ctpop.i8(i8 %48), !range !122
+  %233 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %48)
   %234 = zext nneg i8 %233 to i32
   %235 = load i32, ptr %2, align 4
   %236 = shl nuw nsw i32 %234, 2
@@ -81671,7 +81671,7 @@ listOfCard32.exit246:                             ; preds = %.lr.ph.i243, %214, 
   %244 = add i32 %243, 4
   store i32 %244, ptr %2, align 4
   %.not.i252 = icmp eq i32 %241, 0
-  br i1 %.not.i252, label %listOfCard32.exit253, label %.lr.ph.i250, !llvm.loop !44
+  br i1 %.not.i252, label %listOfCard32.exit253, label %.lr.ph.i250, !llvm.loop !41
 
 listOfCard32.exit253:                             ; preds = %.lr.ph.i250, %230, %listOfCard32.exit246
   %245 = and i32 %26, 512
@@ -81699,7 +81699,7 @@ listOfCard32.exit253:                             ; preds = %.lr.ph.i250, %230, 
   store i32 %256, ptr %2, align 4
   %257 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %257, %67
-  br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i256, !llvm.loop !125
+  br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i256, !llvm.loop !119
 
 struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i256, %listOfCard32.exit253
   %258 = and i32 %26, 1024
@@ -81739,7 +81739,7 @@ struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i256, %listO
   %274 = add i32 %273, 4
   store i32 %274, ptr %2, align 4
   %.not.i262 = icmp eq i32 %271, 0
-  br i1 %.not.i262, label %listOfCard32.exit263, label %.lr.ph.i260, !llvm.loop !44
+  br i1 %.not.i262, label %listOfCard32.exit263, label %.lr.ph.i260, !llvm.loop !41
 
 listOfCard32.exit263:                             ; preds = %.lr.ph.i260, %262, %260
   ret void
@@ -81751,7 +81751,7 @@ define internal void @xkbPerClientFlags_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15284) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_PerClientFlags_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -81809,7 +81809,7 @@ define internal void @xkbListComponents_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15286) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_ListComponents_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -81902,7 +81902,7 @@ define internal void @xkbGetKbdByName_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15288) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -82218,7 +82218,7 @@ define internal void @xkbGetKbdByName_Reply(ptr noundef %0, ptr nocapture nounde
 
 244:                                              ; preds = %242
   %245 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Types_VirtualMods_vmods_rtrn, align 4
-  %246 = tail call i16 @llvm.ctpop.i16(i16 %207), !range !121
+  %246 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %207)
   %247 = tail call i16 @llvm.umax.i16(i16 %246, i16 1)
   %248 = zext nneg i16 %247 to i32
   %249 = load i32, ptr %2, align 4
@@ -82360,7 +82360,7 @@ define internal void @xkbGetKbdByName_Reply(ptr noundef %0, ptr nocapture nounde
   %337 = add i32 %336, 16
   store i32 %337, ptr %2, align 4
   tail call fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %324)
-  %338 = tail call i8 @llvm.ctpop.i8(i8 %308), !range !122
+  %338 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %308)
   %339 = zext nneg i8 %338 to i32
   tail call fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %339)
   br label %340
@@ -82644,7 +82644,7 @@ define internal void @xkbGetKbdByName_Reply(ptr noundef %0, ptr nocapture nounde
   %534 = add i32 %533, 4
   store i32 %534, ptr %2, align 4
   %.not.i = icmp eq i32 %531, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %520
   %535 = and i32 %399, 128
@@ -82670,7 +82670,7 @@ listOfCard32.exit.thread:                         ; preds = %523
   %541 = add i32 %.0728820, %540
   %542 = add nuw nsw i32 %.0821, 1
   %exitcond.not = icmp eq i32 %542, %415
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit.thread, %.preheader
   %.0728.lcssa = phi i32 [ 0, %.preheader ], [ 0, %listOfCard32.exit.thread ], [ %541, %.lr.ph ]
@@ -82720,7 +82720,7 @@ listOfCard32.exit.thread:                         ; preds = %523
   %568 = add i32 %567, 4
   store i32 %568, ptr %2, align 4
   %.not.i782 = icmp eq i32 %565, 0
-  br i1 %.not.i782, label %listOfCard32.exit783, label %.lr.ph.i780, !llvm.loop !44
+  br i1 %.not.i782, label %listOfCard32.exit783, label %.lr.ph.i780, !llvm.loop !41
 
 listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listOfCard32.exit.thread, %556, %listOfCard32.exit
   %569 = and i32 %399, 256
@@ -82731,8 +82731,8 @@ listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listO
   %571 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_IndicatorNames_indicatorNames, align 4
   %572 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_IndicatorNames_indicatorNames_item, align 4
   %573 = sext i32 %446 to i64
-  %574 = tail call i64 @llvm.ctpop.i64(i64 %573), !range !123
-  %575 = trunc i64 %574 to i32
+  %574 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %573)
+  %575 = trunc nuw nsw i64 %574 to i32
   %576 = load i32, ptr %2, align 4
   %577 = shl nuw nsw i32 %575, 2
   %578 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %571, ptr noundef %0, i32 noundef %576, i32 noundef %577, i32 noundef %4) #10
@@ -82754,7 +82754,7 @@ listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listO
   %585 = add i32 %584, 4
   store i32 %585, ptr %2, align 4
   %.not.i789 = icmp eq i32 %582, 0
-  br i1 %.not.i789, label %listOfCard32.exit790, label %.lr.ph.i787, !llvm.loop !44
+  br i1 %.not.i789, label %listOfCard32.exit790, label %.lr.ph.i787, !llvm.loop !41
 
 listOfCard32.exit790:                             ; preds = %.lr.ph.i787, %570, %listOfCard32.exit783
   %586 = and i32 %399, 2048
@@ -82764,7 +82764,7 @@ listOfCard32.exit790:                             ; preds = %.lr.ph.i787, %570, 
 587:                                              ; preds = %listOfCard32.exit790
   %588 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_VirtualModNames_virtualModNames, align 4
   %589 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_VirtualModNames_virtualModNames_item, align 4
-  %590 = tail call i16 @llvm.ctpop.i16(i16 %428), !range !121
+  %590 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %428)
   %591 = zext nneg i16 %590 to i32
   %592 = load i32, ptr %2, align 4
   %593 = shl nuw nsw i32 %591, 2
@@ -82787,7 +82787,7 @@ listOfCard32.exit790:                             ; preds = %.lr.ph.i787, %570, 
   %601 = add i32 %600, 4
   store i32 %601, ptr %2, align 4
   %.not.i796 = icmp eq i32 %598, 0
-  br i1 %.not.i796, label %listOfCard32.exit797, label %.lr.ph.i794, !llvm.loop !44
+  br i1 %.not.i796, label %listOfCard32.exit797, label %.lr.ph.i794, !llvm.loop !41
 
 listOfCard32.exit797:                             ; preds = %.lr.ph.i794, %587, %listOfCard32.exit790
   %602 = and i32 %399, 4096
@@ -82797,7 +82797,7 @@ listOfCard32.exit797:                             ; preds = %.lr.ph.i794, %587, 
 603:                                              ; preds = %listOfCard32.exit797
   %604 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_GroupNames_groups, align 4
   %605 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_GroupNames_groups_item, align 4
-  %606 = tail call i8 @llvm.ctpop.i8(i8 %421), !range !122
+  %606 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %421)
   %607 = zext nneg i8 %606 to i32
   %608 = load i32, ptr %2, align 4
   %609 = shl nuw nsw i32 %607, 2
@@ -82820,7 +82820,7 @@ listOfCard32.exit797:                             ; preds = %.lr.ph.i794, %587, 
   %617 = add i32 %616, 4
   store i32 %617, ptr %2, align 4
   %.not.i803 = icmp eq i32 %614, 0
-  br i1 %.not.i803, label %listOfCard32.exit804, label %.lr.ph.i801, !llvm.loop !44
+  br i1 %.not.i803, label %listOfCard32.exit804, label %.lr.ph.i801, !llvm.loop !41
 
 listOfCard32.exit804:                             ; preds = %.lr.ph.i801, %603, %listOfCard32.exit797
   %618 = and i32 %399, 512
@@ -82848,7 +82848,7 @@ listOfCard32.exit804:                             ; preds = %.lr.ph.i801, %603, 
   store i32 %629, ptr %2, align 4
   %630 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %630, %440
-  br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i807, !llvm.loop !125
+  br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i807, !llvm.loop !119
 
 struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i807, %listOfCard32.exit804
   %631 = and i32 %399, 1024
@@ -82888,7 +82888,7 @@ struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i807, %listO
   %647 = add i32 %646, 4
   store i32 %647, ptr %2, align 4
   %.not.i813 = icmp eq i32 %644, 0
-  br i1 %.not.i813, label %listOfCard32.exit814, label %.lr.ph.i811, !llvm.loop !44
+  br i1 %.not.i813, label %listOfCard32.exit814, label %.lr.ph.i811, !llvm.loop !41
 
 listOfCard32.exit814:                             ; preds = %.lr.ph.i811, %635, %379, %633
   %648 = and i32 %48, 64
@@ -83027,7 +83027,7 @@ define internal void @xkbGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15100) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_reply_deviceID, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -83105,9 +83105,9 @@ define internal void @xkbGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture nound
   %72 = add i32 %71, 1
   store i32 %72, ptr %2, align 4
   %73 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_reply_dfltKbdFB, align 4
-  %74 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %73, i32 noundef %4), !range !5
+  %74 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %73, i32 noundef %4)
   %75 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_reply_dfltLedFB, align 4
-  %76 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %75, i32 noundef %4), !range !5
+  %76 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %75, i32 noundef %4)
   %77 = load i32, ptr @hf_x11_unused, align 4
   %78 = load i32, ptr %2, align 4
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef 2, i32 noundef 0) #10
@@ -83162,7 +83162,7 @@ define internal void @xkbSetDebuggingFlags_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15292) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -83324,14 +83324,14 @@ define internal fastcc void @struct_xkb_KeyType(ptr noundef %0, ptr nocapture no
   store i32 %91, ptr %1, align 4
   %92 = add nuw nsw i32 %.035.i, 1
   %exitcond.not.i = icmp eq i32 %92, %42
-  br i1 %exitcond.not.i, label %struct_xkb_KTMapEntry.exit, label %.lr.ph.i, !llvm.loop !140
+  br i1 %exitcond.not.i, label %struct_xkb_KTMapEntry.exit, label %.lr.ph.i, !llvm.loop !134
 
 struct_xkb_KTMapEntry.exit:                       ; preds = %.lr.ph.i, %.lr.ph
   %93 = mul nuw nsw i32 %49, %42
   tail call fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %20, i32 noundef %3, i32 noundef %93)
   %94 = add nuw nsw i32 %.058, 1
   %exitcond.not = icmp eq i32 %94, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %struct_xkb_KTMapEntry.exit, %5
   ret void
@@ -83398,7 +83398,7 @@ define internal fastcc void @struct_xkb_Listing(ptr noundef %0, ptr nocapture no
   %44 = phi i32 [ %34, %.lr.ph ], [ %42, %36 ]
   %45 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %45, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %43, %5
   ret void
@@ -83408,7 +83408,7 @@ define internal fastcc void @struct_xkb_Listing(ptr noundef %0, ptr nocapture no
 define internal void @dispatch_xprint(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xprint_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -83438,7 +83438,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xprint_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %25) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %279 [
     i8 24, label %273
     i8 1, label %26
@@ -83839,7 +83839,7 @@ define internal void @xprintAttributNotify(ptr noundef %0, ptr nocapture noundef
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xprint_AttributNotify_context, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -83855,7 +83855,7 @@ define internal void @xprintPrintQueryVersion_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15298) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -83894,7 +83894,7 @@ define internal void @xprintPrintGetPrinterList_Reply(ptr noundef %0, ptr nocapt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15300) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84010,7 +84010,7 @@ define internal void @xprintPrintGetPrinterList_Reply(ptr noundef %0, ptr nocapt
   %93 = phi i32 [ %83, %72 ], [ %91, %85 ]
   %94 = add nuw nsw i32 %.055.i, 1
   %exitcond.not.i = icmp eq i32 %94, %26
-  br i1 %exitcond.not.i, label %struct_xprint_PRINTER.exit, label %.lr.ph.i, !llvm.loop !143
+  br i1 %exitcond.not.i, label %struct_xprint_PRINTER.exit, label %.lr.ph.i, !llvm.loop !137
 
 struct_xprint_PRINTER.exit:                       ; preds = %92, %5
   ret void
@@ -84022,7 +84022,7 @@ define internal void @xprintPrintGetContext_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15302) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84056,7 +84056,7 @@ define internal void @xprintPrintGetScreenOfContext_Reply(ptr noundef %0, ptr no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15304) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84090,7 +84090,7 @@ define internal void @xprintPrintGetDocumentData_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15306) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84147,7 +84147,7 @@ define internal void @xprintPrintInputSelected_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15308) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84186,7 +84186,7 @@ define internal void @xprintPrintGetAttributes_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15310) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84233,7 +84233,7 @@ define internal void @xprintPrintGetOneAttributes_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15312) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84280,7 +84280,7 @@ define internal void @xprintPrintGetPageDimensions_Reply(ptr noundef %0, ptr noc
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15314) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84339,7 +84339,7 @@ define internal void @xprintPrintQueryScreens_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15316) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84393,7 +84393,7 @@ define internal void @xprintPrintQueryScreens_Reply(ptr noundef %0, ptr nocaptur
   %46 = add i32 %45, 4
   store i32 %46, ptr %2, align 4
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -84405,7 +84405,7 @@ define internal void @xprintPrintSetImageResolution_Reply(ptr noundef %0, ptr no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15318) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xprint_PrintSetImageResolution_reply_status, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -84439,7 +84439,7 @@ define internal void @xprintPrintGetImageResolution_Reply(ptr noundef %0, ptr no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15320) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84471,7 +84471,7 @@ define internal void @xprintPrintGetImageResolution_Reply(ptr noundef %0, ptr no
 define internal void @dispatch_xselinux(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xselinux_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -84499,7 +84499,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xselinux_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %149 [
     i8 0, label %25
     i8 1, label %33
@@ -84708,7 +84708,7 @@ define internal void @xselinuxQueryVersion_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84747,7 +84747,7 @@ define internal void @xselinuxGetDeviceCreateContext_Reply(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15324) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84794,7 +84794,7 @@ define internal void @xselinuxGetDeviceContext_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15326) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84841,7 +84841,7 @@ define internal void @xselinuxGetWindowCreateContext_Reply(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15328) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84888,7 +84888,7 @@ define internal void @xselinuxGetWindowContext_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15330) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84935,7 +84935,7 @@ define internal void @xselinuxGetPropertyCreateContext_Reply(ptr noundef %0, ptr
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15332) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -84982,7 +84982,7 @@ define internal void @xselinuxGetPropertyUseContext_Reply(ptr noundef %0, ptr no
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15334) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85029,7 +85029,7 @@ define internal void @xselinuxGetPropertyContext_Reply(ptr noundef %0, ptr nocap
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15336) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85076,7 +85076,7 @@ define internal void @xselinuxGetPropertyDataContext_Reply(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15338) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85123,7 +85123,7 @@ define internal void @xselinuxListProperties_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15340) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85165,7 +85165,7 @@ define internal void @xselinuxGetSelectionCreateContext_Reply(ptr noundef %0, pt
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15342) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85212,7 +85212,7 @@ define internal void @xselinuxGetSelectionUseContext_Reply(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15344) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85259,7 +85259,7 @@ define internal void @xselinuxGetSelectionContext_Reply(ptr noundef %0, ptr noca
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15346) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85306,7 +85306,7 @@ define internal void @xselinuxGetSelectionDataContext_Reply(ptr noundef %0, ptr 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15348) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85353,7 +85353,7 @@ define internal void @xselinuxListSelections_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15350) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85395,7 +85395,7 @@ define internal void @xselinuxGetClientContext_Reply(ptr noundef %0, ptr nocaptu
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15352) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -85531,7 +85531,7 @@ define internal fastcc void @struct_xselinux_ListItem(ptr noundef %0, ptr nocapt
   %67 = phi i32 [ %57, %52 ], [ %65, %59 ]
   %68 = add nuw nsw i32 %.060, 1
   %exitcond.not = icmp eq i32 %68, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %66, %5
   ret void
@@ -85541,7 +85541,7 @@ define internal fastcc void @struct_xselinux_ListItem(ptr noundef %0, ptr nocapt
 define internal void @dispatch_xtest(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xtest_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -85569,7 +85569,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xtest_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %95 [
     i8 0, label %25
     i8 1, label %37
@@ -85683,7 +85683,7 @@ define internal void @xtestGetVersion_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xtest_GetVersion_reply_major_version, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -85717,7 +85717,7 @@ define internal void @xtestCompareCursor_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15356) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xtest_CompareCursor_reply_same, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %4) #10
@@ -85744,7 +85744,7 @@ define internal void @xtestCompareCursor_Reply(ptr noundef %0, ptr nocapture nou
 define internal void @dispatch_xv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xv_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -85774,7 +85774,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xv_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %25) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %498 [
     i8 19, label %424
     i8 1, label %26
@@ -86428,7 +86428,7 @@ define internal void @xvPortNotify(ptr noundef %0, ptr nocapture noundef %1, ptr
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 4
   %10 = load i32, ptr @hf_x11_event_sequencenumber, align 4
-  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3), !range !5
+  %11 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %10, i32 noundef %3)
   %12 = load i32, ptr @hf_x11_xv_PortNotify_time, align 4
   %13 = load i32, ptr %1, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3) #10
@@ -86459,7 +86459,7 @@ define internal void @xvQueryExtension_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15363) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -86498,7 +86498,7 @@ define internal void @xvQueryAdaptors_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15365) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -86642,13 +86642,13 @@ define internal void @xvQueryAdaptors_Reply(ptr noundef %0, ptr nocapture nounde
   store i32 %117, ptr %2, align 4
   %118 = add nuw nsw i32 %.020.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %118, %70
-  br i1 %exitcond.not.i.i, label %struct_xv_Format.exit.i, label %.lr.ph.i.i, !llvm.loop !145
+  br i1 %exitcond.not.i.i, label %struct_xv_Format.exit.i, label %.lr.ph.i.i, !llvm.loop !139
 
 struct_xv_Format.exit.i:                          ; preds = %.lr.ph.i.i, %99
   %119 = phi i32 [ %.pre.i.i, %99 ], [ %117, %.lr.ph.i.i ]
   %120 = add nuw nsw i32 %.063.i, 1
   %exitcond.not.i = icmp eq i32 %120, %27
-  br i1 %exitcond.not.i, label %struct_xv_AdaptorInfo.exit, label %.lr.ph.i, !llvm.loop !146
+  br i1 %exitcond.not.i, label %struct_xv_AdaptorInfo.exit, label %.lr.ph.i, !llvm.loop !140
 
 struct_xv_AdaptorInfo.exit:                       ; preds = %struct_xv_Format.exit.i, %5
   ret void
@@ -86660,7 +86660,7 @@ define internal void @xvQueryEncodings_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15367) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -86778,7 +86778,7 @@ define internal void @xvQueryEncodings_Reply(ptr noundef %0, ptr nocapture nound
   %99 = phi i32 [ %89, %.lr.ph.i ], [ %97, %91 ]
   %100 = add nuw nsw i32 %.053.i, 1
   %exitcond.not.i = icmp eq i32 %100, %27
-  br i1 %exitcond.not.i, label %struct_xv_EncodingInfo.exit, label %.lr.ph.i, !llvm.loop !147
+  br i1 %exitcond.not.i, label %struct_xv_EncodingInfo.exit, label %.lr.ph.i, !llvm.loop !141
 
 struct_xv_EncodingInfo.exit:                      ; preds = %98, %5
   ret void
@@ -86790,9 +86790,9 @@ define internal void @xvGrabPort_Reply(ptr noundef %0, ptr nocapture noundef rea
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15369) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_xv_GrabPort_reply_result, align 4
-  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4), !range !4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %4)
   %12 = load i32, ptr %2, align 4
   %13 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %12, i32 noundef %4) #10
   %14 = zext i16 %13 to i32
@@ -86816,7 +86816,7 @@ define internal void @xvQueryBestSize_Reply(ptr noundef %0, ptr nocapture nounde
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15371) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -86855,7 +86855,7 @@ define internal void @xvGetPortAttribute_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15373) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -86889,7 +86889,7 @@ define internal void @xvQueryPortAttributes_Reply(ptr noundef %0, ptr nocapture 
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15375) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -86990,7 +86990,7 @@ define internal void @xvQueryPortAttributes_Reply(ptr noundef %0, ptr nocapture 
   %84 = phi i32 [ %74, %.lr.ph.i ], [ %82, %76 ]
   %85 = add nuw nsw i32 %.045.i, 1
   %exitcond.not.i = icmp eq i32 %85, %26
-  br i1 %exitcond.not.i, label %struct_xv_AttributeInfo.exit, label %.lr.ph.i, !llvm.loop !148
+  br i1 %exitcond.not.i, label %struct_xv_AttributeInfo.exit, label %.lr.ph.i, !llvm.loop !142
 
 struct_xv_AttributeInfo.exit:                     ; preds = %83, %5
   ret void
@@ -87002,7 +87002,7 @@ define internal void @xvListImageFormats_Reply(ptr noundef %0, ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15377) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -87044,7 +87044,7 @@ define internal void @xvQueryImageAttributes_Reply(ptr noundef %0, ptr nocapture
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15379) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -87110,7 +87110,7 @@ define internal void @xvQueryImageAttributes_Reply(ptr noundef %0, ptr nocapture
   %58 = add i32 %57, 4
   store i32 %58, ptr %2, align 4
   %.not.i = icmp eq i32 %55, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %59 = phi i32 [ %.pre, %5 ], [ %58, %.lr.ph.i ]
@@ -87134,7 +87134,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   %69 = add i32 %68, 4
   store i32 %69, ptr %2, align 4
   %.not.i64 = icmp eq i32 %66, 0
-  br i1 %.not.i64, label %listOfCard32.exit65, label %.lr.ph.i62, !llvm.loop !44
+  br i1 %.not.i64, label %listOfCard32.exit65, label %.lr.ph.i62, !llvm.loop !41
 
 listOfCard32.exit65:                              ; preds = %.lr.ph.i62, %listOfCard32.exit
   ret void
@@ -87163,9 +87163,9 @@ define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr nocap
   %16 = add i32 %15, 4
   store i32 %16, ptr %1, align 4
   %17 = load i32, ptr @hf_x11_struct_xv_ImageFormatInfo_type, align 4
-  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %17, i32 noundef %3), !range !4
+  %18 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %17, i32 noundef %3)
   %19 = load i32, ptr @hf_x11_struct_xv_ImageFormatInfo_byte_order, align 4
-  %20 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %19, i32 noundef %3), !range !4
+  %20 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %19, i32 noundef %3)
   %21 = load i32, ptr @hf_x11_unused, align 4
   %22 = load i32, ptr %1, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef 0) #10
@@ -87218,7 +87218,7 @@ define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr nocap
   %61 = add i32 %60, 4
   store i32 %61, ptr %1, align 4
   %62 = load i32, ptr @hf_x11_struct_xv_ImageFormatInfo_format, align 4
-  %63 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %62, i32 noundef %3), !range !4
+  %63 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %62, i32 noundef %3)
   %64 = load i32, ptr @hf_x11_unused, align 4
   %65 = load i32, ptr %1, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %64, ptr noundef %0, i32 noundef %65, i32 noundef 3, i32 noundef 0) #10
@@ -87276,7 +87276,7 @@ define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr nocap
   %108 = add i32 %107, 32
   store i32 %108, ptr %1, align 4
   %109 = load i32, ptr @hf_x11_struct_xv_ImageFormatInfo_vscanline_order, align 4
-  %110 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %109, i32 noundef %3), !range !4
+  %110 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %109, i32 noundef %3)
   %111 = load i32, ptr @hf_x11_unused, align 4
   %112 = load i32, ptr %1, align 4
   %113 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef 11, i32 noundef 0) #10
@@ -87285,7 +87285,7 @@ define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr nocap
   store i32 %115, ptr %1, align 4
   %116 = add nuw nsw i32 %.0130, 1
   %exitcond.not = icmp eq i32 %116, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -87295,7 +87295,7 @@ define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr nocap
 define internal void @dispatch_xvmc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xvmc_extension_minor, align 4
-  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4), !range !4
+  %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = load i32, ptr @hf_x11_request_length, align 4
   %10 = load i32, ptr %2, align 4
@@ -87323,7 +87323,7 @@ requestLength.exit:                               ; preds = %5, %16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xvmc_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %103 [
     i8 8, label %93
     i8 1, label %25
@@ -87455,7 +87455,7 @@ define internal void @xvmcQueryVersion_Reply(ptr noundef %0, ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -87494,7 +87494,7 @@ define internal void @xvmcListSurfaceTypes_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15383) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -87584,7 +87584,7 @@ define internal void @xvmcListSurfaceTypes_Reply(ptr noundef %0, ptr nocapture n
   store i32 %78, ptr %2, align 4
   %79 = add nuw nsw i32 %.051.i, 1
   %exitcond.not.i = icmp eq i32 %79, %26
-  br i1 %exitcond.not.i, label %struct_xvmc_SurfaceInfo.exit, label %.lr.ph.i, !llvm.loop !150
+  br i1 %exitcond.not.i, label %struct_xvmc_SurfaceInfo.exit, label %.lr.ph.i, !llvm.loop !144
 
 struct_xvmc_SurfaceInfo.exit:                     ; preds = %.lr.ph.i, %5
   ret void
@@ -87596,7 +87596,7 @@ define internal void @xvmcCreateContext_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15094) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -87660,7 +87660,7 @@ define internal void @xvmcCreateContext_Reply(ptr noundef %0, ptr nocapture noun
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -87672,7 +87672,7 @@ define internal void @xvmcCreateSurface_Reply(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15386) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -87721,7 +87721,7 @@ define internal void @xvmcCreateSurface_Reply(ptr noundef %0, ptr nocapture noun
   %42 = add i32 %41, 4
   store i32 %42, ptr %2, align 4
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -87733,7 +87733,7 @@ define internal void @xvmcCreateSubpicture_Reply(ptr noundef %0, ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15388) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -87807,7 +87807,7 @@ define internal void @xvmcCreateSubpicture_Reply(ptr noundef %0, ptr nocapture n
   %62 = add i32 %61, 4
   store i32 %62, ptr %2, align 4
   %.not.i = icmp eq i32 %59, 0
-  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %listOfCard32.exit, label %.lr.ph.i, !llvm.loop !41
 
 listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
   ret void
@@ -87819,7 +87819,7 @@ define internal void @xvmcListSubpictureTypes_Reply(ptr noundef %0, ptr nocaptur
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15390) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
-  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4), !range !4
+  %9 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %4)
   %10 = load i32, ptr @hf_x11_unused, align 4
   %11 = load i32, ptr %2, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #10
@@ -87906,150 +87906,144 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 256}
-!5 = !{i32 0, i32 65536}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = !{i32 -1, i32 2}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
-!78 = distinct !{!78, !7}
-!79 = distinct !{!79, !7}
-!80 = distinct !{!80, !7}
-!81 = distinct !{!81, !7}
-!82 = distinct !{!82, !7}
-!83 = distinct !{!83, !7}
-!84 = distinct !{!84, !7}
-!85 = distinct !{!85, !7}
-!86 = distinct !{!86, !7}
-!87 = distinct !{!87, !7}
-!88 = distinct !{!88, !7}
-!89 = distinct !{!89, !7}
-!90 = distinct !{!90, !7}
-!91 = distinct !{!91, !7}
-!92 = distinct !{!92, !7}
-!93 = distinct !{!93, !7}
-!94 = distinct !{!94, !7}
-!95 = distinct !{!95, !7}
-!96 = distinct !{!96, !7}
-!97 = distinct !{!97, !7}
-!98 = distinct !{!98, !7}
-!99 = distinct !{!99, !7}
-!100 = distinct !{!100, !7}
-!101 = distinct !{!101, !7}
-!102 = distinct !{!102, !7}
-!103 = distinct !{!103, !7}
-!104 = distinct !{!104, !7}
-!105 = distinct !{!105, !7}
-!106 = distinct !{!106, !7}
-!107 = distinct !{!107, !7}
-!108 = distinct !{!108, !7}
-!109 = distinct !{!109, !7}
-!110 = distinct !{!110, !7}
-!111 = distinct !{!111, !7}
-!112 = distinct !{!112, !7}
-!113 = distinct !{!113, !7}
-!114 = distinct !{!114, !7}
-!115 = distinct !{!115, !7}
-!116 = distinct !{!116, !7}
-!117 = distinct !{!117, !7}
-!118 = distinct !{!118, !7}
-!119 = distinct !{!119, !7}
-!120 = distinct !{!120, !7}
-!121 = !{i16 0, i16 17}
-!122 = !{i8 0, i8 9}
-!123 = !{i64 0, i64 65}
-!124 = distinct !{!124, !7}
-!125 = distinct !{!125, !7}
-!126 = distinct !{!126, !7}
-!127 = distinct !{!127, !7}
-!128 = distinct !{!128, !7}
-!129 = distinct !{!129, !7}
-!130 = distinct !{!130, !7}
-!131 = distinct !{!131, !7}
-!132 = distinct !{!132, !7}
-!133 = distinct !{!133, !7}
-!134 = distinct !{!134, !7}
-!135 = distinct !{!135, !7}
-!136 = distinct !{!136, !7}
-!137 = distinct !{!137, !7}
-!138 = distinct !{!138, !7}
-!139 = distinct !{!139, !7}
-!140 = distinct !{!140, !7}
-!141 = distinct !{!141, !7}
-!142 = distinct !{!142, !7}
-!143 = distinct !{!143, !7}
-!144 = distinct !{!144, !7}
-!145 = distinct !{!145, !7}
-!146 = distinct !{!146, !7}
-!147 = distinct !{!147, !7}
-!148 = distinct !{!148, !7}
-!149 = distinct !{!149, !7}
-!150 = distinct !{!150, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = distinct !{!46, !5}
+!47 = distinct !{!47, !5}
+!48 = distinct !{!48, !5}
+!49 = distinct !{!49, !5}
+!50 = distinct !{!50, !5}
+!51 = distinct !{!51, !5}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5}
+!54 = distinct !{!54, !5}
+!55 = distinct !{!55, !5}
+!56 = distinct !{!56, !5}
+!57 = distinct !{!57, !5}
+!58 = distinct !{!58, !5}
+!59 = distinct !{!59, !5}
+!60 = distinct !{!60, !5}
+!61 = distinct !{!61, !5}
+!62 = distinct !{!62, !5}
+!63 = distinct !{!63, !5}
+!64 = distinct !{!64, !5}
+!65 = distinct !{!65, !5}
+!66 = distinct !{!66, !5}
+!67 = distinct !{!67, !5}
+!68 = distinct !{!68, !5}
+!69 = distinct !{!69, !5}
+!70 = distinct !{!70, !5}
+!71 = distinct !{!71, !5}
+!72 = distinct !{!72, !5}
+!73 = distinct !{!73, !5}
+!74 = distinct !{!74, !5}
+!75 = distinct !{!75, !5}
+!76 = distinct !{!76, !5}
+!77 = distinct !{!77, !5}
+!78 = distinct !{!78, !5}
+!79 = distinct !{!79, !5}
+!80 = distinct !{!80, !5}
+!81 = distinct !{!81, !5}
+!82 = distinct !{!82, !5}
+!83 = distinct !{!83, !5}
+!84 = distinct !{!84, !5}
+!85 = distinct !{!85, !5}
+!86 = distinct !{!86, !5}
+!87 = distinct !{!87, !5}
+!88 = distinct !{!88, !5}
+!89 = distinct !{!89, !5}
+!90 = distinct !{!90, !5}
+!91 = distinct !{!91, !5}
+!92 = distinct !{!92, !5}
+!93 = distinct !{!93, !5}
+!94 = distinct !{!94, !5}
+!95 = distinct !{!95, !5}
+!96 = distinct !{!96, !5}
+!97 = distinct !{!97, !5}
+!98 = distinct !{!98, !5}
+!99 = distinct !{!99, !5}
+!100 = distinct !{!100, !5}
+!101 = distinct !{!101, !5}
+!102 = distinct !{!102, !5}
+!103 = distinct !{!103, !5}
+!104 = distinct !{!104, !5}
+!105 = distinct !{!105, !5}
+!106 = distinct !{!106, !5}
+!107 = distinct !{!107, !5}
+!108 = distinct !{!108, !5}
+!109 = distinct !{!109, !5}
+!110 = distinct !{!110, !5}
+!111 = distinct !{!111, !5}
+!112 = distinct !{!112, !5}
+!113 = distinct !{!113, !5}
+!114 = distinct !{!114, !5}
+!115 = distinct !{!115, !5}
+!116 = distinct !{!116, !5}
+!117 = distinct !{!117, !5}
+!118 = distinct !{!118, !5}
+!119 = distinct !{!119, !5}
+!120 = distinct !{!120, !5}
+!121 = distinct !{!121, !5}
+!122 = distinct !{!122, !5}
+!123 = distinct !{!123, !5}
+!124 = distinct !{!124, !5}
+!125 = distinct !{!125, !5}
+!126 = distinct !{!126, !5}
+!127 = distinct !{!127, !5}
+!128 = distinct !{!128, !5}
+!129 = distinct !{!129, !5}
+!130 = distinct !{!130, !5}
+!131 = distinct !{!131, !5}
+!132 = distinct !{!132, !5}
+!133 = distinct !{!133, !5}
+!134 = distinct !{!134, !5}
+!135 = distinct !{!135, !5}
+!136 = distinct !{!136, !5}
+!137 = distinct !{!137, !5}
+!138 = distinct !{!138, !5}
+!139 = distinct !{!139, !5}
+!140 = distinct !{!140, !5}
+!141 = distinct !{!141, !5}
+!142 = distinct !{!142, !5}
+!143 = distinct !{!143, !5}
+!144 = distinct !{!144, !5}

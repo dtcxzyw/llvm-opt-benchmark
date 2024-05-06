@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [51 x i8] c"[CONNECTOR:%d:%s] Using DCS for backlight control\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_dsi_dcs_init_backlight_funcs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_dsi_dcs_init_backlight_funcs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2236
   %4 = load i32, ptr %3, align 4
@@ -106,7 +106,7 @@ define internal noundef i32 @dcs_setup_backlight(ptr nocapture noundef %0, i32 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dcs_get_backlight(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
+define internal range(i32 0, 65536) i32 @dcs_get_backlight(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 1976
   %5 = load ptr, ptr %4, align 8

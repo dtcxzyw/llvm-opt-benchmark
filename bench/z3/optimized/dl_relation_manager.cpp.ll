@@ -4106,7 +4106,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %entry, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i, %invoke.cont
-  %call.i3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7datalog16relation_manager22get_appropriate_pluginERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(12) %tsig)
+  %call.i3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7datalog16relation_manager22get_appropriate_pluginERKNS_15table_signatureE(ptr noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(12) %tsig)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.end
@@ -4119,7 +4119,7 @@ call.i.noexc:                                     ; preds = %if.end
 invoke.cont2:                                     ; preds = %call.i.noexc
   %m_plugin.i.i = getelementptr inbounds i8, ptr %call2.i4, i64 8
   %11 = load ptr, ptr %m_plugin.i.i, align 8
-  %call2.i5 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog16relation_manager25get_table_relation_pluginERNS_12table_pluginE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %call2.i5 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog16relation_manager25get_table_relation_pluginERNS_12table_pluginE(ptr noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %call2.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call2.i.noexc:                                    ; preds = %invoke.cont2
@@ -4419,7 +4419,7 @@ _ZN7datalog16relation_manager28get_requested_predicate_kindEP9func_decl.exit: ; 
   br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN7datalog16relation_manager28get_requested_predicate_kindEP9func_decl.exit
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog16relation_manager19get_relation_pluginEi(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %7)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog16relation_manager19get_relation_pluginEi(ptr noundef nonnull readonly align 8 dereferenceable(200) %this, i32 noundef %7)
   %vtable.i = load ptr, ptr %call.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %8 = load ptr, ptr %vfn.i, align 8
@@ -4434,7 +4434,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %_ZN7datalog16relation_manager16mk_full_relationERKNS_18relation_signatureEP9func_decli.exit
 
 if.end7.i:                                        ; preds = %for.body.i.i.i.i, %for.inc36.i.i.i.i, %for.body20.i.i.i.i, %for.cond18.preheader.i.i.i.i, %if.then.i, %_ZN7datalog16relation_manager28get_requested_predicate_kindEP9func_decl.exit
-  %call8.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog16relation_manager22get_appropriate_pluginERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %s)
+  %call8.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog16relation_manager22get_appropriate_pluginERKNS_18relation_signatureE(ptr noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %s)
   %vtable9.i = load ptr, ptr %call8.i, align 8
   %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 72
   %10 = load ptr, ptr %vfn10.i, align 8
@@ -11638,7 +11638,7 @@ entry:
   %m_manager.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_manager.i, align 8
   %m_empty_sig = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN7datalog16relation_manager22get_appropriate_pluginERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(12) %m_empty_sig)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN7datalog16relation_manager22get_appropriate_pluginERKNS_15table_signatureE(ptr noundef nonnull readonly align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(12) %m_empty_sig)
   %vtable.i = load ptr, ptr %call.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %2 = load ptr, ptr %vfn.i, align 8

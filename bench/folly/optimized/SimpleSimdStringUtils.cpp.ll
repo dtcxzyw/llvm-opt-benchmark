@@ -27,7 +27,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %or.i342343 = or <16 x i1> %cmp.i53, %cmp.i50
   %4 = bitcast <16 x i1> %or.i342343 to i16
   %notmask.i75 = shl nsw i64 -1, %sub.ptr.sub.i
-  %5 = trunc i64 %notmask.i75 to i16
+  %5 = trunc nsw i64 %notmask.i75 to i16
   %and9.i71 = and i16 %4, %5
   %tobool.i28.not = icmp eq i16 %and9.i71, 0
   br i1 %tobool.i28.not, label %if.end7.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit
@@ -158,7 +158,7 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   %or.i44366367 = or <16 x i1> %cmp.i55, %cmp.i51
   %21 = bitcast <16 x i1> %or.i44366367 to i16
   %notmask.i81 = shl nsw i64 -1, %ignore.sroa.0.0.i
-  %22 = trunc i64 %notmask.i81 to i16
+  %22 = trunc nsw i64 %notmask.i81 to i16
   %sub.ptr.sub21.i.neg = add i64 %1, 16
   %sub.i = sub i64 %sub.ptr.sub21.i.neg, %sub.ptr.lhs.cast19.i
   %sh_prom.i77 = and i64 %sub.i, 4294967295

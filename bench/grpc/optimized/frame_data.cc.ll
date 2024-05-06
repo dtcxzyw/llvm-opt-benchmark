@@ -159,7 +159,7 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %tobool.not = icmp eq ptr %hdr.sroa.0.0.copyload, null
   %shr = lshr i32 %write_bytes, 16
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   br i1 %tobool.not, label %do.end.then, label %do.end.else
 
 do.end.then:                                      ; preds = %do.end
@@ -169,7 +169,7 @@ do.end.then:                                      ; preds = %do.end
   %tobool9.not115 = icmp ne i32 %is_eof, 0
   %conv11116 = zext i1 %tobool9.not115 to i8
   %shr13135 = lshr i32 %id, 24
-  %conv14136 = trunc i32 %shr13135 to i8
+  %conv14136 = trunc nuw i32 %shr13135 to i8
   %shr16158 = lshr i32 %id, 16
   %conv17159 = trunc i32 %shr16158 to i8
   %0 = ptrtoint ptr %hdr.sroa.10.0.copyload to i64
@@ -198,7 +198,7 @@ do.end.else:                                      ; preds = %do.end
   %.sroa.gep29 = getelementptr inbounds i8, ptr %hdr.sroa.10.0.copyload, i64 5
   store i8 %conv11, ptr %.sroa.gep26, align 1
   %shr13 = lshr i32 %id, 24
-  %conv14 = trunc i32 %shr13 to i8
+  %conv14 = trunc nuw i32 %shr13 to i8
   %.sroa.gep32 = getelementptr inbounds i8, ptr %hdr.sroa.10.0.copyload, i64 6
   store i8 %conv14, ptr %.sroa.gep29, align 1
   %shr16 = lshr i32 %id, 16

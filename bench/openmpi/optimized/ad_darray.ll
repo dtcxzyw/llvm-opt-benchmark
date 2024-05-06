@@ -78,7 +78,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %41 = load i32, ptr %40, align 4
   %42 = load i64, ptr %16, align 8
   %43 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv170
-  %44 = trunc i64 %indvars.iv170 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv170 to i32
   call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %44, i32 noundef %2, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef 1, i64 noundef %42, ptr noundef %32, ptr noundef nonnull %12, ptr noundef %43)
   br label %59
 
@@ -91,14 +91,14 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %51 = load i32, ptr %50, align 4
   %52 = load i64, ptr %16, align 8
   %53 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv170
-  %54 = trunc i64 %indvars.iv170 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv170 to i32
   call fastcc void @MPIOI_Type_cyclic(ptr noundef %3, i32 noundef %54, i32 noundef %2, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef 1, i64 noundef %52, ptr noundef %32, ptr noundef nonnull %12, ptr noundef %53)
   br label %59
 
 55:                                               ; preds = %.lr.ph148
   %56 = load i64, ptr %16, align 8
   %57 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv170
-  %58 = trunc i64 %indvars.iv170 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv170 to i32
   call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %58, i32 noundef %2, i32 noundef 1, i32 noundef 0, i32 noundef -1, i32 noundef 1, i64 noundef %56, ptr noundef %32, ptr noundef nonnull %12, ptr noundef %57)
   br label %59
 
@@ -176,7 +176,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %87 = load i32, ptr %86, align 4
   %88 = load i64, ptr %16, align 8
   %89 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv164
-  %90 = trunc i64 %indvars.iv164 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv164 to i32
   call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %90, i32 noundef %2, i32 noundef %83, i32 noundef %85, i32 noundef %87, i32 noundef %7, i64 noundef %88, ptr noundef %78, ptr noundef nonnull %12, ptr noundef %89)
   br label %109
 
@@ -189,7 +189,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %97 = load i32, ptr %96, align 4
   %98 = load i64, ptr %16, align 8
   %99 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv164
-  %100 = trunc i64 %indvars.iv164 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv164 to i32
   call fastcc void @MPIOI_Type_cyclic(ptr noundef %3, i32 noundef %100, i32 noundef %2, i32 noundef %93, i32 noundef %95, i32 noundef %97, i32 noundef %7, i64 noundef %98, ptr noundef %78, ptr noundef nonnull %12, ptr noundef %99)
   br label %109
 
@@ -200,7 +200,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %105 = load i32, ptr %104, align 4
   %106 = load i64, ptr %16, align 8
   %107 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv164
-  %108 = trunc i64 %indvars.iv164 to i32
+  %108 = trunc nuw nsw i64 %indvars.iv164 to i32
   call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %108, i32 noundef %2, i32 noundef %103, i32 noundef %105, i32 noundef -1, i32 noundef %7, i64 noundef %106, ptr noundef %78, ptr noundef nonnull %12, ptr noundef %107)
   br label %109
 
@@ -223,7 +223,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %115 = sext i32 %74 to i64
   %116 = getelementptr inbounds i64, ptr %30, i64 %115
   %117 = load i64, ptr %116, align 8
-  %invariant.gep = getelementptr i8, ptr %3, i64 4
+  %invariant.gep = getelementptr inbounds i8, ptr %3, i64 4
   %.not190 = icmp eq i32 %2, 1
   br i1 %.not190, label %.loopexit, label %.lr.ph146.preheader
 
@@ -236,7 +236,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %indvars.iv167 = phi i64 [ %119, %.lr.ph146.preheader ], [ %indvars.iv.next168, %.lr.ph146 ]
   %.1144 = phi i32 [ 1, %.lr.ph146.preheader ], [ %122, %.lr.ph146 ]
   %120 = phi i64 [ %117, %.lr.ph146.preheader ], [ %127, %.lr.ph146 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv167
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv167
   %121 = load i32, ptr %gep, align 4
   %122 = mul nsw i32 %121, %.1144
   %123 = sext i32 %122 to i64

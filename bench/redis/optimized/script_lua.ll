@@ -2204,7 +2204,7 @@ return:                                           ; preds = %sw.epilog, %while.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @luaMemory(ptr noundef %lua) local_unnamed_addr #0 {
+define dso_local range(i64 -2199023255552, 2199023254529) i64 @luaMemory(ptr noundef %lua) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_gc(ptr noundef %lua, i32 noundef 3, i32 noundef 0) #11
   %conv = sext i32 %call to i64

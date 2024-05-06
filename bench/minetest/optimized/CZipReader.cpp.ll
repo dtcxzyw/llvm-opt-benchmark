@@ -2398,7 +2398,7 @@ _ZN3irr2io10CZipReaderD0Ev.exit:                  ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr2io10CZipReader7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) unnamed_addr #10 align 2 {
+define noundef range(i32 5261658, 1885960808) i32 @_ZNK3irr2io10CZipReader7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) unnamed_addr #10 align 2 {
 entry:
   %IsGZip = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %IsGZip, align 8, !tbaa !34, !range !79, !noundef !80
@@ -2408,7 +2408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZTv0_n56_NK3irr2io10CZipReader7getTypeEv(ptr nocapture noundef readonly %this) unnamed_addr #11 align 2 {
+define noundef range(i32 5261658, 1885960808) i32 @_ZTv0_n56_NK3irr2io10CZipReader7getTypeEv(ptr nocapture noundef readonly %this) unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -56

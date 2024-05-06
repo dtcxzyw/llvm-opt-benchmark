@@ -291,7 +291,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   br i1 %103, label %.lr.ph168, label %._crit_edge169.loopexit, !llvm.loop !10
 
 ._crit_edge169.loopexit:                          ; preds = %.lr.ph168
-  %104 = trunc i64 %indvars.iv.next208 to i32
+  %104 = trunc nsw i64 %indvars.iv.next208 to i32
   br label %._crit_edge169
 
 ._crit_edge169:                                   ; preds = %._crit_edge169.loopexit, %.preheader157
@@ -793,7 +793,7 @@ define void @part_data_dump_res(ptr nocapture noundef readonly %0) local_unnamed
   %56 = getelementptr inbounds %struct.part_row_data_t, ptr %55, i64 %indvars.iv46, i32 2
   %57 = load i32, ptr %56, align 4
   %58 = load ptr, ptr %3, align 8
-  %59 = trunc i64 %indvars.iv46 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv46 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.part_data_dump_res, i32 noundef %59, i32 noundef %57, ptr noundef %58) #8
   br label %60
 
@@ -919,7 +919,7 @@ declare i32 @cr_get_coremap_offset(i32 noundef) local_unnamed_addr #1
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_compare_support(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @_compare_support(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp slt i32 %3, %4
@@ -1270,7 +1270,7 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_part_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @_sort_part_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16

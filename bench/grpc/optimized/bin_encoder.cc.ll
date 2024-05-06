@@ -295,7 +295,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp87.wide, label %while.body, label %for.inc91.loopexit, !llvm.loop !7
 
 for.inc91.loopexit:                               ; preds = %while.body
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %.pre = load ptr, ptr %input, align 8
   %.pre62 = load ptr, ptr %bytes, align 8
   %.pre63 = load i64, ptr %data17, align 8

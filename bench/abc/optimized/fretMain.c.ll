@@ -2849,7 +2849,7 @@ define void @print_node3(ptr nocapture noundef readonly %0) local_unnamed_addr #
 declare void @Abc_ObjPatchFanin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_FlowRetime_IsAcrossCut(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Abc_FlowRetime_IsAcrossCut(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = load ptr, ptr @pManMR, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -4420,7 +4420,7 @@ Abc_FlowRetime_IsAcrossCut.exit:                  ; preds = %215, %212, %181, %V
   br i1 %or.cond.i144, label %.sink.split.i146, label %290
 
 .sink.split.i146:                                 ; preds = %285, %282
-  %289 = tail call fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr noundef nonnull %280, i32 noundef 0), !range !58
+  %289 = tail call fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr noundef nonnull %280, i32 noundef 0)
   br label %290
 
 290:                                              ; preds = %.sink.split.i146, %285
@@ -4466,7 +4466,7 @@ Abc_FlowRetime_IsAcrossCut.exit:                  ; preds = %215, %212, %181, %V
   %.val29.i = load i32, ptr %306, align 4
   %307 = sext i32 %.val29.i to i64
   %308 = icmp slt i64 %indvars.iv.next.i, %307
-  br i1 %308, label %.lr.ph.i, label %.critedge.i, !llvm.loop !59
+  br i1 %308, label %.lr.ph.i, label %.critedge.i, !llvm.loop !58
 
 .critedge.i:                                      ; preds = %304, %273
   %309 = phi ptr [ %274, %273 ], [ %305, %304 ]
@@ -4513,7 +4513,7 @@ Abc_FlowRetime_IsAcrossCut.exit:                  ; preds = %215, %212, %181, %V
   %.val.i143 = load i32, ptr %329, align 4
   %330 = sext i32 %.val.i143 to i64
   %331 = icmp slt i64 %indvars.iv.next49.i, %330
-  br i1 %331, label %.lr.ph45.i, label %Abc_FlowRetime_VerifyPathLatencies.exit, !llvm.loop !60
+  br i1 %331, label %.lr.ph45.i, label %Abc_FlowRetime_VerifyPathLatencies.exit, !llvm.loop !59
 
 Abc_FlowRetime_VerifyPathLatencies.exit:          ; preds = %327, %314
   %.val95.pr = load i32, ptr %5, align 4
@@ -4533,7 +4533,7 @@ Abc_FlowRetime_VerifyPathLatencies.exit:          ; preds = %327, %314
   tail call void @Abc_NtkDeleteObj(ptr noundef %334) #16
   %335 = and i64 %indvars.iv.next197, 4294967295
   %.not = icmp eq i64 %335, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph180, !llvm.loop !61
+  br i1 %.not, label %._crit_edge, label %.lr.ph180, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph180, %Abc_FlowRetime_VerifyPathLatencies.exit
   tail call void @Abc_FlowRetime_UpdateLags()
@@ -4600,7 +4600,7 @@ declare i32 @Abc_NodeIsConst(ptr noundef) local_unnamed_addr #3
 declare void @Abc_FlowRetime_InitState(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 32
@@ -4663,7 +4663,7 @@ define internal fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr nocapture
   %.val73.us = load i32, ptr %14, align 4
   %27 = sext i32 %.val73.us to i64
   %28 = icmp slt i64 %indvars.iv.next193, %27
-  br i1 %28, label %.lr.ph.split.us, label %.critedge, !llvm.loop !62
+  br i1 %28, label %.lr.ph.split.us, label %.critedge, !llvm.loop !61
 
 29:                                               ; preds = %.lr.ph.split.us
   %30 = load ptr, ptr @pManMR, align 8
@@ -4684,7 +4684,7 @@ define internal fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr nocapture
   %36 = and i32 %.val.us, 15
   %37 = icmp eq i32 %36, 8
   %38 = zext i1 %37 to i32
-  %39 = tail call fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr noundef nonnull %23, i32 noundef %38), !range !58
+  %39 = tail call fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr noundef nonnull %23, i32 noundef %38)
   %40 = icmp sgt i32 %39, -1
   %spec.select68.us = select i1 %40, i32 1, i32 %.039106.us
   %41 = select i1 %40, i32 %39, i32 0
@@ -4715,7 +4715,7 @@ define internal fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr nocapture
   %.val73 = load i32, ptr %14, align 4
   %48 = sext i32 %.val73 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph.split.split.split, label %.critedge, !llvm.loop !62
+  br i1 %49, label %.lr.ph.split.split.split, label %.critedge, !llvm.loop !61
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
@@ -4753,7 +4753,7 @@ define internal fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr nocapture
   br i1 %.not93, label %.thread81.sink.split, label %65
 
 65:                                               ; preds = %63, %64
-  %66 = tail call fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr noundef nonnull %56, i32 noundef 1), !range !58
+  %66 = tail call fastcc i32 @Abc_FlowRetime_VerifyPathLatencies_rec(ptr noundef nonnull %56, i32 noundef 1)
   %67 = icmp sgt i32 %66, -1
   %spec.select68 = select i1 %67, i32 1, i32 %.039106
   %68 = select i1 %67, i32 %66, i32 0
@@ -4929,7 +4929,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -5031,9 +5031,8 @@ attributes #18 = { noreturn nounwind }
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
-!58 = !{i32 -1, i32 2}
+!58 = distinct !{!58, !5}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
 !61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}

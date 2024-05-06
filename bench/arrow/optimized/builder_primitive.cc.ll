@@ -1186,30 +1186,30 @@ entry:
   %alignment_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %alignment, ptr %alignment_.i.i, align 8
   %null_bitmap_builder_.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap_builder_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %null_bitmap_builder_.i.i, i8 0, i64 16, i1 false)
   %pool_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %pool, ptr %pool_.i.i.i.i, align 8
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr @_ZN5arrow4util8internalL14kNonNullFillerE, ptr %data_.i.i.i.i, align 8
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %alignment_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity_.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %capacity_.i.i.i.i, i8 0, i64 16, i1 false)
   store i64 %alignment, ptr %alignment_.i.i.i.i, align 8
   %bit_length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %bit_length_.i.i.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %bit_length_.i.i.i, i8 0, i64 64, i1 false)
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14BooleanBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_builder_.i = getelementptr inbounds i8, ptr %this, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_builder_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %data_builder_.i, i8 0, i64 16, i1 false)
   %pool_.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %pool, ptr %pool_.i.i.i, align 8
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr @_ZN5arrow4util8internalL14kNonNullFillerE, ptr %data_.i.i.i, align 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %alignment_.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %capacity_.i.i.i, i8 0, i64 16, i1 false)
   store i64 %alignment, ptr %alignment_.i.i.i, align 8
   %bit_length_.i.i = getelementptr inbounds i8, ptr %this, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bit_length_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bit_length_.i.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %type, align 8
   %id_.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %id_.i, align 8

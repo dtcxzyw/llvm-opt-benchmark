@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ripemd160_md = internal constant %struct.evp_md_st { i32 117, i32 119, i32 20, i64 0, i32 1, ptr @ripe_init, ptr @ripe_update, ptr @ripe_final, ptr null, ptr null, i32 64, i32 0, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_ripemd160() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_ripemd160() local_unnamed_addr #0 {
 entry:
   ret ptr @ripemd160_md
 }

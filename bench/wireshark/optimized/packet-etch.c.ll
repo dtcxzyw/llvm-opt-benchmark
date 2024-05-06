@@ -159,7 +159,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_etch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_etch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %17, label %7
@@ -322,7 +322,7 @@ gbl_symbols_new.exit.i:                           ; preds = %37
   %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, ptr noundef nonnull %9, ptr noundef nonnull %46) #8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %50 = call noalias ptr @fopen(ptr noundef %49, ptr noundef nonnull @.str.80)
+  %50 = call noalias ptr @fopen(ptr noundef readonly %49, ptr noundef nonnull @.str.80)
   %.not.i18.i = icmp eq ptr %50, null
   br i1 %.not.i18.i, label %add_symbols_of_file.exit.i, label %.preheader22.i.i
 
@@ -616,9 +616,9 @@ define internal fastcc void @read_struct(ptr nocapture noundef %0, ptr noundef %
 
 21:                                               ; preds = %13, %4
   %22 = load i32, ptr @hf_etch_value, align 4
-  %23 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12, i32 noundef %22), !range !9
+  %23 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12, i32 noundef %22)
   %24 = load i32, ptr @hf_etch_length, align 4
-  %25 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12, i32 noundef %24), !range !9
+  %25 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12, i32 noundef %24)
   %.not25 = icmp eq i32 %25, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -636,7 +636,7 @@ define internal fastcc void @read_struct(ptr nocapture noundef %0, ptr noundef %
   %34 = load i32, ptr @ett_etch_key, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #8
   %36 = load i32, ptr @hf_etch_value, align 4
-  %37 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %35, i32 noundef %36), !range !9
+  %37 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %35, i32 noundef %36)
   %.b.i = load i1, ptr @gbl_have_symbol, align 4
   br i1 %.b.i, label %38, label %read_key_value.exit
 
@@ -653,10 +653,10 @@ read_key_value.exit:                              ; preds = %.lr.ph, %38
   %44 = load i32, ptr @ett_etch_value, align 4
   %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #8
   %46 = load i32, ptr @hf_etch_value, align 4
-  %47 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %45, i32 noundef %46), !range !9
+  %47 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %45, i32 noundef %46)
   %48 = add nuw nsw i32 %.024, 1
   %exitcond.not = icmp eq i32 %48, %25
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %read_key_value.exit, %21
   %49 = load i32, ptr %0, align 4
@@ -679,7 +679,7 @@ declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_value(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @read_value(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #8
   %or.cond = icmp sgt i8 %6, -65
@@ -762,10 +762,10 @@ read_array_type.exit:                             ; preds = %15, %32
 .lr.ph:                                           ; preds = %read_array_type.exit, %.lr.ph
   %.0.i55 = phi i32 [ %52, %.lr.ph ], [ %48, %read_array_type.exit ]
   %50 = load i32, ptr @hf_etch_value, align 4
-  %51 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %50), !range !9
+  %51 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %50)
   %52 = add nsw i32 %.0.i55, -1
   %53 = icmp ugt i32 %.0.i55, 1
-  br i1 %53, label %.lr.ph, label %read_array.exit, !llvm.loop !11
+  br i1 %53, label %.lr.ph, label %read_array.exit, !llvm.loop !10
 
 read_array.exit:                                  ; preds = %.lr.ph, %read_array_type.exit
   %54 = load i32, ptr %0, align 4
@@ -1105,7 +1105,7 @@ declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @g_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @gbl_symbols_compare_vs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @gbl_symbols_compare_vs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ugt i32 %3, %4
@@ -1146,6 +1146,5 @@ attributes #10 = { noreturn nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 256}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

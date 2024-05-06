@@ -47,7 +47,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 declare i32 @__archive_read_register_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_raw_bid(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 -1, 2) i32 @archive_read_format_raw_bid(ptr noundef %0, i32 noundef %1) #0 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %4, label %6
 

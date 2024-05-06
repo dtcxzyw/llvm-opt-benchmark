@@ -916,7 +916,7 @@ define void @Cudd_tlcInfoFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_ReadIthClause(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Cudd_ReadIthClause(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %53, label %8
 
@@ -997,7 +997,7 @@ bitVectorRead.exit22:                             ; preds = %bitVectorRead.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_PrintTwoLiteralClauses(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_PrintTwoLiteralClauses(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Cudd_FindTwoLiteralClauses(ptr noundef %0, ptr noundef %1)
   %6 = icmp eq ptr %3, null
   br i1 %6, label %7, label %10
@@ -1248,13 +1248,13 @@ define internal fastcc noalias noundef ptr @computeClauses(ptr nocapture readonl
   %6 = add nsw i32 %5, 1
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %3, i8 0, i64 %8, i1 false)
   %9 = load ptr, ptr @Tolp, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %9, i8 0, i64 %8, i1 false)
   %10 = load ptr, ptr @Eolv, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %10, i8 0, i64 %8, i1 false)
   %11 = load ptr, ptr @Eolp, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %11, i8 0, i64 %8, i1 false)
   %12 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %tlcInfoAlloc.exit

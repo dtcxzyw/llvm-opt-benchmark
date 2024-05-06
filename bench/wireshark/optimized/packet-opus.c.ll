@@ -276,7 +276,7 @@ parse_size_field.exit.thread:                     ; preds = %.split194, %parse_s
 55:                                               ; preds = %parse_size_field.exit
   %56 = load i32, ptr @hf_opus_frame_size, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef %phi.call, i32 noundef 0) #4
-  %58 = trunc i32 %phi.call to i16
+  %58 = trunc nuw nsw i32 %phi.call to i16
   %59 = add nuw nsw i16 %58, 1
   store i16 %59, ptr %5, align 16
   %60 = getelementptr inbounds i8, ptr %5, i64 2
@@ -491,7 +491,7 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
 
 155:                                              ; preds = %.preheader, %155
   %indvars.iv272 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next273, %155 ]
-  %156 = trunc i64 %indvars.iv272 to i32
+  %156 = trunc nuw nsw i64 %indvars.iv272 to i32
   %157 = mul i32 %150, %156
   %158 = add i32 %157, %.1185
   %159 = trunc i32 %158 to i16

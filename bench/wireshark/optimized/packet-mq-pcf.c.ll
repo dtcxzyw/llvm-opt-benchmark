@@ -1055,7 +1055,7 @@ define hidden void @proto_reg_handoff_mqpcf() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mqpcf_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mqpcf_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca [256 x i8], align 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %81, label %6

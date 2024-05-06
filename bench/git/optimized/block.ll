@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.restart_key_less.last_key = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @header_size(i32 noundef %version) local_unnamed_addr #0 {
+define dso_local range(i32 24, 29) i32 @header_size(i32 noundef %version) local_unnamed_addr #0 {
 entry:
   switch i32 %version, label %sw.epilog [
     i32 1, label %return
@@ -40,7 +40,7 @@ return:                                           ; preds = %entry, %sw.bb1
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @footer_size(i32 noundef %version) local_unnamed_addr #0 {
+define dso_local range(i32 68, 73) i32 @footer_size(i32 noundef %version) local_unnamed_addr #0 {
 entry:
   switch i32 %version, label %sw.epilog [
     i32 1, label %return
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @block_writer_add(ptr noundef %w, ptr noundef %rec) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @block_writer_add(ptr noundef %w, ptr noundef %rec) local_unnamed_addr #0 {
 entry:
   %last = alloca %struct.strbuf, align 8
   %out = alloca %struct.string_view, align 8
@@ -412,7 +412,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @block_reader_init(ptr nocapture noundef writeonly %br, ptr noundef %block, i32 noundef %header_off, i32 noundef %table_block_size, i32 noundef %hash_size) local_unnamed_addr #0 {
+define dso_local range(i32 -7, 1) i32 @block_reader_init(ptr nocapture noundef writeonly %br, ptr noundef %block, i32 noundef %header_off, i32 noundef %table_block_size, i32 noundef %hash_size) local_unnamed_addr #0 {
 entry:
   %dst_len = alloca i64, align 8
   %src_len = alloca i64, align 8
@@ -639,7 +639,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @block_iter_next(ptr noundef %it, ptr noundef %rec) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 2) i32 @block_iter_next(ptr noundef %it, ptr noundef %rec) local_unnamed_addr #0 {
 entry:
   %in = alloca %struct.string_view, align 8
   %extra = alloca i8, align 1
@@ -719,7 +719,7 @@ declare i32 @reftable_decode_key(ptr noundef, ptr noundef, ptr noundef byval(%st
 declare i32 @reftable_record_decode(ptr noundef, ptr noundef byval(%struct.strbuf) align 8, i8 noundef zeroext, ptr, i64, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @block_reader_first_key(ptr nocapture noundef readonly %br, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @block_reader_first_key(ptr nocapture noundef readonly %br, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %extra = alloca i8, align 1
   %0 = load i32, ptr %br, align 8
@@ -750,16 +750,16 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @block_iter_seek(ptr noundef %it, ptr noundef %want) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @block_iter_seek(ptr noundef %it, ptr noundef %want) local_unnamed_addr #0 {
 entry:
   %br = getelementptr inbounds i8, ptr %it, i64 8
   %0 = load ptr, ptr %br, align 8
-  %call = tail call i32 @block_reader_seek(ptr noundef %0, ptr noundef %it, ptr noundef %want), !range !7
+  %call = tail call i32 @block_reader_seek(ptr noundef %0, ptr noundef %it, ptr noundef %want)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @block_reader_seek(ptr noundef %br, ptr noundef %it, ptr noundef %want) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @block_reader_seek(ptr noundef %br, ptr noundef %it, ptr noundef %want) local_unnamed_addr #0 {
 entry:
   %args = alloca %struct.restart_find_args, align 8
   %rec = alloca %struct.reftable_record, align 8
@@ -835,7 +835,7 @@ if.then4.i.i:                                     ; preds = %while.body
 
 block_iter_copy_from.exit:                        ; preds = %while.body, %if.then4.i.i
   call void @strbuf_addbuf(ptr noundef nonnull %last_key.i, ptr noundef nonnull %last_key4.i) #11
-  %call9 = call i32 @block_iter_next(ptr noundef nonnull %next, ptr noundef nonnull %rec), !range !8
+  %call9 = call i32 @block_iter_next(ptr noundef nonnull %next, ptr noundef nonnull %rec)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %done, label %if.end13
 
@@ -978,5 +978,3 @@ attributes #11 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -3, i32 1}
-!8 = !{i32 -3, i32 2}

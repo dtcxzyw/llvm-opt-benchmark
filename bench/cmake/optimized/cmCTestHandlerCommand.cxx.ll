@@ -1910,7 +1910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc i32 %.0.lcssa.i to i8
+  %60 = trunc nuw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -2892,7 +2892,7 @@ define linkonce_odr dso_local void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIP
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
   %7 = ashr exact i64 %6, 4
-  %8 = tail call i64 @llvm.ctlz.i64(i64 %7, i1 true), !range !39
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
   %9 = shl nuw nsw i64 %8, 1
   %10 = xor i64 %9, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr %0, ptr %1, i64 noundef %10)
@@ -2931,7 +2931,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   %18 = sub i64 %.sroa.03.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i.i
   %spec.select7.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %18, i64 -2147483648)
   %.08.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -2941,7 +2941,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcE
 
 20:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i.i, i64 16, i1 false)
-  br label %14, !llvm.loop !40
+  br label %14, !llvm.loop !39
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i.i
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %.sroa.07.0.i.i.i, align 8
@@ -2949,7 +2949,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt17basic_string
   store ptr %.sroa.3.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx5.i.i.i, align 8
   %21 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 16
   %.not.i.i = icmp eq ptr %21, %1
-  br i1 %.not.i.i, label %_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !41
+  br i1 %.not.i.i, label %_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !40
 
 22:                                               ; preds = %3
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_(ptr %0, ptr %1)
@@ -2974,7 +2974,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 
 .lr.ph:                                           ; preds = %.lr.ph37
   %10 = icmp eq i64 %21, 0
-  br i1 %10, label %.split.i.i, label %.lr.ph37, !llvm.loop !42
+  br i1 %10, label %.split.i.i, label %.lr.ph37, !llvm.loop !41
 
 .split.i.i:                                       ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa33 = phi i64 [ %7, %.lr.ph.preheader ], [ %25, %.lr.ph ]
@@ -2993,7 +2993,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %.lcssa33, i64 %.sroa.02.0.copyload.i.i, ptr %.sroa.23.0.copyload.i.i)
   %13 = icmp eq i64 %.0.i.i, 0
   %14 = add nsw i64 %.0.i.i, -1
-  br i1 %13, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, label %.split10.i.i, !llvm.loop !43
+  br i1 %13, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, label %.split10.i.i, !llvm.loop !42
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit: ; preds = %.split10.i.i
   %15 = icmp sgt i64 %.lcssa, 16
@@ -3011,7 +3011,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11c
   %19 = ashr exact i64 %18, 4
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %19, i64 %.sroa.02.0.copyload.i.i.i, ptr %.sroa.23.0.copyload.i.i.i)
   %20 = icmp sgt i64 %18, 16
-  br i1 %20, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, !llvm.loop !44
+  br i1 %20, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, !llvm.loop !43
 
 .lr.ph37:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %storemerge1836 = phi ptr [ %22, %.lr.ph ], [ %1, %.lr.ph.preheader ]
@@ -3023,7 +3023,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11c
   %24 = sub i64 %23, %4
   %25 = ashr exact i64 %24, 4
   %26 = icmp sgt i64 %25, 16
-  br i1 %26, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, !llvm.loop !42
+  br i1 %26, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, !llvm.loop !41
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit: ; preds = %.lr.ph37, %.lr.ph.i.i, %3, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit
   ret void
@@ -3069,14 +3069,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %17 = sub i64 %.sroa.01.0.copyload.i.i, %.sroa.0.0.copyload.i.i
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %17, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %.0.i.i.i.i = phi i32 [ %.0.i4.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ], [ %15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %18 = icmp slt i32 %.0.i.i.i.i, 0
   %19 = getelementptr inbounds i8, ptr %.sroa.024.1.i, i64 16
-  br i1 %18, label %13, label %.preheader.i, !llvm.loop !45
+  br i1 %18, label %13, label %.preheader.i, !llvm.loop !44
 
 .preheader.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit21.i
   %.sroa.0.0.pn.i = phi ptr [ %.sroa.0.1.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit21.i ], [ %.sroa.0.0.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i ]
@@ -3098,13 +3098,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i17.i: ; preds = %_ZNSt11c
   %23 = sub i64 %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i9.i
   %spec.select7.i.i.i.i18.i = tail call i64 @llvm.smax.i64(i64 %23, i64 -2147483648)
   %.08.i.i.i.i19.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i18.i, i64 2147483647)
-  %.0.i4.i.i.i20.i = trunc i64 %.08.i.i.i.i19.i to i32
+  %.0.i4.i.i.i20.i = trunc nsw i64 %.08.i.i.i.i19.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit21.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit21.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i17.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i
   %.0.i.i.i16.i = phi i32 [ %.0.i4.i.i.i20.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i17.i ], [ %21, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11.i ]
   %24 = icmp slt i32 %.0.i.i.i16.i, 0
-  br i1 %24, label %.preheader.i, label %25, !llvm.loop !46
+  br i1 %24, label %.preheader.i, label %25, !llvm.loop !45
 
 25:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit21.i
   %26 = icmp ult ptr %.sroa.024.1.i, %.sroa.0.1.i
@@ -3116,7 +3116,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.024.1.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.1.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.1.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %12, !llvm.loop !47
+  br label %12, !llvm.loop !46
 
 _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_SD_T0_.exit: ; preds = %25
   ret ptr %.sroa.024.1.i
@@ -3155,7 +3155,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i: ; preds = %_ZNSt11char_
   %17 = sub i64 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
   %spec.select7.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %17, i64 -2147483648)
   %.08.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i = trunc i64 %.08.i.i.i.i to i32
+  %.0.i4.i.i.i = trunc nsw i64 %.08.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i
@@ -3166,7 +3166,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string
   %20 = getelementptr inbounds %"class.std::basic_string_view", ptr %0, i64 %.036
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   %21 = icmp slt i64 %spec.select, %7
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit ]
@@ -3214,7 +3214,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %39 = sub i64 %.sroa.01.0.copyload.i.i, %3
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %39, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -3226,7 +3226,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt17basic_string_
   %42 = getelementptr inbounds %"class.std::basic_string_view", ptr %0, i64 %.019.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   %43 = icmp sgt i64 %.0920.i, %1
-  br i1 %43, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_less_valEEvT_T0_SE_T1_RT2_.exit, !llvm.loop !49
+  br i1 %43, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_less_valEEvT_T0_SE_T1_RT2_.exit, !llvm.loop !48
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_less_valEEvT_T0_SE_T1_RT2_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %41, %33
   %.0.lcssa.i = phi i64 [ %.1, %33 ], [ %.019.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i ], [ %.0920.i, %41 ]
@@ -3267,7 +3267,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i: ; preds = %_ZNSt11char_
   %14 = sub i64 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
   %spec.select7.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %14, i64 -2147483648)
   %.08.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i = trunc i64 %.08.i.i.i.i to i32
+  %.0.i4.i.i.i = trunc nsw i64 %.08.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i
@@ -3294,7 +3294,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i35: ; preds = %_ZNSt11cha
   %20 = sub i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i27
   %spec.select7.i.i.i.i36 = tail call i64 @llvm.smax.i64(i64 %20, i64 -2147483648)
   %.08.i.i.i.i37 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i36, i64 2147483647)
-  %.0.i4.i.i.i38 = trunc i64 %.08.i.i.i.i37 to i32
+  %.0.i4.i.i.i38 = trunc nsw i64 %.08.i.i.i.i37 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit39
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit39: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i35
@@ -3328,7 +3328,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i49: ; preds = %_ZNSt11cha
   %27 = sub i64 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i27
   %spec.select7.i.i.i.i50 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %.08.i.i.i.i51 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i50, i64 2147483647)
-  %.0.i4.i.i.i52 = trunc i64 %.08.i.i.i.i51 to i32
+  %.0.i4.i.i.i52 = trunc nsw i64 %.08.i.i.i.i51 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit53
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit53: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i43, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i49
@@ -3370,7 +3370,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i63: ; preds = %_ZNSt11cha
   %35 = sub i64 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i27
   %spec.select7.i.i.i.i64 = tail call i64 @llvm.smax.i64(i64 %35, i64 -2147483648)
   %.08.i.i.i.i65 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i64, i64 2147483647)
-  %.0.i4.i.i.i66 = trunc i64 %.08.i.i.i.i65 to i32
+  %.0.i4.i.i.i66 = trunc nsw i64 %.08.i.i.i.i65 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit67
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit67: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i57, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i63
@@ -3404,7 +3404,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i77: ; preds = %_ZNSt11cha
   %42 = sub i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i27
   %spec.select7.i.i.i.i78 = tail call i64 @llvm.smax.i64(i64 %42, i64 -2147483648)
   %.08.i.i.i.i79 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i78, i64 2147483647)
-  %.0.i4.i.i.i80 = trunc i64 %.08.i.i.i.i79 to i32
+  %.0.i4.i.i.i80 = trunc nsw i64 %.08.i.i.i.i79 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit81
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit81: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i71, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i77
@@ -3472,7 +3472,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i: ; preds = %_ZNSt11char_
   %10 = sub i64 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
   %spec.select7.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %10, i64 -2147483648)
   %.08.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i = trunc i64 %.08.i.i.i.i to i32
+  %.0.i4.i.i.i = trunc nsw i64 %.08.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i
@@ -3516,7 +3516,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %22 = sub i64 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i.i
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %22, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -3526,7 +3526,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcE
 
 24:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i, i64 16, i1 false)
-  br label %18, !llvm.loop !40
+  br label %18, !llvm.loop !39
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
   store i64 %.sroa.01.0.copyload.i, ptr %.sroa.07.0.i, align 8
@@ -3537,7 +3537,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt17basic_string
 25:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 16
   %.not = icmp eq ptr %.sroa.0.0, %1
-  br i1 %.not, label %.loopexit, label %6, !llvm.loop !50
+  br i1 %.not, label %.loopexit, label %6, !llvm.loop !49
 
 .loopexit:                                        ; preds = %25, %.preheader, %2
   ret void
@@ -3841,7 +3841,7 @@ attributes #25 = { builtin allocsize(0) }
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
-!39 = !{i64 0, i64 65}
+!39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
@@ -3852,4 +3852,3 @@ attributes #25 = { builtin allocsize(0) }
 !47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
 !49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}

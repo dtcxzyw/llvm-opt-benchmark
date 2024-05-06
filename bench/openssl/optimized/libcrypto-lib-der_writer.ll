@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_precompiled(ptr noundef %pkt, i32 noundef %tag, ptr noundef %precompiled, i64 noundef %precompiled_n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_precompiled(ptr noundef %pkt, i32 noundef %tag, ptr noundef %precompiled, i64 noundef %precompiled_n) local_unnamed_addr #0 {
 entry:
   %size1.i = alloca i64, align 8
   %size2.i = alloca i64, align 8
@@ -80,7 +80,7 @@ land.end:                                         ; preds = %if.end.i, %land.lhs
 declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_boolean(ptr noundef %pkt, i32 noundef %tag, i32 noundef %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_boolean(ptr noundef %pkt, i32 noundef %tag, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %size1.i = alloca i64, align 8
   %size2.i = alloca i64, align 8
@@ -172,7 +172,7 @@ declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_un
 declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_octet_string(ptr noundef %pkt, i32 noundef %tag, ptr noundef %data, i64 noundef %data_n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_octet_string(ptr noundef %pkt, i32 noundef %tag, ptr noundef %data, i64 noundef %data_n) local_unnamed_addr #0 {
 entry:
   %size1.i = alloca i64, align 8
   %size2.i = alloca i64, align 8
@@ -254,7 +254,7 @@ land.end:                                         ; preds = %if.end.i, %int_end_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_octet_string_uint32(ptr noundef %pkt, i32 noundef %tag, i32 noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_octet_string_uint32(ptr noundef %pkt, i32 noundef %tag, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %tmp = alloca [4 x i8], align 4
   store i32 0, ptr %tmp, align 4
@@ -276,21 +276,21 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %entry
-  %call = call i32 @ossl_DER_w_octet_string(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull %tmp, i64 noundef 4), !range !6
+  %call = call i32 @ossl_DER_w_octet_string(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull %tmp, i64 noundef 4)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_uint32(ptr noundef %pkt, i32 noundef %tag, i32 noundef %v) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_uint32(ptr noundef %pkt, i32 noundef %tag, i32 noundef %v) local_unnamed_addr #0 {
 entry:
   %v.addr = alloca i32, align 4
   store i32 %v, ptr %v.addr, align 4
-  %call = call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef nonnull %v.addr), !range !6
+  %call = call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef nonnull %v.addr)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr nocapture noundef readonly %put_bytes, ptr noundef %v) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr nocapture noundef readonly %put_bytes, ptr noundef %v) unnamed_addr #0 {
 entry:
   %size1.i = alloca i64, align 8
   %size2.i = alloca i64, align 8
@@ -314,7 +314,7 @@ land.lhs.true:                                    ; preds = %entry, %int_start_c
   br i1 %tobool2.not, label %land.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %call4 = call i32 %put_bytes(ptr noundef %pkt, ptr noundef %v, ptr noundef nonnull %top_byte) #4, !callees !7
+  %call4 = call i32 %put_bytes(ptr noundef %pkt, ptr noundef %v, ptr noundef nonnull %top_byte) #4, !callees !6
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %land.end, label %land.lhs.true6
 
@@ -397,7 +397,7 @@ while.body:                                       ; preds = %entry, %while.body
   %inc = add nuw nsw i64 %n.08, 1
   %shr = lshr i32 %tmp.07, 8
   %cmp.not = icmp ult i32 %tmp.07, 256
-  br i1 %cmp.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !8
+  br i1 %cmp.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !7
 
 while.cond.while.end_crit_edge:                   ; preds = %while.body
   store i32 %tmp.07, ptr %top_byte, align 4
@@ -414,7 +414,7 @@ while.end:                                        ; preds = %while.cond.while.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_bn(ptr noundef %pkt, i32 noundef %tag, ptr noundef %v) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_bn(ptr noundef %pkt, i32 noundef %tag, ptr noundef %v) local_unnamed_addr #0 {
 entry:
   %v.addr.i = alloca i32, align 4
   %cmp = icmp eq ptr %v, null
@@ -433,12 +433,12 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i)
   store i32 0, ptr %v.addr.i, align 4
-  %call.i = call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef nonnull %v.addr.i), !range !6
+  %call.i = call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef nonnull %v.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i)
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_bn, ptr noundef nonnull %v), !range !6
+  %call6 = tail call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_bn, ptr noundef nonnull %v)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end5, %if.then3
@@ -451,7 +451,7 @@ declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @int_put_bytes_bn(ptr noundef %pkt, ptr noundef %v, ptr nocapture noundef writeonly %top_byte) #0 {
+define internal range(i32 0, 2) i32 @int_put_bytes_bn(ptr noundef %pkt, ptr noundef %v, ptr nocapture noundef writeonly %top_byte) #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr null, ptr %p, align 8
@@ -489,7 +489,7 @@ return:                                           ; preds = %if.end, %if.then7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_null(ptr noundef %pkt, i32 noundef %tag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_null(ptr noundef %pkt, i32 noundef %tag) local_unnamed_addr #0 {
 entry:
   %size1.i = alloca i64, align 8
   %size2.i = alloca i64, align 8
@@ -566,7 +566,7 @@ land.end:                                         ; preds = %if.end.i, %int_end_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_begin_sequence(ptr noundef %pkt, i32 noundef %tag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_begin_sequence(ptr noundef %pkt, i32 noundef %tag) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i32 %tag, 0
   br i1 %cmp.i, label %land.rhs, label %if.end.i
@@ -592,7 +592,7 @@ land.end:                                         ; preds = %if.end.i, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_end_sequence(ptr noundef %pkt, i32 noundef %tag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_end_sequence(ptr noundef %pkt, i32 noundef %tag) local_unnamed_addr #0 {
 entry:
   %size1.i = alloca i64, align 8
   %size2.i = alloca i64, align 8
@@ -713,6 +713,5 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = !{ptr @int_put_bytes_bn, ptr @int_put_bytes_uint32}
-!8 = distinct !{!8, !5}
+!6 = !{ptr @int_put_bytes_bn, ptr @int_put_bytes_uint32}
+!7 = distinct !{!7, !5}

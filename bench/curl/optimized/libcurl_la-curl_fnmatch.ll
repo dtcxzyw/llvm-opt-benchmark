@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_fnmatch(ptr nocapture noundef readnone %ptr, ptr noundef %pattern, ptr noundef %string) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @Curl_fnmatch(ptr nocapture noundef readnone %ptr, ptr noundef %pattern, ptr noundef %string) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %pattern, null
   %tobool1 = icmp ne ptr %string, null

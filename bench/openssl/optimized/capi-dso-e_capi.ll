@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @bind_engine(ptr nocapture noundef readnone %e, ptr nocapture noundef readnone %id, ptr nocapture noundef readnone %fns) local_unnamed_addr #0 {
+define noundef i32 @bind_engine(ptr nocapture noundef readnone %e, ptr nocapture noundef readnone %id, ptr nocapture noundef readnone %fns) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
+define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.inv = icmp ult i64 %v, 196608
   %. = select i1 %cmp.inv, i64 0, i64 196608

@@ -154,7 +154,7 @@ entry:
 define dso_local void @i2c_set16(ptr nocapture noundef readonly %i2cdev, i8 noundef zeroext %reg, i16 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %shr = lshr i16 %value, 8
-  %conv1 = trunc i16 %shr to i8
+  %conv1 = trunc nuw i16 %shr to i8
   %conv3 = trunc i16 %value to i8
   %call.i = tail call noalias dereferenceable_or_null(3) ptr @g_malloc(i64 noundef 3) #8
   store i8 %reg, ptr %call.i, align 1

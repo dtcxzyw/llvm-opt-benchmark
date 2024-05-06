@@ -62,7 +62,7 @@ define void @dsytrs_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %41
-  %45 = mul nsw i32 %32, 3
+  %45 = mul nuw nsw i32 %32, 3
   %46 = add nsw i32 %45, -2
   store i32 %46, ptr %13, align 4, !tbaa !3
   %47 = load i32, ptr %9, align 4, !tbaa !3

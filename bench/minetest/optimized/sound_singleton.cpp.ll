@@ -23,12 +23,12 @@ $__clang_call_terminate = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str = private unnamed_addr constant [52 x i8] c"Audio: Global Initialization: Failed to open device\00", align 1
 @.str.1 = private unnamed_addr constant [55 x i8] c"Audio: Global Initialization: Failed to create context\00", align 1
 @.str.2 = private unnamed_addr constant [61 x i8] c"Audio: Global Initialization: Failed to make current context\00", align 1
 @.str.3 = private unnamed_addr constant [44 x i8] c"Audio: Global Initialization: OpenAL Error \00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.4 = private unnamed_addr constant [35 x i8] c"Audio: Global Initialized: OpenAL \00", align 1
 @.str.5 = private unnamed_addr constant [9 x i8] c", using \00", align 1
 @.str.6 = private unnamed_addr constant [29 x i8] c"Audio: Global Deinitialized.\00", align 1

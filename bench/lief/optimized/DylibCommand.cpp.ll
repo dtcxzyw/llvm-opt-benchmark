@@ -38,7 +38,7 @@ $_ZNK4LIEF6ObjectneERKS0_ = comdat any
 @_ZN4LIEF5MachO12DylibCommandC1ERKNS0_7details13dylib_commandE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4LIEF5MachO12DylibCommandC2ERKNS0_7details13dylib_commandE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i48 @_ZN4LIEF5MachO12DylibCommand11int2versionEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define range(i48 0, 1099511627776) i48 @_ZN4LIEF5MachO12DylibCommand11int2versionEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = lshr i32 %0, 16
   %3 = trunc i32 %0 to i16
   %4 = lshr i16 %3, 8
@@ -60,7 +60,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef i32 @_ZN4LIEF5MachO12DylibCommand11version2intESt5arrayItLm3EE(i48 %0) local_unnamed_addr #0 align 2 {
   %.sroa.0.0.extract.trunc = trunc i48 %0 to i32
   %.sroa.3.0.extract.shift = lshr i48 %0, 32
-  %.sroa.3.0.extract.trunc = trunc i48 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw nsw i48 %.sroa.3.0.extract.shift to i32
   %2 = lshr i32 %.sroa.0.0.extract.trunc, 8
   %3 = and i32 %2, 16776960
   %4 = shl i32 %.sroa.0.0.extract.trunc, 16
@@ -229,7 +229,7 @@ define noundef i32 @_ZNK4LIEF5MachO12DylibCommand9timestampEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i48 @_ZNK4LIEF5MachO12DylibCommand15current_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
+define range(i48 0, 1099511627776) i48 @_ZNK4LIEF5MachO12DylibCommand15current_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 16
@@ -247,7 +247,7 @@ define i48 @_ZNK4LIEF5MachO12DylibCommand15current_versionEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i48 @_ZNK4LIEF5MachO12DylibCommand21compatibility_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
+define range(i48 0, 1099511627776) i48 @_ZNK4LIEF5MachO12DylibCommand21compatibility_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 16
@@ -282,7 +282,7 @@ define void @_ZN4LIEF5MachO12DylibCommand9timestampEj(ptr nocapture noundef nonn
 define void @_ZN4LIEF5MachO12DylibCommand15current_versionESt5arrayItLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0, i48 %1) local_unnamed_addr #9 align 2 {
   %.sroa.0.0.extract.trunc.i = trunc i48 %1 to i32
   %.sroa.3.0.extract.shift.i = lshr i48 %1, 32
-  %.sroa.3.0.extract.trunc.i = trunc i48 %.sroa.3.0.extract.shift.i to i32
+  %.sroa.3.0.extract.trunc.i = trunc nuw nsw i48 %.sroa.3.0.extract.shift.i to i32
   %3 = lshr i32 %.sroa.0.0.extract.trunc.i, 8
   %4 = and i32 %3, 16776960
   %5 = shl i32 %.sroa.0.0.extract.trunc.i, 16
@@ -297,7 +297,7 @@ define void @_ZN4LIEF5MachO12DylibCommand15current_versionESt5arrayItLm3EE(ptr n
 define void @_ZN4LIEF5MachO12DylibCommand21compatibility_versionESt5arrayItLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0, i48 %1) local_unnamed_addr #9 align 2 {
   %.sroa.0.0.extract.trunc.i = trunc i48 %1 to i32
   %.sroa.3.0.extract.shift.i = lshr i48 %1, 32
-  %.sroa.3.0.extract.trunc.i = trunc i48 %.sroa.3.0.extract.shift.i to i32
+  %.sroa.3.0.extract.trunc.i = trunc nuw nsw i48 %.sroa.3.0.extract.shift.i to i32
   %3 = lshr i32 %.sroa.0.0.extract.trunc.i, 8
   %4 = and i32 %3, 16776960
   %5 = shl i32 %.sroa.0.0.extract.trunc.i, 16
@@ -325,14 +325,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO12DylibCom
   %6 = trunc i32 %4 to i16
   %7 = lshr i16 %6, 8
   %8 = and i16 %6, 255
-  %.sroa.019.0.extract.trunc = trunc i32 %5 to i16
+  %.sroa.019.0.extract.trunc = trunc nuw i32 %5 to i16
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 16
   %12 = trunc i32 %10 to i16
   %13 = lshr i16 %12, 8
   %14 = and i16 %12, 255
-  %.sroa.0.0.extract.trunc = trunc i32 %11 to i16
+  %.sroa.0.0.extract.trunc = trunc nuw i32 %11 to i16
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO11LoadCommand5printERSo(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4leftRSt8ios_base)

@@ -543,7 +543,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #0 align 2 {
 entry:
   %fConstraint = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %fConstraint, align 8
@@ -673,7 +673,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
 
 if.end:                                           ; preds = %if.end2.i.i
   %fImpl = getelementptr inbounds i8, ptr %ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %fImpl, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %fImpl, i8 0, i64 25, i1 false)
   br label %return
 
 return:                                           ; preds = %return.sink.split.i.i, %entry, %if.end
@@ -904,7 +904,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define signext i8 @ucfpos_matchesField_75(ptr noundef readonly %ptr, i32 noundef %category, i32 noundef %field, ptr nocapture noundef %ec) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucfpos_matchesField_75(ptr noundef readonly %ptr, i32 noundef %category, i32 noundef %field, ptr nocapture noundef %ec) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1

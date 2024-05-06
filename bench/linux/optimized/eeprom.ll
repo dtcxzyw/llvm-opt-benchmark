@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @eeprom_parse_request.__msg.2 = internal constant [39 x i8] c"reading cross page boundary is illegal\00", align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @eeprom_parse_request(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @eeprom_parse_request(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -301,7 +301,7 @@ define internal i32 @eeprom_prepare_data(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @eeprom_reply_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 0, -3) i32 @eeprom_reply_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 7

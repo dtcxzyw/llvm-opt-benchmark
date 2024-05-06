@@ -1588,8 +1588,8 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i, 
   br label %return.sink.split
 
 if.end24:                                         ; preds = %if.end12
-  %Capacity.i37 = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %Capacity.i37, align 4
+  %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
+  %8 = load i32, ptr %Capacity.i38, align 4
   %cmp26 = icmp ult i32 %8, %5
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -1601,19 +1601,19 @@ if.then27:                                        ; preds = %if.end24
 
 if.else:                                          ; preds = %if.end24
   %tobool30.not = icmp eq i32 %6, 0
-  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i46
+  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i47
 
-if.then.i.i.i.i.i46:                              ; preds = %if.else
+if.then.i.i.i.i.i47:                              ; preds = %if.else
   %add.ptr.idx = mul nuw nsw i64 %conv.i32, 5
   %9 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %9, ptr align 1 %0, i64 %add.ptr.idx, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then.i.i.i.i.i46, %if.else, %if.then27
-  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i46 ]
+if.end37:                                         ; preds = %if.then.i.i.i.i.i47, %if.else, %if.then27
+  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i47 ]
   %10 = load i32, ptr %Size.i29, align 8
-  %conv.i50 = zext i32 %10 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i50
+  %conv.i51 = zext i32 %10 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i51
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
@@ -1622,8 +1622,8 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %12, i64 %CurSize.0
-  %add.ptr.i.idx55 = sub nsw i64 %conv.i50, %CurSize.0
-  %gepdiff = mul nsw i64 %add.ptr.i.idx55, 5
+  %add.ptr.i.idx57 = sub nsw i64 %conv.i51, %CurSize.0
+  %gepdiff = mul nsw i64 %add.ptr.i.idx57, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 1 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
 

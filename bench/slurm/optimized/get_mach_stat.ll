@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @conf = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @get_memory(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 23) i32 @get_memory(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i64 1, ptr %0, align 8
   %2 = tail call i64 @sysconf(i32 noundef 85) #5
   %3 = icmp slt i64 %2, 1
@@ -44,7 +44,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_tmp_disk(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 3, 2) i32 @get_tmp_disk(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.statvfs, align 8
   store i32 0, ptr %0, align 4
   %4 = icmp eq ptr %1, null

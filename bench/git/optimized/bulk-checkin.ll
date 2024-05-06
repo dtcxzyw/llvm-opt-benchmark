@@ -115,7 +115,7 @@ declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 declare void @fsync_or_die(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @index_blob_bulk_checkin(ptr noundef %oid, i32 noundef %fd, i64 noundef %size, ptr noundef %path, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @index_blob_bulk_checkin(ptr noundef %oid, i32 noundef %fd, i64 noundef %size, ptr noundef %path, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %s.i.i = alloca %struct.git_zstream, align 8
   %ibuf.i.i = alloca [16384 x i8], align 16
@@ -249,12 +249,12 @@ if.end.i44.i:                                     ; preds = %if.then.i.i
   br i1 %cmp11.not.i.i, label %if.end15.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.end.i44.i
-  %conv14.i.i = trunc i64 %cond.i.i to i32
+  %conv14.i.i = trunc nuw nsw i64 %cond.i.i to i32
   call void (ptr, ...) @die(ptr noundef nonnull @.str.10, i32 noundef %conv14.i.i, ptr noundef %path) #15
   unreachable
 
 if.end15.i.i:                                     ; preds = %if.end.i44.i
-  %add.i.i = add nsw i64 %cond.i.i, %offset.03.i.i
+  %add.i.i = add nuw nsw i64 %cond.i.i, %offset.03.i.i
   %cmp16.i.i = icmp slt i64 %already_hashed_to.1.i, %add.i.i
   br i1 %cmp16.i.i, label %if.then18.i.i, label %if.end28.i.i
 
@@ -432,11 +432,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %36, ptr noundef nonnull dereferenceable(32) %oid, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %36, ptr noundef nonnull readonly dereferenceable(32) %oid, i64 32)
   br label %oideq.exit.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %36, ptr noundef nonnull dereferenceable(20) %oid, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %36, ptr noundef nonnull readonly dereferenceable(20) %oid, i64 20)
   br label %oideq.exit.i.i
 
 oideq.exit.i.i:                                   ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -453,7 +453,7 @@ if.then44.i:                                      ; preds = %oideq.exit.i.i, %if
   br label %deflate_blob_to_pack.exit
 
 if.else.i:                                        ; preds = %for.cond.i.i, %for.cond.preheader.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %idx.0.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %idx.0.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   %42 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %idx.0.i, i64 32

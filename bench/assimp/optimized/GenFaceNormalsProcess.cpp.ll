@@ -62,12 +62,12 @@ define hidden noundef zeroext i1 @_ZNK6Assimp21GenFaceNormalsProcess8IsActiveEj(
 entry:
   %force_ = getelementptr inbounds i8, ptr %this, i64 24
   %and = lshr i32 %pFlags, 29
-  %0 = trunc i32 %and to i8
+  %0 = trunc nuw nsw i32 %and to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %force_, align 8
   %flippedWindingOrder_ = getelementptr inbounds i8, ptr %this, i64 25
   %and2 = lshr i32 %pFlags, 24
-  %1 = trunc i32 %and2 to i8
+  %1 = trunc nuw i32 %and2 to i8
   %frombool4 = and i8 %1, 1
   store i8 %frombool4, ptr %flippedWindingOrder_, align 1
   %leftHanded_ = getelementptr inbounds i8, ptr %this, i64 26

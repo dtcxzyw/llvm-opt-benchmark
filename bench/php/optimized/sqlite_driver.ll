@@ -871,7 +871,7 @@ define internal i32 @php_sqlite3_collation_callback(ptr noundef %0, i32 noundef 
   %49 = load i64, ptr %7, align 8
   %50 = icmp sgt i64 %49, 0
   %.lobit = ashr i64 %49, 63
-  %spec.select = trunc i64 %.lobit to i32
+  %spec.select = trunc nsw i64 %.lobit to i32
   %.0 = select i1 %50, i32 1, i32 %spec.select
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   br label %51
@@ -884,7 +884,7 @@ define internal i32 @php_sqlite3_collation_callback(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pdo_sqlite_handle_factory(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_handle_factory(ptr noundef %0, ptr noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -1459,7 +1459,7 @@ declare i32 @sqlite3_open_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @authorizer(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal range(i32 0, 2) i32 @authorizer(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %cond = icmp eq i32 %1, 24
   br i1 %cond, label %7, label %10
 
@@ -1625,7 +1625,7 @@ pdo_attr_lval.exit.thread:                        ; preds = %4, %13, %pdo_attr_l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @sqlite_handle_doer(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @sqlite_handle_doer(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1808,7 +1808,7 @@ define internal void @pdo_sqlite_fetch_error_func(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pdo_sqlite_get_attribute(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_get_attribute(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = and i64 %1, -2
   %switch = icmp eq i64 %4, 4
   br i1 %switch, label %5, label %17

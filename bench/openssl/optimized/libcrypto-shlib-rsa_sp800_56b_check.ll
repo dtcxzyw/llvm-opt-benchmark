@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_rsa_sp800_56b_check_keypair = private unnamed_addr constant [33 x i8] c"ossl_rsa_sp800_56b_check_keypair\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_check_crt_components(ptr nocapture noundef readonly %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_crt_components(ptr nocapture noundef readonly %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 80
   %0 = load ptr, ptr %dmp1, align 8
@@ -190,7 +190,7 @@ declare void @BN_clear(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_check_prime_factor_range(ptr noundef %p, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_prime_factor_range(ptr noundef %p, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %shr = ashr i32 %nbits, 1
   %call = tail call i32 @BN_num_bits(ptr noundef nonnull @ossl_bn_inv_sqrt_2) #2
@@ -248,14 +248,14 @@ declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @BN_rshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_check_prime_factor(ptr noundef %p, ptr noundef %e, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_prime_factor(ptr noundef %p, ptr noundef %e, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_check_prime(ptr noundef %p, ptr noundef %ctx, ptr noundef null) #2
   %cmp.not = icmp eq i32 %call, 1
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @ossl_rsa_check_prime_factor_range(ptr noundef %p, i32 noundef %nbits, ptr noundef %ctx), !range !4
+  %call1 = tail call i32 @ossl_rsa_check_prime_factor_range(ptr noundef %p, i32 noundef %nbits, ptr noundef %ctx)
   %cmp2.not.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not.not, label %return, label %if.end
 
@@ -305,7 +305,7 @@ declare i32 @BN_check_prime(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_check_private_exponent(ptr nocapture noundef readonly %rsa, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_private_exponent(ptr nocapture noundef readonly %rsa, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds i8, ptr %rsa, i64 56
   %0 = load ptr, ptr %d, align 8
@@ -336,7 +336,7 @@ if.then8:                                         ; preds = %if.end
   %1 = load ptr, ptr %p, align 8
   %q = getelementptr inbounds i8, ptr %rsa, i64 72
   %2 = load ptr, ptr %q, align 8
-  %call10 = tail call i32 @ossl_rsa_get_lcm(ptr noundef %ctx, ptr noundef %1, ptr noundef %2, ptr noundef %call4, ptr noundef nonnull %call6, ptr noundef %call2, ptr noundef %call3, ptr noundef %call5), !range !4
+  %call10 = tail call i32 @ossl_rsa_get_lcm(ptr noundef %ctx, ptr noundef %1, ptr noundef %2, ptr noundef %call4, ptr noundef nonnull %call6, ptr noundef %call2, ptr noundef %call3, ptr noundef %call5)
   %cmp11.not = icmp eq i32 %call10, 0
   br i1 %cmp11.not, label %land.end, label %land.lhs.true12
 
@@ -376,7 +376,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_get_lcm(ptr noundef %ctx, ptr noundef %p, ptr noundef %q, ptr noundef %lcm, ptr noundef %gcd, ptr noundef %p1, ptr noundef %q1, ptr noundef %p1q1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_get_lcm(ptr noundef %ctx, ptr noundef %p, ptr noundef %q, ptr noundef %lcm, ptr noundef %gcd, ptr noundef %p1, ptr noundef %q1, ptr noundef %p1q1) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_value_one() #2
   %call1 = tail call i32 @BN_sub(ptr noundef %p1, ptr noundef %p, ptr noundef %call) #2
@@ -411,7 +411,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_check_public_exponent(ptr noundef %e) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_public_exponent(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_odd(ptr noundef %e) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -432,7 +432,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_check_pminusq_diff(ptr noundef %diff, ptr noundef %p, ptr noundef %q, i32 noundef %nbits) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_rsa_check_pminusq_diff(ptr noundef %diff, ptr noundef %p, ptr noundef %q, i32 noundef %nbits) local_unnamed_addr #0 {
 entry:
   %shr = ashr i32 %nbits, 1
   %sub = add nsw i32 %shr, -100
@@ -473,7 +473,7 @@ declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_sp800_56b_check_public(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_public(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %n = getelementptr inbounds i8, ptr %rsa, i64 40
@@ -599,7 +599,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_sp800_56b_check_private(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_private(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds i8, ptr %rsa, i64 56
   %0 = load ptr, ptr %d, align 8
@@ -631,7 +631,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_sp800_56b_check_keypair(ptr nocapture noundef readonly %rsa, ptr noundef %efixed, i32 noundef %strength, i32 noundef %nbits) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_keypair(ptr nocapture noundef readonly %rsa, ptr noundef %efixed, i32 noundef %strength, i32 noundef %nbits) local_unnamed_addr #0 {
 entry:
   %p = getelementptr inbounds i8, ptr %rsa, i64 64
   %0 = load ptr, ptr %p, align 8
@@ -761,31 +761,31 @@ if.end45:                                         ; preds = %lor.lhs.false39
 if.end50:                                         ; preds = %if.end45
   %12 = load ptr, ptr %p, align 8
   %13 = load ptr, ptr %e, align 8
-  %call53 = tail call i32 @ossl_rsa_check_prime_factor(ptr noundef %12, ptr noundef %13, i32 noundef %nbits, ptr noundef nonnull %call33), !range !4
+  %call53 = tail call i32 @ossl_rsa_check_prime_factor(ptr noundef %12, ptr noundef %13, i32 noundef %nbits, ptr noundef nonnull %call33)
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %err.sink.split, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end50
   %14 = load ptr, ptr %q, align 8
   %15 = load ptr, ptr %e, align 8
-  %call57 = tail call i32 @ossl_rsa_check_prime_factor(ptr noundef %14, ptr noundef %15, i32 noundef %nbits, ptr noundef nonnull %call33), !range !4
+  %call57 = tail call i32 @ossl_rsa_check_prime_factor(ptr noundef %14, ptr noundef %15, i32 noundef %nbits, ptr noundef nonnull %call33)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err.sink.split, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %land.lhs.true
   %16 = load ptr, ptr %p, align 8
   %17 = load ptr, ptr %q, align 8
-  %call62 = tail call i32 @ossl_rsa_check_pminusq_diff(ptr noundef nonnull %call37, ptr noundef %16, ptr noundef %17, i32 noundef %nbits), !range !5
+  %call62 = tail call i32 @ossl_rsa_check_pminusq_diff(ptr noundef nonnull %call37, ptr noundef %16, ptr noundef %17, i32 noundef %nbits)
   %cmp63 = icmp sgt i32 %call62, 0
   br i1 %cmp63, label %land.lhs.true64, label %err.sink.split
 
 land.lhs.true64:                                  ; preds = %land.lhs.true59
-  %call65 = tail call i32 @ossl_rsa_check_private_exponent(ptr noundef nonnull %rsa, i32 noundef %nbits, ptr noundef nonnull %call33), !range !4
+  %call65 = tail call i32 @ossl_rsa_check_private_exponent(ptr noundef nonnull %rsa, i32 noundef %nbits, ptr noundef nonnull %call33)
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %err.sink.split, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true64
-  %call67 = tail call i32 @ossl_rsa_check_crt_components(ptr noundef nonnull %rsa, ptr noundef nonnull %call33), !range !4
+  %call67 = tail call i32 @ossl_rsa_check_crt_components(ptr noundef nonnull %rsa, ptr noundef nonnull %call33)
   %18 = icmp eq i32 %call67, 0
   br i1 %18, label %err.sink.split, label %err
 
@@ -821,5 +821,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 2}

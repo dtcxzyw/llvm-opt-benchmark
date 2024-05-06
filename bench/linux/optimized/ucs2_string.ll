@@ -139,7 +139,7 @@ define dso_local i64 @ucs2_strscpy(ptr nocapture noundef writeonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @ucs2_strncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @ucs2_strncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -242,7 +242,7 @@ define dso_local i64 @ucs2_as_utf8(ptr nocapture noundef writeonly %0, ptr nocap
 31:                                               ; preds = %29
   %32 = add i64 %25, -3
   %33 = lshr i16 %27, 12
-  %34 = trunc i16 %33 to i8
+  %34 = trunc nuw nsw i16 %33 to i8
   %35 = or disjoint i8 %34, -32
   %36 = getelementptr i8, ptr %0, i64 %23
   store i8 %35, ptr %36, align 1
@@ -271,7 +271,7 @@ define dso_local i64 @ucs2_as_utf8(ptr nocapture noundef writeonly %0, ptr nocap
 51:                                               ; preds = %49
   %52 = add i64 %25, -2
   %53 = lshr i16 %27, 6
-  %54 = trunc i16 %53 to i8
+  %54 = trunc nuw nsw i16 %53 to i8
   %55 = or disjoint i8 %54, -64
   %56 = getelementptr i8, ptr %0, i64 %23
   store i8 %55, ptr %56, align 1
@@ -285,7 +285,7 @@ define dso_local i64 @ucs2_as_utf8(ptr nocapture noundef writeonly %0, ptr nocap
 
 62:                                               ; preds = %47
   %63 = add i64 %25, -1
-  %64 = trunc i16 %27 to i8
+  %64 = trunc nuw nsw i16 %27 to i8
   %65 = add i64 %23, 1
   %66 = getelementptr i8, ptr %0, i64 %23
   store i8 %64, ptr %66, align 1

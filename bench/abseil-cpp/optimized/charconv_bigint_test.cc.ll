@@ -2376,7 +2376,7 @@ for.body31:                                       ; preds = %invoke.cont25, %_ZN
 .noexc33:                                         ; preds = %for.body31
   %15 = load ptr, ptr %ref.tmp.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, i32 noundef %16)
           to label %invoke.cont.i unwind label %lpad.i32
 
@@ -2823,7 +2823,7 @@ _ZN7testing15AssertionResultD2Ev.exit81:          ; preds = %if.end85, %_ZNKSt14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 25
   %54 = load i32, ptr %a, align 4
   %sub = sub nsw i32 700, %54
-  %55 = trunc i64 %indvars.iv.next to i32
+  %55 = trunc nuw i64 %indvars.iv.next to i32
   %cmp30 = icmp sgt i32 %sub, %55
   br i1 %cmp30, label %for.body31, label %for.end90, !llvm.loop !25
 

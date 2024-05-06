@@ -1829,7 +1829,7 @@ declare dso_local void @xt_unregister_targets(ptr noundef, i32 noundef) local_un
 declare dso_local void @unregister_pernet_subsys(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @ip_tables_init() #7 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @ip_tables_init() #7 section ".init.text" align 16 {
   %1 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @ip_tables_net_ops) #15
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %12, label %3

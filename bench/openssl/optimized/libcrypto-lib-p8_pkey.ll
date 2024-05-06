@@ -59,7 +59,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS8_pkey_set0(ptr nocapture noundef readonly %priv, ptr noundef %aobj, i32 noundef %version, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS8_pkey_set0(ptr nocapture noundef readonly %priv, ptr noundef %aobj, i32 noundef %version, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i32 %version, -1
   br i1 %cmp, label %if.then, label %if.end3
@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS8_pkey_add1_attr_by_NID(ptr noundef %p8, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS8_pkey_add1_attr_by_NID(ptr noundef %p8, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %attributes = getelementptr inbounds i8, ptr %p8, i64 24
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attributes, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #4
@@ -165,7 +165,7 @@ entry:
 declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS8_pkey_add1_attr_by_OBJ(ptr noundef %p8, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS8_pkey_add1_attr_by_OBJ(ptr noundef %p8, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %attributes = getelementptr inbounds i8, ptr %p8, i64 24
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %attributes, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #4
@@ -177,7 +177,7 @@ entry:
 declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS8_pkey_add1_attr(ptr noundef %p8, ptr noundef %attr) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS8_pkey_add1_attr(ptr noundef %p8, ptr noundef %attr) local_unnamed_addr #1 {
 entry:
   %attributes = getelementptr inbounds i8, ptr %p8, i64 24
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %attributes, ptr noundef %attr) #4

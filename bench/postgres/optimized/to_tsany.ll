@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.make_tsvector = private unnamed_addr constant [14 x i8] c"make_tsvector\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @get_current_ts_config(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @get_current_ts_config(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
   %3 = zext i32 %2 to i64
   ret i64 %3

@@ -36,7 +36,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_psa_hash_abort(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 -137, 1) i32 @mbedtls_psa_hash_abort(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %18 [
     i32 0, label %17
@@ -178,7 +178,7 @@ define hidden i32 @mbedtls_psa_hash_setup(ptr noundef %0, i32 noundef %1) local_
   br label %35
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @mbedtls_psa_hash_abort(ptr noundef nonnull %0), !range !4
+  %34 = tail call i32 @mbedtls_psa_hash_abort(ptr noundef nonnull %0)
   br label %35
 
 35:                                               ; preds = %33, %32
@@ -213,7 +213,7 @@ declare i32 @mbedtls_sha512_starts(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @mbedtls_to_psa_error(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_psa_hash_clone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -137, 1) i32 @mbedtls_psa_hash_clone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %25 [
     i32 0, label %28
@@ -494,7 +494,7 @@ define hidden i32 @mbedtls_psa_hash_compute(i32 noundef %0, ptr noundef %1, i64 
 
 13:                                               ; preds = %11, %9, %6
   %.0 = phi i32 [ %8, %6 ], [ %10, %9 ], [ %12, %11 ]
-  %14 = call i32 @mbedtls_psa_hash_abort(ptr noundef nonnull %7), !range !4
+  %14 = call i32 @mbedtls_psa_hash_abort(ptr noundef nonnull %7)
   %15 = icmp eq i32 %.0, 0
   %..0 = select i1 %15, i32 %14, i32 %.0
   ret i32 %..0
@@ -512,4 +512,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -137, i32 1}

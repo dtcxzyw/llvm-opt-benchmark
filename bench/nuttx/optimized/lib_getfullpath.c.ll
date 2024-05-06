@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [6 x i8] c"%s/%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lib_getfullpath(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @lib_getfullpath(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6

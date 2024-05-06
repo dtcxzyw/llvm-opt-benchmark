@@ -402,7 +402,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10LuaMinimap10l_set_modeEP9lua_State(ptr noundef %L) #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10LuaMinimap10l_set_modeEP9lua_State(ptr noundef %L) #6 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN10LuaMinimap9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !14

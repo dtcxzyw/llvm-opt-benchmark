@@ -326,7 +326,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @ctime(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @check_flevel() local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @check_flevel() local_unnamed_addr #1 {
   %1 = tail call i32 @cl_retflevel() #18
   %2 = icmp ult i32 %1, 210
   br i1 %2, label %3, label %7
@@ -461,7 +461,7 @@ define i32 @filecopy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 declare i32 @cli_filecopy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @close_std_descriptors() local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
   %1 = alloca [3 x i32], align 4
   %2 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.12, i32 noundef 0) #18
   store i32 %2, ptr %1, align 4
@@ -585,7 +585,7 @@ declare i32 @setsid() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @daemonize() local_unnamed_addr #1 {
-  %1 = tail call i32 @close_std_descriptors(), !range !4
+  %1 = tail call i32 @close_std_descriptors()
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %8
 
@@ -615,7 +615,7 @@ daemonize_all_return.exit:                        ; preds = %2
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @daemonize_parent_wait(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @daemonize_parent_wait(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca i32, align 4
   %5 = tail call i32 @fork() #18
@@ -646,7 +646,7 @@ daemonize_all_return.exit.thread:                 ; preds = %2
   br i1 %.not8, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = call i32 @drop_privileges(ptr noundef nonnull %0, ptr noundef %1), !range !5
+  %14 = call i32 @drop_privileges(ptr noundef nonnull %0, ptr noundef %1)
   %.not9 = icmp eq i32 %14, 0
   br i1 %.not9, label %15, label %23
 
@@ -688,7 +688,7 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @drop_privileges(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @geteuid() #18
   %4 = icmp eq i32 %3, 0
   %5 = icmp ne ptr %0, null
@@ -786,7 +786,7 @@ declare i32 @wait(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @daemonize_signal_parent(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = tail call i32 @close_std_descriptors(), !range !4
+  %2 = tail call i32 @close_std_descriptors()
   %3 = tail call i32 @kill(i32 noundef %0, i32 noundef 2) #18
   ret void
 }
@@ -820,7 +820,7 @@ declare i32 @setgid(i32 noundef) local_unnamed_addr #8
 declare i32 @setuid(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @match_regex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 3) i32 @match_regex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.regex_t, align 8
   %4 = alloca [513 x i8], align 16
   %5 = call i32 @cli_regcomp(ptr noundef nonnull %3, ptr noundef %1, i32 noundef 5) #18
@@ -870,7 +870,7 @@ declare i32 @cli_regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32
 declare void @cli_regfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @cli_is_abspath(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @cli_is_abspath(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 47
   %4 = zext i1 %3 to i32
@@ -975,5 +975,3 @@ attributes #24 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{i32 0, i32 2}

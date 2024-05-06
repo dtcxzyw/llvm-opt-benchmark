@@ -2590,7 +2590,7 @@ declare dso_local void @__brelse(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @__SCT__tp_func_ext4_ind_map_blocks_exit(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef readnone %6) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 2) i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef readnone %6) unnamed_addr #0 align 16 {
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %6 to i64
   %10 = load i16, ptr %1, align 8

@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._getgrgid_r = private unnamed_addr constant [12 x i8] c"_getgrgid_r\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_getpwuid_r(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 5, 4) i32 @slurm_getpwuid_r(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timeval, align 8
   %7 = alloca %struct.timeval, align 8
   %8 = alloca [20 x i8], align 16
@@ -64,7 +64,7 @@ declare i32 @getpwuid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr 
 declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uid_from_string(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @uid_from_string(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [20 x i8], align 16
@@ -143,7 +143,7 @@ _getpwnam_r.exit:                                 ; preds = %17, %19
   br i1 %or.cond7, label %50, label %40
 
 40:                                               ; preds = %36
-  %41 = trunc i64 %29 to i32
+  %41 = trunc nuw nsw i64 %29 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
@@ -411,7 +411,7 @@ uid_to_string.exit:                               ; preds = %13, %15
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_uid_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @_uid_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -582,7 +582,7 @@ slurm_getpwuid_r.exit:                            ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gid_from_string(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [20 x i8], align 16
@@ -661,7 +661,7 @@ _getgrnam_r.exit:                                 ; preds = %17, %19
   br i1 %or.cond7, label %50, label %40
 
 40:                                               ; preds = %36
-  %41 = trunc i64 %29 to i32
+  %41 = trunc nuw nsw i64 %29 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)

@@ -32,7 +32,7 @@ define internal void @pmix_value_array_destruct(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_value_array_set_size(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i32 -29, 1) i32 @pmix_value_array_set_size(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, %1

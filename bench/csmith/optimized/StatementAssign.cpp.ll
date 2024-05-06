@@ -1213,7 +1213,7 @@ define dso_local noundef zeroext i1 @_ZN15StatementAssign11safe_assignE10eAssign
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN15StatementAssign22compound_to_binary_opsE10eAssignOps(i32 noundef %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 19) i32 @_ZN15StatementAssign22compound_to_binary_opsE10eAssignOps(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 14
   br i1 %2, label %switch.lookup, label %4

@@ -85,12 +85,12 @@ $_ZTIN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena1
 @.str.8 = private unnamed_addr constant [18 x i8] c"Deadline Exceeded\00", align 1
 @.str.9 = private unnamed_addr constant [46 x i8] c"deadline exceeded -- sending cancel_stream op\00", align 1
 @.str.10 = private unnamed_addr constant [41 x i8] c"got on_complete from cancel_stream batch\00", align 1
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.11 = private unnamed_addr constant [15 x i8] c"!args->is_last\00", align 1
 @.str.12 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.13 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @"_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_EE" = internal unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @"_ZTIN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_EE", ptr @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv", ptr @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_E7DestroyEPv", ptr @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_E8PollOnceEPv", ptr @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_ED2Ev", ptr @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_ED0Ev"] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @"_ZTSN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_EE" = internal constant [219 x i8] c"N9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_EE\00", align 1
@@ -612,7 +612,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 _ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i:  ; preds = %.noexc.i.i.i, %if.end.i.i.i.i.i
   %10 = phi i16 [ %8, %if.end.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %.noexc.i.i.i ]
   %11 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !noalias !7
   store i16 0, ptr %waiter_.i.i.i.i, align 2
   %vtable.i.i.i.i.i = load ptr, ptr %12, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
@@ -878,7 +878,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 _ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i:  ; preds = %.noexc.i.i.i, %if.end.i.i.i.i.i
   %16 = phi i16 [ %14, %if.end.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %.noexc.i.i.i ]
   %17 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !19
   store i16 0, ptr %waiter_.i.i.i.i, align 2
   %vtable.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24

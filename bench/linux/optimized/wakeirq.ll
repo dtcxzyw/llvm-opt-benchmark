@@ -49,7 +49,7 @@ define dso_local noundef i32 @dev_pm_set_wake_irq(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %24, label %4
 

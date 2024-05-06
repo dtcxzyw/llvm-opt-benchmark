@@ -282,7 +282,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %172, label %173, label %.loopexit23
 
 173:                                              ; preds = %167
-  %174 = add i32 %168, %79
+  %174 = add nsw i32 %168, %79
   %175 = sext i32 %174 to i64
   %176 = getelementptr double, ptr %20, i64 %175
   br label %177
@@ -558,7 +558,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %345, label %346, label %.loopexit
 
 346:                                              ; preds = %341
-  %347 = add i32 %.neg, %253
+  %347 = add nsw i32 %.neg, %253
   %348 = mul nsw i32 %347, %17
   %349 = sext i32 %348 to i64
   %350 = getelementptr double, ptr %20, i64 %349

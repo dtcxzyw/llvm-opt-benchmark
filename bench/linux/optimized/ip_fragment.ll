@@ -1029,7 +1029,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 sectio
 declare dso_local i32 @inet_frag_queue_insert(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ip_frag_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ip_frag_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
@@ -1344,7 +1344,7 @@ define internal i32 @ip4_obj_hashfn(ptr nocapture noundef readonly %0, i32 %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ip4_obj_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 align 16 {
+define internal range(i32 0, 2) i32 @ip4_obj_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1361,7 +1361,7 @@ declare dso_local ptr @register_net_sysctl_sz(ptr noundef, ptr noundef, ptr noun
 declare dso_local i32 @proc_dointvec_jiffies(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ipv4_frags_init_net(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @ipv4_frags_init_net(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1064
   %3 = tail call i32 @fqdir_init(ptr noundef %2, ptr noundef nonnull @ip4_frags, ptr noundef %0) #15
   %4 = icmp slt i32 %3, 0

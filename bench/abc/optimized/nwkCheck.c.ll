@@ -92,7 +92,7 @@ define noundef i32 @Nwk_ManCheck(ptr nocapture noundef readonly %0) local_unname
   %40 = phi i32 [ %26, %.lr.ph ], [ %.pre, %34 ]
   %41 = phi i32 [ %27, %.lr.ph ], [ %.pre, %34 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %42 = trunc i64 %indvars.iv.next87 to i32
+  %42 = trunc nuw i64 %indvars.iv.next87 to i32
   %43 = icmp sgt i32 %41, %42
   br i1 %43, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !6
 

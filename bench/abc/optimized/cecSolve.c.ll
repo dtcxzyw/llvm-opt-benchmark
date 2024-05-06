@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [51 x i8] c"Failed to realloc memory from %.1f MB to %.1f MB.\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cec_ObjSatVarValue(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cec_ObjSatVarValue(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 8
@@ -1679,7 +1679,7 @@ define noundef i32 @Cec_SetActivityFactors(ptr nocapture noundef readonly %0, pt
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cec_ManSatCheckNode(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @Cec_ManSatCheckNode(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -1963,7 +1963,7 @@ declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #2
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cec_ManSatCheckNodeTwo(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @Cec_ManSatCheckNodeTwo(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
@@ -2349,7 +2349,7 @@ define noundef ptr @Cex_ManGenCex(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not, label %31, label %40
 
 31:                                               ; preds = %25
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = and i32 %32, 31
   %34 = shl nuw i32 1, %33
   %35 = lshr i64 %indvars.iv, 5
@@ -2572,7 +2572,7 @@ Vec_PtrStart.exit:                                ; preds = %31, %36
   %110 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %110, align 4
   %111 = call noundef ptr @Abc_CexAlloc(i32 noundef 0, i32 noundef %.val.val.i, i32 noundef 1) #15
-  %112 = trunc i64 %indvars.iv to i32
+  %112 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %112, ptr %111, align 4
   %113 = getelementptr inbounds i8, ptr %111, i64 4
   store i32 0, ptr %113, align 4
@@ -2596,7 +2596,7 @@ Vec_PtrStart.exit:                                ; preds = %31, %36
   br i1 %122, label %Bar_ProgressUpdate.exit, label %123
 
 123:                                              ; preds = %119, %118
-  %124 = trunc i64 %indvars.iv to i32
+  %124 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Bar_ProgressUpdate_int(ptr noundef %62, i32 noundef %124, ptr noundef nonnull @.str) #15
   br label %Bar_ProgressUpdate.exit
 
@@ -2613,7 +2613,7 @@ Bar_ProgressUpdate.exit:                          ; preds = %119, %123
   %132 = ptrtoint ptr %129 to i64
   %133 = xor i64 %131, %132
   %134 = inttoptr i64 %133 to ptr
-  %135 = call i32 @Cec_ManSatCheckNode(ptr noundef %56, ptr noundef %134), !range !14
+  %135 = call i32 @Cec_ManSatCheckNode(ptr noundef %56, ptr noundef %134)
   %136 = icmp eq i32 %135, 0
   %137 = load i64, ptr %85, align 4
   %138 = select i1 %136, i64 1073741824, i64 0
@@ -2785,7 +2785,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %222 = getelementptr i8, ptr %.val20.i, i64 4
   %.val20.val.i = load i32, ptr %222, align 4
   %223 = call ptr @Abc_CexAlloc(i32 noundef 0, i32 noundef %.val20.val.i, i32 noundef 1) #15
-  %224 = trunc i64 %indvars.iv to i32
+  %224 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %224, ptr %223, align 4
   %225 = getelementptr inbounds i8, ptr %223, i64 4
   store i32 0, ptr %225, align 4
@@ -2827,7 +2827,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not.i115, label %246, label %255
 
 246:                                              ; preds = %240
-  %247 = trunc i64 %indvars.iv.i to i32
+  %247 = trunc nuw nsw i64 %indvars.iv.i to i32
   %248 = and i32 %247, 31
   %249 = shl nuw i32 1, %248
   %250 = lshr i64 %indvars.iv.i, 5
@@ -2937,7 +2937,7 @@ Abc_Clock.exit120:                                ; preds = %Abc_Clock.exit118, 
   %.val101 = load i32, ptr %298, align 4
   %299 = sext i32 %.val101 to i64
   %300 = icmp slt i64 %indvars.iv.next, %299
-  br i1 %300, label %79, label %.critedge, !llvm.loop !15
+  br i1 %300, label %79, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %79, %294, %296, %54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -2993,7 +2993,7 @@ declare void @Cec_ManSatPrintStats(ptr noundef) local_unnamed_addr #2
 declare void @Cec_ManSatStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec_ManSatSolveExractPattern(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define range(i32 -2147483646, -2147483648) i32 @Cec_ManSatSolveExractPattern(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = add i32 %1, 2
@@ -3082,10 +3082,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %15, ptr %43, align 4
   %44 = add nuw nsw i32 %.01318, 1
   %exitcond.not = icmp eq i32 %44, %10
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %13, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %13, !llvm.loop !15
 
 .loopexit.loopexit:                               ; preds = %Vec_IntPush.exit
-  %45 = trunc i64 %indvars.iv.next to i32
+  %45 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
@@ -3190,7 +3190,7 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %or.cond.us, label %60, label %62
 
 60:                                               ; preds = %40
-  %61 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354.us, ptr noundef nonnull %7), !range !17
+  %61 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354.us, ptr noundef nonnull %7)
   br label %62
 
 62:                                               ; preds = %60, %40
@@ -3209,7 +3209,7 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %.val41.us = load i32, ptr %67, align 4
   %68 = sext i32 %.val41.us to i64
   %69 = icmp slt i64 %indvars.iv.next61, %68
-  br i1 %69, label %.lr.ph.split.us, label %.critedge, !llvm.loop !18
+  br i1 %69, label %.lr.ph.split.us, label %.critedge, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %115 ]
@@ -3247,7 +3247,7 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %or.cond, label %91, label %93
 
 91:                                               ; preds = %71
-  %92 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354, ptr noundef nonnull %7), !range !17
+  %92 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354, ptr noundef nonnull %7)
   br label %93
 
 93:                                               ; preds = %91, %71
@@ -3311,7 +3311,7 @@ Abc_Clock.exit47:                                 ; preds = %Abc_Clock.exit, %10
   %.val41 = load i32, ptr %117, align 4
   %118 = sext i32 %.val41 to i64
   %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %.lr.ph.split, label %.critedge, !llvm.loop !18
+  br i1 %119, label %.lr.ph.split, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph.split, %113, %115, %.lr.ph.split.us, %63, %65, %.thread, %14
   %120 = load ptr, ptr %10, align 8
@@ -3398,7 +3398,7 @@ define void @Cec_ManSatSolveSeq_rec(ptr nocapture noundef %0, ptr nocapture noun
   %.lcssa = phi i64 [ %11, %.lr.ph.preheader ], [ %68, %.lr.ph ]
   %.val28.lcssa = phi i64 [ %.val2849, %.lr.ph.preheader ], [ %.val28, %.lr.ph ]
   %21 = lshr i64 %.val28.lcssa, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = and i32 %22, 536870911
   %24 = add nsw i32 %23, %5
   %25 = getelementptr i8, ptr %3, i64 8
@@ -3581,7 +3581,7 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %29
   br i1 %52, label %Bar_ProgressUpdate.exit, label %53
 
 53:                                               ; preds = %49, %48
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Bar_ProgressUpdate_int(ptr noundef %35, i32 noundef %54, ptr noundef nonnull @.str) #15
   br label %Bar_ProgressUpdate.exit
 
@@ -3729,8 +3729,8 @@ Vec_StrPush.exit83:                               ; preds = %.Vec_StrGrow.exit10
   %116 = ptrtoint ptr %58 to i64
   %117 = xor i64 %115, %116
   %118 = inttoptr i64 %117 to ptr
-  %119 = call i32 @Cec_ManSatCheckNode(ptr noundef %21, ptr noundef %118), !range !14
-  %120 = trunc i32 %119 to i8
+  %119 = call i32 @Cec_ManSatCheckNode(ptr noundef %21, ptr noundef %118)
+  %120 = trunc nsw i32 %119 to i8
   %121 = load i32, ptr %28, align 4
   %122 = load i32, ptr %26, align 8
   %123 = icmp eq i32 %121, %122
@@ -3832,7 +3832,7 @@ Vec_StrPush.exit90:                               ; preds = %.Vec_StrGrow.exit10
   store ptr %166, ptr %167, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i
   %168 = shl nsw i32 %155, 2
@@ -3851,7 +3851,7 @@ Vec_StrPush.exit90:                               ; preds = %.Vec_StrGrow.exit10
   %175 = load i32, ptr %40, align 4
   %176 = sext i32 %175 to i64
   %177 = icmp slt i64 %indvars.iv.next.i, %176
-  br i1 %177, label %170, label %._crit_edge.i, !llvm.loop !20
+  br i1 %177, label %170, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %170
   %.pre.i92 = load ptr, ptr %14, align 8
@@ -3886,7 +3886,7 @@ Vec_PtrReallocSimInfo.exit:                       ; preds = %._crit_edge.i, %._c
   %187 = load i32, ptr %40, align 4
   %188 = sext i32 %187 to i64
   %189 = icmp slt i64 %indvars.iv.next.i97, %188
-  br i1 %189, label %183, label %Vec_PtrCleanSimInfo.exit.loopexit, !llvm.loop !21
+  br i1 %189, label %183, label %Vec_PtrCleanSimInfo.exit.loopexit, !llvm.loop !19
 
 Vec_PtrCleanSimInfo.exit.loopexit:                ; preds = %183
   %.val72.pre = load ptr, ptr %14, align 8
@@ -3929,7 +3929,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   %.val63 = load i32, ptr %206, align 4
   %207 = sext i32 %.val63 to i64
   %208 = icmp slt i64 %indvars.iv.next, %207
-  br i1 %208, label %41, label %.critedge.loopexit, !llvm.loop !22
+  br i1 %208, label %41, label %.critedge.loopexit, !llvm.loop !20
 
 .critedge.loopexit:                               ; preds = %204, %41
   %.0.lcssa.ph = phi i32 [ %.0107, %41 ], [ %.2, %204 ]
@@ -4269,7 +4269,7 @@ Vec_IntPush.exit35:                               ; preds = %.Vec_IntGrow.exit10
   %.val13 = load i32, ptr %68, align 4
   %132 = sext i32 %.val13 to i64
   %133 = icmp slt i64 %indvars.iv.next, %132
-  br i1 %133, label %101, label %.critedge, !llvm.loop !23
+  br i1 %133, label %101, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %Vec_IntPush.exit35, %Vec_IntPush.exit28, %Vec_IntPush.exit21
   ret void
@@ -4575,7 +4575,7 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %20
   br i1 %53, label %Bar_ProgressUpdate.exit, label %54
 
 54:                                               ; preds = %50, %47
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Bar_ProgressUpdate_int(ptr noundef %33, i32 noundef %55, ptr noundef nonnull @.str) #15
   br label %Bar_ProgressUpdate.exit
 
@@ -4596,7 +4596,7 @@ Bar_ProgressUpdate.exit:                          ; preds = %50, %54
 
 63:                                               ; preds = %61
   %64 = load ptr, ptr %38, align 8
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %25, ptr noundef %64, i32 noundef %65)
   %66 = load i32, ptr %19, align 4
   %67 = load i32, ptr %17, align 8
@@ -4729,8 +4729,8 @@ Vec_StrPush.exit60:                               ; preds = %.Vec_StrGrow.exit10
   %122 = ptrtoint ptr %59 to i64
   %123 = xor i64 %121, %122
   %124 = inttoptr i64 %123 to ptr
-  %125 = call i32 @Cec_ManSatCheckNode(ptr noundef nonnull %29, ptr noundef %124), !range !14
-  %126 = trunc i32 %125 to i8
+  %125 = call i32 @Cec_ManSatCheckNode(ptr noundef nonnull %29, ptr noundef %124)
+  %126 = trunc nsw i32 %125 to i8
   %127 = load i32, ptr %19, align 4
   %128 = load i32, ptr %17, align 8
   %129 = icmp eq i32 %127, %128
@@ -4797,7 +4797,7 @@ Vec_StrPush.exit67:                               ; preds = %.Vec_StrGrow.exit10
   ]
 
 153:                                              ; preds = %Vec_StrPush.exit67
-  %154 = trunc i64 %indvars.iv to i32
+  %154 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %25, ptr noundef null, i32 noundef %154)
   br label %169
 
@@ -4817,7 +4817,7 @@ Vec_StrPush.exit67:                               ; preds = %.Vec_StrGrow.exit10
   %166 = inttoptr i64 %165 to ptr
   call void @Cec_ManSatSolveMiter_rec(ptr noundef nonnull %29, ptr noundef %163, ptr noundef %166)
   %167 = load ptr, ptr %38, align 8
-  %168 = trunc i64 %indvars.iv to i32
+  %168 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %25, ptr noundef %167, i32 noundef %168)
   br label %169
 
@@ -4828,7 +4828,7 @@ Vec_StrPush.exit67:                               ; preds = %.Vec_StrGrow.exit10
   %.val46 = load i32, ptr %171, align 4
   %172 = sext i32 %.val46 to i64
   %173 = icmp slt i64 %indvars.iv.next, %172
-  br i1 %173, label %40, label %.critedge, !llvm.loop !24
+  br i1 %173, label %40, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %40, %169, %Vec_StrAlloc.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -4920,14 +4920,12 @@ attributes #18 = { nounwind allocsize(0,1) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 -1, i32 2}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 -2147483646, i32 -2147483648}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

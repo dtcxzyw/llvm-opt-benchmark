@@ -402,7 +402,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef i8 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h48bb6016bbc94762E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 {
+define internal noundef range(i8 0, 3) i8 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h48bb6016bbc94762E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
   ret i8 %3
@@ -435,7 +435,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hb51de27c4de9f073E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #2 {
+define internal noundef range(i64 0, 4294967296) i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hb51de27c4de9f073E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -655,7 +655,7 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef i8 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h79a48db62bf30c50E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 {
+define internal noundef range(i8 0, 3) i8 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h79a48db62bf30c50E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
   ret i8 %3
@@ -965,7 +965,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hcaa273474df4da1eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #2 {
+define internal noundef range(i64 0, 4294967296) i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hcaa273474df4da1eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -1167,7 +1167,7 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9match_len17he3482d860fcd88fbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #2 {
+define internal noundef range(i64 0, 4294967296) i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9match_len17he3482d860fcd88fbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -1252,7 +1252,7 @@ define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous.
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef i8 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h32fbd01b112c7333E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 {
+define internal noundef range(i8 0, 3) i8 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h32fbd01b112c7333E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 432
   %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
   ret i8 %3
@@ -1441,7 +1441,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hc422b5e22cd9419dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #2 {
+define internal noundef range(i64 0, 4294967296) i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hc422b5e22cd9419dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load i64, ptr %4, align 8, !noundef !5

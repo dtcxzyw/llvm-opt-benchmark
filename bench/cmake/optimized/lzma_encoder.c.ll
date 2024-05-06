@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lzma_fastpos = external local_unnamed_addr constant [8192 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_lzma_encode(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @lzma_lzma_encode(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 2957
@@ -738,7 +738,7 @@ define internal fastcc noundef zeroext i1 @rc_encode(ptr nocapture noundef %0, p
   store i64 1, ptr %12, align 8
   store i32 -1, ptr %10, align 8
   store i8 0, ptr %11, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %rc_shift_low.exit.thread
 
 118:                                              ; preds = %47, %80, %78, %64, %52
@@ -763,7 +763,7 @@ declare void @lzma_lzma_optimum_fast(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @lzma_lzma_optimum_normal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_lzma_encoder_reset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 9) i32 @lzma_lzma_encoder_reset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 5
@@ -819,7 +819,7 @@ is_options_valid.exit:                            ; preds = %15
   %32 = getelementptr inbounds i8, ptr %0, i64 20
   store i8 0, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %34 = getelementptr inbounds i8, ptr %0, i64 736
   %35 = getelementptr inbounds i8, ptr %0, i64 2972
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, i8 0, i64 20, i1 false)
@@ -1070,7 +1070,7 @@ is_options_valid.exit.thread:                     ; preds = %2, %6, %is_lclppb_v
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_lzma_encoder_create(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @lzma_lzma_encoder_create(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %10
@@ -1171,7 +1171,7 @@ define dso_local noundef i32 @lzma_lzma_encoder_create(ptr nocapture noundef %0,
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %63, ptr %64, align 8
-  %65 = tail call i32 @lzma_lzma_encoder_reset(ptr noundef nonnull %11, ptr noundef nonnull %2), !range !26
+  %65 = tail call i32 @lzma_lzma_encoder_reset(ptr noundef nonnull %11, ptr noundef nonnull %2)
   br label %66
 
 66:                                               ; preds = %10, %7, %41
@@ -1190,15 +1190,15 @@ define dso_local i32 @lzma_lzma_encoder_init(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @lzma_lz_encoder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lzma_encoder_init(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 9) i32 @lzma_encoder_init(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @lzma_encode, ptr %5, align 8
-  %6 = tail call i32 @lzma_lzma_encoder_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !26
+  %6 = tail call i32 @lzma_lzma_encoder_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lzma_lzma_encoder_memusage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 249576, 249575) i64 @lzma_lzma_encoder_memusage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lzma_lz_options, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
@@ -1309,7 +1309,7 @@ is_lclppb_valid.exit.thread:                      ; preds = %2, %6, %is_lclppb_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_lzma_props_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 12) i32 @lzma_lzma_props_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 5
@@ -1348,7 +1348,7 @@ lzma_lzma_lclppb_encode.exit.thread:              ; preds = %2, %6, %is_lclppb_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i8 @lzma_mode_is_supported(i32 noundef %0) local_unnamed_addr #5 {
+define dso_local zeroext range(i8 0, 2) i8 @lzma_mode_is_supported(i32 noundef %0) local_unnamed_addr #5 {
   %2 = add i32 %0, -1
   %3 = icmp ult i32 %2, 2
   %4 = zext i1 %3 to i8
@@ -1402,7 +1402,7 @@ define internal fastcc void @match(ptr noundef %0, i32 noundef %1, i32 noundef %
 get_dist_slot.exit:                               ; preds = %14, %21, %28
   %.0.i = phi i32 [ %18, %14 ], [ %27, %21 ], [ %34, %28 ]
   %35 = icmp ult i32 %3, 6
-  %36 = add i32 %3, -2
+  %36 = add nsw i32 %3, -2
   %37 = select i1 %35, i32 %36, i32 3
   %38 = getelementptr inbounds i8, ptr %0, i64 28412
   %39 = zext i32 %37 to i64
@@ -1480,7 +1480,7 @@ rc_bittree.exit:                                  ; preds = %44
   %87 = or disjoint i32 %86, %77
   %88 = add nsw i32 %.0.i45, -1
   %.not.i46 = icmp eq i32 %88, 0
-  br i1 %.not.i46, label %rc_bittree_reverse.exit, label %75, !llvm.loop !27
+  br i1 %.not.i46, label %rc_bittree_reverse.exit, label %75, !llvm.loop !26
 
 89:                                               ; preds = %59
   %90 = lshr i32 %65, 4
@@ -1499,7 +1499,7 @@ rc_bittree.exit:                                  ; preds = %44
   %99 = getelementptr inbounds [58 x i32], ptr %41, i64 0, i64 %97
   store i32 %96, ptr %99, align 4
   %.not.i48 = icmp eq i32 %93, 0
-  br i1 %.not.i48, label %rc_direct.exit, label %92, !llvm.loop !28
+  br i1 %.not.i48, label %rc_direct.exit, label %92, !llvm.loop !27
 
 rc_direct.exit:                                   ; preds = %92
   %100 = getelementptr inbounds i8, ptr %0, i64 29152
@@ -1528,7 +1528,7 @@ rc_direct.exit:                                   ; preds = %92
   %114 = or disjoint i32 %113, %104
   %115 = add nsw i32 %.0.i52, -1
   %.not.i53 = icmp eq i32 %115, 0
-  br i1 %.not.i53, label %rc_bittree_reverse.exit54, label %102, !llvm.loop !27
+  br i1 %.not.i53, label %rc_bittree_reverse.exit54, label %102, !llvm.loop !26
 
 rc_bittree_reverse.exit54:                        ; preds = %102
   %116 = getelementptr inbounds i8, ptr %0, i64 69336
@@ -1785,7 +1785,7 @@ define internal fastcc void @length_update_prices(ptr nocapture noundef %0, i32 
   %57 = zext i8 %56 to i32
   %58 = add i32 %.09.i, %57
   %.not.i = icmp eq i32 %46, 1
-  br i1 %.not.i, label %rc_bittree_price.exit, label %44, !llvm.loop !29
+  br i1 %.not.i, label %rc_bittree_price.exit, label %44, !llvm.loop !28
 
 rc_bittree_price.exit:                            ; preds = %44
   %59 = add i32 %58, %13
@@ -1793,7 +1793,7 @@ rc_bittree_price.exit:                            ; preds = %44
   store i32 %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader47, label %41, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader47, label %41, !llvm.loop !29
 
 .preheader:                                       ; preds = %rc_bittree_price.exit42, %2, %.preheader47
   %.1.lcssa = phi i32 [ %invariant.umin, %.preheader47 ], [ 0, %2 ], [ %invariant.umin51, %rc_bittree_price.exit42 ]
@@ -1808,7 +1808,7 @@ rc_bittree_price.exit:                            ; preds = %44
 
 64:                                               ; preds = %.lr.ph53, %rc_bittree_price.exit42
   %indvars.iv62 = phi i64 [ %40, %.lr.ph53 ], [ %indvars.iv.next63, %rc_bittree_price.exit42 ]
-  %65 = trunc i64 %indvars.iv62 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv62 to i32
   br label %66
 
 66:                                               ; preds = %66, %64
@@ -1829,7 +1829,7 @@ rc_bittree_price.exit:                            ; preds = %44
   %79 = zext i8 %78 to i32
   %80 = add i32 %.09.i39, %79
   %.not.i41 = icmp eq i32 %68, 1
-  br i1 %.not.i41, label %rc_bittree_price.exit42, label %66, !llvm.loop !29
+  br i1 %.not.i41, label %rc_bittree_price.exit42, label %66, !llvm.loop !28
 
 rc_bittree_price.exit42:                          ; preds = %66
   %81 = add i32 %26, %80
@@ -1837,11 +1837,11 @@ rc_bittree_price.exit42:                          ; preds = %66
   store i32 %81, ptr %82, align 4
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.preheader, label %64, !llvm.loop !31
+  br i1 %exitcond66.not, label %.preheader, label %64, !llvm.loop !30
 
 83:                                               ; preds = %.lr.ph56, %rc_bittree_price.exit46
   %indvars.iv67 = phi i64 [ %63, %.lr.ph56 ], [ %indvars.iv.next68, %rc_bittree_price.exit46 ]
-  %84 = trunc i64 %indvars.iv67 to i32
+  %84 = trunc nuw i64 %indvars.iv67 to i32
   %85 = add i32 %84, 240
   br label %86
 
@@ -1863,7 +1863,7 @@ rc_bittree_price.exit42:                          ; preds = %66
   %99 = zext i8 %98 to i32
   %100 = add i32 %.09.i43, %99
   %.not.i45 = icmp eq i32 %88, 1
-  br i1 %.not.i45, label %rc_bittree_price.exit46, label %86, !llvm.loop !29
+  br i1 %.not.i45, label %rc_bittree_price.exit46, label %86, !llvm.loop !28
 
 rc_bittree_price.exit46:                          ; preds = %86
   %101 = add i32 %32, %100
@@ -1871,21 +1871,21 @@ rc_bittree_price.exit46:                          ; preds = %86
   store i32 %101, ptr %102, align 4
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge, label %83, !llvm.loop !32
+  br i1 %exitcond71.not, label %._crit_edge, label %83, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %rc_bittree_price.exit46, %.preheader
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lzma_encode(ptr noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef %3, i64 noundef %4) #0 {
+define internal range(i32 0, 9) i32 @lzma_encode(ptr noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef %3, i64 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 104
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @lzma_lzma_encode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef -1), !range !33
+  %10 = tail call i32 @lzma_lzma_encode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef -1)
   br label %11
 
 11:                                               ; preds = %5, %9
@@ -1937,11 +1937,9 @@ attributes #8 = { nounwind }
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
-!26 = !{i32 0, i32 9}
+!26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = !{i32 0, i32 2}

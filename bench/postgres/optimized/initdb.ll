@@ -3701,32 +3701,32 @@ check_authmethod_valid.exit:                      ; preds = %228, %234
   unreachable
 
 check_authmethod_valid.exit79:                    ; preds = %243, %249
-  %257 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(4) @.str.321) #20
+  %257 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %222, ptr noundef nonnull dereferenceable(4) @.str.321) #20
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %265, label %259
 
 259:                                              ; preds = %check_authmethod_valid.exit79
-  %260 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(9) @.str.469) #20
+  %260 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %222, ptr noundef nonnull dereferenceable(9) @.str.469) #20
   %261 = icmp eq i32 %260, 0
   br i1 %261, label %265, label %262
 
 262:                                              ; preds = %259
-  %263 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(14) @.str.322) #20
+  %263 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %222, ptr noundef nonnull dereferenceable(14) @.str.322) #20
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %265, label %check_need_password.exit
 
 265:                                              ; preds = %262, %259, %check_authmethod_valid.exit79
-  %266 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(4) @.str.321) #20
+  %266 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %226, ptr noundef nonnull dereferenceable(4) @.str.321) #20
   %267 = icmp eq i32 %266, 0
   br i1 %267, label %275, label %268
 
 268:                                              ; preds = %265
-  %269 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.469) #20
+  %269 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.469) #20
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %275, label %271
 
 271:                                              ; preds = %268
-  %272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.322) #20
+  %272 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.322) #20
   %273 = icmp ne i32 %272, 0
   %274 = or i1 %.b4857, %273
   %or.cond86 = select i1 %274, i1 true, i1 %216
@@ -4430,7 +4430,7 @@ define internal fastcc ptr @replace_guc_value(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i64 @strspn(ptr noundef nonnull %2, ptr noundef nonnull @.str.348) #20
+  %14 = tail call i64 @strspn(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.348) #20
   br label %guc_value_requires_quotes.exit
 
 15:                                               ; preds = %12
@@ -4444,9 +4444,9 @@ define internal fastcc ptr @replace_guc_value(ptr noundef %0, ptr noundef %1, pt
   br i1 %memchr12.not.i, label %guc_value_requires_quotes.exit.thread, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call i64 @strspn(ptr noundef nonnull %2, ptr noundef nonnull @.str.349) #20
+  %21 = tail call i64 @strspn(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.349) #20
   %22 = getelementptr i8, ptr %2, i64 %21
-  %23 = tail call i64 @strspn(ptr noundef %22, ptr noundef nonnull @.str.347) #20
+  %23 = tail call i64 @strspn(ptr noundef readonly %22, ptr noundef nonnull @.str.347) #20
   br label %guc_value_requires_quotes.exit
 
 guc_value_requires_quotes.exit:                   ; preds = %13, %20

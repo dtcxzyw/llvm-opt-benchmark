@@ -1465,7 +1465,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
 51:                                               ; preds = %47, %38
   %.12101 = phi i32 [ %spec.select, %38 ], [ %spec.select2728, %47 ]
   call void @cli_exe_info_init(ptr noundef nonnull %13, i32 noundef 0) #20
-  %52 = call i32 @cli_peheader(ptr noundef nonnull %41, ptr noundef nonnull %13, i32 noundef %.12101, ptr noundef nonnull %0), !range !4
+  %52 = call i32 @cli_peheader(ptr noundef nonnull %41, ptr noundef nonnull %13, i32 noundef %.12101, ptr noundef nonnull %0)
   switch i32 %52, label %66 [
     i32 26, label %53
     i32 34, label %64
@@ -1649,7 +1649,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
 
 131:                                              ; preds = %130
   %132 = load ptr, ptr %40, align 8
-  %133 = call fastcc i32 @cli_hashsect(ptr noundef %132, ptr noundef nonnull %87, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !5
+  %133 = call fastcc i32 @cli_hashsect(ptr noundef %132, ptr noundef nonnull readonly %87, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %134 = load i8, ptr @cli_debug_flag, align 1
   %.not.i2812 = icmp eq i8 %134, 0
   br i1 %.not.i2812, label %.preheader3262, label %135
@@ -1943,7 +1943,7 @@ scan_pe_mdb.exit._crit_edge:                      ; preds = %scan_pe_mdb.exit
   br i1 %.not.i2816, label %304, label %303
 
 303:                                              ; preds = %298
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %302, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %7, ptr nonnull align 1 %302, i64 %spec.select.i, i1 false)
   br label %fmap_readn.exit
 
 304:                                              ; preds = %296, %298
@@ -2937,14 +2937,14 @@ fmap_readn.exit:                                  ; preds = %303, %291
   br i1 %.not2435, label %801, label %790
 
 790:                                              ; preds = %787
-  %791 = getelementptr %struct.cli_exe_section, ptr %781, i64 %indvars.iv3135
-  %792 = getelementptr i8, ptr %791, i64 48
+  %791 = getelementptr inbounds %struct.cli_exe_section, ptr %781, i64 %indvars.iv3135
+  %792 = getelementptr inbounds i8, ptr %791, i64 48
   %793 = load i32, ptr %792, align 4
   %.not2436 = icmp eq i32 %793, 0
   br i1 %.not2436, label %801, label %794
 
 794:                                              ; preds = %790
-  %795 = getelementptr i8, ptr %791, i64 40
+  %795 = getelementptr inbounds i8, ptr %791, i64 40
   %796 = load i32, ptr %795, align 4
   %.not2437 = icmp eq i32 %796, 0
   br i1 %.not2437, label %801, label %797
@@ -5133,7 +5133,7 @@ cli_rawaddr.exit2823:                             ; preds = %1638
   %1947 = getelementptr inbounds i8, ptr %13, i64 72
   %1948 = load i32, ptr %1947, align 8
   %1949 = sub i32 %1948, %.02085
-  %1950 = call i32 %.02080.ph(ptr noundef nonnull %1943, i32 noundef %1944, ptr noundef nonnull %1905, ptr noundef nonnull %10, i32 noundef %1946, i32 noundef %1940, i32 noundef %1949) #20, !callees !6
+  %1950 = call i32 %.02080.ph(ptr noundef nonnull %1943, i32 noundef %1944, ptr noundef nonnull %1905, ptr noundef nonnull %10, i32 noundef %1946, i32 noundef %1940, i32 noundef %1949) #20, !callees !4
   %1951 = icmp sgt i32 %1950, -1
   br i1 %1951, label %.thread2877.sink.split, label %1952
 
@@ -5148,7 +5148,7 @@ cli_rawaddr.exit2823:                             ; preds = %1638
   %1957 = getelementptr inbounds %struct.cli_exe_section, ptr %1954, i64 %1867
   %1958 = load i32, ptr %1957, align 4
   %1959 = load i32, ptr %1947, align 8
-  %1960 = call i32 %.02080.ph(ptr noundef nonnull %1899, i32 noundef %1870, ptr noundef nonnull %1905, ptr noundef nonnull %10, i32 noundef %1956, i32 noundef %1958, i32 noundef %1959) #20, !callees !6
+  %1960 = call i32 %.02080.ph(ptr noundef nonnull %1899, i32 noundef %1870, ptr noundef nonnull %1905, ptr noundef nonnull %10, i32 noundef %1956, i32 noundef %1958, i32 noundef %1959) #20, !callees !4
   %1961 = icmp sgt i32 %1960, -1
   br i1 %1961, label %.thread2877.sink.split, label %1962
 
@@ -7426,7 +7426,7 @@ declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unname
 declare void @cli_exe_info_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_peheader(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 35) i32 @cli_peheader(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i16, align 2
   %7 = alloca i64, align 8
@@ -7507,7 +7507,7 @@ get_pe_property.exit:                             ; preds = %19, %24, %29
   br i1 %.not.i825, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %37
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %6, ptr nonnull align 1 %41, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %6, ptr nonnull align 1 %41, i64 %spec.select.i, i1 false)
   %.not726 = icmp ugt i64 %38, 1
   br i1 %.not726, label %42, label %fmap_readn.exit.thread
 
@@ -7545,7 +7545,7 @@ fmap_readn.exit.thread:                           ; preds = %37, %31, %fmap_read
   br i1 %.not.i828, label %fmap_readn.exit829.thread, label %fmap_readn.exit829
 
 fmap_readn.exit829:                               ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %54, i64 %spec.select.i827, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %45, ptr nonnull align 1 %54, i64 %spec.select.i827, i1 false)
   %.not727 = icmp ugt i64 %52, 3
   br i1 %.not727, label %55, label %fmap_readn.exit829.thread
 
@@ -7590,7 +7590,7 @@ fmap_readn.exit829.thread:                        ; preds = %51, %44, %fmap_read
   br i1 %.not.i832, label %fmap_readn.exit833.thread, label %fmap_readn.exit833
 
 fmap_readn.exit833:                               ; preds = %68
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %71, i64 %spec.select.i831, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %63, ptr nonnull align 1 %71, i64 %spec.select.i831, i1 false)
   %.not730 = icmp ugt i64 %69, 23
   br i1 %.not730, label %72, label %fmap_readn.exit833.thread
 
@@ -7942,7 +7942,7 @@ fmap_readn.exit833.thread:                        ; preds = %68, %62, %fmap_read
   br i1 %.not.i836, label %fmap_readn.exit837.thread, label %fmap_readn.exit837
 
 fmap_readn.exit837:                               ; preds = %197
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull align 1 %200, i64 %spec.select.i835, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %195, ptr nonnull align 1 %200, i64 %spec.select.i835, i1 false)
   %.not734 = icmp ugt i64 %198, 95
   br i1 %.not734, label %201, label %fmap_readn.exit837.thread
 
@@ -7985,7 +7985,7 @@ fmap_readn.exit837.thread:                        ; preds = %197, %189, %fmap_re
   br i1 %.not.i840, label %fmap_readn.exit841.thread, label %fmap_readn.exit841
 
 fmap_readn.exit841:                               ; preds = %214
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %212, ptr nonnull align 1 %217, i64 %spec.select.i839, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %212, ptr nonnull align 1 %217, i64 %spec.select.i839, i1 false)
   %.not735 = icmp ugt i64 %215, 15
   br i1 %.not735, label %218, label %fmap_readn.exit841.thread
 
@@ -10137,10 +10137,10 @@ declare i32 @unspack(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare i32 @cli_bytecode_context_getresult_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_pe_targetinfo(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 35) i32 @cli_pe_targetinfo(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @cli_peheader(ptr noundef %4, ptr noundef %1, i32 noundef 4, ptr noundef null), !range !4
+  %5 = tail call i32 @cli_peheader(ptr noundef %4, ptr noundef %1, i32 noundef 4, ptr noundef null)
   ret i32 %5
 }
 
@@ -10394,7 +10394,7 @@ get_section_json.exit:                            ; preds = %17, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @versioninfo_cb(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal range(i32 0, 2) i32 @versioninfo_cb(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.361, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #20
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 4
@@ -10447,7 +10447,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
 20:                                               ; preds = %18
   call void @cli_exe_info_init(ptr noundef nonnull %5, i32 noundef 0) #20
   %21 = load ptr, ptr %6, align 8
-  %22 = call i32 @cli_peheader(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null), !range !4
+  %22 = call i32 @cli_peheader(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null)
   %.not157 = icmp eq i32 %22, 0
   br i1 %.not157, label %23, label %.sink.split
 
@@ -10559,7 +10559,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not.i, label %.thread.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %73
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %77, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %3, ptr nonnull align 1 %77, i64 %spec.select.i, i1 false)
   %.not164 = icmp ugt i64 %74, 7
   br i1 %.not164, label %78, label %.thread.thread
 
@@ -10730,7 +10730,7 @@ declare i32 @cli_hm_scan(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare void @cl_hash_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 27) i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.cli_exe_info, align 8
   %6 = alloca [3 x ptr], align 16
   %7 = alloca [3 x i32], align 4
@@ -10758,7 +10758,7 @@ define noundef i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i32 nounde
   call void @cli_exe_info_init(ptr noundef nonnull %5, i32 noundef 0) #20
   %16 = getelementptr inbounds i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = call i32 @cli_peheader(ptr noundef %17, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null), !range !4
+  %18 = call i32 @cli_peheader(ptr noundef %17, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null)
   %.not76 = icmp eq i32 %18, 0
   br i1 %.not76, label %20, label %19
 
@@ -10854,7 +10854,7 @@ define noundef i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i32 nounde
   %54 = load ptr, ptr %16, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr inbounds %struct.cli_exe_section, ptr %55, i64 %indvars.iv90
-  %57 = call fastcc i32 @cli_hashsect(ptr noundef %54, ptr noundef %56, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %7), !range !5
+  %57 = call fastcc i32 @cli_hashsect(ptr noundef %54, ptr noundef %56, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %7)
   %.not81.us = icmp eq i32 %57, 0
   br i1 %.not81.us, label %68, label %58
 
@@ -10906,7 +10906,7 @@ define noundef i32 @cli_genhash_pe(ptr nocapture noundef readonly %0, i32 nounde
   %79 = load ptr, ptr %16, align 8
   %80 = load ptr, ptr %5, align 8
   %81 = getelementptr inbounds %struct.cli_exe_section, ptr %80, i64 %indvars.iv
-  %82 = call fastcc i32 @cli_hashsect(ptr noundef %79, ptr noundef %81, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %7), !range !5
+  %82 = call fastcc i32 @cli_hashsect(ptr noundef %79, ptr noundef %81, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %7)
   %.not81 = icmp eq i32 %82, 0
   br i1 %.not81, label %102, label %83
 
@@ -11016,7 +11016,7 @@ define internal i32 @sort_sects(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cli_hashsect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @cli_hashsect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 1073741824
@@ -11542,7 +11542,7 @@ cli_rawaddr.exit260.thread.i:                     ; preds = %cli_rawaddr.exit260
   br i1 %.not.i263.i, label %hash_impfns.exit, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %191
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.01.i, ptr nonnull align 1 %196, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %.sroa.01.i, ptr nonnull align 1 %196, i64 %spec.select.i.i, i1 false)
   %197 = icmp ugt i64 %194, 3
   %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i = load i32, ptr %.sroa.01.i, align 4
   %198 = icmp ne i32 %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i, 0
@@ -11824,7 +11824,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
   br i1 %.not.i282.i, label %hash_impfns.exit, label %fmap_readn.exit283.i
 
 fmap_readn.exit283.i:                             ; preds = %313
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i, ptr nonnull align 1 %318, i64 %spec.select.i281.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %.sroa.0.i, ptr nonnull align 1 %318, i64 %spec.select.i281.i, i1 false)
   %319 = icmp ugt i64 %316, 7
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load i64, ptr %.sroa.0.i, align 8
   %320 = icmp ne i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i, 0
@@ -14888,6 +14888,4 @@ attributes #23 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 35}
-!5 = !{i32 0, i32 2}
-!6 = !{ptr @upx_inflate2b, ptr @upx_inflate2d, ptr @upx_inflate2e}
+!4 = !{ptr @upx_inflate2b, ptr @upx_inflate2d, ptr @upx_inflate2e}

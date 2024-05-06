@@ -48,7 +48,7 @@ if.end5:                                          ; preds = %if.then3, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @bitmap_size(ptr nocapture noundef readonly %binfo) local_unnamed_addr #2 {
+define hidden range(i64 0, -7) i64 @bitmap_size(ptr nocapture noundef readonly %binfo) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %binfo, i64 8
   %binfo.val = load i64, ptr %0, align 8

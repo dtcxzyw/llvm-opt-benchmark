@@ -425,7 +425,7 @@ define void @Fxu_MatrixPrintDivisorProfile(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.not43, label %40, label %37
 
 37:                                               ; preds = %.lr.ph62
-  %38 = trunc i64 %indvars.iv65 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv65 to i32
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %38, i32 noundef %36) #7
   br label %40
 

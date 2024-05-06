@@ -103,7 +103,7 @@ if.then12:                                        ; preds = %for.inc
   br label %return
 
 if.end13:                                         ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp10.i = icmp ult i32 %5, 255
   %cmp311.i = icmp ne i8 %2, 0
   %6 = and i1 %cmp311.i, %cmp10.i

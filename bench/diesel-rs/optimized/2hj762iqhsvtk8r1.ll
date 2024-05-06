@@ -80,7 +80,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   store i64 %31, ptr %5, align 8, !noalias !39
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h504568ed37872863E.llvm.768955472827859366"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8), !noalias !44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !39
-  %trunc.i.i.i = trunc i32 %30 to i1
+  %trunc.i.i.i = trunc nuw i32 %30 to i1
   br i1 %trunc.i.i.i, label %37, label %32
 
 32:                                               ; preds = %.lr.ph.i
@@ -692,7 +692,7 @@ define hidden void @"_ZN122_$LT$diesel..pg..metadata_lookup..pg_namespace..colum
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !66, !noundef !5
   %11 = load i8, ptr %10, align 1, !range !159, !noundef !5
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !5
   br i1 %12, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread", label %.critedge.thread
@@ -944,7 +944,7 @@ define hidden void @"_ZN126_$LT$diesel..pg..metadata_lookup..pg_namespace..colum
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !66, !noundef !5
   %11 = load i8, ptr %10, align 1, !range !159, !noundef !5
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !5
   br i1 %12, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread", label %.critedge.thread
@@ -1072,7 +1072,7 @@ define hidden void @"_ZN133_$LT$diesel..query_builder..nodes..StaticQueryFragmen
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !260
   store i64 %10, ptr %0, align 8, !alias.scope !258, !noalias !259
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i.i, i64 24, i1 false), !noalias !259
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i.i, i64 24, i1 false), !noalias !259
   br label %"_ZN107_$LT$diesel..query_builder..nodes..Identifier$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h7b122e56471453b1E.llvm.8794480458802181418.exit"
 
 "_ZN107_$LT$diesel..query_builder..nodes..Identifier$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h7b122e56471453b1E.llvm.8794480458802181418.exit": ; preds = %6, %16
@@ -1124,7 +1124,7 @@ define hidden void @"_ZN133_$LT$diesel..query_builder..nodes..StaticQueryFragmen
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !278
   store i64 %10, ptr %0, align 8, !alias.scope !276, !noalias !277
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i.i, i64 24, i1 false), !noalias !277
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i.i, i64 24, i1 false), !noalias !277
   br label %"_ZN107_$LT$diesel..query_builder..nodes..Identifier$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h7b122e56471453b1E.llvm.8794480458802181418.exit"
 
 "_ZN107_$LT$diesel..query_builder..nodes..Identifier$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h7b122e56471453b1E.llvm.8794480458802181418.exit": ; preds = %6, %16
@@ -1176,7 +1176,7 @@ define hidden void @"_ZN133_$LT$diesel..query_builder..nodes..StaticQueryFragmen
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !296
   store i64 %10, ptr %0, align 8, !alias.scope !294, !noalias !295
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i.i, i64 24, i1 false), !noalias !295
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i.i, i64 24, i1 false), !noalias !295
   br label %"_ZN107_$LT$diesel..query_builder..nodes..Identifier$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h7b122e56471453b1E.llvm.8794480458802181418.exit"
 
 "_ZN107_$LT$diesel..query_builder..nodes..Identifier$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h7b122e56471453b1E.llvm.8794480458802181418.exit": ; preds = %6, %16
@@ -1209,7 +1209,7 @@ define hidden { ptr, i64 } @"_ZN152_$LT$diesel..expression..grouped..Grouped$LT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.8794480458802181418"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.8794480458802181418"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !5
   %4 = load i64, ptr %1, align 8, !noundef !5
   %5 = icmp ult i64 %3, %4
@@ -1226,7 +1226,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17h25aeb3cbe4c18c9bE.llvm.87944804
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17hd11dbaa10a258020E.llvm.8794480458802181418(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #7 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hd11dbaa10a258020E.llvm.8794480458802181418(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #7 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   %3 = load i64, ptr %0, align 8, !alias.scope !298, !noalias !301, !noundef !5
@@ -1257,7 +1257,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h90cb11c2464ecc5
   store <2 x i64> %8, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !303, !noalias !306
   store <2 x i64> %4, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !303, !noalias !306
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !303, !noalias !306
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !303, !noalias !306
   call void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCacheKey$LT$DB$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h95dec8b7b91779dfE.llvm.8794480458802181418"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !308
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 16, !alias.scope !311
   %.sroa.10.0.copyload.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !311
@@ -1350,7 +1350,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17ha9e81696fc7ec02
   store <2 x i64> %11, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !316, !noalias !319
   store <2 x i64> %7, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !316, !noalias !319
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !316, !noalias !319
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !316, !noalias !319
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8, !range !324, !alias.scope !321, !noalias !325, !noundef !5

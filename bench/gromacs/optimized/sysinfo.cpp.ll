@@ -23,7 +23,7 @@ $__clang_call_terminate = comdat any
 @"__PRETTY_FUNCTION__._ZZ15gmx_getusernamePcmENK3$_0clEv" = private unnamed_addr constant [76 x i8] c"auto gmx_getusername(char *, size_t)::(anonymous class)::operator()() const\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z15gmx_gethostnamePcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_Z15gmx_gethostnamePcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i64 %1, 7
   br i1 %3, label %5, label %4
 
@@ -76,7 +76,7 @@ define noundef i32 @_Z10gmx_getuidv() local_unnamed_addr #3 {
 declare i32 @getuid() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z15gmx_getusernamePcm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_Z15gmx_getusernamePcm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i64 %1, 7
   br i1 %3, label %5, label %4
 
@@ -277,7 +277,7 @@ define void @_Z23gmx_format_current_timeB5cxx11v(ptr dead_on_unwind noalias writ
 declare i64 @time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z12gmx_set_nicei(i32 noundef %0) local_unnamed_addr #3 {
+define noundef range(i32 -1, 1) i32 @_Z12gmx_set_nicei(i32 noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @nice(i32 noundef %0) #8
   %.not = icmp eq i32 %2, -1
   %. = sext i1 %.not to i32

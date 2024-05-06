@@ -907,7 +907,7 @@ lpad4:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef signext i8 @_ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_EEERNS3_5LayerERNS3_9UVChannelEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list, ptr nocapture noundef nonnull readnone align 8 dereferenceable(341) %0, ptr noundef nonnull align 8 dereferenceable(112) %uv, i32 noundef %next) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef signext range(i8 0, 2) i8 @_ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_EEERNS3_5LayerERNS3_9UVChannelEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list, ptr nocapture noundef nonnull readnone align 8 dereferenceable(341) %0, ptr noundef nonnull align 8 dereferenceable(112) %uv, i32 noundef %next) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__begin1.sroa.0.014 = load ptr, ptr %list, align 8
   %cmp.i.not15 = icmp eq ptr %__begin1.sroa.0.014, %list

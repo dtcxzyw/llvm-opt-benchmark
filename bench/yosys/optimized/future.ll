@@ -4358,7 +4358,7 @@ _ZN12_GLOBAL__N_112FutureWorker9future_ffEN5Yosys5RTLIL6SigBitE.exit.i.i: ; pred
   %1349 = phi <2 x ptr> [ %1346, %.loopexit211.i.loopexit ], [ %218, %.loopexit ]
   %1350 = phi <2 x ptr> [ %1347, %.loopexit211.i.loopexit ], [ %220, %.loopexit ]
   %1351 = phi <2 x ptr> [ %1348, %.loopexit211.i.loopexit ], [ %222, %.loopexit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store <2 x ptr> %1349, ptr %73, align 8, !alias.scope !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !noalias !15
   store <2 x ptr> %1350, ptr %75, align 8, !alias.scope !15

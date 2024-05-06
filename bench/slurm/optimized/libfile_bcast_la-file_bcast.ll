@@ -77,7 +77,7 @@ define i32 @bcast_file(ptr noundef %0) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.run_command_args_t, align 8
   %10 = alloca [64 x i8], align 16
-  %11 = tail call fastcc i32 @_file_state(ptr noundef %0), !range !6
+  %11 = tail call fastcc i32 @_file_state(ptr noundef %0)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %122
 
@@ -232,7 +232,7 @@ _get_job_info.exit:                               ; preds = %12
 77:                                               ; preds = %75, %73, %.lr.ph.i
   %78 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull %7) #13
   %.not16.i = icmp eq ptr %78, null
-  br i1 %.not16.i, label %_get_lib_paths.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not16.i, label %_get_lib_paths.exit, label %.lr.ph.i, !llvm.loop !6
 
 _get_lib_paths.exit.thread:                       ; preds = %62, %68, %65, %43
   call void @slurm_xfree(ptr noundef nonnull %6) #13
@@ -334,7 +334,7 @@ _get_lib_paths.exit:                              ; preds = %77, %69
 114:                                              ; preds = %112, %110
   %115 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.31, ptr noundef nonnull %3) #13
   %.not11.i.i = icmp eq ptr %115, null
-  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %114, %105
   call void @slurm_xfree(ptr noundef nonnull %2) #13
@@ -370,7 +370,7 @@ _bcast_shared_objects.exit:                       ; preds = %92, %95, %_fill_in_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_file_state(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_file_state(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %3, i32 noundef 0) #13
@@ -878,14 +878,14 @@ _next_block.exit:                                 ; preds = %_get_block_none.exi
   %185 = load ptr, ptr %184, align 8
   %186 = call i32 @slurm_get_return_code(i32 noundef %183, ptr noundef %185) #13
   %187 = icmp eq i32 %186, 0
-  br i1 %187, label %179, label %188, !llvm.loop !10
+  br i1 %187, label %179, label %188, !llvm.loop !9
 
 188:                                              ; preds = %181
   %189 = getelementptr inbounds i8, ptr %180, i64 8
   %190 = load ptr, ptr %189, align 8
   %191 = call ptr @slurm_strerror(i32 noundef %186) #13
   %192 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef %190, ptr noundef %191) #13
-  br label %.outer.i, !llvm.loop !10
+  br label %.outer.i, !llvm.loop !9
 
 _file_bcast.exit:                                 ; preds = %179
   call void @list_iterator_destroy(ptr noundef %178) #13
@@ -907,7 +907,7 @@ _file_bcast.exit:                                 ; preds = %179
   %199 = load i64, ptr %74, align 16
   %200 = add i64 %199, %150
   store i64 %200, ptr %74, align 16
-  br i1 %.166, label %75, label %201, !llvm.loop !11
+  br i1 %.166, label %75, label %201, !llvm.loop !10
 
 201:                                              ; preds = %193, %_file_bcast.exit, %196
   call void @slurm_xfree(ptr noundef nonnull %42) #13
@@ -926,7 +926,7 @@ _file_bcast.exit:                                 ; preds = %179
   br i1 %206, label %207, label %210
 
 207:                                              ; preds = %204
-  %208 = mul nsw i64 %205, 100
+  %208 = mul nuw nsw i64 %205, 100
   %209 = udiv i64 %208, %151
   br label %214
 
@@ -954,7 +954,7 @@ _file_bcast.exit:                                 ; preds = %179
 declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bcast_decompress_data(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @bcast_decompress_data(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %21 [
@@ -1098,7 +1098,7 @@ declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_shared_object(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_foreach_shared_object(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @list_find_first(ptr noundef %4, ptr noundef nonnull @_find_subpath, ptr noundef %0) #13
@@ -1124,7 +1124,7 @@ define internal noundef i32 @_foreach_shared_object(ptr noundef %0, ptr nocaptur
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %14, ptr %16, align 8
   %17 = load ptr, ptr %11, align 8
-  %18 = tail call fastcc i32 @_file_state(ptr noundef %17), !range !6
+  %18 = tail call fastcc i32 @_file_state(ptr noundef %17)
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %_bcast_library.exit, label %_bcast_library.exit.thread
 
@@ -1174,7 +1174,7 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_subpath(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_subpath(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i1 @subpath(ptr noundef %1, ptr noundef %0) #13
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -1223,9 +1223,8 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

@@ -154,7 +154,7 @@ $_ZTVN7rocksdb15MergingIteratorE = comdat any
 @_ZN7rocksdbL18empty_operand_listE = internal global %"class.std::vector" zeroinitializer, align 8
 @__dso_handle = external hidden global i8
 @_ZN7rocksdb12perf_contextE = external thread_local global %"struct.rocksdb::PerfContext", align 8
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
 @_ZN7rocksdb24kValueTypeForSeekForPrevE = external local_unnamed_addr constant i8, align 1
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"Corrupted Key: Internal Key too small. Size=\00", align 1

@@ -2019,7 +2019,7 @@ declare dso_local void @tcp_done(ptr noundef) local_unnamed_addr #1
 declare dso_local void @dst_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tcp_out_of_resources(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @tcp_out_of_resources(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 1580

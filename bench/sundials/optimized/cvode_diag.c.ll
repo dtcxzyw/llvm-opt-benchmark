@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [63 x i8] c"The right-hand side routine failed in an unrecoverable manner.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -145,7 +145,7 @@ define internal noundef i32 @CVDiagInit(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVDiagSetup(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr nocapture readnone %7) #0 {
+define internal range(i32 -1, 2) i32 @CVDiagSetup(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr nocapture readnone %7) #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1040
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 640
@@ -233,7 +233,7 @@ define internal noundef i32 @CVDiagSetup(ptr noundef %0, i32 %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVDiagSolve(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @CVDiagSolve(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1040
   %7 = load ptr, ptr %6, align 8
   %8 = load double, ptr %7, align 8
@@ -306,7 +306,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDiagGetWorkSpace(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @CVDiagGetWorkSpace(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -331,7 +331,7 @@ define noundef i32 @CVDiagGetWorkSpace(ptr noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDiagGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVDiagGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -361,7 +361,7 @@ define noundef i32 @CVDiagGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVDiagGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVDiagGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

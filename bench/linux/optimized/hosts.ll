@@ -108,7 +108,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_scsi_host_bu
 @llvm.compiler.used = appending global [15 x ptr] [ptr @__UNIQUE_ID___addressable_scsi_add_host_with_dma437, ptr @__UNIQUE_ID___addressable_scsi_flush_work445, ptr @__UNIQUE_ID___addressable_scsi_host_alloc438, ptr @__UNIQUE_ID___addressable_scsi_host_busy441, ptr @__UNIQUE_ID___addressable_scsi_host_busy_iter447, ptr @__UNIQUE_ID___addressable_scsi_host_complete_all_commands446, ptr @__UNIQUE_ID___addressable_scsi_host_get440, ptr @__UNIQUE_ID___addressable_scsi_host_lookup439, ptr @__UNIQUE_ID___addressable_scsi_host_put442, ptr @__UNIQUE_ID___addressable_scsi_is_host_device443, ptr @__UNIQUE_ID___addressable_scsi_queue_work444, ptr @__UNIQUE_ID___addressable_scsi_remove_host432, ptr @__UNIQUE_ID_eh_deadline430, ptr @__UNIQUE_ID_eh_deadlinetype429, ptr @__param_eh_deadline], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @scsi_host_set_state(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_host_set_state(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 584
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %1
@@ -917,7 +917,7 @@ define dso_local ptr @scsi_host_lookup(i32 noundef %0) #2 align 16 {
 declare dso_local ptr @class_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @__scsi_host_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal range(i32 0, 2) i32 @__scsi_host_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -916
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -1008,7 +1008,7 @@ declare dso_local void @class_unregister(ptr noundef) local_unnamed_addr #3
 declare dso_local void @ida_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @scsi_is_host_device(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local range(i32 0, 2) i32 @scsi_is_host_device(ptr nocapture noundef readonly %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @scsi_host_type
@@ -1017,7 +1017,7 @@ define dso_local i32 @scsi_is_host_device(ptr nocapture noundef readonly %0) #6 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_queue_work(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local range(i32 -22, 2) i32 @scsi_queue_work(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

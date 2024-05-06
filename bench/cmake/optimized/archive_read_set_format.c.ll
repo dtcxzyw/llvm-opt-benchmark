@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [37 x i8] c"Internal error: Unable to set format\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_set_format(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [10 x i8], align 8
   %4 = tail call i32 @archive_read_support_format_by_code(ptr noundef %0, i32 noundef %1) #5
   %5 = icmp slt i32 %4, 0
@@ -28,7 +28,7 @@ define dso_local i32 @archive_read_set_format(ptr noundef %0, i32 noundef %1) lo
   %9 = and i32 %1, 16711680
   %10 = add nsw i32 %9, -65536
   %11 = lshr exact i32 %10, 16
-  %trunc = trunc i32 %11 to i16
+  %trunc = trunc nuw i32 %11 to i16
   switch i16 %trunc, label %27 [
     i16 13, label %12
     i16 6, label %13

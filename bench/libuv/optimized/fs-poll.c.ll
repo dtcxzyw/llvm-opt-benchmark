@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_poll_start(ptr noundef %handle, ptr noundef %cb, ptr nocapture noundef readonly %path, i32 noundef %interval) local_unnamed_addr #1 {
+define range(i32 -2147483648, 1) i32 @uv_fs_poll_start(ptr noundef %handle, ptr noundef %cb, ptr nocapture noundef readonly %path, i32 noundef %interval) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @uv_is_active(ptr noundef %handle) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -478,7 +478,7 @@ if.end12:                                         ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uv_fs_poll_getpath(ptr noundef %handle, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %size) local_unnamed_addr #1 {
+define range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %handle, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %size) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @uv_is_active(ptr noundef %handle) #7
   %tobool.not = icmp eq i32 %call, 0

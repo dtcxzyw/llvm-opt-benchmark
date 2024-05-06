@@ -55,7 +55,7 @@ define void @dsbevd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not, label %.thread7, label %.thread
 
 .thread:                                          ; preds = %32
-  %33 = mul nsw i32 %30, 5
+  %33 = mul nuw nsw i32 %30, 5
   %34 = add nuw nsw i32 %33, 3
   store i32 %30, ptr %15, align 4, !tbaa !3
   %35 = add nuw nsw i32 %33, 1

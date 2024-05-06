@@ -99,7 +99,7 @@ push_back_token.exit:                             ; preds = %24
   %31 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %30
   store i32 %17, ptr %31, align 4
   %32 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   %33 = add nsw i32 %25, 1
   store i32 %33, ptr @num_pushbacks, align 4
   %34 = icmp eq i32 %25, 3
@@ -117,7 +117,7 @@ push_back_token.exit42:                           ; preds = %push_back_token.exi
   %39 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %38
   store i32 46, ptr %39, align 4
   %40 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false)
   %41 = add nsw i32 %25, 2
   store i32 %41, ptr @num_pushbacks, align 4
   %42 = load ptr, ptr %1, align 8
@@ -143,7 +143,7 @@ push_back_token.exit43:                           ; preds = %45
   %52 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %51
   store i32 %14, ptr %52, align 4
   %53 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false)
   %54 = add nsw i32 %46, 1
   store i32 %54, ptr @num_pushbacks, align 4
   %55 = load ptr, ptr %1, align 8
@@ -169,7 +169,7 @@ push_back_token.exit44:                           ; preds = %58
   %65 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %64
   store i32 %11, ptr %65, align 4
   %66 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull readonly align 8 dereferenceable(40) %3, i64 40, i1 false)
   %67 = add nsw i32 %59, 1
   store i32 %67, ptr @num_pushbacks, align 4
   %68 = icmp eq i32 %59, 3
@@ -187,7 +187,7 @@ push_back_token.exit45:                           ; preds = %push_back_token.exi
   %73 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %72
   store i32 46, ptr %73, align 4
   %74 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   %75 = add nsw i32 %59, 2
   store i32 %75, ptr @num_pushbacks, align 4
   %76 = load ptr, ptr %1, align 8
@@ -240,7 +240,7 @@ push_back_token.exit46:                           ; preds = %100
   %107 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %106
   store i32 %8, ptr %107, align 4
   %108 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   %109 = add nsw i32 %101, 1
   store i32 %109, ptr @num_pushbacks, align 4
   %110 = load ptr, ptr %1, align 8
@@ -497,7 +497,7 @@ push_back_token.exit:                             ; preds = %0
   %9 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %8
   store i32 %2, ptr %9, align 4
   %10 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull readonly align 8 dereferenceable(40) %1, i64 40, i1 false)
   %11 = add nsw i32 %3, 1
   store i32 %11, ptr @num_pushbacks, align 4
   ret i32 %2
@@ -547,7 +547,7 @@ push_back_token.exit:                             ; preds = %16
   %23 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %22
   store i32 %8, ptr %23, align 4
   %24 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   %25 = add nsw i32 %17, 1
   store i32 %25, ptr @num_pushbacks, align 4
   %26 = icmp eq i32 %17, 3
@@ -565,7 +565,7 @@ push_back_token.exit11:                           ; preds = %push_back_token.exi
   %31 = getelementptr [4 x i32], ptr @pushback_token, i64 0, i64 %30
   store i32 %7, ptr %31, align 4
   %32 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   %33 = add nsw i32 %17, 2
   store i32 %33, ptr @num_pushbacks, align 4
   ret void

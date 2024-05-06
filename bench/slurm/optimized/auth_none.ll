@@ -137,7 +137,7 @@ declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #1
 declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @auth_p_get_data(ptr noundef readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @auth_p_get_data(ptr noundef readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -169,7 +169,7 @@ define noalias noundef ptr @auth_p_get_identity(ptr noundef readnone %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @auth_p_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @auth_p_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5

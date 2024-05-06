@@ -177,7 +177,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_23_3 = internal constant [2 x i8] c"\C4\9F", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @turkish_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @turkish_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel, i32 noundef 97, i32 noundef 305, i32 noundef 1) #2
@@ -215,7 +215,7 @@ r_more_than_one_syllable_word.exit:               ; preds = %.lr.ph.i
   %20 = load i32, ptr %15, align 4
   %21 = load i32, ptr %2, align 8
   %22 = sub i32 %20, %21
-  %23 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %23 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i.i = icmp eq i32 %23, 0
   br i1 %.not.not.i.i, label %r_mark_ymUs_.exit.thread.i, label %24
 
@@ -241,7 +241,7 @@ r_more_than_one_syllable_word.exit:               ; preds = %.lr.ph.i
   br i1 %.not14.i.i, label %r_mark_ymUs_.exit.thread.i, label %r_mark_ymUs_.exit.i
 
 r_mark_ymUs_.exit.i:                              ; preds = %34
-  %36 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %36 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %r_mark_ymUs_.exit.thread.i, label %318
 
@@ -249,7 +249,7 @@ r_mark_ymUs_.exit.thread.i:                       ; preds = %r_mark_ymUs_.exit.i
   %38 = load i32, ptr %15, align 4
   %39 = sub i32 %38, %22
   store i32 %39, ptr %2, align 8
-  %40 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %40 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i295.i = icmp eq i32 %40, 0
   br i1 %.not.not.i295.i, label %r_mark_yDU.exit.thread.i, label %41
 
@@ -259,7 +259,7 @@ r_mark_ymUs_.exit.thread.i:                       ; preds = %r_mark_ymUs_.exit.i
   br i1 %.not.i296.i, label %r_mark_yDU.exit.thread.i, label %r_mark_yDU.exit.i
 
 r_mark_yDU.exit.i:                                ; preds = %41
-  %43 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %43 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %r_mark_yDU.exit.thread.i, label %318
 
@@ -295,7 +295,7 @@ r_mark_yDU.exit.thread.i:                         ; preds = %r_mark_yDU.exit.i, 
   br i1 %.not14.i301.i, label %r_mark_ysA.exit.thread.i, label %r_mark_ysA.exit.i
 
 r_mark_ysA.exit.i:                                ; preds = %59
-  %61 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %61 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %r_mark_ysA.exit.thread.i, label %318
 
@@ -308,7 +308,7 @@ r_mark_ysA.exit.thread.i:                         ; preds = %r_mark_ysA.exit.i, 
   br i1 %.not.i302.i, label %r_mark_yken.exit.thread.i, label %r_mark_yken.exit.i
 
 r_mark_yken.exit.i:                               ; preds = %r_mark_ysA.exit.thread.i
-  %66 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %66 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %r_mark_yken.exit.thread.i, label %318
 
@@ -368,7 +368,7 @@ r_mark_sUnUz.exit86.thread:                       ; preds = %r_mark_sUnUz.exit86
   %92 = phi i32 [ %.pre, %r_mark_sUnUz.exit86.r_mark_sUnUz.exit86.thread_crit_edge ], [ %80, %79 ], [ %80, %85 ]
   %93 = sub i32 %92, %82
   store i32 %93, ptr %2, align 8
-  %94 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %94 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i74 = icmp eq i32 %94, 0
   br i1 %.not.not.i74, label %r_mark_lAr.exit80.thread, label %95
 
@@ -397,7 +397,7 @@ r_mark_lAr.exit80.thread:                         ; preds = %95, %99, %r_mark_sU
   %106 = load i32, ptr %15, align 4
   %107 = sub i32 %106, %82
   store i32 %107, ptr %2, align 8
-  %108 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %108 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i70 = icmp eq i32 %108, 0
   br i1 %.not.not.i70, label %r_mark_yUm.exit.thread, label %109
 
@@ -422,7 +422,7 @@ r_mark_lAr.exit80.thread:                         ; preds = %95, %99, %r_mark_sU
   br i1 %.not15.i, label %r_mark_yUm.exit.thread, label %r_mark_yUm.exit
 
 r_mark_yUm.exit:                                  ; preds = %118
-  %120 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %120 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %r_mark_yUm.exit.thread, label %134
 
@@ -430,7 +430,7 @@ r_mark_yUm.exit.thread:                           ; preds = %118, %109, %113, %r
   %122 = load i32, ptr %15, align 4
   %123 = sub i32 %122, %82
   store i32 %123, ptr %2, align 8
-  %124 = tail call fastcc i32 @r_mark_sUn(ptr noundef nonnull %0), !range !4
+  %124 = tail call fastcc i32 @r_mark_sUn(ptr noundef nonnull %0)
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %134
 
@@ -438,7 +438,7 @@ r_mark_yUm.exit.thread:                           ; preds = %118, %109, %113, %r
   %127 = load i32, ptr %15, align 4
   %128 = sub i32 %127, %82
   store i32 %128, ptr %2, align 8
-  %129 = tail call fastcc i32 @r_mark_yUz(ptr noundef nonnull %0), !range !4
+  %129 = tail call fastcc i32 @r_mark_yUz(ptr noundef nonnull %0)
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %134
 
@@ -449,7 +449,7 @@ r_mark_yUm.exit.thread:                           ; preds = %118, %109, %113, %r
   br label %134
 
 134:                                              ; preds = %131, %126, %r_mark_yUm.exit.thread, %r_mark_yUm.exit, %r_mark_lAr.exit80, %r_mark_sUnUz.exit86
-  %135 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %135 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i67 = icmp eq i32 %135, 0
   br i1 %.not.not.i67, label %r_mark_cAsInA.exit.thread, label %136
 
@@ -475,7 +475,7 @@ r_mark_yUm.exit.thread:                           ; preds = %118, %109, %113, %r
   br i1 %.not14.i, label %r_mark_cAsInA.exit.thread, label %r_mark_ymUs_.exit
 
 r_mark_ymUs_.exit:                                ; preds = %146
-  %148 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %148 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %r_mark_cAsInA.exit.thread, label %318
 
@@ -483,7 +483,7 @@ r_mark_cAsInA.exit.thread:                        ; preds = %146, %136, %140, %1
   %150 = load i32, ptr %15, align 4
   %151 = sub i32 %150, %22
   store i32 %151, ptr %2, align 8
-  %152 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %152 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i61 = icmp eq i32 %152, 0
   br i1 %.not.not.i61, label %r_mark_lAr.exit.thread, label %153
 
@@ -522,7 +522,7 @@ r_mark_lAr.exit:                                  ; preds = %157
   %.neg.i = sub i32 %171, %170
   store i32 %171, ptr %17, align 8
   %172 = sub i32 %170, %171
-  %173 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %173 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i55 = icmp eq i32 %173, 0
   br i1 %.not.not.i55, label %r_mark_DUr.exit.thread, label %174
 
@@ -551,7 +551,7 @@ r_mark_DUr.exit.thread:                           ; preds = %174, %178, %169, %r
   %185 = load i32, ptr %15, align 4
   %186 = sub i32 %185, %172
   store i32 %186, ptr %2, align 8
-  %187 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %187 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i51 = icmp eq i32 %187, 0
   br i1 %.not.not.i51, label %r_mark_yDU.exit54.thread, label %188
 
@@ -561,7 +561,7 @@ r_mark_DUr.exit.thread:                           ; preds = %174, %178, %169, %r
   br i1 %.not.i52, label %r_mark_yDU.exit54.thread, label %r_mark_yDU.exit54
 
 r_mark_yDU.exit54:                                ; preds = %188
-  %190 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %190 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %r_mark_yDU.exit54.thread, label %206
 
@@ -569,7 +569,7 @@ r_mark_yDU.exit54.thread:                         ; preds = %188, %r_mark_DUr.ex
   %192 = load i32, ptr %15, align 4
   %193 = sub i32 %192, %172
   store i32 %193, ptr %2, align 8
-  %194 = tail call fastcc i32 @r_mark_ysA(ptr noundef nonnull %0), !range !4
+  %194 = tail call fastcc i32 @r_mark_ysA(ptr noundef nonnull %0)
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %206
 
@@ -577,7 +577,7 @@ r_mark_yDU.exit54.thread:                         ; preds = %188, %r_mark_DUr.ex
   %197 = load i32, ptr %15, align 4
   %198 = sub i32 %197, %172
   store i32 %198, ptr %2, align 8
-  %199 = tail call fastcc i32 @r_mark_ymUs_(ptr noundef nonnull %0), !range !5
+  %199 = tail call fastcc i32 @r_mark_ymUs_(ptr noundef nonnull %0)
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %204
 
@@ -600,7 +600,7 @@ r_mark_lAr.exit.thread:                           ; preds = %153, %157, %r_mark_
   %208 = load i32, ptr %15, align 4
   %209 = sub i32 %208, %22
   store i32 %209, ptr %2, align 8
-  %210 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %210 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i47 = icmp eq i32 %210, 0
   br i1 %.not.not.i47, label %r_mark_nUz.exit.thread, label %211
 
@@ -628,7 +628,7 @@ r_mark_nUz.exit:                                  ; preds = %215
 222:                                              ; preds = %r_mark_nUz.exit
   %223 = load i32, ptr %15, align 4
   %224 = load i32, ptr %2, align 8
-  %225 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %225 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i44 = icmp eq i32 %225, 0
   br i1 %.not.not.i44, label %r_mark_yDU.exit.thread, label %226
 
@@ -638,7 +638,7 @@ r_mark_nUz.exit:                                  ; preds = %215
   br i1 %.not.i45, label %r_mark_yDU.exit.thread, label %r_mark_yDU.exit
 
 r_mark_yDU.exit:                                  ; preds = %226
-  %228 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %228 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %r_mark_yDU.exit.thread, label %318
 
@@ -647,7 +647,7 @@ r_mark_yDU.exit.thread:                           ; preds = %226, %222, %r_mark_
   %230 = load i32, ptr %15, align 4
   %231 = add i32 %.neg292.i, %230
   store i32 %231, ptr %2, align 8
-  %232 = tail call fastcc i32 @r_mark_ysA(ptr noundef nonnull %0), !range !4
+  %232 = tail call fastcc i32 @r_mark_ysA(ptr noundef nonnull %0)
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %r_mark_nUz.exit.thread, label %318
 
@@ -682,7 +682,7 @@ r_mark_sUnUz.exit.r_mark_sUnUz.exit.thread_crit_edge: ; preds = %r_mark_sUnUz.ex
 r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r_mark_sUnUz.exit.thread_crit_edge, %r_mark_nUz.exit.thread, %238
   %.pre-phi = phi i32 [ %.pre154, %r_mark_sUnUz.exit.r_mark_sUnUz.exit.thread_crit_edge ], [ %235, %r_mark_nUz.exit.thread ], [ %235, %238 ]
   store i32 %.pre-phi, ptr %2, align 8
-  %245 = tail call fastcc i32 @r_mark_yUz(ptr noundef nonnull %0), !range !4
+  %245 = tail call fastcc i32 @r_mark_yUz(ptr noundef nonnull %0)
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %247, label %257
 
@@ -690,7 +690,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %248 = load i32, ptr %15, align 4
   %249 = sub i32 %248, %22
   store i32 %249, ptr %2, align 8
-  %250 = tail call fastcc i32 @r_mark_sUn(ptr noundef nonnull %0), !range !4
+  %250 = tail call fastcc i32 @r_mark_sUn(ptr noundef nonnull %0)
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %252, label %257
 
@@ -698,7 +698,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %253 = load i32, ptr %15, align 4
   %254 = sub i32 %253, %22
   store i32 %254, ptr %2, align 8
-  %255 = tail call fastcc i32 @r_mark_yUm(ptr noundef nonnull %0), !range !4
+  %255 = tail call fastcc i32 @r_mark_yUm(ptr noundef nonnull %0)
   %256 = icmp eq i32 %255, 0
   br i1 %256, label %272, label %257
 
@@ -714,7 +714,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %263 = load i32, ptr %15, align 4
   %264 = load i32, ptr %2, align 8
   store i32 %264, ptr %17, align 8
-  %265 = tail call fastcc i32 @r_mark_ymUs_(ptr noundef nonnull %0), !range !5
+  %265 = tail call fastcc i32 @r_mark_ymUs_(ptr noundef nonnull %0)
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %267, label %270
 
@@ -733,7 +733,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %273 = load i32, ptr %15, align 4
   %274 = sub i32 %273, %22
   store i32 %274, ptr %2, align 8
-  %275 = tail call fastcc i32 @r_mark_DUr(ptr noundef nonnull %0), !range !4
+  %275 = tail call fastcc i32 @r_mark_DUr(ptr noundef nonnull %0)
   %.not.not.i = icmp eq i32 %275, 0
   br i1 %.not.not.i, label %r_stem_nominal_verb_suffixes.exit, label %276
 
@@ -751,7 +751,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %.neg294.i = sub i32 %283, %282
   store i32 %283, ptr %17, align 8
   %284 = sub i32 %282, %283
-  %285 = tail call fastcc i32 @r_mark_sUnUz(ptr noundef nonnull %0), !range !4
+  %285 = tail call fastcc i32 @r_mark_sUnUz(ptr noundef nonnull %0)
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %287, label %310
 
@@ -759,7 +759,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %288 = load i32, ptr %15, align 4
   %289 = sub i32 %288, %284
   store i32 %289, ptr %2, align 8
-  %290 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %290 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %291 = icmp eq i32 %290, 0
   br i1 %291, label %292, label %310
 
@@ -767,7 +767,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %293 = load i32, ptr %15, align 4
   %294 = sub i32 %293, %284
   store i32 %294, ptr %2, align 8
-  %295 = tail call fastcc i32 @r_mark_yUm(ptr noundef nonnull %0), !range !4
+  %295 = tail call fastcc i32 @r_mark_yUm(ptr noundef nonnull %0)
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %297, label %310
 
@@ -775,7 +775,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %298 = load i32, ptr %15, align 4
   %299 = sub i32 %298, %284
   store i32 %299, ptr %2, align 8
-  %300 = tail call fastcc i32 @r_mark_sUn(ptr noundef nonnull %0), !range !4
+  %300 = tail call fastcc i32 @r_mark_sUn(ptr noundef nonnull %0)
   %301 = icmp eq i32 %300, 0
   br i1 %301, label %302, label %310
 
@@ -783,7 +783,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   %303 = load i32, ptr %15, align 4
   %304 = sub i32 %303, %284
   store i32 %304, ptr %2, align 8
-  %305 = tail call fastcc i32 @r_mark_yUz(ptr noundef nonnull %0), !range !4
+  %305 = tail call fastcc i32 @r_mark_yUz(ptr noundef nonnull %0)
   %306 = icmp eq i32 %305, 0
   br i1 %306, label %307, label %310
 
@@ -794,7 +794,7 @@ r_mark_sUnUz.exit.thread:                         ; preds = %r_mark_sUnUz.exit.r
   br label %310
 
 310:                                              ; preds = %307, %302, %297, %292, %287, %281
-  %311 = tail call fastcc i32 @r_mark_ymUs_(ptr noundef nonnull %0), !range !5
+  %311 = tail call fastcc i32 @r_mark_ymUs_(ptr noundef nonnull %0)
   %312 = icmp eq i32 %311, 0
   br i1 %312, label %313, label %316
 
@@ -826,7 +826,7 @@ r_stem_nominal_verb_suffixes.exit:                ; preds = %272, %318
 
 326:                                              ; preds = %r_stem_nominal_verb_suffixes.exit
   store i32 %323, ptr %17, align 8
-  %327 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %327 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i.i33 = icmp eq i32 %327, 0
   br i1 %.not.not.i.i33, label %r_mark_lAr.exit.thread.i, label %328
 
@@ -862,7 +862,7 @@ r_mark_lAr.exit.i:                                ; preds = %332
 344:                                              ; preds = %339
   %345 = load i32, ptr %15, align 4
   %346 = load i32, ptr %2, align 8
-  %347 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %347 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %348 = icmp eq i32 %347, 0
   br i1 %348, label %349, label %352
 
@@ -880,7 +880,7 @@ r_mark_lAr.exit.thread.i:                         ; preds = %r_mark_lAr.exit.i, 
   %354 = load i32, ptr %15, align 4
   store i32 %354, ptr %2, align 8
   store i32 %354, ptr %17, align 8
-  %355 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %355 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i660.i = icmp eq i32 %355, 0
   br i1 %.not.not.i660.i, label %r_mark_ncA.exit.thread.i, label %356
 
@@ -907,7 +907,7 @@ r_mark_lAr.exit.thread.i:                         ; preds = %r_mark_lAr.exit.i, 
   br i1 %.not19.i.i, label %r_mark_ncA.exit.thread.i, label %r_mark_ncA.exit.i
 
 r_mark_ncA.exit.i:                                ; preds = %365
-  %367 = tail call fastcc i32 @r_mark_suffix_with_optional_n_consonant(ptr noundef nonnull %0), !range !4
+  %367 = tail call fastcc i32 @r_mark_suffix_with_optional_n_consonant(ptr noundef nonnull %0)
   %368 = icmp eq i32 %367, 0
   br i1 %368, label %r_mark_ncA.exit.thread.i, label %369
 
@@ -961,7 +961,7 @@ r_mark_lArI.exit.thread.i:                        ; preds = %r_mark_lArI.exit.r_
   %392 = sub i32 %391, %377
   store i32 %392, ptr %2, align 8
   store i32 %392, ptr %17, align 8
-  %393 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0), !range !5
+  %393 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0)
   %394 = icmp eq i32 %393, 0
   br i1 %394, label %397, label %395
 
@@ -973,7 +973,7 @@ r_mark_lArI.exit.thread.i:                        ; preds = %r_mark_lArI.exit.r_
   %398 = load i32, ptr %15, align 4
   %399 = sub i32 %398, %377
   store i32 %399, ptr %2, align 8
-  %400 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0), !range !5
+  %400 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %429, label %402
 
@@ -993,7 +993,7 @@ r_mark_lArI.exit.thread.i:                        ; preds = %r_mark_lArI.exit.r_
   %410 = load i32, ptr %2, align 8
   %411 = sub i32 %409, %410
   store i32 %410, ptr %17, align 8
-  %412 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %412 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %413 = icmp eq i32 %412, 0
   br i1 %413, label %414, label %417
 
@@ -1010,7 +1010,7 @@ r_mark_lArI.exit.thread.i:                        ; preds = %r_mark_lArI.exit.r_
   br i1 %420, label %r_stem_nominal_verb_suffixes.exit.thread, label %421
 
 421:                                              ; preds = %417
-  %422 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %422 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %423 = icmp eq i32 %422, 0
   br i1 %423, label %424, label %427
 
@@ -1028,7 +1028,7 @@ r_mark_lArI.exit.thread.i:                        ; preds = %r_mark_lArI.exit.r_
   %431 = sub i32 %430, %377
   store i32 %431, ptr %2, align 8
   store i32 %431, ptr %17, align 8
-  %432 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %432 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %433 = icmp eq i32 %432, 0
   br i1 %433, label %434, label %437
 
@@ -1045,7 +1045,7 @@ r_mark_lArI.exit.thread.i:                        ; preds = %r_mark_lArI.exit.r_
   br i1 %440, label %r_stem_nominal_verb_suffixes.exit.thread, label %441
 
 441:                                              ; preds = %437
-  %442 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %442 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %443 = icmp eq i32 %442, 0
   br i1 %443, label %444, label %447
 
@@ -1062,7 +1062,7 @@ r_mark_ncA.exit.thread.i:                         ; preds = %r_mark_ncA.exit.i, 
   %449 = load i32, ptr %15, align 4
   store i32 %449, ptr %2, align 8
   store i32 %449, ptr %17, align 8
-  %450 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %450 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i667.i = icmp eq i32 %450, 0
   br i1 %.not.not.i667.i, label %r_mark_ndA.exit.thread.i, label %451
 
@@ -1092,7 +1092,7 @@ r_mark_ndA.exit.i:                                ; preds = %455, %455
 r_mark_ndA.exit.thread.i:                         ; preds = %r_mark_ndA.exit.i, %455, %451, %r_mark_ncA.exit.thread.i
   %462 = load i32, ptr %15, align 4
   store i32 %462, ptr %2, align 8
-  %463 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %463 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i671.i = icmp eq i32 %463, 0
   br i1 %.not.not.i671.i, label %r_mark_nA.exit.thread.i, label %464
 
@@ -1159,7 +1159,7 @@ r_mark_lArI.exit679.thread.i:                     ; preds = %r_mark_lArI.exit679
   %492 = phi i32 [ %.pre699.i, %r_mark_lArI.exit679.r_mark_lArI.exit679.thread_crit_edge.i ], [ %475, %474 ], [ %475, %480 ]
   %493 = sub i32 %492, %477
   store i32 %493, ptr %2, align 8
-  %494 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0), !range !5
+  %494 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
   %495 = icmp eq i32 %494, 0
   br i1 %495, label %524, label %496
 
@@ -1180,7 +1180,7 @@ r_mark_lArI.exit679.thread.i:                     ; preds = %r_mark_lArI.exit679
   %505 = load i32, ptr %2, align 8
   %506 = sub i32 %504, %505
   store i32 %505, ptr %17, align 8
-  %507 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %507 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %508 = icmp eq i32 %507, 0
   br i1 %508, label %509, label %512
 
@@ -1197,7 +1197,7 @@ r_mark_lArI.exit679.thread.i:                     ; preds = %r_mark_lArI.exit679
   br i1 %515, label %r_stem_nominal_verb_suffixes.exit.thread, label %516
 
 516:                                              ; preds = %512
-  %517 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %517 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %518 = icmp eq i32 %517, 0
   br i1 %518, label %519, label %522
 
@@ -1214,7 +1214,7 @@ r_mark_lArI.exit679.thread.i:                     ; preds = %r_mark_lArI.exit679
   %525 = load i32, ptr %15, align 4
   %526 = sub i32 %525, %477
   store i32 %526, ptr %2, align 8
-  %527 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %527 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %528 = icmp eq i32 %527, 0
   br i1 %528, label %r_mark_nA.exit.thread.i, label %529
 
@@ -1226,7 +1226,7 @@ r_mark_nA.exit.thread.i:                          ; preds = %524, %r_mark_nA.exi
   %531 = load i32, ptr %15, align 4
   store i32 %531, ptr %2, align 8
   store i32 %531, ptr %17, align 8
-  %532 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %532 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i680.i = icmp eq i32 %532, 0
   br i1 %.not.not.i680.i, label %r_mark_ndAn.exit.thread.i, label %533
 
@@ -1254,7 +1254,7 @@ r_mark_ndAn.exit.i:                               ; preds = %537
 r_mark_ndAn.exit.thread.i:                        ; preds = %r_mark_ndAn.exit.i, %537, %533, %r_mark_nA.exit.thread.i
   %544 = load i32, ptr %15, align 4
   store i32 %544, ptr %2, align 8
-  %545 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %545 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i113 = icmp eq i32 %545, 0
   br i1 %.not.not.i113, label %r_mark_nU.exit.thread, label %r_mark_nU.exit
 
@@ -1266,7 +1266,7 @@ r_mark_nU.exit:                                   ; preds = %r_mark_ndAn.exit.th
 547:                                              ; preds = %r_mark_nU.exit, %r_mark_ndAn.exit.i
   %548 = load i32, ptr %15, align 4
   %549 = load i32, ptr %2, align 8
-  %550 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0), !range !5
+  %550 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
   %551 = icmp eq i32 %550, 0
   br i1 %551, label %589, label %552
 
@@ -1287,7 +1287,7 @@ r_mark_nU.exit:                                   ; preds = %r_mark_ndAn.exit.th
   %561 = load i32, ptr %2, align 8
   %562 = sub i32 %560, %561
   store i32 %561, ptr %17, align 8
-  %563 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %563 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i106 = icmp eq i32 %563, 0
   br i1 %.not.not.i106, label %r_mark_lAr.exit112.thread, label %564
 
@@ -1325,7 +1325,7 @@ r_mark_lAr.exit112.thread:                        ; preds = %564, %568, %559, %r
   br i1 %580, label %r_stem_nominal_verb_suffixes.exit.thread, label %581
 
 581:                                              ; preds = %577
-  %582 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %582 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %583 = icmp eq i32 %582, 0
   br i1 %583, label %584, label %587
 
@@ -1368,7 +1368,7 @@ r_mark_nU.exit.thread:                            ; preds = %589, %594, %r_mark_
   %601 = load i32, ptr %15, align 4
   store i32 %601, ptr %2, align 8
   store i32 %601, ptr %17, align 8
-  %602 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %602 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i96 = icmp eq i32 %602, 0
   br i1 %.not.not.i96, label %r_mark_DAn.exit.thread, label %603
 
@@ -1407,7 +1407,7 @@ r_mark_DAn.exit:                                  ; preds = %607
   %.neg657.i = sub i32 %621, %620
   store i32 %621, ptr %17, align 8
   %622 = sub i32 %620, %621
-  %623 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0), !range !5
+  %623 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0)
   %624 = icmp eq i32 %623, 0
   br i1 %624, label %652, label %625
 
@@ -1427,7 +1427,7 @@ r_mark_DAn.exit:                                  ; preds = %607
   %633 = load i32, ptr %2, align 8
   %634 = sub i32 %632, %633
   store i32 %633, ptr %17, align 8
-  %635 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %635 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %636 = icmp eq i32 %635, 0
   br i1 %636, label %637, label %640
 
@@ -1444,7 +1444,7 @@ r_mark_DAn.exit:                                  ; preds = %607
   br i1 %643, label %r_stem_nominal_verb_suffixes.exit.thread, label %644
 
 644:                                              ; preds = %640
-  %645 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %645 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %646 = icmp eq i32 %645, 0
   br i1 %646, label %647, label %650
 
@@ -1461,7 +1461,7 @@ r_mark_DAn.exit:                                  ; preds = %607
   %653 = load i32, ptr %15, align 4
   %654 = sub i32 %653, %622
   store i32 %654, ptr %2, align 8
-  %655 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %655 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %656 = icmp eq i32 %655, 0
   br i1 %656, label %671, label %657
 
@@ -1475,7 +1475,7 @@ r_mark_DAn.exit:                                  ; preds = %607
 661:                                              ; preds = %657
   %662 = load i32, ptr %15, align 4
   %663 = load i32, ptr %2, align 8
-  %664 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %664 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %665 = icmp eq i32 %664, 0
   br i1 %665, label %666, label %669
 
@@ -1493,7 +1493,7 @@ r_mark_DAn.exit:                                  ; preds = %607
   %672 = load i32, ptr %15, align 4
   %673 = sub i32 %672, %622
   store i32 %673, ptr %2, align 8
-  %674 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %674 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %675 = icmp eq i32 %674, 0
   br i1 %675, label %676, label %679
 
@@ -1510,7 +1510,7 @@ r_mark_DAn.exit.thread:                           ; preds = %603, %607, %r_mark_
   %681 = load i32, ptr %15, align 4
   store i32 %681, ptr %2, align 8
   store i32 %681, ptr %17, align 8
-  %682 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %682 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i91 = icmp eq i32 %682, 0
   br i1 %.not.not.i91, label %r_mark_nUn.exit.thread, label %683
 
@@ -1535,14 +1535,14 @@ r_mark_DAn.exit.thread:                           ; preds = %603, %607, %r_mark_
   br i1 %.not15.i95, label %r_mark_nUn.exit.thread, label %r_mark_nUn.exit
 
 r_mark_nUn.exit:                                  ; preds = %692
-  %694 = tail call fastcc i32 @r_mark_suffix_with_optional_n_consonant(ptr noundef nonnull %0), !range !4
+  %694 = tail call fastcc i32 @r_mark_suffix_with_optional_n_consonant(ptr noundef nonnull %0)
   %695 = icmp eq i32 %694, 0
   br i1 %695, label %r_mark_nUn.exit.thread, label %699
 
 r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r_mark_DAn.exit.thread, %r_mark_nUn.exit
   %696 = load i32, ptr %15, align 4
   store i32 %696, ptr %2, align 8
-  %697 = tail call fastcc i32 @r_mark_ylA(ptr noundef nonnull %0), !range !4
+  %697 = tail call fastcc i32 @r_mark_ylA(ptr noundef nonnull %0)
   %698 = icmp eq i32 %697, 0
   br i1 %698, label %768, label %699
 
@@ -1559,7 +1559,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %706 = load i32, ptr %2, align 8
   %707 = sub i32 %705, %706
   store i32 %706, ptr %17, align 8
-  %708 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %708 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %709 = icmp eq i32 %708, 0
   br i1 %709, label %719, label %710
 
@@ -1571,7 +1571,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   br i1 %713, label %r_stem_nominal_verb_suffixes.exit.thread, label %714
 
 714:                                              ; preds = %710
-  %715 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %715 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %716 = icmp eq i32 %715, 0
   br i1 %716, label %719, label %717
 
@@ -1584,7 +1584,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %721 = sub i32 %720, %707
   store i32 %721, ptr %2, align 8
   store i32 %721, ptr %17, align 8
-  %722 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0), !range !5
+  %722 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0)
   %723 = icmp eq i32 %722, 0
   br i1 %723, label %726, label %724
 
@@ -1596,7 +1596,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %727 = load i32, ptr %15, align 4
   %728 = sub i32 %727, %707
   store i32 %728, ptr %2, align 8
-  %729 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0), !range !5
+  %729 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
   %730 = icmp eq i32 %729, 0
   br i1 %730, label %758, label %731
 
@@ -1616,7 +1616,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %739 = load i32, ptr %2, align 8
   %740 = sub i32 %738, %739
   store i32 %739, ptr %17, align 8
-  %741 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %741 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %742 = icmp eq i32 %741, 0
   br i1 %742, label %743, label %746
 
@@ -1633,7 +1633,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   br i1 %749, label %r_stem_nominal_verb_suffixes.exit.thread, label %750
 
 750:                                              ; preds = %746
-  %751 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %751 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %752 = icmp eq i32 %751, 0
   br i1 %752, label %753, label %756
 
@@ -1650,7 +1650,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %759 = load i32, ptr %15, align 4
   %760 = sub i32 %759, %707
   store i32 %760, ptr %2, align 8
-  %761 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %761 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %762 = icmp eq i32 %761, 0
   br i1 %762, label %763, label %766
 
@@ -1667,7 +1667,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %769 = load i32, ptr %15, align 4
   store i32 %769, ptr %2, align 8
   store i32 %769, ptr %17, align 8
-  %770 = tail call fastcc i32 @r_mark_lArI(ptr noundef nonnull %0), !range !4
+  %770 = tail call fastcc i32 @r_mark_lArI(ptr noundef nonnull %0)
   %771 = icmp eq i32 %770, 0
   br i1 %771, label %777, label %772
 
@@ -1682,7 +1682,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
 777:                                              ; preds = %768
   %778 = load i32, ptr %15, align 4
   store i32 %778, ptr %2, align 8
-  %779 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %779 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %780 = icmp eq i32 %779, 0
   br i1 %780, label %783, label %781
 
@@ -1694,21 +1694,21 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %784 = load i32, ptr %15, align 4
   store i32 %784, ptr %2, align 8
   store i32 %784, ptr %17, align 8
-  %785 = tail call fastcc i32 @r_mark_DA(ptr noundef nonnull %0), !range !4
+  %785 = tail call fastcc i32 @r_mark_DA(ptr noundef nonnull %0)
   %786 = icmp eq i32 %785, 0
   br i1 %786, label %787, label %795
 
 787:                                              ; preds = %783
   %788 = load i32, ptr %15, align 4
   store i32 %788, ptr %2, align 8
-  %789 = tail call fastcc i32 @r_mark_yU(ptr noundef nonnull %0), !range !4
+  %789 = tail call fastcc i32 @r_mark_yU(ptr noundef nonnull %0)
   %790 = icmp eq i32 %789, 0
   br i1 %790, label %791, label %795
 
 791:                                              ; preds = %787
   %792 = load i32, ptr %15, align 4
   store i32 %792, ptr %2, align 8
-  %793 = tail call fastcc i32 @r_mark_yA(ptr noundef nonnull %0), !range !4
+  %793 = tail call fastcc i32 @r_mark_yA(ptr noundef nonnull %0)
   %794 = icmp eq i32 %793, 0
   br i1 %794, label %841, label %795
 
@@ -1725,7 +1725,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %802 = load i32, ptr %2, align 8
   %803 = sub i32 %801, %802
   store i32 %802, ptr %17, align 8
-  %804 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0), !range !5
+  %804 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0)
   %805 = icmp eq i32 %804, 0
   br i1 %805, label %820, label %806
 
@@ -1744,7 +1744,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %813 = load i32, ptr %15, align 4
   %814 = load i32, ptr %2, align 8
   store i32 %814, ptr %17, align 8
-  %815 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %815 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %816 = icmp eq i32 %815, 0
   br i1 %816, label %817, label %828
 
@@ -1760,7 +1760,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %821 = load i32, ptr %15, align 4
   %822 = add i32 %.neg659.i, %821
   store i32 %822, ptr %2, align 8
-  %823 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %823 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %824 = icmp eq i32 %823, 0
   br i1 %824, label %825, label %828
 
@@ -1779,7 +1779,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
 832:                                              ; preds = %828
   %833 = load i32, ptr %2, align 8
   store i32 %833, ptr %17, align 8
-  %834 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %834 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %835 = icmp eq i32 %834, 0
   br i1 %835, label %836, label %839
 
@@ -1796,7 +1796,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %842 = load i32, ptr %15, align 4
   store i32 %842, ptr %2, align 8
   store i32 %842, ptr %17, align 8
-  %843 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0), !range !5
+  %843 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0)
   %844 = icmp eq i32 %843, 0
   br i1 %844, label %847, label %845
 
@@ -1807,7 +1807,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
 847:                                              ; preds = %841
   %848 = load i32, ptr %15, align 4
   store i32 %848, ptr %2, align 8
-  %849 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0), !range !5
+  %849 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
   %850 = icmp slt i32 %849, 1
   br i1 %850, label %r_stem_noun_suffixes.exit, label %851
 
@@ -1824,7 +1824,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   %858 = load i32, ptr %2, align 8
   %859 = sub i32 %857, %858
   store i32 %858, ptr %17, align 8
-  %860 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %860 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %861 = icmp eq i32 %860, 0
   br i1 %861, label %862, label %865
 
@@ -1841,7 +1841,7 @@ r_mark_nUn.exit.thread:                           ; preds = %692, %683, %687, %r
   br i1 %868, label %r_stem_nominal_verb_suffixes.exit.thread, label %869
 
 869:                                              ; preds = %865
-  %870 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %870 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %871 = icmp eq i32 %870, 0
   br i1 %871, label %872, label %875
 
@@ -2119,8 +2119,8 @@ declare void @SN_close_env(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_ymUs_(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 -2147483648, 2) i32 @r_mark_ymUs_(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %19, label %3
 
@@ -2148,7 +2148,7 @@ define internal fastcc noundef i32 @r_mark_ymUs_(ptr noundef %0) unnamed_addr #0
   br i1 %.not14, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %18 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   br label %19
 
 19:                                               ; preds = %17, %15, %3, %9, %1
@@ -2157,7 +2157,7 @@ define internal fastcc noundef i32 @r_mark_ymUs_(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_ysA(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @r_mark_ysA(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
@@ -2189,7 +2189,7 @@ define internal fastcc noundef i32 @r_mark_ysA(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not14, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %20 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   br label %21
 
 21:                                               ; preds = %19, %17, %1, %7, %13
@@ -2198,7 +2198,7 @@ define internal fastcc noundef i32 @r_mark_ysA(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_mark_sUnUz(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @r_mark_sUnUz(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -4
@@ -2228,8 +2228,8 @@ define internal fastcc i32 @r_mark_sUnUz(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_mark_lAr(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_lAr(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %17, label %3
 
@@ -2263,8 +2263,8 @@ define internal fastcc i32 @r_mark_lAr(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_yUm(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_yUm(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %18, label %3
 
@@ -2291,7 +2291,7 @@ define internal fastcc noundef i32 @r_mark_yUm(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not15, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %17 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   br label %18
 
 18:                                               ; preds = %16, %14, %3, %9, %1
@@ -2300,8 +2300,8 @@ define internal fastcc noundef i32 @r_mark_yUm(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_mark_sUn(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_sUn(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %17, label %3
 
@@ -2335,8 +2335,8 @@ define internal fastcc i32 @r_mark_sUn(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_yUz(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_yUz(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %18, label %3
 
@@ -2363,7 +2363,7 @@ define internal fastcc noundef i32 @r_mark_yUz(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not15, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %17 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   br label %18
 
 18:                                               ; preds = %16, %14, %3, %9, %1
@@ -2374,8 +2374,8 @@ define internal fastcc noundef i32 @r_mark_yUz(ptr noundef %0) unnamed_addr #0 {
 declare i32 @slice_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_mark_DUr(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_DUr(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %17, label %3
 
@@ -2409,7 +2409,7 @@ define internal fastcc i32 @r_mark_DUr(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_check_vowel_harmony(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @r_check_vowel_harmony(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2610,7 +2610,7 @@ define internal fastcc noundef i32 @r_check_vowel_harmony(ptr noundef %0) unname
 declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2699,7 +2699,7 @@ declare i32 @in_grouping_b_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 declare i32 @skip_b_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_stem_suffix_chain_before_ki(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2713,7 +2713,7 @@ define internal fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef %0) unname
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %2, align 8
   %10 = sub i32 %8, %9
-  %11 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %11 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i = icmp eq i32 %11, 0
   br i1 %.not.not.i, label %r_mark_DA.exit.thread, label %12
 
@@ -2753,7 +2753,7 @@ r_mark_DA.exit:                                   ; preds = %17, %17
   %30 = load i32, ptr %2, align 8
   %.neg251 = sub i32 %30, %29
   store i32 %30, ptr %4, align 8
-  %31 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %31 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i256 = icmp eq i32 %31, 0
   br i1 %.not.not.i256, label %r_mark_lAr.exit.thread, label %32
 
@@ -2788,7 +2788,7 @@ r_mark_lAr.exit:                                  ; preds = %36
 47:                                               ; preds = %43
   %48 = load i32, ptr %7, align 4
   %49 = load i32, ptr %2, align 8
-  %50 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %50 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %55
 
@@ -2806,7 +2806,7 @@ r_mark_lAr.exit.thread:                           ; preds = %32, %36, %28, %r_ma
   %57 = load i32, ptr %7, align 4
   %58 = add i32 %57, %.neg251
   store i32 %58, ptr %2, align 8
-  %59 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0), !range !5
+  %59 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0)
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %64
 
@@ -2831,7 +2831,7 @@ r_mark_lAr.exit.thread:                           ; preds = %32, %36, %28, %r_ma
   %72 = load i32, ptr %2, align 8
   %73 = sub i32 %71, %72
   store i32 %72, ptr %4, align 8
-  %74 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %74 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i260 = icmp eq i32 %74, 0
   br i1 %.not.not.i260, label %r_mark_lAr.exit266.thread, label %75
 
@@ -2869,7 +2869,7 @@ r_mark_lAr.exit266.thread:                        ; preds = %75, %79, %70, %r_ma
   br i1 %91, label %r_mark_ndA.exit.thread, label %92
 
 92:                                               ; preds = %88
-  %93 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %93 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %98
 
@@ -2886,7 +2886,7 @@ r_mark_DA.exit.thread:                            ; preds = %12, %17, %6, %r_mar
   %100 = load i32, ptr %7, align 4
   %101 = sub i32 %100, %10
   store i32 %101, ptr %2, align 8
-  %102 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %102 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i267 = icmp eq i32 %102, 0
   br i1 %.not.not.i267, label %r_mark_nUn.exit.thread, label %103
 
@@ -2912,7 +2912,7 @@ r_mark_DA.exit.thread:                            ; preds = %12, %17, %6, %r_mar
   br i1 %.not15.i270, label %r_mark_nUn.exit.thread, label %r_mark_nUn.exit
 
 r_mark_nUn.exit:                                  ; preds = %113
-  %115 = tail call fastcc i32 @r_mark_suffix_with_optional_n_consonant(ptr noundef nonnull %0), !range !4
+  %115 = tail call fastcc i32 @r_mark_suffix_with_optional_n_consonant(ptr noundef nonnull %0)
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %r_mark_nUn.exit.thread, label %117
 
@@ -2967,7 +2967,7 @@ r_mark_lArI.exit.thread:                          ; preds = %r_mark_lArI.exit.r_
   %140 = sub i32 %139, %125
   store i32 %140, ptr %2, align 8
   store i32 %140, ptr %4, align 8
-  %141 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0), !range !5
+  %141 = tail call fastcc i32 @r_mark_possessives(ptr noundef nonnull %0)
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %145, label %143
 
@@ -2979,7 +2979,7 @@ r_mark_lArI.exit.thread:                          ; preds = %r_mark_lArI.exit.r_
   %146 = load i32, ptr %7, align 4
   %147 = sub i32 %146, %125
   store i32 %147, ptr %2, align 8
-  %148 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0), !range !5
+  %148 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %177, label %150
 
@@ -2999,7 +2999,7 @@ r_mark_lArI.exit.thread:                          ; preds = %r_mark_lArI.exit.r_
   %158 = load i32, ptr %2, align 8
   %159 = sub i32 %157, %158
   store i32 %158, ptr %4, align 8
-  %160 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %160 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %162, label %165
 
@@ -3016,7 +3016,7 @@ r_mark_lArI.exit.thread:                          ; preds = %r_mark_lArI.exit.r_
   br i1 %168, label %r_mark_ndA.exit.thread, label %169
 
 169:                                              ; preds = %165
-  %170 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %170 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %172, label %175
 
@@ -3033,7 +3033,7 @@ r_mark_lArI.exit.thread:                          ; preds = %r_mark_lArI.exit.r_
   %178 = load i32, ptr %7, align 4
   %179 = sub i32 %178, %125
   store i32 %179, ptr %2, align 8
-  %180 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %180 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %185
 
@@ -3050,7 +3050,7 @@ r_mark_nUn.exit.thread:                           ; preds = %113, %103, %108, %r
   %187 = load i32, ptr %7, align 4
   %188 = sub i32 %187, %10
   store i32 %188, ptr %2, align 8
-  %189 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0), !range !4
+  %189 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef nonnull %0)
   %.not.not.i275 = icmp eq i32 %189, 0
   br i1 %.not.not.i275, label %r_mark_ndA.exit.thread, label %190
 
@@ -3119,7 +3119,7 @@ r_mark_lArI.exit284.thread:                       ; preds = %r_mark_lArI.exit284
   %220 = phi i32 [ %.pre295, %r_mark_lArI.exit284.r_mark_lArI.exit284.thread_crit_edge ], [ %203, %202 ], [ %203, %208 ]
   %221 = sub i32 %220, %205
   store i32 %221, ptr %2, align 8
-  %222 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0), !range !5
+  %222 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %252, label %224
 
@@ -3140,7 +3140,7 @@ r_mark_lArI.exit284.thread:                       ; preds = %r_mark_lArI.exit284
   %233 = load i32, ptr %2, align 8
   %234 = sub i32 %232, %233
   store i32 %233, ptr %4, align 8
-  %235 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0), !range !4
+  %235 = tail call fastcc i32 @r_mark_lAr(ptr noundef nonnull %0)
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %237, label %240
 
@@ -3157,7 +3157,7 @@ r_mark_lArI.exit284.thread:                       ; preds = %r_mark_lArI.exit284
   br i1 %243, label %r_mark_ndA.exit.thread, label %244
 
 244:                                              ; preds = %240
-  %245 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %245 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %247, label %250
 
@@ -3174,7 +3174,7 @@ r_mark_lArI.exit284.thread:                       ; preds = %r_mark_lArI.exit284
   %253 = load i32, ptr %7, align 4
   %254 = sub i32 %253, %205
   store i32 %254, ptr %2, align 8
-  %255 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0), !range !5
+  %255 = tail call fastcc i32 @r_stem_suffix_chain_before_ki(ptr noundef nonnull %0)
   %256 = icmp slt i32 %255, 1
   br i1 %256, label %r_mark_ndA.exit.thread, label %257
 
@@ -3192,7 +3192,7 @@ r_mark_ndA.exit.thread:                           ; preds = %190, %195, %r_mark_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_mark_lArI(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @r_mark_lArI(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -3
@@ -3224,7 +3224,7 @@ define internal fastcc i32 @r_mark_lArI(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_possessives(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_mark_possessives(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3317,8 +3317,8 @@ r_mark_suffix_with_optional_U_vowel.exit:         ; preds = %28, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_sU(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 -2147483648, 2) i32 @r_mark_sU(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %38, label %3
 
@@ -3408,8 +3408,8 @@ r_mark_suffix_with_optional_s_consonant.exit:     ; preds = %19, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_ylA(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_ylA(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %18, label %3
 
@@ -3438,7 +3438,7 @@ define internal fastcc noundef i32 @r_mark_ylA(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not19, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %17 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   br label %18
 
 18:                                               ; preds = %16, %14, %3, %9, %1
@@ -3447,8 +3447,8 @@ define internal fastcc noundef i32 @r_mark_ylA(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_mark_DA(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_DA(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %16, label %3
 
@@ -3483,8 +3483,8 @@ define internal fastcc i32 @r_mark_DA(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_yU(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_yU(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %7, label %3
 
@@ -3494,7 +3494,7 @@ define internal fastcc noundef i32 @r_mark_yU(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef %0), !range !4
+  %6 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef %0)
   br label %7
 
 7:                                                ; preds = %5, %3, %1
@@ -3503,8 +3503,8 @@ define internal fastcc noundef i32 @r_mark_yU(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_yA(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0), !range !4
+define internal fastcc range(i32 0, 2) i32 @r_mark_yA(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call fastcc i32 @r_check_vowel_harmony(ptr noundef %0)
   %.not.not = icmp eq i32 %2, 0
   br i1 %.not.not, label %18, label %3
 
@@ -3533,7 +3533,7 @@ define internal fastcc noundef i32 @r_mark_yA(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not19, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0), !range !4
+  %17 = tail call fastcc i32 @r_mark_suffix_with_optional_y_consonant(ptr noundef nonnull %0)
   br label %18
 
 18:                                               ; preds = %16, %14, %3, %8, %1
@@ -3542,7 +3542,7 @@ define internal fastcc noundef i32 @r_mark_yA(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @r_mark_suffix_with_optional_n_consonant(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @r_mark_suffix_with_optional_n_consonant(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3636,5 +3636,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -2147483648, i32 2}

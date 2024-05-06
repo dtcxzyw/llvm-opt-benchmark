@@ -1666,8 +1666,8 @@ declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare ptr @cli_ctime(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #1
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_engine() #0 {

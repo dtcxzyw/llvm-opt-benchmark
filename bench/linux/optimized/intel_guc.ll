@@ -1256,7 +1256,7 @@ define dso_local noundef i32 @intel_guc_crash_process_msg(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_to_host_process_recv_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @intel_guc_to_host_process_recv_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %44, label %5, !prof !17
 
@@ -1571,7 +1571,7 @@ declare dso_local i32 @intel_gt_coherent_map_type(ptr noundef, ptr noundef, i1 n
 declare dso_local void @i915_vma_unpin_and_release(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_self_cfg32(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @intel_guc_self_cfg32(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [4 x i32], align 16
   %5 = zext i32 %2 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
@@ -1629,7 +1629,7 @@ select.unfold:                                    ; preds = %16, %3, %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_self_cfg64(ptr noundef %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @intel_guc_self_cfg64(ptr noundef %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [4 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   store i32 1288, ptr %4, align 16
@@ -1643,7 +1643,7 @@ define dso_local i32 @intel_guc_self_cfg64(ptr noundef %0, i16 noundef zeroext %
   store i32 %10, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 12
   %12 = lshr i64 %2, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   store i32 %13, ptr %11, align 4
   %14 = call i32 @intel_guc_send_mmio(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 4, ptr noundef null, i32 noundef 0)
   %15 = icmp slt i32 %14, 0

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL15g_u_scanf_infos = internal unnamed_addr constant <{ [89 x %struct.u_scanf_info], [19 x %struct.u_scanf_info] }> <{ [89 x %struct.u_scanf_info] [%struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 1, ptr @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 9, ptr @_ZL21u_scanf_uchar_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 10, ptr @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL20u_scanf_char_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 3, ptr @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 2, ptr @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 3, ptr @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 6, ptr @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL24u_scanf_uinteger_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }], [19 x %struct.u_scanf_info] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_scanf_parse_75(ptr noundef %f, ptr noundef %patternSpecification, ptr nocapture noundef %ap) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @u_scanf_parse_75(ptr noundef %f, ptr noundef %patternSpecification, ptr nocapture noundef %ap) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   %argConsumed = alloca i32, align 4
@@ -69,7 +69,7 @@ if.end:                                           ; preds = %while.end
   store i32 -1, ptr %spec, align 4
   store i16 0, ptr %fSpec.i, align 4
   store i16 32, ptr %fPadChar.i, align 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %fSkipArg.i, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %fSkipArg.i, i8 0, i64 5, i1 false)
   store i8 1, ptr %fIsString.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %alias.1, i64 2
   %4 = load i16, ptr %incdec.ptr.i, align 2
@@ -1148,7 +1148,7 @@ if.end40:                                         ; preds = %if.then31, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr noundef %fmt, ptr nocapture noundef writeonly %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr noundef %fmt, ptr nocapture noundef writeonly %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
 entry:
   %status = alloca i32, align 4
   %c = alloca i32, align 4
@@ -1209,7 +1209,7 @@ if.then12:                                        ; preds = %if.then10
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.then12
-  %conv15 = trunc i32 %5 to i16
+  %conv15 = trunc nuw i32 %5 to i16
   store i16 %conv15, ptr %alias.046, align 2
   br label %if.end35
 
@@ -1221,7 +1221,7 @@ if.else:                                          ; preds = %if.then12
 
 if.then20:                                        ; preds = %if.else
   %shr = lshr i32 %5, 10
-  %6 = trunc i32 %shr to i16
+  %6 = trunc nuw i32 %shr to i16
   %conv22 = add nuw nsw i16 %6, -10304
   store i16 %conv22, ptr %alias.046, align 2
   %7 = load i32, ptr %c, align 4
@@ -1965,15 +1965,15 @@ if.end40:                                         ; preds = %if.end34, %while.bo
   br i1 %or.cond26, label %land.lhs.true, label %while.end, !llvm.loop !13
 
 while.end.loopexit.split.loop.exit51:             ; preds = %land.lhs.true
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.loopexit.split.loop.exit54:             ; preds = %lor.rhs
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.loopexit.split.loop.exit57:             ; preds = %land.rhs17
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end40, %while.end.loopexit.split.loop.exit51, %while.end.loopexit.split.loop.exit54, %while.end.loopexit.split.loop.exit57, %while.cond.preheader
@@ -2092,7 +2092,7 @@ while.body:                                       ; preds = %land.rhs7
   br i1 %or.cond, label %land.rhs7, label %while.end.loopexit, !llvm.loop !14
 
 while.end.loopexit:                               ; preds = %while.body
-  %4 = trunc i64 %indvars.iv.next to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
@@ -2106,7 +2106,7 @@ while.end.if.then13_crit_edge:                    ; preds = %while.end
   br label %if.then13
 
 if.then13.loopexit:                               ; preds = %land.rhs7
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.then13
 
 if.then13:                                        ; preds = %while.end.if.then13_crit_edge, %if.then13.loopexit

@@ -691,7 +691,7 @@ define internal void @__die_header(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 align 16 {
+define internal range(i32 0, 2) i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 align 16 {
   tail call void @show_regs_print_info(ptr noundef nonnull @.str.5) #13
   %4 = getelementptr inbounds i8, ptr %1, i64 136
   %5 = load i64, ptr %4, align 8
@@ -724,7 +724,7 @@ define internal i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__die(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i32 0, 2) i32 @__die(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr @die_counter, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7

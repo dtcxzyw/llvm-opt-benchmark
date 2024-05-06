@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.termios = type { i32, i32, i32, i32, [12 x i8], i64 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @isatty(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @isatty(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.termios, align 8
   %3 = call i32 @tcgetattr(i32 noundef %0, ptr noundef nonnull %2) #2
   %4 = icmp sgt i32 %3, -1

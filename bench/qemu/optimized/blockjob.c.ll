@@ -276,7 +276,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @block_job_add_bdrv(ptr noundef %job, ptr noundef %name, ptr noundef %bs, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @block_job_add_bdrv(ptr noundef %job, ptr noundef %name, ptr noundef %bs, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #6
   %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -900,7 +900,7 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %if.end19
   %blocker = getelementptr inbounds i8, ptr %call5, i64 384
   %call43 = tail call ptr @job_type_str(ptr noundef nonnull %call5) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %blocker, ptr noundef nonnull @.str.1, i32 noundef 553, ptr noundef nonnull @__func__.block_job_create, ptr noundef nonnull @.str.10, ptr noundef %call43) #6
-  %call44 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call5, ptr noundef nonnull @.str.11, ptr noundef %bs, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp), !range !10
+  %call44 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call5, ptr noundef nonnull @.str.11, ptr noundef %bs, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp)
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %fail, label %if.end47
 
@@ -1147,7 +1147,7 @@ return:                                           ; preds = %do.end, %if.end8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @block_job_error_action(ptr noundef %job, i32 noundef %on_err, i32 noundef %is_read, i32 noundef %error) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @block_job_error_action(ptr noundef %job, i32 noundef %on_err, i32 noundef %is_read, i32 noundef %error) local_unnamed_addr #0 {
 entry:
   switch i32 %on_err, label %sw.default [
     i32 2, label %sw.bb
@@ -1331,7 +1331,7 @@ for.cond:                                         ; preds = %for.body
   %next = getelementptr inbounds i8, ptr %l.011, i64 8
   %l.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %l.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %entry, %for.cond
   %l.011 = phi ptr [ %l.0, %for.cond ], [ %l.09, %entry ]
@@ -1433,5 +1433,4 @@ attributes #8 = { nounwind allocsize(0,1) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 1}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}

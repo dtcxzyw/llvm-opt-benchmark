@@ -423,7 +423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %cmp, ptr noundef nonnull align 8 dereferenceable(81) %range) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 4) i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %cmp, ptr noundef nonnull align 8 dereferenceable(81) %range) local_unnamed_addr #0 align 2 {
 entry:
   %m_right_key.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_right_key.i, align 8
@@ -657,7 +657,7 @@ return:                                           ; preds = %_ZNK4toku10comparat
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK4toku8keyrange8overlapsERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %cmp, ptr noundef nonnull align 8 dereferenceable(81) %range) local_unnamed_addr #0 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(17) %cmp, ptr noundef nonnull align 8 dereferenceable(81) %range), !range !4
+  %call = tail call noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(17) %cmp, ptr noundef nonnull align 8 dereferenceable(81) %range)
   %cmp2 = icmp eq i32 %call, 0
   %cmp3 = icmp eq i32 %call, 3
   %0 = or i1 %cmp2, %cmp3
@@ -717,4 +717,3 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
-!4 = !{i32 0, i32 4}

@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ssl_base_inited = internal unnamed_addr global i1 false, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OPENSSL_init_ssl(i64 noundef %opts, ptr noundef %settings) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_init_ssl(i64 noundef %opts, ptr noundef %settings) local_unnamed_addr #0 {
 entry:
   %.b8 = load i1, ptr @stopped, align 4
   br i1 %.b8, label %if.then, label %if.end3

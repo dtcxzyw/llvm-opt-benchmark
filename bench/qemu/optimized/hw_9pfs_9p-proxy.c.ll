@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @proxy_parse_opts(ptr noundef %opts, ptr nocapture noundef %fs, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @proxy_parse_opts(ptr noundef %opts, ptr nocapture noundef %fs, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str) #19
   %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.1) #19
@@ -111,7 +111,7 @@ return:                                           ; preds = %if.then9, %if.else,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @proxy_init(ptr nocapture noundef %ctx, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @proxy_init(ptr nocapture noundef %ctx, ptr noundef %errp) #0 {
 entry:
   %helper.i = alloca %struct.sockaddr_un, align 2
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #20
@@ -250,7 +250,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_lstat(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_lstat(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
 entry:
   %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_mknod(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_mknod(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds i8, ptr %fullname, i64 8
@@ -423,7 +423,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_symlink(ptr nocapture noundef readonly %fs_ctx, ptr noundef %oldpath, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_symlink(ptr nocapture noundef readonly %fs_ctx, ptr noundef %oldpath, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %target = alloca %struct.V9fsString, align 8
@@ -460,7 +460,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_link(ptr nocapture noundef readonly %ctx, ptr noundef %oldpath, ptr nocapture noundef readonly %dirpath, ptr noundef %name) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_link(ptr nocapture noundef readonly %ctx, ptr noundef %oldpath, ptr nocapture noundef readonly %dirpath, ptr noundef %name) #0 {
 entry:
   %newpath = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds i8, ptr %newpath, i64 8
@@ -504,7 +504,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @proxy_opendir(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr nocapture noundef writeonly %fs) #0 {
+define internal range(i32 -1, 1) i32 @proxy_opendir(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr nocapture noundef writeonly %fs) #0 {
 entry:
   store ptr null, ptr %fs, align 8
   %private = getelementptr inbounds i8, ptr %ctx, i64 48
@@ -660,7 +660,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_mkdir(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_mkdir(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds i8, ptr %fullname, i64 8
@@ -745,7 +745,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @proxy_truncate(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i64 noundef %size) #0 {
+define internal range(i32 -1, 1) i32 @proxy_truncate(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i64 noundef %size) #0 {
 entry:
   %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -798,7 +798,7 @@ return:                                           ; preds = %if.else3, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_statfs(ptr nocapture noundef readonly %s, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_statfs(ptr nocapture noundef readonly %s, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
 entry:
   %private = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -818,7 +818,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @proxy_lgetxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @proxy_lgetxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %xname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds i8, ptr %xname, i64 8
@@ -844,7 +844,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @proxy_llistxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %value, i64 noundef %size) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @proxy_llistxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -1024,7 +1024,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_ioc_getversion(ptr nocapture noundef readonly %fs_ctx, ptr noundef %path, i32 noundef %st_mode, ptr noundef %st_gen) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_ioc_getversion(ptr nocapture noundef readonly %fs_ctx, ptr noundef %path, i32 noundef %st_mode, ptr noundef %st_gen) #0 {
 entry:
   %0 = trunc i32 %st_mode to i16
   %trunc = and i16 %0, -4096
@@ -1097,7 +1097,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %out_iovec = getelementptr inbounds i8, ptr %proxy, i64 72
   %in_iovec = getelementptr inbounds i8, ptr %proxy, i64 56
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   switch i32 %type, label %default.unreachable [
     i32 2, label %sw.bb
     i32 3, label %sw.bb21
@@ -2445,7 +2445,7 @@ sw.epilog:                                        ; preds = %vaarg.end819, %vaar
   %conv822.sink243 = phi i32 [ %conv822, %vaarg.end819 ], [ %conv801, %vaarg.end798 ], [ %conv768, %vaarg.end765 ], [ %conv699, %vaarg.end696 ], [ %conv666, %vaarg.end663 ], [ %conv621, %vaarg.end618 ], [ %conv600, %vaarg.end597 ], [ %conv567, %vaarg.end554 ], [ %conv485, %vaarg.end482 ], [ %conv452, %vaarg.end449 ], [ %conv407, %vaarg.end404 ], [ %conv374, %vaarg.end371 ], [ %conv353, %vaarg.end350 ], [ %conv320, %vaarg.end317 ], [ %conv299, %vaarg.end296 ], [ %conv266, %vaarg.end263 ], [ %conv209, %vaarg.end206 ], [ %conv152, %vaarg.end149 ], [ %conv83, %vaarg.end80 ], [ %conv, %vaarg.end13 ]
   %size.0 = phi i32 [ 0, %vaarg.end819 ], [ 0, %vaarg.end798 ], [ %376, %vaarg.end765 ], [ %336, %vaarg.end696 ], [ %323, %vaarg.end663 ], [ 0, %vaarg.end618 ], [ 0, %vaarg.end597 ], [ 0, %vaarg.end554 ], [ 0, %vaarg.end482 ], [ 0, %vaarg.end449 ], [ 0, %vaarg.end404 ], [ 0, %vaarg.end371 ], [ %196, %vaarg.end350 ], [ 0, %vaarg.end317 ], [ 0, %vaarg.end296 ], [ 0, %vaarg.end263 ], [ 0, %vaarg.end206 ], [ 0, %vaarg.end149 ], [ 0, %vaarg.end80 ], [ 0, %vaarg.end13 ]
   %spec.select122 = call i32 @llvm.smax.i32(i32 %conv822.sink243, i32 0)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %cmp830 = icmp slt i32 %conv822.sink243, 0
   br i1 %cmp830, label %err_out, label %if.end833
 
@@ -2498,17 +2498,17 @@ if.end854:                                        ; preds = %if.end841
 
 sw.bb855:                                         ; preds = %if.end854, %if.end854
   %402 = load i32, ptr %proxy, align 8
-  %call857 = call fastcc i32 @v9fs_receivefd(i32 noundef %402, ptr noundef nonnull %retval1), !range !5
+  %call857 = call fastcc i32 @v9fs_receivefd(i32 noundef %402, ptr noundef nonnull %retval1)
   %cmp858 = icmp slt i32 %call857, 0
   br i1 %cmp858, label %close_error, label %err_out
 
 sw.bb862:                                         ; preds = %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854
-  %call863 = call fastcc i32 @v9fs_receive_status(ptr noundef nonnull %proxy, ptr noundef nonnull %in_iovec, ptr noundef nonnull %retval1), !range !5
+  %call863 = call fastcc i32 @v9fs_receive_status(ptr noundef nonnull %proxy, ptr noundef nonnull %in_iovec, ptr noundef nonnull %retval1)
   %cmp864 = icmp slt i32 %call863, 0
   br i1 %cmp864, label %close_error, label %err_out
 
 sw.bb868:                                         ; preds = %if.end854, %if.end854, %if.end854, %if.end854
-  %call869 = call fastcc i32 @v9fs_receive_response(ptr noundef nonnull %proxy, i32 noundef %type, ptr noundef nonnull %retval1, ptr noundef %response), !range !5
+  %call869 = call fastcc i32 @v9fs_receive_response(ptr noundef nonnull %proxy, i32 noundef %type, ptr noundef nonnull %retval1, ptr noundef %response)
   %cmp870 = icmp slt i32 %call869, 0
   br i1 %cmp870, label %close_error, label %err_out
 
@@ -2517,12 +2517,12 @@ sw.bb874:                                         ; preds = %if.end854, %if.end8
   br i1 %tobool.not, label %if.then875, label %if.else881
 
 if.then875:                                       ; preds = %sw.bb874
-  %call876 = call fastcc i32 @v9fs_receive_status(ptr noundef nonnull %proxy, ptr noundef nonnull %in_iovec, ptr noundef nonnull %retval1), !range !5
+  %call876 = call fastcc i32 @v9fs_receive_status(ptr noundef nonnull %proxy, ptr noundef nonnull %in_iovec, ptr noundef nonnull %retval1)
   %cmp877 = icmp slt i32 %call876, 0
   br i1 %cmp877, label %close_error, label %err_out
 
 if.else881:                                       ; preds = %sw.bb874
-  %call882 = call fastcc i32 @v9fs_receive_response(ptr noundef nonnull %proxy, i32 noundef %type, ptr noundef nonnull %retval1, ptr noundef %response), !range !5
+  %call882 = call fastcc i32 @v9fs_receive_response(ptr noundef nonnull %proxy, i32 noundef %type, ptr noundef nonnull %retval1, ptr noundef %response)
   %cmp883 = icmp slt i32 %call882, 0
   br i1 %cmp883, label %close_error, label %err_out
 
@@ -2546,21 +2546,15 @@ return:                                           ; preds = %close_error, %err_o
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare i64 @v9fs_iov_marshal(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
-
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
 
 declare i64 @qemu_write_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @v9fs_receivefd(i32 noundef %sockfd, ptr nocapture noundef writeonly %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receivefd(i32 noundef %sockfd, ptr nocapture noundef writeonly %status) unnamed_addr #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
   %msg = alloca %struct.msghdr, align 8
@@ -2590,7 +2584,7 @@ land.rhs:                                         ; preds = %do.body
   %call4 = tail call ptr @__errno_location() #22
   %0 = load i32, ptr %call4, align 4
   %cmp5 = icmp eq i32 %0, 4
-  br i1 %cmp5, label %do.body, label %return, !llvm.loop !6
+  br i1 %cmp5, label %do.body, label %return, !llvm.loop !5
 
 do.end:                                           ; preds = %do.body
   %cmp7 = icmp eq i32 %conv, 0
@@ -2635,7 +2629,7 @@ if.end25:                                         ; preds = %lor.lhs.false21
 for.inc:                                          ; preds = %for.body, %lor.lhs.false, %lor.lhs.false21
   %call26 = call ptr @__cmsg_nxthdr(ptr noundef nonnull %msg, ptr noundef nonnull %cmsg.014) #19
   %tobool.not = icmp eq ptr %call26, null
-  br i1 %tobool.not, label %return.sink.split, label %for.body, !llvm.loop !8
+  br i1 %tobool.not, label %return.sink.split, label %for.body, !llvm.loop !7
 
 return.sink.split:                                ; preds = %for.inc, %if.end12, %if.end, %if.end25
   %.sink = phi i32 [ %7, %if.end25 ], [ %1, %if.end ], [ -23, %if.end12 ], [ -23, %for.inc ]
@@ -2648,7 +2642,7 @@ return:                                           ; preds = %land.rhs, %return.s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @v9fs_receive_status(ptr nocapture noundef readonly %proxy, ptr noundef %reply, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_status(ptr nocapture noundef readonly %proxy, ptr noundef %reply, ptr noundef %status) unnamed_addr #0 {
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   store i32 0, ptr %status, align 4
@@ -2677,7 +2671,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %call4.i = tail call ptr @__errno_location() #22
   %2 = load i32, ptr %call4.i, align 4
   %cmp5.i = icmp eq i32 %2, 4
-  br i1 %cmp5.i, label %while.cond.i, label %if.end7.i, !llvm.loop !9
+  br i1 %cmp5.i, label %while.cond.i, label %if.end7.i, !llvm.loop !8
 
 if.end7.i:                                        ; preds = %if.then3.i
   %sub.i = sub i32 0, %2
@@ -2688,7 +2682,7 @@ if.end9.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %buff.addr.0.ph.i52, i64 %call.i
   %add.i = add i64 %call.i, %total.0.ph.i54
   %tobool.not.i = icmp eq i64 %sub10.i, 0
-  br i1 %tobool.not.i, label %socket_read.exit.loopexit, label %while.cond.i.preheader, !llvm.loop !9
+  br i1 %tobool.not.i, label %socket_read.exit.loopexit, label %while.cond.i.preheader, !llvm.loop !8
 
 socket_read.exit.loopexit:                        ; preds = %if.end9.i
   %3 = trunc i64 %add.i to i32
@@ -2742,7 +2736,7 @@ if.then3.i28:                                     ; preds = %if.end.i22
   %call4.i29 = tail call ptr @__errno_location() #22
   %8 = load i32, ptr %call4.i29, align 4
   %cmp5.i30 = icmp eq i32 %8, 4
-  br i1 %cmp5.i30, label %while.cond.i19, label %if.end7.i31, !llvm.loop !9
+  br i1 %cmp5.i30, label %while.cond.i19, label %if.end7.i31, !llvm.loop !8
 
 if.end7.i31:                                      ; preds = %if.then3.i28
   %sub.i32 = sub i32 0, %8
@@ -2753,7 +2747,7 @@ if.end9.i24:                                      ; preds = %if.end.i22
   %add.ptr.i26 = getelementptr i8, ptr %buff.addr.0.ph.i1556, i64 %call.i20
   %add.i27 = add i64 %call.i20, %total.0.ph.i1758
   %tobool.not.i18 = icmp eq i64 %sub10.i25, 0
-  br i1 %tobool.not.i18, label %socket_read.exit35.loopexit, label %while.cond.i19.preheader, !llvm.loop !9
+  br i1 %tobool.not.i18, label %socket_read.exit35.loopexit, label %while.cond.i19.preheader, !llvm.loop !8
 
 socket_read.exit35.loopexit:                      ; preds = %if.end9.i24
   %9 = trunc i64 %add.i27 to i32
@@ -2785,7 +2779,7 @@ return:                                           ; preds = %while.cond.i, %whil
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @v9fs_receive_response(ptr noundef %proxy, i32 noundef %type, ptr noundef %status, ptr noundef %response) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_response(ptr noundef %proxy, i32 noundef %type, ptr noundef %status, ptr noundef %response) unnamed_addr #0 {
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   %prstat = alloca %struct.ProxyStat, align 8
@@ -2819,7 +2813,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %call4.i = tail call ptr @__errno_location() #22
   %2 = load i32, ptr %call4.i, align 4
   %cmp5.i = icmp eq i32 %2, 4
-  br i1 %cmp5.i, label %while.cond.i, label %if.end7.i, !llvm.loop !9
+  br i1 %cmp5.i, label %while.cond.i, label %if.end7.i, !llvm.loop !8
 
 if.end7.i:                                        ; preds = %if.then3.i
   %sub.i = sub i32 0, %2
@@ -2831,7 +2825,7 @@ if.end9.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %buff.addr.0.ph.i112, i64 %call.i
   %add.i = add i64 %call.i, %total.0.ph.i114
   %tobool.not.i = icmp eq i64 %sub10.i, 0
-  br i1 %tobool.not.i, label %socket_read.exit, label %while.cond.i.preheader, !llvm.loop !9
+  br i1 %tobool.not.i, label %socket_read.exit, label %while.cond.i.preheader, !llvm.loop !8
 
 socket_read.exit:                                 ; preds = %if.end9.i, %if.end7.i
   %retval.0.i = phi i64 [ %conv.i134, %if.end7.i ], [ %add.i, %if.end9.i ]
@@ -2883,7 +2877,7 @@ if.then3.i52:                                     ; preds = %if.end.i46
   %call4.i53 = tail call ptr @__errno_location() #22
   %8 = load i32, ptr %call4.i53, align 4
   %cmp5.i54 = icmp eq i32 %8, 4
-  br i1 %cmp5.i54, label %while.cond.i43, label %if.end7.i55, !llvm.loop !9
+  br i1 %cmp5.i54, label %while.cond.i43, label %if.end7.i55, !llvm.loop !8
 
 if.end7.i55:                                      ; preds = %if.then3.i52
   %sub.i56 = sub i32 0, %8
@@ -2895,7 +2889,7 @@ if.end9.i48:                                      ; preds = %if.end.i46
   %add.ptr.i50 = getelementptr i8, ptr %buff.addr.0.ph.i39119, i64 %call.i44
   %add.i51 = add i64 %call.i44, %total.0.ph.i41121
   %tobool.not.i42 = icmp eq i64 %sub10.i49, 0
-  br i1 %tobool.not.i42, label %socket_read.exit59, label %while.cond.i43.preheader, !llvm.loop !9
+  br i1 %tobool.not.i42, label %socket_read.exit59, label %while.cond.i43.preheader, !llvm.loop !8
 
 socket_read.exit59:                               ; preds = %if.end9.i48, %if.end7.i55
   %retval.0.i58 = phi i64 [ %conv.i57135, %if.end7.i55 ], [ %add.i51, %if.end9.i48 ]
@@ -2908,7 +2902,7 @@ if.end29:                                         ; preds = %socket_read.exit59
   %sub = sub i32 %9, %conv25
   store i32 %sub, ptr %size, align 4
   %cmp16.not = icmp eq i32 %sub, 0
-  br i1 %cmp16.not, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %cmp16.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end29
   store i32 -105, ptr %status, align 4
@@ -2944,7 +2938,7 @@ if.then3.i74:                                     ; preds = %if.end.i68
   %call4.i75 = tail call ptr @__errno_location() #22
   %12 = load i32, ptr %call4.i75, align 4
   %cmp5.i76 = icmp eq i32 %12, 4
-  br i1 %cmp5.i76, label %while.cond.i65, label %if.end7.i77, !llvm.loop !9
+  br i1 %cmp5.i76, label %while.cond.i65, label %if.end7.i77, !llvm.loop !8
 
 if.end7.i77:                                      ; preds = %if.then3.i74
   %sub.i78 = sub i32 0, %12
@@ -2955,7 +2949,7 @@ if.end9.i70:                                      ; preds = %if.end.i68
   %add.ptr.i72 = getelementptr i8, ptr %buff.addr.0.ph.i61116, i64 %call.i66
   %add.i73 = add i64 %call.i66, %total.0.ph.i63118
   %tobool.not.i64 = icmp eq i64 %sub10.i71, 0
-  br i1 %tobool.not.i64, label %socket_read.exit81.loopexit, label %while.cond.i65.preheader, !llvm.loop !9
+  br i1 %tobool.not.i64, label %socket_read.exit81.loopexit, label %while.cond.i65.preheader, !llvm.loop !8
 
 socket_read.exit81.loopexit:                      ; preds = %if.end9.i70
   %13 = trunc i64 %add.i73 to i32
@@ -3047,7 +3041,7 @@ if.else72:                                        ; preds = %sw.bb64
 
 if.end73:                                         ; preds = %sw.bb64
   %20 = getelementptr inbounds i8, ptr %response, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %20, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %20, i8 0, i64 40, i1 false)
   %21 = load <2 x i64>, ptr %prstfs, align 16
   store <2 x i64> %21, ptr %response, align 8
   %f_blocks3.i = getelementptr inbounds i8, ptr %response, i64 16
@@ -3065,7 +3059,7 @@ if.end73:                                         ; preds = %sw.bb64
   store i32 %conv.i82, ptr %f_fsid8.i, align 8
   %26 = load i64, ptr %arrayidx66, align 16
   %shr.i = lshr i64 %26, 32
-  %conv13.i = trunc i64 %shr.i to i32
+  %conv13.i = trunc nuw i64 %shr.i to i32
   %arrayidx16.i = getelementptr i8, ptr %response, i64 60
   store i32 %conv13.i, ptr %arrayidx16.i, align 4
   %f_namelen17.i = getelementptr inbounds i8, ptr %response, i64 64
@@ -3130,10 +3124,10 @@ declare ptr @__cmsg_nxthdr(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare i64 @v9fs_iov_unmarshal(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @prstat_to_stat(ptr nocapture noundef writeonly %stbuf, ptr nocapture noundef readonly %prstat) unnamed_addr #15 {
+define internal fastcc void @prstat_to_stat(ptr nocapture noundef writeonly %stbuf, ptr nocapture noundef readonly %prstat) unnamed_addr #14 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stbuf, i8 0, i64 144, i1 false)
   %0 = load i64, ptr %prstat, align 8
@@ -3210,7 +3204,7 @@ entry:
 declare void @v9fs_string_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 declare void @v9fs_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -3248,6 +3242,12 @@ declare i32 @fsync(i32 noundef) local_unnamed_addr #2
 
 declare void @v9fs_path_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17
 
@@ -3272,11 +3272,11 @@ attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "f
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nounwind }
@@ -3293,9 +3293,8 @@ attributes #24 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

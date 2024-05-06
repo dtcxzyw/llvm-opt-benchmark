@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_daysbeforemonth = internal unnamed_addr constant [13 x i16] [i16 0, i16 31, i16 59, i16 90, i16 120, i16 151, i16 181, i16 212, i16 243, i16 273, i16 304, i16 334, i16 365], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @clock_daysbeforemonth(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 0, 65537) i32 @clock_daysbeforemonth(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [13 x i16], ptr @g_daysbeforemonth, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2

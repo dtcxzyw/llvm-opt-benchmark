@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [55 x i8] c"A SUNMatrix routine failed in an unrecoverable manner.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -9, 1) i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -265,7 +265,7 @@ switch.early.test:                                ; preds = %56
   %92 = getelementptr inbounds i8, ptr %calloc, i64 240
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %calloc, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %93, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %93, i8 0, i64 72, i1 false)
   %94 = getelementptr inbounds i8, ptr %calloc, i64 128
   store i64 51, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %calloc, i64 32
@@ -507,7 +507,7 @@ define i32 @cvLsInitialize(ptr noundef %0) #0 {
 
 53:                                               ; preds = %13, %42, %37, %48
   %54 = getelementptr inbounds i8, ptr %3, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %54, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %54, i8 0, i64 72, i1 false)
   %55 = getelementptr inbounds i8, ptr %3, i64 248
   %56 = load i32, ptr %55, align 8
   %.not59 = icmp eq i32 %56, 0
@@ -1150,7 +1150,7 @@ define i32 @cvLsDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cvLsDQJtimes(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define range(i32 -2, 2) i32 @cvLsDQJtimes(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = icmp eq ptr %5, null
   br i1 %8, label %9, label %10
 
@@ -1398,7 +1398,7 @@ declare i64 @N_VGetLength(ptr noundef) local_unnamed_addr #1
 declare double @sqrt(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVodeSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1464,7 +1464,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %22, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cvLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @cvLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1493,7 +1493,7 @@ define noundef i32 @cvLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetDeltaGammaMaxBadJac(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeSetDeltaGammaMaxBadJac(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1530,7 +1530,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVodeSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1569,7 +1569,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %12, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetLSNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeSetLSNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1649,7 +1649,7 @@ declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVodeSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1688,7 +1688,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %12, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVodeSetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1729,7 +1729,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -9, 1) i32 @CVodeSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1873,7 +1873,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %12, %7, %cvLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVodeSetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1940,7 +1940,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %10, %5, %23, %27, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetJacTimesRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVodeSetJacTimesRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1990,7 +1990,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %14, %16, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetLinSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @CVodeSetLinSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2048,7 +2048,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %15, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2078,7 +2078,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetJacTime(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetJacTime(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2108,7 +2108,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetJacNumSteps(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetJacNumSteps(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2138,7 +2138,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetLinWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetLinWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -2254,7 +2254,7 @@ declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2284,7 +2284,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumLinRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetNumLinRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2314,7 +2314,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2344,7 +2344,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2374,7 +2374,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2404,7 +2404,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumLinConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetNumLinConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2434,7 +2434,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumJTSetupEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetNumJTSetupEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2464,7 +2464,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2494,7 +2494,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_Access
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetLinSolveStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetLinSolveStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
   %10 = icmp eq ptr %0, null
   br i1 %10, label %11, label %12
 
@@ -2545,7 +2545,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %16, %11, %cvLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetLastLinFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @CVodeGetLastLinFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

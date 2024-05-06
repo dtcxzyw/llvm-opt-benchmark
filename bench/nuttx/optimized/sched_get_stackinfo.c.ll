@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxsched_get_stackinfo(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @nxsched_get_stackinfo(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @g_readytorun, align 8
   %4 = icmp eq i32 %0, 0
   br i1 %4, label %17, label %5

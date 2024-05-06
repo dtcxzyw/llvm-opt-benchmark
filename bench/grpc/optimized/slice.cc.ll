@@ -61,7 +61,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @grpc_empty_slice(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result) local_unnamed_addr #3 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !4
   ret void
 }
 
@@ -79,7 +79,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i64 %cond to i8
+  %conv.i = trunc nuw nsw i64 %cond to i8
   %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !7
   %bytes.phi.trans.insert = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -122,7 +122,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %length to i8
+  %conv = trunc nuw nsw i64 %length to i8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv, ptr %data, align 8
   br label %return
@@ -260,7 +260,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !23
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -269,7 +269,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %conv.i = trunc i64 %len to i8
+  %conv.i = trunc nuw nsw i64 %len to i8
   %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !28
   %bytes.phi.trans.insert = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -313,7 +313,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !38
   br label %grpc_slice_from_copied_buffer.exit
 
 if.end.i:                                         ; preds = %entry
@@ -322,7 +322,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %conv.i.i = trunc i64 %call to i8
+  %conv.i.i = trunc nuw nsw i64 %call to i8
   %data.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv.i.i, ptr %data.i.i, align 8, !alias.scope !46
   %bytes.phi.trans.insert.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -350,7 +350,7 @@ grpc_slice_malloc.exit.i:                         ; preds = %if.else.i.i, %if.th
   %tobool.not.i = icmp eq ptr %call.i.sink.i.i, null
   %bytes2.i = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i, ptr align 1 %source, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i, ptr readonly align 1 %source, i64 %call, i1 false)
   br label %grpc_slice_from_copied_buffer.exit
 
 grpc_slice_from_copied_buffer.exit:               ; preds = %if.then.i, %grpc_slice_malloc.exit.i
@@ -368,7 +368,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %len to i8
+  %conv = trunc nuw nsw i64 %len to i8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv, ptr %data, align 8
   %bytes4 = getelementptr inbounds i8, ptr %agg.result, i64 9
@@ -427,11 +427,11 @@ invoke.cont.thread:                               ; preds = %if.else.i
   br label %_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit
 
 invoke.cont:                                      ; preds = %entry
-  %conv.i = trunc i64 %call1 to i8
+  %conv.i = trunc nuw nsw i64 %call1 to i8
   %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !51
   %bytes4.i = getelementptr inbounds i8, ptr %agg.result, i64 9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes4.i, ptr align 1 %0, i64 %call1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %bytes4.i, ptr align 1 %0, i64 %call1, i1 false)
   store ptr null, ptr %agg.result, align 8, !alias.scope !51
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit, label %if.end.i.i
@@ -602,7 +602,7 @@ do.end24.i:                                       ; preds = %do.body16.i
   %bytes31.i = getelementptr inbounds i8, ptr %agg.result, i64 9
   %bytes33.i = getelementptr inbounds i8, ptr %source, i64 9
   %add.ptr35.i = getelementptr inbounds i8, ptr %bytes33.i, i64 %begin
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes31.i, ptr nonnull align 1 %add.ptr35.i, i64 %sub26.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %bytes31.i, ptr nonnull readonly align 1 %add.ptr35.i, i64 %sub26.i, i1 false)
   br label %_ZL10sub_no_refRK10grpc_slicemm.exit
 
 _ZL10sub_no_refRK10grpc_slicemm.exit:             ; preds = %do.end8.i, %do.end24.i
@@ -620,7 +620,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr %agg.result, align 8
-  %conv = trunc i64 %sub to i8
+  %conv = trunc nuw nsw i64 %sub to i8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv, ptr %data, align 8
   %bytes = getelementptr inbounds i8, ptr %agg.result, i64 9
@@ -677,7 +677,7 @@ grpc_slice_sub_no_ref.exit.thread:                ; preds = %do.body16.i.i
   %bytes33.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 9
   %add.ptr35.i.i = getelementptr inbounds i8, ptr %bytes33.i.i, i64 %begin
   %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.sroa.3, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx, ptr nonnull align 1 %add.ptr35.i.i, i64 %sub, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx, ptr nonnull readonly align 1 %add.ptr35.i.i, i64 %sub, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8)
   store ptr null, ptr %agg.result, align 8
   %ref.tmp.sroa.3.0.agg.result.sroa_idx10 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -775,7 +775,7 @@ do.end50:                                         ; preds = %if.else38
 
 if.then53:                                        ; preds = %do.end50
   store ptr null, ptr %agg.result, align 8
-  %conv55 = trunc i64 %sub41 to i8
+  %conv55 = trunc nuw nsw i64 %sub41 to i8
   %data56 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv55, ptr %data56, align 8
   %bytes59 = getelementptr inbounds i8, ptr %agg.result, i64 9
@@ -859,7 +859,7 @@ do.end.i:                                         ; preds = %do.body.i
   %bytes13.i = getelementptr inbounds i8, ptr %source, i64 9
   %add.ptr.i = getelementptr inbounds i8, ptr %bytes13.i, i64 %split
   %conv17.i = zext i8 %conv8.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes.i, ptr nonnull align 1 %add.ptr.i, i64 %conv17.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %bytes.i, ptr nonnull align 1 %add.ptr.i, i64 %conv17.i, i1 false)
   store i8 %2, ptr %data.i, align 8, !noalias !64
   br label %grpc_slice_split_tail_maybe_ref.exit
 
@@ -894,14 +894,14 @@ do.end50.i:                                       ; preds = %if.else38.i
   br i1 %cmp51.i, label %if.then53.i, label %if.else64.i
 
 if.then53.i:                                      ; preds = %do.end50.i
-  %conv55.i = trunc i64 %sub41.i to i8
+  %conv55.i = trunc nuw nsw i64 %sub41.i to i8
   %data56.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv55.i, ptr %data56.i, align 8, !alias.scope !64
   %bytes59.i = getelementptr inbounds i8, ptr %agg.result, i64 9
   %bytes62.i = getelementptr inbounds i8, ptr %source, i64 16
   %6 = load ptr, ptr %bytes62.i, align 8, !noalias !64
   %add.ptr63.i = getelementptr inbounds i8, ptr %6, i64 %split
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes59.i, ptr align 1 %add.ptr63.i, i64 %sub41.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %bytes59.i, ptr align 1 %add.ptr63.i, i64 %sub41.i, i1 false)
   br label %if.end88.i
 
 if.else64.i:                                      ; preds = %do.end50.i
@@ -974,7 +974,7 @@ if.then35:                                        ; preds = %do.body29
 
 do.end37:                                         ; preds = %do.body29
   store ptr null, ptr %agg.result, align 8
-  %conv39 = trunc i64 %split to i8
+  %conv39 = trunc nuw nsw i64 %split to i8
   %data40 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv39, ptr %data40, align 8
   %bytes43 = getelementptr inbounds i8, ptr %agg.result, i64 9
@@ -1026,7 +1026,7 @@ if.end83:                                         ; preds = %do.end37, %if.end69
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @grpc_slice_eq(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %b) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @grpc_slice_eq(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %b) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1172,7 +1172,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @grpc_slice_is_equivalent(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %b) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @grpc_slice_is_equivalent(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %b) local_unnamed_addr #13 {
 entry:
   %agg.tmp = alloca %struct.grpc_slice, align 8
   %agg.tmp3 = alloca %struct.grpc_slice, align 8
@@ -1239,7 +1239,7 @@ return:                                           ; preds = %if.end27.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @grpc_slice_buf_start_eq(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a, ptr nocapture noundef readonly %b, i64 noundef %len) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @grpc_slice_buf_start_eq(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a, ptr nocapture noundef readonly %b, i64 noundef %len) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1266,7 +1266,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @grpc_slice_rchr(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %s, i8 noundef signext %c) local_unnamed_addr #14 {
+define range(i32 -2147483648, 2147483647) i32 @grpc_slice_rchr(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %s, i8 noundef signext %c) local_unnamed_addr #14 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1295,7 +1295,7 @@ land.rhs:                                         ; preds = %for.cond
   br i1 %cmp15.not, label %for.end.split.loop.exit5, label %for.cond, !llvm.loop !67
 
 for.end.split.loop.exit5:                         ; preds = %land.rhs
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.cond, %for.end.split.loop.exit5
@@ -1473,7 +1473,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i64 %cond to i8
+  %conv.i = trunc nuw nsw i64 %cond to i8
   %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !70
   %bytes.phi.trans.insert = getelementptr inbounds i8, ptr %agg.result, i64 16

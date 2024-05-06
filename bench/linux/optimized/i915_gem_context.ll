@@ -1914,7 +1914,7 @@ define internal fastcc i32 @xa_alloc(ptr noundef %0, ptr noundef %1) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_gem_vm_destroy_ioctl(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @i915_gem_vm_destroy_ioctl(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1963,7 +1963,7 @@ define dso_local noundef i32 @i915_gem_vm_destroy_ioctl(ptr nocapture noundef re
 declare dso_local ptr @xa_erase(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_user_to_context_sseu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @i915_gem_user_to_context_sseu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4968
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @intel_sseu_get_hsw_subslices(ptr noundef %4, i8 noundef zeroext 0) #17
@@ -2493,7 +2493,7 @@ define internal fastcc i32 @proto_context_register(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_gem_context_destroy_ioctl(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @i915_gem_context_destroy_ioctl(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -4050,7 +4050,7 @@ define dso_local void @i915_gem_context_module_exit() local_unnamed_addr #0 alig
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @i915_gem_context_module_init() local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @i915_gem_context_module_init() local_unnamed_addr #7 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.3, i32 noundef 32, i32 noundef 8, i32 noundef 0, ptr noundef null) #17
   store ptr %1, ptr @slab_luts, align 8
   %2 = icmp eq ptr %1, null

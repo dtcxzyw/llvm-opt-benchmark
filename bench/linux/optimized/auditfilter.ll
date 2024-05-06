@@ -166,7 +166,7 @@ define dso_local ptr @audit_unpack_string(ptr nocapture noundef %0, ptr nocaptur
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @audit_register_class(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @audit_register_class(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 256) #15
   %5 = icmp eq ptr %4, null
@@ -229,7 +229,7 @@ define dso_local noundef i32 @audit_register_class(i32 noundef %0, ptr nocapture
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @audit_match_class(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, -2147483647) i32 @audit_match_class(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = icmp ugt i32 %1, 2047
   %4 = icmp sgt i32 %0, 15
   %5 = or i1 %4, %3
@@ -509,7 +509,7 @@ declare dso_local void @audit_remove_mark(ptr noundef) local_unnamed_addr #4
 declare dso_local void @audit_get_watch(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @audit_del_rule(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @audit_del_rule(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -694,7 +694,7 @@ declare dso_local i32 @audit_remove_tree_rule(ptr noundef) local_unnamed_addr #4
 declare dso_local void @audit_remove_mark_rule(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @audit_match_signal(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @audit_match_signal(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2368,7 +2368,7 @@ define dso_local noundef i32 @audit_comparator(i32 noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @audit_uid_comparator(i32 %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 0, 2) i32 @audit_uid_comparator(i32 %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 align 16 {
   switch i32 %1, label %16 [
     i32 0, label %4
     i32 1, label %6
@@ -2409,7 +2409,7 @@ define dso_local i32 @audit_uid_comparator(i32 %0, i32 noundef %1, i32 %2) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @audit_gid_comparator(i32 %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 0, 2) i32 @audit_gid_comparator(i32 %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 align 16 {
   switch i32 %1, label %16 [
     i32 0, label %4
     i32 1, label %6
@@ -3200,7 +3200,7 @@ declare dso_local i32 @security_audit_rule_init(i32 noundef, i32 noundef, ptr no
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @audit_compare_rule(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @audit_compare_rule(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4

@@ -154,7 +154,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @pcie_chassis_add_slot(ptr noundef %slot) local_unnamed_addr #4 {
+define dso_local range(i32 -19, 1) i32 @pcie_chassis_add_slot(ptr noundef %slot) local_unnamed_addr #4 {
 entry:
   %chassis = getelementptr inbounds i8, ptr %slot, i64 7152
   %0 = load i8, ptr %chassis, align 16

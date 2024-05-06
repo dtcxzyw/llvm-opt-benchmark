@@ -117,7 +117,7 @@ define internal void @rtspstat_reset(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rtspstat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0

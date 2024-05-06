@@ -1353,7 +1353,7 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vecto
 74:                                               ; preds = %73
   %75 = ptrtoint ptr %72 to i64
   %76 = sub i64 %75, %34
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %70, ptr nonnull align 8 %32, i64 %76, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %70, ptr nonnull align 8 %32, i64 %76, i1 false)
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 77:                                               ; preds = %67
@@ -1366,7 +1366,7 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vecto
   %.pre.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %81
   %82 = getelementptr inbounds ptr, ptr %70, i64 %63
   %83 = getelementptr inbounds ptr, ptr %82, i64 %.pre.i.i.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %83, ptr align 8 %32, i64 %80, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %83, ptr align 8 %32, i64 %80, i1 false)
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 84:                                               ; preds = %62
@@ -1401,7 +1401,7 @@ _ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE15
 98:                                               ; preds = %_ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE15_M_allocate_mapEm.exit.i.i.i.i
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %99, %34
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %96, ptr align 8 %32, i64 %100, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %96, ptr align 8 %32, i64 %100, i1 false)
   br label %_ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEES6_ET0_T_S8_S7_.exit26.i.i.i.i
 
 _ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEES6_ET0_T_S8_S7_.exit26.i.i.i.i: ; preds = %98, %_ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE15_M_allocate_mapEm.exit.i.i.i.i
@@ -1477,7 +1477,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
 129:                                              ; preds = %129, %127
   %.idx.i.i.i.i.i = phi i64 [ 56, %127 ], [ %.add.i.i.i.i.i, %129 ]
   %gep.i.i.i.i.i = getelementptr inbounds i8, ptr %invariant.gep.i.i.i.i.i, i64 %.idx.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %gep.i.i.i.i.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %gep.i.i.i.i.i, i8 0, i64 48, i1 false)
   %.add.i.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i, 264
   %130 = icmp eq i64 %.add.i.i.i.i.i, 1112
   br i1 %130, label %242, label %129
@@ -1544,7 +1544,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
 175:                                              ; preds = %174
   %176 = ptrtoint ptr %173 to i64
   %177 = sub i64 %176, %135
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %171, ptr nonnull align 8 %133, i64 %177, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %171, ptr nonnull align 8 %133, i64 %177, i1 false)
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 178:                                              ; preds = %168
@@ -1557,7 +1557,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEESaIS4_EE4backEv.e
   %.pre.i.i.i.i.i.i.i.i.i13 = sub nsw i64 0, %182
   %183 = getelementptr inbounds ptr, ptr %171, i64 %164
   %184 = getelementptr inbounds ptr, ptr %183, i64 %.pre.i.i.i.i.i.i.i.i.i13
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %184, ptr align 8 %133, i64 %181, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %184, ptr align 8 %133, i64 %181, i1 false)
   br label %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 185:                                              ; preds = %163
@@ -1592,7 +1592,7 @@ _ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE15
 199:                                              ; preds = %_ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE15_M_allocate_mapEm.exit.i.i.i.i
   %200 = ptrtoint ptr %198 to i64
   %201 = sub i64 %200, %135
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %197, ptr align 8 %133, i64 %201, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %197, ptr align 8 %133, i64 %201, i1 false)
   br label %_ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEES6_ET0_T_S8_S7_.exit26.i.i.i.i
 
 _ZSt4copyIPPN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEES6_ET0_T_S8_S7_.exit26.i.i.i.i: ; preds = %199, %_ZNSt11_Deque_baseIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE15_M_allocate_mapEm.exit.i.i.i.i
@@ -1632,7 +1632,7 @@ _ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE22_M_rese
 213:                                              ; preds = %213, %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE22_M_reserve_map_at_backEm.exit.i.i
   %.idx.i.i.i.i.i.i = phi i64 [ 56, %_ZNSt5dequeIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE1EEESaIS4_EE22_M_reserve_map_at_backEm.exit.i.i ], [ %.add.i.i.i.i.i.i, %213 ]
   %gep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %invariant.gep.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %gep.i.i.i.i.i.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %gep.i.i.i.i.i.i, i8 0, i64 48, i1 false)
   %.add.i.i.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i, 264
   %214 = icmp eq i64 %.add.i.i.i.i.i.i, 1112
   br i1 %214, label %.thread.i8, label %213
@@ -3523,7 +3523,7 @@ _ZSt8count_ifIPN9Stockfish6SquareEZNS0_12_GLOBAL__N_114do_probe_tableINS3_7TBTab
 ._crit_edge233.i.i:                               ; preds = %._crit_edge233.loopexit.i.i, %692
   %.pre-phi.i.i = phi i1 [ %.pre319.i.i, %._crit_edge233.loopexit.i.i ], [ %688, %692 ]
   %.2.lcssa.i.i = phi i64 [ %728, %._crit_edge233.loopexit.i.i ], [ %682, %692 ]
-  %733 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_116decompress_pairsEPNS0_9PairsDataEm(ptr noundef nonnull %513, i64 noundef %.2.lcssa.i.i)
+  %733 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_116decompress_pairsEPNS0_9PairsDataEm(ptr noundef nonnull readonly %513, i64 noundef %.2.lcssa.i.i)
   %734 = select i1 %.pre-phi.i.i, i64 %511, i64 0
   %735 = getelementptr inbounds [4 x %"struct.Stockfish::(anonymous namespace)::PairsData"], ptr %510, i64 0, i64 %734
   %736 = load i8, ptr %735, align 8
@@ -5177,7 +5177,7 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN9Stockfish12_GLOBAL__N_
 7:                                                ; preds = %7, %2
   %.idx.i.i.i = phi i64 [ 56, %2 ], [ %.add.i.i.i, %7 ]
   %gep.i.i.i = getelementptr inbounds i8, ptr %invariant.gep.i.i.i, i64 %.idx.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %gep.i.i.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %gep.i.i.i, i8 0, i64 48, i1 false)
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 264
   %8 = icmp eq i64 %.add.i.i.i, 2168
   br i1 %8, label %_ZN9Stockfish12_GLOBAL__N_17TBTableILNS0_6TBTypeE0EEC2Ev.exit.i.i, label %7
@@ -6682,7 +6682,7 @@ _ZSt8count_ifIPN9Stockfish6SquareEZNS0_12_GLOBAL__N_114do_probe_tableINS3_7TBTab
 
 _ZN9Stockfish12_GLOBAL__N_114do_probe_tableINS0_7TBTableILNS0_6TBTypeE0EEENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPT_S6_PNS5_10ProbeStateE.exit: ; preds = %._crit_edge61.i, %632
   %.2.lcssa.i = phi i64 [ %622, %632 ], [ %668, %._crit_edge61.i ]
-  %673 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_116decompress_pairsEPNS0_9PairsDataEm(ptr noundef nonnull %474, i64 noundef %.2.lcssa.i)
+  %673 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_116decompress_pairsEPNS0_9PairsDataEm(ptr noundef nonnull readonly %474, i64 noundef %.2.lcssa.i)
   %674 = add nsw i32 %673, -2
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)

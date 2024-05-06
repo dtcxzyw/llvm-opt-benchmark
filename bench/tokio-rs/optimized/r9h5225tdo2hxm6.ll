@@ -293,7 +293,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h33c5f342f7e17fb1E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.val.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.val.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false)
   %.sroa.2.0..0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %.val.i, i64 24
   store i32 %50, ptr %.sroa.2.0..0.val.sroa_idx.i.i, align 8
   %.sroa.3.0..0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %.val.i, i64 28
@@ -612,7 +612,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i8 @_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 3
@@ -656,7 +656,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.llvm.11424388141523703806(i32 noundef %0) unnamed_addr #3 {
+define hidden noundef range(i8 0, 41) i8 @_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.llvm.11424388141523703806(i32 noundef %0) unnamed_addr #3 {
   switch i32 %0, label %37 [
     i32 7, label %36
     i32 98, label %2
@@ -3331,7 +3331,7 @@ define hidden void @_ZN5tokio7runtime7context7current12with_current17h579b0d1fb1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN5tokio7runtime7context7current12with_current17h6a555f54c4e55655E() unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_ZN5tokio7runtime7context7current12with_current17h6a555f54c4e55655E() unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noalias !390, !noundef !10
   switch i8 %1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h86b73fa8147d919aE.llvm.11424388141523703806.exit.thread" [
     i8 0, label %2
@@ -5870,7 +5870,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17h2
   br i1 %36, label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.thread36.us", label %"_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.us"
 
 "_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit.us": ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %9, i64 32, i1 false), !noalias !851
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %9, i64 32, i1 false), !noalias !851
   %.pr.pr.us = load i16, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !844
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !844
@@ -11114,7 +11114,7 @@ _ZN5tokio3net3udp9UdpSocket9as_socket17h90490bb6c5a903a3E.exit.i: ; preds = %"_Z
   br label %45
 
 "_ZN5tokio3net3udp9UdpSocket17peek_sender_inner28_$u7b$$u7b$closure$u7d$$u7d$17h177aff2d2ba93fe5E.llvm.11424388141523703806.exit": ; preds = %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false), !noalias !1754
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false), !noalias !1754
   %.pr.pr = load i16, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !1747
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7), !noalias !1747
@@ -12402,13 +12402,13 @@ define void @_ZN5tokio6signal4unix6Signal4recv17hfa8cfd68d93aaba9E(ptr noalias n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN5tokio6signal4unix6Signal9poll_recv17ha31f3ce719e32825E(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define noundef range(i8 0, 3) i8 @_ZN5tokio6signal4unix6Signal9poll_recv17ha31f3ce719e32825E(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = tail call noundef i8 @_ZN5tokio6signal8RxFuture9poll_recv17hf5b438702af02256E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !range !2026
   ret i8 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN83_$LT$tokio..signal..unix..Signal$u20$as$u20$tokio..signal..unix..InternalStream$GT$9poll_recv17h84afebd41252961dE"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define noundef range(i8 0, 3) i8 @"_ZN83_$LT$tokio..signal..unix..Signal$u20$as$u20$tokio..signal..unix..InternalStream$GT$9poll_recv17h84afebd41252961dE"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = tail call noundef i8 @_ZN5tokio6signal8RxFuture9poll_recv17hf5b438702af02256E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !range !2026
   ret i8 %3
 }

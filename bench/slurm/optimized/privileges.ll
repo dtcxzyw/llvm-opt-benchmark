@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [12 x i8] c"seteuid: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @drop_privileges(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @drop_privileges(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   tail call void @auth_setuid_lock() #4
   %5 = tail call i32 @getuid() #4
   store i32 %5, ptr %2, align 8
@@ -140,7 +140,7 @@ declare i32 @setgroups(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @seteuid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @reclaim_privileges(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @reclaim_privileges(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @geteuid() #4
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %2, %3

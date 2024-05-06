@@ -186,7 +186,7 @@ declare void @SSL_set_connect_state(ptr noundef) local_unnamed_addr #2
 declare void @SSL_set_accept_state(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_ssl_copy_session_id(ptr noundef %t, ptr noundef %f) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BIO_ssl_copy_session_id(ptr noundef %t, ptr noundef %f) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @BIO_find_type(ptr noundef %t, i32 noundef 519) #5
   %call1 = tail call ptr @BIO_find_type(ptr noundef %f, i32 noundef 519) #5
@@ -602,8 +602,8 @@ sw.bb54:                                          ; preds = %if.end
   br i1 %cmp, label %if.end64, label %if.then57
 
 if.then57:                                        ; preds = %sw.bb54
-  %call58 = tail call i32 @ssl_free(ptr noundef %b), !range !6
-  %call59 = tail call i32 @ssl_new(ptr noundef %b), !range !6
+  %call58 = tail call i32 @ssl_free(ptr noundef %b)
+  %call59 = tail call i32 @ssl_new(ptr noundef %b)
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %return, label %if.end62
 
@@ -792,7 +792,7 @@ return:                                           ; preds = %sw.bb, %cond.false,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_new(ptr noundef %bi) #1 {
+define internal range(i32 0, 2) i32 @ssl_new(ptr noundef %bi) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str.1, i32 noundef 62) #5
   %cmp = icmp eq ptr %call, null
@@ -810,7 +810,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_free(ptr noundef %a) #1 {
+define internal range(i32 0, 2) i32 @ssl_free(ptr noundef %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -954,4 +954,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

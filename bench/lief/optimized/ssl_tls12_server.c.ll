@@ -684,8 +684,8 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %259, label %260, label %295
 
 260:                                              ; preds = %246
-  %261 = getelementptr i8, ptr %216, i64 %240
-  %262 = getelementptr i8, ptr %261, i64 35
+  %261 = getelementptr inbounds i8, ptr %216, i64 %240
+  %262 = getelementptr inbounds i8, ptr %261, i64 35
   %263 = load i8, ptr %262, align 1
   %264 = zext i8 %263 to i64
   %265 = add nuw nsw i64 %242, %264
@@ -699,8 +699,8 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 270:                                              ; preds = %260
-  %271 = getelementptr i8, ptr %261, i64 36
-  tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1239, ptr noundef nonnull @.str.24, ptr noundef %271, i64 noundef %264) #11
+  %271 = getelementptr inbounds i8, ptr %261, i64 36
+  tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1239, ptr noundef nonnull @.str.24, ptr noundef nonnull %271, i64 noundef %264) #11
   %272 = load ptr, ptr %0, align 8
   %273 = getelementptr inbounds i8, ptr %272, i64 144
   %274 = load ptr, ptr %273, align 8
@@ -719,7 +719,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds i8, ptr %0, i64 432
   %284 = load i64, ptr %283, align 8
-  %285 = tail call i32 %274(ptr noundef %280, ptr noundef %271, i64 noundef %264, ptr noundef %282, i64 noundef %284) #11
+  %285 = tail call i32 %274(ptr noundef %280, ptr noundef nonnull %271, i64 noundef %264, ptr noundef %282, i64 noundef %284) #11
   %.not488.i = icmp eq i32 %285, 0
   br i1 %.not488.i, label %289, label %286
 
@@ -3259,8 +3259,8 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1442, %1442, %1442
   %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %1499, i64 16, i64 0
   %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %1500 = load ptr, ptr %1468, align 8
-  %1501 = getelementptr i8, ptr %1500, i64 %..i.i59
-  %1502 = getelementptr i8, ptr %1501, i64 1
+  %1501 = getelementptr inbounds i8, ptr %1500, i64 %..i.i59
+  %1502 = getelementptr inbounds i8, ptr %1501, i64 1
   %1503 = load i8, ptr %1502, align 1
   %1504 = tail call i32 @mbedtls_ssl_pk_alg_from_sig(i8 noundef zeroext %1503) #11
   %1505 = icmp eq i32 %1504, 0
@@ -3291,12 +3291,12 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1442, %1442, %1442
 
 1515:                                             ; preds = %1510
   %1516 = load ptr, ptr %1468, align 8
-  %1517 = getelementptr i8, ptr %1516, i64 %..i.i59
-  %1518 = getelementptr i8, ptr %1517, i64 2
+  %1517 = getelementptr inbounds i8, ptr %1516, i64 %..i.i59
+  %1518 = getelementptr inbounds i8, ptr %1517, i64 2
   %1519 = load i8, ptr %1518, align 1
   %1520 = zext i8 %1519 to i64
   %1521 = shl nuw nsw i64 %1520, 8
-  %1522 = getelementptr i8, ptr %1517, i64 3
+  %1522 = getelementptr inbounds i8, ptr %1517, i64 3
   %1523 = load i8, ptr %1522, align 1
   %1524 = zext i8 %1523 to i64
   %1525 = or disjoint i64 %1521, %1524

@@ -19,37 +19,37 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [14 x i8] c"not available\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @OpenSSL_version_num() local_unnamed_addr #0 {
+define noundef i64 @OpenSSL_version_num() local_unnamed_addr #0 {
 entry:
   ret i64 808452096
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OPENSSL_version_major() local_unnamed_addr #0 {
+define noundef i32 @OPENSSL_version_major() local_unnamed_addr #0 {
 entry:
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OPENSSL_version_minor() local_unnamed_addr #0 {
+define noundef i32 @OPENSSL_version_minor() local_unnamed_addr #0 {
 entry:
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OPENSSL_version_patch() local_unnamed_addr #0 {
+define noundef i32 @OPENSSL_version_patch() local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OPENSSL_version_pre_release() local_unnamed_addr #0 {
+define noundef nonnull ptr @OPENSSL_version_pre_release() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OPENSSL_version_build_metadata() local_unnamed_addr #0 {
+define noundef nonnull ptr @OPENSSL_version_build_metadata() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.1
 }

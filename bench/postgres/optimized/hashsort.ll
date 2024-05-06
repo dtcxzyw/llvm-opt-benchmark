@@ -11,9 +11,9 @@ define dso_local ptr @_h_spoolinit(ptr noundef %0, ptr noundef %1, i32 noundef %
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = add i32 %2, 1
-  %7 = tail call i32 @llvm.ctpop.i32(i32 %6), !range !5
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
   %8 = icmp ult i32 %7, 2
-  %9 = tail call i32 @llvm.ctlz.i32(i32 %6, i1 true), !range !5
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %10 = xor i32 %9, 31
   %11 = shl nuw i32 2, %10
   %.0.i = select i1 %8, i32 %6, i32 %11
@@ -82,7 +82,7 @@ define dso_local void @_h_indexbuild(ptr nocapture noundef readonly %0, ptr noun
   %11 = load ptr, ptr %0, align 8
   %12 = tail call ptr @tuplesort_getindextuple(ptr noundef %11, i1 noundef zeroext true) #4
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %7, %2
   ret void
@@ -115,6 +115,5 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

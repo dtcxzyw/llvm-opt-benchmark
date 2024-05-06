@@ -451,7 +451,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   store i64 %inc.i, ptr %auxcount21.i, align 8
   %cmp.i.i110 = icmp ne i64 %inc.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i110)
-  %11 = tail call i64 @llvm.cttz.i64(i64 %inc.i, i1 true), !range !7
+  %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %inc.i, i1 true)
   %12 = trunc nuw nsw i64 %11 to i32
   %cmp24.i127 = icmp eq i32 %12, 0
   br i1 %cmp24.i127, label %ph_insert.exit, label %for.body.i.lr.ph
@@ -558,7 +558,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %inc26.i = add nuw nsw i32 %i.i.0128, 1
   %cmp24.i = icmp uge i32 %inc26.i, %12
   %.not = or i1 %cmp8.i.not, %cmp24.i
-  br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !8
+  br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !7
 
 ph_insert.exit:                                   ; preds = %if.end.i69, %for.body.i, %ph_try_aux_merge_pair.exit, %for.body.i.lr.ph, %if.end18.i, %if.then5.i, %if.then.i
   ret void
@@ -2557,7 +2557,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   store i64 %inc.i, ptr %auxcount21.i, align 8
   %cmp.i.i116 = icmp ne i64 %inc.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i116)
-  %13 = tail call i64 @llvm.cttz.i64(i64 %inc.i, i1 true), !range !7
+  %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %inc.i, i1 true)
   %14 = trunc nuw nsw i64 %13 to i32
   %cmp24.i129 = icmp eq i32 %14, 0
   br i1 %cmp24.i129, label %ph_insert.exit, label %for.body.i.lr.ph
@@ -2666,7 +2666,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %inc26.i = add nuw nsw i32 %i.i.0130, 1
   %cmp24.i = icmp uge i32 %inc26.i, %14
   %.not = or i1 %cmp8.i.not, %cmp24.i
-  br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !10
+  br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !9
 
 ph_insert.exit:                                   ; preds = %if.end.i69, %for.body.i, %ph_try_aux_merge_pair.exit, %for.body.i.lr.ph, %if.end18.i, %if.then5.i, %if.then.i
   ret void
@@ -4268,7 +4268,6 @@ attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
-!8 = distinct !{!8, !6, !9}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = distinct !{!10, !6, !9}
+!7 = distinct !{!7, !6, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = distinct !{!9, !6, !8}

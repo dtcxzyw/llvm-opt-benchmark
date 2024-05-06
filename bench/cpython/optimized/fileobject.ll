@@ -898,7 +898,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [35 x i8] c"'path' must be 'str', not '%.200s'\00", align 1
 @.str.16 = private unnamed_addr constant [3 x i8] c"Os\00", align 1
 @.str.17 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.18 = private unnamed_addr constant [33 x i8] c"<stdprinter(fd=%d) object at %p>\00", align 1
 @.str.19 = private unnamed_addr constant [6 x i8] c"close\00", align 1
 @.str.20 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -1265,7 +1265,7 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @PyUnicode_Substring(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFile_WriteObject(ptr noundef %v, ptr noundef %f, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFile_WriteObject(ptr noundef %v, ptr noundef %f, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %f, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1381,7 +1381,7 @@ declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFile_WriteString(ptr noundef %s, ptr noundef %f) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFile_WriteString(ptr noundef %s, ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %f, null
   %call = tail call ptr @PyErr_Occurred() #9
@@ -1405,7 +1405,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then4
-  %call9 = tail call i32 @PyFile_WriteObject(ptr noundef nonnull %call5, ptr noundef nonnull %f, i32 noundef 1), !range !5
+  %call9 = tail call i32 @PyFile_WriteObject(ptr noundef nonnull %call5, ptr noundef nonnull %f, i32 noundef 1)
   %1 = load i64, ptr %call5, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i12.not = icmp eq i64 %2, 0
@@ -1431,7 +1431,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_AsFileDescriptor(ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @PyObject_AsFileDescriptor(ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %meth = alloca ptr, align 8
   %0 = getelementptr i8, ptr %o, i64 8
@@ -1586,9 +1586,9 @@ declare i32 @PyObject_GetOptionalAttr(ptr noundef, ptr noundef, ptr noundef) loc
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyLong_FileDescriptor_Converter(ptr noundef %o, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_FileDescriptor_Converter(ptr noundef %o, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @PyObject_AsFileDescriptor(ptr noundef %o), !range !6
+  %call = tail call i32 @PyObject_AsFileDescriptor(ptr noundef %o)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -1649,7 +1649,7 @@ if.end10:                                         ; preds = %land.rhs
   %incdec.ptr = getelementptr i8, ptr %p.0, i64 1
   store i8 %conv, ptr %p.0, align 1
   %cmp11 = icmp eq i32 %call1, 10
-  br i1 %cmp11, label %while.end, label %while.cond, !llvm.loop !7
+  br i1 %cmp11, label %while.end, label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %land.rhs, %while.cond, %if.end10, %if.end10.thread
   %p.1 = phi ptr [ %incdec.ptr17, %if.end10.thread ], [ %p.0, %while.cond ], [ %p.0, %land.rhs ], [ %incdec.ptr, %if.end10 ]
@@ -1743,7 +1743,7 @@ declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 declare void @PyObject_Free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyFile_SetOpenCodeHook(ptr noundef %hook, ptr noundef %userData) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFile_SetOpenCodeHook(ptr noundef %hook, ptr noundef %userData) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @Py_IsInitialized() #9
   %tobool.not = icmp eq i32 %call, 0
@@ -1868,7 +1868,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyFile_Flush(ptr noundef %file) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyFile_Flush(ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -2110,7 +2110,5 @@ attributes #10 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = !{i32 -1, i32 -2147483648}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

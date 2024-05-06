@@ -248,7 +248,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %98
-  %102 = call fastcc signext i8 @extractModify(ptr noundef nonnull %41), !range !5
+  %102 = call fastcc signext i8 @extractModify(ptr noundef nonnull %41)
   br label %180
 
 103:                                              ; preds = %98
@@ -257,7 +257,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %103
-  %107 = call fastcc signext i8 @extractModify(ptr noundef nonnull %41), !range !5
+  %107 = call fastcc signext i8 @extractModify(ptr noundef nonnull %41)
   br label %180
 
 108:                                              ; preds = %103
@@ -824,7 +824,7 @@ declare ptr @defGetQualifiedName(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef signext i8 @extractModify(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc signext range(i8 114, 120) i8 @extractModify(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @defGetString(ptr noundef %0) #5
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.47) #6
   %4 = icmp eq i32 %3, 0
@@ -913,4 +913,3 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i8 114, i8 120}

@@ -49,7 +49,7 @@ define i32 @Aig_NodeDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 28:                                               ; preds = %27
   %29 = lshr i64 %17, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = and i32 %30, 16777215
   %32 = icmp ugt i32 %31, %1
   br i1 %32, label %.sink.split, label %34
@@ -114,7 +114,7 @@ define i32 @Aig_NodeDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 70:                                               ; preds = %69
   %71 = lshr i64 %59, 32
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   %73 = and i32 %72, 16777215
   %74 = icmp ugt i32 %73, %1
   br i1 %74, label %.split38, label %77
@@ -191,7 +191,7 @@ define i32 @Aig_NodeRef_rec(ptr nocapture noundef readonly %0, i32 noundef %1) l
 
 19:                                               ; preds = %18
   %20 = lshr i64 %11, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 16777215
   %23 = icmp ugt i32 %22, %1
   br i1 %23, label %.sink.split, label %25
@@ -231,7 +231,7 @@ define i32 @Aig_NodeRef_rec(ptr nocapture noundef readonly %0, i32 noundef %1) l
 
 41:                                               ; preds = %40
   %42 = lshr i64 %33, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = and i32 %43, 16777215
   %45 = icmp ugt i32 %44, %1
   br i1 %45, label %.split22, label %48
@@ -287,7 +287,7 @@ define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr nocapture noundef %1, i32 n
 
 22:                                               ; preds = %21
   %23 = lshr i64 %14, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %25 = and i32 %24, 16777215
   %26 = icmp ugt i32 %25, %2
   br i1 %26, label %.sink.split, label %28
@@ -327,7 +327,7 @@ define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr nocapture noundef %1, i32 n
 
 44:                                               ; preds = %43
   %45 = lshr i64 %36, 32
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw i64 %45 to i32
   %47 = and i32 %46, 16777215
   %48 = icmp ugt i32 %47, %2
   br i1 %48, label %.split26, label %51
@@ -383,7 +383,7 @@ define void @Aig_NodeMffcSupp_rec(ptr nocapture noundef readonly %0, ptr noundef
 
 16:                                               ; preds = %11
   %17 = lshr i64 %.val, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 16777215
   %.not28 = icmp ugt i32 %19, %2
   br i1 %.not28, label %tailrecurse, label %20
@@ -675,7 +675,7 @@ define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr nocapture noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %2, i64 4
   %.val42 = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val42, 0
@@ -695,9 +695,9 @@ define noundef i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1, ptr no
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = and i32 %14, 16777215
-  %16 = tail call noundef i32 @llvm.smax.i32(i32 %.03446, i32 %15)
+  %16 = tail call i32 @llvm.smax.i32(i32 %.03446, i32 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !7
@@ -727,7 +727,7 @@ define noundef i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1, ptr no
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = and i32 %28, 16777215
   %.not = icmp eq i32 %29, %16
   br i1 %.not, label %30, label %34

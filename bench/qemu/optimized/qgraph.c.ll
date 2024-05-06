@@ -404,7 +404,7 @@ qos_pop.exit.i:                                   ; preds = %while.body.i
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   store i8 0, ptr %visited.i, align 1
   store i32 %indvars.i, ptr @qos_node_tos, align 4
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw i64 %indvars.iv.i to i32
   %cmp.i = icmp sgt i32 %5, 1
   br i1 %cmp.i, label %while.body.i, label %qos_traverse_graph.exit, !llvm.loop !7
 

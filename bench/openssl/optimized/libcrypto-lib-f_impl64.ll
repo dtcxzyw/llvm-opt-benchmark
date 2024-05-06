@@ -74,7 +74,7 @@ for.body31:                                       ; preds = %for.cond29.preheade
   %conv1.i79 = zext i64 %10 to i128
   %mul.i80 = mul nuw i128 %conv1.i79, %conv.i78
   %add44 = add i128 %mul.i80, %accum1.1121
-  %arrayidx47 = getelementptr i8, ptr %arrayidx33, i64 32
+  %arrayidx47 = getelementptr inbounds i8, ptr %arrayidx33, i64 32
   %11 = load i64, ptr %arrayidx47, align 8
   %gep = getelementptr i64, ptr %invariant.gep, i64 %7
   %12 = load i64, ptr %gep, align 8
@@ -161,12 +161,12 @@ for.end104:                                       ; preds = %for.end91
   store i64 %and116, ptr %cs, align 8
   %shr118 = lshr i128 %add108, 56
   %shr119 = lshr i128 %add111, 56
-  %conv120 = trunc i128 %shr118 to i64
+  %conv120 = trunc nuw nsw i128 %shr118 to i64
   %arrayidx121 = getelementptr inbounds i8, ptr %cs, i64 40
   %25 = load i64, ptr %arrayidx121, align 8
   %add122 = add i64 %25, %conv120
   store i64 %add122, ptr %arrayidx121, align 8
-  %conv123 = trunc i128 %shr119 to i64
+  %conv123 = trunc nuw nsw i128 %shr119 to i64
   %arrayidx124 = getelementptr inbounds i8, ptr %cs, i64 8
   %26 = load i64, ptr %arrayidx124, align 8
   %add125 = add i64 %26, %conv123
@@ -221,7 +221,7 @@ for.end:                                          ; preds = %for.body
   %shr29 = lshr i128 %add24, 56
   %arrayidx30 = getelementptr inbounds i8, ptr %cs, i64 40
   %7 = load i64, ptr %arrayidx30, align 8
-  %8 = trunc i128 %shr29 to i64
+  %8 = trunc nuw nsw i128 %shr29 to i64
   %conv33 = add i64 %7, %8
   store i64 %conv33, ptr %arrayidx30, align 8
   %9 = load i64, ptr %cs, align 8
@@ -233,7 +233,7 @@ for.end:                                          ; preds = %for.body
   %shr41 = lshr i128 %add36, 56
   %arrayidx42 = getelementptr inbounds i8, ptr %cs, i64 8
   %11 = load i64, ptr %arrayidx42, align 8
-  %12 = trunc i128 %shr41 to i64
+  %12 = trunc nuw nsw i128 %shr41 to i64
   %conv45 = add i64 %11, %12
   store i64 %conv45, ptr %arrayidx42, align 8
   ret void
@@ -422,8 +422,8 @@ for.end:                                          ; preds = %for.body
   store i64 %and211, ptr %arrayidx38, align 8
   %shr213 = lshr i128 %add203, 56
   %shr214 = lshr i128 %add206, 56
-  %conv215 = trunc i128 %shr213 to i64
-  %conv216 = trunc i128 %shr214 to i64
+  %conv215 = trunc nuw nsw i128 %shr213 to i64
+  %conv216 = trunc nuw nsw i128 %shr214 to i64
   %add217 = add nuw nsw i64 %and93, %conv215
   %add219 = add nuw nsw i64 %add217, %conv216
   store i64 %add219, ptr %arrayidx94, align 8

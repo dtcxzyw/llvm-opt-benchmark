@@ -3238,7 +3238,7 @@ if.then.i:                                        ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  tail call void @_ZN6Assimp3FBX4Node19EndPropertiesBinaryERNS_12StreamWriterILb0ELb0EEEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(56) %s, i64 noundef %sub.ptr.div.i)
+  tail call void @_ZN6Assimp3FBX4Node19EndPropertiesBinaryERNS_12StreamWriterILb0ELb0EEEm(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(56) %s, i64 noundef %sub.ptr.div.i)
   br label %_ZN6Assimp3FBX4Node13EndPropertiesERNS_12StreamWriterILb0ELb0EEEbim.exit
 
 _ZN6Assimp3FBX4Node13EndPropertiesERNS_12StreamWriterILb0ELb0EEEbim.exit: ; preds = %entry, %if.then.i
@@ -4287,7 +4287,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 %sub.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %42, i64 %sub.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i180, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i
 
@@ -4980,7 +4980,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 %sub.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %42, i64 %sub.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i180, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i
 
@@ -5857,7 +5857,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #17
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaIN6Assimp3FBX4NodeEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #17
@@ -5869,11 +5869,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #18
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #21
           to label %unreachable unwind label %lpad17
 
@@ -9404,7 +9404,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 

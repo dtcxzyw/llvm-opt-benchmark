@@ -1855,7 +1855,7 @@ common.resume:                                    ; preds = %.body, %23
   %.0 = phi i8 [ %46, %43 ], [ 0, %39 ]
   %48 = getelementptr inbounds i8, ptr %0, i64 56
   store atomic i8 %.0, ptr %48 seq_cst, align 8
-  %49 = trunc i8 %.0.i.i.i to i1
+  %49 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %49, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %50
 
 50:                                               ; preds = %47
@@ -2215,7 +2215,7 @@ define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$std..sync..mutex..M
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0

@@ -107,35 +107,35 @@ define hidden void @chdlctype(ptr noundef %0, i16 noundef zeroext %1, ptr nounde
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %6, i32 noundef %7, ptr noundef %2, i32 noundef %9, i32 noundef 2, i32 noundef %10) #2
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #2
   %13 = icmp ne i16 %1, -258
-  %.off = add i8 %12, 127
-  %switch = icmp ult i8 %.off, 3
-  %or.cond = select i1 %13, i1 true, i1 %switch
-  br i1 %or.cond, label %18, label %14
+  %14 = add i8 %12, 127
+  %15 = icmp ult i8 %14, 3
+  %or.cond5 = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond5, label %20, label %16
 
-14:                                               ; preds = %8
-  %15 = load i32, ptr @hf_chdlc_clns_padding, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %15, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %17 = add i32 %3, 1
-  br label %18
+16:                                               ; preds = %8
+  %17 = load i32, ptr @hf_chdlc_clns_padding, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %17, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+  %19 = add i32 %3, 1
+  br label %20
 
-18:                                               ; preds = %8, %14
-  %.sink = phi i32 [ %17, %14 ], [ %3, %8 ]
-  %19 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %.sink) #2
+20:                                               ; preds = %8, %16
+  %.sink = phi i32 [ %19, %16 ], [ %3, %8 ]
+  %21 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %.sink) #2
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %22, label %20
+  br i1 %.not, label %24, label %22
 
-20:                                               ; preds = %18
-  %21 = tail call i32 @call_dissector(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %4, ptr noundef %5) #2
-  br label %26
+22:                                               ; preds = %20
+  %23 = tail call i32 @call_dissector(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %4, ptr noundef %5) #2
+  br label %28
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = load ptr, ptr %23, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.13, i32 noundef %10) #2
-  %25 = tail call i32 @call_data_dissector(ptr noundef %19, ptr noundef %4, ptr noundef %5) #2
-  br label %26
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %26, i32 noundef 34, ptr noundef nonnull @.str.13, i32 noundef %10) #2
+  %27 = tail call i32 @call_data_dissector(ptr noundef %21, ptr noundef %4, ptr noundef %5) #2
+  br label %28
 
-26:                                               ; preds = %22, %20
+28:                                               ; preds = %24, %22
   ret void
 }
 

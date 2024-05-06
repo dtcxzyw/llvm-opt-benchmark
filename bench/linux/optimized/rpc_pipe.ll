@@ -210,7 +210,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rpc_queue_upcall(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -32, 1) i32 @rpc_queue_upcall(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @_raw_spin_lock(ptr noundef %3) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 52
@@ -1411,7 +1411,7 @@ declare dso_local void @down_write(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @d_alloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__rpc_create_common(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__rpc_create_common(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   tail call void @d_drop(ptr noundef %1) #14
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -1501,7 +1501,7 @@ declare dso_local void @__audit_inode_child(ptr noundef, ptr noundef, i8 noundef
 declare dso_local i32 @fsnotify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rpc_pipe_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 160
@@ -1602,7 +1602,7 @@ define internal i64 @rpc_pipe_read(ptr noundef %0, ptr noundef %1, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rpc_pipe_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 160
@@ -1629,7 +1629,7 @@ define internal i64 @rpc_pipe_write(ptr noundef %0, ptr noundef %1, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rpc_pipe_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 260, 326) i32 @rpc_pipe_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 616
@@ -1676,7 +1676,7 @@ define internal noundef i32 @rpc_pipe_poll(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rpc_pipe_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i32 %1, 21531
   br i1 %4, label %5, label %38
 

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @git_qsort_s(ptr noundef %b, i64 noundef %n, i64 noundef %s, ptr noundef %cmp, ptr noundef %ctx) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @git_qsort_s(ptr noundef %b, i64 noundef %n, i64 noundef %s, ptr noundef %cmp, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq i64 %n, 0
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i

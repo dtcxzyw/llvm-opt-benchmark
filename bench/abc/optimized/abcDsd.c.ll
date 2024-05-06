@@ -342,7 +342,7 @@ Vec_PtrFree.exit64:                               ; preds = %112, %114
   %.val42.val.i = load ptr, ptr %130, align 8
   %131 = getelementptr inbounds ptr, ptr %.val42.val.i, i64 %indvars.iv.i
   %132 = load ptr, ptr %131, align 8
-  %133 = trunc i64 %indvars.iv.i to i32
+  %133 = trunc nuw nsw i64 %indvars.iv.i to i32
   %134 = tail call ptr @Dsd_ManagerReadInput(ptr noundef nonnull %107, i32 noundef %133) #10
   %135 = getelementptr inbounds i8, ptr %132, i64 64
   %136 = load ptr, ptr %135, align 8
@@ -419,7 +419,7 @@ Vec_PtrFree.exit64:                               ; preds = %112, %114
   br i1 %.not48.i, label %166, label %177
 
 166:                                              ; preds = %164
-  %167 = trunc i64 %indvars.iv65.i to i32
+  %167 = trunc nuw nsw i64 %indvars.iv65.i to i32
   %168 = call ptr @Dsd_ManagerReadRoot(ptr noundef nonnull %107, i32 noundef %167) #10
   %169 = ptrtoint ptr %168 to i64
   %170 = and i64 %169, -2
@@ -498,7 +498,7 @@ declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDsdLocal(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDsdLocal(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [11 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 256
@@ -682,7 +682,7 @@ Abc_NtkCollectNodesForDsd.exit:                   ; preds = %59
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %.val93.val.val.i, i64 %92
   %94 = load ptr, ptr %93, align 8
-  %95 = trunc i64 %indvars.iv.i33 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   %96 = call ptr @Dsd_ManagerReadInput(ptr noundef %11, i32 noundef %95) #10
   %97 = ptrtoint ptr %94 to i64
   call void @Dsd_NodeSetMark(ptr noundef %96, i64 noundef %97) #10
@@ -849,7 +849,7 @@ Vec_PtrPush.exit.i28:                             ; preds = %138, %Vec_PtrGrow.e
   %171 = add nsw i32 %170, %169
   %172 = icmp sgt i32 %.02733.i.i, %171
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %.02733.i.i, i32 %171)
-  %173 = trunc i64 %indvars.iv.i.i to i32
+  %173 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %spec.select31.i.i = select i1 %172, i32 %173, i32 %.034.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1073,7 +1073,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %271
   %indvars.iv43 = phi i64 [ 3, %272 ], [ %indvars.iv.next44, %273 ]
   %274 = getelementptr inbounds [11 x i32], ptr %5, i64 0, i64 %indvars.iv43
   %275 = load i32, ptr %274, align 4
-  %276 = trunc i64 %indvars.iv43 to i32
+  %276 = trunc nuw nsw i64 %indvars.iv43 to i32
   %277 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %276, i32 noundef %275)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, 10
@@ -1594,7 +1594,7 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
 29:                                               ; preds = %.lr.ph77, %29
   %indvars.iv83 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next84, %29 ]
   %.06374 = phi ptr [ %27, %.lr.ph77 ], [ %40, %29 ]
-  %30 = trunc i64 %indvars.iv83 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv83 to i32
   %31 = tail call ptr @Dsd_NodeReadDec(ptr noundef %1, i32 noundef %30) #10
   %32 = load ptr, ptr %28, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv83

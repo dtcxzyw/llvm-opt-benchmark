@@ -2986,7 +2986,7 @@ declare void @sema_shadow_error(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_unwrap_var(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, i64 136, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, -256
@@ -3213,7 +3213,7 @@ sema_append_local.exit:                           ; preds = %43, %52
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_erase_var(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, i64 136, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, -256
@@ -3328,7 +3328,7 @@ sema_append_local.exit:                           ; preds = %50, %59
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_erase_unwrapped(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, i64 136, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, -256

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [28 x i8] c"Cannot get random bytes: %s\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_random_bytes(ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_random_bytes(ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @gnutls_rnd(i32 noundef 1, ptr noundef %buf, i64 noundef %buflen) #4
   %cmp = icmp slt i32 %call, 0
@@ -32,7 +32,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @gnutls_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qcrypto_random_init(ptr nocapture noundef readnone %errp) local_unnamed_addr #3 {
+define dso_local noundef i32 @qcrypto_random_init(ptr nocapture noundef readnone %errp) local_unnamed_addr #3 {
 entry:
   ret i32 0
 }

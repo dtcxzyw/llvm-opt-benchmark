@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [26 x i8] c"Invalid conversion opcode\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_rs_convert_aml_to_resource(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12312) i32 @acpi_rs_convert_aml_to_resource(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
 
@@ -109,7 +109,7 @@ define dso_local noundef i32 @acpi_rs_convert_aml_to_resource(ptr noundef %0, pt
   %47 = load i8, ptr %46, align 1
   %48 = zext nneg i8 %47 to i32
   %49 = lshr i32 %45, %48
-  %50 = trunc i32 %49 to i8
+  %50 = trunc nuw i32 %49 to i8
   %51 = and i8 %50, 1
   store i8 %51, ptr %35, align 1
   br label %297
@@ -121,7 +121,7 @@ define dso_local noundef i32 @acpi_rs_convert_aml_to_resource(ptr noundef %0, pt
   %56 = load i8, ptr %55, align 1
   %57 = zext nneg i8 %56 to i32
   %58 = lshr i32 %54, %57
-  %59 = trunc i32 %58 to i8
+  %59 = trunc nuw i32 %58 to i8
   %60 = and i8 %59, 3
   store i8 %60, ptr %35, align 1
   br label %297
@@ -133,7 +133,7 @@ define dso_local noundef i32 @acpi_rs_convert_aml_to_resource(ptr noundef %0, pt
   %65 = load i8, ptr %64, align 1
   %66 = zext nneg i8 %65 to i32
   %67 = lshr i32 %63, %66
-  %68 = trunc i32 %67 to i8
+  %68 = trunc nuw i32 %67 to i8
   %69 = and i8 %68, 7
   store i8 %69, ptr %35, align 1
   br label %297
@@ -145,7 +145,7 @@ define dso_local noundef i32 @acpi_rs_convert_aml_to_resource(ptr noundef %0, pt
   %74 = load i8, ptr %73, align 1
   %75 = zext nneg i8 %74 to i32
   %76 = lshr i32 %72, %75
-  %77 = trunc i32 %76 to i8
+  %77 = trunc nuw i32 %76 to i8
   %78 = and i8 %77, 63
   store i8 %78, ptr %35, align 1
   br label %297
@@ -523,7 +523,7 @@ declare dso_local zeroext i8 @acpi_rs_decode_bitmask(i16 noundef zeroext, ptr no
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_rs_convert_resource_to_aml(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_rs_convert_resource_to_aml(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
 

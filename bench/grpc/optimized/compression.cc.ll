@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @grpc_compression_algorithm_parse(ptr noundef byval(%struct.grpc_slice) align 8 %name, ptr nocapture noundef writeonly %algorithm) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @grpc_compression_algorithm_parse(ptr noundef byval(%struct.grpc_slice) align 8 %name, ptr nocapture noundef writeonly %algorithm) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %name, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -71,7 +71,7 @@ return:                                           ; preds = %entry, %_ZNRSt8opti
 declare i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @grpc_compression_algorithm_name(i32 noundef %algorithm, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @grpc_compression_algorithm_name(i32 noundef %algorithm, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
@@ -147,7 +147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @grpc_compression_options_is_algorithm_enabled(ptr nocapture noundef readonly %opts, i32 noundef %algorithm) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @grpc_compression_options_is_algorithm_enabled(ptr nocapture noundef readonly %opts, i32 noundef %algorithm) local_unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::CompressionAlgorithmSet", align 1
   %0 = load i32, ptr %opts, align 4

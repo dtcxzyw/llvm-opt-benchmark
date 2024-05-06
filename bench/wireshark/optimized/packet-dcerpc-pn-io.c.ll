@@ -6001,7 +6001,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_PNIO_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_PNIO_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   store i8 0, ptr %5, align 1
@@ -6213,7 +6213,7 @@ define internal void @pnio_cleanup() #0 {
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pn_io_ar_conv_valid(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @pn_io_ar_conv_valid(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_pn_io, align 4
@@ -6483,7 +6483,7 @@ define internal fastcc void @dissect_IODWriteReqHeader_block(ptr noundef %0, i32
 .lr.ph.i:                                         ; preds = %20, %22
   %.083.i = phi ptr [ %.08.i, %22 ], [ %.081.i, %20 ]
   %24 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull dereferenceable(16) %12, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %25 = icmp eq i32 %bcmp.i, 0
   br i1 %25, label %pnio_ar_find_by_aruuid.exit, label %22
 
@@ -6551,7 +6551,7 @@ define internal fastcc void @dissect_IODReadReqHeader_block(ptr noundef %0, i32 
 .lr.ph.i:                                         ; preds = %20, %22
   %.083.i = phi ptr [ %.08.i, %22 ], [ %.081.i, %20 ]
   %24 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull dereferenceable(16) %12, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %25 = icmp eq i32 %bcmp.i, 0
   br i1 %25, label %pnio_ar_find_by_aruuid.exit, label %22
 
@@ -8516,7 +8516,7 @@ decode_ARType_spezial.exit162:                    ; preds = %149, %149, %169, %1
 .lr.ph.i:                                         ; preds = %196, %197
   %.083.i = phi ptr [ %.08.i, %197 ], [ %.081.i, %196 ]
   %199 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %199, ptr noundef nonnull dereferenceable(16) %10, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %199, ptr noundef nonnull readonly dereferenceable(16) %10, i64 16)
   %200 = icmp eq i32 %bcmp.i, 0
   br i1 %200, label %pnio_ar_find_by_aruuid.exit, label %197
 
@@ -8527,7 +8527,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i
 pnio_ar_find_by_aruuid.exit.thread:               ; preds = %197, %196, %pnio_ar_find_by_aruuid.exit
   %202 = call ptr @wmem_file_scope() #11
   %203 = call noalias ptr @wmem_alloc0(ptr noundef %202, i64 noundef 40) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %203, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %203, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, i64 16, i1 false)
   %204 = getelementptr inbounds i8, ptr %203, i64 26
   store i16 -1, ptr %204, align 2
   %205 = getelementptr inbounds i8, ptr %203, i64 34
@@ -10186,7 +10186,7 @@ define internal fastcc void @dissect_ControlPlugOrConnect_block(ptr noundef %0, 
 .lr.ph.i:                                         ; preds = %21, %26
   %.083.i = phi ptr [ %.08.i, %26 ], [ %.081.i, %21 ]
   %28 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %28, ptr noundef nonnull dereferenceable(16) %11, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %28, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %29 = icmp eq i32 %bcmp.i, 0
   br i1 %29, label %pnio_ar_find_by_aruuid.exit, label %26
 
@@ -10414,7 +10414,7 @@ define internal fastcc void @dissect_ControlBlockPrmBegin(ptr noundef %0, i32 no
 .lr.ph.i:                                         ; preds = %38, %39
   %.083.i = phi ptr [ %.08.i, %39 ], [ %.081.i, %38 ]
   %41 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %41, ptr noundef nonnull dereferenceable(16) %11, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %41, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %42 = icmp eq i32 %bcmp.i, 0
   br i1 %42, label %pnio_ar_find_by_aruuid.exit, label %39
 
@@ -11376,7 +11376,7 @@ define internal fastcc void @dissect_AdjustDomainBoundary_block(ptr noundef %0, 
 
 17:                                               ; preds = %8
   %18 = tail call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #11
-  %trunc = trunc i8 %7 to i1
+  %trunc = trunc nuw i8 %7 to i1
   br i1 %trunc, label %28, label %19
 
 19:                                               ; preds = %17
@@ -13195,7 +13195,7 @@ define internal fastcc void @dissect_PDPortStatistic_block(ptr noundef %0, i32 n
   br label %50
 
 15:                                               ; preds = %8
-  %trunc = trunc i8 %7 to i1
+  %trunc = trunc nuw i8 %7 to i1
   br i1 %trunc, label %18, label %16
 
 16:                                               ; preds = %15
@@ -15596,7 +15596,7 @@ define internal fastcc void @dissect_IODWriteResHeader_block(ptr noundef %0, i32
 .lr.ph.i:                                         ; preds = %21, %23
   %.083.i = phi ptr [ %.08.i, %23 ], [ %.081.i, %21 ]
   %25 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %25, ptr noundef nonnull dereferenceable(16) %12, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %25, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %26 = icmp eq i32 %bcmp.i, 0
   br i1 %26, label %pnio_ar_find_by_aruuid.exit, label %23
 
@@ -15679,7 +15679,7 @@ define internal fastcc void @dissect_IODReadResHeader_block(ptr noundef %0, i32 
 .lr.ph.i:                                         ; preds = %21, %23
   %.083.i = phi ptr [ %.08.i, %23 ], [ %.081.i, %21 ]
   %25 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %25, ptr noundef nonnull dereferenceable(16) %12, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %25, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %26 = icmp eq i32 %bcmp.i, 0
   br i1 %26, label %pnio_ar_find_by_aruuid.exit, label %23
 
@@ -15798,7 +15798,7 @@ define internal fastcc void @dissect_ARBlockRes_block(ptr noundef %0, i32 nounde
 .lr.ph.i:                                         ; preds = %37, %68
   %.083.i = phi ptr [ %.08.i, %68 ], [ %.081.i, %37 ]
   %70 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %70, ptr noundef nonnull dereferenceable(16) %11, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %70, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %71 = icmp eq i32 %bcmp.i, 0
   br i1 %71, label %pnio_ar_find_by_aruuid.exit, label %68
 

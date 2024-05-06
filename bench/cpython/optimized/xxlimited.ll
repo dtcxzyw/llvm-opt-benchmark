@@ -173,7 +173,7 @@ declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xx_modexec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @xx_modexec(ptr noundef %m) #0 {
 entry:
   %call = tail call ptr @PyModule_GetState(ptr noundef %m) #4
   %call1 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null) #4

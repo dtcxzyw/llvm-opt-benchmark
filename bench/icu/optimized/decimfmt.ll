@@ -2389,7 +2389,7 @@ return:                                           ; preds = %lor.rhs.i, %if.end.
 declare noundef signext i8 @_ZNK6icu_7512NumberFormat14isGroupingUsedEv(ptr noundef nonnull align 8 dereferenceable(356)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat29isDecimalSeparatorAlwaysShownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat29isDecimalSeparatorAlwaysShownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -2421,7 +2421,7 @@ declare noundef i32 @_ZNK6icu_7512NumberFormat24getMaximumFractionDigitsEv(ptr n
 declare noundef i32 @_ZNK6icu_7512NumberFormat24getMinimumFractionDigitsEv(ptr noundef nonnull align 8 dereferenceable(356)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat24areSignificantDigitsUsedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat24areSignificantDigitsUsedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -2564,7 +2564,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7513DecimalFormat15getGroupingSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_7513DecimalFormat15getGroupingSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -2588,7 +2588,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7513DecimalFormat24getSecondaryGroupingSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_7513DecimalFormat24getSecondaryGroupingSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -2612,7 +2612,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat17isParseNoExponentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat17isParseNoExponentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -2636,7 +2636,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat29isDecimalPatternMatchRequiredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat29isDecimalPatternMatchRequiredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -2707,7 +2707,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat20isParseCaseSensitiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat20isParseCaseSensitiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -2731,7 +2731,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat17isSignAlwaysShownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat17isSignAlwaysShownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -2755,7 +2755,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat31isFormatFailIfMoreThanMaxDigitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat31isFormatFailIfMoreThanMaxDigitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -3770,7 +3770,7 @@ _ZNK6icu_7513DecimalFormat16fastFormatDoubleEdRNS_13UnicodeStringE.exit: ; preds
   %conv.i = fptosi double %number to i32
   %4 = bitcast double %number to i64
   %5 = icmp slt i64 %4, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end5:                                          ; preds = %lor.lhs.false.i, %land.lhs.true, %if.end
@@ -4030,7 +4030,7 @@ _ZNK6icu_7513DecimalFormat16fastFormatDoubleEdRNS_13UnicodeStringE.exit: ; preds
   %conv.i16 = fptosi double %number to i32
   %5 = bitcast double %number to i64
   %6 = icmp slt i64 %5, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i16, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i16, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false.i, %land.lhs.true, %if.end3
@@ -4202,7 +4202,7 @@ _ZNK6icu_7513DecimalFormat16fastFormatDoubleEdRNS_13UnicodeStringE.exit: ; preds
   %conv.i16 = fptosi double %number to i32
   %4 = bitcast double %number to i64
   %5 = icmp slt i64 %4, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i16, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i16, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false.i, %land.lhs.true, %if.end3
@@ -4420,7 +4420,7 @@ land.lhs.true:                                    ; preds = %if.end
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
   %conv.i = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
@@ -4611,7 +4611,7 @@ land.lhs.true:                                    ; preds = %if.end3
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
   %conv.i15 = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end8:                                          ; preds = %land.lhs.true, %if.end3
@@ -4774,7 +4774,7 @@ land.lhs.true:                                    ; preds = %if.end3
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
   %conv.i15 = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
-  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
+  tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end3
@@ -6963,7 +6963,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat20isScientificNotationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat20isScientificNotationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -7069,7 +7069,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513DecimalFormat25isExponentSignAlwaysShownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513DecimalFormat25isExponentSignAlwaysShownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #1 align 2 {
 entry:
   %fields = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %fields, align 8
@@ -8850,7 +8850,7 @@ entry:
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %entry
   %arraydestroy.elementPast.idx.i = phi i64 [ 2184, %entry ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -272
-  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.idx.i
+  %arraydestroy.element.ptr.i = getelementptr i8, ptr %this, i64 %arraydestroy.elementPast.idx.i
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i, align 8
   %negSuffix.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i.i) #16

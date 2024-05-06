@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [40 x i8] c"Finished printing %d arithmetic cones.\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @Wlc_ObjIsArithm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Wlc_ObjIsArithm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 8
   %3 = and i16 %2, 63
   switch i16 %3, label %4 [
@@ -35,7 +35,7 @@ define noundef i32 @Wlc_ObjIsArithm(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @Wlc_ObjIsArithmReal(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Wlc_ObjIsArithmReal(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 8
   %3 = and i16 %2, 63
   switch i16 %3, label %4 [
@@ -104,7 +104,7 @@ Wlc_ObjIsArithmReal.exit:                         ; preds = %7, %7, %7, %7, %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Wlc_ObjHasArithm_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Wlc_ObjHasArithm_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 640
   br label %tailrecurse
 
@@ -158,7 +158,7 @@ Wlc_ObjFanin0.exit:                               ; preds = %6, %Wlc_ObjHasArray
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Wlc_ObjHasArithmFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Wlc_ObjHasArithmFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val9 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val9, 0
@@ -652,7 +652,7 @@ Wlc_ObjHasArithm_rec.exit.thread65:               ; preds = %tailrecurse.i, %tai
   br label %.critedge2
 
 Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
-  %20 = tail call i32 @Wlc_ObjHasArithmFanins(ptr noundef %0, ptr noundef %1), !range !9
+  %20 = tail call i32 @Wlc_ObjHasArithmFanins(ptr noundef %0, ptr noundef %1)
   %.not35 = icmp eq i32 %20, 0
   br i1 %.not35, label %.critedge2, label %.preheader
 
@@ -746,7 +746,7 @@ Wlc_ObjHasArithm_rec.exit50.thread:               ; preds = %tailrecurse.i41, %W
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %.val40 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %26, label %.critedge.preheader, !llvm.loop !10
+  br i1 %50, label %26, label %.critedge.preheader, !llvm.loop !9
 
 51:                                               ; preds = %.lr.ph85, %Wlc_ObjHasArithm_rec.exit62.thread
   %.val39.pr93 = phi i32 [ %.val40, %.lr.ph85 ], [ %.val39.pr, %Wlc_ObjHasArithm_rec.exit62.thread ]
@@ -820,7 +820,7 @@ Wlc_ObjHasArithm_rec.exit62.thread:               ; preds = %tailrecurse.i53, %W
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %74 = sext i32 %.val39.pr to i64
   %75 = icmp slt i64 %indvars.iv.next89, %74
-  br i1 %75, label %51, label %.critedge2, !llvm.loop !11
+  br i1 %75, label %51, label %.critedge2, !llvm.loop !10
 
 .critedge2:                                       ; preds = %Wlc_ObjHasArithm_rec.exit62.thread, %.preheader, %.critedge.preheader, %Wlc_ObjHasArithm_rec.exit.thread, %Wlc_ObjHasArithm_rec.exit.thread65
   ret void
@@ -870,7 +870,7 @@ define void @Wlc_WinProfileArith(ptr noundef %0) local_unnamed_addr #2 {
   %.val52 = load i32, ptr %10, align 8
   %19 = sext i32 %.val52 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %15, label %.critedge.preheader, !llvm.loop !12
+  br i1 %20, label %15, label %.critedge.preheader, !llvm.loop !11
 
 .critedge2.preheader:                             ; preds = %Wlc_ManCountArithmReal.exit.thread, %1, %.critedge.preheader
   %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ 0, %1 ], [ %.1, %Wlc_ManCountArithmReal.exit.thread ]
@@ -928,7 +928,7 @@ Wlc_ObjHasArithm_rec.exit.thread63:               ; preds = %tailrecurse.i, %tai
   br i1 %.not67, label %Wlc_ManCountArithmReal.exit.thread, label %39
 
 Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
-  %38 = tail call i32 @Wlc_ObjHasArithmFanins(ptr noundef %0, ptr noundef nonnull %24), !range !9
+  %38 = tail call i32 @Wlc_ObjHasArithmFanins(ptr noundef %0, ptr noundef nonnull %24)
   %.not46 = icmp eq i32 %38, 0
   br i1 %.not46, label %Wlc_ManCountArithmReal.exit.thread, label %39
 
@@ -995,7 +995,7 @@ Wlc_ManCountArithmReal.exit:                      ; preds = %Wlc_ObjIsArithmReal
   %65 = load ptr, ptr %9, align 8
   %66 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv.i57
   %67 = load i32, ptr %66, align 4
-  %68 = trunc i64 %indvars.iv.i57 to i32
+  %68 = trunc nuw nsw i64 %indvars.iv.i57 to i32
   %69 = xor i32 %68, -1
   %70 = add i32 %64, %69
   %71 = sext i32 %70 to i64
@@ -1013,7 +1013,7 @@ Wlc_ManCountArithmReal.exit:                      ; preds = %Wlc_ObjIsArithmReal
   %80 = sdiv i32 %79, 2
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next.i58, %81
-  br i1 %82, label %.lr.ph.i56, label %Vec_IntReverseOrder.exit, !llvm.loop !13
+  br i1 %82, label %.lr.ph.i56, label %Vec_IntReverseOrder.exit, !llvm.loop !12
 
 Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i56, %54
   tail call void @Wlc_NtkPrintNodeArray(ptr noundef %0, ptr noundef nonnull %6) #12
@@ -1027,7 +1027,7 @@ Wlc_ManCountArithmReal.exit.thread:               ; preds = %39, %Wlc_ObjHasArit
   %.val53 = load i32, ptr %10, align 8
   %84 = sext i32 %.val53 to i64
   %85 = icmp slt i64 %indvars.iv.next79, %84
-  br i1 %85, label %23, label %.critedge2.preheader, !llvm.loop !14
+  br i1 %85, label %23, label %.critedge2.preheader, !llvm.loop !13
 
 86:                                               ; preds = %.critedge2.preheader
   tail call void @free(ptr noundef nonnull %22) #12
@@ -1094,9 +1094,8 @@ attributes #12 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

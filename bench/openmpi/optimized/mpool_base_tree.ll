@@ -57,7 +57,7 @@ define internal void @opal_mca_mpool_base_tree_constructor(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_mpool_base_tree_node_compare(ptr noundef readnone %0, ptr noundef readnone %1) #1 {
+define range(i32 -1, 2) i32 @mca_mpool_base_tree_node_compare(ptr noundef readnone %0, ptr noundef readnone %1) #1 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ugt ptr %0, %1
   %. = zext i1 %4 to i32
@@ -364,7 +364,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %20 = extractvalue { i128, i1 } %18, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %20 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %20, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)

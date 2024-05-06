@@ -155,7 +155,7 @@ for.body22:                                       ; preds = %for.body22.preheade
 
 if.then27:                                        ; preds = %for.body22
   %arrayidx24.le = getelementptr inbounds i32, ptr %call3, i64 %indvars.iv103
-  %11 = trunc i64 %indvars.iv103 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv103 to i32
   store i32 0, ptr %arrayidx24.le, align 4
   br label %for.end33
 
@@ -339,7 +339,7 @@ for.body90:                                       ; preds = %for.body90.preheade
 
 if.then95:                                        ; preds = %for.body90
   %arrayidx92.le = getelementptr inbounds i32, ptr %call3, i64 %indvars.iv106
-  %29 = trunc i64 %indvars.iv106 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv106 to i32
   store i32 %call75, ptr %arrayidx92.le, align 4
   %inc98 = add nsw i32 %procs.2, 1
   %.pre = load i32, ptr @n_responders, align 4
@@ -572,7 +572,7 @@ declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @http_server_get_asn1_req(ptr noundef %it, ptr nocapture noundef writeonly %preq, ptr noundef %ppath, ptr nocapture noundef %pcbio, ptr noundef %acbio, ptr noundef writeonly %found_keep_alive, ptr noundef %prog, i32 noundef %accept_get, i32 noundef %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @http_server_get_asn1_req(ptr noundef %it, ptr nocapture noundef writeonly %preq, ptr noundef %ppath, ptr nocapture noundef %pcbio, ptr noundef %acbio, ptr noundef writeonly %found_keep_alive, ptr noundef %prog, i32 noundef %accept_get, i32 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %buf.i169 = alloca [200 x i8], align 16
   %buf.i159 = alloca [200 x i8], align 16
@@ -827,7 +827,7 @@ land.lhs.true110:                                 ; preds = %if.end106
   br i1 %cmp113, label %if.then115, label %if.end117
 
 if.then115:                                       ; preds = %land.lhs.true110
-  %call116 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 200, ptr noundef nonnull @.str.30), !range !13
+  %call116 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 200, ptr noundef nonnull @.str.30)
   br label %out
 
 if.end117:                                        ; preds = %land.lhs.true110, %if.end106
@@ -837,7 +837,7 @@ if.end117:                                        ; preds = %land.lhs.true110, %
 
 if.then121:                                       ; preds = %if.end117
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull %reqbuf, ptr noundef nonnull %incdec.ptr82) #11
-  %call122 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21), !range !13
+  %call122 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out
 
 if.end123:                                        ; preds = %if.end117
@@ -892,7 +892,7 @@ while.cond145:                                    ; preds = %while.cond145, %if.
   %8 = load i8, ptr %url.2, align 1
   %cmp147 = icmp eq i8 %8, 47
   %incdec.ptr150 = getelementptr inbounds i8, ptr %url.2, i64 1
-  br i1 %cmp147, label %while.cond145, label %while.cond152.preheader, !llvm.loop !14
+  br i1 %cmp147, label %while.cond145, label %while.cond152.preheader, !llvm.loop !13
 
 while.cond152.preheader:                          ; preds = %while.cond145
   %add.ptr153 = getelementptr inbounds i8, ptr %url.2, i64 2
@@ -913,7 +913,7 @@ land.rhs:                                         ; preds = %land.lhs.true156
   %arrayidx161 = getelementptr inbounds i8, ptr %end.3, i64 -1
   %10 = load i8, ptr %arrayidx161, align 1
   %cmp163 = icmp eq i8 %10, 47
-  br i1 %cmp163, label %while.cond152, label %while.end167, !llvm.loop !15
+  br i1 %cmp163, label %while.cond152, label %while.end167, !llvm.loop !14
 
 while.end167:                                     ; preds = %land.lhs.true156, %while.cond152, %land.rhs
   store i8 0, ptr %end.3, align 1
@@ -923,7 +923,7 @@ while.end167:                                     ; preds = %land.lhs.true156, %
 
 if.then173:                                       ; preds = %if.end244, %while.end167
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.35) #11
-  %call174 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21), !range !13
+  %call174 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out
 
 if.end175:                                        ; preds = %while.end167, %if.end244
@@ -959,7 +959,7 @@ if.end191:                                        ; preds = %lor.lhs.false185
   %cond199 = select i1 %cmp194, ptr @.str.36, ptr %inbuf
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %cond199) #11
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.37) #11
-  %call203 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21), !range !13
+  %call203 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out
 
 if.end210:                                        ; preds = %if.then190
@@ -969,7 +969,7 @@ if.end210:                                        ; preds = %if.then190
 
 if.then215:                                       ; preds = %if.end210
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.38) #11
-  %call216 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21), !range !13
+  %call216 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out
 
 if.end217:                                        ; preds = %if.end210
@@ -981,7 +981,7 @@ while.cond219:                                    ; preds = %while.cond219, %if.
   %value.0 = getelementptr inbounds i8, ptr %call212.pn, i64 1
   %15 = load i8, ptr %value.0, align 1
   %cmp221 = icmp eq i8 %15, 32
-  br i1 %cmp221, label %while.cond219, label %while.end225, !llvm.loop !16
+  br i1 %cmp221, label %while.cond219, label %while.end225, !llvm.loop !15
 
 while.end225:                                     ; preds = %while.cond219
   br i1 %cmp99.not, label %if.end244, label %land.lhs.true228
@@ -1021,7 +1021,7 @@ for.end245:                                       ; preds = %if.then190
 
 if.then256:                                       ; preds = %for.end245
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.42) #11
-  %call257 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21), !range !13
+  %call257 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out.thread
 
 if.else258:                                       ; preds = %for.end245
@@ -1107,7 +1107,7 @@ declare i32 @alarm(i32 noundef) local_unnamed_addr #1
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @http_server_send_status(ptr noundef %prog, ptr noundef %cbio, i32 noundef %status, ptr noundef %reason) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @http_server_send_status(ptr noundef %prog, ptr noundef %cbio, i32 noundef %status, ptr noundef %reason) local_unnamed_addr #0 {
 entry:
   %buf = alloca [200 x i8], align 16
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef %status, ptr noundef %reason) #11
@@ -1189,7 +1189,7 @@ for.inc:                                          ; preds = %for.cond, %if.then1
   %out.1 = getelementptr inbounds i8, ptr %out.0, i64 1
   store i8 %storemerge, ptr %out.0, align 1
   %incdec.ptr23 = getelementptr inbounds i8, ptr %p.addr.1, i64 1
-  br label %for.cond, !llvm.loop !17
+  br label %for.cond, !llvm.loop !16
 
 for.end:                                          ; preds = %for.cond
   store i8 0, ptr %out.0, align 1
@@ -1221,7 +1221,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @http_server_send_asn1_resp(ptr noundef %prog, ptr noundef %cbio, i32 noundef %keep_alive, ptr noundef %content_type, ptr noundef %it, ptr noundef %resp) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @http_server_send_asn1_resp(ptr noundef %prog, ptr noundef %cbio, i32 noundef %keep_alive, ptr noundef %content_type, ptr noundef %it, ptr noundef %resp) local_unnamed_addr #0 {
 entry:
   %buf = alloca [200 x i8], align 16
   %tobool.not = icmp eq i32 %keep_alive, 0
@@ -1327,8 +1327,7 @@ attributes #14 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

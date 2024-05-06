@@ -587,20 +587,20 @@ if.end156.sink.split:                             ; preds = %if.then142, %if.end
 if.end156:                                        ; preds = %if.end156.sink.split, %land.lhs.true139, %if.then115
   %svrArgsSz.4 = phi i32 [ %svrArgsSz.384, %land.lhs.true139 ], [ %svrArgsSz.2111, %if.then115 ], [ %svrArgsSz.4.ph, %if.end156.sink.split ]
   %cliArgsSz.4 = phi i32 [ %cliArgsSz.385, %land.lhs.true139 ], [ %cliArgsSz.2114, %if.then115 ], [ %cliArgsSz.4.ph, %if.end156.sink.split ]
-  %call158 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0), !range !5
+  %call158 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %cmp159 = icmp eq i32 %call158, 0
   br i1 %cmp159, label %if.then161, label %if.end190
 
 if.then161:                                       ; preds = %if.end156
-  %call164 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0), !range !5
-  %call167 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1), !range !5
-  %call170 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0), !range !5
-  %call173 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0), !range !5
-  %call176 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0), !range !5
-  %call179 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0), !range !5
-  %call182 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0), !range !5
-  %call185 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0), !range !5
-  %call188 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0), !range !5
+  %call164 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %call167 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %call170 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call173 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call176 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call179 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call182 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call185 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call188 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end156, %if.then161, %if.end113
@@ -609,7 +609,7 @@ if.end190:                                        ; preds = %if.end156, %if.then
   %cliMode.3 = phi i32 [ %cliMode.2, %if.end113 ], [ 0, %if.then161 ], [ 0, %if.end156 ]
   %24 = load ptr, ptr %cursor, align 8
   %tobool.not = icmp eq ptr %24, null
-  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !6
+  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end190, %land.rhs
   call void @free(ptr noundef %call46) #16
@@ -659,7 +659,7 @@ declare ptr @wc_strsep(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_test_case(i32 noundef %svr_argc, ptr noundef %svr_argv, i32 noundef %cli_argc, ptr noundef %cli_argv, i32 noundef %addNoVerify, i32 noundef %addNonBlocking, i32 noundef %addDisableEMS, i32 noundef %forceSrvDefCipherList, i32 noundef %forceCliDefCipherList) unnamed_addr #0 {
+define internal fastcc range(i32 -124, 1) i32 @execute_test_case(i32 noundef %svr_argc, ptr noundef %svr_argv, i32 noundef %cli_argc, ptr noundef %cli_argv, i32 noundef %addNoVerify, i32 noundef %addNonBlocking, i32 noundef %addDisableEMS, i32 noundef %forceSrvDefCipherList, i32 noundef %forceCliDefCipherList) unnamed_addr #0 {
 entry:
   %cert.i79 = alloca [80 x i8], align 16
   %cert.i = alloca [80 x i8], align 16
@@ -709,7 +709,7 @@ if.end:                                           ; preds = %for.body
   %1 = load i32, ptr %svrArgs, align 8
   %2 = sext i32 %1 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end, %entry, %if.then
   %call.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.57) #20
@@ -754,7 +754,7 @@ IsValidCipherSuite.exit:                          ; preds = %if.end8.i, %if.else
 
 if.end21:                                         ; preds = %IsValidCipherSuite.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %cert.i)
-  %call.i64 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.60) #20
+  %call.i64 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.60) #20
   %cmp.i = icmp eq ptr %call.i64, null
   br i1 %cmp.i, label %IsValidCert.exit.thread115, label %if.end.i
 
@@ -781,7 +781,7 @@ for.body.i:                                       ; preds = %land.lhs.true.i
   store i8 %4, ptr %arrayidx.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 79
-  br i1 %exitcond.not.i, label %for.end.i, label %land.lhs.true.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %for.end.i, label %land.lhs.true.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %land.lhs.true.i, %land.lhs.true.i
   %i.0.lcssa.i = phi i64 [ %i.010.i, %land.lhs.true.i ], [ %i.010.i, %land.lhs.true.i ], [ 79, %for.body.i ]
@@ -804,7 +804,7 @@ IsValidCert.exit:                                 ; preds = %for.end.i
   br i1 %cmp15.i.not, label %if.end25, label %return
 
 if.end25:                                         ; preds = %IsValidCert.exit.thread115, %IsValidCert.exit
-  %call.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.61) #20
+  %call.i.i = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.61) #20
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.end35, label %IsSslVersion.exit
 
@@ -943,7 +943,7 @@ if.end109:                                        ; preds = %for.body100
   %16 = load i32, ptr %svrArgs, align 8
   %17 = sext i32 %16 to i64
   %cmp99 = icmp slt i64 %indvars.iv.next139, %17
-  br i1 %cmp99, label %for.body100, label %for.end118, !llvm.loop !10
+  br i1 %cmp99, label %for.body100, label %for.end118, !llvm.loop !9
 
 for.end118:                                       ; preds = %if.end109, %if.end95, %if.then107
   %18 = load i32, ptr @execute_test_case.tests, align 4
@@ -1114,11 +1114,11 @@ if.end212:                                        ; preds = %for.body202
   %call218 = call i64 @wc_strlcat(ptr noundef nonnull %commandLine, ptr noundef nonnull @flagSep, i64 noundef 240) #16
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %cmp200 = icmp ult i64 %indvars.iv.next142, %32
-  br i1 %cmp200, label %for.body202, label %for.end221, !llvm.loop !11
+  br i1 %cmp200, label %for.body202, label %for.end221, !llvm.loop !10
 
 for.end221:                                       ; preds = %if.end212, %if.end196, %if.then210
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %cert.i79)
-  %call.i80 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.68) #20
+  %call.i80 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.68) #20
   %cmp.i81 = icmp eq ptr %call.i80, null
   br i1 %cmp.i81, label %IsValidCA.exit.thread124, label %if.end.i82
 
@@ -1145,7 +1145,7 @@ for.body.i98:                                     ; preds = %land.lhs.true.i84
   store i8 %34, ptr %arrayidx.i100, align 1
   %inc.i101 = add nuw nsw i64 %i.010.i86, 1
   %exitcond.not.i102 = icmp eq i64 %inc.i101, 79
-  br i1 %exitcond.not.i102, label %for.end.i87, label %land.lhs.true.i84, !llvm.loop !12
+  br i1 %exitcond.not.i102, label %for.end.i87, label %land.lhs.true.i84, !llvm.loop !11
 
 for.end.i87:                                      ; preds = %for.body.i98, %land.lhs.true.i84, %land.lhs.true.i84
   %i.0.lcssa.i88 = phi i64 [ %i.010.i86, %land.lhs.true.i84 ], [ %i.010.i86, %land.lhs.true.i84 ], [ 79, %for.body.i98 ]
@@ -1339,11 +1339,10 @@ attributes #22 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -124, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

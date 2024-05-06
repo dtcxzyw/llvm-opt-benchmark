@@ -2005,7 +2005,7 @@ define dso_local noalias noundef ptr @_ZN2c43yml13allocate_implEmPvS1_(i64 nound
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %5, ptr noundef nonnull align 16 dereferenceable(26) @__const._ZN2c43yml13allocate_implEmPvS1_.msg, i64 26, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef nonnull %5, i64 noundef 25, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef null)
+  call void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef nonnull %5, i64 noundef 25, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef null)
   call void @abort() #38
   unreachable
 
@@ -3314,18 +3314,18 @@ define dso_local void @_ZN2c43yml4TreeC2ERKNS0_9CallbacksE(ptr nocapture noundef
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2c43yml4TreeC2EmmRKNS0_9CallbacksE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %8
 
 8:                                                ; preds = %8, %4
   %.idx.i = phi i64 [ 96, %4 ], [ %.add.i, %8 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %9 = icmp eq i64 %.add.i, 256
   br i1 %9, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %8
@@ -3540,7 +3540,7 @@ _ZN2c43yml4Tree12_clear_rangeEmm.exit:            ; preds = %38, %._crit_edge.i
   store i64 %85, ptr %87, align 8
   %88 = add i64 %1, -1
   store i64 %88, ptr %71, align 8
-  %.pre23 = load i64, ptr %58, align 8
+  %.pre24 = load i64, ptr %58, align 8
   br label %103
 
 89:                                               ; preds = %_ZN2c43yml4Tree12_clear_rangeEmm.exit
@@ -3574,7 +3574,7 @@ _ZN2c43yml4Tree12_clear_rangeEmm.exit:            ; preds = %38, %._crit_edge.i
 
 103:                                              ; preds = %81, %101
   %104 = phi i64 [ %88, %81 ], [ %102, %101 ]
-  %105 = phi i64 [ %.pre23, %81 ], [ %39, %101 ]
+  %105 = phi i64 [ %.pre24, %81 ], [ %39, %101 ]
   %106 = icmp eq i64 %105, -1
   %107 = icmp ult i64 %105, %1
   %or.cond = or i1 %106, %107
@@ -3596,11 +3596,11 @@ _ZN2c43yml4Tree12_clear_rangeEmm.exit:            ; preds = %38, %._crit_edge.i
   %115 = load ptr, ptr %21, align 8
   call void %110(ptr noundef nonnull %13, i64 noundef 79, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %115)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
-  %.pre24 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre25 = load i64, ptr %.phi.trans.insert, align 8
   br label %116
 
 116:                                              ; preds = %108, %103
-  %117 = phi i64 [ %.pre24, %108 ], [ %104, %103 ]
+  %117 = phi i64 [ %.pre25, %108 ], [ %104, %103 ]
   %118 = icmp eq i64 %117, -1
   %119 = icmp ult i64 %117, %1
   %or.cond22 = or i1 %118, %119
@@ -3805,7 +3805,7 @@ define dso_local void @_ZN2c43yml4Tree5_freeEv(ptr nocapture noundef nonnull ali
 
 _ZN2c43yml4Tree6_clearEv.exit:                    ; preds = %42, %27
   %49 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %49, i8 0, i64 160, i1 false)
   ret void
 }
@@ -3825,18 +3825,18 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define dso_local void @_ZN2c43yml4TreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %7
 
 7:                                                ; preds = %7, %2
   %.idx.i = phi i64 [ 96, %2 ], [ %.add.i, %7 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %8 = icmp eq i64 %.add.i, 256
   br i1 %8, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %7
@@ -4058,18 +4058,18 @@ define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4Tr
 define dso_local void @_ZN2c43yml4TreeC2EOS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull align 8 dereferenceable(256) %1) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %7
 
 7:                                                ; preds = %7, %2
   %.idx.i = phi i64 [ 96, %2 ], [ %.add.i, %7 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %8 = icmp eq i64 %.add.i, 256
   br i1 %8, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %7
@@ -4206,7 +4206,7 @@ define dso_local void @_ZN2c43yml4Tree5_moveERS1_(ptr nocapture noundef nonnull 
   br i1 %exitcond.not, label %_ZN2c43yml4Tree6_clearEv.exit, label %66, !llvm.loop !56
 
 _ZN2c43yml4Tree6_clearEv.exit:                    ; preds = %66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %64, i8 0, i64 160, i1 false)
   ret void
 }
@@ -5301,17 +5301,17 @@ define dso_local void @_ZN2c43yml4Tree14_set_hierarchyEmmm(ptr nocapture noundef
 .critedge:                                        ; preds = %47
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %2
-  br i1 %36, label %.thread, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84
+  br i1 %36, label %.thread, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85
 
 .thread:                                          ; preds = %.critedge
   %77 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %2, i32 4
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %78, -1
-  %.not65121 = icmp eq ptr %75, null
-  %or.cond130 = or i1 %.not65121, %79
-  br i1 %or.cond130, label %.thread112, label %.thread125
+  %.not65122 = icmp eq ptr %75, null
+  %or.cond131 = or i1 %.not65122, %79
+  br i1 %or.cond131, label %.thread113, label %.thread126
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84:      ; preds = %.critedge
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85:      ; preds = %.critedge
   %80 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %3, i32 6
   %81 = load i64, ptr %80, align 8
   %82 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %3
@@ -5331,7 +5331,7 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84:      ; preds = %.critedge
   %or.cond72 = or i1 %92, %.not64
   br i1 %or.cond72, label %102, label %93
 
-93:                                               ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84
+93:                                               ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(93) %13, ptr noundef nonnull align 16 dereferenceable(93) @__const._ZN2c43yml4Tree14_set_hierarchyEmmm.msg.113, i64 93, i1 false)
   %94 = getelementptr inbounds i8, ptr %0, i64 64
   %95 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5349,14 +5349,14 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84:      ; preds = %.critedge
   call void %96(ptr noundef nonnull %13, i64 noundef 93, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %101)
   br label %102
 
-102:                                              ; preds = %93, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84
-  %.not65134 = icmp eq ptr %75, null
-  %.not65 = select i1 %83, i1 true, i1 %.not65134
-  br i1 %.not65, label %.thread112, label %104
+102:                                              ; preds = %93, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85
+  %.not65135 = icmp eq ptr %75, null
+  %.not65 = select i1 %83, i1 true, i1 %.not65135
+  br i1 %.not65, label %.thread113, label %104
 
-.thread125:                                       ; preds = %.thread
+.thread126:                                       ; preds = %.thread
   %103 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %78, i32 7
-  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87
+  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %0, align 8
@@ -5365,19 +5365,19 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84:      ; preds = %.critedge
   %108 = ptrtoint ptr %105 to i64
   %109 = sub i64 %107, %108
   %110 = sdiv exact i64 %109, 144
-  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87
+  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87:      ; preds = %.thread125, %104
-  %111 = phi ptr [ %105, %104 ], [ %75, %.thread125 ]
-  %.in = phi ptr [ %106, %104 ], [ %103, %.thread125 ]
-  %.pn = phi i64 [ %81, %104 ], [ %78, %.thread125 ]
-  %.0.i86 = phi i64 [ %110, %104 ], [ -1, %.thread125 ]
-  %.0.i77110123129 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %.pn
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88:      ; preds = %.thread126, %104
+  %111 = phi ptr [ %105, %104 ], [ %75, %.thread126 ]
+  %.in = phi ptr [ %106, %104 ], [ %103, %.thread126 ]
+  %.pn = phi i64 [ %81, %104 ], [ %78, %.thread126 ]
+  %.0.i87 = phi i64 [ %110, %104 ], [ -1, %.thread126 ]
+  %.0.i78111124130 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %.pn
   %112 = load i64, ptr %.in, align 8
-  %113 = icmp eq i64 %112, %.0.i86
-  br i1 %113, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93, label %114
+  %113 = icmp eq i64 %112, %.0.i87
+  br i1 %113, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94, label %114
 
-114:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87
+114:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %15, ptr noundef nonnull align 16 dereferenceable(56) @__const._ZN2c43yml4Tree14_set_hierarchyEmmm.msg.114, i64 56, i1 false)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5393,12 +5393,12 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87:      ; preds = %.thread125, %104
   store i64 127, ptr %121, align 8
   %122 = load ptr, ptr %115, align 8
   call void %117(ptr noundef nonnull %15, i64 noundef 56, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %16, ptr noundef %122)
-  %.pre132 = load ptr, ptr %0, align 8
-  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93
+  %.pre133 = load ptr, ptr %0, align 8
+  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93:      ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87, %114
-  %123 = phi ptr [ %111, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87 ], [ %.pre132, %114 ]
-  %124 = ptrtoint ptr %.0.i77110123129 to i64
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94:      ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88, %114
+  %123 = phi ptr [ %111, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88 ], [ %.pre133, %114 ]
+  %124 = ptrtoint ptr %.0.i78111124130 to i64
   %125 = ptrtoint ptr %123 to i64
   %126 = sub i64 %124, %125
   %127 = sdiv exact i64 %126, 144
@@ -5408,16 +5408,16 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93:      ; preds = %_ZNK2c43yml4Tree2id
   %130 = ptrtoint ptr %128 to i64
   %131 = sub i64 %129, %130
   %132 = sdiv exact i64 %131, 144
-  %133 = getelementptr inbounds i8, ptr %.0.i77110123129, i64 136
+  %133 = getelementptr inbounds i8, ptr %.0.i78111124130, i64 136
   store i64 %132, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %.0.i77110123129, i64 128
+  %134 = getelementptr inbounds i8, ptr %.0.i78111124130, i64 128
   %135 = load i64, ptr %134, align 8
   %.not66 = icmp ne i64 %132, %135
   %136 = icmp eq i64 %131, -144
   %or.cond73 = or i1 %136, %.not66
-  br i1 %or.cond73, label %.thread112, label %137
+  br i1 %or.cond73, label %.thread113, label %137
 
-137:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93
+137:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(93) %17, ptr noundef nonnull align 16 dereferenceable(93) @__const._ZN2c43yml4Tree14_set_hierarchyEmmm.msg.115, i64 93, i1 false)
   %138 = getelementptr inbounds i8, ptr %0, i64 64
   %139 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5433,19 +5433,19 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93:      ; preds = %_ZNK2c43yml4Tree2id
   store i64 127, ptr %144, align 8
   %145 = load ptr, ptr %138, align 8
   call void %140(ptr noundef nonnull %17, i64 noundef 93, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %18, ptr noundef %145)
-  br label %.thread112
+  br label %.thread113
 
-.thread112:                                       ; preds = %.thread, %137, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93, %102
+.thread113:                                       ; preds = %.thread, %137, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94, %102
   %146 = getelementptr inbounds i8, ptr %76, i64 112
   %147 = load i64, ptr %146, align 8
   %148 = icmp eq i64 %147, -1
   br i1 %148, label %149, label %171
 
-149:                                              ; preds = %.thread112
+149:                                              ; preds = %.thread113
   %150 = getelementptr inbounds i8, ptr %76, i64 120
   %151 = load i64, ptr %150, align 8
   %152 = icmp eq i64 %151, -1
-  br i1 %152, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99, label %153
+  br i1 %152, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100, label %153
 
 153:                                              ; preds = %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %19, ptr noundef nonnull align 16 dereferenceable(45) @__const._ZN2c43yml4Tree14_set_hierarchyEmmm.msg.116, i64 45, i1 false)
@@ -5463,9 +5463,9 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93:      ; preds = %_ZNK2c43yml4Tree2id
   store i64 127, ptr %160, align 8
   %161 = load ptr, ptr %154, align 8
   call void %156(ptr noundef nonnull %19, i64 noundef 45, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %20, ptr noundef %161)
-  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99
+  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99:      ; preds = %149, %153
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100:     ; preds = %149, %153
   %162 = load ptr, ptr %0, align 8
   %163 = ptrtoint ptr %.0.i to i64
   %164 = ptrtoint ptr %162 to i64
@@ -5479,12 +5479,12 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99:      ; preds = %149, %153
   store i64 %170, ptr %150, align 8
   br label %189
 
-171:                                              ; preds = %.thread112
+171:                                              ; preds = %.thread113
   %172 = load i64, ptr %53, align 8
   %173 = icmp eq i64 %172, %147
-  br i1 %173, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit102, label %179
+  br i1 %173, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit103, label %179
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit102:     ; preds = %171
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit103:     ; preds = %171
   %174 = load ptr, ptr %0, align 8
   %175 = ptrtoint ptr %.0.i to i64
   %176 = ptrtoint ptr %174 to i64
@@ -5493,14 +5493,14 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit102:     ; preds = %171
   store i64 %178, ptr %146, align 8
   br label %179
 
-179:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit102, %171
+179:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit103, %171
   %180 = load i64, ptr %52, align 8
   %181 = getelementptr inbounds i8, ptr %76, i64 120
   %182 = load i64, ptr %181, align 8
   %183 = icmp eq i64 %180, %182
-  br i1 %183, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit105, label %189
+  br i1 %183, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit106, label %189
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit105:     ; preds = %179
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit106:     ; preds = %179
   %184 = load ptr, ptr %0, align 8
   %185 = ptrtoint ptr %.0.i to i64
   %186 = ptrtoint ptr %184 to i64
@@ -5509,7 +5509,7 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit105:     ; preds = %179
   store i64 %188, ptr %181, align 8
   br label %189
 
-189:                                              ; preds = %65, %66, %179, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit105, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99
+189:                                              ; preds = %65, %66, %179, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit106, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100
   ret void
 }
 
@@ -12172,7 +12172,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit180.thread: ; preds = %126, %_ZNK2c415b
   %.sroa.017.0.copyload = load ptr, ptr %48, align 8
   %.sroa.218.0.copyload = load i64, ptr %49, align 8
   %133 = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr readonly align 1 %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload, i1 false)
   %134 = add i64 %.sroa.218.0.copyload, 1
   br label %.lr.ph.i.i182
 
@@ -12366,7 +12366,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread: ; preds = %170, 
   %206 = getelementptr inbounds i8, ptr %46, i64 %.0133
   %207 = sub i64 %205, %.0133
   %208 = getelementptr inbounds i8, ptr %1, i64 %.0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %208, ptr nonnull align 1 %206, i64 %207, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %208, ptr nonnull readonly align 1 %206, i64 %207, i1 false)
   %209 = add i64 %207, %.0
   %210 = add i64 %209, 1
   %211 = getelementptr inbounds i8, ptr %1, i64 %209
@@ -12433,7 +12433,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit199.thread: ; preds = %._crit_edge.thre
   %233 = getelementptr inbounds i8, ptr %46, i64 %174
   %234 = sub i64 %47, %174
   %235 = getelementptr inbounds i8, ptr %1, i64 %210
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr nonnull align 1 %233, i64 %234, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr nonnull readonly align 1 %233, i64 %234, i1 false)
   %236 = add i64 %234, %210
   %237 = add i64 %236, 1
   %238 = getelementptr inbounds i8, ptr %1, i64 %236
@@ -12815,7 +12815,7 @@ define dso_local void @_ZNK2c43yml4Tree11lookup_pathENS_15basic_substringIKcEEm(
   br label %17
 
 17:                                               ; preds = %26, %13
-  %18 = call noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull align 8 dereferenceable(256) %1, ptr noundef nonnull %0, ptr noundef nonnull %6)
+  %18 = call noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull readonly align 8 dereferenceable(256) %1, ptr noundef nonnull %0, ptr noundef nonnull %6)
   %.not.i = icmp eq i64 %18, -1
   br i1 %.not.i, label %20, label %19
 
@@ -13152,7 +13152,7 @@ _ZN2c43yml4Tree7root_idEv.exit:                   ; preds = %13, %9, %4
   br label %20
 
 20:                                               ; preds = %29, %_ZN2c43yml4Tree7root_idEv.exit
-  %21 = call noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %21 = call noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not.i = icmp eq i64 %21, -1
   br i1 %.not.i, label %23, label %22
 
@@ -15009,9 +15009,9 @@ define dso_local void @_ZN2c43yml6ParserD2Ev(ptr noundef nonnull align 8 derefer
   store i64 0, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 2544
   %39 = getelementptr inbounds i8, ptr %0, i64 2632
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %38, i8 0, i64 81, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %39, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(81) %38, i8 0, i64 81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %39, i8 0, i64 104, i1 false)
   %.not.i.i3 = icmp eq ptr %35, %23
   br i1 %.not.i.i3, label %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EED2Ev.exit, label %40
 
@@ -15344,9 +15344,9 @@ define dso_local void @_ZN2c43yml6ParserC2EOS1_(ptr noundef nonnull align 8 dere
   store i32 0, ptr %1, align 8
   store i64 0, ptr %32, align 8
   %83 = getelementptr inbounds i8, ptr %1, i64 2544
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %83, i8 0, i64 81, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %61, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(81) %83, i8 0, i64 81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %61, i8 0, i64 104, i1 false)
   ret void
 }
 
@@ -15980,9 +15980,9 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EEaSEOS5_.exit: ; preds = %_ZN2c43
   store i32 0, ptr %1, align 8
   store i64 0, ptr %86, align 8
   %138 = getelementptr inbounds i8, ptr %1, i64 2544
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %138, i8 0, i64 81, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %116, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(81) %138, i8 0, i64 81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %116, i8 0, i64 104, i1 false)
   ret ptr %0
 }
 
@@ -17560,7 +17560,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %12, ptr %13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %11, ptr noundef nonnull align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %11, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
   %149 = getelementptr inbounds i8, ptr %11, i64 21
   store i8 10, ptr %149, align 1
   %150 = getelementptr inbounds i8, ptr %12, i64 16
@@ -18012,7 +18012,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit128: ; preds =
   store ptr %2, ptr %3, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i124, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %2, ptr noundef nonnull align 1 dereferenceable(19) @.str.339, i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %2, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.339, i64 19, i1 false)
   store i8 10, ptr %338, align 1
   store i64 20, ptr %339, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -18822,7 +18822,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %3
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %2, ptr noundef nonnull align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %2, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
   %363 = getelementptr inbounds i8, ptr %2, i64 21
   store i8 10, ptr %363, align 1
   %364 = getelementptr inbounds i8, ptr %3, i64 16
@@ -19852,7 +19852,7 @@ _ZN2c43yml6Parser41_maybe_set_indentation_from_anchor_or_tagEv.exit190: ; preds 
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %447 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %448 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %447(ptr noundef nonnull @.str.242, i64 noundef 57, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %448)
+  call void %447(ptr noundef nonnull @.str.242, i64 noundef 57, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %448)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   br label %449
 
@@ -21290,7 +21290,7 @@ _ZN2c43yml6Parser20_append_key_val_nullEPKc.exit: ; preds = %150, %157
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %176 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %177 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %176(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %177)
+  call void %176(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %177)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   %.pre.i = load ptr, ptr %43, align 8
   %.pre2.i = load i32, ptr %.pre.i, align 8
@@ -22402,7 +22402,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %6
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %2, ptr noundef nonnull align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %2, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
   %667 = getelementptr inbounds i8, ptr %2, i64 21
   store i8 10, ptr %667, align 1
   %668 = getelementptr inbounds i8, ptr %3, i64 16
@@ -25340,7 +25340,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, ptr noundef nonnull align 1 dereferenceable(28) @.str.266, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.266, i64 28, i1 false)
   %37 = getelementptr inbounds i8, ptr %2, i64 28
   store i8 10, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %3, i64 16
@@ -25627,7 +25627,7 @@ define dso_local void @_ZN2c43yml6Parser10_start_seqEb(ptr noundef nonnull align
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %141 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %142 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %141(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %20, ptr noundef %142)
+  call void %141(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %20, ptr noundef %142)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
   %.pre.i = load ptr, ptr %31, align 8
   %.pre4.i = load i32, ptr %.pre.i, align 8
@@ -26022,7 +26022,7 @@ _ZN2c43yml4Tree6to_seqEmm.exit:                   ; preds = %268, %273, %277
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %316 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %317 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %316(ptr noundef nonnull @.str.343, i64 noundef 46, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %11, ptr noundef %317)
+  call void %316(ptr noundef nonnull @.str.343, i64 noundef 46, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %11, ptr noundef %317)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %.pre101 = load ptr, ptr %45, align 8
   %.pre102 = load ptr, ptr %.pre101, align 8
@@ -26869,7 +26869,7 @@ _ZN2c43yml4Tree6to_mapEmm.exit:                   ; preds = %219, %224, %228
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %282 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %283 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %282(ptr noundef nonnull @.str.343, i64 noundef 46, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %11, ptr noundef %283)
+  call void %282(ptr noundef nonnull @.str.343, i64 noundef 46, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %11, ptr noundef %283)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %.pre101 = load ptr, ptr %35, align 8
   %.pre102 = load ptr, ptr %.pre101, align 8
@@ -27263,7 +27263,7 @@ define linkonce_odr dso_local void @_ZN2c43yml6Parser18_store_scalar_nullEPKc(pt
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %27 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %28 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %27(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %28)
+  call void %27(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %28)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %.pre.i = load ptr, ptr %21, align 8
   %.pre2.i = load i32, ptr %.pre.i, align 8
@@ -29451,7 +29451,7 @@ define dso_local { ptr, i64 } @_ZN2c43yml6Parser15_consume_scalarEv(ptr nocaptur
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %8 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %9 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %8(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %9)
+  tail call void %8(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %.pre = load ptr, ptr %3, align 8
   %.pre4 = load i32, ptr %.pre, align 8
@@ -29533,7 +29533,7 @@ define linkonce_odr dso_local void @_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_subs
   br i1 %.not.i.i.i.i, label %_ZN2c43yml6detail13_SubstrWriter6appendEc.exit, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JEEEvT_S7_DpOT0_.exit
 
 _ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JEEEvT_S7_DpOT0_.exit: ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %1, i64 %2, i1 false)
   %.not = icmp eq i64 %2, 1023
   br i1 %.not, label %_ZN2c43yml6detail13_SubstrWriter6appendEc.exit, label %7
 
@@ -29629,7 +29629,7 @@ define dso_local noundef ptr @_ZN2c43yml6Parser15_append_key_valENS_15basic_subs
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %39 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %40 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %39(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %9, ptr noundef %40)
+  call void %39(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %9, ptr noundef %40)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %.pre.i = load ptr, ptr %14, align 8
   %.pre4.i = load i32, ptr %.pre.i, align 8
@@ -30090,7 +30090,7 @@ define dso_local void @_ZN2c43yml6Parser9_stop_mapEv(ptr noundef nonnull align 8
   store i64 127, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %55 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %56 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %55(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %56)
+  call void %55(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %56)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %.pre.i.i = load ptr, ptr %11, align 8
   %.pre2.i.i = load i32, ptr %.pre.i.i, align 8
@@ -30300,7 +30300,7 @@ define dso_local void @_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcE
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %12 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %13 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %12(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %13)
+  tail call void %12(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.pre = load ptr, ptr %6, align 8
   %.pre2 = load i32, ptr %.pre, align 8
@@ -31176,7 +31176,7 @@ define dso_local void @_ZN2c43yml6Parser14_start_seqimapEv(ptr noundef nonnull a
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %46 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %47 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %46(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %47)
+  call void %46(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %47)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.pre.i = load ptr, ptr %8, align 8
   %.pre2.i = load i32, ptr %.pre.i, align 8
@@ -31256,7 +31256,7 @@ _ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit: ; preds = %37,
   store i64 127, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %80 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %81 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %80(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %81)
+  call void %80(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %81)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %.pre.i.i = load ptr, ptr %8, align 8
   %.pre2.i.i = load i32, ptr %.pre.i.i, align 8
@@ -32019,7 +32019,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %.
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %5, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %4, ptr noundef nonnull align 1 dereferenceable(42) @.str.356, i64 42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %4, ptr noundef nonnull readonly align 1 dereferenceable(42) @.str.356, i64 42, i1 false)
   %247 = getelementptr inbounds i8, ptr %4, i64 42
   store i8 10, ptr %247, align 2
   %248 = getelementptr inbounds i8, ptr %5, i64 16
@@ -32746,7 +32746,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %2
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, ptr noundef nonnull align 1 dereferenceable(28) @.str.266, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.266, i64 28, i1 false)
   %46 = getelementptr inbounds i8, ptr %2, i64 28
   store i8 10, ptr %46, align 4
   %47 = getelementptr inbounds i8, ptr %3, i64 16
@@ -32928,11 +32928,11 @@ define dso_local noundef zeroext i1 @_ZN2c43yml6Parser32_rval_dash_start_or_cont
   call void %21(ptr noundef nonnull %6, i64 noundef 39, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %7, ptr noundef %26)
   %.pre = load ptr, ptr %8, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 144
-  %.pre9 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre10 = load i64, ptr %.phi.trans.insert, align 8
   br label %27
 
 27:                                               ; preds = %1, %18
-  %28 = phi i64 [ %17, %1 ], [ %.pre9, %18 ]
+  %28 = phi i64 [ %17, %1 ], [ %.pre10, %18 ]
   %29 = phi ptr [ %9, %1 ], [ %.pre, %18 ]
   %.not7 = icmp ne i64 %15, %28
   %30 = load i32, ptr %29, align 8
@@ -37040,7 +37040,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %29
   %.sroa.2.0..sroa_idx.i.i180 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i180, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(58) %2, ptr noundef nonnull align 1 dereferenceable(58) @.str.365, i64 58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(58) %2, ptr noundef nonnull readonly align 1 dereferenceable(58) @.str.365, i64 58, i1 false)
   %414 = getelementptr inbounds i8, ptr %2, i64 58
   store i8 10, ptr %414, align 2
   %415 = getelementptr inbounds i8, ptr %3, i64 16
@@ -37964,7 +37964,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %29
   %.sroa.2.0..sroa_idx.i.i183 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i183, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(52) %2, ptr noundef nonnull align 1 dereferenceable(52) @.str.374, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(52) %2, ptr noundef nonnull readonly align 1 dereferenceable(52) @.str.374, i64 52, i1 false)
   %413 = getelementptr inbounds i8, ptr %2, i64 52
   store i8 10, ptr %413, align 4
   %414 = getelementptr inbounds i8, ptr %3, i64 16
@@ -38400,7 +38400,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %11, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %10, ptr noundef nonnull align 1 dereferenceable(42) @.str.385, i64 42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %10, ptr noundef nonnull readonly align 1 dereferenceable(42) @.str.385, i64 42, i1 false)
   %139 = getelementptr inbounds i8, ptr %10, i64 42
   store i8 10, ptr %139, align 2
   %140 = getelementptr inbounds i8, ptr %11, i64 16
@@ -39752,7 +39752,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZNK2c415basic_substringIKcE12first_
   %10 = load ptr, ptr %0, align 8
   br label %.preheader28.i
 
-.preheader28.i:                                   ; preds = %._crit_edge.i, %.preheader28.lr.ph.i
+.preheader28.i:                                   ; preds = %.preheader28.lr.ph.i, %._crit_edge.i
   %.02541.i = phi i64 [ %26, %._crit_edge.i ], [ 0, %.preheader28.lr.ph.i ]
   %11 = getelementptr i8, ptr %10, i64 %.02541.i
   br label %12
@@ -41350,7 +41350,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %_
   store ptr %15, ptr %16, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %16, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %15, ptr noundef nonnull align 1 dereferenceable(65) @.str.320, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %15, ptr noundef nonnull readonly align 1 dereferenceable(65) @.str.320, i64 65, i1 false)
   store i8 10, ptr %89, align 1
   store i64 66, ptr %90, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -41486,7 +41486,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit88: ; preds = 
   store ptr %9, ptr %10, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i84, align 8
   store ptr %10, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %9, ptr noundef nonnull align 1 dereferenceable(65) @.str.321, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %9, ptr noundef nonnull readonly align 1 dereferenceable(65) @.str.321, i64 65, i1 false)
   store i8 10, ptr %96, align 1
   store i64 66, ptr %97, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -42112,7 +42112,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit82:     ; preds = %151, %170
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %190 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %191 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %190(ptr noundef nonnull @.str.314, i64 noundef 34, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %10, ptr noundef %191)
+  call void %190(ptr noundef nonnull @.str.314, i64 noundef 34, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %10, ptr noundef %191)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %192
 
@@ -42172,7 +42172,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit82:     ; preds = %151, %170
   store ptr %6, ptr %7, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %7, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %6, ptr noundef nonnull align 1 dereferenceable(37) @.str.315, i64 37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %6, ptr noundef nonnull readonly align 1 dereferenceable(37) @.str.315, i64 37, i1 false)
   store i8 10, ptr %31, align 1
   store i64 38, ptr %32, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -43612,7 +43612,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit: ; preds = %32
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %41 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %42 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %41(ptr noundef nonnull @.str.333, i64 noundef 46, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %42)
+  tail call void %41(ptr noundef nonnull @.str.333, i64 noundef 46, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %42)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %.pre = load ptr, ptr %26, align 8
   %.pre52 = load ptr, ptr %.pre, align 8
@@ -44580,7 +44580,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   store ptr %28, ptr %29, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %29, ptr %30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %28, ptr noundef nonnull align 1 dereferenceable(31) @.str.391, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %28, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.391, i64 31, i1 false)
   store i8 10, ptr %96, align 1
   store i64 32, ptr %97, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %30)
@@ -44688,7 +44688,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit260: ; preds =
   store ptr %24, ptr %25, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i256, align 8
   store ptr %25, ptr %26, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %24, ptr noundef nonnull align 1 dereferenceable(34) @.str.392, i64 34, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %24, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.392, i64 34, i1 false)
   store i8 10, ptr %98, align 2
   store i64 35, ptr %99, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %26)
@@ -44772,7 +44772,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit269: ; preds =
   store ptr %20, ptr %21, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i265, align 8
   store ptr %21, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %20, ptr noundef nonnull align 1 dereferenceable(31) @.str.393, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %20, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.393, i64 31, i1 false)
   store i8 10, ptr %92, align 1
   store i64 32, ptr %93, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %22)
@@ -44874,7 +44874,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit280: ; preds =
   store ptr %16, ptr %17, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i276, align 8
   store ptr %17, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %16, ptr noundef nonnull align 1 dereferenceable(35) @.str.394, i64 35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %16, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.394, i64 35, i1 false)
   store i8 10, ptr %94, align 1
   store i64 36, ptr %95, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %18)
@@ -45029,7 +45029,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit290: ; preds =
   store ptr %12, ptr %13, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i286, align 8
   store ptr %13, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %12, ptr noundef nonnull align 1 dereferenceable(31) @.str.395, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %12, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.395, i64 31, i1 false)
   store i8 10, ptr %86, align 1
   store i64 32, ptr %87, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -45131,7 +45131,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit301: ; preds =
   store ptr %8, ptr %9, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i297, align 8
   store ptr %9, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %8, ptr noundef nonnull align 1 dereferenceable(35) @.str.396, i64 35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %8, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.396, i64 35, i1 false)
   store i8 10, ptr %90, align 1
   store i64 36, ptr %91, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %10)
@@ -46898,7 +46898,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %4
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %8, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, ptr noundef nonnull align 1 dereferenceable(26) @.str.415, i64 26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.415, i64 26, i1 false)
   %511 = getelementptr inbounds i8, ptr %7, i64 26
   store i8 10, ptr %511, align 2
   %512 = getelementptr inbounds i8, ptr %8, i64 16
@@ -47746,7 +47746,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %2
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %7, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, ptr noundef nonnull align 1 dereferenceable(26) @.str.398, i64 26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.398, i64 26, i1 false)
   %47 = getelementptr inbounds i8, ptr %6, i64 26
   store i8 10, ptr %47, align 2
   %48 = getelementptr inbounds i8, ptr %7, i64 16
@@ -48346,13 +48346,13 @@ define dso_local void @_ZNK2c43yml6Parser8locationENS0_12ConstNodeRefE(ptr dead_
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %.split
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %_ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit
 
 11:                                               ; preds = %.split
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !noalias !225
-  call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind writable sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef %13)
+  call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind writable writeonly sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef %13)
   br label %_ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit
 
 _ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit:   ; preds = %10, %11
@@ -48381,13 +48381,13 @@ _ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit:   ; preds = %10, %11
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.critedge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   br label %_ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit8
 
 24:                                               ; preds = %.critedge
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8, !noalias !228
-  call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind writable sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef %26)
+  call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind writable writeonly sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef %26)
   br label %_ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit8
 
 _ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit8:  ; preds = %23, %24
@@ -49468,7 +49468,7 @@ _ZNK2c415basic_substringIKcE9ends_withEc.exit:    ; preds = %_ZNK2c415basic_subs
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %14 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %15 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %14(ptr noundef nonnull @.str.448, i64 noundef 30, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %6, ptr noundef %15)
+  tail call void %14(ptr noundef nonnull @.str.448, i64 noundef 30, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %6, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %16
 
@@ -50170,7 +50170,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit50: ; preds = %.lr.ph.i44, %65, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %70 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %71 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %70(ptr noundef nonnull %4, i64 noundef 1023, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %71)
+  call void %70(ptr noundef nonnull %4, i64 noundef 1023, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %71)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %.critedge
 
@@ -50474,7 +50474,7 @@ _ZNK2c415basic_substringIKcE9ends_withES2_.exit:  ; preds = %99, %91
   store i64 127, ptr %.sroa.5196.0..sroa_idx, align 8
   %104 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %105 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %104(ptr noundef nonnull @.str.452, i64 noundef 68, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %105)
+  tail call void %104(ptr noundef nonnull @.str.452, i64 noundef 68, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %105)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.thread
 
@@ -50619,7 +50619,7 @@ _ZNK2c415basic_substringIKcE9ends_withES2_.exit131: ; preds = %162, %150
   store i64 127, ptr %.sroa.5185.0..sroa_idx, align 8
   %167 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %168 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %167(ptr noundef nonnull @.str.453, i64 noundef 68, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %168)
+  tail call void %167(ptr noundef nonnull @.str.453, i64 noundef 68, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %168)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit131.thread
 
@@ -50820,7 +50820,7 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit14
   store i64 127, ptr %.sroa.5163.0..sroa_idx, align 8
   %260 = load ptr, ptr getelementptr inbounds (%"struct.c4::yml::Callbacks", ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 0, i32 3), align 8
   %261 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %260(ptr noundef nonnull @.str.455, i64 noundef 49, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %261)
+  tail call void %260(ptr noundef nonnull @.str.455, i64 noundef 49, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %261)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %262
 

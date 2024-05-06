@@ -255,7 +255,7 @@ declare ptr @real_pathdup(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @trace2_def_repo_fl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @repo_init(ptr noundef %repo, ptr noundef %gitdir, ptr noundef %worktree) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @repo_init(ptr noundef %repo, ptr noundef %gitdir, ptr noundef %worktree) local_unnamed_addr #0 {
 entry:
   %sb.i = alloca %struct.strbuf, align 8
   %error.i = alloca i32, align 4
@@ -530,7 +530,7 @@ if.end61:                                         ; preds = %if.then55, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @repo_submodule_init(ptr noundef %subrepo, ptr noundef %superproject, ptr noundef %path, ptr noundef %treeish_name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @repo_submodule_init(ptr noundef %subrepo, ptr noundef %superproject, ptr noundef %path, ptr noundef %treeish_name) local_unnamed_addr #0 {
 entry:
   %gitdir = alloca %struct.strbuf, align 8
   %worktree = alloca %struct.strbuf, align 8
@@ -542,7 +542,7 @@ entry:
   %0 = load ptr, ptr %buf, align 8
   %buf1 = getelementptr inbounds i8, ptr %worktree, i64 16
   %1 = load ptr, ptr %buf1, align 8
-  %call = call i32 @repo_init(ptr noundef %subrepo, ptr noundef %0, ptr noundef %1), !range !5
+  %call = call i32 @repo_init(ptr noundef %subrepo, ptr noundef %0, ptr noundef %1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end10, label %if.then
 
@@ -567,7 +567,7 @@ strbuf_setlen.exit:                               ; preds = %if.end, %if.then4.i
   %3 = load ptr, ptr %name, align 8
   call void @submodule_name_to_gitdir(ptr noundef nonnull %gitdir, ptr noundef %superproject, ptr noundef %3) #8
   %4 = load ptr, ptr %buf, align 8
-  %call6 = call i32 @repo_init(ptr noundef %subrepo, ptr noundef %4, ptr noundef null), !range !5
+  %call6 = call i32 @repo_init(ptr noundef %subrepo, ptr noundef %4, ptr noundef null)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end10, label %out
 
@@ -733,4 +733,3 @@ attributes #9 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

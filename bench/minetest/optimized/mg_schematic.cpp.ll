@@ -177,7 +177,7 @@ $_ZTI8MMVManip = comdat any
 @.str.21 = private unnamed_addr constant [43 x i8] c"Schematic can only be cloned after loading\00", align 1
 @.str.22 = private unnamed_addr constant [114 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/mapgen/mg_schematic.cpp\00", align 1
 @__PRETTY_FUNCTION__._ZNK9Schematic5cloneEv = private unnamed_addr constant [41 x i8] c"virtual ObjDef *Schematic::clone() const\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.23 = private unnamed_addr constant [26 x i8] c"Corrupt schematic. name=\22\00", align 1
 @.str.24 = private unnamed_addr constant [12 x i8] c"\22 at index \00", align 1
 @.str.25 = private unnamed_addr constant [17 x i8] c"m_ndef != __null\00", align 1
@@ -1277,7 +1277,7 @@ for.body.lr.ph:                                   ; preds = %sw.epilog
   %slice_probs = getelementptr inbounds i8, ptr %this, i64 184
   %cmp45.not219 = icmp eq i16 %sz.0.fr, 0
   %sum.shift = lshr i48 %p.coerce, 32
-  %conv66200 = trunc i48 %sum.shift to i16
+  %conv66200 = trunc nuw i48 %sum.shift to i16
   %m_area = getelementptr inbounds i8, ptr %vm, i64 8
   %MaxEdge.i = getelementptr inbounds i8, ptr %vm, i64 14
   %Y12.i = getelementptr inbounds i8, ptr %vm, i64 10
@@ -1509,7 +1509,7 @@ entry:
   %p.sroa.6.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.6.0.extract.trunc = trunc i48 %p.sroa.6.0.extract.shift to i16
   %p.sroa.10.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.10.0.extract.trunc = trunc i48 %p.sroa.10.0.extract.shift to i16
+  %p.sroa.10.0.extract.trunc = trunc nuw i48 %p.sroa.10.0.extract.shift to i16
   %m_ndef = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_ndef, align 8, !tbaa !94
   %cmp.not = icmp eq ptr %0, null
@@ -1547,7 +1547,7 @@ if.then11:                                        ; preds = %if.end
   %conv = sext i16 %s.sroa.0.0 to i32
   %sub = add nsw i32 %conv, -1
   %div.neg = sdiv i32 %sub, -2
-  %2 = trunc i32 %div.neg to i16
+  %2 = trunc nsw i32 %div.neg to i16
   %conv16 = add i16 %2, %p.sroa.0.0.extract.trunc
   br label %if.end17
 
@@ -1561,7 +1561,7 @@ if.then20:                                        ; preds = %if.end17
   %conv22 = sext i16 %s.sroa.6.0 to i32
   %sub23 = add nsw i32 %conv22, -1
   %div24.neg = sdiv i32 %sub23, -2
-  %3 = trunc i32 %div24.neg to i16
+  %3 = trunc nsw i32 %div24.neg to i16
   %conv28 = add i16 %3, %p.sroa.6.0.extract.trunc
   br label %if.end29
 
@@ -1575,7 +1575,7 @@ if.then32:                                        ; preds = %if.end29
   %conv34 = sext i16 %s.sroa.9.0 to i32
   %sub35 = add nsw i32 %conv34, -1
   %div36.neg = sdiv i32 %sub35, -2
-  %4 = trunc i32 %div36.neg to i16
+  %4 = trunc nsw i32 %div36.neg to i16
   %conv40 = add i16 %4, %p.sroa.10.0.extract.trunc
   br label %if.end41
 
@@ -1644,7 +1644,7 @@ entry:
   %p.sroa.6.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.6.0.extract.trunc = trunc i48 %p.sroa.6.0.extract.shift to i16
   %p.sroa.9.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.9.0.extract.trunc = trunc i48 %p.sroa.9.0.extract.shift to i16
+  %p.sroa.9.0.extract.trunc = trunc nuw i48 %p.sroa.9.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %modified_blocks) #27
   %0 = getelementptr inbounds i8, ptr %modified_blocks, i64 8
   store i32 0, ptr %0, align 8, !tbaa !109
@@ -1701,7 +1701,7 @@ if.then14:                                        ; preds = %if.end
   %conv = sext i16 %s.sroa.0.0 to i32
   %sub = add nsw i32 %conv, -1
   %div.neg = sdiv i32 %sub, -2
-  %4 = trunc i32 %div.neg to i16
+  %4 = trunc nsw i32 %div.neg to i16
   %conv19 = add i16 %4, %p.sroa.0.0.extract.trunc
   br label %if.end20
 
@@ -1715,7 +1715,7 @@ if.then23:                                        ; preds = %if.end20
   %conv25 = sext i16 %s.sroa.7.0 to i32
   %sub26 = add nsw i32 %conv25, -1
   %div27.neg = sdiv i32 %sub26, -2
-  %5 = trunc i32 %div27.neg to i16
+  %5 = trunc nsw i32 %div27.neg to i16
   %conv31 = add i16 %5, %p.sroa.6.0.extract.trunc
   br label %if.end32
 
@@ -1729,7 +1729,7 @@ if.then35:                                        ; preds = %if.end32
   %conv37 = sext i16 %s.sroa.10.0 to i32
   %sub38 = add nsw i32 %conv37, -1
   %div39.neg = sdiv i32 %sub38, -2
-  %6 = trunc i32 %div39.neg to i16
+  %6 = trunc nsw i32 %div39.neg to i16
   %conv43 = add i16 %6, %p.sroa.9.0.extract.trunc
   br label %invoke.cont60
 
@@ -1758,7 +1758,7 @@ invoke.cont64:                                    ; preds = %invoke.cont60
   %retval.sroa.2.0.insert.insert.i121 = or disjoint i48 %retval.sroa.3.0.insert.shift.i118, %retval.sroa.2.0.insert.shift.i120
   %cmp9.i17.i.i140 = icmp slt i48 %retval.sroa.2.0.insert.insert.i121, 0
   %p.sroa.2.0.extract.shift.i.i125 = lshr exact i48 %retval.sroa.2.0.insert.insert.i121, 16
-  %tr.sh.diff.i.i137 = trunc i48 %p.sroa.2.0.extract.shift.i.i125 to i32
+  %tr.sh.diff.i.i137 = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i125 to i32
   %conv.i13.i.i138 = ashr i32 %tr.sh.diff.i.i137, 16
   %add.i16.i.i139 = add nsw i32 %conv.i13.i.i138, -15
   %cond.i18.i.i141 = select i1 %cmp9.i17.i.i140, i32 %add.i16.i.i139, i32 %conv.i13.i.i138
@@ -1787,7 +1787,7 @@ invoke.cont64:                                    ; preds = %invoke.cont60
   %retval.sroa.0.0.insert.insert.i.i150 = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i147, %retval.sroa.0.0.insert.ext.i.i149
   %cmp9.i17.i.i = icmp slt i48 %p.sroa.0.0.insert.insert170, 0
   %p.sroa.2.0.extract.shift.i.i = lshr exact i48 %p.sroa.6.0.insert.insert174, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cond.i18.i.i = select i1 %cmp9.i17.i.i, i32 %add.i16.i.i, i32 %conv.i13.i.i
@@ -3373,7 +3373,7 @@ entry:
   %p.sroa.2.0.extract.shift.i.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %p.sroa.2.0.extract.trunc.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i16
   %p.sroa.3.0.extract.shift.i.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %p.sroa.3.0.extract.trunc.i.i = trunc i48 %p.sroa.3.0.extract.shift.i.i to i16
+  %p.sroa.3.0.extract.trunc.i.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i.i to i16
   %rev.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %p.sroa.0.0.extract.trunc.i.i)
   store i16 %rev.i.i.i.i.i, ptr %buf.i47, align 2
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i47, i64 2
@@ -5247,12 +5247,12 @@ entry:
   %p1.sroa.5.0.extract.shift = lshr i48 %p1.coerce, 16
   %p1.sroa.5.0.extract.trunc = trunc i48 %p1.sroa.5.0.extract.shift to i16
   %p1.sroa.7.0.extract.shift = lshr i48 %p1.coerce, 32
-  %p1.sroa.7.0.extract.trunc = trunc i48 %p1.sroa.7.0.extract.shift to i16
+  %p1.sroa.7.0.extract.trunc = trunc nuw i48 %p1.sroa.7.0.extract.shift to i16
   %p2.sroa.0.0.extract.trunc = trunc i48 %p2.coerce to i16
   %p2.sroa.4.0.extract.shift = lshr i48 %p2.coerce, 16
   %p2.sroa.4.0.extract.trunc = trunc i48 %p2.sroa.4.0.extract.shift to i16
   %p2.sroa.6.0.extract.shift = lshr i48 %p2.coerce, 32
-  %p2.sroa.6.0.extract.trunc = trunc i48 %p2.sroa.6.0.extract.shift to i16
+  %p2.sroa.6.0.extract.trunc = trunc nuw i48 %p2.sroa.6.0.extract.shift to i16
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26
   invoke void @_ZN8MMVManipC1EP3Map(ptr noundef nonnull align 8 dereferenceable(112) %call, ptr noundef %map)
           to label %invoke.cont unwind label %lpad
@@ -5268,7 +5268,7 @@ invoke.cont:                                      ; preds = %entry
   %cmp9.i9.i.i = icmp slt i16 %p1.sroa.5.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p1.sroa.5.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p1.sroa.5.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p1.coerce, 0
@@ -5293,7 +5293,7 @@ invoke.cont:                                      ; preds = %entry
   %cmp9.i9.i.i102 = icmp slt i16 %p2.sroa.4.0.extract.trunc, 0
   %cond.i10.i.i103 = select i1 %cmp9.i9.i.i102, i32 %add.i8.i.i101, i32 %conv.i5.i.i100
   %div.i11.i.i104 = sdiv i32 %cond.i10.i.i103, 16
-  %tr.sh.diff.i.i105 = trunc i48 %p2.sroa.4.0.extract.shift to i32
+  %tr.sh.diff.i.i105 = trunc nuw i48 %p2.sroa.4.0.extract.shift to i32
   %conv.i13.i.i106 = ashr i32 %tr.sh.diff.i.i105, 16
   %add.i16.i.i107 = add nsw i32 %conv.i13.i.i106, -15
   %cmp9.i17.i.i108 = icmp slt i48 %p2.coerce, 0
@@ -5465,7 +5465,7 @@ entry:
   %p0.sroa.2.0.extract.shift = lshr i48 %p0.coerce, 16
   %p0.sroa.2.0.extract.trunc = trunc i48 %p0.sroa.2.0.extract.shift to i16
   %p0.sroa.3.0.extract.shift = lshr i48 %p0.coerce, 32
-  %p0.sroa.3.0.extract.trunc = trunc i48 %p0.sroa.3.0.extract.shift to i16
+  %p0.sroa.3.0.extract.trunc = trunc nuw i48 %p0.sroa.3.0.extract.shift to i16
   %_M_finish.i = getelementptr inbounds i8, ptr %plist, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !204
   %1 = load ptr, ptr %plist, align 8, !tbaa !206

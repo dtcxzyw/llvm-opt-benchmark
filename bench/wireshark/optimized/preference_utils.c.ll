@@ -162,7 +162,7 @@ define internal fastcc i32 @prefs_store_ext_helper(ptr noundef %0, ptr noundef %
 declare void @prefs_apply_all() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @prefs_store_ext_multiple(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @prefs_store_ext_multiple(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @prefs_is_registered_protocol(ptr noundef %0) #6
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %17, label %4
@@ -349,7 +349,7 @@ declare ptr @g_list_nth(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @column_prefs_custom_resolve(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @column_prefs_custom_resolve(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @g_regex_split_simple(ptr noundef nonnull @.str.2, ptr noundef %0, i32 noundef 2048, i32 noundef 0) #6
   %3 = tail call i32 @g_strv_length(ptr noundef %2) #6
   %.not96 = icmp eq i32 %3, 0

@@ -936,7 +936,7 @@ define void @N_VCompare_ManyVector(double noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @N_VInvTestLocal_ManyVector(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define range(i32 0, 2) i32 @N_VInvTestLocal_ManyVector(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
@@ -990,7 +990,7 @@ define i32 @N_VInvTestLocal_ManyVector(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @N_VConstrMaskLocal_ManyVector(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @N_VConstrMaskLocal_ManyVector(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0

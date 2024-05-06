@@ -234,7 +234,7 @@ declare dso_local void @snd_use_lock_sync_helper(ptr noundef, ptr noundef, i32 n
 declare dso_local void @snd_seq_cell_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_fifo_event_in(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_seq_fifo_event_in(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %4 = icmp eq ptr %0, null
@@ -323,7 +323,7 @@ declare dso_local i32 @snd_seq_event_dup(ptr noundef, ptr noundef, ptr noundef, 
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_fifo_cell_out(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @snd_seq_fifo_cell_out(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   %5 = icmp eq ptr %0, null
@@ -461,7 +461,7 @@ define dso_local void @snd_seq_fifo_cell_putback(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_fifo_poll_wait(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @snd_seq_fifo_poll_wait(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = icmp eq ptr %2, null
   br i1 %5, label %9, label %6
@@ -484,7 +484,7 @@ define dso_local i32 @snd_seq_fifo_poll_wait(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_fifo_resize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_fifo_resize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6

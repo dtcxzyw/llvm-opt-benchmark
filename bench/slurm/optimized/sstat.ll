@@ -409,7 +409,7 @@ declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #0
 declare ptr @slurmdb_ave_tres_usage(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.slurm_step_id_msg, align 4
   %4 = alloca ptr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) @__const.main.step_id, i64 12, i1 false)

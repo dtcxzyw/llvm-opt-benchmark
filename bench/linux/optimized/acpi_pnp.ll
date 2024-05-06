@@ -124,7 +124,7 @@ define internal noundef zeroext i1 @acpi_pnp_match(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_pnp_attach(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @acpi_pnp_attach(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = tail call i32 @acpi_match_device_ids(ptr noundef %0, ptr noundef nonnull @acpi_nonpnp_device_ids) #6
   %4 = icmp ne i32 %3, 0
   %5 = zext i1 %4 to i32

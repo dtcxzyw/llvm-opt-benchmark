@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ScanCKeywords_hash_func.h = internal unnamed_addr constant [53 x i8] c"\FB\00\7F\F7\00\7F\7F\03\7F\0F\7F\7F\7F\7F\0B\10\01\00\06\10\09\05\7F\00\7F\14\18\FB\05\12\05\12\02\7F\7F\7F\14\7F\EF\00\7F\02\7F\06\7F\F6\0C\13\00\00\00\7F\00", align 16
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ScanCKeywordLookup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 65536) i32 @ScanCKeywordLookup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #2
   %3 = icmp ugt i64 %2, 8
   br i1 %3, label %36, label %4

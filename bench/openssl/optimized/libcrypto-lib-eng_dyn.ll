@@ -128,7 +128,7 @@ entry:
 declare i32 @ENGINE_set_ctrl_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dynamic_ctrl(ptr noundef %e, i32 noundef %cmd, i64 noundef %i, ptr noundef %p, ptr nocapture readnone %f) #0 {
+define internal range(i32 0, 2) i32 @dynamic_ctrl(ptr noundef %e, i32 noundef %cmd, i64 noundef %i, ptr noundef %p, ptr nocapture readnone %f) #0 {
 entry:
   %cpy.i = alloca %struct.engine_st, align 8
   %fns.i = alloca %struct.st_dynamic_fns, align 8
@@ -342,7 +342,7 @@ if.then41:                                        ; preds = %sw.bb38
   br label %return
 
 if.end42:                                         ; preds = %sw.bb38
-  %conv = trunc i64 %i to i32
+  %conv = trunc nuw nsw i64 %i to i32
   %list_add_value = getelementptr inbounds i8, ptr %retval.0.i59, i64 48
   store i32 %conv, ptr %list_add_value, align 8
   br label %return
@@ -572,7 +572,7 @@ if.then51:                                        ; preds = %sw.bb45
   br label %return
 
 if.end52:                                         ; preds = %sw.bb45
-  %conv53 = trunc i64 %i to i32
+  %conv53 = trunc nuw nsw i64 %i to i32
   %dir_load = getelementptr inbounds i8, ptr %retval.0.i59, i64 72
   store i32 %conv53, ptr %dir_load, align 8
   br label %return

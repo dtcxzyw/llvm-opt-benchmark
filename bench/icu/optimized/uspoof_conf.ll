@@ -216,7 +216,7 @@ entry:
 declare void @_ZN6icu_757UVector4sortEPFi8UElementS1_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL16SPUStringCompare8UElementS_(ptr nocapture readonly %left.coerce, ptr nocapture readonly %right.coerce) #2 {
+define internal noundef range(i32 -128, 128) i32 @_ZL16SPUStringCompare8UElementS_(ptr nocapture readonly %left.coerce, ptr nocapture readonly %right.coerce) #2 {
 entry:
   %0 = load ptr, ptr %left.coerce, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1229,7 +1229,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %5 = load ptr, ptr %fKeyVec, align 8
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %call6 = tail call noundef i32 @_ZNK6icu_757UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %6)
   %arrayidx = getelementptr inbounds i32, ptr %call3, i64 %indvars.iv
   store i32 %call6, ptr %arrayidx, align 4
@@ -1279,7 +1279,7 @@ for.body27.preheader:                             ; preds = %for.cond25.preheade
 for.body27:                                       ; preds = %for.body27.preheader, %for.body27
   %indvars.iv45 = phi i64 [ 0, %for.body27.preheader ], [ %indvars.iv.next46, %for.body27 ]
   %17 = load ptr, ptr %fValueVec, align 8
-  %18 = trunc i64 %indvars.iv45 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv45 to i32
   %call29 = tail call noundef i32 @_ZNK6icu_757UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef %18)
   %conv30 = trunc i32 %call29 to i16
   %arrayidx32 = getelementptr inbounds i16, ptr %call20, i64 %indvars.iv45

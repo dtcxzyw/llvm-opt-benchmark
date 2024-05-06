@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ASN1_item_i2d_mem_bio = private unnamed_addr constant [22 x i8] c"ASN1_item_i2d_mem_bio\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_i2d_fp(ptr nocapture noundef readonly %i2d, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_i2d_fp(ptr nocapture noundef readonly %i2d, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %p.i = alloca ptr, align 8
   %call = tail call ptr @BIO_s_file() #3
@@ -89,7 +89,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_i2d_bio(ptr nocapture noundef readonly %i2d, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_i2d_bio(ptr nocapture noundef readonly %i2d, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call i32 %i2d(ptr noundef %x, ptr noundef null) #3
@@ -144,7 +144,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_item_i2d_fp(ptr noundef %it, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_item_i2d_fp(ptr noundef %it, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #3
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #3
@@ -159,7 +159,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %out) #3
-  %call3 = tail call i32 @ASN1_item_i2d_bio(ptr noundef %it, ptr noundef nonnull %call1, ptr noundef %x), !range !4
+  %call3 = tail call i32 @ASN1_item_i2d_bio(ptr noundef %it, ptr noundef nonnull %call1, ptr noundef %x)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #3
   br label %return
 
@@ -169,7 +169,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_item_i2d_bio(ptr noundef %it, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_item_i2d_bio(ptr noundef %it, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %b = alloca ptr, align 8
   store ptr null, ptr %b, align 8
@@ -240,7 +240,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call i32 @ASN1_item_i2d_bio(ptr noundef nonnull %it, ptr noundef nonnull %call2, ptr noundef nonnull %val), !range !4
+  %call6 = tail call i32 @ASN1_item_i2d_bio(ptr noundef nonnull %it, ptr noundef nonnull %call2, ptr noundef nonnull %val)
   %cmp7.not.not = icmp eq i32 %call6, 0
   br i1 %cmp7.not.not, label %if.then8, label %return
 
@@ -272,4 +272,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

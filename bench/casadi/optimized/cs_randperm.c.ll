@@ -23,7 +23,7 @@ define ptr @cs_randperm(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = xor i32 %7, -1
   %9 = add nsw i32 %8, %0
   %10 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
@@ -58,7 +58,7 @@ define ptr @cs_randperm(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %15 = trunc i64 %indvars.iv39 to i32
   %16 = sub i32 %0, %15
   %17 = srem i32 %14, %16
-  %18 = trunc i64 %indvars.iv39 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv39 to i32
   %19 = add nsw i32 %17, %18
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %5, i64 %20

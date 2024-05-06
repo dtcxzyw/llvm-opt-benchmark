@@ -355,7 +355,7 @@ v9fs_readdir_unlock.exit:                         ; preds = %if.then.i45, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @v9fs_co_telldir(ptr nocapture noundef readonly %pdu, ptr noundef %fidp) #0 {
+define dso_local range(i64 -2147483648, -9223372036854775808) i64 @v9fs_co_telldir(ptr nocapture noundef readonly %pdu, ptr noundef %fidp) #0 {
 entry:
   %0 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %0, align 1

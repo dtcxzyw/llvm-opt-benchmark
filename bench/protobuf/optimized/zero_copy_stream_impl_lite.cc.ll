@@ -332,7 +332,7 @@ while.end:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6google8protobuf2io16ArrayInputStream9ByteCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #8 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6google8protobuf2io16ArrayInputStream9ByteCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #8 align 2 {
 entry:
   %position_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %position_, align 8
@@ -461,7 +461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6google8protobuf2io17ArrayOutputStream9ByteCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #8 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6google8protobuf2io17ArrayOutputStream9ByteCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #8 align 2 {
 entry:
   %position_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %position_, align 8
@@ -608,7 +608,7 @@ cleanup.done:                                     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6google8protobuf2io18CopyingInputStream4SkipEi(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %count) unnamed_addr #5 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZN6google8protobuf2io18CopyingInputStream4SkipEi(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %count) unnamed_addr #5 align 2 {
 entry:
   %junk = alloca [4096 x i8], align 16
   %cmp9 = icmp sgt i32 %count, 0
@@ -2028,7 +2028,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %input_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %input_, align 8
-  %conv6 = trunc i64 %0 to i32
+  %conv6 = trunc nuw nsw i64 %0 to i32
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8

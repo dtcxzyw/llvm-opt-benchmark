@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ossl_der_oid_sm2_with_SM3 = external constant [10 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_algorithmIdentifier_SM2_with_MD(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec, i32 noundef %mdnid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_SM2_with_MD(ptr noundef %pkt, i32 noundef %cont, ptr nocapture noundef readnone %ec, i32 noundef %mdnid) local_unnamed_addr #0 {
 entry:
   %cond = icmp eq i32 %mdnid, 1143
   br i1 %cond, label %sw.bb, label %return

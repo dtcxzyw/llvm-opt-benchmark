@@ -2587,7 +2587,7 @@ declare i32 @Cudd_bddPickOneCube(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @Llb_Nonlin4Image(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Llb_Nonlin4Reachability(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Llb_Nonlin4Reachability(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -4208,7 +4208,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %11, %Saig_ObjIsLo.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Llb_Nonlin4CoreReach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Llb_Nonlin4CoreReach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 64
@@ -4266,7 +4266,7 @@ Abc_Clock.exit:                                   ; preds = %18, %21
   br i1 %.not15, label %28, label %30
 
 28:                                               ; preds = %Abc_Clock.exit
-  %29 = call i32 @Llb_Nonlin4Reachability(ptr noundef %25), !range !43
+  %29 = call i32 @Llb_Nonlin4Reachability(ptr noundef %25)
   br label %30
 
 30:                                               ; preds = %28, %Abc_Clock.exit
@@ -4336,7 +4336,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 500, ptr %15, align 8
   %16 = call ptr @Llb_MnxStart(ptr noundef %0, ptr noundef nonnull %4)
-  %17 = call i32 @Llb_Nonlin4Reachability(ptr noundef %16), !range !43
+  %17 = call i32 @Llb_Nonlin4Reachability(ptr noundef %16)
   %18 = getelementptr inbounds i8, ptr %16, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @Cudd_ReadSize(ptr noundef %19) #17
@@ -4395,7 +4395,7 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_Clock.exit, %Ve
   store i32 %.060, ptr %45, align 4
   %46 = add nuw nsw i32 %.060, 1
   %47 = icmp slt i32 %46, %.val5159
-  br i1 %47, label %35, label %.critedge, !llvm.loop !44
+  br i1 %47, label %35, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %35, %Vec_IntStartFull.exit
   %48 = call ptr @Cudd_Init(i32 noundef %.val5159, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #17
@@ -4613,5 +4613,4 @@ attributes #21 = { nounwind allocsize(0,1) }
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = !{i32 -1, i32 2}
-!44 = distinct !{!44, !5}
+!43 = distinct !{!43, !5}

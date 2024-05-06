@@ -1186,12 +1186,12 @@ define dso_local i32 @e1000_open(ptr noundef %0) #4 align 16 {
 
 10:                                               ; preds = %1
   tail call void @netif_carrier_off(ptr noundef %0) #16
-  %11 = tail call i32 @e1000_setup_all_tx_resources(ptr noundef %4), !range !27
+  %11 = tail call i32 @e1000_setup_all_tx_resources(ptr noundef %4)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @e1000_setup_all_rx_resources(ptr noundef %4), !range !27
+  %14 = tail call i32 @e1000_setup_all_rx_resources(ptr noundef %4)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.loopexit4
 
@@ -1347,7 +1347,7 @@ define dso_local i32 @e1000_open(ptr noundef %0) #4 align 16 {
   %108 = load i32, ptr %88, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %107, %109
-  br i1 %110, label %93, label %.loopexit4, !llvm.loop !28
+  br i1 %110, label %93, label %.loopexit4, !llvm.loop !27
 
 .loopexit4:                                       ; preds = %93, %87, %13
   %111 = phi i32 [ %14, %13 ], [ %40, %87 ], [ %40, %93 ]
@@ -1384,7 +1384,7 @@ define dso_local i32 @e1000_open(ptr noundef %0) #4 align 16 {
   %133 = load i32, ptr %112, align 8
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %132, %134
-  br i1 %135, label %118, label %.loopexit, !llvm.loop !29
+  br i1 %135, label %118, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %118, %.loopexit4, %10
   %136 = phi i32 [ %11, %10 ], [ %111, %.loopexit4 ], [ %111, %118 ]
@@ -1397,7 +1397,7 @@ define dso_local i32 @e1000_open(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_setup_all_tx_resources(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @e1000_setup_all_tx_resources(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1088
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1572,7 +1572,7 @@ define dso_local noundef i32 @e1000_setup_all_tx_resources(ptr nocapture noundef
   store ptr null, ptr %86, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !29
 
 97:                                               ; preds = %.thread4, %37, %34
   %98 = phi i32 [ %.pre77, %.thread4 ], [ %35, %37 ], [ %35, %34 ]
@@ -1587,7 +1587,7 @@ define dso_local noundef i32 @e1000_setup_all_tx_resources(ptr nocapture noundef
   %104 = load i32, ptr %2, align 8
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %103, %105
-  br i1 %106, label %11, label %.loopexit, !llvm.loop !31
+  br i1 %106, label %11, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %97, %.preheader, %81, %1
   %107 = phi i32 [ -12, %81 ], [ 0, %1 ], [ -12, %.preheader ], [ 0, %97 ]
@@ -1595,7 +1595,7 @@ define dso_local noundef i32 @e1000_setup_all_tx_resources(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_setup_all_rx_resources(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @e1000_setup_all_rx_resources(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1092
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -1770,7 +1770,7 @@ define dso_local noundef i32 @e1000_setup_all_rx_resources(ptr nocapture noundef
   store ptr null, ptr %88, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !31
 
 99:                                               ; preds = %76, %39, %36
   %100 = phi i32 [ %.pre75, %76 ], [ %37, %39 ], [ %37, %36 ]
@@ -1787,7 +1787,7 @@ define dso_local noundef i32 @e1000_setup_all_rx_resources(ptr nocapture noundef
   %107 = load i32, ptr %2, align 4
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %106, %108
-  br i1 %109, label %11, label %.loopexit, !llvm.loop !33
+  br i1 %109, label %11, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %99, %.preheader, %83, %1
   %110 = phi i32 [ -12, %83 ], [ 0, %1 ], [ -12, %.preheader ], [ 0, %99 ]
@@ -1829,7 +1829,7 @@ define dso_local void @e1000_free_all_rx_resources(ptr nocapture noundef %0) loc
   %23 = load i32, ptr %2, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %22, %24
-  br i1 %25, label %8, label %.loopexit, !llvm.loop !28
+  br i1 %25, label %8, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %8, %1
   ret void
@@ -1870,7 +1870,7 @@ define dso_local void @e1000_free_all_tx_resources(ptr nocapture noundef readonl
   %23 = load i32, ptr %2, align 8
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %22, %24
-  br i1 %25, label %8, label %.loopexit, !llvm.loop !29
+  br i1 %25, label %8, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %8, %1
   ret void
@@ -1899,12 +1899,12 @@ define dso_local noundef i32 @e1000_close(ptr noundef %0) #4 align 16 {
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
-  br i1 %14, label %.loopexit3, label %.preheader, !llvm.loop !34
+  br i1 %14, label %.loopexit3, label %.preheader, !llvm.loop !33
 
 .thread:                                          ; preds = %.preheader
-  tail call void asm sideeffect "828: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 828b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 828) #16, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1440, i32 2305, i64 12) #16, !srcloc !36
-  tail call void asm sideeffect "829: nop\0A\09.pushsection .discard.instr_end\0A\09.long 829b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 829) #16, !srcloc !37
+  tail call void asm sideeffect "828: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 828b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 828) #16, !srcloc !34
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1440, i32 2305, i64 12) #16, !srcloc !35
+  tail call void asm sideeffect "829: nop\0A\09.pushsection .discard.instr_end\0A\09.long 829b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 829) #16, !srcloc !36
   br label %.loopexit3
 
 .loopexit3:                                       ; preds = %10, %.thread, %1
@@ -1997,7 +1997,7 @@ define dso_local noundef i32 @e1000_close(ptr noundef %0) #4 align 16 {
   %70 = load i32, ptr %50, align 8
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %69, %71
-  br i1 %72, label %55, label %.loopexit2, !llvm.loop !29
+  br i1 %72, label %55, label %.loopexit2, !llvm.loop !28
 
 .loopexit2:                                       ; preds = %55, %42
   %73 = getelementptr i8, ptr %0, i64 3396
@@ -2032,7 +2032,7 @@ define dso_local noundef i32 @e1000_close(ptr noundef %0) #4 align 16 {
   %93 = load i32, ptr %73, align 4
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %92, %94
-  br i1 %95, label %78, label %.loopexit, !llvm.loop !28
+  br i1 %95, label %78, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %78, %.loopexit2
   %96 = getelementptr i8, ptr %0, i64 3660
@@ -2119,7 +2119,7 @@ define internal noundef i32 @e1000_vlan_rx_kill_vid(ptr noundef %0, i16 zeroext 
   %47 = and i32 %43, %46
   tail call void @e1000_write_vfta(ptr noundef %5, i32 noundef %33, i32 noundef %47) #16
   %48 = zext i16 %2 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 %48) #16, !srcloc !38
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 %48) #16, !srcloc !37
   %49 = tail call i64 @_find_next_bit(ptr noundef %4, i64 noundef 4096, i64 noundef 0) #16
   %50 = and i64 %49, 61440
   %51 = icmp eq i64 %50, 0
@@ -2255,7 +2255,7 @@ define dso_local void @e1000_update_stats(ptr noundef %0) local_unnamed_addr #4 
   %6 = getelementptr inbounds i8, ptr %0, i64 1152
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #16
-  store i16 0, ptr %2, align 2, !annotation !39
+  store i16 0, ptr %2, align 2, !annotation !38
   %8 = getelementptr inbounds i8, ptr %0, i64 536
   %9 = load i16, ptr %8, align 8
   %10 = icmp eq i16 %9, 0
@@ -2963,12 +2963,12 @@ declare dso_local i32 @pcix_set_mmrbc(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @e1000_io_write(ptr nocapture noundef readnone %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = trunc i64 %1 to i16
-  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %2, i16 %4) #16, !srcloc !40
+  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %2, i16 %4) #16, !srcloc !39
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_set_spd_dplx(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @e1000_set_spd_dplx(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1399
   store i8 0, ptr %4, align 1
   %5 = and i32 %1, 1
@@ -3200,7 +3200,7 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr nocapture readnone %1) #4 a
 .thread15:                                        ; preds = %55, %65, %61
   %72 = add nuw nsw i64 %56, 1
   %73 = icmp eq i64 %72, 6
-  br i1 %73, label %.loopexit, label %55, !llvm.loop !41
+  br i1 %73, label %.loopexit, label %55, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.thread15, %70, %50
   %74 = load ptr, ptr %33, align 8
@@ -3329,7 +3329,7 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr nocapture readnone %1) #4 a
   %150 = load i32, ptr @e1000_probe.cards_found, align 4
   %151 = getelementptr i8, ptr %25, i64 2820
   store i32 %150, ptr %151, align 4
-  %152 = tail call fastcc i32 @e1000_sw_init(ptr noundef %31), !range !27
+  %152 = tail call fastcc i32 @e1000_sw_init(ptr noundef %31), !range !41
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %392
 
@@ -3913,7 +3913,7 @@ define internal void @e1000_remove(ptr noundef %0) #4 align 16 {
 define internal void @e1000_shutdown(ptr noundef %0) #4 align 16 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
-  store i8 0, ptr %2, align 1, !annotation !39
+  store i8 0, ptr %2, align 1, !annotation !38
   call fastcc void @__e1000_shutdown(ptr noundef %0, ptr noundef nonnull %2)
   %3 = load i32, ptr @system_state, align 4
   %4 = icmp eq i32 %3, 5
@@ -5000,7 +5000,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #4 align 16 {
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_sw_init(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @e1000_sw_init(ptr noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   store i32 1522, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1088
@@ -5111,7 +5111,7 @@ define internal fastcc void @e1000_dump_eeprom(ptr %.1144.val) unnamed_addr #4 a
   br i1 %11, label %53, label %12
 
 12:                                               ; preds = %0
-  store i64 0, ptr %1, align 8, !annotation !39
+  store i64 0, ptr %1, align 8, !annotation !38
   %13 = getelementptr inbounds i8, ptr %3, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef %.1144.val, ptr noundef nonnull %1, ptr noundef nonnull %10) #16
@@ -5337,9 +5337,9 @@ define internal void @e1000_watchdog(ptr noundef %0) #4 align 16 {
 111:                                              ; preds = %.thread1, %107, %97, %96
   %112 = phi ptr [ %12, %.thread1 ], [ %98, %107 ], [ %98, %97 ], [ %44, %96 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #16
-  store i16 0, ptr %2, align 2, !annotation !39
+  store i16 0, ptr %2, align 2, !annotation !38
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #16
-  store i16 0, ptr %3, align 2, !annotation !39
+  store i16 0, ptr %3, align 2, !annotation !38
   %113 = getelementptr i8, ptr %0, i64 -1028
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, 1
@@ -5949,7 +5949,7 @@ declare dso_local i32 @dma_set_mask(ptr noundef, i64 noundef) local_unnamed_addr
 declare dso_local i32 @dma_set_coherent_mask(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_xmit_frame(ptr noundef %0, ptr noundef %1) #4 align 16 {
+define internal noundef range(i32 0, 17) i32 @e1000_xmit_frame(ptr noundef %0, ptr noundef %1) #4 align 16 {
   %3 = alloca %struct.vlan_hdr, align 4
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = getelementptr i8, ptr %1, i64 3464
@@ -5998,7 +5998,7 @@ define internal noundef i32 @e1000_xmit_frame(ptr noundef %0, ptr noundef %1) #4
   %30 = phi i32 [ %24, %23 ], [ %55, %54 ]
   %31 = phi i32 [ 8, %23 ], [ %49, %54 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
-  store i32 0, ptr %3, align 4, !annotation !39
+  store i32 0, ptr %3, align 4, !annotation !38
   %32 = add i32 %30, %28
   %33 = sub i32 %29, %32
   %34 = icmp sgt i32 %33, 3
@@ -7476,7 +7476,7 @@ define internal void @e1000_set_rx_mode(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_mac(ptr noundef %0, ptr noundef %1) #4 align 16 {
+define internal noundef range(i32 -99, 1) i32 @e1000_set_mac(ptr noundef %0, ptr noundef %1) #4 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = getelementptr i8, ptr %0, i64 3464
   %5 = getelementptr inbounds i8, ptr %1, i64 2
@@ -7730,7 +7730,7 @@ define internal noundef i32 @e1000_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_change_mtu(ptr noundef %0, i32 noundef %1) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @e1000_change_mtu(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = add i32 %1, 18
   %5 = getelementptr i8, ptr %0, i64 3488
@@ -7943,7 +7943,7 @@ define internal noundef i64 @e1000_fix_features(ptr nocapture readnone %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_features(ptr noundef %0, i64 noundef %1) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @e1000_set_features(ptr noundef %0, i64 noundef %1) #4 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   %5 = load i64, ptr %4, align 8
@@ -8167,7 +8167,7 @@ declare dso_local i32 @__skb_pad(ptr noundef, i32 noundef, i1 noundef zeroext) l
 declare dso_local void @dev_kfree_skb_any_reason(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__e1000_maybe_stop_tx(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @__e1000_maybe_stop_tx(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2880
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10271,7 +10271,7 @@ declare dso_local void @e1000_write_vfta(ptr noundef, i32 noundef, i32 noundef) 
 declare dso_local zeroext i1 @disable_hardirq(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_intr(i32 %0, ptr noundef %1) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @e1000_intr(i32 %0, ptr noundef %1) #4 align 16 {
   %3 = getelementptr i8, ptr %1, i64 3464
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 192
@@ -10623,7 +10623,7 @@ declare dso_local i32 @pci_set_power_state(ptr noundef, i32 noundef) local_unnam
 declare dso_local void @netif_device_detach(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_io_error_detected(ptr noundef %0, i32 noundef %1) #4 align 16 {
+define internal noundef range(i32 3, 5) i32 @e1000_io_error_detected(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 2304
@@ -10660,7 +10660,7 @@ define internal noundef i32 @e1000_io_error_detected(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_io_slot_reset(ptr noundef %0) #4 align 16 {
+define internal noundef range(i32 4, 6) i32 @e1000_io_slot_reset(ptr noundef %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 2304
@@ -10771,7 +10771,7 @@ define internal noundef i32 @e1000_suspend(ptr noundef %0) #4 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr i8, ptr %0, i64 -184
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
-  store i8 0, ptr %2, align 1, !annotation !39
+  store i8 0, ptr %2, align 1, !annotation !38
   call fastcc void @__e1000_shutdown(ptr noundef %3, ptr noundef nonnull %2)
   %4 = load i8, ptr %2, align 1, !range !12, !noundef !13
   %5 = icmp ne i8 %4, 0
@@ -11299,21 +11299,21 @@ attributes #21 = { nounwind allocsize(2) }
 !24 = !{i64 2148620121, i64 2148620160, i64 2148620181, i64 2148620218, i64 2148620241, i64 2148620250, i64 2148620353}
 !25 = distinct !{!25, !10, !11}
 !26 = !{i64 2148627282, i64 2148627356}
-!27 = !{i32 -12, i32 1}
+!27 = distinct !{!27, !10, !11}
 !28 = distinct !{!28, !10, !11}
 !29 = distinct !{!29, !10, !11}
 !30 = distinct !{!30, !10, !11}
 !31 = distinct !{!31, !10, !11}
 !32 = distinct !{!32, !10, !11}
 !33 = distinct !{!33, !10, !11}
-!34 = distinct !{!34, !10, !11}
-!35 = !{i64 2160017314, i64 2160017123, i64 2160017175, i64 2160017221, i64 2160017249}
-!36 = !{i64 2160017388, i64 2160017417, i64 2160017463, i64 2160017521, i64 2160017575, i64 2160017629, i64 2160017684, i64 2160017715, i64 2160018023, i64 2160018029, i64 2160018076, i64 2160018099, i64 2160018125}
-!37 = !{i64 2160018604, i64 2160018415, i64 2160018465, i64 2160018511, i64 2160018539}
-!38 = !{i64 2148615243, i64 2148615282, i64 2148615303, i64 2148615340, i64 2148615363, i64 2148615233}
-!39 = !{!"auto-init"}
-!40 = !{i64 2154898203}
-!41 = distinct !{!41, !10, !11}
+!34 = !{i64 2160017314, i64 2160017123, i64 2160017175, i64 2160017221, i64 2160017249}
+!35 = !{i64 2160017388, i64 2160017417, i64 2160017463, i64 2160017521, i64 2160017575, i64 2160017629, i64 2160017684, i64 2160017715, i64 2160018023, i64 2160018029, i64 2160018076, i64 2160018099, i64 2160018125}
+!36 = !{i64 2160018604, i64 2160018415, i64 2160018465, i64 2160018511, i64 2160018539}
+!37 = !{i64 2148615243, i64 2148615282, i64 2148615303, i64 2148615340, i64 2148615363, i64 2148615233}
+!38 = !{!"auto-init"}
+!39 = !{i64 2154898203}
+!40 = distinct !{!40, !10, !11}
+!41 = !{i32 -12, i32 1}
 !42 = distinct !{!42, !10, !11}
 !43 = !{i64 2160231986}
 !44 = !{!"branch_weights", i32 1, i32 2000}

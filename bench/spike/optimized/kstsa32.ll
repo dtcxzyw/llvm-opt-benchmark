@@ -157,9 +157,9 @@ define noundef i64 @_Z18fast_rv64i_kstsa32P11processor_t6insn_tm(ptr nocapture n
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 659712
   %33 = lshr i64 %27, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = lshr i64 %31, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = sub i32 %34, %36
   %38 = lshr i32 %34, 31
   %39 = add nuw i32 %38, 2147483647
@@ -288,9 +288,9 @@ define noundef i64 @_Z20logged_rv64i_kstsa32P11processor_t6insn_tm(ptr noundef %
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 659712
   %33 = lshr i64 %27, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = lshr i64 %31, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = sub i32 %34, %36
   %38 = lshr i32 %34, 31
   %39 = add nuw i32 %38, 2147483647
@@ -519,9 +519,9 @@ define noundef i64 @_Z18fast_rv64e_kstsa32P11processor_t6insn_tm(ptr nocapture n
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 659712
   %55 = lshr i64 %42, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = lshr i64 %53, 32
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw i64 %57 to i32
   %59 = sub i32 %56, %58
   %60 = lshr i32 %56, 31
   %61 = add nuw i32 %60, 2147483647
@@ -692,9 +692,9 @@ define noundef i64 @_Z20logged_rv64e_kstsa32P11processor_t6insn_tm(ptr noundef %
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 659712
   %55 = lshr i64 %42, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = lshr i64 %53, 32
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw i64 %57 to i32
   %59 = sub i32 %56, %58
   %60 = lshr i32 %56, 31
   %61 = add nuw i32 %60, 2147483647

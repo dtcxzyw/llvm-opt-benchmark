@@ -181,7 +181,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mchp_pfsoc_mmuart_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @mchp_pfsoc_mmuart_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %cmp = icmp ugt i64 %addr, 51
   br i1 %cmp, label %do.body, label %if.end3

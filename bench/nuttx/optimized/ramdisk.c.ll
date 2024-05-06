@@ -98,7 +98,7 @@ rd_destroy.exit:                                  ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @rd_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) #5 {
+define internal range(i64 -22, 4294967296) i64 @rd_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -129,7 +129,7 @@ define internal noundef i64 @rd_read(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @rd_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #5 {
+define internal range(i64 -27, 4294967296) i64 @rd_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 7
@@ -167,7 +167,7 @@ define internal noundef i64 @rd_write(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @rd_geometry(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #7 {
+define internal range(i32 -22, 1) i32 @rd_geometry(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %3
 
@@ -196,7 +196,7 @@ define internal noundef i32 @rd_geometry(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @rd_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #5 {
+define internal range(i32 -25, 1) i32 @rd_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #5 {
   %4 = icmp eq i32 %1, 1281
   %5 = icmp ne i64 %2, 0
   %or.cond = and i1 %4, %5

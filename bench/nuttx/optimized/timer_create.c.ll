@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_alloctimers = external local_unnamed_addr global %struct.sq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @timer_create(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @timer_create(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %2, null

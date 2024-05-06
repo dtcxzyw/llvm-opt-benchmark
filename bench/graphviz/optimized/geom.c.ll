@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [113 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/graphviz/graphviz/lib/common/geom.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @lineToBox(double %0, double %1, double %2, double %3, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %3, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %4) local_unnamed_addr #0 {
   %6 = load double, ptr %4, align 8
   %7 = fcmp ugt double %6, %0
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -301,7 +301,7 @@ define double @ptToLine2(double %0, double %1, double %2, double %3, double %4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @line_intersect(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @line_intersect(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #7 {
   %10 = insertelement <2 x double> poison, double %2, i64 0
   %11 = insertelement <2 x double> %10, double %3, i64 1
   %12 = insertelement <2 x double> poison, double %0, i64 0

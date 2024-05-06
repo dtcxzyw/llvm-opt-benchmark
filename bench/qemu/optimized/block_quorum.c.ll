@@ -292,7 +292,7 @@ if.end53:                                         ; preds = %if.end41, %land.lhs
 
 for.body:                                         ; preds = %if.end53, %if.end77
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end77 ], [ 0, %if.end53 ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %call63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %indexstr, i64 noundef 32, ptr noundef nonnull @.str.12, i32 noundef %8) #16
   %cmp64 = icmp slt i32 %call63, 32
   br i1 %cmp64, label %if.end68, label %if.else67
@@ -632,7 +632,7 @@ if.else:                                          ; preds = %for.inc, %entry
   unreachable
 
 if.end5:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %threshold = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %threshold, align 8
   %cmp7.not = icmp sgt i32 %1, %5
@@ -936,7 +936,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @quorum_co_block_status(ptr nocapture noundef readonly %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr nocapture noundef writeonly %pnum, ptr nocapture readnone %map, ptr nocapture readnone %file) #0 {
+define internal range(i32 1, 3) i32 @quorum_co_block_status(ptr nocapture noundef readonly %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr nocapture noundef writeonly %pnum, ptr nocapture readnone %map, ptr nocapture readnone %file) #0 {
 entry:
   %bytes = alloca i64, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -1074,7 +1074,7 @@ if.then3.i:                                       ; preds = %for.inc.i, %quorum_
   store ptr null, ptr %items.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call4.i, ptr noundef nonnull align 8 dereferenceable(32) %result_value, i64 32, i1 false)
   %index7.i = getelementptr inbounds i8, ptr %call4.i, i64 32
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %index7.i, align 8
   %vote_count.i = getelementptr inbounds i8, ptr %call4.i, i64 36
   store i32 0, ptr %vote_count.i, align 4
@@ -1096,7 +1096,7 @@ if.end19.i:                                       ; preds = %if.then13.i, %if.th
   br label %if.end27.i
 
 if.end27.i.loopexit:                              ; preds = %for.body.i
-  %.pre = trunc i64 %indvars.iv to i32
+  %.pre = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.i.loopexit, %if.end19.i
@@ -1771,7 +1771,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.cond8.preheader, label %for.inc
 
 for.cond8.preheader:                              ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %j.0128 = add nuw i32 %5, 1
   %cmp10.not129 = icmp slt i32 %j.0128, %2
   %idxprom20 = and i64 %indvars.iv, 4294967295
@@ -2015,7 +2015,7 @@ if.then3.i:                                       ; preds = %for.inc.i, %if.end5
   store ptr null, ptr %items.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call4.i51, ptr noundef nonnull align 8 dereferenceable(32) %hash, i64 32, i1 false)
   %index7.i = getelementptr inbounds i8, ptr %call4.i51, i64 32
-  %46 = trunc i64 %indvars.iv154 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv154 to i32
   store i32 %46, ptr %index7.i, align 8
   %vote_count.i = getelementptr inbounds i8, ptr %call4.i51, i64 36
   store i32 0, ptr %vote_count.i, align 4
@@ -2037,7 +2037,7 @@ if.end19.i:                                       ; preds = %if.then13.i, %if.th
   br label %if.end27.i
 
 if.end27.i.loopexit:                              ; preds = %for.body.i49
-  %.pre160 = trunc i64 %indvars.iv154 to i32
+  %.pre160 = trunc nuw nsw i64 %indvars.iv154 to i32
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.i.loopexit, %if.end19.i
@@ -2488,7 +2488,7 @@ if.then3.i.i:                                     ; preds = %for.inc.i.i, %if.th
   store ptr null, ptr %items.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %result_value.i, i64 32, i1 false)
   %index7.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 32
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %9, ptr %index7.i.i, align 8
   %vote_count.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 36
   store i32 0, ptr %vote_count.i.i, align 4
@@ -2510,7 +2510,7 @@ if.end19.i.i:                                     ; preds = %if.then13.i.i, %if.
   br label %if.end27.i.i
 
 if.end27.i.loopexit.i:                            ; preds = %for.body.i.i
-  %.pre34.i = trunc i64 %indvars.iv.i to i32
+  %.pre34.i = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.end27.i.loopexit.i, %if.end19.i.i

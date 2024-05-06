@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @FMT_istext(i32 noundef %format) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2) i32 @FMT_istext(i32 noundef %format) local_unnamed_addr #0 {
 entry:
   %and = lshr i32 %format, 15
   %and.lobit = and i32 %and, 1

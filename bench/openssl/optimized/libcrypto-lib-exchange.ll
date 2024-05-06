@@ -1044,7 +1044,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_KEYEXCH_is_a(ptr noundef readonly %keyexch, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_KEYEXCH_is_a(ptr noundef readonly %keyexch, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %keyexch, null
   br i1 %cmp.not, label %land.end, label %land.rhs

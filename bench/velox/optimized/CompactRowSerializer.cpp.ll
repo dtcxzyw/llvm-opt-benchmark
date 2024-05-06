@@ -195,7 +195,7 @@ _ZNSt10unique_ptrIN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSe
   %3 = load ptr, ptr %pool_.i.i.i, align 8, !noalias !4
   store ptr %3, ptr %pool_.i.i, align 8, !noalias !4
   %buffers_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffers_.i.i, i8 0, i64 24, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffers_.i.i, i8 0, i64 24, i1 false), !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -263,7 +263,7 @@ call.i.noexc:                                     ; preds = %for.body.i
   %conv15.i = zext i8 %call.i10 to i64
   %9 = shl nuw nsw i64 %indvars.iv.i, 3
   %shl.i = shl nuw nsw i64 %conv15.i, %9
-  %10 = trunc i64 %shl.i to i32
+  %10 = trunc nuw i64 %shl.i to i32
   %value.sroa.0.0.extract.trunc.i = or i32 %value.sroa.0.04.i, %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -2203,9 +2203,9 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %34 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !34
   %35 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !34
   %cmp.not.i9.i = icmp ult i64 %35, %totalSize.3
-  br i1 %cmp.not.i9.i, label %if.then.i11.i, label %if.then6.i.i
+  br i1 %cmp.not.i9.i, label %if.then.i12.i, label %if.then6.i.i
 
-if.then.i11.i:                                    ; preds = %call6.i.noexc
+if.then.i12.i:                                    ; preds = %call6.i.noexc
   call void @llvm.trap()
   unreachable
 
@@ -2213,11 +2213,11 @@ if.then6.i.i:                                     ; preds = %call6.i.noexc
   %vtable.i.i.i = load ptr, ptr %call6.i41, align 8, !noalias !34
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %36 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !34
-  %call.i.i12.i = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(64) %call6.i41)
+  %call.i.i13.i = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(64) %call6.i41)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !34
 
 call.i.i.noexc.i:                                 ; preds = %if.then6.i.i
-  br i1 %call.i.i12.i, label %if.then.i.i.i39, label %invoke.cont49
+  br i1 %call.i.i13.i, label %if.then.i.i.i39, label %invoke.cont49
 
 if.then.i.i.i39:                                  ; preds = %call.i.i.noexc.i
   call void @llvm.trap()

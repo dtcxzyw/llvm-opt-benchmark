@@ -456,7 +456,7 @@ define void @_Z8load_elfB5cxx11PKcP7memif_tPmj(ptr dead_on_unwind noalias writab
   br i1 %180, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %181
 
 181:                                              ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %.sroa.9.0330, i64 %172
+  %182 = getelementptr i8, ptr %.sroa.9.0330, i64 %172
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %178, i8 0, i64 %179, i1 false)
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
@@ -762,7 +762,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %324, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit270, label %325
 
 325:                                              ; preds = %321
-  %326 = getelementptr inbounds i8, ptr %.sroa.9.3315, i64 %315
+  %326 = getelementptr i8, ptr %.sroa.9.3315, i64 %315
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %322, i8 0, i64 %323, i1 false)
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit270
 

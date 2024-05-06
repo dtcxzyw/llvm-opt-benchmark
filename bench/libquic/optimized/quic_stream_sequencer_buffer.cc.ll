@@ -429,7 +429,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net25QuicStreamSequencerBuffer12OnStreamDataEmN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_8QuicTimeEPmPS8_(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %starting_offset, ptr %data.coerce0, i64 %data.coerce1, i64 %timestamp.coerce, ptr nocapture noundef writeonly %bytes_buffered, ptr noundef %error_details) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 94) i32 @_ZN3net25QuicStreamSequencerBuffer12OnStreamDataEmN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_8QuicTimeEPmPS8_(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %starting_offset, ptr %data.coerce0, i64 %data.coerce1, i64 %timestamp.coerce, ptr nocapture noundef writeonly %bytes_buffered, ptr noundef %error_details) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i209 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1636,7 +1636,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer13GetBlockIndexEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %offset) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 0, 2251799813685248) i64 @_ZNK3net25QuicStreamSequencerBuffer13GetBlockIndexEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %offset) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %rem = urem i64 %offset, %0
@@ -1645,7 +1645,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer16GetInBlockOffsetEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %offset) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 0, 8192) i64 @_ZNK3net25QuicStreamSequencerBuffer16GetInBlockOffsetEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %offset) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %rem = urem i64 %offset, %0
@@ -1654,7 +1654,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer16GetBlockCapacityEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %block_index) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 0, 8193) i64 @_ZNK3net25QuicStreamSequencerBuffer16GetBlockCapacityEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %block_index) local_unnamed_addr #11 align 2 {
 entry:
   %add = add i64 %block_index, 1
   %blocks_count_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2022,7 +2022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer15NextBlockToReadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 0, 2251799813685248) i64 @_ZNK3net25QuicStreamSequencerBuffer15NextBlockToReadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
   %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %total_bytes_read_, align 8
@@ -2033,7 +2033,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer10ReadOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 0, 8192) i64 @_ZNK3net25QuicStreamSequencerBuffer10ReadOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
   %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %total_bytes_read_, align 8

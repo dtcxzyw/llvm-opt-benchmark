@@ -1848,7 +1848,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$indicatif..style..T
 6:                                                ; preds = %4
   %7 = getelementptr inbounds [0 x { i64, [11 x i64] }], ptr %.val.i, i64 0, i64 %.0.i.i.i
   %8 = add i64 %.0.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$indicatif..style..TemplatePart$GT$17h5bfe4f4b68ea5e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7)
+  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$indicatif..style..TemplatePart$GT$17h5bfe4f4b68ea5e8fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %7)
           to label %4 unwind label %11, !noalias !526
 
 9:                                                ; preds = %13, %11
@@ -1864,7 +1864,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$indicatif..style..T
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { i64, [11 x i64] }], ptr %.val.i, i64 0, i64 %.1.i.i.i
   %15 = add i64 %.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$indicatif..style..TemplatePart$GT$17h5bfe4f4b68ea5e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %14) #19
+  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$indicatif..style..TemplatePart$GT$17h5bfe4f4b68ea5e8fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %14) #19
           to label %9 unwind label %16, !noalias !526
 
 16:                                               ; preds = %13

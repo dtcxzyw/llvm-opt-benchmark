@@ -1427,25 +1427,25 @@ _ZNSt6vectorIPKSt4pairIKN3nix6SymbolENS1_9ExprAttrs7AttrDefEESaIS8_EE9push_backE
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 true)
   %44 = shl nuw nsw i64 %43, 1
   %45 = xor i64 %44, 126
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_SO_T0_T1_"(ptr %.sroa.0144.1, ptr nonnull %.sroa.8.1, i64 noundef %45, ptr nonnull %1)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_SO_T0_T1_"(ptr %.sroa.0144.1, ptr nonnull %.sroa.8.1, i64 noundef %45, ptr nonnull readonly %1)
   %46 = icmp sgt i64 %41, 128
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %38
   %48 = getelementptr inbounds i8, ptr %.sroa.0144.1, i64 128
-  tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_SO_T0_"(ptr %.sroa.0144.1, ptr nonnull %48, ptr nonnull %1)
+  tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_SO_T0_"(ptr %.sroa.0144.1, ptr nonnull %48, ptr nonnull readonly %1)
   %49 = icmp eq ptr %48, %.sroa.8.1
   br i1 %49, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEEZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EvT_SL_T0_.exit.thread255", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %47, %.lr.ph.i.i.i.i
   %.sroa.0.07.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i ], [ %48, %47 ]
-  tail call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_T0_"(ptr nonnull %.sroa.0.07.i.i.i.i, ptr nonnull %1)
+  tail call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_T0_"(ptr nonnull %.sroa.0.07.i.i.i.i, ptr nonnull readonly %1)
   %50 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i, i64 8
   %51 = icmp eq ptr %.sroa.0.07.i.i.i.i, %.pn154
   br i1 %51, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEEZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EvT_SL_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !4
 
 52:                                               ; preds = %38
-  tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_SO_T0_"(ptr %.sroa.0144.1, ptr nonnull %.sroa.8.1, ptr nonnull %1)
+  tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_SO_T0_"(ptr %.sroa.0144.1, ptr nonnull %.sroa.8.1, ptr nonnull readonly %1)
   br label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEEZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EvT_SL_T0_.exit.thread255"
 
 "_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEEZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EvT_SL_T0_.exit.thread": ; preds = %._crit_edge, %3
@@ -5033,7 +5033,7 @@ _ZNSt10shared_ptrIN3nix9StaticEnvEED2Ev.exit.loopexit.i: ; preds = %113
   br i1 %.not.i, label %124, label %_ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_iEESt10shared_ptrIT_EDpOT0_.exit.i
 
 124:                                              ; preds = %"_ZZN3nix9ExprAttrs8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEEENK3$_0clEv.exit"
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !alias.scope !68
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !alias.scope !68
   br label %146
 
 _ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_iEESt10shared_ptrIT_EDpOT0_.exit.i: ; preds = %"_ZZN3nix9ExprAttrs8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEEENK3$_0clEv.exit"
@@ -5319,7 +5319,7 @@ _ZNSt10shared_ptrIKN3nix9StaticEnvEED2Ev.exit:    ; preds = %._crit_edge101, %20
   br i1 %.not.i54, label %248, label %_ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_iEESt10shared_ptrIT_EDpOT0_.exit.i55
 
 248:                                              ; preds = %245
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !alias.scope !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !alias.scope !75
   br label %_ZN3nix9ExprAttrs18bindInheritSourcesERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEE.exit59
 
 _ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_iEESt10shared_ptrIT_EDpOT0_.exit.i55: ; preds = %245
@@ -7149,7 +7149,7 @@ _ZNSt10shared_ptrIN3nix9StaticEnvEED2Ev.exit.loopexit.i: ; preds = %40
   br i1 %.not.i, label %52, label %_ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_iEESt10shared_ptrIT_EDpOT0_.exit.i
 
 52:                                               ; preds = %"_ZZN3nix7ExprLet8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEEENK3$_0clEv.exit"
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !116
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !116
   br label %74
 
 _ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_iEESt10shared_ptrIT_EDpOT0_.exit.i: ; preds = %"_ZZN3nix7ExprLet8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEEENK3$_0clEv.exit"
@@ -10557,7 +10557,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.i.i.i = phi i64 [ %17, %.split.i.i.i ], [ %20, %.split9.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds ptr, ptr %0, i64 %.0.i.i.i
   %18 = load ptr, ptr %phi.call.i.i.i, align 8
-  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa185, ptr noundef %18, ptr %3)
+  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa185, ptr noundef %18, ptr readonly %3)
   %19 = icmp eq i64 %.0.i.i.i, 0
   %20 = add nsw i64 %.0.i.i.i, -1
   br i1 %19, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_SO_RT0_.exit.i.i", label %.split9.i.i.i, !llvm.loop !160
@@ -10575,7 +10575,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %25 = ptrtoint ptr %22 to i64
   %26 = sub i64 %25, %5
   %27 = ashr exact i64 %26, 3
-  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %27, ptr noundef %23, ptr %3)
+  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %27, ptr noundef %23, ptr readonly %3)
   %28 = icmp sgt i64 %26, 8
   br i1 %28, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIKN3nix6SymbolENS3_9ExprAttrs7AttrDefEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS6_12showBindingsERKNS3_11SymbolTableERSoE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !161
 

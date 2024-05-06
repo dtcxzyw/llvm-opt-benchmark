@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_sigpendingirqsignal = external global %struct.sq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxsig_tcbdispatch(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @nxsig_tcbdispatch(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -153,7 +153,7 @@ nxsig_find_pendingsignal.exit.i:                  ; preds = %65, %.critedge.i.i
 
 66:                                               ; preds = %nxsig_find_pendingsignal.exit.i
   %67 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   br label %up_irq_restore.exit
 
 nxsig_find_pendingsignal.exit.thread.i:           ; preds = %nxsig_find_pendingsignal.exit.i, %up_irq_restore.exit86
@@ -203,7 +203,7 @@ nxsig_alloc_pendingsignal.exit.i:                 ; preds = %69
 nxsig_alloc_pendingsignal.exit.thread.i:          ; preds = %nxsig_alloc_pendingsignal.exit.i, %78, %up_irq_restore.exit.i.i, %69
   %.0.i2635.i = phi ptr [ %80, %nxsig_alloc_pendingsignal.exit.i ], [ %77, %78 ], [ %73, %up_irq_restore.exit.i.i ], [ %70, %69 ]
   %81 = getelementptr inbounds i8, ptr %.0.i2635.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #6, !srcloc !6
   %82 = load i64, ptr %6, align 8
@@ -307,7 +307,7 @@ up_irq_restore.exit.i:                            ; preds = %92, %90
 
 134:                                              ; preds = %130, %120
   %135 = getelementptr inbounds i8, ptr %119, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %136 = getelementptr inbounds i8, ptr %114, i64 32
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %119, i64 48

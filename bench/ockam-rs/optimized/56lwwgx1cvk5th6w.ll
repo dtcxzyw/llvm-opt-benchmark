@@ -381,13 +381,13 @@ define hidden { ptr, i64 } @"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %7), !noalias !61
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !61
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !63
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !67
   call void @_ZN4p25610arithmetic5field12FieldElement8to_bytes17h86656188cb8222faE(ptr noalias nocapture noundef nonnull sret({ { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} } }) align 1 dereferenceable(32) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !61
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !73
   call void @_ZN4p25610arithmetic5field12FieldElement8to_bytes17h86656188cb8222faE(ptr noalias nocapture noundef nonnull sret({ { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} } }) align 1 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !74
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !69
   call void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$23from_affine_coordinates17hf61f52fe284113aaE"(ptr noalias nocapture noundef nonnull sret({ { { { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, i8 } } }) align 1 dereferenceable(65) %7, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %5, i1 noundef zeroext false), !noalias !61
@@ -2243,7 +2243,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
 44:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #25, !noalias !318
+  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31) #25, !noalias !318
   br label %.critedge
 
 46:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
@@ -2398,7 +2398,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
 44:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #25, !noalias !350
+  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31) #25, !noalias !350
   br label %.critedge
 
 46:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
@@ -2553,7 +2553,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
 44:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #25, !noalias !380
+  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31) #25, !noalias !380
   br label %.critedge
 
 46:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
@@ -2708,7 +2708,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
 44:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #25, !noalias !410
+  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31) #25, !noalias !410
   br label %.critedge
 
 46:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
@@ -2863,7 +2863,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
 44:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #25, !noalias !440
+  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31) #25, !noalias !440
   br label %.critedge
 
 46:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i.i"
@@ -3163,7 +3163,7 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   call void @"_ZN83_$LT$spki..error..Error$u20$as$u20$core..convert..From$LT$der..error..Error$GT$$GT$4from17h7b422a2c3e250720E"(ptr noalias nocapture noundef nonnull sret({ i32, [13 x i32] }) align 8 dereferenceable(56) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %3), !noalias !502
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !503
   %64 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !500
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !500
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !502
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit"
 
@@ -3602,7 +3602,7 @@ common.resume:                                    ; preds = %6, %14
 14:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9) #25
   br label %common.resume
 
 16:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
@@ -3672,7 +3672,7 @@ common.resume:                                    ; preds = %6, %14
 14:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9) #25
   br label %common.resume
 
 16:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
@@ -3737,7 +3737,7 @@ common.resume:                                    ; preds = %6, %14
 14:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9) #25
   br label %common.resume
 
 16:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
@@ -3853,7 +3853,7 @@ common.resume:                                    ; preds = %6, %14
 14:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9) #25
   br label %common.resume
 
 16:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
@@ -4030,7 +4030,7 @@ common.resume:                                    ; preds = %6, %14
 14:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9) #25
   br label %common.resume
 
 16:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit"
@@ -4495,7 +4495,7 @@ common.resume.i:                                  ; preds = %25, %17
 25:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20) #25
   br label %common.resume.i
 
 27:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
@@ -4809,7 +4809,7 @@ common.resume.i:                                  ; preds = %25, %17
 25:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20) #25
   br label %common.resume.i
 
 27:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
@@ -4898,7 +4898,7 @@ common.resume.i:                                  ; preds = %25, %17
 25:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20) #25
   br label %common.resume.i
 
 27:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
@@ -4987,7 +4987,7 @@ common.resume.i:                                  ; preds = %25, %17
 25:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20) #25
   br label %common.resume.i
 
 27:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
@@ -5151,7 +5151,7 @@ common.resume.i:                                  ; preds = %25, %17
 25:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20) #25
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfc98bfe7760e49bE.llvm.9117523114633567068"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20) #25
   br label %common.resume.i
 
 27:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h36cd138f02977b75E.llvm.9117523114633567068.exit.i"

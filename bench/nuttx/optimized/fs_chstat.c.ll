@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.inode_search_s = type { ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @chmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @chmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
@@ -17,7 +17,7 @@ define noundef i32 @chmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @chstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.inode_search_s, align 8
   %5 = and i32 %2, 1
   %.not = icmp eq i32 %5, 0
@@ -184,7 +184,7 @@ chstat_recursive.exit:                            ; preds = %70, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lchmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @lchmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
@@ -193,7 +193,7 @@ define noundef i32 @lchmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %1, ptr %5, align 8
@@ -204,7 +204,7 @@ define noundef i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lchown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @lchown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %1, ptr %5, align 8
@@ -215,7 +215,7 @@ define noundef i32 @lchown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @utimens(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @utimens(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4
@@ -244,7 +244,7 @@ define noundef i32 @utimens(ptr noundef %0, ptr noundef readonly %1) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lutimens(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @lutimens(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4

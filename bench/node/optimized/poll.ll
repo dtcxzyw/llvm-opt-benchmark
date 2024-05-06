@@ -170,7 +170,7 @@ uv__poll_stop.exit:                               ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_poll_start(ptr noundef %handle, i32 noundef %pevents, ptr noundef %poll_cb) local_unnamed_addr #0 {
+define dso_local range(i32 -17, 1) i32 @uv_poll_start(ptr noundef %handle, i32 noundef %pevents, ptr noundef %poll_cb) local_unnamed_addr #0 {
 entry:
   %loop = getelementptr inbounds i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8

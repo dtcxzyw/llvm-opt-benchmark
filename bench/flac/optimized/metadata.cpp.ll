@@ -1243,7 +1243,7 @@ entry:
   %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
   ret void
 }
 
@@ -1279,7 +1279,7 @@ entry:
   %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
   %call.i.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %field, i32 noundef %field_length)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
@@ -1398,7 +1398,7 @@ entry:
   %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKc(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field)
   ret void
 }
@@ -1477,7 +1477,7 @@ entry:
   %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
   %call.i = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name)
   br i1 %call.i, label %land.lhs.true.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit
 
@@ -1634,7 +1634,7 @@ entry:
   %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value)
   ret void
 }
@@ -1731,7 +1731,7 @@ entry:
   %entry3.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %field_value_, align 8
   store i32 0, ptr %field_value_length_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %entry3.i, i8 0, i64 20, i1 false)
   %entry_3 = getelementptr inbounds i8, ptr %entry1, i64 16
   %entry4 = getelementptr inbounds i8, ptr %entry1, i64 24
   %0 = load ptr, ptr %entry4, align 8

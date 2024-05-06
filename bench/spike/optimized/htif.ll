@@ -4491,7 +4491,7 @@ define void @_ZN6htif_t11clear_chunkEmm(ptr noundef nonnull align 8 dereferencea
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable(696) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1073741824, 1073741824) i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable(696) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::queue.53", align 8
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4513,7 +4513,7 @@ define noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable
   call void @_ZNSt11_Deque_baseImSaImEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %2, i64 noundef 0)
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %20 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
           to label %21 unwind label %33
 
@@ -5271,7 +5271,7 @@ declare void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6htif_t9exit_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %0) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -1073741824, 1073741824) i32 @_ZN6htif_t9exit_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = ashr i32 %3, 1
@@ -7712,7 +7712,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmESt5_BindIFZN6h
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.val6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val6, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 

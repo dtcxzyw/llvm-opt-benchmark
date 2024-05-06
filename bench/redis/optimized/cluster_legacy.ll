@@ -402,7 +402,7 @@ declare i32 @dictSdsKeyCaseCompare(ptr noundef, ptr noundef, ptr noundef) #2
 declare void @dictListDestructor(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @auxShardIdSetter(ptr noundef %n, ptr noundef %value, i32 noundef %length) #3 {
+define dso_local range(i32 -1, 1) i32 @auxShardIdSetter(ptr noundef %n, ptr noundef %value, i32 noundef %length) #3 {
 entry:
   %call = tail call i32 @verifyClusterNodeId(ptr noundef %value, i32 noundef %length) #32
   %cmp = icmp eq i32 %call, -1
@@ -463,7 +463,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @auxHumanNodenameSetter(ptr noundef %n, ptr noundef %value, i32 noundef %length) #3 {
+define dso_local range(i32 -1, 1) i32 @auxHumanNodenameSetter(ptr noundef %n, ptr noundef %value, i32 noundef %length) #3 {
 entry:
   %tobool.not = icmp eq ptr %n, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -602,7 +602,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i32 @auxTcpPortSetter(ptr nocapture noundef writeonly %n, ptr nocapture noundef readonly %value, i32 noundef %length) #5 {
+define dso_local range(i32 -1, 1) i32 @auxTcpPortSetter(ptr nocapture noundef writeonly %n, ptr nocapture noundef readonly %value, i32 noundef %length) #5 {
 entry:
   %0 = add i32 %length, -6
   %or.cond = icmp ult i32 %0, -5
@@ -640,7 +640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @auxTcpPortPresent(ptr nocapture noundef readonly %n) #1 {
+define dso_local range(i32 0, 2) i32 @auxTcpPortPresent(ptr nocapture noundef readonly %n) #1 {
 entry:
   %tcp_port = getelementptr inbounds i8, ptr %n, i64 2328
   %0 = load i32, ptr %tcp_port, align 8
@@ -650,7 +650,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i32 @auxTlsPortSetter(ptr nocapture noundef writeonly %n, ptr nocapture noundef readonly %value, i32 noundef %length) #5 {
+define dso_local range(i32 -1, 1) i32 @auxTlsPortSetter(ptr nocapture noundef writeonly %n, ptr nocapture noundef readonly %value, i32 noundef %length) #5 {
 entry:
   %0 = add i32 %length, -6
   %or.cond = icmp ult i32 %0, -5
@@ -688,7 +688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @auxTlsPortPresent(ptr nocapture noundef readonly %n) #1 {
+define dso_local range(i32 0, 2) i32 @auxTlsPortPresent(ptr nocapture noundef readonly %n) #1 {
 entry:
   %tls_port = getelementptr inbounds i8, ptr %n, i64 2332
   %0 = load i32, ptr %tls_port, align 4
@@ -819,7 +819,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
 declare void @llvm.stackrestore.p0(ptr) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterLoadConfig(ptr noundef %filename) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @clusterLoadConfig(ptr noundef %filename) local_unnamed_addr #3 {
 entry:
   %sb = alloca %struct.stat, align 8
   %argc = alloca i32, align 4
@@ -934,7 +934,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp54, label %if.then56, label %if.else60
 
 if.then56:                                        ; preds = %for.body
-  %arrayidx58 = getelementptr i8, ptr %arrayidx52, i64 8
+  %arrayidx58 = getelementptr inbounds i8, ptr %arrayidx52, i64 8
   %10 = load ptr, ptr %arrayidx58, align 8
   %call59 = call i64 @strtoull(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #32
   %11 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
@@ -948,7 +948,7 @@ if.else60:                                        ; preds = %for.body
   br i1 %cmp64, label %if.then66, label %do.body72
 
 if.then66:                                        ; preds = %if.else60
-  %arrayidx69 = getelementptr i8, ptr %arrayidx52, i64 8
+  %arrayidx69 = getelementptr inbounds i8, ptr %arrayidx52, i64 8
   %12 = load ptr, ptr %arrayidx69, align 8
   %call70 = call i64 @strtoull(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #32
   %13 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
@@ -2213,7 +2213,7 @@ clusterLookupNode.exit468:                        ; preds = %if.end.i461
 if.then478:                                       ; preds = %if.end.i461, %if.end475, %clusterLookupNode.exit468
   %call.i469 = call noalias dereferenceable_or_null(2368) ptr @zmalloc(i64 noundef 2368) #36
   %name1.i = getelementptr inbounds i8, ptr %call.i469, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %name1.i, ptr noundef nonnull align 1 dereferenceable(40) %add.ptr465, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %name1.i, ptr noundef nonnull readonly align 1 dereferenceable(40) %add.ptr465, i64 40, i1 false)
   %shard_id.i472 = getelementptr inbounds i8, ptr %call.i469, i64 48
   call void @getRandomHexChars(ptr noundef nonnull %shard_id.i472, i64 noundef 40) #32
   %call4.i = call i64 @mstime() #32
@@ -2689,7 +2689,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterNodeAddSlave(ptr nocapture noundef %master, ptr noundef %slave) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @clusterNodeAddSlave(ptr nocapture noundef %master, ptr noundef %slave) local_unnamed_addr #3 {
 entry:
   %numslaves = getelementptr inbounds i8, ptr %master, i64 2168
   %0 = load i32, ptr %numslaves, align 8
@@ -2740,7 +2740,7 @@ return:                                           ; preds = %for.body, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterAddSlot(ptr noundef %n, i32 noundef %slot) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @clusterAddSlot(ptr noundef %n, i32 noundef %slot) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots = getelementptr inbounds i8, ptr %0, i64 262192
@@ -2751,7 +2751,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @clusterNodeSetSlotBit(ptr noundef %n, i32 noundef %slot), !range !18
+  %call = tail call i32 @clusterNodeSetSlotBit(ptr noundef %n, i32 noundef %slot)
   %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots1 = getelementptr inbounds i8, ptr %2, i64 262192
   %arrayidx3 = getelementptr inbounds [16384 x ptr], ptr %slots1, i64 0, i64 %idxprom
@@ -2798,7 +2798,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterSaveConfig(i32 noundef %do_fsync) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @clusterSaveConfig(i32 noundef %do_fsync) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %todo_before_sleep = getelementptr inbounds i8, ptr %0, i64 393352
@@ -2888,7 +2888,7 @@ if.then17:                                        ; preds = %while.cond
   %call18 = tail call ptr @__errno_location() #35
   %13 = load i32, ptr %call18, align 4
   %cmp19 = icmp eq i32 %13, 4
-  br i1 %cmp19, label %while.cond, label %do.body22, !llvm.loop !19
+  br i1 %cmp19, label %while.cond, label %do.body22, !llvm.loop !18
 
 do.body22:                                        ; preds = %if.then17
   %14 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
@@ -2904,7 +2904,7 @@ if.end29:                                         ; preds = %while.cond
   %add = add i64 %call15, %offset.0.ph31
   %cmp14 = icmp ult i64 %add, %retval.0.i
   %sub = sub i64 %retval.0.i, %add
-  br i1 %cmp14, label %while.cond.outer.split, label %while.end, !llvm.loop !19
+  br i1 %cmp14, label %while.cond.outer.split, label %while.end, !llvm.loop !18
 
 while.cond.outer.split:                           ; preds = %while.cond.preheader, %if.end29
   %sub33 = phi i64 [ %sub, %if.end29 ], [ %retval.0.i, %while.cond.preheader ]
@@ -3025,7 +3025,7 @@ while.body:                                       ; preds = %while.cond
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, %filter
   %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.end, label %while.cond, !llvm.loop !20
+  br i1 %tobool.not, label %if.end, label %while.cond, !llvm.loop !19
 
 if.end:                                           ; preds = %while.body
   %call4 = tail call ptr @clusterGenNodeDescription(ptr noundef %c, ptr noundef nonnull %call3, i32 noundef %tls_primary)
@@ -3038,7 +3038,7 @@ if.end:                                           ; preds = %while.body
   store ptr null, ptr %slot_info_pairs.i, align 8
   %slot_info_pairs_count.i = getelementptr inbounds i8, ptr %call3, i64 2160
   store i32 0, ptr %slot_info_pairs_count.i, align 8
-  br label %while.cond.outer, !llvm.loop !20
+  br label %while.cond.outer, !llvm.loop !19
 
 while.end:                                        ; preds = %while.cond
   tail call void @dictReleaseIterator(ptr noundef %call1) #32
@@ -3075,7 +3075,7 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @clusterSaveConfigOrDie(i32 noundef %do_fsync) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @clusterSaveConfig(i32 noundef %do_fsync), !range !21
+  %call = tail call i32 @clusterSaveConfig(i32 noundef %do_fsync)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %do.body, label %if.end3
 
@@ -3097,7 +3097,7 @@ if.end3:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterLockConfig(ptr noundef %filename) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @clusterLockConfig(ptr noundef %filename) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 524353, i32 noundef 420) #32
   %cmp = icmp eq i32 %call, -1
@@ -3674,7 +3674,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i64 0, ptr %arrayidx5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body
   %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
@@ -3691,7 +3691,7 @@ for.end:                                          ; preds = %for.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %owner_not_claiming_slot, i8 0, i64 2048, i1 false)
   store i32 -1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 382), align 8
   %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 366), align 8
-  %call7 = tail call i32 @clusterLockConfig(ptr noundef %8), !range !21
+  %call7 = tail call i32 @clusterLockConfig(ptr noundef %8)
   %cmp8 = icmp eq i32 %call7, -1
   br i1 %cmp8, label %if.then, label %if.end
 
@@ -3701,7 +3701,7 @@ if.then:                                          ; preds = %for.end
 
 if.end:                                           ; preds = %for.end
   %9 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 366), align 8
-  %call9 = tail call i32 @clusterLoadConfig(ptr noundef %9), !range !21
+  %call9 = tail call i32 @clusterLoadConfig(ptr noundef %9)
   %cmp10.not = icmp eq i32 %call9, -1
   br i1 %cmp10.not, label %if.then11, label %if.end21
 
@@ -3776,7 +3776,7 @@ if.then20:                                        ; preds = %do.end
   %15 = load ptr, ptr @myself, align 8
   %shard_id = getelementptr inbounds i8, ptr %15, i64 48
   tail call void @clusterAddNodeToShard(ptr noundef nonnull %shard_id, ptr noundef %15)
-  %call.i5 = tail call i32 @clusterSaveConfig(i32 noundef 1), !range !21
+  %call.i5 = tail call i32 @clusterSaveConfig(i32 noundef 1)
   %cmp.i6 = icmp eq i32 %call.i5, -1
   br i1 %cmp.i6, label %do.body.i, label %if.end21
 
@@ -4144,7 +4144,7 @@ do.end32:                                         ; preds = %if.end23, %if.end30
   %15 = load ptr, ptr %accept.i, align 8
   %call.i13 = call i32 %15(ptr noundef nonnull %call.i, ptr noundef nonnull @clusterConnAcceptHandler) #32
   %cmp34 = icmp eq i32 %call.i13, -1
-  br i1 %cmp34, label %if.then36, label %while.cond, !llvm.loop !23
+  br i1 %cmp34, label %if.then36, label %while.cond, !llvm.loop !21
 
 if.then36:                                        ; preds = %do.end32
   %16 = getelementptr i8, ptr %call.i, i64 8
@@ -4249,7 +4249,7 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %clusterNodeRemoveSlave.exit.i, label %for.body.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %clusterNodeRemoveSlave.exit.i, label %for.body.i.i, !llvm.loop !22
 
 clusterNodeRemoveSlave.exit.i:                    ; preds = %for.inc.i.i, %if.then16.i.i, %if.end.i.i, %if.then2.i
   %10 = load ptr, ptr @myself, align 8
@@ -4359,7 +4359,7 @@ clusterDelSlot.exit:                              ; preds = %for.body, %cond.end
   %29 = phi ptr [ %17, %for.body ], [ %.pre, %cond.end.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %clusterDelSlot.exit
   %shards = getelementptr inbounds i8, ptr %29, i64 32
@@ -4387,7 +4387,7 @@ if.end8:                                          ; preds = %while.body
 while.cond.backedge:                              ; preds = %if.end8, %while.body
   %call3 = tail call ptr @dictNext(ptr noundef %call2) #32
   %cmp4.not = icmp eq ptr %call3, null
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !26
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !24
 
 while.end:                                        ; preds = %while.cond.backedge, %for.end
   tail call void @dictReleaseIterator(ptr noundef %call2) #32
@@ -4539,7 +4539,7 @@ if.then16.i:                                      ; preds = %if.end.i
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %clusterNodeRemoveSlave.exit, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %clusterNodeRemoveSlave.exit, label %for.body.i, !llvm.loop !22
 
 clusterNodeRemoveSlave.exit:                      ; preds = %for.inc.i, %if.then2, %if.end.i, %if.then16.i
   %9 = load ptr, ptr @myself, align 8
@@ -4571,7 +4571,7 @@ declare void @replicationUnsetMaster() local_unnamed_addr #2
 declare i64 @emptyData(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterDelSlot(i32 noundef %slot) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @clusterDelSlot(i32 noundef %slot) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots = getelementptr inbounds i8, ptr %0, i64 262192
@@ -4723,7 +4723,7 @@ for.inc:                                          ; preds = %if.end12, %cond.end
   %16 = phi ptr [ %.pre, %cond.end.i ], [ %4, %if.end12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc
   %nodes = getelementptr inbounds i8, ptr %16, i64 24
@@ -4740,13 +4740,13 @@ while.body:                                       ; preds = %for.end, %while.con
   br i1 %cmp22, label %while.cond.backedge, label %if.end24
 
 if.end24:                                         ; preds = %while.body
-  %call25 = tail call i32 @clusterNodeDelFailureReport(ptr noundef %call21, ptr noundef %delnode), !range !18
+  %call25 = tail call i32 @clusterNodeDelFailureReport(ptr noundef %call21, ptr noundef %delnode)
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end24, %while.body
   %call19 = tail call ptr @dictNext(ptr noundef %call18) #32
   %cmp20.not = icmp eq ptr %call19, null
-  br i1 %cmp20.not, label %while.end, label %while.body, !llvm.loop !28
+  br i1 %cmp20.not, label %while.end, label %while.body, !llvm.loop !26
 
 while.end:                                        ; preds = %while.cond.backedge, %for.end
   tail call void @dictReleaseIterator(ptr noundef %call18) #32
@@ -5095,7 +5095,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterNodeAddFailureReport(ptr nocapture noundef readonly %failing, ptr noundef %sender) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterNodeAddFailureReport(ptr nocapture noundef readonly %failing, ptr noundef %sender) local_unnamed_addr #3 {
 entry:
   %li = alloca %struct.listIter, align 8
   %fail_reports = getelementptr inbounds i8, ptr %failing, i64 2360
@@ -5113,7 +5113,7 @@ while.body:                                       ; preds = %while.cond
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp1 = icmp eq ptr %2, %sender
-  br i1 %cmp1, label %if.then, label %while.cond, !llvm.loop !29
+  br i1 %cmp1, label %if.then, label %while.cond, !llvm.loop !27
 
 if.then:                                          ; preds = %while.body
   %call2 = call i64 @mstime() #32
@@ -5172,7 +5172,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.then, %while.body
   %call1 = call ptr @listNext(ptr noundef nonnull %li) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !30
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !28
 
 while.end:                                        ; preds = %if.end, %entry
   ret void
@@ -5181,7 +5181,7 @@ while.end:                                        ; preds = %if.end, %entry
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterNodeDelFailureReport(ptr nocapture noundef readonly %node, ptr noundef readnone %sender) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterNodeDelFailureReport(ptr nocapture noundef readonly %node, ptr noundef readnone %sender) local_unnamed_addr #3 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
@@ -5200,7 +5200,7 @@ while.body:                                       ; preds = %while.cond
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp2 = icmp eq ptr %2, %sender
-  br i1 %cmp2, label %if.end4, label %while.cond, !llvm.loop !31
+  br i1 %cmp2, label %if.end4, label %while.cond, !llvm.loop !29
 
 if.end4:                                          ; preds = %while.body
   call void @listDelNode(ptr noundef %0, ptr noundef nonnull %call) #32
@@ -5231,7 +5231,7 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %call1.i = call ptr @listNext(ptr noundef nonnull %li.i) #32
   %cmp.not.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.not.i, label %clusterNodeCleanupFailureReports.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %clusterNodeCleanupFailureReports.exit, label %while.body.i, !llvm.loop !28
 
 clusterNodeCleanupFailureReports.exit:            ; preds = %if.end.i, %if.end4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -5274,7 +5274,7 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %call1.i = call ptr @listNext(ptr noundef nonnull %li.i) #32
   %cmp.not.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.not.i, label %clusterNodeCleanupFailureReports.exit, label %while.body.i, !llvm.loop !30
+  br i1 %cmp.not.i, label %clusterNodeCleanupFailureReports.exit, label %while.body.i, !llvm.loop !28
 
 clusterNodeCleanupFailureReports.exit:            ; preds = %if.end.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -5286,7 +5286,7 @@ clusterNodeCleanupFailureReports.exit:            ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @clusterNodeRemoveSlave(ptr nocapture noundef %master, ptr noundef readnone %slave) local_unnamed_addr #21 {
+define dso_local range(i32 -1, 1) i32 @clusterNodeRemoveSlave(ptr nocapture noundef %master, ptr noundef readnone %slave) local_unnamed_addr #21 {
 entry:
   %numslaves = getelementptr inbounds i8, ptr %master, i64 2168
   %0 = load i32, ptr %numslaves, align 8
@@ -5341,7 +5341,7 @@ if.then16:                                        ; preds = %if.end
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !22
 
 return:                                           ; preds = %for.inc, %entry, %if.end, %if.then16
   %retval.0 = phi i32 [ 0, %if.then16 ], [ 0, %if.end ], [ -1, %entry ], [ -1, %for.inc ]
@@ -5381,7 +5381,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %spec.select = add i32 %5, %okslaves.07
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.body, %entry
   %okslaves.0.lcssa = phi i32 [ 0, %entry ], [ %spec.select, %for.body ]
@@ -5411,7 +5411,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load i32, ptr %numslaves, align 8
   %4 = sext i32 %3 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %4
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !33
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body, %entry
   %flags = getelementptr inbounds i8, ptr %n, i64 88
@@ -5480,7 +5480,7 @@ if.then16.i:                                      ; preds = %if.end.i
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !22
 
 if.end:                                           ; preds = %for.inc.i, %if.then16.i, %if.end.i, %if.then, %land.lhs.true, %for.end
   %name = getelementptr inbounds i8, ptr %n, i64 8
@@ -5628,7 +5628,7 @@ clusterAddNode.exit:                              ; preds = %cond.end
 declare ptr @listSearchKey(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterBumpConfigEpochWithoutConsensus() local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @clusterBumpConfigEpochWithoutConsensus() local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %nodes.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -5732,7 +5732,7 @@ if.end10:                                         ; preds = %if.end
   %currentEpoch11 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %currentEpoch11, align 8
   store i64 %8, ptr %configEpoch1, align 8
-  %call.i = tail call i32 @clusterSaveConfig(i32 noundef 1), !range !21
+  %call.i = tail call i32 @clusterSaveConfig(i32 noundef 1)
   %cmp.i = icmp eq i32 %call.i, -1
   %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   br i1 %cmp.i, label %do.body.i, label %clusterSaveConfigOrDie.exit
@@ -5767,7 +5767,7 @@ do.end:                                           ; preds = %clusterSaveConfigOr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @clusterNodeIsMaster(ptr nocapture noundef readonly %n) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @clusterNodeIsMaster(ptr nocapture noundef readonly %n) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %n, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -5804,7 +5804,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.then, %while.body
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !34
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !32
 
 while.end:                                        ; preds = %if.end, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #32
@@ -5853,7 +5853,7 @@ declare void @dictSetUnsignedIntegerVal(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @time(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @clusterBlacklistExists(ptr noundef %nodeid) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterBlacklistExists(ptr noundef %nodeid) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @sdsnewlen(ptr noundef %nodeid, i64 noundef 40) #32
   tail call void @clusterBlacklistCleanup()
@@ -5910,7 +5910,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %while.body.i.i
   %call1.i.i = call ptr @listNext(ptr noundef nonnull %li.i.i) #32
   %cmp.not.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %cmp.not.i.i, label %clusterNodeFailureReportsCount.exit, label %while.body.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i, label %clusterNodeFailureReportsCount.exit, label %while.body.i.i, !llvm.loop !28
 
 clusterNodeFailureReportsCount.exit:              ; preds = %if.end.i.i, %if.end5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i.i)
@@ -5949,7 +5949,7 @@ do.end:                                           ; preds = %do.body, %if.end14
   %name19 = getelementptr inbounds i8, ptr %node, i64 8
   %call.i = call fastcc ptr @createClusterMsgSendBlock(i32 noundef 3, i32 noundef 2296)
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 2272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %data.i, ptr noundef nonnull align 1 dereferenceable(40) %name19, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %data.i, ptr noundef nonnull readonly align 1 dereferenceable(40) %name19, i64 40, i1 false)
   call void @clusterBroadcastMessage(ptr noundef %call.i)
   %refcount.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %15 = load i32, ptr %refcount.i.i, align 8
@@ -6124,7 +6124,7 @@ if.end36:                                         ; preds = %do.end33, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterHandshakeInProgress(ptr nocapture noundef readonly %ip, i32 noundef %port, i32 noundef %cport) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterHandshakeInProgress(ptr nocapture noundef readonly %ip, i32 noundef %port, i32 noundef %cport) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %nodes = getelementptr inbounds i8, ptr %0, i64 24
@@ -6167,7 +6167,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
 while.cond.backedge:                              ; preds = %if.end, %land.lhs.true, %land.lhs.true8, %while.body
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !35
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !33
 
 while.end:                                        ; preds = %while.cond.backedge, %land.lhs.true8, %entry
   %cmp.lcssa = phi i32 [ 0, %entry ], [ 1, %land.lhs.true8 ], [ 0, %while.cond.backedge ]
@@ -6176,7 +6176,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterStartHandshake(ptr noundef %ip, i32 noundef %port, i32 noundef %cport) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterStartHandshake(ptr noundef %ip, i32 noundef %port, i32 noundef %cport) local_unnamed_addr #3 {
 entry:
   %norm_ip = alloca [46 x i8], align 16
   %sa = alloca %struct.sockaddr_storage, align 8
@@ -6215,7 +6215,7 @@ if.else23:                                        ; preds = %if.end15
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else23, %if.then19
-  %call29 = call i32 @clusterHandshakeInProgress(ptr noundef nonnull %norm_ip, i32 noundef %port, i32 noundef %cport), !range !18
+  %call29 = call i32 @clusterHandshakeInProgress(ptr noundef nonnull %norm_ip, i32 noundef %port, i32 noundef %cport)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.end33, label %return.sink.split
 
@@ -6450,7 +6450,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %16 = load ptr, ptr %value.i, align 8
   %17 = load ptr, ptr %16, align 8
   %cmp1.i = icmp eq ptr %17, %cond
-  br i1 %cmp1.i, label %clusterNodeAddFailureReport.exit.thread, label %while.cond.i, !llvm.loop !29
+  br i1 %cmp1.i, label %clusterNodeAddFailureReport.exit.thread, label %while.cond.i, !llvm.loop !27
 
 clusterNodeAddFailureReport.exit.thread:          ; preds = %while.body.i
   %call2.i91 = call i64 @mstime() #32
@@ -6484,7 +6484,7 @@ if.end48:                                         ; preds = %clusterNodeAddFailu
   br label %if.end66
 
 if.else:                                          ; preds = %if.then31
-  %call49 = call i32 @clusterNodeDelFailureReport(ptr noundef nonnull %call7.i86, ptr noundef nonnull %cond), !range !18
+  %call49 = call i32 @clusterNodeDelFailureReport(ptr noundef nonnull %call7.i86, ptr noundef nonnull %cond)
   %tobool50 = icmp eq i32 %call49, 0
   %21 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp53 = icmp sgt i32 %21, 1
@@ -6540,7 +6540,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %while.body.i.i
   %call1.i.i = call ptr @listNext(ptr noundef nonnull %li.i.i) #32
   %cmp.not.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %cmp.not.i.i, label %clusterNodeFailureReportsCount.exit, label %while.body.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i, label %clusterNodeFailureReportsCount.exit, label %while.body.i.i, !llvm.loop !28
 
 clusterNodeFailureReportsCount.exit:              ; preds = %if.end.i.i, %land.lhs.true73
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i.i)
@@ -6684,7 +6684,7 @@ land.lhs.true166:                                 ; preds = %land.lhs.true162
 if.then171:                                       ; preds = %land.lhs.true166
   %call.i98 = call noalias dereferenceable_or_null(2368) ptr @zmalloc(i64 noundef 2368) #36
   %name1.i = getelementptr inbounds i8, ptr %call.i98, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %name1.i, ptr noundef nonnull align 1 dereferenceable(40) %g.0124, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %name1.i, ptr noundef nonnull readonly align 1 dereferenceable(40) %g.0124, i64 40, i1 false)
   %shard_id.i = getelementptr inbounds i8, ptr %call.i98, i64 48
   call void @getRandomHexChars(ptr noundef nonnull %shard_id.i, i64 noundef 40) #32
   %call4.i102 = call i64 @mstime() #32
@@ -6745,7 +6745,7 @@ cond.false.i:                                     ; preds = %if.then171
 if.end188:                                        ; preds = %if.then171, %if.end89, %if.else160, %land.lhs.true162, %land.lhs.true166, %lor.lhs.false134, %if.end146
   %incdec.ptr = getelementptr inbounds i8, ptr %g.0124, i64 104
   %tobool6.not = icmp eq i16 %dec125, 0
-  br i1 %tobool6.not, label %while.end, label %while.body, !llvm.loop !36
+  br i1 %tobool6.not, label %while.end, label %while.body, !llvm.loop !34
 
 while.end:                                        ; preds = %if.end188, %cond.end
   ret void
@@ -6820,7 +6820,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %ci.addr.1 = phi ptr [ %call2, %if.then ], [ %ci.addr.030, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc
   %arrayidx.i10 = getelementptr inbounds i8, ptr %ci.addr.1, i64 -1
@@ -6882,7 +6882,7 @@ if.end8:                                          ; preds = %if.then6, %sdslen.e
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nodeIp2String(ptr noundef %buf, ptr nocapture noundef readonly %link, ptr nocapture noundef readonly %announced_ip) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @nodeIp2String(ptr noundef %buf, ptr nocapture noundef readonly %link, ptr nocapture noundef readonly %announced_ip) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %announced_ip, align 1
   %cmp.not = icmp eq i8 %0, 0
@@ -6940,7 +6940,7 @@ return:                                           ; preds = %connAddrPeerName.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nodeUpdateAddressIfNeeded(ptr noundef %node, ptr noundef readonly %link, ptr nocapture noundef readonly %hdr) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @nodeUpdateAddressIfNeeded(ptr noundef %node, ptr noundef readonly %link, ptr nocapture noundef readonly %hdr) local_unnamed_addr #3 {
 entry:
   %ip = alloca [46 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %ip, i8 0, i64 46, i1 false)
@@ -6972,7 +6972,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %ip, ptr noundef nonnull align 1 dereferenceable(46) %myip, i64 45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %ip, ptr noundef nonnull readonly align 1 dereferenceable(46) %myip, i64 45, i1 false)
   %arrayidx2.i = getelementptr inbounds i8, ptr %ip, i64 45
   store i8 0, ptr %arrayidx2.i, align 1
   br label %if.end9
@@ -7291,7 +7291,7 @@ clusterDelSlot.exit:                              ; preds = %if.end.i
   br i1 %tobool.not.i55, label %if.end.i57, label %clusterAddSlot.exit
 
 if.end.i57:                                       ; preds = %if.end43, %clusterDelSlot.exit
-  %call.i = tail call i32 @clusterNodeSetSlotBit(ptr noundef %sender, i32 noundef %3), !range !18
+  %call.i = tail call i32 @clusterNodeSetSlotBit(ptr noundef %sender, i32 noundef %3)
   %28 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots1.i = getelementptr inbounds i8, ptr %28, i64 262192
   %arrayidx3.i = getelementptr inbounds [16384 x ptr], ptr %slots1.i, i64 0, i64 %indvars.iv
@@ -7331,7 +7331,7 @@ for.inc:                                          ; preds = %clusterAddSlot.exit
   %migrated_our_slots.2 = phi i32 [ %migrated_our_slots.079, %if.then10 ], [ %migrated_our_slots.079, %if.end11 ], [ %spec.select36, %clusterAddSlot.exit ], [ %migrated_our_slots.079, %lor.lhs.false25 ], [ %migrated_our_slots.079, %if.then60 ], [ %migrated_our_slots.079, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %for.inc
   %35 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 380), align 8
@@ -7435,14 +7435,14 @@ for.body120:                                      ; preds = %for.body120.prehead
   %call124 = tail call i32 @delKeysInSlot(i32 noundef %conv123)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond87.not, label %if.end130, label %for.body120, !llvm.loop !39
+  br i1 %exitcond87.not, label %if.end130, label %for.body120, !llvm.loop !37
 
 if.end130:                                        ; preds = %for.body120, %do.end111, %if.else114, %for.end, %if.end, %do.body, %do.end85
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @bitmapTestBit(ptr nocapture noundef readonly %bitmap, i32 noundef %pos) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @bitmapTestBit(ptr nocapture noundef readonly %bitmap, i32 noundef %pos) local_unnamed_addr #1 {
 entry:
   %div = sdiv i32 %pos, 8
   %conv = sext i32 %div to i64
@@ -7590,7 +7590,7 @@ if.then16.i:                                      ; preds = %if.end.i
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end19, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %if.end19, label %for.body.i, !llvm.loop !22
 
 if.end19:                                         ; preds = %for.inc.i, %if.then16.i, %if.end.i, %if.then16, %if.else, %if.then
   %13 = load ptr, ptr @myself, align 8
@@ -7689,7 +7689,7 @@ for.inc.i33:                                      ; preds = %if.then6.i, %for.bo
   %30 = phi ptr [ %27, %for.body.i30 ], [ %.pre.i32, %if.then6.i ]
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 16384
-  br i1 %exitcond.not.i35, label %removeAllNotOwnedShardChannelSubscriptions.exit, label %for.body.i30, !llvm.loop !40
+  br i1 %exitcond.not.i35, label %removeAllNotOwnedShardChannelSubscriptions.exit, label %for.body.i30, !llvm.loop !38
 
 removeAllNotOwnedShardChannelSubscriptions.exit:  ; preds = %for.inc.i33, %clusterNodeAddSlave.exit
   %31 = phi ptr [ %.pre, %clusterNodeAddSlave.exit ], [ %30, %for.inc.i33 ]
@@ -7795,7 +7795,7 @@ sdslen.exit:                                      ; preds = %while.body, %sw.bb.
   store i64 %inc10, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !41
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !39
 
 while.end:                                        ; preds = %sdslen.exit, %entry
   %j.0.lcssa = phi i32 [ 0, %entry ], [ %inc, %sdslen.exit ]
@@ -7804,7 +7804,7 @@ while.end:                                        ; preds = %sdslen.exit, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @getAlignedPingExtSize(i32 noundef %dataSize) local_unnamed_addr #26 {
+define dso_local range(i32 8, 1) i32 @getAlignedPingExtSize(i32 noundef %dataSize) local_unnamed_addr #26 {
 entry:
   %add = add i32 %dataSize, 7
   %div1 = and i32 %add, -8
@@ -7813,7 +7813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @getHostnamePingExtSize() local_unnamed_addr #0 {
+define dso_local range(i32 8, 1) i32 @getHostnamePingExtSize() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @myself, align 8
   %hostname = getelementptr inbounds i8, ptr %0, i64 2312
@@ -7913,7 +7913,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @getHumanNodenamePingExtSize() local_unnamed_addr #0 {
+define dso_local range(i32 8, 1) i32 @getHumanNodenamePingExtSize() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @myself, align 8
   %human_nodename = getelementptr inbounds i8, ptr %0, i64 2320
@@ -8013,13 +8013,13 @@ return:                                           ; preds = %entry, %sdslen.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @getShardIdPingExtSize() local_unnamed_addr #26 {
+define dso_local noundef range(i32 8, 1) i32 @getShardIdPingExtSize() local_unnamed_addr #26 {
 entry:
   ret i32 48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @getForgottenNodeExtSize() local_unnamed_addr #26 {
+define dso_local noundef range(i32 8, 1) i32 @getForgottenNodeExtSize() local_unnamed_addr #26 {
 entry:
   ret i32 56
 }
@@ -8693,7 +8693,7 @@ while.body:                                       ; preds = %while.cond
   %call47 = tail call i64 @dictGetUnsignedIntegerVal(ptr noundef nonnull %call43) #32
   %atomic-load = load atomic i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 349) seq_cst, align 8
   %cmp48 = icmp slt i64 %call47, %atomic-load
-  br i1 %cmp48, label %while.cond, label %if.end50, !llvm.loop !42
+  br i1 %cmp48, label %while.cond, label %if.end50, !llvm.loop !40
 
 if.end50:                                         ; preds = %while.body
   %atomic-load51 = load atomic i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 349) seq_cst, align 8
@@ -8719,7 +8719,7 @@ if.end60:                                         ; preds = %while.cond.outer.sp
   %cursor.6 = phi ptr [ %add.ptr.i224, %if.end50 ], [ null, %while.cond.outer.split.us ]
   %add62 = add i32 %totlen.2.ph, 56
   %inc63 = add i16 %extensions.2.ph, 1
-  br label %while.cond.outer, !llvm.loop !42
+  br label %while.cond.outer, !llvm.loop !40
 
 while.end:                                        ; preds = %while.cond.outer.split.us, %while.cond
   tail call void @dictReleaseIterator(ptr noundef %call42) #32
@@ -8926,7 +8926,7 @@ if.end61:                                         ; preds = %if.end.i25, %if.the
   %idx.ext.i = zext i32 %call.i.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %ext.037, i64 %idx.ext.i
   %tobool7.not = icmp eq i16 %dec41, 0
-  br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !43
+  br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !41
 
 while.end:                                        ; preds = %if.end61, %cond.end
   %ext_shardid.0.lcssa = phi ptr [ null, %cond.end ], [ %ext_shardid.1, %if.end61 ]
@@ -8998,7 +8998,7 @@ if.end18:                                         ; preds = %entry, %if.then9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterProcessPacket(ptr noundef %link) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterProcessPacket(ptr noundef %link) local_unnamed_addr #3 {
 entry:
   %ip254 = alloca [46 x i8], align 16
   %rcvbuf = getelementptr inbounds i8, ptr %link, i64 40
@@ -9153,7 +9153,7 @@ if.end94:                                         ; preds = %if.end80
   %idx.ext.i = zext i32 %call.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %ext.0365, i64 %idx.ext.i
   %tobool64.not = icmp eq i16 %dec367, 0
-  br i1 %tobool64.not, label %if.end166, label %while.body, !llvm.loop !44
+  br i1 %tobool64.not, label %if.end166, label %while.body, !llvm.loop !42
 
 if.else:                                          ; preds = %if.end38
   switch i16 %call3, label %if.end180 [
@@ -9426,7 +9426,7 @@ if.then283:                                       ; preds = %if.end277
   %call284 = call ptr @createClusterNode(ptr noundef null, i32 noundef 32)
   %ip285 = getelementptr inbounds i8, ptr %call284, i64 2264
   %myip = getelementptr inbounds i8, ptr %0, i64 2168
-  %call288 = call i32 @nodeIp2String(ptr noundef nonnull %ip285, ptr noundef nonnull %link, ptr noundef nonnull %myip), !range !21
+  %call288 = call i32 @nodeIp2String(ptr noundef nonnull %ip285, ptr noundef nonnull %link, ptr noundef nonnull %myip)
   %cmp289 = icmp eq i32 %call288, 0
   br i1 %cmp289, label %if.then303, label %cond.false
 
@@ -9505,7 +9505,7 @@ if.end346:                                        ; preds = %do.body342
   br label %do.end349
 
 do.end349:                                        ; preds = %do.body342, %if.end346
-  %call350 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef %sender.0.i334, ptr noundef nonnull %link, ptr noundef %0), !range !18
+  %call350 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef %sender.0.i334, ptr noundef nonnull %link, ptr noundef %0)
   %tobool351.not = icmp eq i32 %call350, 0
   br i1 %tobool351.not, label %if.end353, label %if.then352
 
@@ -9622,7 +9622,7 @@ land.lhs.true428:                                 ; preds = %if.then415
   br i1 %tobool431.not, label %land.lhs.true432, label %if.then465
 
 land.lhs.true432:                                 ; preds = %land.lhs.true428
-  %call433 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef nonnull %sender.0.i334, ptr noundef nonnull %link, ptr noundef %0), !range !18
+  %call433 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef nonnull %sender.0.i334, ptr noundef nonnull %link, ptr noundef %0)
   %tobool434.not = icmp eq i32 %call433, 0
   br i1 %tobool434.not, label %if.then465, label %if.then435
 
@@ -9722,11 +9722,11 @@ if.then489:                                       ; preds = %land.lhs.true485
   br i1 %tobool491.not, label %if.end495, label %if.then492
 
 if.then492:                                       ; preds = %if.then489
-  %call494 = call i32 @clusterNodeRemoveSlave(ptr noundef nonnull %104, ptr noundef nonnull %sender.0.i334), !range !21
+  %call494 = call i32 @clusterNodeRemoveSlave(ptr noundef nonnull %104, ptr noundef nonnull %sender.0.i334)
   br label %if.end495
 
 if.end495:                                        ; preds = %if.then492, %if.then489
-  %call496 = call i32 @clusterNodeAddSlave(ptr noundef nonnull %call474, ptr noundef nonnull %sender.0.i334), !range !21
+  %call496 = call i32 @clusterNodeAddSlave(ptr noundef nonnull %call474, ptr noundef nonnull %sender.0.i334)
   store ptr %call474, ptr %slaveof486, align 8
   %105 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %todo_before_sleep.i304 = getelementptr inbounds i8, ptr %105, i64 393352
@@ -9832,7 +9832,7 @@ do.end576:                                        ; preds = %do.body564, %if.end
 for.inc:                                          ; preds = %for.body, %if.end556, %if.then539, %lor.lhs.false551
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %land.lhs.true586, label %for.body, !llvm.loop !45
+  br i1 %exitcond.not, label %land.lhs.true586, label %for.body, !llvm.loop !43
 
 land.lhs.true586:                                 ; preds = %for.inc, %cond.end508, %if.end528, %do.end576
   %121 = load ptr, ptr @myself, align 8
@@ -10188,7 +10188,7 @@ if.end34:                                         ; preds = %if.then32, %entry
   br i1 %cmp3995, label %land.rhs.lr.ph.lr.ph.preheader, label %while.end
 
 land.rhs.lr.ph.lr.ph.preheader:                   ; preds = %if.end34
-  %mul35 = mul nsw i32 %spec.select, 3
+  %mul35 = mul nuw nsw i32 %spec.select, 3
   br label %land.rhs.lr.ph.lr.ph
 
 land.rhs.lr.ph.lr.ph:                             ; preds = %land.rhs.lr.ph.lr.ph.preheader, %if.end67
@@ -10253,7 +10253,7 @@ while.cond.backedge.us:                           ; preds = %if.end63.us, %if.en
 if.then61:                                        ; preds = %if.end51.us, %land.lhs.true58.us
   %dec62 = add nsw i32 %freshnodes.0.ph90, -1
   %cmp36 = icmp sgt i32 %freshnodes.0.ph90, 1
-  br i1 %cmp36, label %land.rhs.lr.ph.split.us, label %while.end, !llvm.loop !46
+  br i1 %cmp36, label %land.rhs.lr.ph.split.us, label %while.end, !llvm.loop !44
 
 if.end67:                                         ; preds = %if.end63.us
   %last_in_ping_gossip.le = getelementptr inbounds i8, ptr %call44.us, i64 2192
@@ -10264,7 +10264,7 @@ if.end67:                                         ; preds = %if.end63.us
   %cmp39 = icmp slt i32 %inc70, %spec.select
   %cmp3687 = icmp sgt i32 %freshnodes.0.ph90, 1
   %or.cond4788 = select i1 %cmp3687, i1 %cmp39, i1 false
-  br i1 %or.cond4788, label %land.rhs.lr.ph.lr.ph, label %while.end, !llvm.loop !46
+  br i1 %or.cond4788, label %land.rhs.lr.ph.lr.ph, label %while.end, !llvm.loop !44
 
 while.end:                                        ; preds = %if.end67, %land.rhs.lr.ph.split.us, %if.then61, %while.cond.backedge.us, %if.end34
   %gossipcount.0.ph.ph.lcssa = phi i32 [ 0, %if.end34 ], [ %gossipcount.0.ph.ph100, %while.cond.backedge.us ], [ %gossipcount.0.ph.ph100, %if.then61 ], [ %gossipcount.0.ph.ph100, %land.rhs.lr.ph.split.us ], [ %inc70, %if.end67 ]
@@ -10303,13 +10303,13 @@ while.body84:                                     ; preds = %while.cond76
   %21 = load i32, ptr %flags87, align 8
   %22 = and i32 %21, 100
   %or.cond49.not = icmp eq i32 %22, 4
-  br i1 %or.cond49.not, label %if.end101, label %while.cond76, !llvm.loop !47
+  br i1 %or.cond49.not, label %if.end101, label %while.cond76, !llvm.loop !45
 
 if.end101:                                        ; preds = %while.body84
   tail call void @clusterSetGossipEntry(ptr noundef nonnull %msg, i32 noundef %gossipcount.1.ph110, ptr noundef nonnull %call86)
   %inc102 = add nuw i32 %gossipcount.1.ph110, 1
   %exitcond.not = icmp eq i32 %inc102, %20
-  br i1 %exitcond.not, label %while.cond76.us, label %while.cond76.outer.split, !llvm.loop !47
+  br i1 %exitcond.not, label %while.cond76.us, label %while.cond76.outer.split, !llvm.loop !45
 
 while.end104:                                     ; preds = %while.cond76, %while.cond76.us
   %.us-phi104 = phi i32 [ %gossipcount.1.ph.lcssa105, %while.cond76.us ], [ %gossipcount.1.ph110, %while.cond76 ]
@@ -10495,7 +10495,7 @@ for.inc:                                          ; preds = %for.body, %clusterD
   %deleted.1 = phi i32 [ %inc, %clusterDelSlot.exit ], [ %deleted.012, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !48
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !46
 
 for.end:                                          ; preds = %for.inc
   ret i32 %deleted.1
@@ -10535,7 +10535,7 @@ for.body:                                         ; preds = %if.end, %for.body
   store i8 %and, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2048
-  br i1 %exitcond.not, label %if.end.i, label %for.body, !llvm.loop !49
+  br i1 %exitcond.not, label %if.end.i, label %for.body, !llvm.loop !47
 
 if.end.i:                                         ; preds = %for.body
   %send_msg_queue.i = getelementptr inbounds i8, ptr %link, i64 16
@@ -10850,7 +10850,7 @@ if.end131:                                        ; preds = %do.body127
 for.inc:                                          ; preds = %if.end110, %lor.lhs.false114, %lor.lhs.false118, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !50
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !48
 
 for.end:                                          ; preds = %for.inc
   %currentEpoch140 = getelementptr inbounds i8, ptr %27, i64 8
@@ -10994,7 +10994,7 @@ cond.end30:                                       ; preds = %if.end22
   store i64 %sub38, ptr %send_msg_queue_mem, align 8
   %add39 = add nuw nsw i64 %totwritten.034, %conv7
   %cmp = icmp ult i64 %add39, 65536
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !51
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !49
 
 while.end:                                        ; preds = %cond.end30
   %.pre = load ptr, ptr %send_msg_queue, align 8
@@ -11273,7 +11273,7 @@ land.lhs.true100:                                 ; preds = %if.end87
   br i1 %cmp103, label %if.then105, label %while.body.backedge
 
 if.then105:                                       ; preds = %land.lhs.true100
-  %call106 = call i32 @clusterProcessPacket(ptr noundef nonnull %conn.val48), !range !18
+  %call106 = call i32 @clusterProcessPacket(ptr noundef nonnull %conn.val48)
   %tobool.not = icmp eq i32 %call106, 0
   br i1 %tobool.not, label %return, label %if.then107
 
@@ -11461,7 +11461,7 @@ if.then14.i:                                      ; preds = %if.end3.i
 while.cond.backedge:                              ; preds = %if.then14.i, %if.end3.i, %if.end, %while.body
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !52
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !50
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #32
@@ -11769,7 +11769,7 @@ if.end21.us:                                      ; preds = %lor.rhs.us, %land.r
 while.cond.backedge.us:                           ; preds = %if.end.us, %lor.lhs.false.us, %land.lhs.true.us, %if.end21.us, %lor.rhs.us, %while.body.us
   %call1.us = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not.us = icmp eq ptr %call1.us, null
-  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !53
+  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !51
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call112 = phi ptr [ %call1, %while.cond.backedge ], [ %call110, %while.body.lr.ph ]
@@ -11792,7 +11792,7 @@ lor.lhs.false:                                    ; preds = %while.body
 while.cond.backedge:                              ; preds = %lor.lhs.false, %if.end6, %while.body
   %call1 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !53
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !51
 
 if.end6:                                          ; preds = %lor.lhs.false
   tail call void @clusterSendPing(ptr noundef nonnull %8, i32 noundef 1)
@@ -12158,7 +12158,7 @@ clusterMsgSendBlockDecrRefCount.exit:             ; preds = %cond.end.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterSendModuleMessageToTarget(ptr noundef %target, i64 noundef %module_id, i8 noundef zeroext %type, ptr nocapture noundef readonly %payload, i32 noundef %len) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @clusterSendModuleMessageToTarget(ptr noundef %target, i64 noundef %module_id, i8 noundef zeroext %type, ptr nocapture noundef readonly %payload, i32 noundef %len) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %target, null
   br i1 %cmp.not, label %cond.end, label %if.then
@@ -12345,7 +12345,7 @@ if.then14.i:                                      ; preds = %if.end3.i
 while.cond.backedge:                              ; preds = %if.then14.i, %if.end3.i, %if.end9, %while.body
   %call5 = call ptr @listNext(ptr noundef nonnull %li) #32
   %tobool6.not = icmp eq ptr %call5, null
-  br i1 %tobool6.not, label %while.end, label %while.body, !llvm.loop !54
+  br i1 %tobool6.not, label %while.end, label %while.body, !llvm.loop !52
 
 while.end:                                        ; preds = %while.cond.backedge, %cond.end
   %refcount.i11 = getelementptr inbounds i8, ptr %call4, i64 8
@@ -12683,7 +12683,7 @@ for.inc:                                          ; preds = %land.lhs.true14, %f
   %rank.1 = phi i32 [ %rank.013, %land.lhs.true ], [ %rank.013, %for.body ], [ %spec.select, %land.lhs.true14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !55
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !53
 
 return:                                           ; preds = %for.inc, %if.end, %cond.end
   %retval.0 = phi i32 [ 0, %cond.end ], [ 0, %if.end ], [ %rank.1, %for.inc ]
@@ -12853,7 +12853,7 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %clusterSetNodeAsMaster.exit, label %for.body.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %clusterSetNodeAsMaster.exit, label %for.body.i.i, !llvm.loop !22
 
 clusterSetNodeAsMaster.exit:                      ; preds = %for.inc.i.i, %if.then16.i.i, %if.end.i.i, %if.then2.i
   %10 = load ptr, ptr @myself, align 8
@@ -12939,7 +12939,7 @@ clusterDelSlot.exit:                              ; preds = %if.end.i12
 
 if.end.i21:                                       ; preds = %if.then4, %clusterDelSlot.exit
   %27 = load ptr, ptr @myself, align 8
-  %call.i = tail call i32 @clusterNodeSetSlotBit(ptr noundef %27, i32 noundef %13), !range !18
+  %call.i = tail call i32 @clusterNodeSetSlotBit(ptr noundef %27, i32 noundef %13)
   %28 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots1.i = getelementptr inbounds i8, ptr %28, i64 262192
   %arrayidx3.i = getelementptr inbounds [16384 x ptr], ptr %slots1.i, i64 0, i64 %indvars.iv
@@ -12949,11 +12949,11 @@ if.end.i21:                                       ; preds = %if.then4, %clusterD
 for.inc:                                          ; preds = %if.end.i21, %clusterDelSlot.exit, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !56
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !54
 
 for.end:                                          ; preds = %for.inc
   tail call void @clusterUpdateState()
-  %call.i22 = tail call i32 @clusterSaveConfig(i32 noundef 1), !range !21
+  %call.i22 = tail call i32 @clusterSaveConfig(i32 noundef 1)
   %cmp.i = icmp eq i32 %call.i22, -1
   br i1 %cmp.i, label %do.body.i, label %clusterSaveConfigOrDie.exit
 
@@ -12998,7 +12998,7 @@ return:                                           ; preds = %entry, %resetManual
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @clusterNodeCoversSlot(ptr nocapture noundef readonly %n, i32 noundef %slot) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @clusterNodeCoversSlot(ptr nocapture noundef readonly %n, i32 noundef %slot) local_unnamed_addr #1 {
 entry:
   %slots = getelementptr inbounds i8, ptr %n, i64 104
   %div.i = sdiv i32 %slot, 8
@@ -13069,7 +13069,7 @@ for.cond.preheader:                               ; preds = %if.end7
 for.cond:                                         ; preds = %lor.lhs.false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %if.end19, label %for.body, !llvm.loop !57
+  br i1 %exitcond.not, label %if.end19, label %for.body, !llvm.loop !55
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -13130,7 +13130,7 @@ if.end37:                                         ; preds = %if.then28, %land.lh
   %reachable_masters.1 = phi i32 [ %reachable_masters.023, %land.lhs.true26 ], [ %reachable_masters.023, %while.body ], [ %spec.select, %if.then28 ]
   %call21 = tail call ptr @dictNext(ptr noundef %call20) #32
   %cmp22.not = icmp eq ptr %call21, null
-  br i1 %cmp22.not, label %while.end, label %while.body, !llvm.loop !58
+  br i1 %cmp22.not, label %while.end, label %while.body, !llvm.loop !56
 
 while.end:                                        ; preds = %if.end37, %if.end19
   %reachable_masters.0.lcssa = phi i32 [ 0, %if.end19 ], [ %reachable_masters.1, %if.end37 ]
@@ -13550,7 +13550,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %okslaves.1 = add nuw nsw i32 %okslaves.048, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !59
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %okslaves.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %okslaves.1, %for.body ]
@@ -13605,7 +13605,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %spec.select.i = add i32 %18, %okslaves.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end38, label %for.body.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %if.end38, label %for.body.i, !llvm.loop !30
 
 if.end38:                                         ; preds = %for.body.i
   %cmp39 = icmp sgt i32 %spec.select.i, 0
@@ -13674,13 +13674,13 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   %spec.select34 = select i1 %cmp68, ptr %23, ptr %candidate.151
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %if.end77, label %for.body61, !llvm.loop !60
+  br i1 %exitcond66.not, label %if.end77, label %for.body61, !llvm.loop !58
 
 if.end77:                                         ; preds = %for.body61, %for.cond58.preheader, %if.end55
   %candidate.3 = phi ptr [ %candidate.056, %if.end55 ], [ %candidate.056, %for.cond58.preheader ], [ %spec.select34, %for.body61 ]
   %call17 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp18.not = icmp eq ptr %call17, null
-  br i1 %cmp18.not, label %while.end, label %while.body, !llvm.loop !61
+  br i1 %cmp18.not, label %while.end, label %while.body, !llvm.loop !59
 
 while.end:                                        ; preds = %if.end77, %if.end16
   %candidate.0.lcssa = phi ptr [ %0, %if.end16 ], [ %candidate.3, %if.end77 ]
@@ -14062,7 +14062,7 @@ do.end.i:                                         ; preds = %if.end28.i, %do.bod
 clusterNodeCronHandleReconnect.exit:              ; preds = %clusterNodeCronFreeLinkOnBufferLimitReached.exit, %if.then9.i, %if.end10.i, %createClusterLink.exit.i, %do.end.i
   %call2 = tail call ptr @dictNext(ptr noundef %call1) #32
   %cmp3.not = icmp eq ptr %call2, null
-  br i1 %cmp3.not, label %while.end, label %while.body, !llvm.loop !62
+  br i1 %cmp3.not, label %while.end, label %while.body, !llvm.loop !60
 
 while.end:                                        ; preds = %clusterNodeCronHandleReconnect.exit, %clusterUpdateMyselfHostname.exit
   tail call void @dictReleaseIterator(ptr noundef %call1) #32
@@ -14115,7 +14115,7 @@ for.inc:                                          ; preds = %lor.lhs.false22, %i
   %min_pong.1 = phi i64 [ %min_pong.0108, %for.body ], [ %min_pong.0108, %lor.lhs.false ], [ %min_pong.0108, %if.end17 ], [ %.pre, %if.end20 ], [ %spec.select119, %lor.lhs.false22 ]
   %inc27 = add nuw nsw i32 %j.0107, 1
   %exitcond.not = icmp eq i32 %inc27, 5
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !63
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !61
 
 for.end:                                          ; preds = %for.inc
   %tobool28.not = icmp eq ptr %min_pong_node.1, null
@@ -14175,7 +14175,7 @@ while.body41:                                     ; preds = %while.cond38
   %48 = load i32, ptr %flags45, align 8
   %and46 = and i32 %48, 112
   %tobool47.not = icmp eq i32 %and46, 0
-  br i1 %tobool47.not, label %if.end49, label %while.cond38, !llvm.loop !64
+  br i1 %tobool47.not, label %if.end49, label %while.cond38, !llvm.loop !62
 
 if.end49:                                         ; preds = %while.body41
   %49 = load ptr, ptr @myself, align 8
@@ -14213,7 +14213,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %spec.select.i = add i32 %58, %okslaves.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %clusterCountNonFailingSlaves.exit, label %for.body.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %clusterCountNonFailingSlaves.exit, label %for.body.i, !llvm.loop !30
 
 clusterCountNonFailingSlaves.exit:                ; preds = %for.body.i
   %cmp61 = icmp eq i32 %spec.select.i, 0
@@ -14309,7 +14309,7 @@ while.cond38.outer.backedge.sink.split:           ; preds = %land.lhs.true104, %
   br label %while.cond38.outer.backedge
 
 while.cond38.outer.backedge:                      ; preds = %while.cond38.outer.backedge.sink.split, %if.end122
-  br label %while.cond38.outer, !llvm.loop !64
+  br label %while.cond38.outer, !llvm.loop !62
 
 if.end110:                                        ; preds = %land.lhs.true104, %land.lhs.true101, %cond.end
   %72 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
@@ -14352,7 +14352,7 @@ if.then133:                                       ; preds = %if.end126
   br i1 %tobool136.not, label %do.body138, label %while.cond38.outer.outer.backedge
 
 while.cond38.outer.outer.backedge:                ; preds = %if.then133, %if.end126
-  br label %while.cond38.outer.outer, !llvm.loop !64
+  br label %while.cond38.outer.outer, !llvm.loop !62
 
 do.body138:                                       ; preds = %if.then133
   %flags45.le.le.le = getelementptr inbounds i8, ptr %call43, i64 88
@@ -14370,7 +14370,7 @@ do.end144:                                        ; preds = %do.body138, %if.end
   %81 = phi i32 [ %79, %do.body138 ], [ %.pre113, %if.end141 ]
   %or = or i32 %81, 4
   store i32 %or, ptr %flags45.le.le.le, align 8
-  br label %while.cond38.outer.outer.outer, !llvm.loop !64
+  br label %while.cond38.outer.outer.outer, !llvm.loop !62
 
 while.end148:                                     ; preds = %while.cond38
   tail call void @dictReleaseIterator(ptr noundef %call37) #32
@@ -14644,7 +14644,7 @@ if.end18:                                         ; preds = %if.then17, %if.end1
 
 if.then21:                                        ; preds = %if.end18
   %and22 = and i32 %1, 8
-  %call.i5 = tail call i32 @clusterSaveConfig(i32 noundef %and22), !range !21
+  %call.i5 = tail call i32 @clusterSaveConfig(i32 noundef %and22)
   %cmp.i6 = icmp eq i32 %call.i5, -1
   br i1 %cmp.i6, label %do.body.i, label %if.end23
 
@@ -14666,7 +14666,7 @@ if.end23:                                         ; preds = %if.then21, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @clusterMastersHaveSlaves() local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterMastersHaveSlaves() local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %nodes = getelementptr inbounds i8, ptr %0, i64 24
@@ -14705,7 +14705,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @clusterNodeSetSlotBit(ptr nocapture noundef %n, i32 noundef %slot) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterNodeSetSlotBit(ptr nocapture noundef %n, i32 noundef %slot) local_unnamed_addr #3 {
 entry:
   %slots = getelementptr inbounds i8, ptr %n, i64 104
   %div.i = sdiv i32 %slot, 8
@@ -14778,7 +14778,7 @@ if.end7:                                          ; preds = %if.then, %clusterMa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @clusterNodeClearSlotBit(ptr nocapture noundef %n, i32 noundef %slot) local_unnamed_addr #25 {
+define dso_local range(i32 0, 2) i32 @clusterNodeClearSlotBit(ptr nocapture noundef %n, i32 noundef %slot) local_unnamed_addr #25 {
 entry:
   %slots = getelementptr inbounds i8, ptr %n, i64 104
   %div.i = sdiv i32 %slot, 8
@@ -14866,7 +14866,7 @@ if.end22:                                         ; preds = %lor.lhs.false
   store ptr %call24, ptr %arrayidx25, align 8
   %call7 = call i32 @raxNext(ptr noundef nonnull %iter) #32
   %tobool.not = icmp eq i32 %call7, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !65
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !63
 
 while.end:                                        ; preds = %if.end22, %lor.lhs.false, %while.body, %if.end
   call void @raxStop(ptr noundef nonnull %iter) #32
@@ -14879,7 +14879,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @verifyClusterConfigWithData() local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @verifyClusterConfigWithData() local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 380), align 8
   %and = and i32 %0, 4
@@ -14907,7 +14907,7 @@ for.cond:                                         ; preds = %for.body
   %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %5 = sext i32 %4 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %for.body10.preheader, !llvm.loop !66
+  br i1 %cmp, label %for.body, label %for.body10.preheader, !llvm.loop !64
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 1, %for.cond.preheader ]
@@ -14962,7 +14962,7 @@ do.end:                                           ; preds = %do.body
 
 if.end.i:                                         ; preds = %do.body, %do.end
   %13 = load ptr, ptr @myself, align 8
-  %call.i = tail call i32 @clusterNodeSetSlotBit(ptr noundef %13, i32 noundef %7), !range !18
+  %call.i = tail call i32 @clusterNodeSetSlotBit(ptr noundef %13, i32 noundef %7)
   %14 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots1.i = getelementptr inbounds i8, ptr %14, i64 262192
   br label %for.inc45.sink.split
@@ -14995,14 +14995,14 @@ for.inc45:                                        ; preds = %for.inc45.sink.spli
   %update_config.1 = phi i32 [ %update_config.022, %if.end14 ], [ %update_config.022, %lor.lhs.false ], [ %update_config.022, %for.body10 ], [ %inc23, %do.end ], [ %inc23, %for.inc45.sink.split ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next25, 16384
-  br i1 %exitcond.not, label %for.end47, label %for.body10, !llvm.loop !67
+  br i1 %exitcond.not, label %for.end47, label %for.body10, !llvm.loop !65
 
 for.end47:                                        ; preds = %for.inc45
   %tobool48.not = icmp eq i32 %update_config.1, 0
   br i1 %tobool48.not, label %return, label %if.then49
 
 if.then49:                                        ; preds = %for.end47
-  %call.i15 = tail call i32 @clusterSaveConfig(i32 noundef 1), !range !21
+  %call.i15 = tail call i32 @clusterSaveConfig(i32 noundef 1)
   %cmp.i = icmp eq i32 %call.i15, -1
   br i1 %cmp.i, label %do.body.i, label %return
 
@@ -15062,7 +15062,7 @@ for.inc:                                          ; preds = %if.then, %if.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %3 = trunc nuw i64 %indvars.iv.next to i32
   %cmp = icmp slt i32 %3, %slot_info_pairs_count
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !68
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !66
 
 for.end:                                          ; preds = %for.inc, %entry
   %ci.addr.0.lcssa = phi ptr [ %ci, %entry ], [ %ci.addr.1, %for.inc ]
@@ -15225,7 +15225,7 @@ for.inc:                                          ; preds = %if.end22, %if.then2
   %ci.3 = phi ptr [ %ci.2107, %for.body ], [ %call31, %if.then25 ], [ %ci.2107, %if.end22 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp16.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp16.not, label %if.end33, label %for.body, !llvm.loop !69
+  br i1 %cmp16.not, label %if.end33, label %for.body, !llvm.loop !67
 
 if.end33:                                         ; preds = %for.inc, %if.end
   %ci.4 = phi ptr [ %ci.0, %if.end ], [ %ci.3, %for.inc ]
@@ -15319,7 +15319,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %31 = trunc nuw i64 %indvars.iv.next.i to i32
   %cmp.i = icmp sgt i32 %27, %31
-  br i1 %cmp.i, label %for.body.i, label %if.end107, !llvm.loop !68
+  br i1 %cmp.i, label %for.body.i, label %if.end107, !llvm.loop !66
 
 if.else63:                                        ; preds = %if.end53
   %numslots = getelementptr inbounds i8, ptr %node, i64 2164
@@ -15377,7 +15377,7 @@ for.inc103:                                       ; preds = %if.then96, %if.else
   %j.2 = phi i32 [ %j.0111, %land.lhs.true82 ], [ %j.0111, %for.body70 ], [ %spec.select79, %if.then96 ], [ %spec.select79, %if.else98 ]
   %inc104 = add nsw i32 %j.2, 1
   %cmp68 = icmp slt i32 %j.2, 16383
-  br i1 %cmp68, label %for.body70, label %if.end107, !llvm.loop !70
+  br i1 %cmp68, label %for.body70, label %if.end107, !llvm.loop !68
 
 if.end107:                                        ; preds = %for.inc.i, %for.inc103, %if.then60, %if.else63
   %ci.9 = phi ptr [ %call58, %if.else63 ], [ %call58, %if.then60 ], [ %ci.8, %for.inc103 ], [ %ci.addr.1.i, %for.inc.i ]
@@ -15415,7 +15415,7 @@ for.inc139:                                       ; preds = %for.inc139.sink.spl
   %ci.11 = phi ptr [ %ci.10112, %if.else126 ], [ %call125, %for.inc139.sink.split ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next117, 16384
-  br i1 %exitcond.not, label %if.end142, label %for.body115, !llvm.loop !71
+  br i1 %exitcond.not, label %if.end142, label %for.body115, !llvm.loop !69
 
 if.end142:                                        ; preds = %for.inc139, %if.end107
   %ci.12 = phi ptr [ %ci.9, %if.end107 ], [ %ci.11, %for.inc139 ]
@@ -15522,7 +15522,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %n.1 = phi ptr [ %n.0, %lor.lhs.false ], [ %13, %for.inc.sink.split ]
   %start.1 = phi i32 [ %start.0, %lor.lhs.false ], [ %0, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %for.body, !llvm.loop !72
+  br label %for.body, !llvm.loop !70
 
 for.end:                                          ; preds = %if.end35, %if.then
   ret void
@@ -15663,7 +15663,7 @@ if.end9:                                          ; preds = %if.then6, %if.end
   %num_links.2 = phi i32 [ %inc7, %if.then6 ], [ %num_links.1, %if.end ]
   %call2 = tail call ptr @dictNext(ptr noundef %call1) #32
   %cmp.not = icmp eq ptr %call2, null
-  br i1 %cmp.not, label %while.end.loopexit, label %while.body, !llvm.loop !73
+  br i1 %cmp.not, label %while.end.loopexit, label %while.body, !llvm.loop !71
 
 while.end.loopexit:                               ; preds = %if.end9
   %4 = sext i32 %num_links.2 to i64
@@ -15681,7 +15681,7 @@ declare ptr @addReplyDeferredLen(ptr noundef) local_unnamed_addr #2
 declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getSlotOrReply(ptr noundef %c, ptr noundef %o) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 16384) i32 @getSlotOrReply(ptr noundef %c, ptr noundef %o) local_unnamed_addr #3 {
 entry:
   %slot = alloca i64, align 8
   %call = call i32 @getLongLongFromObject(ptr noundef %o, ptr noundef nonnull %slot) #32
@@ -15709,7 +15709,7 @@ declare i32 @getLongLongFromObject(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkSlotAssignmentsOrReply(ptr noundef %c, ptr nocapture noundef %slots, i32 noundef %del, i32 noundef %start_slot, i32 noundef %end_slot) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @checkSlotAssignmentsOrReply(ptr noundef %c, ptr nocapture noundef %slots, i32 noundef %del, i32 noundef %start_slot, i32 noundef %end_slot) local_unnamed_addr #3 {
 entry:
   %cmp.not14 = icmp sgt i32 %start_slot, %end_slot
   br i1 %cmp.not14, label %return, label %for.body.lr.ph
@@ -15741,7 +15741,7 @@ for.inc.us:                                       ; preds = %if.end10.us
   %indvars.iv.next25 = add nsw i64 %indvars.iv24, 1
   %lftr.wideiv27 = trunc i64 %indvars.iv.next25 to i32
   %exitcond28.not = icmp eq i32 %1, %lftr.wideiv27
-  br i1 %exitcond28.not, label %return, label %for.body.us, !llvm.loop !74
+  br i1 %exitcond28.not, label %return, label %for.body.us, !llvm.loop !72
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %0, %for.body.lr.ph ]
@@ -15764,7 +15764,7 @@ for.inc:                                          ; preds = %if.end10
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !74
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !72
 
 return.sink.split:                                ; preds = %if.end10, %for.body, %if.end10.us, %for.body.us
   %.us-phi16.in.sink = phi i64 [ %indvars.iv24, %for.body.us ], [ %indvars.iv24, %if.end10.us ], [ %indvars.iv, %for.body ], [ %indvars.iv, %if.end10 ]
@@ -15817,7 +15817,7 @@ if.end.us:                                        ; preds = %if.then4.us, %if.th
 if.end.i12.us:                                    ; preds = %if.end.us
   %5 = load ptr, ptr @myself, align 8
   %6 = trunc nuw nsw i64 %indvars.iv22 to i32
-  %call.i.us = tail call i32 @clusterNodeSetSlotBit(ptr noundef %5, i32 noundef %6), !range !18
+  %call.i.us = tail call i32 @clusterNodeSetSlotBit(ptr noundef %5, i32 noundef %6)
   %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots1.i.us = getelementptr inbounds i8, ptr %7, i64 262192
   %arrayidx3.i.us = getelementptr inbounds [16384 x ptr], ptr %slots1.i.us, i64 0, i64 %indvars.iv22
@@ -15827,7 +15827,7 @@ if.end.i12.us:                                    ; preds = %if.end.us
 for.inc.us:                                       ; preds = %if.end.i12.us, %for.body.us
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 16384
-  br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !75
+  br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !73
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
@@ -15906,7 +15906,7 @@ cond.false14:                                     ; preds = %if.end, %if.end.us
 for.inc:                                          ; preds = %cond.end.i, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !75
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !73
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
   ret void
@@ -16202,7 +16202,7 @@ while.cond:                                       ; preds = %while.cond, %cond.e
   %slaveof = getelementptr inbounds i8, ptr %n.0, i64 2184
   %3 = load ptr, ptr %slaveof, align 8
   %cmp2.not = icmp eq ptr %3, null
-  br i1 %cmp2.not, label %while.end, label %while.cond, !llvm.loop !76
+  br i1 %cmp2.not, label %while.end, label %while.cond, !llvm.loop !74
 
 while.end:                                        ; preds = %while.cond
   %slot_info_pairs = getelementptr inbounds i8, ptr %n.0, i64 2152
@@ -16240,7 +16240,7 @@ for.body:                                         ; preds = %cond.end17, %for.bo
   %10 = load i32, ptr %slot_info_pairs_count, align 8
   %11 = sext i32 %10 to i64
   %cmp21 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp21, label %for.body, label %if.end, !llvm.loop !77
+  br i1 %cmp21, label %for.body, label %if.end, !llvm.loop !75
 
 if.else:                                          ; preds = %while.end
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef 0) #32
@@ -16268,7 +16268,7 @@ for.body29:                                       ; preds = %if.end, %for.body29
   store i32 0, ptr %slot_info_pairs_count.i, align 8
   %call33 = call ptr @listNext(ptr noundef nonnull %li) #32
   %cmp27.not = icmp eq ptr %call33, null
-  br i1 %cmp27.not, label %for.end34, label %for.body29, !llvm.loop !78
+  br i1 %cmp27.not, label %for.end34, label %for.body29, !llvm.loop !76
 
 for.end34:                                        ; preds = %for.body29, %if.end
   ret void
@@ -16303,7 +16303,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @addShardReplyForClusterShards(ptr noundef %c, ptr noundef %call6)
   %call7 = tail call ptr @dictNext(ptr noundef %call) #32
   %cmp.not = icmp eq ptr %call7, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !79
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !77
 
 for.end:                                          ; preds = %for.body, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #32
@@ -16361,7 +16361,7 @@ for.inc:                                          ; preds = %if.then2, %if.else9
   %slots_assigned.1 = phi i32 [ %slots_assigned.046, %for.body ], [ %inc, %if.then2 ], [ %inc, %if.then7 ], [ %inc, %if.else9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !80
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !78
 
 for.end:                                          ; preds = %for.inc
   %3 = load ptr, ptr @myself, align 8
@@ -16439,7 +16439,7 @@ for.inc44:                                        ; preds = %for.body29, %cluste
   %tot_msg_sent.1 = phi i64 [ %tot_msg_sent.049, %for.body29 ], [ %add38, %clusterGetMessageTypeString.exit ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 11
-  br i1 %exitcond58.not, label %for.end46, label %for.body29, !llvm.loop !81
+  br i1 %exitcond58.not, label %for.end46, label %for.body29, !llvm.loop !79
 
 for.end46:                                        ; preds = %for.inc44
   %call47 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.1, ptr noundef nonnull @.str.201, i64 noundef %tot_msg_sent.1) #32
@@ -16481,7 +16481,7 @@ for.inc66:                                        ; preds = %for.body51, %cluste
   %tot_msg_received.1 = phi i64 [ %tot_msg_received.052, %for.body51 ], [ %add60, %clusterGetMessageTypeString.exit42 ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 11
-  br i1 %exitcond62.not, label %for.end68, label %for.body51, !llvm.loop !82
+  br i1 %exitcond62.not, label %for.end68, label %for.body51, !llvm.loop !80
 
 for.end68:                                        ; preds = %for.inc66
   %call69 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.3, ptr noundef nonnull @.str.203, i64 noundef %tot_msg_received.1) #32
@@ -16532,7 +16532,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %inc = add nuw nsw i32 %j.05, 1
   %call4 = call i32 @raxNext(ptr noundef nonnull %iter) #32
   %tobool.not = icmp eq i32 %call4, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !83
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !81
 
 while.end:                                        ; preds = %if.end, %lor.lhs.false, %while.body, %entry
   %j.0.lcssa = phi i32 [ 0, %entry ], [ %j.05, %while.body ], [ %j.05, %lor.lhs.false ], [ %inc, %if.end ]
@@ -16684,7 +16684,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @clusterNodeIsMyself(ptr noundef readnone %n) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @clusterNodeIsMyself(ptr noundef readnone %n) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %1 = load ptr, ptr %0, align 8
@@ -16789,7 +16789,7 @@ while.body:                                       ; preds = %while.cond
   %7 = load i32, ptr %flags, align 8
   %and = and i32 %7, 96
   %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.end, label %while.cond, !llvm.loop !84
+  br i1 %tobool.not, label %if.end, label %while.cond, !llvm.loop !82
 
 if.end:                                           ; preds = %while.body
   %call9 = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #36
@@ -16798,7 +16798,7 @@ if.end:                                           ; preds = %while.body
   %name = getelementptr inbounds i8, ptr %call8, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call9, ptr noundef nonnull align 8 dereferenceable(40) %name, i64 40, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %while.cond.outer, !llvm.loop !84
+  br label %while.cond.outer, !llvm.loop !82
 
 while.end:                                        ; preds = %while.cond
   %conv = and i64 %indvars.iv, 4294967295
@@ -16810,7 +16810,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @handleDebugClusterCommand(ptr noundef %c) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @handleDebugClusterCommand(ptr noundef %c) local_unnamed_addr #3 {
 entry:
   %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
@@ -16982,7 +16982,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @clusterNodePending(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define dso_local range(i32 0, 97) i32 @clusterNodePending(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -16998,7 +16998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @clusterNodeIsSlave(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define dso_local range(i32 0, 3) i32 @clusterNodeIsSlave(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -17022,7 +17022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @clusterNodeTimedOut(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define dso_local range(i32 0, 5) i32 @clusterNodeTimedOut(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -17031,7 +17031,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @clusterNodeIsFailing(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define dso_local range(i32 0, 9) i32 @clusterNodeIsFailing(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -17040,7 +17040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @clusterNodeIsNoFailover(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define dso_local range(i32 0, 513) i32 @clusterNodeIsNoFailover(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -17062,7 +17062,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterCommandSpecial(ptr noundef %c) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterCommandSpecial(ptr noundef %c) local_unnamed_addr #3 {
 entry:
   %slot.i305 = alloca i64, align 8
   %slot.i261 = alloca i64, align 8
@@ -17148,7 +17148,7 @@ if.end23:                                         ; preds = %if.then13.if.end23_
   %20 = load ptr, ptr %ptr26, align 8
   %conv = trunc i64 %17 to i32
   %conv27 = trunc i64 %16 to i32
-  %call28 = call i32 @clusterStartHandshake(ptr noundef %20, i32 noundef %conv, i32 noundef %conv27), !range !18
+  %call28 = call i32 @clusterStartHandshake(ptr noundef %20, i32 noundef %conv, i32 noundef %conv27)
   %cmp29 = icmp eq i32 %call28, 0
   br i1 %cmp29, label %land.lhs.true31, label %if.else42
 
@@ -17263,7 +17263,7 @@ cond.end.i.i:                                     ; preds = %if.end.i.i
 for.inc.i:                                        ; preds = %if.then.i, %cond.end.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16384
-  br i1 %exitcond.not.i, label %clusterDelNodeSlots.exit, label %for.body.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %clusterDelNodeSlots.exit, label %for.body.i, !llvm.loop !46
 
 clusterDelNodeSlots.exit:                         ; preds = %for.inc.i
   %45 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
@@ -17354,7 +17354,7 @@ for.inc.i246.us:                                  ; preds = %if.end10.i.us
   %61 = load i32, ptr %argc75, align 8
   %62 = sext i32 %61 to i64
   %cmp97.us = icmp slt i64 %indvars.iv.next473, %62
-  br i1 %cmp97.us, label %for.body99.us, label %for.end111, !llvm.loop !85
+  br i1 %cmp97.us, label %for.body99.us, label %for.end111, !llvm.loop !83
 
 for.body:                                         ; preds = %if.then78, %getSlotOrReply.exit
   %indvars.iv466 = phi i64 [ %indvars.iv.next467, %getSlotOrReply.exit ], [ 2, %if.then78 ]
@@ -17381,7 +17381,7 @@ getSlotOrReply.exit:                              ; preds = %for.body
   %67 = load i32, ptr %argc75, align 8
   %68 = sext i32 %67 to i64
   %cmp86 = icmp slt i64 %indvars.iv.next467, %68
-  br i1 %cmp86, label %for.body, label %for.cond95.preheader, !llvm.loop !86
+  br i1 %cmp86, label %for.body, label %for.cond95.preheader, !llvm.loop !84
 
 for.body99:                                       ; preds = %for.body99.lr.ph, %for.inc.us.i
   %indvars.iv469 = phi i64 [ %indvars.iv.next470, %for.inc.us.i ], [ 2, %for.body99.lr.ph ]
@@ -17423,7 +17423,7 @@ for.inc.us.i:                                     ; preds = %if.end10.us.i
   %76 = load i32, ptr %argc75, align 8
   %77 = sext i32 %76 to i64
   %cmp97 = icmp slt i64 %indvars.iv.next470, %77
-  br i1 %cmp97, label %for.body99, label %for.end111, !llvm.loop !85
+  br i1 %cmp97, label %for.body99, label %for.end111, !llvm.loop !83
 
 if.then107:                                       ; preds = %if.end10.us.i, %getSlotOrReply.exit241, %if.end10.i.us, %getSlotOrReply.exit241.us
   %.us-phi16.in.sink.i = phi i64 [ %retval.0.i239.us, %getSlotOrReply.exit241.us ], [ %retval.0.i239.us, %if.end10.i.us ], [ %retval.0.i239, %getSlotOrReply.exit241 ], [ %retval.0.i239, %if.end10.us.i ]
@@ -17561,7 +17561,7 @@ for.inc.us.i298:                                  ; preds = %if.end10.us.i294
   %indvars.iv.next25.i299 = add nuw nsw i64 %indvars.iv24.i290, 1
   %lftr.wideiv27.i300 = trunc i64 %indvars.iv.next25.i299 to i32
   %exitcond28.not.i301 = icmp eq i32 %95, %lftr.wideiv27.i300
-  br i1 %exitcond28.not.i301, label %for.inc176, label %for.body.us.i289, !llvm.loop !74
+  br i1 %exitcond28.not.i301, label %for.inc176, label %for.body.us.i289, !llvm.loop !72
 
 for.body.i271:                                    ; preds = %for.body.lr.ph.i, %for.inc.i280
   %indvars.iv.i272 = phi i64 [ %indvars.iv.next.i281, %for.inc.i280 ], [ %88, %for.body.lr.ph.i ]
@@ -17582,7 +17582,7 @@ for.inc.i280:                                     ; preds = %if.end10.i276
   %indvars.iv.next.i281 = add nuw nsw i64 %indvars.iv.i272, 1
   %lftr.wideiv.i282 = trunc i64 %indvars.iv.next.i281 to i32
   %exitcond.not.i283 = icmp eq i32 %95, %lftr.wideiv.i282
-  br i1 %exitcond.not.i283, label %for.inc176, label %for.body.i271, !llvm.loop !74
+  br i1 %exitcond.not.i283, label %for.inc176, label %for.body.i271, !llvm.loop !72
 
 if.then174:                                       ; preds = %if.end10.us.i294, %for.body.us.i289, %if.end10.i276, %for.body.i271
   %.us-phi16.in.sink.i286 = phi i64 [ %indvars.iv.i272, %for.body.i271 ], [ %indvars.iv.i272, %if.end10.i276 ], [ %indvars.iv24.i290, %for.body.us.i289 ], [ %indvars.iv24.i290, %if.end10.us.i294 ]
@@ -17597,7 +17597,7 @@ for.inc176:                                       ; preds = %for.inc.us.i298, %f
   %101 = load i32, ptr %argc125, align 8
   %102 = trunc nuw i64 %indvars.iv.next to i32
   %cmp147 = icmp sgt i32 %101, %102
-  br i1 %cmp147, label %for.body149, label %for.end178, !llvm.loop !87
+  br i1 %cmp147, label %for.body149, label %for.end178, !llvm.loop !85
 
 for.end178:                                       ; preds = %for.inc176, %if.end133
   call void @clusterUpdateSlots(ptr noundef nonnull %c, ptr noundef nonnull %call136, i32 noundef %lnot.ext144)
@@ -17886,7 +17886,7 @@ if.end357:                                        ; preds = %if.then353, %land.l
   %152 = load ptr, ptr %arrayidx360, align 8
   %153 = load ptr, ptr @myself, align 8
   %cmp361 = icmp eq ptr %152, %153
-  %call363 = call i32 @clusterDelSlot(i32 noundef %conv.i310), !range !21
+  %call363 = call i32 @clusterDelSlot(i32 noundef %conv.i310)
   %154 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots.i = getelementptr inbounds i8, ptr %154, i64 262192
   %arrayidx.i314 = getelementptr inbounds [16384 x ptr], ptr %slots.i, i64 0, i64 %110
@@ -17895,7 +17895,7 @@ if.end357:                                        ; preds = %if.then353, %land.l
   br i1 %tobool.not.i315, label %if.end.i317, label %clusterAddSlot.exit
 
 if.end.i317:                                      ; preds = %if.end357
-  %call.i318 = call i32 @clusterNodeSetSlotBit(ptr noundef nonnull %call318, i32 noundef %conv.i310), !range !18
+  %call.i318 = call i32 @clusterNodeSetSlotBit(ptr noundef nonnull %call318, i32 noundef %conv.i310)
   %156 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots1.i319 = getelementptr inbounds i8, ptr %156, i64 262192
   %arrayidx3.i = getelementptr inbounds [16384 x ptr], ptr %slots1.i319, i64 0, i64 %110
@@ -17955,7 +17955,7 @@ land.lhs.true382:                                 ; preds = %land.lhs.true366, %
   br i1 %tobool386.not, label %if.end407, label %if.then387
 
 if.then387:                                       ; preds = %land.lhs.true382
-  %call388 = call i32 @clusterBumpConfigEpochWithoutConsensus(), !range !21
+  %call388 = call i32 @clusterBumpConfigEpochWithoutConsensus()
   %cmp389 = icmp ne i32 %call388, 0
   %166 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp393 = icmp sgt i32 %166, 2
@@ -18000,7 +18000,7 @@ land.lhs.true414:                                 ; preds = %if.else408
   br i1 %cmp416, label %if.then418, label %if.else425
 
 if.then418:                                       ; preds = %land.lhs.true414
-  %call420 = tail call i32 @clusterBumpConfigEpochWithoutConsensus(), !range !21
+  %call420 = tail call i32 @clusterBumpConfigEpochWithoutConsensus()
   %call421 = tail call ptr @sdsempty() #32
   %cmp422 = icmp eq i32 %call420, 0
   %cond = select i1 %cmp422, ptr @.str.239, ptr @.str.240
@@ -18023,7 +18023,7 @@ land.lhs.true431:                                 ; preds = %if.else425
   br i1 %cmp433, label %if.then435, label %if.else445
 
 if.then435:                                       ; preds = %land.lhs.true431
-  %call437 = tail call i32 @clusterSaveConfig(i32 noundef 1), !range !21
+  %call437 = tail call i32 @clusterSaveConfig(i32 noundef 1)
   %cmp438 = icmp eq i32 %call437, 0
   br i1 %cmp438, label %if.then440, label %if.else441
 
@@ -18125,7 +18125,7 @@ if.then467:                                       ; preds = %if.end.i329, %sdsle
   %188 = load ptr, ptr %arrayidx469, align 8
   %ptr470 = getelementptr inbounds i8, ptr %188, i64 8
   %189 = load ptr, ptr %ptr470, align 8
-  %call471 = tail call i32 @clusterBlacklistExists(ptr noundef %189), !range !18
+  %call471 = tail call i32 @clusterBlacklistExists(ptr noundef %189)
   %tobool472.not = icmp eq i32 %call471, 0
   br i1 %tobool472.not, label %if.else474, label %if.then473
 
@@ -18516,7 +18516,7 @@ if.end640:                                        ; preds = %do.body636
   br label %do.end641
 
 do.end641:                                        ; preds = %do.body636, %if.end640
-  %call642 = tail call i32 @clusterBumpConfigEpochWithoutConsensus(), !range !21
+  %call642 = tail call i32 @clusterBumpConfigEpochWithoutConsensus()
   tail call void @clusterFailoverReplaceYourMaster()
   br label %if.end661
 
@@ -18781,7 +18781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @isClusterHealthy() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @isClusterHealthy() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %state = getelementptr inbounds i8, ptr %0, i64 16
@@ -18819,7 +18819,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterAllowFailoverCmd(ptr noundef %c) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterAllowFailoverCmd(ptr noundef %c) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -18930,10 +18930,10 @@ attributes #37 = { nounwind allocsize(1) }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 0, i32 2}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = !{i32 -1, i32 1}
+!21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
@@ -18998,5 +18998,3 @@ attributes #37 = { nounwind allocsize(1) }
 !83 = distinct !{!83, !6}
 !84 = distinct !{!84, !6}
 !85 = distinct !{!85, !6}
-!86 = distinct !{!86, !6}
-!87 = distinct !{!87, !6}

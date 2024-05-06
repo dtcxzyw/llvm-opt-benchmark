@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @"_ZN67_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..Ord$GT$3cmp17h207fe3079e8000d9E"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #0 {
+define range(i8 -1, 2) i8 @"_ZN67_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..Ord$GT$3cmp17h207fe3079e8000d9E"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #0 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -18,7 +18,7 @@ define i8 @"_ZN67_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..Ord
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2a21f7c391594d31E"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #0 {
+define range(i8 -1, 2) i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2a21f7c391594d31E"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #0 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -41,7 +41,7 @@ define { i1, i8 } @"_ZN73_$LT$common..types..TelemetryDetail$u20$as$u20$core..de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i8 @"_ZN80_$LT$common..types..DetailsLevel$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h1b082828574ccc0bE"(i64 %0) unnamed_addr #1 {
+define range(i8 0, 3) i8 @"_ZN80_$LT$common..types..DetailsLevel$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h1b082828574ccc0bE"(i64 %0) unnamed_addr #1 {
   %switch.selectcmp = icmp eq i64 %0, 1
   %switch.select = select i1 %switch.selectcmp, i8 1, i8 2
   %switch.selectcmp1 = icmp eq i64 %0, 0

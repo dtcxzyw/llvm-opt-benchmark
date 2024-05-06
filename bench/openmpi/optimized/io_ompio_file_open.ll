@@ -457,7 +457,7 @@ define noundef i32 @mca_io_ompio_file_get_type_extent(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_io_ompio_file_set_atomicity(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 36) i32 @mca_io_ompio_file_set_atomicity(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 952
   %5 = load ptr, ptr %4, align 8
@@ -852,7 +852,7 @@ define i32 @mca_io_ompio_file_get_position(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 14) i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 952
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr @opal_uses_threads, align 1

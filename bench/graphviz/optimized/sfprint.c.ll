@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @sfprint(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @sfprint(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1331,7 +1331,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   %or.cond6 = icmp ult i32 %579, -63
   %spec.store.select47 = select i1 %or.cond6, i32 10, i32 %.8947
   %580 = add nsw i32 %spec.store.select47, -1
-  %581 = call i32 @llvm.ctpop.i32(i32 %spec.store.select47), !range !4
+  %581 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select47)
   %582 = icmp ult i32 %581, 2
   br i1 %582, label %583, label %596
 
@@ -3553,4 +3553,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}

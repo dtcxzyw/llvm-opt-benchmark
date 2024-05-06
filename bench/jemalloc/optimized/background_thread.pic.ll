@@ -735,7 +735,7 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body, %entry
   tail call void @malloc_mutex_postfork_child(ptr noundef %tsdn, ptr noundef nonnull @background_thread_lock) #11
   %3 = load i8, ptr @background_thread_enabled_at_fork, align 1
-  %tobool = trunc i8 %3 to i1
+  %tobool = trunc nuw i8 %3 to i1
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %for.end

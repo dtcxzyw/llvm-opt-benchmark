@@ -48,7 +48,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %land.lhs.true4, label %if.end8
 
 land.lhs.true4:                                   ; preds = %if.end.thread, %if.end
-  %call5 = tail call i32 @chacha20_set_ctx_params(ptr poison, ptr noundef %params), !range !4
+  %call5 = tail call i32 @chacha20_set_ctx_params(ptr poison, ptr noundef %params)
   %tobool6.not = icmp eq i32 %call5, 0
   %spec.select = select i1 %tobool6.not, i32 0, i32 %call
   br label %if.end8
@@ -61,7 +61,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
 declare i32 @ossl_cipher_generic_einit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @chacha20_set_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @chacha20_set_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
 entry:
   %len = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -131,7 +131,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %land.lhs.true4, label %if.end8
 
 land.lhs.true4:                                   ; preds = %if.end.thread, %if.end
-  %call5 = tail call i32 @chacha20_set_ctx_params(ptr poison, ptr noundef %params), !range !4
+  %call5 = tail call i32 @chacha20_set_ctx_params(ptr poison, ptr noundef %params)
   %tobool6.not = icmp eq i32 %call5, 0
   %spec.select = select i1 %tobool6.not, i32 0, i32 %call
   br label %if.end8
@@ -236,7 +236,7 @@ entry:
 declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @chacha20_get_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @chacha20_get_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.2) #3
   %cmp.not = icmp eq ptr %call, null
@@ -320,4 +320,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

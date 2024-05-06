@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_datatype_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_datatype_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i16, ptr %3, align 8

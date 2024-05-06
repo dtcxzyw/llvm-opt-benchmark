@@ -61,7 +61,7 @@ land.lhs.true:                                    ; preds = %if.end5
   br i1 %tobool18.not, label %if.then19, label %return
 
 if.then19:                                        ; preds = %land.lhs.true
-  %call20 = tail call i32 @DSO_free(ptr noundef nonnull %call), !range !4
+  %call20 = tail call i32 @DSO_free(ptr noundef nonnull %call)
   br label %return
 
 return:                                           ; preds = %if.end5, %land.lhs.true, %if.then19, %entry, %if.then4
@@ -70,7 +70,7 @@ return:                                           ; preds = %if.end5, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DSO_free(ptr noundef %dso) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSO_free(ptr noundef %dso) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dso, null
   br i1 %cmp, label %return, label %if.end
@@ -181,7 +181,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @DSO_up_ref(ptr noundef %dso) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSO_up_ref(ptr noundef %dso) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dso, null
   br i1 %cmp, label %if.then, label %if.end
@@ -278,7 +278,7 @@ err:                                              ; preds = %if.end30, %if.end25
   br i1 %cmp.not, label %if.then38, label %return
 
 if.then38:                                        ; preds = %err
-  %call39 = tail call i32 @DSO_free(ptr noundef nonnull %ret.0), !range !4
+  %call39 = tail call i32 @DSO_free(ptr noundef nonnull %ret.0)
   br label %return
 
 return:                                           ; preds = %err.thread, %err, %if.then38, %if.end30
@@ -352,7 +352,7 @@ return:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DSO_set_filename(ptr noundef %dso, ptr noundef %filename) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSO_set_filename(ptr noundef %dso, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dso, null
   %cmp1 = icmp eq ptr %filename, null
@@ -691,4 +691,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

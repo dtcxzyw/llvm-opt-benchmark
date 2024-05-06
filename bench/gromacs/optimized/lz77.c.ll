@@ -25,9 +25,9 @@ define void @Ptngc_comp_to_lz77(ptr nocapture noundef readonly %0, i32 noundef %
   %13 = mul nuw nsw i64 %indvars.iv, 7
   %14 = getelementptr inbounds i32, ptr %9, i64 %13
   store i32 0, ptr %14, align 4
-  %15 = getelementptr i8, ptr %14, i64 4
+  %15 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 0, ptr %15, align 4
-  %16 = getelementptr i8, ptr %14, i64 8
+  %16 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 -2, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 131072

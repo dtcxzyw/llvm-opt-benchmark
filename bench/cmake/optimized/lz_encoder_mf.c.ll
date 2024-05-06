@@ -60,8 +60,8 @@ define dso_local i32 @lzma_mf_find(ptr noundef %0, ptr nocapture noundef writeon
 
 34:                                               ; preds = %.lr.ph
   %35 = sub i64 %.val51, %.val52
-  %36 = tail call i64 @llvm.cttz.i64(i64 %35, i1 true), !range !5
-  %37 = trunc i64 %36 to i32
+  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 true)
+  %37 = trunc nuw nsw i64 %36 to i32
   %38 = lshr i32 %37, 3
   %39 = add i32 %38, %.03954
   %40 = tail call i32 @llvm.umin.i32(i32 %39, i32 %spec.select)
@@ -70,7 +70,7 @@ define dso_local i32 @lzma_mf_find(ptr noundef %0, ptr nocapture noundef writeon
 41:                                               ; preds = %.lr.ph
   %42 = add i32 %.03954, 8
   %43 = icmp ult i32 %42, %spec.select
-  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %41, %15, %34, %7, %3
   %.041 = phi i32 [ %11, %7 ], [ 0, %3 ], [ %40, %34 ], [ %spec.select, %15 ], [ %spec.select, %41 ]
@@ -184,12 +184,12 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
 66:                                               ; preds = %.lr.ph
   %67 = add i32 %.077108, 8
   %68 = icmp ult i32 %67, %.079
-  br i1 %68, label %.lr.ph, label %.thread, !llvm.loop !6
+  br i1 %68, label %.lr.ph, label %.thread, !llvm.loop !5
 
 69:                                               ; preds = %.lr.ph
   %70 = sub i64 %.val89, %.val90
-  %71 = tail call i64 @llvm.cttz.i64(i64 %70, i1 true), !range !5
-  %72 = trunc i64 %71 to i32
+  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %70, i1 true)
+  %72 = trunc nuw nsw i64 %71 to i32
   %73 = lshr i32 %72, 3
   %74 = add i32 %73, %.077108
   %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 %.079)
@@ -250,7 +250,7 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
   %103 = load i32, ptr %96, align 4
   %104 = zext i32 %103 to i64
   %105 = icmp ult i64 %indvars.iv.next.i.i, %104
-  br i1 %105, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %105, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -263,7 +263,7 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
   %109 = load i32, ptr %98, align 8
   %110 = zext i32 %109 to i64
   %111 = icmp ult i64 %indvars.iv.next36.i.i, %110
-  br i1 %111, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %111, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %112 = load i32, ptr %18, align 4
@@ -326,7 +326,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %147 = load i32, ptr %140, align 4
   %148 = zext i32 %147 to i64
   %149 = icmp ult i64 %indvars.iv.next.i.i96, %148
-  br i1 %149, label %.lr.ph.i.i93, label %.preheader.i.i97, !llvm.loop !8
+  br i1 %149, label %.lr.ph.i.i93, label %.preheader.i.i97, !llvm.loop !7
 
 .lr.ph32.i.i99:                                   ; preds = %.preheader.i.i97, %.lr.ph32.i.i99
   %indvars.iv35.i.i100 = phi i64 [ %indvars.iv.next36.i.i102, %.lr.ph32.i.i99 ], [ 0, %.preheader.i.i97 ]
@@ -339,7 +339,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %153 = load i32, ptr %142, align 8
   %154 = zext i32 %153 to i64
   %155 = icmp ult i64 %indvars.iv.next36.i.i102, %154
-  br i1 %155, label %.lr.ph32.i.i99, label %normalize.exit.i103, !llvm.loop !9
+  br i1 %155, label %.lr.ph32.i.i99, label %normalize.exit.i103, !llvm.loop !8
 
 normalize.exit.i103:                              ; preds = %.lr.ph32.i.i99, %.preheader.i.i97
   %156 = load i32, ptr %18, align 4
@@ -416,8 +416,8 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
 
 43:                                               ; preds = %.preheader.us
   %44 = sub i64 %.val.us, %.val66.us
-  %45 = tail call i64 @llvm.cttz.i64(i64 %44, i1 true), !range !5
-  %46 = trunc i64 %45 to i32
+  %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %44, i1 true)
+  %46 = trunc nuw nsw i64 %45 to i32
   %47 = lshr i32 %46, 3
   %48 = add i32 %47, %.05368.us
   %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 %0)
@@ -450,7 +450,7 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
 60:                                               ; preds = %.preheader.us
   %61 = add i32 %.05368.us, 8
   %62 = icmp ult i32 %61, %0
-  br i1 %62, label %.preheader.us, label %..loopexit_crit_edge.us, !llvm.loop !6
+  br i1 %62, label %.preheader.us, label %..loopexit_crit_edge.us, !llvm.loop !5
 
 .lr.ph73.split:                                   ; preds = %.lr.ph73.split.preheader, %85
   %63 = phi i32 [ %87, %85 ], [ %15, %.lr.ph73.split.preheader ]
@@ -603,7 +603,7 @@ define dso_local void @lzma_mf_hc3_skip(ptr nocapture noundef %0, i32 noundef %1
   %71 = load i32, ptr %11, align 4
   %72 = zext i32 %71 to i64
   %73 = icmp ult i64 %indvars.iv.next.i.i, %72
-  br i1 %73, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %73, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -616,7 +616,7 @@ define dso_local void @lzma_mf_hc3_skip(ptr nocapture noundef %0, i32 noundef %1
   %77 = load i32, ptr %12, align 8
   %78 = zext i32 %77 to i64
   %79 = icmp ult i64 %indvars.iv.next36.i.i, %78
-  br i1 %79, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %79, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %80 = load i32, ptr %5, align 4
@@ -627,7 +627,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 move_pos.exit:                                    ; preds = %normalize.exit.i, %21, %17
   %82 = add i32 %.0, -1
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %83, label %14, !llvm.loop !10
+  br i1 %.not, label %83, label %14, !llvm.loop !9
 
 83:                                               ; preds = %move_pos.exit
   ret void
@@ -799,12 +799,12 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
 103:                                              ; preds = %.lr.ph
   %104 = add i32 %.0102149, 8
   %105 = icmp ult i32 %104, %.0105
-  br i1 %105, label %.lr.ph, label %.thread145, !llvm.loop !6
+  br i1 %105, label %.lr.ph, label %.thread145, !llvm.loop !5
 
 106:                                              ; preds = %.lr.ph
   %107 = sub i64 %.val121, %.val122
-  %108 = tail call i64 @llvm.cttz.i64(i64 %107, i1 true), !range !5
-  %109 = trunc i64 %108 to i32
+  %108 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %107, i1 true)
+  %109 = trunc nuw nsw i64 %108 to i32
   %110 = lshr i32 %109, 3
   %111 = add i32 %110, %.0102149
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 %.0105)
@@ -861,7 +861,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   %141 = load i32, ptr %134, align 4
   %142 = zext i32 %141 to i64
   %143 = icmp ult i64 %indvars.iv.next.i.i, %142
-  br i1 %143, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %143, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -874,7 +874,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   %147 = load i32, ptr %136, align 8
   %148 = zext i32 %147 to i64
   %149 = icmp ult i64 %indvars.iv.next36.i.i, %148
-  br i1 %149, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %149, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %150 = load i32, ptr %18, align 4
@@ -939,7 +939,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %186 = load i32, ptr %179, align 4
   %187 = zext i32 %186 to i64
   %188 = icmp ult i64 %indvars.iv.next.i.i128, %187
-  br i1 %188, label %.lr.ph.i.i125, label %.preheader.i.i129, !llvm.loop !8
+  br i1 %188, label %.lr.ph.i.i125, label %.preheader.i.i129, !llvm.loop !7
 
 .lr.ph32.i.i131:                                  ; preds = %.preheader.i.i129, %.lr.ph32.i.i131
   %indvars.iv35.i.i132 = phi i64 [ %indvars.iv.next36.i.i134, %.lr.ph32.i.i131 ], [ 0, %.preheader.i.i129 ]
@@ -952,7 +952,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %192 = load i32, ptr %181, align 8
   %193 = zext i32 %192 to i64
   %194 = icmp ult i64 %indvars.iv.next36.i.i134, %193
-  br i1 %194, label %.lr.ph32.i.i131, label %normalize.exit.i135, !llvm.loop !9
+  br i1 %194, label %.lr.ph32.i.i131, label %normalize.exit.i135, !llvm.loop !8
 
 normalize.exit.i135:                              ; preds = %.lr.ph32.i.i131, %.preheader.i.i129
   %195 = load i32, ptr %18, align 4
@@ -1036,8 +1036,8 @@ define dso_local void @lzma_mf_hc4_skip(ptr nocapture noundef %0, i32 noundef %1
   store i32 %25, ptr %56, align 4
   %57 = load ptr, ptr %7, align 8
   %58 = zext nneg i32 %40 to i64
-  %59 = getelementptr i32, ptr %57, i64 %58
-  %60 = getelementptr i8, ptr %59, i64 4096
+  %59 = getelementptr inbounds i32, ptr %57, i64 %58
+  %60 = getelementptr inbounds i8, ptr %59, i64 4096
   store i32 %25, ptr %60, align 4
   %61 = load ptr, ptr %7, align 8
   %62 = getelementptr inbounds i32, ptr %61, i64 %52
@@ -1083,7 +1083,7 @@ define dso_local void @lzma_mf_hc4_skip(ptr nocapture noundef %0, i32 noundef %1
   %83 = load i32, ptr %11, align 4
   %84 = zext i32 %83 to i64
   %85 = icmp ult i64 %indvars.iv.next.i.i, %84
-  br i1 %85, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %85, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -1096,7 +1096,7 @@ define dso_local void @lzma_mf_hc4_skip(ptr nocapture noundef %0, i32 noundef %1
   %89 = load i32, ptr %12, align 8
   %90 = zext i32 %89 to i64
   %91 = icmp ult i64 %indvars.iv.next36.i.i, %90
-  br i1 %91, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %91, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %92 = load i32, ptr %5, align 4
@@ -1107,7 +1107,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 move_pos.exit:                                    ; preds = %normalize.exit.i, %21, %17
   %94 = add i32 %.0, -1
   %.not = icmp eq i32 %94, 0
-  br i1 %.not, label %95, label %14, !llvm.loop !11
+  br i1 %.not, label %95, label %14, !llvm.loop !10
 
 95:                                               ; preds = %move_pos.exit
   ret void
@@ -1232,8 +1232,8 @@ define dso_local i32 @lzma_mf_bt2_find(ptr nocapture noundef %0, ptr noundef %1)
 
 69:                                               ; preds = %.lr.ph.i
   %70 = sub i64 %.val.i, %.val100.i
-  %71 = tail call i64 @llvm.cttz.i64(i64 %70, i1 true), !range !5
-  %72 = trunc i64 %71 to i32
+  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %70, i1 true)
+  %72 = trunc nuw nsw i64 %71 to i32
   %73 = lshr i32 %72, 3
   %74 = add i32 %73, %.078106.i
   %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 %.029)
@@ -1242,7 +1242,7 @@ define dso_local i32 @lzma_mf_bt2_find(ptr nocapture noundef %0, ptr noundef %1)
 76:                                               ; preds = %.lr.ph.i
   %77 = add i32 %.078106.i, 8
   %78 = icmp ult i32 %77, %.029
-  br i1 %78, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
+  br i1 %78, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %76, %69, %63
   %.077.i = phi i32 [ %75, %69 ], [ %.029, %63 ], [ %.029, %76 ]
@@ -1345,7 +1345,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i, %85
   %125 = load i32, ptr %118, align 4
   %126 = zext i32 %125 to i64
   %127 = icmp ult i64 %indvars.iv.next.i.i, %126
-  br i1 %127, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %127, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -1358,7 +1358,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i, %85
   %131 = load i32, ptr %120, align 8
   %132 = zext i32 %131 to i64
   %133 = icmp ult i64 %indvars.iv.next36.i.i, %132
-  br i1 %133, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %133, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %134 = load i32, ptr %22, align 4
@@ -1494,12 +1494,12 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
 72:                                               ; preds = %.lr.ph.i
   %73 = add i32 %.06796.i, 8
   %74 = icmp ult i32 %73, %.025
-  br i1 %74, label %.lr.ph.i, label %.thread.i, !llvm.loop !6
+  br i1 %74, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
 75:                                               ; preds = %.lr.ph.i
   %76 = sub i64 %.val.i, %.val84.i
-  %77 = tail call i64 @llvm.cttz.i64(i64 %76, i1 true), !range !5
-  %78 = trunc i64 %77 to i32
+  %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %76, i1 true)
+  %78 = trunc nuw nsw i64 %77 to i32
   %79 = lshr i32 %78, 3
   %80 = add i32 %79, %.06796.i
   %.not86.i = icmp ult i32 %80, %.025
@@ -1587,7 +1587,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %110 = load i32, ptr %13, align 4
   %111 = zext i32 %110 to i64
   %112 = icmp ult i64 %indvars.iv.next.i.i, %111
-  br i1 %112, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %112, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -1600,7 +1600,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %116 = load i32, ptr %14, align 8
   %117 = zext i32 %116 to i64
   %118 = icmp ult i64 %indvars.iv.next36.i.i, %117
-  br i1 %118, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %118, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %119 = load i32, ptr %7, align 4
@@ -1611,7 +1611,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 move_pos.exit:                                    ; preds = %normalize.exit.i, %bt_skip_func.exit, %24
   %121 = add i32 %.0, -1
   %.not29 = icmp eq i32 %121, 0
-  br i1 %.not29, label %122, label %16, !llvm.loop !12
+  br i1 %.not29, label %122, label %16, !llvm.loop !11
 
 122:                                              ; preds = %move_pos.exit
   ret void
@@ -1725,12 +1725,12 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
 70:                                               ; preds = %.lr.ph
   %71 = add i32 %.083143, 8
   %72 = icmp ult i32 %71, %.085
-  br i1 %72, label %.lr.ph, label %.thread, !llvm.loop !6
+  br i1 %72, label %.lr.ph, label %.thread, !llvm.loop !5
 
 73:                                               ; preds = %.lr.ph
   %74 = sub i64 %.val95, %.val96
-  %75 = tail call i64 @llvm.cttz.i64(i64 %74, i1 true), !range !5
-  %76 = trunc i64 %75 to i32
+  %75 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %74, i1 true)
+  %76 = trunc nuw nsw i64 %75 to i32
   %77 = lshr i32 %76, 3
   %78 = add i32 %77, %.083143
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 %.085)
@@ -1816,12 +1816,12 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
 121:                                              ; preds = %.lr.ph.i
   %122 = add i32 %.06796.i, 8
   %123 = icmp ult i32 %122, %.085
-  br i1 %123, label %.lr.ph.i, label %.thread.i, !llvm.loop !6
+  br i1 %123, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
 124:                                              ; preds = %.lr.ph.i
   %125 = sub i64 %.val.i, %.val84.i
-  %126 = tail call i64 @llvm.cttz.i64(i64 %125, i1 true), !range !5
-  %127 = trunc i64 %126 to i32
+  %126 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %125, i1 true)
+  %127 = trunc nuw nsw i64 %126 to i32
   %128 = lshr i32 %127, 3
   %129 = add i32 %128, %.06796.i
   %.not86.i = icmp ult i32 %129, %.085
@@ -1911,7 +1911,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %161 = load i32, ptr %154, align 4
   %162 = zext i32 %161 to i64
   %163 = icmp ult i64 %indvars.iv.next.i.i, %162
-  br i1 %163, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %163, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -1924,7 +1924,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %167 = load i32, ptr %156, align 8
   %168 = zext i32 %167 to i64
   %169 = icmp ult i64 %indvars.iv.next36.i.i, %168
-  br i1 %169, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %169, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %170 = load i32, ptr %22, align 4
@@ -2008,8 +2008,8 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 
 212:                                              ; preds = %.lr.ph.i103
   %213 = sub i64 %.val.i104, %.val100.i
-  %214 = tail call i64 @llvm.cttz.i64(i64 %213, i1 true), !range !5
-  %215 = trunc i64 %214 to i32
+  %214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %213, i1 true)
+  %215 = trunc nuw nsw i64 %214 to i32
   %216 = lshr i32 %215, 3
   %217 = add i32 %216, %.078106.i
   %218 = tail call i32 @llvm.umin.i32(i32 %217, i32 %.085)
@@ -2018,7 +2018,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 219:                                              ; preds = %.lr.ph.i103
   %220 = add i32 %.078106.i, 8
   %221 = icmp ult i32 %220, %.085
-  br i1 %221, label %.lr.ph.i103, label %.loopexit.i, !llvm.loop !6
+  br i1 %221, label %.lr.ph.i103, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %219, %212, %206
   %.077.i = phi i32 [ %218, %212 ], [ %.085, %206 ], [ %.085, %219 ]
@@ -2121,7 +2121,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i97, %2
   %268 = load i32, ptr %261, align 4
   %269 = zext i32 %268 to i64
   %270 = icmp ult i64 %indvars.iv.next.i.i110, %269
-  br i1 %270, label %.lr.ph.i.i107, label %.preheader.i.i111, !llvm.loop !8
+  br i1 %270, label %.lr.ph.i.i107, label %.preheader.i.i111, !llvm.loop !7
 
 .lr.ph32.i.i113:                                  ; preds = %.preheader.i.i111, %.lr.ph32.i.i113
   %indvars.iv35.i.i114 = phi i64 [ %indvars.iv.next36.i.i116, %.lr.ph32.i.i113 ], [ 0, %.preheader.i.i111 ]
@@ -2134,7 +2134,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i97, %2
   %274 = load i32, ptr %263, align 8
   %275 = zext i32 %274 to i64
   %276 = icmp ult i64 %indvars.iv.next36.i.i116, %275
-  br i1 %276, label %.lr.ph32.i.i113, label %normalize.exit.i117, !llvm.loop !9
+  br i1 %276, label %.lr.ph32.i.i113, label %normalize.exit.i117, !llvm.loop !8
 
 normalize.exit.i117:                              ; preds = %.lr.ph32.i.i113, %.preheader.i.i111
   %277 = load i32, ptr %22, align 4
@@ -2292,12 +2292,12 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
 94:                                               ; preds = %.lr.ph.i
   %95 = add i32 %.06796.i, 8
   %96 = icmp ult i32 %95, %.033
-  br i1 %96, label %.lr.ph.i, label %.thread.i, !llvm.loop !6
+  br i1 %96, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
 97:                                               ; preds = %.lr.ph.i
   %98 = sub i64 %.val.i, %.val84.i
-  %99 = tail call i64 @llvm.cttz.i64(i64 %98, i1 true), !range !5
-  %100 = trunc i64 %99 to i32
+  %99 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %98, i1 true)
+  %100 = trunc nuw nsw i64 %99 to i32
   %101 = lshr i32 %100, 3
   %102 = add i32 %101, %.06796.i
   %.not86.i = icmp ult i32 %102, %.033
@@ -2385,7 +2385,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %132 = load i32, ptr %14, align 4
   %133 = zext i32 %132 to i64
   %134 = icmp ult i64 %indvars.iv.next.i.i, %133
-  br i1 %134, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %134, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -2398,7 +2398,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %138 = load i32, ptr %15, align 8
   %139 = zext i32 %138 to i64
   %140 = icmp ult i64 %indvars.iv.next36.i.i, %139
-  br i1 %140, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %140, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %141 = load i32, ptr %7, align 4
@@ -2409,7 +2409,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 move_pos.exit:                                    ; preds = %normalize.exit.i, %bt_skip_func.exit, %25
   %143 = add i32 %.0, -1
   %.not37 = icmp eq i32 %143, 0
-  br i1 %.not37, label %144, label %17, !llvm.loop !13
+  br i1 %.not37, label %144, label %17, !llvm.loop !12
 
 144:                                              ; preds = %move_pos.exit
   ret void
@@ -2587,12 +2587,12 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
 107:                                              ; preds = %.lr.ph
   %108 = add i32 %.0108184, 8
   %109 = icmp ult i32 %108, %.0111
-  br i1 %109, label %.lr.ph, label %.thread159, !llvm.loop !6
+  br i1 %109, label %.lr.ph, label %.thread159, !llvm.loop !5
 
 110:                                              ; preds = %.lr.ph
   %111 = sub i64 %.val127, %.val128
-  %112 = tail call i64 @llvm.cttz.i64(i64 %111, i1 true), !range !5
-  %113 = trunc i64 %112 to i32
+  %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %111, i1 true)
+  %113 = trunc nuw nsw i64 %112 to i32
   %114 = lshr i32 %113, 3
   %115 = add i32 %114, %.0108184
   %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 %.0111)
@@ -2674,12 +2674,12 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
 159:                                              ; preds = %.lr.ph.i
   %160 = add i32 %.06796.i, 8
   %161 = icmp ult i32 %160, %.0111
-  br i1 %161, label %.lr.ph.i, label %.thread.i, !llvm.loop !6
+  br i1 %161, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
 162:                                              ; preds = %.lr.ph.i
   %163 = sub i64 %.val.i, %.val84.i
-  %164 = tail call i64 @llvm.cttz.i64(i64 %163, i1 true), !range !5
-  %165 = trunc i64 %164 to i32
+  %164 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %163, i1 true)
+  %165 = trunc nuw nsw i64 %164 to i32
   %166 = lshr i32 %165, 3
   %167 = add i32 %166, %.06796.i
   %.not86.i = icmp ult i32 %167, %.0111
@@ -2769,7 +2769,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %199 = load i32, ptr %192, align 4
   %200 = zext i32 %199 to i64
   %201 = icmp ult i64 %indvars.iv.next.i.i, %200
-  br i1 %201, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %201, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -2782,7 +2782,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %205 = load i32, ptr %194, align 8
   %206 = zext i32 %205 to i64
   %207 = icmp ult i64 %indvars.iv.next36.i.i, %206
-  br i1 %207, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %207, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %208 = load i32, ptr %22, align 4
@@ -2871,8 +2871,8 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 
 251:                                              ; preds = %.lr.ph.i135
   %252 = sub i64 %.val.i136, %.val100.i
-  %253 = tail call i64 @llvm.cttz.i64(i64 %252, i1 true), !range !5
-  %254 = trunc i64 %253 to i32
+  %253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %252, i1 true)
+  %254 = trunc nuw nsw i64 %253 to i32
   %255 = lshr i32 %254, 3
   %256 = add i32 %255, %.078106.i
   %257 = tail call i32 @llvm.umin.i32(i32 %256, i32 %.0111)
@@ -2881,7 +2881,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 258:                                              ; preds = %.lr.ph.i135
   %259 = add i32 %.078106.i, 8
   %260 = icmp ult i32 %259, %.0111
-  br i1 %260, label %.lr.ph.i135, label %.loopexit.i, !llvm.loop !6
+  br i1 %260, label %.lr.ph.i135, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %258, %251, %245
   %.077.i = phi i32 [ %257, %251 ], [ %.0111, %245 ], [ %.0111, %258 ]
@@ -2984,7 +2984,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i129, %
   %307 = load i32, ptr %300, align 4
   %308 = zext i32 %307 to i64
   %309 = icmp ult i64 %indvars.iv.next.i.i142, %308
-  br i1 %309, label %.lr.ph.i.i139, label %.preheader.i.i143, !llvm.loop !8
+  br i1 %309, label %.lr.ph.i.i139, label %.preheader.i.i143, !llvm.loop !7
 
 .lr.ph32.i.i145:                                  ; preds = %.preheader.i.i143, %.lr.ph32.i.i145
   %indvars.iv35.i.i146 = phi i64 [ %indvars.iv.next36.i.i148, %.lr.ph32.i.i145 ], [ 0, %.preheader.i.i143 ]
@@ -2997,7 +2997,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i129, %
   %313 = load i32, ptr %302, align 8
   %314 = zext i32 %313 to i64
   %315 = icmp ult i64 %indvars.iv.next36.i.i148, %314
-  br i1 %315, label %.lr.ph32.i.i145, label %normalize.exit.i149, !llvm.loop !9
+  br i1 %315, label %.lr.ph32.i.i145, label %normalize.exit.i149, !llvm.loop !8
 
 normalize.exit.i149:                              ; preds = %.lr.ph32.i.i145, %.preheader.i.i143
   %316 = load i32, ptr %22, align 4
@@ -3095,8 +3095,8 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
   store i32 %33, ptr %64, align 4
   %65 = load ptr, ptr %9, align 8
   %66 = zext nneg i32 %48 to i64
-  %67 = getelementptr i32, ptr %65, i64 %66
-  %68 = getelementptr i8, ptr %67, i64 4096
+  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %68 = getelementptr inbounds i8, ptr %67, i64 4096
   store i32 %33, ptr %68, align 4
   %69 = load ptr, ptr %9, align 8
   %70 = getelementptr inbounds i32, ptr %69, i64 %60
@@ -3168,12 +3168,12 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
 106:                                              ; preds = %.lr.ph.i
   %107 = add i32 %.06796.i, 8
   %108 = icmp ult i32 %107, %.039
-  br i1 %108, label %.lr.ph.i, label %.thread.i, !llvm.loop !6
+  br i1 %108, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
 109:                                              ; preds = %.lr.ph.i
   %110 = sub i64 %.val.i, %.val84.i
-  %111 = tail call i64 @llvm.cttz.i64(i64 %110, i1 true), !range !5
-  %112 = trunc i64 %111 to i32
+  %111 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %110, i1 true)
+  %112 = trunc nuw nsw i64 %111 to i32
   %113 = lshr i32 %112, 3
   %114 = add i32 %113, %.06796.i
   %.not86.i = icmp ult i32 %114, %.039
@@ -3261,7 +3261,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %144 = load i32, ptr %14, align 4
   %145 = zext i32 %144 to i64
   %146 = icmp ult i64 %indvars.iv.next.i.i, %145
-  br i1 %146, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %146, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .lr.ph32.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph32.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.lr.ph32.i.i ], [ 0, %.preheader.i.i ]
@@ -3274,7 +3274,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %.th
   %150 = load i32, ptr %15, align 8
   %151 = zext i32 %150 to i64
   %152 = icmp ult i64 %indvars.iv.next36.i.i, %151
-  br i1 %152, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !9
+  br i1 %152, label %.lr.ph32.i.i, label %normalize.exit.i, !llvm.loop !8
 
 normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.preheader.i.i
   %153 = load i32, ptr %7, align 4
@@ -3285,7 +3285,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 move_pos.exit:                                    ; preds = %normalize.exit.i, %bt_skip_func.exit, %25
   %155 = add i32 %.0, -1
   %.not43 = icmp eq i32 %155, 0
-  br i1 %.not43, label %156, label %17, !llvm.loop !14
+  br i1 %.not43, label %156, label %17, !llvm.loop !13
 
 156:                                              ; preds = %move_pos.exit
   ret void
@@ -3317,13 +3317,12 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

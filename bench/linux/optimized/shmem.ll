@@ -401,7 +401,7 @@ define dso_local noundef zeroext i1 @shmem_is_huge(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @shmem_partial_swap_usage(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 0, -4095) i64 @shmem_partial_swap_usage(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #18
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -537,7 +537,7 @@ declare dso_local ptr @xas_find(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare dso_local void @xas_pause(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @shmem_swap_usage(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 0, -4095) i64 @shmem_swap_usage(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 168
@@ -1136,7 +1136,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
 declare dso_local { i64, i64 } @inode_set_ctime_current(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @shmem_unuse(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @shmem_unuse(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.xa_state, align 8
   %4 = alloca %struct.folio_batch, align 8
@@ -1923,7 +1923,7 @@ define dso_local i64 @shmem_get_unmapped_area(ptr noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @shmem_lock(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @shmem_lock(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i32 %1, 0
@@ -2761,7 +2761,7 @@ define internal noundef i32 @shmem_error_remove_folio(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @shmem_init_fs_context(ptr nocapture noundef writeonly %0) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @shmem_init_fs_context(ptr nocapture noundef writeonly %0) #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 80) #21
   %4 = icmp eq ptr %3, null
@@ -3499,7 +3499,7 @@ declare dso_local ptr @swap_cache_get_folio(i64, ptr noundef, i64 noundef) local
 declare dso_local void @folio_wait_writeback(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @shmem_replace_folio(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @shmem_replace_folio(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.xa_state, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
@@ -4131,7 +4131,7 @@ define internal ptr @shmem_get_policy(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @shmem_falloc_wait(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 1025) i32 @shmem_falloc_wait(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 136
   tail call void @_raw_spin_lock(ptr noundef %4) #18
@@ -4307,7 +4307,7 @@ define internal void @shmem_free_fc(ptr nocapture noundef readonly %0) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @shmem_parse_one(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @shmem_parse_one(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.fs_parse_result, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4801,7 +4801,7 @@ define internal i32 @shmem_get_tree(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @shmem_reconfigure(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @shmem_reconfigure(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5593,7 +5593,7 @@ define internal void @shmem_put_super(ptr nocapture noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @shmem_encode_fh(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal noundef range(i32 1, 256) i32 @shmem_encode_fh(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp slt i32 %5, 3
   br i1 %6, label %33, label %7
@@ -5692,7 +5692,7 @@ declare dso_local void @__insert_inode_hash(ptr noundef, i64 noundef) local_unna
 declare dso_local ptr @ilookup5(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @shmem_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @shmem_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   %4 = load i64, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -6784,7 +6784,7 @@ declare dso_local void @generic_fillattr(ptr noundef, i32 noundef, ptr noundef, 
 declare dso_local i64 @simple_xattr_list(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @shmem_fileattr_set(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal noundef range(i32 -95, 1) i32 @shmem_fileattr_set(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
@@ -7139,7 +7139,7 @@ define internal i64 @shmem_file_write_iter(ptr noundef %0, ptr noundef %1) #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @shmem_mmap(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -1, 1) i32 @shmem_mmap(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -124
@@ -8156,7 +8156,7 @@ define internal i32 @shmem_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @shmem_rmdir(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -39, 1) i32 @shmem_rmdir(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i32 @simple_empty(ptr noundef %1) #18
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5
@@ -8406,7 +8406,7 @@ declare dso_local void @dput(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @security_inode_init_security(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @shmem_initxattrs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 align 16 {
+define internal noundef range(i32 -28, 1) i32 @shmem_initxattrs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 872

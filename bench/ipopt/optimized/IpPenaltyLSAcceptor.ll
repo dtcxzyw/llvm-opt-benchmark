@@ -5088,7 +5088,7 @@ define noundef zeroext i1 @_ZN5Ipopt17PenaltyLSAcceptor12TryCorrectorEdRdRNS_8Sm
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN5Ipopt17PenaltyLSAcceptor22UpdateForNextIterationEd(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, double %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 107, 111) i8 @_ZN5Ipopt17PenaltyLSAcceptor22UpdateForNextIterationEd(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, double %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [40 x i8], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.12", align 1

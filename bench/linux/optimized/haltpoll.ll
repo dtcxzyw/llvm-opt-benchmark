@@ -85,7 +85,7 @@ define internal noundef i32 @haltpoll_enable_device(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @haltpoll_select(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @haltpoll_select(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call i64 @cpuidle_governor_latency_req(i32 noundef %5) #8

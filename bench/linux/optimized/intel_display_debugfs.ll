@@ -2339,7 +2339,7 @@ define internal noundef i32 @i915_dp_mst_info(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_ddb_info(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_ddb_info(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2561,7 +2561,7 @@ define internal i32 @i915_panel_open(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_panel_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_panel_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1976
@@ -3316,7 +3316,7 @@ define internal i32 @i915_lpsp_capability_open(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_lpsp_capability_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_lpsp_capability_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

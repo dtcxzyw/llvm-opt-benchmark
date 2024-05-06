@@ -101,7 +101,7 @@ init_node.exit:                                   ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load ptr, ptr %34, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 164
-  %50 = trunc i64 %indvars.iv to i32
+  %50 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %50, ptr %49, align 4
   %51 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02733) #8
   %.not = icmp eq ptr %51, null
@@ -345,7 +345,7 @@ define void @fdp_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge20, label %.lr.ph19
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %1
-  tail call fastcc void @cleanup_subgs(ptr noundef %0)
+  tail call fastcc void @cleanup_subgs(ptr noundef readonly %0)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 184

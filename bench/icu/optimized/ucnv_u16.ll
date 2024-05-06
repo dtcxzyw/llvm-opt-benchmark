@@ -1044,7 +1044,7 @@ return:                                           ; preds = %entry, %if.end231, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL20_UTF16BEGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %err) #3 {
+define internal noundef range(i32 -9, 10559488) i32 @_ZL20_UTF16BEGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %err) #3 {
 entry:
   %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
@@ -2402,7 +2402,7 @@ return:                                           ; preds = %entry, %if.end232, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL20_UTF16LEGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %err) #3 {
+define internal noundef range(i32 -9, 10559488) i32 @_ZL20_UTF16LEGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %err) #3 {
 entry:
   %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
@@ -2601,7 +2601,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL18_UTF16GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #3 {
+define internal noundef range(i32 -9, 10559488) i32 @_ZL18_UTF16GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #3 {
 entry:
   %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8

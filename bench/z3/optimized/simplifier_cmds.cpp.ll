@@ -865,7 +865,7 @@ if.then.i.i.i143:                                 ; preds = %lpad10.i
 invoke.cont21.i:                                  ; preds = %invoke.cont.i141
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp20.i, i64 8
   store ptr %call.i.i.i8.i, ptr %_M_finish.i.i.i, align 8, !noalias !7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %call.i.i2.i138 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit" unwind label %lpad22.i
 

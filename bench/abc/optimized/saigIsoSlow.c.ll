@@ -253,7 +253,7 @@ define noalias noundef ptr @Iso_ManStart(ptr noundef %0) local_unnamed_addr #5 {
 
 12:                                               ; preds = %.lr.ph.i
   %13 = add nuw nsw i32 %.01116.i, 2
-  %14 = mul nsw i32 %13, %13
+  %14 = mul nuw nsw i32 %13, %13
   %.not.i = icmp ugt i32 %14, %10
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !13
 
@@ -505,7 +505,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Iso_ObjCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define range(i32 -2147483647, -2147483648) i32 @Iso_ObjCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(12) %3, ptr noundef nonnull dereferenceable(12) %4, i64 noundef 12) #25

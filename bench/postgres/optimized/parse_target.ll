@@ -103,7 +103,7 @@ define dso_local ptr @transformTargetEntry(ptr noundef %0, ptr noundef %1, ptr n
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  %19 = call fastcc i32 @FigureColnameInternal(ptr noundef %1, ptr noundef nonnull %7), !range !5
+  %19 = call fastcc i32 @FigureColnameInternal(ptr noundef %1, ptr noundef nonnull %7)
   %20 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %20, null
   %.str.15..i = select i1 %.not.i, ptr @.str.15, ptr %20
@@ -127,7 +127,7 @@ declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 define dso_local nonnull ptr @FigureColname(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef nonnull %2), !range !5
+  %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, null
   %.str.15. = select i1 %.not, ptr @.str.15, ptr %4
@@ -183,7 +183,7 @@ define dso_local ptr @transformTargetList(ptr noundef %0, ptr noundef readonly %
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %23 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %14, ptr noundef nonnull %4), !range !5
+  %23 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %14, ptr noundef nonnull %4)
   %24 = load ptr, ptr %4, align 8
   %.not.i.i41.us = icmp eq ptr %24, null
   %.str.15..i.i.us = select i1 %.not.i.i41.us, ptr @.str.15, ptr %24
@@ -285,7 +285,7 @@ ExpandIndirectionStar.exit:                       ; preds = %64, %68
 80:                                               ; preds = %.thread45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %81 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %37, ptr noundef nonnull %4), !range !5
+  %81 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %37, ptr noundef nonnull %4)
   %82 = load ptr, ptr %4, align 8
   %.not.i.i41 = icmp eq ptr %82, null
   %.str.15..i.i = select i1 %.not.i.i41, ptr @.str.15, ptr %82
@@ -1496,7 +1496,7 @@ define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly %1
   %32 = tail call ptr @lappend(ptr noundef %.078, ptr noundef nonnull %26) #9
   %33 = load ptr, ptr %2, align 8
   %34 = add nuw nsw i64 %indvars.iv89, 1
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = tail call ptr @lappend_int(ptr noundef %33, i32 noundef %35) #9
   store ptr %36, ptr %2, align 8
   br label %37
@@ -1505,7 +1505,7 @@ define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly %1
   %indvars.iv.next90.pre-phi = phi i64 [ %.pre, %.lr.ph79._crit_edge ], [ %34, %25 ]
   %.1 = phi ptr [ %.078, %.lr.ph79._crit_edge ], [ %32, %25 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next90.pre-phi, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph79, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph79, !llvm.loop !5
 
 38:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
@@ -1593,7 +1593,7 @@ define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly %1
   %88 = load i32, ptr %5, align 4
   %89 = sext i32 %88 to i64
   %.not = icmp slt i64 %indvars.iv.next, %89
-  br i1 %.not, label %38, label %.loopexit, !llvm.loop !8
+  br i1 %.not, label %38, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %85, %37, %.preheader, %9
   %.2 = phi ptr [ null, %9 ], [ %1, %.preheader ], [ %.1, %37 ], [ %1, %85 ]
@@ -1703,7 +1703,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   call void @TupleDescInitEntryCollation(ptr noundef %27, i16 noundef signext %.082, i32 noundef %59) #9
   %60 = add i16 %.082, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %list_length.exit.split, !llvm.loop !9
+  br label %list_length.exit.split, !llvm.loop !8
 
 61:                                               ; preds = %tailrecurse
   %62 = getelementptr inbounds i8, ptr %13, i64 4
@@ -1760,7 +1760,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   %90 = load ptr, ptr %.079118, align 8
   %91 = add nuw i32 %.080117, 1
   %exitcond.not = icmp eq i32 %91, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %88
   %.079.lcssa = phi ptr [ %0, %88 ], [ %90, %.lr.ph ]
@@ -1846,7 +1846,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   %143 = load ptr, ptr %.1119, align 8
   %144 = add nuw i32 %.0120, 1
   %exitcond143.not = icmp eq i32 %144, %142
-  br i1 %exitcond143.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !11
+  br i1 %exitcond143.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !10
 
 ._crit_edge123:                                   ; preds = %.lr.ph122, %138
   %.1.lcssa = phi ptr [ %0, %138 ], [ %143, %.lr.ph122 ]
@@ -1895,7 +1895,7 @@ declare ptr @GetCTEForRTE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @get_expr_result_tupdesc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @FigureColnameInternal(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @FigureColnameInternal(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.lr.ph157
 
@@ -2043,7 +2043,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %22, %.lr.p
 55:                                               ; preds = %.lr.ph157
   %56 = getelementptr inbounds i8, ptr %.tr155, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call fastcc i32 @FigureColnameInternal(ptr noundef %57, ptr noundef %1), !range !5
+  %58 = tail call fastcc i32 @FigureColnameInternal(ptr noundef %57, ptr noundef %1)
   %59 = icmp ult i32 %58, 2
   br i1 %59, label %60, label %.loopexit
 
@@ -2101,7 +2101,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %22, %.lr.p
 90:                                               ; preds = %.lr.ph157
   %91 = getelementptr inbounds i8, ptr %.tr155, i64 32
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call fastcc i32 @FigureColnameInternal(ptr noundef %92, ptr noundef %1), !range !5
+  %93 = tail call fastcc i32 @FigureColnameInternal(ptr noundef %92, ptr noundef %1)
   %94 = icmp ult i32 %93, 2
   br i1 %94, label %.loopexit.sink.split, label %.loopexit
 
@@ -2188,7 +2188,7 @@ switch.lookup247:                                 ; preds = %104
 define dso_local ptr @FigureIndexColname(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef nonnull %2), !range !5
+  %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load ptr, ptr %2, align 8
   ret ptr %4
 }
@@ -2340,7 +2340,7 @@ define internal fastcc ptr @ExpandRowReference(ptr noundef %0, ptr noundef %1, i
   %.1.us = phi ptr [ %.04247.us, %.lr.ph.split.us ], [ %84, %62 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %ExpandSingleTable.exit, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %exitcond55.not, label %ExpandSingleTable.exit, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %107
   %indvars.iv = phi i64 [ %indvars.iv.next, %107 ], [ 0, %.lr.ph ]
@@ -2380,7 +2380,7 @@ define internal fastcc ptr @ExpandRowReference(ptr noundef %0, ptr noundef %1, i
   %.1 = phi ptr [ %.04247, %.lr.ph.split ], [ %106, %90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count54
-  br i1 %exitcond.not, label %ExpandSingleTable.exit, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond.not, label %ExpandSingleTable.exit, label %.lr.ph.split, !llvm.loop !11
 
 ExpandSingleTable.exit:                           ; preds = %107, %85, %.lr.ph32.i, %53, %.lr.ph.i, %34, %19
   %.0 = phi ptr [ %20, %19 ], [ null, %34 ], [ %26, %.lr.ph.i ], [ null, %53 ], [ %26, %.lr.ph32.i ], [ %.1.us, %85 ], [ %.1, %107 ]
@@ -2443,11 +2443,10 @@ attributes #12 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

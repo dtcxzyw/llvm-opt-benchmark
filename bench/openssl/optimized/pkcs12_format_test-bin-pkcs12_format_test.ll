@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -373,7 +373,7 @@ test_single_secret.exit:                          ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkcs12_create_test() #1 {
+define internal range(i32 0, 2) i32 @pkcs12_create_test() #1 {
 entry:
   %p = alloca ptr, align 8
   store ptr @pkcs12_create_test.rsa_key, ptr %p, align 8
@@ -412,7 +412,7 @@ err:                                              ; preds = %if.end11, %if.end6,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkcs12_recreate_test() #1 {
+define internal range(i32 0, 2) i32 @pkcs12_recreate_test() #1 {
 entry:
   %cert_parsed = alloca ptr, align 8
   %pkey_parsed = alloca ptr, align 8

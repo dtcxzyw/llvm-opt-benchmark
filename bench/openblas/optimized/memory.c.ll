@@ -641,7 +641,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %47
 
 36:                                               ; preds = %28
-  %37 = trunc i64 %29 to i32
+  %37 = trunc nuw nsw i64 %29 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32
   %38 = icmp ugt i32 %37, 561
   br i1 %38, label %47, label %39

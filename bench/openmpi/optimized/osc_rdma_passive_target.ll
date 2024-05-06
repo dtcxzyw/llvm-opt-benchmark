@@ -34,7 +34,7 @@ define noundef i32 @ompi_osc_rdma_sync(ptr nocapture noundef readnone %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_flush(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_flush(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -272,7 +272,7 @@ ompi_osc_rdma_sync_rdma_complete.exit:            ; preds = %104, %100, %75, %.c
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_flush_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -410,14 +410,14 @@ declare i32 @opal_hash_table_get_first_key_uint32(ptr noundef, ptr noundef, ptr 
 declare i32 @opal_hash_table_get_next_key_uint32(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_flush_local(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @ompi_osc_rdma_flush(i32 noundef %0, ptr noundef %1), !range !7
+define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_local(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @ompi_osc_rdma_flush(i32 noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_flush_local_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @ompi_osc_rdma_flush_all(ptr noundef %0), !range !7
+define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_local_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @ompi_osc_rdma_flush_all(ptr noundef %0)
   ret i32 %2
 }
 
@@ -564,7 +564,7 @@ define internal fastcc void @ompi_osc_rdma_lock_atomic_internal(ptr noundef %0, 
   br i1 %4, label %.preheader, label %.preheader3
 
 .preheader3:                                      ; preds = %2
-  %5 = tail call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef 1, i64 noundef 8, i64 noundef -9223372036854775808), !range !8
+  %5 = tail call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef 1, i64 noundef 8, i64 noundef -9223372036854775808)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %.lr.ph
 
@@ -587,7 +587,7 @@ define internal fastcc void @ompi_osc_rdma_lock_atomic_internal(ptr noundef %0, 
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %10, align 8
-  %21 = call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %20, i64 noundef 1, i64 noundef 0, i64 noundef -4294967296), !range !8
+  %21 = call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %20, i64 noundef 1, i64 noundef 0, i64 noundef -4294967296)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %ompi_osc_rdma_lock_release_shared.exit
 
@@ -636,7 +636,7 @@ define internal fastcc void @ompi_osc_rdma_lock_atomic_internal(ptr noundef %0, 
   %42 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i, label %opal_obj_new.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i, label %opal_obj_new.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 opal_obj_new.exit.i.i:                            ; preds = %.lr.ph.i.i.i.i, %37, %36
   %44 = getelementptr inbounds i8, ptr %32, i64 8
@@ -762,7 +762,7 @@ opal_thread_add_fetch_32.exit48.i.i:              ; preds = %96, %93
   %102 = call i32 @opal_progress() #7
   %103 = load volatile i8, ptr %84, align 8
   %104 = trunc i8 %103 to i1
-  br i1 %104, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %104, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %opal_thread_add_fetch_32.exit48.i.i, %.preheader.i.i
   %.4.i.i = phi i32 [ %.3.i.i, %opal_thread_add_fetch_32.exit48.i.i ], [ 0, %.preheader.i.i ], [ 0, %.lr.ph.i.i ]
@@ -802,7 +802,7 @@ opal_thread_add_fetch_32.exit50.i.i:              ; preds = %110, %107
   %121 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not.i51.i.i = icmp eq ptr %122, null
-  br i1 %.not.i51.i.i, label %opal_obj_run_destructors.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i51.i.i, label %opal_obj_run_destructors.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit.i.i:                ; preds = %.lr.ph.i.i.i, %115
   call void @free(ptr noundef %32) #7
@@ -873,7 +873,7 @@ ompi_osc_rdma_lock_release_shared.exit:           ; preds = %128, %136, %144, %1
 
 .lr.ph:                                           ; preds = %.preheader3, %.lr.ph
   %151 = tail call i32 @opal_progress() #7
-  %152 = tail call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef 1, i64 noundef 8, i64 noundef -9223372036854775808), !range !8
+  %152 = tail call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef 1, i64 noundef 8, i64 noundef -9223372036854775808)
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %.loopexit, label %.lr.ph
 
@@ -882,7 +882,7 @@ ompi_osc_rdma_lock_release_shared.exit:           ; preds = %128, %136, %144, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_lock_atomic(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_lock_atomic(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 272
   %7 = load ptr, ptr %6, align 8
@@ -1061,7 +1061,7 @@ define internal fastcc void @opal_obj_run_destructors(ptr noundef %0) unnamed_ad
   %7 = getelementptr inbounds i8, ptr %.07, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1071,7 +1071,7 @@ define internal fastcc void @opal_obj_run_destructors(ptr noundef %0) unnamed_ad
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_unlock_atomic(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_unlock_atomic(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 272
   %5 = load ptr, ptr %4, align 8
@@ -1242,7 +1242,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %74, %77
   %88 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %89 = load ptr, ptr %88, align 8
   %.not.i22 = icmp eq ptr %89, null
-  br i1 %.not.i22, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i22, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %82
   call void @free(ptr noundef %30) #7
@@ -1383,7 +1383,7 @@ ompi_osc_rdma_lock_release_shared.exit:           ; preds = %60, %52, %ompi_osc_
 declare void @ompi_osc_rdma_sync_return(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_osc_rdma_lock_all_atomic(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @ompi_osc_rdma_lock_all_atomic(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 310
@@ -1450,7 +1450,7 @@ define i32 @ompi_osc_rdma_lock_all_atomic(i32 noundef %0, ptr nocapture noundef 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds i8, ptr %4, i64 344
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef nonnull %4, ptr noundef %44, i64 noundef 4294967296, i64 noundef 0, i64 noundef 4294967295), !range !8
+  %45 = tail call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef nonnull %4, ptr noundef %44, i64 noundef 4294967296, i64 noundef 0, i64 noundef 4294967295)
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %.thread, label %46
 
@@ -1486,7 +1486,7 @@ define i32 @ompi_osc_rdma_lock_all_atomic(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   %8 = load i64, ptr %7, align 8
@@ -1582,7 +1582,7 @@ ompi_osc_rdma_lock_release_shared.exit:           ; preds = %33, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_unlock_all_atomic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_unlock_all_atomic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @opal_uses_threads, align 1
@@ -1703,7 +1703,7 @@ ompi_osc_rdma_sync_rdma_complete.exit:            ; preds = %31, %35
   %.0.in = getelementptr inbounds i8, ptr %.035, i64 16
   %.0 = load volatile ptr, ptr %.0.in, align 8
   %.not28 = icmp eq ptr %.035, %48
-  br i1 %.not28, label %ompi_osc_rdma_lock_release_shared.exit, label %53, !llvm.loop !12
+  br i1 %.not28, label %ompi_osc_rdma_lock_release_shared.exit, label %53, !llvm.loop !10
 
 64:                                               ; preds = %43
   %65 = getelementptr inbounds i8, ptr %3, i64 344
@@ -1770,7 +1770,7 @@ declare zeroext i1 @ompi_osc_rdma_sync_pscw_peer(ptr noundef, i32 noundef, ptr n
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -2205,7 +2205,7 @@ define internal fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zero
   %29 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %23, %24
   %31 = getelementptr inbounds i8, ptr %19, i64 8
@@ -2299,7 +2299,7 @@ opal_thread_add_fetch_32.exit79:                  ; preds = %62, %65
   %76 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not.i80 = icmp eq ptr %77, null
-  br i1 %.not.i80, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i80, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre.pre.pre = load i8, ptr @opal_uses_threads, align 1
@@ -2357,7 +2357,7 @@ opal_thread_add_fetch_32.exit82:                  ; preds = %84, %87
   %98 = getelementptr inbounds i8, ptr %.07.i85, i64 8
   %99 = load ptr, ptr %98, align 8
   %.not.i86 = icmp eq ptr %99, null
-  br i1 %.not.i86, label %opal_obj_run_destructors.exit87, label %.lr.ph.i84, !llvm.loop !11
+  br i1 %.not.i86, label %opal_obj_run_destructors.exit87, label %.lr.ph.i84, !llvm.loop !9
 
 opal_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %92
   tail call void @free(ptr noundef %.1) #7
@@ -2369,7 +2369,7 @@ opal_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1072
   %10 = load i8, ptr %9, align 16
   %11 = trunc i8 %10 to i1
@@ -2418,7 +2418,7 @@ define internal fastcc i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zer
   %31 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %25, %26
   br i1 %7, label %37, label %33
@@ -2561,7 +2561,7 @@ opal_thread_add_fetch_32.exit74:                  ; preds = %88, %91
   %101 = tail call i32 @opal_progress() #7
   %102 = load volatile i8, ptr %98, align 8
   %103 = trunc i8 %102 to i1
-  br i1 %103, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %103, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %opal_thread_add_fetch_32.exit74, %79, %97
   %.3 = phi i32 [ 0, %79 ], [ %.2, %opal_thread_add_fetch_32.exit74 ], [ 0, %97 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -2601,7 +2601,7 @@ opal_thread_add_fetch_32.exit76:                  ; preds = %106, %109
   %120 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %121 = load ptr, ptr %120, align 8
   %.not.i77 = icmp eq ptr %121, null
-  br i1 %.not.i77, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i77, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %114
   tail call void @free(ptr noundef %21) #7
@@ -2637,10 +2637,8 @@ attributes #9 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -102, i32 1}
-!8 = !{i32 2, i32 1}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

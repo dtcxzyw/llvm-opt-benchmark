@@ -3776,7 +3776,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit176:             ; preds = %830, %835, %842
   store ptr %281, ptr %280, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %283, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %284, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %285, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %285, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %286, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %287, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIPN5Yosys5RTLIL4CellESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %287, i64 noundef 0)
@@ -11877,9 +11877,9 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL7SigSpecE.exit: ; preds = %_ZNK5Yosys6SigMap5a
   store i32 0, ptr %36, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %368, i8 0, i64 56, i1 false)
   store i32 0, ptr %37, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %371, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %369, i8 0, i64 60, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %370, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %371, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %369, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %370, i8 0, i64 60, i1 false)
   %.not234272.i = icmp eq i32 %4368, 0
   br i1 %.not234272.i, label %._crit_edge276.i, label %.lr.ph275.preheader.i
 
@@ -108277,9 +108277,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_111XpropWorker7encodedEN5Yosys5RTLI
   %180 = getelementptr inbounds i8, ptr %0, i64 8
   %181 = getelementptr inbounds i8, ptr %0, i64 72
   %182 = getelementptr inbounds i8, ptr %0, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %182, i8 0, i64 56, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %180, i8 0, i64 60, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %181, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %182, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %180, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %181, i8 0, i64 60, i1 false)
   store i32 0, ptr %9, align 8
   %183 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %183, i8 0, i64 56, i1 false)
@@ -108801,7 +108801,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorke
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.noexc364, %.lr.ph.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i = phi ptr [ %398, %.lr.ph.i.i.i.i.i.i.i.i ], [ %394, %.noexc364 ]
   %.092.i.i.i.i.i.i.i.i = phi ptr [ %397, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val27.i.i.i.i, %.noexc364 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.092.i.i.i.i.i.i.i.i, i64 80, i1 false), !alias.scope !812, !noalias !809
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %.092.i.i.i.i.i.i.i.i, i64 80, i1 false), !alias.scope !812, !noalias !809
   %397 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i, i64 80
   %398 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i, i64 80
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %397, %373
@@ -108930,7 +108930,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEN12_GLOBAL__N_111XpropWorke
 .lr.ph.i.i.i.i.i.i19.i.i:                         ; preds = %.noexc367, %.lr.ph.i.i.i.i.i.i19.i.i
   %.03.i.i.i.i.i.i20.i.i = phi ptr [ %426, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %422, %.noexc367 ]
   %.092.i.i.i.i.i.i21.i.i = phi ptr [ %425, %.lr.ph.i.i.i.i.i.i19.i.i ], [ %.val.i.i.i.i, %.noexc367 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.092.i.i.i.i.i.i21.i.i, i64 80, i1 false), !alias.scope !817, !noalias !809
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %.03.i.i.i.i.i.i20.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %.092.i.i.i.i.i.i21.i.i, i64 80, i1 false), !alias.scope !817, !noalias !809
   %425 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i21.i.i, i64 80
   %426 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i20.i.i, i64 80
   %.not.i.i.i.i.i.i22.i.i = icmp eq ptr %425, %.pre1039
@@ -109204,9 +109204,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL7Sig
   %509 = getelementptr inbounds i8, ptr %19, i64 8
   %510 = getelementptr inbounds i8, ptr %19, i64 72
   %511 = getelementptr inbounds i8, ptr %19, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %511, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %509, i8 0, i64 60, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %510, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %511, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %509, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %510, i8 0, i64 60, i1 false)
   %512 = icmp sgt i32 %.0207.lcssa, 0
   br i1 %512, label %513, label %708
 
@@ -109805,9 +109805,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit447:             ; preds = %_ZN5Yosys5RTLIL7Sig
   %710 = getelementptr inbounds i8, ptr %39, i64 8
   %711 = getelementptr inbounds i8, ptr %39, i64 72
   %712 = getelementptr inbounds i8, ptr %39, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %712, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %710, i8 0, i64 60, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %711, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %712, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %710, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %711, i8 0, i64 60, i1 false)
   store i32 0, ptr %40, align 8
   %713 = getelementptr inbounds i8, ptr %40, i64 8
   %714 = getelementptr inbounds i8, ptr %40, i64 72

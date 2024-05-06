@@ -41,7 +41,7 @@ declare i32 @uuid_generate_time_safe(ptr noundef) local_unnamed_addr #1
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uuid_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @uuid_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull @.str.3, i64 noundef 1) #2
   %call.lobit = ashr i32 %call, 31

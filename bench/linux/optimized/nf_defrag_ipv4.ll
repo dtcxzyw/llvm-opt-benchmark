@@ -147,7 +147,7 @@ define internal void @defrag4_net_exit(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ipv4_conntrack_defrag(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal noundef range(i32 1, 3) i32 @ipv4_conntrack_defrag(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

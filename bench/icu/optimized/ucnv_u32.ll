@@ -759,7 +759,7 @@ return:                                           ; preds = %entry, %if.end84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef writeonly %err) #2 {
+define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %source = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -1585,7 +1585,7 @@ return:                                           ; preds = %entry, %if.end84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL34T_UConverter_getNextUChar_UTF32_LEP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef writeonly %err) #2 {
+define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUChar_UTF32_LEP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef writeonly %err) #2 {
 entry:
   %source = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -1926,7 +1926,7 @@ if.end98:                                         ; preds = %sw.bb83, %sw.bb84, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL18_UTF32GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #2 {
+define internal noundef range(i32 -9, 1114112) i32 @_ZL18_UTF32GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #2 {
 entry:
   %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8

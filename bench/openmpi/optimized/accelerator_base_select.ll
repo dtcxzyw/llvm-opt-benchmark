@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [28 x i8] c"Multiple Accelerators Found\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_accelerator_base_select() local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @opal_accelerator_base_select() local_unnamed_addr #0 {
   %1 = alloca %struct.opal_list_t, align 8
   %2 = alloca %struct.opal_list_t, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4

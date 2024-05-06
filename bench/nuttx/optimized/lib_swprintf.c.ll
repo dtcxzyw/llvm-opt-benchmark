@@ -24,21 +24,21 @@ declare i32 @lib_vsprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 define i32 @swprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca %struct.lib_memoutstream_s, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   %6 = trunc i64 %1 to i32
   call void @lib_memoutstream(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %6) #4
   %7 = call i32 @lib_vsprintf(ptr noundef nonnull %4, ptr noundef %2, ptr noundef nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3

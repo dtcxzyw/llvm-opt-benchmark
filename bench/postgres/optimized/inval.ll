@@ -1780,7 +1780,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   %25 = trunc i32 %8 to i16
   %26 = add i16 %25, 1
   store i16 %26, ptr %.lcssa.sink, align 2
-  %27 = trunc i32 %0 to i16
+  %27 = trunc nuw nsw i32 %0 to i16
   %28 = sext i32 %8 to i64
   %29 = getelementptr [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %28
   store i16 %27, ptr %29, align 8

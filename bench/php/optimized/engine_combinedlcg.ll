@@ -17,7 +17,7 @@ define void @php_random_combinedlcg_seed64(ptr nocapture noundef writeonly %0, i
   %3 = trunc i64 %1 to i32
   store i32 %3, ptr %0, align 4
   %4 = lshr i64 %1, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %5, ptr %6, align 4
   ret void

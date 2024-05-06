@@ -103,7 +103,7 @@ define noundef ptr @Inter_ManDeriveSatSolver(ptr nocapture noundef readonly %0, 
   %.val180 = phi i32 [ %.val178, %.lr.ph ], [ %.val, %83 ]
   %66 = load ptr, ptr %46, align 8
   %.val147 = load i32, ptr %47, align 8
-  %67 = trunc i64 %indvars.iv196 to i32
+  %67 = trunc nuw nsw i64 %indvars.iv196 to i32
   %68 = add nsw i32 %.val147, %67
   %69 = getelementptr i8, ptr %66, i64 8
   %.val148 = load ptr, ptr %69, align 8
@@ -186,7 +186,7 @@ define noundef ptr @Inter_ManDeriveSatSolver(ptr nocapture noundef readonly %0, 
   %.val160 = load i32, ptr %60, align 4
   %121 = getelementptr i8, ptr %.val159, i64 8
   %.val159.val = load ptr, ptr %121, align 8
-  %122 = trunc i64 %indvars.iv199 to i32
+  %122 = trunc nuw nsw i64 %indvars.iv199 to i32
   %123 = add nsw i32 %.val160, %122
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds ptr, ptr %.val159.val, i64 %124
@@ -378,7 +378,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val162 = load i32, ptr %182, align 4
   %236 = getelementptr i8, ptr %.val161, i64 8
   %.val161.val = load ptr, ptr %236, align 8
-  %237 = trunc i64 %indvars.iv205 to i32
+  %237 = trunc nuw nsw i64 %indvars.iv205 to i32
   %238 = add nsw i32 %.val162, %237
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds ptr, ptr %.val161.val, i64 %239
@@ -509,7 +509,7 @@ Vec_IntPush.exit172:                              ; preds = %.Vec_IntGrow.exit10
   %.val165 = load i32, ptr %193, align 8
   %317 = getelementptr i8, ptr %.val164, i64 8
   %.val164.val = load ptr, ptr %317, align 8
-  %318 = trunc i64 %indvars.iv208 to i32
+  %318 = trunc nuw nsw i64 %indvars.iv208 to i32
   %319 = add nsw i32 %.val165, %318
   %320 = sext i32 %319 to i64
   %321 = getelementptr inbounds ptr, ptr %.val164.val, i64 %320
@@ -618,7 +618,7 @@ declare void @sat_solver_store_mark_clauses_a(ptr noundef) local_unnamed_addr #1
 declare void @sat_solver_store_mark_roots(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Inter_ManPerformOneStep(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Inter_ManPerformOneStep(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8

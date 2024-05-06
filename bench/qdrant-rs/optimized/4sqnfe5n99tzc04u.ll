@@ -388,7 +388,7 @@ define void @_ZN6memory7madvise10set_global17h9e3688bc8c069c32E(i8 noundef %0) u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN6memory7madvise10get_global17h41bb50b244f7a04eE() unnamed_addr #1 {
+define noundef range(i8 0, 3) i8 @_ZN6memory7madvise10get_global17h41bb50b244f7a04eE() unnamed_addr #1 {
   %1 = load atomic i64, ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 monotonic, align 8
   %2 = and i64 %1, 8
   %3 = icmp eq i64 %2, 0

@@ -145,7 +145,7 @@ _ZNSt8_Rb_treeImSt4pairIKmbESt10_Select1stIS2_ESt4lessImESaIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers12QRepBoundExt8setBoundENS0_12NodeTemplateILb1EEEmRSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef readonly %owner, i64 noundef %i, ptr nocapture nonnull readnone align 8 %elements) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal6theory11quantifiers12QRepBoundExt8setBoundENS0_12NodeTemplateILb1EEEmRSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef readonly %owner, i64 noundef %i, ptr nocapture nonnull readnone align 8 %elements) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.addr = alloca i64, align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.3", align 8

@@ -595,7 +595,7 @@ proto_item_set_generated.exit:                    ; preds = %188, %203, %206
   %227 = add nuw nsw i64 %225, %226
   store i64 %216, ptr %5, align 8
   %228 = getelementptr inbounds i8, ptr %5, i64 8
-  %229 = trunc i64 %225 to i32
+  %229 = trunc nuw nsw i64 %225 to i32
   store i32 %229, ptr %228, align 8
   %230 = load ptr, ptr %6, align 8
   %231 = getelementptr inbounds i8, ptr %1, i64 408

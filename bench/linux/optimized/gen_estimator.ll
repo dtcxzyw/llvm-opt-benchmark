@@ -34,7 +34,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gen_estimato
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_gen_estimator_active681, ptr @__UNIQUE_ID___addressable_gen_estimator_read684, ptr @__UNIQUE_ID___addressable_gen_kill_estimator677, ptr @__UNIQUE_ID___addressable_gen_new_estimator675, ptr @__UNIQUE_ID___addressable_gen_replace_estimator678, ptr @est_timer.__UNIQUE_ID___addressable___SCK__preempt_schedule670], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gen_new_estimator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @gen_new_estimator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) #0 align 16 {
   %7 = alloca %struct.gnet_stats_basic_sync, align 16
   %8 = zext i1 %4 to i8
   %9 = getelementptr i8, ptr %5, i64 4
@@ -312,7 +312,7 @@ define dso_local void @gen_kill_estimator(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @timer_shutdown_sync(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gen_replace_estimator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @gen_replace_estimator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) #0 align 16 {
   %7 = tail call i32 @gen_new_estimator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5), !range !17
   ret i32 %7
 }

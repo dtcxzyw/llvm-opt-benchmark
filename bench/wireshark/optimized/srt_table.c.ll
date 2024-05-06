@@ -483,7 +483,7 @@ define void @init_srt_table_row(ptr nocapture noundef %0, i32 noundef %1, ptr no
   tail call void @time_stat_init(ptr noundef %17) #8
   %18 = load ptr, ptr %8, align 8
   %19 = getelementptr %struct._srt_procedure_t, ptr %18, i64 %indvars.iv
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nsw i64 %indvars.iv to i32
   store i32 %20, ptr %19, align 8
   %21 = load ptr, ptr %8, align 8
   %22 = getelementptr %struct._srt_procedure_t, ptr %21, i64 %indvars.iv, i32 2

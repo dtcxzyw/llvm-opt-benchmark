@@ -320,7 +320,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg9is_escape17haa756d593069b7efE(
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !31, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %5, ptr noundef nonnull dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, i64 2), !alias.scope !32
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %5, ptr noundef nonnull readonly dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, i64 2), !alias.scope !32
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit"
 
@@ -339,7 +339,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg18is_negative_number17he6231e86
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !41
   call void @_ZN3std3sys4unix6os_str5Slice6to_str17hb7eb6028d668e4c5E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5), !noalias !41
   %6 = load i64, ptr %2, align 8, !range !42, !noalias !41, !noundef !4
-  %trunc.i = trunc i64 %6 to i1
+  %trunc.i = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !41, !nonnull !4, !align !31
   %9 = getelementptr inbounds i8, ptr %2, i64 16
@@ -358,7 +358,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg18is_negative_number17he6231e86
   br i1 %11, label %12, label %"_ZN8clap_lex9ParsedArg18is_negative_number28_$u7b$$u7b$closure$u7d$$u7d$17h413729e608f85e83E.exit"
 
 12:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit.i.i"
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.6.0
+  %13 = getelementptr i8, ptr %.sroa.0.0, i64 %.sroa.6.0
   %14 = icmp eq i64 %.sroa.6.0, 1
   br i1 %14, label %._crit_edge.i.i, label %.lr.ph.i.preheader.i
 
@@ -487,7 +487,7 @@ define void @_ZN8clap_lex9ParsedArg7to_long17hdc1aac1c7ed190f0E(ptr noalias noca
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN3std3sys4unix6os_str5Slice6to_str17hb7eb6028d668e4c5E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.sroa.513.0)
   %25 = load i64, ptr %3, align 8, !range !42, !noundef !4
-  %trunc = trunc i64 %25 to i1
+  %trunc = trunc nuw i64 %25 to i1
   %26 = getelementptr inbounds i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !align !31
   %28 = getelementptr inbounds i8, ptr %3, i64 16
@@ -516,7 +516,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg7is_long17h0d06ccc45c5ff929E(pt
   br i1 %.not.i.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread", label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit"
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit": ; preds = %1
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, ptr noundef nonnull dereferenceable(2) %2, i64 2), !alias.scope !55
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, ptr noundef nonnull readonly dereferenceable(2) %2, i64 2), !alias.scope !55
   %5 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %5, label %6, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread"
 
@@ -525,7 +525,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg7is_long17h0d06ccc45c5ff929E(pt
   br i1 %.not.i.i1, label %7, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread"
 
 7:                                                ; preds = %6
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %2, ptr noundef nonnull dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, i64 2), !alias.scope !65, !noalias !69
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %2, ptr noundef nonnull readonly dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, i64 2), !alias.scope !65, !noalias !69
   %8 = icmp ne i32 %bcmp.i.i, 0
   br label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread"
 
@@ -573,7 +573,7 @@ define void @_ZN8clap_lex9ParsedArg8to_short17h5708d56a9045f7a7E(ptr noalias noc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !72
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract), !noalias !79
   %16 = load i64, ptr %5, align 8, !range !42, !noalias !72, !noundef !4
-  %trunc.i.i = trunc i64 %16 to i1
+  %trunc.i.i = trunc nuw i64 %16 to i1
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %trunc.i.i, label %22, label %18
 
@@ -597,13 +597,13 @@ _ZN8clap_lex3ext8split_at17hf432e678d412a774E.exit.i.i: ; preds = %22
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.sroa.01.0.copyload.i.i), !noalias !79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %24 = load i64, ptr %4, align 8, !range !42, !alias.scope !84, !noalias !72, !noundef !4
-  %trunc.i.i.i = trunc i64 %24 to i1
+  %trunc.i.i.i = trunc nuw i64 %24 to i1
   br i1 %trunc.i.i.i, label %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he9d986bffa271cbbE.exit.i.i"
 
 25:                                               ; preds = %_ZN8clap_lex3ext8split_at17hf432e678d412a774E.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !87
   %26 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !noalias !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %26, i64 16, i1 false), !noalias !72
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.248846a2e22cbdbe35d199858cf2b949.15, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.248846a2e22cbdbe35d199858cf2b949.16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.248846a2e22cbdbe35d199858cf2b949.30) #23, !noalias !88
   unreachable
 
@@ -659,7 +659,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg8is_short17h4f124932d060574aE(p
   br i1 %or.cond, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit.i.i4"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit.i.i4": ; preds = %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit"
-  %bcmp.i.i.i5 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, ptr noundef nonnull dereferenceable(2) %2, i64 2), !alias.scope !89
+  %bcmp.i.i.i5 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.248846a2e22cbdbe35d199858cf2b949.26, ptr noundef nonnull readonly dereferenceable(2) %2, i64 2), !alias.scope !89
   %6 = icmp ne i32 %bcmp.i.i.i5, 0
   br label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$11starts_with17h4baa0d2223d7544fE.exit.thread"
 
@@ -687,7 +687,7 @@ define void @_ZN8clap_lex9ParsedArg8to_value17h5a17c2ac1d44678eE(ptr noalias noc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN3std3sys4unix6os_str5Slice6to_str17hb7eb6028d668e4c5E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
   %7 = load i64, ptr %3, align 8, !range !42, !noundef !4
-  %trunc = trunc i64 %7 to i1
+  %trunc = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !31
   %10 = getelementptr inbounds i8, ptr %3, i64 16

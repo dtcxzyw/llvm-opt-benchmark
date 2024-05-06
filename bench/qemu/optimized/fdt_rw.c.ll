@@ -53,7 +53,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %7 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %7 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -322,7 +322,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %11 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %11 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -397,7 +397,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %7 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %7 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -426,10 +426,10 @@ if.end3:                                          ; preds = %if.end
   %add8 = shl i64 %call4, 32
   %sext = add i64 %add8, 4294967296
   %conv9 = ashr exact i64 %sext, 32
-  %11 = trunc i64 %conv9 to i32
+  %11 = trunc nsw i64 %conv9 to i32
   %12 = add i32 %11, 3
   %conv13 = and i32 %12, -4
-  %call14 = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef nonnull %call1, i32 noundef %and, i32 noundef %conv13), !range !6
+  %call14 = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef nonnull %call1, i32 noundef %and, i32 noundef %conv13)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end17, label %return
 
@@ -448,7 +448,7 @@ declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @fdt_splice_struct_(ptr noundef %fdt, ptr noundef %p, i32 noundef %oldlen, i32 noundef %newlen) unnamed_addr #2 {
+define internal fastcc range(i32 -4, 1) i32 @fdt_splice_struct_(ptr noundef %fdt, ptr noundef %p, i32 noundef %oldlen, i32 noundef %newlen) unnamed_addr #2 {
 entry:
   %off_dt_strings.i.i = getelementptr inbounds i8, ptr %fdt, i64 12
   %0 = load i8, ptr %off_dt_strings.i.i, align 1
@@ -642,7 +642,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %7 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %7 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -672,7 +672,7 @@ if.end.i:                                         ; preds = %if.end
   %and.i = and i32 %sub.i, -4
   %sub4.i = add i32 %len, 3
   %and5.i = and i32 %sub4.i, -4
-  %call7.i = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef nonnull %data.i, i32 noundef %and.i, i32 noundef %and5.i), !range !6
+  %call7.i = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef nonnull %data.i, i32 noundef %and.i, i32 noundef %and5.i)
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %if.end5.thread, label %fdt_resize_property_.exit
 
@@ -690,7 +690,7 @@ fdt_resize_property_.exit:                        ; preds = %if.then.i, %if.end.
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %fdt_resize_property_.exit
-  %call4 = call fastcc i32 @fdt_add_property_(ptr noundef nonnull %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %prop), !range !7
+  %call4 = call fastcc i32 @fdt_add_property_(ptr noundef nonnull %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %prop)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %fdt_resize_property_.exit
@@ -714,7 +714,7 @@ return:                                           ; preds = %if.end8.i, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fdt_add_property_(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr nocapture noundef %prop) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr nocapture noundef %prop) unnamed_addr #0 {
 entry:
   %call = tail call i32 @fdt_check_node_offset_(ptr noundef %fdt, i32 noundef %nodeoffset) #9
   %cmp = icmp slt i32 %call, 0
@@ -897,7 +897,7 @@ if.end4:                                          ; preds = %fdt_find_add_string
   %sub = add i32 %len, 3
   %and = and i32 %sub, -4
   %add6 = add i32 %and, 12
-  %call8 = tail call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef %add.ptr2.i.i, i32 noundef 0, i32 noundef %add6), !range !6
+  %call8 = tail call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef %add.ptr2.i.i, i32 noundef 0, i32 noundef %add6)
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %if.end14, label %if.then9
 
@@ -905,7 +905,7 @@ if.then9:                                         ; preds = %if.end4
   br i1 %tobool.not.i.not, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.then9
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #10
   %33 = trunc i64 %call.i to i32
   %conv.neg.i = xor i32 %33, -1
   %34 = load i8, ptr %size_dt_strings.i, align 1
@@ -1015,7 +1015,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %7 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %7 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -1041,7 +1041,7 @@ if.then2:                                         ; preds = %if.end
   %and = and i32 %sub, -4
   %sub7 = add i32 %add, 3
   %and8 = and i32 %sub7, -4
-  %call10 = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef nonnull %data, i32 noundef %and, i32 noundef %and8), !range !6
+  %call10 = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef nonnull %data, i32 noundef %and, i32 noundef %and8)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %return
 
@@ -1057,7 +1057,7 @@ if.end13:                                         ; preds = %if.then2
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call19 = call fastcc i32 @fdt_add_property_(ptr noundef nonnull %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %prop), !range !7
+  %call19 = call fastcc i32 @fdt_add_property_(ptr noundef nonnull %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %prop)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.end22, label %return
 
@@ -1122,7 +1122,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %7 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %7 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -1144,7 +1144,7 @@ if.end3:                                          ; preds = %if.end
   %sub = add i32 %8, 3
   %and = and i32 %sub, -4
   %add4 = add i32 %and, 12
-  %call6 = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef nonnull %call.i, i32 noundef %add4, i32 noundef 0), !range !6
+  %call6 = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef nonnull %call.i, i32 noundef %add4, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end8.i, %if.end3.i, %entry, %if.end3
@@ -1201,7 +1201,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %7 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %7 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -1232,7 +1232,7 @@ do.body:                                          ; preds = %if.end7, %do.body
   %call13 = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %8, ptr noundef nonnull %nextoffset) #9
   %9 = add i32 %call13, -3
   %10 = icmp ult i32 %9, 2
-  br i1 %10, label %do.body, label %do.end, !llvm.loop !8
+  br i1 %10, label %do.body, label %do.end, !llvm.loop !5
 
 do.end:                                           ; preds = %do.body
   %off_dt_struct.i.i = getelementptr inbounds i8, ptr %fdt, i64 8
@@ -1262,7 +1262,7 @@ do.end:                                           ; preds = %do.body
   %and = and i64 %sub, -4
   %15 = trunc i64 %and to i32
   %conv20 = add i32 %15, 8
-  %call21 = call fastcc i32 @fdt_splice_struct_(ptr noundef %fdt, ptr noundef %add.ptr2.i.i, i32 noundef 0, i32 noundef %conv20), !range !6
+  %call21 = call fastcc i32 @fdt_splice_struct_(ptr noundef %fdt, ptr noundef %add.ptr2.i.i, i32 noundef 0, i32 noundef %conv20)
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %if.end23, label %return
 
@@ -1300,7 +1300,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_del_node(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_del_node(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
 entry:
   %call1.i = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
   %cmp.i = icmp slt i32 %call1.i, 0
@@ -1347,7 +1347,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %7 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %7 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -1387,7 +1387,7 @@ if.end4:                                          ; preds = %if.end
   %idx.ext1.i.i = sext i32 %nodeoffset to i64
   %add.ptr2.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
   %sub = sub i32 %call1, %nodeoffset
-  %call6 = tail call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef %add.ptr2.i.i, i32 noundef %sub, i32 noundef 0), !range !6
+  %call6 = tail call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef %add.ptr2.i.i, i32 noundef %sub, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %if.end8.i, %if.end3.i, %entry, %if.end, %if.end4
@@ -1483,7 +1483,7 @@ while.cond:                                       ; preds = %while.cond, %if.the
   %12 = load i32, ptr %struct_size, align 4
   %call16 = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %12, ptr noundef nonnull %struct_size) #9
   %cmp17.not = icmp eq i32 %call16, 9
-  br i1 %cmp17.not, label %while.end, label %while.cond, !llvm.loop !10
+  br i1 %cmp17.not, label %while.end, label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
   %13 = load i32, ptr %struct_size, align 4
@@ -1492,7 +1492,7 @@ while.end:                                        ; preds = %while.cond
 
 if.end25:                                         ; preds = %while.end, %if.then9
   %14 = phi i32 [ %13, %while.end ], [ %or10.i66, %if.then9 ]
-  %call29 = call fastcc i32 @fdt_blocks_misordered_(ptr noundef %fdt, i32 noundef %mul, i32 noundef %14), !range !5
+  %call29 = call fastcc i32 @fdt_blocks_misordered_(ptr noundef %fdt, i32 noundef %mul, i32 noundef %14)
   %tobool.not = icmp eq i32 %call29, 0
   br i1 %tobool.not, label %if.then30, label %if.end35
 
@@ -1573,7 +1573,7 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %or10.i.i = or disjoint i64 %or7.i.i, %conv9.i.i
   %add.ptr3.i = getelementptr i8, ptr %fdt, i64 %or10.i.i
   %conv.i107 = sext i32 %mul to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr3.i, i64 %conv.i107, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %add.ptr3.i, i64 %conv.i107, i1 false)
   %off_mem_rsvmap.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 16
   store i32 671088640, ptr %off_mem_rsvmap.i.i, align 4
   %idx.ext4.i = sext i32 %add37 to i64
@@ -1598,7 +1598,7 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %or10.i34.i = or disjoint i64 %or7.i31.i, %conv9.i33.i
   %add.ptr8.i = getelementptr i8, ptr %fdt, i64 %or10.i34.i
   %conv9.i108 = sext i32 %14 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr5.i, ptr align 1 %add.ptr8.i, i64 %conv9.i108, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr5.i, ptr readonly align 1 %add.ptr8.i, i64 %conv9.i108, i1 false)
   %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %add37)
   %off_dt_struct.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 8
   store i32 %rev.i.i.i, ptr %off_dt_struct.i.i, align 4
@@ -1627,7 +1627,7 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %or10.i48.i = or disjoint i64 %or7.i45.i, %conv9.i47.i
   %add.ptr14.i = getelementptr i8, ptr %fdt, i64 %or10.i48.i
   %conv15.i = sext i32 %or10.i93 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr11.i, ptr align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr11.i, ptr readonly align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
   %rev.i.i49.i = call noundef i32 @llvm.bswap.i32(i32 %add39)
   %off_dt_strings.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 12
   store i32 %rev.i.i49.i, ptr %off_dt_strings.i.i, align 4
@@ -1693,7 +1693,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @fdt_blocks_misordered_(ptr nocapture noundef readonly %fdt, i32 noundef %mem_rsv_size, i32 noundef %struct_size) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @fdt_blocks_misordered_(ptr nocapture noundef readonly %fdt, i32 noundef %mem_rsv_size, i32 noundef %struct_size) unnamed_addr #6 {
 entry:
   %off_mem_rsvmap = getelementptr inbounds i8, ptr %fdt, i64 16
   %0 = load i8, ptr %off_mem_rsvmap, align 1
@@ -1815,7 +1815,7 @@ declare i32 @fdt_move(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_pack(ptr noundef %fdt) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_pack(ptr noundef %fdt) local_unnamed_addr #0 {
 entry:
   %call1.i = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
   %cmp.i = icmp slt i32 %call1.i, 0
@@ -1862,7 +1862,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   %7 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i17.i = zext i8 %7 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
-  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i), !range !5
+  %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.end12.i, label %return
 
@@ -1933,7 +1933,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %or10.i.i33 = or disjoint i64 %or7.i.i30, %conv9.i.i32
   %add.ptr3.i = getelementptr i8, ptr %fdt, i64 %or10.i.i33
   %conv.i34 = sext i32 %mul to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr3.i, i64 %conv.i34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %add.ptr3.i, i64 %conv.i34, i1 false)
   store i32 671088640, ptr %off_mem_rsvmap.i, align 4
   %idx.ext4.i = sext i32 %add.i to i64
   %add.ptr5.i = getelementptr i8, ptr %fdt, i64 %idx.ext4.i
@@ -1957,7 +1957,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %or10.i34.i = or disjoint i64 %or7.i31.i, %conv9.i33.i
   %add.ptr8.i = getelementptr i8, ptr %fdt, i64 %or10.i34.i
   %conv9.i35 = sext i32 %or10.i to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr5.i, ptr align 1 %add.ptr8.i, i64 %conv9.i35, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr5.i, ptr readonly align 1 %add.ptr8.i, i64 %conv9.i35, i1 false)
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %add.i)
   store i32 %rev.i.i.i, ptr %off_dt_struct.i, align 4
   %rev.i.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %or10.i)
@@ -1984,7 +1984,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %or10.i48.i = or disjoint i64 %or7.i45.i, %conv9.i47.i
   %add.ptr14.i = getelementptr i8, ptr %fdt, i64 %or10.i48.i
   %conv15.i = sext i32 %or10.i20 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr11.i, ptr align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr11.i, ptr readonly align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
   %rev.i.i49.i = tail call noundef i32 @llvm.bswap.i32(i32 %add1.i)
   store i32 %rev.i.i49.i, ptr %off_dt_strings.i, align 4
   %28 = load i8, ptr %size_dt_strings, align 1
@@ -2069,9 +2069,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = !{i32 -4, i32 1}
-!7 = !{i32 -2147483648, i32 1}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

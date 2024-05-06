@@ -375,7 +375,7 @@ entry:
 declare void @_ZN3smt6theory8reset_ehEv(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN3smt12theory_dummy14final_check_ehEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN3smt12theory_dummy14final_check_ehEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #8 align 2 {
 entry:
   %m_theory_exprs = getelementptr inbounds i8, ptr %this, i64 53
   %0 = load i8, ptr %m_theory_exprs, align 1

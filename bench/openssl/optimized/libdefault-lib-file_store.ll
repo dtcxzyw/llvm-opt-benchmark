@@ -268,7 +268,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_set_ctx_params(ptr noundef %loaderctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @file_set_ctx_params(ptr noundef %loaderctx, ptr noundef %params) #0 {
 entry:
   %der = alloca ptr, align 8
   %der_len = alloca i64, align 8
@@ -680,7 +680,7 @@ if.then12.i:                                      ; preds = %file_name_check.exi
   br i1 %cmp.not.i.i.i, label %ossl_ends_with_dirsep.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then12.i
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #10
+  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %40) #10
   %42 = getelementptr i8, ptr %40, i64 %call.i.i.i
   %add.ptr.i.i.i = getelementptr i8, ptr %42, i64 -1
   %.pre.i.i.i = load i8, ptr %add.ptr.i.i.i, align 1

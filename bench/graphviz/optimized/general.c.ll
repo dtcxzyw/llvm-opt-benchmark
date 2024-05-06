@@ -325,7 +325,7 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @comp_ascend(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @comp_ascend(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp ogt double %3, %4
@@ -346,7 +346,7 @@ define void @vector_sort_int(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @comp_ascend_int(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @comp_ascend_int(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4

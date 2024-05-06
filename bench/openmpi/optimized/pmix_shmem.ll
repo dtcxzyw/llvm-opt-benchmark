@@ -47,7 +47,7 @@ add_internal_segment_header.exit.thread28:        ; preds = %15
   store i64 %12, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @pmix_string_copy(ptr noundef nonnull %20, ptr noundef %2, i64 noundef 4097) #8
-  %21 = tail call fastcc i32 @segment_attach(ptr noundef %0, i64 noundef 0, i8 noundef zeroext 0), !range !4
+  %21 = tail call fastcc i32 @segment_attach(ptr noundef %0, i64 noundef 0, i8 noundef zeroext 0)
   switch i32 %21, label %22 [
     i32 0, label %24
     i32 -2, label %add_internal_segment_header.exit.thread26
@@ -135,8 +135,8 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_shmem_segment_attach(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i32 @segment_attach(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2), !range !4
+define range(i32 -67, 1) i32 @pmix_shmem_segment_attach(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+  %4 = tail call fastcc i32 @segment_attach(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10
 
@@ -151,7 +151,7 @@ define noundef i32 @pmix_shmem_segment_attach(ptr noundef %0, i64 noundef %1, i8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @segment_attach(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -67, 1) i32 @segment_attach(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 2) #8
   %6 = icmp eq i32 %5, -1
@@ -243,7 +243,7 @@ data_addr_from_base.exit:                         ; preds = %33, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_shmem_segment_detach(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_shmem_segment_detach(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -274,7 +274,7 @@ define i32 @pmix_shmem_segment_detach(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_shmem_segment_chown(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_shmem_segment_chown(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = tail call i32 @lchown(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #8
   %.not = icmp eq i32 %5, 0
@@ -294,7 +294,7 @@ define noundef i32 @pmix_shmem_segment_chown(ptr nocapture noundef readonly %0, 
 declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_shmem_segment_chmod(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_shmem_segment_chmod(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = tail call i32 @chmod(ptr noundef nonnull %3, i32 noundef %1) #8
   %.not = icmp eq i32 %4, 0
@@ -314,7 +314,7 @@ define noundef i32 @pmix_shmem_segment_chmod(ptr nocapture noundef readonly %0, 
 declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @pmix_shmem_segment_unlink(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @pmix_shmem_segment_unlink(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = tail call i32 @unlink(ptr noundef nonnull %2) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %2, i8 0, i64 4097, i1 false)
@@ -398,4 +398,3 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -67, i32 1}

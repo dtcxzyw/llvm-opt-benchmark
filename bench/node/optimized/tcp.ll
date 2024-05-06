@@ -472,7 +472,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @getpeername(i32 noundef, ptr, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tcp_close_reset(ptr noundef %handle, ptr noundef %close_cb) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_close_reset(ptr noundef %handle, ptr noundef %close_cb) local_unnamed_addr #0 {
 entry:
   %l = alloca %struct.linger, align 8
   store i64 1, ptr %l, align 8
@@ -582,7 +582,7 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare void @uv__server_io(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__tcp_nodelay(i32 noundef %fd, i32 noundef %on) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__tcp_nodelay(i32 noundef %fd, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %on.addr = alloca i32, align 4
   store i32 %on, ptr %on.addr, align 4
@@ -602,7 +602,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__tcp_keepalive(i32 noundef %fd, i32 noundef %on, i32 noundef %delay) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__tcp_keepalive(i32 noundef %fd, i32 noundef %on, i32 noundef %delay) local_unnamed_addr #0 {
 entry:
   %on.addr = alloca i32, align 4
   %delay.addr = alloca i32, align 4
@@ -648,7 +648,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tcp_nodelay(ptr nocapture noundef %handle, i32 noundef %on) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_nodelay(ptr nocapture noundef %handle, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %on.addr.i = alloca i32, align 4
   %fd = getelementptr inbounds i8, ptr %handle, i64 184
@@ -691,7 +691,7 @@ return:                                           ; preds = %if.end4, %uv__tcp_n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tcp_keepalive(ptr nocapture noundef %handle, i32 noundef %on, i32 noundef %delay) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_keepalive(ptr nocapture noundef %handle, i32 noundef %on, i32 noundef %delay) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8

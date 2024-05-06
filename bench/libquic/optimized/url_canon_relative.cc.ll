@@ -44,7 +44,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !5
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -77,7 +77,7 @@ while.body9.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %if.then.i, !llvm.loop !7
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
@@ -242,7 +242,7 @@ while.body.i40.i:                                 ; preds = %land.rhs.i37.i, %la
   br i1 %exitcond.not.i.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, label %land.rhs.i37.i, !llvm.loop !10
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i37.i
-  %28 = trunc i64 %indvars.iv.i38.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i38.i to i32
   br label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i
 
 _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i: ; preds = %while.body.i40.i, %while.end.loopexit.split.loop.exit.i.i
@@ -297,7 +297,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !11
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -330,7 +330,7 @@ while.body8.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %if.then.i, !llvm.loop !12
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
@@ -493,7 +493,7 @@ while.body.i40.i:                                 ; preds = %land.rhs.i37.i, %la
   br i1 %exitcond.not.i.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, label %land.rhs.i37.i, !llvm.loop !15
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i37.i
-  %28 = trunc i64 %indvars.iv.i38.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i38.i to i32
   br label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i
 
 _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %while.body.i40.i, %while.end.loopexit.split.loop.exit.i.i
@@ -654,7 +654,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %13 = load i8, ptr %arrayidx.i.i, align 1
   %14 = load ptr, ptr %buffer_.i.i, align 8
   %15 = load i32, ptr %cur_len_.i35.i, align 4
-  %16 = trunc i64 %indvars.iv.i.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %add9.i.i = add nsw i32 %15, %16
   %idxprom10.i.i = sext i32 %add9.i.i to i64
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %14, i64 %idxprom10.i.i
@@ -691,7 +691,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %land
   br i1 %exitcond.not.i53.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, label %land.rhs.i.i, !llvm.loop !10
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i.i
-  %21 = trunc i64 %indvars.iv.i51.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i51.i to i32
   br label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i
 
 _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i: ; preds = %while.body.i.i, %while.end.loopexit.split.loop.exit.i.i
@@ -870,7 +870,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %39 = load i8, ptr %arrayidx.i.i.i, align 1
   %40 = load ptr, ptr %buffer_.i.i.i, align 8
   %41 = load i32, ptr %cur_len_.i.i.i, align 4
-  %42 = trunc i64 %indvars.iv.i.i.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %add9.i.i.i = add nsw i32 %41, %42
   %idxprom10.i.i.i = sext i32 %add9.i.i.i to i64
   %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %40, i64 %idxprom10.i.i.i
@@ -930,7 +930,7 @@ for.body.i56.i.i:                                 ; preds = %for.cond.i.i.i
   ], !llvm.loop !19
 
 for.end.i59.i.i:                                  ; preds = %for.body.i56.i.i, %for.body.i56.i.i
-  %53 = trunc i64 %indvars.iv.i55.i.i to i32
+  %53 = trunc nsw i64 %indvars.iv.i55.i.i to i32
   %cmp6.i.i.i = icmp slt i32 %53, 1
   br i1 %cmp6.i.i.i, label %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, label %for.cond10.preheader.i.i.i
 
@@ -1416,7 +1416,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %13 = load i8, ptr %arrayidx.i.i, align 1
   %14 = load ptr, ptr %buffer_.i.i, align 8
   %15 = load i32, ptr %cur_len_.i35.i, align 4
-  %16 = trunc i64 %indvars.iv.i.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %add9.i.i = add nsw i32 %15, %16
   %idxprom10.i.i = sext i32 %add9.i.i to i64
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %14, i64 %idxprom10.i.i
@@ -1453,7 +1453,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %land
   br i1 %exitcond.not.i53.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, label %land.rhs.i.i, !llvm.loop !15
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i.i
-  %21 = trunc i64 %indvars.iv.i51.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i51.i to i32
   br label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i
 
 _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %while.body.i.i, %while.end.loopexit.split.loop.exit.i.i
@@ -1632,7 +1632,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %39 = load i8, ptr %arrayidx.i.i.i, align 1
   %40 = load ptr, ptr %buffer_.i.i.i, align 8
   %41 = load i32, ptr %cur_len_.i.i.i, align 4
-  %42 = trunc i64 %indvars.iv.i.i.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %add9.i.i.i = add nsw i32 %41, %42
   %idxprom10.i.i.i = sext i32 %add9.i.i.i to i64
   %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %40, i64 %idxprom10.i.i.i
@@ -1692,7 +1692,7 @@ for.body.i56.i.i:                                 ; preds = %for.cond.i.i.i
   ], !llvm.loop !19
 
 for.end.i59.i.i:                                  ; preds = %for.body.i56.i.i, %for.body.i56.i.i
-  %53 = trunc i64 %indvars.iv.i55.i.i to i32
+  %53 = trunc nsw i64 %indvars.iv.i55.i.i to i32
   %cmp6.i.i.i = icmp slt i32 %53, 1
   br i1 %cmp6.i.i.i, label %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, label %for.cond10.preheader.i.i.i
 

@@ -698,8 +698,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4exprLb
   %57 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i70 = zext i32 %57 to i64
   %add.ptr.i71.idx = shl nuw nsw i64 %idx.ext.i70, 3
-  %58 = getelementptr i8, ptr %35, i64 %add.ptr.i71.idx
-  %add.ptr.i71.ptr = getelementptr i8, ptr %58, i64 32
+  %58 = getelementptr inbounds i8, ptr %35, i64 %add.ptr.i71.idx
+  %add.ptr.i71.ptr = getelementptr inbounds i8, ptr %58, i64 32
   %cmp.not736 = icmp eq i32 %57, 0
   br i1 %cmp.not736, label %for.end, label %for.body57.preheader
 
@@ -1395,7 +1395,7 @@ invoke.cont110:                                   ; preds = %_ZN8uint_set8iterat
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   %__begin5.sroa.2.8.extract.trunc = trunc i64 %.fca.1.load.i to i32
   %__begin5.sroa.12.8.extract.shift = lshr i64 %.fca.1.load.i, 32
-  %__begin5.sroa.12.8.extract.trunc = trunc i64 %__begin5.sroa.12.8.extract.shift to i32
+  %__begin5.sroa.12.8.extract.trunc = trunc nuw i64 %__begin5.sroa.12.8.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i226)
   store ptr %b, ptr %retval.i226, align 8
   %132 = load ptr, ptr %b, align 8
@@ -1871,7 +1871,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %180 = load ptr, ptr %m_nodes.i.i222, align 8
   %arrayidx.i.i292 = getelementptr inbounds ptr, ptr %180, i64 %indvars.iv.i
-  %181 = trunc i64 %indvars.iv.i to i32
+  %181 = trunc nuw nsw i64 %indvars.iv.i to i32
   %182 = xor i32 %181, -1
   %sub4.i = add i32 %177, %182
   %idxprom.i6.i = zext i32 %sub4.i to i64

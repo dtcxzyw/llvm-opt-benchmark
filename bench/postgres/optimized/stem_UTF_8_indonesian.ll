@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_0 = internal constant [2 x i8] c"er", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @indonesian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @indonesian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -315,7 +315,7 @@ define hidden i32 @indonesian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %140, ptr %24, align 8
   %146 = load i32, ptr %25, align 4
   store i32 %146, ptr %5, align 8
-  %147 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0), !range !4
+  %147 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %170, label %149
 
@@ -332,13 +332,13 @@ define hidden i32 @indonesian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %155, label %156, label %170
 
 156:                                              ; preds = %151
-  %157 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0), !range !4
+  %157 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %r_remove_particle.exit, label %170
 
 r_remove_first_order_prefix.exit:                 ; preds = %88, %83, %80
   store i32 %75, ptr %5, align 8
-  %159 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0), !range !4
+  %159 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %r_remove_particle.exit, label %161
 
@@ -354,7 +354,7 @@ r_remove_first_order_prefix.exit:                 ; preds = %88, %83, %80
   store i32 %75, ptr %24, align 8
   %167 = load i32, ptr %25, align 4
   store i32 %167, ptr %5, align 8
-  %168 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0), !range !4
+  %168 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
   %169 = icmp slt i32 %168, 0
   br i1 %169, label %r_remove_particle.exit, label %170
 
@@ -370,7 +370,7 @@ r_remove_particle.exit:                           ; preds = %166, %92, %95, %98,
 declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_remove_suffix(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_suffix(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -419,7 +419,7 @@ define internal fastcc i32 @r_remove_suffix(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_remove_second_order_prefix(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_prefix(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -537,7 +537,7 @@ declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare i32 @in_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @r_VOWEL(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @r_VOWEL(ptr noundef %0) #0 {
   %2 = tail call i32 @in_grouping_U(ptr noundef %0, ptr noundef nonnull @g_vowel, i32 noundef 97, i32 noundef 117, i32 noundef 0) #4
   %.not = icmp eq i32 %2, 0
   %. = zext i1 %.not to i32
@@ -545,7 +545,7 @@ define internal i32 @r_VOWEL(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @r_SUFFIX_I_OK(ptr nocapture noundef %0) #2 {
+define internal range(i32 0, 2) i32 @r_SUFFIX_I_OK(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -579,7 +579,7 @@ define internal noundef i32 @r_SUFFIX_I_OK(ptr nocapture noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @r_SUFFIX_AN_OK(ptr nocapture noundef readonly %0) #3 {
+define internal range(i32 0, 2) i32 @r_SUFFIX_AN_OK(ptr nocapture noundef readonly %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -589,7 +589,7 @@ define internal i32 @r_SUFFIX_AN_OK(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @r_SUFFIX_KAN_OK(ptr nocapture noundef readonly %0) #3 {
+define internal range(i32 0, 2) i32 @r_SUFFIX_KAN_OK(ptr nocapture noundef readonly %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -600,7 +600,7 @@ define internal i32 @r_SUFFIX_KAN_OK(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @r_KER(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @r_KER(ptr noundef %0) #0 {
   %2 = tail call i32 @out_grouping_U(ptr noundef %0, ptr noundef nonnull @g_vowel, i32 noundef 97, i32 noundef 117, i32 noundef 0) #4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %5
@@ -630,4 +630,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

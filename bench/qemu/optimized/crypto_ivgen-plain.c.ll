@@ -8,13 +8,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @qcrypto_ivgen_plain = dso_local local_unnamed_addr global %struct.QCryptoIVGenDriver { ptr @qcrypto_ivgen_plain_init, ptr @qcrypto_ivgen_plain_calculate, ptr @qcrypto_ivgen_plain_cleanup }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @qcrypto_ivgen_plain_init(ptr nocapture readnone %ivgen, ptr nocapture readnone %key, i64 %nkey, ptr nocapture readnone %errp) #0 {
+define internal noundef i32 @qcrypto_ivgen_plain_init(ptr nocapture readnone %ivgen, ptr nocapture readnone %key, i64 %nkey, ptr nocapture readnone %errp) #0 {
 entry:
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i32 @qcrypto_ivgen_plain_calculate(ptr nocapture readnone %ivgen, i64 noundef %sector, ptr nocapture noundef writeonly %iv, i64 noundef %niv, ptr nocapture readnone %errp) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal noundef i32 @qcrypto_ivgen_plain_calculate(ptr nocapture readnone %ivgen, i64 noundef %sector, ptr nocapture noundef writeonly %iv, i64 noundef %niv, ptr nocapture readnone %errp) #1 {
 entry:
   %shortsector = alloca i32, align 4
   %conv = trunc i64 %sector to i32
@@ -50,7 +50,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

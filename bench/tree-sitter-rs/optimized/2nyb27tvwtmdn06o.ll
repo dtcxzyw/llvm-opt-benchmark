@@ -375,7 +375,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 %6)
   %.0.sroa.speculated.i29.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i, i64 4)
   %8 = icmp ugt i64 %.0.sroa.speculated.i.i.i, 52405522936674862
-  %9 = mul nuw i64 %.0.sroa.speculated.i29.i.i, 176
+  %9 = mul nuw nsw i64 %.0.sroa.speculated.i29.i.i, 176
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i.i = load ptr, ptr %10, align 8, !alias.scope !54
   %11 = icmp eq i64 %2, 0
@@ -469,7 +469,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 %6)
   %.0.sroa.speculated.i29.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i, i64 4)
   %8 = icmp ugt i64 %.0.sroa.speculated.i.i.i, 230584300921369395
-  %9 = mul nuw i64 %.0.sroa.speculated.i29.i.i, 40
+  %9 = mul nuw nsw i64 %.0.sroa.speculated.i29.i.i, 40
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i.i = load ptr, ptr %10, align 8, !alias.scope !68
   %11 = icmp eq i64 %2, 0
@@ -563,7 +563,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 %6)
   %.0.sroa.speculated.i29.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i, i64 4)
   %8 = icmp ugt i64 %.0.sroa.speculated.i.i.i, 288230376151711743
-  %9 = shl nuw i64 %.0.sroa.speculated.i29.i.i, 5
+  %9 = shl nuw nsw i64 %.0.sroa.speculated.i29.i.i, 5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i.i = load ptr, ptr %10, align 8, !alias.scope !82
   %11 = icmp eq i64 %2, 0
@@ -884,7 +884,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %5, 88686269585142075
-  %9 = mul nuw i64 %5, 104
+  %9 = mul nuw nsw i64 %5, 104
   %.val = load i64, ptr %0, align 8, !noundef !5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %10, align 8
@@ -945,7 +945,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %5, 230584300921369395
-  %9 = mul nuw i64 %5, 40
+  %9 = mul nuw nsw i64 %5, 40
   %.val = load i64, ptr %0, align 8, !noundef !5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %10, align 8
@@ -1006,7 +1006,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %5, 230584300921369395
-  %9 = mul nuw i64 %5, 40
+  %9 = mul nuw nsw i64 %5, 40
   %.val = load i64, ptr %0, align 8, !noundef !5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %10, align 8
@@ -1067,7 +1067,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %5, 164703072086692425
-  %9 = mul nuw i64 %5, 56
+  %9 = mul nuw nsw i64 %5, 56
   %.val = load i64, ptr %0, align 8, !noundef !5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %10, align 8
@@ -1126,7 +1126,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1168,7 +1168,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 144115188075855871
-  %6 = shl nuw i64 %0, 6
+  %6 = shl nuw nsw i64 %0, 6
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1210,7 +1210,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1252,7 +1252,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 164703072086692425
-  %6 = mul nuw i64 %0, 56
+  %6 = mul nuw nsw i64 %0, 56
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1294,7 +1294,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1336,7 +1336,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 164703072086692425
-  %6 = mul nuw i64 %0, 56
+  %6 = mul nuw nsw i64 %0, 56
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1378,7 +1378,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1420,7 +1420,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 1152921504606846975
-  %6 = shl nuw i64 %0, 3
+  %6 = shl nuw nsw i64 %0, 3
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1462,7 +1462,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 64051194700380387
-  %6 = mul nuw i64 %0, 144
+  %6 = mul nuw nsw i64 %0, 144
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1504,7 +1504,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1546,7 +1546,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 4611686018427387903
-  %6 = shl nuw i64 %0, 1
+  %6 = shl nuw nsw i64 %0, 1
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1588,7 +1588,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1630,7 +1630,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1713,7 +1713,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 1152921504606846975
-  %6 = shl nuw i64 %0, 3
+  %6 = shl nuw nsw i64 %0, 3
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1755,7 +1755,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 88686269585142075
-  %6 = mul nuw i64 %0, 104
+  %6 = mul nuw nsw i64 %0, 104
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1838,7 +1838,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1880,7 +1880,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 1152921504606846975
-  %6 = shl nuw i64 %0, 3
+  %6 = shl nuw nsw i64 %0, 3
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1922,7 +1922,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 38430716820228232
-  %6 = mul nuw i64 %0, 240
+  %6 = mul nuw nsw i64 %0, 240
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -1964,7 +1964,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 192153584101141162
-  %6 = mul nuw i64 %0, 48
+  %6 = mul nuw nsw i64 %0, 48
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2006,7 +2006,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 192153584101141162
-  %6 = mul nuw i64 %0, 48
+  %6 = mul nuw nsw i64 %0, 48
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2048,7 +2048,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 1152921504606846975
-  %6 = shl nuw i64 %0, 3
+  %6 = shl nuw nsw i64 %0, 3
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2090,7 +2090,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 192153584101141162
-  %6 = mul nuw i64 %0, 48
+  %6 = mul nuw nsw i64 %0, 48
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2132,7 +2132,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 164703072086692425
-  %6 = mul nuw i64 %0, 56
+  %6 = mul nuw nsw i64 %0, 56
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2174,7 +2174,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2216,7 +2216,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 1537228672809129301
-  %6 = mul nuw i64 %0, 6
+  %6 = mul nuw nsw i64 %0, 6
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2258,7 +2258,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2300,7 +2300,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 576460752303423487
-  %6 = shl nuw i64 %0, 4
+  %6 = shl nuw nsw i64 %0, 4
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2342,7 +2342,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 67818912035696880
-  %6 = mul nuw i64 %0, 136
+  %6 = mul nuw nsw i64 %0, 136
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2384,7 +2384,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2426,7 +2426,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 76861433640456465
-  %6 = mul nuw i64 %0, 120
+  %6 = mul nuw nsw i64 %0, 120
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2468,7 +2468,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2510,7 +2510,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 1152921504606846975
-  %6 = shl nuw i64 %0, 3
+  %6 = shl nuw nsw i64 %0, 3
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2552,7 +2552,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 192153584101141162
-  %6 = mul nuw i64 %0, 48
+  %6 = mul nuw nsw i64 %0, 48
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2594,7 +2594,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2636,7 +2636,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2678,7 +2678,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 88686269585142075
-  %6 = mul nuw i64 %0, 104
+  %6 = mul nuw nsw i64 %0, 104
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2720,7 +2720,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 576460752303423487
-  %6 = shl nuw i64 %0, 4
+  %6 = shl nuw nsw i64 %0, 4
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2762,7 +2762,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2804,7 +2804,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 1152921504606846975
-  %6 = shl nuw i64 %0, 3
+  %6 = shl nuw nsw i64 %0, 3
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2846,7 +2846,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2888,7 +2888,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2930,7 +2930,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2972,7 +2972,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3014,7 +3014,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 52405522936674862
-  %6 = mul nuw i64 %0, 176
+  %6 = mul nuw nsw i64 %0, 176
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3056,7 +3056,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3098,7 +3098,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3140,7 +3140,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 576460752303423487
-  %6 = shl nuw i64 %0, 4
+  %6 = shl nuw nsw i64 %0, 4
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3182,7 +3182,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3224,7 +3224,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3266,7 +3266,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3308,7 +3308,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 164703072086692425
-  %6 = mul nuw i64 %0, 56
+  %6 = mul nuw nsw i64 %0, 56
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3350,7 +3350,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 88686269585142075
-  %6 = mul nuw i64 %0, 104
+  %6 = mul nuw nsw i64 %0, 104
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3397,7 +3397,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 192153584101141162
-  %6 = mul nuw i64 %0, 48
+  %6 = mul nuw nsw i64 %0, 48
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3439,7 +3439,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 230584300921369395
-  %6 = mul nuw i64 %0, 40
+  %6 = mul nuw nsw i64 %0, 40
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3481,7 +3481,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 288230376151711743
-  %6 = shl nuw i64 %0, 5
+  %6 = shl nuw nsw i64 %0, 5
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3523,7 +3523,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 76861433640456465
-  %6 = mul nuw i64 %0, 120
+  %6 = mul nuw nsw i64 %0, 120
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3606,7 +3606,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3648,7 +3648,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 2305843009213693951
-  %6 = shl nuw i64 %0, 2
+  %6 = shl nuw nsw i64 %0, 2
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3690,7 +3690,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 96076792050570581
-  %6 = mul nuw i64 %0, 96
+  %6 = mul nuw nsw i64 %0, 96
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3732,7 +3732,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3774,7 +3774,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 384307168202282325
-  %6 = mul nuw i64 %0, 24
+  %6 = mul nuw nsw i64 %0, 24
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3816,7 +3816,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 192153584101141162
-  %6 = mul nuw i64 %0, 48
+  %6 = mul nuw nsw i64 %0, 48
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3858,7 +3858,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 72057594037927935
-  %6 = shl nuw i64 %0, 7
+  %6 = shl nuw nsw i64 %0, 7
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -3906,7 +3906,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4022,7 +4022,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4081,7 +4081,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4140,7 +4140,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 230584300921369395
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 40
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4199,7 +4199,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4258,7 +4258,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 67818912035696880
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 136
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 136
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4317,7 +4317,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 2305843009213693951
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 2
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 2
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4376,7 +4376,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 164703072086692425
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 56
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 56
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4435,7 +4435,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4494,7 +4494,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4553,7 +4553,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4612,7 +4612,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 38430716820228232
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 240
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 240
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4671,7 +4671,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 88686269585142075
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 104
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 104
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4730,7 +4730,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4789,7 +4789,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 1537228672809129301
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 6
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 6
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4848,7 +4848,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 72057594037927935
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 7
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 7
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4907,7 +4907,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -4966,7 +4966,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5025,7 +5025,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 230584300921369395
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 40
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5084,7 +5084,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5143,7 +5143,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 164703072086692425
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 56
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 56
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5202,7 +5202,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5261,7 +5261,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5320,7 +5320,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5379,7 +5379,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5438,7 +5438,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5497,7 +5497,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5556,7 +5556,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5615,7 +5615,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 230584300921369395
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 40
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5674,7 +5674,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5790,7 +5790,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5849,7 +5849,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5908,7 +5908,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -5967,7 +5967,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 230584300921369395
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 40
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6026,7 +6026,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6085,7 +6085,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6144,7 +6144,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 64051194700380387
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 144
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 144
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6203,7 +6203,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6262,7 +6262,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6321,7 +6321,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 76861433640456465
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 120
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 120
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6380,7 +6380,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6439,7 +6439,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6498,7 +6498,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 4611686018427387903
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 1
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 1
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6565,7 +6565,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6624,7 +6624,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6683,7 +6683,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 67818912035696880
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 136
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 136
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6742,7 +6742,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 96076792050570581
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 96
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 96
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6801,7 +6801,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 164703072086692425
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 56
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 56
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6860,7 +6860,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6919,7 +6919,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 88686269585142075
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 104
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 104
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -6978,7 +6978,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 76861433640456465
-  %11 = mul nuw i64 %.0.sroa.speculated.i29, 120
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 120
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -7038,7 +7038,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 64051194700380387
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 144
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 144
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !333
   %12 = icmp eq i64 %7, 0
@@ -7097,7 +7097,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !340
   %12 = icmp eq i64 %7, 0
@@ -7156,7 +7156,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !347
   %12 = icmp eq i64 %7, 0
@@ -7221,7 +7221,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !354
   %12 = icmp eq i64 %7, 0
@@ -7280,7 +7280,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !361
   %12 = icmp eq i64 %7, 0
@@ -7339,7 +7339,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !368
   %12 = icmp eq i64 %7, 0
@@ -7398,7 +7398,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !375
   %12 = icmp eq i64 %7, 0
@@ -7457,7 +7457,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 128102389400760775
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 72
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 72
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !382
   %12 = icmp eq i64 %7, 0
@@ -7516,7 +7516,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 88686269585142075
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 104
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 104
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !389
   %12 = icmp eq i64 %7, 0
@@ -7575,7 +7575,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !396
   %12 = icmp eq i64 %7, 0
@@ -7634,7 +7634,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !403
   %12 = icmp eq i64 %7, 0
@@ -7693,7 +7693,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !410
   %12 = icmp eq i64 %7, 0
@@ -7752,7 +7752,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !417
   %12 = icmp eq i64 %7, 0
@@ -7811,7 +7811,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !424
   %12 = icmp eq i64 %7, 0
@@ -7870,7 +7870,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !431
   %12 = icmp eq i64 %7, 0
@@ -7929,7 +7929,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !438
   %12 = icmp eq i64 %7, 0
@@ -7988,7 +7988,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !445
   %12 = icmp eq i64 %7, 0
@@ -8047,7 +8047,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 88686269585142075
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 104
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 104
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !452
   %12 = icmp eq i64 %7, 0
@@ -8106,7 +8106,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !459
   %12 = icmp eq i64 %7, 0
@@ -8165,7 +8165,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !466
   %12 = icmp eq i64 %7, 0
@@ -8224,7 +8224,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !473
   %12 = icmp eq i64 %7, 0
@@ -8283,7 +8283,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !480
   %12 = icmp eq i64 %7, 0
@@ -8342,7 +8342,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 38430716820228232
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 240
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 240
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !487
   %12 = icmp eq i64 %7, 0
@@ -8401,7 +8401,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !494
   %12 = icmp eq i64 %7, 0
@@ -8460,7 +8460,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !501
   %12 = icmp eq i64 %7, 0
@@ -8519,7 +8519,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !508
   %12 = icmp eq i64 %7, 0
@@ -8578,7 +8578,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !515
   %12 = icmp eq i64 %7, 0
@@ -8637,7 +8637,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !522
   %12 = icmp eq i64 %7, 0
@@ -8696,7 +8696,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !529
   %12 = icmp eq i64 %7, 0
@@ -8755,7 +8755,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !536
   %12 = icmp eq i64 %7, 0
@@ -8814,7 +8814,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !543
   %12 = icmp eq i64 %7, 0
@@ -8873,7 +8873,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !550
   %12 = icmp eq i64 %7, 0
@@ -8932,7 +8932,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !557
   %12 = icmp eq i64 %7, 0
@@ -8991,7 +8991,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !564
   %12 = icmp eq i64 %7, 0
@@ -9050,7 +9050,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 104811045873349725
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 88
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 88
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !571
   %12 = icmp eq i64 %7, 0
@@ -9109,7 +9109,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !578
   %12 = icmp eq i64 %7, 0
@@ -9168,7 +9168,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !585
   %12 = icmp eq i64 %7, 0
@@ -9227,7 +9227,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !592
   %12 = icmp eq i64 %7, 0
@@ -9286,7 +9286,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 88686269585142075
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 104
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 104
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !599
   %12 = icmp eq i64 %7, 0
@@ -9345,7 +9345,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !606
   %12 = icmp eq i64 %7, 0
@@ -9404,7 +9404,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !613
   %12 = icmp eq i64 %7, 0
@@ -9463,7 +9463,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !620
   %12 = icmp eq i64 %7, 0
@@ -9522,7 +9522,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !627
   %12 = icmp eq i64 %7, 0
@@ -9581,7 +9581,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !634
   %12 = icmp eq i64 %7, 0
@@ -9651,7 +9651,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !641
   %12 = icmp eq i64 %7, 0
@@ -9710,7 +9710,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !648
   %12 = icmp eq i64 %7, 0
@@ -9769,7 +9769,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !655
   %12 = icmp eq i64 %7, 0
@@ -9828,7 +9828,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 72057594037927935
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 7
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 7
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !662
   %12 = icmp eq i64 %7, 0
@@ -9887,7 +9887,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 76861433640456465
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 120
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 120
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !669
   %12 = icmp eq i64 %7, 0
@@ -9946,7 +9946,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !676
   %12 = icmp eq i64 %7, 0
@@ -10073,7 +10073,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !690
   %12 = icmp eq i64 %7, 0
@@ -10132,7 +10132,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 144115188075855871
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 6
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 6
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !697
   %12 = icmp eq i64 %7, 0
@@ -10191,7 +10191,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !704
   %12 = icmp eq i64 %7, 0
@@ -10318,7 +10318,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !718
   %12 = icmp eq i64 %7, 0
@@ -10377,7 +10377,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !725
   %12 = icmp eq i64 %7, 0
@@ -10436,7 +10436,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 128102389400760775
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 72
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 72
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !732
   %12 = icmp eq i64 %7, 0
@@ -10495,7 +10495,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 67818912035696880
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 136
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 136
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !739
   %12 = icmp eq i64 %7, 0
@@ -10554,7 +10554,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !746
   %12 = icmp eq i64 %7, 0
@@ -10613,7 +10613,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !753
   %12 = icmp eq i64 %7, 0
@@ -10672,7 +10672,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !760
   %12 = icmp eq i64 %7, 0
@@ -10731,7 +10731,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !767
   %12 = icmp eq i64 %7, 0
@@ -10790,7 +10790,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !774
   %12 = icmp eq i64 %7, 0
@@ -10849,7 +10849,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !781
   %12 = icmp eq i64 %7, 0
@@ -10908,7 +10908,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !788
   %12 = icmp eq i64 %7, 0
@@ -10967,7 +10967,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !795
   %12 = icmp eq i64 %7, 0
@@ -11026,7 +11026,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !802
   %12 = icmp eq i64 %7, 0
@@ -11085,7 +11085,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !809
   %12 = icmp eq i64 %7, 0
@@ -11144,7 +11144,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 2305843009213693951
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 2
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 2
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !816
   %12 = icmp eq i64 %7, 0
@@ -11203,7 +11203,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !823
   %12 = icmp eq i64 %7, 0
@@ -11262,7 +11262,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !830
   %12 = icmp eq i64 %7, 0
@@ -11321,7 +11321,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !837
   %12 = icmp eq i64 %7, 0
@@ -11380,7 +11380,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !844
   %12 = icmp eq i64 %7, 0
@@ -11439,7 +11439,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 2305843009213693951
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 2
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 2
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !851
   %12 = icmp eq i64 %7, 0
@@ -11498,7 +11498,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !858
   %12 = icmp eq i64 %7, 0
@@ -11557,7 +11557,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !865
   %12 = icmp eq i64 %7, 0
@@ -11616,7 +11616,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !872
   %12 = icmp eq i64 %7, 0
@@ -11675,7 +11675,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !879
   %12 = icmp eq i64 %7, 0
@@ -11734,7 +11734,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !886
   %12 = icmp eq i64 %7, 0
@@ -11793,7 +11793,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !893
   %12 = icmp eq i64 %7, 0
@@ -11852,7 +11852,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !900
   %12 = icmp eq i64 %7, 0
@@ -11911,7 +11911,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !907
   %12 = icmp eq i64 %7, 0
@@ -11970,7 +11970,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !914
   %12 = icmp eq i64 %7, 0
@@ -12029,7 +12029,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !921
   %12 = icmp eq i64 %7, 0
@@ -12096,7 +12096,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve
 
 13:                                               ; preds = %9
   %14 = icmp ugt i64 %11, 164703072086692425
-  %15 = mul nuw i64 %11, 56
+  %15 = mul nuw nsw i64 %11, 56
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %16, align 8, !alias.scope !928
   %17 = icmp eq i64 %4, 0
@@ -12170,7 +12170,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve
 
 13:                                               ; preds = %9
   %14 = icmp ugt i64 %11, 88686269585142075
-  %15 = mul nuw i64 %11, 104
+  %15 = mul nuw nsw i64 %11, 104
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %16, align 8, !alias.scope !935
   %17 = icmp eq i64 %4, 0
@@ -12244,7 +12244,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve
 
 13:                                               ; preds = %9
   %14 = icmp ugt i64 %11, 230584300921369395
-  %15 = mul nuw i64 %11, 40
+  %15 = mul nuw nsw i64 %11, 40
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %16, align 8, !alias.scope !942
   %17 = icmp eq i64 %4, 0
@@ -12318,7 +12318,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve
 
 13:                                               ; preds = %9
   %14 = icmp ugt i64 %11, 230584300921369395
-  %15 = mul nuw i64 %11, 40
+  %15 = mul nuw nsw i64 %11, 40
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %16, align 8, !alias.scope !949
   %17 = icmp eq i64 %4, 0
@@ -12384,7 +12384,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !956
   %13 = icmp eq i64 %8, 0
@@ -12443,7 +12443,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 88686269585142075
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 104
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 104
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !963
   %13 = icmp eq i64 %8, 0
@@ -12502,7 +12502,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !970
   %13 = icmp eq i64 %8, 0
@@ -12561,7 +12561,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 76861433640456465
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 120
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 120
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !977
   %13 = icmp eq i64 %8, 0
@@ -12620,7 +12620,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !984
   %13 = icmp eq i64 %8, 0
@@ -12679,7 +12679,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !991
   %13 = icmp eq i64 %8, 0
@@ -12738,7 +12738,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 64051194700380387
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 144
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 144
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !998
   %13 = icmp eq i64 %8, 0
@@ -12797,7 +12797,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 2305843009213693951
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 2
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 2
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1005
   %13 = icmp eq i64 %8, 0
@@ -12856,7 +12856,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1012
   %13 = icmp eq i64 %8, 0
@@ -12915,7 +12915,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1019
   %13 = icmp eq i64 %8, 0
@@ -12974,7 +12974,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1026
   %13 = icmp eq i64 %8, 0
@@ -13033,7 +13033,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 72057594037927935
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 7
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 7
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1033
   %13 = icmp eq i64 %8, 0
@@ -13092,7 +13092,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 1537228672809129301
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 6
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 6
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1040
   %13 = icmp eq i64 %8, 0
@@ -13230,7 +13230,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1054
   %13 = icmp eq i64 %8, 0
@@ -13289,7 +13289,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1061
   %13 = icmp eq i64 %8, 0
@@ -13348,7 +13348,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1068
   %13 = icmp eq i64 %8, 0
@@ -13407,7 +13407,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1075
   %13 = icmp eq i64 %8, 0
@@ -13466,7 +13466,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 88686269585142075
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 104
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 104
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1082
   %13 = icmp eq i64 %8, 0
@@ -13525,7 +13525,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1089
   %13 = icmp eq i64 %8, 0
@@ -13584,7 +13584,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 4611686018427387903
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 1
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 1
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1096
   %13 = icmp eq i64 %8, 0
@@ -13651,7 +13651,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 67818912035696880
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 136
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 136
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1103
   %13 = icmp eq i64 %8, 0
@@ -13710,7 +13710,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 76861433640456465
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 120
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 120
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1110
   %13 = icmp eq i64 %8, 0
@@ -13769,7 +13769,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1117
   %13 = icmp eq i64 %8, 0
@@ -13896,7 +13896,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1131
   %13 = icmp eq i64 %8, 0
@@ -13955,7 +13955,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1138
   %13 = icmp eq i64 %8, 0
@@ -14014,7 +14014,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1145
   %13 = icmp eq i64 %8, 0
@@ -14073,7 +14073,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1152
   %13 = icmp eq i64 %8, 0
@@ -14132,7 +14132,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1159
   %13 = icmp eq i64 %8, 0
@@ -14191,7 +14191,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1166
   %13 = icmp eq i64 %8, 0
@@ -14250,7 +14250,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1173
   %13 = icmp eq i64 %8, 0
@@ -14309,7 +14309,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1180
   %13 = icmp eq i64 %8, 0
@@ -14368,7 +14368,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1187
   %13 = icmp eq i64 %8, 0
@@ -14427,7 +14427,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 38430716820228232
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 240
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 240
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1194
   %13 = icmp eq i64 %8, 0
@@ -14486,7 +14486,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1201
   %13 = icmp eq i64 %8, 0
@@ -14545,7 +14545,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 192153584101141162
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 48
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 48
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1208
   %13 = icmp eq i64 %8, 0
@@ -14604,7 +14604,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1215
   %13 = icmp eq i64 %8, 0
@@ -14663,7 +14663,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1222
   %13 = icmp eq i64 %8, 0
@@ -14722,7 +14722,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1229
   %13 = icmp eq i64 %8, 0
@@ -14781,7 +14781,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1236
   %13 = icmp eq i64 %8, 0
@@ -14840,7 +14840,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1243
   %13 = icmp eq i64 %8, 0
@@ -14899,7 +14899,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1250
   %13 = icmp eq i64 %8, 0
@@ -14958,7 +14958,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1257
   %13 = icmp eq i64 %8, 0
@@ -15017,7 +15017,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 67818912035696880
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 136
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 136
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1264
   %13 = icmp eq i64 %8, 0
@@ -15076,7 +15076,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1271
   %13 = icmp eq i64 %8, 0
@@ -15135,7 +15135,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1278
   %13 = icmp eq i64 %8, 0
@@ -15194,7 +15194,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 40
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1285
   %13 = icmp eq i64 %8, 0
@@ -15253,7 +15253,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 24
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1292
   %13 = icmp eq i64 %8, 0
@@ -15312,7 +15312,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 5
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1299
   %13 = icmp eq i64 %8, 0
@@ -15371,7 +15371,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1306
   %13 = icmp eq i64 %8, 0
@@ -15430,7 +15430,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 96076792050570581
-  %11 = mul nuw i64 %.0.sroa.speculated.i29.i, 96
+  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 96
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1313
   %13 = icmp eq i64 %8, 0
@@ -15489,7 +15489,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !1320
   %13 = icmp eq i64 %8, 0

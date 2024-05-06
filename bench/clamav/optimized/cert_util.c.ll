@@ -221,7 +221,7 @@ declare void @mprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @x509_get_cert_name(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 0, 21) i32 @x509_get_cert_name(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
@@ -296,7 +296,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -352,7 +352,7 @@ define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr no
   %23 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i64 0, i32 2), align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8
-  %26 = call fastcc i32 @_x509_to_pem_append(ptr noundef %25, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4), !range !4
+  %26 = call fastcc i32 @_x509_to_pem_append(ptr noundef %25, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %.not64.us = icmp eq i32 %26, 0
   br i1 %.not64.us, label %27, label %.loopexit
 
@@ -379,7 +379,7 @@ define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr no
   %34 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i64 0, i32 3), align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
-  %37 = call fastcc i32 @_x509_to_pem_append(ptr noundef %36, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4), !range !4
+  %37 = call fastcc i32 @_x509_to_pem_append(ptr noundef %36, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %.not62.us = icmp eq i32 %37, 0
   br i1 %.not62.us, label %38, label %.loopexit
 
@@ -397,7 +397,7 @@ define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr no
   %44 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i64 0, i32 2), align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8
-  %47 = call fastcc i32 @_x509_to_pem_append(ptr noundef %46, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4), !range !4
+  %47 = call fastcc i32 @_x509_to_pem_append(ptr noundef %46, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %.not64 = icmp eq i32 %47, 0
   br i1 %.not64, label %48, label %.loopexit
 
@@ -406,7 +406,7 @@ define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr no
   %49 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i64 0, i32 2), align 8
   %50 = getelementptr inbounds ptr, ptr %49, i64 %43
   %51 = load ptr, ptr %50, align 8
-  %52 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %51, ptr noundef nonnull %2, ptr noundef nonnull %5), !range !5
+  %52 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %51, ptr noundef nonnull %2, ptr noundef nonnull %5)
   %53 = icmp ne i32 %52, 0
   %54 = load i32, ptr %5, align 4
   %55 = icmp ne i32 %54, 0
@@ -425,7 +425,7 @@ define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr no
   %61 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i64 0, i32 3), align 8
   %62 = getelementptr inbounds ptr, ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8
-  %64 = call fastcc i32 @_x509_to_pem_append(ptr noundef %63, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4), !range !4
+  %64 = call fastcc i32 @_x509_to_pem_append(ptr noundef %63, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %.not62 = icmp eq i32 %64, 0
   br i1 %.not62, label %65, label %.loopexit
 
@@ -434,7 +434,7 @@ define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr no
   %66 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i64 0, i32 3), align 8
   %67 = getelementptr inbounds ptr, ptr %66, i64 %60
   %68 = load ptr, ptr %67, align 8
-  %69 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %68, ptr noundef nonnull %2, ptr noundef nonnull %6), !range !5
+  %69 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %68, ptr noundef nonnull %2, ptr noundef nonnull %6)
   %70 = icmp ne i32 %69, 0
   %71 = load i32, ptr %6, align 4
   %72 = icmp ne i32 %71, 0
@@ -458,7 +458,7 @@ define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not60, label %81, label %79
 
 79:                                               ; preds = %77
-  %80 = call fastcc i32 @_x509_to_pem_append(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4), !range !4
+  %80 = call fastcc i32 @_x509_to_pem_append(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %.not61 = icmp eq i32 %80, 0
   br i1 %.not61, label %81, label %.loopexit
 
@@ -503,7 +503,7 @@ define noundef i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr no
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_x509_to_pem_append(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %3, null
@@ -628,7 +628,7 @@ define internal fastcc noundef i32 @_x509_to_pem_append(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @x509_cert_name_cmp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 21) i32 @x509_cert_name_cmp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @BIO_s_mem() #15
@@ -694,7 +694,7 @@ define internal fastcc noundef i32 @x509_cert_name_cmp(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cert_store_set_trusted_int(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i64 %1, 0
   %or.cond = or i1 %3, %4
@@ -813,7 +813,7 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @X509_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cert_store_set_trusted(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 9) i32 @cert_store_set_trusted(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_cert_store) #15
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -830,7 +830,7 @@ define noundef i32 @cert_store_set_trusted(ptr noundef %0, i64 noundef %1) local
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @cert_store_set_trusted_int(ptr noundef %0, i64 noundef %1), !range !4
+  %10 = tail call i32 @cert_store_set_trusted_int(ptr noundef %0, i64 noundef %1)
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -945,7 +945,7 @@ define void @cert_fill_X509_store(ptr noundef %0, ptr noundef readonly %1, i64 n
 13:                                               ; preds = %11
   store ptr null, ptr %4, align 8
   %14 = load ptr, ptr %8, align 8
-  %15 = call i32 @x509_get_cert_name(ptr noundef %14, ptr noundef nonnull %4), !range !5
+  %15 = call i32 @x509_get_cert_name(ptr noundef %14, ptr noundef nonnull %4)
   %16 = call i64 @ERR_get_error() #15
   %17 = and i64 %16, 2147483648
   %.not.i = icmp eq i64 %17, 0
@@ -1036,7 +1036,7 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
 17:                                               ; preds = %15
   store ptr null, ptr %3, align 8
   %18 = tail call i64 @ERR_get_error() #15
-  %19 = call i32 @x509_get_cert_name(ptr noundef nonnull %1, ptr noundef nonnull %3), !range !5
+  %19 = call i32 @x509_get_cert_name(ptr noundef nonnull %1, ptr noundef nonnull %3)
   %20 = and i64 %18, 2147483648
   %.not.i = icmp eq i64 %20, 0
   %21 = trunc i64 %18 to i32
@@ -1086,7 +1086,7 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sslctx_function(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define range(i32 0, 44) i32 @sslctx_function(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
   %4 = load i8, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i64 0, i32 1), align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6
@@ -1115,7 +1115,7 @@ declare i32 @cert_store_load(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @SSL_CTX_get_cert_store(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_tls_client_certificate(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 35) i32 @set_tls_client_certificate(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.19) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %36, label %4
@@ -1248,5 +1248,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 9}
-!5 = !{i32 0, i32 21}

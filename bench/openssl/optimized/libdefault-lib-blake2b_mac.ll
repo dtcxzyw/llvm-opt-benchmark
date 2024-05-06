@@ -86,7 +86,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @blake2_mac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @blake2_mac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -107,7 +107,7 @@ blake2_setkey.exit.thread:                        ; preds = %if.then3
 
 if.end.i:                                         ; preds = %if.then3
   %key2.i = getelementptr inbounds i8, ptr %vmacctx, i64 304
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key2.i, ptr nonnull align 1 %key, i64 %keylen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key2.i, ptr nonnull readonly align 1 %key, i64 %keylen, i1 false)
   %cmp3.i = icmp ult i64 %keylen, 64
   br i1 %cmp3.i, label %if.then4.i, label %blake2_setkey.exit
 
@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @blake2_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @blake2_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #5
   %cmp.not = icmp eq ptr %call, null
@@ -227,7 +227,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @blake2_mac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @blake2_mac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %size = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -281,7 +281,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   %data = getelementptr inbounds i8, ptr %call11, i64 16
   %5 = load ptr, ptr %data, align 8
   %key2.i = getelementptr inbounds i8, ptr %vmacctx, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key2.i, ptr align 1 %5, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key2.i, ptr readonly align 1 %5, i64 %3, i1 false)
   %cmp3.i = icmp ult i64 %3, 64
   br i1 %cmp3.i, label %if.then4.i, label %blake2_setkey.exit
 
@@ -407,4 +407,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

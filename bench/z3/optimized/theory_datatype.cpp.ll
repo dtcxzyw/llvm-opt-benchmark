@@ -2017,7 +2017,7 @@ invoke.cont43:                                    ; preds = %_ZN11ast_manager7in
   %arrayidx.i23 = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %idxprom.i22
   %46 = load ptr, ptr %arrayidx.i23, align 8
   store ptr %46, ptr %arg, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fn, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %fn, i8 0, i64 32, i1 false)
   %call.i.i2.i24 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
           to label %invoke.cont48 unwind label %lpad44
 
@@ -6062,7 +6062,7 @@ declare noundef zeroext i1 @_ZN3smt6theory8lazy_popERj(ptr noundef nonnull align
 declare void @_ZN3smt6theory12pop_scope_ehEj(ptr noundef nonnull align 8 dereferenceable(53), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt15theory_datatype14final_check_ehEv(ptr noundef nonnull align 8 dereferenceable(728) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3smt15theory_datatype14final_check_ehEv(ptr noundef nonnull align 8 dereferenceable(728) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_guard = alloca %"class.smt::theory_datatype::final_check_st", align 8
   tail call void @_ZN3smt6theory10force_pushEv(ptr noundef nonnull align 8 dereferenceable(53) %this)
@@ -7562,8 +7562,8 @@ if.then26:                                        ; preds = %_ZNK8seq_util3str9i
   %34 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i50 = zext i32 %34 to i64
   %add.ptr.i51.idx = shl nuw nsw i64 %idx.ext.i50, 3
-  %35 = getelementptr i8, ptr %16, i64 %add.ptr.i51.idx
-  %add.ptr.i51.ptr = getelementptr i8, ptr %35, i64 32
+  %35 = getelementptr inbounds i8, ptr %16, i64 %add.ptr.i51.idx
+  %add.ptr.i51.ptr = getelementptr inbounds i8, ptr %35, i64 32
   %cmp31.not95 = icmp eq i32 %34, 0
   br i1 %cmp31.not95, label %for.inc38, label %for.body32.preheader
 
@@ -7953,8 +7953,8 @@ _ZNK3smt5enode4args3endEv.exit:                   ; preds = %_ZN3smt15theory_dat
   %19 = load i32, ptr %m_num_args.i.i.i, align 8
   %20 = zext i32 %19 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %20, 3
-  %21 = getelementptr i8, ptr %16, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %21, i64 112
+  %21 = getelementptr inbounds i8, ptr %16, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %21, i64 112
   %cmp11.not108 = icmp eq i32 %19, 0
   br i1 %cmp11.not108, label %return, label %for.body.lr.ph
 
@@ -9640,8 +9640,8 @@ _ZNK3smt5enode4args3endEv.exit:                   ; preds = %_ZNK10union_findIN3
   %11 = load i32, ptr %m_num_args.i.i.i, align 8
   %12 = zext i32 %11 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %12, 3
-  %13 = getelementptr i8, ptr %8, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %13, i64 112
+  %13 = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %13, i64 112
   %cmp.not11 = icmp eq i32 %11, 0
   br i1 %cmp.not11, label %for.end, label %for.body.preheader
 
@@ -11871,7 +11871,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -12491,7 +12491,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__source.val5, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %__source.val5, i64 56, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

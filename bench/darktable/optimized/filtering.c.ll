@@ -1601,13 +1601,13 @@ define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.71, i32 noundef %37) #21
   %48 = load i64, ptr %39, align 4
   %49 = lshr i64 %48, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw i64 %49 to i32
   %51 = and i32 %50, 65535
   call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef %51) #21
   %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.72, i32 noundef %37) #21
   %53 = load i64, ptr %39, align 4
   %54 = lshr i64 %53, 48
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef %55) #21
   %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.73, i32 noundef %37) #21
   %57 = getelementptr inbounds i8, ptr %39, i64 8
@@ -4062,7 +4062,7 @@ define void @view_leave(ptr nocapture noundef readonly %0, ptr nocapture noundef
 declare ptr @g_object_get_data(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_colors_clicked(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_colors_clicked(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !135
   %6 = icmp eq i32 %5, 1
@@ -4301,7 +4301,7 @@ declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_colors_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_colors_update(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8, !tbaa !74
   %4 = icmp eq ptr %3, null
@@ -4733,7 +4733,7 @@ declare void @dt_collection_sort_serialize(ptr noundef, i32 noundef) local_unnam
 declare i32 @dt_collection_serialize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_widget_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_widget_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = getelementptr inbounds i8, ptr %0, i64 360
   %10 = load i32, ptr %9, align 8, !tbaa !121
   %11 = add nsw i32 %10, 1
@@ -5707,7 +5707,7 @@ declare ptr @dtgtk_button_new(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @dtgtk_cairo_paint_remove(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_event_rule_close(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_event_rule_close(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
   %4 = alloca [200 x i8], align 16
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #21
   %6 = tail call ptr @g_object_get_data(ptr noundef %5, ptr noundef nonnull @.str.116) #21
@@ -6016,7 +6016,7 @@ declare ptr @dt_bauhaus_combobox_get_data(ptr noundef) local_unnamed_addr #4
 declare ptr @g_object_ref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_sort_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_sort_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !63
   %8 = getelementptr inbounds i8, ptr %7, i64 4504
@@ -6232,7 +6232,7 @@ define internal void @_sort_reverse_changed(ptr noundef %0, ptr nocapture nounde
 declare ptr @dt_action_define(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_sort_close(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_sort_close(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
   %4 = alloca [200 x i8], align 16
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #21
   %6 = tail call ptr @g_object_get_data(ptr noundef %5, ptr noundef nonnull @.str.140) #21
@@ -6672,7 +6672,7 @@ define internal void @_filename_widget_init(ptr noundef %0, i32 %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_filename_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_filename_update(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8, !tbaa !74
   %4 = icmp eq ptr %3, null
@@ -6858,7 +6858,7 @@ define internal void @_search_widget_init(ptr noundef %0, i32 %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_search_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_search_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8, !tbaa !74
@@ -7066,7 +7066,7 @@ define internal void @_date_widget_init(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_date_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_date_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -7303,7 +7303,7 @@ define internal void @_ratio_widget_init(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_ratio_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_ratio_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -7577,7 +7577,7 @@ define internal void @_rating_range_widget_init(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_rating_range_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_rating_range_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [7 x i32], align 16
   %4 = alloca ptr, align 8
@@ -7850,7 +7850,7 @@ define internal void @_aperture_widget_init(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_aperture_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_aperture_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -8072,7 +8072,7 @@ define internal void @_focal_widget_init(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_focal_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_focal_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -8293,7 +8293,7 @@ define internal void @_iso_widget_init(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_iso_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_iso_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -8527,7 +8527,7 @@ define internal void @_exposure_widget_init(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_exposure_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_exposure_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -8703,7 +8703,7 @@ define internal void @_grouping_widget_init(ptr noundef %0, i32 %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_grouping_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_grouping_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -8937,7 +8937,7 @@ define internal void @_local_copy_widget_init(ptr noundef %0, i32 %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_local_copy_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_local_copy_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [2 x i32], align 8
   %4 = alloca ptr, align 8
@@ -9135,7 +9135,7 @@ define internal void @_history_widget_init(ptr noundef %0, i32 %1, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_history_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_history_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [3 x i32], align 4
   %4 = alloca ptr, align 8
@@ -9385,7 +9385,7 @@ define internal void @_module_order_widget_init(ptr noundef %0, i32 %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_module_order_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_module_order_update(ptr noundef %0) #1 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [5 x i32], align 16
   %4 = alloca ptr, align 8
@@ -9672,7 +9672,7 @@ define internal void @_rating_widget_init(ptr noundef %0, i32 %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_rating_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_rating_update(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8, !tbaa !74
   %4 = icmp eq ptr %3, null
@@ -9922,7 +9922,7 @@ define internal void @_misc_widget_init(ptr noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_misc_update(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_misc_update(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8, !tbaa !74
   %4 = icmp eq ptr %3, null
@@ -10107,7 +10107,7 @@ define internal noundef i32 @_filename_focus_out(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_filename_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_filename_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !135
   switch i32 %5, label %66 [
@@ -10556,7 +10556,7 @@ declare void @gtk_entry_set_max_width_chars(ptr noundef, i32 noundef) local_unna
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_search_changed_wait(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_search_changed_wait(ptr noundef %0) #1 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca [2 x i8], align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -12150,7 +12150,7 @@ define internal noundef i32 @_misc_focus_out(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_misc_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_misc_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !135
   switch i32 %5, label %52 [

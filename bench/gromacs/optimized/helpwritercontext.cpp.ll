@@ -583,9 +583,9 @@ _ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.
   %45 = getelementptr inbounds i8, ptr %25, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #17
-  br label %_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit36
+  br label %_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit38
 
-46:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit36
+46:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit38
   %47 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -593,9 +593,9 @@ _ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.
 
 48:                                               ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %24) #19
-  br label %_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit36
+  br label %_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit38
 
-_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit36: ; preds = %48, %.thread
+_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit38: ; preds = %48, %.thread
   invoke void @__cxa_rethrow() #20
           to label %53 unwind label %46
 
@@ -609,7 +609,7 @@ _ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.
   tail call void @__clang_call_terminate(ptr %52) #18
   unreachable
 
-53:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit36
+53:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx9HelpLinks4Impl8LinkItemESaIS3_EE13_M_deallocateEPS3_m.exit38
   unreachable
 }
 
@@ -1653,9 +1653,9 @@ _ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deal
   %45 = getelementptr inbounds i8, ptr %25, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #17
-  br label %_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit36
+  br label %_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit38
 
-46:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit36
+46:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit38
   %47 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -1663,9 +1663,9 @@ _ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deal
 
 48:                                               ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %24) #19
-  br label %_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit36
+  br label %_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit38
 
-_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit36: ; preds = %48, %.thread
+_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit38: ; preds = %48, %.thread
   invoke void @__cxa_rethrow() #20
           to label %53 unwind label %46
 
@@ -1679,7 +1679,7 @@ _ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deal
   tail call void @__clang_call_terminate(ptr %52) #18
   unreachable
 
-53:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit36
+53:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx17HelpWriterContext4Impl11ReplaceItemESaIS3_EE13_M_deallocateEPS3_m.exit38
   unreachable
 }
 
@@ -1884,7 +1884,7 @@ define void @_ZNK3gmx17HelpWriterContext31substituteMarkupAndWrapToStringERKNS_2
   %5 = alloca %"class.gmx::(anonymous namespace)::WrapperToString", align 8
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToStringE, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   %8 = load ptr, ptr %1, align 8
@@ -2819,9 +2819,9 @@ define void @_ZNK3gmx17HelpWriterContext31substituteMarkupAndWrapToVectorERKNS_2
   %5 = alloca %"class.gmx::(anonymous namespace)::WrapperToVector", align 8
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToVectorE, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = load ptr, ptr %1, align 8
   invoke fastcc void @_ZNK3gmx17HelpWriterContext4Impl13processMarkupERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_12_GLOBAL__N_18IWrapperE(ptr noundef nonnull align 8 dereferenceable(44) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %5)
           to label %9 unwind label %17
@@ -3664,7 +3664,7 @@ define void @_ZNK3gmx17HelpWriterContext14writeTextBlockERKNSt7__cxx1112basic_st
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToStringE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !44
   %15 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !noalias !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false), !noalias !44
   %16 = getelementptr inbounds i8, ptr %3, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #17, !noalias !44
   %17 = load ptr, ptr %0, align 8, !noalias !44
@@ -3830,7 +3830,7 @@ define void @_ZNK3gmx17HelpWriterContext15writeOptionItemERKNSt7__cxx1112basic_s
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToStringE, i64 0, i32 0, i64 2), ptr %8, align 8, !noalias !47
   %53 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !noalias !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull readonly align 4 dereferenceable(16) %13, i64 16, i1 false), !noalias !47
   %54 = getelementptr inbounds i8, ptr %8, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #17, !noalias !47
   %55 = load ptr, ptr %0, align 8, !noalias !47
@@ -3943,7 +3943,7 @@ _ZNK3gmx17HelpWriterContext31substituteMarkupAndWrapToStringERKNS_23TextLineWrap
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToStringE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !50
   %91 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false), !noalias !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull readonly align 4 dereferenceable(16) %18, i64 16, i1 false), !noalias !50
   %92 = getelementptr inbounds i8, ptr %7, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #17, !noalias !50
   %93 = load ptr, ptr %0, align 8, !noalias !50

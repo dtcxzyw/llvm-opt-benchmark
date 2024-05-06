@@ -2738,9 +2738,9 @@ _ZN6vectorIjLb0EjE6shrinkEj.exit.i.i:             ; preds = %if.then.i.i.i, %_Z1
   tail call void @_ZN6region9pop_scopeEv(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i)
   %.pr = load ptr, ptr %m_simp, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i, label %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit, label %_Z7deallocI25dependent_expr_simplifierEvPT_.exit.i
+  br i1 %cmp.not.i, label %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit, label %if.then.i
 
-_Z7deallocI25dependent_expr_simplifierEvPT_.exit.i: ; preds = %_ZN6vectorIjLb0EjE6shrinkEj.exit.i.i
+if.then.i:                                        ; preds = %_ZN6vectorIjLb0EjE6shrinkEj.exit.i.i
   %vtable.i.i = load ptr, ptr %.pr, align 8
   %13 = load ptr, ptr %vtable.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #16
@@ -2748,19 +2748,19 @@ _Z7deallocI25dependent_expr_simplifierEvPT_.exit.i: ; preds = %_ZN6vectorIjLb0Ej
   store ptr null, ptr %m_simp, align 8
   br label %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit
 
-_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit: ; preds = %entry, %_ZN6vectorIjLb0EjE6shrinkEj.exit.i.i, %_Z7deallocI25dependent_expr_simplifierEvPT_.exit.i
+_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit: ; preds = %entry, %_ZN6vectorIjLb0EjE6shrinkEj.exit.i.i, %if.then.i
   %m_model_trail = getelementptr inbounds i8, ptr %this, i64 336
   %14 = load ptr, ptr %m_model_trail, align 8
   %cmp.not.i1 = icmp eq ptr %14, null
-  br i1 %cmp.not.i1, label %_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit, label %_Z7deallocI26model_reconstruction_trailEvPT_.exit.i
+  br i1 %cmp.not.i1, label %_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit, label %if.then.i2
 
-_Z7deallocI26model_reconstruction_trailEvPT_.exit.i: ; preds = %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit
+if.then.i2:                                       ; preds = %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit
   tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %14) #16
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %14)
   store ptr null, ptr %m_model_trail, align 8
   br label %_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit
 
-_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit: ; preds = %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit, %_Z7deallocI26model_reconstruction_trailEvPT_.exit.i
+_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit: ; preds = %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit, %if.then.i2
   %m_goal = getelementptr inbounds i8, ptr %this, i64 248
   %15 = load ptr, ptr %m_goal, align 8
   %tobool.not.i.i = icmp eq ptr %15, null
@@ -2771,15 +2771,15 @@ if.then.i.i:                                      ; preds = %_ZN10scoped_ptrI26m
   %16 = load i32, ptr %m_ref_count.i.i.i, align 8
   %dec.i.i.i = add i32 %16, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i, align 8
-  %cmp.i.i.i5 = icmp eq i32 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i5, label %if.then.i.i.i6, label %_ZN3refI4goalEaSEPS0_.exit
+  %cmp.i.i.i3 = icmp eq i32 %dec.i.i.i, 0
+  br i1 %cmp.i.i.i3, label %if.then.i.i.i4, label %_ZN3refI4goalEaSEPS0_.exit
 
-if.then.i.i.i6:                                   ; preds = %if.then.i.i
+if.then.i.i.i4:                                   ; preds = %if.then.i.i
   tail call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %15) #16
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %15)
   br label %_ZN3refI4goalEaSEPS0_.exit
 
-_ZN3refI4goalEaSEPS0_.exit:                       ; preds = %_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit, %if.then.i.i, %if.then.i.i.i6
+_ZN3refI4goalEaSEPS0_.exit:                       ; preds = %_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit, %if.then.i.i, %if.then.i.i.i4
   store ptr null, ptr %m_goal, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 176
   %17 = load ptr, ptr %m, align 8
@@ -2789,18 +2789,18 @@ _ZN3refI4goalEaSEPS0_.exit:                       ; preds = %_ZN10scoped_ptrI26m
   %m_fml.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %18, ptr %m_fml.i, align 8
   %m_proof.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %tobool.not.i.i7 = icmp eq ptr %18, null
+  %tobool.not.i.i5 = icmp eq ptr %18, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_proof.i, i8 0, i64 16, i1 false)
-  br i1 %tobool.not.i.i7, label %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit, label %if.then.i.i8
+  br i1 %tobool.not.i.i5, label %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit, label %if.then.i.i6
 
-if.then.i.i8:                                     ; preds = %_ZN3refI4goalEaSEPS0_.exit
-  %m_ref_count.i.i.i9 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load i32, ptr %m_ref_count.i.i.i9, align 4
-  %inc.i.i.i10 = add i32 %19, 1
-  store i32 %inc.i.i.i10, ptr %m_ref_count.i.i.i9, align 4
+if.then.i.i6:                                     ; preds = %_ZN3refI4goalEaSEPS0_.exit
+  %m_ref_count.i.i.i7 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load i32, ptr %m_ref_count.i.i.i7, align 4
+  %inc.i.i.i8 = add i32 %19, 1
+  store i32 %inc.i.i.i8, ptr %m_ref_count.i.i.i7, align 4
   br label %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
 
-_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit: ; preds = %_ZN3refI4goalEaSEPS0_.exit, %if.then.i.i8
+_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit: ; preds = %_ZN3refI4goalEaSEPS0_.exit, %if.then.i.i6
   %m_dep = getelementptr inbounds i8, ptr %this, i64 256
   %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN14dependent_expraSERKS_(ptr noundef nonnull align 8 dereferenceable(32) %m_dep, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad

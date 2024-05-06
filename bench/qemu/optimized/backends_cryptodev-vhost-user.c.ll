@@ -278,7 +278,7 @@ for.end:                                          ; preds = %for.inc, %entry, %c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cryptodev_vhost_user_create_session(ptr noundef %backend, ptr noundef %sess_info, i32 noundef %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
+define internal range(i32 -3, 1) i32 @cryptodev_vhost_user_create_session(ptr noundef %backend, ptr noundef %sess_info, i32 noundef %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %session_id.i = alloca i64, align 8
   %local_error = alloca ptr, align 8

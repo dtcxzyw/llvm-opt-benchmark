@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [23 x i8] c"idaDlsBandJacBSWrapper\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsSetDenseJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDADlsSetDenseJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -76,7 +76,7 @@ define noundef i32 @IDADlsSetDenseJacFn(ptr noundef %0, ptr noundef %1) local_un
 declare void @IDAProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsSetBandJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDADlsSetBandJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -115,7 +115,7 @@ define noundef i32 @IDADlsSetBandJacFn(ptr noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDADlsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -170,7 +170,7 @@ define noundef i32 @IDADlsGetWorkSpace(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDADlsGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -200,7 +200,7 @@ define noundef i32 @IDADlsGetNumJacEvals(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsGetNumResEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDADlsGetNumResEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -282,7 +282,7 @@ define noalias noundef ptr @IDADlsGetReturnFlagName(i64 noundef %0) local_unname
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDADlsGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -802,7 +802,7 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsSetDenseJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDADlsSetDenseJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -962,7 +962,7 @@ define internal i32 @idaDlsDenseJacBWrapper(i64 noundef %0, double noundef %1, d
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsSetDenseJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDADlsSetDenseJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1144,7 +1144,7 @@ define internal i32 @idaDlsDenseJacBSWrapper(i64 noundef %0, double noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsSetBandJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDADlsSetBandJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1304,7 +1304,7 @@ define internal i32 @idaDlsBandJacBWrapper(i64 noundef %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDADlsSetBandJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDADlsSetBandJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

@@ -99,7 +99,7 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
   %38 = load ptr, ptr %37, align 8, !alias.scope !16, !noalias !20, !nonnull !4, !align !21, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %39 = load i64, ptr %38, align 8, !range !25, !alias.scope !22, !noalias !26, !noundef !4
-  %trunc.i.i = trunc i64 %39 to i1
+  %trunc.i.i = trunc nuw i64 %39 to i1
   br i1 %trunc.i.i, label %43, label %40
 
 40:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit
@@ -152,7 +152,7 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
 
 ._crit_edge.i.i:                                  ; preds = %64, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit._crit_edge.i"
   %69 = load i64, ptr %.pre.i, align 8, !range !25, !noalias !35, !noundef !4
-  %trunc.i.i.i = trunc i64 %69 to i1
+  %trunc.i.i.i = trunc nuw i64 %69 to i1
   br i1 %trunc.i.i.i, label %70, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i
 
 70:                                               ; preds = %._crit_edge.i.i
@@ -185,7 +185,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.
 84:                                               ; preds = %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i
   %85 = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %86 = load i64, ptr %85, align 8, !range !25, !noalias !32, !noundef !4
-  %trunc9.i.i.i = trunc i64 %86 to i1
+  %trunc9.i.i.i = trunc nuw i64 %86 to i1
   br i1 %trunc9.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i: ; preds = %84
@@ -213,7 +213,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   store i32 %.fca.0.extract.i.i, ptr %52, align 8, !noalias !48
   store i32 %.fca.1.extract.i.i, ptr %53, align 4, !noalias !48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %trunc.i5.i = trunc i32 %.fca.0.extract.i.i to i1
+  %trunc.i5.i = trunc nuw i32 %.fca.0.extract.i.i to i1
   br i1 %trunc.i5.i, label %103, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit"
 
 103:                                              ; preds = %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i
@@ -370,7 +370,7 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !76
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %37 = load i64, ptr %4, align 8, !range !25, !alias.scope !78, !noalias !76, !noundef !4
-  %trunc.i.i = trunc i64 %37 to i1
+  %trunc.i.i = trunc nuw i64 %37 to i1
   br i1 %trunc.i.i, label %41, label %38
 
 38:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit
@@ -415,7 +415,7 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
 
 ._crit_edge.i.i:                                  ; preds = %54, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit._crit_edge.i"
   %59 = load i64, ptr %.pre.i, align 8, !range !25, !noalias !89, !noundef !4
-  %trunc.i.i.i = trunc i64 %59 to i1
+  %trunc.i.i.i = trunc nuw i64 %59 to i1
   br i1 %trunc.i.i.i, label %60, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i
 
 60:                                               ; preds = %._crit_edge.i.i
@@ -448,7 +448,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.
 74:                                               ; preds = %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i
   %75 = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %76 = load i64, ptr %75, align 8, !range !25, !noalias !87, !noundef !4
-  %trunc9.i.i.i = trunc i64 %76 to i1
+  %trunc9.i.i.i = trunc nuw i64 %76 to i1
   br i1 %trunc9.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i: ; preds = %74
@@ -478,7 +478,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit
   br label %"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.exit"
 
 "_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.exit": ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread4.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !73
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !76
   ret void
 }

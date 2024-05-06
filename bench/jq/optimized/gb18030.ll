@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @GB18030_MAP = internal unnamed_addr constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\01\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @gb18030_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 1, 5) i32 @gb18030_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
   %4 = add nsw i64 %3, -129
@@ -40,7 +40,7 @@ define internal i32 @gb18030_mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @gb18030_code_to_mbclen(i32 noundef %0) #3 {
+define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #3 {
   %.not = icmp ult i32 %0, 16777216
   br i1 %.not, label %13, label %2
 
@@ -670,7 +670,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @gb18030_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @gb18030_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds [256 x i8], ptr @GB18030_MAP, i64 0, i64 %4
@@ -681,7 +681,7 @@ define internal i32 @gb18030_is_allowed_reverse_match(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #4 {
+define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #4 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 

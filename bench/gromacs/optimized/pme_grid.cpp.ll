@@ -753,7 +753,7 @@ define void @_Z21wrap_periodic_pmegridPK9gmx_pme_tN3gmx8ArrayRefIfEE(ptr nocaptu
   br i1 %27, label %.preheader86.lr.ph, label %._crit_edge90
 
 .preheader86.lr.ph:                               ; preds = %.preheader87
-  %28 = mul nsw i64 %indvars.iv120, %24
+  %28 = mul nuw nsw i64 %indvars.iv120, %24
   br i1 %20, label %.preheader86.us, label %._crit_edge90
 
 .preheader86.us:                                  ; preds = %.preheader86.lr.ph, %._crit_edge.us

@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sysctl_vals = external dso_local constant [0 x i32], align 4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sched_set_itmt_support() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @sched_set_itmt_support() local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @itmt_update_mutex) #4
   %1 = load i1, ptr @sched_itmt_capable, align 1
   br i1 %1, label %6, label %2

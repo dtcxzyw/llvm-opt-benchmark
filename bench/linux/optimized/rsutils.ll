@@ -282,7 +282,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local i32 @acpi_rs_set_resource_source(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 align 16 {
+define dso_local range(i32 0, 131072) i32 @acpi_rs_set_resource_source(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 align 16 {
   %4 = zext i16 %1 to i32
   %5 = getelementptr inbounds i8, ptr %2, i64 1
   %6 = load i16, ptr %5, align 1

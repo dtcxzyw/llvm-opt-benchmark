@@ -1505,7 +1505,7 @@ define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, 
 19:                                               ; preds = %11
   %20 = sext i32 %.02628 to i64
   %21 = getelementptr i8, ptr %7, i64 %20
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = sub i32 %22, %.02628
   %24 = sext i32 %23 to i64
   %25 = tail call i64 @fwrite(ptr noundef %21, i64 noundef 1, i64 noundef %24, ptr noundef %0)
@@ -1513,7 +1513,7 @@ define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, 
   %27 = sext i8 %26 to i32
   %28 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef %27) #11
   %29 = add nuw nsw i64 %indvars.iv, 1
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %._crit_edge31, %19

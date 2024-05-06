@@ -464,7 +464,7 @@ if.then7.i:                                       ; preds = %if.end4.i
 if.end12.i:                                       ; preds = %if.then7.i
   %29 = load ptr, ptr %pubkey.i3, align 8
   %30 = load ptr, ptr %penc.i, align 8
-  %conv.i = trunc i64 %call8.i to i32
+  %conv.i = trunc nuw nsw i64 %call8.i to i32
   call void @ASN1_STRING_set0(ptr noundef %29, ptr noundef %30, i32 noundef %conv.i) #3
   %31 = load ptr, ptr %pubkey.i3, align 8
   call void @ossl_asn1_string_set_bits_left(ptr noundef %31, i32 noundef 0) #3

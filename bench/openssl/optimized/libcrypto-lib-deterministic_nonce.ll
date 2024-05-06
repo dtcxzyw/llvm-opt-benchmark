@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [6 x i8] c"nonce\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef %out, ptr noundef %q, ptr noundef %priv, ptr noundef %hm, i64 noundef %hmlen, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef %out, ptr noundef %q, ptr noundef %priv, ptr noundef %hm, i64 noundef %hmlen, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %params.i = alloca [5 x %struct.ossl_param_st], align 16
   %tmp.i = alloca %struct.ossl_param_st, align 8

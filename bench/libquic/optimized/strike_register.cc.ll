@@ -178,7 +178,7 @@ for.body.i:                                       ; preds = %_ZNSt10unique_ptrIA
   %4 = load ptr, ptr %internal_nodes_, align 8
   %arrayidx.i = getelementptr inbounds %"class.net::StrikeRegister::InternalNode", ptr %4, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %5 = trunc i64 %indvars.iv.next.i to i32
+  %5 = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %5, ptr %arrayidx.i, align 4
   %6 = load i32, ptr %this, align 8
   %sub.i7 = add i32 %6, -1
@@ -204,7 +204,7 @@ for.body12.i:                                     ; preds = %for.end.i, %for.bod
   %conv.i.i = and i64 %mul.i.i, 4294967288
   %10 = load ptr, ptr %external_nodes_, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %10, i64 %conv.i.i
-  %11 = trunc i64 %indvars.iv.next22.i to i32
+  %11 = trunc nuw i64 %indvars.iv.next22.i to i32
   store i32 %11, ptr %arrayidx.i.i.i, align 4
   %12 = load i32, ptr %this, align 8
   %sub10.i = add i32 %12, -1
@@ -275,7 +275,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %internal_nodes_, align 8
   %arrayidx = getelementptr inbounds %"class.net::StrikeRegister::InternalNode", ptr %1, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %2, ptr %arrayidx, align 4
   %3 = load i32, ptr %this, align 8
   %sub = add i32 %3, -1
@@ -310,7 +310,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %conv.i = and i64 %mul.i, 4294967288
   %8 = load ptr, ptr %external_nodes_.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 %conv.i
-  %9 = trunc i64 %indvars.iv.next22 to i32
+  %9 = trunc nuw i64 %indvars.iv.next22 to i32
   store i32 %9, ptr %arrayidx.i.i, align 4
   %10 = load i32, ptr %this, align 8
   %sub10 = add i32 %10, -1
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net14StrikeRegister6InsertEPKhj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %nonce, i32 noundef %current_time_external) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN3net14StrikeRegister6InsertEPKhj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %nonce, i32 noundef %current_time_external) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca [24 x i8], align 16
   %ref.tmp132 = alloca %"class.logging::LogMessage", align 8
@@ -688,7 +688,7 @@ for.inc.if.end94_crit_edge:                       ; preds = %for.inc
   br label %if.end94
 
 if.end94split:                                    ; preds = %for.body
-  %54 = trunc i64 %indvars.iv to i8
+  %54 = trunc nuw nsw i64 %indvars.iv to i8
   br label %if.end94
 
 if.end94:                                         ; preds = %if.end94split, %for.inc.if.end94_crit_edge
@@ -965,7 +965,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK3net14StrikeRegister9BestMatchEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %v) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 0, -8388608) i32 @_ZNK3net14StrikeRegister9BestMatchEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %v) local_unnamed_addr #10 align 2 {
 entry:
   %internal_node_head_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %internal_node_head_, align 8

@@ -30,7 +30,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_remove_
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_install_cmos_rtc_space_handler389, ptr @__UNIQUE_ID___addressable_acpi_remove_cmos_rtc_space_handler390], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_install_cmos_rtc_space_handler(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -19, 2) i32 @acpi_install_cmos_rtc_space_handler(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @acpi_install_address_space_handler(ptr noundef %0, i8 noundef zeroext 5, ptr noundef nonnull @acpi_cmos_rtc_space_handler, ptr noundef null, ptr noundef null) #4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %6, label %4
@@ -48,7 +48,7 @@ define dso_local noundef i32 @acpi_install_cmos_rtc_space_handler(ptr noundef %0
 declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_cmos_rtc_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 align 16 {
+define internal noundef range(i32 0, 4098) i32 @acpi_cmos_rtc_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 align 16 {
   %7 = icmp ugt i64 %1, 255
   %8 = icmp eq ptr %3, null
   %9 = or i1 %7, %8
@@ -144,7 +144,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #1 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_cmos_rtc_attach_handler(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 2) i32 @acpi_cmos_rtc_attach_handler(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @acpi_install_address_space_handler(ptr noundef %4, i8 noundef zeroext 5, ptr noundef nonnull @acpi_cmos_rtc_space_handler, ptr noundef null, ptr noundef null) #4

@@ -383,7 +383,7 @@ define ptr @Abc_NtkTestScorrGetName(ptr nocapture noundef readonly %0, ptr nocap
 declare ptr @Nm_ManFindNameById(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkTestScorrWriteEquivPair(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_NtkTestScorrWriteEquivPair(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %7, align 8
   %8 = sext i32 %2 to i64
@@ -432,7 +432,7 @@ Abc_NtkTestScorrGetName.exit17.thread:            ; preds = %Abc_NtkTestScorrGet
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkTestScorrWriteEquivConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_NtkTestScorrWriteEquivConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %6, align 8
   %7 = sext i32 %2 to i64
@@ -565,7 +565,7 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
 
 Gia_ObjIsRo.exit:                                 ; preds = %39
   %41 = lshr i64 %.val69, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   %43 = and i32 %42, 536870911
   %.val4.i = load i32, ptr %24, align 8
   %.val5.i = load ptr, ptr %25, align 8
@@ -583,7 +583,7 @@ Gia_ObjIsRo.exit:                                 ; preds = %39
 
 Gia_ObjIsRo.exit82:                               ; preds = %46
   %48 = lshr i64 %.val70, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = and i32 %49, 536870911
   %.not105 = icmp sge i32 %50, %45
   %51 = and i64 %.val70, 2305843005455597567
@@ -609,7 +609,7 @@ Gia_ObjIsRo.exit82.thread:                        ; preds = %46
 
 Gia_ObjIsRo.exit87:                               ; preds = %54
   %56 = lshr i64 %.val71, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = and i32 %57, 536870911
   %.val4.i84 = load i32, ptr %24, align 8
   %.val5.i85 = load ptr, ptr %25, align 8
@@ -627,7 +627,7 @@ Gia_ObjIsRo.exit87.thread:                        ; preds = %54, %Gia_ObjIsRo.ex
 
 Gia_ObjIsRo.exit92:                               ; preds = %Gia_ObjIsRo.exit87.thread
   %62 = lshr i64 %.val72, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   %64 = and i32 %63, 536870911
   %.val4.i89 = load i32, ptr %24, align 8
   %.val5.i90 = load ptr, ptr %25, align 8

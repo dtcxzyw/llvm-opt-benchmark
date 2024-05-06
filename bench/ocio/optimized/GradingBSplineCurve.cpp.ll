@@ -5920,7 +5920,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
   unreachable
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_controlPoints.i.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i.i.i
 
@@ -5939,14 +5939,14 @@ call5.i.i.i.i2.i.i3.i.i.i1.i.noexc:               ; preds = %for.body.preheader.
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %1, align 8
   store ptr %scevgep.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i.i.i, align 8
   %m_slopesArray.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i6.i.i.i.i = shl nuw nsw i64 %0, 2
   %call5.i.i.i.i2.i.i12.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i6.i.i.i.i) #22
           to label %call5.i.i.i.i2.i.i.noexc11.i.i.i.i unwind label %ehcleanup.i.i.i.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
   %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 call5.i.i.i.i2.i.i.noexc11.i.i.i.i:               ; preds = %call5.i.i.i.i2.i.i3.i.i.i1.i.noexc
@@ -6074,7 +6074,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
   unreachable
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_controlPoints.i.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i.i.i
 
@@ -6093,14 +6093,14 @@ call5.i.i.i.i2.i.i3.i.i.i1.i.noexc:               ; preds = %for.body.preheader.
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %1, align 8
   store ptr %scevgep.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i.i.i, align 8
   %m_slopesArray.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i6.i.i.i.i = shl nuw nsw i64 %0, 2
   %call5.i.i.i.i2.i.i12.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i6.i.i.i.i) #22
           to label %call5.i.i.i.i2.i.i.noexc11.i.i.i.i unwind label %ehcleanup.i.i.i.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
   %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 call5.i.i.i.i2.i.i.noexc11.i.i.i.i:               ; preds = %call5.i.i.i.i2.i.i3.i.i.i1.i.noexc
@@ -6166,7 +6166,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
   unreachable
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_controlPoints.i.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i.i.i
 
@@ -6185,14 +6185,14 @@ call5.i.i.i.i2.i.i3.i.i.i1.i.noexc:               ; preds = %for.body.preheader.
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %1, align 8
   store ptr %scevgep.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i.i.i, align 8
   %m_slopesArray.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i6.i.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %call5.i.i.i.i2.i.i12.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i6.i.i.i.i) #22
           to label %call5.i.i.i.i2.i.i.noexc11.i.i.i.i unwind label %ehcleanup.i.i.i.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
   %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 call5.i.i.i.i2.i.i.noexc11.i.i.i.i:               ; preds = %call5.i.i.i.i2.i.i3.i.i.i1.i.noexc

@@ -85,7 +85,7 @@ define ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %47 = zext nneg i8 %46 to i32
   %48 = or disjoint i32 %43, %47
   %.not202 = icmp eq i32 %48, 0
-  %49 = trunc i32 %48 to i8
+  %49 = trunc nuw nsw i32 %48 to i8
   %50 = add nuw nsw i8 %49, 32
   %51 = select i1 %.not202, i8 96, i8 %50
   %52 = getelementptr inbounds i8, ptr %.1173208, i64 2
@@ -100,7 +100,7 @@ define ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %60 = zext nneg i8 %59 to i32
   %61 = or disjoint i32 %56, %60
   %.not203 = icmp eq i32 %61, 0
-  %62 = trunc i32 %61 to i8
+  %62 = trunc nuw nsw i32 %61 to i8
   %63 = add nuw nsw i8 %62, 32
   %64 = select i1 %.not203, i8 96, i8 %63
   %65 = getelementptr inbounds i8, ptr %.1173208, i64 3
@@ -188,7 +188,7 @@ define ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %102 = zext nneg i8 %101 to i32
   %103 = or disjoint i32 %98, %102
   %.not192 = icmp eq i32 %103, 0
-  %104 = trunc i32 %103 to i8
+  %104 = trunc nuw nsw i32 %103 to i8
   %105 = add nuw nsw i8 %104, 32
   %106 = select i1 %.not192, i8 96, i8 %105
   %107 = getelementptr inbounds i8, ptr %.3, i64 2
@@ -211,7 +211,7 @@ define ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %117 = zext nneg i8 %116 to i32
   %118 = or disjoint i32 %113, %117
   %.not193 = icmp eq i32 %118, 0
-  %119 = trunc i32 %118 to i8
+  %119 = trunc nuw nsw i32 %118 to i8
   %120 = add nuw nsw i8 %119, 32
   %121 = select i1 %.not193, i8 96, i8 %120
   store i8 %121, ptr %107, align 1
@@ -363,7 +363,7 @@ define noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = uitofp i8 %20 to double
+  %29 = uitofp nneg i8 %20 to double
   %30 = fmul double %29, 1.330000e+00
   %31 = tail call double @llvm.floor.f64(double %30)
   %32 = fptosi double %31 to i32

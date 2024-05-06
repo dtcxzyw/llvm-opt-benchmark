@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_platform_entropy_poll(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 -60, 1) i32 @mbedtls_platform_entropy_poll(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %1, i64 noundef %2, i32 noundef 0) #4
   %6 = and i64 %5, 2147483648
   %7 = icmp eq i64 %6, 0

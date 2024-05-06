@@ -47,10 +47,10 @@ Vec_PtrStart.exit:                                ; preds = %8, %16
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %29
 
 29:                                               ; preds = %Vec_PtrStart.exit
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #9
+  %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %28) #9
   %31 = add i64 %30, 1
   %32 = tail call noalias ptr @malloc(i64 noundef %31) #7
-  %33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %28) #8
+  %33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(1) %28) #8
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, %29
@@ -126,7 +126,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, 
 
 71:                                               ; preds = %69
   %.val169 = load i32, ptr %44, align 4
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   %73 = sub nsw i32 %72, %.val169
   %.val170 = load ptr, ptr %45, align 8
   %74 = sext i32 %73 to i64
@@ -524,7 +524,7 @@ Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.exi
   %indvars.iv298 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next299, %310 ]
   %276 = load ptr, ptr %271, align 8
   %.val181 = load i32, ptr %272, align 8
-  %277 = trunc i64 %indvars.iv298 to i32
+  %277 = trunc nuw nsw i64 %indvars.iv298 to i32
   %278 = add nsw i32 %.val181, %277
   %279 = getelementptr i8, ptr %276, i64 8
   %.val167 = load ptr, ptr %279, align 8

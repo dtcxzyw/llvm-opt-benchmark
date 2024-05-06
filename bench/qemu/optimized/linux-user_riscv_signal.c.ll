@@ -174,7 +174,7 @@ declare void @tswap_siginfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @force_sig(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @do_rt_sigreturn(ptr noundef %env) local_unnamed_addr #0 {
+define dso_local range(i64 -513, 1) i64 @do_rt_sigreturn(ptr noundef %env) local_unnamed_addr #0 {
 entry:
   %blocked.i = alloca %struct.__sigset_t, align 8
   %target_set.i = alloca %struct.target_sigset_t, align 8

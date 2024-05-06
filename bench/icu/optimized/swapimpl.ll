@@ -1384,7 +1384,7 @@ declare i32 @uchar_swapNames_75(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare i32 @uspoof_swap_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL9test_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) #0 {
+define internal noundef range(i32 -2147483641, -2147483648) i32 @_ZL9test_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) #0 {
 entry:
   %call = tail call i32 @udata_swapDataHeader_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode)
   %cond44 = icmp eq ptr %pErrorCode, null

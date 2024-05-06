@@ -1253,7 +1253,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_CnfGetNodeValue(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ssw_CnfGetNodeValue(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 36
@@ -1297,7 +1297,7 @@ common.ret24:                                     ; preds = %20, %11, %23
   %25 = ptrtoint ptr %.val19 to i64
   %26 = and i64 %25, -2
   %27 = inttoptr i64 %26 to ptr
-  %28 = tail call i32 @Ssw_CnfGetNodeValue(ptr noundef nonnull %0, ptr noundef %27), !range !11
+  %28 = tail call i32 @Ssw_CnfGetNodeValue(ptr noundef nonnull %0, ptr noundef %27)
   %.val22 = load ptr, ptr %24, align 8
   %29 = ptrtoint ptr %.val22 to i64
   %30 = trunc i64 %29 to i32
@@ -1307,7 +1307,7 @@ common.ret24:                                     ; preds = %20, %11, %23
   %33 = ptrtoint ptr %.val20 to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
-  %36 = tail call i32 @Ssw_CnfGetNodeValue(ptr noundef nonnull %0, ptr noundef %35), !range !11
+  %36 = tail call i32 @Ssw_CnfGetNodeValue(ptr noundef nonnull %0, ptr noundef %35)
   %.val23 = load ptr, ptr %32, align 8
   %37 = ptrtoint ptr %.val23 to i64
   %38 = trunc i64 %37 to i32
@@ -1402,7 +1402,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -1441,5 +1441,4 @@ attributes #8 = { nounwind allocsize(1) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
-!12 = distinct !{!12, !5}
+!11 = distinct !{!11, !5}

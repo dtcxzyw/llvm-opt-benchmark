@@ -753,7 +753,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @kref_get_unless_zero(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0) unnamed_addr #5 align 16 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %.preheader

@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [22 x i8] c"include/net/netlink.h\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pause_parse_request(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pause_parse_request(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -58,7 +58,7 @@ define internal noundef i32 @pause_parse_request(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pause_prepare_data(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @pause_prepare_data(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -131,7 +131,7 @@ define internal i32 @pause_prepare_data(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @pause_reply_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 24, 61) i32 @pause_reply_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -141,7 +141,7 @@ define internal i32 @pause_reply_size(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pause_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @pause_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -281,7 +281,7 @@ define internal noundef i32 @pause_fill_reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ethnl_set_pause_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal range(i32 -95, 2) i32 @ethnl_set_pause_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8

@@ -433,7 +433,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare noundef i32 @_ZN23cmCPackArchiveGenerator18InitializeInternalEv(ptr noundef nonnull align 8 dereferenceable(432)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN20cmCPackSTGZGenerator12PackageFilesEv(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN20cmCPackSTGZGenerator12PackageFilesEv(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #3 align 2 {
   %2 = tail call noundef i32 @_ZN23cmCPackArchiveGenerator12PackageFilesEv(ptr noundef nonnull align 8 dereferenceable(432) %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %3

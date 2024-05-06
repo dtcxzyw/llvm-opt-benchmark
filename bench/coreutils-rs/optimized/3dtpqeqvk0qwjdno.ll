@@ -672,7 +672,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !106, !noalias !111, !nonnull !7, !noundef !7
   %55 = getelementptr inbounds i8, ptr %54, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
   %56 = load i64, ptr %43, align 8, !alias.scope !106, !noalias !111, !noundef !7
   %57 = add i64 %56, %42
   store i64 %57, ptr %43, align 8, !alias.scope !106, !noalias !111
@@ -729,7 +729,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !119, !noalias !124, !nonnull !7, !noundef !7
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = load i64, ptr %4, align 8, !alias.scope !119, !noalias !124, !noundef !7
   %18 = add i64 %17, %2
   store i64 %18, ptr %4, align 8, !alias.scope !119, !noalias !124
@@ -1390,7 +1390,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %220
 
 266:                                              ; preds = %262
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !182
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false), !noalias !188
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %146, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false), !noalias !188
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %91), !noalias !182
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %92), !noalias !182
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90), !noalias !189
@@ -1510,7 +1510,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %220
 
 296:                                              ; preds = %292
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false), !noalias !214
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %144, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false), !noalias !214
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %87), !noalias !208
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %88), !noalias !208
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86), !noalias !215
@@ -1627,7 +1627,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %220
 
 327:                                              ; preds = %323
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !229
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false), !noalias !235
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false), !noalias !235
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %83), !noalias !229
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %84), !noalias !229
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82), !noalias !236
@@ -1747,7 +1747,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %220
 
 357:                                              ; preds = %353
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !255
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false), !noalias !261
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %141, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false), !noalias !261
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %79), !noalias !255
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80), !noalias !255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78), !noalias !262
@@ -2046,7 +2046,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226: ; preds = %365
 
 449:                                              ; preds = %445
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !338
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr noundef nonnull align 8 dereferenceable(24) %70, i64 24, i1 false), !noalias !344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %153, ptr noundef nonnull align 8 dereferenceable(24) %70, i64 24, i1 false), !noalias !344
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69), !noalias !338
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %70), !noalias !338
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68), !noalias !345
@@ -2165,7 +2165,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit226: ; preds = %365
 
 479:                                              ; preds = %475
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !364
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false), !noalias !370
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %152, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false), !noalias !370
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %65), !noalias !364
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66), !noalias !364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64), !noalias !371
@@ -2449,7 +2449,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit273: ; preds = %487
 
 553:                                              ; preds = %549
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !415
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !noalias !421
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !noalias !421
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %58), !noalias !415
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59), !noalias !415
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57), !noalias !422
@@ -2569,7 +2569,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit273: ; preds = %487
 
 583:                                              ; preds = %579
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !441
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false), !noalias !447
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false), !noalias !447
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54), !noalias !441
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55), !noalias !441
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53), !noalias !448
@@ -2945,7 +2945,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit331: ; preds = %637
 
 680:                                              ; preds = %676
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !548
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false), !noalias !554
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false), !noalias !554
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %43), !noalias !548
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44), !noalias !548
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !555
@@ -3065,7 +3065,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit331: ; preds = %637
 
 710:                                              ; preds = %706
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !574
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !noalias !580
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !noalias !580
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39), !noalias !574
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !574
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !581
@@ -3182,7 +3182,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit331: ; preds = %637
 
 741:                                              ; preds = %737
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !595
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !noalias !601
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !noalias !601
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35), !noalias !595
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36), !noalias !595
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !602
@@ -3302,7 +3302,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit331: ; preds = %637
 
 771:                                              ; preds = %767
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !621
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !627
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !627
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31), !noalias !621
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !621
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !628
@@ -3591,7 +3591,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit388: ; preds = %779
 
 859:                                              ; preds = %855
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !704
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %136, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !710
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %136, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !710
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21), !noalias !704
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !704
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !711
@@ -3710,7 +3710,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit388: ; preds = %779
 
 889:                                              ; preds = %885
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %12), !noalias !730
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !736
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !736
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17), !noalias !730
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !730
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !737

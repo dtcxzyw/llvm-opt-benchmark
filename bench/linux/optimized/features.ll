@@ -30,7 +30,7 @@ define internal noundef i32 @features_prepare_data(ptr nocapture readnone %0, pt
   %7 = trunc i64 %6 to i32
   store i32 %7, ptr %4, align 4
   %8 = lshr i64 %6, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = getelementptr i8, ptr %1, i64 12
   store i32 %9, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -39,7 +39,7 @@ define internal noundef i32 @features_prepare_data(ptr nocapture readnone %0, pt
   %14 = trunc i64 %13 to i32
   store i32 %14, ptr %11, align 4
   %15 = lshr i64 %13, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = getelementptr i8, ptr %1, i64 20
   store i32 %16, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 24
@@ -48,7 +48,7 @@ define internal noundef i32 @features_prepare_data(ptr nocapture readnone %0, pt
   %21 = trunc i64 %20 to i32
   store i32 %21, ptr %18, align 4
   %22 = lshr i64 %20, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = getelementptr i8, ptr %1, i64 28
   store i32 %23, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %1, i64 32
@@ -136,7 +136,7 @@ define internal i32 @features_fill_reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ethnl_set_features(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ethnl_set_features(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca [1 x i64], align 8
   %5 = alloca [1 x i64], align 8

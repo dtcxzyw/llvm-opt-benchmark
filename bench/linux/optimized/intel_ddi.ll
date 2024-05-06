@@ -592,7 +592,7 @@ define dso_local void @intel_ddi_enable_transcoder_func(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_ddi_transcoder_func_reg_val_get(i32 %.132.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 0) i32 @intel_ddi_transcoder_func_reg_val_get(i32 %.132.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 1648
@@ -986,7 +986,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_ddi_toggle_hdcp_bits(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -6, 1) i32 @intel_ddi_toggle_hdcp_bits(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 372
   %7 = load i32, ptr %6, align 4
@@ -5005,7 +5005,7 @@ define internal i32 @intel_ddi_hotplug(ptr noundef %0, ptr noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_ddi_compute_output_type(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 0, 9) i32 @intel_ddi_compute_output_type(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 140
   %6 = load i32, ptr %5, align 4
@@ -9126,7 +9126,7 @@ define internal zeroext i1 @jsl_ddi_tc_is_clock_enabled(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @icl_ddi_tc_port_pll_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @icl_ddi_tc_port_pll_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 920
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -10818,7 +10818,7 @@ declare dso_local i32 @intel_hpd_pin_default(ptr noundef, i32 noundef) local_unn
 declare dso_local zeroext i1 @intel_bios_encoder_lane_reversal(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_ddi_max_lanes(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 5) i32 @intel_ddi_max_lanes(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 2632
   %4 = load i16, ptr %3, align 8
@@ -13413,7 +13413,7 @@ define internal void @intel_ddi_set_idle_link_train(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i8 @intel_ddi_dp_voltage_max(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal zeroext range(i8 0, 4) i8 @intel_ddi_dp_voltage_max(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %0, i64 -392
   %5 = load ptr, ptr %4, align 8

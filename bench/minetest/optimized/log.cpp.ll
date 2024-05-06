@@ -327,8 +327,8 @@ $_ZSt19piecewise_construct = comdat any
 @_ZTVSo = external unnamed_addr constant { [5 x ptr], [5 x ptr] }, align 8
 @.str.58 = private unnamed_addr constant [18 x i8] c"%Y-%m-%d %H:%M:%S\00", align 1
 @_ZZ12mt_localtimevE7tz_init = linkonce_odr dso_local global %"struct.std::once_flag" zeroinitializer, comdat, align 4
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTV20FileNotGoodException = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI20FileNotGoodException, ptr @_ZN13BaseExceptionD2Ev, ptr @_ZN20FileNotGoodExceptionD0Ev, ptr @_ZNK13BaseException4whatEv] }, comdat, align 8
 @_ZTV13BaseException = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI13BaseException, ptr @_ZN13BaseExceptionD2Ev, ptr @_ZN13BaseExceptionD0Ev, ptr @_ZNK13BaseException4whatEv] }, comdat, align 8
 @.str.59 = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6Logger13stringToLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 8) i32 @_ZN6Logger13stringToLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 {
 entry:
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str) #6
   %cmp.i = icmp eq i32 %call.i, 0
@@ -3827,7 +3827,7 @@ lpad7:                                            ; preds = %switch.lookup
   br label %ehcleanup28
 
 switch.hole_check:                                ; preds = %if.then
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 59, %switch.maskindex
   %13 = and i8 %switch.shifted, 1
   %switch.lobit.not = icmp eq i8 %13, 0

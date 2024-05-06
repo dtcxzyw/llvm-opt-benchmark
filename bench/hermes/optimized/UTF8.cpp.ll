@@ -28,7 +28,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %cp to i8
+  %conv = trunc nuw nsw i32 %cp to i8
   br label %if.end111
 
 if.else:                                          ; preds = %entry
@@ -42,7 +42,7 @@ if.then2:                                         ; preds = %if.else
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %conv3, ptr %arrayidx, align 1
   %shr = lshr i32 %cp, 6
-  %3 = trunc i32 %shr to i8
+  %3 = trunc nuw i32 %shr to i8
   %conv6 = or disjoint i8 %3, -64
   br label %if.end111
 
@@ -63,7 +63,7 @@ if.then10:                                        ; preds = %if.else8
   %arrayidx19 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %conv18, ptr %arrayidx19, align 1
   %shr20 = lshr i32 %cp, 12
-  %8 = trunc i32 %shr20 to i8
+  %8 = trunc nuw i32 %shr20 to i8
   %conv23 = or disjoint i8 %8, -32
   br label %if.end111
 
@@ -90,7 +90,7 @@ if.then28:                                        ; preds = %if.else26
   %arrayidx42 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %conv41, ptr %arrayidx42, align 1
   %shr43 = lshr i32 %cp, 18
-  %15 = trunc i32 %shr43 to i8
+  %15 = trunc nuw i32 %shr43 to i8
   %conv46 = or disjoint i8 %15, -16
   br label %if.end111
 
@@ -112,7 +112,7 @@ if.else49:                                        ; preds = %if.else26
   %23 = and i8 %22, 63
   %conv69 = or disjoint i8 %23, -128
   %shr71 = lshr i32 %cp, 24
-  %24 = trunc i32 %shr71 to i8
+  %24 = trunc nuw i32 %shr71 to i8
   br i1 %cmp50, label %if.then51, label %if.else77
 
 if.then51:                                        ; preds = %if.else49
@@ -141,7 +141,7 @@ if.else77:                                        ; preds = %if.else49
   %arrayidx101 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %conv100, ptr %arrayidx101, align 1
   %shr102 = lshr i32 %cp, 30
-  %26 = trunc i32 %shr102 to i8
+  %26 = trunc nuw nsw i32 %shr102 to i8
   %27 = and i8 %26, 1
   %conv105 = or disjoint i8 %27, -4
   br label %if.end111
@@ -177,7 +177,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %for.body
-  %conv8 = trunc i16 %0 to i8
+  %conv8 = trunc nuw i16 %0 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext %conv8) #10
   br label %for.inc
 
@@ -264,7 +264,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %conv5 = trunc i16 %0 to i8
+  %conv5 = trunc nuw i16 %0 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %dest, i8 noundef signext %conv5) #10
   br label %for.inc
 
@@ -419,7 +419,7 @@ _ZN6hermes10decodeUTF8ILb1EZNS_32convertUTF8WithSurrogatesToUTF16IPDsEET_S3_PKcS
   br i1 %cmp.i1.i, label %if.then.i3.i, label %if.else.i.i
 
 if.then.i3.i:                                     ; preds = %_ZN6hermes10decodeUTF8ILb1EZNS_32convertUTF8WithSurrogatesToUTF16IPDsEET_S3_PKcS5_EUlRKN4llvh5TwineEE_EEjRS5_T0_.exit.i
-  %conv.i.i2 = trunc i32 %retval.0.i.i to i16
+  %conv.i.i2 = trunc nuw i32 %retval.0.i.i to i16
   br label %_ZN6hermes11encodeUTF16IPDsEEvRT_j.exit.i
 
 if.else.i.i:                                      ; preds = %_ZN6hermes10decodeUTF8ILb1EZNS_32convertUTF8WithSurrogatesToUTF16IPDsEET_S3_PKcS5_EUlRKN4llvh5TwineEE_EEjRS5_T0_.exit.i

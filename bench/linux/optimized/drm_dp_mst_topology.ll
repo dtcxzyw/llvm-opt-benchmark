@@ -663,7 +663,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_dp_decode_sideband_req(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_dp_decode_sideband_req(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = and i8 %3, 127
   store i8 %4, ptr %1, align 8
@@ -1519,7 +1519,7 @@ define dso_local i64 @drm_dp_mst_dpcd_read(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_dp_mst_dpcd_write(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @drm_dp_mst_dpcd_write(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -48
   %6 = getelementptr i8, ptr %0, i64 1320
   %7 = load ptr, ptr %6, align 8
@@ -1931,7 +1931,7 @@ define internal fastcc void @drm_dp_mst_topology_put_port(ptr noundef %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_dp_mst_wait_tx_reply(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -5, -2147483648) i32 @drm_dp_mst_wait_tx_reply(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = alloca %struct.drm_printer, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2255,7 +2255,7 @@ declare dso_local i32 @drm_modeset_lock(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @drm_modeset_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_dp_add_payload_part1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 align 16 {
+define dso_local range(i32 4, 3) i32 @drm_dp_add_payload_part1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 849
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
@@ -2661,7 +2661,7 @@ define dso_local zeroext i1 @drm_dp_read_mst_cap(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_dp_mst_topology_mgr_set_mst(ptr noundef %0, i1 noundef zeroext %1) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_topology_mgr_set_mst(ptr noundef %0, i1 noundef zeroext %1) #3 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 784
@@ -2837,7 +2837,7 @@ define dso_local i32 @drm_dp_mst_topology_mgr_set_mst(ptr noundef %0, i1 noundef
 declare dso_local i32 @drm_dp_read_dpcd_caps(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_dp_dpcd_write_payload(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 4, 3) i32 @drm_dp_dpcd_write_payload(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #3 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca [3 x i8], align 1
   %7 = alloca i8, align 1
@@ -3077,7 +3077,7 @@ define internal fastcc void @drm_dp_mst_topology_mgr_invalidate_mstb(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_dp_mst_topology_mgr_resume(ptr noundef %0, i1 noundef zeroext %1) #3 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @drm_dp_mst_topology_mgr_resume(ptr noundef %0, i1 noundef zeroext %1) #3 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
@@ -3256,7 +3256,7 @@ define dso_local noundef i32 @drm_dp_mst_topology_mgr_resume(ptr noundef %0, i1 
 declare dso_local i64 @drm_dp_dpcd_read(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_dp_mst_hpd_irq_handle_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca ptr, align 8
   store i8 0, ptr %3, align 1
   %6 = load i8, ptr %1, align 1
@@ -4169,7 +4169,7 @@ define dso_local noundef i32 @drm_dp_mst_hpd_irq_handle_event(ptr noundef %0, pt
   store i8 1, ptr %587, align 1
   %588 = getelementptr inbounds i8, ptr %0, i64 888
   tail call void @mutex_lock(ptr noundef %588) #21
-  %589 = tail call fastcc i32 @process_single_tx_qlock(ptr noundef %0, ptr noundef nonnull %583, i1 noundef zeroext true), !range !59
+  %589 = tail call fastcc i32 @process_single_tx_qlock(ptr noundef %0, ptr noundef nonnull %583, i1 noundef zeroext true)
   tail call void @mutex_unlock(ptr noundef %588) #21
   tail call void @kfree(ptr noundef nonnull %583) #21
   br label %590
@@ -4309,7 +4309,7 @@ define dso_local void @drm_dp_mst_hpd_irq_send_new_request(ptr noundef %0) #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_dp_mst_detect_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 align 16 {
+define dso_local range(i32 1, 0) i32 @drm_dp_mst_detect_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 align 16 {
   %5 = tail call fastcc ptr @drm_dp_mst_topology_get_port_validated(ptr noundef %2, ptr noundef %3)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %41, label %7
@@ -4529,7 +4529,7 @@ define dso_local i32 @drm_dp_atomic_find_time_slots(ptr noundef %0, ptr noundef 
   br i1 %54, label %.thread, label %55, !prof !11
 
 55:                                               ; preds = %46
-  tail call void asm sideeffect "519: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 519b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 519) #21, !srcloc !60
+  tail call void asm sideeffect "519: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 519b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 519) #21, !srcloc !59
   %56 = getelementptr inbounds i8, ptr %1, i64 88
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
@@ -4550,10 +4550,10 @@ define dso_local i32 @drm_dp_atomic_find_time_slots(ptr noundef %0, ptr noundef 
 69:                                               ; preds = %67, %55
   %70 = phi ptr [ %68, %67 ], [ %65, %55 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.29, ptr noundef %60, ptr noundef %70, ptr noundef nonnull @.str.30) #21
-  tail call void asm sideeffect "520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 520) #21, !srcloc !61
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4341, i32 2313, i64 12) #21, !srcloc !62
-  tail call void asm sideeffect "521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 521) #21, !srcloc !63
-  tail call void asm sideeffect "522: nop\0A\09.pushsection .discard.instr_end\0A\09.long 522b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 522) #21, !srcloc !64
+  tail call void asm sideeffect "520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 520) #21, !srcloc !60
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4341, i32 2313, i64 12) #21, !srcloc !61
+  tail call void asm sideeffect "521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 521) #21, !srcloc !62
+  tail call void asm sideeffect "522: nop\0A\09.pushsection .discard.instr_end\0A\09.long 522b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 522) #21, !srcloc !63
   %71 = load ptr, ptr %56, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %76, label %73
@@ -4801,12 +4801,12 @@ define dso_local i32 @drm_dp_atomic_release_time_slots(ptr noundef %0, ptr nound
 72:                                               ; preds = %68
   %73 = getelementptr i8, ptr %66, i64 -32
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread11, label %83, !prof !65
+  br i1 %74, label %.thread11, label %83, !prof !64
 
 .thread11:                                        ; preds = %64, %72
-  tail call void asm sideeffect "524: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 524) #21, !srcloc !66
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4440, i32 2305, i64 12) #21, !srcloc !67
-  tail call void asm sideeffect "525: nop\0A\09.pushsection .discard.instr_end\0A\09.long 525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 525) #21, !srcloc !68
+  tail call void asm sideeffect "524: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 524) #21, !srcloc !65
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4440, i32 2305, i64 12) #21, !srcloc !66
+  tail call void asm sideeffect "525: nop\0A\09.pushsection .discard.instr_end\0A\09.long 525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 525) #21, !srcloc !67
   %75 = getelementptr inbounds i8, ptr %1, i64 88
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
@@ -4874,7 +4874,7 @@ define dso_local i32 @drm_dp_atomic_release_time_slots(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_dp_mst_atomic_setup_commit(ptr nocapture noundef readonly %0) #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_atomic_setup_commit(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -4905,7 +4905,7 @@ define dso_local noundef i32 @drm_dp_mst_atomic_setup_commit(ptr nocapture nound
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %21) #26, !srcloc !69
+  %24 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %21) #26, !srcloc !68
   %25 = sext i32 %24 to i64
   %26 = icmp slt i32 %24, 0
   br i1 %26, label %.thread5, label %28, !prof !24
@@ -4989,14 +4989,14 @@ define dso_local noundef i32 @drm_dp_mst_atomic_setup_commit(ptr nocapture nound
   %77 = load i32, ptr %76, align 8
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %75, %78
-  br i1 %79, label %.preheader, label %.loopexit, !llvm.loop !70
+  br i1 %79, label %.preheader, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %72, %9, %33, %17
   %80 = add nuw nsw i64 %10, 1
   %81 = load i32, ptr %2, align 8
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %80, %82
-  br i1 %83, label %9, label %.loopexit6, !llvm.loop !71
+  br i1 %83, label %9, label %.loopexit6, !llvm.loop !70
 
 .loopexit6:                                       ; preds = %.loopexit, %28, %.thread5, %1
   %84 = phi i32 [ 0, %1 ], [ -12, %.thread5 ], [ 0, %.loopexit ], [ -12, %28 ]
@@ -5075,7 +5075,7 @@ define dso_local void @drm_dp_mst_atomic_wait_for_dependencies(ptr nocapture nou
   %50 = sext i32 %49 to i64
   %51 = load i64, ptr %21, align 8
   %52 = icmp ugt i64 %51, %50
-  br i1 %52, label %26, label %.loopexit8, !llvm.loop !72
+  br i1 %52, label %26, label %.loopexit8, !llvm.loop !71
 
 .loopexit8:                                       ; preds = %48, %16
   %53 = getelementptr inbounds i8, ptr %18, i64 56
@@ -5131,14 +5131,14 @@ define dso_local void @drm_dp_mst_atomic_wait_for_dependencies(ptr nocapture nou
 83:                                               ; preds = %.split.loop.exit10, %58
   %84 = load ptr, ptr %59, align 8
   %85 = icmp eq ptr %84, %53
-  br i1 %85, label %.loopexit, label %58, !llvm.loop !73
+  br i1 %85, label %.loopexit, label %58, !llvm.loop !72
 
 .loopexit:                                        ; preds = %83, %8, %.loopexit8
   %86 = add nuw nsw i64 %9, 1
   %87 = load i32, ptr %2, align 8
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %86, %88
-  br i1 %89, label %8, label %.loopexit9, !llvm.loop !74
+  br i1 %89, label %8, label %.loopexit9, !llvm.loop !73
 
 .loopexit9:                                       ; preds = %.loopexit, %1
   ret void
@@ -5291,7 +5291,7 @@ define dso_local void @drm_dp_mst_update_slots(ptr noundef %0, i8 noundef zeroex
 declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_dp_check_act_status(ptr nocapture noundef readonly %0) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_dp_check_act_status(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = tail call i64 @ktime_get() #21
@@ -5332,7 +5332,7 @@ define dso_local i32 @drm_dp_check_act_status(ptr nocapture noundef readonly %0)
 
 27:                                               ; preds = %.preheader
   call void @usleep_range_state(i64 noundef 51, i64 noundef 200, i32 noundef 2) #21
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !75
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !74
   %28 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #21
   store i8 0, ptr %3, align 1, !annotation !28
@@ -5345,7 +5345,7 @@ define dso_local i32 @drm_dp_check_act_status(ptr nocapture noundef readonly %0)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #21
   %35 = and i32 %34, -2147483646
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !76
+  br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !75
 
 .loopexit:                                        ; preds = %27, %19, %1
   %37 = phi i32 [ %26, %19 ], [ %14, %1 ], [ %34, %27 ]
@@ -5398,7 +5398,7 @@ define dso_local i32 @drm_dp_check_act_status(ptr nocapture noundef readonly %0)
 declare dso_local i64 @ktime_get() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_dp_calc_pbn_mode(i32 noundef %0, i32 noundef %1) #3 align 16 {
+define dso_local range(i32 0, 42700797) i32 @drm_dp_calc_pbn_mode(i32 noundef %0, i32 noundef %1) #3 align 16 {
   %3 = tail call i32 @drm_dp_bw_overhead(i32 noundef 4, i32 noundef 4096, i32 noundef 0, i32 noundef %1, i64 noundef 5) #21
   %4 = mul i32 %1, %0
   %5 = shl i32 %3, 6
@@ -5619,7 +5619,7 @@ drm_dp_mst_get_edid.exit:                         ; preds = %drm_dp_mst_topology
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %3) #21
   %127 = load ptr, ptr %37, align 8
   %128 = icmp eq ptr %127, %30
-  br i1 %128, label %.loopexit9.loopexit, label %.preheader8, !llvm.loop !77
+  br i1 %128, label %.loopexit9.loopexit, label %.preheader8, !llvm.loop !76
 
 .loopexit9.loopexit:                              ; preds = %126
   %.pre = load i32, ptr %19, align 8
@@ -5629,7 +5629,7 @@ drm_dp_mst_get_edid.exit:                         ; preds = %drm_dp_mst_topology
   %129 = phi i32 [ %.pre, %.loopexit9.loopexit ], [ %33, %.split ]
   %130 = add nuw nsw i32 %34, 1
   %131 = icmp slt i32 %130, %129
-  br i1 %131, label %.split, label %.loopexit10, !llvm.loop !78
+  br i1 %131, label %.split, label %.loopexit10, !llvm.loop !77
 
 .loopexit10:                                      ; preds = %.loopexit9, %29, %14
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.53) #21
@@ -5703,7 +5703,7 @@ drm_dp_mst_get_edid.exit:                         ; preds = %drm_dp_mst_topology
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.62, i32 noundef %165) #21
   %166 = add nuw nsw i64 %160, 1
   %167 = icmp eq i64 %166, 8
-  br i1 %167, label %168, label %159, !llvm.loop !80
+  br i1 %167, label %168, label %159, !llvm.loop !79
 
 168:                                              ; preds = %164, %159
   %169 = getelementptr inbounds i8, ptr %4, i64 9
@@ -5726,7 +5726,7 @@ drm_dp_mst_get_edid.exit:                         ; preds = %drm_dp_mst_topology
 .preheader:                                       ; preds = %168, %185
   %183 = phi i64 [ %186, %185 ], [ 0, %168 ]
   %184 = icmp ugt i64 %183, 47
-  br i1 %184, label %193, label %185, !llvm.loop !81
+  br i1 %184, label %193, label %185, !llvm.loop !80
 
 185:                                              ; preds = %.preheader
   %186 = add nuw nsw i64 %183, 16
@@ -5736,7 +5736,7 @@ drm_dp_mst_get_edid.exit:                         ; preds = %drm_dp_mst_topology
   %190 = or i32 %189, 704
   %191 = call i64 @drm_dp_dpcd_read(ptr noundef %187, i32 noundef %190, ptr noundef %188, i64 noundef 16) #21
   %192 = icmp eq i64 %191, 16
-  br i1 %192, label %.preheader, label %.loopexit, !llvm.loop !81
+  br i1 %192, label %.preheader, label %.loopexit, !llvm.loop !80
 
 193:                                              ; preds = %.preheader
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.64, i32 noundef 64, ptr noundef nonnull %4) #21
@@ -5850,7 +5850,7 @@ define internal fastcc void @drm_dp_mst_dump_mstb(ptr noundef %0, ptr noundef %1
 57:                                               ; preds = %56, %33
   %58 = load ptr, ptr %17, align 8
   %59 = icmp eq ptr %58, %14
-  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !82
+  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !81
 
 .loopexit:                                        ; preds = %57, %9
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #21
@@ -6000,7 +6000,7 @@ define dso_local i32 @drm_dp_mst_add_affected_dsc_crtcs(ptr noundef %0, ptr noun
 53:                                               ; preds = %48, %31, %27
   %54 = load ptr, ptr %15, align 8
   %55 = icmp eq ptr %54, %9
-  br i1 %55, label %.loopexit, label %14, !llvm.loop !83
+  br i1 %55, label %.loopexit, label %14, !llvm.loop !82
 
 .loopexit:                                        ; preds = %53, %14, %39, %24, %8, %5
   %56 = phi i32 [ %7, %5 ], [ %26, %24 ], [ %41, %39 ], [ 0, %8 ], [ -22, %14 ], [ 0, %53 ]
@@ -6108,7 +6108,7 @@ define dso_local ptr @drm_dp_mst_dsc_aux_for_port(ptr noundef %0) #3 align 16 {
 60:                                               ; preds = %56, %.preheader.i
   %61 = load ptr, ptr %52, align 8
   %62 = icmp eq ptr %61, %49
-  br i1 %62, label %drm_dp_mst_is_virtual_dpcd.exit.thread12, label %.preheader.i, !llvm.loop !84
+  br i1 %62, label %drm_dp_mst_is_virtual_dpcd.exit.thread12, label %.preheader.i, !llvm.loop !83
 
 drm_dp_mst_is_virtual_dpcd.exit.thread12:         ; preds = %60, %48, %44, %40, %34
   %63 = load ptr, ptr %35, align 8
@@ -6134,7 +6134,7 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
   %72 = getelementptr inbounds i8, ptr %71, i64 56
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.split1, label %.preheader, !llvm.loop !85
+  br i1 %74, label %.split1, label %.preheader, !llvm.loop !84
 
 .split1:                                          ; preds = %drm_dp_mst_is_virtual_dpcd.exit.thread
   %75 = getelementptr inbounds i8, ptr %12, i64 14
@@ -6209,7 +6209,7 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
 120:                                              ; preds = %116, %.preheader.i5
   %121 = load ptr, ptr %112, align 8
   %122 = icmp eq ptr %121, %109
-  br i1 %122, label %.split.thread18, label %.preheader.i5, !llvm.loop !84
+  br i1 %122, label %.split.thread18, label %.preheader.i5, !llvm.loop !83
 
 .split.thread18:                                  ; preds = %120, %108, %104, %100, %94
   %123 = load ptr, ptr %95, align 8
@@ -6343,7 +6343,7 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
 198:                                              ; preds = %194, %.preheader.i8
   %199 = load ptr, ptr %190, align 8
   %200 = icmp eq ptr %199, %187
-  br i1 %200, label %drm_dp_mst_is_virtual_dpcd.exit9.thread21, label %.preheader.i8, !llvm.loop !84
+  br i1 %200, label %drm_dp_mst_is_virtual_dpcd.exit9.thread21, label %.preheader.i8, !llvm.loop !83
 
 drm_dp_mst_is_virtual_dpcd.exit9.thread21:        ; preds = %198, %186, %182, %178, %172
   %201 = load ptr, ptr %173, align 8
@@ -6573,7 +6573,7 @@ define dso_local i32 @drm_dp_mst_atomic_enable_dsc(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_dp_mst_atomic_check_mgr(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_atomic_check_mgr(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 848
   %6 = load i8, ptr %5, align 8
@@ -6699,7 +6699,7 @@ define dso_local i32 @drm_dp_mst_atomic_check_mgr(ptr nocapture readnone %0, ptr
   %82 = load i32, ptr %25, align 8
   %83 = zext i32 %82 to i64
   %84 = xor i64 %83, -1
-  %85 = tail call i64 asm "rep; bsf $1,$0", "=r,r,~{dirflag},~{fpsr},~{flags}"(i64 %84) #26, !srcloc !86
+  %85 = tail call i64 asm "rep; bsf $1,$0", "=r,r,~{dirflag},~{fpsr},~{flags}"(i64 %84) #26, !srcloc !85
   %86 = trunc i64 %85 to i8
   %87 = add i8 %86, 1
   store i8 %87, ptr %78, align 1
@@ -6733,7 +6733,7 @@ define dso_local i32 @drm_dp_mst_atomic_check_mgr(ptr nocapture readnone %0, ptr
   %107 = phi i32 [ %28, %41 ], [ %54, %77 ], [ %54, %93 ]
   %108 = load ptr, ptr %27, align 8
   %109 = icmp eq ptr %108, %19
-  br i1 %109, label %110, label %26, !llvm.loop !87
+  br i1 %109, label %110, label %26, !llvm.loop !86
 
 110:                                              ; preds = %105
   %111 = icmp eq i32 %106, 0
@@ -6812,7 +6812,7 @@ define internal fastcc i32 @drm_dp_mst_atomic_check_mstb_bw_limit(ptr noundef %0
 .loopexit:                                        ; preds = %21, %14, %.preheader27
   %25 = load ptr, ptr %7, align 8
   %26 = icmp eq ptr %25, %4
-  br i1 %26, label %.thread25, label %.preheader27, !llvm.loop !88
+  br i1 %26, label %.thread25, label %.preheader27, !llvm.loop !87
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds i8, ptr %0, i64 56
@@ -6988,7 +6988,7 @@ define internal fastcc i32 @drm_dp_mst_atomic_check_mstb_bw_limit(ptr noundef %0
   %131 = add i32 %130, %55
   %132 = load ptr, ptr %54, align 8
   %133 = icmp eq ptr %132, %51
-  br i1 %133, label %.thread25, label %.preheader26, !llvm.loop !89
+  br i1 %133, label %.thread25, label %.preheader26, !llvm.loop !88
 
 .thread25.sink.split:                             ; preds = %115, %89
   %.ph = phi i32 [ -28, %115 ], [ -22, %89 ]
@@ -7027,7 +7027,7 @@ define dso_local i32 @drm_dp_mst_atomic_check(ptr nocapture noundef readonly %0)
   %18 = getelementptr inbounds i8, ptr %12, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
-  %20 = call i32 @drm_dp_mst_atomic_check_mgr(ptr poison, ptr noundef %13, ptr noundef %19, ptr noundef nonnull %2), !range !90
+  %20 = call i32 @drm_dp_mst_atomic_check_mgr(ptr poison, ptr noundef %13, ptr noundef %19, ptr noundef nonnull %2), !range !89
   %21 = icmp eq i32 %20, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
   br i1 %21, label %._crit_edge, label %.loopexit
@@ -7041,7 +7041,7 @@ define dso_local i32 @drm_dp_mst_atomic_check(ptr nocapture noundef readonly %0)
   %24 = add nuw nsw i64 %10, 1
   %25 = sext i32 %23 to i64
   %26 = icmp slt i64 %24, %25
-  br i1 %26, label %8, label %.loopexit, !llvm.loop !91
+  br i1 %26, label %8, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %22, %17, %1
   %27 = phi i32 [ 0, %1 ], [ %20, %17 ], [ 0, %22 ]
@@ -7133,7 +7133,7 @@ define internal noundef ptr @drm_dp_mst_duplicate_state(ptr noundef %0) #3 align
 50:                                               ; preds = %43, %.preheader7
   %51 = load ptr, ptr %14, align 8
   %52 = icmp eq ptr %51, %11
-  br i1 %52, label %.loopexit8, label %.preheader7, !llvm.loop !92
+  br i1 %52, label %.loopexit8, label %.preheader7, !llvm.loop !91
 
 53:                                               ; preds = %19
   %54 = load ptr, ptr %7, align 8
@@ -7148,7 +7148,7 @@ define internal noundef ptr @drm_dp_mst_duplicate_state(ptr noundef %0) #3 align
   tail call void @drm_dp_mst_put_port_malloc(ptr noundef %59)
   tail call void @kfree(ptr noundef %57) #21
   %60 = icmp eq ptr %58, %7
-  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !93
+  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !92
 
 .loopexit:                                        ; preds = %.preheader, %53
   tail call void @kfree(ptr noundef nonnull %4) #21
@@ -7194,7 +7194,7 @@ define internal void @drm_dp_mst_destroy_state(ptr nocapture readnone %0, ptr no
 20:                                               ; preds = %18, %.preheader
   tail call void @kfree(ptr noundef %12) #21
   %21 = icmp eq ptr %13, %3
-  br i1 %21, label %.loopexit4, label %.preheader, !llvm.loop !94
+  br i1 %21, label %.loopexit4, label %.preheader, !llvm.loop !93
 
 22:                                               ; preds = %.thread, %9
   %23 = phi i64 [ 0, %9 ], [ %36, %.thread ]
@@ -7225,7 +7225,7 @@ define internal void @drm_dp_mst_destroy_state(ptr nocapture readnone %0, ptr no
   %36 = sext i32 %35 to i64
   %37 = load i64, ptr %6, align 8
   %38 = icmp ugt i64 %37, %36
-  br i1 %38, label %22, label %.loopexit, !llvm.loop !95
+  br i1 %38, label %22, label %.loopexit, !llvm.loop !94
 
 .loopexit:                                        ; preds = %.thread, %.loopexit4
   %39 = getelementptr inbounds i8, ptr %1, i64 32
@@ -7257,7 +7257,7 @@ define dso_local ptr @drm_atomic_get_new_mst_topology_state(ptr noundef %0, ptr 
 declare dso_local ptr @drm_atomic_get_new_private_obj_state(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_dp_mst_topology_mgr_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_topology_mgr_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #3 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 784
   tail call void @__mutex_init(ptr noundef %7, ptr noundef nonnull @.str.69, ptr noundef nonnull @drm_dp_mst_topology_mgr_init.__key) #21
   %8 = getelementptr inbounds i8, ptr %0, i64 888
@@ -7492,11 +7492,11 @@ define internal void @drm_dp_mst_link_probe_work(ptr noundef %0) #3 align 16 {
 
 69:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #21
-  store ptr @__drm_printfn_debug, ptr %2, align 8, !alias.scope !96
+  store ptr @__drm_printfn_debug, ptr %2, align 8, !alias.scope !95
   %70 = getelementptr inbounds i8, ptr %2, i64 8
   %71 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false), !alias.scope !96
-  store ptr @.str.104, ptr %71, align 8, !alias.scope !96
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false), !alias.scope !95
+  store ptr @.str.104, ptr %71, align 8, !alias.scope !95
   call fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef nonnull %2, ptr noundef nonnull %55)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #21
   br label %72
@@ -7547,7 +7547,7 @@ define internal void @drm_dp_mst_link_probe_work(ptr noundef %0) #3 align 16 {
   br label %95
 
 95:                                               ; preds = %94, %52, %44
-  %96 = call fastcc i32 @drm_dp_check_and_send_link_address(ptr noundef %4, ptr noundef nonnull %15), !range !99
+  %96 = call fastcc i32 @drm_dp_check_and_send_link_address(ptr noundef %4, ptr noundef nonnull %15), !range !98
   call fastcc void @drm_dp_mst_topology_put_mstb(ptr noundef nonnull %15)
   call void @mutex_unlock(ptr noundef %7) #21
   %97 = icmp sgt i32 %96, 0
@@ -7753,7 +7753,7 @@ define internal void @drm_dp_delayed_destroy_work(ptr noundef %0) #3 align 16 {
 
 drm_dp_mst_topology_put_port.exit:                ; preds = %87, %75, %73, %51, %53, %92
   %103 = icmp eq ptr %33, %28
-  br i1 %103, label %.loopexit, label %.preheader14, !llvm.loop !100
+  br i1 %103, label %.loopexit, label %.preheader14, !llvm.loop !99
 
 .loopexit:                                        ; preds = %drm_dp_mst_topology_put_port.exit, %.lr.ph26
   tail call void @mutex_unlock(ptr noundef %27) #21
@@ -7789,7 +7789,7 @@ drm_dp_mst_topology_put_port.exit:                ; preds = %87, %75, %73, %51, 
 120:                                              ; preds = %115, %.preheader
   %121 = phi i8 [ %110, %.preheader ], [ 1, %115 ]
   %122 = icmp eq ptr %111, %106
-  br i1 %122, label %123, label %.preheader, !llvm.loop !101
+  br i1 %122, label %123, label %.preheader, !llvm.loop !100
 
 123:                                              ; preds = %120
   %124 = and i8 %121, 1
@@ -8109,7 +8109,7 @@ drm_dp_mst_put_port_malloc.exit12:                ; preds = %287, %275, %273
   %.lcssa17 = phi i8 [ %6, %.preheader15 ], [ 1, %drm_dp_mst_put_port_malloc.exit12 ]
   tail call void @mutex_unlock(ptr noundef %2) #21
   %297 = icmp eq i8 %.lcssa18, 0
-  br i1 %297, label %298, label %5, !llvm.loop !102
+  br i1 %297, label %298, label %5, !llvm.loop !101
 
 298:                                              ; preds = %._crit_edge
   %299 = and i8 %.lcssa17, 1
@@ -8300,7 +8300,7 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #3 align 16 {
   %100 = getelementptr i8, ptr %97, i64 -16
   %101 = load i8, ptr %100, align 8
   %102 = icmp eq i8 %101, %93
-  br i1 %102, label %103, label %95, !llvm.loop !103
+  br i1 %102, label %103, label %95, !llvm.loop !102
 
 103:                                              ; preds = %99
   %104 = getelementptr i8, ptr %97, i64 -24
@@ -8443,7 +8443,7 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #3 align 16 {
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %182
-  %187 = tail call fastcc i32 @drm_dp_send_enum_path_resources(ptr noundef %91, ptr noundef nonnull %75, ptr noundef nonnull %104), !range !104
+  %187 = tail call fastcc i32 @drm_dp_send_enum_path_resources(ptr noundef %91, ptr noundef nonnull %75, ptr noundef nonnull %104), !range !103
   %.pre = load i8, ptr %139, align 1, !range !9
   br label %190
 
@@ -8539,7 +8539,7 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #3 align 16 {
   %234 = getelementptr i8, ptr %232, i64 -136
   %235 = icmp eq ptr %234, null
   %236 = or i1 %233, %235
-  br i1 %236, label %237, label %16, !llvm.loop !105
+  br i1 %236, label %237, label %16, !llvm.loop !104
 
 237:                                              ; preds = %229
   tail call void @mutex_unlock(ptr noundef %4) #21
@@ -8669,7 +8669,7 @@ define internal fastcc ptr @drm_dp_mst_topology_get_port_validated_locked(ptr no
 16:                                               ; preds = %13, %9
   %17 = load ptr, ptr %6, align 8
   %18 = icmp eq ptr %17, %3
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !106
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !105
 
 .loopexit:                                        ; preds = %16, %13, %.preheader, %2
   %19 = phi ptr [ null, %2 ], [ null, %16 ], [ %14, %13 ], [ %7, %.preheader ]
@@ -8723,7 +8723,7 @@ define internal fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef %0, ptr
   store i8 %25, ptr %22, align 1
   %26 = add nuw nsw i64 %15, 1
   %27 = icmp eq i64 %26, %13
-  br i1 %27, label %.loopexit3, label %14, !llvm.loop !107
+  br i1 %27, label %.loopexit3, label %14, !llvm.loop !106
 
 .loopexit3:                                       ; preds = %14, %2
   %28 = zext i8 %10 to i32
@@ -8754,7 +8754,7 @@ define internal fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef %0, ptr
   %48 = load i8, ptr %47, align 8, !range !9, !noundef !10
   %49 = zext nneg i8 %48 to i32
   call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.105, i32 noundef %32, i32 noundef %35, i32 noundef %37, ptr noundef %46, i32 noundef %49, ptr noundef nonnull %5) #21
-  %50 = call i32 @drm_dp_decode_sideband_req(ptr noundef %1, ptr noundef nonnull %4), !range !108
+  %50 = call i32 @drm_dp_decode_sideband_req(ptr noundef %1, ptr noundef nonnull %4), !range !107
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %53, label %52
 
@@ -8796,7 +8796,7 @@ define internal fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef %0, ptr
   %69 = load i8, ptr %56, align 8
   %70 = zext i8 %69 to i64
   %71 = icmp ult i64 %68, %70
-  br i1 %71, label %64, label %.loopexit, !llvm.loop !109
+  br i1 %71, label %64, label %.loopexit, !llvm.loop !108
 
 72:                                               ; preds = %53
   %73 = getelementptr inbounds i8, ptr %4, i64 16
@@ -8817,9 +8817,9 @@ define internal fastcc void @process_single_down_tx_qlock(ptr noundef %0) unname
   br i1 %3, label %5, label %4, !prof !11
 
 4:                                                ; preds = %1
-  tail call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #21, !srcloc !110
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2848, i32 2305, i64 12) #21, !srcloc !111
-  tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_end\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #21, !srcloc !112
+  tail call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #21, !srcloc !109
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2848, i32 2305, i64 12) #21, !srcloc !110
+  tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_end\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #21, !srcloc !111
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -8830,7 +8830,7 @@ define internal fastcc void @process_single_down_tx_qlock(ptr noundef %0) unname
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %7, i64 -320
-  %11 = tail call fastcc i32 @process_single_tx_qlock(ptr noundef %0, ptr noundef %10, i1 noundef zeroext false), !range !59
+  %11 = tail call fastcc i32 @process_single_tx_qlock(ptr noundef %0, ptr noundef %10, i1 noundef zeroext false)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %29
 
@@ -8876,7 +8876,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -5, 2) i32 @process_single_tx_qlock(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 16 {
   %4 = alloca [48 x i8], align 16
   %5 = alloca { [8 x i8], i8, i8, i8, i8, i8, i8 }, align 8
   %6 = alloca %struct.drm_printer, align 8
@@ -9037,7 +9037,7 @@ define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture nounde
   %107 = xor i8 %96, 19
   %108 = select i1 %106, i8 %96, i8 %107
   %109 = icmp eq i32 %86, 0
-  br i1 %109, label %.preheader, label %80, !llvm.loop !113
+  br i1 %109, label %.preheader, label %80, !llvm.loop !112
 
 .preheader:                                       ; preds = %80, %.preheader
   %110 = phi i8 [ %117, %.preheader ], [ %108, %80 ]
@@ -9049,7 +9049,7 @@ define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture nounde
   %116 = xor i8 %113, 19
   %117 = select i1 %115, i8 %113, i8 %116
   %118 = icmp eq i32 %112, 0
-  br i1 %118, label %119, label %.preheader, !llvm.loop !114
+  br i1 %118, label %119, label %.preheader, !llvm.loop !113
 
 119:                                              ; preds = %.preheader
   %120 = and i8 %117, 15
@@ -9100,7 +9100,7 @@ define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture nounde
   %159 = xor i16 %148, 213
   %160 = select i1 %158, i16 %148, i16 %159
   %161 = icmp eq i32 %138, 0
-  br i1 %161, label %.loopexit.preheader, label %132, !llvm.loop !115
+  br i1 %161, label %.loopexit.preheader, label %132, !llvm.loop !114
 
 .loopexit.preheader:                              ; preds = %132, %119
   %.ph = phi i16 [ 0, %119 ], [ %160, %132 ]
@@ -9116,7 +9116,7 @@ define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture nounde
   %168 = xor i16 %165, 213
   %169 = select i1 %167, i16 %165, i16 %168
   %170 = icmp eq i32 %164, 0
-  br i1 %170, label %171, label %.loopexit, !llvm.loop !116
+  br i1 %170, label %171, label %.loopexit, !llvm.loop !115
 
 171:                                              ; preds = %.loopexit
   %172 = trunc i16 %169 to i8
@@ -9172,7 +9172,7 @@ define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture nounde
   %209 = add i32 %187, %183
   %210 = sub i32 %184, %187
   %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %182, label %220, !llvm.loop !117
+  br i1 %211, label %182, label %220, !llvm.loop !116
 
 212:                                              ; preds = %205, %201
   %213 = phi ptr [ %207, %205 ], [ null, %201 ]
@@ -9184,11 +9184,11 @@ define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture nounde
 
 217:                                              ; preds = %212
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #21
-  store ptr @__drm_printfn_debug, ptr %6, align 8, !alias.scope !118
+  store ptr @__drm_printfn_debug, ptr %6, align 8, !alias.scope !117
   %218 = getelementptr inbounds i8, ptr %6, i64 8
   %219 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %218, i8 0, i64 16, i1 false), !alias.scope !118
-  store ptr @.str.104, ptr %219, align 8, !alias.scope !118
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %218, i8 0, i64 16, i1 false), !alias.scope !117
+  store ptr @.str.104, ptr %219, align 8, !alias.scope !117
   call void (ptr, ptr, ...) @drm_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.114) #21
   call fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef nonnull %6, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
@@ -9345,7 +9345,7 @@ drm_dp_get_last_connected_port_to_mstb.exit:      ; preds = %.lr.ph.i
   %73 = phi ptr [ %70, %69 ], [ %21, %63 ]
   %74 = phi ptr [ null, %69 ], [ %66, %63 ]
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.preheader14, label %76, !llvm.loop !121
+  br i1 %75, label %.preheader14, label %76, !llvm.loop !120
 
 .thread13:                                        ; preds = %.preheader14, %32, %14
   tail call void @mutex_unlock(ptr noundef %16) #21
@@ -9381,7 +9381,7 @@ drm_dp_get_last_connected_port_to_mstb.exit:      ; preds = %.lr.ph.i
   store i8 %91, ptr %92, align 1
   %93 = add nuw nsw i64 %90, 1
   %94 = icmp eq i64 %93, %88
-  br i1 %94, label %.loopexit, label %89, !llvm.loop !122
+  br i1 %94, label %.loopexit, label %89, !llvm.loop !121
 
 .loopexit:                                        ; preds = %89, %83
   %.pre-phi = phi i64 [ 0, %83 ], [ %88, %89 ]
@@ -9424,11 +9424,11 @@ drm_dp_get_last_connected_port_to_mstb.exit:      ; preds = %.lr.ph.i
 
 113:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #21
-  store ptr @__drm_printfn_debug, ptr %5, align 8, !alias.scope !123
+  store ptr @__drm_printfn_debug, ptr %5, align 8, !alias.scope !122
   %114 = getelementptr inbounds i8, ptr %5, i64 8
   %115 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false), !alias.scope !123
-  store ptr @.str.104, ptr %115, align 8, !alias.scope !123
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false), !alias.scope !122
+  store ptr @.str.104, ptr %115, align 8, !alias.scope !122
   call fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef nonnull %5, ptr noundef nonnull %81)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
   br label %116
@@ -9576,7 +9576,7 @@ define internal fastcc ptr @drm_dp_mst_topology_get_mstb_validated_locked(ptr no
 15:                                               ; preds = %12, %.preheader
   %16 = load ptr, ptr %8, align 8
   %17 = icmp eq ptr %16, %5
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !126
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !125
 
 .loopexit:                                        ; preds = %15, %12, %4, %2
   %18 = phi ptr [ %0, %2 ], [ null, %4 ], [ %13, %12 ], [ null, %15 ]
@@ -9681,7 +9681,7 @@ define internal fastcc noundef zeroext i1 @drm_dp_get_one_sb_msg(ptr noundef %0,
   %67 = xor i8 %56, 19
   %68 = select i1 %66, i8 %56, i8 %67
   %69 = icmp eq i32 %46, 0
-  br i1 %69, label %.preheader15, label %40, !llvm.loop !113
+  br i1 %69, label %.preheader15, label %40, !llvm.loop !112
 
 .preheader15:                                     ; preds = %40, %.preheader15
   %70 = phi i8 [ %77, %.preheader15 ], [ %68, %40 ]
@@ -9693,7 +9693,7 @@ define internal fastcc noundef zeroext i1 @drm_dp_get_one_sb_msg(ptr noundef %0,
   %76 = xor i8 %73, 19
   %77 = select i1 %75, i8 %73, i8 %76
   %78 = icmp eq i32 %72, 0
-  br i1 %78, label %79, label %.preheader15, !llvm.loop !114
+  br i1 %78, label %79, label %.preheader15, !llvm.loop !113
 
 79:                                               ; preds = %.preheader15
   %80 = zext i8 %77 to i32
@@ -9931,7 +9931,7 @@ define internal fastcc noundef zeroext i1 @drm_dp_get_one_sb_msg(ptr noundef %0,
   %226 = add i32 %208, %205
   %227 = sub i32 %204, %208
   %228 = icmp sgt i32 %227, 0
-  br i1 %228, label %.preheader, label %.loopexit, !llvm.loop !127
+  br i1 %228, label %.preheader, label %.loopexit, !llvm.loop !126
 
 .loopexit:                                        ; preds = %224, %222, %189, %185, %152, %116, %27
   %229 = phi i1 [ false, %27 ], [ false, %116 ], [ false, %222 ], [ false, %185 ], [ false, %152 ], [ true, %189 ], [ true, %224 ]
@@ -9966,7 +9966,7 @@ define internal fastcc noundef ptr @drm_dp_get_mst_branch_device(ptr noundef %0,
   %.ph = phi ptr [ %41, %39 ], [ %17, %30 ]
   %14 = add nuw nsw i32 %18, 1
   %15 = icmp eq i32 %18, %13
-  br i1 %15, label %.loopexit9, label %16, !llvm.loop !128
+  br i1 %15, label %.loopexit9, label %16, !llvm.loop !127
 
 16:                                               ; preds = %.loopexit, %11
   %17 = phi ptr [ %6, %11 ], [ %.ph, %.loopexit ]
@@ -9995,7 +9995,7 @@ define internal fastcc noundef ptr @drm_dp_get_mst_branch_device(ptr noundef %0,
   %36 = load i8, ptr %35, align 8
   %37 = zext i8 %36 to i32
   %38 = icmp eq i32 %28, %37
-  br i1 %38, label %39, label %30, !llvm.loop !129
+  br i1 %38, label %39, label %30, !llvm.loop !128
 
 39:                                               ; preds = %34
   %40 = getelementptr i8, ptr %32, i64 16
@@ -10137,7 +10137,7 @@ define internal fastcc void @drm_dp_sideband_append_payload(ptr noundef %0, ptr 
   %47 = xor i16 %36, 213
   %48 = select i1 %46, i16 %36, i16 %47
   %49 = icmp eq i32 %26, 0
-  br i1 %49, label %.loopexit.preheader, label %20, !llvm.loop !115
+  br i1 %49, label %.loopexit.preheader, label %20, !llvm.loop !114
 
 .loopexit.preheader:                              ; preds = %20, %14
   %.ph = phi i16 [ 0, %14 ], [ %48, %20 ]
@@ -10153,7 +10153,7 @@ define internal fastcc void @drm_dp_sideband_append_payload(ptr noundef %0, ptr 
   %56 = xor i16 %53, 213
   %57 = select i1 %55, i16 %53, i16 %56
   %58 = icmp eq i32 %52, 0
-  br i1 %58, label %59, label %.loopexit, !llvm.loop !116
+  br i1 %58, label %59, label %.loopexit, !llvm.loop !115
 
 59:                                               ; preds = %.loopexit
   %60 = trunc i16 %57 to i8
@@ -10206,7 +10206,7 @@ declare dso_local void @__drm_atomic_helper_private_obj_duplicate_state(ptr noun
 declare dso_local void @__drm_crtc_commit_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_dp_check_and_send_link_address(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 2) i32 @drm_dp_check_and_send_link_address(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
@@ -10249,7 +10249,7 @@ define internal fastcc i32 @drm_dp_check_and_send_link_address(ptr noundef %0, p
   br i1 %28, label %34, label %29
 
 29:                                               ; preds = %25
-  %30 = tail call fastcc i32 @drm_dp_check_and_send_link_address(ptr noundef %0, ptr noundef nonnull %27), !range !99
+  %30 = tail call fastcc i32 @drm_dp_check_and_send_link_address(ptr noundef %0, ptr noundef nonnull %27), !range !98
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %34, label %32
 
@@ -10261,7 +10261,7 @@ define internal fastcc i32 @drm_dp_check_and_send_link_address(ptr noundef %0, p
   %35 = phi i8 [ %17, %.preheader ], [ %17, %32 ], [ %17, %25 ], [ %17, %21 ], [ 1, %29 ]
   %36 = load ptr, ptr %16, align 8
   %37 = icmp eq ptr %36, %13
-  br i1 %37, label %.loopexit5, label %.preheader, !llvm.loop !130
+  br i1 %37, label %.loopexit5, label %.preheader, !llvm.loop !129
 
 .loopexit5:                                       ; preds = %34, %11
   %38 = phi i8 [ %12, %11 ], [ %35, %34 ]
@@ -10316,11 +10316,11 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
 
 22:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
-  store ptr @__drm_printfn_debug, ptr %4, align 8, !alias.scope !131
+  store ptr @__drm_printfn_debug, ptr %4, align 8, !alias.scope !130
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   %24 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !alias.scope !131
-  store ptr @.str.104, ptr %24, align 8, !alias.scope !131
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !alias.scope !130
+  store ptr @.str.104, ptr %24, align 8, !alias.scope !130
   call fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef nonnull %4, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
   br label %25
@@ -10455,7 +10455,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   %112 = load i8, ptr %67, align 4
   %113 = zext i8 %112 to i64
   %114 = icmp ult i64 %111, %113
-  br i1 %114, label %74, label %.loopexit59, !llvm.loop !134
+  br i1 %114, label %74, label %.loopexit59, !llvm.loop !133
 
 .loopexit59:                                      ; preds = %82, %65
   %115 = getelementptr inbounds i8, ptr %1, i64 73
@@ -10544,7 +10544,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   store i8 %165, ptr %162, align 1
   %166 = add nuw nsw i64 %155, 1
   %167 = icmp eq i64 %166, %153
-  br i1 %167, label %.loopexit, label %154, !llvm.loop !107
+  br i1 %167, label %.loopexit, label %154, !llvm.loop !106
 
 .loopexit:                                        ; preds = %154, %.thread37
   %168 = zext i8 %150 to i32
@@ -10590,7 +10590,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   %195 = getelementptr i8, ptr %192, i64 -16
   %196 = load i8, ptr %195, align 8
   %197 = icmp eq i8 %196, %183
-  br i1 %197, label %198, label %190, !llvm.loop !103
+  br i1 %197, label %198, label %190, !llvm.loop !102
 
 198:                                              ; preds = %194
   %199 = getelementptr i8, ptr %192, i64 -24
@@ -10831,9 +10831,9 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   br i1 %347, label %348, label %349, !prof !24
 
 348:                                              ; preds = %343
-  call void asm sideeffect "476: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 476b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 476) #21, !srcloc !135
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1894, i32 2305, i64 12) #21, !srcloc !136
-  call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_end\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #21, !srcloc !137
+  call void asm sideeffect "476: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 476b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 476) #21, !srcloc !134
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1894, i32 2305, i64 12) #21, !srcloc !135
+  call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_end\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #21, !srcloc !136
   br label %349
 
 349:                                              ; preds = %348, %343
@@ -10896,7 +10896,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   br i1 %382, label %383, label %387
 
 383:                                              ; preds = %380
-  %384 = call fastcc i32 @drm_dp_send_enum_path_resources(ptr noundef %189, ptr noundef %1, ptr noundef nonnull %323), !range !104
+  %384 = call fastcc i32 @drm_dp_send_enum_path_resources(ptr noundef %189, ptr noundef %1, ptr noundef nonnull %323), !range !103
   %385 = icmp eq i32 %384, 1
   %386 = select i1 %385, i8 1, i8 %320
   br label %389
@@ -11028,7 +11028,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   %456 = load i8, ptr %67, align 4
   %457 = zext i8 %456 to i64
   %458 = icmp ult i64 %455, %457
-  br i1 %458, label %177, label %459, !llvm.loop !138
+  br i1 %458, label %177, label %459, !llvm.loop !137
 
 459:                                              ; preds = %452
   %spec.select = zext i1 %454 to i32
@@ -11087,7 +11087,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
 492:                                              ; preds = %485, %.preheader
   %493 = phi i8 [ %470, %.preheader ], [ 1, %485 ]
   %494 = icmp eq ptr %472, %466
-  br i1 %494, label %.loopexit55, label %.preheader, !llvm.loop !139
+  br i1 %494, label %.loopexit55, label %.preheader, !llvm.loop !138
 
 .loopexit55:                                      ; preds = %492, %461
   %495 = phi i8 [ %464, %461 ], [ %493, %492 ]
@@ -11189,7 +11189,7 @@ define internal fastcc noundef ptr @drm_dp_mst_add_port(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_dp_send_enum_path_resources(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -12, 2) i32 @drm_dp_send_enum_path_resources(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.drm_printer, align 8
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
@@ -11229,11 +11229,11 @@ define internal fastcc i32 @drm_dp_send_enum_path_resources(ptr noundef %0, ptr 
 
 24:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
-  store ptr @__drm_printfn_debug, ptr %4, align 8, !alias.scope !140
+  store ptr @__drm_printfn_debug, ptr %4, align 8, !alias.scope !139
   %25 = getelementptr inbounds i8, ptr %4, i64 8
   %26 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !alias.scope !140
-  store ptr @.str.104, ptr %26, align 8, !alias.scope !140
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !alias.scope !139
+  store ptr @.str.104, ptr %26, align 8, !alias.scope !139
   call fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef nonnull %4, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
   br label %27
@@ -11642,7 +11642,7 @@ define internal fastcc void @drm_dp_mst_port_add_connector(ptr nocapture noundef
   %36 = zext i8 %35 to i32
   %37 = add nsw i32 %36, -1
   %38 = icmp slt i32 %34, %37
-  br i1 %38, label %20, label %.loopexit, !llvm.loop !143
+  br i1 %38, label %20, label %.loopexit, !llvm.loop !142
 
 .loopexit:                                        ; preds = %20, %2
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 8, ptr noundef nonnull @.str.200, i32 noundef %9) #21
@@ -11757,7 +11757,7 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
 23:                                               ; preds = %33
   %24 = add nuw nsw i64 %27, 1
   %25 = icmp eq i64 %24, %22
-  br i1 %25, label %.loopexit19, label %26, !llvm.loop !144
+  br i1 %25, label %.loopexit19, label %26, !llvm.loop !143
 
 26:                                               ; preds = %23, %21
   %27 = phi i64 [ 0, %21 ], [ %24, %23 ]
@@ -11833,7 +11833,7 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
   store i8 %74, ptr %75, align 8
   %76 = add nuw nsw i64 %59, 1
   %77 = icmp eq i64 %76, %57
-  br i1 %77, label %.loopexit17, label %58, !llvm.loop !145
+  br i1 %77, label %.loopexit17, label %58, !llvm.loop !144
 
 .loopexit17:                                      ; preds = %58, %47
   %78 = load i16, ptr %38, align 8
@@ -11870,11 +11870,11 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
 
 97:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #21
-  store ptr @__drm_printfn_debug, ptr %6, align 8, !alias.scope !146
+  store ptr @__drm_printfn_debug, ptr %6, align 8, !alias.scope !145
   %98 = getelementptr inbounds i8, ptr %6, i64 8
   %99 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false), !alias.scope !146
-  store ptr @.str.104, ptr %99, align 8, !alias.scope !146
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false), !alias.scope !145
+  store ptr @.str.104, ptr %99, align 8, !alias.scope !145
   call fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef nonnull %6, ptr noundef nonnull %84)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
   br label %100
@@ -11937,7 +11937,7 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
 128:                                              ; preds = %138
   %129 = add nuw nsw i64 %132, 1
   %130 = icmp eq i64 %129, %127
-  br i1 %130, label %.loopexit16, label %131, !llvm.loop !149
+  br i1 %130, label %.loopexit16, label %131, !llvm.loop !148
 
 131:                                              ; preds = %128, %.thread
   %132 = phi i64 [ 0, %.thread ], [ %129, %128 ]
@@ -12002,7 +12002,7 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
 175:                                              ; preds = %204
   %176 = add nuw nsw i64 %179, 1
   %177 = icmp eq i64 %176, %174
-  br i1 %177, label %.loopexit, label %178, !llvm.loop !150
+  br i1 %177, label %.loopexit, label %178, !llvm.loop !149
 
 178:                                              ; preds = %175, %160
   %179 = phi i64 [ 0, %160 ], [ %176, %175 ]
@@ -12037,9 +12037,9 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
 
 193:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
-  store ptr @__drm_printfn_debug, ptr %4, align 8, !alias.scope !151
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false), !alias.scope !151
-  store ptr @.str.104, ptr %173, align 8, !alias.scope !151
+  store ptr @__drm_printfn_debug, ptr %4, align 8, !alias.scope !150
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false), !alias.scope !150
+  store ptr @.str.104, ptr %173, align 8, !alias.scope !150
   call fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef nonnull %4, ptr noundef nonnull %155)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
   br label %194
@@ -12144,7 +12144,7 @@ define internal fastcc ptr @get_mst_branch_device_by_guid_helper(ptr noundef rea
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc ptr @get_mst_branch_device_by_guid_helper(ptr noundef %16, ptr noundef %1)
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %10, label %.loopexit, !llvm.loop !154
+  br i1 %18, label %10, label %.loopexit, !llvm.loop !153
 
 .loopexit:                                        ; preds = %14, %10, %4, %2
   %19 = phi ptr [ null, %2 ], [ %0, %4 ], [ null, %10 ], [ %17, %14 ]
@@ -12254,99 +12254,98 @@ attributes #28 = { noinline "function-inline-cost-multiplier"="2" }
 !56 = !{i64 2157868422, i64 2157868233, i64 2157868283, i64 2157868329, i64 2157868357}
 !57 = distinct !{!57, !6, !7}
 !58 = distinct !{!58, !6, !7}
-!59 = !{i32 -5, i32 2}
-!60 = !{i64 2158469678, i64 2158469487, i64 2158469539, i64 2158469585, i64 2158469613}
-!61 = !{i64 2158470236, i64 2158470045, i64 2158470097, i64 2158470143, i64 2158470171}
-!62 = !{i64 2158470310, i64 2158470339, i64 2158470385, i64 2158470443, i64 2158470497, i64 2158470551, i64 2158470606, i64 2158470637, i64 2158470945, i64 2158470951, i64 2158470998, i64 2158471021, i64 2158471047}
-!63 = !{i64 2158471526, i64 2158471337, i64 2158471387, i64 2158471433, i64 2158471461}
-!64 = !{i64 2158471832, i64 2158471643, i64 2158471693, i64 2158471739, i64 2158471767}
-!65 = !{!"branch_weights", i32 0, i32 -2147483648}
-!66 = !{i64 2158477489, i64 2158477298, i64 2158477350, i64 2158477396, i64 2158477424}
-!67 = !{i64 2158477563, i64 2158477592, i64 2158477638, i64 2158477696, i64 2158477750, i64 2158477804, i64 2158477859, i64 2158477890, i64 2158478198, i64 2158478204, i64 2158478251, i64 2158478274, i64 2158478300}
-!68 = !{i64 2158478779, i64 2158478590, i64 2158478640, i64 2158478686, i64 2158478714}
-!69 = !{i64 2148553767, i64 2148553795, i64 2148553801, i64 2148553817, i64 2148553833, i64 2148553860, i64 2148554193, i64 2148553493, i64 2148554199, i64 2148554247, i64 2148554311, i64 2148554375, i64 2148554432, i64 2148553574, i64 2148553599, i64 2148554639, i64 2148554769, i64 2148554700, i64 2148554783, i64 2148553691}
+!59 = !{i64 2158469678, i64 2158469487, i64 2158469539, i64 2158469585, i64 2158469613}
+!60 = !{i64 2158470236, i64 2158470045, i64 2158470097, i64 2158470143, i64 2158470171}
+!61 = !{i64 2158470310, i64 2158470339, i64 2158470385, i64 2158470443, i64 2158470497, i64 2158470551, i64 2158470606, i64 2158470637, i64 2158470945, i64 2158470951, i64 2158470998, i64 2158471021, i64 2158471047}
+!62 = !{i64 2158471526, i64 2158471337, i64 2158471387, i64 2158471433, i64 2158471461}
+!63 = !{i64 2158471832, i64 2158471643, i64 2158471693, i64 2158471739, i64 2158471767}
+!64 = !{!"branch_weights", i32 0, i32 -2147483648}
+!65 = !{i64 2158477489, i64 2158477298, i64 2158477350, i64 2158477396, i64 2158477424}
+!66 = !{i64 2158477563, i64 2158477592, i64 2158477638, i64 2158477696, i64 2158477750, i64 2158477804, i64 2158477859, i64 2158477890, i64 2158478198, i64 2158478204, i64 2158478251, i64 2158478274, i64 2158478300}
+!67 = !{i64 2158478779, i64 2158478590, i64 2158478640, i64 2158478686, i64 2158478714}
+!68 = !{i64 2148553767, i64 2148553795, i64 2148553801, i64 2148553817, i64 2148553833, i64 2148553860, i64 2148554193, i64 2148553493, i64 2148554199, i64 2148554247, i64 2148554311, i64 2148554375, i64 2148554432, i64 2148553574, i64 2148553599, i64 2148554639, i64 2148554769, i64 2148554700, i64 2148554783, i64 2148553691}
+!69 = distinct !{!69, !6, !7}
 !70 = distinct !{!70, !6, !7}
 !71 = distinct !{!71, !6, !7}
 !72 = distinct !{!72, !6, !7}
 !73 = distinct !{!73, !6, !7}
-!74 = distinct !{!74, !6, !7}
-!75 = !{i64 2028149}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !6, !7}
-!78 = distinct !{!78, !6, !7, !79}
-!79 = !{!"llvm.loop.unswitch.partial.disable"}
+!74 = !{i64 2028149}
+!75 = distinct !{!75, !7}
+!76 = distinct !{!76, !6, !7}
+!77 = distinct !{!77, !6, !7, !78}
+!78 = !{!"llvm.loop.unswitch.partial.disable"}
+!79 = distinct !{!79, !6, !7}
 !80 = distinct !{!80, !6, !7}
 !81 = distinct !{!81, !6, !7}
 !82 = distinct !{!82, !6, !7}
 !83 = distinct !{!83, !6, !7}
 !84 = distinct !{!84, !6, !7}
-!85 = distinct !{!85, !6, !7}
-!86 = !{i64 1044457}
+!85 = !{i64 1044457}
+!86 = distinct !{!86, !6, !7}
 !87 = distinct !{!87, !6, !7}
 !88 = distinct !{!88, !6, !7}
-!89 = distinct !{!89, !6, !7}
-!90 = !{i32 -2147483648, i32 1}
+!89 = !{i32 -2147483648, i32 1}
+!90 = distinct !{!90, !6, !7}
 !91 = distinct !{!91, !6, !7}
 !92 = distinct !{!92, !6, !7}
 !93 = distinct !{!93, !6, !7}
 !94 = distinct !{!94, !6, !7}
-!95 = distinct !{!95, !6, !7}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"drm_debug_printer: argument 0"}
-!98 = distinct !{!98, !"drm_debug_printer"}
-!99 = !{i32 -2147483648, i32 2}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"drm_debug_printer: argument 0"}
+!97 = distinct !{!97, !"drm_debug_printer"}
+!98 = !{i32 -2147483648, i32 2}
+!99 = distinct !{!99, !6, !7}
 !100 = distinct !{!100, !6, !7}
 !101 = distinct !{!101, !6, !7}
 !102 = distinct !{!102, !6, !7}
-!103 = distinct !{!103, !6, !7}
-!104 = !{i32 -12, i32 2}
-!105 = distinct !{!105, !7}
+!103 = !{i32 -12, i32 2}
+!104 = distinct !{!104, !7}
+!105 = distinct !{!105, !6, !7}
 !106 = distinct !{!106, !6, !7}
-!107 = distinct !{!107, !6, !7}
-!108 = !{i32 -12, i32 1}
-!109 = distinct !{!109, !6, !7}
-!110 = !{i64 2158127453, i64 2158127262, i64 2158127314, i64 2158127360, i64 2158127388}
-!111 = !{i64 2158127527, i64 2158127556, i64 2158127602, i64 2158127660, i64 2158127714, i64 2158127768, i64 2158127823, i64 2158127854, i64 2158128162, i64 2158128168, i64 2158128215, i64 2158128238, i64 2158128264}
-!112 = !{i64 2158128743, i64 2158128554, i64 2158128604, i64 2158128650, i64 2158128678}
+!107 = !{i32 -12, i32 1}
+!108 = distinct !{!108, !6, !7}
+!109 = !{i64 2158127453, i64 2158127262, i64 2158127314, i64 2158127360, i64 2158127388}
+!110 = !{i64 2158127527, i64 2158127556, i64 2158127602, i64 2158127660, i64 2158127714, i64 2158127768, i64 2158127823, i64 2158127854, i64 2158128162, i64 2158128168, i64 2158128215, i64 2158128238, i64 2158128264}
+!111 = !{i64 2158128743, i64 2158128554, i64 2158128604, i64 2158128650, i64 2158128678}
+!112 = distinct !{!112, !6, !7}
 !113 = distinct !{!113, !6, !7}
 !114 = distinct !{!114, !6, !7}
 !115 = distinct !{!115, !6, !7}
 !116 = distinct !{!116, !6, !7}
-!117 = distinct !{!117, !6, !7}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"drm_debug_printer: argument 0"}
-!120 = distinct !{!120, !"drm_debug_printer"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"drm_debug_printer: argument 0"}
+!119 = distinct !{!119, !"drm_debug_printer"}
+!120 = distinct !{!120, !6, !7}
 !121 = distinct !{!121, !6, !7}
-!122 = distinct !{!122, !6, !7}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"drm_debug_printer: argument 0"}
-!125 = distinct !{!125, !"drm_debug_printer"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"drm_debug_printer: argument 0"}
+!124 = distinct !{!124, !"drm_debug_printer"}
+!125 = distinct !{!125, !6, !7}
 !126 = distinct !{!126, !6, !7}
 !127 = distinct !{!127, !6, !7}
 !128 = distinct !{!128, !6, !7}
 !129 = distinct !{!129, !6, !7}
-!130 = distinct !{!130, !6, !7}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"drm_debug_printer: argument 0"}
-!133 = distinct !{!133, !"drm_debug_printer"}
-!134 = distinct !{!134, !6, !7}
-!135 = !{i64 2157871938, i64 2157871747, i64 2157871799, i64 2157871845, i64 2157871873}
-!136 = !{i64 2157872012, i64 2157872041, i64 2157872087, i64 2157872145, i64 2157872199, i64 2157872253, i64 2157872308, i64 2157872339, i64 2157872647, i64 2157872653, i64 2157872700, i64 2157872723, i64 2157872749}
-!137 = !{i64 2157873228, i64 2157873039, i64 2157873089, i64 2157873135, i64 2157873163}
+!130 = !{!131}
+!131 = distinct !{!131, !132, !"drm_debug_printer: argument 0"}
+!132 = distinct !{!132, !"drm_debug_printer"}
+!133 = distinct !{!133, !6, !7}
+!134 = !{i64 2157871938, i64 2157871747, i64 2157871799, i64 2157871845, i64 2157871873}
+!135 = !{i64 2157872012, i64 2157872041, i64 2157872087, i64 2157872145, i64 2157872199, i64 2157872253, i64 2157872308, i64 2157872339, i64 2157872647, i64 2157872653, i64 2157872700, i64 2157872723, i64 2157872749}
+!136 = !{i64 2157873228, i64 2157873039, i64 2157873089, i64 2157873135, i64 2157873163}
+!137 = distinct !{!137, !6, !7}
 !138 = distinct !{!138, !6, !7}
-!139 = distinct !{!139, !6, !7}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"drm_debug_printer: argument 0"}
-!142 = distinct !{!142, !"drm_debug_printer"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"drm_debug_printer: argument 0"}
+!141 = distinct !{!141, !"drm_debug_printer"}
+!142 = distinct !{!142, !6, !7}
 !143 = distinct !{!143, !6, !7}
 !144 = distinct !{!144, !6, !7}
-!145 = distinct !{!145, !6, !7}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"drm_debug_printer: argument 0"}
-!148 = distinct !{!148, !"drm_debug_printer"}
+!145 = !{!146}
+!146 = distinct !{!146, !147, !"drm_debug_printer: argument 0"}
+!147 = distinct !{!147, !"drm_debug_printer"}
+!148 = distinct !{!148, !6, !7}
 !149 = distinct !{!149, !6, !7}
-!150 = distinct !{!150, !6, !7}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"drm_debug_printer: argument 0"}
-!153 = distinct !{!153, !"drm_debug_printer"}
-!154 = distinct !{!154, !6, !7}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"drm_debug_printer: argument 0"}
+!152 = distinct !{!152, !"drm_debug_printer"}
+!153 = distinct !{!153, !6, !7}

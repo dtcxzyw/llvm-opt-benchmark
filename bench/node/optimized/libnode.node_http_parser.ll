@@ -5577,7 +5577,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
@@ -6466,7 +6466,7 @@ declare void @llhttp_set_lenient_optional_cr_before_lf(ptr noundef, i32 noundef)
 declare void @llhttp_set_lenient_spaces_after_chunk_size(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_16on_message_beginEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
+define internal noundef range(i32 0, 22) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_16on_message_beginEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
 entry:
   %callback_scope.i = alloca %"class.node::InternalCallbackScope", align 8
   %0 = ptrtoint ptr %p to i64
@@ -6666,7 +6666,7 @@ _ZN4node12_GLOBAL__N_16Parser10MaybePauseEv.exit: ; preds = %_ZN4node12_GLOBAL__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_6on_urlES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
+define internal noundef range(i32 0, 25) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_6on_urlES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
@@ -6747,7 +6747,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_9on_statusES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
+define internal noundef range(i32 0, 25) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_9on_statusES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
@@ -6828,7 +6828,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_15on_header_fieldES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
+define internal noundef range(i32 0, 25) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_15on_header_fieldES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
@@ -7474,7 +7474,7 @@ if.end:                                           ; preds = %if.end.i5, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_7on_bodyES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
+define internal noundef range(i32 0, 25) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_7on_bodyES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %buffer.i = alloca %"class.v8::Local.0", align 8
@@ -7590,7 +7590,7 @@ if.end:                                           ; preds = %if.end.i4, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_19on_message_completeEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
+define internal noundef range(i32 -1, 22) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_19on_message_completeEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
 entry:
   %scope.i = alloca %"class.v8::HandleScope", align 8
   %callback_scope.i = alloca %"class.node::InternalCallbackScope", align 8
@@ -7764,7 +7764,7 @@ if.end:                                           ; preds = %if.end.i4, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_15on_chunk_headerEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
+define internal noundef range(i32 0, 22) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_15on_chunk_headerEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
@@ -7788,7 +7788,7 @@ _ZN4node12_GLOBAL__N_16Parser10MaybePauseEv.exit: ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_17on_chunk_completeEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
+define internal noundef range(i32 0, 22) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_17on_chunk_completeEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80

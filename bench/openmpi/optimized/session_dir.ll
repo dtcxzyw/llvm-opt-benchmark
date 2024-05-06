@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [8 x i8] c"output-\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.b17.i = load i1, ptr @setup_base_complete, align 1
   br i1 %.b17.i, label %setup_base.exit.thread33, label %3
@@ -49,7 +49,7 @@ define noundef i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
   br label %16
 
 8:                                                ; preds = %3
-  %9 = tail call fastcc i32 @_setup_tmpdir_base(), !range !4
+  %9 = tail call fastcc i32 @_setup_tmpdir_base()
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %12, label %10
 
@@ -81,7 +81,7 @@ define noundef i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %23, !llvm.loop !5
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %23, !llvm.loop !4
 
 23:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
@@ -90,9 +90,9 @@ define noundef i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #9
   %27 = tail call i32 @strncmp(ptr noundef %21, ptr noundef %25, i64 noundef %26) #9
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %setup_base.exit.thread.thread43, label %22
+  br i1 %28, label %setup_base.exit.thread.thread44, label %22
 
-setup_base.exit.thread.thread43:                  ; preds = %23
+setup_base.exit.thread.thread44:                  ; preds = %23
   %29 = load ptr, ptr @prte_prohibited_session_dirs, align 8
   %30 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 1, ptr noundef %21, ptr noundef %29) #8
   tail call void @PMIx_Argv_free(ptr noundef nonnull %18) #8
@@ -110,7 +110,7 @@ setup_base.exit.thread.thread43:                  ; preds = %23
   br i1 %35, label %36, label %50
 
 36:                                               ; preds = %31
-  %37 = tail call fastcc i32 @_setup_tmpdir_base(), !range !4
+  %37 = tail call fastcc i32 @_setup_tmpdir_base()
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %38, label %setup_base.exit.thread.thread
 
@@ -165,7 +165,7 @@ setup_base.exit.thread:                           ; preds = %38, %49, %55
   %58 = icmp eq i32 %.01116.i.i, -6
   br i1 %58, label %59, label %setup_base.exit.thread.thread
 
-59:                                               ; preds = %setup_base.exit.thread.thread43, %setup_base.exit.thread
+59:                                               ; preds = %setup_base.exit.thread.thread44, %setup_base.exit.thread
   br label %setup_base.exit.thread.thread
 
 setup_base.exit.thread33:                         ; preds = %55, %1
@@ -394,7 +394,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare i32 @prte_proc_info() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_setup_tmpdir_base() unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @_setup_tmpdir_base() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 12), align 8
@@ -513,6 +513,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

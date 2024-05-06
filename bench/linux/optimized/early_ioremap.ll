@@ -82,7 +82,7 @@ define dso_local void @early_ioremap_setup() local_unnamed_addr #1 section ".ini
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @check_early_ioremap_leak() #1 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @check_early_ioremap_leak() #1 section ".init.text" align 16 {
   br label %1
 
 1:                                                ; preds = %1, %0

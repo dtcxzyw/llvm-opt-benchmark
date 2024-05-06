@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @inotify_inode_mark_cachep = external dso_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @inotify_handle_inode_event(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef readonly %4, i32 noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @inotify_handle_inode_event(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef readonly %4, i32 noundef %5) #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %4, null
@@ -100,7 +100,7 @@ define dso_local noundef i32 @inotify_handle_inode_event(ptr noundef %0, i32 nou
 declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef i32 @inotify_merge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @inotify_merge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

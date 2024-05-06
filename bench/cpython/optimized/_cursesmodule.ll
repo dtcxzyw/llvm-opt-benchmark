@@ -3372,7 +3372,7 @@ for.body.preheader:                               ; preds = %do.body626, %land.l
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 257, %for.body.preheader ]
-  %198 = trunc i64 %indvars.iv to i32
+  %198 = trunc nuw nsw i64 %indvars.iv to i32
   %call637 = tail call ptr @keyname(i32 noundef %198) #8
   %cmp638 = icmp eq ptr %call637, null
   br i1 %cmp638, label %for.inc, label %lor.lhs.false
@@ -3539,7 +3539,7 @@ declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_PyCursesSetupTermCalled() #0 {
+define internal range(i32 0, 2) i32 @func_PyCursesSetupTermCalled() #0 {
 entry:
   %.b = load i1, ptr @initialised_setupterm, align 4
   br i1 %.b, label %return, label %if.then
@@ -3555,7 +3555,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_PyCursesInitialised() #0 {
+define internal range(i32 0, 2) i32 @func_PyCursesInitialised() #0 {
 entry:
   %.b = load i1, ptr @initialised, align 4
   br i1 %.b, label %return, label %if.then
@@ -3571,7 +3571,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_PyCursesInitialisedColor() #0 {
+define internal range(i32 0, 2) i32 @func_PyCursesInitialisedColor() #0 {
 entry:
   %.b = load i1, ptr @initialisedcolors, align 4
   br i1 %.b, label %return, label %if.then
@@ -4368,7 +4368,7 @@ land.lhs.true8:                                   ; preds = %if.end4
 skip_optional:                                    ; preds = %if.end4, %land.lhs.true8, %if.end
   %attr.0 = phi i64 [ 0, %if.end ], [ -1, %land.lhs.true8 ], [ %call6, %if.end4 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bkgd.i)
-  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %1, ptr noundef nonnull %bkgd.i), !range !7
+  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %1, ptr noundef nonnull %bkgd.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_curses_window_bkgd_impl.exit, label %if.end.i
 
@@ -4547,7 +4547,7 @@ land.lhs.true8:                                   ; preds = %if.end4
 skip_optional:                                    ; preds = %if.end4, %land.lhs.true8, %if.end
   %attr.0 = phi i64 [ 0, %if.end ], [ -1, %land.lhs.true8 ], [ %call6, %if.end4 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bkgd.i)
-  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %1, ptr noundef nonnull %bkgd.i), !range !7
+  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %1, ptr noundef nonnull %bkgd.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_curses_window_bkgdset_impl.exit, label %if.end.i
 
@@ -4651,7 +4651,7 @@ skip_optional:                                    ; preds = %if.end27, %if.end23
   br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %skip_optional
-  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %0, ptr noundef nonnull %ch.i), !range !7
+  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %0, ptr noundef nonnull %ch.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_curses_window_border_impl.exit, label %if.end.i
 
@@ -4661,7 +4661,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %s
 
 land.lhs.true4.i:                                 ; preds = %if.end.i
   %arrayidx5.i = getelementptr inbounds i8, ptr %ch.i, i64 4
-  %call6.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %rs.0, ptr noundef nonnull %arrayidx5.i), !range !7
+  %call6.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %rs.0, ptr noundef nonnull %arrayidx5.i)
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %_curses_window_border_impl.exit, label %if.end9.i
 
@@ -4671,7 +4671,7 @@ if.end9.i:                                        ; preds = %land.lhs.true4.i, %
 
 land.lhs.true11.i:                                ; preds = %if.end9.i
   %arrayidx12.i = getelementptr inbounds i8, ptr %ch.i, i64 8
-  %call13.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %ts.0, ptr noundef nonnull %arrayidx12.i), !range !7
+  %call13.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %ts.0, ptr noundef nonnull %arrayidx12.i)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %_curses_window_border_impl.exit, label %if.end16.i
 
@@ -4681,7 +4681,7 @@ if.end16.i:                                       ; preds = %land.lhs.true11.i, 
 
 land.lhs.true18.i:                                ; preds = %if.end16.i
   %arrayidx19.i = getelementptr inbounds i8, ptr %ch.i, i64 12
-  %call20.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %bs.0, ptr noundef nonnull %arrayidx19.i), !range !7
+  %call20.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %bs.0, ptr noundef nonnull %arrayidx19.i)
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %_curses_window_border_impl.exit, label %if.end23.i
 
@@ -4691,7 +4691,7 @@ if.end23.i:                                       ; preds = %land.lhs.true18.i, 
 
 land.lhs.true25.i:                                ; preds = %if.end23.i
   %arrayidx26.i = getelementptr inbounds i8, ptr %ch.i, i64 16
-  %call27.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %tl.0, ptr noundef nonnull %arrayidx26.i), !range !7
+  %call27.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %tl.0, ptr noundef nonnull %arrayidx26.i)
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %_curses_window_border_impl.exit, label %if.end30.i
 
@@ -4701,7 +4701,7 @@ if.end30.i:                                       ; preds = %land.lhs.true25.i, 
 
 land.lhs.true32.i:                                ; preds = %if.end30.i
   %arrayidx33.i = getelementptr inbounds i8, ptr %ch.i, i64 20
-  %call34.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %tr.0, ptr noundef nonnull %arrayidx33.i), !range !7
+  %call34.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %tr.0, ptr noundef nonnull %arrayidx33.i)
   %tobool35.not.i = icmp eq i32 %call34.i, 0
   br i1 %tobool35.not.i, label %_curses_window_border_impl.exit, label %if.end37.i
 
@@ -4711,7 +4711,7 @@ if.end37.i:                                       ; preds = %land.lhs.true32.i, 
 
 land.lhs.true39.i:                                ; preds = %if.end37.i
   %arrayidx40.i = getelementptr inbounds i8, ptr %ch.i, i64 24
-  %call41.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %bl.0, ptr noundef nonnull %arrayidx40.i), !range !7
+  %call41.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %bl.0, ptr noundef nonnull %arrayidx40.i)
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %_curses_window_border_impl.exit, label %if.end44.i
 
@@ -4721,7 +4721,7 @@ if.end44.i:                                       ; preds = %land.lhs.true39.i, 
 
 land.lhs.true46.i:                                ; preds = %if.end44.i
   %arrayidx47.i = getelementptr inbounds i8, ptr %ch.i, i64 28
-  %call48.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %br.0, ptr noundef nonnull %arrayidx47.i), !range !7
+  %call48.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %br.0, ptr noundef nonnull %arrayidx47.i)
   %tobool49.not.i = icmp eq i32 %call48.i, 0
   br i1 %tobool49.not.i, label %_curses_window_border_impl.exit, label %if.end51.i
 
@@ -4794,12 +4794,12 @@ if.then.i:                                        ; preds = %sw.bb3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ch2.i)
   store i32 0, ptr %ch1.i, align 4
   store i32 0, ptr %ch2.i, align 4
-  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %2, ptr noundef nonnull %ch1.i), !range !7
+  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %2, ptr noundef nonnull %ch1.i)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %_curses_window_box_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call3.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %3, ptr noundef nonnull %ch2.i), !range !7
+  %call3.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %3, ptr noundef nonnull %ch2.i)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %_curses_window_box_impl.exit, label %if.end.if.end7_crit_edge.i
 
@@ -5104,7 +5104,7 @@ land.lhs.true8:                                   ; preds = %if.end4
 skip_optional:                                    ; preds = %if.end4, %land.lhs.true8, %if.end
   %attr.0 = phi i64 [ 0, %if.end ], [ -1, %land.lhs.true8 ], [ %call6, %if.end4 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ch_.i)
-  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %1, ptr noundef nonnull %ch_.i), !range !7
+  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %1, ptr noundef nonnull %ch_.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_curses_window_echochar_impl.exit, label %if.end.i
 
@@ -5750,7 +5750,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   %5 = load i32, ptr %n, align 4
   %6 = load i64, ptr %attr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ch_.i)
-  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %4, ptr noundef nonnull %ch_.i), !range !7
+  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %4, ptr noundef nonnull %ch_.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_curses_window_hline_impl.exit, label %if.end.i
 
@@ -5966,7 +5966,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   %5 = load i64, ptr %attr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ch_.i)
   store i32 0, ptr %ch_.i, align 4
-  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %4, ptr noundef nonnull %ch_.i), !range !7
+  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %4, ptr noundef nonnull %ch_.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_curses_window_insch_impl.exit, label %if.end.i
 
@@ -7865,7 +7865,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   %5 = load i32, ptr %n, align 4
   %6 = load i64, ptr %attr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ch_.i)
-  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %4, ptr noundef nonnull %ch_.i), !range !7
+  %call.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef %4, ptr noundef nonnull %ch_.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_curses_window_vline_impl.exit, label %if.end.i
 
@@ -7928,7 +7928,7 @@ declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 declare i64 @PyLong_AsLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PyCurses_ConvertToString(ptr noundef %obj, ptr nocapture noundef writeonly %bytes, ptr nocapture noundef writeonly %wstr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString(ptr noundef %obj, ptr nocapture noundef writeonly %bytes, ptr nocapture noundef writeonly %wstr) unnamed_addr #0 {
 entry:
   %str = alloca ptr, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -8016,7 +8016,7 @@ declare i32 @wattr_on(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @PyCurses_ConvertToChtype(ptr noundef readonly %win, ptr noundef %obj, ptr nocapture noundef writeonly %ch) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PyCurses_ConvertToChtype(ptr noundef readonly %win, ptr noundef %obj, ptr nocapture noundef writeonly %ch) unnamed_addr #0 {
 entry:
   %long_overflow = alloca i32, align 4
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -8204,7 +8204,7 @@ if.else51:                                        ; preds = %if.else43
 
 if.end56.thread:                                  ; preds = %if.then, %Py_DECREF.exit, %PyUnicode_READ_CHAR.exit
   %value.1.ph = phi i64 [ %conv15, %PyUnicode_READ_CHAR.exit ], [ %value.0, %Py_DECREF.exit ], [ %conv, %if.then ]
-  %conv5733 = trunc i64 %value.1.ph to i32
+  %conv5733 = trunc nsw i64 %value.1.ph to i32
   store i32 %conv5733, ptr %ch, align 4
   br label %return
 
@@ -8400,7 +8400,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PyCursesWindow_set_encoding(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @PyCursesWindow_set_encoding(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %if.end
@@ -9217,7 +9217,7 @@ if.then12:                                        ; preds = %if.else10
   br label %exit
 
 if.else13:                                        ; preds = %land.lhs.true4, %if.else10
-  %conv = trunc i64 %call2 to i16
+  %conv = trunc nsw i64 %call2 to i16
   %arrayidx17 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx17, align 8
   %call18 = tail call i32 @PyLong_AsInt(ptr noundef %3) #8
@@ -9682,7 +9682,7 @@ if.then.i:                                        ; preds = %if.else7
   br label %exit
 
 if.end.i:                                         ; preds = %if.else7
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw i64 %call to i32
   %call.i = tail call i32 @halfdelay(i32 noundef %conv) #8
   %cmp.not.i.i = icmp eq i32 %call.i, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %exit
@@ -9958,7 +9958,7 @@ pair_converter.exit.thread:                       ; preds = %if.then4.i, %if.the
   br label %exit
 
 if.end5:                                          ; preds = %if.else.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw nsw i64 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i)
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx6, align 8
@@ -12288,7 +12288,7 @@ pair_converter.exit.thread:                       ; preds = %if.then4.i, %if.the
   br label %exit
 
 if.end:                                           ; preds = %if.else.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw nsw i64 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %f.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
@@ -12676,7 +12676,7 @@ PyCursesCheckERR.exit.thread.i:                   ; preds = %if.end.i
   br label %exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = tail call fastcc i32 @update_lines_cols(), !range !7
+  %call4.i = tail call fastcc i32 @update_lines_cols()
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %exit
 
@@ -12721,7 +12721,7 @@ PyCursesCheckERR.exit.thread.i23:                 ; preds = %if.end.i11
   br label %exit
 
 if.end3.i14:                                      ; preds = %if.end.i11
-  %call4.i15 = tail call fastcc i32 @update_lines_cols(), !range !7
+  %call4.i15 = tail call fastcc i32 @update_lines_cols()
   %tobool5.not.i16 = icmp eq i32 %call4.i15, 0
   br i1 %tobool5.not.i16, label %if.then6.i17, label %exit
 
@@ -12795,7 +12795,7 @@ PyCursesCheckERR.exit.thread.i:                   ; preds = %if.end.i
   br label %exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = tail call fastcc i32 @update_lines_cols(), !range !7
+  %call4.i = tail call fastcc i32 @update_lines_cols()
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %exit
 
@@ -12840,7 +12840,7 @@ PyCursesCheckERR.exit.thread.i23:                 ; preds = %if.end.i11
   br label %exit
 
 if.end3.i14:                                      ; preds = %if.end.i11
-  %call4.i15 = tail call fastcc i32 @update_lines_cols(), !range !7
+  %call4.i15 = tail call fastcc i32 @update_lines_cols()
   %tobool5.not.i16 = icmp eq i32 %call4.i15, 0
   br i1 %tobool5.not.i16, label %if.then6.i17, label %exit
 
@@ -13672,7 +13672,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef null, ptr noundef %ch, ptr noundef nonnull %ch_), !range !7
+  %call = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef null, ptr noundef %ch, ptr noundef nonnull %ch_)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -13700,7 +13700,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef null, ptr noundef %ch, ptr noundef nonnull %ch_), !range !7
+  %call = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef null, ptr noundef %ch, ptr noundef nonnull %ch_)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -13721,9 +13721,9 @@ return:                                           ; preds = %if.else.i, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_update_lines_cols(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_update_lines_cols(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call.i = tail call fastcc i32 @update_lines_cols(), !range !7
+  %call.i = tail call fastcc i32 @update_lines_cols()
   %tobool.not.i = icmp eq i32 %call.i, 0
   %._Py_NoneStruct.i = select i1 %tobool.not.i, ptr null, ptr @_Py_NoneStruct
   ret ptr %._Py_NoneStruct.i
@@ -14060,7 +14060,7 @@ declare i32 @resetty() local_unnamed_addr #1
 declare i32 @resizeterm(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @update_lines_cols() unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @update_lines_cols() unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.430) #8
   %tobool.not = icmp eq ptr %call, null
@@ -14386,4 +14386,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}

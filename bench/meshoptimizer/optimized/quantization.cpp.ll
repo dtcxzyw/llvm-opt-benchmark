@@ -3,7 +3,7 @@ source_filename = "bench/meshoptimizer/original/quantization.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i16 @_Z20meshopt_quantizeHalff(float noundef %v) local_unnamed_addr #0 {
 entry:
   %0 = bitcast float %v to i32
@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_Z21meshopt_quantizeFloatfi(float noundef %v, i32 noundef %N) local_unnamed_addr #1 {
+define dso_local noundef float @_Z21meshopt_quantizeFloatfi(float noundef %v, i32 noundef %N) local_unnamed_addr #0 {
 entry:
   %0 = bitcast float %v to i32
   %sub = sub nsw i32 23, %N
@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_Z22meshopt_dequantizeHalft(i16 noundef zeroext %h) local_unnamed_addr #1 {
+define dso_local noundef float @_Z22meshopt_dequantizeHalft(i16 noundef zeroext %h) local_unnamed_addr #0 {
 entry:
   %h.signext = sext i16 %h to i32
   %shl = and i32 %h.signext, -2147483648
@@ -63,11 +63,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #2
+declare float @llvm.fabs.f32(float) #1
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -102,7 +102,7 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
   %62 = load i32, ptr %61, align 4
   %63 = load ptr, ptr %15, align 8
   %64 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv160
-  %65 = trunc i64 %indvars.iv160 to i32
+  %65 = trunc nsw i64 %indvars.iv160 to i32
   %66 = call fastcc i32 @block(ptr noundef %3, i32 noundef %65, i32 noundef %2, i32 noundef %58, i32 noundef %60, i32 noundef %62, i32 noundef %7, i64 noundef %22, ptr noundef %63, ptr noundef %9, ptr noundef %64)
   br label %142
 
@@ -292,7 +292,7 @@ cyclic.exit:                                      ; preds = %.loopexit103.i, %10
   %.0 = phi i32 [ %136, %132 ], [ 0, %131 ]
   %138 = load ptr, ptr %15, align 8
   %139 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv160
-  %140 = trunc i64 %indvars.iv160 to i32
+  %140 = trunc nsw i64 %indvars.iv160 to i32
   %141 = call fastcc i32 @block(ptr noundef %3, i32 noundef %140, i32 noundef %2, i32 noundef %.0103, i32 noundef %.0, i32 noundef -1, i32 noundef %7, i64 noundef %22, ptr noundef %138, ptr noundef %9, ptr noundef %139)
   br label %142
 
@@ -306,7 +306,7 @@ cyclic.exit:                                      ; preds = %.loopexit103.i, %10
   %145 = load ptr, ptr %9, align 8
   store ptr %145, ptr %15, align 8
   %indvars.iv.next161 = add nsw i64 %indvars.iv160, %50
-  %146 = trunc i64 %indvars.iv.next161 to i32
+  %146 = trunc nsw i64 %indvars.iv.next161 to i32
   %.not121 = icmp eq i32 %.0110, %146
   br i1 %.not121, label %147, label %52, !llvm.loop !10
 
@@ -337,9 +337,9 @@ cyclic.exit:                                      ; preds = %.loopexit103.i, %10
   %159 = mul nsw i64 %156, %158
   %160 = add nsw i64 %159, %.sroa.0.0148
   %indvars.iv.next164 = add nsw i64 %indvars.iv163, %50
-  %161 = trunc i64 %indvars.iv.next164 to i32
+  %161 = trunc nsw i64 %indvars.iv.next164 to i32
   %.not122 = icmp eq i32 %.0110, %161
-  %162 = trunc i64 %indvars.iv163 to i32
+  %162 = trunc nsw i64 %indvars.iv163 to i32
   br i1 %.not122, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %147
@@ -425,7 +425,7 @@ define internal fastcc i32 @block(ptr nocapture noundef readonly %0, i32 noundef
   %32 = sext i32 %31 to i64
   %33 = mul nsw i64 %.06281, %32
   %indvars.iv.next = add nsw i64 %indvars.iv, %.063
-  %34 = trunc i64 %indvars.iv.next to i32
+  %34 = trunc nsw i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %34, %1
   br i1 %.not, label %35, label %.preheader79, !llvm.loop !12
 

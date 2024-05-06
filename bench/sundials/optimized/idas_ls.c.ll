@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.idaLsJacTimesVecBS = private unnamed_addr constant [19 x i8] c"idaLsJacTimesVecBS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -9, 1) i32 @IDASetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -310,7 +310,7 @@ switch.early.test:                                ; preds = %67
   %103 = getelementptr inbounds i8, ptr %calloc, i64 280
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %calloc, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %104, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %104, i8 0, i64 64, i1 false)
   %105 = getelementptr inbounds i8, ptr %calloc, i64 104
   store double 5.000000e-02, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %calloc, i64 120
@@ -506,7 +506,7 @@ define i32 @idaLsInitialize(ptr noundef %0) #0 {
 
 34:                                               ; preds = %.critedge, %30, %11
   %35 = getelementptr inbounds i8, ptr %3, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %35, i8 0, i64 64, i1 false)
   %36 = getelementptr inbounds i8, ptr %3, i64 288
   %37 = load i32, ptr %36, align 8
   %.not43 = icmp eq i32 %37, 0
@@ -967,7 +967,7 @@ define noundef i32 @idaLsFree(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @idaLsPerf(ptr noundef %0, i32 noundef %1) #0 {
+define range(i32 -2, 2) i32 @idaLsPerf(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1888
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1161,7 +1161,7 @@ define i32 @idaLsDQJac(double noundef %0, double noundef %1, ptr noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @idaLsDQJtimes(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
+define range(i32 -2, 2) i32 @idaLsDQJtimes(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = icmp eq ptr %7, null
   br i1 %11, label %12, label %13
 
@@ -1321,7 +1321,7 @@ declare i64 @N_VGetLength(ptr noundef) local_unnamed_addr #1
 declare double @sqrt(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1379,7 +1379,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %15, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @idaLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @idaLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1408,7 +1408,7 @@ define noundef i32 @idaLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1447,7 +1447,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %12, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetLSNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASetLSNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1527,7 +1527,7 @@ declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1562,7 +1562,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetIncrementFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASetIncrementFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1599,7 +1599,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %12, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -9, 1) i32 @IDASetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1746,7 +1746,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %12, %7, %idaLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1813,7 +1813,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %10, %5, %23, %27, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetJacTimesResFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASetJacTimesResFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1863,7 +1863,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %14, %16, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1893,7 +1893,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetJacCj(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetJacCj(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1923,7 +1923,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetJacTime(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetJacTime(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1953,7 +1953,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetJacNumSteps(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetJacNumSteps(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1983,7 +1983,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetLinWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetLinWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -2067,7 +2067,7 @@ declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2097,7 +2097,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2127,7 +2127,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2157,7 +2157,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2187,7 +2187,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumLinConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetNumLinConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2217,7 +2217,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumJTSetupEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetNumJTSetupEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2247,7 +2247,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2277,7 +2277,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetNumLinResEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetNumLinResEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2307,7 +2307,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetLastLinFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDAGetLastLinFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2838,7 +2838,7 @@ declare i32 @SUNLinSolNumIters(ptr noundef) local_unnamed_addr #1
 declare ptr @SUNLinSolResid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetLinearSolverB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASetLinearSolverB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -2912,7 +2912,7 @@ define noundef i32 @IDASetLinearSolverB(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr @idaLsFreeB, ptr %27, align 8
   %33 = getelementptr inbounds i8, ptr %.039.lcssa, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @IDASetLinearSolver(ptr noundef %34, ptr noundef %2, ptr noundef %3), !range !4
+  %35 = tail call i32 @IDASetLinearSolver(ptr noundef %34, ptr noundef %2, ptr noundef %3)
   %.not46 = icmp eq i32 %35, 0
   br i1 %.not46, label %37, label %36
 
@@ -2945,12 +2945,12 @@ define noundef i32 @idaLsFreeB(ptr noundef readonly %0) #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @IDASetJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !5
+  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetJacFn.exit
 
@@ -3034,7 +3034,7 @@ IDASetJacFn.exit:                                 ; preds = %idaLs_AccessLMem.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -3073,7 +3073,7 @@ define noundef i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph, %22
   %.sink = phi ptr [ %26, %.lr.ph ], [ %23, %22 ]
-  %storemerge = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %storemerge = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   store ptr %storemerge, ptr %5, align 8
   %24 = load i32, ptr %storemerge, align 8
   %25 = icmp eq i32 %24, %1
@@ -3184,12 +3184,12 @@ idaLs_AccessLMemBCur.exit:                        ; preds = %25, %12, %17, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @IDASetJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.44, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !5
+  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.44, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetJacFn.exit
 
@@ -3380,12 +3380,12 @@ idaLs_AccessLMemBCur.exit:                        ; preds = %25, %12, %17, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetEpsLinB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetEpsLinB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.45, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !5
+  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.45, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetEpsLin.exit
 
@@ -3431,12 +3431,12 @@ IDASetEpsLin.exit:                                ; preds = %22, %21, %19, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetLSNormFactorB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetLSNormFactorB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !5
+  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %14
 
@@ -3444,7 +3444,7 @@ define noundef i32 @IDASetLSNormFactorB(ptr noundef %0, i32 noundef %1, double n
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @IDASetLSNormFactor(ptr noundef %12, double noundef %2), !range !7
+  %13 = tail call i32 @IDASetLSNormFactor(ptr noundef %12, double noundef %2)
   br label %14
 
 14:                                               ; preds = %3, %9
@@ -3453,12 +3453,12 @@ define noundef i32 @IDASetLSNormFactorB(ptr noundef %0, i32 noundef %1, double n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetLinearSolutionScalingB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetLinearSolutionScalingB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.47, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !5
+  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.47, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetLinearSolutionScaling.exit
 
@@ -3500,12 +3500,12 @@ IDASetLinearSolutionScaling.exit:                 ; preds = %22, %idaLs_AccessLM
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetIncrementFactorB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetIncrementFactorB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.48, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !5
+  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.48, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetIncrementFactor.exit
 
@@ -3549,12 +3549,12 @@ IDASetIncrementFactor.exit:                       ; preds = %22, %21, %19, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetPreconditionerB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetPreconditionerB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !5
+  %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %22
 
@@ -3571,7 +3571,7 @@ define noundef i32 @IDASetPreconditionerB(ptr noundef %0, i32 noundef %1, ptr no
   %18 = select i1 %17, ptr null, ptr @idaLsPrecSetupB
   %19 = icmp eq ptr %3, null
   %20 = select i1 %19, ptr null, ptr @idaLsPrecSolveB
-  %21 = tail call i32 @IDASetPreconditioner(ptr noundef %16, ptr noundef %18, ptr noundef %20), !range !4
+  %21 = tail call i32 @IDASetPreconditioner(ptr noundef %16, ptr noundef %18, ptr noundef %20)
   br label %22
 
 22:                                               ; preds = %4, %10
@@ -3748,12 +3748,12 @@ idaLs_AccessLMemBCur.exit:                        ; preds = %24, %11, %16, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetPreconditionerBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetPreconditionerBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.50, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !5
+  %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.50, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %22
 
@@ -3770,7 +3770,7 @@ define noundef i32 @IDASetPreconditionerBS(ptr noundef %0, i32 noundef %1, ptr n
   %18 = select i1 %17, ptr null, ptr @idaLsPrecSetupBS
   %19 = icmp eq ptr %3, null
   %20 = select i1 %19, ptr null, ptr @idaLsPrecSolveBS
-  %21 = tail call i32 @IDASetPreconditioner(ptr noundef %16, ptr noundef %18, ptr noundef %20), !range !4
+  %21 = tail call i32 @IDASetPreconditioner(ptr noundef %16, ptr noundef %18, ptr noundef %20)
   br label %22
 
 22:                                               ; preds = %4, %10
@@ -3991,12 +3991,12 @@ idaLs_AccessLMemBCur.exit:                        ; preds = %24, %11, %16, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetJacTimesB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetJacTimesB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.51, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !5
+  %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.51, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %22
 
@@ -4013,7 +4013,7 @@ define noundef i32 @IDASetJacTimesB(ptr noundef %0, i32 noundef %1, ptr noundef 
   %18 = select i1 %17, ptr null, ptr @idaLsJacTimesSetupB
   %19 = icmp eq ptr %3, null
   %20 = select i1 %19, ptr null, ptr @idaLsJacTimesVecB
-  %21 = tail call i32 @IDASetJacTimes(ptr noundef %16, ptr noundef %18, ptr noundef %20), !range !8
+  %21 = tail call i32 @IDASetJacTimes(ptr noundef %16, ptr noundef %18, ptr noundef %20)
   br label %22
 
 22:                                               ; preds = %4, %10
@@ -4190,12 +4190,12 @@ idaLs_AccessLMemBCur.exit:                        ; preds = %25, %12, %17, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetJacTimesBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetJacTimesBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !5
+  %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %22
 
@@ -4212,7 +4212,7 @@ define noundef i32 @IDASetJacTimesBS(ptr noundef %0, i32 noundef %1, ptr noundef
   %18 = select i1 %17, ptr null, ptr @idaLsJacTimesSetupBS
   %19 = icmp eq ptr %3, null
   %20 = select i1 %19, ptr null, ptr @idaLsJacTimesVecBS
-  %21 = tail call i32 @IDASetJacTimes(ptr noundef %16, ptr noundef %18, ptr noundef %20), !range !8
+  %21 = tail call i32 @IDASetJacTimes(ptr noundef %16, ptr noundef %18, ptr noundef %20)
   br label %22
 
 22:                                               ; preds = %4, %10
@@ -4433,12 +4433,12 @@ idaLs_AccessLMemBCur.exit:                        ; preds = %25, %12, %17, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetJacTimesResFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetJacTimesResFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.53, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !5
+  %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.53, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetJacTimesResFn.exit
 
@@ -4495,7 +4495,7 @@ IDASetJacTimesResFn.exit:                         ; preds = %26, %24, %22, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @idaLs_AccessLMemBCur(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @idaLs_AccessLMemBCur(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %9
 
@@ -4583,8 +4583,4 @@ attributes #14 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -9, i32 1}
-!5 = !{i32 -102, i32 1}
-!6 = !{}
-!7 = !{i32 -2, i32 1}
-!8 = !{i32 -3, i32 1}
+!4 = !{}

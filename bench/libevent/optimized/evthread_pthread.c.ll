@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @attr_recursive = internal global %union.pthread_mutexattr_t zeroinitializer, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evthread_use_pthreads_with_flags(i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evthread_use_pthreads_with_flags(i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.evthread_lock_callbacks, align 8
   %cond_cbs = alloca %struct.evthread_condition_callbacks, align 8
@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @evthread_posix_cond_signal(ptr noundef %cond_, i32 noundef %broadcast) #0 {
+define internal range(i32 -1, 1) i32 @evthread_posix_cond_signal(ptr noundef %cond_, i32 noundef %broadcast) #0 {
 entry:
   %tobool.not = icmp eq i32 %broadcast, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -194,7 +194,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @evthread_posix_cond_wait(ptr noundef %cond_, ptr noundef %lock_, ptr noundef readonly %tv) #0 {
+define internal range(i32 -1, 2) i32 @evthread_posix_cond_wait(ptr noundef %cond_, ptr noundef %lock_, ptr noundef readonly %tv) #0 {
 entry:
   %now = alloca %struct.timeval, align 8
   %ts = alloca %struct.timespec, align 8
@@ -267,9 +267,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evthread_use_pthreads() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evthread_use_pthreads() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @evthread_use_pthreads_with_flags(i32 noundef 0), !range !5
+  %call = tail call i32 @evthread_use_pthreads_with_flags(i32 noundef 0)
   ret i32 %call
 }
 
@@ -325,4 +325,3 @@ attributes #8 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

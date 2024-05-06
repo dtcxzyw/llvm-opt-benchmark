@@ -355,7 +355,7 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @X509_INFO_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @by_file_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %ret) #1 {
+define internal range(i32 0, 2) i32 @by_file_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %ret) #1 {
 entry:
   %cond = icmp eq i32 %cmd, 1
   br i1 %cond, label %sw.bb, label %sw.epilog

@@ -135,7 +135,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %303
 
 83:                                               ; preds = %78
-  %84 = mul nsw i32 %54, %51
+  %84 = mul nuw nsw i32 %54, %51
   %85 = sitofp i32 %84 to double
   store double %85, ptr %10, align 8, !tbaa !7
   br i1 %29, label %303, label %86

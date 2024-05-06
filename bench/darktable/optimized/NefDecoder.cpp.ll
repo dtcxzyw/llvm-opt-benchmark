@@ -454,7 +454,7 @@ define hidden void @_ZN8rawspeed10NefDecoder17decodeRawInternalEv(ptr dead_on_un
   %81 = add i64 %72, -18
   %82 = call i64 @llvm.smax.i64(i64 %81, i64 -2147483648)
   %83 = call i64 @llvm.smin.i64(i64 %82, i64 2147483647)
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nsw i64 %83 to i32
   br label %85
 
 85:                                               ; preds = %80, %74
@@ -489,7 +489,7 @@ define hidden void @_ZN8rawspeed10NefDecoder17decodeRawInternalEv(ptr dead_on_un
   %106 = sub i64 18, %97
   %107 = call i64 @llvm.smax.i64(i64 %106, i64 -2147483648)
   %108 = call i64 @llvm.smin.i64(i64 %107, i64 2147483647)
-  %109 = trunc i64 %108 to i32
+  %109 = trunc nsw i64 %108 to i32
   br label %110
 
 110:                                              ; preds = %105, %99
@@ -1775,7 +1775,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %263 = add i64 %254, -14
   %264 = call i64 @llvm.smax.i64(i64 %263, i64 -2147483648)
   %265 = call i64 @llvm.smin.i64(i64 %264, i64 2147483647)
-  %266 = trunc i64 %265 to i32
+  %266 = trunc nsw i64 %265 to i32
   br label %267
 
 267:                                              ; preds = %262, %256
@@ -1810,7 +1810,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %288 = sub i64 14, %279
   %289 = call i64 @llvm.smax.i64(i64 %288, i64 -2147483648)
   %290 = call i64 @llvm.smin.i64(i64 %289, i64 2147483647)
-  %291 = trunc i64 %290 to i32
+  %291 = trunc nsw i64 %290 to i32
   br label %293
 
 292:                                              ; preds = %275, %240
@@ -2028,7 +2028,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %394 = add i64 %385, -12
   %395 = call i64 @llvm.smax.i64(i64 %394, i64 -2147483648)
   %396 = call i64 @llvm.smin.i64(i64 %395, i64 2147483647)
-  %397 = trunc i64 %396 to i32
+  %397 = trunc nsw i64 %396 to i32
   br label %398
 
 398:                                              ; preds = %393, %387
@@ -2063,7 +2063,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %419 = sub i64 12, %410
   %420 = call i64 @llvm.smax.i64(i64 %419, i64 -2147483648)
   %421 = call i64 @llvm.smin.i64(i64 %420, i64 2147483647)
-  %422 = trunc i64 %421 to i32
+  %422 = trunc nsw i64 %421 to i32
   br label %424
 
 423:                                              ; preds = %406, %381
@@ -2129,7 +2129,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %452 = add i64 %443, -12
   %453 = call i64 @llvm.smax.i64(i64 %452, i64 -2147483648)
   %454 = call i64 @llvm.smin.i64(i64 %453, i64 2147483647)
-  %455 = trunc i64 %454 to i32
+  %455 = trunc nsw i64 %454 to i32
   br label %456
 
 456:                                              ; preds = %451, %445
@@ -2164,7 +2164,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
   %477 = sub i64 12, %468
   %478 = call i64 @llvm.smax.i64(i64 %477, i64 -2147483648)
   %479 = call i64 @llvm.smin.i64(i64 %478, i64 2147483647)
-  %480 = trunc i64 %479 to i32
+  %480 = trunc nsw i64 %479 to i32
   br label %481
 
 481:                                              ; preds = %476, %470
@@ -2650,7 +2650,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIjEET_RKNSt7__cxx
   %27 = sub i64 %18, %12
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %29 = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %26, %21
@@ -2685,7 +2685,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIjEET_RKNSt7__cxx
   %52 = sub i64 %12, %43
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   br label %56
 
 56:                                               ; preds = %51, %46
@@ -2841,7 +2841,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %19 = getelementptr inbounds i8, ptr %9, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !147, !noalias !141
   %21 = ashr i32 %20, 1
-  %22 = mul nsw i32 %21, %18
+  %22 = mul nuw nsw i32 %21, %18
   %23 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %23)
   %24 = icmp sgt i32 %18, -1
@@ -3028,7 +3028,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %125 = phi i64 [ 0, %112 ], [ %219, %235 ]
   %126 = phi i32 [ 0, %112 ], [ %168, %235 ]
   %127 = icmp ult i64 %120, %116
-  %128 = trunc i64 %120 to i32
+  %128 = trunc nuw i64 %120 to i32
   %129 = mul nsw i32 %21, %128
   %130 = add nuw nsw i32 %129, %16
   %131 = icmp ule i32 %130, %22
@@ -3091,7 +3091,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %171 = lshr i64 %169, 52
   %172 = add nsw i32 %170, -12
   %173 = shl i64 %169, 12
-  %174 = trunc i64 %171 to i16
+  %174 = trunc nuw nsw i64 %171 to i16
   %175 = icmp ult i64 %135, %114
   tail call void @llvm.assume(i1 %175)
   tail call void @llvm.assume(i1 %228)
@@ -3099,7 +3099,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %176 = getelementptr inbounds i16, ptr %234, i64 %135
   store i16 %174, ptr %176, align 2, !tbaa !170
   %177 = add nuw nsw i64 %135, 1
-  %178 = trunc i64 %177 to i32
+  %178 = trunc nuw nsw i64 %177 to i32
   %179 = icmp sgt i32 %37, %178
   br i1 %179, label %134, label %235, !llvm.loop !172
 
@@ -3158,7 +3158,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %217 = lshr i64 %215, 52
   %218 = add nsw i32 %216, -12
   %219 = shl i64 %215, 12
-  %220 = trunc i64 %217 to i16
+  %220 = trunc nuw nsw i64 %217 to i16
   tail call void @llvm.assume(i1 %118)
   %221 = icmp ult i64 %181, %114
   tail call void @llvm.assume(i1 %221)
@@ -3168,14 +3168,14 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %222 = getelementptr inbounds i16, ptr %133, i64 %181
   store i16 %220, ptr %222, align 2, !tbaa !170
   %223 = add nuw nsw i64 %181, 1
-  %224 = trunc i64 %223 to i32
+  %224 = trunc nuw nsw i64 %223 to i32
   %225 = icmp sgt i32 %37, %224
   br i1 %225, label %180, label %226, !llvm.loop !173
 
 226:                                              ; preds = %213
   %227 = add nuw nsw i64 %120, 1
   %228 = icmp ult i64 %227, %116
-  %229 = trunc i64 %227 to i32
+  %229 = trunc nuw nsw i64 %227 to i32
   %230 = mul nsw i32 %21, %229
   %231 = add nuw nsw i32 %230, %16
   %232 = icmp ule i32 %231, %22
@@ -3185,7 +3185,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
 
 235:                                              ; preds = %167
   %236 = add nuw nsw i64 %120, 2
-  %237 = trunc i64 %236 to i32
+  %237 = trunc nuw i64 %236 to i32
   %238 = icmp sgt i32 %32, %237
   br i1 %238, label %119, label %.loopexit, !llvm.loop !174
 
@@ -3444,10 +3444,10 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %163 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %159, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
   %164 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %160, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
   %165 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %161, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %166 = trunc <16 x i32> %162 to <16 x i16>
-  %167 = trunc <16 x i32> %163 to <16 x i16>
-  %168 = trunc <16 x i32> %164 to <16 x i16>
-  %169 = trunc <16 x i32> %165 to <16 x i16>
+  %166 = trunc nuw <16 x i32> %162 to <16 x i16>
+  %167 = trunc nuw <16 x i32> %163 to <16 x i16>
+  %168 = trunc nuw <16 x i32> %164 to <16 x i16>
+  %169 = trunc nuw <16 x i32> %165 to <16 x i16>
   store <16 x i16> %166, ptr %146, align 2, !tbaa !170
   store <16 x i16> %167, ptr %147, align 2, !tbaa !170
   store <16 x i16> %168, ptr %148, align 2, !tbaa !170
@@ -3486,7 +3486,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %190 = getelementptr inbounds i8, ptr %180, i64 48
   %191 = load i32, ptr %190, align 8, !tbaa !147, !noalias !192
   %192 = ashr i32 %191, 1
-  %193 = mul nsw i32 %192, %189
+  %193 = mul nuw nsw i32 %192, %189
   %194 = icmp sgt i32 %187, -1
   call void @llvm.assume(i1 %194)
   %195 = icmp sgt i32 %189, -1
@@ -3501,7 +3501,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %200 = icmp ne i32 %189, 0
   %201 = xor i1 %199, %200
   call void @llvm.assume(i1 %201)
-  %202 = mul nsw i32 %187, %189
+  %202 = mul nuw nsw i32 %187, %189
   %203 = getelementptr inbounds i8, ptr %1, i64 16
   %204 = load i32, ptr %203, align 8, !tbaa !61
   %205 = zext i32 %204 to i64
@@ -3667,11 +3667,11 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %305 = shl nuw nsw i32 %296, 8
   %306 = and i32 %305, 3840
   %307 = or disjoint i32 %306, %289
-  %308 = uitofp i32 %307 to float
+  %308 = uitofp nneg i32 %307 to float
   %309 = lshr i32 %296, 4
   %310 = shl nuw nsw i32 %298, 4
   %311 = or disjoint i32 %310, %309
-  %312 = uitofp i32 %311 to float
+  %312 = uitofp nneg i32 %311 to float
   %313 = add nuw nsw i64 %273, 6
   %314 = icmp ult i64 %313, %222
   br i1 %314, label %315, label %341
@@ -3693,13 +3693,13 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %328 = and i32 %327, 3840
   %329 = add nuw nsw i32 %307, %318
   %330 = add nuw nsw i32 %329, %328
-  %331 = uitofp i32 %330 to float
+  %331 = uitofp nneg i32 %330 to float
   %332 = fmul float %331, 5.000000e-01
   %333 = lshr i32 %324, 4
   %334 = shl nuw nsw i32 %326, 4
   %335 = add nuw nsw i32 %333, %311
   %336 = add nuw nsw i32 %335, %334
-  %337 = uitofp i32 %336 to float
+  %337 = uitofp nneg i32 %336 to float
   %338 = fmul float %337, 5.000000e-01
   br label %341
 
@@ -3717,13 +3717,13 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %346 = fadd float %342, -2.048000e+03
   %347 = fadd float %343, -2.048000e+03
   %348 = load ptr, ptr %9, align 8, !tbaa !33
-  %349 = uitofp i32 %301 to double
+  %349 = uitofp nneg i32 %301 to double
   %350 = fpext float %345 to double
   %351 = call double @llvm.fmuladd.f64(double %350, double 0x3FF5EE685DB76B3C, double %349)
   %352 = fptosi double %351 to i32
   %353 = call i32 @llvm.smax.i32(i32 %352, i32 0)
   %354 = call i32 @llvm.umin.i32(i32 %353, i32 4095)
-  %355 = trunc i32 %354 to i16
+  %355 = trunc nuw nsw i32 %354 to i16
   %356 = load ptr, ptr %348, align 8, !tbaa !43
   %357 = getelementptr inbounds i8, ptr %356, i64 40
   %358 = load ptr, ptr %357, align 8
@@ -3742,7 +3742,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %367 = ashr i32 %366, 10
   %368 = call i32 @llvm.smax.i32(i32 %367, i32 0)
   %369 = call i32 @llvm.umin.i32(i32 %368, i32 32767)
-  %370 = trunc i32 %369 to i16
+  %370 = trunc nuw nsw i32 %369 to i16
   store i16 %370, ptr %363, align 2, !tbaa !170
   %371 = load ptr, ptr %9, align 8, !tbaa !33
   %372 = fpext float %361 to double
@@ -3752,7 +3752,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %376 = fptosi double %375 to i32
   %377 = call i32 @llvm.smax.i32(i32 %376, i32 0)
   %378 = call i32 @llvm.umin.i32(i32 %377, i32 4095)
-  %379 = trunc i32 %378 to i16
+  %379 = trunc nuw nsw i32 %378 to i16
   %380 = load ptr, ptr %371, align 8, !tbaa !43
   %381 = getelementptr inbounds i8, ptr %380, i64 40
   %382 = load ptr, ptr %381, align 8
@@ -3765,7 +3765,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %386 = fptosi double %385 to i32
   %387 = call i32 @llvm.smax.i32(i32 %386, i32 0)
   %388 = call i32 @llvm.umin.i32(i32 %387, i32 4095)
-  %389 = trunc i32 %388 to i16
+  %389 = trunc nuw nsw i32 %388 to i16
   %390 = load ptr, ptr %384, align 8, !tbaa !43
   %391 = getelementptr inbounds i8, ptr %390, i64 40
   %392 = load ptr, ptr %391, align 8
@@ -3781,16 +3781,16 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %399 = ashr i32 %398, 10
   %400 = call i32 @llvm.smax.i32(i32 %399, i32 0)
   %401 = call i32 @llvm.umin.i32(i32 %400, i32 32767)
-  %402 = trunc i32 %401 to i16
+  %402 = trunc nuw nsw i32 %401 to i16
   store i16 %402, ptr %395, align 2, !tbaa !170
   %403 = load ptr, ptr %9, align 8, !tbaa !33
-  %404 = uitofp i32 %304 to double
+  %404 = uitofp nneg i32 %304 to double
   %405 = fpext float %347 to double
   %406 = call double @llvm.fmuladd.f64(double %405, double 0x3FF5EE685DB76B3C, double %404)
   %407 = fptosi double %406 to i32
   %408 = call i32 @llvm.smax.i32(i32 %407, i32 0)
   %409 = call i32 @llvm.umin.i32(i32 %408, i32 4095)
-  %410 = trunc i32 %409 to i16
+  %410 = trunc nuw nsw i32 %409 to i16
   %411 = load ptr, ptr %403, align 8, !tbaa !43
   %412 = getelementptr inbounds i8, ptr %411, i64 40
   %413 = load ptr, ptr %412, align 8
@@ -3806,7 +3806,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %420 = ashr i32 %419, 10
   %421 = call i32 @llvm.smax.i32(i32 %420, i32 0)
   %422 = call i32 @llvm.umin.i32(i32 %421, i32 32767)
-  %423 = trunc i32 %422 to i16
+  %423 = trunc nuw nsw i32 %422 to i16
   store i16 %423, ptr %416, align 2, !tbaa !170
   %424 = load ptr, ptr %9, align 8, !tbaa !33
   %425 = fpext float %346 to double
@@ -3816,7 +3816,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %429 = fptosi double %428 to i32
   %430 = call i32 @llvm.smax.i32(i32 %429, i32 0)
   %431 = call i32 @llvm.umin.i32(i32 %430, i32 4095)
-  %432 = trunc i32 %431 to i16
+  %432 = trunc nuw nsw i32 %431 to i16
   %433 = load ptr, ptr %424, align 8, !tbaa !43
   %434 = getelementptr inbounds i8, ptr %433, i64 40
   %435 = load ptr, ptr %434, align 8
@@ -3829,7 +3829,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %439 = fptosi double %438 to i32
   %440 = call i32 @llvm.smax.i32(i32 %439, i32 0)
   %441 = call i32 @llvm.umin.i32(i32 %440, i32 4095)
-  %442 = trunc i32 %441 to i16
+  %442 = trunc nuw nsw i32 %441 to i16
   %443 = load ptr, ptr %437, align 8, !tbaa !43
   %444 = getelementptr inbounds i8, ptr %443, i64 40
   %445 = load ptr, ptr %444, align 8
@@ -3845,7 +3845,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %452 = ashr i32 %451, 10
   %453 = call i32 @llvm.smax.i32(i32 %452, i32 0)
   %454 = call i32 @llvm.umin.i32(i32 %453, i32 32767)
-  %455 = trunc i32 %454 to i16
+  %455 = trunc nuw nsw i32 %454 to i16
   store i16 %455, ptr %448, align 2, !tbaa !170
   br i1 %314, label %272, label %269, !llvm.loop !197
 
@@ -5395,7 +5395,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %641 = add i64 %632, -19
   %642 = call i64 @llvm.smax.i64(i64 %641, i64 -2147483648)
   %643 = call i64 @llvm.smin.i64(i64 %642, i64 2147483647)
-  %644 = trunc i64 %643 to i32
+  %644 = trunc nsw i64 %643 to i32
   br label %645
 
 645:                                              ; preds = %640, %634
@@ -5430,7 +5430,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   %666 = sub i64 19, %657
   %667 = call i64 @llvm.smax.i64(i64 %666, i64 -2147483648)
   %668 = call i64 @llvm.smin.i64(i64 %667, i64 2147483647)
-  %669 = trunc i64 %668 to i32
+  %669 = trunc nsw i64 %668 to i32
   br label %671
 
 670:                                              ; preds = %653, %622
@@ -5629,13 +5629,13 @@ define hidden void @_ZN8rawspeed10NefDecoder22decodeMetaDataInternalEPKNS_14Came
   %91 = icmp ne i32 %83, 0
   %92 = xor i1 %90, %91
   call void @llvm.assume(i1 %92)
-  %93 = mul nsw i32 %86, %83
+  %93 = mul nuw nsw i32 %86, %83
   %94 = icmp eq i32 %77, %93
   call void @llvm.assume(i1 %94)
   %95 = icmp eq i32 %83, 1
   %96 = icmp eq i32 %86, %80
   %97 = or i1 %95, %96
-  %98 = mul nsw i32 %83, %80
+  %98 = mul nuw nsw i32 %83, %80
   call void @llvm.assume(i1 %97)
   %99 = invoke noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(52) %27, i32 noundef 0)
           to label %100 unwind label %122

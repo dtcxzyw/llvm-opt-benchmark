@@ -213,24 +213,24 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
   %43 = getelementptr inbounds i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
-  %.not6.i17 = icmp eq ptr %45, null
-  br i1 %.not6.i17, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18
+  %.not6.i18 = icmp eq ptr %45, null
+  br i1 %.not6.i18, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19
 
-.lr.ph.i18:                                       ; preds = %._crit_edge, %.lr.ph.i18
-  %46 = phi ptr [ %48, %.lr.ph.i18 ], [ %45, %._crit_edge ]
-  %.07.i19 = phi ptr [ %47, %.lr.ph.i18 ], [ %44, %._crit_edge ]
+.lr.ph.i19:                                       ; preds = %._crit_edge, %.lr.ph.i19
+  %46 = phi ptr [ %48, %.lr.ph.i19 ], [ %45, %._crit_edge ]
+  %.07.i20 = phi ptr [ %47, %.lr.ph.i19 ], [ %44, %._crit_edge ]
   tail call void %46(ptr noundef nonnull @pmix_bfrops_globals) #10
-  %47 = getelementptr inbounds i8, ptr %.07.i19, i64 8
+  %47 = getelementptr inbounds i8, ptr %.07.i20, i64 8
   %48 = load ptr, ptr %47, align 8
-  %.not.i20 = icmp eq ptr %48, null
-  br i1 %.not.i20, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18, !llvm.loop !6
+  %.not.i21 = icmp eq ptr %48, null
+  br i1 %.not.i21, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19, !llvm.loop !6
 
-pmix_obj_run_destructors.exit21:                  ; preds = %.lr.ph.i18, %._crit_edge
+pmix_obj_run_destructors.exit22:                  ; preds = %.lr.ph.i19, %._crit_edge
   %49 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @pmix_bfrops_base_framework, ptr noundef null) #10
   br label %50
 
-50:                                               ; preds = %0, %pmix_obj_run_destructors.exit21
-  %.0 = phi i32 [ %49, %pmix_obj_run_destructors.exit21 ], [ 0, %0 ]
+50:                                               ; preds = %0, %pmix_obj_run_destructors.exit22
+  %.0 = phi i32 [ %49, %pmix_obj_run_destructors.exit22 ], [ 0, %0 ]
   ret i32 %.0
 }
 
@@ -343,17 +343,17 @@ pmix_tma_free.exit:                               ; preds = %10, %7, %1
   %16 = getelementptr inbounds i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %2, ptr noundef %14) #10
-  br label %pmix_tma_free.exit12
+  br label %pmix_tma_free.exit14
 
 18:                                               ; preds = %13
   tail call void @free(ptr noundef %14) #10
-  br label %pmix_tma_free.exit12
+  br label %pmix_tma_free.exit14
 
-pmix_tma_free.exit12:                             ; preds = %15, %18
+pmix_tma_free.exit14:                             ; preds = %15, %18
   store ptr null, ptr %11, align 8
   br label %19
 
-19:                                               ; preds = %pmix_tma_free.exit12, %pmix_tma_free.exit
+19:                                               ; preds = %pmix_tma_free.exit14, %pmix_tma_free.exit
   ret void
 }
 
@@ -439,7 +439,7 @@ define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr nocapture n
   br i1 %.not111, label %pmix_tma_free.exit, label %15
 
 15:                                               ; preds = %12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %14, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(260) %14, i8 0, i64 256, i1 false)
   %16 = getelementptr inbounds i8, ptr %14, i64 256
   store i32 -1, ptr %16, align 4
   %.not.i.i = icmp eq ptr %1, null
@@ -899,7 +899,7 @@ pmix_tma_free.exit.i.us.us:                       ; preds = %.lr.ph.split.us.spl
   br label %pmix_bfrops_base_tma_proc_info_destruct.exit.us.us
 
 pmix_bfrops_base_tma_proc_info_destruct.exit.us.us: ; preds = %.thread.i.us.us, %pmix_tma_free.exit.i.us.us, %pmix_tma_free.exit.thread.i.us.us
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
   %13 = add nuw i64 %.010.us.us, 1
   %exitcond19.not = icmp eq i64 %13, %1
   br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !8
@@ -929,7 +929,7 @@ pmix_tma_free.exit.i:                             ; preds = %17, %.lr.ph.split.s
   br label %pmix_bfrops_base_tma_proc_info_destruct.exit
 
 pmix_bfrops_base_tma_proc_info_destruct.exit:     ; preds = %pmix_tma_free.exit.i, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %14, i8 0, i64 296, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %14, i8 0, i64 296, i1 false)
   %23 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %23, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !8
@@ -1853,17 +1853,17 @@ define internal fastcc void @pmix_bfrops_base_tma_data_array_destruct(ptr nounde
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %.not339 = icmp eq i64 %8, 0
-  br i1 %.not339, label %._crit_edge326, label %.lr.ph325
+  %.not338 = icmp eq i64 %8, 0
+  br i1 %.not338, label %._crit_edge325, label %.lr.ph324
 
-.lr.ph325:                                        ; preds = %4
+.lr.ph324:                                        ; preds = %4
   %.not.i = icmp eq ptr %1, null
   %9 = getelementptr inbounds i8, ptr %1, i64 40
   br label %10
 
-10:                                               ; preds = %.lr.ph325, %pmix_tma_free.exit
-  %.0131323 = phi i64 [ 0, %.lr.ph325 ], [ %17, %pmix_tma_free.exit ]
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %.0131323
+10:                                               ; preds = %.lr.ph324, %pmix_tma_free.exit
+  %.0131322 = phi i64 [ 0, %.lr.ph324 ], [ %17, %pmix_tma_free.exit ]
+  %11 = getelementptr inbounds ptr, ptr %6, i64 %.0131322
   %12 = load ptr, ptr %11, align 8
   %.not145 = icmp eq ptr %12, null
   br i1 %.not145, label %pmix_tma_free.exit, label %13
@@ -1881,27 +1881,27 @@ define internal fastcc void @pmix_bfrops_base_tma_data_array_destruct(ptr nounde
   br label %pmix_tma_free.exit
 
 pmix_tma_free.exit:                               ; preds = %16, %14, %10
-  %17 = add nuw i64 %.0131323, 1
+  %17 = add nuw i64 %.0131322, 1
   %18 = load i64, ptr %7, align 8
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %10, label %._crit_edge326.loopexit, !llvm.loop !20
+  br i1 %19, label %10, label %._crit_edge325.loopexit, !llvm.loop !20
 
-._crit_edge326.loopexit:                          ; preds = %pmix_tma_free.exit
-  %.pre356 = load ptr, ptr %5, align 8
-  br label %._crit_edge326
+._crit_edge325.loopexit:                          ; preds = %pmix_tma_free.exit
+  %.pre355 = load ptr, ptr %5, align 8
+  br label %._crit_edge325
 
-._crit_edge326:                                   ; preds = %._crit_edge326.loopexit, %4
-  %20 = phi ptr [ %.pre356, %._crit_edge326.loopexit ], [ %6, %4 ]
+._crit_edge325:                                   ; preds = %._crit_edge325.loopexit, %4
+  %20 = phi ptr [ %.pre355, %._crit_edge325.loopexit ], [ %6, %4 ]
   %.not.i147 = icmp eq ptr %1, null
   br i1 %.not.i147, label %24, label %21
 
-21:                                               ; preds = %._crit_edge326
+21:                                               ; preds = %._crit_edge325
   %22 = getelementptr inbounds i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %1, ptr noundef %20) #10
   br label %pmix_tma_free.exit148
 
-24:                                               ; preds = %._crit_edge326
+24:                                               ; preds = %._crit_edge325
   tail call void @free(ptr noundef %20) #10
   br label %pmix_tma_free.exit148
 
@@ -1914,28 +1914,28 @@ pmix_tma_free.exit:                               ; preds = %16, %14, %10
   br i1 %.not.i149, label %pmix_tma_free.exit148, label %.preheader
 
 .preheader:                                       ; preds = %25
-  %.not338 = icmp eq i64 %29, 0
-  br i1 %.not338, label %._crit_edge322, label %.lr.ph321
+  %.not337 = icmp eq i64 %29, 0
+  br i1 %.not337, label %._crit_edge321, label %.lr.ph320
 
-.lr.ph321:                                        ; preds = %.preheader, %.lr.ph321
-  %.0.i320 = phi i64 [ %31, %.lr.ph321 ], [ 0, %.preheader ]
-  %30 = getelementptr inbounds %struct.pmix_value, ptr %27, i64 %.0.i320
+.lr.ph320:                                        ; preds = %.preheader, %.lr.ph320
+  %.0.i319 = phi i64 [ %31, %.lr.ph320 ], [ 0, %.preheader ]
+  %30 = getelementptr inbounds %struct.pmix_value, ptr %27, i64 %.0.i319
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %30, ptr noundef %1)
-  %31 = add nuw i64 %.0.i320, 1
-  %exitcond349.not = icmp eq i64 %31, %29
-  br i1 %exitcond349.not, label %._crit_edge322, label %.lr.ph321, !llvm.loop !21
+  %31 = add nuw i64 %.0.i319, 1
+  %exitcond348.not = icmp eq i64 %31, %29
+  br i1 %exitcond348.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !21
 
-._crit_edge322:                                   ; preds = %.lr.ph321, %.preheader
+._crit_edge321:                                   ; preds = %.lr.ph320, %.preheader
   %.not.i228 = icmp eq ptr %1, null
   br i1 %.not.i228, label %35, label %32
 
-32:                                               ; preds = %._crit_edge322
+32:                                               ; preds = %._crit_edge321
   %33 = getelementptr inbounds i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %1, ptr noundef nonnull %27) #10
   br label %pmix_tma_free.exit148
 
-35:                                               ; preds = %._crit_edge322
+35:                                               ; preds = %._crit_edge321
   tail call void @free(ptr noundef %27) #10
   br label %pmix_tma_free.exit148
 
@@ -1945,20 +1945,20 @@ pmix_tma_free.exit:                               ; preds = %16, %14, %10
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %.not.i150 = icmp eq ptr %38, null
-  br i1 %.not.i150, label %pmix_tma_free.exit148, label %.preheader273
+  br i1 %.not.i150, label %pmix_tma_free.exit148, label %.preheader272
 
-.preheader273:                                    ; preds = %36
-  %.not336 = icmp eq i64 %40, 0
-  br i1 %.not336, label %._crit_edge319, label %.lr.ph318
+.preheader272:                                    ; preds = %36
+  %.not335 = icmp eq i64 %40, 0
+  br i1 %.not335, label %._crit_edge318, label %.lr.ph317
 
-.lr.ph318:                                        ; preds = %.preheader273
+.lr.ph317:                                        ; preds = %.preheader272
   %.not.i.i233 = icmp eq ptr %1, null
   %41 = getelementptr inbounds i8, ptr %1, i64 40
   br label %42
 
-42:                                               ; preds = %.lr.ph318, %pmix_bfrops_base_tma_app_destruct.exit
-  %.0.i151317 = phi i64 [ 0, %.lr.ph318 ], [ %99, %pmix_bfrops_base_tma_app_destruct.exit ]
-  %43 = getelementptr inbounds %struct.pmix_app, ptr %38, i64 %.0.i151317
+42:                                               ; preds = %.lr.ph317, %pmix_bfrops_base_tma_app_destruct.exit
+  %.0.i151316 = phi i64 [ 0, %.lr.ph317 ], [ %99, %pmix_bfrops_base_tma_app_destruct.exit ]
+  %43 = getelementptr inbounds %struct.pmix_app, ptr %38, i64 %.0.i151316
   %44 = load ptr, ptr %43, align 8
   %.not.i232 = icmp eq ptr %44, null
   br i1 %.not.i232, label %49, label %45
@@ -2108,60 +2108,60 @@ pmix_tma_free.exit45.i:                           ; preds = %83, %81
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %43, i64 48
   %89 = load i64, ptr %88, align 8
-  %.not337 = icmp eq i64 %89, 0
-  br i1 %.not337, label %._crit_edge316, label %.lr.ph315
+  %.not336 = icmp eq i64 %89, 0
+  br i1 %.not336, label %._crit_edge315, label %.lr.ph314
 
-.lr.ph315:                                        ; preds = %87, %pmix_bfrops_base_tma_info_destruct.exit265
-  %.0.i.i313 = phi i64 [ %95, %pmix_bfrops_base_tma_info_destruct.exit265 ], [ 0, %87 ]
-  %90 = getelementptr inbounds %struct.pmix_info, ptr %86, i64 %.0.i.i313
+.lr.ph314:                                        ; preds = %87, %pmix_bfrops_base_tma_info_destruct.exit264
+  %.0.i.i312 = phi i64 [ %95, %pmix_bfrops_base_tma_info_destruct.exit264 ], [ 0, %87 ]
+  %90 = getelementptr inbounds %struct.pmix_info, ptr %86, i64 %.0.i.i312
   %91 = getelementptr i8, ptr %90, i64 512
-  %.val.i264 = load i32, ptr %91, align 8
-  %92 = and i32 %.val.i264, 16
-  %.not272 = icmp eq i32 %92, 0
-  br i1 %.not272, label %93, label %pmix_bfrops_base_tma_info_destruct.exit265
+  %.val.i263 = load i32, ptr %91, align 8
+  %92 = and i32 %.val.i263, 16
+  %.not271 = icmp eq i32 %92, 0
+  br i1 %.not271, label %93, label %pmix_bfrops_base_tma_info_destruct.exit264
 
-93:                                               ; preds = %.lr.ph315
+93:                                               ; preds = %.lr.ph314
   %94 = getelementptr inbounds i8, ptr %90, i64 520
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %94, ptr noundef %1)
-  br label %pmix_bfrops_base_tma_info_destruct.exit265
+  br label %pmix_bfrops_base_tma_info_destruct.exit264
 
-pmix_bfrops_base_tma_info_destruct.exit265:       ; preds = %.lr.ph315, %93
-  %95 = add nuw i64 %.0.i.i313, 1
-  %exitcond347.not = icmp eq i64 %95, %89
-  br i1 %exitcond347.not, label %._crit_edge316, label %.lr.ph315, !llvm.loop !22
+pmix_bfrops_base_tma_info_destruct.exit264:       ; preds = %.lr.ph314, %93
+  %95 = add nuw i64 %.0.i.i312, 1
+  %exitcond346.not = icmp eq i64 %95, %89
+  br i1 %exitcond346.not, label %._crit_edge315, label %.lr.ph314, !llvm.loop !22
 
-._crit_edge316:                                   ; preds = %pmix_bfrops_base_tma_info_destruct.exit265, %87
+._crit_edge315:                                   ; preds = %pmix_bfrops_base_tma_info_destruct.exit264, %87
   br i1 %.not.i.i233, label %98, label %96
 
-96:                                               ; preds = %._crit_edge316
+96:                                               ; preds = %._crit_edge315
   %97 = load ptr, ptr %41, align 8
   tail call void %97(ptr noundef nonnull %1, ptr noundef nonnull %86) #10
-  br label %pmix_bfrops_base_tma_info_free.exit.i
+  br label %pmix_tma_free.exit262
 
-98:                                               ; preds = %._crit_edge316
+98:                                               ; preds = %._crit_edge315
   tail call void @free(ptr noundef nonnull %86) #10
-  br label %pmix_bfrops_base_tma_info_free.exit.i
+  br label %pmix_tma_free.exit262
 
-pmix_bfrops_base_tma_info_free.exit.i:            ; preds = %98, %96
+pmix_tma_free.exit262:                            ; preds = %96, %98
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   br label %pmix_bfrops_base_tma_app_destruct.exit
 
-pmix_bfrops_base_tma_app_destruct.exit:           ; preds = %84, %pmix_bfrops_base_tma_info_free.exit.i
-  %99 = add nuw i64 %.0.i151317, 1
-  %exitcond348.not = icmp eq i64 %99, %40
-  br i1 %exitcond348.not, label %._crit_edge319, label %42, !llvm.loop !23
+pmix_bfrops_base_tma_app_destruct.exit:           ; preds = %84, %pmix_tma_free.exit262
+  %99 = add nuw i64 %.0.i151316, 1
+  %exitcond347.not = icmp eq i64 %99, %40
+  br i1 %exitcond347.not, label %._crit_edge318, label %42, !llvm.loop !23
 
-._crit_edge319:                                   ; preds = %pmix_bfrops_base_tma_app_destruct.exit, %.preheader273
+._crit_edge318:                                   ; preds = %pmix_bfrops_base_tma_app_destruct.exit, %.preheader272
   %.not.i230 = icmp eq ptr %1, null
   br i1 %.not.i230, label %103, label %100
 
-100:                                              ; preds = %._crit_edge319
+100:                                              ; preds = %._crit_edge318
   %101 = getelementptr inbounds i8, ptr %1, i64 40
   %102 = load ptr, ptr %101, align 8
   tail call void %102(ptr noundef nonnull %1, ptr noundef nonnull %38) #10
   br label %pmix_tma_free.exit148
 
-103:                                              ; preds = %._crit_edge319
+103:                                              ; preds = %._crit_edge318
   tail call void @free(ptr noundef nonnull %38) #10
   br label %pmix_tma_free.exit148
 
@@ -2171,42 +2171,42 @@ pmix_bfrops_base_tma_app_destruct.exit:           ; preds = %84, %pmix_bfrops_ba
   %107 = getelementptr inbounds i8, ptr %0, i64 8
   %108 = load i64, ptr %107, align 8
   %.not.i152 = icmp eq ptr %106, null
-  br i1 %.not.i152, label %pmix_tma_free.exit148, label %.preheader274
+  br i1 %.not.i152, label %pmix_tma_free.exit148, label %.preheader273
 
-.preheader274:                                    ; preds = %104
-  %.not335 = icmp eq i64 %108, 0
-  br i1 %.not335, label %._crit_edge312, label %.lr.ph311
+.preheader273:                                    ; preds = %104
+  %.not334 = icmp eq i64 %108, 0
+  br i1 %.not334, label %._crit_edge311, label %.lr.ph310
 
-.lr.ph311:                                        ; preds = %.preheader274, %pmix_bfrops_base_tma_info_destruct.exit
-  %.0.i153310 = phi i64 [ %114, %pmix_bfrops_base_tma_info_destruct.exit ], [ 0, %.preheader274 ]
-  %109 = getelementptr inbounds %struct.pmix_info, ptr %106, i64 %.0.i153310
+.lr.ph310:                                        ; preds = %.preheader273, %pmix_bfrops_base_tma_info_destruct.exit
+  %.0.i153309 = phi i64 [ %114, %pmix_bfrops_base_tma_info_destruct.exit ], [ 0, %.preheader273 ]
+  %109 = getelementptr inbounds %struct.pmix_info, ptr %106, i64 %.0.i153309
   %110 = getelementptr i8, ptr %109, i64 512
   %.val.i = load i32, ptr %110, align 8
   %111 = and i32 %.val.i, 16
-  %.not271 = icmp eq i32 %111, 0
-  br i1 %.not271, label %112, label %pmix_bfrops_base_tma_info_destruct.exit
+  %.not270 = icmp eq i32 %111, 0
+  br i1 %.not270, label %112, label %pmix_bfrops_base_tma_info_destruct.exit
 
-112:                                              ; preds = %.lr.ph311
+112:                                              ; preds = %.lr.ph310
   %113 = getelementptr inbounds i8, ptr %109, i64 520
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %113, ptr noundef %1)
   br label %pmix_bfrops_base_tma_info_destruct.exit
 
-pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph311, %112
-  %114 = add nuw i64 %.0.i153310, 1
-  %exitcond346.not = icmp eq i64 %114, %108
-  br i1 %exitcond346.not, label %._crit_edge312, label %.lr.ph311, !llvm.loop !22
+pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph310, %112
+  %114 = add nuw i64 %.0.i153309, 1
+  %exitcond345.not = icmp eq i64 %114, %108
+  br i1 %exitcond345.not, label %._crit_edge311, label %.lr.ph310, !llvm.loop !22
 
-._crit_edge312:                                   ; preds = %pmix_bfrops_base_tma_info_destruct.exit, %.preheader274
+._crit_edge311:                                   ; preds = %pmix_bfrops_base_tma_info_destruct.exit, %.preheader273
   %.not.i237 = icmp eq ptr %1, null
   br i1 %.not.i237, label %118, label %115
 
-115:                                              ; preds = %._crit_edge312
+115:                                              ; preds = %._crit_edge311
   %116 = getelementptr inbounds i8, ptr %1, i64 40
   %117 = load ptr, ptr %116, align 8
   tail call void %117(ptr noundef nonnull %1, ptr noundef nonnull %106) #10
   br label %pmix_tma_free.exit148
 
-118:                                              ; preds = %._crit_edge312
+118:                                              ; preds = %._crit_edge311
   tail call void @free(ptr noundef nonnull %106) #10
   br label %pmix_tma_free.exit148
 
@@ -2216,31 +2216,31 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph311, %112
   %122 = getelementptr inbounds i8, ptr %0, i64 8
   %123 = load i64, ptr %122, align 8
   %.not.i154 = icmp eq ptr %121, null
-  br i1 %.not.i154, label %pmix_tma_free.exit148, label %.preheader275
+  br i1 %.not.i154, label %pmix_tma_free.exit148, label %.preheader274
 
-.preheader275:                                    ; preds = %119
-  %.not334 = icmp eq i64 %123, 0
-  br i1 %.not334, label %._crit_edge309, label %.lr.ph308
+.preheader274:                                    ; preds = %119
+  %.not333 = icmp eq i64 %123, 0
+  br i1 %.not333, label %._crit_edge308, label %.lr.ph307
 
-.lr.ph308:                                        ; preds = %.preheader275, %.lr.ph308
-  %.0.i155307 = phi i64 [ %125, %.lr.ph308 ], [ 0, %.preheader275 ]
-  %124 = getelementptr inbounds %struct.pmix_pdata, ptr %121, i64 %.0.i155307, i32 2
+.lr.ph307:                                        ; preds = %.preheader274, %.lr.ph307
+  %.0.i155306 = phi i64 [ %125, %.lr.ph307 ], [ 0, %.preheader274 ]
+  %124 = getelementptr inbounds %struct.pmix_pdata, ptr %121, i64 %.0.i155306, i32 2
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %124, ptr noundef %1)
-  %125 = add nuw i64 %.0.i155307, 1
-  %exitcond345.not = icmp eq i64 %125, %123
-  br i1 %exitcond345.not, label %._crit_edge309, label %.lr.ph308, !llvm.loop !24
+  %125 = add nuw i64 %.0.i155306, 1
+  %exitcond344.not = icmp eq i64 %125, %123
+  br i1 %exitcond344.not, label %._crit_edge308, label %.lr.ph307, !llvm.loop !24
 
-._crit_edge309:                                   ; preds = %.lr.ph308, %.preheader275
+._crit_edge308:                                   ; preds = %.lr.ph307, %.preheader274
   %.not.i239 = icmp eq ptr %1, null
   br i1 %.not.i239, label %129, label %126
 
-126:                                              ; preds = %._crit_edge309
+126:                                              ; preds = %._crit_edge308
   %127 = getelementptr inbounds i8, ptr %1, i64 40
   %128 = load ptr, ptr %127, align 8
   tail call void %128(ptr noundef nonnull %1, ptr noundef nonnull %121) #10
   br label %pmix_tma_free.exit148
 
-129:                                              ; preds = %._crit_edge309
+129:                                              ; preds = %._crit_edge308
   tail call void @free(ptr noundef %121) #10
   br label %pmix_tma_free.exit148
 
@@ -2249,13 +2249,13 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph311, %112
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %0, i64 8
   %134 = load i64, ptr %133, align 8
-  %.not333 = icmp eq i64 %134, 0
-  br i1 %.not333, label %._crit_edge306, label %.lr.ph305
+  %.not332 = icmp eq i64 %134, 0
+  br i1 %.not332, label %._crit_edge305, label %.lr.ph304
 
-.lr.ph305:                                        ; preds = %130, %pmix_obj_run_destructors.exit
+.lr.ph304:                                        ; preds = %130, %pmix_obj_run_destructors.exit
   %135 = phi i64 [ %145, %pmix_obj_run_destructors.exit ], [ %134, %130 ]
-  %.0133303 = phi i64 [ %146, %pmix_obj_run_destructors.exit ], [ 0, %130 ]
-  %136 = getelementptr inbounds %struct.pmix_buffer_t, ptr %132, i64 %.0133303
+  %.0133302 = phi i64 [ %146, %pmix_obj_run_destructors.exit ], [ 0, %130 ]
+  %136 = getelementptr inbounds %struct.pmix_buffer_t, ptr %132, i64 %.0133302
   %137 = getelementptr inbounds i8, ptr %136, i64 40
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 48
@@ -2264,9 +2264,9 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph311, %112
   %.not6.i = icmp eq ptr %141, null
   br i1 %.not6.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph305, %.lr.ph.i
-  %142 = phi ptr [ %144, %.lr.ph.i ], [ %141, %.lr.ph305 ]
-  %.07.i = phi ptr [ %143, %.lr.ph.i ], [ %140, %.lr.ph305 ]
+.lr.ph.i:                                         ; preds = %.lr.ph304, %.lr.ph.i
+  %142 = phi ptr [ %144, %.lr.ph.i ], [ %141, %.lr.ph304 ]
+  %.07.i = phi ptr [ %143, %.lr.ph.i ], [ %140, %.lr.ph304 ]
   tail call void %142(ptr noundef %136) #10
   %143 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %144 = load ptr, ptr %143, align 8
@@ -2274,31 +2274,31 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph311, %112
   br i1 %.not.i156, label %pmix_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
-  %.pre354 = load i64, ptr %133, align 8
+  %.pre353 = load i64, ptr %133, align 8
   br label %pmix_obj_run_destructors.exit
 
-pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destructors.exit.loopexit, %.lr.ph305
-  %145 = phi i64 [ %.pre354, %pmix_obj_run_destructors.exit.loopexit ], [ %135, %.lr.ph305 ]
-  %146 = add nuw i64 %.0133303, 1
+pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destructors.exit.loopexit, %.lr.ph304
+  %145 = phi i64 [ %.pre353, %pmix_obj_run_destructors.exit.loopexit ], [ %135, %.lr.ph304 ]
+  %146 = add nuw i64 %.0133302, 1
   %147 = icmp ult i64 %146, %145
-  br i1 %147, label %.lr.ph305, label %._crit_edge306.loopexit, !llvm.loop !25
+  br i1 %147, label %.lr.ph304, label %._crit_edge305.loopexit, !llvm.loop !25
 
-._crit_edge306.loopexit:                          ; preds = %pmix_obj_run_destructors.exit
-  %.pre355 = load ptr, ptr %131, align 8
-  br label %._crit_edge306
+._crit_edge305.loopexit:                          ; preds = %pmix_obj_run_destructors.exit
+  %.pre354 = load ptr, ptr %131, align 8
+  br label %._crit_edge305
 
-._crit_edge306:                                   ; preds = %._crit_edge306.loopexit, %130
-  %148 = phi ptr [ %.pre355, %._crit_edge306.loopexit ], [ %132, %130 ]
+._crit_edge305:                                   ; preds = %._crit_edge305.loopexit, %130
+  %148 = phi ptr [ %.pre354, %._crit_edge305.loopexit ], [ %132, %130 ]
   %.not.i157 = icmp eq ptr %1, null
   br i1 %.not.i157, label %152, label %149
 
-149:                                              ; preds = %._crit_edge306
+149:                                              ; preds = %._crit_edge305
   %150 = getelementptr inbounds i8, ptr %1, i64 40
   %151 = load ptr, ptr %150, align 8
   tail call void %151(ptr noundef nonnull %1, ptr noundef %148) #10
   br label %pmix_tma_free.exit148
 
-152:                                              ; preds = %._crit_edge306
+152:                                              ; preds = %._crit_edge305
   tail call void @free(ptr noundef %148) #10
   br label %pmix_tma_free.exit148
 
@@ -2307,17 +2307,17 @@ pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destru
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds i8, ptr %0, i64 8
   %157 = load i64, ptr %156, align 8
-  %.not332 = icmp eq i64 %157, 0
-  br i1 %.not332, label %._crit_edge302, label %.lr.ph301
+  %.not331 = icmp eq i64 %157, 0
+  br i1 %.not331, label %._crit_edge301, label %.lr.ph300
 
-.lr.ph301:                                        ; preds = %153
+.lr.ph300:                                        ; preds = %153
   %.not.i159 = icmp eq ptr %1, null
   %158 = getelementptr inbounds i8, ptr %1, i64 40
   br label %159
 
-159:                                              ; preds = %.lr.ph301, %pmix_tma_free.exit160
-  %.0135299 = phi i64 [ 0, %.lr.ph301 ], [ %166, %pmix_tma_free.exit160 ]
-  %160 = getelementptr inbounds %struct.pmix_byte_object, ptr %155, i64 %.0135299
+159:                                              ; preds = %.lr.ph300, %pmix_tma_free.exit160
+  %.0135298 = phi i64 [ 0, %.lr.ph300 ], [ %166, %pmix_tma_free.exit160 ]
+  %160 = getelementptr inbounds %struct.pmix_byte_object, ptr %155, i64 %.0135298
   %161 = load ptr, ptr %160, align 8
   %.not144 = icmp eq ptr %161, null
   br i1 %.not144, label %pmix_tma_free.exit160, label %162
@@ -2335,27 +2335,27 @@ pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destru
   br label %pmix_tma_free.exit160
 
 pmix_tma_free.exit160:                            ; preds = %165, %163, %159
-  %166 = add nuw i64 %.0135299, 1
+  %166 = add nuw i64 %.0135298, 1
   %167 = load i64, ptr %156, align 8
   %168 = icmp ult i64 %166, %167
-  br i1 %168, label %159, label %._crit_edge302.loopexit, !llvm.loop !26
+  br i1 %168, label %159, label %._crit_edge301.loopexit, !llvm.loop !26
 
-._crit_edge302.loopexit:                          ; preds = %pmix_tma_free.exit160
-  %.pre353 = load ptr, ptr %154, align 8
-  br label %._crit_edge302
+._crit_edge301.loopexit:                          ; preds = %pmix_tma_free.exit160
+  %.pre352 = load ptr, ptr %154, align 8
+  br label %._crit_edge301
 
-._crit_edge302:                                   ; preds = %._crit_edge302.loopexit, %153
-  %169 = phi ptr [ %.pre353, %._crit_edge302.loopexit ], [ %155, %153 ]
+._crit_edge301:                                   ; preds = %._crit_edge301.loopexit, %153
+  %169 = phi ptr [ %.pre352, %._crit_edge301.loopexit ], [ %155, %153 ]
   %.not.i161 = icmp eq ptr %1, null
   br i1 %.not.i161, label %173, label %170
 
-170:                                              ; preds = %._crit_edge302
+170:                                              ; preds = %._crit_edge301
   %171 = getelementptr inbounds i8, ptr %1, i64 40
   %172 = load ptr, ptr %171, align 8
   tail call void %172(ptr noundef nonnull %1, ptr noundef %169) #10
   br label %pmix_tma_free.exit148
 
-173:                                              ; preds = %._crit_edge302
+173:                                              ; preds = %._crit_edge301
   tail call void @free(ptr noundef %169) #10
   br label %pmix_tma_free.exit148
 
@@ -2364,39 +2364,39 @@ pmix_tma_free.exit160:                            ; preds = %165, %163, %159
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %0, i64 8
   %178 = load i64, ptr %177, align 8
-  %.not331 = icmp eq i64 %178, 0
-  br i1 %.not331, label %._crit_edge298, label %.lr.ph297
+  %.not330 = icmp eq i64 %178, 0
+  br i1 %.not330, label %._crit_edge297, label %.lr.ph296
 
-.lr.ph297:                                        ; preds = %174
+.lr.ph296:                                        ; preds = %174
   %.not.i163 = icmp eq ptr %1, null
   %179 = getelementptr inbounds i8, ptr %1, i64 40
   br label %180
 
-180:                                              ; preds = %.lr.ph297, %pmix_bfrops_base_tma_value_free.exit167
-  %.0134295 = phi i64 [ 0, %.lr.ph297 ], [ %197, %pmix_bfrops_base_tma_value_free.exit167 ]
-  %181 = getelementptr inbounds %struct.pmix_kval_t, ptr %176, i64 %.0134295
+180:                                              ; preds = %.lr.ph296, %pmix_bfrops_base_tma_value_free.exit167
+  %.0134294 = phi i64 [ 0, %.lr.ph296 ], [ %197, %pmix_bfrops_base_tma_value_free.exit167 ]
+  %181 = getelementptr inbounds %struct.pmix_kval_t, ptr %176, i64 %.0134294
   %182 = getelementptr inbounds i8, ptr %181, i64 144
   %183 = load ptr, ptr %182, align 8
   %.not142 = icmp eq ptr %183, null
   br i1 %.not142, label %pmix_tma_free.exit164, label %184
 
 184:                                              ; preds = %180
-  br i1 %.not.i163, label %pmix_tma_free.exit164.thread358, label %pmix_tma_free.exit164.thread
+  br i1 %.not.i163, label %pmix_tma_free.exit164.thread357, label %pmix_tma_free.exit164.thread
 
 pmix_tma_free.exit164:                            ; preds = %180
   %185 = getelementptr inbounds i8, ptr %181, i64 152
   %186 = load ptr, ptr %185, align 8
   %.not143 = icmp eq ptr %186, null
-  br i1 %.not143, label %pmix_bfrops_base_tma_value_free.exit167, label %.preheader276
+  br i1 %.not143, label %pmix_bfrops_base_tma_value_free.exit167, label %.preheader275
 
-pmix_tma_free.exit164.thread358:                  ; preds = %184
+pmix_tma_free.exit164.thread357:                  ; preds = %184
   tail call void @free(ptr noundef nonnull %183) #10
   %187 = getelementptr inbounds i8, ptr %181, i64 152
   %188 = load ptr, ptr %187, align 8
-  %.not143359 = icmp eq ptr %188, null
-  br i1 %.not143359, label %pmix_bfrops_base_tma_value_free.exit167, label %.preheader276.thread360
+  %.not143358 = icmp eq ptr %188, null
+  br i1 %.not143358, label %pmix_bfrops_base_tma_value_free.exit167, label %.preheader275.thread359
 
-.preheader276.thread360:                          ; preds = %pmix_tma_free.exit164.thread358
+.preheader275.thread359:                          ; preds = %pmix_tma_free.exit164.thread357
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %188, ptr noundef %1)
   br label %195
 
@@ -2405,50 +2405,50 @@ pmix_tma_free.exit164.thread:                     ; preds = %184
   tail call void %189(ptr noundef nonnull %1, ptr noundef nonnull %183) #10
   %190 = getelementptr inbounds i8, ptr %181, i64 152
   %191 = load ptr, ptr %190, align 8
-  %.not143357 = icmp eq ptr %191, null
-  br i1 %.not143357, label %pmix_bfrops_base_tma_value_free.exit167, label %.preheader276.thread
+  %.not143356 = icmp eq ptr %191, null
+  br i1 %.not143356, label %pmix_bfrops_base_tma_value_free.exit167, label %.preheader275.thread
 
-.preheader276.thread:                             ; preds = %pmix_tma_free.exit164.thread
+.preheader275.thread:                             ; preds = %pmix_tma_free.exit164.thread
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %191, ptr noundef nonnull %1)
   br label %192
 
-.preheader276:                                    ; preds = %pmix_tma_free.exit164
+.preheader275:                                    ; preds = %pmix_tma_free.exit164
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %186, ptr noundef %1)
   br i1 %.not.i163, label %195, label %192
 
-192:                                              ; preds = %.preheader276.thread, %.preheader276
-  %193 = phi ptr [ %191, %.preheader276.thread ], [ %186, %.preheader276 ]
+192:                                              ; preds = %.preheader275.thread, %.preheader275
+  %193 = phi ptr [ %191, %.preheader275.thread ], [ %186, %.preheader275 ]
   %194 = load ptr, ptr %179, align 8
   tail call void %194(ptr noundef nonnull %1, ptr noundef nonnull %193) #10
   br label %pmix_bfrops_base_tma_value_free.exit167
 
-195:                                              ; preds = %.preheader276.thread360, %.preheader276
-  %196 = phi ptr [ %188, %.preheader276.thread360 ], [ %186, %.preheader276 ]
+195:                                              ; preds = %.preheader275.thread359, %.preheader275
+  %196 = phi ptr [ %188, %.preheader275.thread359 ], [ %186, %.preheader275 ]
   tail call void @free(ptr noundef nonnull %196) #10
   br label %pmix_bfrops_base_tma_value_free.exit167
 
-pmix_bfrops_base_tma_value_free.exit167:          ; preds = %pmix_tma_free.exit164.thread358, %pmix_tma_free.exit164.thread, %192, %195, %pmix_tma_free.exit164
-  %197 = add nuw i64 %.0134295, 1
+pmix_bfrops_base_tma_value_free.exit167:          ; preds = %pmix_tma_free.exit164.thread357, %pmix_tma_free.exit164.thread, %192, %195, %pmix_tma_free.exit164
+  %197 = add nuw i64 %.0134294, 1
   %198 = load i64, ptr %177, align 8
   %199 = icmp ult i64 %197, %198
-  br i1 %199, label %180, label %._crit_edge298.loopexit, !llvm.loop !27
+  br i1 %199, label %180, label %._crit_edge297.loopexit, !llvm.loop !27
 
-._crit_edge298.loopexit:                          ; preds = %pmix_bfrops_base_tma_value_free.exit167
-  %.pre352 = load ptr, ptr %175, align 8
-  br label %._crit_edge298
+._crit_edge297.loopexit:                          ; preds = %pmix_bfrops_base_tma_value_free.exit167
+  %.pre351 = load ptr, ptr %175, align 8
+  br label %._crit_edge297
 
-._crit_edge298:                                   ; preds = %._crit_edge298.loopexit, %174
-  %200 = phi ptr [ %.pre352, %._crit_edge298.loopexit ], [ %176, %174 ]
+._crit_edge297:                                   ; preds = %._crit_edge297.loopexit, %174
+  %200 = phi ptr [ %.pre351, %._crit_edge297.loopexit ], [ %176, %174 ]
   %.not.i168 = icmp eq ptr %1, null
   br i1 %.not.i168, label %204, label %201
 
-201:                                              ; preds = %._crit_edge298
+201:                                              ; preds = %._crit_edge297
   %202 = getelementptr inbounds i8, ptr %1, i64 40
   %203 = load ptr, ptr %202, align 8
   tail call void %203(ptr noundef nonnull %1, ptr noundef %200) #10
   br label %pmix_tma_free.exit148
 
-204:                                              ; preds = %._crit_edge298
+204:                                              ; preds = %._crit_edge297
   tail call void @free(ptr noundef %200) #10
   br label %pmix_tma_free.exit148
 
@@ -2472,20 +2472,20 @@ pmix_bfrops_base_tma_value_free.exit167:          ; preds = %pmix_tma_free.exit1
   %216 = getelementptr inbounds i8, ptr %0, i64 8
   %217 = load i64, ptr %216, align 8
   %.not.i170 = icmp eq ptr %215, null
-  br i1 %.not.i170, label %pmix_tma_free.exit148, label %.preheader277
+  br i1 %.not.i170, label %pmix_tma_free.exit148, label %.preheader276
 
-.preheader277:                                    ; preds = %213
-  %.not329 = icmp eq i64 %217, 0
-  br i1 %.not329, label %._crit_edge293, label %.lr.ph292
+.preheader276:                                    ; preds = %213
+  %.not328 = icmp eq i64 %217, 0
+  br i1 %.not328, label %._crit_edge292, label %.lr.ph291
 
-.lr.ph292:                                        ; preds = %.preheader277
+.lr.ph291:                                        ; preds = %.preheader276
   %.not.i.i.i248 = icmp eq ptr %1, null
   %218 = getelementptr inbounds i8, ptr %1, i64 40
   br label %219
 
-219:                                              ; preds = %.lr.ph292, %pmix_bfrops_base_tma_query_destruct.exit
-  %.0.i171291 = phi i64 [ 0, %.lr.ph292 ], [ %248, %pmix_bfrops_base_tma_query_destruct.exit ]
-  %220 = getelementptr inbounds %struct.pmix_query, ptr %215, i64 %.0.i171291
+219:                                              ; preds = %.lr.ph291, %pmix_bfrops_base_tma_query_destruct.exit
+  %.0.i171290 = phi i64 [ 0, %.lr.ph291 ], [ %248, %pmix_bfrops_base_tma_query_destruct.exit ]
+  %220 = getelementptr inbounds %struct.pmix_query, ptr %215, i64 %.0.i171290
   %221 = load ptr, ptr %220, align 8
   %.not.i245 = icmp eq ptr %221, null
   br i1 %.not.i245, label %233, label %222
@@ -2493,19 +2493,19 @@ pmix_bfrops_base_tma_value_free.exit167:          ; preds = %pmix_tma_free.exit1
 222:                                              ; preds = %219
   %223 = load ptr, ptr %221, align 8
   %.not12.i.i246 = icmp eq ptr %223, null
-  br i1 %.not12.i.i246, label %._crit_edge.i.i260, label %.lr.ph.i.i247
+  br i1 %.not12.i.i246, label %._crit_edge.i.i259, label %.lr.ph.i.i247
 
 .lr.ph.i.i247:                                    ; preds = %222
-  br i1 %.not.i.i.i248, label %pmix_tma_free.exit.us.i.i257, label %pmix_tma_free.exit.i.i249
+  br i1 %.not.i.i.i248, label %pmix_tma_free.exit.us.i.i256, label %pmix_tma_free.exit.i.i249
 
-pmix_tma_free.exit.us.i.i257:                     ; preds = %.lr.ph.i.i247, %pmix_tma_free.exit.us.i.i257
-  %224 = phi ptr [ %226, %pmix_tma_free.exit.us.i.i257 ], [ %223, %.lr.ph.i.i247 ]
-  %.013.us.i.i258 = phi ptr [ %225, %pmix_tma_free.exit.us.i.i257 ], [ %221, %.lr.ph.i.i247 ]
+pmix_tma_free.exit.us.i.i256:                     ; preds = %.lr.ph.i.i247, %pmix_tma_free.exit.us.i.i256
+  %224 = phi ptr [ %226, %pmix_tma_free.exit.us.i.i256 ], [ %223, %.lr.ph.i.i247 ]
+  %.013.us.i.i257 = phi ptr [ %225, %pmix_tma_free.exit.us.i.i256 ], [ %221, %.lr.ph.i.i247 ]
   tail call void @free(ptr noundef nonnull %224) #10
-  %225 = getelementptr inbounds i8, ptr %.013.us.i.i258, i64 8
+  %225 = getelementptr inbounds i8, ptr %.013.us.i.i257, i64 8
   %226 = load ptr, ptr %225, align 8
-  %.not.us.i.i259 = icmp eq ptr %226, null
-  br i1 %.not.us.i.i259, label %._crit_edge.i.i260, label %pmix_tma_free.exit.us.i.i257, !llvm.loop !14
+  %.not.us.i.i258 = icmp eq ptr %226, null
+  br i1 %.not.us.i.i258, label %._crit_edge.i.i259, label %pmix_tma_free.exit.us.i.i256, !llvm.loop !14
 
 pmix_tma_free.exit.i.i249:                        ; preds = %.lr.ph.i.i247, %pmix_tma_free.exit.i.i249
   %227 = phi ptr [ %230, %pmix_tma_free.exit.i.i249 ], [ %223, %.lr.ph.i.i247 ]
@@ -2517,15 +2517,15 @@ pmix_tma_free.exit.i.i249:                        ; preds = %.lr.ph.i.i247, %pmi
   %.not.i.i251 = icmp eq ptr %230, null
   br i1 %.not.i.i251, label %._crit_edge.thread.i.i252, label %pmix_tma_free.exit.i.i249, !llvm.loop !14
 
-._crit_edge.i.i260:                               ; preds = %pmix_tma_free.exit.us.i.i257, %222
+._crit_edge.i.i259:                               ; preds = %pmix_tma_free.exit.us.i.i256, %222
   br i1 %.not.i.i.i248, label %232, label %._crit_edge.thread.i.i252
 
-._crit_edge.thread.i.i252:                        ; preds = %pmix_tma_free.exit.i.i249, %._crit_edge.i.i260
+._crit_edge.thread.i.i252:                        ; preds = %pmix_tma_free.exit.i.i249, %._crit_edge.i.i259
   %231 = load ptr, ptr %218, align 8
   tail call void %231(ptr noundef nonnull %1, ptr noundef nonnull %221) #10
   br label %pmix_bfrops_base_tma_argv_free.exit.i253
 
-232:                                              ; preds = %._crit_edge.i.i260
+232:                                              ; preds = %._crit_edge.i.i259
   tail call void @free(ptr noundef %221) #10
   br label %pmix_bfrops_base_tma_argv_free.exit.i253
 
@@ -2542,60 +2542,60 @@ pmix_bfrops_base_tma_argv_free.exit.i253:         ; preds = %232, %._crit_edge.t
 236:                                              ; preds = %233
   %237 = getelementptr inbounds i8, ptr %220, i64 16
   %238 = load i64, ptr %237, align 8
-  %.not330 = icmp eq i64 %238, 0
-  br i1 %.not330, label %._crit_edge290, label %.lr.ph289
+  %.not329 = icmp eq i64 %238, 0
+  br i1 %.not329, label %._crit_edge289, label %.lr.ph288
 
-.lr.ph289:                                        ; preds = %236, %pmix_bfrops_base_tma_info_destruct.exit269
-  %.0.i.i255287 = phi i64 [ %244, %pmix_bfrops_base_tma_info_destruct.exit269 ], [ 0, %236 ]
-  %239 = getelementptr inbounds %struct.pmix_info, ptr %235, i64 %.0.i.i255287
+.lr.ph288:                                        ; preds = %236, %pmix_bfrops_base_tma_info_destruct.exit268
+  %.0.i.i255286 = phi i64 [ %244, %pmix_bfrops_base_tma_info_destruct.exit268 ], [ 0, %236 ]
+  %239 = getelementptr inbounds %struct.pmix_info, ptr %235, i64 %.0.i.i255286
   %240 = getelementptr i8, ptr %239, i64 512
-  %.val.i268 = load i32, ptr %240, align 8
-  %241 = and i32 %.val.i268, 16
-  %.not270 = icmp eq i32 %241, 0
-  br i1 %.not270, label %242, label %pmix_bfrops_base_tma_info_destruct.exit269
+  %.val.i267 = load i32, ptr %240, align 8
+  %241 = and i32 %.val.i267, 16
+  %.not269 = icmp eq i32 %241, 0
+  br i1 %.not269, label %242, label %pmix_bfrops_base_tma_info_destruct.exit268
 
-242:                                              ; preds = %.lr.ph289
+242:                                              ; preds = %.lr.ph288
   %243 = getelementptr inbounds i8, ptr %239, i64 520
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %243, ptr noundef %1)
-  br label %pmix_bfrops_base_tma_info_destruct.exit269
+  br label %pmix_bfrops_base_tma_info_destruct.exit268
 
-pmix_bfrops_base_tma_info_destruct.exit269:       ; preds = %.lr.ph289, %242
-  %244 = add nuw i64 %.0.i.i255287, 1
+pmix_bfrops_base_tma_info_destruct.exit268:       ; preds = %.lr.ph288, %242
+  %244 = add nuw i64 %.0.i.i255286, 1
   %exitcond.not = icmp eq i64 %244, %238
-  br i1 %exitcond.not, label %._crit_edge290, label %.lr.ph289, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge289, label %.lr.ph288, !llvm.loop !22
 
-._crit_edge290:                                   ; preds = %pmix_bfrops_base_tma_info_destruct.exit269, %236
+._crit_edge289:                                   ; preds = %pmix_bfrops_base_tma_info_destruct.exit268, %236
   br i1 %.not.i.i.i248, label %247, label %245
 
-245:                                              ; preds = %._crit_edge290
+245:                                              ; preds = %._crit_edge289
   %246 = load ptr, ptr %218, align 8
   tail call void %246(ptr noundef nonnull %1, ptr noundef nonnull %235) #10
-  br label %pmix_bfrops_base_tma_info_free.exit.i256
+  br label %pmix_tma_free.exit266
 
-247:                                              ; preds = %._crit_edge290
+247:                                              ; preds = %._crit_edge289
   tail call void @free(ptr noundef nonnull %235) #10
-  br label %pmix_bfrops_base_tma_info_free.exit.i256
+  br label %pmix_tma_free.exit266
 
-pmix_bfrops_base_tma_info_free.exit.i256:         ; preds = %247, %245
+pmix_tma_free.exit266:                            ; preds = %245, %247
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %234, i8 0, i64 16, i1 false)
   br label %pmix_bfrops_base_tma_query_destruct.exit
 
-pmix_bfrops_base_tma_query_destruct.exit:         ; preds = %233, %pmix_bfrops_base_tma_info_free.exit.i256
-  %248 = add nuw i64 %.0.i171291, 1
-  %exitcond344.not = icmp eq i64 %248, %217
-  br i1 %exitcond344.not, label %._crit_edge293, label %219, !llvm.loop !28
+pmix_bfrops_base_tma_query_destruct.exit:         ; preds = %233, %pmix_tma_free.exit266
+  %248 = add nuw i64 %.0.i171290, 1
+  %exitcond343.not = icmp eq i64 %248, %217
+  br i1 %exitcond343.not, label %._crit_edge292, label %219, !llvm.loop !28
 
-._crit_edge293:                                   ; preds = %pmix_bfrops_base_tma_query_destruct.exit, %.preheader277
+._crit_edge292:                                   ; preds = %pmix_bfrops_base_tma_query_destruct.exit, %.preheader276
   %.not.i243 = icmp eq ptr %1, null
   br i1 %.not.i243, label %252, label %249
 
-249:                                              ; preds = %._crit_edge293
+249:                                              ; preds = %._crit_edge292
   %250 = getelementptr inbounds i8, ptr %1, i64 40
   %251 = load ptr, ptr %250, align 8
   tail call void %251(ptr noundef nonnull %1, ptr noundef nonnull %215) #10
   br label %pmix_tma_free.exit148
 
-252:                                              ; preds = %._crit_edge293
+252:                                              ; preds = %._crit_edge292
   tail call void @free(ptr noundef nonnull %215) #10
   br label %pmix_tma_free.exit148
 
@@ -2839,45 +2839,45 @@ pmix_bfrops_base_tma_coord_destruct.exit.i:       ; preds = %pmix_tma_free.exit.
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr inbounds i8, ptr %0, i64 8
   %342 = load i64, ptr %341, align 8
-  %.not328 = icmp eq i64 %342, 0
-  br i1 %.not328, label %._crit_edge286, label %.lr.ph285
+  %.not327 = icmp eq i64 %342, 0
+  br i1 %.not327, label %._crit_edge285, label %.lr.ph284
 
-.lr.ph285:                                        ; preds = %338, %349
+.lr.ph284:                                        ; preds = %338, %349
   %343 = phi i64 [ %350, %349 ], [ %342, %338 ]
-  %.0132283 = phi i64 [ %351, %349 ], [ 0, %338 ]
-  %344 = getelementptr inbounds %struct.pmix_byte_object, ptr %340, i64 %.0132283
+  %.0132282 = phi i64 [ %351, %349 ], [ 0, %338 ]
+  %344 = getelementptr inbounds %struct.pmix_byte_object, ptr %340, i64 %.0132282
   %345 = load ptr, ptr %344, align 8
   %.not = icmp eq ptr %345, null
   br i1 %.not, label %349, label %346
 
-346:                                              ; preds = %.lr.ph285
+346:                                              ; preds = %.lr.ph284
   %347 = load ptr, ptr getelementptr inbounds (%struct.pmix_preg_module_t, ptr @pmix_preg, i64 0, i32 8), align 8
   %348 = tail call i32 %347(ptr noundef nonnull %345) #10
-  %.pre350 = load i64, ptr %341, align 8
+  %.pre349 = load i64, ptr %341, align 8
   br label %349
 
-349:                                              ; preds = %.lr.ph285, %346
-  %350 = phi i64 [ %343, %.lr.ph285 ], [ %.pre350, %346 ]
-  %351 = add nuw i64 %.0132283, 1
+349:                                              ; preds = %.lr.ph284, %346
+  %350 = phi i64 [ %343, %.lr.ph284 ], [ %.pre349, %346 ]
+  %351 = add nuw i64 %.0132282, 1
   %352 = icmp ult i64 %351, %350
-  br i1 %352, label %.lr.ph285, label %._crit_edge286.loopexit, !llvm.loop !30
+  br i1 %352, label %.lr.ph284, label %._crit_edge285.loopexit, !llvm.loop !30
 
-._crit_edge286.loopexit:                          ; preds = %349
-  %.pre351 = load ptr, ptr %339, align 8
-  br label %._crit_edge286
+._crit_edge285.loopexit:                          ; preds = %349
+  %.pre350 = load ptr, ptr %339, align 8
+  br label %._crit_edge285
 
-._crit_edge286:                                   ; preds = %._crit_edge286.loopexit, %338
-  %353 = phi ptr [ %.pre351, %._crit_edge286.loopexit ], [ %340, %338 ]
+._crit_edge285:                                   ; preds = %._crit_edge285.loopexit, %338
+  %353 = phi ptr [ %.pre350, %._crit_edge285.loopexit ], [ %340, %338 ]
   %.not.i185 = icmp eq ptr %1, null
   br i1 %.not.i185, label %357, label %354
 
-354:                                              ; preds = %._crit_edge286
+354:                                              ; preds = %._crit_edge285
   %355 = getelementptr inbounds i8, ptr %1, i64 40
   %356 = load ptr, ptr %355, align 8
   tail call void %356(ptr noundef nonnull %1, ptr noundef %353) #10
   br label %pmix_tma_free.exit148
 
-357:                                              ; preds = %._crit_edge286
+357:                                              ; preds = %._crit_edge285
   tail call void @free(ptr noundef %353) #10
   br label %pmix_tma_free.exit148
 
@@ -2886,8 +2886,8 @@ pmix_bfrops_base_tma_coord_destruct.exit.i:       ; preds = %pmix_tma_free.exit.
   %360 = load ptr, ptr %359, align 8
   %361 = getelementptr inbounds i8, ptr %0, i64 8
   %362 = load i64, ptr %361, align 8
-  %.not327 = icmp eq i64 %362, 0
-  br i1 %.not327, label %._crit_edge, label %.lr.ph
+  %.not326 = icmp eq i64 %362, 0
+  br i1 %.not326, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %358
   %.not.i.i188 = icmp eq ptr %1, null
@@ -2895,8 +2895,8 @@ pmix_bfrops_base_tma_coord_destruct.exit.i:       ; preds = %pmix_tma_free.exit.
   br label %364
 
 364:                                              ; preds = %.lr.ph, %pmix_bfrops_base_tma_data_buffer_destruct.exit
-  %.0282 = phi i64 [ 0, %.lr.ph ], [ %372, %pmix_bfrops_base_tma_data_buffer_destruct.exit ]
-  %365 = getelementptr inbounds %struct.pmix_data_buffer, ptr %360, i64 %.0282
+  %.0281 = phi i64 [ 0, %.lr.ph ], [ %372, %pmix_bfrops_base_tma_data_buffer_destruct.exit ]
+  %365 = getelementptr inbounds %struct.pmix_data_buffer, ptr %360, i64 %.0281
   %366 = load ptr, ptr %365, align 8
   %.not.i187 = icmp eq ptr %366, null
   br i1 %.not.i187, label %pmix_bfrops_base_tma_data_buffer_destruct.exit, label %367
@@ -2920,7 +2920,7 @@ pmix_tma_free.exit.i:                             ; preds = %370, %368
 pmix_bfrops_base_tma_data_buffer_destruct.exit:   ; preds = %364, %pmix_tma_free.exit.i
   %371 = getelementptr inbounds i8, ptr %365, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %371, i8 0, i64 32, i1 false)
-  %372 = add nuw i64 %.0282, 1
+  %372 = add nuw i64 %.0281, 1
   %373 = load i64, ptr %361, align 8
   %374 = icmp ult i64 %372, %373
   br i1 %374, label %364, label %._crit_edge.loopexit, !llvm.loop !31

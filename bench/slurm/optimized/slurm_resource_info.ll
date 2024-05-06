@@ -415,7 +415,7 @@ define void @slurm_print_cpu_bind_help() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1034,7 +1034,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -1062,7 +1062,7 @@ define noundef i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10, %.lr.ph
-  %14 = trunc i8 %.039 to i1
+  %14 = trunc nuw i8 %.039 to i1
   br i1 %14, label %._crit_edge, label %58
 
 15:                                               ; preds = %10
@@ -1076,7 +1076,7 @@ define noundef i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18, %15
-  %22 = trunc i8 %.039 to i1
+  %22 = trunc nuw i8 %.039 to i1
   br i1 %22, label %._crit_edge, label %58
 
 23:                                               ; preds = %18
@@ -1090,7 +1090,7 @@ define noundef i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26, %23
-  %30 = trunc i8 %.039 to i1
+  %30 = trunc nuw i8 %.039 to i1
   br i1 %30, label %._crit_edge, label %58
 
 31:                                               ; preds = %26
@@ -1104,7 +1104,7 @@ define noundef i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34, %31
-  %38 = trunc i8 %.039 to i1
+  %38 = trunc nuw i8 %.039 to i1
   br i1 %38, label %._crit_edge, label %58
 
 39:                                               ; preds = %34
@@ -1118,7 +1118,7 @@ define noundef i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42, %39
-  %46 = trunc i8 %.039 to i1
+  %46 = trunc nuw i8 %.039 to i1
   br i1 %46, label %._crit_edge, label %58
 
 47:                                               ; preds = %42
@@ -1127,7 +1127,7 @@ define noundef i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
-  %51 = trunc i8 %.039 to i1
+  %51 = trunc nuw i8 %.039 to i1
   br i1 %51, label %._crit_edge, label %58
 
 52:                                               ; preds = %47

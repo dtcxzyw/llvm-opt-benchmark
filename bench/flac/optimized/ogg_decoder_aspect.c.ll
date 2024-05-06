@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__OGG_MAPPING_MAGIC = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__ogg_decoder_aspect_init(ptr noundef %aspect) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__ogg_decoder_aspect_init(ptr noundef %aspect) local_unnamed_addr #0 {
 entry:
   %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
   %serial_number = getelementptr inbounds i8, ptr %aspect, i64 8
@@ -119,7 +119,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef %aspect, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %bytes, ptr nocapture noundef readonly %read_callback, ptr noundef %decoder, ptr noundef %client_data) local_unnamed_addr #0 {
+define hidden range(i32 0, 8) i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef %aspect, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %bytes, ptr nocapture noundef readonly %read_callback, ptr noundef %decoder, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %ogg_bytes_read = alloca i64, align 8
   %0 = load i64, ptr %bytes, align 8

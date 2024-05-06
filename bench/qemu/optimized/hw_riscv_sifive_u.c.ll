@@ -513,7 +513,7 @@ if.end.i:                                         ; preds = %if.else
   store i32 -2147483648, ptr %arrayinit.element.i, align 4
   %arrayinit.element34.i = getelementptr inbounds i8, ptr %qdt_tmp.i, i64 8
   %shr35.i = lshr i64 %4, 32
-  %conv36.i = trunc i64 %shr35.i to i32
+  %conv36.i = trunc nuw i64 %shr35.i to i32
   store i32 %conv36.i, ptr %arrayinit.element34.i, align 8
   %arrayinit.element37.i = getelementptr inbounds i8, ptr %qdt_tmp.i, i64 12
   %conv38.i = trunc i64 %4 to i32
@@ -558,7 +558,7 @@ for.body55.i:                                     ; preds = %if.end77.i, %for.bo
   %indvars.iv42.i = phi i64 [ %8, %for.body55.lr.ph.i ], [ %indvars.iv.next43.i, %if.end77.i ]
   %phandle.04.i = phi i32 [ 3, %for.body55.lr.ph.i ], [ %inc56.i, %if.end77.i ]
   %inc56.i = add nuw i32 %phandle.04.i, 1
-  %11 = trunc i64 %indvars.iv42.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv42.i to i32
   %call57.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.59, i32 noundef %11) #7
   %call58.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, i32 noundef %11) #7
   %call59.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call57.i) #7
@@ -1290,7 +1290,7 @@ if.end50:                                         ; preds = %sw.epilog, %if.then
   %arrayinit.element70 = getelementptr inbounds i8, ptr %reset_vec, i64 24
   store i32 163943, ptr %arrayinit.element70, align 8
   %arrayinit.element71 = getelementptr inbounds i8, ptr %reset_vec, i64 28
-  %conv72 = trunc i64 %start_addr.0 to i32
+  %conv72 = trunc nuw i64 %start_addr.0 to i32
   store i32 %conv72, ptr %arrayinit.element71, align 4
   %arrayinit.element73 = getelementptr inbounds i8, ptr %reset_vec, i64 32
   store i32 0, ptr %arrayinit.element73, align 16
@@ -1718,7 +1718,7 @@ if.end142:                                        ; preds = %for.body137
   %13 = shl nuw nsw i64 %indvars.iv, 12
   %14 = or disjoint i64 %13, 268566528
   tail call void @sysbus_mmio_map(ptr noundef %call.i138, i32 noundef 0, i64 noundef %14) #7
-  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %15 = shl nuw nsw i32 %indvars.iv.tr, 2
   %16 = or disjoint i32 %15, 42
   br label %for.body154

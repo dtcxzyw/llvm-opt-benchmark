@@ -500,7 +500,7 @@ define dso_local i32 @get_tsc_mode(i64 noundef %0) local_unnamed_addr #2 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @set_tsc_mode(i32 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @set_tsc_mode(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   switch i32 %0, label %42 [
@@ -622,7 +622,7 @@ define dso_local void @arch_setup_new_exec() local_unnamed_addr #2 align 16 {
   tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @msr_misc_features_shadow, i64 %12, ptr nonnull elementtype(i64) @msr_misc_features_shadow) #19, !srcloc !32
   %13 = trunc i64 %12 to i32
   %14 = lshr i64 %11, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 320, i32 %13, i32 %15) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %17 [label %16], !srcloc !6
@@ -690,7 +690,7 @@ define dso_local void @speculation_ctrl_update(i64 noundef %0) local_unnamed_add
 6:                                                ; preds = %1, %1
   %7 = lshr i64 %0, 3
   %8 = and i64 %7, 4
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073676001, i32 %9, i32 0) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %75 [label %10], !srcloc !6
@@ -718,7 +718,7 @@ define dso_local void @speculation_ctrl_update(i64 noundef %0) local_unnamed_add
   %21 = or i64 %20, %15
   %22 = trunc i64 %21 to i32
   %23 = lshr i64 %21, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073672160, i32 %22, i32 %24) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %75 [label %25], !srcloc !6
@@ -1161,7 +1161,7 @@ define dso_local void @__switch_to_xtra(ptr noundef %0, ptr noundef %1) local_un
   %25 = or disjoint i64 %22, %24
   %26 = trunc i64 %25 to i32
   %27 = lshr i64 %19, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 473, i32 %26, i32 %28) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %30 [label %29], !srcloc !6
@@ -1197,7 +1197,7 @@ define dso_local void @__switch_to_xtra(ptr noundef %0, ptr noundef %1) local_un
   tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @msr_misc_features_shadow, i64 %45, ptr nonnull elementtype(i64) @msr_misc_features_shadow) #19, !srcloc !32
   %46 = trunc i64 %45 to i32
   %47 = lshr i64 %41, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 320, i32 %46, i32 %48) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %50 [label %49], !srcloc !6
@@ -1229,7 +1229,7 @@ define dso_local void @__switch_to_xtra(ptr noundef %0, ptr noundef %1) local_un
 60:                                               ; preds = %57
   %61 = lshr i64 %3, 3
   %62 = and i64 %61, 4
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw nsw i64 %62 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073676001, i32 %63, i32 0) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %134 [label %64], !srcloc !6
@@ -1262,7 +1262,7 @@ define dso_local void @__switch_to_xtra(ptr noundef %0, ptr noundef %1) local_un
   %78 = or i64 %77, %72
   %79 = trunc i64 %78 to i32
   %80 = lshr i64 %78, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073672160, i32 %79, i32 %81) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %134 [label %82], !srcloc !6
@@ -1532,7 +1532,7 @@ define dso_local void @__switch_to_xtra(ptr noundef %0, ptr noundef %1) local_un
 define internal fastcc void @wrmsrl(i32 noundef %0, i64 noundef %1) unnamed_addr #9 align 16 {
   %3 = trunc i64 %1 to i32
   %4 = lshr i64 %1, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 %3, i32 %5) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %7 [label %6], !srcloc !6
@@ -1871,7 +1871,7 @@ define dso_local void @arch_post_acpi_subsys_init() local_unnamed_addr #14 secti
 declare dso_local void @mark_tsc_unstable(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @idle_setup(ptr noundef readonly %0) #14 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @idle_setup(ptr noundef readonly %0) #14 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -1911,7 +1911,7 @@ define internal noundef i32 @idle_setup(ptr noundef readonly %0) #14 section ".i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @arch_align_stack(i64 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 0, -15) i64 @arch_align_stack(i64 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !7
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 1240
@@ -2103,7 +2103,7 @@ define dso_local i64 @do_arch_prctl_common(i32 noundef %0, i64 noundef %1) local
   tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @msr_misc_features_shadow, i64 %24, ptr nonnull elementtype(i64) @msr_misc_features_shadow) #19, !srcloc !32
   %25 = trunc i64 %24 to i32
   %26 = lshr i64 %23, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 320, i32 %25, i32 %27) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %29 [label %28], !srcloc !6
@@ -2139,7 +2139,7 @@ define dso_local i64 @do_arch_prctl_common(i32 noundef %0, i64 noundef %1) local
   tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @msr_misc_features_shadow, i64 %42, ptr nonnull elementtype(i64) @msr_misc_features_shadow) #19, !srcloc !32
   %43 = trunc i64 %42 to i32
   %44 = lshr i64 %41, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 320, i32 %43, i32 %45) #19, !srcloc !33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #19
           to label %47 [label %46], !srcloc !6

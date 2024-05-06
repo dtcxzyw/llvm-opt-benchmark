@@ -27,7 +27,7 @@ entry:
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509at_get_attr_by_NID(ptr noundef %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @X509at_get_attr_by_NID(ptr noundef %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #3
   %cmp = icmp eq ptr %call, null
@@ -63,7 +63,7 @@ return:                                           ; preds = %for.body.i, %for.co
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509at_get_attr_by_OBJ(ptr noundef %sk, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @X509at_get_attr_by_OBJ(ptr noundef %sk, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -345,7 +345,7 @@ X509_ATTRIBUTE_set1_object.exit:                  ; preds = %if.end4
   br i1 %cmp4.i.not, label %err, label %if.end7
 
 if.end7:                                          ; preds = %X509_ATTRIBUTE_set1_object.exit
-  %call8 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %ret.0, i32 noundef %atrtype, ptr noundef %data, i32 noundef %len), !range !6
+  %call8 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %ret.0, i32 noundef %atrtype, ptr noundef %data, i32 noundef %len)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %if.end11
 
@@ -639,7 +639,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.05, 1
   %exitcond.not = icmp eq i32 %inc, %call1
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !6
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.05 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
@@ -669,7 +669,7 @@ declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_ATTRIBUTE_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_ATTRIBUTE_set1_object(ptr noundef %attr, ptr noundef %obj) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_object(ptr noundef %attr, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %attr, null
   %cmp1 = icmp eq ptr %obj, null
@@ -697,7 +697,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly %attr, i32 noundef %attrtype, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly %attr, i32 noundef %attrtype, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %attr, null
   br i1 %cmp, label %if.then, label %if.end
@@ -885,5 +885,4 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

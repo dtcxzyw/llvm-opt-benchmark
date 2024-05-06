@@ -272,7 +272,7 @@ define internal void @heapam_tuple_insert(ptr noundef %0, ptr noundef %1, i32 no
   call void @heap_insert(ptr noundef %0, ptr noundef %7, i32 noundef %2, i32 noundef %3, ptr noundef %4) #11
   %12 = getelementptr inbounds i8, ptr %7, i64 4
   %13 = getelementptr inbounds i8, ptr %1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %13, ptr noundef nonnull align 2 dereferenceable(6) %12, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %13, ptr noundef nonnull readonly align 2 dereferenceable(6) %12, i64 6, i1 false)
   %14 = load i8, ptr %6, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %17
@@ -300,7 +300,7 @@ define internal void @heapam_tuple_insert_speculative(ptr noundef %0, ptr nounde
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 12
   %16 = lshr i32 %5, 16
-  %17 = trunc i32 %16 to i16
+  %17 = trunc nuw i32 %16 to i16
   store i16 %17, ptr %15, align 2
   %18 = trunc i32 %5 to i16
   %19 = getelementptr inbounds i8, ptr %14, i64 14
@@ -311,7 +311,7 @@ define internal void @heapam_tuple_insert_speculative(ptr noundef %0, ptr nounde
   call void @heap_insert(ptr noundef %0, ptr noundef %8, i32 noundef %2, i32 noundef %21, ptr noundef %4) #11
   %22 = getelementptr inbounds i8, ptr %8, i64 4
   %23 = getelementptr inbounds i8, ptr %1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %23, ptr noundef nonnull align 2 dereferenceable(6) %22, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %23, ptr noundef nonnull readonly align 2 dereferenceable(6) %22, i64 6, i1 false)
   %24 = load i8, ptr %7, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %27
@@ -375,7 +375,7 @@ define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr nou
   %17 = call i32 @heap_update(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %3, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #11
   %18 = getelementptr inbounds i8, ptr %12, i64 4
   %19 = getelementptr inbounds i8, ptr %2, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %19, ptr noundef nonnull align 2 dereferenceable(6) %18, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %19, ptr noundef nonnull readonly align 2 dereferenceable(6) %18, i64 6, i1 false)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %21, label %20
 
@@ -1321,7 +1321,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %47 = trunc i32 %39 to i16
   %48 = load i32, ptr %33, align 8
   %49 = lshr i32 %48, 16
-  %50 = trunc i32 %49 to i16
+  %50 = trunc nuw i32 %49 to i16
   store i16 %50, ptr %32, align 2
   %51 = trunc i32 %48 to i16
   store i16 %51, ptr %34, align 2
@@ -2498,7 +2498,7 @@ define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr nocapture noundef 
 .lr.ph73:                                         ; preds = %.preheader
   %26 = getelementptr inbounds i8, ptr %1, i64 10
   %27 = lshr i32 %6, 16
-  %28 = trunc i32 %27 to i16
+  %28 = trunc nuw i32 %27 to i16
   %29 = trunc i32 %6 to i16
   %30 = getelementptr inbounds i8, ptr %3, i64 2
   %31 = getelementptr inbounds i8, ptr %3, i64 4
@@ -2572,7 +2572,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %68 = getelementptr inbounds i8, ptr %5, i64 12
   %69 = getelementptr inbounds i8, ptr %5, i64 4
   %70 = lshr i32 %6, 16
-  %71 = trunc i32 %70 to i16
+  %71 = trunc nuw i32 %70 to i16
   %72 = trunc i32 %6 to i16
   %73 = getelementptr inbounds i8, ptr %5, i64 6
   %74 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2717,7 +2717,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %46 = getelementptr inbounds i8, ptr %0, i64 72
   %47 = load i32, ptr %46, align 8
   %48 = lshr i32 %47, 16
-  %49 = trunc i32 %48 to i16
+  %49 = trunc nuw i32 %48 to i16
   store i16 %49, ptr %45, align 2
   %50 = trunc i32 %47 to i16
   %51 = getelementptr inbounds i8, ptr %0, i64 94
@@ -2916,7 +2916,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %40 = getelementptr inbounds i8, ptr %0, i64 104
   %41 = getelementptr inbounds i8, ptr %0, i64 92
   %42 = lshr i32 %7, 16
-  %43 = trunc i32 %42 to i16
+  %43 = trunc nuw i32 %42 to i16
   %44 = trunc i32 %7 to i16
   %45 = getelementptr inbounds i8, ptr %0, i64 94
   %46 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2944,7 +2944,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %63 = getelementptr inbounds i8, ptr %0, i64 104
   %64 = getelementptr inbounds i8, ptr %0, i64 92
   %65 = lshr i32 %7, 16
-  %66 = trunc i32 %65 to i16
+  %66 = trunc nuw i32 %65 to i16
   %67 = trunc i32 %7 to i16
   %68 = getelementptr inbounds i8, ptr %0, i64 94
   %69 = getelementptr inbounds i8, ptr %0, i64 96

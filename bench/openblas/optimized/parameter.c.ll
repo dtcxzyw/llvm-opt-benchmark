@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zgemm_r = local_unnamed_addr global i64 128, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_L2_size() local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @get_L2_size() local_unnamed_addr #0 {
   %1 = tail call { i32, i32, i32, i32 } asm sideeffect "mov $$0, %ecx;cpuid", "={ax},={bx},={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483642) #4, !srcloc !3
   %2 = extractvalue { i32, i32, i32, i32 } %1, 2
   %3 = lshr i32 %2, 16

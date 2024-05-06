@@ -395,7 +395,7 @@ BufferGetPage.exit:                               ; preds = %110, %116
   %182 = load ptr, ptr %4, align 8
   %183 = load i32, ptr %176, align 8
   %184 = load i32, ptr %180, align 4
-  %185 = call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull %5, ptr noundef %182, i32 noundef %183, i32 noundef %184)
+  %185 = call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull readonly %5, ptr noundef %182, i32 noundef %183, i32 noundef %184)
   br i1 %185, label %._crit_edge.i.i, label %186
 
 186:                                              ; preds = %181
@@ -434,7 +434,7 @@ gistProcessEmptyingQueue.exit.i:                  ; preds = %._crit_edge.i.i, %1
   br i1 %200, label %201, label %204
 
 201:                                              ; preds = %._crit_edge.i
-  %202 = trunc i64 %indvars.iv.i54 to i32
+  %202 = trunc nuw nsw i64 %indvars.iv.i54 to i32
   %203 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %202) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1417, ptr noundef nonnull @__func__.gistEmptyAllBuffers) #10
   br label %204
@@ -594,7 +594,7 @@ define internal void @gistBuildCallback(ptr noundef %0, ptr nocapture noundef re
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 96
   %32 = load i32, ptr %31, align 8
-  %33 = tail call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull %5, ptr noundef nonnull %14, i32 noundef 0, i32 noundef %32)
+  %33 = tail call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull readonly %5, ptr noundef nonnull %14, i32 noundef 0, i32 noundef %32)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %34 = load ptr, ptr %29, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 48
@@ -623,7 +623,7 @@ define internal void @gistBuildCallback(ptr noundef %0, ptr nocapture noundef re
   %45 = load ptr, ptr %8, align 8
   %46 = load i32, ptr %39, align 8
   %47 = load i32, ptr %43, align 4
-  %48 = call fastcc zeroext i1 @gistProcessItup(ptr noundef %5, ptr noundef %45, i32 noundef %46, i32 noundef %47)
+  %48 = call fastcc zeroext i1 @gistProcessItup(ptr noundef readonly %5, ptr noundef %45, i32 noundef %46, i32 noundef %47)
   br i1 %48, label %._crit_edge.i.i, label %49
 
 49:                                               ; preds = %44
@@ -1210,7 +1210,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture 
   %105 = load ptr, ptr %54, align 8
   call void @smgr_bulk_write(ptr noundef %105, i32 noundef %102, ptr noundef nonnull %66, i1 noundef zeroext true) #10
   %106 = lshr i32 %102, 16
-  %107 = trunc i32 %106 to i16
+  %107 = trunc nuw i32 %106 to i16
   store i16 %107, ptr %93, align 2
   %108 = trunc i32 %102 to i16
   %109 = getelementptr inbounds i8, ptr %93, i64 2

@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vdi_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vdi_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %header = alloca %struct.VdiHeader, align 1
   %uuid_link = alloca %struct.QemuUUID, align 4
@@ -359,14 +359,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vdi_co_create(ptr nocapture noundef %create_options, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vdi_co_create(ptr nocapture noundef %create_options, ptr noundef %errp) #0 {
 entry:
-  %call = tail call i32 @vdi_co_do_create(ptr noundef %create_options, i64 noundef 1048576, ptr noundef %errp), !range !5
+  %call = tail call i32 @vdi_co_do_create(ptr noundef %create_options, i64 noundef 1048576, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vdi_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vdi_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -418,7 +418,7 @@ if.end21:                                         ; preds = %if.end18
   %sub = add i64 %2, 511
   %and = and i64 %sub, -512
   store i64 %and, ptr %size, align 8
-  %call24 = call i32 @vdi_co_do_create(ptr noundef nonnull %0, i64 noundef 1048576, ptr noundef %errp), !range !5
+  %call24 = call i32 @vdi_co_do_create(ptr noundef nonnull %0, i64 noundef 1048576, ptr noundef %errp)
   br label %done
 
 done:                                             ; preds = %if.end14, %if.end10, %if.end4, %entry, %if.end21
@@ -485,7 +485,7 @@ return:                                           ; preds = %entry, %if.then
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @vdi_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
+define internal range(i32 0, 101) i32 @vdi_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
 entry:
   %cmp = icmp ult i32 %buf_size, 512
   br i1 %cmp, label %if.end5, label %if.else
@@ -570,7 +570,7 @@ do.end28:                                         ; preds = %if.else, %if.then
   %cmp = icmp sgt i32 %ret.1, -1
   %cmp1 = icmp sgt i64 %sub30, 0
   %9 = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %9, label %while.body, label %while.end, !llvm.loop !6
+  br i1 %9, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %do.end28, %entry
   %ret.0.lcssa = phi i32 [ 0, %entry ], [ %ret.1, %do.end28 ]
@@ -625,7 +625,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i32 %3, %conv5
   %conv7 = zext i32 %sub to i64
   %4 = call i64 @llvm.umin.i64(i64 %bytes.addr.094, i64 %conv7)
-  %conv10 = trunc i64 %4 to i32
+  %conv10 = trunc nuw i64 %4 to i32
   call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %bmap_lock) #13
   %5 = load ptr, ptr %0, align 8
   %idxprom = and i64 %div, 4294967295
@@ -722,7 +722,7 @@ if.end72:                                         ; preds = %nonallocating_write
   %cmp = icmp sgt i32 %ret.1, -1
   %cmp1 = icmp sgt i64 %sub74, 0
   %19 = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %19, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %19, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end72
   %20 = lshr i32 %bmap_last.1, 7
@@ -843,7 +843,7 @@ return:                                           ; preds = %if.end86.thread, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @vdi_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #4 {
+define internal range(i32 2, 128) i32 @vdi_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #4 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -901,7 +901,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vdi_co_check(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
+define internal range(i32 -95, 1) i32 @vdi_co_check(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -969,7 +969,7 @@ if.else:                                          ; preds = %if.then23
 
 if.else37:                                        ; preds = %if.then18
   %10 = load ptr, ptr @stderr, align 8
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   %call38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.37, i32 noundef %11, i32 noundef %6) #17
   %12 = load i32, ptr %res, align 8
   %inc40 = add i32 %12, 1
@@ -982,7 +982,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   %13 = load i32, ptr %blocks_in_image, align 8
   %14 = zext i32 %13 to i64
   %cmp12 = icmp ult i64 %indvars.iv.next, %14
-  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end6
   %blocks_allocated.0.lcssa = phi i32 [ 0, %if.end6 ], [ %blocks_allocated.1, %for.inc ]
@@ -1038,7 +1038,7 @@ declare { i64, i64 } @qemu_uuid_bswap(i64, i64) local_unnamed_addr #1
 declare void @migrate_del_blocker(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vdi_co_do_create(ptr nocapture noundef %create_options, i64 noundef %block_size, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vdi_co_do_create(ptr nocapture noundef %create_options, i64 noundef %block_size, ptr noundef %errp) #0 {
 entry:
   %header = alloca %struct.VdiHeader, align 1
   %uuid = alloca %struct.QemuUUID, align 4
@@ -1111,7 +1111,7 @@ if.end17:                                         ; preds = %if.end13
   tail call void @blk_set_allow_write_beyond_eof(ptr noundef nonnull %call14, i1 noundef zeroext true) #13
   %sub = add nuw nsw i64 %1, 1048575
   %div56 = lshr i64 %sub, 20
-  %conv = trunc i64 %div56 to i32
+  %conv = trunc nuw nsw i64 %div56 to i32
   %mul = shl nuw nsw i64 %div56, 2
   %sub20 = add nuw nsw i64 %mul, 511
   %and = and i64 %sub20, 8589934080
@@ -1128,7 +1128,7 @@ if.end17:                                         ; preds = %if.end13
   %offset_bmap = getelementptr inbounds i8, ptr %header, i64 340
   store i32 512, ptr %offset_bmap, align 1
   %add22 = add nuw nsw i64 %and, 512
-  %conv23 = trunc i64 %add22 to i32
+  %conv23 = trunc nuw i64 %add22 to i32
   %offset_data = getelementptr inbounds i8, ptr %header, i64 344
   store i32 %conv23, ptr %offset_data, align 1
   %sector_size = getelementptr inbounds i8, ptr %header, i64 360
@@ -1219,12 +1219,12 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %i.058.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %conv50.us = trunc i64 %i.058.us to i32
+  %conv50.us = trunc nuw nsw i64 %i.058.us to i32
   %arrayidx.us = getelementptr i32, ptr %call39, i64 %i.058.us
   store i32 %conv50.us, ptr %arrayidx.us, align 4
   %inc.us = add nuw nsw i64 %i.058.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %umax60
-  br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !9
 
 if.then42:                                        ; preds = %if.then38
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 861, ptr noundef nonnull @__func__.vdi_co_do_create, ptr noundef nonnull @.str.27) #13
@@ -1414,9 +1414,8 @@ attributes #17 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

@@ -930,7 +930,7 @@ call.i.noexc:                                     ; preds = %while.end.i
   br i1 %cmp3.not.i, label %invoke.cont, label %do.body.i
 
 do.body.i:                                        ; preds = %call.i.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i1, ptr nonnull align 2 %newSpec, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i1, ptr nonnull readonly align 2 %newSpec, i64 %mul.i, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %do.body.i, %call.i.noexc
@@ -979,7 +979,7 @@ call.i.noexc:                                     ; preds = %while.end.i
   br i1 %cmp3.not.i, label %invoke.cont, label %do.body.i
 
 do.body.i:                                        ; preds = %call.i.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i2, ptr nonnull align 2 %0, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i2, ptr nonnull readonly align 2 %0, i64 %mul.i, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %do.body.i, %call.i.noexc

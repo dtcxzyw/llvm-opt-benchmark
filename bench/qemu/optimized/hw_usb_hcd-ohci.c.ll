@@ -753,7 +753,7 @@ for.body15.lr.ph:                                 ; preds = %if.else
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.body15
   %indvars.iv38 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next39, %for.body15 ]
   %arrayidx19 = getelementptr [15 x %struct.OHCIPort], ptr %rhport17, i64 0, i64 %indvars.iv38
-  %7 = trunc i64 %indvars.iv38 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv38 to i32
   tail call void @usb_register_port(ptr noundef %ohci, ptr noundef %arrayidx19, ptr noundef %ohci, i32 noundef %7, ptr noundef nonnull @ohci_port_ops, i32 noundef 3) #8
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
@@ -868,7 +868,7 @@ if.then4:                                         ; preds = %if.end
   %idxprom = zext nneg i16 %12 to i64
   %arrayidx = getelementptr [32 x i32], ptr %hcca, i64 0, i64 %idxprom
   %13 = load i32, ptr %arrayidx, align 4
-  %call8 = call fastcc i32 @ohci_service_ed_list(ptr noundef nonnull %opaque, i32 noundef %13), !range !12
+  %call8 = call fastcc i32 @ohci_service_ed_list(ptr noundef nonnull %opaque, i32 noundef %13)
   %.pre = load i32, ptr %ctl, align 8
   br label %if.end9
 
@@ -1664,7 +1664,7 @@ trace_usb_ohci_process_lists.exit:                ; preds = %if.then6, %land.lhs
 if.end:                                           ; preds = %trace_usb_ohci_process_lists.exit, %land.lhs.true4, %if.then
   %ctrl_head9 = getelementptr inbounds i8, ptr %ohci, i64 540
   %10 = load i32, ptr %ctrl_head9, align 4
-  %call = tail call fastcc i32 @ohci_service_ed_list(ptr noundef nonnull %ohci, i32 noundef %10), !range !12
+  %call = tail call fastcc i32 @ohci_service_ed_list(ptr noundef nonnull %ohci, i32 noundef %10)
   %tobool10.not = icmp eq i32 %call, 0
   br i1 %tobool10.not, label %if.then11, label %if.end16
 
@@ -1691,7 +1691,7 @@ land.lhs.true20:                                  ; preds = %if.end16
 if.then24:                                        ; preds = %land.lhs.true20
   %bulk_head = getelementptr inbounds i8, ptr %ohci, i64 548
   %14 = load i32, ptr %bulk_head, align 4
-  %call25 = tail call fastcc i32 @ohci_service_ed_list(ptr noundef nonnull %ohci, i32 noundef %14), !range !12
+  %call25 = tail call fastcc i32 @ohci_service_ed_list(ptr noundef nonnull %ohci, i32 noundef %14)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.then27, label %if.end31
 
@@ -1708,7 +1708,7 @@ if.end31:                                         ; preds = %if.then24, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @ohci_service_ed_list(ptr noundef %ohci, i32 noundef %head) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ohci_service_ed_list(ptr noundef %ohci, i32 noundef %head) unnamed_addr #0 {
 entry:
   %_now.i.i202 = alloca %struct.timeval, align 8
   %_now.i.i187 = alloca %struct.timeval, align 8
@@ -1829,7 +1829,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.019.i.i, i64 4
   %add29.i.i = add i64 %addr.addr.018.i.i, 4
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 4
-  br i1 %exitcond.not.i.i, label %if.end4, label %for.body.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %if.end4, label %for.body.i.i, !llvm.loop !12
 
 if.then3:                                         ; preds = %for.body.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2080,7 +2080,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr i8, ptr %buf.addr.019.i.i.i, i64 4
   %add29.i.i.i = add i64 %addr.addr.018.i.i.i, 4
   %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %if.end8.i, label %for.body.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %if.end8.i, label %for.body.i.i.i, !llvm.loop !12
 
 if.then7.i:                                       ; preds = %for.body.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i100.i)
@@ -2380,7 +2380,7 @@ for.inc.i.i:                                      ; preds = %if.end.for.inc_crit
   %92 = phi i32 [ %.pre.i.i, %if.end.for.inc_crit_edge.i.i ], [ %90, %for.body.i.i46 ]
   %inc.i.i50 = add nuw i32 %i.08.i.i, 1
   %cmp.i.i = icmp ult i32 %inc.i.i50, %92
-  br i1 %cmp.i.i, label %for.body.i.i46, label %if.then95.i, !llvm.loop !14
+  br i1 %cmp.i.i, label %for.body.i.i46, label %if.then95.i, !llvm.loop !13
 
 if.then95.i:                                      ; preds = %if.else87.i, %for.inc.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i145.i)
@@ -2579,7 +2579,7 @@ if.end147.i:                                      ; preds = %if.then146.i, %ohci
   br label %if.end153.i
 
 if.else150.i:                                     ; preds = %if.then138.i
-  %conv151.i = trunc i64 %pktlen.1.i to i32
+  %conv151.i = trunc nuw nsw i64 %pktlen.1.i to i32
   br label %if.end153.i
 
 if.end153.i:                                      ; preds = %if.else150.i, %if.end147.i, %if.end135.i
@@ -2821,7 +2821,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i179.i
   %incdec.ptr.i.i184.i = getelementptr i8, ptr %buf.addr.018.i.i.i, i64 4
   %add29.i.i185.i = add i64 %addr.addr.017.i.i.i, 4
   %exitcond.not.i.i186.i = icmp eq i32 %inc.i.i183.i, 4
-  br i1 %exitcond.not.i.i186.i, label %ohci_service_td.exit, label %for.body.i.i179.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i186.i, label %ohci_service_td.exit, label %for.body.i.i179.i, !llvm.loop !14
 
 if.then288.i:                                     ; preds = %for.body.i.i179.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i.i)
@@ -2875,7 +2875,7 @@ if.end.i.i.i80:                                   ; preds = %for.body.i.i.i60
   %incdec.ptr.i.i.i82 = getelementptr i8, ptr %buf.addr.019.i.i.i62, i64 4
   %add29.i.i.i83 = add i64 %addr.addr.018.i.i.i63, 4
   %exitcond.not.i.i.i84 = icmp eq i32 %inc.i.i.i81, 4
-  br i1 %exitcond.not.i.i.i84, label %lor.rhs.i.i, label %for.body.i.i.i60, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i84, label %lor.rhs.i.i, label %for.body.i.i.i60, !llvm.loop !12
 
 lor.rhs.i.i:                                      ; preds = %if.end.i.i.i80
   %add.i.i85 = add nuw nsw i64 %conv.i, 16
@@ -2899,7 +2899,7 @@ if.end.i14.i.i:                                   ; preds = %for.body.i7.i.i
   %incdec.ptr.i16.i.i = getelementptr i8, ptr %buf.addr.019.i9.i.i, i64 2
   %add29.i17.i.i = add i64 %addr.addr.018.i10.i.i, 2
   %exitcond.not.i18.i.i = icmp eq i32 %inc.i15.i.i, 8
-  br i1 %exitcond.not.i18.i.i, label %if.end2.i, label %for.body.i7.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i18.i.i, label %if.end2.i, label %for.body.i7.i.i, !llvm.loop !15
 
 if.then1.i:                                       ; preds = %for.body.i.i.i60, %for.body.i7.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i52)
@@ -3167,7 +3167,7 @@ for.inc.i.i.i110:                                 ; preds = %for.body.i.i221.i
   %incdec.ptr.i.i226.i = getelementptr i8, ptr %buf.addr.018.i.i.i108, i64 4
   %add29.i.i227.i = add i64 %addr.addr.017.i.i.i109, 4
   %exitcond.not.i.i228.i = icmp eq i32 %inc.i.i225.i, 4
-  br i1 %exitcond.not.i.i228.i, label %lor.rhs.i229.i, label %for.body.i.i221.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i228.i, label %lor.rhs.i229.i, label %for.body.i.i221.i, !llvm.loop !14
 
 ohci_put_iso_td.exit.thread.i:                    ; preds = %for.body.i.i221.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i.i51)
@@ -3198,7 +3198,7 @@ for.inc.i12.i.i:                                  ; preds = %for.body.i8.i.i
   %incdec.ptr.i14.i.i = getelementptr i8, ptr %buf.addr.017.i.i.i, i64 2
   %add29.i15.i.i = add i64 %addr.addr.016.i.i.i, 2
   %exitcond.not.i16.i.i = icmp eq i32 %inc.i13.i.i, 8
-  br i1 %exitcond.not.i16.i.i, label %ohci_service_iso_td.exit, label %for.body.i8.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i16.i.i, label %ohci_service_iso_td.exit, label %for.body.i8.i.i, !llvm.loop !16
 
 ohci_put_iso_td.exit.i:                           ; preds = %for.body.i8.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp.i4.i.i)
@@ -3468,7 +3468,7 @@ if.end187.i:                                      ; preds = %if.else183.i, %if.t
   br i1 %or.cond1.i98, label %if.then196.i, label %if.end202.i
 
 if.then196.i:                                     ; preds = %if.end187.i
-  %call198.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %buf.i, i32 noundef %262, i32 noundef 0), !range !18
+  %call198.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %buf.i, i32 noundef %262, i32 noundef 0)
   %tobool199.not.i = icmp eq i32 %call198.i, 0
   br i1 %tobool199.not.i, label %if.then196.if.end202_crit_edge.i, label %if.then200.i
 
@@ -3536,7 +3536,7 @@ if.end238.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %or.cond159.i, label %if.else283.i, label %if.then248.i
 
 if.then248.i:                                     ; preds = %if.end238.i
-  %call250.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %buf.i, i32 noundef %ret.0.i101, i32 noundef 1), !range !18
+  %call250.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %buf.i, i32 noundef %ret.0.i101, i32 noundef 1)
   %tobool251.not.i = icmp eq i32 %call250.i, 0
   br i1 %tobool251.not.i, label %do.body254.i, label %if.then252.i
 
@@ -3562,7 +3562,7 @@ if.else319.i:                                     ; preds = %if.else283.i
 
 if.then323.i:                                     ; preds = %if.else319.i
   call fastcc void @trace_usb_ohci_iso_td_data_overrun(i32 noundef %ret.0.i101, i64 noundef %spec.store.select.i97)
-  %275 = trunc i32 %262 to i16
+  %275 = trunc nuw nsw i32 %262 to i16
   %276 = and i16 %275, 4095
   %conv352.i = or disjoint i16 %276, -32768
   br label %if.end450.i
@@ -3625,7 +3625,7 @@ if.then476.i:                                     ; preds = %do.body455.i
   br label %if.end479.i
 
 if.end479.i:                                      ; preds = %if.then476.i, %do.body455.i, %if.end450.i
-  %call481.i = call fastcc i32 @ohci_put_iso_td(ptr noundef nonnull %ohci, i64 noundef %conv.i, ptr noundef nonnull %iso_td.i), !range !12
+  %call481.i = call fastcc i32 @ohci_put_iso_td(ptr noundef nonnull %ohci, i64 noundef %conv.i, ptr noundef nonnull %iso_td.i)
   %tobool482.not.i = icmp eq i32 %call481.i, 0
   br i1 %tobool482.not.i, label %ohci_service_iso_td.exit.thread, label %if.then483.i
 
@@ -3650,7 +3650,7 @@ if.end78:                                         ; preds = %ohci_service_iso_td
   %and25 = and i32 %289, -16
   %290 = load i32, ptr %tail, align 4
   %cmp26.not = icmp eq i32 %and25, %290
-  br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !19
+  br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end78, %ohci_service_td.exit, %while.cond.preheader, %ohci_service_iso_td.exit.thread, %ohci_service_td.exit.thread
   %active.2 = phi i32 [ 1, %ohci_service_td.exit.thread ], [ 1, %ohci_service_iso_td.exit.thread ], [ %active.0322, %while.cond.preheader ], [ 1, %ohci_service_td.exit ], [ 1, %if.end78 ]
@@ -3671,7 +3671,7 @@ while.end:                                        ; preds = %if.end78, %ohci_ser
 for.inc:                                          ; preds = %while.end, %if.then10, %if.then17
   %active.3 = phi i32 [ %active.0322, %if.then17 ], [ %active.0322, %if.then10 ], [ %active.2, %while.end ]
   %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %return, label %land.rhs, !llvm.loop !20
+  br i1 %tobool.not, label %return, label %land.rhs, !llvm.loop !18
 
 return.sink.split:                                ; preds = %while.end, %trace_usb_ohci_ed_read_error.exit
   %294 = load ptr, ptr %ohci_die.i130.i, align 8
@@ -3922,7 +3922,7 @@ for.inc:                                          ; preds = %if.end.for.inc_crit
   %3 = phi i32 [ %.pre, %if.end.for.inc_crit_edge ], [ %1, %for.body ]
   %inc = add nuw i32 %i.08, 1
   %cmp = icmp ult i32 %inc, %3
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
 
 return:                                           ; preds = %if.end, %for.inc, %entry
   %retval.0 = phi ptr [ null, %entry ], [ null, %for.inc ], [ %call, %if.end ]
@@ -4150,7 +4150,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @usb_find_device(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @ohci_put_iso_td(ptr nocapture noundef readonly %ohci, i64 noundef %addr, ptr nocapture noundef readonly %td) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ohci_put_iso_td(ptr nocapture noundef readonly %ohci, i64 noundef %addr, ptr nocapture noundef readonly %td) unnamed_addr #0 {
 entry:
   %tmp.i4 = alloca i16, align 2
   %tmp.i = alloca i32, align 4
@@ -4179,7 +4179,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr i8, ptr %buf.addr.018.i, i64 4
   %add29.i = add i64 %addr.addr.017.i, 4
   %exitcond.not.i = icmp eq i32 %inc.i, 4
-  br i1 %exitcond.not.i, label %lor.rhs, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %lor.rhs, label %for.body.i, !llvm.loop !14
 
 put_dwords.exit:                                  ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i)
@@ -4212,7 +4212,7 @@ for.inc.i12:                                      ; preds = %for.body.i8
   %incdec.ptr.i14 = getelementptr i8, ptr %buf.addr.017.i, i64 2
   %add29.i15 = add i64 %addr.addr.016.i, 2
   %exitcond.not.i16 = icmp eq i32 %inc.i13, 8
-  br i1 %exitcond.not.i16, label %put_words.exit, label %for.body.i8, !llvm.loop !17
+  br i1 %exitcond.not.i16, label %put_words.exit, label %for.body.i8, !llvm.loop !16
 
 put_words.exit:                                   ; preds = %for.body.i8, %for.inc.i12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp.i4)
@@ -4225,7 +4225,7 @@ lor.end:                                          ; preds = %put_dwords.exit, %p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @ohci_copy_iso_td(ptr nocapture noundef readonly %ohci, i32 noundef %start_addr, i32 noundef %end_addr, ptr noundef %buf, i32 noundef %len, i32 noundef %dir) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ohci_copy_iso_td(ptr nocapture noundef readonly %ohci, i32 noundef %start_addr, i32 noundef %end_addr, ptr noundef %buf, i32 noundef %len, i32 noundef %dir) unnamed_addr #0 {
 entry:
   %conv = zext i32 %start_addr to i64
   %and = and i64 %conv, 4095
@@ -4479,7 +4479,7 @@ _nocheck__trace_usb_ohci_iso_td_bad_response.exit: ; preds = %entry, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ohci_mem_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @ohci_mem_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i59 = alloca %struct.timeval, align 8
   %_now.i.i45 = alloca %struct.timeval, align 8
@@ -4549,9 +4549,9 @@ if.then6:                                         ; preds = %land.lhs.true
   %sub7 = add nuw nsw i64 %addr, 17179869104
   %shr8 = lshr exact i64 %sub7, 2
   %conv9 = trunc i64 %shr8 to i32
-  %conv10 = trunc i64 %addr to i32
+  %conv10 = trunc nuw i64 %addr to i32
   %shr11 = lshr exact i64 %addr, 2
-  %conv12 = trunc i64 %shr11 to i32
+  %conv12 = trunc nuw nsw i64 %shr11 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i45)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i46 = icmp ne i32 %8, 0
@@ -4890,9 +4890,9 @@ if.then5:                                         ; preds = %land.lhs.true
   %sub = add nuw nsw i64 %addr, 17179869104
   %shr = lshr exact i64 %sub, 2
   %conv6 = trunc i64 %shr to i32
-  %conv7 = trunc i64 %addr to i32
+  %conv7 = trunc nuw i64 %addr to i32
   %shr8 = lshr exact i64 %addr, 2
-  %conv9 = trunc i64 %shr8 to i32
+  %conv9 = trunc nuw nsw i64 %shr8 to i32
   %conv10 = trunc i64 %val to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i69)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5834,7 +5834,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %and.i, ptr %ctrl4.i, align 8
   %inc = add nuw i32 %i.039, 1
   %exitcond.not = icmp eq i32 %inc, %1
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5897,7 +5897,7 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   store i32 %or.i22, ptr %ctrl4.i20, align 8
   %inc16 = add nuw i32 %i10.041, 1
   %exitcond42.not = icmp eq i32 %inc16, %9
-  br i1 %exitcond42.not, label %for.end17, label %for.body14, !llvm.loop !22
+  br i1 %exitcond42.not, label %for.end17, label %for.body14, !llvm.loop !20
 
 for.end17:                                        ; preds = %for.body14, %for.cond11.preheader
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i23)
@@ -6161,14 +6161,12 @@ attributes #10 = { noreturn nounwind }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = !{i64 2152527370}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 -1, i32 1}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}

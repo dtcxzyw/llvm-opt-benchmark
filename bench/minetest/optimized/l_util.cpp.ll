@@ -140,12 +140,12 @@ $_ZTV13BaseException = comdat any
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @.str.14 = private unnamed_addr constant [11 x i8] c"deprecated\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.15 = private unnamed_addr constant [32 x i8] c"Tried to log at unknown level '\00", align 1
 @.str.16 = private unnamed_addr constant [26 x i8] c"'.  Defaulting to \22none\22.\00", align 1
 @g_logger = external global %class.Logger, align 8
 @.str.17 = private unnamed_addr constant [16 x i8] c"collectComments\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.18 = private unnamed_addr constant [27 x i8] c"Failed to parse json data \00", align 1
 @.str.19 = private unnamed_addr constant [7 x i8] c"Data (\00", align 1
 @.str.20 = private unnamed_addr constant [34 x i8] c" bytes) printed to warningstream.\00", align 1
@@ -1889,7 +1889,7 @@ declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare noundef zeroext i1 @_Z15push_json_valueP9lua_StateRKN4Json5ValueEi(ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiUtil12l_write_jsonEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN10ModApiUtil12l_write_jsonEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %root = alloca %"class.Json::Value", align 8
   %out = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8106,7 +8106,7 @@ unreachable:                                      ; preds = %invoke.cont13
 declare noundef zeroext i1 @_ZN2fs15safeWriteToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiUtil30l_request_insecure_environmentEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10ModApiUtil30l_request_insecure_environmentEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8862,7 +8862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %if.
 declare ptr @SHA256(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiUtil26l_colorspec_to_colorstringEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10ModApiUtil26l_colorspec_to_colorstringEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %color = alloca %"class.irr::video::SColor", align 4
   %colorstring = alloca [10 x i8], align 1
@@ -8897,7 +8897,7 @@ declare noundef zeroext i1 @_Z10read_colorP9lua_StateiPN3irr5video6SColorE(ptr n
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiUtil20l_colorspec_to_bytesEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10ModApiUtil20l_colorspec_to_bytesEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %color = alloca %"class.irr::video::SColor", align 4
   %colorbytes = alloca [4 x i8], align 1
@@ -8921,7 +8921,7 @@ if.then:                                          ; preds = %entry
   store i8 %conv6, ptr %arrayinit.element4, align 1, !tbaa !13
   %arrayinit.element7 = getelementptr inbounds i8, ptr %colorbytes, i64 3
   %shr.i14 = lshr i32 %0, 24
-  %conv9 = trunc i32 %shr.i14 to i8
+  %conv9 = trunc nuw i32 %shr.i14 to i8
   store i8 %conv9, ptr %arrayinit.element7, align 1, !tbaa !13
   call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %colorbytes, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %colorbytes) #26

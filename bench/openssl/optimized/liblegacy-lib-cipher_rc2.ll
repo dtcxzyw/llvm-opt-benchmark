@@ -82,14 +82,14 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc2_einit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rc2_einit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_cipher_generic_einit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef null) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @rc2_set_ctx_params(ptr noundef %ctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @rc2_set_ctx_params(ptr noundef %ctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -98,14 +98,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc2_dinit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rc2_dinit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_cipher_generic_dinit(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef null) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @rc2_set_ctx_params(ptr noundef %ctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @rc2_set_ctx_params(ptr noundef %ctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -129,7 +129,7 @@ entry:
 declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc2_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rc2_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %d = alloca ptr, align 8
   %call = tail call i32 @ossl_cipher_generic_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #4
@@ -257,7 +257,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc2_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rc2_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %num = alloca i64, align 8
   %d = alloca ptr, align 8
@@ -332,7 +332,7 @@ lor.lhs.false28:                                  ; preds = %lor.lhs.false19
 lor.lhs.false35:                                  ; preds = %lor.lhs.false28
   %6 = load i64, ptr %num, align 8
   %conv36 = trunc i64 %6 to i32
-  %call37 = call fastcc i32 @rc2_magic_to_keybits(i32 noundef %conv36), !range !5
+  %call37 = call fastcc i32 @rc2_magic_to_keybits(i32 noundef %conv36)
   %conv38 = zext nneg i32 %call37 to i64
   %key_bits39 = getelementptr inbounds i8, ptr %vctx, i64 448
   store i64 %conv38, ptr %key_bits39, align 8
@@ -581,7 +581,7 @@ declare i32 @ASN1_TYPE_get_int_octetstring(ptr noundef, ptr noundef, ptr noundef
 declare i32 @ossl_cipher_generic_initiv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rc2_magic_to_keybits(i32 noundef %magic) unnamed_addr #0 {
+define internal fastcc range(i32 0, 129) i32 @rc2_magic_to_keybits(i32 noundef %magic) unnamed_addr #0 {
 entry:
   switch i32 %magic, label %sw.epilog [
     i32 58, label %return
@@ -624,5 +624,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 0, i32 129}

@@ -110,7 +110,7 @@ if.end:                                           ; preds = %Q_.exit, %_.exit
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #11
   %9 = load i8, ptr @comment_line_char, align 1
   tail call void @strbuf_add_commented_lines(ptr noundef %buf, ptr noundef %retval.0.i, i64 noundef %call4, i8 noundef signext %9) #10
-  %call5 = tail call fastcc i32 @get_missing_commit_check_level(), !range !5
+  %call5 = tail call fastcc i32 @get_missing_commit_check_level()
   %cmp = icmp eq i32 %call5, 2
   %10 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i19 = icmp eq i32 %10, 0
@@ -151,7 +151,7 @@ declare void @strbuf_add_commented_lines(ptr noundef, ptr noundef, i64 noundef, 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_missing_commit_check_level() unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @get_missing_commit_check_level() unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %call = call i32 @git_config_get_value(ptr noundef nonnull @.str.14, ptr noundef nonnull %value) #10
@@ -196,7 +196,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @edit_todo_list(ptr noundef %r, ptr noundef %todo_list, ptr noundef %new_todo, ptr noundef %shortrevisions, ptr noundef %shortonto, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -4, 1) i32 @edit_todo_list(ptr noundef %r, ptr noundef %todo_list, ptr noundef %new_todo, ptr noundef %shortrevisions, ptr noundef %shortonto, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %backup.i = alloca %struct.todo_list, align 8
   %call = tail call ptr @rebase_path_todo() #10
@@ -320,7 +320,7 @@ todo_list_check_against_backup.exit:              ; preds = %if.then47
   %buf3.i = getelementptr inbounds i8, ptr %backup.i, i64 16
   %9 = load ptr, ptr %buf3.i, align 8
   %call4.i = call i32 @todo_list_parse_insn_buffer(ptr noundef %r, ptr noundef %9, ptr noundef nonnull %backup.i) #10
-  %call5.i = call i32 @todo_list_check(ptr noundef nonnull %backup.i, ptr noundef nonnull %new_todo), !range !6
+  %call5.i = call i32 @todo_list_check(ptr noundef nonnull %backup.i, ptr noundef nonnull readonly %new_todo)
   call void @todo_list_release(ptr noundef nonnull %backup.i) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %backup.i)
   %tobool49.not = icmp eq i32 %call5.i, 0
@@ -341,7 +341,7 @@ if.then54:                                        ; preds = %if.end52
   br label %if.end63
 
 if.else:                                          ; preds = %if.end45
-  %call58 = tail call i32 @todo_list_check(ptr noundef %todo_list, ptr noundef nonnull %new_todo), !range !6
+  %call58 = tail call i32 @todo_list_check(ptr noundef %todo_list, ptr noundef nonnull %new_todo)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %if.end63, label %if.then60
 
@@ -383,7 +383,7 @@ declare void @strbuf_stripspace(ptr noundef, i8 noundef signext) local_unnamed_a
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @todo_list_check_against_backup(ptr noundef %r, ptr nocapture noundef readonly %todo_list) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @todo_list_check_against_backup(ptr noundef %r, ptr nocapture noundef readonly %todo_list) local_unnamed_addr #0 {
 entry:
   %backup = alloca %struct.todo_list, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %backup, ptr noundef nonnull align 8 dereferenceable(56) @__const.todo_list_check_against_backup.backup, i64 56, i1 false)
@@ -396,7 +396,7 @@ if.then:                                          ; preds = %entry
   %buf3 = getelementptr inbounds i8, ptr %backup, i64 16
   %0 = load ptr, ptr %buf3, align 8
   %call4 = call i32 @todo_list_parse_insn_buffer(ptr noundef %r, ptr noundef %0, ptr noundef nonnull %backup) #10
-  %call5 = call i32 @todo_list_check(ptr noundef nonnull %backup, ptr noundef %todo_list), !range !6
+  %call5 = call i32 @todo_list_check(ptr noundef nonnull %backup, ptr noundef %todo_list)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -411,10 +411,10 @@ declare void @write_file(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @todo_list_check(ptr noundef %old_todo, ptr nocapture noundef readonly %new_todo) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @todo_list_check(ptr noundef %old_todo, ptr nocapture noundef readonly %new_todo) local_unnamed_addr #0 {
 entry:
   %missing = alloca %struct.strbuf, align 8
-  %call = tail call fastcc i32 @get_missing_commit_check_level(), !range !5
+  %call = tail call fastcc i32 @get_missing_commit_check_level()
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %missing, ptr noundef nonnull align 8 dereferenceable(24) @__const.todo_list_check.missing, i64 24, i1 false)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %clear_commit_seen.exit, label %for.cond.preheader
@@ -492,7 +492,7 @@ for.inc:                                          ; preds = %for.body, %commit_s
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %cmp1 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %commit_seen.sroa.14.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %commit_seen.sroa.14.2, %for.inc ]
@@ -619,7 +619,7 @@ for.inc21:                                        ; preds = %for.body9, %commit_
   %commit_seen.sroa.14.6 = phi i32 [ %commit_seen.sroa.14.3148, %for.body9 ], [ %commit_seen.sroa.14.5, %commit_seen_at.exit94 ], [ %commit_seen.sroa.14.4, %commit_seen_at.exit57 ]
   %commit_seen.sroa.27.6 = phi ptr [ %commit_seen.sroa.27.3149, %for.body9 ], [ %commit_seen.sroa.27.5, %commit_seen_at.exit94 ], [ %commit_seen.sroa.27.4, %commit_seen_at.exit57 ]
   %cmp8 = icmp ugt i64 %indvars.iv163, 1
-  br i1 %cmp8, label %for.body9, label %for.end22, !llvm.loop !9
+  br i1 %cmp8, label %for.body9, label %for.end22, !llvm.loop !7
 
 for.end22:                                        ; preds = %for.inc21, %for.end
   %commit_seen.sroa.14.3.lcssa = phi i32 [ %commit_seen.sroa.14.0.lcssa, %for.end ], [ %commit_seen.sroa.14.6, %for.inc21 ]
@@ -691,7 +691,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   call void @free(ptr noundef %53) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %52
-  br i1 %exitcond.not, label %clear_commit_seen.exit, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not, label %clear_commit_seen.exit, label %for.body.i, !llvm.loop !8
 
 clear_commit_seen.exit:                           ; preds = %for.body.i, %entry, %leave_check
   %res.1140 = phi i32 [ %res.1, %leave_check ], [ 0, %entry ], [ %res.1, %for.body.i ]
@@ -772,9 +772,7 @@ attributes #12 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

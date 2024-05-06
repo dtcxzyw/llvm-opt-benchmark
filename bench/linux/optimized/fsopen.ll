@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @legacy_fs_context_ops = external dso_local constant %struct.fs_context_operations, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @fscontext_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @fscontext_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 104
@@ -216,7 +216,7 @@ define dso_local i64 @__ia32_sys_fsopen(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_fspick(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_fspick(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -228,7 +228,7 @@ define dso_local i64 @__x64_sys_fspick(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_fspick(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fspick(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = trunc i64 %0 to i32
   %6 = inttoptr i64 %1 to ptr
@@ -324,7 +324,7 @@ define internal fastcc i64 @__se_sys_fspick(i64 noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_fspick(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fspick(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -355,7 +355,7 @@ define dso_local i64 @__x64_sys_fsconfig(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_fsconfig(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.fs_parameter, align 8
   %7 = trunc i64 %0 to i32
   %8 = trunc i64 %1 to i32

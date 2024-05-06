@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @vu_blk_virtio_process_req, ptr @.str.7, ptr @.str.8, i32 57, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @virtio_blk_process_req, ptr @.str.7, ptr @.str.9, i32 31, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.10, ptr @.str.11, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.12, ptr @.str.11, i32 85, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vu_blk_exp_create(ptr noundef %exp, ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
+define internal range(i32 -99, 1) i32 @vu_blk_exp_create(ptr noundef %exp, ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %u = getelementptr inbounds i8, ptr %opts, i64 48
@@ -281,7 +281,7 @@ declare ptr @bdrv_get_node_name(ptr noundef) local_unnamed_addr #1
 declare void @vu_config_change_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @vu_blk_get_features(ptr nocapture noundef readonly %dev) #3 {
+define internal range(i64 6174047814, 6174047847) i64 @vu_blk_get_features(ptr nocapture noundef readonly %dev) #3 {
 entry:
   %writable = getelementptr i8, ptr %dev, i64 1524
   %0 = load i8, ptr %writable, align 4
@@ -297,7 +297,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vu_blk_process_msg(ptr noundef %dev, ptr nocapture noundef readonly %vmsg, ptr nocapture readnone %do_reply) #0 {
+define internal range(i32 0, 2) i32 @vu_blk_process_msg(ptr noundef %dev, ptr nocapture noundef readonly %vmsg, ptr nocapture readnone %do_reply) #0 {
 entry:
   %0 = load i32, ptr %vmsg, align 1
   %cmp = icmp eq i32 %0, 0
@@ -332,7 +332,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @vu_blk_get_config(ptr nocapture noundef readonly %vu_dev, ptr nocapture noundef writeonly %config, i32 noundef %len) #5 {
+define internal range(i32 -1, 1) i32 @vu_blk_get_config(ptr nocapture noundef readonly %vu_dev, ptr nocapture noundef writeonly %config, i32 noundef %len) #5 {
 entry:
   %cmp = icmp ugt i32 %len, 96
   br i1 %cmp, label %return, label %if.end
@@ -349,7 +349,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vu_blk_set_config(ptr nocapture noundef %vu_dev, ptr nocapture noundef readonly %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #0 {
+define internal range(i32 -22, 1) i32 @vu_blk_set_config(ptr nocapture noundef %vu_dev, ptr nocapture noundef readonly %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #0 {
 entry:
   %cmp.not = icmp eq i32 %flags, 0
   br i1 %cmp.not, label %if.end, label %return

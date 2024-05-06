@@ -269,7 +269,7 @@ declare i64 @BUF_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i64 @BUF_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_TIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_TIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 ASN1_TIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #6

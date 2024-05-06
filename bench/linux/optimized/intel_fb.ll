@@ -65,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.42 = private unnamed_addr constant [55 x i8] c"attempting to use a userptr for a framebuffer, denied\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_fb_modifier_to_tiling(i64 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 3) i32 @intel_fb_modifier_to_tiling(i64 noundef %0) local_unnamed_addr #0 align 16 {
   br label %5
 
 2:                                                ; preds = %5
@@ -1140,7 +1140,7 @@ define dso_local i32 @skl_main_to_aux_plane(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_tile_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 2048, 4097) i32 @intel_tile_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2632
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 2
@@ -1149,7 +1149,7 @@ define dso_local i32 @intel_tile_size(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_tile_width_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 4097) i32 @intel_tile_width_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -1450,7 +1450,7 @@ define dso_local i32 @intel_tile_width_bytes(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_tile_height(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 4097) i32 @intel_tile_height(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2632
   %5 = load i16, ptr %4, align 8
@@ -1535,7 +1535,7 @@ define dso_local zeroext i1 @intel_fb_uses_dpt(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_cursor_alignment(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 32, 16385) i32 @intel_cursor_alignment(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7184
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64
@@ -2071,7 +2071,7 @@ define internal fastcc noundef i32 @intel_adjust_aligned_offset(ptr nocapture no
   br i1 %77, label %is_surface_linear.exit, label %is_surface_linear.exit.thread
 
 is_surface_linear.exit:                           ; preds = %43, %48, %72
-  %78 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef %2)
+  %78 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly %2)
   %79 = icmp eq i32 %78, %3
   br i1 %79, label %is_surface_linear.exit.thread, label %80
 
@@ -2316,7 +2316,7 @@ define internal fastcc i32 @intel_compute_aligned_offset(ptr nocapture noundef r
   br i1 %62, label %is_surface_linear.exit, label %is_surface_linear.exit.thread
 
 is_surface_linear.exit:                           ; preds = %28, %33, %57
-  %63 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef %3)
+  %63 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly %3)
   %64 = icmp eq i32 %63, %4
   br i1 %64, label %is_surface_linear.exit.thread, label %65
 
@@ -3409,7 +3409,7 @@ define dso_local noundef i32 @intel_fill_fb_info(ptr noundef readonly %0, ptr no
   br i1 %565, label %is_surface_linear.exit, label %is_surface_linear.exit.thread
 
 is_surface_linear.exit:                           ; preds = %533, %538, %562
-  %566 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef %1)
+  %566 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly %1)
   %567 = icmp eq i32 %566, %.pre155
   %.pre148 = load ptr, ptr %18, align 8
   br i1 %567, label %is_surface_linear.exit.thread, label %587
@@ -4420,7 +4420,7 @@ define dso_local void @intel_fb_fill_view(ptr nocapture noundef readonly %0, i32
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_plane_compute_gtt(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.fb_plane_view_dims, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -5230,7 +5230,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
   br i1 %157, label %is_surface_linear.exit, label %is_surface_linear.exit.thread
 
 is_surface_linear.exit:                           ; preds = %124, %129, %153
-  %158 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef %0)
+  %158 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly %0)
   %159 = icmp eq i32 %158, %112
   br i1 %159, label %is_surface_linear.exit.is_surface_linear.exit.thread_crit_edge, label %190
 

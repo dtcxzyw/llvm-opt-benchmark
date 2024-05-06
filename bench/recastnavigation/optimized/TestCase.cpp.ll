@@ -163,12 +163,12 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
   ]
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = trunc i8 %.01824.i to i1
+  %34 = trunc nuw i8 %.01824.i to i1
   %not..i = xor i1 %34, true
   br label %42
 
 35:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %36 = trunc i8 %.01824.i to i1
+  %36 = trunc nuw i8 %.01824.i to i1
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %35, %.lr.ph.i
@@ -929,10 +929,10 @@ define dso_local void @_ZN8TestCase12handleRenderEv(ptr nocapture noundef nonnul
   %139 = mul nuw nsw i64 %indvars.iv, 3
   %140 = getelementptr inbounds float, ptr %138, i64 %139
   %141 = load float, ptr %140, align 4
-  %142 = getelementptr i8, ptr %140, i64 4
+  %142 = getelementptr inbounds i8, ptr %140, i64 4
   %143 = load float, ptr %142, align 4
   %144 = fadd float %143, 0x3FD3333340000000
-  %145 = getelementptr i8, ptr %140, i64 8
+  %145 = getelementptr inbounds i8, ptr %140, i64 8
   %146 = load float, ptr %145, align 4
   tail call void @glVertex3f(float noundef %141, float noundef %144, float noundef %146)
   %147 = load ptr, ptr %136, align 8
@@ -940,10 +940,10 @@ define dso_local void @_ZN8TestCase12handleRenderEv(ptr nocapture noundef nonnul
   %148 = mul nuw nsw i64 %indvars.iv.next, 3
   %149 = getelementptr inbounds float, ptr %147, i64 %148
   %150 = load float, ptr %149, align 4
-  %151 = getelementptr i8, ptr %149, i64 4
+  %151 = getelementptr inbounds i8, ptr %149, i64 4
   %152 = load float, ptr %151, align 4
   %153 = fadd float %152, 0x3FD3333340000000
-  %154 = getelementptr i8, ptr %149, i64 8
+  %154 = getelementptr inbounds i8, ptr %149, i64 8
   %155 = load float, ptr %154, align 4
   tail call void @glVertex3f(float noundef %150, float noundef %153, float noundef %155)
   %156 = load i32, ptr %133, align 8

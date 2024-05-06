@@ -2256,17 +2256,17 @@ if.then12.i:                                      ; preds = %strbuf_setlen.exit1
   br i1 %tobool.not.i11.i, label %parse_schedule.exit.i, label %if.end.i12.i
 
 if.end.i12.i:                                     ; preds = %if.then12.i
-  %call.i13.i = call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.109) #23
+  %call.i13.i = call i32 @strcasecmp(ptr noundef nonnull readonly %11, ptr noundef nonnull @.str.109) #23
   %tobool1.not.i.i = icmp eq i32 %call.i13.i, 0
   br i1 %tobool1.not.i.i, label %parse_schedule.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i12.i
-  %call4.i.i = call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.110) #23
+  %call4.i.i = call i32 @strcasecmp(ptr noundef nonnull readonly %11, ptr noundef nonnull @.str.110) #23
   %tobool5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %tobool5.not.i.i, label %parse_schedule.exit.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end3.i.i
-  %call8.i.i = call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.111) #23
+  %call8.i.i = call i32 @strcasecmp(ptr noundef nonnull readonly %11, ptr noundef nonnull @.str.111) #23
   %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
   %..i.i = zext i1 %tobool9.not.i.i to i32
   br label %parse_schedule.exit.i
@@ -3159,12 +3159,12 @@ parse_schedule.exit.thread5:                      ; preds = %if.end
   br label %if.then3
 
 if.end.i:                                         ; preds = %if.end
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.109) #23
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.109) #23
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %parse_schedule.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.110) #23
+  %call4.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.110) #23
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %parse_schedule.exit.thread, label %parse_schedule.exit
 
@@ -3174,7 +3174,7 @@ parse_schedule.exit.thread:                       ; preds = %if.end.i, %if.end3.
   br label %if.end5
 
 parse_schedule.exit:                              ; preds = %if.end3.i
-  %call8.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.111) #23
+  %call8.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.111) #23
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   %..i = zext i1 %tobool9.not.i to i32
   store i32 %..i, ptr %0, align 4
@@ -4034,37 +4034,37 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.then1, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.12) #23
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.12) #23
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %parse_scheduler.exit.thread, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  %call4.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.165) #23
+  %call4.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.165) #23
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %parse_scheduler.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else3.i
-  %call6.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.166) #23
+  %call6.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.166) #23
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %parse_scheduler.exit.thread, label %if.else9.i
 
 if.else9.i:                                       ; preds = %lor.lhs.false.i
-  %call10.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.167) #23
+  %call10.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.167) #23
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %parse_scheduler.exit.thread, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %if.else9.i
-  %call13.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.168) #23
+  %call13.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.168) #23
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %parse_scheduler.exit.thread, label %if.else16.i
 
 if.else16.i:                                      ; preds = %lor.lhs.false12.i
-  %call17.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.169) #23
+  %call17.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.169) #23
   %tobool18.not.i = icmp eq i32 %call17.i, 0
   br i1 %tobool18.not.i, label %parse_scheduler.exit.thread, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else16.i
-  %call21.i = tail call i32 @strcasecmp(ptr noundef nonnull %arg, ptr noundef nonnull @.str.170) #23
+  %call21.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull @.str.170) #23
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %parse_scheduler.exit.thread, label %if.then1
 

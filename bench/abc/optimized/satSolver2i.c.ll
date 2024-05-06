@@ -29,7 +29,7 @@ define noalias noundef ptr @Int2_ManStart(ptr noundef %0, ptr nocapture noundef 
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #18
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %1, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr readonly align 4 %1, i64 %8, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %5, ptr %11, align 8
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
@@ -92,7 +92,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i20.i, %Vec_
 29:                                               ; preds = %26
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds i32, ptr %.val19.i, i64 %30
-  %32 = trunc i64 %indvars.iv.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %32, ptr %31, align 4
   br label %33
 
@@ -1320,7 +1320,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #19
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #19
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1339,7 +1339,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1350,16 +1350,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13

@@ -34,7 +34,7 @@ define void @ompi_set_group_rank(ptr nocapture noundef %0, ptr noundef readnone 
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %8
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %15, ptr %3, align 4
   br label %.loopexit
 

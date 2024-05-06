@@ -2765,7 +2765,7 @@ call6.i.noexc:                                    ; preds = %for.body.i
   br i1 %call6.i20, label %invoke.cont20, label %for.cond.i, !llvm.loop !17
 
 for.end.i:                                        ; preds = %for.cond.i
-  %call9.i21 = invoke noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager8is_proxyEP3appR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(72) %m_base_defs.i, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %e)
+  %call9.i21 = invoke noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager8is_proxyEP3appR7obj_refIS2_11ast_managerE(ptr noundef nonnull readonly align 8 dereferenceable(72) %m_base_defs.i, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %e)
           to label %invoke.cont12 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont12:                                    ; preds = %for.end.i
@@ -3132,7 +3132,7 @@ call6.i.noexc:                                    ; preds = %for.body.i
   br i1 %call6.i12, label %invoke.cont10, label %for.cond.i, !llvm.loop !17
 
 for.end.i:                                        ; preds = %for.cond.i
-  %call9.i13 = invoke noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager8is_proxyEP3appR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(72) %m_base_defs.i, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %e)
+  %call9.i13 = invoke noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager8is_proxyEP3appR7obj_refIS2_11ast_managerE(ptr noundef nonnull readonly align 8 dereferenceable(72) %m_base_defs.i, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %e)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
 
 invoke.cont4:                                     ; preds = %for.end.i
@@ -3565,7 +3565,7 @@ call6.i.noexc:                                    ; preds = %for.body.i
   br i1 %call6.i37, label %if.then, label %for.cond.i, !llvm.loop !17
 
 for.end.i:                                        ; preds = %for.cond.i
-  %call9.i38 = invoke noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager8is_proxyEP3appR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(72) %m_base_defs.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %def)
+  %call9.i38 = invoke noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager8is_proxyEP3appR7obj_refIS2_11ast_managerE(ptr noundef nonnull readonly align 8 dereferenceable(72) %m_base_defs.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %def)
           to label %invoke.cont9 unwind label %lpad8.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %for.end.i

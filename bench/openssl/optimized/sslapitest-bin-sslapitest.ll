@@ -1346,7 +1346,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1747,7 +1747,7 @@ declare ptr @test_mk_file_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_no_ems() #1 {
+define internal range(i32 0, 2) i32 @test_no_ems() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -1822,7 +1822,7 @@ end:                                              ; preds = %end.sink.split, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_large_message_tls() #1 {
+define internal range(i32 0, 2) i32 @test_large_message_tls() #1 {
 entry:
   %call = tail call ptr @TLS_server_method() #23
   %call1 = tail call ptr @TLS_client_method() #23
@@ -1831,7 +1831,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_large_message_tls_read_ahead() #1 {
+define internal range(i32 0, 2) i32 @test_large_message_tls_read_ahead() #1 {
 entry:
   %call = tail call ptr @TLS_server_method() #23
   %call1 = tail call ptr @TLS_client_method() #23
@@ -1840,7 +1840,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_large_message_dtls() #1 {
+define internal range(i32 0, 2) i32 @test_large_message_dtls() #1 {
 entry:
   %call = tail call ptr @DTLS_server_method() #23
   %call1 = tail call ptr @DTLS_client_method() #23
@@ -1851,7 +1851,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_large_app_data(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_large_app_data(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -2070,11 +2070,11 @@ return:                                           ; preds = %sw.epilog, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cleanse_plaintext() #1 {
+define internal range(i32 0, 2) i32 @test_cleanse_plaintext() #1 {
 entry:
   %call = tail call ptr @TLS_server_method() #23
   %call1 = tail call ptr @TLS_client_method() #23
-  %call2 = tail call fastcc i32 @execute_cleanse_plaintext(ptr noundef %call, ptr noundef %call1, i32 noundef 771, i32 noundef 771), !range !5
+  %call2 = tail call fastcc i32 @execute_cleanse_plaintext(ptr noundef %call, ptr noundef %call1, i32 noundef 771, i32 noundef 771)
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1785, ptr noundef nonnull @.str.165, i32 noundef %call2) #23
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -2082,7 +2082,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call4 = tail call ptr @TLS_server_method() #23
   %call5 = tail call ptr @TLS_client_method() #23
-  %call6 = tail call fastcc i32 @execute_cleanse_plaintext(ptr noundef %call4, ptr noundef %call5, i32 noundef 772, i32 noundef 772), !range !5
+  %call6 = tail call fastcc i32 @execute_cleanse_plaintext(ptr noundef %call4, ptr noundef %call5, i32 noundef 772, i32 noundef 772)
   %call9 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1794, ptr noundef nonnull @.str.166, i32 noundef %call6) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.end12
@@ -2090,7 +2090,7 @@ if.end:                                           ; preds = %entry
 if.end12:                                         ; preds = %if.end
   %call13 = tail call ptr @DTLS_server_method() #23
   %call14 = tail call ptr @DTLS_client_method() #23
-  %call15 = tail call fastcc i32 @execute_cleanse_plaintext(ptr noundef %call13, ptr noundef %call14, i32 noundef 65279, i32 noundef 0), !range !5
+  %call15 = tail call fastcc i32 @execute_cleanse_plaintext(ptr noundef %call13, ptr noundef %call14, i32 noundef 65279, i32 noundef 0)
   %call18 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1803, ptr noundef nonnull @.str.167, i32 noundef %call15) #23
   %tobool19.not = icmp ne i32 %call18, 0
   %. = zext i1 %tobool19.not to i32
@@ -2102,7 +2102,7 @@ return:                                           ; preds = %if.end12, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tlsext_status_type() #1 {
+define internal range(i32 0, 2) i32 @test_tlsext_status_type() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -2450,21 +2450,21 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stateful_tickets(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_stateful_tickets(i32 noundef %idx) #1 {
 entry:
-  %call = tail call fastcc i32 @test_tickets(i32 noundef 1, i32 noundef %idx), !range !5
+  %call = tail call fastcc i32 @test_tickets(i32 noundef 1, i32 noundef %idx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stateless_tickets(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_stateless_tickets(i32 noundef %idx) #1 {
 entry:
-  %call = tail call fastcc i32 @test_tickets(i32 noundef 0, i32 noundef %idx), !range !5
+  %call = tail call fastcc i32 @test_tickets(i32 noundef 0, i32 noundef %idx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_psk_tickets() #1 {
+define internal range(i32 0, 2) i32 @test_psk_tickets() #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -2603,7 +2603,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %spec.select12 = zext i1 %cmp to i32
-  %call3 = call fastcc i32 @setup_ticket_test(i32 noundef %spec.select12, i32 noundef %spec.select, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx), !range !5
+  %call3 = call fastcc i32 @setup_ticket_test(i32 noundef %spec.select12, i32 noundef %spec.select, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %end, label %if.end6
 
@@ -3139,7 +3139,7 @@ end:                                              ; preds = %if.end184, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ssl_set_bio(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_ssl_set_bio(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -3392,35 +3392,35 @@ end:                                              ; preds = %land.lhs.true85, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ssl_bio_pop_next_bio() #1 {
+define internal range(i32 0, 2) i32 @test_ssl_bio_pop_next_bio() #1 {
 entry:
-  %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ssl_bio_pop_ssl_bio() #1 {
+define internal range(i32 0, 2) i32 @test_ssl_bio_pop_ssl_bio() #1 {
 entry:
-  %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 1, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 1, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ssl_bio_change_rbio() #1 {
+define internal range(i32 0, 2) i32 @test_ssl_bio_change_rbio() #1 {
 entry:
-  %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ssl_bio_change_wbio() #1 {
+define internal range(i32 0, 2) i32 @test_ssl_bio_change_wbio() #1 {
 entry:
-  %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 2), !range !5
+  %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_set_sigalgs(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_set_sigalgs(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -3577,7 +3577,7 @@ return:                                           ; preds = %if.end, %entry, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_keylog() #1 {
+define internal range(i32 0, 2) i32 @test_keylog() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -3706,7 +3706,7 @@ if.end72:                                         ; preds = %lor.lhs.false67
   store i32 1, ptr %master_secret_count, align 4
   %18 = load ptr, ptr %clientssl, align 8
   %call73 = call ptr @SSL_get_session(ptr noundef %18) #23
-  %call74 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @client_log_buffer, ptr noundef %18, ptr noundef %call73, ptr noundef nonnull %expected), !range !5
+  %call74 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @client_log_buffer, ptr noundef %18, ptr noundef %call73, ptr noundef nonnull %expected)
   %call77 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 407, ptr noundef nonnull @.str.302, i32 noundef %call74) #23
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %end, label %if.end80
@@ -3715,7 +3715,7 @@ if.end80:                                         ; preds = %if.end72
   store i32 0, ptr %expected, align 4
   %19 = load ptr, ptr %serverssl, align 8
   %call82 = call ptr @SSL_get_session(ptr noundef %19) #23
-  %call83 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @server_log_buffer, ptr noundef %19, ptr noundef %call82, ptr noundef nonnull %expected), !range !5
+  %call83 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @server_log_buffer, ptr noundef %19, ptr noundef %call82, ptr noundef nonnull %expected)
   %call86 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 412, ptr noundef nonnull @.str.303, i32 noundef %call83) #23
   %tobool87.not = icmp ne i32 %call86, 0
   %spec.select = zext i1 %tobool87.not to i32
@@ -3739,7 +3739,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_keylog_no_master_key() #1 {
+define internal range(i32 0, 2) i32 @test_keylog_no_master_key() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -3854,7 +3854,7 @@ if.end61:                                         ; preds = %lor.lhs.false55
   store i32 1, ptr %exporter_secret_count, align 4
   %14 = load ptr, ptr %clientssl, align 8
   %call62 = call ptr @SSL_get_session(ptr noundef %14) #23
-  %call63 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @client_log_buffer, ptr noundef %14, ptr noundef %call62, ptr noundef nonnull %expected), !range !5
+  %call63 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @client_log_buffer, ptr noundef %14, ptr noundef %call62, ptr noundef nonnull %expected)
   %call66 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 486, ptr noundef nonnull @.str.302, i32 noundef %call63) #23
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %end, label %lor.lhs.false68
@@ -3862,7 +3862,7 @@ if.end61:                                         ; preds = %lor.lhs.false55
 lor.lhs.false68:                                  ; preds = %if.end61
   %15 = load ptr, ptr %serverssl, align 8
   %call69 = call ptr @SSL_get_session(ptr noundef %15) #23
-  %call70 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @server_log_buffer, ptr noundef %15, ptr noundef %call69, ptr noundef nonnull %expected), !range !5
+  %call70 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @server_log_buffer, ptr noundef %15, ptr noundef %call69, ptr noundef nonnull %expected)
   %call73 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 489, ptr noundef nonnull @.str.303, i32 noundef %call70) #23
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %end, label %if.end76
@@ -3951,7 +3951,7 @@ if.end118:                                        ; preds = %lor.lhs.false111
   store i32 1, ptr %early_exporter_secret_count, align 4
   %30 = load ptr, ptr %clientssl, align 8
   %call119 = call ptr @SSL_get_session(ptr noundef %30) #23
-  %call120 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @client_log_buffer, ptr noundef %30, ptr noundef %call119, ptr noundef nonnull %expected), !range !5
+  %call120 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @client_log_buffer, ptr noundef %30, ptr noundef %call119, ptr noundef nonnull %expected)
   %call123 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 525, ptr noundef nonnull @.str.302, i32 noundef %call120) #23
   %tobool124.not = icmp eq i32 %call123, 0
   br i1 %tobool124.not, label %end, label %lor.lhs.false125
@@ -3959,7 +3959,7 @@ if.end118:                                        ; preds = %lor.lhs.false111
 lor.lhs.false125:                                 ; preds = %if.end118
   %31 = load ptr, ptr %serverssl, align 8
   %call126 = call ptr @SSL_get_session(ptr noundef %31) #23
-  %call127 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @server_log_buffer, ptr noundef %31, ptr noundef %call126, ptr noundef nonnull %expected), !range !5
+  %call127 = call fastcc i32 @test_keylog_output(ptr noundef nonnull @server_log_buffer, ptr noundef %31, ptr noundef %call126, ptr noundef nonnull %expected)
   %call130 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 528, ptr noundef nonnull @.str.303, i32 noundef %call127) #23
   %tobool131.not = icmp ne i32 %call130, 0
   %spec.select = zext i1 %tobool131.not to i32
@@ -3985,7 +3985,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_client_cert_verify_cb() #1 {
+define internal range(i32 0, 2) i32 @test_client_cert_verify_cb() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -4158,7 +4158,7 @@ if.end89:                                         ; preds = %if.then87, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_build_cert_chain() #1 {
+define internal range(i32 0, 2) i32 @test_ssl_build_cert_chain() #1 {
 entry:
   %0 = load ptr, ptr @certsdir, align 8
   %call = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.357) #23
@@ -4215,7 +4215,7 @@ end:                                              ; preds = %if.end21, %if.end9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_ctx_build_cert_chain() #1 {
+define internal range(i32 0, 2) i32 @test_ssl_ctx_build_cert_chain() #1 {
 entry:
   %0 = load ptr, ptr @certsdir, align 8
   %call = tail call ptr @test_mk_file_path(ptr noundef %0, ptr noundef nonnull @.str.379) #23
@@ -4265,7 +4265,7 @@ end:                                              ; preds = %if.end16, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_client_hello_cb() #1 {
+define internal range(i32 0, 2) i32 @test_client_hello_cb() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -4355,7 +4355,7 @@ end:                                              ; preds = %lor.lhs.false25, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ccs_change_cipher() #1 {
+define internal range(i32 0, 2) i32 @test_ccs_change_cipher() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -4622,7 +4622,7 @@ if.else149:                                       ; preds = %if.end140
 for.inc:                                          ; preds = %if.then144, %if.else149
   %inc = add nuw nsw i32 %i.05, 1
   %exitcond.not = icmp eq i32 %inc, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
   %40 = load ptr, ptr %clientssl, align 8
@@ -4695,7 +4695,7 @@ end:                                              ; preds = %if.else149, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_read_write(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_read_write(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -4722,7 +4722,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %.sink = phi i32 [ %idx, %if.then ], [ 2, %entry ]
-  %call9 = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %.sink, i64 noundef 48), !range !5
+  %call9 = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %.sink, i64 noundef 48)
   %call2 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 3487, ptr noundef nonnull @.str.419, i32 noundef %call9) #23
   %tobool.not = icmp eq i32 %call2, 0
   store i32 0, ptr @artificial_ticket_time, align 4
@@ -5211,7 +5211,7 @@ end:                                              ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_replay(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_replay(i32 noundef %idx) #1 {
 entry:
   %usecb.addr.i = alloca i32, align 4
   %cctx.i = alloca ptr, align 8
@@ -5294,7 +5294,7 @@ if.end22.i:                                       ; preds = %if.end15.i, %if.the
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end22.i, %if.end.i
-  %call24.i = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx.i, ptr noundef nonnull %sctx.i, ptr noundef nonnull %clientssl.i, ptr noundef nonnull %serverssl.i, ptr noundef nonnull %sess.i, i32 noundef %idx, i64 noundef 48), !range !5
+  %call24.i = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx.i, ptr noundef nonnull %sctx.i, ptr noundef nonnull %clientssl.i, ptr noundef nonnull %serverssl.i, ptr noundef nonnull %sess.i, i32 noundef %idx, i64 noundef 48)
   %call27.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 3748, ptr noundef nonnull @.str.419, i32 noundef %call24.i) #23
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %end.i, label %if.end30.i
@@ -5476,67 +5476,67 @@ test_early_data_replay_int.exit:                  ; preds = %for.body3, %end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %written.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf.i)
   %and = and i32 %retval.0.i, %ret.16
-  br i1 %cmp7.i, label %for.body3, label %for.inc4, !llvm.loop !8
+  br i1 %cmp7.i, label %for.body3, label %for.inc4, !llvm.loop !7
 
 for.inc4:                                         ; preds = %test_early_data_replay_int.exit
   %inc5 = add nuw nsw i32 %usecb.010, 1
   %exitcond.not = icmp eq i32 %inc5, 3
-  br i1 %exitcond.not, label %for.end6, label %for.cond1.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end6, label %for.cond1.preheader, !llvm.loop !8
 
 for.end6:                                         ; preds = %for.inc4
   ret i32 %and
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_skip(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_skip(i32 noundef %idx) #1 {
 entry:
   %conv = sext i32 %idx to i64
   %rem = urem i64 %conv, 5
   %conv1 = trunc nuw nsw i64 %rem to i32
   %div = udiv i64 %conv, 5
   %conv3 = trunc i64 %div to i32
-  %call = tail call fastcc i32 @early_data_skip_helper(i32 noundef 0, i32 noundef %conv1, i32 noundef %conv3), !range !5
+  %call = tail call fastcc i32 @early_data_skip_helper(i32 noundef 0, i32 noundef %conv1, i32 noundef %conv3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_skip_hrr(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_skip_hrr(i32 noundef %idx) #1 {
 entry:
   %conv = sext i32 %idx to i64
   %rem = urem i64 %conv, 5
   %conv1 = trunc nuw nsw i64 %rem to i32
   %div = udiv i64 %conv, 5
   %conv3 = trunc i64 %div to i32
-  %call = tail call fastcc i32 @early_data_skip_helper(i32 noundef 1, i32 noundef %conv1, i32 noundef %conv3), !range !5
+  %call = tail call fastcc i32 @early_data_skip_helper(i32 noundef 1, i32 noundef %conv1, i32 noundef %conv3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_skip_hrr_fail(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_skip_hrr_fail(i32 noundef %idx) #1 {
 entry:
   %conv = sext i32 %idx to i64
   %rem = urem i64 %conv, 5
   %conv1 = trunc nuw nsw i64 %rem to i32
   %div = udiv i64 %conv, 5
   %conv3 = trunc i64 %div to i32
-  %call = tail call fastcc i32 @early_data_skip_helper(i32 noundef 2, i32 noundef %conv1, i32 noundef %conv3), !range !5
+  %call = tail call fastcc i32 @early_data_skip_helper(i32 noundef 2, i32 noundef %conv1, i32 noundef %conv3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_skip_abort(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_skip_abort(i32 noundef %idx) #1 {
 entry:
   %conv = sext i32 %idx to i64
   %rem = urem i64 %conv, 5
   %conv1 = trunc nuw nsw i64 %rem to i32
   %div = udiv i64 %conv, 5
   %conv3 = trunc i64 %div to i32
-  %call = tail call fastcc i32 @early_data_skip_helper(i32 noundef 3, i32 noundef %conv1, i32 noundef %conv3), !range !5
+  %call = tail call fastcc i32 @early_data_skip_helper(i32 noundef 3, i32 noundef %conv1, i32 noundef %conv3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_not_sent(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_not_sent(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -5551,7 +5551,7 @@ entry:
   store ptr null, ptr %clientssl, align 8
   store ptr null, ptr %serverssl, align 8
   store ptr null, ptr %sess, align 8
-  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %idx, i64 noundef 48), !range !5
+  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %idx, i64 noundef 48)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 4090, ptr noundef nonnull @.str.419, i32 noundef %call) #23
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %end, label %if.end
@@ -5674,7 +5674,7 @@ end:                                              ; preds = %lor.lhs.false57, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_early_data_psk(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_psk(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -5691,7 +5691,7 @@ entry:
   store ptr null, ptr %serverssl, align 8
   store ptr null, ptr %sess, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %alpnlist, ptr noundef nonnull align 16 dereferenceable(17) @__const.test_early_data_psk.alpnlist, i64 17, i1 false)
-  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef 2, i64 noundef 48), !range !5
+  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef 2, i64 noundef 48)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 4185, ptr noundef nonnull @.str.500, i32 noundef %call) #23
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %end, label %if.end
@@ -5977,7 +5977,7 @@ end:                                              ; preds = %if.end142, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_psk_with_all_ciphers(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_psk_with_all_ciphers(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -6000,7 +6000,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef 2, i64 noundef 48), !range !5
+  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef 2, i64 noundef 48)
   %call6 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 4385, ptr noundef nonnull @.str.500, i32 noundef %call) #23
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %end, label %if.end8
@@ -6174,7 +6174,7 @@ return:                                           ; preds = %entry, %if.end101
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_not_expected(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_not_expected(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -6189,7 +6189,7 @@ entry:
   store ptr null, ptr %clientssl, align 8
   store ptr null, ptr %serverssl, align 8
   store ptr null, ptr %sess, align 8
-  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %idx, i64 noundef 48), !range !5
+  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %idx, i64 noundef 48)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 4465, ptr noundef nonnull @.str.419, i32 noundef %call) #23
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %end, label %if.end
@@ -6291,7 +6291,7 @@ end:                                              ; preds = %lor.lhs.false44, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_tls1_2(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_early_data_tls1_2(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -6304,7 +6304,7 @@ entry:
   store ptr null, ptr %sctx, align 8
   store ptr null, ptr %clientssl, align 8
   store ptr null, ptr %serverssl, align 8
-  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef null, i32 noundef %idx, i64 noundef 48), !range !5
+  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef null, i32 noundef %idx, i64 noundef 48)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 4525, ptr noundef nonnull @.str.535, i32 noundef %call) #23
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %end, label %if.end
@@ -6443,7 +6443,7 @@ end:                                              ; preds = %lor.lhs.false69, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_set_ciphersuite(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_set_ciphersuite(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -6590,7 +6590,7 @@ end:                                              ; preds = %if.end105, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ciphersuite_change() #1 {
+define internal range(i32 0, 2) i32 @test_ciphersuite_change() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -6914,7 +6914,7 @@ end:                                              ; preds = %lor.lhs.false159, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_tls13_ciphersuite(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_tls13_ciphersuite(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -7150,12 +7150,12 @@ for.inc:                                          ; preds = %for.body6, %if.end1
   %.b33 = phi i1 [ true, %for.body6 ], [ %.b.pre, %if.end125 ]
   %inc = add nuw nsw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, 6
-  br i1 %exitcond.not, label %for.inc126, label %for.body6, !llvm.loop !10
+  br i1 %exitcond.not, label %for.inc126, label %for.body6, !llvm.loop !9
 
 for.inc126:                                       ; preds = %for.inc
   %inc127 = add nuw nsw i32 %max_ver.029, 1
   %exitcond31.not = icmp eq i32 %inc127, 773
-  br i1 %exitcond31.not, label %end, label %for.cond4.preheader, !llvm.loop !11
+  br i1 %exitcond31.not, label %end, label %for.cond4.preheader, !llvm.loop !10
 
 end:                                              ; preds = %for.inc126, %land.lhs.true121, %land.lhs.true109, %if.end98, %if.end91, %if.then76, %lor.lhs.false82, %if.then60, %lor.lhs.false66, %if.end51, %if.then36, %lor.lhs.false42, %if.then21, %lor.lhs.false, %if.end
   %testresult.0 = phi i32 [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %if.then21 ], [ 0, %lor.lhs.false42 ], [ 0, %if.then36 ], [ 0, %if.end51 ], [ 0, %lor.lhs.false66 ], [ 0, %if.then60 ], [ 0, %lor.lhs.false82 ], [ 0, %if.then76 ], [ 0, %if.end91 ], [ 0, %if.end98 ], [ 0, %land.lhs.true109 ], [ 0, %land.lhs.true121 ], [ 1, %for.inc126 ]
@@ -7171,7 +7171,7 @@ end:                                              ; preds = %for.inc126, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_tls13_psk(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_tls13_psk(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -7793,7 +7793,7 @@ end:                                              ; preds = %if.end356, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_tls13_no_dhe_kex(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_tls13_no_dhe_kex(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -7955,7 +7955,7 @@ for.body:                                         ; preds = %end, %for.body
   store ptr null, ptr %arrayidx81, align 8
   %inc = add nuw nsw i64 %j.07, 1
   %exitcond.not = icmp eq i64 %inc, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
   %37 = load ptr, ptr %sctx, align 8
@@ -7966,7 +7966,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_key_exchange(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_key_exchange(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -8224,7 +8224,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_negotiated_group(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_negotiated_group(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -8305,7 +8305,7 @@ if.end46:                                         ; preds = %if.end39
 if.end53:                                         ; preds = %if.end46
   %8 = load ptr, ptr %serverssl, align 8
   %9 = load ptr, ptr %clientssl, align 8
-  %call54 = call fastcc i32 @set_ssl_groups(ptr noundef %8, ptr noundef %9, i32 noundef %conv, i32 noundef %conv6, i32 noundef %spec.select), !range !5
+  %call54 = call fastcc i32 @set_ssl_groups(ptr noundef %8, ptr noundef %9, i32 noundef %conv, i32 noundef %conv6, i32 noundef %spec.select)
   %call57 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5115, ptr noundef nonnull @.str.621, i32 noundef %call54) #23
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %end, label %if.end60
@@ -8375,7 +8375,7 @@ lor.lhs.false91:                                  ; preds = %if.end83
 lor.lhs.false97:                                  ; preds = %lor.lhs.false91
   %22 = load ptr, ptr %serverssl, align 8
   %23 = load ptr, ptr %clientssl, align 8
-  %call98 = call fastcc i32 @set_ssl_groups(ptr noundef %22, ptr noundef %23, i32 noundef %conv, i32 noundef %conv6, i32 noundef %spec.select), !range !5
+  %call98 = call fastcc i32 @set_ssl_groups(ptr noundef %22, ptr noundef %23, i32 noundef %conv, i32 noundef %conv6, i32 noundef %spec.select)
   %call101 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5140, ptr noundef nonnull @.str.621, i32 noundef %call98) #23
   %tobool102.not = icmp eq i32 %call101, 0
   br i1 %tobool102.not, label %end, label %if.end104
@@ -8468,7 +8468,7 @@ lor.lhs.false161:                                 ; preds = %if.end155
 lor.lhs.false167:                                 ; preds = %lor.lhs.false161
   %36 = load ptr, ptr %serverssl, align 8
   %37 = load ptr, ptr %clientssl, align 8
-  %call168 = call fastcc i32 @set_ssl_groups(ptr noundef %36, ptr noundef %37, i32 noundef %conv, i32 noundef %conv6, i32 noundef %idx.addr.1), !range !5
+  %call168 = call fastcc i32 @set_ssl_groups(ptr noundef %36, ptr noundef %37, i32 noundef %conv, i32 noundef %conv6, i32 noundef %idx.addr.1)
   %call171 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5186, ptr noundef nonnull @.str.621, i32 noundef %call168) #23
   %tobool172.not = icmp eq i32 %call171, 0
   br i1 %tobool172.not, label %end, label %if.end174
@@ -8525,7 +8525,7 @@ end:                                              ; preds = %lor.lhs.false192, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_custom_exts(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_custom_exts(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -8941,7 +8941,7 @@ end:                                              ; preds = %if.end234, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stateless() #1 {
+define internal range(i32 0, 2) i32 @test_stateless() #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -9105,7 +9105,7 @@ end:                                              ; preds = %if.end37, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_pha_key_update() #1 {
+define internal range(i32 0, 2) i32 @test_pha_key_update() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -9247,7 +9247,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_export_key_mat(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_export_key_mat(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -9482,7 +9482,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_export_key_mat_early(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_export_key_mat_early(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -9501,7 +9501,7 @@ entry:
   store ptr null, ptr %clientssl, align 8
   store ptr null, ptr %serverssl, align 8
   store ptr null, ptr %sess, align 8
-  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %idx, i64 noundef 48), !range !5
+  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %idx, i64 noundef 48)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 6532, ptr noundef nonnull @.str.419, i32 noundef %call) #23
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %end, label %if.end
@@ -9595,7 +9595,7 @@ end:                                              ; preds = %lor.lhs.false45, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_key_update() #1 {
+define internal range(i32 0, 2) i32 @test_key_update() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -9646,7 +9646,7 @@ for.cond17.preheader:                             ; preds = %lor.lhs.false9, %lo
 for.cond17:                                       ; preds = %lor.lhs.false28
   %inc = add nuw nsw i32 %i.05, 1
   %exitcond.not = icmp eq i32 %inc, 40
-  br i1 %exitcond.not, label %for.end, label %for.body20, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body20, !llvm.loop !12
 
 for.body20:                                       ; preds = %for.cond17.preheader, %for.cond17
   %i.05 = phi i32 [ 0, %for.cond17.preheader ], [ %inc, %for.cond17 ]
@@ -9715,7 +9715,7 @@ end:                                              ; preds = %end.loopexit10.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_key_update_peer_in_write(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_key_update_peer_in_write(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -9921,7 +9921,7 @@ end:                                              ; preds = %lor.lhs.false141, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_key_update_peer_in_read(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_key_update_peer_in_read(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -10062,7 +10062,7 @@ end:                                              ; preds = %lor.lhs.false80, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_key_update_local_in_write(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_key_update_local_in_write(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -10228,7 +10228,7 @@ end:                                              ; preds = %lor.lhs.false104, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_key_update_local_in_read(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_key_update_local_in_read(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -10382,7 +10382,7 @@ end:                                              ; preds = %lor.lhs.false92, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ssl_clear(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_ssl_clear(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -10503,7 +10503,7 @@ end:                                              ; preds = %if.end31, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_max_fragment_len_ext(i32 noundef %idx_tst) #1 {
+define internal range(i32 0, 2) i32 @test_max_fragment_len_ext(i32 noundef %idx_tst) #1 {
 entry:
   %data.i = alloca ptr, align 8
   %ctx = alloca ptr, align 8
@@ -10803,7 +10803,7 @@ PACKET_get_length_prefixed_2.exit83.i:            ; preds = %if.end.i77.i, %lor.
 
 if.end63.i:                                       ; preds = %PACKET_get_length_prefixed_2.exit83.i
   %cmp64.i = icmp eq i32 %type.1160165.i, 1
-  br i1 %cmp64.i, label %if.then66.i, label %while.cond.i, !llvm.loop !14
+  br i1 %cmp64.i, label %if.then66.i, label %while.cond.i, !llvm.loop !13
 
 if.then66.i:                                      ; preds = %if.end63.i
   %conv68.i = trunc nuw nsw i64 %pkt3.sroa.5.1.i to i32
@@ -10860,7 +10860,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_srp(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_srp(i32 noundef %tst) #1 {
 entry:
   %verifier.i = alloca ptr, align 8
   %salt.i = alloca ptr, align 8
@@ -11052,7 +11052,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef 7305) #23
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 6
-  br i1 %exitcond.not.i, label %create_new_vfile.exit, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %create_new_vfile.exit, label %for.body.i, !llvm.loop !14
 
 create_new_vfile.exit:                            ; preds = %for.body.i, %end.thread.i, %end.i
   %out.09.i = phi ptr [ %call16.i20, %end.thread.i ], [ %out.0.i, %end.i ], [ %out.016.i, %for.body.i ]
@@ -11198,7 +11198,7 @@ end:                                              ; preds = %if.else101, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_info_callback(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_info_callback(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -11221,7 +11221,7 @@ entry:
 
 if.then3:                                         ; preds = %entry
   store ptr null, ptr %sess, align 8
-  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef 0, i64 noundef 48), !range !5
+  %call = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef 0, i64 noundef 48)
   %call5 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7661, ptr noundef nonnull @.str.766, i32 noundef %call) #23
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %end, label %if.end7
@@ -11422,7 +11422,7 @@ end:                                              ; preds = %end.sink.split, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_pending(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_ssl_pending(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -11582,14 +11582,14 @@ end:                                              ; preds = %lor.lhs.false71, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ssl_get_shared_ciphers(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_ssl_get_shared_ciphers(i32 noundef %tst) #1 {
 entry:
-  %call = tail call fastcc i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef 0), !range !5
+  %call = tail call fastcc i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call1 = tail call fastcc i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef 1), !range !5
+  %call1 = tail call fastcc i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef 1)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -11598,7 +11598,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ticket_callbacks(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_ticket_callbacks(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -11839,7 +11839,7 @@ end:                                              ; preds = %lor.lhs.false143, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_shutdown(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_shutdown(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -12192,7 +12192,7 @@ end:                                              ; preds = %if.else226, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_async_shutdown() #1 {
+define internal range(i32 0, 2) i32 @test_async_shutdown() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -12330,7 +12330,7 @@ end:                                              ; preds = %if.end63, %if.end28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_incorrect_shutdown(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_incorrect_shutdown(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -12432,16 +12432,16 @@ end:                                              ; preds = %land.lhs.true41, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_cert_cb(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_cert_cb(i32 noundef %tst) #1 {
 entry:
-  %call = tail call fastcc i32 @test_cert_cb_int(i32 noundef 771, i32 noundef %tst), !range !5
-  %call1 = tail call fastcc i32 @test_cert_cb_int(i32 noundef 772, i32 noundef %tst), !range !5
+  %call = tail call fastcc i32 @test_cert_cb_int(i32 noundef 771, i32 noundef %tst)
+  %call1 = tail call fastcc i32 @test_cert_cb_int(i32 noundef 772, i32 noundef %tst)
   %and2 = and i32 %call1, %call
   ret i32 %and2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_client_cert_cb(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_client_cert_cb(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -12505,16 +12505,16 @@ end:                                              ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ca_names(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_ca_names(i32 noundef %tst) #1 {
 entry:
-  %call = tail call fastcc i32 @test_ca_names_int(i32 noundef 771, i32 noundef %tst), !range !5
-  %call1 = tail call fastcc i32 @test_ca_names_int(i32 noundef 772, i32 noundef %tst), !range !5
+  %call = tail call fastcc i32 @test_ca_names_int(i32 noundef 771, i32 noundef %tst)
+  %call1 = tail call fastcc i32 @test_ca_names_int(i32 noundef 772, i32 noundef %tst)
   %and2 = and i32 %call1, %call
   ret i32 %and2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multiblock_write(i32 noundef %test_index) #1 {
+define internal range(i32 0, 2) i32 @test_multiblock_write(i32 noundef %test_index) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -12633,7 +12633,7 @@ if.end60:                                         ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %p.07, i64 %17
   %sub = sub i64 %len.08, %17
   %cmp52.not = icmp eq i64 %sub, 0
-  br i1 %cmp52.not, label %while.end, label %while.body, !llvm.loop !16
+  br i1 %cmp52.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %if.end60, %if.end51
   %call63 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 9087, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152, ptr noundef nonnull %msg, i64 noundef 4608, ptr noundef nonnull %buf, i64 noundef 4608) #23
@@ -12659,7 +12659,7 @@ return:                                           ; preds = %end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_servername(i32 noundef %tst) #1 {
+define internal range(i32 0, 2) i32 @test_servername(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -13184,7 +13184,7 @@ end:                                              ; preds = %if.end164, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pluggable_group(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_pluggable_group(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -13299,7 +13299,7 @@ end:                                              ; preds = %lor.lhs.false49, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_pluggable_signature(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_pluggable_signature(i32 noundef %idx) #1 {
 entry:
   %pkey.i = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -13588,7 +13588,7 @@ end:                                              ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_dup() #1 {
+define internal range(i32 0, 2) i32 @test_ssl_dup() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -13738,7 +13738,7 @@ end:                                              ; preds = %lor.lhs.false74, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_set_tmp_dh(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_set_tmp_dh(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -13944,7 +13944,7 @@ end:                                              ; preds = %if.end134, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dh_auto(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_dh_auto(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -14146,7 +14146,7 @@ end:                                              ; preds = %if.end82, %sw.bb14,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sni_tls13() #1 {
+define internal range(i32 0, 2) i32 @test_sni_tls13() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx2 = alloca ptr, align 8
@@ -14235,7 +14235,7 @@ end:                                              ; preds = %if.end34, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ticket_lifetime(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_ticket_lifetime(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -14321,7 +14321,7 @@ end:                                              ; preds = %if.else, %if.then29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_inherit_verify_param() #1 {
+define internal range(i32 0, 2) i32 @test_inherit_verify_param() #1 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr @TLS_server_method() #23
@@ -14371,7 +14371,7 @@ end:                                              ; preds = %if.end22, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_set_alpn() #1 {
+define internal range(i32 0, 2) i32 @test_set_alpn() #1 {
 entry:
   %bad0 = alloca [4 x i8], align 4
   %good = alloca [5 x i8], align 1
@@ -14552,7 +14552,7 @@ end:                                              ; preds = %if.end138, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_set_verify_cert_store_ssl_ctx() #1 {
+define internal range(i32 0, 2) i32 @test_set_verify_cert_store_ssl_ctx() #1 {
 entry:
   %store = alloca ptr, align 8
   %cstore = alloca ptr, align 8
@@ -14705,7 +14705,7 @@ end:                                              ; preds = %lor.lhs.false96, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_set_verify_cert_store_ssl() #1 {
+define internal range(i32 0, 2) i32 @test_set_verify_cert_store_ssl() #1 {
 entry:
   %store = alloca ptr, align 8
   %cstore = alloca ptr, align 8
@@ -14866,7 +14866,7 @@ end:                                              ; preds = %lor.lhs.false101, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_session_timeout(i32 %test) #1 {
+define internal range(i32 0, 2) i32 @test_session_timeout(i32 %test) #1 {
 entry:
   %call = tail call i64 @time(ptr noundef null) #23
   %0 = load ptr, ptr @libctx, align 8
@@ -15184,7 +15184,7 @@ end:                                              ; preds = %lor.lhs.false201, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_load_dhfile() #1 {
+define internal range(i32 0, 2) i32 @test_load_dhfile() #1 {
 entry:
   %0 = load ptr, ptr @dhfile, align 8
   %cmp = icmp eq ptr %0, null
@@ -15227,7 +15227,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_read_ahead_key_change() #1 {
+define internal range(i32 0, 2) i32 @test_read_ahead_key_change() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -15351,7 +15351,7 @@ end:                                              ; preds = %end.loopexit.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_tls13_record_padding(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_tls13_record_padding(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -15475,7 +15475,7 @@ if.end73:                                         ; preds = %if.end66
 for.cond:                                         ; preds = %if.end96
   %inc = add nuw nsw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.body:                                         ; preds = %if.end73, %for.cond
   %i.010 = phi i32 [ 0, %if.end73 ], [ %inc, %for.cond ]
@@ -15544,7 +15544,7 @@ end:                                              ; preds = %if.end96, %if.end86
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_serverinfo_custom(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_serverinfo_custom(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -15675,7 +15675,7 @@ end:                                              ; preds = %if.end46, %if.end24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pipelining(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_pipelining(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -15854,7 +15854,7 @@ for.inc:                                          ; preds = %for.body
   %add123 = add i64 %10, %offset.085
   %inc = add nuw nsw i32 %numreads.084, 1
   %cmp113 = icmp ult i64 %add123, %msglen.1
-  br i1 %cmp113, label %for.body, label %for.end, !llvm.loop !18
+  br i1 %cmp113, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc
   %cmp124 = icmp eq i32 %idx.addr.0, 4
@@ -15875,7 +15875,7 @@ lor.lhs.false136:                                 ; preds = %for.end
 for.cond142:                                      ; preds = %lor.lhs.false157
   %add163 = add nuw nsw i64 %offset.186, %fragsize.077
   %cmp143 = icmp ult i64 %add163, %msglen.1
-  br i1 %cmp143, label %for.body145, label %for.end164, !llvm.loop !19
+  br i1 %cmp143, label %for.body145, label %for.end164, !llvm.loop !18
 
 for.body145:                                      ; preds = %lor.lhs.false136, %for.cond142
   %offset.186 = phi i64 [ %add163, %for.cond142 ], [ 0, %lor.lhs.false136 ]
@@ -15977,7 +15977,7 @@ return:                                           ; preds = %if.end202, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_version(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_version(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -16250,7 +16250,7 @@ return:                                           ; preds = %end, %if.then, %sw.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rstate_string() #1 {
+define internal range(i32 0, 2) i32 @test_rstate_string() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -16386,7 +16386,7 @@ end:                                              ; preds = %lor.lhs.false63, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_handshake_retry(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_handshake_retry(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -16530,7 +16530,7 @@ end:                                              ; preds = %if.end60, %if.end36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_data_retry() #1 {
+define internal range(i32 0, 2) i32 @test_data_retry() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -16557,7 +16557,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i8 %conv, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %i.018, 1
   %exitcond.not = icmp eq i64 %inc, 1200
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1200) %outbuf, i8 0, i64 1200, i1 false)
@@ -16642,7 +16642,7 @@ for.cond50:                                       ; preds = %if.end85
   %conv57 = zext i1 %cmp56 to i32
   %call58 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 11309, ptr noundef nonnull @.str.1209, i32 noundef %conv57) #23
   %tobool59.not = icmp eq i32 %call58, 0
-  br i1 %tobool59.not, label %end, label %if.end61, !llvm.loop !21
+  br i1 %tobool59.not, label %end, label %if.end61, !llvm.loop !20
 
 if.end61:                                         ; preds = %for.cond50.preheader, %for.cond50
   %i.124 = phi i64 [ %inc92, %for.cond50 ], [ 0, %for.cond50.preheader ]
@@ -16700,7 +16700,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %sub = sub i64 1200, %add
   %call103 = call i32 @SSL_read_ex(ptr noundef %17, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %readbytes) #23
   %tobool104.not = icmp eq i32 %call103, 0
-  br i1 %tobool104.not, label %while.end, label %while.body, !llvm.loop !22
+  br i1 %tobool104.not, label %while.end, label %while.body, !llvm.loop !21
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %totread.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %add, %while.body ]
@@ -16796,7 +16796,7 @@ declare void @SSL_free(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_test_large_message(ptr noundef %smeth, ptr noundef %cmeth, i32 noundef %min_version, i32 noundef %read_ahead) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_test_large_message(ptr noundef %smeth, ptr noundef %cmeth, i32 noundef %min_version, i32 noundef %read_ahead) unnamed_addr #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -16907,7 +16907,7 @@ declare i32 @SSL_read_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) loc
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_cleanse_plaintext(ptr noundef %smeth, ptr noundef %cmeth, i32 noundef %min_version, i32 noundef %max_version) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_cleanse_plaintext(ptr noundef %smeth, ptr noundef %cmeth, i32 noundef %min_version, i32 noundef %max_version) unnamed_addr #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -16963,7 +16963,7 @@ for.body:                                         ; preds = %if.end15, %for.body
   store i8 %conv25, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, 16000
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body
   %8 = load ptr, ptr %clientssl, align 8
@@ -17065,7 +17065,7 @@ declare ptr @SSL_new(ptr noundef) local_unnamed_addr #2
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ocsp_client_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #1 {
+define internal range(i32 0, 2) i32 @ocsp_client_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #1 {
 entry:
   %respderin = alloca ptr, align 8
   %0 = load i32, ptr %arg, align 4
@@ -17090,7 +17090,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ocsp_server_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #1 {
+define internal range(i32 0, 3) i32 @ocsp_server_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #1 {
 entry:
   %ids = alloca ptr, align 8
   store ptr null, ptr %ids, align 8
@@ -17979,7 +17979,7 @@ declare i32 @test_long_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i6
 declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_tickets(i32 noundef %stateful, i32 noundef %idx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_tickets(i32 noundef %stateful, i32 noundef %idx) unnamed_addr #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -17991,7 +17991,7 @@ entry:
   store ptr null, ptr %clientssl, align 8
   store i32 0, ptr @new_called, align 4
   store i1 true, ptr @do_cache, align 4
-  %call = call fastcc i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx), !range !5
+  %call = call fastcc i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %end, label %if.end
 
@@ -18039,14 +18039,14 @@ if.end14:                                         ; preds = %lor.lhs.false
   store ptr null, ptr %cctx, align 8
   store ptr null, ptr %sctx, align 8
   store i1 false, ptr @do_cache, align 4
-  %call17 = call fastcc i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx), !range !5
+  %call17 = call fastcc i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %end, label %if.end20
 
 if.end20:                                         ; preds = %if.end14
   %11 = load ptr, ptr %sctx, align 8
   %12 = load ptr, ptr %cctx, align 8
-  %call21 = call fastcc i32 @check_resumption(i32 noundef %idx, ptr noundef %11, ptr noundef %12, i32 noundef 0), !range !5
+  %call21 = call fastcc i32 @check_resumption(i32 noundef %idx, ptr noundef %11, ptr noundef %12, i32 noundef 0)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %end, label %if.end24
 
@@ -18059,7 +18059,7 @@ if.end24:                                         ; preds = %if.end20
   call void @SSL_CTX_free(ptr noundef %14) #23
   store ptr null, ptr %cctx, align 8
   store ptr null, ptr %sctx, align 8
-  %call25 = call fastcc i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx), !range !5
+  %call25 = call fastcc i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %end, label %if.end28
 
@@ -18094,7 +18094,7 @@ lor.lhs.false41:                                  ; preds = %if.end35
 if.end45:                                         ; preds = %lor.lhs.false41
   %21 = load ptr, ptr %serverssl, align 8
   %22 = load ptr, ptr %clientssl, align 8
-  %call46 = call fastcc i32 @post_handshake_verify(ptr noundef %21, ptr noundef %22), !range !5
+  %call46 = call fastcc i32 @post_handshake_verify(ptr noundef %21, ptr noundef %22)
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %end, label %lor.lhs.false48
 
@@ -18119,7 +18119,7 @@ if.end52:                                         ; preds = %lor.lhs.false48
   store i1 false, ptr @do_cache, align 4
   %28 = load ptr, ptr %sctx, align 8
   %29 = load ptr, ptr %cctx, align 8
-  %call55 = call fastcc i32 @check_resumption(i32 noundef %idx, ptr noundef %28, ptr noundef %29, i32 noundef 1), !range !5
+  %call55 = call fastcc i32 @check_resumption(i32 noundef %idx, ptr noundef %28, ptr noundef %29, i32 noundef 1)
   br label %end
 
 end:                                              ; preds = %if.end52, %if.end45, %lor.lhs.false48, %if.end35, %lor.lhs.false41, %if.end28, %if.end24, %if.end20, %if.end14, %if.end5, %lor.lhs.false, %if.end, %entry
@@ -18138,7 +18138,7 @@ for.body:                                         ; preds = %end, %for.body
   store ptr null, ptr %arrayidx, align 8
   %inc = add nuw nsw i64 %j.013, 1
   %exitcond.not = icmp eq i64 %inc, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body
   %33 = load ptr, ptr %sctx, align 8
@@ -18149,7 +18149,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef %sctx, ptr noundef %cctx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef %sctx, ptr noundef %cctx) unnamed_addr #1 {
 entry:
   %sess_id_ctx = alloca i32, align 4
   store i32 1, ptr %sess_id_ctx, align 4
@@ -18208,7 +18208,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @SSL_shutdown(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_resumption(i32 noundef %idx, ptr noundef %sctx, ptr noundef %cctx, i32 noundef %succ) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @check_resumption(i32 noundef %idx, ptr noundef %sctx, ptr noundef %cctx, i32 noundef %succ) unnamed_addr #1 {
 entry:
   %serverssl = alloca ptr, align 8
   %clientssl = alloca ptr, align 8
@@ -18294,7 +18294,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false22
   store i32 0, ptr @new_called, align 4
   %8 = load ptr, ptr %serverssl, align 8
   %9 = load ptr, ptr %clientssl, align 8
-  %call39 = call fastcc i32 @post_handshake_verify(ptr noundef %8, ptr noundef %9), !range !5
+  %call39 = call fastcc i32 @post_handshake_verify(ptr noundef %8, ptr noundef %9)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %end, label %lor.lhs.false41
 
@@ -18320,7 +18320,7 @@ if.end45:                                         ; preds = %if.end37.thread, %l
   store ptr null, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !25
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !24
 
 end:                                              ; preds = %land.lhs.true, %lor.lhs.false41, %if.else, %lor.lhs.false32, %if.then16, %lor.lhs.false22, %if.end, %for.body, %lor.lhs.false
   %16 = load ptr, ptr %clientssl, align 8
@@ -18337,7 +18337,7 @@ return:                                           ; preds = %if.end45, %entry, %
 declare void @SSL_set_post_handshake_auth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @post_handshake_verify(ptr noundef %sssl, ptr noundef %cssl) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @post_handshake_verify(ptr noundef %sssl, ptr noundef %cssl) unnamed_addr #1 {
 entry:
   tail call void @SSL_set_verify(ptr noundef %sssl, i32 noundef 1, ptr noundef null) #23
   %call = tail call i32 @SSL_verify_client_post_handshake(ptr noundef %sssl) #23
@@ -18419,7 +18419,7 @@ declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare void @SSL_CTX_set_psk_use_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @use_session_cb(ptr nocapture readnone %ssl, ptr noundef readnone %md, ptr nocapture noundef writeonly %id, ptr nocapture noundef writeonly %idlen, ptr nocapture noundef writeonly %sess) #1 {
+define internal range(i32 0, 2) i32 @use_session_cb(ptr nocapture readnone %ssl, ptr noundef readnone %md, ptr nocapture noundef writeonly %id, ptr nocapture noundef writeonly %idlen, ptr nocapture noundef writeonly %sess) #1 {
 entry:
   %0 = load i32, ptr @use_session_cb_cnt, align 4
   %inc = add nsw i32 %0, 1
@@ -18462,7 +18462,7 @@ return:                                           ; preds = %entry, %sw.bb1, %sw
 declare void @SSL_CTX_set_psk_find_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @find_session_cb(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %identity, i64 noundef %identity_len, ptr nocapture noundef writeonly %sess) #1 {
+define internal range(i32 0, 2) i32 @find_session_cb(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %identity, i64 noundef %identity_len, ptr nocapture noundef writeonly %sess) #1 {
 entry:
   %0 = load i32, ptr @find_session_cb_cnt, align 4
   %inc = add nsw i32 %0, 1
@@ -18530,7 +18530,7 @@ declare ptr @BIO_s_mem() local_unnamed_addr #2
 declare void @SSL_set_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @execute_test_ssl_bio(i32 noundef %pop_ssl, i32 noundef %change_bio) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_test_ssl_bio(i32 noundef %pop_ssl, i32 noundef %change_bio) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr @TLS_method() #23
@@ -18683,7 +18683,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_keylog_output(ptr noundef %buffer, ptr noundef %ssl, ptr noundef %session, ptr nocapture noundef readonly %expected) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_keylog_output(ptr noundef %buffer, ptr noundef %ssl, ptr noundef %session, ptr nocapture noundef readonly %expected) unnamed_addr #1 {
 entry:
   %actual_client_random = alloca [32 x i8], align 16
   %actual_master_key = alloca [48 x i8], align 16
@@ -18755,7 +18755,7 @@ if.end28:                                         ; preds = %if.end23
   br i1 %tobool31.not, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end28
-  %call35 = call fastcc i32 @compare_hex_encoded_buffer(ptr noundef %call24, i64 noundef 64, ptr noundef nonnull %actual_client_random, i64 noundef %call19), !range !5
+  %call35 = call fastcc i32 @compare_hex_encoded_buffer(ptr noundef %call24, i64 noundef 64, ptr noundef nonnull %actual_client_random, i64 noundef %call19)
   %call37 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 257, ptr noundef nonnull @.str.314, i32 noundef %call35) #23
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %return, label %if.end40
@@ -18774,7 +18774,7 @@ if.end45:                                         ; preds = %if.end40
 
 if.end51:                                         ; preds = %if.end45
   %call52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41) #24
-  %call54 = call fastcc i32 @compare_hex_encoded_buffer(ptr noundef %call41, i64 noundef %call52, ptr noundef nonnull %actual_master_key, i64 noundef %call47), !range !5
+  %call54 = call fastcc i32 @compare_hex_encoded_buffer(ptr noundef %call41, i64 noundef %call52, ptr noundef nonnull %actual_master_key, i64 noundef %call47)
   %call57 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @.str.316, i32 noundef %call54) #23
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %return, label %if.end60
@@ -18895,7 +18895,7 @@ if.end148:                                        ; preds = %if.end143
   br i1 %tobool151.not, label %return, label %if.end153
 
 if.end153:                                        ; preds = %if.end148
-  %call155 = call fastcc i32 @compare_hex_encoded_buffer(ptr noundef %call144, i64 noundef 64, ptr noundef nonnull %actual_client_random, i64 noundef %call139), !range !5
+  %call155 = call fastcc i32 @compare_hex_encoded_buffer(ptr noundef %call144, i64 noundef 64, ptr noundef nonnull %actual_client_random, i64 noundef %call139)
   %call158 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 312, ptr noundef nonnull @.str.314, i32 noundef %call155) #23
   %tobool159.not = icmp eq i32 %call158, 0
   br i1 %tobool159.not, label %return, label %if.end161
@@ -18923,7 +18923,7 @@ for.inc:                                          ; preds = %if.end15, %if.end16
   %exporter_secret_count.2 = phi i32 [ %exporter_secret_count.080, %if.end15 ], [ %exporter_secret_count.080, %if.end60 ], [ %exporter_secret_count.1, %if.end161 ]
   %call171 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.306) #23
   %cmp.not = icmp eq ptr %call171, null
-  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !26
+  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !25
 
 for.end.loopexit:                                 ; preds = %for.inc
   %0 = zext i32 %rsa_key_exchange_count.1 to i64
@@ -19032,7 +19032,7 @@ declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_a
 declare i64 @SSL_get_client_random(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @compare_hex_encoded_buffer(ptr nocapture noundef readonly %hex_encoded, i64 noundef %hex_length, ptr nocapture noundef readonly %raw, i64 noundef %raw_length) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @compare_hex_encoded_buffer(ptr nocapture noundef readonly %hex_encoded, i64 noundef %hex_length, ptr nocapture noundef readonly %raw, i64 noundef %raw_length) unnamed_addr #1 {
 entry:
   %hexed = alloca [3 x i8], align 1
   %mul = shl i64 %raw_length, 1
@@ -19081,7 +19081,7 @@ for.inc:                                          ; preds = %lor.lhs.false
   %add = or disjoint i64 %add18, 1
   %cmp1 = icmp ult i64 %add, %hex_length
   %6 = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %6, label %for.body, label %return, !llvm.loop !27
+  br i1 %6, label %for.body, label %return, !llvm.loop !26
 
 return:                                           ; preds = %lor.lhs.false, %for.body, %for.inc, %for.cond.preheader, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 0, %for.cond.preheader ], [ 1, %lor.lhs.false ], [ 1, %for.body ], [ 0, %for.inc ]
@@ -19169,7 +19169,7 @@ declare i32 @SSL_check_private_key(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_default_passwd_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_password_cb(ptr nocapture noundef writeonly %buf, i32 noundef %size, i32 %rw_flag, ptr nocapture readnone %userdata) #1 {
+define internal range(i32 -1, 9) i32 @get_password_cb(ptr nocapture noundef writeonly %buf, i32 noundef %size, i32 %rw_flag, ptr nocapture readnone %userdata) #1 {
 entry:
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 675, ptr noundef nonnull @.str.385, ptr noundef nonnull @.str.386, i32 noundef %size, i32 noundef 1024) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -19187,7 +19187,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @SSL_CTX_set_client_hello_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @full_client_hello_callback(ptr noundef %s, ptr nocapture readnone %al, ptr nocapture noundef %arg) #1 {
+define internal range(i32 -1, 2) i32 @full_client_hello_callback(ptr noundef %s, ptr nocapture readnone %al, ptr nocapture noundef %arg) #1 {
 entry:
   %p = alloca ptr, align 8
   %exts = alloca ptr, align 8
@@ -19277,7 +19277,7 @@ declare i32 @test_ulong_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 declare i32 @test_ptr_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setupearly_data_test(ptr noundef %cctx, ptr noundef %sctx, ptr noundef %clientssl, ptr noundef %serverssl, ptr noundef %sess, i32 noundef %idx, i64 noundef %mdsize) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setupearly_data_test(ptr noundef %cctx, ptr noundef %sctx, ptr noundef %clientssl, ptr noundef %serverssl, ptr noundef %sess, i32 noundef %idx, i64 noundef %mdsize) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @artificial_ticket_time, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -19514,7 +19514,7 @@ declare i32 @SSL_accept(ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_CTX_set_session_ticket_cb(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed_gen_cb(ptr noundef %s, ptr nocapture readnone %arg) #1 {
+define internal range(i32 0, 2) i32 @ed_gen_cb(ptr noundef %s, ptr nocapture readnone %arg) #1 {
 entry:
   %call = tail call ptr @SSL_get_session(ptr noundef %s) #23
   %cmp = icmp eq ptr %call, null
@@ -19557,7 +19557,7 @@ declare void @SSL_CONF_CTX_free(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_allow_early_data_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal i32 @allow_early_data_cb(ptr nocapture readnone %s, ptr nocapture noundef readonly %arg) #12 {
+define internal range(i32 0, 2) i32 @allow_early_data_cb(ptr nocapture readnone %s, ptr nocapture noundef readonly %arg) #12 {
 entry:
   %0 = load i32, ptr @allow_ed_cb_called, align 4
   %inc = add nsw i32 %0, 1
@@ -19569,7 +19569,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @early_data_skip_helper(i32 noundef %testtype, i32 noundef %cipher, i32 noundef %idx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @early_data_skip_helper(i32 noundef %testtype, i32 noundef %cipher, i32 noundef %idx) unnamed_addr #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -19638,7 +19638,7 @@ lor.lhs.false:                                    ; preds = %if.end11
 if.end25:                                         ; preds = %lor.lhs.false
   %cmp26 = icmp eq i32 %cipher, 2
   %cond = select i1 %cmp26, i64 48, i64 32
-  %call29 = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %idx, i64 noundef %cond), !range !5
+  %call29 = call fastcc i32 @setupearly_data_test(ptr noundef nonnull %cctx, ptr noundef nonnull %sctx, ptr noundef nonnull %clientssl, ptr noundef nonnull %serverssl, ptr noundef nonnull %sess, i32 noundef %idx, i64 noundef %cond)
   %call32 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 3886, ptr noundef nonnull @.str.482, i32 noundef %call29) #23
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %end, label %if.end35
@@ -19883,7 +19883,7 @@ declare i32 @SSL_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @SSL_SESSION_set_protocol_version(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hostname_cb(ptr noundef %s, ptr nocapture readnone %al, ptr nocapture readnone %arg) #1 {
+define internal range(i32 0, 4) i32 @hostname_cb(ptr noundef %s, ptr nocapture readnone %al, ptr nocapture readnone %arg) #1 {
 entry:
   %call = tail call ptr @SSL_get_servername(ptr noundef %s, i32 noundef 0) #23
   %cmp.not = icmp eq ptr %call, null
@@ -19910,7 +19910,7 @@ return:                                           ; preds = %land.lhs.true, %lor
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @alpn_select_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture readnone %arg) #14 {
+define internal range(i32 0, 4) i32 @alpn_select_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture readnone %arg) #14 {
 entry:
   %idx.ext = zext i32 %inlen to i64
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
@@ -19947,7 +19947,7 @@ if.then14:                                        ; preds = %land.lhs.true
 
 for.inc:                                          ; preds = %if.end, %land.lhs.true
   %cmp = icmp ult ptr %add.ptr4, %add.ptr
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !28
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !27
 
 return:                                           ; preds = %for.body, %for.inc, %entry, %if.then14
   %retval.0 = phi i32 [ 0, %if.then14 ], [ 3, %entry ], [ 3, %for.inc ], [ 3, %for.body ]
@@ -20063,7 +20063,7 @@ declare ptr @SSL_group_to_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @SSL_get0_group_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_ssl_groups(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %clientmulti, i32 noundef %isecdhe, i32 noundef %idx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @set_ssl_groups(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %clientmulti, i32 noundef %isecdhe, i32 noundef %idx) unnamed_addr #1 {
 entry:
   %kexch_alg = alloca i32, align 4
   %tobool.not = icmp eq i32 %isecdhe, 0
@@ -20153,7 +20153,7 @@ declare i32 @SSL_CTX_use_certificate_file(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @SSL_CTX_add_client_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @old_add_cb(ptr noundef %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #1 {
+define internal range(i32 -1, 2) i32 @old_add_cb(ptr noundef %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #1 {
 entry:
   %call = tail call i32 @SSL_is_server(ptr noundef %s) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -20190,7 +20190,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @old_parse_cb(ptr noundef %s, i32 %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture noundef readonly %parse_arg) #1 {
+define internal range(i32 -1, 2) i32 @old_parse_cb(ptr noundef %s, i32 %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture noundef readonly %parse_arg) #1 {
 entry:
   %call = tail call i32 @SSL_is_server(ptr noundef %s) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -20219,7 +20219,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 declare i32 @SSL_CTX_add_custom_ext(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @new_add_cb(ptr noundef %s, i32 %ext_type, i32 %context, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #1 {
+define internal range(i32 -1, 2) i32 @new_add_cb(ptr noundef %s, i32 %ext_type, i32 %context, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #1 {
 entry:
   %call = tail call i32 @SSL_is_server(ptr noundef %s) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -20256,7 +20256,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @new_parse_cb(ptr noundef %s, i32 %ext_type, i32 %context, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %parse_arg) #1 {
+define internal range(i32 -1, 2) i32 @new_parse_cb(ptr noundef %s, i32 %ext_type, i32 %context, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %parse_arg) #1 {
 entry:
   %call = tail call i32 @SSL_is_server(ptr noundef %s) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -20285,7 +20285,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sni_cb(ptr noundef %s, ptr nocapture noundef writeonly %al, ptr noundef %arg) #1 {
+define internal range(i32 0, 3) i32 @sni_cb(ptr noundef %s, ptr nocapture noundef writeonly %al, ptr noundef %arg) #1 {
 entry:
   %call = tail call ptr @SSL_set_SSL_CTX(ptr noundef %s, ptr noundef %arg) #23
   %cmp = icmp eq ptr %call, null
@@ -20319,7 +20319,7 @@ declare void @SSL_CTX_set_stateless_cookie_generate_cb(ptr noundef, ptr noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @generate_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #15 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %cookie, ptr noundef nonnull align 1 dereferenceable(12) @cookie_magic_value, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(12) %cookie, ptr noundef nonnull align 1 dereferenceable(12) @cookie_magic_value, i64 12, i1 false)
   store i64 12, ptr %cookie_len, align 8
   ret i32 1
 }
@@ -20327,14 +20327,14 @@ entry:
 declare void @SSL_CTX_set_stateless_cookie_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @verify_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) #16 {
+define internal range(i32 0, 2) i32 @verify_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) #16 {
 entry:
   %0 = and i64 %cookie_len, 4294967295
   %cmp.i = icmp eq i64 %0, 12
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %cookie, ptr noundef nonnull dereferenceable(12) @cookie_magic_value, i64 12)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %cookie, ptr noundef nonnull dereferenceable(12) @cookie_magic_value, i64 12)
   %cmp3.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp3.i, label %verify_cookie_callback.exit, label %if.end.i
 
@@ -20380,7 +20380,7 @@ declare i32 @SRP_VBASE_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_CTX_set_srp_username_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_srp_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture readnone %arg) #1 {
+define internal range(i32 0, 3) i32 @ssl_srp_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture readnone %arg) #1 {
 entry:
   %call = tail call ptr @SSL_get_srp_username(ptr noundef %s) #23
   %cmp = icmp eq ptr %call, null
@@ -20561,7 +20561,7 @@ declare i32 @SSL_pending(ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_has_pending(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef %clnt) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef %clnt) unnamed_addr #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -20732,7 +20732,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dec_tick_cb(ptr nocapture readnone %s, ptr noundef %ss, ptr nocapture readnone %keyname, i64 %keyname_length, i32 noundef %status, ptr nocapture readnone %arg) #1 {
+define internal range(i32 0, 5) i32 @dec_tick_cb(ptr nocapture readnone %s, ptr noundef %ss, ptr nocapture readnone %keyname, i64 %keyname_length, i32 noundef %status, ptr nocapture readnone %arg) #1 {
 entry:
   %tickdata = alloca ptr, align 8
   %tickdlen = alloca i64, align 8
@@ -20793,7 +20793,7 @@ return:                                           ; preds = %if.then21, %if.end5
 declare i32 @SSL_CTX_set_tlsext_ticket_key_evp_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tick_key_evp_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %key_name, ptr noundef %iv, ptr noundef %ctx, ptr noundef %hctx, i32 noundef %enc) #1 {
+define internal range(i32 -1, 3) i32 @tick_key_evp_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %key_name, ptr noundef %iv, ptr noundef %ctx, ptr noundef %hctx, i32 noundef %enc) #1 {
 entry:
   %tick_aes_key = alloca [16 x i8], align 16
   %tick_hmac_key = alloca [16 x i8], align 16
@@ -20852,7 +20852,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tick_key_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %key_name, ptr noundef %iv, ptr noundef %ctx, ptr noundef %hctx, i32 noundef %enc) #1 {
+define internal range(i32 -1, 3) i32 @tick_key_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %key_name, ptr noundef %iv, ptr noundef %ctx, ptr noundef %hctx, i32 noundef %enc) #1 {
 entry:
   %tick_aes_key = alloca [16 x i8], align 16
   %tick_hmac_key = alloca [16 x i8], align 16
@@ -20943,7 +20943,7 @@ declare i32 @SSL_SESSION_is_resumable(ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_get_shutdown(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_cert_cb_int(i32 noundef %prot, i32 noundef %tst) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_cert_cb_int(i32 noundef %prot, i32 noundef %tst) unnamed_addr #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -21088,7 +21088,7 @@ end:                                              ; preds = %cond.end, %land.lhs
 declare void @SSL_CTX_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cert_cb(ptr noundef %s, ptr noundef %arg) #1 {
+define internal range(i32 -1, 2) i32 @cert_cb(ptr noundef %s, ptr noundef %arg) #1 {
 entry:
   %x509 = alloca ptr, align 8
   %rootx = alloca ptr, align 8
@@ -21319,7 +21319,7 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_client_cert_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @client_cert_cb(ptr noundef %ssl, ptr nocapture noundef writeonly %x509, ptr nocapture noundef writeonly %pkey) #1 {
+define internal range(i32 0, 2) i32 @client_cert_cb(ptr noundef %ssl, ptr nocapture noundef writeonly %x509, ptr nocapture noundef writeonly %pkey) #1 {
 entry:
   %xcert = alloca ptr, align 8
   %call = tail call ptr @SSL_get0_peer_certificate(ptr noundef %ssl) #23
@@ -21389,7 +21389,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @SSL_get0_peer_certificate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_ca_names_int(i32 noundef %prot, i32 noundef %tst) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_ca_names_int(i32 noundef %prot, i32 noundef %tst) unnamed_addr #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -21406,7 +21406,7 @@ entry:
 for.cond:                                         ; preds = %lor.lhs.false
   %inc = add nuw nsw i64 %i.042, 1
   %exitcond.not = icmp eq i64 %inc, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.042 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
@@ -21684,7 +21684,7 @@ for.body213:                                      ; preds = %end, %for.body213
   call void @X509_NAME_free(ptr noundef %28) #23
   %inc216 = add nuw nsw i64 %i.143, 1
   %exitcond44.not = icmp eq i64 %inc216, 4
-  br i1 %exitcond44.not, label %for.end217, label %for.body213, !llvm.loop !30
+  br i1 %exitcond44.not, label %for.end217, label %for.body213, !llvm.loop !29
 
 for.end217:                                       ; preds = %for.body213
   call void @OPENSSL_sk_pop_free(ptr noundef %sk1.2, ptr noundef nonnull @X509_NAME_free) #23
@@ -22145,29 +22145,28 @@ attributes #25 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}

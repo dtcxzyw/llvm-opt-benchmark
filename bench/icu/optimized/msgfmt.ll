@@ -1356,7 +1356,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7513MessageFormat16allocateArgTypesEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %capacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513MessageFormat16allocateArgTypesEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %capacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2085,7 +2085,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %this, i32 noundef %partIndex) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %this, i32 noundef %partIndex) local_unnamed_addr #9 align 2 {
 entry:
   %cmp.not = icmp eq i32 %partIndex, 0
   %parts.i.i5.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 640
@@ -2210,7 +2210,7 @@ declare i32 @uhash_hashLong_75(ptr) #5
 declare signext i8 @uhash_compareLong_75(ptr, ptr) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL19equalFormatsForHash8UElementS_(ptr %key1.coerce, ptr %key2.coerce) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL19equalFormatsForHash8UElementS_(ptr %key1.coerce, ptr %key2.coerce) #1 {
 entry:
   %vtable.i = load ptr, ptr %key1.coerce, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
@@ -3748,7 +3748,7 @@ if.end.i:                                         ; preds = %entry
   store ptr %usapp.i, ptr %app.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %app.i, i64 8
   store i32 0, ptr %len.i.i, align 8
-  invoke void @_ZNK6icu_7513MessageFormat6formatEiPKvPKNS_11FormattableEPKNS_13UnicodeStringEiRNS_17AppendableWrapperEPNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef 0, ptr noundef null, ptr noundef %source, ptr noundef null, i32 noundef %cnt, ptr noundef nonnull align 8 dereferenceable(12) %app.i, ptr noundef nonnull %ignore, ptr noundef nonnull align 4 dereferenceable(4) %success)
+  invoke void @_ZNK6icu_7513MessageFormat6formatEiPKvPKNS_11FormattableEPKNS_13UnicodeStringEiRNS_17AppendableWrapperEPNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef 0, ptr noundef null, ptr noundef %source, ptr noundef null, i32 noundef %cnt, ptr noundef nonnull align 8 dereferenceable(12) %app.i, ptr noundef nonnull readnone %ignore, ptr noundef nonnull align 4 dereferenceable(4) %success)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.end.i
@@ -3820,7 +3820,7 @@ if.end.i:                                         ; preds = %entry
   store ptr %usapp.i, ptr %app.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %app.i, i64 8
   store i32 0, ptr %len.i.i, align 8
-  invoke void @_ZNK6icu_7513MessageFormat6formatEiPKvPKNS_11FormattableEPKNS_13UnicodeStringEiRNS_17AppendableWrapperEPNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %temp, i32 noundef 0, ptr noundef null, ptr noundef %arguments, ptr noundef null, i32 noundef %cnt, ptr noundef nonnull align 8 dereferenceable(12) %app.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %success)
+  invoke void @_ZNK6icu_7513MessageFormat6formatEiPKvPKNS_11FormattableEPKNS_13UnicodeStringEiRNS_17AppendableWrapperEPNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %temp, i32 noundef 0, ptr noundef null, ptr noundef %arguments, ptr noundef null, i32 noundef %cnt, ptr noundef nonnull align 8 dereferenceable(12) %app.i, ptr noundef readnone null, ptr noundef nonnull align 4 dereferenceable(4) %success)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.end.i
@@ -3877,7 +3877,7 @@ if.end.i:                                         ; preds = %if.end4
   store ptr %usapp.i, ptr %app.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %app.i, i64 8
   store i32 0, ptr %len.i.i, align 8
-  invoke void @_ZNK6icu_7513MessageFormat6formatEiPKvPKNS_11FormattableEPKNS_13UnicodeStringEiRNS_17AppendableWrapperEPNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef 0, ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %app.i, ptr noundef nonnull %ignore, ptr noundef nonnull align 4 dereferenceable(4) %success)
+  invoke void @_ZNK6icu_7513MessageFormat6formatEiPKvPKNS_11FormattableEPKNS_13UnicodeStringEiRNS_17AppendableWrapperEPNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef 0, ptr noundef null, ptr noundef %2, ptr noundef null, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %app.i, ptr noundef nonnull readnone %ignore, ptr noundef nonnull align 4 dereferenceable(4) %success)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.end.i
@@ -3919,7 +3919,7 @@ if.end.i:                                         ; preds = %entry
   store ptr %usapp.i, ptr %app.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %app.i, i64 8
   store i32 0, ptr %len.i.i, align 8
-  invoke void @_ZNK6icu_7513MessageFormat6formatEiPKvPKNS_11FormattableEPKNS_13UnicodeStringEiRNS_17AppendableWrapperEPNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef 0, ptr noundef null, ptr noundef %arguments, ptr noundef %argumentNames, i32 noundef %count, ptr noundef nonnull align 8 dereferenceable(12) %app.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %success)
+  invoke void @_ZNK6icu_7513MessageFormat6formatEiPKvPKNS_11FormattableEPKNS_13UnicodeStringEiRNS_17AppendableWrapperEPNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef 0, ptr noundef null, ptr noundef %arguments, ptr noundef %argumentNames, i32 noundef %count, ptr noundef nonnull align 8 dereferenceable(12) %app.i, ptr noundef readnone null, ptr noundef nonnull align 4 dereferenceable(4) %success)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.end.i
@@ -5536,7 +5536,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7513MessageFormat19findOtherSubMessageEi(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %partIndex) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7513MessageFormat19findOtherSubMessageEi(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %partIndex) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %other = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -5661,7 +5661,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7513MessageFormat24findFirstPluralNumberArgEiRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %msgStart, ptr noundef nonnull align 8 dereferenceable(64) %argName) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7513MessageFormat24findFirstPluralNumberArgEiRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %msgStart, ptr noundef nonnull align 8 dereferenceable(64) %argName) local_unnamed_addr #1 align 2 {
 entry:
   %parts.i = getelementptr inbounds i8, ptr %this, i64 640
   %fUnion.i = getelementptr inbounds i8, ptr %argName, i64 8
@@ -7273,7 +7273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7513MessageFormat12equalFormatsEPKvS2_(ptr noundef %left, ptr noundef %right) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513MessageFormat12equalFormatsEPKvS2_(ptr noundef %left, ptr noundef %right) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %left, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -7584,11 +7584,11 @@ if.end12:                                         ; preds = %if.then2, %if.end
   %msgFormat13 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %msgFormat13, align 8
   %12 = load i32, ptr %ctx, align 8
-  %call14 = tail call noundef i32 @_ZNK6icu_7513MessageFormat19findOtherSubMessageEi(ptr noundef nonnull align 8 dereferenceable(816) %11, i32 noundef %12), !range !51
+  %call14 = tail call noundef i32 @_ZNK6icu_7513MessageFormat19findOtherSubMessageEi(ptr noundef nonnull align 8 dereferenceable(816) %11, i32 noundef %12)
   %13 = load ptr, ptr %msgFormat13, align 8
   %argName = getelementptr inbounds i8, ptr %ctx, i64 8
   %14 = load ptr, ptr %argName, align 8
-  %call16 = tail call noundef i32 @_ZNK6icu_7513MessageFormat24findFirstPluralNumberArgEiRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(816) %13, i32 noundef %call14, ptr noundef nonnull align 8 dereferenceable(64) %14), !range !51
+  %call16 = tail call noundef i32 @_ZNK6icu_7513MessageFormat24findFirstPluralNumberArgEiRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(816) %13, i32 noundef %call14, ptr noundef nonnull align 8 dereferenceable(64) %14)
   %numberArgIndex = getelementptr inbounds i8, ptr %ctx, i64 136
   store i32 %call16, ptr %numberArgIndex, align 8
   %cmp18 = icmp sgt i32 %call16, 0
@@ -7928,4 +7928,3 @@ attributes #22 = { allocsize(1) }
 !48 = distinct !{!48, !"_ZNK6icu_7513MessageFormat33getLiteralStringUntilNextArgumentEi"}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
-!51 = !{i32 -2147483647, i32 -2147483648}

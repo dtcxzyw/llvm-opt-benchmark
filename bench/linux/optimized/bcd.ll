@@ -11,7 +11,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol__bin2bcd: ; 
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable__bcd2bin0, ptr @__UNIQUE_ID___addressable__bin2bcd1], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @_bcd2bin(i8 noundef zeroext %0) #0 align 16 {
+define dso_local range(i32 0, 166) i32 @_bcd2bin(i8 noundef zeroext %0) #0 align 16 {
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 4
   %4 = mul nsw i32 %3, -6

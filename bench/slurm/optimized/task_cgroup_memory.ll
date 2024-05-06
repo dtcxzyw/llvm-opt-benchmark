@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [62 x i8] c"%s: %s: %s: alloc=%luMB mem.limit=%luMB memsw.limit=unlimited\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
   %1 = tail call i32 @cgroup_g_initialize(i32 noundef 2) #4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %58
@@ -99,12 +99,12 @@ define noundef i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
   %37 = load float, ptr @allowed_ram_space, align 4
   %38 = fpext float %37 to double
   %39 = load i8, ptr @constrain_ram_space, align 1
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = select i1 %40, ptr @.str.2, ptr @.str.3
   %42 = load float, ptr @allowed_swap_space, align 4
   %43 = fpext float %42 to double
   %44 = load i8, ptr @constrain_swap_space, align 1
-  %45 = trunc i8 %44 to i1
+  %45 = trunc nuw i8 %44 to i1
   %46 = select i1 %45, ptr @.str.2, ptr @.str.3
   %47 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
   %48 = fpext float %47 to double
@@ -190,7 +190,7 @@ define i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @cgroup_g_step_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_memcg_initialize(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_memcg_initialize(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.cgroup_limits_t, align 8
   %4 = icmp eq i64 %0, 0
   br i1 %4, label %5, label %11
@@ -256,7 +256,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %.022 = phi i64 [ %.0.i2912, %swap_limit_in_bytes.exit ], [ %.0.i410, %36 ], [ %.0.i410, %33 ]
   call void @cgroup_init_limits(ptr noundef nonnull %3) #4
   %39 = load i8, ptr @constrain_ram_space, align 1
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %spec.select = select i1 %40, i64 %.0.i410, i64 %.0.i31
   %41 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 %spec.select, ptr %41, align 8
@@ -267,7 +267,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %44 = getelementptr inbounds i8, ptr %3, i64 88
   store i64 -2, ptr %44, align 8
   %45 = load i8, ptr @constrain_swap_space, align 1
-  %46 = trunc i8 %45 to i1
+  %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %56
 
 47:                                               ; preds = %38
@@ -326,7 +326,7 @@ declare i32 @getpid() local_unnamed_addr #2
 declare i32 @cgroup_g_step_addto(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @task_cgroup_memory_check_oom(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.b10 = load i1, ptr @oom_mgr_started, align 1
   br i1 %.b10, label %3, label %40

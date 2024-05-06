@@ -868,7 +868,7 @@ define hidden void @proto_register_frame() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = getelementptr %struct._value_string, ptr %11, i64 %indvars.iv
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
   %15 = tail call ptr @wtap_encap_description(i32 noundef %14) #5
   %16 = getelementptr inbounds i8, ptr %13, i64 8
@@ -3141,7 +3141,7 @@ declare void @proto_set_cant_toggle(i32 noundef) local_unnamed_addr #1
 declare void @register_seq_analysis(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @frame_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @frame_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
   %6 = tail call ptr @sequence_analysis_create_sai_with_addresses(ptr noundef %1, ptr noundef %0) #5
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7

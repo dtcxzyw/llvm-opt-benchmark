@@ -42,7 +42,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load ptr, ptr %m_nodes, align 8
   %3 = getelementptr inbounds %struct.b2TreeNode, ptr %2, i64 %indvars.iv, i32 2
-  %4 = trunc i64 %indvars.iv.next to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %4, ptr %3, align 8
   %5 = load ptr, ptr %m_nodes, align 8
   %height = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %indvars.iv, i32 5
@@ -149,7 +149,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr %m_nodes, align 8
   %8 = getelementptr inbounds %struct.b2TreeNode, ptr %7, i64 %indvars.iv, i32 2
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %9, ptr %8, align 8
   %10 = load ptr, ptr %m_nodes, align 8
   %height = getelementptr inbounds %struct.b2TreeNode, ptr %10, i64 %indvars.iv, i32 5
@@ -1196,7 +1196,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13b2DynamicTree13ComputeHeightEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %nodeId) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK13b2DynamicTree13ComputeHeightEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %nodeId) local_unnamed_addr #11 align 2 {
 entry:
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_nodes, align 8
@@ -1222,7 +1222,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13b2DynamicTree13ComputeHeightEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK13b2DynamicTree13ComputeHeightEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %call = tail call noundef i32 @_ZNK13b2DynamicTree13ComputeHeightEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %0)
@@ -1345,7 +1345,7 @@ if.then8:                                         ; preds = %if.end
   store i32 -1, ptr %6, align 8
   %idxprom12 = sext i32 %count.067 to i64
   %arrayidx13 = getelementptr inbounds i32, ptr %call.i, i64 %idxprom12
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %arrayidx13, align 4
   %inc = add nsw i32 %count.067, 1
   br label %for.inc
@@ -1357,7 +1357,7 @@ if.else:                                          ; preds = %if.end
   %10 = load ptr, ptr %m_nodes, align 8
   %height.i = getelementptr inbounds %struct.b2TreeNode, ptr %10, i64 %indvars.iv, i32 5
   store i32 -1, ptr %height.i, align 4
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %m_freeList.i, align 8
   %12 = load i32, ptr %m_nodeCount, align 8
   %dec.i = add nsw i32 %12, -1
@@ -1403,7 +1403,7 @@ for.body20:                                       ; preds = %for.cond18.preheade
   br i1 %cmp2768, label %for.body28.preheader, label %for.cond18.loopexit
 
 for.body28.preheader:                             ; preds = %for.body20
-  %19 = trunc i64 %indvars.iv88 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv88 to i32
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.preheader, %for.body28
@@ -1428,7 +1428,7 @@ for.body28:                                       ; preds = %for.body28.preheade
   %add.i = extractelement <2 x float> %28, i64 0
   %mul.i = fmul float %add.i, 2.000000e+00
   %cmp36 = fcmp olt float %mul.i, %minCost.172
-  %29 = trunc i64 %indvars.iv85 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv85 to i32
   %jMin.2 = select i1 %cmp36, i32 %29, i32 %jMin.170
   %iMin.2 = select i1 %cmp36, i32 %19, i32 %iMin.171
   %minCost.2 = select i1 %cmp36, float %mul.i, float %minCost.172

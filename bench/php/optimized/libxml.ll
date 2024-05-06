@@ -982,7 +982,7 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %36, %30, %16, %13, 
   br label %php_libxml_decrement_node_ptr.exit.i
 
 php_libxml_decrement_node_ptr.exit.i:             ; preds = %76, %65
-  %77 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %64), !range !4
+  %77 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %64)
   br label %php_libxml_unregister_node.exit
 
 78:                                               ; preds = %62
@@ -2742,7 +2742,7 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
 
 53:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8, !nonnull !5, !noundef !5
+  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_libxml_globals, ptr @libxml_globals, i64 0, i32 3), align 8, !nonnull !4, !noundef !4
   %55 = icmp eq ptr %54, getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 63)
   br i1 %55, label %56, label %60
 
@@ -2818,7 +2818,7 @@ define hidden void @zif_libxml_get_external_entity_loader(ptr nocapture noundef 
 declare void @zend_get_callable_zval_from_fcc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @php_libxml_xmlCheckUTF8(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @php_libxml_xmlCheckUTF8(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1
   %.not26 = icmp eq i8 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
@@ -2983,7 +2983,7 @@ define ptr @php_libxml_import_node(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %15, align 8, !nonnull !5, !noundef !5
+  %17 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0) #17
   br label %.thread
@@ -3072,7 +3072,7 @@ php_libxml_decrement_node_ptr.exit:               ; preds = %13, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_libxml_decrement_node_ptr(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @php_libxml_decrement_node_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -3156,7 +3156,7 @@ define i32 @php_libxml_increment_doc_ref(ptr nocapture noundef %0, ptr noundef %
 declare noalias ptr @_emalloc_32() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_libxml_decrement_doc_ref(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @php_libxml_decrement_doc_ref(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %2
 
@@ -3289,7 +3289,7 @@ define void @php_libxml_node_free_resource(ptr noundef %0) local_unnamed_addr #0
   br label %php_libxml_decrement_node_ptr.exit.i
 
 php_libxml_decrement_node_ptr.exit.i:             ; preds = %20, %9
-  %21 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %8), !range !4
+  %21 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %8)
   br label %php_libxml_unregister_node.exit
 
 22:                                               ; preds = %6
@@ -3392,7 +3392,7 @@ php_libxml_unregister_node.exit:                  ; preds = %5, %php_libxml_decr
   br label %php_libxml_decrement_node_ptr.exit.i18
 
 php_libxml_decrement_node_ptr.exit.i18:           ; preds = %60, %49
-  %61 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %48), !range !4
+  %61 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %48)
   br label %php_libxml_unregister_node.exit22
 
 62:                                               ; preds = %46
@@ -3460,7 +3460,7 @@ php_libxml_unregister_node.exit22:                ; preds = %45, %php_libxml_dec
   br label %php_libxml_decrement_node_ptr.exit.i26
 
 php_libxml_decrement_node_ptr.exit.i26:           ; preds = %84, %73
-  %85 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %72), !range !4
+  %85 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %72)
   br label %php_libxml_unregister_node.exit30
 
 86:                                               ; preds = %70
@@ -3537,7 +3537,7 @@ define void @php_libxml_node_decrement_resource(ptr noundef %0) local_unnamed_ad
   br i1 %.not14, label %.critedge, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %0), !range !4
+  %22 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %0)
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %21, %18
@@ -4020,5 +4020,4 @@ attributes #19 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2147483647}
-!5 = !{}
+!4 = !{}

@@ -432,7 +432,7 @@ for.body125:                                      ; preds = %for.body125.lr.ph, 
   %indvars.iv = phi i64 [ 0, %for.body125.lr.ph ], [ %indvars.iv.next, %for.inc337 ]
   %utf8Count.0202 = phi i32 [ 0, %for.body125.lr.ph ], [ %utf8Count.3, %for.inc337 ]
   %29 = load ptr, ptr %strings, align 8
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %call129 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %29, i32 noundef %30)
           to label %invoke.cont128 unwind label %lpad.loopexit
 
@@ -1171,7 +1171,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end17:                                         ; preds = %for.body
   %10 = load ptr, ptr %strings, align 8
-  %11 = trunc i64 %indvars.iv292 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv292 to i32
   %call20 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %11)
           to label %invoke.cont19 unwind label %lpad.loopexit
 
@@ -1352,7 +1352,7 @@ for.body73:                                       ; preds = %for.body73.preheade
   %43 = load i8, ptr %arrayidx77, align 1
   %conv78 = zext i8 %43 to i32
   %44 = load ptr, ptr %strings, align 8
-  %45 = trunc i64 %indvars.iv283 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv283 to i32
   %call82 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %44, i32 noundef %45)
           to label %invoke.cont81 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -1480,15 +1480,15 @@ if.end114:                                        ; preds = %do.body.i.i147, %la
   br i1 %or.cond107, label %for.inc118, label %if.end104, !llvm.loop !10
 
 for.inc118.loopexit.split.loop.exit:              ; preds = %land.rhs.i160
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nsw i64 %indvars.iv to i32
   br label %for.inc118
 
 for.inc118.loopexit.split.loop.exit304:           ; preds = %land.lhs.true9.i162
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nsw i64 %indvars.iv to i32
   br label %for.inc118
 
 for.inc118.loopexit.split.loop.exit307:           ; preds = %invoke.cont110
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nsw i64 %indvars.iv to i32
   br label %for.inc118
 
 for.inc118:                                       ; preds = %if.end114, %for.inc118.loopexit.split.loop.exit, %for.inc118.loopexit.split.loop.exit304, %for.inc118.loopexit.split.loop.exit307, %if.end91, %invoke.cont87
@@ -1641,7 +1641,7 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.then.i210:                                     ; preds = %while.body.i
   %arrayidx.i208.le = getelementptr inbounds i8, ptr %79, i64 %indvars.iv.next.i
-  %83 = trunc i64 %indvars.iv.next.i to i32
+  %83 = trunc nsw i64 %indvars.iv.next.i to i32
   store i8 0, ptr %arrayidx.i208.le, align 1
   %84 = load i32, ptr %length.i, align 4
   %dec.i212 = add nsw i32 %84, -1
@@ -1656,13 +1656,13 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   %arrayidx13.i = getelementptr inbounds i8, ptr %79, i64 %indvars.iv17.i
   %86 = load i8, ptr %arrayidx13.i, align 1
   %tobool14.not.i = icmp eq i8 %86, 0
-  %indvars.iv.next18.i = add nuw i64 %indvars.iv17.i, 1
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   br i1 %tobool14.not.i, label %while.cond10.i, label %while.end17.i, !llvm.loop !14
 
 while.end17.i:                                    ; preds = %while.cond10.i
   %arrayidx13.i.le = getelementptr inbounds i8, ptr %79, i64 %indvars.iv17.i
   %sub9.i = sub i32 %78, %77
-  %87 = trunc i64 %indvars.iv17.i to i32
+  %87 = trunc nuw nsw i64 %indvars.iv17.i to i32
   store i8 0, ptr %arrayidx13.i.le, align 1
   %88 = load i32, ptr %length.i, align 4
   %dec22.i = add nsw i32 %88, -1
@@ -1778,7 +1778,7 @@ for.body.us47:                                    ; preds = %_ZN6icu_75L7spanOne
 
 if.end12.us52:                                    ; preds = %for.body.us47
   %8 = load ptr, ptr %strings, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %call14.us53 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef %9)
   %fUnion.i.us54 = getelementptr inbounds i8, ptr %call14.us53, i64 8
   %10 = load i16, ptr %fUnion.i.us54, align 8
@@ -1868,7 +1868,7 @@ for.body.us.us:                                   ; preds = %_ZN6icu_75L7spanOne
 
 if.end12.us.us:                                   ; preds = %for.body.us.us
   %24 = load ptr, ptr %strings, align 8
-  %25 = trunc i64 %indvars.iv107 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv107 to i32
   %call14.us.us = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %24, i32 noundef %25)
   %fUnion.i.us.us = getelementptr inbounds i8, ptr %call14.us.us, i64 8
   %26 = load i16, ptr %fUnion.i.us.us, align 8
@@ -2175,7 +2175,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end19:                                         ; preds = %for.body
   %12 = load ptr, ptr %strings, align 8
-  %13 = trunc i64 %indvars.iv270 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv270 to i32
   %call22 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %13)
           to label %invoke.cont21 unwind label %lpad.loopexit
 
@@ -2253,7 +2253,7 @@ if.end52:                                         ; preds = %if.end52.lr.ph, %if
   %indvars.iv265 = phi i64 [ %23, %if.end52.lr.ph ], [ %indvars.iv.next266, %if.end69 ]
   %overlap.2251 = phi i32 [ %spec.select93, %if.end52.lr.ph ], [ %dec70, %if.end69 ]
   %27 = load i32, ptr %start.i, align 8
-  %28 = trunc i64 %indvars.iv265 to i32
+  %28 = trunc nsw i64 %indvars.iv265 to i32
   %add.i = add nsw i32 %27, %28
   %29 = load i32, ptr %capacity.i, align 8
   %cmp.not.i = icmp slt i32 %add.i, %29
@@ -2357,7 +2357,7 @@ for.body76:                                       ; preds = %for.body76.preheade
   %45 = load i8, ptr %arrayidx79, align 1
   %conv80 = zext i8 %45 to i32
   %46 = load ptr, ptr %strings, align 8
-  %47 = trunc i64 %indvars.iv262 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv262 to i32
   %call84 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 noundef %47)
           to label %invoke.cont83 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -2484,15 +2484,15 @@ if.end116:                                        ; preds = %do.body.i.i136, %la
   br i1 %or.cond95, label %for.inc120, label %if.end106, !llvm.loop !19
 
 for.inc120.loopexit.split.loop.exit:              ; preds = %land.rhs.i149
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nsw i64 %indvars.iv to i32
   br label %for.inc120
 
 for.inc120.loopexit.split.loop.exit278:           ; preds = %land.lhs.true9.i151
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nsw i64 %indvars.iv to i32
   br label %for.inc120
 
 for.inc120.loopexit.split.loop.exit281:           ; preds = %invoke.cont112
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nsw i64 %indvars.iv to i32
   br label %for.inc120
 
 for.inc120:                                       ; preds = %if.end116, %for.inc120.loopexit.split.loop.exit, %for.inc120.loopexit.split.loop.exit278, %for.inc120.loopexit.split.loop.exit281, %if.end93, %invoke.cont89
@@ -2637,7 +2637,7 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.then.i197:                                     ; preds = %while.body.i
   %arrayidx.i195.le = getelementptr inbounds i8, ptr %83, i64 %indvars.iv.next.i
-  %87 = trunc i64 %indvars.iv.next.i to i32
+  %87 = trunc nsw i64 %indvars.iv.next.i to i32
   store i8 0, ptr %arrayidx.i195.le, align 1
   %88 = load i32, ptr %length.i, align 4
   %dec.i199 = add nsw i32 %88, -1
@@ -2652,13 +2652,13 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   %arrayidx13.i = getelementptr inbounds i8, ptr %83, i64 %indvars.iv17.i
   %90 = load i8, ptr %arrayidx13.i, align 1
   %tobool14.not.i = icmp eq i8 %90, 0
-  %indvars.iv.next18.i = add nuw i64 %indvars.iv17.i, 1
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   br i1 %tobool14.not.i, label %while.cond10.i, label %while.end17.i, !llvm.loop !14
 
 while.end17.i:                                    ; preds = %while.cond10.i
   %arrayidx13.i.le = getelementptr inbounds i8, ptr %83, i64 %indvars.iv17.i
   %sub9.i = sub i32 %82, %81
-  %91 = trunc i64 %indvars.iv17.i to i32
+  %91 = trunc nuw nsw i64 %indvars.iv17.i to i32
   store i8 0, ptr %arrayidx13.i.le, align 1
   %92 = load i32, ptr %length.i, align 4
   %dec22.i = add nsw i32 %92, -1
@@ -2773,7 +2773,7 @@ for.body.us:                                      ; preds = %_ZN6icu_75L11spanOn
 
 if.end10.us:                                      ; preds = %for.body.us
   %10 = load ptr, ptr %strings, align 8
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %call12.us = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %11)
   %fUnion.i.us = getelementptr inbounds i8, ptr %call12.us, i64 8
   %12 = load i16, ptr %fUnion.i.us, align 8
@@ -3258,7 +3258,7 @@ if.end122:                                        ; preds = %do.body.i134, %land
   br i1 %or.cond118, label %for.end125, label %if.end102, !llvm.loop !27
 
 for.end125.loopexit:                              ; preds = %do.cond.i140
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nsw i64 %indvars.iv to i32
   br label %for.end125
 
 for.end125:                                       ; preds = %if.end122, %for.end125.loopexit, %if.end85
@@ -3390,7 +3390,7 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.then.i170:                                     ; preds = %while.body.i
   %arrayidx.i168.le = getelementptr inbounds i8, ptr %41, i64 %indvars.iv.next.i
-  %45 = trunc i64 %indvars.iv.next.i to i32
+  %45 = trunc nsw i64 %indvars.iv.next.i to i32
   store i8 0, ptr %arrayidx.i168.le, align 1
   %46 = load i32, ptr %length.i, align 4
   %dec.i172 = add nsw i32 %46, -1
@@ -3405,13 +3405,13 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   %arrayidx13.i = getelementptr inbounds i8, ptr %41, i64 %indvars.iv17.i
   %48 = load i8, ptr %arrayidx13.i, align 1
   %tobool14.not.i = icmp eq i8 %48, 0
-  %indvars.iv.next18.i = add nuw i64 %indvars.iv17.i, 1
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   br i1 %tobool14.not.i, label %while.cond10.i, label %while.end17.i, !llvm.loop !14
 
 while.end17.i:                                    ; preds = %while.cond10.i
   %arrayidx13.i.le = getelementptr inbounds i8, ptr %41, i64 %indvars.iv17.i
   %sub9.i = sub i32 %40, %39
-  %49 = trunc i64 %indvars.iv17.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv17.i to i32
   store i8 0, ptr %arrayidx13.i.le, align 1
   %50 = load i32, ptr %length.i, align 4
   %dec22.i = add nsw i32 %50, -1
@@ -3967,7 +3967,7 @@ if.end114:                                        ; preds = %if.end114.preheader
 
 land.lhs.true120:                                 ; preds = %if.end114
   %30 = load i32, ptr %start.i, align 8
-  %31 = trunc i64 %indvars.iv249 to i32
+  %31 = trunc nsw i64 %indvars.iv249 to i32
   %add.i = add nsw i32 %30, %31
   %32 = load i32, ptr %capacity.i, align 8
   %cmp.not.i = icmp slt i32 %add.i, %32
@@ -4107,7 +4107,7 @@ if.end193:                                        ; preds = %do.body.i148, %land
   br i1 %or.cond131, label %for.end196, label %if.end173, !llvm.loop !34
 
 for.end196.loopexit:                              ; preds = %do.cond.i154
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nsw i64 %indvars.iv to i32
   br label %for.end196
 
 for.end196:                                       ; preds = %if.end193, %for.end196.loopexit, %if.end156
@@ -4259,7 +4259,7 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.then.i196:                                     ; preds = %while.body.i
   %arrayidx.i194.le = getelementptr inbounds i8, ptr %57, i64 %indvars.iv.next.i
-  %61 = trunc i64 %indvars.iv.next.i to i32
+  %61 = trunc nsw i64 %indvars.iv.next.i to i32
   store i8 0, ptr %arrayidx.i194.le, align 1
   %62 = load i32, ptr %length.i, align 4
   %dec.i198 = add nsw i32 %62, -1
@@ -4274,13 +4274,13 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   %arrayidx13.i = getelementptr inbounds i8, ptr %57, i64 %indvars.iv17.i
   %64 = load i8, ptr %arrayidx13.i, align 1
   %tobool14.not.i = icmp eq i8 %64, 0
-  %indvars.iv.next18.i = add nuw i64 %indvars.iv17.i, 1
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   br i1 %tobool14.not.i, label %while.cond10.i, label %while.end17.i, !llvm.loop !14
 
 while.end17.i:                                    ; preds = %while.cond10.i
   %arrayidx13.i.le = getelementptr inbounds i8, ptr %57, i64 %indvars.iv17.i
   %sub9.i = sub i32 %56, %55
-  %65 = trunc i64 %indvars.iv17.i to i32
+  %65 = trunc nuw nsw i64 %indvars.iv17.i to i32
   store i8 0, ptr %arrayidx13.i.le, align 1
   %66 = load i32, ptr %length.i, align 4
   %dec22.i = add nsw i32 %66, -1

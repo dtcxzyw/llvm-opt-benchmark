@@ -123,7 +123,7 @@ if.end:                                           ; preds = %entry
 declare void @sodium_misuse() local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_secretbox_open_detached(ptr noundef %m, ptr noundef nonnull %c, ptr noundef nonnull %mac, i64 noundef %clen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_secretbox_open_detached(ptr noundef %m, ptr noundef nonnull %c, ptr noundef nonnull %mac, i64 noundef %clen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #0 {
 entry:
   %block0 = alloca [64 x i8], align 16
   %subkey = alloca [32 x i8], align 16
@@ -204,7 +204,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @crypto_onetimeauth_poly1305_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_secretbox_open_easy(ptr noundef %m, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_secretbox_open_easy(ptr noundef %m, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %clen, 16
   br i1 %cmp, label %return, label %if.end
@@ -212,7 +212,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr i8, ptr %c, i64 16
   %sub = add i64 %clen, -16
-  %call = tail call i32 @crypto_secretbox_open_detached(ptr noundef %m, ptr noundef %add.ptr, ptr noundef %c, i64 noundef %sub, ptr noundef %n, ptr noundef %k), !range !4
+  %call = tail call i32 @crypto_secretbox_open_detached(ptr noundef %m, ptr noundef %add.ptr, ptr noundef %c, i64 noundef %sub, ptr noundef %n, ptr noundef %k)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -242,4 +242,3 @@ attributes #8 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

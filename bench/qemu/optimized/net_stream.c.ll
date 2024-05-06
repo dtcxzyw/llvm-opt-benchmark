@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.net_stream_server_listening = private unnamed_addr constant [28 x i8] c"net_stream_server_listening\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @net_init_stream(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_stream(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
@@ -461,7 +461,7 @@ if.end5:                                          ; preds = %if.then, %if.then1,
 declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @net_stream_send(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %data) #0 {
+define internal range(i32 0, 2) i32 @net_stream_send(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %data) #0 {
 entry:
   %buf1 = alloca [69632 x i8], align 16
   %ioc1 = getelementptr inbounds i8, ptr %data, i64 392

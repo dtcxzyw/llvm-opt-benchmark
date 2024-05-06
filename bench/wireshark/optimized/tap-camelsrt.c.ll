@@ -46,7 +46,7 @@ declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal void @camelsrt_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(80000768) ptr @g_malloc_n(i64 noundef 1, i64 noundef 80000768) #11
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80000768) %4, i8 0, i64 80000760, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80000768) %4, i8 0, i64 80000760, i1 false)
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.1, i64 noundef 10) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %9
@@ -182,7 +182,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %21 = getelementptr [10 x %struct._timestat_t], ptr %4, i64 0, i64 %indvars.iv
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %24, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.9) #10
   br i1 %23, label %26, label %28
 
@@ -387,7 +387,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   br i1 %exitcond164.not, label %.split.us, label %.preheader.split, !llvm.loop !12
 
 .split.us:                                        ; preds = %.preheader.split, %._crit_edge.us
-  %135 = trunc i64 %indvars.iv178 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv178 to i32
   %136 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %135, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.9) #10
   %137 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %136)
   tail call void @wmem_free(ptr noundef null, ptr noundef %136) #10
@@ -405,7 +405,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   br i1 %exitcond176.not, label %.loopexit, label %138, !llvm.loop !13
 
 144:                                              ; preds = %73
-  %145 = trunc i64 %indvars.iv178 to i32
+  %145 = trunc nuw nsw i64 %indvars.iv178 to i32
   %146 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %145, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.9) #10
   %147 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %146)
   tail call void @wmem_free(ptr noundef null, ptr noundef %146) #10

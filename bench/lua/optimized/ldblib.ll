@@ -134,7 +134,7 @@ if.end17:                                         ; preds = %if.then13, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_getuservalue(ptr noundef %L) #0 {
+define internal range(i32 1, 3) i32 @db_getuservalue(ptr noundef %L) #0 {
 entry:
   %call = tail call i64 @luaL_optinteger(ptr noundef %L, i32 noundef 2, i64 noundef 1) #6
   %call1 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #6
@@ -161,7 +161,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_gethook(ptr noundef %L) #0 {
+define internal range(i32 1, 4) i32 @db_gethook(ptr noundef %L) #0 {
 entry:
   %buff = alloca [5 x i8], align 1
   %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #6
@@ -594,7 +594,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_getupvalue(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @db_getupvalue(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #6
   %conv.i = trunc i64 %call.i to i32
@@ -734,14 +734,14 @@ if.else:                                          ; preds = %getthread.exit
   %add6 = add nuw nsw i32 %arg.0, 3
   %call7 = tail call i64 @luaL_optinteger(ptr noundef %L, i32 noundef %add6, i64 noundef 0) #6
   %conv = trunc i64 %call7 to i32
-  %call.i19 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 99) #8
+  %call.i19 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %call4, i32 noundef 99) #8
   %tobool.not.i = icmp ne ptr %call.i19, null
   %spec.select.i = zext i1 %tobool.not.i to i32
-  %call1.i20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 114) #8
+  %call1.i20 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %call4, i32 noundef 114) #8
   %tobool2.not.i = icmp eq ptr %call1.i20, null
   %or4.i = or disjoint i32 %spec.select.i, 2
   %mask.1.i = select i1 %tobool2.not.i, i32 %spec.select.i, i32 %or4.i
-  %call6.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 108) #8
+  %call6.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %call4, i32 noundef 108) #8
   %tobool7.not.i = icmp eq ptr %call6.i, null
   %or9.i = or disjoint i32 %mask.1.i, 4
   %mask.2.i = select i1 %tobool7.not.i, i32 %mask.1.i, i32 %or9.i
@@ -871,7 +871,7 @@ lor.end7:                                         ; preds = %entry, %entry, %lor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_setupvalue(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @db_setupvalue(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 3) #6
   %call.i = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #6

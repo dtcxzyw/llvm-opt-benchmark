@@ -970,9 +970,9 @@ define internal void @_ZN12_GLOBAL__N_114MemoryBramPass7executeESt6vectorINSt7__
   %9 = alloca %"struct.Yosys::FfInitVals", align 8
   %10 = alloca %"class.std::vector.84", align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   %12 = getelementptr inbounds i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %4, i64 88
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %13)
           to label %_ZN12_GLOBAL__N_17rules_tC2Ev.exit unwind label %14
@@ -2113,7 +2113,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.lr.ph.i: ; preds = %._crit_edge
 _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i: ; preds = %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.lr.ph.i
   %.sroa.0111.0318.i = phi ptr [ %328, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.lr.ph.i ], [ %1080, %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit ]
   store i32 0, ptr %30, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %74, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %74, i8 0, i64 144, i1 false)
   br i1 %.not.i.i.i, label %335, label %330
 
 330:                                              ; preds = %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i
@@ -3389,7 +3389,7 @@ _ZNK12_GLOBAL__N_17rules_t6bram_t13check_vectorsEv.exit.i: ; preds = %924, %.pre
   br i1 %.not.i68.i, label %942, label %939
 
 939:                                              ; preds = %934
-  invoke fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %936, ptr noundef nonnull align 8 dereferenceable(168) %30)
+  invoke fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %936, ptr noundef nonnull readonly align 8 dereferenceable(168) %30)
           to label %.noexc69.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc69.i:                                       ; preds = %939
@@ -3432,7 +3432,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS2_EE12_M_check_lenEmPKc.exit.i.
 _ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t6bram_tESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %954, %_ZNKSt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %957 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %956, %954 ]
   %958 = getelementptr inbounds %"struct.(anonymous namespace)::rules_t::bram_t", ptr %957, i64 %948
-  invoke fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %958, ptr noundef nonnull align 8 dereferenceable(168) %30)
+  invoke fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %958, ptr noundef nonnull readonly align 8 dereferenceable(168) %30)
           to label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_17rules_t6bram_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i unwind label %.body.i.i.i
 
 _ZNSt16allocator_traitsISaIN12_GLOBAL__N_17rules_t6bram_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t6bram_tESaIS2_EE11_M_allocateEm.exit.i.i.i
@@ -3445,7 +3445,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t6bram_tES3_SaIS
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_17rules_t6bram_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
   %.016.i.i.i.i.i.i.i.i = phi ptr [ %960, %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i ], [ %957, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_17rules_t6bram_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ]
   %.01215.i.i.i.i.i.i.i.i = phi ptr [ %959, %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i ], [ %.val.i.i.i, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_17rules_t6bram_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ]
-  invoke fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %.016.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(168) %.01215.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %.016.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(168) %.01215.i.i.i.i.i.i.i.i)
           to label %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i unwind label %961
 
 _ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -3694,13 +3694,13 @@ _ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; p
   br i1 %cond.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit53.i.thread.i.i, label %1047
 
 _ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit53.i.thread.i.i: ; preds = %.body.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %958) #24
+  call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %958) #24
   br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t6bram_tESaIS2_EE13_M_deallocateEPS2_m.exit55.i.i.i
 
 _ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit53.i.i.i: ; preds = %999
   %1043 = extractvalue { ptr, i32 } %1000, 0
   %1044 = call ptr @__cxa_begin_catch(ptr %1043) #24
-  call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %958) #24
+  call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %958) #24
   %.not.i54.i.i.i = icmp eq ptr %957, null
   br i1 %.not.i54.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t6bram_tESaIS2_EE13_M_deallocateEPS2_m.exit55.i.i.i, label %1047
 
@@ -4082,9 +4082,9 @@ _ZN12_GLOBAL__N_17rules_t10parse_bramEv.exit:     ; preds = %_ZNSt6vectorIS_INSt
 
 1161:                                             ; preds = %1149
   store i32 0, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %43, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %43, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %44, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   %1162 = getelementptr inbounds i8, ptr %1151, i64 32
   %1163 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1162) #24, !noalias !21
   %.not.i.i2 = icmp eq i64 %1163, 0
@@ -10137,7 +10137,7 @@ define internal fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringESt6vectorIN12_GLO
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i ], [ %3, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i) #24
+  tail call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i) #24
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 168
   %.not.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
@@ -10198,7 +10198,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS2_E
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i) #24
+  tail call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i) #24
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 168
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !19
@@ -14426,7 +14426,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i: ; preds = %5, %.lr.ph.i.i.i
   %15 = ptrtoint ptr %.val10.i.i.i.i.i.i.i.i to i64
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val11.i.i.i.i.i.i.i.i, %.val10.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.i.i.i.i.i, label %18
 
@@ -14461,7 +14461,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_17rules_t6bram_tEEE8allocateERS3_m.exit
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.noexc4.i.i.i.i.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %.014.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %26, %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %21, %.noexc4.i.i.i.i.i.i.i ]
   %.sroa.010.013.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %25, %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val12.i.i.i.i.i.i.i.i, %.noexc4.i.i.i.i.i.i.i ]
-  invoke fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %.014.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.010.013.i.i.i.i.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %.014.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(168) %.sroa.010.013.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i unwind label %27
 
 _ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -14668,7 +14668,7 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN5Yosys7hashlib4dictINS0
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %1, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i.i ], [ %3, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i.i.i.i) #24
+  tail call fastcc void @_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i.i.i.i) #24
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 168
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !19
@@ -21137,7 +21137,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.
   br i1 %259, label %260, label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
 
 260:                                              ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %257, ptr align 4 %.sroa.02180.1, i64 %245, i1 false), !noalias !173
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %257, ptr align 4 %.sroa.02180.1, i64 %245, i1 false), !noalias !173
   br label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
 
 _ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i: ; preds = %260, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.exit.i.i.i
@@ -23094,7 +23094,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictIibNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit
   br i1 %.not.i1048, label %1063, label %1062
 
 1062:                                             ; preds = %1061
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.92045.03581, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.02043.03579, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(40) %.sroa.92045.03581, ptr noundef nonnull readonly align 4 dereferenceable(40) %.sroa.02043.03579, i64 40, i1 false)
   br label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE9push_backERKS2_.exit
 
 1063:                                             ; preds = %1061
@@ -23130,12 +23130,12 @@ _ZNKSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE12_M_check_lenEmPKc.ex
 _ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %1075, %_ZNKSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %1078 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %1077, %1075 ]
   %1079 = getelementptr inbounds %"struct.(anonymous namespace)::rules_t::portinfo_t", ptr %1078, i64 %1069
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1079, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.02043.03579, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(40) %1079, ptr noundef nonnull readonly align 4 dereferenceable(40) %.sroa.02043.03579, i64 40, i1 false)
   %1080 = icmp sgt i64 %1066, 0
   br i1 %1080, label %1081, label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 1081:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1078, ptr align 4 %.sroa.02044.03582, i64 %1066, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %1078, ptr align 4 %.sroa.02044.03582, i64 %1066, i1 false)
   br label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %1081, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.exit.i.i
@@ -23370,7 +23370,7 @@ _ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEEixERKi.exit1067.thread2213: ; preds = 
   br i1 %.not.i1068, label %1197, label %1195
 
 1195:                                             ; preds = %1192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.92045.1, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.02043.03579, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(40) %.sroa.92045.1, ptr noundef nonnull readonly align 4 dereferenceable(40) %.sroa.02043.03579, i64 40, i1 false)
   %1196 = getelementptr inbounds i8, ptr %.pn2297, i64 80
   br label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE9push_backERKS2_.exit1079
 
@@ -23407,12 +23407,12 @@ _ZNKSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE12_M_check_lenEmPKc.ex
 _ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.exit.i.i1073: ; preds = %1209, %_ZNKSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i1070
   %1212 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i1070 ], [ %1211, %1209 ]
   %1213 = getelementptr inbounds %"struct.(anonymous namespace)::rules_t::portinfo_t", ptr %1212, i64 %1203
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1213, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.02043.03579, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(40) %1213, ptr noundef nonnull readonly align 4 dereferenceable(40) %.sroa.02043.03579, i64 40, i1 false)
   %1214 = icmp sgt i64 %1200, 0
   br i1 %1214, label %1215, label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i1074
 
 1215:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.exit.i.i1073
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1212, ptr align 4 %.sroa.02044.1, i64 %1200, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %1212, ptr align 4 %.sroa.02044.1, i64 %1200, i1 false)
   br label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i1074
 
 _ZNSt6vectorIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i1074: ; preds = %1215, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17rules_t10portinfo_tESaIS2_EE11_M_allocateEm.exit.i.i1073

@@ -10,13 +10,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @char_width.range2 = internal unnamed_addr constant [29 x i32] [i32 4352, i32 4447, i32 9001, i32 9001, i32 9002, i32 9002, i32 11904, i32 12350, i32 12352, i32 42191, i32 44032, i32 55203, i32 63744, i32 64255, i32 65040, i32 65049, i32 65072, i32 65135, i32 65280, i32 65376, i32 65504, i32 65510, i32 126976, i32 128580, i32 131072, i32 196605, i32 196608, i32 262141, i32 -1], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @encode_utf8(ptr nocapture noundef writeonly %buf, i32 noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 1, 5) i32 @encode_utf8(ptr nocapture noundef writeonly %buf, i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 128
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %c to i8
+  %conv = trunc nuw nsw i32 %c to i8
   store i8 %conv, ptr %buf, align 1
   br label %return
 
@@ -26,7 +26,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %shr = lshr i32 %c, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv4 = or disjoint i8 %0, -64
   store i8 %conv4, ptr %buf, align 1
   %1 = trunc i32 %c to i8
@@ -43,7 +43,7 @@ if.end9:                                          ; preds = %if.end
 
 if.then12:                                        ; preds = %if.end9
   %shr13 = lshr i32 %c, 12
-  %3 = trunc i32 %shr13 to i8
+  %3 = trunc nuw i32 %shr13 to i8
   %conv15 = or disjoint i8 %3, -32
   store i8 %conv15, ptr %buf, align 1
   %shr17 = lshr i32 %c, 6
@@ -177,7 +177,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp6.not.i, label %for.inc.i, label %in_range.exit
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %arrayidx.i = getelementptr inbounds i32, ptr @is_ident1.range, i64 %indvars.iv.next.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.not.not.i = icmp eq i32 %3, -1
@@ -207,7 +207,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   br i1 %cmp6.not.i.i, label %for.inc.i.i, label %lor.end
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 2
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %arrayidx.i.i = getelementptr inbounds i32, ptr @is_ident1.range, i64 %indvars.iv.next.i.i
   %3 = load i32, ptr %arrayidx.i.i, align 8
   %cmp.not.not.i.i = icmp eq i32 %3, -1
@@ -227,7 +227,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp6.not.i, label %for.inc.i, label %lor.end
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %arrayidx.i = getelementptr inbounds i32, ptr @is_ident2.range, i64 %indvars.iv.next.i
   %7 = load i32, ptr %arrayidx.i, align 8
   %cmp.not.not.i = icmp eq i32 %7, -1
@@ -326,7 +326,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   br i1 %cmp6.not.i.i, label %for.inc.i.i, label %char_width.exit
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 2
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %arrayidx.i.i = getelementptr inbounds i32, ptr @char_width.range1, i64 %indvars.iv.next.i.i
   %7 = load i32, ptr %arrayidx.i.i, align 8
   %cmp.not.not.i.i = icmp eq i32 %7, -1
@@ -346,7 +346,7 @@ land.lhs.true.i6.i:                               ; preds = %for.body.i3.i
   br i1 %cmp6.not.i8.i, label %for.inc.i10.i, label %char_width.exit
 
 for.inc.i10.i:                                    ; preds = %land.lhs.true.i6.i, %for.body.i3.i
-  %indvars.iv.next.i11.i = add nuw i64 %indvars.iv.i4.i, 2
+  %indvars.iv.next.i11.i = add nuw nsw i64 %indvars.iv.i4.i, 2
   %arrayidx.i12.i = getelementptr inbounds i32, ptr @char_width.range2, i64 %indvars.iv.next.i11.i
   %11 = load i32, ptr %arrayidx.i12.i, align 8
   %cmp.not.not.i13.i = icmp eq i32 %11, -1

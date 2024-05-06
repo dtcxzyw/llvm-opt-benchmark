@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [51 x i8] c"focaltech: First finger in rel packet invalid: %d\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @focaltech_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @focaltech_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @focaltech_pnp_ids) #8
   %4 = and i1 %3, %1
   %5 = select i1 %3, i32 0, i32 -19
@@ -41,7 +41,7 @@ define dso_local i32 @focaltech_detect(ptr noundef %0, i1 noundef zeroext %1) lo
 declare dso_local zeroext i1 @psmouse_matches_pnp_id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @focaltech_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @focaltech_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [3 x i8], align 1
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(76) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 76) #9
@@ -181,7 +181,7 @@ define internal void @focaltech_reset(ptr noundef %0) #0 align 16 {
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @focaltech_switch_protocol(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -5, 1) i32 @focaltech_switch_protocol(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca [3 x i8], align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #8
@@ -224,7 +224,7 @@ define internal fastcc i32 @focaltech_switch_protocol(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @focaltech_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 241
   %3 = load i8, ptr %2, align 1
   %4 = icmp ugt i8 %3, 5
@@ -481,7 +481,7 @@ define internal void @focaltech_disconnect(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @focaltech_reconnect(ptr noundef %0) #0 align 16 {
+define internal range(i32 -5, 1) i32 @focaltech_reconnect(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call i32 @ps2_command(ptr noundef %2, ptr noundef null, i32 noundef 246) #8
   %4 = tail call i32 @psmouse_reset(ptr noundef %0) #8

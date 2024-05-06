@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [19 x i8] c"IDAGetConsistenICB\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAAdjSetNoSensi(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDAAdjSetNoSensi(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -61,7 +61,7 @@ define noundef i32 @IDAAdjSetNoSensi(ptr noundef %0) local_unnamed_addr #0 {
 declare void @IDAProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASetUserDataB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASetUserDataB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -615,7 +615,7 @@ define ptr @IDAGetAdjIDABmem(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetAdjCheckPointsInfo(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDAGetAdjCheckPointsInfo(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -680,7 +680,7 @@ define noundef i32 @IDAGetAdjCheckPointsInfo(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetAdjDataPointHermite(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDAGetAdjDataPointHermite(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -747,7 +747,7 @@ define noundef i32 @IDAGetAdjDataPointHermite(ptr noundef %0, i32 noundef %1, pt
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetAdjDataPointPolynomial(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDAGetAdjDataPointPolynomial(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -808,7 +808,7 @@ define noundef i32 @IDAGetAdjDataPointPolynomial(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetAdjCurrentCheckPoint(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDAGetAdjCurrentCheckPoint(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

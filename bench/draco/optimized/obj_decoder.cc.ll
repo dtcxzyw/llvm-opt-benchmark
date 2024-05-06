@@ -395,7 +395,7 @@ define void @_ZN5draco10ObjDecoder14DecodeInternalEv(ptr dead_on_unwind noalias 
   store i32 0, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 0, ptr %44, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %45 = getelementptr inbounds i8, ptr %1, i64 128
   %46 = getelementptr inbounds i8, ptr %1, i64 144
   %47 = load ptr, ptr %46, align 8
@@ -723,7 +723,7 @@ _ZN5draco4Mesh11SetNumFacesEm.exit:               ; preds = %134, %136, %138, %1
 144:                                              ; preds = %141
   %145 = getelementptr inbounds i8, ptr %1, i64 320
   %146 = load ptr, ptr %145, align 8
-  %147 = mul nsw i32 %142, 3
+  %147 = mul nuw nsw i32 %142, 3
   %148 = getelementptr inbounds i8, ptr %146, i64 160
   store i32 %147, ptr %148, align 8
   %.phi.trans.insert224 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1594,7 +1594,7 @@ _ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit16
   store i8 0, ptr %1, align 8
   store i32 0, ptr %43, align 8
   store i32 0, ptr %44, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %480 = getelementptr inbounds i8, ptr %1, i64 272
   store i64 0, ptr %480, align 8
   br label %481
@@ -4352,9 +4352,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -4362,9 +4362,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #18
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #21
           to label %44 unwind label %37
 
@@ -4378,7 +4378,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #20
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 

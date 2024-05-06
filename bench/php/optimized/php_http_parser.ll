@@ -2601,7 +2601,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @php_http_should_keep_alive(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @php_http_should_keep_alive(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %.not = icmp eq i16 %3, 0

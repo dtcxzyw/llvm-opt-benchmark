@@ -854,7 +854,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #3 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp165.i.i = alloca %"class.std::__cxx11::basic_string", align 8

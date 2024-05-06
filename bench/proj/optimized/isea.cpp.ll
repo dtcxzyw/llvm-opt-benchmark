@@ -127,7 +127,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
 
 26:                                               ; preds = %24
   store double 0x3FF921FB54442D18, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   br label %29
 
 27:                                               ; preds = %24
@@ -786,7 +786,7 @@ _ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i: ; preds = %308, %2
 
 328:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %329 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %329 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef nonnull readonly %5, ptr noundef nonnull %4)
           to label %.noexc17 unwind label %342
 
 .noexc17:                                         ; preds = %328

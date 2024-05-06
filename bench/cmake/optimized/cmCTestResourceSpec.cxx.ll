@@ -610,20 +610,20 @@ _ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit: ; preds = %4, %
   %27 = phi ptr [ null, %4 ], [ %16, %14 ]
   %28 = getelementptr inbounds i8, ptr %7, i64 32
   store i64 %2, ptr %28, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %29 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
           to label %.noexc unwind label %107
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_.exit.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_.exit.i
@@ -634,7 +634,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_
   store i64 %2, ptr %34, align 8
   store ptr %29, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %35 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -657,7 +657,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS
   %40 = getelementptr inbounds i8, ptr %.pre.i, i64 40
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_iSt8functionIFbRiS6_S8_EEEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %.pre.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_iSt8functionIFbRiS6_S8_EEEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %.pre.i, i64 48
   store i8 1, ptr %42, align 8
@@ -719,11 +719,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17Version
   %.092.i.i.i.i.i.i.i = phi ptr [ %75, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i ], [ %.val.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !10
   %67 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 16
   %68 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 40
   %69 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false), !alias.scope !5, !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false), !alias.scope !5, !noalias !8
   %70 = load ptr, ptr %69, align 8, !alias.scope !8, !noalias !5
   store ptr %70, ptr %68, align 8, !alias.scope !5, !noalias !8
   %71 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 32
@@ -734,7 +734,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17Version
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %72 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 16
   %73 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !alias.scope !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !alias.scope !10
   store ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i, ptr %73, align 8, !alias.scope !5, !noalias !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false), !alias.scope !8, !noalias !5
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i
@@ -884,7 +884,7 @@ define internal fastcc void @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17Ver
   %5 = ptrtoint ptr %.val.i to i64
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %.val9.i, %.val.i
   br i1 %.not.i.i.i.i, label %11, label %8
 
@@ -1235,7 +1235,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ResourceIdHelperERNSt7__c
   %10 = alloca %"class.cmsys::RegularExpressionMatch", align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 16
   %12 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_2EE9_M_invokeERKSt9_Any_dataOS3_OS5_", ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_2EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %11, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
@@ -12477,7 +12477,7 @@ define internal void @_GLOBAL__sub_I_cmCTestResourceSpec.cxx() #13 section ".tex
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   %41 = getelementptr inbounds i8, ptr %35, i64 16
   %42 = getelementptr inbounds i8, ptr %35, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_0EE9_M_invokeERKSt9_Any_dataOS3_OS5_", ptr %42, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_0EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %41, align 8
   invoke void @_ZN19cmJSONHelperBuilder3IntERKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEi(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 @_ZN12_GLOBAL__N_118VersionFieldHelperE, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 0)
@@ -12534,7 +12534,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %43, %45
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
   %59 = getelementptr inbounds i8, ptr %27, i64 16
   %60 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_1EE9_M_invokeERKSt9_Any_dataOS3_OS5_", ptr %60, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_1EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %30, i64 16
@@ -12543,10 +12543,10 @@ __cxx_global_var_init.4.exit:                     ; preds = %43, %45
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %30, align 8
   %63 = getelementptr inbounds i8, ptr %29, i64 32
   %64 = getelementptr inbounds i8, ptr %29, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %29, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %29, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %29, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %65, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   %66 = getelementptr inbounds i8, ptr %29, i64 64
@@ -12732,7 +12732,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i.i.i.i.i.i: ; pre
   %142 = getelementptr inbounds i8, ptr %118, i64 64
   %143 = getelementptr inbounds i8, ptr %118, i64 88
   %144 = getelementptr inbounds i8, ptr %26, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %142, i8 0, i64 24, i1 false)
   %145 = load ptr, ptr %144, align 8
   store ptr %145, ptr %143, align 8
   %146 = getelementptr inbounds i8, ptr %26, i64 80
@@ -12743,7 +12743,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i.i.i.i.i.i: ; pre
 148:                                              ; preds = %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i.i.i.i.i.i
   %149 = getelementptr inbounds i8, ptr %26, i64 64
   %150 = getelementptr inbounds i8, ptr %118, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %142, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false)
   store ptr %147, ptr %150, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
   br label %166
@@ -13091,10 +13091,10 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt8functionIFS_I
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %24, align 8
   %267 = getelementptr inbounds i8, ptr %23, i64 32
   %268 = getelementptr inbounds i8, ptr %23, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %23, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %23, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %268, align 8
   %269 = getelementptr inbounds i8, ptr %23, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %267, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %267, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %269, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %265, i8 0, i64 16, i1 false)
   %270 = getelementptr inbounds i8, ptr %23, i64 64
@@ -13183,20 +13183,20 @@ _ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEC2ERKSA
   %302 = phi ptr [ null, %_ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEC2ERKSA_.exit.i ], [ %291, %290 ], [ null, %_ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEC2ERKSA_.exit.thread.i ]
   %303 = getelementptr inbounds i8, ptr %22, i64 32
   store i64 0, ptr %303, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   %304 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
           to label %.noexc.i.i7 unwind label %380
 
 .noexc.i.i7:                                      ; preds = %_ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEC2ERKSA_.exit.i.i
   %305 = getelementptr inbounds i8, ptr %304, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %304, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %304, i8 0, i64 24, i1 false)
   store ptr %302, ptr %305, align 8
   %.not.i.i.not.i.i.i.i.i.i.i8 = icmp eq ptr %.val.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i8, label %_ZNSt8functionIFbRN12_GLOBAL__N_110TopVersionEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_.exit.i.i.i, label %306
 
 306:                                              ; preds = %.noexc.i.i7
   %307 = getelementptr inbounds i8, ptr %304, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %304, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %304, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
   store ptr %.val.i.i.i.i.i.i.i, ptr %307, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %301, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN12_GLOBAL__N_110TopVersionEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_.exit.i.i.i
@@ -13234,7 +13234,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberE
   %315 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 40
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_110TopVersionEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_NS0_7VersionESt8functionIFbRSE_S6_S8_EEEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E9_M_invokeERKSt9_Any_dataS2_OS6_OS8_, ptr %315, align 8
   %316 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %314, ptr noundef nonnull align 8 dereferenceable(16) %310, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %314, ptr noundef nonnull align 8 dereferenceable(16) %310, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_110TopVersionEPKN4Json5ValueEP11cmJSONStateEZN19cmJSONHelperBuilder6ObjectIS1_E4BindIS1_NS0_7VersionESt8functionIFbRSE_S6_S8_EEEERSC_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlS2_S6_S8_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation, ptr %316, align 8
   %317 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 48
   store i8 0, ptr %317, align 8
@@ -13296,11 +13296,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVer
   %.092.i.i.i.i.i.i.i.i.i = phi ptr [ %349, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !163
   %341 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 16
   %342 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 40
   %343 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %341, i8 0, i64 24, i1 false), !alias.scope !158, !noalias !161
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %341, i8 0, i64 24, i1 false), !alias.scope !158, !noalias !161
   %344 = load ptr, ptr %343, align 8, !alias.scope !161, !noalias !158
   store ptr %344, ptr %342, align 8, !alias.scope !158, !noalias !161
   %345 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
@@ -13311,7 +13311,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVer
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %346 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 16
   %347 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %341, ptr noundef nonnull align 8 dereferenceable(16) %346, i64 16, i1 false), !alias.scope !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %341, ptr noundef nonnull align 8 dereferenceable(16) %346, i64 16, i1 false), !alias.scope !163
   store ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %347, align 8, !alias.scope !158, !noalias !161
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %345, i8 0, i64 16, i1 false), !alias.scope !161, !noalias !158
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i
@@ -13454,7 +13454,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_110TopVersionEPKN4Json5ValueEP11cmJSONStateEED2E
   %395 = ptrtoint ptr %.val11.i.i.i to i64
   %396 = ptrtoint ptr %.val10.i.i.i to i64
   %397 = sub i64 %395, %396
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN12_GLOBAL__N_117RootVersionHelperE, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) @_ZN12_GLOBAL__N_117RootVersionHelperE, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i10 = icmp eq ptr %.val11.i.i.i, %.val10.i.i.i
   br i1 %.not.i.i.i.i.i.i10, label %.noexc14.thread.i, label %399
 
@@ -13841,7 +13841,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %_ZN19cmJSONHelperBu
   store ptr @.str.12, ptr %532, align 8
   %533 = getelementptr inbounds i8, ptr %19, i64 16
   %534 = getelementptr inbounds i8, ptr %19, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_2EE9_M_invokeERKSt9_Any_dataOS3_OS5_", ptr %534, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_2EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %533, align 8
   invoke void @_ZN19cmJSONHelperBuilder4UIntERKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.23") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 1)
@@ -14035,7 +14035,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %_ZN19cmJSONHelperBu
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %602 = getelementptr inbounds i8, ptr %11, i64 16
   %603 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_3EE9_M_invokeERKSt9_Any_dataOS3_OS5_", ptr %603, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_3EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %602, align 8
   invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCTestResourceSpec8ResourceEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(65) %12, ptr noundef nonnull align 8 dereferenceable(65) @_ZN12_GLOBAL__N_114ResourceHelperE)
@@ -14157,7 +14157,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %_ZN19cmJSONHelperBu
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %644 = getelementptr inbounds i8, ptr %9, i64 16
   %645 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_4EE9_M_invokeERKSt9_Any_dataOS3_OS5_", ptr %645, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_4EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %644, align 8
   %646 = getelementptr inbounds i8, ptr %10, i64 16
@@ -14482,7 +14482,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %_ZNSt8functionIFbRS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %770 = getelementptr inbounds i8, ptr %6, i64 16
   %771 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_4EE9_M_invokeERKSt9_Any_dataOS3_OS5_", ptr %771, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_4EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %770, align 8
   %772 = getelementptr inbounds i8, ptr %7, i64 16
@@ -14596,7 +14596,7 @@ __cxx_global_var_init.15.exit:                    ; preds = %_ZNSt8functionIFbRS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %814 = getelementptr inbounds i8, ptr %5, i64 16
   %815 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_4EE9_M_invokeERKSt9_Any_dataOS3_OS5_", ptr %815, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_4EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %814, align 8
   invoke void @_ZN19cmJSONHelperBuilder8RequiredIN19cmCTestResourceSpec6SocketEPFbRS2_PKN4Json5ValueEP11cmJSONStateEEESt8functionIFbRT_S7_S9_EERKSC_IFvS7_S9_EET0_(ptr dead_on_unwind nonnull writable sret(%"class.std::function.39") align 8 @_ZN12_GLOBAL__N_119LocalRequiredHelperE, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @_ZN12_GLOBAL__N_112SocketHelperERN19cmCTestResourceSpec6SocketEPKN4Json5ValueEP11cmJSONState)

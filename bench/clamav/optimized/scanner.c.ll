@@ -752,7 +752,7 @@ declare void @virusaction(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @cl_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @scan_pathchk(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @scan_pathchk(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72

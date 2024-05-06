@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_external32_convertor = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_datatype_pack_external(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @ompi_datatype_pack_external(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.opal_convertor_t, align 8
   %9 = alloca %struct.iovec, align 8
   %10 = alloca i32, align 4
@@ -158,7 +158,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_convertor_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_datatype_unpack_external(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @ompi_datatype_unpack_external(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.opal_convertor_t, align 8
   %9 = alloca %struct.iovec, align 8
   %10 = alloca i32, align 4

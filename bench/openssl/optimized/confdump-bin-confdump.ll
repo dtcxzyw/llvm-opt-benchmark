@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [9 x i8] c"%s = %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %eline = alloca i64, align 8
   %call = tail call ptr @NCONF_default() #3

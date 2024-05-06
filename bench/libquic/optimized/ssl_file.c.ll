@@ -144,7 +144,7 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_add_file_cert_subjects_to_stack(ptr noundef %stack, ptr noundef %file) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_add_file_cert_subjects_to_stack(ptr noundef %stack, ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %x = alloca ptr, align 8
   store ptr null, ptr %x, align 8

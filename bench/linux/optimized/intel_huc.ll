@@ -865,7 +865,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_huc_check_status(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %9 [

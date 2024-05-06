@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [13 x i8] c"CPU %d/DUMMY\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"../qemu/accel/dummy-cpus.c\00", align 1
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str.2 = private unnamed_addr constant [8 x i8] c"sigwait\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable

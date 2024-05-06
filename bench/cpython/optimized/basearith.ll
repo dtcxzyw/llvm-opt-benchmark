@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [42 x i8] c"sub_size_t(): overflow: check the context\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_baseadd(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m, i64 noundef %n) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp31.not = icmp eq i64 %n, 0
   br i1 %cmp31.not, label %for.cond28.preheader, label %for.body
@@ -126,7 +126,7 @@ for.end26:                                        ; preds = %for.body12, %for.co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_shortadd(ptr nocapture noundef %w, i64 noundef %m, i64 noundef %v) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @_mpd_shortadd(ptr nocapture noundef %w, i64 noundef %m, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %w, align 8
   %add = add i64 %0, %v
@@ -160,7 +160,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_baseincr(ptr nocapture noundef %u, i64 noundef %n) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @_mpd_baseincr(ptr nocapture noundef %u, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp9.not = icmp eq i64 %n, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -312,7 +312,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i = zext i64 %1 to i128
   %mul.i = mul nuw i128 %conv.i, %conv1.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %add = add i64 %carry.010, %conv3.i
   %cmp1 = icmp ult i64 %add, %carry.010
@@ -326,7 +326,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv1.i.i = zext i64 %sub.i to i128
   %mul.i.i = mul nuw i128 %conv1.i.i, %conv.i.i
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   %2 = xor i64 %add.i, -1
   %cmp.i = icmp ult i64 %2, %conv3.i.i
@@ -337,7 +337,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i10.i = zext i64 %sub4.i to i128
   %mul.i11.i = mul nuw i128 %conv.i10.i, 10000000000000000000
   %shr.i12.i = lshr i128 %mul.i11.i, 64
-  %conv2.i13.i = trunc i128 %shr.i12.i to i64
+  %conv2.i13.i = trunc nuw i128 %shr.i12.i to i64
   %conv3.i14.i = trunc i128 %mul.i11.i to i64
   %add5.i = add i64 %add, %conv3.i14.i
   %cmp6.i = icmp ult i64 %add5.i, %add
@@ -394,7 +394,7 @@ for.body3.us:                                     ; preds = %for.cond1.preheader
   %conv1.i.us = zext i64 %3 to i128
   %mul.i.us = mul nuw i128 %conv1.i.us, %conv.i.us
   %shr.i.us = lshr i128 %mul.i.us, 64
-  %conv2.i.us = trunc i128 %shr.i.us to i64
+  %conv2.i.us = trunc nuw i128 %shr.i.us to i64
   %conv3.i.us = trunc i128 %mul.i.us to i64
   %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %i.023.us
   %4 = load i64, ptr %gep.us, align 8
@@ -413,7 +413,7 @@ for.body3.us:                                     ; preds = %for.cond1.preheader
   %conv1.i.i.us = zext i64 %sub.i.us to i128
   %mul.i.i.us = mul nuw i128 %conv1.i.i.us, %conv.i.i
   %shr.i.i.us = lshr i128 %mul.i.i.us, 64
-  %conv2.i.i.us = trunc i128 %shr.i.i.us to i64
+  %conv2.i.i.us = trunc nuw i128 %shr.i.i.us to i64
   %conv3.i.i.us = trunc i128 %mul.i.i.us to i64
   %5 = xor i64 %add.i.us, -1
   %cmp.i.us = icmp ult i64 %5, %conv3.i.i.us
@@ -424,7 +424,7 @@ for.body3.us:                                     ; preds = %for.cond1.preheader
   %conv.i10.i.us = zext i64 %sub4.i.us to i128
   %mul.i11.i.us = mul nuw i128 %conv.i10.i.us, 10000000000000000000
   %shr.i12.i.us = lshr i128 %mul.i11.i.us, 64
-  %conv2.i13.i.us = trunc i128 %shr.i12.i.us to i64
+  %conv2.i13.i.us = trunc nuw i128 %shr.i12.i.us to i64
   %conv3.i14.i.us = trunc i128 %mul.i11.i.us to i64
   %add5.i.us = add i64 %add10.us, %conv3.i14.i.us
   %cmp6.i.us = icmp ult i64 %add5.i.us, %add10.us
@@ -468,7 +468,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i = zext i64 %rem.013 to i128
   %mul.i = mul nuw i128 %conv.i, 10000000000000000000
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %arrayidx = getelementptr i64, ptr %u, i64 %i.0
   %0 = load i64, ptr %arrayidx, align 8
@@ -495,7 +495,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_mpd_basedivmod(ptr nocapture noundef writeonly %q, ptr noundef writeonly %r, ptr nocapture noundef readonly %uconst, ptr nocapture noundef readonly %vconst, i64 noundef %nplusm, i64 noundef %n) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @_mpd_basedivmod(ptr nocapture noundef writeonly %q, ptr noundef writeonly %r, ptr nocapture noundef readonly %uconst, ptr nocapture noundef readonly %vconst, i64 noundef %nplusm, i64 noundef %n) local_unnamed_addr #1 {
 entry:
   %ustatic = alloca [64 x i64], align 16
   %vstatic = alloca [64 x i64], align 16
@@ -559,7 +559,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv.i.i = zext i64 %6 to i128
   %mul.i.i = mul nuw i128 %conv.i.i, %conv1.i.i
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   %add.i = add i64 %carry.010.i, %conv3.i.i
   %cmp1.i = icmp ult i64 %add.i, %carry.010.i
@@ -573,7 +573,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv1.i.i.i = zext i64 %sub.i.i to i128
   %mul.i.i.i = mul nuw i128 %conv1.i.i.i, %conv.i.i.i
   %shr.i.i.i = lshr i128 %mul.i.i.i, 64
-  %conv2.i.i.i = trunc i128 %shr.i.i.i to i64
+  %conv2.i.i.i = trunc nuw i128 %shr.i.i.i to i64
   %conv3.i.i.i = trunc i128 %mul.i.i.i to i64
   %7 = xor i64 %add.i.i, -1
   %cmp.i.i = icmp ult i64 %7, %conv3.i.i.i
@@ -584,7 +584,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv.i10.i.i = zext i64 %sub4.i.i to i128
   %mul.i11.i.i = mul nuw i128 %conv.i10.i.i, 10000000000000000000
   %shr.i12.i.i = lshr i128 %mul.i11.i.i, 64
-  %conv2.i13.i.i = trunc i128 %shr.i12.i.i to i64
+  %conv2.i13.i.i = trunc nuw i128 %shr.i12.i.i to i64
   %conv3.i14.i.i = trunc i128 %mul.i11.i.i to i64
   %add5.i.i = add i64 %add.i, %conv3.i14.i.i
   %cmp6.i.i = icmp ult i64 %add5.i.i, %add.i
@@ -621,7 +621,7 @@ for.body.i77:                                     ; preds = %for.body.i77, %for.
   %conv.i.i81 = zext i64 %9 to i128
   %mul.i.i82 = mul nuw i128 %conv.i.i81, %conv1.i.i75
   %shr.i.i83 = lshr i128 %mul.i.i82, 64
-  %conv2.i.i84 = trunc i128 %shr.i.i83 to i64
+  %conv2.i.i84 = trunc nuw i128 %shr.i.i83 to i64
   %conv3.i.i85 = trunc i128 %mul.i.i82 to i64
   %add.i86 = add i64 %carry.010.i79, %conv3.i.i85
   %cmp1.i87 = icmp ult i64 %add.i86, %carry.010.i79
@@ -635,7 +635,7 @@ for.body.i77:                                     ; preds = %for.body.i77, %for.
   %conv1.i.i.i95 = zext i64 %sub.i.i94 to i128
   %mul.i.i.i96 = mul nuw i128 %conv1.i.i.i95, %conv.i.i.i76
   %shr.i.i.i97 = lshr i128 %mul.i.i.i96, 64
-  %conv2.i.i.i98 = trunc i128 %shr.i.i.i97 to i64
+  %conv2.i.i.i98 = trunc nuw i128 %shr.i.i.i97 to i64
   %conv3.i.i.i99 = trunc i128 %mul.i.i.i96 to i64
   %10 = xor i64 %add.i.i93, -1
   %cmp.i.i100 = icmp ult i64 %10, %conv3.i.i.i99
@@ -646,7 +646,7 @@ for.body.i77:                                     ; preds = %for.body.i77, %for.
   %conv.i10.i.i105 = zext i64 %sub4.i.i104 to i128
   %mul.i11.i.i106 = mul nuw i128 %conv.i10.i.i105, 10000000000000000000
   %shr.i12.i.i107 = lshr i128 %mul.i11.i.i106, 64
-  %conv2.i13.i.i108 = trunc i128 %shr.i12.i.i107 to i64
+  %conv2.i13.i.i108 = trunc nuw i128 %shr.i12.i.i107 to i64
   %conv3.i14.i.i109 = trunc i128 %mul.i11.i.i106 to i64
   %add5.i.i110 = add i64 %add.i86, %conv3.i14.i.i109
   %cmp6.i.i111 = icmp ult i64 %add5.i.i110, %add.i86
@@ -696,7 +696,7 @@ for.body.i125:                                    ; preds = %for.body.i125, %for
   %conv.i.i126 = zext i64 %rem.013.i to i128
   %mul.i.i127 = mul nuw i128 %conv.i.i126, 10000000000000000000
   %shr.i.i128 = lshr i128 %mul.i.i127, 64
-  %conv2.i.i129 = trunc i128 %shr.i.i128 to i64
+  %conv2.i.i129 = trunc nuw i128 %shr.i.i128 to i64
   %conv3.i.i130 = trunc i128 %mul.i.i127 to i64
   %arrayidx.i131 = getelementptr i64, ptr %add.ptr19, i64 %i.0.i
   %14 = load i64, ptr %arrayidx.i131, align 8
@@ -740,7 +740,7 @@ if.then27:                                        ; preds = %while.body
   %conv1.i.i138 = zext i64 %18 to i128
   %mul.i.i139 = mul nuw i128 %conv1.i.i138, %conv.i.i137
   %shr.i.i140 = lshr i128 %mul.i.i139, 64
-  %conv2.i.i141 = trunc i128 %shr.i.i140 to i64
+  %conv2.i.i141 = trunc nuw i128 %shr.i.i140 to i64
   %conv3.i.i142 = trunc i128 %mul.i.i139 to i64
   %lo.lobit.i.i144 = ashr i64 %conv3.i.i142, 63
   %and1.i.i145 = and i64 %lo.lobit.i.i144, -8446744073709551616
@@ -749,7 +749,7 @@ if.then27:                                        ; preds = %while.body
   %conv1.i.i.i149 = zext i64 %sub.i.i147 to i128
   %mul.i.i.i150 = mul nuw i128 %conv1.i.i.i149, %conv.i.i.i148
   %shr.i.i.i151 = lshr i128 %mul.i.i.i150, 64
-  %conv2.i.i.i152 = trunc i128 %shr.i.i.i151 to i64
+  %conv2.i.i.i152 = trunc nuw i128 %shr.i.i.i151 to i64
   %conv3.i.i.i153 = trunc i128 %mul.i.i.i150 to i64
   %19 = xor i64 %add.i.i146, -1
   %cmp.i.i154 = icmp ult i64 %19, %conv3.i.i.i153
@@ -760,7 +760,7 @@ if.then27:                                        ; preds = %while.body
   %conv.i10.i.i159 = zext i64 %sub4.i.i158 to i128
   %mul.i11.i.i160 = mul nuw i128 %conv.i10.i.i159, 10000000000000000000
   %shr.i12.i.i161 = lshr i128 %mul.i11.i.i160, 64
-  %conv2.i13.i.i162 = trunc i128 %shr.i12.i.i161 to i64
+  %conv2.i13.i.i162 = trunc nuw i128 %shr.i12.i.i161 to i64
   %conv3.i14.i.i163 = trunc i128 %mul.i11.i.i160 to i64
   %add5.i.i164 = add i64 %conv3.i14.i.i163, %conv3.i.i142
   %cmp6.i.i165 = icmp ult i64 %add5.i.i164, %conv3.i.i142
@@ -814,7 +814,7 @@ for.body58:                                       ; preds = %while.end, %for.bod
   %conv1.i = zext i64 %21 to i128
   %mul.i = mul nuw i128 %conv.i.pre-phi, %conv1.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %add60 = add i64 %carry.0229, %conv3.i
   %cmp61 = icmp ult i64 %add60, %carry.0229
@@ -827,7 +827,7 @@ for.body58:                                       ; preds = %while.end, %for.bod
   %conv1.i.i176 = zext i64 %sub.i174 to i128
   %mul.i.i177 = mul nuw i128 %conv1.i.i176, %conv.i.i.i148
   %shr.i.i178 = lshr i128 %mul.i.i177, 64
-  %conv2.i.i179 = trunc i128 %shr.i.i178 to i64
+  %conv2.i.i179 = trunc nuw i128 %shr.i.i178 to i64
   %conv3.i.i180 = trunc i128 %mul.i.i177 to i64
   %22 = xor i64 %add.i173, -1
   %cmp.i181 = icmp ult i64 %22, %conv3.i.i180
@@ -839,7 +839,7 @@ for.body58:                                       ; preds = %while.end, %for.bod
   %conv.i10.i = zext i64 %sub4.i to i128
   %mul.i11.i = mul nuw i128 %conv.i10.i, 10000000000000000000
   %shr.i12.i = lshr i128 %mul.i11.i, 64
-  %conv2.i13.i = trunc i128 %shr.i12.i to i64
+  %conv2.i13.i = trunc nuw i128 %shr.i12.i to i64
   %conv3.i14.i = trunc i128 %mul.i11.i to i64
   %add5.i = add i64 %add60, %conv3.i14.i
   %cmp6.i = icmp ult i64 %add5.i, %add60
@@ -929,7 +929,7 @@ for.body.i192:                                    ; preds = %for.body.i192, %for
   %conv.i.i196 = zext i64 %rem.013.i194 to i128
   %mul.i.i197 = mul nuw i128 %conv.i.i196, 10000000000000000000
   %shr.i.i198 = lshr i128 %mul.i.i197, 64
-  %conv2.i.i199 = trunc i128 %shr.i.i198 to i64
+  %conv2.i.i199 = trunc nuw i128 %shr.i.i198 to i64
   %conv3.i.i200 = trunc i128 %mul.i.i197 to i64
   %arrayidx.i201 = getelementptr i64, ptr %u.0, i64 %i.0.i195
   %27 = load i64, ptr %arrayidx.i201, align 8
@@ -1431,7 +1431,7 @@ cond.end:                                         ; preds = %if.end44, %cond.tru
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_shortadd_b(ptr nocapture noundef %w, i64 noundef %m, i64 noundef %v, i64 noundef %b) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @_mpd_shortadd_b(ptr nocapture noundef %w, i64 noundef %m, i64 noundef %v, i64 noundef %b) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %w, align 8
   %add = add i64 %0, %v
@@ -1484,7 +1484,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i = zext i64 %1 to i128
   %mul.i = mul nuw i128 %conv.i, %conv1.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %add = add i64 %carry.08, %conv3.i
   %cmp1 = icmp ult i64 %add, %carry.08
@@ -1498,7 +1498,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv1.i.i = zext i64 %sub.i to i128
   %mul.i.i = mul nuw i128 %conv1.i.i, %conv.i.i
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   %2 = xor i64 %add.i, -1
   %cmp.i = icmp ult i64 %2, %conv3.i.i
@@ -1509,7 +1509,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i10.i = zext i64 %sub4.i to i128
   %mul.i11.i = mul nuw i128 %conv.i10.i, 10000000000000000000
   %shr.i12.i = lshr i128 %mul.i11.i, 64
-  %conv2.i13.i = trunc i128 %shr.i12.i to i64
+  %conv2.i13.i = trunc nuw i128 %shr.i12.i to i64
   %conv3.i14.i = trunc i128 %mul.i11.i to i64
   %add5.i = add i64 %add, %conv3.i14.i
   %cmp6.i = icmp ult i64 %add5.i, %add
@@ -1549,7 +1549,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i = zext i64 %0 to i128
   %mul.i = mul nuw i128 %conv.i, %conv1.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %add = add i64 %carry.012, %conv3.i
   %cmp1 = icmp ult i64 %add, %carry.012
@@ -1592,7 +1592,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i = zext i64 %rem.014 to i128
   %mul.i = mul nuw i128 %conv.i, %conv1.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %arrayidx = getelementptr i64, ptr %u, i64 %i.0
   %0 = load i64, ptr %arrayidx, align 8

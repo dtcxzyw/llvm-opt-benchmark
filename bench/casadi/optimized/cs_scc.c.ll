@@ -66,7 +66,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %.lr.ph
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = tail call i32 @cs_dfs(i32 noundef %34, ptr noundef nonnull %0, i32 noundef %.0110124, ptr noundef nonnull %15, ptr noundef nonnull %23, ptr noundef null) #2
   br label %36
 
@@ -189,7 +189,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph139.preheader:                              ; preds = %.lr.ph143
   %69 = sext i32 %65 to i64
-  %70 = trunc i64 %indvars.iv168 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv168 to i32
   br label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %.lr.ph139
@@ -233,7 +233,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %86, ptr %84, align 4
   %87 = sext i32 %85 to i64
   %88 = getelementptr inbounds i32, ptr %24, i64 %87
-  %89 = trunc i64 %indvars.iv178 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv178 to i32
   store i32 %89, ptr %88, align 4
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181

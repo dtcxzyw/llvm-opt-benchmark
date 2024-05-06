@@ -11,7 +11,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_eld_sad_
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_drm_eld_sad_get362, ptr @__UNIQUE_ID___addressable_drm_eld_sad_set363], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_eld_sad_get(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_eld_sad_get(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4
@@ -41,7 +41,7 @@ define dso_local noundef i32 @drm_eld_sad_get(ptr noundef %0, i32 noundef %1, pt
 declare dso_local void @drm_edid_cta_sad_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_eld_sad_set(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_eld_sad_set(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4

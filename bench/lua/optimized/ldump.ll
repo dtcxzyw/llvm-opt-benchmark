@@ -164,7 +164,7 @@ dumpByte.exit:                                    ; preds = %dumpHeader.exit.thr
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dumpFunction(ptr noundef %D, ptr nocapture noundef readonly %f, ptr noundef readnone %psource) unnamed_addr #0 {
 entry:
-  %buff.i.i184 = alloca [10 x i8], align 1
+  %buff.i.i185 = alloca [10 x i8], align 1
   %buff.i.i181.i = alloca [10 x i8], align 1
   %buff.i.i158.i = alloca [10 x i8], align 1
   %buff.i.i135.i = alloca [10 x i8], align 1
@@ -172,18 +172,18 @@ entry:
   %buff.i.i89.i = alloca [10 x i8], align 1
   %buff.i.i66.i = alloca [10 x i8], align 1
   %buff.i.i43.i = alloca [10 x i8], align 1
-  %buff.i.i.i144 = alloca [10 x i8], align 1
-  %x.i20.i = alloca i8, align 1
-  %x.i12.i = alloca i8, align 1
-  %x.i.i104 = alloca i8, align 1
-  %buff.i.i.i105 = alloca [10 x i8], align 1
-  %x.addr.i19.i = alloca i64, align 8
+  %buff.i.i.i145 = alloca [10 x i8], align 1
+  %x.i22.i = alloca i8, align 1
+  %x.i13.i = alloca i8, align 1
+  %x.i.i107 = alloca i8, align 1
+  %buff.i.i.i108 = alloca [10 x i8], align 1
+  %x.addr.i20.i = alloca i64, align 8
   %x.addr.i.i = alloca double, align 8
   %x.i.i = alloca i8, align 1
-  %buff.i.i.i77 = alloca [10 x i8], align 1
+  %buff.i.i.i80 = alloca [10 x i8], align 1
   %buff.i.i.i = alloca [10 x i8], align 1
-  %x.i63 = alloca i8, align 1
-  %x.i55 = alloca i8, align 1
+  %x.i65 = alloca i8, align 1
+  %x.i56 = alloca i8, align 1
   %x.i = alloca i8, align 1
   %buff.i.i32 = alloca [10 x i8], align 1
   %buff.i.i24 = alloca [10 x i8], align 1
@@ -324,10 +324,10 @@ dumpInt.exit54:                                   ; preds = %do.end.i.i43
   br i1 %cmp.i.i, label %dumpByte.exit, label %dumpByte.exit.thread
 
 dumpByte.exit.thread:                             ; preds = %dumpInt.exit54, %dumpInt.exit54.thread
-  %.pr209.ph = phi i32 [ %14, %dumpInt.exit54.thread ], [ %call.i.i.i53, %dumpInt.exit54 ]
+  %.pr210.ph = phi i32 [ %14, %dumpInt.exit54.thread ], [ %call.i.i.i53, %dumpInt.exit54 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i55)
-  br label %dumpByte.exit62.thread
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i56)
+  br label %dumpByte.exit64.thread
 
 dumpByte.exit:                                    ; preds = %dumpInt.exit54
   %23 = load ptr, ptr %writer.i.i.i51, align 8
@@ -338,55 +338,55 @@ dumpByte.exit:                                    ; preds = %dumpInt.exit54
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i)
   %is_vararg = getelementptr inbounds i8, ptr %f, i64 11
   %26 = load i8, ptr %is_vararg, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i55)
-  store i8 %26, ptr %x.i55, align 1
-  %cmp.i.i57 = icmp eq i32 %call.i.i, 0
-  br i1 %cmp.i.i57, label %dumpByte.exit62, label %dumpByte.exit62.thread
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i56)
+  store i8 %26, ptr %x.i56, align 1
+  %cmp.i.i59 = icmp eq i32 %call.i.i, 0
+  br i1 %cmp.i.i59, label %dumpByte.exit64, label %dumpByte.exit64.thread
 
-dumpByte.exit62.thread:                           ; preds = %dumpByte.exit.thread, %dumpByte.exit
-  %.ph = phi i32 [ %call.i.i, %dumpByte.exit ], [ %.pr209.ph, %dumpByte.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i55)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i63)
-  br label %dumpByte.exit70
+dumpByte.exit64.thread:                           ; preds = %dumpByte.exit.thread, %dumpByte.exit
+  %.ph = phi i32 [ %call.i.i, %dumpByte.exit ], [ %.pr210.ph, %dumpByte.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i56)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i65)
+  br label %dumpByte.exit73
 
-dumpByte.exit62:                                  ; preds = %dumpByte.exit
-  %writer.i.i59 = getelementptr inbounds i8, ptr %D, i64 8
-  %27 = load ptr, ptr %writer.i.i59, align 8
+dumpByte.exit64:                                  ; preds = %dumpByte.exit
+  %writer.i.i61 = getelementptr inbounds i8, ptr %D, i64 8
+  %27 = load ptr, ptr %writer.i.i61, align 8
   %28 = load ptr, ptr %D, align 8
-  %data.i.i60 = getelementptr inbounds i8, ptr %D, i64 16
-  %29 = load ptr, ptr %data.i.i60, align 8
-  %call.i.i61 = call i32 %27(ptr noundef %28, ptr noundef nonnull %x.i55, i64 noundef 1, ptr noundef %29) #2
-  store i32 %call.i.i61, ptr %status.i.i.i26, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i55)
+  %data.i.i62 = getelementptr inbounds i8, ptr %D, i64 16
+  %29 = load ptr, ptr %data.i.i62, align 8
+  %call.i.i63 = call i32 %27(ptr noundef %28, ptr noundef nonnull %x.i56, i64 noundef 1, ptr noundef %29) #2
+  store i32 %call.i.i63, ptr %status.i.i.i26, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i56)
   %maxstacksize = getelementptr inbounds i8, ptr %f, i64 12
   %30 = load i8, ptr %maxstacksize, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i63)
-  store i8 %30, ptr %x.i63, align 1
-  %cmp.i.i65 = icmp eq i32 %call.i.i61, 0
-  br i1 %cmp.i.i65, label %if.then.i.i66, label %dumpByte.exit70
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i65)
+  store i8 %30, ptr %x.i65, align 1
+  %cmp.i.i68 = icmp eq i32 %call.i.i63, 0
+  br i1 %cmp.i.i68, label %if.then.i.i69, label %dumpByte.exit73
 
-if.then.i.i66:                                    ; preds = %dumpByte.exit62
-  %writer.i.i67 = getelementptr inbounds i8, ptr %D, i64 8
-  %31 = load ptr, ptr %writer.i.i67, align 8
+if.then.i.i69:                                    ; preds = %dumpByte.exit64
+  %writer.i.i70 = getelementptr inbounds i8, ptr %D, i64 8
+  %31 = load ptr, ptr %writer.i.i70, align 8
   %32 = load ptr, ptr %D, align 8
-  %data.i.i68 = getelementptr inbounds i8, ptr %D, i64 16
-  %33 = load ptr, ptr %data.i.i68, align 8
-  %call.i.i69 = call i32 %31(ptr noundef %32, ptr noundef nonnull %x.i63, i64 noundef 1, ptr noundef %33) #2
-  store i32 %call.i.i69, ptr %status.i.i.i26, align 4
-  br label %dumpByte.exit70
+  %data.i.i71 = getelementptr inbounds i8, ptr %D, i64 16
+  %33 = load ptr, ptr %data.i.i71, align 8
+  %call.i.i72 = call i32 %31(ptr noundef %32, ptr noundef nonnull %x.i65, i64 noundef 1, ptr noundef %33) #2
+  store i32 %call.i.i72, ptr %status.i.i.i26, align 4
+  br label %dumpByte.exit73
 
-dumpByte.exit70:                                  ; preds = %dumpByte.exit62.thread, %dumpByte.exit62, %if.then.i.i66
-  %34 = phi i32 [ %call.i.i61, %dumpByte.exit62 ], [ %call.i.i69, %if.then.i.i66 ], [ %.ph, %dumpByte.exit62.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i63)
+dumpByte.exit73:                                  ; preds = %dumpByte.exit64.thread, %dumpByte.exit64, %if.then.i.i69
+  %34 = phi i32 [ %call.i.i63, %dumpByte.exit64 ], [ %call.i.i72, %if.then.i.i69 ], [ %.ph, %dumpByte.exit64.thread ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i65)
   %sizecode.i = getelementptr inbounds i8, ptr %f, i64 24
   %35 = load i32, ptr %sizecode.i, align 8
-  %conv.i.i71 = sext i32 %35 to i64
+  %conv.i.i74 = sext i32 %35 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i)
   br label %do.body.i.i.i
 
-do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %dumpByte.exit70
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %dumpByte.exit70 ]
-  %x.addr.0.i.i.i = phi i64 [ %shr.i.i.i, %do.body.i.i.i ], [ %conv.i.i71, %dumpByte.exit70 ]
+do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %dumpByte.exit73
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %dumpByte.exit73 ]
+  %x.addr.0.i.i.i = phi i64 [ %shr.i.i.i, %do.body.i.i.i ], [ %conv.i.i74, %dumpByte.exit73 ]
   %36 = trunc i64 %x.addr.0.i.i.i to i8
   %conv.i.i.i = and i8 %36, 127
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -425,71 +425,71 @@ dumpInt.exit.i:                                   ; preds = %do.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i)
   %cmp1.i.i = icmp ne i32 %.pre.i, 0
   %or.cond.i.i = and i1 %42, %cmp1.i.i
-  br i1 %or.cond.i.i, label %if.then.i.i72, label %dumpCode.exit
+  br i1 %or.cond.i.i, label %if.then.i.i75, label %dumpCode.exit
 
-if.then.i.i72:                                    ; preds = %dumpInt.exit.i
-  %conv.i73 = sext i32 %.pre.i to i64
-  %mul.i = shl nsw i64 %conv.i73, 2
+if.then.i.i75:                                    ; preds = %dumpInt.exit.i
+  %conv.i76 = sext i32 %.pre.i to i64
+  %mul.i = shl nsw i64 %conv.i76, 2
   %code.i = getelementptr inbounds i8, ptr %f, i64 64
   %43 = load ptr, ptr %code.i, align 8
   %44 = load ptr, ptr %writer.i.i.i.i, align 8
   %45 = load ptr, ptr %D, align 8
   %46 = load ptr, ptr %data.i.i.i.i, align 8
-  %call.i.i76 = call i32 %44(ptr noundef %45, ptr noundef %43, i64 noundef %mul.i, ptr noundef %46) #2
-  store i32 %call.i.i76, ptr %status.i.i.i26, align 4
+  %call.i.i79 = call i32 %44(ptr noundef %45, ptr noundef %43, i64 noundef %mul.i, ptr noundef %46) #2
+  store i32 %call.i.i79, ptr %status.i.i.i26, align 4
   br label %dumpCode.exit
 
-dumpCode.exit:                                    ; preds = %dumpInt.exit.thread.i, %dumpInt.exit.i, %if.then.i.i72
-  %47 = phi i32 [ 1, %dumpInt.exit.thread.i ], [ %call.i.i.i.i, %dumpInt.exit.i ], [ %call.i.i76, %if.then.i.i72 ]
+dumpCode.exit:                                    ; preds = %dumpInt.exit.thread.i, %dumpInt.exit.i, %if.then.i.i75
+  %47 = phi i32 [ 1, %dumpInt.exit.thread.i ], [ %call.i.i.i.i, %dumpInt.exit.i ], [ %call.i.i79, %if.then.i.i75 ]
   %sizek.i = getelementptr inbounds i8, ptr %f, i64 20
   %48 = load i32, ptr %sizek.i, align 4
-  %conv.i.i78 = sext i32 %48 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i77)
-  br label %do.body.i.i.i79
+  %conv.i.i81 = sext i32 %48 to i64
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i80)
+  br label %do.body.i.i.i82
 
-do.body.i.i.i79:                                  ; preds = %do.body.i.i.i79, %dumpCode.exit
-  %indvars.iv.i.i.i80 = phi i64 [ %indvars.iv.next.i.i.i83, %do.body.i.i.i79 ], [ 0, %dumpCode.exit ]
-  %x.addr.0.i.i.i81 = phi i64 [ %shr.i.i.i86, %do.body.i.i.i79 ], [ %conv.i.i78, %dumpCode.exit ]
-  %49 = trunc i64 %x.addr.0.i.i.i81 to i8
-  %conv.i.i.i82 = and i8 %49, 127
-  %indvars.iv.next.i.i.i83 = add nuw nsw i64 %indvars.iv.i.i.i80, 1
-  %sub.i.i.i84 = sub nsw i64 9, %indvars.iv.i.i.i80
-  %arrayidx.i.i.i85 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i77, i64 0, i64 %sub.i.i.i84
-  store i8 %conv.i.i.i82, ptr %arrayidx.i.i.i85, align 1
-  %shr.i.i.i86 = lshr i64 %x.addr.0.i.i.i81, 7
-  %cmp.not.i.i.i87 = icmp ult i64 %x.addr.0.i.i.i81, 128
-  br i1 %cmp.not.i.i.i87, label %do.end.i.i.i88, label %do.body.i.i.i79, !llvm.loop !5
+do.body.i.i.i82:                                  ; preds = %do.body.i.i.i82, %dumpCode.exit
+  %indvars.iv.i.i.i83 = phi i64 [ %indvars.iv.next.i.i.i86, %do.body.i.i.i82 ], [ 0, %dumpCode.exit ]
+  %x.addr.0.i.i.i84 = phi i64 [ %shr.i.i.i89, %do.body.i.i.i82 ], [ %conv.i.i81, %dumpCode.exit ]
+  %49 = trunc i64 %x.addr.0.i.i.i84 to i8
+  %conv.i.i.i85 = and i8 %49, 127
+  %indvars.iv.next.i.i.i86 = add nuw nsw i64 %indvars.iv.i.i.i83, 1
+  %sub.i.i.i87 = sub nsw i64 9, %indvars.iv.i.i.i83
+  %arrayidx.i.i.i88 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i80, i64 0, i64 %sub.i.i.i87
+  store i8 %conv.i.i.i85, ptr %arrayidx.i.i.i88, align 1
+  %shr.i.i.i89 = lshr i64 %x.addr.0.i.i.i84, 7
+  %cmp.not.i.i.i90 = icmp ult i64 %x.addr.0.i.i.i84, 128
+  br i1 %cmp.not.i.i.i90, label %do.end.i.i.i91, label %do.body.i.i.i82, !llvm.loop !5
 
-do.end.i.i.i88:                                   ; preds = %do.body.i.i.i79
-  %arrayidx3.i.i.i89 = getelementptr inbounds i8, ptr %buff.i.i.i77, i64 9
-  %50 = load i8, ptr %arrayidx3.i.i.i89, align 1
+do.end.i.i.i91:                                   ; preds = %do.body.i.i.i82
+  %arrayidx3.i.i.i92 = getelementptr inbounds i8, ptr %buff.i.i.i80, i64 9
+  %50 = load i8, ptr %arrayidx3.i.i.i92, align 1
   %51 = or i8 %50, -128
-  store i8 %51, ptr %arrayidx3.i.i.i89, align 1
-  %cmp.i.i.i.i91 = icmp eq i32 %47, 0
-  br i1 %cmp.i.i.i.i91, label %if.then.i.i.i.i, label %dumpInt.exit.i92
+  store i8 %51, ptr %arrayidx3.i.i.i92, align 1
+  %cmp.i.i.i.i94 = icmp eq i32 %47, 0
+  br i1 %cmp.i.i.i.i94, label %if.then.i.i.i.i, label %dumpInt.exit.i95
 
-if.then.i.i.i.i:                                  ; preds = %do.end.i.i.i88
-  %add.ptr.i.i.i98 = getelementptr inbounds i8, ptr %buff.i.i.i77, i64 10
-  %idx.neg.i.i.i99 = xor i64 %indvars.iv.i.i.i80, -1
-  %add.ptr6.i.i.i100 = getelementptr inbounds i8, ptr %add.ptr.i.i.i98, i64 %idx.neg.i.i.i99
-  %writer.i.i.i.i101 = getelementptr inbounds i8, ptr %D, i64 8
-  %52 = load ptr, ptr %writer.i.i.i.i101, align 8
+if.then.i.i.i.i:                                  ; preds = %do.end.i.i.i91
+  %add.ptr.i.i.i101 = getelementptr inbounds i8, ptr %buff.i.i.i80, i64 10
+  %idx.neg.i.i.i102 = xor i64 %indvars.iv.i.i.i83, -1
+  %add.ptr6.i.i.i103 = getelementptr inbounds i8, ptr %add.ptr.i.i.i101, i64 %idx.neg.i.i.i102
+  %writer.i.i.i.i104 = getelementptr inbounds i8, ptr %D, i64 8
+  %52 = load ptr, ptr %writer.i.i.i.i104, align 8
   %53 = load ptr, ptr %D, align 8
-  %data.i.i.i.i102 = getelementptr inbounds i8, ptr %D, i64 16
-  %54 = load ptr, ptr %data.i.i.i.i102, align 8
-  %call.i.i.i.i103 = call i32 %52(ptr noundef %53, ptr noundef nonnull %add.ptr6.i.i.i100, i64 noundef %indvars.iv.next.i.i.i83, ptr noundef %54) #2
-  store i32 %call.i.i.i.i103, ptr %status.i.i.i26, align 4
-  br label %dumpInt.exit.i92
+  %data.i.i.i.i105 = getelementptr inbounds i8, ptr %D, i64 16
+  %54 = load ptr, ptr %data.i.i.i.i105, align 8
+  %call.i.i.i.i106 = call i32 %52(ptr noundef %53, ptr noundef nonnull %add.ptr6.i.i.i103, i64 noundef %indvars.iv.next.i.i.i86, ptr noundef %54) #2
+  store i32 %call.i.i.i.i106, ptr %status.i.i.i26, align 4
+  br label %dumpInt.exit.i95
 
-dumpInt.exit.i92:                                 ; preds = %if.then.i.i.i.i, %do.end.i.i.i88
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i77)
-  %cmp26.i = icmp sgt i32 %48, 0
-  br i1 %cmp26.i, label %for.body.lr.ph.i, label %dumpConstants.exit
+dumpInt.exit.i95:                                 ; preds = %if.then.i.i.i.i, %do.end.i.i.i91
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i80)
+  %cmp27.i = icmp sgt i32 %48, 0
+  br i1 %cmp27.i, label %for.body.lr.ph.i, label %dumpConstants.exit
 
-for.body.lr.ph.i:                                 ; preds = %dumpInt.exit.i92
+for.body.lr.ph.i:                                 ; preds = %dumpInt.exit.i95
   %k.i = getelementptr inbounds i8, ptr %f, i64 56
-  %writer.i.i.i93 = getelementptr inbounds i8, ptr %D, i64 8
-  %data.i.i.i94 = getelementptr inbounds i8, ptr %D, i64 16
+  %writer.i.i.i96 = getelementptr inbounds i8, ptr %D, i64 8
+  %data.i.i.i97 = getelementptr inbounds i8, ptr %D, i64 16
   %wide.trip.count.i = zext nneg i32 %48 to i64
   br label %for.body.i
 
@@ -503,19 +503,19 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i)
   store i8 %57, ptr %x.i.i, align 1
   %58 = load i32, ptr %status.i.i.i26, align 4
-  %cmp.i.i.i95 = icmp eq i32 %58, 0
-  br i1 %cmp.i.i.i95, label %if.then.i.i.i96, label %dumpByte.exit.i
+  %cmp.i.i.i98 = icmp eq i32 %58, 0
+  br i1 %cmp.i.i.i98, label %if.then.i.i.i99, label %dumpByte.exit.i
 
-if.then.i.i.i96:                                  ; preds = %for.body.i
-  %59 = load ptr, ptr %writer.i.i.i93, align 8
+if.then.i.i.i99:                                  ; preds = %for.body.i
+  %59 = load ptr, ptr %writer.i.i.i96, align 8
   %60 = load ptr, ptr %D, align 8
-  %61 = load ptr, ptr %data.i.i.i94, align 8
-  %call.i.i.i97 = call i32 %59(ptr noundef %60, ptr noundef nonnull %x.i.i, i64 noundef 1, ptr noundef %61) #2
-  store i32 %call.i.i.i97, ptr %status.i.i.i26, align 4
+  %61 = load ptr, ptr %data.i.i.i97, align 8
+  %call.i.i.i100 = call i32 %59(ptr noundef %60, ptr noundef nonnull %x.i.i, i64 noundef 1, ptr noundef %61) #2
+  store i32 %call.i.i.i100, ptr %status.i.i.i26, align 4
   br label %dumpByte.exit.i
 
-dumpByte.exit.i:                                  ; preds = %if.then.i.i.i96, %for.body.i
-  %62 = phi i32 [ %58, %for.body.i ], [ %call.i.i.i97, %if.then.i.i.i96 ]
+dumpByte.exit.i:                                  ; preds = %if.then.i.i.i99, %for.body.i
+  %62 = phi i32 [ %58, %for.body.i ], [ %call.i.i.i100, %if.then.i.i.i99 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i)
   switch i8 %57, label %for.inc.i [
     i8 19, label %sw.bb.i
@@ -528,38 +528,38 @@ sw.bb.i:                                          ; preds = %dumpByte.exit.i
   %63 = load double, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x.addr.i.i)
   store double %63, ptr %x.addr.i.i, align 8
-  %cmp.i.i14.i = icmp eq i32 %62, 0
-  br i1 %cmp.i.i14.i, label %if.then.i.i15.i, label %dumpNumber.exit.i
+  %cmp.i.i15.i = icmp eq i32 %62, 0
+  br i1 %cmp.i.i15.i, label %if.then.i.i16.i, label %dumpNumber.exit.i
 
-if.then.i.i15.i:                                  ; preds = %sw.bb.i
-  %64 = load ptr, ptr %writer.i.i.i93, align 8
+if.then.i.i16.i:                                  ; preds = %sw.bb.i
+  %64 = load ptr, ptr %writer.i.i.i96, align 8
   %65 = load ptr, ptr %D, align 8
-  %66 = load ptr, ptr %data.i.i.i94, align 8
-  %call.i.i18.i = call i32 %64(ptr noundef %65, ptr noundef nonnull %x.addr.i.i, i64 noundef 8, ptr noundef %66) #2
-  store i32 %call.i.i18.i, ptr %status.i.i.i26, align 4
+  %66 = load ptr, ptr %data.i.i.i97, align 8
+  %call.i.i19.i = call i32 %64(ptr noundef %65, ptr noundef nonnull %x.addr.i.i, i64 noundef 8, ptr noundef %66) #2
+  store i32 %call.i.i19.i, ptr %status.i.i.i26, align 4
   br label %dumpNumber.exit.i
 
-dumpNumber.exit.i:                                ; preds = %if.then.i.i15.i, %sw.bb.i
+dumpNumber.exit.i:                                ; preds = %if.then.i.i16.i, %sw.bb.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.addr.i.i)
   br label %for.inc.i
 
 sw.bb1.i:                                         ; preds = %dumpByte.exit.i
   %67 = load i64, ptr %arrayidx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x.addr.i19.i)
-  store i64 %67, ptr %x.addr.i19.i, align 8
-  %cmp.i.i21.i = icmp eq i32 %62, 0
-  br i1 %cmp.i.i21.i, label %if.then.i.i22.i, label %dumpInteger.exit.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x.addr.i20.i)
+  store i64 %67, ptr %x.addr.i20.i, align 8
+  %cmp.i.i22.i = icmp eq i32 %62, 0
+  br i1 %cmp.i.i22.i, label %if.then.i.i23.i, label %dumpInteger.exit.i
 
-if.then.i.i22.i:                                  ; preds = %sw.bb1.i
-  %68 = load ptr, ptr %writer.i.i.i93, align 8
+if.then.i.i23.i:                                  ; preds = %sw.bb1.i
+  %68 = load ptr, ptr %writer.i.i.i96, align 8
   %69 = load ptr, ptr %D, align 8
-  %70 = load ptr, ptr %data.i.i.i94, align 8
-  %call.i.i25.i = call i32 %68(ptr noundef %69, ptr noundef nonnull %x.addr.i19.i, i64 noundef 8, ptr noundef %70) #2
-  store i32 %call.i.i25.i, ptr %status.i.i.i26, align 4
+  %70 = load ptr, ptr %data.i.i.i97, align 8
+  %call.i.i26.i = call i32 %68(ptr noundef %69, ptr noundef nonnull %x.addr.i20.i, i64 noundef 8, ptr noundef %70) #2
+  store i32 %call.i.i26.i, ptr %status.i.i.i26, align 4
   br label %dumpInteger.exit.i
 
-dumpInteger.exit.i:                               ; preds = %if.then.i.i22.i, %sw.bb1.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.addr.i19.i)
+dumpInteger.exit.i:                               ; preds = %if.then.i.i23.i, %sw.bb1.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.addr.i20.i)
   br label %for.inc.i
 
 sw.bb3.i:                                         ; preds = %dumpByte.exit.i, %dumpByte.exit.i
@@ -572,193 +572,193 @@ for.inc.i:                                        ; preds = %sw.bb3.i, %dumpInte
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %dumpConstants.exit, label %for.body.i, !llvm.loop !7
 
-dumpConstants.exit:                               ; preds = %for.inc.i, %dumpInt.exit.i92
+dumpConstants.exit:                               ; preds = %for.inc.i, %dumpInt.exit.i95
   %sizeupvalues.i = getelementptr inbounds i8, ptr %f, i64 16
   %72 = load i32, ptr %sizeupvalues.i, align 8
-  %conv.i.i106 = sext i32 %72 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i105)
-  br label %do.body.i.i.i107
+  %conv.i.i109 = sext i32 %72 to i64
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i108)
+  br label %do.body.i.i.i110
 
-do.body.i.i.i107:                                 ; preds = %do.body.i.i.i107, %dumpConstants.exit
-  %indvars.iv.i.i.i108 = phi i64 [ %indvars.iv.next.i.i.i111, %do.body.i.i.i107 ], [ 0, %dumpConstants.exit ]
-  %x.addr.0.i.i.i109 = phi i64 [ %shr.i.i.i114, %do.body.i.i.i107 ], [ %conv.i.i106, %dumpConstants.exit ]
-  %73 = trunc i64 %x.addr.0.i.i.i109 to i8
-  %conv.i.i.i110 = and i8 %73, 127
-  %indvars.iv.next.i.i.i111 = add nuw nsw i64 %indvars.iv.i.i.i108, 1
-  %sub.i.i.i112 = sub nsw i64 9, %indvars.iv.i.i.i108
-  %arrayidx.i.i.i113 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i105, i64 0, i64 %sub.i.i.i112
-  store i8 %conv.i.i.i110, ptr %arrayidx.i.i.i113, align 1
-  %shr.i.i.i114 = lshr i64 %x.addr.0.i.i.i109, 7
-  %cmp.not.i.i.i115 = icmp ult i64 %x.addr.0.i.i.i109, 128
-  br i1 %cmp.not.i.i.i115, label %do.end.i.i.i116, label %do.body.i.i.i107, !llvm.loop !5
+do.body.i.i.i110:                                 ; preds = %do.body.i.i.i110, %dumpConstants.exit
+  %indvars.iv.i.i.i111 = phi i64 [ %indvars.iv.next.i.i.i114, %do.body.i.i.i110 ], [ 0, %dumpConstants.exit ]
+  %x.addr.0.i.i.i112 = phi i64 [ %shr.i.i.i117, %do.body.i.i.i110 ], [ %conv.i.i109, %dumpConstants.exit ]
+  %73 = trunc i64 %x.addr.0.i.i.i112 to i8
+  %conv.i.i.i113 = and i8 %73, 127
+  %indvars.iv.next.i.i.i114 = add nuw nsw i64 %indvars.iv.i.i.i111, 1
+  %sub.i.i.i115 = sub nsw i64 9, %indvars.iv.i.i.i111
+  %arrayidx.i.i.i116 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i108, i64 0, i64 %sub.i.i.i115
+  store i8 %conv.i.i.i113, ptr %arrayidx.i.i.i116, align 1
+  %shr.i.i.i117 = lshr i64 %x.addr.0.i.i.i112, 7
+  %cmp.not.i.i.i118 = icmp ult i64 %x.addr.0.i.i.i112, 128
+  br i1 %cmp.not.i.i.i118, label %do.end.i.i.i119, label %do.body.i.i.i110, !llvm.loop !5
 
-do.end.i.i.i116:                                  ; preds = %do.body.i.i.i107
-  %arrayidx3.i.i.i117 = getelementptr inbounds i8, ptr %buff.i.i.i105, i64 9
-  %74 = load i8, ptr %arrayidx3.i.i.i117, align 1
+do.end.i.i.i119:                                  ; preds = %do.body.i.i.i110
+  %arrayidx3.i.i.i120 = getelementptr inbounds i8, ptr %buff.i.i.i108, i64 9
+  %74 = load i8, ptr %arrayidx3.i.i.i120, align 1
   %75 = or i8 %74, -128
-  store i8 %75, ptr %arrayidx3.i.i.i117, align 1
+  store i8 %75, ptr %arrayidx3.i.i.i120, align 1
   %76 = load i32, ptr %status.i.i.i26, align 4
-  %cmp.i.i.i.i119 = icmp eq i32 %76, 0
-  br i1 %cmp.i.i.i.i119, label %if.then.i.i.i.i135, label %dumpInt.exit.i120
+  %cmp.i.i.i.i122 = icmp eq i32 %76, 0
+  br i1 %cmp.i.i.i.i122, label %if.then.i.i.i.i136, label %dumpInt.exit.i123
 
-if.then.i.i.i.i135:                               ; preds = %do.end.i.i.i116
-  %add.ptr.i.i.i136 = getelementptr inbounds i8, ptr %buff.i.i.i105, i64 10
-  %idx.neg.i.i.i137 = xor i64 %indvars.iv.i.i.i108, -1
-  %add.ptr6.i.i.i138 = getelementptr inbounds i8, ptr %add.ptr.i.i.i136, i64 %idx.neg.i.i.i137
-  %writer.i.i.i.i139 = getelementptr inbounds i8, ptr %D, i64 8
-  %77 = load ptr, ptr %writer.i.i.i.i139, align 8
+if.then.i.i.i.i136:                               ; preds = %do.end.i.i.i119
+  %add.ptr.i.i.i137 = getelementptr inbounds i8, ptr %buff.i.i.i108, i64 10
+  %idx.neg.i.i.i138 = xor i64 %indvars.iv.i.i.i111, -1
+  %add.ptr6.i.i.i139 = getelementptr inbounds i8, ptr %add.ptr.i.i.i137, i64 %idx.neg.i.i.i138
+  %writer.i.i.i.i140 = getelementptr inbounds i8, ptr %D, i64 8
+  %77 = load ptr, ptr %writer.i.i.i.i140, align 8
   %78 = load ptr, ptr %D, align 8
-  %data.i.i.i.i140 = getelementptr inbounds i8, ptr %D, i64 16
-  %79 = load ptr, ptr %data.i.i.i.i140, align 8
-  %call.i.i.i.i141 = call i32 %77(ptr noundef %78, ptr noundef nonnull %add.ptr6.i.i.i138, i64 noundef %indvars.iv.next.i.i.i111, ptr noundef %79) #2
-  store i32 %call.i.i.i.i141, ptr %status.i.i.i26, align 4
-  br label %dumpInt.exit.i120
+  %data.i.i.i.i141 = getelementptr inbounds i8, ptr %D, i64 16
+  %79 = load ptr, ptr %data.i.i.i.i141, align 8
+  %call.i.i.i.i142 = call i32 %77(ptr noundef %78, ptr noundef nonnull %add.ptr6.i.i.i139, i64 noundef %indvars.iv.next.i.i.i114, ptr noundef %79) #2
+  store i32 %call.i.i.i.i142, ptr %status.i.i.i26, align 4
+  br label %dumpInt.exit.i123
 
-dumpInt.exit.i120:                                ; preds = %if.then.i.i.i.i135, %do.end.i.i.i116
-  %80 = phi i32 [ %76, %do.end.i.i.i116 ], [ %call.i.i.i.i141, %if.then.i.i.i.i135 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i105)
-  %cmp30.i = icmp sgt i32 %72, 0
-  br i1 %cmp30.i, label %for.body.lr.ph.i121, label %dumpUpvalues.exit
+dumpInt.exit.i123:                                ; preds = %if.then.i.i.i.i136, %do.end.i.i.i119
+  %80 = phi i32 [ %76, %do.end.i.i.i119 ], [ %call.i.i.i.i142, %if.then.i.i.i.i136 ]
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i108)
+  %cmp33.i = icmp sgt i32 %72, 0
+  br i1 %cmp33.i, label %for.body.lr.ph.i124, label %dumpUpvalues.exit
 
-for.body.lr.ph.i121:                              ; preds = %dumpInt.exit.i120
+for.body.lr.ph.i124:                              ; preds = %dumpInt.exit.i123
   %upvalues.i = getelementptr inbounds i8, ptr %f, i64 80
-  %writer.i.i.i122 = getelementptr inbounds i8, ptr %D, i64 8
-  %data.i.i.i123 = getelementptr inbounds i8, ptr %D, i64 16
-  %wide.trip.count.i124 = zext nneg i32 %72 to i64
-  br label %for.body.i125
+  %writer.i.i.i125 = getelementptr inbounds i8, ptr %D, i64 8
+  %data.i.i.i126 = getelementptr inbounds i8, ptr %D, i64 16
+  %wide.trip.count.i127 = zext nneg i32 %72 to i64
+  br label %for.body.i128
 
-for.body.i125:                                    ; preds = %dumpByte.exit27.i, %for.body.lr.ph.i121
-  %.pr33.i = phi i32 [ %80, %for.body.lr.ph.i121 ], [ %.pr34.i, %dumpByte.exit27.i ]
-  %indvars.iv.i126 = phi i64 [ 0, %for.body.lr.ph.i121 ], [ %indvars.iv.next.i128, %dumpByte.exit27.i ]
+for.body.i128:                                    ; preds = %dumpByte.exit30.i, %for.body.lr.ph.i124
+  %.pr36.i = phi i32 [ %80, %for.body.lr.ph.i124 ], [ %.pr37.i, %dumpByte.exit30.i ]
+  %indvars.iv.i129 = phi i64 [ 0, %for.body.lr.ph.i124 ], [ %indvars.iv.next.i131, %dumpByte.exit30.i ]
   %81 = load ptr, ptr %upvalues.i, align 8
-  %instack.i = getelementptr inbounds %struct.Upvaldesc, ptr %81, i64 %indvars.iv.i126, i32 1
+  %instack.i = getelementptr inbounds %struct.Upvaldesc, ptr %81, i64 %indvars.iv.i129, i32 1
   %82 = load i8, ptr %instack.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i104)
-  store i8 %82, ptr %x.i.i104, align 1
-  %cmp.i.i.i127 = icmp eq i32 %.pr33.i, 0
-  br i1 %cmp.i.i.i127, label %dumpByte.exit.i130, label %dumpByte.exit.thread.i
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i107)
+  store i8 %82, ptr %x.i.i107, align 1
+  %cmp.i.i.i130 = icmp eq i32 %.pr36.i, 0
+  br i1 %cmp.i.i.i130, label %dumpByte.exit.i133, label %dumpByte.exit.thread.i
 
-dumpByte.exit.thread.i:                           ; preds = %for.body.i125
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i104)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i12.i)
-  br label %dumpByte.exit19.thread.i
+dumpByte.exit.thread.i:                           ; preds = %for.body.i128
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i107)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i13.i)
+  br label %dumpByte.exit21.thread.i
 
-dumpByte.exit.i130:                               ; preds = %for.body.i125
-  %83 = load ptr, ptr %writer.i.i.i122, align 8
+dumpByte.exit.i133:                               ; preds = %for.body.i128
+  %83 = load ptr, ptr %writer.i.i.i125, align 8
   %84 = load ptr, ptr %D, align 8
-  %85 = load ptr, ptr %data.i.i.i123, align 8
-  %call.i.i.i131 = call i32 %83(ptr noundef %84, ptr noundef nonnull %x.i.i104, i64 noundef 1, ptr noundef %85) #2
-  store i32 %call.i.i.i131, ptr %status.i.i.i26, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i104)
+  %85 = load ptr, ptr %data.i.i.i126, align 8
+  %call.i.i.i134 = call i32 %83(ptr noundef %84, ptr noundef nonnull %x.i.i107, i64 noundef 1, ptr noundef %85) #2
+  store i32 %call.i.i.i134, ptr %status.i.i.i26, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i107)
   %86 = load ptr, ptr %upvalues.i, align 8
-  %idx.i = getelementptr inbounds %struct.Upvaldesc, ptr %86, i64 %indvars.iv.i126, i32 2
+  %idx.i = getelementptr inbounds %struct.Upvaldesc, ptr %86, i64 %indvars.iv.i129, i32 2
   %87 = load i8, ptr %idx.i, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i12.i)
-  store i8 %87, ptr %x.i12.i, align 1
-  %cmp.i.i14.i132 = icmp eq i32 %call.i.i.i131, 0
-  br i1 %cmp.i.i14.i132, label %dumpByte.exit19.i, label %dumpByte.exit19.thread.i
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i13.i)
+  store i8 %87, ptr %x.i13.i, align 1
+  %cmp.i.i16.i = icmp eq i32 %call.i.i.i134, 0
+  br i1 %cmp.i.i16.i, label %dumpByte.exit21.i, label %dumpByte.exit21.thread.i
 
-dumpByte.exit19.thread.i:                         ; preds = %dumpByte.exit.i130, %dumpByte.exit.thread.i
-  %.pr35.ph.i = phi i32 [ %.pr33.i, %dumpByte.exit.thread.i ], [ %call.i.i.i131, %dumpByte.exit.i130 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i12.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i20.i)
-  br label %dumpByte.exit27.i
+dumpByte.exit21.thread.i:                         ; preds = %dumpByte.exit.i133, %dumpByte.exit.thread.i
+  %.pr38.ph.i = phi i32 [ %.pr36.i, %dumpByte.exit.thread.i ], [ %call.i.i.i134, %dumpByte.exit.i133 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i13.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i22.i)
+  br label %dumpByte.exit30.i
 
-dumpByte.exit19.i:                                ; preds = %dumpByte.exit.i130
-  %88 = load ptr, ptr %writer.i.i.i122, align 8
+dumpByte.exit21.i:                                ; preds = %dumpByte.exit.i133
+  %88 = load ptr, ptr %writer.i.i.i125, align 8
   %89 = load ptr, ptr %D, align 8
-  %90 = load ptr, ptr %data.i.i.i123, align 8
-  %call.i.i18.i133 = call i32 %88(ptr noundef %89, ptr noundef nonnull %x.i12.i, i64 noundef 1, ptr noundef %90) #2
-  store i32 %call.i.i18.i133, ptr %status.i.i.i26, align 4
-  %.pre.i134 = load ptr, ptr %upvalues.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i12.i)
-  %kind.i = getelementptr inbounds %struct.Upvaldesc, ptr %.pre.i134, i64 %indvars.iv.i126, i32 3
+  %90 = load ptr, ptr %data.i.i.i126, align 8
+  %call.i.i20.i = call i32 %88(ptr noundef %89, ptr noundef nonnull %x.i13.i, i64 noundef 1, ptr noundef %90) #2
+  store i32 %call.i.i20.i, ptr %status.i.i.i26, align 4
+  %.pre.i135 = load ptr, ptr %upvalues.i, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i13.i)
+  %kind.i = getelementptr inbounds %struct.Upvaldesc, ptr %.pre.i135, i64 %indvars.iv.i129, i32 3
   %91 = load i8, ptr %kind.i, align 2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i20.i)
-  store i8 %91, ptr %x.i20.i, align 1
-  %cmp.i.i22.i = icmp eq i32 %call.i.i18.i133, 0
-  br i1 %cmp.i.i22.i, label %if.then.i.i23.i, label %dumpByte.exit27.i
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i22.i)
+  store i8 %91, ptr %x.i22.i, align 1
+  %cmp.i.i25.i = icmp eq i32 %call.i.i20.i, 0
+  br i1 %cmp.i.i25.i, label %if.then.i.i26.i, label %dumpByte.exit30.i
 
-if.then.i.i23.i:                                  ; preds = %dumpByte.exit19.i
-  %92 = load ptr, ptr %writer.i.i.i122, align 8
+if.then.i.i26.i:                                  ; preds = %dumpByte.exit21.i
+  %92 = load ptr, ptr %writer.i.i.i125, align 8
   %93 = load ptr, ptr %D, align 8
-  %94 = load ptr, ptr %data.i.i.i123, align 8
-  %call.i.i26.i = call i32 %92(ptr noundef %93, ptr noundef nonnull %x.i20.i, i64 noundef 1, ptr noundef %94) #2
-  store i32 %call.i.i26.i, ptr %status.i.i.i26, align 4
-  br label %dumpByte.exit27.i
+  %94 = load ptr, ptr %data.i.i.i126, align 8
+  %call.i.i29.i = call i32 %92(ptr noundef %93, ptr noundef nonnull %x.i22.i, i64 noundef 1, ptr noundef %94) #2
+  store i32 %call.i.i29.i, ptr %status.i.i.i26, align 4
+  br label %dumpByte.exit30.i
 
-dumpByte.exit27.i:                                ; preds = %if.then.i.i23.i, %dumpByte.exit19.i, %dumpByte.exit19.thread.i
-  %.pr34.i = phi i32 [ %call.i.i18.i133, %dumpByte.exit19.i ], [ %call.i.i26.i, %if.then.i.i23.i ], [ %.pr35.ph.i, %dumpByte.exit19.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i20.i)
-  %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i126, 1
-  %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, %wide.trip.count.i124
-  br i1 %exitcond.not.i129, label %dumpUpvalues.exit, label %for.body.i125, !llvm.loop !8
+dumpByte.exit30.i:                                ; preds = %if.then.i.i26.i, %dumpByte.exit21.i, %dumpByte.exit21.thread.i
+  %.pr37.i = phi i32 [ %call.i.i20.i, %dumpByte.exit21.i ], [ %call.i.i29.i, %if.then.i.i26.i ], [ %.pr38.ph.i, %dumpByte.exit21.thread.i ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i22.i)
+  %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i129, 1
+  %exitcond.not.i132 = icmp eq i64 %indvars.iv.next.i131, %wide.trip.count.i127
+  br i1 %exitcond.not.i132, label %dumpUpvalues.exit, label %for.body.i128, !llvm.loop !8
 
-dumpUpvalues.exit:                                ; preds = %dumpByte.exit27.i, %dumpInt.exit.i120
-  %95 = phi i32 [ %80, %dumpInt.exit.i120 ], [ %.pr34.i, %dumpByte.exit27.i ]
+dumpUpvalues.exit:                                ; preds = %dumpByte.exit30.i, %dumpInt.exit.i123
+  %95 = phi i32 [ %80, %dumpInt.exit.i123 ], [ %.pr37.i, %dumpByte.exit30.i ]
   %sizep.i = getelementptr inbounds i8, ptr %f, i64 32
   %96 = load i32, ptr %sizep.i, align 8
-  %conv.i185 = sext i32 %96 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i184)
-  br label %do.body.i.i186
+  %conv.i186 = sext i32 %96 to i64
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i185)
+  br label %do.body.i.i187
 
-do.body.i.i186:                                   ; preds = %do.body.i.i186, %dumpUpvalues.exit
-  %indvars.iv.i.i187 = phi i64 [ %indvars.iv.next.i.i190, %do.body.i.i186 ], [ 0, %dumpUpvalues.exit ]
-  %x.addr.0.i.i188 = phi i64 [ %shr.i.i193, %do.body.i.i186 ], [ %conv.i185, %dumpUpvalues.exit ]
-  %97 = trunc i64 %x.addr.0.i.i188 to i8
-  %conv.i.i189 = and i8 %97, 127
-  %indvars.iv.next.i.i190 = add nuw nsw i64 %indvars.iv.i.i187, 1
-  %sub.i.i191 = sub nsw i64 9, %indvars.iv.i.i187
-  %arrayidx.i.i192 = getelementptr inbounds [10 x i8], ptr %buff.i.i184, i64 0, i64 %sub.i.i191
-  store i8 %conv.i.i189, ptr %arrayidx.i.i192, align 1
-  %shr.i.i193 = lshr i64 %x.addr.0.i.i188, 7
-  %cmp.not.i.i194 = icmp ult i64 %x.addr.0.i.i188, 128
-  br i1 %cmp.not.i.i194, label %do.end.i.i195, label %do.body.i.i186, !llvm.loop !5
+do.body.i.i187:                                   ; preds = %do.body.i.i187, %dumpUpvalues.exit
+  %indvars.iv.i.i188 = phi i64 [ %indvars.iv.next.i.i191, %do.body.i.i187 ], [ 0, %dumpUpvalues.exit ]
+  %x.addr.0.i.i189 = phi i64 [ %shr.i.i194, %do.body.i.i187 ], [ %conv.i186, %dumpUpvalues.exit ]
+  %97 = trunc i64 %x.addr.0.i.i189 to i8
+  %conv.i.i190 = and i8 %97, 127
+  %indvars.iv.next.i.i191 = add nuw nsw i64 %indvars.iv.i.i188, 1
+  %sub.i.i192 = sub nsw i64 9, %indvars.iv.i.i188
+  %arrayidx.i.i193 = getelementptr inbounds [10 x i8], ptr %buff.i.i185, i64 0, i64 %sub.i.i192
+  store i8 %conv.i.i190, ptr %arrayidx.i.i193, align 1
+  %shr.i.i194 = lshr i64 %x.addr.0.i.i189, 7
+  %cmp.not.i.i195 = icmp ult i64 %x.addr.0.i.i189, 128
+  br i1 %cmp.not.i.i195, label %do.end.i.i196, label %do.body.i.i187, !llvm.loop !5
 
-do.end.i.i195:                                    ; preds = %do.body.i.i186
-  %arrayidx3.i.i196 = getelementptr inbounds i8, ptr %buff.i.i184, i64 9
-  %98 = load i8, ptr %arrayidx3.i.i196, align 1
+do.end.i.i196:                                    ; preds = %do.body.i.i187
+  %arrayidx3.i.i197 = getelementptr inbounds i8, ptr %buff.i.i185, i64 9
+  %98 = load i8, ptr %arrayidx3.i.i197, align 1
   %99 = or i8 %98, -128
-  store i8 %99, ptr %arrayidx3.i.i196, align 1
-  %cmp.i.i.i198 = icmp eq i32 %95, 0
-  br i1 %cmp.i.i.i198, label %if.then.i.i.i199, label %dumpInt.exit206
+  store i8 %99, ptr %arrayidx3.i.i197, align 1
+  %cmp.i.i.i199 = icmp eq i32 %95, 0
+  br i1 %cmp.i.i.i199, label %if.then.i.i.i200, label %dumpInt.exit207
 
-if.then.i.i.i199:                                 ; preds = %do.end.i.i195
-  %add.ptr.i.i200 = getelementptr inbounds i8, ptr %buff.i.i184, i64 10
-  %idx.neg.i.i201 = xor i64 %indvars.iv.i.i187, -1
-  %add.ptr6.i.i202 = getelementptr inbounds i8, ptr %add.ptr.i.i200, i64 %idx.neg.i.i201
-  %writer.i.i.i203 = getelementptr inbounds i8, ptr %D, i64 8
-  %100 = load ptr, ptr %writer.i.i.i203, align 8
+if.then.i.i.i200:                                 ; preds = %do.end.i.i196
+  %add.ptr.i.i201 = getelementptr inbounds i8, ptr %buff.i.i185, i64 10
+  %idx.neg.i.i202 = xor i64 %indvars.iv.i.i188, -1
+  %add.ptr6.i.i203 = getelementptr inbounds i8, ptr %add.ptr.i.i201, i64 %idx.neg.i.i202
+  %writer.i.i.i204 = getelementptr inbounds i8, ptr %D, i64 8
+  %100 = load ptr, ptr %writer.i.i.i204, align 8
   %101 = load ptr, ptr %D, align 8
-  %data.i.i.i204 = getelementptr inbounds i8, ptr %D, i64 16
-  %102 = load ptr, ptr %data.i.i.i204, align 8
-  %call.i.i.i205 = call i32 %100(ptr noundef %101, ptr noundef nonnull %add.ptr6.i.i202, i64 noundef %indvars.iv.next.i.i190, ptr noundef %102) #2
-  store i32 %call.i.i.i205, ptr %status.i.i.i26, align 4
-  br label %dumpInt.exit206
+  %data.i.i.i205 = getelementptr inbounds i8, ptr %D, i64 16
+  %102 = load ptr, ptr %data.i.i.i205, align 8
+  %call.i.i.i206 = call i32 %100(ptr noundef %101, ptr noundef nonnull %add.ptr6.i.i203, i64 noundef %indvars.iv.next.i.i191, ptr noundef %102) #2
+  store i32 %call.i.i.i206, ptr %status.i.i.i26, align 4
+  br label %dumpInt.exit207
 
-dumpInt.exit206:                                  ; preds = %do.end.i.i195, %if.then.i.i.i199
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i184)
-  %cmp.i211 = icmp sgt i32 %96, 0
-  br i1 %cmp.i211, label %for.body.i142.lr.ph, label %dumpProtos.exit
+dumpInt.exit207:                                  ; preds = %do.end.i.i196, %if.then.i.i.i200
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i185)
+  %cmp.i212 = icmp sgt i32 %96, 0
+  br i1 %cmp.i212, label %for.body.i143.lr.ph, label %dumpProtos.exit
 
-for.body.i142.lr.ph:                              ; preds = %dumpInt.exit206
+for.body.i143.lr.ph:                              ; preds = %dumpInt.exit207
   %p.i = getelementptr inbounds i8, ptr %f, i64 72
   %source.i = getelementptr inbounds i8, ptr %f, i64 112
   %wide.trip.count = zext nneg i32 %96 to i64
-  br label %for.body.i142
+  br label %for.body.i143
 
-for.body.i142:                                    ; preds = %for.body.i142.lr.ph, %for.body.i142
-  %indvars.iv = phi i64 [ 0, %for.body.i142.lr.ph ], [ %indvars.iv.next, %for.body.i142 ]
+for.body.i143:                                    ; preds = %for.body.i143.lr.ph, %for.body.i143
+  %indvars.iv = phi i64 [ 0, %for.body.i143.lr.ph ], [ %indvars.iv.next, %for.body.i143 ]
   %103 = load ptr, ptr %p.i, align 8
-  %arrayidx.i143 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv
-  %104 = load ptr, ptr %arrayidx.i143, align 8
+  %arrayidx.i144 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv
+  %104 = load ptr, ptr %arrayidx.i144, align 8
   %105 = load ptr, ptr %source.i, align 8
   call fastcc void @dumpFunction(ptr noundef %D, ptr noundef %104, ptr noundef %105)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %dumpProtos.exit, label %for.body.i142, !llvm.loop !9
+  br i1 %exitcond.not, label %dumpProtos.exit, label %for.body.i143, !llvm.loop !9
 
-dumpProtos.exit:                                  ; preds = %for.body.i142, %dumpInt.exit206
+dumpProtos.exit:                                  ; preds = %for.body.i143, %dumpInt.exit207
   %106 = load i32, ptr %strip, align 8
   %tobool.not.i = icmp eq i32 %106, 0
   br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
@@ -770,65 +770,65 @@ cond.false.i:                                     ; preds = %dumpProtos.exit
 
 cond.end.i:                                       ; preds = %cond.false.i, %dumpProtos.exit
   %cond.i = phi i32 [ %107, %cond.false.i ], [ 0, %dumpProtos.exit ]
-  %conv.i.i145 = sext i32 %cond.i to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i144)
-  br label %do.body.i.i.i146
+  %conv.i.i146 = sext i32 %cond.i to i64
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i145)
+  br label %do.body.i.i.i147
 
-do.body.i.i.i146:                                 ; preds = %do.body.i.i.i146, %cond.end.i
-  %indvars.iv.i.i.i147 = phi i64 [ %indvars.iv.next.i.i.i150, %do.body.i.i.i146 ], [ 0, %cond.end.i ]
-  %x.addr.0.i.i.i148 = phi i64 [ %shr.i.i.i153, %do.body.i.i.i146 ], [ %conv.i.i145, %cond.end.i ]
-  %108 = trunc i64 %x.addr.0.i.i.i148 to i8
-  %conv.i.i.i149 = and i8 %108, 127
-  %indvars.iv.next.i.i.i150 = add nuw nsw i64 %indvars.iv.i.i.i147, 1
-  %sub.i.i.i151 = sub nsw i64 9, %indvars.iv.i.i.i147
-  %arrayidx.i.i.i152 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i144, i64 0, i64 %sub.i.i.i151
-  store i8 %conv.i.i.i149, ptr %arrayidx.i.i.i152, align 1
-  %shr.i.i.i153 = lshr i64 %x.addr.0.i.i.i148, 7
-  %cmp.not.i.i.i154 = icmp ult i64 %x.addr.0.i.i.i148, 128
-  br i1 %cmp.not.i.i.i154, label %do.end.i.i.i155, label %do.body.i.i.i146, !llvm.loop !5
+do.body.i.i.i147:                                 ; preds = %do.body.i.i.i147, %cond.end.i
+  %indvars.iv.i.i.i148 = phi i64 [ %indvars.iv.next.i.i.i151, %do.body.i.i.i147 ], [ 0, %cond.end.i ]
+  %x.addr.0.i.i.i149 = phi i64 [ %shr.i.i.i154, %do.body.i.i.i147 ], [ %conv.i.i146, %cond.end.i ]
+  %108 = trunc i64 %x.addr.0.i.i.i149 to i8
+  %conv.i.i.i150 = and i8 %108, 127
+  %indvars.iv.next.i.i.i151 = add nuw nsw i64 %indvars.iv.i.i.i148, 1
+  %sub.i.i.i152 = sub nsw i64 9, %indvars.iv.i.i.i148
+  %arrayidx.i.i.i153 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i145, i64 0, i64 %sub.i.i.i152
+  store i8 %conv.i.i.i150, ptr %arrayidx.i.i.i153, align 1
+  %shr.i.i.i154 = lshr i64 %x.addr.0.i.i.i149, 7
+  %cmp.not.i.i.i155 = icmp ult i64 %x.addr.0.i.i.i149, 128
+  br i1 %cmp.not.i.i.i155, label %do.end.i.i.i156, label %do.body.i.i.i147, !llvm.loop !5
 
-do.end.i.i.i155:                                  ; preds = %do.body.i.i.i146
-  %arrayidx3.i.i.i156 = getelementptr inbounds i8, ptr %buff.i.i.i144, i64 9
-  %109 = load i8, ptr %arrayidx3.i.i.i156, align 1
+do.end.i.i.i156:                                  ; preds = %do.body.i.i.i147
+  %arrayidx3.i.i.i157 = getelementptr inbounds i8, ptr %buff.i.i.i145, i64 9
+  %109 = load i8, ptr %arrayidx3.i.i.i157, align 1
   %110 = or i8 %109, -128
-  store i8 %110, ptr %arrayidx3.i.i.i156, align 1
+  store i8 %110, ptr %arrayidx3.i.i.i157, align 1
   %111 = load i32, ptr %status.i.i.i26, align 4
-  %cmp.i.i.i.i158 = icmp eq i32 %111, 0
-  br i1 %cmp.i.i.i.i158, label %dumpInt.exit.i170, label %dumpInt.exit.thread.i159
+  %cmp.i.i.i.i159 = icmp eq i32 %111, 0
+  br i1 %cmp.i.i.i.i159, label %dumpInt.exit.i171, label %dumpInt.exit.thread.i160
 
-dumpInt.exit.thread.i159:                         ; preds = %do.end.i.i.i155
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i144)
+dumpInt.exit.thread.i160:                         ; preds = %do.end.i.i.i156
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i145)
   br label %dumpBlock.exit.i
 
-dumpInt.exit.i170:                                ; preds = %do.end.i.i.i155
-  %add.ptr.i.i.i171 = getelementptr inbounds i8, ptr %buff.i.i.i144, i64 10
-  %idx.neg.i.i.i172 = xor i64 %indvars.iv.i.i.i147, -1
-  %add.ptr6.i.i.i173 = getelementptr inbounds i8, ptr %add.ptr.i.i.i171, i64 %idx.neg.i.i.i172
-  %writer.i.i.i.i174 = getelementptr inbounds i8, ptr %D, i64 8
-  %112 = load ptr, ptr %writer.i.i.i.i174, align 8
+dumpInt.exit.i171:                                ; preds = %do.end.i.i.i156
+  %add.ptr.i.i.i172 = getelementptr inbounds i8, ptr %buff.i.i.i145, i64 10
+  %idx.neg.i.i.i173 = xor i64 %indvars.iv.i.i.i148, -1
+  %add.ptr6.i.i.i174 = getelementptr inbounds i8, ptr %add.ptr.i.i.i172, i64 %idx.neg.i.i.i173
+  %writer.i.i.i.i175 = getelementptr inbounds i8, ptr %D, i64 8
+  %112 = load ptr, ptr %writer.i.i.i.i175, align 8
   %113 = load ptr, ptr %D, align 8
-  %data.i.i.i.i175 = getelementptr inbounds i8, ptr %D, i64 16
-  %114 = load ptr, ptr %data.i.i.i.i175, align 8
-  %call.i.i.i.i176 = call i32 %112(ptr noundef %113, ptr noundef nonnull %add.ptr6.i.i.i173, i64 noundef %indvars.iv.next.i.i.i150, ptr noundef %114) #2
-  store i32 %call.i.i.i.i176, ptr %status.i.i.i26, align 4
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i144)
-  %cmp.i.i177 = icmp eq i32 %call.i.i.i.i176, 0
-  %cmp1.i.i178 = icmp ne i32 %cond.i, 0
-  %or.cond.i.i179 = and i1 %cmp1.i.i178, %cmp.i.i177
-  br i1 %or.cond.i.i179, label %if.then.i.i180, label %dumpBlock.exit.i
+  %data.i.i.i.i176 = getelementptr inbounds i8, ptr %D, i64 16
+  %114 = load ptr, ptr %data.i.i.i.i176, align 8
+  %call.i.i.i.i177 = call i32 %112(ptr noundef %113, ptr noundef nonnull %add.ptr6.i.i.i174, i64 noundef %indvars.iv.next.i.i.i151, ptr noundef %114) #2
+  store i32 %call.i.i.i.i177, ptr %status.i.i.i26, align 4
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i.i145)
+  %cmp.i.i178 = icmp eq i32 %call.i.i.i.i177, 0
+  %cmp1.i.i179 = icmp ne i32 %cond.i, 0
+  %or.cond.i.i180 = and i1 %cmp1.i.i179, %cmp.i.i178
+  br i1 %or.cond.i.i180, label %if.then.i.i181, label %dumpBlock.exit.i
 
-if.then.i.i180:                                   ; preds = %dumpInt.exit.i170
+if.then.i.i181:                                   ; preds = %dumpInt.exit.i171
   %lineinfo.i = getelementptr inbounds i8, ptr %f, i64 88
   %115 = load ptr, ptr %lineinfo.i, align 8
-  %116 = load ptr, ptr %writer.i.i.i.i174, align 8
+  %116 = load ptr, ptr %writer.i.i.i.i175, align 8
   %117 = load ptr, ptr %D, align 8
-  %118 = load ptr, ptr %data.i.i.i.i175, align 8
-  %call.i.i183 = call i32 %116(ptr noundef %117, ptr noundef %115, i64 noundef %conv.i.i145, ptr noundef %118) #2
-  store i32 %call.i.i183, ptr %status.i.i.i26, align 4
+  %118 = load ptr, ptr %data.i.i.i.i176, align 8
+  %call.i.i184 = call i32 %116(ptr noundef %117, ptr noundef %115, i64 noundef %conv.i.i146, ptr noundef %118) #2
+  store i32 %call.i.i184, ptr %status.i.i.i26, align 4
   br label %dumpBlock.exit.i
 
-dumpBlock.exit.i:                                 ; preds = %if.then.i.i180, %dumpInt.exit.i170, %dumpInt.exit.thread.i159
-  %119 = phi i32 [ %call.i.i.i.i176, %dumpInt.exit.i170 ], [ %call.i.i183, %if.then.i.i180 ], [ %111, %dumpInt.exit.thread.i159 ]
+dumpBlock.exit.i:                                 ; preds = %if.then.i.i181, %dumpInt.exit.i171, %dumpInt.exit.thread.i160
+  %119 = phi i32 [ %call.i.i.i.i177, %dumpInt.exit.i171 ], [ %call.i.i184, %if.then.i.i181 ], [ %111, %dumpInt.exit.thread.i160 ]
   %120 = load i32, ptr %strip, align 8
   %tobool2.not.i = icmp eq i32 %120, 0
   br i1 %tobool2.not.i, label %cond.false4.i, label %cond.end5.i
@@ -882,9 +882,9 @@ dumpInt.exit65.i:                                 ; preds = %if.then.i.i.i58.i, 
   %128 = phi i32 [ %119, %do.end.i.i54.i ], [ %call.i.i.i64.i, %if.then.i.i.i58.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i43.i)
   %cmp204.i = icmp sgt i32 %cond6.i, 0
-  br i1 %cmp204.i, label %for.body.lr.ph.i162, label %for.end.i
+  br i1 %cmp204.i, label %for.body.lr.ph.i163, label %for.end.i
 
-for.body.lr.ph.i162:                              ; preds = %dumpInt.exit65.i
+for.body.lr.ph.i163:                              ; preds = %dumpInt.exit65.i
   %abslineinfo.i = getelementptr inbounds i8, ptr %f, i64 96
   %arrayidx3.i.i78.i = getelementptr inbounds i8, ptr %buff.i.i66.i, i64 9
   %add.ptr.i.i82.i = getelementptr inbounds i8, ptr %buff.i.i66.i, i64 10
@@ -892,22 +892,22 @@ for.body.lr.ph.i162:                              ; preds = %dumpInt.exit65.i
   %data.i.i.i86.i = getelementptr inbounds i8, ptr %D, i64 16
   %arrayidx3.i.i101.i = getelementptr inbounds i8, ptr %buff.i.i89.i, i64 9
   %add.ptr.i.i105.i = getelementptr inbounds i8, ptr %buff.i.i89.i, i64 10
-  %wide.trip.count.i163 = zext nneg i32 %cond6.i to i64
-  br label %for.body.i164
+  %wide.trip.count.i164 = zext nneg i32 %cond6.i to i64
+  br label %for.body.i165
 
-for.body.i164:                                    ; preds = %dumpInt.exit111.i, %for.body.lr.ph.i162
-  %129 = phi i32 [ %128, %for.body.lr.ph.i162 ], [ %147, %dumpInt.exit111.i ]
-  %indvars.iv.i165 = phi i64 [ 0, %for.body.lr.ph.i162 ], [ %indvars.iv.next.i167, %dumpInt.exit111.i ]
+for.body.i165:                                    ; preds = %dumpInt.exit111.i, %for.body.lr.ph.i163
+  %129 = phi i32 [ %128, %for.body.lr.ph.i163 ], [ %147, %dumpInt.exit111.i ]
+  %indvars.iv.i166 = phi i64 [ 0, %for.body.lr.ph.i163 ], [ %indvars.iv.next.i168, %dumpInt.exit111.i ]
   %130 = load ptr, ptr %abslineinfo.i, align 8
-  %arrayidx.i166 = getelementptr inbounds %struct.AbsLineInfo, ptr %130, i64 %indvars.iv.i165
-  %131 = load i32, ptr %arrayidx.i166, align 4
+  %arrayidx.i167 = getelementptr inbounds %struct.AbsLineInfo, ptr %130, i64 %indvars.iv.i166
+  %131 = load i32, ptr %arrayidx.i167, align 4
   %conv.i67.i = sext i32 %131 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i66.i)
   br label %do.body.i.i68.i
 
-do.body.i.i68.i:                                  ; preds = %do.body.i.i68.i, %for.body.i164
-  %indvars.iv.i.i69.i = phi i64 [ %indvars.iv.next.i.i72.i, %do.body.i.i68.i ], [ 0, %for.body.i164 ]
-  %x.addr.0.i.i70.i = phi i64 [ %shr.i.i75.i, %do.body.i.i68.i ], [ %conv.i67.i, %for.body.i164 ]
+do.body.i.i68.i:                                  ; preds = %do.body.i.i68.i, %for.body.i165
+  %indvars.iv.i.i69.i = phi i64 [ %indvars.iv.next.i.i72.i, %do.body.i.i68.i ], [ 0, %for.body.i165 ]
+  %x.addr.0.i.i70.i = phi i64 [ %shr.i.i75.i, %do.body.i.i68.i ], [ %conv.i67.i, %for.body.i165 ]
   %132 = trunc i64 %x.addr.0.i.i70.i to i8
   %conv.i.i71.i = and i8 %132, 127
   %indvars.iv.next.i.i72.i = add nuw nsw i64 %indvars.iv.i.i69.i, 1
@@ -933,14 +933,14 @@ if.then.i.i.i81.i:                                ; preds = %do.end.i.i77.i
   %137 = load ptr, ptr %data.i.i.i86.i, align 8
   %call.i.i.i87.i = call i32 %135(ptr noundef %136, ptr noundef nonnull %add.ptr6.i.i84.i, i64 noundef %indvars.iv.next.i.i72.i, ptr noundef %137) #2
   store i32 %call.i.i.i87.i, ptr %status.i.i.i26, align 4
-  %.pre.i169 = load ptr, ptr %abslineinfo.i, align 8
+  %.pre.i170 = load ptr, ptr %abslineinfo.i, align 8
   br label %dumpInt.exit88.i
 
 dumpInt.exit88.i:                                 ; preds = %if.then.i.i.i81.i, %do.end.i.i77.i
   %138 = phi i32 [ %129, %do.end.i.i77.i ], [ %call.i.i.i87.i, %if.then.i.i.i81.i ]
-  %139 = phi ptr [ %130, %do.end.i.i77.i ], [ %.pre.i169, %if.then.i.i.i81.i ]
+  %139 = phi ptr [ %130, %do.end.i.i77.i ], [ %.pre.i170, %if.then.i.i.i81.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i66.i)
-  %line.i = getelementptr inbounds %struct.AbsLineInfo, ptr %139, i64 %indvars.iv.i165, i32 1
+  %line.i = getelementptr inbounds %struct.AbsLineInfo, ptr %139, i64 %indvars.iv.i166, i32 1
   %140 = load i32, ptr %line.i, align 4
   %conv.i90.i = sext i32 %140 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i89.i)
@@ -979,9 +979,9 @@ if.then.i.i.i104.i:                               ; preds = %do.end.i.i100.i
 dumpInt.exit111.i:                                ; preds = %if.then.i.i.i104.i, %do.end.i.i100.i
   %147 = phi i32 [ %138, %do.end.i.i100.i ], [ %call.i.i.i110.i, %if.then.i.i.i104.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i89.i)
-  %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i165, 1
-  %exitcond.not.i168 = icmp eq i64 %indvars.iv.next.i167, %wide.trip.count.i163
-  br i1 %exitcond.not.i168, label %for.end.i, label %for.body.i164, !llvm.loop !10
+  %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i166, 1
+  %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, %wide.trip.count.i164
+  br i1 %exitcond.not.i169, label %for.end.i, label %for.body.i165, !llvm.loop !10
 
 for.end.i:                                        ; preds = %dumpInt.exit111.i, %dumpInt.exit65.i
   %148 = phi i32 [ %128, %dumpInt.exit65.i ], [ %147, %dumpInt.exit111.i ]
@@ -1199,13 +1199,13 @@ dumpInt.exit203.i:                                ; preds = %if.then.i.i.i196.i,
   br i1 %cmp39208.i, label %for.body41.lr.ph.i, label %dumpDebug.exit
 
 for.body41.lr.ph.i:                               ; preds = %dumpInt.exit203.i
-  %upvalues.i160 = getelementptr inbounds i8, ptr %f, i64 80
+  %upvalues.i161 = getelementptr inbounds i8, ptr %f, i64 80
   %wide.trip.count219.i = zext nneg i32 %cond37.i to i64
   br label %for.body41.i
 
 for.body41.i:                                     ; preds = %for.body41.i, %for.body41.lr.ph.i
   %indvars.iv216.i = phi i64 [ 0, %for.body41.lr.ph.i ], [ %indvars.iv.next217.i, %for.body41.i ]
-  %188 = load ptr, ptr %upvalues.i160, align 8
+  %188 = load ptr, ptr %upvalues.i161, align 8
   %arrayidx43.i = getelementptr inbounds %struct.Upvaldesc, ptr %188, i64 %indvars.iv216.i
   %189 = load ptr, ptr %arrayidx43.i, align 8
   call fastcc void @dumpString(ptr noundef %D, ptr noundef %189)

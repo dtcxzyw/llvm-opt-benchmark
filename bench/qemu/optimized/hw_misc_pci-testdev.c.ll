@@ -158,7 +158,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.11) #8
   %tobool28.not = icmp eq i32 %call27, 0
   %cond = select i1 %tobool28.not, i32 128, i32 2048
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %add31 = or disjoint i32 %cond, %6
   %7 = load ptr, ptr %hdr, align 8
   %offset = getelementptr inbounds i8, ptr %7, i64 4
@@ -372,7 +372,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pci_testdev_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 -128, 128) i64 @pci_testdev_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %current = getelementptr inbounds i8, ptr %opaque, i64 3160
   %0 = load i32, ptr %current, align 8
@@ -511,7 +511,7 @@ if.end.i15:                                       ; preds = %if.end
   br label %pci_testdev_start.exit
 
 pci_testdev_start.exit:                           ; preds = %if.end, %if.end.i15
-  %conv3 = trunc i64 %add to i32
+  %conv3 = trunc nuw nsw i64 %add to i32
   store i32 %conv3, ptr %current.i, align 8
   br label %return
 

@@ -24,7 +24,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_handshake_rtt(i32 noundef %tst) #0 {
+define internal range(i32 0, 2) i32 @test_handshake_rtt(i32 noundef %tst) #0 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8

@@ -179,8 +179,8 @@ $_ZGVZN9struct_pb8compiler15resolve_keywordERKNSt7__cxx1112basic_stringIcSt11cha
 @.str.40 = private unnamed_addr constant [22 x i8] c"basic_string::replace\00", align 1
 @.str.41 = private unnamed_addr constant [25 x i8] c"basic_string::_M_replace\00", align 1
 @.str.42 = private unnamed_addr constant [55 x i8] c"%s: __pos (which is %zu) > this->size() (which is %zu)\00", align 1
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @.str.43 = private unnamed_addr constant [3 x i8] c"::\00", align 1
 @.str.44 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.45 = private unnamed_addr constant [2 x i8] c".\00", align 1

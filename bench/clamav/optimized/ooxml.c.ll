@@ -167,7 +167,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.cli_ooxml_filetype = private unnamed_addr constant [4 x i32] [i32 548, i32 547, i32 546, i32 551], align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_ooxml_filetype(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 552) i32 @cli_ooxml_filetype(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.zip_requests, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
   %4 = call i32 @unzip_search_add(ptr noundef nonnull %3, ptr noundef nonnull @.str, i64 noundef 3) #6

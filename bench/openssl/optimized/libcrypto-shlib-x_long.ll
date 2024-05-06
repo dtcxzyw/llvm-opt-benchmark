@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @long_c2i(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #2 {
+define internal range(i32 0, 2) i32 @long_c2i(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #2 {
 entry:
   %cmp = icmp sgt i32 %len, 1
   br i1 %cmp, label %if.then, label %if.then10
@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end41, %if.then4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @long_i2c(ptr nocapture noundef readonly %pval, ptr noundef writeonly %cont, ptr nocapture readnone %putype, ptr nocapture noundef readonly %it) #3 {
+define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr nocapture noundef readonly %pval, ptr noundef writeonly %cont, ptr nocapture readnone %putype, ptr nocapture noundef readonly %it) #3 {
 entry:
   %ltmp.0.copyload = load i64, ptr %pval, align 8
   %size = getelementptr inbounds i8, ptr %it, i64 40
@@ -205,7 +205,7 @@ if.then9:                                         ; preds = %num_bits_ulong.exit
   br i1 %tobool.not.not, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.then9
-  %conv = trunc i64 %sign.0 to i8
+  %conv = trunc nuw i64 %sign.0 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %cont, i64 1
   store i8 %conv, ptr %cont, align 1
   br label %if.end12

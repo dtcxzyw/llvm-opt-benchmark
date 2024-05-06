@@ -463,7 +463,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   store i8 %143, ptr %140, align 1
   %144 = getelementptr inbounds i8, ptr %96, i64 24
   store i64 0, ptr %144, align 8
-  %145 = trunc i16 %5 to i8
+  %145 = trunc nuw nsw i16 %5 to i8
   %146 = getelementptr inbounds i8, ptr %96, i64 154
   store i8 %145, ptr %146, align 2
   %147 = getelementptr inbounds i8, ptr %96, i64 48

@@ -2867,25 +2867,25 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN11test_exc_sp2f1Ei(i32 noundef %0) #5 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN11test_exc_sp2f1Ei(i32 noundef %0) #5 {
   %2 = add nsw i32 %0, 1
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN11test_exc_sp2f2Ei(i32 noundef %0) #5 {
+define hidden noundef range(i32 -2147483646, -2147483648) i32 @_ZN11test_exc_sp2f2Ei(i32 noundef %0) #5 {
   %2 = add nsw i32 %0, 2
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN11test_exc_sp2f3Ei(i32 noundef %0) #5 {
+define hidden noundef range(i32 -2147483645, -2147483648) i32 @_ZN11test_exc_sp2f3Ei(i32 noundef %0) #5 {
   %2 = add nsw i32 %0, 3
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN11test_exc_sp2f4Ei(i32 noundef %0) #5 {
+define hidden noundef range(i32 -2147483644, -2147483648) i32 @_ZN11test_exc_sp2f4Ei(i32 noundef %0) #5 {
   %2 = add nsw i32 %0, 4
   ret i32 %2
 }

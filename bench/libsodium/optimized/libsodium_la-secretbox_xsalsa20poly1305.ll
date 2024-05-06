@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_secretbox_xsalsa20poly1305(ptr noundef nonnull %c, ptr noundef %m, i64 noundef %mlen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_secretbox_xsalsa20poly1305(ptr noundef nonnull %c, ptr noundef %m, i64 noundef %mlen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %mlen, 32
   br i1 %cmp, label %return, label %if.end
@@ -28,7 +28,7 @@ declare i32 @crypto_stream_xsalsa20_xor(ptr noundef, ptr noundef, i64 noundef, p
 declare i32 @crypto_onetimeauth_poly1305(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_secretbox_xsalsa20poly1305_open(ptr noundef %m, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_secretbox_xsalsa20poly1305_open(ptr noundef %m, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #0 {
 entry:
   %subkey = alloca [32 x i8], align 16
   %cmp = icmp ult i64 %clen, 32

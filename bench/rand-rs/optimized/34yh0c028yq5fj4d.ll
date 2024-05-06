@@ -6,9 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2445b6c46356fdc0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   %4 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  %trunc30 = trunc i64 %4 to i1
+  %trunc30 = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.val44 = load i64, ptr %5, align 8, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 24
@@ -35,7 +35,7 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %.val43 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
   %13 = shl nsw i64 %.val44, %.sink77
-  %bcmp.i48 = tail call i32 @bcmp(ptr nonnull %.val43, ptr nonnull %.val41, i64 %13)
+  %bcmp.i48 = tail call i32 @bcmp(ptr nonnull readonly %.val43, ptr nonnull readonly %.val41, i64 %13)
   %14 = icmp eq i32 %bcmp.i48, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
 

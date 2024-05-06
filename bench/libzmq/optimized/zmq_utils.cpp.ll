@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @zmq_atomic_counter_dec(ptr nocapture noundef %counter_) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @zmq_atomic_counter_dec(ptr nocapture noundef %counter_) local_unnamed_addr #12 {
 entry:
   %0 = atomicrmw sub ptr %counter_, i32 1 acq_rel, align 4
   %cmp.i = icmp ne i32 %0, 1

@@ -490,7 +490,7 @@ declare ptr @u_strncpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @ubidi_getBaseDirection_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode(ptr nocapture noundef %pTransform, ptr noundef %pErrorCode) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode(ptr nocapture noundef %pTransform, ptr noundef %pErrorCode) #0 {
 entry:
   %letters = getelementptr inbounds i8, ptr %pTransform, i64 64
   %0 = load i32, ptr %letters, align 8
@@ -674,7 +674,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode(ptr nocapture noundef %pTransform, ptr nocapture noundef writeonly %pErrorCode) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode(ptr nocapture noundef %pTransform, ptr nocapture noundef writeonly %pErrorCode) #0 {
 entry:
   %reorderingOptions = getelementptr inbounds i8, ptr %pTransform, i64 56
   %0 = load i32, ptr %reorderingOptions, align 8

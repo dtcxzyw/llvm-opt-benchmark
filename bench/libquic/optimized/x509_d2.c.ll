@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_STORE_set_default_paths(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_STORE_set_default_paths(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_LOOKUP_file() #2
   %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %ctx, ptr noundef %call) #2
@@ -39,7 +39,7 @@ declare ptr @X509_LOOKUP_hash_dir() local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_STORE_load_locations(ptr noundef %ctx, ptr noundef %file, ptr noundef %path) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_STORE_load_locations(ptr noundef %ctx, ptr noundef %file, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ne ptr %file, null
   br i1 %cmp.not, label %if.then, label %if.end8

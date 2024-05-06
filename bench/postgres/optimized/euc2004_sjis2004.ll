@@ -26,7 +26,7 @@ define noundef nonnull ptr @pg_finfo_shift_jis_2004_to_euc_jis_2004() local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @euc_jis_2004_to_shift_jis_2004(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -233,7 +233,7 @@ define i64 @euc_jis_2004_to_shift_jis_2004(ptr nocapture noundef readonly %0) lo
   %94 = add nuw nsw i32 %.sink.i, %21
   %.2.i = getelementptr i8, ptr %.0105140.i, i64 1
   %storemerge.in.i = lshr i32 %94, 1
-  %storemerge.i = trunc i32 %storemerge.in.i to i8
+  %storemerge.i = trunc nuw i32 %storemerge.in.i to i8
   store i8 %storemerge.i, ptr %.0105140.i, align 1
   %95 = and i32 %21, 1
   %.not115.i = icmp eq i32 %95, 0
@@ -302,7 +302,7 @@ euc_jis_20042shift_jis_2004.exit:                 ; preds = %.backedge.i, %1, %2
 declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @shift_jis_2004_to_euc_jis_2004(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8

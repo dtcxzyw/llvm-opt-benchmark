@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ethnl_set_wol.__msg.1 = internal constant [47 x i8] c"magicsecure not supported, cannot set password\00", align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @wol_prepare_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @wol_prepare_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
@@ -88,7 +88,7 @@ define internal i32 @wol_reply_size(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @wol_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @wol_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -120,7 +120,7 @@ define internal i32 @wol_fill_reply(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ethnl_set_wol_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 -95, 2) i32 @ethnl_set_wol_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8

@@ -284,7 +284,7 @@ if.end.i:                                         ; preds = %for.body.i
   %idxprom3.i = zext nneg i16 %2 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
   %3 = load i8, ptr %arrayidx4.i, align 1
-  %4 = trunc i16 %shl.i to i8
+  %4 = trunc nuw i16 %shl.i to i8
   %conv6.i = or i8 %3, %4
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
   %narrow.i = add nuw nsw i16 %2, 1
@@ -573,7 +573,7 @@ if.end.i:                                         ; preds = %for.body.i
   %idxprom3.i = zext nneg i16 %2 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
   %3 = load i8, ptr %arrayidx4.i, align 1
-  %4 = trunc i16 %shl.i to i8
+  %4 = trunc nuw i16 %shl.i to i8
   %conv6.i = or i8 %3, %4
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
   %narrow.i = add nuw nsw i16 %2, 1
@@ -640,7 +640,7 @@ if.end.i:                                         ; preds = %for.body.i
   %idxprom3.i = zext nneg i16 %2 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
   %3 = load i8, ptr %arrayidx4.i, align 1
-  %4 = trunc i16 %shl.i to i8
+  %4 = trunc nuw i16 %shl.i to i8
   %conv6.i = or i8 %3, %4
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
   %narrow.i = add nuw nsw i16 %2, 1
@@ -707,7 +707,7 @@ if.end.i:                                         ; preds = %for.body.i
   %idxprom3.i = zext nneg i16 %1 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
   %2 = load i8, ptr %arrayidx4.i, align 1
-  %3 = trunc i16 %shl.i to i8
+  %3 = trunc nuw i16 %shl.i to i8
   %conv6.i = or i8 %2, %3
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
   %narrow.i = add nuw nsw i16 %1, 1
@@ -759,7 +759,7 @@ if.end.i39:                                       ; preds = %for.body.i33
   %idxprom3.i42 = zext nneg i16 %6 to i64
   %arrayidx4.i43 = getelementptr [128 x i8], ptr %u.i32, i64 0, i64 %idxprom3.i42
   %7 = load i8, ptr %arrayidx4.i43, align 1
-  %8 = trunc i16 %shl.i41 to i8
+  %8 = trunc nuw i16 %shl.i41 to i8
   %conv6.i44 = or i8 %7, %8
   store i8 %conv6.i44, ptr %arrayidx4.i43, align 1
   %narrow.i45 = add nuw nsw i16 %6, 1

@@ -368,9 +368,9 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call4 = call ptr @_PyPegen_raise_error_known_location(ptr noundef nonnull %p, ptr noundef %errtype, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef -1, ptr noundef %errmsg, ptr noundef nonnull %va)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -467,7 +467,7 @@ if.end49:                                         ; preds = %if.then28, %cond.en
   %add55 = add nuw i32 %14, 1
   %narrow = select i1 %cmp51.not, i32 -1, i32 %add55
   %end_col_offset.0 = sext i32 %narrow to i64
-  call void @llvm.va_start(ptr nonnull %va58)
+  call void @llvm.va_start.p0(ptr nonnull %va58)
   %lineno = getelementptr inbounds i8, ptr %cond25, i64 20
   %15 = load i32, ptr %lineno, align 4
   %conv60 = sext i32 %15 to i64
@@ -475,7 +475,7 @@ if.end49:                                         ; preds = %if.then28, %cond.en
   %16 = load i32, ptr %end_lineno, align 4
   %conv61 = sext i32 %16 to i64
   %call63 = call ptr @_PyPegen_raise_error_known_location(ptr noundef nonnull %p, ptr noundef %errtype, i64 noundef %conv60, i64 noundef %col_offset.0, i64 noundef %conv61, i64 noundef %end_col_offset.0, ptr noundef %errmsg, ptr noundef nonnull %va58)
-  call void @llvm.va_end(ptr nonnull %va58)
+  call void @llvm.va_end.p0(ptr nonnull %va58)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end49, %if.then14, %if.then2
@@ -492,7 +492,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr nocapture noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %cmp = icmp eq i64 %col_offset, -5
   %add = add i64 %col_offset, 1
   %cond = select i1 %cmp, i64 -5, i64 %add
@@ -500,7 +500,7 @@ entry:
   %add4 = add nsw i64 %end_col_offset, 1
   %cond6 = select i1 %cmp1, i64 -5, i64 %add4
   %call = call ptr @_PyPegen_raise_error_known_location(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %cond, i64 noundef %end_lineno, i64 noundef %cond6, ptr noundef %errmsg, ptr noundef nonnull %va)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
@@ -621,9 +621,6 @@ if.end14:                                         ; preds = %if.then1.i.i26, %if
 }
 
 declare void @PyErr_Clear() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @_PyPegen_raise_error_known_location(ptr nocapture noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ptr noundef %va) local_unnamed_addr #0 {
@@ -870,9 +867,6 @@ return.sink.split:                                ; preds = %if.end.i.i57, %if.e
 return:                                           ; preds = %return.sink.split, %if.end7, %if.end.i.i57, %if.then.i54, %Py_XDECREF.exit, %if.end.i, %Py_DECREF.exit107
   ret ptr null
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare i32 @_PyPegen_fill_token(ptr noundef) local_unnamed_addr #1
 
@@ -1261,10 +1255,10 @@ entry:
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @_PyToken_Init(ptr noundef) local_unnamed_addr #1
 
@@ -1274,13 +1268,19 @@ declare void @_PyToken_Free(ptr noundef) local_unnamed_addr #1
 
 declare void @PyErr_Restore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }

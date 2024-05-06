@@ -420,7 +420,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !175, !noalias !172
   %12 = trunc i32 %1 to i8
@@ -432,7 +432,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !175, !noalias !172
   %19 = lshr i32 %1, 6
@@ -495,7 +495,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !178, !noalias !183, !nonnull !4, !noundef !4
   %55 = getelementptr inbounds i8, ptr %54, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
   %56 = load i64, ptr %43, align 8, !alias.scope !178, !noalias !183, !noundef !4
   %57 = add i64 %56, %42
   store i64 %57, ptr %43, align 8, !alias.scope !178, !noalias !183
@@ -503,7 +503,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit
 
 .critedge.i:                                      ; preds = %2
-  %58 = trunc i32 %1 to i8
+  %58 = trunc nuw i32 %1 to i8
   %59 = getelementptr inbounds i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !188, !noundef !4
   %61 = load i64, ptr %0, align 8, !alias.scope !188, !noundef !4
@@ -552,7 +552,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !191, !noalias !196, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = load i64, ptr %4, align 8, !alias.scope !191, !noalias !196, !noundef !4
   %18 = add i64 %17, %2
   store i64 %18, ptr %4, align 8, !alias.scope !191, !noalias !196
@@ -583,14 +583,14 @@ define internal noundef zeroext i1 @"_ZN60_$LT$ecow..string..EcoString$u20$as$u2
 
 11:                                               ; preds = %7
   %12 = lshr i32 %1, 6
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %5, align 4, !alias.scope !204, !noalias !201
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 15:                                               ; preds = %9
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %5, align 4, !alias.scope !204, !noalias !201
   %19 = lshr i32 %1, 6
@@ -630,7 +630,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
   br label %_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit
 
 .critedge.i:                                      ; preds = %2
-  %40 = trunc i32 %1 to i8
+  %40 = trunc nuw i32 %1 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
   %41 = getelementptr inbounds i8, ptr %0, i64 15
   %42 = load i8, ptr %41, align 1, !alias.scope !210, !noundef !4
@@ -1124,7 +1124,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT
 5:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hc2082ff92024bee4E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
   %6 = load i64, ptr %0, align 8, !range !313, !noundef !4
-  %trunc.i = trunc i64 %6 to i1
+  %trunc.i = trunc nuw i64 %6 to i1
   tail call void @llvm.assume(i1 %trunc.i)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h130681dee5389d89E.llvm.17261859237677664959.exit"
 
@@ -1144,7 +1144,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT
 5:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h27e747d7b1daae73E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
   %6 = load i64, ptr %0, align 8, !range !313, !noundef !4
-  %trunc.i = trunc i64 %6 to i1
+  %trunc.i = trunc nuw i64 %6 to i1
   tail call void @llvm.assume(i1 %trunc.i)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h902ccff68e691223E.llvm.17261859237677664959.exit"
 
@@ -1164,7 +1164,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT
 5:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hff5653e4402e617dE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
   %6 = load i64, ptr %0, align 8, !range !313, !noundef !4
-  %trunc.i = trunc i64 %6 to i1
+  %trunc.i = trunc nuw i64 %6 to i1
   tail call void @llvm.assume(i1 %trunc.i)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h726402cf6f6007c3E.llvm.17261859237677664959.exit"
 
@@ -1184,7 +1184,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT
 5:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hd296d9a80d2bc06fE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
   %6 = load i64, ptr %0, align 8, !range !313, !noundef !4
-  %trunc.i = trunc i64 %6 to i1
+  %trunc.i = trunc nuw i64 %6 to i1
   tail call void @llvm.assume(i1 %trunc.i)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h182f502a6a638fe5E.llvm.17261859237677664959.exit"
 
@@ -1204,7 +1204,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 6:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hc2082ff92024bee4E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
   %7 = load i64, ptr %0, align 8, !range !313, !noundef !4
-  %trunc = trunc i64 %7 to i1
+  %trunc = trunc nuw i64 %7 to i1
   tail call void @llvm.assume(i1 %trunc)
   br label %8
 
@@ -1224,7 +1224,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 6:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hd296d9a80d2bc06fE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
   %7 = load i64, ptr %0, align 8, !range !313, !noundef !4
-  %trunc = trunc i64 %7 to i1
+  %trunc = trunc nuw i64 %7 to i1
   tail call void @llvm.assume(i1 %trunc)
   br label %8
 
@@ -1244,7 +1244,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 6:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hff5653e4402e617dE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
   %7 = load i64, ptr %0, align 8, !range !313, !noundef !4
-  %trunc = trunc i64 %7 to i1
+  %trunc = trunc nuw i64 %7 to i1
   tail call void @llvm.assume(i1 %trunc)
   br label %8
 
@@ -1264,7 +1264,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 6:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h27e747d7b1daae73E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
   %7 = load i64, ptr %0, align 8, !range !313, !noundef !4
-  %trunc = trunc i64 %7 to i1
+  %trunc = trunc nuw i64 %7 to i1
   tail call void @llvm.assume(i1 %trunc)
   br label %8
 

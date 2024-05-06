@@ -6116,7 +6116,7 @@ entry:
   %blockseed = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %call32, ptr %blockseed, align 8, !tbaa !120
   %call33 = tail call noundef i32 @_ZN16MapgenCarpathian15generateTerrainEv(ptr noundef nonnull align 8 dereferenceable(596) %this), !range !121
-  %conv = trunc i32 %call33 to i16
+  %conv = trunc nsw i32 %call33 to i16
   %agg.tmp34.sroa.0.0.copyload = load i48, ptr %node_min, align 8, !tbaa.struct !119
   %agg.tmp36.sroa.0.0.copyload = load i48, ptr %node_max, align 2, !tbaa.struct !119
   tail call void @_ZN6Mapgen15updateHeightmapEN3irr4core8vector3dIsEES3_(ptr noundef nonnull align 8 dereferenceable(200) %this, i48 %agg.tmp34.sroa.0.0.copyload, i48 %agg.tmp36.sroa.0.0.copyload)
@@ -6292,7 +6292,7 @@ if.end122:                                        ; preds = %if.then107, %if.end
 declare noundef i32 @_ZN6Mapgen13getBlockSeed2EN3irr4core8vector3dIsEEi(i48, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN16MapgenCarpathian15generateTerrainEv(ptr noundef nonnull readonly align 8 dereferenceable(596) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -31007, 32768) i32 @_ZN16MapgenCarpathian15generateTerrainEv(ptr noundef nonnull readonly align 8 dereferenceable(596) %this) local_unnamed_addr #5 align 2 {
 entry:
   %c_stone = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i16, ptr %c_stone, align 8, !tbaa !131
@@ -6787,7 +6787,7 @@ declare void @_ZN6Mapgen12updateLiquidEP11UniqueQueueIN3irr4core8vector3dIsEEES4
 declare void @_ZN6Mapgen12calcLightingEN3irr4core8vector3dIsEES3_S3_S3_b(ptr noundef nonnull align 8 dereferenceable(200), i48, i48, i48, i48, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN16MapgenCarpathian20getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(596) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -32769, 32767) i32 @_ZN16MapgenCarpathian20getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(596) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
 entry:
   %p.sroa.14.0.extract.shift = lshr i32 %p.coerce, 16
   %0 = insertelement <2 x i32> poison, i32 %p.sroa.14.0.extract.shift, i64 0

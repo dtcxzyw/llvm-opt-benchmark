@@ -293,7 +293,7 @@ return:                                           ; preds = %while.end.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @virtio_serial_guest_ready(ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @virtio_serial_guest_ready(ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
 entry:
   %bytes = alloca i32, align 4
   %vser = getelementptr inbounds i8, ptr %port, i64 176
@@ -645,7 +645,7 @@ for.body3.i:                                      ; preds = %for.body.i46, %for.
   br i1 %tobool5.not.i, label %for.inc.i49, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body3.i
-  %call.i48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %7) #14
+  %call.i48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %7) #14
   %tobool7.not.i = icmp eq i32 %call.i48, 0
   br i1 %tobool7.not.i, label %if.then18, label %for.inc.i49
 
@@ -708,7 +708,7 @@ find_free_port_id.exit.thread:                    ; preds = %for.inc.i56, %if.el
 find_free_port_id.exit:                           ; preds = %for.body.i54
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   %not.i = xor i32 %11, -1
-  %13 = tail call i32 @llvm.cttz.i32(i32 %not.i, i1 true), !range !11
+  %13 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %not.i, i1 true)
   %mul.i = shl nuw i32 %12, 5
   %add2.i = or disjoint i32 %13, %mul.i
   store i32 %add2.i, ptr %id, align 8
@@ -1055,7 +1055,7 @@ if.end38:                                         ; preds = %if.end29
   %16 = load i32, ptr %out_num, align 4
   %17 = zext i32 %16 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %17
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end38, %if.end15.for.end_crit_edge, %if.then32, %if.then35
   %18 = phi ptr [ %2, %if.end15.for.end_crit_edge ], [ %12, %if.then32 ], [ %12, %if.then35 ], [ %12, %if.end38 ]
@@ -1070,7 +1070,7 @@ if.end43:                                         ; preds = %for.end
   store ptr null, ptr %elem, align 8
   %21 = load i8, ptr %throttled, align 2
   %tobool6 = trunc i8 %21 to i1
-  br i1 %tobool6, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %tobool6, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end43, %if.then8, %for.end, %if.end4
   tail call void @virtio_notify(ptr noundef %vdev, ptr noundef %vq) #12
@@ -1203,7 +1203,7 @@ for.body:                                         ; preds = %if.end5, %for.body
   %10 = load i32, ptr %max_nr_ports, align 8
   %11 = zext i32 %10 to i64
   %cmp34 = icmp ult i64 %indvars.iv.next, %11
-  br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %if.end5
   %12 = load i32, ptr %serial, align 8
@@ -1292,7 +1292,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i32 %i.028, 1
   %9 = load i32, ptr %max_nr_ports, align 8
   %cmp15 = icmp ult i32 %inc, %9
-  br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %if.end
   %ivqs18 = getelementptr inbounds i8, ptr %call.i25, i64 536
@@ -1395,7 +1395,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %next.i = getelementptr inbounds i8, ptr %port.07.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
-  br i1 %tobool.not.i, label %find_first_connected_console.exit, label %for.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %find_first_connected_console.exit, label %for.body.i, !llvm.loop !15
 
 find_first_connected_console.exit:                ; preds = %land.lhs.true.i, %for.inc.i, %entry
   %port.0.lcssa.i = phi ptr [ null, %entry ], [ %port.07.i, %land.lhs.true.i ], [ null, %for.inc.i ]
@@ -1523,7 +1523,7 @@ for.inc.i15:                                      ; preds = %if.then4.i, %if.the
   %next.i16 = getelementptr inbounds i8, ptr %port.010.i, i64 160
   %port.0.i17 = load ptr, ptr %next.i16, align 8
   %tobool.not.i18 = icmp eq ptr %port.0.i17, null
-  br i1 %tobool.not.i18, label %if.end10.loopexit, label %for.body.i13, !llvm.loop !17
+  br i1 %tobool.not.i18, label %if.end10.loopexit, label %for.body.i13, !llvm.loop !16
 
 if.end10.loopexit:                                ; preds = %for.inc.i15
   %port.023.pre = load ptr, ptr %ports.i, align 8
@@ -1557,7 +1557,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %next = getelementptr inbounds i8, ptr %port.025, i64 160
   %port.0 = load ptr, ptr %next, align 8
   %tobool11.not = icmp eq ptr %port.0, null
-  br i1 %tobool11.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %tobool11.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %if.then9, %if.end10
   ret void
@@ -1611,7 +1611,7 @@ for.inc.i:                                        ; preds = %if.then4.i, %if.the
   %next.i = getelementptr inbounds i8, ptr %port.010.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
-  br i1 %tobool.not.i, label %guest_reset.exit, label %for.body.i, !llvm.loop !17
+  br i1 %tobool.not.i, label %guest_reset.exit, label %for.body.i, !llvm.loop !16
 
 guest_reset.exit:                                 ; preds = %for.inc.i, %entry
   ret void
@@ -1647,7 +1647,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %arrayidx.val) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %entry
   %ports = getelementptr inbounds i8, ptr %call.i, i64 688
@@ -1662,7 +1662,7 @@ for.body5:                                        ; preds = %for.end, %for.body5
   %next = getelementptr inbounds i8, ptr %port.037, i64 160
   %port.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %port.0, null
-  br i1 %tobool.not, label %for.end8, label %for.body5, !llvm.loop !20
+  br i1 %tobool.not, label %for.end8, label %for.body5, !llvm.loop !19
 
 for.end8:                                         ; preds = %for.body5, %for.end
   %nr_active_ports.0.lcssa = phi i32 [ 0, %for.end ], [ %inc6, %for.body5 ]
@@ -1708,7 +1708,7 @@ for.inc22:                                        ; preds = %for.body12, %if.the
   %next23 = getelementptr inbounds i8, ptr %port.140, i64 160
   %port.1 = load ptr, ptr %next23, align 8
   %tobool11.not = icmp eq ptr %port.1, null
-  br i1 %tobool11.not, label %for.end24, label %for.body12, !llvm.loop !21
+  br i1 %tobool11.not, label %for.end24, label %for.body12, !llvm.loop !20
 
 for.end24:                                        ; preds = %for.inc22, %for.end8
   ret void
@@ -1736,7 +1736,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -1834,7 +1834,7 @@ if.then23.i:                                      ; preds = %if.end.i
 for.inc.i:                                        ; preds = %if.then23.i, %if.end.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i18
-  br i1 %exitcond.not.i, label %fetch_active_ports_list.exit, label %for.body.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %fetch_active_ports_list.exit, label %for.body.i, !llvm.loop !22
 
 fetch_active_ports_list.exit:                     ; preds = %for.inc.i
   %10 = load ptr, ptr %post_load.i, align 8
@@ -1934,7 +1934,7 @@ for.inc.i:                                        ; preds = %lor.lhs.false.i
   %next.i = getelementptr inbounds i8, ptr %port.08.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
-  br i1 %tobool.not.i, label %if.end9, label %for.body.i, !llvm.loop !24
+  br i1 %tobool.not.i, label %if.end9, label %for.body.i, !llvm.loop !23
 
 if.end:                                           ; preds = %lor.lhs.false.i, %for.body.i
   %call.i6 = tail call ptr @object_get_class(ptr noundef nonnull %port.08.i) #12
@@ -1990,7 +1990,7 @@ for.inc.i:                                        ; preds = %lor.lhs.false.i
   %next.i = getelementptr inbounds i8, ptr %port.08.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
-  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !24
+  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !23
 
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i, %for.body.i
   %host_connected = getelementptr inbounds i8, ptr %port.08.i, i64 249
@@ -2235,7 +2235,7 @@ send_control_msg.exit:                            ; preds = %send_control_event.
   %next.i = getelementptr inbounds i8, ptr %port.074.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool16.not.i = icmp eq ptr %port.0.i, null
-  br i1 %tobool16.not.i, label %handle_control_message.exit, label %for.body.i, !llvm.loop !25
+  br i1 %tobool16.not.i, label %handle_control_message.exit, label %for.body.i, !llvm.loop !24
 
 if.end18.i:                                       ; preds = %trace_virtio_serial_handle_control_message.exit.i
   %buf.val.i = load i32, ptr %buf.1, align 1
@@ -2497,7 +2497,7 @@ for.inc:                                          ; preds = %if.end19, %if.then2
   %12 = load i32, ptr %nr_active_ports, align 8
   %13 = zext i32 %12 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %13
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !26
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %.lcssa = phi ptr [ %0, %for.cond.preheader ], [ %11, %for.inc ]
@@ -2580,7 +2580,7 @@ attributes #16 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 33}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
@@ -2595,4 +2595,3 @@ attributes #16 = { nounwind allocsize(0) }
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}

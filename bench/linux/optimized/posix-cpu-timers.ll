@@ -86,7 +86,7 @@ define dso_local void @posix_cputimers_group_init(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @update_rlimit_cpu(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @update_rlimit_cpu(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = mul i64 %1, 1000000000
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
@@ -1091,7 +1091,7 @@ define internal fastcc i64 @cpu_clock_sample_group(i32 noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @posix_cpu_clock_getres(i32 noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @posix_cpu_clock_getres(i32 noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   tail call void @__rcu_read_lock() #11
   %3 = and i32 %0, 4
   %4 = icmp eq i32 %3, 0
@@ -1178,7 +1178,7 @@ define internal noundef i32 @posix_cpu_clock_getres(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @posix_cpu_clock_set(i32 noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 -22, 0) i32 @posix_cpu_clock_set(i32 noundef %0, ptr nocapture readnone %1) #1 align 16 {
   tail call void @__rcu_read_lock() #11
   %3 = and i32 %0, 4
   %4 = icmp eq i32 %3, 0
@@ -1249,7 +1249,7 @@ define internal i32 @posix_cpu_clock_set(i32 noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @posix_cpu_clock_get(i32 noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @posix_cpu_clock_get(i32 noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = alloca %struct.task_cputime, align 8
   %4 = alloca [3 x i64], align 16
   %5 = and i32 %0, 3
@@ -1436,7 +1436,7 @@ pid_for_clock.exit:                               ; preds = %2, %16, %19, %24, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @posix_cpu_timer_create(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @posix_cpu_timer_create(ptr noundef %0) #1 align 16 {
   tail call void @__rcu_read_lock() #11
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
@@ -1582,7 +1582,7 @@ define internal i32 @posix_cpu_nsleep(i32 noundef %0, i32 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @posix_cpu_timer_set(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #1 align 16 {
+define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #1 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
@@ -1977,7 +1977,7 @@ cpu_timer_fire.exit:                              ; preds = %201, %197, %195, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @posix_cpu_timer_del(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @posix_cpu_timer_del(ptr noundef %0) #1 align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
@@ -2465,7 +2465,7 @@ define internal void @posix_cpu_timer_wait_running(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @process_cpu_clock_getres(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @process_cpu_clock_getres(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   tail call void @__rcu_read_lock() #11
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !17
   %4 = inttoptr i64 %3 to ptr
@@ -2489,13 +2489,13 @@ define internal noundef i32 @process_cpu_clock_getres(i32 %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @process_cpu_clock_get(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @process_cpu_clock_get(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = tail call i32 @posix_cpu_clock_get(i32 noundef -6, ptr noundef %1), !range !37
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @process_cpu_timer_create(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @process_cpu_timer_create(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -6, ptr %2, align 8
   %3 = tail call i32 @posix_cpu_timer_create(ptr noundef %0), !range !37
@@ -2533,7 +2533,7 @@ define internal i32 @process_cpu_nsleep(i32 %0, i32 noundef %1, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thread_cpu_clock_getres(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thread_cpu_clock_getres(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   tail call void @__rcu_read_lock() #11
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !17
   %4 = inttoptr i64 %3 to ptr
@@ -2555,7 +2555,7 @@ define internal noundef i32 @thread_cpu_clock_getres(i32 %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thread_cpu_clock_get(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thread_cpu_clock_get(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   tail call void @__rcu_read_lock() #11
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12
   %4 = inttoptr i64 %3 to ptr
@@ -2586,7 +2586,7 @@ posix_cpu_clock_get.exit:                         ; preds = %9, %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thread_cpu_timer_create(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thread_cpu_timer_create(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -2, ptr %2, align 8
   %3 = tail call i32 @posix_cpu_timer_create(ptr noundef %0), !range !37
@@ -2869,7 +2869,7 @@ define internal fastcc i32 @do_cpu_nanosleep(i32 noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @posix_cpu_nsleep_restart(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @posix_cpu_nsleep_restart(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8

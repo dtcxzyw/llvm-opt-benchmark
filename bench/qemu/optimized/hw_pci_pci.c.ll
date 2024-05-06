@@ -371,7 +371,7 @@ return:                                           ; preds = %if.end2, %if.then1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @pci_bus_get_irq_level(ptr nocapture noundef readonly %bus, i32 noundef %irq_num) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pci_bus_get_irq_level(ptr nocapture noundef readonly %bus, i32 noundef %irq_num) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %irq_num, -1
   br i1 %cmp, label %if.end, label %if.else
@@ -1191,7 +1191,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @pci_bus_numa_node(ptr noundef %bus) local_unnamed_addr #0 {
+define dso_local range(i32 0, 65536) i32 @pci_bus_numa_node(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %bus) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
@@ -1380,7 +1380,7 @@ if.else7:                                         ; preds = %if.end4
   unreachable
 
 if.end8:                                          ; preds = %if.end4
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %call), !range !10
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call)
   %or.cond53 = icmp eq i64 %1, 1
   br i1 %or.cond53, label %if.end12, label %if.else11
 
@@ -2025,7 +2025,7 @@ if.end12:                                         ; preds = %for.body
   %shr = lshr i32 %val.079, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %if.end12, %for.cond.preheader
   %conv36 = zext i32 %addr to i64
@@ -2088,7 +2088,7 @@ for.body.us.i:                                    ; preds = %for.cond.preheader.
   tail call fastcc void @pci_change_irq_level(ptr noundef nonnull %d, i32 noundef %i.010.us.i, i32 noundef %and.i9.us.i)
   %inc.us.i = add nuw nsw i32 %i.010.us.i, 1
   %exitcond12.not.i = icmp eq i32 %inc.us.i, 4
-  br i1 %exitcond12.not.i, label %pci_update_irq_disabled.exit, label %for.body.us.i, !llvm.loop !12
+  br i1 %exitcond12.not.i, label %pci_update_irq_disabled.exit, label %for.body.us.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
@@ -2100,7 +2100,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   tail call fastcc void @pci_change_irq_level(ptr noundef nonnull %d, i32 noundef %i.010.i, i32 noundef %sub.i)
   %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 4
-  br i1 %exitcond.not.i, label %pci_update_irq_disabled.exit, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %pci_update_irq_disabled.exit, label %for.body.i, !llvm.loop !11
 
 pci_update_irq_disabled.exit:                     ; preds = %for.body.i, %for.body.us.i, %if.then60
   %bus_master_enable_region = getelementptr inbounds i8, ptr %d, i64 944
@@ -2285,7 +2285,7 @@ trace_pci_update_mappings_add.exit:               ; preds = %if.then20, %land.lh
 for.inc:                                          ; preds = %if.end16, %trace_pci_update_mappings_add.exit, %if.end, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
   %has_vga.i = getelementptr inbounds i8, ptr %d, i64 1256
@@ -2504,7 +2504,7 @@ trace_pci_route_irq.exit:                         ; preds = %cond.end, %land.lhs
   %parent_dev6 = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %11 = load ptr, ptr %parent_dev6, align 8
   %tobool.not = icmp eq ptr %11, null
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !14
+  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !13
 
 do.end:                                           ; preds = %trace_pci_route_irq.exit
   %route_intx_to_irq = getelementptr inbounds i8, ptr %call.i1.i, i64 168
@@ -2581,7 +2581,7 @@ if.then:                                          ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc
   %child = getelementptr inbounds i8, ptr %bus, i64 2256
@@ -2595,7 +2595,7 @@ for.body6:                                        ; preds = %for.end, %for.body6
   %sibling = getelementptr inbounds i8, ptr %sec.013, i64 2264
   %sec.0 = load ptr, ptr %sibling, align 8
   %tobool5.not = icmp eq ptr %sec.0, null
-  br i1 %tobool5.not, label %for.end8, label %for.body6, !llvm.loop !16
+  br i1 %tobool5.not, label %for.end8, label %for.body6, !llvm.loop !15
 
 for.end8:                                         ; preds = %for.body6, %for.end
   ret void
@@ -2610,7 +2610,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @pci_swizzle_map_irq_fn(ptr nocapture noundef readonly %pci_dev, i32 noundef %pin) local_unnamed_addr #5 {
+define dso_local range(i32 -3, 4) i32 @pci_swizzle_map_irq_fn(ptr nocapture noundef readonly %pci_dev, i32 noundef %pin) local_unnamed_addr #5 {
 entry:
   %devfn = getelementptr inbounds i8, ptr %pci_dev, i64 208
   %0 = load i32, ptr %devfn, align 16
@@ -2642,7 +2642,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -2674,7 +2674,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !16
 
 if.end:                                           ; preds = %for.inc.i, %entry
   ret void
@@ -2794,7 +2794,7 @@ for.inc.i:                                        ; preds = %pci_secondary_bus_i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i = icmp ult i64 %indvars.iv.i, 255
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %pci_root_bus_in_range.exit, label %for.body.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %pci_root_bus_in_range.exit, label %for.body.i, !llvm.loop !17
 
 pci_root_bus_in_range.exit:                       ; preds = %pci_secondary_bus_in_range.exit.i, %for.inc.i
   %cmp.lcssa.i = phi i1 [ %cmp.i, %for.inc.i ], [ %cmp6.i, %pci_secondary_bus_in_range.exit.i ]
@@ -2833,7 +2833,7 @@ for.inc:                                          ; preds = %if.else, %land.lhs.
 
 for.body10.backedge:                              ; preds = %for.inc, %for.inc25
   %sec.044.be = phi ptr [ %sec.0, %for.inc ], [ %sec.042, %for.inc25 ]
-  br label %for.body10, !llvm.loop !19
+  br label %for.body10, !llvm.loop !18
 
 for.inc25:                                        ; preds = %pci_secondary_bus_in_range.exit39, %pci_root_bus_in_range.exit
   %child = getelementptr inbounds i8, ptr %sec.044, i64 2256
@@ -2866,7 +2866,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -2897,7 +2897,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !19
 
 if.end:                                           ; preds = %for.inc.i, %entry
   ret void
@@ -2920,7 +2920,7 @@ while.body:                                       ; preds = %land.rhs
   %desc1 = getelementptr i8, ptr %desc.04, i64 40
   %1 = load ptr, ptr %desc1, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !21
+  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !20
 
 while.end:                                        ; preds = %while.body, %land.rhs
   %desc.0.lcssa = phi ptr [ getelementptr inbounds ([54 x %struct.pci_class_desc], ptr @pci_class_descriptions, i64 0, i64 53, i32 0), %while.body ], [ %desc.04, %land.rhs ]
@@ -3195,7 +3195,7 @@ for.body:                                         ; preds = %if.end3, %for.body
   %sibling = getelementptr inbounds i8, ptr %sec.014, i64 2264
   %sec.0 = load ptr, ptr %sibling, align 8
   %tobool4.not = icmp eq ptr %sec.0, null
-  br i1 %tobool4.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %tobool4.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %if.end3
   %tobool5.not = icmp eq ptr %end, null
@@ -3252,7 +3252,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @pci_add_capability(ptr noundef %pdev, i8 noundef zeroext %cap_id, i8 noundef zeroext %offset, i8 noundef zeroext %size, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 256) i32 @pci_add_capability(ptr noundef %pdev, i8 noundef zeroext %cap_id, i8 noundef zeroext %offset, i8 noundef zeroext %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i8 %offset, 0
   br i1 %tobool.not, label %if.then, label %if.else3
@@ -3291,7 +3291,7 @@ for.inc.i:                                        ; preds = %if.else.for.inc_cri
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i, %if.else.for.inc_crit_edge.i ], [ %2, %if.then.i ]
   %offset.1.i = phi i32 [ %offset.07.i, %if.else.for.inc_crit_edge.i ], [ %3, %if.then.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, 256
-  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !22
 
 pci_find_space.exit:                              ; preds = %if.else.i
   %conv5.i = trunc i32 %offset.07.i to i8
@@ -3358,7 +3358,7 @@ for.body.i37:                                     ; preds = %for.cond.preheader.
   %arrayidx7.i = getelementptr i8, ptr %7, i64 %idxprom6.i
   %14 = load i8, ptr %arrayidx7.i, align 1
   %tobool8.not.i = icmp eq i8 %14, 0
-  br i1 %tobool8.not.i, label %pci_find_capability_at_offset.exit, label %for.body.i37, !llvm.loop !24
+  br i1 %tobool8.not.i, label %pci_find_capability_at_offset.exit, label %for.body.i37, !llvm.loop !23
 
 pci_find_capability_at_offset.exit:               ; preds = %for.body.i37
   %tobool10.not = icmp eq i8 %found.1.i, 0
@@ -3387,7 +3387,7 @@ if.then11:                                        ; preds = %pci_find_capability
 for.inc:                                          ; preds = %for.cond.preheader.i, %for.body, %pci_find_capability_at_offset.exit
   %inc = add nuw nsw i32 %i.048, 1
   %cmp = icmp ult i32 %inc, %add
-  br i1 %cmp, label %for.body, label %if.end19, !llvm.loop !25
+  br i1 %cmp, label %for.body, label %if.end19, !llvm.loop !24
 
 if.end19:                                         ; preds = %for.inc, %pci_find_space.exit.if.end19_crit_edge, %if.else3
   %conv21.pre-phi = phi i32 [ %.pre, %pci_find_space.exit.if.end19_crit_edge ], [ %conv, %if.else3 ], [ %conv, %for.inc ]
@@ -3466,7 +3466,7 @@ for.body.i:                                       ; preds = %for.inc.i
   %arrayidx7.i = getelementptr i8, ptr %pdev.val, i64 %idxprom6.i
   %5 = load i8, ptr %arrayidx7.i, align 1
   %cmp.i = icmp eq i8 %5, %cap_id
-  br i1 %cmp.i, label %if.end.loopexit, label %for.inc.i, !llvm.loop !26
+  br i1 %cmp.i, label %if.end.loopexit, label %for.inc.i, !llvm.loop !25
 
 for.inc.i:                                        ; preds = %for.body.i.preheader, %for.body.i
   %6 = phi i8 [ %7, %for.body.i ], [ %3, %for.body.i.preheader ]
@@ -3475,7 +3475,7 @@ for.inc.i:                                        ; preds = %for.body.i.preheade
   %arrayidx2.i = getelementptr i8, ptr %pdev.val, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx2.i, align 1
   %tobool3.not.i = icmp eq i8 %7, 0
-  br i1 %tobool3.not.i, label %if.end28, label %for.body.i, !llvm.loop !26
+  br i1 %tobool3.not.i, label %if.end28, label %for.body.i, !llvm.loop !25
 
 if.end.loopexit:                                  ; preds = %for.body.i
   %8 = zext i8 %add14.i to i64
@@ -3556,7 +3556,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %arrayidx2.i = getelementptr i8, ptr %pdev.val, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx2.i, align 1
   %tobool3.not.i = icmp eq i8 %6, 0
-  br i1 %tobool3.not.i, label %pci_find_capability_list.exit, label %for.body.i, !llvm.loop !26
+  br i1 %tobool3.not.i, label %pci_find_capability_list.exit, label %for.body.i, !llvm.loop !25
 
 pci_find_capability_list.exit:                    ; preds = %for.body.i, %for.inc.i, %for.cond.preheader.i, %entry
   %retval.0.i = phi i8 [ 0, %entry ], [ 0, %for.cond.preheader.i ], [ 0, %for.inc.i ], [ %4, %for.body.i ]
@@ -3594,7 +3594,7 @@ for.inc:                                          ; preds = %if.end.i, %for.body
   %next = getelementptr inbounds i8, ptr %host_bridge.013, i64 1656
   %host_bridge.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %host_bridge.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !27
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.inc, %entry, %pci_qdev_find_recursive.exit.thread7
   %rc.2 = phi i32 [ 0, %pci_qdev_find_recursive.exit.thread7 ], [ -19, %entry ], [ %rc.1, %for.inc ]
@@ -3681,7 +3681,7 @@ if.end17:                                         ; preds = %land.lhs.true10, %i
   %devfn.1 = phi i8 [ %devfn.025, %while.body ], [ %conv16, %if.else ], [ 0, %land.lhs.true10 ]
   %bus.1 = phi ptr [ %bus.026, %while.body ], [ %call.i1.i19, %if.else ], [ %iommu_bus.024, %land.lhs.true10 ]
   %tobool.not = icmp eq ptr %call.i1.i19, null
-  br i1 %tobool.not, label %while.end, label %land.lhs.true, !llvm.loop !28
+  br i1 %tobool.not, label %while.end, label %land.lhs.true, !llvm.loop !27
 
 while.end:                                        ; preds = %land.rhs, %if.end17, %land.lhs.true, %entry
   %iommu_bus.0.lcssa = phi ptr [ null, %entry ], [ %iommu_bus.024, %land.lhs.true ], [ null, %if.end17 ], [ %iommu_bus.024, %land.rhs ]
@@ -3847,18 +3847,18 @@ if.end24.i:                                       ; preds = %lor.lhs.false.i
 if.end32.i:                                       ; preds = %if.end24.i
   %cond39.i = tail call i64 @llvm.umax.i64(i64 %call27.i, i64 4294967296)
   %cmp40.not.i = icmp ult i64 %sub.i, %cond39.i
-  br i1 %cmp40.not.i, label %for.inc.i6, label %range_set_bounds.exit35.i
+  br i1 %cmp40.not.i, label %for.inc.i6, label %range_set_bounds.exit36.i
 
-range_set_bounds.exit35.i:                        ; preds = %if.end32.i
+range_set_bounds.exit36.i:                        ; preds = %if.end32.i
   store i64 %cond39.i, ptr %region_range.i, align 8
   store i64 %sub.i, ptr %upb2.i27.i, align 8
   call fastcc void @range_extend(ptr noundef nonnull %range, ptr noundef nonnull %region_range.i)
   br label %for.inc.i6
 
-for.inc.i6:                                       ; preds = %range_set_bounds.exit35.i, %if.end32.i, %if.end24.i, %lor.lhs.false.i, %for.body.i3
+for.inc.i6:                                       ; preds = %range_set_bounds.exit36.i, %if.end32.i, %if.end24.i, %lor.lhs.false.i, %for.body.i3
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 7
-  br i1 %exitcond.not.i8, label %pci_dev_get_w64.exit, label %for.body.i3, !llvm.loop !29
+  br i1 %exitcond.not.i8, label %pci_dev_get_w64.exit, label %for.body.i3, !llvm.loop !28
 
 pci_dev_get_w64.exit:                             ; preds = %for.inc.i6, %if.then.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pref_range.i)
@@ -3868,7 +3868,7 @@ pci_dev_get_w64.exit:                             ; preds = %for.inc.i6, %if.the
 for.inc.i:                                        ; preds = %pci_dev_get_w64.exit, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %pci_for_each_device_under_bus.exit, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %pci_for_each_device_under_bus.exit, label %for.body.i, !llvm.loop !19
 
 pci_for_each_device_under_bus.exit:               ; preds = %for.inc.i
   ret void
@@ -4054,7 +4054,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_pci_config_device(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @get_pci_config_device(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture readnone %field) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %pv, i64 -168
   %0 = getelementptr i8, ptr %pv, i64 1092
@@ -4115,7 +4115,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add i32 %i.038, 1
   %conv4 = sext i32 %inc to i64
   %cmp5 = icmp ult i64 %conv4, %size
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !30
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre, ptr nonnull align 1 %call2, i64 %size, i1 false)
@@ -4176,7 +4176,7 @@ declare void @pci_bridge_update_mappings(ptr noundef) local_unnamed_addr #2
 declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_pci_irq_state(ptr noundef %f, ptr nocapture noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @get_pci_irq_state(ptr noundef %f, ptr nocapture noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %irq_state = alloca [4 x i32], align 16
   br label %for.body
@@ -4184,7 +4184,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.cond10.preheader, label %for.body, !llvm.loop !31
+  br i1 %exitcond.not, label %for.cond10.preheader, label %for.body, !llvm.loop !30
 
 for.cond10.preheader:                             ; preds = %for.cond
   %pv.promoted = load i8, ptr %pv, align 1
@@ -4218,7 +4218,7 @@ for.body12:                                       ; preds = %for.cond10.preheade
   %conv5.i = or i8 %conv1.i, %5
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next17, 4
-  br i1 %exitcond18.not, label %return.loopexit, label %for.body12, !llvm.loop !32
+  br i1 %exitcond18.not, label %return.loopexit, label %for.body12, !llvm.loop !31
 
 return.loopexit:                                  ; preds = %for.body12
   store i8 %conv5.i, ptr %pv, align 1
@@ -4243,7 +4243,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %and.i) #23
   %inc = add nuw nsw i32 %i.03, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
 
 for.end:                                          ; preds = %for.body
   ret i32 0
@@ -4532,7 +4532,7 @@ for.body:                                         ; preds = %entry, %for.body
   %parent_dev = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %0 = load ptr, ptr %parent_dev, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !34
+  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !33
 
 for.end.loopexit:                                 ; preds = %for.body
   %1 = mul i32 %inc, 5
@@ -4577,7 +4577,7 @@ if.end:                                           ; preds = %for.body10
   %parent_dev21 = getelementptr inbounds i8, ptr %call.i1.i22, i64 2232
   %3 = load ptr, ptr %parent_dev21, align 8
   %tobool9.not = icmp eq ptr %3, null
-  br i1 %tobool9.not, label %for.end22, label %for.body10, !llvm.loop !35
+  br i1 %tobool9.not, label %for.end22, label %for.body10, !llvm.loop !34
 
 for.end22:                                        ; preds = %if.end, %for.end
   ret ptr %call5
@@ -4613,7 +4613,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %desc1.i = getelementptr i8, ptr %desc.04.i, i64 40
   %7 = load ptr, ptr %desc1.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.rhs.i, !llvm.loop !36
+  br i1 %tobool.not.i, label %if.else.i, label %land.rhs.i, !llvm.loop !35
 
 if.end.i:                                         ; preds = %land.rhs.i
   %fw_name.i = getelementptr inbounds i8, ptr %desc.04.i, i64 16
@@ -4700,12 +4700,12 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.cond6.preheader, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.cond6.preheader, label %for.body, !llvm.loop !36
 
 for.cond6:                                        ; preds = %for.body9
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, %wide.trip.count
-  br i1 %exitcond17.not, label %for.end18, label %for.body9, !llvm.loop !38
+  br i1 %exitcond17.not, label %for.end18, label %for.body9, !llvm.loop !37
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.cond6
   %indvars.iv14 = phi i64 [ 0, %for.body9.lr.ph ], [ %indvars.iv.next15, %for.cond6 ]
@@ -4723,7 +4723,7 @@ for.end18:                                        ; preds = %for.cond6, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @pcibus_num(ptr nocapture noundef readonly %bus) #15 {
+define internal range(i32 0, 256) i32 @pcibus_num(ptr nocapture noundef readonly %bus) #15 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 120
   %bus.val = load i32, ptr %0, align 8
@@ -4790,7 +4790,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -4956,7 +4956,7 @@ if.end13:                                         ; preds = %if.end9, %if.end
   %romsize = getelementptr inbounds i8, ptr %qdev, i64 2264
   %7 = load i32, ptr %romsize, align 8
   %cmp14.not = icmp eq i32 %7, -1
-  %8 = tail call i32 @llvm.ctpop.i32(i32 %7), !range !40
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
   %or.cond = icmp eq i32 %8, 1
   %or.cond85 = select i1 %cmp14.not, i1 true, i1 %or.cond
   br i1 %or.cond85, label %if.end21, label %if.then19
@@ -5059,7 +5059,7 @@ land.lhs.true18.i:                                ; preds = %for.body.i
 for.inc.i:                                        ; preds = %land.lhs.true18.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %cmp14.i = icmp ult i64 %indvars.iv.i, 248
-  br i1 %cmp14.i, label %for.body.i, label %for.end.i, !llvm.loop !41
+  br i1 %cmp14.i, label %for.body.i, label %for.end.i, !llvm.loop !39
 
 for.end.i:                                        ; preds = %for.inc.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1165, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.195, ptr noundef %call35) #23
@@ -5186,7 +5186,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i
 while.cond.i.i.backedge:                          ; preds = %if.then.i.i, %while.body.i.i
   %retval.sroa.0.0.i.i.be = phi ptr [ %spec.select.i.i, %if.then.i.i ], [ %29, %while.body.i.i ]
   %retval.sroa.4.0.i.i.be = phi i32 [ %spec.select7.i.i, %if.then.i.i ], [ 1, %while.body.i.i ]
-  br label %while.cond.i.i, !llvm.loop !42
+  br label %while.cond.i.i, !llvm.loop !40
 
 pci_req_id_cache_get.exit.i:                      ; preds = %while.cond.i.i
   %requester_id_cache.i = getelementptr inbounds i8, ptr %qdev, i64 216
@@ -5492,7 +5492,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end28.i.i
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %pci_init_multifunction.exit.i, label %for.body.i.i, !llvm.loop !43
+  br i1 %exitcond.not.i.i, label %pci_init_multifunction.exit.i, label %for.body.i.i, !llvm.loop !41
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
@@ -5759,7 +5759,7 @@ if.then60.i:                                      ; preds = %if.then55.i
 
 if.else65.i:                                      ; preds = %if.end51.i
   %sub.i.i75 = add nsw i64 %call34.i, -1
-  %123 = call i64 @llvm.ctlz.i64(i64 %sub.i.i75, i1 false), !range !10
+  %123 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i75, i1 false)
   %sub2.i.i = add nuw nsw i64 %123, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
   %shr.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i
@@ -5874,7 +5874,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 for.inc.i:                                        ; preds = %if.end.i, %lor.lhs.false.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %pci_unregister_io_regions.exit, label %for.body.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %pci_unregister_io_regions.exit, label %for.body.i, !llvm.loop !42
 
 pci_unregister_io_regions.exit:                   ; preds = %for.inc.i
   tail call void @pci_unregister_vga(ptr noundef nonnull %call.i)
@@ -6257,7 +6257,7 @@ attributes #26 = { cold }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 0, i64 65}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -6287,8 +6287,6 @@ attributes #26 = { cold }
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
-!40 = !{i32 0, i32 33}
+!40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}

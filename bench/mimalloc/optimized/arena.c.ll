@@ -115,7 +115,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br i1 %cmp7.i, label %if.then9.i, label %if.end23.thread
 
 if.then9.i:                                       ; preds = %if.then5.i
-  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef %tld) #12
+  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull writeonly %memid, ptr noundef readonly %tld) #12
   %cmp13.not.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.not.i, label %if.end23.thread, label %return
 
@@ -128,7 +128,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.cond
   %i.035.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end.i ]
   %conv.i31.i = trunc i64 %i.035.i to i32
   %add.i.i = add nsw i32 %conv.i31.i, 1
-  %call24.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i.i, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef %tld) #12
+  %call24.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i.i, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef writeonly %memid, ptr noundef readonly %tld) #12
   %cmp25.not.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.not.i, label %for.cond.i, label %return
 
@@ -145,7 +145,7 @@ for.body36.i:                                     ; preds = %for.end.i, %for.con
   %i32.036.i = phi i64 [ %inc47.i, %for.cond33.i ], [ 0, %for.end.i ]
   %conv.i32.i = trunc i64 %i32.036.i to i32
   %add.i33.i = add nsw i32 %conv.i32.i, 1
-  %call41.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i33.i, i1 noundef zeroext false, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef %tld) #12
+  %call41.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i33.i, i1 noundef zeroext false, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef writeonly %memid, ptr noundef readonly %tld) #12
   %cmp42.not.i = icmp eq ptr %call41.i, null
   br i1 %cmp42.not.i, label %for.cond33.i, label %return
 
@@ -195,7 +195,7 @@ if.else.i41:                                      ; preds = %if.end22.i
 
 mi_arena_reserve.exit:                            ; preds = %if.then25.i, %if.else.i41
   %arena_commit.0.i = phi i1 [ %call26.i, %if.then25.i ], [ %cmp29.i42, %if.else.i41 ]
-  %call34.i = call i32 @mi_reserve_os_memory_ex(i64 noundef %arena_reserve.1.i, i1 noundef zeroext %arena_commit.0.i, i1 noundef zeroext %allow_large, i1 noundef zeroext false, ptr noundef nonnull %arena_id) #12, !range !7
+  %call34.i = call i32 @mi_reserve_os_memory_ex(i64 noundef %arena_reserve.1.i, i1 noundef zeroext %arena_commit.0.i, i1 noundef zeroext %allow_large, i1 noundef zeroext false, ptr noundef nonnull %arena_id) #12
   %cmp35.i = icmp eq i32 %call34.i, 0
   br i1 %cmp35.i, label %if.then14, label %if.end23
 
@@ -334,7 +334,7 @@ if.end.i:                                         ; preds = %if.end29
   %tmp.sroa.4.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 12
   store i8 %frombool.i.i, ptr %tmp.sroa.4.0.memid.sroa_idx.i, align 4
   %tmp.sroa.5.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %tmp.sroa.5.0.memid.sroa_idx.i, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %tmp.sroa.5.0.memid.sroa_idx.i, i8 0, i64 7, i1 false)
   %tmp.sroa.532.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 20
   store i32 6, ptr %tmp.sroa.532.0.memid.sroa_idx.i, align 4
   %is_pinned.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -778,7 +778,7 @@ land.rhs.i:                                       ; preds = %while.body21.i, %wh
 while.body21.i:                                   ; preds = %land.rhs.i
   %inc.i = add nuw nsw i64 %bitlen.046.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %13
-  br i1 %exitcond.not.i, label %while.body24.preheader.i, label %land.rhs.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %while.body24.preheader.i, label %land.rhs.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp23.not48.i = icmp eq i64 %bitlen.046.i, 0
@@ -798,7 +798,7 @@ while.body24.i:                                   ; preds = %if.end28.i, %while.
 if.end28.i:                                       ; preds = %while.body24.i
   %dec.i = add nsw i64 %bitlen.149.i, -1
   %cmp23.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp23.not.i, label %if.end42.i, label %while.body24.i, !llvm.loop !9
+  br i1 %cmp23.not.i, label %if.end42.i, label %while.body24.i, !llvm.loop !8
 
 if.then31.i:                                      ; preds = %while.body24.i
   %15 = load ptr, ptr %blocks_purge.i, align 8
@@ -825,7 +825,7 @@ while.body6.i.i:                                  ; preds = %land.rhs.i.i
   %inc.i.i = add i64 %count.014.i.i, 1
   %add2.i.i = add i64 %inc.i.i, %bitidx.018.i.i
   %cmp3.i.i = icmp ult i64 %add2.i.i, %add.i38.i
-  br i1 %cmp3.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !10
+  br i1 %cmp3.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !9
 
 while.end.i.i:                                    ; preds = %while.body6.i.i, %land.rhs.i.i
   %count.0.lcssa.i.i = phi i64 [ %inc.i.i, %while.body6.i.i ], [ %count.014.i.i, %land.rhs.i.i ]
@@ -876,7 +876,7 @@ if.end10.i.i:                                     ; preds = %mi_arena_purge.exit
   %add11.i.i = add i64 %bitidx.018.i.i, 1
   %add12.i.i = add i64 %add11.i.i, %count.0.lcssa.i.i
   %cmp.i.i = icmp ult i64 %add12.i.i, %add.i38.i
-  br i1 %cmp.i.i, label %while.cond1.preheader.i.i, label %mi_arena_purge_range.exit.i, !llvm.loop !11
+  br i1 %cmp.i.i, label %while.cond1.preheader.i.i, label %mi_arena_purge_range.exit.i, !llvm.loop !10
 
 mi_arena_purge_range.exit.i:                      ; preds = %if.end10.i.i
   %spec.select.i = select i1 %cond.fr.i, i1 %full_purge.153.i, i1 false
@@ -896,7 +896,7 @@ if.end42.i:                                       ; preds = %if.end28.i, %mi_are
   %add43.i = add nuw nsw i64 %bitidx.051.i, 1
   %add44.i = add i64 %add43.i, %bitlen.145.i
   %cmp16.i = icmp ult i64 %add44.i, 64
-  br i1 %cmp16.i, label %while.cond17.preheader.i, label %for.inc.loopexit.i, !llvm.loop !12
+  br i1 %cmp16.i, label %while.cond17.preheader.i, label %for.inc.loopexit.i, !llvm.loop !11
 
 for.inc.loopexit.i:                               ; preds = %if.end42.i
   %.pre.i = load i64, ptr %field_count.i, align 8
@@ -908,7 +908,7 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
   %any_purged.3.i = phi i1 [ %any_purged.058.i, %for.body.i ], [ %any_purged.2.i, %for.inc.loopexit.i ]
   %inc47.i = add nuw i64 %i.056.i, 1
   %cmp11.i = icmp ult i64 %inc47.i, %28
-  br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !13
+  br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i
   br i1 %full_purge.4.i, label %mi_arena_try_purge.exit, label %if.then49.i
@@ -937,11 +937,11 @@ for.inc:                                          ; preds = %if.end7.i, %if.end.
   %max_purge_count.1 = phi i64 [ %dec, %if.end21 ], [ %max_purge_count.012, %mi_arena_try_purge.exit ], [ %max_purge_count.012, %for.body12 ], [ %max_purge_count.012, %if.then49.i ], [ %max_purge_count.012, %lor.lhs.false.i ], [ %max_purge_count.012, %if.then15 ], [ %max_purge_count.012, %if.end.i ], [ %max_purge_count.012, %if.end7.i ]
   %inc = add nuw i64 %i.011, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.inc24, label %for.body12, !llvm.loop !14
+  br i1 %exitcond.not, label %for.inc24, label %for.body12, !llvm.loop !13
 
 for.inc24:                                        ; preds = %for.inc, %if.then18
   store atomic i64 0, ptr @mi_arenas_try_purge.purge_guard release, align 8
-  br label %for.end26, !llvm.loop !15
+  br label %for.end26, !llvm.loop !14
 
 for.end26:                                        ; preds = %for.cond.preheader, %for.inc24, %if.end, %entry, %lor.lhs.false
   ret void
@@ -1023,7 +1023,7 @@ for.inc.i:                                        ; preds = %mi_arena_meta_free.
   %new_max_arena.2.i = phi i64 [ %new_max_arena.1.i, %mi_arena_meta_free.exit.i ], [ %new_max_arena.019.i, %for.body.i ]
   %inc.i = add nuw i64 %i.017.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
-  br i1 %exitcond.not.i, label %mi_arenas_unsafe_destroy.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %mi_arenas_unsafe_destroy.exit, label %for.body.i, !llvm.loop !15
 
 mi_arenas_unsafe_destroy.exit:                    ; preds = %for.inc.i, %entry
   %new_max_arena.0.lcssa.i = phi i64 [ 0, %entry ], [ %new_max_arena.2.i, %for.inc.i ]
@@ -1069,7 +1069,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %inc = add nuw i64 %i.09, 1
   %cmp = icmp ult i64 %inc, %0
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !16
 
 return:                                           ; preds = %land.lhs.true4, %for.inc, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp, %for.inc ], [ %cmp10, %land.lhs.true4 ]
@@ -1083,9 +1083,9 @@ entry:
   %frombool = zext i1 %is_committed to i8
   %frombool1 = zext i1 %is_large to i8
   %frombool2 = zext i1 %is_zero to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid, i8 0, i64 24, i1 false), !alias.scope !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %memid, i8 0, i64 24, i1 false), !alias.scope !17
   %memkind1.i = getelementptr inbounds i8, ptr %memid, i64 20
-  store i32 1, ptr %memkind1.i, align 4, !alias.scope !18
+  store i32 1, ptr %memkind1.i, align 4, !alias.scope !17
   %initially_committed = getelementptr inbounds i8, ptr %memid, i64 17
   store i8 %frombool, ptr %initially_committed, align 1
   %initially_zero = getelementptr inbounds i8, ptr %memid, i64 18
@@ -1237,7 +1237,7 @@ return:                                           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mi_reserve_os_memory_ex(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i1 noundef zeroext %exclusive, ptr noundef %arena_id) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i1 noundef zeroext %exclusive, ptr noundef %arena_id) local_unnamed_addr #2 {
 entry:
   %memid = alloca %struct.mi_memid_s, align 8
   %cmp.not = icmp eq ptr %arena_id, null
@@ -1290,9 +1290,9 @@ entry:
   %frombool.i = zext i1 %is_committed to i8
   %frombool1.i = zext i1 %is_large to i8
   %frombool2.i = zext i1 %is_zero to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid.i, i8 0, i64 24, i1 false), !alias.scope !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %memid.i, i8 0, i64 24, i1 false), !alias.scope !20
   %memkind1.i.i = getelementptr inbounds i8, ptr %memid.i, i64 20
-  store i32 1, ptr %memkind1.i.i, align 4, !alias.scope !21
+  store i32 1, ptr %memkind1.i.i, align 4, !alias.scope !20
   %initially_committed.i = getelementptr inbounds i8, ptr %memid.i, i64 17
   store i8 %frombool.i, ptr %initially_committed.i, align 1
   %initially_zero.i = getelementptr inbounds i8, ptr %memid.i, i64 18
@@ -1305,9 +1305,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mi_reserve_os_memory(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_os_memory(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large) local_unnamed_addr #2 {
 entry:
-  %call = tail call i32 @mi_reserve_os_memory_ex(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i1 noundef zeroext false, ptr noundef null) #12, !range !7
+  %call = tail call i32 @mi_reserve_os_memory_ex(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i1 noundef zeroext false, ptr noundef null) #12
   ret i32 %call
 }
 
@@ -1364,14 +1364,14 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.b
   store i8 %spec.select.i, ptr %arrayidx6.i, align 1
   %inc7.i = add nuw nsw i64 %bit.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, 64
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body3.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body3.i, !llvm.loop !23
 
 for.end.i:                                        ; preds = %for.body3.i
   store i8 0, ptr %arrayidx8.i, align 16
   call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, ptr noundef nonnull %buf.i) #11
   %inc10.i = add nuw i64 %i.04.i, 1
   %exitcond6.not.i = icmp eq i64 %inc10.i, %5
-  br i1 %exitcond6.not.i, label %mi_debug_show_bitmap.exit, label %for.body.i, !llvm.loop !25
+  br i1 %exitcond6.not.i, label %mi_debug_show_bitmap.exit, label %for.body.i, !llvm.loop !24
 
 mi_debug_show_bitmap.exit:                        ; preds = %for.end.i, %if.end
   %inuse_count.0.lcssa.i = phi i64 [ 0, %if.end ], [ %spec.select8.i, %for.end.i ]
@@ -1379,14 +1379,14 @@ mi_debug_show_bitmap.exit:                        ; preds = %for.end.i, %if.end
   call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.9, i64 noundef %inuse_count.0.lcssa.i) #11
   %inc = add nuw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %mi_debug_show_bitmap.exit, %for.body, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %timeout_msecs, i1 noundef zeroext %exclusive, ptr noundef %arena_id) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %timeout_msecs, i1 noundef zeroext %exclusive, ptr noundef %arena_id) local_unnamed_addr #2 {
 entry:
   %hsize = alloca i64, align 8
   %pages_reserved = alloca i64, align 8
@@ -1459,14 +1459,14 @@ declare ptr @_mi_os_alloc_huge_os_pages(i64 noundef, i32 noundef, i64 noundef, p
 declare void @_mi_warning_message(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mi_reserve_huge_os_pages_at(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %timeout_msecs) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %timeout_msecs) local_unnamed_addr #2 {
 entry:
-  %call = tail call i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %timeout_msecs, i1 noundef zeroext false, ptr noundef null) #12, !range !7
+  %call = tail call i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %timeout_msecs, i1 noundef zeroext false, ptr noundef null) #12
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mi_reserve_huge_os_pages_interleave(i64 noundef %pages, i64 noundef %numa_nodes, i64 noundef %timeout_msecs) local_unnamed_addr #2 {
+define i32 @mi_reserve_huge_os_pages_interleave(i64 noundef %pages, i64 noundef %numa_nodes, i64 noundef %timeout_msecs) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %pages, 0
   br i1 %cmp, label %return, label %if.end
@@ -1508,7 +1508,7 @@ for.body:                                         ; preds = %cond.end9, %if.end1
   %inc = zext i1 %cmp13 to i64
   %spec.select = add i64 %div, %inc
   %conv = trunc i64 %numa_node.021 to i32
-  %call.i19 = tail call noundef i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select, i32 noundef %conv, i64 noundef %cond10, i1 noundef zeroext false, ptr noundef null) #12, !range !7
+  %call.i19 = tail call i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select, i32 noundef %conv, i64 noundef %cond10, i1 noundef zeroext false, ptr noundef null) #12
   %tobool.not = icmp eq i32 %call.i19, 0
   br i1 %tobool.not, label %if.end18, label %return
 
@@ -1518,7 +1518,7 @@ if.end18:                                         ; preds = %for.body
   %cmp11 = icmp ugt i64 %cond, %inc23
   %cmp12 = icmp ugt i64 %pages.addr.020, %spec.select
   %1 = select i1 %cmp11, i1 %cmp12, i1 false
-  br i1 %1, label %for.body, label %return, !llvm.loop !27
+  br i1 %1, label %for.body, label %return, !llvm.loop !26
 
 return:                                           ; preds = %if.end18, %for.body, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end18 ], [ %call.i19, %for.body ]
@@ -1526,7 +1526,7 @@ return:                                           ; preds = %if.end18, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mi_reserve_huge_os_pages(i64 noundef %pages, double noundef %max_secs, ptr noundef writeonly %pages_reserved) local_unnamed_addr #2 {
+define i32 @mi_reserve_huge_os_pages(i64 noundef %pages, double noundef %max_secs, ptr noundef writeonly %pages_reserved) local_unnamed_addr #2 {
 entry:
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.12) #11
   %cmp.not = icmp eq ptr %pages_reserved, null
@@ -1575,7 +1575,7 @@ for.body.i:                                       ; preds = %if.end18.i, %cond.e
   %inc.i = zext i1 %cmp13.i to i64
   %spec.select.i = add i64 %div.i, %inc.i
   %conv.i = trunc i64 %numa_node.021.i to i32
-  %call.i19.i = tail call noundef i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select.i, i32 noundef %conv.i, i64 noundef %cond10.i, i1 noundef zeroext false, ptr noundef null) #12, !range !7
+  %call.i19.i = tail call i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select.i, i32 noundef %conv.i, i64 noundef %cond10.i, i1 noundef zeroext false, ptr noundef null) #12
   %tobool.not.i = icmp eq i32 %call.i19.i, 0
   br i1 %tobool.not.i, label %if.end18.i, label %if.end6
 
@@ -1585,7 +1585,7 @@ if.end18.i:                                       ; preds = %for.body.i
   %cmp11.i = icmp ugt i64 %cond.i, %inc23.i
   %cmp12.i = icmp ugt i64 %pages.addr.020.i, %spec.select.i
   %1 = select i1 %cmp11.i, i1 %cmp12.i, i1 false
-  br i1 %1, label %for.body.i, label %mi_reserve_huge_os_pages_interleave.exit, !llvm.loop !27
+  br i1 %1, label %for.body.i, label %mi_reserve_huge_os_pages_interleave.exit, !llvm.loop !26
 
 mi_reserve_huge_os_pages_interleave.exit:         ; preds = %if.end18.i, %if.end
   br i1 %cmp.not, label %if.end6, label %if.then5
@@ -1723,7 +1723,7 @@ attributes #13 = { nounwind willreturn memory(none) "no-builtin-malloc" }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 13}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -1733,14 +1733,13 @@ attributes #13 = { nounwind willreturn memory(none) "no-builtin-malloc" }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_mi_memid_create: %agg.result"}
-!20 = distinct !{!20, !"_mi_memid_create"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_mi_memid_create: %agg.result"}
-!23 = distinct !{!23, !"_mi_memid_create"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_mi_memid_create: %agg.result"}
+!19 = distinct !{!19, !"_mi_memid_create"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_mi_memid_create: %agg.result"}
+!22 = distinct !{!22, !"_mi_memid_create"}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}

@@ -352,7 +352,7 @@ define i64 @Cnf_CutDeriveTruth(ptr nocapture noundef readnone %0, ptr nocapture 
   %11 = getelementptr inbounds ptr, ptr %.val31, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds [6 x i64], ptr @Cnf_CutDeriveTruth.Truth6, i64 0, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
@@ -370,7 +370,7 @@ define i64 @Cnf_CutDeriveTruth(ptr nocapture noundef readnone %0, ptr nocapture 
   %20 = getelementptr inbounds ptr, ptr %.val30, i64 %indvars.iv42
   %21 = load ptr, ptr %20, align 8
   %.val27 = load i32, ptr %4, align 4
-  %22 = trunc i64 %indvars.iv42 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv42 to i32
   %23 = add nsw i32 %.val27, %22
   %24 = getelementptr inbounds i8, ptr %21, i64 40
   store i32 %23, ptr %24, align 8
@@ -522,7 +522,7 @@ Cnf_CollectVolume.exit:                           ; preds = %21, %Cnf_ObjGetLit.
   br i1 %exitcond.not, label %.critedge.thread, label %30, !llvm.loop !9
 
 .critedge.loopexit:                               ; preds = %46, %36
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Cnf_CollectVolume.exit
@@ -1038,7 +1038,7 @@ Vec_IntPush.exit176:                              ; preds = %.Vec_IntGrow.exit10
   %278 = getelementptr inbounds ptr, ptr %.val31.i, i64 %indvars.iv.i181
   %279 = load ptr, ptr %278, align 8
   %280 = getelementptr inbounds i8, ptr %279, i64 40
-  %281 = trunc i64 %indvars.iv.i181 to i32
+  %281 = trunc nuw nsw i64 %indvars.iv.i181 to i32
   store i32 %281, ptr %280, align 8
   %282 = getelementptr inbounds [6 x i64], ptr @Cnf_CutDeriveTruth.Truth6, i64 0, i64 %indvars.iv.i181
   %283 = load i64, ptr %282, align 8
@@ -1056,7 +1056,7 @@ Vec_IntPush.exit176:                              ; preds = %.Vec_IntGrow.exit10
   %287 = getelementptr inbounds ptr, ptr %.val30.i, i64 %indvars.iv42.i
   %288 = load ptr, ptr %287, align 8
   %.val27.i = load i32, ptr %17, align 4
-  %289 = trunc i64 %indvars.iv42.i to i32
+  %289 = trunc nuw nsw i64 %indvars.iv42.i to i32
   %290 = add nsw i32 %.val27.i, %289
   %291 = getelementptr inbounds i8, ptr %288, i64 40
   store i32 %290, ptr %291, align 8
@@ -2601,7 +2601,7 @@ define i32 @Cnf_CutCountClauses(ptr nocapture readnone %0, ptr nocapture noundef
   %46 = getelementptr inbounds ptr, ptr %.val31.i, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 40
-  %49 = trunc i64 %indvars.iv.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %49, ptr %48, align 8
   %50 = getelementptr inbounds [6 x i64], ptr @Cnf_CutDeriveTruth.Truth6, i64 0, i64 %indvars.iv.i
   %51 = load i64, ptr %50, align 8
@@ -2619,7 +2619,7 @@ define i32 @Cnf_CutCountClauses(ptr nocapture readnone %0, ptr nocapture noundef
   %55 = getelementptr inbounds ptr, ptr %.val30.i, i64 %indvars.iv42.i
   %56 = load ptr, ptr %55, align 8
   %.val27.i = load i32, ptr %6, align 4
-  %57 = trunc i64 %indvars.iv42.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv42.i to i32
   %58 = add nsw i32 %.val27.i, %57
   %59 = getelementptr inbounds i8, ptr %56, i64 40
   store i32 %58, ptr %59, align 8

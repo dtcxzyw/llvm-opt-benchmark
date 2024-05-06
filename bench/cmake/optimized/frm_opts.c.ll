@@ -22,7 +22,7 @@ define dso_local noundef i32 @set_form_opts(ptr noundef writeonly %0, i32 nounde
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @form_opts(ptr noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 4) i32 @form_opts(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0

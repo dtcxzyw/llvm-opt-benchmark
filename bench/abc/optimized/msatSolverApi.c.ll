@@ -116,7 +116,7 @@ define ptr @Msat_SolverReadSeenArray(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @Msat_SolverIncrementSeenId(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 -2147483647, -2147483648) i32 @Msat_SolverIncrementSeenId(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1

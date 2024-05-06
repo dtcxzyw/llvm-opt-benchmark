@@ -991,7 +991,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_raknet_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_raknet_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16) #3
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %test_raknet_heur.exit.thread, label %7

@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @k12_eof = internal constant [2 x i8] c"\FF\FF", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @k12_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @k12_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [512 x i8], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 512, ptr noundef %1, ptr noundef %2) #11
@@ -498,7 +498,7 @@ memiszero.exit:                                   ; preds = %43
   %282 = getelementptr i8, ptr %279, i64 %indvars.iv
   %283 = load i8, ptr %282, align 1
   %284 = icmp eq i8 %283, -1
-  %285 = trunc i64 %indvars.iv to i32
+  %285 = trunc nuw nsw i64 %indvars.iv to i32
   %286 = lshr exact i32 -2147483648, %285
   %287 = select i1 %284, i32 %286, i32 0
   %288 = or i32 %287, %281
@@ -687,7 +687,7 @@ define internal fastcc i32 @get_record(ptr nocapture noundef %0, ptr noundef %1,
   %12 = load i32, ptr %.in90, align 8
   %13 = add i64 %2, -512
   %14 = srem i64 %13, 8192
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nsw i64 %14 to i32
   %16 = icmp eq ptr %9, null
   br i1 %16, label %.sink.split, label %18
 
@@ -845,7 +845,7 @@ declare ptr @ascii_strdown_inplace(ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @k12_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
@@ -974,7 +974,7 @@ define internal noundef i32 @k12_read(ptr nocapture noundef readonly %0, ptr noc
   br i1 %85, label %._crit_edge, label %16, !llvm.loop !9
 
 86:                                               ; preds = %83, %80
-  %87 = tail call fastcc i32 @process_packet_data(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %30, i32 noundef %18, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4), !range !10
+  %87 = tail call fastcc i32 @process_packet_data(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %30, i32 noundef %18, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %86, %25, %22, %._crit_edge
@@ -983,7 +983,7 @@ define internal noundef i32 @k12_read(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @k12_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @k12_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1009,7 +1009,7 @@ define internal noundef i32 @k12_seek_read(ptr nocapture noundef readonly %0, i6
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %8, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call fastcc i32 @process_packet_data(ptr noundef %2, ptr noundef %3, ptr noundef %22, i32 noundef %15, ptr noundef %8, ptr noundef %4, ptr noundef %5), !range !10
+  %23 = tail call fastcc i32 @process_packet_data(ptr noundef %2, ptr noundef %3, ptr noundef %22, i32 noundef %15, ptr noundef %8, ptr noundef %4, ptr noundef %5)
   br label %24
 
 24:                                               ; preds = %13, %6, %20, %19
@@ -1101,7 +1101,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_packet_data(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr i8, ptr %2, i64 4
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
@@ -1201,7 +1201,7 @@ define internal fastcc noundef i32 @process_packet_data(ptr nocapture noundef wr
   %88 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %87, ptr %88, align 8
   %89 = urem i64 %85, 2000000
-  %90 = trunc i64 %89 to i32
+  %90 = trunc nuw nsw i64 %89 to i32
   %91 = mul nuw nsw i32 %90, 500
   %92 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %91, ptr %92, align 8
@@ -1360,7 +1360,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @k12_dump_can_write_encap(i32 noundef %0) #8 {
+define internal noundef range(i32 -9, 1) i32 @k12_dump_can_write_encap(i32 noundef %0) #8 {
   %switch.selectcmp = icmp eq i32 %0, 80
   %switch.select = select i1 %switch.selectcmp, i32 0, i32 -8
   %switch.selectcmp4 = icmp eq i32 %0, -1
@@ -1369,7 +1369,7 @@ define internal noundef i32 @k12_dump_can_write_encap(i32 noundef %0) #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @k12_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @k12_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = tail call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @k12_file_magic, i64 noundef 8, ptr noundef %1) #11
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %5
@@ -1406,7 +1406,7 @@ declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @k12_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @k12_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %union.anon.3, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = getelementptr inbounds i8, ptr %1, i64 80
@@ -1481,7 +1481,7 @@ define internal noundef i32 @k12_dump(ptr noundef %0, ptr nocapture noundef read
   %53 = getelementptr inbounds i8, ptr %6, i64 32
   %54 = zext i32 %29 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 1 %2, i64 %54, i1 false)
-  %55 = call fastcc i32 @k12_dump_record(ptr noundef nonnull %0, i32 noundef %34, ptr noundef nonnull %6, ptr noundef %3), !range !10
+  %55 = call fastcc i32 @k12_dump_record(ptr noundef nonnull %0, i32 noundef %34, ptr noundef nonnull %6, ptr noundef %3)
   br label %56
 
 56:                                               ; preds = %28, %18, %12
@@ -1490,7 +1490,7 @@ define internal noundef i32 @k12_dump(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @k12_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @k12_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %union.anon.11, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1648,7 +1648,7 @@ define internal void @k12_dump_src_setting(ptr nocapture readnone %0, ptr nocapt
   store i8 %48, ptr %49, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit, label %45, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %45, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %3, %32
   %.sink46.sroa.phi = phi ptr [ %.sink46.sroa.gep, %32 ], [ %.sink46.sroa.gep47, %3 ]
@@ -1686,12 +1686,12 @@ define internal void @k12_dump_src_setting(ptr nocapture readnone %0, ptr nocapt
   store i16 %rev41, ptr %23, align 4
   %rev42 = tail call i16 @llvm.bswap.i16(i16 %61)
   store i16 %rev42, ptr %29, align 2
-  %69 = call fastcc i32 @k12_dump_record(ptr noundef %2, i32 noundef %67, ptr noundef nonnull %5, ptr noundef nonnull %4), !range !10
+  %69 = call fastcc i32 @k12_dump_record(ptr noundef %2, i32 noundef %67, ptr noundef nonnull %5, ptr noundef nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @k12_dump_record(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1792,5 +1792,4 @@ attributes #15 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
-!11 = distinct !{!11, !5}
+!10 = distinct !{!10, !5}

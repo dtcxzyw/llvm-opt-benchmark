@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.21 = private unnamed_addr constant [5 x i8] c"%20s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #3
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #3
@@ -44,7 +44,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #3
-  %call.i = tail call noundef i32 @X509_REQ_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !4
+  %call.i = tail call i32 @X509_REQ_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef 0, i64 noundef 0)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #3
   br label %return
 
@@ -66,16 +66,16 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @X509_REQ_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !4
+  %call = tail call i32 @X509_REQ_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef 0, i64 noundef 0)
   ret i32 %call
 }
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_REQ_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %koid = alloca ptr, align 8
   %sig_alg = alloca ptr, align 8
@@ -272,7 +272,7 @@ for.body140:                                      ; preds = %for.body140.prehead
 for.inc:                                          ; preds = %for.body140
   %dec = add nsw i32 %j.279, -1
   %cmp138 = icmp sgt i32 %j.279, 1
-  br i1 %cmp138, label %for.body140, label %for.end, !llvm.loop !5
+  br i1 %cmp138, label %for.body140, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end136
   %ii.1101 = phi i32 [ %ii.0, %if.end136 ], [ %ii.1102, %for.inc ]
@@ -321,7 +321,7 @@ for.inc171:                                       ; preds = %sw.epilog, %for.bod
   %inc172 = add nuw nsw i32 %i.082, 1
   %call110 = call i32 @X509_REQ_get_attr_count(ptr noundef %x) #3
   %cmp111 = icmp slt i32 %inc172, %call110
-  br i1 %cmp111, label %for.body, label %if.end175, !llvm.loop !7
+  br i1 %cmp111, label %for.body, label %if.end175, !llvm.loop !6
 
 if.end175:                                        ; preds = %for.inc171, %for.cond.preheader, %if.then103, %if.end91
   %and176 = and i64 %cflag, 256
@@ -347,7 +347,7 @@ for.cond187:                                      ; preds = %if.end225
   %inc232 = add nuw nsw i32 %i.185, 1
   %call189 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call179) #3
   %cmp190 = icmp slt i32 %inc232, %call189
-  br i1 %cmp190, label %for.body192, label %for.end233, !llvm.loop !8
+  br i1 %cmp190, label %for.body192, label %for.end233, !llvm.loop !7
 
 for.body192:                                      ; preds = %for.cond187.preheader, %for.cond187
   %i.185 = phi i32 [ %inc232, %for.cond187 ], [ 0, %for.cond187.preheader ]
@@ -497,8 +497,7 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

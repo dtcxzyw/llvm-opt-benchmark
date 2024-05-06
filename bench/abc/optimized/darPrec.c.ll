@@ -25,7 +25,7 @@ define noundef ptr @Dar_ArrayAlloc(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = mul i32 %5, %14
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
@@ -50,7 +50,7 @@ define i32 @Dar_Factorial(i32 noundef %0) local_unnamed_addr #2 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi i32 [ %2, %.lr.ph ], [ 1, %1 ]
   %.068 = phi i32 [ %3, %.lr.ph ], [ 1, %1 ]
-  %2 = mul nsw i32 %.09, %.068
+  %2 = mul nuw nsw i32 %.09, %.068
   %3 = add nuw i32 %.068, 1
   %exitcond.not = icmp eq i32 %.068, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -158,7 +158,7 @@ define noundef ptr @Dar_Permutations(i32 noundef %0) local_unnamed_addr #4 {
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.09.i = phi i32 [ %3, %.lr.ph.i ], [ 1, %1 ]
   %.068.i = phi i32 [ %4, %.lr.ph.i ], [ 1, %1 ]
-  %3 = mul nsw i32 %.068.i, %.09.i
+  %3 = mul nuw nsw i32 %.068.i, %.09.i
   %4 = add nuw i32 %.068.i, 1
   %exitcond.not.i = icmp eq i32 %.068.i, %0
   br i1 %exitcond.not.i, label %Dar_Factorial.exit, label %.lr.ph.i, !llvm.loop !6
@@ -182,7 +182,7 @@ Dar_Factorial.exit:                               ; preds = %.lr.ph.i, %1
 
 13:                                               ; preds = %13, %.lr.ph.i12
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i12 ], [ %indvars.iv.next.i, %13 ]
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   %15 = mul i32 %14, %0
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
@@ -238,7 +238,7 @@ define void @Dar_TruthPermute_int(ptr nocapture noundef readonly %0, i32 noundef
 12:                                               ; preds = %.preheader.us, %24
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %24 ]
   %13 = load i32, ptr %10, align 4
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = shl nuw i32 1, %14
   %16 = and i32 %13, %15
   %.not.us = icmp eq i32 %16, 0
@@ -289,7 +289,7 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr nocapture noundef readonly %1, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -314,7 +314,7 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr nocapture noundef readonly %1, 
 
 16:                                               ; preds = %27, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %27 ]
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   %18 = shl nuw i32 1, %17
   %19 = and i32 %18, %15
   %.not.us.i = icmp eq i32 %19, 0
@@ -368,7 +368,7 @@ Dar_TruthPermute_int.exit:                        ; preds = %._crit_edge.us.i, %
   %30 = shl nuw i32 1, %29
   %31 = and i32 %30, %0
   %.not44 = icmp eq i32 %31, 0
-  %32 = trunc i64 %indvars.iv60 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv60 to i32
   %33 = shl nuw i32 1, %32
   %34 = select i1 %.not44, i32 0, i32 %33
   %.137 = or i32 %34, %.03648
@@ -379,7 +379,7 @@ Dar_TruthPermute_int.exit:                        ; preds = %._crit_edge.us.i, %
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %43
   %indvars.iv66 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next67, %43 ]
   %.251 = phi i32 [ 0, %.lr.ph53.preheader ], [ %.3, %43 ]
-  %35 = trunc i64 %indvars.iv66 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv66 to i32
   %36 = shl nuw i32 1, %35
   %37 = and i32 %36, %0
   %.not41 = icmp eq i32 %37, 0
@@ -434,7 +434,7 @@ define i32 @Dar_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.01920 = phi i32 [ %0, %.lr.ph.preheader ], [ %.1, %17 ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = shl nuw i32 1, %5
   %7 = and i32 %6, %1
   %.not = icmp eq i32 %7, 0
@@ -478,7 +478,7 @@ define void @Dar_Truth4VarNPN(ptr noundef writeonly %0, ptr noundef writeonly %1
 
 11:                                               ; preds = %11, %.lr.ph.i12.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i12.i ], [ %indvars.iv.next.i.i, %11 ]
-  %12 = trunc i64 %indvars.iv.i.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %13 = shl i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %10, i64 %14
@@ -525,7 +525,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
 30:                                               ; preds = %19
   %31 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv198
   store i8 %.0118191, ptr %31, align 1
-  %32 = trunc i64 %indvars.iv198 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv198 to i32
   %33 = trunc i64 %indvars.iv198 to i16
   %34 = xor i32 %32, 65535
   br label %.lr.ph.i141.preheader
@@ -538,7 +538,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
 .lr.ph.i141:                                      ; preds = %.lr.ph.i141.preheader, %48
   %indvars.iv.i142 = phi i64 [ %indvars.iv.next.i143, %48 ], [ 0, %.lr.ph.i141.preheader ]
   %.01920.i = phi i32 [ %.1.i, %48 ], [ %32, %.lr.ph.i141.preheader ]
-  %36 = trunc i64 %indvars.iv.i142 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.i142 to i32
   %37 = shl nuw i32 1, %36
   %38 = and i32 %37, %.0117189
   %.not.i = icmp eq i32 %38, 0
@@ -562,7 +562,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   br i1 %exitcond.not.i144, label %Dar_TruthPolarize.exit.preheader, label %.lr.ph.i141, !llvm.loop !15
 
 Dar_TruthPolarize.exit.preheader:                 ; preds = %48
-  %49 = trunc i32 %.0117189 to i8
+  %49 = trunc nuw i32 %.0117189 to i8
   %50 = or disjoint i8 %49, 16
   br label %51
 
@@ -578,7 +578,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 .lr.ph.i145:                                      ; preds = %.lr.ph.i145, %51
   %indvars.iv.i146 = phi i64 [ 0, %51 ], [ %indvars.iv.next.i147, %.lr.ph.i145 ]
   %57 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv.i146
-  %58 = trunc i64 %indvars.iv.i146 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv.i146 to i32
   store i32 %58, ptr %57, align 4
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1
   %exitcond.not.i148 = icmp eq i64 %indvars.iv.next.i147, 16
@@ -597,7 +597,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 
 62:                                               ; preds = %73, %.preheader.us.i.i
   %indvars.iv.i.i149 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i150, %73 ]
-  %63 = trunc i64 %indvars.iv.i.i149 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv.i.i149 to i32
   %64 = shl nuw i32 1, %63
   %65 = and i32 %64, %61
   %.not.us.i.i = icmp eq i32 %65, 0
@@ -626,7 +626,7 @@ Dar_TruthPolarize.exit.preheader:                 ; preds = %48
 .lr.ph53.i:                                       ; preds = %._crit_edge.us.i.i, %82
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %82 ], [ 0, %._crit_edge.us.i.i ]
   %.251.i = phi i32 [ %.3.i, %82 ], [ 0, %._crit_edge.us.i.i ]
-  %74 = trunc i64 %indvars.iv66.i to i32
+  %74 = trunc nuw nsw i64 %indvars.iv66.i to i32
   %75 = shl nuw i32 1, %74
   %76 = and i32 %75, %.1.i
   %.not41.i = icmp eq i32 %76, 0
@@ -700,7 +700,7 @@ Dar_TruthPolarize.exit:                           ; preds = %90, %Dar_TruthPermu
 .lr.ph.i152:                                      ; preds = %Dar_TruthPolarize.exit, %116
   %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i157, %116 ], [ 0, %Dar_TruthPolarize.exit ]
   %.01920.i154 = phi i32 [ %.1.i156, %116 ], [ %34, %Dar_TruthPolarize.exit ]
-  %104 = trunc i64 %indvars.iv.i153 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv.i153 to i32
   %105 = shl nuw i32 1, %104
   %106 = and i32 %105, %.0117189
   %.not.i155 = icmp eq i32 %106, 0
@@ -735,7 +735,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %116, %Dar_TruthPola
 .lr.ph.i161:                                      ; preds = %.lr.ph.i161, %Dar_TruthPolarize.exit160.preheader
   %indvars.iv.i162 = phi i64 [ 0, %Dar_TruthPolarize.exit160.preheader ], [ %indvars.iv.next.i163, %.lr.ph.i161 ]
   %122 = getelementptr inbounds i32, ptr %120, i64 %indvars.iv.i162
-  %123 = trunc i64 %indvars.iv.i162 to i32
+  %123 = trunc nuw nsw i64 %indvars.iv.i162 to i32
   store i32 %123, ptr %122, align 4
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i162, 1
   %exitcond.not.i164 = icmp eq i64 %indvars.iv.next.i163, 16
@@ -754,7 +754,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %116, %Dar_TruthPola
 
 127:                                              ; preds = %138, %.preheader.us.i.i166
   %indvars.iv.i.i168 = phi i64 [ 0, %.preheader.us.i.i166 ], [ %indvars.iv.next.i.i170, %138 ]
-  %128 = trunc i64 %indvars.iv.i.i168 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv.i.i168 to i32
   %129 = shl nuw i32 1, %128
   %130 = and i32 %129, %126
   %.not.us.i.i169 = icmp eq i32 %130, 0
@@ -783,7 +783,7 @@ Dar_TruthPolarize.exit160.preheader:              ; preds = %116, %Dar_TruthPola
 .lr.ph53.i176:                                    ; preds = %._crit_edge.us.i.i172, %147
   %indvars.iv66.i177 = phi i64 [ %indvars.iv.next67.i181, %147 ], [ 0, %._crit_edge.us.i.i172 ]
   %.251.i178 = phi i32 [ %.3.i180, %147 ], [ 0, %._crit_edge.us.i.i172 ]
-  %139 = trunc i64 %indvars.iv66.i177 to i32
+  %139 = trunc nuw nsw i64 %indvars.iv66.i177 to i32
   %140 = shl nuw i32 1, %139
   %141 = and i32 %140, %.1.i156
   %.not41.i179 = icmp eq i32 %141, 0

@@ -8049,7 +8049,7 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Para
           to label %56 unwind label %110, !noalias !33
 
 56:                                               ; preds = %55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !33
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !33
   %57 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
           to label %.noexc3.i.i33 unwind label %.body.i32, !noalias !33
 
@@ -13953,7 +13953,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEED2
   br label %284
 
 282:                                              ; preds = %63
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !alias.scope !52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !alias.scope !52
   br label %284
 
 283:                                              ; preds = %280, %205, %97, %95

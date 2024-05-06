@@ -12,7 +12,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %5 = bitcast double %0 to i64
   %.073 = tail call double @llvm.fabs.f64(double %0)
   %.lobit = lshr i64 %5, 63
-  %.067 = trunc i64 %.lobit to i8
+  %.067 = trunc nuw nsw i64 %.lobit to i8
   %6 = fcmp oeq double %0, 0.000000e+00
   br i1 %6, label %7, label %12
 
@@ -55,7 +55,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %22 = load double, ptr %21, align 8
   %23 = fmul double %.17497, %22
   %24 = fcmp olt double %23, 1.000000e+16
-  %25 = trunc i64 %indvars.iv108 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv108 to i32
   %.neg = shl nsw i32 -1, %25
   %.275 = select i1 %24, double %23, double %.17497
   %26 = select i1 %24, i32 %.neg, i32 0
@@ -72,7 +72,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %28 = load double, ptr %27, align 8
   %29 = fmul double %.37694, %28
   %30 = fcmp ult double %29, 1.000000e+15
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = shl nuw i32 1, %31
   %.477 = select i1 %30, double %.37694, double %29
   %33 = select i1 %30, i32 0, i32 %32

@@ -193,7 +193,7 @@ declare void @migrate_fd_connect(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @migration_channel_read_peek(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @migration_channel_read_peek(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %w.i = alloca %struct.QemuCoSleep, align 8
   %iov = alloca %struct.iovec, align 8

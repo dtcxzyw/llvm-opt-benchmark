@@ -42,7 +42,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %17, align 8
   %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4
   %25 = load ptr, ptr %18, align 8
   %26 = load ptr, ptr %19, align 8
@@ -117,8 +117,8 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %65, label %.split.loop.exit, label %.preheader95, !llvm.loop !6
 
 .split.loop.exit:                                 ; preds = %62
-  %66 = trunc i64 %indvars.iv116 to i32
-  %67 = trunc i64 %indvars.iv.next117 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %67 = trunc nuw nsw i64 %indvars.iv.next117 to i32
   br label %.split.loop.exit128
 
 .split.loop.exit128:                              ; preds = %.preheader95, %.split.loop.exit
@@ -294,7 +294,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 .preheader42:                                     ; preds = %.preheader42.preheader, %.preheader42
   %indvars.iv = phi i64 [ 0, %.preheader42.preheader ], [ %indvars.iv.next, %.preheader42 ]
   %11 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -319,7 +319,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [1000 x i32], ptr %7, i64 0, i64 %23
-  %25 = trunc i64 %indvars.iv48 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv48 to i32
   store i32 %25, ptr %24, align 4
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count

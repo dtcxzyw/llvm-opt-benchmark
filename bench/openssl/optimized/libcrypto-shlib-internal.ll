@@ -109,7 +109,7 @@ declare void @ossl_crypto_condvar_wait(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @ossl_crypto_thread_native_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_crypto_thread_join(ptr noundef %vhandle, ptr noundef %retval1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_thread_join(ptr noundef %vhandle, ptr noundef %retval1) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %vhandle, null
   br i1 %cmp, label %return, label %if.end

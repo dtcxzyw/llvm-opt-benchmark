@@ -126,26 +126,26 @@ $_ZTIN9grpc_core9Timestamp12ScopedSourceE = comdat any
 @.str.2 = private unnamed_addr constant [10 x i8] c"<unknown>\00", align 1
 @.str.4 = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/party.cc\00", align 1
 @.str.5 = private unnamed_addr constant [18 x i8] c"party_ != nullptr\00", align 1
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.6 = private unnamed_addr constant [7 x i8] c"unused\00", align 1
 @.str.7 = private unnamed_addr constant [116 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/party.h\00", align 1
 @_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @.str.8 = private unnamed_addr constant [21 x i8] c"prev_state & kLocked\00", align 1
 @.str.11 = private unnamed_addr constant [11 x i8] c"n == count\00", align 1
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic.7", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTSN9grpc_core7ExecCtxE = linkonce_odr constant [21 x i8] c"N9grpc_core7ExecCtxE\00", comdat, align 1
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.1, ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_party.cc, ptr null }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E], section "llvm.metadata"
 
@@ -804,7 +804,7 @@ for.body.us.i:                                    ; preds = %for.inc.us.i, %do.b
   %n.052.us.i = phi i64 [ 0, %do.body.us.i ], [ %n.1.us.i, %for.inc.us.i ]
   %wakeup_mask.051.us.i = phi i16 [ 0, %do.body.us.i ], [ %wakeup_mask.1.us.i, %for.inc.us.i ]
   %allocated.050.us.i = phi i64 [ %shr.us.i, %do.body.us.i ], [ %allocated.1.us.i, %for.inc.us.i ]
-  %sh_prom.us.i = trunc i64 %bit.053.us.i to i32
+  %sh_prom.us.i = trunc nuw nsw i64 %bit.053.us.i to i32
   %shl.us.i = shl nuw nsw i32 1, %sh_prom.us.i
   %conv.us.i = zext nneg i32 %shl.us.i to i64
   %and3.us.i = and i64 %allocated.050.us.i, %conv.us.i
@@ -812,7 +812,7 @@ for.body.us.i:                                    ; preds = %for.inc.us.i, %do.b
   br i1 %tobool.not.us.i, label %if.end.us.i, label %for.inc.us.i
 
 if.end.us.i:                                      ; preds = %for.body.us.i
-  %4 = trunc i32 %shl.us.i to i16
+  %4 = trunc nuw i32 %shl.us.i to i16
   %conv7.us.i = or i16 %wakeup_mask.051.us.i, %4
   %inc.us.i = add nuw i64 %n.052.us.i, 1
   %arrayidx.us.i = getelementptr inbounds [16 x i64], ptr %slots.i, i64 0, i64 %n.052.us.i

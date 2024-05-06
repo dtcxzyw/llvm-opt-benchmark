@@ -6,14 +6,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ge25519_p3 = type { [5 x i64], [5 x i64], [5 x i64], [5 x i64] }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef %q, ptr noundef %n, ptr noundef %p, i32 noundef %clamp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_crypto_scalarmult_ed25519(ptr noundef %q, ptr noundef %n, ptr noundef %p, i32 noundef %clamp) unnamed_addr #0 {
 entry:
   %Q = alloca %struct.ge25519_p3, align 8
   %P = alloca %struct.ge25519_p3, align 8
@@ -44,7 +44,7 @@ for.body:                                         ; preds = %lor.lhs.false6, %fo
   store i8 %0, ptr %arrayidx11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
   %cmp12.not = icmp eq i32 %clamp, 0
@@ -83,7 +83,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %or8.i = or i8 %9, %c.09.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 31
-  br i1 %exitcond.not.i, label %_crypto_scalarmult_ed25519_is_inf.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %_crypto_scalarmult_ed25519_is_inf.exit, label %for.body.i, !llvm.loop !6
 
 _crypto_scalarmult_ed25519_is_inf.exit:           ; preds = %for.body.i
   %10 = load i8, ptr %arrayidx15, align 1
@@ -107,14 +107,14 @@ return:                                           ; preds = %lor.lhs.false20, %_
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_scalarmult_ed25519_noclamp(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_noclamp(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_scalarmult_ed25519_base(ptr noundef nonnull %q, ptr noundef nonnull %n) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_base(ptr noundef nonnull %q, ptr noundef nonnull %n) local_unnamed_addr #0 {
 entry:
   %Q.i = alloca %struct.ge25519_p3, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %Q.i)
@@ -128,7 +128,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i8 %0, ptr %arrayidx2.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i
   %1 = load i8, ptr %q, align 1
@@ -153,7 +153,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %or8.i.i = or i8 %8, %c.09.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
-  br i1 %exitcond.not.i.i, label %_crypto_scalarmult_ed25519_is_inf.exit.i, label %for.body.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %_crypto_scalarmult_ed25519_is_inf.exit.i, label %for.body.i.i, !llvm.loop !6
 
 _crypto_scalarmult_ed25519_is_inf.exit.i:         ; preds = %for.body.i.i
   %9 = load i8, ptr %arrayidx2.i.i, align 1
@@ -178,7 +178,7 @@ _crypto_scalarmult_ed25519_base.exit:             ; preds = %_crypto_scalarmult_
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_scalarmult_ed25519_base_noclamp(ptr noundef nonnull %q, ptr noundef nonnull %n) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_base_noclamp(ptr noundef nonnull %q, ptr noundef nonnull %n) local_unnamed_addr #0 {
 entry:
   %Q.i = alloca %struct.ge25519_p3, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %Q.i)
@@ -192,7 +192,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i8 %0, ptr %arrayidx2.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i
   %arrayidx4.phi.trans.insert.i = getelementptr i8, ptr %q, i64 31
@@ -213,7 +213,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %or8.i.i = or i8 %4, %c.09.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
-  br i1 %exitcond.not.i.i, label %_crypto_scalarmult_ed25519_is_inf.exit.i, label %for.body.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %_crypto_scalarmult_ed25519_is_inf.exit.i, label %for.body.i.i, !llvm.loop !6
 
 _crypto_scalarmult_ed25519_is_inf.exit.i:         ; preds = %for.body.i.i
   %5 = load i8, ptr %arrayidx4.phi.trans.insert.i, align 1
@@ -283,8 +283,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

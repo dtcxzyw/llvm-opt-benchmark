@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [6 x i8] c"FALSE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @read_uint8_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1483400188077313, 256) i64 @read_uint8_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
@@ -37,7 +37,7 @@ define i64 @read_uint8_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @read_uint16_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1483400188077313, 65536) i64 @read_uint16_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
@@ -62,7 +62,7 @@ define i64 @read_uint16_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @read_uint32_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1483400188077313, 4294967296) i64 @read_uint32_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 4
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
@@ -87,7 +87,7 @@ define i64 @read_uint32_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @read_int8_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1483400188077313, 128) i64 @read_int8_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
@@ -112,7 +112,7 @@ define i64 @read_int8_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @read_int16_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1483400188077313, 32768) i64 @read_int16_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
@@ -137,7 +137,7 @@ define i64 @read_int16_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @read_int32_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1483400188077313, 2147483648) i64 @read_int32_t(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 4
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8

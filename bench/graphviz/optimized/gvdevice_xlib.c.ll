@@ -213,7 +213,7 @@ define internal void @xlib_finalize(ptr noundef %0) #0 {
   br label %agxbput.exit
 
 35:                                               ; preds = %30
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #23
+  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %25) #23
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %agxbput.exit, label %agxblen.exit.i.i
 
@@ -233,7 +233,7 @@ agxblen.exit.i.i:                                 ; preds = %35
   %.val.i25.i.i167 = phi i8 [ %.val.i25.pre.i.i, %41 ], [ 0, %agxblen.exit.i.i ]
   %42 = zext i8 %.val.i25.i.i167 to i64
   %43 = getelementptr inbounds [31 x i8], ptr %9, i64 0, i64 %42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %25, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %25, i64 %36, i1 false)
   %44 = trunc i64 %36 to i8
   %45 = load i8, ptr %38, align 1
   %46 = add i8 %45, %44
@@ -244,7 +244,7 @@ agxblen.exit.i.i:                                 ; preds = %35
   %48 = load i64, ptr %39, align 8
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %25, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull readonly align 1 %25, i64 %36, i1 false)
   %51 = add i64 %48, %36
   store i64 %51, ptr %39, align 8
   br label %agxbput.exit
@@ -763,7 +763,7 @@ handle_file_events.exit:                          ; preds = %._crit_edge.i
 
 315:                                              ; preds = %312, %257
   %.185 = phi i32 [ %.084, %312 ], [ 0, %257 ]
-  %316 = trunc i8 %.183 to i1
+  %316 = trunc nuw i8 %.183 to i1
   br i1 %316, label %317, label %338
 
 317:                                              ; preds = %315
@@ -802,7 +802,7 @@ handle_stdin_events.exit:                         ; preds = %320
 333:                                              ; preds = %331, %317
   %.286 = phi i32 [ %332, %331 ], [ %.185, %317 ]
   %.3 = phi i8 [ %.2, %331 ], [ %.183, %317 ]
-  %334 = trunc i8 %.3 to i1
+  %334 = trunc nuw i8 %.3 to i1
   br i1 %334, label %335, label %338
 
 335:                                              ; preds = %333
@@ -1222,7 +1222,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #19
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #19
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -1282,7 +1282,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #19
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #19
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 

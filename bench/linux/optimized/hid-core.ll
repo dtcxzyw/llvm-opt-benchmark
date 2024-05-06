@@ -411,7 +411,7 @@ define internal fastcc void @usbhid_submit_report(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @usbhid_wait_io(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -1, 1) i32 @usbhid_wait_io(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 7456
   %4 = load ptr, ptr %3, align 8
@@ -784,7 +784,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @hid_submit_ctrl(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @hid_submit_ctrl(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7456
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
@@ -1700,7 +1700,7 @@ define internal void @usbhid_stop(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @usbhid_open(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -16, 1) i32 @usbhid_open(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7456
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 10376
@@ -3251,7 +3251,7 @@ define internal noundef i32 @hid_resume(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hid_reset_resume(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @hid_reset_resume(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @hid_post_reset(ptr noundef %0), !range !18
@@ -3294,7 +3294,7 @@ define internal noundef i32 @hid_pre_reset(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hid_post_reset(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @hid_post_reset(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -168

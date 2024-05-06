@@ -17,7 +17,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_speedcheck(ptr noundef %data, i64 %now.coerce0, i32 %now.coerce1) local_unnamed_addr #2 {
+define hidden range(i32 0, 29) i32 @Curl_speedcheck(ptr noundef %data, i64 %now.coerce0, i32 %now.coerce1) local_unnamed_addr #2 {
 entry:
   %keepon = getelementptr inbounds i8, ptr %data, i64 308
   %0 = load i32, ptr %keepon, align 4

@@ -8968,7 +8968,7 @@ define internal void @trace_event_raw_event_neigh_update(ptr noundef %0, ptr nou
   %53 = select i1 %52, ptr @.str.348, ptr %50
   %54 = select i1 %51, ptr @.str.204, ptr %53
   %55 = call ptr @strcpy(ptr noundef %48, ptr noundef %54) #13
-  %56 = trunc i32 %43 to i8
+  %56 = trunc nuw i32 %43 to i8
   %57 = getelementptr inbounds i8, ptr %30, i64 48
   store i8 %56, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %30, i64 16
@@ -9147,7 +9147,7 @@ define internal void @perf_trace_neigh_update(ptr noundef %0, ptr noundef %1, pt
   %64 = select i1 %63, ptr @.str.348, ptr %61
   %65 = select i1 %62, ptr @.str.204, ptr %64
   %66 = call ptr @strcpy(ptr noundef %59, ptr noundef %65) #13
-  %67 = trunc i32 %54 to i8
+  %67 = trunc nuw i32 %54 to i8
   %68 = getelementptr inbounds i8, ptr %34, i64 48
   store i8 %67, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %34, i64 16
@@ -9314,7 +9314,7 @@ define internal void @trace_event_raw_event_neigh__update(ptr noundef %0, ptr no
   %50 = select i1 %49, ptr @.str.348, ptr %47
   %51 = select i1 %48, ptr @.str.204, ptr %50
   %52 = call ptr @strcpy(ptr noundef %45, ptr noundef %51) #13
-  %53 = trunc i32 %40 to i8
+  %53 = trunc nuw i32 %40 to i8
   %54 = getelementptr inbounds i8, ptr %27, i64 48
   store i8 %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %27, i64 16
@@ -9480,7 +9480,7 @@ define internal void @perf_trace_neigh__update(ptr noundef %0, ptr noundef %1, i
   %61 = select i1 %60, ptr @.str.348, ptr %58
   %62 = select i1 %59, ptr @.str.204, ptr %61
   %63 = call ptr @strcpy(ptr noundef %56, ptr noundef %62) #13
-  %64 = trunc i32 %51 to i8
+  %64 = trunc nuw i32 %51 to i8
   %65 = getelementptr inbounds i8, ptr %31, i64 48
   store i8 %64, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %31, i64 16

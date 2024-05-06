@@ -168,7 +168,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tcpros_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_tcpros_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %test_tcpros.exit.thread11, label %7
@@ -204,8 +204,8 @@ is_rosclock.exit.thread.i:                        ; preds = %is_rosclock.exit.i,
 
 test_tcpros.exit:                                 ; preds = %is_rosclock.exit.thread.i, %12, %15
   %20 = tail call fastcc i32 @is_rosconnection_header(ptr noundef %0, i32 noundef 0)
-  %.not11.i.not = icmp eq i32 %20, 0
-  br i1 %.not11.i.not, label %test_tcpros.exit.thread11, label %test_tcpros.exit.thread
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %test_tcpros.exit.thread11, label %test_tcpros.exit.thread
 
 test_tcpros.exit.thread:                          ; preds = %15, %is_rosclock.exit.i, %test_tcpros.exit
   %21 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
@@ -445,7 +445,7 @@ define internal fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_rosconnection_header(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_rosconnection_header(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #3
   %4 = icmp slt i32 %3, 9
   br i1 %4, label %is_rosheaderfield.exit, label %5

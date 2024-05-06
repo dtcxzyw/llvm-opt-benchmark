@@ -55,7 +55,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d250d6de04c18f0E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d250d6de04c18f0E.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %0, i64 %3), !alias.scope !4
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !4
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -351,7 +351,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN73_$LT$alloc..string
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !49
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h03e0c3cb68d088edE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noundef nonnull %13, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8), !noalias !46
   %18 = load i64, ptr %4, align 8, !range !50, !noalias !49, !noundef !13
-  %trunc.i.i = trunc i64 %18 to i1
+  %trunc.i.i = trunc nuw i64 %18 to i1
   br i1 %trunc.i.i, label %23, label %19
 
 19:                                               ; preds = %15
@@ -403,7 +403,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN73_$LT$alloc..string
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !62
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h9177ba8f6866066cE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %3, ptr noundef nonnull %12, i64 noundef %16, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7), !noalias !59
   %17 = load i64, ptr %3, align 8, !range !50, !noalias !62, !noundef !13
-  %trunc.i.i = trunc i64 %17 to i1
+  %trunc.i.i = trunc nuw i64 %17 to i1
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %18, align 8, !noalias !62, !nonnull !13
   %.sroa.27.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 24
@@ -626,7 +626,7 @@ define noundef align 8 ptr @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$se
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds [256 x i8], ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1, !range !85, !noundef !13
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %34, label %19
 
 19:                                               ; preds = %.lr.ph
@@ -998,7 +998,7 @@ define void @_ZN10serde_json4read12parse_escape16encode_surrogate17h123157416cd4
   %15 = and i8 %14, 63
   %16 = or disjoint i8 %15, -128
   %17 = lshr i16 %1, 12
-  %18 = trunc i16 %17 to i8
+  %18 = trunc nuw nsw i16 %17 to i8
   %19 = or disjoint i8 %18, -32
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !162, !noalias !167, !nonnull !13, !noundef !13

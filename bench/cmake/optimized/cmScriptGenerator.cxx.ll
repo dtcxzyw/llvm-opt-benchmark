@@ -467,7 +467,7 @@ define dso_local void @_ZN17cmScriptGenerator30GenerateScriptActionsPerConfigERS
   br i1 %.not.us, label %.split45.us, label %.preheader.split.us
 
 _ZlsRSo23cmScriptGeneratorIndent.exit.loopexit.us: ; preds = %.noexc.us
-  %40 = trunc i8 %.041.us to i1
+  %40 = trunc nuw i8 %.041.us to i1
   %41 = select i1 %40, ptr @.str.4, ptr @.str.7
   %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %41)
           to label %29 unwind label %.loopexit.split-lp.split.us
@@ -532,7 +532,7 @@ common.resume:                                    ; preds = %.loopexit.split.us,
           to label %_ZN17cmScriptGenerator16CreateConfigTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.split
 
 _ZN17cmScriptGenerator16CreateConfigTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %53
-  %55 = trunc i8 %.041 to i1
+  %55 = trunc nuw i8 %.041 to i1
   %56 = select i1 %55, ptr @.str.4, ptr @.str.7
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %56)
           to label %58 unwind label %.loopexit.split-lp.split
@@ -569,7 +569,7 @@ _ZN17cmScriptGenerator16CreateConfigTestERKNSt7__cxx1112basic_stringIcSt11char_t
 
 .split45.us:                                      ; preds = %67, %38
   %.us-phi46 = phi i8 [ %.1.us, %38 ], [ %.1, %67 ]
-  %69 = trunc i8 %.us-phi46 to i1
+  %69 = trunc nuw i8 %.us-phi46 to i1
   br i1 %69, label %86, label %70
 
 70:                                               ; preds = %.split45.us

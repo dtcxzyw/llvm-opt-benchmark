@@ -83,7 +83,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.73 = private unnamed_addr constant [26 x i8] c"<ERROR Unknown type '%s'>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @exr_print_context_info(ptr noundef %ctxt, i32 noundef %verbose) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @exr_print_context_info(ptr noundef %ctxt, i32 noundef %verbose) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

@@ -82,7 +82,7 @@ nxthread_create.exit:                             ; preds = %10, %17, %18
 declare ptr @get_environ_ptr() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_create_with_stack(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @task_create_with_stack(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @get_environ_ptr() #5
   %8 = tail call noalias dereferenceable_or_null(1008) ptr @zalloc(i64 noundef 1008) #4
   %.not.i.i = icmp eq ptr %8, null
@@ -121,7 +121,7 @@ nxtask_create.exit.thread:                        ; preds = %6, %13, %nxtask_cre
 declare ptr @__errno() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @task_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @get_environ_ptr() #5
   %7 = tail call noalias dereferenceable_or_null(1008) ptr @zalloc(i64 noundef 1008) #4
   %.not.i.i.i = icmp eq ptr %7, null

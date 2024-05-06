@@ -96,7 +96,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_dp_init_lttpr_and_dprx_caps(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -5, -2147483648) i32 @intel_dp_init_lttpr_and_dprx_caps(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [15 x i8], align 1
   %3 = getelementptr i8, ptr %0, i64 -392
   %4 = load ptr, ptr %3, align 8
@@ -172,7 +172,7 @@ declare dso_local i32 @drm_dp_dpcd_probe(ptr noundef, i32 noundef) local_unnamed
 declare dso_local i32 @drm_dp_read_dpcd_caps(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_dp_init_lttpr(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, -2147483648) i32 @intel_dp_init_lttpr(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1

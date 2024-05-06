@@ -2679,7 +2679,7 @@ define internal void @ansi_a_dtap_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ansi_a_dtap_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @ansi_a_dtap_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 1
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %my_try_val_to_str_idx.exit.thread
@@ -2816,7 +2816,7 @@ define internal void @ansi_a_bsmap_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ansi_a_bsmap_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @ansi_a_bsmap_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %my_try_val_to_str_idx.exit.thread

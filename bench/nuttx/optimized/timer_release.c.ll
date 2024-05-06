@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_freetimers = external local_unnamed_addr global %struct.sq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @timer_release(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %timer_free.exit, label %4

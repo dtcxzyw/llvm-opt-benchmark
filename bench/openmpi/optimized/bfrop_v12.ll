@@ -2344,12 +2344,12 @@ define internal void @finalize() #0 {
   br i1 %2, label %pmix_pointer_array_get_item.exit.preheader, label %._crit_edge
 
 pmix_pointer_array_get_item.exit.preheader:       ; preds = %0
-  %.pre22 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i64 0, i32 2, i32 7), align 8
+  %.pre23 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i64 0, i32 2, i32 7), align 8
   br label %pmix_pointer_array_get_item.exit
 
 pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.preheader, %35
   %3 = phi i32 [ %1, %pmix_pointer_array_get_item.exit.preheader ], [ %36, %35 ]
-  %4 = phi ptr [ %.pre22, %pmix_pointer_array_get_item.exit.preheader ], [ %37, %35 ]
+  %4 = phi ptr [ %.pre23, %pmix_pointer_array_get_item.exit.preheader ], [ %37, %35 ]
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.preheader ], [ %indvars.iv.next, %35 ]
   %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
@@ -2411,14 +2411,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %18
   br label %32
 
 32:                                               ; preds = %29, %31, %12
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i64 0, i32 2), i32 noundef %33, ptr noundef null) #17
   %.pre = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i64 0, i32 2, i32 7), align 8
-  %.pre23 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i64 0, i32 2, i32 3), align 8
+  %.pre24 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v12_component, i64 0, i32 2, i32 3), align 8
   br label %35
 
 35:                                               ; preds = %pmix_pointer_array_get_item.exit, %32
-  %36 = phi i32 [ %3, %pmix_pointer_array_get_item.exit ], [ %.pre23, %32 ]
+  %36 = phi i32 [ %3, %pmix_pointer_array_get_item.exit ], [ %.pre24, %32 ]
   %37 = phi ptr [ %4, %pmix_pointer_array_get_item.exit ], [ %.pre, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = sext i32 %36 to i64
@@ -2597,7 +2597,7 @@ define void @pmix12_bfrop_value_load(ptr nocapture noundef writeonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @pmix12_bfrop_value_unload(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #3 {
+define range(i32 -27, 1) i32 @pmix12_bfrop_value_unload(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #3 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %77, label %5
 
@@ -2842,7 +2842,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %1, %pmix_pointer_ar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @pmix12_v2_to_v1_datatype(i16 noundef zeroext %0) local_unnamed_addr #5 {
+define range(i32 0, 65537) i32 @pmix12_v2_to_v1_datatype(i16 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = zext i16 %0 to i32
   switch i16 %0, label %7 [
     i16 20, label %8
@@ -2929,7 +2929,7 @@ define zeroext i16 @pmix12_v1_to_v2_datatype(i32 noundef %0) local_unnamed_addr 
   br label %6
 
 switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4093, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %3
@@ -2969,7 +2969,7 @@ define i32 @pmix12_bfrop_get_data_type(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %.sink.split
 
 switch.hole_check:                                ; preds = %11
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4093, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %13

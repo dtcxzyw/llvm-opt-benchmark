@@ -40,7 +40,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %5, 88686269585142075
-  %9 = mul nuw i64 %5, 104
+  %9 = mul nuw nsw i64 %5, 104
   %.val = load i64, ptr %0, align 8, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %10, align 8
@@ -99,7 +99,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 88686269585142075
-  %6 = mul nuw i64 %0, 104
+  %6 = mul nuw nsw i64 %0, 104
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -246,7 +246,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 88686269585142075
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 104
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 104
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !13
   %12 = icmp eq i64 %7, 0
@@ -305,7 +305,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 128102389400760775
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 72
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 72
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !20
   %12 = icmp eq i64 %7, 0
@@ -372,7 +372,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve
 
 13:                                               ; preds = %9
   %14 = icmp ugt i64 %11, 88686269585142075
-  %15 = mul nuw i64 %11, 104
+  %15 = mul nuw nsw i64 %11, 104
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %16, align 8, !alias.scope !27
   %17 = icmp eq i64 %4, 0

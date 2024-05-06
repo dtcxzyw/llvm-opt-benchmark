@@ -35,7 +35,7 @@ define void @__xz_wrap_free(ptr nocapture readnone %0, ptr nocapture noundef %1)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_XzInit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cli_XzInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @XzUnpacker_Create(ptr noundef %0, ptr noundef nonnull @g_Alloc) #4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %7
@@ -74,7 +74,7 @@ define void @cli_XzShutdown(ptr noundef %0) local_unnamed_addr #0 {
 declare void @XzUnpacker_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_XzDecode(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @cli_XzDecode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1624

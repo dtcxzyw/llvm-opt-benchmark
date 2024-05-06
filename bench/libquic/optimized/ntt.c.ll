@@ -74,7 +74,7 @@ for.body:                                         ; preds = %entry, %for.inc75
   %mul26 = shl nuw nsw i32 2, %i.054
   %0 = zext nneg i32 %mul26 to i64
   %1 = zext nneg i32 %shl to i64
-  %invariant.gep = getelementptr i16, ptr %a, i64 %1
+  %invariant.gep = getelementptr inbounds i16, ptr %a, i64 %1
   br label %for.cond4.preheader
 
 for.cond4.preheader:                              ; preds = %for.body, %for.inc28
@@ -86,13 +86,13 @@ for.cond4.preheader:                              ; preds = %for.body, %for.inc2
 for.body6:                                        ; preds = %for.cond4.preheader, %for.body6
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %for.body6 ], [ %indvars.iv55, %for.cond4.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body6 ], [ 0, %for.cond4.preheader ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i16, ptr %omega, i64 %indvars.iv
   %2 = load i16, ptr %arrayidx, align 2
   %arrayidx8 = getelementptr inbounds i16, ptr %a, i64 %indvars.iv57
   %3 = load i16, ptr %arrayidx8, align 2
   %conv = zext i16 %3 to i32
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv57
+  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv57
   %4 = load i16, ptr %gep, align 2
   %add12 = add i16 %4, %3
   store i16 %add12, ptr %arrayidx8, align 2
@@ -103,7 +103,7 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %mul = mul i32 %sub, %conv16
   %call = tail call zeroext i16 @newhope_montgomery_reduce(i32 noundef %mul) #3
   store i16 %call, ptr %gep, align 2
-  %indvars.iv.next58 = add i64 %indvars.iv57, %0
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, %0
   %cmp5 = icmp ult i64 %indvars.iv.next58, 1023
   br i1 %cmp5, label %for.body6, label %for.inc28, !llvm.loop !10
 
@@ -115,7 +115,7 @@ for.inc28:                                        ; preds = %for.body6, %for.con
 for.end30:                                        ; preds = %for.inc28
   %mul69 = shl nuw nsw i32 4, %i.054
   %5 = zext nneg i32 %mul69 to i64
-  %invariant.gep78 = getelementptr i16, ptr %a, i64 %0
+  %invariant.gep78 = getelementptr inbounds i16, ptr %a, i64 %0
   br label %for.cond36.preheader
 
 for.cond36.preheader:                             ; preds = %for.end30, %for.inc72
@@ -127,13 +127,13 @@ for.cond36.preheader:                             ; preds = %for.end30, %for.inc
 for.body39:                                       ; preds = %for.cond36.preheader, %for.body39
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %for.body39 ], [ %indvars.iv66, %for.cond36.preheader ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %for.body39 ], [ 0, %for.cond36.preheader ]
-  %indvars.iv.next65 = add nuw i64 %indvars.iv64, 1
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %arrayidx42 = getelementptr inbounds i16, ptr %omega, i64 %indvars.iv64
   %6 = load i16, ptr %arrayidx42, align 2
   %arrayidx44 = getelementptr inbounds i16, ptr %a, i64 %indvars.iv68
   %7 = load i16, ptr %arrayidx44, align 2
   %conv45 = zext i16 %7 to i32
-  %gep79 = getelementptr i16, ptr %invariant.gep78, i64 %indvars.iv68
+  %gep79 = getelementptr inbounds i16, ptr %invariant.gep78, i64 %indvars.iv68
   %8 = load i16, ptr %gep79, align 2
   %add50 = add i16 %8, %7
   %call52 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %add50) #3
@@ -146,7 +146,7 @@ for.body39:                                       ; preds = %for.cond36.preheade
   %mul63 = mul i32 %sub62, %conv55
   %call64 = tail call zeroext i16 @newhope_montgomery_reduce(i32 noundef %mul63) #3
   store i16 %call64, ptr %gep79, align 2
-  %indvars.iv.next69 = add i64 %indvars.iv68, %5
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, %5
   %cmp37 = icmp ult i64 %indvars.iv.next69, 1023
   br i1 %cmp37, label %for.body39, label %for.inc72, !llvm.loop !12
 

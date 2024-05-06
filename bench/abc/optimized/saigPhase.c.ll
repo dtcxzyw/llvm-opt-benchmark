@@ -77,7 +77,7 @@ define noalias noundef ptr @Saig_TsiStart(ptr noundef %0) local_unnamed_addr #0 
 
 20:                                               ; preds = %.lr.ph.i
   %21 = add nuw nsw i32 %.01116.i, 2
-  %22 = mul nsw i32 %21, %21
+  %22 = mul nuw nsw i32 %21, %21
   %.not.i = icmp ugt i32 %22, %18
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -254,7 +254,7 @@ define i32 @Saig_TsiCountNonXValuedRegisters(ptr nocapture noundef %0, i32 nound
   br i1 %exitcond.not, label %.critedge.thread, label %23, !llvm.loop !8
 
 .critedge.loopexit:                               ; preds = %23
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
@@ -433,7 +433,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %37 = and i32 %36, 1
   %38 = or disjoint i32 %35, %37
   %.not40 = icmp eq i32 %.13747, %38
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select41 = select i1 %.not40, i32 %.13548, i32 %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -667,7 +667,7 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
   br i1 %.not, label %.critedge, label %21, !llvm.loop !17
 
 .critedge.loopexit.split.loop.exit37:             ; preds = %27
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %31, %.critedge.loopexit.split.loop.exit37, %Saig_TsiStateHash.exit, %.preheader
@@ -676,7 +676,7 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Saig_TsiStateLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Saig_TsiStateLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %2, 0
@@ -1079,7 +1079,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %indvars.iv198 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next199, %29 ]
   %30 = load ptr, ptr %26, align 8
   %.val116 = load i32, ptr %10, align 4
-  %31 = trunc i64 %indvars.iv198 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv198 to i32
   %32 = add nsw i32 %.val116, %31
   %33 = getelementptr i8, ptr %30, i64 8
   %.val111 = load ptr, ptr %33, align 8
@@ -1157,7 +1157,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %80 = getelementptr i8, ptr %79, i64 24
   %.val132 = load i64, ptr %80, align 8
   %81 = lshr i64 %.val132, 56
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw nsw i64 %81 to i32
   %83 = and i32 %82, 1
   %.not106 = icmp eq i32 %83, 0
   br i1 %.not106, label %93, label %84
@@ -1235,7 +1235,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %.crite
 
 .lr.ph.i:                                         ; preds = %Saig_TsiStateHash.exit.i, %123
   %.01115.i = phi ptr [ %.011.i, %123 ], [ %.01113.i, %Saig_TsiStateHash.exit.i ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.01115.i, ptr %73, i64 %122)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.01115.i, ptr readonly %73, i64 %122)
   %.not12.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not12.i, label %Saig_TsiStateLookup.exit, label %123
 
@@ -1322,7 +1322,7 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %158 = getelementptr i8, ptr %157, i64 24
   %.val.i = load i64, ptr %158, align 8
   %159 = lshr i64 %.val.i, 56
-  %160 = trunc i64 %159 to i32
+  %160 = trunc nuw nsw i64 %159 to i32
   %161 = and i64 %155, 1
   %.not.i150 = icmp eq i64 %161, 0
   %switch.selectcmp.i.i = icmp eq i32 %160, 2
@@ -1338,7 +1338,7 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %167 = getelementptr i8, ptr %166, i64 24
   %.val.i151 = load i64, ptr %167, align 8
   %168 = lshr i64 %.val.i151, 56
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = and i64 %164, 1
   %.not.i152 = icmp eq i64 %170, 0
   %switch.selectcmp.i.i153 = icmp eq i32 %169, 2
@@ -1395,7 +1395,7 @@ Saig_TsiStateInsert.exit:                         ; preds = %.lr.ph.i.i145, %.lo
   %197 = getelementptr i8, ptr %196, i64 24
   %.val.i158 = load i64, ptr %197, align 8
   %198 = lshr i64 %.val.i158, 56
-  %199 = trunc i64 %198 to i32
+  %199 = trunc nuw nsw i64 %198 to i32
   %200 = and i64 %194, 1
   %.not.i159 = icmp eq i64 %200, 0
   %switch.selectcmp.i.i160 = icmp eq i32 %199, 2
@@ -1699,7 +1699,7 @@ define i32 @Saig_ManFindRegisters(ptr nocapture noundef readonly %0, i32 noundef
   %52 = icmp eq i64 %indvars.iv, %21
   %or.cond = and i1 %.not63, %52
   %or.cond94 = or i1 %51, %or.cond
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = srem i32 %53, %1
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds [257 x i32], ptr %5, i64 0, i64 %55
@@ -1742,7 +1742,7 @@ define i32 @Saig_ManFindRegisters(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %exitcond100.not, label %.loopexit, label %62, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %62
-  %66 = trunc i64 %indvars.iv96 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv96 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -1835,10 +1835,10 @@ define ptr @Saig_ManPerformAbstraction(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %17
 
 17:                                               ; preds = %3
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #22
+  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #22
   %19 = add i64 %18, 1
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #19
-  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %16) #20
+  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %16) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %17
@@ -1850,10 +1850,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %17
   br i1 %.not.i222, label %Abc_UtilStrsav.exit223, label %25
 
 25:                                               ; preds = %Abc_UtilStrsav.exit
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #22
+  %26 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #22
   %27 = add i64 %26, 1
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #19
-  %29 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %24) #20
+  %29 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %24) #20
   br label %Abc_UtilStrsav.exit223
 
 Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit, %25
@@ -2018,7 +2018,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %93 = getelementptr inbounds ptr, ptr %.val188, i64 %indvars.iv292
   %94 = load ptr, ptr %93, align 8
   %wide.trip.count282 = zext nneg i32 %.val191 to i64
-  %95 = trunc i64 %indvars.iv292 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv292 to i32
   %.val199 = load ptr, ptr %68, align 8
   %96 = ptrtoint ptr %.val199 to i64
   %97 = xor i64 %96, 1
@@ -2042,9 +2042,9 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %103, label %.lr.ph257.preheader, label %.critedge6.preheader
 
 .lr.ph257.preheader:                              ; preds = %.critedge4.preheader
-  %104 = trunc i64 %indvars.iv292 to i32
-  %105 = trunc i64 %indvars.iv292 to i32
-  %.pre318 = trunc i64 %indvars.iv292 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv292 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv292 to i32
+  %.pre318 = trunc nuw nsw i64 %indvars.iv292 to i32
   br label %.lr.ph257
 
 106:                                              ; preds = %.lr.ph254, %106
@@ -2102,8 +2102,8 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %138 = icmp slt i64 %indvars.iv292, %72
   %139 = add nuw nsw i64 %indvars.iv292, 1
   %wide.trip.count290 = zext nneg i32 %.val179 to i64
-  %140 = trunc i64 %indvars.iv292 to i32
-  %141 = trunc i64 %139 to i32
+  %140 = trunc nuw nsw i64 %indvars.iv292 to i32
+  %141 = trunc nuw nsw i64 %139 to i32
   br label %195
 
 .lr.ph257:                                        ; preds = %.lr.ph257.preheader, %.critedge4
@@ -2475,7 +2475,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
 
 33:                                               ; preds = %40, %.lr.ph.i
   %.02027.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.020.i, %40 ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr %13, i64 %32)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr readonly %13, i64 %32)
   %.not21.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not21.i, label %.preheader.i, label %40
 
@@ -2506,7 +2506,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
   br i1 %.not.i, label %Saig_TsiComputePrefix.exit, label %33, !llvm.loop !17
 
 .critedge.loopexit.split.loop.exit37.i:           ; preds = %35
-  %42 = trunc i64 %indvars.iv.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i to i32
   %43 = xor i32 %42, -1
   br label %Saig_TsiComputePrefix.exit
 
@@ -2581,7 +2581,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %7
 
 35:                                               ; preds = %42, %.lr.ph.i
   %.02027.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.020.i, %42 ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr %15, i64 %34)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr readonly %15, i64 %34)
   %.not21.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not21.i, label %.preheader.i, label %42
 
@@ -2612,7 +2612,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %7
   br i1 %.not.i, label %Saig_TsiComputePrefix.exit, label %35, !llvm.loop !17
 
 .critedge.loopexit.split.loop.exit37.i:           ; preds = %37
-  %44 = trunc i64 %indvars.iv.i to i32
+  %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Saig_TsiComputePrefix.exit
 
 Saig_TsiComputePrefix.exit:                       ; preds = %42, %41, %Saig_TsiStateHash.exit.i, %.preheader.i, %.critedge.loopexit.split.loop.exit37.i
@@ -2715,7 +2715,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %10
 
 38:                                               ; preds = %45, %.lr.ph.i
   %.02027.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.020.i, %45 ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr %18, i64 %37)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr readonly %18, i64 %37)
   %.not21.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not21.i, label %.preheader.i, label %45
 
@@ -2746,7 +2746,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %10
   br i1 %.not.i, label %Saig_TsiComputePrefix.exit, label %38, !llvm.loop !17
 
 .critedge.loopexit.split.loop.exit37.i:           ; preds = %40
-  %47 = trunc i64 %indvars.iv.i to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Saig_TsiComputePrefix.exit
 
 Saig_TsiComputePrefix.exit:                       ; preds = %45, %44, %Saig_TsiStateHash.exit.i, %.preheader.i, %.critedge.loopexit.split.loop.exit37.i
@@ -2917,7 +2917,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
 
 33:                                               ; preds = %40, %.lr.ph.i
   %.02027.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.020.i, %40 ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr %13, i64 %32)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.02027.i, ptr readonly %13, i64 %32)
   %.not21.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not21.i, label %.preheader.i, label %40
 
@@ -2948,7 +2948,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
   br i1 %.not.i, label %Saig_TsiComputePrefix.exit, label %33, !llvm.loop !17
 
 .critedge.loopexit.split.loop.exit37.i:           ; preds = %35
-  %42 = trunc i64 %indvars.iv.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Saig_TsiComputePrefix.exit
 
 Saig_TsiComputePrefix.exit:                       ; preds = %40, %39, %Saig_TsiStateHash.exit.i, %.preheader.i, %.critedge.loopexit.split.loop.exit37.i

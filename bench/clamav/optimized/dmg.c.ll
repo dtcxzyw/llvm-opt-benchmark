@@ -141,7 +141,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
   br label %305
 
 20:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %2, ptr noundef nonnull align 1 dereferenceable(512) %18, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(512) %2, ptr noundef nonnull align 1 dereferenceable(512) %18, i64 512, i1 false)
   %21 = load i32, ptr %2, align 4
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
   store i32 %22, ptr %2, align 4
@@ -832,7 +832,7 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dmg_extract_xml(ptr %.96.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @dmg_extract_xml(ptr %.96.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 216
   %5 = load i64, ptr %4, align 1
@@ -931,7 +931,7 @@ declare ptr @xmlTextReaderValue(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dmg_decode_mish(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @dmg_decode_mish(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = load i32, ptr %0, align 4
   %6 = add i32 %5, 1

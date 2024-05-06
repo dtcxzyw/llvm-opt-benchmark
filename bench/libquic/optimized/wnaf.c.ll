@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/wnaf.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_wNAF_mul(ptr noundef %group, ptr noundef %r, ptr noundef %g_scalar, ptr noundef %p, ptr noundef %p_scalar, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %group, ptr noundef %r, ptr noundef %g_scalar, ptr noundef %p, ptr noundef %p_scalar, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -102,7 +102,7 @@ cond.end77:                                       ; preds = %cond.false55, %cond
   %arrayidx84 = getelementptr inbounds ptr, ptr %call27, i64 %add83
   store ptr null, ptr %arrayidx84, align 8
   %g_scalar.mux = select i1 %cmp42.not, ptr %p_scalar, ptr %g_scalar
-  %conv93 = trunc i64 %cond78 to i32
+  %conv93 = trunc nuw nsw i64 %cond78 to i32
   %arrayidx94 = getelementptr inbounds i64, ptr %call25, i64 %i.0234
   %call.i = tail call i32 @BN_is_zero(ptr noundef %g_scalar.mux) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -218,7 +218,7 @@ lor.rhs.us.i:                                     ; preds = %while.cond.us.i
 if.end72.us.i:                                    ; preds = %lor.rhs.us.i, %land.lhs.true.us.i, %if.end61.us.i, %while.body.us.i
   %window_val.1.us.i = phi i32 [ %sub62.us.i, %land.lhs.true.us.i ], [ 0, %if.end61.us.i ], [ %window_val.0.us.i, %while.body.us.i ], [ 0, %lor.rhs.us.i ]
   %digit.1.us.i = phi i32 [ %digit.0.us.i, %land.lhs.true.us.i ], [ %digit.0.us.i, %if.end61.us.i ], [ 0, %while.body.us.i ], [ 0, %lor.rhs.us.i ]
-  %conv73.us.i = trunc i32 %digit.1.us.i to i8
+  %conv73.us.i = trunc nsw i32 %digit.1.us.i to i8
   %inc.us.i = add i64 %j.0.us.i, 1
   %arrayidx74.us.i = getelementptr inbounds i8, ptr %call19.i, i64 %j.0.us.i
   store i8 %conv73.us.i, ptr %arrayidx74.us.i, align 1

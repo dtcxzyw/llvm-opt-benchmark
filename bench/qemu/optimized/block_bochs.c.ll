@@ -62,7 +62,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bochs_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @bochs_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %bochs = alloca %struct.bochs_header, align 1
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -202,7 +202,7 @@ if.then88:                                        ; preds = %for.cond.preheader
   br label %fail
 
 if.else89:                                        ; preds = %for.cond.preheader
-  %12 = call i32 @llvm.ctpop.i32(i32 %11), !range !5
+  %12 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %11)
   %tobool1.not.i = icmp ult i32 %12, 2
   br i1 %tobool1.not.i, label %if.else95, label %if.then93
 
@@ -276,7 +276,7 @@ entry:
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @bochs_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
+define internal range(i32 0, 101) i32 @bochs_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
 entry:
   %cmp = icmp slt i32 %buf_size, 512
   br i1 %cmp, label %return, label %if.end
@@ -459,7 +459,7 @@ if.end26:                                         ; preds = %if.then18, %if.else
   %inc = add nsw i64 %sector_num.025, 1
   %add = add nuw nsw i64 %bytes_done.024, 512
   %cmp9 = icmp sgt i32 %nb_sectors.023, 1
-  br i1 %cmp9, label %while.body, label %fail, !llvm.loop !6
+  br i1 %cmp9, label %while.body, label %fail, !llvm.loop !5
 
 fail:                                             ; preds = %if.then18, %if.end26, %seek_to_sector.exit.thread17, %if.then13.loopexit, %if.end8
   %ret.0 = phi i32 [ 0, %if.end8 ], [ %call.i.i, %seek_to_sector.exit.thread17 ], [ %16, %if.then13.loopexit ], [ %call19, %if.then18 ], [ 0, %if.end26 ]
@@ -647,6 +647,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

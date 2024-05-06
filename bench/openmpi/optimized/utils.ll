@@ -66,7 +66,7 @@ define i32 @ADIOI_Type_create_hindexed_x(i32 noundef %0, ptr nocapture noundef r
   %34 = sdiv i64 %32, 2147483647
   %35 = trunc i64 %34 to i32
   %36 = srem i64 %32, 2147483647
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nsw i64 %36 to i32
   %38 = call i32 @PMPI_Type_vector(i32 noundef %35, i32 noundef 2147483647, i32 noundef 2147483647, ptr noundef %3, ptr noundef nonnull %6) #3
   %39 = call i32 @PMPI_Type_contiguous(i32 noundef %37, ptr noundef %3, ptr noundef nonnull %7) #3
   %40 = call i32 @PMPI_Type_get_extent(ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9) #3

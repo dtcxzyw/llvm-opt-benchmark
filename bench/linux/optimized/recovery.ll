@@ -1565,7 +1565,7 @@ define internal fastcc i32 @jread(ptr nocapture noundef writeonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @jbd2_descriptor_block_csum_verify(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @jbd2_descriptor_block_csum_verify(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.anon.10, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8

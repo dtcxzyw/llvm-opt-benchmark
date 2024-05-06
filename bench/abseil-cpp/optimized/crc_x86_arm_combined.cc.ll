@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<std::unique_ptr<absl::crc_internal::CRCImpl>, std::allocator<std::unique_ptr<absl::crc_internal::CRCImpl>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<absl::crc_internal::CRCImpl>, std::allocator<std::unique_ptr<absl::crc_internal::CRCImpl>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::unique_ptr<absl::crc_internal::CRCImpl>, std::allocator<std::unique_ptr<absl::crc_internal::CRCImpl>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4absl12crc_internal36NewCRC32AcceleratedX86ARMCombinedAllEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -24,7 +24,7 @@ entry:
   ret ptr null
 }
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 

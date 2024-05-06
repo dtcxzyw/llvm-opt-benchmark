@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sigset_s = type { [2 x i32] }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pthread_sigmask(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @pthread_sigmask(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sigset_s, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %5

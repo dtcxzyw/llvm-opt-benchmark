@@ -86,7 +86,7 @@ define dso_local void @_ZN18AttributeGenerator6OutputERSo(ptr nocapture noundef 
   br i1 %.not11, label %26, label %14
 
 14:                                               ; preds = %11
-  %15 = trunc i8 %.015 to i1
+  %15 = trunc nuw i8 %.015 to i1
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %14
@@ -120,7 +120,7 @@ define dso_local void @_ZN18AttributeGenerator6OutputERSo(ptr nocapture noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %26
-  %29 = trunc i8 %.1 to i1
+  %29 = trunc nuw i8 %.1 to i1
   br i1 %29, label %30, label %._crit_edge.thread
 
 30:                                               ; preds = %._crit_edge

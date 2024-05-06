@@ -103,7 +103,7 @@ define dso_local void @nfnl_unlock(i8 noundef zeroext %0) #0 align 16 {
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfnetlink_subsys_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @nfnetlink_subsys_register(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 9
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
@@ -251,7 +251,7 @@ define dso_local i32 @nfnetlink_set_err(ptr noundef %0, i32 noundef %1, i32 noun
 declare dso_local i32 @netlink_set_err(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfnetlink_unicast(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @nfnetlink_unicast(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load i32, ptr @nfnetlink_pernet_id, align 4
   tail call void @__rcu_read_lock() #9
   %5 = getelementptr inbounds i8, ptr %1, i64 2536
@@ -324,7 +324,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #1
 declare dso_local i32 @netlink_unicast(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfnetlink_net_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @nfnetlink_net_init(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.netlink_kernel_cfg, align 8
   %3 = load i32, ptr @nfnetlink_pernet_id, align 4
   tail call void @__rcu_read_lock() #9

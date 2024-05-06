@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_basic_block = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [2 x i32] }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40
@@ -51,7 +51,7 @@ define hidden noundef i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr noundef 
   br i1 %.not261, label %26, label %23
 
 23:                                               ; preds = %18
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nsw i64 %indvars.iv to i32
   %25 = tail call fastcc zeroext i1 @is_allocation_def(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %16, i32 noundef %24, ptr noundef %0)
   br i1 %25, label %27, label %26
 
@@ -78,7 +78,7 @@ define hidden noundef i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr noundef 
 
 34:                                               ; preds = %.thread, %31
   %35 = phi ptr [ %33, %.thread ], [ %32, %31 ]
-  %36 = call fastcc i32 @zend_build_equi_escape_sets(ptr noundef nonnull %35, ptr noundef %1, ptr noundef nonnull %2), !range !4
+  %36 = call fastcc i32 @zend_build_equi_escape_sets(ptr noundef nonnull %35, ptr noundef %1, ptr noundef nonnull %2)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %.critedge, label %38
 
@@ -152,7 +152,7 @@ define hidden noundef i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr noundef 
   %78 = getelementptr inbounds %struct._zend_op, ptr %77, i64 %75
   %79 = getelementptr inbounds i8, ptr %76, i64 20
   %80 = load i32, ptr %79, align 4
-  %81 = trunc i64 %indvars.iv319 to i32
+  %81 = trunc nsw i64 %indvars.iv319 to i32
   %82 = icmp eq i32 %80, %81
   br i1 %82, label %83, label %116
 
@@ -1301,7 +1301,7 @@ define internal fastcc noundef zeroext i1 @is_allocation_def(ptr noundef %0, ptr
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_build_equi_escape_sets(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_build_equi_escape_sets(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1342,7 +1342,7 @@ define internal fastcc noundef i32 @zend_build_equi_escape_sets(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %19 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %20, ptr %19, align 4
   %21 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
   store i32 1, ptr %21, align 4
@@ -1384,7 +1384,7 @@ define internal fastcc noundef i32 @zend_build_equi_escape_sets(ptr noundef %0, 
 .lr.ph724:                                        ; preds = %.preheader703
   %37 = getelementptr inbounds i8, ptr %25, i64 96
   %.0630.in707 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv930
-  %38 = trunc i64 %indvars.iv930 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv930 to i32
   br label %66
 
 39:                                               ; preds = %26
@@ -1395,7 +1395,7 @@ define internal fastcc noundef i32 @zend_build_equi_escape_sets(ptr noundef %0, 
   %.0634726 = load i32, ptr %.0634.in725, align 4
   %43 = zext i32 %.0634726 to i64
   %.not696727 = icmp eq i64 %indvars.iv930, %43
-  %44 = trunc i64 %indvars.iv930 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv930 to i32
   br i1 %.not696727, label %.preheader702, label %.lr.ph731
 
 .preheader702:                                    ; preds = %.lr.ph731, %39
@@ -2167,7 +2167,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %.0596885 = load i32, ptr %328, align 4
   %329 = zext i32 %.0596885 to i64
   %.not652886 = icmp eq i64 %indvars.iv935, %329
-  %330 = trunc i64 %indvars.iv935 to i32
+  %330 = trunc nuw nsw i64 %indvars.iv935 to i32
   br i1 %.not652886, label %._crit_edge891, label %.lr.ph890
 
 .lr.ph890:                                        ; preds = %.lr.ph894, %.lr.ph890
@@ -2226,4 +2226,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

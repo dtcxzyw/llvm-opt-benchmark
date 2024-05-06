@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [35 x i8] c"Failed to clean up gzip compressor\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_compression_gzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_compression_gzip(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @gzip_bidder_vtable) #8
   %.not.i = icmp eq i32 %2, 0
   %..i = select i1 %.not.i, i32 0, i32 -30
@@ -30,7 +30,7 @@ define dso_local i32 @archive_read_support_compression_gzip(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_support_filter_gzip(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_gzip(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @gzip_bidder_vtable) #8
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, i32 0, i32 -30
@@ -50,7 +50,7 @@ define internal i32 @gzip_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gzip_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @gzip_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -460,7 +460,7 @@ consume_trailer.exit:                             ; preds = %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gzip_filter_close(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -30, 1) i32 @gzip_filter_close(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 112

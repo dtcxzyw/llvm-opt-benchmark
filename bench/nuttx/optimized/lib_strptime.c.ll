@@ -260,7 +260,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
 
 .thread:                                          ; preds = %.preheader, %59
   %.2382.ph = phi i64 [ %56, %.preheader ], [ %62, %59 ]
-  %66 = trunc i64 %indvars.iv768 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv768 to i32
   store i32 %66, ptr %8, align 8
   %67 = getelementptr inbounds i8, ptr %.0375592, i64 %.2382.ph
   br label %_conv_num.exit298
@@ -292,7 +292,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
 
 .thread384:                                       ; preds = %.preheader426, %74
   %.4386.ph = phi i64 [ %71, %.preheader426 ], [ %77, %74 ]
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %81, ptr %10, align 8
   %82 = getelementptr inbounds i8, ptr %.0375592, i64 %.4386.ph
   br label %_conv_num.exit298

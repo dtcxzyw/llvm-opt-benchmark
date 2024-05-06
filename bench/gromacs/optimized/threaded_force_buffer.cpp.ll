@@ -1732,7 +1732,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt6vectorISt5arr
   %.077 = phi i32 [ 0, %.lr.ph78 ], [ %.1, %144 ]
   %64 = load ptr, ptr %38, align 8
   %65 = getelementptr inbounds %"struct.std::array", ptr %64, i64 %indvars.iv83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   br i1 %60, label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge, label %._crit_edge71
 
 _ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge: ; preds = %63, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge
@@ -3704,7 +3704,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt6vectorISt5arr
   %.077 = phi i32 [ 0, %.lr.ph78 ], [ %.1, %144 ]
   %64 = load ptr, ptr %38, align 8
   %65 = getelementptr inbounds %"struct.std::array", ptr %64, i64 %indvars.iv83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   br i1 %60, label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge, label %._crit_edge71
 
 _ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge: ; preds = %63, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge

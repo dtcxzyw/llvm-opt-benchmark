@@ -128,7 +128,7 @@ if.end18:                                         ; preds = %if.else, %if.then12
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb16PointLockTracker7UntrackERKNS_16PointLockRequestE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(50) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN7rocksdb16PointLockTracker7UntrackERKNS_16PointLockRequestE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(50) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tracked_keys_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

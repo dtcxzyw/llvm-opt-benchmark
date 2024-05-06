@@ -47075,7 +47075,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare double @llvm.ceil.f64(double) #22
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb8DBConfig19GetSystemMaxThreadsERNS_10FileSystemE(ptr noundef nonnull align 8 dereferenceable(8) %fs) local_unnamed_addr #0 align 2 {
+define noundef range(i64 1, 0) i64 @_ZN6duckdb8DBConfig19GetSystemMaxThreadsERNS_10FileSystemE(ptr noundef nonnull align 8 dereferenceable(8) %fs) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #38
   %conv = zext i32 %call to i64
@@ -47931,7 +47931,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb8DBConfig16ResolveNullOrderENS_9OrderTypeENS_15OrderByNullTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %this, i8 noundef zeroext %order_type, i8 noundef zeroext %null_type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 2, 1) i8 @_ZNK6duckdb8DBConfig16ResolveNullOrderENS_9OrderTypeENS_15OrderByNullTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %this, i8 noundef zeroext %order_type, i8 noundef zeroext %null_type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator.23", align 1
@@ -63715,7 +63715,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckd
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9Allocator25DefaultAllocatorReferenceEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb16DatabaseInstance15NumberOfThreadsEv(ptr noundef nonnull align 8 dereferenceable(1088) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN6duckdb16DatabaseInstance15NumberOfThreadsEv(ptr noundef nonnull align 8 dereferenceable(1088) %this) local_unnamed_addr #0 align 2 {
 entry:
   %scheduler = getelementptr inbounds i8, ptr %this, i64 928
   %call = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_13TaskSchedulerESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %scheduler)
@@ -63734,7 +63734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb6DuckDB15NumberOfThreadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN6duckdb6DuckDB15NumberOfThreadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !289
   %scheduler.i = getelementptr inbounds i8, ptr %0, i64 928
@@ -74722,7 +74722,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN6duckdb17PreparedStatement11ColumnCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #26 align 2 {
+define noundef range(i64 -384307168202282325, 384307168202282326) i64 @_ZN6duckdb17PreparedStatement11ColumnCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #26 align 2 {
 entry:
   %data = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data, align 8, !tbaa !441
@@ -104235,7 +104235,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6duckdb14PreservedError4TypeEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6duckdb15BaseQueryResult11ColumnCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #11 align 2 {
+define noundef range(i64 -384307168202282325, 384307168202282326) i64 @_ZN6duckdb15BaseQueryResult11ColumnCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #11 align 2 {
 entry:
   %types = getelementptr inbounds i8, ptr %this, i64 88
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96

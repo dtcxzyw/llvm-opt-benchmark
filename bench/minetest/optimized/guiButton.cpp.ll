@@ -248,7 +248,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @.str.12 = private unnamed_addr constant [7 x i8] c"italic\00", align 1
 @g_fontengine = external local_unnamed_addr global ptr, align 8
 @.str.13 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.17 = private unnamed_addr constant [35 x i8] c"Invalid rectangle string format: \22\00", align 1
 @.str.18 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.19 = private unnamed_addr constant [35 x i8] c"Invalid 2d vector string format: \22\00", align 1
@@ -3149,7 +3149,7 @@ lpad:                                             ; preds = %_ZNK9GUIButton9isHo
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK9GUIButton13getImageStateEb(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext %pressed) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 9) i32 @_ZNK9GUIButton13getImageStateEb(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext %pressed) local_unnamed_addr #3 align 2 {
 entry:
   %ButtonImages = getelementptr inbounds i8, ptr %this, i64 400
   %Environment.i.i = getelementptr inbounds i8, ptr %this, i64 296
@@ -3359,7 +3359,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK9GUIButton13getImageStateEbPKNS_11ButtonImageE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext %pressed, ptr nocapture noundef readonly %images) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 9) i32 @_ZNK9GUIButton13getImageStateEbPKNS_11ButtonImageE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext %pressed, ptr nocapture noundef readonly %images) local_unnamed_addr #3 align 2 {
 entry:
   %Environment.i = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load ptr, ptr %Environment.i, align 8, !tbaa !61

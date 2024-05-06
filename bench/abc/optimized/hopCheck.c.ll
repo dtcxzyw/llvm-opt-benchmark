@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [52 x i8] c"Hop_ManCheck: The number of created nodes is wrong.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 4
   %.val = load i32, ptr %3, align 4

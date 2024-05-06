@@ -58,7 +58,7 @@ declare void @rb_random_base_init(ptr noundef) local_unnamed_addr #1
 declare void @rb_random_mark(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @random_loop_memsize(ptr nocapture noundef readonly %0) #2 {
+define internal range(i64 24, 17179869205) i64 @random_loop_memsize(ptr nocapture noundef readonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -74,7 +74,7 @@ define internal void @loop_init(ptr nocapture noundef %0, ptr nocapture noundef 
   %5 = load ptr, ptr %4, align 8
   %6 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %5, i64 noundef %spec.store.select, i64 noundef 4) #11
   store ptr %6, ptr %4, align 8
-  %7 = trunc i64 %spec.store.select to i32
+  %7 = trunc nuw nsw i64 %spec.store.select to i32
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
   %.not.i = icmp eq i64 %2, 0
@@ -82,7 +82,7 @@ define internal void @loop_init(ptr nocapture noundef %0, ptr nocapture noundef 
 
 9:                                                ; preds = %3
   %10 = shl nuw nsw i64 %spec.store.select, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %1, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %6, ptr readonly align 1 %1, i64 %10, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %3, %9

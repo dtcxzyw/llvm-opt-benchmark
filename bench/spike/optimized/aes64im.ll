@@ -133,7 +133,7 @@ define noundef i64 @_Z18fast_rv64i_aes64imP11processor_t6insn_tm(ptr nocapture n
   %18 = getelementptr inbounds [32 x i64], ptr %15, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = lshr i64 %19, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = lshr i32 %21, 24
   %23 = shl nuw nsw i32 %22, 1
   %.not411 = icmp sgt i64 %19, -1
@@ -421,7 +421,7 @@ define noundef i64 @_Z20logged_rv64i_aes64imP11processor_t6insn_tm(ptr noundef %
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
   %18 = lshr i64 %16, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = lshr i32 %17, 16
   %21 = shl nuw nsw i32 %20, 1
   %22 = and i32 %21, 510
@@ -805,7 +805,7 @@ define noundef i64 @_Z18fast_rv64e_aes64imP11processor_t6insn_tm(ptr nocapture n
   %32 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %13
   %33 = load i64, ptr %32, align 8
   %34 = lshr i64 %33, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = lshr i32 %35, 24
   %37 = shl nuw nsw i32 %36, 1
   %.not418 = icmp sgt i64 %33, -1
@@ -1106,7 +1106,7 @@ define noundef i64 @_Z20logged_rv64e_aes64imP11processor_t6insn_tm(ptr noundef %
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i32
   %25 = lshr i64 %23, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = lshr i32 %24, 16
   %28 = shl nuw nsw i32 %27, 1
   %29 = and i32 %28, 510

@@ -848,7 +848,7 @@ for.cond4.preheader.i.i:                          ; preds = %for.inc24.i.i, %.no
   %conv.i.i = zext i32 %50 to i64
   %arrayidx10.i.i = getelementptr inbounds [624 x i64], ptr %random, i64 0, i64 %__i.015.i.i
   store i64 %conv.i.i, ptr %arrayidx10.i.i, align 8
-  %tobool.i.i = trunc i8 %__zero.014.i.i to i1
+  %tobool.i.i = trunc nuw i8 %__zero.014.i.i to i1
   br i1 %tobool.i.i, label %if.then.i.i88, label %for.inc24.i.i
 
 if.then.i.i88:                                    ; preds = %for.cond4.preheader.i.i
@@ -873,7 +873,7 @@ for.inc24.i.i:                                    ; preds = %if.else.i.i, %if.th
   br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !17
 
 for.end26.i.i:                                    ; preds = %for.inc24.i.i
-  %tobool27.i.i = trunc i8 %__zero.1.i.i to i1
+  %tobool27.i.i = trunc nuw i8 %__zero.1.i.i to i1
   br i1 %tobool27.i.i, label %if.then28.i.i, label %invoke.cont54
 
 if.then28.i.i:                                    ; preds = %for.end26.i.i
@@ -1937,10 +1937,10 @@ while.body.preheader:                             ; preds = %if.then, %_ZN4absl1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %dst.028 = phi i64 [ %dec19, %while.body ], [ 60, %while.body.preheader ]
-  %sub = add nsw i64 %dst.028, -4
+  %dst.031 = phi i64 [ %dec19, %while.body ], [ 60, %while.body.preheader ]
+  %sub = add nsw i64 %dst.031, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.028, -5
+  %dec = add nsw i64 %dst.031, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -1948,7 +1948,7 @@ while.body:                                       ; preds = %while.body.preheade
   %10 = load i32, ptr %arrayidx10, align 4
   store i32 %10, ptr %arrayidx, align 4
   store i32 %9, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.028, -6
+  %dec11 = add nsw i64 %dst.031, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -1956,7 +1956,7 @@ while.body:                                       ; preds = %while.body.preheade
   %12 = load i32, ptr %arrayidx14, align 8
   store i32 %12, ptr %arrayidx12, align 8
   store i32 %11, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.028, -7
+  %dec15 = add nsw i64 %dst.031, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -1964,7 +1964,7 @@ while.body:                                       ; preds = %while.body.preheade
   %14 = load i32, ptr %arrayidx18, align 4
   store i32 %14, ptr %arrayidx16, align 4
   store i32 %13, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.028, -8
+  %dec19 = add nsw i64 %dst.031, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
@@ -1980,20 +1980,20 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i.i.i15)
   call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr25)
-  %call2.i.i.i.i20 = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
-  %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i21 = trunc i64 %call2.i.i.i.i20 to i32
-  %17 = and i64 %call2.i.i.i.i20, 4294967296
-  %tobool.i.i.not.i.i.i.i22 = icmp eq i64 %17, 0
-  %retval.0.i.i.i.i.i23 = select i1 %tobool.i.i.not.i.i.i.i22, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i21
-  store i32 %retval.0.i.i.i.i.i23, ptr %salt.i.i.i.i15, align 4
+  %call2.i.i.i.i23 = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
+  %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i24 = trunc i64 %call2.i.i.i.i23 to i32
+  %17 = and i64 %call2.i.i.i.i23, 4294967296
+  %tobool.i.i.not.i.i.i.i25 = icmp eq i64 %17, 0
+  %retval.0.i.i.i.i.i26 = select i1 %tobool.i.i.not.i.i.i.i25, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i24
+  store i32 %retval.0.i.i.i.i.i26, ptr %salt.i.i.i.i15, align 4
   call void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIKjEENS1_IjEE(ptr nonnull %salt.i.i.i.i15, i64 1, ptr nonnull %buffer, i64 60)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %salt.i.i.i.i15)
-  %call2.i.i24 = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
-  %ref.tmp.sroa.0.0.extract.trunc.i.i25 = trunc i64 %call2.i.i24 to i32
-  %18 = and i64 %call2.i.i24, 4294967296
-  %tobool.i.i.not.i.i26 = icmp eq i64 %18, 0
-  %retval.0.i.i.i27 = select i1 %tobool.i.i.not.i.i26, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc.i.i25
-  store i32 %retval.0.i.i.i27, ptr %salt.i.i16, align 4
+  %call2.i.i27 = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
+  %ref.tmp.sroa.0.0.extract.trunc.i.i28 = trunc i64 %call2.i.i27 to i32
+  %18 = and i64 %call2.i.i27, 4294967296
+  %tobool.i.i.not.i.i29 = icmp eq i64 %18, 0
+  %retval.0.i.i.i30 = select i1 %tobool.i.i.not.i.i29, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc.i.i28
+  store i32 %retval.0.i.i.i30, ptr %salt.i.i16, align 4
   call void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIKjEENS1_IjEE(ptr nonnull %salt.i.i16, i64 1, ptr nonnull %buffer, i64 60)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %salt.i.i16)
   br label %if.end
@@ -2838,10 +2838,10 @@ if.then:
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
-  %dst.020 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
-  %sub = add nsw i64 %dst.020, -4
+  %dst.022 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
+  %sub = add nsw i64 %dst.022, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.020, -5
+  %dec = add nsw i64 %dst.022, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -2849,7 +2849,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.020, -6
+  %dec11 = add nsw i64 %dst.022, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -2857,7 +2857,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.020, -7
+  %dec15 = add nsw i64 %dst.022, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -2865,7 +2865,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.020, -8
+  %dec19 = add nsw i64 %dst.022, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
@@ -2883,9 +2883,9 @@ if.end:                                           ; preds = %while.body
   %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %9 = load i8, ptr %has_crypto_.i, align 8
   %tobool.i = trunc i8 %9 to i1
-  br i1 %tobool.i, label %if.then.i18, label %if.else.i
+  br i1 %tobool.i, label %if.then.i20, label %if.else.i
 
-if.then.i18:                                      ; preds = %if.end
+if.then.i20:                                      ; preds = %if.end
   call void @_ZN4absl15random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
   br label %_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit
 
@@ -2893,7 +2893,7 @@ if.else.i:                                        ; preds = %if.end
   call void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
   br label %_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit
 
-_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i18, %if.else.i
+_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i20, %if.else.i
   %next_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void
@@ -3533,7 +3533,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %d
 
 do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %shl.i.i.i.i = shl i32 %s.013.i.i.i.i, 16
-  %3 = trunc i64 %sub.i.i.i.i to i32
+  %3 = trunc nuw nsw i64 %sub.i.i.i.i to i32
   %conv.i.i.i.i = and i32 %3, 65535
   %add.i.i.i.i = or disjoint i32 %conv.i.i.i.i, %shl.i.i.i.i
   br i1 %cmp.i.i.i.i, label %do.body.preheader.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseISt26linear_congruential_engineImLm16807ELm0ELm2147483647EENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i, !llvm.loop !80
@@ -3611,7 +3611,7 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %for
 for.end.i.i:                                      ; preds = %for.body6.i.i
   %arrayidx10.i.i = getelementptr inbounds [312 x i64], ptr %agg.tmp.ensured, i64 0, i64 %__i.016.i.i
   store i64 %add8.i.i, ptr %arrayidx10.i.i, align 8
-  %tobool.i.i = trunc i8 %__zero.015.i.i to i1
+  %tobool.i.i = trunc nuw i8 %__zero.015.i.i to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc24.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
@@ -3773,7 +3773,7 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %for
 for.end.i.i:                                      ; preds = %for.body6.i.i
   %arrayidx10.i.i = getelementptr inbounds [312 x i64], ptr %agg.tmp.ensured, i64 0, i64 %__i.016.i.i
   store i64 %add8.i.i, ptr %arrayidx10.i.i, align 8
-  %tobool.i.i = trunc i8 %__zero.015.i.i to i1
+  %tobool.i.i = trunc nuw i8 %__zero.015.i.i to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc24.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
@@ -3898,7 +3898,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -3913,7 +3913,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -3923,7 +3923,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
@@ -3943,11 +3943,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN4
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i to i64
   %6 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i = trunc i128 %6 to i64
+  %.tr.i.i.i.i.i.i.i.i = trunc nuw i128 %6 to i64
   %.narrow.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i, 58
-  %xor.i.i12.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i
-  %or.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i, i64 %xor.i.i12.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i)
+  %xor.i.i14.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i
+  %or.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i)
   %conv.i.i.i.i = trunc i64 %or.i.i.i.i.i.i.i.i.i to i32
   store i32 %conv.i.i.i.i, ptr %__begin2.08.i.ptr.i, align 4, !noalias !91
   %__begin2.08.i.add.i = add nuw nsw i64 %__begin2.08.i.idx.i, 4
@@ -4020,7 +4020,7 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %for
 for.end.i.i:                                      ; preds = %for.body6.i.i
   %arrayidx10.i.i = getelementptr inbounds [312 x i64], ptr %agg.tmp.ensured, i64 0, i64 %__i.016.i.i
   store i64 %add8.i.i, ptr %arrayidx10.i.i, align 8
-  %tobool.i.i = trunc i8 %__zero.015.i.i to i1
+  %tobool.i.i = trunc nuw i8 %__zero.015.i.i to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc24.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
@@ -4125,7 +4125,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %seed_material.i)
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %call.i.i.i.i.i.noexc, %entry
+for.body.i.i:                                     ; preds = %entry, %call.i.i.i.i.i.noexc
   %__begin2.08.i.idx.i = phi i64 [ %__begin2.08.i.add.i, %call.i.i.i.i.i.noexc ], [ 0, %entry ]
   %call.i.i.i.i.i2 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %urandom)
           to label %call.i.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -4202,7 +4202,7 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %for
 for.end.i.i:                                      ; preds = %for.body6.i.i
   %arrayidx10.i.i = getelementptr inbounds [312 x i64], ptr %agg.tmp.ensured, i64 0, i64 %__i.016.i.i
   store i64 %add8.i.i, ptr %arrayidx10.i.i, align 8
-  %tobool.i.i = trunc i8 %__zero.015.i.i to i1
+  %tobool.i.i = trunc nuw i8 %__zero.015.i.i to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc24.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
@@ -4227,7 +4227,7 @@ for.inc24.i.i:                                    ; preds = %if.else.i.i, %if.th
   br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !86
 
 for.end26.i.i:                                    ; preds = %for.inc24.i.i
-  %tobool27.i.i = trunc i8 %__zero.1.i.i to i1
+  %tobool27.i.i = trunc nuw i8 %__zero.1.i.i to i1
   br i1 %tobool27.i.i, label %if.then28.i.i, label %delete.notnull.i.i.i
 
 if.then28.i.i:                                    ; preds = %for.end26.i.i
@@ -4429,7 +4429,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %shl.i.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i.i = zext i32 %3 to i64
@@ -4444,7 +4444,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i, 64
@@ -4454,7 +4454,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
@@ -4474,11 +4474,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i to i64
   %6 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc i128 %6 to i64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %6 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
-  %xor.i.i12.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
-  %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.i, i64 %xor.i.i12.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
+  %xor.i.i14.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
+  %or.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %conv.i.i.i.i.i = trunc i64 %or.i.i.i.i.i.i.i.i.i.i to i32
   store i32 %conv.i.i.i.i.i, ptr %__begin2.08.i.ptr.i.i, align 4, !noalias !105
   %__begin2.08.i.add.i.i = add nuw nsw i64 %__begin2.08.i.idx.i.i, 4
@@ -4526,11 +4526,11 @@ invoke.cont2.i:                                   ; preds = %invoke.cont2.i, %_Z
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i = add i128 %mul.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i to i64
   %10 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i, 64
-  %.tr.i.i.i.i.i = trunc i128 %10 to i64
+  %.tr.i.i.i.i.i = trunc nuw i128 %10 to i64
   %.narrow.i.i.i.i.i = add i64 %.tr.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i, 58
-  %xor.i.i12.i.i.i.i = xor i64 %.narrow.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i
-  %or.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i, i64 %xor.i.i12.i.i.i.i, i64 %shr.i.i.i.i.i)
+  %xor.i.i14.i.i.i.i = xor i64 %.narrow.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i
+  %or.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i, i64 %xor.i.i14.i.i.i.i, i64 %shr.i.i.i.i.i)
   store i64 %or.i.i.i.i.i.i, ptr %__begin0.0.ptr.i, align 8
   %__begin0.0.add.i = add nuw nsw i64 %__begin0.0.idx45.i, 8
   %cmp.not.i = icmp eq i64 %__begin0.0.add.i, 8000
@@ -4569,11 +4569,11 @@ invoke.cont15.i:                                  ; preds = %for.inc30.i, %_ZN4a
   %coerce.sroa.0.0.insert.insert.i6.i.i.i22.i = add i128 %mul.i.i.i.i21.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i23.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i22.i to i64
   %13 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i22.i, 64
-  %.tr.i.i.i.i24.i = trunc i128 %13 to i64
+  %.tr.i.i.i.i24.i = trunc nuw i128 %13 to i64
   %.narrow.i.i.i.i25.i = add i64 %.tr.i.i.i.i24.i, 6364136223846793005
   %shr.i.i.i.i26.i = lshr i64 %.narrow.i.i.i.i25.i, 58
-  %xor.i.i12.i.i.i27.i = xor i64 %.narrow.i.i.i.i25.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i23.i
-  %or.i.i.i.i.i28.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i27.i, i64 %xor.i.i12.i.i.i27.i, i64 %shr.i.i.i.i26.i)
+  %xor.i.i14.i.i.i27.i = xor i64 %.narrow.i.i.i.i25.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i23.i
+  %or.i.i.i.i.i28.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i27.i, i64 %xor.i.i14.i.i.i27.i, i64 %shr.i.i.i.i26.i)
   store i64 %or.i.i.i.i.i28.i, ptr %ref.tmp.i, align 8
   %14 = load i64, ptr %__begin06.0.ptr49.i, align 8, !noalias !112
   %cmp.i.i.i = icmp eq i64 %14, %or.i.i.i.i.i28.i
@@ -4823,7 +4823,7 @@ for.body:                                         ; preds = %entry, %for.body
   %shl.i.i = or disjoint i128 %5, %6
   %coerce1.sroa.0.0.extract.trunc.i.i = trunc i128 %6 to i64
   %coerce1.sroa.2.0.extract.shift.i.i = lshr i128 %shl.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
   %arrayidx4 = getelementptr inbounds [4 x i32], ptr %buffer, i64 0, i64 %i.018
   %7 = load i32, ptr %arrayidx4, align 4
   %conv.i3 = zext i32 %7 to i64
@@ -4838,7 +4838,7 @@ for.end:                                          ; preds = %for.body
   %coerce2.sroa.0.0.insert.insert.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i = add i128 %coerce2.sroa.0.0.insert.insert.i, %coerce.sroa.2.0.insert.shift.i
   %8 = lshr i128 %coerce.sroa.0.0.insert.insert.i, 64
-  %.tr.i = trunc i128 %8 to i64
+  %.tr.i = trunc nuw i128 %8 to i64
   %.narrow.i = add i64 %.tr.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8 = zext i64 %.narrow.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8, 64
@@ -4848,7 +4848,7 @@ for.end:                                          ; preds = %for.body
   %coerce.sroa.0.0.insert.insert.i6.i = add i128 %mul.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i to i64
   %9 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i, 64
-  %.tr.i.i = trunc i128 %9 to i64
+  %.tr.i.i = trunc nuw i128 %9 to i64
   %.narrow.i.i = add i64 %.tr.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i, ptr %this, align 16
   %ref.tmp.sroa.2.0.state_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8

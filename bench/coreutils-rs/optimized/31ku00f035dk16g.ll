@@ -1217,7 +1217,7 @@ define void @_ZN5uu_tr6uu_app17hd4527f1920fd687dE(ptr noalias nocapture noundef 
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 32
   store i64 -1, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !358, !noalias !361
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %2, ptr noundef nonnull align 8 dereferenceable(592) %16, i64 592, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %2, ptr noundef nonnull align 8 dereferenceable(592) %16, i64 592, i1 false)
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !363)
   invoke void @_ZN12clap_builder7builder7command7Command12arg_internal17h711ac70569505de6E(ptr noalias noundef nonnull align 8 dereferenceable(712) %36, ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %2)

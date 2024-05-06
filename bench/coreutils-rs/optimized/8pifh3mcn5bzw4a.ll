@@ -1920,7 +1920,7 @@ _ZN3std4sync4mpmc5waker5Waker10try_select17ha74c1d6f879212f7E.exit: ; preds = %.
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %80, ptr nonnull align 8 %81, i64 %84, i1 false), !noalias !275
   %85 = add i64 %77, -1
   store i64 %85, ptr %37, align 8, !alias.scope !270, !noalias !271
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !247
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !247
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %.pr = load ptr, ptr %5, align 8, !alias.scope !276
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)

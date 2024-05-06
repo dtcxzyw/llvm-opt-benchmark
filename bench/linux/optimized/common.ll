@@ -832,7 +832,7 @@ declare dso_local i64 @simple_strtol(ptr noundef, ptr noundef, i32 noundef) loca
 declare dso_local void @add_taint(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @pcibios_assign_all_busses() local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 2) i32 @pcibios_assign_all_busses() local_unnamed_addr #7 align 16 {
   %1 = load i32, ptr @pci_probe, align 4
   %2 = lshr i32 %1, 14
   %3 = and i32 %2, 1
@@ -840,7 +840,7 @@ define dso_local i32 @pcibios_assign_all_busses() local_unnamed_addr #7 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pcibios_device_add(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i64, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 34), align 1
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %.loopexit3, label %4
@@ -1027,7 +1027,7 @@ define dso_local void @pcibios_release_device(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @pci_ext_cfg_avail() local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 2) i32 @pci_ext_cfg_avail() local_unnamed_addr #7 align 16 {
   %1 = load ptr, ptr @raw_pci_ext_ops, align 8
   %2 = icmp ne ptr %1, null
   %3 = zext i1 %2 to i32

@@ -306,7 +306,7 @@ define noundef double @_ZNK5faiss21OneRecallAtRCriterion8evaluateEPKfPKl(ptr noc
 .lr.ph.us:                                        ; preds = %.preheader, %..loopexit_crit_edge.us
   %.01724.us = phi i64 [ %39, %..loopexit_crit_edge.us ], [ 0, %.preheader ]
   %.01823.us = phi i64 [ %.1.us, %..loopexit_crit_edge.us ], [ 0, %.preheader ]
-  %27 = mul nsw i64 %.01724.us, %14
+  %27 = mul nuw nsw i64 %.01724.us, %14
   %28 = getelementptr inbounds i64, ptr %8, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = mul nsw i64 %.01724.us, %22
@@ -2604,7 +2604,7 @@ define void @_ZN5faiss21OneRecallAtRCriterionC2Ell(ptr nocapture noundef nonnull
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss21OneRecallAtRCriterionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   store i64 %2, ptr %7, align 8
@@ -2654,7 +2654,7 @@ define void @_ZN5faiss21IntersectionCriterionC2Ell(ptr nocapture noundef nonnull
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss21IntersectionCriterionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   store i64 %2, ptr %7, align 8

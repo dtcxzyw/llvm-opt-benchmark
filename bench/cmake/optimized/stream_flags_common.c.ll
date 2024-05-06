@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lzma_footer_magic = dso_local local_unnamed_addr constant [2 x i8] c"YZ", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @lzma_stream_flags_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_stream_flags_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %33

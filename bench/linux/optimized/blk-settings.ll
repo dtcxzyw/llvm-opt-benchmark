@@ -553,7 +553,7 @@ define dso_local void @blk_queue_io_opt(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @blk_stack_limits(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #5 align 16 {
+define dso_local range(i32 -1, 1) i32 @blk_stack_limits(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 36
@@ -746,7 +746,7 @@ define dso_local i32 @blk_stack_limits(ptr noundef %0, ptr nocapture noundef rea
   %126 = lshr i32 %125, 9
   %127 = zext nneg i32 %126 to i64
   %128 = urem i64 %2, %127
-  %129 = trunc i64 %128 to i32
+  %129 = trunc nuw nsw i64 %128 to i32
   %130 = getelementptr inbounds i8, ptr %1, i64 56
   %131 = load i32, ptr %130, align 8
   %132 = add i32 %131, %125
@@ -890,7 +890,7 @@ define dso_local i32 @blk_stack_limits(ptr noundef %0, ptr nocapture noundef rea
   %218 = tail call i32 @llvm.umax.i32(i32 %189, i32 %195)
   %219 = zext i32 %218 to i64
   %220 = urem i64 %217, %219
-  %221 = trunc i64 %220 to i32
+  %221 = trunc nuw i64 %220 to i32
   store i32 %221, ptr %136, align 8
   %222 = and i32 %184, %221
   %223 = icmp eq i32 %222, 0
@@ -933,7 +933,7 @@ define dso_local i32 @blk_stack_limits(ptr noundef %0, ptr nocapture noundef rea
   %248 = lshr i32 %247, 9
   %249 = zext nneg i32 %245 to i64
   %250 = urem i64 %2, %249
-  %251 = trunc i64 %250 to i32
+  %251 = trunc nuw nsw i64 %250 to i32
   %252 = add nuw nsw i32 %248, %245
   %253 = sub nsw i32 %252, %251
   %254 = urem i32 %253, %245
@@ -1014,7 +1014,7 @@ define dso_local i32 @blk_stack_limits(ptr noundef %0, ptr nocapture noundef rea
   %302 = tail call i64 @lcm_not_zero(i64 noundef %300, i64 noundef %301) #13
   %303 = zext i32 %297 to i64
   %304 = urem i64 %302, %303
-  %305 = trunc i64 %304 to i32
+  %305 = trunc nuw i64 %304 to i32
   store i32 %305, ptr %298, align 4
   br label %306
 
@@ -1297,7 +1297,7 @@ define dso_local i32 @bdev_alignment_offset(ptr nocapture noundef readonly %0) #
   %18 = lshr i32 %17, 9
   %19 = zext nneg i32 %18 to i64
   %20 = urem i64 %12, %19
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = getelementptr inbounds i8, ptr %3, i64 176
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, %17
@@ -1345,7 +1345,7 @@ define dso_local i32 @bdev_discard_alignment(ptr nocapture noundef readonly %0) 
   %20 = lshr i32 %19, 9
   %21 = zext nneg i32 %17 to i64
   %22 = urem i64 %8, %21
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = add nuw nsw i32 %20, %17
   %25 = sub nsw i32 %24, %23
   %26 = urem i32 %25, %17

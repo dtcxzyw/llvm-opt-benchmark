@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxsem_set_protocol(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -138, 1) i32 @nxsem_set_protocol(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 3
   switch i32 %3, label %5 [
     i32 0, label %4

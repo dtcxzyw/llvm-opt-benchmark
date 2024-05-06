@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_rshift = private unnamed_addr constant [10 x i8] c"BN_rshift\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_lshift1(ptr noundef %r, ptr noundef readonly %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_lshift1(ptr noundef %r, ptr noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %r, %a
   br i1 %cmp.not, label %if.else, label %if.then
@@ -90,7 +90,7 @@ return:                                           ; preds = %if.else, %if.then, 
 declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_rshift1(ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_rshift1(ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %a) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -178,7 +178,7 @@ declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_lshift(ptr noundef %r, ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_lshift(ptr noundef %r, ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -190,7 +190,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @bn_lshift_fixed_top(ptr noundef %r, ptr noundef %a, i32 noundef %n), !range !7
+  %call = tail call i32 @bn_lshift_fixed_top(ptr noundef %r, ptr noundef %a, i32 noundef %n)
   tail call void @bn_correct_top(ptr noundef %r) #4
   br label %return
 
@@ -206,7 +206,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_lshift_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_lshift_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %div = sdiv i32 %n, 64
   %top = getelementptr inbounds i8, ptr %a, i64 8
@@ -265,7 +265,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx31 = getelementptr inbounds i64, ptr %arrayidx8, i64 %indvars.iv.next
   store i64 %or28, ptr %arrayidx31, align 8
   %cmp19 = icmp ugt i64 %indvars.iv, 2
-  br i1 %cmp19, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp19, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.then4
   %l.0.lcssa = phi i64 [ %6, %if.then4 ], [ %9, %for.body ]
@@ -314,7 +314,7 @@ declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_rshift(ptr noundef %r, ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_rshift(ptr noundef %r, ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -385,7 +385,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx24.i = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i
   store i64 %or22.i, ptr %arrayidx24.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %if.end11.for.end_crit_edge.i
   %sh_prom25.pre-phi.i = phi i64 [ %.pre.i, %if.end11.for.end_crit_edge.i ], [ %sh_prom.i, %for.body.i ]
@@ -413,7 +413,7 @@ return:                                           ; preds = %bn_rshift_fixed_top
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_rshift_fixed_top(ptr noundef %r, ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_rshift_fixed_top(ptr noundef %r, ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %div = sdiv i32 %n, 64
   %top1 = getelementptr inbounds i8, ptr %a, i64 8
@@ -474,7 +474,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx24 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
   store i64 %or22, ptr %arrayidx24, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.body
   %5 = zext nneg i32 %sub15 to i64
@@ -518,6 +518,5 @@ attributes #4 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

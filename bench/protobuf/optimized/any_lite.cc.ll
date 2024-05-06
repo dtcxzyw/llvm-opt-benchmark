@@ -197,7 +197,7 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i
 _ZNK6google8protobuf8internal11AnyMetadata10InternalIsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %lor.rhs.i.i
   %sub.i.i = sub i64 %4, %type_name.coerce0
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %5, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %add.ptr.i1.i, ptr %type_name.coerce1, i64 %type_name.coerce0)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %add.ptr.i1.i, ptr readonly %type_name.coerce1, i64 %type_name.coerce0)
   %cmp9.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp9.i.i, label %if.end, label %return
 
@@ -270,7 +270,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf8internal15ParseAnyTypeUrlESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS4_SaIcEEESA_(i64 %type_url.coerce0, ptr %type_url.coerce1, ptr noundef %url_prefix, ptr noundef %full_type_name) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i10 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
+  %agg.tmp.i12 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator", align 1
@@ -328,19 +328,19 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
   %sub.i = sub i64 %type_url.coerce0, %__size.1.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %type_url.coerce1, i64 %__size.1.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i10)
-  %call.i14 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %sub.i, ptr nonnull %add.ptr.i) #8
-  %7 = extractvalue { i64, ptr } %call.i14, 0
-  %8 = extractvalue { i64, ptr } %call.i14, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i10, i64 %7, ptr %8) #8
-  %9 = load i64, ptr %agg.tmp.i10, align 8
-  %10 = getelementptr inbounds i8, ptr %agg.tmp.i10, i64 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i12)
+  %call.i16 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %sub.i, ptr nonnull %add.ptr.i) #8
+  %7 = extractvalue { i64, ptr } %call.i16, 0
+  %8 = extractvalue { i64, ptr } %call.i16, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i12, i64 %7, ptr %8) #8
+  %9 = load i64, ptr %agg.tmp.i12, align 8
+  %10 = getelementptr inbounds i8, ptr %agg.tmp.i12, i64 8
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, i64 %9, ptr %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i12)
   %call17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %full_type_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #8

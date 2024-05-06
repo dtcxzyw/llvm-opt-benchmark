@@ -204,7 +204,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN12V3StackCount5countEP7AstNode(ptr noundef %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZN12V3StackCount5countEP7AstNode(ptr noundef %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.StackCountVisitor, align 8
   store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV17StackCountVisitor, i64 0, i32 0, i64 2), ptr %2, align 8
   tail call void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser2InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser2InUse10s_userBusyE)

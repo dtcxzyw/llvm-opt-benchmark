@@ -69,7 +69,7 @@ define void @Msat_QueueInsert(ptr nocapture noundef %0, i32 noundef %1) local_un
   %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = sdiv i32 %12, 2
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14, i32 noundef %12, i32 noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %3, align 4

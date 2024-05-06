@@ -45,7 +45,7 @@ define { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %0, i64 nounde
   %25 = icmp ne i8 %24, 0
   %26 = icmp eq i64 %1, -1
   %or.cond4.not95 = and i1 %26, %25
-  %27 = trunc i8 %.078 to i1
+  %27 = trunc nuw i8 %.078 to i1
   %28 = icmp ugt i64 %2, 562949953421310
   %or.cond89.not = and i1 %28, %27
   %or.cond92 = select i1 %or.cond4.not95, i1 %or.cond89.not, i1 false
@@ -97,7 +97,7 @@ softfloat_lt128.exit:                             ; preds = %29, %23
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %46
-  %51 = trunc i8 %.078 to i1
+  %51 = trunc nuw i8 %.078 to i1
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %50, %44
@@ -141,7 +141,7 @@ softfloat_lt128.exit:                             ; preds = %29, %23
   br label %81
 
 67:                                               ; preds = %61, %60
-  %68 = trunc i8 %.179 to i1
+  %68 = trunc nuw i8 %.179 to i1
   br i1 %68, label %69, label %79
 
 69:                                               ; preds = %67

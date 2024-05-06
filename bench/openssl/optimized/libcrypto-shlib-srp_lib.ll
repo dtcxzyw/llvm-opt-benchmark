@@ -568,7 +568,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SRP_Verify_B_mod_N(ptr noundef %B, ptr noundef %N) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_Verify_B_mod_N(ptr noundef %B, ptr noundef %N) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %B, null
   %cmp1 = icmp eq ptr %N, null
@@ -612,7 +612,7 @@ declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SRP_Verify_A_mod_N(ptr noundef %A, ptr noundef %N) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_Verify_A_mod_N(ptr noundef %A, ptr noundef %N) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %A, null
   %cmp1.i = icmp eq ptr %N, null

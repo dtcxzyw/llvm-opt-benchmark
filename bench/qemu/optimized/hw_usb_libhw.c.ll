@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.iovec = type { ptr, i64 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @usb_packet_map(ptr noundef %p, ptr nocapture noundef readonly %sgl) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @usb_packet_map(ptr noundef %p, ptr nocapture noundef readonly %sgl) local_unnamed_addr #0 {
 entry:
   %xlen.i = alloca i64, align 8
   %0 = load i32, ptr %p, align 8

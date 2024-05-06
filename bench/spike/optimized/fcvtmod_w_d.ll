@@ -77,7 +77,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22fast_rv32i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -177,7 +177,7 @@ define noundef i64 @_Z22fast_rv32i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   %.sroa.032.0 = phi i64 [ %52, %46 ], [ %45, %36 ]
   %.not64 = icmp sgt i64 %.sroa.032.0, -1
   %54 = lshr i64 %.sroa.032.0, 52
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   %56 = and i32 %55, 2047
   %57 = and i64 %.sroa.032.0, 4503599627370495
   switch i32 %56, label %61 [
@@ -355,7 +355,7 @@ define noundef i64 @_Z22fast_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   %.sroa.030.0 = phi i64 [ %30, %27 ], [ %35, %31 ]
   %.not = icmp sgt i64 %.sroa.030.0, -1
   %37 = lshr i64 %.sroa.030.0, 52
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %39 = and i32 %38, 2047
   %40 = and i64 %.sroa.030.0, 4503599627370495
   switch i32 %39, label %44 [
@@ -440,7 +440,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %72, %75
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z24logged_rv32i_fcvtmod_w_dP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32i_fcvtmod_w_dP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -540,7 +540,7 @@ define noundef i64 @_Z24logged_rv32i_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   %.sroa.035.0 = phi i64 [ %52, %46 ], [ %45, %36 ]
   %.not68 = icmp sgt i64 %.sroa.035.0, -1
   %54 = lshr i64 %.sroa.035.0, 52
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   %56 = and i32 %55, 2047
   %57 = and i64 %.sroa.035.0, 4503599627370495
   switch i32 %56, label %61 [
@@ -757,7 +757,7 @@ define noundef i64 @_Z24logged_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   %.sroa.033.0 = phi i64 [ %30, %27 ], [ %35, %31 ]
   %.not = icmp sgt i64 %.sroa.033.0, -1
   %37 = lshr i64 %.sroa.033.0, 52
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %39 = and i32 %38, 2047
   %40 = and i64 %.sroa.033.0, 4503599627370495
   switch i32 %39, label %44 [
@@ -900,7 +900,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22fast_rv32e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -1017,7 +1017,7 @@ define noundef i64 @_Z22fast_rv32e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   %.sroa.038.0 = phi i64 [ %60, %54 ], [ %53, %44 ]
   %.not70 = icmp sgt i64 %.sroa.038.0, -1
   %62 = lshr i64 %.sroa.038.0, 52
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw nsw i64 %62 to i32
   %64 = and i32 %63, 2047
   %65 = and i64 %.sroa.038.0, 4503599627370495
   switch i32 %64, label %69 [
@@ -1192,7 +1192,7 @@ define noundef i64 @_Z22fast_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   %.sroa.031.0 = phi i64 [ %30, %27 ], [ %35, %31 ]
   %.not = icmp sgt i64 %.sroa.031.0, -1
   %37 = lshr i64 %.sroa.031.0, 52
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %39 = and i32 %38, 2047
   %40 = and i64 %.sroa.031.0, 4503599627370495
   switch i32 %39, label %44 [
@@ -1293,7 +1293,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %81, %82
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z24logged_rv32e_fcvtmod_w_dP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_fcvtmod_w_dP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -1410,7 +1410,7 @@ define noundef i64 @_Z24logged_rv32e_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   %.sroa.041.0 = phi i64 [ %60, %54 ], [ %53, %44 ]
   %.not74 = icmp sgt i64 %.sroa.041.0, -1
   %62 = lshr i64 %.sroa.041.0, 52
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw nsw i64 %62 to i32
   %64 = and i32 %63, 2047
   %65 = and i64 %.sroa.041.0, 4503599627370495
   switch i32 %64, label %69 [
@@ -1643,7 +1643,7 @@ define noundef i64 @_Z24logged_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   %.sroa.034.0 = phi i64 [ %30, %27 ], [ %35, %31 ]
   %.not = icmp sgt i64 %.sroa.034.0, -1
   %37 = lshr i64 %.sroa.034.0, 52
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %39 = and i32 %38, 2047
   %40 = and i64 %.sroa.034.0, 4503599627370495
   switch i32 %39, label %44 [

@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [17 x i8] c" transport_idle=\00", align 1
 @.str.4 = private unnamed_addr constant [20 x i8] c" next_allowed_ping=\00", align 1
 @.str.5 = private unnamed_addr constant [15 x i8] c" ping_strikes=\00", align 1
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ping_abuse_policy.cc, ptr null }]
 
 @_ZN9grpc_core21Chttp2PingAbusePolicyC1ERKNS_11ChannelArgsE = unnamed_addr alias void (ptr, ptr), ptr @_ZN9grpc_core21Chttp2PingAbusePolicyC2ERKNS_11ChannelArgsE

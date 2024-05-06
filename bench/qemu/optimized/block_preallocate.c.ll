@@ -72,7 +72,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @preallocate_reopen_prepare(ptr nocapture noundef %reopen_state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @preallocate_reopen_prepare(ptr nocapture noundef %reopen_state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #7
   %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @preallocate_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @preallocate_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

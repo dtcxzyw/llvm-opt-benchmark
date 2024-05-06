@@ -53,7 +53,7 @@ define internal noundef i32 @disable_mtrr_trim_setup(ptr nocapture readnone %0) 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @amd_special_default_mtrr() local_unnamed_addr #2 section ".init.text" align 16 {
+define dso_local range(i32 0, 2) i32 @amd_special_default_mtrr() local_unnamed_addr #2 section ".init.text" align 16 {
   %1 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
   switch i8 %1, label %19 [
     i8 9, label %2
@@ -101,7 +101,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @mtrr_trim_uncached_memory(i64 noundef %0) local_unnamed_addr #2 section ".init.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noundef %0) local_unnamed_addr #2 section ".init.text" align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1

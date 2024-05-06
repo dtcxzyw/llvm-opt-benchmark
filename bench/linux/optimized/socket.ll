@@ -1597,7 +1597,7 @@ declare dso_local i32 @security_socket_create(i32 noundef, i32 noundef, i32 noun
 declare dso_local i32 @security_socket_post_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sock_wake_async(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @sock_wake_async(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %23, label %5
 
@@ -1978,7 +1978,7 @@ define dso_local i32 @__sys_socket(i32 noundef %0, i32 noundef %1, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_socket(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_socket(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1994,7 +1994,7 @@ define dso_local i64 @__x64_sys_socket(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_socket(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_socket(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2221,7 +2221,7 @@ declare dso_local i32 @security_socket_socketpair(ptr noundef, ptr noundef) loca
 declare dso_local void @fd_install(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_socketpair(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_socketpair(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2240,7 +2240,7 @@ define dso_local i64 @__x64_sys_socketpair(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_socketpair(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_socketpair(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2361,7 +2361,7 @@ define dso_local i32 @__sys_bind(i32 noundef %0, ptr noundef %1, i32 noundef %2)
 declare dso_local i32 @security_socket_bind(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_bind(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_bind(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2377,7 +2377,7 @@ define dso_local i64 @__x64_sys_bind(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_bind(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_bind(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2466,7 +2466,7 @@ define dso_local i32 @__sys_listen(i32 noundef %0, i32 noundef %1) local_unnamed
 declare dso_local i32 @security_socket_listen(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_listen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_listen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2542,7 +2542,7 @@ __sys_listen.exit:                                ; preds = %1, %.thread.i, %24,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_listen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_listen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2858,7 +2858,7 @@ define dso_local i32 @__sys_accept4(i32 noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_accept4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_accept4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2877,7 +2877,7 @@ define dso_local i64 @__x64_sys_accept4(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_accept4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_accept4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2898,7 +2898,7 @@ define dso_local i64 @__ia32_sys_accept4(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_accept(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_accept(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2951,7 +2951,7 @@ __sys_accept4.exit:                               ; preds = %1, %25, %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_accept(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_accept(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3136,7 +3136,7 @@ define dso_local i32 @__sys_connect(i32 noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_connect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_connect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3152,7 +3152,7 @@ define dso_local i64 @__x64_sys_connect(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_connect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_connect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3303,7 +3303,7 @@ move_addr_to_user.exit:                           ; preds = %66, %62, %59, %44, 
 declare dso_local i32 @security_socket_getsockname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_getsockname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getsockname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3319,7 +3319,7 @@ define dso_local i64 @__x64_sys_getsockname(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_getsockname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getsockname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3475,7 +3475,7 @@ move_addr_to_user.exit:                           ; preds = %67, %63, %60, %45, 
 declare dso_local i32 @security_socket_getpeername(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_getpeername(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getpeername(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3491,7 +3491,7 @@ define dso_local i64 @__x64_sys_getpeername(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_getpeername(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getpeername(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3639,7 +3639,7 @@ define dso_local i32 @__sys_sendto(i32 noundef %0, ptr noundef %1, i64 noundef %
 declare dso_local i32 @import_ubuf(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_sendto(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_sendto(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3663,7 +3663,7 @@ define dso_local i64 @__x64_sys_sendto(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_sendto(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_sendto(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3690,7 +3690,7 @@ define dso_local i64 @__ia32_sys_sendto(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3708,7 +3708,7 @@ define dso_local i64 @__x64_sys_send(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3880,7 +3880,7 @@ move_addr_to_user.exit.thread:                    ; preds = %move_addr_to_user.e
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_recvfrom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_recvfrom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3904,7 +3904,7 @@ define dso_local i64 @__x64_sys_recvfrom(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_recvfrom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_recvfrom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3932,7 +3932,7 @@ define dso_local i64 @__ia32_sys_recvfrom(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3950,7 +3950,7 @@ define dso_local i64 @__x64_sys_recv(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4117,7 +4117,7 @@ define dso_local i32 @__sys_setsockopt(i32 noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_setsockopt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_setsockopt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -4139,7 +4139,7 @@ define dso_local i64 @__x64_sys_setsockopt(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_setsockopt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_setsockopt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4285,7 +4285,7 @@ define dso_local i32 @__sys_getsockopt(i32 noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_getsockopt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getsockopt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sockptr_t, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -4357,7 +4357,7 @@ __sys_getsockopt.exit:                            ; preds = %1, %.thread.i, %34,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_getsockopt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getsockopt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sockptr_t, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -4515,7 +4515,7 @@ define dso_local i32 @__sys_shutdown(i32 noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_shutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_shutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -4584,7 +4584,7 @@ __sys_shutdown.exit:                              ; preds = %1, %.thread.i, %24,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_shutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_shutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4653,7 +4653,7 @@ __sys_shutdown.exit:                              ; preds = %1, %.thread.i, %24,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__copy_msghdr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__copy_msghdr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -4
@@ -4762,7 +4762,7 @@ define dso_local i32 @__copy_msghdr(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sendmsg_copy_msghdr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @sendmsg_copy_msghdr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.user_msghdr, align 8
   %6 = icmp sgt i32 %2, -1
   br i1 %6, label %9, label %7
@@ -4883,7 +4883,7 @@ __copy_msghdr.exit.thread:                        ; preds = %.thread1, %.thread7
 declare dso_local i32 @get_compat_msghdr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__sys_sendmsg_sock(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_sendmsg_sock(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, i32 noundef 0)
   %5 = sext i32 %4 to i64
   ret i64 %5
@@ -5042,7 +5042,7 @@ define internal fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__sys_sendmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_sendmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.msghdr, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #19
   %6 = icmp slt i32 %2, 0
@@ -5246,7 +5246,7 @@ __copy_msghdr.exit.thread:                        ; preds = %.thread1, %.thread7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_sendmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_sendmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.msghdr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -5317,7 +5317,7 @@ __sys_sendmsg.exit:                               ; preds = %1, %.thread2.i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_sendmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_sendmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.msghdr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -5529,7 +5529,7 @@ define dso_local i32 @__sys_sendmmsg(i32 noundef %0, ptr noundef %1, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_sendmmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_sendmmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -5548,7 +5548,7 @@ define dso_local i64 @__x64_sys_sendmmsg(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_sendmmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_sendmmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5568,7 +5568,7 @@ define dso_local i64 @__ia32_sys_sendmmsg(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @recvmsg_copy_msghdr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @recvmsg_copy_msghdr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.user_msghdr, align 8
   %7 = icmp sgt i32 %2, -1
   br i1 %7, label %10, label %8
@@ -5585,7 +5585,7 @@ define dso_local i32 @recvmsg_copy_msghdr(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
-  %14 = call i32 @__copy_msghdr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %3), !range !43
+  %14 = call i32 @__copy_msghdr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %3)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %28
 
@@ -5615,7 +5615,7 @@ define dso_local i32 @recvmsg_copy_msghdr(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__sys_recvmsg_sock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_recvmsg_sock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call fastcc i32 @____sys_recvmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0)
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -5744,7 +5744,7 @@ move_addr_to_user.exit:                           ; preds = %39, %69
   %83 = select i1 %82, i64 48, i64 24
   %84 = getelementptr inbounds i8, ptr %2, i64 %83
   %85 = call i64 @llvm.read_register.i64(metadata !0)
-  %86 = call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %84, i32 %81, i64 4, i64 %85) #19, !srcloc !44
+  %86 = call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %84, i32 %81, i64 4, i64 %85) #19, !srcloc !43
   %87 = extractvalue { ptr, i64 } %86, 0
   %88 = extractvalue { ptr, i64 } %86, 1
   %89 = ptrtoint ptr %87 to i64
@@ -5764,13 +5764,13 @@ move_addr_to_user.exit:                           ; preds = %39, %69
   %98 = trunc i64 %96 to i32
   %99 = getelementptr inbounds i8, ptr %2, i64 20
   %100 = call i64 @llvm.read_register.i64(metadata !0)
-  %101 = call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %99, i32 %98, i64 4, i64 %100) #19, !srcloc !45
+  %101 = call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %99, i32 %98, i64 4, i64 %100) #19, !srcloc !44
   br label %106
 
 102:                                              ; preds = %93
   %103 = getelementptr inbounds i8, ptr %2, i64 40
   %104 = call i64 @llvm.read_register.i64(metadata !0)
-  %105 = call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %103, i64 %96, i64 8, i64 %104) #19, !srcloc !46
+  %105 = call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %103, i64 %96, i64 8, i64 %104) #19, !srcloc !45
   br label %106
 
 106:                                              ; preds = %102, %97
@@ -5793,7 +5793,7 @@ move_addr_to_user.exit.thread:                    ; preds = %65, %62, %47, %106,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__sys_recvmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_recvmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.msghdr, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #19
   %6 = icmp slt i32 %2, 0
@@ -5973,7 +5973,7 @@ define internal fastcc i32 @___sys_recvmsg(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_recvmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_recvmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.msghdr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -6044,7 +6044,7 @@ __sys_recvmsg.exit:                               ; preds = %1, %.thread2.i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_recvmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_recvmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.msghdr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -6259,7 +6259,7 @@ define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noun
   br i1 %44, label %.thread19, label %45, !prof !9
 
 45:                                               ; preds = %39
-  %46 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 0, ptr elementtype(i32) %42) #19, !srcloc !47
+  %46 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 0, ptr elementtype(i32) %42) #19, !srcloc !46
   %47 = sub i32 0, %46
   %48 = icmp eq i32 %46, 0
   br i1 %48, label %.thread19, label %.thread22
@@ -6294,7 +6294,7 @@ define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noun
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %60, i64 28
   %68 = call i64 @llvm.read_register.i64(metadata !0)
-  %69 = call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %67, i32 %64, i64 4, i64 %68) #19, !srcloc !48
+  %69 = call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %67, i32 %64, i64 4, i64 %68) #19, !srcloc !47
   %70 = extractvalue { ptr, i64 } %69, 1
   call void @llvm.write_register.i64(metadata !0, i64 %70)
   %71 = getelementptr i8, ptr %60, i64 32
@@ -6309,7 +6309,7 @@ define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noun
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %59, i64 56
   %78 = call i64 @llvm.read_register.i64(metadata !0)
-  %79 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %77, i32 %74, i64 4, i64 %78) #19, !srcloc !49
+  %79 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %77, i32 %74, i64 4, i64 %78) #19, !srcloc !48
   %80 = extractvalue { ptr, i64 } %79, 1
   call void @llvm.write_register.i64(metadata !0, i64 %80)
   %81 = getelementptr i8, ptr %59, i64 64
@@ -6369,7 +6369,7 @@ define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noun
 113:                                              ; preds = %109
   %114 = call i32 @__SCT__cond_resched() #19
   %115 = icmp eq i32 %91, %2
-  br i1 %115, label %.thread22, label %56, !llvm.loop !50
+  br i1 %115, label %.thread22, label %56, !llvm.loop !49
 
 116:                                              ; preds = %82, %72, %62
   %.ph24 = phi i32 [ %64, %62 ], [ %74, %72 ], [ %88, %82 ]
@@ -6649,17 +6649,17 @@ define dso_local i64 @__ia32_sys_recvmmsg_time32(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_socketcall(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_socketcall(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_socketcall(i64 noundef %3, i64 noundef %5), !range !51
+  %6 = tail call fastcc i64 @__se_sys_socketcall(i64 noundef %3, i64 noundef %5), !range !50
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_socketcall(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_socketcall(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [6 x i64], align 16
   %4 = trunc i64 %0 to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #19
@@ -6671,7 +6671,7 @@ define internal fastcc i64 @__se_sys_socketcall(i64 noundef %0, i64 noundef %1) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !8
   %8 = inttoptr i64 %1 to ptr
   %9 = and i64 %0, 4294967295
-  %10 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 21, i64 %9) #19, !srcloc !52
+  %10 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 21, i64 %9) #19, !srcloc !51
   %11 = and i64 %10, %0
   %12 = trunc i64 %11 to i32
   %13 = and i64 %11, 4294967295
@@ -6903,7 +6903,7 @@ define internal fastcc i64 @__se_sys_socketcall(i64 noundef %0, i64 noundef %1) 
   %175 = getelementptr inbounds i8, ptr %3, i64 16
   %176 = load i64, ptr %175, align 16
   %177 = trunc i64 %176 to i32
-  %178 = call i64 @__sys_sendmsg(i32 noundef %173, ptr noundef %174, i32 noundef %177, i1 noundef zeroext true), !range !51
+  %178 = call i64 @__sys_sendmsg(i32 noundef %173, ptr noundef %174, i32 noundef %177, i1 noundef zeroext true), !range !50
   %179 = trunc nsw i64 %178 to i32
   br label %221
 
@@ -6925,7 +6925,7 @@ define internal fastcc i64 @__se_sys_socketcall(i64 noundef %0, i64 noundef %1) 
   %193 = getelementptr inbounds i8, ptr %3, i64 16
   %194 = load i64, ptr %193, align 16
   %195 = trunc i64 %194 to i32
-  %196 = call i64 @__sys_recvmsg(i32 noundef %191, ptr noundef %192, i32 noundef %195, i1 noundef zeroext true), !range !51
+  %196 = call i64 @__sys_recvmsg(i32 noundef %191, ptr noundef %192, i32 noundef %195, i1 noundef zeroext true), !range !50
   %197 = trunc nsw i64 %196 to i32
   br label %221
 
@@ -6968,19 +6968,19 @@ define internal fastcc i64 @__se_sys_socketcall(i64 noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_socketcall(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_socketcall(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_socketcall(i64 noundef %4, i64 noundef %7), !range !51
+  %8 = tail call fastcc i64 @__se_sys_socketcall(i64 noundef %4, i64 noundef %7), !range !50
   ret i64 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sock_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @sock_register(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 45
   br i1 %3, label %4, label %6
@@ -6999,7 +6999,7 @@ define dso_local noundef i32 @sock_register(ptr noundef %0) #0 align 16 {
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !53
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !52
   %13 = load i32, ptr %0, align 8
   %14 = sext i32 %13 to i64
   %15 = getelementptr [46 x ptr], ptr @net_families, i64 0, i64 %14
@@ -7027,8 +7027,8 @@ define dso_local void @sock_unregister(i32 noundef %0) #0 align 16 {
   br i1 %2, label %3, label %4, !prof !7
 
 3:                                                ; preds = %1
-  tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #19, !srcloc !54
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 3245, i32 0, i64 12) #19, !srcloc !55
+  tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #19, !srcloc !53
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 3245, i32 0, i64 12) #19, !srcloc !54
   unreachable
 
 4:                                                ; preds = %1
@@ -7078,8 +7078,8 @@ define internal i32 @sock_init() #12 section ".init.text" align 16 {
   br i1 %5, label %6, label %7, !prof !7
 
 6:                                                ; preds = %3
-  tail call void asm sideeffect "995: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 995b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 995) #19, !srcloc !56
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 348, i32 0, i64 12) #19, !srcloc !57
+  tail call void asm sideeffect "995: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 995b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 995) #19, !srcloc !55
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 348, i32 0, i64 12) #19, !srcloc !56
   unreachable
 
 7:                                                ; preds = %3
@@ -7129,7 +7129,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local i32 @sock_inuse_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @get_user_ifreq(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @get_user_ifreq(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -7180,7 +7180,7 @@ define dso_local noundef i32 @get_user_ifreq(ptr noundef %0, ptr noundef writeon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @put_user_ifreq(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -14, 1) i32 @put_user_ifreq(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -7361,7 +7361,7 @@ define dso_local i32 @kernel_sock_shutdown(ptr noundef %0, i32 noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @kernel_sock_ip_overhead(ptr noundef %0) #13 align 16 {
+define dso_local range(i32 0, 131111) i32 @kernel_sock_ip_overhead(ptr noundef %0) #13 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread4, label %3
 
@@ -7430,7 +7430,7 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 declare dso_local i32 @__audit_sockaddr(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sock_read_iter(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sock_read_iter(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.msghdr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 200
@@ -7491,7 +7491,7 @@ define internal i64 @sock_read_iter(ptr noundef %0, ptr nocapture noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sock_write_iter(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sock_write_iter(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.msghdr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 200
@@ -7635,7 +7635,7 @@ define internal i32 @sock_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.ifreq, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -7659,7 +7659,7 @@ define internal i64 @sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   store ptr null, ptr %5, align 8, !annotation !8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
   store i8 0, ptr %6, align 1, !annotation !8
-  %19 = call i32 @get_user_ifreq(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %7), !range !58
+  %19 = call i32 @get_user_ifreq(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %7), !range !57
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %.thread
 
@@ -7667,13 +7667,13 @@ define internal i64 @sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %22 = load ptr, ptr %5, align 8
   %23 = call i32 @dev_ioctl(ptr noundef %15, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %22, ptr noundef nonnull %6) #19
   %24 = icmp ne i32 %23, 0
-  %25 = load i8, ptr %6, align 1, !range !59
+  %25 = load i8, ptr %6, align 1, !range !58
   %26 = icmp eq i8 %25, 0
   %27 = select i1 %24, i1 true, i1 %26
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %21
-  %29 = call i32 @put_user_ifreq(ptr noundef nonnull %4, ptr noundef %7), !range !58
+  %29 = call i32 @put_user_ifreq(ptr noundef nonnull %4, ptr noundef %7), !range !57
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %.thread
 
@@ -7711,7 +7711,7 @@ define internal i64 @sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
 
 33:                                               ; preds = %32, %32
   %34 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %35 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %7, i64 4, i64 %34) #19, !srcloc !60
+  %35 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %7, i64 4, i64 %34) #19, !srcloc !59
   %36 = extractvalue { ptr, i32, i64 } %35, 0
   %37 = extractvalue { ptr, i32, i64 } %35, 2
   %38 = ptrtoint ptr %36 to i64
@@ -7732,7 +7732,7 @@ define internal i64 @sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %48 = load ptr, ptr %47, align 16
   %49 = tail call i32 @f_getown(ptr noundef %48) #19
   %50 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %51 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %7, i32 %49, i64 4, i64 %50) #19, !srcloc !61
+  %51 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %7, i32 %49, i64 4, i64 %50) #19, !srcloc !60
   %52 = extractvalue { ptr, i64 } %51, 0
   %53 = extractvalue { ptr, i64 } %51, 1
   %54 = ptrtoint ptr %52 to i64
@@ -7826,7 +7826,7 @@ define internal i64 @sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   br label %106
 
 103:                                              ; preds = %32
-  %104 = tail call fastcc i64 @sock_do_ioctl(ptr noundef %15, ptr noundef %9, i32 noundef %1, i64 noundef %2), !range !51
+  %104 = tail call fastcc i64 @sock_do_ioctl(ptr noundef %15, ptr noundef %9, i32 noundef %1, i64 noundef %2), !range !50
   %105 = trunc nsw i64 %104 to i32
   br label %106
 
@@ -7841,7 +7841,7 @@ define internal i64 @sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @compat_sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @compat_sock_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.ifreq, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
@@ -7878,7 +7878,7 @@ define internal i64 @compat_sock_ioctl(ptr nocapture noundef readonly %0, i32 no
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %23
-  %32 = tail call i64 @sock_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %24), !range !51
+  %32 = tail call i64 @sock_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %24), !range !50
   %33 = trunc nsw i64 %32 to i32
   br label %77
 
@@ -8016,12 +8016,12 @@ define internal i64 @compat_sock_ioctl(ptr nocapture noundef readonly %0, i32 no
   br label %77
 
 71:                                               ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34
-  %72 = tail call i64 @sock_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2), !range !51
+  %72 = tail call i64 @sock_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2), !range !50
   %73 = trunc nsw i64 %72 to i32
   br label %77
 
 74:                                               ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34
-  %75 = tail call fastcc i64 @sock_do_ioctl(ptr noundef %28, ptr noundef %6, i32 noundef %1, i64 noundef %2), !range !51
+  %75 = tail call fastcc i64 @sock_do_ioctl(ptr noundef %28, ptr noundef %6, i32 noundef %1, i64 noundef %2), !range !50
   %76 = trunc nsw i64 %75 to i32
   br label %77
 
@@ -8109,7 +8109,7 @@ define internal noundef i32 @sock_close(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sock_fasync(i32 noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sock_fasync(i32 noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -8127,11 +8127,11 @@ define internal noundef i32 @sock_fasync(i32 noundef %0, ptr noundef %1, i32 nou
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %9
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 16) #19, !srcloc !62
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 16) #19, !srcloc !61
   br label %17
 
 16:                                               ; preds = %9
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 16) #19, !srcloc !63
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 16) #19, !srcloc !62
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -8236,7 +8236,7 @@ declare dso_local ptr @get_net_ns(ptr noundef) #2
 declare dso_local i32 @dev_ifconf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @sock_do_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @sock_do_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.ifreq, align 8
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %1, i64 32
@@ -8297,7 +8297,7 @@ define internal fastcc i64 @sock_do_ioctl(ptr noundef %0, ptr noundef %1, i32 no
   %.ph = phi ptr [ %33, %29 ], [ %39, %37 ]
   %41 = call i32 @dev_ioctl(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %5, ptr noundef %.ph, ptr noundef nonnull %6) #19
   %42 = icmp ne i32 %41, 0
-  %43 = load i8, ptr %6, align 1, !range !59
+  %43 = load i8, ptr %6, align 1, !range !58
   %44 = icmp eq i8 %43, 0
   %45 = select i1 %42, i1 true, i1 %44
   br i1 %45, label %53, label %46
@@ -8341,7 +8341,7 @@ define internal fastcc i32 @compat_siocwandev(ptr noundef %0, ptr noundef %1) un
 12:                                               ; preds = %2
   %13 = call i64 @llvm.read_register.i64(metadata !0)
   %14 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %14, i64 4, i64 %13) #19, !srcloc !64
+  %15 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %14, i64 4, i64 %13) #19, !srcloc !63
   %16 = extractvalue { ptr, i32, i64 } %15, 0
   %17 = extractvalue { ptr, i32, i64 } %15, 2
   %18 = ptrtoint ptr %16 to i64
@@ -8423,7 +8423,7 @@ define internal i32 @sockfs_setattr(ptr nocapture readnone %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sockfs_listxattr(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483669) i64 @sockfs_listxattr(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @security_inode_listsecurity(ptr noundef %5, ptr noundef %1, i64 noundef %2) #19
@@ -8481,7 +8481,7 @@ declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @security_socket_sendmsg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @sock_sendmsg_nosec(ptr noundef %0, ptr noundef %1) unnamed_addr #7 align 16 {
+define internal fastcc range(i32 -528, -529) i32 @sock_sendmsg_nosec(ptr noundef %0, ptr noundef %1) unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile ptr, ptr %3, align 32
   %5 = getelementptr inbounds i8, ptr %4, i64 136
@@ -8690,7 +8690,7 @@ define internal void @init_once(ptr noundef %0) #0 align 16 {
 declare dso_local void @inode_init_once(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sockfs_init_fs_context(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @sockfs_init_fs_context(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 1397703499) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
@@ -8890,25 +8890,24 @@ attributes #21 = { cold nounwind }
 !40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
 !42 = !{!"llvm.loop.unroll.disable"}
-!43 = !{i32 -2147483648, i32 1}
-!44 = !{i64 2161978817}
-!45 = !{i64 2161980368}
-!46 = !{i64 2161981635}
-!47 = !{i64 2158113595}
-!48 = !{i64 2161996085}
-!49 = !{i64 2161997272}
-!50 = distinct !{!50, !41, !42}
-!51 = !{i64 -2147483648, i64 2147483648}
-!52 = !{i64 774097}
-!53 = !{i64 2162070433}
-!54 = !{i64 2162075984, i64 2162075788, i64 2162075840, i64 2162075886, i64 2162075914}
-!55 = !{i64 2162076061, i64 2162076090, i64 2162076136, i64 2162076194, i64 2162076248, i64 2162076302, i64 2162076357, i64 2162076388}
-!56 = !{i64 2161527812, i64 2161527621, i64 2161527673, i64 2161527719, i64 2161527747}
-!57 = !{i64 2161527886, i64 2161527915, i64 2161527961, i64 2161528019, i64 2161528073, i64 2161528127, i64 2161528182, i64 2161528213}
-!58 = !{i32 -14, i32 1}
-!59 = !{i8 0, i8 2}
-!60 = !{i64 2161613117}
-!61 = !{i64 2161615480}
-!62 = !{i64 2149065550}
-!63 = !{i64 2149064017}
-!64 = !{i64 2162092943}
+!43 = !{i64 2161978817}
+!44 = !{i64 2161980368}
+!45 = !{i64 2161981635}
+!46 = !{i64 2158113595}
+!47 = !{i64 2161996085}
+!48 = !{i64 2161997272}
+!49 = distinct !{!49, !41, !42}
+!50 = !{i64 -2147483648, i64 2147483648}
+!51 = !{i64 774097}
+!52 = !{i64 2162070433}
+!53 = !{i64 2162075984, i64 2162075788, i64 2162075840, i64 2162075886, i64 2162075914}
+!54 = !{i64 2162076061, i64 2162076090, i64 2162076136, i64 2162076194, i64 2162076248, i64 2162076302, i64 2162076357, i64 2162076388}
+!55 = !{i64 2161527812, i64 2161527621, i64 2161527673, i64 2161527719, i64 2161527747}
+!56 = !{i64 2161527886, i64 2161527915, i64 2161527961, i64 2161528019, i64 2161528073, i64 2161528127, i64 2161528182, i64 2161528213}
+!57 = !{i32 -14, i32 1}
+!58 = !{i8 0, i8 2}
+!59 = !{i64 2161613117}
+!60 = !{i64 2161615480}
+!61 = !{i64 2149065550}
+!62 = !{i64 2149064017}
+!63 = !{i64 2162092943}

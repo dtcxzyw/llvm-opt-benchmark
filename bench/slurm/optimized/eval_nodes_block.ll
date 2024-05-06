@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [86 x i8] c"%s: %s: SELECT_TYPE: %s: min_rem_nodes:%d can't add more bblocks due to llblock limit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2140,7 +2140,7 @@ declare void @bit_and(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_cmp_bblock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @_cmp_bblock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

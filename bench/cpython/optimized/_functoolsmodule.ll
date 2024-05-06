@@ -887,7 +887,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [38 x i8] c"reduce() arg 2 must support iteration\00", align 1
 @.str.4 = private unnamed_addr constant [49 x i8] c"reduce() of empty iterable with no initial value\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_functools_cmp_to_key._kwtuple = internal global %struct.anon.4 { %struct.PyGC_Head zeroinitializer, %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr @PyTuple_Type }, i64 1 }, [1 x ptr] [ptr getelementptr (i8, ptr @_PyRuntime, i64 52088)] }, align 8
 @PyTuple_Type = external global %struct._typeobject, align 8
 @_PyRuntime = external global %struct.pyruntimestate, align 8
@@ -1518,7 +1518,7 @@ declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_functools_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_functools_exec(ptr noundef %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8

@@ -325,7 +325,7 @@ define ptr @Pdr_ManFetchSolver(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %.val.val.i = load ptr, ptr %46, align 8
   %47 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %5
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr @Pdr_ManCubeToLits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %45, i32 noundef 1, i32 noundef 0)
+  %49 = tail call ptr @Pdr_ManCubeToLits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly %45, i32 noundef 1, i32 noundef 0)
   %50 = getelementptr i8, ptr %49, i64 8
   %.val9.i = load ptr, ptr %50, align 8
   %51 = getelementptr i8, ptr %49, i64 4
@@ -926,7 +926,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Pdr_ManCheckCubeCs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Pdr_ManCheckCubeCs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Pdr_ManFetchSolver(ptr noundef %0, i32 noundef %1)
   %5 = tail call ptr @Pdr_ManCubeToLits(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0)
   %6 = getelementptr inbounds i8, ptr %0, i64 368
@@ -967,7 +967,7 @@ Pdr_ManTimeLimit.exit:                            ; preds = %3, %11, %13
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Pdr_ManCheckCube(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Pdr_ManCheckCube(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8

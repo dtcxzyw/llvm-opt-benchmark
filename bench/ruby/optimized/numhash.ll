@@ -129,7 +129,7 @@ define internal noundef i64 @numhash_aset(i64 noundef returned %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @numhash_each(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @numhash_each(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @numhash_type) #5
   %3 = tail call i32 @rb_st_foreach_check(ptr noundef %2, ptr noundef nonnull @numhash_i, i64 noundef %0, i64 noundef %0) #5
   %.not = icmp eq i32 %3, 0
@@ -138,7 +138,7 @@ define internal i64 @numhash_each(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @numhash_update(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @numhash_update(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @numhash_type) #5
   %4 = tail call i32 @rb_st_update(ptr noundef %3, i64 noundef %1, ptr noundef nonnull @update_func, i64 noundef 0) #5
   %.not = icmp eq i32 %4, 0
@@ -221,7 +221,7 @@ declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 declare i32 @rb_st_foreach_check(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @numhash_i(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 %3) #0 {
+define internal range(i32 0, 4) i32 @numhash_i(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 %3) #0 {
   %5 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 3, i64 noundef %0, i64 noundef %1, i64 noundef %2) #5
   %6 = icmp eq i64 %5, 20
   %. = select i1 %6, i32 3, i32 0
@@ -233,7 +233,7 @@ declare i64 @rb_yield_values(i32 noundef, ...) local_unnamed_addr #1
 declare i32 @rb_st_update(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @update_func(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #0 {
+define internal range(i32 0, 3) i32 @update_func(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #0 {
   %.not = icmp eq i32 %3, 0
   %5 = select i1 %.not, i32 1, i32 2
   %6 = load i64, ptr %0, align 8

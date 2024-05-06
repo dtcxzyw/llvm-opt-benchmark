@@ -201,7 +201,7 @@ define hidden void @decode_mpls_label(ptr noundef %0, i32 noundef %1, ptr nocapt
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_try_cw_first_nibble(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @dissect_try_cw_first_nibble(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = lshr i8 %4, 4
   switch i8 %5, label %10 [

@@ -3976,7 +3976,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
   store i64 %1188, ptr %.sroa.412.0..sroa_idx.i.i, align 8, !alias.scope !717, !noalias !706
   %1189 = xor i64 %1183, %.val.i.i.i
   store i64 %1189, ptr %9, align 8, !alias.scope !710, !noalias !706
-  %trunc.i.i.i.i = trunc i64 %.val.i.i.i to i1
+  %trunc.i.i.i.i = trunc nuw i64 %.val.i.i.i to i1
   %1190 = icmp ne ptr %.val1.i.i.i, null
   tail call void @llvm.assume(i1 %1190)
   br i1 %trunc.i.i.i.i, label %1205, label %1191
@@ -4853,7 +4853,7 @@ thread-pre-split.i.i:                             ; preds = %"_ZN69_$LT$siphashe
   %1748 = phi i64 [ %1710, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit.i.i" ], [ %1671, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i3.i ]
   %1749 = phi i64 [ %.sink.i.i.i.i27, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit.i.i" ], [ %.pr.i.i25, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i3.i ]
   %1750 = load i128, ptr %1667, align 16, !range !906, !noalias !886, !noundef !8
-  %1751 = trunc i128 %1750 to i64
+  %1751 = trunc nuw nsw i128 %1750 to i64
   %1752 = add i64 %1748, 8
   store i64 %1752, ptr %12, align 8, !alias.scope !907, !noalias !894
   %1753 = shl i64 %1749, 3

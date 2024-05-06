@@ -76,7 +76,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIfNS_9allocatorIfEEEC2B8ne19000
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %.not = icmp eq i64 %2, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br i1 %.not, label %_ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit5, label %6
+  br i1 %.not, label %_ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit4, label %6
 
 6:                                                ; preds = %3
   %7 = icmp ugt i64 %2, 4611686018427387903
@@ -102,7 +102,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPKfS6_EEvT_T0_m.exit: ;
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr align 4 %1, i64 %9, i1 false)
   %12 = getelementptr inbounds i8, ptr %10, i64 %9
   store ptr %12, ptr %4, align 8
-  br label %_ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit5
+  br label %_ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit4
 
 13:                                               ; preds = %8, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i
   %14 = landingpad { ptr, i32 }
@@ -119,7 +119,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPKfS6_EEvT_T0_m.exit: ;
 _ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit: ; preds = %13, %16
   resume { ptr, i32 } %14
 
-_ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit5: ; preds = %3, %_ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPKfS6_EEvT_T0_m.exit
+_ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit4: ; preds = %3, %_ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPKfS6_EEvT_T0_m.exit
   ret void
 }
 

@@ -13,7 +13,7 @@ define noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef %1, 
   %6 = alloca ptr, align 8
   store i8 0, ptr %1, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %7 = tail call ptr @wcschr(ptr noundef %0, i32 noundef signext 65534) #13
+  %7 = tail call ptr @wcschr(ptr noundef readonly %0, i32 noundef signext 65534) #13
   %.not28 = icmp eq ptr %7, null
   br i1 %.not28, label %_ZL13WideToCharMapPKwPcmRb.exit.thread, label %10
 
@@ -866,7 +866,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr nocapture noundef readonly %0,
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z8wcsicompPKwS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 2) i32 @_Z8wcsicompPKwS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = tail call i32 @towupper(i32 noundef %3) #14
   %5 = load i32, ptr %1, align 4
@@ -907,7 +907,7 @@ define noundef i32 @_Z8wcsicompPKwS0_(ptr nocapture noundef readonly %0, ptr noc
 declare i32 @towupper(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z9wcsnicompPKwS0_m(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 -1, 2) i32 @_Z9wcsnicompPKwS0_m(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 

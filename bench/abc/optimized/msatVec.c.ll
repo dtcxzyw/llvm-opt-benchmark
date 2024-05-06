@@ -339,7 +339,7 @@ Msat_IntVecGrow.exit10:                           ; preds = %.Msat_IntVecGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Msat_IntVecPushUnique(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Msat_IntVecPushUnique(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -434,7 +434,7 @@ Msat_IntVecPush.exit:                             ; preds = %.Msat_IntVecGrow.ex
 
 ; Function Attrs: nounwind uwtable
 define void @Msat_IntVecPushUniqueOrder(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
-  %4 = tail call i32 @Msat_IntVecPushUnique(ptr noundef %0, i32 noundef %1), !range !7
+  %4 = tail call i32 @Msat_IntVecPushUnique(ptr noundef %0, i32 noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 1
@@ -465,7 +465,7 @@ define void @Msat_IntVecPushUniqueOrder(ptr nocapture noundef %0, i32 noundef %1
   %18 = getelementptr inbounds i32, ptr %17, i64 %13
   store i32 %12, ptr %18, align 4
   %19 = icmp ugt i64 %indvars.iv, 2
-  br i1 %19, label %9, label %._crit_edge, !llvm.loop !8
+  br i1 %19, label %9, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %16, %9, %3
   ret void
@@ -500,7 +500,7 @@ define void @Msat_IntVecSort(ptr nocapture noundef readonly %0, i32 noundef %1) 
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Msat_IntVecSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4
@@ -511,7 +511,7 @@ define internal i32 @Msat_IntVecSortCompare2(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Msat_IntVecSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -555,5 +555,4 @@ attributes #20 = { nounwind allocsize(1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

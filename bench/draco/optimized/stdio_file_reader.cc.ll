@@ -203,7 +203,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 %11
+  %24 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
@@ -356,7 +356,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 %11
+  %24 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 

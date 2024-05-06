@@ -775,7 +775,7 @@ define internal i32 @archive_write_mtree_header(ptr noundef %0, ptr noundef %1) 
   br i1 %98, label %.split.us.i, label %get_path_component.exit.us.i
 
 get_path_component.exit.us.i:                     ; preds = %97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %58, i64 %.0.i.us.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %4, ptr align 1 %58, i64 %.0.i.us.i, i1 false)
   %99 = getelementptr inbounds i8, ptr %4, i64 %.0.i.us.i
   store i8 0, ptr %99, align 1
   br label %get_path_component.exit.thread.i
@@ -803,7 +803,7 @@ get_path_component.exit.us.i:                     ; preds = %97
   br i1 %110, label %.split.us.i, label %get_path_component.exit.i
 
 get_path_component.exit.i:                        ; preds = %109
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %.0115.i, i64 %.0.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %4, ptr align 1 %.0115.i, i64 %.0.i.i, i1 false)
   %111 = getelementptr inbounds i8, ptr %4, i64 %.0.i.i
   store i8 0, ptr %111, align 1
   %112 = trunc nuw nsw i64 %.0.i.i to i32
@@ -1004,7 +1004,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %207, label %211, label %208
 
 208:                                              ; preds = %206
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %spec.select136.i, i64 %.0.i139.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %4, ptr nonnull align 1 %spec.select136.i, i64 %.0.i139.i, i1 false)
   %209 = getelementptr inbounds i8, ptr %4, i64 %.0.i139.i
   store i8 0, ptr %209, align 1
   br label %get_path_component.exit141.i

@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_yjit_add_frame.rbimpl_id.48 = internal unnamed_addr global i64 0, align 8
 @.str.49 = private unnamed_addr constant [5 x i8] c"line\00", align 1
 @ruby_single_main_ractor = external local_unnamed_addr global ptr, align 8
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @rb_vm_insn_name_base = external constant [0 x i8], align 1
 @rb_vm_insn_name_offset = external local_unnamed_addr constant [210 x i16], align 16
 @rb_vm_insn_len_info = external local_unnamed_addr constant [210 x i8], align 16
@@ -502,7 +502,7 @@ declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_a
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_yjit_get_page_size() local_unnamed_addr #0 {
+define hidden range(i32 1, 1073741825) i32 @rb_yjit_get_page_size() local_unnamed_addr #0 {
   %1 = tail call i64 @sysconf(i32 noundef 30) #5
   %2 = icmp slt i64 %1, 1
   br i1 %2, label %3, label %4
@@ -1079,7 +1079,7 @@ define hidden i64 @rb_get_cikw_keywords_idx(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @rb_METHOD_ENTRY_VISI(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i32 0, 4) i32 @rb_METHOD_ENTRY_VISI(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8
   %3 = trunc i64 %2 to i32
   %4 = lshr i32 %3, 16
@@ -1088,7 +1088,7 @@ define hidden i32 @rb_METHOD_ENTRY_VISI(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_cme_def_type(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 16) i32 @rb_get_cme_def_type(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -1609,7 +1609,7 @@ rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_yarv_str_eql_internal(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i64 0, 21) i64 @rb_yarv_str_eql_internal(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -1664,7 +1664,7 @@ rb_str_eql_internal.exit:                         ; preds = %2, %9, %RSTRING_PTR
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i64 @rb_str_neq_internal(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i64 0, 21) i64 @rb_str_neq_internal(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -1944,7 +1944,7 @@ RARRAY_AREF.exit:                                 ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @rb_yjit_splat_varg_checks(ptr noundef readnone %0, i64 noundef %1, ptr noundef readnone %2) local_unnamed_addr #4 {
+define hidden range(i64 0, 21) i64 @rb_yjit_splat_varg_checks(ptr noundef readnone %0, i64 noundef %1, ptr noundef readnone %2) local_unnamed_addr #4 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 8192
@@ -2052,7 +2052,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_array_const_ptr.
 
 18:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %19 = ashr exact i64 %sext, 29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %.0.i6, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %0, ptr readonly align 1 %.0.i6, i64 %19, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %18
@@ -2360,7 +2360,7 @@ imemo_type_p.exit.thread:                         ; preds = %4, %imemo_type_p.ex
 declare i32 @rb_objspace_markable_object_p(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_IMEMO_TYPE_P(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @rb_IMEMO_TYPE_P(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -2559,7 +2559,7 @@ define hidden void @rb_yjit_assert_holding_vm_lock() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_yjit_sendish_sp_pops(ptr noundef %0) local_unnamed_addr #9 {
+define hidden range(i64 -2147483646, 2147483650) i64 @rb_yjit_sendish_sp_pops(ptr noundef %0) local_unnamed_addr #9 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 1
   %.not.i.not.i.i = icmp eq i64 %3, 0
@@ -2593,7 +2593,7 @@ sp_inc_of_sendish.exit:                           ; preds = %4, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_yjit_invokeblock_sp_pops(ptr noundef %0) local_unnamed_addr #9 {
+define hidden range(i64 -2147483647, 2147483649) i64 @rb_yjit_invokeblock_sp_pops(ptr noundef %0) local_unnamed_addr #9 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 1
   %.not.i.not.i.i.i = icmp eq i64 %3, 0
@@ -2681,7 +2681,7 @@ define hidden void @Init_builtin_yjit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_13(ptr nocapture readnone %0, i64 %1) #14 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_13(ptr nocapture readnone %0, i64 %1) #14 {
   %3 = load i8, ptr @rb_yjit_enabled_p, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -2701,7 +2701,7 @@ declare i64 @rb_yjit_get_exit_locations(ptr noundef, i64 noundef) #3
 declare i64 @rb_yjit_get_stats(ptr noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @object_shape_count(ptr nocapture readnone %0, i64 %1) #4 {
+define internal range(i64 1, 0) i64 @object_shape_count(ptr nocapture readnone %0, i64 %1) #4 {
   %3 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8

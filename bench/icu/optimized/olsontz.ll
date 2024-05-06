@@ -94,8 +94,8 @@ invoke.cont:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 160
   %firstFinalTZTransition.i = getelementptr inbounds i8, ptr %this, i64 184
   %finalZoneWithStartYear.i = getelementptr inbounds i8, ptr %this, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %initialRule.i, i8 0, i64 18, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %firstFinalTZTransition.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %initialRule.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %firstFinalTZTransition.i, i8 0, i64 18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %finalZoneWithStartYear.i, i8 0, i64 16, i1 false)
   store atomic i32 0, ptr %transitionRulesInitOnce seq_cst, align 8
   %cmp = icmp ne ptr %top, null
@@ -520,7 +520,7 @@ if.then230:                                       ; preds = %if.end.thread, %if.
   %typeMapData.i = getelementptr inbounds i8, ptr %this, i64 120
   store ptr null, ptr %typeMapData.i, align 8
   %typeCount.i = getelementptr inbounds i8, ptr %this, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %transitionTimesPre32.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %transitionTimesPre32.i, i8 0, i64 24, i1 false)
   store i16 1, ptr %typeCount.i, align 8
   %typeOffsets.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr @_ZN6icu_75L5ZEROSE, ptr %typeOffsets.i, align 8
@@ -675,8 +675,8 @@ cond.end.i:                                       ; preds = %cond.true.i, %delet
   %firstFinalTZTransition.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %finalZoneWithStartYear.i.i = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %finalZoneWithStartYear.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %initialRule.i.i, i8 0, i64 18, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %firstFinalTZTransition.i.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %initialRule.i.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %firstFinalTZTransition.i.i, i8 0, i64 18, i1 false)
   store atomic i32 0, ptr %transitionRulesInitOnce seq_cst, align 8
   br label %invoke.cont
 
@@ -780,8 +780,8 @@ cond.end:                                         ; preds = %delete.end, %cond.t
   %finalZoneWithStartYear.i = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %finalZoneWithStartYear.i, align 8
   %transitionRulesInitOnce.i = getelementptr inbounds i8, ptr %this, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %initialRule.i, i8 0, i64 18, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %firstFinalTZTransition.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %initialRule.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %firstFinalTZTransition.i, i8 0, i64 18, i1 false)
   store atomic i32 0, ptr %transitionRulesInitOnce.i seq_cst, align 8
   br label %return
 
@@ -923,8 +923,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
 if.end46:                                         ; preds = %for.end, %if.end29
   store ptr null, ptr %finalZoneWithStartYear, align 8
   %transitionRulesInitOnce.i = getelementptr inbounds i8, ptr %this, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %initialRule, i8 0, i64 18, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %firstFinalTZTransition, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %initialRule, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %firstFinalTZTransition, i8 0, i64 18, i1 false)
   store atomic i32 0, ptr %transitionRulesInitOnce.i seq_cst, align 8
   ret void
 }
@@ -1918,7 +1918,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @_ZNK6icu_758TimeZone13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513OlsonTimeZone14inDaylightTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(224) %this, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %ec) unnamed_addr #2 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513OlsonTimeZone14inDaylightTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(224) %this, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %ec) unnamed_addr #2 align 2 {
 entry:
   %raw = alloca i32, align 4
   %dst = alloca i32, align 4
@@ -1933,7 +1933,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513OlsonTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513OlsonTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %dynamic_cast.notnull
@@ -2033,7 +2033,7 @@ if.end58:                                         ; preds = %lor.lhs.false52
   %20 = load ptr, ptr %transitionTimesPre3259, align 8
   %conv61 = sext i16 %13 to i32
   %mul = shl nsw i32 %conv61, 3
-  %call63 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %19, ptr noundef %20, i32 noundef %mul), !range !9
+  %call63 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %19, ptr noundef %20, i32 noundef %mul)
   %tobool.not = icmp eq i8 %call63, 0
   br i1 %tobool.not, label %return, label %land.lhs.true64
 
@@ -2044,7 +2044,7 @@ land.lhs.true64:                                  ; preds = %if.end58
   %22 = load ptr, ptr %transitionTimes3265, align 8
   %conv67 = sext i16 %15 to i32
   %mul68 = shl nsw i32 %conv67, 2
-  %call70 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %21, ptr noundef %22, i32 noundef %mul68), !range !9
+  %call70 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %21, ptr noundef %22, i32 noundef %mul68)
   %tobool71.not = icmp eq i8 %call70, 0
   br i1 %tobool71.not, label %return, label %land.lhs.true72
 
@@ -2055,7 +2055,7 @@ land.lhs.true72:                                  ; preds = %land.lhs.true64
   %24 = load ptr, ptr %transitionTimesPost3273, align 8
   %conv75 = sext i16 %17 to i32
   %mul76 = shl nsw i32 %conv75, 3
-  %call79 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %23, ptr noundef %24, i32 noundef %mul76), !range !9
+  %call79 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %23, ptr noundef %24, i32 noundef %mul76)
   %tobool80.not = icmp eq i8 %call79, 0
   br i1 %tobool80.not, label %return, label %land.lhs.true81
 
@@ -2066,7 +2066,7 @@ land.lhs.true81:                                  ; preds = %land.lhs.true72
   %26 = load ptr, ptr %typeOffsets82, align 8
   %conv84 = sext i16 %11 to i32
   %mul85 = shl nsw i32 %conv84, 3
-  %call88 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %25, ptr noundef %26, i32 noundef %mul85), !range !9
+  %call88 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %25, ptr noundef %26, i32 noundef %mul85)
   %tobool89.not = icmp eq i8 %call88, 0
   br i1 %tobool89.not, label %return, label %land.rhs
 
@@ -2076,7 +2076,7 @@ land.rhs:                                         ; preds = %land.lhs.true81
   %add.i = add i16 %15, %13
   %add4.i = add i16 %add.i, %17
   %conv95 = sext i16 %add4.i to i32
-  %call96 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %27, ptr noundef %28, i32 noundef %conv95), !range !9
+  %call96 = tail call fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef %27, ptr noundef %28, i32 noundef %conv95)
   br label %return
 
 return:                                           ; preds = %if.end58, %land.lhs.true64, %land.lhs.true72, %land.lhs.true81, %land.rhs, %if.end38, %lor.lhs.false42, %lor.lhs.false47, %lor.lhs.false52, %if.then30, %lor.lhs.false33, %land.lhs.true, %land.lhs.true14, %land.lhs.true23, %if.end4, %dynamic_cast.notnull, %entry
@@ -2088,7 +2088,7 @@ return:                                           ; preds = %if.end58, %land.lhs
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef signext i8 @_ZL10arrayEqualPKvS0_i(ptr noundef readonly %a1, ptr noundef readonly %a2, i32 noundef %size) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10arrayEqualPKvS0_i(ptr noundef readonly %a1, ptr noundef readonly %a2, i32 noundef %size) unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %a1, null
   %cmp1 = icmp eq ptr %a2, null
@@ -2328,7 +2328,7 @@ if.end42:                                         ; preds = %for.body
   %inc44 = add nuw nsw i16 %transitionIdx.072, 1
   store i16 %inc44, ptr %firstTZTransitionIdx, align 8
   %exitcond.not = icmp eq i16 %inc44, %add4.i
-  br i1 %exitcond.not, label %if.end188, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %if.end188, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
   %cmp46 = icmp eq i16 %transitionIdx.072, %add4.i
@@ -2458,7 +2458,7 @@ for.inc84:                                        ; preds = %_ZNK6icu_7513OlsonT
   %nTimes.1 = phi i32 [ %inc79, %if.then78 ], [ %nTimes.076, %for.body65 ], [ %nTimes.076, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp64 = icmp slt i64 %indvars.iv.next, %conv
-  br i1 %cmp64, label %for.body65, label %for.end86, !llvm.loop !11
+  br i1 %cmp64, label %for.body65, label %for.end86, !llvm.loop !10
 
 for.end86:                                        ; preds = %for.inc84
   %cmp87 = icmp sgt i32 %nTimes.1, 0
@@ -2513,7 +2513,7 @@ for.body118:                                      ; preds = %for.cond114.prehead
   %49 = load i16, ptr %historicRuleCount, align 8
   %50 = sext i16 %49 to i64
   %cmp117 = icmp slt i64 %indvars.iv.next86, %50
-  br i1 %cmp117, label %for.body118, label %if.end125, !llvm.loop !12
+  br i1 %cmp117, label %for.body118, label %if.end125, !llvm.loop !11
 
 if.end125:                                        ; preds = %for.body118, %for.cond114.preheader, %if.then88
   %call126 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 352) #16
@@ -2551,7 +2551,7 @@ for.inc154:                                       ; preds = %for.body60, %new.co
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %56 = sext i16 %55 to i64
   %cmp59 = icmp slt i64 %indvars.iv.next89, %56
-  br i1 %cmp59, label %for.body60, label %for.end156, !llvm.loop !13
+  br i1 %cmp59, label %for.body60, label %for.end156, !llvm.loop !12
 
 for.end156:                                       ; preds = %for.inc154, %for.cond56.preheader
   invoke void @uprv_free_75(ptr noundef nonnull %call51)
@@ -3085,7 +3085,7 @@ lor.lhs.false.us:                                 ; preds = %_ZNK6icu_7513OlsonT
   %dec.us = add i16 %ttidx.085.us, -1
   %conv28.us = sext i16 %dec.us to i32
   %cmp30.not.us = icmp slt i16 %dec.us, %16
-  br i1 %cmp30.not.us, label %for.end.thread, label %for.body.us, !llvm.loop !14
+  br i1 %cmp30.not.us, label %for.end.thread, label %for.body.us, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %conv2886 = phi i32 [ %conv28, %for.inc ], [ %conv2883, %for.body.lr.ph ]
@@ -3148,7 +3148,7 @@ for.inc:                                          ; preds = %_ZNK6icu_7513OlsonT
   %dec = add i16 %ttidx.085, -1
   %conv28 = sext i16 %dec to i32
   %cmp30.not = icmp slt i16 %dec, %16
-  br i1 %cmp30.not, label %for.end.thread, label %for.body, !llvm.loop !14
+  br i1 %cmp30.not, label %for.end.thread, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit.us, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit
   %.us-phi = phi i16 [ %ttidx.085, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit ], [ %ttidx.085.us, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit.us ]
@@ -3627,7 +3627,7 @@ _ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit: ; preds = %if.then.i.i, %if.t
   %conv.i31 = sitofp i64 %retval.0.i.i to double
   %mul.i = fmul double %conv.i31, 1.000000e+03
   %or.cond = fcmp ugt double %mul.i, %base
-  br i1 %or.cond, label %for.cond, label %if.else45, !llvm.loop !15
+  br i1 %or.cond, label %for.cond, label %if.else45, !llvm.loop !14
 
 if.else45:                                        ; preds = %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit.us
   %.us-phi = phi i16 [ %ttidx.0.us86, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit.us ], [ %ttidx.0, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit ]
@@ -3901,7 +3901,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %spec.select = add nuw nsw i32 %count.011, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %if.end13, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %if.end13, label %for.body, !llvm.loop !15
 
 if.end13:                                         ; preds = %for.body, %for.cond.preheader, %if.end5
   %count.2 = phi i32 [ 0, %if.end5 ], [ 0, %for.cond.preheader ], [ %spec.select, %for.body ]
@@ -4023,7 +4023,7 @@ for.inc:                                          ; preds = %if.then11.for.inc_c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i16 %14 to i64
   %cmp8 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %cmp8, label %for.body, label %if.end22, !llvm.loop !17
+  br i1 %cmp8, label %for.body, label %if.end22, !llvm.loop !16
 
 if.end22:                                         ; preds = %if.then11, %for.inc, %for.cond.preheader, %if.end5
   %16 = phi i32 [ %6, %if.end5 ], [ %6, %for.cond.preheader ], [ %12, %if.then11 ], [ %13, %for.inc ]
@@ -4114,7 +4114,7 @@ attributes #18 = { allocsize(0) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i8 0, i8 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -4122,4 +4122,3 @@ attributes #18 = { allocsize(0) }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}

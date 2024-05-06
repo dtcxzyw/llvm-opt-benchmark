@@ -461,7 +461,7 @@ define void @reoProfileWidthStart(ptr nocapture noundef %0) local_unnamed_addr #
   %131 = add nsw i32 %130, %129
   store i32 %131, ptr %48, align 4
   %132 = load i32, ptr %128, align 8
-  %133 = trunc i64 %indvars.iv141 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv141 to i32
   %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %133, i32 noundef %132)
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %135 = load i32, ptr %2, align 4
@@ -858,7 +858,7 @@ define void @reoProfileWidthPrint(ptr nocapture noundef readonly %0) local_unnam
   %.01821 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %5 ]
   %7 = getelementptr inbounds %struct._reo_plane, ptr %6, i64 %indvars.iv, i32 2
   %8 = load i32, ptr %7, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %9, i32 noundef %8)
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds %struct._reo_plane, ptr %11, i64 %indvars.iv, i32 2

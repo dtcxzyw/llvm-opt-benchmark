@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @global_data = internal global %struct.psa_global_data_t zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @psa_is_valid_key_id(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @psa_is_valid_key_id(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add i32 %0, -1
   %or.cond = icmp ult i32 %3, 1073741823
   %4 = icmp ne i32 %1, 0
@@ -327,7 +327,7 @@ psa_extend_key_usage_flags.exit:                  ; preds = %.loopexit.i, %24, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @psa_unlock_key_slot(ptr noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 -151, 1) i32 @psa_unlock_key_slot(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -348,14 +348,14 @@ define hidden noundef i32 @psa_unlock_key_slot(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @psa_validate_key_location(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden noundef range(i32 -135, 1) i32 @psa_validate_key_location(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %0, 256
   %. = select i1 %3, i32 0, i32 -135
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @psa_validate_key_persistence(i32 noundef %0) local_unnamed_addr #0 {
+define hidden noundef range(i32 -135, 1) i32 @psa_validate_key_persistence(i32 noundef %0) local_unnamed_addr #0 {
   %2 = and i32 %0, 255
   %cond = icmp eq i32 %2, 255
   %spec.select = select i1 %cond, i32 -135, i32 0

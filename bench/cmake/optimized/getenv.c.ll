@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @curl_getenv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @getenv(ptr noundef %0) #2
+  %2 = tail call ptr @getenv(ptr noundef readonly %0) #2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %GetEnv.exit, label %3
 

@@ -155,7 +155,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @pp_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr noundef %arg) #0 {
+define internal range(i32 -95, 1) i32 @pp_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr noundef %arg) #0 {
 entry:
   %m.i51 = alloca i32, align 4
   %m.i41 = alloca i32, align 4

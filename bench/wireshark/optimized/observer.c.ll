@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.process_packet_header = private unnamed_addr constant [11 x i32] [i32 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 122, i32 22], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @observer_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.capture_file_header, align 2
   %5 = alloca %struct.tlv_header, align 2
   %6 = alloca %struct.packet_entry_header, align 8
@@ -304,7 +304,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @observer_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @observer_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.packet_entry_header, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = tail call i64 @file_tell(ptr noundef %8) #13
@@ -359,7 +359,7 @@ skip_to_next_packet.exit:                         ; preds = %26, %29
   br i1 %36, label %skip_to_next_packet.exit36, label %16
 
 37:                                               ; preds = %16
-  %38 = call fastcc i32 @process_packet_header(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !6
+  %38 = call fastcc i32 @process_packet_header(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   %.not30 = icmp eq i32 %38, 0
   br i1 %.not30, label %skip_to_next_packet.exit36, label %39
 
@@ -434,7 +434,7 @@ skip_to_next_packet.exit36:                       ; preds = %skip_to_next_packet
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @observer_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @observer_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.packet_entry_header, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -451,7 +451,7 @@ define internal noundef i32 @observer_seek_read(ptr nocapture noundef readonly %
   br i1 %17, label %read_packet_data.exit.thread24, label %18
 
 18:                                               ; preds = %13
-  %19 = call fastcc i32 @process_packet_header(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %2, ptr noundef %4, ptr noundef %5), !range !6
+  %19 = call fastcc i32 @process_packet_header(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %2, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %read_packet_data.exit.thread24, label %20
 
@@ -597,7 +597,7 @@ define internal fastcc i32 @read_packet_header(ptr nocapture noundef readonly %0
 16:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 48
-  br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !6
 
 17:                                               ; preds = %16
   store i32 0, ptr %4, align 4
@@ -753,7 +753,7 @@ define internal fastcc i32 @read_packet_header(ptr nocapture noundef readonly %0
   %78 = load i8, ptr %26, align 2
   %79 = zext i8 %78 to i32
   %80 = icmp ult i32 %77, %79
-  br i1 %80, label %40, label %.loopexit, !llvm.loop !8
+  br i1 %80, label %40, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %40, %54, %73, %75, %25, %10, %52, %46, %.thread, %17
   %.0 = phi i32 [ 0, %17 ], [ -1, %.thread ], [ -1, %46 ], [ -1, %52 ], [ %., %10 ], [ 48, %25 ], [ -1, %40 ], [ -1, %54 ], [ -1, %73 ], [ %76, %75 ]
@@ -761,7 +761,7 @@ define internal fastcc i32 @read_packet_header(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_packet_header(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_packet_header(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.tm, align 8
   %7 = alloca %struct.tm, align 8
   store i32 0, ptr %2, align 8
@@ -886,7 +886,7 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @observer_dump_can_write_encap(i32 noundef %0) #7 {
+define internal range(i32 -9, 1) i32 @observer_dump_can_write_encap(i32 noundef %0) #7 {
   %2 = icmp eq i32 %0, -1
   br i1 %2, label %wtap_to_observer_encap.exit, label %3
 
@@ -910,7 +910,7 @@ wtap_to_observer_encap.exit:                      ; preds = %5, %wtap_to_observe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @observer_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 2) i32 @observer_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
   %6 = alloca %struct.tm, align 8
@@ -1071,7 +1071,7 @@ init_gmt_to_localtime_offset.exit.thread:         ; preds = %66, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @observer_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @observer_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.packet_entry_header, align 8
   %7 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %7, 0
@@ -1224,6 +1224,5 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

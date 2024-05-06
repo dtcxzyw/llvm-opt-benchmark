@@ -4,19 +4,19 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias ptr @qemu_ram_get_host_addr(ptr nocapture noundef readnone %rb) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qemu_ram_get_host_addr(ptr nocapture noundef readnone %rb) local_unnamed_addr #0 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @qemu_ram_get_offset(ptr nocapture noundef readnone %rb) local_unnamed_addr #0 {
+define dso_local noundef i64 @qemu_ram_get_offset(ptr nocapture noundef readnone %rb) local_unnamed_addr #0 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @qemu_ram_get_used_length(ptr nocapture noundef readnone %rb) local_unnamed_addr #0 {
+define dso_local noundef i64 @qemu_ram_get_used_length(ptr nocapture noundef readnone %rb) local_unnamed_addr #0 {
 entry:
   ret i64 0
 }
@@ -34,13 +34,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_ram_foreach_block(ptr nocapture noundef readnone %func, ptr nocapture noundef readnone %opaque) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_ram_foreach_block(ptr nocapture noundef readnone %func, ptr nocapture noundef readnone %opaque) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @ram_block_discard_disable(i1 noundef zeroext %state) local_unnamed_addr #0 {
+define dso_local noundef i32 @ram_block_discard_disable(i1 noundef zeroext %state) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }

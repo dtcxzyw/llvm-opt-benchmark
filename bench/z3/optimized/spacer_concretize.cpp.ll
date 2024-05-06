@@ -840,8 +840,8 @@ if.end:                                           ; preds = %land.lhs.true.i77, 
   %26 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %26 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %27 = getelementptr i8, ptr %e1.4, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %27, i64 32
+  %27 = getelementptr inbounds i8, ptr %e1.4, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %27, i64 32
   %cmp.not211 = icmp eq i32 %26, 0
   br i1 %cmp.not211, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit195, label %for.body.lr.ph
 
@@ -1497,8 +1497,8 @@ if.end:                                           ; preds = %land.lhs.true.i77, 
   %26 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %26 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %27 = getelementptr i8, ptr %e1.4, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %27, i64 32
+  %27 = getelementptr inbounds i8, ptr %e1.4, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %27, i64 32
   %cmp.not211 = icmp eq i32 %26, 0
   br i1 %cmp.not211, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit195, label %for.body.lr.ph
 

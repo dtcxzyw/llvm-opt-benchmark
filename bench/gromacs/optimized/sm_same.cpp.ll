@@ -971,7 +971,7 @@ declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL7cmp_intPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef range(i32 -1, 2) i32 @_ZL7cmp_intPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

@@ -80,7 +80,7 @@ define internal void @flex128_finalize() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @flex128_get_max_size(i16 noundef zeroext %0, ptr nocapture noundef %1) #1 {
+define internal range(i32 -27, 1) i32 @flex128_get_max_size(i16 noundef zeroext %0, ptr nocapture noundef %1) #1 {
   %switch.tableidx = add i16 %0, -4
   %3 = icmp ult i16 %switch.tableidx, 12
   br i1 %3, label %switch.hole_check, label %._crit_edge
@@ -109,7 +109,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @flex128_encode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca [9 x i8], align 1
   switch i16 %0, label %20 [
     i16 8, label %6
@@ -218,7 +218,7 @@ flex_pack_integer.exit:                           ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @flex128_decode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -27, 1) i32 @flex128_decode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %switch.tableidx = add i16 %0, -4
   %6 = icmp ult i16 %switch.tableidx, 12
   br i1 %6, label %switch.hole_check, label %7

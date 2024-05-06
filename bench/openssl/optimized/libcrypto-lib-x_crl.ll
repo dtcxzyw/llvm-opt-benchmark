@@ -196,7 +196,7 @@ if.end:                                           ; preds = %if.then5.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_x509_crl_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_x509_crl_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %x, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -226,7 +226,7 @@ return:                                           ; preds = %if.then5, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_CRL_add0_revoked(ptr nocapture noundef %crl, ptr noundef %rev) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_CRL_add0_revoked(ptr nocapture noundef %crl, ptr noundef %rev) local_unnamed_addr #1 {
 entry:
   %revoked = getelementptr inbounds i8, ptr %crl, i64 48
   %0 = load ptr, ptr %revoked, align 8
@@ -455,7 +455,7 @@ declare ptr @OPENSSL_sk_set_cmp_func(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @ASN1_BIT_STRING_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef readonly %exarg) #1 {
+define internal range(i32 0, 2) i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef readonly %exarg) #1 {
 entry:
   %j.i = alloca i32, align 4
   %i = alloca i32, align 4
@@ -1024,7 +1024,7 @@ declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_crl_lookup(ptr noundef %crl, ptr noundef writeonly %ret, ptr noundef %serial, ptr noundef %issuer) #1 {
+define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %crl, ptr noundef writeonly %ret, ptr noundef %serial, ptr noundef %issuer) #1 {
 entry:
   %rtmp = alloca %struct.x509_revoked_st, align 8
   %revoked = getelementptr inbounds i8, ptr %crl, i64 48

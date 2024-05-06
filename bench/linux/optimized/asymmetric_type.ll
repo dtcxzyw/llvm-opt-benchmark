@@ -797,7 +797,7 @@ define internal i32 @asymmetric_key_verify_signature(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_asymmetric_key_parser(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @register_asymmetric_key_parser(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @asymmetric_key_parsers_sem) #16
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   br label %3

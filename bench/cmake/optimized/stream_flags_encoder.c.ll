@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lzma_footer_magic = external local_unnamed_addr constant [2 x i8], align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_stream_header_encode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_stream_header_encode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %stream_flags_encode.exit.thread
@@ -43,7 +43,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @lzma_crc32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_stream_footer_encode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_stream_footer_encode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %stream_flags_encode.exit.thread

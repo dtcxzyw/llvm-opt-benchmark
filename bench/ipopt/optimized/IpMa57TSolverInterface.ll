@@ -2664,7 +2664,7 @@ define noundef i32 @_ZN5Ipopt20Ma57TSolverInterface10MultiSolveEbPKiS2_iPdbi(ptr
   br i1 %19, label %.critedge, label %23
 
 .critedge:                                        ; preds = %12, %16, %15
-  %20 = tail call noundef i32 @_ZN5Ipopt20Ma57TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr poison, ptr poison, i1 noundef zeroext %6, i32 noundef %7), !range !4
+  %20 = tail call noundef i32 @_ZN5Ipopt20Ma57TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr poison, ptr poison, i1 noundef zeroext %6, i32 noundef %7)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %25
 
@@ -2683,7 +2683,7 @@ define noundef i32 @_ZN5Ipopt20Ma57TSolverInterface10MultiSolveEbPKiS2_iPdbi(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt20Ma57TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt20Ma57TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -2804,7 +2804,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %18, %14, %5
   br label %.backedge
 
 .backedge:                                        ; preds = %86, %109
-  br label %54, !llvm.loop !5
+  br label %54, !llvm.loop !4
 
 87:                                               ; preds = %54
   store i32 1, ptr %10, align 4
@@ -3344,7 +3344,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %12, %8, %3
   %49 = load i32, ptr %30, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %45, align 8
@@ -4002,7 +4002,6 @@ attributes #22 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 5}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

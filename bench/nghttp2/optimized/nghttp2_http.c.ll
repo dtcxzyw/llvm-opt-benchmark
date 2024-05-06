@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [9 x i8] c"trailers\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_http_on_header(ptr nocapture noundef readonly %session, ptr nocapture noundef %stream, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %nv, i32 noundef %trailer) local_unnamed_addr #0 {
+define hidden range(i32 -531, 1) i32 @nghttp2_http_on_header(ptr nocapture noundef readonly %session, ptr nocapture noundef %stream, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %nv, i32 noundef %trailer) local_unnamed_addr #0 {
 entry:
   %extpri.i = alloca %struct.nghttp2_extpri, align 4
   %0 = load ptr, ptr %nv, align 8
@@ -698,7 +698,7 @@ if.then188.i:                                     ; preds = %land.lhs.true184.i
   %121 = load ptr, ptr %base190.i, align 8
   %len192.i = getelementptr inbounds i8, ptr %120, i64 24
   %122 = load i64, ptr %len192.i, align 8
-  %call193.i = call i32 @nghttp2_http_parse_priority(ptr noundef nonnull %extpri.i, ptr noundef %121, i64 noundef %122), !range !9
+  %call193.i = call i32 @nghttp2_http_parse_priority(ptr noundef nonnull %extpri.i, ptr noundef %121, i64 noundef %122)
   %cmp194.i = icmp eq i32 %call193.i, 0
   br i1 %cmp194.i, label %if.then196.i, label %if.else201.i
 
@@ -824,7 +824,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   %add.i.i = add nsw i64 %mul.i.i, %conv15.i.i
   %inc.i.i73 = add nuw nsw i64 %i.016.i.i, 1
   %exitcond.not.i.i74 = icmp eq i64 %inc.i.i73, 3
-  br i1 %exitcond.not.i.i74, label %parse_uint.exit.i, label %for.body.i.i71, !llvm.loop !10
+  br i1 %exitcond.not.i.i74, label %parse_uint.exit.i, label %for.body.i.i71, !llvm.loop !9
 
 parse_uint.exit.thread.i:                         ; preds = %if.end12.i.i, %for.body.i.i71
   %status_code59.i = getelementptr inbounds i8, ptr %stream, i64 208
@@ -984,7 +984,7 @@ declare i32 @nghttp2_check_header_value_rfc9113(ptr noundef, i64 noundef) local_
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @nghttp2_http_on_request_headers(ptr nocapture noundef %stream, ptr nocapture noundef readonly %frame) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @nghttp2_http_on_request_headers(ptr nocapture noundef %stream, ptr nocapture noundef readonly %frame) local_unnamed_addr #3 {
 entry:
   %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %0 = load i32, ptr %http_flags, align 4
@@ -1045,7 +1045,7 @@ return:                                           ; preds = %if.end31, %if.end18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @nghttp2_http_on_response_headers(ptr nocapture noundef %stream) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @nghttp2_http_on_response_headers(ptr nocapture noundef %stream) local_unnamed_addr #3 {
 entry:
   %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %0 = load i32, ptr %http_flags, align 4
@@ -1110,7 +1110,7 @@ return:                                           ; preds = %if.then12, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nghttp2_http_on_trailer_headers(ptr nocapture noundef readnone %stream, ptr nocapture noundef readonly %frame) local_unnamed_addr #4 {
+define hidden range(i32 -1, 1) i32 @nghttp2_http_on_trailer_headers(ptr nocapture noundef readnone %stream, ptr nocapture noundef readonly %frame) local_unnamed_addr #4 {
 entry:
   %flags = getelementptr inbounds i8, ptr %frame, i64 13
   %0 = load i8, ptr %flags, align 1
@@ -1121,7 +1121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
+define hidden range(i32 -1, 1) i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
 entry:
   %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %0 = load i32, ptr %http_flags, align 4
@@ -1150,7 +1150,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @nghttp2_http_on_data_chunk(ptr nocapture noundef %stream, i64 noundef %n) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @nghttp2_http_on_data_chunk(ptr nocapture noundef %stream, i64 noundef %n) local_unnamed_addr #3 {
 entry:
   %recv_content_length = getelementptr inbounds i8, ptr %stream, i64 56
   %0 = load i64, ptr %recv_content_length, align 8
@@ -1244,7 +1244,7 @@ land.lhs.true30:                                  ; preds = %if.end
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true13
   %inc = add nuw i64 %i.023, 1
   %exitcond.not = icmp eq i64 %inc, %nvlen.0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end.sink.split:                               ; preds = %land.lhs.true30, %land.lhs.true20
   %.sink28 = phi i32 [ 128, %land.lhs.true20 ], [ 256, %land.lhs.true30 ]
@@ -1259,7 +1259,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_http_parse_priority(ptr nocapture noundef %dest, ptr noundef %value, i64 noundef %valuelen) local_unnamed_addr #0 {
+define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr nocapture noundef %dest, ptr noundef %value, i64 noundef %valuelen) local_unnamed_addr #0 {
 entry:
   %sfp = alloca %struct.sf_parser, align 8
   %key = alloca %struct.sf_vec, align 8
@@ -1368,7 +1368,7 @@ if.end20:                                         ; preds = %if.end12
   %add = add nsw i64 %mul, %conv15
   %inc = add nuw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %len
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %if.end20, %for.body, %if.end12, %entry
   %retval.0 = phi i64 [ -1, %entry ], [ %add, %if.end20 ], [ -1, %for.body ], [ -1, %if.end12 ]
@@ -1411,6 +1411,5 @@ attributes #10 = { noreturn nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -501, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

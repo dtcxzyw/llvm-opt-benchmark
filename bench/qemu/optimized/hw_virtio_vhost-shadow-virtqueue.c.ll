@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vhost_svq_add(ptr noundef %svq, ptr nocapture noundef readonly %out_sg, i64 noundef %out_num, ptr nocapture noundef readonly %in_sg, i64 noundef %in_num, ptr noundef %elem) local_unnamed_addr #0 {
+define dso_local range(i32 -28, 1) i32 @vhost_svq_add(ptr noundef %svq, ptr nocapture noundef readonly %out_sg, i64 noundef %out_num, ptr nocapture noundef readonly %in_sg, i64 noundef %in_num, ptr noundef %elem) local_unnamed_addr #0 {
 entry:
   %add = add i64 %in_num, %out_num
   %conv = trunc i64 %add to i32
@@ -128,11 +128,11 @@ if.then14.i:                                      ; preds = %do.body.i
 
 if.end15.i:                                       ; preds = %if.end
   %cmp16.i = icmp ne i64 %in_num, 0
-  %call18.i = tail call fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr noundef nonnull %svq, ptr noundef %call.i, ptr noundef %out_sg, i64 noundef %out_num, i1 noundef zeroext %cmp16.i, i1 noundef zeroext false)
+  %call18.i = tail call fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr noundef nonnull %svq, ptr noundef %call.i, ptr noundef readonly %out_sg, i64 noundef %out_num, i1 noundef zeroext %cmp16.i, i1 noundef zeroext false)
   br i1 %call18.i, label %if.end29.i, label %vhost_svq_add_split.exit.thread
 
 if.end29.i:                                       ; preds = %if.end15.i
-  %call30.i = tail call fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr noundef nonnull %svq, ptr noundef %call.i, ptr noundef %in_sg, i64 noundef %in_num, i1 noundef zeroext false, i1 noundef zeroext true)
+  %call30.i = tail call fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr noundef nonnull %svq, ptr noundef %call.i, ptr noundef readonly %in_sg, i64 noundef %in_num, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %call30.i, label %if.end16, label %vhost_svq_add_split.exit.thread
 
 vhost_svq_add_split.exit.thread:                  ; preds = %if.then14.i, %do.body.i, %if.end15.i, %if.end29.i
@@ -284,7 +284,7 @@ if.else12:                                        ; preds = %if.end7
   %in_num.i = getelementptr inbounds i8, ptr %storemerge17, i64 16
   %9 = load i32, ptr %in_num.i, align 8
   %conv1.i = zext i32 %9 to i64
-  %call.i = tail call noundef i32 @vhost_svq_add(ptr noundef nonnull %svq, ptr noundef %6, i64 noundef %conv.i, ptr noundef %8, i64 noundef %conv1.i, ptr noundef nonnull %storemerge17), !range !9
+  %call.i = tail call i32 @vhost_svq_add(ptr noundef nonnull %svq, ptr noundef %6, i64 noundef %conv.i, ptr noundef %8, i64 noundef %conv1.i, ptr noundef nonnull %storemerge17)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else12, %if.then9
@@ -314,7 +314,7 @@ while.end:                                        ; preds = %if.end
   %11 = load ptr, ptr %vq, align 8
   %call27 = tail call i32 @virtio_queue_empty(ptr noundef %11) #11
   %tobool28.not = icmp eq i32 %call27, 0
-  br i1 %tobool28.not, label %do.body, label %do.end, !llvm.loop !10
+  br i1 %tobool28.not, label %do.body, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %while.end, %cleanup.thread
   ret void
@@ -366,7 +366,7 @@ do.end:                                           ; preds = %do.body, %vhost_svq
   %conv10 = zext i32 %4 to i64
   %add = add i64 %len.010, %conv10
   %tobool.not = icmp eq i64 %dec11, 0
-  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !11
+  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !10
 
 return:                                           ; preds = %do.end, %if.end, %entry
   %len.07 = phi i64 [ 0, %entry ], [ %len.010, %if.end ], [ %add, %do.end ]
@@ -395,7 +395,7 @@ vhost_svq_more_used.exit:                         ; preds = %entry
   br i1 %cmp8.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %vhost_svq_more_used.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   fence acquire
   %4 = load i16, ptr %last_used_idx.i, align 2
   %5 = load i32, ptr %svq, align 8
@@ -477,7 +477,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %20 = load i16, ptr %arrayidx.i, align 2
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.i, %19
-  br i1 %exitcond.not.i, label %vhost_svq_last_desc_of_chain.exit, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %vhost_svq_last_desc_of_chain.exit, label %for.body.i, !llvm.loop !12
 
 vhost_svq_last_desc_of_chain.exit:                ; preds = %for.body.i, %if.end59.vhost_svq_last_desc_of_chain.exit_crit_edge
   %21 = phi ptr [ %.pre, %if.end59.vhost_svq_last_desc_of_chain.exit_crit_edge ], [ %18, %for.body.i ]
@@ -695,7 +695,7 @@ for.body:                                         ; preds = %entry, %for.body
   %sub = add i32 %6, -1
   %7 = zext i32 %sub to i64
   %cmp = icmp ult i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -769,7 +769,7 @@ if.end5:                                          ; preds = %if.then3, %for.body
   %5 = load i32, ptr %svq, align 8
   %6 = zext i32 %5 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %6
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %if.end5, %if.end
   %next_guest_avail_elem = getelementptr inbounds i8, ptr %svq, i64 112
@@ -930,7 +930,7 @@ if.else.i:                                        ; preds = %do.cond24
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   fence seq_cst
   %16 = load i16, ptr %last_used_idx.i.i, align 2
   %17 = load i16, ptr %shadow_used_idx.i, align 4
@@ -946,7 +946,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %cmp8.i.i, label %do.end28, label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %if.end.i.i, %if.end.i
-  br label %do.body, !llvm.loop !17
+  br label %do.body, !llvm.loop !16
 
 do.end28:                                         ; preds = %if.end.i.i, %cleanup.thread26
   ret void
@@ -1009,7 +1009,7 @@ for.cond.i:                                       ; preds = %if.end17.i
   %inc.i = add nuw i64 %i.027.i, 1
   %cmp1.i = icmp uge i64 %inc.i, %num
   %exitcond.i = icmp eq i64 %inc.i, %num
-  br i1 %exitcond.i, label %vhost_svq_translate_addr.exit, label %for.body.i, !llvm.loop !18
+  br i1 %exitcond.i, label %vhost_svq_translate_addr.exit, label %for.body.i, !llvm.loop !17
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %cmp128.i = phi i1 [ false, %for.body.lr.ph.i ], [ %cmp1.i, %for.cond.i ]
@@ -1116,7 +1116,7 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   %21 = load i16, ptr %arrayidx50.us, align 2
   %conv14.us = zext i32 %add.us to i64
   %cmp15.us = icmp ult i64 %conv14.us, %num
-  br i1 %cmp15.us, label %for.body.us, label %for.end, !llvm.loop !19
+  br i1 %cmp15.us, label %for.body.us, label %for.end, !llvm.loop !18
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end36
   %conv1434 = phi i64 [ %conv19, %if.end36 ], [ 0, %for.cond.preheader ]
@@ -1157,7 +1157,7 @@ if.end36:                                         ; preds = %if.else, %if.then22
   %26 = load ptr, ptr %desc_next, align 8
   %arrayidx50 = getelementptr i16, ptr %26, i64 %idxprom
   %27 = load i16, ptr %arrayidx50, align 2
-  br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %if.end36, %for.body.us
   %28 = phi i16 [ %21, %for.body.us ], [ %27, %if.end36 ]
@@ -1221,14 +1221,13 @@ attributes #13 = { nounwind willreturn memory(none) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{i64 2150991850}
 !8 = !{i64 2150991964}
-!9 = !{i32 -28, i32 1}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = !{i64 2150992957}
+!11 = !{i64 2150992957}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{i64 2150992818}
+!15 = !{i64 2150992818}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

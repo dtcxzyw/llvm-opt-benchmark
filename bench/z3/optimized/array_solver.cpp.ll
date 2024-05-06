@@ -1572,7 +1572,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5array6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN5array6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #3 align 2 {
 entry:
   %turn = alloca [2 x i8], align 2
   %m_num_scopes.i = getelementptr inbounds i8, ptr %this, i64 104

@@ -196,10 +196,10 @@ while.body.us:                                    ; preds = %while.cond.us
   %vq1.i.i.us = getelementptr inbounds i8, ptr %call.i.us, i64 72
   store ptr %vq, ptr %vq1.i.i.us, align 8
   %size.i.i.us = getelementptr inbounds i8, ptr %call.i.us, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i.i.us, i8 0, i64 32, i1 false)
-  %call4.us = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %call.i.us, ptr noundef nonnull %mrb), !range !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %size.i.i.us, i8 0, i64 32, i1 false)
+  %call4.us = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %call.i.us, ptr noundef nonnull %mrb)
   %tobool5.not.us = icmp eq i32 %call4.us, 0
-  br i1 %tobool5.not.us, label %while.cond.us, label %if.then6.us, !llvm.loop !6
+  br i1 %tobool5.not.us, label %while.cond.us, label %if.then6.us, !llvm.loop !5
 
 if.then6.us:                                      ; preds = %while.body.us
   %vq1.i.i.us.le = getelementptr inbounds i8, ptr %call.i.us, i64 72
@@ -212,7 +212,7 @@ while.end.us:                                     ; preds = %while.cond.us, %if.
   call void @virtio_queue_set_notification(ptr noundef %vq, i32 noundef 1) #14
   %call12.us = call i32 @virtio_queue_empty(ptr noundef %vq) #14
   %tobool13.not.us = icmp eq i32 %call12.us, 0
-  br i1 %tobool13.not.us, label %do.body.us, label %do.end, !llvm.loop !8
+  br i1 %tobool13.not.us, label %do.body.us, label %do.end, !llvm.loop !7
 
 while.cond:                                       ; preds = %entry, %while.cond.backedge
   %call.i = call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 240) #14
@@ -225,13 +225,13 @@ while.body:                                       ; preds = %while.cond
   %vq1.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %vq, ptr %vq1.i.i, align 8
   %size.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i.i, i8 0, i64 32, i1 false)
-  %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %call.i, ptr noundef nonnull %mrb), !range !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %size.i.i, i8 0, i64 32, i1 false)
+  %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %call.i, ptr noundef nonnull %mrb)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %while.cond.backedge, label %if.then6
 
 while.cond.backedge:                              ; preds = %while.body, %while.end
-  br label %while.cond, !llvm.loop !8
+  br label %while.cond, !llvm.loop !7
 
 if.then6:                                         ; preds = %while.body
   %vq1.i.i.le = getelementptr inbounds i8, ptr %call.i, i64 72
@@ -277,7 +277,7 @@ declare void @defer_call_begin() local_unnamed_addr #2
 declare void @virtio_queue_set_notification(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @virtio_blk_handle_request(ptr noundef %req, ptr noundef %mrb) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @virtio_blk_handle_request(ptr noundef %req, ptr noundef %mrb) unnamed_addr #0 {
 entry:
   %out_iov = alloca ptr, align 8
   %in_num = alloca i32, align 4
@@ -593,7 +593,7 @@ if.then161:                                       ; preds = %iov_to_buf.exit113
   br label %return
 
 if.end164:                                        ; preds = %iov_to_buf.exit113.thread, %iov_to_buf.exit113
-  %call166 = call fastcc zeroext i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef nonnull %req, ptr noundef nonnull %dwz_hdr, i1 noundef zeroext %cmp137), !range !9
+  %call166 = call fastcc zeroext i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef nonnull %req, ptr noundef nonnull %dwz_hdr, i1 noundef zeroext %cmp137)
   %cmp168.not = icmp eq i8 %call166, 0
   br i1 %cmp168.not, label %return, label %if.then170
 
@@ -741,7 +741,7 @@ if.end42:                                         ; preds = %lor.lhs.false27, %i
   %inc52 = add nuw i32 %i.049, 1
   %20 = load i32, ptr %num_reqs1, align 8
   %cmp6 = icmp ult i32 %inc52, %20
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end42, %if.end
   %num_reqs.0.lcssa = phi i32 [ 0, %if.end ], [ %inc, %if.end42 ]
@@ -1384,7 +1384,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i32 %conv44.i, ptr %dxfer_len.i, align 4
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond7.not = icmp eq i64 %indvars.iv.next62.i, %11
-  br i1 %exitcond7.not, label %for.end.i, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond7.not, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i, %if.then25.i
   %add.ptr.i = getelementptr i8, ptr %6, i64 32
@@ -1423,7 +1423,7 @@ for.body64.i:                                     ; preds = %for.body64.i, %for.
   store i32 %conv73.i, ptr %dxfer_len.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %17
-  br i1 %exitcond.not, label %for.end76.i, label %for.body64.i, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end76.i, label %for.body64.i, !llvm.loop !10
 
 for.end76.i:                                      ; preds = %for.body64.i, %if.then50.i
   %dxferp79.i = getelementptr inbounds i8, ptr %call13.i, i64 24
@@ -1627,7 +1627,7 @@ return:                                           ; preds = %out15, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef %req, ptr nocapture noundef readonly %dwz_hdr, i1 noundef zeroext %is_write_zeroes) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 3) i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef %req, ptr nocapture noundef readonly %dwz_hdr, i1 noundef zeroext %is_write_zeroes) unnamed_addr #0 {
 entry:
   %total_sectors.i = alloca i64, align 8
   %dev = getelementptr inbounds i8, ptr %req, i64 64
@@ -1765,7 +1765,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i32 0, %ret
-  %call2 = tail call fastcc i32 @virtio_blk_handle_rw_error(ptr noundef nonnull %opaque, i32 noundef %sub, i1 noundef zeroext false, i1 noundef zeroext true), !range !13
+  %call2 = tail call fastcc i32 @virtio_blk_handle_rw_error(ptr noundef nonnull %opaque, i32 noundef %sub, i1 noundef zeroext false, i1 noundef zeroext true)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %out
 
@@ -1787,7 +1787,7 @@ out:                                              ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @virtio_blk_handle_rw_error(ptr noundef %req, i32 noundef %error, i1 noundef zeroext %is_read, i1 noundef zeroext %acct_failed) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @virtio_blk_handle_rw_error(ptr noundef %req, i32 noundef %error, i1 noundef zeroext %is_read, i1 noundef zeroext %acct_failed) unnamed_addr #0 {
 entry:
   %dev = getelementptr inbounds i8, ptr %req, i64 64
   %0 = load ptr, ptr %dev, align 8
@@ -2023,7 +2023,7 @@ for.inc:                                          ; preds = %iov_from_buf.exit40
   %add57 = add nuw nsw i64 %i.048, 64
   %inc = add nuw nsw i64 %j.046, 1
   %exitcond.not = icmp eq i64 %j.046, %16
-  br i1 %exitcond.not, label %out, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %out, label %for.body, !llvm.loop !11
 
 out:                                              ; preds = %for.inc, %for.cond.preheader, %trace_virtio_blk_zone_report_complete.exit, %if.then10
   %err_status.2 = phi i8 [ 3, %if.then10 ], [ 3, %trace_virtio_blk_zone_report_complete.exit ], [ 0, %for.cond.preheader ], [ %err_status.1, %for.inc ]
@@ -2325,7 +2325,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i32 0, %ret
-  %call5 = tail call fastcc i32 @virtio_blk_handle_rw_error(ptr noundef nonnull %opaque, i32 noundef %sub, i1 noundef zeroext false, i1 noundef zeroext %cmp), !range !13
+  %call5 = tail call fastcc i32 @virtio_blk_handle_rw_error(ptr noundef nonnull %opaque, i32 noundef %sub, i1 noundef zeroext false, i1 noundef zeroext %cmp)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %out14
 
@@ -2403,7 +2403,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @qemu_iovec_add(ptr noundef nonnull %qiov2, ptr noundef %7, i64 noundef %8) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond14.preheader, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.cond14.preheader, label %for.body, !llvm.loop !12
 
 for.body17:                                       ; preds = %for.body17.preheader, %for.body17
   %indvars.iv55 = phi i64 [ %6, %for.body17.preheader ], [ %indvars.iv.next56, %for.body17 ]
@@ -2424,7 +2424,7 @@ for.body17:                                       ; preds = %for.body17.preheade
   %13 = trunc nsw i64 %indvars.iv55 to i32
   %lftr.wideiv = trunc i64 %indvars.iv.next56 to i32
   %exitcond58.not = icmp eq i32 %add15, %lftr.wideiv
-  br i1 %exitcond58.not, label %for.end34, label %for.body17, !llvm.loop !16
+  br i1 %exitcond58.not, label %for.end34, label %for.body17, !llvm.loop !13
 
 for.end34:                                        ; preds = %for.body17, %for.cond14.preheader
   %14 = load ptr, ptr %arrayidx, align 8
@@ -2505,7 +2505,7 @@ declare i32 @blk_get_max_transfer(ptr noundef) local_unnamed_addr #2
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @multireq_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
+define internal range(i32 -1, 2) i32 @multireq_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -2604,7 +2604,7 @@ if.end.us:                                        ; preds = %if.then.us, %trace_
   tail call void @block_acct_done(ptr noundef %call16.us, ptr noundef nonnull %acct.us) #14
   tail call void @g_free(ptr noundef nonnull %next.019.us) #14
   %tobool.not.us = icmp eq ptr %2, null
-  br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !17
+  br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !14
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %next.019 = phi ptr [ %12, %while.cond.backedge ], [ %opaque, %while.body.lr.ph ]
@@ -2659,7 +2659,7 @@ if.end:                                           ; preds = %if.then, %trace_vir
   %out.val = load i32, ptr %out, align 1
   %and = and i32 %out.val, 1
   %tobool8.not = icmp eq i32 %and, 0
-  %call10 = tail call fastcc i32 @virtio_blk_handle_rw_error(ptr noundef nonnull %next.019, i32 noundef %sub, i1 noundef zeroext %tobool8.not, i1 noundef zeroext true), !range !13
+  %call10 = tail call fastcc i32 @virtio_blk_handle_rw_error(ptr noundef nonnull %next.019, i32 noundef %sub, i1 noundef zeroext %tobool8.not, i1 noundef zeroext true)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end14, label %while.cond.backedge
 
@@ -2674,7 +2674,7 @@ if.end14:                                         ; preds = %if.end
 
 while.cond.backedge:                              ; preds = %if.end14, %if.end
   %tobool.not = icmp eq ptr %12, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !17
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end.us
   %22 = load ptr, ptr %conf, align 8
@@ -2792,7 +2792,7 @@ if.then20:                                        ; preds = %if.end16
   br label %return
 
 is_power_of_2.exit:                               ; preds = %if.end16
-  %3 = tail call i16 @llvm.ctpop.i16(i16 %2), !range !18
+  %3 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %2)
   %tobool1.not.i = icmp ugt i16 %3, 1
   %cmp29 = icmp ugt i16 %2, 1024
   %or.cond83 = or i1 %cmp29, %tobool1.not.i
@@ -2908,7 +2908,7 @@ for.body:                                         ; preds = %if.end91, %for.body
   %19 = load i16, ptr %num_queues, align 4
   %conv103 = zext i16 %19 to i32
   %cmp104 = icmp ult i32 %inc, %conv103
-  br i1 %cmp104, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %cmp104, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %if.end91
   %conv103.lcssa = phi i32 [ 0, %if.end91 ], [ %conv103, %for.body ]
@@ -2936,7 +2936,7 @@ for.body123:                                      ; preds = %if.then117, %for.bo
   %23 = load i16, ptr %num_queues, align 4
   %conv120 = zext i16 %23 to i32
   %cmp121 = icmp ult i32 %inc125, %conv120
-  br i1 %cmp121, label %for.body123, label %for.end126, !llvm.loop !20
+  br i1 %cmp121, label %for.body123, label %for.end126, !llvm.loop !16
 
 for.end126:                                       ; preds = %for.body123, %if.then117
   call void @virtio_cleanup(ptr noundef %call.i) #14
@@ -2991,7 +2991,7 @@ for.body:                                         ; preds = %entry, %for.body
   %3 = load i16, ptr %num_queues, align 4
   %conv = zext i16 %3 to i32
   %cmp = icmp ult i32 %inc, %conv
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
   %conv.lcssa = phi i32 [ 0, %entry ], [ %conv, %for.body ]
@@ -3122,7 +3122,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %inc.i = add i8 %exp.05.i, 1
   %shr.i = lshr i32 %size.06.i, 1
   %cmp.i = icmp ugt i32 %shr.i, %16
-  br i1 %cmp.i, label %for.body.i, label %get_physical_block_exp.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %get_physical_block_exp.exit, !llvm.loop !18
 
 get_physical_block_exp.exit:                      ; preds = %for.body.i, %if.end
   %exp.0.lcssa.i = phi i8 [ 0, %if.end ], [ %inc.i, %for.body.i ]
@@ -3401,7 +3401,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @g_free(ptr noundef nonnull %3) #14
   %6 = load ptr, ptr %rq, align 8
   %tobool.not = icmp eq ptr %6, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !23
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %entry
   tail call void @aio_context_release(ptr noundef %call1) #14
@@ -3456,7 +3456,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   %next = getelementptr inbounds i8, ptr %req.011, i64 200
   %req.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %req.0, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !24
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %if.end, %entry
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 0) #14
@@ -3464,7 +3464,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_blk_load_device(ptr noundef %vdev, ptr noundef %f, i32 %version_id) #0 {
+define internal range(i32 -22, 1) i32 @virtio_blk_load_device(ptr noundef %vdev, ptr noundef %f, i32 %version_id) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.41, i32 noundef 26, ptr noundef nonnull @__func__.VIRTIO_BLK) #14
   %call113 = tail call i32 @qemu_get_byte(ptr noundef %f) #14
@@ -3500,14 +3500,14 @@ if.end7:                                          ; preds = %if.then, %while.bod
   %vq1.i = getelementptr inbounds i8, ptr %call8, i64 72
   store ptr %call9, ptr %vq1.i, align 8
   %size.i = getelementptr inbounds i8, ptr %call8, i64 184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %size.i, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %rq, align 8
   %next = getelementptr inbounds i8, ptr %call8, i64 200
   store ptr %1, ptr %next, align 8
   store ptr %call8, ptr %rq, align 8
   %call1 = tail call i32 @qemu_get_byte(ptr noundef %f) #14
   %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !25
+  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !21
 
 return:                                           ; preds = %if.end7, %entry, %if.then6
   %retval.0 = phi i32 [ -22, %if.then6 ], [ 0, %entry ], [ 0, %if.end7 ]
@@ -3635,9 +3635,9 @@ while.cond:                                       ; preds = %while.body, %entry
 while.body:                                       ; preds = %while.cond
   %next3 = getelementptr inbounds i8, ptr %req.0, i64 200
   %2 = load ptr, ptr %next3, align 8
-  %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %req.0, ptr noundef nonnull %mrb), !range !5
+  %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %req.0, ptr noundef nonnull %mrb)
   %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %while.cond, label %while.body8, !llvm.loop !26
+  br i1 %tobool5.not, label %while.cond, label %while.body8, !llvm.loop !22
 
 while.body8:                                      ; preds = %while.body, %while.body8
   %req.116 = phi ptr [ %3, %while.body8 ], [ %req.0, %while.body ]
@@ -3648,7 +3648,7 @@ while.body8:                                      ; preds = %while.body, %while.
   call void @virtqueue_detach_element(ptr noundef %4, ptr noundef nonnull %req.116, i32 noundef 0) #14
   call void @g_free(ptr noundef nonnull %req.116) #14
   %tobool7.not = icmp eq ptr %3, null
-  br i1 %tobool7.not, label %while.end10, label %while.body8, !llvm.loop !27
+  br i1 %tobool7.not, label %while.end10, label %while.body8, !llvm.loop !23
 
 while.end10:                                      ; preds = %while.cond, %while.body8
   %num_reqs = getelementptr inbounds i8, ptr %mrb, i64 256
@@ -3703,7 +3703,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = load i16, ptr %num_queues, align 4
   %5 = zext i16 %4 to i32
   %cmp = icmp ult i32 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader, %entry, %lor.lhs.false
   ret void
@@ -3741,7 +3741,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = load i16, ptr %num_queues, align 4
   %5 = zext i16 %4 to i32
   %cmp = icmp ult i32 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !29
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader, %entry, %lor.lhs.false
   ret void
@@ -3860,28 +3860,24 @@ attributes #18 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 3}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i32 0, i32 2}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{i16 0, i16 17}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}

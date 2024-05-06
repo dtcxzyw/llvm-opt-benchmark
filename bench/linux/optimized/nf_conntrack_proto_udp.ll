@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_conntrack_udp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.udphdr, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 112
   %8 = load i32, ptr %7, align 8

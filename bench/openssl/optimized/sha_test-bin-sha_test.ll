@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @test_static_sha512.output = internal constant [64 x i8] c"\DD\AF5\A1\93az\BA\CCAsI\AE A1\12\E6\FAN\89\A9~\A2\0A\9E\EE\E6KU\D3\9A!\92\99*'O\C1\A86\BA<#\A3\FE\EB\BDEMD#d<\E8\0E*\9A\C9O\A5L\A4\9F", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_static_sha1) #3
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_static_sha224) #3
@@ -33,7 +33,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_static_sha1() #0 {
+define internal range(i32 0, 2) i32 @test_static_sha1() #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
@@ -76,7 +76,7 @@ test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_static_sha224() #0 {
+define internal range(i32 0, 2) i32 @test_static_sha224() #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
@@ -119,7 +119,7 @@ test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_static_sha256() #0 {
+define internal range(i32 0, 2) i32 @test_static_sha256() #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
@@ -162,7 +162,7 @@ test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_static_sha384() #0 {
+define internal range(i32 0, 2) i32 @test_static_sha384() #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
@@ -205,7 +205,7 @@ test_static_sha_common.exit:                      ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_static_sha512() #0 {
+define internal range(i32 0, 2) i32 @test_static_sha512() #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)

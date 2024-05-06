@@ -629,7 +629,7 @@ define ptr @cuddAddCmplRecur(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %85, label %5
 
@@ -747,12 +747,12 @@ define i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 72:                                               ; preds = %66, %67
   %.053 = phi ptr [ %69, %67 ], [ %2, %66 ]
   %.052 = phi ptr [ %71, %67 ], [ %2, %66 ]
-  %73 = tail call i32 @Cudd_addLeq(ptr noundef nonnull %0, ptr noundef %.051, ptr noundef %.052), !range !7
+  %73 = tail call i32 @Cudd_addLeq(ptr noundef nonnull %0, ptr noundef %.051, ptr noundef %.052)
   %.not62 = icmp eq i32 %73, 0
   br i1 %.not62, label %76, label %74
 
 74:                                               ; preds = %72
-  %75 = tail call i32 @Cudd_addLeq(ptr noundef nonnull %0, ptr noundef %.050, ptr noundef %.053), !range !7
+  %75 = tail call i32 @Cudd_addLeq(ptr noundef nonnull %0, ptr noundef %.050, ptr noundef %.053)
   br label %76
 
 76:                                               ; preds = %74, %72
@@ -801,4 +801,3 @@ attributes #3 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}

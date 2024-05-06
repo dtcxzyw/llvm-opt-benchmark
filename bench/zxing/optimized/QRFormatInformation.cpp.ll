@@ -64,7 +64,7 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
   %19 = load i32, ptr %.021.ptr.us.i, align 4
   %20 = xor i32 %19, 21522
   %21 = xor i32 %33, %20
-  %22 = tail call noundef i32 @llvm.ctpop.i32(i32 %21), !range !4
+  %22 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %21)
   %23 = zext i8 %.sroa.5.211.us.i to i32
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %25, label %29
@@ -87,7 +87,7 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
 30:                                               ; preds = %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !4
 
 .preheader.us.i:                                  ; preds = %30, %.preheader.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.i ], [ %indvars.iv.next.i, %30 ]
@@ -161,7 +161,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %6 = xor i32 %5, 21522
   %7 = xor i32 %19, %6
   %8 = xor i32 %7, 17477
-  %9 = tail call noundef i32 @llvm.ctpop.i32(i32 %8), !range !4
+  %9 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
   %10 = zext i8 %.sroa.5.211.us.i to i32
   %11 = icmp ult i32 %9, %10
   br i1 %11, label %12, label %16
@@ -184,7 +184,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
 17:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !4
 
 .preheader.us.i:                                  ; preds = %17, %.preheader.lr.ph.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %17 ]
@@ -245,7 +245,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %.021.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS, i64 %.021.idx23.i.i
   %3 = load i32, ptr %.021.ptr.i.i, align 4
   %4 = xor i32 %3, %0
-  %5 = tail call noundef i32 @llvm.ctpop.i32(i32 %4), !range !4
+  %5 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %4)
   %6 = zext i8 %.sroa.7.1.i to i32
   %7 = icmp ult i32 %5, %6
   br i1 %7, label %8, label %13
@@ -275,7 +275,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %.021.ptr.i6.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS_SUB, i64 %.021.idx23.i5.i
   %14 = load i32, ptr %.021.ptr.i6.i, align 4
   %15 = xor i32 %14, %1
-  %16 = tail call noundef i32 @llvm.ctpop.i32(i32 %15), !range !4
+  %16 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
   %17 = zext i8 %.sroa.7.5.i to i32
   %18 = icmp ult i32 %16, %17
   br i1 %18, label %19, label %24
@@ -305,7 +305,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %.021.ptr.i.i101 = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS, i64 %.021.idx23.i.i100
   %25 = load i32, ptr %.021.ptr.i.i101, align 4
   %26 = xor i32 %25, %0
-  %27 = tail call noundef i32 @llvm.ctpop.i32(i32 %26), !range !4
+  %27 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %26)
   %28 = zext i8 %.sroa.7.1.i97 to i32
   %29 = icmp ult i32 %27, %28
   br i1 %29, label %30, label %35
@@ -388,6 +388,5 @@ attributes #7 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

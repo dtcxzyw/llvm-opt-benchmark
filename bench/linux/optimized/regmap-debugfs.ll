@@ -398,7 +398,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @regmap_name_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @regmap_name_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
@@ -455,7 +455,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare dso_local i64 @simple_read_from_buffer(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @regmap_reg_ranges_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i64 -22, 4194305) i64 @regmap_reg_ranges_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8

@@ -418,7 +418,7 @@ Vec_PtrAllocSimInfo.exit72:                       ; preds = %.lr.ph.i68, %Vec_Pt
   %116 = mul nsw i32 %115, %2
   %117 = sext i32 %116 to i64
   %118 = shl nsw i64 %117, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %113, i8 0, i64 %118, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %113, i8 0, i64 %118, i1 false)
   %119 = load ptr, ptr %58, align 8
   %120 = getelementptr i8, ptr %119, i64 8
   %.val45 = load ptr, ptr %120, align 8
@@ -427,7 +427,7 @@ Vec_PtrAllocSimInfo.exit72:                       ; preds = %.lr.ph.i68, %Vec_Pt
   %123 = mul nsw i32 %122, %2
   %124 = sext i32 %123 to i64
   %125 = shl nsw i64 %124, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %121, i8 0, i64 %125, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %121, i8 0, i64 %125, i1 false)
   %126 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 0, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %0, i64 84
@@ -794,7 +794,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   br i1 %52, label %.lr.ph170, label %.critedge2
 
 .lr.ph170:                                        ; preds = %.preheader151
-  %53 = trunc i32 %.0110180 to i8
+  %53 = trunc nuw nsw i32 %.0110180 to i8
   %54 = sub nsw i8 0, %53
   %55 = sext i32 %.0182 to i64
   %56 = load i32, ptr %6, align 8
@@ -942,7 +942,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %131 = phi i32 [ %.pre, %.critedge4.loopexit ], [ %101, %.preheader148 ]
   %132 = phi ptr [ %130, %.critedge4.loopexit ], [ %102, %.preheader148 ]
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, 1
-  %133 = trunc i64 %indvars.iv.next231 to i32
+  %133 = trunc nsw i64 %indvars.iv.next231 to i32
   %134 = icmp eq i32 %131, %133
   br i1 %134, label %.loopexit, label %97
 
@@ -1129,7 +1129,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %225 = phi ptr [ %191, %.preheader144 ], [ %191, %.lr.ph187.preheader ], [ %220, %.lr.ph187 ], [ %220, %.lr.ph347 ]
   %indvars.iv.next241 = add nsw i64 %indvars.iv240, 1
   %226 = load i32, ptr %3, align 4
-  %227 = trunc i64 %indvars.iv.next241 to i32
+  %227 = trunc nsw i64 %indvars.iv.next241 to i32
   %228 = icmp eq i32 %226, %227
   br i1 %228, label %.loopexit, label %187
 
@@ -1484,7 +1484,7 @@ define void @Res_SimPerformRound(ptr nocapture noundef readonly %0, i32 noundef 
   %6 = load ptr, ptr %.val23, align 8
   %7 = sext i32 %1 to i64
   %8 = shl nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 -1, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %6, i8 -1, i64 %8, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
@@ -2350,7 +2350,7 @@ define void @Res_SimCollectPatterns(ptr nocapture noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Res_SimVerifyValue(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Res_SimVerifyValue(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 40
   %.val2932 = load ptr, ptr %4, align 8
@@ -2488,7 +2488,7 @@ define i32 @Res_SimVerifyValue(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Res_SimPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Res_SimPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

@@ -162,7 +162,7 @@ if.end9:                                          ; preds = %if.then.i11, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @pci_bridge_get_limit(ptr nocapture noundef readonly %bridge, i8 noundef zeroext %type) local_unnamed_addr #4 {
+define dso_local range(i64 4095, 0) i64 @pci_bridge_get_limit(ptr nocapture noundef readonly %bridge, i8 noundef zeroext %type) local_unnamed_addr #4 {
 entry:
   %conv = zext i8 %type to i32
   %and = and i32 %conv, 1
@@ -747,7 +747,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @pci_bridge_qemu_reserve_cap_init(ptr noundef %dev, i32 noundef %cap_offset, ptr nocapture noundef readonly byval(%struct.PCIResReserve) align 8 %res_reserve, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_bridge_qemu_reserve_cap_init(ptr noundef %dev, i32 noundef %cap_offset, ptr nocapture noundef readonly byval(%struct.PCIResReserve) align 8 %res_reserve, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %mem_pref_32 = getelementptr inbounds i8, ptr %res_reserve, i64 24
   %0 = load i64, ptr %mem_pref_32, align 8

@@ -414,7 +414,7 @@ define void @_ZN6casadi16CsparseInterface4initERKSt3mapINSt7__cxx1112basic_strin
 declare void @_ZN6casadi14LinsolInternal4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi16CsparseInterface8init_memEPv(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi16CsparseInterface8init_memEPv(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @_ZNK6casadi14LinsolInternal8init_memEPv(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit

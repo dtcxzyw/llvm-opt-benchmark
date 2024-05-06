@@ -1464,7 +1464,7 @@ proto_item_set_generated.exit106.i:               ; preds = %130, %127, %proto_i
 proto_item_set_generated.exit109.i:               ; preds = %143, %140, %136
   %147 = load i16, ptr %134, align 2
   %148 = zext i16 %147 to i32
-  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull %1, ptr noundef nonnull @.str.296, i32 noundef %148)
+  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.296, i32 noundef %148)
   br label %149
 
 149:                                              ; preds = %proto_item_set_generated.exit109.i, %proto_item_set_generated.exit106.i
@@ -1525,12 +1525,12 @@ proto_item_set_generated.exit115.i:               ; preds = %170, %167, %163, %p
   %179 = select i1 %178, ptr @.str.298, ptr @.str.299
   %180 = load i8, ptr %161, align 8
   %181 = zext i8 %180 to i32
-  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull %1, ptr noundef nonnull @.str.297, ptr noundef nonnull %179, i32 noundef %181)
+  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.297, ptr noundef nonnull %179, i32 noundef %181)
   br label %184
 
 182:                                              ; preds = %proto_item_set_generated.exit115.i
   %183 = tail call ptr @val_to_str_const(i32 noundef %174, ptr noundef nonnull @bearer_type_vals, ptr noundef nonnull @.str.277) #13
-  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull %1, ptr noundef nonnull @.str.300, ptr noundef %183)
+  tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %110, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.300, ptr noundef %183)
   br label %184
 
 184:                                              ; preds = %182, %176
@@ -4089,7 +4089,7 @@ define internal i32 @pdcp_result_hash_func(ptr nocapture noundef readonly %0) #4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pdcp_result_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @pdcp_result_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) %1, i64 8)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -4108,7 +4108,7 @@ define internal i32 @pdcp_nr_ueid_frame_hash_func(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pdcp_nr_ueid_frame_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @pdcp_nr_ueid_frame_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -4171,7 +4171,7 @@ define hidden void @proto_reg_handoff_pdcp_nr() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pdcp_nr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_pdcp_nr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #13
   %6 = icmp slt i32 %5, 10
   br i1 %6, label %90, label %7

@@ -141,7 +141,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @nghttp2_adjust_local_window_size(ptr nocapture noundef %local_window_size_ptr, ptr nocapture noundef %recv_window_size_ptr, ptr nocapture noundef %recv_reduction_ptr, ptr nocapture noundef %delta_ptr) local_unnamed_addr #5 {
+define hidden range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr nocapture noundef %local_window_size_ptr, ptr nocapture noundef %recv_window_size_ptr, ptr nocapture noundef %recv_reduction_ptr, ptr nocapture noundef %delta_ptr) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %delta_ptr, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -218,7 +218,7 @@ return:                                           ; preds = %if.end20, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_increase_local_window_size(ptr nocapture noundef %local_window_size_ptr, ptr nocapture noundef %recv_window_size_ptr, ptr nocapture noundef %recv_reduction_ptr, ptr nocapture noundef %delta_ptr) local_unnamed_addr #6 {
+define hidden range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr nocapture noundef %local_window_size_ptr, ptr nocapture noundef %recv_window_size_ptr, ptr nocapture noundef %recv_reduction_ptr, ptr nocapture noundef %delta_ptr) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %delta_ptr, align 4
   %cmp = icmp sgt i32 %0, -1
@@ -258,7 +258,7 @@ return:                                           ; preds = %if.end, %if.end3
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @nghttp2_should_send_window_update(i32 noundef %local_window_size, i32 noundef %recv_window_size) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @nghttp2_should_send_window_update(i32 noundef %local_window_size, i32 noundef %recv_window_size) local_unnamed_addr #8 {
 entry:
   %cmp = icmp sgt i32 %recv_window_size, 0
   br i1 %cmp, label %land.rhs, label %land.end
@@ -450,7 +450,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @nghttp2_check_header_name(ptr noundef readonly %name, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %name, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -495,7 +495,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @nghttp2_check_header_value(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
   %cmp.not4 = icmp eq i64 %len, 0
@@ -521,7 +521,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -562,7 +562,7 @@ return:                                           ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @nghttp2_check_method(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %for.body.preheader
@@ -591,7 +591,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @nghttp2_check_path(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
   %cmp.not4 = icmp eq i64 %len, 0
@@ -617,7 +617,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @nghttp2_check_authority(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
   %cmp.not4 = icmp eq i64 %len, 0

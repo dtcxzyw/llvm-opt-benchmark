@@ -13,7 +13,7 @@ entry:
 declare ptr @thread_pool_submit_aio(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @coroutine_enter_func(ptr noundef %arg) #0 {
+define internal noundef i32 @coroutine_enter_func(ptr noundef %arg) #0 {
 entry:
   tail call void @qemu_coroutine_enter(ptr noundef %arg) #2
   ret i32 0

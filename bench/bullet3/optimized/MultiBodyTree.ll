@@ -821,7 +821,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree24calculateInverseDynamicsERKNS_4vecxES3_S3_PS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %dot_u, ptr noundef %joint_forces) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree24calculateInverseDynamicsERKNS_4vecxES3_S3_PS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %dot_u, ptr noundef %joint_forces) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -852,7 +852,7 @@ declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unname
 declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24calculateInverseDynamicsERKNS_4vecxES4_S4_PS2_(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, i1 noundef zeroext %update_kinematics, i1 noundef zeroext %initialize_matrix, i1 noundef zeroext %set_lower_triangular_matrix, ptr noundef %mass_matrix) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, i1 noundef zeroext %update_kinematics, i1 noundef zeroext %initialize_matrix, i1 noundef zeroext %set_lower_triangular_matrix, ptr noundef %mass_matrix) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -881,7 +881,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree19calculateMassMatrixERKNS_4vecxEP9btMatrixXIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef %mass_matrix) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree19calculateMassMatrixERKNS_4vecxEP9btMatrixXIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef %mass_matrix) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -908,7 +908,7 @@ _ZN24btInverseDynamicsBullet313MultiBodyTree19calculateMassMatrixERKNS_4vecxEbbb
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree19calculateKinematicsERKNS_4vecxES3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %dot_u) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree19calculateKinematicsERKNS_4vecxES3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %dot_u) local_unnamed_addr #0 align 2 {
 entry:
   %world_gravity.sroa.0 = alloca [4 x float], align 4
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
@@ -956,7 +956,7 @@ declare void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnu
 declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateKinematicsERKNS_4vecxES4_S4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree27calculatePositionKinematicsERKNS_4vecxE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree27calculatePositionKinematicsERKNS_4vecxE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -983,7 +983,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree38calculatePositionAndVelocityKinematicsERKNS_4vecxES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree38calculatePositionAndVelocityKinematicsERKNS_4vecxES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -1010,7 +1010,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree18calculateJacobiansERKNS_4vecxES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree18calculateJacobiansERKNS_4vecxES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -1039,7 +1039,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl18calculateJacobiansERKNS_4vecxES4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree18calculateJacobiansERKNS_4vecxE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree18calculateJacobiansERKNS_4vecxE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -1152,8 +1152,8 @@ do.body3:                                         ; preds = %sw.bb
   %5 = fadd <2 x float> %4, %shift
   %add = extractelement <2 x float> %5, i64 0
   %6 = load float, ptr %arrayidx.i14, align 8
-  %square22 = fmul float %6, %6
-  %add16 = fadd float %add, %square22
+  %square23 = fmul float %6, %6
+  %add16 = fadd float %add, %square23
   %sqrt = call float @llvm.sqrt.f32(float %add16)
   %cmp20 = fcmp olt float %sqrt, 0x3C00000000000000
   br i1 %cmp20, label %do.body22, label %if.end25
@@ -1289,7 +1289,7 @@ entry:
 declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10setUserPtrEiPv(ptr noundef nonnull align 8 dereferenceable(400), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree8finalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree8finalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inertia = alloca %"struct.btInverseDynamicsBullet3::InertiaData", align 4
   %joint = alloca %"struct.btInverseDynamicsBullet3::JointData", align 4
@@ -1389,8 +1389,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache19getParentIndexArrayEP20b3AlignedObjectArrayIiE.exit, label %for.body.i.i.i, !llvm.loop !9
 
 _ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache19getParentIndexArrayEP20b3AlignedObjectArrayIiE.exit: ; preds = %for.body.i.i.i, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i.i
-  %cmp1383 = icmp sgt i32 %1, 0
-  br i1 %cmp1383, label %for.body.lr.ph, label %for.end
+  %cmp1395 = icmp sgt i32 %1, 0
+  br i1 %cmp1395, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache19getParentIndexArrayEP20b3AlignedObjectArrayIiE.exit
   %m_body_pos_body_com = getelementptr inbounds i8, ptr %inertia, i64 4
@@ -1404,15 +1404,15 @@ for.body.lr.ph:                                   ; preds = %_ZN24btInverseDynam
   %arrayidx5.i.i55 = getelementptr inbounds i8, ptr %joint, i64 44
   %arrayidx9.i.i57 = getelementptr inbounds i8, ptr %joint, i64 60
   %m_child_axis_of_motion81 = getelementptr inbounds i8, ptr %joint, i64 76
-  %arrayidx.i67 = getelementptr inbounds i8, ptr %joint, i64 80
-  %arrayidx.i69 = getelementptr inbounds i8, ptr %joint, i64 84
+  %arrayidx.i73 = getelementptr inbounds i8, ptr %joint, i64 80
+  %arrayidx.i75 = getelementptr inbounds i8, ptr %joint, i64 84
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %16 = load ptr, ptr %m_init_cache, align 8
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %call15 = call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache14getInertiaDataEiPNS_11InertiaDataE(ptr noundef nonnull align 8 dereferenceable(172) %16, i32 noundef %17, ptr noundef nonnull %inertia)
   %cmp16 = icmp eq i32 %call15, -1
   br i1 %cmp16, label %return, label %if.end18
@@ -1503,12 +1503,12 @@ sw.bb:                                            ; preds = %if.end57
   %39 = load float, ptr %m_child_axis_of_motion81, align 4
   %m_Jac_JR = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store float %39, ptr %m_Jac_JR, align 4
-  %40 = load float, ptr %arrayidx.i67, align 4
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
-  store float %40, ptr %arrayidx.i60, align 4
-  %41 = load float, ptr %arrayidx.i69, align 4
-  %arrayidx.i62 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
-  store float %41, ptr %arrayidx.i62, align 4
+  %40 = load float, ptr %arrayidx.i73, align 4
+  %arrayidx.i62 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
+  store float %40, ptr %arrayidx.i62, align 4
+  %41 = load float, ptr %arrayidx.i75, align 4
+  %arrayidx.i64 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
+  store float %41, ptr %arrayidx.i64, align 4
   %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store <2 x float> zeroinitializer, ptr %m_Jac_JT, align 4
   br label %for.inc
@@ -1516,22 +1516,22 @@ sw.bb:                                            ; preds = %if.end57
 sw.bb74:                                          ; preds = %if.end57
   %m_Jac_JR75 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store <2 x float> zeroinitializer, ptr %m_Jac_JR75, align 4
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
-  store float 0.000000e+00, ptr %arrayidx.i66, align 4
+  %arrayidx.i70 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
+  store float 0.000000e+00, ptr %arrayidx.i70, align 4
   %42 = load float, ptr %m_child_axis_of_motion81, align 4
   %m_Jac_JT83 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store float %42, ptr %m_Jac_JT83, align 4
-  %43 = load float, ptr %arrayidx.i67, align 4
-  %arrayidx.i68 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
-  store float %43, ptr %arrayidx.i68, align 4
-  %44 = load float, ptr %arrayidx.i69, align 4
+  %43 = load float, ptr %arrayidx.i73, align 4
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
+  store float %43, ptr %arrayidx.i74, align 4
+  %44 = load float, ptr %arrayidx.i75, align 4
   br label %for.inc
 
 sw.bb93:                                          ; preds = %if.end57
   %m_Jac_JR94 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store <2 x float> zeroinitializer, ptr %m_Jac_JR94, align 4
-  %arrayidx.i72 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
-  store float 0.000000e+00, ptr %arrayidx.i72, align 4
+  %arrayidx.i79 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
+  store float 0.000000e+00, ptr %arrayidx.i79, align 4
   %m_Jac_JT100 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store <2 x float> zeroinitializer, ptr %m_Jac_JT100, align 4
   br label %for.inc
@@ -1539,8 +1539,8 @@ sw.bb93:                                          ; preds = %if.end57
 sw.bb106:                                         ; preds = %if.end57
   %m_Jac_JR107 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store <2 x float> zeroinitializer, ptr %m_Jac_JR107, align 4
-  %arrayidx.i76 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
-  store float 0.000000e+00, ptr %arrayidx.i76, align 4
+  %arrayidx.i85 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
+  store float 0.000000e+00, ptr %arrayidx.i85, align 4
   %m_Jac_JT113 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store <2 x float> zeroinitializer, ptr %m_Jac_JT113, align 4
   br label %for.inc
@@ -1548,8 +1548,8 @@ sw.bb106:                                         ; preds = %if.end57
 sw.bb119:                                         ; preds = %if.end57
   %m_Jac_JR120 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store <2 x float> zeroinitializer, ptr %m_Jac_JR120, align 4
-  %arrayidx.i80 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
-  store float 0.000000e+00, ptr %arrayidx.i80, align 4
+  %arrayidx.i91 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
+  store float 0.000000e+00, ptr %arrayidx.i91, align 4
   %m_Jac_JT126 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store <2 x float> zeroinitializer, ptr %m_Jac_JT126, align 4
   br label %for.inc
@@ -1562,8 +1562,8 @@ do.body132:                                       ; preds = %if.end57
 
 for.inc:                                          ; preds = %sw.bb, %sw.bb74, %sw.bb93, %sw.bb106, %sw.bb119
   %.sink = phi float [ 0.000000e+00, %sw.bb ], [ %44, %sw.bb74 ], [ 0.000000e+00, %sw.bb93 ], [ 0.000000e+00, %sw.bb106 ], [ 0.000000e+00, %sw.bb119 ]
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %arrayidx.i, i64 512
-  store float %.sink, ptr %arrayidx.i64, align 4
+  %arrayidx.i67 = getelementptr inbounds i8, ptr %arrayidx.i, i64 512
+  store float %.sink, ptr %arrayidx.i67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10

@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.41 = private unnamed_addr constant [51 x i8] c"skipping '%s', which is neither file nor directory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @option_parse_diagnose(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @option_parse_diagnose(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -247,14 +247,14 @@ get_disk_info.exit:                               ; preds = %_.exit.i, %if.end.i
   %call20 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %archiver_args, ptr noundef nonnull @.str.12, i32 noundef %conv, ptr noundef %16) #12
   store i64 0, ptr %len2.i, align 8
   %17 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i26 = icmp eq ptr %17, @strbuf_slopbuf
-  br i1 %cmp3.not.i26, label %strbuf_setlen.exit28, label %if.then4.i27
+  %cmp3.not.i27 = icmp eq ptr %17, @strbuf_slopbuf
+  br i1 %cmp3.not.i27, label %strbuf_setlen.exit30, label %if.then4.i28
 
-if.then4.i27:                                     ; preds = %get_disk_info.exit
+if.then4.i28:                                     ; preds = %get_disk_info.exit
   store i8 0, ptr %17, align 1
-  br label %strbuf_setlen.exit28
+  br label %strbuf_setlen.exit30
 
-strbuf_setlen.exit28:                             ; preds = %get_disk_info.exit, %if.then4.i27
+strbuf_setlen.exit30:                             ; preds = %get_disk_info.exit, %if.then4.i28
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.13, i64 noundef 35) #12
   %18 = load ptr, ptr @the_repository, align 8
   %objects = getelementptr inbounds i8, ptr %18, i64 16
@@ -270,23 +270,23 @@ strbuf_setlen.exit28:                             ; preds = %get_disk_info.exit,
   %call24 = call ptr @strvec_push(ptr noundef nonnull %archiver_args, ptr noundef %23) #12
   store i64 0, ptr %len2.i, align 8
   %24 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i34 = icmp eq ptr %24, @strbuf_slopbuf
-  br i1 %cmp3.not.i34, label %strbuf_setlen.exit36, label %if.then4.i35
+  %cmp3.not.i37 = icmp eq ptr %24, @strbuf_slopbuf
+  br i1 %cmp3.not.i37, label %strbuf_setlen.exit40, label %if.then4.i38
 
-if.then4.i35:                                     ; preds = %strbuf_setlen.exit28
+if.then4.i38:                                     ; preds = %strbuf_setlen.exit30
   store i8 0, ptr %24, align 1
-  br label %strbuf_setlen.exit36
+  br label %strbuf_setlen.exit40
 
-strbuf_setlen.exit36:                             ; preds = %strbuf_setlen.exit28, %if.then4.i35
+strbuf_setlen.exit40:                             ; preds = %strbuf_setlen.exit30, %if.then4.i38
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.14, i64 noundef 37) #12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %count_path.i)
-  %call.i38 = call ptr @opendir(ptr noundef nonnull @.str.15)
+  %call.i42 = call ptr @opendir(ptr noundef nonnull @.str.15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count_path.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
-  %tobool.not.i = icmp eq ptr %call.i38, null
-  br i1 %tobool.not.i, label %loose_objs_stats.exit, label %if.end.i39
+  %tobool.not.i = icmp eq ptr %call.i42, null
+  br i1 %tobool.not.i, label %loose_objs_stats.exit, label %if.end.i43
 
-if.end.i39:                                       ; preds = %strbuf_setlen.exit36
+if.end.i43:                                       ; preds = %strbuf_setlen.exit40
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.32, i64 noundef 27) #12
   call void @strbuf_add_absolute_path(ptr noundef nonnull %buf, ptr noundef nonnull @.str.15) #12
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.33, i64 noundef 2) #12
@@ -295,14 +295,14 @@ if.end.i39:                                       ; preds = %strbuf_setlen.exit3
   %tobool.not.i.i.i = icmp eq i64 %25, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
-strbuf_avail.exit.i.i:                            ; preds = %if.end.i39
+strbuf_avail.exit.i.i:                            ; preds = %if.end.i43
   %len.i.i.i = getelementptr inbounds i8, ptr %count_path.i, i64 8
   %26 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %26, 1
   %tobool.not.i.i = icmp eq i64 %25, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
-if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.end.i39
+if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.end.i43
   call void @strbuf_grow(ptr noundef nonnull %count_path.i, i64 noundef 1) #12
   %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %count_path.i, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
@@ -323,21 +323,21 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbu
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %29, i64 %30
   store i8 0, ptr %arrayidx3.i.i, align 1
   %31 = load i64, ptr %len.i.i, align 8
-  %call12.i = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %call.i38) #12
+  %call12.i = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %call.i42) #12
   %cmp.not3.i = icmp eq ptr %call12.i, null
   br i1 %cmp.not3.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %strbuf_addch.exit.i, %if.end19.i
   %call15.i = phi ptr [ %call1.i, %if.end19.i ], [ %call12.i, %strbuf_addch.exit.i ]
   %total.04.i = phi i32 [ %total.1.i, %if.end19.i ], [ 0, %strbuf_addch.exit.i ]
-  %call2.i40 = call zeroext i8 @get_dtype(ptr noundef nonnull %call15.i, ptr noundef nonnull %count_path.i, i32 noundef 0) #12
-  %cmp3.i = icmp eq i8 %call2.i40, 4
+  %call2.i44 = call zeroext i8 @get_dtype(ptr noundef nonnull %call15.i, ptr noundef nonnull %count_path.i, i32 noundef 0) #12
+  %cmp3.i = icmp eq i8 %call2.i44, 4
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end19.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
   %d_name.i = getelementptr inbounds i8, ptr %call15.i, i64 19
-  %call5.i41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i) #11
-  %cmp6.i = icmp eq i64 %call5.i41, 2
+  %call5.i45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i) #11
+  %cmp6.i = icmp eq i64 %call5.i45, 2
   br i1 %cmp6.i, label %land.lhs.true8.i, label %if.end19.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
@@ -395,14 +395,14 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
   br label %count_files.exit.i
 
 count_files.exit.i:                               ; preds = %while.end.i.i, %strbuf_setlen.exit.i
-  %retval.0.i.i42 = phi i32 [ %count.0.lcssa.i.i, %while.end.i.i ], [ 0, %strbuf_setlen.exit.i ]
-  %add.i = add nsw i32 %retval.0.i.i42, %total.04.i
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.35, ptr noundef nonnull %d_name.i, i32 noundef %retval.0.i.i42) #12
+  %retval.0.i.i46 = phi i32 [ %count.0.lcssa.i.i, %while.end.i.i ], [ 0, %strbuf_setlen.exit.i ]
+  %add.i = add nsw i32 %retval.0.i.i46, %total.04.i
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.35, ptr noundef nonnull %d_name.i, i32 noundef %retval.0.i.i46) #12
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %count_files.exit.i, %land.lhs.true8.i, %land.lhs.true.i, %while.body.i
   %total.1.i = phi i32 [ %total.04.i, %land.lhs.true8.i ], [ %add.i, %count_files.exit.i ], [ %total.04.i, %land.lhs.true.i ], [ %total.04.i, %while.body.i ]
-  %call1.i = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %call.i38) #12
+  %call1.i = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %call.i42) #12
   %cmp.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
 
@@ -410,10 +410,10 @@ while.end.i:                                      ; preds = %if.end19.i, %strbuf
   %total.0.lcssa.i = phi i32 [ 0, %strbuf_addch.exit.i ], [ %total.1.i, %if.end19.i ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.36, i32 noundef %total.0.lcssa.i) #12
   call void @strbuf_release(ptr noundef nonnull %count_path.i) #12
-  %call20.i = call i32 @closedir(ptr noundef nonnull %call.i38)
+  %call20.i = call i32 @closedir(ptr noundef nonnull %call.i42)
   br label %loose_objs_stats.exit
 
-loose_objs_stats.exit:                            ; preds = %strbuf_setlen.exit36, %while.end.i
+loose_objs_stats.exit:                            ; preds = %strbuf_setlen.exit40, %while.end.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %count_path.i)
   %35 = load ptr, ptr %buf.i, align 8
@@ -432,22 +432,22 @@ for.body:                                         ; preds = %loose_objs_stats.ex
   %36 = load ptr, ptr %arrayidx, align 16
   %recursive = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %37 = load i32, ptr %recursive, align 8
-  %call35 = call fastcc i32 @add_directory_to_archiver(ptr noundef nonnull %archiver_args, ptr noundef %36, i32 noundef %37), !range !10
+  %call35 = call fastcc i32 @add_directory_to_archiver(ptr noundef nonnull %archiver_args, ptr noundef %36, i32 noundef %37)
   %tobool.not = icmp eq i32 %call35, 0
   br i1 %tobool.not, label %for.cond, label %if.then36
 
 if.then36:                                        ; preds = %for.body
   %38 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i44 = icmp eq i32 %38, 0
-  br i1 %tobool1.not.i44, label %_.exit48, label %if.end3.i45
+  %tobool1.not.i48 = icmp eq i32 %38, 0
+  br i1 %tobool1.not.i48, label %_.exit52, label %if.end3.i49
 
-if.end3.i45:                                      ; preds = %if.then36
-  %call.i46 = call ptr @gettext(ptr noundef nonnull @.str.16) #12
-  br label %_.exit48
+if.end3.i49:                                      ; preds = %if.then36
+  %call.i50 = call ptr @gettext(ptr noundef nonnull @.str.16) #12
+  br label %_.exit52
 
-_.exit48:                                         ; preds = %if.then36, %if.end3.i45
-  %retval.0.i47 = phi ptr [ %call.i46, %if.end3.i45 ], [ @.str.16, %if.then36 ]
-  %call41 = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i47, ptr noundef %36) #12
+_.exit52:                                         ; preds = %if.then36, %if.end3.i49
+  %retval.0.i51 = phi ptr [ %call.i50, %if.end3.i49 ], [ @.str.16, %if.then36 ]
+  %call41 = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i51, ptr noundef %36) #12
   br label %diagnose_cleanup
 
 if.end44:                                         ; preds = %for.cond, %loose_objs_stats.exit
@@ -472,16 +472,16 @@ if.end44:                                         ; preds = %for.cond, %loose_ob
 
 if.then51:                                        ; preds = %if.end44
   %46 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i50 = icmp eq i32 %46, 0
-  br i1 %tobool1.not.i50, label %_.exit54, label %if.end3.i51
+  %tobool1.not.i54 = icmp eq i32 %46, 0
+  br i1 %tobool1.not.i54, label %_.exit58, label %if.end3.i55
 
-if.end3.i51:                                      ; preds = %if.then51
-  %call.i52 = call ptr @gettext(ptr noundef nonnull @.str.19) #12
-  br label %_.exit54
+if.end3.i55:                                      ; preds = %if.then51
+  %call.i56 = call ptr @gettext(ptr noundef nonnull @.str.19) #12
+  br label %_.exit58
 
-_.exit54:                                         ; preds = %if.then51, %if.end3.i51
-  %retval.0.i53 = phi ptr [ %call.i52, %if.end3.i51 ], [ @.str.19, %if.then51 ]
-  %call53 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i53) #12
+_.exit58:                                         ; preds = %if.then51, %if.end3.i55
+  %retval.0.i57 = phi ptr [ %call.i56, %if.end3.i55 ], [ @.str.19, %if.then51 ]
+  %call53 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i57) #12
   br label %diagnose_cleanup
 
 if.end55:                                         ; preds = %if.end44
@@ -490,9 +490,9 @@ if.end55:                                         ; preds = %if.end44
   %call57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.20, ptr noundef %48) #14
   br label %diagnose_cleanup
 
-diagnose_cleanup:                                 ; preds = %if.end55, %_.exit54, %_.exit48, %_.exit18
-  %argv_copy.0 = phi ptr [ null, %_.exit18 ], [ null, %_.exit48 ], [ %call46, %_.exit54 ], [ %call46, %if.end55 ]
-  %res.0 = phi i32 [ -1, %_.exit18 ], [ -1, %_.exit48 ], [ %call49, %_.exit54 ], [ 0, %if.end55 ]
+diagnose_cleanup:                                 ; preds = %if.end55, %_.exit58, %_.exit52, %_.exit18
+  %argv_copy.0 = phi ptr [ null, %_.exit18 ], [ null, %_.exit52 ], [ %call46, %_.exit58 ], [ %call46, %if.end55 ]
+  %res.0 = phi i32 [ -1, %_.exit18 ], [ -1, %_.exit52 ], [ %call49, %_.exit58 ], [ 0, %if.end55 ]
   %cmp58 = icmp sgt i32 %call8, -1
   br i1 %cmp58, label %if.then60, label %if.end64
 
@@ -503,12 +503,12 @@ if.then60:                                        ; preds = %diagnose_cleanup
   br label %if.end64
 
 if.end64:                                         ; preds = %entry, %_.exit, %if.then60, %diagnose_cleanup
-  %res.061 = phi i32 [ %res.0, %if.then60 ], [ %res.0, %diagnose_cleanup ], [ 0, %entry ], [ -1, %_.exit ]
-  %argv_copy.060 = phi ptr [ %argv_copy.0, %if.then60 ], [ %argv_copy.0, %diagnose_cleanup ], [ null, %entry ], [ null, %_.exit ]
-  call void @free(ptr noundef %argv_copy.060) #12
+  %res.065 = phi i32 [ %res.0, %if.then60 ], [ %res.0, %diagnose_cleanup ], [ 0, %entry ], [ -1, %_.exit ]
+  %argv_copy.064 = phi ptr [ %argv_copy.0, %if.then60 ], [ %argv_copy.0, %diagnose_cleanup ], [ null, %entry ], [ null, %_.exit ]
+  call void @free(ptr noundef %argv_copy.064) #12
   call void @strvec_clear(ptr noundef nonnull %archiver_args) #12
   call void @strbuf_release(ptr noundef nonnull %buf) #12
-  ret i32 %res.061
+  ret i32 %res.065
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -552,7 +552,7 @@ declare i32 @foreach_alt_odb(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_directory_to_archiver(ptr noundef %archiver_args, ptr noundef %path, i32 noundef %recurse) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_directory_to_archiver(ptr noundef %archiver_args, ptr noundef %path, i32 noundef %recurse) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %abspath = alloca %struct.strbuf, align 8
@@ -708,14 +708,14 @@ if.else36:                                        ; preds = %strbuf_setlen.exit
 
 land.lhs.true:                                    ; preds = %if.else36
   %16 = load ptr, ptr %buf14, align 8
-  %call39 = call fastcc i32 @add_directory_to_archiver(ptr noundef %archiver_args, ptr noundef %16, i32 noundef %recurse), !range !10
+  %call39 = call fastcc i32 @add_directory_to_archiver(ptr noundef %archiver_args, ptr noundef %16, i32 noundef %recurse)
   br label %if.end45
 
 if.end45:                                         ; preds = %land.lhs.true, %_.exit30, %if.else36, %if.then27
   %res.1 = phi i32 [ 0, %if.then27 ], [ 0, %_.exit30 ], [ 0, %if.else36 ], [ %call39, %land.lhs.true ]
   call void @strbuf_release(ptr noundef nonnull %abspath) #12
   %tobool16.not = icmp eq i32 %res.1, 0
-  br i1 %tobool16.not, label %land.rhs, label %while.end, !llvm.loop !11
+  br i1 %tobool16.not, label %land.rhs, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end45, %land.rhs
   %res.0.lcssa = phi i32 [ -1, %if.end45 ], [ 0, %land.rhs ]
@@ -846,5 +846,4 @@ attributes #15 = { nounwind willreturn memory(none) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 1}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}

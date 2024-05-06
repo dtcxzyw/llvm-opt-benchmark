@@ -71,7 +71,7 @@ declare dso_local void @acpi_os_release_lock(ptr noundef, i64 noundef) local_unn
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @acpi_ev_get_gpe_device(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 16392) i32 @acpi_ev_get_gpe_device(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 60
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32

@@ -486,7 +486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ossl_quic_tls_get_error(ptr nocapture noundef readonly %qtls, ptr nocapture noundef writeonly %error_code, ptr nocapture noundef writeonly %error_msg, ptr nocapture noundef writeonly %error_state) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_quic_tls_get_error(ptr nocapture noundef readonly %qtls, ptr nocapture noundef writeonly %error_code, ptr nocapture noundef writeonly %error_msg, ptr nocapture noundef writeonly %error_state) local_unnamed_addr #3 {
 entry:
   %inerror = getelementptr inbounds i8, ptr %qtls, i64 168
   %bf.load = load i8, ptr %inerror, align 8
@@ -516,7 +516,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ossl_quic_tls_is_cert_request(ptr nocapture noundef readonly %qtls) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_quic_tls_is_cert_request(ptr nocapture noundef readonly %qtls) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %qtls, align 8, !nonnull !4, !noundef !4
   %1 = load i32, ptr %0, align 8
@@ -538,7 +538,7 @@ cond.end18:                                       ; preds = %entry, %cond.true12
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_tls_has_bad_max_early_data(ptr nocapture noundef readonly %qtls) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tls_has_bad_max_early_data(ptr nocapture noundef readonly %qtls) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qtls, align 8
   %call = tail call ptr @SSL_get_session(ptr noundef %0) #9
@@ -555,7 +555,7 @@ declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_ERR_STATE_save_to_mark(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @quic_new_record_layer(ptr nocapture readnone %libctx, ptr nocapture readnone %propq, i32 %vers, i32 %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr noundef %secret, i64 noundef %secretlen, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 %taglen, i32 %mactype, ptr nocapture readnone %md, ptr nocapture readnone %comp, ptr noundef %kdfdigest, ptr nocapture readnone %prev, ptr noundef %transport, ptr nocapture readnone %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr nocapture readnone %settings, ptr nocapture readnone %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr noundef %rlarg, ptr nocapture noundef writeonly %retrl) #0 {
+define internal range(i32 0, 2) i32 @quic_new_record_layer(ptr nocapture readnone %libctx, ptr nocapture readnone %propq, i32 %vers, i32 %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr noundef %secret, i64 noundef %secretlen, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 %taglen, i32 %mactype, ptr nocapture readnone %md, ptr nocapture readnone %comp, ptr noundef %kdfdigest, ptr nocapture readnone %prev, ptr noundef %transport, ptr nocapture readnone %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr nocapture readnone %settings, ptr nocapture readnone %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr noundef %rlarg, ptr nocapture noundef writeonly %retrl) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 96, ptr noundef nonnull @.str, i32 noundef 105) #9
   %cmp = icmp eq ptr %call, null
@@ -804,7 +804,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @quic_write_records(ptr noundef %rl, ptr noundef %template, i64 noundef %numtempl) #0 {
+define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef %rl, ptr noundef %template, i64 noundef %numtempl) #0 {
 entry:
   %consumed = alloca i64, align 8
   %dummyrec = alloca [5 x i8], align 1
@@ -1027,15 +1027,15 @@ return:                                           ; preds = %if.end159, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @quic_retry_write_records(ptr noundef %rl) #0 {
+define internal range(i32 -2, 2) i32 @quic_retry_write_records(ptr noundef %rl) #0 {
 entry:
   %template = getelementptr inbounds i8, ptr %rl, i64 32
-  %call = tail call i32 @quic_write_records(ptr noundef %rl, ptr noundef nonnull %template, i64 noundef 1), !range !7
+  %call = tail call i32 @quic_write_records(ptr noundef %rl, ptr noundef nonnull %template, i64 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @quic_read_record(ptr noundef %rl, ptr nocapture noundef writeonly %rechandle, ptr nocapture noundef writeonly %rversion, ptr noundef %type, ptr noundef %data, ptr noundef %datalen, ptr nocapture readnone %epoch, ptr nocapture readnone %seq_num) #0 {
+define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %rl, ptr nocapture noundef writeonly %rechandle, ptr nocapture noundef writeonly %rversion, ptr noundef %type, ptr noundef %data, ptr noundef %datalen, ptr nocapture readnone %epoch, ptr nocapture readnone %seq_num) #0 {
 entry:
   %dummyrec = alloca [5 x i8], align 1
   %recread = getelementptr inbounds i8, ptr %rl, i64 64
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %if.end16, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @quic_release_record(ptr noundef %rl, ptr noundef readnone %rechandle, i64 noundef %length) #0 {
+define internal range(i32 -2, 2) i32 @quic_release_record(ptr noundef %rl, ptr noundef readnone %rechandle, i64 noundef %length) #0 {
 entry:
   %recread = getelementptr inbounds i8, ptr %rl, i64 64
   %0 = load i64, ptr %recread, align 8
@@ -1206,7 +1206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @quic_set1_bio(ptr nocapture noundef %rl, ptr noundef %bio) #0 {
+define internal range(i32 0, 2) i32 @quic_set1_bio(ptr nocapture noundef %rl, ptr noundef %bio) #0 {
 entry:
   %cmp.not = icmp eq ptr %bio, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1229,7 +1229,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @quic_set_protocol_version(ptr noundef %rl, i32 noundef %version) #0 {
+define internal range(i32 0, 2) i32 @quic_set_protocol_version(ptr noundef %rl, i32 noundef %version) #0 {
 entry:
   %cmp = icmp eq i32 %version, 772
   br i1 %cmp, label %return, label %do.body
@@ -1444,4 +1444,3 @@ attributes #9 = { nounwind }
 !4 = !{}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -2, i32 2}

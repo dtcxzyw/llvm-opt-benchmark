@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [66 x i8] c"ucol_swap(formatVersion=4): unknown data at IX_RESERVED18_OFFSET\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucol_looksLikeCollationBinary_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucol_looksLikeCollationBinary_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %errorCode = alloca i32, align 4
   %cmp = icmp eq ptr %ds, null

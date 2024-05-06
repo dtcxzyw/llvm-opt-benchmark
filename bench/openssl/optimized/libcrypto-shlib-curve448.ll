@@ -424,7 +424,7 @@ if.then13:                                        ; preds = %for.body9
   %shr = lshr i64 %4, %rem
   %and = and i64 %shr, 1
   %shl = shl nuw nsw i64 %and, %indvars.iv
-  %5 = trunc i64 %shl to i32
+  %5 = trunc nuw i64 %shl to i32
   %conv16 = or i32 %tab.033, %5
   br label %for.inc
 
@@ -454,7 +454,7 @@ for.body.i.i:                                     ; preds = %for.inc9.i.i, %for.
   %sub.i.i.i = add nsw i64 %idx.addr.012.i.i, -1
   %and.i.i.i = and i64 %sub.i.i.i, %not.i.i.i
   %shr.neg.i.i.i.i = ashr i64 %and.i.i.i, 63
-  %conv.i.i = trunc i64 %shr.neg.i.i.i.i to i32
+  %conv.i.i = trunc nsw i64 %shr.neg.i.i.i.i to i32
   %conv.i.i.i = and i32 %conv.i.i, 255
   %7 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i.i.i) #8, !srcloc !12
   %not.i.i.i.i = xor i32 %conv.i.i.i, -1
@@ -873,7 +873,7 @@ entry:
   %t = alloca [1 x %struct.gf_s], align 16
   %q = alloca [1 x %struct.curve448_point_s], align 16
   %u = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(256) %q, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
   call void @ossl_gf_sqr(ptr noundef nonnull %x, ptr noundef nonnull %q) #7
   %y7 = getelementptr inbounds i8, ptr %q, i64 64
   call void @ossl_gf_sqr(ptr noundef nonnull %t, ptr noundef nonnull %y7) #7
@@ -896,7 +896,7 @@ entry:
   %call.i = call i64 @gf_isr(ptr noundef nonnull %t2.i, ptr noundef nonnull %t1.i) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %t1.i, ptr noundef nonnull %t2.i) #7
   call void @ossl_gf_mul(ptr noundef nonnull %t2.i, ptr noundef nonnull %t1.i, ptr noundef nonnull %z) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z, ptr noundef nonnull align 16 dereferenceable(64) %t2.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %z, ptr noundef nonnull align 16 dereferenceable(64) %t2.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i)
   call void @ossl_gf_mul(ptr noundef nonnull %t, ptr noundef nonnull %x, ptr noundef nonnull %z) #7
@@ -1510,7 +1510,7 @@ gf_cond_swap.exit202:                             ; preds = %for.body.i192
   %call.i = call i64 @gf_isr(ptr noundef nonnull %t2.i, ptr noundef nonnull %t1.i) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %t1.i, ptr noundef nonnull %t2.i) #7
   call void @ossl_gf_mul(ptr noundef nonnull %t2.i, ptr noundef nonnull %t1.i, ptr noundef nonnull %z2) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z2, ptr noundef nonnull align 16 dereferenceable(64) %t2.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %z2, ptr noundef nonnull align 16 dereferenceable(64) %t2.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i)
   call void @ossl_gf_mul(ptr noundef nonnull %x1, ptr noundef nonnull %x2, ptr noundef nonnull %z2) #7
@@ -1534,7 +1534,7 @@ entry:
   %t1.i = alloca [1 x %struct.gf_s], align 16
   %t2.i = alloca [1 x %struct.gf_s], align 16
   %q = alloca [1 x %struct.curve448_point_s], align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(256) %q, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
   %t = getelementptr inbounds i8, ptr %q, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t2.i)
@@ -1542,7 +1542,7 @@ entry:
   %call.i = call i64 @gf_isr(ptr noundef nonnull %t2.i, ptr noundef nonnull %t1.i) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %t1.i, ptr noundef nonnull %t2.i) #7
   call void @ossl_gf_mul(ptr noundef nonnull %t2.i, ptr noundef nonnull %t1.i, ptr noundef nonnull %q) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t, ptr noundef nonnull align 16 dereferenceable(64) %t2.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %t, ptr noundef nonnull align 16 dereferenceable(64) %t2.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i)
   %z = getelementptr inbounds i8, ptr %q, i64 128
@@ -1576,7 +1576,7 @@ entry:
   %4 = load ptr, ptr @ossl_curve448_precomputed_base, align 8
   call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %p, ptr noundef %4, ptr noundef nonnull %the_scalar)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %q.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q.i, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(256) %q.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
   %t.i = getelementptr inbounds i8, ptr %q.i, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t2.i.i)
@@ -1584,7 +1584,7 @@ entry:
   %call.i.i = call i64 @gf_isr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i) #7
   call void @ossl_gf_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i, ptr noundef nonnull %q.i) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i, ptr noundef nonnull align 16 dereferenceable(64) %t2.i.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %t.i, ptr noundef nonnull align 16 dereferenceable(64) %t2.i.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i.i)
   %z.i = getelementptr inbounds i8, ptr %q.i, i64 128
@@ -1659,7 +1659,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %indvars.iv.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %indvars.iv.next.i, %while.body.i ]
   %current.242.i = phi i64 [ %current.1.i, %while.body.lr.ph.i ], [ %sub32.i, %while.body.i ]
   %conv16.i = trunc i64 %current.242.i to i32
-  %3 = tail call i32 @llvm.cttz.i32(i32 %conv16.i, i1 true), !range !36
+  %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv16.i, i1 true)
   %shr18.i = lshr i32 %conv16.i, %3
   %and19.i = and i32 %shr18.i, 63
   %and22.i = and i32 %shr18.i, 64
@@ -1672,13 +1672,13 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i32 %add35.i, ptr %arrayidx37.i, align 8
   %addend41.i = getelementptr inbounds i8, ptr %arrayidx37.i, i64 4
   store i32 %spec.select.i, ptr %addend41.i, align 4
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %and15.i = and i64 %sub32.i, 65535
   %tobool.not.i = icmp eq i64 %and15.i, 0
-  br i1 %tobool.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !37
+  br i1 %tobool.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !36
 
 while.end.loopexit.i:                             ; preds = %while.body.i
-  %4 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.end.i
@@ -1687,7 +1687,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %shr43.i = lshr exact i64 %current.2.lcssa.i, 16
   %inc.i = add nuw nsw i32 %w.045.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 30
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !37
 
 for.end.i:                                        ; preds = %while.end.i
   %inc44.i = add nsw i32 %position.1.lcssa.i, 1
@@ -1702,7 +1702,7 @@ for.body49.preheader.i:                           ; preds = %for.end.i
 for.body49.i:                                     ; preds = %for.body49.i, %for.body49.preheader.i
   %indvars.iv51.i = phi i64 [ 0, %for.body49.preheader.i ], [ %indvars.iv.next52.i, %for.body49.i ]
   %arrayidx51.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 %indvars.iv51.i
-  %5 = trunc i64 %indvars.iv51.i to i32
+  %5 = trunc nuw i64 %indvars.iv51.i to i32
   %add52.i = add i32 %inc44.i, %5
   %idxprom53.i = zext i32 %add52.i to i64
   %arrayidx54.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 %idxprom53.i
@@ -1710,7 +1710,7 @@ for.body49.i:                                     ; preds = %for.body49.i, %for.
   store i64 %6, ptr %arrayidx51.i, align 8
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count.i
-  br i1 %exitcond54.not.i, label %recode_wnaf.exit, label %for.body49.i, !llvm.loop !39
+  br i1 %exitcond54.not.i, label %recode_wnaf.exit, label %for.body49.i, !llvm.loop !38
 
 recode_wnaf.exit:                                 ; preds = %for.body49.i, %for.end.i
   %7 = load i64, ptr %scalar2, align 8
@@ -1758,7 +1758,7 @@ while.body.i60:                                   ; preds = %while.body.i60, %wh
   %indvars.iv.i61 = phi i64 [ %9, %while.body.lr.ph.i57 ], [ %indvars.iv.next.i76, %while.body.i60 ]
   %current.242.i62 = phi i64 [ %current.1.i54, %while.body.lr.ph.i57 ], [ %sub32.i72, %while.body.i60 ]
   %conv16.i63 = trunc i64 %current.242.i62 to i32
-  %10 = tail call i32 @llvm.cttz.i32(i32 %conv16.i63, i1 true), !range !36
+  %10 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv16.i63, i1 true)
   %shr18.i64 = lshr i32 %conv16.i63, %10
   %and19.i65 = and i32 %shr18.i64, 15
   %and22.i66 = and i32 %shr18.i64, 16
@@ -1771,13 +1771,13 @@ while.body.i60:                                   ; preds = %while.body.i60, %wh
   store i32 %add35.i73, ptr %arrayidx37.i74, align 8
   %addend41.i75 = getelementptr inbounds i8, ptr %arrayidx37.i74, i64 4
   store i32 %spec.select.i69, ptr %addend41.i75, align 4
-  %indvars.iv.next.i76 = add i64 %indvars.iv.i61, -1
+  %indvars.iv.next.i76 = add nsw i64 %indvars.iv.i61, -1
   %and15.i77 = and i64 %sub32.i72, 65535
   %tobool.not.i78 = icmp eq i64 %and15.i77, 0
-  br i1 %tobool.not.i78, label %while.end.loopexit.i79, label %while.body.i60, !llvm.loop !37
+  br i1 %tobool.not.i78, label %while.end.loopexit.i79, label %while.body.i60, !llvm.loop !36
 
 while.end.loopexit.i79:                           ; preds = %while.body.i60
-  %11 = trunc i64 %indvars.iv.next.i76 to i32
+  %11 = trunc nsw i64 %indvars.iv.next.i76 to i32
   br label %while.end.i80
 
 while.end.i80:                                    ; preds = %while.end.loopexit.i79, %if.end.i53
@@ -1786,7 +1786,7 @@ while.end.i80:                                    ; preds = %while.end.loopexit.
   %shr43.i83 = lshr exact i64 %current.2.lcssa.i81, 16
   %inc.i84 = add nuw nsw i32 %w.045.i51, 1
   %exitcond.not.i85 = icmp eq i32 %inc.i84, 30
-  br i1 %exitcond.not.i85, label %for.end.i86, label %for.body.i48, !llvm.loop !38
+  br i1 %exitcond.not.i85, label %for.end.i86, label %for.body.i48, !llvm.loop !37
 
 for.end.i86:                                      ; preds = %while.end.i80
   %inc44.i87 = add nsw i32 %position.1.lcssa.i82, 1
@@ -1801,7 +1801,7 @@ for.body49.preheader.i91:                         ; preds = %for.end.i86
 for.body49.i93:                                   ; preds = %for.body49.i93, %for.body49.preheader.i91
   %indvars.iv51.i94 = phi i64 [ 0, %for.body49.preheader.i91 ], [ %indvars.iv.next52.i99, %for.body49.i93 ]
   %arrayidx51.i95 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 %indvars.iv51.i94
-  %12 = trunc i64 %indvars.iv51.i94 to i32
+  %12 = trunc nuw i64 %indvars.iv51.i94 to i32
   %add52.i96 = add i32 %inc44.i87, %12
   %idxprom53.i97 = zext i32 %add52.i96 to i64
   %arrayidx54.i98 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 %idxprom53.i97
@@ -1809,7 +1809,7 @@ for.body49.i93:                                   ; preds = %for.body49.i93, %fo
   store i64 %13, ptr %arrayidx51.i95, align 8
   %indvars.iv.next52.i99 = add nuw nsw i64 %indvars.iv51.i94, 1
   %exitcond54.not.i100 = icmp eq i64 %indvars.iv.next52.i99, %wide.trip.count.i92
-  br i1 %exitcond54.not.i100, label %recode_wnaf.exit113, label %for.body49.i93, !llvm.loop !39
+  br i1 %exitcond54.not.i100, label %recode_wnaf.exit113, label %for.body49.i93, !llvm.loop !38
 
 recode_wnaf.exit113:                              ; preds = %for.body49.i93, %for.end.i86
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %tmp.i)
@@ -1871,7 +1871,7 @@ for.body.i114:                                    ; preds = %for.body.i114, %rec
   call void @gf_add(ptr noundef nonnull %z.i28.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z18.i13.i) #7
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, 8
-  br i1 %exitcond.not.i117, label %prepare_wnaf_table.exit, label %for.body.i114, !llvm.loop !40
+  br i1 %exitcond.not.i117, label %prepare_wnaf_table.exit, label %for.body.i114, !llvm.loop !39
 
 prepare_wnaf_table.exit:                          ; preds = %for.body.i114
   call void @OPENSSL_cleanse(ptr noundef nonnull %tmp.i, i64 noundef 256) #7
@@ -1883,7 +1883,7 @@ prepare_wnaf_table.exit:                          ; preds = %for.body.i114
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %prepare_wnaf_table.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %combo, ptr noundef nonnull align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(256) %combo, ptr noundef nonnull readonly align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false)
   br label %return
 
 if.end:                                           ; preds = %prepare_wnaf_table.exit
@@ -2063,7 +2063,7 @@ if.end116:                                        ; preds = %if.else107, %if.the
 for.inc:                                          ; preds = %if.end91, %if.end116
   %contp.2 = phi i32 [ %inc117, %if.end116 ], [ %contp.1136, %if.end91 ]
   %cmp42 = icmp ugt i32 %i.1137.in, 1
-  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !41
+  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %for.inc, %if.end41
   call void @OPENSSL_cleanse(ptr noundef nonnull %control_var, i64 noundef 912) #7
@@ -2373,7 +2373,7 @@ if.end:                                           ; preds = %if.then, %gf_sub_nr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x448(ptr noundef %out_shared_key, ptr nocapture noundef readonly %private_key, ptr noundef %peer_public_value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x448(ptr noundef %out_shared_key, ptr nocapture noundef readonly %private_key, ptr noundef %peer_public_value) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_x448_int(ptr noundef %out_shared_key, ptr noundef %peer_public_value, ptr noundef %private_key)
   %cmp = icmp eq i32 %call, -1
@@ -2453,9 +2453,8 @@ attributes #8 = { nounwind memory(none) }
 !33 = !{!34}
 !34 = distinct !{!34, !35, !"gf_cond_swap: %y"}
 !35 = distinct !{!35, !"gf_cond_swap"}
-!36 = !{i32 0, i32 33}
+!36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}

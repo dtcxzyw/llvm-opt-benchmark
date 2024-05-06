@@ -38,14 +38,14 @@ define void @_Z10pj_pr_listP8PJconsts(ptr nocapture noundef readonly %0) local_u
 
 ._crit_edge:                                      ; preds = %13, %1
   %16 = tail call i32 @putchar(i32 noundef 10)
-  %17 = tail call fastcc noundef i32 @_ZL7pr_listP8PJconstsi(ptr noundef %0, i32 noundef 0), !range !6
+  %17 = tail call fastcc noundef i32 @_ZL7pr_listP8PJconstsi(ptr noundef %0, i32 noundef 0)
   %.not8 = icmp eq i32 %17, 0
   br i1 %.not8, label %22, label %18
 
 18:                                               ; preds = %._crit_edge
   %19 = load ptr, ptr @stdout, align 8
   %20 = tail call i64 @fwrite(ptr nonnull @.str, i64 38, i64 1, ptr %19)
-  %21 = tail call fastcc noundef i32 @_ZL7pr_listP8PJconstsi(ptr noundef %0, i32 noundef 1), !range !6
+  %21 = tail call fastcc noundef i32 @_ZL7pr_listP8PJconstsi(ptr noundef %0, i32 noundef 1)
   br label %22
 
 22:                                               ; preds = %18, %._crit_edge
@@ -56,7 +56,7 @@ define void @_Z10pj_pr_listP8PJconsts(ptr nocapture noundef readonly %0) local_u
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL7pr_listP8PJconstsi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @putchar(i32 noundef 35)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %.01722 = load ptr, ptr %4, align 8
@@ -112,7 +112,7 @@ define internal fastcc noundef i32 @_ZL7pr_listP8PJconstsi(ptr nocapture noundef
   %.1.us = phi i32 [ %.025.us, %22 ], [ 1, %.lr.ph.split.us ]
   %.017.us = load ptr, ptr %.01726.us, align 8
   %.not.us = icmp eq ptr %.017.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %48
   %.01726 = phi ptr [ %.017, %48 ], [ %.01722, %.lr.ph ]
@@ -159,7 +159,7 @@ define internal fastcc noundef i32 @_ZL7pr_listP8PJconstsi(ptr nocapture noundef
   %.1 = phi i32 [ %.025, %44 ], [ 1, %.critedge ]
   %.017 = load ptr, ptr %.01726, align 8
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %48, %26
   %.015.lcssa = phi i32 [ %.2.us, %26 ], [ %.2, %48 ]
@@ -244,7 +244,7 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr nocapture noundef read
   %.2 = phi i64 [ %.1, %25 ], [ %.02438, %.lr.ph ]
   %.028 = load ptr, ptr %.02839, align 8
   %.not31 = icmp eq ptr %.028, null
-  br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %27, %4, %2, %24
   %.0 = phi ptr [ null, %24 ], [ null, %2 ], [ %3, %4 ], [ %.227, %27 ]
@@ -293,6 +293,5 @@ attributes #11 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

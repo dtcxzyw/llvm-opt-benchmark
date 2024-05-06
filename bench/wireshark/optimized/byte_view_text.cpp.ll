@@ -875,8 +875,8 @@ switch.lookup:                                    ; preds = %139
 switch.lookup135:                                 ; preds = %149
   %152 = shl nuw nsw i32 %150, 3
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr i8, ptr %0, i64 %153
-  %155 = getelementptr i8, ptr %154, i64 304
+  %154 = getelementptr inbounds i8, ptr %0, i64 %153
+  %155 = getelementptr inbounds i8, ptr %154, i64 304
   %156 = load ptr, ptr %155, align 8
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %156, i1 noundef zeroext true)
   br label %_ZN12ByteViewText17updateContextMenuEv.exit
@@ -1465,8 +1465,8 @@ switch.lookup:                                    ; preds = %1
 switch.lookup6:                                   ; preds = %11
   %14 = shl nuw nsw i32 %12, 3
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr i8, ptr %0, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 304
+  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 304
   %18 = load ptr, ptr %17, align 8
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %18, i1 noundef zeroext true)
   br label %19
@@ -1854,8 +1854,8 @@ switch.lookup:                                    ; preds = %1
 switch.lookup1:                                   ; preds = %15
   %18 = shl nuw nsw i32 %16, 3
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr i8, ptr %0, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 304
+  %20 = getelementptr inbounds i8, ptr %0, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 304
   %22 = load ptr, ptr %21, align 8
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %22, i1 noundef zeroext true)
   br label %_ZN12ByteViewText17updateContextMenuEv.exit
@@ -3552,7 +3552,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i277: ; preds = %_ZNK1
           to label %_ZN7QStringpLE5QChar.exit281 unwind label %.loopexit
 
 _ZN7QStringpLE5QChar.exit281:                     ; preds = %491
-  %494 = trunc i8 %.095458 to i1
+  %494 = trunc nuw i8 %.095458 to i1
   br i1 %494, label %495, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit
 
 495:                                              ; preds = %_ZN7QStringpLE5QChar.exit281
@@ -3609,7 +3609,7 @@ _ZN7QStringpLE5QChar.exit281:                     ; preds = %491
           to label %528 unwind label %.loopexit
 
 528:                                              ; preds = %526
-  %529 = trunc i8 %.095458 to i1
+  %529 = trunc nuw i8 %.095458 to i1
   br i1 %529, label %530, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit
 
 530:                                              ; preds = %528
@@ -3800,7 +3800,7 @@ _ZN5QListI5QRectE6appendERKS0_.exit310:           ; preds = %583, %_ZN5QListIiED
   br i1 %.not111, label %._crit_edge463, label %435, !llvm.loop !51
 
 ._crit_edge463:                                   ; preds = %_ZN5QListI5QRectE6appendERKS0_.exit310
-  %600 = trunc i8 %.196 to i1
+  %600 = trunc nuw i8 %.196 to i1
   br i1 %600, label %601, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit325
 
 601:                                              ; preds = %._crit_edge463
@@ -4398,7 +4398,7 @@ _ZN12ByteViewText17byteOffsetAtPixelE6QPoint.exit: ; preds = %10, %_ZNK5QListIiE
 define noundef i32 @_ZN12ByteViewText17byteOffsetAtPixelE6QPoint(ptr noundef nonnull align 8 dereferenceable(328) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = tail call noundef ptr @_ZNK19QAbstractScrollArea17verticalScrollBarEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %4 = tail call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %5 = getelementptr inbounds i8, ptr %0, i64 204
@@ -4584,7 +4584,7 @@ declare void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef i32 @_ZNK12QFontMetrics17horizontalAdvanceERK7QStringi(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN12ByteViewText11offsetCharsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define noundef range(i32 4, 11) i32 @_ZN12ByteViewText11offsetCharsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = select i1 %1, i32 2, i32 0
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8
@@ -6351,32 +6351,32 @@ _ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i23.i: ; preds = %22
 38:                                               ; preds = %34
   %39 = getelementptr i32, ptr %12, i64 %31
   %40 = icmp eq i64 %14, 0
-  br i1 %40, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i, label %41
+  br i1 %40, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i, label %41
 
 41:                                               ; preds = %38
-  %.idx.mask.i.i29.i = and i64 %31, 4611686018427387903
-  %42 = icmp eq i64 %.idx.mask.i.i29.i, 0
+  %.idx.mask.i.i30.i = and i64 %31, 4611686018427387903
+  %42 = icmp eq i64 %.idx.mask.i.i30.i, 0
   %43 = icmp eq ptr %12, null
-  %or.cond.i.i.i30.i = or i1 %43, %42
+  %or.cond.i.i.i31.i = or i1 %43, %42
   %44 = icmp eq ptr %39, null
-  %or.cond3.i.i.i31.i = or i1 %44, %or.cond.i.i.i30.i
-  br i1 %or.cond3.i.i.i31.i, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i, label %45
+  %or.cond3.i.i.i32.i = or i1 %44, %or.cond.i.i.i31.i
+  br i1 %or.cond3.i.i.i32.i, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i, label %45
 
 45:                                               ; preds = %41
   %46 = shl i64 %14, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %12, i64 %46, i1 false)
   %.pre = load ptr, ptr %11, align 8
   %.pre33 = load i64, ptr %13, align 8
-  br label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i
+  br label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i
 
-_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i: ; preds = %45, %41, %38
+_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i: ; preds = %45, %41, %38
   %47 = phi i64 [ %.pre33, %45 ], [ %14, %41 ], [ 0, %38 ]
   %48 = phi ptr [ %.pre, %45 ], [ %12, %41 ], [ %12, %38 ]
   %49 = getelementptr i32, ptr %48, i64 %47
   %50 = icmp ule ptr %48, %1
   %51 = icmp ugt ptr %49, %1
-  %spec.select.i.i.i34.i = and i1 %50, %51
-  %spec.select.idx = select i1 %spec.select.i.i.i34.i, i64 %31, i64 0
+  %spec.select.i.i.i35.i = and i1 %50, %51
+  %spec.select.idx = select i1 %spec.select.i.i.i35.i, i64 %31, i64 0
   %spec.select = getelementptr i32, ptr %1, i64 %spec.select.idx
   br label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split
 
@@ -6443,13 +6443,13 @@ _ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i23.i14: ; preds = %61
   br i1 %79, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split, label %80
 
 80:                                               ; preds = %77
-  %.idx.mask.i.i29.i17 = and i64 %70, 4611686018427387903
-  %81 = icmp eq i64 %.idx.mask.i.i29.i17, 0
+  %.idx.mask.i.i30.i17 = and i64 %70, 4611686018427387903
+  %81 = icmp eq i64 %.idx.mask.i.i30.i17, 0
   %82 = icmp eq ptr %12, null
-  %or.cond.i.i.i30.i18 = or i1 %82, %81
+  %or.cond.i.i.i31.i18 = or i1 %82, %81
   %83 = icmp eq ptr %78, null
-  %or.cond3.i.i.i31.i19 = or i1 %83, %or.cond.i.i.i30.i18
-  br i1 %or.cond3.i.i.i31.i19, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split, label %84
+  %or.cond3.i.i.i32.i19 = or i1 %83, %or.cond.i.i.i31.i18
+  br i1 %or.cond3.i.i.i32.i19, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split, label %84
 
 84:                                               ; preds = %80
   %85 = shl i64 %14, 2
@@ -6460,9 +6460,9 @@ _ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i23.i14: ; preds = %61
   invoke void @_ZN17QArrayDataPointerIiE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef %10, ptr noundef null)
           to label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit unwind label %52
 
-_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split: ; preds = %77, %80, %84, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i
-  %.sink = phi ptr [ %39, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i ], [ %78, %84 ], [ %78, %80 ], [ %78, %77 ]
-  %.2.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i32.i ], [ %1, %84 ], [ %1, %80 ], [ %1, %77 ]
+_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split: ; preds = %77, %80, %84, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i
+  %.sink = phi ptr [ %39, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i ], [ %78, %84 ], [ %78, %80 ], [ %78, %77 ]
+  %.2.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i ], [ %1, %84 ], [ %1, %80 ], [ %1, %77 ]
   store ptr %.sink, ptr %11, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit
 

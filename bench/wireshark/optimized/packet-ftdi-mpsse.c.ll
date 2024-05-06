@@ -483,14 +483,14 @@ define internal i32 @dissect_ftdi_mpsse(ptr noundef %0, ptr noundef %1, ptr noun
 48:                                               ; preds = %.lr.ph158, %dissect_command.exit
   %.072155 = phi i32 [ 0, %.lr.ph158 ], [ %335, %dissect_command.exit ]
   %49 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.072155) #6
-  %50 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull %3)
+  %50 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull readonly %3)
   %51 = add i32 %.072155, 1
-  %52 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull %3)
+  %52 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull readonly %3)
   %.not39.i.i = icmp eq ptr %52, null
   br i1 %.not39.i.i, label %estimated_command_parameters_length.exit.i, label %53
 
 53:                                               ; preds = %48
-  %54 = call fastcc i32 @is_data_shifting_command(i8 noundef zeroext %49), !range !4
+  %54 = call fastcc i32 @is_data_shifting_command(i8 noundef zeroext %49)
   %.not30.i.i = icmp eq i32 %54, 0
   br i1 %.not30.i.i, label %84, label %55
 
@@ -547,7 +547,7 @@ is_data_shifting_command_returning_response.exit.i.i: ; preds = %73
   br i1 %or.cond.i.i, label %83, label %estimated_command_parameters_length.exit.i
 
 83:                                               ; preds = %is_data_shifting_command_returning_response.exit.i.i
-  call fastcc void @record_command_data(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull %3, i8 noundef zeroext %49, i32 noundef %.0.i.i, i32 noundef 1)
+  call fastcc void @record_command_data(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i32 noundef %.0.i.i, i32 noundef 1)
   br label %estimated_command_parameters_length.exit.i
 
 84:                                               ; preds = %53
@@ -594,12 +594,12 @@ estimated_command_parameters_length.exit.i:       ; preds = %switch.lookup, %83,
   %102 = select i1 %101, ptr @dissect_command_code.data_shifting_cmd_bits, ptr @dissect_command_code.non_data_shifting_cmd_bits
   %103 = zext i8 %49 to i64
   call void @proto_tree_add_bitmask_list_value(ptr noundef %100, ptr noundef %0, i32 noundef %.072155, i32 noundef 1, ptr noundef nonnull %102, i64 noundef %103) #6
-  %104 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull %3)
+  %104 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull readonly %3)
   %.not80.i = icmp eq ptr %104, null
   br i1 %.not80.i, label %332, label %105
 
 105:                                              ; preds = %90
-  %106 = call fastcc i32 @is_data_shifting_command(i8 noundef zeroext %49), !range !4
+  %106 = call fastcc i32 @is_data_shifting_command(i8 noundef zeroext %49)
   %.not.i.i = icmp eq i32 %106, 0
   br i1 %101, label %107, label %150
 
@@ -670,7 +670,7 @@ is_data_shifting_command_returning_response.exit.i75.i: ; preds = %137, %126, %1
   %144 = trunc nuw i32 %.0.i76.i to i16
   %145 = add i16 %144, 1
   %146 = select i1 %111, i16 %145, i16 1
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext %146)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext %146)
   br label %dissect_data_shifting_command_parameters.exit.i
 
 dissect_data_shifting_command_parameters.exit.i:  ; preds = %143, %is_data_shifting_command_returning_response.exit.i75.i
@@ -686,7 +686,7 @@ dissect_data_shifting_command_parameters.exit.i:  ; preds = %143, %is_data_shift
   br i1 %.not.i.i, label %151, label %153
 
 151:                                              ; preds = %150
-  %152 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull %3)
+  %152 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull readonly %3)
   %.not62.i.i = icmp eq ptr %152, null
   br i1 %.not62.i.i, label %153, label %154
 
@@ -788,7 +788,7 @@ get_data_bit_pin_prefix.exit56.i.i:               ; preds = %175, %174, %172, %1
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 176:                                              ; preds = %154, %154
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 177:                                              ; preds = %154, %154, %154, %154
@@ -824,7 +824,7 @@ get_data_bit_pin_prefix.exit56.i.i:               ; preds = %175, %174, %172, %1
   br label %dissect_cpumode_parameters.exit.i.i
 
 188:                                              ; preds = %183
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
   br label %dissect_cpumode_parameters.exit.i.i
 
 dissect_cpumode_parameters.exit.i.i:              ; preds = %188, %.thread.i.i.i, %183
@@ -996,7 +996,7 @@ get_data_bit_pin_prefix.exit.split.us.i.i.i:      ; preds = %get_data_bit_pin_pr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %272, ptr noundef nonnull @.str.222, ptr noundef nonnull %266) #6
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %.split.us.i.i.i, label %get_data_bit_pin_prefix.exit.split.us.i.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i.i, label %.split.us.i.i.i, label %get_data_bit_pin_prefix.exit.split.us.i.i.i, !llvm.loop !4
 
 get_data_bit_pin_prefix.exit.split.i.i.i:         ; preds = %get_data_bit_pin_prefix.exit.i.i.i, %286
   %indvars.iv12.i.i.i = phi i64 [ %indvars.iv.next13.i.i.i, %286 ], [ 0, %get_data_bit_pin_prefix.exit.i.i.i ]
@@ -1023,7 +1023,7 @@ get_data_bit_pin_prefix.exit.split.i.i.i:         ; preds = %get_data_bit_pin_pr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %283, ptr noundef nonnull @.str.222, ptr noundef nonnull %277) #6
   %indvars.iv.next13.i.i.i = add nuw nsw i64 %indvars.iv12.i.i.i, 1
   %exitcond15.not.i.i.i = icmp eq i64 %indvars.iv.next13.i.i.i, 8
-  br i1 %exitcond15.not.i.i.i, label %.split.us.i.i.i, label %get_data_bit_pin_prefix.exit.split.i.i.i, !llvm.loop !5
+  br i1 %exitcond15.not.i.i.i, label %.split.us.i.i.i, label %get_data_bit_pin_prefix.exit.split.i.i.i, !llvm.loop !4
 
 .split.us.i.i.i:                                  ; preds = %get_data_bit_pin_prefix.exit.split.us.i.i.i, %286
   %287 = add i32 %.072155, 2
@@ -1079,7 +1079,7 @@ get_data_bit_pin_prefix.exit53.split.us.i.i.i:    ; preds = %get_data_bit_pin_pr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %310, ptr noundef nonnull @.str.222, ptr noundef nonnull %304) #6
   %indvars.iv.next17.i.i.i = add nuw nsw i64 %indvars.iv16.i.i.i, 1
   %exitcond19.not.i.i.i = icmp eq i64 %indvars.iv.next17.i.i.i, 8
-  br i1 %exitcond19.not.i.i.i, label %dissect_io_open_drain_enable_parameters.exit.i.i, label %get_data_bit_pin_prefix.exit53.split.us.i.i.i, !llvm.loop !7
+  br i1 %exitcond19.not.i.i.i, label %dissect_io_open_drain_enable_parameters.exit.i.i, label %get_data_bit_pin_prefix.exit53.split.us.i.i.i, !llvm.loop !6
 
 get_data_bit_pin_prefix.exit53.split.i.i.i:       ; preds = %get_data_bit_pin_prefix.exit53.i.i.i, %324
   %indvars.iv20.i.i.i = phi i64 [ %indvars.iv.next21.i.i.i, %324 ], [ 0, %get_data_bit_pin_prefix.exit53.i.i.i ]
@@ -1106,7 +1106,7 @@ get_data_bit_pin_prefix.exit53.split.i.i.i:       ; preds = %get_data_bit_pin_pr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %321, ptr noundef nonnull @.str.222, ptr noundef nonnull %315) #6
   %indvars.iv.next21.i.i.i = add nuw nsw i64 %indvars.iv20.i.i.i, 1
   %exitcond23.not.i.i.i = icmp eq i64 %indvars.iv.next21.i.i.i, 8
-  br i1 %exitcond23.not.i.i.i, label %dissect_io_open_drain_enable_parameters.exit.i.i, label %get_data_bit_pin_prefix.exit53.split.i.i.i, !llvm.loop !7
+  br i1 %exitcond23.not.i.i.i, label %dissect_io_open_drain_enable_parameters.exit.i.i, label %get_data_bit_pin_prefix.exit53.split.i.i.i, !llvm.loop !6
 
 dissect_io_open_drain_enable_parameters.exit.i.i: ; preds = %get_data_bit_pin_prefix.exit53.split.us.i.i.i, %324
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
@@ -1128,7 +1128,7 @@ dissect_non_data_shifting_command_parameters.exit.i: ; preds = %dissect_io_open_
   br label %333
 
 332:                                              ; preds = %90
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext 2)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 2)
   br label %333
 
 333:                                              ; preds = %332, %330, %dissect_data_shifting_command_parameters.exit.i
@@ -1143,7 +1143,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   %336 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %335) #6
   %337 = icmp sgt i32 %336, 0
   %338 = and i1 %89, %337
-  br i1 %338, label %48, label %.loopexit, !llvm.loop !8
+  br i1 %338, label %48, label %.loopexit, !llvm.loop !7
 
 339:                                              ; preds = %14
   %340 = load ptr, ptr @rx_command_info, align 8
@@ -1171,7 +1171,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   %350 = getelementptr inbounds i8, ptr %.0134, i64 48
   %351 = load ptr, ptr %350, align 8
   %.not80 = icmp eq ptr %351, null
-  br i1 %.not80, label %.critedge2, label %.lr.ph, !llvm.loop !9
+  br i1 %.not80, label %.critedge2, label %.lr.ph, !llvm.loop !8
 
 .critedge2:                                       ; preds = %.lr.ph, %349, %.preheader112
   %.0.lcssa = phi ptr [ null, %.preheader112 ], [ null, %349 ], [ %.0134, %.lr.ph ]
@@ -1296,7 +1296,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
 .lr.ph._crit_edge.i:                              ; preds = %399, %.lr.ph.i
   %403 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %398) #6
   %404 = icmp slt i32 %403, 2
-  br i1 %404, label %.critedge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %404, label %.critedge.i, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %.lr.ph._crit_edge.i, %.preheader.i
   %.063.lcssa.i = phi i32 [ %.173138, %.preheader.i ], [ %398, %.lr.ph._crit_edge.i ]
@@ -1453,7 +1453,7 @@ proto_item_set_generated.exit79.i:                ; preds = %462, %459, %448
 
 484:                                              ; preds = %481, %473
   %485 = load i8, ptr %386, align 4
-  %486 = call fastcc ptr @get_command_string(i8 noundef zeroext %485, ptr noundef nonnull %.2143)
+  %486 = call fastcc ptr @get_command_string(i8 noundef zeroext %485, ptr noundef nonnull readonly %.2143)
   %.not58.i.i = icmp eq ptr %486, null
   br i1 %.not58.i.i, label %547, label %487
 
@@ -1477,12 +1477,12 @@ proto_item_set_generated.exit79.i:                ; preds = %462, %459, %448
   br label %dissect_response_data.exit.i
 
 499:                                              ; preds = %487
-  %500 = call fastcc i32 @is_data_shifting_command(i8 noundef zeroext %488), !range !4
+  %500 = call fastcc i32 @is_data_shifting_command(i8 noundef zeroext %488)
   %.not.i.i.i91 = icmp eq i32 %500, 0
   br i1 %.not.i.i.i91, label %501, label %503
 
 501:                                              ; preds = %499
-  %502 = call fastcc ptr @get_command_string(i8 noundef zeroext %488, ptr noundef nonnull %.2143)
+  %502 = call fastcc ptr @get_command_string(i8 noundef zeroext %488, ptr noundef nonnull readonly %.2143)
   %.not4.i.i.i = icmp eq ptr %502, null
   br i1 %.not4.i.i.i, label %503, label %504
 
@@ -1638,7 +1638,7 @@ dissect_response.exit:                            ; preds = %443, %441, %dissect
   %559 = icmp sgt i32 %558, 0
   %.not83 = icmp eq i32 %.4105, 0
   %560 = select i1 %559, i1 %.not83, i1 false
-  br i1 %560, label %381, label %.loopexit, !llvm.loop !11
+  br i1 %560, label %381, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %557, %dissect_command.exit
   %.5 = phi i32 [ %.1102, %dissect_command.exit ], [ %.4105, %557 ]
@@ -1814,7 +1814,7 @@ define internal fastcc ptr @get_command_string(i8 noundef zeroext %0, ptr nocapt
   br i1 %.not, label %5, label %.thread23
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc i32 @is_data_shifting_command(i8 noundef zeroext %0), !range !4
+  %6 = tail call fastcc i32 @is_data_shifting_command(i8 noundef zeroext %0)
   %.not17 = icmp eq i32 %6, 0
   br i1 %.not17, label %7, label %.thread23
 
@@ -1962,7 +1962,7 @@ proto_item_set_generated.exit:                    ; preds = %29, %34, %37
 declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @is_data_shifting_command(i8 noundef zeroext %0) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @is_data_shifting_command(i8 noundef zeroext %0) unnamed_addr #3 {
   switch i8 %0, label %2 [
     i8 0, label %5
     i8 1, label %5
@@ -2376,7 +2376,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.222, ptr noundef nonnull %.0.us) #6
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 8
-  br i1 %exitcond14.not, label %.split3.us, label %.split.us, !llvm.loop !12
+  br i1 %exitcond14.not, label %.split3.us, label %.split.us, !llvm.loop !11
 
 .split:                                           ; preds = %.split.preheader, %45
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %45 ]
@@ -2407,7 +2407,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.222, ptr noundef nonnull %.0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.split3.us, label %.split, !llvm.loop !12
+  br i1 %exitcond.not, label %.split3.us, label %.split, !llvm.loop !11
 
 .split3.us:                                       ; preds = %45, %.split.us
   %46 = load i32, ptr @ett_mpsse_direction, align 4
@@ -2435,7 +2435,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %59, ptr noundef nonnull @.str.222, ptr noundef nonnull %53) #6
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %.split7.us, label %.split5.us, !llvm.loop !13
+  br i1 %exitcond22.not, label %.split7.us, label %.split5.us, !llvm.loop !12
 
 .split5:                                          ; preds = %.split5.preheader, %73
   %indvars.iv15 = phi i64 [ 0, %.split5.preheader ], [ %indvars.iv.next16, %73 ]
@@ -2462,7 +2462,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.222, ptr noundef nonnull %64) #6
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %.split7.us, label %.split5, !llvm.loop !13
+  br i1 %exitcond18.not, label %.split7.us, label %.split5, !llvm.loop !12
 
 .split7.us:                                       ; preds = %73, %.split5.us
   ret void
@@ -2513,7 +2513,7 @@ define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.222, ptr noundef nonnull %17) #6
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 8
-  br i1 %exitcond9.not, label %.split3.us, label %.split.us, !llvm.loop !14
+  br i1 %exitcond9.not, label %.split3.us, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %.split.preheader, %37
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %37 ]
@@ -2540,7 +2540,7 @@ define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.222, ptr noundef nonnull %28) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.split3.us, label %.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.split3.us, label %.split, !llvm.loop !13
 
 .split3.us:                                       ; preds = %37, %.split.us
   ret void
@@ -2567,14 +2567,13 @@ attributes #7 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

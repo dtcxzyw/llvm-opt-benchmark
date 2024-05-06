@@ -2285,7 +2285,7 @@ define dso_local void @heap_set_tidrange(ptr nocapture noundef %0, ptr noundef %
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %4, ptr noundef nonnull readonly align 2 dereferenceable(6) %2, i64 6, i1 false)
   br label %21
 
 21:                                               ; preds = %20, %9
@@ -2294,7 +2294,7 @@ define dso_local void @heap_set_tidrange(ptr nocapture noundef %0, ptr noundef %
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %5, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %5, ptr noundef nonnull readonly align 2 dereferenceable(6) %1, i64 6, i1 false)
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -2329,9 +2329,9 @@ define dso_local void @heap_set_tidrange(ptr nocapture noundef %0, ptr noundef %
   %42 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %40, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %43, ptr noundef nonnull align 2 dereferenceable(6) %5, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %43, ptr noundef nonnull readonly align 2 dereferenceable(6) %5, i64 6, i1 false)
   %44 = getelementptr inbounds i8, ptr %0, i64 38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %44, ptr noundef nonnull align 2 dereferenceable(6) %4, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %44, ptr noundef nonnull readonly align 2 dereferenceable(6) %4, i64 6, i1 false)
   br label %45
 
 45:                                               ; preds = %3, %31, %28
@@ -4018,9 +4018,9 @@ BufferGetPage.exit:                               ; preds = %141, %147
   %182 = load ptr, ptr %181, align 8
   %183 = call i32 @GetTopTransactionId() #11
   store i32 %183, ptr %7, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull readonly align 8 dereferenceable(12) %0, i64 12, i1 false)
   %184 = getelementptr inbounds i8, ptr %171, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %97, ptr noundef nonnull align 4 dereferenceable(6) %184, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %97, ptr noundef nonnull readonly align 4 dereferenceable(6) %184, i64 6, i1 false)
   %185 = getelementptr inbounds i8, ptr %182, i64 20
   %186 = load i16, ptr %185, align 4
   %187 = zext i16 %186 to i32
@@ -4303,7 +4303,7 @@ define dso_local void @simple_heap_insert(ptr noundef %0, ptr noundef %1) local_
 declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define dso_local range(i32 2, 1) i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.HeapTupleData, align 8
@@ -5855,7 +5855,7 @@ declare void @pgstat_count_heap_delete(ptr noundef) local_unnamed_addr #2
 define dso_local void @simple_heap_delete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.TM_FailureData, align 4
   %4 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #11
-  %5 = call i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %4, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext false), !range !23
+  %5 = call i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %4, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %3, i1 noundef zeroext false)
   switch i32 %5, label %15 [
     i32 2, label %6
     i32 0, label %18
@@ -5896,7 +5896,7 @@ define dso_local void @simple_heap_delete(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_update(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #1 {
+define dso_local range(i32 2, 1) i32 @heap_update(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #1 {
   %10 = alloca %struct.xl_heap_update, align 4
   %11 = alloca %struct.xl_heap_header, align 4
   %12 = alloca %struct.xl_heap_header, align 4
@@ -6043,7 +6043,7 @@ BufferGetPage.exit:                               ; preds = %58, %64
   %100 = call ptr @bms_add_member(ptr noundef %.032.ph5.i, i32 noundef %96) #11
   %101 = call i32 @bms_next_member(ptr noundef %50, i32 noundef %96) #11
   %102 = icmp sgt i32 %101, -1
-  br i1 %102, label %.lr.ph.i, label %HeapDetermineColumnsInfo.exit, !llvm.loop !24
+  br i1 %102, label %.lr.ph.i, label %HeapDetermineColumnsInfo.exit, !llvm.loop !23
 
 103:                                              ; preds = %95
   %104 = icmp slt i32 %98, 0
@@ -6112,7 +6112,7 @@ heap_attr_equals.exit.i:                          ; preds = %106
   %.2383 = phi i1 [ %.1382, %131 ], [ %.1382, %.thread.i ], [ %.1382, %141 ], [ %.1382, %134 ], [ %spec.select455, %145 ]
   %139 = call i32 @bms_next_member(ptr noundef %50, i32 noundef %96) #11
   %140 = icmp sgt i32 %139, -1
-  br i1 %140, label %95, label %HeapDetermineColumnsInfo.exit, !llvm.loop !24
+  br i1 %140, label %95, label %HeapDetermineColumnsInfo.exit, !llvm.loop !23
 
 141:                                              ; preds = %134
   %142 = inttoptr i64 %107 to ptr
@@ -7280,7 +7280,7 @@ BufferGetPage.exit.i:                             ; preds = %685, %679
   store i16 %737, ptr %14, align 2
   %738 = zext i16 %737 to i32
   %739 = icmp ugt i32 %729, %738
-  br i1 %739, label %.lr.ph.i366, label %._crit_edge.i367, !llvm.loop !25
+  br i1 %739, label %.lr.ph.i366, label %._crit_edge.i367, !llvm.loop !24
 
 ._crit_edge.i367:                                 ; preds = %736, %.lr.ph.i366
   %storemerge.lcssa.i = phi i16 [ %737, %736 ], [ %storemerge117.i, %.lr.ph.i366 ]
@@ -7319,7 +7319,7 @@ BufferGetPage.exit.i:                             ; preds = %685, %679
   store i16 %757, ptr %15, align 2
   %758 = zext i16 %757 to i32
   %759 = icmp ugt i32 %744, %758
-  br i1 %759, label %.lr.ph124.i, label %._crit_edge125.i, !llvm.loop !26
+  br i1 %759, label %.lr.ph124.i, label %._crit_edge125.i, !llvm.loop !25
 
 ._crit_edge125.i:                                 ; preds = %756, %.lr.ph124.i
   %storemerge94.lcssa.i = phi i16 [ %757, %756 ], [ %storemerge94122.i, %.lr.ph124.i ]
@@ -7734,7 +7734,7 @@ define dso_local void @simple_heap_update(ptr noundef %0, ptr nocapture noundef 
   %5 = alloca %struct.TM_FailureData, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #11
-  %8 = call i32 @heap_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3), !range !23
+  %8 = call i32 @heap_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
   switch i32 %8, label %18 [
     i32 2, label %9
     i32 0, label %21
@@ -7912,7 +7912,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   %86 = getelementptr inbounds i8, ptr %81, i64 18
   %87 = load i16, ptr %86, align 2
   %88 = getelementptr inbounds i8, ptr %81, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %14, ptr noundef nonnull align 2 dereferenceable(6) %88, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %14, ptr noundef nonnull readonly align 2 dereferenceable(6) %88, i64 6, i1 false)
   %89 = load i32, ptr %6, align 4
   call void @LockBuffer(i32 noundef %89, i32 noundef 0) #11
   br i1 %.0214, label %90, label %128
@@ -7964,7 +7964,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   %.2219 = phi i1 [ %.1218423, %.lr.ph ], [ true, %105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %113, %93
   %.1218.lcssa = phi i1 [ %.0217, %93 ], [ %.2219, %113 ]
@@ -8906,7 +8906,7 @@ BufferGetPage.exit85.i:                           ; preds = %69, %65
 108:                                              ; preds = %126
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
 
 .lr.ph.i:                                         ; preds = %108, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %108 ]
@@ -8915,7 +8915,7 @@ BufferGetPage.exit85.i:                           ; preds = %69, %65
   %111 = getelementptr inbounds i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = load i32, ptr %110, align 4
-  %114 = call fastcc i32 @test_lockmode_for_conflict(i32 noundef %112, i32 noundef %113, i32 noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13), !range !29
+  %114 = call fastcc i32 @test_lockmode_for_conflict(i32 noundef %112, i32 noundef %113, i32 noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13)
   %115 = icmp eq i32 %114, 2
   br i1 %115, label %116, label %118
 
@@ -8994,7 +8994,7 @@ BufferGetPage.exit85.i:                           ; preds = %69, %65
 
 143:                                              ; preds = %141, %136, %135, %134
   %.051.i = phi i32 [ 1, %135 ], [ 0, %134 ], [ %..i, %136 ], [ %.76.i, %141 ]
-  %144 = call fastcc i32 @test_lockmode_for_conflict(i32 noundef %.051.i, i32 noundef %96, i32 noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13), !range !29
+  %144 = call fastcc i32 @test_lockmode_for_conflict(i32 noundef %.051.i, i32 noundef %96, i32 noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13)
   %145 = icmp eq i32 %144, 2
   br i1 %145, label %.loopexit105.i, label %146
 
@@ -10034,7 +10034,7 @@ MultiXactIdGetUpdateXid.exit.i:                   ; preds = %.loopexit.i.i, %81
   %spec.select.i = select i1 %125, i32 %121, i32 %.0122163.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %126, label %118, !llvm.loop !30
+  br i1 %exitcond.not.i, label %126, label %118, !llvm.loop !28
 
 126:                                              ; preds = %124
   %127 = getelementptr inbounds i8, ptr %1, i64 20
@@ -10161,7 +10161,7 @@ FreezeMultiXactId.exit.thread127:                 ; preds = %130, %134
   %.1121.i = phi i32 [ %.0120168.i, %168 ], [ %.0120168.i, %148 ], [ %.1121.ph.i, %.sink.split.i ]
   %indvars.iv.next183.i = add nuw nsw i64 %indvars.iv182.i, 1
   %exitcond185.not.i = icmp eq i64 %indvars.iv.next183.i, %wide.trip.count.i
-  br i1 %exitcond185.not.i, label %._crit_edge.i, label %139, !llvm.loop !31
+  br i1 %exitcond185.not.i, label %._crit_edge.i, label %139, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %180
   %181 = load ptr, ptr %8, align 8
@@ -10552,7 +10552,7 @@ define dso_local zeroext i1 @heap_tuple_should_freeze(ptr nocapture noundef read
   %spec.select70 = select i1 %66, i1 true, i1 %.278
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %64
   br i1 %55, label %67, label %.thread75
@@ -10686,7 +10686,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
 57:                                               ; preds = %46, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %57
   %58 = load volatile i32, ptr @CritSectionCount, align 4
@@ -10748,7 +10748,7 @@ heap_execute_freeze_tuple.exit:                   ; preds = %78, %81
   store i16 %87, ptr %88, align 2
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge61, label %61, !llvm.loop !34
+  br i1 %exitcond68.not, label %._crit_edge61, label %61, !llvm.loop !32
 
 ._crit_edge61:                                    ; preds = %heap_execute_freeze_tuple.exit, %._crit_edge.thread, %._crit_edge
   tail call void @MarkBufferDirty(i32 noundef %1) #11
@@ -10879,7 +10879,7 @@ heap_log_freeze_eq.exit.i:                        ; preds = %138, %132, %126, %1
   store i16 %162, ptr %163, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %heap_log_freeze_plan.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %heap_log_freeze_plan.exit, label %.lr.ph.i, !llvm.loop !33
 
 heap_log_freeze_plan.exit:                        ; preds = %160, %105
   %.022.lcssa.i = phi i32 [ 0, %105 ], [ %.123.i, %160 ]
@@ -11256,7 +11256,7 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr nocapture nou
   %41 = load i64, ptr %27, align 2
   store i64 %41, ptr %40, align 2
   %.not.i = icmp slt i32 %25, %16
-  br i1 %.not.i, label %.critedge.i, label %24, !llvm.loop !36
+  br i1 %.not.i, label %.critedge.i, label %24, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %38, %35, %33, %.lr.ph10.i
   %.0.lcssa.i = phi i32 [ %21, %.lr.ph10.i ], [ %25, %38 ], [ %.04.i, %33 ], [ %.04.i, %35 ]
@@ -11265,12 +11265,12 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr nocapture nou
   store i64 %20, ptr %43, align 2
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph10.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph10.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %14
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 9
-  br i1 %exitcond16.not.i, label %index_delete_sort.exit, label %14, !llvm.loop !38
+  br i1 %exitcond16.not.i, label %index_delete_sort.exit, label %14, !llvm.loop !36
 
 index_delete_sort.exit:                           ; preds = %._crit_edge.i
   %44 = getelementptr inbounds i8, ptr %1, i64 12
@@ -11362,7 +11362,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
   %91 = load i32, ptr %12, align 4
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next.i147, %92
-  br i1 %93, label %55, label %.preheader.i, !llvm.loop !39
+  br i1 %93, label %55, label %.preheader.i, !llvm.loop !37
 
 .lr.ph78.i:                                       ; preds = %105, %.lr.ph78.preheader.i
   %indvars.iv86.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %indvars.iv.next87.i, %105 ]
@@ -11373,9 +11373,9 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
 
 97:                                               ; preds = %.lr.ph78.i
   %98 = zext nneg i16 %95 to i32
-  %99 = tail call i32 @llvm.ctpop.i32(i32 %98), !range !40
+  %99 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %98)
   %100 = icmp ult i32 %99, 2
-  %101 = tail call i32 @llvm.ctlz.i32(i32 %98, i1 true), !range !40
+  %101 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %98, i1 true)
   %102 = xor i32 %101, 31
   %103 = shl nuw nsw i32 2, %102
   %.0.i.i = select i1 %100, i32 %98, i32 %103
@@ -11387,7 +11387,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
   store i16 %storemerge.i, ptr %94, align 2
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %exitcond.not.i149 = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count.i148
-  br i1 %exitcond.not.i149, label %._crit_edge.i142, label %.lr.ph78.i, !llvm.loop !41
+  br i1 %exitcond.not.i149, label %._crit_edge.i142, label %.lr.ph78.i, !llvm.loop !38
 
 ._crit_edge.i142:                                 ; preds = %105, %.preheader.i, %47
   %106 = phi i1 [ false, %.preheader.i ], [ false, %47 ], [ true, %105 ]
@@ -11434,7 +11434,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
 .lr.ph._crit_edge.i.i:                            ; preds = %122, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph81.i.preheader, label %.lr.ph.i.i, !llvm.loop !42
+  br i1 %exitcond.not.i.i, label %.lr.ph81.i.preheader, label %.lr.ph.i.i, !llvm.loop !39
 
 ._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %122
   %indvars25.le.i.i = trunc i64 %indvars.iv.i.i to i32
@@ -11465,7 +11465,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
   %141 = add i32 %.06679.i, %140
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next90.i, %wide.trip.count.i.i
-  br i1 %exitcond93.not.i, label %._crit_edge82.loopexit.i, label %.lr.ph81.i, !llvm.loop !43
+  br i1 %exitcond93.not.i, label %._crit_edge82.loopexit.i, label %.lr.ph81.i, !llvm.loop !40
 
 ._crit_edge82.loopexit.i:                         ; preds = %.lr.ph81.i
   %.pre.i = load ptr, ptr %13, align 8
@@ -11547,7 +11547,7 @@ bottomup_sort_and_shrink.exit:                    ; preds = %._crit_edge.i142, %
   %170 = icmp ult i64 %indvars.iv.next.i157, %164
   %171 = icmp slt i32 %.122.i, %.1117
   %172 = select i1 %170, i1 %171, i1 false
-  br i1 %172, label %.lr.ph.i152, label %._crit_edge.loopexit.i, !llvm.loop !44
+  br i1 %172, label %.lr.ph.i152, label %._crit_edge.loopexit.i, !llvm.loop !41
 
 ._crit_edge.loopexit.i:                           ; preds = %169
   %173 = trunc nsw i64 %indvars.iv.next.i157 to i32
@@ -11685,7 +11685,7 @@ index_delete_prefetch_buffer.exit:                ; preds = %157, %._crit_edge.l
   %223 = icmp slt i64 %indvars.iv.next.i178, %177
   %224 = icmp slt i32 %.122.i176, 1
   %225 = select i1 %223, i1 %224, i1 false
-  br i1 %225, label %.lr.ph.i162, label %._crit_edge.loopexit.i179, !llvm.loop !44
+  br i1 %225, label %.lr.ph.i162, label %._crit_edge.loopexit.i179, !llvm.loop !41
 
 ._crit_edge.loopexit.i179:                        ; preds = %222
   %226 = trunc nsw i64 %indvars.iv.next.i178 to i32
@@ -12107,7 +12107,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %406, %.loopexit.i.i
   %423 = load i32, ptr %12, align 4
   %424 = sext i32 %423 to i64
   %425 = icmp slt i64 %indvars.iv.next.pre-phi, %424
-  br i1 %425, label %178, label %._crit_edge, !llvm.loop !45
+  br i1 %425, label %178, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %422, %196, %197, %index_delete_prefetch_buffer.exit
   %.0195.lcssa = phi i32 [ 0, %index_delete_prefetch_buffer.exit ], [ %.0195240, %197 ], [ %.0195240, %196 ], [ %.5, %422 ]
@@ -13913,7 +13913,7 @@ BufferGetPage.exit.i12:                           ; preds = %122, %116
   %138 = load i16, ptr %110, align 2
   %139 = zext i16 %138 to i32
   %140 = icmp ult i32 %137, %139
-  br i1 %140, label %131, label %._crit_edge.i, !llvm.loop !46
+  br i1 %140, label %131, label %._crit_edge.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %131, %BufferGetPage.exit.i12
   call void @PageTruncateLinePointerArray(ptr noundef %.0.i.i.i13) #11
@@ -14086,7 +14086,7 @@ heap_execute_freeze_tuple.exit.us.us.i:           ; preds = %.lr.ph.split.us.i, 
   %229 = load i16, ptr %209, align 2
   %230 = zext i16 %229 to i32
   %231 = icmp ult i32 %228, %230
-  br i1 %231, label %heap_execute_freeze_tuple.exit.us.us.i, label %._crit_edge.i18, !llvm.loop !47
+  br i1 %231, label %heap_execute_freeze_tuple.exit.us.us.i, label %._crit_edge.i18, !llvm.loop !44
 
 heap_execute_freeze_tuple.exit.us.i:              ; preds = %.lr.ph.split.us.i, %heap_execute_freeze_tuple.exit.us.i
   %.136.us.i = phi i32 [ %232, %heap_execute_freeze_tuple.exit.us.i ], [ %.045.i, %.lr.ph.split.us.i ]
@@ -14114,7 +14114,7 @@ heap_execute_freeze_tuple.exit.us.i:              ; preds = %.lr.ph.split.us.i, 
   %247 = load i16, ptr %209, align 2
   %248 = zext i16 %247 to i32
   %249 = icmp ult i32 %246, %248
-  br i1 %249, label %heap_execute_freeze_tuple.exit.us.i, label %._crit_edge.i18, !llvm.loop !47
+  br i1 %249, label %heap_execute_freeze_tuple.exit.us.i, label %._crit_edge.i18, !llvm.loop !44
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i17
   br i1 %.not10.i.i, label %heap_execute_freeze_tuple.exit.us40.i, label %heap_execute_freeze_tuple.exit.i
@@ -14145,7 +14145,7 @@ heap_execute_freeze_tuple.exit.us40.i:            ; preds = %.lr.ph.split.i, %he
   %265 = load i16, ptr %209, align 2
   %266 = zext i16 %265 to i32
   %267 = icmp ult i32 %264, %266
-  br i1 %267, label %heap_execute_freeze_tuple.exit.us40.i, label %._crit_edge.i18, !llvm.loop !47
+  br i1 %267, label %heap_execute_freeze_tuple.exit.us40.i, label %._crit_edge.i18, !llvm.loop !44
 
 heap_execute_freeze_tuple.exit.i:                 ; preds = %.lr.ph.split.i, %heap_execute_freeze_tuple.exit.i
   %.136.i = phi i32 [ %268, %heap_execute_freeze_tuple.exit.i ], [ %.045.i, %.lr.ph.split.i ]
@@ -14173,7 +14173,7 @@ heap_execute_freeze_tuple.exit.i:                 ; preds = %.lr.ph.split.i, %he
   %283 = load i16, ptr %209, align 2
   %284 = zext i16 %283 to i32
   %285 = icmp ult i32 %282, %284
-  br i1 %285, label %heap_execute_freeze_tuple.exit.i, label %._crit_edge.i18, !llvm.loop !47
+  br i1 %285, label %heap_execute_freeze_tuple.exit.i, label %._crit_edge.i18, !llvm.loop !44
 
 ._crit_edge.i18:                                  ; preds = %heap_execute_freeze_tuple.exit.i, %heap_execute_freeze_tuple.exit.us40.i, %heap_execute_freeze_tuple.exit.us.i, %heap_execute_freeze_tuple.exit.us.us.i, %202
   %.1.lcssa.i = phi i32 [ %.045.i, %202 ], [ %215, %heap_execute_freeze_tuple.exit.us.us.i ], [ %232, %heap_execute_freeze_tuple.exit.us.i ], [ %250, %heap_execute_freeze_tuple.exit.us40.i ], [ %268, %heap_execute_freeze_tuple.exit.i ]
@@ -14181,7 +14181,7 @@ heap_execute_freeze_tuple.exit.i:                 ; preds = %.lr.ph.split.i, %he
   %286 = load i16, ptr %196, align 4
   %287 = zext i16 %286 to i64
   %288 = icmp ult i64 %indvars.iv.next.i, %287
-  br i1 %288, label %202, label %._crit_edge47.i, !llvm.loop !48
+  br i1 %288, label %202, label %._crit_edge47.i, !llvm.loop !45
 
 ._crit_edge47.i:                                  ; preds = %._crit_edge.i18, %BufferGetPage.exit.i15
   %289 = lshr i64 %167, 32
@@ -14581,7 +14581,7 @@ BufferGetPage.exit93.i:                           ; preds = %444, %438
   %500 = load i16, ptr %450, align 2
   %501 = zext i16 %500 to i64
   %502 = icmp ult i64 %indvars.iv.next.i42, %501
-  br i1 %502, label %.lr.ph.split.us.i39, label %._crit_edge.i34, !llvm.loop !49
+  br i1 %502, label %.lr.ph.split.us.i39, label %._crit_edge.i34, !llvm.loop !46
 
 .lr.ph.split.i32:                                 ; preds = %.lr.ph.i31, %543
   %.084101.i = phi i32 [ %545, %543 ], [ 0, %.lr.ph.i31 ]
@@ -14658,7 +14658,7 @@ BufferGetPage.exit93.i:                           ; preds = %444, %438
   %546 = load i16, ptr %450, align 2
   %547 = zext i16 %546 to i32
   %548 = icmp ult i32 %545, %547
-  br i1 %548, label %.lr.ph.split.i32, label %._crit_edge.i34, !llvm.loop !49
+  br i1 %548, label %.lr.ph.split.i32, label %._crit_edge.i34, !llvm.loop !46
 
 ._crit_edge.i34:                                  ; preds = %543, %498, %BufferGetPage.exit93.i
   %.086.lcssa.i = phi ptr [ %433, %BufferGetPage.exit93.i ], [ %499, %498 ], [ %544, %543 ]
@@ -15016,7 +15016,7 @@ define dso_local void @heap_mask(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %51 = trunc i32 %50 to i16
   %.0.i = select i1 %47, i16 0, i16 %51
   %.not = icmp ugt i16 %46, %.0.i
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %45, %2
   ret void
@@ -15208,7 +15208,7 @@ declare i32 @MultiXactIdCreate(i32 noundef, i32 noundef, i32 noundef, i32 nounde
 declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
 get_mxact_status_for_lock.exit:
   store i8 0, ptr %4, align 1
   %5 = zext i32 %2 to i64
@@ -15290,7 +15290,7 @@ declare i32 @MultiXactIdCreateFromMembers(i32 noundef, ptr noundef) local_unname
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @heap_log_freeze_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @heap_log_freeze_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -15426,7 +15426,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %48 = icmp uge i64 %indvars.iv.next78, %23
   %exitcond80 = icmp eq i64 %indvars.iv.next78, %wide.trip.count79
-  br i1 %exitcond80, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !51
+  br i1 %exitcond80, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !48
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %75
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %75 ], [ 0, %.lr.ph.split.us ]
@@ -15473,7 +15473,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %76 = icmp uge i64 %indvars.iv.next74, %23
   %exitcond76 = icmp eq i64 %indvars.iv.next74, %wide.trip.count79
-  br i1 %exitcond76, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !51
+  br i1 %exitcond76, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !48
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not36, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -15515,7 +15515,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   %.130.us52 = phi i32 [ %97, %96 ], [ %.02942.us50, %95 ], [ %.02942.us50, %83 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72 = icmp eq i64 %indvars.iv.next69, %wide.trip.count79
-  br i1 %exitcond72, label %._crit_edge.loopexit63, label %.lr.ph.split.split.us, !llvm.loop !51
+  br i1 %exitcond72, label %._crit_edge.loopexit63, label %.lr.ph.split.split.us, !llvm.loop !48
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %123
   %indvars.iv = phi i64 [ %indvars.iv.next, %123 ], [ 0, %.lr.ph.split ]
@@ -15560,7 +15560,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   %.130 = phi i32 [ %106, %105 ], [ %.02942, %122 ], [ %spec.select, %119 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count79
-  br i1 %exitcond, label %._crit_edge.loopexit64, label %.lr.ph.split.split, !llvm.loop !51
+  br i1 %exitcond, label %._crit_edge.loopexit64, label %.lr.ph.split.split, !llvm.loop !48
 
 ._crit_edge.loopexit63:                           ; preds = %98
   %124 = icmp uge i64 %indvars.iv.next69, %23
@@ -15594,7 +15594,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
 declare i64 @PrefetchBuffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @bottomup_sort_and_shrink_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @bottomup_sort_and_shrink_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = icmp sgt i16 %3, %4
@@ -15614,16 +15614,16 @@ define internal i32 @bottomup_sort_and_shrink_cmp(ptr nocapture noundef readonly
 
 13:                                               ; preds = %8
   %14 = sext i16 %10 to i32
-  %15 = tail call i32 @llvm.ctpop.i32(i32 %14), !range !40
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
   %16 = icmp ult i32 %15, 2
-  %17 = tail call i32 @llvm.ctlz.i32(i32 %14, i1 true), !range !40
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
   %18 = xor i32 %17, 31
   %19 = shl nuw i32 2, %18
   %.0.i = select i1 %16, i32 %14, i32 %19
   %20 = sext i16 %12 to i32
-  %21 = tail call i32 @llvm.ctpop.i32(i32 %20), !range !40
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %20)
   %22 = icmp ult i32 %21, 2
-  %23 = tail call i32 @llvm.ctlz.i32(i32 %20, i1 true), !range !40
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %24 = xor i32 %23, 31
   %25 = shl nuw i32 2, %24
   %.0.i25 = select i1 %22, i32 %20, i32 %25
@@ -15756,13 +15756,13 @@ attributes #12 = { cold nounwind }
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = !{i32 2, i32 1}
+!23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
-!29 = !{i32 0, i32 5}
+!29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
@@ -15773,7 +15773,7 @@ attributes #12 = { cold nounwind }
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
-!40 = !{i32 0, i32 33}
+!40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
@@ -15782,6 +15782,3 @@ attributes #12 = { cold nounwind }
 !46 = distinct !{!46, !6}
 !47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}

@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @protobuf_lang_lex(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -2404,7 +2404,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1480 = getelementptr i8, ptr %1478, i64 %1479
   store ptr %1480, ptr %69, align 8
   %1481 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
-  %1482 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %1481, ptr noundef nonnull %0), !range !8
+  %1482 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %1481, ptr noundef nonnull %0)
   %1483 = load ptr, ptr %74, align 8
   %.not653 = icmp eq i32 %1482, 0
   br i1 %.not653, label %1487, label %1484
@@ -2473,7 +2473,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store i8 %1511, ptr %.0129161.i, align 1
   %1513 = add nuw nsw i32 %.0131159.i, 1
   %exitcond.not.i = icmp eq i32 %1513, %1508
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %76, align 8
@@ -2564,7 +2564,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0132.i = add i32 %.pn.i, %1523
   %1553 = icmp slt i32 %.0132.i, 1
-  br i1 %1553, label %.lr.ph166.i, label %._crit_edge167.i, !llvm.loop !10
+  br i1 %1553, label %.lr.ph166.i, label %._crit_edge167.i, !llvm.loop !9
 
 ._crit_edge167.i:                                 ; preds = %1546, %1522
   %1554 = phi ptr [ %1514, %1522 ], [ %1552, %1546 ]
@@ -2603,10 +2603,10 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store i8 %1563, ptr %1571, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond177.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond177.not.i, label %.critedge.i, label %1559, !llvm.loop !11
+  br i1 %exitcond177.not.i, label %.critedge.i, label %1559, !llvm.loop !10
 
 .critedge.split.loop.exit.i:                      ; preds = %1559, %1559
-  %1572 = trunc i64 %indvars.iv.i to i32
+  %1572 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1562, %.critedge.split.loop.exit.i
@@ -2696,7 +2696,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1619 = trunc i64 %1618 to i32
   store i32 %1619, ptr %78, align 4
   %1620 = icmp eq i32 %1619, 0
-  br i1 %1620, label %.lr.ph170.i, label %.critedge2.i, !llvm.loop !12
+  br i1 %1620, label %.lr.ph170.i, label %.critedge2.i, !llvm.loop !11
 
 .critedge2.i:                                     ; preds = %1608, %.lr.ph170.i, %1588, %1587
   %1621 = phi i32 [ %1601, %1588 ], [ %.1154.i, %1587 ], [ 0, %.lr.ph170.i ], [ %1619, %1608 ]
@@ -3130,7 +3130,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %47 = getelementptr [331 x i16], ptr @yy_chk, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not25 = icmp eq i16 %35, %48
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %40, %23
   %.lcssa = phi i64 [ %28, %23 ], [ %46, %40 ]
@@ -3139,7 +3139,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %51 = sext i16 %50 to i32
   %52 = getelementptr i8, ptr %.02328, i64 1
   %exitcond.not = icmp eq ptr %52, %7
-  br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !13
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %1
   %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
@@ -3147,7 +3147,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [185 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -3186,7 +3186,7 @@ define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture nound
   %27 = getelementptr [331 x i16], ptr @yy_chk, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not18 = icmp eq i16 %21, %28
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i64 [ %15, %11 ], [ %26, %.lr.ph ]
@@ -4173,7 +4173,7 @@ define hidden void @protobuf_lang_set_debug(i32 noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @protobuf_lang_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -4201,7 +4201,7 @@ declare ptr @__errno_location() local_unnamed_addr #16
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @protobuf_lang_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -4346,7 +4346,7 @@ protobuf_lang_pop_buffer_state.exit:              ; preds = %23, %42, %45
   %56 = getelementptr ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not18 = icmp eq ptr %57, null
-  br i1 %.not18, label %.thread, label %.lr.ph31, !llvm.loop !16
+  br i1 %.not18, label %.thread, label %.lr.ph31, !llvm.loop !15
 
 .thread:                                          ; preds = %protobuf_lang_pop_buffer_state.exit, %protobuf_lang__delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %protobuf_lang__delete_buffer.exit ], [ %54, %protobuf_lang_pop_buffer_state.exit ]
@@ -4437,7 +4437,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -32768, i32 32768}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -4445,4 +4445,3 @@ attributes #32 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

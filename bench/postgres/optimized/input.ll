@@ -38,10 +38,10 @@ define dso_local ptr @gets_interactive(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.b5, label %3, label %5
 
 3:                                                ; preds = %2
-  tail call void @rl_reset_screen_size() #9
+  tail call void @rl_reset_screen_size() #8
   store ptr %1, ptr @tab_completion_query_buf, align 8
   store volatile i32 1, ptr @sigint_interrupt_enabled, align 4
-  %4 = tail call ptr @readline(ptr noundef %0) #9
+  %4 = tail call ptr @readline(ptr noundef %0) #8
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
   store ptr null, ptr @tab_completion_query_buf, align 8
   br label %12
@@ -78,12 +78,12 @@ define dso_local ptr @gets_fromFile(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @createPQExpBuffer() #9
+  %6 = tail call ptr @createPQExpBuffer() #8
   store ptr %6, ptr @gets_fromFile.buffer, align 8
   br label %8
 
 7:                                                ; preds = %1
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %3) #9
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %3) #8
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -94,17 +94,17 @@ define dso_local ptr @gets_fromFile(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %34, %8
-  %11 = call i32 @ferror(ptr noundef %0) #9
+  %11 = call i32 @ferror(ptr noundef %0) #8
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %37, label %12
 
 12:                                               ; preds = %._crit_edge
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #8
   br label %44
 
 .lr.ph:                                           ; preds = %8, %34
   %13 = load ptr, ptr @gets_fromFile.buffer, align 8
-  call void @appendPQExpBufferStr(ptr noundef %13, ptr noundef nonnull %2) #9
+  call void @appendPQExpBufferStr(ptr noundef %13, ptr noundef nonnull %2) #8
   %14 = load ptr, ptr @gets_fromFile.buffer, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
@@ -116,7 +116,7 @@ define dso_local ptr @gets_fromFile(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16, %.lr.ph
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1) #8
   br label %44
 
 21:                                               ; preds = %16
@@ -137,7 +137,7 @@ define dso_local ptr @gets_fromFile(ptr nocapture noundef %0) local_unnamed_addr
   %31 = getelementptr i8, ptr %26, i64 -1
   store i8 0, ptr %31, align 1
   %32 = load ptr, ptr %14, align 8
-  %33 = call ptr @pg_strdup(ptr noundef %32) #9
+  %33 = call ptr @pg_strdup(ptr noundef %32) #8
   br label %44
 
 34:                                               ; preds = %24, %21
@@ -156,7 +156,7 @@ define dso_local ptr @gets_fromFile(ptr nocapture noundef %0) local_unnamed_addr
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %38, align 8
-  %43 = call ptr @pg_strdup(ptr noundef %42) #9
+  %43 = call ptr @pg_strdup(ptr noundef %42) #8
   br label %44
 
 44:                                               ; preds = %37, %41, %30, %20, %12
@@ -172,13 +172,13 @@ define dso_local void @pg_append_history(ptr noundef %0, ptr noundef %1) local_u
   br i1 %or.cond, label %4, label %12
 
 4:                                                ; preds = %2
-  tail call void @appendPQExpBufferStr(ptr noundef %1, ptr noundef nonnull %0) #9
+  tail call void @appendPQExpBufferStr(ptr noundef %1, ptr noundef nonnull %0) #8
   %5 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -1
   %10 = load i8, ptr %9, align 1
@@ -186,7 +186,7 @@ define dso_local void @pg_append_history(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not9, label %12, label %11
 
 11:                                               ; preds = %6, %4
-  tail call void @appendPQExpBufferChar(ptr noundef %1, i8 noundef signext 10) #9
+  tail call void @appendPQExpBufferChar(ptr noundef %1, i8 noundef signext 10) #8
   br label %12
 
 12:                                               ; preds = %6, %11, %2
@@ -203,7 +203,7 @@ declare void @appendPQExpBufferChar(ptr noundef, i8 noundef signext) local_unnam
 ; Function Attrs: nounwind uwtable
 define dso_local void @pg_send_history(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
   %6 = add i32 %4, -1
@@ -226,7 +226,7 @@ define dso_local void @pg_send_history(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %15, label %8, label %.critedge.split.loop.exit20, !llvm.loop !5
 
 .critedge.split.loop.exit20:                      ; preds = %11
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %.critedge.split.loop.exit20
@@ -259,22 +259,22 @@ define dso_local void @pg_send_history(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %30, label %33
 
 30:                                               ; preds = %25
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #10
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #9
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %30, %25
-  tail call void @free(ptr noundef %28) #9
-  %34 = tail call ptr @pg_strdup(ptr noundef nonnull %2) #9
+  tail call void @free(ptr noundef %28) #8
+  %34 = tail call ptr @pg_strdup(ptr noundef nonnull %2) #8
   store ptr %34, ptr @pg_send_history.prev_hist, align 8
-  tail call void @add_history(ptr noundef nonnull %2) #9
+  tail call void @add_history(ptr noundef nonnull %2) #8
   %35 = load i32, ptr @history_lines_added, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr @history_lines_added, align 4
   br label %37
 
 37:                                               ; preds = %21, %33, %30, %19, %.critedge
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %0) #9
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %0) #8
   ret void
 }
 
@@ -309,19 +309,19 @@ define dso_local void @initializeInput(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   store i1 true, ptr @useReadline, align 1
-  tail call void @initialize_readline() #9
-  %5 = tail call i32 @rl_variable_bind(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #9
-  %6 = tail call i32 @rl_initialize() #9
+  tail call void @initialize_readline() #8
+  %5 = tail call i32 @rl_variable_bind(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #8
+  %6 = tail call i32 @rl_initialize() #8
   store i1 true, ptr @useHistory, align 1
-  tail call void @using_history() #9
+  tail call void @using_history() #8
   store i32 0, ptr @history_lines_added, align 4
   %7 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 28), align 8
-  %8 = tail call ptr @GetVariable(ptr noundef %7, ptr noundef nonnull @.str.4) #9
+  %8 = tail call ptr @GetVariable(ptr noundef %7, ptr noundef nonnull @.str.4) #8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #9
+  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #8
   %.not9 = icmp eq ptr %11, null
   br i1 %.not9, label %select.unfold, label %12
 
@@ -331,19 +331,19 @@ define dso_local void @initializeInput(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not10, label %select.unfold, label %16
 
 select.unfold:                                    ; preds = %12, %10
-  %13 = call zeroext i1 @get_home_path(ptr noundef nonnull %2) #9
+  %13 = call zeroext i1 @get_home_path(ptr noundef nonnull %2) #8
   br i1 %13, label %14, label %thread-pre-split
 
 14:                                               ; preds = %select.unfold
-  %15 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef nonnull @.str.7) #9
+  %15 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef nonnull @.str.7) #8
   store ptr %15, ptr @psql_history, align 8
   br label %18
 
 16:                                               ; preds = %4, %12
   %.0 = phi ptr [ %8, %4 ], [ %11, %12 ]
-  %17 = tail call ptr @pg_strdup(ptr noundef nonnull %.0) #9
+  %17 = tail call ptr @pg_strdup(ptr noundef nonnull %.0) #8
   store ptr %17, ptr @psql_history, align 8
-  tail call void @expand_tilde(ptr noundef nonnull @psql_history) #9
+  tail call void @expand_tilde(ptr noundef nonnull @psql_history) #8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %16, %select.unfold
@@ -356,11 +356,11 @@ thread-pre-split:                                 ; preds = %16, %select.unfold
   br i1 %.not11, label %decode_history.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = call i32 @read_history(ptr noundef nonnull %19) #9
-  %22 = call i32 @history_set_pos(i32 noundef 0) #9
-  %23 = call ptr @previous_history() #9
-  %24 = call i32 @history_set_pos(i32 noundef 0) #9
-  %25 = call ptr @current_history() #9
+  %21 = call i32 @read_history(ptr noundef nonnull %19) #8
+  %22 = call i32 @history_set_pos(i32 noundef 0) #8
+  %23 = call ptr @previous_history() #8
+  %24 = call i32 @history_set_pos(i32 noundef 0) #8
+  %25 = call ptr @current_history() #8
   %.not810.i = icmp eq ptr %25, null
   br i1 %.not810.i, label %decode_history.exit, label %.lr.ph.i
 
@@ -386,7 +386,7 @@ thread-pre-split:                                 ; preds = %16, %select.unfold
   br label %32
 
 30:                                               ; preds = %27
-  %31 = call ptr @next_history() #9
+  %31 = call ptr @next_history() #8
   %.not8.us.i = icmp eq ptr %31, null
   br i1 %.not8.us.i, label %decode_history.exit, label %.lr.ph.split.us.i, !llvm.loop !7
 
@@ -416,12 +416,12 @@ thread-pre-split:                                 ; preds = %16, %select.unfold
   br label %35, !llvm.loop !8
 
 40:                                               ; preds = %35
-  %41 = call ptr @previous_history() #9
+  %41 = call ptr @previous_history() #8
   %.not8.i = icmp eq ptr %41, null
   br i1 %.not8.i, label %decode_history.exit, label %.lr.ph.split.i, !llvm.loop !7
 
 decode_history.exit:                              ; preds = %40, %30, %20, %18, %1
-  %42 = call i32 @atexit(ptr noundef nonnull @finishInput) #9
+  %42 = call i32 @atexit(ptr noundef nonnull @finishInput) #8
   ret void
 }
 
@@ -446,8 +446,8 @@ declare void @expand_tilde(ptr noundef) local_unnamed_addr #1
 
 declare i32 @read_history(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #6
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @finishInput() #0 {
@@ -459,15 +459,15 @@ define internal void @finishInput() #0 {
 
 3:                                                ; preds = %0
   %4 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 38), align 4
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.11) #10
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.11) #9
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %saveHistory.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @history_set_pos(i32 noundef 0) #9
-  %8 = tail call ptr @previous_history() #9
-  %9 = tail call i32 @history_set_pos(i32 noundef 0) #9
-  %10 = tail call ptr @current_history() #9
+  %7 = tail call i32 @history_set_pos(i32 noundef 0) #8
+  %8 = tail call ptr @previous_history() #8
+  %9 = tail call i32 @history_set_pos(i32 noundef 0) #8
+  %10 = tail call ptr @current_history() #8
   %.not810.i.i = icmp eq ptr %10, null
   br i1 %.not810.i.i, label %encode_history.exit.i, label %.lr.ph.i.i
 
@@ -493,7 +493,7 @@ define internal void @finishInput() #0 {
   br label %17
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @next_history() #9
+  %16 = tail call ptr @next_history() #8
   %.not8.us.i.i = icmp eq ptr %16, null
   br i1 %.not8.us.i.i, label %encode_history.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !9
 
@@ -523,7 +523,7 @@ define internal void @finishInput() #0 {
   br label %20, !llvm.loop !10
 
 25:                                               ; preds = %20
-  %26 = tail call ptr @previous_history() #9
+  %26 = tail call ptr @previous_history() #8
   %.not8.i.i = icmp eq ptr %26, null
   br i1 %.not8.i.i, label %encode_history.exit.i, label %.lr.ph.split.i.i, !llvm.loop !9
 
@@ -535,33 +535,33 @@ encode_history.exit.i:                            ; preds = %25, %15, %6
   %29 = load i32, ptr @history_lines_added, align 4
   %30 = sub i32 %4, %29
   %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
-  %32 = tail call i32 @history_truncate_file(ptr noundef nonnull %1, i32 noundef %31) #9
+  %32 = tail call i32 @history_truncate_file(ptr noundef nonnull %1, i32 noundef %31) #8
   br label %33
 
 33:                                               ; preds = %28, %encode_history.exit.i
-  %34 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 65, i32 noundef 384) #9
+  %34 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 65, i32 noundef 384) #8
   %35 = icmp sgt i32 %34, -1
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @close(i32 noundef %34) #9
+  %37 = tail call i32 @close(i32 noundef %34) #8
   br label %38
 
 38:                                               ; preds = %36, %33
   %39 = load i32, ptr @history_lines_added, align 4
   %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 %4)
   %.016.i = select i1 %27, i32 %40, i32 %39
-  %41 = tail call i32 @append_history(i32 noundef %.016.i, ptr noundef nonnull %1) #9
+  %41 = tail call i32 @append_history(i32 noundef %.016.i, ptr noundef nonnull %1) #8
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %saveHistory.exit, label %43
 
 43:                                               ; preds = %38
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #9
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #8
   br label %saveHistory.exit
 
 saveHistory.exit:                                 ; preds = %3, %38, %43
   %44 = load ptr, ptr @psql_history, align 8
-  tail call void @free(ptr noundef %44) #9
+  tail call void @free(ptr noundef %44) #8
   store ptr null, ptr @psql_history, align 8
   br label %45
 
@@ -581,7 +581,7 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
 5:                                                ; preds = %3
   %.not = icmp eq i16 %1, 0
   %6 = select i1 %.not, ptr null, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6)
-  %7 = tail call ptr @PageOutput(i32 noundef 2147483647, ptr noundef %6) #9
+  %7 = tail call ptr @PageOutput(i32 noundef 2147483647, ptr noundef %6) #8
   br label %12
 
 8:                                                ; preds = %3
@@ -590,15 +590,15 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #9
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #8
   br label %26
 
 12:                                               ; preds = %8, %5
   %.014 = phi ptr [ %7, %5 ], [ %9, %8 ]
-  %13 = tail call i32 @history_set_pos(i32 noundef 0) #9
-  %14 = tail call ptr @previous_history() #9
-  %15 = tail call i32 @history_set_pos(i32 noundef 0) #9
-  %16 = tail call ptr @current_history() #9
+  %13 = tail call i32 @history_set_pos(i32 noundef 0) #8
+  %14 = tail call ptr @previous_history() #8
+  %15 = tail call i32 @history_set_pos(i32 noundef 0) #8
+  %16 = tail call ptr @current_history() #8
   %.not1920 = icmp eq ptr %16, null
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
 
@@ -610,16 +610,16 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.01221.us = phi ptr [ %19, %.lr.ph.split.us ], [ %16, %.lr.ph ]
   %17 = load ptr, ptr %.01221.us, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %17) #9
-  %19 = tail call ptr @next_history() #9
+  %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %17) #8
+  %19 = tail call ptr @next_history() #8
   %.not19.us = icmp eq ptr %19, null
   br i1 %.not19.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.01221 = phi ptr [ %22, %.lr.ph.split ], [ %16, %.lr.ph ]
   %20 = load ptr, ptr %.01221, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %20) #9
-  %22 = tail call ptr @previous_history() #9
+  %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %20) #8
+  %22 = tail call ptr @previous_history() #8
   %.not19 = icmp eq ptr %22, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
@@ -627,7 +627,7 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   br i1 %4, label %23, label %24
 
 23:                                               ; preds = %._crit_edge
-  tail call void @ClosePager(ptr noundef %.014) #9
+  tail call void @ClosePager(ptr noundef %.014) #8
   br label %26
 
 24:                                               ; preds = %._crit_edge
@@ -662,17 +662,17 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 declare i32 @history_truncate_file(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
+declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #6
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 declare i32 @append_history(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -680,11 +680,10 @@ attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

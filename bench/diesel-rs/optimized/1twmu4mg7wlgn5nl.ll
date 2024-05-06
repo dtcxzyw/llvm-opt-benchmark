@@ -350,7 +350,7 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
 .thread.i:                                        ; preds = %23
   %26 = getelementptr inbounds i8, ptr %12, i64 8
   %27 = load i8, ptr %26, align 8, !range !39, !alias.scope !36, !noundef !4
-  %28 = trunc i8 %27 to i1
+  %28 = trunc nuw i8 %27 to i1
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h8ec5c8994562ad46E.exit"
 
 29:                                               ; preds = %23
@@ -478,7 +478,7 @@ _ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7
   %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !59, !noalias !56, !nonnull !4, !noundef !4
   %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !59, !noalias !56, !noundef !4
-  invoke void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_name17he13b36644cca4805E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i)
+  invoke void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_name17he13b36644cca4805E(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i)
           to label %70 unwind label %67
 
 70:                                               ; preds = %.noexc22
@@ -675,7 +675,7 @@ define void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9
   %17 = extractvalue { i64, ptr } %12, 1
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %16, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %17, ptr %.sroa.4.0..sroa_idx, align 8
@@ -765,7 +765,7 @@ define noundef zeroext i1 @_ZN17diesel_migrations21file_based_migrations19TomlMe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN118_$LT$diesel_migrations..file_based_migrations..TomlMetadataWrapper$u20$as$u20$diesel..migration..MigrationMetadata$GT$18run_in_transaction17h91a1818be158a76fE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1, !range !39, !noundef !4
-  %3 = trunc i8 %2 to i1
+  %3 = trunc nuw i8 %2 to i1
   ret i1 %3
 }
 

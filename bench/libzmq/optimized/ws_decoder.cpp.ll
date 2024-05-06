@@ -144,7 +144,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN3zmq12ws_decoder_t12opcode_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture readnone %0) #6 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t12opcode_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture readnone %0) #6 align 2 {
 entry:
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i8, ptr %_tmpbuf, align 8
@@ -264,7 +264,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12ws_decoder_t21size_first_byte_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t21size_first_byte_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i8, ptr %_tmpbuf, align 8
@@ -320,7 +320,7 @@ if.end23:                                         ; preds = %if.then19
   br label %return
 
 if.else27:                                        ; preds = %if.else
-  %call = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_), !range !4
+  %call = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_)
   br label %return
 
 if.else30:                                        ; preds = %if.end
@@ -350,7 +350,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12ws_decoder_t10mask_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t10mask_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
   %_mask = getelementptr inbounds i8, ptr %this, i64 204
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
@@ -379,7 +379,7 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_), !range !4
+  %call = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end, %if.else
@@ -388,7 +388,7 @@ return:                                           ; preds = %if.then, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12ws_decoder_t11flags_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t11flags_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
   %_must_mask = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load i8, ptr %_must_mask, align 8
@@ -428,12 +428,12 @@ if.end21:                                         ; preds = %if.then16, %if.end1
   %7 = load i64, ptr %_size, align 8
   %dec = add i64 %7, -1
   store i64 %dec, ptr %_size, align 8
-  %call = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_), !range !4
+  %call = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_pos_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_pos_) local_unnamed_addr #0 align 2 {
 entry:
   %_max_msg_size = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i64, ptr %_max_msg_size, align 8
@@ -564,7 +564,7 @@ return:                                           ; preds = %if.end67, %do.end65
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12ws_decoder_t16short_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t16short_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i8, ptr %_tmpbuf, align 8
@@ -614,7 +614,7 @@ if.end:                                           ; preds = %if.then7
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %call = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_), !range !4
+  %call = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end, %if.then7, %if.else14
@@ -623,7 +623,7 @@ return:                                           ; preds = %if.then, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12ws_decoder_t15long_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t15long_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i8, ptr %_tmpbuf, align 8
@@ -703,7 +703,7 @@ if.end:                                           ; preds = %if.then4
   br label %return
 
 if.else11:                                        ; preds = %if.else
-  %call12 = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_), !range !4
+  %call12 = tail call noundef i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end, %if.then4, %if.else11
@@ -773,7 +773,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc7 = add nuw nsw i32 %mask_index.09, 1
   %6 = load i64, ptr %_size, align 8
   %cmp2 = icmp ult i64 %inc, %6
-  br i1 %cmp2, label %for.body, label %if.end, !llvm.loop !5
+  br i1 %cmp2, label %for.body, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
@@ -893,7 +893,7 @@ memptr.virtual:                                   ; preds = %while.body
   %vtable = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %vtable, i64 %.unpack26
   %10 = getelementptr i8, ptr %9, i64 -1
-  %memptr.virtualfn = load ptr, ptr %10, align 8, !nosanitize !7
+  %memptr.virtualfn = load ptr, ptr %10, align 8, !nosanitize !6
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %while.body
@@ -906,12 +906,12 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
   %add.ptr9 = getelementptr inbounds i8, ptr %data_, i64 %12
   %call10 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef %add.ptr9)
   %cmp11.not = icmp eq i32 %call10, 0
-  br i1 %cmp11.not, label %while.cond, label %return, !llvm.loop !8
+  br i1 %cmp11.not, label %while.cond, label %return, !llvm.loop !7
 
 while.cond15.loopexit:                            ; preds = %while.cond32
   %13 = load i64, ptr %bytes_used_, align 8
   %cmp16 = icmp ult i64 %13, %size_
-  br i1 %cmp16, label %while.body17, label %return, !llvm.loop !9
+  br i1 %cmp16, label %while.body17, label %return, !llvm.loop !8
 
 while.body17:                                     ; preds = %while.body17.lr.ph, %while.cond15.loopexit
   %14 = phi i64 [ %.pre, %while.body17.lr.ph ], [ %20, %while.cond15.loopexit ]
@@ -958,7 +958,7 @@ memptr.virtual41:                                 ; preds = %while.body35
   %vtable42 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %vtable42, i64 %.unpack
   %24 = getelementptr i8, ptr %23, i64 -1
-  %memptr.virtualfn43 = load ptr, ptr %24, align 8, !nosanitize !7
+  %memptr.virtualfn43 = load ptr, ptr %24, align 8, !nosanitize !6
   br label %memptr.end46
 
 memptr.nonvirtual44:                              ; preds = %while.body35
@@ -971,7 +971,7 @@ memptr.end46:                                     ; preds = %memptr.nonvirtual44
   %add.ptr47 = getelementptr inbounds i8, ptr %data_, i64 %26
   %call48 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(208) %21, ptr noundef %add.ptr47)
   %cmp49.not = icmp eq i32 %call48, 0
-  br i1 %cmp49.not, label %while.cond32, label %return, !llvm.loop !10
+  br i1 %cmp49.not, label %while.cond32, label %return, !llvm.loop !9
 
 return:                                           ; preds = %while.cond15.loopexit, %memptr.end46, %while.cond, %memptr.end, %while.cond15.preheader
   %retval.0 = phi i32 [ 0, %while.cond15.preheader ], [ 0, %while.cond ], [ %call10, %memptr.end ], [ %call48, %memptr.end46 ], [ 0, %while.cond15.loopexit ]
@@ -1054,10 +1054,9 @@ attributes #17 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

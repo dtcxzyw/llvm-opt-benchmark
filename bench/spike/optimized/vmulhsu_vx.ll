@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21fast_rv32i_vmulhsu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vmulhsu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -410,7 +410,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %192 = zext i64 %188 to i128
   %193 = mul nsw i128 %191, %192
   %194 = lshr i128 %193, 64
-  %195 = trunc i128 %194 to i64
+  %195 = trunc nuw i128 %194 to i64
   store i64 %195, ptr %187, align 8
   br label %196
 
@@ -794,7 +794,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %192 = zext i64 %188 to i128
   %193 = mul nsw i128 %191, %192
   %194 = lshr i128 %193, 64
-  %195 = trunc i128 %194 to i64
+  %195 = trunc nuw i128 %194 to i64
   store i64 %195, ptr %187, align 8
   br label %196
 
@@ -811,7 +811,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z23logged_rv32i_vmulhsu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vmulhsu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -1145,7 +1145,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %192 = zext i64 %188 to i128
   %193 = mul nsw i128 %191, %192
   %194 = lshr i128 %193, 64
-  %195 = trunc i128 %194 to i64
+  %195 = trunc nuw i128 %194 to i64
   store i64 %195, ptr %187, align 8
   br label %196
 
@@ -1498,7 +1498,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %192 = zext i64 %188 to i128
   %193 = mul nsw i128 %191, %192
   %194 = lshr i128 %193, 64
-  %195 = trunc i128 %194 to i64
+  %195 = trunc nuw i128 %194 to i64
   store i64 %195, ptr %187, align 8
   br label %196
 
@@ -1515,7 +1515,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21fast_rv32e_vmulhsu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vmulhsu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -1910,7 +1910,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i64 %213 to i128
   %218 = mul nsw i128 %216, %217
   %219 = lshr i128 %218, 64
-  %220 = trunc i128 %219 to i64
+  %220 = trunc nuw i128 %219 to i64
   store i64 %220, ptr %206, align 8
   br label %221
 
@@ -2324,7 +2324,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i64 %213 to i128
   %218 = mul nsw i128 %216, %217
   %219 = lshr i128 %218, 64
-  %220 = trunc i128 %219 to i64
+  %220 = trunc nuw i128 %219 to i64
   store i64 %220, ptr %206, align 8
   br label %221
 
@@ -2341,7 +2341,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z23logged_rv32e_vmulhsu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vmulhsu_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -2736,7 +2736,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i64 %213 to i128
   %218 = mul nsw i128 %216, %217
   %219 = lshr i128 %218, 64
-  %220 = trunc i128 %219 to i64
+  %220 = trunc nuw i128 %219 to i64
   store i64 %220, ptr %206, align 8
   br label %221
 
@@ -3150,7 +3150,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i64 %213 to i128
   %218 = mul nsw i128 %216, %217
   %219 = lshr i128 %218, 64
-  %220 = trunc i128 %219 to i64
+  %220 = trunc nuw i128 %219 to i64
   store i64 %220, ptr %206, align 8
   br label %221
 

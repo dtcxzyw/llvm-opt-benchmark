@@ -350,7 +350,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_pack_authsafes(ptr nocapture noundef readonly %p12, ptr noundef %safes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_pack_authsafes(ptr nocapture noundef readonly %p12, ptr noundef %safes) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS12_AUTHSAFES_it() #2
   %authsafes = getelementptr inbounds i8, ptr %p12, i64 16

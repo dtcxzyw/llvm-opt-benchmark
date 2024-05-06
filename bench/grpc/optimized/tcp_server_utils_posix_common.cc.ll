@@ -1809,7 +1809,7 @@ if.then2:                                         ; preds = %if.end
 land.lhs.true9:                                   ; preds = %if.then2
   %2 = load i8, ptr %1, align 1
   %cmp10 = icmp eq i8 %2, 10
-  %conv12 = trunc i64 %call4 to i32
+  %conv12 = trunc nuw nsw i64 %call4 to i32
   br i1 %cmp10, label %if.end14, label %if.end14.thread
 
 if.end14.thread:                                  ; preds = %if.then2, %if.end, %land.lhs.true9

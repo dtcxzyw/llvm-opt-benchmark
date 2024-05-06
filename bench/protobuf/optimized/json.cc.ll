@@ -27,31 +27,31 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN6google8protobuf4json18BinaryToJsonStreamEPNS0_4util12TypeResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_2io19ZeroCopyInputStreamEPNSD_20ZeroCopyOutputStreamERKNS1_12PrintOptionsE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %resolver, ptr noundef nonnull align 8 dereferenceable(32) %type_url, ptr noundef %binary_input, ptr noundef %json_output, ptr nocapture noundef nonnull readonly align 1 dereferenceable(5) %options) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %options, align 1
-  %1 = and i8 %0, 1
+  %frombool = and i8 %0, 1
   %preserve_proto_field_names = getelementptr inbounds i8, ptr %options, i64 3
-  %2 = load i8, ptr %preserve_proto_field_names, align 1
-  %3 = and i8 %2, 1
+  %1 = load i8, ptr %preserve_proto_field_names, align 1
+  %frombool4 = and i8 %1, 1
   %always_print_enums_as_ints = getelementptr inbounds i8, ptr %options, i64 2
-  %4 = load i8, ptr %always_print_enums_as_ints, align 1
-  %5 = and i8 %4, 1
+  %2 = load i8, ptr %always_print_enums_as_ints, align 1
+  %frombool7 = and i8 %2, 1
   %always_print_primitive_fields = getelementptr inbounds i8, ptr %options, i64 1
-  %6 = load i8, ptr %always_print_primitive_fields, align 1
-  %7 = and i8 %6, 1
+  %3 = load i8, ptr %always_print_primitive_fields, align 1
+  %frombool10 = and i8 %3, 1
   %unquote_int64_if_possible = getelementptr inbounds i8, ptr %options, i64 4
-  %8 = load i8, ptr %unquote_int64_if_possible, align 1
-  %9 = and i8 %8, 1
-  %opts.sroa.6.0.insert.ext = zext nneg i8 %9 to i48
+  %4 = load i8, ptr %unquote_int64_if_possible, align 1
+  %frombool13 = and i8 %4, 1
+  %opts.sroa.6.0.insert.ext = zext nneg i8 %frombool13 to i48
   %opts.sroa.6.0.insert.shift = shl nuw nsw i48 %opts.sroa.6.0.insert.ext, 32
-  %opts.sroa.5.0.insert.ext = zext nneg i8 %3 to i48
+  %opts.sroa.5.0.insert.ext = zext nneg i8 %frombool4 to i48
   %opts.sroa.5.0.insert.shift = shl nuw nsw i48 %opts.sroa.5.0.insert.ext, 24
   %opts.sroa.6.0.insert.insert = or disjoint i48 %opts.sroa.6.0.insert.shift, %opts.sroa.5.0.insert.shift
-  %opts.sroa.4.0.insert.ext = zext nneg i8 %5 to i48
+  %opts.sroa.4.0.insert.ext = zext nneg i8 %frombool7 to i48
   %opts.sroa.4.0.insert.shift = shl nuw nsw i48 %opts.sroa.4.0.insert.ext, 16
   %opts.sroa.5.0.insert.insert = or disjoint i48 %opts.sroa.6.0.insert.insert, %opts.sroa.4.0.insert.shift
-  %opts.sroa.3.0.insert.ext = zext nneg i8 %7 to i48
+  %opts.sroa.3.0.insert.ext = zext nneg i8 %frombool10 to i48
   %opts.sroa.3.0.insert.shift = shl nuw nsw i48 %opts.sroa.3.0.insert.ext, 8
   %opts.sroa.4.0.insert.insert = or disjoint i48 %opts.sroa.5.0.insert.insert, %opts.sroa.3.0.insert.shift
-  %opts.sroa.0.0.insert.ext = zext nneg i8 %1 to i48
+  %opts.sroa.0.0.insert.ext = zext nneg i8 %frombool to i48
   %opts.sroa.3.0.insert.insert = or disjoint i48 %opts.sroa.4.0.insert.insert, %opts.sroa.0.0.insert.ext
   %opts.sroa.0.0.insert.insert = or disjoint i48 %opts.sroa.3.0.insert.insert, 1099511627776
   tail call void @_ZN6google8protobuf13json_internal18BinaryToJsonStreamEPNS0_4util12TypeResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_2io19ZeroCopyInputStreamEPNSD_20ZeroCopyOutputStreamENS1_13WriterOptionsE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %resolver, ptr noundef nonnull align 8 dereferenceable(32) %type_url, ptr noundef %binary_input, ptr noundef %json_output, i48 %opts.sroa.0.0.insert.insert)
@@ -71,31 +71,31 @@ entry:
   call void @_ZN6google8protobuf2io16ArrayInputStreamC1EPKvii(ptr noundef nonnull align 8 dereferenceable(32) %input_stream, ptr noundef %call, i32 noundef %conv, i32 noundef -1)
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %output_stream, ptr noundef %json_output)
   %0 = load i8, ptr %options, align 1, !noalias !4
-  %1 = and i8 %0, 1
+  %frombool.i = and i8 %0, 1
   %preserve_proto_field_names.i = getelementptr inbounds i8, ptr %options, i64 3
-  %2 = load i8, ptr %preserve_proto_field_names.i, align 1, !noalias !4
-  %3 = and i8 %2, 1
+  %1 = load i8, ptr %preserve_proto_field_names.i, align 1, !noalias !4
+  %frombool4.i = and i8 %1, 1
   %always_print_enums_as_ints.i = getelementptr inbounds i8, ptr %options, i64 2
-  %4 = load i8, ptr %always_print_enums_as_ints.i, align 1, !noalias !4
-  %5 = and i8 %4, 1
+  %2 = load i8, ptr %always_print_enums_as_ints.i, align 1, !noalias !4
+  %frombool7.i = and i8 %2, 1
   %always_print_primitive_fields.i = getelementptr inbounds i8, ptr %options, i64 1
-  %6 = load i8, ptr %always_print_primitive_fields.i, align 1, !noalias !4
-  %7 = and i8 %6, 1
+  %3 = load i8, ptr %always_print_primitive_fields.i, align 1, !noalias !4
+  %frombool10.i = and i8 %3, 1
   %unquote_int64_if_possible.i = getelementptr inbounds i8, ptr %options, i64 4
-  %8 = load i8, ptr %unquote_int64_if_possible.i, align 1, !noalias !4
-  %9 = and i8 %8, 1
-  %opts.sroa.6.0.insert.ext.i = zext nneg i8 %9 to i48
+  %4 = load i8, ptr %unquote_int64_if_possible.i, align 1, !noalias !4
+  %frombool13.i = and i8 %4, 1
+  %opts.sroa.6.0.insert.ext.i = zext nneg i8 %frombool13.i to i48
   %opts.sroa.6.0.insert.shift.i = shl nuw nsw i48 %opts.sroa.6.0.insert.ext.i, 32
-  %opts.sroa.5.0.insert.ext.i = zext nneg i8 %3 to i48
+  %opts.sroa.5.0.insert.ext.i = zext nneg i8 %frombool4.i to i48
   %opts.sroa.5.0.insert.shift.i = shl nuw nsw i48 %opts.sroa.5.0.insert.ext.i, 24
   %opts.sroa.6.0.insert.insert.i = or disjoint i48 %opts.sroa.6.0.insert.shift.i, %opts.sroa.5.0.insert.shift.i
-  %opts.sroa.4.0.insert.ext.i = zext nneg i8 %5 to i48
+  %opts.sroa.4.0.insert.ext.i = zext nneg i8 %frombool7.i to i48
   %opts.sroa.4.0.insert.shift.i = shl nuw nsw i48 %opts.sroa.4.0.insert.ext.i, 16
   %opts.sroa.5.0.insert.insert.i = or disjoint i48 %opts.sroa.6.0.insert.insert.i, %opts.sroa.4.0.insert.shift.i
-  %opts.sroa.3.0.insert.ext.i = zext nneg i8 %7 to i48
+  %opts.sroa.3.0.insert.ext.i = zext nneg i8 %frombool10.i to i48
   %opts.sroa.3.0.insert.shift.i = shl nuw nsw i48 %opts.sroa.3.0.insert.ext.i, 8
   %opts.sroa.4.0.insert.insert.i = or disjoint i48 %opts.sroa.5.0.insert.insert.i, %opts.sroa.3.0.insert.shift.i
-  %opts.sroa.0.0.insert.ext.i = zext nneg i8 %1 to i48
+  %opts.sroa.0.0.insert.ext.i = zext nneg i8 %frombool.i to i48
   %opts.sroa.3.0.insert.insert.i = or disjoint i48 %opts.sroa.4.0.insert.insert.i, %opts.sroa.0.0.insert.ext.i
   %opts.sroa.0.0.insert.insert.i = or disjoint i48 %opts.sroa.3.0.insert.insert.i, 1099511627776
   call void @_ZN6google8protobuf13json_internal18BinaryToJsonStreamEPNS0_4util12TypeResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_2io19ZeroCopyInputStreamEPNSD_20ZeroCopyOutputStreamENS1_13WriterOptionsE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %resolver, ptr noundef nonnull align 8 dereferenceable(32) %type_url, ptr noundef nonnull %input_stream, ptr noundef nonnull %output_stream, i48 %opts.sroa.0.0.insert.insert.i)
@@ -119,13 +119,13 @@ define void @_ZN6google8protobuf4json18JsonToBinaryStreamEPNS0_4util12TypeResolv
 entry:
   %agg.tmp = alloca %"struct.google::protobuf::json_internal::ParseOptions", align 8
   %0 = load i8, ptr %options, align 1
-  %1 = and i8 %0, 1
+  %frombool = and i8 %0, 1
   %case_insensitive_enum_parsing = getelementptr inbounds i8, ptr %options, i64 1
-  %2 = load i8, ptr %case_insensitive_enum_parsing, align 1
-  %3 = and i8 %2, 1
-  store i8 %1, ptr %agg.tmp, align 8
+  %1 = load i8, ptr %case_insensitive_enum_parsing, align 1
+  %frombool4 = and i8 %1, 1
+  store i8 %frombool, ptr %agg.tmp, align 8
   %opts.sroa.3.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 1
-  store i8 %3, ptr %opts.sroa.3.0.agg.tmp.sroa_idx, align 1
+  store i8 %frombool4, ptr %opts.sroa.3.0.agg.tmp.sroa_idx, align 1
   %opts.sroa.52.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   store i32 100, ptr %opts.sroa.52.0.agg.tmp.sroa_idx, align 4
   %opts.sroa.6.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -147,13 +147,13 @@ entry:
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %output_stream, ptr noundef %binary_output)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %agg.tmp.i)
   %0 = load i8, ptr %options, align 1, !noalias !7
-  %1 = and i8 %0, 1
+  %frombool.i = and i8 %0, 1
   %case_insensitive_enum_parsing.i = getelementptr inbounds i8, ptr %options, i64 1
-  %2 = load i8, ptr %case_insensitive_enum_parsing.i, align 1, !noalias !7
-  %3 = and i8 %2, 1
-  store i8 %1, ptr %agg.tmp.i, align 8, !noalias !7
+  %1 = load i8, ptr %case_insensitive_enum_parsing.i, align 1, !noalias !7
+  %frombool4.i = and i8 %1, 1
+  store i8 %frombool.i, ptr %agg.tmp.i, align 8, !noalias !7
   %opts.sroa.3.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 1
-  store i8 %3, ptr %opts.sroa.3.0.agg.tmp.sroa_idx.i, align 1, !noalias !7
+  store i8 %frombool4.i, ptr %opts.sroa.3.0.agg.tmp.sroa_idx.i, align 1, !noalias !7
   %opts.sroa.52.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 4
   store i32 100, ptr %opts.sroa.52.0.agg.tmp.sroa_idx.i, align 4, !noalias !7
   %opts.sroa.6.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
@@ -167,31 +167,31 @@ entry:
 define void @_ZN6google8protobuf4json19MessageToJsonStringERKNS0_7MessageEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_12PrintOptionsE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %output, ptr nocapture noundef nonnull readonly align 1 dereferenceable(5) %options) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %options, align 1
-  %1 = and i8 %0, 1
+  %frombool = and i8 %0, 1
   %preserve_proto_field_names = getelementptr inbounds i8, ptr %options, i64 3
-  %2 = load i8, ptr %preserve_proto_field_names, align 1
-  %3 = and i8 %2, 1
+  %1 = load i8, ptr %preserve_proto_field_names, align 1
+  %frombool4 = and i8 %1, 1
   %always_print_enums_as_ints = getelementptr inbounds i8, ptr %options, i64 2
-  %4 = load i8, ptr %always_print_enums_as_ints, align 1
-  %5 = and i8 %4, 1
+  %2 = load i8, ptr %always_print_enums_as_ints, align 1
+  %frombool7 = and i8 %2, 1
   %always_print_primitive_fields = getelementptr inbounds i8, ptr %options, i64 1
-  %6 = load i8, ptr %always_print_primitive_fields, align 1
-  %7 = and i8 %6, 1
+  %3 = load i8, ptr %always_print_primitive_fields, align 1
+  %frombool10 = and i8 %3, 1
   %unquote_int64_if_possible = getelementptr inbounds i8, ptr %options, i64 4
-  %8 = load i8, ptr %unquote_int64_if_possible, align 1
-  %9 = and i8 %8, 1
-  %opts.sroa.6.0.insert.ext = zext nneg i8 %9 to i48
+  %4 = load i8, ptr %unquote_int64_if_possible, align 1
+  %frombool13 = and i8 %4, 1
+  %opts.sroa.6.0.insert.ext = zext nneg i8 %frombool13 to i48
   %opts.sroa.6.0.insert.shift = shl nuw nsw i48 %opts.sroa.6.0.insert.ext, 32
-  %opts.sroa.5.0.insert.ext = zext nneg i8 %3 to i48
+  %opts.sroa.5.0.insert.ext = zext nneg i8 %frombool4 to i48
   %opts.sroa.5.0.insert.shift = shl nuw nsw i48 %opts.sroa.5.0.insert.ext, 24
   %opts.sroa.6.0.insert.insert = or disjoint i48 %opts.sroa.6.0.insert.shift, %opts.sroa.5.0.insert.shift
-  %opts.sroa.4.0.insert.ext = zext nneg i8 %5 to i48
+  %opts.sroa.4.0.insert.ext = zext nneg i8 %frombool7 to i48
   %opts.sroa.4.0.insert.shift = shl nuw nsw i48 %opts.sroa.4.0.insert.ext, 16
   %opts.sroa.5.0.insert.insert = or disjoint i48 %opts.sroa.6.0.insert.insert, %opts.sroa.4.0.insert.shift
-  %opts.sroa.3.0.insert.ext = zext nneg i8 %7 to i48
+  %opts.sroa.3.0.insert.ext = zext nneg i8 %frombool10 to i48
   %opts.sroa.3.0.insert.shift = shl nuw nsw i48 %opts.sroa.3.0.insert.ext, 8
   %opts.sroa.4.0.insert.insert = or disjoint i48 %opts.sroa.5.0.insert.insert, %opts.sroa.3.0.insert.shift
-  %opts.sroa.0.0.insert.ext = zext nneg i8 %1 to i48
+  %opts.sroa.0.0.insert.ext = zext nneg i8 %frombool to i48
   %opts.sroa.3.0.insert.insert = or disjoint i48 %opts.sroa.4.0.insert.insert, %opts.sroa.0.0.insert.ext
   %opts.sroa.0.0.insert.insert = or disjoint i48 %opts.sroa.3.0.insert.insert, 1099511627776
   tail call void @_ZN6google8protobuf13json_internal19MessageToJsonStringERKNS0_7MessageEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13WriterOptionsE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %output, i48 %opts.sroa.0.0.insert.insert)
@@ -204,13 +204,13 @@ declare void @_ZN6google8protobuf13json_internal19MessageToJsonStringERKNS0_7Mes
 define void @_ZN6google8protobuf4json19JsonStringToMessageESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7MessageERKNS1_12ParseOptionsE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %message, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %options) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %options, align 1
-  %1 = and i8 %0, 1
+  %frombool = and i8 %0, 1
   %case_insensitive_enum_parsing = getelementptr inbounds i8, ptr %options, i64 1
-  %2 = load i8, ptr %case_insensitive_enum_parsing, align 1
-  %3 = and i8 %2, 1
-  %opts.sroa.3.0.insert.ext = zext nneg i8 %3 to i64
+  %1 = load i8, ptr %case_insensitive_enum_parsing, align 1
+  %frombool4 = and i8 %1, 1
+  %opts.sroa.3.0.insert.ext = zext nneg i8 %frombool4 to i64
   %opts.sroa.3.0.insert.shift = shl nuw nsw i64 %opts.sroa.3.0.insert.ext, 8
-  %opts.sroa.0.0.insert.ext = zext nneg i8 %1 to i64
+  %opts.sroa.0.0.insert.ext = zext nneg i8 %frombool to i64
   %opts.sroa.3.0.insert.insert = or disjoint i64 %opts.sroa.3.0.insert.shift, %opts.sroa.0.0.insert.ext
   %opts.sroa.0.0.insert.insert = or disjoint i64 %opts.sroa.3.0.insert.insert, 429496729600
   tail call void @_ZN6google8protobuf13json_internal19JsonStringToMessageESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7MessageENS1_12ParseOptionsE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %message, i64 %opts.sroa.0.0.insert.insert, i8 1)

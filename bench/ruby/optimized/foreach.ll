@@ -203,7 +203,7 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @rb_st_foreach_check(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @unp_fec_i(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal range(i32 1, 4) i32 @unp_fec_i(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = inttoptr i64 %2 to ptr

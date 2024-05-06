@@ -23,8 +23,8 @@ define dso_local noundef i64 @macaddr8_in(ptr nocapture noundef readonly %0) loc
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %4, align 1
-  %.not153 = icmp eq i8 %7, 0
-  br i1 %.not153, label %.critedge5, label %.lr.ph
+  %.not151 = icmp eq i8 %7, 0
+  br i1 %.not151, label %.critedge5, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %8 = tail call ptr @__ctype_b_loc() #8
@@ -33,41 +33,41 @@ define dso_local noundef i64 @macaddr8_in(ptr nocapture noundef readonly %0) loc
 
 10:                                               ; preds = %.lr.ph, %16
   %11 = phi i8 [ %7, %.lr.ph ], [ %18, %16 ]
-  %.087154 = phi ptr [ %4, %.lr.ph ], [ %17, %16 ]
+  %.087152 = phi ptr [ %4, %.lr.ph ], [ %17, %16 ]
   %12 = zext i8 %11 to i64
   %13 = getelementptr i16, ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8192
   %.not94 = icmp eq i16 %15, 0
-  br i1 %.not94, label %.lr.ph169, label %16
+  br i1 %.not94, label %.lr.ph167, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr i8, ptr %.087154, i64 1
+  %17 = getelementptr i8, ptr %.087152, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %.critedge5, label %10, !llvm.loop !5
 
-.lr.ph169:                                        ; preds = %10, %.critedge5.thread
+.lr.ph167:                                        ; preds = %10, %.critedge5.thread
   %19 = phi i8 [ %183, %.critedge5.thread ], [ %11, %10 ]
-  %.064168 = phi i8 [ %.2, %.critedge5.thread ], [ 0, %10 ]
-  %.065167 = phi i32 [ %23, %.critedge5.thread ], [ 0, %10 ]
-  %.066166 = phi i8 [ %.167, %.critedge5.thread ], [ 0, %10 ]
-  %.069165 = phi i8 [ %.170, %.critedge5.thread ], [ 0, %10 ]
-  %.072164 = phi i8 [ %.173, %.critedge5.thread ], [ 0, %10 ]
-  %.075163 = phi i8 [ %.176, %.critedge5.thread ], [ 0, %10 ]
-  %.078162 = phi i8 [ %.179, %.critedge5.thread ], [ 0, %10 ]
-  %.081161 = phi i8 [ %.182, %.critedge5.thread ], [ 0, %10 ]
-  %.083160 = phi i8 [ %.184, %.critedge5.thread ], [ 0, %10 ]
-  %.085159 = phi i8 [ %.186, %.critedge5.thread ], [ 0, %10 ]
-  %.188158 = phi ptr [ %.289, %.critedge5.thread ], [ %.087154, %10 ]
-  %20 = getelementptr i8, ptr %.188158, i64 1
+  %.064166 = phi i8 [ %.2, %.critedge5.thread ], [ 0, %10 ]
+  %.065165 = phi i32 [ %23, %.critedge5.thread ], [ 0, %10 ]
+  %.066164 = phi i8 [ %.167, %.critedge5.thread ], [ 0, %10 ]
+  %.069163 = phi i8 [ %.170, %.critedge5.thread ], [ 0, %10 ]
+  %.072162 = phi i8 [ %.173, %.critedge5.thread ], [ 0, %10 ]
+  %.075161 = phi i8 [ %.176, %.critedge5.thread ], [ 0, %10 ]
+  %.078160 = phi i8 [ %.179, %.critedge5.thread ], [ 0, %10 ]
+  %.081159 = phi i8 [ %.182, %.critedge5.thread ], [ 0, %10 ]
+  %.083158 = phi i8 [ %.184, %.critedge5.thread ], [ 0, %10 ]
+  %.085157 = phi i8 [ %.186, %.critedge5.thread ], [ 0, %10 ]
+  %.188156 = phi ptr [ %.289, %.critedge5.thread ], [ %.087152, %10 ]
+  %20 = getelementptr i8, ptr %.188156, i64 1
   %21 = load i8, ptr %20, align 1
   %.not96 = icmp eq i8 %21, 0
   br i1 %.not96, label %.critedge2, label %22
 
-22:                                               ; preds = %.lr.ph169
-  %23 = add i32 %.065167, 1
-  switch i32 %.065167, label %.critedge5 [
+22:                                               ; preds = %.lr.ph167
+  %23 = add i32 %.065165, 1
+  switch i32 %.065165, label %.critedge5 [
     i32 0, label %24
     i32 1, label %41
     i32 2, label %58
@@ -295,15 +295,15 @@ define dso_local noundef i64 @macaddr8_in(ptr nocapture noundef readonly %0) loc
   br label %hex2_to_uchar.exit
 
 hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, %107, %124, %141, %158
-  %.186 = phi i8 [ %40, %39 ], [ %.085159, %56 ], [ %.085159, %73 ], [ %.085159, %90 ], [ %.085159, %107 ], [ %.085159, %124 ], [ %.085159, %141 ], [ %.085159, %158 ]
-  %.184 = phi i8 [ %.083160, %39 ], [ %57, %56 ], [ %.083160, %73 ], [ %.083160, %90 ], [ %.083160, %107 ], [ %.083160, %124 ], [ %.083160, %141 ], [ %.083160, %158 ]
-  %.182 = phi i8 [ %.081161, %39 ], [ %.081161, %56 ], [ %74, %73 ], [ %.081161, %90 ], [ %.081161, %107 ], [ %.081161, %124 ], [ %.081161, %141 ], [ %.081161, %158 ]
-  %.179 = phi i8 [ %.078162, %39 ], [ %.078162, %56 ], [ %.078162, %73 ], [ %91, %90 ], [ %.078162, %107 ], [ %.078162, %124 ], [ %.078162, %141 ], [ %.078162, %158 ]
-  %.176 = phi i8 [ %.075163, %39 ], [ %.075163, %56 ], [ %.075163, %73 ], [ %.075163, %90 ], [ %108, %107 ], [ %.075163, %124 ], [ %.075163, %141 ], [ %.075163, %158 ]
-  %.173 = phi i8 [ %.072164, %39 ], [ %.072164, %56 ], [ %.072164, %73 ], [ %.072164, %90 ], [ %.072164, %107 ], [ %125, %124 ], [ %.072164, %141 ], [ %.072164, %158 ]
-  %.170 = phi i8 [ %.069165, %39 ], [ %.069165, %56 ], [ %.069165, %73 ], [ %.069165, %90 ], [ %.069165, %107 ], [ %.069165, %124 ], [ %142, %141 ], [ %.069165, %158 ]
-  %.167 = phi i8 [ %.066166, %39 ], [ %.066166, %56 ], [ %.066166, %73 ], [ %.066166, %90 ], [ %.066166, %107 ], [ %.066166, %124 ], [ %.066166, %141 ], [ %159, %158 ]
-  %160 = getelementptr i8, ptr %.188158, i64 2
+  %.186 = phi i8 [ %40, %39 ], [ %.085157, %56 ], [ %.085157, %73 ], [ %.085157, %90 ], [ %.085157, %107 ], [ %.085157, %124 ], [ %.085157, %141 ], [ %.085157, %158 ]
+  %.184 = phi i8 [ %.083158, %39 ], [ %57, %56 ], [ %.083158, %73 ], [ %.083158, %90 ], [ %.083158, %107 ], [ %.083158, %124 ], [ %.083158, %141 ], [ %.083158, %158 ]
+  %.182 = phi i8 [ %.081159, %39 ], [ %.081159, %56 ], [ %74, %73 ], [ %.081159, %90 ], [ %.081159, %107 ], [ %.081159, %124 ], [ %.081159, %141 ], [ %.081159, %158 ]
+  %.179 = phi i8 [ %.078160, %39 ], [ %.078160, %56 ], [ %.078160, %73 ], [ %91, %90 ], [ %.078160, %107 ], [ %.078160, %124 ], [ %.078160, %141 ], [ %.078160, %158 ]
+  %.176 = phi i8 [ %.075161, %39 ], [ %.075161, %56 ], [ %.075161, %73 ], [ %.075161, %90 ], [ %108, %107 ], [ %.075161, %124 ], [ %.075161, %141 ], [ %.075161, %158 ]
+  %.173 = phi i8 [ %.072162, %39 ], [ %.072162, %56 ], [ %.072162, %73 ], [ %.072162, %90 ], [ %.072162, %107 ], [ %125, %124 ], [ %.072162, %141 ], [ %.072162, %158 ]
+  %.170 = phi i8 [ %.069163, %39 ], [ %.069163, %56 ], [ %.069163, %73 ], [ %.069163, %90 ], [ %.069163, %107 ], [ %.069163, %124 ], [ %142, %141 ], [ %.069163, %158 ]
+  %.167 = phi i8 [ %.066164, %39 ], [ %.066164, %56 ], [ %.066164, %73 ], [ %.066164, %90 ], [ %.066164, %107 ], [ %.066164, %124 ], [ %.066164, %141 ], [ %159, %158 ]
+  %160 = getelementptr i8, ptr %.188156, i64 2
   %161 = load i8, ptr %160, align 1
   switch i8 %161, label %167 [
     i8 58, label %162
@@ -312,22 +312,22 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   ]
 
 162:                                              ; preds = %hex2_to_uchar.exit, %hex2_to_uchar.exit, %hex2_to_uchar.exit
-  %163 = icmp eq i8 %.064168, 0
+  %163 = icmp eq i8 %.064166, 0
   br i1 %163, label %165, label %164
 
 164:                                              ; preds = %162
-  %.not99 = icmp eq i8 %.064168, %161
-  br i1 %.not99, label %165, label %.critedge5
+  %.not98 = icmp eq i8 %.064166, %161
+  br i1 %.not98, label %165, label %.critedge5
 
 165:                                              ; preds = %162, %164
-  %.1 = phi i8 [ %.064168, %164 ], [ %161, %162 ]
-  %166 = getelementptr i8, ptr %.188158, i64 3
+  %.1 = phi i8 [ %.064166, %164 ], [ %161, %162 ]
+  %166 = getelementptr i8, ptr %.188156, i64 3
   br label %167
 
 167:                                              ; preds = %hex2_to_uchar.exit, %165
   %.289 = phi ptr [ %166, %165 ], [ %160, %hex2_to_uchar.exit ]
-  %.2 = phi i8 [ %.1, %165 ], [ %.064168, %hex2_to_uchar.exit ]
-  switch i32 %.065167, label %..critedge5.thread_crit_edge [
+  %.2 = phi i8 [ %.1, %165 ], [ %.064166, %hex2_to_uchar.exit ]
+  switch i32 %.065165, label %..critedge5.thread_crit_edge [
     i32 7, label %168
     i32 5, label %168
   ]
@@ -344,39 +344,39 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   %173 = getelementptr i16, ptr %170, i64 %172
   %174 = load i16, ptr %173, align 2
   %175 = and i16 %174, 8192
-  %.not100 = icmp eq i16 %175, 0
-  br i1 %.not100, label %.critedge5.thread, label %.preheader
+  %.not99 = icmp eq i16 %175, 0
+  br i1 %.not99, label %.critedge5.thread, label %.preheader
 
 .preheader:                                       ; preds = %168, %178
   %.3 = phi ptr [ %176, %178 ], [ %.289, %168 ]
   %176 = getelementptr i8, ptr %.3, i64 1
   %177 = load i8, ptr %176, align 1
-  %.not101 = icmp eq i8 %177, 0
-  br i1 %.not101, label %.critedge2, label %178
+  %.not100 = icmp eq i8 %177, 0
+  br i1 %.not100, label %.critedge2, label %178
 
 178:                                              ; preds = %.preheader
   %179 = zext i8 %177 to i64
   %180 = getelementptr i16, ptr %170, i64 %179
   %181 = load i16, ptr %180, align 2
   %182 = and i16 %181, 8192
-  %.not102 = icmp eq i16 %182, 0
-  br i1 %.not102, label %.critedge5, label %.preheader, !llvm.loop !7
+  %.not101 = icmp eq i16 %182, 0
+  br i1 %.not101, label %.critedge5, label %.preheader, !llvm.loop !7
 
 .critedge5.thread:                                ; preds = %..critedge5.thread_crit_edge, %168
   %183 = phi i8 [ %171, %168 ], [ %.pre, %..critedge5.thread_crit_edge ]
   %.not95 = icmp eq i8 %183, 0
-  br i1 %.not95, label %.critedge2, label %.lr.ph169, !llvm.loop !8
+  br i1 %.not95, label %.critedge2, label %.lr.ph167, !llvm.loop !8
 
-.critedge2:                                       ; preds = %.lr.ph169, %.critedge5.thread, %.preheader
-  %.085.lcssa = phi i8 [ %.186, %.preheader ], [ %.186, %.critedge5.thread ], [ %.085159, %.lr.ph169 ]
-  %.083.lcssa = phi i8 [ %.184, %.preheader ], [ %.184, %.critedge5.thread ], [ %.083160, %.lr.ph169 ]
-  %.081.lcssa = phi i8 [ %.182, %.preheader ], [ %.182, %.critedge5.thread ], [ %.081161, %.lr.ph169 ]
-  %.078.lcssa = phi i8 [ %.179, %.preheader ], [ %.179, %.critedge5.thread ], [ %.078162, %.lr.ph169 ]
-  %.075.lcssa = phi i8 [ %.176, %.preheader ], [ %.176, %.critedge5.thread ], [ %.075163, %.lr.ph169 ]
-  %.072.lcssa = phi i8 [ %.173, %.preheader ], [ %.173, %.critedge5.thread ], [ %.072164, %.lr.ph169 ]
-  %.069.lcssa = phi i8 [ %.170, %.preheader ], [ %.170, %.critedge5.thread ], [ %.069165, %.lr.ph169 ]
-  %.066.lcssa = phi i8 [ %.167, %.preheader ], [ %.167, %.critedge5.thread ], [ %.066166, %.lr.ph169 ]
-  %.065.lcssa = phi i32 [ %23, %.preheader ], [ %23, %.critedge5.thread ], [ %.065167, %.lr.ph169 ]
+.critedge2:                                       ; preds = %.lr.ph167, %.critedge5.thread, %.preheader
+  %.085.lcssa = phi i8 [ %.186, %.preheader ], [ %.186, %.critedge5.thread ], [ %.085157, %.lr.ph167 ]
+  %.083.lcssa = phi i8 [ %.184, %.preheader ], [ %.184, %.critedge5.thread ], [ %.083158, %.lr.ph167 ]
+  %.081.lcssa = phi i8 [ %.182, %.preheader ], [ %.182, %.critedge5.thread ], [ %.081159, %.lr.ph167 ]
+  %.078.lcssa = phi i8 [ %.179, %.preheader ], [ %.179, %.critedge5.thread ], [ %.078160, %.lr.ph167 ]
+  %.075.lcssa = phi i8 [ %.176, %.preheader ], [ %.176, %.critedge5.thread ], [ %.075161, %.lr.ph167 ]
+  %.072.lcssa = phi i8 [ %.173, %.preheader ], [ %.173, %.critedge5.thread ], [ %.072162, %.lr.ph167 ]
+  %.069.lcssa = phi i8 [ %.170, %.preheader ], [ %.170, %.critedge5.thread ], [ %.069163, %.lr.ph167 ]
+  %.066.lcssa = phi i8 [ %.167, %.preheader ], [ %.167, %.critedge5.thread ], [ %.066164, %.lr.ph167 ]
+  %.065.lcssa = phi i32 [ %23, %.preheader ], [ %23, %.critedge5.thread ], [ %.065165, %.lr.ph167 ]
   switch i32 %.065.lcssa, label %.critedge5 [
     i32 6, label %184
     i32 8, label %.fold.split
@@ -639,7 +639,7 @@ declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #2
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr8_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 -1, 2) i64 @macaddr8_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -738,7 +738,7 @@ macaddr8_cmp_internal.exit:                       ; preds = %1, %43, %45, %83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr8_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr8_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -833,7 +833,7 @@ macaddr8_cmp_internal.exit:                       ; preds = %45, %1, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr8_le(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr8_le(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -932,7 +932,7 @@ macaddr8_cmp_internal.exit:                       ; preds = %1, %43, %45, %83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr8_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr8_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1027,7 +1027,7 @@ macaddr8_cmp_internal.exit:                       ; preds = %1, %42, %80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr8_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr8_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1122,7 +1122,7 @@ macaddr8_cmp_internal.exit:                       ; preds = %45, %1, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr8_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr8_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1221,7 +1221,7 @@ macaddr8_cmp_internal.exit:                       ; preds = %1, %43, %45, %83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr8_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr8_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1316,7 +1316,7 @@ macaddr8_cmp_internal.exit:                       ; preds = %1, %42, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashmacaddr8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashmacaddr8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

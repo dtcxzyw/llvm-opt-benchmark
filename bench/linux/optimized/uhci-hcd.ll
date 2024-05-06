@@ -100,7 +100,7 @@ declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #1
 declare dso_local void @debugfs_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @uhci_hcd_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @uhci_hcd_init() #0 section ".init.text" align 16 {
   %1 = tail call i32 @usb_disabled() #12
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %13
@@ -211,7 +211,7 @@ define internal void @uhci_shutdown(ptr nocapture noundef readonly %0) #2 align 
 declare dso_local i32 @usb_hcd_pci_probe(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uhci_irq(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @uhci_irq(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 608
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i16
@@ -450,7 +450,7 @@ define internal noundef i32 @uhci_pci_init(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uhci_start(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -16, 1) i32 @uhci_start(ptr noundef %0) #2 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 608
@@ -782,7 +782,7 @@ define internal noundef i32 @uhci_start(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uhci_pci_suspend(ptr noundef %0, i1 noundef zeroext %1) #2 align 16 {
+define internal noundef range(i32 -16, 1) i32 @uhci_pci_suspend(ptr noundef %0, i1 noundef zeroext %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 -184
   %5 = getelementptr inbounds i8, ptr %0, i64 744
@@ -2512,7 +2512,7 @@ define internal void @uhci_hcd_endpoint_disable(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uhci_hub_status_data(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @uhci_hub_status_data(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 608
   %4 = getelementptr inbounds i8, ptr %0, i64 744
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #12
@@ -2725,7 +2725,7 @@ thread-pre-split:                                 ; preds = %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef writeonly %4, i16 noundef zeroext %5) #2 align 16 {
+define internal range(i32 -110, 10) i32 @uhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef writeonly %4, i16 noundef zeroext %5) #2 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 608
   %8 = zext i16 %3 to i32
   %9 = add nsw i32 %8, -1
@@ -3034,7 +3034,7 @@ define internal i32 @uhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uhci_rh_suspend(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -108, 1) i32 @uhci_rh_suspend(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 608
   %3 = getelementptr inbounds i8, ptr %0, i64 744
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #12
@@ -3077,7 +3077,7 @@ define internal noundef i32 @uhci_rh_suspend(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uhci_rh_resume(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -108, 1) i32 @uhci_rh_resume(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 608
   %3 = getelementptr inbounds i8, ptr %0, i64 744
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #12
@@ -5689,7 +5689,7 @@ define internal void @uhci_pci_configure_hc(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -608
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -124
@@ -5733,7 +5733,7 @@ define internal noundef i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uhci_pci_global_suspend_mode_is_broken(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @uhci_pci_global_suspend_mode_is_broken(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = tail call ptr @dmi_get_system_info(i32 noundef 14) #12
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %4

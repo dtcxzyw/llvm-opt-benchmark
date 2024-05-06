@@ -50,7 +50,7 @@ define dso_local void @acpi_ut_dump_buffer(ptr noundef readonly %0, i32 noundef 
 
 22:                                               ; preds = %43, %.split.us
   %23 = phi i64 [ %44, %43 ], [ 0, %.split.us ]
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = or disjoint i32 %20, %24
   %26 = icmp ult i32 %25, %1
   br i1 %26, label %28, label %27
@@ -154,7 +154,7 @@ define dso_local void @acpi_ut_dump_buffer(ptr noundef readonly %0, i32 noundef 
 
 74:                                               ; preds = %80, %.split
   %75 = phi i64 [ %81, %80 ], [ 0, %.split ]
-  %76 = trunc i64 %75 to i32
+  %76 = trunc nuw nsw i64 %75 to i32
   %77 = or disjoint i32 %73, %76
   %78 = icmp ult i32 %77, %1
   br i1 %78, label %83, label %79

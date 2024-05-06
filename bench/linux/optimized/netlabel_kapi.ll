@@ -826,11 +826,11 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
   br i1 %.not, label %84, label %.thread7.loopexit
 
 .thread7.loopexit:                                ; preds = %74
-  %75 = trunc i64 %indvars.iv90 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv90 to i32
   br label %.thread7
 
 .thread7.loopexit46:                              ; preds = %50
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread7
 
 .thread7:                                         ; preds = %.thread7.loopexit46, %.thread7.loopexit, %.thread6
@@ -865,7 +865,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @netlbl_catmap_getlong(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 63
   %6 = icmp eq i32 %5, 0
@@ -949,7 +949,7 @@ define dso_local noundef i32 @netlbl_catmap_getlong(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_catmap_setbit(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
@@ -1249,7 +1249,7 @@ netlbl_catmap_setbit.exit.thread:                 ; preds = %99, %netlbl_catmap_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_catmap_setlong(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = and i32 %1, 63
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %64
@@ -1359,7 +1359,7 @@ define dso_local i32 @netlbl_bitmap_walk(ptr nocapture noundef readonly %0, i32 
   %10 = load i8, ptr %9, align 1
   %11 = and i32 %2, 7
   %12 = lshr exact i32 128, %11
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = icmp ne i8 %3, 0
   %15 = icmp eq i8 %3, 0
   %16 = add i32 %1, -1
@@ -1421,7 +1421,7 @@ define dso_local void @netlbl_bitmap_setbit(ptr nocapture noundef %0, i32 nounde
   %11 = trunc i32 %10 to i8
   %12 = and i8 %9, %11
   %13 = lshr exact i32 128, %5
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = or i8 %9, %14
   %16 = select i1 %6, i8 %12, i8 %15
   store i8 %16, ptr %8, align 1
@@ -1429,7 +1429,7 @@ define dso_local void @netlbl_bitmap_setbit(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
-define dso_local i32 @netlbl_enabled() local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 2) i32 @netlbl_enabled() local_unnamed_addr #7 align 16 {
   %1 = load volatile i32, ptr @netlabel_mgmt_protocount, align 4
   %2 = icmp sgt i32 %1, 0
   %3 = zext i1 %2 to i32

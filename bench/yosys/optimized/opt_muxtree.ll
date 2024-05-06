@@ -1364,7 +1364,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit230:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %313 unwind label %730
 
 313:                                              ; preds = %312
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
   store ptr %230, ptr %44, align 8
   %314 = load i32, ptr %42, align 8
   %315 = icmp sgt i32 %314, 0
@@ -1883,8 +1883,8 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
   %565 = load ptr, ptr %157, align 8, !noalias !20
   store ptr %565, ptr %156, align 8, !alias.scope !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false), !noalias !20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %158, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %159, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %158, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %159, i8 0, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   %566 = ptrtoint ptr %557 to i64
   %567 = ptrtoint ptr %556 to i64
@@ -4219,8 +4219,8 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i364: ; preds = 
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit366
 
 ._crit_edge3481:                                  ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit332, %313
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %187, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %188, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %187, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %188, i8 0, i64 48, i1 false)
   invoke void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %55, ptr noundef nonnull align 8 dereferenceable(64) %40)
           to label %1482 unwind label %.loopexit2826
 
@@ -6610,7 +6610,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit454:                 ; preds = %._crit_edge3493, %2
   br i1 %.not.i455, label %2553, label %2550
 
 2550:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit454
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2548, ptr noundef nonnull align 8 dereferenceable(32) %44)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2548, ptr noundef nonnull readonly align 8 dereferenceable(32) %44)
           to label %.noexc460 unwind label %.loopexit2826
 
 .noexc460:                                        ; preds = %2550
@@ -6653,7 +6653,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_len
 _ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %2565, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %2568 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %2567, %2565 ]
   %2569 = getelementptr inbounds %"struct.(anonymous namespace)::OptMuxtreeWorker::muxinfo_t", ptr %2568, i64 %2559
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2569, ptr noundef nonnull align 8 dereferenceable(32) %44)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2569, ptr noundef nonnull readonly align 8 dereferenceable(32) %44)
           to label %2570 unwind label %2580
 
 2570:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i
@@ -12609,8 +12609,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker8sig2bitsEN5Yosy
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %2, align 8
-  %.not4773 = icmp eq i32 %8, 0
-  br i1 %.not4773, label %._crit_edge, label %.lr.ph
+  %.not4874 = icmp eq i32 %8, 0
+  br i1 %.not4874, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %9 = getelementptr inbounds i8, ptr %2, i64 16
@@ -12675,13 +12675,13 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %30, %24
   br i1 %44, label %45, label %_ZN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tD2Ev.exit
 
 45:                                               ; preds = %43
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false)
   store i8 0, ptr %5, align 8
   %.val = load ptr, ptr %16, align 8
   %.val12 = load ptr, ptr %17, align 8
   %46 = invoke noundef i32 @_ZN5Yosys7hashlib5idictINS_5RTLIL6SigBitELi0ENS0_8hash_opsIS3_EEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(12) %39)
-          to label %.noexc16 unwind label %.loopexit48
+          to label %.noexc16 unwind label %.loopexit49
 
 .noexc16:                                         ; preds = %45
   %47 = ptrtoint ptr %.val12 to i64
@@ -12699,7 +12699,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %30, %24
 
 54:                                               ; preds = %52
   invoke void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #19
-          to label %.noexc17 unwind label %.loopexit.split-lp49
+          to label %.noexc17 unwind label %.loopexit.split-lp50
 
 .noexc17:                                         ; preds = %54
   unreachable
@@ -12718,7 +12718,7 @@ _ZN5Yosys7hashlib5idictINS_5RTLIL6SigBitELi0ENS0_8hash_opsIS3_EEE6expectERKS3_i.
 
 59:                                               ; preds = %_ZN5Yosys7hashlib5idictINS_5RTLIL6SigBitELi0ENS0_8hash_opsIS3_EEE6expectERKS3_i.exit
   invoke fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %57, ptr noundef nonnull align 8 dereferenceable(120) %5)
-          to label %.noexc19 unwind label %.loopexit48
+          to label %.noexc19 unwind label %.loopexit49
 
 .noexc19:                                         ; preds = %59
   %60 = load ptr, ptr %17, align 8
@@ -12736,7 +12736,7 @@ _ZN5Yosys7hashlib5idictINS_5RTLIL6SigBitELi0ENS0_8hash_opsIS3_EEE6expectERKS3_i.
 
 67:                                               ; preds = %62
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #19
-          to label %.noexc20 unwind label %.loopexit.split-lp49
+          to label %.noexc20 unwind label %.loopexit.split-lp50
 
 .noexc20:                                         ; preds = %67
   unreachable
@@ -12755,7 +12755,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_len
 74:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %75 = mul nuw nsw i64 %73, 120
   %76 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #20
-          to label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.exit.i.i unwind label %.loopexit48
+          to label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.exit.i.i unwind label %.loopexit49
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %74, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %77 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %76, %74 ]
@@ -12962,18 +12962,18 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
           cleanup
   br label %185
 
-.loopexit48:                                      ; preds = %45, %59, %74
-  %lpad.loopexit50 = landingpad { ptr, i32 }
+.loopexit49:                                      ; preds = %45, %59, %74
+  %lpad.loopexit51 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp49:                             ; preds = %54, %67
-  %lpad.loopexit.split-lp51 = landingpad { ptr, i32 }
+.loopexit.split-lp50:                             ; preds = %54, %67
+  %lpad.loopexit.split-lp52 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit48, %.loopexit.split-lp49, %111, %55
-  %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %112, %111 ], [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
+.body:                                            ; preds = %.loopexit49, %.loopexit.split-lp50, %111, %55
+  %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %112, %111 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   call fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #17
   br label %185
 
@@ -13119,8 +13119,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %183 = phi ptr [ %182, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i36 ], [ %25, %159 ], [ %156, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %132, %133 ], [ %25, %157 ]
   %184 = phi ptr [ %180, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i36 ], [ %160, %159 ], [ %154, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %134, %133 ], [ %26, %157 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not47 = icmp eq i64 %indvars.iv.next, %23
-  br i1 %.not47, label %._crit_edge, label %24
+  %.not48 = icmp eq i64 %indvars.iv.next, %23
+  br i1 %.not48, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %7
   ret void
@@ -13612,7 +13612,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker13eval_root_muxE
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 80
   store ptr null, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %3, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %3, i8 0, i64 60, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 160
   %.val6 = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 168
@@ -18953,7 +18953,7 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxt
   %8 = ptrtoint ptr %.val.i.i.i to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %.val9.i.i.i, %.val.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %14, label %11
 

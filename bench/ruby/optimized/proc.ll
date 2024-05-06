@@ -100,7 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.65 = private unnamed_addr constant [19 x i8] c"local_variable_get\00", align 1
 @.str.66 = private unnamed_addr constant [19 x i8] c"local_variable_set\00", align 1
 @.str.67 = private unnamed_addr constant [24 x i8] c"local_variable_defined?\00", align 1
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @proc_without_block = internal constant [44 x i8] c"tried to create Proc object without a block\00", align 16
 @.str.70 = private unnamed_addr constant [25 x i8] c"too many arguments (%lu)\00", align 1
 @.str.71 = private unnamed_addr constant [57 x i8] c"method_def_min_max_arity: invalid method entry type (%d)\00", align 1
@@ -187,7 +187,7 @@ RTYPEDDATA_GET_DATA.exit:
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_obj_is_proc(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 21) i64 @rb_obj_is_proc(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef nonnull @proc_data_type) #20
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, i64 0, i64 20
@@ -197,7 +197,7 @@ define dso_local i64 @rb_obj_is_proc(i64 noundef %0) local_unnamed_addr #0 {
 declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_proc_lambda_p(i64 noundef %0) #2 {
+define dso_local range(i64 0, 21) i64 @rb_proc_lambda_p(i64 noundef %0) #2 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -623,7 +623,7 @@ rb_array_len.exit:                                ; preds = %3
   br label %rb_array_const_ptr.exit
 
 20:                                               ; preds = %rb_array_len.exit
-  %21 = trunc i64 %12 to i32
+  %21 = trunc nuw nsw i64 %12 to i32
   %22 = getelementptr inbounds i8, ptr %8, i64 32
   %23 = load ptr, ptr %22, align 8
   br label %rb_array_const_ptr.exit
@@ -687,7 +687,7 @@ rb_array_len.exit.i:                              ; preds = %2
   br label %rb_proc_call_kw.exit
 
 19:                                               ; preds = %rb_array_len.exit.i
-  %20 = trunc i64 %11 to i32
+  %20 = trunc nuw nsw i64 %11 to i32
   %21 = getelementptr inbounds i8, ptr %7, i64 32
   %22 = load ptr, ptr %21, align 8
   br label %rb_proc_call_kw.exit
@@ -910,7 +910,7 @@ rb_iseq_min_max_arity.exit:                       ; preds = %27, %37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_block_pair_yield_optimizable() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rb_block_pair_yield_optimizable() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca %struct.rb_block, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -986,7 +986,7 @@ block_setup.exit.thread16:                        ; preds = %13, %RB_SYMBOL_P.ex
   store i32 %.sink, ptr %38, align 8
   %39 = and i64 %7, -4
   %40 = inttoptr i64 %39 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   %41 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %42 = icmp sgt i32 %41, 1
   br label %43
@@ -1081,7 +1081,7 @@ rb_proc_arity.exit:                               ; preds = %33, %35, %36
   store i32 %.sink, ptr %40, align 8
   %41 = and i64 %8, -4
   %42 = inttoptr i64 %41 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   %43 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %3, ptr noundef nonnull %2)
   %44 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %44, -1
@@ -1140,7 +1140,7 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %16
   store i32 0, ptr %23, align 8
   %24 = and i64 %7, -4
   %25 = inttoptr i64 %24 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   br label %block_setup.exit
 
 26:                                               ; preds = %11
@@ -1148,7 +1148,7 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %16
   store i32 1, ptr %27, align 8
   %28 = and i64 %7, -4
   %29 = inttoptr i64 %28 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   br label %block_setup.exit
 
 vm_block_handler_type.exit.i:                     ; preds = %RB_SYMBOL_P.exit.i.i, %13
@@ -1841,7 +1841,7 @@ declare i64 @rb_iseq_path(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_str_cat_cstr(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_obj_is_method(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 21) i64 @rb_obj_is_method(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef nonnull @method_data_type) #20
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, i64 0, i64 20
@@ -2619,7 +2619,7 @@ method_cref.exit.thread:                          ; preds = %44, %method_cref.ex
   %78 = zext i32 %76 to i64
   %79 = shl nuw nsw i64 %78, 3
   %80 = load ptr, ptr %60, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %80, i64 %79, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %57, ptr readonly align 1 %80, i64 %79, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %77, %53
@@ -3231,7 +3231,7 @@ define internal noundef i64 @proc_to_proc(i64 noundef returned %0) #3 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @proc_arity(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @proc_arity(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %3 = inttoptr i64 %0 to ptr
@@ -3281,7 +3281,7 @@ define internal i64 @proc_dup(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @proc_hash(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @proc_hash(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_hash_start(i64 noundef 0) #20
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -3327,7 +3327,7 @@ define internal i64 @proc_curry(i32 noundef %0, ptr nocapture noundef readonly %
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef %7, ptr noundef nonnull %4)
+  %8 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef %7, ptr noundef nonnull writeonly %4)
   %9 = icmp ugt i32 %0, 1
   br i1 %9, label %10, label %rb_check_arity.exit
 
@@ -3508,7 +3508,7 @@ to_callable.exit:                                 ; preds = %2, %5, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @proc_eq(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @proc_eq(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_obj_class(i64 noundef %0) #20
   %4 = tail call i64 @rb_obj_class(i64 noundef %1) #20
   %.not = icmp eq i64 %3, %4
@@ -3851,7 +3851,7 @@ f_lambda_filter_non_literal.exit:                 ; preds = %1, %10, %RB_SYMBOL_
 declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @method_eq(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @method_eq(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %1, ptr noundef nonnull @method_data_type) #20
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %78, label %4
@@ -4021,7 +4021,7 @@ method_entry_defined_class.exit32:                ; preds = %method_entry_define
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @method_hash(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @method_hash(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @method_data_type) #20
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @rb_hash_start(i64 noundef %3) #20
@@ -4405,7 +4405,7 @@ to_callable.exit:                                 ; preds = %2, %4, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @method_arity_m(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @method_arity_m(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @method_data_type) #20
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -6009,7 +6009,7 @@ define internal i64 @top_define_method(i32 noundef %0, ptr nocapture noundef rea
   %.not.i = icmp eq ptr %14, null
   %15 = getelementptr inbounds i8, ptr %14, i64 32
   %spec.select.i = select i1 %.not.i, ptr %4, ptr %15
-  %16 = call fastcc i64 @rb_mod_define_method_with_visibility(i32 noundef %0, ptr noundef %1, i64 noundef %.0, ptr noundef nonnull %spec.select.i)
+  %16 = call fastcc i64 @rb_mod_define_method_with_visibility(i32 noundef %0, ptr noundef readonly %1, i64 noundef %.0, ptr noundef nonnull %spec.select.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i64 %16
 }
@@ -6394,7 +6394,7 @@ rb_obj_write.exit:                                ; preds = %46, %52
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @bind_local_variable_defined_p(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bind_local_variable_defined_p(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8
@@ -6594,7 +6594,7 @@ block_mark_and_move.exit:                         ; preds = %1, %4, %8, %10, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @proc_memsize(ptr noundef readonly %0) #11 {
+define internal range(i64 40, 73) i64 @proc_memsize(ptr noundef readonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -7392,7 +7392,7 @@ rb_array_len.exit26:                              ; preds = %60
   br label %rb_array_const_ptr.exit
 
 72:                                               ; preds = %rb_array_len.exit26
-  %73 = trunc i64 %64 to i32
+  %73 = trunc nuw nsw i64 %64 to i32
   %74 = getelementptr inbounds i8, ptr %26, i64 32
   %75 = load ptr, ptr %74, align 8
   br label %rb_array_const_ptr.exit
@@ -7529,7 +7529,7 @@ rb_array_len.exit.i.i:                            ; preds = %42
   br label %rb_proc_call.exit
 
 56:                                               ; preds = %rb_array_len.exit.i.i
-  %57 = trunc i64 %48 to i32
+  %57 = trunc nuw nsw i64 %48 to i32
   %58 = getelementptr inbounds i8, ptr %44, i64 32
   %59 = load ptr, ptr %58, align 8
   br label %rb_proc_call.exit
@@ -8069,7 +8069,7 @@ define internal fastcc ptr @get_local_variable_ptr(ptr nocapture noundef %0, i64
   br i1 %22, label %23, label %57
 
 23:                                               ; preds = %19
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw i64 %indvars.iv to i32
   %25 = getelementptr inbounds i8, ptr %14, i64 168
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %12

@@ -328,7 +328,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   %29 = icmp eq i32 %27, 2
   %30 = or i1 %28, %29
   %31 = lshr i64 %22, 32
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   %33 = trunc i64 %22 to i32
   br i1 %30, label %101, label %34
 
@@ -452,7 +452,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @x86_msi_prepare(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr noundef %3) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @x86_msi_prepare(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr noundef %3) #4 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @init_irq_alloc_info(ptr noundef %3, ptr noundef null) #8

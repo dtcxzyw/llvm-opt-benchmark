@@ -1779,7 +1779,7 @@ for.body63:                                       ; preds = %if.end58, %for.inc1
 if.then69:                                        ; preds = %for.body63
   %idxprom70 = sext i32 %total.090 to i64
   %arrayidx71 = getelementptr i32, ptr %call59, i64 %idxprom70
-  %6 = trunc i64 %indvars.iv105 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv105 to i32
   store i32 %6, ptr %arrayidx71, align 4
   %inc72 = add i32 %total.090, 1
   %image_entry.086 = load ptr, ptr %image_list, align 8

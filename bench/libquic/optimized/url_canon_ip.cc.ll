@@ -609,7 +609,7 @@ define dso_local void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12C
 entry:
   %address.i = getelementptr inbounds i8, ptr %host_info, i64 16
   %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
-  %call.i = tail call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i, ptr noundef nonnull %num_ipv4_components.i)
+  %call.i = tail call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef readonly %spec, ptr noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i, ptr noundef nonnull %num_ipv4_components.i)
   store i32 %call.i, ptr %host_info, align 4
   switch i32 %call.i, label %if.end [
     i32 2, label %sw.bb.i
@@ -630,7 +630,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %if.end3
 
 if.end:                                           ; preds = %entry
-  %call.i6 = tail call noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKcRKNS_9ComponentEPh(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i)
+  %call.i6 = tail call noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKcRKNS_9ComponentEPh(ptr noundef readonly %spec, ptr noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i)
   br i1 %call.i6, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -770,7 +770,7 @@ define dso_local void @_ZN3url21CanonicalizeIPAddressEPKtRKNS_9ComponentEPNS_12C
 entry:
   %address.i = getelementptr inbounds i8, ptr %host_info, i64 16
   %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
-  %call.i = tail call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i, ptr noundef nonnull %num_ipv4_components.i)
+  %call.i = tail call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef readonly %spec, ptr noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i, ptr noundef nonnull %num_ipv4_components.i)
   store i32 %call.i, ptr %host_info, align 4
   switch i32 %call.i, label %if.end [
     i32 2, label %sw.bb.i
@@ -791,7 +791,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %if.end3
 
 if.end:                                           ; preds = %entry
-  %call.i6 = tail call noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKtRKNS_9ComponentEPh(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i)
+  %call.i6 = tail call noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKtRKNS_9ComponentEPh(ptr noundef readonly %spec, ptr noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i)
   br i1 %call.i6, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -1880,7 +1880,7 @@ for.body.us.i:                                    ; preds = %for.inc43.us.i, %fo
 for.body20.us.preheader.i:                        ; preds = %for.body.us.i
   %25 = sext i32 %cur_index_in_address.010.us.i to i64
   %scevgep.i = getelementptr i8, ptr %address, i64 %25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %umax.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %umax.i, i1 false)
   %26 = add i32 %spec.store.select.i.i, %cur_index_in_address.010.us.i
   br label %if.end24.us.i
 
@@ -1902,7 +1902,7 @@ for.body.preheader.i.us.i:                        ; preds = %if.then27.us.i
   %28 = sext i32 %arrayidx29.val.us.i to i64
   %scevgep.i.us.i = getelementptr i8, ptr %spec, i64 %28
   %29 = zext nneg i32 %arrayidx29.val21.us.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.i.i, ptr align 1 %scevgep.i.us.i, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.i.i, ptr readonly align 1 %scevgep.i.us.i, i64 %29, i1 false)
   br label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us.i
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us.i: ; preds = %for.body.preheader.i.us.i, %if.then27.us.i
@@ -1947,7 +1947,7 @@ for.body.preheader.i.i:                           ; preds = %if.then27.i
   %31 = sext i32 %arrayidx29.val.i to i64
   %scevgep.i.i = getelementptr i8, ptr %spec, i64 %31
   %32 = zext nneg i32 %arrayidx29.val21.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.i.i, ptr align 1 %scevgep.i.i, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.i.i, ptr readonly align 1 %scevgep.i.i, i64 %32, i1 false)
   br label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i: ; preds = %for.body.preheader.i.i, %if.then27.i
@@ -1980,7 +1980,7 @@ for.end45.i:                                      ; preds = %for.inc43.us.i, %fo
 if.then47.i:                                      ; preds = %for.end45.i
   %idxprom49.i = sext i32 %cur_index_in_address.0.lcssa.i to i64
   %arrayidx50.i = getelementptr inbounds i8, ptr %address, i64 %idxprom49.i
-  %call51.i = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %ipv4_component.i.i, ptr noundef %arrayidx50.i, ptr noundef nonnull %ignored_num_ipv4_components.i)
+  %call51.i = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef readonly %spec, ptr noundef nonnull align 4 dereferenceable(8) %ipv4_component.i.i, ptr noundef writeonly %arrayidx50.i, ptr noundef nonnull %ignored_num_ipv4_components.i)
   %cmp52.not.i = icmp eq i32 %call51.i, 2
   br i1 %cmp52.not.i, label %if.end55.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
 
@@ -2242,7 +2242,7 @@ for.body.us.i:                                    ; preds = %for.inc43.us.i, %fo
 for.body20.us.preheader.i:                        ; preds = %for.body.us.i
   %25 = sext i32 %cur_index_in_address.010.us.i to i64
   %scevgep.i = getelementptr i8, ptr %address, i64 %25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %umax.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %umax.i, i1 false)
   %26 = add i32 %spec.store.select.i.i, %cur_index_in_address.010.us.i
   br label %if.end24.us.i
 
@@ -2362,7 +2362,7 @@ for.end45.i:                                      ; preds = %for.inc43.us.i, %fo
 if.then47.i:                                      ; preds = %for.end45.i
   %idxprom49.i = sext i32 %cur_index_in_address.0.lcssa.i to i64
   %arrayidx50.i = getelementptr inbounds i8, ptr %address, i64 %idxprom49.i
-  %call51.i = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %ipv4_component.i.i, ptr noundef %arrayidx50.i, ptr noundef nonnull %ignored_num_ipv4_components.i)
+  %call51.i = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef readonly %spec, ptr noundef nonnull align 4 dereferenceable(8) %ipv4_component.i.i, ptr noundef writeonly %arrayidx50.i, ptr noundef nonnull %ignored_num_ipv4_components.i)
   %cmp52.not.i = icmp eq i32 %call51.i, 2
   br i1 %cmp52.not.i, label %if.end55.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
 

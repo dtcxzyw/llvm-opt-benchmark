@@ -84,7 +84,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_get_upload_buffer(ptr nocapture noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_get_upload_buffer(ptr nocapture noundef %data) local_unnamed_addr #0 {
 entry:
   %ulbuf = getelementptr inbounds i8, ptr %data, i64 3232
   %0 = load ptr, ptr %ulbuf, align 8
@@ -2443,7 +2443,7 @@ declare ptr @Curl_get_scheme_handler(ptr noundef) local_unnamed_addr #1
 declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_retry_request(ptr noundef %data, ptr nocapture noundef writeonly %url) local_unnamed_addr #0 {
+define hidden range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %data, ptr nocapture noundef writeonly %url) local_unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8

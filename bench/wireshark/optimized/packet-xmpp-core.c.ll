@@ -1646,7 +1646,7 @@ define hidden void @xmpp_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @xmpp_stream_close(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @xmpp_stream_close(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @want_ignore, align 8

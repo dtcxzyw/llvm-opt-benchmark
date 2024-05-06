@@ -185,8 +185,8 @@ entry:
   store i32 1, ptr %fStamp.i, align 4
   %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
   store i8 1, ptr %fIsSet.i, align 4
-  %arrayidx.i3 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %sub, ptr %arrayidx.i3, align 8
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %sub, ptr %arrayidx.i4, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 1, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 109

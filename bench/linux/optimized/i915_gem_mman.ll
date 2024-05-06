@@ -1603,7 +1603,7 @@ define internal void @vm_close(ptr nocapture noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vm_fault_cpu(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 1, 257) i32 @vm_fault_cpu(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -1914,7 +1914,7 @@ define internal i32 @vm_access(ptr nocapture noundef readonly %0, i64 noundef %1
 declare dso_local i32 @remap_io_sg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i915_error_to_vmf_fault(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 1, 257) i32 @i915_error_to_vmf_fault(i32 noundef %0) unnamed_addr #0 align 16 {
   switch i32 %0, label %2 [
     i32 -5, label %9
     i32 -14, label %9

@@ -807,7 +807,7 @@ entry:
   br i1 %or.cond, label %if.then, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %entry
-  %call.i = tail call i64 @strcspn(ptr noundef nonnull %.pre, ptr noundef nonnull @.str.41) #18
+  %call.i = tail call i64 @strcspn(ptr noundef nonnull readonly %.pre, ptr noundef nonnull @.str.41) #18
   %cmp.not.i = icmp ult i64 %call.i, %1
   br i1 %cmp.not.i, label %if.then, label %land.lhs.true3.i
 
@@ -1203,7 +1203,7 @@ if.then16:                                        ; preds = %if.end14
   %4 = load ptr, ptr %hash_algo, align 8
   %empty_tree = getelementptr inbounds i8, ptr %4, i64 80
   %5 = load ptr, ptr %empty_tree, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %5, i64 32
   br label %if.end26
 
@@ -1228,7 +1228,7 @@ _.exit:                                           ; preds = %if.then20, %if.end3
 
 if.end24:                                         ; preds = %if.else
   %oid25 = getelementptr inbounds i8, ptr %call18, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull align 4 dereferenceable(32) %oid25, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid25, i64 32, i1 false)
   %algo.i26 = getelementptr inbounds i8, ptr %call18, i64 36
   br label %if.end26
 
@@ -2020,7 +2020,7 @@ land.lhs.true:                                    ; preds = %strbuf_setlen.exit4
   br i1 %tobool1.not.i, label %if.end, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true
-  %call.i = tail call i64 @strcspn(ptr noundef nonnull %5, ptr noundef nonnull @.str.41) #18
+  %call.i = tail call i64 @strcspn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.41) #18
   %cmp.not.i = icmp ult i64 %call.i, %4
   br i1 %cmp.not.i, label %if.end, label %land.lhs.true3.i
 
@@ -2422,7 +2422,7 @@ if.then48.i:                                      ; preds = %while.end.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then48.i
   %26 = load ptr, ptr %16, align 8
-  %bcmp.i.i = tail call i32 @bcmp(ptr %26, ptr %22, i64 %25)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %26, ptr readonly %22, i64 %25)
   %tobool1.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool1.not.i.i, label %for.cond.i.i, label %if.end51.i
 
@@ -2469,7 +2469,7 @@ if.then56.i:                                      ; preds = %if.end51.i
 
 lor.lhs.false.i42.i:                              ; preds = %if.then56.i
   %36 = load ptr, ptr %16, align 8
-  %bcmp.i43.i = tail call i32 @bcmp(ptr %36, ptr %32, i64 %35)
+  %bcmp.i43.i = tail call i32 @bcmp(ptr %36, ptr readonly %32, i64 %35)
   %tobool1.not.i44.i = icmp eq i32 %bcmp.i43.i, 0
   br i1 %tobool1.not.i44.i, label %for.cond.i45.i, label %for.inc61.i
 
@@ -3529,11 +3529,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %3, ptr noundef nonnull dereferenceable(32) %call.i, i64 32)
+  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %3, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %call.i, i64 20)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %3, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i

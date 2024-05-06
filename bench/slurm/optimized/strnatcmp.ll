@@ -60,7 +60,7 @@ define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not48, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %26 = trunc i64 %indvars.iv.next89 to i32
+  %26 = trunc nsw i64 %indvars.iv.next89 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

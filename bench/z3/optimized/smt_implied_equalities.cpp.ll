@@ -1312,7 +1312,7 @@ invoke.cont25.i:                                  ; preds = %while.body.i.i.i.i.
 invoke.cont31.i:                                  ; preds = %invoke.cont25.i, %_ZN14core_hashtableIN7obj_mapI4sort6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit.i
   %it.sroa.0.0252.i = phi ptr [ %it.sroa.0.2.i, %_ZN14core_hashtableIN7obj_mapI4sort6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit.i ], [ %retval.sroa.0.1.i.i.i, %invoke.cont25.i ]
   %m_value.i = getelementptr inbounds i8, ptr %it.sroa.0.0252.i, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_127get_implied_equalities_impl34get_implied_equalities_model_basedER3refI5modelER6vectorINS0_7term_idELb1EjE(ptr noundef nonnull align 8 dereferenceable(200) %gi, ptr noundef nonnull align 8 dereferenceable(8) %model.i, ptr noundef nonnull align 8 dereferenceable(8) %m_value.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_127get_implied_equalities_impl34get_implied_equalities_model_basedER3refI5modelER6vectorINS0_7term_idELb1EjE(ptr noundef nonnull align 8 dereferenceable(200) %gi, ptr noundef nonnull readonly align 8 dereferenceable(8) %model.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_value.i)
           to label %for.cond35.i.preheader unwind label %lpad20.loopexit.i
 
 for.cond35.i.preheader:                           ; preds = %invoke.cont31.i

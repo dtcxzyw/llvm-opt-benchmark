@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @snappy_compress(ptr noundef %input, i64 noundef %input_length, ptr noundef %compressed, ptr noundef %compressed_length) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @snappy_compress(ptr noundef %input, i64 noundef %input_length, ptr noundef %compressed, ptr noundef %compressed_length) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %compressed_length, align 8
   %call.i = tail call noundef i64 @_ZN6snappy19MaxCompressedLengthEm(i64 noundef %input_length) #2
@@ -21,7 +21,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @snappy_max_compressed_length(i64 noundef %source_length) local_unnamed_addr #0 {
+define dso_local noundef i64 @snappy_max_compressed_length(i64 noundef %source_length) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZN6snappy19MaxCompressedLengthEm(i64 noundef %source_length) #2
   ret i64 %call
@@ -30,7 +30,7 @@ entry:
 declare void @_ZN6snappy11RawCompressEPKcmPcPm(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @snappy_uncompress(ptr noundef %compressed, i64 noundef %compressed_length, ptr noundef %uncompressed, ptr nocapture noundef %uncompressed_length) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @snappy_uncompress(ptr noundef %compressed, i64 noundef %compressed_length, ptr noundef %uncompressed, ptr nocapture noundef %uncompressed_length) local_unnamed_addr #0 {
 entry:
   %real_uncompressed_length = alloca i64, align 8
   %call = call noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPKcmPm(ptr noundef %compressed, i64 noundef %compressed_length, ptr noundef nonnull %real_uncompressed_length) #2
@@ -63,7 +63,7 @@ declare noundef zeroext i1 @_ZN6snappy13RawUncompressEPKcmPc(ptr noundef, i64 no
 declare noundef i64 @_ZN6snappy19MaxCompressedLengthEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @snappy_uncompressed_length(ptr noundef %compressed, i64 noundef %compressed_length, ptr noundef %result) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @snappy_uncompressed_length(ptr noundef %compressed, i64 noundef %compressed_length, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPKcmPm(ptr noundef %compressed, i64 noundef %compressed_length, ptr noundef %result) #2
   %not.call = xor i1 %call, true
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @snappy_validate_compressed_buffer(ptr noundef %compressed, i64 noundef %compressed_length) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @snappy_validate_compressed_buffer(ptr noundef %compressed, i64 noundef %compressed_length) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN6snappy23IsValidCompressedBufferEPKcm(ptr noundef %compressed, i64 noundef %compressed_length) #2
   %not.call = xor i1 %call, true

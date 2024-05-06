@@ -330,7 +330,7 @@ while.body:                                       ; preds = %if.end8, %while.bod
 while.end:                                        ; preds = %while.body, %if.end8
   %l.0.lcssa = phi i64 [ %0, %if.end8 ], [ %shr, %while.body ]
   %outpos.0.lcssa = phi i64 [ 0, %if.end8 ], [ %inc, %while.body ]
-  %conv10 = trunc i64 %l.0.lcssa to i8
+  %conv10 = trunc nuw nsw i64 %l.0.lcssa to i8
   %arrayidx12 = getelementptr inbounds i8, ptr %call, i64 %outpos.0.lcssa
   store i8 %conv10, ptr %arrayidx12, align 1
   %outpos.1194 = add nuw nsw i64 %outpos.0.lcssa, 1
@@ -353,7 +353,7 @@ while.end22:                                      ; preds = %while.body16, %whil
   %l.1.lcssa = phi i64 [ %trg_size, %while.end ], [ %shr21, %while.body16 ]
   %outpos.1.in.lcssa = phi i64 [ %outpos.0.lcssa, %while.end ], [ %outpos.1197, %while.body16 ]
   %outpos.1.lcssa = phi i64 [ %outpos.1194, %while.end ], [ %outpos.1, %while.body16 ]
-  %conv23 = trunc i64 %l.1.lcssa to i8
+  %conv23 = trunc nuw nsw i64 %l.1.lcssa to i8
   %arrayidx25 = getelementptr inbounds i8, ptr %call, i64 %outpos.1.lcssa
   store i8 %conv23, ptr %arrayidx25, align 1
   %src_buf = getelementptr inbounds i8, ptr %index, i64 8

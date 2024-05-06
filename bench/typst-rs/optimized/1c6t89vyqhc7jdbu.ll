@@ -20,7 +20,7 @@ define void @_ZN12typst_timing8Recorder3new17h3940f356cbe7d6c7E(ptr noalias noca
 define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias nocapture noundef writeonly sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = load i8, ptr @_ZN12typst_timing7ENABLED17h0f4108ab70122e5dE, align 1, !range !4, !noundef !5
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4

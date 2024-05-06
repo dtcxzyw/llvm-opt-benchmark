@@ -77,7 +77,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ipv6_getsock
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_ipv6_getsockopt1047, ptr @__UNIQUE_ID___addressable_ipv6_setsockopt1031], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip6_ra_control(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @ip6_ra_control(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 514
   %4 = load i16, ptr %3, align 2
   %5 = icmp eq i16 %4, 3

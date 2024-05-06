@@ -3427,7 +3427,7 @@ declare zeroext i1 @execute_cmd_failable(ptr noundef, ptr noundef) local_unnamed
 declare ptr @source_file_text_load(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @find_padding_length(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #15 {
+define dso_local range(i32 2, -2147483648) i32 @find_padding_length(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 

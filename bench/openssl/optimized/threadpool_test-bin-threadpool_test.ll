@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.41 = private unnamed_addr constant [30 x i8] c"OSSL_set_max_threads(NULL, 0)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_thread_reported_flags) #5
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_thread_native) #5
@@ -59,7 +59,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_thread_reported_flags() #0 {
+define internal range(i32 0, 2) i32 @test_thread_reported_flags() #0 {
 entry:
   %call = tail call i32 @OSSL_get_thread_support_flags() #5
   %and = and i32 %call, 1
@@ -80,7 +80,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_thread_native() #0 {
+define internal range(i32 0, 2) i32 @test_thread_native() #0 {
 entry:
   %retval1 = alloca i32, align 4
   %local = alloca i32, align 4
@@ -133,7 +133,7 @@ return:                                           ; preds = %if.end23, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_thread_native_multiple_joins() #0 {
+define internal range(i32 0, 2) i32 @test_thread_native_multiple_joins() #0 {
 entry:
   %call = tail call ptr @ossl_crypto_thread_native_start(ptr noundef nonnull @test_thread_native_multiple_joins_fn1, ptr noundef null, i32 noundef 1) #5
   %call1 = tail call ptr @ossl_crypto_thread_native_start(ptr noundef nonnull @test_thread_native_multiple_joins_fn2, ptr noundef %call, i32 noundef 1) #5
@@ -189,7 +189,7 @@ return:                                           ; preds = %if.end28, %if.end23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_thread_internal() #0 {
+define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
 entry:
   %retval1 = alloca [3 x i32], align 4
   %local = alloca [3 x i32], align 4
@@ -317,7 +317,7 @@ for.cond:                                         ; preds = %if.end94, %if.end14
 
 for.body:                                         ; preds = %for.cond
   %add = add nuw nsw i64 %i.0, 1
-  %conv = trunc i64 %add to i32
+  %conv = trunc nuw nsw i64 %add to i32
   store i32 %conv, ptr %local, align 4
   %call103 = call ptr @ossl_crypto_thread_start(ptr noundef null, ptr noundef nonnull @test_thread_native_fn, ptr noundef nonnull %local) #5
   %arrayidx104 = getelementptr inbounds [3 x ptr], ptr %t, i64 0, i64 %i.0
@@ -345,7 +345,7 @@ if.end123:                                        ; preds = %if.end116
 
 lor.lhs.false:                                    ; preds = %if.end123
   %1 = load i32, ptr %local, align 4
-  %2 = trunc i64 %i.0 to i32
+  %2 = trunc nuw i64 %i.0 to i32
   %conv131 = add nuw nsw i32 %2, 2
   %call132 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 181, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef %1, i32 noundef %conv131) #5
   %tobool133.not = icmp eq i32 %call132, 0
@@ -377,7 +377,7 @@ for.cond154:                                      ; preds = %for.end, %for.body1
 
 for.body157:                                      ; preds = %for.cond154
   %add158 = add nuw nsw i64 %i.1, 1
-  %conv159 = trunc i64 %add158 to i32
+  %conv159 = trunc nuw nsw i64 %add158 to i32
   %arrayidx160 = getelementptr inbounds [3 x i32], ptr %local, i64 0, i64 %i.1
   store i32 %conv159, ptr %arrayidx160, align 4
   %call162 = call ptr @ossl_crypto_thread_start(ptr noundef null, ptr noundef nonnull @test_thread_native_fn, ptr noundef nonnull %arrayidx160) #5
@@ -411,7 +411,7 @@ for.body189:                                      ; preds = %for.cond186
   %arrayidx190 = getelementptr inbounds [3 x i32], ptr %retval1, i64 0, i64 %i.3
   %4 = load i32, ptr %arrayidx190, align 4
   %add191 = add nuw nsw i64 %i.3, 1
-  %conv192 = trunc i64 %add191 to i32
+  %conv192 = trunc nuw nsw i64 %add191 to i32
   %call193 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 208, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.32, i32 noundef %4, i32 noundef %conv192) #5
   %tobool194.not = icmp eq i32 %call193, 0
   br i1 %tobool194.not, label %return, label %lor.lhs.false195
@@ -419,7 +419,7 @@ for.body189:                                      ; preds = %for.cond186
 lor.lhs.false195:                                 ; preds = %for.body189
   %arrayidx196 = getelementptr inbounds [3 x i32], ptr %local, i64 0, i64 %i.3
   %5 = load i32, ptr %arrayidx196, align 4
-  %6 = trunc i64 %i.3 to i32
+  %6 = trunc nuw i64 %i.3 to i32
   %conv198 = add nuw nsw i32 %6, 2
   %call199 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 208, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.34, i32 noundef %5, i32 noundef %conv198) #5
   %tobool200.not = icmp eq i32 %call199, 0
@@ -446,7 +446,7 @@ for.cond217:                                      ; preds = %for.end211, %for.bo
 
 for.body220:                                      ; preds = %for.cond217
   %add221 = add nuw nsw i64 %i.4, 1
-  %conv222 = trunc i64 %add221 to i32
+  %conv222 = trunc nuw nsw i64 %add221 to i32
   %arrayidx223 = getelementptr inbounds [3 x i32], ptr %local, i64 0, i64 %i.4
   store i32 %conv222, ptr %arrayidx223, align 4
   %call225 = call ptr @ossl_crypto_thread_start(ptr noundef null, ptr noundef nonnull @test_thread_native_fn, ptr noundef nonnull %arrayidx223) #5
@@ -480,7 +480,7 @@ for.body252:                                      ; preds = %for.cond249
   %arrayidx253 = getelementptr inbounds [3 x i32], ptr %retval1, i64 0, i64 %i.6
   %9 = load i32, ptr %arrayidx253, align 4
   %add254 = add nuw nsw i64 %i.6, 1
-  %conv255 = trunc i64 %add254 to i32
+  %conv255 = trunc nuw nsw i64 %add254 to i32
   %call256 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 230, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.32, i32 noundef %9, i32 noundef %conv255) #5
   %tobool257.not = icmp eq i32 %call256, 0
   br i1 %tobool257.not, label %return, label %lor.lhs.false258
@@ -488,7 +488,7 @@ for.body252:                                      ; preds = %for.cond249
 lor.lhs.false258:                                 ; preds = %for.body252
   %arrayidx259 = getelementptr inbounds [3 x i32], ptr %local, i64 0, i64 %i.6
   %10 = load i32, ptr %arrayidx259, align 4
-  %11 = trunc i64 %i.6 to i32
+  %11 = trunc nuw i64 %i.6 to i32
   %conv261 = add nuw nsw i32 %11, 2
   %call262 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 230, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.34, i32 noundef %10, i32 noundef %conv261) #5
   %tobool263.not = icmp eq i32 %call262, 0
@@ -539,20 +539,20 @@ declare i32 @ossl_crypto_thread_native_join(ptr noundef, ptr noundef) local_unna
 declare i32 @ossl_crypto_thread_native_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @test_thread_native_multiple_joins_fn1(ptr nocapture readnone %data) #3 {
+define internal noundef i32 @test_thread_native_multiple_joins_fn1(ptr nocapture readnone %data) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_thread_native_multiple_joins_fn2(ptr noundef %data) #0 {
+define internal noundef i32 @test_thread_native_multiple_joins_fn2(ptr noundef %data) #0 {
 entry:
   %call = tail call i32 @ossl_crypto_thread_native_join(ptr noundef %data, ptr noundef null) #5
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_thread_native_multiple_joins_fn3(ptr noundef %data) #0 {
+define internal noundef i32 @test_thread_native_multiple_joins_fn3(ptr noundef %data) #0 {
 entry:
   %call = tail call i32 @ossl_crypto_thread_native_join(ptr noundef %data, ptr noundef null) #5
   ret i32 0

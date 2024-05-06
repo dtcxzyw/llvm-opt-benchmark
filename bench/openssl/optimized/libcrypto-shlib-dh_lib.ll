@@ -246,7 +246,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @DH_up_ref(ptr nocapture noundef %r) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @DH_up_ref(ptr nocapture noundef %r) local_unnamed_addr #3 {
 entry:
   %references = getelementptr inbounds i8, ptr %r, i64 144
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -303,7 +303,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DH_size(ptr nocapture noundef readonly %dh) local_unnamed_addr #0 {
+define range(i32 -268435455, 268435456) i32 @DH_size(ptr nocapture noundef readonly %dh) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %dh, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -370,7 +370,7 @@ entry:
 declare void @ossl_ffc_params_get0_pqg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DH_set0_pqg(ptr noundef %dh, ptr noundef %p, ptr noundef %q, ptr noundef %g) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DH_set0_pqg(ptr noundef %dh, ptr noundef %p, ptr noundef %q, ptr noundef %g) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %dh, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -406,7 +406,7 @@ declare void @ossl_ffc_params_set0_pqg(ptr noundef, ptr noundef, ptr noundef, pt
 declare void @ossl_dh_cache_named_group(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @DH_get_length(ptr nocapture noundef readonly %dh) local_unnamed_addr #2 {
+define range(i64 -2147483648, 2147483648) i64 @DH_get_length(ptr nocapture noundef readonly %dh) local_unnamed_addr #2 {
 entry:
   %length = getelementptr inbounds i8, ptr %dh, i64 104
   %0 = load i32, ptr %length, align 8

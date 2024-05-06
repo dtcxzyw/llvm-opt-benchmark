@@ -17,12 +17,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyMutex_LockSlow(ptr noundef %m) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @_PyMutex_LockTimed(ptr noundef %m, i64 noundef -1, i32 noundef 1), !range !5
+  %call = tail call i32 @_PyMutex_LockTimed(ptr noundef %m, i64 noundef -1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyMutex_LockTimed(ptr noundef %m, i64 noundef %timeout, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @_PyMutex_LockTimed(ptr noundef %m, i64 noundef %timeout, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %entry19 = alloca %struct.mutex_entry, align 8
   %newv = alloca i8, align 1
@@ -242,7 +242,7 @@ declare i32 @Py_MakePendingCalls() local_unnamed_addr #1
 declare i64 @_PyDeadline_Get(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyMutex_TryUnlock(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyMutex_TryUnlock(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i8, ptr %m seq_cst, align 1
   %conv8 = zext i8 %0 to i32
@@ -500,14 +500,14 @@ PyEvent_WaitTimed.exit:                           ; preds = %for.cond.i, %if.the
   %3 = load atomic i8, ptr %evt seq_cst, align 1
   %cmp17.i.not = icmp eq i8 %3, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %expected.i)
-  br i1 %cmp17.i.not, label %while.end, label %while.cond, !llvm.loop !6
+  br i1 %cmp17.i.not, label %while.end, label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %PyEvent_WaitTimed.exit, %PyEvent_WaitTimed.exit.thread
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyEvent_WaitTimed(ptr noundef %evt, i64 noundef %timeout_ns) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @PyEvent_WaitTimed(ptr noundef %evt, i64 noundef %timeout_ns) local_unnamed_addr #0 {
 entry:
   %expected = alloca i8, align 1
   br label %for.cond
@@ -810,6 +810,5 @@ attributes #6 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

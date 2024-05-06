@@ -379,7 +379,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %70 = getelementptr inbounds i8, ptr %60, i64 48
   %71 = load i32, ptr %70, align 8, !tbaa !97, !noalias !91
   %72 = ashr i32 %71, 1
-  %73 = mul nsw i32 %72, %69
+  %73 = mul nuw nsw i32 %72, %69
   %74 = icmp sgt i32 %67, -1
   tail call void @llvm.assume(i1 %74)
   %75 = icmp sgt i32 %69, -1
@@ -589,7 +589,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
 214:                                              ; preds = %205
   tail call void @llvm.assume(i1 %136)
   %215 = getelementptr inbounds i16, ptr %137, i64 %139
-  %216 = trunc i32 %212 to i16
+  %216 = trunc nuw nsw i32 %212 to i16
   store i16 %216, ptr %215, align 2, !tbaa !105
   %217 = add nuw nsw i64 %139, 1
   %218 = icmp eq i64 %217, %114

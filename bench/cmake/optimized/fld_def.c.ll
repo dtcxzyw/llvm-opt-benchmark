@@ -431,7 +431,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @free_field(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -4, 1) i32 @free_field(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %2
 

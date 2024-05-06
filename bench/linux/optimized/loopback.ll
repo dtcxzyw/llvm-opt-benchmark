@@ -199,7 +199,7 @@ define internal i32 @loopback_net_init(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @blackhole_netdev_init() #1 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @blackhole_netdev_init() #1 section ".init.text" align 16 {
   %1 = tail call ptr @alloc_netdev_mqs(i32 noundef 0, ptr noundef nonnull @.str.5, i8 noundef zeroext 0, ptr noundef nonnull @blackhole_netdev_setup, i32 noundef 1, i32 noundef 1) #9
   store ptr %1, ptr @blackhole_netdev, align 8
   %2 = icmp eq ptr %1, null
@@ -299,7 +299,7 @@ define internal noundef i32 @always_on(ptr nocapture readnone %0) #4 align 16 {
 declare dso_local i32 @ethtool_op_get_ts_info(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @loopback_dev_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @loopback_dev_init(ptr nocapture noundef writeonly %0) #0 align 16 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @__alloc_percpu_gfp(i64 noundef 16, i64 noundef 16, i32 noundef 3264) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.thread, label %4

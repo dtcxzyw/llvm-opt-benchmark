@@ -614,7 +614,7 @@ declare void @Cut_NodeWriteCutsOld(ptr noundef, i32 noundef, ptr noundef) local_
 declare ptr @Cut_CutMergeLists(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cut_NodeTempTransferToNew(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cut_NodeTempTransferToNew(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Cut_NodeReadCutsTemp(ptr noundef %0, i32 noundef %2) #5
   tail call void @Cut_NodeWriteCutsTemp(ptr noundef %0, i32 noundef %2, ptr noundef null) #5
   tail call void @Cut_NodeWriteCutsNew(ptr noundef %0, i32 noundef %1, ptr noundef %4) #5

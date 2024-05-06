@@ -263,7 +263,7 @@ define i32 @parse(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3
   br i1 %107, label %108, label %122
 
 108:                                              ; preds = %100
-  %109 = call i32 @_foreach_flag_parser(ptr noundef %3, ptr noundef nonnull %15), !range !6
+  %109 = call i32 @_foreach_flag_parser(ptr noundef %3, ptr noundef nonnull %15)
   %.not24.i = icmp eq i32 %109, 1
   br i1 %.not24.i, label %_parse_flag.exit, label %110
 
@@ -417,7 +417,7 @@ _parse_flag.exit:                                 ; preds = %108, %118, %132, %1
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %188
-  %192 = call i32 @_foreach_parse_list(ptr noundef %3, ptr noundef nonnull %13), !range !6
+  %192 = call i32 @_foreach_parse_list(ptr noundef %3, ptr noundef nonnull %13)
   %.not35.i = icmp eq i32 %192, 1
   br i1 %.not35.i, label %.thread, label %.thread176
 
@@ -624,7 +624,7 @@ _parse_list.exit:                                 ; preds = %220, %222
 
 299:                                              ; preds = %296
   %.val.i = load i64, ptr %264, align 8
-  call fastcc void @_set_flag_bit(i64 %.val.i, ptr noundef %spec.select.i153, ptr noundef nonnull %272, i1 noundef zeroext %.0.i166)
+  call fastcc void @_set_flag_bit(i64 %.val.i, ptr noundef %spec.select.i153, ptr noundef nonnull readonly %272, i1 noundef zeroext %.0.i166)
   br label %312
 
 300:                                              ; preds = %296
@@ -640,7 +640,7 @@ _parse_list.exit:                                 ; preds = %220, %222
 
 307:                                              ; preds = %301, %300
   %.val55.i = load i64, ptr %264, align 8
-  call fastcc void @_set_flag_bit_equal(i64 %.val55.i, ptr noundef %spec.select.i153, ptr noundef nonnull %272, i1 noundef zeroext %.0.i166)
+  call fastcc void @_set_flag_bit_equal(i64 %.val55.i, ptr noundef %spec.select.i153, ptr noundef nonnull readonly %272, i1 noundef zeroext %.0.i166)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %272, i64 24
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %308
@@ -699,7 +699,7 @@ _parser_linked_flag.exit:                         ; preds = %333, %334
   %335 = load i8, ptr %260, align 8
   %336 = zext i8 %335 to i64
   %337 = icmp ult i64 %indvars.iv.next199, %336
-  br i1 %337, label %270, label %_parser_linked.exit, !llvm.loop !7
+  br i1 %337, label %270, label %_parser_linked.exit, !llvm.loop !6
 
 338:                                              ; preds = %248
   %339 = load i32, ptr %225, align 8
@@ -987,7 +987,7 @@ _parser_linked.exit:                              ; preds = %_parser_linked_flag
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %.not140 = icmp eq i32 %.0121.i183, 0
-  br i1 %.not140, label %245, label %.critedge, !llvm.loop !9
+  br i1 %.not140, label %245, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %_parser_linked.exit, %245
   %.1.lcssa = phi i32 [ %.0121.i183, %_parser_linked.exit ], [ 0, %245 ]
@@ -1186,7 +1186,7 @@ thread-pre-split184:                              ; preds = %522, %525
   br i1 %595, label %596, label %598
 
 596:                                              ; preds = %593
-  %597 = call i32 @_foreach_array_entry(ptr noundef %3, ptr noundef nonnull %9), !range !6
+  %597 = call i32 @_foreach_array_entry(ptr noundef %3, ptr noundef nonnull %9)
   %.not37.i160 = icmp eq i32 %597, 1
   %spec.select.i161 = select i1 %.not37.i160, i32 0, i32 9001
   br label %598
@@ -1234,7 +1234,7 @@ thread-pre-split184:                              ; preds = %522, %525
   %611 = getelementptr inbounds ptr, ptr %610, i64 %indvars.iv.next
   %612 = load ptr, ptr %611, align 8
   %.not40.i = icmp eq ptr %612, null
-  br i1 %.not40.i, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not40.i, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader186
   call void @slurm_xfree(ptr noundef nonnull %556) #6
@@ -1471,7 +1471,7 @@ define internal noundef i32 @_foreach_parse_marray(ptr noundef %0, ptr noundef %
   %40 = load i8, ptr %36, align 8
   %41 = zext i8 %40 to i64
   %42 = icmp ult i64 %indvars.iv.next, %41
-  br i1 %42, label %43, label %.loopexit, !llvm.loop !11
+  br i1 %42, label %43, label %.loopexit, !llvm.loop !10
 
 43:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
@@ -1565,7 +1565,7 @@ define internal noundef i32 @_foreach_parse_marray(ptr noundef %0, ptr noundef %
   %85 = phi i64 [ %.pre, %._crit_edge67 ], [ %27, %26 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %86 = icmp ugt i64 %85, %indvars.iv.next65
-  br i1 %86, label %26, label %._crit_edge, !llvm.loop !12
+  br i1 %86, label %26, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %84, %3
   %87 = tail call i32 @data_get_type(ptr noundef %1) #6
@@ -1759,7 +1759,7 @@ define i32 @dump(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3,
   %67 = load i8, ptr %58, align 8
   %68 = zext i8 %67 to i32
   %69 = icmp slt i32 %66, %68
-  br i1 %69, label %61, label %_dump_flag_bit_array.exit, !llvm.loop !13
+  br i1 %69, label %61, label %_dump_flag_bit_array.exit, !llvm.loop !12
 
 _dump_flag_bit_array.exit:                        ; preds = %61, %55, %57
   %.014.i = phi i32 [ 9202, %55 ], [ 0, %57 ], [ 0, %61 ]
@@ -1935,7 +1935,7 @@ _dump_flag_bit_array.exit:                        ; preds = %61, %55, %57
   %156 = load i8, ptr %147, align 8
   %157 = zext i8 %156 to i64
   %158 = icmp ult i64 %indvars.iv.next115, %157
-  br i1 %158, label %150, label %_dump_linked.exit, !llvm.loop !14
+  br i1 %158, label %150, label %_dump_linked.exit, !llvm.loop !13
 
 159:                                              ; preds = %83
   %160 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -1999,7 +1999,7 @@ _dump_linked.exit:                                ; preds = %150, %146, %86, %89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %.not73 = icmp eq i32 %.0.i, 0
-  br i1 %.not73, label %70, label %.critedge, !llvm.loop !15
+  br i1 %.not73, label %70, label %.critedge, !llvm.loop !14
 
 200:                                              ; preds = %31
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
@@ -2084,7 +2084,7 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
   %236 = getelementptr inbounds i8, ptr %235, i64 116
   %237 = load i32, ptr %236, align 4
   %.not24.i = icmp eq i32 %237, 0
-  br i1 %.not24.i, label %._crit_edge97, label %.lr.ph96, !llvm.loop !16
+  br i1 %.not24.i, label %._crit_edge97, label %.lr.ph96, !llvm.loop !15
 
 ._crit_edge97:                                    ; preds = %.lr.ph96, %.preheader84
   %.019.i.lcssa = phi ptr [ %227, %.preheader84 ], [ %235, %.lr.ph96 ]
@@ -2159,7 +2159,7 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
   %271 = tail call i32 @dump(ptr noundef nonnull %266, i64 noundef 4294967294, ptr noundef %269, ptr noundef %270, ptr noundef %4)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %.not46.i = icmp eq i32 %271, 0
-  br i1 %.not46.i, label %264, label %.critedge, !llvm.loop !17
+  br i1 %.not46.i, label %264, label %.critedge, !llvm.loop !16
 
 272:                                              ; preds = %258
   %273 = getelementptr inbounds i8, ptr %2, i64 124
@@ -2191,7 +2191,7 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
   %spec.select.i83 = select i1 %.not44.i, i1 %.034.i90, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %280
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %spec.select.i83, label %.critedge, label %286
@@ -2203,7 +2203,7 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
   %290 = tail call i32 @dump(ptr noundef nonnull %282, i64 noundef 4294967294, ptr noundef %288, ptr noundef %289, ptr noundef %4)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %.not43.i = icmp eq i32 %290, 0
-  br i1 %.not43.i, label %278, label %.critedge, !llvm.loop !19
+  br i1 %.not43.i, label %278, label %.critedge, !llvm.loop !18
 
 291:                                              ; preds = %258
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.54) #7
@@ -2265,7 +2265,7 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
 declare void @set_openapi_schema(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_flag_parser(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_flag_parser(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -2407,7 +2407,7 @@ _flag_parent_path.exit:                           ; preds = %2, %28
   %77 = load i8, ptr %30, align 8
   %78 = zext i8 %77 to i32
   %79 = icmp slt i32 %76, %78
-  br i1 %79, label %35, label %._crit_edge, !llvm.loop !20
+  br i1 %79, label %35, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %74
   %80 = getelementptr inbounds i8, ptr %1, i64 40
@@ -2680,7 +2680,7 @@ declare ptr @openapi_fork_rel_path_list(ptr noundef, i32 noundef) local_unnamed_
 declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_parse_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_parse_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2777,7 +2777,7 @@ declare ptr @data_resolve_dict_path(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @openapi_append_rel_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_is_duplicate_linked_parser_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_is_duplicate_linked_parser_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 1
@@ -2823,7 +2823,7 @@ define internal fastcc noundef i32 @_is_duplicate_linked_parser_value(ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i64, ptr %8, align 8
   %30 = icmp ugt i64 %29, %indvars.iv.next
-  br i1 %30, label %12, label %.loopexit, !llvm.loop !21
+  br i1 %30, label %12, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %22, %28, %.preheader, %4
   %.013 = phi i32 [ 0, %4 ], [ 1, %.preheader ], [ 0, %22 ], [ 1, %28 ]
@@ -2862,7 +2862,7 @@ declare void @free_parser_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_array_entry(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3263,7 +3263,7 @@ declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_foreach_dump_list(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_foreach_dump_list(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
@@ -3308,19 +3308,18 @@ attributes #7 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 1, i32 5}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

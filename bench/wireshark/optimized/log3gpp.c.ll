@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @log3gpp_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @log3gpp_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @log3gpp_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca [10 x i8], align 1
   %6 = alloca i32, align 4
@@ -358,7 +358,7 @@ declare ptr @__errno_location() local_unnamed_addr #1
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @log3gpp_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @log3gpp_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -426,7 +426,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 46:                                               ; preds = %42, %thread-pre-split.thread.i, %thread-pre-split.i, %27
   %.2.ph = phi i32 [ %30, %27 ], [ 0, %thread-pre-split.i ], [ %.1, %thread-pre-split.thread.i ], [ %43, %42 ]
-  %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_read.linebuff, i32 noundef %.2.ph, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !6
+  %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_read.linebuff, i32 noundef %.2.ph, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not54 = icmp eq i32 %47, 0
   br i1 %.not54, label %18, label %48
 
@@ -591,7 +591,7 @@ hex_from_char.exit63:                             ; preds = %hex_from_char.exit,
   store i8 %141, ptr %146, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not56 = icmp ugt i64 %indvars.iv.next, %116
-  br i1 %.not56, label %._crit_edge, label %117, !llvm.loop !7
+  br i1 %.not56, label %._crit_edge, label %117, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %hex_from_char.exit63, %80
   store i32 0, ptr %22, align 4
@@ -664,7 +664,7 @@ hex_from_char.exit63:                             ; preds = %hex_from_char.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @log3gpp_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @log3gpp_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -732,7 +732,7 @@ read_new_line.exit:                               ; preds = %21
 
 46:                                               ; preds = %43, %thread-pre-split.thread.i, %thread-pre-split.i, %26
   %.1.ph = phi i32 [ %29, %26 ], [ 0, %thread-pre-split.i ], [ %.051, %thread-pre-split.thread.i ], [ %44, %43 ]
-  %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_seek_read.linebuff, i32 noundef %.1.ph, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %12), !range !6
+  %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_seek_read.linebuff, i32 noundef %.1.ph, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %12)
   %.not39 = icmp eq i32 %47, 0
   br i1 %.not39, label %146, label %48
 
@@ -884,7 +884,7 @@ hex_from_char.exit48:                             ; preds = %hex_from_char.exit,
   store i8 %131, ptr %136, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not41 = icmp sgt i64 %indvars.iv.next, %74
-  br i1 %.not41, label %._crit_edge, label %107, !llvm.loop !8
+  br i1 %.not41, label %._crit_edge, label %107, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %hex_from_char.exit48, %.preheader
   store i32 0, ptr %16, align 4
@@ -946,7 +946,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @parse_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #4 {
   %9 = alloca [17 x i8], align 16
   %10 = alloca [5 x i8], align 1
   %11 = load ptr, ptr @g_ascii_table, align 8
@@ -965,7 +965,7 @@ define internal fastcc noundef i32 @parse_line(ptr nocapture noundef readonly %0
   %20 = icmp slt i64 %indvars.iv, %12
   %21 = and i1 %20, %.not
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %21, label %13, label %22, !llvm.loop !9
+  br i1 %21, label %13, label %22, !llvm.loop !8
 
 22:                                               ; preds = %13
   br i1 %20, label %.preheader179, label %.loopexit
@@ -1001,7 +1001,7 @@ define internal fastcc noundef i32 @parse_line(ptr nocapture noundef readonly %0
   %37 = trunc nuw i64 %indvars.iv.next267 to i32
   %38 = icmp slt i32 %37, %1
   %or.cond166 = and i1 %38, %or.cond
-  br i1 %or.cond166, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %or.cond166, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %31
   %39 = trunc nuw nsw i64 %indvars.iv.next265 to i32
@@ -1033,7 +1033,7 @@ define internal fastcc noundef i32 @parse_line(ptr nocapture noundef readonly %0
   %51 = add i32 %50, %45
   %52 = mul i32 %.0134210, 10
   %53 = icmp ugt i64 %indvars.iv268, 1
-  br i1 %53, label %.lr.ph212, label %.sink.split, !llvm.loop !11
+  br i1 %53, label %.lr.ph212, label %.sink.split, !llvm.loop !10
 
 .sink.split:                                      ; preds = %.lr.ph212, %.thread
   %.sink = phi i32 [ 0, %.thread ], [ %51, %.lr.ph212 ]
@@ -1078,7 +1078,7 @@ define internal fastcc noundef i32 @parse_line(ptr nocapture noundef readonly %0
   %or.cond3 = select i1 %69, i1 %70, i1 false
   %71 = icmp slt i64 %indvars.iv.next272, %12
   %or.cond168 = and i1 %71, %or.cond3
-  br i1 %or.cond168, label %.lr.ph219, label %.critedge5.loopexit, !llvm.loop !12
+  br i1 %or.cond168, label %.lr.ph219, label %.critedge5.loopexit, !llvm.loop !11
 
 .critedge5.loopexit:                              ; preds = %65
   %72 = trunc nsw i64 %indvars.iv271 to i32
@@ -1160,7 +1160,7 @@ switch.early.test:                                ; preds = %.lr.ph229
   %or.cond7 = select i1 %113, i1 %114, i1 false
   %115 = icmp slt i64 %indvars.iv.next278, %12
   %or.cond170 = and i1 %115, %or.cond7
-  br i1 %or.cond170, label %.lr.ph229, label %.critedge9.loopexit, !llvm.loop !13
+  br i1 %or.cond170, label %.lr.ph229, label %.critedge9.loopexit, !llvm.loop !12
 
 .critedge9.loopexit:                              ; preds = %109
   %116 = trunc nsw i64 %indvars.iv.next278 to i32
@@ -1201,7 +1201,7 @@ switch.early.test:                                ; preds = %.lr.ph229
   %.not151 = icmp eq i16 %130, 0
   %131 = icmp slt i64 %indvars.iv.next280, %12
   %132 = and i1 %131, %.not151
-  br i1 %132, label %.preheader, label %133, !llvm.loop !14
+  br i1 %132, label %.preheader, label %133, !llvm.loop !13
 
 133:                                              ; preds = %.preheader
   %134 = trunc nsw i64 %indvars.iv279 to i32
@@ -1250,7 +1250,7 @@ switch.early.test:                                ; preds = %.lr.ph229
   %149 = add i32 %.5235, 1
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %.not155 = icmp sgt i32 %149, %1
-  br i1 %.not155, label %.critedge11.loopexit, label %.lr.ph238, !llvm.loop !15
+  br i1 %.not155, label %.critedge11.loopexit, label %.lr.ph238, !llvm.loop !14
 
 .critedge11.loopexit:                             ; preds = %.lr.ph238, %147
   %.5.lcssa.ph = phi i32 [ %149, %147 ], [ %.5235, %.lr.ph238 ]
@@ -1351,7 +1351,7 @@ attributes #14 = { nounwind allocsize(0,1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -1360,4 +1360,3 @@ attributes #14 = { nounwind allocsize(0,1) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

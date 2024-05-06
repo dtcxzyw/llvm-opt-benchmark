@@ -486,7 +486,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.337 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @atm_is_oam_cell(i16 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @atm_is_oam_cell(i16 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = add i16 %0, -3
   %or.cond = icmp ult i16 %3, 2
   %4 = and i8 %1, 5
@@ -1701,7 +1701,7 @@ get_header_err.exit:                              ; preds = %44
   br label %95
 
 93:                                               ; preds = %70
-  %94 = trunc i32 %.071 to i8
+  %94 = trunc nuw i32 %.071 to i8
   br label %95
 
 95:                                               ; preds = %93, %71

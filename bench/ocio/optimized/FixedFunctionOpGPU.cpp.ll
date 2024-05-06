@@ -11054,21 +11054,21 @@ sw.bb87.invoke:                                   ; preds = %invoke.cont29, %sw.
           to label %sw.epilog unwind label %lpad
 
 sw.bb124:                                         ; preds = %invoke.cont29
-  %m_params.i67 = getelementptr inbounds i8, ptr %3, i64 176
-  %24 = load ptr, ptr %m_params.i67, align 8
+  %m_params.i68 = getelementptr inbounds i8, ptr %3, i64 176
+  %24 = load ptr, ptr %m_params.i68, align 8
   %25 = load double, ptr %24, align 8
   br label %sw.bb131.invoke
 
 sw.bb131:                                         ; preds = %invoke.cont29
-  %m_params.i68 = getelementptr inbounds i8, ptr %3, i64 176
-  %26 = load ptr, ptr %m_params.i68, align 8
+  %m_params.i70 = getelementptr inbounds i8, ptr %3, i64 176
+  %26 = load ptr, ptr %m_params.i70, align 8
   %27 = load double, ptr %26, align 8
   %div = fdiv double 1.000000e+00, %27
   br label %sw.bb131.invoke
 
 sw.bb131.invoke:                                  ; preds = %sw.bb124, %sw.bb131
-  %.sink83 = phi double [ %25, %sw.bb124 ], [ %div, %sw.bb131 ]
-  %conv129 = fptrunc double %.sink83 to float
+  %.sink86 = phi double [ %25, %sw.bb124 ], [ %div, %sw.bb131 ]
+  %conv129 = fptrunc double %.sink86 to float
   invoke void @_ZN19OpenColorIO_v2_4dev19Add_Surround_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %conv129)
           to label %sw.epilog unwind label %lpad
 
@@ -11156,10 +11156,10 @@ lpad165:                                          ; preds = %invoke.cont163
 
 ehcleanup:                                        ; preds = %lpad165, %lpad157, %lpad26, %lpad21, %lpad8, %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %31, %lpad165 ], [ %5, %lpad ], [ %30, %lpad157 ], [ %9, %lpad26 ], [ %8, %lpad21 ], [ %7, %lpad8 ], [ %6, %lpad3 ]
-  %m_ossLine.i69 = getelementptr inbounds i8, ptr %ss, i64 384
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i69) #4
-  %m_ossText.i70 = getelementptr inbounds i8, ptr %ss, i64 8
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i70) #4
+  %m_ossLine.i72 = getelementptr inbounds i8, ptr %ss, i64 384
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i72) #4
+  %m_ossText.i73 = getelementptr inbounds i8, ptr %ss, i64 8
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i73) #4
   resume { ptr, i32 } %.pn
 }
 

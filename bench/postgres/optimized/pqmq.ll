@@ -388,7 +388,7 @@ define internal noundef zeroext i1 @mq_is_send_pending() #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mq_putmessage(i8 noundef signext %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca [2 x %struct.shm_mq_iovec], align 16
   store i8 %0, ptr %4, align 1

@@ -57,7 +57,7 @@ _Py_XNewRef.exit:                                 ; preds = %entry, %if.then.i.i
 declare ptr @PyTuple_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pysqlite_row_setup_types(ptr noundef %module) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @pysqlite_row_setup_types(ptr noundef %module) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @row_spec, ptr noundef null) #3
   %cmp = icmp eq ptr %call, null

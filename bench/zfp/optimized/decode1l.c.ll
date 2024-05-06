@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @perm_1 = internal unnamed_addr constant [4 x i8] c"\00\01\02\03", align 256
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_block_int64_1(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_block_int64_1(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4 x i64], align 256
   %4 = alloca [4 x i64], align 256
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -633,9 +633,9 @@ decode_few_ints_prec_uint64.exit:                 ; preds = %.loopexit.i34, %74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_block_strided_int64_1(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_block_strided_int64_1(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i64], align 256
-  %5 = call i64 @zfp_decode_block_int64_1(ptr noundef %0, ptr noundef nonnull %4), !range !17
+  %5 = call i64 @zfp_decode_block_int64_1(ptr noundef %0, ptr noundef nonnull %4)
   br label %6
 
 6:                                                ; preds = %6, %3
@@ -655,9 +655,9 @@ scatter_int64_1.exit:                             ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_partial_block_strided_int64_1(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_partial_block_strided_int64_1(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i64], align 256
-  %6 = call i64 @zfp_decode_block_int64_1(ptr noundef %0, ptr noundef nonnull %5), !range !17
+  %6 = call i64 @zfp_decode_block_int64_1(ptr noundef %0, ptr noundef nonnull %5)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %scatter_partial_int64_1.exit, label %.lr.ph.i
 
@@ -721,4 +721,3 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !14 = !{!15}
 !15 = distinct !{!15, !13, !"decode_few_ints_prec_uint64: argument 1"}
 !16 = !{!12, !15}
-!17 = !{i64 0, i64 4294967296}

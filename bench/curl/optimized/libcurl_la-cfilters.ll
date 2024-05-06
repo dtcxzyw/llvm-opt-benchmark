@@ -345,7 +345,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_cf_create(ptr nocapture noundef writeonly %pcf, ptr noundef %cft, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writeonly %pcf, ptr noundef %cft, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 40) #11
@@ -1653,7 +1653,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_conn_get_max_concurrent(ptr noundef %data, ptr nocapture noundef readonly %conn, i32 noundef %sockindex) local_unnamed_addr #0 {
+define hidden range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concurrent(ptr noundef %data, ptr nocapture noundef readonly %conn, i32 noundef %sockindex) local_unnamed_addr #0 {
 entry:
   %n = alloca i32, align 4
   store i32 0, ptr %n, align 4
@@ -1733,7 +1733,7 @@ if.then9:                                         ; preds = %for.body
   br i1 %tobool.not, label %if.then25, label %if.end73
 
 if.then25:                                        ; preds = %if.then9
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %add = add nuw i32 %6, 1
   %cmp27 = icmp ult i32 %add, %0
   br i1 %cmp27, label %if.then29, label %if.end52
@@ -1829,14 +1829,14 @@ if.then9.i:                                       ; preds = %for.body.i
   %2 = load i8, ptr %arrayidx12.i, align 1
   %3 = xor i8 %or9, -1
   %conv14.i = and i8 %2, %3
-  %4 = trunc i32 %or to i8
+  %4 = trunc nuw nsw i32 %or to i8
   %conv21.i = or i8 %conv14.i, %4
   store i8 %conv21.i, ptr %arrayidx12.i, align 1
   %tobool.not.i = icmp eq i8 %conv21.i, 0
   br i1 %tobool.not.i, label %if.then25.i, label %Curl_pollset_change.exit
 
 if.then25.i:                                      ; preds = %if.then9.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw i64 %indvars.iv.i to i32
   %add.i = add nuw i32 %5, 1
   %cmp27.i = icmp ult i32 %add.i, %0
   br i1 %cmp27.i, label %if.then29.i, label %if.end52.i
@@ -1876,7 +1876,7 @@ if.then62.i:                                      ; preds = %for.end.i
   %idxprom64.i = zext nneg i32 %0 to i64
   %arrayidx65.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i
   store i32 %sock, ptr %arrayidx65.i, align 4
-  %conv66.i = trunc i32 %or to i8
+  %conv66.i = trunc nuw nsw i32 %or to i8
   %actions67.i = getelementptr inbounds i8, ptr %ps, i64 24
   %arrayidx69.i = getelementptr inbounds [5 x i8], ptr %actions67.i, i64 0, i64 %idxprom64.i
   store i8 %conv66.i, ptr %arrayidx69.i, align 1
@@ -1907,7 +1907,7 @@ for.cond.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %0 = trunc i64 %indvars.iv.i to i32
+  %0 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl.i = shl nuw nsw i32 1, %0
   %shl1.i = shl nuw nsw i32 65536, %0
   %or.i = shl nuw nsw i32 65537, %0

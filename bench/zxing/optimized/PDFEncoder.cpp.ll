@@ -654,7 +654,7 @@ _ZNSt6vectorIbSaIbEE2atEm.exit.i.i:               ; preds = %.lr.ph.split.i.i
           to label %_ZN5ZXing6Pdf417L10EncodeCharEiiRNS0_10BarcodeRowE.exit.i unwind label %.loopexit.i
 
 _ZN5ZXing6Pdf417L10EncodeCharEiiRNS0_10BarcodeRowE.exit.i: ; preds = %._crit_edge.loopexit.i.i
-  %276 = mul nsw i32 %210, 30
+  %276 = mul nuw nsw i32 %210, 30
   switch i32 %209, label %295 [
     i32 0, label %296
     i32 1, label %294
@@ -1384,7 +1384,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 declare void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS0_10CompactionENS_12CharacterSetE(ptr dead_on_unwind writable sret(%"class.std::vector.0") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN5ZXing6Pdf4177Encoder41GetRecommendedMinimumErrorCorrectionLevelEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define noundef range(i32 2, 7) i32 @_ZN5ZXing6Pdf4177Encoder41GetRecommendedMinimumErrorCorrectionLevelEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp slt i32 %0, 41
   br i1 %2, label %9, label %3
 

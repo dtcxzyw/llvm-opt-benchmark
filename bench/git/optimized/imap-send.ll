@@ -2902,7 +2902,7 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true11
   br i1 %cmp4.i, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %hostname, i32 noundef 46) #21
+  %call.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %hostname, i32 noundef 46) #21
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %for.inc, label %if.end.i
 
@@ -2976,7 +2976,7 @@ land.lhs.true41:                                  ; preds = %if.end35
   br i1 %or.cond, label %if.then.i26, label %if.end7.i13
 
 if.then.i26:                                      ; preds = %land.lhs.true41
-  %call.i27 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %hostname, i32 noundef 46) #21
+  %call.i27 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %hostname, i32 noundef 46) #21
   %tobool.not.i28 = icmp eq ptr %call.i27, null
   br i1 %tobool.not.i28, label %if.end46, label %if.end.i29
 
@@ -3182,7 +3182,7 @@ entry:
   %call = tail call ptr @xmalloc(i64 noundef 56) #18
   %cmd2 = getelementptr inbounds i8, ptr %call, i64 40
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %tmp.i)
-  %call.i = call i32 @vsnprintf(ptr noundef nonnull %tmp.i, i64 noundef 8192, ptr noundef %fmt, ptr noundef %ap) #18
+  %call.i = call i32 @vsnprintf(ptr noundef nonnull %tmp.i, i64 noundef 8192, ptr noundef readonly %fmt, ptr noundef %ap) #18
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 

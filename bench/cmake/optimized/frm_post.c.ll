@@ -129,7 +129,7 @@ declare i32 @_nc_Set_Form_Page(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare i32 @_nc_Refresh_Current_Field(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpost_form(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -7, 1) i32 @unpost_form(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %38, label %2
 

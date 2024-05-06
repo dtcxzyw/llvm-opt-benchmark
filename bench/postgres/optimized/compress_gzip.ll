@@ -535,7 +535,7 @@ define internal ptr @Gzip_gets(ptr noundef %0, i32 noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Gzip_getc(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, -1) i32 @Gzip_getc(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @__errno_location() #12

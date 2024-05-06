@@ -845,7 +845,7 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 160
   %5 = tail call ptr @drm_get_format_info(ptr noundef %0, ptr noundef %1) #7
   %6 = icmp eq ptr %5, null

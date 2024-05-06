@@ -106,7 +106,7 @@ $_ZTIN3irr17IReferenceCountedE = comdat any
 @.str.20 = private unnamed_addr constant [21 x i8] c"shadow_update_frames\00", align 1
 @.str.21 = private unnamed_addr constant [15 x i8] c"enable_shaders\00", align 1
 @.str.22 = private unnamed_addr constant [23 x i8] c"enable_dynamic_shadows\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.23 = private unnamed_addr constant [51 x i8] c"Shadows: GLSL Shader not supported on this system.\00", align 1
 @.str.24 = private unnamed_addr constant [16 x i8] c"shadow_dynamic_\00", align 1
 @.str.25 = private unnamed_addr constant [18 x i8] c"shadow_clientmap_\00", align 1
@@ -1004,7 +1004,7 @@ declare noundef i32 @_ZNK8Settings6getS32ERKNSt7__cxx1112basic_stringIcSt11char_
 declare noundef signext i16 @_ZNK8Settings6getS16ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN14ShadowRenderer19addDirectionalLightEv(ptr noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 -21350398233460130, 21350398233460129) i64 @_ZN14ShadowRenderer19addDirectionalLightEv(ptr noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::vector3d", align 8
   %ref.tmp2 = alloca %"class.irr::video::SColor", align 4
@@ -4674,7 +4674,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK14ShadowRenderer24getDirectionalLightCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #14 align 2 {
+define dso_local noundef range(i64 -21350398233460129, 21350398233460130) i64 @_ZNK14ShadowRenderer24getDirectionalLightCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #14 align 2 {
 entry:
   %m_light_list = getelementptr inbounds i8, ptr %this, i64 64
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -5081,7 +5081,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %13 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %13 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %13, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -5536,7 +5536,7 @@ if.then.i.i.i455:                                 ; preds = %while.end.i.i.i449
   br label %_Z4itosB5cxx11i.exit489
 
 if.else.i.i.i452:                                 ; preds = %while.end.i.i.i449
-  %75 = trunc i32 %__val.addr.0.lcssa.i.i.i450 to i8
+  %75 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i450 to i8
   %conv.i.i.i453 = or disjoint i8 %75, 48
   br label %_Z4itosB5cxx11i.exit489
 
@@ -6005,7 +6005,7 @@ if.then.i.i.i646:                                 ; preds = %while.end.i.i.i640
   br label %_Z4itosB5cxx11i.exit680
 
 if.else.i.i.i643:                                 ; preds = %while.end.i.i.i640
-  %139 = trunc i32 %__val.addr.0.lcssa.i.i.i641 to i8
+  %139 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i641 to i8
   %conv.i.i.i644 = or disjoint i8 %139, 48
   br label %_Z4itosB5cxx11i.exit680
 
@@ -6465,7 +6465,7 @@ if.then.i.i.i837:                                 ; preds = %while.end.i.i.i831
   br label %_Z4itosB5cxx11i.exit871
 
 if.else.i.i.i834:                                 ; preds = %while.end.i.i.i831
-  %201 = trunc i32 %__val.addr.0.lcssa.i.i.i832 to i8
+  %201 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i832 to i8
   %conv.i.i.i835 = or disjoint i8 %201, 48
   br label %_Z4itosB5cxx11i.exit871
 
@@ -6931,7 +6931,7 @@ if.then.i.i.i1028:                                ; preds = %while.end.i.i.i1022
   br label %_Z4itosB5cxx11i.exit1062
 
 if.else.i.i.i1025:                                ; preds = %while.end.i.i.i1022
-  %265 = trunc i32 %__val.addr.0.lcssa.i.i.i1023 to i8
+  %265 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i1023 to i8
   %conv.i.i.i1026 = or disjoint i8 %265, 48
   br label %_Z4itosB5cxx11i.exit1062
 
@@ -10045,20 +10045,20 @@ _ZNSt12_Vector_baseI16DirectionalLightSaIS0_EE11_M_allocateEm.exit: ; preds = %c
   %agg.tmp8.sroa.0.0.copyload.i.i = load i32, ptr %__args3, align 4, !tbaa !226
   %shr.i.i.i.i = lshr i32 %agg.tmp8.sroa.0.0.copyload.i.i, 16
   %and.i.i.i.i = and i32 %shr.i.i.i.i, 255
-  %conv.i.i.i = uitofp i32 %and.i.i.i.i to float
+  %conv.i.i.i = uitofp nneg i32 %and.i.i.i.i to float
   %mul.i.i.i59 = fmul nsz float %conv.i.i.i, 0x3F70101020000000
   %agg.tmp.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i.i59, i64 0
   %shr.i11.i.i.i = lshr i32 %agg.tmp8.sroa.0.0.copyload.i.i, 8
   %and.i12.i.i.i = and i32 %shr.i11.i.i.i, 255
-  %conv3.i.i.i = uitofp i32 %and.i12.i.i.i to float
+  %conv3.i.i.i = uitofp nneg i32 %and.i12.i.i.i to float
   %mul4.i.i.i = fmul nsz float %conv3.i.i.i, 0x3F70101020000000
   %agg.tmp.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %agg.tmp.sroa.0.0.vec.insert.i.i, float %mul4.i.i.i, i64 1
   %and.i13.i.i.i = and i32 %agg.tmp8.sroa.0.0.copyload.i.i, 255
-  %conv6.i.i.i = uitofp i32 %and.i13.i.i.i to float
+  %conv6.i.i.i = uitofp nneg i32 %and.i13.i.i.i to float
   %mul7.i.i.i = fmul nsz float %conv6.i.i.i, 0x3F70101020000000
   %agg.tmp.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %mul7.i.i.i, i64 0
   %shr.i14.i.i.i = lshr i32 %agg.tmp8.sroa.0.0.copyload.i.i, 24
-  %conv9.i.i.i = uitofp i32 %shr.i14.i.i.i to float
+  %conv9.i.i.i = uitofp nneg i32 %shr.i14.i.i.i to float
   %mul10.i.i.i = fmul nsz float %conv9.i.i.i, 0x3F70101020000000
   %agg.tmp.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %agg.tmp.sroa.3.8.vec.insert.i.i, float %mul10.i.i.i, i64 1
   %4 = load float, ptr %__args5, align 4, !tbaa !32

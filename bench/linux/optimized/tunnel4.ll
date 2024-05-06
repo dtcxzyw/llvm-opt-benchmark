@@ -40,7 +40,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_tunnel4_init775, ptr @__UNIQUE_ID___addressable_xfrm4_tunnel_deregister757, ptr @__UNIQUE_ID___addressable_xfrm4_tunnel_register756, ptr @__UNIQUE_ID_description776, ptr @__UNIQUE_ID_file777, ptr @__UNIQUE_ID_license778, ptr @__exitcall_tunnel4_fini, ptr @tunnel4_fini], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm4_tunnel_register(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @xfrm4_tunnel_register(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   tail call void @mutex_lock(ptr noundef nonnull @tunnel4_mutex) #4
@@ -103,7 +103,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm4_tunnel_deregister(ptr noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @xfrm4_tunnel_deregister(ptr noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @tunnel4_mutex) #4
   %3 = icmp eq i16 %1, 2
   %4 = icmp eq i16 %1, 10
@@ -179,7 +179,7 @@ declare dso_local i32 @inet_del_protocol(ptr noundef, i8 noundef zeroext) local_
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @tunnel4_init() #2 section ".init.text" align 16 {
+define internal noundef range(i32 -11, 1) i32 @tunnel4_init() #2 section ".init.text" align 16 {
   %1 = tail call i32 @inet_add_protocol(ptr noundef nonnull @tunnel4_protocol, i8 noundef zeroext 4) #4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %8
@@ -254,7 +254,7 @@ define internal noundef i32 @tunnel64_rcv(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tunnel64_err(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @tunnel64_err(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load volatile ptr, ptr @tunnel64_handlers, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -339,7 +339,7 @@ define internal noundef i32 @tunnel4_rcv(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tunnel4_err(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @tunnel4_err(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load volatile ptr, ptr @tunnel4_handlers, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader

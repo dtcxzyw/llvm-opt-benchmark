@@ -281,7 +281,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @legacy_params(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #3 {
   switch i32 %2, label %310 [
     i32 2, label %7
     i32 3, label %50
@@ -2698,7 +2698,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @distort_transform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @distort_transform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [6 x float], align 64
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 16, !tbaa !79
@@ -2995,7 +2995,7 @@ define noundef i32 @distort_transform(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @distort_backtransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @distort_backtransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [6 x float], align 64
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 16, !tbaa !79
@@ -3471,7 +3471,7 @@ define void @distort_mask(ptr nocapture noundef readnone %0, ptr nocapture nound
 
 111:                                              ; preds = %99
   %112 = zext nneg i32 %109 to i64
-  %113 = mul nsw i64 %101, %112
+  %113 = mul nuw nsw i64 %101, %112
   %114 = getelementptr inbounds float, ptr %3, i64 %113
   br label %120
 
@@ -9746,7 +9746,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = load i32, ptr @_ZL13introspection, align 8, !tbaa !423
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

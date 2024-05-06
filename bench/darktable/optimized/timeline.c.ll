@@ -3081,7 +3081,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_timeline_scroll_callback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.dt_datetime_t, align 4
   %6 = alloca i32, align 4
@@ -5074,7 +5074,7 @@ declare void @dt_conf_set_string(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i32 @dt_gui_get_scroll_unit_delta(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_block_autoscroll(ptr nocapture noundef readonly %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr nocapture noundef readonly %0) #1 {
   %2 = alloca %struct.dt_datetime_t, align 4
   %3 = alloca %struct.dt_datetime_t, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 280

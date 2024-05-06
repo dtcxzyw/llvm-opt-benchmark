@@ -92,7 +92,7 @@ while.body:                                       ; preds = %while.body.preheade
   %i.118 = phi i64 [ %div, %while.body ], [ %i.118.ph, %while.body.preheader ]
   %idx.017 = phi i64 [ %dec, %while.body ], [ 19, %while.body.preheader ]
   %rem = srem i64 %i.118, 10
-  %1 = trunc i64 %rem to i8
+  %1 = trunc nsw i64 %rem to i8
   %conv = add nsw i8 %1, 48
   %arrayidx = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.017
   store i8 %conv, ptr %arrayidx, align 1
@@ -152,7 +152,7 @@ while.body:                                       ; preds = %entry, %while.body
   %i.011 = phi i64 [ %div, %while.body ], [ %0, %entry ]
   %idx.010 = phi i64 [ %dec, %while.body ], [ 19, %entry ]
   %rem = urem i64 %i.011, 10
-  %1 = trunc i64 %rem to i8
+  %1 = trunc nuw nsw i64 %rem to i8
   %conv = or disjoint i8 %1, 48
   %arrayidx = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.010
   store i8 %conv, ptr %arrayidx, align 1
@@ -205,7 +205,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %i.011.i = phi i64 [ %div.i, %while.body.i ], [ %conv, %while.body.i.preheader ]
   %idx.010.i = phi i64 [ %dec.i, %while.body.i ], [ 19, %while.body.i.preheader ]
   %rem.i = urem i64 %i.011.i, 10
-  %1 = trunc i64 %rem.i to i8
+  %1 = trunc nuw nsw i64 %rem.i to i8
   %conv.i = or disjoint i8 %1, 48
   %arrayidx.i = getelementptr inbounds [20 x i8], ptr %buf.i, i64 0, i64 %idx.010.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
@@ -374,7 +374,7 @@ while.body:                                       ; preds = %_ZN4cvc58internal10
   %0 = trunc i64 %i.addr.019 to i32
   %conv = and i32 %0, 15
   %cmp4 = icmp ult i32 %conv, 10
-  %1 = trunc i32 %conv to i8
+  %1 = trunc nuw nsw i32 %conv to i8
   %conv7 = or disjoint i8 %1, 48
   %conv10 = add nuw nsw i8 %1, 87
   %conv10.sink = select i1 %cmp4, i8 %conv7, i8 %conv10
@@ -426,7 +426,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %i.011.i = phi i64 [ %div.i, %while.body.i ], [ %0, %entry ]
   %idx.010.i = phi i64 [ %dec.i, %while.body.i ], [ 19, %entry ]
   %rem.i = urem i64 %i.011.i, 10
-  %1 = trunc i64 %rem.i to i8
+  %1 = trunc nuw nsw i64 %rem.i to i8
   %conv.i = or disjoint i8 %1, 48
   %arrayidx.i = getelementptr inbounds [20 x i8], ptr %buf.i, i64 0, i64 %idx.010.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
@@ -472,7 +472,7 @@ while.body.i11:                                   ; preds = %_ZN4cvc58internal10
   %i.addr.016.i = phi i64 [ %div.i14, %while.body.i11 ], [ %3, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
   %idx.0.i = add nsw i64 %idx.0.in17.i, -1
   %rem.i12 = urem i64 %i.addr.016.i, 10
-  %4 = trunc i64 %rem.i12 to i8
+  %4 = trunc nuw nsw i64 %rem.i12 to i8
   %conv.i13 = or disjoint i8 %4, 48
   %arrayidx4.i = getelementptr inbounds [20 x i8], ptr %buf.i6, i64 0, i64 %idx.0.i
   store i8 %conv.i13, ptr %arrayidx4.i, align 1
@@ -515,7 +515,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %i.addr.016 = phi i64 [ %div, %while.body ], [ %i, %while.cond.preheader ]
   %idx.0 = add nsw i64 %idx.0.in17, -1
   %rem = urem i64 %i.addr.016, 10
-  %1 = trunc i64 %rem to i8
+  %1 = trunc nuw nsw i64 %rem to i8
   %conv = or disjoint i8 %1, 48
   %arrayidx4 = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.0
   store i8 %conv, ptr %arrayidx4, align 1

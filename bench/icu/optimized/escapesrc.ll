@@ -95,7 +95,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_Z7cleanupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %outfile) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 2) i32 @_Z7cleanupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %outfile) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %outfile) #13
   %tobool.not = icmp eq ptr %call, null
@@ -233,7 +233,7 @@ if.then40:                                        ; preds = %if.else, %if.else38
 
 if.else46:                                        ; preds = %if.else38
   %shr47 = lshr i32 %and, 18
-  %7 = trunc i32 %shr47 to i8
+  %7 = trunc nuw nsw i32 %shr47 to i8
   %conv49 = or disjoint i8 %7, -16
   store i8 %conv49, ptr %bytes, align 1
   %shr52 = lshr i32 %2, 12
@@ -774,7 +774,7 @@ declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_ad
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7convertRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(32) %infile, ptr noundef nonnull align 8 dereferenceable(32) %outfile) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z7convertRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(32) %infile, ptr noundef nonnull align 8 dereferenceable(32) %outfile) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %inf = alloca %"class.std::basic_ifstream", align 8
   %outf = alloca %"class.std::basic_ofstream", align 8
@@ -1040,7 +1040,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %infile = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1130,7 +1130,7 @@ if.end.i9:                                        ; preds = %.noexc16
 invoke.cont5:                                     ; preds = %if.end.i9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #13
   %call8 = invoke noundef i32 @_Z7convertRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(32) %infile, ptr noundef nonnull align 8 dereferenceable(32) %outfile)
-          to label %invoke.cont7 unwind label %lpad6, !range !14
+          to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %outfile) #13
@@ -1350,4 +1350,3 @@ attributes #18 = { noreturn nounwind }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 0, i32 2}

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_ec_GF2m_simple_oct2point = private unnamed_addr constant [30 x i8] c"ossl_ec_GF2m_simple_oct2point\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ec_GF2m_simple_set_compressed_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x_, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_GF2m_simple_set_compressed_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x_, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -181,7 +181,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_ec_GF2m_simple_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i64 -536870909, 536870912) i64 @ossl_ec_GF2m_simple_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp1.not = icmp eq i32 %form, 4
   switch i32 %form, label %if.then [
@@ -267,7 +267,7 @@ if.end39:                                         ; preds = %if.end32
   br i1 %tobool41.not, label %if.then118, label %if.end43
 
 if.end43:                                         ; preds = %if.end39
-  %conv44 = trunc i32 %form to i8
+  %conv44 = trunc nuw i32 %form to i8
   store i8 %conv44, ptr %buf, align 1
   br i1 %cmp1.not, label %if.end61, label %land.lhs.true48
 

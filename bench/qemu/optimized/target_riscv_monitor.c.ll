@@ -77,7 +77,7 @@ if.end19:                                         ; preds = %if.else, %if.then8
   %3 = trunc i64 %2 to i32
   %4 = lshr i32 %3, 31
   %div1010.i = lshr i64 %2, 60
-  %conv11.i = trunc i64 %div1010.i to i32
+  %conv11.i = trunc nuw nsw i64 %div1010.i to i32
   %vm.0.i = select i1 %cmp, i32 %4, i32 %conv11.i
   %base.0.i = and i64 %and.i, %base.0.v.i
   %switch.tableidx = add nsw i32 %vm.0.i, -1
@@ -89,7 +89,7 @@ do.body.i:                                        ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %if.end19
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 897, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %do.body.i

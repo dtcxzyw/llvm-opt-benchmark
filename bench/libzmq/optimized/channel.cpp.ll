@@ -217,7 +217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq9channel_t5xsendEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq9channel_t5xsendEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %0 = and i8 %call, 1
@@ -282,7 +282,7 @@ declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenc
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq9channel_t5xrecvEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq9channel_t5xrecvEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp.not = icmp eq i32 %call, 0

@@ -58,7 +58,7 @@ define void @dsptri_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 29:                                               ; preds = %27
   store i32 %16, ptr %5, align 4, !tbaa !3
-  %30 = mul nsw i32 %28, %16
+  %30 = mul nuw nsw i32 %28, %16
   %31 = lshr i32 %30, 1
   %32 = zext nneg i32 %16 to i64
   br label %33

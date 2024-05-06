@@ -320,7 +320,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_bittorrent_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @test_bittorrent_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %6 = icmp ugt i32 %5, 19
   br i1 %6, label %7, label %18
@@ -377,7 +377,7 @@ define internal i32 @get_bittorrent_pdu_length(ptr nocapture readnone %0, ptr no
 17:                                               ; preds = %14
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %15) #4
   %19 = zext i8 %18 to i16
-  %20 = tail call fastcc i32 @test_type_length(i16 noundef zeroext %19, i32 noundef %12), !range !4
+  %20 = tail call fastcc i32 @test_type_length(i16 noundef zeroext %19, i32 noundef %12)
   %.not19 = icmp eq i32 %20, 0
   br i1 %.not19, label %23, label %21
 
@@ -446,7 +446,7 @@ define internal i32 @dissect_bittorrent_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not40.i = icmp eq ptr %37, null
-  br i1 %.not40.i, label %dissect_bittorrent_welcome.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not40.i, label %dissect_bittorrent_welcome.exit, label %.lr.ph.i, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %18, %32
   %38 = phi ptr [ %35, %32 ], [ @peer_id, %18 ]
@@ -546,7 +546,7 @@ define internal i32 @dissect_bittorrent_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   %95 = getelementptr [23 x %struct.amp_message], ptr @amp_messages, i64 0, i64 %indvars.iv.next.i
   %96 = load ptr, ptr %95, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 22
-  br i1 %exitcond.i, label %.loopexit.i, label %79, !llvm.loop !7
+  br i1 %exitcond.i, label %.loopexit.i, label %79, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %94, %90, %87, %71, %63
   %.0216.i = phi i16 [ %93, %90 ], [ %66, %87 ], [ 0, %71 ], [ %66, %63 ], [ %66, %94 ]
@@ -558,7 +558,7 @@ define internal i32 @dissect_bittorrent_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %.loopexit.i
-  %101 = tail call fastcc i32 @test_type_length(i16 noundef zeroext %.0216.i, i32 noundef %64), !range !4
+  %101 = tail call fastcc i32 @test_type_length(i16 noundef zeroext %.0216.i, i32 noundef %64)
   %.not225.i = icmp eq i32 %101, 0
   br i1 %.not225.i, label %102, label %106
 
@@ -759,7 +759,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_offset_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_type_length(i16 noundef zeroext %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_type_length(i16 noundef zeroext %0, i32 noundef %1) unnamed_addr #0 {
   switch i16 %0, label %11 [
     i16 1, label %3
     i16 2, label %3
@@ -885,7 +885,6 @@ attributes #5 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

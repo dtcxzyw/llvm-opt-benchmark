@@ -250,8 +250,8 @@ sw.bb22.i:                                        ; preds = %sw.bb7
   %idxprom24.i = zext nneg i32 %conv to i64
   %next_dst26.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan23.i, i64 0, i64 %idxprom24.i, i32 3
   %15 = load i64, ptr %next_dst26.i, align 8
-  %shr.i32.i = lshr i64 %15, 32
-  %conv28.i = trunc nuw i64 %shr.i32.i to i32
+  %shr.i34.i = lshr i64 %15, 32
+  %conv28.i = trunc nuw i64 %shr.i34.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb29.i:                                        ; preds = %sw.bb7
@@ -267,8 +267,8 @@ sw.bb35.i:                                        ; preds = %sw.bb7
   %idxprom37.i = zext nneg i32 %conv to i64
   %next_src39.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan36.i, i64 0, i64 %idxprom37.i, i32 4
   %17 = load i64, ptr %next_src39.i, align 8
-  %shr.i34.i = lshr i64 %17, 32
-  %conv41.i = trunc nuw i64 %shr.i34.i to i32
+  %shr.i38.i = lshr i64 %17, 32
+  %conv41.i = trunc nuw i64 %shr.i38.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb42.i:                                        ; preds = %sw.bb7
@@ -291,8 +291,8 @@ sw.bb52.i:                                        ; preds = %sw.bb7
   %idxprom54.i = zext nneg i32 %conv to i64
   %exec_bytes56.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan53.i, i64 0, i64 %idxprom54.i, i32 6
   %20 = load i64, ptr %exec_bytes56.i, align 8
-  %shr.i36.i = lshr i64 %20, 32
-  %conv58.i = trunc nuw i64 %shr.i36.i to i32
+  %shr.i42.i = lshr i64 %20, 32
+  %conv58.i = trunc nuw i64 %shr.i42.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb59.i:                                        ; preds = %sw.bb7
@@ -308,8 +308,8 @@ sw.bb65.i:                                        ; preds = %sw.bb7
   %idxprom67.i = zext nneg i32 %conv to i64
   %exec_dst69.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan66.i, i64 0, i64 %idxprom67.i, i32 7
   %22 = load i64, ptr %exec_dst69.i, align 8
-  %shr.i38.i = lshr i64 %22, 32
-  %conv71.i = trunc nuw i64 %shr.i38.i to i32
+  %shr.i46.i = lshr i64 %22, 32
+  %conv71.i = trunc nuw i64 %shr.i46.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb72.i:                                        ; preds = %sw.bb7
@@ -325,14 +325,14 @@ sw.bb78.i:                                        ; preds = %sw.bb7
   %idxprom80.i = zext nneg i32 %conv to i64
   %exec_src82.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan79.i, i64 0, i64 %idxprom80.i, i32 8
   %24 = load i64, ptr %exec_src82.i, align 8
-  %shr.i40.i = lshr i64 %24, 32
-  %conv84.i = trunc nuw i64 %shr.i40.i to i32
+  %shr.i50.i = lshr i64 %24, 32
+  %conv84.i = trunc nuw i64 %shr.i50.i to i32
   br label %sifive_pdma_readl.exit
 
 do.body.i29:                                      ; preds = %sw.bb7
   %25 = load i32, ptr @qemu_loglevel, align 4
-  %and.i41.i = and i32 %25, 2048
-  %cmp.i.not.i30 = icmp eq i32 %and.i41.i, 0
+  %and.i52.i = and i32 %25, 2048
+  %cmp.i.not.i30 = icmp eq i32 %and.i52.i, 0
   br i1 %cmp.i.not.i30, label %sifive_pdma_readl.exit, label %if.then.i31
 
 if.then.i31:                                      ; preds = %do.body.i29
@@ -484,8 +484,8 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %or.cond62.i, label %if.then49.i, label %if.end57.i
 
 if.then49.i:                                      ; preds = %lor.lhs.false.i, %if.end.i, %if.end.thread.i
-  %value.addr.085.i = phi i32 [ %conv7, %if.end.thread.i ], [ %value.addr.0.i, %lor.lhs.false.i ], [ %value.addr.0.i, %if.end.i ]
-  %7 = and i32 %value.addr.085.i, -3
+  %value.addr.087.i = phi i32 [ %conv7, %if.end.thread.i ], [ %value.addr.0.i, %lor.lhs.false.i ], [ %value.addr.0.i, %if.end.i ]
+  %7 = and i32 %value.addr.087.i, -3
   store i32 %7, ptr %arrayidx.i, align 8
   br label %sw.epilog
 
@@ -538,8 +538,8 @@ sw.bb89.i:                                        ; preds = %sw.bb6
   %11 = load i64, ptr %next_dst93.i, align 8
   %conv94.i = and i64 %value, 4294967295
   %and.i66.i = and i64 %11, -4294967296
-  %or.i68.i = or disjoint i64 %and.i66.i, %conv94.i
-  store i64 %or.i68.i, ptr %next_dst93.i, align 8
+  %or.i69.i = or disjoint i64 %and.i66.i, %conv94.i
+  store i64 %or.i69.i, ptr %next_dst93.i, align 8
   br label %sw.epilog
 
 sw.bb100.i:                                       ; preds = %sw.bb6
@@ -547,10 +547,10 @@ sw.bb100.i:                                       ; preds = %sw.bb6
   %idxprom102.i = zext nneg i32 %conv to i64
   %next_dst104.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan101.i, i64 0, i64 %idxprom102.i, i32 3
   %12 = load i64, ptr %next_dst104.i, align 8
-  %and.i69.i = and i64 %12, 4294967295
+  %and.i70.i = and i64 %12, 4294967295
   %conv105.i = shl i64 %value, 32
-  %or.i72.i = or disjoint i64 %and.i69.i, %conv105.i
-  store i64 %or.i72.i, ptr %next_dst104.i, align 8
+  %or.i73.i = or disjoint i64 %and.i70.i, %conv105.i
+  store i64 %or.i73.i, ptr %next_dst104.i, align 8
   br label %sw.epilog
 
 sw.bb111.i:                                       ; preds = %sw.bb6
@@ -559,9 +559,9 @@ sw.bb111.i:                                       ; preds = %sw.bb6
   %next_src115.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan112.i, i64 0, i64 %idxprom113.i, i32 4
   %13 = load i64, ptr %next_src115.i, align 8
   %conv116.i = and i64 %value, 4294967295
-  %and.i73.i = and i64 %13, -4294967296
-  %or.i75.i = or disjoint i64 %and.i73.i, %conv116.i
-  store i64 %or.i75.i, ptr %next_src115.i, align 8
+  %and.i74.i = and i64 %13, -4294967296
+  %or.i77.i = or disjoint i64 %and.i74.i, %conv116.i
+  store i64 %or.i77.i, ptr %next_src115.i, align 8
   br label %sw.epilog
 
 sw.bb122.i:                                       ; preds = %sw.bb6
@@ -569,16 +569,16 @@ sw.bb122.i:                                       ; preds = %sw.bb6
   %idxprom124.i = zext nneg i32 %conv to i64
   %next_src126.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan123.i, i64 0, i64 %idxprom124.i, i32 4
   %14 = load i64, ptr %next_src126.i, align 8
-  %and.i76.i = and i64 %14, 4294967295
+  %and.i78.i = and i64 %14, 4294967295
   %conv127.i = shl i64 %value, 32
-  %or.i79.i = or disjoint i64 %and.i76.i, %conv127.i
-  store i64 %or.i79.i, ptr %next_src126.i, align 8
+  %or.i81.i = or disjoint i64 %and.i78.i, %conv127.i
+  store i64 %or.i81.i, ptr %next_src126.i, align 8
   br label %sw.epilog
 
 do.body.i16:                                      ; preds = %sw.bb6
   %15 = load i32, ptr @qemu_loglevel, align 4
-  %and.i80.i = and i32 %15, 2048
-  %cmp.i.not.i17 = icmp eq i32 %and.i80.i, 0
+  %and.i82.i = and i32 %15, 2048
+  %cmp.i.not.i17 = icmp eq i32 %and.i82.i, 0
   br i1 %cmp.i.not.i17, label %sw.epilog, label %if.then139.i
 
 if.then139.i:                                     ; preds = %do.body.i16

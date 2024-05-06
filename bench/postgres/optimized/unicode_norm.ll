@@ -200,7 +200,7 @@ get_canonical_class.exit93:                       ; preds = %.lr.ph127, %61
   br label %84
 
 77:                                               ; preds = %75
-  %.lhs.trunc.i = trunc i32 %76 to i16
+  %.lhs.trunc.i = trunc nuw i32 %76 to i16
   %78 = urem i16 %.lhs.trunc.i, 28
   %79 = icmp eq i16 %78, 0
   %80 = add i32 %59, -4519
@@ -297,7 +297,7 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
   br i1 %or.cond, label %5, label %7
 
 5:                                                ; preds = %2
-  %.lhs.trunc = trunc i32 %4 to i16
+  %.lhs.trunc = trunc nuw i32 %4 to i16
   %6 = urem i16 %.lhs.trunc, 28
   %.not24 = icmp eq i16 %6, 0
   %. = select i1 %.not24, i32 2, i32 3
@@ -376,7 +376,7 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %2, align 8
-  %.lhs.trunc = trunc i32 %6 to i16
+  %.lhs.trunc = trunc nuw i32 %6 to i16
   %9 = udiv i16 %.lhs.trunc, 588
   %10 = or disjoint i16 %9, 4352
   %11 = zext nneg i16 %10 to i32
@@ -487,7 +487,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @conv_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @conv_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4

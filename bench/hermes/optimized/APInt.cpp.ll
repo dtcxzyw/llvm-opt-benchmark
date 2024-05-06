@@ -218,7 +218,7 @@ if.else.i.i:                                      ; preds = %entry
   %2 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %conv12.i)
   %3 = getelementptr i8, ptr %call.i.i, i64 %conv12.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr align 8 %bigVal.coerce0, i64 %conv12.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr readonly align 8 %bigVal.coerce0, i64 %conv12.i, i1 false)
   %sub5.i.i = add nuw nsw i64 %div1.i.i.i, 4294967295
   %idxprom.i.i = and i64 %sub5.i.i, 4294967295
   %arrayidx.i.i = getelementptr inbounds i64, ptr %call.i.i, i64 %idxprom.i.i
@@ -265,7 +265,7 @@ if.else.i.i:                                      ; preds = %entry
   %2 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %conv12.i)
   %3 = getelementptr i8, ptr %call.i.i, i64 %conv12.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr align 8 %bigVal, i64 %conv12.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr readonly align 8 %bigVal, i64 %conv12.i, i1 false)
   %sub5.i.i = add nuw nsw i64 %div1.i.i.i, 4294967295
   %idxprom.i.i = and i64 %sub5.i.i, 4294967295
   %arrayidx.i.i = getelementptr inbounds i64, ptr %call.i.i, i64 %idxprom.i.i
@@ -1219,7 +1219,7 @@ if.end:                                           ; preds = %entry
   %scevgep.i.i = getelementptr i8, ptr %call.i, i64 8
   %6 = add nuw nsw i64 %3, 34359738360
   %7 = and i64 %6, 34359738360
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i, i8 0, i64 %7, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
@@ -1229,7 +1229,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %8 = load i64, ptr %arrayidx2.i, align 8
   %9 = trunc nuw i64 %indvars.iv.i to i32
   %sub.i = sub i32 %conv1.i.i, %9
-  %call.i12 = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i, ptr noundef %4, i64 noundef %8, i64 noundef 0, i32 noundef %conv1.i.i, i32 noundef %sub.i, i1 noundef zeroext true)
+  %call.i12 = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i, ptr noundef readonly %4, i64 noundef %8, i64 noundef 0, i32 noundef %conv1.i.i, i32 noundef %sub.i, i1 noundef zeroext true)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %div1.i.i
   br i1 %exitcond.not.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit, label %for.body.i, !llvm.loop !12
@@ -1346,7 +1346,7 @@ _ZN4llvh5APInt5tcSetEPmmj.exit.thread:            ; preds = %entry
   %0 = add i32 %parts, -1
   %1 = zext i32 %0 to i64
   %2 = shl nuw nsw i64 %1, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %for.body.preheader
 
 _ZN4llvh5APInt5tcSetEPmmj.exit:                   ; preds = %entry
@@ -1574,7 +1574,7 @@ if.end.i:                                         ; preds = %entry
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %6 = add nuw nsw i64 %3, 34359738360
   %7 = and i64 %6, 34359738360
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %7, i1 false), !noalias !16
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i, i8 0, i64 %7, i1 false), !noalias !16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -1584,7 +1584,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %8 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !16
   %9 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i = sub i32 %conv1.i.i.i, %9
-  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef %4, i64 noundef %8, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !16
+  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef readonly %4, i64 noundef %8, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -2678,7 +2678,7 @@ if.else.i.i.i:                                    ; preds = %if.then11
   %14 = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 %conv12.i.i)
   %15 = getelementptr i8, ptr %call.i.i.i51, i64 %conv12.i.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %14, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i51, ptr align 8 %add.ptr, i64 %conv12.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i51, ptr readonly align 8 %add.ptr, i64 %conv12.i.i, i1 false)
   %sub5.i.i.i52 = add nuw nsw i64 %div1.i.i.i.i, 4294967295
   %idxprom.i.i.i53 = and i64 %sub5.i.i.i52, 4294967295
   %arrayidx.i.i.i54 = getelementptr inbounds i64, ptr %call.i.i.i51, i64 %idxprom.i.i.i53
@@ -8797,7 +8797,7 @@ if.end.i:                                         ; preds = %if.then.i.i.i248, %
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %85 = add nuw nsw i64 %84, 34359738360
   %86 = and i64 %85, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %86, i1 false), !noalias !120
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i, i8 0, i64 %86, i1 false), !noalias !120
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -8807,7 +8807,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %87 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !120
   %88 = trunc nuw i64 %indvars.iv.i.i261 to i32
   %sub.i.i262 = sub i32 %conv1.i.i.i, %88
-  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef %78, i64 noundef %87, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i262, i1 noundef zeroext true), !noalias !120
+  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef readonly %78, i64 noundef %87, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i262, i1 noundef zeroext true), !noalias !120
   %indvars.iv.next.i.i263 = add nuw nsw i64 %indvars.iv.i.i261, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i263, %div1.i.i.i.i240
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -8912,7 +8912,7 @@ if.end.i362:                                      ; preds = %_ZN4llvhplENS_5APIn
   %scevgep.i.i.i369 = getelementptr i8, ptr %call.i.i367, i64 8
   %101 = add nuw nsw i64 %100, 34359738360
   %102 = and i64 %101, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i369, i8 0, i64 %102, i1 false), !noalias !129
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i369, i8 0, i64 %102, i1 false), !noalias !129
   br label %for.body.i.i370
 
 for.body.i.i370:                                  ; preds = %for.body.i.i370, %if.end.i362
@@ -8922,7 +8922,7 @@ for.body.i.i370:                                  ; preds = %for.body.i.i370, %i
   %103 = load i64, ptr %arrayidx2.i.i373, align 8, !noalias !129
   %104 = trunc nuw i64 %indvars.iv.i.i371 to i32
   %sub.i.i374 = sub i32 %conv1.i.i.i366, %104
-  %call.i12.i375 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i372, ptr noundef nonnull %call.i.i.i281, i64 noundef %103, i64 noundef 0, i32 noundef %conv1.i.i.i366, i32 noundef %sub.i.i374, i1 noundef zeroext true), !noalias !129
+  %call.i12.i375 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i372, ptr noundef nonnull readonly %call.i.i.i281, i64 noundef %103, i64 noundef 0, i32 noundef %conv1.i.i.i366, i32 noundef %sub.i.i374, i1 noundef zeroext true), !noalias !129
   %indvars.iv.next.i.i376 = add nuw nsw i64 %indvars.iv.i.i371, 1
   %exitcond.not.i.i377 = icmp eq i64 %indvars.iv.next.i.i376, %div1.i.i.i365
   br i1 %exitcond.not.i.i377, label %_ZNK4llvh5APIntmlERKS0_.exit397, label %for.body.i.i370, !llvm.loop !12
@@ -9793,7 +9793,7 @@ if.end.i:                                         ; preds = %for.body
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %27 = add nuw nsw i64 %24, 34359738360
   %28 = and i64 %27, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %28, i1 false), !noalias !141
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i, i8 0, i64 %28, i1 false), !noalias !141
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb.exit, %if.end.i
@@ -11257,7 +11257,7 @@ if.end.i:                                         ; preds = %_ZN4llvh5APIntD2Ev.
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %66 = add nuw nsw i64 %63, 34359738360
   %67 = and i64 %66, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %67, i1 false), !noalias !160
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i, i8 0, i64 %67, i1 false), !noalias !160
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -11267,7 +11267,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %68 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !160
   %69 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i186 = sub i32 %conv1.i.i.i, %69
-  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i185, ptr noundef %65, i64 noundef %68, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i186, i1 noundef zeroext true), !noalias !160
+  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i185, ptr noundef readonly %65, i64 noundef %68, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i186, i1 noundef zeroext true), !noalias !160
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i184
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -11406,7 +11406,7 @@ if.end.i277:                                      ; preds = %_ZN4llvh5APIntD2Ev.
   %scevgep.i.i.i284 = getelementptr i8, ptr %call.i.i282, i64 8
   %83 = add nuw nsw i64 %80, 34359738360
   %84 = and i64 %83, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i284, i8 0, i64 %84, i1 false), !noalias !166
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i284, i8 0, i64 %84, i1 false), !noalias !166
   br label %for.body.i.i285
 
 for.body.i.i285:                                  ; preds = %for.body.i.i285, %if.end.i277
@@ -11416,7 +11416,7 @@ for.body.i.i285:                                  ; preds = %for.body.i.i285, %i
   %85 = load i64, ptr %arrayidx2.i.i288, align 8, !noalias !166
   %86 = trunc nuw i64 %indvars.iv.i.i286 to i32
   %sub.i.i289 = sub i32 %conv1.i.i.i281, %86
-  %call.i12.i290 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i287, ptr noundef %82, i64 noundef %85, i64 noundef 0, i32 noundef %conv1.i.i.i281, i32 noundef %sub.i.i289, i1 noundef zeroext true), !noalias !166
+  %call.i12.i290 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i287, ptr noundef readonly %82, i64 noundef %85, i64 noundef 0, i32 noundef %conv1.i.i.i281, i32 noundef %sub.i.i289, i1 noundef zeroext true), !noalias !166
   %indvars.iv.next.i.i291 = add nuw nsw i64 %indvars.iv.i.i286, 1
   %exitcond.not.i.i292 = icmp eq i64 %indvars.iv.next.i.i291, %div1.i.i.i280
   br i1 %exitcond.not.i.i292, label %_ZNK4llvh5APIntmlERKS0_.exit312, label %for.body.i.i285, !llvm.loop !12
@@ -13273,7 +13273,7 @@ if.end.i:                                         ; preds = %_ZN4llvh5APIntD2Ev.
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %65 = add nuw nsw i64 %62, 34359738360
   %66 = and i64 %65, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %66, i1 false), !noalias !241
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i, i8 0, i64 %66, i1 false), !noalias !241
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -13283,7 +13283,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %67 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !241
   %68 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i167 = sub i32 %conv1.i.i.i, %68
-  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i166, ptr noundef %64, i64 noundef %67, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i167, i1 noundef zeroext true), !noalias !241
+  %call.i12.i = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i166, ptr noundef readonly %64, i64 noundef %67, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i167, i1 noundef zeroext true), !noalias !241
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i165
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -13430,7 +13430,7 @@ if.end.i258:                                      ; preds = %_ZN4llvh5APIntD2Ev.
   %scevgep.i.i.i265 = getelementptr i8, ptr %call.i.i263, i64 8
   %90 = add nuw nsw i64 %86, 34359738360
   %91 = and i64 %90, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i265, i8 0, i64 %91, i1 false), !noalias !247
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i265, i8 0, i64 %91, i1 false), !noalias !247
   br label %for.body.i.i266
 
 for.body.i.i266:                                  ; preds = %for.body.i.i266, %if.end.i258
@@ -13440,7 +13440,7 @@ for.body.i.i266:                                  ; preds = %for.body.i.i266, %i
   %92 = load i64, ptr %arrayidx2.i.i269, align 8, !noalias !247
   %93 = trunc nuw i64 %indvars.iv.i.i267 to i32
   %sub.i.i270 = sub i32 %conv1.i.i.i262, %93
-  %call.i12.i271 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i268, ptr noundef %88, i64 noundef %92, i64 noundef 0, i32 noundef %conv1.i.i.i262, i32 noundef %sub.i.i270, i1 noundef zeroext true), !noalias !247
+  %call.i12.i271 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i268, ptr noundef readonly %88, i64 noundef %92, i64 noundef 0, i32 noundef %conv1.i.i.i262, i32 noundef %sub.i.i270, i1 noundef zeroext true), !noalias !247
   %indvars.iv.next.i.i272 = add nuw nsw i64 %indvars.iv.i.i267, 1
   %exitcond.not.i.i273 = icmp eq i64 %indvars.iv.next.i.i272, %div1.i.i.i261
   br i1 %exitcond.not.i.i273, label %_ZNK4llvh5APIntmlERKS0_.exit293, label %for.body.i.i266, !llvm.loop !12
@@ -19681,7 +19681,7 @@ if.end.i:                                         ; preds = %entry
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %7 = add nuw nsw i64 %4, 34359738360
   %8 = and i64 %7, 34359738360
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %8, i1 false), !noalias !412
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i, i8 0, i64 %8, i1 false), !noalias !412
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -19691,7 +19691,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %9 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !412
   %10 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i = sub i32 %conv1.i.i.i, %10
-  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef %5, i64 noundef %9, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !412
+  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef readonly %5, i64 noundef %9, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !412
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -19936,7 +19936,7 @@ if.end.i:                                         ; preds = %entry
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %7 = add nuw nsw i64 %4, 34359738360
   %8 = and i64 %7, 34359738360
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %8, i1 false), !noalias !415
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i, i8 0, i64 %8, i1 false), !noalias !415
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -19946,7 +19946,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %9 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !415
   %10 = trunc nuw i64 %indvars.iv.i.i to i32
   %sub.i.i = sub i32 %conv1.i.i.i, %10
-  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef %5, i64 noundef %9, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !415
+  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i, ptr noundef readonly %5, i64 noundef %9, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i, i1 noundef zeroext true), !noalias !415
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %div1.i.i.i
   br i1 %exitcond.not.i.i, label %_ZNK4llvh5APIntmlERKS0_.exit, label %for.body.i.i, !llvm.loop !12
@@ -22038,7 +22038,7 @@ for.body.preheader.i:                             ; preds = %if.end
   %0 = add i32 %rhsParts.tr, -1
   %1 = zext i32 %0 to i64
   %2 = shl nuw nsw i64 %1, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %_ZN4llvh5APInt5tcSetEPmmj.exit
 
 _ZN4llvh5APInt5tcSetEPmmj.exit:                   ; preds = %if.end, %for.body.preheader.i
@@ -22221,7 +22221,7 @@ for.body.preheader.i45:                           ; preds = %_ZN4llvh5APInt8tcAs
   %12 = add i32 %parts, -1
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %14, i1 false)
   br label %_ZN4llvh5APInt5tcSetEPmmj.exit
 
 _ZN4llvh5APInt5tcSetEPmmj.exit:                   ; preds = %_ZN4llvh5APInt8tcAssignEPmPKmj.exit44.thread, %_ZN4llvh5APInt8tcAssignEPmPKmj.exit44, %for.body.preheader.i45
@@ -23237,7 +23237,7 @@ if.end.i:                                         ; preds = %_ZN4llvh5APIntD2Ev.
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %45 = add nuw nsw i64 %43, 34359738360
   %46 = and i64 %45, 34359738360
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %46, i1 false), !noalias !467
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i, i8 0, i64 %46, i1 false), !noalias !467
   %47 = ptrtoint ptr %call.i.i to i64
   br label %for.body.i.i
 
@@ -23248,7 +23248,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %48 = load i64, ptr %arrayidx2.i.i, align 8, !noalias !467
   %49 = trunc nuw i64 %indvars.iv.i.i85 to i32
   %sub.i.i87 = sub i32 %conv1.i.i.i, %49
-  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i86, ptr noundef %44, i64 noundef %48, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i87, i1 noundef zeroext true), !noalias !467
+  %call.i12.i = tail call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i86, ptr noundef readonly %44, i64 noundef %48, i64 noundef 0, i32 noundef %conv1.i.i.i, i32 noundef %sub.i.i87, i1 noundef zeroext true), !noalias !467
   %indvars.iv.next.i.i88 = add nuw nsw i64 %indvars.iv.i.i85, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i88, %div1.i.i.i84
   br i1 %exitcond.not.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i89, label %for.body.i.i, !llvm.loop !12
@@ -24206,7 +24206,7 @@ if.end.i406:                                      ; preds = %_ZN4llvh5APIntmLEm.
   %scevgep.i.i.i413 = getelementptr i8, ptr %call.i.i411, i64 8
   %160 = add nuw nsw i64 %156, 34359738360
   %161 = and i64 %160, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i413, i8 0, i64 %161, i1 false), !noalias !485
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i413, i8 0, i64 %161, i1 false), !noalias !485
   br label %for.body.i.i414
 
 for.body.i.i414:                                  ; preds = %for.body.i.i414, %if.end.i406
@@ -24216,7 +24216,7 @@ for.body.i.i414:                                  ; preds = %for.body.i.i414, %i
   %162 = load i64, ptr %arrayidx2.i.i417, align 8, !noalias !485
   %163 = trunc nuw i64 %indvars.iv.i.i415 to i32
   %sub.i.i418 = sub i32 %conv1.i.i.i410, %163
-  %call.i12.i419 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i416, ptr noundef %158, i64 noundef %162, i64 noundef 0, i32 noundef %conv1.i.i.i410, i32 noundef %sub.i.i418, i1 noundef zeroext true), !noalias !485
+  %call.i12.i419 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i416, ptr noundef readonly %158, i64 noundef %162, i64 noundef 0, i32 noundef %conv1.i.i.i410, i32 noundef %sub.i.i418, i1 noundef zeroext true), !noalias !485
   %indvars.iv.next.i.i420 = add nuw nsw i64 %indvars.iv.i.i415, 1
   %exitcond.not.i.i421 = icmp eq i64 %indvars.iv.next.i.i420, %div1.i.i.i409
   br i1 %exitcond.not.i.i421, label %_ZNK4llvh5APIntmlERKS0_.exit441, label %for.body.i.i414, !llvm.loop !12
@@ -24344,7 +24344,7 @@ if.end.i507:                                      ; preds = %_ZN4llvh5APIntD2Ev.
   %scevgep.i.i.i514 = getelementptr i8, ptr %call.i.i512, i64 8
   %178 = add nuw nsw i64 %176, 34359738360
   %179 = and i64 %178, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i514, i8 0, i64 %179, i1 false), !noalias !491
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i514, i8 0, i64 %179, i1 false), !noalias !491
   br label %for.body.i.i515
 
 for.body.i.i515:                                  ; preds = %for.body.i.i515, %if.end.i507
@@ -24354,7 +24354,7 @@ for.body.i.i515:                                  ; preds = %for.body.i.i515, %i
   %180 = load i64, ptr %arrayidx2.i.i518, align 8, !noalias !491
   %181 = trunc nuw i64 %indvars.iv.i.i516 to i32
   %sub.i.i519 = sub i32 %conv1.i.i.i511, %181
-  %call.i12.i520 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i517, ptr noundef %177, i64 noundef %180, i64 noundef 0, i32 noundef %conv1.i.i.i511, i32 noundef %sub.i.i519, i1 noundef zeroext true), !noalias !491
+  %call.i12.i520 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i517, ptr noundef readonly %177, i64 noundef %180, i64 noundef 0, i32 noundef %conv1.i.i.i511, i32 noundef %sub.i.i519, i1 noundef zeroext true), !noalias !491
   %indvars.iv.next.i.i521 = add nuw nsw i64 %indvars.iv.i.i516, 1
   %exitcond.not.i.i522 = icmp eq i64 %indvars.iv.next.i.i521, %div1.i.i.i510
   br i1 %exitcond.not.i.i522, label %_ZNK4llvh5APIntmlERKS0_.exit542, label %for.body.i.i515, !llvm.loop !12
@@ -24956,7 +24956,7 @@ if.end.i879:                                      ; preds = %if.end66
   %scevgep.i.i.i886 = getelementptr i8, ptr %call.i.i884, i64 8
   %257 = add nuw nsw i64 %253, 34359738360
   %258 = and i64 %257, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i886, i8 0, i64 %258, i1 false), !noalias !509
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i886, i8 0, i64 %258, i1 false), !noalias !509
   %259 = ptrtoint ptr %256 to i64
   br label %for.body.i.i887
 
@@ -24967,7 +24967,7 @@ for.body.i.i887:                                  ; preds = %for.body.i.i887, %i
   %260 = load i64, ptr %arrayidx2.i.i890, align 8, !noalias !509
   %261 = trunc nuw i64 %indvars.iv.i.i888 to i32
   %sub.i.i891 = sub i32 %conv1.i.i.i883, %261
-  %call.i12.i892 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i889, ptr noundef %255, i64 noundef %260, i64 noundef 0, i32 noundef %conv1.i.i.i883, i32 noundef %sub.i.i891, i1 noundef zeroext true), !noalias !509
+  %call.i12.i892 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i889, ptr noundef readonly %255, i64 noundef %260, i64 noundef 0, i32 noundef %conv1.i.i.i883, i32 noundef %sub.i.i891, i1 noundef zeroext true), !noalias !509
   %indvars.iv.next.i.i893 = add nuw nsw i64 %indvars.iv.i.i888, 1
   %exitcond.not.i.i894 = icmp eq i64 %indvars.iv.next.i.i893, %div1.i.i.i882
   br i1 %exitcond.not.i.i894, label %_ZNK4llvh5APIntmlERKS0_.exit914, label %for.body.i.i887, !llvm.loop !12
@@ -25036,7 +25036,7 @@ if.end.i959:                                      ; preds = %_ZN4llvhplENS_5APIn
   %scevgep.i.i.i966 = getelementptr i8, ptr %call.i.i964, i64 8
   %270 = add nuw nsw i64 %268, 34359738360
   %271 = and i64 %270, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i966, i8 0, i64 %271, i1 false), !noalias !518
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i966, i8 0, i64 %271, i1 false), !noalias !518
   br label %for.body.i.i967
 
 for.body.i.i967:                                  ; preds = %for.body.i.i967, %if.end.i959
@@ -25046,7 +25046,7 @@ for.body.i.i967:                                  ; preds = %for.body.i.i967, %i
   %272 = load i64, ptr %arrayidx2.i.i970, align 8, !noalias !518
   %273 = trunc nuw i64 %indvars.iv.i.i968 to i32
   %sub.i.i971 = sub i32 %conv1.i.i.i963, %273
-  %call.i12.i972 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i969, ptr noundef nonnull %call.i.i884, i64 noundef %272, i64 noundef 0, i32 noundef %conv1.i.i.i963, i32 noundef %sub.i.i971, i1 noundef zeroext true), !noalias !518
+  %call.i12.i972 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i969, ptr noundef nonnull readonly %call.i.i884, i64 noundef %272, i64 noundef 0, i32 noundef %conv1.i.i.i963, i32 noundef %sub.i.i971, i1 noundef zeroext true), !noalias !518
   %indvars.iv.next.i.i973 = add nuw nsw i64 %indvars.iv.i.i968, 1
   %exitcond.not.i.i974 = icmp eq i64 %indvars.iv.next.i.i973, %div1.i.i.i962
   br i1 %exitcond.not.i.i974, label %_ZNK4llvh5APIntmlERKS0_.exit994, label %for.body.i.i967, !llvm.loop !12
@@ -25122,7 +25122,7 @@ if.end.i1060:                                     ; preds = %_ZN4llvh5APIntD2Ev.
   %scevgep.i.i.i1067 = getelementptr i8, ptr %call.i.i1065, i64 8
   %286 = add nuw nsw i64 %282, 34359738360
   %287 = and i64 %286, 34359738360
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i1067, i8 0, i64 %287, i1 false), !noalias !521
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i.i1067, i8 0, i64 %287, i1 false), !noalias !521
   br label %for.body.i.i1068
 
 for.body.i.i1068:                                 ; preds = %for.body.i.i1068, %if.end.i1060
@@ -25132,7 +25132,7 @@ for.body.i.i1068:                                 ; preds = %for.body.i.i1068, %
   %288 = load i64, ptr %arrayidx2.i.i1071, align 8, !noalias !521
   %289 = trunc nuw i64 %indvars.iv.i.i1069 to i32
   %sub.i.i1072 = sub i32 %conv1.i.i.i1064, %289
-  %call.i12.i1073 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i1070, ptr noundef %284, i64 noundef %288, i64 noundef 0, i32 noundef %conv1.i.i.i1064, i32 noundef %sub.i.i1072, i1 noundef zeroext true), !noalias !521
+  %call.i12.i1073 = call noundef i32 @_ZN4llvh5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %arrayidx.i.i1070, ptr noundef readonly %284, i64 noundef %288, i64 noundef 0, i32 noundef %conv1.i.i.i1064, i32 noundef %sub.i.i1072, i1 noundef zeroext true), !noalias !521
   %indvars.iv.next.i.i1074 = add nuw nsw i64 %indvars.iv.i.i1069, 1
   %exitcond.not.i.i1075 = icmp eq i64 %indvars.iv.next.i.i1074, %div1.i.i.i1063
   br i1 %exitcond.not.i.i1075, label %_ZNK4llvh5APIntmlERKS0_.exit1095, label %for.body.i.i1068, !llvm.loop !12

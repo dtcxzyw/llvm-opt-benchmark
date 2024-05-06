@@ -199,7 +199,7 @@ do.end:                                           ; preds = %if.else, %entry
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %18, i8 %19, i64 noundef 57344, i32 noundef %conv24) #6
   %20 = load i64, ptr %e1000e, align 8
   %shr = lshr i64 %20, 32
-  %conv28 = trunc i64 %shr to i32
+  %conv28 = trunc nuw i64 %shr to i32
   %21 = load i64, ptr %mac_regs.i, align 8
   %22 = load i8, ptr %1, align 8
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %21, i8 %22, i64 noundef 57348, i32 noundef %conv28) #6
@@ -223,7 +223,7 @@ do.end:                                           ; preds = %if.else, %entry
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %32, i8 %33, i64 noundef 49152, i32 noundef %conv35) #6
   %34 = load i64, ptr %rx_ring, align 8
   %shr39 = lshr i64 %34, 32
-  %conv40 = trunc i64 %shr39 to i32
+  %conv40 = trunc nuw i64 %shr39 to i32
   %35 = load i64, ptr %mac_regs.i, align 8
   %36 = load i8, ptr %1, align 8
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %35, i8 %36, i64 noundef 49156, i32 noundef %conv40) #6

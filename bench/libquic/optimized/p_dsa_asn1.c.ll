@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/p_dsa_asn1.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_pub_decode(ptr noundef %out, ptr noundef %params, ptr noundef %key) #0 {
+define internal range(i32 0, 2) i32 @dsa_pub_decode(ptr noundef %out, ptr noundef %params, ptr noundef %key) #0 {
 entry:
   %call = tail call i64 @CBS_len(ptr noundef %params) #3
   %cmp = icmp eq i64 %call, 0
@@ -70,7 +70,7 @@ return:                                           ; preds = %if.then, %err, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_pub_encode(ptr noundef %out, ptr nocapture noundef readonly %key) #0 {
+define internal range(i32 0, 2) i32 @dsa_pub_encode(ptr noundef %out, ptr nocapture noundef readonly %key) #0 {
 entry:
   %spki = alloca %struct.cbb_st, align 8
   %algorithm = alloca %struct.cbb_st, align 8
@@ -156,7 +156,7 @@ return:                                           ; preds = %lor.lhs.false25, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 0, 2) i32 @dsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %pkey, align 8
@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_priv_decode(ptr noundef %out, ptr noundef %params, ptr noundef %key) #0 {
+define internal range(i32 0, 2) i32 @dsa_priv_decode(ptr noundef %out, ptr noundef %params, ptr noundef %key) #0 {
 entry:
   %call = tail call ptr @DSA_parse_parameters(ptr noundef %params) #3
   %cmp = icmp eq ptr %call, null
@@ -245,7 +245,7 @@ return:                                           ; preds = %err, %if.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_priv_encode(ptr noundef %out, ptr nocapture noundef readonly %key) #0 {
+define internal range(i32 0, 2) i32 @dsa_priv_encode(ptr noundef %out, ptr nocapture noundef readonly %key) #0 {
 entry:
   %pkcs8 = alloca %struct.cbb_st, align 8
   %algorithm = alloca %struct.cbb_st, align 8
@@ -342,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @dsa_missing_parameters(ptr nocapture noundef readonly %pkey) #1 {
+define internal range(i32 0, 2) i32 @dsa_missing_parameters(ptr nocapture noundef readonly %pkey) #1 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
@@ -370,7 +370,7 @@ return:                                           ; preds = %lor.lhs.false3, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_copy_parameters(ptr nocapture noundef readonly %to, ptr nocapture noundef readonly %from) #0 {
+define internal range(i32 0, 2) i32 @dsa_copy_parameters(ptr nocapture noundef readonly %to, ptr nocapture noundef readonly %from) #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %to, i64 8
   %0 = load ptr, ptr %pkey, align 8
@@ -421,7 +421,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_cmp_parameters(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 0, 2) i32 @dsa_cmp_parameters(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %pkey, align 8

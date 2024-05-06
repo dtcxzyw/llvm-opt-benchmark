@@ -110,7 +110,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %26 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i.i
-  %27 = trunc i64 %indvars.iv.i.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %27, ptr %26, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -268,7 +268,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
   br i1 %.not.i.i, label %97, label %90
 
 90:                                               ; preds = %86
-  %91 = trunc i8 %.0145.i.i to i1
+  %91 = trunc nuw i8 %.0145.i.i to i1
   %92 = getelementptr inbounds double, ptr %29, i64 %indvars.iv175.i.i
   %93 = load double, ptr %92, align 8
   br i1 %91, label %97, label %94
@@ -289,7 +289,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
   br i1 %exitcond178.not.i.i, label %._crit_edge148.i.i, label %.lr.ph147.i.i
 
 ._crit_edge148.i.i:                               ; preds = %97
-  %98 = trunc i8 %.1.i.i to i1
+  %98 = trunc nuw i8 %.1.i.i to i1
   br i1 %98, label %._crit_edge148.thread.i.i, label %99
 
 99:                                               ; preds = %._crit_edge148.i.i
@@ -332,7 +332,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
   %114 = add nsw i32 %.5160.i.i, 1
   %115 = sext i32 %.5160.i.i to i64
   %116 = getelementptr inbounds i32, ptr %20, i64 %115
-  %117 = trunc i64 %indvars.iv185.i.i to i32
+  %117 = trunc nuw nsw i64 %indvars.iv185.i.i to i32
   store i32 %117, ptr %116, align 4
   %118 = add nsw i32 %.8.i, 1
   %119 = sext i32 %118 to i64
@@ -376,7 +376,7 @@ maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i: ; pre
   br label %.lr.ph28.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
-  %131 = trunc i64 %indvars.iv.next35.i to i32
+  %131 = trunc nsw i64 %indvars.iv.next35.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph28.i, %.loopexit.loopexit.i
@@ -408,7 +408,7 @@ maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i: ; pre
   %144 = add nuw nsw i64 %143, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep32.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep33.i, i64 %144, i1 false)
   %wide.trip.count.i = sext i32 %134 to i64
-  %145 = trunc i64 %indvars.iv40.i to i32
+  %145 = trunc nuw nsw i64 %indvars.iv40.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -580,7 +580,7 @@ Multilevel_init.exit:                             ; preds = %11, %gv_alloc.exit.
   %.tr25.i = phi ptr [ %29, %Multilevel_init.exit.i ], [ %.0.i, %Multilevel_init.exit ]
   %25 = getelementptr inbounds i8, ptr %.tr25.i, i64 8
   %26 = load ptr, ptr %25, align 8
-  call void @Multilevel_coarsen(ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull byval(%struct.Multilevel_control) align 8 %6)
+  call void @Multilevel_coarsen(ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull readonly byval(%struct.Multilevel_control) align 8 %6)
   %27 = load ptr, ptr %5, align 8
   %.not17.i = icmp eq ptr %27, null
   br i1 %.not17.i, label %Multilevel_establish.exit, label %28

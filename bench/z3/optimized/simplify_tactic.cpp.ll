@@ -854,7 +854,7 @@ _ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3re
 
 invoke.cont41:                                    ; preds = %_ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3refEj.exit.i, %if.end36
   %cond.i76 = phi ptr [ %61, %_ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3refEj.exit.i ], [ null, %if.end36 ]
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %g, i32 noundef %62, ptr noundef %50, ptr noundef %49, ptr noundef %cond.i76)
           to label %for.inc unwind label %lpad9.loopexit
 

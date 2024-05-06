@@ -151,7 +151,7 @@ define internal i32 @dissect_knet_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 8:                                                ; preds = %4
   store i32 0, ptr %5, align 4
-  %9 = call fastcc i32 @dissect_content_length_vle(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null), !range !4
+  %9 = call fastcc i32 @dissect_content_length_vle(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %16, label %11
 
@@ -306,7 +306,7 @@ dissect_knet_message.exit:                        ; preds = %dissect_content_len
   tail call void @proto_item_set_len(ptr noundef %59, i32 noundef %95) #4
   %96 = icmp ne i32 %.040, 0
   %97 = zext i1 %96 to i32
-  %98 = call fastcc i32 @dissect_messageid(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %61, ptr noundef %1, i32 noundef %97), !range !5
+  %98 = call fastcc i32 @dissect_messageid(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %61, ptr noundef readonly %1, i32 noundef %97)
   %99 = load i32, ptr %5, align 4
   tail call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %99, i32 noundef %98, ptr noundef %61, i32 noundef %67)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -314,7 +314,7 @@ dissect_knet_message.exit:                        ; preds = %dissect_content_len
   %101 = add i32 %.040, 1
   %102 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %100) #4
   %103 = icmp sgt i32 %102, 2
-  br i1 %103, label %.lr.ph, label %.critedge, !llvm.loop !6
+  br i1 %103, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %dissect_knet_message.exit, %46
   %104 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
@@ -350,7 +350,7 @@ define internal fastcc void @dissect_knet(ptr noundef %0, ptr nocapture noundef 
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %12 = load i32, ptr @ett_knet_message, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  %14 = call fastcc i32 @dissect_content_length_vle(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %13), !range !4
+  %14 = call fastcc i32 @dissect_content_length_vle(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %13)
   %15 = icmp eq i32 %3, 1000
   %.v = select i1 %15, i32 1, i32 2
   %16 = add nuw i32 %14, %.v
@@ -381,7 +381,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_content_length_vle(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @dissect_content_length_vle(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #4
   %.not.i = icmp sgt i8 %5, -1
@@ -443,7 +443,7 @@ define internal fastcc noundef i32 @dissect_content_length_vle(ptr noundef %0, p
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_messageid(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @dissect_messageid(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #4
   %8 = zext i8 %7 to i32
@@ -554,7 +554,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_knet_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, -2147483644) i32 @get_knet_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #4
@@ -564,7 +564,7 @@ define internal i32 @get_knet_pdu_len(ptr nocapture readnone %0, ptr noundef %1,
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %7) #4
   %.not4.i = icmp sgt i8 %8, -1
   %.1.i = select i1 %.not4.i, i32 %spec.select.i, i32 4
-  %9 = call fastcc i32 @dissect_content_length_vle(ptr noundef %1, ptr noundef nonnull %5, ptr noundef null), !range !4
+  %9 = call fastcc i32 @dissect_content_length_vle(ptr noundef %1, ptr noundef nonnull %5, ptr noundef null)
   %10 = add nuw i32 %.1.i, %9
   ret i32 %10
 }
@@ -601,7 +601,5 @@ attributes #5 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 -2147483648}
-!5 = !{i32 0, i32 256}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

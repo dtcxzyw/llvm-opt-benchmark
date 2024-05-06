@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN13char_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %f, i32 noundef %num_args, ptr nocapture noundef readonly %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 6) i32 @_ZN13char_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %f, i32 noundef %num_args, ptr nocapture noundef readonly %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
 entry:
   %m_info.i = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %m_info.i, align 8
@@ -104,22 +104,22 @@ sw.bb2:                                           ; preds = %_ZNK4decl13get_decl
   %2 = load ptr, ptr %args, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx3, align 8
-  %call4 = tail call noundef i32 @_ZN13char_rewriter10mk_char_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call4 = tail call noundef i32 @_ZN13char_rewriter10mk_char_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %4 = load ptr, ptr %args, align 8
-  %call7 = tail call noundef i32 @_ZN13char_rewriter14mk_char_to_intEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call7 = tail call noundef i32 @_ZN13char_rewriter14mk_char_to_intEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %5 = load ptr, ptr %args, align 8
-  %call13 = tail call noundef i32 @_ZN13char_rewriter15mk_char_from_bvEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call13 = tail call noundef i32 @_ZN13char_rewriter15mk_char_from_bvEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %6 = load ptr, ptr %args, align 8
-  %call16 = tail call noundef i32 @_ZN13char_rewriter16mk_char_is_digitEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call16 = tail call noundef i32 @_ZN13char_rewriter16mk_char_is_digitEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb14, %sw.bb11, %sw.bb5, %sw.bb2, %_ZNK4decl13get_decl_kindEv.exit
@@ -128,7 +128,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb14, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN13char_rewriter10mk_char_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 6) i32 @_ZN13char_rewriter10mk_char_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
 entry:
   %m_char = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_char, align 8
@@ -345,7 +345,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN13char_rewriter14mk_char_to_intEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %e, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 6) i32 @_ZN13char_rewriter14mk_char_to_intEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %e, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
 entry:
   %arith = alloca %class.arith_util, align 8
   %m_char = getelementptr inbounds i8, ptr %this, i64 8
@@ -441,7 +441,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN13char_rewriter15mk_char_from_bvEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %e, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN13char_rewriter15mk_char_from_bvEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %e, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bv = alloca %class.bv_util, align 8
   %n = alloca %class.rational, align 8
@@ -579,7 +579,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN13char_rewriter16mk_char_is_digitEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %a, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 6) i32 @_ZN13char_rewriter16mk_char_is_digitEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %a, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
 entry:
   %m_char = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_char, align 8
@@ -977,4 +977,3 @@ attributes #14 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 4, i32 6}

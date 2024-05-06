@@ -250,7 +250,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare void @csc_spfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @init_linsys_solver_qdldl(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   %9 = load double, ptr %8, align 8
@@ -1822,7 +1822,7 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @update_linsys_solver_matrices_qdldl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i64 noundef %6) #1 {
+define range(i64 0, 2) i64 @update_linsys_solver_matrices_qdldl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i64 noundef %6) #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -1877,7 +1877,7 @@ define i64 @update_linsys_solver_matrices_qdldl(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @update_linsys_solver_rho_vec_qdldl(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, double noundef %2) #1 {
+define range(i64 0, 2) i64 @update_linsys_solver_rho_vec_qdldl(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, double noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 120

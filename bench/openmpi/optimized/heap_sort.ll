@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @build_heap, ptr @print_heap], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define i32 @ADIOI_Heap_create(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ADIOI_Heap_create(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = sext i32 %1 to i64

@@ -248,7 +248,7 @@ if.else.i11:                                      ; preds = %sw.bb16.i
 
 construct_from_text.exit:                         ; preds = %for.body.i, %if.end8, %if.then2.i, %sw.bb.i12, %land.lhs.true.i15, %sw.bb13.i, %if.then18.i, %if.else.i11
   %buf_n.addr.0.i = phi i64 [ %buf_n.0, %if.then2.i ], [ %buf_n.0, %if.then18.i ], [ %buf_n.0, %if.else.i11 ], [ %dec15.i, %sw.bb13.i ], [ %buf_n.0, %land.lhs.true.i15 ], [ %buf_n.0, %sw.bb.i12 ], [ 0, %if.end8 ], [ %buf_n.0, %for.body.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %to, ptr noundef nonnull align 8 dereferenceable(40) %call1.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %to, ptr noundef nonnull readonly align 8 dereferenceable(40) %call1.i, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %to, i64 16
   store ptr %call5, ptr %data.i, align 8
   %data_size.i9 = getelementptr inbounds i8, ptr %to, i64 24

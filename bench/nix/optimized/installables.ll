@@ -21265,7 +21265,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %1404
 
 1403:                                             ; preds = %"_ZSt5visitIN3nix10overloadedIJZNS0_L12getBuiltPathENS0_3refINS0_5StoreEEES4_RKNS0_17SingleDerivedPathEE3$_0ZNS0_L12getBuiltPathES4_S4_S7_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISK_EEEEE4typeEE4typeEOST_EEEE4typeEOSI_DpOSK_.exit.i"
-  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(48) %1368)
+  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull readonly align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(48) %1368)
           to label %1404 unwind label %.loopexit849
 
 1404:                                             ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix15SingleBuiltPathEEEONS4_10overloadedIJZNS4_L12getBuiltPathENS4_3refINS4_5StoreEEESA_RKNS4_17SingleDerivedPathEE3$_0ZNS4_L12getBuiltPathESA_SA_SD_E3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_22SingleDerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i", %1403
@@ -25069,7 +25069,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %2849
 
 2848:                                             ; preds = %"_ZSt5visitIN3nix10overloadedIJZNS0_L12getBuiltPathENS0_3refINS0_5StoreEEES4_RKNS0_17SingleDerivedPathEE3$_0ZNS0_L12getBuiltPathES4_S4_S7_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISK_EEEEE4typeEE4typeEOST_EEEE4typeEOSI_DpOSK_.exit.i454"
-  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(48) %2833)
+  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull readonly align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(48) %2833)
           to label %2849 unwind label %.loopexit882
 
 2849:                                             ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix15SingleBuiltPathEEEONS4_10overloadedIJZNS4_L12getBuiltPathENS4_3refINS4_5StoreEEESA_RKNS4_17SingleDerivedPathEE3$_0ZNS4_L12getBuiltPathESA_SA_SD_E3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_22SingleDerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i459", %2848
@@ -53905,7 +53905,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6ve
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %1, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i.i.i.i ], [ %4, %1 ]
-  tail call fastcc void @_ZZN3nix11Installable6build2ENS_3refINS_5StoreEEES3_NS_7RealiseERKSt6vectorINS1_IS0_EESaIS6_EENS_9BuildModeEEN3AuxD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i) #28
+  tail call fastcc void @_ZZN3nix11Installable6build2ENS_3refINS_5StoreEEES3_NS_7RealiseERKSt6vectorINS1_IS0_EESaIS6_EENS_9BuildModeEEN3AuxD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i) #28
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPZN3nix11Installable6build2ENS0_3refINS0_5StoreEEES4_NS0_7RealiseERKSt6vectorINS2_IS1_EESaIS7_EENS0_9BuildModeEE3AuxSD_EvT_SF_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !68

@@ -9,7 +9,7 @@ entry:
   %add = add i32 %predictor_order, %residual_samples
   %shr = lshr i32 %add, %max_partition_order
   %shl = shl nuw i32 1, %max_partition_order
-  %0 = tail call i32 @llvm.ctlz.i32(i32 %shr, i1 true), !range !4
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shr, i1 true)
   %xor.i = xor i32 %0, 31
   %sub = sub nuw nsw i32 32, %xor.i
   %sub1 = sub nsw i32 0, %predictor_order
@@ -38,9 +38,9 @@ for.body9:                                        ; preds = %for.body, %for.body
   %4 = load <8 x i32>, ptr %add.ptr, align 1
   %elt.abs.i = tail call <8 x i32> @llvm.abs.v8i32(<8 x i32> %4, i1 false)
   %add.i = add <8 x i32> %elt.abs.i, %3
-  %add15 = add i32 %residual_sample.190, 8
+  %add15 = add nsw i32 %residual_sample.190, 8
   %cmp8 = icmp slt i32 %add15, %sub7
-  br i1 %cmp8, label %for.body9, label %for.end, !llvm.loop !5
+  br i1 %cmp8, label %for.body9, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body9, %for.body
   %5 = phi <8 x i32> [ zeroinitializer, %for.body ], [ %add.i, %for.body9 ]
@@ -70,9 +70,9 @@ for.body22:                                       ; preds = %for.end, %for.body2
   %9 = load <4 x i32>, ptr %add.ptr24, align 1
   %elt.abs.i175 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %9, i1 false)
   %add.i155 = add <4 x i32> %elt.abs.i175, %sum128.0.in94
-  %add29 = add i32 %residual_sample.295, 4
+  %add29 = add nsw i32 %residual_sample.295, 4
   %cmp21 = icmp slt i32 %add29, %sub20
-  br i1 %cmp21, label %for.body22, label %for.cond31.preheader, !llvm.loop !7
+  br i1 %cmp21, label %for.body22, label %for.cond31.preheader, !llvm.loop !6
 
 for.body33:                                       ; preds = %for.body33.preheader, %for.body33
   %indvars.iv126 = phi i64 [ %8, %for.body33.preheader ], [ %indvars.iv.next127, %for.body33 ]
@@ -84,7 +84,7 @@ for.body33:                                       ; preds = %for.body33.preheade
   %add.i152 = add <4 x i32> %elt.abs.i173, %10
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next127, %2
-  br i1 %exitcond131.not, label %for.end39, label %for.body33, !llvm.loop !8
+  br i1 %exitcond131.not, label %for.end39, label %for.body33, !llvm.loop !7
 
 for.end39:                                        ; preds = %for.body33, %for.cond31.preheader
   %.lcssa = phi <4 x i32> [ %sum128.0.in.lcssa, %for.cond31.preheader ], [ %add.i152, %for.body33 ]
@@ -100,7 +100,7 @@ for.end39:                                        ; preds = %for.body33, %for.co
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %indvars.iv.next129 = add i32 %indvars.iv128, %shr
   %exitcond137.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count136
-  br i1 %exitcond137.not, label %if.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond137.not, label %if.end, label %for.body, !llvm.loop !8
 
 for.body51:                                       ; preds = %entry, %for.end105
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %for.end105 ], [ 0, %entry ]
@@ -122,9 +122,9 @@ for.body60:                                       ; preds = %for.body51, %for.bo
   %elt.abs.i171 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %14, i1 false)
   %conv.i = zext <4 x i32> %elt.abs.i171 to <4 x i64>
   %add.i194 = add <4 x i64> %sum25652.072, %conv.i
-  %add72 = add i32 %residual_sample.573, 4
+  %add72 = add nsw i32 %residual_sample.573, 4
   %cmp58 = icmp slt i32 %add72, %sub57
-  br i1 %cmp58, label %for.body60, label %for.end73, !llvm.loop !10
+  br i1 %cmp58, label %for.body60, label %for.end73, !llvm.loop !9
 
 for.end73:                                        ; preds = %for.body60, %for.body51
   %sum25652.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.body51 ], [ %add.i194, %for.body60 ]
@@ -158,9 +158,9 @@ for.body82:                                       ; preds = %for.end73, %for.bod
   %shuffle.i212 = shufflevector <4 x i32> %elt.abs.i169, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
   %conv.i213 = zext <2 x i32> %shuffle.i212 to <2 x i64>
   %add.i203 = add <2 x i64> %sum12854.076, %conv.i213
-  %add91 = add i32 %residual_sample.677, 2
+  %add91 = add nsw i32 %residual_sample.677, 2
   %cmp80 = icmp slt i32 %add91, %sub79
-  br i1 %cmp80, label %for.body82, label %for.cond93.preheader, !llvm.loop !11
+  br i1 %cmp80, label %for.body82, label %for.cond93.preheader, !llvm.loop !10
 
 for.body96:                                       ; preds = %for.body96.preheader, %for.body96
   %indvars.iv = phi i64 [ %15, %for.body96.preheader ], [ %indvars.iv.next, %for.body96 ]
@@ -173,7 +173,7 @@ for.body96:                                       ; preds = %for.body96.preheade
   %add.i200 = add <2 x i64> %sum12854.181, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond.not, label %for.end105, label %for.body96, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end105, label %for.body96, !llvm.loop !11
 
 for.end105:                                       ; preds = %for.body96, %for.cond93.preheader
   %sum12854.1.lcssa = phi <2 x i64> [ %sum12854.0.lcssa, %for.cond93.preheader ], [ %add.i200, %for.body96 ]
@@ -186,7 +186,7 @@ for.end105:                                       ; preds = %for.body96, %for.co
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %indvars.iv.next120 = add i32 %indvars.iv119, %shr
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count136
-  br i1 %exitcond125.not, label %if.end, label %for.body51, !llvm.loop !13
+  br i1 %exitcond125.not, label %if.end, label %for.body51, !llvm.loop !12
 
 if.end:                                           ; preds = %for.end105, %for.end39
   %cmp115.not.not112 = icmp sgt i32 %max_partition_order, %min_partition_order
@@ -196,7 +196,7 @@ for.cond114.loopexit:                             ; preds = %for.body122, %for.b
   %from_partition.1.lcssa = phi i32 [ %from_partition.0114, %for.body117 ], [ %add132, %for.body122 ]
   %to_partition.1.lcssa = phi i32 [ %to_partition.0115, %for.body117 ], [ %inc129, %for.body122 ]
   %cmp115.not.not = icmp sgt i32 %partition_order.0116, %min_partition_order
-  br i1 %cmp115.not.not, label %for.body117, label %for.end137, !llvm.loop !14
+  br i1 %cmp115.not.not, label %for.body117, label %for.end137, !llvm.loop !13
 
 for.body117:                                      ; preds = %if.end, %for.cond114.loopexit
   %partition_order.0116.in = phi i32 [ %partition_order.0116, %for.cond114.loopexit ], [ %max_partition_order, %if.end ]
@@ -227,7 +227,7 @@ for.body122:                                      ; preds = %for.body117, %for.b
   %add132 = add i32 %from_partition.1106, 2
   %inc134 = add nuw nsw i32 %i.0108, 1
   %exitcond138.not = icmp eq i32 %inc134, %shr118
-  br i1 %exitcond138.not, label %for.cond114.loopexit, label %for.body122, !llvm.loop !15
+  br i1 %exitcond138.not, label %for.cond114.loopexit, label %for.body122, !llvm.loop !14
 
 for.end137:                                       ; preds = %for.cond114.loopexit, %if.end
   tail call void @llvm.x86.avx.vzeroupper()
@@ -256,15 +256,14 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

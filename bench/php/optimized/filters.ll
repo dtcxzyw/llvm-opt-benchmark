@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [8 x i8] c"dechunk\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zm_startup_standard_filters(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zm_startup_standard_filters(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %6
 
 3:                                                ; preds = %6
@@ -233,7 +233,7 @@ define internal ptr @strfilter_tolower_create(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @strfilter_convert_filter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 {
+define internal range(i32 0, 3) i32 @strfilter_convert_filter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -371,7 +371,7 @@ php_convert_filter_dtor.exit:                     ; preds = %13, %19, %20
 declare void @php_stream_bucket_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @strfilter_convert_append_bucket(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -407,7 +407,7 @@ define internal fastcc noundef i32 @strfilter_convert_append_bucket(ptr noundef 
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %24, ptr %10, align 8
   store i64 %22, ptr %13, align 8
-  %25 = trunc i32 %6 to i8
+  %25 = trunc nuw nsw i32 %6 to i8
   br label %26
 
 26:                                               ; preds = %23, %73
@@ -540,7 +540,7 @@ thread-pre-split:                                 ; preds = %30, %64, %57, %26
   br i1 %.not22129, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74
-  %76 = trunc i32 %6 to i8
+  %76 = trunc nuw nsw i32 %6 to i8
   %77 = getelementptr inbounds i8, ptr %0, i64 24
   br label %78
 
@@ -667,7 +667,7 @@ thread-pre-split:                                 ; preds = %30, %64, %57, %26
 
 132:                                              ; preds = %._crit_edge
   %133 = sub i64 %.3207.lcssa, %130
-  %134 = trunc i32 %6 to i8
+  %134 = trunc nuw nsw i32 %6 to i8
   %135 = call ptr @php_stream_bucket_new(ptr noundef %1, ptr noundef %.3.lcssa, i64 noundef %133, i8 noundef zeroext 1, i8 noundef zeroext %134) #18
   %136 = icmp eq ptr %135, null
   br i1 %136, label %.loopexit, label %137
@@ -1044,7 +1044,7 @@ php_conv_base64_encode_ctor.exit.i:               ; preds = %98, %92
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   store ptr @php_conv_base64_decode_dtor, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %122, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
   br label %282
 
 125:                                              ; preds = %41
@@ -1971,7 +1971,7 @@ define internal void @php_conv_base64_encode_dtor(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @php_conv_base64_decode_convert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #10 {
+define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #10 {
   %6 = icmp eq ptr %1, null
   %7 = icmp eq ptr %2, null
   %or.cond = or i1 %6, %7
@@ -2156,7 +2156,7 @@ define internal void @php_conv_base64_decode_dtor(ptr nocapture readnone %0) #11
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_conv_qprint_encode_convert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #10 {
+define internal range(i32 0, 3) i32 @php_conv_qprint_encode_convert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #10 {
   %6 = getelementptr inbounds i8, ptr %0, i64 36
   %7 = getelementptr inbounds i8, ptr %0, i64 52
   %8 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2430,7 +2430,7 @@ define internal noundef i32 @php_conv_qprint_encode_convert(ptr nocapture nounde
   br i1 %109, label %.thread238, label %.outer.backedge
 
 .thread238:                                       ; preds = %103, %104, %90, %._crit_edge373
-  %110 = trunc i32 %68 to i8
+  %110 = trunc nuw i32 %68 to i8
   %111 = getelementptr inbounds i8, ptr %.0208271, i64 1
   store i8 %110, ptr %.0208271, align 1
   %112 = add i64 %.0200261, -1
@@ -2498,7 +2498,7 @@ define internal noundef i32 @php_conv_qprint_encode_convert(ptr nocapture nounde
   br i1 %144, label %.loopexit, label %145
 
 145:                                              ; preds = %143
-  %146 = trunc i32 %68 to i8
+  %146 = trunc nuw i32 %68 to i8
   %147 = getelementptr inbounds i8, ptr %.3211, i64 1
   store i8 %146, ptr %.3211, align 1
   %148 = add i64 %.3203, -1
@@ -2633,7 +2633,7 @@ define internal void @php_conv_qprint_encode_dtor(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @php_conv_qprint_decode_convert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #12 {
+define internal range(i32 0, 5) i32 @php_conv_qprint_decode_convert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #12 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = getelementptr inbounds i8, ptr %0, i64 52
   %8 = icmp eq ptr %1, null

@@ -59,7 +59,7 @@ define noundef zeroext i1 @ecpg_init(ptr noundef readnone %0, ptr noundef %1, i3
   br i1 %10, label %ECPGget_sqlca.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %12 = load i32, ptr @sqlca_key, align 4
   %13 = tail call i32 @pthread_setspecific(i32 noundef %12, ptr noundef nonnull %9) #16
   br label %14
@@ -70,7 +70,7 @@ ECPGget_sqlca.exit:                               ; preds = %8
 
 14:                                               ; preds = %11, %3
   %.06.i.ph = phi ptr [ %6, %3 ], [ %9, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %.06.i.ph, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %.06.i.ph, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %15 = icmp eq ptr %0, null
   br i1 %15, label %16, label %18
 
@@ -99,7 +99,7 @@ define ptr @ECPGget_sqlca() local_unnamed_addr #2 {
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %6, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %6, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %9 = load i32, ptr @sqlca_key, align 4
   %10 = tail call i32 @pthread_setspecific(i32 noundef %9, ptr noundef nonnull %6) #16
   br label %11
@@ -266,7 +266,7 @@ define void @ecpg_log(ptr noundef %0, ...) local_unnamed_addr #2 {
   br i1 %9, label %ECPGget_sqlca.exit, label %10
 
 10:                                               ; preds = %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %8, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %8, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %11 = load i32, ptr @sqlca_key, align 4
   %12 = tail call i32 @pthread_setspecific(i32 noundef %11, ptr noundef nonnull %8) #16
   br label %ECPGget_sqlca.exit
@@ -617,7 +617,7 @@ define void @ECPGset_var(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %10, label %ECPGget_sqlca.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %12 = load i32, ptr @sqlca_key, align 4
   %13 = tail call i32 @pthread_setspecific(i32 noundef %12, ptr noundef nonnull %9) #16
   br label %14
@@ -628,7 +628,7 @@ ECPGget_sqlca.exit:                               ; preds = %8
 
 14:                                               ; preds = %11, %3
   %.06.i.ph = phi ptr [ %6, %3 ], [ %9, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %.06.i.ph, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %.06.i.ph, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %.034 = load ptr, ptr @ivlist, align 8
   %.not35 = icmp eq ptr %.034, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph
@@ -668,7 +668,7 @@ ECPGget_sqlca.exit:                               ; preds = %8
   br i1 %29, label %ECPGget_sqlca.exit28, label %30
 
 30:                                               ; preds = %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %28, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %28, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   %31 = load i32, ptr @sqlca_key, align 4
   %32 = tail call i32 @pthread_setspecific(i32 noundef %31, ptr noundef nonnull %28) #16
   br label %33

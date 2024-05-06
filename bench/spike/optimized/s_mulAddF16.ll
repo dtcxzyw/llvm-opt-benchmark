@@ -145,7 +145,7 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %81, label %82, label %91
 
 82:                                               ; preds = %77
-  %83 = trunc i64 %80 to i32
+  %83 = trunc nuw nsw i64 %80 to i32
   %84 = lshr i32 %79, %83
   %85 = sub nsw i32 0, %83
   %86 = and i32 %85, 31
@@ -218,7 +218,7 @@ softfloat_shiftRightJam32.exit178:                ; preds = %97, %99
   br i1 %129, label %130, label %139
 
 130:                                              ; preds = %125
-  %131 = trunc i64 %128 to i32
+  %131 = trunc nuw nsw i64 %128 to i32
   %132 = lshr i32 %127, %131
   %133 = sub nsw i32 0, %131
   %134 = and i32 %133, 31

@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.exec_inline_op = private unnamed_addr constant [15 x i8] c"exec_inline_op\00", align 1
 @__func__.qemu_plugin_vcpu_mem_cb = private unnamed_addr constant [24 x i8] c"qemu_plugin_vcpu_mem_cb\00", align 1
 @cpus_queue = external local_unnamed_addr global %union.CPUTailQ, align 8
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [7 x i8] c"device\00", align 1
 @.str.4 = private unnamed_addr constant [101 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/qdev-core.h\00", align 1
 @__func__.DEVICE = private unnamed_addr constant [7 x i8] c"DEVICE\00", align 1
@@ -1135,7 +1135,7 @@ entry:
   ret i1 %cmp
 }
 
-; Function Attrs: nounwind
+; Function Attrs: nofree nounwind
 declare i32 @atexit(ptr noundef) local_unnamed_addr #6
 
 declare void @async_run_on_cpu(ptr noundef, ptr noundef, i64) local_unnamed_addr #1
@@ -1177,7 +1177,7 @@ attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }

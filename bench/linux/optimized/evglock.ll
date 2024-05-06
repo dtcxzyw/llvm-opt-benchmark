@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [39 x i8] c"Could not signal Global Lock semaphore\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ev_init_global_lock_handler() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ev_init_global_lock_handler() local_unnamed_addr #0 align 16 {
   %1 = alloca i64, align 8
   %2 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %3 = icmp eq i8 %2, 0

@@ -470,7 +470,7 @@ define void @_ZN3gmx12AtomsBuilder10mergeAtomsERK7t_atoms(ptr nocapture noundef 
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds %struct.t_resinfo, ptr %41, i64 %42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull readonly align 8 dereferenceable(32) %30, i64 32, i1 false)
   %44 = load i32, ptr %18, align 4
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 48
@@ -1377,7 +1377,7 @@ define void @_ZNK3gmx12AtomsRemover17removeMarkedAtomsEP7t_atoms(ptr nocapture n
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %36 to i64
   %40 = getelementptr inbounds %struct.t_resinfo, ptr %38, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull readonly align 8 dereferenceable(32) %27, i64 32, i1 false)
   %41 = load i32, ptr %9, align 4
   %42 = load ptr, ptr %3, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 48

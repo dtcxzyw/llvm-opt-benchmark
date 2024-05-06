@@ -121,7 +121,7 @@ define void @_ZN15wiggle_generate5types15define_datatype17h8c5de3a4fed51b86E(ptr
 
 52:                                               ; preds = %68, %51
   %.sink.i = phi ptr [ %15, %68 ], [ %14, %51 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i, i64 32, i1 false)
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %16)
           to label %_ZN15wiggle_generate5types12define_alias17ha26e314fa3fb1207E.exit unwind label %33, !noalias !5
 
@@ -382,7 +382,7 @@ default.unreachable14:                            ; preds = %69
           to label %124 unwind label %103, !noalias !9
 
 124:                                              ; preds = %123
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %12)
           to label %_ZN15wiggle_generate5types16define_witx_list17h93220187e2d23bccE.exit unwind label %91, !noalias !9
 
@@ -483,7 +483,7 @@ _ZN15wiggle_generate5types16define_witx_list17h93220187e2d23bccE.exit: ; preds =
           to label %152 unwind label %145, !noalias !13
 
 152:                                              ; preds = %151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %5)
           to label %_ZN15wiggle_generate5types14define_builtin17h957e7ea78fd4c309E.exit unwind label %138, !noalias !13
 

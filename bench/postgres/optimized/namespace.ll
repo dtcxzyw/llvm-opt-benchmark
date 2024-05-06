@@ -5137,7 +5137,7 @@ isAnyTempNamespace.exit:                          ; preds = %3, %14, %isTempOrTe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkTempNamespaceStatus(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @checkTempNamespaceStatus(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @get_namespace_name(i32 noundef %0) #18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %GetTempNamespaceProcNumber.exit.thread, label %3
@@ -5983,7 +5983,7 @@ spcache_init.exit:                                ; preds = %10, %14
 
 spcachekey_equal.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i
   %49 = load ptr, ptr %45, align 8
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %5) #19
+  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %49, ptr noundef nonnull readonly dereferenceable(1) %5) #19
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %nsphash_lookup.exit.i, label %spcachekey_equal.exit.thread.i.i.i
 
@@ -6089,7 +6089,7 @@ define internal fastcc ptr @spcache_insert(ptr noundef %0, i32 noundef %1) unnam
 
 spcachekey_equal.exit.i.i:                        ; preds = %.lr.ph.i.i
   %28 = load ptr, ptr %24, align 8
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %0) #19
+  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %nsphash_lookup.exit, label %spcachekey_equal.exit.thread.i.i
 
@@ -6139,9 +6139,9 @@ spcachekey_equal.exit.thread.i.i:                 ; preds = %spcachekey_equal.ex
   %57 = shl i64 %51, 1
   %58 = load ptr, ptr %44, align 8
   %59 = tail call i64 @llvm.umax.i64(i64 %57, i64 2)
-  %60 = tail call i64 @llvm.ctpop.i64(i64 %59), !range !20
+  %60 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %59)
   %61 = icmp ult i64 %60, 2
-  %62 = tail call i64 @llvm.ctlz.i64(i64 %59, i1 true), !range !20
+  %62 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %59, i1 true)
   %63 = sub nuw nsw i64 64, %62
   %64 = shl nuw i64 1, %63
   %.0.i.i.i.i.i = select i1 %61, i64 %59, i64 %64
@@ -6161,9 +6161,9 @@ nsphash_compute_size.exit.i.i.i:                  ; preds = %56
   %70 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i, i64 noundef %65, i32 noundef 5) #18
   store ptr %70, ptr %44, align 8
   %71 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i, i64 2)
-  %72 = tail call i64 @llvm.ctpop.i64(i64 %71), !range !20
+  %72 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %71)
   %73 = icmp ult i64 %72, 2
-  %74 = tail call i64 @llvm.ctlz.i64(i64 %71, i1 true), !range !20
+  %74 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %71, i1 true)
   %75 = sub nuw nsw i64 64, %74
   %76 = shl nuw i64 1, %75
   %.0.i.i.i.i.i.i = select i1 %73, i64 %71, i64 %76
@@ -6205,7 +6205,7 @@ nsphash_update_parameters.exit.i.i.i:             ; preds = %nsphash_compute_siz
   %.val56.i.i.i = load ptr, ptr %89, align 8
   %93 = getelementptr i8, ptr %89, i64 8
   %.val57.i.i.i = load i32, ptr %93, align 8
-  %94 = tail call fastcc i32 @spcachekey_hash(ptr %.val56.i.i.i, i32 %.val57.i.i.i)
+  %94 = tail call fastcc i32 @spcachekey_hash(ptr readonly %.val56.i.i.i, i32 %.val57.i.i.i)
   %95 = and i32 %94, %83
   %96 = icmp eq i32 %95, %.060.i.i.i
   br i1 %96, label %.lr.ph68.i.i.i.preheader, label %97
@@ -6214,7 +6214,7 @@ nsphash_update_parameters.exit.i.i.i:             ; preds = %nsphash_compute_siz
   %98 = add i32 %.060.i.i.i, 1
   %99 = zext i32 %98 to i64
   %100 = icmp ugt i64 %51, %99
-  br i1 %100, label %.lr.ph.i.i.i, label %.lr.ph68.i.i.i.preheader, !llvm.loop !21
+  br i1 %100, label %.lr.ph.i.i.i, label %.lr.ph68.i.i.i.preheader, !llvm.loop !20
 
 .lr.ph68.i.i.i.preheader:                         ; preds = %97, %92, %.lr.ph.i.i.i
   %.04965.i.i.i.ph = phi i32 [ %.060.i.i.i, %.lr.ph.i.i.i ], [ %.060.i.i.i, %92 ], [ 0, %97 ]
@@ -6234,7 +6234,7 @@ nsphash_update_parameters.exit.i.i.i:             ; preds = %nsphash_compute_siz
   %.val58.i.i.i = load ptr, ptr %102, align 8
   %107 = getelementptr i8, ptr %102, i64 8
   %.val59.i.i.i = load i32, ptr %107, align 8
-  %108 = tail call fastcc i32 @spcachekey_hash(ptr %.val58.i.i.i, i32 %.val59.i.i.i)
+  %108 = tail call fastcc i32 @spcachekey_hash(ptr readonly %.val58.i.i.i, i32 %.val59.i.i.i)
   %.val53.i.i.i = load i32, ptr %46, align 4
   br label %109
 
@@ -6261,7 +6261,7 @@ nsphash_update_parameters.exit.i.i.i:             ; preds = %nsphash_compute_siz
   %120 = add i32 %.166.i.i.i, 1
   %121 = zext i32 %120 to i64
   %122 = icmp ugt i64 %51, %121
-  br i1 %122, label %.lr.ph68.i.i.i, label %nsphash_grow.exit.i.i, !llvm.loop !22
+  br i1 %122, label %.lr.ph68.i.i.i, label %nsphash_grow.exit.i.i, !llvm.loop !21
 
 nsphash_grow.exit.i.i:                            ; preds = %117, %nsphash_update_parameters.exit.i.i.i
   tail call void @pfree(ptr noundef %58) #18
@@ -6289,12 +6289,12 @@ nsphash_grow.exit.i.i:                            ; preds = %117, %nsphash_updat
   br i1 %135, label %spcachekey_equal.exit.i.i21, label %spcachekey_equal.exit.thread.i.i20
 
 spcachekey_equal.exit.i.i21:                      ; preds = %.lr.ph.i.i19
-  %136 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %39) #19
+  %136 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(1) %39) #19
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %nsphash_insert.exit, label %spcachekey_equal.exit.thread.i.i20
 
 spcachekey_equal.exit.thread.i.i20:               ; preds = %spcachekey_equal.exit.i.i21, %.lr.ph.i.i19
-  %138 = tail call fastcc i32 @spcachekey_hash(ptr %132, i32 %134)
+  %138 = tail call fastcc i32 @spcachekey_hash(ptr readonly %132, i32 %134)
   %139 = and i32 %138, %.val78.i.i
   %.not.i84.i.i = icmp ugt i32 %139, %.075121.i.i
   br i1 %.not.i84.i.i, label %140, label %nsphash_distance.exit.i.i
@@ -6368,7 +6368,7 @@ nsphash_distance.exit.i.i:                        ; preds = %140, %spcachekey_eq
   %174 = getelementptr %struct.SearchPathCacheEntry, ptr %124, i64 %173
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.074151.i.i, ptr noundef nonnull align 8 dereferenceable(40) %174, i64 40, i1 false)
   %.not77.i.i = icmp eq i32 %172, %.075121.i.i
-  br i1 %.not77.i.i, label %.sink.split.i.i, label %.lr.ph153.i.i, !llvm.loop !23
+  br i1 %.not77.i.i, label %.sink.split.i.i, label %.lr.ph153.i.i, !llvm.loop !22
 
 175:                                              ; preds = %nsphash_distance.exit.i.i
   %176 = add i32 %.076120.i.i, 1
@@ -6577,7 +6577,7 @@ define dso_local i32 @fetch_search_path_array(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_table_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_table_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6603,7 +6603,7 @@ define dso_local noundef i64 @pg_table_is_visible(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_type_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_type_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6629,7 +6629,7 @@ define dso_local noundef i64 @pg_type_is_visible(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_function_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_function_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6655,7 +6655,7 @@ define dso_local i64 @pg_function_is_visible(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_operator_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_operator_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6681,7 +6681,7 @@ define dso_local i64 @pg_operator_is_visible(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_opclass_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_opclass_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6707,7 +6707,7 @@ define dso_local i64 @pg_opclass_is_visible(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_opfamily_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_opfamily_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6733,7 +6733,7 @@ define dso_local i64 @pg_opfamily_is_visible(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_collation_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_collation_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -6783,7 +6783,7 @@ define dso_local i64 @pg_collation_is_visible(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_conversion_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_conversion_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6809,7 +6809,7 @@ define dso_local i64 @pg_conversion_is_visible(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_statistics_obj_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_statistics_obj_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6835,7 +6835,7 @@ define dso_local noundef i64 @pg_statistics_obj_is_visible(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_ts_parser_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_ts_parser_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6861,7 +6861,7 @@ define dso_local noundef i64 @pg_ts_parser_is_visible(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_ts_dict_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_ts_dict_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6887,7 +6887,7 @@ define dso_local noundef i64 @pg_ts_dict_is_visible(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_ts_template_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_ts_template_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6913,7 +6913,7 @@ define dso_local noundef i64 @pg_ts_template_is_visible(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_ts_config_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_ts_config_is_visible(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6939,14 +6939,14 @@ define dso_local noundef i64 @pg_ts_config_is_visible(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @pg_my_temp_schema(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define dso_local range(i64 0, 4294967296) i64 @pg_my_temp_schema(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
   %2 = load i32, ptr @myTempNamespace, align 4
   %3 = zext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_is_other_temp_schema(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_is_other_temp_schema(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -7092,7 +7092,7 @@ fasthash_accum_cstring_aligned.exit.i:            ; preds = %.lr.ph.i.i, %14
   %.sroa.33.0 = phi i64 [ %10, %14 ], [ %28, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi ptr [ %0, %14 ], [ %29, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i64 [ %19, %14 ], [ %34, %.lr.ph.i.i ]
-  %35 = tail call i64 @llvm.cttz.i64(i64 %.lcssa.i.i, i1 true), !range !20
+  %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa.i.i, i1 true)
   %36 = lshr i64 %35, 3
   switch i64 %36, label %default.unreachable [
     i64 0, label %fasthash_accum.exit14
@@ -7199,7 +7199,7 @@ fasthash_accum.exit14:                            ; preds = %fasthash_accum_cstr
 86:                                               ; preds = %83
   %87 = add nuw nsw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %87, 8
-  br i1 %exitcond.not.i.i, label %.critedge.i.i.thread, label %83, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %.critedge.i.i.thread, label %83, !llvm.loop !23
 
 .critedge.i.i:                                    ; preds = %83
   switch i64 %.014.i.i, label %._crit_edge26.i [
@@ -7293,7 +7293,7 @@ fasthash_accum.exit:                              ; preds = %.critedge.i.i, %._c
   %.sroa.33.3 = phi i64 [ %130, %._crit_edge26.i ], [ %.sroa.33.2, %.critedge.i.i ]
   %132 = getelementptr i8, ptr %.01216.i.i, i64 %.0.lcssa.i6.i36
   %.not.i7.i = icmp eq i8 %131, 0
-  br i1 %.not.i7.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !25
+  br i1 %.not.i7.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !24
 
 fasthash_accum_cstring.exit:                      ; preds = %fasthash_accum.exit, %fasthash_accum.exit14, %80
   %.sroa.33.4 = phi i64 [ %.sroa.33.1, %fasthash_accum.exit14 ], [ %10, %80 ], [ %.sroa.33.3, %fasthash_accum.exit ]
@@ -7385,9 +7385,8 @@ attributes #21 = { nounwind willreturn memory(none) }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i64 0, i64 65}
+!20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}

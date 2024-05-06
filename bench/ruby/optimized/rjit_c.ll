@@ -747,7 +747,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.711 = private unnamed_addr constant [26 x i8] c"RUBYVM_CFUNC_FRAME_P(cfp)\00", align 1
 @.str.712 = private unnamed_addr constant [38 x i8] c"me->def->type == VM_METHOD_TYPE_CFUNC\00", align 1
 @ruby_cmethod__return_semaphore = external global i16, section ".probes", align 2
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @rb_rjit_call_p = external local_unnamed_addr global i8, align 1
 @switch.table.builtin_inline_class_84 = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
 
@@ -758,7 +758,7 @@ define hidden void @Init_builtin_rjit_c() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @rjit_enabled_p(ptr nocapture readnone %0, i64 %1) #1 {
+define internal range(i64 0, 21) i64 @rjit_enabled_p(ptr nocapture readnone %0, i64 %1) #1 {
   %3 = load i8, ptr @rb_rjit_enabled, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -795,7 +795,7 @@ rb_ull2num_inline.exit:                           ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mprotect_write(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal range(i64 0, 21) i64 @mprotect_write(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = and i64 %2, 1
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %8, label %6
@@ -820,7 +820,7 @@ rb_num2ull_inline.exit:                           ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @mprotect_exec(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal range(i64 0, 21) i64 @mprotect_exec(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = and i64 %2, 1
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %8, label %6
@@ -924,7 +924,7 @@ rb_ull2num_inline.exit:                           ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_45(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_45(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -974,7 +974,7 @@ rb_num2int_inline.exit7:                          ; preds = %20, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_50(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_50(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1100,7 +1100,7 @@ rb_ull2num_inline.exit:                           ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_65(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_65(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1130,7 +1130,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_70(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_70(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1158,7 +1158,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_75(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_75(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1188,7 +1188,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_80(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_80(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1218,7 +1218,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @builtin_inline_class_84(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_84(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1279,7 +1279,7 @@ rb_type.exit.i:                                   ; preds = %switch.lookup, %26,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_89(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_89(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1308,7 +1308,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_93(ptr nocapture readnone %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_93(ptr nocapture readnone %0, i64 %1) #0 {
   %3 = tail call i32 @rb_shape_id_offset() #17
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 1
@@ -1317,7 +1317,7 @@ define internal i64 @builtin_inline_class_93(ptr nocapture readnone %0, i64 %1) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_97(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_97(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1367,7 +1367,7 @@ rb_num2ull_inline.exit9:                          ; preds = %20, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_106(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_106(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1399,7 +1399,7 @@ rb_num2ull_inline.exit:                           ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @builtin_inline_class_110(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_110(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1575,7 +1575,7 @@ define internal i64 @builtin_inline_class_137(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @builtin_inline_class_142(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_142(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1625,7 +1625,7 @@ imemo_type_p.exit.thread:                         ; preds = %rb_num2ull_inline.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_147(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_147(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1653,7 +1653,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_155(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_155(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2069,7 +2069,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_229(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_229(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2114,7 +2114,7 @@ vm_ci_argc.exit:                                  ; preds = %15, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_234(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_234(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2303,7 +2303,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_263(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_263(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -3014,7 +3014,7 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_318(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_318(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -3044,7 +3044,7 @@ rb_num2ull_inline.exit:                           ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_323(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_323(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -7750,7 +7750,7 @@ declare i64 @rb_str_concat_literals(i64 noundef, ptr noundef) #5
 declare i64 @rb_str_dup(i64 noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_str_eql_internal(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @rb_str_eql_internal(i64 noundef %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -8310,7 +8310,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @rb_profile_frames(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rjit_str_neq_internal(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @rjit_str_neq_internal(i64 noundef %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8

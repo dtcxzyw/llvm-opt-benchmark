@@ -682,7 +682,7 @@ declare noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 de
 declare void @_ZNK6casadi8Sparsity3ldlERSt6vectorIxSaIxEEb(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi9LinsolLdl8init_memEPv(ptr noundef nonnull align 8 dereferenceable(218) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi9LinsolLdl8init_memEPv(ptr noundef nonnull align 8 dereferenceable(218) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @_ZNK6casadi14LinsolInternal8init_memEPv(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit11

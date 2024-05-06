@@ -68,7 +68,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_call_usermodehelper517, ptr @__UNIQUE_ID___addressable_call_usermodehelper_exec516, ptr @__UNIQUE_ID___addressable_call_usermodehelper_setup515, ptr @__UNIQUE_ID___addressable_init_umh_sysctls519, ptr @__UNIQUE_ID___addressable_usermodehelper_read_lock_wait513, ptr @__UNIQUE_ID___addressable_usermodehelper_read_trylock512, ptr @__UNIQUE_ID___addressable_usermodehelper_read_unlock514, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @usermodehelper_read_trylock() #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @usermodehelper_read_trylock() #0 align 16 {
   %1 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #10
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -227,7 +227,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__usermodehelper_disable(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__usermodehelper_disable(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %25, label %4
@@ -756,7 +756,7 @@ declare void @llvm.assume(i1 noundef) #8
 declare dso_local void @__register_sysctl_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_cap_handler(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @proc_cap_handler(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = alloca %struct.ctl_table, align 8
   %7 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10

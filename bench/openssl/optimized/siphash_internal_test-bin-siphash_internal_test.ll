@@ -42,7 +42,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_siphash_basic() #0 {
+define internal range(i32 0, 2) i32 @test_siphash_basic() #0 {
 entry:
   %siphash = alloca %struct.siphash_st, align 8
   %key = alloca [16 x i8], align 16
@@ -168,7 +168,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_siphash(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_siphash(i32 noundef %idx) #0 {
 entry:
   %siphash = alloca %struct.siphash_st, align 8
   %test = alloca %struct.TESTDATA, align 8
@@ -204,7 +204,7 @@ for.cond14.preheader:                             ; preds = %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
   %i.054 = phi i64 [ %inc, %for.body ], [ 0, %if.end ]
-  %conv12 = trunc i64 %i.054 to i8
+  %conv12 = trunc nuw nsw i64 %i.054 to i8
   %arrayidx13 = getelementptr inbounds [16 x i8], ptr %key, i64 0, i64 %i.054
   store i8 %conv12, ptr %arrayidx13, align 1
   %inc = add nuw nsw i64 %i.054, 1

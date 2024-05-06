@@ -193,7 +193,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #5 sect
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i64 @read_classid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
+define internal range(i64 0, 4294967296) i64 @read_classid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64

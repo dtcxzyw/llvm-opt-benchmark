@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PGEventResultCreate = type { ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PGEventRegister, align 8
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %0, null
@@ -159,7 +159,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @PQsetInstanceData(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @PQsetInstanceData(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -241,7 +241,7 @@ define ptr @PQinstanceData(ptr noundef readonly %0, ptr noundef readnone %1) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @PQresultSetInstanceData(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @PQresultSetInstanceData(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -323,7 +323,7 @@ define ptr @PQresultInstanceData(ptr noundef readonly %0, ptr noundef readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PGEventResultCreate, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader

@@ -337,7 +337,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -1073741825, 1073741824) i32 @_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
   %.not22 = icmp sgt i32 %1, %2
   br i1 %.not22, label %._crit_edge25, label %.lr.ph
 

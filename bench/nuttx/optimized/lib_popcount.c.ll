@@ -4,8 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @popcount(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @llvm.ctpop.i32(i32 %0), !range !6
+define range(i32 0, 33) i32 @popcount(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   ret i32 %2
 }
 
@@ -23,4 +23,3 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 0, i32 33}

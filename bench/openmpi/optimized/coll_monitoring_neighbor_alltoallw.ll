@@ -51,7 +51,7 @@ define i32 @mca_coll_monitoring_neighbor_alltoallw(ptr noundef %0, ptr noundef %
   br i1 %.not, label %.thread, label %148
 
 36:                                               ; preds = %25
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = call i32 @mca_topo_base_cart_shift(ptr noundef %8, i32 noundef %37, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %14) #3
   %.pre = load i32, ptr %13, align 4
   %.not48 = icmp eq i32 %.pre, -2
@@ -327,7 +327,7 @@ define i32 @mca_coll_monitoring_ineighbor_alltoallw(ptr noundef %0, ptr noundef 
   br i1 %.not, label %.thread, label %149
 
 37:                                               ; preds = %26
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = call i32 @mca_topo_base_cart_shift(ptr noundef %8, i32 noundef %38, i32 noundef 1, ptr noundef nonnull %14, ptr noundef nonnull %15) #3
   %.pre = load i32, ptr %14, align 4
   %.not49 = icmp eq i32 %.pre, -2

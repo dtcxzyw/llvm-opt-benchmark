@@ -917,7 +917,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.22 = private unnamed_addr constant [6 x i8] c"N(O)n\00", align 1
 @.str.23 = private unnamed_addr constant [6 x i8] c"N(())\00", align 1
 @_Py_NoneStruct = external global %struct._object, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyTuple_New(i64 noundef %size) local_unnamed_addr #0 {
@@ -1080,7 +1080,7 @@ return:                                           ; preds = %if.end5, %if.then4,
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyTuple_SetItem(ptr nocapture noundef %op, i64 noundef %i, ptr noundef %newitem) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyTuple_SetItem(ptr nocapture noundef %op, i64 noundef %i, ptr noundef %newitem) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val9 = load ptr, ptr %0, align 8
@@ -2310,7 +2310,7 @@ return:                                           ; preds = %if.end8, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyTuple_Resize(ptr nocapture noundef %pv, i64 noundef %newsize) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyTuple_Resize(ptr nocapture noundef %pv, i64 noundef %newsize) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pv, align 8
   %cmp = icmp eq ptr %0, null

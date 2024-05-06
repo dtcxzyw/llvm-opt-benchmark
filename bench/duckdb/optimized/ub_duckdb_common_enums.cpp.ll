@@ -648,7 +648,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb21CatalogTypeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 32) i8 @_ZN6duckdb21CatalogTypeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp49 = alloca %"class.std::allocator", align 1
@@ -1317,7 +1317,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb25CompressionTypeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN6duckdb25CompressionTypeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %compression = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %compression) #18
@@ -3314,7 +3314,7 @@ unreachable:                                      ; preds = %invoke.cont7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN6duckdb24OperatorToExpressionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %op) local_unnamed_addr #2 {
+define noundef zeroext range(i8 0, 31) i8 @_ZN6duckdb24OperatorToExpressionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %op) local_unnamed_addr #2 {
 entry:
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %op, ptr noundef nonnull @.str.201) #18
   %cmp.i = icmp eq i32 %call.i, 0
@@ -3362,7 +3362,7 @@ return:                                           ; preds = %if.else15, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb29FileCompressionTypeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %input) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 4) i8 @_ZN6duckdb29FileCompressionTypeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %input) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %parameter = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

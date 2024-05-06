@@ -23,7 +23,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_aes_decrypt:
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_aes_decrypt307, ptr @__UNIQUE_ID___addressable_aes_encrypt306, ptr @__UNIQUE_ID___addressable_aes_expandkey305, ptr @__UNIQUE_ID___addressable_crypto_aes_inv_sbox304, ptr @__UNIQUE_ID___addressable_crypto_aes_sbox303, ptr @__UNIQUE_ID_author309, ptr @__UNIQUE_ID_description308, ptr @__UNIQUE_ID_file310, ptr @__UNIQUE_ID_license311], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @aes_expandkey(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = lshr i32 %2, 2
   switch i32 %2, label %308 [
     i32 16, label %5

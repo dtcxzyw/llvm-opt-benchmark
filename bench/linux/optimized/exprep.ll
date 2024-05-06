@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [31 x i8] c"Unknown field access type 0x%X\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_prep_common_field_object(ptr nocapture noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_prep_common_field_object(ptr nocapture noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 13
   store i8 %1, ptr %6, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 14
@@ -261,7 +261,7 @@ define dso_local i32 @acpi_ex_prep_field_value(ptr nocapture noundef readonly %0
 
 108:                                              ; preds = %105
   %109 = lshr i32 %106, 3
-  %110 = trunc i32 %109 to i8
+  %110 = trunc nuw i32 %109 to i8
   store i8 %110, ptr %47, align 1
   br label %157
 

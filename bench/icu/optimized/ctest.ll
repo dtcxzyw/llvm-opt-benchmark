@@ -232,7 +232,7 @@ getNextLevel.exit32.i:                            ; preds = %if.else.i29.i, %if.
   %call.i33.i = tail call noalias ptr @malloc(i64 noundef %add1.i.i) #24
   %name2.i.i = getelementptr inbounds i8, ptr %call.i33.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i33.i, i8 0, i64 24, i1 false)
-  %call4.i.i = tail call ptr @strncpy(ptr noundef nonnull %name2.i.i, ptr noundef nonnull %name.addr.2.i, i64 noundef %4) #23
+  %call4.i.i = tail call ptr @strncpy(ptr noundef nonnull %name2.i.i, ptr noundef nonnull readonly %name.addr.2.i, i64 noundef %4) #23
   %arrayidx.i.i = getelementptr inbounds [1 x i8], ptr %name2.i.i, i64 0, i64 %4
   store i8 0, ptr %arrayidx.i.i, align 1
   %child5.i = getelementptr inbounds i8, ptr %curNode.1.i, i64 16
@@ -243,7 +243,7 @@ getNextLevel.exit32.i:                            ; preds = %if.else.i29.i, %if.
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
   %nextNode.0.i = phi ptr [ %6, %while.body.i ], [ %3, %while.cond.preheader.i ]
   %name10.i = getelementptr inbounds i8, ptr %nextNode.0.i, i64 24
-  %call.i34.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name10.i) #25
+  %call.i34.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name10.i) #25
   %conv.i35.i = trunc i64 %call.i34.i to i32
   %cmp.not.i36.i = icmp slt i32 %conv.i35.i, %nameLen.0.i
   br i1 %cmp.not.i36.i, label %strncmp_nullcheck.exit.i, label %land.lhs.true.i.i
@@ -255,7 +255,7 @@ land.lhs.true.i.i:                                ; preds = %while.cond.i
   br i1 %cmp3.not.i.i, label %strncmp_nullcheck.exit.i, label %while.body.i
 
 strncmp_nullcheck.exit.i:                         ; preds = %land.lhs.true.i.i, %while.cond.i
-  %call6.i.i = tail call i32 @strncmp(ptr noundef %name.addr.1.i, ptr noundef nonnull %name10.i, i64 noundef %.pre.i.i) #25
+  %call6.i.i = tail call i32 @strncmp(ptr noundef readonly %name.addr.1.i, ptr noundef nonnull readonly %name10.i, i64 noundef %.pre.i.i) #25
   %cmp12.not.i = icmp eq i32 %call6.i.i, 0
   br i1 %cmp12.not.i, label %while.end.i, label %while.body.i
 
@@ -271,7 +271,7 @@ if.then16.i:                                      ; preds = %while.body.i
   %call.i40.i = tail call noalias ptr @malloc(i64 noundef %add1.i39.i) #24
   %name2.i41.i = getelementptr inbounds i8, ptr %call.i40.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i40.i, i8 0, i64 24, i1 false)
-  %call4.i42.i = tail call ptr @strncpy(ptr noundef nonnull %name2.i41.i, ptr noundef %name.addr.1.i, i64 noundef %.pre.i.i) #23
+  %call4.i42.i = tail call ptr @strncpy(ptr noundef nonnull %name2.i41.i, ptr noundef readonly %name.addr.1.i, i64 noundef %.pre.i.i) #23
   %arrayidx.i43.i = getelementptr inbounds [1 x i8], ptr %name2.i41.i, i64 0, i64 %.pre.i.i
   store i8 0, ptr %arrayidx.i43.i, align 1
   store ptr %call.i40.i, ptr %sibling.i.le, align 8
@@ -939,7 +939,7 @@ while.cond.preheader:                             ; preds = %getNextLevel.exit
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
   %nextNode.0 = phi ptr [ %3, %while.body ], [ %1, %while.cond.preheader ]
   %name9 = getelementptr inbounds i8, ptr %nextNode.0, i64 24
-  %call.i13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name9) #25
+  %call.i13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name9) #25
   %conv.i14 = trunc i64 %call.i13 to i32
   %cmp.not.i15 = icmp slt i32 %conv.i14, %nameLen.0
   br i1 %cmp.not.i15, label %strncmp_nullcheck.exit, label %land.lhs.true.i
@@ -951,7 +951,7 @@ land.lhs.true.i:                                  ; preds = %while.cond
   br i1 %cmp3.not.i, label %strncmp_nullcheck.exit, label %while.body
 
 strncmp_nullcheck.exit:                           ; preds = %while.cond, %land.lhs.true.i
-  %call6.i = tail call i32 @strncmp(ptr noundef %name.addr.1, ptr noundef nonnull %name9, i64 noundef %.pre.i) #25
+  %call6.i = tail call i32 @strncmp(ptr noundef readonly %name.addr.1, ptr noundef nonnull readonly %name9, i64 noundef %.pre.i) #25
   %cmp10.not = icmp eq i32 %call6.i, 0
   br i1 %cmp10.not, label %while.end, label %while.body
 
@@ -1251,7 +1251,7 @@ first_line_verbose.exit.i:                        ; preds = %if.then5.i.i.i, %if
   %3 = load i32, ptr @INDENT_LEVEL, align 4
   %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %3, ptr noundef nonnull @.str)
   %4 = load ptr, ptr @stdout, align 8
-  %call4.i = call i32 @vfprintf(ptr noundef %4, ptr noundef %pattern, ptr noundef nonnull %ap)
+  %call4.i = call i32 @vfprintf(ptr noundef %4, ptr noundef readonly %pattern, ptr noundef nonnull %ap)
   %5 = load ptr, ptr @stdout, align 8
   %call5.i = call i32 @fflush(ptr noundef %5)
   %6 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4
@@ -1262,7 +1262,7 @@ first_line_verbose.exit.i:                        ; preds = %if.then5.i.i.i, %if
   br i1 %cmp6.i, label %if.end13.sink.split.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %first_line_verbose.exit.i
-  %call8.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pattern) #25
+  %call8.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pattern) #25
   %8 = getelementptr i8, ptr %pattern, i64 %call8.i
   %arrayidx.i = getelementptr i8, ptr %8, i64 -1
   %9 = load i8, ptr %arrayidx.i, align 1

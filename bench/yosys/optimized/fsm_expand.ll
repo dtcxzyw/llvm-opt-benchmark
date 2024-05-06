@@ -51695,7 +51695,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm(ptr
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN5Yosys5RTLIL5StateEmS2_ET_S4_T0_RSaIT1_E.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 %11
+  %23 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPN5Yosys5RTLIL5StateEmS2_ET_S4_T0_RSaIT1_E.exit.i
 

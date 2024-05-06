@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [38 x i8] c"Support for USB devices not built-in\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @usbdevice_create(ptr nocapture noundef readnone %driver) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @usbdevice_create(ptr nocapture noundef readnone %driver) local_unnamed_addr #0 {
 entry:
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str) #2
   ret ptr null
@@ -18,7 +18,7 @@ entry:
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qmp_x_query_usb(ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_x_query_usb(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 26, ptr noundef nonnull @__func__.qmp_x_query_usb, ptr noundef nonnull @.str) #2
   ret ptr null

@@ -1517,7 +1517,7 @@ define noundef zeroext i1 @_ZN7jsonnet8internal16is_bmp_codepointEm(i64 noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i32 @_ZN7jsonnet8internal23decode_utf16_surrogatesERKNS0_13LocationRangeEmm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i32 65536, 1114112) i32 @_ZN7jsonnet8internal23decode_utf16_surrogatesERKNS0_13LocationRangeEmm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string.0", align 8
   %6 = and i64 %1, -1024
@@ -2041,7 +2041,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit100: ; preds =
 
 175:                                              ; preds = %172
   %176 = invoke noundef zeroext i32 @_ZN7jsonnet8internal23decode_utf16_surrogatesERKNS0_13LocationRangeEmm(ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %127, i64 noundef %174)
-          to label %177 unwind label %.loopexit, !range !18
+          to label %177 unwind label %.loopexit
 
 177:                                              ; preds = %175
   %178 = getelementptr inbounds i8, ptr %.039, i64 44
@@ -2225,7 +2225,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit108: ; preds =
   %239 = getelementptr inbounds i32, ptr %238, i64 %.sink
   store i32 0, ptr %239, align 4
   %240 = getelementptr inbounds i8, ptr %.2, i64 4
-  br label %16, !llvm.loop !19
+  br label %16, !llvm.loop !18
 
 241:                                              ; preds = %16
   ret void
@@ -2638,5 +2638,4 @@ attributes #19 = { noreturn nounwind }
 !15 = distinct !{!15, !11}
 !16 = distinct !{!16, !11}
 !17 = distinct !{!17, !11}
-!18 = !{i32 65536, i32 1114112}
-!19 = distinct !{!19, !11}
+!18 = distinct !{!18, !11}

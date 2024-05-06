@@ -990,7 +990,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
   %55 = phi i16 [ %47, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.thread.i.i.i.i.i ], [ %54, %while.end.i.i.i.i.i.i ]
   %retval.0.i4192228.i.i.i.i.i = phi i64 [ 1, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.thread.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %while.end.i.i.i.i.i.i ]
   %56 = lshr i16 %55, 8
-  %conv8.i.i.i.i.i.i = trunc i16 %56 to i8
+  %conv8.i.i.i.i.i.i = trunc nuw i16 %56 to i8
   store i8 %conv8.i.i.i.i.i.i, ptr %incdec.ptr1.i.i.i, align 2, !tbaa !47
   br label %_ZN5folly14to_ascii_lowerILm16EEEmPcPKcm.exit.i.i.i
 
@@ -1128,7 +1128,7 @@ if.else.i.i.i.i179.i.i:                           ; preds = %while.end.i.i.i.i17
   %74 = phi i16 [ %66, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.thread.i.i.i198.i.i ], [ %73, %while.end.i.i.i.i174.i.i ]
   %retval.0.i4192228.i.i.i180.i.i = phi i64 [ 1, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.thread.i.i.i198.i.i ], [ %add.i.i.i.i170.i.i, %while.end.i.i.i.i174.i.i ]
   %75 = lshr i16 %74, 8
-  %conv8.i.i.i.i181.i.i = trunc i16 %75 to i8
+  %conv8.i.i.i.i181.i.i = trunc nuw i16 %75 to i8
   store i8 %conv8.i.i.i.i181.i.i, ptr %incdec.ptr1.i162.i.i, align 2, !tbaa !47
   br label %_ZN5folly14to_ascii_lowerILm16EEEmPcPKcm.exit.i182.i.i
 
@@ -1769,7 +1769,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !47
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 

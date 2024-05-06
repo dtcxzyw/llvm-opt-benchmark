@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [7 x i8] c"%s: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str) #16
@@ -255,7 +255,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph26.i:                                       ; preds = %.lr.ph29.i
   %91 = getelementptr inbounds i8, ptr %87, i64 24
-  %92 = trunc i64 %indvars.iv76.i to i32
+  %92 = trunc nuw nsw i64 %indvars.iv76.i to i32
   br label %93
 
 93:                                               ; preds = %93, %.lr.ph26.i
@@ -516,7 +516,7 @@ check_testspec.exit:                              ; preds = %196, %._crit_edge45
   br i1 %.not45, label %229, label %221
 
 221:                                              ; preds = %214
-  %222 = trunc i64 %indvars.iv to i32
+  %222 = trunc nuw nsw i64 %indvars.iv to i32
   %223 = load ptr, ptr @stderr, align 8
   %224 = load ptr, ptr @conns, align 8
   %225 = getelementptr %struct.IsoConnInfo, ptr %224, i64 %indvars.iv
@@ -749,8 +749,8 @@ declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #4
 
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #1
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @disconnect_atexit() #0 {

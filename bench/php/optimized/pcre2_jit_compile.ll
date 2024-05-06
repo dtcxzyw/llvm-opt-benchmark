@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.generate_far_jump_code = private unnamed_addr constant [36 x i8] c"turswv|}\7F~pqrstuturswvz{z{wvwvtursrs", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_pcre2_jit_compile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @php_pcre2_jit_compile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %62, label %4
 
@@ -129,7 +129,7 @@ define noundef i32 @php_pcre2_jit_compile(ptr noundef %0, i32 noundef %1) local_
 
 36:                                               ; preds = %33, %31
   %37 = and i32 %spec.select, 257
-  %38 = tail call fastcc i32 @jit_compile(ptr noundef nonnull %0, i32 noundef %37), !range !4
+  %38 = tail call fastcc i32 @jit_compile(ptr noundef nonnull %0, i32 noundef %37)
   %.not51 = icmp eq i32 %38, 0
   br i1 %.not51, label %39, label %62
 
@@ -150,7 +150,7 @@ define noundef i32 @php_pcre2_jit_compile(ptr noundef %0, i32 noundef %1) local_
 
 47:                                               ; preds = %43, %41
   %48 = and i32 %spec.select, 258
-  %49 = tail call fastcc i32 @jit_compile(ptr noundef nonnull %0, i32 noundef %48), !range !4
+  %49 = tail call fastcc i32 @jit_compile(ptr noundef nonnull %0, i32 noundef %48)
   %.not53 = icmp eq i32 %49, 0
   br i1 %.not53, label %50, label %62
 
@@ -171,7 +171,7 @@ define noundef i32 @php_pcre2_jit_compile(ptr noundef %0, i32 noundef %1) local_
 
 58:                                               ; preds = %54, %52
   %59 = and i32 %spec.select, 260
-  %60 = tail call fastcc i32 @jit_compile(ptr noundef nonnull %0, i32 noundef %59), !range !4
+  %60 = tail call fastcc i32 @jit_compile(ptr noundef nonnull %0, i32 noundef %59)
   %.not55 = icmp eq i32 %60, 0
   br i1 %.not55, label %61, label %62
 
@@ -469,7 +469,7 @@ sljit_remove_free_block.exit41:                   ; preds = %55, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @jit_compile(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -48, 1) i32 @jit_compile(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.backtrack_common, align 8
   %4 = alloca [4 x i32], align 16
   %5 = alloca ptr, align 8
@@ -1929,7 +1929,7 @@ find_vreverse.exit.i:                             ; preds = %643
   br label %get_class_iterator_size.exit.i
 
 774:                                              ; preds = %601
-  %775 = call fastcc ptr @next_opcode(ptr noundef nonnull %8, ptr noundef nonnull %.0110226.i)
+  %775 = call fastcc ptr @next_opcode(ptr noundef nonnull readonly %8, ptr noundef nonnull %.0110226.i)
   br label %.thread192.i
 
 get_class_iterator_size.exit.i:                   ; preds = %764, %761, %750, %738, %738, %728, %725, %714, %711, %711, %710, %707, %704, %703, %702, %701, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601
@@ -2143,7 +2143,7 @@ set_private_data_ptrs.exit:                       ; preds = %.thread192.i, %419
 861:                                              ; preds = %854
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 0, ptr %6, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !4
   %862 = load i32, ptr %6, align 16
   %863 = icmp ugt i32 %862, 6
   br i1 %863, label %.thread.i.i.i, label %870
@@ -2152,7 +2152,7 @@ set_private_data_ptrs.exit:                       ; preds = %.thread192.i, %419
   store i32 7, ptr %6, align 16
   %864 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %864, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !4
   %865 = getelementptr inbounds i8, ptr %6, i64 4
   %866 = load i32, ptr %865, align 4
   %867 = and i32 %866, 8
@@ -2170,7 +2170,7 @@ set_private_data_ptrs.exit:                       ; preds = %.thread192.i, %419
 871:                                              ; preds = %870, %.thread.i.i.i
   %.121.i.i.i = phi i32 [ %spec.select17.i.i.i, %.thread.i.i.i ], [ 1, %870 ]
   store i32 1, ptr %6, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !4
   %872 = getelementptr inbounds i8, ptr %6, i64 8
   %873 = load i32, ptr %872, align 8
   %874 = lshr i32 %873, 17
@@ -2191,7 +2191,7 @@ init_compiler.exit.i:                             ; preds = %871, %870
   store i32 -2147483647, ptr %6, align 16
   %882 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %882, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !4
   %883 = load i32, ptr %882, align 8
   %884 = lshr i32 %883, 2
   %885 = and i32 %884, 8
@@ -2424,7 +2424,7 @@ emit_mov.exit.thread.i:                           ; preds = %974
 
 sljit_emit_op1.exit.i:                            ; preds = %emit_mov.exit.thread.i, %974, %.lr.ph.split.i
   %exitcond.not.i = icmp eq i32 %.0121.i, %971
-  br i1 %exitcond.not.i, label %reset_ovector.exit, label %.lr.ph.splitthread-pre-split.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %reset_ovector.exit, label %.lr.ph.splitthread-pre-split.i, !llvm.loop !5
 
 980:                                              ; preds = %sljit_emit_op2.exit.i
   %981 = load i32, ptr %115, align 4
@@ -3001,7 +3001,7 @@ sljit_emit_op1.exit49.i813:                       ; preds = %emit_mov.exit1617, 
   %1187 = phi i32 [ %.pre106.i, %emit_mov.exit1617 ], [ %1182, %.lr.ph.split.i811 ]
   %1188 = add i32 %.036103.i, 8
   %1189 = icmp slt i32 %1188, %1187
-  br i1 %1189, label %.lr.ph.splitthread-pre-split.i814, label %reset_early_fail.exit, !llvm.loop !8
+  br i1 %1189, label %.lr.ph.splitthread-pre-split.i814, label %reset_early_fail.exit, !llvm.loop !7
 
 1190:                                             ; preds = %sljit_emit_op1.exit44.i
   %1191 = sext i32 %1172 to i64
@@ -4513,7 +4513,7 @@ mainloop_entry.exit:                              ; preds = %sljit_set_label.exi
   br i1 %331, label %1779, label %1781
 
 1779:                                             ; preds = %1778
-  %1780 = call fastcc i32 @fast_forward_first_n_chars(ptr noundef nonnull %8), !range !9
+  %1780 = call fastcc i32 @fast_forward_first_n_chars(ptr noundef nonnull %8)
   %.not624 = icmp eq i32 %1780, 0
   br i1 %.not624, label %1781, label %.thread1833
 
@@ -4784,7 +4784,7 @@ sljit_emit_op2.exit68.i:                          ; preds = %emit_mov.exit125.i,
 1896:                                             ; preds = %1893
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 0, ptr %4, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !4
   %1897 = load i32, ptr %4, align 16
   %1898 = icmp ugt i32 %1897, 6
   br i1 %1898, label %.thread.i35.i.i, label %1905
@@ -4793,7 +4793,7 @@ sljit_emit_op2.exit68.i:                          ; preds = %emit_mov.exit125.i,
   store i32 7, ptr %4, align 16
   %1899 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %1899, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !4
   %1900 = getelementptr inbounds i8, ptr %4, i64 4
   %1901 = load i32, ptr %1900, align 4
   %1902 = and i32 %1901, 8
@@ -4811,7 +4811,7 @@ sljit_emit_op2.exit68.i:                          ; preds = %emit_mov.exit125.i,
 1906:                                             ; preds = %1905, %.thread.i35.i.i
   %.121.i29.i.i = phi i32 [ %spec.select17.i38.i.i, %.thread.i35.i.i ], [ 1, %1905 ]
   store i32 1, ptr %4, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !4
   %1907 = getelementptr inbounds i8, ptr %4, i64 8
   %1908 = load i32, ptr %1907, align 8
   %1909 = lshr i32 %1908, 17
@@ -4832,7 +4832,7 @@ get_cpu_features.exit39.i.i:                      ; preds = %1906, %1905
   store i32 -2147483647, ptr %4, align 16
   %1917 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %1917, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !4
   %1918 = load i32, ptr %1917, align 8
   %1919 = lshr i32 %1918, 2
   %1920 = and i32 %1919, 8
@@ -4857,7 +4857,7 @@ sljit_has_cpu_feature.exit.i:                     ; preds = %get_cpu_features.ex
 1926:                                             ; preds = %1923
   %1927 = xor i32 %.055.i, %1813
   %1928 = and i32 %1927, 255
-  %1929 = call i32 @llvm.ctpop.i32(i32 %1928), !range !10
+  %1929 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1928)
   %1930 = icmp ugt i32 %1929, 1
   %spec.select.i.i = select i1 %1930, i32 2, i32 1
   %spec.select92.i.i = select i1 %1930, i32 0, i32 %1928
@@ -6206,7 +6206,7 @@ sljit_emit_op1.exit83.i:                          ; preds = %emit_mov_byte.exit.
 
 2520:                                             ; preds = %sljit_emit_op1.exit83.i
   %2521 = xor i32 %.055.i, %1868
-  %2522 = call i32 @llvm.ctpop.i32(i32 %2521), !range !10
+  %2522 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2521)
   %2523 = icmp ugt i32 %2522, 1
   br i1 %2523, label %2533, label %2524
 
@@ -9400,7 +9400,7 @@ recurse_check_bit.exit332.thread.i.i:             ; preds = %get_class_iterator_
   br label %3938
 
 3936:                                             ; preds = %.lr.ph.i.i1224
-  %3937 = call fastcc ptr @next_opcode(ptr noundef nonnull %8, ptr noundef nonnull %.0183371.i.i)
+  %3937 = call fastcc ptr @next_opcode(ptr noundef nonnull readonly %8, ptr noundef nonnull %.0183371.i.i)
   br label %3938
 
 3938:                                             ; preds = %3936, %3933, %3930, %3923, %3920, %3911, %recurse_check_bit.exit332.thread.i.i, %3846, %3824, %3802, %3775, %3771, %3768, %3741, %3737, %3734, %3707, %3703, %3700, %3678, %3645, %3569, %3507, %3486, %3454, %3433
@@ -14374,7 +14374,7 @@ ensure_buf.exit:                                  ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fast_forward_first_n_chars(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fast_forward_first_n_chars(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [4 x i32], align 16
   %3 = alloca [12 x %struct.fast_forward_char_data], align 16
   %4 = alloca i32, align 4
@@ -14430,7 +14430,7 @@ define internal fastcc noundef i32 @fast_forward_first_n_chars(ptr noundef %0) u
   %27 = getelementptr inbounds i8, ptr %14, i64 3
   %28 = load i8, ptr %27, align 1
   %29 = xor i8 %28, %26
-  %30 = call i8 @llvm.ctpop.i8(i8 %29), !range !11
+  %30 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %29)
   %31 = icmp ugt i8 %30, 1
   %32 = getelementptr inbounds i8, ptr %14, i64 1
   %33 = load i8, ptr %32, align 1
@@ -14467,7 +14467,7 @@ define internal fastcc noundef i32 @fast_forward_first_n_chars(ptr noundef %0) u
 47:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i32 0, ptr %2, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %48 = load i32, ptr %2, align 16
   %49 = icmp ugt i32 %48, 6
   br i1 %49, label %.thread.i35.i, label %56
@@ -14476,7 +14476,7 @@ define internal fastcc noundef i32 @fast_forward_first_n_chars(ptr noundef %0) u
   store i32 7, ptr %2, align 16
   %50 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %50, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %51 = getelementptr inbounds i8, ptr %2, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 8
@@ -14494,7 +14494,7 @@ define internal fastcc noundef i32 @fast_forward_first_n_chars(ptr noundef %0) u
 57:                                               ; preds = %56, %.thread.i35.i
   %.121.i29.i = phi i32 [ %spec.select17.i38.i, %.thread.i35.i ], [ 1, %56 ]
   store i32 1, ptr %2, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = lshr i32 %59, 17
@@ -14515,7 +14515,7 @@ get_cpu_features.exit39.i:                        ; preds = %57, %56
   store i32 -2147483647, ptr %2, align 16
   %68 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %68, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %69 = load i32, ptr %68, align 8
   %70 = lshr i32 %69, 2
   %71 = and i32 %70, 8
@@ -15472,7 +15472,7 @@ sljit_emit_op2.exit256:                           ; preds = %emit_mov_byte.exit3
   %477 = getelementptr inbounds i8, ptr %468, i64 3
   %478 = load i8, ptr %477, align 1
   %479 = xor i8 %478, %472
-  %480 = call i8 @llvm.ctpop.i8(i8 %479), !range !11
+  %480 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %479)
   %481 = icmp ugt i8 %480, 1
   br i1 %481, label %492, label %482
 
@@ -15959,7 +15959,7 @@ sljit_emit_op1.exit125:                           ; preds = %sljit_emit_op1.exit
 50:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i32 0, ptr %3, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !4
   %51 = load i32, ptr %3, align 16
   %52 = icmp ugt i32 %51, 6
   br i1 %52, label %.thread.i35.i, label %59
@@ -15968,7 +15968,7 @@ sljit_emit_op1.exit125:                           ; preds = %sljit_emit_op1.exit
   store i32 7, ptr %3, align 16
   %53 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %53, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !4
   %54 = getelementptr inbounds i8, ptr %3, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 8
@@ -15986,7 +15986,7 @@ sljit_emit_op1.exit125:                           ; preds = %sljit_emit_op1.exit
 60:                                               ; preds = %59, %.thread.i35.i
   %.121.i29.i = phi i32 [ %spec.select17.i38.i, %.thread.i35.i ], [ 1, %59 ]
   store i32 1, ptr %3, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !4
   %61 = getelementptr inbounds i8, ptr %3, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = lshr i32 %62, 17
@@ -16007,7 +16007,7 @@ get_cpu_features.exit39.i:                        ; preds = %60, %59
   store i32 -2147483647, ptr %3, align 16
   %71 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %71, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !4
   %72 = load i32, ptr %71, align 8
   %73 = lshr i32 %72, 2
   %74 = and i32 %73, 8
@@ -16643,7 +16643,7 @@ sljit_emit_op2.exit210:                           ; preds = %328, %326, %331, %3
 339:                                              ; preds = %sljit_emit_op2.exit210
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i32 0, ptr %2, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %340 = load i32, ptr %2, align 16
   %341 = icmp ugt i32 %340, 6
   br i1 %341, label %.thread.i35.i221, label %348
@@ -16652,7 +16652,7 @@ sljit_emit_op2.exit210:                           ; preds = %328, %326, %331, %3
   store i32 7, ptr %2, align 16
   %342 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %342, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %343 = getelementptr inbounds i8, ptr %2, i64 4
   %344 = load i32, ptr %343, align 4
   %345 = and i32 %344, 8
@@ -16670,7 +16670,7 @@ sljit_emit_op2.exit210:                           ; preds = %328, %326, %331, %3
 349:                                              ; preds = %348, %.thread.i35.i221
   %.121.i29.i214 = phi i32 [ %spec.select17.i38.i224, %.thread.i35.i221 ], [ 1, %348 ]
   store i32 1, ptr %2, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %350 = getelementptr inbounds i8, ptr %2, i64 8
   %351 = load i32, ptr %350, align 8
   %352 = lshr i32 %351, 17
@@ -16691,7 +16691,7 @@ get_cpu_features.exit39.i218:                     ; preds = %349, %348
   store i32 -2147483647, ptr %2, align 16
   %360 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %360, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %361 = load i32, ptr %360, align 8
   %362 = lshr i32 %361, 2
   %363 = and i32 %362, 8
@@ -17524,7 +17524,7 @@ sljit_emit_op2.exit59:                            ; preds = %emit_mov_byte.exit,
   %107 = load i8, ptr %106, align 1
   %.lobit = lshr i8 %107, 7
   %108 = zext nneg i8 %.lobit to i32
-  %109 = call fastcc i32 @optimize_class(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %108, i32 noundef 0, ptr noundef nonnull %2), !range !9
+  %109 = call fastcc i32 @optimize_class(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %108, i32 noundef 0, ptr noundef nonnull %2)
   %.not39 = icmp eq i32 %109, 0
   br i1 %.not39, label %110, label %268
 
@@ -18305,7 +18305,7 @@ sljit_alloc_memory.exit.i:                        ; preds = %42, %33
   %52 = sub i64 %17, %51
   %53 = getelementptr inbounds i8, ptr %.0.i.ph.i, i64 48
   store i64 %52, ptr %53, align 8
-  %54 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %8), !range !12
+  %54 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %8)
   %55 = getelementptr inbounds i8, ptr %.0.i.ph.i, i64 64
   store i32 %54, ptr %55, align 8
   %56 = tail call i32 @llvm.smax.i32(i32 %54, i32 0)
@@ -22046,7 +22046,7 @@ sljit_emit_op1.exit297:                           ; preds = %emit_mov.exit573, %
   %1636 = load i32, ptr %129, align 8
   %.not46.i = icmp eq i32 %1636, 0
   %1637 = getelementptr inbounds i8, ptr %.041.i, i64 1
-  %1638 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %1637), !range !9
+  %1638 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %1637)
   %.not47.i = icmp eq i32 %1638, 0
   br i1 %.not46.i, label %1653, label %1639
 
@@ -22372,7 +22372,7 @@ sljit_alloc_memory.exit586:                       ; preds = %1798, %1807
   store ptr %.0.i582.ph, ptr %109, align 8
   %1814 = load ptr, ptr %122, align 8
   %1815 = getelementptr inbounds i8, ptr %1814, i64 %1789
-  %1816 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef %1815, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6), !range !12
+  %1816 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef %1815, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6)
   %1817 = icmp eq i32 %1816, -2
   br i1 %1817, label %1818, label %.preheader
 
@@ -23792,7 +23792,7 @@ sljit_alloc_memory.exit892:                       ; preds = %2387, %2396
   %.0246.i = phi i32 [ 0, %2400 ], [ %2426, %2415 ], [ 0, %2413 ]
   %.0238.i = phi i32 [ 0, %2400 ], [ %2427, %2415 ], [ 0, %2413 ]
   %.0235.i = phi ptr [ null, %2400 ], [ %2428, %2415 ], [ %2414, %2413 ]
-  %2430 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef nonnull %spec.select.i376, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5), !range !12
+  %2430 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef nonnull %spec.select.i376, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5)
   %2431 = getelementptr inbounds i8, ptr %.0.i888.ph, i64 44
   store i32 %2430, ptr %2431, align 4
   %2432 = icmp slt i32 %2430, 0
@@ -25579,8 +25579,8 @@ sljit_emit_op1.exit440:                           ; preds = %emit_mov.exit907, %
 2966:                                             ; preds = %2963, %2963, %2963, %2963
   %2967 = load i8, ptr %2965, align 1
   %2968 = zext i8 %2967 to i64
-  %2969 = getelementptr i8, ptr %2965, i64 %2968
-  %2970 = getelementptr i8, ptr %2969, i64 2
+  %2969 = getelementptr inbounds i8, ptr %2965, i64 %2968
+  %2970 = getelementptr inbounds i8, ptr %2969, i64 2
   br label %2971
 
 2971:                                             ; preds = %2966, %2963
@@ -40952,7 +40952,7 @@ emit_mov.exit122.thread:                          ; preds = %20
 sljit_emit_op1.exit49:                            ; preds = %20, %emit_mov.exit122.thread, %.lr.ph.split
   %26 = add nuw nsw i32 %.0200, 1
   %exitcond.not = icmp eq i32 %26, %1
-  br i1 %exitcond.not, label %sljit_set_label.exit94, label %.lr.ph.splitthread-pre-split, !llvm.loop !13
+  br i1 %exitcond.not, label %sljit_set_label.exit94, label %.lr.ph.splitthread-pre-split, !llvm.loop !8
 
 27:                                               ; preds = %sljit_emit_op1.exit
   %28 = load i32, ptr %15, align 4
@@ -44099,7 +44099,7 @@ define internal fastcc void @do_utfreadchar_invalid(ptr %.0.val) unnamed_addr #0
 5:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   store i32 0, ptr %1, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !4
   %6 = load i32, ptr %1, align 16
   %7 = icmp ugt i32 %6, 6
   br i1 %7, label %.thread.i23.i, label %14
@@ -44108,7 +44108,7 @@ define internal fastcc void @do_utfreadchar_invalid(ptr %.0.val) unnamed_addr #0
   store i32 7, ptr %1, align 16
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %8, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !4
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 8
@@ -44126,7 +44126,7 @@ define internal fastcc void @do_utfreadchar_invalid(ptr %.0.val) unnamed_addr #0
 15:                                               ; preds = %14, %.thread.i23.i
   %.121.i17.i = phi i32 [ %spec.select17.i26.i, %.thread.i23.i ], [ 1, %14 ]
   store i32 1, ptr %1, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !4
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = lshr i32 %17, 17
@@ -44147,7 +44147,7 @@ get_cpu_features.exit27.i:                        ; preds = %15, %14
   store i32 -2147483647, ptr %1, align 16
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %26, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !4
   %27 = load i32, ptr %26, align 8
   %28 = lshr i32 %27, 2
   %29 = and i32 %28, 8
@@ -48459,7 +48459,7 @@ define internal fastcc void @do_utfpeakcharback_invalid(ptr %.0.val) unnamed_add
 5:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   store i32 0, ptr %1, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !4
   %6 = load i32, ptr %1, align 16
   %7 = icmp ugt i32 %6, 6
   br i1 %7, label %.thread.i23.i, label %14
@@ -48468,7 +48468,7 @@ define internal fastcc void @do_utfpeakcharback_invalid(ptr %.0.val) unnamed_add
   store i32 7, ptr %1, align 16
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %8, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !4
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 8
@@ -48486,7 +48486,7 @@ define internal fastcc void @do_utfpeakcharback_invalid(ptr %.0.val) unnamed_add
 15:                                               ; preds = %14, %.thread.i23.i
   %.121.i17.i = phi i32 [ %spec.select17.i26.i, %.thread.i23.i ], [ 1, %14 ]
   store i32 1, ptr %1, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !4
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = lshr i32 %17, 17
@@ -48507,7 +48507,7 @@ get_cpu_features.exit27.i:                        ; preds = %15, %14
   store i32 -2147483647, ptr %1, align 16
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %26, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #18, !srcloc !4
   %27 = load i32, ptr %26, align 8
   %28 = lshr i32 %27, 2
   %29 = and i32 %28, 8
@@ -55449,7 +55449,7 @@ emit_mov.exit188:                                 ; preds = %emit_mov.exit174, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sljit_has_cpu_feature(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @sljit_has_cpu_feature(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [4 x i32], align 16
   %3 = alloca [4 x i32], align 16
   %4 = alloca [4 x i32], align 16
@@ -55475,7 +55475,7 @@ define internal fastcc i32 @sljit_has_cpu_feature(i32 noundef %0) unnamed_addr #
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 0, ptr %5, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !4
   %10 = load i32, ptr %5, align 16
   %11 = icmp ugt i32 %10, 6
   br i1 %11, label %.thread.i, label %18
@@ -55484,7 +55484,7 @@ define internal fastcc i32 @sljit_has_cpu_feature(i32 noundef %0) unnamed_addr #
   store i32 7, ptr %5, align 16
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %12, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !4
   %13 = getelementptr inbounds i8, ptr %5, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 8
@@ -55502,7 +55502,7 @@ define internal fastcc i32 @sljit_has_cpu_feature(i32 noundef %0) unnamed_addr #
 19:                                               ; preds = %18, %.thread.i
   %.121.i = phi i32 [ %spec.select17.i, %.thread.i ], [ 1, %18 ]
   store i32 1, ptr %5, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !4
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = lshr i32 %21, 17
@@ -55523,7 +55523,7 @@ get_cpu_features.exit:                            ; preds = %18, %19
   store i32 -2147483647, ptr %5, align 16
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %30, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !4
   %31 = load i32, ptr %30, align 8
   %32 = lshr i32 %31, 2
   %33 = and i32 %32, 8
@@ -55547,7 +55547,7 @@ get_cpu_features.exit:                            ; preds = %18, %19
 41:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 0, ptr %4, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !4
   %42 = load i32, ptr %4, align 16
   %43 = icmp ugt i32 %42, 6
   br i1 %43, label %.thread.i11, label %50
@@ -55556,7 +55556,7 @@ get_cpu_features.exit:                            ; preds = %18, %19
   store i32 7, ptr %4, align 16
   %44 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %44, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !4
   %45 = getelementptr inbounds i8, ptr %4, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 8
@@ -55574,7 +55574,7 @@ get_cpu_features.exit:                            ; preds = %18, %19
 51:                                               ; preds = %50, %.thread.i11
   %.121.i5 = phi i32 [ %spec.select17.i14, %.thread.i11 ], [ 1, %50 ]
   store i32 1, ptr %4, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !4
   %52 = getelementptr inbounds i8, ptr %4, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = lshr i32 %53, 17
@@ -55595,7 +55595,7 @@ get_cpu_features.exit15:                          ; preds = %50, %51
   store i32 -2147483647, ptr %4, align 16
   %62 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %62, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #18, !srcloc !4
   %63 = load i32, ptr %62, align 8
   %64 = lshr i32 %63, 2
   %65 = and i32 %64, 8
@@ -55619,7 +55619,7 @@ get_cpu_features.exit15:                          ; preds = %50, %51
 73:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i32 0, ptr %3, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !4
   %74 = load i32, ptr %3, align 16
   %75 = icmp ugt i32 %74, 6
   br i1 %75, label %.thread.i23, label %82
@@ -55628,7 +55628,7 @@ get_cpu_features.exit15:                          ; preds = %50, %51
   store i32 7, ptr %3, align 16
   %76 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %76, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !4
   %77 = getelementptr inbounds i8, ptr %3, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 8
@@ -55646,7 +55646,7 @@ get_cpu_features.exit15:                          ; preds = %50, %51
 83:                                               ; preds = %82, %.thread.i23
   %.121.i17 = phi i32 [ %spec.select17.i26, %.thread.i23 ], [ 1, %82 ]
   store i32 1, ptr %3, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !4
   %84 = getelementptr inbounds i8, ptr %3, i64 8
   %85 = load i32, ptr %84, align 8
   %86 = lshr i32 %85, 17
@@ -55667,7 +55667,7 @@ get_cpu_features.exit27:                          ; preds = %82, %83
   store i32 -2147483647, ptr %3, align 16
   %94 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %94, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #18, !srcloc !4
   %95 = load i32, ptr %94, align 8
   %96 = lshr i32 %95, 2
   %97 = and i32 %96, 8
@@ -55690,7 +55690,7 @@ get_cpu_features.exit27:                          ; preds = %82, %83
 104:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i32 0, ptr %2, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %105 = load i32, ptr %2, align 16
   %106 = icmp ugt i32 %105, 6
   br i1 %106, label %.thread.i35, label %113
@@ -55699,7 +55699,7 @@ get_cpu_features.exit27:                          ; preds = %82, %83
   store i32 7, ptr %2, align 16
   %107 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %107, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %108 = getelementptr inbounds i8, ptr %2, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %109, 8
@@ -55717,7 +55717,7 @@ get_cpu_features.exit27:                          ; preds = %82, %83
 114:                                              ; preds = %113, %.thread.i35
   %.121.i29 = phi i32 [ %spec.select17.i38, %.thread.i35 ], [ 1, %113 ]
   store i32 1, ptr %2, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %115 = getelementptr inbounds i8, ptr %2, i64 8
   %116 = load i32, ptr %115, align 8
   %117 = lshr i32 %116, 17
@@ -55738,7 +55738,7 @@ get_cpu_features.exit39:                          ; preds = %113, %114
   store i32 -2147483647, ptr %2, align 16
   %125 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %125, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #18, !srcloc !4
   %126 = load i32, ptr %125, align 8
   %127 = lshr i32 %126, 2
   %128 = and i32 %127, 8
@@ -58783,7 +58783,7 @@ add_prefix_char.exit:                             ; preds = %225, %231, %230, %2
   br i1 %.not289, label %.split461.us, label %289
 
 289:                                              ; preds = %288
-  %290 = call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %.3.ph.ph), !range !9
+  %290 = call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %.3.ph.ph)
   %.not290 = icmp eq i32 %290, 0
   br i1 %.not290, label %.split461.us, label %291
 
@@ -59423,7 +59423,7 @@ sljit_emit_op2u.exit:                             ; preds = %sljit_emit_op1.exit
 82:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 0, ptr %5, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !4
   %83 = load i32, ptr %5, align 16
   %84 = icmp ugt i32 %83, 6
   br i1 %84, label %.thread.i35.i, label %91
@@ -59432,7 +59432,7 @@ sljit_emit_op2u.exit:                             ; preds = %sljit_emit_op1.exit
   store i32 7, ptr %5, align 16
   %85 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %85, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !4
   %86 = getelementptr inbounds i8, ptr %5, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 8
@@ -59450,7 +59450,7 @@ sljit_emit_op2u.exit:                             ; preds = %sljit_emit_op1.exit
 92:                                               ; preds = %91, %.thread.i35.i
   %.121.i29.i = phi i32 [ %spec.select17.i38.i, %.thread.i35.i ], [ 1, %91 ]
   store i32 1, ptr %5, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !4
   %93 = getelementptr inbounds i8, ptr %5, i64 8
   %94 = load i32, ptr %93, align 8
   %95 = lshr i32 %94, 17
@@ -59471,7 +59471,7 @@ get_cpu_features.exit39.i:                        ; preds = %92, %91
   store i32 -2147483647, ptr %5, align 16
   %103 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %103, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #18, !srcloc !4
   %104 = load i32, ptr %103, align 8
   %105 = lshr i32 %104, 2
   %106 = and i32 %105, 8
@@ -59671,7 +59671,7 @@ sljit_emit_op2.exit99:                            ; preds = %emit_mov_byte.exit,
 
 186:                                              ; preds = %sljit_emit_op2.exit99
   %187 = xor i8 %2, %1
-  %188 = call i8 @llvm.ctpop.i8(i8 %187), !range !11
+  %188 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %187)
   %189 = icmp ugt i8 %188, 1
   br i1 %189, label %199, label %190
 
@@ -59991,7 +59991,7 @@ define internal fastcc void @sljit_emit_select(ptr nocapture noundef %0, i32 nou
 25:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 0, ptr %7, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #18, !srcloc !4
   %26 = load i32, ptr %7, align 16
   %27 = icmp ugt i32 %26, 6
   br i1 %27, label %.thread.i23.i, label %34
@@ -60000,7 +60000,7 @@ define internal fastcc void @sljit_emit_select(ptr nocapture noundef %0, i32 nou
   store i32 7, ptr %7, align 16
   %28 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 0, ptr %28, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #18, !srcloc !4
   %29 = getelementptr inbounds i8, ptr %7, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 8
@@ -60018,7 +60018,7 @@ define internal fastcc void @sljit_emit_select(ptr nocapture noundef %0, i32 nou
 35:                                               ; preds = %34, %.thread.i23.i
   %.121.i17.i = phi i32 [ %spec.select17.i26.i, %.thread.i23.i ], [ 1, %34 ]
   store i32 1, ptr %7, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #18, !srcloc !4
   %36 = getelementptr inbounds i8, ptr %7, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = lshr i32 %37, 17
@@ -60039,7 +60039,7 @@ get_cpu_features.exit27.i:                        ; preds = %35, %34
   store i32 -2147483647, ptr %7, align 16
   %46 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 0, ptr %46, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #18, !srcloc !4
   %47 = load i32, ptr %46, align 8
   %48 = lshr i32 %47, 2
   %49 = and i32 %48, 8
@@ -60153,7 +60153,7 @@ emit_groupf.exit:                                 ; preds = %get_jump_code.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @char_has_othercase(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @char_has_othercase(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 480
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -60622,7 +60622,7 @@ add_jump.exit:                                    ; preds = %sljit_emit_op2.exit
 112:                                              ; preds = %add_jump.exit
   %113 = xor i8 %3, %2
   %114 = zext i8 %113 to i32
-  %115 = tail call i32 @llvm.ctpop.i32(i32 %114), !range !10
+  %115 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %114)
   %116 = icmp ugt i32 %115, 1
   %117 = load i32, ptr %8, align 8
   %.not.i247 = icmp eq i32 %117, 0
@@ -60810,7 +60810,7 @@ sljit_emit_simd_lane_mov.exit263:                 ; preds = %sljit_emit_op1.exit
 199:                                              ; preds = %sljit_emit_simd_lane_mov.exit263
   %200 = xor i8 %6, %5
   %201 = zext i8 %200 to i32
-  %202 = tail call i32 @llvm.ctpop.i32(i32 %201), !range !10
+  %202 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %201)
   %203 = icmp ugt i32 %202, 1
   %204 = load i32, ptr %8, align 8
   %.not.i279 = icmp eq i32 %204, 0
@@ -62983,7 +62983,7 @@ define internal fastcc void @fast_forward_char_simd(ptr nocapture noundef %0, i8
 7:                                                ; preds = %4
   %8 = xor i8 %2, %1
   %9 = zext i8 %8 to i32
-  %10 = tail call i32 @llvm.ctpop.i32(i32 %9), !range !10
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
   %11 = icmp ugt i32 %10, 1
   %spec.select = select i1 %11, i32 2, i32 1
   %spec.select119 = select i1 %11, i32 0, i32 %9
@@ -64855,7 +64855,7 @@ sljit_set_label.exit:                             ; preds = %176, %174, %179, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @optimize_class(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @optimize_class(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca [3 x i16], align 2
   %8 = alloca [4 x i32], align 16
@@ -65473,7 +65473,7 @@ add_jump.exit186.i:                               ; preds = %sljit_alloc_memory.
   %313 = and i32 %310, %300
   %314 = icmp ne i32 %313, 0
   %or.cond149.not12.i = or i1 %312, %314
-  %315 = tail call i32 @llvm.ctpop.i32(i32 %310), !range !10
+  %315 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %310)
   %316 = icmp ugt i32 %315, 1
   %or.cond4.i = select i1 %or.cond149.not12.i, i1 true, i1 %316
   br i1 %or.cond4.i, label %334, label %317
@@ -65594,7 +65594,7 @@ optimize_class_ranges.exit.thread:                ; preds = %add_jump.exit.i, %2
 371:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 0, ptr %6, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !4
   %372 = load i32, ptr %6, align 16
   %373 = icmp ugt i32 %372, 6
   br i1 %373, label %.thread.i23.i.i, label %380
@@ -65603,7 +65603,7 @@ optimize_class_ranges.exit.thread:                ; preds = %add_jump.exit.i, %2
   store i32 7, ptr %6, align 16
   %374 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %374, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !4
   %375 = getelementptr inbounds i8, ptr %6, i64 4
   %376 = load i32, ptr %375, align 4
   %377 = and i32 %376, 8
@@ -65621,7 +65621,7 @@ optimize_class_ranges.exit.thread:                ; preds = %add_jump.exit.i, %2
 381:                                              ; preds = %380, %.thread.i23.i.i
   %.121.i17.i.i = phi i32 [ %spec.select17.i26.i.i, %.thread.i23.i.i ], [ 1, %380 ]
   store i32 1, ptr %6, align 16
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !4
   %382 = getelementptr inbounds i8, ptr %6, i64 8
   %383 = load i32, ptr %382, align 8
   %384 = lshr i32 %383, 17
@@ -65642,7 +65642,7 @@ get_cpu_features.exit27.i.i:                      ; preds = %381, %380
   store i32 -2147483647, ptr %6, align 16
   %392 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %392, align 8
-  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !5
+  call void asm sideeffect "movq $0, %rsi\0Amovl (%rsi), %eax\0Amovl 8(%rsi), %ecx\0Acpuid\0Amovl %eax, (%rsi)\0Amovl %ebx, 4(%rsi)\0Amovl %ecx, 8(%rsi)\0Amovl %edx, 12(%rsi)\0A", "r,~{memory},~{rax},~{rbx},~{rcx},~{rdx},~{rsi},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #18, !srcloc !4
   %393 = load i32, ptr %392, align 8
   %394 = lshr i32 %393, 2
   %395 = and i32 %394, 8
@@ -67976,7 +67976,7 @@ sljit_emit_op1.exit670:                           ; preds = %872, %847, %865, %e
   br i1 %906, label %911, label %907
 
 907:                                              ; preds = %905
-  %908 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef %2), !range !9
+  %908 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef %2)
   %.not439 = icmp eq i32 %908, 0
   br i1 %.not439, label %911, label %909
 
@@ -68205,7 +68205,7 @@ add_jump.exit685:                                 ; preds = %sljit_alloc_memory.
   %1051 = tail call i32 @llvm.umin.i32(i32 %.0415, i32 %1050)
   %1052 = tail call i32 @llvm.umax.i32(i32 %.0415, i32 %1050)
   tail call fastcc void @read_char(ptr noundef nonnull %0, i32 noundef %1051, i32 noundef %1052, ptr noundef null, i32 noundef 0)
-  %1053 = tail call fastcc i32 @sljit_has_cpu_feature(i32 noundef 7), !range !14
+  %1053 = tail call fastcc i32 @sljit_has_cpu_feature(i32 noundef 7)
   %.not442 = icmp eq i32 %1053, 0
   br i1 %.not442, label %1059, label %1054
 
@@ -68297,7 +68297,7 @@ sljit_emit_op1.exit694:                           ; preds = %1087, %emit_mov_byt
   br i1 %1091, label %1100, label %1092
 
 1092:                                             ; preds = %sljit_emit_op1.exit694
-  %1093 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !9
+  %1093 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not433 = icmp eq i32 %1093, 0
   br i1 %.not433, label %1100, label %1094
 
@@ -68481,7 +68481,7 @@ sljit_set_label.exit706:                          ; preds = %sljit_emit_op1.exit
   br i1 %1209, label %1212, label %1210
 
 1210:                                             ; preds = %1208
-  %1211 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !9
+  %1211 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not434 = icmp eq i32 %1211, 0
   br i1 %.not434, label %1212, label %1238
 
@@ -68588,7 +68588,7 @@ char_othercase.exit:                              ; preds = %1245, %1261
   %1269 = tail call i32 @llvm.umax.i32(i32 %.1416, i32 %.0.i715)
   tail call fastcc void @read_char(ptr noundef nonnull %0, i32 noundef %1268, i32 noundef %1269, ptr noundef %3, i32 noundef 1)
   %1270 = xor i32 %.0.i715, %.1416
-  %1271 = tail call i32 @llvm.ctpop.i32(i32 %1270), !range !10
+  %1271 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1270)
   %1272 = icmp ugt i32 %1271, 1
   br i1 %1272, label %1282, label %1273
 
@@ -68671,7 +68671,7 @@ is_char7_bitset.exit726:                          ; preds = %1298, %1295, %1290
 
 1303:                                             ; preds = %1302, %1301
   %1304 = zext i1 %1300 to i32
-  %1305 = tail call fastcc i32 @optimize_class(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1304, i32 noundef 0, ptr noundef %3), !range !9
+  %1305 = tail call fastcc i32 @optimize_class(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1304, i32 noundef 0, ptr noundef %3)
   %.not427 = icmp eq i32 %1305, 0
   br i1 %.not427, label %1308, label %1306
 
@@ -70207,7 +70207,7 @@ sljit_emit_op1.exit632:                           ; preds = %463, %461, %emit_mo
 
 481:                                              ; preds = %.thread1180
   %482 = getelementptr inbounds i8, ptr %471, i64 1
-  %483 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %482), !range !9
+  %483 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %482)
   %.not471 = icmp eq i32 %483, 0
   br i1 %.not471, label %.thread1182, label %484
 
@@ -76696,7 +76696,7 @@ define internal fastcc ptr @compile_assert_matchingpath(ptr noundef %0, ptr noun
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds i32, ptr %30, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef nonnull %spec.select1561, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5), !range !12
+  %38 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef nonnull %spec.select1561, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5)
   %39 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 %38, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %2, i64 52
@@ -80541,7 +80541,7 @@ bracketend.exit:                                  ; preds = %36
   br i1 %128, label %139, label %.thread1347
 
 139:                                              ; preds = %127
-  %140 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef nonnull %.0608, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4), !range !12
+  %140 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef nonnull %.0608, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4)
   %141 = getelementptr inbounds i8, ptr %.0.i.ph, i64 64
   store i32 %140, ptr %141, align 8
   br label %.thread1347
@@ -82208,7 +82208,7 @@ sljit_emit_op2.exit938:                           ; preds = %emit_mov.exit1312, 
   %732 = load i64, ptr %599, align 8
   %733 = getelementptr inbounds i8, ptr %.06131671, i64 %732
   %734 = icmp ugt i32 %.0627.in1670, 2
-  br i1 %734, label %.lr.ph1672.split, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %734, label %.lr.ph1672.split, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %sljit_emit_op2.exit938
   %.pre1696 = load i32, ptr %5, align 8
@@ -83603,7 +83603,7 @@ sljit_alloc_memory.exit.thread:                   ; preds = %956, %940, %22, %3,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_framesize(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #11 {
+define internal fastcc range(i32 -2, -2147483648) i32 @get_framesize(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #11 {
   store i32 0, ptr %4, align 4
   %6 = icmp eq ptr %2, null
   br i1 %6, label %.preheader, label %26
@@ -89187,7 +89187,7 @@ sljit_alloc_memory.exit.i1406:                    ; preds = %526, %517
   %549 = load i8, ptr %548, align 1
   %.lobit = lshr i8 %549, 7
   %550 = zext nneg i8 %.lobit to i32
-  %551 = call fastcc i32 @optimize_class(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef %550, i32 noundef 1, ptr noundef nonnull %4), !range !9
+  %551 = call fastcc i32 @optimize_class(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef %550, i32 noundef 1, ptr noundef nonnull %4)
   %.not1327 = icmp eq i32 %551, 0
   br i1 %.not1327, label %552, label %add_jump.exit1439
 
@@ -89728,7 +89728,7 @@ emit_mov.exit:                                    ; preds = %769
 
 sljit_emit_op1.exit1474:                          ; preds = %emit_mov.exit.thread, %756, %emit_mov.exit
   %784 = or i32 %.01211.lcssa3587, 2
-  %785 = call fastcc i32 @optimize_class(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1, ptr noundef %9), !range !9
+  %785 = call fastcc i32 @optimize_class(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1, ptr noundef %9)
   %.not1323 = icmp eq i32 %785, 0
   br i1 %.not1323, label %786, label %sljit_set_label.exit1516
 
@@ -94120,7 +94120,7 @@ sljit_emit_op_flags.exit1819:                     ; preds = %2831, %2838
   %2898 = load i32, ptr %2897, align 4
   %2899 = load i32, ptr %2896, align 4
   %2900 = xor i32 %2899, %2898
-  %2901 = call i32 @llvm.ctpop.i32(i32 %2900), !range !10
+  %2901 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2900)
   %2902 = icmp ugt i32 %2901, 1
   br i1 %2902, label %2918, label %2903
 
@@ -94183,7 +94183,7 @@ sljit_emit_op2.exit1835:                          ; preds = %sljit_emit_op2.exit
   %2919 = getelementptr inbounds i8, ptr %2896, i64 8
   %2920 = load i32, ptr %2919, align 4
   %2921 = xor i32 %2920, %2898
-  %2922 = call i32 @llvm.ctpop.i32(i32 %2921), !range !10
+  %2922 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2921)
   %2923 = icmp ugt i32 %2922, 1
   br i1 %2923, label %2945, label %2924
 
@@ -98580,7 +98580,7 @@ define internal fastcc i32 @char_get_othercase_bit(ptr nocapture noundef readonl
   %133 = phi i8 [ %99, %.thread65 ], [ %128, %127 ]
   %134 = phi i32 [ %121, %.thread65 ], [ %129, %127 ]
   %.169 = phi i32 [ %.058, %.thread65 ], [ %.1, %127 ]
-  %135 = tail call i32 @llvm.ctpop.i32(i32 %134), !range !10
+  %135 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %134)
   %136 = icmp ugt i32 %135, 1
   br i1 %136, label %154, label %137
 
@@ -98628,7 +98628,7 @@ define internal fastcc ptr @byte_sequence_compare(ptr nocapture noundef readonly
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef %2), !range !9
+  %8 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef %2)
   %.not108 = icmp eq i32 %8, 0
   br i1 %.not108, label %15, label %9
 
@@ -106647,7 +106647,7 @@ define internal fastcc void @copy_recurse_data(ptr nocapture noundef readonly %0
   %24 = getelementptr inbounds i8, ptr %7, i64 40
   store i32 3, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %25, i8 -1, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %25, i8 -1, i64 12, i1 false)
   %26 = getelementptr inbounds i8, ptr %7, i64 56
   store i32 0, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
@@ -108497,15 +108497,9 @@ attributes #18 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -48, i32 1}
-!5 = !{i64 1949266, i64 1949288, i64 1949314, i64 1949341, i64 1949353, i64 1949379, i64 1949406, i64 1949433}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
-!8 = distinct !{!8, !7}
-!9 = !{i32 0, i32 2}
-!10 = !{i32 0, i32 33}
-!11 = !{i8 0, i8 9}
-!12 = !{i32 -2, i32 -2147483648}
-!13 = distinct !{!13, !7}
-!14 = !{i32 0, i32 3}
-!15 = distinct !{!15, !7}
+!4 = !{i64 1949266, i64 1949288, i64 1949314, i64 1949341, i64 1949353, i64 1949379, i64 1949406, i64 1949433}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

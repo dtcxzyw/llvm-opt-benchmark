@@ -558,7 +558,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_isns_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, -2147483648) i32 @dissect_isns_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %16, label %7
@@ -586,7 +586,7 @@ define internal i32 @dissect_isns_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_isns_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal range(i32 0, -2147483648) i32 @dissect_isns_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %16, label %7
@@ -638,7 +638,7 @@ declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_isns_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 12, 65548) i32 @get_isns_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 4
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #3
   %7 = zext i16 %6 to i32

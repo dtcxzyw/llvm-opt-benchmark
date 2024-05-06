@@ -1220,7 +1220,7 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef %1, ptr no
   %.not163.i = icmp eq ptr %47, null
   %54 = getelementptr inbounds i8, ptr %46, i64 16
   %55 = getelementptr inbounds i8, ptr %46, i64 8
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw i64 %indvars.iv to i32
   br label %57
 
 57:                                               ; preds = %260, %.preheader

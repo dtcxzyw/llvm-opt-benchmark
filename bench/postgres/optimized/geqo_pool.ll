@@ -162,7 +162,7 @@ define dso_local void @sort_pool(ptr nocapture noundef readnone %0, ptr nocaptur
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

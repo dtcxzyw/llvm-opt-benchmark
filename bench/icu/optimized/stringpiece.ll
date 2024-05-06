@@ -129,8 +129,8 @@ for.body9.us:                                     ; preds = %for.cond6.preheader
   br i1 %cmp15.not.us, label %for.inc.us, label %if.then16.us
 
 if.then16.us:                                     ; preds = %for.body9.us
-  %5 = trunc i64 %indvars.iv29 to i32
-  %6 = trunc i64 %indvars.iv to i32
+  %5 = trunc nsw i64 %indvars.iv29 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %sub.us = add i32 %5, 1
   %inc21.us = sub i32 %sub.us, %6
   %cmp5.us = icmp slt i32 %inc21.us, %0
@@ -144,7 +144,7 @@ for.inc.us:                                       ; preds = %for.body9.us
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body9.us, !llvm.loop !6
 
 for.end.loopexit:                                 ; preds = %for.inc.us
-  %7 = trunc i64 %indvars.iv.next30 to i32
+  %7 = trunc nsw i64 %indvars.iv.next30 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond6.preheader.lr.ph
@@ -159,7 +159,7 @@ return:                                           ; preds = %if.then16.us, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture readonly %other.coerce0, i32 %other.coerce1) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN6icu_7511StringPiece7compareES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture readonly %other.coerce0, i32 %other.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %length_.i, align 8
@@ -206,7 +206,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_75eqERKNS_11StringPieceES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %x, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %y) local_unnamed_addr #4 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_75eqERKNS_11StringPieceES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %x, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %y) local_unnamed_addr #4 {
 entry:
   %length_.i = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load i32, ptr %length_.i, align 8

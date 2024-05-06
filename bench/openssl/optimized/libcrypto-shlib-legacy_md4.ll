@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @md4_md = internal constant %struct.evp_md_st { i32 257, i32 396, i32 16, i64 0, i32 1, ptr @md4_init, ptr @md4_update, ptr @md4_final, ptr null, ptr null, i32 64, i32 0, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_md4() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_md4() local_unnamed_addr #0 {
 entry:
   ret ptr @md4_md
 }

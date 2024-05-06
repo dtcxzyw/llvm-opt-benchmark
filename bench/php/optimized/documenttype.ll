@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_empty_string = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_documenttype_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -56,7 +56,7 @@ declare void @php_dom_throw_error(i32 noundef, i32 noundef) local_unnamed_addr #
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_documenttype_entities_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_entities_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -84,7 +84,7 @@ declare void @php_dom_create_iterator(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @dom_namednode_iter(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_documenttype_notations_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_notations_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -108,7 +108,7 @@ define hidden noundef i32 @dom_documenttype_notations_read(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_documenttype_public_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_public_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -157,7 +157,7 @@ define hidden noundef i32 @dom_documenttype_public_id_read(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_documenttype_system_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_system_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -206,7 +206,7 @@ define hidden noundef i32 @dom_documenttype_system_id_read(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_documenttype_internal_subset_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.smart_str, align 8
   %4 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %5 = icmp eq ptr %4, null

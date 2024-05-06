@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.main = private unnamed_addr constant [29 x i8] c"int main(int, const char **)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %dev = alloca %struct.VuDev, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1464) %dev, i8 0, i64 1464, i1 false)

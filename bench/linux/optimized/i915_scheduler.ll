@@ -699,7 +699,7 @@ define dso_local noundef zeroext i1 @__i915_sched_node_add_dependency(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_sched_node_add_dependency(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @i915_sched_node_add_dependency(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr @slab_dependencies, align 8
   %5 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %4, i32 noundef 3264) #10
   %6 = icmp eq ptr %5, null
@@ -939,7 +939,7 @@ define dso_local void @i915_scheduler_module_exit() local_unnamed_addr #0 align 
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @i915_scheduler_module_init() local_unnamed_addr #6 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @i915_scheduler_module_init() local_unnamed_addr #6 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 72, i32 noundef 8, i32 noundef 532480, ptr noundef null) #10
   store ptr %1, ptr @slab_dependencies, align 8
   %2 = icmp eq ptr %1, null

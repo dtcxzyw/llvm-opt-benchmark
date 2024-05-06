@@ -228,7 +228,7 @@ define hidden void @proto_reg_handoff_dcp_etsi() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dcp_etsi_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dcp_etsi_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 11
   br i1 %6, label %28, label %7
@@ -727,7 +727,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 147:                                              ; preds = %147, %.preheader.us.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i ], [ %indvars.iv.next.i.i.i, %147 ]
-  %148 = trunc i64 %indvars.iv.i.i.i to i32
+  %148 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %149 = add i32 %146, %148
   %150 = zext i32 %149 to i64
   %151 = getelementptr i8, ptr %137, i64 %150
@@ -764,12 +764,12 @@ rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.
   %162 = getelementptr i8, ptr %145, i64 %161
   %163 = zext i32 %.02124.i.i.i to i64
   %164 = getelementptr i8, ptr %142, i64 %163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %162, ptr align 1 %164, i64 %159, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %162, ptr readonly align 1 %164, i64 %159, i1 false)
   %165 = add i32 %.02124.i.i.i, %83
   %166 = getelementptr i8, ptr %162, i64 207
   %167 = zext i32 %165 to i64
   %168 = getelementptr i8, ptr %142, i64 %167
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %166, ptr noundef nonnull align 1 dereferenceable(48) %168, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %166, ptr noundef nonnull readonly align 1 dereferenceable(48) %168, i64 48, i1 false)
   %169 = tail call i32 @eras_dec_rs(ptr noundef %162, ptr noundef null, i32 noundef 0) #3
   %170 = icmp slt i32 %169, 0
   br i1 %170, label %rs_correct_data.exit.i.i, label %171

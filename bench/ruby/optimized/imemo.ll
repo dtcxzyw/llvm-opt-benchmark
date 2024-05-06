@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [12 x i8] c"unreachable\00", align 1
 @rb_eArgError = external local_unnamed_addr global i64, align 8
 @.str.15 = private unnamed_addr constant [39 x i8] c"negative buffer size (or size too big)\00", align 1
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @switch.table.rb_imemo_name = private unnamed_addr constant [14 x ptr] [ptr @.str.5, ptr @.str.4, ptr @.str.11, ptr @.str.12, ptr @.str.6, ptr @.str.8, ptr @.str.9, ptr @.str.7, ptr @.str.13, ptr @.str, ptr @.str.10, ptr @.str.2, ptr @.str.1, ptr @.str.3], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -217,7 +217,7 @@ define hidden void @rb_cc_table_mark(i64 noundef %0) local_unnamed_addr #0 {
 declare void @rb_id_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cc_table_mark_i(i64 %0, i64 noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 3) i32 @cc_table_mark_i(i64 %0, i64 noundef %1, ptr nocapture readnone %2) #0 {
   %4 = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8

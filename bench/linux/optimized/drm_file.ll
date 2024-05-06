@@ -1234,7 +1234,7 @@ declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_poll(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local range(i32 0, 66) i32 @drm_poll(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 224
@@ -1261,7 +1261,7 @@ define dso_local i32 @drm_poll(ptr noundef %0, ptr noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @drm_event_reserve_init_locked(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_event_reserve_init_locked(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 280
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 4
@@ -1293,7 +1293,7 @@ define dso_local noundef i32 @drm_event_reserve_init_locked(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_event_reserve_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_event_reserve_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 360
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #9
   %7 = getelementptr inbounds i8, ptr %1, i64 280

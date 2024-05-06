@@ -44,7 +44,7 @@ define i32 @pmix_argv_append_unique_idx(ptr nocapture noundef writeonly %0, ptr 
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.sink.split
 
 12:                                               ; preds = %.lr.ph
@@ -289,7 +289,7 @@ define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly %0) local_unnamed_
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_argv_delete(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_argv_delete(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %45, label %6
 
@@ -339,20 +339,20 @@ define noundef i32 @pmix_argv_delete(ptr nocapture noundef %0, ptr noundef %1, i
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = trunc i64 %indvars.iv.next to i32
+  %25 = trunc nuw i64 %indvars.iv.next to i32
   %or.cond50 = icmp sgt i32 %invariant.smin, %25
   br i1 %or.cond50, label %.lr.ph, label %.critedge.preheader, !llvm.loop !10
 
 .critedge:                                        ; preds = %.critedge.preheader56, %.critedge
   %indvars.iv58 = phi i64 [ %20, %.critedge.preheader56 ], [ %indvars.iv.next59, %.critedge ]
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr ptr, ptr %26, i64 %indvars.iv58
-  %28 = getelementptr ptr, ptr %27, i64 %21
+  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv58
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv58
   store ptr %29, ptr %30, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %31 = trunc i64 %indvars.iv.next59 to i32
+  %31 = trunc nuw i64 %indvars.iv.next59 to i32
   %32 = icmp sgt i32 %19, %31
   br i1 %32, label %.critedge, label %.critedge._crit_edge, !llvm.loop !11
 
@@ -392,7 +392,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_argv_insert(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_argv_insert(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -508,7 +508,7 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_argv_insert_element(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %pmix_argv_append.exit, label %5
 
@@ -571,7 +571,7 @@ define noundef i32 @pmix_argv_insert_element(ptr noundef %0, i32 noundef %1, ptr
   %38 = getelementptr i8, ptr %37, i64 8
   store ptr %35, ptr %38, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw i64 %indvars.iv to i32
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %31, label %._crit_edge.loopexit, !llvm.loop !15
 

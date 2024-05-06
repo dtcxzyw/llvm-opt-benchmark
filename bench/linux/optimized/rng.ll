@@ -185,7 +185,7 @@ define dso_local void @crypto_put_default_rng() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_del_default_rng() #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @crypto_del_default_rng() #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @crypto_default_rng_lock) #5
   %1 = load i32, ptr @crypto_default_rng_refcnt, align 4
   %2 = icmp eq i32 %1, 0

@@ -260,7 +260,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 for.body.i:                                       ; preds = %strbuf_addch.exit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %strbuf_addch.exit ]
   tail call void @strbuf_add(ptr noundef nonnull %jw, ptr noundef nonnull @.str.24, i64 noundef 2) #8
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ugt i64 %18, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !5
@@ -670,7 +670,7 @@ if.then.i:                                        ; preds = %strbuf_addch.exit.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %strbuf_addch.exit.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ugt i64 %12, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %increase_indent.exit, !llvm.loop !8
@@ -749,7 +749,7 @@ strbuf_addch.exit.i26:                            ; preds = %if.then.i.i33, %str
 for.inc.i30:                                      ; preds = %strbuf_addch.exit.i26, %for.body.i19
   %24 = phi i64 [ %15, %for.body.i19 ], [ %.pre.i, %strbuf_addch.exit.i26 ]
   %eat_it.1.i = phi i32 [ 1, %for.body.i19 ], [ 0, %strbuf_addch.exit.i26 ]
-  %indvars.iv.next.i31 = add nuw i64 %indvars.iv.i20, 1
+  %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i20, 1
   %cmp.i32 = icmp ugt i64 %24, %indvars.iv.next.i31
   br i1 %cmp.i32, label %for.body.i19, label %kill_indent.exit, !llvm.loop !9
 
@@ -1119,7 +1119,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 for.body.i:                                       ; preds = %strbuf_addch.exit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %strbuf_addch.exit ]
   tail call void @strbuf_add(ptr noundef nonnull %jw, ptr noundef nonnull @.str.24, i64 noundef 2) #8
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ugt i64 %18, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !5
@@ -1241,7 +1241,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   tail call fastcc void @array_common(ptr noundef %jw)
-  tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef %0)
+  tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef readonly %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -1262,7 +1262,7 @@ while.body:                                       ; preds = %entry, %while.body
   %argv.addr.03 = phi ptr [ %incdec.ptr, %while.body ], [ %argv, %entry ]
   %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.03, i64 8
   tail call fastcc void @array_common(ptr noundef %jw)
-  tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef nonnull %1)
+  tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef nonnull readonly %1)
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !11
@@ -1420,7 +1420,7 @@ jw_array_begin.exit:                              ; preds = %strbuf_avail.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @jw_is_terminated(ptr nocapture noundef readonly %jw) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @jw_is_terminated(ptr nocapture noundef readonly %jw) local_unnamed_addr #4 {
 entry:
   %len = getelementptr inbounds i8, ptr %jw, i64 32
   %0 = load i64, ptr %len, align 8
@@ -1518,7 +1518,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 for.body.i:                                       ; preds = %strbuf_addch.exit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %strbuf_addch.exit ]
   tail call void @strbuf_add(ptr noundef nonnull %jw, ptr noundef nonnull @.str.24, i64 noundef 2) #8
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = load i64, ptr %len1, align 8
   %cmp.i18 = icmp ugt i64 %13, %indvars.iv.next.i
   br i1 %cmp.i18, label %for.body.i, label %if.end13, !llvm.loop !5

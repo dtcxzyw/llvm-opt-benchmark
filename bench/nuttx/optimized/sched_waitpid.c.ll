@@ -298,7 +298,7 @@ declare i32 @nxsig_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @waitpid(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @waitpid(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @nxsched_waitpid(i32 noundef %0, ptr noundef %1, i32 noundef %2)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %9

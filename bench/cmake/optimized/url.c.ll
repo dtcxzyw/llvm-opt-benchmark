@@ -3266,7 +3266,7 @@ parse_remote_port.exit.i:                         ; preds = %622
   %844 = load ptr, ptr %843, align 8
   %845 = getelementptr inbounds i8, ptr %.031, i64 760
   store ptr %844, ptr %845, align 8
-  %846 = call fastcc i32 @resolve_server(ptr noundef nonnull %0, ptr noundef %.031, ptr noundef nonnull %1)
+  %846 = call fastcc i32 @resolve_server(ptr noundef nonnull %0, ptr noundef %.031, ptr noundef nonnull writeonly %1)
   %.not286.i = icmp eq i32 %846, 0
   br i1 %.not286.i, label %847, label %create_conn.exit.thread
 

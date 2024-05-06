@@ -33,7 +33,7 @@ if.then:                                          ; preds = %entry
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %0 = trunc i64 %or8.i.i to i32
+  %0 = trunc nuw nsw i64 %or8.i.i to i32
   %conv1.i = add nuw i32 %0, 1
   store i32 0, ptr %NumTombstones, align 8
   %add.i2 = add nuw nsw i64 %or8.i.i, 2
@@ -402,7 +402,7 @@ if.then13.i:                                      ; preds = %if.else.i
 
 land.rhs.i.i:                                     ; preds = %if.then13.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext14.i
-  %bcmp.i = tail call i32 @bcmp(ptr %Key.coerce0, ptr nonnull %add.ptr15.i, i64 %Key.coerce1)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %Key.coerce0, ptr nonnull %add.ptr15.i, i64 %Key.coerce1)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i
 

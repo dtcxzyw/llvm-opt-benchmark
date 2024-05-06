@@ -305,7 +305,7 @@ define void @uat_update_record(ptr nocapture noundef readonly %0, ptr noundef re
   br i1 %exitcond.not, label %._crit_edge.thread, label %11, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %11
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -1517,7 +1517,7 @@ define noundef zeroext i1 @uat_fld_chk_num_dec(ptr nocapture noundef readnone %0
   %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
   %12 = call zeroext i1 @ws_basestrtou32(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 10) #16
   %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef %5)
+  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef writeonly %5)
   call void @g_free(ptr noundef %11) #16
   br label %uat_fld_chk_num.exit
 
@@ -1546,7 +1546,7 @@ define noundef zeroext i1 @uat_fld_chk_num_hex(ptr nocapture noundef readnone %0
   %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
   %12 = call zeroext i1 @ws_basestrtou32(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 16) #16
   %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef %5)
+  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef writeonly %5)
   call void @g_free(ptr noundef %11) #16
   br label %uat_fld_chk_num.exit
 
@@ -1575,7 +1575,7 @@ define noundef zeroext i1 @uat_fld_chk_num_dec64(ptr nocapture noundef readnone 
   %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
   %12 = call zeroext i1 @ws_basestrtou64(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 10) #16
   %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef %5)
+  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef writeonly %5)
   call void @g_free(ptr noundef %11) #16
   br label %uat_fld_chk_num64.exit
 
@@ -1604,7 +1604,7 @@ define noundef zeroext i1 @uat_fld_chk_num_hex64(ptr nocapture noundef readnone 
   %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
   %12 = call zeroext i1 @ws_basestrtou64(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 16) #16
   %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef %5)
+  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef writeonly %5)
   call void @g_free(ptr noundef %11) #16
   br label %uat_fld_chk_num64.exit
 
@@ -1848,7 +1848,7 @@ define noundef zeroext i1 @uat_fld_chk_color(ptr nocapture noundef readnone %0, 
   %15 = tail call noalias ptr @g_strndup(ptr noundef %14, i64 noundef 6) #16
   %16 = call zeroext i1 @ws_basestrtou32(ptr noundef %15, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 16) #16
   %17 = load ptr, ptr %7, align 8
-  %18 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %16, ptr noundef %17, ptr noundef %5)
+  %18 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %16, ptr noundef %17, ptr noundef writeonly %5)
   call void @g_free(ptr noundef %15) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -2030,7 +2030,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
   %48 = add nuw nsw i32 %47, %.066
   %49 = add nuw nsw i32 %48, %46
   %50 = tail call i32 @llvm.umin.i32(i32 %49, i32 255)
-  %51 = trunc i32 %50 to i8
+  %51 = trunc nuw i32 %50 to i8
   store i8 %51, ptr %.079, align 1
   %52 = add i32 %.06278, 1
   br label %78
@@ -2192,7 +2192,7 @@ define zeroext i1 @uat_fld_chk_str_isprint(ptr nocapture noundef readnone %0, pt
 
 ._crit_edge:                                      ; preds = %15
   %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw i64 %indvars.iv.next to i32
   br label %24
 
 24:                                               ; preds = %._crit_edge, %.lr.ph
@@ -2244,7 +2244,7 @@ define zeroext i1 @uat_fld_chk_str_isalpha(ptr nocapture noundef readnone %0, pt
 
 ._crit_edge:                                      ; preds = %15
   %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw i64 %indvars.iv.next to i32
   br label %24
 
 24:                                               ; preds = %._crit_edge, %.lr.ph
@@ -2296,7 +2296,7 @@ define zeroext i1 @uat_fld_chk_str_isalnum(ptr nocapture noundef readnone %0, pt
 
 ._crit_edge:                                      ; preds = %15
   %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw i64 %indvars.iv.next to i32
   br label %24
 
 24:                                               ; preds = %._crit_edge, %.lr.ph
@@ -2348,7 +2348,7 @@ define zeroext i1 @uat_fld_chk_str_isdigit(ptr nocapture noundef readnone %0, pt
 
 ._crit_edge:                                      ; preds = %15
   %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw i64 %indvars.iv.next to i32
   br label %24
 
 24:                                               ; preds = %._crit_edge, %.lr.ph
@@ -2400,7 +2400,7 @@ define zeroext i1 @uat_fld_chk_str_isxdigit(ptr nocapture noundef readnone %0, p
 
 ._crit_edge:                                      ; preds = %15
   %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw i64 %indvars.iv.next to i32
   br label %24
 
 24:                                               ; preds = %._crit_edge, %.lr.ph

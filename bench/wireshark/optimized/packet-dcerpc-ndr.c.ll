@@ -408,8 +408,8 @@ define i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 38:                                               ; preds = %35
   %39 = srem i32 %1, 4
-  %.not24.i22 = icmp eq i32 %39, 0
-  br i1 %.not24.i22, label %.critedge.i, label %40
+  %.not24.i23 = icmp eq i32 %39, 0
+  br i1 %.not24.i23, label %.critedge.i, label %40
 
 40:                                               ; preds = %38
   %reass.sub.i = add i32 %1, 4
@@ -422,7 +422,7 @@ define i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %dissect_ndr_uint32.exit
 
 dissect_ndr_uint32.exit:                          ; preds = %32, %.critedge.i
-  %.0.i21 = phi i32 [ %42, %.critedge.i ], [ %1, %32 ]
+  %.0.i22 = phi i32 [ %42, %.critedge.i ], [ %1, %32 ]
   %.not20 = icmp eq ptr %7, null
   br i1 %.not20, label %dissect_ndr_uint64.exit, label %43
 
@@ -433,7 +433,7 @@ dissect_ndr_uint32.exit:                          ; preds = %32, %.critedge.i
   br label %dissect_ndr_uint64.exit
 
 dissect_ndr_uint64.exit:                          ; preds = %30, %17, %dissect_ndr_uint32.exit, %43
-  %.0 = phi i32 [ %.0.i21, %43 ], [ %.0.i21, %dissect_ndr_uint32.exit ], [ %31, %30 ], [ %1, %17 ]
+  %.0 = phi i32 [ %.0.i22, %43 ], [ %.0.i22, %dissect_ndr_uint32.exit ], [ %31, %30 ], [ %1, %17 ]
   ret i32 %.0
 }
 
@@ -546,7 +546,7 @@ define i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %dissect_ndr_uint16.exit
 
 dissect_ndr_uint16.exit:                          ; preds = %28, %31
-  %.0.i21 = phi i32 [ %36, %31 ], [ %1, %28 ]
+  %.0.i22 = phi i32 [ %36, %31 ], [ %1, %28 ]
   %.not20 = icmp eq ptr %7, null
   br i1 %.not20, label %dissect_ndr_uint32.exit, label %37
 
@@ -557,7 +557,7 @@ dissect_ndr_uint16.exit:                          ; preds = %28, %31
   br label %dissect_ndr_uint32.exit
 
 dissect_ndr_uint32.exit:                          ; preds = %.critedge.i, %17, %dissect_ndr_uint16.exit, %37
-  %.0 = phi i32 [ %.0.i21, %37 ], [ %.0.i21, %dissect_ndr_uint16.exit ], [ %27, %.critedge.i ], [ %1, %17 ]
+  %.0 = phi i32 [ %.0.i22, %37 ], [ %.0.i22, %dissect_ndr_uint16.exit ], [ %27, %.critedge.i ], [ %1, %17 ]
   ret i32 %.0
 }
 

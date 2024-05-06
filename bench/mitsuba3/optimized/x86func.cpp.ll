@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE = external local_unnamed_addr global %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", align 1
 
 ; Function Attrs: minsize mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612FuncInternal12initCallConvERNS0_8CallConvENS0_10CallConvIdERKNS0_11EnvironmentE(ptr noundef nonnull align 4 dereferenceable(116) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %2) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_103x8612FuncInternal12initCallConvERNS0_8CallConvENS0_10CallConvIdERKNS0_11EnvironmentE(ptr noundef nonnull align 4 dereferenceable(116) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 3
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = icmp eq i8 %5, 1
@@ -297,7 +297,7 @@ define hidden void @_ZN6asmjit9_abi_1_103x8612FuncInternal12unpackValuesERNS0_10
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: minsize mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612FuncInternal14initFuncDetailERNS0_10FuncDetailERKNS0_13FuncSignatureEj(ptr nocapture noundef nonnull align 4 dereferenceable(412) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN6asmjit9_abi_1_103x8612FuncInternal14initFuncDetailERNS0_10FuncDetailERKNS0_13FuncSignatureEj(ptr nocapture noundef nonnull align 4 dereferenceable(412) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4, !tbaa !30
   %6 = zext i8 %5 to i32

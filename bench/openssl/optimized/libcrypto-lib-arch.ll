@@ -77,7 +77,7 @@ declare void @ossl_crypto_mutex_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_crypto_thread_native_join(ptr noundef %thread, ptr noundef %retval1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_thread_native_join(ptr noundef %thread, ptr noundef %retval1) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %thread, null
   br i1 %cmp, label %return, label %if.end
@@ -199,7 +199,7 @@ declare i32 @ossl_crypto_thread_native_perform_join(ptr noundef, ptr noundef) lo
 declare void @ossl_crypto_condvar_signal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_crypto_thread_native_clean(ptr noundef %handle) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_thread_native_clean(ptr noundef %handle) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %handle, null
   br i1 %cmp, label %return, label %if.end

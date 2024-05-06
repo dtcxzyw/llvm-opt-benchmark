@@ -95,7 +95,7 @@ define internal i32 @hid_generic_probe(ptr noundef %0, ptr nocapture readnone %1
 declare dso_local i32 @bus_for_each_drv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @__check_hid_generic(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @__check_hid_generic(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -168
   %4 = icmp eq ptr %3, @hid_generic
   br i1 %4, label %9, label %5

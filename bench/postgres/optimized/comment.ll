@@ -59,7 +59,7 @@ define dso_local { i64, i32 } @CommentObject(ptr nocapture noundef readonly %0) 
   %.fca.1.extract = extractvalue { i64, i32 } %21, 1
   %.sroa.020.sroa.0.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   %.sroa.020.sroa.6.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.020.sroa.6.0.extract.trunc = trunc i64 %.sroa.020.sroa.6.0.extract.shift to i32
+  %.sroa.020.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.020.sroa.6.0.extract.shift to i32
   %22 = call i32 @GetUserId() #5
   %23 = load i32, ptr %3, align 4
   %24 = load ptr, ptr %19, align 8

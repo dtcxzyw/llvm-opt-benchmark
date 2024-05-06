@@ -810,7 +810,7 @@ if.then.i:                                        ; preds = %if.end.i.i104.i
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %104 = trunc i64 %or8.i.i to i32
+  %104 = trunc nuw i64 %or8.i.i to i32
   %conv3.i = add i32 %104, 1
   %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %conv3.i, i32 64)
   store i32 %.sroa.speculated.i, ptr %NumBuckets.i.i.i.i.i.i64.i, align 8, !noalias !30
@@ -1359,7 +1359,7 @@ _ZN4llvh8DenseMapIPN6hermes8CallInstENS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -1512,7 +1512,7 @@ _ZN4llvh8DenseMapIPN6hermes8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -1767,7 +1767,7 @@ if.then:                                          ; preds = %entry
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %3 = trunc i64 %or8.i.i.i to i32
+  %3 = trunc nuw i64 %or8.i.i.i to i32
   %conv3.i.i = add i32 %3, 1
   %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %conv3.i.i, i32 64)
   store i32 %.sroa.speculated.i.i, ptr %NumBuckets.i.i, align 8
@@ -1877,7 +1877,7 @@ if.then10:                                        ; preds = %if.else
   %or6.i.i.i25 = or i64 %shr5.i.i.i24, %or4.i.i.i23
   %shr7.i.i.i26 = lshr i64 %or6.i.i.i25, 16
   %or8.i.i.i27 = or i64 %shr7.i.i.i26, %or6.i.i.i25
-  %13 = trunc i64 %or8.i.i.i27 to i32
+  %13 = trunc nuw i64 %or8.i.i.i27 to i32
   %conv3.i.i28 = add i32 %13, 1
   %.sroa.speculated.i.i29 = tail call i32 @llvm.umax.i32(i32 %conv3.i.i28, i32 64)
   store i32 %.sroa.speculated.i.i29, ptr %NumBuckets.i.i, align 8
@@ -2133,7 +2133,7 @@ if.then:                                          ; preds = %entry
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %3 = trunc i64 %or8.i.i.i to i32
+  %3 = trunc nuw i64 %or8.i.i.i to i32
   %conv3.i.i = add i32 %3, 1
   %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %conv3.i.i, i32 64)
   store i32 %.sroa.speculated.i.i, ptr %NumBuckets.i.i, align 8
@@ -2243,7 +2243,7 @@ if.then10:                                        ; preds = %if.else
   %or6.i.i.i25 = or i64 %shr5.i.i.i24, %or4.i.i.i23
   %shr7.i.i.i26 = lshr i64 %or6.i.i.i25, 16
   %or8.i.i.i27 = or i64 %shr7.i.i.i26, %or6.i.i.i25
-  %13 = trunc i64 %or8.i.i.i27 to i32
+  %13 = trunc nuw i64 %or8.i.i.i27 to i32
   %conv3.i.i28 = add i32 %13, 1
   %.sroa.speculated.i.i29 = tail call i32 @llvm.umax.i32(i32 %conv3.i.i28, i32 64)
   store i32 %.sroa.speculated.i.i29, ptr %NumBuckets.i.i, align 8

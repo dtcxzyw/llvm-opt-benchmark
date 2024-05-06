@@ -118,7 +118,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 576460752303423487
-  %6 = shl nuw i64 %0, 4
+  %6 = shl nuw nsw i64 %0, 4
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -160,7 +160,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 1152921504606846975
-  %6 = shl nuw i64 %0, 3
+  %6 = shl nuw nsw i64 %0, 3
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -265,7 +265,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -324,7 +324,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -452,7 +452,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 164703072086692425
-  %10 = mul nuw i64 %.0.sroa.speculated.i29.i, 56
+  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 56
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !43
   %12 = icmp eq i64 %7, 0
@@ -630,7 +630,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 3
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !50
   %13 = icmp eq i64 %8, 0
@@ -757,7 +757,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 576460752303423487
-  %11 = shl nuw i64 %.0.sroa.speculated.i29.i, 4
+  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !64
   %13 = icmp eq i64 %8, 0
@@ -924,7 +924,7 @@ _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %5
 _ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit: ; preds = %.critedge.i, %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %21 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 32)
+  %21 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7, i64 noundef 32)
   %.not23 = icmp eq i32 %21, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br i1 %.not23, label %22, label %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit.thread

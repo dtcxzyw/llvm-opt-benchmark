@@ -1654,7 +1654,7 @@ invoke.cont32:                                    ; preds = %if.end23
   %48 = load ptr, ptr %m_ptr15.i14.i.i.i.i40, align 8, !noalias !15
   store ptr %48, ptr %m_ptr.i13.i.i.i.i39, align 8, !alias.scope !15
   store ptr null, ptr %m_ptr15.i14.i.i.i.i40, align 8, !noalias !15
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw i64 %indvars.iv to i32
   store i32 %49, ptr %second.i.i41, align 8, !alias.scope !15
   %50 = load ptr, ptr %this, align 8
   %cmp.i42 = icmp eq ptr %50, null

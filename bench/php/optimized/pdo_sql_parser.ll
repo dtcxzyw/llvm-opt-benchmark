@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [7 x i8] c":pdo%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pdo_parse_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8

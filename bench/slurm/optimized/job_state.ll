@@ -369,7 +369,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 declare i32 @list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_job_state_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 {
+define internal range(i32 -1, 1) i32 @_foreach_job_state_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
@@ -452,7 +452,7 @@ declare ptr @find_job_record(i32 noundef) local_unnamed_addr #4
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_add_job_state_het_job(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 1) i32 @_foreach_add_job_state_het_job(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

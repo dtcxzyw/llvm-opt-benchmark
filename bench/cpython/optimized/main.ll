@@ -871,7 +871,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @_PyRuntime = external global %struct.pyruntimestate, align 8
 @.str = private unnamed_addr constant [9 x i32] [i32 95, i32 95, i32 109, i32 97, i32 105, i32 110, i32 95, i32 95, i32 0], align 4
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_Py_NoneStruct = external global %struct._object, align 8
 @.str.1 = private unnamed_addr constant [52 x i8] c"Failed checking if argv[0] is an import path entry\0A\00", align 1
 @stdin = external local_unnamed_addr global ptr, align 8
@@ -1534,7 +1534,7 @@ config_run_code.exit.i109.i:                      ; preds = %lor.lhs.false.i.i10
 if.end11.i.i:                                     ; preds = %config_run_code.exit.i109.i, %lor.lhs.false.i.i106.i, %land.lhs.true7.i.i
   store i32 0, ptr %inspect.i96.i, align 4
   store i32 0, ptr @Py_InspectFlag, align 4
-  %call12.i103.i = call fastcc i32 @pymain_run_interactive_hook(ptr noundef nonnull %exitcode), !range !5
+  %call12.i103.i = call fastcc i32 @pymain_run_interactive_hook(ptr noundef nonnull writeonly %exitcode)
   %tobool13.not.i.i = icmp eq i32 %call12.i103.i, 0
   br i1 %tobool13.not.i.i, label %if.end15.i.i, label %pymain_repl.exit.i
 
@@ -1671,7 +1671,7 @@ entry:
   %tmp8.i = alloca %struct.PyStatus, align 8
   %tmp15.i = alloca %struct.PyStatus, align 8
   %status = alloca %struct.PyStatus, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %preconfig.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp1.i)
@@ -1679,38 +1679,38 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp7.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp15.i)
-  call void @_PyRuntime_Initialize(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i) #14, !noalias !6
+  call void @_PyRuntime_Initialize(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i) #14, !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, i64 32, i1 false)
   %0 = load i32, ptr %status, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %if.end.i, label %pymain_init.exit
 
 if.end.i:                                         ; preds = %entry
-  call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig.i) #14, !noalias !6
-  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %preconfig.i, ptr noundef %args) #14, !noalias !6
+  call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig.i) #14, !noalias !5
+  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %preconfig.i, ptr noundef %args) #14, !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp1.i, i64 32, i1 false)
   %1 = load i32, ptr %status, align 8
   %cmp3.not.i = icmp eq i32 %1, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %pymain_init.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #14, !noalias !6
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #14, !noalias !5
   %use_bytes_argv.i = getelementptr inbounds i8, ptr %args, i64 8
-  %2 = load i32, ptr %use_bytes_argv.i, align 8, !noalias !6
+  %2 = load i32, ptr %use_bytes_argv.i, align 8, !noalias !5
   %tobool.not.i = icmp eq i32 %2, 0
-  %3 = load i64, ptr %args, align 8, !noalias !6
+  %3 = load i64, ptr %args, align 8, !noalias !5
   br i1 %tobool.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end5.i
   %bytes_argv.i = getelementptr inbounds i8, ptr %args, i64 16
-  %4 = load ptr, ptr %bytes_argv.i, align 8, !noalias !6
-  call void @PyConfig_SetBytesArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp7.i, ptr noundef nonnull %config.i, i64 noundef %3, ptr noundef %4) #14, !noalias !6
+  %4 = load ptr, ptr %bytes_argv.i, align 8, !noalias !5
+  call void @PyConfig_SetBytesArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp7.i, ptr noundef nonnull %config.i, i64 noundef %3, ptr noundef %4) #14, !noalias !5
   br label %if.end10.i
 
 if.else.i:                                        ; preds = %if.end5.i
   %wchar_argv.i = getelementptr inbounds i8, ptr %args, i64 24
-  %5 = load ptr, ptr %wchar_argv.i, align 8, !noalias !6
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp8.i, ptr noundef nonnull %config.i, i64 noundef %3, ptr noundef %5) #14, !noalias !6
+  %5 = load ptr, ptr %wchar_argv.i, align 8, !noalias !5
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp8.i, ptr noundef nonnull %config.i, i64 noundef %3, ptr noundef %5) #14, !noalias !5
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.else.i, %if.then6.i
@@ -1721,19 +1721,19 @@ if.end10.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp12.not.i, label %if.end14.i, label %done.i
 
 if.end14.i:                                       ; preds = %if.end10.i
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %tmp15.i, ptr noundef nonnull %config.i) #14, !noalias !6
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %tmp15.i, ptr noundef nonnull %config.i) #14, !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp15.i, i64 32, i1 false)
   %7 = load i32, ptr %status, align 8
   %cmp17.not.i = icmp eq i32 %7, 0
   br i1 %cmp17.not.i, label %if.end19.i, label %done.i
 
 if.end19.i:                                       ; preds = %if.end14.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, i8 0, i64 32, i1 false), !alias.scope !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, i8 0, i64 32, i1 false), !alias.scope !5
   br label %done.i
 
 done.i:                                           ; preds = %if.end19.i, %if.end14.i, %if.end10.i
   %8 = phi i32 [ 0, %if.end19.i ], [ %7, %if.end14.i ], [ %6, %if.end10.i ]
-  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #14, !noalias !6
+  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #14, !noalias !5
   br label %pymain_init.exit
 
 pymain_init.exit:                                 ; preds = %entry, %if.end.i, %done.i
@@ -2478,7 +2478,7 @@ pymain_run_startup.exit:                          ; preds = %pymain_err_print.ex
   br i1 %tobool2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %pymain_run_startup.exit.thread, %pymain_run_startup.exit
-  %call4 = call fastcc i32 @pymain_run_interactive_hook(ptr noundef nonnull %exitcode), !range !5
+  %call4 = call fastcc i32 @pymain_run_interactive_hook(ptr noundef nonnull %exitcode)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
@@ -2635,7 +2635,7 @@ declare i32 @Py_MakePendingCalls() local_unnamed_addr #1
 declare i32 @_PyRun_AnyFileObject(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pymain_run_interactive_hook(ptr nocapture noundef writeonly %exitcode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pymain_run_interactive_hook(ptr nocapture noundef writeonly %exitcode) unnamed_addr #0 {
 entry:
   %exitcode.i = alloca i32, align 4
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.30) #14
@@ -2877,7 +2877,6 @@ attributes #19 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"pymain_init: %agg.result"}
-!8 = distinct !{!8, !"pymain_init"}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"pymain_init: %agg.result"}
+!7 = distinct !{!7, !"pymain_init"}

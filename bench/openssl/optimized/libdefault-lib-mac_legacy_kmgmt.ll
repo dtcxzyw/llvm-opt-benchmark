@@ -99,7 +99,7 @@ declare void @CRYPTO_secure_clear_free(ptr noundef, i64 noundef, ptr noundef, i3
 declare void @ossl_prov_cipher_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_mac_key_up_ref(ptr nocapture noundef %mackey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_mac_key_up_ref(ptr nocapture noundef %mackey) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -180,9 +180,9 @@ ossl_mac_key_free.exit:                           ; preds = %entry, %CRYPTO_DOWN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mac_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @mac_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @key_to_params(ptr noundef %key, ptr noundef null, ptr noundef %params), !range !4
+  %call = tail call fastcc i32 @key_to_params(ptr noundef %key, ptr noundef null, ptr noundef %params)
   ret i32 %call
 }
 
@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_set_params(ptr noundef %keydata, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @mac_set_params(ptr noundef %keydata, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %keydata, null
   br i1 %cmp, label %return, label %if.end
@@ -204,7 +204,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc i32 @mac_key_fromdata(ptr noundef nonnull %keydata, ptr noundef %params), !range !4
+  %call3 = tail call fastcc i32 @mac_key_fromdata(ptr noundef nonnull %keydata, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then2
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_has(ptr noundef readonly %keydata, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @mac_has(ptr noundef readonly %keydata, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp ne i32 %call, 0
@@ -245,7 +245,7 @@ if.end4:                                          ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_match(ptr nocapture noundef readonly %keydata1, ptr nocapture noundef readonly %keydata2, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @mac_match(ptr nocapture noundef readonly %keydata1, ptr nocapture noundef readonly %keydata2, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -338,7 +338,7 @@ return:                                           ; preds = %land.rhs, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @mac_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0
@@ -350,7 +350,7 @@ entry:
   br i1 %or.cond2, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
-  %call4 = tail call fastcc i32 @mac_key_fromdata(ptr noundef nonnull %keydata, ptr noundef %params), !range !4
+  %call4 = tail call fastcc i32 @mac_key_fromdata(ptr noundef nonnull %keydata, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %entry, %if.end3
@@ -385,7 +385,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp5, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %call10 = tail call fastcc i32 @key_to_params(ptr noundef nonnull %keydata, ptr noundef nonnull %call4, ptr noundef null), !range !4
+  %call10 = tail call fastcc i32 @key_to_params(ptr noundef nonnull %keydata, ptr noundef nonnull %call4, ptr noundef null)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %err, label %if.end13
 
@@ -470,7 +470,7 @@ if.end:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mac_gen_set_params(ptr noundef writeonly %genctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @mac_gen_set_params(ptr noundef writeonly %genctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -723,7 +723,7 @@ land.lhs.true:                                    ; preds = %if.end.i
   store ptr %call.i, ptr %call2.i, align 8
   %selection5.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store i32 %selection, ptr %selection5.i, align 8
-  %call1 = tail call i32 @cmac_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params), !range !4
+  %call1 = tail call i32 @cmac_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -737,7 +737,7 @@ if.end:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmac_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @cmac_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
   %cmp.i = icmp eq ptr %genctx, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -806,7 +806,7 @@ entry:
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @key_to_params(ptr noundef readonly %key, ptr noundef %tmpl, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef readonly %key, ptr noundef %tmpl, ptr noundef %params) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -867,7 +867,7 @@ declare ptr @ENGINE_get_id(ptr noundef) local_unnamed_addr #1
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mac_key_fromdata(ptr noundef %key, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mac_key_fromdata(ptr noundef %key, ptr noundef %params) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #6
   %cmp.not = icmp eq ptr %call, null
@@ -1015,4 +1015,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

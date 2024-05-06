@@ -145,16 +145,16 @@ define void @Gia_ManCofExtendSolver(ptr nocapture noundef readonly %0) local_unn
   %22 = load ptr, ptr %3, align 8
   %23 = trunc i64 %.val18 to i32
   %24 = and i32 %23, 536870911
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nsw i64 %indvars.iv to i32
   %26 = sub nsw i32 %25, %24
   %27 = lshr i64 %.val18, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = and i32 %28, 536870911
   %30 = sub nsw i32 %25, %29
   %31 = lshr i32 %23, 29
   %32 = and i32 %31, 1
   %33 = lshr i64 %.val18, 61
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = and i32 %34, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
   %36 = shl nsw i64 %indvars.iv, 1
@@ -170,7 +170,7 @@ define void @Gia_ManCofExtendSolver(ptr nocapture noundef readonly %0) local_unn
   %43 = or disjoint i32 %42, %35
   store i32 %43, ptr %10, align 4
   %44 = call i32 @sat_solver_addclause(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %11) #16
-  %45 = trunc i64 %36 to i32
+  %45 = trunc nsw i64 %36 to i32
   store i32 %45, ptr %2, align 4
   %46 = xor i32 %40, 1
   store i32 %46, ptr %10, align 4
@@ -232,7 +232,7 @@ define void @Gia_ManCofOneDerive_rec(ptr noundef %0, i32 noundef %1) local_unnam
   %19 = and i32 %18, 536870911
   %20 = sub nsw i32 %1, %19
   %21 = lshr i64 %.val31, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = and i32 %22, 536870911
   %24 = sub nsw i32 %1, %23
   tail call void @Gia_ManCofOneDerive_rec(ptr noundef nonnull %0, i32 noundef %20)
@@ -251,7 +251,7 @@ define void @Gia_ManCofOneDerive_rec(ptr noundef %0, i32 noundef %1) local_unnam
   %34 = getelementptr inbounds i32, ptr %.val37, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = lshr i64 %.val31, 61
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %38 = and i32 %37, 1
   %39 = xor i32 %35, %38
   %40 = tail call i32 @Gia_ManHashAnd(ptr noundef %25, i32 noundef %32, i32 noundef %39) #16
@@ -262,7 +262,7 @@ define void @Gia_ManCofOneDerive_rec(ptr noundef %0, i32 noundef %1) local_unnam
 
 41:                                               ; preds = %9
   %42 = lshr i64 %.val31, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = and i32 %43, 536870911
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr i8, ptr %45, i64 16
@@ -646,7 +646,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManCofGetReachable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Gia_ManCofGetReachable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca i32, align 4
@@ -879,7 +879,7 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
   call void @Gia_ManCofExtendSolver(ptr noundef nonnull %28)
   %55 = load ptr, ptr %34, align 8
   %56 = call i32 @Gia_ManUnrollLastLit(ptr noundef %55) #16
-  %57 = call i32 @Gia_ManCofGetReachable(ptr noundef nonnull %28, i32 noundef %56), !range !9
+  %57 = call i32 @Gia_ManCofGetReachable(ptr noundef nonnull %28, i32 noundef %56)
   %.not63 = icmp eq i32 %57, 0
   br i1 %.not63, label %58, label %.critedge._crit_edge.loopexit
 
@@ -921,7 +921,7 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
   br i1 %.not65, label %78, label %75
 
 75:                                               ; preds = %69
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.088)
   %.pre = load ptr, ptr %46, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 16
@@ -936,7 +936,7 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
 78:                                               ; preds = %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %69, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge, label %69, !llvm.loop !9
 
 .critedge:                                        ; preds = %78, %58, %.lr.ph, %75
   %.pre-phi = phi i32 [ %64, %58 ], [ %64, %.lr.ph ], [ %.pre107, %75 ], [ %64, %78 ]
@@ -1103,7 +1103,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #16
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1122,7 +1122,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1133,19 +1133,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
@@ -1169,8 +1169,8 @@ attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nofree nounwind }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1192,5 +1192,4 @@ attributes #20 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 2}
-!10 = distinct !{!10, !5}
+!9 = distinct !{!9, !5}

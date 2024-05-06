@@ -252,7 +252,7 @@ define dso_local noundef i32 @ipv6_sock_mc_join_ssm(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ipv6_sock_mc_drop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local noundef range(i32 -99, 1) i32 @ipv6_sock_mc_drop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 18
   %5 = load volatile i8, ptr %4, align 2
   %6 = zext nneg i8 %5 to i32
@@ -476,7 +476,7 @@ define internal fastcc void @ip6_mc_leave_src(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__ipv6_dev_mc_dec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #13
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @__ipv6_dev_mc_dec.__already_done, align 1
@@ -1134,7 +1134,7 @@ define dso_local noundef i32 @ip6_mc_source(i32 noundef %0, i32 noundef %1, ptr 
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ip6_mc_add_src(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @ip6_mc_add_src(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr i8, ptr %1, i64 8
   br label %8
 
@@ -1656,7 +1656,7 @@ declare dso_local ptr @sock_kmalloc(ptr noundef, i32 noundef, i32 noundef) local
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip6_mc_msfilter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 18
   %5 = load volatile i8, ptr %4, align 2
   %6 = zext nneg i8 %5 to i32
@@ -1889,7 +1889,7 @@ define dso_local noundef i32 @ip6_mc_msfilter(ptr noundef %0, ptr noundef %1, pt
 declare dso_local void @sock_kfree_s(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip6_mc_msfget(ptr noundef %0, ptr nocapture noundef %1, ptr %2, i8 %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -99, 1) i32 @ip6_mc_msfget(ptr noundef %0, ptr nocapture noundef %1, ptr %2, i8 %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.__kernel_sockaddr_storage, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 18
   %8 = load volatile i8, ptr %7, align 2
@@ -2153,13 +2153,13 @@ define dso_local zeroext i1 @inet6_mc_check(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ipv6_dev_mc_inc(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ipv6_dev_mc_inc(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call fastcc i32 @__ipv6_dev_mc_inc(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !14
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__ipv6_dev_mc_inc(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call i32 @rtnl_is_locked() #13
   %5 = icmp ne i32 %4, 0
   %6 = load i1, ptr @__ipv6_dev_mc_inc.__already_done, align 1
@@ -2662,7 +2662,7 @@ mld_ifc_event.exit:                               ; preds = %129, %125, %114, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ipv6_dev_mc_dec(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @ipv6_dev_mc_dec(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #13
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @ipv6_dev_mc_dec.__already_done, align 1
@@ -6615,7 +6615,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
   %247 = getelementptr inbounds i8, ptr %244, i64 2
   store i16 0, ptr %247, align 2
   %248 = getelementptr inbounds i8, ptr %244, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %248, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %248, ptr noundef readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %249 = getelementptr inbounds i8, ptr %243, i64 192
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %243, i64 178
@@ -7201,7 +7201,7 @@ declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #2 s
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ip6_mc_del1_src(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -3, 2) i32 @ip6_mc_del1_src(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr i8, ptr %2, i64 8
   br label %6
@@ -7719,7 +7719,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #11
 declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @igmp6_net_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @igmp6_net_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2024
   %3 = tail call i32 @inet_ctl_sock_create(ptr noundef %2, i16 noundef zeroext 10, i16 noundef zeroext 3, i8 noundef zeroext 58, ptr noundef %0) #13
   %4 = icmp slt i32 %3, 0

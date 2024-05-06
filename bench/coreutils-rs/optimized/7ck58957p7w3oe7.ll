@@ -371,7 +371,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !114, !noalias !119, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %11, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %11, i64 %10, i1 false)
   %33 = load i64, ptr %12, align 8, !alias.scope !114, !noalias !119, !noundef !4
   %34 = add i64 %33, %10
   store i64 %34, ptr %12, align 8, !alias.scope !114, !noalias !119

@@ -227,7 +227,7 @@ switch.lookup:                                    ; preds = %.lr.ph
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @WriteResultIntoFile(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WriteResultIntoFile(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.6)
   %4 = icmp eq ptr %3, null

@@ -474,7 +474,7 @@ declare i32 @MPI_Gather(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @comp_double(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @comp_double(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp olt double %3, %4

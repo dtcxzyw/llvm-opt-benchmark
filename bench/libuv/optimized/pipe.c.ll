@@ -44,7 +44,7 @@ entry:
 if.end5:                                          ; preds = %entry
   %incdec.ptr.i = getelementptr inbounds i8, ptr %name, i64 1
   %dec.i = add i64 %namelen, -1
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
+  %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
   %cmp1.i.not = icmp eq ptr %call.i, null
   br i1 %cmp1.i.not, label %if.end8, label %return
 
@@ -153,7 +153,7 @@ declare i32 @uv__close(i32 noundef) local_unnamed_addr #1
 declare void @uv__free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__pipe_listen(ptr noundef %handle, i32 noundef %backlog, ptr noundef %cb) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__pipe_listen(ptr noundef %handle, i32 noundef %backlog, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %io_watcher = getelementptr inbounds i8, ptr %handle, i64 136
   %fd = getelementptr inbounds i8, ptr %handle, i64 184
@@ -279,7 +279,7 @@ declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unname
 define void @uv_pipe_connect(ptr noundef %req, ptr noundef %handle, ptr noundef %name, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #13
-  %call1 = tail call i32 @uv_pipe_connect2(ptr noundef %req, ptr noundef %handle, ptr noundef %name, i64 noundef %call, i32 noundef 0, ptr noundef %cb), !range !4
+  %call1 = tail call i32 @uv_pipe_connect2(ptr noundef %req, ptr noundef %handle, ptr noundef %name, i64 noundef %call, i32 noundef 0, ptr noundef %cb)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -314,7 +314,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uv_pipe_connect2(ptr noundef %req, ptr noundef %handle, ptr noundef readonly %name, i64 noundef %namelen, i32 noundef %flags, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @uv_pipe_connect2(ptr noundef %req, ptr noundef %handle, ptr noundef readonly %name, i64 noundef %namelen, i32 noundef %flags, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %saddr = alloca %struct.sockaddr_un, align 2
   %tobool.not = icmp ugt i32 %flags, 1
@@ -327,7 +327,7 @@ entry:
 if.end5:                                          ; preds = %entry
   %incdec.ptr.i = getelementptr inbounds i8, ptr %name, i64 1
   %dec.i = add i64 %namelen, -1
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
+  %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
   %cmp1.i.not = icmp eq ptr %call.i, null
   br i1 %cmp1.i.not, label %if.end8, label %return
 
@@ -435,7 +435,7 @@ declare void @uv__io_feed(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_pipe_getsockname(ptr noundef %handle, ptr nocapture noundef %buffer, ptr nocapture noundef %size) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @uv_pipe_getsockname(ptr noundef %handle, ptr nocapture noundef %buffer, ptr nocapture noundef %size) local_unnamed_addr #0 {
 entry:
   %sa.i = alloca %struct.sockaddr_un, align 2
   %addrlen.i = alloca i32, align 4
@@ -503,7 +503,7 @@ uv__pipe_getsockpeername.exit:                    ; preds = %if.then.i, %if.then
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_pipe_getpeername(ptr noundef %handle, ptr nocapture noundef %buffer, ptr nocapture noundef %size) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @uv_pipe_getpeername(ptr noundef %handle, ptr nocapture noundef %buffer, ptr nocapture noundef %size) local_unnamed_addr #0 {
 entry:
   %sa.i = alloca %struct.sockaddr_un, align 2
   %addrlen.i = alloca i32, align 4
@@ -751,7 +751,7 @@ if.then17:                                        ; preds = %if.end11.i.i33, %if
 if.end18:                                         ; preds = %if.then26.i.i43, %if.end17.i.i41
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i.i24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i.i25)
-  %call.i = call noundef i32 @stat64(ptr noundef nonnull %call11, ptr noundef nonnull %pipe_stat) #12
+  %call.i = call noundef i32 @stat64(ptr noundef nonnull readonly %call11, ptr noundef nonnull %pipe_stat) #12
   %cmp20 = icmp eq i32 %call.i, -1
   br i1 %cmp20, label %if.then21, label %if.end23
 
@@ -919,4 +919,3 @@ attributes #14 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -22, i32 1}

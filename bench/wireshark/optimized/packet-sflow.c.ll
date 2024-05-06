@@ -1162,7 +1162,7 @@ define internal i32 @dissect_sflow_245(ptr noundef %0, ptr noundef %1, ptr nound
   br label %28
 
 28:                                               ; preds = %26, %13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %dissect_sflow_245_address_type.exit
 
 29:                                               ; preds = %13

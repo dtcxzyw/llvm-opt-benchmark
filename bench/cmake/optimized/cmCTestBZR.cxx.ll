@@ -5256,7 +5256,7 @@ declare noundef i32 @_ZN11cmXMLParser16InitializeParserEv(ptr noundef nonnull al
 declare void @XML_SetUnknownEncodingHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL36cmBZRXMLParserUnknownEncodingHandlerPvPKcP12XML_Encoding(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL36cmBZRXMLParserUnknownEncodingHandlerPvPKcP12XML_Encoding(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

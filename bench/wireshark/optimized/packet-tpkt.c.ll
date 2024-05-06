@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [9 x i8] c"tpkt_tcp\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @is_tpkt(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @is_tpkt(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @proto_tpkt_ptr, align 8
   %4 = tail call i32 @proto_is_protocol_enabled(ptr noundef %3) #4
   %.not = icmp eq i32 %4, 0
@@ -105,7 +105,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @is_asciitpkt(ptr noundef %0) local_unnamed_addr #0 {
+define hidden zeroext range(i16 -1, 2) i16 @is_asciitpkt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @proto_tpkt_ptr, align 8
   %3 = tail call i32 @proto_is_protocol_enabled(ptr noundef %2) #4
   %.not = icmp eq i32 %3, 0

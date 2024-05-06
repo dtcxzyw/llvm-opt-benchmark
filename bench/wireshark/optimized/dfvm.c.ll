@@ -667,7 +667,7 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly 
   %34 = getelementptr inbounds i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = tail call ptr @dfvm_opcode_tostr(i32 noundef %35)
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %4, ptr noundef nonnull @.str.56, i32 noundef %37, ptr noundef nonnull %36) #11
   %38 = load i32, ptr %34, align 4
   switch i32 %38, label %39 [
@@ -1538,7 +1538,7 @@ check_exists_finfos.exit.thread.us.i204:          ; preds = %56, %.lr.ph.split.u
   br i1 %68, label %check_exists_finfos.exit.thread.i, label %check_exists_finfos.exit.i
 
 check_exists_finfos.exit.i:                       ; preds = %65
-  %69 = call fastcc i64 @filter_finfo_fvalues(ptr noundef null, ptr noundef nonnull %63, ptr noundef nonnull %51, i1 noundef zeroext false)
+  %69 = call fastcc i64 @filter_finfo_fvalues(ptr noundef null, ptr noundef nonnull %63, ptr noundef nonnull readonly %51, i1 noundef zeroext false)
   %.not4.i = icmp eq i64 %69, 0
   br i1 %.not4.i, label %check_exists_finfos.exit.thread.i, label %stack_pop.exit
 
@@ -4668,7 +4668,7 @@ read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue
   br i1 %69, label %read_tree_finfos.exit, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef nonnull %64, ptr noundef nonnull %.021, i1 noundef zeroext %4)
+  %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef nonnull %64, ptr noundef nonnull readonly %.021, i1 noundef zeroext %4)
   br label %read_tree_finfos.exit
 
 read_tree_finfos.exit:                            ; preds = %.lr.ph.split, %66, %70

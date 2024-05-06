@@ -27,8 +27,8 @@ entry:
   %sub_bucket_mask.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i, align 8
   %or.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !5
-  %cast.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i, i1 true)
+  %cast.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i, align 8
   %sub_bucket_half_count_magnitude.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -79,8 +79,8 @@ entry:
   %sub_bucket_mask.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i, align 8
   %or.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !5
-  %cast.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i, i1 true)
+  %cast.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i, align 8
   %sub_bucket_half_count_magnitude.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -108,8 +108,8 @@ entry:
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %1 to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %2 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %3 = add i32 %2, %cast.i.i.i
@@ -137,8 +137,8 @@ entry:
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %1 to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %2 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %3 = add i32 %2, %cast.i.i.i
@@ -195,7 +195,7 @@ if.then:                                          ; preds = %for.body
   %cmp2 = icmp eq i32 %min_non_zero_index.041, -1
   %cmp3 = icmp ne i64 %indvars.iv, 0
   %or.cond = and i1 %cmp3, %cmp2
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %or.cond, i32 %4, i32 %min_non_zero_index.041
   br label %for.inc
 
@@ -233,8 +233,8 @@ if.else:                                          ; preds = %for.end
   %sub_bucket_mask.i.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %8 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
   %or.i.i.i.i = or i64 %shl.i.i, %8
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i.i = trunc i64 %9 to i32
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %9 to i32
   %10 = add i32 %5, %cast.i.i.i.i.i
   %add.i.i.i.i = sub i32 63, %10
   %sh_prom.i.i.i.i = zext nneg i32 %add.i.i.i.i to i64
@@ -293,7 +293,7 @@ if.end18:                                         ; preds = %if.end12, %if.end12
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef %cfg) local_unnamed_addr #2 {
+define dso_local range(i32 0, 23) i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef %cfg) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i64 %lowest_discernible_value, 1
   %0 = add i32 %significant_figures, -6
@@ -316,7 +316,7 @@ if.end:                                           ; preds = %entry
 while.body.i:                                     ; preds = %if.end, %while.body.i
   %result.05.i = phi i64 [ %mul.i, %while.body.i ], [ 1, %if.end ]
   %exp.addr.04.i = phi i64 [ %dec.i, %while.body.i ], [ %conv, %if.end ]
-  %mul.i = mul nsw i64 %result.05.i, 10
+  %mul.i = mul nuw nsw i64 %result.05.i, 10
   %dec.i = add nsw i64 %exp.addr.04.i, -1
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %power.exit, label %while.body.i
@@ -464,10 +464,10 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hdr_init(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
+define dso_local range(i32 0, 23) i32 @hdr_init(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
 entry:
   %cfg = alloca %struct.hdr_histogram_bucket_config, align 16
-  %call = call i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef nonnull %cfg), !range !6
+  %call = call i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef nonnull %cfg)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -552,9 +552,9 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hdr_alloc(i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
+define dso_local range(i32 0, 23) i32 @hdr_alloc(i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
 entry:
-  %call = tail call i32 @hdr_init(i64 noundef 1, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef %result), !range !6
+  %call = tail call i32 @hdr_init(i64 noundef 1, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef %result)
   ret i32 %call
 }
 
@@ -581,7 +581,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_get_memory_size(ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
+define dso_local range(i64 -17179869080, 17179869281) i64 @hdr_get_memory_size(ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
 entry:
   %counts_len = getelementptr inbounds i8, ptr %h, i64 80
   %0 = load i32, ptr %counts_len, align 8
@@ -601,8 +601,8 @@ if.end.i:                                         ; preds = %entry
   %sub_bucket_mask.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
+  %cast.i.i.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %sub_bucket_half_count_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -685,8 +685,8 @@ if.end:                                           ; preds = %entry
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i.i, align 8
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -769,8 +769,8 @@ if.end.i:                                         ; preds = %entry
   %sub_bucket_mask.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
+  %cast.i.i.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %sub_bucket_half_count_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -869,8 +869,8 @@ if.end:                                           ; preds = %entry
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i.i, align 8
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -976,8 +976,8 @@ if.end.i:                                         ; preds = %entry
   %sub_bucket_mask.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
+  %cast.i.i.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %sub_bucket_half_count_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -1055,8 +1055,8 @@ for.body:                                         ; preds = %if.end, %hdr_record
   %missing_value.063 = phi i64 [ %missing_value.0, %hdr_record_values.exit57 ], [ %missing_value.061, %if.end ]
   %15 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i14 = or i64 %15, %missing_value.063
-  %16 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i14, i1 true), !range !5
-  %cast.i.i.i.i15 = trunc i64 %16 to i32
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i14, i1 true)
+  %cast.i.i.i.i15 = trunc nuw nsw i64 %16 to i32
   %17 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %18 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
   %19 = add i32 %18, %17
@@ -1137,8 +1137,8 @@ if.end.i:                                         ; preds = %entry
   %sub_bucket_mask.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
+  %cast.i.i.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %sub_bucket_half_count_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -1235,8 +1235,8 @@ for.body:                                         ; preds = %if.end, %hdr_record
   %missing_value.067 = phi i64 [ %missing_value.0, %hdr_record_values_atomic.exit61 ], [ %missing_value.065, %if.end ]
   %19 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i14 = or i64 %19, %missing_value.067
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i14, i1 true), !range !5
-  %cast.i.i.i.i15 = trunc i64 %20 to i32
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i14, i1 true)
+  %cast.i.i.i.i15 = trunc nuw nsw i64 %20 to i32
   %21 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %22 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
   %23 = add i32 %22, %21
@@ -1330,7 +1330,7 @@ entry:
   %count.i.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_iterated_from.i.i, i8 0, i64 24, i1 false)
   store ptr @recorded_iter_next, ptr %_next_fp.i.i, align 8
   %call.i6 = call zeroext i1 @recorded_iter_next(ptr noundef nonnull %iter) #21
@@ -1360,8 +1360,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.end.i:                                         ; preds = %while.body
   %4 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i = or i64 %4, %2
-  %5 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i = trunc i64 %5 to i32
+  %5 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
+  %cast.i.i.i.i = trunc nuw nsw i64 %5 to i32
   %6 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %7 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
   %8 = add i32 %7, %6
@@ -1448,8 +1448,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   store i64 0, ptr %specifics, align 8
   store ptr @recorded_iter_next, ptr %_next_fp.i, align 8
@@ -1479,7 +1479,7 @@ entry:
   %count.i.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_iterated_from.i.i, i8 0, i64 24, i1 false)
   store ptr @recorded_iter_next, ptr %_next_fp.i.i, align 8
   %call.i3 = call zeroext i1 @recorded_iter_next(ptr noundef nonnull %iter) #21
@@ -1506,7 +1506,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_max(ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @hdr_max(ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
 entry:
   %max_value = getelementptr inbounds i8, ptr %h, i64 56
   %0 = load i64, ptr %max_value, align 8
@@ -1517,8 +1517,8 @@ if.end:                                           ; preds = %entry
   %sub_bucket_mask.i.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %1 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
   %or.i.i.i.i = or i64 %1, %0
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i.i = trunc i64 %2 to i32
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %2 to i32
   %sub_bucket_half_count_magnitude.i.i.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %3 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i.i, align 8
   %4 = add i32 %3, %cast.i.i.i.i.i
@@ -1585,8 +1585,8 @@ if.end.i:                                         ; preds = %if.end
   %sub_bucket_mask.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %6 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i = or i64 %6, %5
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i = trunc i64 %7 to i32
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
+  %cast.i.i.i.i = trunc nuw nsw i64 %7 to i32
   %sub_bucket_half_count_magnitude.i.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %8 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
   %9 = add i32 %8, %cast.i.i.i.i
@@ -1666,7 +1666,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp2.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %6 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %shr.i.i = lshr i32 %5, %6
@@ -1697,8 +1697,8 @@ get_value_from_idx_up_to_count.exit:              ; preds = %for.inc.i, %entry, 
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %9 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %9, %retval.0.i
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %10 to i32
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %10 to i32
   %sub_bucket_half_count_magnitude.i.i7 = getelementptr inbounds i8, ptr %h, i64 24
   %11 = load i32, ptr %sub_bucket_half_count_magnitude.i.i7, align 8
   %12 = add i32 %11, %cast.i.i.i
@@ -1732,7 +1732,7 @@ return:                                           ; preds = %get_value_from_idx_
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hdr_value_at_percentiles(ptr noundef %h, ptr noundef readonly %percentiles, ptr noundef %values, i64 noundef %length) local_unnamed_addr #6 {
+define dso_local range(i32 0, 23) i32 @hdr_value_at_percentiles(ptr noundef %h, ptr noundef readonly %percentiles, ptr noundef %values, i64 noundef %length) local_unnamed_addr #6 {
 entry:
   %iter = alloca %struct.hdr_iter, align 8
   %cmp = icmp eq ptr %percentiles, null
@@ -1776,8 +1776,8 @@ for.end:                                          ; preds = %for.body, %if.end
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %call.i25 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   %cmp1526 = icmp ne i64 %length, 0
@@ -1809,8 +1809,8 @@ land.rhs20:                                       ; preds = %while.body, %while.
 while.body25:                                     ; preds = %land.rhs20
   %8 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
   %or.i.i.i.i = or i64 %8, %6
-  %9 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i.i = trunc i64 %9 to i32
+  %9 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %9 to i32
   %10 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i.i, align 8
   %11 = add i32 %10, %cast.i.i.i.i.i
   %add.i.i.i.i = sub i32 63, %11
@@ -1879,8 +1879,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %call.i6 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   br i1 %call.i6, label %while.body.lr.ph, label %while.end
@@ -1902,8 +1902,8 @@ if.then:                                          ; preds = %while.body
   %2 = load i64, ptr %value, align 8
   %3 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i = or i64 %3, %2
-  %4 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i = trunc i64 %4 to i32
+  %4 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
+  %cast.i.i.i.i = trunc nuw nsw i64 %4 to i32
   %5 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
   %6 = add i32 %5, %cast.i.i.i.i
   %add.i.i.i = sub i32 63, %6
@@ -1996,8 +1996,8 @@ while.body.lr.ph.i:                               ; preds = %if.end.i.i.i, %if.e
   %6 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %7 = load i64, ptr %sub_bucket_mask.i.i, align 8
-  %8 = tail call i64 @llvm.ctlz.i64(i64 %7, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %8 to i32
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %8 to i32
   %9 = getelementptr i8, ptr %h, i64 40
   %.val27.i = load i32, ptr %9, align 8
   %cmp.not.i.i28 = icmp slt i32 %.val27.i, 1
@@ -2030,8 +2030,8 @@ if.then.i:                                        ; preds = %while.body.i
   %12 = load i64, ptr %value15.i, align 8
   %13 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i.i.i = or i64 %13, %12
-  %14 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i.i = trunc i64 %14 to i32
+  %14 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %14 to i32
   %15 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %16 = add i32 %15, %cast.i.i.i.i.i
   %add.i.i.i.i = sub i32 63, %16
@@ -2078,8 +2078,8 @@ hdr_mean.exit:                                    ; preds = %entry, %while.end.l
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %call.i36 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   br i1 %call.i36, label %while.body.lr.ph, label %while.end
@@ -2101,8 +2101,8 @@ if.then:                                          ; preds = %while.body
   %22 = load i64, ptr %value, align 8
   %23 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
   %or.i.i.i = or i64 %23, %22
-  %24 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i = trunc i64 %24 to i32
+  %24 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
+  %cast.i.i.i.i = trunc nuw nsw i64 %24 to i32
   %25 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
   %26 = add i32 %25, %cast.i.i.i.i
   %add.i.i.i7 = sub i32 63, %26
@@ -2155,8 +2155,8 @@ entry:
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %0, %a
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %1 to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %2 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %3 = add i32 %2, %cast.i.i.i
@@ -2167,8 +2167,8 @@ entry:
   %conv.i5.i = ashr exact i64 %sext.i, 32
   %shl.i.i = shl i64 %conv.i5.i, %sh_prom.i.i
   %or.i.i3 = or i64 %0, %b
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i3, i1 true), !range !5
-  %cast.i.i.i4 = trunc i64 %4 to i32
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i3, i1 true)
+  %cast.i.i.i4 = trunc nuw nsw i64 %4 to i32
   %5 = add i32 %2, %cast.i.i.i4
   %add.i.i6 = sub i32 63, %5
   %sh_prom.i.i7 = zext nneg i32 %add.i.i6 to i64
@@ -2186,8 +2186,8 @@ entry:
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %1 to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %2 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %3 = add i32 %2, %cast.i.i.i
@@ -2206,8 +2206,8 @@ entry:
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %0, %value
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %1 to i32
   %unit_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 16
   %2 = load i32, ptr %unit_magnitude.i.i, align 8
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
@@ -2285,8 +2285,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   store i8 0, ptr %specifics, align 8
   %ticks_per_half_distance3 = getelementptr inbounds i8, ptr %iter, i64 92
@@ -2365,8 +2365,8 @@ if.then13:                                        ; preds = %land.lhs.true10
   %sub_bucket_mask.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %11 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
   %or.i.i.i.i = or i64 %11, %10
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i.i = trunc i64 %12 to i32
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %12 to i32
   %sub_bucket_half_count_magnitude.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %13 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i.i, align 8
   %14 = add i32 %13, %cast.i.i.i.i.i
@@ -2493,8 +2493,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   %count_added_in_this_iteration_step = getelementptr inbounds i8, ptr %iter, i64 96
@@ -2505,8 +2505,8 @@ entry:
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %1 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %1, %value_units_per_bucket
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %2 to i32
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %2 to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %3 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %4 = add i32 %3, %cast.i.i.i
@@ -2601,8 +2601,8 @@ if.then3:                                         ; preds = %if.end10, %if.then
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %14, %add
-  %15 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %15 to i32
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %15 to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %16 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %17 = add i32 %16, %cast.i.i.i
@@ -2655,8 +2655,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   %count_added_in_this_iteration_step = getelementptr inbounds i8, ptr %iter, i64 96
@@ -2667,8 +2667,8 @@ entry:
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %1 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %1, %value_units_first_bucket
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %2 to i32
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %2 to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %3 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %4 = add i32 %3, %cast.i.i.i
@@ -2764,8 +2764,8 @@ if.then3:                                         ; preds = %if.end10, %if.then
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i = or i64 %14, %mul
-  %15 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %15 to i32
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %15 to i32
   %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %16 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %17 = add i32 %16, %cast.i.i.i
@@ -2798,7 +2798,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hdr_percentiles_print(ptr noundef %h, ptr nocapture noundef %stream, i32 noundef %ticks_per_half_distance, double noundef %value_scale, i32 noundef %format) local_unnamed_addr #6 {
+define dso_local range(i32 0, 6) i32 @hdr_percentiles_print(ptr noundef %h, ptr nocapture noundef %stream, i32 noundef %ticks_per_half_distance, double noundef %value_scale, i32 noundef %format) local_unnamed_addr #6 {
 entry:
   %iter.i = alloca %struct.hdr_iter, align 8
   %line_format = alloca [25 x i8], align 16
@@ -2811,15 +2811,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %0, ptr noundef nonnull @.str.6) #21
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %0, ptr noundef nonnull @.str.6) #21
   br label %format_line_string.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
+  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
   br label %format_line_string.exit
 
 sw.default.i:                                     ; preds = %entry
-  %call3.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
+  %call3.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
   br label %format_line_string.exit
 
 format_line_string.exit:                          ; preds = %sw.bb.i, %sw.bb1.i, %sw.default.i
@@ -2835,12 +2835,12 @@ format_line_string.exit:                          ; preds = %sw.bb.i, %sw.bb1.i,
   %count.i.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
   %ticks_per_half_distance3.i = getelementptr inbounds i8, ptr %iter, i64 92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %value_iterated_from.i.i, i8 0, i64 17, i1 false)
   store i32 %ticks_per_half_distance, ptr %ticks_per_half_distance3.i, align 4
   %percentile_to_iterate_to.i = getelementptr inbounds i8, ptr %iter, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %percentile_to_iterate_to.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %percentile_to_iterate_to.i, i8 0, i64 16, i1 false)
   store ptr @percentile_iter_next, ptr %_next_fp.i.i, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull %.str.9..str.10.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #21
   %cmp = icmp slt i32 %call1, 0
@@ -2921,8 +2921,8 @@ while.body.lr.ph.i:                               ; preds = %if.end.i.i.i, %if.e
   %12 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %13 = load i64, ptr %sub_bucket_mask.i.i, align 8
-  %14 = call i64 @llvm.ctlz.i64(i64 %13, i1 true), !range !5
-  %cast.i.i.i = trunc i64 %14 to i32
+  %14 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %14 to i32
   %15 = getelementptr i8, ptr %h, i64 40
   %.val27.i = load i32, ptr %15, align 8
   %cmp.not.i.i = icmp slt i32 %.val27.i, 1
@@ -2955,8 +2955,8 @@ if.then.i:                                        ; preds = %while.body.i
   %18 = load i64, ptr %value15.i, align 8
   %19 = load i64, ptr %sub_bucket_mask.i.i, align 8
   %or.i.i.i.i = or i64 %19, %18
-  %20 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i.i = trunc i64 %20 to i32
+  %20 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %20 to i32
   %21 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
   %22 = add i32 %21, %cast.i.i.i.i.i
   %add.i.i.i.i = sub i32 63, %22
@@ -3012,8 +3012,8 @@ if.end.i23:                                       ; preds = %hdr_mean.exit
   %sub_bucket_mask.i.i.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
   %28 = load i64, ptr %sub_bucket_mask.i.i.i.i.i, align 8
   %or.i.i.i.i.i = or i64 %28, %27
-  %29 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true), !range !5
-  %cast.i.i.i.i.i.i = trunc i64 %29 to i32
+  %29 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %29 to i32
   %sub_bucket_half_count_magnitude.i.i.i.i.i = getelementptr inbounds i8, ptr %h, i64 24
   %30 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i.i.i, align 8
   %31 = add i32 %30, %cast.i.i.i.i.i.i
@@ -3122,8 +3122,8 @@ counts_get_normalised.exit:                       ; preds = %if.end, %if.end.i.i
   %sub_bucket_mask.i = getelementptr inbounds i8, ptr %iter.val, i64 32
   %9 = load i64, ptr %sub_bucket_mask.i, align 8
   %or.i = or i64 %shl.i.i, %9
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !5
-  %cast.i.i = trunc i64 %10 to i32
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i, i1 true)
+  %cast.i.i = trunc nuw nsw i64 %10 to i32
   %11 = add i32 %6, %cast.i.i
   %add.i32 = sub i32 63, %11
   %sh_prom.i = zext nneg i32 %add.i32 to i64
@@ -3213,5 +3213,3 @@ attributes #21 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = !{i32 0, i32 23}

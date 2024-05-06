@@ -756,7 +756,7 @@ define dso_local ptr @mr_mfc_seq_next(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mr_fill_mroute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -90, 2) i32 @mr_fill_mroute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.rta_mfc_stats, align 8
@@ -976,7 +976,7 @@ declare dso_local i32 @nla_put_64bit(ptr noundef, i32 noundef, i32 noundef, ptr 
 declare dso_local i64 @jiffies_to_clock_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mr_table_dump(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @mr_table_dump(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5) #0 align 16 {
   %7 = getelementptr i8, ptr %2, i64 88
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32

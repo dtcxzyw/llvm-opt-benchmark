@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @nlmsg_audit_perms = internal unnamed_addr constant [16 x %struct.nlmsg_perm] [%struct.nlmsg_perm { i16 1000, i32 2097152 }, %struct.nlmsg_perm { i16 1001, i32 4194304 }, %struct.nlmsg_perm { i16 1002, i32 16777216 }, %struct.nlmsg_perm { i16 1003, i32 4194304 }, %struct.nlmsg_perm { i16 1004, i32 4194304 }, %struct.nlmsg_perm { i16 1013, i32 16777216 }, %struct.nlmsg_perm { i16 1011, i32 4194304 }, %struct.nlmsg_perm { i16 1012, i32 4194304 }, %struct.nlmsg_perm { i16 1005, i32 8388608 }, %struct.nlmsg_perm { i16 1010, i32 2097152 }, %struct.nlmsg_perm { i16 1014, i32 4194304 }, %struct.nlmsg_perm { i16 1015, i32 4194304 }, %struct.nlmsg_perm { i16 1016, i32 2097152 }, %struct.nlmsg_perm { i16 1017, i32 33554432 }, %struct.nlmsg_perm { i16 1019, i32 2097152 }, %struct.nlmsg_perm { i16 1018, i32 4194304 }], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: write)
-define dso_local noundef i32 @selinux_nlmsg_lookup(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @selinux_nlmsg_lookup(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   switch i16 %0, label %.loopexit [
     i16 31, label %.preheader
     i16 32, label %.preheader4

@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qemu_input_key_value_to_qcode = private unnamed_addr constant [52 x i8] c"int qemu_input_key_value_to_qcode(const KeyValue *)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_input_linux_to_qcode(i32 noundef %lnx) local_unnamed_addr #0 {
+define dso_local range(i32 0, 65536) i32 @qemu_input_linux_to_qcode(i32 noundef %lnx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %lnx, 524
   br i1 %cmp, label %return, label %if.end
@@ -101,7 +101,7 @@ return:                                           ; preds = %if.then, %if.end10,
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_input_key_number_to_qcode(i32 noundef %nr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 65536) i32 @qemu_input_key_number_to_qcode(i32 noundef %nr) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %nr, 253
   br i1 %cmp, label %return, label %if.end
@@ -156,7 +156,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_input_key_value_to_scancode(ptr nocapture noundef readonly %value, i1 noundef zeroext %down, ptr nocapture noundef writeonly %codes) local_unnamed_addr #1 {
+define dso_local range(i32 1, 4) i32 @qemu_input_key_value_to_scancode(ptr nocapture noundef readonly %value, i1 noundef zeroext %down, ptr nocapture noundef writeonly %codes) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %value, align 8
   switch i32 %0, label %if.else9.i [

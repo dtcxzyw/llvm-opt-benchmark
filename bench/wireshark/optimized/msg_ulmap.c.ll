@@ -1116,7 +1116,7 @@ define hidden i32 @dissect_ulmap_ie(ptr noundef %0, ptr noundef %1, i32 noundef 
   ]
 
 109:                                              ; preds = %92
-  %110 = tail call fastcc i32 @CQICH_Enhanced_Allocation_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4), !range !4
+  %110 = tail call fastcc i32 @CQICH_Enhanced_Allocation_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4)
   br label %430
 
 111:                                              ; preds = %92
@@ -1128,11 +1128,11 @@ define hidden i32 @dissect_ulmap_ie(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %430
 
 115:                                              ; preds = %92
-  %116 = tail call fastcc i32 @Anchor_BS_switch_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4), !range !4
+  %116 = tail call fastcc i32 @Anchor_BS_switch_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4)
   br label %430
 
 117:                                              ; preds = %92
-  %118 = tail call fastcc i32 @UL_sounding_command_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4), !range !4
+  %118 = tail call fastcc i32 @UL_sounding_command_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4)
   br label %430
 
 119:                                              ; preds = %92
@@ -1140,19 +1140,19 @@ define hidden i32 @dissect_ulmap_ie(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %430
 
 121:                                              ; preds = %92
-  %122 = tail call fastcc i32 @HARQ_ULMAP_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4), !range !4
+  %122 = tail call fastcc i32 @HARQ_ULMAP_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4)
   br label %430
 
 123:                                              ; preds = %92
-  %124 = tail call fastcc i32 @HARQ_ACKCH_Region_Allocation_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4), !range !4
+  %124 = tail call fastcc i32 @HARQ_ACKCH_Region_Allocation_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4)
   br label %430
 
 125:                                              ; preds = %92
-  %126 = tail call fastcc i32 @AAS_SDMA_UL_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4), !range !4
+  %126 = tail call fastcc i32 @AAS_SDMA_UL_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4)
   br label %430
 
 127:                                              ; preds = %92
-  %128 = tail call fastcc i32 @Feedback_Polling_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4), !range !4
+  %128 = tail call fastcc i32 @Feedback_Polling_IE(ptr noundef %100, i32 noundef %69, i32 noundef %108, ptr noundef %4)
   br label %430
 
 129:                                              ; preds = %92
@@ -1491,23 +1491,23 @@ define hidden i32 @dissect_ulmap_ie(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %430
 
 368:                                              ; preds = %350
-  %369 = tail call fastcc i32 @Mini_Subchannel_allocation_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !4
+  %369 = tail call fastcc i32 @Mini_Subchannel_allocation_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 370:                                              ; preds = %350
-  %371 = tail call fastcc i32 @AAS_UL_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !4
+  %371 = tail call fastcc i32 @AAS_UL_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 372:                                              ; preds = %350
-  %373 = tail call fastcc i32 @CQICH_Alloc_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !4
+  %373 = tail call fastcc i32 @CQICH_Alloc_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 374:                                              ; preds = %350
-  %375 = tail call fastcc i32 @UL_Zone_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !4
+  %375 = tail call fastcc i32 @UL_Zone_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 376:                                              ; preds = %350
-  %377 = tail call fastcc i32 @PHYMOD_UL_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !4
+  %377 = tail call fastcc i32 @PHYMOD_UL_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 378:                                              ; preds = %350
@@ -1515,19 +1515,19 @@ define hidden i32 @dissect_ulmap_ie(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %430
 
 380:                                              ; preds = %350
-  %381 = tail call fastcc i32 @ULMAP_Fast_Tracking_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !5
+  %381 = tail call fastcc i32 @ULMAP_Fast_Tracking_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 382:                                              ; preds = %350
-  %383 = tail call fastcc i32 @UL_PUSC_Burst_Allocation_in_other_segment_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !4
+  %383 = tail call fastcc i32 @UL_PUSC_Burst_Allocation_in_other_segment_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 384:                                              ; preds = %350
-  %385 = tail call fastcc i32 @Fast_Ranging_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !4
+  %385 = tail call fastcc i32 @Fast_Ranging_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 386:                                              ; preds = %350
-  %387 = tail call fastcc i32 @UL_Allocation_Start_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4), !range !4
+  %387 = tail call fastcc i32 @UL_Allocation_Start_IE(ptr noundef %357, i32 noundef %329, i32 noundef %365, ptr noundef %4)
   br label %430
 
 388:                                              ; preds = %350
@@ -1604,7 +1604,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @CQICH_Enhanced_Allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noundef range(i32 -536870912, 536870912) i32 @CQICH_Enhanced_Allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -1691,7 +1691,7 @@ define internal fastcc noundef i32 @CQICH_Enhanced_Allocation_IE(ptr noundef %0,
   %75 = add nuw nsw i32 %.09099, 1
   %.1 = add i32 %.1101, 13
   %exitcond.not = icmp eq i32 %.09099, %60
-  br i1 %exitcond.not, label %76, label %63, !llvm.loop !6
+  br i1 %exitcond.not, label %76, label %63, !llvm.loop !4
 
 76:                                               ; preds = %63
   %77 = sdiv i32 %.1, 8
@@ -1842,7 +1842,7 @@ define internal fastcc noundef i32 @HO_Active_Anchor_UL_MAP_IE(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Anchor_BS_switch_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noundef range(i32 -536870912, 536870912) i32 @Anchor_BS_switch_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -1991,7 +1991,7 @@ define internal fastcc noundef i32 @Anchor_BS_switch_IE(ptr noundef %0, i32 noun
   %.3 = phi i32 [ %106, %109 ], [ %106, %91 ], [ %62, %51 ], [ %116, %113 ]
   %118 = add nuw nsw i32 %.0125, 1
   %exitcond.not = icmp eq i32 %118, %25
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %117, %4
   %.0114.lcssa = phi i32 [ %28, %4 ], [ %.3, %117 ]
@@ -2003,7 +2003,7 @@ define internal fastcc noundef i32 @Anchor_BS_switch_IE(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @UL_sounding_command_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @UL_sounding_command_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -2214,13 +2214,13 @@ define internal fastcc i32 @UL_sounding_command_IE(ptr noundef %0, i32 noundef %
   %161 = add i32 %158, 3
   %162 = add nuw nsw i32 %.0280, 1
   %exitcond296.not = icmp eq i32 %162, %105
-  br i1 %exitcond296.not, label %._crit_edge283, label %.lr.ph282, !llvm.loop !9
+  br i1 %exitcond296.not, label %._crit_edge283, label %.lr.ph282, !llvm.loop !7
 
 ._crit_edge283:                                   ; preds = %157, %79
   %.3.lcssa = phi i32 [ %111, %79 ], [ %161, %157 ]
   %163 = add nuw nsw i32 %.0260286, 1
   %exitcond297.not = icmp eq i32 %163, %71
-  br i1 %exitcond297.not, label %.loopexit, label %79, !llvm.loop !10
+  br i1 %exitcond297.not, label %.loopexit, label %79, !llvm.loop !8
 
 164:                                              ; preds = %50
   %165 = load i32, ptr @hf_ulmap_sounding_command_permutation, align 4
@@ -2297,13 +2297,13 @@ define internal fastcc i32 @UL_sounding_command_IE(ptr noundef %0, i32 noundef %
   %219 = add i32 %.9, 16
   %220 = add nuw nsw i32 %.1273, 1
   %exitcond.not = icmp eq i32 %220, %187
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %204, %.lr.ph277
   %.8.lcssa = phi i32 [ %193, %.lr.ph277 ], [ %219, %204 ]
   %221 = add nuw nsw i32 %.1261275, 1
   %exitcond295.not = icmp eq i32 %221, %177
-  br i1 %exitcond295.not, label %.loopexit, label %.lr.ph277, !llvm.loop !12
+  br i1 %exitcond295.not, label %.loopexit, label %.lr.ph277, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge283, %164, %64
   %.10 = phi i32 [ %77, %64 ], [ %180, %164 ], [ %.3.lcssa, %._crit_edge283 ], [ %.8.lcssa, %._crit_edge ]
@@ -2380,7 +2380,7 @@ define internal fastcc noundef i32 @MIMO_UL_Enhanced_IE(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @HARQ_ULMAP_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = shl nuw nsw i32 %2, 2
   %7 = sdiv i32 %1, 2
@@ -2423,7 +2423,7 @@ define internal fastcc i32 @HARQ_ULMAP_IE(ptr noundef %0, i32 noundef %1, i32 no
 .loopexit:                                        ; preds = %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us, %UL_HARQ_Chase_Sub_Burst_IE.exit.us, %70
   %.us-phi = phi i32 [ %80, %70 ], [ %149, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %219, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ %292, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ %.3.us212, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211 ], [ %.3.us220, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219 ], [ %.3.us228, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227 ], [ %.3.us236, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235 ]
   %38 = icmp slt i32 %.us-phi, %34
-  br i1 %38, label %39, label %._crit_edge, !llvm.loop !13
+  br i1 %38, label %39, label %._crit_edge, !llvm.loop !11
 
 39:                                               ; preds = %.lr.ph, %.loopexit
   %.0122240 = phi i32 [ %32, %.lr.ph ], [ %.us-phi, %.loopexit ]
@@ -2568,7 +2568,7 @@ UL_HARQ_Chase_Sub_Burst_IE.exit.us:               ; preds = %122, %101, %.split.
   %149 = add i32 %.0.i.us, 23
   %150 = add nuw nsw i32 %.0191.us, 1
   %exitcond274.not = icmp eq i32 %.0191.us, %77
-  br i1 %exitcond274.not, label %.loopexit, label %.split.us, !llvm.loop !14
+  br i1 %exitcond274.not, label %.loopexit, label %.split.us, !llvm.loop !12
 
 .split.us192:                                     ; preds = %70, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us
   %.0191.us193 = phi i32 [ %220, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ 0, %70 ]
@@ -2654,7 +2654,7 @@ UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us:              ; preds = %192, %171, %.split.
   %219 = add i32 %.0.i128.us, 19
   %220 = add nuw nsw i32 %.0191.us193, 1
   %exitcond273.not = icmp eq i32 %.0191.us193, %77
-  br i1 %exitcond273.not, label %.loopexit, label %.split.us192, !llvm.loop !14
+  br i1 %exitcond273.not, label %.loopexit, label %.split.us192, !llvm.loop !12
 
 .split.us200:                                     ; preds = %70, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us
   %.0191.us201 = phi i32 [ %293, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ 0, %70 ]
@@ -2743,7 +2743,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %292 = add i32 %.0.i131.us, 27
   %293 = add nuw nsw i32 %.0191.us201, 1
   %exitcond272.not = icmp eq i32 %.0191.us201, %77
-  br i1 %exitcond272.not, label %.loopexit, label %.split.us200, !llvm.loop !14
+  br i1 %exitcond272.not, label %.loopexit, label %.split.us200, !llvm.loop !12
 
 .split.us208:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211
   %.0191.us209 = phi i32 [ %420, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211 ], [ 0, %70 ]
@@ -2855,7 +2855,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %375 = add nuw nsw i32 %.076.i.us, 1
   %376 = load i32, ptr @N_layer, align 4
   %377 = icmp slt i32 %375, %376
-  br i1 %377, label %.lr.ph.split.split.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !15
+  br i1 %377, label %.lr.ph.split.split.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !13
 
 .lr.ph.split.split.us.i.us:                       ; preds = %.lr.ph.split.i.us, %.lr.ph.split.split.us.i.us
   %.076.us77.i.us = phi i32 [ %384, %.lr.ph.split.split.us.i.us ], [ 0, %.lr.ph.split.i.us ]
@@ -2869,7 +2869,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %384 = add nuw nsw i32 %.076.us77.i.us, 1
   %385 = load i32, ptr @N_layer, align 4
   %386 = icmp slt i32 %384, %385
-  br i1 %386, label %.lr.ph.split.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !15
+  br i1 %386, label %.lr.ph.split.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !13
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us
   br i1 %324, label %.lr.ph.split.us.split.us.i.us, label %.lr.ph.split.us.split.i.us
@@ -2895,7 +2895,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %402 = add nuw nsw i32 %.076.us.i.us, 1
   %403 = load i32, ptr @N_layer, align 4
   %404 = icmp slt i32 %402, %403
-  br i1 %404, label %.lr.ph.split.us.split.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !15
+  br i1 %404, label %.lr.ph.split.us.split.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !13
 
 .lr.ph.split.us.split.us.i.us:                    ; preds = %.lr.ph.split.us.i.us, %.lr.ph.split.us.split.us.i.us
   %.076.us.us.i.us = phi i32 [ %417, %.lr.ph.split.us.split.us.i.us ], [ 0, %.lr.ph.split.us.i.us ]
@@ -2915,13 +2915,13 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %417 = add nuw nsw i32 %.076.us.us.i.us, 1
   %418 = load i32, ptr @N_layer, align 4
   %419 = icmp slt i32 %417, %418
-  br i1 %419, label %.lr.ph.split.us.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !15
+  br i1 %419, label %.lr.ph.split.us.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !13
 
 MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.i.us, %.lr.ph.split.split.us.i.us, %.lr.ph.split.us.split.i.us, %.lr.ph.split.us.split.us.i.us, %357
   %.3.us212 = phi i32 [ %360, %357 ], [ %416, %.lr.ph.split.us.split.us.i.us ], [ %401, %.lr.ph.split.us.split.i.us ], [ %383, %.lr.ph.split.split.us.i.us ], [ %374, %.lr.ph.split.split.i.us ]
   %420 = add nuw nsw i32 %.0191.us209, 1
   %exitcond271.not = icmp eq i32 %.0191.us209, %77
-  br i1 %exitcond271.not, label %.loopexit, label %.split.us208, !llvm.loop !14
+  br i1 %exitcond271.not, label %.loopexit, label %.split.us208, !llvm.loop !12
 
 .split.us216:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219
   %.0191.us217 = phi i32 [ %541, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219 ], [ 0, %70 ]
@@ -3030,7 +3030,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %499 = add nuw nsw i32 %.076.i140.us, 1
   %500 = load i32, ptr @N_layer, align 4
   %501 = icmp slt i32 %499, %500
-  br i1 %501, label %.lr.ph.split.split.i139.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !16
+  br i1 %501, label %.lr.ph.split.split.i139.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !14
 
 .lr.ph.split.split.us.i142.us:                    ; preds = %.lr.ph.split.i138.us, %.lr.ph.split.split.us.i142.us
   %.076.us77.i143.us = phi i32 [ %505, %.lr.ph.split.split.us.i142.us ], [ 0, %.lr.ph.split.i138.us ]
@@ -3041,7 +3041,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %505 = add nuw nsw i32 %.076.us77.i143.us, 1
   %506 = load i32, ptr @N_layer, align 4
   %507 = icmp slt i32 %505, %506
-  br i1 %507, label %.lr.ph.split.split.us.i142.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !16
+  br i1 %507, label %.lr.ph.split.split.us.i142.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !14
 
 .lr.ph.split.us.i145.us:                          ; preds = %.lr.ph.i136.us
   br i1 %451, label %.lr.ph.split.us.split.us.i149.us, label %.lr.ph.split.us.split.i146.us
@@ -3067,7 +3067,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %523 = add nuw nsw i32 %.076.us.i147.us, 1
   %524 = load i32, ptr @N_layer, align 4
   %525 = icmp slt i32 %523, %524
-  br i1 %525, label %.lr.ph.split.us.split.i146.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !16
+  br i1 %525, label %.lr.ph.split.us.split.i146.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !14
 
 .lr.ph.split.us.split.us.i149.us:                 ; preds = %.lr.ph.split.us.i145.us, %.lr.ph.split.us.split.us.i149.us
   %.076.us.us.i150.us = phi i32 [ %538, %.lr.ph.split.us.split.us.i149.us ], [ 0, %.lr.ph.split.us.i145.us ]
@@ -3087,13 +3087,13 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %538 = add nuw nsw i32 %.076.us.us.i150.us, 1
   %539 = load i32, ptr @N_layer, align 4
   %540 = icmp slt i32 %538, %539
-  br i1 %540, label %.lr.ph.split.us.split.us.i149.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !16
+  br i1 %540, label %.lr.ph.split.us.split.us.i149.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !14
 
 MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.i139.us, %.lr.ph.split.split.us.i142.us, %.lr.ph.split.us.split.i146.us, %.lr.ph.split.us.split.us.i149.us, %484
   %.3.us220 = phi i32 [ %487, %484 ], [ %537, %.lr.ph.split.us.split.us.i149.us ], [ %522, %.lr.ph.split.us.split.i146.us ], [ %504, %.lr.ph.split.split.us.i142.us ], [ %498, %.lr.ph.split.split.i139.us ]
   %541 = add nuw nsw i32 %.0191.us217, 1
   %exitcond270.not = icmp eq i32 %.0191.us217, %77
-  br i1 %exitcond270.not, label %.loopexit, label %.split.us216, !llvm.loop !14
+  br i1 %exitcond270.not, label %.loopexit, label %.split.us216, !llvm.loop !12
 
 .split.us224:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227
   %.0191.us225 = phi i32 [ %658, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227 ], [ 0, %70 ]
@@ -3205,7 +3205,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.
   %623 = add nuw nsw i32 %.080.i.us, 1
   %624 = load i32, ptr @N_layer, align 4
   %625 = icmp slt i32 %623, %624
-  br i1 %625, label %.lr.ph.split.split.i156.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !17
+  br i1 %625, label %.lr.ph.split.split.i156.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !15
 
 .lr.ph.split.split.us.i157.us:                    ; preds = %.lr.ph.split.i155.us, %.lr.ph.split.split.us.i157.us
   %.080.us81.i.us = phi i32 [ %632, %.lr.ph.split.split.us.i157.us ], [ 0, %.lr.ph.split.i155.us ]
@@ -3219,7 +3219,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.
   %632 = add nuw nsw i32 %.080.us81.i.us, 1
   %633 = load i32, ptr @N_layer, align 4
   %634 = icmp slt i32 %632, %633
-  br i1 %634, label %.lr.ph.split.split.us.i157.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !17
+  br i1 %634, label %.lr.ph.split.split.us.i157.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !15
 
 .lr.ph.split.us.i158.us:                          ; preds = %.lr.ph.i154.us, %639
   %.080.us.i.us = phi i32 [ %655, %639 ], [ 0, %.lr.ph.i154.us ]
@@ -3252,13 +3252,13 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.
   %655 = add nuw nsw i32 %.080.us.i.us, 1
   %656 = load i32, ptr @N_layer, align 4
   %657 = icmp slt i32 %655, %656
-  br i1 %657, label %.lr.ph.split.us.i158.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !17
+  br i1 %657, label %.lr.ph.split.us.i158.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !15
 
 MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227:       ; preds = %.lr.ph.split.split.i156.us, %.lr.ph.split.split.us.i157.us, %639, %605
   %.3.us228 = phi i32 [ %608, %605 ], [ %654, %639 ], [ %631, %.lr.ph.split.split.us.i157.us ], [ %622, %.lr.ph.split.split.i156.us ]
   %658 = add nuw nsw i32 %.0191.us225, 1
   %exitcond269.not = icmp eq i32 %.0191.us225, %77
-  br i1 %exitcond269.not, label %.loopexit, label %.split.us224, !llvm.loop !14
+  br i1 %exitcond269.not, label %.loopexit, label %.split.us224, !llvm.loop !12
 
 .split.us232:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235
   %.0191.us233 = phi i32 [ %721, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235 ], [ 0, %70 ]
@@ -3344,7 +3344,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235:       ; preds = %717, %713
   %.3.us236 = phi i32 [ %720, %717 ], [ %.1.i.us, %713 ]
   %721 = add nuw nsw i32 %.0191.us233, 1
   %exitcond.not = icmp eq i32 %.0191.us233, %77
-  br i1 %exitcond.not, label %.loopexit, label %.split.us232, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.split.us232, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   %.0122.lcssa = phi i32 [ %32, %4 ], [ %.us-phi, %.loopexit ]
@@ -3369,7 +3369,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235:       ; preds = %717, %713
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @HARQ_ACKCH_Region_Allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ACKCH_Region_Allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -3401,7 +3401,7 @@ define internal fastcc i32 @HARQ_ACKCH_Region_Allocation_IE(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @AAS_SDMA_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -3598,13 +3598,13 @@ define internal fastcc i32 @AAS_SDMA_UL_IE(ptr noundef %0, i32 noundef %1, i32 n
   %.8 = phi i32 [ %153, %150 ], [ %147, %.thread208 ]
   %155 = add nuw nsw i32 %.0212, 1
   %exitcond.not = icmp eq i32 %155, %54
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %154, %.lr.ph216
   %.1.lcssa = phi i32 [ %60, %.lr.ph216 ], [ %.8, %154 ]
   %156 = add nuw nsw i32 %.0197214, 1
   %exitcond221.not = icmp eq i32 %156, %35
-  br i1 %exitcond221.not, label %._crit_edge217, label %.lr.ph216, !llvm.loop !19
+  br i1 %exitcond221.not, label %._crit_edge217, label %.lr.ph216, !llvm.loop !17
 
 ._crit_edge217:                                   ; preds = %._crit_edge, %4
   %.0198.lcssa = phi i32 [ %41, %4 ], [ %.1.lcssa, %._crit_edge ]
@@ -3627,7 +3627,7 @@ define internal fastcc i32 @AAS_SDMA_UL_IE(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Feedback_Polling_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @Feedback_Polling_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -3725,7 +3725,7 @@ define internal fastcc i32 @Feedback_Polling_IE(ptr noundef %0, i32 noundef %1, 
   %.1 = phi i32 [ %81, %66 ], [ %65, %56 ], [ %53, %42 ]
   %83 = add nuw nsw i32 %.099, 1
   %exitcond.not = icmp eq i32 %83, %25
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %82, %4
   %.091.lcssa = phi i32 [ %37, %4 ], [ %.1, %82 ]
@@ -3843,7 +3843,7 @@ define internal fastcc noundef i32 @Power_Control_IE(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Mini_Subchannel_allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
 .lr.ph.preheader:
   %4 = shl i32 %1, 2
   %5 = sdiv i32 %1, 2
@@ -3901,7 +3901,7 @@ define internal fastcc i32 @Mini_Subchannel_allocation_IE(ptr noundef %0, i32 no
   %51 = lshr i32 %48, %50
   %52 = and i32 %51, 15
   %53 = load i32, ptr @hf_ulmap_mini_subcha_alloc_uiuc, align 4
-  %54 = trunc i32 %49 to i8
+  %54 = trunc nsw i32 %49 to i8
   %.lhs.trunc = add nsw i8 %54, 3
   %55 = sdiv i8 %.lhs.trunc, 8
   %narrow = add nuw nsw i8 %55, 1
@@ -3916,7 +3916,7 @@ define internal fastcc i32 @Mini_Subchannel_allocation_IE(ptr noundef %0, i32 no
   %64 = lshr i32 %61, %63
   %65 = and i32 %64, 3
   %66 = load i32, ptr @hf_ulmap_mini_subcha_alloc_repetition, align 4
-  %67 = trunc i32 %62 to i8
+  %67 = trunc nsw i32 %62 to i8
   %.lhs.trunc69 = or i8 %67, 1
   %68 = sdiv i8 %.lhs.trunc69, 8
   %narrow71 = add nsw i8 %68, 1
@@ -3925,7 +3925,7 @@ define internal fastcc i32 @Mini_Subchannel_allocation_IE(ptr noundef %0, i32 no
   %71 = add i32 %.073, 22
   %72 = add nuw nsw i32 %.06772, 1
   %exitcond.not = icmp eq i32 %72, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %73 = icmp eq i32 %24, 2
@@ -3944,7 +3944,7 @@ define internal fastcc i32 @Mini_Subchannel_allocation_IE(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @AAS_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -3985,7 +3985,7 @@ define internal fastcc i32 @AAS_UL_IE(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @CQICH_Alloc_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @CQICH_Alloc_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4195,7 +4195,7 @@ define internal fastcc i32 @CQICH_Alloc_IE(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @UL_Zone_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @UL_Zone_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4236,7 +4236,7 @@ define internal fastcc i32 @UL_Zone_IE(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PHYMOD_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @PHYMOD_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4325,7 +4325,7 @@ define internal fastcc noundef i32 @MIMO_UL_IE(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ULMAP_Fast_Tracking_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 536870912) i32 @ULMAP_Fast_Tracking_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4363,7 +4363,7 @@ define internal fastcc i32 @ULMAP_Fast_Tracking_IE(ptr noundef %0, i32 noundef %
   %35 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %34, ptr noundef %3, i32 noundef %33, i32 noundef 2, i32 noundef 0) #4
   %36 = add nsw i32 %.037, 8
   %37 = icmp slt i32 %36, %26
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %25, %4 ], [ %36, %.lr.ph ]
@@ -4372,7 +4372,7 @@ define internal fastcc i32 @ULMAP_Fast_Tracking_IE(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @UL_PUSC_Burst_Allocation_in_other_segment_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @UL_PUSC_Burst_Allocation_in_other_segment_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4416,7 +4416,7 @@ define internal fastcc i32 @UL_PUSC_Burst_Allocation_in_other_segment_IE(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Fast_Ranging_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @Fast_Ranging_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4479,7 +4479,7 @@ define internal fastcc i32 @Fast_Ranging_IE(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @UL_Allocation_Start_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @UL_Allocation_Start_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4610,7 +4610,7 @@ define hidden noundef i32 @wimax_decode_ulmapc(ptr noundef %0, ptr noundef %1, i
   %75 = tail call i32 @dissect_ulmap_ie(ptr noundef %72, ptr noundef %1, i32 noundef %.072, i32 poison, ptr noundef %4)
   %76 = add i32 %75, %.072
   %77 = icmp slt i32 %76, %73
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %61
   %.0.lcssa = phi i32 [ %65, %61 ], [ %76, %.lr.ph ]
@@ -4921,7 +4921,7 @@ define internal i32 @dissect_mac_mgmt_msg_ulmap_decoder(ptr noundef %0, ptr noun
   %24 = tail call i32 @dissect_ulmap_ie(ptr noundef %20, ptr noundef %1, i32 noundef %.045, i32 poison, ptr noundef %0)
   %25 = add i32 %24, %.045
   %26 = icmp ult i32 %25, %22
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %27 = and i32 %25, 1
@@ -4977,24 +4977,22 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -536870912, i32 536870912}
-!5 = !{i32 0, i32 536870912}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}

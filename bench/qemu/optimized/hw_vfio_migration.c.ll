@@ -792,7 +792,7 @@ if.end:                                           ; preds = %if.then, %vfio_save
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vfio_save_prepare(ptr nocapture noundef readonly %opaque, ptr noundef %errp) #2 {
+define internal range(i32 -95, 1) i32 @vfio_save_prepare(ptr nocapture noundef readonly %opaque, ptr noundef %errp) #2 {
 entry:
   %call = tail call zeroext i1 @runstate_check(i32 noundef 10) #16
   br i1 %call, label %return, label %if.end
@@ -1028,17 +1028,17 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
   %0 = load ptr, ptr %migration, align 8
-  %call1 = tail call fastcc i64 @vfio_save_block(ptr noundef %f, ptr noundef %0), !range !5
+  %call1 = tail call fastcc i64 @vfio_save_block(ptr noundef %f, ptr noundef %0)
   %cmp = icmp slt i64 %call1, 0
   br i1 %cmp, label %if.then2, label %do.cond
 
 if.then2:                                         ; preds = %do.body
-  %conv = trunc i64 %call1 to i32
+  %conv = trunc nsw i64 %call1 to i32
   br label %return
 
 do.cond:                                          ; preds = %do.body
   %tobool4.not = icmp eq i64 %call1, 0
-  br i1 %tobool4.not, label %do.end, label %do.body, !llvm.loop !6
+  br i1 %tobool4.not, label %do.end, label %do.body, !llvm.loop !5
 
 do.end:                                           ; preds = %do.cond
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef -284164095) #16
@@ -1098,17 +1098,17 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vfio_save_iterate(ptr noundef %f, ptr nocapture noundef readonly %opaque) #2 {
+define internal range(i32 -2147483648, 2) i32 @vfio_save_iterate(ptr noundef %f, ptr nocapture noundef readonly %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %migration1 = getelementptr inbounds i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration1, align 8
-  %call = tail call fastcc i64 @vfio_save_block(ptr noundef %f, ptr noundef %0), !range !5
+  %call = tail call fastcc i64 @vfio_save_block(ptr noundef %f, ptr noundef %0)
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %call to i32
+  %conv = trunc nsw i64 %call to i32
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1613,7 +1613,7 @@ sw.epilog:                                        ; preds = %sw.bb6, %vfio_load_
   %call26 = tail call i64 @qemu_get_be64(ptr noundef %f) #16
   %call27 = tail call i32 @qemu_file_get_error(ptr noundef %f) #16
   %tobool28.not = icmp eq i32 %call27, 0
-  br i1 %tobool28.not, label %while.cond, label %return, !llvm.loop !8
+  br i1 %tobool28.not, label %while.cond, label %return, !llvm.loop !7
 
 return:                                           ; preds = %while.cond, %sw.epilog, %vfio_load_buffer.exit, %trace_vfio_load_device_config_state.exit.i, %if.then9.i, %if.then6.i, %if.end18, %if.then21, %sw.bb2, %sw.default, %if.then16, %if.else
   %retval.0 = phi i32 [ -22, %sw.default ], [ -22, %if.then16 ], [ -22, %if.else ], [ 0, %sw.bb2 ], [ %call19, %if.then21 ], [ 0, %if.end18 ], [ %call.i, %if.then6.i ], [ -22, %if.then9.i ], [ %call13.i, %trace_vfio_load_device_config_state.exit.i ], [ 0, %while.cond ], [ %call27, %sw.epilog ], [ %call.i30, %vfio_load_buffer.exit ]
@@ -1916,7 +1916,7 @@ declare void @hw_error(ptr noundef, ...) local_unnamed_addr #11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @vfio_save_block(ptr noundef %f, ptr nocapture noundef readonly %migration) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @vfio_save_block(ptr noundef %f, ptr nocapture noundef readonly %migration) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %data_fd = getelementptr inbounds i8, ptr %migration, i64 44
@@ -2069,7 +2069,6 @@ attributes #20 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 -2147483648, i64 -9223372036854775808}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

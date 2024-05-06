@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [3 x i8] c"No\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_federation(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_federation(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #3

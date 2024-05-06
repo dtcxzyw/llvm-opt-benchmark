@@ -538,7 +538,7 @@ declare ptr @hostlist_ranged_string_xmalloc(ptr noundef) local_unnamed_addr #1
 declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_block(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 2) i32 @_parse_block(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = tail call ptr @s_p_hashtbl_create(ptr noundef nonnull @_parse_block._block_options) #5
   %9 = load ptr, ptr %5, align 8

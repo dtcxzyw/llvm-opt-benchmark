@@ -65,7 +65,7 @@ define dso_local i32 @acpi_ut_allocate_owner_id(ptr nocapture noundef %0) local_
   %33 = trunc i32 %19 to i8
   store i8 %33, ptr @acpi_gbl_last_owner_id_index, align 1
   %34 = add nuw nsw i32 %26, 1
-  %35 = trunc i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   store i8 %35, ptr @acpi_gbl_next_owner_id_offset, align 1
   %36 = shl i32 %19, 5
   %37 = add i32 %34, %36

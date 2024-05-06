@@ -2041,7 +2041,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit402
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @pManMR, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
@@ -2142,7 +2142,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %48
-  %59 = tail call i32 @dfsfast_r(ptr noundef nonnull %40, ptr noundef %1), !range !17
+  %59 = tail call i32 @dfsfast_r(ptr noundef nonnull %40, ptr noundef %1)
   %.not78 = icmp eq i32 %59, 0
   br i1 %.not78, label %._crit_edge, label %.loopexit
 
@@ -2159,7 +2159,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = sext i32 %.val109 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %32, label %.critedge, !llvm.loop !18
+  br i1 %63, label %32, label %.critedge, !llvm.loop !17
 
 64:                                               ; preds = %.lr.ph130, %92
   %.val105165 = phi i32 [ %.val105128, %.lr.ph130 ], [ %.val105, %92 ]
@@ -2201,7 +2201,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %80
-  %91 = tail call i32 @dfsfast_r(ptr noundef nonnull %72, ptr noundef %1), !range !17
+  %91 = tail call i32 @dfsfast_r(ptr noundef nonnull %72, ptr noundef %1)
   %.not66 = icmp eq i32 %91, 0
   br i1 %.not66, label %._crit_edge164, label %.loopexit
 
@@ -2218,7 +2218,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %94 = sext i32 %.val105 to i64
   %95 = icmp slt i64 %indvars.iv.next145, %94
-  br i1 %95, label %64, label %.critedge, !llvm.loop !19
+  br i1 %95, label %64, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %60, %92, %.preheader123, %.preheader121
   %.pre171 = phi ptr [ %23, %.preheader123 ], [ %23, %.preheader121 ], [ %93, %92 ], [ %61, %60 ]
@@ -2292,7 +2292,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %119
-  %130 = tail call i32 @dfsfast_e(ptr noundef nonnull %111, ptr noundef %1), !range !17
+  %130 = tail call i32 @dfsfast_e(ptr noundef nonnull %111, ptr noundef %1)
   %.not73 = icmp eq i32 %130, 0
   br i1 %.not73, label %._crit_edge172, label %.loopexit
 
@@ -2309,7 +2309,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %133 = sext i32 %.val108 to i64
   %134 = icmp slt i64 %indvars.iv.next148, %133
-  br i1 %134, label %103, label %.critedge4, !llvm.loop !20
+  br i1 %134, label %103, label %.critedge4, !llvm.loop !19
 
 .critedge4:                                       ; preds = %131, %.preheader119
   %135 = phi ptr [ %.pre171, %.preheader119 ], [ %132, %131 ]
@@ -2361,7 +2361,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %156
-  %166 = tail call i32 @dfsfast_e(ptr noundef nonnull %148, ptr noundef %1), !range !17
+  %166 = tail call i32 @dfsfast_e(ptr noundef nonnull %148, ptr noundef %1)
   %.not71 = icmp eq i32 %166, 0
   br i1 %.not71, label %._crit_edge175, label %.loopexit
 
@@ -2382,7 +2382,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.val = load i32, ptr %173, align 4
   %174 = sext i32 %.val to i64
   %175 = icmp slt i64 %indvars.iv.next151, %174
-  br i1 %175, label %.lr.ph137, label %.critedge6, !llvm.loop !21
+  br i1 %175, label %.lr.ph137, label %.critedge6, !llvm.loop !20
 
 .critedge6:                                       ; preds = %167, %..critedge6_crit_edge, %.preheader, %.critedge4
   %.val86 = phi i32 [ %.val86.pre179, %.preheader ], [ %.val86.pre179, %.critedge4 ], [ %.val86.pre, %..critedge6_crit_edge ], [ %.val91, %167 ]
@@ -2408,7 +2408,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 190:                                              ; preds = %183
   %191 = getelementptr inbounds %struct.Flow_Data_t_, ptr %178, i64 %179, i32 1
   %192 = load ptr, ptr %191, align 8
-  %193 = tail call i32 @dfsfast_r(ptr noundef nonnull %0, ptr noundef %192), !range !17
+  %193 = tail call i32 @dfsfast_r(ptr noundef nonnull %0, ptr noundef %192)
   %.not76 = icmp eq i32 %193, 0
   %.pre181 = load ptr, ptr @pManMR, align 8
   %.val81.pre182 = load i32, ptr %9, align 8
@@ -2507,7 +2507,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.1.i = select i1 %.not86.i, i32 %.0115.i, i32 %244
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %233, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.critedge.i, label %233, !llvm.loop !21
 
 245:                                              ; preds = %245, %.lr.ph118.i
   %indvars.iv130.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next131.i, %245 ]
@@ -2528,7 +2528,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.3.i = select i1 %.not77.i, i32 %.2117.i, i32 %256
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next131.i, %wide.trip.count133.i
-  br i1 %exitcond134.not.i, label %.critedge.i, label %245, !llvm.loop !23
+  br i1 %exitcond134.not.i, label %.critedge.i, label %245, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %233, %245, %.preheader111.i, %.preheader112.i
   %.4.i = phi i32 [ 30000, %.preheader111.i ], [ 30000, %.preheader112.i ], [ %.3.i, %245 ], [ %.1.i, %233 ]
@@ -2585,7 +2585,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.7.i = select i1 %.not84.i, i32 %.6121.i, i32 %280
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %exitcond139.not.i = icmp eq i64 %indvars.iv.next136.i, %wide.trip.count138.i
-  br i1 %exitcond139.not.i, label %.critedge4.i, label %269, !llvm.loop !24
+  br i1 %exitcond139.not.i, label %.critedge4.i, label %269, !llvm.loop !23
 
 .critedge4.i:                                     ; preds = %269, %.preheader110.i
   %.6.lcssa.i = phi i32 [ %.5.i, %.preheader110.i ], [ %.7.i, %269 ]
@@ -2624,7 +2624,7 @@ define noundef i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.9.i = select i1 %.not83.i, i32 %.8125.i, i32 %296
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %exitcond144.not.i = icmp eq i64 %indvars.iv.next141.i, %wide.trip.count143.i
-  br i1 %exitcond144.not.i, label %.critedge6.i, label %288, !llvm.loop !25
+  br i1 %exitcond144.not.i, label %.critedge6.i, label %288, !llvm.loop !24
 
 .critedge6.i:                                     ; preds = %288, %.preheader.i, %.critedge4.i, %258, %.critedge.i
   %.10.i = phi i32 [ %.4.i, %.critedge.i ], [ %.5.i, %258 ], [ %.6.lcssa.i, %.critedge4.i ], [ %.6.lcssa.i, %.preheader.i ], [ %.9.i, %288 ]
@@ -2678,7 +2678,7 @@ dfsfast_e_retreat.exit:                           ; preds = %315, %.critedge6.i,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @pManMR, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
@@ -2775,7 +2775,7 @@ define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %54, label %55, label %76
 
 55:                                               ; preds = %46
-  %56 = tail call i32 @dfsfast_e(ptr noundef nonnull %39, ptr noundef nonnull %39), !range !17
+  %56 = tail call i32 @dfsfast_e(ptr noundef nonnull %39, ptr noundef nonnull %39)
   %.not60 = icmp eq i32 %56, 0
   %.pre120 = load ptr, ptr @pManMR, align 8
   br i1 %.not60, label %76, label %.loopexit.sink.split
@@ -2795,7 +2795,7 @@ define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %65, label %66, label %76
 
 66:                                               ; preds = %59
-  %67 = tail call i32 @dfsfast_e(ptr noundef nonnull %0, ptr noundef nonnull %0), !range !17
+  %67 = tail call i32 @dfsfast_e(ptr noundef nonnull %0, ptr noundef nonnull %0)
   %.not57 = icmp eq i32 %67, 0
   %.pre119 = load ptr, ptr @pManMR, align 8
   br i1 %.not57, label %76, label %68
@@ -2881,7 +2881,7 @@ define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not100, label %113, label %111
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @dfsfast_r(ptr noundef nonnull %90, ptr noundef %1), !range !17
+  %112 = tail call i32 @dfsfast_r(ptr noundef nonnull %90, ptr noundef %1)
   %.not67 = icmp eq i32 %112, 0
   br i1 %.not67, label %._crit_edge, label %.loopexit
 
@@ -2898,7 +2898,7 @@ define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = sext i32 %.val92 to i64
   %116 = icmp slt i64 %indvars.iv.next, %115
-  br i1 %116, label %82, label %.critedge, !llvm.loop !26
+  br i1 %116, label %82, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %113, %.preheader101
   %117 = phi ptr [ %.pre125, %.preheader101 ], [ %114, %113 ]
@@ -2950,7 +2950,7 @@ define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %138
-  %148 = tail call i32 @dfsfast_r(ptr noundef nonnull %130, ptr noundef %1), !range !17
+  %148 = tail call i32 @dfsfast_r(ptr noundef nonnull %130, ptr noundef %1)
   %.not64 = icmp eq i32 %148, 0
   br i1 %.not64, label %._crit_edge128, label %.loopexit
 
@@ -2971,7 +2971,7 @@ define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.val = load i32, ptr %155, align 4
   %156 = sext i32 %.val to i64
   %157 = icmp slt i64 %indvars.iv.next112, %156
-  br i1 %157, label %.lr.ph108, label %.critedge2, !llvm.loop !27
+  br i1 %157, label %.lr.ph108, label %.critedge2, !llvm.loop !26
 
 .critedge2:                                       ; preds = %149, %..critedge2_crit_edge, %.preheader, %.critedge
   %.val70 = phi i32 [ %.val70.pre132, %.preheader ], [ %.val70.pre132, %.critedge ], [ %.val70.pre, %..critedge2_crit_edge ], [ %.val75, %149 ]
@@ -3082,7 +3082,7 @@ define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.2.i = phi i32 [ %.184.i, %198 ], [ %213, %211 ], [ %.184.i, %206 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %198, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.critedge.i, label %198, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %214, %.preheader82.i
   %.1.lcssa.i = phi i32 [ %.0.i, %.preheader82.i ], [ %.2.i, %214 ]
@@ -3121,7 +3121,7 @@ define noundef i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.4.i = select i1 %.not61.i, i32 %.386.i, i32 %230
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count93.i
-  br i1 %exitcond94.not.i, label %.critedge2.i, label %222, !llvm.loop !29
+  br i1 %exitcond94.not.i, label %.critedge2.i, label %222, !llvm.loop !28
 
 .critedge2.i:                                     ; preds = %222, %.preheader.i, %.critedge.i, %190
   %.5.i = phi i32 [ %.1.lcssa.i, %.critedge.i ], [ %.0.i, %190 ], [ %.1.lcssa.i, %.preheader.i ], [ %.4.i, %222 ]
@@ -3185,7 +3185,7 @@ dfsfast_r_retreat.exit:                           ; preds = %249, %.critedge2.i,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @pManMR, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -3267,7 +3267,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not63, label %45, label %47
 
 45:                                               ; preds = %29
-  %46 = tail call i32 @dfsplain_r(ptr noundef nonnull %37, ptr noundef %1), !range !17
+  %46 = tail call i32 @dfsplain_r(ptr noundef nonnull %37, ptr noundef %1)
   %.not64 = icmp eq i32 %46, 0
   br i1 %.not64, label %._crit_edge, label %.loopexit
 
@@ -3284,7 +3284,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %.val83 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %29, label %.critedge, !llvm.loop !30
+  br i1 %50, label %29, label %.critedge, !llvm.loop !29
 
 51:                                               ; preds = %.lr.ph103, %69
   %.val79137 = phi i32 [ %.val79101, %.lr.ph103 ], [ %.val79, %69 ]
@@ -3313,7 +3313,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not51, label %67, label %69
 
 67:                                               ; preds = %51
-  %68 = tail call i32 @dfsplain_r(ptr noundef nonnull %59, ptr noundef %1), !range !17
+  %68 = tail call i32 @dfsplain_r(ptr noundef nonnull %59, ptr noundef %1)
   %.not52 = icmp eq i32 %68, 0
   br i1 %.not52, label %._crit_edge136, label %.loopexit
 
@@ -3330,7 +3330,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %71 = sext i32 %.val79 to i64
   %72 = icmp slt i64 %indvars.iv.next117, %71
-  br i1 %72, label %51, label %.critedge, !llvm.loop !31
+  br i1 %72, label %51, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %47, %69, %.preheader96, %.preheader94
   %.pre143 = phi ptr [ %20, %.preheader96 ], [ %20, %.preheader94 ], [ %70, %69 ], [ %48, %47 ]
@@ -3387,7 +3387,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not58, label %96, label %98
 
 96:                                               ; preds = %80
-  %97 = tail call i32 @dfsplain_e(ptr noundef nonnull %88, ptr noundef %1), !range !17
+  %97 = tail call i32 @dfsplain_e(ptr noundef nonnull %88, ptr noundef %1)
   %.not59 = icmp eq i32 %97, 0
   br i1 %.not59, label %._crit_edge144, label %.loopexit
 
@@ -3404,7 +3404,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %100 = sext i32 %.val82 to i64
   %101 = icmp slt i64 %indvars.iv.next120, %100
-  br i1 %101, label %80, label %.critedge4, !llvm.loop !32
+  br i1 %101, label %80, label %.critedge4, !llvm.loop !31
 
 .critedge4:                                       ; preds = %98, %.preheader92
   %102 = phi ptr [ %.pre143, %.preheader92 ], [ %99, %98 ]
@@ -3444,7 +3444,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not56, label %122, label %124
 
 122:                                              ; preds = %.lr.ph110
-  %123 = tail call i32 @dfsplain_e(ptr noundef nonnull %114, ptr noundef %1), !range !17
+  %123 = tail call i32 @dfsplain_e(ptr noundef nonnull %114, ptr noundef %1)
   %.not57 = icmp eq i32 %123, 0
   br i1 %.not57, label %._crit_edge147, label %.loopexit
 
@@ -3465,7 +3465,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %.val = load i32, ptr %130, align 4
   %131 = sext i32 %.val to i64
   %132 = icmp slt i64 %indvars.iv.next123, %131
-  br i1 %132, label %.lr.ph110, label %.critedge6, !llvm.loop !33
+  br i1 %132, label %.lr.ph110, label %.critedge6, !llvm.loop !32
 
 .critedge6:                                       ; preds = %124, %..critedge6_crit_edge, %.preheader, %.critedge4
   %.val68 = phi i32 [ %.val68.pre151, %.preheader ], [ %.val68.pre151, %.critedge4 ], [ %.val68.pre, %..critedge6_crit_edge ], [ %.val71, %124 ]
@@ -3482,7 +3482,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
 140:                                              ; preds = %.critedge6
   %141 = getelementptr inbounds %struct.Flow_Data_t_, ptr %135, i64 %136, i32 1
   %142 = load ptr, ptr %141, align 8
-  %143 = tail call i32 @dfsplain_r(ptr noundef nonnull %0, ptr noundef %142), !range !17
+  %143 = tail call i32 @dfsplain_r(ptr noundef nonnull %0, ptr noundef %142)
   %.not62 = icmp eq i32 %143, 0
   br i1 %.not62, label %.loopexit, label %144
 
@@ -3511,7 +3511,7 @@ define noundef i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 20
   %.val69 = load i32, ptr %3, align 4
   %4 = and i32 %.val69, 15
@@ -3591,7 +3591,7 @@ define noundef i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not47, label %43, label %57
 
 43:                                               ; preds = %37
-  %44 = tail call i32 @dfsplain_e(ptr noundef nonnull %36, ptr noundef nonnull %36), !range !17
+  %44 = tail call i32 @dfsplain_e(ptr noundef nonnull %36, ptr noundef nonnull %36)
   %.not48 = icmp eq i32 %44, 0
   %.pre99 = load ptr, ptr @pManMR, align 8
   br i1 %.not48, label %57, label %.critedge2.sink.split
@@ -3602,7 +3602,7 @@ define noundef i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not44, label %47, label %57
 
 47:                                               ; preds = %45
-  %48 = tail call i32 @dfsplain_e(ptr noundef nonnull %0, ptr noundef nonnull %0), !range !17
+  %48 = tail call i32 @dfsplain_e(ptr noundef nonnull %0, ptr noundef nonnull %0)
   %.not45 = icmp eq i32 %48, 0
   %.pre98 = load ptr, ptr @pManMR, align 8
   br i1 %.not45, label %57, label %49
@@ -3671,7 +3671,7 @@ define noundef i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not77, label %84, label %82
 
 82:                                               ; preds = %79
-  %83 = tail call i32 @dfsplain_r(ptr noundef nonnull %71, ptr noundef %1), !range !17
+  %83 = tail call i32 @dfsplain_r(ptr noundef nonnull %71, ptr noundef %1)
   %.not55 = icmp eq i32 %83, 0
   br i1 %.not55, label %._crit_edge, label %.critedge2
 
@@ -3688,7 +3688,7 @@ define noundef i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = sext i32 %.val70 to i64
   %87 = icmp slt i64 %indvars.iv.next, %86
-  br i1 %87, label %63, label %.critedge, !llvm.loop !34
+  br i1 %87, label %63, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %84, %.preheader78
   %88 = phi ptr [ %.pre104, %.preheader78 ], [ %85, %84 ]
@@ -3728,7 +3728,7 @@ define noundef i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not51, label %108, label %110
 
 108:                                              ; preds = %.lr.ph85
-  %109 = tail call i32 @dfsplain_r(ptr noundef nonnull %100, ptr noundef %1), !range !17
+  %109 = tail call i32 @dfsplain_r(ptr noundef nonnull %100, ptr noundef %1)
   %.not52 = icmp eq i32 %109, 0
   br i1 %.not52, label %._crit_edge107, label %.critedge2
 
@@ -3749,7 +3749,7 @@ define noundef i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %.val = load i32, ptr %116, align 4
   %117 = sext i32 %.val to i64
   %118 = icmp slt i64 %indvars.iv.next91, %117
-  br i1 %118, label %.lr.ph85, label %.critedge2, !llvm.loop !35
+  br i1 %118, label %.lr.ph85, label %.critedge2, !llvm.loop !34
 
 .critedge2.sink.split:                            ; preds = %43, %49
   %.pre99.sink = phi ptr [ %56, %49 ], [ %.pre99, %43 ]
@@ -3811,7 +3811,7 @@ attributes #9 = { nounwind }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -3829,4 +3829,3 @@ attributes #9 = { nounwind }
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}

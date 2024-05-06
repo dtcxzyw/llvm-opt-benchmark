@@ -182,7 +182,7 @@ define dso_local zeroext i8 @fsm_get_max_avail(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fsm_search_avail(i32 noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 65536) i32 @fsm_search_avail(i32 noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca %struct.RelFileLocator, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -222,7 +222,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %.04058 = phi i1 [ %3, %.lr.ph59 ], [ true, %fsm_rebuild_page.exit ]
   %28 = load i32, ptr %21, align 4
   %29 = icmp ugt i32 %28, 4068
-  %30 = add i32 %28, 4095
+  %30 = add nuw nsw i32 %28, 4095
   %spec.select = select i1 %29, i32 4095, i32 %30
   %31 = icmp sgt i32 %spec.select, 0
   br i1 %31, label %.lr.ph, label %.lr.ph53.preheader

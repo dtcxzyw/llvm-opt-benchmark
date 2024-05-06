@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [28 x i8] c"Expected %d lines, got %d.\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %Buffer = alloca [4096 x i8], align 16
   %End = alloca ptr, align 8

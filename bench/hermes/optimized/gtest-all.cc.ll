@@ -3842,7 +3842,7 @@ lpad17.body:                                      ; preds = %lpad.i13, %lpad17
 if.end24:                                         ; preds = %if.then21.invoke, %invoke.cont18
   %call25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %positive) #47
   %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
-  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef %call25, ptr noundef %call4.i)
+  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef readonly %call25, ptr noundef %call4.i)
   br i1 %call15.i, label %land.rhs, label %if.end.i
 
 for.cond.i:                                       ; preds = %if.end.i
@@ -3860,7 +3860,7 @@ if.end.i:                                         ; preds = %if.end24, %for.cond
 land.rhs:                                         ; preds = %for.cond.i, %if.end24
   %call28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %negative) #47
   %call4.i18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
-  %call15.i19 = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef %call28, ptr noundef %call4.i18)
+  %call15.i19 = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef readonly %call28, ptr noundef %call4.i18)
   br i1 %call15.i19, label %land.end, label %if.end.i20
 
 for.cond.i24:                                     ; preds = %if.end.i20
@@ -7049,7 +7049,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
 if.then.i:                                        ; preds = %for.body.i
   %sub.i = sub i64 %call2, %i.023.i
   %conv.i = trunc i64 %sub.i to i32
-  call void @_ZN7testing8internal16WideStringToUtf8B5cxx11EPKwi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull %arrayidx.i, i32 noundef %conv.i)
+  call void @_ZN7testing8internal16WideStringToUtf8B5cxx11EPKwi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly %arrayidx.i, i32 noundef %conv.i)
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i.i)
@@ -12251,7 +12251,7 @@ entry:
   br i1 %brmerge.i, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %lhs, ptr noundef nonnull dereferenceable(1) %rhs) #48
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %lhs, ptr noundef nonnull readonly dereferenceable(1) %rhs) #48
   %cmp5.i = icmp eq i32 %call.i, 0
   br i1 %cmp5.i, label %if.then, label %if.end
 
@@ -12352,7 +12352,7 @@ entry:
   br i1 %brmerge.i, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull %lhs, ptr noundef nonnull %rhs) #48
+  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %lhs, ptr noundef nonnull readonly %rhs) #48
   %cmp5.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp5.i, label %if.then, label %if.end
 
@@ -12477,7 +12477,7 @@ entry:
   br i1 %brmerge.i, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %s1, ptr noundef nonnull dereferenceable(1) %s2) #48
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %s1, ptr noundef nonnull readonly dereferenceable(1) %s2) #48
   %cmp5.i = icmp eq i32 %call.i, 0
   br i1 %cmp5.i, label %if.else, label %if.then
 
@@ -12645,7 +12645,7 @@ entry:
   br i1 %brmerge.i, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull %s1, ptr noundef nonnull %s2) #48
+  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %s1, ptr noundef nonnull readonly %s2) #48
   %cmp5.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp5.i, label %if.else, label %if.then
 
@@ -12828,7 +12828,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKcS2_.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %0) #48
+  %call.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %0) #48
   %cmp3.i = icmp ne ptr %call.i, null
   br label %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKcS2_.exit
 
@@ -12972,7 +12972,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKwS2_.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call ptr @wcsstr(ptr noundef nonnull %1, ptr noundef nonnull %0) #48
+  %call.i = tail call ptr @wcsstr(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %0) #48
   %cmp3.i = icmp ne ptr %call.i, null
   br label %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKwS2_.exit
 
@@ -13847,7 +13847,7 @@ entry:
   br i1 %brmerge.i, label %_ZN7testing8internal6String17WideCStringEqualsEPKwS3_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %call.i = tail call i32 @wcscmp(ptr noundef nonnull %lhs, ptr noundef nonnull %rhs) #48
+  %call.i = tail call i32 @wcscmp(ptr noundef nonnull readonly %lhs, ptr noundef nonnull readonly %rhs) #48
   %cmp5.i = icmp eq i32 %call.i, 0
   br i1 %cmp5.i, label %if.then, label %if.end
 
@@ -13953,7 +13953,7 @@ entry:
   br i1 %brmerge.i, label %_ZN7testing8internal6String17WideCStringEqualsEPKwS3_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %call.i = tail call i32 @wcscmp(ptr noundef nonnull %s1, ptr noundef nonnull %s2) #48
+  %call.i = tail call i32 @wcscmp(ptr noundef nonnull readonly %s1, ptr noundef nonnull readonly %s2) #48
   %cmp5.i = icmp eq i32 %call.i, 0
   br i1 %cmp5.i, label %if.end, label %if.then
 
@@ -14135,7 +14135,7 @@ if.end4.i:                                        ; preds = %land.rhs
   %add.ptr = getelementptr inbounds i8, ptr %call2, i64 %call
   %idx.neg = sub i64 0, %call1
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull %add.ptr3, ptr noundef nonnull %call4) #48
+  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %add.ptr3, ptr noundef nonnull readonly %call4) #48
   %cmp5.i = icmp eq i32 %call.i.i, 0
   br label %land.end
 
@@ -20382,7 +20382,7 @@ entry:
   br i1 %cmp.i, label %return, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit: ; preds = %entry
-  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull %call, ptr noundef nonnull @.str.8) #48
+  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull readonly @.str.8) #48
   %cmp5.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp5.i, label %if.then, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85
 
@@ -20392,57 +20392,57 @@ if.then:                                          ; preds = %_ZN7testing8interna
   br i1 %cmp.i15, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit: ; preds = %if.then
-  %call.i17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(6) @.str.125) #48
+  %call.i17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(6) @.str.125) #48
   %cmp5.i18 = icmp eq i32 %call.i17, 0
   br i1 %cmp5.i18, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit
-  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(12) @.str.126) #48
+  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(12) @.str.126) #48
   %cmp5.i23 = icmp eq i32 %call.i22, 0
   br i1 %cmp5.i23, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25
-  %call.i28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(15) @.str.127) #48
+  %call.i28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(15) @.str.127) #48
   %cmp5.i29 = icmp eq i32 %call.i28, 0
   br i1 %cmp5.i29, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31
-  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(7) @.str.128) #48
+  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(7) @.str.128) #48
   %cmp5.i35 = icmp eq i32 %call.i34, 0
   br i1 %cmp5.i35, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37
-  %call.i40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(16) @.str.129) #48
+  %call.i40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(16) @.str.129) #48
   %cmp5.i41 = icmp eq i32 %call.i40, 0
   br i1 %cmp5.i41, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43
-  %call.i46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(5) @.str.130) #48
+  %call.i46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(5) @.str.130) #48
   %cmp5.i47 = icmp eq i32 %call.i46, 0
   br i1 %cmp5.i47, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49
-  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(14) @.str.131) #48
+  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(14) @.str.131) #48
   %cmp5.i53 = icmp eq i32 %call.i52, 0
   br i1 %cmp5.i53, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55
-  %call.i58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(13) @.str.132) #48
+  %call.i58 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(13) @.str.132) #48
   %cmp5.i59 = icmp eq i32 %call.i58, 0
   br i1 %cmp5.i59, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61
-  %call.i64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(22) @.str.133) #48
+  %call.i64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(22) @.str.133) #48
   %cmp5.i65 = icmp eq i32 %call.i64, 0
   br i1 %cmp5.i65, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67
-  %call.i70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(6) @.str.134) #48
+  %call.i70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(6) @.str.134) #48
   %cmp5.i71 = icmp eq i32 %call.i70, 0
   br i1 %cmp5.i71, label %lor.end, label %if.end4.i75
 
 if.end4.i75:                                      ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73
-  %call.i76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(7) @.str.135) #48
+  %call.i76 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(7) @.str.135) #48
   %cmp5.i77 = icmp eq i32 %call.i76, 0
   br label %lor.end
 
@@ -20452,17 +20452,17 @@ lor.end:                                          ; preds = %if.then, %if.end4.i
   br label %return
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85: ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit
-  %call.i.i82 = tail call noundef i32 @strcasecmp(ptr noundef nonnull %call, ptr noundef nonnull @.str.136) #48
+  %call.i.i82 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull readonly @.str.136) #48
   %cmp5.i83 = icmp eq i32 %call.i.i82, 0
   br i1 %cmp5.i83, label %return, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91: ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85
-  %call.i.i88 = tail call noundef i32 @strcasecmp(ptr noundef nonnull %call, ptr noundef nonnull @.str.137) #48
+  %call.i.i88 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull readonly @.str.137) #48
   %cmp5.i89 = icmp eq i32 %call.i.i88, 0
   br i1 %cmp5.i89, label %return, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97: ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91
-  %call.i.i94 = tail call noundef i32 @strcasecmp(ptr noundef nonnull %call, ptr noundef nonnull @.str.138) #48
+  %call.i.i94 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull readonly @.str.138) #48
   %cmp5.i95 = icmp eq i32 %call.i.i94, 0
   br i1 %cmp5.i95, label %return, label %sub_0
 
@@ -33659,7 +33659,7 @@ if.end.i13:                                       ; preds = %call.i.noexc19
 
 invoke.cont31:                                    ; preds = %if.end.i13
   %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #47
-  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull @_ZN7testingL20kDeathTestCaseFilterE, ptr noundef %call4.i)
+  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull readonly @_ZN7testingL20kDeathTestCaseFilterE, ptr noundef %call4.i)
   br i1 %call15.i, label %if.then37.critedge, label %if.end.i24
 
 for.cond.i:                                       ; preds = %if.end.i24
@@ -34243,7 +34243,7 @@ invoke.cont29:                                    ; preds = %invoke.cont.i71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #47
   %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
-  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull @_ZN7testingL18kDisableTestFilterE, ptr noundef %call4.i)
+  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull readonly @_ZN7testingL18kDisableTestFilterE, ptr noundef %call4.i)
   br i1 %call15.i, label %lor.end, label %if.end.i49
 
 for.cond.i:                                       ; preds = %if.end.i49
@@ -34260,7 +34260,7 @@ if.end.i49:                                       ; preds = %invoke.cont29, %for
 
 lor.rhs:                                          ; preds = %if.end.i49
   %call4.i51 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %test_name) #47
-  %call15.i52 = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull @_ZN7testingL18kDisableTestFilterE, ptr noundef %call4.i51)
+  %call15.i52 = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull readonly @_ZN7testingL18kDisableTestFilterE, ptr noundef %call4.i51)
   br i1 %call15.i52, label %lor.end, label %if.end.i53
 
 for.cond.i57:                                     ; preds = %if.end.i53
@@ -36291,17 +36291,17 @@ entry.tail.i:                                     ; preds = %lor.lhs.false13
 land.lhs.true.i:                                  ; preds = %entry.tail.i, %lor.lhs.false13
   %.sink.i = phi i64 [ %..i, %entry.tail.i ], [ 1, %lor.lhs.false13 ]
   %add.ptr.i11.i = getelementptr inbounds i8, ptr %call, i64 %.sink.i
-  %call1.i14.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(16) @.str.438, i64 noundef 15) #48
+  %call1.i14.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(16) @.str.438, i64 noundef 15) #48
   %cmp.i15.i = icmp eq i32 %call1.i14.i, 0
   br i1 %cmp.i15.i, label %if.end28, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %call1.i20.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(7) @.str.251, i64 noundef 6) #48
+  %call1.i20.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(7) @.str.251, i64 noundef 6) #48
   %cmp.i21.i = icmp eq i32 %call1.i20.i, 0
   br i1 %cmp.i21.i, label %if.then16, label %_ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit
 
 _ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit: ; preds = %land.rhs.i
-  %call1.i26.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(7) @.str.439, i64 noundef 6) #48
+  %call1.i26.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(7) @.str.439, i64 noundef 6) #48
   %cmp.i27.i = icmp eq i32 %call1.i26.i, 0
   br i1 %cmp.i27.i, label %if.then16, label %if.end28
 
@@ -36483,17 +36483,17 @@ entry.tail.i:                                     ; preds = %lor.lhs.false13
 land.lhs.true.i:                                  ; preds = %entry.tail.i, %lor.lhs.false13
   %.sink.i = phi i64 [ %..i, %entry.tail.i ], [ 1, %lor.lhs.false13 ]
   %add.ptr.i11.i = getelementptr inbounds i8, ptr %call, i64 %.sink.i
-  %call1.i14.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(16) @.str.438, i64 noundef 15) #48
+  %call1.i14.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(16) @.str.438, i64 noundef 15) #48
   %cmp.i15.i = icmp eq i32 %call1.i14.i, 0
   br i1 %cmp.i15.i, label %if.end27, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %call1.i20.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(7) @.str.251, i64 noundef 6) #48
+  %call1.i20.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(7) @.str.251, i64 noundef 6) #48
   %cmp.i21.i = icmp eq i32 %call1.i20.i, 0
   br i1 %cmp.i21.i, label %if.then15, label %_ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit
 
 _ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit: ; preds = %land.rhs.i
-  %call1.i26.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(7) @.str.439, i64 noundef 6) #48
+  %call1.i26.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(7) @.str.439, i64 noundef 6) #48
   %cmp.i27.i = icmp eq i32 %call1.i26.i, 0
   br i1 %cmp.i27.i, label %if.then15, label %if.end27
 
@@ -44391,7 +44391,7 @@ if.end39:                                         ; preds = %land.lhs.true34, %_
 
 if.then41:                                        ; preds = %if.end39
   %call42 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #50
-  invoke void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call42)
+  invoke void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(8) %call42)
           to label %_ZN7testing8internal13ExecDeathTestC2EPKcPKNS0_2REES3_i.exit unwind label %lpad43
 
 _ZN7testing8internal13ExecDeathTestC2EPKcPKNS0_2REES3_i.exit: ; preds = %if.then41
@@ -44425,7 +44425,7 @@ if.else:                                          ; preds = %if.end39
 
 if.then47:                                        ; preds = %if.else
   %call48 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #50
-  invoke void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call48)
+  invoke void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(8) %call48)
           to label %_ZN7testing8internal15NoExecDeathTestC2EPKcPKNS0_2REE.exit unwind label %lpad49
 
 _ZN7testing8internal15NoExecDeathTestC2EPKcPKNS0_2REE.exit: ; preds = %if.then47
@@ -44905,7 +44905,7 @@ if.end4.i.i:                                      ; preds = %land.rhs.i
   %add.ptr.i8 = getelementptr inbounds i8, ptr %call2.i, i64 %call.i
   %idx.neg.i = sub i64 0, %call1.i
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i8, i64 %idx.neg.i
-  %call.i.i.i = call noundef i32 @strcasecmp(ptr noundef nonnull %add.ptr3.i, ptr noundef nonnull %call4.i) #48
+  %call.i.i.i = call noundef i32 @strcasecmp(ptr noundef nonnull readonly %add.ptr3.i, ptr noundef nonnull readonly %call4.i) #48
   %cmp5.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp5.i.i, label %if.then, label %if.end
 
@@ -46892,11 +46892,11 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIcEEvPKT_mPSo(ptr noundef nonnull %begin, i64 noundef %sub.i, ptr noundef %os)
+  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIcEEvPKT_mPSo(ptr noundef nonnull readonly %begin, i64 noundef %sub.i, ptr noundef %os)
   br label %_ZN7testing8internalL23UniversalPrintCharArrayIcEEvPKT_mPSo.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIcEEvPKT_mPSo(ptr noundef %begin, i64 noundef %len, ptr noundef %os)
+  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIcEEvPKT_mPSo(ptr noundef readonly %begin, i64 noundef %len, ptr noundef %os)
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.453)
   br label %_ZN7testing8internalL23UniversalPrintCharArrayIcEEvPKT_mPSo.exit
 
@@ -46918,11 +46918,11 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEEvPKT_mPSo(ptr noundef nonnull %begin, i64 noundef %sub.i, ptr noundef %os)
+  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEEvPKT_mPSo(ptr noundef nonnull readonly %begin, i64 noundef %sub.i, ptr noundef %os)
   br label %_ZN7testing8internalL23UniversalPrintCharArrayIwEEvPKT_mPSo.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEEvPKT_mPSo(ptr noundef %begin, i64 noundef %len, ptr noundef %os)
+  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEEvPKT_mPSo(ptr noundef readonly %begin, i64 noundef %len, ptr noundef %os)
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.453)
   br label %_ZN7testing8internalL23UniversalPrintCharArrayIwEEvPKT_mPSo.exit
 

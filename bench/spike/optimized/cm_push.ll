@@ -93,7 +93,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32i_cm_pushP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_cm_pushP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian.143, align 4
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4144
@@ -201,7 +201,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %42
   %.1.lcssa.i = phi i32 [ 2, %42 ], [ %48, %.lr.ph.i ]
   %50 = or i32 %.1.lcssa.i, 134217728
   %spec.select16.i = select i1 %38, i32 %50, i32 %.1.lcssa.i
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %spec.select16.i, %52
   %.not = icmp eq i32 %53, 0
@@ -422,7 +422,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %42
   %.1.lcssa.i = phi i32 [ 2, %42 ], [ %48, %.lr.ph.i ]
   %50 = or i32 %.1.lcssa.i, 134217728
   %spec.select16.i = select i1 %38, i32 %50, i32 %.1.lcssa.i
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %spec.select16.i, %52
   %.not = icmp eq i32 %53, 0
@@ -517,7 +517,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32i_cm_pushP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_cm_pushP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian.143, align 4
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4144
@@ -625,7 +625,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %42
   %.1.lcssa.i = phi i32 [ 2, %42 ], [ %48, %.lr.ph.i ]
   %50 = or i32 %.1.lcssa.i, 134217728
   %spec.select16.i = select i1 %38, i32 %50, i32 %.1.lcssa.i
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %spec.select16.i, %52
   %.not = icmp eq i32 %53, 0
@@ -888,7 +888,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %42
   %.1.lcssa.i = phi i32 [ 2, %42 ], [ %48, %.lr.ph.i ]
   %50 = or i32 %.1.lcssa.i, 134217728
   %spec.select16.i = select i1 %38, i32 %50, i32 %.1.lcssa.i
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %spec.select16.i, %52
   %.not = icmp eq i32 %53, 0
@@ -1039,7 +1039,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32e_cm_pushP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_cm_pushP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian.143, align 4
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4144
@@ -1147,7 +1147,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %42
   %.1.lcssa.i = phi i32 [ 2, %42 ], [ %48, %.lr.ph.i ]
   %50 = or i32 %.1.lcssa.i, 134217728
   %spec.select16.i = select i1 %38, i32 %50, i32 %.1.lcssa.i
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %spec.select16.i, %52
   %.not = icmp eq i32 %53, 0
@@ -1370,7 +1370,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %42
   %.1.lcssa.i = phi i32 [ 2, %42 ], [ %48, %.lr.ph.i ]
   %50 = or i32 %.1.lcssa.i, 134217728
   %spec.select16.i = select i1 %38, i32 %50, i32 %.1.lcssa.i
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %spec.select16.i, %52
   %.not = icmp eq i32 %53, 0
@@ -1481,7 +1481,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32e_cm_pushP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_cm_pushP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian.143, align 4
   %5 = alloca %"class.std::tuple", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4144
@@ -1589,7 +1589,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %42
   %.1.lcssa.i = phi i32 [ 2, %42 ], [ %48, %.lr.ph.i ]
   %50 = or i32 %.1.lcssa.i, 134217728
   %spec.select16.i = select i1 %38, i32 %50, i32 %.1.lcssa.i
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %spec.select16.i, %52
   %.not = icmp eq i32 %53, 0
@@ -1868,7 +1868,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %42
   %.1.lcssa.i = phi i32 [ 2, %42 ], [ %48, %.lr.ph.i ]
   %50 = or i32 %.1.lcssa.i, 134217728
   %spec.select16.i = select i1 %38, i32 %50, i32 %.1.lcssa.i
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = shl nuw i32 1, %51
   %53 = and i32 %spec.select16.i, %52
   %.not = icmp eq i32 %53, 0

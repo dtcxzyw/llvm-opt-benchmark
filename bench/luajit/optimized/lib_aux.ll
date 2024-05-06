@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [21 x i8] c"ERROR in finalizer: \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaL_fileresult(ptr noundef %L, i32 noundef %stat, ptr noundef %fname) local_unnamed_addr #0 {
+define dso_local range(i32 1, 4) i32 @luaL_fileresult(ptr noundef %L, i32 noundef %stat, ptr noundef %fname) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %stat, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -80,7 +80,7 @@ declare ptr @lua_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaL_execresult(ptr noundef %L, i32 noundef %stat) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 4) i32 @luaL_execresult(ptr noundef %L, i32 noundef %stat) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %stat, -1
   br i1 %cmp.not, label %if.end24, label %if.then

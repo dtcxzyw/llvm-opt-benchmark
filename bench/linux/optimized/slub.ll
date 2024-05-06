@@ -4860,7 +4860,7 @@ define dso_local zeroext i1 @__kmem_cache_empty(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__kmem_cache_shutdown(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @__kmem_cache_shutdown(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.list_head, align 8
   tail call fastcc void @flush_all_cpus_locked(ptr noundef %0)
@@ -5596,7 +5596,7 @@ define internal noundef i32 @setup_slub_min_objects(ptr noundef %0) #2 section "
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__kmem_cache_shrink(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @__kmem_cache_shrink(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   %3 = alloca [32 x %struct.list_head], align 16
   tail call void @cpus_read_lock() #25
@@ -5769,7 +5769,7 @@ define dso_local i32 @__kmem_cache_shrink(ptr noundef %0) local_unnamed_addr #0 
   %96 = phi ptr [ %98, %.preheader.i ], [ %94, %93 ]
   %97 = getelementptr i8, ptr %96, i64 -16
   %98 = load ptr, ptr %96, align 16
-  call fastcc void @free_slab(ptr noundef %0, ptr noundef %97)
+  call fastcc void @free_slab(ptr noundef readonly %0, ptr noundef %97)
   %99 = icmp eq ptr %98, %2
   br i1 %99, label %.loopexit.i, label %.preheader.i, !llvm.loop !119
 
@@ -7066,7 +7066,7 @@ define dso_local void @sysfs_slab_release(ptr noundef %0) local_unnamed_addr #0 
 declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @slab_sysfs_init() #2 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @slab_sysfs_init() #2 section ".init.text" align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @slab_mutex) #25
   %1 = load ptr, ptr @kernel_kobj, align 8
   %2 = tail call ptr @kset_create_and_add(ptr noundef nonnull @.str.125, ptr noundef null, ptr noundef %1) #25
@@ -9766,7 +9766,7 @@ define internal fastcc void @slab_pad_check(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @check_object(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @check_object(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -10124,7 +10124,7 @@ define internal void @slab_err(ptr nocapture noundef readonly %0, ptr noundef %1
 declare dso_local noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @check_bytes_and_report(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @check_bytes_and_report(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
   %8 = load i64, ptr @vmemmap_base, align 8
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
@@ -10726,7 +10726,7 @@ thread-pre-split:                                 ; preds = %91, %117
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @check_slab(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @check_slab(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load volatile i64, ptr %1, align 8
   %4 = and i64 %3, 2048
   %5 = icmp eq i64 %4, 0
@@ -10937,7 +10937,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %31
-  %38 = tail call fastcc i32 @check_slab(ptr noundef %0, ptr noundef %1), !range !130
+  %38 = tail call fastcc i32 @check_slab(ptr noundef readonly %0, ptr noundef %1), !range !130
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread.i, label %40
 
@@ -10965,7 +10965,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br label %58
 
 57:                                               ; preds = %40
-  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.65, i32 noundef %43, i32 noundef %4)
+  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull @.str.65, i32 noundef %43, i32 noundef %4)
   br label %.thread.i
 
 58:                                               ; preds = %183, %47
@@ -10981,7 +10981,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %65, label %.split.i, label %67
 
 .split.i:                                         ; preds = %64
-  %66 = tail call fastcc i32 @on_freelist(ptr noundef %0, ptr noundef %1, ptr noundef null), !range !130
+  %66 = tail call fastcc i32 @on_freelist(ptr noundef readonly %0, ptr noundef %1, ptr noundef null), !range !130
   br label %101
 
 67:                                               ; preds = %64
@@ -11027,11 +11027,11 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %98, label %.split1.i, label %100
 
 .split1.i:                                        ; preds = %93
-  %99 = tail call fastcc i32 @on_freelist(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %60), !range !130
+  %99 = tail call fastcc i32 @on_freelist(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %60), !range !130
   br label %101
 
 100:                                              ; preds = %93, %84, %81
-  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.68, ptr noundef nonnull %60)
+  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull @.str.68, ptr noundef nonnull %60)
   br label %.thread.i
 
 101:                                              ; preds = %.split1.i, %.split.i
@@ -11040,13 +11040,13 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %101
-  tail call void (ptr, ptr, ...) @slab_bug(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.69)
-  tail call fastcc void @print_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %60)
+  tail call void (ptr, ptr, ...) @slab_bug(ptr noundef readonly %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.69)
+  tail call fastcc void @print_trailer(ptr noundef readonly %0, ptr noundef %1, ptr noundef %60)
   tail call void @add_taint(i32 noundef 5, i32 noundef 1) #25
   br label %.thread.i
 
 104:                                              ; preds = %101
-  %105 = tail call fastcc i32 @check_object(ptr noundef %0, ptr noundef %1, ptr noundef %60, i8 noundef zeroext -52), !range !130
+  %105 = tail call fastcc i32 @check_object(ptr noundef readonly %0, ptr noundef %1, ptr noundef %60, i8 noundef zeroext -52), !range !130
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.thread.i, label %107
 
@@ -11066,7 +11066,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %110
-  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef %60)
+  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef %60)
   br label %.thread.i
 
 115:                                              ; preds = %110
@@ -11079,7 +11079,7 @@ define internal fastcc void @__slab_free(ptr noundef readonly %0, ptr noundef %1
   br label %.thread.i
 
 119:                                              ; preds = %115
-  tail call fastcc void @object_err(ptr noundef %0, ptr noundef %1, ptr noundef %60)
+  tail call fastcc void @object_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef %60)
   br label %.thread.i
 
 120:                                              ; preds = %._crit_edge.i, %58
@@ -11207,7 +11207,7 @@ thread-pre-split.i:                               ; preds = %160, %160
   br i1 %196, label %198, label %197
 
 197:                                              ; preds = %.loopexit.i
-  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.66, i32 noundef %4, i32 noundef %194)
+  tail call void (ptr, ptr, ptr, ...) @slab_err(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull @.str.66, i32 noundef %4, i32 noundef %194)
   br label %198
 
 198:                                              ; preds = %197, %.loopexit.i
@@ -11216,7 +11216,7 @@ thread-pre-split.i:                               ; preds = %160, %160
 
 .thread.i:                                        ; preds = %104, %198, %119, %117, %114, %103, %100, %57, %37
   %200 = phi ptr [ %193, %198 ], [ %2, %37 ], [ %60, %100 ], [ %60, %103 ], [ %60, %119 ], [ %60, %117 ], [ %60, %114 ], [ %2, %57 ], [ %60, %104 ]
-  tail call void (ptr, ptr, ...) @slab_fix(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef %200)
+  tail call void (ptr, ptr, ...) @slab_fix(ptr noundef readonly %0, ptr noundef nonnull @.str.67, ptr noundef %200)
   br label %.thread17.i
 
 201:                                              ; preds = %198
@@ -11334,7 +11334,7 @@ thread-pre-split.i:                               ; preds = %160, %160
   %274 = getelementptr inbounds i8, ptr %271, i64 40
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %274, i64 %273, ptr elementtype(i64) %274) #25, !srcloc !99
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %25, i64 noundef %33) #25
-  tail call fastcc void @free_slab(ptr noundef %0, ptr noundef nonnull %263)
+  tail call fastcc void @free_slab(ptr noundef readonly %0, ptr noundef nonnull %263)
   br label %free_to_partial_list.exit
 
 .thread17.i:                                      ; preds = %251, %241, %.thread16.i, %.thread.i
@@ -11556,7 +11556,7 @@ free_to_partial_list.exit:                        ; preds = %.thread17.i, %262, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @on_freelist(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @on_freelist(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
@@ -11878,7 +11878,7 @@ declare dso_local void @cpus_read_unlock() local_unnamed_addr #4
 declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @calculate_sizes(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @calculate_sizes(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -12368,7 +12368,7 @@ define internal i64 @slab_attr_store(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @slab_size_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @slab_size_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %1, ptr noundef nonnull @.str.89, i32 noundef %4) #25
@@ -12380,7 +12380,7 @@ define internal i64 @slab_size_show(ptr nocapture noundef readonly %0, ptr nound
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @object_size_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @object_size_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %1, ptr noundef nonnull @.str.89, i32 noundef %4) #25
@@ -12389,7 +12389,7 @@ define internal i64 @object_size_show(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @objs_per_slab_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @objs_per_slab_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 65535
@@ -12399,7 +12399,7 @@ define internal i64 @objs_per_slab_show(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @order_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @order_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 16
@@ -12409,7 +12409,7 @@ define internal i64 @order_show(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @min_partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @min_partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %1, ptr noundef nonnull @.str.94, i64 noundef %4) #25
@@ -12446,7 +12446,7 @@ define internal i64 @min_partial_store(ptr nocapture noundef writeonly %0, ptr n
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cpu_partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpu_partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %1, ptr noundef nonnull @.str.89, i32 noundef %4) #25
@@ -12511,13 +12511,13 @@ define internal i64 @cpu_partial_store(ptr noundef %0, ptr noundef %1, i64 nound
 declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @objects_partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @objects_partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i64 @show_slab_objects(ptr noundef %0, ptr noundef %1, i64 noundef 10), !range !227
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @show_slab_objects(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @show_slab_objects(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = load i32, ptr @nr_node_ids, align 4
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 3
@@ -12924,19 +12924,19 @@ define internal fastcc i64 @show_slab_objects(ptr nocapture noundef readonly %0,
 declare dso_local i32 @sysfs_emit_at(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i64 @show_slab_objects(ptr noundef %0, ptr noundef %1, i64 noundef 2), !range !227
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cpu_slabs_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpu_slabs_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i64 @show_slab_objects(ptr noundef %0, ptr noundef %1, i64 noundef 4), !range !227
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ctor_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ctor_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -12953,7 +12953,7 @@ define internal i64 @ctor_show(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @aliases_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @aliases_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 0
@@ -12965,7 +12965,7 @@ define internal i64 @aliases_show(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @align_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @align_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %1, ptr noundef nonnull @.str.89, i32 noundef %4) #25
@@ -12974,7 +12974,7 @@ define internal i64 @align_show(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hwcache_align_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hwcache_align_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 13
@@ -12985,7 +12985,7 @@ define internal i64 @hwcache_align_show(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @reclaim_account_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @reclaim_account_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 17
@@ -12996,7 +12996,7 @@ define internal i64 @reclaim_account_show(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @destroy_by_rcu_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @destroy_by_rcu_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 19
@@ -13030,7 +13030,7 @@ define internal noundef i64 @shrink_store(ptr noundef %0, ptr nocapture noundef 
 declare dso_local i32 @kmem_cache_shrink(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @slabs_cpu_partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @slabs_cpu_partial_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load i64, ptr @__cpu_online_mask, align 8
   br label %4
 
@@ -13142,25 +13142,25 @@ define internal i64 @slabs_cpu_partial_show(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @total_objects_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @total_objects_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i64 @show_slab_objects(ptr noundef %0, ptr noundef %1, i64 noundef 17), !range !227
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @objects_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @objects_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i64 @show_slab_objects(ptr noundef %0, ptr noundef %1, i64 noundef 9), !range !227
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @slabs_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @slabs_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i64 @show_slab_objects(ptr noundef %0, ptr noundef %1, i64 noundef 1), !range !227
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sanity_checks_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sanity_checks_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 8
@@ -13171,7 +13171,7 @@ define internal i64 @sanity_checks_show(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @trace_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @trace_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 21
@@ -13182,7 +13182,7 @@ define internal i64 @trace_show(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @red_zone_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @red_zone_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 10
@@ -13193,7 +13193,7 @@ define internal i64 @red_zone_show(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @poison_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @poison_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 11
@@ -13204,7 +13204,7 @@ define internal i64 @poison_show(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @store_user_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @store_user_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 16
@@ -13220,7 +13220,7 @@ define internal noundef i64 @validate_show(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @validate_store(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @validate_store(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 49
   br i1 %5, label %6, label %19
@@ -13251,7 +13251,7 @@ define internal i64 @validate_store(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cache_dma_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cache_dma_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 14
@@ -13262,7 +13262,7 @@ define internal i64 @cache_dma_show(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @remote_node_defrag_ratio_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @remote_node_defrag_ratio_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load i32, ptr %3, align 8
   %5 = udiv i32 %4, 10
@@ -13320,7 +13320,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #4
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @slab_debug_trace_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @slab_debug_trace_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @__seq_open_private(ptr noundef %1, ptr noundef nonnull @slab_debugfs_sops, i32 noundef 32) #25
   %4 = getelementptr inbounds i8, ptr %1, i64 168
   %5 = load ptr, ptr %4, align 8
@@ -13954,7 +13954,7 @@ define internal fastcc void @process_slab(ptr nocapture noundef %0, ptr nocaptur
 declare dso_local void @sort_r(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @cmp_loc_by_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #20 align 16 {
+define internal range(i32 -1, 2) i32 @cmp_loc_by_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #20 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8

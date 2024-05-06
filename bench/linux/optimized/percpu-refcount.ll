@@ -54,7 +54,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_percpu_ref_r
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_percpu_ref_exit328, ptr @__UNIQUE_ID___addressable_percpu_ref_init325, ptr @__UNIQUE_ID___addressable_percpu_ref_is_zero346, ptr @__UNIQUE_ID___addressable_percpu_ref_kill_and_confirm345, ptr @__UNIQUE_ID___addressable_percpu_ref_reinit349, ptr @__UNIQUE_ID___addressable_percpu_ref_resurrect354, ptr @__UNIQUE_ID___addressable_percpu_ref_switch_to_atomic338, ptr @__UNIQUE_ID___addressable_percpu_ref_switch_to_atomic_sync339, ptr @__UNIQUE_ID___addressable_percpu_ref_switch_to_percpu340, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @percpu_ref_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @percpu_ref_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu_gfp(i64 noundef 8, i64 noundef 8, i32 noundef %3) #9
   %6 = ptrtoint ptr %5 to i64
   store i64 %6, ptr %0, align 8

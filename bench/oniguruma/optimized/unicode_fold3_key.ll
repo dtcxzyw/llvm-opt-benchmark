@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hash.asso_values = internal unnamed_addr constant [256 x i8] c"\06\03\0E\0E\0E\0E\0E\0E\01\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\00\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\00\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\04\0E\0E\05\0E\0E\04\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0A\0E\0E\0E\0E\0E\09\0E\01\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\00\0E\0E\0E\08\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E", align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_unicode_fold3_key(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 32768) i32 @onigenc_unicode_fold3_key(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @onig_codes_byte_at(ptr noundef %0, i32 noundef 8) #2
   %3 = and i32 %2, 255
   %4 = zext nneg i32 %3 to i64

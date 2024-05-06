@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.fprintf_to_ereport = private unnamed_addr constant [19 x i8] c"fprintf_to_ereport\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @syncrep_yylex() local_unnamed_addr #0 {
+define dso_local range(i32 0, 263) i32 @syncrep_yylex() local_unnamed_addr #0 {
   %.b = load i1, ptr @yy_init, align 4
   br i1 %.b, label %.loopexit.preheader, label %1
 

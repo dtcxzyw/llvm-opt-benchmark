@@ -282,7 +282,7 @@ define dso_local i32 @lzma_next_filter_update(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_strm_init(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 12) i32 @lzma_strm_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %29, label %3
 

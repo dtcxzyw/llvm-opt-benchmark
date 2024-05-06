@@ -256,7 +256,7 @@ if.then10:                                        ; preds = %for.body
 
 invoke.cont14:                                    ; preds = %if.then10
   %tobool11 = trunc i8 %8 to i1
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %10 = xor i32 %9, -1
   %sub12 = add i32 %10, %num_args
   %cond = select i1 %tobool11, i32 %sub12, i32 %9
@@ -1003,7 +1003,7 @@ for.body59.preheader:                             ; preds = %for.body59.lr.ph
 
 for.body59:                                       ; preds = %for.body59.preheader, %for.inc74
   %indvars.iv616 = phi i64 [ 0, %for.body59.preheader ], [ %indvars.iv.next617, %for.inc74 ]
-  %19 = trunc i64 %indvars.iv616 to i32
+  %19 = trunc nuw i64 %indvars.iv616 to i32
   %20 = xor i32 %19, -1
   %sub61 = add i32 %7, %20
   %21 = load ptr, ptr %m_used, align 8
@@ -1441,7 +1441,7 @@ invoke.cont109:                                   ; preds = %_ZNK6vectorIP4sortL
 
 if.then112:                                       ; preds = %invoke.cont109
   %74 = load ptr, ptr %this, align 8
-  %75 = trunc i64 %indvars.iv626 to i32
+  %75 = trunc nuw i64 %indvars.iv626 to i32
   %sub114 = sub i32 %75, %num_removed.0.lcssa
   %call116 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %74, i32 noundef %sub114, ptr noundef nonnull %73)
           to label %invoke.cont115 unwind label %lpad80.loopexit
@@ -2843,8 +2843,8 @@ sw.bb26:                                          ; preds = %if.end
   %40 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i41 = zext i32 %40 to i64
   %add.ptr.i42.idx = shl nuw nsw i64 %idx.ext.i41, 3
-  %41 = getelementptr i8, ptr %12, i64 %add.ptr.i42.idx
-  %add.ptr.i42.ptr = getelementptr i8, ptr %41, i64 32
+  %41 = getelementptr inbounds i8, ptr %12, i64 %add.ptr.i42.idx
+  %add.ptr.i42.ptr = getelementptr inbounds i8, ptr %41, i64 32
   %cmp30.not78 = icmp eq i32 %40, 0
   br i1 %cmp30.not78, label %while.cond.backedge, label %for.body.preheader
 

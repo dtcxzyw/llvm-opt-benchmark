@@ -2420,7 +2420,7 @@ entry:
   %3 = select i1 %1, i64 0, i64 %2
   %4 = getelementptr i8, ptr %last.i, i64 %conv.i
   call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr align 1 %b, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %b, i64 %conv.i, i1 false)
   store i8 -128, ptr %4, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -5540,7 +5540,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %0 = shl nuw i64 %indvars.iv.i, 7
   %add.ptr.i = getelementptr i8, ptr %b, i64 %0
-  tail call fastcc void @sha512_update(ptr noundef %add.ptr.i, ptr noundef %st)
+  tail call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i, ptr noundef %st)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, label %for.body.i, !llvm.loop !6
@@ -5566,7 +5566,7 @@ entry:
   %3 = select i1 %1, i64 0, i64 %2
   %4 = getelementptr i8, ptr %last.i, i64 %conv.i
   call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr align 1 %b, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %b, i64 %conv.i, i1 false)
   store i8 -128, ptr %4, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -5682,14 +5682,14 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
-  %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len), !range !7
+  %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
   ret i8 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i8 @update_224_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
+define internal fastcc zeroext range(i8 0, 4) i8 @update_224_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -5703,7 +5703,7 @@ if.end:                                           ; preds = %entry
   %cmp3 = icmp eq i64 %rem, 0
   %cmp5 = icmp ne i64 %s.sroa.1.0.copyload, 0
   %or.cond = and i1 %cmp5, %cmp3
-  %conv9 = trunc i64 %rem to i32
+  %conv9 = trunc nuw nsw i64 %rem to i32
   %sz.0 = select i1 %or.cond, i32 64, i32 %conv9
   %sub11 = sub nuw nsw i32 64, %sz.0
   %cmp12.not = icmp ult i32 %sub11, %len
@@ -5733,13 +5733,13 @@ if.then37:                                        ; preds = %if.else34
   br i1 %or.cond76, label %if.end60, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then37
-  tail call fastcc void @sha256_update(ptr noundef %s138.sroa.2.0.copyload, ptr noundef %s138.sroa.0.0.copyload)
+  tail call fastcc void @sha256_update(ptr noundef readonly %s138.sroa.2.0.copyload, ptr noundef %s138.sroa.0.0.copyload)
   br label %if.end60
 
 if.end60:                                         ; preds = %for.body.i.preheader, %if.then37
   %rem62 = and i64 %conv, 63
   %cmp63 = icmp eq i64 %rem62, 0
-  %conv73 = trunc i64 %rem62 to i32
+  %conv73 = trunc nuw nsw i64 %rem62 to i32
   %ite.0 = select i1 %cmp63, i32 64, i32 %conv73
   %sub75 = sub i32 %len, %ite.0
   %div74 = and i32 %sub75, -64
@@ -5758,7 +5758,7 @@ for.body.i78:                                     ; preds = %for.body.i78, %for.
   %indvars.iv.i79 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i81, %for.body.i78 ]
   %0 = shl nuw i64 %indvars.iv.i79, 6
   %add.ptr.i80 = getelementptr i8, ptr %data, i64 %0
-  tail call fastcc void @sha256_update(ptr noundef %add.ptr.i80, ptr noundef %s138.sroa.0.0.copyload)
+  tail call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i80, ptr noundef %s138.sroa.0.0.copyload)
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
   br i1 %exitcond.not.i82, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit83, label %for.body.i78, !llvm.loop !4
@@ -5788,7 +5788,7 @@ if.else90:                                        ; preds = %if.else34
   br i1 %cmp134, label %if.end144, label %for.body.i85.preheader
 
 for.body.i85.preheader:                           ; preds = %if.else90
-  tail call fastcc void @sha256_update(ptr noundef %s196.sroa.2.0.copyload, ptr noundef %s196.sroa.0.0.copyload)
+  tail call fastcc void @sha256_update(ptr noundef readonly %s196.sroa.2.0.copyload, ptr noundef %s196.sroa.0.0.copyload)
   br label %if.end144
 
 if.end144:                                        ; preds = %for.body.i85.preheader, %if.else90
@@ -5796,7 +5796,7 @@ if.end144:                                        ; preds = %for.body.i85.prehea
   %conv147 = zext i32 %sub146 to i64
   %rem148 = and i64 %conv147, 63
   %cmp149.not = icmp eq i64 %rem148, 0
-  %conv161 = trunc i64 %rem148 to i32
+  %conv161 = trunc nuw nsw i64 %rem148 to i32
   %ite145.0 = select i1 %cmp149.not, i32 64, i32 %conv161
   %sub165 = sub i32 %sub146, %ite145.0
   %div16673 = and i32 %sub165, -64
@@ -5815,7 +5815,7 @@ for.body.i95:                                     ; preds = %for.body.i95, %for.
   %indvars.iv.i96 = phi i64 [ 0, %for.body.preheader.i92 ], [ %indvars.iv.next.i98, %for.body.i95 ]
   %1 = shl nuw i64 %indvars.iv.i96, 6
   %add.ptr.i97 = getelementptr i8, ptr %add.ptr95, i64 %1
-  tail call fastcc void @sha256_update(ptr noundef %add.ptr.i97, ptr noundef %s196.sroa.0.0.copyload)
+  tail call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i97, ptr noundef %s196.sroa.0.0.copyload)
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i94
   br i1 %exitcond.not.i99, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit100, label %for.body.i95, !llvm.loop !4
@@ -5852,7 +5852,7 @@ entry:
   %cmp = icmp eq i64 %rem, 0
   %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
   %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nuw nsw i64 %rem to i32
   %r.0 = select i1 %or.cond, i32 64, i32 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %tmp_block_state, ptr noundef nonnull align 4 dereferenceable(32) %scrut.sroa.0.0.copyload, i64 32, i1 false)
   %rem5 = and i32 %r.0, 63
@@ -5873,7 +5873,7 @@ entry:
   %2 = sub nuw nsw i64 128, %idx.ext
   %3 = getelementptr i8, ptr %last.i, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr align 1 %add.ptr16, i64 %idx.ext, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
   store i8 -128, ptr %3, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -5936,7 +5936,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %0 = shl nuw i64 %indvars.iv.i, 6
   %add.ptr.i = getelementptr i8, ptr %input, i64 %0
-  call fastcc void @sha256_update(ptr noundef %add.ptr.i, ptr noundef nonnull %st)
+  call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i, ptr noundef nonnull %st)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit, label %for.body.i, !llvm.loop !4
@@ -5954,7 +5954,7 @@ Hacl_SHA2_Scalar32_sha256_update_nblocks.exit:    ; preds = %for.body.i, %entry
   %2 = sub nuw nsw i64 128, %idx.ext5
   %3 = getelementptr i8, ptr %last.i, i64 %idx.ext5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr align 1 %add.ptr6, i64 %idx.ext5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
   store i8 -128, ptr %3, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -6013,9 +6013,9 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_224(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_224(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
-  %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len), !range !7
+  %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
   ret i8 %call
 }
 
@@ -6033,7 +6033,7 @@ entry:
   %cmp = icmp eq i64 %rem, 0
   %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
   %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nuw nsw i64 %rem to i32
   %r.0 = select i1 %or.cond, i32 64, i32 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %tmp_block_state, ptr noundef nonnull align 4 dereferenceable(32) %scrut.sroa.0.0.copyload, i64 32, i1 false)
   %rem5 = and i32 %r.0, 63
@@ -6054,7 +6054,7 @@ entry:
   %2 = sub nuw nsw i64 128, %idx.ext
   %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr align 1 %add.ptr16, i64 %idx.ext, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
   store i8 -128, ptr %3, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -6124,7 +6124,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %0 = shl nuw i64 %indvars.iv.i.i, 6
   %add.ptr.i.i = getelementptr i8, ptr %input, i64 %0
-  call fastcc void @sha256_update(ptr noundef %add.ptr.i.i, ptr noundef nonnull %st)
+  call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i.i, ptr noundef nonnull %st)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %sha224_update_nblocks.exit, label %for.body.i.i, !llvm.loop !4
@@ -6142,7 +6142,7 @@ sha224_update_nblocks.exit:                       ; preds = %for.body.i.i, %entr
   %2 = sub nuw nsw i64 128, %idx.ext5
   %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr align 1 %add.ptr6, i64 %idx.ext5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
   store i8 -128, ptr %3, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -6256,14 +6256,14 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
-  %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len), !range !7
+  %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
   ret i8 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i8 @update_384_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
+define internal fastcc zeroext range(i8 0, 4) i8 @update_384_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -6277,7 +6277,7 @@ if.end:                                           ; preds = %entry
   %cmp3 = icmp eq i64 %rem, 0
   %cmp5 = icmp ne i64 %s.sroa.1.0.copyload, 0
   %or.cond = and i1 %cmp5, %cmp3
-  %conv9 = trunc i64 %rem to i32
+  %conv9 = trunc nuw nsw i64 %rem to i32
   %sz.0 = select i1 %or.cond, i32 128, i32 %conv9
   %sub11 = sub nuw nsw i32 128, %sz.0
   %cmp12.not = icmp ult i32 %sub11, %len
@@ -6307,13 +6307,13 @@ if.then37:                                        ; preds = %if.else34
   br i1 %or.cond76, label %if.end60, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then37
-  tail call fastcc void @sha512_update(ptr noundef %s138.sroa.2.0.copyload, ptr noundef %s138.sroa.0.0.copyload)
+  tail call fastcc void @sha512_update(ptr noundef readonly %s138.sroa.2.0.copyload, ptr noundef %s138.sroa.0.0.copyload)
   br label %if.end60
 
 if.end60:                                         ; preds = %for.body.i.preheader, %if.then37
   %rem62 = and i64 %conv, 127
   %cmp63 = icmp eq i64 %rem62, 0
-  %conv73 = trunc i64 %rem62 to i32
+  %conv73 = trunc nuw nsw i64 %rem62 to i32
   %ite.0 = select i1 %cmp63, i32 128, i32 %conv73
   %sub75 = sub i32 %len, %ite.0
   %div74 = and i32 %sub75, -128
@@ -6332,7 +6332,7 @@ for.body.i78:                                     ; preds = %for.body.i78, %for.
   %indvars.iv.i79 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i81, %for.body.i78 ]
   %0 = shl nuw i64 %indvars.iv.i79, 7
   %add.ptr.i80 = getelementptr i8, ptr %data, i64 %0
-  tail call fastcc void @sha512_update(ptr noundef %add.ptr.i80, ptr noundef %s138.sroa.0.0.copyload)
+  tail call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i80, ptr noundef %s138.sroa.0.0.copyload)
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
   br i1 %exitcond.not.i82, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit83, label %for.body.i78, !llvm.loop !6
@@ -6362,7 +6362,7 @@ if.else90:                                        ; preds = %if.else34
   br i1 %cmp134, label %if.end144, label %for.body.i85.preheader
 
 for.body.i85.preheader:                           ; preds = %if.else90
-  tail call fastcc void @sha512_update(ptr noundef %s196.sroa.2.0.copyload, ptr noundef %s196.sroa.0.0.copyload)
+  tail call fastcc void @sha512_update(ptr noundef readonly %s196.sroa.2.0.copyload, ptr noundef %s196.sroa.0.0.copyload)
   br label %if.end144
 
 if.end144:                                        ; preds = %for.body.i85.preheader, %if.else90
@@ -6370,7 +6370,7 @@ if.end144:                                        ; preds = %for.body.i85.prehea
   %conv147 = zext i32 %sub146 to i64
   %rem148 = and i64 %conv147, 127
   %cmp149.not = icmp eq i64 %rem148, 0
-  %conv161 = trunc i64 %rem148 to i32
+  %conv161 = trunc nuw nsw i64 %rem148 to i32
   %ite145.0 = select i1 %cmp149.not, i32 128, i32 %conv161
   %sub165 = sub i32 %sub146, %ite145.0
   %div16673 = and i32 %sub165, -128
@@ -6389,7 +6389,7 @@ for.body.i95:                                     ; preds = %for.body.i95, %for.
   %indvars.iv.i96 = phi i64 [ 0, %for.body.preheader.i92 ], [ %indvars.iv.next.i98, %for.body.i95 ]
   %1 = shl nuw i64 %indvars.iv.i96, 7
   %add.ptr.i97 = getelementptr i8, ptr %add.ptr95, i64 %1
-  tail call fastcc void @sha512_update(ptr noundef %add.ptr.i97, ptr noundef %s196.sroa.0.0.copyload)
+  tail call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i97, ptr noundef %s196.sroa.0.0.copyload)
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i94
   br i1 %exitcond.not.i99, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit100, label %for.body.i95, !llvm.loop !6
@@ -6426,7 +6426,7 @@ entry:
   %cmp = icmp eq i64 %rem, 0
   %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
   %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nuw nsw i64 %rem to i32
   %r.0 = select i1 %or.cond, i32 128, i32 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tmp_block_state, ptr noundef nonnull align 8 dereferenceable(64) %scrut.sroa.0.0.copyload, i64 64, i1 false)
   %rem5 = and i32 %r.0, 127
@@ -6453,7 +6453,7 @@ entry:
   %3 = sub nuw nsw i64 256, %idx.ext
   %4 = getelementptr i8, ptr %last.i, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, i8 0, i64 %3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr align 1 %add.ptr16, i64 %idx.ext, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
   store i8 -128, ptr %4, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -6558,7 +6558,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %0 = shl nuw i64 %indvars.iv.i, 7
   %add.ptr.i = getelementptr i8, ptr %input, i64 %0
-  call fastcc void @sha512_update(ptr noundef %add.ptr.i, ptr noundef nonnull %st)
+  call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i, ptr noundef nonnull %st)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, label %for.body.i, !llvm.loop !6
@@ -6576,7 +6576,7 @@ Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
   %2 = sub nuw nsw i64 256, %idx.ext5
   %3 = getelementptr i8, ptr %last.i, i64 %idx.ext5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr align 1 %add.ptr6, i64 %idx.ext5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
   store i8 -128, ptr %3, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -6686,9 +6686,9 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_384(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_384(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
-  %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len), !range !7
+  %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
   ret i8 %call
 }
 
@@ -6706,7 +6706,7 @@ entry:
   %cmp = icmp eq i64 %rem, 0
   %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
   %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nuw nsw i64 %rem to i32
   %r.0 = select i1 %or.cond, i32 128, i32 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tmp_block_state, ptr noundef nonnull align 8 dereferenceable(64) %scrut.sroa.0.0.copyload, i64 64, i1 false)
   %rem5 = and i32 %r.0, 127
@@ -6733,7 +6733,7 @@ entry:
   %3 = sub nuw nsw i64 256, %idx.ext
   %4 = getelementptr i8, ptr %last.i.i, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, i8 0, i64 %3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr align 1 %add.ptr16, i64 %idx.ext, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
   store i8 -128, ptr %4, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -6828,7 +6828,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %0 = shl nuw i64 %indvars.iv.i.i, 7
   %add.ptr.i.i = getelementptr i8, ptr %input, i64 %0
-  call fastcc void @sha512_update(ptr noundef %add.ptr.i.i, ptr noundef nonnull %st)
+  call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i.i, ptr noundef nonnull %st)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Hacl_SHA2_Scalar32_sha384_update_nblocks.exit, label %for.body.i.i, !llvm.loop !6
@@ -6846,7 +6846,7 @@ Hacl_SHA2_Scalar32_sha384_update_nblocks.exit:    ; preds = %for.body.i.i, %entr
   %2 = sub nuw nsw i64 256, %idx.ext5
   %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr align 1 %add.ptr6, i64 %idx.ext5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
   store i8 -128, ptr %3, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -6940,4 +6940,3 @@ attributes #18 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 4}

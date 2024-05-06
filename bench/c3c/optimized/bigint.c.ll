@@ -57,8 +57,8 @@ i128_neg.exit:                                    ; preds = %13, %12, %4
   store i64 %.sroa.8.1, ptr %20, align 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %21, align 8
-  %25 = call i32 @i128_clz(ptr noundef nonnull %8), !range !7
-  %26 = call i32 @i128_clz(ptr noundef nonnull %7), !range !7
+  %25 = call i32 @i128_clz(ptr noundef nonnull %8)
+  %26 = call i32 @i128_clz(ptr noundef nonnull %7)
   %27 = sub nsw i32 %25, %26
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %i128_urem.exit, label %29
@@ -126,7 +126,7 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
   %59 = lshr i64 %46, 1
   %60 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !8
+  br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
 
 i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i, %24
   %.sroa.3.0.i = phi i64 [ %.sroa.8.1, %24 ], [ %56, %i128_ucomp.exit.i.i ]
@@ -142,8 +142,8 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
   store i64 %.sroa.8.1, ptr %22, align 8
   store i64 0, ptr %6, align 8
   store i64 %2, ptr %23, align 8
-  %64 = call i32 @i128_clz(ptr noundef nonnull %6), !range !7
-  %65 = call i32 @i128_clz(ptr noundef nonnull %5), !range !7
+  %64 = call i32 @i128_clz(ptr noundef nonnull %6)
+  %65 = call i32 @i128_clz(ptr noundef nonnull %5)
   %66 = sub nsw i32 %64, %65
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %i128_udiv.exit, label %68
@@ -217,7 +217,7 @@ i128_ucomp.exit.i.i38:                            ; preds = %select.unfold.i.i36
   %104 = lshr i64 %85, 1
   %105 = add nsw i32 %.0.i.i33, -1
   %.not18.i.i39 = icmp eq i32 %.0.i.i33, 0
-  br i1 %.not18.i.i39, label %i128_udiv.exit, label %i128_shl64.exit.i.i30, !llvm.loop !8
+  br i1 %.not18.i.i39, label %i128_udiv.exit, label %i128_shl64.exit.i.i30, !llvm.loop !7
 
 i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i38, %i128_urem.exit
   %.sroa.03.0.i40 = phi i64 [ 0, %i128_urem.exit ], [ %90, %i128_ucomp.exit.i.i38 ]
@@ -227,7 +227,7 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %106 = icmp eq i64 %.sroa.03.0.i40, 0
   %107 = icmp eq i64 %.sroa.3.0.i41, 0
   %108 = select i1 %106, i1 %107, i1 false
-  br i1 %108, label %109, label %24, !llvm.loop !10
+  br i1 %108, label %109, label %24, !llvm.loop !9
 
 109:                                              ; preds = %i128_udiv.exit
   %110 = ptrtoint ptr %63 to i64
@@ -255,7 +255,7 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %120 = getelementptr inbounds i8, ptr %.150, i64 1
   store i8 %119, ptr %.150, align 1
   %121 = icmp ugt ptr %118, %9
-  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %116
   %.1.lcssa = phi ptr [ %.0, %116 ], [ %120, %.lr.ph ]
@@ -300,8 +300,8 @@ define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   store i64 %2, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %3, ptr %8, align 8
-  %9 = call i32 @i128_clz(ptr noundef nonnull %6), !range !7
-  %10 = call i32 @i128_clz(ptr noundef nonnull %5), !range !7
+  %9 = call i32 @i128_clz(ptr noundef nonnull %6)
+  %10 = call i32 @i128_clz(ptr noundef nonnull %5)
   %11 = sub nsw i32 %9, %10
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %i128_udivrem.exit, label %13
@@ -371,7 +371,7 @@ i128_ucomp.exit.i:                                ; preds = %select.unfold.i, %3
   %45 = lshr i64 %32, 1
   %46 = add nsw i32 %.0.i, -1
   %.not18.i = icmp eq i32 %.0.i, 0
-  br i1 %.not18.i, label %i128_udivrem.exit, label %i128_shl64.exit.i, !llvm.loop !8
+  br i1 %.not18.i, label %i128_udivrem.exit, label %i128_shl64.exit.i, !llvm.loop !7
 
 i128_udivrem.exit:                                ; preds = %i128_ucomp.exit.i, %4
   %.sroa.3.0 = phi i64 [ %1, %4 ], [ %42, %i128_ucomp.exit.i ]
@@ -395,8 +395,8 @@ define dso_local { i64, i64 } @i128_udiv(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   store i64 %2, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %3, ptr %8, align 8
-  %9 = call i32 @i128_clz(ptr noundef nonnull %6), !range !7
-  %10 = call i32 @i128_clz(ptr noundef nonnull %5), !range !7
+  %9 = call i32 @i128_clz(ptr noundef nonnull %6)
+  %10 = call i32 @i128_clz(ptr noundef nonnull %5)
   %11 = sub nsw i32 %9, %10
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %i128_udivrem.exit, label %13
@@ -472,7 +472,7 @@ i128_ucomp.exit.i:                                ; preds = %select.unfold.i, %4
   %51 = lshr i64 %32, 1
   %52 = add nsw i32 %.0.i, -1
   %.not18.i = icmp eq i32 %.0.i, 0
-  br i1 %.not18.i, label %i128_udivrem.exit, label %i128_shl64.exit.i, !llvm.loop !8
+  br i1 %.not18.i, label %i128_udivrem.exit, label %i128_shl64.exit.i, !llvm.loop !7
 
 i128_udivrem.exit:                                ; preds = %i128_ucomp.exit.i, %4
   %.sroa.03.0 = phi i64 [ 0, %4 ], [ %37, %i128_ucomp.exit.i ]
@@ -575,7 +575,7 @@ define dso_local { i64, i64 } @i128_from_str(ptr nocapture noundef readonly %0) 
   %22 = add i64 %17, %21
   %23 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.sroa.4.0.lcssa = phi i64 [ 0, %1 ], [ %19, %.lr.ph ]
@@ -657,7 +657,7 @@ define dso_local { i64, i64 } @i128_from_strl(ptr noundef readonly %0, ptr nound
   %21 = zext i1 %20 to i64
   %22 = add i64 %16, %21
   %.not = icmp eq ptr %3, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.sroa.4.0.lcssa = phi i64 [ 0, %2 ], [ %19, %.lr.ph ]
@@ -691,7 +691,7 @@ define dso_local { i64, i64 } @i128_from_hexstrl(ptr noundef readonly %0, ptr no
   %15 = zext i1 %14 to i64
   %16 = add i64 %5, %15
   %.not = icmp eq ptr %3, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.sroa.4.0.lcssa = phi i64 [ 0, %2 ], [ %13, %.lr.ph ]
@@ -1056,7 +1056,7 @@ define dso_local { i64, i64 } @i128_mult(i64 %0, i64 %1, i64 %2, i64 %3) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @int128_scomp64(i64 %0, i64 %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @int128_scomp64(i64 %0, i64 %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ne i64 %2, 0
   %5 = icmp ne i64 %0, 0
   %or.cond = select i1 %4, i1 true, i1 %5
@@ -1108,7 +1108,7 @@ define dso_local i32 @int128_scomp64(i64 %0, i64 %1, i64 noundef %2) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @int128_ucomp64(i64 %0, i64 %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @int128_ucomp64(i64 %0, i64 %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %4, label %9
 
@@ -1127,7 +1127,7 @@ define dso_local i32 @int128_ucomp64(i64 %0, i64 %1, i64 noundef %2) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @i128_ucomp(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @i128_ucomp(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #1 {
   %5 = icmp ugt i64 %0, %2
   br i1 %5, label %13, label %6
 
@@ -1363,7 +1363,7 @@ i128_scomp.exit:                                  ; preds = %15, %9, %11, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @i128_scomp(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @i128_scomp(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #1 {
   %.not.unshifted = xor i64 %2, %0
   %.not = icmp sgt i64 %.not.unshifted, -1
   br i1 %.not, label %8, label %5
@@ -1432,7 +1432,7 @@ define dso_local zeroext i1 @i128_is_neg(i64 %0, i64 %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @i128_comp(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef readonly %4) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 2) i32 @i128_comp(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef readonly %4) local_unnamed_addr #8 {
   %6 = load i32, ptr %4, align 8
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, 5
@@ -1500,10 +1500,10 @@ i128_scomp.exit:                                  ; preds = %32, %30, %28, %.cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @i128_popcnt(i64 %0, i64 %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 511) i32 @i128_popcnt(i64 %0, i64 %1) local_unnamed_addr #1 {
   %3 = insertelement <2 x i64> poison, i64 %1, i64 0
   %4 = insertelement <2 x i64> %3, i64 %0, i64 1
-  %5 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %4), !range !15
+  %5 = tail call range(i64 0, 65) <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %4)
   %6 = trunc nuw nsw <2 x i64> %5 to <2 x i32>
   %shift = shufflevector <2 x i32> %6, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %7 = add nuw nsw <2 x i32> %shift, %6
@@ -1512,7 +1512,7 @@ define dso_local i32 @i128_popcnt(i64 %0, i64 %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local range(i32 0, 186) i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -1618,7 +1618,7 @@ define dso_local i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @i128_clz(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local range(i32 0, 186) i32 @i128_clz(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %46, label %3
@@ -1724,15 +1724,15 @@ define dso_local i32 @i128_clz(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @i128_lsb(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = tail call i32 @i128_ctz(ptr noundef %0), !range !7
+define dso_local range(i32 -58, 128) i32 @i128_lsb(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+  %2 = tail call i32 @i128_ctz(ptr noundef %0)
   %3 = sub nsw i32 127, %2
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @i128_msb(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = tail call i32 @i128_clz(ptr noundef %0), !range !7
+define dso_local range(i32 -58, 128) i32 @i128_msb(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+  %2 = tail call i32 @i128_clz(ptr noundef %0)
   %3 = sub nsw i32 127, %2
   ret i32 %3
 }
@@ -1812,8 +1812,8 @@ define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocaptur
   store i64 %3, ptr %10, align 8
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %11 = call i32 @i128_clz(ptr noundef nonnull %8), !range !7
-  %12 = call i32 @i128_clz(ptr noundef nonnull %7), !range !7
+  %11 = call i32 @i128_clz(ptr noundef nonnull %8)
+  %12 = call i32 @i128_clz(ptr noundef nonnull %7)
   %13 = sub nsw i32 %11, %12
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %16
@@ -1893,7 +1893,7 @@ i128_ucomp.exit:                                  ; preds = %43, %select.unfold
   %54 = lshr i64 %35, 1
   %55 = add nsw i32 %.0, -1
   %.not18 = icmp eq i32 %.0, 0
-  br i1 %.not18, label %56, label %i128_shl64.exit, !llvm.loop !8
+  br i1 %.not18, label %56, label %i128_shl64.exit, !llvm.loop !7
 
 56:                                               ; preds = %i128_ucomp.exit
   store i64 %40, ptr %4, align 8
@@ -1959,8 +1959,8 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   store i64 %.sroa.07.0, ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.sroa.5.0, ptr %26, align 8
-  %27 = call i32 @i128_clz(ptr noundef nonnull %6), !range !7
-  %28 = call i32 @i128_clz(ptr noundef nonnull %5), !range !7
+  %27 = call i32 @i128_clz(ptr noundef nonnull %6)
+  %28 = call i32 @i128_clz(ptr noundef nonnull %5)
   %29 = sub nsw i32 %27, %28
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %i128_urem.exit, label %31
@@ -2030,7 +2030,7 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
   %63 = lshr i64 %50, 1
   %64 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !8
+  br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
 
 i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i, %i128_neg.exit25
   %.sroa.3.0.i = phi i64 [ %.sroa.514.0, %i128_neg.exit25 ], [ %60, %i128_ucomp.exit.i.i ]
@@ -2127,8 +2127,8 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   store i64 %.sroa.07.0, ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.sroa.5.0, ptr %26, align 8
-  %27 = call i32 @i128_clz(ptr noundef nonnull %6), !range !7
-  %28 = call i32 @i128_clz(ptr noundef nonnull %5), !range !7
+  %27 = call i32 @i128_clz(ptr noundef nonnull %6)
+  %28 = call i32 @i128_clz(ptr noundef nonnull %5)
   %29 = sub nsw i32 %27, %28
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %i128_udiv.exit.thread, label %31
@@ -2204,7 +2204,7 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
   %69 = lshr i64 %50, 1
   %70 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not18.i.i, label %i128_udiv.exit, label %i128_shl64.exit.i.i, !llvm.loop !8
+  br i1 %.not18.i.i, label %i128_udiv.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
 
 i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -2775,7 +2775,7 @@ define dso_local zeroext i1 @int_is_zero(ptr nocapture noundef readonly byval(%s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @int_bits_needed(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #15 {
+define dso_local range(i32 -57, 130) i32 @int_bits_needed(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #15 {
   %2 = alloca %struct.Int128_, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -2817,7 +2817,7 @@ i128_neg.exit:                                    ; preds = %11, %13
 
 24:                                               ; preds = %1, %7, %i128_neg.exit
   %.sink = phi i32 [ 129, %i128_neg.exit ], [ 129, %7 ], [ 128, %1 ]
-  %25 = call i32 @i128_clz(ptr noundef nonnull %2), !range !7
+  %25 = call i32 @i128_clz(ptr noundef nonnull %2)
   %26 = sub nsw i32 %.sink, %25
   ret i32 %26
 }
@@ -3183,8 +3183,8 @@ define dso_local void @int_div(ptr dead_on_unwind noalias nocapture writable wri
   store i64 %13, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %15, ptr %20, align 8
-  %21 = call i32 @i128_clz(ptr noundef nonnull %5), !range !7
-  %22 = call i32 @i128_clz(ptr noundef nonnull %4), !range !7
+  %21 = call i32 @i128_clz(ptr noundef nonnull %5)
+  %22 = call i32 @i128_clz(ptr noundef nonnull %4)
   %23 = sub nsw i32 %21, %22
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %i128_udiv.exit, label %25
@@ -3260,7 +3260,7 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
   %63 = lshr i64 %44, 1
   %64 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not18.i.i, label %i128_udiv.exit, label %i128_shl64.exit.i.i, !llvm.loop !8
+  br i1 %.not18.i.i, label %i128_udiv.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
 
 i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i, %18
   %.sroa.03.0.i = phi i64 [ 0, %18 ], [ %49, %i128_ucomp.exit.i.i ]
@@ -3312,8 +3312,8 @@ define dso_local void @int_rem(ptr dead_on_unwind noalias nocapture writable wri
   store i64 %13, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %15, ptr %20, align 8
-  %21 = call i32 @i128_clz(ptr noundef nonnull %5), !range !7
-  %22 = call i32 @i128_clz(ptr noundef nonnull %4), !range !7
+  %21 = call i32 @i128_clz(ptr noundef nonnull %5)
+  %22 = call i32 @i128_clz(ptr noundef nonnull %4)
   %23 = sub nsw i32 %21, %22
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %i128_urem.exit, label %25
@@ -3383,7 +3383,7 @@ i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, 
   %57 = lshr i64 %44, 1
   %58 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !8
+  br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
 
 i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i, %18
   %.sroa.3.0.i = phi i64 [ %12, %18 ], [ %54, %i128_ucomp.exit.i.i ]
@@ -3449,7 +3449,7 @@ define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable wri
 define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.42.0.copyload = load i64, ptr %.sroa.42.0..sroa_idx, align 8
@@ -3457,14 +3457,14 @@ define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable wri
   %6 = sext i1 %5 to i64
   %spec.select.i.i = sub i64 %6, %.sroa.0.0.copyload
   %7 = sub i64 0, %.sroa.42.0.copyload
-  %8 = tail call { i64, i64 } @i128_extend(i64 %spec.select.i.i, i64 %7, i32 noundef %4), !noalias !16
+  %8 = tail call { i64, i64 } @i128_extend(i64 %spec.select.i.i, i64 %7, i32 noundef %4), !noalias !14
   %9 = extractvalue { i64, i64 } %8, 0
-  store i64 %9, ptr %0, align 8, !alias.scope !16
+  store i64 %9, ptr %0, align 8, !alias.scope !14
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = extractvalue { i64, i64 } %8, 1
-  store i64 %11, ptr %10, align 8, !alias.scope !16
+  store i64 %11, ptr %10, align 8, !alias.scope !14
   %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %4, ptr %12, align 8, !alias.scope !16
+  store i32 %4, ptr %12, align 8, !alias.scope !14
   ret void
 }
 
@@ -3884,15 +3884,13 @@ attributes #20 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 186}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = !{i64 0, i64 65}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"int_sub: argument 0"}
-!18 = distinct !{!18, !"int_sub"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"int_sub: argument 0"}
+!16 = distinct !{!16, !"int_sub"}

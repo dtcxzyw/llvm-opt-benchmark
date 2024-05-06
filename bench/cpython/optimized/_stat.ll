@@ -128,7 +128,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
   br label %land.lhs.true
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw i64 %call.i to i32
   %cmp = icmp eq i32 %conv.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -172,7 +172,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
   br label %land.lhs.true
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw i64 %call.i to i32
   %cmp = icmp eq i32 %conv.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -216,7 +216,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
   br label %land.lhs.true
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw i64 %call.i to i32
   %cmp = icmp eq i32 %conv.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -260,7 +260,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
   br label %land.lhs.true
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw i64 %call.i to i32
   %cmp = icmp eq i32 %conv.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -304,7 +304,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
   br label %land.lhs.true
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw i64 %call.i to i32
   %cmp = icmp eq i32 %conv.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -348,7 +348,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
   br label %land.lhs.true
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw i64 %call.i to i32
   %cmp = icmp eq i32 %conv.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -392,7 +392,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
   br label %land.lhs.true
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw i64 %call.i to i32
   %cmp = icmp eq i32 %conv.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -636,7 +636,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
   br label %land.lhs.true
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nuw i64 %call.i to i32
   %cmp = icmp eq i32 %conv.i, -1
   br i1 %cmp, label %land.lhs.true, label %entry.split
 
@@ -720,7 +720,7 @@ declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stat_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @stat_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull @.str.15, i64 noundef 16384) #2
   %cmp = icmp slt i32 %call, 0

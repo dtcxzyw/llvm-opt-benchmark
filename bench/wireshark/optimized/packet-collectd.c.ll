@@ -570,7 +570,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
 
 166:                                              ; preds = %165
   %167 = load i32, ptr @hf_collectd_data_host, align 4
-  %168 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %167, i32 noundef %.0.ph503, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %10, ptr noundef %20, ptr noundef null), !range !7
+  %168 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %167, i32 noundef %.0.ph503, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %10, ptr noundef %20, ptr noundef null)
   %.not285 = icmp eq i32 %168, 0
   br i1 %.not285, label %171, label %169
 
@@ -589,7 +589,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
 
 175:                                              ; preds = %165
   %176 = load i32, ptr @hf_collectd_data_plugin, align 4
-  %177 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %176, i32 noundef %.0.ph503, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef %20, ptr noundef null), !range !7
+  %177 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %176, i32 noundef %.0.ph503, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef %20, ptr noundef null)
   %.not284 = icmp eq i32 %177, 0
   br i1 %.not284, label %180, label %178
 
@@ -603,7 +603,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
 
 182:                                              ; preds = %165
   %183 = load i32, ptr @hf_collectd_data_plugin_inst, align 4
-  %184 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %183, i32 noundef %.0.ph503, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %36, ptr noundef %20, ptr noundef null), !range !7
+  %184 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %183, i32 noundef %.0.ph503, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %36, ptr noundef %20, ptr noundef null)
   %.not283 = icmp ne i32 %184, 0
   %185 = zext i1 %.not283 to i32
   %spec.select289 = add i32 %.0229.ph502, %185
@@ -612,7 +612,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
 
 186:                                              ; preds = %165
   %187 = load i32, ptr @hf_collectd_data_type, align 4
-  %188 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %187, i32 noundef %.0.ph503, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef %20, ptr noundef null), !range !7
+  %188 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %187, i32 noundef %.0.ph503, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef %20, ptr noundef null)
   %.not282 = icmp ne i32 %188, 0
   %189 = zext i1 %.not282 to i32
   %spec.select291 = add i32 %.0229.ph502, %189
@@ -621,7 +621,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
 
 190:                                              ; preds = %165
   %191 = load i32, ptr @hf_collectd_data_type_inst, align 4
-  %192 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %191, i32 noundef %.0.ph503, ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %42, ptr noundef %20, ptr noundef null), !range !7
+  %192 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %191, i32 noundef %.0.ph503, ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %42, ptr noundef %20, ptr noundef null)
   %.not281 = icmp ne i32 %192, 0
   %193 = zext i1 %.not281 to i32
   %spec.select293 = add i32 %.0229.ph502, %193
@@ -631,7 +631,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
 194:                                              ; preds = %165, %165
   store ptr null, ptr %12, align 8
   %195 = load i32, ptr @hf_collectd_data_time, align 4
-  %196 = call fastcc i32 @dissect_collectd_integer(ptr noundef %0, ptr noundef %1, i32 noundef %195, i32 noundef %.0.ph503, ptr noundef nonnull %46, ptr noundef nonnull %45, ptr noundef %20, ptr noundef nonnull %12), !range !7
+  %196 = call fastcc i32 @dissect_collectd_integer(ptr noundef %0, ptr noundef %1, i32 noundef %195, i32 noundef %.0.ph503, ptr noundef nonnull %46, ptr noundef nonnull %45, ptr noundef %20, ptr noundef nonnull %12)
   %.not280 = icmp ne i32 %196, 0
   %197 = zext i1 %.not280 to i32
   %spec.select295 = add i32 %.0229.ph502, %197
@@ -640,7 +640,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
 
 198:                                              ; preds = %165, %165
   %199 = load i32, ptr @hf_collectd_data_interval, align 4
-  %200 = call fastcc i32 @dissect_collectd_integer(ptr noundef %0, ptr noundef %1, i32 noundef %199, i32 noundef %.0.ph503, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef %20, ptr noundef null), !range !7
+  %200 = call fastcc i32 @dissect_collectd_integer(ptr noundef %0, ptr noundef %1, i32 noundef %199, i32 noundef %.0.ph503, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef %20, ptr noundef null)
   %.not279 = icmp ne i32 %200, 0
   %201 = zext i1 %.not279 to i32
   %spec.select297 = add i32 %.0229.ph502, %201
@@ -806,7 +806,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
 308:                                              ; preds = %300, %292, %284, %276, %268
   %309 = add nuw nsw i32 %.082.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %309, %.zext91.i
-  br i1 %exitcond.not.i.i, label %dissect_collectd_values.exit.i, label %263, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %dissect_collectd_values.exit.i, label %263, !llvm.loop !7
 
 dissect_collectd_values.exit.i:                   ; preds = %308
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -881,7 +881,7 @@ collectd_proto_tree_add_assembled_metric.exit.i:  ; preds = %346, %339
   %351 = load i64, ptr %45, align 8
   %352 = lshr i64 %351, 30
   %353 = and i64 %351, 1073741823
-  %354 = uitofp i64 %353 to double
+  %354 = uitofp nneg i64 %353 to double
   %355 = fdiv double %354, 0x3FF12E0BE826D695
   %356 = fptosi double %355 to i32
   store i64 %352, ptr %8, align 8
@@ -892,7 +892,7 @@ collectd_proto_tree_add_assembled_metric.exit.i:  ; preds = %346, %339
   %360 = load i64, ptr %47, align 8
   %361 = lshr i64 %360, 30
   %362 = and i64 %360, 1073741823
-  %363 = uitofp i64 %362 to double
+  %363 = uitofp nneg i64 %362 to double
   %364 = fdiv double %363, 0x3FF12E0BE826D695
   %365 = fptosi double %364 to i32
   store i64 %361, ptr %8, align 8
@@ -1041,7 +1041,7 @@ stats_account_string.exit340:                     ; preds = %396, %._crit_edge.i
 424:                                              ; preds = %165
   store ptr null, ptr %12, align 8
   %425 = load i32, ptr @hf_collectd_data_message, align 4
-  %426 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %425, i32 noundef %.0.ph503, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef %20, ptr noundef nonnull %12), !range !7
+  %426 = call fastcc i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %425, i32 noundef %.0.ph503, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef %20, ptr noundef nonnull %12)
   %.not277 = icmp eq i32 %426, 0
   br i1 %.not277, label %429, label %427
 
@@ -1087,7 +1087,7 @@ collectd_proto_tree_add_assembled_notification.exit: ; preds = %429, %438, %441
   %450 = load i64, ptr %29, align 8
   %451 = lshr i64 %450, 30
   %452 = and i64 %450, 1073741823
-  %453 = uitofp i64 %452 to double
+  %453 = uitofp nneg i64 %452 to double
   %454 = fdiv double %453, 0x3FF12E0BE826D695
   %455 = fptosi double %454 to i32
   store i64 %451, ptr %6, align 8
@@ -1111,7 +1111,7 @@ collectd_proto_tree_add_assembled_notification.exit: ; preds = %429, %438, %441
 468:                                              ; preds = %165
   store ptr null, ptr %12, align 8
   %469 = load i32, ptr @hf_collectd_data_severity, align 4
-  %470 = call fastcc i32 @dissect_collectd_integer(ptr noundef %0, ptr noundef %1, i32 noundef %469, i32 noundef %.0.ph503, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %20, ptr noundef nonnull %12), !range !7
+  %470 = call fastcc i32 @dissect_collectd_integer(ptr noundef %0, ptr noundef %1, i32 noundef %469, i32 noundef %.0.ph503, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %20, ptr noundef nonnull %12)
   %.not276 = icmp eq i32 %470, 0
   br i1 %.not276, label %473, label %471
 
@@ -1443,7 +1443,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_collectd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #5
   %12 = icmp slt i32 %11, 4
@@ -1496,7 +1496,7 @@ define internal fastcc noundef i32 @dissect_collectd_string(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_collectd_integer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_collectd_integer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.nstime_t, align 8
   %11 = alloca %struct.nstime_t, align 8
@@ -1569,7 +1569,7 @@ define internal fastcc noundef i32 @dissect_collectd_integer(ptr noundef %0, ptr
 49:                                               ; preds = %48, %48
   %50 = lshr i64 %storemerge, 30
   %51 = and i64 %storemerge, 1073741823
-  %52 = uitofp i64 %51 to double
+  %52 = uitofp nneg i64 %51 to double
   %53 = fdiv double %52, 0x3FF12E0BE826D695
   %54 = fptosi double %53 to i32
   store i64 %50, ptr %10, align 8
@@ -1588,7 +1588,7 @@ define internal fastcc noundef i32 @dissect_collectd_integer(ptr noundef %0, ptr
 62:                                               ; preds = %48, %48
   %63 = lshr i64 %storemerge, 30
   %64 = and i64 %storemerge, 1073741823
-  %65 = uitofp i64 %64 to double
+  %65 = uitofp nneg i64 %64 to double
   %66 = fdiv double %65, 0x3FF12E0BE826D695
   %67 = fptosi double %66 to i32
   store i64 %63, ptr %11, align 8
@@ -1635,7 +1635,7 @@ define internal fastcc noundef i32 @dissect_collectd_integer(ptr noundef %0, ptr
   %88 = load i64, ptr %5, align 8
   %89 = lshr i64 %88, 30
   %90 = and i64 %88, 1073741823
-  %91 = uitofp i64 %90 to double
+  %91 = uitofp nneg i64 %90 to double
   %92 = fdiv double %91, 0x3FF12E0BE826D695
   %93 = fptosi double %92 to i32
   store i64 %89, ptr %12, align 8
@@ -1701,7 +1701,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @collectd_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @collectd_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 
@@ -1735,19 +1735,19 @@ define internal noundef i32 @collectd_stats_tree_packet(ptr noundef %0, ptr noca
   %18 = add nuw nsw i32 %.03040, 1
   %19 = load i32, ptr %12, align 8
   %20 = icmp slt i32 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader39
   %21 = getelementptr inbounds i8, ptr %.03143, i64 16
   %.031 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.031, null
-  br i1 %.not, label %.preheader38, label %.preheader39, !llvm.loop !10
+  br i1 %.not, label %.preheader38, label %.preheader39, !llvm.loop !9
 
 .loopexit37:                                      ; preds = %.lr.ph45, %.preheader36
   %.1.in = getelementptr inbounds i8, ptr %.149, i64 16
   %.1 = load ptr, ptr %.1.in, align 8
   %.not34 = icmp eq ptr %.1, null
-  br i1 %.not34, label %._crit_edge50, label %.preheader36, !llvm.loop !11
+  br i1 %.not34, label %._crit_edge50, label %.preheader36, !llvm.loop !10
 
 .preheader36:                                     ; preds = %.preheader38, %.loopexit37
   %.149 = phi ptr [ %.1, %.loopexit37 ], [ %.147, %.preheader38 ]
@@ -1764,7 +1764,7 @@ define internal noundef i32 @collectd_stats_tree_packet(ptr noundef %0, ptr noca
   %28 = add nuw nsw i32 %.02944, 1
   %29 = load i32, ptr %22, align 8
   %30 = icmp slt i32 %28, %29
-  br i1 %30, label %.lr.ph45, label %.loopexit37, !llvm.loop !12
+  br i1 %30, label %.lr.ph45, label %.loopexit37, !llvm.loop !11
 
 ._crit_edge50:                                    ; preds = %.loopexit37, %.preheader38
   %31 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1787,13 +1787,13 @@ define internal noundef i32 @collectd_stats_tree_packet(ptr noundef %0, ptr noca
   %38 = add nuw nsw i32 %.051, 1
   %39 = load i32, ptr %32, align 8
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph52, label %._crit_edge53, !llvm.loop !13
+  br i1 %40, label %.lr.ph52, label %._crit_edge53, !llvm.loop !12
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %.preheader
   %41 = getelementptr inbounds i8, ptr %.256, i64 16
   %.2 = load ptr, ptr %41, align 8
   %.not35 = icmp eq ptr %.2, null
-  br i1 %.not35, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not35, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge53, %._crit_edge50, %5
   %.032 = phi i32 [ 0, %5 ], [ 1, %._crit_edge50 ], [ 1, %._crit_edge53 ]
@@ -1847,11 +1847,10 @@ attributes #6 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

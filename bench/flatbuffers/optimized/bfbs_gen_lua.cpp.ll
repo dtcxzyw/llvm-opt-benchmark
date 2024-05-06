@@ -11377,7 +11377,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -11748,7 +11748,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -12400,7 +12400,7 @@ invoke.cont113.i.i.i:                             ; preds = %invoke.cont111.i.i.
 invoke.cont115.i.i.i:                             ; preds = %invoke.cont113.i.i.i
   %43 = load ptr, ptr %object.addr.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp117.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp117.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp117.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i77.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %invoke.cont119.i.i.i unwind label %lpad20.i.i.i
 
@@ -12820,7 +12820,7 @@ invoke.cont208.i.i.i:                             ; preds = %invoke.cont203.i.i.
 invoke.cont210.i.i.i:                             ; preds = %invoke.cont208.i.i.i
   %82 = load ptr, ptr %object.addr.i.i.i, align 8
   %_M_manager.i.i145.i.i.i = getelementptr inbounds i8, ptr %agg.tmp212.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp212.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp212.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i147.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %invoke.cont214.i.i.i unwind label %lpad20.i.i.i
 
@@ -13089,7 +13089,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -13201,16 +13201,16 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %entry
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i, 2
   %call5.i.i.i.i35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #19
   store i32 0, ptr %call5.i.i.i.i35, align 4
-  %cmp.i.i.i.i.i25.i = icmp eq i32 %4, 1
-  br i1 %cmp.i.i.i.i.i25.i, label %invoke.cont8.i.preheader, label %if.end.i.i.i.i.i26.i
+  %cmp.i.i.i.i.i24.i = icmp eq i32 %4, 1
+  br i1 %cmp.i.i.i.i.i24.i, label %invoke.cont8.i.preheader, label %if.end.i.i.i.i.i25.i
 
-if.end.i.i.i.i.i26.i:                             ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
+if.end.i.i.i.i.i25.i:                             ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i35, i64 4
   %5 = add nsw i64 %mul.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %5, i1 false)
   br label %invoke.cont8.i.preheader
 
-invoke.cont8.i.preheader:                         ; preds = %if.end.i.i.i.i.i26.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
+invoke.cont8.i.preheader:                         ; preds = %if.end.i.i.i.i.i25.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   %6 = zext i32 %4 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i.i.i, i64 4
   br label %invoke.cont8.i
@@ -13409,7 +13409,7 @@ entry:
   %agg.tmp = alloca %"class.std::function.153", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %invoke.cont unwind label %lpad
 
@@ -13624,7 +13624,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #21
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i39 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %invoke.cont28 unwind label %lpad
 
@@ -14270,7 +14270,7 @@ define internal void @_ZNSt17_Function_handlerIFvPKN10reflection5FieldEEZZN11fla
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %__args.val = load ptr, ptr %__args, align 8
-  tail call fastcc void @_ZZZN11flatbuffers12_GLOBAL__N_116LuaBfbsGenerator15GenerateObjectsEPKNS_6VectorINS_6OffsetIN10reflection6ObjectEEEjEEPKS5_ENKUlSB_E_clESB_ENKUlPKNS4_5FieldEE_clESF_(ptr noundef nonnull align 8 dereferenceable(24) %__functor.val, ptr noundef %__args.val)
+  tail call fastcc void @_ZZZN11flatbuffers12_GLOBAL__N_116LuaBfbsGenerator15GenerateObjectsEPKNS_6VectorINS_6OffsetIN10reflection6ObjectEEEjEEPKS5_ENKUlSB_E_clESB_ENKUlPKNS4_5FieldEE_clESF_(ptr noundef nonnull readonly align 8 dereferenceable(24) %__functor.val, ptr noundef %__args.val)
   ret void
 }
 
@@ -14296,7 +14296,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -18769,7 +18769,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -19298,7 +19298,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -20531,7 +20531,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

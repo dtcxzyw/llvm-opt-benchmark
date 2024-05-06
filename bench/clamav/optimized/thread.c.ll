@@ -326,7 +326,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onas_map_context_info_to_event_data(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -509,7 +509,7 @@ onas_scan_safe.exit.i:                            ; preds = %29, %30
   %39 = load i64, ptr %38, align 1
   %40 = getelementptr inbounds i8, ptr %0, i64 57
   %41 = load i64, ptr %40, align 1
-  %42 = tail call i32 @onas_client_scan(ptr noundef %33, i64 noundef %35, i32 noundef %37, i64 noundef %39, ptr noundef nonnull %1, i32 noundef %.0.i.i, i64 noundef %41, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %42 = tail call i32 @onas_client_scan(ptr noundef %33, i64 noundef %35, i32 noundef %37, i64 noundef %39, ptr noundef nonnull %1, i32 noundef %.0.i.i, i64 noundef %41, ptr noundef nonnull readonly byval(%struct.stat) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
   %44 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %44, 0

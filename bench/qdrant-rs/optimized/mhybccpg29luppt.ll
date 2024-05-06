@@ -18,7 +18,7 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h373aae5d
   %12 = sub i64 %11, %9
   store i64 %12, ptr %10, align 8
   %13 = lshr i64 %1, 57
-  %14 = trunc i64 %13 to i8
+  %14 = trunc nuw nsw i64 %13 to i8
   %15 = add i64 %2, -16
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !3

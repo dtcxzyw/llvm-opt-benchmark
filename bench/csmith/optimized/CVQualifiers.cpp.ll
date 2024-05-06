@@ -1568,7 +1568,7 @@ define dso_local void @_ZNK12CVQualifiers17random_qualifiersEbN6Effect6AccessERK
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %34, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %31, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %31, i8 0, i64 20, i1 false)
   br label %_ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_.exit
 
 .loopexit72:                                      ; preds = %78
@@ -3223,7 +3223,7 @@ define dso_local void @_ZNK12CVQualifiers23random_loose_qualifiersEbN6Effect6Acc
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %34, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %31, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %31, i8 0, i64 20, i1 false)
   br label %_ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_.exit
 
 .loopexit72:                                      ; preds = %78
@@ -3741,7 +3741,7 @@ define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6Acce
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 88
   store ptr null, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false)
   %21 = icmp eq ptr %1, null
   br i1 %21, label %22, label %32
 
@@ -4477,7 +4477,7 @@ declare noundef zeroext i1 @_ZN9CGOptions20allow_const_volatileEv() local_unname
 define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4Type(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef i32 @_ZN13Probabilities8get_probE8ProbName(i32 noundef 9), !noalias !23
   %4 = tail call noundef i32 @_ZN13Probabilities8get_probE8ProbName(i32 noundef 8), !noalias !23
-  tail call void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextbjj(ptr dead_on_unwind writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(216) @_ZN9CGContext13empty_contextE, i1 noundef zeroext true, i32 noundef %3, i32 noundef %4)
+  tail call void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextbjj(ptr dead_on_unwind writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(216) @_ZN9CGContext13empty_contextE, i1 noundef zeroext true, i32 noundef %3, i32 noundef %4)
   ret void
 }
 

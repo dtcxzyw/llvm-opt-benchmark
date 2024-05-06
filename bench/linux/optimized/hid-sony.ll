@@ -410,7 +410,7 @@ define internal void @sony_remove(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sony_raw_event(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2, i32 noundef %3) #2 align 16 {
+define internal noundef range(i32 -22, 2) i32 @sony_raw_event(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2, i32 noundef %3) #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 6472
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 80
@@ -815,7 +815,7 @@ define internal noundef ptr @sony_report_fixup(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sony_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
+define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 6472
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 80
@@ -1271,7 +1271,7 @@ define internal noundef i32 @sony_mapping(ptr nocapture noundef readonly %0, ptr
   br i1 %262, label %265, label %263
 
 263:                                              ; preds = %260
-  %264 = tail call fastcc i32 @guitar_mapping(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !10
+  %264 = tail call fastcc i32 @guitar_mapping(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %265
 
 265:                                              ; preds = %.thread39, %.thread37, %.thread35, %.thread33, %.thread31, %.thread29, %.thread27, %.thread, %263, %260, %254, %236, %234, %227, %210, %202, %184, %171, %153, %151, %146, %131, %123, %104, %101, %88, %68, %66, %59, %57, %54, %49, %40, %18, %13
@@ -1391,7 +1391,7 @@ define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnon
   store i8 %65, ptr %67, align 1
   %68 = add nuw nsw i64 %63, 1
   %69 = icmp eq i64 %68, 6
-  br i1 %69, label %70, label %62, !llvm.loop !11
+  br i1 %69, label %70, label %62, !llvm.loop !10
 
 70:                                               ; preds = %62
   %71 = load ptr, ptr %52, align 8
@@ -1415,7 +1415,7 @@ define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnon
   %83 = getelementptr i8, ptr %80, i64 240
   %84 = tail call i32 @bcmp(ptr noundef dereferenceable(6) %77, ptr noundef dereferenceable(6) %83, i64 6)
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %78, !llvm.loop !12
+  br i1 %85, label %86, label %78, !llvm.loop !11
 
 86:                                               ; preds = %82
   %87 = load i64, ptr %8, align 8
@@ -1596,7 +1596,7 @@ define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnon
   br label %.thread36
 
 186:                                              ; preds = %177
-  %187 = tail call fastcc i32 @sony_register_sensors(ptr noundef %7), !range !13
+  %187 = tail call fastcc i32 @sony_register_sensors(ptr noundef %7), !range !12
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %193, label %189
 
@@ -1650,7 +1650,7 @@ define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnon
   br label %.thread36
 
 216:                                              ; preds = %210
-  %217 = tail call fastcc i32 @sony_register_sensors(ptr noundef %7), !range !13
+  %217 = tail call fastcc i32 @sony_register_sensors(ptr noundef %7), !range !12
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %223, label %219
 
@@ -1753,13 +1753,13 @@ define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnon
   store ptr %283, ptr %289, align 8
   %290 = load ptr, ptr %239, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 40
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %291, i64 1) #14, !srcloc !14
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %291, i64 1) #14, !srcloc !13
   %292 = load ptr, ptr %239, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 48
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %293, i64 272) #14, !srcloc !14
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %293, i64 272) #14, !srcloc !13
   %294 = load ptr, ptr %239, align 8
   %295 = getelementptr inbounds i8, ptr %294, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %295, i64 2) #14, !srcloc !14
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %295, i64 2) #14, !srcloc !13
   %296 = load ptr, ptr %239, align 8
   tail call void @input_set_abs_params(ptr noundef %296, i32 noundef 53, i32 noundef 0, i32 noundef 1667, i32 noundef 0, i32 noundef 0) #14
   %297 = load ptr, ptr %239, align 8
@@ -1778,7 +1778,7 @@ define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnon
 304:                                              ; preds = %285
   %305 = load ptr, ptr %239, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 40
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %306, i64 2) #14, !srcloc !14
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %306, i64 2) #14, !srcloc !13
   br label %307
 
 307:                                              ; preds = %304, %285
@@ -2001,7 +2001,7 @@ define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnon
   %429 = load i8, ptr %384, align 4
   %430 = zext i8 %429 to i64
   %431 = icmp ult i64 %428, %430
-  br i1 %431, label %.split.us, label %.thread48, !llvm.loop !15
+  br i1 %431, label %.split.us, label %.thread48, !llvm.loop !14
 
 .split:                                           ; preds = %387, %478
   %432 = phi i64 [ %479, %478 ], [ 0, %387 ]
@@ -2086,7 +2086,7 @@ define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnon
   %480 = load i8, ptr %384, align 4
   %481 = zext i8 %480 to i64
   %482 = icmp ult i64 %479, %481
-  br i1 %482, label %.split, label %.thread48, !llvm.loop !15
+  br i1 %482, label %.split, label %.thread48, !llvm.loop !14
 
 .thread48:                                        ; preds = %478, %427, %382
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
@@ -2376,7 +2376,7 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @guitar_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @guitar_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = load i32, ptr %1, align 4
   %or.cond = icmp eq i32 %5, -16777172
   br i1 %or.cond, label %6, label %22
@@ -2539,7 +2539,7 @@ define internal void @sixaxis_send_output_report(ptr nocapture noundef readonly 
 40:                                               ; preds = %27, %._crit_edge
   %41 = add nuw nsw i64 %28, 1
   %42 = icmp eq i64 %41, 4
-  br i1 %42, label %43, label %27, !llvm.loop !16
+  br i1 %42, label %43, label %27, !llvm.loop !15
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2564,7 +2564,7 @@ define internal void @sixaxis_send_output_report(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sony_register_sensors(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sony_register_sensors(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 6352
@@ -2688,7 +2688,7 @@ define internal fastcc i32 @sony_register_sensors(ptr noundef %0) unnamed_addr #
 85:                                               ; preds = %83, %78, %52
   %86 = load ptr, ptr %6, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %87, i64 6) #14, !srcloc !14
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %87, i64 6) #14, !srcloc !13
   %88 = load ptr, ptr %6, align 8
   %89 = tail call i32 @input_register_device(ptr noundef %88) #14
   %90 = tail call i32 @llvm.smin.i32(i32 %89, i32 0)
@@ -2864,7 +2864,7 @@ define internal fastcc void @sony_set_leds(ptr noundef %0) unnamed_addr #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sony_led_get_brightness(ptr noundef readonly %0) #2 align 16 {
+define internal range(i32 0, 256) i32 @sony_led_get_brightness(ptr noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
@@ -2892,7 +2892,7 @@ define internal i32 @sony_led_get_brightness(ptr noundef readonly %0) #2 align 1
 17:                                               ; preds = %20
   %18 = add nuw nsw i64 %21, 1
   %19 = icmp eq i64 %18, %15
-  br i1 %19, label %.loopexit, label %20, !llvm.loop !17
+  br i1 %19, label %.loopexit, label %20, !llvm.loop !16
 
 20:                                               ; preds = %17, %13
   %21 = phi i64 [ 0, %13 ], [ %18, %17 ]
@@ -2976,7 +2976,7 @@ define internal void @sony_led_set_brightness(ptr noundef readonly %0, i32 nound
 42:                                               ; preds = %38, %.split.us
   %43 = add nuw nsw i64 %25, 1
   %44 = icmp eq i64 %43, %24
-  br i1 %44, label %.loopexit, label %.split.us, !llvm.loop !18
+  br i1 %44, label %.loopexit, label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %15, %53
   %45 = phi i64 [ %54, %53 ], [ 0, %15 ]
@@ -3000,14 +3000,14 @@ define internal void @sony_led_set_brightness(ptr noundef readonly %0, i32 nound
 53:                                               ; preds = %.split
   %54 = add nuw nsw i64 %45, 1
   %55 = icmp eq i64 %54, %24
-  br i1 %55, label %.loopexit, label %.split, !llvm.loop !18
+  br i1 %55, label %.loopexit, label %.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %53, %42, %.split5.us, %11, %10
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sony_led_blink_set(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sony_led_blink_set(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3079,13 +3079,13 @@ define internal noundef i32 @sony_led_blink_set(ptr noundef readonly %0, ptr noc
   %39 = getelementptr [4 x ptr], ptr %34, i64 0, i64 %43
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %0
-  br i1 %41, label %45, label %.preheader, !llvm.loop !19
+  br i1 %41, label %45, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %33, %38
   %42 = phi i64 [ %43, %38 ], [ 0, %33 ]
   %43 = add nuw nsw i64 %42, 1
   %44 = icmp eq i64 %43, %35
-  br i1 %44, label %.loopexit, label %38, !llvm.loop !19
+  br i1 %44, label %.loopexit, label %38, !llvm.loop !18
 
 45:                                               ; preds = %38
   %46 = icmp ult i64 %43, %35
@@ -3146,7 +3146,7 @@ declare dso_local void @hid_hw_request(ptr noundef, ptr noundef, i32 noundef) lo
 declare dso_local i32 @devm_led_classdev_register_ext(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sony_battery_get_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sony_battery_get_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = tail call ptr @power_supply_get_drvdata(ptr noundef %0) #14
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #14
   %6 = getelementptr inbounds i8, ptr %4, i64 256
@@ -3239,13 +3239,12 @@ attributes #17 = { nounwind allocsize(2) }
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = !{!"branch_weights", i32 1, i32 2000}
 !9 = !{i64 2148441769, i64 2148441808, i64 2148441829, i64 2148441866, i64 2148441889, i64 2148441759}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !6, !7}
 !11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = !{i32 -2147483648, i32 1}
-!14 = !{i64 2148441122}
+!12 = !{i32 -2147483648, i32 1}
+!13 = !{i64 2148441122}
+!14 = distinct !{!14, !6, !7}
 !15 = distinct !{!15, !6, !7}
 !16 = distinct !{!16, !6, !7}
 !17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}

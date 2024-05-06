@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ssl3_do_change_cipher_spec = private unnamed_addr constant [27 x i8] c"ssl3_do_change_cipher_spec\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl3_do_change_cipher_spec(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl3_do_change_cipher_spec(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8

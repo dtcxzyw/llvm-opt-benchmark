@@ -690,7 +690,7 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
   %99 = phi i64 [ %106, %.preheader ], [ 0, %85 ]
   %100 = sub nsw i64 %11, %99
   %101 = tail call i64 @llvm.smin.i64(i64 %100, i64 192)
-  %102 = mul nsw i64 %99, %11
+  %102 = mul nuw nsw i64 %99, %11
   %103 = getelementptr inbounds double, ptr %38, i64 %102
   %104 = getelementptr double, ptr %93, i64 %99
   %105 = tail call i32 @dtrsm_kernel_LT(i64 noundef %101, i64 noundef %88, i64 noundef %11, double noundef -1.000000e+00, ptr noundef %103, ptr noundef %97, ptr noundef %104, i64 noundef %13, i64 noundef %99) #6
@@ -1013,7 +1013,7 @@ define internal fastcc void @inner_basic_thread(ptr nocapture noundef readonly %
   %74 = phi i64 [ %82, %.preheader ], [ 0, %.preheader7 ]
   %75 = sub nsw i64 %10, %74
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 192)
-  %77 = mul nsw i64 %74, %10
+  %77 = mul nuw nsw i64 %74, %10
   %78 = getelementptr inbounds double, ptr %48, i64 %77
   %79 = add nsw i64 %74, %65
   %80 = getelementptr inbounds double, ptr %34, i64 %79

@@ -244,7 +244,7 @@ declare void @_ZN7Imf_3_213B44CompressorC1ERKNS_6HeaderEmmb(ptr noundef nonnull 
 declare void @_ZN7Imf_3_213DwaCompressorC1ERKNS_6HeaderEiiNS0_13AcCompressionE(ptr noundef nonnull align 8 dereferenceable(296), ptr noundef nonnull align 1, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7Imf_3_216numLinesInBufferENS_11CompressionE(i32 noundef %comp) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 257) i32 @_ZN7Imf_3_216numLinesInBufferENS_11CompressionE(i32 noundef %comp) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ult i32 %comp, 10
   br i1 %0, label %switch.lookup, label %sw.default

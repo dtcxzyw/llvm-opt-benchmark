@@ -198,7 +198,7 @@ define internal i32 @cmp_1(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -255, 256) i32 @cmp_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = load i8, ptr %1, align 1

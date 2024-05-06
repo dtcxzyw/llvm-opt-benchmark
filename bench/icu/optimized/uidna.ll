@@ -194,7 +194,7 @@ _ZL9isLDHCharDs.exit:                             ; preds = %if.else, %if.end.i
   %retval.0.i = phi i8 [ 0, %if.else ], [ %spec.select.i, %if.end.i ]
   %cmp60 = icmp eq i8 %retval.0.i, 0
   %spec.select105 = select i1 %cmp60, i8 0, i8 %srcIsLDH.0130
-  %8 = trunc i64 %indvars.iv136 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv136 to i32
   %spec.select106 = select i1 %cmp60, i32 %8, i32 %failPos.0132
   br label %for.inc64
 
@@ -474,7 +474,7 @@ for.body14:                                       ; preds = %for.body14.preheade
   br i1 %cmp18, label %if.then28, label %for.cond12
 
 if.end25:                                         ; preds = %for.body
-  %4 = trunc i64 %indvars.iv.next143 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next143 to i32
   %cmp27 = icmp eq i8 %spec.select, 0
   br i1 %cmp27, label %if.then28, label %if.end42
 
@@ -815,17 +815,17 @@ for.cond.i:                                       ; preds = %for.cond, %for.inc.
   ]
 
 if.then2.i:                                       ; preds = %for.cond.i
-  %3 = trunc i64 %indvars.iv43.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv43.i to i32
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 if.then5.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
   %arrayidx.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
-  %4 = trunc i64 %indvars.iv43.i to i32
-  %add.ptr7.i = getelementptr i8, ptr %arrayidx.i.le, i64 2
+  %4 = trunc nuw nsw i64 %indvars.iv43.i to i32
+  %add.ptr7.i = getelementptr inbounds i8, ptr %arrayidx.i.le, i64 2
   br label %if.then20
 
 for.inc.i:                                        ; preds = %for.cond.i
-  %indvars.iv.next44.i = add nuw i64 %indvars.iv43.i, 1
+  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   br label %for.cond.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.inc21.i, %for.body.preheader.i
@@ -841,8 +841,8 @@ for.body.i:                                       ; preds = %for.inc21.i, %for.b
 
 if.then16.i:                                      ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
   %arrayidx13.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv.i
-  %6 = trunc i64 %indvars.iv.i to i32
-  %add.ptr19.i = getelementptr i8, ptr %arrayidx13.i.le, i64 2
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %add.ptr19.i = getelementptr inbounds i8, ptr %arrayidx13.i.le, i64 2
   br label %if.then20
 
 for.inc21.i:                                      ; preds = %for.body.i
@@ -1020,17 +1020,17 @@ for.cond.i:                                       ; preds = %for.cond, %for.inc.
 
 if.then2.i:                                       ; preds = %for.cond.i
   %arrayidx.i.le64 = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
-  %3 = trunc i64 %indvars.iv43.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv43.i to i32
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 if.then5.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
   %arrayidx.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
-  %4 = trunc i64 %indvars.iv43.i to i32
-  %add.ptr7.i = getelementptr i8, ptr %arrayidx.i.le, i64 2
+  %4 = trunc nuw nsw i64 %indvars.iv43.i to i32
+  %add.ptr7.i = getelementptr inbounds i8, ptr %arrayidx.i.le, i64 2
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 for.inc.i:                                        ; preds = %for.cond.i
-  %indvars.iv.next44.i = add nuw i64 %indvars.iv43.i, 1
+  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   br label %for.cond.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.inc21.i, %for.body.preheader.i
@@ -1046,8 +1046,8 @@ for.body.i:                                       ; preds = %for.inc21.i, %for.b
 
 if.then16.i:                                      ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
   %arrayidx13.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv.i
-  %6 = trunc i64 %indvars.iv.i to i32
-  %add.ptr19.i = getelementptr i8, ptr %arrayidx13.i.le, i64 2
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %add.ptr19.i = getelementptr inbounds i8, ptr %arrayidx13.i.le, i64 2
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 for.inc21.i:                                      ; preds = %for.body.i

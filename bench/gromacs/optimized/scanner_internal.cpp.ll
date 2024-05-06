@@ -88,7 +88,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @switch.table._Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t = private unnamed_addr constant [5 x i32] [i32 266, i32 266, i32 266, i32 268, i32 267], align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYPEPN3gmx17SelectionLocationEP15gmx_sel_lexer_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 280) i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYPEPN3gmx17SelectionLocationEP15gmx_sel_lexer_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -176,7 +176,7 @@ define noundef i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYPEPN3gmx17Selection
 
 48:                                               ; preds = %45
   store ptr null, ptr %46, align 8
-  %49 = tail call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %47, i1 noundef zeroext true, ptr noundef nonnull %2), !range !5
+  %49 = tail call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %47, i1 noundef zeroext true, ptr noundef nonnull %2)
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
 _ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit: ; preds = %37, %24, %45, %48, %10
@@ -243,7 +243,7 @@ define void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_se
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.gmx::InternalError", align 8
   %7 = alloca %"class.gmx::ExceptionInitializer", align 8
   %8 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -740,7 +740,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
@@ -911,7 +911,7 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.gmx::InternalError", align 8
@@ -989,12 +989,12 @@ define noundef i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17Select
 ._crit_edge.us:                                   ; preds = %55, %.preheader.us
   %spec.select.us = add nsw i32 %.0129196.us, -1
   %54 = icmp sgt i32 %.0129196.us, 0
-  br i1 %54, label %.preheader.us, label %.split.us, !llvm.loop !8
+  br i1 %54, label %.preheader.us, label %.split.us, !llvm.loop !7
 
 55:                                               ; preds = %52, %49, %46, %42, %37, %33
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
-  br i1 %exitcond214.not, label %._crit_edge.us, label %33, !llvm.loop !9
+  br i1 %exitcond214.not, label %._crit_edge.us, label %33, !llvm.loop !8
 
 .lr.ph.us:                                        ; preds = %.preheader.us
   %56 = getelementptr inbounds i8, ptr %29, i64 24
@@ -1038,12 +1038,12 @@ define noundef i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17Select
 75:                                               ; preds = %73, %70, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge187.split.us, label %66, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge187.split.us, label %66, !llvm.loop !8
 
 ._crit_edge187.split.us:                          ; preds = %75, %.preheader
   %spec.select = add nsw i32 %.0129196, -1
   %76 = icmp sgt i32 %.0129196, 0
-  br i1 %76, label %.preheader, label %.split.us, !llvm.loop !8
+  br i1 %76, label %.preheader, label %.split.us, !llvm.loop !7
 
 ._crit_edge.us.thread:                            ; preds = %73, %52, %40
   %.us-phi206231 = phi ptr [ %34, %40 ], [ %34, %52 ], [ %67, %73 ]
@@ -1170,7 +1170,7 @@ define noundef i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17Select
   %131 = getelementptr inbounds i8, ptr %4, i64 136
   %132 = load i32, ptr %131, align 8
   %133 = icmp sgt i32 %132, 0
-  %134 = call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %117, i1 noundef zeroext %133, ptr noundef nonnull %4), !range !5
+  %134 = call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %117, i1 noundef zeroext %133, ptr noundef nonnull %4)
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
 135:                                              ; preds = %127
@@ -1923,10 +1923,10 @@ define noundef nonnull align 4 dereferenceable(8) ptr @_Z35_gmx_sel_lexer_get_cu
 define void @_Z31_gmx_sel_lexer_get_current_textB5cxx11Pv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 80
-  %5 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %1), !noalias !10
-  %6 = load i32, ptr %4, align 4, !noalias !10
+  %5 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %1), !noalias !9
+  %6 = load i32, ptr %4, align 4, !noalias !9
   %7 = getelementptr inbounds i8, ptr %3, i64 84
-  %8 = load i32, ptr %7, align 4, !noalias !10
+  %8 = load i32, ptr %7, align 4, !noalias !9
   %.not.i = icmp slt i32 %6, %8
   br i1 %.not.i, label %10, label %9
 
@@ -2085,11 +2085,10 @@ attributes #18 = { noreturn nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 269, i32 278}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE: argument 0"}
-!12 = distinct !{!12, !"_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE: argument 0"}
+!11 = distinct !{!11, !"_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE"}

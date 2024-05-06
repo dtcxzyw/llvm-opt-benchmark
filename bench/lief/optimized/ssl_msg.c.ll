@@ -263,7 +263,7 @@ define hidden void @mbedtls_ssl_set_timer(ptr noundef %0, i32 noundef %1) local_
 declare void @mbedtls_debug_print_msg(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_ssl_check_timer(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ssl_check_timer(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -297,7 +297,7 @@ define hidden i32 @mbedtls_ssl_check_record(ptr noundef %0, ptr noundef %1, i64 
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %3
-  %10 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4), !range !4
+  %10 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %12, label %11
 
@@ -334,7 +334,7 @@ define hidden i32 @mbedtls_ssl_check_record(ptr noundef %0, ptr noundef %1, i64 
 declare void @mbedtls_debug_print_buf(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_parse_record_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -29184, 1) i32 @ssl_parse_record_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %6, align 1
@@ -415,7 +415,7 @@ define internal fastcc noundef i32 @ssl_parse_record_header(ptr noundef %0, ptr 
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 8
-  %54 = getelementptr i8, ptr %50, i64 1
+  %54 = getelementptr inbounds i8, ptr %50, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
   %57 = or disjoint i64 %53, %56
@@ -481,7 +481,7 @@ define internal fastcc noundef i32 @ssl_parse_record_header(ptr noundef %0, ptr 
   br label %99
 
 96:                                               ; preds = %85
-  %97 = tail call fastcc i32 @mbedtls_ssl_dtls_record_replay_check(ptr noundef nonnull %0, ptr noundef nonnull %3), !range !5
+  %97 = tail call fastcc i32 @mbedtls_ssl_dtls_record_replay_check(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not78 = icmp eq i32 %97, 0
   br i1 %.not78, label %99, label %98
 
@@ -588,7 +588,7 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   %54 = select i1 %52, i64 0, i64 %53
   %55 = getelementptr i8, ptr %6, i64 %51
   call void @llvm.memset.p0.i64(ptr align 1 %55, i8 0, i64 %54, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %50, i64 %51, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %50, i64 %51, i1 false)
   %56 = getelementptr inbounds i8, ptr %6, i64 4
   br label %57
 
@@ -602,7 +602,7 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   store i8 %62, ptr %60, align 1
   %63 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i = icmp eq i64 %63, 8
-  br i1 %exitcond.not.i, label %ssl_build_record_nonce.exit, label %57, !llvm.loop !6
+  br i1 %exitcond.not.i, label %ssl_build_record_nonce.exit, label %57, !llvm.loop !4
 
 ssl_build_record_nonce.exit:                      ; preds = %57
   %64 = load i64, ptr %2, align 8
@@ -857,7 +857,7 @@ ssl_build_record_nonce.exit:                      ; preds = %57
   %196 = add nuw i64 %.0221295, 1
   %197 = load i64, ptr %23, align 8
   %198 = icmp ult i64 %196, %197
-  br i1 %198, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %198, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 199:                                              ; preds = %97
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1633, ptr noundef nonnull @.str.25) #17
@@ -1120,7 +1120,7 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   %98 = select i1 %96, i64 0, i64 %97
   %99 = getelementptr i8, ptr %8, i64 %.val258
   call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %98, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %95, i64 %.val258, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %95, i64 %.val258, i1 false)
   %100 = getelementptr inbounds i8, ptr %8, i64 4
   br label %101
 
@@ -1134,7 +1134,7 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   store i8 %106, ptr %104, align 1
   %107 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i = icmp eq i64 %107, 8
-  br i1 %exitcond.not.i, label %ssl_build_record_nonce.exit, label %101, !llvm.loop !6
+  br i1 %exitcond.not.i, label %ssl_build_record_nonce.exit, label %101, !llvm.loop !4
 
 ssl_build_record_nonce.exit:                      ; preds = %101
   %108 = load i64, ptr %2, align 8
@@ -1241,7 +1241,7 @@ ssl_build_record_nonce.exit:                      ; preds = %101
   store i8 %160, ptr %165, align 1
   %166 = add nuw i64 %.0284, 1
   %exitcond = icmp eq i64 %166, %umax
-  br i1 %exitcond, label %167, label %162, !llvm.loop !9
+  br i1 %exitcond, label %167, label %162, !llvm.loop !7
 
 167:                                              ; preds = %162
   %168 = load i64, ptr %27, align 8
@@ -1597,7 +1597,7 @@ define hidden i32 @mbedtls_ssl_fetch_input(ptr noundef %0, i64 noundef %1) local
   br i1 %.not147, label %90, label %84
 
 84:                                               ; preds = %82
-  %85 = tail call fastcc i32 @ssl_double_retransmit_timeout(ptr noundef nonnull %0), !range !5
+  %85 = tail call fastcc i32 @ssl_double_retransmit_timeout(ptr noundef nonnull %0)
   %.not133 = icmp eq i32 %85, 0
   br i1 %.not133, label %87, label %86
 
@@ -1728,7 +1728,7 @@ mbedtls_ssl_check_timer.exit137:                  ; preds = %120
   %153 = add i64 %152, %148
   store i64 %153, ptr %107, align 8
   %154 = icmp ult i64 %153, %1
-  br i1 %154, label %115, label %.loopexit, !llvm.loop !10
+  br i1 %154, label %115, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %151, %106, %104
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2003, ptr noundef nonnull @.str.50) #17
@@ -1743,7 +1743,7 @@ mbedtls_ssl_check_timer.exit137:                  ; preds = %120
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_double_retransmit_timeout(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ssl_double_retransmit_timeout(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1028
@@ -1820,7 +1820,7 @@ define hidden i32 @mbedtls_ssl_resend(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @mbedtls_ssl_resend_hello_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_ssl_flush_output(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 1) i32 @mbedtls_ssl_flush_output(ptr noundef %0) local_unnamed_addr #0 {
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2016, ptr noundef nonnull @.str.59) #17
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -1883,7 +1883,7 @@ define hidden noundef i32 @mbedtls_ssl_flush_output(ptr noundef %0) local_unname
   %36 = sub i64 %32, %31
   store i64 %36, ptr %7, align 8
   %.not = icmp eq i64 %36, 0
-  br i1 %.not, label %37, label %15, !llvm.loop !11
+  br i1 %.not, label %37, label %15, !llvm.loop !9
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %0, align 8
@@ -1996,7 +1996,7 @@ define hidden void @mbedtls_ssl_flight_free(ptr noundef %0) local_unnamed_addr #
   tail call void @free(ptr noundef %4) #17
   tail call void @free(ptr noundef nonnull %.07) #17
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -2229,7 +2229,7 @@ ssl_swap_epochs.exit143:                          ; preds = %113, %111, %93, %.t
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %126
-  %129 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0), !range !13
+  %129 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0)
   %.not135 = icmp eq i32 %129, 0
   br i1 %.not135, label %.backedge, label %.loopexit
 
@@ -2238,7 +2238,7 @@ ssl_swap_epochs.exit143:                          ; preds = %113, %111, %93, %.t
   %131 = getelementptr inbounds i8, ptr %130, i64 1040
   %132 = load ptr, ptr %131, align 8
   %.not127 = icmp eq ptr %132, null
-  br i1 %.not127, label %._crit_edge, label %70, !llvm.loop !14
+  br i1 %.not127, label %._crit_edge, label %70, !llvm.loop !11
 
 133:                                              ; preds = %126
   %134 = load ptr, ptr %67, align 8
@@ -2339,7 +2339,7 @@ ssl_swap_epochs.exit143:                          ; preds = %113, %111, %93, %.t
   br label %ssl_swap_epochs.exit150
 
 ssl_swap_epochs.exit150:                          ; preds = %185, %183, %165, %159
-  %190 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0), !range !13
+  %190 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0)
   %.not131 = icmp eq i32 %190, 0
   br i1 %.not131, label %.backedge, label %.loopexit
 
@@ -2454,7 +2454,7 @@ ssl_swap_epochs.exit150:                          ; preds = %185, %183, %165, %1
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %.backedge, %56
-  %255 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0), !range !13
+  %255 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0)
   %.not128 = icmp eq i32 %255, 0
   br i1 %.not128, label %256, label %.loopexit
 
@@ -2837,7 +2837,7 @@ mbedtls_ssl_update_out_pointers.exit:             ; preds = %mbedtls_ssl_update_
   %153 = add i8 %152, 1
   store i8 %153, ptr %151, align 1
   %.not98 = icmp eq i8 %153, 0
-  br i1 %.not98, label %mbedtls_ssl_update_out_pointers.exit, label %._crit_edge110, !llvm.loop !15
+  br i1 %.not98, label %mbedtls_ssl_update_out_pointers.exit, label %._crit_edge110, !llvm.loop !12
 
 ._crit_edge110:                                   ; preds = %148
   %.val102.val.pre = load i8, ptr %131, align 1
@@ -2881,7 +2881,7 @@ split:                                            ; preds = %mbedtls_ssl_update_
   br i1 %166, label %.thread, label %169
 
 .thread:                                          ; preds = %163, %165
-  %167 = call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0), !range !13
+  %167 = call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0)
   %.not99 = icmp eq i32 %167, 0
   br i1 %.not99, label %169, label %168
 
@@ -2915,7 +2915,7 @@ define hidden void @mbedtls_ssl_recv_flight_completed(ptr noundef %0) local_unna
   tail call void @free(ptr noundef %8) #17
   tail call void @free(ptr noundef nonnull %.07.i) #17
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %mbedtls_ssl_flight_free.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %mbedtls_ssl_flight_free.exit.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 mbedtls_ssl_flight_free.exit.loopexit:            ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8
@@ -2988,7 +2988,7 @@ ssl_free_buffered_record.exit.i:                  ; preds = %ssl_free_buffered_r
 ssl_buffering_free_slot.exit.i:                   ; preds = %34, %ssl_free_buffered_record.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %mbedtls_ssl_buffering_free.exit, label %ssl_free_buffered_record.exit.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %mbedtls_ssl_buffering_free.exit, label %ssl_free_buffered_record.exit.i, !llvm.loop !13
 
 mbedtls_ssl_buffering_free.exit:                  ; preds = %ssl_buffering_free_slot.exit.i, %mbedtls_ssl_flight_free.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 160
@@ -3081,7 +3081,7 @@ ssl_free_buffered_record.exit:                    ; preds = %ssl_free_buffered_r
 ssl_buffering_free_slot.exit:                     ; preds = %ssl_free_buffered_record.exit, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %ssl_free_buffered_record.exit, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %ssl_free_buffered_record.exit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %ssl_buffering_free_slot.exit, %1
   ret void
@@ -3387,7 +3387,7 @@ define hidden i32 @mbedtls_ssl_write_handshake_msg_ext(ptr noundef %0, i32 nound
   %136 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %137 = load ptr, ptr %136, align 8
   %.not.i = icmp eq ptr %137, null
-  br i1 %.not.i, label %ssl_flight_append.exit.loopexit, label %.preheader.i, !llvm.loop !17
+  br i1 %.not.i, label %ssl_flight_append.exit.loopexit, label %.preheader.i, !llvm.loop !14
 
 ssl_flight_append.exit.loopexit:                  ; preds = %.preheader.i
   %138 = getelementptr inbounds i8, ptr %.0.i, i64 24
@@ -3733,7 +3733,7 @@ define hidden void @mbedtls_ssl_dtls_replay_reset(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_ssl_dtls_replay_check(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ssl_dtls_replay_check(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2
@@ -4035,7 +4035,7 @@ ssl_consume_current_message.exit:                 ; preds = %35
 78:                                               ; preds = %72, %68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %79, label %68, !llvm.loop !18
+  br i1 %exitcond.not.i, label %79, label %68, !llvm.loop !15
 
 79:                                               ; preds = %78
   %80 = load i8, ptr %60, align 8
@@ -4199,7 +4199,7 @@ ssl_load_buffered_record.exit.i:                  ; preds = %126
 150:                                              ; preds = %146
   %151 = load ptr, ptr %17, align 8
   %152 = load i64, ptr %11, align 8
-  %153 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %151, i64 noundef %152, ptr noundef nonnull %3), !range !4
+  %153 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %151, i64 noundef %152, ptr noundef nonnull %3)
   %.not85.i = icmp eq i32 %153, 0
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 9
@@ -4472,7 +4472,7 @@ ssl_check_client_reconnect.exit.i:                ; preds = %220
   %285 = add i8 %284, 1
   store i8 %285, ptr %283, align 1
   %.not51.i.i = icmp eq i8 %285, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !19
+  br i1 %.not51.i.i, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !16
 
 ._crit_edge.i.i:                                  ; preds = %279
   %.val.pre.i.i = load ptr, ptr %0, align 8
@@ -4839,7 +4839,7 @@ ssl_get_reassembly_buffer_size.exit.i:            ; preds = %452, %451
 
 463:                                              ; preds = %461
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4176, ptr noundef nonnull @.str.174, i64 noundef %414, i64 noundef 32768, i64 noundef %448) #17
-  %464 = call fastcc i32 @ssl_buffer_make_space(ptr noundef nonnull %0, i64 noundef %.0.i104.i), !range !5
+  %464 = call fastcc i32 @ssl_buffer_make_space(ptr noundef nonnull %0, i64 noundef %.0.i104.i)
   %.not97.i = icmp eq i32 %464, 0
   br i1 %.not97.i, label %467, label %465
 
@@ -4933,9 +4933,9 @@ ssl_get_reassembly_buffer_size.exit.i:            ; preds = %452, %451
   br i1 %.not100.i, label %531, label %523
 
 523:                                              ; preds = %490
-  %524 = getelementptr inbounds i8, ptr %487, i64 %413
+  %524 = getelementptr i8, ptr %487, i64 %413
   call fastcc void @ssl_bitmask_set(ptr noundef %524, i64 noundef %504, i64 noundef %517)
-  %525 = call fastcc i32 @ssl_bitmask_check(ptr noundef %524, i64 noundef %414), !range !5
+  %525 = call fastcc i32 @ssl_bitmask_check(ptr noundef %524, i64 noundef %414)
   %526 = icmp eq i32 %525, 0
   %527 = load i8, ptr %429, align 8
   %528 = select i1 %526, i8 4, i8 0
@@ -5251,7 +5251,7 @@ define hidden i32 @mbedtls_ssl_send_alert_message(ptr noundef %0, i8 noundef zer
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0), !range !13
+  %12 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0)
   br label %25
 
 13:                                               ; preds = %8
@@ -5356,7 +5356,7 @@ define hidden noundef i32 @mbedtls_ssl_parse_change_cipher_spec(ptr noundef %0) 
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds i8, ptr %0, i64 272
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 256
   %23 = load i16, ptr %22, align 8
   %24 = add i16 %23, 1
@@ -5522,7 +5522,7 @@ define hidden i64 @mbedtls_ssl_get_bytes_avail(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_ssl_check_pending(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_ssl_check_pending(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 300
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
@@ -5669,7 +5669,7 @@ define hidden i32 @mbedtls_ssl_read(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %12, label %13, label %24
 
 13:                                               ; preds = %8
-  %14 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0), !range !13
+  %14 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %.loopexit
 
@@ -6021,7 +6021,7 @@ mbedtls_ssl_set_timer.exit115:                    ; preds = %163, %160, %158
 .backedge:                                        ; preds = %mbedtls_ssl_set_timer.exit115, %170, %173, %140, %137, %137, %107, %117
   %176 = load ptr, ptr %54, align 8
   %177 = icmp eq ptr %176, null
-  br i1 %177, label %67, label %._crit_edge, !llvm.loop !20
+  br i1 %177, label %67, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.backedge, %53
   %.lcssa126 = phi ptr [ %55, %53 ], [ %176, %.backedge ]
@@ -6168,7 +6168,7 @@ ssl_check_ctr_renegotiate.exit.thread.thread:     ; preds = %16, %12, %20, %ssl_
   br i1 %.not.i21, label %56, label %53
 
 53:                                               ; preds = %50
-  %54 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0), !range !13
+  %54 = tail call i32 @mbedtls_ssl_flush_output(ptr noundef nonnull %0)
   %.not36.i = icmp eq i32 %54, 0
   br i1 %.not36.i, label %63, label %55
 
@@ -6183,7 +6183,7 @@ ssl_check_ctr_renegotiate.exit.thread.thread:     ; preds = %16, %12, %20, %ssl_
   store i32 23, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 360
   %60 = load ptr, ptr %59, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %1, i64 %.029.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr readonly align 1 %1, i64 %.029.i, i1 false)
   %61 = tail call i32 @mbedtls_ssl_write_record(ptr noundef nonnull %0, i32 noundef 1)
   %.not35.i = icmp eq i32 %61, 0
   br i1 %.not35.i, label %63, label %62
@@ -6353,7 +6353,7 @@ declare i64 @mbedtls_ssl_get_current_mtu(ptr noundef) local_unnamed_addr #1
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @mbedtls_ssl_dtls_record_replay_check(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @mbedtls_ssl_dtls_record_replay_check(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   store ptr %1, ptr %3, align 8
@@ -6418,7 +6418,7 @@ mbedtls_ssl_dtls_replay_check.exit:               ; preds = %2, %37, %41, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_buffer_make_space(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ssl_buffer_make_space(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i64 %1 to i32
@@ -6458,7 +6458,7 @@ ssl_free_buffered_record.exit:                    ; preds = %2, %7, %10
 20:                                               ; preds = %ssl_buffering_free_slot.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not25 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %ssl_free_buffered_record.exit, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 3, %ssl_free_buffered_record.exit ]
@@ -6540,7 +6540,7 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
   %17 = or i8 %12, %16
   %18 = add nsw i64 %.03349, -1
   %.not45 = icmp eq i64 %18, 0
-  br i1 %.not45, label %..loopexit47_crit_edge, label %11, !llvm.loop !22
+  br i1 %.not45, label %..loopexit47_crit_edge, label %11, !llvm.loop !19
 
 19:                                               ; preds = %7
   %20 = add nuw nsw i64 %9, %1
@@ -6556,7 +6556,7 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
   %26 = trunc i32 %25 to i8
   %27 = or i8 %23, %26
   %.not42 = icmp eq i32 %24, 0
-  br i1 %.not42, label %.loopexit46, label %22, !llvm.loop !23
+  br i1 %.not42, label %.loopexit46, label %22, !llvm.loop !20
 
 .loopexit46:                                      ; preds = %22
   %28 = sub nsw i64 %2, %9
@@ -6587,7 +6587,7 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
   %41 = or i8 %37, %40
   %42 = add nsw i32 %.03455, -1
   %.not44 = icmp eq i32 %42, 0
-  br i1 %.not44, label %.loopexit, label %36, !llvm.loop !24
+  br i1 %.not44, label %.loopexit, label %36, !llvm.loop !21
 
 .loopexit:                                        ; preds = %36
   store i8 %41, ptr %35, align 1
@@ -6609,7 +6609,7 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef i32 @ssl_bitmask_check(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #13 {
+define internal fastcc range(i32 -1, 1) i32 @ssl_bitmask_check(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #13 {
   %3 = lshr i64 %1, 3
   %.not21 = icmp ult i64 %1, 8
   br i1 %.not21, label %.preheader, label %.lr.ph
@@ -6617,7 +6617,7 @@ define internal fastcc noundef i32 @ssl_bitmask_check(ptr nocapture noundef read
 4:                                                ; preds = %.lr.ph
   %5 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %5, %3
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !22
 
 .preheader:                                       ; preds = %4, %2
   %6 = and i64 %1, 7
@@ -6640,7 +6640,7 @@ define internal fastcc noundef i32 @ssl_bitmask_check(ptr nocapture noundef read
 12:                                               ; preds = %14
   %13 = add nuw nsw i64 %.116, 1
   %exitcond24.not = icmp eq i64 %13, %6
-  br i1 %exitcond24.not, label %.loopexit, label %14, !llvm.loop !26
+  br i1 %exitcond24.not, label %.loopexit, label %14, !llvm.loop !23
 
 14:                                               ; preds = %.lr.ph17, %12
   %.116 = phi i64 [ 0, %.lr.ph17 ], [ %13, %12 ]
@@ -6751,8 +6751,8 @@ define internal fastcc i32 @ssl_handle_possible_reconnect(ptr noundef %0) unname
 64:                                               ; preds = %55
   %65 = getelementptr inbounds i8, ptr %18, i64 60
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 3238, ptr noundef nonnull @.str.214, ptr noundef nonnull %65, i64 noundef %58) #17
-  %66 = getelementptr i8, ptr %18, i64 %58
-  %67 = getelementptr i8, ptr %66, i64 60
+  %66 = getelementptr inbounds i8, ptr %18, i64 %58
+  %67 = getelementptr inbounds i8, ptr %66, i64 60
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
   %70 = add nuw nsw i64 %59, %69
@@ -6929,26 +6929,23 @@ attributes #19 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -29184, i32 1}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i32 -2147483648, i32 1}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

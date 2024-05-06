@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__STREAM_SYNC_STRING = external constant [4 x i8], align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__ogg_encoder_aspect_init(ptr noundef %aspect) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_init(ptr noundef %aspect) local_unnamed_addr #0 {
 entry:
   %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
   %0 = load i64, ptr %aspect, align 8
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @FLAC__ogg_encoder_aspect_set_num_metadata(ptr nocapture noundef writeonly %aspect, i32 noundef %value) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_set_num_metadata(ptr nocapture noundef writeonly %aspect, i32 noundef %value) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr @FLAC__OGG_MAPPING_NUM_HEADERS_LEN, align 4
   %value.highbits = lshr i32 %value, %0
@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__ogg_encoder_aspect_write_callback_wrapper(ptr noundef %aspect, ptr noundef %buffer, i64 noundef %bytes, i32 noundef %samples, i32 noundef %current_frame, i32 noundef %is_last_block, ptr nocapture noundef readonly %write_callback, ptr noundef %encoder, ptr noundef %client_data) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapper(ptr noundef %aspect, ptr noundef %buffer, i64 noundef %bytes, i32 noundef %samples, i32 noundef %current_frame, i32 noundef %is_last_block, ptr nocapture noundef readonly %write_callback, ptr noundef %encoder, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %packet = alloca %struct.ogg_packet, align 8
   %synthetic_first_packet_body = alloca [51 x i8], align 16
@@ -221,7 +221,7 @@ land.lhs.true87:                                  ; preds = %if.else77
 
 if.then91:                                        ; preds = %land.lhs.true87
   store i32 1, ptr %seen_magic, align 8
-  %.pre = zext i32 %samples to i64
+  %.pre = zext nneg i32 %samples to i64
   br label %if.end95
 
 if.end95:                                         ; preds = %while.cond50, %while.cond, %if.then91

@@ -144,7 +144,7 @@ define dso_local void @ieee80211_assign_tid_tx(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__ieee80211_stop_tx_ba_session(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -114, 1) i32 @__ieee80211_stop_tx_ba_session(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.ieee80211_ampdu_params, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -822,7 +822,7 @@ define dso_local void @ieee80211_refresh_tx_agg_session_timer(ptr noundef %0, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_start_tx_ba_session(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_start_tx_ba_session(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -2680
   %5 = getelementptr i8, ptr %0, i64 -2600
   %6 = load ptr, ptr %5, align 8
@@ -1036,7 +1036,7 @@ define dso_local noundef i32 @ieee80211_start_tx_ba_session(ptr noundef %0, i16 
   store i16 %2, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %118, i64 120
   store ptr %4, ptr %127, align 8
-  %128 = trunc i16 %1 to i8
+  %128 = trunc nuw nsw i16 %1 to i8
   %129 = getelementptr inbounds i8, ptr %118, i64 158
   store i8 %128, ptr %129, align 2
   %130 = getelementptr inbounds i8, ptr %118, i64 56
@@ -1342,7 +1342,7 @@ define dso_local void @ieee80211_start_tx_ba_cb_irqsafe(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_stop_tx_ba_session(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_stop_tx_ba_session(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -2600
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1256
@@ -1626,7 +1626,7 @@ define dso_local void @ieee80211_process_addba_resp(ptr noundef %0, ptr noundef 
   %6 = load i16, ptr %5, align 1
   %7 = and i16 %6, 1
   %8 = icmp eq i16 %7, 0
-  %9 = trunc i16 %7 to i8
+  %9 = trunc nuw nsw i16 %7 to i8
   %10 = lshr i16 %6, 2
   %11 = and i16 %10, 15
   %12 = lshr i16 %6, 6

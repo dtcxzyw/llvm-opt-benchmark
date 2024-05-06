@@ -158,7 +158,7 @@ define internal noundef i32 @tls_match(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tls_marshal(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @tls_marshal(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
@@ -190,7 +190,7 @@ define internal noundef i32 @tls_refresh(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tls_validate(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -93, 1) i32 @tls_validate(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread5, label %5

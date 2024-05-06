@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @curlx_strtoofft(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @curlx_strtoofft(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @__errno_location() #3
   store i32 0, ptr %6, align 4

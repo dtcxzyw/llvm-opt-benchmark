@@ -604,12 +604,12 @@ define internal void @intel_tv_get_config(ptr nocapture noundef readonly %0, ptr
   %35 = getelementptr inbounds i8, ptr %4, i64 16
   store i16 %34, ptr %35, align 8
   %36 = lshr i32 %22, 16
-  %37 = trunc i32 %36 to i16
+  %37 = trunc nuw i32 %36 to i16
   %38 = and i16 %37, 8191
   %39 = getelementptr inbounds i8, ptr %4, i64 18
   store i16 %38, ptr %39, align 2
   %40 = lshr i32 %24, 16
-  %41 = trunc i32 %40 to i16
+  %41 = trunc nuw i32 %40 to i16
   %42 = and i16 %41, 2047
   %43 = getelementptr inbounds i8, ptr %4, i64 32
   store i16 %42, ptr %43, align 8

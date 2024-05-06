@@ -181,14 +181,14 @@ kdf_pvk_init.exit:                                ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_pvk_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pvk_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @kdf_pvk_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @kdf_pvk_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -299,7 +299,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_pvk_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pvk_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #6
@@ -488,4 +488,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

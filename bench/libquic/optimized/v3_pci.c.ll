@@ -137,17 +137,17 @@ land.rhs:                                         ; preds = %if.then14, %for.bod
 
 for.body28:                                       ; preds = %land.rhs
   %call29 = call ptr @sk_value(ptr noundef nonnull %call16, i64 noundef %j.046) #6
-  %call30 = call fastcc i32 @process_pci_value(ptr noundef %call29, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy), !range !7
+  %call30 = call fastcc i32 @process_pci_value(ptr noundef %call29, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy)
   %inc = add nuw i64 %j.046, 1
   %tobool24.not = icmp eq i32 %call30, 0
-  br i1 %tobool24.not, label %err.critedge, label %land.rhs, !llvm.loop !8
+  br i1 %tobool24.not, label %err.critedge, label %land.rhs, !llvm.loop !7
 
 for.end:                                          ; preds = %land.rhs
   call void @X509V3_section_free(ptr noundef %ctx, ptr noundef nonnull %call16) #6
   br label %for.inc42
 
 if.else:                                          ; preds = %land.lhs.true
-  %call34 = call fastcc i32 @process_pci_value(ptr noundef nonnull %call2, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy), !range !7
+  %call34 = call fastcc i32 @process_pci_value(ptr noundef nonnull %call2, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy)
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then36, label %for.inc42
 
@@ -164,7 +164,7 @@ for.inc42:                                        ; preds = %for.end, %if.else
   %inc43 = add nuw i64 %i.054, 1
   %call1 = call i64 @sk_num(ptr noundef %call) #6
   %cmp = icmp ult i64 %inc43, %call1
-  br i1 %cmp, label %for.body, label %for.end44, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end44, !llvm.loop !9
 
 for.end44:                                        ; preds = %for.inc42
   %.pre = load ptr, ptr %language, align 8
@@ -268,7 +268,7 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 declare ptr @X509V3_get_section(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef %language, ptr noundef %pathlen, ptr nocapture noundef %policy) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef %language, ptr noundef %pathlen, ptr nocapture noundef %policy) unnamed_addr #0 {
 entry:
   %val_len = alloca i64, align 8
   %buf = alloca [2048 x i8], align 16
@@ -474,7 +474,7 @@ lor.rhs:                                          ; preds = %while.cond
 land.rhs:                                         ; preds = %lor.rhs
   %call97 = call i32 @BIO_should_retry(ptr noundef nonnull %call85) #6
   %tobool98.not = icmp eq i32 %call97, 0
-  br i1 %tobool98.not, label %if.end176, label %while.cond, !llvm.loop !11
+  br i1 %tobool98.not, label %if.end176, label %while.cond, !llvm.loop !10
 
 if.end101:                                        ; preds = %while.cond
   %49 = load ptr, ptr %policy, align 8
@@ -515,7 +515,7 @@ if.end110:                                        ; preds = %if.end101
   %idxprom122 = sext i32 %60 to i64
   %arrayidx123 = getelementptr inbounds i8, ptr %59, i64 %idxprom122
   store i8 0, ptr %arrayidx123, align 1
-  br label %while.cond.outer, !llvm.loop !11
+  br label %while.cond.outer, !llvm.loop !10
 
 while.cond.outer:                                 ; preds = %if.then82, %if.end110
   %tmp_data.0.ph = phi i1 [ false, %if.end110 ], [ true, %if.then82 ]
@@ -690,8 +690,7 @@ attributes #8 = { nounwind allocsize(1) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

@@ -243,7 +243,7 @@ declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
 declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr nocapture noundef readonly %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef %14, ptr nocapture noundef %15) local_unnamed_addr #0 {
+define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr nocapture noundef readonly %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef %14, ptr nocapture noundef %15) local_unnamed_addr #0 {
   %17 = icmp eq ptr %0, null
   br i1 %17, label %.loopexit, label %18
 
@@ -478,7 +478,7 @@ define i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, 
   %116 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.next392
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds double, ptr %117, i64 %indvars.iv391
-  %119 = trunc i64 %indvars.iv.next392 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv.next392 to i32
   br i1 %65, label %120, label %122
 
 120:                                              ; preds = %115
@@ -492,7 +492,7 @@ define i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not305, label %124, label %.loopexit
 
 124:                                              ; preds = %122, %120
-  %125 = trunc i64 %indvars.iv391 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv391 to i32
   %126 = tail call i32 @QRfact(i32 noundef %78, ptr noundef nonnull %23, ptr noundef %25, i32 noundef %125) #6
   %.not307 = icmp eq i32 %126, 0
   br i1 %.not307, label %127, label %.loopexit
@@ -522,7 +522,7 @@ define i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, 
   br i1 %exitcond394.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %127
-  %143 = trunc i64 %indvars.iv.next392 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv.next392 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %136, %._crit_edge.loopexit.split.loop.exit, %._crit_edge331.thread, %._crit_edge331

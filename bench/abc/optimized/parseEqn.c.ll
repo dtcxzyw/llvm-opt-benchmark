@@ -273,7 +273,7 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
   br label %.thread220
 
 91:                                               ; preds = %84
-  %92 = trunc i64 %indvars.iv308 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv308 to i32
   %93 = tail call ptr @Hop_IthVar(ptr noundef %3, i32 noundef %92) #9
   tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %93) #9
   br label %.preheader223

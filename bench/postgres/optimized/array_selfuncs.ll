@@ -430,7 +430,7 @@ find_next_mcelem.exit.loopexit.us:                ; preds = %.lr.ph.i.us
   br i1 %exitcond.not, label %find_next_mcelem.exit.thread, label %98, !llvm.loop !8
 
 find_next_mcelem.exit:                            ; preds = %98
-  %107 = trunc i64 %indvars.iv to i32
+  %107 = trunc nsw i64 %indvars.iv to i32
   %108 = icmp eq i32 %104, 0
   %or.cond = and i1 %10, %108
   br i1 %or.cond, label %109, label %find_next_mcelem.exit.thread
@@ -590,7 +590,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr nocapture nounde
   br i1 %exitcond.not, label %.critedge, label %52, !llvm.loop !9
 
 66:                                               ; preds = %52
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nsw i64 %indvars.iv to i32
   %68 = icmp eq i32 %58, 0
   br i1 %68, label %69, label %.critedge
 
@@ -694,7 +694,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr nocapture nounde
   %indvars.iv93.i = phi i64 [ 1, %.lr.ph77.preheader.i ], [ %indvars.iv.next94.i, %._crit_edge.i ]
   %.05875.i = phi ptr [ %111, %.lr.ph77.preheader.i ], [ %.06473.i, %._crit_edge.i ]
   %.06473.i = phi ptr [ %112, %.lr.ph77.preheader.i ], [ %.05875.i, %._crit_edge.i ]
-  %113 = trunc i64 %indvars.iv93.i to i32
+  %113 = trunc nuw nsw i64 %indvars.iv93.i to i32
   %smin.i = tail call i32 @llvm.smin.i32(i32 %.2116, i32 %113)
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv93.i
   %114 = load float, ptr %gep.i, align 4
@@ -764,7 +764,7 @@ calc_distr.exit:                                  ; preds = %._crit_edge.i, %107
   %indvars.iv93.i145 = phi i64 [ 1, %.lr.ph77.preheader.i140 ], [ %indvars.iv.next94.i151, %._crit_edge.i150 ]
   %.05875.i146 = phi ptr [ %132, %.lr.ph77.preheader.i140 ], [ %.06473.i147, %._crit_edge.i150 ]
   %.06473.i147 = phi ptr [ %133, %.lr.ph77.preheader.i140 ], [ %.05875.i146, %._crit_edge.i150 ]
-  %135 = trunc i64 %indvars.iv93.i145 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv93.i145 to i32
   %smin.i148 = tail call i32 @llvm.smin.i32(i32 %.2116, i32 %135)
   %gep.i149 = getelementptr float, ptr %invariant.gep.i143, i64 %indvars.iv93.i145
   %136 = load float, ptr %gep.i149, align 4
@@ -848,7 +848,7 @@ cdce.call:                                        ; preds = %._crit_edge83.threa
   %indvars.iv105.i = phi i64 [ %indvars.iv.next106.i, %._crit_edge87.i ], [ 0, %.preheader.preheader.i ]
   %.090.i = phi float [ %177, %._crit_edge87.i ], [ %163, %.preheader.preheader.i ]
   %164 = zext i32 %indvars.iv235 to i64
-  %165 = trunc i64 %indvars.iv105.i to i32
+  %165 = trunc nuw nsw i64 %indvars.iv105.i to i32
   %166 = sub i32 %.2116, %165
   %.not6984.i = icmp slt i32 %166, 0
   br i1 %.not6984.i, label %._crit_edge87.i, label %.lr.ph86.i
@@ -870,7 +870,7 @@ cdce.call:                                        ; preds = %._crit_edge83.threa
 
 ._crit_edge87.i:                                  ; preds = %.lr.ph86.i, %.preheader.i
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
-  %174 = trunc i64 %indvars.iv.next106.i to i32
+  %174 = trunc nuw nsw i64 %indvars.iv.next106.i to i32
   %175 = sitofp i32 %174 to float
   %176 = fdiv float %.4121.lcssa, %175
   %177 = fmul float %.090.i, %176
@@ -902,7 +902,7 @@ calc_distr.exit163:                               ; preds = %._crit_edge87.i, %c
   br i1 %182, label %.lr.ph.i169, label %.critedge.thread.thread.i
 
 .lr.ph.i169:                                      ; preds = %.preheader.i167
-  %183 = trunc i64 %indvars.iv64.i to i32
+  %183 = trunc nuw nsw i64 %indvars.iv64.i to i32
   %184 = sitofp i32 %183 to float
   %185 = sext i32 %.04355.i to i64
   %186 = sub i32 %23, %.04355.i
@@ -923,12 +923,12 @@ calc_distr.exit163:                               ; preds = %._crit_edge87.i, %c
   br i1 %exitcond.not.i, label %.critedge.thread.i, label %187, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %187
-  %193 = trunc i64 %indvars.iv.i170 to i32
+  %193 = trunc nsw i64 %indvars.iv.i170 to i32
   %194 = icmp sgt i32 %.03852.i, 0
   br i1 %194, label %197, label %.critedge.thread.thread.i
 
 .critedge.thread.i:                               ; preds = %191
-  %195 = trunc i64 %indvars.iv.next.i171 to i32
+  %195 = trunc nsw i64 %indvars.iv.next.i171 to i32
   %196 = icmp sgt i32 %186, 0
   br i1 %196, label %.thread.i, label %.critedge.thread.thread.i
 
@@ -1440,7 +1440,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #6
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @float_compare_desc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @float_compare_desc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load float, ptr %0, align 4
   %4 = load float, ptr %1, align 4
   %5 = fcmp ogt float %3, %4

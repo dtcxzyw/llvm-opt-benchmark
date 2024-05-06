@@ -54,7 +54,7 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   %2 = load i8, ptr @_ZZN17grpc_event_engine12experimental22KernelSupportsErrqueueEvE18errqueue_supported, align 1
-  %tobool1 = trunc i8 %2 to i1
+  %tobool1 = trunc nuw i8 %2 to i1
   ret i1 %tobool1
 
 lpad:                                             ; preds = %init

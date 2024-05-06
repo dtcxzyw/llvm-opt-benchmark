@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [30 x i8] c"assertion failed: ctx != NULL\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   tail call void @FuzzerSetRand() #3
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 14, ptr noundef null) #3
@@ -38,7 +38,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare i32 @CRYPTO_free_ex_index(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %buf.addr = alloca ptr, align 8
   %len.addr = alloca i64, align 8

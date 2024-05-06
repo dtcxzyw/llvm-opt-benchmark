@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lzma_stream_flags = type { i32, i64, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_stream_decoder_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, ptrtoint (ptr @lzma_stream_decoder_init to i64)
@@ -437,7 +437,7 @@ define internal i32 @stream_decoder_get_check(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @stream_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #3 {
+define internal range(i32 0, 7) i32 @stream_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 360
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %1, align 8
@@ -475,7 +475,7 @@ define dso_local i32 @lzma_stream_decoder(ptr noundef %0, i64 noundef %1, i32 no
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @lzma_stream_decoder_init(ptr noundef %7, ptr noundef %9, i64 noundef %1, i32 noundef %2), !range !7
+  %10 = tail call i32 @lzma_stream_decoder_init(ptr noundef %7, ptr noundef %9, i64 noundef %1, i32 noundef %2)
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %12, label %11
 
@@ -569,4 +569,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 9}

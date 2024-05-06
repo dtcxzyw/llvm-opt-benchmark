@@ -84,7 +84,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @apic_write.__UNIQUE_ID___addressable___SCK__apic_call_write379, ptr @p4_hw_config.__UNIQUE_ID___addressable___SCK__preempt_schedule391, ptr @p4_pmu_handle_irq.__UNIQUE_ID___addressable___SCK__x86_pmu_set_period399], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @p4_pmu_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @p4_pmu_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 416) #13, !srcloc !6
   %2 = extractvalue { i64, i64 } %1, 0
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #13
@@ -244,7 +244,7 @@ define internal i32 @p4_pmu_handle_irq(ptr noundef %0) #5 align 16 {
   %52 = and i64 %44, -2147483649
   %53 = trunc i64 %52 to i32
   %54 = lshr i64 %44, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %51, i32 %53, i32 %55) #13, !srcloc !21
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %.thread [label %56], !srcloc !7
@@ -361,7 +361,7 @@ define internal void @p4_pmu_disable_all() #5 align 16 {
   %18 = trunc i64 %17 to i32
   %19 = load i64, ptr %15, align 8
   %20 = and i64 %19, 2147475456
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %18, i32 %21, i32 0) #13, !srcloc !8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %24 [label %23], !srcloc !7
@@ -442,7 +442,7 @@ define internal void @p4_pmu_disable_event(ptr nocapture noundef readonly %0) #6
   %5 = trunc i64 %4 to i32
   %6 = load i64, ptr %2, align 8
   %7 = and i64 %6, 2147475456
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %8, i32 0) #13, !srcloc !8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %11 [label %10], !srcloc !7
@@ -475,7 +475,7 @@ define internal i32 @p4_pmu_set_period(ptr noundef %0) #5 align 16 {
   %15 = and i64 %14, %13
   %16 = trunc i64 %15 to i32
   %17 = lshr i64 %15, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %12, i32 %16, i32 %18) #13, !srcloc !21
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %20 [label %19], !srcloc !7
@@ -664,7 +664,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #5 align 16 {
   %112 = phi i64 [ %.pre, %._crit_edge ], [ %88, %97 ], [ %88, %95 ]
   %113 = phi i64 [ 0, %._crit_edge ], [ %89, %97 ], [ %89, %95 ]
   %114 = lshr i64 %112, 32
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw i64 %114 to i32
   %116 = getelementptr [46 x %struct.p4_event_bind], ptr @p4_event_bind_map, i64 0, i64 %113, i32 2
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 33553920
@@ -724,7 +724,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @p4_pmu_schedule_events(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #5 align 16 {
+define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #5 align 16 {
   %4 = alloca [1 x i64], align 8
   %5 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
@@ -844,7 +844,7 @@ define internal i32 @p4_pmu_schedule_events(ptr nocapture noundef readonly %0, i
 76:                                               ; preds = %71, %61
   %77 = phi i32 [ %75, %71 ], [ 0, %61 ]
   %78 = lshr i64 %36, 63
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw nsw i64 %78 to i32
   %80 = icmp eq i32 %77, %79
   br i1 %80, label %81, label %82
 
@@ -939,7 +939,7 @@ define internal i32 @p4_pmu_schedule_events(ptr nocapture noundef readonly %0, i
 127:                                              ; preds = %122, %111
   %128 = phi i32 [ %126, %122 ], [ 0, %111 ]
   %129 = lshr i64 %.pre55, 63
-  %130 = trunc i64 %129 to i32
+  %130 = trunc nuw nsw i64 %129 to i32
   %131 = icmp eq i32 %128, %130
   br i1 %131, label %133, label %132
 
@@ -975,12 +975,12 @@ define internal i32 @p4_pmu_schedule_events(ptr nocapture noundef readonly %0, i
 
 .thread22:                                        ; preds = %.thread21
   %148 = lshr i64 %.pre55, 32
-  %149 = trunc i64 %148 to i32
+  %149 = trunc nuw i64 %148 to i32
   br label %180
 
 150:                                              ; preds = %141
   %151 = lshr i64 %.pre55, 32
-  %152 = trunc i64 %151 to i32
+  %152 = trunc nuw i64 %151 to i32
   %153 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
   %154 = inttoptr i64 %153 to ptr
   %155 = load i64, ptr %154, align 8
@@ -1188,7 +1188,7 @@ define internal fastcc void @__p4_pmu_enable_event(ptr nocapture noundef readonl
   br label %42
 
 42:                                               ; preds = %40, %36, %19
-  %43 = trunc i64 %26 to i32
+  %43 = trunc nuw i64 %26 to i32
   %44 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, i32 %43, i32 0) #13, !srcloc !8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %46 [label %45], !srcloc !7
@@ -1203,7 +1203,7 @@ define internal fastcc void @__p4_pmu_enable_event(ptr nocapture noundef readonl
   %49 = trunc i64 %48 to i32
   %50 = and i64 %27, 4294959104
   %51 = or disjoint i64 %50, 4096
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw i64 %51 to i32
   %53 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, i32 %52, i32 0) #13, !srcloc !8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #13
           to label %55 [label %54], !srcloc !7

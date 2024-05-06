@@ -105,9 +105,9 @@ $_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_
 @.str.5 = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/folly/folly/folly/logging/LogCategory.cpp\00", align 1
 @.str.6 = private unnamed_addr constant [27 x i8] c"log handler for category \22\00", align 1
 @.str.7 = private unnamed_addr constant [19 x i8] c"\22 threw an error: \00", align 1
-@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE26tls_lastDeferredReaderSlotEvE2tl = linkonce_odr thread_local global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
+@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE26tls_lastDeferredReaderSlotEvE2tl = linkonce_odr thread_local local_unnamed_addr global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
 @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state = linkonce_odr global { [257 x [256 x i8]], %"struct.std::atomic.60" } zeroinitializer, comdat, align 8
-@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_lastTokenlessSlotEvE2tl = linkonce_odr thread_local global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
+@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_lastTokenlessSlotEvE2tl = linkonce_odr thread_local local_unnamed_addr global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
 @.str.8 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 @_ZN5folly11LogCategoryC1EPNS_8LoggerDBE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly11LogCategoryC2EPNS_8LoggerDBE
@@ -886,7 +886,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !34
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 

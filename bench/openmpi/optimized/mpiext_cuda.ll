@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [5 x i8] c"cuda\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @MPIX_Query_cuda_support() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @MPIX_Query_cuda_support() local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds (%struct.opal_accelerator_base_component_t, ptr @opal_accelerator_base_selected_component, i64 0, i32 0, i32 11), ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %1 = icmp eq i32 %bcmp, 0
   %2 = zext i1 %1 to i32

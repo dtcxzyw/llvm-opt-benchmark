@@ -312,7 +312,7 @@ if.then2.i:                                       ; preds = %if.else.i
   br label %strbuf_worktree_gitdir.exit
 
 if.else3.i:                                       ; preds = %if.else.i
-  tail call void (ptr, ptr, ptr, ...) @strbuf_git_common_path(ptr noundef %buf, ptr noundef %repo, ptr noundef nonnull @.str.64, ptr noundef nonnull %1)
+  tail call void (ptr, ptr, ptr, ...) @strbuf_git_common_path(ptr noundef %buf, ptr noundef readonly %repo, ptr noundef nonnull @.str.64, ptr noundef nonnull %1)
   br label %strbuf_worktree_gitdir.exit
 
 strbuf_worktree_gitdir.exit:                      ; preds = %if.then.i, %if.then2.i, %if.else3.i
@@ -371,7 +371,7 @@ if.then7:                                         ; preds = %if.end
   %sext = shl i64 %12, 32
   %idx.ext.i = ashr exact i64 %sext, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i
-  %call2.i.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(5) @.str.42, i64 noundef 4) #27
+  %call2.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(5) @.str.42, i64 noundef 4) #27
   %tobool.not.i.i13 = icmp eq i32 %call2.i.i, 0
   br i1 %tobool.not.i.i13, label %lor.lhs.false.i.i, label %if.else.i14
 
@@ -391,7 +391,7 @@ while.cond.i.i:                                   ; preds = %lor.lhs.false.i.i, 
 
 is_dir_file.exit.i:                               ; preds = %while.cond.i.i
   %arrayidx7.i.i.le = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv.i.i
-  %call11.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx7.i.i.le, ptr noundef nonnull dereferenceable(7) @.str.65) #27
+  %call11.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arrayidx7.i.i.le, ptr noundef nonnull dereferenceable(7) @.str.65) #27
   %tobool12.not.i.not.i = icmp eq i32 %call11.i.i, 0
   br i1 %tobool12.not.i.not.i, label %if.then.i16, label %if.else.i14
 
@@ -417,7 +417,7 @@ if.then6.i:                                       ; preds = %if.else.i14
   br label %if.end8
 
 if.else10.i:                                      ; preds = %if.else.i14
-  %call2.i20.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(8) @.str.50, i64 noundef 7) #27
+  %call2.i20.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(8) @.str.50, i64 noundef 7) #27
   %tobool.not.i21.i = icmp eq i32 %call2.i20.i, 0
   br i1 %tobool.not.i21.i, label %land.rhs.i.i, label %if.else14.i
 
@@ -476,7 +476,7 @@ if.else14.i:                                      ; preds = %land.rhs.i.i, %if.e
   br i1 %tobool15.not.i, label %if.else20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else14.i
-  %call2.i30.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(6) @.str.41, i64 noundef 5) #27
+  %call2.i30.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(6) @.str.41, i64 noundef 5) #27
   %tobool.not.i31.i = icmp eq i32 %call2.i30.i, 0
   br i1 %tobool.not.i31.i, label %land.rhs.i33.i, label %if.else20.i
 
@@ -1655,7 +1655,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %call.i = call i32 @lstat64(ptr noundef %path, ptr noundef nonnull %st.i) #25
+  %call.i = call i32 @lstat64(ptr noundef readonly %path, ptr noundef nonnull %st.i) #25
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %get_st_mode_bits.exit.thread, label %if.end3
 
@@ -2916,7 +2916,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %name, i64 1
-  %call.i = tail call i32 @strncasecmp(ptr noundef nonnull %add.ptr.i, ptr noundef %dotgit_name, i64 noundef %call) #27
+  %call.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %add.ptr.i, ptr noundef readonly %dotgit_name, i64 noundef %call) #27
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end17.i
 
@@ -2944,7 +2944,7 @@ for.cond.backedge.i:                              ; preds = %for.cond.i, %for.co
   br label %for.cond.i
 
 if.end17.i:                                       ; preds = %land.lhs.true.i, %entry
-  %call18.i = tail call i32 @strncasecmp(ptr noundef nonnull %name, ptr noundef %dotgit_name, i64 noundef 6) #27
+  %call18.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %name, ptr noundef readonly %dotgit_name, i64 noundef 6) #27
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %land.lhs.true20.i, label %for.body.i.preheader
 
@@ -3336,7 +3336,7 @@ entry:
 lor.lhs.false.i.i:                                ; preds = %entry
   %sub.i.i = add i64 %1, -5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.67, i64 5)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.67, i64 5)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.exit
 
@@ -3446,7 +3446,7 @@ if.end24.i.i:                                     ; preds = %if.then17.i.i, %if.
   store ptr %call.i.i, ptr %arrayidx36.i.i, align 8
   %add.ptr39.i.i = getelementptr inbounds i8, ptr %arrayidx4.i.i.le, i64 1
   %call.i.i.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 2072) #25
-  %call1.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr39.i.i) #27
+  %call1.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %add.ptr39.i.i) #27
   %conv.i.i.i = trunc i64 %call1.i.i.i to i32
   %len.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 2048
   store i32 %conv.i.i.i, ptr %len.i.i.i, align 8
@@ -3461,7 +3461,7 @@ if.then.i.i.i:                                    ; preds = %if.end24.i.i
   store ptr %call5.i.i.i, ptr %contents.i.i.i, align 8
   %17 = load i32, ptr %len.i.i.i, align 8
   %conv8.i.i.i = sext i32 %17 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i, ptr nonnull align 1 %add.ptr39.i.i, i64 %conv8.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i, ptr nonnull readonly align 1 %add.ptr39.i.i, i64 %conv8.i.i.i, i1 false)
   br label %make_trie_node.exit.i.i
 
 make_trie_node.exit.i.i:                          ; preds = %if.then.i.i.i, %if.end24.i.i
@@ -3504,7 +3504,7 @@ if.else.i.i:                                      ; preds = %if.then49.i.i
   %len.i.i.le = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2048
   %add.ptr66.i.i = getelementptr inbounds i8, ptr %arrayidx53.i.i, i64 1
   %call.i55.i.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 2072) #25
-  %call1.i56.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr66.i.i) #27
+  %call1.i56.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %add.ptr66.i.i) #27
   %conv.i57.i.i = trunc i64 %call1.i56.i.i to i32
   %len.i58.i.i = getelementptr inbounds i8, ptr %call.i55.i.i, i64 2048
   store i32 %conv.i57.i.i, ptr %len.i58.i.i, align 8
@@ -3519,7 +3519,7 @@ if.then.i60.i.i:                                  ; preds = %if.else.i.i
   store ptr %call5.i63.i.i, ptr %contents.i64.i.i, align 8
   %22 = load i32, ptr %len.i58.i.i, align 8
   %conv8.i65.i.i = sext i32 %22 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i63.i.i, ptr nonnull align 1 %add.ptr66.i.i, i64 %conv8.i65.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i63.i.i, ptr nonnull readonly align 1 %add.ptr66.i.i, i64 %conv8.i65.i.i, i1 false)
   br label %make_trie_node.exit67.i.i
 
 make_trie_node.exit67.i.i:                        ; preds = %if.then.i60.i.i, %if.else.i.i

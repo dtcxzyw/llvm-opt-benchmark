@@ -1220,11 +1220,11 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add13.i.i = add i64 %conv, %sub.ptr.sub.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %add13.i.i, 4294967295
-  %1 = shl i64 %add13.i.i, 32
+  %1 = shl nuw i64 %add13.i.i, 32
   %2 = or disjoint i64 %1, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2818, i64 %2
   %ref.tmp11.sroa.21.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
   %3 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 3
   %cmp.i.i.i = icmp eq i64 %3, 1
   %4 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, 32
@@ -1335,11 +1335,11 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add13.i.i.i = add i64 %conv.i, %sub.ptr.sub.i.i
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add13.i.i.i, 4294967295
-  %1 = shl i64 %add13.i.i.i, 32
+  %1 = shl nuw i64 %add13.i.i.i, 32
   %2 = or disjoint i64 %1, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 2818, i64 %2
   %ref.tmp11.sroa.21.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
   %3 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 3
   %cmp.i.i.i.i = icmp eq i64 %3, 1
   %4 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
@@ -1351,14 +1351,14 @@ entry:
 
 _ZN8proxygen12HPACKEncoder19encodeAsLiteralImplERKNS_15HPACKHeaderNameEjN5folly5RangeIPKcEERb.exit.thread: ; preds = %entry
   store i16 1024, ptr %instruction.i, align 2
-  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
+  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %instruction.i)
   br label %if.end
 
 _ZN8proxygen12HPACKEncoder19encodeAsLiteralImplERKNS_15HPACKHeaderNameEjN5folly5RangeIPKcEERb.exit: ; preds = %entry
   %6 = select i1 %indexing, i16 1600, i16 1024
   store i16 %6, ptr %instruction.i, align 2
-  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
+  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %instruction.i)
   br i1 %indexing, label %if.then, label %if.end
 
@@ -1505,7 +1505,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %9 = trunc i64 %sub.ptr.sub.i to i8
+  %9 = trunc nuw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %9
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -1654,11 +1654,11 @@ entry:
   %conv.i = and i64 %call.i.i, 4294967295
   %add13.i.i.i = add i64 %conv.i, %cond.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add13.i.i.i, 4294967295
-  %4 = shl i64 %add13.i.i.i, 32
+  %4 = shl nuw i64 %add13.i.i.i, 32
   %5 = or disjoint i64 %4, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 2818, i64 %5
   %ref.tmp11.sroa.21.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
   %6 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 3
   %cmp.i.i.i.i3 = icmp eq i64 %6, 1
   %7 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
@@ -1670,14 +1670,14 @@ entry:
 
 _ZN8proxygen12HPACKEncoder19encodeAsLiteralImplERKNS_15HPACKHeaderNameEjN5folly5RangeIPKcEERb.exit.thread: ; preds = %entry
   store i16 1024, ptr %instruction.i, align 2
-  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %cond.i.i.i.i, ptr %add.ptr.i.i, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
+  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %cond.i.i.i.i, ptr %add.ptr.i.i, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %instruction.i)
   br label %if.end
 
 _ZN8proxygen12HPACKEncoder19encodeAsLiteralImplERKNS_15HPACKHeaderNameEjN5folly5RangeIPKcEERb.exit: ; preds = %entry
   %9 = select i1 %indexing, i16 1600, i16 1024
   store i16 %9, ptr %instruction.i, align 2
-  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %cond.i.i.i.i, ptr %add.ptr.i.i, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
+  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %cond.i.i.i.i, ptr %add.ptr.i.i, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %instruction.i)
   br i1 %indexing, label %if.then, label %if.end
 
@@ -1747,11 +1747,11 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add13.i.i.i = add i64 %conv.i, %sub.ptr.sub.i.i
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add13.i.i.i, 4294967295
-  %1 = shl i64 %add13.i.i.i, 32
+  %1 = shl nuw i64 %add13.i.i.i, 32
   %2 = or disjoint i64 %1, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 2818, i64 %2
   %ref.tmp11.sroa.21.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
   %3 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 3
   %cmp.i.i.i.i = icmp eq i64 %3, 1
   %4 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
@@ -1763,14 +1763,14 @@ entry:
 
 _ZN8proxygen12HPACKEncoder19encodeAsLiteralImplERKNS_15HPACKHeaderNameEjN5folly5RangeIPKcEERb.exit.thread: ; preds = %entry
   store i16 1024, ptr %instruction.i, align 2
-  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
+  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %instruction.i)
   br label %if.end
 
 _ZN8proxygen12HPACKEncoder19encodeAsLiteralImplERKNS_15HPACKHeaderNameEjN5folly5RangeIPKcEERb.exit: ; preds = %entry
   %6 = select i1 %indexing, i16 1600, i16 1024
   store i16 %6, ptr %instruction.i, align 2
-  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
+  call void @_ZN8proxygen12HPACKEncoder13encodeLiteralERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i32 noundef %nameIndex, ptr noundef nonnull align 1 dereferenceable(2) %instruction.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %instruction.i)
   br i1 %indexing, label %if.then, label %if.end
 
@@ -1878,7 +1878,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %4 = trunc i64 %sub.ptr.sub.i to i8
+  %4 = trunc nuw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %4
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -1994,7 +1994,7 @@ entry:
   %call = tail call i64 @_ZNK8proxygen12HPACKContext8getIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(84) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext true)
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %call to i32
   %ref.tmp.sroa.2.0.extract.shift = lshr i64 %call, 32
-  %ref.tmp.sroa.2.0.extract.trunc = trunc i64 %ref.tmp.sroa.2.0.extract.shift to i32
+  %ref.tmp.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift to i32
   %tobool.not = icmp eq i32 %ref.tmp.sroa.0.0.extract.trunc, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -2014,11 +2014,11 @@ if.else:                                          ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add13.i.i = add i64 %conv, %sub.ptr.sub.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %add13.i.i, 4294967295
-  %1 = shl i64 %add13.i.i, 32
+  %1 = shl nuw i64 %add13.i.i, 32
   %2 = or disjoint i64 %1, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2818, i64 %2
   %ref.tmp11.sroa.21.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
   %3 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 3
   %cmp.i.i.i = icmp eq i64 %3, 1
   %4 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, 32

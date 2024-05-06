@@ -45,7 +45,7 @@ declare dso_local void @enable_IR_x2apic() local_unnamed_addr #1
 declare dso_local void @apic_install_driver(ptr noundef) local_unnamed_addr #2 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @default_acpi_madt_oem_check(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @default_acpi_madt_oem_check(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 section ".init.text" align 16 {
   br i1 icmp ult (ptr @__apicdrivers, ptr @__apicdrivers_end), label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2, %11

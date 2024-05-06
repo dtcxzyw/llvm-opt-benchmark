@@ -361,7 +361,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not135, label %190, label %.thread
 
 190:                                              ; preds = %186, %185
-  %191 = trunc i64 %indvars.iv174 to i32
+  %191 = trunc nuw nsw i64 %indvars.iv174 to i32
   %192 = and i32 %191, 3
   %or.cond = icmp eq i32 %192, 1
   %193 = icmp eq i64 %indvars.iv174, 7

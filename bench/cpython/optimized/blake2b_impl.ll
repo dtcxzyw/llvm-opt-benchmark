@@ -70,8 +70,8 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef i32 @PyBlake2_blake2b_init_param(ptr nocapture noundef %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %S, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(294) %0, i8 0, i64 294, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(294) %0, i8 0, i64 294, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -95,7 +95,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @PyBlake2_blake2b_init(ptr nocapture noundef %S, i64 noundef %outlen) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @PyBlake2_blake2b_init(ptr nocapture noundef %S, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %P = alloca [1 x %struct.__blake2b_param], align 16
   %0 = add i64 %outlen, -65
@@ -103,7 +103,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %outlen to i8
+  %conv = trunc nuw nsw i64 %outlen to i8
   store i8 %conv, ptr %P, align 16
   %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 0, ptr %key_length, align 1
@@ -114,8 +114,8 @@ if.end:                                           ; preds = %entry
   %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   %1 = getelementptr i8, ptr %S, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length, i8 0, i64 60, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(294) %1, i8 0, i64 294, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(294) %1, i8 0, i64 294, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
@@ -145,7 +145,7 @@ return:                                           ; preds = %entry, %PyBlake2_bl
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PyBlake2_blake2b_init_key(ptr nocapture noundef %S, i64 noundef %outlen, ptr noundef readonly %key, i64 noundef %keylen) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @PyBlake2_blake2b_init_key(ptr nocapture noundef %S, i64 noundef %outlen, ptr noundef readonly %key, i64 noundef %keylen) local_unnamed_addr #2 {
 entry:
   %P = alloca [1 x %struct.__blake2b_param], align 16
   %block = alloca [128 x i8], align 16
@@ -161,9 +161,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond2, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %conv = trunc i64 %outlen to i8
+  %conv = trunc nuw nsw i64 %outlen to i8
   store i8 %conv, ptr %P, align 16
-  %conv8 = trunc i64 %keylen to i8
+  %conv8 = trunc nuw nsw i64 %keylen to i8
   %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 %conv8, ptr %key_length, align 1
   %fanout = getelementptr inbounds i8, ptr %P, i64 2
@@ -173,8 +173,8 @@ if.end7:                                          ; preds = %if.end
   %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   %3 = getelementptr i8, ptr %S, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length, i8 0, i64 60, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(294) %3, i8 0, i64 294, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(294) %3, i8 0, i64 294, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end7
@@ -219,7 +219,7 @@ while.body.i:                                     ; preds = %if.end.i, %PyBlake2
 
 if.end.thread.i:                                  ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i14, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
-  %conv23.i = trunc i64 %inlen.addr.028.i to i32
+  %conv23.i = trunc nuw i64 %inlen.addr.028.i to i32
   %11 = load i32, ptr %buflen.i, align 1
   %add25.i = add i32 %11, %conv23.i
   store i32 %add25.i, ptr %buflen.i, align 1
@@ -288,7 +288,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.end.thread:                                    ; preds = %while.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %in.addr.029, i64 %inlen.addr.028, i1 false)
-  %conv23 = trunc i64 %inlen.addr.028 to i32
+  %conv23 = trunc nuw i64 %inlen.addr.028 to i32
   %1 = load i32, ptr %buflen, align 1
   %add25 = add i32 %1, %conv23
   store i32 %add25, ptr %buflen, align 1
@@ -1915,7 +1915,7 @@ for.end4284:                                      ; preds = %for.body4272
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @PyBlake2_blake2b_final(ptr nocapture noundef %S, ptr nocapture noundef writeonly %out, i64 noundef %outlen) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @PyBlake2_blake2b_final(ptr nocapture noundef %S, ptr nocapture noundef writeonly %out, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [64 x i8], align 16
   %outlen1 = getelementptr inbounds i8, ptr %S, i64 356
@@ -2020,7 +2020,7 @@ for.body:                                         ; preds = %blake2b_set_lastblo
   %incdec.ptr17.i = getelementptr i8, ptr %add.ptr32, i64 7
   store i8 %conv16.i, ptr %incdec.ptr14.i, align 2
   %shr18.i = lshr i64 %9, 56
-  %conv19.i = trunc i64 %shr18.i to i8
+  %conv19.i = trunc nuw i64 %shr18.i to i8
   store i8 %conv19.i, ptr %incdec.ptr17.i, align 1
   %inc = add nuw nsw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, 8
@@ -2039,7 +2039,7 @@ return:                                           ; preds = %entry, %for.end
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PyBlake2_blake2b(ptr noundef writeonly %out, ptr noundef readonly %in, ptr noundef %key, i64 noundef %outlen, i64 noundef %inlen, i64 noundef %keylen) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @PyBlake2_blake2b(ptr noundef writeonly %out, ptr noundef readonly %in, ptr noundef %key, i64 noundef %outlen, i64 noundef %inlen, i64 noundef %keylen) local_unnamed_addr #2 {
 entry:
   %P.i = alloca [1 x %struct.__blake2b_param], align 16
   %S = alloca [1 x %struct.__blake2b_state], align 16
@@ -2065,13 +2065,13 @@ if.end15:                                         ; preds = %if.end4
   br i1 %cmp7, label %if.then17, label %if.end.i
 
 if.then17:                                        ; preds = %if.end15
-  %call = call i32 @PyBlake2_blake2b_init_key(ptr noundef nonnull %S, i64 noundef %outlen, ptr noundef %key, i64 noundef %keylen), !range !9
+  %call = call i32 @PyBlake2_blake2b_init_key(ptr noundef nonnull %S, i64 noundef %outlen, ptr noundef %key, i64 noundef %keylen)
   %cmp18 = icmp slt i32 %call, 0
   br i1 %cmp18, label %return, label %if.end26
 
 if.end.i:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %P.i)
-  %conv.i = trunc i64 %outlen to i8
+  %conv.i = trunc nuw nsw i64 %outlen to i8
   store i8 %conv.i, ptr %P.i, align 16
   %key_length.i = getelementptr inbounds i8, ptr %P.i, i64 1
   store i8 0, ptr %key_length.i, align 1
@@ -2082,8 +2082,8 @@ if.end.i:                                         ; preds = %if.end15
   %leaf_length.i = getelementptr inbounds i8, ptr %P.i, i64 4
   %1 = getelementptr inbounds i8, ptr %S, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length.i, i8 0, i64 60, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(294) %1, i8 0, i64 294, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(294) %1, i8 0, i64 294, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -2131,7 +2131,7 @@ while.body.i:                                     ; preds = %if.end.i18, %while.
 
 if.end.thread.i:                                  ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
-  %conv23.i = trunc i64 %inlen.addr.028.i to i32
+  %conv23.i = trunc nuw i64 %inlen.addr.028.i to i32
   %5 = load i32, ptr %buflen.i, align 16
   %add25.i = add i32 %5, %conv23.i
   store i32 %add25.i, ptr %buflen.i, align 16
@@ -2161,7 +2161,7 @@ if.end.i18:                                       ; preds = %while.body.i
   br i1 %cmp.not.i, label %PyBlake2_blake2b_update.exit, label %while.body.i, !llvm.loop !6
 
 PyBlake2_blake2b_update.exit:                     ; preds = %if.end.i18, %if.end26, %if.end.thread.i
-  %call33 = call i32 @PyBlake2_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i64 noundef %outlen), !range !9
+  %call33 = call i32 @PyBlake2_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i64 noundef %outlen)
   br label %return
 
 return:                                           ; preds = %if.then17, %if.end4, %entry, %PyBlake2_blake2b_update.exit
@@ -2513,7 +2513,7 @@ if.then3.i:                                       ; preds = %do.body.i.i
   br label %if.then164.i
 
 if.end5.i:                                        ; preds = %do.body.i.i
-  %conv.i = trunc i32 %digest_size.1 to i8
+  %conv.i = trunc nuw nsw i32 %digest_size.1 to i8
   store i8 %conv.i, ptr %param.i, align 8
   %obj.i = getelementptr inbounds i8, ptr %salt, i64 8
   %21 = load ptr, ptr %obj.i, align 8
@@ -2578,7 +2578,7 @@ if.then44.i:                                      ; preds = %if.end38.i
   br label %if.then164.i
 
 if.end45.i:                                       ; preds = %if.end38.i
-  %conv46.i = trunc i32 %fanout.1 to i8
+  %conv46.i = trunc nuw i32 %fanout.1 to i8
   %fanout48.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i8 %conv46.i, ptr %fanout48.i, align 2
   %30 = add i32 %depth.1, -256
@@ -2591,7 +2591,7 @@ if.then54.i:                                      ; preds = %if.end45.i
   br label %if.then164.i
 
 if.end55.i:                                       ; preds = %if.end45.i
-  %conv56.i = trunc i32 %depth.1 to i8
+  %conv56.i = trunc nuw i32 %depth.1 to i8
   %depth58.i = getelementptr inbounds i8, ptr %call.i.i, i64 19
   store i8 %conv56.i, ptr %depth58.i, align 1
   %cmp59.i = icmp ugt i64 %16, 4294967295
@@ -2616,7 +2616,7 @@ if.end62.i:                                       ; preds = %if.end55.i
   %incdec.ptr5.i.i = getelementptr i8, ptr %call.i.i, i64 23
   store i8 %conv4.i.i, ptr %incdec.ptr2.i.i, align 1
   %shr6.i72.i = lshr i64 %16, 24
-  %conv7.i.i = trunc i64 %shr6.i72.i to i8
+  %conv7.i.i = trunc nuw i64 %shr6.i72.i to i8
   store i8 %conv7.i.i, ptr %incdec.ptr5.i.i, align 1
   %node_offset66.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %conv.i59.i = trunc i64 %17 to i8
@@ -2647,7 +2647,7 @@ if.end62.i:                                       ; preds = %if.end55.i
   %incdec.ptr17.i.i = getelementptr i8, ptr %call.i.i, i64 31
   store i8 %conv16.i.i, ptr %incdec.ptr14.i.i, align 1
   %shr18.i.i = lshr i64 %17, 56
-  %conv19.i.i = trunc i64 %shr18.i.i to i8
+  %conv19.i.i = trunc nuw i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %incdec.ptr17.i.i, align 1
   %or.cond3.i = icmp ugt i32 %node_depth.1, 255
   br i1 %or.cond3.i, label %if.then72.i, label %if.end73.i
@@ -2658,7 +2658,7 @@ if.then72.i:                                      ; preds = %if.end62.i
   br label %if.then164.i
 
 if.end73.i:                                       ; preds = %if.end62.i
-  %conv74.i = trunc i32 %node_depth.1 to i8
+  %conv74.i = trunc nuw i32 %node_depth.1 to i8
   %node_depth76.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i8 %conv74.i, ptr %node_depth76.i, align 8
   %or.cond4.i = icmp ugt i32 %inner_size.1, 64
@@ -2670,7 +2670,7 @@ if.then82.i:                                      ; preds = %if.end73.i
   br label %if.then164.i
 
 if.end84.i:                                       ; preds = %if.end73.i
-  %conv85.i = trunc i32 %inner_size.1 to i8
+  %conv85.i = trunc nuw nsw i32 %inner_size.1 to i8
   %inner_length.i = getelementptr inbounds i8, ptr %call.i.i, i64 33
   store i8 %conv85.i, ptr %inner_length.i, align 1
   %obj87.i = getelementptr inbounds i8, ptr %key, i64 8
@@ -2702,8 +2702,8 @@ if.end99.i:                                       ; preds = %if.then93.i
 if.end103.i:                                      ; preds = %if.end99.i, %land.lhs.true90.i, %if.end84.i
   %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %38 = getelementptr i8, ptr %call.i.i, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(294) %38, i8 0, i64 294, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %state.i, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(294) %38, i8 0, i64 294, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %state.i, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end103.i
@@ -2954,7 +2954,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %param.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load i8, ptr %param.i, align 8
   %conv.i = zext i8 %3 to i64
-  %call.i = call i32 @PyBlake2_blake2b_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i), !range !9
+  %call.i = call i32 @PyBlake2_blake2b_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i)
   %4 = load i8, ptr %use_mutex.i, align 2
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.then3.i, label %_blake2_blake2b_digest_impl.exit
@@ -3006,7 +3006,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %param.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load i8, ptr %param.i, align 8
   %conv.i = zext i8 %3 to i64
-  %call.i = call i32 @PyBlake2_blake2b_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i), !range !9
+  %call.i = call i32 @PyBlake2_blake2b_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i)
   %4 = load i8, ptr %use_mutex.i, align 2
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.then3.i, label %_blake2_blake2b_hexdigest_impl.exit
@@ -3132,7 +3132,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 
 if.end.thread.i:                                  ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
-  %conv23.i = trunc i64 %inlen.addr.028.i to i32
+  %conv23.i = trunc nuw i64 %inlen.addr.028.i to i32
   %14 = load i32, ptr %buflen.i, align 1
   %add25.i = add i32 %14, %conv23.i
   store i32 %add25.i, ptr %buflen.i, align 1
@@ -3202,7 +3202,7 @@ while.body.i20:                                   ; preds = %if.end.i31, %while.
 
 if.end.thread.i26:                                ; preds = %while.body.i20
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i33, ptr align 1 %in.addr.029.i21, i64 %inlen.addr.028.i22, i1 false)
-  %conv23.i29 = trunc i64 %inlen.addr.028.i22 to i32
+  %conv23.i29 = trunc nuw i64 %inlen.addr.028.i22 to i32
   %23 = load i32, ptr %buflen.i14, align 1
   %add25.i30 = add i32 %23, %conv23.i29
   store i32 %add25.i30, ptr %buflen.i14, align 1
@@ -3333,4 +3333,3 @@ attributes #9 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 1}

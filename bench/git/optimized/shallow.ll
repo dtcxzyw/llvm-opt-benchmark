@@ -110,7 +110,7 @@ define dso_local i32 @register_shallow(ptr noundef %r, ptr noundef %oid) local_u
 entry:
   %call = tail call ptr @xmalloc(i64 noundef 40) #12
   %call1 = tail call ptr @lookup_commit(ptr noundef %r, ptr noundef %oid) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %call, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %call, i64 32
@@ -147,7 +147,7 @@ declare void @free_commit_list(ptr noundef) local_unnamed_addr #3
 declare i32 @register_commit_graft(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unregister_shallow(ptr noundef %oid) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unregister_shallow(ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call i32 @commit_graft_pos(ptr noundef %0, ptr noundef %oid) #12
@@ -186,7 +186,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw nsw i64 %conv, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %add.ptr8, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr nonnull readonly align 1 %add.ptr8, i64 %mul.i.i, i1 false)
   %.pre = load ptr, ptr @the_repository, align 8
   %parsed_objects13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre5 = load ptr, ptr %parsed_objects13.phi.trans.insert, align 8
@@ -285,7 +285,7 @@ if.then26:                                        ; preds = %while.body
 if.end28:                                         ; preds = %while.body
   %call.i = call ptr @xmalloc(i64 noundef 40) #12
   %call1.i = call ptr @lookup_commit(ptr noundef %r, ptr noundef nonnull %oid) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %call.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %9 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %9, ptr %algo3.i.i, align 4
@@ -442,7 +442,7 @@ lor.lhs.false8.us:                                ; preds = %if.then6.us
 
 if.then10.us:                                     ; preds = %lor.lhs.false8.us, %if.then6.us
   %7 = load i32, ptr %heads, align 8
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nsw i64 %indvars.iv.next to i32
   %cmp.us = icmp ugt i32 %7, %8
   %9 = load i32, ptr %stack, align 8
   %tobool2.us = icmp ne i32 %9, 0
@@ -450,7 +450,7 @@ if.then10.us:                                     ; preds = %lor.lhs.false8.us, 
   br i1 %or.cond.us, label %if.then.us, label %while.end
 
 if.end:                                           ; preds = %lor.lhs.false8.us
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nsw i64 %indvars.iv.next to i32
   %11 = getelementptr i8, ptr %call.us, i64 64
   %call.val = load i32, ptr %11, align 8
   %div.i.i = udiv i32 %call.val, 65532
@@ -506,7 +506,7 @@ if.end15:                                         ; preds = %if.then13, %commit_
   br label %if.end19
 
 if.else:                                          ; preds = %if.then.us
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nsw i64 %indvars.iv to i32
   %call16 = call ptr @object_array_pop(ptr noundef nonnull %stack) #12
   %24 = getelementptr i8, ptr %call16, i64 64
   %call16.val = load i32, ptr %24, align 8
@@ -1444,7 +1444,7 @@ for.inc.sink.split:                               ; preds = %for.body, %if.then1
   store i32 %inc, ptr %nr_theirs.sink, align 8
   %idxprom22 = sext i32 %11 to i64
   %arrayidx23 = getelementptr inbounds i32, ptr %10, i64 %idxprom22
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %arrayidx23, align 4
   br label %for.inc
 
@@ -1586,7 +1586,7 @@ for.body.lr.ph:                                   ; preds = %st_mult.exit
   br label %for.body
 
 for.cond11.preheader.loopexit:                    ; preds = %for.body
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nuw i64 %indvars.iv.next to i32
   br label %for.cond11.preheader
 
 for.cond11.preheader:                             ; preds = %for.cond11.preheader.loopexit, %st_mult.exit
@@ -1629,7 +1629,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   br i1 %cmp13, label %for.body15, label %for.end23.loopexit, !llvm.loop !20
 
 for.end23.loopexit:                               ; preds = %for.body15
-  %18 = trunc i64 %indvars.iv.next271 to i32
+  %18 = trunc nuw i64 %indvars.iv.next271 to i32
   br label %for.end23
 
 for.end23:                                        ; preds = %for.end23.loopexit, %for.cond11.preheader
@@ -2233,7 +2233,7 @@ if.then33.i:                                      ; preds = %for.body28.i
 
 for.body.i.i100:                                  ; preds = %if.then33.i, %for.inc.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.then33.i ]
-  %101 = trunc i64 %indvars.iv.i.i to i32
+  %101 = trunc nuw i64 %indvars.iv.i.i to i32
   %div6.i.i = lshr i64 %indvars.iv.i.i, 5
   %idxprom.i.i101 = and i64 %div6.i.i, 134217727
   %arrayidx.i.i102 = getelementptr inbounds i32, ptr %96, i64 %idxprom.i.i101
@@ -2387,7 +2387,7 @@ if.then79.i:                                      ; preds = %land.lhs.true.i65
 
 for.body.i94.i:                                   ; preds = %if.then79.i, %for.inc.i106.i
   %indvars.iv.i95.i = phi i64 [ %indvars.iv.next.i107.i, %for.inc.i106.i ], [ 0, %if.then79.i ]
-  %133 = trunc i64 %indvars.iv.i95.i to i32
+  %133 = trunc nuw i64 %indvars.iv.i95.i to i32
   %div6.i96.i = lshr i64 %indvars.iv.i95.i, 5
   %idxprom.i97.i = and i64 %div6.i96.i, 134217727
   %arrayidx.i98.i = getelementptr inbounds i32, ptr %131, i64 %idxprom.i97.i

@@ -58,7 +58,7 @@ define internal fastcc void @idt_setup_from_table(ptr nocapture noundef readonly
   %15 = lshr i64 %8, 16
   %16 = trunc i64 %15 to i16
   %17 = lshr i64 %8, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = load i32, ptr %4, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr %struct.gate_struct, ptr @idt_table, i64 %20
@@ -184,7 +184,7 @@ define internal fastcc void @set_intr_gate(i32 noundef %0, ptr noundef %1) unnam
   %8 = lshr i64 %6, 16
   %9 = trunc i64 %8 to i16
   %10 = lshr i64 %6, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = zext nneg i32 %0 to i64
   %13 = getelementptr %struct.gate_struct, ptr @idt_table, i64 %12
   store i16 %7, ptr %13, align 16

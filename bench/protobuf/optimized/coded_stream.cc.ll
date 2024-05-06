@@ -1748,7 +1748,7 @@ return:                                           ; preds = %while.end.i, %do.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %first_byte_or_zero) local_unnamed_addr #4 align 2 {
+define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %first_byte_or_zero) local_unnamed_addr #4 align 2 {
 entry:
   %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
@@ -1846,7 +1846,7 @@ return:                                           ; preds = %for.cond.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6google8protobuf2io16CodedInputStream23ReadVarintSizeAsIntSlowEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN6google8protobuf2io16CodedInputStream23ReadVarintSizeAsIntSlowEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
   %0 = extractvalue { i64, i8 } %call, 0

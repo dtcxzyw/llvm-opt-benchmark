@@ -77,7 +77,7 @@ define dso_local noundef i32 @acpi_ut_delete_caches() local_unnamed_addr #0 alig
 declare dso_local i32 @acpi_os_delete_cache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @acpi_ut_validate_buffer(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 4098) i32 @acpi_ut_validate_buffer(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -102,7 +102,7 @@ define dso_local i32 @acpi_ut_validate_buffer(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_initialize_buffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_ut_initialize_buffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = icmp ne ptr %0, null

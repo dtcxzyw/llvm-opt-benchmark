@@ -218,7 +218,7 @@ Fraig_NodeVecGrow.exit11:                         ; preds = %.Fraig_NodeVecGrow.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_NodeVecPushUnique(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Fraig_NodeVecPushUnique(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -416,7 +416,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_NodeVecPushUniqueOrder(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrder(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -561,7 +561,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_NodeVecPushUniqueOrderByLevel(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrderByLevel(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -634,7 +634,7 @@ define void @Fraig_NodeVecRemove(ptr nocapture noundef %0, ptr noundef readnone 
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !10
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %8
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit, %2
@@ -660,9 +660,9 @@ define void @Fraig_NodeVecRemove(ptr nocapture noundef %0, ptr noundef readnone 
   store ptr %21, ptr %23, align 8
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %24 = load i32, ptr %3, align 4
-  %25 = trunc i64 %indvars.iv.next29 to i32
+  %25 = trunc nuw i64 %indvars.iv.next29 to i32
   %26 = icmp sgt i32 %24, %25
-  %27 = trunc i64 %indvars.iv28 to i32
+  %27 = trunc nuw i64 %indvars.iv28 to i32
   br i1 %26, label %18, label %._crit_edge24, !llvm.loop !11
 
 ._crit_edge24:                                    ; preds = %18, %._crit_edge
@@ -693,7 +693,7 @@ define ptr @Fraig_NodeVecReadEntry(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Fraig_NodeVecCompareLevelsIncreasing(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define range(i32 -1, 2) i32 @Fraig_NodeVecCompareLevelsIncreasing(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -714,7 +714,7 @@ define i32 @Fraig_NodeVecCompareLevelsIncreasing(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Fraig_NodeVecCompareLevelsDecreasing(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define range(i32 -1, 2) i32 @Fraig_NodeVecCompareLevelsDecreasing(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -735,7 +735,7 @@ define i32 @Fraig_NodeVecCompareLevelsDecreasing(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Fraig_NodeVecCompareNumbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define range(i32 -1, 2) i32 @Fraig_NodeVecCompareNumbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -754,7 +754,7 @@ define i32 @Fraig_NodeVecCompareNumbers(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Fraig_NodeVecCompareRefCounts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define range(i32 -1, 2) i32 @Fraig_NodeVecCompareRefCounts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2

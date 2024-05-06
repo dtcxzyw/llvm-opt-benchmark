@@ -138,7 +138,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @gmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @gmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -199,7 +199,7 @@ if.end4:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %data.addr.011, i64 2147483647
   %sub = add i64 %datalen.addr.010, -2147483647
   %cmp2 = icmp ugt i64 %sub, 2147483647
-  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !5
+  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end4, %while.cond.preheader
   %datalen.addr.0.lcssa = phi i64 [ %datalen, %while.cond.preheader ], [ %sub, %if.end4 ]
@@ -214,7 +214,7 @@ return:                                           ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @gmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %hlen = alloca i32, align 4
@@ -282,7 +282,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @gmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx1, align 8
@@ -463,6 +463,5 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -57,7 +57,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN6google8protobuf8internal17kGlobalEmptyTableE = local_unnamed_addr constant [1 x i64] zeroinitializer, align 8
 @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE9EmptyNodeEvE10empty_node = linkonce_odr hidden constant { ptr, i8, i8, i8, i8 } { ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE9EmptyNodeEvE10empty_node, i8 0, i8 0, i8 0, i8 1 }, comdat, align 8
 @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE = external constant ptr, align 8
-@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
+@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local local_unnamed_addr global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_map.cc, ptr null }]
 

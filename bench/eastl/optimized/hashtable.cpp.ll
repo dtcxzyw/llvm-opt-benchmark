@@ -198,8 +198,8 @@ if.else:                                          ; preds = %if.then
 
 return:                                           ; preds = %entry, %if.else, %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit
   %retval.sroa.0.0 = phi i64 [ 1, %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit ], [ 0, %if.else ], [ 0, %entry ]
-  %retval.sroa.411.0 = phi i64 [ %7, %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit ], [ 0, %if.else ], [ 0, %entry ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.411.0, %retval.sroa.0.0
+  %retval.sroa.413.0 = phi i64 [ %7, %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit ], [ 0, %if.else ], [ 0, %entry ]
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.413.0, %retval.sroa.0.0
   ret i64 %retval.sroa.0.0.insert.insert
 }
 

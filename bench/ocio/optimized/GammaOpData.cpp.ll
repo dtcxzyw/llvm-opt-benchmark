@@ -181,7 +181,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData20ConvertStringToStyleEPKc(ptr noundef %str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 10) i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData20ConvertStringToStyleEPKc(ptr noundef %str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -479,7 +479,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData12ConvertStyleENS0_5StyleE(i32 noundef %style) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData12ConvertStyleENS0_5StyleE(i32 noundef %style) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -581,7 +581,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData17ConvertStyleBasicENS_13NegativeStyleENS_18TransformDirectionE(i32 noundef %negStyle, i32 noundef %dir) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 6) i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData17ConvertStyleBasicENS_13NegativeStyleENS_18TransformDirectionE(i32 noundef %negStyle, i32 noundef %dir) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -713,7 +713,7 @@ unreachable:                                      ; preds = %invoke.cont23
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData20ConvertStyleMonCurveENS_13NegativeStyleENS_18TransformDirectionE(i32 noundef %negStyle, i32 noundef %dir) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 6, 10) i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData20ConvertStyleMonCurveENS_13NegativeStyleENS_18TransformDirectionE(i32 noundef %negStyle, i32 noundef %dir) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -864,7 +864,7 @@ entry:
   store i32 0, ptr %m_style, align 8
   %m_redParams = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams, i8 0, i64 24, i1 false), !alias.scope !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_redParams, i8 0, i64 24, i1 false), !alias.scope !4
   %call5.i.i.i.i.i1.i4 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
           to label %cond.true.i.i.i.i unwind label %lpad
 
@@ -878,7 +878,7 @@ cond.true.i.i.i.i:                                ; preds = %entry
   store ptr %incdec.ptr.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !alias.scope !4
   %m_greenParams = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams, i8 0, i64 24, i1 false), !alias.scope !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_greenParams, i8 0, i64 24, i1 false), !alias.scope !7
   %call5.i.i.i.i.i1.i8 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
           to label %cond.true.i.i.i.i22 unwind label %lpad4
 
@@ -892,7 +892,7 @@ cond.true.i.i.i.i22:                              ; preds = %cond.true.i.i.i.i
   store ptr %incdec.ptr.i.i.i7, ptr %_M_end_of_storage.i.i6, align 8, !alias.scope !7
   %m_blueParams = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams, i8 0, i64 24, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_blueParams, i8 0, i64 24, i1 false), !alias.scope !10
   %call5.i.i.i.i.i1.i27 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
           to label %cond.true.i.i.i.i43 unwind label %lpad7
 
@@ -906,7 +906,7 @@ cond.true.i.i.i.i43:                              ; preds = %cond.true.i.i.i.i22
   store ptr %incdec.ptr.i.i.i25, ptr %_M_end_of_storage.i.i24, align 8, !alias.scope !10
   %m_alphaParams = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams, i8 0, i64 24, i1 false), !alias.scope !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_alphaParams, i8 0, i64 24, i1 false), !alias.scope !13
   %call5.i.i.i.i.i1.i48 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
           to label %invoke.cont11 unwind label %if.then.i.i.i
 
@@ -3832,7 +3832,7 @@ invoke.cont10:                                    ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev11GammaOpData12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZNK19OpenColorIO_v2_4dev11GammaOpData12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %m_style, align 8

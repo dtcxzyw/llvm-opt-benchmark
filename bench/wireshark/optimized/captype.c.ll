@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [58 x i8] c"  -v, --version            display version info and exit\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8

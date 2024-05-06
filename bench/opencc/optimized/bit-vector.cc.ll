@@ -157,7 +157,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr nocaptur
   %5 = icmp eq i64 %4, 0
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr i32, ptr %7, i64 %3
+  %8 = getelementptr inbounds i32, ptr %7, i64 %3
   %9 = load i32, ptr %8, align 4
   br i1 %5, label %10, label %12
 
@@ -168,7 +168,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr nocaptur
 12:                                               ; preds = %2
   %13 = lshr i32 %9, 9
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr i8, ptr %8, i64 4
+  %15 = getelementptr inbounds i8, ptr %8, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, 511
   %18 = lshr i32 %17, 9
@@ -340,7 +340,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr nocaptur
   %126 = add i64 %.neg20.i, %125
   %127 = lshr i64 %126, 7
   %128 = and i64 %127, 72340172838076673
-  %129 = tail call i64 @llvm.cttz.i64(i64 %128, i1 true), !range !7
+  %129 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %128, i1 true)
   %130 = lshr i64 %113, %129
   %131 = mul i64 %123, 72340172838076672
   %132 = lshr i64 %131, %129
@@ -366,7 +366,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %5 = icmp eq i64 %4, 0
   %6 = getelementptr inbounds i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr i32, ptr %7, i64 %3
+  %8 = getelementptr inbounds i32, ptr %7, i64 %3
   %9 = load i32, ptr %8, align 4
   br i1 %5, label %10, label %12
 
@@ -377,7 +377,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
 12:                                               ; preds = %2
   %13 = lshr i32 %9, 9
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr i8, ptr %8, i64 4
+  %15 = getelementptr inbounds i8, ptr %8, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, 511
   %18 = lshr i32 %17, 9
@@ -395,7 +395,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   %.not69 = icmp ugt i64 %26, %1
-  br i1 %.not69, label %.loopexit, label %.preheader71, !llvm.loop !8
+  br i1 %.not69, label %.loopexit, label %.preheader71, !llvm.loop !7
 
 .preheader:                                       ; preds = %12, %.preheader
   %.174 = phi i64 [ %.1., %.preheader ], [ %14, %12 ]
@@ -410,7 +410,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %.1. = select i1 %32, i64 %.174, i64 %28
   %33 = add nuw nsw i64 %.1., 1
   %34 = icmp ult i64 %33, %..065
-  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader71, %.preheader
   %.3 = phi i64 [ %.1., %.preheader ], [ %.064, %.preheader71 ]
@@ -528,7 +528,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %113 = add i64 %.neg20.i, %112
   %114 = lshr i64 %113, 7
   %115 = and i64 %114, 72340172838076673
-  %116 = tail call i64 @llvm.cttz.i64(i64 %115, i1 true), !range !7
+  %116 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %115, i1 true)
   %117 = lshr i64 %100, %116
   %118 = mul i64 %110, 72340172838076672
   %119 = lshr i64 %118, %116
@@ -598,7 +598,7 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false)
   %32 = add nuw i64 %.01114.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %32, %22
-  br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %29, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %29, !llvm.loop !9
 
 33:                                               ; preds = %.preheader.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %25) #12
@@ -625,7 +625,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i: ; preds = %
   store i32 0, ptr %41, align 4
   %42 = add nuw i64 %.0911.i, 1
   %exitcond.not.i = icmp eq i64 %.0911.i, %11
-  br i1 %exitcond.not.i, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit, label %37, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit, label %37, !llvm.loop !10
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit: ; preds = %37, %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i
   store i64 %12, ptr %34, align 8
@@ -830,7 +830,7 @@ default.unreachable160:                           ; preds = %59
   store i32 %156, ptr %154, align 4
   %157 = add nuw i64 %.01114.i.i.i88, 1
   %exitcond.not.i.i.i89 = icmp eq i64 %157, %140
-  br i1 %exitcond.not.i.i.i89, label %.preheader.i.i.i90, label %153, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i89, label %.preheader.i.i.i90, label %153, !llvm.loop !11
 
 158:                                              ; preds = %.preheader.i.i.i90
   tail call void @_ZdaPv(ptr noundef nonnull %151) #12
@@ -898,7 +898,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit: ; preds = %138, %.prehe
   store i32 %187, ptr %185, align 4
   %188 = add nuw i64 %.01114.i.i.i96, 1
   %exitcond.not.i.i.i97 = icmp eq i64 %188, %171
-  br i1 %exitcond.not.i.i.i97, label %.preheader.i.i.i98, label %184, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i97, label %.preheader.i.i.i98, label %184, !llvm.loop !11
 
 189:                                              ; preds = %.preheader.i.i.i98
   tail call void @_ZdaPv(ptr noundef nonnull %182) #12
@@ -925,7 +925,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit100: ; preds = %169, %.pr
   %198 = add nuw i64 %.074133, 1
   %199 = load i64, ptr %6, align 8
   %200 = icmp ult i64 %198, %199
-  br i1 %200, label %56, label %._crit_edge, !llvm.loop !13
+  br i1 %200, label %56, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %197
   %201 = and i64 %199, 511
@@ -1148,7 +1148,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit100: ; preds = %169, %.pr
   store i32 %321, ptr %319, align 4
   %322 = add nuw i64 %.01114.i.i.i111, 1
   %exitcond.not.i.i.i112 = icmp eq i64 %322, %301
-  br i1 %exitcond.not.i.i.i112, label %.preheader.i.i.i113, label %318, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i112, label %.preheader.i.i.i113, label %318, !llvm.loop !11
 
 323:                                              ; preds = %.preheader.i.i.i113
   tail call void @_ZdaPv(ptr noundef nonnull %314) #12
@@ -1218,7 +1218,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit115: ; preds = %296, %.pr
   store i32 %356, ptr %354, align 4
   %357 = add nuw i64 %.01114.i.i.i121, 1
   %exitcond.not.i.i.i122 = icmp eq i64 %357, %336
-  br i1 %exitcond.not.i.i.i122, label %.preheader.i.i.i123, label %353, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i122, label %.preheader.i.i.i123, label %353, !llvm.loop !11
 
 358:                                              ; preds = %.preheader.i.i.i123
   tail call void @_ZdaPv(ptr noundef nonnull %349) #12
@@ -1300,7 +1300,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noun
   store i32 %28, ptr %26, align 4
   %29 = add nuw i64 %.01114.i, 1
   %exitcond.not.i = icmp eq i64 %29, %13
-  br i1 %exitcond.not.i, label %.preheader.i, label %25, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.preheader.i, label %25, !llvm.loop !11
 
 30:                                               ; preds = %.preheader.i
   tail call void @_ZdaPv(ptr noundef nonnull %21) #12
@@ -1386,10 +1386,9 @@ attributes #14 = { noreturn }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i64 0, i64 65}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

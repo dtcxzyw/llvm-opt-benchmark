@@ -46,8 +46,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [40 x i8] c"array packing: %s %zu rows %zu columns\0A\00", align 1
 @.str.31 = private unnamed_addr constant [10 x i8] c"row major\00", align 1
 @.str.32 = private unnamed_addr constant [13 x i8] c"column major\00", align 1
-@gv_sort_compar = internal thread_local global ptr null, align 8
-@gv_sort_arg = internal thread_local global ptr null, align 8
+@gv_sort_compar = internal thread_local unnamed_addr global ptr null, align 8
+@gv_sort_arg = internal thread_local unnamed_addr global ptr null, align 8
 @.str.33 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.34 = private unnamed_addr constant [10 x i8] c"undefined\00", align 1
 @switch.table.parsePackModeInfo = private unnamed_addr constant [5 x ptr] [ptr @.str.5, ptr @.str.7, ptr @.str.6, ptr @.str.2, ptr @.str.3], align 8
@@ -492,11 +492,11 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %.sroa.0280.0.extract.trunc288.i.i = sub i32 %243, %257
   %.sroa.22.0.extract.shift5.i.i.i = sub i64 %.sroa.25.0.insert.shift.i.i, %.sroa.6.0.insert.shift.i.i
   %.sroa.12289.0.extract.shift290.i.i = lshr exact i64 %.sroa.22.0.extract.shift5.i.i.i, 32
-  %.sroa.12289.0.extract.trunc291.i.i = trunc i64 %.sroa.12289.0.extract.shift290.i.i to i32
+  %.sroa.12289.0.extract.trunc291.i.i = trunc nuw i64 %.sroa.12289.0.extract.shift290.i.i to i32
   %.sroa.0262.0.extract.trunc270.i.i = add i32 %243, %257
   %.sroa.2.0.extract.shift5.i.i.i = add i64 %.sroa.0158.0.insert.insert.i.i, %.sroa.25.0.insert.shift.i.i
   %.sroa.12.0.extract.shift271.i.i = lshr i64 %.sroa.2.0.extract.shift5.i.i.i, 32
-  %.sroa.12.0.extract.trunc272.i.i = trunc i64 %.sroa.12.0.extract.shift271.i.i to i32
+  %.sroa.12.0.extract.trunc272.i.i = trunc nuw i64 %.sroa.12.0.extract.shift271.i.i to i32
   %263 = icmp sgt i32 %.sroa.0280.0.extract.trunc288.i.i, -1
   br i1 %263, label %264, label %266
 
@@ -773,11 +773,11 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %.sroa.0280.0.extract.trunc.i.i = sub i32 %380, %391
   %.sroa.22.0.extract.shift5.i477.i.i = sub i64 %.sroa.25.0.insert.shift239.i.i, %.sroa.6.0.insert.shift178.i.i
   %.sroa.12289.0.extract.shift.i.i = lshr exact i64 %.sroa.22.0.extract.shift5.i477.i.i, 32
-  %.sroa.12289.0.extract.trunc.i.i = trunc i64 %.sroa.12289.0.extract.shift.i.i to i32
+  %.sroa.12289.0.extract.trunc.i.i = trunc nuw i64 %.sroa.12289.0.extract.shift.i.i to i32
   %.sroa.0262.0.extract.trunc.i.i = add i32 %380, %391
   %.sroa.2.0.extract.shift5.i481.i.i = add i64 %.sroa.0158.0.insert.insert166.i.i, %.sroa.25.0.insert.shift239.i.i
   %.sroa.12.0.extract.shift.i.i = lshr i64 %.sroa.2.0.extract.shift5.i481.i.i, 32
-  %.sroa.12.0.extract.trunc.i.i = trunc i64 %.sroa.12.0.extract.shift.i.i to i32
+  %.sroa.12.0.extract.trunc.i.i = trunc nuw i64 %.sroa.12.0.extract.shift.i.i to i32
   %397 = icmp sgt i32 %.sroa.0280.0.extract.trunc.i.i, -1
   br i1 %397, label %398, label %400
 
@@ -1645,7 +1645,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = tail call fastcc i32 @computeStep(i64 noundef %0, ptr noundef %1, i32 noundef %10)
+  %11 = tail call fastcc i32 @computeStep(i64 noundef %0, ptr noundef readonly %1, i32 noundef %10)
   %12 = load i8, ptr @Verbose, align 1
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %16, label %13
@@ -1670,7 +1670,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   store i64 %.06366.i, ptr %21, align 8
   %22 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.06366.i
   %23 = load i32, ptr %9, align 8
-  tail call fastcc void @genBox(ptr noundef byval(%struct.boxf) align 8 %22, ptr noundef %20, i32 noundef %11, i32 noundef %23, i64 0, ptr noundef nonnull @.str.33)
+  tail call fastcc void @genBox(ptr noundef readonly byval(%struct.boxf) align 8 %22, ptr noundef %20, i32 noundef %11, i32 noundef %23, i64 0, ptr noundef nonnull @.str.33)
   %24 = add nuw i64 %.06366.i, 1
   %exitcond.not.i = icmp eq i64 %24, %0
   br i1 %exitcond.not.i, label %.lr.ph69.preheader.i, label %.lr.ph.i
@@ -1702,7 +1702,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds %struct.point, ptr %30, i64 %34
   %36 = load i32, ptr %9, align 8
-  tail call fastcc void @placeGraph(i64 noundef %.06071.i, ptr noundef %32, ptr noundef %29, ptr noundef %35, i32 noundef %11, i32 noundef %36, ptr noundef %1)
+  tail call fastcc void @placeGraph(i64 noundef %.06071.i, ptr noundef %32, ptr noundef %29, ptr noundef %35, i32 noundef %11, i32 noundef %36, ptr noundef readonly %1)
   %37 = add nuw i64 %.06071.i, 1
   %exitcond86.not.i = icmp eq i64 %37, %0
   br i1 %exitcond86.not.i, label %.lr.ph77.preheader.i, label %.lr.ph73.i
@@ -1749,7 +1749,7 @@ polyRects.exit:                                   ; preds = %.lr.ph80.i, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @packRects(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @packRects(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %0, 2
   br i1 %4, label %17, label %5
 
@@ -2226,7 +2226,7 @@ define internal fastcc void @shiftGraph(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @packGraphs(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @packGraphs(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @putGraphs(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -2245,8 +2245,8 @@ define noundef i32 @packGraphs(i64 noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @packSubgraphs(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @putGraphs(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+  %5 = tail call ptr @putGraphs(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %packGraphs.exit, label %6
 
@@ -2254,7 +2254,7 @@ define noundef i32 @packSubgraphs(i64 noundef %0, ptr nocapture noundef readonly
   %7 = getelementptr inbounds i8, ptr %3, i64 12
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
-  %10 = tail call i32 @shiftGraphs(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext %9)
+  %10 = tail call i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly %1, ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext %9)
   tail call void @free(ptr noundef nonnull %5) #18
   tail call void @compute_bb(ptr noundef %2) #18
   %11 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2326,7 +2326,7 @@ packGraphs.exit:                                  ; preds = %4, %._crit_edge67
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pack_graph(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @pack_graph(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.pack_info, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2366,7 +2366,7 @@ getPackInfo.exit:                                 ; preds = %getPack.exit.i, %15
   %21 = call i32 @parsePackModeInfo(ptr noundef %20, i32 noundef 3, ptr noundef nonnull %6)
   store i8 1, ptr %18, align 4
   store ptr %3, ptr %19, align 8
-  %22 = call i32 @packSubgraphs(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6), !range !4
+  %22 = call i32 @packSubgraphs(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %25
 
@@ -2439,7 +2439,7 @@ define i32 @parsePackModeInfo(ptr noundef readonly %0, i32 noundef %1, ptr nocap
   br i1 %.not, label %54, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.2, i64 noundef 5) #22
+  %11 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(6) @.str.2, i64 noundef 5) #22
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %31
 
@@ -2503,7 +2503,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 31:                                               ; preds = %10
-  %32 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #22
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(7) @.str.3, i64 noundef 6) #22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %42
 
@@ -2526,7 +2526,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 42:                                               ; preds = %31
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.5) #22
+  %43 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(8) @.str.5) #22
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %46
 
@@ -2535,7 +2535,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 46:                                               ; preds = %42
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.6) #22
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(6) @.str.6) #22
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
@@ -2544,7 +2544,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
   br label %54
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.7) #22
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @.str.7) #22
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %54
 
@@ -2740,7 +2740,7 @@ define internal fastcc i32 @computeStep(i64 noundef %0, ptr nocapture noundef re
 define internal fastcc void @genBox(ptr nocapture noundef readonly byval(%struct.boxf) align 8 %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i64 %4, ptr noundef %5) unnamed_addr #0 {
   %.sroa.057.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.3.0.extract.shift = lshr i64 %4, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %7 = load double, ptr %0, align 8
   %8 = fcmp ult double %7, 0.000000e+00
   %.in.v = select i1 %8, double -5.000000e-01, double 5.000000e-01
@@ -2911,7 +2911,7 @@ define internal fastcc void @genBox(ptr nocapture noundef readonly byval(%struct
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @cmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %4, align 8
@@ -2954,12 +2954,12 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
   %29 = fptosi double %28 to i32
   %30 = sdiv i32 %23, -2
   %31 = sdiv i32 %29, -2
-  %32 = tail call fastcc i32 @fits(i32 noundef %30, i32 noundef %31, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %6), !range !4
+  %32 = tail call fastcc i32 @fits(i32 noundef %30, i32 noundef %31, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %6)
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %33, label %.loopexit
 
 33:                                               ; preds = %14, %7
-  %34 = tail call fastcc i32 @fits(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %6), !range !4
+  %34 = tail call fastcc i32 @fits(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %6)
   %.not135 = icmp eq i32 %34, 0
   br i1 %.not135, label %35, label %.loopexit
 
@@ -2979,7 +2979,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 41:                                               ; preds = %.preheader164, %43
   %.0173 = phi i32 [ 0, %.preheader164 ], [ %44, %43 ]
-  %42 = tail call fastcc i32 @fits(i32 noundef %.0173, i32 noundef %40, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %42 = tail call fastcc i32 @fits(i32 noundef %.0173, i32 noundef %40, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not146 = icmp eq i32 %42, 0
   br i1 %.not146, label %43, label %.loopexit
 
@@ -2990,7 +2990,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %43, %46
   %.0126174 = phi i32 [ %47, %46 ], [ %40, %43 ]
-  %45 = tail call fastcc i32 @fits(i32 noundef %.0131, i32 noundef %.0126174, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %45 = tail call fastcc i32 @fits(i32 noundef %.0131, i32 noundef %.0126174, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not145 = icmp eq i32 %45, 0
   br i1 %.not145, label %46, label %.loopexit
 
@@ -3001,7 +3001,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph176:                                        ; preds = %46, %49
   %.1175 = phi i32 [ %50, %49 ], [ %.0131, %46 ]
-  %48 = tail call fastcc i32 @fits(i32 noundef %.1175, i32 noundef %.0131, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %48 = tail call fastcc i32 @fits(i32 noundef %.1175, i32 noundef %.0131, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not144 = icmp eq i32 %48, 0
   br i1 %.not144, label %49, label %.loopexit
 
@@ -3016,7 +3016,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph179:                                        ; preds = %49, %54
   %.1127178 = phi i32 [ %55, %54 ], [ %.0131, %49 ]
-  %53 = tail call fastcc i32 @fits(i32 noundef %50, i32 noundef %.1127178, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %53 = tail call fastcc i32 @fits(i32 noundef %50, i32 noundef %.1127178, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not143 = icmp eq i32 %53, 0
   br i1 %.not143, label %54, label %.loopexit
 
@@ -3032,7 +3032,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph182:                                        ; preds = %.preheader155, %57
   %.2181 = phi i32 [ %58, %57 ], [ %50, %.preheader155 ]
-  %59 = tail call fastcc i32 @fits(i32 noundef %.2181, i32 noundef %55, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %59 = tail call fastcc i32 @fits(i32 noundef %.2181, i32 noundef %55, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not142 = icmp eq i32 %59, 0
   br i1 %.not142, label %57, label %.loopexit
 
@@ -3047,7 +3047,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph185:                                        ; preds = %.lr.ph185.preheader, %63
   %.2128183 = phi i32 [ %64, %63 ], [ 0, %.lr.ph185.preheader ]
-  %62 = tail call fastcc i32 @fits(i32 noundef %61, i32 noundef %.2128183, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %62 = tail call fastcc i32 @fits(i32 noundef %61, i32 noundef %.2128183, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not141 = icmp eq i32 %62, 0
   br i1 %.not141, label %63, label %.loopexit
 
@@ -3062,7 +3062,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph188:                                        ; preds = %63, %67
   %.3187 = phi i32 [ %68, %67 ], [ %61, %63 ]
-  %66 = tail call fastcc i32 @fits(i32 noundef %.3187, i32 noundef %64, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %66 = tail call fastcc i32 @fits(i32 noundef %.3187, i32 noundef %64, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not140 = icmp eq i32 %66, 0
   br i1 %.not140, label %67, label %.loopexit
 
@@ -3077,7 +3077,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph191:                                        ; preds = %.preheader149, %70
   %.3129190 = phi i32 [ %71, %70 ], [ %64, %.preheader149 ]
-  %69 = tail call fastcc i32 @fits(i32 noundef %.1132, i32 noundef %.3129190, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %69 = tail call fastcc i32 @fits(i32 noundef %.1132, i32 noundef %.3129190, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not139 = icmp eq i32 %69, 0
   br i1 %.not139, label %70, label %.loopexit
 
@@ -3092,7 +3092,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph194:                                        ; preds = %.lr.ph194.preheader, %74
   %.4193 = phi i32 [ %75, %74 ], [ %.1132, %.lr.ph194.preheader ]
-  %73 = tail call fastcc i32 @fits(i32 noundef %.4193, i32 noundef %.3129.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %73 = tail call fastcc i32 @fits(i32 noundef %.4193, i32 noundef %.3129.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not138 = icmp eq i32 %73, 0
   br i1 %.not138, label %74, label %.loopexit
 
@@ -3108,7 +3108,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
 
 .lr.ph197:                                        ; preds = %.preheader, %77
   %.4130196 = phi i32 [ %78, %77 ], [ %.3129.lcssa, %.preheader ]
-  %80 = tail call fastcc i32 @fits(i32 noundef %75, i32 noundef %.4130196, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6), !range !4
+  %80 = tail call fastcc i32 @fits(i32 noundef %75, i32 noundef %.4130196, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not137 = icmp eq i32 %80, 0
   br i1 %.not137, label %77, label %.loopexit
 
@@ -3147,7 +3147,7 @@ declare { double, double } @coord(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @fillEdge(ptr nocapture noundef readonly %0, i64 %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %.sroa.0123.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2124.0.extract.shift = lshr i64 %1, 32
-  %.sroa.2124.0.extract.trunc = trunc i64 %.sroa.2124.0.extract.shift to i32
+  %.sroa.2124.0.extract.trunc = trunc nuw i64 %.sroa.2124.0.extract.shift to i32
   %8 = sitofp i32 %.sroa.0123.0.extract.trunc to double
   %9 = sitofp i32 %.sroa.2124.0.extract.trunc to double
   br i1 %6, label %10, label %25
@@ -3520,7 +3520,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 declare void @insertPS(ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fits(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8
@@ -3626,7 +3626,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @exit(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ucmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #8 {
+define internal range(i32 -1, 2) i32 @ucmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #8 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -3645,7 +3645,7 @@ define internal i32 @ucmpf(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @acmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @acmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3744,4 +3744,3 @@ attributes #24 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

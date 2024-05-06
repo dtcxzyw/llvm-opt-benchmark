@@ -917,53 +917,53 @@ if.then33:                                        ; preds = %pmp_update_rule_add
   %22 = lshr i8 %20, 3
   %23 = and i8 %22, 3
   switch i8 %23, label %default.unreachable [
-    i8 0, label %pmp_update_rule_addr.exit55
-    i8 1, label %sw.bb10.i48
-    i8 2, label %sw.bb17.i45
-    i8 3, label %sw.bb20.i34
+    i8 0, label %pmp_update_rule_addr.exit57
+    i8 1, label %sw.bb10.i50
+    i8 2, label %sw.bb17.i47
+    i8 3, label %sw.bb20.i36
   ]
 
-sw.bb10.i48:                                      ; preds = %if.then33
+sw.bb10.i50:                                      ; preds = %if.then33
   %24 = shl i64 %val, 2
-  %shl11.i49 = shl i64 %21, 2
-  %sub12.i50 = add i64 %shl11.i49, -1
-  %cmp13.i51 = icmp ugt i64 %24, %sub12.i50
-  %spec.select.i52 = select i1 %cmp13.i51, i64 0, i64 %24
-  %spec.select12.i53 = select i1 %cmp13.i51, i64 0, i64 %sub12.i50
-  br label %pmp_update_rule_addr.exit55
+  %shl11.i51 = shl i64 %21, 2
+  %sub12.i52 = add i64 %shl11.i51, -1
+  %cmp13.i53 = icmp ugt i64 %24, %sub12.i52
+  %spec.select.i54 = select i1 %cmp13.i53, i64 0, i64 %24
+  %spec.select12.i55 = select i1 %cmp13.i53, i64 0, i64 %sub12.i52
+  br label %pmp_update_rule_addr.exit57
 
-sw.bb17.i45:                                      ; preds = %if.then33
-  %shl18.i46 = shl i64 %21, 2
-  %sub19.i47 = or disjoint i64 %shl18.i46, 3
-  br label %pmp_update_rule_addr.exit55
+sw.bb17.i47:                                      ; preds = %if.then33
+  %shl18.i48 = shl i64 %21, 2
+  %sub19.i49 = or disjoint i64 %shl18.i48, 3
+  br label %pmp_update_rule_addr.exit57
 
-sw.bb20.i34:                                      ; preds = %if.then33
-  %shl.i.i35 = shl i64 %21, 2
-  %add.i.i36 = add i64 %shl.i.i35, 4
-  %and.i.i37 = and i64 %add.i.i36, %shl.i.i35
-  %or.i.i38 = or i64 %shl.i.i35, %add.i.i36
-  %or2.i.i39 = or disjoint i64 %or.i.i38, 3
-  br label %pmp_update_rule_addr.exit55
+sw.bb20.i36:                                      ; preds = %if.then33
+  %shl.i.i37 = shl i64 %21, 2
+  %add.i.i38 = add i64 %shl.i.i37, 4
+  %and.i.i39 = and i64 %add.i.i38, %shl.i.i37
+  %or.i.i40 = or i64 %shl.i.i37, %add.i.i38
+  %or2.i.i41 = or disjoint i64 %or.i.i40, 3
+  br label %pmp_update_rule_addr.exit57
 
-pmp_update_rule_addr.exit55:                      ; preds = %if.then33, %sw.bb10.i48, %sw.bb17.i45, %sw.bb20.i34
-  %sa.0.i40 = phi i64 [ %and.i.i37, %sw.bb20.i34 ], [ %shl18.i46, %sw.bb17.i45 ], [ 0, %if.then33 ], [ %spec.select.i52, %sw.bb10.i48 ]
-  %ea.0.i41 = phi i64 [ %or2.i.i39, %sw.bb20.i34 ], [ %sub19.i47, %sw.bb17.i45 ], [ -1, %if.then33 ], [ %spec.select12.i53, %sw.bb10.i48 ]
-  %arrayidx23.i43 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr.i, i64 0, i64 %idxprom.i26
-  store i64 %sa.0.i40, ptr %arrayidx23.i43, align 16
-  %ea29.i44 = getelementptr inbounds i8, ptr %arrayidx23.i43, i64 8
-  store i64 %ea.0.i41, ptr %ea29.i44, align 8
+pmp_update_rule_addr.exit57:                      ; preds = %if.then33, %sw.bb10.i50, %sw.bb17.i47, %sw.bb20.i36
+  %sa.0.i42 = phi i64 [ %and.i.i39, %sw.bb20.i36 ], [ %shl18.i48, %sw.bb17.i47 ], [ 0, %if.then33 ], [ %spec.select.i54, %sw.bb10.i50 ]
+  %ea.0.i43 = phi i64 [ %or2.i.i41, %sw.bb20.i36 ], [ %sub19.i49, %sw.bb17.i47 ], [ -1, %if.then33 ], [ %spec.select12.i55, %sw.bb10.i50 ]
+  %arrayidx23.i45 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr.i, i64 0, i64 %idxprom.i26
+  store i64 %sa.0.i42, ptr %arrayidx23.i45, align 16
+  %ea29.i46 = getelementptr inbounds i8, ptr %arrayidx23.i45, i64 8
+  store i64 %ea.0.i43, ptr %ea29.i46, align 8
   br label %if.end35
 
-if.end35:                                         ; preds = %pmp_update_rule_addr.exit55, %pmp_update_rule_addr.exit
+if.end35:                                         ; preds = %pmp_update_rule_addr.exit57, %pmp_update_rule_addr.exit
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   tail call void @tlb_flush(ptr noundef %add.ptr.i) #10
   br label %if.end62
 
 do.body38:                                        ; preds = %pmp_is_locked.exit
   %25 = load i32, ptr @qemu_loglevel, align 4
-  %and.i56 = and i32 %25, 2048
-  %cmp.i57.not = icmp eq i32 %and.i56, 0
-  br i1 %cmp.i57.not, label %if.end62, label %if.then46
+  %and.i58 = and i32 %25, 2048
+  %cmp.i59.not = icmp eq i32 %and.i58, 0
+  br i1 %cmp.i59.not, label %if.end62, label %if.then46
 
 if.then46:                                        ; preds = %do.body38
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3) #10
@@ -971,9 +971,9 @@ if.then46:                                        ; preds = %do.body38
 
 do.body51:                                        ; preds = %trace_pmpaddr_csr_write.exit
   %26 = load i32, ptr @qemu_loglevel, align 4
-  %and.i58 = and i32 %26, 2048
-  %cmp.i59.not = icmp eq i32 %and.i58, 0
-  br i1 %cmp.i59.not, label %if.end62, label %if.then59
+  %and.i60 = and i32 %26, 2048
+  %cmp.i61.not = icmp eq i32 %and.i60, 0
+  br i1 %cmp.i61.not, label %if.end62, label %if.then59
 
 if.then59:                                        ; preds = %do.body51
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4) #10
@@ -1191,7 +1191,7 @@ trace_mseccfg_csr_read.exit:                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i64 @pmp_get_tlb_size(ptr nocapture noundef readonly %env, i64 noundef %addr) local_unnamed_addr #5 {
+define dso_local range(i64 1, 4097) i64 @pmp_get_tlb_size(ptr nocapture noundef readonly %env, i64 noundef %addr) local_unnamed_addr #5 {
 entry:
   %and = and i64 %addr, -4096
   %sub = or i64 %addr, 4095
@@ -1252,7 +1252,7 @@ return:                                           ; preds = %for.inc, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @pmp_priv_to_page_prot(i32 noundef %pmp_priv) local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, 8) i32 @pmp_priv_to_page_prot(i32 noundef %pmp_priv) local_unnamed_addr #6 {
 entry:
   %prot.2 = and i32 %pmp_priv, 7
   ret i32 %prot.2

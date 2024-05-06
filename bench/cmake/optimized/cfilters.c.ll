@@ -332,7 +332,7 @@ define dso_local i64 @Curl_conn_send(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_cf_create(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @Curl_ccalloc, align 8
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 40) #11
   %.not = icmp eq ptr %5, null
@@ -1607,7 +1607,7 @@ define dso_local i32 @Curl_conn_keep_alive(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @Curl_conn_get_max_concurrent(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concurrent(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 432
@@ -1684,7 +1684,7 @@ define dso_local void @Curl_pollset_change(ptr nocapture noundef readnone %0, pt
   br i1 %.not, label %22, label %47
 
 22:                                               ; preds = %12
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw i64 %indvars.iv to i32
   %24 = add nuw i32 %23, 1
   %25 = icmp ult i32 %24, %8
   br i1 %25, label %26, label %36
@@ -1779,14 +1779,14 @@ define dso_local void @Curl_pollset_set(ptr nocapture noundef readnone %0, ptr n
   %23 = load i8, ptr %22, align 1
   %24 = xor i8 %12, -1
   %25 = and i8 %23, %24
-  %26 = trunc i32 %8 to i8
+  %26 = trunc nuw nsw i32 %8 to i8
   %27 = or i8 %25, %26
   store i8 %27, ptr %22, align 1
   %.not.i = icmp eq i8 %27, 0
   br i1 %.not.i, label %28, label %Curl_pollset_change.exit
 
 28:                                               ; preds = %19
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw i64 %indvars.iv.i to i32
   %30 = add nuw i32 %29, 1
   %31 = icmp ult i32 %30, %15
   br i1 %31, label %32, label %42
@@ -1826,7 +1826,7 @@ define dso_local void @Curl_pollset_set(ptr nocapture noundef readnone %0, ptr n
   %47 = zext nneg i32 %15 to i64
   %48 = getelementptr inbounds [5 x i32], ptr %1, i64 0, i64 %47
   store i32 %2, ptr %48, align 4
-  %49 = trunc i32 %8 to i8
+  %49 = trunc nuw nsw i32 %8 to i8
   %50 = getelementptr inbounds i8, ptr %1, i64 24
   %51 = getelementptr inbounds [5 x i8], ptr %50, i64 0, i64 %47
   store i8 %49, ptr %51, align 1
@@ -1856,7 +1856,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr nocapture noun
 
 8:                                                ; preds = %Curl_pollset_change.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %Curl_pollset_change.exit.i ]
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %10 = shl nuw nsw i32 1, %9
   %11 = shl nuw nsw i32 65536, %9
   %12 = shl nuw nsw i32 65537, %9

@@ -368,7 +368,7 @@ phar_get_entrypfp.exit33:                         ; preds = %79, %83, %85, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @phar_open_archive_fp(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_open_archive_fp(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 324
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 256
@@ -639,7 +639,7 @@ define internal fastcc i64 @phar_get_fp_offset(ptr nocapture noundef readonly %0
 declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_mount_entry(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_mount_entry(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca ptr, align 8
@@ -934,7 +934,7 @@ define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeon
 43:                                               ; preds = %38
   %44 = load ptr, ptr %4, align 8
   %45 = load i64, ptr %6, align 8
-  %46 = call i32 @phar_get_archive(ptr noundef nonnull %8, ptr noundef %44, i64 noundef %45, ptr noundef null, i64 noundef 0, ptr noundef null), !range !5
+  %46 = call i32 @phar_get_archive(ptr noundef nonnull %8, ptr noundef %44, i64 noundef %45, ptr noundef null, i64 noundef 0, ptr noundef null)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %48, label %._crit_edge
 
@@ -1081,7 +1081,7 @@ declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #2
 declare i32 @phar_split_fname(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_get_archive(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca %struct._zval_struct, align 8
@@ -1581,7 +1581,7 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare ptr @php_resolve_path(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, i8 noundef signext %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, i8 noundef signext %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = load i8, ptr %5, align 1
   %.fr184 = freeze i8 %11
@@ -1609,12 +1609,12 @@ define hidden noundef i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i
   br i1 %.not132, label %.split, label %.split123
 
 .split:                                           ; preds = %21
-  %22 = call i32 @phar_get_archive(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null), !range !5
+  %22 = call i32 @phar_get_archive(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null)
   br label %24
 
 .split123:                                        ; preds = %21
   store ptr null, ptr %7, align 8
-  %23 = call i32 @phar_get_archive(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7), !range !5
+  %23 = call i32 @phar_get_archive(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7)
   br label %24
 
 24:                                               ; preds = %.split, %.split123
@@ -1671,7 +1671,7 @@ define hidden noundef i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i
   br i1 %.not142.us.us.us, label %.split166.us, label %45
 
 45:                                               ; preds = %41
-  %46 = call i32 @phar_copy_on_write(ptr noundef nonnull %10), !range !5
+  %46 = call i32 @phar_copy_on_write(ptr noundef nonnull %10)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %.split169.us, label %.preheader.split.us.split.us.split.us
 
@@ -1705,7 +1705,7 @@ define hidden noundef i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i
   br i1 %.not142.us.us, label %.split166.us, label %64
 
 64:                                               ; preds = %60
-  %65 = call i32 @phar_copy_on_write(ptr noundef nonnull %10), !range !5
+  %65 = call i32 @phar_copy_on_write(ptr noundef nonnull %10)
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %.split169.us, label %.preheader.split.us.split.us.split
 
@@ -1751,7 +1751,7 @@ define hidden noundef i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i
   br i1 %.not142.us170.us, label %.split166.us, label %85
 
 85:                                               ; preds = %81
-  %86 = call i32 @phar_copy_on_write(ptr noundef nonnull %10), !range !5
+  %86 = call i32 @phar_copy_on_write(ptr noundef nonnull %10)
   %87 = icmp eq i32 %86, -1
   br i1 %87, label %.split169.us, label %.preheader.split.split.us.split.us
 
@@ -1785,7 +1785,7 @@ define hidden noundef i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i
   br i1 %.not142.us170, label %.split166.us, label %104
 
 104:                                              ; preds = %100
-  %105 = call i32 @phar_copy_on_write(ptr noundef nonnull %10), !range !5
+  %105 = call i32 @phar_copy_on_write(ptr noundef nonnull %10)
   %106 = icmp eq i32 %105, -1
   br i1 %106, label %.split169.us, label %.preheader.split.split.us.split
 
@@ -1976,7 +1976,7 @@ define hidden noundef i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i
   br i1 %20, label %200, label %203
 
 200:                                              ; preds = %199
-  %201 = tail call i32 @phar_create_writeable_entry(ptr noundef %156, ptr noundef nonnull %.0121159, ptr noundef %7), !range !5
+  %201 = tail call i32 @phar_create_writeable_entry(ptr noundef %156, ptr noundef nonnull %.0121159, ptr noundef %7)
   %202 = icmp eq i32 %201, -1
   br i1 %202, label %266, label %225
 
@@ -2011,17 +2011,17 @@ define hidden noundef i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i
   br i1 %20, label %216, label %219
 
 216:                                              ; preds = %215
-  %217 = tail call i32 @phar_create_writeable_entry(ptr noundef %156, ptr noundef nonnull %.0121159, ptr noundef %7), !range !5
+  %217 = tail call i32 @phar_create_writeable_entry(ptr noundef %156, ptr noundef nonnull %.0121159, ptr noundef %7)
   %218 = icmp eq i32 %217, -1
   br i1 %218, label %266, label %225
 
 219:                                              ; preds = %215
-  %220 = tail call i32 @phar_separate_entry_fp(ptr noundef nonnull %.0121159, ptr noundef %7), !range !5
+  %220 = tail call i32 @phar_separate_entry_fp(ptr noundef nonnull %.0121159, ptr noundef %7)
   %221 = icmp eq i32 %220, -1
   br i1 %221, label %266, label %225
 
 222:                                              ; preds = %206
-  %223 = tail call i32 @phar_open_entry_fp(ptr noundef nonnull %.0121159, ptr noundef %7, i32 noundef 1), !range !5
+  %223 = tail call i32 @phar_open_entry_fp(ptr noundef nonnull %.0121159, ptr noundef %7, i32 noundef 1)
   %224 = icmp eq i32 %223, -1
   br i1 %224, label %266, label %225
 
@@ -2402,7 +2402,7 @@ define hidden ptr @phar_get_entry_info_dir(ptr noundef %0, ptr noundef %1, i64 n
 167:                                              ; preds = %161
   %168 = load ptr, ptr %7, align 8
   %169 = load i64, ptr %8, align 8
-  %170 = call i32 @phar_mount_entry(ptr noundef %0, ptr noundef %162, i64 noundef %146, ptr noundef %168, i64 noundef %169), !range !5
+  %170 = call i32 @phar_mount_entry(ptr noundef %0, ptr noundef %162, i64 noundef %146, ptr noundef %168, i64 noundef %169)
   %.not138 = icmp eq i32 %170, 0
   %171 = load ptr, ptr %10, align 8
   call void @_efree(ptr noundef %171) #15
@@ -2454,7 +2454,7 @@ define hidden ptr @phar_get_entry_info(ptr noundef %0, ptr noundef %1, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_copy_on_write(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_copy_on_write(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zend_array, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
@@ -2625,7 +2625,7 @@ phar_copy_cached_phar.exit:                       ; preds = %phar_copy_cached_ph
 declare noalias ptr @_emalloc_48() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_create_writeable_entry(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_create_writeable_entry(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 2
@@ -2728,8 +2728,8 @@ define hidden noundef i32 @phar_create_writeable_entry(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_separate_entry_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @phar_open_entry_fp(ptr noundef %0, ptr noundef %1, i32 noundef 1), !range !5
+define hidden range(i32 -1, 1) i32 @phar_separate_entry_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @phar_open_entry_fp(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %44, label %5
 
@@ -2814,7 +2814,7 @@ define hidden noundef i32 @phar_separate_entry_fp(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @phar_open_entry_fp(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_open_entry_fp(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._phar_entry_data, align 8
   %5 = icmp eq i32 %2, 0
   br label %tailrecurse
@@ -3346,12 +3346,12 @@ define hidden ptr @phar_get_or_create_entry_data(ptr noundef %0, i64 noundef %1,
 
 20:                                               ; preds = %15, %8
   %21 = phi i1 [ false, %8 ], [ %19, %15 ]
-  %22 = call i32 @phar_get_archive(ptr noundef nonnull %12, ptr noundef %0, i64 noundef %1, ptr noundef null, i64 noundef 0, ptr noundef %6), !range !5
+  %22 = call i32 @phar_get_archive(ptr noundef nonnull %12, ptr noundef %0, i64 noundef %1, ptr noundef null, i64 noundef 0, ptr noundef %6)
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %124, label %24
 
 24:                                               ; preds = %20
-  %25 = call i32 @phar_get_entry_data(ptr noundef nonnull %13, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef %6, i32 noundef %7), !range !5
+  %25 = call i32 @phar_get_entry_data(ptr noundef nonnull %13, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef %6, i32 noundef %7)
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %124, label %27
 
@@ -3384,7 +3384,7 @@ define hidden ptr @phar_get_or_create_entry_data(ptr noundef %0, i64 noundef %1,
   br i1 %.not106, label %49, label %42
 
 42:                                               ; preds = %37
-  %43 = call i32 @phar_copy_on_write(ptr noundef nonnull %12), !range !5
+  %43 = call i32 @phar_copy_on_write(ptr noundef nonnull %12)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %45, label %49
 
@@ -3671,8 +3671,8 @@ declare i64 @time(ptr noundef) local_unnamed_addr #5
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_copy_entry_fp(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @phar_open_entry_fp(ptr noundef %0, ptr noundef %2, i32 noundef 1), !range !5
+define hidden range(i32 -1, 1) i32 @phar_copy_entry_fp(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @phar_open_entry_fp(ptr noundef %0, ptr noundef %2, i32 noundef 1)
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %46, label %6
 
@@ -3807,12 +3807,12 @@ define hidden noundef ptr @phar_open_jit(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not, label %.split, label %.split11
 
 .split:                                           ; preds = %3
-  %4 = tail call i32 @phar_open_entry_fp(ptr noundef %1, ptr noundef null, i32 noundef 1), !range !5
+  %4 = tail call i32 @phar_open_entry_fp(ptr noundef %1, ptr noundef null, i32 noundef 1)
   br label %6
 
 .split11:                                         ; preds = %3
   store ptr null, ptr %2, align 8
-  %5 = tail call i32 @phar_open_entry_fp(ptr noundef %1, ptr noundef nonnull %2, i32 noundef 1), !range !5
+  %5 = tail call i32 @phar_open_entry_fp(ptr noundef %1, ptr noundef nonnull %2, i32 noundef 1)
   br label %6
 
 6:                                                ; preds = %.split, %.split11
@@ -3838,7 +3838,7 @@ define hidden noundef ptr @phar_open_jit(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @phar_resolve_alias(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @phar_resolve_alias(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 3, i32 1), align 8
   %6 = and i32 %5, 8
   %7 = icmp eq i32 %6, 0
@@ -3865,7 +3865,7 @@ define noundef i32 @phar_resolve_alias(ptr noundef %0, i64 noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_free_alias(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_free_alias(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -3936,7 +3936,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_verify_signature(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr noundef %8) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_verify_signature(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca [1024 x i8], align 16
   %12 = alloca i64, align 8
@@ -4011,7 +4011,7 @@ define hidden noundef i32 @phar_verify_signature(ptr noundef %0, i64 noundef %1,
   store i64 %4, ptr %12, align 8
   %44 = getelementptr inbounds i8, ptr %34, i64 24
   %45 = load i64, ptr %36, align 8
-  %46 = call fastcc i32 @phar_call_openssl_signverify(i32 noundef 0, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %44, i64 noundef %45, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %2), !range !5
+  %46 = call fastcc i32 @phar_call_openssl_signverify(i32 noundef 0, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %44, i64 noundef %45, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %2)
   %47 = icmp eq i32 %46, -1
   %48 = getelementptr inbounds i8, ptr %34, i64 4
   %49 = load i32, ptr %48, align 4
@@ -4517,7 +4517,7 @@ phar_hex_str.exit224:                             ; preds = %.lr.ph.i216
 declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @phar_call_openssl_signverify(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phar_call_openssl_signverify(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._zend_fcall_info, align 8
   %10 = alloca %struct._zend_fcall_info_cache, align 8
   %11 = alloca %struct._zval_struct, align 8
@@ -5099,7 +5099,7 @@ declare void @PHP_MD5Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare void @PHP_MD5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_create_signature(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [64 x i8], align 16
   %8 = alloca %struct.PHP_SHA512_CTX, align 8
@@ -5186,7 +5186,7 @@ define hidden noundef i32 @phar_create_signature(ptr nocapture noundef %0, ptr n
   %39 = load i32, ptr getelementptr inbounds (%struct._zend_phar_globals, ptr @phar_globals, i64 0, i32 44), align 8
   %40 = zext i32 %39 to i64
   %41 = load i32, ptr %22, align 4
-  %42 = call fastcc i32 @phar_call_openssl_signverify(i32 noundef 1, ptr noundef %1, i64 noundef %37, ptr noundef %38, i64 noundef %40, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %41), !range !5
+  %42 = call fastcc i32 @phar_call_openssl_signverify(i32 noundef 1, ptr noundef %1, i64 noundef %37, ptr noundef %38, i64 noundef %40, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %41)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %44, label %48
 
@@ -5461,4 +5461,3 @@ attributes #18 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

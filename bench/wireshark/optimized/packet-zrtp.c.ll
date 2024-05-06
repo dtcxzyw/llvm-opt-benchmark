@@ -396,7 +396,7 @@ define internal i32 @dissect_zrtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 55:                                               ; preds = %52, %40
   %indvars.iv.i.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i.i, %52 ]
   %56 = phi ptr [ @.str.146, %40 ], [ %54, %52 ]
-  %57 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %48, i64 noundef %51) #5
+  %57 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull readonly dereferenceable(1) %48, i64 noundef %51) #5
   %.not9.i.i = icmp eq i32 %57, 0
   br i1 %.not9.i.i, label %check_valid_version.exit.i, label %52
 

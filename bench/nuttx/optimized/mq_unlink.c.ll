@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [15 x i8] c"/var/mqueue/%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @file_mq_unlink(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @file_mq_unlink(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.inode_search_s, align 8
   %3 = alloca [64 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef %0) #5
@@ -110,14 +110,14 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare void @inode_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxmq_unlink(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @file_mq_unlink(ptr noundef %0), !range !6
+define range(i32 -2147483648, 1) i32 @nxmq_unlink(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @file_mq_unlink(ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mq_unlink(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @file_mq_unlink(ptr noundef %0), !range !6
+define range(i32 -1, 1) i32 @mq_unlink(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @file_mq_unlink(ptr noundef %0)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %7
 
@@ -154,4 +154,3 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -2147483648, i32 1}

@@ -46,7 +46,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @get_console_width() local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @get_console_width() local_unnamed_addr #2 {
 entry:
   %w = alloca %struct.winsize, align 2
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %w) #18
@@ -271,7 +271,7 @@ declare i32 @flac_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) 
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__utils_parse_skip_until_specification(ptr noundef %s, ptr nocapture noundef writeonly %spec) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @flac__utils_parse_skip_until_specification(ptr noundef %s, ptr nocapture noundef writeonly %spec) local_unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   store i32 0, ptr %spec, align 8
@@ -428,7 +428,7 @@ return:                                           ; preds = %local__parse_timeco
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @flac__utils_canonicalize_skip_until_specification(ptr nocapture noundef %spec, i32 noundef %sample_rate) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @flac__utils_canonicalize_skip_until_specification(ptr nocapture noundef %spec, i32 noundef %sample_rate) local_unnamed_addr #9 {
 entry:
   %value_is_samples = getelementptr inbounds i8, ptr %spec, i64 4
   %0 = load i32, ptr %value_is_samples, align 4
@@ -456,7 +456,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @flac__utils_parse_cue_specification(ptr noundef %s, ptr nocapture noundef writeonly %spec) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @flac__utils_parse_cue_specification(ptr noundef %s, ptr nocapture noundef writeonly %spec) local_unnamed_addr #10 {
 entry:
   %has_end_point = getelementptr inbounds i8, ptr %spec, i64 4
   store i32 0, ptr %has_end_point, align 4
@@ -919,7 +919,7 @@ if.end10:                                         ; preds = %for.inc38.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @flac__utils_set_channel_mask_tag(ptr noundef %object, i32 noundef %channel_mask) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @flac__utils_set_channel_mask_tag(ptr noundef %object, i32 noundef %channel_mask) local_unnamed_addr #2 {
 entry:
   %tag = alloca [128 x i8], align 16
   %0 = load ptr, ptr @CHANNEL_MASK_TAG, align 8
@@ -943,7 +943,7 @@ declare i32 @flac_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef, i32, ptr, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__utils_get_channel_mask_tag(ptr noundef %object, ptr nocapture noundef writeonly %channel_mask) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @flac__utils_get_channel_mask_tag(ptr noundef %object, ptr nocapture noundef writeonly %channel_mask) local_unnamed_addr #2 {
 entry:
   %val = alloca i32, align 4
   %0 = load ptr, ptr @CHANNEL_MASK_TAG, align 8

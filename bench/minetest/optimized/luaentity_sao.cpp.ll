@@ -197,14 +197,14 @@ $_ZTV13BaseException = comdat any
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @_ZTV12LuaEntitySAO = dso_local unnamed_addr constant { [54 x ptr] } { [54 x ptr] [ptr null, ptr @_ZTI12LuaEntitySAO, ptr @_ZNK12LuaEntitySAO7getTypeEv, ptr @_ZNK12LuaEntitySAO15getCollisionBoxEPN3irr4core8aabbox3dIfEE, ptr @_ZNK12LuaEntitySAO15getSelectionBoxEPN3irr4core8aabbox3dIfEE, ptr @_ZNK12LuaEntitySAO18collideWithObjectsEv, ptr @_ZN7UnitSAO13setAttachmentEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3irr4core8vector3dIfEESB_b, ptr @_ZNK7UnitSAO13getAttachmentEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr4core8vector3dIfEESC_Pb, ptr @_ZN7UnitSAO21clearChildAttachmentsEv, ptr @_ZN7UnitSAO21clearParentAttachmentEv, ptr @_ZN7UnitSAO18addAttachmentChildEi, ptr @_ZN7UnitSAO21removeAttachmentChildEi, ptr @_ZN12LuaEntitySAOD2Ev, ptr @_ZN12LuaEntitySAOD0Ev, ptr @_ZNK12LuaEntitySAO11getSendTypeEv, ptr @_ZN12LuaEntitySAO18addedToEnvironmentEj, ptr @_ZN18ServerActiveObject23removingFromEnvironmentEv, ptr @_ZN12LuaEntitySAO6setPosERKN3irr4core8vector3dIfEE, ptr @_ZN18ServerActiveObject6addPosERKN3irr4core8vector3dIfEE, ptr @_ZN12LuaEntitySAO6moveToEN3irr4core8vector3dIfEEb, ptr @_ZN12LuaEntitySAO23getMinimumSavedMovementEv, ptr @_ZN12LuaEntitySAO14getDescriptionB5cxx11Ev, ptr @_ZN12LuaEntitySAO4stepEfb, ptr @_ZN12LuaEntitySAO27getClientInitializationDataB5cxx11Et, ptr @_ZNK12LuaEntitySAO13getStaticDataEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK12LuaEntitySAO15isStaticAllowedEv, ptr @_ZNK12LuaEntitySAO12shouldUnloadEv, ptr @_ZN12LuaEntitySAO5punchEN3irr4core8vector3dIfEEPK16ToolCapabilitiesP18ServerActiveObjectft, ptr @_ZN12LuaEntitySAO10rightClickEP18ServerActiveObject, ptr @_ZN12LuaEntitySAO5setHPEiRK20PlayerHPChangeReason, ptr @_ZNK12LuaEntitySAO5getHPEv, ptr @_ZN7UnitSAO14setArmorGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEE, ptr @_ZNK7UnitSAO14getArmorGroupsB5cxx11Ev, ptr @_ZN7UnitSAO12setAnimationEN3irr4core8vector2dIfEEffb, ptr @_ZN7UnitSAO12getAnimationEPN3irr4core8vector2dIfEEPfS5_Pb, ptr @_ZN7UnitSAO17setAnimationSpeedEf, ptr @_ZN7UnitSAO15setBoneOverrideERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK12BoneOverride, ptr @_ZN7UnitSAO15getBoneOverrideERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7UnitSAO16getBoneOverridesB5cxx11Ev, ptr @_ZNK7UnitSAO21getAttachmentChildIdsEv, ptr @_ZNK7UnitSAO9getParentEv, ptr @_ZN7UnitSAO22accessObjectPropertiesEv, ptr @_ZN7UnitSAO30notifyObjectPropertiesModifiedEv, ptr @_ZNK18ServerActiveObject12getInventoryEv, ptr @_ZNK18ServerActiveObject20getInventoryLocationEv, ptr @_ZN18ServerActiveObject20setInventoryModifiedEv, ptr @_ZNK18ServerActiveObject12getWieldListB5cxx11Ev, ptr @_ZNK18ServerActiveObject13getWieldIndexEv, ptr @_ZNK18ServerActiveObject14getWieldedItemEP9ItemStackS1_, ptr @_ZN18ServerActiveObject14setWieldedItemERK9ItemStack, ptr @_ZN12LuaEntitySAO23onMarkedForDeactivationEv, ptr @_ZN12LuaEntitySAO18onMarkedForRemovalEv, ptr @_ZN7UnitSAO8onAttachEi, ptr @_ZN7UnitSAO8onDetachEi] }, align 8
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.14 = private unnamed_addr constant [20 x i8] c"LuaEntitySAO(name=\22\00", align 1
 @.str.15 = private unnamed_addr constant [12 x i8] c"\22 state is \00", align 1
 @.str.16 = private unnamed_addr constant [6 x i8] c"empty\00", align 1
 @.str.17 = private unnamed_addr constant [7 x i8] c" bytes\00", align 1
 @.str.18 = private unnamed_addr constant [2 x i8] c")\00", align 1
 @.str.19 = private unnamed_addr constant [19 x i8] c"unknown_object.png\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.20 = private unnamed_addr constant [22 x i8] c"LuaEntitySAO::step() \00", align 1
 @.str.21 = private unnamed_addr constant [5 x i8] c" at \00", align 1
 @.str.22 = private unnamed_addr constant [6 x i8] c", id=\00", align 1
@@ -212,7 +212,7 @@ $_ZTV13BaseException = comdat any
 @.str.24 = private unnamed_addr constant [32 x i8] c"Punch action called without SAO\00", align 1
 @.str.25 = private unnamed_addr constant [115 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/server/luaentity_sao.cpp\00", align 1
 @__PRETTY_FUNCTION__._ZN12LuaEntitySAO5punchEN3irr4core8vector3dIfEEPK16ToolCapabilitiesP18ServerActiveObjectft = private unnamed_addr constant [97 x i8] c"virtual u32 LuaEntitySAO::punch(v3f, const ToolCapabilities *, ServerActiveObject *, float, u16)\00", align 1
-@actionstream = external thread_local global %class.LogStream, align 8
+@actionstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.26 = private unnamed_addr constant [6 x i8] c" (id=\00", align 1
 @.str.27 = private unnamed_addr constant [6 x i8] c", hp=\00", align 1
 @.str.28 = private unnamed_addr constant [11 x i8] c") punched \00", align 1
@@ -4892,7 +4892,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %14 = and i64 %call9.fca.0.extract, 1
   %tobool13.not = icmp eq i64 %14, 0
   %result.sroa.0.4.extract.shift = lshr i64 %call9.fca.0.extract, 32
-  %result.sroa.0.4.extract.trunc = trunc i64 %result.sroa.0.4.extract.shift to i32
+  %result.sroa.0.4.extract.trunc = trunc nuw i64 %result.sroa.0.4.extract.shift to i32
   %cond = select i1 %tobool13.not, i32 0, i32 %result.sroa.0.4.extract.trunc
   %call18 = invoke noundef zeroext i1 @_ZN15ScriptApiEntity15luaentity_PunchEtP18ServerActiveObjectfPK16ToolCapabilitiesN3irr4core8vector3dIfEEi(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, i16 noundef zeroext %13, ptr noundef nonnull %puncher, float noundef %time_from_last_punch, ptr noundef %toolcap, <2 x float> %dir.coerce0, float %dir.coerce1, i32 noundef %cond)
           to label %invoke.cont17 unwind label %lpad10
@@ -5734,7 +5734,7 @@ define dso_local void @_ZN12LuaEntitySAO5setHPEiRK20PlayerHPChangeReason(ptr nou
 entry:
   %cond = tail call i32 @llvm.smin.i32(i32 %hp, i32 65535)
   %cond6 = tail call i32 @llvm.smax.i32(i32 %cond, i32 0)
-  %conv = trunc i32 %cond6 to i16
+  %conv = trunc nuw i32 %cond6 to i16
   %m_hp = getelementptr inbounds i8, ptr %this, i64 192
   store i16 %conv, ptr %m_hp, align 8, !tbaa !86
   tail call void @_ZN7UnitSAO16sendPunchCommandEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
@@ -5949,7 +5949,7 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #30
   %p.sroa.0.0.extract.trunc.i.i = trunc i32 %p.coerce to i16
   %p.sroa.2.0.extract.shift.i.i = lshr i32 %p.coerce, 16
-  %p.sroa.2.0.extract.trunc.i.i = trunc i32 %p.sroa.2.0.extract.shift.i.i to i16
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i32 %p.sroa.2.0.extract.shift.i.i to i16
   %rev.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %p.sroa.0.0.extract.trunc.i.i)
   store i16 %rev.i.i.i.i.i, ptr %buf.i8, align 2
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i8, i64 2

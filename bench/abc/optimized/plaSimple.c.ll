@@ -390,7 +390,7 @@ Vec_StrFree.exit:                                 ; preds = %.critedge, %68
   br i1 %85, label %97, label %86
 
 86:                                               ; preds = %72
-  %87 = trunc i64 %indvars.iv132 to i32
+  %87 = trunc nsw i64 %indvars.iv132 to i32
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.19, i32 noundef %87) #15
   switch i32 %84, label %105 [
     i32 1, label %89
@@ -412,7 +412,7 @@ Vec_StrFree.exit:                                 ; preds = %.critedge, %68
 97:                                               ; preds = %72
   %98 = lshr i32 %74, 23
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %98) #15
-  %100 = trunc i64 %indvars.iv132 to i32
+  %100 = trunc nsw i64 %indvars.iv132 to i32
   %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.19, i32 noundef %100) #15
   %102 = and i32 %75, 1
   %103 = xor i32 %102, 1
@@ -803,7 +803,7 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %156
   br i1 %exitcond185.not, label %._crit_edge, label %.lr.ph154, !llvm.loop !18
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %171
-  %176 = trunc i64 %indvars.iv to i32
+  %176 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %175, %._crit_edge.loopexit.split.loop.exit, %141, %Pla_ManExpendDirNum.exit130
@@ -929,7 +929,7 @@ Pla_TtCountOnes.exit142:                          ; preds = %.lr.ph.i137, %Pla_T
   br i1 %.not113, label %250, label %247
 
 247:                                              ; preds = %244
-  %248 = trunc i64 %indvars.iv188 to i32
+  %248 = trunc nuw nsw i64 %indvars.iv188 to i32
   %249 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %248, i32 noundef %246)
   br label %250
 
@@ -951,7 +951,7 @@ Pla_TtCountOnes.exit142:                          ; preds = %.lr.ph.i137, %Pla_T
   br i1 %.not112, label %259, label %256
 
 256:                                              ; preds = %253
-  %257 = trunc i64 %indvars.iv192 to i32
+  %257 = trunc nuw nsw i64 %indvars.iv192 to i32
   %258 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %257, i32 noundef %255)
   br label %259
 
@@ -1261,10 +1261,10 @@ define noalias noundef ptr @Pla_ManFxPrepare(i32 noundef %0) local_unnamed_addr 
   %8 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #17
   %9 = call ptr @Extra_FileDesignName(ptr noundef nonnull %2) #15
   store ptr %9, ptr %8, align 8
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
+  %10 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #19
   %11 = add i64 %10, 1
   %12 = call noalias ptr @malloc(i64 noundef %11) #16
-  %13 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %2) #15
+  %13 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %2) #15
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %8, i64 20
@@ -1296,7 +1296,7 @@ define noalias noundef ptr @Pla_ManFxPrepare(i32 noundef %0) local_unnamed_addr 
 29:                                               ; preds = %29, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %29 ]
   %30 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv.i.i
-  %31 = trunc i64 %indvars.iv.i.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %31, ptr %30, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %26
@@ -1459,8 +1459,8 @@ Vec_WecInit.exit43:                               ; preds = %Vec_WecInit.exit, %
   %102 = getelementptr inbounds i64, ptr %.val39.us, i64 %indvars.iv
   %103 = load i64, ptr %102, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %104 = trunc i64 %indvars.iv.next to i32
-  %105 = trunc i64 %indvars.iv to i32
+  %104 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %105 = trunc nuw nsw i64 %indvars.iv to i32
   br label %106
 
 106:                                              ; preds = %.lr.ph.us, %226

@@ -726,7 +726,7 @@ declare dso_local void @qdisc_get_default(ptr noundef, i64 noundef) local_unname
 declare dso_local i32 @qdisc_set_default(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sysctl_core_net_init(ptr noundef %0) #4 align 16 {
+define internal noundef range(i32 -12, 1) i32 @sysctl_core_net_init(ptr noundef %0) #4 align 16 {
   %2 = icmp eq ptr %0, @init_net
   br i1 %2, label %.loopexit, label %3
 

@@ -239,7 +239,7 @@ define internal noalias noundef ptr @cls_cgroup_get(ptr nocapture readnone %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @cls_cgroup_change(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, i32 noundef %7, ptr noundef %8) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @cls_cgroup_change(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, i32 noundef %7, ptr noundef %8) #0 align 16 {
   %10 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #10
   %11 = getelementptr inbounds i8, ptr %2, i64 8

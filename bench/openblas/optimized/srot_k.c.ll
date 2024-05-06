@@ -127,10 +127,10 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br i1 %90, label %rot_compute.exit, label %91
 
 91:                                               ; preds = %.loopexit.i
-  %92 = trunc i64 %89 to i32
+  %92 = trunc nuw nsw i64 %89 to i32
   %93 = sub nuw nsw i32 16, %92
   %94 = lshr i32 65535, %93
-  %95 = trunc i32 %94 to i16
+  %95 = trunc nuw nsw i32 %94 to i16
   %96 = getelementptr inbounds float, ptr %1, i64 %30
   %97 = bitcast i16 %95 to <16 x i1>
   %98 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %96, i32 1, <16 x i1> %97, <16 x float> zeroinitializer)
@@ -299,10 +299,10 @@ define internal noundef i32 @rot_thread_function(ptr nocapture noundef readonly 
   br i1 %86, label %rot_compute.exit, label %87
 
 87:                                               ; preds = %.loopexit.i
-  %88 = trunc i64 %85 to i32
+  %88 = trunc nuw nsw i64 %85 to i32
   %89 = sub nuw nsw i32 16, %88
   %90 = lshr i32 65535, %89
-  %91 = trunc i32 %90 to i16
+  %91 = trunc nuw nsw i32 %90 to i16
   %92 = getelementptr inbounds float, ptr %4, i64 %26
   %93 = bitcast i16 %91 to <16 x i1>
   %94 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %92, i32 1, <16 x i1> %93, <16 x float> zeroinitializer)

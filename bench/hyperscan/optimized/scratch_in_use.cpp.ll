@@ -3982,7 +3982,7 @@ ehcleanup263:                                     ; preds = %ehcleanup259, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL16rescan_stream_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef %ctx) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL16rescan_stream_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef %ctx) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca %"class.std::__cxx11::basic_string", align 8
   %stream = alloca ptr, align 8

@@ -310,7 +310,7 @@ if.then25:                                        ; preds = %if.then23
   br i1 %cmp26, label %if.then27, label %if.else29
 
 if.then27:                                        ; preds = %if.then25
-  %conv28 = trunc i32 %c.addr.1 to i16
+  %conv28 = trunc nuw i32 %c.addr.1 to i16
   br label %do.end
 
 if.else29:                                        ; preds = %if.then25

@@ -1958,7 +1958,7 @@ define dso_local void @cpuset_init_current_mems_allowed() local_unnamed_addr #6 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpuset_mems_allowed(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 1, 0) i64 @cpuset_mems_allowed(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @callback_lock) #18
   tail call void @__rcu_read_lock() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 2272
@@ -1992,7 +1992,7 @@ define dso_local i64 @cpuset_mems_allowed(ptr noundef %0) local_unnamed_addr #2 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @cpuset_nodemask_valid_mems_allowed(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 16 {
+define dso_local range(i32 0, 2) i32 @cpuset_nodemask_valid_mems_allowed(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #22, !srcloc !28
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 2248
@@ -2086,7 +2086,7 @@ define dso_local zeroext i1 @cpuset_node_allowed(i32 noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cpuset_mem_spread_node() #2 align 16 {
+define dso_local range(i32 0, 65) i32 @cpuset_mem_spread_node() #2 align 16 {
   %1 = alloca i64, align 8
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #22, !srcloc !28
   %3 = inttoptr i64 %2 to ptr
@@ -2205,7 +2205,7 @@ define dso_local i32 @cpuset_mem_spread_node() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cpuset_slab_spread_node() local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 65) i32 @cpuset_slab_spread_node() local_unnamed_addr #2 align 16 {
   %1 = alloca i64, align 8
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #22, !srcloc !28
   %3 = inttoptr i64 %2 to ptr
@@ -2324,7 +2324,7 @@ define dso_local i32 @cpuset_slab_spread_node() local_unnamed_addr #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @cpuset_mems_allowed_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 16 {
+define dso_local range(i32 0, 2) i32 @cpuset_mems_allowed_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2248
   %4 = getelementptr inbounds i8, ptr %1, i64 2248
   %5 = load i64, ptr %3, align 8
@@ -2417,7 +2417,7 @@ define dso_local void @__cpuset_memory_pressure_bump() local_unnamed_addr #2 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @proc_cpuset_show(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @proc_cpuset_show(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 4096) #19
   %7 = icmp eq ptr %6, null
@@ -3100,7 +3100,7 @@ define internal fastcc void @update_prstate(ptr noundef %0, i32 noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @update_flag(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @update_flag(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca %struct.css_task_iter, align 8
   %5 = tail call dereferenceable_or_null(416) ptr @kmemdup(ptr noundef %1, i64 noundef 416, i32 noundef 3264) #24
   %6 = icmp eq ptr %5, null
@@ -3246,7 +3246,7 @@ define internal fastcc noundef i32 @update_flag(i32 noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @update_parent_effective_cpumask(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 304
@@ -5169,7 +5169,7 @@ define internal fastcc void @compute_partition_effective_cpumask(ptr noundef %0,
 declare dso_local void @cgroup_file_notify(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @validate_change(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @validate_change(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cpuset_cgrp_subsys_on_dfl_key, i32 3) #18
           to label %109 [label %3], !srcloc !30
@@ -5701,7 +5701,7 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cpuset_common_seq_show(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @cpuset_common_seq_show(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @of_css(ptr noundef %4) #18
@@ -7510,7 +7510,7 @@ define internal fastcc void @update_tasks_nodemask(ptr noundef %0) unnamed_addr 
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cpuset_read_u64(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpuset_read_u64(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -7639,7 +7639,7 @@ define internal i64 @cpuset_read_u64(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cpuset_write_u64(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
+define internal noundef range(i32 -28, 1) i32 @cpuset_write_u64(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8
   tail call void @cpus_read_lock() #18
@@ -7726,7 +7726,7 @@ define internal noundef i32 @cpuset_write_u64(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cpuset_read_s64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpuset_read_s64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 4294967295
@@ -7746,7 +7746,7 @@ define internal i64 @cpuset_read_s64(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cpuset_write_s64(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @cpuset_write_s64(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8
   tail call void @cpus_read_lock() #18

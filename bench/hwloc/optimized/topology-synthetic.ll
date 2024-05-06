@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @hwloc_topology_export_synthetic(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef 0, i32 noundef 0) #21
+  %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #21
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -173,7 +173,7 @@ define i32 @hwloc_topology_export_synthetic(ptr noundef %0, ptr nocapture nounde
   br i1 %.not.i.i.i.i, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %29, i32 noundef 0) #21
+  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %29, i32 noundef 0) #21
   br label %hwloc_get_next_obj_by_type.exit.i.i
 
 32:                                               ; preds = %28
@@ -342,7 +342,7 @@ hwloc__export_synthetic_update_status.exit:       ; preds = %92
   %96 = zext nneg i32 %93 to i64
   %.not.i82 = icmp slt i64 %96, %2
   %97 = icmp sgt i64 %2, 0
-  %98 = trunc i64 %2 to i32
+  %98 = trunc nuw nsw i64 %2 to i32
   %99 = add nsw i32 %98, -1
   %100 = select i1 %97, i32 %99, i32 0
   %.0.i83 = select i1 %.not.i82, i32 %93, i32 %100
@@ -370,7 +370,7 @@ hwloc__export_synthetic_update_status.exit87:     ; preds = %105
   %109 = zext nneg i32 %106 to i64
   %.not.i84 = icmp sgt i64 %.1139, %109
   %110 = icmp sgt i64 %.1139, 0
-  %111 = trunc i64 %.1139 to i32
+  %111 = trunc nuw nsw i64 %.1139 to i32
   %112 = add nsw i32 %111, -1
   %113 = select i1 %110, i32 %112, i32 0
   %.0.i85 = select i1 %.not.i84, i32 %106, i32 %113
@@ -434,7 +434,7 @@ hwloc__export_synthetic_add_char.exit:            ; preds = %121, %123
   %132 = zext nneg i32 %128 to i64
   %.not.i88 = icmp sgt i64 %.6144, %132
   %133 = icmp sgt i64 %.6144, 0
-  %134 = trunc i64 %.6144 to i32
+  %134 = trunc nuw nsw i64 %.6144 to i32
   %135 = add nsw i32 %134, -1
   %136 = select i1 %133, i32 %135, i32 0
   %.0.i89 = select i1 %.not.i88, i32 %128, i32 %136
@@ -453,7 +453,7 @@ hwloc__export_synthetic_update_status.exit95:     ; preds = %140
   %144 = zext nneg i32 %141 to i64
   %.not.i92 = icmp sgt i64 %139, %144
   %145 = icmp sgt i64 %139, 0
-  %146 = trunc i64 %139 to i32
+  %146 = trunc nuw nsw i64 %139 to i32
   %147 = add nsw i32 %146, -1
   %148 = select i1 %145, i32 %147, i32 0
   %.0.i93 = select i1 %.not.i92, i32 %141, i32 %148
@@ -632,7 +632,7 @@ thread-pre-split:                                 ; preds = %16, %5
   %63 = zext nneg i32 %60 to i64
   %.not.i = icmp slt i64 %63, %4
   %64 = icmp sgt i64 %4, 0
-  %65 = trunc i64 %4 to i32
+  %65 = trunc nuw nsw i64 %4 to i32
   %66 = add nsw i32 %65, -1
   %67 = select i1 %64, i32 %66, i32 0
   %.0.i = select i1 %.not.i, i32 %60, i32 %67
@@ -676,7 +676,7 @@ thread-pre-split:                                 ; preds = %16, %5
   %91 = zext nneg i32 %87 to i64
   %.not.i77 = icmp sgt i64 %70, %91
   %92 = icmp sgt i64 %70, 0
-  %93 = trunc i64 %70 to i32
+  %93 = trunc nuw nsw i64 %70 to i32
   %94 = add nsw i32 %93, -1
   %95 = select i1 %92, i32 %94, i32 0
   %.0.i78 = select i1 %.not.i77, i32 %87, i32 %95
@@ -712,7 +712,7 @@ thread-pre-split:                                 ; preds = %16, %5
 
 .preheader130.us.i:                               ; preds = %.preheader130.lr.ph.i, %114
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %114 ], [ 0, %.preheader130.lr.ph.i ]
-  %103 = trunc i64 %indvars.iv169 to i32
+  %103 = trunc nuw i64 %indvars.iv169 to i32
   br label %104
 
 104:                                              ; preds = %104, %.preheader130.us.i
@@ -771,7 +771,7 @@ thread-pre-split:                                 ; preds = %16, %5
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %127 = trunc i64 %indvars.iv to i32
+  %127 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader133.i
@@ -867,7 +867,7 @@ thread-pre-split:                                 ; preds = %16, %5
   %165 = zext nneg i32 %160 to i64
   %.not.i.i = icmp sgt i64 %.0118162.i, %165
   %166 = icmp sgt i64 %.0118162.i, 0
-  %167 = trunc i64 %.0118162.i to i32
+  %167 = trunc nuw nsw i64 %.0118162.i to i32
   %168 = add nsw i32 %167, -1
   %169 = select i1 %166, i32 %168, i32 0
   %.0.i.i = select i1 %.not.i.i, i32 %160, i32 %169
@@ -911,7 +911,7 @@ hwloc__export_synthetic_update_status.exit98.i:   ; preds = %.lr.ph176.i
   %181 = zext nneg i32 %178 to i64
   %.not.i95.i = icmp sgt i64 %.2120171.i, %181
   %182 = icmp sgt i64 %.2120171.i, 0
-  %183 = trunc i64 %.2120171.i to i32
+  %183 = trunc nuw nsw i64 %.2120171.i to i32
   %184 = add nsw i32 %183, -1
   %185 = select i1 %182, i32 %184, i32 0
   %.0.i96.i = select i1 %.not.i95.i, i32 %178, i32 %185
@@ -999,7 +999,7 @@ hwloc__export_synthetic_add_char.exit41.us:       ; preds = %21, %19
   %27 = zext nneg i32 %24 to i64
   %.not.i42.us = icmp sgt i64 %.595.us, %27
   %28 = icmp sgt i64 %.595.us, 0
-  %29 = trunc i64 %.595.us to i32
+  %29 = trunc nuw nsw i64 %.595.us to i32
   %30 = add nsw i32 %29, -1
   %31 = select i1 %28, i32 %30, i32 0
   %.0.i43.us = select i1 %.not.i42.us, i32 %24, i32 %31
@@ -1186,7 +1186,7 @@ hwloc__export_synthetic_add_char.exit41:          ; preds = %90, %92
   %98 = zext nneg i32 %95 to i64
   %.not.i42 = icmp sgt i64 %.595, %98
   %99 = icmp sgt i64 %.595, 0
-  %100 = trunc i64 %.595 to i32
+  %100 = trunc nuw nsw i64 %.595 to i32
   %101 = add nsw i32 %100, -1
   %102 = select i1 %99, i32 %101, i32 0
   %.0.i43 = select i1 %.not.i42, i32 %95, i32 %102
@@ -1292,7 +1292,7 @@ define internal fastcc i32 @hwloc__export_synthetic_obj(ptr nocapture noundef re
   %40 = zext nneg i32 %.0 to i64
   %.not.i = icmp slt i64 %40, %5
   %41 = icmp sgt i64 %5, 0
-  %42 = trunc i64 %5 to i32
+  %42 = trunc nuw nsw i64 %5 to i32
   %43 = add nsw i32 %42, -1
   %44 = select i1 %41, i32 %43, i32 0
   %.0.i = select i1 %.not.i, i32 %.0, i32 %44
@@ -1380,7 +1380,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 36:                                               ; preds = %24
   %37 = getelementptr inbounds i8, ptr %18, i64 176
   %38 = getelementptr inbounds i8, ptr %.015, i64 1
-  %39 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %38, ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef nonnull %37, i32 noundef %.0289.i), !range !25
+  %39 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %38, ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef nonnull %37, i32 noundef %.0289.i)
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %472, label %._crit_edge470.i
 
@@ -1423,7 +1423,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 .critedge.i:                                      ; preds = %48, %48
   %50 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  br label %48, !llvm.loop !26
+  br label %48, !llvm.loop !25
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %.1.i, i64 1
@@ -1476,7 +1476,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %76 = load ptr, ptr %.0292.i, align 8
   %.not354.i = icmp eq ptr %76, null
   %77 = getelementptr inbounds i8, ptr %76, i64 32
-  br i1 %.not354.i, label %78, label %75, !llvm.loop !27
+  br i1 %.not354.i, label %78, label %75, !llvm.loop !26
 
 78:                                               ; preds = %75
   store ptr %70, ptr %.0292.i, align 8
@@ -1507,7 +1507,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %86, i64 1
-  %91 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %90, ptr noundef nonnull %12, ptr noundef nonnull %70, ptr noundef nonnull %26, i32 noundef %.0289.i), !range !25
+  %91 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %90, ptr noundef nonnull %12, ptr noundef nonnull %70, ptr noundef nonnull %26, i32 noundef %.0289.i)
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %.loopexit374.i.preheader, label %93
 
@@ -1672,7 +1672,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 162:                                              ; preds = %156
   %163 = getelementptr inbounds i8, ptr %145, i64 1
-  %164 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %163, ptr noundef nonnull %8, ptr noundef nonnull %143, ptr noundef nonnull %97, i32 noundef %.0289.i), !range !25
+  %164 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %163, ptr noundef nonnull %8, ptr noundef nonnull %143, ptr noundef nonnull %97, i32 noundef %.0289.i)
   %165 = icmp slt i32 %164, 0
   br i1 %165, label %.loopexit374.i.preheader, label %166
 
@@ -1704,7 +1704,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   br label %.loopexit374.sink.split.i
 
 179:                                              ; preds = %173
-  %180 = trunc i64 %144 to i32
+  %180 = trunc nuw i64 %144 to i32
   store i32 %180, ptr %47, align 8
   %.0280.pre.i = load ptr, ptr %8, align 8
   br label %181
@@ -1715,7 +1715,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %.1282.i = phi i64 [ %.0281404.i, %93 ], [ %167, %179 ]
   %182 = load i8, ptr %.0280.i, align 1
   %.not313.i = icmp eq i8 %182, 0
-  br i1 %.not313.i, label %.loopexit.i, label %45, !llvm.loop !28
+  br i1 %.not313.i, label %.loopexit.i, label %45, !llvm.loop !27
 
 .loopexit.i:                                      ; preds = %181, %48, %41
   %.0281397.i = phi i64 [ 1, %41 ], [ %.0281404.i, %48 ], [ %.1282.i, %181 ]
@@ -1767,7 +1767,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %202 = and i64 %indvars.iv.next.i, 4294967295
   %.not317.i = icmp eq i64 %202, 0
-  br i1 %.not317.i, label %._crit_edge.i, label %.lr.ph409.i, !llvm.loop !29
+  br i1 %.not317.i, label %._crit_edge.i, label %.lr.ph409.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %201
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 12
@@ -1926,7 +1926,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %271 = add i32 %.2286411.i, 1
   %272 = zext i32 %271 to i64
   %273 = icmp ugt i64 %183, %272
-  br i1 %273, label %.lr.ph412.i, label %._crit_edge413.i, !llvm.loop !30
+  br i1 %273, label %.lr.ph412.i, label %._crit_edge413.i, !llvm.loop !29
 
 ._crit_edge413.i:                                 ; preds = %.lr.ph412.i
   %.not322.i = icmp eq i32 %spec.select.i, 0
@@ -1992,7 +1992,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %301 = getelementptr inbounds [128 x %struct.hwloc_synthetic_level_data_s], ptr %28, i64 0, i64 %indvars.iv.next467.i, i32 2
   store i32 12, ptr %301, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next467.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge418.i, label %300, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge418.i, label %300, !llvm.loop !30
 
 ._crit_edge418.i:                                 ; preds = %300
   %302 = add i32 %.promoted.i, %umax.i
@@ -2290,7 +2290,7 @@ hwloc_synthetic_set_default_attrs.exit366.i:      ; preds = %442, %439, %437, %4
   %444 = getelementptr inbounds i8, ptr %.0279422.i, i64 32
   %.0279.i = load ptr, ptr %444, align 8
   %.not331.i = icmp eq ptr %.0279.i, null
-  br i1 %.not331.i, label %._crit_edge424.i, label %.lr.ph423.i, !llvm.loop !32
+  br i1 %.not331.i, label %._crit_edge424.i, label %.lr.ph423.i, !llvm.loop !31
 
 ._crit_edge424.i:                                 ; preds = %hwloc_synthetic_set_default_attrs.exit366.i, %hwloc_synthetic_set_default_attrs.exit.i
   %445 = phi i32 [ %411, %hwloc_synthetic_set_default_attrs.exit.i ], [ %443, %hwloc_synthetic_set_default_attrs.exit366.i ]
@@ -2301,7 +2301,7 @@ hwloc_synthetic_set_default_attrs.exit366.i:      ; preds = %442, %439, %437, %4
   %449 = add i32 %.4427.i, 1
   %450 = zext i32 %449 to i64
   %451 = icmp ugt i64 %.2283.i, %450
-  br i1 %451, label %377, label %.loopexit, !llvm.loop !33
+  br i1 %451, label %377, label %.loopexit, !llvm.loop !32
 
 .loopexit374.sink.split.i:                        ; preds = %176, %175, %170, %169, %153, %152, %148, %147, %125, %124, %118, %117, %113, %112, %82, %81, %62, %61, %56, %55
   %452 = tail call ptr @__errno_location() #24
@@ -2327,7 +2327,7 @@ hwloc_synthetic_set_default_attrs.exit366.i:      ; preds = %442, %439, %437, %4
   call void @free(ptr noundef nonnull %456) #22
   %459 = load ptr, ptr %454, align 8
   %.not.i.i = icmp eq ptr %459, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !34
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !33
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.loopexit374.i
   %460 = getelementptr inbounds i8, ptr %453, i64 64
@@ -2338,7 +2338,7 @@ hwloc_synthetic_set_default_attrs.exit366.i:      ; preds = %442, %439, %437, %4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
   %or.cond.i.i = select i1 %.not13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %hwloc_synthetic_free_levels.exit.i, label %.loopexit374.i, !llvm.loop !35
+  br i1 %or.cond.i.i, label %hwloc_synthetic_free_levels.exit.i, label %.loopexit374.i, !llvm.loop !34
 
 hwloc_synthetic_free_levels.exit.i:               ; preds = %._crit_edge.i.i
   %463 = load ptr, ptr %27, align 8
@@ -2420,7 +2420,7 @@ define internal noundef i32 @hwloc_look_synthetic(ptr nocapture noundef %0, ptr 
   %23 = getelementptr inbounds [128 x %struct.hwloc_synthetic_level_data_s], ptr %17, i64 0, i64 %22
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.lcssa = phi ptr [ %17, %2 ], [ %23, %.lr.ph ]
@@ -2448,7 +2448,7 @@ define internal noundef i32 @hwloc_look_synthetic(ptr nocapture noundef %0, ptr 
   %36 = add nuw i32 %.135, 1
   %37 = load i32, ptr %17, align 8
   %38 = icmp ult i32 %36, %37
-  br i1 %38, label %.lr.ph37, label %._crit_edge38, !llvm.loop !37
+  br i1 %38, label %.lr.ph37, label %._crit_edge38, !llvm.loop !36
 
 ._crit_edge38:                                    ; preds = %.lr.ph37, %._crit_edge
   %39 = getelementptr inbounds i8, ptr %0, i64 208
@@ -2483,7 +2483,7 @@ define internal void @hwloc_synthetic_backend_disable(ptr nocapture noundef %0) 
   tail call void @free(ptr noundef nonnull %7) #22
   %10 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %11 = getelementptr inbounds i8, ptr %4, i64 64
@@ -2494,7 +2494,7 @@ define internal void @hwloc_synthetic_backend_disable(ptr nocapture noundef %0) 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
   %or.cond.i = select i1 %.not13.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %hwloc_synthetic_free_levels.exit, label %3, !llvm.loop !35
+  br i1 %or.cond.i, label %hwloc_synthetic_free_levels.exit, label %3, !llvm.loop !34
 
 hwloc_synthetic_free_levels.exit:                 ; preds = %._crit_edge.i
   %14 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2510,7 +2510,7 @@ hwloc_synthetic_free_levels.exit:                 ; preds = %._crit_edge.i
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @hwloc_synthetic_parse_attrs(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #7 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_synthetic_parse_attrs(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #7 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   %7 = load i32, ptr %2, align 8
@@ -2595,7 +2595,7 @@ define internal fastcc noundef i32 @hwloc_synthetic_parse_attrs(ptr noundef %0, 
   store ptr %39, ptr %6, align 8
   %.pre61 = load i8, ptr %39, align 1
   %.not29.us = icmp eq i8 %.pre61, 41
-  br i1 %.not29.us, label %._crit_edge, label %.critedge.us, !llvm.loop !38
+  br i1 %.not29.us, label %._crit_edge, label %.critedge.us, !llvm.loop !37
 
 40:                                               ; preds = %5
   %.not28 = icmp eq i32 %4, 0
@@ -2687,7 +2687,7 @@ define internal fastcc noundef i32 @hwloc_synthetic_parse_attrs(ptr noundef %0, 
   store ptr %76, ptr %6, align 8
   %.pre = load i8, ptr %76, align 1
   %.not29 = icmp eq i8 %.pre, 41
-  br i1 %.not29, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
+  br i1 %.not29, label %._crit_edge, label %.lr.ph.split, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %67, %75, %35, %38
   %.025.lcssa = phi ptr [ %.126.us, %38 ], [ %.126.us, %35 ], [ %.126, %75 ], [ %.126, %67 ]
@@ -2829,7 +2829,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %.1 = phi ptr [ %41, %40 ], [ %25, %31 ]
   %43 = add nuw i64 %.0207371, 1
   %exitcond408.not = icmp eq i64 %43, %2
-  br i1 %exitcond408.not, label %._crit_edge374, label %23, !llvm.loop !39
+  br i1 %exitcond408.not, label %._crit_edge374, label %23, !llvm.loop !38
 
 ._crit_edge374:                                   ; preds = %42, %.preheader
   %44 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2854,7 +2854,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %.not254 = icmp ne ptr %52, null
   %.not255 = icmp ult ptr %52, %47
   %or.cond = select i1 %.not254, i1 %.not255, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %45
   %.0209.lcssa = phi i32 [ 1, %45 ], [ %50, %.lr.ph ]
@@ -2997,7 +2997,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %107 = call i64 @strtol(ptr noundef nonnull %106, ptr noundef nonnull %6, i32 noundef 0) #22
   %108 = load ptr, ptr %6, align 8
   %109 = icmp eq ptr %108, %106
-  br i1 %109, label %._crit_edge354, label %.lr.ph353, !llvm.loop !41
+  br i1 %109, label %._crit_edge354, label %.lr.ph353, !llvm.loop !40
 
 ._crit_edge339:                                   ; preds = %154, %.preheader296
   %.2228.lcssa = phi ptr [ %10, %.preheader296 ], [ %155, %154 ]
@@ -3125,7 +3125,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %156 = add i32 %.1214336, 1
   %157 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %155, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 48) #22
   %158 = icmp slt i32 %157, 0
-  br i1 %158, label %._crit_edge339, label %114, !llvm.loop !42
+  br i1 %158, label %._crit_edge339, label %114, !llvm.loop !41
 
 159:                                              ; preds = %.lr.ph346, %177
   %.2215345 = phi i32 [ 0, %.lr.ph346 ], [ %191, %177 ]
@@ -3166,7 +3166,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %.1212 = select i1 %174, i32 %175, i32 %.0211341
   %176 = add nuw nsw i64 %.2342, 1
   %exitcond.not = icmp eq i64 %176, %153
-  br i1 %exitcond.not, label %177, label %164, !llvm.loop !43
+  br i1 %exitcond.not, label %177, label %164, !llvm.loop !42
 
 177:                                              ; preds = %173
   %178 = zext i32 %163 to i64
@@ -3187,7 +3187,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %190 = mul i64 %189, %.1221343
   %191 = add nuw i32 %.2215345, 1
   %exitcond406.not = icmp eq i32 %191, %.0209.lcssa
-  br i1 %exitcond406.not, label %.loopexit, label %159, !llvm.loop !44
+  br i1 %exitcond406.not, label %.loopexit, label %159, !llvm.loop !43
 
 .loopexit:                                        ; preds = %177, %98, %98, %.preheader293
   %.2222 = phi i64 [ 1, %.preheader293 ], [ %103, %98 ], [ %103, %98 ], [ %190, %177 ]
@@ -3262,13 +3262,13 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %218 = add i32 %.0223358.us, 1
   %219 = zext i32 %218 to i64
   %220 = icmp ult i64 %219, %2
-  br i1 %220, label %210, label %._crit_edge361.us, !llvm.loop !45
+  br i1 %220, label %210, label %._crit_edge361.us, !llvm.loop !44
 
 ._crit_edge361.us:                                ; preds = %210
   %221 = mul i32 %209, %.0225362.us
   %222 = add nuw nsw i64 %.3363.us, 1
   %exitcond407.not = icmp eq i64 %222, %.pre-phi409
-  br i1 %exitcond407.not, label %._crit_edge366, label %.lr.ph360.us, !llvm.loop !46
+  br i1 %exitcond407.not, label %._crit_edge366, label %.lr.ph360.us, !llvm.loop !45
 
 ._crit_edge366:                                   ; preds = %._crit_edge361.us, %205
   call void @free(ptr noundef %56) #22
@@ -3279,7 +3279,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %224 = add i32 %.1224367, 1
   %225 = zext i32 %224 to i64
   %226 = icmp ult i64 %225, %2
-  br i1 %226, label %.lr.ph369, label %._crit_edge370, !llvm.loop !47
+  br i1 %226, label %.lr.ph369, label %._crit_edge370, !llvm.loop !46
 
 .lr.ph369:                                        ; preds = %._crit_edge366, %223
   %227 = phi i64 [ %225, %223 ], [ 0, %._crit_edge366 ]
@@ -3335,7 +3335,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   %3 = alloca ptr, align 8
   %4 = call i64 @strtoull(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #22
   %5 = load ptr, ptr %3, align 8
-  %6 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.37, i64 noundef 2) #21
+  %6 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.37, i64 noundef 2) #21
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -3345,7 +3345,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.38, i64 noundef 3) #21
+  %11 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.38, i64 noundef 3) #21
   %.not10 = icmp eq i32 %11, 0
   br i1 %.not10, label %12, label %15
 
@@ -3355,7 +3355,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.39, i64 noundef 2) #21
+  %16 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.39, i64 noundef 2) #21
   %.not11 = icmp eq i32 %16, 0
   br i1 %.not11, label %17, label %20
 
@@ -3365,7 +3365,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.40, i64 noundef 3) #21
+  %21 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.40, i64 noundef 3) #21
   %.not12 = icmp eq i32 %21, 0
   br i1 %.not12, label %22, label %25
 
@@ -3375,7 +3375,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 25:                                               ; preds = %20
-  %26 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.41, i64 noundef 2) #21
+  %26 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.41, i64 noundef 2) #21
   %.not13 = icmp eq i32 %26, 0
   br i1 %.not13, label %27, label %30
 
@@ -3385,7 +3385,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 30:                                               ; preds = %25
-  %31 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.42, i64 noundef 3) #21
+  %31 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.42, i64 noundef 3) #21
   %.not14 = icmp eq i32 %31, 0
   br i1 %.not14, label %32, label %35
 
@@ -3395,7 +3395,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 35:                                               ; preds = %30
-  %36 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.43, i64 noundef 2) #21
+  %36 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.43, i64 noundef 2) #21
   %.not15 = icmp eq i32 %36, 0
   br i1 %.not15, label %37, label %40
 
@@ -3405,7 +3405,7 @@ define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, pt
   br label %45
 
 40:                                               ; preds = %35
-  %41 = tail call i32 @strncasecmp(ptr noundef %5, ptr noundef nonnull @.str.44, i64 noundef 3) #21
+  %41 = tail call i32 @strncasecmp(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.44, i64 noundef 3) #21
   %.not16 = icmp eq i32 %41, 0
   br i1 %.not16, label %42, label %45
 
@@ -3595,7 +3595,7 @@ hwloc_synthetic_next_index.exit:                  ; preds = %16, %20
   %28 = add nuw i32 %.051, 1
   %29 = load i32, ptr %8, align 8
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %27, label %.loopexit, !llvm.loop !48
+  br i1 %30, label %27, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %27, %25
   %31 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %22) #22
@@ -3840,7 +3840,7 @@ attributes #28 = { nounwind allocsize(0,1) }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = !{i32 -1, i32 1}
+!25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
@@ -3863,4 +3863,3 @@ attributes #28 = { nounwind allocsize(0,1) }
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}

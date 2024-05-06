@@ -235,7 +235,7 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef %1) #5 ali
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
   %29 = add i32 %21, %28
-  %30 = trunc i32 %21 to i8
+  %30 = trunc nuw nsw i32 %21 to i8
   %31 = getelementptr inbounds i8, ptr %1, i64 18
   store i8 %30, ptr %31, align 2
   %32 = load ptr, ptr %4, align 8

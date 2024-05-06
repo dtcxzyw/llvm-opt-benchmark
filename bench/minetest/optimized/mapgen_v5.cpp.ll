@@ -3476,11 +3476,11 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 declare void @_ZN8Settings10setDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK8FlagDescj(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8MapgenV520getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -32766, 32770) i32 @_ZN8MapgenV520getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc = trunc i32 %p.coerce to i16
   %p.sroa.4.0.extract.shift = lshr i32 %p.coerce, 16
-  %p.sroa.4.0.extract.trunc = trunc i32 %p.sroa.4.0.extract.shift to i16
+  %p.sroa.4.0.extract.trunc = trunc nuw i32 %p.sroa.4.0.extract.shift to i16
   %noise_factor = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load ptr, ptr %noise_factor, align 8, !tbaa !53
   %conv = sitofp i16 %p.sroa.0.0.extract.trunc to float
@@ -3654,7 +3654,7 @@ entry:
   %blockseed = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %call32, ptr %blockseed, align 8, !tbaa !110
   %call33 = tail call noundef i32 @_ZN8MapgenV519generateBaseTerrainEv(ptr noundef nonnull align 8 dereferenceable(504) %this), !range !111
-  %conv = trunc i32 %call33 to i16
+  %conv = trunc nsw i32 %call33 to i16
   %agg.tmp34.sroa.0.0.copyload = load i48, ptr %node_min, align 8, !tbaa.struct !109
   %agg.tmp36.sroa.0.0.copyload = load i48, ptr %node_max, align 2, !tbaa.struct !109
   tail call void @_ZN6Mapgen15updateHeightmapEN3irr4core8vector3dIsEES3_(ptr noundef nonnull align 8 dereferenceable(200) %this, i48 %agg.tmp34.sroa.0.0.copyload, i48 %agg.tmp36.sroa.0.0.copyload)
@@ -3830,7 +3830,7 @@ if.end122:                                        ; preds = %if.then107, %if.end
 declare noundef i32 @_ZN6Mapgen13getBlockSeed2EN3irr4core8vector3dIsEEi(i48, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8MapgenV519generateBaseTerrainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -31007, 32768) i32 @_ZN8MapgenV519generateBaseTerrainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this) local_unnamed_addr #5 align 2 {
 entry:
   %noise_factor = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load ptr, ptr %noise_factor, align 8, !tbaa !53

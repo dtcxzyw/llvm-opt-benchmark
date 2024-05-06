@@ -319,7 +319,7 @@ declare noalias ptr @opal_os_path(i32 noundef, ...) local_unnamed_addr #2
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @opal_best_effort_write(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 1) i32 @opal_best_effort_write(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %2, %12

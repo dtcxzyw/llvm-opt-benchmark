@@ -370,7 +370,7 @@ if.end10:                                         ; preds = %for.end
   %18 = shl nuw nsw i64 %conv.i, 3
   %call.i.i15 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %15, i64 noundef %18)
   store ptr %call.i.i15, ptr %m_args.i14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i15, ptr align 8 %17, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i15, ptr readonly align 8 %17, i64 %18, i1 false)
   %m_fingerprints = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load ptr, ptr %m_fingerprints, align 8
   %cmp.i16 = icmp eq ptr %19, null
@@ -1519,8 +1519,8 @@ entry:
   ]
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_args.i.i385 = getelementptr inbounds i8, ptr %app, i64 32
-  %1 = load ptr, ptr %m_args.i.i385, align 8
+  %m_args.i.i386 = getelementptr inbounds i8, ptr %app, i64 32
+  %1 = load ptr, ptr %m_args.i.i386, align 8
   %2 = zext i32 %n to i64
   br label %while.body
 
@@ -1581,8 +1581,8 @@ sw.bb35:                                          ; preds = %entry
   %20 = load i32, ptr %m_hash.i.i.i376, align 4
   %add40 = add i32 %20, 11
   %21 = add i32 %17, %20
-  %reass.sub463 = sub i32 %0, %21
-  %sub42 = add i32 %reass.sub463, -11
+  %reass.sub465 = sub i32 %0, %21
+  %sub42 = add i32 %reass.sub465, -11
   %shr43 = lshr i32 %add40, 13
   %xor44 = xor i32 %sub42, %shr43
   %22 = add i32 %17, -1640531538
@@ -1625,18 +1625,18 @@ sw.bb77:                                          ; preds = %entry
   %31 = load ptr, ptr %m_args.i.i377, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %m_hash.i.i.i378 = getelementptr inbounds i8, ptr %33, i64 12
-  %34 = load i32, ptr %m_hash.i.i.i378, align 4
-  %arrayidx.i.i380 = getelementptr inbounds i8, ptr %31, i64 8
-  %35 = load ptr, ptr %arrayidx.i.i380, align 8
+  %m_hash.i.i.i379 = getelementptr inbounds i8, ptr %33, i64 12
+  %34 = load i32, ptr %m_hash.i.i.i379, align 4
+  %arrayidx.i.i381 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = load ptr, ptr %arrayidx.i.i381, align 8
   %36 = load ptr, ptr %35, align 8
-  %m_hash.i.i.i381 = getelementptr inbounds i8, ptr %36, i64 12
-  %37 = load i32, ptr %m_hash.i.i.i381, align 4
-  %arrayidx.i.i383 = getelementptr inbounds i8, ptr %31, i64 16
-  %38 = load ptr, ptr %arrayidx.i.i383, align 8
+  %m_hash.i.i.i382 = getelementptr inbounds i8, ptr %36, i64 12
+  %37 = load i32, ptr %m_hash.i.i.i382, align 4
+  %arrayidx.i.i384 = getelementptr inbounds i8, ptr %31, i64 16
+  %38 = load ptr, ptr %arrayidx.i.i384, align 8
   %39 = load ptr, ptr %38, align 8
-  %m_hash.i.i.i384 = getelementptr inbounds i8, ptr %39, i64 12
-  %40 = load i32, ptr %m_hash.i.i.i384, align 4
+  %m_hash.i.i.i385 = getelementptr inbounds i8, ptr %39, i64 12
+  %40 = load i32, ptr %m_hash.i.i.i385, align 4
   %add83 = add i32 %40, 11
   %41 = add i32 %37, %40
   %reass.sub = sub i32 %34, %41
@@ -1676,9 +1676,9 @@ sw.bb77:                                          ; preds = %entry
   %sub117 = sub i32 %xor107, %50
   %shr118 = lshr i32 %xor115, 15
   %xor119 = xor i32 %sub117, %shr118
-  %.neg410 = add i32 %xor111, %0
+  %.neg412 = add i32 %xor111, %0
   %51 = add i32 %xor115, %xor119
-  %sub122 = sub i32 %.neg410, %51
+  %sub122 = sub i32 %.neg412, %51
   %shr123 = lshr i32 %xor119, 13
   %xor124 = xor i32 %sub122, %shr123
   %52 = add i32 %xor119, %xor124
@@ -1717,34 +1717,34 @@ sw.bb77:                                          ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %indvars.iv = phi i64 [ %2, %while.body.lr.ph ], [ %66, %while.body ]
-  %c.0459 = phi i32 [ 11, %while.body.lr.ph ], [ %xor200, %while.body ]
-  %b.0458 = phi i32 [ -1640531527, %while.body.lr.ph ], [ %xor196, %while.body ]
-  %a.0457 = phi i32 [ -1640531527, %while.body.lr.ph ], [ %xor192, %while.body ]
+  %c.0461 = phi i32 [ 11, %while.body.lr.ph ], [ %xor200, %while.body ]
+  %b.0460 = phi i32 [ -1640531527, %while.body.lr.ph ], [ %xor196, %while.body ]
+  %a.0459 = phi i32 [ -1640531527, %while.body.lr.ph ], [ %xor192, %while.body ]
   %dec = add i64 %indvars.iv, 4294967295
   %idxprom.i.i = and i64 %dec, 4294967295
-  %arrayidx.i.i386 = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i
-  %60 = load ptr, ptr %arrayidx.i.i386, align 8
+  %arrayidx.i.i387 = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i
+  %60 = load ptr, ptr %arrayidx.i.i387, align 8
   %61 = load ptr, ptr %60, align 8
-  %m_hash.i.i.i387 = getelementptr inbounds i8, ptr %61, i64 12
-  %62 = load i32, ptr %m_hash.i.i.i387, align 4
+  %m_hash.i.i.i388 = getelementptr inbounds i8, ptr %61, i64 12
+  %62 = load i32, ptr %m_hash.i.i.i388, align 4
   %dec159 = add i64 %indvars.iv, 4294967294
-  %idxprom.i.i389 = and i64 %dec159, 4294967295
-  %arrayidx.i.i390 = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i389
-  %63 = load ptr, ptr %arrayidx.i.i390, align 8
+  %idxprom.i.i390 = and i64 %dec159, 4294967295
+  %arrayidx.i.i391 = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i390
+  %63 = load ptr, ptr %arrayidx.i.i391, align 8
   %64 = load ptr, ptr %63, align 8
-  %m_hash.i.i.i391 = getelementptr inbounds i8, ptr %64, i64 12
-  %65 = load i32, ptr %m_hash.i.i.i391, align 4
-  %add161 = add i32 %65, %b.0458
+  %m_hash.i.i.i392 = getelementptr inbounds i8, ptr %64, i64 12
+  %65 = load i32, ptr %m_hash.i.i.i392, align 4
+  %add161 = add i32 %65, %b.0460
   %66 = add nsw i64 %indvars.iv, -3
-  %arrayidx.i.i394 = getelementptr inbounds ptr, ptr %1, i64 %66
-  %67 = load ptr, ptr %arrayidx.i.i394, align 8
+  %arrayidx.i.i395 = getelementptr inbounds ptr, ptr %1, i64 %66
+  %67 = load ptr, ptr %arrayidx.i.i395, align 8
   %68 = load ptr, ptr %67, align 8
-  %m_hash.i.i.i395 = getelementptr inbounds i8, ptr %68, i64 12
-  %69 = load i32, ptr %m_hash.i.i.i395, align 4
-  %add164 = add i32 %69, %c.0459
-  %.neg446 = add i32 %62, %a.0457
+  %m_hash.i.i.i396 = getelementptr inbounds i8, ptr %68, i64 12
+  %69 = load i32, ptr %m_hash.i.i.i396, align 4
+  %add164 = add i32 %69, %c.0461
+  %.neg448 = add i32 %62, %a.0459
   %70 = add i32 %add161, %add164
-  %sub166 = sub i32 %.neg446, %70
+  %sub166 = sub i32 %.neg448, %70
   %shr167 = lshr i32 %add164, 13
   %xor168 = xor i32 %sub166, %shr167
   %71 = add i32 %add164, %xor168
@@ -1783,25 +1783,25 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.wide, label %while.body, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %while.body
-  %79 = trunc i64 %66 to i32
+  %79 = trunc nuw i64 %66 to i32
   switch i32 %79, label %sw.epilog [
     i32 2, label %sw.bb202
     i32 1, label %while.end.sw.bb205_crit_edge
   ]
 
 while.end.sw.bb205_crit_edge:                     ; preds = %while.end
-  %m_args.i.i399.phi.trans.insert = getelementptr inbounds i8, ptr %app, i64 32
-  %.pre = load ptr, ptr %m_args.i.i399.phi.trans.insert, align 8
+  %m_args.i.i400.phi.trans.insert = getelementptr inbounds i8, ptr %app, i64 32
+  %.pre = load ptr, ptr %m_args.i.i400.phi.trans.insert, align 8
   br label %sw.bb205
 
 sw.bb202:                                         ; preds = %while.end
-  %m_args.i.i396 = getelementptr inbounds i8, ptr %app, i64 32
-  %80 = load ptr, ptr %m_args.i.i396, align 8
-  %arrayidx.i.i397 = getelementptr inbounds i8, ptr %80, i64 8
-  %81 = load ptr, ptr %arrayidx.i.i397, align 8
+  %m_args.i.i397 = getelementptr inbounds i8, ptr %app, i64 32
+  %80 = load ptr, ptr %m_args.i.i397, align 8
+  %arrayidx.i.i398 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = load ptr, ptr %arrayidx.i.i398, align 8
   %82 = load ptr, ptr %81, align 8
-  %m_hash.i.i.i398 = getelementptr inbounds i8, ptr %82, i64 12
-  %83 = load i32, ptr %m_hash.i.i.i398, align 4
+  %m_hash.i.i.i399 = getelementptr inbounds i8, ptr %82, i64 12
+  %83 = load i32, ptr %m_hash.i.i.i399, align 4
   %add204 = add i32 %83, %xor196
   br label %sw.bb205
 
@@ -1810,17 +1810,17 @@ sw.bb205:                                         ; preds = %while.end.sw.bb205_
   %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %85, align 8
-  %m_hash.i.i.i400 = getelementptr inbounds i8, ptr %86, i64 12
-  %87 = load i32, ptr %m_hash.i.i.i400, align 4
+  %m_hash.i.i.i402 = getelementptr inbounds i8, ptr %86, i64 12
+  %87 = load i32, ptr %m_hash.i.i.i402, align 4
   %add207 = add i32 %87, %xor200
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
   %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %.neg437 = add i32 %xor192, %0
+  %.neg439 = add i32 %xor192, %0
   %88 = add i32 %b.2, %c.1
-  %sub209 = sub i32 %.neg437, %88
+  %sub209 = sub i32 %.neg439, %88
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %89 = add i32 %c.1, %xor211

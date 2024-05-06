@@ -151,7 +151,7 @@ define dso_local noundef i32 @acpi_ds_method_data_init_args(ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ds_method_data_get_node(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 12313) i32 @acpi_ds_method_data_get_node(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 16 {
   switch i8 %0, label %19 [
     i8 0, label %5
     i8 1, label %12
@@ -204,7 +204,7 @@ define dso_local noundef i32 @acpi_ds_method_data_get_node(i8 noundef zeroext %0
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ds_method_data_get_value(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 12313) i32 @acpi_ds_method_data_get_value(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 align 16 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %7
 

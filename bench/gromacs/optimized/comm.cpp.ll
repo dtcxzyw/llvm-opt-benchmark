@@ -922,7 +922,7 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit139:             ; preds = %41, %38
 119:                                              ; preds = %115
   %120 = getelementptr inbounds i32, ptr %.0118166, i64 %indvars.iv78.i
   %121 = load i32, ptr %120, align 4
-  %122 = mul nsw i64 %indvars.iv78.i, %.pre-phi
+  %122 = mul nuw nsw i64 %indvars.iv78.i, %.pre-phi
   %123 = icmp sgt i32 %121, 0
   br i1 %123, label %.lr.ph64.preheader.i, label %.thread167
 

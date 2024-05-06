@@ -810,7 +810,7 @@ define hidden void @"_ZN117_$LT$diesel..pg..metadata_lookup..pg_type..columns..o
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !nonnull !8, !align !17, !noundef !8
   %11 = load i8, ptr %10, align 1, !range !137, !noundef !8
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !8
   br i1 %12, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit.thread", label %.critedge.thread
@@ -914,7 +914,7 @@ define hidden void @"_ZN121_$LT$diesel..pg..metadata_lookup..pg_type..columns..t
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !nonnull !8, !align !17, !noundef !8
   %11 = load i8, ptr %10, align 1, !range !137, !noundef !8
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !8
   br i1 %12, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit.thread", label %.critedge.thread
@@ -1018,7 +1018,7 @@ define hidden void @"_ZN126_$LT$diesel..pg..metadata_lookup..pg_type..columns..t
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !nonnull !8, !align !17, !noundef !8
   %11 = load i8, ptr %10, align 1, !range !137, !noundef !8
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !8
   br i1 %12, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit.thread", label %.critedge.thread
@@ -1633,7 +1633,7 @@ default.unreachable:                              ; preds = %3
   %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !251, !noalias !254, !nonnull !8, !align !17, !noundef !8
   %12 = load i8, ptr %11, align 1, !range !137, !noalias !256, !noundef !8
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit.thread.i", label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %9
@@ -1675,7 +1675,7 @@ default.unreachable:                              ; preds = %3
   %20 = getelementptr inbounds i8, ptr %2, i64 16
   %21 = load ptr, ptr %20, align 8, !alias.scope !293, !noalias !296, !nonnull !8, !align !17, !noundef !8
   %22 = load i8, ptr %21, align 1, !range !137, !noalias !298, !noundef !8
-  %23 = trunc i8 %22 to i1
+  %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit.thread.i82", label %.critedge.thread.i79
 
 "_ZN117_$LT$diesel..pg..metadata_lookup..pg_type..columns..oid$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0b814e94bd990628E.exit": ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit.thread.i"

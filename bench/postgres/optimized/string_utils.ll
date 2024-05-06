@@ -1287,7 +1287,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 
 24:                                               ; preds = %20
   call void @appendPQExpBufferChar(ptr noundef %.0136, i8 noundef signext 34) #11
-  %25 = trunc i8 %.1105134 to i1
+  %25 = trunc nuw i8 %.1105134 to i1
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -1320,7 +1320,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 39:                                               ; preds = %32
   %40 = call zeroext i8 @pg_tolower(i8 noundef zeroext %15) #11
   call void @appendPQExpBufferChar(ptr noundef %.0136, i8 noundef signext %40) #11
-  %41 = trunc i8 %.1105134 to i1
+  %41 = trunc nuw i8 %.1105134 to i1
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
@@ -1342,7 +1342,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 
 47:                                               ; preds = %46
   call void @appendPQExpBufferStr(ptr noundef %.0136, ptr noundef nonnull @.str.25) #11
-  %48 = trunc i8 %.1105134 to i1
+  %48 = trunc nuw i8 %.1105134 to i1
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
@@ -1355,7 +1355,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 
 52:                                               ; preds = %46
   call void @appendPQExpBufferChar(ptr noundef %.0136, i8 noundef signext 46) #11
-  %53 = trunc i8 %.1105134 to i1
+  %53 = trunc nuw i8 %.1105134 to i1
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %52
@@ -1393,7 +1393,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 
 68:                                               ; preds = %46, %.thread128
   call void @appendPQExpBufferStr(ptr noundef %.0136, ptr noundef nonnull @.str.27) #11
-  %69 = trunc i8 %.1105134 to i1
+  %69 = trunc nuw i8 %.1105134 to i1
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %68
@@ -1434,7 +1434,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %81
   %83 = add i32 %82, -1
-  %84 = trunc i8 %.1105134 to i1
+  %84 = trunc nuw i8 %.1105134 to i1
   br i1 %84, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us

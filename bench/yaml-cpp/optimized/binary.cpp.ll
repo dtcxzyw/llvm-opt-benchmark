@@ -194,7 +194,7 @@ if.end:                                           ; preds = %entry
   %div21 = lshr i64 %mul, 2
   %add = add nuw nsw i64 %div21, 1
   %call5.i.i.i.i1.i.i23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add) #12
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i23, i64 %add
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i23, i64 %add
   store i8 0, ptr %call5.i.i.i.i1.i.i23, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i23, i64 1
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %mul, 4
@@ -318,7 +318,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   br i1 %cmp.i.i.i.i.i.i.i25, label %cleanup.thread, label %if.then.i.i.i.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i.i.i.i26:                      ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i.i.i.i.i, i64 %sub.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %__first.addr.0.i.i.i.i.i, i64 %sub.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i24, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %cleanup.thread
 

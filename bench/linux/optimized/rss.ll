@@ -189,7 +189,7 @@ define internal i32 @rss_reply_size(ptr nocapture readnone %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rss_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal noundef range(i32 -90, 1) i32 @rss_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 16

@@ -46,13 +46,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hbe73fd0d082f4
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !4
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !4
   %16 = trunc i32 %1 to i8
@@ -64,7 +64,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hbe73fd0d082f4
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !4
   %24 = lshr i32 %1, 6
@@ -232,7 +232,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %5, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %5, i64 %6, i1 false)
   store i64 %8, ptr %0, align 8, !alias.scope !25, !noalias !30
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !25, !noalias !30

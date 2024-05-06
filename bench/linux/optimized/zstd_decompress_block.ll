@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ZSTD_overlapCopy8.dec64table = internal unnamed_addr constant [8 x i32] [i32 8, i32 8, i32 8, i32 7, i32 8, i32 9, i32 10, i32 11], align 16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i64 @ZSTD_getcBlockSize(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -72, 2097152) i64 @ZSTD_getcBlockSize(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp ult i64 %1, 3
   br i1 %4, label %22, label %5
 
@@ -67,7 +67,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 16 {
   %7 = icmp ult i64 %2, 3
   br i1 %7, label %298, label %8
 
@@ -1116,7 +1116,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
   %54 = getelementptr inbounds i8, ptr %0, i64 27324
   %55 = getelementptr inbounds i8, ptr %0, i64 30160
   %56 = load i32, ptr %55, align 8
-  %57 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef %46, ptr noundef %0, i32 noundef %43, i32 noundef 35, i32 noundef 9, ptr noundef %38, i64 noundef %49, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, ptr noundef nonnull @LL_defaultDTable, i32 noundef %51, i32 noundef %53, i32 noundef %37, ptr noundef %54, i32 noundef %56), !range !17
+  %57 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef %46, ptr noundef %0, i32 noundef %43, i32 noundef 35, i32 noundef 9, ptr noundef %38, i64 noundef %49, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, ptr noundef nonnull @LL_defaultDTable, i32 noundef %51, i32 noundef %53, i32 noundef %37, ptr noundef %54, i32 noundef %56)
   %58 = icmp ult i64 %57, -119
   br i1 %58, label %59, label %.thread
 
@@ -1131,7 +1131,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
   %67 = load i32, ptr %50, align 4
   %68 = load i32, ptr %52, align 4
   %69 = load i32, ptr %55, align 8
-  %70 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef %63, ptr noundef %64, i32 noundef %62, i32 noundef 31, i32 noundef 8, ptr noundef %60, i64 noundef %66, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, ptr noundef nonnull @OF_defaultDTable, i32 noundef %67, i32 noundef %68, i32 noundef %37, ptr noundef %54, i32 noundef %69), !range !17
+  %70 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef %63, ptr noundef %64, i32 noundef %62, i32 noundef 31, i32 noundef 8, ptr noundef %60, i64 noundef %66, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, ptr noundef nonnull @OF_defaultDTable, i32 noundef %67, i32 noundef %68, i32 noundef %37, ptr noundef %54, i32 noundef %69)
   %71 = icmp ult i64 %70, -119
   br i1 %71, label %72, label %.thread
 
@@ -1144,7 +1144,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
   %78 = load i32, ptr %50, align 4
   %79 = load i32, ptr %52, align 4
   %80 = load i32, ptr %55, align 8
-  %81 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef %74, ptr noundef %75, i32 noundef %45, i32 noundef 52, i32 noundef 9, ptr noundef %73, i64 noundef %77, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, ptr noundef nonnull @ML_defaultDTable, i32 noundef %78, i32 noundef %79, i32 noundef %37, ptr noundef %54, i32 noundef %80), !range !17
+  %81 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef %74, ptr noundef %75, i32 noundef %45, i32 noundef 52, i32 noundef 9, ptr noundef %73, i64 noundef %77, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, ptr noundef nonnull @ML_defaultDTable, i32 noundef %78, i32 noundef %79, i32 noundef %37, ptr noundef %54, i32 noundef %80)
   %82 = icmp ult i64 %81, -119
   br i1 %82, label %83, label %.thread
 
@@ -1161,7 +1161,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @ZSTD_buildSeqTable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr nocapture noundef %13, i32 noundef %14) unnamed_addr #2 align 16 {
+define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr nocapture noundef %13, i32 noundef %14) unnamed_addr #2 align 16 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca [53 x i16], align 16
@@ -1231,13 +1231,13 @@ define internal fastcc i64 @ZSTD_buildSeqTable(ptr noundef %0, ptr nocapture nou
   tail call void @llvm.prefetch.p0(ptr %51, i32 0, i32 2, i32 1)
   %52 = add nuw nsw i64 %50, 64
   %53 = icmp ult i64 %52, %48
-  br i1 %53, label %49, label %.loopexit, !llvm.loop !18
+  br i1 %53, label %49, label %.loopexit, !llvm.loop !17
 
 54:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #15
-  store i32 0, ptr %17, align 4, !annotation !19
+  store i32 0, ptr %17, align 4, !annotation !18
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %18) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(106) %18, i8 0, i64 106, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(106) %18, i8 0, i64 106, i1 false), !annotation !18
   %55 = call i64 @FSE_readNCount(ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %5, i64 noundef %6) #15
   %56 = icmp ult i64 %55, -119
   br i1 %56, label %57, label %62
@@ -1277,7 +1277,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   br i1 %12, label %1794, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %3, i64 noundef %4, ptr noundef %1, i64 noundef %2, i32 noundef %6), !range !20
+  %14 = tail call i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %3, i64 noundef %4, ptr noundef %1, i64 noundef %2, i32 noundef %6)
   %15 = icmp ult i64 %14, -119
   %16 = select i1 %15, i64 %14, i64 0
   %17 = getelementptr i8, ptr %3, i64 %16
@@ -1288,7 +1288,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %20 = getelementptr inbounds i8, ptr %0, i64 30188
   %21 = load i32, ptr %20, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
-  store i32 0, ptr %11, align 4, !annotation !19
+  store i32 0, ptr %11, align 4, !annotation !18
   %22 = call i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %17, i64 noundef %18)
   %23 = icmp ult i64 %22, -119
   br i1 %23, label %24, label %1792
@@ -1342,7 +1342,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %58 = add i32 %51, 1
   %59 = lshr i32 %58, %47
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %49, label %61, !llvm.loop !21
+  br i1 %60, label %49, label %61, !llvm.loop !19
 
 61:                                               ; preds = %49
   %62 = sub i32 8, %47
@@ -1399,9 +1399,9 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 
 94:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %9) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %9, i8 0, i64 192, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %9, i8 0, i64 192, i1 false), !annotation !18
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 112, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 112, i1 false), !annotation !18
   %95 = getelementptr inbounds i8, ptr %0, i64 29996
   store i32 1, ptr %95, align 4
   %96 = getelementptr inbounds i8, ptr %0, i64 26684
@@ -1417,7 +1417,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store i64 %102, ptr %103, align 8
   %104 = add nuw nsw i64 %99, 1
   %105 = icmp eq i64 %104, 3
-  br i1 %105, label %106, label %98, !llvm.loop !22
+  br i1 %105, label %106, label %98, !llvm.loop !20
 
 106:                                              ; preds = %98
   %107 = ptrtoint ptr %88 to i64
@@ -1862,43 +1862,43 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   br i1 %exitcond.not, label %.loopexit165, label %408
 
 408:                                              ; preds = %406
-  %409 = load ptr, ptr %243, align 8, !noalias !23
+  %409 = load ptr, ptr %243, align 8, !noalias !21
   %410 = getelementptr %struct.ZSTD_seqSymbol, ptr %409, i64 %372
-  %411 = load ptr, ptr %358, align 8, !noalias !23
+  %411 = load ptr, ptr %358, align 8, !noalias !21
   %412 = getelementptr %struct.ZSTD_seqSymbol, ptr %411, i64 %371
-  %413 = load ptr, ptr %293, align 8, !noalias !23
+  %413 = load ptr, ptr %293, align 8, !noalias !21
   %414 = getelementptr %struct.ZSTD_seqSymbol, ptr %413, i64 %370
   %415 = getelementptr inbounds i8, ptr %412, i64 4
-  %416 = load i32, ptr %415, align 4, !noalias !23
+  %416 = load i32, ptr %415, align 4, !noalias !21
   %417 = zext i32 %416 to i64
   %418 = getelementptr inbounds i8, ptr %410, i64 4
-  %419 = load i32, ptr %418, align 4, !noalias !23
+  %419 = load i32, ptr %418, align 4, !noalias !21
   %420 = zext i32 %419 to i64
   %421 = getelementptr inbounds i8, ptr %414, i64 4
-  %422 = load i32, ptr %421, align 4, !noalias !23
+  %422 = load i32, ptr %421, align 4, !noalias !21
   %423 = getelementptr inbounds i8, ptr %410, i64 2
-  %424 = load i8, ptr %423, align 2, !noalias !23
+  %424 = load i8, ptr %423, align 2, !noalias !21
   %425 = getelementptr inbounds i8, ptr %412, i64 2
-  %426 = load i8, ptr %425, align 2, !noalias !23
+  %426 = load i8, ptr %425, align 2, !noalias !21
   %427 = getelementptr inbounds i8, ptr %414, i64 2
-  %428 = load i8, ptr %427, align 2, !noalias !23
+  %428 = load i8, ptr %427, align 2, !noalias !21
   %429 = zext i8 %424 to i32
   %430 = zext i8 %426 to i32
   %431 = add i8 %426, %424
   %432 = add i8 %431, %428
-  %433 = load i16, ptr %410, align 4, !noalias !23
-  %434 = load i16, ptr %412, align 4, !noalias !23
-  %435 = load i16, ptr %414, align 4, !noalias !23
+  %433 = load i16, ptr %410, align 4, !noalias !21
+  %434 = load i16, ptr %412, align 4, !noalias !21
+  %435 = load i16, ptr %414, align 4, !noalias !21
   %436 = getelementptr inbounds i8, ptr %410, i64 3
-  %437 = load i8, ptr %436, align 1, !noalias !23
+  %437 = load i8, ptr %436, align 1, !noalias !21
   %438 = zext i8 %437 to i32
   %439 = getelementptr inbounds i8, ptr %412, i64 3
-  %440 = load i8, ptr %439, align 1, !noalias !23
+  %440 = load i8, ptr %439, align 1, !noalias !21
   %441 = zext i8 %440 to i32
   %442 = getelementptr inbounds i8, ptr %414, i64 3
-  %443 = load i8, ptr %442, align 1, !noalias !23
+  %443 = load i8, ptr %442, align 1, !noalias !21
   %444 = icmp ugt i8 %428, 1
-  br i1 %444, label %445, label %458, !prof !26
+  br i1 %444, label %445, label %458, !prof !24
 
 445:                                              ; preds = %408
   %446 = zext i8 %428 to i32
@@ -1910,22 +1910,22 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %452 = zext nneg i32 %451 to i64
   %453 = lshr i64 %449, %452
   %454 = add i32 %407, %446
-  store i32 %454, ptr %198, align 8, !noalias !23
+  store i32 %454, ptr %198, align 8, !noalias !21
   %455 = zext i32 %422 to i64
   %456 = add i64 %453, %455
-  %457 = load i64, ptr %356, align 8, !noalias !23
-  store i64 %457, ptr %355, align 8, !noalias !23
+  %457 = load i64, ptr %356, align 8, !noalias !21
+  store i64 %457, ptr %355, align 8, !noalias !21
   br label %494
 
 458:                                              ; preds = %408
   %459 = icmp eq i32 %419, 0
   %460 = icmp eq i8 %428, 0
-  br i1 %460, label %461, label %468, !prof !26
+  br i1 %460, label %461, label %468, !prof !24
 
 461:                                              ; preds = %458
   %462 = zext i1 %459 to i64
   %463 = getelementptr [3 x i64], ptr %97, i64 0, i64 %462
-  %464 = load i64, ptr %463, align 8, !noalias !23
+  %464 = load i64, ptr %463, align 8, !noalias !21
   %465 = xor i1 %459, true
   %466 = zext i1 %465 to i64
   %467 = getelementptr [3 x i64], ptr %97, i64 0, i64 %466
@@ -1940,13 +1940,13 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %474 = shl i64 %.pre233, %473
   %475 = lshr i64 %474, 63
   %476 = add i32 %407, 1
-  store i32 %476, ptr %198, align 8, !noalias !23
+  store i32 %476, ptr %198, align 8, !noalias !21
   %477 = add nuw nsw i64 %475, %471
   %478 = icmp eq i64 %477, 3
   br i1 %478, label %.thread92, label %484
 
 .thread92:                                        ; preds = %468
-  %479 = load i64, ptr %97, align 8, !noalias !23
+  %479 = load i64, ptr %97, align 8, !noalias !21
   %480 = add i64 %479, -1
   %481 = icmp eq i64 %480, 0
   %482 = zext i1 %481 to i64
@@ -1955,7 +1955,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 
 484:                                              ; preds = %468
   %485 = getelementptr [3 x i64], ptr %97, i64 0, i64 %477
-  %486 = load i64, ptr %485, align 8, !noalias !23
+  %486 = load i64, ptr %485, align 8, !noalias !21
   %487 = icmp eq i64 %486, 0
   %488 = zext i1 %487 to i64
   %489 = add i64 %486, %488
@@ -1964,19 +1964,19 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 
 491:                                              ; preds = %.thread92, %484
   %492 = phi i64 [ %483, %.thread92 ], [ %489, %484 ]
-  %493 = load i64, ptr %356, align 8, !noalias !23
-  store i64 %493, ptr %355, align 8, !noalias !23
+  %493 = load i64, ptr %356, align 8, !noalias !21
+  store i64 %493, ptr %355, align 8, !noalias !21
   br label %494
 
 494:                                              ; preds = %491, %484, %461, %445
   %495 = phi i32 [ %407, %461 ], [ %454, %445 ], [ %476, %491 ], [ %476, %484 ]
   %496 = phi ptr [ %467, %461 ], [ %97, %445 ], [ %97, %491 ], [ %97, %484 ]
   %497 = phi i64 [ %464, %461 ], [ %456, %445 ], [ %492, %491 ], [ %489, %484 ]
-  %498 = load i64, ptr %496, align 8, !noalias !23
-  store i64 %498, ptr %356, align 8, !noalias !23
-  store i64 %497, ptr %97, align 8, !noalias !23
+  %498 = load i64, ptr %496, align 8, !noalias !21
+  store i64 %498, ptr %356, align 8, !noalias !21
+  store i64 %497, ptr %97, align 8, !noalias !21
   %499 = icmp eq i8 %426, 0
-  br i1 %499, label %510, label %500, !prof !26
+  br i1 %499, label %510, label %500, !prof !24
 
 500:                                              ; preds = %494
   %501 = and i32 %495, 63
@@ -1987,7 +1987,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %506 = zext nneg i32 %505 to i64
   %507 = lshr i64 %503, %506
   %508 = add i32 %495, %430
-  store i32 %508, ptr %198, align 8, !noalias !23
+  store i32 %508, ptr %198, align 8, !noalias !21
   %509 = add i64 %507, %417
   br label %510
 
@@ -1995,19 +1995,19 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %.pre228237 = phi i32 [ %495, %494 ], [ %508, %500 ]
   %511 = phi i64 [ %417, %494 ], [ %509, %500 ]
   %512 = icmp ugt i8 %432, 30
-  br i1 %512, label %513, label %514, !prof !27
+  br i1 %512, label %513, label %514, !prof !25
 
 513:                                              ; preds = %510
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %10)
-  %.pre.pre = load i64, ptr %10, align 8, !noalias !28
-  %.pre228.pre = load i32, ptr %198, align 8, !noalias !23
+  %.pre.pre = load i64, ptr %10, align 8, !noalias !26
+  %.pre228.pre = load i32, ptr %198, align 8, !noalias !21
   br label %514
 
 514:                                              ; preds = %513, %510
   %.pre228 = phi i32 [ %.pre228.pre, %513 ], [ %.pre228237, %510 ]
   %.pre = phi i64 [ %.pre.pre, %513 ], [ %.pre233, %510 ]
   %515 = icmp eq i8 %424, 0
-  br i1 %515, label %526, label %516, !prof !26
+  br i1 %515, label %526, label %516, !prof !24
 
 516:                                              ; preds = %514
   %517 = and i32 %.pre228, 63
@@ -2035,7 +2035,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %537 = and i64 %533, %536
   %538 = zext i16 %433 to i64
   %539 = add nuw i64 %537, %538
-  store i64 %539, ptr %194, align 8, !noalias !23
+  store i64 %539, ptr %194, align 8, !noalias !21
   %540 = add i32 %529, %441
   %541 = sub i32 0, %540
   %542 = and i32 %541, 63
@@ -2047,7 +2047,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %548 = and i64 %544, %547
   %549 = zext i16 %434 to i64
   %550 = add nuw i64 %548, %549
-  store i64 %550, ptr %294, align 8, !noalias !23
+  store i64 %550, ptr %294, align 8, !noalias !21
   %551 = zext i8 %443 to i32
   %552 = add i32 %540, %551
   %553 = sub i32 0, %552
@@ -2058,10 +2058,10 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %558 = shl nsw i64 -1, %557
   %559 = xor i64 %558, -1
   %560 = and i64 %556, %559
-  store i32 %552, ptr %198, align 8, !noalias !23
+  store i32 %552, ptr %198, align 8, !noalias !21
   %561 = zext i16 %435 to i64
   %562 = add nuw i64 %560, %561
-  store i64 %562, ptr %244, align 8, !noalias !23
+  store i64 %562, ptr %244, align 8, !noalias !21
   %563 = add i64 %528, %374
   %564 = icmp ugt i64 %497, %563
   %565 = select i1 %564, ptr %92, ptr %88
@@ -2080,7 +2080,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store i64 %497, ptr %573, align 8
   %574 = add nuw nsw i64 %375, 1
   %575 = icmp ult i32 %552, 65
-  br i1 %575, label %.lr.ph, label %.thread91, !llvm.loop !29
+  br i1 %575, label %.lr.ph, label %.thread91, !llvm.loop !27
 
 .loopexit165:                                     ; preds = %406
   %576 = trunc i64 %smax to i32
@@ -2166,50 +2166,50 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   br i1 %exitcond226.not, label %.loopexit162, label %628
 
 628:                                              ; preds = %626
-  %629 = load ptr, ptr %243, align 8, !noalias !30
-  %630 = load i64, ptr %194, align 8, !noalias !30
+  %629 = load ptr, ptr %243, align 8, !noalias !28
+  %630 = load i64, ptr %194, align 8, !noalias !28
   %631 = getelementptr %struct.ZSTD_seqSymbol, ptr %629, i64 %630
-  %632 = load ptr, ptr %358, align 8, !noalias !30
-  %633 = load i64, ptr %294, align 8, !noalias !30
+  %632 = load ptr, ptr %358, align 8, !noalias !28
+  %633 = load i64, ptr %294, align 8, !noalias !28
   %634 = getelementptr %struct.ZSTD_seqSymbol, ptr %632, i64 %633
-  %635 = load ptr, ptr %293, align 8, !noalias !30
-  %636 = load i64, ptr %244, align 8, !noalias !30
+  %635 = load ptr, ptr %293, align 8, !noalias !28
+  %636 = load i64, ptr %244, align 8, !noalias !28
   %637 = getelementptr %struct.ZSTD_seqSymbol, ptr %635, i64 %636
   %638 = getelementptr inbounds i8, ptr %634, i64 4
-  %639 = load i32, ptr %638, align 4, !noalias !30
+  %639 = load i32, ptr %638, align 4, !noalias !28
   %640 = zext i32 %639 to i64
   %641 = getelementptr inbounds i8, ptr %631, i64 4
-  %642 = load i32, ptr %641, align 4, !noalias !30
+  %642 = load i32, ptr %641, align 4, !noalias !28
   %643 = zext i32 %642 to i64
   %644 = getelementptr inbounds i8, ptr %637, i64 4
-  %645 = load i32, ptr %644, align 4, !noalias !30
+  %645 = load i32, ptr %644, align 4, !noalias !28
   %646 = getelementptr inbounds i8, ptr %631, i64 2
-  %647 = load i8, ptr %646, align 2, !noalias !30
+  %647 = load i8, ptr %646, align 2, !noalias !28
   %648 = getelementptr inbounds i8, ptr %634, i64 2
-  %649 = load i8, ptr %648, align 2, !noalias !30
+  %649 = load i8, ptr %648, align 2, !noalias !28
   %650 = getelementptr inbounds i8, ptr %637, i64 2
-  %651 = load i8, ptr %650, align 2, !noalias !30
+  %651 = load i8, ptr %650, align 2, !noalias !28
   %652 = zext i8 %647 to i32
   %653 = zext i8 %649 to i32
   %654 = add i8 %649, %647
   %655 = add i8 %654, %651
-  %656 = load i16, ptr %631, align 4, !noalias !30
-  %657 = load i16, ptr %634, align 4, !noalias !30
-  %658 = load i16, ptr %637, align 4, !noalias !30
+  %656 = load i16, ptr %631, align 4, !noalias !28
+  %657 = load i16, ptr %634, align 4, !noalias !28
+  %658 = load i16, ptr %637, align 4, !noalias !28
   %659 = getelementptr inbounds i8, ptr %631, i64 3
-  %660 = load i8, ptr %659, align 1, !noalias !30
+  %660 = load i8, ptr %659, align 1, !noalias !28
   %661 = zext i8 %660 to i32
   %662 = getelementptr inbounds i8, ptr %634, i64 3
-  %663 = load i8, ptr %662, align 1, !noalias !30
+  %663 = load i8, ptr %662, align 1, !noalias !28
   %664 = zext i8 %663 to i32
   %665 = getelementptr inbounds i8, ptr %637, i64 3
-  %666 = load i8, ptr %665, align 1, !noalias !30
+  %666 = load i8, ptr %665, align 1, !noalias !28
   %667 = icmp ugt i8 %651, 1
-  br i1 %667, label %668, label %682, !prof !26
+  br i1 %667, label %668, label %682, !prof !24
 
 668:                                              ; preds = %628
   %669 = zext i8 %651 to i32
-  %670 = load i64, ptr %10, align 8, !noalias !30
+  %670 = load i64, ptr %10, align 8, !noalias !28
   %671 = and i32 %627, 63
   %672 = zext nneg i32 %671 to i64
   %673 = shl i64 %670, %672
@@ -2218,22 +2218,22 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %676 = zext nneg i32 %675 to i64
   %677 = lshr i64 %673, %676
   %678 = add i32 %627, %669
-  store i32 %678, ptr %198, align 8, !noalias !30
+  store i32 %678, ptr %198, align 8, !noalias !28
   %679 = zext i32 %645 to i64
   %680 = add i64 %677, %679
-  %681 = load i64, ptr %356, align 8, !noalias !30
-  store i64 %681, ptr %355, align 8, !noalias !30
+  %681 = load i64, ptr %356, align 8, !noalias !28
+  store i64 %681, ptr %355, align 8, !noalias !28
   br label %719
 
 682:                                              ; preds = %628
   %683 = icmp eq i32 %642, 0
   %684 = icmp eq i8 %651, 0
-  br i1 %684, label %685, label %692, !prof !26
+  br i1 %684, label %685, label %692, !prof !24
 
 685:                                              ; preds = %682
   %686 = zext i1 %683 to i64
   %687 = getelementptr [3 x i64], ptr %97, i64 0, i64 %686
-  %688 = load i64, ptr %687, align 8, !noalias !30
+  %688 = load i64, ptr %687, align 8, !noalias !28
   %689 = xor i1 %683, true
   %690 = zext i1 %689 to i64
   %691 = getelementptr [3 x i64], ptr %97, i64 0, i64 %690
@@ -2243,19 +2243,19 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %693 = zext i1 %683 to i32
   %694 = add i32 %645, %693
   %695 = zext i32 %694 to i64
-  %696 = load i64, ptr %10, align 8, !noalias !30
+  %696 = load i64, ptr %10, align 8, !noalias !28
   %697 = and i32 %627, 63
   %698 = zext nneg i32 %697 to i64
   %699 = shl i64 %696, %698
   %700 = lshr i64 %699, 63
   %701 = add i32 %627, 1
-  store i32 %701, ptr %198, align 8, !noalias !30
+  store i32 %701, ptr %198, align 8, !noalias !28
   %702 = add nuw nsw i64 %700, %695
   %703 = icmp eq i64 %702, 3
   br i1 %703, label %.thread94, label %709
 
 .thread94:                                        ; preds = %692
-  %704 = load i64, ptr %97, align 8, !noalias !30
+  %704 = load i64, ptr %97, align 8, !noalias !28
   %705 = add i64 %704, -1
   %706 = icmp eq i64 %705, 0
   %707 = zext i1 %706 to i64
@@ -2264,7 +2264,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 
 709:                                              ; preds = %692
   %710 = getelementptr [3 x i64], ptr %97, i64 0, i64 %702
-  %711 = load i64, ptr %710, align 8, !noalias !30
+  %711 = load i64, ptr %710, align 8, !noalias !28
   %712 = icmp eq i64 %711, 0
   %713 = zext i1 %712 to i64
   %714 = add i64 %711, %713
@@ -2273,22 +2273,22 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 
 716:                                              ; preds = %.thread94, %709
   %717 = phi i64 [ %708, %.thread94 ], [ %714, %709 ]
-  %718 = load i64, ptr %356, align 8, !noalias !30
-  store i64 %718, ptr %355, align 8, !noalias !30
+  %718 = load i64, ptr %356, align 8, !noalias !28
+  store i64 %718, ptr %355, align 8, !noalias !28
   br label %719
 
 719:                                              ; preds = %716, %709, %685, %668
   %720 = phi i32 [ %627, %685 ], [ %678, %668 ], [ %701, %716 ], [ %701, %709 ]
   %721 = phi ptr [ %691, %685 ], [ %97, %668 ], [ %97, %716 ], [ %97, %709 ]
   %722 = phi i64 [ %688, %685 ], [ %680, %668 ], [ %717, %716 ], [ %714, %709 ]
-  %723 = load i64, ptr %721, align 8, !noalias !30
-  store i64 %723, ptr %356, align 8, !noalias !30
-  store i64 %722, ptr %97, align 8, !noalias !30
+  %723 = load i64, ptr %721, align 8, !noalias !28
+  store i64 %723, ptr %356, align 8, !noalias !28
+  store i64 %722, ptr %97, align 8, !noalias !28
   %724 = icmp eq i8 %649, 0
-  br i1 %724, label %736, label %725, !prof !26
+  br i1 %724, label %736, label %725, !prof !24
 
 725:                                              ; preds = %719
-  %726 = load i64, ptr %10, align 8, !noalias !30
+  %726 = load i64, ptr %10, align 8, !noalias !28
   %727 = and i32 %720, 63
   %728 = zext nneg i32 %727 to i64
   %729 = shl i64 %726, %728
@@ -2297,7 +2297,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %732 = zext nneg i32 %731 to i64
   %733 = lshr i64 %729, %732
   %734 = add i32 %720, %653
-  store i32 %734, ptr %198, align 8, !noalias !30
+  store i32 %734, ptr %198, align 8, !noalias !28
   %735 = add i64 %733, %640
   br label %736
 
@@ -2305,18 +2305,18 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %.pre230239 = phi i32 [ %720, %719 ], [ %734, %725 ]
   %737 = phi i64 [ %640, %719 ], [ %735, %725 ]
   %738 = icmp ugt i8 %655, 30
-  br i1 %738, label %739, label %740, !prof !27
+  br i1 %738, label %739, label %740, !prof !25
 
 739:                                              ; preds = %736
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %10)
-  %.pre230.pre = load i32, ptr %198, align 8, !noalias !30
+  %.pre230.pre = load i32, ptr %198, align 8, !noalias !28
   br label %740
 
 740:                                              ; preds = %739, %736
   %.pre230 = phi i32 [ %.pre230.pre, %739 ], [ %.pre230239, %736 ]
   %741 = icmp eq i8 %647, 0
-  %.pre229 = load i64, ptr %10, align 8, !noalias !30
-  br i1 %741, label %752, label %742, !prof !26
+  %.pre229 = load i64, ptr %10, align 8, !noalias !28
+  br i1 %741, label %752, label %742, !prof !24
 
 742:                                              ; preds = %740
   %743 = and i32 %.pre230, 63
@@ -2344,7 +2344,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %763 = and i64 %759, %762
   %764 = zext i16 %656 to i64
   %765 = add nuw i64 %763, %764
-  store i64 %765, ptr %194, align 8, !noalias !30
+  store i64 %765, ptr %194, align 8, !noalias !28
   %766 = add i32 %755, %664
   %767 = sub i32 0, %766
   %768 = and i32 %767, 63
@@ -2356,7 +2356,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %774 = and i64 %770, %773
   %775 = zext i16 %657 to i64
   %776 = add nuw i64 %774, %775
-  store i64 %776, ptr %294, align 8, !noalias !30
+  store i64 %776, ptr %294, align 8, !noalias !28
   %777 = zext i8 %666 to i32
   %778 = add i32 %766, %777
   %779 = sub i32 0, %778
@@ -2367,10 +2367,10 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %784 = shl nsw i64 -1, %783
   %785 = xor i64 %784, -1
   %786 = and i64 %782, %785
-  store i32 %778, ptr %198, align 8, !noalias !30
+  store i32 %778, ptr %198, align 8, !noalias !28
   %787 = zext i16 %658 to i64
   %788 = add nuw i64 %786, %787
-  store i64 %788, ptr %244, align 8, !noalias !30
+  store i64 %788, ptr %244, align 8, !noalias !28
   %789 = load i32, ptr %73, align 8
   %790 = icmp eq i32 %789, 2
   br i1 %790, label %791, label %1114
@@ -2419,7 +2419,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %821 = getelementptr i8, ptr %817, i64 1
   store i8 %820, ptr %817, align 1
   %822 = icmp eq ptr %821, %811
-  br i1 %822, label %.loopexit148, label %.preheader147, !llvm.loop !33
+  br i1 %822, label %.loopexit148, label %.preheader147, !llvm.loop !31
 
 823:                                              ; preds = %809
   %824 = getelementptr i8, ptr %811, i64 -32
@@ -2449,7 +2449,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %838, ptr noundef align 1 dereferenceable(16) %839, i64 16, i1 false)
   %840 = getelementptr i8, ptr %836, i64 32
   %841 = icmp ult ptr %840, %824
-  br i1 %841, label %834, label %.loopexit151, !llvm.loop !34
+  br i1 %841, label %834, label %.loopexit151, !llvm.loop !32
 
 .loopexit151:                                     ; preds = %834, %828
   %842 = getelementptr i8, ptr %792, i64 %830
@@ -2469,7 +2469,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %851 = getelementptr i8, ptr %847, i64 1
   store i8 %850, ptr %847, align 1
   %852 = icmp ult ptr %851, %811
-  br i1 %852, label %.preheader149, label %.loopexit148, !llvm.loop !35
+  br i1 %852, label %.preheader149, label %.loopexit148, !llvm.loop !33
 
 .loopexit148:                                     ; preds = %.preheader149, %.preheader147, %843, %815
   %853 = load i64, ptr %795, align 8
@@ -2495,12 +2495,12 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %867 = getelementptr i8, ptr %856, i64 %862
   %868 = icmp ugt ptr %867, %577
   %869 = select i1 %866, i1 true, i1 %868
-  br i1 %869, label %872, label %870, !prof !36
+  br i1 %869, label %872, label %870, !prof !34
 
 870:                                              ; preds = %thread-pre-split
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %856, ptr noundef align 1 dereferenceable(16) %580, i64 16, i1 false)
   %871 = icmp ugt i64 %855, 16
-  br i1 %871, label %874, label %.loopexit146, !prof !27
+  br i1 %871, label %874, label %.loopexit146, !prof !25
 
 872:                                              ; preds = %thread-pre-split
   %873 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %856, ptr noundef %82, ptr noundef nonnull byval(%struct.seq_t) align 8 %795, ptr noundef nonnull %8, ptr noundef %581, ptr noundef %88, ptr noundef %90, ptr noundef %92)
@@ -2527,7 +2527,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %884, ptr noundef align 1 dereferenceable(16) %885, i64 16, i1 false)
   %886 = getelementptr i8, ptr %882, i64 32
   %887 = icmp ult ptr %886, %861
-  br i1 %887, label %880, label %.loopexit146, !llvm.loop !34
+  br i1 %887, label %880, label %.loopexit146, !llvm.loop !32
 
 .loopexit146:                                     ; preds = %880, %874, %870
   store ptr %863, ptr %8, align 8
@@ -2539,7 +2539,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
 891:                                              ; preds = %.loopexit146
   %892 = sub i64 %888, %578
   %893 = icmp ugt i64 %860, %892
-  br i1 %893, label %.thread117, label %894, !prof !27
+  br i1 %893, label %.thread117, label %894, !prof !25
 
 894:                                              ; preds = %891
   %895 = ptrtoint ptr %865 to i64
@@ -2565,7 +2565,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %907 = phi ptr [ %903, %901 ], [ %861, %.loopexit146 ]
   %908 = phi ptr [ %88, %901 ], [ %865, %.loopexit146 ]
   %909 = icmp ugt i64 %860, 15
-  br i1 %909, label %910, label %923, !prof !26
+  br i1 %909, label %910, label %923, !prof !24
 
 910:                                              ; preds = %905
   %911 = getelementptr i8, ptr %907, i64 %906
@@ -2587,7 +2587,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %919, ptr noundef align 1 dereferenceable(16) %920, i64 16, i1 false)
   %921 = getelementptr i8, ptr %917, i64 32
   %922 = icmp ult ptr %921, %911
-  br i1 %922, label %915, label %.loopexit142, !llvm.loop !34
+  br i1 %922, label %915, label %.loopexit142, !llvm.loop !32
 
 923:                                              ; preds = %905
   %924 = icmp ult i64 %860, 8
@@ -2650,7 +2650,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %963 = getelementptr i8, ptr %961, i64 8
   %964 = getelementptr i8, ptr %960, i64 8
   %965 = icmp ult ptr %963, %958
-  br i1 %965, label %.preheader143, label %.loopexit142, !llvm.loop !37
+  br i1 %965, label %.preheader143, label %.loopexit142, !llvm.loop !35
 
 966:                                              ; preds = %954
   %967 = add i64 %906, -8
@@ -2672,7 +2672,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %975, ptr noundef align 1 dereferenceable(16) %976, i64 16, i1 false)
   %977 = getelementptr i8, ptr %973, i64 32
   %978 = icmp ult ptr %977, %958
-  br i1 %978, label %971, label %.loopexit142, !llvm.loop !34
+  br i1 %978, label %971, label %.loopexit142, !llvm.loop !32
 
 .loopexit142:                                     ; preds = %971, %.preheader143, %915, %966, %949, %910, %900, %872
   %979 = phi i64 [ %873, %872 ], [ %862, %900 ], [ %862, %949 ], [ %862, %910 ], [ %862, %966 ], [ %862, %915 ], [ %862, %.preheader143 ], [ %862, %971 ]
@@ -2709,12 +2709,12 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1001 = getelementptr i8, ptr %595, i64 %997
   %1002 = icmp ugt ptr %1001, %991
   %1003 = select i1 %1000, i1 true, i1 %1002
-  br i1 %1003, label %1006, label %1004, !prof !36
+  br i1 %1003, label %1006, label %1004, !prof !34
 
 1004:                                             ; preds = %990
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %595, ptr noundef align 1 dereferenceable(16) %792, i64 16, i1 false)
   %1005 = icmp ugt i64 %796, 16
-  br i1 %1005, label %1008, label %.loopexit156, !prof !27
+  br i1 %1005, label %1008, label %.loopexit156, !prof !25
 
 1006:                                             ; preds = %990
   %1007 = call fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %595, ptr noundef %82, ptr noundef %991, ptr noundef nonnull byval(%struct.seq_t) align 8 %795, ptr noundef nonnull %8, ptr noundef %594, ptr noundef %88, ptr noundef %90, ptr noundef %92)
@@ -2742,7 +2742,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1019, ptr noundef align 1 dereferenceable(16) %1020, i64 16, i1 false)
   %1021 = getelementptr i8, ptr %1017, i64 32
   %1022 = icmp ult ptr %1021, %996
-  br i1 %1022, label %1015, label %.loopexit156, !llvm.loop !34
+  br i1 %1022, label %1015, label %.loopexit156, !llvm.loop !32
 
 .loopexit156:                                     ; preds = %1015, %1008, %1004
   store ptr %797, ptr %8, align 8
@@ -2754,7 +2754,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
 1026:                                             ; preds = %.loopexit156
   %1027 = sub i64 %1023, %578
   %1028 = icmp ugt i64 %995, %1027
-  br i1 %1028, label %.thread117, label %1029, !prof !27
+  br i1 %1028, label %.thread117, label %1029, !prof !25
 
 1029:                                             ; preds = %1026
   %1030 = ptrtoint ptr %999 to i64
@@ -2780,7 +2780,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1042 = phi ptr [ %88, %1036 ], [ %999, %.loopexit156 ]
   %1043 = phi ptr [ %1038, %1036 ], [ %996, %.loopexit156 ]
   %1044 = icmp ugt i64 %995, 15
-  br i1 %1044, label %1045, label %1058, !prof !26
+  br i1 %1044, label %1045, label %1058, !prof !24
 
 1045:                                             ; preds = %1040
   %1046 = getelementptr i8, ptr %1043, i64 %1041
@@ -2802,7 +2802,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1054, ptr noundef align 1 dereferenceable(16) %1055, i64 16, i1 false)
   %1056 = getelementptr i8, ptr %1052, i64 32
   %1057 = icmp ult ptr %1056, %1046
-  br i1 %1057, label %1050, label %.loopexit152, !llvm.loop !34
+  br i1 %1057, label %1050, label %.loopexit152, !llvm.loop !32
 
 1058:                                             ; preds = %1040
   %1059 = icmp ult i64 %995, 8
@@ -2865,7 +2865,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1098 = getelementptr i8, ptr %1096, i64 8
   %1099 = getelementptr i8, ptr %1095, i64 8
   %1100 = icmp ult ptr %1098, %1093
-  br i1 %1100, label %.preheader153, label %.loopexit152, !llvm.loop !37
+  br i1 %1100, label %.preheader153, label %.loopexit152, !llvm.loop !35
 
 1101:                                             ; preds = %1089
   %1102 = add i64 %1041, -8
@@ -2887,7 +2887,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1110, ptr noundef align 1 dereferenceable(16) %1111, i64 16, i1 false)
   %1112 = getelementptr i8, ptr %1108, i64 32
   %1113 = icmp ult ptr %1112, %1093
-  br i1 %1113, label %1106, label %.loopexit152, !llvm.loop !34
+  br i1 %1113, label %1106, label %.loopexit152, !llvm.loop !32
 
 1114:                                             ; preds = %752
   %1115 = and i32 %593, 7
@@ -2908,12 +2908,12 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1130 = getelementptr i8, ptr %595, i64 %1124
   %1131 = icmp ugt ptr %1130, %577
   %1132 = select i1 %1129, i1 true, i1 %1131
-  br i1 %1132, label %1135, label %1133, !prof !36
+  br i1 %1132, label %1135, label %1133, !prof !34
 
 1133:                                             ; preds = %1114
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %595, ptr noundef align 1 dereferenceable(16) %1125, i64 16, i1 false)
   %1134 = icmp ugt i64 %1118, 16
-  br i1 %1134, label %1137, label %.loopexit161, !prof !27
+  br i1 %1134, label %1137, label %.loopexit161, !prof !25
 
 1135:                                             ; preds = %1114
   %1136 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %595, ptr noundef %82, ptr noundef nonnull byval(%struct.seq_t) align 8 %1117, ptr noundef nonnull %8, ptr noundef %594, ptr noundef %88, ptr noundef %90, ptr noundef %92)
@@ -2941,7 +2941,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1148, ptr noundef align 1 dereferenceable(16) %1149, i64 16, i1 false)
   %1150 = getelementptr i8, ptr %1146, i64 32
   %1151 = icmp ult ptr %1150, %1123
-  br i1 %1151, label %1144, label %.loopexit161, !llvm.loop !34
+  br i1 %1151, label %1144, label %.loopexit161, !llvm.loop !32
 
 .loopexit161:                                     ; preds = %1144, %1137, %1133
   store ptr %1126, ptr %8, align 8
@@ -2953,7 +2953,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
 1155:                                             ; preds = %.loopexit161
   %1156 = sub i64 %1152, %578
   %1157 = icmp ugt i64 %1122, %1156
-  br i1 %1157, label %.thread117, label %1158, !prof !27
+  br i1 %1157, label %.thread117, label %1158, !prof !25
 
 1158:                                             ; preds = %1155
   %1159 = ptrtoint ptr %1128 to i64
@@ -2979,7 +2979,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1171 = phi ptr [ %88, %1165 ], [ %1128, %.loopexit161 ]
   %1172 = phi ptr [ %1167, %1165 ], [ %1123, %.loopexit161 ]
   %1173 = icmp ugt i64 %1122, 15
-  br i1 %1173, label %1174, label %1187, !prof !26
+  br i1 %1173, label %1174, label %1187, !prof !24
 
 1174:                                             ; preds = %1169
   %1175 = getelementptr i8, ptr %1172, i64 %1170
@@ -3001,7 +3001,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1183, ptr noundef align 1 dereferenceable(16) %1184, i64 16, i1 false)
   %1185 = getelementptr i8, ptr %1181, i64 32
   %1186 = icmp ult ptr %1185, %1175
-  br i1 %1186, label %1179, label %.loopexit152, !llvm.loop !34
+  br i1 %1186, label %1179, label %.loopexit152, !llvm.loop !32
 
 1187:                                             ; preds = %1169
   %1188 = icmp ult i64 %1122, 8
@@ -3064,7 +3064,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1227 = getelementptr i8, ptr %1225, i64 8
   %1228 = getelementptr i8, ptr %1224, i64 8
   %1229 = icmp ult ptr %1227, %1222
-  br i1 %1229, label %.preheader158, label %.loopexit152, !llvm.loop !37
+  br i1 %1229, label %.preheader158, label %.loopexit152, !llvm.loop !35
 
 1230:                                             ; preds = %1218
   %1231 = add i64 %1170, -8
@@ -3086,7 +3086,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1239, ptr noundef align 1 dereferenceable(16) %1240, i64 16, i1 false)
   %1241 = getelementptr i8, ptr %1237, i64 32
   %1242 = icmp ult ptr %1241, %1222
-  br i1 %1242, label %1235, label %.loopexit152, !llvm.loop !34
+  br i1 %1242, label %1235, label %.loopexit152, !llvm.loop !32
 
 .loopexit152:                                     ; preds = %1235, %.preheader158, %1179, %1106, %.preheader153, %1050, %1230, %1213, %1174, %1164, %1135, %1101, %1084, %1045, %1035, %1006
   %1243 = phi i64 [ %1007, %1006 ], [ %997, %1035 ], [ %997, %1084 ], [ %997, %1045 ], [ %997, %1101 ], [ %1136, %1135 ], [ %1124, %1164 ], [ %1124, %1213 ], [ %1124, %1174 ], [ %1124, %1230 ], [ %997, %1050 ], [ %997, %.preheader153 ], [ %997, %1106 ], [ %1124, %1179 ], [ %1124, %.preheader158 ], [ %1124, %1235 ]
@@ -3122,7 +3122,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1263 = add nuw i32 %593, 1
   %1264 = load i32, ptr %198, align 8
   %1265 = icmp ult i32 %1264, 65
-  br i1 %1265, label %.lr.ph182, label %.thread93, !llvm.loop !38
+  br i1 %1265, label %.lr.ph182, label %.thread93, !llvm.loop !36
 
 .loopexit162:                                     ; preds = %626, %.thread93
   %1266 = phi ptr [ %584, %.thread93 ], [ %582, %626 ]
@@ -3143,7 +3143,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1279 = phi ptr [ %1267, %.loopexit ], [ %1284, %.loopexit130 ]
   %1280 = add i32 %1283, 1
   %exitcond227.not = icmp eq i32 %1280, %28
-  br i1 %exitcond227.not, label %.loopexit141, label %.preheader140, !llvm.loop !39
+  br i1 %exitcond227.not, label %.loopexit141, label %.preheader140, !llvm.loop !37
 
 .loopexit141:                                     ; preds = %1277, %.loopexit162
   %1281 = phi ptr [ %1272, %.loopexit162 ], [ %1278, %1277 ]
@@ -3202,7 +3202,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1318 = getelementptr i8, ptr %1314, i64 1
   store i8 %1317, ptr %1314, align 1
   %1319 = icmp eq ptr %1318, %1308
-  br i1 %1319, label %.loopexit126, label %.preheader125, !llvm.loop !33
+  br i1 %1319, label %.loopexit126, label %.preheader125, !llvm.loop !31
 
 1320:                                             ; preds = %1306
   %1321 = getelementptr i8, ptr %1308, i64 -32
@@ -3232,7 +3232,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1335, ptr noundef align 1 dereferenceable(16) %1336, i64 16, i1 false)
   %1337 = getelementptr i8, ptr %1333, i64 32
   %1338 = icmp ult ptr %1337, %1321
-  br i1 %1338, label %1331, label %.loopexit129, !llvm.loop !34
+  br i1 %1338, label %1331, label %.loopexit129, !llvm.loop !32
 
 .loopexit129:                                     ; preds = %1331, %1325
   %1339 = getelementptr i8, ptr %1292, i64 %1327
@@ -3252,7 +3252,7 @@ thread-pre-split:                                 ; preds = %800, %.loopexit148
   %1348 = getelementptr i8, ptr %1344, i64 1
   store i8 %1347, ptr %1344, align 1
   %1349 = icmp ult ptr %1348, %1308
-  br i1 %1349, label %.preheader127, label %.loopexit126, !llvm.loop !35
+  br i1 %1349, label %.preheader127, label %.loopexit126, !llvm.loop !33
 
 .loopexit126:                                     ; preds = %.preheader127, %.preheader125, %1340, %1312
   %1350 = load i64, ptr %1288, align 8
@@ -3278,12 +3278,12 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1364 = getelementptr i8, ptr %1353, i64 %1359
   %1365 = icmp ugt ptr %1364, %1271
   %1366 = select i1 %1363, i1 true, i1 %1365
-  br i1 %1366, label %1369, label %1367, !prof !36
+  br i1 %1366, label %1369, label %1367, !prof !34
 
 1367:                                             ; preds = %thread-pre-split102
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1353, ptr noundef align 1 dereferenceable(16) %1268, i64 16, i1 false)
   %1368 = icmp ugt i64 %1352, 16
-  br i1 %1368, label %1371, label %.loopexit124, !prof !27
+  br i1 %1368, label %1371, label %.loopexit124, !prof !25
 
 1369:                                             ; preds = %thread-pre-split102
   %1370 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %1353, ptr noundef %82, ptr noundef nonnull byval(%struct.seq_t) align 8 %1288, ptr noundef nonnull %8, ptr noundef %1267, ptr noundef %88, ptr noundef %90, ptr noundef %92)
@@ -3310,7 +3310,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1381, ptr noundef align 1 dereferenceable(16) %1382, i64 16, i1 false)
   %1383 = getelementptr i8, ptr %1379, i64 32
   %1384 = icmp ult ptr %1383, %1358
-  br i1 %1384, label %1377, label %.loopexit124, !llvm.loop !34
+  br i1 %1384, label %1377, label %.loopexit124, !llvm.loop !32
 
 .loopexit124:                                     ; preds = %1377, %1371, %1367
   store ptr %1360, ptr %8, align 8
@@ -3322,7 +3322,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
 1388:                                             ; preds = %.loopexit124
   %1389 = sub i64 %1385, %1270
   %1390 = icmp ugt i64 %1357, %1389
-  br i1 %1390, label %.thread117, label %1391, !prof !27
+  br i1 %1390, label %.thread117, label %1391, !prof !25
 
 1391:                                             ; preds = %1388
   %1392 = ptrtoint ptr %1362 to i64
@@ -3348,7 +3348,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1404 = phi ptr [ %88, %1398 ], [ %1362, %.loopexit124 ]
   %1405 = phi ptr [ %1400, %1398 ], [ %1358, %.loopexit124 ]
   %1406 = icmp ugt i64 %1357, 15
-  br i1 %1406, label %1407, label %1420, !prof !26
+  br i1 %1406, label %1407, label %1420, !prof !24
 
 1407:                                             ; preds = %1402
   %1408 = getelementptr i8, ptr %1405, i64 %1403
@@ -3370,7 +3370,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1416, ptr noundef align 1 dereferenceable(16) %1417, i64 16, i1 false)
   %1418 = getelementptr i8, ptr %1414, i64 32
   %1419 = icmp ult ptr %1418, %1408
-  br i1 %1419, label %1412, label %.loopexit, !llvm.loop !34
+  br i1 %1419, label %1412, label %.loopexit, !llvm.loop !32
 
 1420:                                             ; preds = %1402
   %1421 = icmp ult i64 %1357, 8
@@ -3433,7 +3433,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1460 = getelementptr i8, ptr %1458, i64 8
   %1461 = getelementptr i8, ptr %1457, i64 8
   %1462 = icmp ult ptr %1460, %1455
-  br i1 %1462, label %.preheader, label %.loopexit, !llvm.loop !37
+  br i1 %1462, label %.preheader, label %.loopexit, !llvm.loop !35
 
 1463:                                             ; preds = %1451
   %1464 = add i64 %1403, -8
@@ -3455,7 +3455,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1472, ptr noundef align 1 dereferenceable(16) %1473, i64 16, i1 false)
   %1474 = getelementptr i8, ptr %1470, i64 32
   %1475 = icmp ult ptr %1474, %1455
-  br i1 %1475, label %1468, label %.loopexit, !llvm.loop !34
+  br i1 %1475, label %1468, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %1468, %.preheader, %1412, %1369, %1397, %1407, %1446, %1463
   %1476 = phi i64 [ %1370, %1369 ], [ %1359, %1397 ], [ %1359, %1446 ], [ %1359, %1407 ], [ %1359, %1463 ], [ %1359, %1412 ], [ %1359, %.preheader ], [ %1359, %1468 ]
@@ -3478,12 +3478,12 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1491 = getelementptr i8, ptr %1285, i64 %1487
   %1492 = icmp ugt ptr %1491, %1481
   %1493 = select i1 %1490, i1 true, i1 %1492
-  br i1 %1493, label %1496, label %1494, !prof !36
+  br i1 %1493, label %1496, label %1494, !prof !34
 
 1494:                                             ; preds = %1480
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1285, ptr noundef align 1 dereferenceable(16) %1292, i64 16, i1 false)
   %1495 = icmp ugt i64 %1293, 16
-  br i1 %1495, label %1498, label %.loopexit134, !prof !27
+  br i1 %1495, label %1498, label %.loopexit134, !prof !25
 
 1496:                                             ; preds = %1480
   %1497 = call fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %1285, ptr noundef %82, ptr noundef %1481, ptr noundef nonnull byval(%struct.seq_t) align 8 %1288, ptr noundef nonnull %8, ptr noundef %1284, ptr noundef %88, ptr noundef %90, ptr noundef %92)
@@ -3511,7 +3511,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1509, ptr noundef align 1 dereferenceable(16) %1510, i64 16, i1 false)
   %1511 = getelementptr i8, ptr %1507, i64 32
   %1512 = icmp ult ptr %1511, %1486
-  br i1 %1512, label %1505, label %.loopexit134, !llvm.loop !34
+  br i1 %1512, label %1505, label %.loopexit134, !llvm.loop !32
 
 .loopexit134:                                     ; preds = %1505, %1498, %1494
   store ptr %1294, ptr %8, align 8
@@ -3523,7 +3523,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
 1516:                                             ; preds = %.loopexit134
   %1517 = sub i64 %1513, %1270
   %1518 = icmp ugt i64 %1485, %1517
-  br i1 %1518, label %.thread117, label %1519, !prof !27
+  br i1 %1518, label %.thread117, label %1519, !prof !25
 
 1519:                                             ; preds = %1516
   %1520 = ptrtoint ptr %1489 to i64
@@ -3549,7 +3549,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1532 = phi ptr [ %88, %1526 ], [ %1489, %.loopexit134 ]
   %1533 = phi ptr [ %1528, %1526 ], [ %1486, %.loopexit134 ]
   %1534 = icmp ugt i64 %1485, 15
-  br i1 %1534, label %1535, label %1548, !prof !26
+  br i1 %1534, label %1535, label %1548, !prof !24
 
 1535:                                             ; preds = %1530
   %1536 = getelementptr i8, ptr %1533, i64 %1531
@@ -3571,7 +3571,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1544, ptr noundef align 1 dereferenceable(16) %1545, i64 16, i1 false)
   %1546 = getelementptr i8, ptr %1542, i64 32
   %1547 = icmp ult ptr %1546, %1536
-  br i1 %1547, label %1540, label %.loopexit130, !llvm.loop !34
+  br i1 %1547, label %1540, label %.loopexit130, !llvm.loop !32
 
 1548:                                             ; preds = %1530
   %1549 = icmp ult i64 %1485, 8
@@ -3634,7 +3634,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1588 = getelementptr i8, ptr %1586, i64 8
   %1589 = getelementptr i8, ptr %1585, i64 8
   %1590 = icmp ult ptr %1588, %1583
-  br i1 %1590, label %.preheader131, label %.loopexit130, !llvm.loop !37
+  br i1 %1590, label %.preheader131, label %.loopexit130, !llvm.loop !35
 
 1591:                                             ; preds = %1579
   %1592 = add i64 %1531, -8
@@ -3656,7 +3656,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1600, ptr noundef align 1 dereferenceable(16) %1601, i64 16, i1 false)
   %1602 = getelementptr i8, ptr %1598, i64 32
   %1603 = icmp ult ptr %1602, %1583
-  br i1 %1603, label %1596, label %.loopexit130, !llvm.loop !34
+  br i1 %1603, label %1596, label %.loopexit130, !llvm.loop !32
 
 1604:                                             ; preds = %.preheader140
   %1605 = load i64, ptr %1288, align 8
@@ -3674,12 +3674,12 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1617 = getelementptr i8, ptr %1285, i64 %1611
   %1618 = icmp ugt ptr %1617, %1271
   %1619 = select i1 %1616, i1 true, i1 %1618
-  br i1 %1619, label %1622, label %1620, !prof !36
+  br i1 %1619, label %1622, label %1620, !prof !34
 
 1620:                                             ; preds = %1604
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1285, ptr noundef align 1 dereferenceable(16) %1612, i64 16, i1 false)
   %1621 = icmp ugt i64 %1605, 16
-  br i1 %1621, label %1624, label %.loopexit139, !prof !27
+  br i1 %1621, label %1624, label %.loopexit139, !prof !25
 
 1622:                                             ; preds = %1604
   %1623 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %1285, ptr noundef %82, ptr noundef nonnull byval(%struct.seq_t) align 8 %1288, ptr noundef nonnull %8, ptr noundef %1284, ptr noundef %88, ptr noundef %90, ptr noundef %92)
@@ -3707,7 +3707,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1635, ptr noundef align 1 dereferenceable(16) %1636, i64 16, i1 false)
   %1637 = getelementptr i8, ptr %1633, i64 32
   %1638 = icmp ult ptr %1637, %1610
-  br i1 %1638, label %1631, label %.loopexit139, !llvm.loop !34
+  br i1 %1638, label %1631, label %.loopexit139, !llvm.loop !32
 
 .loopexit139:                                     ; preds = %1631, %1624, %1620
   store ptr %1613, ptr %8, align 8
@@ -3719,7 +3719,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
 1642:                                             ; preds = %.loopexit139
   %1643 = sub i64 %1639, %1270
   %1644 = icmp ugt i64 %1609, %1643
-  br i1 %1644, label %.thread117, label %1645, !prof !27
+  br i1 %1644, label %.thread117, label %1645, !prof !25
 
 1645:                                             ; preds = %1642
   %1646 = ptrtoint ptr %1615 to i64
@@ -3745,7 +3745,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1658 = phi ptr [ %88, %1652 ], [ %1615, %.loopexit139 ]
   %1659 = phi ptr [ %1654, %1652 ], [ %1610, %.loopexit139 ]
   %1660 = icmp ugt i64 %1609, 15
-  br i1 %1660, label %1661, label %1674, !prof !26
+  br i1 %1660, label %1661, label %1674, !prof !24
 
 1661:                                             ; preds = %1656
   %1662 = getelementptr i8, ptr %1659, i64 %1657
@@ -3767,7 +3767,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1670, ptr noundef align 1 dereferenceable(16) %1671, i64 16, i1 false)
   %1672 = getelementptr i8, ptr %1668, i64 32
   %1673 = icmp ult ptr %1672, %1662
-  br i1 %1673, label %1666, label %.loopexit130, !llvm.loop !34
+  br i1 %1673, label %1666, label %.loopexit130, !llvm.loop !32
 
 1674:                                             ; preds = %1656
   %1675 = icmp ult i64 %1609, 8
@@ -3830,7 +3830,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1714 = getelementptr i8, ptr %1712, i64 8
   %1715 = getelementptr i8, ptr %1711, i64 8
   %1716 = icmp ult ptr %1714, %1709
-  br i1 %1716, label %.preheader136, label %.loopexit130, !llvm.loop !37
+  br i1 %1716, label %.preheader136, label %.loopexit130, !llvm.loop !35
 
 1717:                                             ; preds = %1705
   %1718 = add i64 %1657, -8
@@ -3852,7 +3852,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1726, ptr noundef align 1 dereferenceable(16) %1727, i64 16, i1 false)
   %1728 = getelementptr i8, ptr %1724, i64 32
   %1729 = icmp ult ptr %1728, %1709
-  br i1 %1729, label %1722, label %.loopexit130, !llvm.loop !34
+  br i1 %1729, label %1722, label %.loopexit130, !llvm.loop !32
 
 .loopexit130:                                     ; preds = %1722, %.preheader136, %1666, %1596, %.preheader131, %1540, %1717, %1700, %1661, %1651, %1622, %1591, %1574, %1535, %1525, %1496
   %1730 = phi i64 [ %1497, %1496 ], [ %1487, %1525 ], [ %1487, %1574 ], [ %1487, %1535 ], [ %1487, %1591 ], [ %1623, %1622 ], [ %1611, %1651 ], [ %1611, %1700 ], [ %1611, %1661 ], [ %1611, %1717 ], [ %1487, %1540 ], [ %1487, %.preheader131 ], [ %1487, %1596 ], [ %1611, %1666 ], [ %1611, %.preheader136 ], [ %1611, %1722 ]
@@ -3870,7 +3870,7 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   store i32 %1738, ptr %1739, align 4
   %1740 = add nuw nsw i64 %1735, 1
   %1741 = icmp eq i64 %1740, 3
-  br i1 %1741, label %1742, label %1734, !llvm.loop !40
+  br i1 %1741, label %1742, label %1734, !llvm.loop !38
 
 .thread117:                                       ; preds = %.loopexit152, %805, %.loopexit142, %891, %1026, %1155, %.loopexit, %.loopexit130, %1302, %1388, %1516, %1642, %106, %.thread91, %.thread93, %117, %176
   %.ph114 = phi i64 [ -20, %.thread93 ], [ -20, %.thread91 ], [ -20, %117 ], [ -20, %176 ], [ -20, %106 ], [ -20, %1642 ], [ -20, %1516 ], [ -20, %1388 ], [ -70, %1302 ], [ %1476, %.loopexit ], [ %1730, %.loopexit130 ], [ -20, %1155 ], [ -20, %1026 ], [ -20, %891 ], [ %1243, %.loopexit152 ], [ -70, %805 ], [ %979, %.loopexit142 ]
@@ -4019,7 +4019,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 30:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %11, i8 0, i64 112, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %11, i8 0, i64 112, i1 false), !annotation !18
   %31 = getelementptr inbounds i8, ptr %0, i64 29996
   store i32 1, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %0, i64 26684
@@ -4035,7 +4035,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store i64 %38, ptr %39, align 8
   %40 = add nuw nsw i64 %35, 1
   %41 = icmp eq i64 %40, 3
-  br i1 %41, label %42, label %34, !llvm.loop !41
+  br i1 %41, label %42, label %34, !llvm.loop !39
 
 42:                                               ; preds = %34
   %43 = icmp eq i64 %4, 0
@@ -4373,36 +4373,36 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %276 = getelementptr %struct.ZSTD_seqSymbol, ptr %273, i64 %239
   %277 = getelementptr %struct.ZSTD_seqSymbol, ptr %224, i64 %189
   %278 = getelementptr inbounds i8, ptr %276, i64 4
-  %279 = load i32, ptr %278, align 4, !noalias !42
+  %279 = load i32, ptr %278, align 4, !noalias !40
   %280 = zext i32 %279 to i64
   %281 = getelementptr inbounds i8, ptr %275, i64 4
-  %282 = load i32, ptr %281, align 4, !noalias !42
+  %282 = load i32, ptr %281, align 4, !noalias !40
   %283 = zext i32 %282 to i64
   %284 = getelementptr inbounds i8, ptr %277, i64 4
-  %285 = load i32, ptr %284, align 4, !noalias !42
+  %285 = load i32, ptr %284, align 4, !noalias !40
   %286 = getelementptr inbounds i8, ptr %275, i64 2
-  %287 = load i8, ptr %286, align 2, !noalias !42
+  %287 = load i8, ptr %286, align 2, !noalias !40
   %288 = getelementptr inbounds i8, ptr %276, i64 2
-  %289 = load i8, ptr %288, align 2, !noalias !42
+  %289 = load i8, ptr %288, align 2, !noalias !40
   %290 = getelementptr inbounds i8, ptr %277, i64 2
-  %291 = load i8, ptr %290, align 2, !noalias !42
+  %291 = load i8, ptr %290, align 2, !noalias !40
   %292 = zext i8 %287 to i32
   %293 = zext i8 %289 to i32
   %294 = add i8 %289, %287
   %295 = add i8 %294, %291
-  %296 = load i16, ptr %275, align 4, !noalias !42
-  %297 = load i16, ptr %276, align 4, !noalias !42
-  %298 = load i16, ptr %277, align 4, !noalias !42
+  %296 = load i16, ptr %275, align 4, !noalias !40
+  %297 = load i16, ptr %276, align 4, !noalias !40
+  %298 = load i16, ptr %277, align 4, !noalias !40
   %299 = getelementptr inbounds i8, ptr %275, i64 3
-  %300 = load i8, ptr %299, align 1, !noalias !42
+  %300 = load i8, ptr %299, align 1, !noalias !40
   %301 = zext i8 %300 to i32
   %302 = getelementptr inbounds i8, ptr %276, i64 3
-  %303 = load i8, ptr %302, align 1, !noalias !42
+  %303 = load i8, ptr %302, align 1, !noalias !40
   %304 = zext i8 %303 to i32
   %305 = getelementptr inbounds i8, ptr %277, i64 3
-  %306 = load i8, ptr %305, align 1, !noalias !42
+  %306 = load i8, ptr %305, align 1, !noalias !40
   %307 = icmp ugt i8 %291, 1
-  br i1 %307, label %308, label %324, !prof !26
+  br i1 %307, label %308, label %324, !prof !24
 
 308:                                              ; preds = %270
   %309 = zext i8 %291 to i32
@@ -4414,32 +4414,32 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %315 = zext nneg i32 %314 to i64
   %316 = lshr i64 %312, %315
   %317 = add i32 %271, %309
-  store i32 %317, ptr %130, align 8, !noalias !42
+  store i32 %317, ptr %130, align 8, !noalias !40
   %318 = zext i32 %285 to i64
   %319 = add i64 %316, %318
   %320 = getelementptr inbounds i8, ptr %11, i64 96
-  %321 = load i64, ptr %320, align 8, !noalias !42
+  %321 = load i64, ptr %320, align 8, !noalias !40
   %322 = getelementptr inbounds i8, ptr %11, i64 104
-  store i64 %321, ptr %322, align 8, !noalias !42
-  %323 = load i64, ptr %33, align 8, !noalias !42
-  store i64 %323, ptr %320, align 8, !noalias !42
+  store i64 %321, ptr %322, align 8, !noalias !40
+  %323 = load i64, ptr %33, align 8, !noalias !40
+  store i64 %323, ptr %320, align 8, !noalias !40
   br label %368
 
 324:                                              ; preds = %270
   %325 = icmp eq i32 %282, 0
   %326 = icmp eq i8 %291, 0
-  br i1 %326, label %327, label %336, !prof !26
+  br i1 %326, label %327, label %336, !prof !24
 
 327:                                              ; preds = %324
   %328 = zext i1 %325 to i64
   %329 = getelementptr [3 x i64], ptr %33, i64 0, i64 %328
-  %330 = load i64, ptr %329, align 8, !noalias !42
+  %330 = load i64, ptr %329, align 8, !noalias !40
   %331 = xor i1 %325, true
   %332 = zext i1 %331 to i64
   %333 = getelementptr [3 x i64], ptr %33, i64 0, i64 %332
-  %334 = load i64, ptr %333, align 8, !noalias !42
+  %334 = load i64, ptr %333, align 8, !noalias !40
   %335 = getelementptr inbounds i8, ptr %11, i64 96
-  store i64 %334, ptr %335, align 8, !noalias !42
+  store i64 %334, ptr %335, align 8, !noalias !40
   br label %368
 
 336:                                              ; preds = %324
@@ -4451,13 +4451,13 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %342 = shl i64 %272, %341
   %343 = lshr i64 %342, 63
   %344 = add i32 %271, 1
-  store i32 %344, ptr %130, align 8, !noalias !42
+  store i32 %344, ptr %130, align 8, !noalias !40
   %345 = add nuw nsw i64 %343, %339
   %346 = icmp eq i64 %345, 3
   br i1 %346, label %.thread81, label %352
 
 .thread81:                                        ; preds = %336
-  %347 = load i64, ptr %33, align 8, !noalias !42
+  %347 = load i64, ptr %33, align 8, !noalias !40
   %348 = add i64 %347, -1
   %349 = icmp eq i64 %348, 0
   %350 = zext i1 %349 to i64
@@ -4466,7 +4466,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 352:                                              ; preds = %336
   %353 = getelementptr [3 x i64], ptr %33, i64 0, i64 %345
-  %354 = load i64, ptr %353, align 8, !noalias !42
+  %354 = load i64, ptr %353, align 8, !noalias !40
   %355 = icmp eq i64 %354, 0
   %356 = zext i1 %355 to i64
   %357 = add i64 %354, %356
@@ -4476,24 +4476,24 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 359:                                              ; preds = %.thread81, %352
   %360 = phi i64 [ %351, %.thread81 ], [ %357, %352 ]
   %361 = getelementptr inbounds i8, ptr %11, i64 96
-  %362 = load i64, ptr %361, align 8, !noalias !42
+  %362 = load i64, ptr %361, align 8, !noalias !40
   %363 = getelementptr inbounds i8, ptr %11, i64 104
-  store i64 %362, ptr %363, align 8, !noalias !42
+  store i64 %362, ptr %363, align 8, !noalias !40
   br label %364
 
 364:                                              ; preds = %359, %352
   %365 = phi i64 [ %360, %359 ], [ %357, %352 ]
-  %366 = load i64, ptr %33, align 8, !noalias !42
+  %366 = load i64, ptr %33, align 8, !noalias !40
   %367 = getelementptr inbounds i8, ptr %11, i64 96
-  store i64 %366, ptr %367, align 8, !noalias !42
+  store i64 %366, ptr %367, align 8, !noalias !40
   br label %368
 
 368:                                              ; preds = %364, %327, %308
   %369 = phi i32 [ %344, %364 ], [ %271, %327 ], [ %317, %308 ]
   %370 = phi i64 [ %365, %364 ], [ %330, %327 ], [ %319, %308 ]
-  store i64 %370, ptr %33, align 8, !noalias !42
+  store i64 %370, ptr %33, align 8, !noalias !40
   %371 = icmp eq i8 %289, 0
-  br i1 %371, label %382, label %372, !prof !26
+  br i1 %371, label %382, label %372, !prof !24
 
 372:                                              ; preds = %368
   %373 = and i32 %369, 63
@@ -4504,7 +4504,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %378 = zext nneg i32 %377 to i64
   %379 = lshr i64 %375, %378
   %380 = add i32 %369, %293
-  store i32 %380, ptr %130, align 8, !noalias !42
+  store i32 %380, ptr %130, align 8, !noalias !40
   %381 = add i64 %379, %280
   br label %382
 
@@ -4512,19 +4512,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %.pre190199 = phi i32 [ %369, %368 ], [ %380, %372 ]
   %383 = phi i64 [ %280, %368 ], [ %381, %372 ]
   %384 = icmp ugt i8 %295, 30
-  br i1 %384, label %385, label %386, !prof !27
+  br i1 %384, label %385, label %386, !prof !25
 
 385:                                              ; preds = %382
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %11)
-  %.pre.pre = load i64, ptr %11, align 8, !noalias !28
-  %.pre190.pre = load i32, ptr %130, align 8, !noalias !42
+  %.pre.pre = load i64, ptr %11, align 8, !noalias !26
+  %.pre190.pre = load i32, ptr %130, align 8, !noalias !40
   br label %386
 
 386:                                              ; preds = %385, %382
   %.pre190 = phi i32 [ %.pre190.pre, %385 ], [ %.pre190199, %382 ]
   %.pre = phi i64 [ %.pre.pre, %385 ], [ %272, %382 ]
   %387 = icmp eq i8 %287, 0
-  br i1 %387, label %398, label %388, !prof !26
+  br i1 %387, label %398, label %388, !prof !24
 
 388:                                              ; preds = %386
   %389 = and i32 %.pre190, 63
@@ -4552,7 +4552,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %409 = and i64 %405, %408
   %410 = zext i16 %296 to i64
   %411 = add nuw i64 %409, %410
-  store i64 %411, ptr %126, align 8, !noalias !42
+  store i64 %411, ptr %126, align 8, !noalias !40
   %412 = add i32 %401, %304
   %413 = sub i32 0, %412
   %414 = and i32 %413, 63
@@ -4564,7 +4564,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %420 = and i64 %416, %419
   %421 = zext i16 %297 to i64
   %422 = add nuw i64 %420, %421
-  store i64 %422, ptr %226, align 8, !noalias !42
+  store i64 %422, ptr %226, align 8, !noalias !40
   %423 = zext i8 %306 to i32
   %424 = add i32 %412, %423
   %425 = sub i32 0, %424
@@ -4575,11 +4575,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %430 = shl nsw i64 -1, %429
   %431 = xor i64 %430, -1
   %432 = and i64 %428, %431
-  store i32 %424, ptr %130, align 8, !noalias !42
+  store i32 %424, ptr %130, align 8, !noalias !40
   %433 = zext i16 %298 to i64
   %434 = add nuw i64 %432, %433
-  store i64 %434, ptr %176, align 8, !noalias !42
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !45
+  store i64 %434, ptr %176, align 8, !noalias !40
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !43
   %435 = getelementptr inbounds i8, ptr %7, i64 8
   %436 = getelementptr inbounds i8, ptr %7, i64 16
   %437 = ptrtoint ptr %24 to i64
@@ -4613,12 +4613,12 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %458 = getelementptr i8, ptr %447, i64 %454
   %459 = icmp ugt ptr %458, %452
   %460 = select i1 %457, i1 true, i1 %459
-  br i1 %460, label %463, label %461, !prof !36
+  br i1 %460, label %463, label %461, !prof !34
 
 461:                                              ; preds = %.lr.ph
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %447, ptr noundef align 1 dereferenceable(16) %446, i64 16, i1 false)
   %462 = icmp ugt i64 %451, 16
-  br i1 %462, label %465, label %.loopexit136, !prof !27
+  br i1 %462, label %465, label %.loopexit136, !prof !25
 
 463:                                              ; preds = %.lr.ph
   %464 = call fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %447, ptr noundef %18, ptr noundef %452, ptr noundef nonnull byval(%struct.seq_t) align 8 %7, ptr noundef nonnull %10, ptr noundef %22, ptr noundef %24, ptr noundef %26, ptr noundef %28)
@@ -4646,7 +4646,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %476, ptr noundef align 1 dereferenceable(16) %477, i64 16, i1 false)
   %478 = getelementptr i8, ptr %474, i64 32
   %479 = icmp ult ptr %478, %453
-  br i1 %479, label %472, label %.loopexit136, !llvm.loop !34
+  br i1 %479, label %472, label %.loopexit136, !llvm.loop !32
 
 .loopexit136:                                     ; preds = %472, %465, %461
   store ptr %445, ptr %10, align 8
@@ -4658,7 +4658,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 483:                                              ; preds = %.loopexit136
   %484 = sub i64 %480, %438
   %485 = icmp ugt i64 %449, %484
-  br i1 %485, label %.thread82, label %486, !prof !27
+  br i1 %485, label %.thread82, label %486, !prof !25
 
 .thread82:                                        ; preds = %483
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -4689,7 +4689,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %499 = phi ptr [ %495, %493 ], [ %453, %.loopexit136 ]
   %500 = phi ptr [ %24, %493 ], [ %456, %.loopexit136 ]
   %501 = icmp ugt i64 %449, 15
-  br i1 %501, label %502, label %515, !prof !26
+  br i1 %501, label %502, label %515, !prof !24
 
 502:                                              ; preds = %497
   %503 = getelementptr i8, ptr %499, i64 %498
@@ -4711,7 +4711,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %511, ptr noundef align 1 dereferenceable(16) %512, i64 16, i1 false)
   %513 = getelementptr i8, ptr %509, i64 32
   %514 = icmp ult ptr %513, %503
-  br i1 %514, label %507, label %.loopexit132, !llvm.loop !34
+  br i1 %514, label %507, label %.loopexit132, !llvm.loop !32
 
 515:                                              ; preds = %497
   %516 = icmp ult i64 %449, 8
@@ -4776,7 +4776,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %556 = getelementptr i8, ptr %554, i64 8
   %557 = getelementptr i8, ptr %553, i64 8
   %558 = icmp ult ptr %556, %551
-  br i1 %558, label %.preheader133, label %.loopexit132, !llvm.loop !37
+  br i1 %558, label %.preheader133, label %.loopexit132, !llvm.loop !35
 
 559:                                              ; preds = %547
   %560 = add i64 %542, -8
@@ -4798,19 +4798,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %568, ptr noundef align 1 dereferenceable(16) %569, i64 16, i1 false)
   %570 = getelementptr i8, ptr %566, i64 32
   %571 = icmp ult ptr %570, %551
-  br i1 %571, label %564, label %.loopexit132, !llvm.loop !34
+  br i1 %571, label %564, label %.loopexit132, !llvm.loop !32
 
 .loopexit132:                                     ; preds = %564, %.preheader133, %507, %559, %541, %502, %492, %463
   %572 = phi i64 [ %464, %463 ], [ %454, %492 ], [ %454, %541 ], [ %454, %502 ], [ %454, %559 ], [ %454, %507 ], [ %454, %.preheader133 ], [ %454, %564 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %573 = icmp ult i64 %572, -119
-  br i1 %573, label %574, label %.thread113, !prof !46
+  br i1 %573, label %574, label %.thread113, !prof !44
 
 574:                                              ; preds = %.loopexit132
   %575 = getelementptr i8, ptr %447, i64 %572
   %576 = add i32 %448, -1
   %577 = icmp eq i32 %576, 0
-  br i1 %577, label %.thread106, label %578, !prof !27
+  br i1 %577, label %.thread106, label %578, !prof !25
 
 578:                                              ; preds = %574
   %579 = load i32, ptr %130, align 8
@@ -4864,50 +4864,50 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 612:                                              ; preds = %595, %592, %585, %578
   %613 = phi i32 [ %610, %595 ], [ %579, %592 ], [ %590, %585 ], [ %579, %578 ]
-  %614 = load ptr, ptr %175, align 8, !noalias !47
-  %615 = load i64, ptr %126, align 8, !noalias !47
+  %614 = load ptr, ptr %175, align 8, !noalias !45
+  %615 = load i64, ptr %126, align 8, !noalias !45
   %616 = getelementptr %struct.ZSTD_seqSymbol, ptr %614, i64 %615
-  %617 = load ptr, ptr %274, align 8, !noalias !47
-  %618 = load i64, ptr %226, align 8, !noalias !47
+  %617 = load ptr, ptr %274, align 8, !noalias !45
+  %618 = load i64, ptr %226, align 8, !noalias !45
   %619 = getelementptr %struct.ZSTD_seqSymbol, ptr %617, i64 %618
-  %620 = load ptr, ptr %225, align 8, !noalias !47
-  %621 = load i64, ptr %176, align 8, !noalias !47
+  %620 = load ptr, ptr %225, align 8, !noalias !45
+  %621 = load i64, ptr %176, align 8, !noalias !45
   %622 = getelementptr %struct.ZSTD_seqSymbol, ptr %620, i64 %621
   %623 = getelementptr inbounds i8, ptr %619, i64 4
-  %624 = load i32, ptr %623, align 4, !noalias !47
+  %624 = load i32, ptr %623, align 4, !noalias !45
   %625 = zext i32 %624 to i64
   %626 = getelementptr inbounds i8, ptr %616, i64 4
-  %627 = load i32, ptr %626, align 4, !noalias !47
+  %627 = load i32, ptr %626, align 4, !noalias !45
   %628 = zext i32 %627 to i64
   %629 = getelementptr inbounds i8, ptr %622, i64 4
-  %630 = load i32, ptr %629, align 4, !noalias !47
+  %630 = load i32, ptr %629, align 4, !noalias !45
   %631 = getelementptr inbounds i8, ptr %616, i64 2
-  %632 = load i8, ptr %631, align 2, !noalias !47
+  %632 = load i8, ptr %631, align 2, !noalias !45
   %633 = getelementptr inbounds i8, ptr %619, i64 2
-  %634 = load i8, ptr %633, align 2, !noalias !47
+  %634 = load i8, ptr %633, align 2, !noalias !45
   %635 = getelementptr inbounds i8, ptr %622, i64 2
-  %636 = load i8, ptr %635, align 2, !noalias !47
+  %636 = load i8, ptr %635, align 2, !noalias !45
   %637 = zext i8 %632 to i32
   %638 = zext i8 %634 to i32
   %639 = add i8 %634, %632
   %640 = add i8 %639, %636
-  %641 = load i16, ptr %616, align 4, !noalias !47
-  %642 = load i16, ptr %619, align 4, !noalias !47
-  %643 = load i16, ptr %622, align 4, !noalias !47
+  %641 = load i16, ptr %616, align 4, !noalias !45
+  %642 = load i16, ptr %619, align 4, !noalias !45
+  %643 = load i16, ptr %622, align 4, !noalias !45
   %644 = getelementptr inbounds i8, ptr %616, i64 3
-  %645 = load i8, ptr %644, align 1, !noalias !47
+  %645 = load i8, ptr %644, align 1, !noalias !45
   %646 = zext i8 %645 to i32
   %647 = getelementptr inbounds i8, ptr %619, i64 3
-  %648 = load i8, ptr %647, align 1, !noalias !47
+  %648 = load i8, ptr %647, align 1, !noalias !45
   %649 = zext i8 %648 to i32
   %650 = getelementptr inbounds i8, ptr %622, i64 3
-  %651 = load i8, ptr %650, align 1, !noalias !47
+  %651 = load i8, ptr %650, align 1, !noalias !45
   %652 = icmp ugt i8 %636, 1
-  br i1 %652, label %653, label %667, !prof !26
+  br i1 %652, label %653, label %667, !prof !24
 
 653:                                              ; preds = %612
   %654 = zext i8 %636 to i32
-  %655 = load i64, ptr %11, align 8, !noalias !47
+  %655 = load i64, ptr %11, align 8, !noalias !45
   %656 = and i32 %613, 63
   %657 = zext nneg i32 %656 to i64
   %658 = shl i64 %655, %657
@@ -4916,22 +4916,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %661 = zext nneg i32 %660 to i64
   %662 = lshr i64 %658, %661
   %663 = add i32 %613, %654
-  store i32 %663, ptr %130, align 8, !noalias !47
+  store i32 %663, ptr %130, align 8, !noalias !45
   %664 = zext i32 %630 to i64
   %665 = add i64 %662, %664
-  %666 = load i64, ptr %440, align 8, !noalias !47
-  store i64 %666, ptr %441, align 8, !noalias !47
+  %666 = load i64, ptr %440, align 8, !noalias !45
+  store i64 %666, ptr %441, align 8, !noalias !45
   br label %704
 
 667:                                              ; preds = %612
   %668 = icmp eq i32 %627, 0
   %669 = icmp eq i8 %636, 0
-  br i1 %669, label %670, label %677, !prof !26
+  br i1 %669, label %670, label %677, !prof !24
 
 670:                                              ; preds = %667
   %671 = zext i1 %668 to i64
   %672 = getelementptr [3 x i64], ptr %33, i64 0, i64 %671
-  %673 = load i64, ptr %672, align 8, !noalias !47
+  %673 = load i64, ptr %672, align 8, !noalias !45
   %674 = xor i1 %668, true
   %675 = zext i1 %674 to i64
   %676 = getelementptr [3 x i64], ptr %33, i64 0, i64 %675
@@ -4941,19 +4941,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %678 = zext i1 %668 to i32
   %679 = add i32 %630, %678
   %680 = zext i32 %679 to i64
-  %681 = load i64, ptr %11, align 8, !noalias !47
+  %681 = load i64, ptr %11, align 8, !noalias !45
   %682 = and i32 %613, 63
   %683 = zext nneg i32 %682 to i64
   %684 = shl i64 %681, %683
   %685 = lshr i64 %684, 63
   %686 = add i32 %613, 1
-  store i32 %686, ptr %130, align 8, !noalias !47
+  store i32 %686, ptr %130, align 8, !noalias !45
   %687 = add nuw nsw i64 %685, %680
   %688 = icmp eq i64 %687, 3
   br i1 %688, label %.thread83, label %694
 
 .thread83:                                        ; preds = %677
-  %689 = load i64, ptr %33, align 8, !noalias !47
+  %689 = load i64, ptr %33, align 8, !noalias !45
   %690 = add i64 %689, -1
   %691 = icmp eq i64 %690, 0
   %692 = zext i1 %691 to i64
@@ -4962,7 +4962,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 694:                                              ; preds = %677
   %695 = getelementptr [3 x i64], ptr %33, i64 0, i64 %687
-  %696 = load i64, ptr %695, align 8, !noalias !47
+  %696 = load i64, ptr %695, align 8, !noalias !45
   %697 = icmp eq i64 %696, 0
   %698 = zext i1 %697 to i64
   %699 = add i64 %696, %698
@@ -4971,22 +4971,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 701:                                              ; preds = %.thread83, %694
   %702 = phi i64 [ %693, %.thread83 ], [ %699, %694 ]
-  %703 = load i64, ptr %440, align 8, !noalias !47
-  store i64 %703, ptr %441, align 8, !noalias !47
+  %703 = load i64, ptr %440, align 8, !noalias !45
+  store i64 %703, ptr %441, align 8, !noalias !45
   br label %704
 
 704:                                              ; preds = %701, %694, %670, %653
   %705 = phi i32 [ %613, %670 ], [ %663, %653 ], [ %686, %701 ], [ %686, %694 ]
   %706 = phi ptr [ %676, %670 ], [ %33, %653 ], [ %33, %701 ], [ %33, %694 ]
   %707 = phi i64 [ %673, %670 ], [ %665, %653 ], [ %702, %701 ], [ %699, %694 ]
-  %708 = load i64, ptr %706, align 8, !noalias !47
-  store i64 %708, ptr %440, align 8, !noalias !47
-  store i64 %707, ptr %33, align 8, !noalias !47
+  %708 = load i64, ptr %706, align 8, !noalias !45
+  store i64 %708, ptr %440, align 8, !noalias !45
+  store i64 %707, ptr %33, align 8, !noalias !45
   %709 = icmp eq i8 %634, 0
-  br i1 %709, label %721, label %710, !prof !26
+  br i1 %709, label %721, label %710, !prof !24
 
 710:                                              ; preds = %704
-  %711 = load i64, ptr %11, align 8, !noalias !47
+  %711 = load i64, ptr %11, align 8, !noalias !45
   %712 = and i32 %705, 63
   %713 = zext nneg i32 %712 to i64
   %714 = shl i64 %711, %713
@@ -4995,7 +4995,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %717 = zext nneg i32 %716 to i64
   %718 = lshr i64 %714, %717
   %719 = add i32 %705, %638
-  store i32 %719, ptr %130, align 8, !noalias !47
+  store i32 %719, ptr %130, align 8, !noalias !45
   %720 = add i64 %718, %625
   br label %721
 
@@ -5003,18 +5003,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %.pre193201 = phi i32 [ %705, %704 ], [ %719, %710 ]
   %722 = phi i64 [ %625, %704 ], [ %720, %710 ]
   %723 = icmp ugt i8 %640, 30
-  br i1 %723, label %724, label %725, !prof !27
+  br i1 %723, label %724, label %725, !prof !25
 
 724:                                              ; preds = %721
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %11)
-  %.pre193.pre = load i32, ptr %130, align 8, !noalias !47
+  %.pre193.pre = load i32, ptr %130, align 8, !noalias !45
   br label %725
 
 725:                                              ; preds = %724, %721
   %.pre193 = phi i32 [ %.pre193.pre, %724 ], [ %.pre193201, %721 ]
   %726 = icmp eq i8 %632, 0
-  %.pre192 = load i64, ptr %11, align 8, !noalias !28
-  br i1 %726, label %737, label %727, !prof !26
+  %.pre192 = load i64, ptr %11, align 8, !noalias !26
+  br i1 %726, label %737, label %727, !prof !24
 
 727:                                              ; preds = %725
   %728 = and i32 %.pre193, 63
@@ -5042,7 +5042,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %748 = and i64 %744, %747
   %749 = zext i16 %641 to i64
   %750 = add nuw i64 %748, %749
-  store i64 %750, ptr %126, align 8, !noalias !47
+  store i64 %750, ptr %126, align 8, !noalias !45
   %751 = add i32 %740, %649
   %752 = sub i32 0, %751
   %753 = and i32 %752, 63
@@ -5054,7 +5054,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %759 = and i64 %755, %758
   %760 = zext i16 %642 to i64
   %761 = add nuw i64 %759, %760
-  store i64 %761, ptr %226, align 8, !noalias !47
+  store i64 %761, ptr %226, align 8, !noalias !45
   %762 = zext i8 %651 to i32
   %763 = add i32 %751, %762
   %764 = sub i32 0, %763
@@ -5065,10 +5065,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %769 = shl nsw i64 -1, %768
   %770 = xor i64 %769, -1
   %771 = and i64 %767, %770
-  store i32 %763, ptr %130, align 8, !noalias !47
+  store i32 %763, ptr %130, align 8, !noalias !45
   %772 = zext i16 %643 to i64
   %773 = add nuw i64 %771, %772
-  store i64 %773, ptr %176, align 8, !noalias !47
+  store i64 %773, ptr %176, align 8, !noalias !45
   %774 = load ptr, ptr %10, align 8
   %775 = getelementptr i8, ptr %774, i64 %739
   %776 = load ptr, ptr %21, align 8
@@ -5120,7 +5120,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %803 = getelementptr i8, ptr %799, i64 1
   store i8 %802, ptr %799, align 1
   %804 = icmp eq ptr %803, %793
-  br i1 %804, label %.loopexit128, label %.preheader127, !llvm.loop !33
+  br i1 %804, label %.loopexit128, label %.preheader127, !llvm.loop !31
 
 805:                                              ; preds = %791
   %806 = getelementptr i8, ptr %793, i64 -32
@@ -5150,7 +5150,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %820, ptr noundef align 1 dereferenceable(16) %821, i64 16, i1 false)
   %822 = getelementptr i8, ptr %818, i64 32
   %823 = icmp ult ptr %822, %806
-  br i1 %823, label %816, label %.loopexit131, !llvm.loop !34
+  br i1 %823, label %816, label %.loopexit131, !llvm.loop !32
 
 .loopexit131:                                     ; preds = %816, %810
   %824 = getelementptr i8, ptr %778, i64 %812
@@ -5170,7 +5170,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %833 = getelementptr i8, ptr %829, i64 1
   store i8 %832, ptr %829, align 1
   %834 = icmp ult ptr %833, %793
-  br i1 %834, label %.preheader129, label %.loopexit128, !llvm.loop !35
+  br i1 %834, label %.preheader129, label %.loopexit128, !llvm.loop !33
 
 .loopexit128:                                     ; preds = %.preheader129, %.preheader127, %825, %797
   %835 = sub i64 %.lcssa157, %784
@@ -5200,12 +5200,12 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %851 = getelementptr i8, ptr %838, i64 %845
   %852 = icmp ugt ptr %851, %850
   %853 = select i1 %849, i1 true, i1 %852
-  br i1 %853, label %856, label %854, !prof !36
+  br i1 %853, label %856, label %854, !prof !34
 
 854:                                              ; preds = %836
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %838, ptr noundef align 1 dereferenceable(16) %839, i64 16, i1 false)
   %855 = icmp ugt i64 %837, 16
-  br i1 %855, label %858, label %.loopexit126, !prof !27
+  br i1 %855, label %858, label %.loopexit126, !prof !25
 
 856:                                              ; preds = %836
   %857 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %838, ptr noundef %18, ptr noundef nonnull byval(%struct.seq_t) align 8 %8, ptr noundef nonnull %10, ptr noundef %840, ptr noundef %24, ptr noundef %26, ptr noundef %28)
@@ -5233,7 +5233,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %869, ptr noundef align 1 dereferenceable(16) %870, i64 16, i1 false)
   %871 = getelementptr i8, ptr %867, i64 32
   %872 = icmp ult ptr %871, %844
-  br i1 %872, label %865, label %.loopexit126, !llvm.loop !34
+  br i1 %872, label %865, label %.loopexit126, !llvm.loop !32
 
 .loopexit126:                                     ; preds = %865, %858, %854
   store ptr %846, ptr %10, align 8
@@ -5245,7 +5245,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 876:                                              ; preds = %.loopexit126
   %877 = sub i64 %873, %438
   %878 = icmp ugt i64 %.lcssa149, %877
-  br i1 %878, label %.thread88, label %879, !prof !27
+  br i1 %878, label %.thread88, label %879, !prof !25
 
 .thread88:                                        ; preds = %876
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -5276,7 +5276,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %892 = phi ptr [ %888, %886 ], [ %844, %.loopexit126 ]
   %893 = phi ptr [ %24, %886 ], [ %848, %.loopexit126 ]
   %894 = icmp ugt i64 %.lcssa149, 15
-  br i1 %894, label %895, label %908, !prof !26
+  br i1 %894, label %895, label %908, !prof !24
 
 895:                                              ; preds = %890
   %896 = getelementptr i8, ptr %892, i64 %891
@@ -5298,7 +5298,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %904, ptr noundef align 1 dereferenceable(16) %905, i64 16, i1 false)
   %906 = getelementptr i8, ptr %902, i64 32
   %907 = icmp ult ptr %906, %896
-  br i1 %907, label %900, label %.loopexit122, !llvm.loop !34
+  br i1 %907, label %900, label %.loopexit122, !llvm.loop !32
 
 908:                                              ; preds = %890
   %909 = icmp ult i64 %.lcssa149, 8
@@ -5362,7 +5362,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %949 = getelementptr i8, ptr %947, i64 8
   %950 = getelementptr i8, ptr %946, i64 8
   %951 = icmp ult ptr %949, %944
-  br i1 %951, label %.preheader123, label %.loopexit122, !llvm.loop !37
+  br i1 %951, label %.preheader123, label %.loopexit122, !llvm.loop !35
 
 952:                                              ; preds = %940
   %953 = add i64 %938, -8
@@ -5384,13 +5384,13 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %961, ptr noundef align 1 dereferenceable(16) %962, i64 16, i1 false)
   %963 = getelementptr i8, ptr %959, i64 32
   %964 = icmp ult ptr %963, %944
-  br i1 %964, label %957, label %.loopexit122, !llvm.loop !34
+  br i1 %964, label %957, label %.loopexit122, !llvm.loop !32
 
 .loopexit122:                                     ; preds = %957, %.preheader123, %900, %952, %934, %895, %885, %856
   %965 = phi i64 [ %857, %856 ], [ %845, %885 ], [ %845, %934 ], [ %845, %895 ], [ %845, %952 ], [ %845, %900 ], [ %845, %.preheader123 ], [ %845, %957 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %966 = icmp ult i64 %965, -119
-  br i1 %966, label %967, label %.thread113, !prof !46
+  br i1 %966, label %967, label %.thread113, !prof !44
 
 967:                                              ; preds = %.loopexit122
   %968 = getelementptr i8, ptr %838, i64 %965
@@ -5450,11 +5450,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 1005:                                             ; preds = %985, %988, %978, %971
   %1006 = phi i32 [ %972, %971 ], [ %983, %978 ], [ %1003, %988 ], [ %972, %985 ]
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !50
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !48
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
+  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !50
   tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !51
-  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !52
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !53
-  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !54
+  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !52
   %1007 = getelementptr inbounds i8, ptr %9, i64 8
   %1008 = getelementptr inbounds i8, ptr %9, i64 16
   br label %1009
@@ -5463,50 +5463,50 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1010 = phi i32 [ %1006, %1005 ], [ %.be, %.backedge ]
   %1011 = phi i32 [ %969, %1005 ], [ %1298, %.backedge ]
   %1012 = phi ptr [ %968, %1005 ], [ %1297, %.backedge ]
-  %1013 = load ptr, ptr %175, align 8, !noalias !55
-  %1014 = load i64, ptr %126, align 8, !noalias !55
+  %1013 = load ptr, ptr %175, align 8, !noalias !53
+  %1014 = load i64, ptr %126, align 8, !noalias !53
   %1015 = getelementptr %struct.ZSTD_seqSymbol, ptr %1013, i64 %1014
-  %1016 = load ptr, ptr %274, align 8, !noalias !55
-  %1017 = load i64, ptr %226, align 8, !noalias !55
+  %1016 = load ptr, ptr %274, align 8, !noalias !53
+  %1017 = load i64, ptr %226, align 8, !noalias !53
   %1018 = getelementptr %struct.ZSTD_seqSymbol, ptr %1016, i64 %1017
-  %1019 = load ptr, ptr %225, align 8, !noalias !55
-  %1020 = load i64, ptr %176, align 8, !noalias !55
+  %1019 = load ptr, ptr %225, align 8, !noalias !53
+  %1020 = load i64, ptr %176, align 8, !noalias !53
   %1021 = getelementptr %struct.ZSTD_seqSymbol, ptr %1019, i64 %1020
   %1022 = getelementptr inbounds i8, ptr %1018, i64 4
-  %1023 = load i32, ptr %1022, align 4, !noalias !55
+  %1023 = load i32, ptr %1022, align 4, !noalias !53
   %1024 = zext i32 %1023 to i64
   %1025 = getelementptr inbounds i8, ptr %1015, i64 4
-  %1026 = load i32, ptr %1025, align 4, !noalias !55
+  %1026 = load i32, ptr %1025, align 4, !noalias !53
   %1027 = zext i32 %1026 to i64
   %1028 = getelementptr inbounds i8, ptr %1021, i64 4
-  %1029 = load i32, ptr %1028, align 4, !noalias !55
+  %1029 = load i32, ptr %1028, align 4, !noalias !53
   %1030 = getelementptr inbounds i8, ptr %1015, i64 2
-  %1031 = load i8, ptr %1030, align 2, !noalias !55
+  %1031 = load i8, ptr %1030, align 2, !noalias !53
   %1032 = getelementptr inbounds i8, ptr %1018, i64 2
-  %1033 = load i8, ptr %1032, align 2, !noalias !55
+  %1033 = load i8, ptr %1032, align 2, !noalias !53
   %1034 = getelementptr inbounds i8, ptr %1021, i64 2
-  %1035 = load i8, ptr %1034, align 2, !noalias !55
+  %1035 = load i8, ptr %1034, align 2, !noalias !53
   %1036 = zext i8 %1031 to i32
   %1037 = zext i8 %1033 to i32
   %1038 = add i8 %1033, %1031
   %1039 = add i8 %1038, %1035
-  %1040 = load i16, ptr %1015, align 4, !noalias !55
-  %1041 = load i16, ptr %1018, align 4, !noalias !55
-  %1042 = load i16, ptr %1021, align 4, !noalias !55
+  %1040 = load i16, ptr %1015, align 4, !noalias !53
+  %1041 = load i16, ptr %1018, align 4, !noalias !53
+  %1042 = load i16, ptr %1021, align 4, !noalias !53
   %1043 = getelementptr inbounds i8, ptr %1015, i64 3
-  %1044 = load i8, ptr %1043, align 1, !noalias !55
+  %1044 = load i8, ptr %1043, align 1, !noalias !53
   %1045 = zext i8 %1044 to i32
   %1046 = getelementptr inbounds i8, ptr %1018, i64 3
-  %1047 = load i8, ptr %1046, align 1, !noalias !55
+  %1047 = load i8, ptr %1046, align 1, !noalias !53
   %1048 = zext i8 %1047 to i32
   %1049 = getelementptr inbounds i8, ptr %1021, i64 3
-  %1050 = load i8, ptr %1049, align 1, !noalias !55
+  %1050 = load i8, ptr %1049, align 1, !noalias !53
   %1051 = icmp ugt i8 %1035, 1
-  br i1 %1051, label %1052, label %1066, !prof !26
+  br i1 %1051, label %1052, label %1066, !prof !24
 
 1052:                                             ; preds = %1009
   %1053 = zext i8 %1035 to i32
-  %1054 = load i64, ptr %11, align 8, !noalias !55
+  %1054 = load i64, ptr %11, align 8, !noalias !53
   %1055 = and i32 %1010, 63
   %1056 = zext nneg i32 %1055 to i64
   %1057 = shl i64 %1054, %1056
@@ -5515,22 +5515,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1060 = zext nneg i32 %1059 to i64
   %1061 = lshr i64 %1057, %1060
   %1062 = add i32 %1010, %1053
-  store i32 %1062, ptr %130, align 8, !noalias !55
+  store i32 %1062, ptr %130, align 8, !noalias !53
   %1063 = zext i32 %1029 to i64
   %1064 = add i64 %1061, %1063
-  %1065 = load i64, ptr %440, align 8, !noalias !55
-  store i64 %1065, ptr %441, align 8, !noalias !55
+  %1065 = load i64, ptr %440, align 8, !noalias !53
+  store i64 %1065, ptr %441, align 8, !noalias !53
   br label %1103
 
 1066:                                             ; preds = %1009
   %1067 = icmp eq i32 %1026, 0
   %1068 = icmp eq i8 %1035, 0
-  br i1 %1068, label %1069, label %1076, !prof !26
+  br i1 %1068, label %1069, label %1076, !prof !24
 
 1069:                                             ; preds = %1066
   %1070 = zext i1 %1067 to i64
   %1071 = getelementptr [3 x i64], ptr %33, i64 0, i64 %1070
-  %1072 = load i64, ptr %1071, align 8, !noalias !55
+  %1072 = load i64, ptr %1071, align 8, !noalias !53
   %1073 = xor i1 %1067, true
   %1074 = zext i1 %1073 to i64
   %1075 = getelementptr [3 x i64], ptr %33, i64 0, i64 %1074
@@ -5540,19 +5540,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1077 = zext i1 %1067 to i32
   %1078 = add i32 %1029, %1077
   %1079 = zext i32 %1078 to i64
-  %1080 = load i64, ptr %11, align 8, !noalias !55
+  %1080 = load i64, ptr %11, align 8, !noalias !53
   %1081 = and i32 %1010, 63
   %1082 = zext nneg i32 %1081 to i64
   %1083 = shl i64 %1080, %1082
   %1084 = lshr i64 %1083, 63
   %1085 = add i32 %1010, 1
-  store i32 %1085, ptr %130, align 8, !noalias !55
+  store i32 %1085, ptr %130, align 8, !noalias !53
   %1086 = add nuw nsw i64 %1084, %1079
   %1087 = icmp eq i64 %1086, 3
   br i1 %1087, label %.thread100, label %1093
 
 .thread100:                                       ; preds = %1076
-  %1088 = load i64, ptr %33, align 8, !noalias !55
+  %1088 = load i64, ptr %33, align 8, !noalias !53
   %1089 = add i64 %1088, -1
   %1090 = icmp eq i64 %1089, 0
   %1091 = zext i1 %1090 to i64
@@ -5561,7 +5561,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 1093:                                             ; preds = %1076
   %1094 = getelementptr [3 x i64], ptr %33, i64 0, i64 %1086
-  %1095 = load i64, ptr %1094, align 8, !noalias !55
+  %1095 = load i64, ptr %1094, align 8, !noalias !53
   %1096 = icmp eq i64 %1095, 0
   %1097 = zext i1 %1096 to i64
   %1098 = add i64 %1095, %1097
@@ -5570,22 +5570,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 1100:                                             ; preds = %.thread100, %1093
   %1101 = phi i64 [ %1092, %.thread100 ], [ %1098, %1093 ]
-  %1102 = load i64, ptr %440, align 8, !noalias !55
-  store i64 %1102, ptr %441, align 8, !noalias !55
+  %1102 = load i64, ptr %440, align 8, !noalias !53
+  store i64 %1102, ptr %441, align 8, !noalias !53
   br label %1103
 
 1103:                                             ; preds = %1100, %1093, %1069, %1052
   %1104 = phi i32 [ %1010, %1069 ], [ %1062, %1052 ], [ %1085, %1100 ], [ %1085, %1093 ]
   %1105 = phi ptr [ %1075, %1069 ], [ %33, %1052 ], [ %33, %1100 ], [ %33, %1093 ]
   %1106 = phi i64 [ %1072, %1069 ], [ %1064, %1052 ], [ %1101, %1100 ], [ %1098, %1093 ]
-  %1107 = load i64, ptr %1105, align 8, !noalias !55
-  store i64 %1107, ptr %440, align 8, !noalias !55
-  store i64 %1106, ptr %33, align 8, !noalias !55
+  %1107 = load i64, ptr %1105, align 8, !noalias !53
+  store i64 %1107, ptr %440, align 8, !noalias !53
+  store i64 %1106, ptr %33, align 8, !noalias !53
   %1108 = icmp eq i8 %1033, 0
-  br i1 %1108, label %1120, label %1109, !prof !26
+  br i1 %1108, label %1120, label %1109, !prof !24
 
 1109:                                             ; preds = %1103
-  %1110 = load i64, ptr %11, align 8, !noalias !55
+  %1110 = load i64, ptr %11, align 8, !noalias !53
   %1111 = and i32 %1104, 63
   %1112 = zext nneg i32 %1111 to i64
   %1113 = shl i64 %1110, %1112
@@ -5594,7 +5594,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1116 = zext nneg i32 %1115 to i64
   %1117 = lshr i64 %1113, %1116
   %1118 = add i32 %1104, %1037
-  store i32 %1118, ptr %130, align 8, !noalias !55
+  store i32 %1118, ptr %130, align 8, !noalias !53
   %1119 = add i64 %1117, %1024
   br label %1120
 
@@ -5602,18 +5602,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %.pre195203 = phi i32 [ %1104, %1103 ], [ %1118, %1109 ]
   %1121 = phi i64 [ %1024, %1103 ], [ %1119, %1109 ]
   %1122 = icmp ugt i8 %1039, 30
-  br i1 %1122, label %1123, label %1124, !prof !27
+  br i1 %1122, label %1123, label %1124, !prof !25
 
 1123:                                             ; preds = %1120
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %11)
-  %.pre195.pre = load i32, ptr %130, align 8, !noalias !55
+  %.pre195.pre = load i32, ptr %130, align 8, !noalias !53
   br label %1124
 
 1124:                                             ; preds = %1123, %1120
   %.pre195 = phi i32 [ %.pre195.pre, %1123 ], [ %.pre195203, %1120 ]
   %1125 = icmp eq i8 %1031, 0
-  %.pre194 = load i64, ptr %11, align 8, !noalias !55
-  br i1 %1125, label %1136, label %1126, !prof !26
+  %.pre194 = load i64, ptr %11, align 8, !noalias !53
+  br i1 %1125, label %1136, label %1126, !prof !24
 
 1126:                                             ; preds = %1124
   %1127 = and i32 %.pre195, 63
@@ -5641,7 +5641,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1147 = and i64 %1143, %1146
   %1148 = zext i16 %1040 to i64
   %1149 = add nuw i64 %1147, %1148
-  store i64 %1149, ptr %126, align 8, !noalias !55
+  store i64 %1149, ptr %126, align 8, !noalias !53
   %1150 = add i32 %1139, %1048
   %1151 = sub i32 0, %1150
   %1152 = and i32 %1151, 63
@@ -5653,7 +5653,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1158 = and i64 %1154, %1157
   %1159 = zext i16 %1041 to i64
   %1160 = add nuw i64 %1158, %1159
-  store i64 %1160, ptr %226, align 8, !noalias !55
+  store i64 %1160, ptr %226, align 8, !noalias !53
   %1161 = zext i8 %1050 to i32
   %1162 = add i32 %1150, %1161
   %1163 = sub i32 0, %1162
@@ -5664,10 +5664,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1168 = shl nsw i64 -1, %1167
   %1169 = xor i64 %1168, -1
   %1170 = and i64 %1166, %1169
-  store i32 %1162, ptr %130, align 8, !noalias !55
+  store i32 %1162, ptr %130, align 8, !noalias !53
   %1171 = zext i16 %1042 to i64
   %1172 = add nuw i64 %1170, %1171
-  store i64 %1172, ptr %176, align 8, !noalias !55
+  store i64 %1172, ptr %176, align 8, !noalias !53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 %1138, ptr %9, align 8
   store i64 %1121, ptr %1007, align 8
@@ -5682,12 +5682,12 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1180 = getelementptr i8, ptr %1012, i64 %1174
   %1181 = icmp ugt ptr %1180, %850
   %1182 = select i1 %1179, i1 true, i1 %1181
-  br i1 %1182, label %1185, label %1183, !prof !36
+  br i1 %1182, label %1185, label %1183, !prof !34
 
 1183:                                             ; preds = %1136
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1012, ptr noundef align 1 dereferenceable(16) %1175, i64 16, i1 false)
   %1184 = icmp ugt i64 %1138, 16
-  br i1 %1184, label %1187, label %.loopexit121, !prof !27
+  br i1 %1184, label %1187, label %.loopexit121, !prof !25
 
 1185:                                             ; preds = %1136
   %1186 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %1012, ptr noundef %18, ptr noundef nonnull byval(%struct.seq_t) align 8 %9, ptr noundef nonnull %10, ptr noundef %840, ptr noundef %24, ptr noundef %26, ptr noundef %28)
@@ -5715,7 +5715,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1198, ptr noundef align 1 dereferenceable(16) %1199, i64 16, i1 false)
   %1200 = getelementptr i8, ptr %1196, i64 32
   %1201 = icmp ult ptr %1200, %1173
-  br i1 %1201, label %1194, label %.loopexit121, !llvm.loop !34
+  br i1 %1201, label %1194, label %.loopexit121, !llvm.loop !32
 
 .loopexit121:                                     ; preds = %1194, %1187, %1183
   store ptr %1176, ptr %10, align 8
@@ -5727,7 +5727,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 1205:                                             ; preds = %.loopexit121
   %1206 = sub i64 %1202, %438
   %1207 = icmp ugt i64 %1106, %1206
-  br i1 %1207, label %.thread101, label %1208, !prof !27
+  br i1 %1207, label %.thread101, label %1208, !prof !25
 
 .thread101:                                       ; preds = %1205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -5758,7 +5758,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1221 = phi ptr [ %1217, %1215 ], [ %1173, %.loopexit121 ]
   %1222 = phi ptr [ %24, %1215 ], [ %1178, %.loopexit121 ]
   %1223 = icmp ugt i64 %1106, 15
-  br i1 %1223, label %1224, label %1237, !prof !26
+  br i1 %1223, label %1224, label %1237, !prof !24
 
 1224:                                             ; preds = %1219
   %1225 = getelementptr i8, ptr %1221, i64 %1220
@@ -5780,7 +5780,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1233, ptr noundef align 1 dereferenceable(16) %1234, i64 16, i1 false)
   %1235 = getelementptr i8, ptr %1231, i64 32
   %1236 = icmp ult ptr %1235, %1225
-  br i1 %1236, label %1229, label %.loopexit, !llvm.loop !34
+  br i1 %1236, label %1229, label %.loopexit, !llvm.loop !32
 
 1237:                                             ; preds = %1219
   %1238 = icmp ult i64 %1106, 8
@@ -5844,7 +5844,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1278 = getelementptr i8, ptr %1276, i64 8
   %1279 = getelementptr i8, ptr %1275, i64 8
   %1280 = icmp ult ptr %1278, %1273
-  br i1 %1280, label %.preheader, label %.loopexit, !llvm.loop !37
+  br i1 %1280, label %.preheader, label %.loopexit, !llvm.loop !35
 
 1281:                                             ; preds = %1269
   %1282 = add i64 %1267, -8
@@ -5866,19 +5866,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1290, ptr noundef align 1 dereferenceable(16) %1291, i64 16, i1 false)
   %1292 = getelementptr i8, ptr %1288, i64 32
   %1293 = icmp ult ptr %1292, %1273
-  br i1 %1293, label %1286, label %.loopexit, !llvm.loop !34
+  br i1 %1293, label %1286, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %1286, %.preheader, %1229, %1281, %1263, %1224, %1214, %1185
   %1294 = phi i64 [ %1186, %1185 ], [ %1174, %1214 ], [ %1174, %1263 ], [ %1174, %1224 ], [ %1174, %1281 ], [ %1174, %1229 ], [ %1174, %.preheader ], [ %1174, %1286 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %1295 = icmp ult i64 %1294, -119
-  br i1 %1295, label %1296, label %.thread113, !prof !46
+  br i1 %1295, label %1296, label %.thread113, !prof !44
 
 1296:                                             ; preds = %.loopexit
   %1297 = getelementptr i8, ptr %1012, i64 %1294
   %1298 = add i32 %1011, -1
   %1299 = icmp eq i32 %1298, 0
-  br i1 %1299, label %.thread106, label %1300, !prof !27
+  br i1 %1299, label %.thread106, label %1300, !prof !25
 
 1300:                                             ; preds = %1296
   %1301 = load i32, ptr %130, align 8
@@ -5964,7 +5964,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store i32 %1348, ptr %1349, align 4
   %1350 = add nuw nsw i64 %1345, 1
   %1351 = icmp eq i64 %1350, 3
-  br i1 %1351, label %1352, label %1344, !llvm.loop !58
+  br i1 %1351, label %1352, label %1344, !llvm.loop !56
 
 .thread113:                                       ; preds = %.loopexit132, %.loopexit, %1337, %42, %._crit_edge, %.thread88, %.loopexit122, %786, %49, %108, %.thread82, %.thread101
   %.ph110 = phi i64 [ -20, %.thread88 ], [ %965, %.loopexit122 ], [ -70, %786 ], [ -20, %49 ], [ -20, %108 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %42 ], [ -20, %1337 ], [ %1294, %.loopexit ], [ %572, %.loopexit132 ]
@@ -6103,7 +6103,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
 
 38:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false), !annotation !18
   %39 = getelementptr inbounds i8, ptr %0, i64 29996
   store i32 1, ptr %39, align 4
   %40 = getelementptr inbounds i8, ptr %0, i64 26684
@@ -6119,7 +6119,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   store i64 %46, ptr %47, align 8
   %48 = add nuw nsw i64 %43, 1
   %49 = icmp eq i64 %48, 3
-  br i1 %49, label %50, label %42, !llvm.loop !59
+  br i1 %49, label %50, label %42, !llvm.loop !57
 
 50:                                               ; preds = %42
   %51 = icmp eq i64 %4, 0
@@ -6452,11 +6452,11 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %280 = getelementptr i8, ptr %236, i64 8
   %281 = getelementptr inbounds i8, ptr %9, i64 80
   store ptr %280, ptr %281, align 8
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !60
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !58
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !59
+  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !60
   tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !61
-  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !62
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !63
-  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !64
+  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !62
   %282 = getelementptr inbounds i8, ptr %7, i64 8
   %283 = getelementptr inbounds i8, ptr %7, i64 16
   %284 = getelementptr i8, ptr %25, i64 -32
@@ -6481,40 +6481,40 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %301 = getelementptr %struct.ZSTD_seqSymbol, ptr %295, i64 %294
   %302 = getelementptr %struct.ZSTD_seqSymbol, ptr %293, i64 %292
   %303 = getelementptr inbounds i8, ptr %301, i64 4
-  %304 = load i32, ptr %303, align 4, !noalias !65
+  %304 = load i32, ptr %303, align 4, !noalias !63
   %305 = zext i32 %304 to i64
   %306 = getelementptr inbounds i8, ptr %300, i64 4
-  %307 = load i32, ptr %306, align 4, !noalias !65
+  %307 = load i32, ptr %306, align 4, !noalias !63
   %308 = zext i32 %307 to i64
   %309 = getelementptr inbounds i8, ptr %302, i64 4
-  %310 = load i32, ptr %309, align 4, !noalias !65
+  %310 = load i32, ptr %309, align 4, !noalias !63
   %311 = getelementptr inbounds i8, ptr %300, i64 2
-  %312 = load i8, ptr %311, align 2, !noalias !65
+  %312 = load i8, ptr %311, align 2, !noalias !63
   %313 = getelementptr inbounds i8, ptr %301, i64 2
-  %314 = load i8, ptr %313, align 2, !noalias !65
+  %314 = load i8, ptr %313, align 2, !noalias !63
   %315 = getelementptr inbounds i8, ptr %302, i64 2
-  %316 = load i8, ptr %315, align 2, !noalias !65
+  %316 = load i8, ptr %315, align 2, !noalias !63
   %317 = zext i8 %312 to i32
   %318 = zext i8 %314 to i32
   %319 = add i8 %314, %312
   %320 = add i8 %319, %316
-  %321 = load i16, ptr %300, align 4, !noalias !65
-  %322 = load i16, ptr %301, align 4, !noalias !65
-  %323 = load i16, ptr %302, align 4, !noalias !65
+  %321 = load i16, ptr %300, align 4, !noalias !63
+  %322 = load i16, ptr %301, align 4, !noalias !63
+  %323 = load i16, ptr %302, align 4, !noalias !63
   %324 = getelementptr inbounds i8, ptr %300, i64 3
-  %325 = load i8, ptr %324, align 1, !noalias !65
+  %325 = load i8, ptr %324, align 1, !noalias !63
   %326 = zext i8 %325 to i32
   %327 = getelementptr inbounds i8, ptr %301, i64 3
-  %328 = load i8, ptr %327, align 1, !noalias !65
+  %328 = load i8, ptr %327, align 1, !noalias !63
   %329 = zext i8 %328 to i32
   %330 = getelementptr inbounds i8, ptr %302, i64 3
-  %331 = load i8, ptr %330, align 1, !noalias !65
+  %331 = load i8, ptr %330, align 1, !noalias !63
   %332 = icmp ugt i8 %316, 1
-  br i1 %332, label %333, label %347, !prof !26
+  br i1 %332, label %333, label %347, !prof !24
 
 333:                                              ; preds = %290
   %334 = zext i8 %316 to i32
-  %335 = load i64, ptr %9, align 8, !noalias !65
+  %335 = load i64, ptr %9, align 8, !noalias !63
   %336 = and i32 %291, 63
   %337 = zext nneg i32 %336 to i64
   %338 = shl i64 %335, %337
@@ -6523,22 +6523,22 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %341 = zext nneg i32 %340 to i64
   %342 = lshr i64 %338, %341
   %343 = add i32 %291, %334
-  store i32 %343, ptr %138, align 8, !noalias !65
+  store i32 %343, ptr %138, align 8, !noalias !63
   %344 = zext i32 %310 to i64
   %345 = add i64 %342, %344
-  %346 = load i64, ptr %285, align 8, !noalias !65
-  store i64 %346, ptr %286, align 8, !noalias !65
+  %346 = load i64, ptr %285, align 8, !noalias !63
+  store i64 %346, ptr %286, align 8, !noalias !63
   br label %384
 
 347:                                              ; preds = %290
   %348 = icmp eq i32 %307, 0
   %349 = icmp eq i8 %316, 0
-  br i1 %349, label %350, label %357, !prof !26
+  br i1 %349, label %350, label %357, !prof !24
 
 350:                                              ; preds = %347
   %351 = zext i1 %348 to i64
   %352 = getelementptr [3 x i64], ptr %41, i64 0, i64 %351
-  %353 = load i64, ptr %352, align 8, !noalias !65
+  %353 = load i64, ptr %352, align 8, !noalias !63
   %354 = xor i1 %348, true
   %355 = zext i1 %354 to i64
   %356 = getelementptr [3 x i64], ptr %41, i64 0, i64 %355
@@ -6548,19 +6548,19 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %358 = zext i1 %348 to i32
   %359 = add i32 %310, %358
   %360 = zext i32 %359 to i64
-  %361 = load i64, ptr %9, align 8, !noalias !65
+  %361 = load i64, ptr %9, align 8, !noalias !63
   %362 = and i32 %291, 63
   %363 = zext nneg i32 %362 to i64
   %364 = shl i64 %361, %363
   %365 = lshr i64 %364, 63
   %366 = add i32 %291, 1
-  store i32 %366, ptr %138, align 8, !noalias !65
+  store i32 %366, ptr %138, align 8, !noalias !63
   %367 = add nuw nsw i64 %365, %360
   %368 = icmp eq i64 %367, 3
   br i1 %368, label %.thread35, label %374
 
 .thread35:                                        ; preds = %357
-  %369 = load i64, ptr %41, align 8, !noalias !65
+  %369 = load i64, ptr %41, align 8, !noalias !63
   %370 = add i64 %369, -1
   %371 = icmp eq i64 %370, 0
   %372 = zext i1 %371 to i64
@@ -6569,7 +6569,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
 
 374:                                              ; preds = %357
   %375 = getelementptr [3 x i64], ptr %41, i64 0, i64 %367
-  %376 = load i64, ptr %375, align 8, !noalias !65
+  %376 = load i64, ptr %375, align 8, !noalias !63
   %377 = icmp eq i64 %376, 0
   %378 = zext i1 %377 to i64
   %379 = add i64 %376, %378
@@ -6578,22 +6578,22 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
 
 381:                                              ; preds = %.thread35, %374
   %382 = phi i64 [ %373, %.thread35 ], [ %379, %374 ]
-  %383 = load i64, ptr %285, align 8, !noalias !65
-  store i64 %383, ptr %286, align 8, !noalias !65
+  %383 = load i64, ptr %285, align 8, !noalias !63
+  store i64 %383, ptr %286, align 8, !noalias !63
   br label %384
 
 384:                                              ; preds = %381, %374, %350, %333
   %385 = phi i32 [ %291, %350 ], [ %343, %333 ], [ %366, %381 ], [ %366, %374 ]
   %386 = phi ptr [ %356, %350 ], [ %41, %333 ], [ %41, %381 ], [ %41, %374 ]
   %387 = phi i64 [ %353, %350 ], [ %345, %333 ], [ %382, %381 ], [ %379, %374 ]
-  %388 = load i64, ptr %386, align 8, !noalias !65
-  store i64 %388, ptr %285, align 8, !noalias !65
-  store i64 %387, ptr %41, align 8, !noalias !65
+  %388 = load i64, ptr %386, align 8, !noalias !63
+  store i64 %388, ptr %285, align 8, !noalias !63
+  store i64 %387, ptr %41, align 8, !noalias !63
   %389 = icmp eq i8 %314, 0
-  br i1 %389, label %401, label %390, !prof !26
+  br i1 %389, label %401, label %390, !prof !24
 
 390:                                              ; preds = %384
-  %391 = load i64, ptr %9, align 8, !noalias !65
+  %391 = load i64, ptr %9, align 8, !noalias !63
   %392 = and i32 %385, 63
   %393 = zext nneg i32 %392 to i64
   %394 = shl i64 %391, %393
@@ -6602,7 +6602,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %397 = zext nneg i32 %396 to i64
   %398 = lshr i64 %394, %397
   %399 = add i32 %385, %318
-  store i32 %399, ptr %138, align 8, !noalias !65
+  store i32 %399, ptr %138, align 8, !noalias !63
   %400 = add i64 %398, %305
   br label %401
 
@@ -6610,18 +6610,18 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %.pre6367 = phi i32 [ %385, %384 ], [ %399, %390 ]
   %402 = phi i64 [ %305, %384 ], [ %400, %390 ]
   %403 = icmp ugt i8 %320, 30
-  br i1 %403, label %404, label %405, !prof !27
+  br i1 %403, label %404, label %405, !prof !25
 
 404:                                              ; preds = %401
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %9)
-  %.pre63.pre = load i32, ptr %138, align 8, !noalias !65
+  %.pre63.pre = load i32, ptr %138, align 8, !noalias !63
   br label %405
 
 405:                                              ; preds = %404, %401
   %.pre63 = phi i32 [ %.pre63.pre, %404 ], [ %.pre6367, %401 ]
   %406 = icmp eq i8 %312, 0
-  %.pre62 = load i64, ptr %9, align 8, !noalias !65
-  br i1 %406, label %417, label %407, !prof !26
+  %.pre62 = load i64, ptr %9, align 8, !noalias !63
+  br i1 %406, label %417, label %407, !prof !24
 
 407:                                              ; preds = %405
   %408 = and i32 %.pre63, 63
@@ -6649,7 +6649,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %428 = and i64 %424, %427
   %429 = zext i16 %321 to i64
   %430 = add nuw i64 %428, %429
-  store i64 %430, ptr %134, align 8, !noalias !65
+  store i64 %430, ptr %134, align 8, !noalias !63
   %431 = add i32 %420, %329
   %432 = sub i32 0, %431
   %433 = and i32 %432, 63
@@ -6661,7 +6661,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %439 = and i64 %435, %438
   %440 = zext i16 %322 to i64
   %441 = add nuw i64 %439, %440
-  store i64 %441, ptr %234, align 8, !noalias !65
+  store i64 %441, ptr %234, align 8, !noalias !63
   %442 = zext i8 %331 to i32
   %443 = add i32 %431, %442
   %444 = sub i32 0, %443
@@ -6672,10 +6672,10 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %449 = shl nsw i64 -1, %448
   %450 = xor i64 %449, -1
   %451 = and i64 %447, %450
-  store i32 %443, ptr %138, align 8, !noalias !65
+  store i32 %443, ptr %138, align 8, !noalias !63
   %452 = zext i16 %323 to i64
   %453 = add nuw i64 %451, %452
-  store i64 %453, ptr %184, align 8, !noalias !65
+  store i64 %453, ptr %184, align 8, !noalias !63
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i64 %419, ptr %7, align 8
   store i64 %402, ptr %282, align 8
@@ -6690,12 +6690,12 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %461 = getelementptr i8, ptr %299, i64 %455
   %462 = icmp ugt ptr %461, %284
   %463 = select i1 %460, i1 true, i1 %462
-  br i1 %463, label %466, label %464, !prof !36
+  br i1 %463, label %466, label %464, !prof !34
 
 464:                                              ; preds = %417
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %299, ptr noundef align 1 dereferenceable(16) %456, i64 16, i1 false)
   %465 = icmp ugt i64 %419, 16
-  br i1 %465, label %468, label %.loopexit49, !prof !27
+  br i1 %465, label %468, label %.loopexit49, !prof !25
 
 466:                                              ; preds = %417
   %467 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %299, ptr noundef %25, ptr noundef nonnull byval(%struct.seq_t) align 8 %7, ptr noundef nonnull %8, ptr noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %36)
@@ -6723,7 +6723,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %479, ptr noundef align 1 dereferenceable(16) %480, i64 16, i1 false)
   %481 = getelementptr i8, ptr %477, i64 32
   %482 = icmp ult ptr %481, %454
-  br i1 %482, label %475, label %.loopexit49, !llvm.loop !34
+  br i1 %482, label %475, label %.loopexit49, !llvm.loop !32
 
 .loopexit49:                                      ; preds = %475, %468, %464
   store ptr %457, ptr %8, align 8
@@ -6735,7 +6735,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
 486:                                              ; preds = %.loopexit49
   %487 = sub i64 %483, %288
   %488 = icmp ugt i64 %387, %487
-  br i1 %488, label %.thread36, label %489, !prof !27
+  br i1 %488, label %.thread36, label %489, !prof !25
 
 .thread36:                                        ; preds = %486
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -6766,7 +6766,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %502 = phi ptr [ %498, %496 ], [ %454, %.loopexit49 ]
   %503 = phi ptr [ %32, %496 ], [ %459, %.loopexit49 ]
   %504 = icmp ugt i64 %387, 15
-  br i1 %504, label %505, label %518, !prof !26
+  br i1 %504, label %505, label %518, !prof !24
 
 505:                                              ; preds = %500
   %506 = getelementptr i8, ptr %502, i64 %501
@@ -6788,7 +6788,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %514, ptr noundef align 1 dereferenceable(16) %515, i64 16, i1 false)
   %516 = getelementptr i8, ptr %512, i64 32
   %517 = icmp ult ptr %516, %506
-  br i1 %517, label %510, label %.loopexit, !llvm.loop !34
+  br i1 %517, label %510, label %.loopexit, !llvm.loop !32
 
 518:                                              ; preds = %500
   %519 = icmp ult i64 %387, 8
@@ -6853,7 +6853,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %559 = getelementptr i8, ptr %557, i64 8
   %560 = getelementptr i8, ptr %556, i64 8
   %561 = icmp ult ptr %559, %554
-  br i1 %561, label %.preheader, label %.loopexit, !llvm.loop !37
+  br i1 %561, label %.preheader, label %.loopexit, !llvm.loop !35
 
 562:                                              ; preds = %550
   %563 = add i64 %545, -8
@@ -6875,13 +6875,13 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %571, ptr noundef align 1 dereferenceable(16) %572, i64 16, i1 false)
   %573 = getelementptr i8, ptr %569, i64 32
   %574 = icmp ult ptr %573, %554
-  br i1 %574, label %567, label %.loopexit, !llvm.loop !34
+  br i1 %574, label %567, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %567, %.preheader, %510, %562, %544, %505, %495, %466
   %575 = phi i64 [ %467, %466 ], [ %455, %495 ], [ %455, %544 ], [ %455, %505 ], [ %455, %562 ], [ %455, %510 ], [ %455, %.preheader ], [ %455, %567 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %576 = icmp ult i64 %575, -119
-  br i1 %576, label %577, label %.thread43, !prof !46
+  br i1 %576, label %577, label %.thread43, !prof !44
 
 577:                                              ; preds = %.loopexit
   %578 = getelementptr i8, ptr %299, i64 %575
@@ -6889,7 +6889,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %580 = icmp eq i32 %579, 0
   %581 = load i32, ptr %138, align 8
   %582 = icmp ugt i32 %581, 64
-  br i1 %580, label %617, label %583, !prof !27
+  br i1 %580, label %617, label %583, !prof !25
 
 583:                                              ; preds = %577
   br i1 %582, label %615, label %584
@@ -6941,12 +6941,12 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
 
 615:                                              ; preds = %598, %595, %588, %583
   %616 = phi i32 [ %613, %598 ], [ %581, %595 ], [ %593, %588 ], [ %581, %583 ]
-  %.pre = load ptr, ptr %183, align 8, !noalias !65
-  %.pre57 = load i64, ptr %134, align 8, !noalias !65
-  %.pre58 = load ptr, ptr %281, align 8, !noalias !65
-  %.pre59 = load i64, ptr %234, align 8, !noalias !65
-  %.pre60 = load ptr, ptr %233, align 8, !noalias !65
-  %.pre61 = load i64, ptr %184, align 8, !noalias !65
+  %.pre = load ptr, ptr %183, align 8, !noalias !63
+  %.pre57 = load i64, ptr %134, align 8, !noalias !63
+  %.pre58 = load ptr, ptr %281, align 8, !noalias !63
+  %.pre59 = load i64, ptr %234, align 8, !noalias !63
+  %.pre60 = load ptr, ptr %233, align 8, !noalias !63
+  %.pre61 = load i64, ptr %184, align 8, !noalias !63
   br label %290
 
 617:                                              ; preds = %577
@@ -6975,7 +6975,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   store i32 %629, ptr %630, align 4
   %631 = add nuw nsw i64 %626, 1
   %632 = icmp eq i64 %631, 3
-  br i1 %632, label %633, label %625, !llvm.loop !68
+  br i1 %632, label %633, label %625, !llvm.loop !66
 
 .thread43:                                        ; preds = %.loopexit, %618, %50, %57, %116, %.thread36
   %.ph41 = phi i64 [ -20, %57 ], [ -20, %116 ], [ -20, %.thread36 ], [ -20, %50 ], [ -20, %618 ], [ %575, %.loopexit ]
@@ -7128,9 +7128,9 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 31:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %8, i8 0, i64 192, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %8, i8 0, i64 192, i1 false), !annotation !18
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false), !annotation !18
   %32 = getelementptr inbounds i8, ptr %0, i64 29996
   store i32 1, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 26684
@@ -7146,7 +7146,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store i64 %39, ptr %40, align 8
   %41 = add nuw nsw i64 %36, 1
   %42 = icmp eq i64 %41, 3
-  br i1 %42, label %43, label %35, !llvm.loop !22
+  br i1 %42, label %43, label %35, !llvm.loop !20
 
 43:                                               ; preds = %35
   %44 = ptrtoint ptr %25 to i64
@@ -7591,43 +7591,43 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   br i1 %exitcond.not, label %.loopexit161, label %345
 
 345:                                              ; preds = %343
-  %346 = load ptr, ptr %180, align 8, !noalias !69
+  %346 = load ptr, ptr %180, align 8, !noalias !67
   %347 = getelementptr %struct.ZSTD_seqSymbol, ptr %346, i64 %309
-  %348 = load ptr, ptr %295, align 8, !noalias !69
+  %348 = load ptr, ptr %295, align 8, !noalias !67
   %349 = getelementptr %struct.ZSTD_seqSymbol, ptr %348, i64 %308
-  %350 = load ptr, ptr %230, align 8, !noalias !69
+  %350 = load ptr, ptr %230, align 8, !noalias !67
   %351 = getelementptr %struct.ZSTD_seqSymbol, ptr %350, i64 %307
   %352 = getelementptr inbounds i8, ptr %349, i64 4
-  %353 = load i32, ptr %352, align 4, !noalias !69
+  %353 = load i32, ptr %352, align 4, !noalias !67
   %354 = zext i32 %353 to i64
   %355 = getelementptr inbounds i8, ptr %347, i64 4
-  %356 = load i32, ptr %355, align 4, !noalias !69
+  %356 = load i32, ptr %355, align 4, !noalias !67
   %357 = zext i32 %356 to i64
   %358 = getelementptr inbounds i8, ptr %351, i64 4
-  %359 = load i32, ptr %358, align 4, !noalias !69
+  %359 = load i32, ptr %358, align 4, !noalias !67
   %360 = getelementptr inbounds i8, ptr %347, i64 2
-  %361 = load i8, ptr %360, align 2, !noalias !69
+  %361 = load i8, ptr %360, align 2, !noalias !67
   %362 = getelementptr inbounds i8, ptr %349, i64 2
-  %363 = load i8, ptr %362, align 2, !noalias !69
+  %363 = load i8, ptr %362, align 2, !noalias !67
   %364 = getelementptr inbounds i8, ptr %351, i64 2
-  %365 = load i8, ptr %364, align 2, !noalias !69
+  %365 = load i8, ptr %364, align 2, !noalias !67
   %366 = zext i8 %361 to i32
   %367 = zext i8 %363 to i32
   %368 = add i8 %363, %361
   %369 = add i8 %368, %365
-  %370 = load i16, ptr %347, align 4, !noalias !69
-  %371 = load i16, ptr %349, align 4, !noalias !69
-  %372 = load i16, ptr %351, align 4, !noalias !69
+  %370 = load i16, ptr %347, align 4, !noalias !67
+  %371 = load i16, ptr %349, align 4, !noalias !67
+  %372 = load i16, ptr %351, align 4, !noalias !67
   %373 = getelementptr inbounds i8, ptr %347, i64 3
-  %374 = load i8, ptr %373, align 1, !noalias !69
+  %374 = load i8, ptr %373, align 1, !noalias !67
   %375 = zext i8 %374 to i32
   %376 = getelementptr inbounds i8, ptr %349, i64 3
-  %377 = load i8, ptr %376, align 1, !noalias !69
+  %377 = load i8, ptr %376, align 1, !noalias !67
   %378 = zext i8 %377 to i32
   %379 = getelementptr inbounds i8, ptr %351, i64 3
-  %380 = load i8, ptr %379, align 1, !noalias !69
+  %380 = load i8, ptr %379, align 1, !noalias !67
   %381 = icmp ugt i8 %365, 1
-  br i1 %381, label %382, label %395, !prof !26
+  br i1 %381, label %382, label %395, !prof !24
 
 382:                                              ; preds = %345
   %383 = zext i8 %365 to i32
@@ -7639,22 +7639,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %389 = zext nneg i32 %388 to i64
   %390 = lshr i64 %386, %389
   %391 = add i32 %344, %383
-  store i32 %391, ptr %135, align 8, !noalias !69
+  store i32 %391, ptr %135, align 8, !noalias !67
   %392 = zext i32 %359 to i64
   %393 = add i64 %390, %392
-  %394 = load i64, ptr %293, align 8, !noalias !69
-  store i64 %394, ptr %292, align 8, !noalias !69
+  %394 = load i64, ptr %293, align 8, !noalias !67
+  store i64 %394, ptr %292, align 8, !noalias !67
   br label %431
 
 395:                                              ; preds = %345
   %396 = icmp eq i32 %356, 0
   %397 = icmp eq i8 %365, 0
-  br i1 %397, label %398, label %405, !prof !26
+  br i1 %397, label %398, label %405, !prof !24
 
 398:                                              ; preds = %395
   %399 = zext i1 %396 to i64
   %400 = getelementptr [3 x i64], ptr %34, i64 0, i64 %399
-  %401 = load i64, ptr %400, align 8, !noalias !69
+  %401 = load i64, ptr %400, align 8, !noalias !67
   %402 = xor i1 %396, true
   %403 = zext i1 %402 to i64
   %404 = getelementptr [3 x i64], ptr %34, i64 0, i64 %403
@@ -7669,13 +7669,13 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %411 = shl i64 %.pre227, %410
   %412 = lshr i64 %411, 63
   %413 = add i32 %344, 1
-  store i32 %413, ptr %135, align 8, !noalias !69
+  store i32 %413, ptr %135, align 8, !noalias !67
   %414 = add nuw nsw i64 %412, %408
   %415 = icmp eq i64 %414, 3
   br i1 %415, label %.thread88, label %421
 
 .thread88:                                        ; preds = %405
-  %416 = load i64, ptr %34, align 8, !noalias !69
+  %416 = load i64, ptr %34, align 8, !noalias !67
   %417 = add i64 %416, -1
   %418 = icmp eq i64 %417, 0
   %419 = zext i1 %418 to i64
@@ -7684,7 +7684,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 421:                                              ; preds = %405
   %422 = getelementptr [3 x i64], ptr %34, i64 0, i64 %414
-  %423 = load i64, ptr %422, align 8, !noalias !69
+  %423 = load i64, ptr %422, align 8, !noalias !67
   %424 = icmp eq i64 %423, 0
   %425 = zext i1 %424 to i64
   %426 = add i64 %423, %425
@@ -7693,19 +7693,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 428:                                              ; preds = %.thread88, %421
   %429 = phi i64 [ %420, %.thread88 ], [ %426, %421 ]
-  %430 = load i64, ptr %293, align 8, !noalias !69
-  store i64 %430, ptr %292, align 8, !noalias !69
+  %430 = load i64, ptr %293, align 8, !noalias !67
+  store i64 %430, ptr %292, align 8, !noalias !67
   br label %431
 
 431:                                              ; preds = %421, %428, %398, %382
   %.sink272 = phi ptr [ %404, %398 ], [ %34, %382 ], [ %34, %428 ], [ %34, %421 ]
   %.sink = phi i64 [ %401, %398 ], [ %393, %382 ], [ %429, %428 ], [ %426, %421 ]
   %432 = phi i32 [ %344, %398 ], [ %391, %382 ], [ %413, %428 ], [ %413, %421 ]
-  %433 = load i64, ptr %.sink272, align 8, !noalias !69
-  store i64 %433, ptr %293, align 8, !noalias !69
-  store i64 %.sink, ptr %34, align 8, !noalias !69
+  %433 = load i64, ptr %.sink272, align 8, !noalias !67
+  store i64 %433, ptr %293, align 8, !noalias !67
+  store i64 %.sink, ptr %34, align 8, !noalias !67
   %434 = icmp eq i8 %363, 0
-  br i1 %434, label %445, label %435, !prof !26
+  br i1 %434, label %445, label %435, !prof !24
 
 435:                                              ; preds = %431
   %436 = and i32 %432, 63
@@ -7716,7 +7716,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %441 = zext nneg i32 %440 to i64
   %442 = lshr i64 %438, %441
   %443 = add i32 %432, %367
-  store i32 %443, ptr %135, align 8, !noalias !69
+  store i32 %443, ptr %135, align 8, !noalias !67
   %444 = add i64 %442, %354
   br label %445
 
@@ -7724,19 +7724,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %.pre222231 = phi i32 [ %432, %431 ], [ %443, %435 ]
   %446 = phi i64 [ %354, %431 ], [ %444, %435 ]
   %447 = icmp ugt i8 %369, 30
-  br i1 %447, label %448, label %449, !prof !27
+  br i1 %447, label %448, label %449, !prof !25
 
 448:                                              ; preds = %445
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %9)
-  %.pre.pre = load i64, ptr %9, align 8, !noalias !28
-  %.pre222.pre = load i32, ptr %135, align 8, !noalias !69
+  %.pre.pre = load i64, ptr %9, align 8, !noalias !26
+  %.pre222.pre = load i32, ptr %135, align 8, !noalias !67
   br label %449
 
 449:                                              ; preds = %448, %445
   %.pre222 = phi i32 [ %.pre222.pre, %448 ], [ %.pre222231, %445 ]
   %.pre = phi i64 [ %.pre.pre, %448 ], [ %.pre227, %445 ]
   %450 = icmp eq i8 %361, 0
-  br i1 %450, label %461, label %451, !prof !26
+  br i1 %450, label %461, label %451, !prof !24
 
 451:                                              ; preds = %449
   %452 = and i32 %.pre222, 63
@@ -7764,7 +7764,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %472 = and i64 %468, %471
   %473 = zext i16 %370 to i64
   %474 = add nuw i64 %472, %473
-  store i64 %474, ptr %131, align 8, !noalias !69
+  store i64 %474, ptr %131, align 8, !noalias !67
   %475 = add i32 %464, %378
   %476 = sub i32 0, %475
   %477 = and i32 %476, 63
@@ -7776,7 +7776,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %483 = and i64 %479, %482
   %484 = zext i16 %371 to i64
   %485 = add nuw i64 %483, %484
-  store i64 %485, ptr %231, align 8, !noalias !69
+  store i64 %485, ptr %231, align 8, !noalias !67
   %486 = zext i8 %380 to i32
   %487 = add i32 %475, %486
   %488 = sub i32 0, %487
@@ -7787,10 +7787,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %493 = shl nsw i64 -1, %492
   %494 = xor i64 %493, -1
   %495 = and i64 %491, %494
-  store i32 %487, ptr %135, align 8, !noalias !69
+  store i32 %487, ptr %135, align 8, !noalias !67
   %496 = zext i16 %372 to i64
   %497 = add nuw i64 %495, %496
-  store i64 %497, ptr %181, align 8, !noalias !69
+  store i64 %497, ptr %181, align 8, !noalias !67
   %498 = add i64 %463, %311
   %499 = icmp ugt i64 %.sink, %498
   %500 = select i1 %499, ptr %29, ptr %25
@@ -7809,7 +7809,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store i64 %.sink, ptr %508, align 8
   %509 = add nuw nsw i64 %312, 1
   %510 = icmp ult i32 %487, 65
-  br i1 %510, label %.lr.ph, label %.thread87, !llvm.loop !29
+  br i1 %510, label %.lr.ph, label %.thread87, !llvm.loop !27
 
 .loopexit161:                                     ; preds = %343
   %511 = trunc i64 %smax to i32
@@ -7895,50 +7895,50 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   br i1 %exitcond220.not, label %.loopexit158, label %563
 
 563:                                              ; preds = %561
-  %564 = load ptr, ptr %180, align 8, !noalias !72
-  %565 = load i64, ptr %131, align 8, !noalias !72
+  %564 = load ptr, ptr %180, align 8, !noalias !70
+  %565 = load i64, ptr %131, align 8, !noalias !70
   %566 = getelementptr %struct.ZSTD_seqSymbol, ptr %564, i64 %565
-  %567 = load ptr, ptr %295, align 8, !noalias !72
-  %568 = load i64, ptr %231, align 8, !noalias !72
+  %567 = load ptr, ptr %295, align 8, !noalias !70
+  %568 = load i64, ptr %231, align 8, !noalias !70
   %569 = getelementptr %struct.ZSTD_seqSymbol, ptr %567, i64 %568
-  %570 = load ptr, ptr %230, align 8, !noalias !72
-  %571 = load i64, ptr %181, align 8, !noalias !72
+  %570 = load ptr, ptr %230, align 8, !noalias !70
+  %571 = load i64, ptr %181, align 8, !noalias !70
   %572 = getelementptr %struct.ZSTD_seqSymbol, ptr %570, i64 %571
   %573 = getelementptr inbounds i8, ptr %569, i64 4
-  %574 = load i32, ptr %573, align 4, !noalias !72
+  %574 = load i32, ptr %573, align 4, !noalias !70
   %575 = zext i32 %574 to i64
   %576 = getelementptr inbounds i8, ptr %566, i64 4
-  %577 = load i32, ptr %576, align 4, !noalias !72
+  %577 = load i32, ptr %576, align 4, !noalias !70
   %578 = zext i32 %577 to i64
   %579 = getelementptr inbounds i8, ptr %572, i64 4
-  %580 = load i32, ptr %579, align 4, !noalias !72
+  %580 = load i32, ptr %579, align 4, !noalias !70
   %581 = getelementptr inbounds i8, ptr %566, i64 2
-  %582 = load i8, ptr %581, align 2, !noalias !72
+  %582 = load i8, ptr %581, align 2, !noalias !70
   %583 = getelementptr inbounds i8, ptr %569, i64 2
-  %584 = load i8, ptr %583, align 2, !noalias !72
+  %584 = load i8, ptr %583, align 2, !noalias !70
   %585 = getelementptr inbounds i8, ptr %572, i64 2
-  %586 = load i8, ptr %585, align 2, !noalias !72
+  %586 = load i8, ptr %585, align 2, !noalias !70
   %587 = zext i8 %582 to i32
   %588 = zext i8 %584 to i32
   %589 = add i8 %584, %582
   %590 = add i8 %589, %586
-  %591 = load i16, ptr %566, align 4, !noalias !72
-  %592 = load i16, ptr %569, align 4, !noalias !72
-  %593 = load i16, ptr %572, align 4, !noalias !72
+  %591 = load i16, ptr %566, align 4, !noalias !70
+  %592 = load i16, ptr %569, align 4, !noalias !70
+  %593 = load i16, ptr %572, align 4, !noalias !70
   %594 = getelementptr inbounds i8, ptr %566, i64 3
-  %595 = load i8, ptr %594, align 1, !noalias !72
+  %595 = load i8, ptr %594, align 1, !noalias !70
   %596 = zext i8 %595 to i32
   %597 = getelementptr inbounds i8, ptr %569, i64 3
-  %598 = load i8, ptr %597, align 1, !noalias !72
+  %598 = load i8, ptr %597, align 1, !noalias !70
   %599 = zext i8 %598 to i32
   %600 = getelementptr inbounds i8, ptr %572, i64 3
-  %601 = load i8, ptr %600, align 1, !noalias !72
+  %601 = load i8, ptr %600, align 1, !noalias !70
   %602 = icmp ugt i8 %586, 1
-  br i1 %602, label %603, label %617, !prof !26
+  br i1 %602, label %603, label %617, !prof !24
 
 603:                                              ; preds = %563
   %604 = zext i8 %586 to i32
-  %605 = load i64, ptr %9, align 8, !noalias !72
+  %605 = load i64, ptr %9, align 8, !noalias !70
   %606 = and i32 %562, 63
   %607 = zext nneg i32 %606 to i64
   %608 = shl i64 %605, %607
@@ -7947,22 +7947,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %611 = zext nneg i32 %610 to i64
   %612 = lshr i64 %608, %611
   %613 = add i32 %562, %604
-  store i32 %613, ptr %135, align 8, !noalias !72
+  store i32 %613, ptr %135, align 8, !noalias !70
   %614 = zext i32 %580 to i64
   %615 = add i64 %612, %614
-  %616 = load i64, ptr %293, align 8, !noalias !72
-  store i64 %616, ptr %292, align 8, !noalias !72
+  %616 = load i64, ptr %293, align 8, !noalias !70
+  store i64 %616, ptr %292, align 8, !noalias !70
   br label %654
 
 617:                                              ; preds = %563
   %618 = icmp eq i32 %577, 0
   %619 = icmp eq i8 %586, 0
-  br i1 %619, label %620, label %627, !prof !26
+  br i1 %619, label %620, label %627, !prof !24
 
 620:                                              ; preds = %617
   %621 = zext i1 %618 to i64
   %622 = getelementptr [3 x i64], ptr %34, i64 0, i64 %621
-  %623 = load i64, ptr %622, align 8, !noalias !72
+  %623 = load i64, ptr %622, align 8, !noalias !70
   %624 = xor i1 %618, true
   %625 = zext i1 %624 to i64
   %626 = getelementptr [3 x i64], ptr %34, i64 0, i64 %625
@@ -7972,19 +7972,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %628 = zext i1 %618 to i32
   %629 = add i32 %580, %628
   %630 = zext i32 %629 to i64
-  %631 = load i64, ptr %9, align 8, !noalias !72
+  %631 = load i64, ptr %9, align 8, !noalias !70
   %632 = and i32 %562, 63
   %633 = zext nneg i32 %632 to i64
   %634 = shl i64 %631, %633
   %635 = lshr i64 %634, 63
   %636 = add i32 %562, 1
-  store i32 %636, ptr %135, align 8, !noalias !72
+  store i32 %636, ptr %135, align 8, !noalias !70
   %637 = add nuw nsw i64 %635, %630
   %638 = icmp eq i64 %637, 3
   br i1 %638, label %.thread90, label %644
 
 .thread90:                                        ; preds = %627
-  %639 = load i64, ptr %34, align 8, !noalias !72
+  %639 = load i64, ptr %34, align 8, !noalias !70
   %640 = add i64 %639, -1
   %641 = icmp eq i64 %640, 0
   %642 = zext i1 %641 to i64
@@ -7993,7 +7993,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 644:                                              ; preds = %627
   %645 = getelementptr [3 x i64], ptr %34, i64 0, i64 %637
-  %646 = load i64, ptr %645, align 8, !noalias !72
+  %646 = load i64, ptr %645, align 8, !noalias !70
   %647 = icmp eq i64 %646, 0
   %648 = zext i1 %647 to i64
   %649 = add i64 %646, %648
@@ -8002,22 +8002,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 651:                                              ; preds = %.thread90, %644
   %652 = phi i64 [ %643, %.thread90 ], [ %649, %644 ]
-  %653 = load i64, ptr %293, align 8, !noalias !72
-  store i64 %653, ptr %292, align 8, !noalias !72
+  %653 = load i64, ptr %293, align 8, !noalias !70
+  store i64 %653, ptr %292, align 8, !noalias !70
   br label %654
 
 654:                                              ; preds = %644, %651, %620, %603
   %.sink275 = phi ptr [ %626, %620 ], [ %34, %603 ], [ %34, %651 ], [ %34, %644 ]
   %.sink273 = phi i64 [ %623, %620 ], [ %615, %603 ], [ %652, %651 ], [ %649, %644 ]
   %655 = phi i32 [ %562, %620 ], [ %613, %603 ], [ %636, %651 ], [ %636, %644 ]
-  %656 = load i64, ptr %.sink275, align 8, !noalias !72
-  store i64 %656, ptr %293, align 8, !noalias !72
-  store i64 %.sink273, ptr %34, align 8, !noalias !72
+  %656 = load i64, ptr %.sink275, align 8, !noalias !70
+  store i64 %656, ptr %293, align 8, !noalias !70
+  store i64 %.sink273, ptr %34, align 8, !noalias !70
   %657 = icmp eq i8 %584, 0
-  br i1 %657, label %669, label %658, !prof !26
+  br i1 %657, label %669, label %658, !prof !24
 
 658:                                              ; preds = %654
-  %659 = load i64, ptr %9, align 8, !noalias !72
+  %659 = load i64, ptr %9, align 8, !noalias !70
   %660 = and i32 %655, 63
   %661 = zext nneg i32 %660 to i64
   %662 = shl i64 %659, %661
@@ -8026,7 +8026,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %665 = zext nneg i32 %664 to i64
   %666 = lshr i64 %662, %665
   %667 = add i32 %655, %588
-  store i32 %667, ptr %135, align 8, !noalias !72
+  store i32 %667, ptr %135, align 8, !noalias !70
   %668 = add i64 %666, %575
   br label %669
 
@@ -8034,18 +8034,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %.pre224233 = phi i32 [ %655, %654 ], [ %667, %658 ]
   %670 = phi i64 [ %575, %654 ], [ %668, %658 ]
   %671 = icmp ugt i8 %590, 30
-  br i1 %671, label %672, label %673, !prof !27
+  br i1 %671, label %672, label %673, !prof !25
 
 672:                                              ; preds = %669
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %9)
-  %.pre224.pre = load i32, ptr %135, align 8, !noalias !72
+  %.pre224.pre = load i32, ptr %135, align 8, !noalias !70
   br label %673
 
 673:                                              ; preds = %672, %669
   %.pre224 = phi i32 [ %.pre224.pre, %672 ], [ %.pre224233, %669 ]
   %674 = icmp eq i8 %582, 0
-  %.pre223 = load i64, ptr %9, align 8, !noalias !72
-  br i1 %674, label %685, label %675, !prof !26
+  %.pre223 = load i64, ptr %9, align 8, !noalias !70
+  br i1 %674, label %685, label %675, !prof !24
 
 675:                                              ; preds = %673
   %676 = and i32 %.pre224, 63
@@ -8073,7 +8073,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %696 = and i64 %692, %695
   %697 = zext i16 %591 to i64
   %698 = add nuw i64 %696, %697
-  store i64 %698, ptr %131, align 8, !noalias !72
+  store i64 %698, ptr %131, align 8, !noalias !70
   %699 = add i32 %688, %599
   %700 = sub i32 0, %699
   %701 = and i32 %700, 63
@@ -8085,7 +8085,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %707 = and i64 %703, %706
   %708 = zext i16 %592 to i64
   %709 = add nuw i64 %707, %708
-  store i64 %709, ptr %231, align 8, !noalias !72
+  store i64 %709, ptr %231, align 8, !noalias !70
   %710 = zext i8 %601 to i32
   %711 = add i32 %699, %710
   %712 = sub i32 0, %711
@@ -8096,10 +8096,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %717 = shl nsw i64 -1, %716
   %718 = xor i64 %717, -1
   %719 = and i64 %715, %718
-  store i32 %711, ptr %135, align 8, !noalias !72
+  store i32 %711, ptr %135, align 8, !noalias !70
   %720 = zext i16 %593 to i64
   %721 = add nuw i64 %719, %720
-  store i64 %721, ptr %181, align 8, !noalias !72
+  store i64 %721, ptr %181, align 8, !noalias !70
   %722 = load i32, ptr %10, align 8
   %723 = icmp eq i32 %722, 2
   br i1 %723, label %724, label %1047
@@ -8148,7 +8148,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %754 = getelementptr i8, ptr %750, i64 1
   store i8 %753, ptr %750, align 1
   %755 = icmp eq ptr %754, %744
-  br i1 %755, label %.loopexit144, label %.preheader143, !llvm.loop !33
+  br i1 %755, label %.loopexit144, label %.preheader143, !llvm.loop !31
 
 756:                                              ; preds = %742
   %757 = getelementptr i8, ptr %744, i64 -32
@@ -8178,7 +8178,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %771, ptr noundef align 1 dereferenceable(16) %772, i64 16, i1 false)
   %773 = getelementptr i8, ptr %769, i64 32
   %774 = icmp ult ptr %773, %757
-  br i1 %774, label %767, label %.loopexit147, !llvm.loop !34
+  br i1 %774, label %767, label %.loopexit147, !llvm.loop !32
 
 .loopexit147:                                     ; preds = %767, %761
   %775 = getelementptr i8, ptr %725, i64 %763
@@ -8198,7 +8198,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %784 = getelementptr i8, ptr %780, i64 1
   store i8 %783, ptr %780, align 1
   %785 = icmp ult ptr %784, %744
-  br i1 %785, label %.preheader145, label %.loopexit144, !llvm.loop !35
+  br i1 %785, label %.preheader145, label %.loopexit144, !llvm.loop !33
 
 .loopexit144:                                     ; preds = %.preheader145, %.preheader143, %776, %748
   %786 = load i64, ptr %728, align 8
@@ -8224,12 +8224,12 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %800 = getelementptr i8, ptr %789, i64 %795
   %801 = icmp ugt ptr %800, %512
   %802 = select i1 %799, i1 true, i1 %801
-  br i1 %802, label %805, label %803, !prof !36
+  br i1 %802, label %805, label %803, !prof !34
 
 803:                                              ; preds = %thread-pre-split
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %789, ptr noundef align 1 dereferenceable(16) %515, i64 16, i1 false)
   %804 = icmp ugt i64 %788, 16
-  br i1 %804, label %807, label %.loopexit142, !prof !27
+  br i1 %804, label %807, label %.loopexit142, !prof !25
 
 805:                                              ; preds = %thread-pre-split
   %806 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %789, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %728, ptr noundef nonnull %7, ptr noundef %516, ptr noundef %25, ptr noundef %27, ptr noundef %29)
@@ -8256,7 +8256,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %817, ptr noundef align 1 dereferenceable(16) %818, i64 16, i1 false)
   %819 = getelementptr i8, ptr %815, i64 32
   %820 = icmp ult ptr %819, %794
-  br i1 %820, label %813, label %.loopexit142, !llvm.loop !34
+  br i1 %820, label %813, label %.loopexit142, !llvm.loop !32
 
 .loopexit142:                                     ; preds = %813, %807, %803
   store ptr %796, ptr %7, align 8
@@ -8268,7 +8268,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
 824:                                              ; preds = %.loopexit142
   %825 = sub i64 %821, %513
   %826 = icmp ugt i64 %793, %825
-  br i1 %826, label %.thread113, label %827, !prof !27
+  br i1 %826, label %.thread113, label %827, !prof !25
 
 827:                                              ; preds = %824
   %828 = ptrtoint ptr %798 to i64
@@ -8294,7 +8294,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %840 = phi ptr [ %836, %834 ], [ %794, %.loopexit142 ]
   %841 = phi ptr [ %25, %834 ], [ %798, %.loopexit142 ]
   %842 = icmp ugt i64 %793, 15
-  br i1 %842, label %843, label %856, !prof !26
+  br i1 %842, label %843, label %856, !prof !24
 
 843:                                              ; preds = %838
   %844 = getelementptr i8, ptr %840, i64 %839
@@ -8316,7 +8316,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %852, ptr noundef align 1 dereferenceable(16) %853, i64 16, i1 false)
   %854 = getelementptr i8, ptr %850, i64 32
   %855 = icmp ult ptr %854, %844
-  br i1 %855, label %848, label %.loopexit138, !llvm.loop !34
+  br i1 %855, label %848, label %.loopexit138, !llvm.loop !32
 
 856:                                              ; preds = %838
   %857 = icmp ult i64 %793, 8
@@ -8379,7 +8379,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %896 = getelementptr i8, ptr %894, i64 8
   %897 = getelementptr i8, ptr %893, i64 8
   %898 = icmp ult ptr %896, %891
-  br i1 %898, label %.preheader139, label %.loopexit138, !llvm.loop !37
+  br i1 %898, label %.preheader139, label %.loopexit138, !llvm.loop !35
 
 899:                                              ; preds = %887
   %900 = add i64 %839, -8
@@ -8401,7 +8401,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %908, ptr noundef align 1 dereferenceable(16) %909, i64 16, i1 false)
   %910 = getelementptr i8, ptr %906, i64 32
   %911 = icmp ult ptr %910, %891
-  br i1 %911, label %904, label %.loopexit138, !llvm.loop !34
+  br i1 %911, label %904, label %.loopexit138, !llvm.loop !32
 
 .loopexit138:                                     ; preds = %904, %.preheader139, %848, %899, %882, %843, %833, %805
   %912 = phi i64 [ %806, %805 ], [ %795, %833 ], [ %795, %882 ], [ %795, %843 ], [ %795, %899 ], [ %795, %848 ], [ %795, %.preheader139 ], [ %795, %904 ]
@@ -8438,12 +8438,12 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %934 = getelementptr i8, ptr %530, i64 %930
   %935 = icmp ugt ptr %934, %924
   %936 = select i1 %933, i1 true, i1 %935
-  br i1 %936, label %939, label %937, !prof !36
+  br i1 %936, label %939, label %937, !prof !34
 
 937:                                              ; preds = %923
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %530, ptr noundef align 1 dereferenceable(16) %725, i64 16, i1 false)
   %938 = icmp ugt i64 %729, 16
-  br i1 %938, label %941, label %.loopexit152, !prof !27
+  br i1 %938, label %941, label %.loopexit152, !prof !25
 
 939:                                              ; preds = %923
   %940 = call fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %530, ptr noundef %19, ptr noundef %924, ptr noundef nonnull byval(%struct.seq_t) align 8 %728, ptr noundef nonnull %7, ptr noundef %529, ptr noundef %25, ptr noundef %27, ptr noundef %29)
@@ -8471,7 +8471,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %952, ptr noundef align 1 dereferenceable(16) %953, i64 16, i1 false)
   %954 = getelementptr i8, ptr %950, i64 32
   %955 = icmp ult ptr %954, %929
-  br i1 %955, label %948, label %.loopexit152, !llvm.loop !34
+  br i1 %955, label %948, label %.loopexit152, !llvm.loop !32
 
 .loopexit152:                                     ; preds = %948, %941, %937
   store ptr %730, ptr %7, align 8
@@ -8483,7 +8483,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
 959:                                              ; preds = %.loopexit152
   %960 = sub i64 %956, %513
   %961 = icmp ugt i64 %928, %960
-  br i1 %961, label %.thread113, label %962, !prof !27
+  br i1 %961, label %.thread113, label %962, !prof !25
 
 962:                                              ; preds = %959
   %963 = ptrtoint ptr %932 to i64
@@ -8509,7 +8509,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %975 = phi ptr [ %25, %969 ], [ %932, %.loopexit152 ]
   %976 = phi ptr [ %971, %969 ], [ %929, %.loopexit152 ]
   %977 = icmp ugt i64 %928, 15
-  br i1 %977, label %978, label %991, !prof !26
+  br i1 %977, label %978, label %991, !prof !24
 
 978:                                              ; preds = %973
   %979 = getelementptr i8, ptr %976, i64 %974
@@ -8531,7 +8531,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %987, ptr noundef align 1 dereferenceable(16) %988, i64 16, i1 false)
   %989 = getelementptr i8, ptr %985, i64 32
   %990 = icmp ult ptr %989, %979
-  br i1 %990, label %983, label %.loopexit148, !llvm.loop !34
+  br i1 %990, label %983, label %.loopexit148, !llvm.loop !32
 
 991:                                              ; preds = %973
   %992 = icmp ult i64 %928, 8
@@ -8594,7 +8594,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %1031 = getelementptr i8, ptr %1029, i64 8
   %1032 = getelementptr i8, ptr %1028, i64 8
   %1033 = icmp ult ptr %1031, %1026
-  br i1 %1033, label %.preheader149, label %.loopexit148, !llvm.loop !37
+  br i1 %1033, label %.preheader149, label %.loopexit148, !llvm.loop !35
 
 1034:                                             ; preds = %1022
   %1035 = add i64 %974, -8
@@ -8616,7 +8616,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1043, ptr noundef align 1 dereferenceable(16) %1044, i64 16, i1 false)
   %1045 = getelementptr i8, ptr %1041, i64 32
   %1046 = icmp ult ptr %1045, %1026
-  br i1 %1046, label %1039, label %.loopexit148, !llvm.loop !34
+  br i1 %1046, label %1039, label %.loopexit148, !llvm.loop !32
 
 1047:                                             ; preds = %685
   %1048 = and i32 %528, 7
@@ -8637,12 +8637,12 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %1063 = getelementptr i8, ptr %530, i64 %1057
   %1064 = icmp ugt ptr %1063, %512
   %1065 = select i1 %1062, i1 true, i1 %1064
-  br i1 %1065, label %1068, label %1066, !prof !36
+  br i1 %1065, label %1068, label %1066, !prof !34
 
 1066:                                             ; preds = %1047
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %530, ptr noundef align 1 dereferenceable(16) %1058, i64 16, i1 false)
   %1067 = icmp ugt i64 %1051, 16
-  br i1 %1067, label %1070, label %.loopexit157, !prof !27
+  br i1 %1067, label %1070, label %.loopexit157, !prof !25
 
 1068:                                             ; preds = %1047
   %1069 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %530, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %1050, ptr noundef nonnull %7, ptr noundef %529, ptr noundef %25, ptr noundef %27, ptr noundef %29)
@@ -8670,7 +8670,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1081, ptr noundef align 1 dereferenceable(16) %1082, i64 16, i1 false)
   %1083 = getelementptr i8, ptr %1079, i64 32
   %1084 = icmp ult ptr %1083, %1056
-  br i1 %1084, label %1077, label %.loopexit157, !llvm.loop !34
+  br i1 %1084, label %1077, label %.loopexit157, !llvm.loop !32
 
 .loopexit157:                                     ; preds = %1077, %1070, %1066
   store ptr %1059, ptr %7, align 8
@@ -8682,7 +8682,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
 1088:                                             ; preds = %.loopexit157
   %1089 = sub i64 %1085, %513
   %1090 = icmp ugt i64 %1055, %1089
-  br i1 %1090, label %.thread113, label %1091, !prof !27
+  br i1 %1090, label %.thread113, label %1091, !prof !25
 
 1091:                                             ; preds = %1088
   %1092 = ptrtoint ptr %1061 to i64
@@ -8708,7 +8708,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %1104 = phi ptr [ %25, %1098 ], [ %1061, %.loopexit157 ]
   %1105 = phi ptr [ %1100, %1098 ], [ %1056, %.loopexit157 ]
   %1106 = icmp ugt i64 %1055, 15
-  br i1 %1106, label %1107, label %1120, !prof !26
+  br i1 %1106, label %1107, label %1120, !prof !24
 
 1107:                                             ; preds = %1102
   %1108 = getelementptr i8, ptr %1105, i64 %1103
@@ -8730,7 +8730,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1116, ptr noundef align 1 dereferenceable(16) %1117, i64 16, i1 false)
   %1118 = getelementptr i8, ptr %1114, i64 32
   %1119 = icmp ult ptr %1118, %1108
-  br i1 %1119, label %1112, label %.loopexit148, !llvm.loop !34
+  br i1 %1119, label %1112, label %.loopexit148, !llvm.loop !32
 
 1120:                                             ; preds = %1102
   %1121 = icmp ult i64 %1055, 8
@@ -8793,7 +8793,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %1160 = getelementptr i8, ptr %1158, i64 8
   %1161 = getelementptr i8, ptr %1157, i64 8
   %1162 = icmp ult ptr %1160, %1155
-  br i1 %1162, label %.preheader154, label %.loopexit148, !llvm.loop !37
+  br i1 %1162, label %.preheader154, label %.loopexit148, !llvm.loop !35
 
 1163:                                             ; preds = %1151
   %1164 = add i64 %1103, -8
@@ -8815,7 +8815,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1172, ptr noundef align 1 dereferenceable(16) %1173, i64 16, i1 false)
   %1174 = getelementptr i8, ptr %1170, i64 32
   %1175 = icmp ult ptr %1174, %1155
-  br i1 %1175, label %1168, label %.loopexit148, !llvm.loop !34
+  br i1 %1175, label %1168, label %.loopexit148, !llvm.loop !32
 
 .loopexit148:                                     ; preds = %1168, %.preheader154, %1112, %1039, %.preheader149, %983, %1163, %1146, %1107, %1097, %1068, %1034, %1017, %978, %968, %939
   %1176 = phi i64 [ %940, %939 ], [ %930, %968 ], [ %930, %1017 ], [ %930, %978 ], [ %930, %1034 ], [ %1069, %1068 ], [ %1057, %1097 ], [ %1057, %1146 ], [ %1057, %1107 ], [ %1057, %1163 ], [ %930, %983 ], [ %930, %.preheader149 ], [ %930, %1039 ], [ %1057, %1112 ], [ %1057, %.preheader154 ], [ %1057, %1168 ]
@@ -8851,7 +8851,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %1196 = add nuw i32 %528, 1
   %1197 = load i32, ptr %135, align 8
   %1198 = icmp ult i32 %1197, 65
-  br i1 %1198, label %.lr.ph177, label %.thread89, !llvm.loop !38
+  br i1 %1198, label %.lr.ph177, label %.thread89, !llvm.loop !36
 
 .loopexit158:                                     ; preds = %561, %.thread89
   %1199 = phi ptr [ %519, %.thread89 ], [ %517, %561 ]
@@ -8872,7 +8872,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %1212 = phi ptr [ %1200, %.loopexit ], [ %1217, %.loopexit126 ]
   %1213 = add i32 %1216, 1
   %exitcond221.not = icmp eq i32 %1213, %5
-  br i1 %exitcond221.not, label %.loopexit137, label %.preheader136, !llvm.loop !39
+  br i1 %exitcond221.not, label %.loopexit137, label %.preheader136, !llvm.loop !37
 
 .loopexit137:                                     ; preds = %1210, %.loopexit158
   %1214 = phi ptr [ %1205, %.loopexit158 ], [ %1211, %1210 ]
@@ -8931,7 +8931,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %1251 = getelementptr i8, ptr %1247, i64 1
   store i8 %1250, ptr %1247, align 1
   %1252 = icmp eq ptr %1251, %1241
-  br i1 %1252, label %.loopexit122, label %.preheader121, !llvm.loop !33
+  br i1 %1252, label %.loopexit122, label %.preheader121, !llvm.loop !31
 
 1253:                                             ; preds = %1239
   %1254 = getelementptr i8, ptr %1241, i64 -32
@@ -8961,7 +8961,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1268, ptr noundef align 1 dereferenceable(16) %1269, i64 16, i1 false)
   %1270 = getelementptr i8, ptr %1266, i64 32
   %1271 = icmp ult ptr %1270, %1254
-  br i1 %1271, label %1264, label %.loopexit125, !llvm.loop !34
+  br i1 %1271, label %1264, label %.loopexit125, !llvm.loop !32
 
 .loopexit125:                                     ; preds = %1264, %1258
   %1272 = getelementptr i8, ptr %1225, i64 %1260
@@ -8981,7 +8981,7 @@ thread-pre-split:                                 ; preds = %733, %.loopexit144
   %1281 = getelementptr i8, ptr %1277, i64 1
   store i8 %1280, ptr %1277, align 1
   %1282 = icmp ult ptr %1281, %1241
-  br i1 %1282, label %.preheader123, label %.loopexit122, !llvm.loop !35
+  br i1 %1282, label %.preheader123, label %.loopexit122, !llvm.loop !33
 
 .loopexit122:                                     ; preds = %.preheader123, %.preheader121, %1273, %1245
   %1283 = load i64, ptr %1221, align 8
@@ -9007,12 +9007,12 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1297 = getelementptr i8, ptr %1286, i64 %1292
   %1298 = icmp ugt ptr %1297, %1204
   %1299 = select i1 %1296, i1 true, i1 %1298
-  br i1 %1299, label %1302, label %1300, !prof !36
+  br i1 %1299, label %1302, label %1300, !prof !34
 
 1300:                                             ; preds = %thread-pre-split98
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1286, ptr noundef align 1 dereferenceable(16) %1201, i64 16, i1 false)
   %1301 = icmp ugt i64 %1285, 16
-  br i1 %1301, label %1304, label %.loopexit120, !prof !27
+  br i1 %1301, label %1304, label %.loopexit120, !prof !25
 
 1302:                                             ; preds = %thread-pre-split98
   %1303 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %1286, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %1221, ptr noundef nonnull %7, ptr noundef %1200, ptr noundef %25, ptr noundef %27, ptr noundef %29)
@@ -9039,7 +9039,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1314, ptr noundef align 1 dereferenceable(16) %1315, i64 16, i1 false)
   %1316 = getelementptr i8, ptr %1312, i64 32
   %1317 = icmp ult ptr %1316, %1291
-  br i1 %1317, label %1310, label %.loopexit120, !llvm.loop !34
+  br i1 %1317, label %1310, label %.loopexit120, !llvm.loop !32
 
 .loopexit120:                                     ; preds = %1310, %1304, %1300
   store ptr %1293, ptr %7, align 8
@@ -9051,7 +9051,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
 1321:                                             ; preds = %.loopexit120
   %1322 = sub i64 %1318, %1203
   %1323 = icmp ugt i64 %1290, %1322
-  br i1 %1323, label %.thread113, label %1324, !prof !27
+  br i1 %1323, label %.thread113, label %1324, !prof !25
 
 1324:                                             ; preds = %1321
   %1325 = ptrtoint ptr %1295 to i64
@@ -9077,7 +9077,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1337 = phi ptr [ %25, %1331 ], [ %1295, %.loopexit120 ]
   %1338 = phi ptr [ %1333, %1331 ], [ %1291, %.loopexit120 ]
   %1339 = icmp ugt i64 %1290, 15
-  br i1 %1339, label %1340, label %1353, !prof !26
+  br i1 %1339, label %1340, label %1353, !prof !24
 
 1340:                                             ; preds = %1335
   %1341 = getelementptr i8, ptr %1338, i64 %1336
@@ -9099,7 +9099,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1349, ptr noundef align 1 dereferenceable(16) %1350, i64 16, i1 false)
   %1351 = getelementptr i8, ptr %1347, i64 32
   %1352 = icmp ult ptr %1351, %1341
-  br i1 %1352, label %1345, label %.loopexit, !llvm.loop !34
+  br i1 %1352, label %1345, label %.loopexit, !llvm.loop !32
 
 1353:                                             ; preds = %1335
   %1354 = icmp ult i64 %1290, 8
@@ -9162,7 +9162,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1393 = getelementptr i8, ptr %1391, i64 8
   %1394 = getelementptr i8, ptr %1390, i64 8
   %1395 = icmp ult ptr %1393, %1388
-  br i1 %1395, label %.preheader, label %.loopexit, !llvm.loop !37
+  br i1 %1395, label %.preheader, label %.loopexit, !llvm.loop !35
 
 1396:                                             ; preds = %1384
   %1397 = add i64 %1336, -8
@@ -9184,7 +9184,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1405, ptr noundef align 1 dereferenceable(16) %1406, i64 16, i1 false)
   %1407 = getelementptr i8, ptr %1403, i64 32
   %1408 = icmp ult ptr %1407, %1388
-  br i1 %1408, label %1401, label %.loopexit, !llvm.loop !34
+  br i1 %1408, label %1401, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %1401, %.preheader, %1345, %1302, %1330, %1340, %1379, %1396
   %1409 = phi i64 [ %1303, %1302 ], [ %1292, %1330 ], [ %1292, %1379 ], [ %1292, %1340 ], [ %1292, %1396 ], [ %1292, %1345 ], [ %1292, %.preheader ], [ %1292, %1401 ]
@@ -9207,12 +9207,12 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1424 = getelementptr i8, ptr %1218, i64 %1420
   %1425 = icmp ugt ptr %1424, %1414
   %1426 = select i1 %1423, i1 true, i1 %1425
-  br i1 %1426, label %1429, label %1427, !prof !36
+  br i1 %1426, label %1429, label %1427, !prof !34
 
 1427:                                             ; preds = %1413
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1218, ptr noundef align 1 dereferenceable(16) %1225, i64 16, i1 false)
   %1428 = icmp ugt i64 %1226, 16
-  br i1 %1428, label %1431, label %.loopexit130, !prof !27
+  br i1 %1428, label %1431, label %.loopexit130, !prof !25
 
 1429:                                             ; preds = %1413
   %1430 = call fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %1218, ptr noundef %19, ptr noundef %1414, ptr noundef nonnull byval(%struct.seq_t) align 8 %1221, ptr noundef nonnull %7, ptr noundef %1217, ptr noundef %25, ptr noundef %27, ptr noundef %29)
@@ -9240,7 +9240,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1442, ptr noundef align 1 dereferenceable(16) %1443, i64 16, i1 false)
   %1444 = getelementptr i8, ptr %1440, i64 32
   %1445 = icmp ult ptr %1444, %1419
-  br i1 %1445, label %1438, label %.loopexit130, !llvm.loop !34
+  br i1 %1445, label %1438, label %.loopexit130, !llvm.loop !32
 
 .loopexit130:                                     ; preds = %1438, %1431, %1427
   store ptr %1227, ptr %7, align 8
@@ -9252,7 +9252,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
 1449:                                             ; preds = %.loopexit130
   %1450 = sub i64 %1446, %1203
   %1451 = icmp ugt i64 %1418, %1450
-  br i1 %1451, label %.thread113, label %1452, !prof !27
+  br i1 %1451, label %.thread113, label %1452, !prof !25
 
 1452:                                             ; preds = %1449
   %1453 = ptrtoint ptr %1422 to i64
@@ -9278,7 +9278,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1465 = phi ptr [ %25, %1459 ], [ %1422, %.loopexit130 ]
   %1466 = phi ptr [ %1461, %1459 ], [ %1419, %.loopexit130 ]
   %1467 = icmp ugt i64 %1418, 15
-  br i1 %1467, label %1468, label %1481, !prof !26
+  br i1 %1467, label %1468, label %1481, !prof !24
 
 1468:                                             ; preds = %1463
   %1469 = getelementptr i8, ptr %1466, i64 %1464
@@ -9300,7 +9300,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1477, ptr noundef align 1 dereferenceable(16) %1478, i64 16, i1 false)
   %1479 = getelementptr i8, ptr %1475, i64 32
   %1480 = icmp ult ptr %1479, %1469
-  br i1 %1480, label %1473, label %.loopexit126, !llvm.loop !34
+  br i1 %1480, label %1473, label %.loopexit126, !llvm.loop !32
 
 1481:                                             ; preds = %1463
   %1482 = icmp ult i64 %1418, 8
@@ -9363,7 +9363,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1521 = getelementptr i8, ptr %1519, i64 8
   %1522 = getelementptr i8, ptr %1518, i64 8
   %1523 = icmp ult ptr %1521, %1516
-  br i1 %1523, label %.preheader127, label %.loopexit126, !llvm.loop !37
+  br i1 %1523, label %.preheader127, label %.loopexit126, !llvm.loop !35
 
 1524:                                             ; preds = %1512
   %1525 = add i64 %1464, -8
@@ -9385,7 +9385,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1533, ptr noundef align 1 dereferenceable(16) %1534, i64 16, i1 false)
   %1535 = getelementptr i8, ptr %1531, i64 32
   %1536 = icmp ult ptr %1535, %1516
-  br i1 %1536, label %1529, label %.loopexit126, !llvm.loop !34
+  br i1 %1536, label %1529, label %.loopexit126, !llvm.loop !32
 
 1537:                                             ; preds = %.preheader136
   %1538 = load i64, ptr %1221, align 8
@@ -9403,12 +9403,12 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1550 = getelementptr i8, ptr %1218, i64 %1544
   %1551 = icmp ugt ptr %1550, %1204
   %1552 = select i1 %1549, i1 true, i1 %1551
-  br i1 %1552, label %1555, label %1553, !prof !36
+  br i1 %1552, label %1555, label %1553, !prof !34
 
 1553:                                             ; preds = %1537
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1218, ptr noundef align 1 dereferenceable(16) %1545, i64 16, i1 false)
   %1554 = icmp ugt i64 %1538, 16
-  br i1 %1554, label %1557, label %.loopexit135, !prof !27
+  br i1 %1554, label %1557, label %.loopexit135, !prof !25
 
 1555:                                             ; preds = %1537
   %1556 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %1218, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %1221, ptr noundef nonnull %7, ptr noundef %1217, ptr noundef %25, ptr noundef %27, ptr noundef %29)
@@ -9436,7 +9436,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1568, ptr noundef align 1 dereferenceable(16) %1569, i64 16, i1 false)
   %1570 = getelementptr i8, ptr %1566, i64 32
   %1571 = icmp ult ptr %1570, %1543
-  br i1 %1571, label %1564, label %.loopexit135, !llvm.loop !34
+  br i1 %1571, label %1564, label %.loopexit135, !llvm.loop !32
 
 .loopexit135:                                     ; preds = %1564, %1557, %1553
   store ptr %1546, ptr %7, align 8
@@ -9448,7 +9448,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
 1575:                                             ; preds = %.loopexit135
   %1576 = sub i64 %1572, %1203
   %1577 = icmp ugt i64 %1542, %1576
-  br i1 %1577, label %.thread113, label %1578, !prof !27
+  br i1 %1577, label %.thread113, label %1578, !prof !25
 
 1578:                                             ; preds = %1575
   %1579 = ptrtoint ptr %1548 to i64
@@ -9474,7 +9474,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1591 = phi ptr [ %25, %1585 ], [ %1548, %.loopexit135 ]
   %1592 = phi ptr [ %1587, %1585 ], [ %1543, %.loopexit135 ]
   %1593 = icmp ugt i64 %1542, 15
-  br i1 %1593, label %1594, label %1607, !prof !26
+  br i1 %1593, label %1594, label %1607, !prof !24
 
 1594:                                             ; preds = %1589
   %1595 = getelementptr i8, ptr %1592, i64 %1590
@@ -9496,7 +9496,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1603, ptr noundef align 1 dereferenceable(16) %1604, i64 16, i1 false)
   %1605 = getelementptr i8, ptr %1601, i64 32
   %1606 = icmp ult ptr %1605, %1595
-  br i1 %1606, label %1599, label %.loopexit126, !llvm.loop !34
+  br i1 %1606, label %1599, label %.loopexit126, !llvm.loop !32
 
 1607:                                             ; preds = %1589
   %1608 = icmp ult i64 %1542, 8
@@ -9559,7 +9559,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1647 = getelementptr i8, ptr %1645, i64 8
   %1648 = getelementptr i8, ptr %1644, i64 8
   %1649 = icmp ult ptr %1647, %1642
-  br i1 %1649, label %.preheader132, label %.loopexit126, !llvm.loop !37
+  br i1 %1649, label %.preheader132, label %.loopexit126, !llvm.loop !35
 
 1650:                                             ; preds = %1638
   %1651 = add i64 %1590, -8
@@ -9581,7 +9581,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1659, ptr noundef align 1 dereferenceable(16) %1660, i64 16, i1 false)
   %1661 = getelementptr i8, ptr %1657, i64 32
   %1662 = icmp ult ptr %1661, %1642
-  br i1 %1662, label %1655, label %.loopexit126, !llvm.loop !34
+  br i1 %1662, label %1655, label %.loopexit126, !llvm.loop !32
 
 .loopexit126:                                     ; preds = %1655, %.preheader132, %1599, %1529, %.preheader127, %1473, %1650, %1633, %1594, %1584, %1555, %1524, %1507, %1468, %1458, %1429
   %1663 = phi i64 [ %1430, %1429 ], [ %1420, %1458 ], [ %1420, %1507 ], [ %1420, %1468 ], [ %1420, %1524 ], [ %1556, %1555 ], [ %1544, %1584 ], [ %1544, %1633 ], [ %1544, %1594 ], [ %1544, %1650 ], [ %1420, %1473 ], [ %1420, %.preheader127 ], [ %1420, %1529 ], [ %1544, %1599 ], [ %1544, %.preheader132 ], [ %1544, %1655 ]
@@ -9599,7 +9599,7 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   store i32 %1671, ptr %1672, align 4
   %1673 = add nuw nsw i64 %1668, 1
   %1674 = icmp eq i64 %1673, 3
-  br i1 %1674, label %1675, label %1667, !llvm.loop !40
+  br i1 %1674, label %1675, label %1667, !llvm.loop !38
 
 .thread113:                                       ; preds = %.loopexit148, %738, %.loopexit138, %824, %959, %1088, %.loopexit, %.loopexit126, %1235, %1321, %1449, %1575, %43, %.thread87, %.thread89, %54, %113
   %.ph110 = phi i64 [ -20, %.thread89 ], [ -20, %.thread87 ], [ -20, %54 ], [ -20, %113 ], [ -20, %43 ], [ -20, %1575 ], [ -20, %1449 ], [ -20, %1321 ], [ -70, %1235 ], [ %1409, %.loopexit ], [ %1663, %.loopexit126 ], [ -20, %1088 ], [ -20, %959 ], [ -20, %824 ], [ %1176, %.loopexit148 ], [ -70, %738 ], [ %912, %.loopexit138 ]
@@ -9790,7 +9790,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
   %38 = getelementptr i8, ptr %35, i64 1
   store i8 %37, ptr %35, align 1
   %39 = icmp eq ptr %38, %10
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !75
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !73
 
 40:                                               ; preds = %30
   %41 = icmp ugt ptr %10, %20
@@ -9815,7 +9815,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %50, ptr noundef align 1 dereferenceable(16) %51, i64 16, i1 false)
   %52 = getelementptr i8, ptr %48, i64 32
   %53 = icmp ult ptr %52, %10
-  br i1 %53, label %46, label %.loopexit, !llvm.loop !34
+  br i1 %53, label %46, label %.loopexit, !llvm.loop !32
 
 54:                                               ; preds = %40
   %55 = icmp ult ptr %20, %0
@@ -9843,7 +9843,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %67, ptr noundef align 1 dereferenceable(16) %68, i64 16, i1 false)
   %69 = getelementptr i8, ptr %65, i64 32
   %70 = icmp ult ptr %69, %20
-  br i1 %70, label %63, label %.loopexit10, !llvm.loop !34
+  br i1 %70, label %63, label %.loopexit10, !llvm.loop !32
 
 .loopexit10:                                      ; preds = %63, %56
   %71 = getelementptr i8, ptr %14, i64 %58
@@ -9863,7 +9863,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
   %80 = getelementptr i8, ptr %77, i64 1
   store i8 %79, ptr %77, align 1
   %81 = icmp ult ptr %80, %10
-  br i1 %81, label %.preheader8, label %.loopexit, !llvm.loop !76
+  br i1 %81, label %.preheader8, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %46, %.preheader8, %.preheader, %72, %42, %32
   store ptr %15, ptr %3, align 8
@@ -9931,7 +9931,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   %16 = getelementptr i8, ptr %13, i64 1
   store i8 %15, ptr %13, align 1
   %17 = icmp eq ptr %16, %8
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !75
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !73
 
 18:                                               ; preds = %4
   %19 = icmp ult i64 %7, 8
@@ -9993,7 +9993,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   %57 = getelementptr i8, ptr %55, i64 8
   %58 = getelementptr i8, ptr %54, i64 8
   %59 = icmp ult ptr %57, %8
-  br i1 %59, label %.preheader12, label %.loopexit, !llvm.loop !37
+  br i1 %59, label %.preheader12, label %.loopexit, !llvm.loop !35
 
 60:                                               ; preds = %49
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %47, ptr noundef align 1 dereferenceable(16) %46, i64 16, i1 false)
@@ -10014,7 +10014,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %68, ptr noundef align 1 dereferenceable(16) %69, i64 16, i1 false)
   %70 = getelementptr i8, ptr %66, i64 32
   %71 = icmp ult ptr %70, %8
-  br i1 %71, label %64, label %.loopexit, !llvm.loop !34
+  br i1 %71, label %64, label %.loopexit, !llvm.loop !32
 
 72:                                               ; preds = %44
   %73 = icmp ugt ptr %47, %1
@@ -10038,7 +10038,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   %85 = getelementptr i8, ptr %83, i64 8
   %86 = getelementptr i8, ptr %82, i64 8
   %87 = icmp ult ptr %85, %1
-  br i1 %87, label %.preheader9, label %.loopexit10, !llvm.loop !37
+  br i1 %87, label %.preheader9, label %.loopexit10, !llvm.loop !35
 
 88:                                               ; preds = %74
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %47, ptr noundef align 1 dereferenceable(16) %46, i64 16, i1 false)
@@ -10059,7 +10059,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %96, ptr noundef align 1 dereferenceable(16) %97, i64 16, i1 false)
   %98 = getelementptr i8, ptr %94, i64 32
   %99 = icmp ult ptr %98, %1
-  br i1 %99, label %92, label %.loopexit10, !llvm.loop !34
+  br i1 %99, label %92, label %.loopexit10, !llvm.loop !32
 
 .loopexit10:                                      ; preds = %92, %.preheader9, %88
   %100 = getelementptr i8, ptr %46, i64 %77
@@ -10079,7 +10079,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   %109 = getelementptr i8, ptr %106, i64 1
   store i8 %108, ptr %106, align 1
   %110 = icmp ult ptr %109, %8
-  br i1 %110, label %.preheader7, label %.loopexit, !llvm.loop !76
+  br i1 %110, label %.preheader7, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %64, %.preheader12, %.preheader7, %.preheader, %101, %60, %10
   ret void
@@ -10136,7 +10136,7 @@ define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, p
   %45 = getelementptr i8, ptr %41, i64 1
   store i8 %44, ptr %41, align 1
   %46 = icmp eq ptr %45, %11
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !31
 
 47:                                               ; preds = %34
   %48 = getelementptr i8, ptr %11, i64 -32
@@ -10166,7 +10166,7 @@ define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, p
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %62, ptr noundef align 1 dereferenceable(16) %63, i64 16, i1 false)
   %64 = getelementptr i8, ptr %60, i64 32
   %65 = icmp ult ptr %64, %48
-  br i1 %65, label %58, label %.loopexit9, !llvm.loop !34
+  br i1 %65, label %58, label %.loopexit9, !llvm.loop !32
 
 .loopexit9:                                       ; preds = %58, %52
   %66 = getelementptr i8, ptr %15, i64 %54
@@ -10186,7 +10186,7 @@ define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, p
   %75 = getelementptr i8, ptr %71, i64 1
   store i8 %74, ptr %71, align 1
   %76 = icmp ult ptr %75, %11
-  br i1 %76, label %.preheader7, label %.loopexit, !llvm.loop !35
+  br i1 %76, label %.preheader7, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.preheader7, %.preheader, %67, %39
   store ptr %16, ptr %4, align 8
@@ -10258,7 +10258,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 24:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %11, i8 0, i64 112, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %11, i8 0, i64 112, i1 false), !annotation !18
   %25 = getelementptr inbounds i8, ptr %0, i64 29996
   store i32 1, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %0, i64 26684
@@ -10274,7 +10274,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store i64 %32, ptr %33, align 8
   %34 = add nuw nsw i64 %29, 1
   %35 = icmp eq i64 %34, 3
-  br i1 %35, label %36, label %28, !llvm.loop !41
+  br i1 %35, label %36, label %28, !llvm.loop !39
 
 36:                                               ; preds = %28
   %37 = icmp eq i64 %4, 0
@@ -10612,36 +10612,36 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %270 = getelementptr %struct.ZSTD_seqSymbol, ptr %267, i64 %233
   %271 = getelementptr %struct.ZSTD_seqSymbol, ptr %218, i64 %183
   %272 = getelementptr inbounds i8, ptr %270, i64 4
-  %273 = load i32, ptr %272, align 4, !noalias !77
+  %273 = load i32, ptr %272, align 4, !noalias !75
   %274 = zext i32 %273 to i64
   %275 = getelementptr inbounds i8, ptr %269, i64 4
-  %276 = load i32, ptr %275, align 4, !noalias !77
+  %276 = load i32, ptr %275, align 4, !noalias !75
   %277 = zext i32 %276 to i64
   %278 = getelementptr inbounds i8, ptr %271, i64 4
-  %279 = load i32, ptr %278, align 4, !noalias !77
+  %279 = load i32, ptr %278, align 4, !noalias !75
   %280 = getelementptr inbounds i8, ptr %269, i64 2
-  %281 = load i8, ptr %280, align 2, !noalias !77
+  %281 = load i8, ptr %280, align 2, !noalias !75
   %282 = getelementptr inbounds i8, ptr %270, i64 2
-  %283 = load i8, ptr %282, align 2, !noalias !77
+  %283 = load i8, ptr %282, align 2, !noalias !75
   %284 = getelementptr inbounds i8, ptr %271, i64 2
-  %285 = load i8, ptr %284, align 2, !noalias !77
+  %285 = load i8, ptr %284, align 2, !noalias !75
   %286 = zext i8 %281 to i32
   %287 = zext i8 %283 to i32
   %288 = add i8 %283, %281
   %289 = add i8 %288, %285
-  %290 = load i16, ptr %269, align 4, !noalias !77
-  %291 = load i16, ptr %270, align 4, !noalias !77
-  %292 = load i16, ptr %271, align 4, !noalias !77
+  %290 = load i16, ptr %269, align 4, !noalias !75
+  %291 = load i16, ptr %270, align 4, !noalias !75
+  %292 = load i16, ptr %271, align 4, !noalias !75
   %293 = getelementptr inbounds i8, ptr %269, i64 3
-  %294 = load i8, ptr %293, align 1, !noalias !77
+  %294 = load i8, ptr %293, align 1, !noalias !75
   %295 = zext i8 %294 to i32
   %296 = getelementptr inbounds i8, ptr %270, i64 3
-  %297 = load i8, ptr %296, align 1, !noalias !77
+  %297 = load i8, ptr %296, align 1, !noalias !75
   %298 = zext i8 %297 to i32
   %299 = getelementptr inbounds i8, ptr %271, i64 3
-  %300 = load i8, ptr %299, align 1, !noalias !77
+  %300 = load i8, ptr %299, align 1, !noalias !75
   %301 = icmp ugt i8 %285, 1
-  br i1 %301, label %302, label %318, !prof !26
+  br i1 %301, label %302, label %318, !prof !24
 
 302:                                              ; preds = %264
   %303 = zext i8 %285 to i32
@@ -10653,32 +10653,32 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %309 = zext nneg i32 %308 to i64
   %310 = lshr i64 %306, %309
   %311 = add i32 %265, %303
-  store i32 %311, ptr %124, align 8, !noalias !77
+  store i32 %311, ptr %124, align 8, !noalias !75
   %312 = zext i32 %279 to i64
   %313 = add i64 %310, %312
   %314 = getelementptr inbounds i8, ptr %11, i64 96
-  %315 = load i64, ptr %314, align 8, !noalias !77
+  %315 = load i64, ptr %314, align 8, !noalias !75
   %316 = getelementptr inbounds i8, ptr %11, i64 104
-  store i64 %315, ptr %316, align 8, !noalias !77
-  %317 = load i64, ptr %27, align 8, !noalias !77
-  store i64 %317, ptr %314, align 8, !noalias !77
+  store i64 %315, ptr %316, align 8, !noalias !75
+  %317 = load i64, ptr %27, align 8, !noalias !75
+  store i64 %317, ptr %314, align 8, !noalias !75
   br label %362
 
 318:                                              ; preds = %264
   %319 = icmp eq i32 %276, 0
   %320 = icmp eq i8 %285, 0
-  br i1 %320, label %321, label %330, !prof !26
+  br i1 %320, label %321, label %330, !prof !24
 
 321:                                              ; preds = %318
   %322 = zext i1 %319 to i64
   %323 = getelementptr [3 x i64], ptr %27, i64 0, i64 %322
-  %324 = load i64, ptr %323, align 8, !noalias !77
+  %324 = load i64, ptr %323, align 8, !noalias !75
   %325 = xor i1 %319, true
   %326 = zext i1 %325 to i64
   %327 = getelementptr [3 x i64], ptr %27, i64 0, i64 %326
-  %328 = load i64, ptr %327, align 8, !noalias !77
+  %328 = load i64, ptr %327, align 8, !noalias !75
   %329 = getelementptr inbounds i8, ptr %11, i64 96
-  store i64 %328, ptr %329, align 8, !noalias !77
+  store i64 %328, ptr %329, align 8, !noalias !75
   br label %362
 
 330:                                              ; preds = %318
@@ -10690,13 +10690,13 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %336 = shl i64 %266, %335
   %337 = lshr i64 %336, 63
   %338 = add i32 %265, 1
-  store i32 %338, ptr %124, align 8, !noalias !77
+  store i32 %338, ptr %124, align 8, !noalias !75
   %339 = add nuw nsw i64 %337, %333
   %340 = icmp eq i64 %339, 3
   br i1 %340, label %.thread81, label %346
 
 .thread81:                                        ; preds = %330
-  %341 = load i64, ptr %27, align 8, !noalias !77
+  %341 = load i64, ptr %27, align 8, !noalias !75
   %342 = add i64 %341, -1
   %343 = icmp eq i64 %342, 0
   %344 = zext i1 %343 to i64
@@ -10705,7 +10705,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 346:                                              ; preds = %330
   %347 = getelementptr [3 x i64], ptr %27, i64 0, i64 %339
-  %348 = load i64, ptr %347, align 8, !noalias !77
+  %348 = load i64, ptr %347, align 8, !noalias !75
   %349 = icmp eq i64 %348, 0
   %350 = zext i1 %349 to i64
   %351 = add i64 %348, %350
@@ -10715,24 +10715,24 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 353:                                              ; preds = %.thread81, %346
   %354 = phi i64 [ %345, %.thread81 ], [ %351, %346 ]
   %355 = getelementptr inbounds i8, ptr %11, i64 96
-  %356 = load i64, ptr %355, align 8, !noalias !77
+  %356 = load i64, ptr %355, align 8, !noalias !75
   %357 = getelementptr inbounds i8, ptr %11, i64 104
-  store i64 %356, ptr %357, align 8, !noalias !77
+  store i64 %356, ptr %357, align 8, !noalias !75
   br label %358
 
 358:                                              ; preds = %353, %346
   %359 = phi i64 [ %354, %353 ], [ %351, %346 ]
-  %360 = load i64, ptr %27, align 8, !noalias !77
+  %360 = load i64, ptr %27, align 8, !noalias !75
   %361 = getelementptr inbounds i8, ptr %11, i64 96
-  store i64 %360, ptr %361, align 8, !noalias !77
+  store i64 %360, ptr %361, align 8, !noalias !75
   br label %362
 
 362:                                              ; preds = %358, %321, %302
   %.sink = phi i64 [ %359, %358 ], [ %324, %321 ], [ %313, %302 ]
   %363 = phi i32 [ %338, %358 ], [ %265, %321 ], [ %311, %302 ]
-  store i64 %.sink, ptr %27, align 8, !noalias !77
+  store i64 %.sink, ptr %27, align 8, !noalias !75
   %364 = icmp eq i8 %283, 0
-  br i1 %364, label %375, label %365, !prof !26
+  br i1 %364, label %375, label %365, !prof !24
 
 365:                                              ; preds = %362
   %366 = and i32 %363, 63
@@ -10743,7 +10743,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %371 = zext nneg i32 %370 to i64
   %372 = lshr i64 %368, %371
   %373 = add i32 %363, %287
-  store i32 %373, ptr %124, align 8, !noalias !77
+  store i32 %373, ptr %124, align 8, !noalias !75
   %374 = add i64 %372, %274
   br label %375
 
@@ -10751,19 +10751,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %.pre190199 = phi i32 [ %363, %362 ], [ %373, %365 ]
   %376 = phi i64 [ %274, %362 ], [ %374, %365 ]
   %377 = icmp ugt i8 %289, 30
-  br i1 %377, label %378, label %379, !prof !27
+  br i1 %377, label %378, label %379, !prof !25
 
 378:                                              ; preds = %375
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %11)
-  %.pre.pre = load i64, ptr %11, align 8, !noalias !28
-  %.pre190.pre = load i32, ptr %124, align 8, !noalias !77
+  %.pre.pre = load i64, ptr %11, align 8, !noalias !26
+  %.pre190.pre = load i32, ptr %124, align 8, !noalias !75
   br label %379
 
 379:                                              ; preds = %378, %375
   %.pre190 = phi i32 [ %.pre190.pre, %378 ], [ %.pre190199, %375 ]
   %.pre = phi i64 [ %.pre.pre, %378 ], [ %266, %375 ]
   %380 = icmp eq i8 %281, 0
-  br i1 %380, label %391, label %381, !prof !26
+  br i1 %380, label %391, label %381, !prof !24
 
 381:                                              ; preds = %379
   %382 = and i32 %.pre190, 63
@@ -10791,7 +10791,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %402 = and i64 %398, %401
   %403 = zext i16 %290 to i64
   %404 = add nuw i64 %402, %403
-  store i64 %404, ptr %120, align 8, !noalias !77
+  store i64 %404, ptr %120, align 8, !noalias !75
   %405 = add i32 %394, %298
   %406 = sub i32 0, %405
   %407 = and i32 %406, 63
@@ -10803,7 +10803,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %413 = and i64 %409, %412
   %414 = zext i16 %291 to i64
   %415 = add nuw i64 %413, %414
-  store i64 %415, ptr %220, align 8, !noalias !77
+  store i64 %415, ptr %220, align 8, !noalias !75
   %416 = zext i8 %300 to i32
   %417 = add i32 %405, %416
   %418 = sub i32 0, %417
@@ -10814,11 +10814,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %423 = shl nsw i64 -1, %422
   %424 = xor i64 %423, -1
   %425 = and i64 %421, %424
-  store i32 %417, ptr %124, align 8, !noalias !77
+  store i32 %417, ptr %124, align 8, !noalias !75
   %426 = zext i16 %292 to i64
   %427 = add nuw i64 %425, %426
-  store i64 %427, ptr %170, align 8, !noalias !77
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !45
+  store i64 %427, ptr %170, align 8, !noalias !75
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !43
   %428 = getelementptr inbounds i8, ptr %7, i64 8
   %429 = getelementptr inbounds i8, ptr %7, i64 16
   %430 = ptrtoint ptr %18 to i64
@@ -10852,12 +10852,12 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %451 = getelementptr i8, ptr %440, i64 %447
   %452 = icmp ugt ptr %451, %445
   %453 = select i1 %450, i1 true, i1 %452
-  br i1 %453, label %456, label %454, !prof !36
+  br i1 %453, label %456, label %454, !prof !34
 
 454:                                              ; preds = %.lr.ph
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %440, ptr noundef align 1 dereferenceable(16) %439, i64 16, i1 false)
   %455 = icmp ugt i64 %444, 16
-  br i1 %455, label %458, label %.loopexit136, !prof !27
+  br i1 %455, label %458, label %.loopexit136, !prof !25
 
 456:                                              ; preds = %.lr.ph
   %457 = call fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %440, ptr noundef %12, ptr noundef %445, ptr noundef nonnull byval(%struct.seq_t) align 8 %7, ptr noundef nonnull %10, ptr noundef %16, ptr noundef %18, ptr noundef %20, ptr noundef %22)
@@ -10885,7 +10885,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %469, ptr noundef align 1 dereferenceable(16) %470, i64 16, i1 false)
   %471 = getelementptr i8, ptr %467, i64 32
   %472 = icmp ult ptr %471, %446
-  br i1 %472, label %465, label %.loopexit136, !llvm.loop !34
+  br i1 %472, label %465, label %.loopexit136, !llvm.loop !32
 
 .loopexit136:                                     ; preds = %465, %458, %454
   store ptr %438, ptr %10, align 8
@@ -10897,7 +10897,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 476:                                              ; preds = %.loopexit136
   %477 = sub i64 %473, %431
   %478 = icmp ugt i64 %442, %477
-  br i1 %478, label %.thread82, label %479, !prof !27
+  br i1 %478, label %.thread82, label %479, !prof !25
 
 .thread82:                                        ; preds = %476
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -10928,7 +10928,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %492 = phi ptr [ %488, %486 ], [ %446, %.loopexit136 ]
   %493 = phi ptr [ %18, %486 ], [ %449, %.loopexit136 ]
   %494 = icmp ugt i64 %442, 15
-  br i1 %494, label %495, label %508, !prof !26
+  br i1 %494, label %495, label %508, !prof !24
 
 495:                                              ; preds = %490
   %496 = getelementptr i8, ptr %492, i64 %491
@@ -10950,7 +10950,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %504, ptr noundef align 1 dereferenceable(16) %505, i64 16, i1 false)
   %506 = getelementptr i8, ptr %502, i64 32
   %507 = icmp ult ptr %506, %496
-  br i1 %507, label %500, label %.loopexit132, !llvm.loop !34
+  br i1 %507, label %500, label %.loopexit132, !llvm.loop !32
 
 508:                                              ; preds = %490
   %509 = icmp ult i64 %442, 8
@@ -11015,7 +11015,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %549 = getelementptr i8, ptr %547, i64 8
   %550 = getelementptr i8, ptr %546, i64 8
   %551 = icmp ult ptr %549, %544
-  br i1 %551, label %.preheader133, label %.loopexit132, !llvm.loop !37
+  br i1 %551, label %.preheader133, label %.loopexit132, !llvm.loop !35
 
 552:                                              ; preds = %540
   %553 = add i64 %535, -8
@@ -11037,19 +11037,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %561, ptr noundef align 1 dereferenceable(16) %562, i64 16, i1 false)
   %563 = getelementptr i8, ptr %559, i64 32
   %564 = icmp ult ptr %563, %544
-  br i1 %564, label %557, label %.loopexit132, !llvm.loop !34
+  br i1 %564, label %557, label %.loopexit132, !llvm.loop !32
 
 .loopexit132:                                     ; preds = %557, %.preheader133, %500, %552, %534, %495, %485, %456
   %565 = phi i64 [ %457, %456 ], [ %447, %485 ], [ %447, %534 ], [ %447, %495 ], [ %447, %552 ], [ %447, %500 ], [ %447, %.preheader133 ], [ %447, %557 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %566 = icmp ult i64 %565, -119
-  br i1 %566, label %567, label %.thread113, !prof !46
+  br i1 %566, label %567, label %.thread113, !prof !44
 
 567:                                              ; preds = %.loopexit132
   %568 = getelementptr i8, ptr %440, i64 %565
   %569 = add i32 %441, -1
   %570 = icmp eq i32 %569, 0
-  br i1 %570, label %.thread106, label %571, !prof !27
+  br i1 %570, label %.thread106, label %571, !prof !25
 
 571:                                              ; preds = %567
   %572 = load i32, ptr %124, align 8
@@ -11103,50 +11103,50 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 605:                                              ; preds = %588, %585, %578, %571
   %606 = phi i32 [ %603, %588 ], [ %572, %585 ], [ %583, %578 ], [ %572, %571 ]
-  %607 = load ptr, ptr %169, align 8, !noalias !80
-  %608 = load i64, ptr %120, align 8, !noalias !80
+  %607 = load ptr, ptr %169, align 8, !noalias !78
+  %608 = load i64, ptr %120, align 8, !noalias !78
   %609 = getelementptr %struct.ZSTD_seqSymbol, ptr %607, i64 %608
-  %610 = load ptr, ptr %268, align 8, !noalias !80
-  %611 = load i64, ptr %220, align 8, !noalias !80
+  %610 = load ptr, ptr %268, align 8, !noalias !78
+  %611 = load i64, ptr %220, align 8, !noalias !78
   %612 = getelementptr %struct.ZSTD_seqSymbol, ptr %610, i64 %611
-  %613 = load ptr, ptr %219, align 8, !noalias !80
-  %614 = load i64, ptr %170, align 8, !noalias !80
+  %613 = load ptr, ptr %219, align 8, !noalias !78
+  %614 = load i64, ptr %170, align 8, !noalias !78
   %615 = getelementptr %struct.ZSTD_seqSymbol, ptr %613, i64 %614
   %616 = getelementptr inbounds i8, ptr %612, i64 4
-  %617 = load i32, ptr %616, align 4, !noalias !80
+  %617 = load i32, ptr %616, align 4, !noalias !78
   %618 = zext i32 %617 to i64
   %619 = getelementptr inbounds i8, ptr %609, i64 4
-  %620 = load i32, ptr %619, align 4, !noalias !80
+  %620 = load i32, ptr %619, align 4, !noalias !78
   %621 = zext i32 %620 to i64
   %622 = getelementptr inbounds i8, ptr %615, i64 4
-  %623 = load i32, ptr %622, align 4, !noalias !80
+  %623 = load i32, ptr %622, align 4, !noalias !78
   %624 = getelementptr inbounds i8, ptr %609, i64 2
-  %625 = load i8, ptr %624, align 2, !noalias !80
+  %625 = load i8, ptr %624, align 2, !noalias !78
   %626 = getelementptr inbounds i8, ptr %612, i64 2
-  %627 = load i8, ptr %626, align 2, !noalias !80
+  %627 = load i8, ptr %626, align 2, !noalias !78
   %628 = getelementptr inbounds i8, ptr %615, i64 2
-  %629 = load i8, ptr %628, align 2, !noalias !80
+  %629 = load i8, ptr %628, align 2, !noalias !78
   %630 = zext i8 %625 to i32
   %631 = zext i8 %627 to i32
   %632 = add i8 %627, %625
   %633 = add i8 %632, %629
-  %634 = load i16, ptr %609, align 4, !noalias !80
-  %635 = load i16, ptr %612, align 4, !noalias !80
-  %636 = load i16, ptr %615, align 4, !noalias !80
+  %634 = load i16, ptr %609, align 4, !noalias !78
+  %635 = load i16, ptr %612, align 4, !noalias !78
+  %636 = load i16, ptr %615, align 4, !noalias !78
   %637 = getelementptr inbounds i8, ptr %609, i64 3
-  %638 = load i8, ptr %637, align 1, !noalias !80
+  %638 = load i8, ptr %637, align 1, !noalias !78
   %639 = zext i8 %638 to i32
   %640 = getelementptr inbounds i8, ptr %612, i64 3
-  %641 = load i8, ptr %640, align 1, !noalias !80
+  %641 = load i8, ptr %640, align 1, !noalias !78
   %642 = zext i8 %641 to i32
   %643 = getelementptr inbounds i8, ptr %615, i64 3
-  %644 = load i8, ptr %643, align 1, !noalias !80
+  %644 = load i8, ptr %643, align 1, !noalias !78
   %645 = icmp ugt i8 %629, 1
-  br i1 %645, label %646, label %660, !prof !26
+  br i1 %645, label %646, label %660, !prof !24
 
 646:                                              ; preds = %605
   %647 = zext i8 %629 to i32
-  %648 = load i64, ptr %11, align 8, !noalias !80
+  %648 = load i64, ptr %11, align 8, !noalias !78
   %649 = and i32 %606, 63
   %650 = zext nneg i32 %649 to i64
   %651 = shl i64 %648, %650
@@ -11155,22 +11155,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %654 = zext nneg i32 %653 to i64
   %655 = lshr i64 %651, %654
   %656 = add i32 %606, %647
-  store i32 %656, ptr %124, align 8, !noalias !80
+  store i32 %656, ptr %124, align 8, !noalias !78
   %657 = zext i32 %623 to i64
   %658 = add i64 %655, %657
-  %659 = load i64, ptr %433, align 8, !noalias !80
-  store i64 %659, ptr %434, align 8, !noalias !80
+  %659 = load i64, ptr %433, align 8, !noalias !78
+  store i64 %659, ptr %434, align 8, !noalias !78
   br label %697
 
 660:                                              ; preds = %605
   %661 = icmp eq i32 %620, 0
   %662 = icmp eq i8 %629, 0
-  br i1 %662, label %663, label %670, !prof !26
+  br i1 %662, label %663, label %670, !prof !24
 
 663:                                              ; preds = %660
   %664 = zext i1 %661 to i64
   %665 = getelementptr [3 x i64], ptr %27, i64 0, i64 %664
-  %666 = load i64, ptr %665, align 8, !noalias !80
+  %666 = load i64, ptr %665, align 8, !noalias !78
   %667 = xor i1 %661, true
   %668 = zext i1 %667 to i64
   %669 = getelementptr [3 x i64], ptr %27, i64 0, i64 %668
@@ -11180,19 +11180,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %671 = zext i1 %661 to i32
   %672 = add i32 %623, %671
   %673 = zext i32 %672 to i64
-  %674 = load i64, ptr %11, align 8, !noalias !80
+  %674 = load i64, ptr %11, align 8, !noalias !78
   %675 = and i32 %606, 63
   %676 = zext nneg i32 %675 to i64
   %677 = shl i64 %674, %676
   %678 = lshr i64 %677, 63
   %679 = add i32 %606, 1
-  store i32 %679, ptr %124, align 8, !noalias !80
+  store i32 %679, ptr %124, align 8, !noalias !78
   %680 = add nuw nsw i64 %678, %673
   %681 = icmp eq i64 %680, 3
   br i1 %681, label %.thread83, label %687
 
 .thread83:                                        ; preds = %670
-  %682 = load i64, ptr %27, align 8, !noalias !80
+  %682 = load i64, ptr %27, align 8, !noalias !78
   %683 = add i64 %682, -1
   %684 = icmp eq i64 %683, 0
   %685 = zext i1 %684 to i64
@@ -11201,7 +11201,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 687:                                              ; preds = %670
   %688 = getelementptr [3 x i64], ptr %27, i64 0, i64 %680
-  %689 = load i64, ptr %688, align 8, !noalias !80
+  %689 = load i64, ptr %688, align 8, !noalias !78
   %690 = icmp eq i64 %689, 0
   %691 = zext i1 %690 to i64
   %692 = add i64 %689, %691
@@ -11210,22 +11210,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 694:                                              ; preds = %.thread83, %687
   %695 = phi i64 [ %686, %.thread83 ], [ %692, %687 ]
-  %696 = load i64, ptr %433, align 8, !noalias !80
-  store i64 %696, ptr %434, align 8, !noalias !80
+  %696 = load i64, ptr %433, align 8, !noalias !78
+  store i64 %696, ptr %434, align 8, !noalias !78
   br label %697
 
 697:                                              ; preds = %687, %694, %663, %646
   %.sink232 = phi ptr [ %669, %663 ], [ %27, %646 ], [ %27, %694 ], [ %27, %687 ]
   %.sink230 = phi i64 [ %666, %663 ], [ %658, %646 ], [ %695, %694 ], [ %692, %687 ]
   %698 = phi i32 [ %606, %663 ], [ %656, %646 ], [ %679, %694 ], [ %679, %687 ]
-  %699 = load i64, ptr %.sink232, align 8, !noalias !80
-  store i64 %699, ptr %433, align 8, !noalias !80
-  store i64 %.sink230, ptr %27, align 8, !noalias !80
+  %699 = load i64, ptr %.sink232, align 8, !noalias !78
+  store i64 %699, ptr %433, align 8, !noalias !78
+  store i64 %.sink230, ptr %27, align 8, !noalias !78
   %700 = icmp eq i8 %627, 0
-  br i1 %700, label %712, label %701, !prof !26
+  br i1 %700, label %712, label %701, !prof !24
 
 701:                                              ; preds = %697
-  %702 = load i64, ptr %11, align 8, !noalias !80
+  %702 = load i64, ptr %11, align 8, !noalias !78
   %703 = and i32 %698, 63
   %704 = zext nneg i32 %703 to i64
   %705 = shl i64 %702, %704
@@ -11234,7 +11234,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %708 = zext nneg i32 %707 to i64
   %709 = lshr i64 %705, %708
   %710 = add i32 %698, %631
-  store i32 %710, ptr %124, align 8, !noalias !80
+  store i32 %710, ptr %124, align 8, !noalias !78
   %711 = add i64 %709, %618
   br label %712
 
@@ -11242,18 +11242,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %.pre193201 = phi i32 [ %698, %697 ], [ %710, %701 ]
   %713 = phi i64 [ %618, %697 ], [ %711, %701 ]
   %714 = icmp ugt i8 %633, 30
-  br i1 %714, label %715, label %716, !prof !27
+  br i1 %714, label %715, label %716, !prof !25
 
 715:                                              ; preds = %712
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %11)
-  %.pre193.pre = load i32, ptr %124, align 8, !noalias !80
+  %.pre193.pre = load i32, ptr %124, align 8, !noalias !78
   br label %716
 
 716:                                              ; preds = %715, %712
   %.pre193 = phi i32 [ %.pre193.pre, %715 ], [ %.pre193201, %712 ]
   %717 = icmp eq i8 %625, 0
-  %.pre192 = load i64, ptr %11, align 8, !noalias !28
-  br i1 %717, label %728, label %718, !prof !26
+  %.pre192 = load i64, ptr %11, align 8, !noalias !26
+  br i1 %717, label %728, label %718, !prof !24
 
 718:                                              ; preds = %716
   %719 = and i32 %.pre193, 63
@@ -11281,7 +11281,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %739 = and i64 %735, %738
   %740 = zext i16 %634 to i64
   %741 = add nuw i64 %739, %740
-  store i64 %741, ptr %120, align 8, !noalias !80
+  store i64 %741, ptr %120, align 8, !noalias !78
   %742 = add i32 %731, %642
   %743 = sub i32 0, %742
   %744 = and i32 %743, 63
@@ -11293,7 +11293,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %750 = and i64 %746, %749
   %751 = zext i16 %635 to i64
   %752 = add nuw i64 %750, %751
-  store i64 %752, ptr %220, align 8, !noalias !80
+  store i64 %752, ptr %220, align 8, !noalias !78
   %753 = zext i8 %644 to i32
   %754 = add i32 %742, %753
   %755 = sub i32 0, %754
@@ -11304,10 +11304,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %760 = shl nsw i64 -1, %759
   %761 = xor i64 %760, -1
   %762 = and i64 %758, %761
-  store i32 %754, ptr %124, align 8, !noalias !80
+  store i32 %754, ptr %124, align 8, !noalias !78
   %763 = zext i16 %636 to i64
   %764 = add nuw i64 %762, %763
-  store i64 %764, ptr %170, align 8, !noalias !80
+  store i64 %764, ptr %170, align 8, !noalias !78
   %765 = load ptr, ptr %10, align 8
   %766 = getelementptr i8, ptr %765, i64 %730
   %767 = load ptr, ptr %15, align 8
@@ -11359,7 +11359,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %794 = getelementptr i8, ptr %790, i64 1
   store i8 %793, ptr %790, align 1
   %795 = icmp eq ptr %794, %784
-  br i1 %795, label %.loopexit128, label %.preheader127, !llvm.loop !33
+  br i1 %795, label %.loopexit128, label %.preheader127, !llvm.loop !31
 
 796:                                              ; preds = %782
   %797 = getelementptr i8, ptr %784, i64 -32
@@ -11389,7 +11389,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %811, ptr noundef align 1 dereferenceable(16) %812, i64 16, i1 false)
   %813 = getelementptr i8, ptr %809, i64 32
   %814 = icmp ult ptr %813, %797
-  br i1 %814, label %807, label %.loopexit131, !llvm.loop !34
+  br i1 %814, label %807, label %.loopexit131, !llvm.loop !32
 
 .loopexit131:                                     ; preds = %807, %801
   %815 = getelementptr i8, ptr %769, i64 %803
@@ -11409,7 +11409,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %824 = getelementptr i8, ptr %820, i64 1
   store i8 %823, ptr %820, align 1
   %825 = icmp ult ptr %824, %784
-  br i1 %825, label %.preheader129, label %.loopexit128, !llvm.loop !35
+  br i1 %825, label %.preheader129, label %.loopexit128, !llvm.loop !33
 
 .loopexit128:                                     ; preds = %.preheader129, %.preheader127, %816, %788
   %826 = sub i64 %.lcssa157, %775
@@ -11439,12 +11439,12 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %842 = getelementptr i8, ptr %829, i64 %836
   %843 = icmp ugt ptr %842, %841
   %844 = select i1 %840, i1 true, i1 %843
-  br i1 %844, label %847, label %845, !prof !36
+  br i1 %844, label %847, label %845, !prof !34
 
 845:                                              ; preds = %827
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %829, ptr noundef align 1 dereferenceable(16) %830, i64 16, i1 false)
   %846 = icmp ugt i64 %828, 16
-  br i1 %846, label %849, label %.loopexit126, !prof !27
+  br i1 %846, label %849, label %.loopexit126, !prof !25
 
 847:                                              ; preds = %827
   %848 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %829, ptr noundef %12, ptr noundef nonnull byval(%struct.seq_t) align 8 %8, ptr noundef nonnull %10, ptr noundef %831, ptr noundef %18, ptr noundef %20, ptr noundef %22)
@@ -11472,7 +11472,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %860, ptr noundef align 1 dereferenceable(16) %861, i64 16, i1 false)
   %862 = getelementptr i8, ptr %858, i64 32
   %863 = icmp ult ptr %862, %835
-  br i1 %863, label %856, label %.loopexit126, !llvm.loop !34
+  br i1 %863, label %856, label %.loopexit126, !llvm.loop !32
 
 .loopexit126:                                     ; preds = %856, %849, %845
   store ptr %837, ptr %10, align 8
@@ -11484,7 +11484,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 867:                                              ; preds = %.loopexit126
   %868 = sub i64 %864, %431
   %869 = icmp ugt i64 %.lcssa149, %868
-  br i1 %869, label %.thread88, label %870, !prof !27
+  br i1 %869, label %.thread88, label %870, !prof !25
 
 .thread88:                                        ; preds = %867
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -11515,7 +11515,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %883 = phi ptr [ %879, %877 ], [ %835, %.loopexit126 ]
   %884 = phi ptr [ %18, %877 ], [ %839, %.loopexit126 ]
   %885 = icmp ugt i64 %.lcssa149, 15
-  br i1 %885, label %886, label %899, !prof !26
+  br i1 %885, label %886, label %899, !prof !24
 
 886:                                              ; preds = %881
   %887 = getelementptr i8, ptr %883, i64 %882
@@ -11537,7 +11537,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %895, ptr noundef align 1 dereferenceable(16) %896, i64 16, i1 false)
   %897 = getelementptr i8, ptr %893, i64 32
   %898 = icmp ult ptr %897, %887
-  br i1 %898, label %891, label %.loopexit122, !llvm.loop !34
+  br i1 %898, label %891, label %.loopexit122, !llvm.loop !32
 
 899:                                              ; preds = %881
   %900 = icmp ult i64 %.lcssa149, 8
@@ -11601,7 +11601,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %940 = getelementptr i8, ptr %938, i64 8
   %941 = getelementptr i8, ptr %937, i64 8
   %942 = icmp ult ptr %940, %935
-  br i1 %942, label %.preheader123, label %.loopexit122, !llvm.loop !37
+  br i1 %942, label %.preheader123, label %.loopexit122, !llvm.loop !35
 
 943:                                              ; preds = %931
   %944 = add i64 %929, -8
@@ -11623,13 +11623,13 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %952, ptr noundef align 1 dereferenceable(16) %953, i64 16, i1 false)
   %954 = getelementptr i8, ptr %950, i64 32
   %955 = icmp ult ptr %954, %935
-  br i1 %955, label %948, label %.loopexit122, !llvm.loop !34
+  br i1 %955, label %948, label %.loopexit122, !llvm.loop !32
 
 .loopexit122:                                     ; preds = %948, %.preheader123, %891, %943, %925, %886, %876, %847
   %956 = phi i64 [ %848, %847 ], [ %836, %876 ], [ %836, %925 ], [ %836, %886 ], [ %836, %943 ], [ %836, %891 ], [ %836, %.preheader123 ], [ %836, %948 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %957 = icmp ult i64 %956, -119
-  br i1 %957, label %958, label %.thread113, !prof !46
+  br i1 %957, label %958, label %.thread113, !prof !44
 
 958:                                              ; preds = %.loopexit122
   %959 = getelementptr i8, ptr %829, i64 %956
@@ -11689,11 +11689,11 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 996:                                              ; preds = %976, %979, %969, %962
   %997 = phi i32 [ %963, %962 ], [ %974, %969 ], [ %994, %979 ], [ %963, %976 ]
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !50
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !48
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
+  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !50
   tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !51
-  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !52
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !53
-  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !54
+  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !52
   %998 = getelementptr inbounds i8, ptr %9, i64 8
   %999 = getelementptr inbounds i8, ptr %9, i64 16
   br label %1000
@@ -11702,50 +11702,50 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1001 = phi i32 [ %997, %996 ], [ %.be, %.backedge ]
   %1002 = phi i32 [ %960, %996 ], [ %1287, %.backedge ]
   %1003 = phi ptr [ %959, %996 ], [ %1286, %.backedge ]
-  %1004 = load ptr, ptr %169, align 8, !noalias !83
-  %1005 = load i64, ptr %120, align 8, !noalias !83
+  %1004 = load ptr, ptr %169, align 8, !noalias !81
+  %1005 = load i64, ptr %120, align 8, !noalias !81
   %1006 = getelementptr %struct.ZSTD_seqSymbol, ptr %1004, i64 %1005
-  %1007 = load ptr, ptr %268, align 8, !noalias !83
-  %1008 = load i64, ptr %220, align 8, !noalias !83
+  %1007 = load ptr, ptr %268, align 8, !noalias !81
+  %1008 = load i64, ptr %220, align 8, !noalias !81
   %1009 = getelementptr %struct.ZSTD_seqSymbol, ptr %1007, i64 %1008
-  %1010 = load ptr, ptr %219, align 8, !noalias !83
-  %1011 = load i64, ptr %170, align 8, !noalias !83
+  %1010 = load ptr, ptr %219, align 8, !noalias !81
+  %1011 = load i64, ptr %170, align 8, !noalias !81
   %1012 = getelementptr %struct.ZSTD_seqSymbol, ptr %1010, i64 %1011
   %1013 = getelementptr inbounds i8, ptr %1009, i64 4
-  %1014 = load i32, ptr %1013, align 4, !noalias !83
+  %1014 = load i32, ptr %1013, align 4, !noalias !81
   %1015 = zext i32 %1014 to i64
   %1016 = getelementptr inbounds i8, ptr %1006, i64 4
-  %1017 = load i32, ptr %1016, align 4, !noalias !83
+  %1017 = load i32, ptr %1016, align 4, !noalias !81
   %1018 = zext i32 %1017 to i64
   %1019 = getelementptr inbounds i8, ptr %1012, i64 4
-  %1020 = load i32, ptr %1019, align 4, !noalias !83
+  %1020 = load i32, ptr %1019, align 4, !noalias !81
   %1021 = getelementptr inbounds i8, ptr %1006, i64 2
-  %1022 = load i8, ptr %1021, align 2, !noalias !83
+  %1022 = load i8, ptr %1021, align 2, !noalias !81
   %1023 = getelementptr inbounds i8, ptr %1009, i64 2
-  %1024 = load i8, ptr %1023, align 2, !noalias !83
+  %1024 = load i8, ptr %1023, align 2, !noalias !81
   %1025 = getelementptr inbounds i8, ptr %1012, i64 2
-  %1026 = load i8, ptr %1025, align 2, !noalias !83
+  %1026 = load i8, ptr %1025, align 2, !noalias !81
   %1027 = zext i8 %1022 to i32
   %1028 = zext i8 %1024 to i32
   %1029 = add i8 %1024, %1022
   %1030 = add i8 %1029, %1026
-  %1031 = load i16, ptr %1006, align 4, !noalias !83
-  %1032 = load i16, ptr %1009, align 4, !noalias !83
-  %1033 = load i16, ptr %1012, align 4, !noalias !83
+  %1031 = load i16, ptr %1006, align 4, !noalias !81
+  %1032 = load i16, ptr %1009, align 4, !noalias !81
+  %1033 = load i16, ptr %1012, align 4, !noalias !81
   %1034 = getelementptr inbounds i8, ptr %1006, i64 3
-  %1035 = load i8, ptr %1034, align 1, !noalias !83
+  %1035 = load i8, ptr %1034, align 1, !noalias !81
   %1036 = zext i8 %1035 to i32
   %1037 = getelementptr inbounds i8, ptr %1009, i64 3
-  %1038 = load i8, ptr %1037, align 1, !noalias !83
+  %1038 = load i8, ptr %1037, align 1, !noalias !81
   %1039 = zext i8 %1038 to i32
   %1040 = getelementptr inbounds i8, ptr %1012, i64 3
-  %1041 = load i8, ptr %1040, align 1, !noalias !83
+  %1041 = load i8, ptr %1040, align 1, !noalias !81
   %1042 = icmp ugt i8 %1026, 1
-  br i1 %1042, label %1043, label %1057, !prof !26
+  br i1 %1042, label %1043, label %1057, !prof !24
 
 1043:                                             ; preds = %1000
   %1044 = zext i8 %1026 to i32
-  %1045 = load i64, ptr %11, align 8, !noalias !83
+  %1045 = load i64, ptr %11, align 8, !noalias !81
   %1046 = and i32 %1001, 63
   %1047 = zext nneg i32 %1046 to i64
   %1048 = shl i64 %1045, %1047
@@ -11754,22 +11754,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1051 = zext nneg i32 %1050 to i64
   %1052 = lshr i64 %1048, %1051
   %1053 = add i32 %1001, %1044
-  store i32 %1053, ptr %124, align 8, !noalias !83
+  store i32 %1053, ptr %124, align 8, !noalias !81
   %1054 = zext i32 %1020 to i64
   %1055 = add i64 %1052, %1054
-  %1056 = load i64, ptr %433, align 8, !noalias !83
-  store i64 %1056, ptr %434, align 8, !noalias !83
+  %1056 = load i64, ptr %433, align 8, !noalias !81
+  store i64 %1056, ptr %434, align 8, !noalias !81
   br label %1094
 
 1057:                                             ; preds = %1000
   %1058 = icmp eq i32 %1017, 0
   %1059 = icmp eq i8 %1026, 0
-  br i1 %1059, label %1060, label %1067, !prof !26
+  br i1 %1059, label %1060, label %1067, !prof !24
 
 1060:                                             ; preds = %1057
   %1061 = zext i1 %1058 to i64
   %1062 = getelementptr [3 x i64], ptr %27, i64 0, i64 %1061
-  %1063 = load i64, ptr %1062, align 8, !noalias !83
+  %1063 = load i64, ptr %1062, align 8, !noalias !81
   %1064 = xor i1 %1058, true
   %1065 = zext i1 %1064 to i64
   %1066 = getelementptr [3 x i64], ptr %27, i64 0, i64 %1065
@@ -11779,19 +11779,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1068 = zext i1 %1058 to i32
   %1069 = add i32 %1020, %1068
   %1070 = zext i32 %1069 to i64
-  %1071 = load i64, ptr %11, align 8, !noalias !83
+  %1071 = load i64, ptr %11, align 8, !noalias !81
   %1072 = and i32 %1001, 63
   %1073 = zext nneg i32 %1072 to i64
   %1074 = shl i64 %1071, %1073
   %1075 = lshr i64 %1074, 63
   %1076 = add i32 %1001, 1
-  store i32 %1076, ptr %124, align 8, !noalias !83
+  store i32 %1076, ptr %124, align 8, !noalias !81
   %1077 = add nuw nsw i64 %1075, %1070
   %1078 = icmp eq i64 %1077, 3
   br i1 %1078, label %.thread100, label %1084
 
 .thread100:                                       ; preds = %1067
-  %1079 = load i64, ptr %27, align 8, !noalias !83
+  %1079 = load i64, ptr %27, align 8, !noalias !81
   %1080 = add i64 %1079, -1
   %1081 = icmp eq i64 %1080, 0
   %1082 = zext i1 %1081 to i64
@@ -11800,7 +11800,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 1084:                                             ; preds = %1067
   %1085 = getelementptr [3 x i64], ptr %27, i64 0, i64 %1077
-  %1086 = load i64, ptr %1085, align 8, !noalias !83
+  %1086 = load i64, ptr %1085, align 8, !noalias !81
   %1087 = icmp eq i64 %1086, 0
   %1088 = zext i1 %1087 to i64
   %1089 = add i64 %1086, %1088
@@ -11809,22 +11809,22 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 1091:                                             ; preds = %.thread100, %1084
   %1092 = phi i64 [ %1083, %.thread100 ], [ %1089, %1084 ]
-  %1093 = load i64, ptr %433, align 8, !noalias !83
-  store i64 %1093, ptr %434, align 8, !noalias !83
+  %1093 = load i64, ptr %433, align 8, !noalias !81
+  store i64 %1093, ptr %434, align 8, !noalias !81
   br label %1094
 
 1094:                                             ; preds = %1084, %1091, %1060, %1043
   %.sink235 = phi ptr [ %1066, %1060 ], [ %27, %1043 ], [ %27, %1091 ], [ %27, %1084 ]
   %.sink233 = phi i64 [ %1063, %1060 ], [ %1055, %1043 ], [ %1092, %1091 ], [ %1089, %1084 ]
   %1095 = phi i32 [ %1001, %1060 ], [ %1053, %1043 ], [ %1076, %1091 ], [ %1076, %1084 ]
-  %1096 = load i64, ptr %.sink235, align 8, !noalias !83
-  store i64 %1096, ptr %433, align 8, !noalias !83
-  store i64 %.sink233, ptr %27, align 8, !noalias !83
+  %1096 = load i64, ptr %.sink235, align 8, !noalias !81
+  store i64 %1096, ptr %433, align 8, !noalias !81
+  store i64 %.sink233, ptr %27, align 8, !noalias !81
   %1097 = icmp eq i8 %1024, 0
-  br i1 %1097, label %1109, label %1098, !prof !26
+  br i1 %1097, label %1109, label %1098, !prof !24
 
 1098:                                             ; preds = %1094
-  %1099 = load i64, ptr %11, align 8, !noalias !83
+  %1099 = load i64, ptr %11, align 8, !noalias !81
   %1100 = and i32 %1095, 63
   %1101 = zext nneg i32 %1100 to i64
   %1102 = shl i64 %1099, %1101
@@ -11833,7 +11833,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1105 = zext nneg i32 %1104 to i64
   %1106 = lshr i64 %1102, %1105
   %1107 = add i32 %1095, %1028
-  store i32 %1107, ptr %124, align 8, !noalias !83
+  store i32 %1107, ptr %124, align 8, !noalias !81
   %1108 = add i64 %1106, %1015
   br label %1109
 
@@ -11841,18 +11841,18 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %.pre195203 = phi i32 [ %1095, %1094 ], [ %1107, %1098 ]
   %1110 = phi i64 [ %1015, %1094 ], [ %1108, %1098 ]
   %1111 = icmp ugt i8 %1030, 30
-  br i1 %1111, label %1112, label %1113, !prof !27
+  br i1 %1111, label %1112, label %1113, !prof !25
 
 1112:                                             ; preds = %1109
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %11)
-  %.pre195.pre = load i32, ptr %124, align 8, !noalias !83
+  %.pre195.pre = load i32, ptr %124, align 8, !noalias !81
   br label %1113
 
 1113:                                             ; preds = %1112, %1109
   %.pre195 = phi i32 [ %.pre195.pre, %1112 ], [ %.pre195203, %1109 ]
   %1114 = icmp eq i8 %1022, 0
-  %.pre194 = load i64, ptr %11, align 8, !noalias !83
-  br i1 %1114, label %1125, label %1115, !prof !26
+  %.pre194 = load i64, ptr %11, align 8, !noalias !81
+  br i1 %1114, label %1125, label %1115, !prof !24
 
 1115:                                             ; preds = %1113
   %1116 = and i32 %.pre195, 63
@@ -11880,7 +11880,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1136 = and i64 %1132, %1135
   %1137 = zext i16 %1031 to i64
   %1138 = add nuw i64 %1136, %1137
-  store i64 %1138, ptr %120, align 8, !noalias !83
+  store i64 %1138, ptr %120, align 8, !noalias !81
   %1139 = add i32 %1128, %1039
   %1140 = sub i32 0, %1139
   %1141 = and i32 %1140, 63
@@ -11892,7 +11892,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1147 = and i64 %1143, %1146
   %1148 = zext i16 %1032 to i64
   %1149 = add nuw i64 %1147, %1148
-  store i64 %1149, ptr %220, align 8, !noalias !83
+  store i64 %1149, ptr %220, align 8, !noalias !81
   %1150 = zext i8 %1041 to i32
   %1151 = add i32 %1139, %1150
   %1152 = sub i32 0, %1151
@@ -11903,10 +11903,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1157 = shl nsw i64 -1, %1156
   %1158 = xor i64 %1157, -1
   %1159 = and i64 %1155, %1158
-  store i32 %1151, ptr %124, align 8, !noalias !83
+  store i32 %1151, ptr %124, align 8, !noalias !81
   %1160 = zext i16 %1033 to i64
   %1161 = add nuw i64 %1159, %1160
-  store i64 %1161, ptr %170, align 8, !noalias !83
+  store i64 %1161, ptr %170, align 8, !noalias !81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 %1127, ptr %9, align 8
   store i64 %1110, ptr %998, align 8
@@ -11921,12 +11921,12 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1169 = getelementptr i8, ptr %1003, i64 %1163
   %1170 = icmp ugt ptr %1169, %841
   %1171 = select i1 %1168, i1 true, i1 %1170
-  br i1 %1171, label %1174, label %1172, !prof !36
+  br i1 %1171, label %1174, label %1172, !prof !34
 
 1172:                                             ; preds = %1125
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1003, ptr noundef align 1 dereferenceable(16) %1164, i64 16, i1 false)
   %1173 = icmp ugt i64 %1127, 16
-  br i1 %1173, label %1176, label %.loopexit121, !prof !27
+  br i1 %1173, label %1176, label %.loopexit121, !prof !25
 
 1174:                                             ; preds = %1125
   %1175 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %1003, ptr noundef %12, ptr noundef nonnull byval(%struct.seq_t) align 8 %9, ptr noundef nonnull %10, ptr noundef %831, ptr noundef %18, ptr noundef %20, ptr noundef %22)
@@ -11954,7 +11954,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1187, ptr noundef align 1 dereferenceable(16) %1188, i64 16, i1 false)
   %1189 = getelementptr i8, ptr %1185, i64 32
   %1190 = icmp ult ptr %1189, %1162
-  br i1 %1190, label %1183, label %.loopexit121, !llvm.loop !34
+  br i1 %1190, label %1183, label %.loopexit121, !llvm.loop !32
 
 .loopexit121:                                     ; preds = %1183, %1176, %1172
   store ptr %1165, ptr %10, align 8
@@ -11966,7 +11966,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 1194:                                             ; preds = %.loopexit121
   %1195 = sub i64 %1191, %431
   %1196 = icmp ugt i64 %.sink233, %1195
-  br i1 %1196, label %.thread101, label %1197, !prof !27
+  br i1 %1196, label %.thread101, label %1197, !prof !25
 
 .thread101:                                       ; preds = %1194
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -11997,7 +11997,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1210 = phi ptr [ %1206, %1204 ], [ %1162, %.loopexit121 ]
   %1211 = phi ptr [ %18, %1204 ], [ %1167, %.loopexit121 ]
   %1212 = icmp ugt i64 %.sink233, 15
-  br i1 %1212, label %1213, label %1226, !prof !26
+  br i1 %1212, label %1213, label %1226, !prof !24
 
 1213:                                             ; preds = %1208
   %1214 = getelementptr i8, ptr %1210, i64 %1209
@@ -12019,7 +12019,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1222, ptr noundef align 1 dereferenceable(16) %1223, i64 16, i1 false)
   %1224 = getelementptr i8, ptr %1220, i64 32
   %1225 = icmp ult ptr %1224, %1214
-  br i1 %1225, label %1218, label %.loopexit, !llvm.loop !34
+  br i1 %1225, label %1218, label %.loopexit, !llvm.loop !32
 
 1226:                                             ; preds = %1208
   %1227 = icmp ult i64 %.sink233, 8
@@ -12083,7 +12083,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1267 = getelementptr i8, ptr %1265, i64 8
   %1268 = getelementptr i8, ptr %1264, i64 8
   %1269 = icmp ult ptr %1267, %1262
-  br i1 %1269, label %.preheader, label %.loopexit, !llvm.loop !37
+  br i1 %1269, label %.preheader, label %.loopexit, !llvm.loop !35
 
 1270:                                             ; preds = %1258
   %1271 = add i64 %1256, -8
@@ -12105,19 +12105,19 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1279, ptr noundef align 1 dereferenceable(16) %1280, i64 16, i1 false)
   %1281 = getelementptr i8, ptr %1277, i64 32
   %1282 = icmp ult ptr %1281, %1262
-  br i1 %1282, label %1275, label %.loopexit, !llvm.loop !34
+  br i1 %1282, label %1275, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %1275, %.preheader, %1218, %1270, %1252, %1213, %1203, %1174
   %1283 = phi i64 [ %1175, %1174 ], [ %1163, %1203 ], [ %1163, %1252 ], [ %1163, %1213 ], [ %1163, %1270 ], [ %1163, %1218 ], [ %1163, %.preheader ], [ %1163, %1275 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %1284 = icmp ult i64 %1283, -119
-  br i1 %1284, label %1285, label %.thread113, !prof !46
+  br i1 %1284, label %1285, label %.thread113, !prof !44
 
 1285:                                             ; preds = %.loopexit
   %1286 = getelementptr i8, ptr %1003, i64 %1283
   %1287 = add i32 %1002, -1
   %1288 = icmp eq i32 %1287, 0
-  br i1 %1288, label %.thread106, label %1289, !prof !27
+  br i1 %1288, label %.thread106, label %1289, !prof !25
 
 1289:                                             ; preds = %1285
   %1290 = load i32, ptr %124, align 8
@@ -12203,7 +12203,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store i32 %1337, ptr %1338, align 4
   %1339 = add nuw nsw i64 %1334, 1
   %1340 = icmp eq i64 %1339, 3
-  br i1 %1340, label %1341, label %1333, !llvm.loop !58
+  br i1 %1340, label %1341, label %1333, !llvm.loop !56
 
 .thread113:                                       ; preds = %.loopexit132, %.loopexit, %1326, %36, %._crit_edge, %.thread88, %.loopexit122, %777, %43, %102, %.thread82, %.thread101
   %.ph110 = phi i64 [ -20, %.thread88 ], [ %956, %.loopexit122 ], [ -70, %777 ], [ -20, %43 ], [ -20, %102 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %36 ], [ -20, %1326 ], [ %1283, %.loopexit ], [ %565, %.loopexit132 ]
@@ -12328,7 +12328,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
 
 32:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false), !annotation !18
   %33 = getelementptr inbounds i8, ptr %0, i64 29996
   store i32 1, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %0, i64 26684
@@ -12344,7 +12344,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   store i64 %40, ptr %41, align 8
   %42 = add nuw nsw i64 %37, 1
   %43 = icmp eq i64 %42, 3
-  br i1 %43, label %44, label %36, !llvm.loop !59
+  br i1 %43, label %44, label %36, !llvm.loop !57
 
 44:                                               ; preds = %36
   %45 = icmp eq i64 %4, 0
@@ -12677,11 +12677,11 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %274 = getelementptr i8, ptr %230, i64 8
   %275 = getelementptr inbounds i8, ptr %9, i64 80
   store ptr %274, ptr %275, align 8
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !60
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !58
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !59
+  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !60
   tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !61
-  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !62
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !63
-  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !64
+  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !62
   %276 = getelementptr inbounds i8, ptr %7, i64 8
   %277 = getelementptr inbounds i8, ptr %7, i64 16
   %278 = getelementptr i8, ptr %19, i64 -32
@@ -12706,40 +12706,40 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %295 = getelementptr %struct.ZSTD_seqSymbol, ptr %289, i64 %288
   %296 = getelementptr %struct.ZSTD_seqSymbol, ptr %287, i64 %286
   %297 = getelementptr inbounds i8, ptr %295, i64 4
-  %298 = load i32, ptr %297, align 4, !noalias !86
+  %298 = load i32, ptr %297, align 4, !noalias !84
   %299 = zext i32 %298 to i64
   %300 = getelementptr inbounds i8, ptr %294, i64 4
-  %301 = load i32, ptr %300, align 4, !noalias !86
+  %301 = load i32, ptr %300, align 4, !noalias !84
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds i8, ptr %296, i64 4
-  %304 = load i32, ptr %303, align 4, !noalias !86
+  %304 = load i32, ptr %303, align 4, !noalias !84
   %305 = getelementptr inbounds i8, ptr %294, i64 2
-  %306 = load i8, ptr %305, align 2, !noalias !86
+  %306 = load i8, ptr %305, align 2, !noalias !84
   %307 = getelementptr inbounds i8, ptr %295, i64 2
-  %308 = load i8, ptr %307, align 2, !noalias !86
+  %308 = load i8, ptr %307, align 2, !noalias !84
   %309 = getelementptr inbounds i8, ptr %296, i64 2
-  %310 = load i8, ptr %309, align 2, !noalias !86
+  %310 = load i8, ptr %309, align 2, !noalias !84
   %311 = zext i8 %306 to i32
   %312 = zext i8 %308 to i32
   %313 = add i8 %308, %306
   %314 = add i8 %313, %310
-  %315 = load i16, ptr %294, align 4, !noalias !86
-  %316 = load i16, ptr %295, align 4, !noalias !86
-  %317 = load i16, ptr %296, align 4, !noalias !86
+  %315 = load i16, ptr %294, align 4, !noalias !84
+  %316 = load i16, ptr %295, align 4, !noalias !84
+  %317 = load i16, ptr %296, align 4, !noalias !84
   %318 = getelementptr inbounds i8, ptr %294, i64 3
-  %319 = load i8, ptr %318, align 1, !noalias !86
+  %319 = load i8, ptr %318, align 1, !noalias !84
   %320 = zext i8 %319 to i32
   %321 = getelementptr inbounds i8, ptr %295, i64 3
-  %322 = load i8, ptr %321, align 1, !noalias !86
+  %322 = load i8, ptr %321, align 1, !noalias !84
   %323 = zext i8 %322 to i32
   %324 = getelementptr inbounds i8, ptr %296, i64 3
-  %325 = load i8, ptr %324, align 1, !noalias !86
+  %325 = load i8, ptr %324, align 1, !noalias !84
   %326 = icmp ugt i8 %310, 1
-  br i1 %326, label %327, label %341, !prof !26
+  br i1 %326, label %327, label %341, !prof !24
 
 327:                                              ; preds = %284
   %328 = zext i8 %310 to i32
-  %329 = load i64, ptr %9, align 8, !noalias !86
+  %329 = load i64, ptr %9, align 8, !noalias !84
   %330 = and i32 %285, 63
   %331 = zext nneg i32 %330 to i64
   %332 = shl i64 %329, %331
@@ -12748,22 +12748,22 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %335 = zext nneg i32 %334 to i64
   %336 = lshr i64 %332, %335
   %337 = add i32 %285, %328
-  store i32 %337, ptr %132, align 8, !noalias !86
+  store i32 %337, ptr %132, align 8, !noalias !84
   %338 = zext i32 %304 to i64
   %339 = add i64 %336, %338
-  %340 = load i64, ptr %279, align 8, !noalias !86
-  store i64 %340, ptr %280, align 8, !noalias !86
+  %340 = load i64, ptr %279, align 8, !noalias !84
+  store i64 %340, ptr %280, align 8, !noalias !84
   br label %378
 
 341:                                              ; preds = %284
   %342 = icmp eq i32 %301, 0
   %343 = icmp eq i8 %310, 0
-  br i1 %343, label %344, label %351, !prof !26
+  br i1 %343, label %344, label %351, !prof !24
 
 344:                                              ; preds = %341
   %345 = zext i1 %342 to i64
   %346 = getelementptr [3 x i64], ptr %35, i64 0, i64 %345
-  %347 = load i64, ptr %346, align 8, !noalias !86
+  %347 = load i64, ptr %346, align 8, !noalias !84
   %348 = xor i1 %342, true
   %349 = zext i1 %348 to i64
   %350 = getelementptr [3 x i64], ptr %35, i64 0, i64 %349
@@ -12773,19 +12773,19 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %352 = zext i1 %342 to i32
   %353 = add i32 %304, %352
   %354 = zext i32 %353 to i64
-  %355 = load i64, ptr %9, align 8, !noalias !86
+  %355 = load i64, ptr %9, align 8, !noalias !84
   %356 = and i32 %285, 63
   %357 = zext nneg i32 %356 to i64
   %358 = shl i64 %355, %357
   %359 = lshr i64 %358, 63
   %360 = add i32 %285, 1
-  store i32 %360, ptr %132, align 8, !noalias !86
+  store i32 %360, ptr %132, align 8, !noalias !84
   %361 = add nuw nsw i64 %359, %354
   %362 = icmp eq i64 %361, 3
   br i1 %362, label %.thread35, label %368
 
 .thread35:                                        ; preds = %351
-  %363 = load i64, ptr %35, align 8, !noalias !86
+  %363 = load i64, ptr %35, align 8, !noalias !84
   %364 = add i64 %363, -1
   %365 = icmp eq i64 %364, 0
   %366 = zext i1 %365 to i64
@@ -12794,7 +12794,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
 
 368:                                              ; preds = %351
   %369 = getelementptr [3 x i64], ptr %35, i64 0, i64 %361
-  %370 = load i64, ptr %369, align 8, !noalias !86
+  %370 = load i64, ptr %369, align 8, !noalias !84
   %371 = icmp eq i64 %370, 0
   %372 = zext i1 %371 to i64
   %373 = add i64 %370, %372
@@ -12803,22 +12803,22 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
 
 375:                                              ; preds = %.thread35, %368
   %376 = phi i64 [ %367, %.thread35 ], [ %373, %368 ]
-  %377 = load i64, ptr %279, align 8, !noalias !86
-  store i64 %377, ptr %280, align 8, !noalias !86
+  %377 = load i64, ptr %279, align 8, !noalias !84
+  store i64 %377, ptr %280, align 8, !noalias !84
   br label %378
 
 378:                                              ; preds = %368, %375, %344, %327
   %.sink73 = phi ptr [ %350, %344 ], [ %35, %327 ], [ %35, %375 ], [ %35, %368 ]
   %.sink = phi i64 [ %347, %344 ], [ %339, %327 ], [ %376, %375 ], [ %373, %368 ]
   %379 = phi i32 [ %285, %344 ], [ %337, %327 ], [ %360, %375 ], [ %360, %368 ]
-  %380 = load i64, ptr %.sink73, align 8, !noalias !86
-  store i64 %380, ptr %279, align 8, !noalias !86
-  store i64 %.sink, ptr %35, align 8, !noalias !86
+  %380 = load i64, ptr %.sink73, align 8, !noalias !84
+  store i64 %380, ptr %279, align 8, !noalias !84
+  store i64 %.sink, ptr %35, align 8, !noalias !84
   %381 = icmp eq i8 %308, 0
-  br i1 %381, label %393, label %382, !prof !26
+  br i1 %381, label %393, label %382, !prof !24
 
 382:                                              ; preds = %378
-  %383 = load i64, ptr %9, align 8, !noalias !86
+  %383 = load i64, ptr %9, align 8, !noalias !84
   %384 = and i32 %379, 63
   %385 = zext nneg i32 %384 to i64
   %386 = shl i64 %383, %385
@@ -12827,7 +12827,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %389 = zext nneg i32 %388 to i64
   %390 = lshr i64 %386, %389
   %391 = add i32 %379, %312
-  store i32 %391, ptr %132, align 8, !noalias !86
+  store i32 %391, ptr %132, align 8, !noalias !84
   %392 = add i64 %390, %299
   br label %393
 
@@ -12835,18 +12835,18 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %.pre6367 = phi i32 [ %379, %378 ], [ %391, %382 ]
   %394 = phi i64 [ %299, %378 ], [ %392, %382 ]
   %395 = icmp ugt i8 %314, 30
-  br i1 %395, label %396, label %397, !prof !27
+  br i1 %395, label %396, label %397, !prof !25
 
 396:                                              ; preds = %393
   call fastcc void @BIT_reloadDStream(ptr noundef nonnull %9)
-  %.pre63.pre = load i32, ptr %132, align 8, !noalias !86
+  %.pre63.pre = load i32, ptr %132, align 8, !noalias !84
   br label %397
 
 397:                                              ; preds = %396, %393
   %.pre63 = phi i32 [ %.pre63.pre, %396 ], [ %.pre6367, %393 ]
   %398 = icmp eq i8 %306, 0
-  %.pre62 = load i64, ptr %9, align 8, !noalias !86
-  br i1 %398, label %409, label %399, !prof !26
+  %.pre62 = load i64, ptr %9, align 8, !noalias !84
+  br i1 %398, label %409, label %399, !prof !24
 
 399:                                              ; preds = %397
   %400 = and i32 %.pre63, 63
@@ -12874,7 +12874,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %420 = and i64 %416, %419
   %421 = zext i16 %315 to i64
   %422 = add nuw i64 %420, %421
-  store i64 %422, ptr %128, align 8, !noalias !86
+  store i64 %422, ptr %128, align 8, !noalias !84
   %423 = add i32 %412, %323
   %424 = sub i32 0, %423
   %425 = and i32 %424, 63
@@ -12886,7 +12886,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %431 = and i64 %427, %430
   %432 = zext i16 %316 to i64
   %433 = add nuw i64 %431, %432
-  store i64 %433, ptr %228, align 8, !noalias !86
+  store i64 %433, ptr %228, align 8, !noalias !84
   %434 = zext i8 %325 to i32
   %435 = add i32 %423, %434
   %436 = sub i32 0, %435
@@ -12897,10 +12897,10 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %441 = shl nsw i64 -1, %440
   %442 = xor i64 %441, -1
   %443 = and i64 %439, %442
-  store i32 %435, ptr %132, align 8, !noalias !86
+  store i32 %435, ptr %132, align 8, !noalias !84
   %444 = zext i16 %317 to i64
   %445 = add nuw i64 %443, %444
-  store i64 %445, ptr %178, align 8, !noalias !86
+  store i64 %445, ptr %178, align 8, !noalias !84
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i64 %411, ptr %7, align 8
   store i64 %394, ptr %276, align 8
@@ -12915,12 +12915,12 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %453 = getelementptr i8, ptr %293, i64 %447
   %454 = icmp ugt ptr %453, %278
   %455 = select i1 %452, i1 true, i1 %454
-  br i1 %455, label %458, label %456, !prof !36
+  br i1 %455, label %458, label %456, !prof !34
 
 456:                                              ; preds = %409
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %293, ptr noundef align 1 dereferenceable(16) %448, i64 16, i1 false)
   %457 = icmp ugt i64 %411, 16
-  br i1 %457, label %460, label %.loopexit49, !prof !27
+  br i1 %457, label %460, label %.loopexit49, !prof !25
 
 458:                                              ; preds = %409
   %459 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %293, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %7, ptr noundef nonnull %8, ptr noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %30)
@@ -12948,7 +12948,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %471, ptr noundef align 1 dereferenceable(16) %472, i64 16, i1 false)
   %473 = getelementptr i8, ptr %469, i64 32
   %474 = icmp ult ptr %473, %446
-  br i1 %474, label %467, label %.loopexit49, !llvm.loop !34
+  br i1 %474, label %467, label %.loopexit49, !llvm.loop !32
 
 .loopexit49:                                      ; preds = %467, %460, %456
   store ptr %449, ptr %8, align 8
@@ -12960,7 +12960,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
 478:                                              ; preds = %.loopexit49
   %479 = sub i64 %475, %282
   %480 = icmp ugt i64 %.sink, %479
-  br i1 %480, label %.thread36, label %481, !prof !27
+  br i1 %480, label %.thread36, label %481, !prof !25
 
 .thread36:                                        ; preds = %478
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -12991,7 +12991,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %494 = phi ptr [ %490, %488 ], [ %446, %.loopexit49 ]
   %495 = phi ptr [ %26, %488 ], [ %451, %.loopexit49 ]
   %496 = icmp ugt i64 %.sink, 15
-  br i1 %496, label %497, label %510, !prof !26
+  br i1 %496, label %497, label %510, !prof !24
 
 497:                                              ; preds = %492
   %498 = getelementptr i8, ptr %494, i64 %493
@@ -13013,7 +13013,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %506, ptr noundef align 1 dereferenceable(16) %507, i64 16, i1 false)
   %508 = getelementptr i8, ptr %504, i64 32
   %509 = icmp ult ptr %508, %498
-  br i1 %509, label %502, label %.loopexit, !llvm.loop !34
+  br i1 %509, label %502, label %.loopexit, !llvm.loop !32
 
 510:                                              ; preds = %492
   %511 = icmp ult i64 %.sink, 8
@@ -13078,7 +13078,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %551 = getelementptr i8, ptr %549, i64 8
   %552 = getelementptr i8, ptr %548, i64 8
   %553 = icmp ult ptr %551, %546
-  br i1 %553, label %.preheader, label %.loopexit, !llvm.loop !37
+  br i1 %553, label %.preheader, label %.loopexit, !llvm.loop !35
 
 554:                                              ; preds = %542
   %555 = add i64 %537, -8
@@ -13100,13 +13100,13 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %563, ptr noundef align 1 dereferenceable(16) %564, i64 16, i1 false)
   %565 = getelementptr i8, ptr %561, i64 32
   %566 = icmp ult ptr %565, %546
-  br i1 %566, label %559, label %.loopexit, !llvm.loop !34
+  br i1 %566, label %559, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %559, %.preheader, %502, %554, %536, %497, %487, %458
   %567 = phi i64 [ %459, %458 ], [ %447, %487 ], [ %447, %536 ], [ %447, %497 ], [ %447, %554 ], [ %447, %502 ], [ %447, %.preheader ], [ %447, %559 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %568 = icmp ult i64 %567, -119
-  br i1 %568, label %569, label %.thread43, !prof !46
+  br i1 %568, label %569, label %.thread43, !prof !44
 
 569:                                              ; preds = %.loopexit
   %570 = getelementptr i8, ptr %293, i64 %567
@@ -13114,7 +13114,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %572 = icmp eq i32 %571, 0
   %573 = load i32, ptr %132, align 8
   %574 = icmp ugt i32 %573, 64
-  br i1 %572, label %609, label %575, !prof !27
+  br i1 %572, label %609, label %575, !prof !25
 
 575:                                              ; preds = %569
   br i1 %574, label %607, label %576
@@ -13166,12 +13166,12 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
 
 607:                                              ; preds = %590, %587, %580, %575
   %608 = phi i32 [ %605, %590 ], [ %573, %587 ], [ %585, %580 ], [ %573, %575 ]
-  %.pre = load ptr, ptr %177, align 8, !noalias !86
-  %.pre57 = load i64, ptr %128, align 8, !noalias !86
-  %.pre58 = load ptr, ptr %275, align 8, !noalias !86
-  %.pre59 = load i64, ptr %228, align 8, !noalias !86
-  %.pre60 = load ptr, ptr %227, align 8, !noalias !86
-  %.pre61 = load i64, ptr %178, align 8, !noalias !86
+  %.pre = load ptr, ptr %177, align 8, !noalias !84
+  %.pre57 = load i64, ptr %128, align 8, !noalias !84
+  %.pre58 = load ptr, ptr %275, align 8, !noalias !84
+  %.pre59 = load i64, ptr %228, align 8, !noalias !84
+  %.pre60 = load ptr, ptr %227, align 8, !noalias !84
+  %.pre61 = load i64, ptr %178, align 8, !noalias !84
   br label %284
 
 609:                                              ; preds = %569
@@ -13200,7 +13200,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   store i32 %621, ptr %622, align 4
   %623 = add nuw nsw i64 %618, 1
   %624 = icmp eq i64 %623, 3
-  br i1 %624, label %625, label %617, !llvm.loop !68
+  br i1 %624, label %625, label %617, !llvm.loop !66
 
 .thread43:                                        ; preds = %.loopexit, %610, %44, %51, %110, %.thread36
   %.ph41 = phi i64 [ -20, %51 ], [ -20, %110 ], [ -20, %.thread36 ], [ -20, %44 ], [ -20, %610 ], [ %567, %.loopexit ]
@@ -13294,75 +13294,73 @@ attributes #15 = { nounwind }
 !14 = distinct !{!14, !6, !7}
 !15 = !{i32 0, i32 33}
 !16 = distinct !{!16, !6, !7}
-!17 = !{i64 -20, i64 -71}
-!18 = distinct !{!18, !6, !7}
-!19 = !{!"auto-init"}
-!20 = !{i64 -70, i64 262149}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"ZSTD_decodeSequence: argument 0"}
-!25 = distinct !{!25, !"ZSTD_decodeSequence"}
-!26 = !{!"branch_weights", i32 2000, i32 1}
-!27 = !{!"branch_weights", i32 1, i32 2000}
-!28 = !{}
-!29 = distinct !{!29, !6, !7}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"ZSTD_decodeSequence: argument 0"}
-!32 = distinct !{!32, !"ZSTD_decodeSequence"}
+!17 = distinct !{!17, !6, !7}
+!18 = !{!"auto-init"}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"ZSTD_decodeSequence: argument 0"}
+!23 = distinct !{!23, !"ZSTD_decodeSequence"}
+!24 = !{!"branch_weights", i32 2000, i32 1}
+!25 = !{!"branch_weights", i32 1, i32 2000}
+!26 = !{}
+!27 = distinct !{!27, !6, !7}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"ZSTD_decodeSequence: argument 0"}
+!30 = distinct !{!30, !"ZSTD_decodeSequence"}
+!31 = distinct !{!31, !6, !7}
+!32 = distinct !{!32, !6, !7}
 !33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
+!34 = !{!"branch_weights", i32 4001, i32 4000000}
 !35 = distinct !{!35, !6, !7}
-!36 = !{!"branch_weights", i32 4001, i32 4000000}
+!36 = distinct !{!36, !6, !7}
 !37 = distinct !{!37, !6, !7}
 !38 = distinct !{!38, !6, !7}
 !39 = distinct !{!39, !6, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"ZSTD_decodeSequence: argument 0"}
-!44 = distinct !{!44, !"ZSTD_decodeSequence"}
-!45 = !{i64 62895}
-!46 = !{!"branch_weights", i32 2146946375, i32 537273}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"ZSTD_decodeSequence: argument 0"}
-!49 = distinct !{!49, !"ZSTD_decodeSequence"}
-!50 = !{i64 66045}
-!51 = !{i64 66080}
-!52 = !{i64 66208}
-!53 = !{i64 66243}
-!54 = !{i64 66271}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"ZSTD_decodeSequence: argument 0"}
-!57 = distinct !{!57, !"ZSTD_decodeSequence"}
-!58 = distinct !{!58, !6, !7}
-!59 = distinct !{!59, !6, !7}
-!60 = !{i64 70385}
-!61 = !{i64 70420}
-!62 = !{i64 70574}
-!63 = !{i64 70609}
-!64 = !{i64 70637}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"ZSTD_decodeSequence: argument 0"}
-!67 = distinct !{!67, !"ZSTD_decodeSequence"}
-!68 = distinct !{!68, !6, !7}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"ZSTD_decodeSequence: argument 0"}
-!71 = distinct !{!71, !"ZSTD_decodeSequence"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"ZSTD_decodeSequence: argument 0"}
-!74 = distinct !{!74, !"ZSTD_decodeSequence"}
-!75 = distinct !{!75, !6, !7}
-!76 = distinct !{!76, !6, !7}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"ZSTD_decodeSequence: argument 0"}
-!79 = distinct !{!79, !"ZSTD_decodeSequence"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"ZSTD_decodeSequence: argument 0"}
-!82 = distinct !{!82, !"ZSTD_decodeSequence"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"ZSTD_decodeSequence: argument 0"}
-!85 = distinct !{!85, !"ZSTD_decodeSequence"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"ZSTD_decodeSequence: argument 0"}
-!88 = distinct !{!88, !"ZSTD_decodeSequence"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"ZSTD_decodeSequence: argument 0"}
+!42 = distinct !{!42, !"ZSTD_decodeSequence"}
+!43 = !{i64 62895}
+!44 = !{!"branch_weights", i32 2146946375, i32 537273}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"ZSTD_decodeSequence: argument 0"}
+!47 = distinct !{!47, !"ZSTD_decodeSequence"}
+!48 = !{i64 66045}
+!49 = !{i64 66080}
+!50 = !{i64 66208}
+!51 = !{i64 66243}
+!52 = !{i64 66271}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"ZSTD_decodeSequence: argument 0"}
+!55 = distinct !{!55, !"ZSTD_decodeSequence"}
+!56 = distinct !{!56, !6, !7}
+!57 = distinct !{!57, !6, !7}
+!58 = !{i64 70385}
+!59 = !{i64 70420}
+!60 = !{i64 70574}
+!61 = !{i64 70609}
+!62 = !{i64 70637}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"ZSTD_decodeSequence: argument 0"}
+!65 = distinct !{!65, !"ZSTD_decodeSequence"}
+!66 = distinct !{!66, !6, !7}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"ZSTD_decodeSequence: argument 0"}
+!69 = distinct !{!69, !"ZSTD_decodeSequence"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"ZSTD_decodeSequence: argument 0"}
+!72 = distinct !{!72, !"ZSTD_decodeSequence"}
+!73 = distinct !{!73, !6, !7}
+!74 = distinct !{!74, !6, !7}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"ZSTD_decodeSequence: argument 0"}
+!77 = distinct !{!77, !"ZSTD_decodeSequence"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"ZSTD_decodeSequence: argument 0"}
+!80 = distinct !{!80, !"ZSTD_decodeSequence"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"ZSTD_decodeSequence: argument 0"}
+!83 = distinct !{!83, !"ZSTD_decodeSequence"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"ZSTD_decodeSequence: argument 0"}
+!86 = distinct !{!86, !"ZSTD_decodeSequence"}

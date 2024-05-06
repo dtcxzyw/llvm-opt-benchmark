@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_ADMISSION_SYNTAX(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %objbuf = alloca [128 x i8], align 16
   %0 = load ptr, ptr %in, align 8
@@ -689,7 +689,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @i2r_NAMING_AUTHORITY(ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @i2r_NAMING_AUTHORITY(ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) unnamed_addr #1 {
 entry:
   %objbuf = alloca [128 x i8], align 16
   %0 = load ptr, ptr %in, align 8

@@ -1171,7 +1171,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @wimax_decode_dlmapc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2048) i32 @wimax_decode_dlmapc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -1563,7 +1563,7 @@ define internal fastcc i32 @dissect_dlmap_ie(ptr noundef %0, ptr noundef %1, i32
   %179 = sdiv i32 %.0.i, 8
   %180 = srem i32 %.0.i, 8
   %181 = add nsw i32 %177, %180
-  %182 = trunc i32 %181 to i8
+  %182 = trunc nsw i32 %181 to i8
   %.lhs.trunc.i = add nsw i8 %182, -1
   %183 = sdiv i8 %.lhs.trunc.i, 8
   %narrow.i = add nuw nsw i8 %183, 1
@@ -2544,7 +2544,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %337, %343
   %923 = sdiv i32 %.3.lcssa.i.i, 8
   %924 = srem i32 %.3.lcssa.i.i, 8
   %925 = add nsw i32 %921, %924
-  %926 = trunc i32 %925 to i8
+  %926 = trunc nsw i32 %925 to i8
   %.lhs.trunc.i.i = add nsw i8 %926, -1
   %927 = sdiv i8 %.lhs.trunc.i.i, 8
   %narrow.i.i = add nuw nsw i8 %927, 1
@@ -3653,7 +3653,7 @@ AAS_SDMA_DL_IE.exit:                              ; preds = %._crit_edge.i, %150
   %1718 = sdiv i32 %.0265.lcssa.i, 8
   %1719 = srem i32 %.0265.lcssa.i, 8
   %1720 = add nsw i32 %spec.select.i, %1719
-  %1721 = trunc i32 %1720 to i8
+  %1721 = trunc nsw i32 %1720 to i8
   %.lhs.trunc.i358 = add nsw i8 %1721, -1
   %1722 = sdiv i8 %.lhs.trunc.i358, 8
   %narrow.i359 = add nsw i8 %1722, 1
@@ -5035,7 +5035,7 @@ declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @wimax_decode_dlmap_reduced_aas(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_reduced_aas(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %5 = load i32, ptr @proto_mac_mgmt_msg_dlmap_decoder, align 4
   %6 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %4, ptr noundef nonnull @.str.11) #2
@@ -5452,7 +5452,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dedicated_DL_Control_IE(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
@@ -5566,7 +5566,7 @@ define internal fastcc i32 @Dedicated_DL_Control_IE(ptr noundef %0, i32 noundef 
 73:                                               ; preds = %71
   %74 = load i32, ptr @hf_reserved, align 4
   %75 = sdiv i32 %39, 2
-  %76 = trunc i32 %4 to i8
+  %76 = trunc nuw nsw i32 %4 to i8
   %77 = add nsw i8 %76, -1
   %.lhs.trunc = add nsw i8 %77, %.in67
   %78 = lshr i8 %.lhs.trunc, 1
@@ -5765,7 +5765,7 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
   %130 = sdiv i32 %.4, 8
   %131 = srem i32 %.4, 8
   %132 = add nsw i32 %128, %131
-  %133 = trunc i32 %132 to i8
+  %133 = trunc nsw i32 %132 to i8
   %.lhs.trunc = add nsw i8 %133, -1
   %134 = sdiv i8 %.lhs.trunc, 8
   %narrow = add nuw nsw i8 %134, 1

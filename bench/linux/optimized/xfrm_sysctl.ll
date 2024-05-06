@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [17 x i8] c"xfrm_acq_expires\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_sysctl_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @xfrm_sysctl_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2952
   store i32 10, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2956

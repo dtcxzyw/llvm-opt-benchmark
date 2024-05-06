@@ -1693,7 +1693,7 @@ thread-pre-split:                                 ; preds = %197
 declare dso_local ptr @dev_get_by_index_rcu(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ip6_call_ra_chain(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ip6_call_ra_chain(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   tail call void @_raw_read_lock(ptr noundef nonnull @ip6_ra_lock) #12
   %3 = load ptr, ptr @ip6_ra_chain, align 8
   %4 = icmp eq ptr %3, null
@@ -1970,7 +1970,7 @@ define internal i32 @ip6_forward_finish(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip6_fraglist_init(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ip6_fraglist_init(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef %5) #0 align 16 {
   store i8 44, ptr %2, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 192
   %8 = load ptr, ptr %7, align 8
@@ -3056,7 +3056,7 @@ ip6_fraglist_prepare.exit:                        ; preds = %278, %319
   %330 = getelementptr i8, ptr %327, i64 %329
   %331 = getelementptr inbounds i8, ptr %330, i64 4
   store i16 %326, ptr %331, align 4
-  call fastcc void @ip6_copy_metadata(ptr noundef nonnull %275, ptr noundef %276)
+  call fastcc void @ip6_copy_metadata(ptr noundef nonnull %275, ptr noundef readonly %276)
   br label %332
 
 332:                                              ; preds = %ip6_fraglist_prepare.exit, %274
@@ -3895,7 +3895,7 @@ define dso_local i32 @ip6_append_data(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ip6_setup_cork(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @ip6_setup_cork(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 18
   %7 = load volatile i8, ptr %6, align 2
   %8 = zext nneg i8 %7 to i32

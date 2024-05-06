@@ -20,7 +20,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %block_footer.lobit = lshr i32 %block_footer, 31
-  %. = trunc i32 %block_footer.lobit to i8
+  %. = trunc nuw nsw i32 %block_footer.lobit to i8
   store i8 %., ptr %index_type, align 1
   br label %if.end3
 

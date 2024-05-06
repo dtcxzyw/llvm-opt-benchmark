@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.inode_search_s = type { ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mkdir(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mkdir(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.inode_search_s, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @getumask() #4

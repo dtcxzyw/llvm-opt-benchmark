@@ -782,7 +782,7 @@ define void @_ZN13IlmThread_3_210ThreadPoolC2Ej(ptr nocapture noundef nonnull al
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_210ThreadPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %_data, align 8
   tail call void @_ZN13IlmThread_3_210ThreadPool13setNumThreadsEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %nthreads)

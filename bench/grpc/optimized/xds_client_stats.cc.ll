@@ -119,7 +119,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZTIN9grpc_core23XdsClusterLocalityStatsE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core23XdsClusterLocalityStatsE, ptr @_ZTIN9grpc_core10RefCountedINS_23XdsClusterLocalityStatsENS_19PolymorphicRefCountENS_11UnrefDeleteEEE }, align 8
 @.str.9 = private unnamed_addr constant [40 x i8] c"{region=\22%s\22, zone=\22%s\22, sub_zone=\22%s\22}\00", align 1
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
-@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
+@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local local_unnamed_addr global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_xds_client_stats.cc, ptr null }]
 
 @_ZN9grpc_core19XdsClusterDropStatsC1ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_ = unnamed_addr alias void (ptr, ptr, ptr, i64, ptr, ptr), ptr @_ZN9grpc_core19XdsClusterDropStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_

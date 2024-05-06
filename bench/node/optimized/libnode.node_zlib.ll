@@ -10002,8 +10002,8 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEC2EP
   store i32 0, ptr %mode_.i.i.i.i, align 8
   %next_in_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 256
   %alloc_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %init_done_.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_120BrotliEncoderContextE, i64 0, i32 0, i64 2), ptr %ctx_.i.i, align 8
   %last_result_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 320
@@ -12653,8 +12653,8 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEC2EP
   store i32 0, ptr %mode_.i.i.i.i, align 8
   %next_in_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 256
   %alloc_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %init_done_.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_120BrotliDecoderContextE, i64 0, i32 0, i64 2), ptr %ctx_.i.i, align 8
   %last_result_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 320

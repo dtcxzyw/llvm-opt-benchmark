@@ -86,7 +86,7 @@ if.then.i34:                                      ; preds = %if.then.i
 if.end14.i87:                                     ; preds = %if.then.i
   %shl15.i88 = shl nuw nsw i64 %and.i, 1
   %sub.i89 = add nsw i64 %shl15.i88, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i89, i1 true), !range !7
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i89, i1 true)
   %sub23.i95 = sub nuw nsw i64 60, %2
   %notmask = shl nsw i64 -1, %sub23.i95
   %sub27.i99 = xor i64 %notmask, -1
@@ -110,7 +110,7 @@ if.end.i42:                                       ; preds = %if.end9.i
 if.end14.i:                                       ; preds = %if.end.i42
   %shl15.i = shl i64 32, %sh_prom
   %sub.i61 = add i64 %shl15.i, -1
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.i61, i1 true), !range !7
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i61, i1 true)
   %sub23.i62 = sub nsw i64 60, %3
   %notmask74 = shl nsw i64 -1, %sub23.i62
   %sub27.i = xor i64 %notmask74, -1
@@ -330,7 +330,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add i64 %i.017, 1
   %i.0.highbits = lshr i64 %inc, %sh_prom
   %cmp.not = icmp eq i64 %i.0.highbits, 0
-  br i1 %cmp.not, label %for.body, label %return, !llvm.loop !8
+  br i1 %cmp.not, label %for.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.inc, %entry, %if.end13
   %cmp13 = phi i1 [ false, %if.end13 ], [ true, %entry ], [ true, %for.inc ]
@@ -398,7 +398,7 @@ if.then.i69.i:                                    ; preds = %if.then.i.i
 if.end14.i123.i:                                  ; preds = %if.then.i.i
   %shl15.i124.i = shl nuw nsw i64 %and.i.i, 1
   %sub.i125.i = add nsw i64 %shl15.i124.i, -1
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.i125.i, i1 true), !range !7
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i125.i, i1 true)
   %sub23.i131.i = sub nuw nsw i64 60, %3
   %notmask.i = shl nsw i64 -1, %sub23.i131.i
   %sub27.i135.i = xor i64 %notmask.i, -1
@@ -422,7 +422,7 @@ if.end.i77.i:                                     ; preds = %if.end9.i.i
 if.end14.i.i:                                     ; preds = %if.end.i77.i
   %shl15.i.i = shl i64 32, %sh_prom.i
   %sub.i96.i = add i64 %shl15.i.i, -1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %sub.i96.i, i1 true), !range !7
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i96.i, i1 true)
   %sub23.i97.i = sub nsw i64 60, %4
   %notmask310.i = shl nsw i64 -1, %sub23.i97.i
   %sub27.i.i = xor i64 %notmask310.i, -1
@@ -550,7 +550,7 @@ for.inc.i.i:                                      ; preds = %if.end.i.i, %for.bo
   %nins.1.i.i = phi i64 [ %inc.i.i, %if.end.i.i ], [ %nins.016.i.i, %for.body.i.i ]
   %inc12.i.i = add i64 %i.015.i.i, 1
   %cmp.i315.i = icmp ult i64 %nins.1.i.i, %21
-  br i1 %cmp.i315.i, label %for.body.i.i, label %ckh_grow.exit, !llvm.loop !9
+  br i1 %cmp.i315.i, label %for.body.i.i, label %ckh_grow.exit, !llvm.loop !8
 
 if.end17.i:                                       ; preds = %if.then.i314.i
   store i64 %21, ptr %count1.i.i, align 8
@@ -606,7 +606,7 @@ ckh_grow.exit:                                    ; preds = %emap_alloc_ctx_look
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i304.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i)
   %call = call fastcc zeroext i1 @ckh_try_insert(ptr noundef %ckh, ptr noundef nonnull %key.addr, ptr noundef nonnull %data.addr)
-  br i1 %call, label %while.body, label %label_return, !llvm.loop !10
+  br i1 %call, label %while.body, label %label_return, !llvm.loop !9
 
 label_return:                                     ; preds = %ckh_grow.exit, %entry, %ckh_grow.exit.thread
   %call6 = phi i1 [ true, %ckh_grow.exit.thread ], [ false, %entry ], [ false, %ckh_grow.exit ]
@@ -635,7 +635,7 @@ entry:
   %add.i.i = add i64 %mul.i.i, 1442695040888963407
   store i64 %add.i.i, ptr %ckh, align 8
   %shr.i.i = lshr i64 %add.i.i, 62
-  %conv.i = trunc i64 %shr.i.i to i32
+  %conv.i = trunc nuw nsw i64 %shr.i.i to i32
   %tab.i = getelementptr inbounds i8, ptr %ckh, i64 40
   %6 = load ptr, ptr %tab.i, align 8
   %shl.i = shl i64 %and, 2
@@ -649,7 +649,7 @@ for.cond.i:                                       ; preds = %entry, %for.body.i
   %i.011.i63 = phi i32 [ %inc10.i, %for.body.i ], [ 0, %entry ]
   %inc10.i = add nuw nsw i32 %i.011.i63, 1
   %exitcond.i = icmp eq i32 %inc10.i, 4
-  br i1 %exitcond.i, label %if.end, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.i, label %if.end, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.cond.i
   %add.i = add nuw nsw i32 %inc10.i, %conv.i
@@ -659,7 +659,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds %struct.ckhc_t, ptr %6, i64 %add4.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   %cmp6.i = icmp eq ptr %9, null
-  br i1 %cmp6.i, label %if.then.i, label %for.cond.i, !llvm.loop !11
+  br i1 %cmp6.i, label %if.then.i, label %for.cond.i, !llvm.loop !10
 
 if.then.i:                                        ; preds = %for.body.i
   %cmp.i.le = icmp ugt i32 %i.011.i63, 2
@@ -692,7 +692,7 @@ if.end:                                           ; preds = %for.cond.i, %if.the
   %add.i.i15 = add i64 %mul.i.i14, 1442695040888963407
   store i64 %add.i.i15, ptr %ckh, align 8
   %shr.i.i16 = lshr i64 %add.i.i15, 62
-  %conv.i17 = trunc i64 %shr.i.i16 to i32
+  %conv.i17 = trunc nuw nsw i64 %shr.i.i16 to i32
   %shl.i19 = shl i64 %and6, 2
   %add4.i2566 = or disjoint i64 %shr.i.i16, %shl.i19
   %arrayidx.i2667 = getelementptr inbounds %struct.ckhc_t, ptr %11, i64 %add4.i2566
@@ -704,7 +704,7 @@ for.cond.i28:                                     ; preds = %if.end, %for.body.i
   %i.011.i2269 = phi i32 [ %inc10.i29, %for.body.i20 ], [ 0, %if.end ]
   %inc10.i29 = add nuw nsw i32 %i.011.i2269, 1
   %exitcond.i31 = icmp eq i32 %inc10.i29, 4
-  br i1 %exitcond.i31, label %if.end9, label %for.body.i20, !llvm.loop !11
+  br i1 %exitcond.i31, label %if.end9, label %for.body.i20, !llvm.loop !10
 
 for.body.i20:                                     ; preds = %for.cond.i28
   %add.i23 = add nuw nsw i32 %inc10.i29, %conv.i17
@@ -714,7 +714,7 @@ for.body.i20:                                     ; preds = %for.cond.i28
   %arrayidx.i26 = getelementptr inbounds %struct.ckhc_t, ptr %11, i64 %add4.i25
   %16 = load ptr, ptr %arrayidx.i26, align 8
   %cmp6.i27 = icmp eq ptr %16, null
-  br i1 %cmp6.i27, label %if.then.i33, label %for.cond.i28, !llvm.loop !11
+  br i1 %cmp6.i27, label %if.then.i33, label %for.cond.i28, !llvm.loop !10
 
 if.then.i33:                                      ; preds = %for.body.i20
   %cmp.i30.le = icmp ugt i32 %i.011.i2269, 2
@@ -777,7 +777,7 @@ if.end18.i:                                       ; preds = %while.body.i
   %add.i.i.i = add i64 %mul.i.i.i, 1442695040888963407
   store i64 %add.i.i.i, ptr %ckh, align 8
   %shr.i.i.i = lshr i64 %add.i.i.i, 62
-  %conv.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %29 = load ptr, ptr %tab.i, align 8
   %shl.i.i = shl i64 %tbucket.0.i, 2
   %add4.i32.i = or disjoint i64 %shr.i.i.i, %shl.i.i
@@ -790,7 +790,7 @@ for.cond.i.i:                                     ; preds = %if.end18.i, %for.bo
   %i.011.i35.i = phi i32 [ %inc10.i.i, %for.body.i.i ], [ 0, %if.end18.i ]
   %inc10.i.i = add nuw nsw i32 %i.011.i35.i, 1
   %exitcond.i.i = icmp eq i32 %inc10.i.i, 4
-  br i1 %exitcond.i.i, label %while.body.i.backedge, label %for.body.i.i, !llvm.loop !11
+  br i1 %exitcond.i.i, label %while.body.i.backedge, label %for.body.i.i, !llvm.loop !10
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.i23.i = add nuw nsw i32 %inc10.i.i, %conv.i.i
@@ -800,7 +800,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr inbounds %struct.ckhc_t, ptr %29, i64 %add4.i.i
   %32 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp6.i.i = icmp eq ptr %32, null
-  br i1 %cmp6.i.i, label %if.then.i.i, label %for.cond.i.i, !llvm.loop !11
+  br i1 %cmp6.i.i, label %if.then.i.i, label %for.cond.i.i, !llvm.loop !10
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %cmp.i.le.i = icmp ugt i32 %i.011.i35.i, 2
@@ -895,7 +895,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !11
 
 ckh_bucket_search.exit.i:                         ; preds = %land.lhs.true.i.i
   %cmp.not.i = icmp eq i64 %add.i.i, -1
@@ -933,7 +933,7 @@ land.lhs.true.i19.i:                              ; preds = %for.body.i14.i
 for.inc.i21.i:                                    ; preds = %land.lhs.true.i19.i, %for.body.i14.i
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i15.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, 4
-  br i1 %exitcond.not.i23.i, label %ckh_isearch.exit.thread, label %for.body.i14.i, !llvm.loop !12
+  br i1 %exitcond.not.i23.i, label %ckh_isearch.exit.thread, label %for.body.i14.i, !llvm.loop !11
 
 ckh_isearch.exit.thread:                          ; preds = %for.inc.i21.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashes.i)
@@ -1018,7 +1018,7 @@ if.then.i69.i:                                    ; preds = %if.then.i.i
 if.end14.i123.i:                                  ; preds = %if.then.i.i
   %shl15.i124.i = shl nuw nsw i64 %and.i.i, 1
   %sub.i125.i = add nsw i64 %shl15.i124.i, -1
-  %22 = call i64 @llvm.ctlz.i64(i64 %sub.i125.i, i1 true), !range !7
+  %22 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i125.i, i1 true)
   %sub23.i131.i = sub nuw nsw i64 60, %22
   %notmask.i27 = shl nsw i64 -1, %sub23.i131.i
   %sub27.i135.i = xor i64 %notmask.i27, -1
@@ -1042,7 +1042,7 @@ if.end.i77.i:                                     ; preds = %if.end9.i.i
 if.end14.i.i:                                     ; preds = %if.end.i77.i
   %shl15.i.i = shl i64 32, %sh_prom.i19
   %sub.i96.i = add i64 %shl15.i.i, -1
-  %23 = call i64 @llvm.ctlz.i64(i64 %sub.i96.i, i1 true), !range !7
+  %23 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i96.i, i1 true)
   %sub23.i97.i = sub nsw i64 60, %23
   %notmask309.i = shl nsw i64 -1, %sub23.i97.i
   %sub27.i.i = xor i64 %notmask309.i, -1
@@ -1181,7 +1181,7 @@ for.inc.i.i25:                                    ; preds = %if.end.i.i, %for.bo
   %nins.1.i.i = phi i64 [ %inc.i.i, %if.end.i.i ], [ %nins.016.i.i, %for.body.i.i21 ]
   %inc12.i.i = add i64 %i.015.i.i, 1
   %cmp.i314.i = icmp ult i64 %nins.1.i.i, %40
-  br i1 %cmp.i314.i, label %for.body.i.i21, label %if.then16.i, !llvm.loop !9
+  br i1 %cmp.i314.i, label %for.body.i.i21, label %if.then16.i, !llvm.loop !8
 
 if.then16.i:                                      ; preds = %for.inc.i.i25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
@@ -1280,7 +1280,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !11
 
 ckh_bucket_search.exit.i:                         ; preds = %land.lhs.true.i.i
   %cmp.not.i = icmp eq i64 %add.i.i, -1
@@ -1318,7 +1318,7 @@ land.lhs.true.i19.i:                              ; preds = %for.body.i14.i
 for.inc.i21.i:                                    ; preds = %land.lhs.true.i19.i, %for.body.i14.i
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i15.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, 4
-  br i1 %exitcond.not.i23.i, label %ckh_isearch.exit.thread, label %for.body.i14.i, !llvm.loop !12
+  br i1 %exitcond.not.i23.i, label %ckh_isearch.exit.thread, label %for.body.i14.i, !llvm.loop !11
 
 ckh_isearch.exit.thread:                          ; preds = %for.inc.i21.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashes.i)
@@ -1410,7 +1410,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add20.i = add i64 %mul19.i, 944331445
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.body.i, %entry
   %h2.0.lcssa.i = phi i64 [ %conv.i, %entry ], [ %add20.i, %for.body.i ]
@@ -1751,7 +1751,7 @@ if.then71.i:                                      ; preds = %for.body.i
 if.end137.i:                                      ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %if.end137.i
   %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -1759,29 +1759,29 @@ for.end.i:                                        ; preds = %if.end137.i
 
 monotonic.i.i:                                    ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
-  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !15
+  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !14
   %shr.i69 = lshr i64 %10, 48
-  %conv.i70 = trunc i64 %shr.i69 to i32
+  %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !18
+  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !17
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   %11 = trunc i64 %10 to i8
   %frombool.i73 = and i8 %11, 1
-  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !18
+  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !17
   %is_head.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %12 = lshr i8 %11, 1
   %frombool5.i = and i8 %12, 1
-  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !18
+  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !17
   %13 = trunc i64 %10 to i32
   %14 = lshr i32 %13, 2
   %conv8.i = and i32 %14, 7
   %state.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !18
+  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !17
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
   %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !18
+  store ptr %15, ptr %agg.result, align 8, !alias.scope !17
   ret void
 }
 
@@ -1860,7 +1860,7 @@ if.then71.i:                                      ; preds = %for.body.i
 if.end137.i:                                      ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %if.end137.i
   %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #13
@@ -1868,7 +1868,7 @@ for.end.i:                                        ; preds = %if.end137.i
 
 monotonic.i.i:                                    ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
-  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !21
+  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !20
   %shr.i69 = lshr i64 %10, 48
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %11, 1
@@ -1984,20 +1984,19 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"rtree_leaf_elm_read: %agg.result"}
-!17 = distinct !{!17, !"rtree_leaf_elm_read"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"rtree_leaf_elm_bits_decode: %agg.result"}
-!20 = distinct !{!20, !"rtree_leaf_elm_bits_decode"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"rtree_leaf_elm_read: %agg.result"}
-!23 = distinct !{!23, !"rtree_leaf_elm_read"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"rtree_leaf_elm_read: %agg.result"}
+!16 = distinct !{!16, !"rtree_leaf_elm_read"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"rtree_leaf_elm_bits_decode: %agg.result"}
+!19 = distinct !{!19, !"rtree_leaf_elm_bits_decode"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"rtree_leaf_elm_read: %agg.result"}
+!22 = distinct !{!22, !"rtree_leaf_elm_read"}

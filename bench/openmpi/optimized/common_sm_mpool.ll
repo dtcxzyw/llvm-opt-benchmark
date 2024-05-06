@@ -32,7 +32,7 @@ define noundef ptr @opal_btl_smcuda_common_sm_mpool_create(ptr noundef %0) local
   %8 = getelementptr inbounds i8, ptr %2, i64 72
   %9 = getelementptr inbounds i8, ptr %2, i64 104
   %10 = getelementptr inbounds i8, ptr %2, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   store i32 -1, ptr %9, align 8
   %11 = load i64, ptr %0, align 8
   store i64 %11, ptr %8, align 8

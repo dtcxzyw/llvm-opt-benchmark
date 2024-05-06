@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.52 = private unnamed_addr constant [3 x i8] c"20\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_sanity_null_zero) #3
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_sanity_enum_size) #3
@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sanity_enum_size() #0 {
+define internal range(i32 0, 2) i32 @test_sanity_enum_size() #0 {
 entry:
   %call = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.8, i32 noundef 45, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef 4, i64 noundef 4) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -108,7 +108,7 @@ return:                                           ; preds = %lor.lhs.false3, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sanity_twos_complement() #0 {
+define internal range(i32 0, 2) i32 @test_sanity_twos_complement() #0 {
 entry:
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.8, i32 noundef 55, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 0, i32 noundef 0) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -126,7 +126,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sanity_sign() #0 {
+define internal range(i32 0, 2) i32 @test_sanity_sign() #0 {
 entry:
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.8, i32 noundef 64, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 2147483647, i32 noundef 2147483647) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -144,7 +144,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sanity_unsigned_conversion() #0 {
+define internal range(i32 0, 2) i32 @test_sanity_unsigned_conversion() #0 {
 entry:
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.8, i32 noundef 73, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef -2147483648, i32 noundef -2147483648) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -162,7 +162,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sanity_range() #0 {
+define internal range(i32 0, 2) i32 @test_sanity_range() #0 {
 entry:
   %call = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.8, i32 noundef 82, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef 1, i64 noundef 1) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -262,7 +262,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sanity_sleep() #0 {
+define internal range(i32 0, 2) i32 @test_sanity_sleep() #0 {
 entry:
   %call = tail call i64 @ossl_time_now() #3
   tail call void @OSSL_sleep(i64 noundef 1000) #3

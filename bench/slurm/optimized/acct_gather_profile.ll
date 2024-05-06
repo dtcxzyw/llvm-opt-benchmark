@@ -336,7 +336,7 @@ define void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
 
 32:                                               ; preds = %28
   store i32 0, ptr %17, align 8
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %33, label %36 [
     i32 0, label %37
     i32 1, label %34
@@ -536,7 +536,7 @@ define noundef nonnull ptr @acct_gather_profile_to_string(i32 noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_from_string(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 32) i32 @acct_gather_profile_from_string(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -594,7 +594,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_type_from_string(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 17) i32 @acct_gather_profile_type_from_string(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.16) #14
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %3
@@ -788,7 +788,7 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
   unreachable
 
 37:                                               ; preds = %32
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %38, label %.unreachabledefault [
     i32 0, label %39
     i32 1, label %50
@@ -1134,7 +1134,7 @@ acct_gather_profile_test.exit60:                  ; preds = %55
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %59
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   %64 = icmp ult i32 %63, 4
   br i1 %64, label %switch.lookup, label %65
 

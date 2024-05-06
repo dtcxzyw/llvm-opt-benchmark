@@ -91,7 +91,7 @@ $__clang_call_terminate = comdat any
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i = alloca ptr, align 8
   %buf_len.i = alloca i64, align 8

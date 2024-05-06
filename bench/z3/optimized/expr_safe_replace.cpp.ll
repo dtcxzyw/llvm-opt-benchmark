@@ -604,8 +604,8 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %if.then29, %if.then
   %44 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i97 = zext i32 %44 to i64
   %add.ptr.i98.idx = shl nuw nsw i64 %idx.ext.i97, 3
-  %45 = getelementptr i8, ptr %31, i64 %add.ptr.i98.idx
-  %add.ptr.i98.ptr = getelementptr i8, ptr %45, i64 32
+  %45 = getelementptr inbounds i8, ptr %31, i64 %add.ptr.i98.idx
+  %add.ptr.i98.ptr = getelementptr inbounds i8, ptr %45, i64 32
   %cmp34.not687 = icmp eq i32 %44, 0
   br i1 %cmp34.not687, label %while.cond.backedge.sink.split.sink.split, label %for.body35.preheader
 
@@ -618,7 +618,7 @@ for.body35:                                       ; preds = %for.body35.preheade
   %has_all_args.0689 = phi i8 [ %has_all_args.1, %for.inc52 ], [ 1, %for.body35.preheader ]
   %__begin5.0688 = phi ptr [ %incdec.ptr, %for.inc52 ], [ %m_args.i.ptr, %for.body35.preheader ]
   %46 = load ptr, ptr %__begin5.0688, align 8
-  %tobool36 = trunc i8 %has_all_args.0689 to i1
+  %tobool36 = trunc nuw i8 %has_all_args.0689 to i1
   br i1 %tobool36, label %if.then37, label %if.end49
 
 if.then37:                                        ; preds = %for.body35
@@ -755,7 +755,7 @@ for.inc52:                                        ; preds = %_ZN6vectorIP4exprLb
   br i1 %cmp34.not, label %for.end53, label %for.body35
 
 for.end53:                                        ; preds = %for.inc52
-  %tobool54 = trunc i8 %has_all_args.1 to i1
+  %tobool54 = trunc nuw i8 %has_all_args.1 to i1
   br i1 %tobool54, label %if.then55, label %while.cond.backedge
 
 if.then55:                                        ; preds = %for.end53
@@ -1037,7 +1037,7 @@ for.body133.lr.ph:                                ; preds = %if.end127
 for.body133:                                      ; preds = %for.body133.lr.ph, %for.inc154
   %indvars.iv734 = phi i64 [ 0, %for.body133.lr.ph ], [ %indvars.iv.next735, %for.inc154 ]
   %has_all_data.1700 = phi i8 [ %has_all_data.0, %for.body133.lr.ph ], [ %has_all_data.2, %for.inc154 ]
-  %tobool134 = trunc i8 %has_all_data.1700 to i1
+  %tobool134 = trunc nuw i8 %has_all_data.1700 to i1
   %.pre742 = load i32, ptr %m_num_decls.i.i.i, align 4
   br i1 %tobool134, label %invoke.cont138, label %invoke.cont150
 
@@ -1198,7 +1198,7 @@ for.body162.lr.ph:                                ; preds = %for.end156
 for.body162:                                      ; preds = %for.body162.lr.ph, %for.inc184
   %indvars.iv738 = phi i64 [ 0, %for.body162.lr.ph ], [ %indvars.iv.next739, %for.inc184 ]
   %has_all_data.3704 = phi i8 [ %has_all_data.1.lcssa, %for.body162.lr.ph ], [ %has_all_data.4, %for.inc184 ]
-  %tobool163 = trunc i8 %has_all_data.3704 to i1
+  %tobool163 = trunc nuw i8 %has_all_data.3704 to i1
   %.pre744 = load i32, ptr %m_num_decls.i.i.i343, align 4
   br i1 %tobool163, label %invoke.cont168, label %invoke.cont180
 
@@ -1345,7 +1345,7 @@ for.inc184:                                       ; preds = %for.inc184.sink.spl
 
 for.end186:                                       ; preds = %for.inc184, %for.end156
   %has_all_data.3.lcssa = phi i8 [ %has_all_data.1.lcssa, %for.end156 ], [ %has_all_data.4, %for.inc184 ]
-  %tobool187 = trunc i8 %has_all_data.3.lcssa to i1
+  %tobool187 = trunc nuw i8 %has_all_data.3.lcssa to i1
   br i1 %tobool187, label %if.end270, label %cleanup, !llvm.loop !12
 
 invoke.cont192:                                   ; preds = %invoke.cont95, %for.end107

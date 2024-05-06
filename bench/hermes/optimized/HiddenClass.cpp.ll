@@ -1574,7 +1574,7 @@ if.then:                                          ; preds = %entry
   %agg.tmp30.sroa.3.0.insert.shift = shl nuw i64 %agg.tmp30.sroa.3.0.insert.ext, 32
   %agg.tmp30.sroa.0.0.insert.ext = zext i16 %propertyFlags.coerce to i64
   %agg.tmp30.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp30.sroa.3.0.insert.shift, %agg.tmp30.sroa.0.0.insert.ext
-  %call39 = tail call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %agg.tmp30.sroa.0.0.insert.insert), !range !23
+  %call39 = tail call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %agg.tmp30.sroa.0.0.insert.insert)
   %cmp = icmp eq i32 %call39, 0
   br i1 %cmp, label %if.then40, label %if.end
 
@@ -1697,7 +1697,7 @@ do.end:                                           ; preds = %land.lhs.true
   %agg.tmp68.sroa.3.0.insert.shift = shl nuw i64 %agg.tmp68.sroa.3.0.insert.ext, 32
   %agg.tmp68.sroa.0.0.insert.ext = zext i16 %propertyFlags.coerce to i64
   %agg.tmp68.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp68.sroa.3.0.insert.shift, %agg.tmp68.sroa.0.0.insert.ext
-  %call79 = call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %agg.tmp68.sroa.0.0.insert.insert), !range !23
+  %call79 = call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %agg.tmp68.sroa.0.0.insert.insert)
   %cmp80 = icmp eq i32 %call79, 0
   br i1 %cmp80, label %if.then81, label %if.end82
 
@@ -1825,7 +1825,7 @@ if.then102:                                       ; preds = %if.end98
   %agg.tmp136.sroa.3.0.insert.shift = shl nuw i64 %agg.tmp136.sroa.3.0.insert.ext, 32
   %agg.tmp136.sroa.0.0.insert.ext = zext i16 %propertyFlags.coerce to i64
   %agg.tmp136.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp136.sroa.3.0.insert.shift, %agg.tmp136.sroa.0.0.insert.ext
-  %call147 = call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %call107, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %agg.tmp136.sroa.0.0.insert.insert), !range !23
+  %call147 = call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %call107, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %agg.tmp136.sroa.0.0.insert.insert)
   %cmp148 = icmp eq i32 %call147, 0
   br i1 %cmp148, label %if.then149, label %if.end150
 
@@ -2022,7 +2022,7 @@ _ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171: ; preds = %_ZN6herm
   %agg.tmp232.sroa.3.0.insert.shift = shl nuw i64 %agg.tmp232.sroa.3.0.insert.ext, 32
   %agg.tmp232.sroa.0.0.insert.ext = zext i16 %propertyFlags.coerce to i64
   %agg.tmp232.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp232.sroa.3.0.insert.shift, %agg.tmp232.sroa.0.0.insert.ext
-  %call243 = call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %retval.0.i.i.i.i.i.i135, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %agg.tmp232.sroa.0.0.insert.insert), !range !23
+  %call243 = call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %retval.0.i.i.i.i.i.i135, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %agg.tmp232.sroa.0.0.insert.insert)
   %cmp244 = icmp eq i32 %call243, 0
   br i1 %cmp244, label %if.then245, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171.if.end250_crit_edge
 
@@ -2059,7 +2059,7 @@ declare { ptr, i64 } @_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7Runti
 declare noundef i32 @_ZN6hermes2vm15DictPropertyMap20allocatePropertySlotEPS1_RNS0_7RuntimeE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %desc.coerce) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i64 %desc.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %found.i = alloca %"class.hermes::vm::CallResult.212", align 8
   %updatedMap = alloca %"class.hermes::vm::MutableHandle.201", align 8
@@ -2803,7 +2803,7 @@ _ZN6hermes2vm15DictPropertyMap4findEPKS1_NS0_8SymbolIDE.exit.i.i: ; preds = %if.
 for.inc.i:                                        ; preds = %"_ZZN6hermes2vm11HiddenClass22makeAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEENK3$_0clENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.i", %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %cmp.not.i, label %"_ZN6hermes2vm15DictPropertyMap15forEachPropertyIZNS0_11HiddenClass22makeAllNonConfigurableENS0_6HandleIS3_EERNS0_7RuntimeEE3$_0EEvNS4_IS1_EES7_RKT_.exit", label %for.body.i, !llvm.loop !24
+  br i1 %cmp.not.i, label %"_ZN6hermes2vm15DictPropertyMap15forEachPropertyIZNS0_11HiddenClass22makeAllNonConfigurableENS0_6HandleIS3_EERNS0_7RuntimeEE3$_0EEvNS4_IS1_EES7_RKT_.exit", label %for.body.i, !llvm.loop !23
 
 "_ZN6hermes2vm15DictPropertyMap15forEachPropertyIZNS0_11HiddenClass22makeAllNonConfigurableENS0_6HandleIS3_EERNS0_7RuntimeEE3$_0EEvNS4_IS1_EES7_RKT_.exit": ; preds = %for.inc.i, %entry.for.end_crit_edge.i
   %conv.i.i.i.pre-phi.i = phi i64 [ %.pre.i, %entry.for.end_crit_edge.i ], [ %conv.i.i.i, %for.inc.i ]
@@ -2987,7 +2987,7 @@ _ZN6hermes2vm15DictPropertyMap4findEPKS1_NS0_8SymbolIDE.exit.i.i: ; preds = %if.
 for.inc.i:                                        ; preds = %"_ZZN6hermes2vm11HiddenClass15makeAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEENK3$_0clENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.i", %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %cmp.not.i, label %"_ZN6hermes2vm15DictPropertyMap15forEachPropertyIZNS0_11HiddenClass15makeAllReadOnlyENS0_6HandleIS3_EERNS0_7RuntimeEE3$_0EEvNS4_IS1_EES7_RKT_.exit", label %for.body.i, !llvm.loop !25
+  br i1 %cmp.not.i, label %"_ZN6hermes2vm15DictPropertyMap15forEachPropertyIZNS0_11HiddenClass15makeAllReadOnlyENS0_6HandleIS3_EERNS0_7RuntimeEE3$_0EEvNS4_IS1_EES7_RKT_.exit", label %for.body.i, !llvm.loop !24
 
 "_ZN6hermes2vm15DictPropertyMap15forEachPropertyIZNS0_11HiddenClass15makeAllReadOnlyENS0_6HandleIS3_EERNS0_7RuntimeEE3$_0EEvNS4_IS1_EES7_RKT_.exit": ; preds = %for.inc.i, %entry.for.end_crit_edge.i
   %conv.i.i.i.pre-phi.i = phi i64 [ %.pre.i, %entry.for.end_crit_edge.i ], [ %conv.i.i.i, %for.inc.i ]
@@ -3176,7 +3176,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp eq i64 %indvars.iv.next.i, %23
-  br i1 %cmp.not.i, label %if.end44, label %for.body.i, !llvm.loop !26
+  br i1 %cmp.not.i, label %if.end44, label %for.body.i, !llvm.loop !25
 
 if.end44:                                         ; preds = %for.inc.i, %for.inc, %if.then24, %if.else40
   %agg.tmp.sroa.0.0.copyload.i.i41 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
@@ -3217,7 +3217,7 @@ entry:
   br i1 %cmp.i.i.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN6hermes2vm11HiddenClass28initializeMissingPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
+  tail call void @_ZN6hermes2vm11HiddenClass28initializeMissingPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   %agg.tmp.sroa.0.0.copyload.i.i3.pre.i = load i64, ptr %selfHandle.coerce, align 8
   %.pre.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i3.pre.i, 281474976710655
   %.pre4.i = inttoptr i64 %.pre.i to ptr
@@ -3310,7 +3310,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %12
-  br i1 %cmp.not.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit", label %for.body.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit", label %for.body.i.i, !llvm.loop !26
 
 "_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit": ; preds = %if.then.i.i, %for.inc.i.i, %entry.cleanup_crit_edge.i.i
   %conv.i.i.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %entry.cleanup_crit_edge.i.i ], [ %conv.i.i.i.i, %for.inc.i.i ], [ %conv.i.i.i.i, %if.then.i.i ]
@@ -3339,7 +3339,7 @@ entry:
   br i1 %cmp.i.i.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN6hermes2vm11HiddenClass28initializeMissingPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
+  tail call void @_ZN6hermes2vm11HiddenClass28initializeMissingPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   %agg.tmp.sroa.0.0.copyload.i.i3.pre.i = load i64, ptr %selfHandle.coerce, align 8
   %.pre.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i3.pre.i, 281474976710655
   %.pre4.i = inttoptr i64 %.pre.i to ptr
@@ -3436,7 +3436,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %12
-  br i1 %cmp.not.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit", label %for.body.i.i, !llvm.loop !28
+  br i1 %cmp.not.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit", label %for.body.i.i, !llvm.loop !27
 
 "_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit": ; preds = %if.then.i.i, %for.inc.i.i, %entry.cleanup_crit_edge.i.i
   %conv.i.i.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %entry.cleanup_crit_edge.i.i ], [ %conv.i.i.i.i, %for.inc.i.i ], [ %conv.i.i.i.i, %if.then.i.i ]
@@ -3537,7 +3537,7 @@ if.then:                                          ; preds = %_ZN6hermes2vm13GCPo
   %desc.sroa.3.0.insert.shift = shl nuw i64 %desc.sroa.3.0.insert.ext, 32
   %desc.sroa.0.0.insert.ext = zext i16 %bf.load to i64
   %desc.sroa.0.0.insert.insert = or disjoint i64 %desc.sroa.3.0.insert.shift, %desc.sroa.0.0.insert.ext
-  %call21 = tail call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %agg.tmp14.sroa.0.0.copyload, i64 %desc.sroa.0.0.insert.insert), !range !23
+  %call21 = tail call noundef i32 @_ZN6hermes2vm11HiddenClass16addToPropertyMapENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %agg.tmp14.sroa.0.0.copyload, i64 %desc.sroa.0.0.insert.insert)
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
@@ -3957,7 +3957,7 @@ while.body.i8.i:                                  ; preds = %land.rhs.i4.i
 _ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10TransitionENS2_7WeakRefINS2_11HiddenClassEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit: ; preds = %land.rhs.i4.i, %while.body.i8.i, %for.inc
   %it.sroa.0.2 = phi ptr [ %incdec.ptr3.i, %for.inc ], [ %it.sroa.0.1, %land.rhs.i4.i ], [ %incdec.ptr.i.i, %while.body.i8.i ]
   %cmp.i.i2.not = icmp eq ptr %it.sroa.0.2, %add.ptr.i.i
-  br i1 %cmp.i.i2.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %cmp.i.i2.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end:                                          ; preds = %_ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10TransitionENS2_7WeakRefINS2_11HiddenClassEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit
   %bf.load.i.i.i.i4 = phi i32 [ %bf.load.i.i.i, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit ], [ %bf.load.i.i.i.i49, %_ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10TransitionENS2_7WeakRefINS2_11HiddenClassEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit ]
@@ -4229,7 +4229,7 @@ if.end23:                                         ; preds = %if.then17, %for.bod
   %TmpEnd.1 = phi ptr [ %TmpEnd.039, %for.body ], [ %incdec.ptr, %if.then17 ]
   %P.0.add = add nuw nsw i64 %P.0.idx38, 16
   %cmp12.not = icmp eq i64 %P.0.add, 128
-  br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !30
+  br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %if.end23
   %bf.load26 = load i32, ptr %this, align 8
@@ -4401,7 +4401,7 @@ _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7We
 if.end:                                           ; preds = %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit, %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %B.029, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %OldBucketsEnd
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %if.end, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E9initEmptyEv.exit
   ret void
@@ -4489,7 +4489,7 @@ attributes #16 = { nounwind allocsize(0) }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = !{i32 0, i32 2}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
@@ -4497,4 +4497,3 @@ attributes #16 = { nounwind allocsize(0) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}

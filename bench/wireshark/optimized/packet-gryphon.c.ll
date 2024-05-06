@@ -1537,7 +1537,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_gryphon_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 8, 65547) i32 @get_gryphon_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 4
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #4
   %7 = zext i16 %6 to i32
@@ -1877,11 +1877,11 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 153:                                              ; preds = %145
-  %154 = call fastcc i32 @resp_time(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !4
+  %154 = call fastcc i32 @resp_time(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 155:                                              ; preds = %145
-  %156 = call fastcc i32 @speed(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !5
+  %156 = call fastcc i32 @speed(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 157:                                              ; preds = %145
@@ -1889,7 +1889,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 159:                                              ; preds = %145
-  %160 = call fastcc i32 @resp_addfilt(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !5
+  %160 = call fastcc i32 @resp_addfilt(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 161:                                              ; preds = %145
@@ -1905,11 +1905,11 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 166:                                              ; preds = %145
-  %167 = call fastcc i32 @dfiltmode(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !5
+  %167 = call fastcc i32 @dfiltmode(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 168:                                              ; preds = %145
-  %169 = call fastcc i32 @filtmode(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !5
+  %169 = call fastcc i32 @filtmode(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 170:                                              ; preds = %145
@@ -1927,7 +1927,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 177:                                              ; preds = %145
-  %178 = call fastcc i32 @blm_mode(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !4
+  %178 = call fastcc i32 @blm_mode(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 179:                                              ; preds = %145
@@ -2063,7 +2063,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 249:                                              ; preds = %145
-  %250 = call fastcc i32 @resp_addresp(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !5
+  %250 = call fastcc i32 @resp_addresp(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 251:                                              ; preds = %145
@@ -2092,7 +2092,7 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 261:                                              ; preds = %145
-  %262 = call fastcc i32 @resp_start(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !6
+  %262 = call fastcc i32 @resp_start(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 263:                                              ; preds = %145
@@ -2158,11 +2158,11 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
   br label %decode_command.exit
 
 296:                                              ; preds = %145
-  %297 = call fastcc i32 @cmd_bits_in(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !7
+  %297 = call fastcc i32 @cmd_bits_in(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 298:                                              ; preds = %145, %145, %145
-  %299 = call fastcc i32 @cmd_bits_out(ptr noundef %0, i32 noundef 12, ptr noundef %149), !range !7
+  %299 = call fastcc i32 @cmd_bits_out(ptr noundef %0, i32 noundef 12, ptr noundef %149)
   br label %decode_command.exit
 
 300:                                              ; preds = %145
@@ -2287,7 +2287,7 @@ get_conversation_data.exit115:                    ; preds = %328, %333
 368:                                              ; preds = %354, %350, %344
   %369 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0221.i122) #4
   %.not230.i = icmp eq ptr %369, null
-  br i1 %.not230.i, label %.loopexit, label %344, !llvm.loop !8
+  br i1 %.not230.i, label %.loopexit, label %344, !llvm.loop !4
 
 .loopexit:                                        ; preds = %368, %get_conversation_data.exit115, %357
   %370 = call ptr @wmem_file_scope() #4
@@ -2437,11 +2437,11 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 423:                                              ; preds = %416
-  %424 = call fastcc i32 @resp_time(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !4
+  %424 = call fastcc i32 @resp_time(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 425:                                              ; preds = %416
-  %426 = call fastcc i32 @speed(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !5
+  %426 = call fastcc i32 @speed(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 427:                                              ; preds = %416
@@ -2449,7 +2449,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 429:                                              ; preds = %416
-  %430 = call fastcc i32 @resp_addfilt(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !5
+  %430 = call fastcc i32 @resp_addfilt(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 431:                                              ; preds = %416
@@ -2457,11 +2457,11 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 433:                                              ; preds = %416
-  %434 = call fastcc i32 @dfiltmode(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !5
+  %434 = call fastcc i32 @dfiltmode(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 435:                                              ; preds = %416
-  %436 = call fastcc i32 @filtmode(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !5
+  %436 = call fastcc i32 @filtmode(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 437:                                              ; preds = %416
@@ -2477,7 +2477,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 442:                                              ; preds = %416
-  %443 = call fastcc i32 @blm_mode(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !4
+  %443 = call fastcc i32 @blm_mode(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 444:                                              ; preds = %416
@@ -2555,7 +2555,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 478:                                              ; preds = %416
-  %479 = call fastcc i32 @resp_addresp(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !5
+  %479 = call fastcc i32 @resp_addresp(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 480:                                              ; preds = %416
@@ -2575,7 +2575,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 487:                                              ; preds = %416, %416
-  %488 = call fastcc i32 @resp_start(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !6
+  %488 = call fastcc i32 @resp_start(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 489:                                              ; preds = %416, %416
@@ -2606,11 +2606,11 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   br label %decode_response.exit
 
 503:                                              ; preds = %416, %416, %416, %416
-  %504 = call fastcc i32 @cmd_bits_in(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !7
+  %504 = call fastcc i32 @cmd_bits_in(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 505:                                              ; preds = %416
-  %506 = call fastcc i32 @cmd_bits_out(ptr noundef %0, i32 noundef 16, ptr noundef %420), !range !7
+  %506 = call fastcc i32 @cmd_bits_out(ptr noundef %0, i32 noundef 16, ptr noundef %420)
   br label %decode_response.exit
 
 507:                                              ; preds = %416
@@ -2693,7 +2693,7 @@ decode_event.exit:                                ; preds = %544, %545
   %551 = add i32 %550, %.0.i101119
   %552 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %551) #4
   %553 = icmp sgt i32 %552, 0
-  br i1 %553, label %.lr.ph, label %decode_misc.exit, !llvm.loop !10
+  br i1 %553, label %.lr.ph, label %decode_misc.exit, !llvm.loop !6
 
 554:                                              ; preds = %57
   %555 = load i32, ptr %17, align 4
@@ -2929,13 +2929,13 @@ define internal fastcc void @eventnum(ptr noundef %0, ptr noundef %1) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 20, 25) i32 @resp_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1) #4
   %6 = udiv i64 %5, 100000
   store i64 %6, ptr %4, align 8
   %7 = urem i64 %5, 100000
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = mul nuw nsw i32 %8, 1000
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %9, ptr %10, align 8
@@ -2946,7 +2946,7 @@ define internal fastcc i32 @resp_time(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @speed(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @speed(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_speed_baud_rate_index, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3000,7 +3000,7 @@ define internal fastcc i32 @cmd_setfilt(ptr noundef %0, ptr noundef %1) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_addfilt(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @resp_addfilt(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_addfilt_handle, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3049,7 +3049,7 @@ define internal fastcc i32 @cmd_addfilt(ptr noundef %0, i32 noundef %1, ptr noun
   %29 = tail call fastcc i32 @filter_block(ptr noundef %0, i32 noundef %.037, ptr noundef %28)
   %30 = add nuw nsw i32 %.03436, 1
   %exitcond.not = icmp eq i32 %.03436, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %17, %3 ], [ %29, %.lr.ph ]
@@ -3080,7 +3080,7 @@ define internal fastcc void @cmd_modfilt(ptr noundef %0, ptr noundef %1) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dfiltmode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @dfiltmode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_dfiltmode, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3091,7 +3091,7 @@ define internal fastcc i32 @dfiltmode(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @filtmode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @filtmode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_filtmode, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3111,7 +3111,7 @@ define internal fastcc void @cmd_register(ptr noundef %0, ptr noundef %1) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @blm_mode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 20, 25) i32 @blm_mode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_gryphon_blm_mode, align 4
   %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #4
@@ -3245,7 +3245,7 @@ define internal fastcc i32 @cmd_ldf_emulate_nodes(ptr noundef %0, ptr nocapture 
   %26 = add i32 %25, %12
   %27 = add nuw nsw i32 %.02932, 1
   %exitcond.not = icmp eq i32 %.02932, %8
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %10, %3
   %.0.lcssa = phi i32 [ 13, %3 ], [ %26, %10 ]
@@ -3280,7 +3280,7 @@ define internal fastcc i32 @cmd_cnvt_get_values(ptr noundef %0, ptr noundef %1) 
   %11 = add i32 %10, %.01314
   %12 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %12, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.013.lcssa = phi i32 [ 13, %2 ], [ %11, %.lr.ph ]
@@ -3306,7 +3306,7 @@ define internal fastcc i32 @cmd_cnvt_get_units(ptr noundef %0, ptr noundef %1) u
   %11 = add i32 %10, %.01314
   %12 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %12, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.013.lcssa = phi i32 [ 13, %2 ], [ %11, %.lr.ph ]
@@ -3337,7 +3337,7 @@ define internal fastcc noundef i32 @cmd_cnvt_set_values(ptr noundef %0, ptr noun
   %16 = add i32 %11, 4
   %17 = add nuw nsw i32 %.02122, 1
   %exitcond.not = icmp eq i32 %17, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 13, %2 ], [ %16, %.lr.ph ]
@@ -3451,7 +3451,7 @@ define internal fastcc i32 @cmd_addresp(ptr noundef %0, i32 noundef %1, ptr noun
   %68 = add i32 %.099109, 1
   %69 = load i32, ptr %5, align 4
   %.not104 = icmp ugt i32 %68, %69
-  br i1 %.not104, label %.preheader, label %.lr.ph, !llvm.loop !16
+  br i1 %.not104, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph114:                                        ; preds = %.preheader, %.lr.ph114
   %.1113 = phi i32 [ %82, %.lr.ph114 ], [ %.0.lcssa, %.preheader ]
@@ -3472,7 +3472,7 @@ define internal fastcc i32 @cmd_addresp(ptr noundef %0, i32 noundef %1, ptr noun
   %83 = add i32 %.1100112, 1
   %84 = load i32, ptr %6, align 4
   %.not105 = icmp ugt i32 %83, %84
-  br i1 %.not105, label %._crit_edge, label %.lr.ph114, !llvm.loop !17
+  br i1 %.not105, label %._crit_edge, label %.lr.ph114, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph114, %.preheader
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %82, %.lr.ph114 ]
@@ -3480,7 +3480,7 @@ define internal fastcc i32 @cmd_addresp(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_addresp(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @resp_addresp(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_addresp_handle, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3614,7 +3614,7 @@ define internal fastcc i32 @cmd_start(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_start(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 12, 21) i32 @resp_start(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %13
@@ -3736,7 +3736,7 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   %52 = sub nsw i32 %.05963, %17
   %53 = add i32 %.06062, 1
   %54 = icmp sgt i32 %52, 0
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %50, %2
   %.058.lcssa = phi i32 [ 16, %2 ], [ %51, %50 ]
@@ -3864,7 +3864,7 @@ define internal fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %1) unnamed_ad
   %72 = sub i32 %.neg, %71
   %73 = add i32 %.09396, 1
   %74 = icmp sgt i32 %72, 0
-  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %59, %12
   %.0.lcssa = phi i32 [ 20, %12 ], [ %71, %59 ]
@@ -3925,7 +3925,7 @@ define internal fastcc i32 @cmd_usdt(ptr noundef %0, ptr noundef %1) unnamed_add
   %27 = add nuw nsw i32 %.0102, 4
   %28 = add nsw i32 %.092101, -1
   %.not98 = icmp eq i32 %28, 0
-  br i1 %.not98, label %.loopexit100.preheader, label %24, !llvm.loop !20
+  br i1 %.not98, label %.loopexit100.preheader, label %24, !llvm.loop !16
 
 29:                                               ; preds = %7
   %30 = load i32, ptr @hf_gryphon_usdt_ext_address, align 4
@@ -3981,7 +3981,7 @@ define internal fastcc i32 @cmd_usdt(ptr noundef %0, ptr noundef %1) unnamed_add
 
 64:                                               ; preds = %45, %46
   %.3 = phi i32 [ %.2104, %45 ], [ %63, %46 ]
-  br i1 %32, label %.loopexit100, label %.loopexit, !llvm.loop !21
+  br i1 %32, label %.loopexit100, label %.loopexit, !llvm.loop !17
 
 65:                                               ; preds = %2
   %66 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -4389,7 +4389,7 @@ define internal fastcc noundef i32 @cmd_usdt_register_non_legacy(ptr noundef %0,
   %.2 = phi i32 [ %.0358, %35 ], [ %49, %237 ]
   %243 = add i32 %.0342356, 1
   %244 = icmp sgt i32 %.2341, 0
-  br i1 %244, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %244, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %242, %2
   %.0.lcssa = phi i32 [ 16, %2 ], [ %.2, %242 ]
@@ -4397,7 +4397,7 @@ define internal fastcc noundef i32 @cmd_usdt_register_non_legacy(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_bits_in(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 13, 18) i32 @cmd_bits_in(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #4
   %.not = icmp eq i8 %4, 0
   %5 = load i32, ptr @hf_gryphon_bit_in_digital_data, align 4
@@ -4418,7 +4418,7 @@ define internal fastcc i32 @cmd_bits_in(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_bits_out(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 13, 18) i32 @cmd_bits_out(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #4
   %.not = icmp eq i8 %4, 0
   %5 = load i32, ptr @hf_gryphon_bit_out_digital_data, align 4
@@ -4475,7 +4475,7 @@ define internal fastcc i32 @cmd_init_strat(ptr noundef %0, i32 noundef %1, ptr n
   %22 = add i32 %.035, 1
   %23 = add i32 %.02933, -1
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %20, %3
   %.0.lcssa = phi i32 [ %8, %3 ], [ %22, %20 ]
@@ -4707,7 +4707,7 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
   %20 = add nuw i32 %.0403, 32
   %21 = add nsw i32 %.0375402, -32
   %22 = icmp ugt i32 %.0375402, 32
-  br i1 %22, label %.lr.ph404, label %.loopexit, !llvm.loop !24
+  br i1 %22, label %.lr.ph404, label %.loopexit, !llvm.loop !20
 
 23:                                               ; preds = %5
   %24 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16) #4
@@ -4814,7 +4814,7 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
   %109 = sub nsw i32 %.1376398, %86
   %110 = add i32 %.0377397, 1
   %111 = icmp sgt i32 %109, 0
-  br i1 %111, label %.lr.ph400, label %.loopexit, !llvm.loop !25
+  br i1 %111, label %.lr.ph400, label %.loopexit, !llvm.loop !21
 
 112:                                              ; preds = %5
   %113 = load i32, ptr @hf_gryphon_ldf_ioctl_setflags, align 4
@@ -4842,7 +4842,7 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
   %129 = add nuw nsw i32 %.2394, 1
   %130 = add nuw nsw i32 %.0373393, 1
   %exitcond414.not = icmp eq i32 %130, %118
-  br i1 %exitcond414.not, label %.loopexit, label %.lr.ph395, !llvm.loop !26
+  br i1 %exitcond414.not, label %.loopexit, label %.lr.ph395, !llvm.loop !22
 
 131:                                              ; preds = %5
   %132 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16) #4
@@ -4878,7 +4878,7 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
   %150 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %148, ptr noundef %0, i32 noundef %.3392, i32 noundef 1, i32 noundef %149, ptr noundef nonnull @.str.1003, i32 noundef %149) #4
   %151 = add nuw nsw i32 %.3392, 1
   %exitcond.not = icmp eq i32 %151, %146
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 152:                                              ; preds = %5
   %153 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
@@ -5134,7 +5134,7 @@ define internal fastcc i32 @resp_config(ptr noundef %0, ptr noundef %1) unnamed_
   %68 = add nuw nsw i32 %.09399, 80
   %69 = add nuw nsw i32 %.092100, 1
   %exitcond.not = icmp eq i32 %.092100, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.093.lcssa = phi i32 [ 80, %2 ], [ %68, %.loopexit ]
@@ -5142,7 +5142,7 @@ define internal fastcc i32 @resp_config(ptr noundef %0, ptr noundef %1) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_filthan(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 17, 276) i32 @resp_filthan(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %4 = zext i8 %3 to i32
   %5 = load i32, ptr @hf_gryphon_filthan, align 4
@@ -5159,7 +5159,7 @@ define internal fastcc i32 @resp_filthan(ptr noundef %0, ptr noundef %1) unnamed
   %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef %9, ptr noundef nonnull @.str.1068, i32 noundef %.032, i32 noundef %9) #4
   %12 = add nuw nsw i32 %.032, 1
   %exitcond.not = icmp eq i32 %.032, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = and i32 %4, 3
@@ -5202,7 +5202,7 @@ define internal fastcc noundef i32 @resp_events(ptr noundef %0, ptr noundef %1) 
   %12 = add i32 %.01719, -20
   %13 = add i32 %.01620, 1
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 16, %2 ], [ %11, %.lr.ph ]
@@ -5238,7 +5238,7 @@ define internal fastcc i32 @resp_getspeeds(ptr noundef %0, ptr noundef %1) unnam
   %18 = add nuw nsw i32 %.033, %4
   %19 = add nuw nsw i32 %.03032, 1
   %exitcond.not = icmp eq i32 %.03032, %14
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 26, %2 ], [ %18, %.lr.ph ]
@@ -5349,7 +5349,7 @@ define internal fastcc i32 @resp_ldf_list(ptr noundef %0, ptr noundef %1) unname
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 80, i32 noundef 0) #4
   %19 = add nuw nsw i32 %.031, 112
   %exitcond.not = icmp eq i32 %12, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 20, %2 ], [ %19, %.lr.ph ]
@@ -5403,7 +5403,7 @@ define internal fastcc i32 @resp_ldf_get_node_names(ptr noundef %0, ptr noundef 
   %14 = add i32 %13, %.01721
   %.0 = add i16 %.022, -1
   %.not = icmp eq i16 %.0, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.017.lcssa = phi i32 [ %10, %2 ], [ %14, %.lr.ph ]
@@ -5428,7 +5428,7 @@ define internal fastcc i32 @resp_ldf_get_node_signals(ptr noundef %0, ptr nounde
   %10 = add i32 %9, %.01215
   %11 = add i16 %.016, -1
   %.not = icmp eq i16 %11, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.012.lcssa = phi i32 [ 18, %2 ], [ %10, %.lr.ph ]
@@ -5458,7 +5458,7 @@ define internal fastcc i32 @resp_ldf_get_frames(ptr noundef %0, ptr noundef %1) 
   %15 = add i32 %14, %11
   %16 = add i16 %.02023, -1
   %.not = icmp eq i16 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 18, %2 ], [ %15, %.lr.ph ]
@@ -5490,7 +5490,7 @@ define internal fastcc i32 @resp_ldf_get_frame_info(ptr noundef %0, ptr noundef 
   %17 = add i32 %16, %.02122
   %18 = add nuw i8 %.023, 1
   %exitcond.not = icmp eq i8 %18, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.021.lcssa = phi i32 [ %13, %2 ], [ %17, %.lr.ph ]
@@ -5534,7 +5534,7 @@ define internal fastcc i32 @resp_ldf_get_signal_detail(ptr noundef %0, ptr nocap
   %13 = tail call fastcc i32 @resp_ldf_do_encoding_block(ptr noundef %0, ptr %.val, i32 noundef %.02023, ptr noundef %2)
   %14 = add i16 %.024, -1
   %.not = icmp eq i16 %14, 0
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %12, %3
   %.020.lcssa = phi i32 [ 20, %3 ], [ %13, %12 ]
@@ -5560,7 +5560,7 @@ define internal fastcc i32 @resp_ldf_get_encoding_info(ptr noundef %0, ptr nocap
   %9 = tail call fastcc i32 @resp_ldf_do_encoding_block(ptr noundef %0, ptr %.val, i32 noundef %.01215, ptr noundef %2)
   %10 = add i16 %.016, -1
   %.not = icmp eq i16 %10, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %8, %3
   %.012.lcssa = phi i32 [ 18, %3 ], [ %9, %8 ]
@@ -5585,7 +5585,7 @@ define internal fastcc i32 @resp_ldf_get_schedules(ptr noundef %0, ptr noundef %
   %10 = add i32 %9, %.01215
   %11 = add i16 %.016, -1
   %.not = icmp eq i16 %11, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.012.lcssa = phi i32 [ 18, %2 ], [ %10, %.lr.ph ]
@@ -5651,7 +5651,7 @@ define internal fastcc i32 @resp_cnvt_get_values(ptr noundef %0, ptr noundef %1)
   %.3 = phi i32 [ %32, %28 ], [ %.2, %26 ]
   %34 = add nuw nsw i32 %.038, 1
   %exitcond.not = icmp eq i32 %34, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %33, %2
   %.034.lcssa = phi i32 [ 17, %2 ], [ %.3, %33 ]
@@ -5677,7 +5677,7 @@ define internal fastcc i32 @resp_cnvt_get_units(ptr noundef %0, ptr noundef %1) 
   %11 = add i32 %10, %.01314
   %12 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %12, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.013.lcssa = phi i32 [ 17, %2 ], [ %11, %.lr.ph ]
@@ -5685,7 +5685,7 @@ define internal fastcc i32 @resp_cnvt_get_units(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_resphan(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 17, 276) i32 @resp_resphan(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %4 = zext i8 %3 to i32
   %5 = load i32, ptr @hf_gryphon_num_resphan, align 4
@@ -5702,7 +5702,7 @@ define internal fastcc i32 @resp_resphan(ptr noundef %0, ptr noundef %1) unnamed
   %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef %9, ptr noundef nonnull @.str.1068, i32 noundef %.032, i32 noundef %9) #4
   %12 = add nuw nsw i32 %.032, 1
   %exitcond.not = icmp eq i32 %.032, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = and i32 %4, 3
@@ -5766,7 +5766,7 @@ define internal fastcc noundef i32 @resp_list(ptr noundef %0, ptr noundef %1) un
   %19 = add i32 %.028, 1
   %20 = load i32, ptr %3, align 4
   %.not = icmp ugt i32 %19, %20
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.025.lcssa = phi i32 [ 20, %2 ], [ %18, %.lr.ph ]
@@ -5798,7 +5798,7 @@ define internal fastcc i32 @resp_status(ptr noundef %0, ptr noundef %1) unnamed_
   %14 = add nuw nsw i32 %.037, 1
   %15 = add nuw nsw i32 %.02836, 1
   %exitcond.not = icmp eq i32 %14, %9
-  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !44
+  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !40
 
 16:                                               ; preds = %.preheader
   %17 = and i32 %4, 3
@@ -5942,44 +5942,40 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 20, i32 25}
-!5 = !{i32 16, i32 21}
-!6 = !{i32 12, i32 21}
-!7 = !{i32 13, i32 18}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
-!41 = distinct !{!41, !9}
-!42 = distinct !{!42, !9}
-!43 = distinct !{!43, !9}
-!44 = distinct !{!44, !9}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}

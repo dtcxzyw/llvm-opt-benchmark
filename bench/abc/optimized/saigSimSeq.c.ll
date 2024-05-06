@@ -50,7 +50,7 @@ define i32 @Raig_ManFindPo(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !4
 
 .critedge.loopexit.split.loop.exit14:             ; preds = %8
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %.critedge.loopexit.split.loop.exit14, %2
@@ -1066,7 +1066,7 @@ Raig_ManSimDeref.exit188:                         ; preds = %105, %94, %85, %.lo
   br i1 %128, label %129, label %Raig_ManSimDeref.exit190
 
 129:                                              ; preds = %121
-  %130 = trunc i64 %indvars.iv286 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv286 to i32
   %131 = tail call ptr @Raig_ManSimRef(ptr noundef nonnull %0, i32 noundef %130)
   %132 = load i32, ptr %26, align 8
   %.not179241 = icmp slt i32 %132, 1
@@ -1188,8 +1188,8 @@ Raig_ManSimDeref.exit192:                         ; preds = %162, %166, %176
   br i1 %.not178, label %206, label %194
 
 194:                                              ; preds = %.lr.ph240
-  %195 = trunc i64 %indvars.iv286 to i32
-  %196 = trunc i64 %indvars.iv280 to i32
+  %195 = trunc nuw nsw i64 %indvars.iv286 to i32
+  %196 = trunc nuw nsw i64 %indvars.iv280 to i32
   %197 = shl i32 %196, 5
   %198 = add i32 %197, -32
   %199 = xor i32 %193, %sext
@@ -1219,7 +1219,7 @@ Aig_WordFindFirstBit.exit:                        ; preds = %200, %203
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph240, !llvm.loop !15
 
 207:                                              ; preds = %Raig_ManSimDeref.exit192
-  %208 = trunc i64 %indvars.iv286 to i32
+  %208 = trunc nuw nsw i64 %indvars.iv286 to i32
   %209 = tail call ptr @Raig_ManSimRef(ptr noundef nonnull %0, i32 noundef %208)
   %210 = load ptr, ptr %20, align 8
   %211 = getelementptr inbounds i32, ptr %210, i64 %indvars.iv286
@@ -1266,7 +1266,7 @@ Aig_WordFindFirstBit.exit:                        ; preds = %200, %203
   br label %.critedge
 
 227:                                              ; preds = %157
-  %228 = trunc i64 %indvars.iv286 to i32
+  %228 = trunc nuw nsw i64 %indvars.iv286 to i32
   %229 = tail call ptr @Raig_ManSimRef(ptr noundef nonnull %0, i32 noundef %228)
   %230 = load ptr, ptr %20, align 8
   %231 = getelementptr inbounds i32, ptr %230, i64 %indvars.iv286
@@ -1601,7 +1601,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr nocapture noundef readonly %0, i
 declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Raig_ManSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Raig_ManSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
@@ -1747,7 +1747,7 @@ Abc_Clock.exit48:                                 ; preds = %48, %53
   br i1 %exitcond.not.i, label %Raig_ManFindPo.exit, label %72, !llvm.loop !4
 
 .critedge.loopexit.split.loop.exit14.i:           ; preds = %72
-  %79 = trunc i64 %indvars.iv.i to i32
+  %79 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Raig_ManFindPo.exit
 
 Raig_ManFindPo.exit:                              ; preds = %78, %65, %.critedge.loopexit.split.loop.exit14.i
@@ -1865,7 +1865,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1884,7 +1884,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1898,19 +1898,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
@@ -1933,8 +1933,8 @@ attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind allocsize(1) }

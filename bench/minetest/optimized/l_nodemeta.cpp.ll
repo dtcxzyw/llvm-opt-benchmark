@@ -568,7 +568,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %pos.coerce, 0

@@ -185,7 +185,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_huc_fw_get_binary_info(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 408
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0

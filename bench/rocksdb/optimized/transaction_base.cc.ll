@@ -6570,7 +6570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK7rocksdb19TransactionBaseImpl14GetElapsedTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %this) unnamed_addr #2 align 2 {
+define noundef range(i64 0, 18446744073709552) i64 @_ZNK7rocksdb19TransactionBaseImpl14GetElapsedTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %this) unnamed_addr #2 align 2 {
 entry:
   %dbimpl_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %dbimpl_, align 8

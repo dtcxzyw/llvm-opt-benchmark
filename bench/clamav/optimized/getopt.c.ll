@@ -684,7 +684,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %.thread220
 
 147:                                              ; preds = %138
-  %148 = getelementptr i8, ptr %103, i64 1
+  %148 = getelementptr inbounds i8, ptr %103, i64 1
   br label %.sink.split
 
 149:                                              ; preds = %.thread215

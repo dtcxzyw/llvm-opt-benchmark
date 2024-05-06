@@ -23,7 +23,7 @@ entry:
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_escrypt_free_region(ptr nocapture noundef %region) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_sodium_escrypt_free_region(ptr nocapture noundef %region) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %region, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -37,7 +37,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.then, %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %region, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %region, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end4
@@ -51,12 +51,12 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @_sodium_escrypt_init_local(ptr nocapture noundef writeonly %local) local_unnamed_addr #2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %local, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %local, i8 0, i64 24, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_escrypt_free_local(ptr nocapture noundef %local) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_sodium_escrypt_free_local(ptr nocapture noundef %local) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %local, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -70,7 +70,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool2.not.i, label %if.end4.i, label %_sodium_escrypt_free_region.exit
 
 if.end4.i:                                        ; preds = %if.then.i, %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %local, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %local, i8 0, i64 24, i1 false)
   br label %_sodium_escrypt_free_region.exit
 
 _sodium_escrypt_free_region.exit:                 ; preds = %if.then.i, %if.end4.i

@@ -6111,7 +6111,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @LZ4_loadDict(ptr nocapture noundef writeonly %LZ4_dict, ptr noundef %dictionary, i32 noundef %dictSize) local_unnamed_addr #9 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %LZ4_dict, i8 0, i64 16416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %LZ4_dict, i8 0, i64 16416, i1 false)
   %currentOffset = getelementptr inbounds i8, ptr %LZ4_dict, i64 16400
   store i32 65536, ptr %currentOffset, align 8
   %cmp = icmp slt i32 %dictSize, 8
@@ -12353,8 +12353,8 @@ if.then275.i:                                     ; preds = %if.then254.i
   %add.ptr281.i = getelementptr inbounds i8, ptr %add.ptr263.i, i64 16
   %29 = load i16, ptr %add.ptr281.i, align 1
   store i16 %29, ptr %add.ptr280.i, align 1
-  %30 = getelementptr i8, ptr %add.ptr255.i, i64 %conv258.i
-  %add.ptr283.i = getelementptr i8, ptr %30, i64 4
+  %30 = getelementptr inbounds i8, ptr %add.ptr255.i, i64 %conv258.i
+  %add.ptr283.i = getelementptr inbounds i8, ptr %30, i64 4
   %incdec.ptr238.i = getelementptr inbounds i8, ptr %add.ptr256.i, i64 3
   %31 = load i8, ptr %add.ptr261.i, align 1
   %conv239.i = zext i8 %31 to i32
@@ -13027,8 +13027,8 @@ if.then275.i:                                     ; preds = %if.then254.i
   %add.ptr281.i = getelementptr inbounds i8, ptr %add.ptr263.i, i64 16
   %26 = load i16, ptr %add.ptr281.i, align 1
   store i16 %26, ptr %add.ptr280.i, align 1
-  %27 = getelementptr i8, ptr %add.ptr255.i, i64 %conv258.i
-  %add.ptr283.i = getelementptr i8, ptr %27, i64 4
+  %27 = getelementptr inbounds i8, ptr %add.ptr255.i, i64 %conv258.i
+  %add.ptr283.i = getelementptr inbounds i8, ptr %27, i64 4
   %incdec.ptr238.i = getelementptr inbounds i8, ptr %add.ptr256.i, i64 3
   %28 = load i8, ptr %add.ptr261.i, align 1
   %conv239.i = zext i8 %28 to i32
@@ -14745,8 +14745,8 @@ if.then275.i:                                     ; preds = %if.then254.i
   %add.ptr281.i = getelementptr inbounds i8, ptr %add.ptr263.i, i64 16
   %30 = load i16, ptr %add.ptr281.i, align 1
   store i16 %30, ptr %add.ptr280.i, align 1
-  %31 = getelementptr i8, ptr %add.ptr255.i, i64 %conv258.i
-  %add.ptr283.i = getelementptr i8, ptr %31, i64 4
+  %31 = getelementptr inbounds i8, ptr %add.ptr255.i, i64 %conv258.i
+  %add.ptr283.i = getelementptr inbounds i8, ptr %31, i64 4
   %incdec.ptr238.i = getelementptr inbounds i8, ptr %add.ptr256.i, i64 3
   %32 = load i8, ptr %add.ptr261.i, align 1
   %conv239.i = zext i8 %32 to i32
@@ -15531,8 +15531,8 @@ if.then275.i:                                     ; preds = %if.then254.i
   %add.ptr281.i = getelementptr inbounds i8, ptr %add.ptr263.i, i64 16
   %27 = load i16, ptr %add.ptr281.i, align 1
   store i16 %27, ptr %add.ptr280.i, align 1
-  %28 = getelementptr i8, ptr %add.ptr255.i, i64 %conv258.i
-  %add.ptr283.i = getelementptr i8, ptr %28, i64 4
+  %28 = getelementptr inbounds i8, ptr %add.ptr255.i, i64 %conv258.i
+  %add.ptr283.i = getelementptr inbounds i8, ptr %28, i64 4
   %incdec.ptr238.i = getelementptr inbounds i8, ptr %add.ptr256.i, i64 3
   %29 = load i8, ptr %add.ptr261.i, align 1
   %conv239.i = zext i8 %29 to i32
@@ -16449,8 +16449,8 @@ if.then275.i.i:                                   ; preds = %if.then254.i.i
   %add.ptr281.i.i = getelementptr inbounds i8, ptr %add.ptr263.i.i, i64 16
   %34 = load i16, ptr %add.ptr281.i.i, align 1
   store i16 %34, ptr %add.ptr280.i.i, align 1
-  %35 = getelementptr i8, ptr %add.ptr255.i.i, i64 %conv258.i.i
-  %add.ptr283.i.i = getelementptr i8, ptr %35, i64 4
+  %35 = getelementptr inbounds i8, ptr %add.ptr255.i.i, i64 %conv258.i.i
+  %add.ptr283.i.i = getelementptr inbounds i8, ptr %35, i64 4
   %incdec.ptr238.i.i = getelementptr inbounds i8, ptr %add.ptr256.i.i, i64 3
   %36 = load i8, ptr %add.ptr261.i.i, align 1
   %conv239.i.i = zext i8 %36 to i32
@@ -17228,8 +17228,8 @@ if.then275.i:                                     ; preds = %if.then254.i
   %add.ptr281.i = getelementptr inbounds i8, ptr %add.ptr263.i, i64 16
   %29 = load i16, ptr %add.ptr281.i, align 1
   store i16 %29, ptr %add.ptr280.i, align 1
-  %30 = getelementptr i8, ptr %add.ptr255.i, i64 %conv258.i
-  %add.ptr283.i = getelementptr i8, ptr %30, i64 4
+  %30 = getelementptr inbounds i8, ptr %add.ptr255.i, i64 %conv258.i
+  %add.ptr283.i = getelementptr inbounds i8, ptr %30, i64 4
   %incdec.ptr238.i = getelementptr inbounds i8, ptr %add.ptr256.i, i64 3
   %31 = load i8, ptr %add.ptr261.i, align 1
   %conv239.i = zext i8 %31 to i32
@@ -19116,8 +19116,8 @@ if.then275.i.i178:                                ; preds = %if.then254.i.i169
   %add.ptr281.i.i182 = getelementptr inbounds i8, ptr %add.ptr263.i.i, i64 16
   %77 = load i16, ptr %add.ptr281.i.i182, align 1
   store i16 %77, ptr %add.ptr280.i.i181, align 1
-  %78 = getelementptr i8, ptr %add.ptr255.i.i, i64 %conv258.i.i172
-  %add.ptr283.i.i = getelementptr i8, ptr %78, i64 4
+  %78 = getelementptr inbounds i8, ptr %add.ptr255.i.i, i64 %conv258.i.i172
+  %add.ptr283.i.i = getelementptr inbounds i8, ptr %78, i64 4
   %incdec.ptr238.i.i183 = getelementptr inbounds i8, ptr %add.ptr256.i.i170, i64 3
   %79 = load i8, ptr %add.ptr261.i.i175, align 1
   %conv239.i.i184 = zext i8 %79 to i32
@@ -19946,7 +19946,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @LZ4_resetStreamState(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %inputBuffer) local_unnamed_addr #2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %state, i8 0, i64 16416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %state, i8 0, i64 16416, i1 false)
   ret i32 0
 }
 

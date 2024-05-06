@@ -5147,7 +5147,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i.i.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i.i.i.i, ptr %buffer.i.i.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit.i.i
 

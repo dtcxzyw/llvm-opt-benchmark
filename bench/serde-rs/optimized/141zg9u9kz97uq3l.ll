@@ -58,7 +58,7 @@ define noundef zeroext i1 @"_ZN59_$LT$serde..de..format..Buf$u20$as$u20$core..fm
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc53a933b29b31c83E.exit": ; preds = %10
   %13 = load ptr, ptr %0, align 8, !nonnull !4, !align !8, !noundef !4
   %14 = getelementptr inbounds i8, ptr %13, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %1, i64 %2, i1 false), !alias.scope !12, !noalias !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !12, !noalias !16
   store i64 %6, ptr %4, align 8
   br label %15
 

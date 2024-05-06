@@ -797,7 +797,7 @@ define internal i32 @dissect_mac_mgmt_msg_ucd_decoder(ptr noundef %0, ptr nocapt
   br label %.loopexit
 
 switch.hole_check:                                ; preds = %52
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1949, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %54

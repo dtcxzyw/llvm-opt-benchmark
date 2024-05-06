@@ -2562,7 +2562,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #15
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK3irr5scene12CSkinnedMesh14getJointNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(186) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) unnamed_addr #16 align 2 {
+define range(i64 0, 8589934592) i64 @_ZNK3irr5scene12CSkinnedMesh14getJointNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(186) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) unnamed_addr #16 align 2 {
 entry:
   %AllJoints = getelementptr inbounds i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56

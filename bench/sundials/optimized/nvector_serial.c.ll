@@ -1202,7 +1202,7 @@ define void @N_VCompare_Serial(double noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @N_VInvTest_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define range(i32 0, 2) i32 @N_VInvTest_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1239,7 +1239,7 @@ define i32 @N_VInvTest_Serial(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @N_VConstrMask_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16

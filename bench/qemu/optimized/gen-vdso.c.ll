@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [14 x i8] c"    0x%08tx,\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %call167 = tail call i32 @getopt(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @.str.1) #11
   %cmp168 = icmp slt i32 %call167, 0
@@ -385,11 +385,11 @@ for.body27.i:                                     ; preds = %for.inc29.i, %for.b
   ]
 
 sw.bb.i:                                          ; preds = %for.body27.i
-  %61 = trunc i64 %indvars.iv163.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv163.i to i32
   br label %for.inc29.i
 
 sw.bb28.i:                                        ; preds = %for.body27.i
-  %62 = trunc i64 %indvars.iv163.i to i32
+  %62 = trunc nuw nsw i64 %indvars.iv163.i to i32
   br label %for.inc29.i
 
 for.inc29.i:                                      ; preds = %sw.bb28.i, %sw.bb.i, %for.body27.i
@@ -940,11 +940,11 @@ for.body25.i:                                     ; preds = %for.inc27.i, %for.b
   ]
 
 sw.bb.i126:                                       ; preds = %for.body25.i
-  %172 = trunc i64 %indvars.iv161.i to i32
+  %172 = trunc nuw nsw i64 %indvars.iv161.i to i32
   br label %for.inc27.i
 
 sw.bb26.i:                                        ; preds = %for.body25.i
-  %173 = trunc i64 %indvars.iv161.i to i32
+  %173 = trunc nuw nsw i64 %indvars.iv161.i to i32
   br label %for.inc27.i
 
 for.inc27.i:                                      ; preds = %sw.bb26.i, %sw.bb.i126, %for.body25.i

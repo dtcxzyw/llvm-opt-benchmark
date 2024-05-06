@@ -1330,7 +1330,7 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @zend_alter_ini_entry_chars_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_stream_open_for_zend_ex(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @php_stream_open_for_zend_ex(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i8, ptr %4, align 8
@@ -1419,7 +1419,7 @@ define hidden void @php_on_timeout(i32 %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_request_startup() local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @php_request_startup() local_unnamed_addr #4 {
   %1 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %2 = alloca %struct._zval_struct, align 8
   call void @zend_interned_strings_activate() #29
@@ -1825,7 +1825,7 @@ declare void @php_info_print_table_end() local_unnamed_addr #0
 declare void @display_ini_entries(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_register_extensions(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @php_register_extensions(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds ptr, ptr %0, i64 %3
   %5 = icmp sgt i32 %1, 0
@@ -1855,7 +1855,7 @@ define noundef i32 @php_register_extensions(ptr noundef readonly %0, i32 noundef
 declare ptr @zend_register_internal_module(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_module_startup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @php_module_startup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
@@ -2816,7 +2816,7 @@ define internal ptr @php_get_configuration_directive_for_zend(ptr noundef %0) #4
 declare void @php_run_ticks(i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stream_open_for_zend(ptr nocapture noundef %0) #4 {
+define internal range(i32 -1, 1) i32 @php_stream_open_for_zend(ptr nocapture noundef %0) #4 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3429,7 +3429,7 @@ declare void @php_output_set_status(i32 noundef) local_unnamed_addr #0
 declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_handle_auth_data(ptr noundef %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @php_handle_auth_data(ptr noundef %0) local_unnamed_addr #4 {
   %.not63 = icmp eq ptr %0, null
   br i1 %.not63, label %.sink.split, label %2
 
@@ -3515,7 +3515,7 @@ define noundef i32 @php_handle_auth_data(ptr noundef %0) local_unnamed_addr #4 {
 declare i32 @zend_binary_strncasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_lint_script(ptr noundef %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @php_lint_script(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
   store ptr %2, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
@@ -3715,7 +3715,7 @@ declare i32 @OnUpdateString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @OnUpdateLong(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define internal noundef i32 @OnSetSerializePrecision(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #20 {
+define internal range(i32 -1, 1) i32 @OnSetSerializePrecision(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #20 {
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call i64 @atoll(ptr nocapture noundef nonnull %7) #28
   %9 = icmp sgt i64 %8, -2
@@ -3733,7 +3733,7 @@ define internal noundef i32 @OnSetSerializePrecision(ptr nocapture readnone %0, 
 declare i32 @OnUpdateStringUnempty(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateDefaultCharset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #4 {
+define internal range(i32 -1, 1) i32 @OnUpdateDefaultCharset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
@@ -3830,7 +3830,7 @@ define internal noundef i32 @OnUpdateOutputEncoding(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateErrorLog(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #4 {
+define internal range(i32 -1, 1) i32 @OnUpdateErrorLog(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #4 {
   %7 = icmp eq i32 %5, 16
   %8 = icmp eq i32 %5, 32
   %or.cond = or i1 %7, %8
@@ -3899,7 +3899,7 @@ declare i32 @OnUpdateBaseDir(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare i32 @OnUpdateLongGEZero(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateMailLog(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #4 {
+define internal range(i32 -1, 1) i32 @OnUpdateMailLog(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #4 {
   %7 = icmp eq i32 %5, 16
   %8 = icmp eq i32 %5, 32
   %or.cond = or i1 %7, %8
@@ -3928,7 +3928,7 @@ define internal noundef i32 @OnUpdateMailLog(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @OnChangeBrowscap(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnChangeMemoryLimit(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #4 {
+define internal range(i32 -1, 1) i32 @OnChangeMemoryLimit(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %7
 
@@ -3960,7 +3960,7 @@ define internal noundef i32 @OnChangeMemoryLimit(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define internal noundef i32 @OnSetPrecision(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #20 {
+define internal range(i32 -1, 1) i32 @OnSetPrecision(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #20 {
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call i64 @atoll(ptr nocapture noundef nonnull %7) #28
   %9 = icmp sgt i64 %8, -2
@@ -3976,14 +3976,14 @@ define internal noundef i32 @OnSetPrecision(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @OnChangeMailForceExtra(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #1 {
+define internal range(i32 -1, 1) i32 @OnChangeMailForceExtra(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #1 {
   %7 = icmp eq i32 %5, 32
   %. = sext i1 %7 to i32
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnSetFacility(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #4 {
+define internal range(i32 -1, 1) i32 @OnSetFacility(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #4 {
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   switch i64 %8, label %.critedge40 [
@@ -4271,7 +4271,7 @@ define internal noundef i32 @OnSetFacility(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef i32 @OnSetLogFilter(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #21 {
+define internal range(i32 -1, 1) i32 @OnSetLogFilter(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #21 {
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   switch i64 %8, label %.critedge6 [

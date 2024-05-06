@@ -148,7 +148,7 @@ define internal noalias ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef r
   ]
 
 10:                                               ; preds = %4
-  %11 = call i32 @llvm.ctpop.i32(i32 %9), !range !4
+  %11 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
   %12 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %5, i32 noundef %11) #7
   br label %15
 
@@ -315,4 +315,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}

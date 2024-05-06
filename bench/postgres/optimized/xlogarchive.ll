@@ -486,18 +486,18 @@ define dso_local void @XLogArchiveNotify(ptr noundef %0) local_unnamed_addr #0 {
   br label %31
 
 18:                                               ; preds = %11
-  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %19 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
   %20 = icmp eq i64 %19, 16
   br i1 %20, label %21, label %IsTLHistoryFileName.exit.thread
 
 21:                                               ; preds = %18
-  %22 = call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str.20) #14
+  %22 = call i64 @strspn(ptr noundef readonly %0, ptr noundef nonnull @.str.20) #14
   %23 = icmp eq i64 %22, 8
   br i1 %23, label %IsTLHistoryFileName.exit, label %IsTLHistoryFileName.exit.thread
 
 IsTLHistoryFileName.exit:                         ; preds = %21
   %24 = getelementptr i8, ptr %0, i64 8
-  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(9) @.str.21) #14
+  %25 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull dereferenceable(9) @.str.21) #14
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %IsTLHistoryFileName.exit.thread
 

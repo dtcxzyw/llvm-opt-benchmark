@@ -154,7 +154,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @qemu_fclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @compress_threads_save_setup() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @compress_threads_save_setup() local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @migrate_compress() #8
   br i1 %call, label %if.end, label %return
@@ -435,7 +435,7 @@ if.end36:                                         ; preds = %if.then30
   %result.i = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   store i32 0, ptr %result.i, align 4
   %block.i = getelementptr inbounds i8, ptr %arrayidx28, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %block.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %block.i, i8 0, i64 16, i1 false)
   %.pre23 = load ptr, ptr @comp_param, align 8
   br label %if.end37
 
@@ -743,7 +743,7 @@ return:                                           ; preds = %entry, %for.end40
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @compress_threads_load_setup(ptr noundef %f) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @compress_threads_load_setup(ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @migrate_compress() #8
   br i1 %call, label %if.end, label %return

@@ -188,7 +188,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nocap
   br label %.loopexit
 
 61:                                               ; preds = %.preheader146
-  %62 = trunc i8 %.0103 to i1
+  %62 = trunc nuw i8 %.0103 to i1
   br i1 %62, label %.loopexit147, label %.preheader
 
 .preheader:                                       ; preds = %61
@@ -315,7 +315,7 @@ switch.lookup:                                    ; preds = %4
 
 12:                                               ; preds = %4
   %13 = lshr i16 %8, 12
-  %14 = trunc i16 %13 to i8
+  %14 = trunc nuw nsw i16 %13 to i8
   %15 = or disjoint i8 %14, -16
   %.not85 = icmp slt i16 %8, 0
   %.071 = select i1 %.not85, i8 %15, i8 %14
@@ -453,7 +453,7 @@ define internal void @sfloat_ieee_11073_value_set(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @sfloat_ieee_11073_value_get(ptr nocapture noundef readonly %0) #2 {
+define internal range(i32 0, 65536) i32 @sfloat_ieee_11073_value_get(ptr nocapture noundef readonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
@@ -476,7 +476,7 @@ define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr nocapture noundef r
   %10 = and i16 %.val, 2047
   %.021.i.i = select i1 %.not.i.i, i16 %10, i16 %9
   %11 = lshr i16 %.val, 12
-  %12 = trunc i16 %11 to i8
+  %12 = trunc nuw nsw i16 %11 to i8
   %13 = or disjoint i8 %12, -16
   %.not2629.i.i = icmp slt i16 %.val, 0
   %.022.i.i = select i1 %.not2629.i.i, i8 %13, i8 %12
@@ -530,7 +530,7 @@ sfloat_to_normal_form.exit.i:                     ; preds = %._crit_edge.i.i, %3
   %39 = and i16 %33, 2047
   %.021.i63.i = select i1 %.not.i62.i, i16 %39, i16 %38
   %40 = lshr i16 %33, 12
-  %41 = trunc i16 %40 to i8
+  %41 = trunc nuw nsw i16 %40 to i8
   %42 = or disjoint i8 %41, -16
   %.not2629.i64.i = icmp slt i16 %33, 0
   %.022.i65.i = select i1 %.not2629.i64.i, i8 %42, i8 %41
@@ -599,9 +599,9 @@ sfloat_to_normal_form.exit76.i:                   ; preds = %._crit_edge.i67.i, 
   %masksel1.i = select i1 %.not54.i, i16 0, i16 -4096
   %.043.i = or disjoint i16 %masksel1.i, %67
   %70 = lshr i16 %.024.i.i, 12
-  %71 = trunc i16 %70 to i8
+  %71 = trunc nuw nsw i16 %70 to i8
   %72 = lshr i16 %.024.i71.i, 12
-  %73 = trunc i16 %72 to i8
+  %73 = trunc nuw nsw i16 %72 to i8
   %74 = or disjoint i8 %71, -16
   %.not552.i = icmp slt i16 %.024.i.i, 0
   %.042.i = select i1 %.not552.i, i8 %74, i8 %71
@@ -673,7 +673,7 @@ sfloat_ieee_11073_cmp_lt.exit.thread24:           ; preds = %86, %62, %62, %62, 
   %96 = and i16 %.val, 2047
   %.021.i.i9 = select i1 %.not.i.i8, i16 %96, i16 %95
   %97 = lshr i16 %.val, 12
-  %98 = trunc i16 %97 to i8
+  %98 = trunc nuw nsw i16 %97 to i8
   %99 = or disjoint i8 %98, -16
   %.not2629.i.i10 = icmp slt i16 %.val, 0
   %.022.i.i11 = select i1 %.not2629.i.i10, i8 %99, i8 %98
@@ -723,7 +723,7 @@ sfloat_to_normal_form.exit.i16:                   ; preds = %._crit_edge.i.i13, 
   %122 = and i16 %33, 2047
   %.021.i4.i = select i1 %.not.i3.i, i16 %122, i16 %121
   %123 = lshr i16 %33, 12
-  %124 = trunc i16 %123 to i8
+  %124 = trunc nuw nsw i16 %123 to i8
   %125 = or disjoint i8 %124, -16
   %.not2629.i5.i = icmp slt i16 %33, 0
   %.022.i6.i = select i1 %.not2629.i5.i, i8 %125, i8 %124
@@ -946,7 +946,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nocapt
   br label %.loopexit
 
 61:                                               ; preds = %.preheader147
-  %62 = trunc i8 %.0103 to i1
+  %62 = trunc nuw i8 %.0103 to i1
   br i1 %62, label %.loopexit148, label %.preheader
 
 .preheader:                                       ; preds = %61

@@ -391,7 +391,7 @@ if.then26:                                        ; preds = %lor.lhs.false15, %l
   %sub47 = sub i32 %11, %13
   %cursor_offset48 = getelementptr i8, ptr %vga, i64 68128
   store i32 %sub47, ptr %cursor_offset48, align 16
-  %conv49 = trunc i32 %cond to i16
+  %conv49 = trunc nuw nsw i32 %cond to i16
   store i16 %conv49, ptr %cursor_size, align 2
   br i1 %tobool.not, label %if.end57, label %if.then52
 
@@ -450,7 +450,7 @@ if.end:                                           ; preds = %lor.lhs.false4
 
 for.body:                                         ; preds = %if.end, %for.inc57
   %indvars.iv49 = phi i64 [ 0, %if.end ], [ %indvars.iv.next50, %for.inc57 ]
-  %9 = trunc i64 %indvars.iv49 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv49 to i32
   %add14 = add i32 %add8, %9
   %vga.val = load ptr, ptr %7, align 8
   %vga.val32 = load i32, ptr %8, align 4
@@ -465,7 +465,7 @@ for.body:                                         ; preds = %if.end, %for.inc57
   %11 = load i8, ptr %arrayidx.i37, align 1
   %12 = shl nuw nsw i64 %indvars.iv49, 3
   %invariant.gep = getelementptr i32, ptr %arrayidx, i64 %12
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body, %for.inc
@@ -1103,7 +1103,7 @@ sw.bb155:                                         ; preds = %entry
   br label %if.then326
 
 sw.bb158:                                         ; preds = %sw.caserange
-  %conv161 = trunc i64 %35 to i32
+  %conv161 = trunc nuw nsw i64 %35 to i32
   %call162 = tail call i32 @pci_default_read_config(ptr noundef %opaque, i32 noundef %conv161, i32 noundef %size) #9
   %conv163 = zext i32 %call162 to i64
   br label %if.then326
@@ -1858,7 +1858,7 @@ sw.bb63:                                          ; preds = %if.end
   %and68 = and i64 %cond, %data
   %gen_int_status = getelementptr inbounds i8, ptr %opaque, i64 71416
   %21 = load i32, ptr %gen_int_status, align 8
-  %22 = trunc i64 %and68 to i32
+  %22 = trunc nuw i64 %and68 to i32
   %23 = xor i32 %22, -1
   %conv72 = and i32 %21, %23
   store i32 %conv72, ptr %gen_int_status, align 8
@@ -1926,7 +1926,7 @@ if.then85:                                        ; preds = %ati_reg_write_offs.
 if.then87:                                        ; preds = %if.then85
   %force_shadow = getelementptr inbounds i8, ptr %opaque, i64 5301
   %and82.lobit = lshr exact i32 %and82, 16
-  %frombool = trunc i32 %and82.lobit to i8
+  %frombool = trunc nuw nsw i32 %and82.lobit to i8
   store i8 %frombool, ptr %force_shadow, align 1
   br label %if.end115
 
@@ -2724,14 +2724,14 @@ sw.bb646:                                         ; preds = %if.end
   %and655 = shl i64 %data, 16
   %shl656 = and i64 %and655, 1073741824
   %or657 = or disjoint i64 %or654, %shl656
-  %conv658 = trunc i64 %or657 to i32
+  %conv658 = trunc nuw nsw i64 %or657 to i32
   %dp_datatype = getelementptr inbounds i8, ptr %opaque, i64 72592
   store i32 %conv658, ptr %dp_datatype, align 16
   %and660 = and i64 %data, 16711680
   %and661 = lshr i64 %data, 16
   %shr662 = and i64 %and661, 1792
   %or663 = or disjoint i64 %shr662, %and660
-  %conv664 = trunc i64 %or663 to i32
+  %conv664 = trunc nuw nsw i64 %or663 to i32
   %dp_mix = getelementptr inbounds i8, ptr %opaque, i64 72596
   store i32 %conv664, ptr %dp_mix, align 4
   br label %sw.epilog
@@ -3247,11 +3247,11 @@ switch.lookup:                                    ; preds = %if.end19
   %conv53 = add i16 %16, 8
   %arrayidx = getelementptr i8, ptr %s, i64 5196
   store i16 %conv53, ptr %arrayidx, align 2
-  %17 = trunc i32 %shr25 to i16
+  %17 = trunc nuw i32 %shr25 to i16
   %conv55 = add i16 %17, 1
   %arrayidx58 = getelementptr i8, ptr %s, i64 5198
   store i16 %conv55, ptr %arrayidx58, align 2
-  %conv59 = trunc i32 %switch.load to i16
+  %conv59 = trunc nuw nsw i32 %switch.load to i16
   %arrayidx62 = getelementptr i8, ptr %s, i64 5200
   store i16 %conv59, ptr %arrayidx62, align 2
   tail call void @vbe_ioport_write_index(ptr noundef nonnull %vga, i32 noundef 0, i32 noundef 4) #9
@@ -3277,8 +3277,8 @@ if.then70:                                        ; preds = %switch.lookup
 
 do.end78:                                         ; preds = %if.then70
   tail call void @vbe_ioport_write_index(ptr noundef nonnull %vga, i32 noundef 0, i32 noundef 8) #9
-  %div82.lhs.trunc = trunc i32 %rem to i16
-  %div82.rhs.trunc = trunc i32 %div41 to i16
+  %div82.lhs.trunc = trunc nuw i32 %rem to i16
+  %div82.rhs.trunc = trunc nuw nsw i32 %div41 to i16
   %div8242 = udiv i16 %div82.lhs.trunc, %div82.rhs.trunc
   %div82.zext = zext i16 %div8242 to i32
   tail call void @vbe_ioport_write_data(ptr noundef nonnull %vga, i32 noundef 0, i32 noundef %div82.zext) #9

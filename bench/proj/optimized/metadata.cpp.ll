@@ -958,7 +958,7 @@ define hidden noundef zeroext i1 @_ZThn16_NK5osgeo4proj8metadata21GeographicBoun
   br i1 %5, label %_ZNK5osgeo4proj8metadata21GeographicBoundingBox15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5osgeo4proj4util11IComparableE, ptr nonnull @_ZTIN5osgeo4proj8metadata21GeographicBoundingBoxE, i64 16) #28
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull readonly %1, ptr nonnull @_ZTIN5osgeo4proj4util11IComparableE, ptr nonnull @_ZTIN5osgeo4proj8metadata21GeographicBoundingBoxE, i64 16) #28
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZNK5osgeo4proj8metadata21GeographicBoundingBox15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit, label %8
 
@@ -2085,7 +2085,7 @@ define hidden noundef zeroext i1 @_ZThn16_NK5osgeo4proj8metadata14VerticalExtent
   br i1 %5, label %_ZNK5osgeo4proj8metadata14VerticalExtent15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5osgeo4proj4util11IComparableE, ptr nonnull @_ZTIN5osgeo4proj8metadata14VerticalExtentE, i64 16) #28
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull readonly %1, ptr nonnull @_ZTIN5osgeo4proj4util11IComparableE, ptr nonnull @_ZTIN5osgeo4proj8metadata14VerticalExtentE, i64 16) #28
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZNK5osgeo4proj8metadata14VerticalExtent15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit, label %8
 
@@ -8111,7 +8111,7 @@ define hidden void @_ZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7
 
 41:                                               ; preds = %.preheader
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #32
-  %43 = tail call i32 @strncmp(ptr noundef nonnull %5, ptr noundef nonnull %38, i64 noundef %42) #32
+  %43 = tail call i32 @strncmp(ptr noundef nonnull readonly %5, ptr noundef nonnull %38, i64 noundef %42) #32
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit, label %45
 
@@ -8371,7 +8371,7 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit107: ; preds = %_ZN5osgeo4proj8met
 
 64:                                               ; preds = %.preheader120
   %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #32
-  %66 = tail call i32 @strncmp(ptr noundef nonnull %8, ptr noundef nonnull %61, i64 noundef %65) #32
+  %66 = tail call i32 @strncmp(ptr noundef nonnull readonly %8, ptr noundef nonnull %61, i64 noundef %65) #32
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit, label %68
 
@@ -8403,7 +8403,7 @@ _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread: ; preds = %68, 
 
 76:                                               ; preds = %.preheader
   %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #32
-  %78 = tail call i32 @strncmp(ptr noundef nonnull %48, ptr noundef nonnull %73, i64 noundef %77) #32
+  %78 = tail call i32 @strncmp(ptr noundef nonnull readonly %48, ptr noundef nonnull %73, i64 noundef %77) #32
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit115, label %80
 

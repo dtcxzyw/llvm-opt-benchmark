@@ -1084,10 +1084,10 @@ define noalias noundef ptr @CmdDupArgv(i32 noundef %0, ptr nocapture noundef rea
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #25
   %11 = add i64 %10, 1
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #21
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %8) #22
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %8) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.lr.ph, %9

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_escrypt_kdf_sse(ptr noundef %local, ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i32 noundef %_r, i32 noundef %_p, ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %local, ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i32 noundef %_r, i32 noundef %_p, ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %_r to i64
   %conv1 = zext i32 %_p to i64

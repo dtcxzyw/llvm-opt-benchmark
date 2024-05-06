@@ -432,7 +432,7 @@ BufferGetPage.exit77:                             ; preds = %72, %78
 BufferGetPage.exit79:                             ; preds = %129, %135
   %.0.i.i78 = phi ptr [ %134, %129 ], [ %140, %135 ]
   %141 = lshr i64 %126, 32
-  %142 = trunc i64 %141 to i32
+  %142 = trunc nuw i64 %141 to i32
   store i32 %142, ptr %.0.i.i78, align 4
   %143 = trunc i64 %126 to i32
   %144 = getelementptr inbounds i8, ptr %.0.i.i78, i64 4
@@ -1063,7 +1063,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
 BufferGetPage.exit115:                            ; preds = %131, %137
   %.0.i.i114 = phi ptr [ %136, %131 ], [ %142, %137 ]
   %143 = lshr i64 %130, 32
-  %144 = trunc i64 %143 to i32
+  %144 = trunc nuw i64 %143 to i32
   store i32 %144, ptr %.0.i.i114, align 4
   %145 = trunc i64 %130 to i32
   %146 = getelementptr inbounds i8, ptr %.0.i.i114, i64 4
@@ -1170,7 +1170,7 @@ BufferGetPage.exit117:                            ; preds = %162, %168
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %2, i8 noundef zeroext 8) #7
   %197 = call i64 @XLogInsert(i8 noundef zeroext 12, i8 noundef zeroext -96) #7
   %198 = lshr i64 %197, 32
-  %199 = trunc i64 %198 to i32
+  %199 = trunc nuw i64 %198 to i32
   store i32 %199, ptr %.0.i.i116, align 4
   %200 = trunc i64 %197 to i32
   %201 = getelementptr inbounds i8, ptr %.0.i.i116, i64 4

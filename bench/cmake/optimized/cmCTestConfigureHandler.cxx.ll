@@ -104,7 +104,7 @@ define dso_local void @_ZN23cmCTestConfigureHandler10InitializeEv(ptr noundef no
 declare void @_ZN21cmCTestGenericHandler10InitializeEv(ptr noundef nonnull align 8 dereferenceable(284)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN23cmCTestConfigureHandler14ProcessHandlerEv(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN23cmCTestConfigureHandler14ProcessHandlerEv(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.cmXMLSafe, align 8
   %3 = alloca %class.cmXMLSafe, align 8
   %4 = alloca %class.cmXMLSafe, align 8

@@ -75,7 +75,7 @@ if.end12:                                         ; preds = %if.else, %if.then9
 declare void @ossl_asn1_primitive_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_TYPE_set1(ptr noundef %a, i32 noundef %type, ptr noundef %value) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_TYPE_set1(ptr noundef %a, i32 noundef %type, ptr noundef %value) local_unnamed_addr #1 {
 entry:
   %a.addr.i22 = alloca ptr, align 8
   %a.addr.i12 = alloca ptr, align 8

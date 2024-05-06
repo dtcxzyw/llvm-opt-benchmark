@@ -410,7 +410,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i79:    ; preds = %51
 
 _ZN7QStringD2Ev.exit81:                           ; preds = %51, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i79, %54
   %56 = getelementptr inbounds i8, ptr %0, i64 288
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %56, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %56, i8 0, i64 40, i1 false)
   %57 = invoke noundef ptr @_ZN18TapParameterDialog14verticalLayoutEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
           to label %58 unwind label %.loopexit.split-lp
 
@@ -2596,7 +2596,7 @@ define void @_ZN22LteMacStatisticsDialog8tapResetEPv(ptr noundef %0) #3 align 2 
   %3 = tail call noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   tail call void @_ZN11QTreeWidget5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -2606,7 +2606,7 @@ define void @_ZN22LteMacStatisticsDialog8tapResetEPv(ptr noundef %0) #3 align 2 
 declare void @_ZN11QTreeWidget5clearEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN22LteMacStatisticsDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN22LteMacStatisticsDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QVariant, align 8
   %7 = alloca %class.QVariant, align 8
   %8 = icmp ne ptr %0, null
@@ -3490,7 +3490,7 @@ define linkonce_odr void @_ZN19MacUETreeWidgetItem4drawEv(ptr noundef nonnull al
   %25 = getelementptr inbounds i8, ptr %0, i64 144
   %26 = getelementptr inbounds i8, ptr %0, i64 112
   %27 = load i32, ptr %26, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull dereferenceable(16) %25, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %24, ptr noundef nonnull readonly dereferenceable(16) %25, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %_ZL12calculate_bwPK8nstime_tS1_j.exit, label %28
 
@@ -3525,7 +3525,7 @@ _ZL12calculate_bwPK8nstime_tS1_j.exit:            ; preds = %1, %28, %44
   %50 = getelementptr inbounds i8, ptr %0, i64 200
   %51 = getelementptr inbounds i8, ptr %0, i64 168
   %52 = load i32, ptr %51, align 8
-  %bcmp.i9 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %49, ptr noundef nonnull dereferenceable(16) %50, i64 16)
+  %bcmp.i9 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %49, ptr noundef nonnull readonly dereferenceable(16) %50, i64 16)
   %.not.i10 = icmp eq i32 %bcmp.i9, 0
   br i1 %.not.i10, label %_ZL12calculate_bwPK8nstime_tS1_j.exit12, label %53
 
@@ -5975,7 +5975,7 @@ _ZN5QListI8QVariantElsEOS0_.exit38:               ; preds = %44
   %46 = getelementptr inbounds i8, ptr %1, i64 128
   %47 = getelementptr inbounds i8, ptr %1, i64 144
   %48 = load i32, ptr %42, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %46, ptr noundef nonnull dereferenceable(16) %47, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %46, ptr noundef nonnull readonly dereferenceable(16) %47, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %_ZL12calculate_bwPK8nstime_tS1_j.exit, label %49
 
@@ -6082,7 +6082,7 @@ _ZN5QListI8QVariantElsEOS0_.exit43:               ; preds = %94
   %96 = getelementptr inbounds i8, ptr %1, i64 184
   %97 = getelementptr inbounds i8, ptr %1, i64 200
   %98 = load i32, ptr %92, align 8
-  %bcmp.i44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %96, ptr noundef nonnull dereferenceable(16) %97, i64 16)
+  %bcmp.i44 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %96, ptr noundef nonnull readonly dereferenceable(16) %97, i64 16)
   %.not.i45 = icmp eq i32 %bcmp.i44, 0
   br i1 %.not.i45, label %_ZL12calculate_bwPK8nstime_tS1_j.exit47, label %99
 

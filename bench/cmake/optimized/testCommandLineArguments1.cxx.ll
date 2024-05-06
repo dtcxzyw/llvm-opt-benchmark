@@ -62,7 +62,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z25testCommandLineArguments1iPPc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z25testCommandLineArguments1iPPc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cmsys::CommandLineArguments", align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -275,7 +275,7 @@ define dso_local noundef i32 @_Z25testCommandLineArguments1iPPc(i32 noundef %0, 
           to label %88 unwind label %.loopexit
 
 88:                                               ; preds = %.lr.ph
-  %89 = trunc i64 %indvars.iv to i32
+  %89 = trunc nuw nsw i64 %indvars.iv to i32
   %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 noundef %89)
           to label %91 unwind label %.loopexit
 

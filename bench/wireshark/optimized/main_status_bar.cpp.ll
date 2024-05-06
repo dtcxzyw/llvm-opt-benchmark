@@ -4696,9 +4696,9 @@ _ZN7QStringD2Ev.exit33:                           ; preds = %59, %_ZN17QArrayDat
 
 76:                                               ; preds = %74
   %.sroa.12.0.extract.shift = lshr i64 %73, 32
-  %.sroa.12.0.extract.trunc = trunc i64 %.sroa.12.0.extract.shift to i32
+  %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
   %.sroa.1.0.extract.shift = lshr i64 %75, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %77 = add i32 %.sroa.1.0.extract.trunc, %.sroa.12.0.extract.trunc
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %79, label %_ZN7QStringD2Ev.exit54
@@ -5101,7 +5101,7 @@ define void @_ZN13MainStatusBar23highlightedFieldChangedEP16FieldInformation(ptr
 
 19:                                               ; preds = %17
   %.sroa.4.0.extract.shift = lshr i64 %18, 32
-  %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %20 = icmp slt i32 %.sroa.4.0.extract.trunc, 2
   br i1 %20, label %21, label %45
 

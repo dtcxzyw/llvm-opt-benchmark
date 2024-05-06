@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [12 x i8] c"#size-cells\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fdt_address_cells(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 1, -1) i32 @fdt_address_cells(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %3) #4
@@ -49,7 +49,7 @@ fdt_cells.exit:                                   ; preds = %7, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fdt_size_cells(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @fdt_size_cells(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %3) #4
@@ -179,13 +179,13 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
 
 31:                                               ; preds = %27
   %32 = lshr i64 %4, 24
-  %33 = trunc i64 %32 to i8
+  %33 = trunc nuw i64 %32 to i8
   store i8 %33, ptr %9, align 16
   br label %49
 
 34:                                               ; preds = %fdt_size_cells.exit.thread
   %35 = lshr i64 %4, 56
-  %36 = trunc i64 %35 to i8
+  %36 = trunc nuw i64 %35 to i8
   store i8 %36, ptr %9, align 16
   %37 = lshr i64 %4, 48
   %38 = trunc i64 %37 to i8
@@ -231,13 +231,13 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
 
 60:                                               ; preds = %58
   %61 = lshr i64 %5, 24
-  %62 = trunc i64 %61 to i8
+  %62 = trunc nuw i64 %61 to i8
   store i8 %62, ptr %57, align 4
   br label %78
 
 63:                                               ; preds = %49
   %64 = lshr i64 %5, 56
-  %65 = trunc i64 %64 to i8
+  %65 = trunc nuw i64 %64 to i8
   store i8 %65, ptr %57, align 4
   %66 = lshr i64 %5, 48
   %67 = trunc i64 %66 to i8

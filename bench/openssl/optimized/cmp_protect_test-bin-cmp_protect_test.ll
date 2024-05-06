@@ -189,7 +189,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -499,7 +499,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmp_calc_protection_pkey() #0 {
+define internal range(i32 0, 2) i32 @test_cmp_calc_protection_pkey() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.44)
   %cmp = icmp eq ptr %call, null
@@ -535,7 +535,7 @@ if.end8.thread:                                   ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit16:                                 ; preds = %lor.lhs.false
-  %call12 = tail call fastcc i32 @execute_calc_protection_signature_test(ptr noundef nonnull %call), !range !5
+  %call12 = tail call fastcc i32 @execute_calc_protection_signature_test(ptr noundef nonnull %call)
   %5 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #5
   br label %return.sink.split
@@ -566,7 +566,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmp_calc_protection_pkey_Ed() #0 {
+define internal range(i32 0, 2) i32 @test_cmp_calc_protection_pkey_Ed() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.45)
   %cmp = icmp eq ptr %call, null
@@ -602,7 +602,7 @@ if.end8.thread:                                   ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit16:                                 ; preds = %lor.lhs.false
-  %call12 = tail call fastcc i32 @execute_calc_protection_signature_test(ptr noundef nonnull %call), !range !5
+  %call12 = tail call fastcc i32 @execute_calc_protection_signature_test(ptr noundef nonnull %call)
   %5 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #5
   br label %return.sink.split
@@ -633,7 +633,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmp_calc_protection_pbmac() #0 {
+define internal range(i32 0, 2) i32 @test_cmp_calc_protection_pbmac() #0 {
 entry:
   %sec_insta = alloca [5 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %sec_insta, ptr noundef nonnull align 1 dereferenceable(5) @__const.test_cmp_calc_protection_pbmac.sec_insta, i64 5, i1 false)
@@ -1732,7 +1732,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_X509_STORE() #0 {
+define internal range(i32 0, 2) i32 @test_X509_STORE() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.60)
   %cmp = icmp eq ptr %call, null
@@ -1804,7 +1804,7 @@ if.end33.thread:                                  ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit21:                                 ; preds = %lor.lhs.false26
-  %call36 = tail call fastcc i32 @execute_X509_STORE_test(ptr noundef nonnull %call), !range !5
+  %call36 = tail call fastcc i32 @execute_X509_STORE_test(ptr noundef nonnull %call)
   %cmp_ctx.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %14 = load ptr, ptr %cmp_ctx.i15, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %14) #5
@@ -1835,7 +1835,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_X509_STORE_only_self_issued() #0 {
+define internal range(i32 0, 2) i32 @test_X509_STORE_only_self_issued() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.61)
   %cmp = icmp eq ptr %call, null
@@ -1900,7 +1900,7 @@ lor.lhs.false35:                                  ; preds = %lor.lhs.false26
   br i1 %tobool43.not, label %return.sink.split, label %tear_down.exit21
 
 tear_down.exit21:                                 ; preds = %lor.lhs.false35
-  %call49 = tail call fastcc i32 @execute_X509_STORE_test(ptr noundef nonnull %call), !range !5
+  %call49 = tail call fastcc i32 @execute_X509_STORE_test(ptr noundef nonnull %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %lor.lhs.false35, %lor.lhs.false26, %lor.lhs.false17, %lor.lhs.false, %if.end, %tear_down.exit21
@@ -2030,7 +2030,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_CMP_CTX_set1_pkey(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_calc_protection_signature_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_calc_protection_signature_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
 entry:
   %prot_part.i = alloca %struct.ossl_cmp_protectedpart_st, align 8
   %cmp_ctx = getelementptr inbounds i8, ptr %fixture, i64 8
@@ -2290,7 +2290,7 @@ declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_X509_STORE_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_X509_STORE_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_STORE_new() #5
   %certs = getelementptr inbounds i8, ptr %fixture, i64 64
@@ -2346,4 +2346,3 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mbedtls_md_context_t = type { ptr, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @mbedtls_ecdsa_can_do(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_ecdsa_can_do(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -9
   %switch.and = and i32 %2, -5
   %switch.selectcmp = icmp ne i32 %switch.and, 0
@@ -439,7 +439,7 @@ define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32
 
 39:                                               ; preds = %33
   %40 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %40, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %4, ptr align 1 %40, i64 %37, i1 false)
   store i64 %37, ptr %6, align 8
   br label %ecdsa_signature_to_asn1.exit
 

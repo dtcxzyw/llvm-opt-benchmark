@@ -131,7 +131,7 @@ archive_entry_xattr_count.exit:                   ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @archive_entry_xattr_next(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
+define dso_local range(i32 -20, 1) i32 @archive_entry_xattr_next(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1232
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null

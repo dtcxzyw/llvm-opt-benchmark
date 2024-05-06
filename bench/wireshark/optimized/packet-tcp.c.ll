@@ -2030,7 +2030,7 @@ define internal i32 @tcp_segment_hash(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @tcp_segment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @tcp_segment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -2185,7 +2185,7 @@ define internal noalias noundef ptr @tcp_segment_persistent_key(ptr nocapture no
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 216
   %12 = load ptr, ptr %11, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %8, ptr %6, align 8
   %13 = icmp eq i32 %10, 0
   br i1 %13, label %copy_address.exit, label %14
@@ -2209,7 +2209,7 @@ copy_address.exit:                                ; preds = %5, %14
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 240
   %26 = load ptr, ptr %25, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store i32 %22, ptr %20, align 8
   %27 = icmp eq i32 %24, 0
   br i1 %27, label %copy_address.exit14, label %28
@@ -2271,7 +2271,7 @@ define internal void @tcp_segment_free_persistent_key(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %2, %4, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i5 = icmp eq i32 %13, 0
@@ -2294,7 +2294,7 @@ free_address.exit:                                ; preds = %2, %4, %8, %11
   br label %free_address.exit7
 
 free_address.exit7:                               ; preds = %free_address.exit, %14, %18, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   tail call void @g_slice_free1(i64 noundef 64, ptr noundef nonnull %0) #20
   br label %22
 
@@ -2707,7 +2707,7 @@ declare void @except_free(ptr noundef) local_unnamed_addr #1
 declare ptr @except_pop() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @decode_tcp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @decode_tcp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.exp_pdu_data_item, align 8
   %10 = alloca [8 x ptr], align 16
   %11 = alloca ptr, align 8
@@ -3946,7 +3946,7 @@ find_maxnextseq.exit.i.i.us:                      ; preds = %.lr.ph.i.i.i.us, %2
   %356 = getelementptr inbounds i8, ptr %351, i64 12
   store i32 %353, ptr %356, align 4
   %357 = getelementptr inbounds i8, ptr %351, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %358 = getelementptr inbounds i8, ptr %351, i64 36
   store i32 0, ptr %358, align 4
   call void @wmem_tree_insert32(ptr noundef %349, i32 noundef %.0451.us.us.i.us, ptr noundef nonnull %351) #20
@@ -4412,7 +4412,7 @@ msp_add_out_of_order.exit.thread.i.us:            ; preds = %414, %408, %403, %3
   %587 = getelementptr inbounds i8, ptr %582, i64 12
   store i32 %584, ptr %587, align 4
   %588 = getelementptr inbounds i8, ptr %582, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %588, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %588, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %589 = getelementptr inbounds i8, ptr %582, i64 36
   store i32 0, ptr %589, align 4
   call void @wmem_tree_insert32(ptr noundef %580, i32 noundef %576, ptr noundef nonnull %582) #20
@@ -4865,7 +4865,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %806 = getelementptr inbounds i8, ptr %801, i64 12
   store i32 %803, ptr %806, align 4
   %807 = getelementptr inbounds i8, ptr %801, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %807, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %807, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %808 = getelementptr inbounds i8, ptr %801, i64 36
   store i32 0, ptr %808, align 4
   call void @wmem_tree_insert32(ptr noundef %799, i32 noundef %778, ptr noundef nonnull %801) #20
@@ -4891,7 +4891,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %821 = getelementptr inbounds i8, ptr %816, i64 12
   store i32 %818, ptr %821, align 4
   %822 = getelementptr inbounds i8, ptr %816, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %822, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %822, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %823 = getelementptr inbounds i8, ptr %816, i64 36
   store i32 0, ptr %823, align 4
   call void @wmem_tree_insert32(ptr noundef %814, i32 noundef %778, ptr noundef nonnull %816) #20
@@ -4915,7 +4915,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %835 = getelementptr inbounds i8, ptr %830, i64 12
   store i32 %832, ptr %835, align 4
   %836 = getelementptr inbounds i8, ptr %830, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %836, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %836, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
   %837 = getelementptr inbounds i8, ptr %830, i64 36
   store i32 0, ptr %837, align 4
   call void @wmem_tree_insert32(ptr noundef %828, i32 noundef %778, ptr noundef nonnull %830) #20
@@ -5427,7 +5427,7 @@ scan_for_next_pdu.exit:                           ; preds = %53, %print_pdu_trac
 
 148:                                              ; preds = %147
   %.0..0..0..0.69 = load volatile i32, ptr %14, align 4
-  %149 = call i32 @decode_tcp_ports(ptr noundef %0, i32 noundef %.0..0..0..0.69, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %5, i32 noundef %6, ptr noundef %10, ptr noundef %11), !range !12
+  %149 = call i32 @decode_tcp_ports(ptr noundef %0, i32 noundef %.0..0..0..0.69, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %5, i32 noundef %6, ptr noundef %10, ptr noundef %11)
   %150 = icmp ne i32 %149, 0
   %151 = icmp ne ptr %10, null
   %152 = and i1 %151, %150
@@ -7542,7 +7542,7 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %916, %903
   %.2541.i = phi i32 [ %.1540.i, %.lr.ph._crit_edge.i ], [ %.1540..i, %955 ]
   %.0530.i = load ptr, ptr %.0530780.i, align 8
   %.not613.i = icmp eq ptr %.0530.i, null
-  br i1 %.not613.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not613.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %959, %943
   %.0542.lcssa.i = phi i32 [ 0, %943 ], [ %.2544.i, %959 ]
@@ -7729,7 +7729,7 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %916, %903
 
 .backedge871.i:                                   ; preds = %1053, %1050
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %1050, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.critedge.i, label %1050, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %.backedge871.i
   br i1 %.not617.i, label %1056, label %.thread758.sink.split.i
@@ -7781,7 +7781,7 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %916, %903
 1084:                                             ; preds = %1079, %.lr.ph786.i
   %.1531.i = load ptr, ptr %.1531784.i, align 8
   %.not620.not.i = icmp eq ptr %.1531.i, null
-  br i1 %.not620.not.i, label %._crit_edge787.i, label %.lr.ph786.i, !llvm.loop !15
+  br i1 %.not620.not.i, label %._crit_edge787.i, label %.lr.ph786.i, !llvm.loop !14
 
 ._crit_edge787.i:                                 ; preds = %1084, %1058
   %1085 = icmp ult i64 %1068, %.0537.i
@@ -7822,7 +7822,7 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %916, %903
 
 .backedge.i.backedge:                             ; preds = %.critedge697.thread.i, %.critedge697.i
   %.0535.i.be = phi i32 [ %.1536.i, %.critedge697.i ], [ 0, %.critedge697.thread.i ]
-  br label %.backedge.i, !llvm.loop !16
+  br label %.backedge.i, !llvm.loop !15
 
 1096:                                             ; preds = %.critedge697.i
   br i1 %.0538.shrunk749.i, label %1097, label %.thread758.i
@@ -7929,7 +7929,7 @@ tcp_analyze_get_acked_struct.exit723.i:           ; preds = %1111, %1098
 1148:                                             ; preds = %1140, %.lr.ph793.i
   %.2.i = load ptr, ptr %.2791.i, align 8
   %.not632.i = icmp eq ptr %.2.i, null
-  br i1 %.not632.i, label %.thread758.i, label %.lr.ph793.i, !llvm.loop !17
+  br i1 %.not632.i, label %.thread758.i, label %.lr.ph793.i, !llvm.loop !16
 
 .thread758.sink.split.sink.split.i:               ; preds = %1094, %1088, %1056, %1042, %1002
   %.sink884.ph.i = phi i16 [ 512, %1094 ], [ 512, %1088 ], [ 1024, %1056 ], [ 1024, %1042 ], [ 16384, %1002 ]
@@ -8353,7 +8353,7 @@ tcp_analyze_get_acked_struct.exit727.i:           ; preds = %1349, %1344
 .outer.i:                                         ; preds = %1361
   %1363 = load ptr, ptr %.3.ph769797.i, align 8
   %.not653796.i = icmp eq ptr %1363, null
-  br i1 %.not653796.i, label %.outer768._crit_edge.i, label %.lr.ph794.lr.ph.i, !llvm.loop !18
+  br i1 %.not653796.i, label %.outer768._crit_edge.i, label %.lr.ph794.lr.ph.i, !llvm.loop !17
 
 1364:                                             ; preds = %1361, %tcp_analyze_get_acked_struct.exit725.i
   %1365 = load ptr, ptr %.3.ph769797.i, align 8
@@ -8401,7 +8401,7 @@ tcp_analyze_get_acked_struct.exit727.i:           ; preds = %1349, %1344
   %1391 = add i16 %1390, -1
   store i16 %1391, ptr %1389, align 8
   %.not653.i = icmp eq ptr %1365, null
-  br i1 %.not653.i, label %.outer768._crit_edge.i, label %.lr.ph794.i, !llvm.loop !18
+  br i1 %.not653.i, label %.outer768._crit_edge.i, label %.lr.ph794.i, !llvm.loop !17
 
 .outer768._crit_edge.i:                           ; preds = %.outer.i, %.outer768.i, %1296
   %1392 = load i32, ptr @tcp_track_bytes_in_flight, align 4
@@ -8453,7 +8453,7 @@ tcp_analyze_get_acked_struct.exit727.i:           ; preds = %1349, %1344
   %.1525.i = call i32 @llvm.umin.i32(i32 %1419, i32 %.0524804.i)
   %1420 = load ptr, ptr %.4803.i, align 8
   %.not657.i = icmp eq ptr %1420, null
-  br i1 %.not657.i, label %1421, label %1413, !llvm.loop !19
+  br i1 %.not657.i, label %1421, label %1413, !llvm.loop !18
 
 1421:                                             ; preds = %1413
   %1422 = sub i32 %spec.select709.i, %.1525.i
@@ -8514,7 +8514,7 @@ tcp_analyze_get_acked_struct.exit727.i:           ; preds = %1349, %1344
   %1451 = add i32 %1448, %.0527806.i
   %1452 = sub i32 %1451, %1450
   %exitcond822.not.i = icmp eq i64 %indvars.iv.next819.i, %wide.trip.count821.i
-  br i1 %exitcond822.not.i, label %1453, label %1446, !llvm.loop !20
+  br i1 %exitcond822.not.i, label %1453, label %1446, !llvm.loop !19
 
 1453:                                             ; preds = %1446
   %1454 = sub i32 %.0528.i, %1452
@@ -8870,7 +8870,7 @@ tcp_analyze_sequence_number.exit:                 ; preds = %1525, %1428, %1424,
 1622:                                             ; preds = %1621, %1618, %1611, %1603
   %indvars.iv.next.i1067 = add nuw nsw i64 %indvars.iv.i1064, 1
   %exitcond.not.i1068 = icmp eq i64 %indvars.iv.next.i1067, 12
-  br i1 %exitcond.not.i1068, label %tcp_flags_to_str_first_letter.exit, label %1595, !llvm.loop !21
+  br i1 %exitcond.not.i1068, label %tcp_flags_to_str_first_letter.exit, label %1595, !llvm.loop !20
 
 tcp_flags_to_str_first_letter.exit:               ; preds = %1622
   %1623 = call ptr @wmem_strbuf_finalize(ptr noundef %1594) #20
@@ -10181,7 +10181,7 @@ tcp_print_timestamps.exit:                        ; preds = %2194, %2217, %.thre
   %.2.i1120 = phi i32 [ %.094153.i, %2255 ], [ %.195.i, %2296 ]
   %.1.i = phi i32 [ %2264, %2255 ], [ %2300, %2296 ]
   %.not.i1121 = icmp eq i32 %.1103.i, 0
-  br i1 %.not.i1121, label %._crit_edge.i1122, label %2233, !llvm.loop !22
+  br i1 %.not.i1121, label %._crit_edge.i1122, label %2233, !llvm.loop !21
 
 ._crit_edge.i1122:                                ; preds = %2302
   %2303 = icmp eq i32 %.2.i1120, 0
@@ -11072,7 +11072,7 @@ proto_item_set_generated.exit48.i:                ; preds = %2711, %2708, %proto
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %2728, ptr noundef nonnull @.str.961, i32 noundef %2734) #20
   %2735 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02.i.i) #20
   %.not.i49.i = icmp eq ptr %2735, null
-  br i1 %.not.i49.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !23
+  br i1 %.not.i49.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !22
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %2727
   %2736 = load i32, ptr @hf_mptcp_analysis_subflows, align 4
@@ -11236,7 +11236,7 @@ mptcp_analysis_add_subflows.exit.i:               ; preds = %2742, %2739, %._cri
 proto_item_set_generated.exit.i.i1144:            ; preds = %2815, %2812, %2807
   %2819 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.089143.i.i) #20
   %.not103.i.i = icmp eq ptr %2819, null
-  br i1 %.not103.i.i, label %.loopexit.i.i, label %.lr.ph.i52.i, !llvm.loop !24
+  br i1 %.not103.i.i, label %.loopexit.i.i, label %.lr.ph.i52.i, !llvm.loop !23
 
 .loopexit.i.i:                                    ; preds = %proto_item_set_generated.exit.i.i1144, %2803, %2802
   %.2.i.i1145 = phi ptr [ %2799, %2802 ], [ %2799, %2803 ], [ %2805, %proto_item_set_generated.exit.i.i1144 ]
@@ -11494,12 +11494,12 @@ mptcp_select_subflow_from_meta.exit.i.i:          ; preds = %2936, %.lr.ph146.i.
 proto_item_set_generated.exit.i.i.i:              ; preds = %2963, %2960, %2954
   %2967 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0193.i.i.i) #20
   %.not.i126.i.i = icmp eq ptr %2967, null
-  br i1 %.not.i126.i.i, label %mptcp_add_duplicated_dsn.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
+  br i1 %.not.i126.i.i, label %mptcp_add_duplicated_dsn.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
 mptcp_add_duplicated_dsn.exit.i.i:                ; preds = %proto_item_set_generated.exit.i.i.i, %2940, %mptcp_select_subflow_from_meta.exit.i.i
   %2968 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.087145.i.i) #20
   %.not116.i.i = icmp eq ptr %2968, null
-  br i1 %.not116.i.i, label %mptcp_add_analysis_subtree.exit, label %.lr.ph146.i.i, !llvm.loop !26
+  br i1 %.not116.i.i, label %mptcp_add_analysis_subtree.exit, label %.lr.ph146.i.i, !llvm.loop !25
 
 mptcp_add_analysis_subtree.exit:                  ; preds = %mptcp_add_duplicated_dsn.exit.i.i, %2921, %2918, %2916, %proto_item_set_generated.exit124.i.i, %2844, %.thread.i.i, %2748, %mptcp_analysis_add_subflows.exit.i, %2660, %verify_scps.exit
   %2969 = load i8, ptr %197, align 8
@@ -11836,7 +11836,7 @@ proto_item_set_generated.exit1148:                ; preds = %3067, %3071, %3074
 declare ptr @register_capture_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @capture_tcp(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @capture_tcp(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = icmp ugt i32 %1, -5
   %7 = add i32 %1, 4
   %.not = icmp ugt i32 %7, %2
@@ -12042,7 +12042,7 @@ define internal noalias ptr @tcp_build_filter(ptr noundef %0, ptr nocapture read
 declare void @register_seq_analysis(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tcp_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @tcp_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = tail call ptr @sequence_analysis_create_sai_with_addresses(ptr noundef %1, ptr noundef %0) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %51, label %7
@@ -12204,7 +12204,7 @@ define internal noundef i32 @follow_tcp_tap_listener(ptr nocapture noundef %0, p
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds i8, ptr %1, i64 216
   %37 = load ptr, ptr %36, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store i32 %33, ptr %31, align 8
   %38 = icmp eq i32 %35, 0
   br i1 %38, label %copy_address.exit, label %39
@@ -12232,7 +12232,7 @@ copy_address.exit:                                ; preds = %28, %39
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %1, i64 240
   %54 = load ptr, ptr %53, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 %50, ptr %48, align 8
   %55 = icmp eq i32 %52, 0
   br i1 %55, label %copy_address.exit104, label %56
@@ -12307,9 +12307,9 @@ addresses_equal.exit:                             ; preds = %75, %67, %copy_addr
   %99 = load i32, ptr %98, align 4
   %100 = load ptr, ptr %95, align 8
   %101 = load i32, ptr %100, align 8
-  %102 = tail call fastcc i32 @check_follow_fragments(ptr noundef %0, i32 noundef %91, i32 noundef %99, i32 noundef %101, i32 noundef 1), !range !12
+  %102 = tail call fastcc i32 @check_follow_fragments(ptr noundef %0, i32 noundef %91, i32 noundef %99, i32 noundef %101, i32 noundef 1)
   %.not101 = icmp eq i32 %102, 0
-  br i1 %.not101, label %.loopexit, label %96, !llvm.loop !27
+  br i1 %.not101, label %.loopexit, label %96, !llvm.loop !26
 
 .loopexit:                                        ; preds = %96, %addresses_equal.exit
   %103 = getelementptr inbounds i8, ptr %0, i64 24
@@ -12400,9 +12400,9 @@ select.unfold:                                    ; preds = %.select.unfold_crit
 152:                                              ; preds = %152, %143
   %153 = load ptr, ptr %129, align 8
   %154 = load i32, ptr %153, align 8
-  %155 = tail call fastcc i32 @check_follow_fragments(ptr noundef %0, i32 noundef %89, i32 noundef 0, i32 noundef %154, i32 noundef 0), !range !12
+  %155 = tail call fastcc i32 @check_follow_fragments(ptr noundef %0, i32 noundef %89, i32 noundef 0, i32 noundef %154, i32 noundef 0)
   %.not103 = icmp eq i32 %155, 0
-  br i1 %.not103, label %.thread, label %152, !llvm.loop !28
+  br i1 %.not103, label %.thread, label %152, !llvm.loop !27
 
 156:                                              ; preds = %127
   %157 = getelementptr [2 x ptr], ptr %90, i64 0, i64 %104
@@ -13043,7 +13043,7 @@ define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %77, ptr noundef nonnull @.str.996, i32 noundef %98, i32 noundef %113) #20
   %155 = add nuw i32 %.0130175, 8
   %156 = icmp ugt i32 %.0176, 8
-  br i1 %156, label %91, label %.loopexit.loopexit, !llvm.loop !29
+  br i1 %156, label %91, label %.loopexit.loopexit, !llvm.loop !28
 
 .loopexit.loopexit:                               ; preds = %154
   %157 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -13430,7 +13430,7 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
   %.1 = phi i32 [ 1, %75 ], [ %.0103126, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %82, label %71, !llvm.loop !30
+  br i1 %exitcond.not, label %82, label %71, !llvm.loop !29
 
 82:                                               ; preds = %81
   %83 = load ptr, ptr %69, align 8
@@ -13496,7 +13496,7 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
   %116 = add nuw nsw i32 %113, %109
   %117 = and i32 %116, 255
   %118 = icmp ugt i32 %5, %117
-  br i1 %118, label %99, label %.loopexit, !llvm.loop !31
+  br i1 %118, label %99, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %99, %96, %95, %84, %89
   %119 = tail call i32 @tvb_captured_length(ptr noundef %0) #20
@@ -15135,7 +15135,7 @@ proto_item_set_generated.exit467:                 ; preds = %524, %529, %532
   %538 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %537, ptr noundef %0, i32 noundef %.7489, i32 noundef 1, i32 noundef 0) #20
   %539 = add nuw nsw i32 %.7489, 1
   %exitcond.not = icmp eq i32 %539, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 540:                                              ; preds = %91
   %541 = getelementptr inbounds i8, ptr %.0417, i64 20
@@ -15217,7 +15217,7 @@ proto_item_set_generated.exit467:                 ; preds = %524, %529, %532
   %591 = load i32, ptr %590, align 4
   %592 = getelementptr inbounds i8, ptr %3, i64 56
   %593 = load ptr, ptr %592, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %587, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %587, i8 0, i64 24, i1 false)
   store i32 %589, ptr %587, align 8
   %594 = icmp eq i32 %591, 0
   br i1 %594, label %copy_address_wmem.exit, label %595
@@ -15247,7 +15247,7 @@ copy_address_wmem.exit:                           ; preds = %580, %595
   %611 = load i32, ptr %610, align 4
   %612 = getelementptr inbounds i8, ptr %3, i64 80
   %613 = load ptr, ptr %612, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %607, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %607, i8 0, i64 24, i1 false)
   store i32 %609, ptr %607, align 8
   %614 = icmp eq i32 %611, 0
   br i1 %614, label %copy_address_wmem.exit468, label %615
@@ -15552,7 +15552,7 @@ declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare ptr @wmem_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_ooo_segment_item(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compare_ooo_segment_item(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -15728,7 +15728,7 @@ define internal fastcc noundef ptr @tcp_flags_to_str(ptr noundef %0, ptr nocaptu
   %.not = icmp eq i32 %20, 0
   %21 = select i1 %.not, i64 9, i64 6
   %22 = icmp ult i64 %indvars.iv.next, %21
-  br i1 %22, label %6, label %23, !llvm.loop !33
+  br i1 %22, label %6, label %23, !llvm.loop !32
 
 23:                                               ; preds = %19
   %.pre31 = load i16, ptr %5, align 8
@@ -15995,7 +15995,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare void @g_queue_push_tail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_follow_fragments(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_follow_fragments(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = zext nneg i32 %1 to i64
   %8 = getelementptr [2 x ptr], ptr %6, i64 0, i64 %7
@@ -16129,7 +16129,7 @@ define internal fastcc noundef i32 @check_follow_fragments(ptr nocapture noundef
   %87 = getelementptr inbounds i8, ptr %.092117, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not = icmp eq ptr %88, null
-  br i1 %.not, label %89, label %19, !llvm.loop !34
+  br i1 %.not, label %89, label %19, !llvm.loop !33
 
 89:                                               ; preds = %86
   %.not97 = icmp ne i32 %4, 0
@@ -16811,7 +16811,7 @@ attributes #25 = { nounwind allocsize(0,1) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
@@ -16833,4 +16833,3 @@ attributes #25 = { nounwind allocsize(0,1) }
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

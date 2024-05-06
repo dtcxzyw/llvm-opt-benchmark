@@ -81,7 +81,7 @@ define noundef ptr @Cnf_CutCreate(ptr nocapture noundef readonly %0, ptr nocaptu
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 56
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %Dar_ObjBestCut.exit, label %.lr.ph.preheader.i
 
@@ -120,7 +120,7 @@ Dar_ObjBestCut.exit:                              ; preds = %.lr.ph.i, %11, %2
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %25, i32 noundef %23) #12
-  %27 = trunc i32 %16 to i8
+  %27 = trunc nuw nsw i32 %16 to i8
   store i8 %27, ptr %26, align 8
   %28 = trunc i32 %20 to i16
   %29 = getelementptr inbounds i8, ptr %26, i64 2
@@ -499,7 +499,7 @@ define noundef ptr @Cnf_CutCompose(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %._crit_edge.loopexit.split.loop.exit, %4
@@ -612,7 +612,7 @@ Cnf_CutRemoveIthVar.exit:                         ; preds = %25, %._crit_edge
   br label %74
 
 .preheader.loopexit.i:                            ; preds = %74
-  %65 = trunc i64 %indvars.iv.next21.i to i32
+  %65 = trunc nuw i64 %indvars.iv.next21.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %.critedge.i
@@ -655,7 +655,7 @@ Cnf_CutRemoveIthVar.exit:                         ; preds = %25, %._crit_edge
   br i1 %83, label %79, label %._crit_edge.loopexit.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %79
-  %84 = trunc i64 %indvars.iv.next29.i to i32
+  %84 = trunc nuw i64 %indvars.iv.next29.i to i32
   br label %Cnf_CutMergeLeaves.exit
 
 Cnf_CutMergeLeaves.exit:                          ; preds = %.preheader.i, %._crit_edge.loopexit.i
@@ -753,7 +753,7 @@ Cnf_CutInsertIthVar.exit:                         ; preds = %Cnf_CutInsertIthVar
   %indvars.iv186 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next187, %132 ]
   %133 = load i16, ptr %129, align 2
   %134 = sext i16 %133 to i32
-  %135 = trunc i64 %indvars.iv186 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv186 to i32
   %136 = srem i32 %135, %134
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr inbounds i32, ptr %121, i64 %137
@@ -772,7 +772,7 @@ Cnf_CutInsertIthVar.exit:                         ; preds = %Cnf_CutInsertIthVar
   %indvars.iv189 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next190, %146 ]
   %147 = load i16, ptr %131, align 2
   %148 = sext i16 %147 to i32
-  %149 = trunc i64 %indvars.iv189 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv189 to i32
   %150 = srem i32 %149, %148
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds i32, ptr %125, i64 %151
@@ -825,7 +825,7 @@ Cnf_TruthPhase.exit.thread:                       ; preds = %._crit_edge182
   %176 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %175
   %177 = load i32, ptr %176, align 4
   %178 = icmp sge i32 %174, %177
-  %179 = trunc i64 %indvars.iv.i122 to i32
+  %179 = trunc nuw nsw i64 %indvars.iv.i122 to i32
   %180 = shl nuw i32 1, %179
   %181 = select i1 %178, i32 %180, i32 0
   %.114.i = or i32 %181, %.01315.i
@@ -858,7 +858,7 @@ Cnf_TruthPhase.exit:                              ; preds = %170, %172
   %194 = getelementptr inbounds [0 x i32], ptr %122, i64 0, i64 %193
   %195 = load i32, ptr %194, align 4
   %196 = icmp sge i32 %192, %195
-  %197 = trunc i64 %indvars.iv.i127 to i32
+  %197 = trunc nuw nsw i64 %indvars.iv.i127 to i32
   %198 = shl nuw i32 1, %197
   %199 = select i1 %196, i32 %198, i32 0
   %.114.i130 = or i32 %199, %.01315.i129

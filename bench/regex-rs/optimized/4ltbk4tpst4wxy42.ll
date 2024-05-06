@@ -71,7 +71,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %.sroa.0.0.copyload, i64 %.sroa.4.0.copyload, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %.sroa.0.0.copyload, i64 %.sroa.4.0.copyload, i1 false)
   %9 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %.sroa.9.0.copyload, i64 %.sroa.55.0.copyload
   store i64 %6, ptr %9, align 8, !noalias !21
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -150,7 +150,7 @@ define hidden void @"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$L
   %17 = extractvalue { i64, ptr } %15, 1
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %7, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %19 = load ptr, ptr %10, align 8, !alias.scope !108, !noalias !109, !noundef !59
@@ -291,7 +291,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17haef091115a
   %17 = extractvalue { i64, ptr } %15, 1
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %7, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %19 = load ptr, ptr %10, align 8, !alias.scope !200, !noalias !201, !noundef !59
@@ -429,7 +429,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %17 = extractvalue { i64, ptr } %15, 1
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %7, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %19 = load ptr, ptr %10, align 8, !alias.scope !291, !noalias !292, !noundef !59

@@ -519,17 +519,17 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %8, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %cmp.i12.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
-  %incdec.ptr.i.i.i13.i = getelementptr inbounds i8, ptr %1, i64 -8
-  %retval.sroa.0.0.i14.i = select i1 %cmp.i12.not.i, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i13.i
-  %call30.i = tail call ptr @_ZN6hermes2vm15iterableToArrayERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i14.i) #6
+  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %1, i64 -8
+  %retval.sroa.0.0.i15.i = select i1 %cmp.i12.not.i, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i14.i
+  %call30.i = tail call ptr @_ZN6hermes2vm15iterableToArrayERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i15.i) #6
   %cmp.i.i.not.i = icmp eq ptr %call30.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not.i, label %_ZN6hermes2vmL29constructAggregateErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_8JSObjectEEE.exit, label %if.end36.i
 
 if.end36.i:                                       ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit.i
   %call.i.i = tail call i32 @_ZN6hermes2vm8JSObject25defineOwnPropertyInternalENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_19DefinePropertyFlagsENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr %retval.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 154, i32 318, ptr %call30.i, i32 0) #6
-  %bf.cast.i.i17.mask.i = and i32 %call.i.i, 255
-  %cmp.i16.i = icmp eq i32 %bf.cast.i.i17.mask.i, 0
-  br i1 %cmp.i16.i, label %_ZN6hermes2vmL29constructAggregateErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_8JSObjectEEE.exit, label %if.end57.i
+  %bf.cast.i.i18.mask.i = and i32 %call.i.i, 255
+  %cmp.i17.i = icmp eq i32 %bf.cast.i.i18.mask.i, 0
+  br i1 %cmp.i17.i, label %_ZN6hermes2vmL29constructAggregateErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_8JSObjectEEE.exit, label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end36.i
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %retval.0.i.i.i.i.i.i.i, align 8

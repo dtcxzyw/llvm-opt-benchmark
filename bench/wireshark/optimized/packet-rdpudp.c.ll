@@ -279,7 +279,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.168 = private unnamed_addr constant [13 x i8] c"SSL fragment\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @rdp_isServerAddressTarget(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rdp_isServerAddressTarget(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %addresses_equal.exit, label %3
@@ -385,7 +385,7 @@ declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @rdpudp_is_reliable_transport(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rdpudp_is_reliable_transport(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
@@ -507,7 +507,7 @@ define internal i32 @dissect_rdpudp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds i8, ptr %1, i64 240
   %60 = load ptr, ptr %59, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   store i32 %56, ptr %54, align 8
   %61 = icmp eq i32 %58, 0
   br i1 %61, label %copy_address_wmem.exit.i, label %62
@@ -831,7 +831,7 @@ copy_address_wmem.exit.i:                         ; preds = %62, %52
   br i1 %256, label %257, label %322
 
 257:                                              ; preds = %254
-  %258 = tail call i32 @rdp_isServerAddressTarget(ptr noundef nonnull %1), !range !6
+  %258 = tail call i32 @rdp_isServerAddressTarget(ptr noundef nonnull %1)
   %259 = icmp eq i8 %190, 8
   %260 = load i32, ptr @ett_rdpudp2_data, align 4
   %261 = select i1 %259, ptr @.str.160, ptr @.str.12
@@ -1052,7 +1052,7 @@ proto_item_set_generated.exit.i:                  ; preds = %315, %312, %307
   %392 = call ptr @proto_tree_add_item(ptr noundef %.sink.i, i32 noundef %391, ptr noundef %184, i32 noundef %348, i32 noundef 1, i32 noundef -2147483648) #5
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %328
-  br i1 %exitcond.not.i, label %._crit_edge.i31, label %.lr.ph.i30, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i31, label %.lr.ph.i30, !llvm.loop !6
 
 ._crit_edge.i31:                                  ; preds = %390, %345
   %393 = add nuw nsw i32 %.5.i29, %328
@@ -1067,7 +1067,7 @@ proto_item_set_generated.exit.i:                  ; preds = %315, %312, %307
   br i1 %or.cond.i, label %397, label %dissect_rdpudp_v2.exit
 
 397:                                              ; preds = %395
-  %398 = call i32 @rdp_isServerAddressTarget(ptr noundef nonnull %1), !range !6
+  %398 = call i32 @rdp_isServerAddressTarget(ptr noundef nonnull %1)
   %.not264.i = icmp eq i32 %398, 0
   %.in.v.i = select i1 %.not264.i, i64 40, i64 80
   %.in.i = getelementptr inbounds i8, ptr %.0, i64 %.in.v.i
@@ -1384,5 +1384,4 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

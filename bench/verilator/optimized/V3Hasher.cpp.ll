@@ -1262,7 +1262,7 @@ define dso_local i32 @_ZN8V3Hasher12uncachedHashEPK7AstNode(ptr noundef %0) loca
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_Z20V3HasherUncachedHashRK7AstNode(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_Z20V3HasherUncachedHashRK7AstNode(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.HasherVisitor, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV13HasherVisitor, i64 0, i32 0, i64 2), ptr %2, align 8
@@ -5805,7 +5805,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %57, %47, %_ZN7AstNo
   %77 = load i32, ptr %70, align 8
   %78 = trunc i64 %76 to i32
   %79 = lshr i64 %76, 32
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw i64 %79 to i32
   %81 = add i32 %80, -1640531527
   %82 = shl i32 %78, 6
   %83 = add i32 %81, %82

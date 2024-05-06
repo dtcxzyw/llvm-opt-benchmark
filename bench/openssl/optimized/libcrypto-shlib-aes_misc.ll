@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [13 x i8] c"aes(partial)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @AES_options() local_unnamed_addr #0 {
+define noundef nonnull ptr @AES_options() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }

@@ -8185,7 +8185,7 @@ return:                                           ; preds = %_ZNK6icu_7513Unicod
 declare noundef signext i8 @_ZN6icu_7517DateFormatSymbols14isNumericFieldE16UDateFormatFieldi(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7516SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %patternOffset) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %patternOffset) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %patternOffset, 1
   br i1 %cmp, label %return, label %if.end
@@ -8698,7 +8698,7 @@ if.else136:                                       ; preds = %for.body, %_ZNK6icu
   %vfn145 = getelementptr inbounds i8, ptr %vtable144, i64 96
   %65 = load ptr, ptr %vfn145, align 8
   %call146 = call noundef signext i8 %65(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  %call147 = call noundef signext i8 @_ZN6icu_7516SimpleDateFormat13matchLiteralsERKNS_13UnicodeStringERiS3_S4_aaa(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull align 4 dereferenceable(4) %i, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 4 dereferenceable(4) %pos, i8 noundef signext %call140, i8 noundef signext %call143, i8 noundef signext %call146), !range !21
+  %call147 = call noundef signext i8 @_ZN6icu_7516SimpleDateFormat13matchLiteralsERKNS_13UnicodeStringERiS3_S4_aaa(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull align 4 dereferenceable(4) %i, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 4 dereferenceable(4) %pos, i8 noundef signext %call140, i8 noundef signext %call143, i8 noundef signext %call146)
   %tobool148.not = icmp eq i8 %call147, 0
   br i1 %tobool148.not, label %if.then149, label %if.else136.for.inc_crit_edge
 
@@ -8724,7 +8724,7 @@ for.inc:                                          ; preds = %if.else136.for.inc_
   %69 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %69, i32 %shr.i.i
   %cmp43 = icmp slt i32 %inc152, %cond.i
-  br i1 %cmp43, label %for.body, label %for.end.loopexit, !llvm.loop !22
+  br i1 %cmp43, label %for.body, label %for.end.loopexit, !llvm.loop !21
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre340 = load i32, ptr %pos, align 4
@@ -9113,7 +9113,7 @@ invoke.cont322:                                   ; preds = %invoke.cont320
 
 if.end326:                                        ; preds = %invoke.cont322
   %call328 = invoke noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %trs)
-          to label %while.cond309 unwind label %lpad314.loopexit.split-lp.loopexit, !llvm.loop !23
+          to label %while.cond309 unwind label %lpad314.loopexit.split-lp.loopexit, !llvm.loop !22
 
 if.then331:                                       ; preds = %invoke.cont315, %while.cond309
   %sub332 = fadd double %add307, -9.460800e+11
@@ -9151,7 +9151,7 @@ if.end349:                                        ; preds = %invoke.cont345
 invoke.cont350:                                   ; preds = %if.end349
   %sub352 = fadd double %call351, -1.000000e+00
   %cmp334 = fcmp ogt double %sub352, %sub332
-  br i1 %cmp334, label %while.body335, label %if.then355, !llvm.loop !24
+  br i1 %cmp334, label %while.body335, label %if.then355, !llvm.loop !23
 
 if.then355:                                       ; preds = %invoke.cont350, %invoke.cont338, %if.then331
   %vtable356 = load ptr, ptr %btz.0, align 8
@@ -9437,7 +9437,7 @@ if.end44:                                         ; preds = %invoke.cont40, %inv
   %19 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %19, i32 %shr.i.i
   %cmp32.not = icmp slt i32 %add, %cond.i
-  br i1 %cmp32.not, label %if.end35, label %if.then33, !llvm.loop !25
+  br i1 %cmp32.not, label %if.end35, label %if.then33, !llvm.loop !24
 
 for.end:                                          ; preds = %invoke.cont40
   %20 = load i32, ptr %start, align 4
@@ -9579,7 +9579,7 @@ if.end136:                                        ; preds = %invoke.cont131
 if.end142:                                        ; preds = %if.then127, %if.end136
   %src.0 = phi ptr [ %temp, %if.end136 ], [ %text, %if.then127 ]
   %34 = load ptr, ptr %currentNumberFormat, align 8
-  invoke void @_ZNK6icu_7516SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %src.0, ptr noundef nonnull align 8 dereferenceable(112) %number, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %allowNegative, ptr noundef %34)
+  invoke void @_ZNK6icu_7516SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %src.0, ptr noundef nonnull align 8 dereferenceable(112) %number, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %allowNegative, ptr noundef %34)
           to label %if.end144 unwind label %lpad15.loopexit.split-lp
 
 if.end144:                                        ; preds = %if.end142, %arraydestroy.done120
@@ -10366,15 +10366,15 @@ while.body:                                       ; preds = %invoke.cont602, %wh
   %mul607 = mul nsw i32 %value.5614, 10
   %inc = add i32 %i.0613, 1
   %exitcond.not = icmp eq i32 %inc, 3
-  br i1 %exitcond.not, label %if.end616, label %while.body, !llvm.loop !26
+  br i1 %exitcond.not, label %if.end616, label %while.body, !llvm.loop !25
 
 while.body611:                                    ; preds = %while.cond609.preheader, %while.body611
   %i.1611 = phi i32 [ %dec613, %while.body611 ], [ %call603, %while.cond609.preheader ]
   %a.0610 = phi i32 [ %mul612, %while.body611 ], [ 1, %while.cond609.preheader ]
-  %mul612 = mul nsw i32 %a.0610, 10
+  %mul612 = mul nuw nsw i32 %a.0610, 10
   %dec613 = add nsw i32 %i.1611, -1
   %cmp610 = icmp ugt i32 %i.1611, 4
-  br i1 %cmp610, label %while.body611, label %while.end614, !llvm.loop !27
+  br i1 %cmp610, label %while.body611, label %while.end614, !llvm.loop !26
 
 while.end614:                                     ; preds = %while.body611, %while.cond609.preheader
   %a.0.lcssa = phi i32 [ 1, %while.cond609.preheader ], [ %mul612, %while.body611 ]
@@ -11547,7 +11547,7 @@ if.end1309:                                       ; preds = %invoke.cont1304
 if.end1315:                                       ; preds = %sw.epilog1296, %if.end1309
   %src1300.0 = phi ptr [ %temp, %if.end1309 ], [ %text, %sw.epilog1296 ]
   %298 = load ptr, ptr %currentNumberFormat, align 8
-  invoke void @_ZNK6icu_7516SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %src1300.0, ptr noundef nonnull align 8 dereferenceable(112) %number, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %allowNegative, ptr noundef %298)
+  invoke void @_ZNK6icu_7516SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %src1300.0, ptr noundef nonnull align 8 dereferenceable(112) %number, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %allowNegative, ptr noundef %298)
           to label %invoke.cont1316 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont1316:                                  ; preds = %if.end1315
@@ -11757,7 +11757,7 @@ ehcleanup1423:                                    ; preds = %ehcleanup1421, %lpa
 declare noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7516SimpleDateFormat13matchLiteralsERKNS_13UnicodeStringERiS3_S4_aaa(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, ptr nocapture noundef nonnull align 4 dereferenceable(4) %patternOffset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %textOffset, i8 noundef signext %whitespaceLenient, i8 noundef signext %partialMatchLenient, i8 noundef signext %oldLeniency) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516SimpleDateFormat13matchLiteralsERKNS_13UnicodeStringERiS3_S4_aaa(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, ptr nocapture noundef nonnull align 4 dereferenceable(4) %patternOffset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %textOffset, i8 noundef signext %whitespaceLenient, i8 noundef signext %partialMatchLenient, i8 noundef signext %oldLeniency) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ch.addr.i = alloca i16, align 2
   %literal = alloca %"class.icu_75::UnicodeString", align 8
@@ -11899,7 +11899,7 @@ for.inc:                                          ; preds = %_ZN6icu_7513Unicode
   %shr.i.i = sext i16 %13 to i32
   %cond.i = select i1 %cmp.i.i, i32 %11, i32 %shr.i.i
   %cmp = icmp slt i32 %add24.pre-phi, %cond.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.inc, %_ZN6icu_7516SimpleDateFormat12isSyntaxCharEDs.exit, %entry
   %i.0.lcssa = phi i32 [ %0, %entry ], [ %i.0326, %_ZN6icu_7516SimpleDateFormat12isSyntaxCharEDs.exit ], [ %add24.pre-phi, %for.inc ]
@@ -11968,7 +11968,7 @@ while.body:                                       ; preds = %invoke.cont35
   %cond.i91 = select i1 %cmp.i.i88, i32 %26, i32 %shr.i.i89
   %27 = sext i32 %cond.i91 to i64
   %cmp31 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %cmp31, label %land.rhs, label %if.end39, !llvm.loop !29
+  br i1 %cmp31, label %land.rhs, label %if.end39, !llvm.loop !28
 
 if.end39:                                         ; preds = %while.body, %invoke.cont35, %invoke.cont29.preheader, %for.end
   %t.1 = phi i32 [ %14, %for.end ], [ %14, %invoke.cont29.preheader ], [ %add38, %while.body ], [ %20, %invoke.cont35 ]
@@ -12059,7 +12059,7 @@ while.body62:                                     ; preds = %invoke.cont58
   %cond.i121 = select i1 %cmp.i.i118, i32 %45, i32 %shr.i.i119
   %46 = sext i32 %cond.i121 to i64
   %cmp53 = icmp slt i64 %indvars.iv.next383, %46
-  br i1 %cmp53, label %land.rhs54, label %while.end64.thread401, !llvm.loop !30
+  br i1 %cmp53, label %land.rhs54, label %while.end64.thread401, !llvm.loop !29
 
 while.end64.thread401:                            ; preds = %while.body62
   %.pre390.pre404 = load i16, ptr %fUnion.i.i112, align 8
@@ -12133,7 +12133,7 @@ if.end84:                                         ; preds = %invoke.cont80, %inv
   %cond.i141 = select i1 %cmp.i.i138, i32 %56, i32 %shr.i.i139
   %57 = sext i32 %cond.i141 to i64
   %cmp70 = icmp slt i64 %indvars.iv.next385, %57
-  br i1 %cmp70, label %while.body71, label %while.end86, !llvm.loop !31
+  br i1 %cmp70, label %while.body71, label %while.end86, !llvm.loop !30
 
 while.end86:                                      ; preds = %if.end84, %invoke.cont80, %invoke.cont68.preheader
   %t.3.lcssa = phi i32 [ %t.2361, %invoke.cont68.preheader ], [ %50, %invoke.cont80 ], [ %add85, %if.end84 ]
@@ -12355,7 +12355,7 @@ invoke.cont41.backedge:                           ; preds = %invoke.cont126, %in
   %101 = load i32, ptr %fLength.i110, align 4
   %cond.i111 = select i1 %cmp.i.i108, i32 %101, i32 %shr.i.i109
   %cmp43 = icmp slt i32 %p.0.be, %cond.i111
-  br i1 %cmp43, label %invoke.cont45, label %for.end141, !llvm.loop !32
+  br i1 %cmp43, label %invoke.cont45, label %for.end141, !llvm.loop !31
 
 for.end141:                                       ; preds = %invoke.cont45, %invoke.cont92, %invoke.cont41.backedge, %if.end132
   %t.5 = phi i32 [ %t.4, %if.end132 ], [ %t.2361, %invoke.cont45 ], [ %t.3.lcssa, %invoke.cont92 ], [ %t.2.be, %invoke.cont41.backedge ]
@@ -12461,7 +12461,7 @@ for.inc169:                                       ; preds = %invoke.cont164
   %cond.i249 = select i1 %cmp.i.i246, i32 %120, i32 %shr.i.i247
   %121 = sext i32 %cond.i249 to i64
   %cmp156 = icmp slt i64 %indvars.iv.next387, %121
-  br i1 %cmp156, label %for.body157, label %if.end172, !llvm.loop !33
+  br i1 %cmp156, label %for.body157, label %if.end172, !llvm.loop !32
 
 if.end172:                                        ; preds = %invoke.cont164, %for.inc169, %for.body157.lr.ph, %if.end152, %for.end141
   %t.7 = phi i32 [ %t.5, %for.end141 ], [ %108, %if.end152 ], [ %108, %for.body157.lr.ph ], [ %114, %invoke.cont164 ], [ %add170, %for.inc169 ]
@@ -12524,7 +12524,7 @@ invoke.cont:                                      ; preds = %for.body
   %spec.select8 = select i1 %cmp2, i32 %0, i32 %bestMatch.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 lpad.loopexit:                                    ; preds = %for.body
   %lpad.loopexit9 = landingpad { ptr, i32 }
@@ -12546,7 +12546,7 @@ for.end:                                          ; preds = %invoke.cont
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %for.end
-  %mul = mul nsw i32 %spec.select8, 3
+  %mul = mul nuw nsw i32 %spec.select8, 3
   invoke void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %cal, i32 noundef %field, i32 noundef %mul)
           to label %invoke.cont5 unwind label %lpad.loopexit.split-lp
 
@@ -12696,7 +12696,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %spec.select8 = select i1 %cmp2, i32 %0, i32 %bestMatch.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
 
 for.end:                                          ; preds = %for.body
   %cmp3 = icmp sgt i32 %spec.select8, -1
@@ -12755,7 +12755,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %spec.select19 = select i1 %cmp2, i32 %0, i32 %bestMatch.025
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond3.preheader, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.cond3.preheader, label %for.body, !llvm.loop !35
 
 for.body5:                                        ; preds = %for.body5.preheader, %for.body5
   %indvars.iv34 = phi i64 [ 0, %for.body5.preheader ], [ %indvars.iv.next35, %for.body5 ]
@@ -12769,7 +12769,7 @@ for.body5:                                        ; preds = %for.body5.preheader
   %spec.select21 = select i1 %cmp10, i32 %1, i32 %bestMatch.230
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %for.end15, label %for.body5, !llvm.loop !37
+  br i1 %exitcond38.not, label %for.end15, label %for.body5, !llvm.loop !36
 
 for.end15:                                        ; preds = %for.body5, %for.cond3.preheader
   %bestMatchLength.2.lcssa = phi i32 [ %spec.select, %for.cond3.preheader ], [ %spec.select20, %for.body5 ]
@@ -12839,7 +12839,7 @@ invoke.cont.us:                                   ; preds = %for.body.us
   %spec.select31.us = select i1 %cmp3.us, i32 %1, i32 %bestMatch.054.us
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %for.end, label %for.body.us, !llvm.loop !38
+  br i1 %exitcond67.not, label %for.end, label %for.body.us, !llvm.loop !37
 
 lpad.loopexit.split.us:                           ; preds = %for.body.us
   %lpad.loopexit34.us = landingpad { ptr, i32 }
@@ -12923,7 +12923,7 @@ if.end24:                                         ; preds = %invoke.cont19, %if.
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %leapMonthName) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count66
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
 ehcleanup:                                        ; preds = %lpad9, %lpad.i, %lpad13
   %.pn = phi { ptr, i32 } [ %6, %lpad13 ], [ %5, %lpad9 ], [ %3, %lpad.i ]
@@ -13201,7 +13201,7 @@ while.body:                                       ; preds = %entry, %while.body
   %cond = select i1 %cmp3, i32 1, i32 2
   %add = add nsw i32 %cond, %idx.06
   %cmp = icmp slt i32 %add, %end
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !39
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !38
 
 while.end:                                        ; preds = %while.body, %entry
   %numDigits.0.lcssa = phi i32 [ 0, %entry ], [ %spec.select, %while.body ]
@@ -13352,7 +13352,7 @@ while.body:                                       ; preds = %if.then31, %while.b
   %div = sdiv i32 %val.042, 10
   %dec = add nsw i32 %nDigits.041, -1
   %cmp35 = icmp ugt i32 %nDigits.041, 1
-  br i1 %cmp35, label %while.body, label %while.end, !llvm.loop !40
+  br i1 %cmp35, label %while.body, label %while.end, !llvm.loop !39
 
 while.end:                                        ; preds = %while.body, %if.then31
   %val.0.lcssa = phi i32 [ %conv.i21, %if.then31 ], [ %div, %while.body ]
@@ -13516,7 +13516,7 @@ if.end23:                                         ; preds = %if.then5, %if.else1
   %cond.i = select i1 %cmp.i.i, i32 %22, i32 %shr.i.i
   %23 = sext i32 %cond.i to i64
   %cmp = icmp slt i64 %indvars.iv.next, %23
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !41
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %if.end23
   br i1 %inQuote.1.shrunk, label %if.end27.sink.split, label %if.end27
@@ -14178,15 +14178,15 @@ declare void @_ZN6icu_7510DateFormat10setContextE15UDisplayContextR10UErrorCode(
 declare noundef ptr @_ZN6icu_7513BreakIterator22createSentenceInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7516SimpleDateFormat18isFieldUnitIgnoredE19UCalendarDateFields(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %this, i32 noundef %field) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7516SimpleDateFormat18isFieldUnitIgnoredE19UCalendarDateFields(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %this, i32 noundef %field) local_unnamed_addr #8 align 2 {
 entry:
   %fPattern = getelementptr inbounds i8, ptr %this, i64 352
-  %call = tail call noundef signext i8 @_ZN6icu_7516SimpleDateFormat18isFieldUnitIgnoredERKNS_13UnicodeStringE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, i32 noundef %field), !range !21
+  %call = tail call noundef signext i8 @_ZN6icu_7516SimpleDateFormat18isFieldUnitIgnoredERKNS_13UnicodeStringE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, i32 noundef %field)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_7516SimpleDateFormat18isFieldUnitIgnoredERKNS_13UnicodeStringE19UCalendarDateFields(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %field) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516SimpleDateFormat18isFieldUnitIgnoredERKNS_13UnicodeStringE19UCalendarDateFields(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %field) local_unnamed_addr #8 align 2 {
 entry:
   %idxprom = zext i32 %field to i64
   %arrayidx = getelementptr inbounds [24 x i32], ptr @_ZN6icu_7516SimpleDateFormat22fgCalendarFieldToLevelE, i64 0, i64 %idxprom
@@ -14300,7 +14300,7 @@ for.inc:                                          ; preds = %_ZN6icu_7516SimpleD
   %i.1 = phi i32 [ %i.063, %if.else ], [ %i.063, %if.else22 ], [ %add, %_ZNK6icu_7513UnicodeStringixEi.exit41 ], [ %i.063, %_ZN6icu_7516SimpleDateFormat12isSyntaxCharEDs.exit ]
   %inc31 = add nsw i32 %i.1, 1
   %cmp = icmp slt i32 %inc31, %cond.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !42
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !41
 
 for.end:                                          ; preds = %for.inc
   %10 = icmp sgt i32 %count.2, 0
@@ -14387,14 +14387,14 @@ while.cond:                                       ; preds = %if.end
   %8 = load i32, ptr %fLength.i38, align 4
   %cond.i39 = select i1 %cmp.i.i36, i32 %8, i32 %shr.i.i37
   %cmp6 = icmp slt i32 %add9, %cond.i39
-  br i1 %cmp6, label %land.rhs, label %while.end, !llvm.loop !43
+  br i1 %cmp6, label %land.rhs, label %while.end, !llvm.loop !42
 
 land.rhs:                                         ; preds = %while.cond
   %cmp14 = icmp ult i32 %call13, 65536
   %cond15 = select i1 %cmp14, i32 1, i32 2
   %call7 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef %add9)
   %cmp8 = icmp eq i32 %call7, %call13
-  br i1 %cmp8, label %while.body, label %while.end, !llvm.loop !43
+  br i1 %cmp8, label %while.body, label %while.end, !llvm.loop !42
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
   %pos.addr.183110 = phi i32 [ %add9, %land.rhs ], [ %pos.addr.0103, %land.rhs.preheader ]
@@ -14415,7 +14415,7 @@ if.end:                                           ; preds = %while.body
   %call13 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %affix, i32 noundef %add)
   %call16 = tail call noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef %call13)
   %tobool17.not = icmp eq i8 %call16, 0
-  br i1 %tobool17.not, label %while.end, label %while.cond, !llvm.loop !43
+  br i1 %tobool17.not, label %while.end, label %while.cond, !llvm.loop !42
 
 while.end:                                        ; preds = %while.cond, %if.end, %while.body, %land.rhs, %land.rhs.preheader, %while.cond.preheader
   %pos.addr.2 = phi i32 [ %pos.addr.0103, %while.cond.preheader ], [ %pos.addr.0103, %land.rhs.preheader ], [ %add9, %land.rhs ], [ %add9, %while.body ], [ %add9, %if.end ], [ %add9, %while.cond ]
@@ -14471,7 +14471,7 @@ if.end.i:                                         ; preds = %while.body.i
   %21 = load i32, ptr %fLength.i38, align 4
   %cond.i.i51 = select i1 %cmp.i.i.i49, i32 %21, i32 %shr.i.i.i50
   %cmp.i = icmp slt i32 %add.i, %cond.i.i51
-  br i1 %cmp.i, label %while.body.i, label %_ZNK6icu_7516SimpleDateFormat15skipUWhiteSpaceERKNS_13UnicodeStringEi.exit, !llvm.loop !44
+  br i1 %cmp.i, label %while.body.i, label %_ZNK6icu_7516SimpleDateFormat15skipUWhiteSpaceERKNS_13UnicodeStringEi.exit, !llvm.loop !43
 
 _ZNK6icu_7516SimpleDateFormat15skipUWhiteSpaceERKNS_13UnicodeStringEi.exit: ; preds = %while.body.i, %if.end.i, %while.end
   %pos.addr.0.lcssa.i = phi i32 [ %pos.addr.2, %while.end ], [ %add.i, %if.end.i ], [ %pos.addr.010.i, %while.body.i ]
@@ -14507,7 +14507,7 @@ if.end.i64:                                       ; preds = %while.body.i59
   %27 = load i32, ptr %fLength.i, align 4
   %cond.i.i70 = select i1 %cmp.i.i.i68, i32 %27, i32 %shr.i.i.i69
   %cmp.i71 = icmp slt i32 %add.i67, %cond.i.i70
-  br i1 %cmp.i71, label %while.body.i59, label %if.end37, !llvm.loop !44
+  br i1 %cmp.i71, label %while.body.i59, label %if.end37, !llvm.loop !43
 
 if.else:                                          ; preds = %for.body
   br i1 %cmp28, label %land.lhs.true29, label %return
@@ -14532,7 +14532,7 @@ if.end37:                                         ; preds = %if.end.i64, %while.
   %30 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %30, i32 %shr.i.i
   %cmp = icmp slt i32 %i.3, %cond.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !45
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
 
 for.end:                                          ; preds = %if.end37, %entry
   %pos.addr.0.lcssa = phi i32 [ %pos, %entry ], [ %pos.addr.3, %if.end37 ]
@@ -14620,7 +14620,7 @@ if.end:                                           ; preds = %while.body
   %5 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %5, i32 %shr.i.i
   %cmp = icmp slt i32 %add, %cond.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !44
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !43
 
 while.end:                                        ; preds = %if.end, %while.body, %entry
   %pos.addr.0.lcssa = phi i32 [ %pos, %entry ], [ %pos.addr.010, %while.body ], [ %add, %if.end ]
@@ -14785,7 +14785,7 @@ attributes #23 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = !{i8 0, i8 2}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
@@ -14809,4 +14809,3 @@ attributes #23 = { nounwind willreturn memory(read) }
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}

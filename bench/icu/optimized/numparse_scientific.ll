@@ -371,19 +371,19 @@ if.then57:                                        ; preds = %if.end52
 if.end58:                                         ; preds = %if.end52
   %bogus = getelementptr inbounds i8, ptr %result, i64 8
   %10 = load i8, ptr %bogus, align 8
-  %11 = and i8 %10, 1
+  %frombool = and i8 %10, 1
   store i8 0, ptr %bogus, align 8
   %call61 = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %fExponentMatcher = getelementptr inbounds i8, ptr %this, i64 72
   %call62 = tail call noundef zeroext i1 @_ZNK6icu_758numparse4impl14DecimalMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %fExponentMatcher, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, i8 noundef signext %exponentSign.0, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store i8 %11, ptr %bogus, align 8
+  store i8 %frombool, ptr %bogus, align 8
   %call68 = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp69.not = icmp eq i32 %call68, %call61
   br i1 %cmp69.not, label %if.else72, label %if.then70
 
 if.then70:                                        ; preds = %if.end58
-  %12 = load i32, ptr %flags, align 4
-  %or = or i32 %12, 8
+  %11 = load i32, ptr %flags, align 4
+  %or = or i32 %11, 8
   store i32 %or, ptr %flags, align 4
   br label %return
 

@@ -29,7 +29,7 @@ define hidden i32 @mbedtls_x509_csr_parse_der(ptr noundef %0, ptr noundef readon
   br i1 %or.cond3, label %94, label %10
 
 10:                                               ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, i8 0, i64 224, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(224) %0, i8 0, i64 224, i1 false)
   store i64 %2, ptr %4, align 8
   %11 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #8
   store ptr %11, ptr %5, align 8

@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [15 x i8] c"Wireshark file\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @visual_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @visual_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca %struct.visual_file_hdr, align 4
   %6 = load ptr, ptr %0, align 8
@@ -148,7 +148,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @visual_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @visual_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4
@@ -168,7 +168,7 @@ define internal noundef i32 @visual_read(ptr nocapture noundef readonly %0, ptr 
   %17 = tail call i64 @file_tell(ptr noundef %16) #7
   store i64 %17, ptr %5, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = tail call fastcc i32 @visual_read_packet(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %19 = tail call fastcc i32 @visual_read_packet(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %20
 
 20:                                               ; preds = %14, %13
@@ -177,7 +177,7 @@ define internal noundef i32 @visual_read(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @visual_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @visual_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
@@ -186,7 +186,7 @@ define internal noundef i32 @visual_seek_read(ptr nocapture noundef readonly %0,
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @visual_read_packet(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %13 = tail call fastcc i32 @visual_read_packet(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %18
 
@@ -224,7 +224,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @visual_read_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @visual_read_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.visual_pkt_hdr, align 4
   %8 = alloca %struct.visual_atm_hdr, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -585,7 +585,7 @@ declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @visual_dump_can_write_encap(i32 noundef %0) #3 {
+define internal range(i32 -9, 1) i32 @visual_dump_can_write_encap(i32 noundef %0) #3 {
   switch i32 %0, label %3 [
     i32 -1, label %4
     i32 1, label %2
@@ -609,7 +609,7 @@ define internal noundef i32 @visual_dump_can_write_encap(i32 noundef %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @visual_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @visual_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @visual_dump, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -632,7 +632,7 @@ define internal i32 @visual_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @visual_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @visual_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.visual_pkt_hdr, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = getelementptr inbounds i8, ptr %1, i64 80
@@ -690,7 +690,7 @@ define internal noundef i32 @visual_dump(ptr noundef %0, ptr nocapture noundef r
   br label %105
 
 34:                                               ; preds = %30
-  %35 = trunc i64 %32 to i32
+  %35 = trunc nuw i64 %32 to i32
   store i32 %35, ptr %10, align 8
   %36 = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #9
   %37 = getelementptr inbounds i8, ptr %10, i64 16
@@ -841,7 +841,7 @@ define internal noundef i32 @visual_dump(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @visual_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @visual_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.visual_file_hdr, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1008,4 +1008,3 @@ attributes #9 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

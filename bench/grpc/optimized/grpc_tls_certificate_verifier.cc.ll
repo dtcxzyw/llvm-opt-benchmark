@@ -154,12 +154,12 @@ $_ZN4absl12lts_202308026Status16kMovedFromStringE = comdat any
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic.5", align 1
 @_ZN4absl12lts_202308026Status16kMovedFromStringE = linkonce_odr constant [28 x i8] c"Status accessed after move.\00", comdat, align 16
 @"_ZTSZ36grpc_tls_certificate_verifier_verifyE3$_0" = internal constant [45 x i8] c"Z36grpc_tls_certificate_verifier_verifyE3$_0\00", align 1
@@ -1448,7 +1448,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @grpc_tls_certificate_verifier_verify(ptr noundef %verifier, ptr noundef %request, ptr noundef %callback, ptr noundef %callback_arg, ptr nocapture noundef writeonly %sync_status, ptr nocapture noundef writeonly %sync_error_details) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @grpc_tls_certificate_verifier_verify(ptr noundef %verifier, ptr noundef %request, ptr noundef %callback, ptr noundef %callback_arg, ptr nocapture noundef writeonly %sync_status, ptr nocapture noundef writeonly %sync_error_details) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
@@ -1533,7 +1533,7 @@ _ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i:        ; preds = %11, %lpad.i
 _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %invoke.cont2.i, %8
   store ptr %exec_ctx, ptr %5, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %async_cb, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %async_cb, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %async_cb, i8 0, i64 32, i1 false)
   %call.i.i2.i6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %if.then.i unwind label %lpad
 
@@ -1559,7 +1559,7 @@ lpad.i9:                                          ; preds = %if.then.i
   br label %ehcleanup25
 
 invoke.cont4:                                     ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i53, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i53, ptr noundef nonnull readonly align 8 dereferenceable(24) %call.i.i2.i6, i64 24, i1 false)
   store ptr %call.i.i.i.i53, ptr %agg.tmp, align 8
   %_M_invoker.i8 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvN4absl12lts_202308026StatusEEZ36grpc_tls_certificate_verifier_verifyE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %_M_invoker.i8, align 8
@@ -3473,7 +3473,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

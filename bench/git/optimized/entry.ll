@@ -88,7 +88,7 @@ declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @fstat_checkout_output(i32 noundef %fd, ptr nocapture noundef readonly %state, ptr nocapture noundef %st) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @fstat_checkout_output(i32 noundef %fd, ptr nocapture noundef readonly %state, ptr nocapture noundef %st) local_unnamed_addr #3 {
 entry:
   %refresh_cache = getelementptr inbounds i8, ptr %state, i64 120
   %bf.load = load i8, ptr %refresh_cache, align 8
@@ -392,7 +392,7 @@ declare i32 @async_query_available_blobs(ptr noundef, ptr noundef) local_unnamed
 declare void @filter_string_list(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @remove_available_paths(ptr nocapture noundef readonly %item, ptr noundef %cb_data) #0 {
+define internal range(i32 0, 2) i32 @remove_available_paths(ptr nocapture noundef readonly %item, ptr noundef %cb_data) #0 {
 entry:
   %0 = load ptr, ptr %item, align 8
   %call = tail call ptr @string_list_lookup(ptr noundef %cb_data, ptr noundef %0) #14
@@ -753,7 +753,7 @@ land.rhs.i51:                                     ; preds = %do.body.i
   br i1 %cmp9.not.i, label %if.end.i52, label %do.body.i, !llvm.loop !10
 
 if.end.i52:                                       ; preds = %land.rhs.i51
-  %31 = trunc i64 %indvars.iv.next.i to i32
+  %31 = trunc nsw i64 %indvars.iv.next.i to i32
   %sext28.i = shl i64 %indvars.iv.next.i, 32
   %idxprom13.i = ashr exact i64 %sext28.i, 32
   %arrayidx14.i = getelementptr inbounds i8, ptr %call.i49, i64 %idxprom13.i
@@ -929,7 +929,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true
   %2 = and i32 %ce.val.i, 61504
   %tobool.not.i.not.i.i = icmp eq i32 %2, 32832
   %cond.i.i.i = select i1 %tobool.not.i.not.i.i, i32 511, i32 438
-  %call.i.i.i = call noundef i32 (ptr, i32, ...) @open64(ptr noundef %path, i32 noundef 193, i32 noundef %cond.i.i.i) #14
+  %call.i.i.i = call noundef i32 (ptr, i32, ...) @open64(ptr noundef readonly %path, i32 noundef 193, i32 noundef %cond.i.i.i) #14
   br label %open_output_fd.exit.i
 
 open_output_fd.exit.i:                            ; preds = %if.else.i.i, %if.then.i.i
@@ -969,7 +969,7 @@ if.then5.i:                                       ; preds = %fstat_checkout_outp
   br label %sw.bb25
 
 if.end6:                                          ; preds = %entry
-  %trunc = trunc i32 %and to i16
+  %trunc = trunc nuw i32 %and to i16
   switch i16 %trunc, label %sw.default [
     i16 -24576, label %sw.bb
     i16 -32768, label %sw.bb25
@@ -1114,7 +1114,7 @@ open_output_fd.exit:                              ; preds = %write_file_entry
   %15 = and i32 %ce.val, 61504
   %tobool.not.i.not.i = icmp eq i32 %15, 32832
   %cond.i.i87 = select i1 %tobool.not.i.not.i, i32 511, i32 438
-  %call.i.i88 = call noundef i32 (ptr, i32, ...) @open64(ptr noundef %path, i32 noundef 193, i32 noundef %cond.i.i87) #14
+  %call.i.i88 = call noundef i32 (ptr, i32, ...) @open64(ptr noundef readonly %path, i32 noundef 193, i32 noundef %cond.i.i87) #14
   %cmp70 = icmp slt i32 %call.i.i88, 0
   br i1 %cmp70, label %if.then71, label %if.then77
 

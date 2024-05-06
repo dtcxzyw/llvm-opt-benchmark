@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @radcom_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @radcom_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @radcom_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca [11 x i8], align 1
   %6 = alloca [7 x i8], align 1
@@ -230,13 +230,13 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @radcom_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @radcom_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca [2 x i8], align 1
   %8 = load ptr, ptr %0, align 8
   %9 = tail call i64 @file_tell(ptr noundef %8) #4
   store i64 %9, ptr %5, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call fastcc i32 @radcom_read_rec(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !6
+  %11 = tail call fastcc i32 @radcom_read_rec(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %20, label %12
 
@@ -261,7 +261,7 @@ define internal noundef i32 @radcom_read(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @radcom_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @radcom_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #4
@@ -270,7 +270,7 @@ define internal noundef i32 @radcom_seek_read(ptr nocapture noundef readonly %0,
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @radcom_read_rec(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !6
+  %13 = tail call fastcc i32 @radcom_read_rec(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %18
 
@@ -307,7 +307,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @radcom_read_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @radcom_read_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.radcomrec_hdr, align 1
   %8 = alloca %struct.tm, align 8
   %9 = alloca [8 x i8], align 1
@@ -468,4 +468,3 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

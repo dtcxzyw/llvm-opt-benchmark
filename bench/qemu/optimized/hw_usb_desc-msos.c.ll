@@ -29,7 +29,7 @@ sw.bb:                                            ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb
   %compatibleId.i = getelementptr i8, ptr %call, i64 18
-  %call.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %compatibleId.i, i64 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull %1) #7
+  %call.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %compatibleId.i, i64 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull %1) #7
   br label %usb_desc_msos_compat.exit
 
 usb_desc_msos_compat.exit:                        ; preds = %sw.bb, %if.then.i
@@ -45,7 +45,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %tobool.not.i9, label %if.end.i, label %if.then.i10
 
 if.then.i10:                                      ; preds = %sw.bb2
-  %call.i.i = tail call i64 @wcslen(ptr noundef nonnull %3) #8
+  %call.i.i = tail call i64 @wcslen(ptr noundef nonnull readonly %3) #8
   %dwPropertyDataType.i.i = getelementptr i8, ptr %call, i64 14
   store i32 1, ptr %dwPropertyDataType.i.i, align 1
   %dwPropertyNameLength_lo.i.i.i = getelementptr i8, ptr %call, i64 18

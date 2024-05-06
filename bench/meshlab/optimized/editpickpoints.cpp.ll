@@ -3202,7 +3202,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
   %48 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv82
   %49 = load float, ptr %48, align 4
   %50 = fcmp olt float %47, %49
-  %51 = trunc i64 %indvars.iv82 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv82 to i32
   %.1 = select i1 %50, i32 %51, i32 %.075
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 3

@@ -97,7 +97,7 @@ while.body8:                                      ; preds = %while.body8.prehead
   br i1 %8, label %while.body8, label %while.end.loopexit, !llvm.loop !7
 
 while.end.loopexit:                               ; preds = %while.body8
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond5.preheader
@@ -164,7 +164,7 @@ for.body.i:                                       ; preds = %if.then, %for.inc.i
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %conv8.i = trunc i64 %i.023.i to i32
+  %conv8.i = trunc nuw i64 %i.023.i to i32
   %shl.i = shl i32 %conv8.i, 2
   %or.i = or disjoint i32 %shl.i, 2
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit
@@ -176,7 +176,7 @@ if.else.i:                                        ; preds = %for.body.i
   br i1 %or.cond17.i, label %if.then12.i, label %if.else16.i
 
 if.then12.i:                                      ; preds = %if.else.i
-  %conv13.i = trunc i64 %i.023.i to i32
+  %conv13.i = trunc nuw i64 %i.023.i to i32
   %shl14.i = shl i32 %conv13.i, 2
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit
 
@@ -187,7 +187,7 @@ if.else16.i:                                      ; preds = %if.else.i
   br i1 %or.cond18.i, label %if.then20.i, label %for.inc.i
 
 if.then20.i:                                      ; preds = %if.else16.i
-  %conv21.i = trunc i64 %i.023.i to i32
+  %conv21.i = trunc nuw i64 %i.023.i to i32
   %shl22.i = shl i32 %conv21.i, 2
   %or23.i = or disjoint i32 %shl22.i, 1
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit
@@ -222,7 +222,7 @@ for.body.i153:                                    ; preds = %for.body.i153.prehe
   br i1 %or.cond.i160, label %if.then.i180, label %if.else.i161
 
 if.then.i180:                                     ; preds = %for.body.i153
-  %conv8.i181 = trunc i64 %i.023.i154 to i32
+  %conv8.i181 = trunc nuw i64 %i.023.i154 to i32
   %shl.i182 = shl i32 %conv8.i181, 2
   %or.i183 = or disjoint i32 %shl.i182, 2
   br label %cond.end86
@@ -234,7 +234,7 @@ if.else.i161:                                     ; preds = %for.body.i153
   br i1 %or.cond17.i164, label %if.then12.i177, label %if.else16.i165
 
 if.then12.i177:                                   ; preds = %if.else.i161
-  %conv13.i178 = trunc i64 %i.023.i154 to i32
+  %conv13.i178 = trunc nuw i64 %i.023.i154 to i32
   %shl14.i179 = shl i32 %conv13.i178, 2
   br label %cond.end86
 
@@ -245,7 +245,7 @@ if.else16.i165:                                   ; preds = %if.else.i161
   br i1 %or.cond18.i168, label %if.then20.i173, label %for.inc.i169
 
 if.then20.i173:                                   ; preds = %if.else16.i165
-  %conv21.i174 = trunc i64 %i.023.i154 to i32
+  %conv21.i174 = trunc nuw i64 %i.023.i154 to i32
   %shl22.i175 = shl i32 %conv21.i174, 2
   %or23.i176 = or disjoint i32 %shl22.i175, 1
   br label %cond.end86
@@ -306,7 +306,7 @@ for.body.i186:                                    ; preds = %if.else102, %for.bo
   %cond.i190 = tail call i32 @llvm.umin.i32(i32 %27, i32 %29)
   %cond17.i = select i1 %or.cond.i189, i32 %25, i32 %cond.i190
   %cmp18.i = icmp ult i32 %cond17.i, %iv.019.i
-  %conv19.i = trunc i64 %i.018.i to i32
+  %conv19.i = trunc nuw i64 %i.018.i to i32
   %iv.1.i = tail call i32 @llvm.umin.i32(i32 %cond17.i, i32 %iv.019.i)
   %index.1.i = select i1 %cmp18.i, i32 %conv19.i, i32 %index.020.i
   %inc.i191 = add nuw nsw i64 %i.018.i, 1
@@ -364,7 +364,7 @@ for.body.i195:                                    ; preds = %_ZN7meshoptL14findS
   br i1 %or.cond.i202, label %if.then.i222, label %if.else.i203
 
 if.then.i222:                                     ; preds = %for.body.i195
-  %conv8.i223 = trunc i64 %i.023.i196 to i32
+  %conv8.i223 = trunc nuw i64 %i.023.i196 to i32
   %shl.i224 = shl i32 %conv8.i223, 2
   %or.i225 = or disjoint i32 %shl.i224, 2
   br label %for.body.i229.preheader
@@ -376,7 +376,7 @@ if.else.i203:                                     ; preds = %for.body.i195
   br i1 %or.cond17.i206, label %if.then12.i219, label %if.else16.i207
 
 if.then12.i219:                                   ; preds = %if.else.i203
-  %conv13.i220 = trunc i64 %i.023.i196 to i32
+  %conv13.i220 = trunc nuw i64 %i.023.i196 to i32
   %shl14.i221 = shl i32 %conv13.i220, 2
   br label %for.body.i229.preheader
 
@@ -387,7 +387,7 @@ if.else16.i207:                                   ; preds = %if.else.i203
   br i1 %or.cond18.i210, label %if.then20.i215, label %for.inc.i211
 
 if.then20.i215:                                   ; preds = %if.else16.i207
-  %conv21.i216 = trunc i64 %i.023.i196 to i32
+  %conv21.i216 = trunc nuw i64 %i.023.i196 to i32
   %shl22.i217 = shl i32 %conv21.i216, 2
   %or23.i218 = or disjoint i32 %shl22.i217, 1
   br label %for.body.i229.preheader
@@ -416,7 +416,7 @@ for.body.i229:                                    ; preds = %for.body.i229.prehe
   br i1 %or.cond.i236, label %if.then.i256, label %if.else.i237
 
 if.then.i256:                                     ; preds = %for.body.i229
-  %conv8.i257 = trunc i64 %i.023.i230 to i32
+  %conv8.i257 = trunc nuw i64 %i.023.i230 to i32
   %shl.i258 = shl i32 %conv8.i257, 2
   %or.i259 = or disjoint i32 %shl.i258, 2
   br label %for.body.i263.preheader
@@ -428,7 +428,7 @@ if.else.i237:                                     ; preds = %for.body.i229
   br i1 %or.cond17.i240, label %if.then12.i253, label %if.else16.i241
 
 if.then12.i253:                                   ; preds = %if.else.i237
-  %conv13.i254 = trunc i64 %i.023.i230 to i32
+  %conv13.i254 = trunc nuw i64 %i.023.i230 to i32
   %shl14.i255 = shl i32 %conv13.i254, 2
   br label %for.body.i263.preheader
 
@@ -439,7 +439,7 @@ if.else16.i241:                                   ; preds = %if.else.i237
   br i1 %or.cond18.i244, label %if.then20.i249, label %for.inc.i245
 
 if.then20.i249:                                   ; preds = %if.else16.i241
-  %conv21.i250 = trunc i64 %i.023.i230 to i32
+  %conv21.i250 = trunc nuw i64 %i.023.i230 to i32
   %shl22.i251 = shl i32 %conv21.i250, 2
   %or23.i252 = or disjoint i32 %shl22.i251, 1
   br label %for.body.i263.preheader
@@ -467,7 +467,7 @@ for.body.i263:                                    ; preds = %for.body.i263.prehe
   br i1 %or.cond.i270, label %if.then.i290, label %if.else.i271
 
 if.then.i290:                                     ; preds = %for.body.i263
-  %conv8.i291 = trunc i64 %i.023.i264 to i32
+  %conv8.i291 = trunc nuw i64 %i.023.i264 to i32
   %shl.i292 = shl i32 %conv8.i291, 2
   %or.i293 = or disjoint i32 %shl.i292, 2
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread
@@ -479,7 +479,7 @@ if.else.i271:                                     ; preds = %for.body.i263
   br i1 %or.cond17.i274, label %if.then12.i287, label %if.else16.i275
 
 if.then12.i287:                                   ; preds = %if.else.i271
-  %conv13.i288 = trunc i64 %i.023.i264 to i32
+  %conv13.i288 = trunc nuw i64 %i.023.i264 to i32
   %shl14.i289 = shl i32 %conv13.i288, 2
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread
 
@@ -490,7 +490,7 @@ if.else16.i275:                                   ; preds = %if.else.i271
   br i1 %or.cond18.i278, label %if.then20.i283, label %for.inc.i279
 
 if.then20.i283:                                   ; preds = %if.else16.i275
-  %conv21.i284 = trunc i64 %i.023.i264 to i32
+  %conv21.i284 = trunc nuw i64 %i.023.i264 to i32
   %shl22.i285 = shl i32 %conv21.i284, 2
   %or23.i286 = or disjoint i32 %shl22.i285, 1
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread

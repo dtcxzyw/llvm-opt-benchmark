@@ -357,7 +357,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z12read_datalogPKc(ptr noundef %file) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 102) i32 @_Z12read_datalogPKc(ptr noundef %file) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.datalog::compiler", align 8
   %s_params = alloca %struct.smt_params, align 8

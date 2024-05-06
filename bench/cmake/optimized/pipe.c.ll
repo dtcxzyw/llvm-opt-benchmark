@@ -103,7 +103,7 @@ declare i32 @uv__close(i32 noundef) local_unnamed_addr #1
 declare void @uv__free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__pipe_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__pipe_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
@@ -319,7 +319,7 @@ declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 declare void @uv__io_feed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_pipe_getsockname(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getsockname(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_un, align 2
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %4)
@@ -386,7 +386,7 @@ uv__pipe_getsockpeername.exit:                    ; preds = %8, %22, %25, %27
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_pipe_getpeername(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getpeername(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_un, align 2
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %4)

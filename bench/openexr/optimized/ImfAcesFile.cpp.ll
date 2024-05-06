@@ -1518,19 +1518,19 @@ entry:
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #14
   %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i.i, align 4
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %arrayidx32.i.i = getelementptr inbounds i8, ptr %call, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i.i, align 4
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %call, i64 88
   %arrayidx47.i.i = getelementptr inbounds i8, ptr %call, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i.i, align 4
   store ptr %call, ptr %_data, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
@@ -1561,19 +1561,19 @@ entry:
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #14
   %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i.i, align 4
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %arrayidx32.i.i = getelementptr inbounds i8, ptr %call, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i.i, align 4
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %call, i64 88
   %arrayidx47.i.i = getelementptr inbounds i8, ptr %call, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i.i, align 4
   store ptr %call, ptr %_data, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
@@ -1794,7 +1794,7 @@ for.body16:                                       ; preds = %for.body16.preheade
   %68 = tail call float @llvm.fabs.f32(float %div.i)
   %and.i.i.i = bitcast float %68 to i32
   %shr.i.i.i = lshr i32 %67, 16
-  %69 = trunc i32 %shr.i.i.i to i16
+  %69 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %69, -32768
   %cmp.i.i.i = icmp ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end37.i.i.i
@@ -1813,7 +1813,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   %shr10.i.i.i = and i32 %and9.i.i.i, 1023
   %cmp15.i.i.i = icmp eq i32 %shr10.i.i.i, 0
   %70 = zext i1 %cmp15.i.i.i to i16
-  %71 = trunc i32 %shr10.i.i.i to i16
+  %71 = trunc nuw nsw i32 %shr10.i.i.i to i16
   %72 = or i16 %71, %70
   %conv19.i.i.i = or disjoint i16 %72, %conv6.i.i.i
   br label %_ZN9Imath_3_24halfaSEf.exit
@@ -1851,7 +1851,7 @@ if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
   %shr46.i.i.i = lshr i32 %or44.i.i.i, %sub42.i.i.i
   %conv47.i.i.i = and i32 %shr.i.i.i, 32768
   %or48.i.i.i = or i32 %shr46.i.i.i, %conv47.i.i.i
-  %conv49.i.i.i = trunc i32 %or48.i.i.i to i16
+  %conv49.i.i.i = trunc nuw i32 %or48.i.i.i to i16
   %cmp50.i.i.i = icmp ugt i32 %shl.i.i.i, -2147483648
   br i1 %cmp50.i.i.i, label %if.then55.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -1873,7 +1873,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %if.then4.i.i.i, %if
   %74 = tail call float @llvm.fabs.f32(float %div67.i)
   %and.i.i.i18 = bitcast float %74 to i32
   %shr.i.i.i19 = lshr i32 %73, 16
-  %75 = trunc i32 %shr.i.i.i19 to i16
+  %75 = trunc nuw i32 %shr.i.i.i19 to i16
   %conv.i.i.i20 = and i16 %75, -32768
   %cmp.i.i.i21 = icmp ugt i32 %and.i.i.i18, 947912703
   br i1 %cmp.i.i.i21, label %if.then.i.i.i44, label %if.end37.i.i.i22
@@ -1892,7 +1892,7 @@ if.end.i.i.i62:                                   ; preds = %if.then4.i.i.i59
   %shr10.i.i.i64 = and i32 %and9.i.i.i63, 1023
   %cmp15.i.i.i65 = icmp eq i32 %shr10.i.i.i64, 0
   %76 = zext i1 %cmp15.i.i.i65 to i16
-  %77 = trunc i32 %shr10.i.i.i64 to i16
+  %77 = trunc nuw nsw i32 %shr10.i.i.i64 to i16
   %78 = or i16 %77, %76
   %conv19.i.i.i66 = or disjoint i16 %78, %conv6.i.i.i60
   br label %_ZN9Imath_3_24halfaSEf.exit67
@@ -1930,7 +1930,7 @@ if.end40.i.i.i24:                                 ; preds = %if.end37.i.i.i22
   %shr46.i.i.i31 = lshr i32 %or44.i.i.i28, %sub42.i.i.i26
   %conv47.i.i.i32 = and i32 %shr.i.i.i19, 32768
   %or48.i.i.i33 = or i32 %shr46.i.i.i31, %conv47.i.i.i32
-  %conv49.i.i.i34 = trunc i32 %or48.i.i.i33 to i16
+  %conv49.i.i.i34 = trunc nuw i32 %or48.i.i.i33 to i16
   %cmp50.i.i.i35 = icmp ugt i32 %shl.i.i.i30, -2147483648
   br i1 %cmp50.i.i.i35, label %if.then55.i.i.i41, label %lor.lhs.false.i.i.i36
 
@@ -1952,7 +1952,7 @@ _ZN9Imath_3_24halfaSEf.exit67:                    ; preds = %if.then4.i.i.i59, %
   %80 = tail call float @llvm.fabs.f32(float %div68.i)
   %and.i.i.i69 = bitcast float %80 to i32
   %shr.i.i.i70 = lshr i32 %79, 16
-  %81 = trunc i32 %shr.i.i.i70 to i16
+  %81 = trunc nuw i32 %shr.i.i.i70 to i16
   %conv.i.i.i71 = and i16 %81, -32768
   %cmp.i.i.i72 = icmp ugt i32 %and.i.i.i69, 947912703
   br i1 %cmp.i.i.i72, label %if.then.i.i.i95, label %if.end37.i.i.i73
@@ -1971,7 +1971,7 @@ if.end.i.i.i113:                                  ; preds = %if.then4.i.i.i110
   %shr10.i.i.i115 = and i32 %and9.i.i.i114, 1023
   %cmp15.i.i.i116 = icmp eq i32 %shr10.i.i.i115, 0
   %82 = zext i1 %cmp15.i.i.i116 to i16
-  %83 = trunc i32 %shr10.i.i.i115 to i16
+  %83 = trunc nuw nsw i32 %shr10.i.i.i115 to i16
   %84 = or i16 %83, %82
   %conv19.i.i.i117 = or disjoint i16 %84, %conv6.i.i.i111
   br label %_ZN9Imath_3_24halfaSEf.exit118
@@ -2009,7 +2009,7 @@ if.end40.i.i.i75:                                 ; preds = %if.end37.i.i.i73
   %shr46.i.i.i82 = lshr i32 %or44.i.i.i79, %sub42.i.i.i77
   %conv47.i.i.i83 = and i32 %shr.i.i.i70, 32768
   %or48.i.i.i84 = or i32 %shr46.i.i.i82, %conv47.i.i.i83
-  %conv49.i.i.i85 = trunc i32 %or48.i.i.i84 to i16
+  %conv49.i.i.i85 = trunc nuw i32 %or48.i.i.i84 to i16
   %cmp50.i.i.i86 = icmp ugt i32 %shl.i.i.i81, -2147483648
   br i1 %cmp50.i.i.i86, label %if.then55.i.i.i92, label %lor.lhs.false.i.i.i87
 

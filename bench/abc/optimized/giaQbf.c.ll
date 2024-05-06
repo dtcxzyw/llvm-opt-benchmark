@@ -608,10 +608,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not.i112, label %Abc_UtilStrsav.exit, label %55
 
 55:                                               ; preds = %._crit_edge
-  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #26
+  %56 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %54) #26
   %57 = add i64 %56, 1
   %58 = tail call noalias ptr @malloc(i64 noundef %57) #24
-  %59 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %54) #25
+  %59 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull readonly dereferenceable(1) %54) #25
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %._crit_edge, %55
@@ -623,10 +623,10 @@ Abc_UtilStrsav.exit:                              ; preds = %._crit_edge, %55
   br i1 %.not.i113, label %Abc_UtilStrsav.exit114, label %63
 
 63:                                               ; preds = %Abc_UtilStrsav.exit
-  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #26
+  %64 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #26
   %65 = add i64 %64, 1
   %66 = tail call noalias ptr @malloc(i64 noundef %65) #24
-  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %62) #25
+  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %62) #25
   br label %Abc_UtilStrsav.exit114
 
 Abc_UtilStrsav.exit114:                           ; preds = %Abc_UtilStrsav.exit, %63
@@ -4088,10 +4088,10 @@ define ptr @Gia_QbfQuantifyOne(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #26
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #26
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #24
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #25
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #25
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %4, %8
@@ -4496,10 +4496,10 @@ define ptr @Gia_QbfCofactor(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #26
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #26
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #24
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #25
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #25
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %4, %8

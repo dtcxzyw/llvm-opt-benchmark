@@ -545,7 +545,7 @@ define dso_local ptr @dmi_get_system_info(i32 noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @dmi_name_in_serial(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @dmi_name_in_serial(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([23 x ptr], ptr @dmi_ident, i64 0, i64 9), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
@@ -567,7 +567,7 @@ define dso_local noundef i32 @dmi_name_in_serial(ptr nocapture noundef readonly 
 declare dso_local ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @dmi_name_in_vendors(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @dmi_name_in_vendors(ptr nocapture noundef readonly %0) #4 align 16 {
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
@@ -793,7 +793,7 @@ define dso_local i32 @dmi_get_bios_year() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dmi_walk(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @dmi_walk(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = load i32, ptr @dmi_available, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %64, label %5
@@ -1115,7 +1115,7 @@ declare dso_local void @memcpy_fromio(ptr noundef, ptr noundef, i64 noundef) loc
 declare dso_local void @early_memunmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @dmi_smbios3_present(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @dmi_smbios3_present(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call i32 @bcmp(ptr noundef dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.7, i64 5)
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %50
@@ -1191,7 +1191,7 @@ define internal fastcc noundef i32 @dmi_smbios3_present(ptr nocapture noundef re
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @dmi_present(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @dmi_present(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call i32 @bcmp(ptr noundef dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.20, i64 4)
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %29
@@ -1320,7 +1320,7 @@ define internal fastcc noundef i32 @dmi_present(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @dmi_walk_early(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @dmi_walk_early(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = load i32, ptr @dmi_len, align 4
   %3 = load i64, ptr @dmi_base, align 8
   %4 = zext i32 %2 to i64

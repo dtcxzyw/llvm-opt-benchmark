@@ -188,7 +188,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @qio_channel_null_readv(ptr noundef %ioc, ptr nocapture readnone %iov, i64 %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i64 -1, 1) i64 @qio_channel_null_readv(ptr noundef %ioc, ptr nocapture readnone %iov, i64 %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_NULL) #6
   %closed = getelementptr inbounds i8, ptr %call.i, i64 96

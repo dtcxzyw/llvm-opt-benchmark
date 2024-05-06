@@ -297,7 +297,7 @@ if.then124.i.i.i:                                 ; preds = %if.else115.i.i.i
   br i1 %cmp125.i.i.i, label %if.then126.i.i.i, label %if.end132.i.i.i
 
 if.then126.i.i.i:                                 ; preds = %if.then124.i.i.i
-  %conv129.i.i.i = trunc i16 %9 to i8
+  %conv129.i.i.i = trunc nuw i16 %9 to i8
   %idxprom130.i.i.i = sext i32 %j.0108.i.i.i to i64
   %arrayidx131.i.i.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 %idxprom130.i.i.i
   store i8 %conv129.i.i.i, ptr %arrayidx131.i.i.i, align 1
@@ -743,7 +743,7 @@ for.body.preheader.i:                             ; preds = %_ZL10write_tabsP11_
 
 for.body.i29:                                     ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %80 = trunc i64 %indvars.iv.i to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.i to i32
   %rem.i = and i32 %80, 15
   %cmp4.i = icmp eq i32 %rem.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %if.end.i30

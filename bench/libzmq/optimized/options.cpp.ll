@@ -40,7 +40,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 @_ZN3zmq9options_tC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq9options_tC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %value_) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %value_) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value_) #14
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value_) #14
@@ -55,11 +55,11 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3zmq13do_getsockoptEPvPmPKvm.exit
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %optval_, ptr align 1 %call, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %optval_, ptr readonly align 1 %call, i64 %add, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %optval_, i64 %add
   %1 = load i64, ptr %optvallen_, align 8
   %sub.i = sub i64 %1, %add
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   store i64 %add, ptr %optvallen_, align 8
   br label %_ZN3zmq13do_getsockoptEPvPmPKvm.exit
 
@@ -69,7 +69,7 @@ _ZN3zmq13do_getsockoptEPvPmPKvm.exit:             ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_, ptr nocapture noundef readonly %value_, i64 noundef %value_len_) local_unnamed_addr #1 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_, ptr nocapture noundef readonly %value_, i64 noundef %value_len_) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %optvallen_, align 8
   %cmp = icmp ult i64 %0, %value_len_
@@ -107,7 +107,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_, ptr nocapture noundef writeonly %out_value_) local_unnamed_addr #1 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_, ptr nocapture noundef writeonly %out_value_) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq i64 %optvallen_, 4
   br i1 %cmp.i, label %if.end, label %_ZL13do_setsockoptIiEiPKvmPT_.exit.thread
@@ -138,7 +138,7 @@ return:                                           ; preds = %_ZL13do_setsockoptI
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq33do_setsockopt_int_as_bool_relaxedEPKvmPb(ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_, ptr nocapture noundef writeonly %out_value_) local_unnamed_addr #1 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq33do_setsockopt_int_as_bool_relaxedEPKvmPb(ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_, ptr nocapture noundef writeonly %out_value_) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq i64 %optvallen_, 4
   br i1 %cmp.i, label %if.end, label %_ZL13do_setsockoptIiEiPKvmPT_.exit.thread
@@ -325,7 +325,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq9options_t13set_curve_keyEPhPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1336) %this, ptr noundef %destination_, ptr noundef %optval_, i64 noundef %optvallen_) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq9options_t13set_curve_keyEPhPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1336) %this, ptr noundef %destination_, ptr noundef %optval_, i64 noundef %optvallen_) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -737,7 +737,7 @@ if.then115:                                       ; preds = %sw.bb111
   br label %return
 
 sw.bb117:                                         ; preds = %if.end
-  %call119 = call noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %value118), !range !4
+  %call119 = call noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %value118)
   %cmp120 = icmp eq i32 %call119, 0
   br i1 %cmp120, label %if.then121, label %return
 
@@ -751,12 +751,12 @@ if.then121:                                       ; preds = %sw.bb117
 
 sw.bb125:                                         ; preds = %if.end
   %ipv6126 = getelementptr inbounds i8, ptr %this, i64 360
-  %call127 = tail call noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipv6126), !range !4
+  %call127 = tail call noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipv6126)
   br label %return
 
 sw.bb128:                                         ; preds = %if.end
   %socks_proxy_address = getelementptr inbounds i8, ptr %this, i64 376
-  %call129 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_address, i64 noundef -1), !range !4
+  %call129 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_address, i64 noundef -1)
   br label %return
 
 sw.bb130:                                         ; preds = %if.end
@@ -771,7 +771,7 @@ if.then133:                                       ; preds = %sw.bb130
   br label %return
 
 if.else:                                          ; preds = %sw.bb130
-  %call135 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_username, i64 noundef 255), !range !4
+  %call135 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_username, i64 noundef 255)
   br label %return
 
 sw.bb136:                                         ; preds = %if.end
@@ -786,7 +786,7 @@ if.then140:                                       ; preds = %sw.bb136
   br label %return
 
 if.else141:                                       ; preds = %sw.bb136
-  %call143 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_password, i64 noundef 255), !range !4
+  %call143 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_password, i64 noundef 255)
   br label %return
 
 sw.bb144:                                         ; preds = %if.end
@@ -843,7 +843,7 @@ if.then184:                                       ; preds = %sw.bb178
 sw.bb186:                                         ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filter_str) #14
   %call188 = invoke fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %filter_str, i64 noundef 255)
-          to label %invoke.cont unwind label %lpad, !range !4
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb186
   %cmp189 = icmp eq i32 %call188, 0
@@ -899,17 +899,17 @@ if.end206:                                        ; preds = %invoke.cont.i.i, %i
 
 sw.bb207:                                         ; preds = %if.end
   %ipc_uid_accept_filters = getelementptr inbounds i8, ptr %this, i64 512
-  %call208 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_uid_accept_filters), !range !4
+  %call208 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_uid_accept_filters)
   br label %return
 
 sw.bb209:                                         ; preds = %if.end
   %ipc_gid_accept_filters = getelementptr inbounds i8, ptr %this, i64 560
-  %call210 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_gid_accept_filters), !range !4
+  %call210 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_gid_accept_filters)
   br label %return
 
 sw.bb211:                                         ; preds = %if.end
   %ipc_pid_accept_filters = getelementptr inbounds i8, ptr %this, i64 608
-  %call212 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_pid_accept_filters), !range !4
+  %call212 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_pid_accept_filters)
   br label %return
 
 sw.bb213:                                         ; preds = %if.end
@@ -985,7 +985,7 @@ sw.bb258:                                         ; preds = %if.end
 
 sw.bb260:                                         ; preds = %if.end
   %conflate = getelementptr inbounds i8, ptr %this, i64 936
-  %call261 = tail call noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %conflate), !range !4
+  %call261 = tail call noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %conflate)
   br label %return
 
 sw.bb262:                                         ; preds = %if.end
@@ -1059,7 +1059,7 @@ if.then295:                                       ; preds = %sw.bb291
 
 sw.bb297:                                         ; preds = %if.end
   %bound_device = getelementptr inbounds i8, ptr %this, i64 960
-  %call298 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %bound_device, i64 noundef 16), !range !4
+  %call298 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %bound_device, i64 noundef 16)
   br label %return
 
 sw.bb299:                                         ; preds = %if.end
@@ -1334,7 +1334,7 @@ lpad387:                                          ; preds = %sw.bb384
 
 sw.bb391:                                         ; preds = %if.end
   %wss_trust_system = getelementptr inbounds i8, ptr %this, i64 1200
-  %call392 = tail call noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %wss_trust_system), !range !4
+  %call392 = tail call noundef i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %wss_trust_system)
   br label %return
 
 sw.bb393:                                         ; preds = %if.end
@@ -1482,7 +1482,7 @@ eh.resume:                                        ; preds = %lpad387, %lpad380, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %out_value_, i64 noundef %max_len_) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %out_value_, i64 noundef %max_len_) unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %optval_, null
   %cmp1 = icmp eq i64 %optvallen_, 0
@@ -1577,11 +1577,11 @@ _ZNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE11_M_allocateEm.exit.i: ; 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE11_M_allocateEm.exit.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %_ZNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__first.addr.06.i.i.i.i.i, i64 32, i1 false), !alias.scope !5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__first.addr.06.i.i.i.i.i, i64 32, i1 false), !alias.scope !4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -1605,7 +1605,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN3zmq1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %optvallen_, 0
   %cmp1 = icmp eq ptr %optval_, null
@@ -1659,7 +1659,7 @@ while.body.i.i.i:                                 ; preds = %if.then5, %while.bo
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !10
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end12.i.i.i
@@ -1717,7 +1717,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIjjSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %optvallen_, 0
   %cmp1 = icmp eq ptr %optval_, null
@@ -1771,7 +1771,7 @@ while.body.i.i.i:                                 ; preds = %if.then5, %while.bo
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !11
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end12.i.i.i
@@ -1831,7 +1831,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIiiSt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %out_value_) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %out_value_) unnamed_addr #5 {
 entry:
   %0 = add i64 %optvallen_, -1
   %or.cond = icmp ult i64 %0, 255
@@ -1946,7 +1946,7 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit:             ; preds = %lpad, %if.then.i.i2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3zmq9options_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1336) %this, i32 noundef %option_, ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq9options_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1336) %this, i32 noundef %option_, ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %optvallen_, align 8
   %cmp = icmp eq i64 %0, 4
@@ -2047,11 +2047,11 @@ if.then.i:                                        ; preds = %sw.bb10
 
 if.end.i:                                         ; preds = %sw.bb10
   %routing_id = getelementptr inbounds i8, ptr %this, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %optval_, ptr nonnull align 1 %routing_id, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %optval_, ptr nonnull readonly align 1 %routing_id, i64 %conv, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %optval_, i64 %conv
   %5 = load i64, ptr %optvallen_, align 8
   %sub.i = sub i64 %5, %conv
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   store i64 %conv, ptr %optvallen_, align 8
   br label %return
 
@@ -2254,17 +2254,17 @@ if.then100:                                       ; preds = %sw.bb98
 
 sw.bb102:                                         ; preds = %entry
   %socks_proxy_address = getelementptr inbounds i8, ptr %this, i64 376
-  %call103 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_address), !range !4
+  %call103 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_address)
   br label %return
 
 sw.bb104:                                         ; preds = %entry
   %socks_proxy_username = getelementptr inbounds i8, ptr %this, i64 408
-  %call105 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_username), !range !4
+  %call105 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_username)
   br label %return
 
 sw.bb106:                                         ; preds = %entry
   %socks_proxy_password = getelementptr inbounds i8, ptr %this, i64 440
-  %call107 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_password), !range !4
+  %call107 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_password)
   br label %return
 
 sw.bb108:                                         ; preds = %entry
@@ -2329,17 +2329,17 @@ if.then130:                                       ; preds = %sw.bb128
 
 sw.bb136:                                         ; preds = %entry
   %plain_username = getelementptr inbounds i8, ptr %this, i64 696
-  %call137 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %plain_username), !range !4
+  %call137 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %plain_username)
   br label %return
 
 sw.bb138:                                         ; preds = %entry
   %plain_password = getelementptr inbounds i8, ptr %this, i64 728
-  %call139 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %plain_password), !range !4
+  %call139 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %plain_password)
   br label %return
 
 sw.bb140:                                         ; preds = %entry
   %zap_domain = getelementptr inbounds i8, ptr %this, i64 664
-  %call141 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %zap_domain), !range !4
+  %call141 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %zap_domain)
   br label %return
 
 sw.bb142:                                         ; preds = %entry
@@ -2413,7 +2413,7 @@ if.then173:                                       ; preds = %sw.bb171
 
 sw.bb175:                                         ; preds = %entry
   %bound_device = getelementptr inbounds i8, ptr %this, i64 960
-  %call176 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %bound_device), !range !4
+  %call176 = tail call noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %optval_, ptr noundef nonnull %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %bound_device)
   br label %return
 
 sw.bb177:                                         ; preds = %entry
@@ -2541,7 +2541,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -2568,7 +2568,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -2608,7 +2608,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %cond.in.i = getelementptr inbounds i8, ptr %__x.025.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !15
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end12.i
@@ -2725,15 +2725,14 @@ attributes #20 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{!6, !8}
-!6 = distinct !{!6, !7, !"_ZSt19__relocate_object_aIN3zmq18tcp_address_mask_tES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!7 = distinct !{!7, !"_ZSt19__relocate_object_aIN3zmq18tcp_address_mask_tES1_SaIS1_EEvPT_PT0_RT1_"}
-!8 = distinct !{!8, !7, !"_ZSt19__relocate_object_aIN3zmq18tcp_address_mask_tES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!4 = !{!5, !7}
+!5 = distinct !{!5, !6, !"_ZSt19__relocate_object_aIN3zmq18tcp_address_mask_tES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!6 = distinct !{!6, !"_ZSt19__relocate_object_aIN3zmq18tcp_address_mask_tES1_SaIS1_EEvPT_PT0_RT1_"}
+!7 = distinct !{!7, !6, !"_ZSt19__relocate_object_aIN3zmq18tcp_address_mask_tES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}

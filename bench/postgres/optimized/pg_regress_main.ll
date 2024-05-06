@@ -39,7 +39,7 @@ define internal void @psql_init(i32 %0, ptr nocapture readnone %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -1) i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1024 x i8], align 16

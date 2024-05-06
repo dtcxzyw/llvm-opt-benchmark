@@ -1482,7 +1482,7 @@ return:                                           ; preds = %for.end185, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK7msdfgen13LinearSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZNK7msdfgen13LinearSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %y2 = getelementptr inbounds i8, ptr %this, i64 24

@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [33 x i8] c"data length must 2, 4 or 8 bytes\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Float(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Float(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %mod, ptr noundef nonnull @test_methods) #3
   %call.lobit = ashr i32 %call, 31

@@ -208,7 +208,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_txpim_pkt_append_chunk(ptr nocapture noundef %fpkt, ptr nocapture noundef readonly %chunk) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_txpim_pkt_append_chunk(ptr nocapture noundef %fpkt, ptr nocapture noundef readonly %chunk) local_unnamed_addr #0 {
 entry:
   %alloc_chunks = getelementptr inbounds i8, ptr %fpkt, i64 160
   %num_chunks = getelementptr inbounds i8, ptr %fpkt, i64 152
@@ -304,7 +304,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 {
+define internal range(i32 -1, 2) i32 @compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8

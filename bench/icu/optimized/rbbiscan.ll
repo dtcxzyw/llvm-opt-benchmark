@@ -534,7 +534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7515RBBIRuleScanner14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(3192) %this, i32 noundef %action) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7515RBBIRuleScanner14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(3192) %this, i32 noundef %action) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp226 = alloca %"class.icu_75::UnicodeString", align 8
@@ -3497,7 +3497,7 @@ if.end89:                                         ; preds = %if.then78.if.end89_
 for.end:                                          ; preds = %land.lhs.true31, %if.then78, %if.end89, %if.end22, %land.lhs.true44, %land.lhs.true44, %if.end52, %if.end9
   %tableEl.0.lcssa = phi ptr [ %arrayidx, %if.end9 ], [ %tableEl.080, %if.end52 ], [ %tableEl.080, %land.lhs.true44 ], [ %tableEl.080, %land.lhs.true44 ], [ %tableEl.080, %if.end22 ], [ %incdec.ptr, %if.end89 ], [ %tableEl.080, %if.then78 ], [ %tableEl.080, %land.lhs.true31 ]
   %15 = load i32, ptr %tableEl.0.lcssa, align 4
-  %call99 = tail call noundef signext i8 @_ZN6icu_7515RBBIRuleScanner14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(3192) %this, i32 noundef %15), !range !12
+  %call99 = tail call noundef signext i8 @_ZN6icu_7515RBBIRuleScanner14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(3192) %this, i32 noundef %15)
   %cmp101 = icmp eq i8 %call99, 0
   br i1 %cmp101, label %for.end.for.end140.loopexit_crit_edge, label %if.end103
 
@@ -3654,7 +3654,7 @@ if.end139:                                        ; preds = %if.else, %_ZN6icu_7
   %cmp.i24 = icmp sgt i32 %53, 0
   %cmp = icmp eq i16 %state.1, 0
   %or.cond = select i1 %cmp.i24, i1 true, i1 %cmp
-  br i1 %or.cond, label %for.end140, label %if.end9, !llvm.loop !13
+  br i1 %or.cond, label %for.end140, label %if.end9, !llvm.loop !12
 
 for.end140:                                       ; preds = %if.end139, %for.end.for.end140.loopexit_crit_edge
   %.pre95 = phi i32 [ %.pre95.pre, %for.end.for.end140.loopexit_crit_edge ], [ %53, %if.end139 ]
@@ -3779,5 +3779,4 @@ attributes #12 = { allocsize(0) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i8 0, i8 2}
-!13 = distinct !{!13, !5}
+!12 = distinct !{!12, !5}

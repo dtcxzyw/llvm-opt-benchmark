@@ -75,7 +75,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_CTX_set1_cert(ptr nocapture noundef %sctx, ptr noundef %cert, ptr noundef %presigner) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_CTX_set1_cert(ptr nocapture noundef %sctx, ptr noundef %cert, ptr noundef %presigner) local_unnamed_addr #0 {
 entry:
   %certder = alloca ptr, align 8
   %preder = alloca ptr, align 8
@@ -129,7 +129,7 @@ if.then22:                                        ; preds = %if.end17
 if.end26:                                         ; preds = %if.then22
   %call27 = call ptr @X509_delete_ext(ptr noundef nonnull %call23, i32 noundef %spec.select) #3
   call void @X509_EXTENSION_free(ptr noundef %call27) #3
-  %call28 = call fastcc i32 @ct_x509_cert_fixup(ptr noundef nonnull %call23, ptr noundef %presigner), !range !4
+  %call28 = call fastcc i32 @ct_x509_cert_fixup(ptr noundef nonnull %call23, ptr noundef %presigner)
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %if.end31
 
@@ -183,7 +183,7 @@ declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_delete_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ct_x509_cert_fixup(ptr noundef %cert, ptr noundef %presigner) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ct_x509_cert_fixup(ptr noundef %cert, ptr noundef %presigner) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %presigner, null
   br i1 %cmp, label %return, label %if.end
@@ -268,7 +268,7 @@ declare i32 @i2d_re_X509_tbs(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_CTX_set1_issuer(ptr nocapture noundef %sctx, ptr noundef %issuer) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_CTX_set1_issuer(ptr nocapture noundef %sctx, ptr noundef %issuer) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get_X509_PUBKEY(ptr noundef %issuer) #3
   %ihash.i = getelementptr inbounds i8, ptr %sctx, i64 24
@@ -277,12 +277,12 @@ entry:
   %sctx.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %sctx, i64 88
   %sctx.val3.i = load ptr, ptr %1, align 8
-  %call.i = tail call fastcc noundef i32 @ct_public_key_hash(ptr %sctx.val.i, ptr %sctx.val3.i, ptr noundef %call, ptr noundef nonnull %ihash.i, ptr noundef nonnull %ihashlen.i)
+  %call.i = tail call fastcc i32 @ct_public_key_hash(ptr %sctx.val.i, ptr %sctx.val3.i, ptr noundef %call, ptr noundef nonnull %ihash.i, ptr noundef nonnull %ihashlen.i)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_CTX_set1_issuer_pubkey(ptr nocapture noundef %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_CTX_set1_issuer_pubkey(ptr nocapture noundef %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
 entry:
   %ihash = getelementptr inbounds i8, ptr %sctx, i64 24
   %ihashlen = getelementptr inbounds i8, ptr %sctx, i64 32
@@ -297,7 +297,7 @@ entry:
 declare ptr @X509_get_X509_PUBKEY(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ct_public_key_hash(ptr %sctx.80.val, ptr %sctx.88.val, ptr noundef %pkey, ptr nocapture noundef %hash, ptr nocapture noundef %hash_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %sctx.80.val, ptr %sctx.88.val, ptr noundef %pkey, ptr nocapture noundef %hash, ptr nocapture noundef %hash_len) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   %md_len = alloca i32, align 4
@@ -356,7 +356,7 @@ err:                                              ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SCT_CTX_set1_pubkey(ptr nocapture noundef %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_CTX_set1_pubkey(ptr nocapture noundef %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_PUBKEY_get(ptr noundef %pubkey) #3
   %cmp = icmp eq ptr %call, null
@@ -431,4 +431,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

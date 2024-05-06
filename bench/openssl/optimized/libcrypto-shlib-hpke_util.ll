@@ -251,14 +251,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_hpke_kdf_extract(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_hpke_kdf_extract(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @kdf_derive(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, i32 noundef 1, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef null, i64 noundef 0), !range !9
+  %call = tail call fastcc i32 @kdf_derive(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, i32 noundef 1, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef null, i64 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @kdf_derive(ptr noundef %kctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %mode, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %info, i64 noundef %infolen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %kctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %mode, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %info, i64 noundef %infolen) unnamed_addr #0 {
 entry:
   %mode.addr = alloca i32, align 4
   %params = alloca [5 x %struct.ossl_param_st], align 16
@@ -322,14 +322,14 @@ if.end17:                                         ; preds = %if.then16, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_hpke_kdf_expand(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, ptr noundef %prk, i64 noundef %prklen, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_hpke_kdf_expand(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, ptr noundef %prk, i64 noundef %prklen, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @kdf_derive(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %prk, i64 noundef %prklen, ptr noundef %info, i64 noundef %infolen), !range !9
+  %call = tail call fastcc i32 @kdf_derive(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %prk, i64 noundef %prklen, ptr noundef %info, i64 noundef %infolen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_hpke_labeled_extract(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %protocol_label, ptr noundef %suiteid, i64 noundef %suiteidlen, ptr noundef %label, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_hpke_labeled_extract(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %protocol_label, ptr noundef %suiteid, i64 noundef %suiteidlen, ptr noundef %label, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
 entry:
   %labeled_ikmlen = alloca i64, align 8
   %pkt = alloca %struct.wpacket_st, align 8
@@ -392,7 +392,7 @@ if.then27:                                        ; preds = %lor.lhs.false24, %l
 
 if.end28:                                         ; preds = %lor.lhs.false24
   %0 = load i64, ptr %labeled_ikmlen, align 8
-  %call.i = call fastcc noundef i32 @kdf_derive(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, i32 noundef 1, ptr noundef %salt, i64 noundef %saltlen, ptr noundef nonnull %call5, i64 noundef %0, ptr noundef null, i64 noundef 0), !range !9
+  %call.i = call fastcc i32 @kdf_derive(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, i32 noundef 1, ptr noundef %salt, i64 noundef %saltlen, ptr noundef nonnull %call5, i64 noundef %0, ptr noundef null, i64 noundef 0)
   br label %end
 
 end:                                              ; preds = %if.end28, %if.then27
@@ -428,7 +428,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_hpke_labeled_expand(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, ptr noundef %prk, i64 noundef %prklen, ptr noundef %protocol_label, ptr noundef %suiteid, i64 noundef %suiteidlen, ptr noundef %label, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_hpke_labeled_expand(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, ptr noundef %prk, i64 noundef %prklen, ptr noundef %protocol_label, ptr noundef %suiteid, i64 noundef %suiteidlen, ptr noundef %label, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
 entry:
   %labeled_infolen = alloca i64, align 8
   %pkt = alloca %struct.wpacket_st, align 8
@@ -498,7 +498,7 @@ if.then33:                                        ; preds = %lor.lhs.false30, %l
 
 if.end34:                                         ; preds = %lor.lhs.false30
   %0 = load i64, ptr %labeled_infolen, align 8
-  %call.i = call fastcc noundef i32 @kdf_derive(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %prk, i64 noundef %prklen, ptr noundef nonnull %call8, i64 noundef %0), !range !9
+  %call.i = call fastcc i32 @kdf_derive(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %prk, i64 noundef %prklen, ptr noundef nonnull %call8, i64 noundef %0)
   br label %end
 
 end:                                              ; preds = %if.end34, %if.then33
@@ -587,7 +587,7 @@ declare i32 @EVP_KDF_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_hpke_str2suite(ptr noundef %suitestr, ptr noundef writeonly %suite) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %suitestr, ptr noundef writeonly %suite) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %suitestr, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -639,7 +639,7 @@ if.then22:                                        ; preds = %for.cond
 for.inc:                                          ; preds = %for.cond, %if.then22
   %delim_count.1 = phi i32 [ %inc, %if.then22 ], [ %delim_count.0, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %st.0, i64 1
-  br label %for.cond, !llvm.loop !10
+  br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
   %cmp24.not = icmp eq i32 %delim_count.0, 2
@@ -678,7 +678,7 @@ for.cond1.preheader.i:                            ; preds = %if.end41, %for.inc7
 for.cond1.i:                                      ; preds = %for.body3.i
   %inc.i = add nuw nsw i64 %j.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
-  br i1 %exitcond.not.i, label %for.inc7.i, label %for.body3.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %for.inc7.i, label %for.body3.i, !llvm.loop !10
 
 for.body3.i:                                      ; preds = %for.cond1.i, %for.cond1.preheader.i
   %j.07.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %inc.i, %for.cond1.i ]
@@ -691,7 +691,7 @@ for.body3.i:                                      ; preds = %for.cond1.i, %for.c
 for.inc7.i:                                       ; preds = %for.cond1.i
   %inc8.i = add nuw nsw i64 %i.09.i, 1
   %exitcond11.not.i = icmp eq i64 %inc8.i, 5
-  br i1 %exitcond11.not.i, label %fail, label %for.cond1.preheader.i, !llvm.loop !12
+  br i1 %exitcond11.not.i, label %fail, label %for.cond1.preheader.i, !llvm.loop !11
 
 synonyms_name2id.exit:                            ; preds = %for.body3.i
   %5 = load i16, ptr %arrayidx.i, align 8
@@ -712,7 +712,7 @@ for.cond1.preheader.i31:                          ; preds = %if.else, %for.inc7.
 for.cond1.i40:                                    ; preds = %for.body3.i35
   %inc.i41 = add nuw nsw i64 %j.07.i36, 1
   %exitcond.not.i42 = icmp eq i64 %inc.i41, 4
-  br i1 %exitcond.not.i42, label %for.inc7.i43, label %for.body3.i35, !llvm.loop !11
+  br i1 %exitcond.not.i42, label %for.inc7.i43, label %for.body3.i35, !llvm.loop !10
 
 for.body3.i35:                                    ; preds = %for.cond1.i40, %for.cond1.preheader.i31
   %j.07.i36 = phi i64 [ 0, %for.cond1.preheader.i31 ], [ %inc.i41, %for.cond1.i40 ]
@@ -725,7 +725,7 @@ for.body3.i35:                                    ; preds = %for.cond1.i40, %for
 for.inc7.i43:                                     ; preds = %for.cond1.i40
   %inc8.i44 = add nuw nsw i64 %i.09.i32, 1
   %exitcond11.not.i45 = icmp eq i64 %inc8.i44, 3
-  br i1 %exitcond11.not.i45, label %fail, label %for.cond1.preheader.i31, !llvm.loop !12
+  br i1 %exitcond11.not.i45, label %fail, label %for.cond1.preheader.i31, !llvm.loop !11
 
 synonyms_name2id.exit48:                          ; preds = %for.body3.i35
   %7 = load i16, ptr %arrayidx.i33, align 8
@@ -746,7 +746,7 @@ for.cond1.preheader.i49:                          ; preds = %if.else57, %for.inc
 for.cond1.i58:                                    ; preds = %for.body3.i53
   %inc.i59 = add nuw nsw i64 %j.07.i54, 1
   %exitcond.not.i60 = icmp eq i64 %inc.i59, 4
-  br i1 %exitcond.not.i60, label %for.inc7.i61, label %for.body3.i53, !llvm.loop !11
+  br i1 %exitcond.not.i60, label %for.inc7.i61, label %for.body3.i53, !llvm.loop !10
 
 for.body3.i53:                                    ; preds = %for.cond1.i58, %for.cond1.preheader.i49
   %j.07.i54 = phi i64 [ 0, %for.cond1.preheader.i49 ], [ %inc.i59, %for.cond1.i58 ]
@@ -759,7 +759,7 @@ for.body3.i53:                                    ; preds = %for.cond1.i58, %for
 for.inc7.i61:                                     ; preds = %for.cond1.i58
   %inc8.i62 = add nuw nsw i64 %i.09.i50, 1
   %exitcond11.not.i63 = icmp eq i64 %inc8.i62, 4
-  br i1 %exitcond11.not.i63, label %fail, label %for.cond1.preheader.i49, !llvm.loop !12
+  br i1 %exitcond11.not.i63, label %fail, label %for.cond1.preheader.i49, !llvm.loop !11
 
 synonyms_name2id.exit66:                          ; preds = %for.body3.i53
   %9 = load i16, ptr %arrayidx.i51, align 8
@@ -773,7 +773,7 @@ if.end68:                                         ; preds = %synonyms_name2id.ex
   %inc74 = add nuw nsw i32 %labels.0103, 1
   %cmp35 = icmp ult i32 %labels.0103, 2
   %10 = select i1 %cmp38.not, i1 %cmp35, i1 false
-  br i1 %10, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %10, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end68
   %cmp78 = icmp ne i32 %inc74, 3
@@ -829,8 +829,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

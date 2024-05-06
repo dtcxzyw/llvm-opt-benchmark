@@ -41,13 +41,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [5 x i8] c"pass\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -107,7 +107,7 @@ declare i32 @test_get_libctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_decode_nonfipsalg() #1 {
+define internal range(i32 0, 2) i32 @test_decode_nonfipsalg() #1 {
 entry:
   %privkey = alloca ptr, align 8
   store ptr null, ptr %privkey, align 8

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.OSSL_PARAM_merge = private unnamed_addr constant [17 x i8] c"OSSL_PARAM_merge\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @ossl_param_bytes_to_blocks(i64 noundef %bytes) local_unnamed_addr #0 {
+define noundef range(i64 0, 2305843009213693952) i64 @ossl_param_bytes_to_blocks(i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %sub = add i64 %bytes, 7
   %div1 = lshr i64 %sub, 3
@@ -93,10 +93,10 @@ ossl_param_dup.exit.loopexit:                     ; preds = %if.end20.us.i
   br label %ossl_param_dup.exit
 
 ossl_param_dup.exit:                              ; preds = %ossl_param_dup.exit.loopexit, %if.end
-  %add.i20 = phi i64 [ 0, %if.end ], [ %9, %ossl_param_dup.exit.loopexit ]
+  %add.i22 = phi i64 [ 0, %if.end ], [ %9, %ossl_param_dup.exit.loopexit ]
   %param_count.1 = phi i64 [ 40, %if.end ], [ %8, %ossl_param_dup.exit.loopexit ]
-  %div1.i21 = add i64 %param_count.1, %add.i20
-  %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %div1.i21, ptr noundef nonnull @.str, i32 noundef 39) #7
+  %div1.i23 = add i64 %param_count.1, %add.i22
+  %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %div1.i23, ptr noundef nonnull @.str, i32 noundef 39) #7
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %return, label %if.end5
 
@@ -110,26 +110,26 @@ if.end5:                                          ; preds = %ossl_param_dup.exit
   br i1 %cmp7.not, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end5
-  %mul.i5 = shl i64 %10, 3
-  %call.i = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %mul.i5, ptr noundef nonnull @.str, i32 noundef 39) #7
-  %cmp.i6 = icmp eq ptr %call.i, null
-  br i1 %cmp.i6, label %if.then12, label %ossl_param_buf_alloc.exit11
+  %mul.i6 = shl i64 %10, 3
+  %call.i = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %mul.i6, ptr noundef nonnull @.str, i32 noundef 39) #7
+  %cmp.i7 = icmp eq ptr %call.i, null
+  br i1 %cmp.i7, label %if.then12, label %ossl_param_buf_alloc.exit13
 
-ossl_param_buf_alloc.exit11:                      ; preds = %land.lhs.true
-  %cur.i9 = getelementptr inbounds i8, ptr %buf, i64 40
-  store ptr %call.i, ptr %cur.i9, align 8
+ossl_param_buf_alloc.exit13:                      ; preds = %land.lhs.true
+  %cur.i11 = getelementptr inbounds i8, ptr %buf, i64 40
+  store ptr %call.i, ptr %cur.i11, align 8
   br label %if.end14
 
 if.then12:                                        ; preds = %land.lhs.true
   tail call void @CRYPTO_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str, i32 noundef 126) #7
   br label %return
 
-if.end14:                                         ; preds = %ossl_param_buf_alloc.exit11, %if.end5
-  %11 = phi i64 [ %mul.i5, %ossl_param_buf_alloc.exit11 ], [ 0, %if.end5 ]
-  %12 = phi ptr [ %call.i, %ossl_param_buf_alloc.exit11 ], [ null, %if.end5 ]
+if.end14:                                         ; preds = %ossl_param_buf_alloc.exit13, %if.end5
+  %11 = phi i64 [ %mul.i6, %ossl_param_buf_alloc.exit13 ], [ 0, %if.end5 ]
+  %12 = phi ptr [ %call.i, %ossl_param_buf_alloc.exit13 ], [ null, %if.end5 ]
   %13 = load ptr, ptr %src, align 8
-  %cmp1.not46.i12 = icmp eq ptr %13, null
-  br i1 %cmp1.not46.i12, label %ossl_param_dup.exit14, label %for.body.us50.i
+  %cmp1.not46.i14 = icmp eq ptr %13, null
+  br i1 %cmp1.not46.i14, label %ossl_param_dup.exit16, label %for.body.us50.i
 
 for.body.us50.i:                                  ; preds = %if.end14, %if.end20.thread.us.i
   %dst.addr.049.us51.i = phi ptr [ %incdec.ptr.us.i, %if.end20.thread.us.i ], [ %call1.i, %if.end14 ]
@@ -176,9 +176,9 @@ if.end20.thread.us.i:                             ; preds = %if.then11.us.i, %if
   %incdec.ptr41.us56.i = getelementptr inbounds i8, ptr %in.047.us52.i, i64 40
   %23 = load ptr, ptr %incdec.ptr41.us56.i, align 8
   %cmp1.not.us57.i = icmp eq ptr %23, null
-  br i1 %cmp1.not.us57.i, label %ossl_param_dup.exit14, label %for.body.us50.i, !llvm.loop !4
+  br i1 %cmp1.not.us57.i, label %ossl_param_dup.exit16, label %for.body.us50.i, !llvm.loop !4
 
-ossl_param_dup.exit14:                            ; preds = %if.end20.thread.us.i, %if.end14
+ossl_param_dup.exit16:                            ; preds = %if.end20.thread.us.i, %if.end14
   %dst.addr.0.lcssa.i = phi ptr [ %call1.i, %if.end14 ], [ %incdec.ptr.us.i, %if.end20.thread.us.i ]
   store ptr null, ptr %dst.addr.0.lcssa.i, align 8
   %data_size.i = getelementptr inbounds i8, ptr %dst.addr.0.lcssa.i, i64 24
@@ -189,8 +189,8 @@ ossl_param_dup.exit14:                            ; preds = %if.end20.thread.us.
   store i32 127, ptr %data_type.i, align 8
   br label %return
 
-return:                                           ; preds = %ossl_param_dup.exit, %ossl_param_dup.exit14, %if.then12, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %call1.i, %ossl_param_dup.exit14 ], [ null, %if.then12 ], [ null, %ossl_param_dup.exit ]
+return:                                           ; preds = %ossl_param_dup.exit, %ossl_param_dup.exit16, %if.then12, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %call1.i, %ossl_param_dup.exit16 ], [ null, %if.then12 ], [ null, %ossl_param_dup.exit ]
   ret ptr %retval.0
 }
 
@@ -272,7 +272,7 @@ if.end28:                                         ; preds = %if.end22
   call void @qsort(ptr noundef nonnull %list1, i64 noundef %list1_sz.1, i64 noundef 8, ptr noundef nonnull @compare_params) #7
   call void @qsort(ptr noundef nonnull %list2, i64 noundef %list2_sz.1, i64 noundef 8, ptr noundef nonnull @compare_params) #7
   %add = add nuw nsw i64 %list2_sz.1, %list1_sz.1
-  %7 = mul nsw i64 %add, 40
+  %7 = mul nuw nsw i64 %add, 40
   %mul = add nuw nsw i64 %7, 40
   %call = call noalias ptr @CRYPTO_zalloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 184) #7
   %cmp31 = icmp eq ptr %call, null

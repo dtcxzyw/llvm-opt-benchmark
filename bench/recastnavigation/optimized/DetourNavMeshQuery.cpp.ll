@@ -206,7 +206,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14dtNavMeshQuery4initEPK9dtNavMeshi(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN14dtNavMeshQuery4initEPK9dtNavMeshi(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = icmp sgt i32 %2, 65535
   br i1 %4, label %47, label %5
 
@@ -311,7 +311,7 @@ declare void @_ZN10dtNodePool5clearEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN11dtNodeQueueC1Ei(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery15findRandomPointEPK13dtQueryFilterPFfvEPjPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15findRandomPointEPK13dtQueryFilterPFfvEPjPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [18 x float], align 16
   %7 = alloca [6 x float], align 16
   %8 = alloca [3 x float], align 4
@@ -623,7 +623,7 @@ declare noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr noundef n
 declare void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef, i32 noundef, ptr noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %7 = icmp ne ptr %6, null
   %8 = load ptr, ptr %0, align 8
@@ -1019,7 +1019,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %47
   %215 = load ptr, ptr %12, align 8
   %216 = load ptr, ptr %11, align 8
   %217 = load ptr, ptr %15, align 8
-  %218 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %129, ptr noundef %215, ptr noundef %216, i32 noundef %201, ptr noundef nonnull %205, ptr noundef %217, ptr noundef nonnull %17, ptr noundef nonnull %18), !range !12
+  %218 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %129, ptr noundef %215, ptr noundef %216, i32 noundef %201, ptr noundef nonnull %205, ptr noundef %217, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %219 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
   %220 = fcmp ogt float %219, %101
   br i1 %220, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %221
@@ -1146,7 +1146,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %264, %248
 292:                                              ; preds = %286
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %286, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %286, !llvm.loop !12
 
 293:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %294 = and i32 %278, -469762049
@@ -1168,7 +1168,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %292, %290, %280, %2
   %303 = getelementptr inbounds %struct.dtLink, ptr %302, i64 %199, i32 1
   %.0136 = load i32, ptr %303, align 4
   %.not156 = icmp eq i32 %.0136, -1
-  br i1 %.not156, label %.loopexit, label %197, !llvm.loop !14
+  br i1 %.not156, label %.loopexit, label %197, !llvm.loop !13
 
 ._crit_edge194:                                   ; preds = %.loopexit
   %.not = icmp eq ptr %.1132, null
@@ -1221,7 +1221,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %292, %290, %280, %2
   %337 = load i8, ptr %319, align 2
   %338 = zext i8 %337 to i64
   %339 = icmp ult i64 %indvars.iv.next206, %338
-  br i1 %339, label %.lr.ph201, label %._crit_edge202, !llvm.loop !15
+  br i1 %339, label %.lr.ph201, label %._crit_edge202, !llvm.loop !14
 
 ._crit_edge202:                                   ; preds = %.lr.ph201, %304
   %340 = call noundef float %5()
@@ -1292,7 +1292,7 @@ declare void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPo
 declare noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr noundef nonnull align 8 dereferenceable(36), i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #11 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #11 align 2 {
   %.07592 = load i32, ptr %2, align 4
   %.not93 = icmp eq i32 %.07592, -1
   br i1 %.not93, label %.thread, label %.lr.ph
@@ -1314,7 +1314,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTi
   %18 = getelementptr inbounds i8, ptr %14, i64 4
   %.075 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %.075, -1
-  br i1 %.not, label %.thread, label %12, !llvm.loop !16
+  br i1 %.not, label %.thread, label %12, !llvm.loop !15
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %2, i64 31
@@ -1374,7 +1374,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTi
   %59 = getelementptr inbounds i8, ptr %24, i64 4
   %.076 = load i32, ptr %59, align 4
   %.not83 = icmp eq i32 %.076, -1
-  br i1 %.not83, label %.thread, label %.lr.ph102, !llvm.loop !17
+  br i1 %.not83, label %.thread, label %.lr.ph102, !llvm.loop !16
 
 60:                                               ; preds = %19
   %61 = getelementptr inbounds i8, ptr %5, i64 31
@@ -1444,7 +1444,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTi
   %103 = getelementptr inbounds i8, ptr %68, i64 4
   %.077 = load i32, ptr %103, align 4
   %.not82 = icmp eq i32 %.077, -1
-  br i1 %.not82, label %.thread, label %66, !llvm.loop !18
+  br i1 %.not82, label %.thread, label %66, !llvm.loop !17
 
 104:                                              ; preds = %60
   %105 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1567,7 +1567,7 @@ declare noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef, ptr noun
 declare void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(100), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [18 x float], align 16
@@ -1653,7 +1653,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   store float %52, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = icmp ult i64 %indvars.iv.next, %38
-  br i1 %54, label %39, label %._crit_edge, !llvm.loop !19
+  br i1 %54, label %39, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %39
   %55 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -1694,7 +1694,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   %.1 = select i1 %68, i32 %69, i32 %.03449
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !19
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %._crit_edge.thread, %63
   %.032.lcssa6466 = phi i32 [ 1, %63 ], [ 0, %._crit_edge.thread ], [ %55, %.lr.ph52 ]
@@ -1741,7 +1741,7 @@ declare noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtP
 declare noundef zeroext i1 @_Z24dtDistancePtPolyEdgesSqrPKfS0_iPfS1_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery13getPolyHeightEjPKfPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery13getPolyHeightEjPKfPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca float, align 4
@@ -1850,7 +1850,7 @@ define void @_ZN22dtFindNearestPolyQueryD0Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPf(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPf(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.dtFindNearestPolyQuery, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %8 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
@@ -1879,7 +1879,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilte
   %17 = getelementptr inbounds i8, ptr %7, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %17, i8 0, i64 17, i1 false)
   %18 = invoke noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP11dtPolyQuery(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
-          to label %19 unwind label %21, !range !12
+          to label %19 unwind label %21
 
 19:                                               ; preds = %13
   %20 = icmp slt i32 %18, 0
@@ -1921,7 +1921,7 @@ _ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.dtFindNearestPolyQuery, align 8
   %9 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %10 = icmp ne ptr %9, null
@@ -1949,7 +1949,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilte
   %18 = getelementptr inbounds i8, ptr %8, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %18, i8 0, i64 17, i1 false)
   %19 = invoke noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP11dtPolyQuery(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %8)
-          to label %20 unwind label %22, !range !12
+          to label %20 unwind label %22
 
 20:                                               ; preds = %14
   %21 = icmp slt i32 %19, 0
@@ -1998,7 +1998,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilte
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP11dtPolyQuery(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP11dtPolyQuery(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [3 x float], align 8
   %7 = alloca [3 x float], align 8
   %8 = alloca i32, align 4
@@ -2123,13 +2123,13 @@ _Z11dtVisfinitePKf.exit42:                        ; preds = %36
   call void @_ZNK14dtNavMeshQuery19queryPolygonsInTileEPK10dtMeshTilePKfS4_PK13dtQueryFilterP11dtPolyQuery(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %72, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph50
   %73 = add nsw i32 %.03148, 1
   %74 = load i32, ptr %10, align 4
   %.not40.not = icmp slt i32 %.03148, %74
-  br i1 %.not40.not, label %.lr.ph50, label %._crit_edge51.loopexit, !llvm.loop !22
+  br i1 %.not40.not, label %.lr.ph50, label %._crit_edge51.loopexit, !llvm.loop !21
 
 ._crit_edge51.loopexit:                           ; preds = %._crit_edge
   %.pre = load i32, ptr %11, align 4
@@ -2140,7 +2140,7 @@ _Z11dtVisfinitePKf.exit42:                        ; preds = %36
   %76 = phi i32 [ %74, %._crit_edge51.loopexit ], [ %66, %.lr.ph55.split ]
   %77 = add nsw i32 %.03253, 1
   %.not39.not = icmp slt i32 %.03253, %75
-  br i1 %.not39.not, label %.lr.ph55.split, label %_Z11dtVisfinitePKf.exit.thread, !llvm.loop !23
+  br i1 %.not39.not, label %.lr.ph55.split, label %_Z11dtVisfinitePKf.exit.thread, !llvm.loop !22
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %._crit_edge51, %.lr.ph55, %47, %32, %36, %18, %22, %17, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit42
   %.030 = phi i32 [ -2147483640, %_Z11dtVisfinitePKf.exit42 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %17 ], [ -2147483640, %22 ], [ -2147483640, %18 ], [ -2147483640, %36 ], [ -2147483640, %32 ], [ 1073741824, %47 ], [ 1073741824, %.lr.ph55 ], [ 1073741824, %._crit_edge51 ]
@@ -2370,7 +2370,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   %.1180 = phi i32 [ %.1181, %.thread ], [ %.0114148, %162 ]
   %.1116 = phi ptr [ %161, %.thread ], [ %166, %162 ]
   %168 = icmp ult ptr %.1116, %22
-  br i1 %168, label %101, label %.loopexit, !llvm.loop !25
+  br i1 %168, label %101, label %.loopexit, !llvm.loop !24
 
 169:                                              ; preds = %13
   %170 = load ptr, ptr %0, align 8
@@ -2464,7 +2464,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   %235 = select i1 %234, float %.sroa.8.0152, float %229
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph156, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph156, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph156
   %236 = extractelement <2 x float> %233, i64 1
@@ -2547,7 +2547,7 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %258, %254, %270, %2
   %274 = load i32, ptr %273, align 4
   %275 = sext i32 %274 to i64
   %276 = icmp slt i64 %indvars.iv.next176, %275
-  br i1 %276, label %185, label %.loopexit, !llvm.loop !27
+  br i1 %276, label %185, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %167, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
   %.4 = phi i32 [ %.3, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ], [ %.1180, %167 ]
@@ -2578,7 +2578,7 @@ define void @_ZN19dtCollectPolysQueryD0Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterPjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterPjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.dtCollectPolysQuery, align 8
   %9 = icmp eq ptr %4, null
   %10 = icmp eq ptr %5, null
@@ -2598,7 +2598,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP
   %16 = getelementptr inbounds i8, ptr %8, i64 24
   store i8 0, ptr %16, align 8
   %17 = invoke noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP11dtPolyQuery(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %8)
-          to label %18 unwind label %20, !range !12
+          to label %18 unwind label %20
 
 18:                                               ; preds = %12
   %19 = icmp slt i32 %17, 0
@@ -2824,7 +2824,7 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   %121 = getelementptr inbounds i8, ptr %120, i64 12
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %._crit_edge.loopexit, label %124, !llvm.loop !28
+  br i1 %123, label %._crit_edge.loopexit, label %124, !llvm.loop !27
 
 124:                                              ; preds = %.lr.ph214, %.loopexit
   %125 = phi i32 [ %113, %.lr.ph214 ], [ %122, %.loopexit ]
@@ -2954,7 +2954,7 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   %194 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
-  %195 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %139, ptr noundef %191, ptr noundef %192, i32 noundef %163, ptr noundef %193, ptr noundef %194, ptr noundef nonnull %10, ptr noundef nonnull %11), !range !12
+  %195 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %139, ptr noundef readonly %191, ptr noundef readonly %192, i32 noundef %163, ptr noundef readonly %193, ptr noundef readonly %194, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %196 = icmp slt i32 %195, 0
   br i1 %196, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %197
 
@@ -3116,7 +3116,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %274, %272
 303:                                              ; preds = %297
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %297, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %297, !llvm.loop !12
 
 304:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %305 = or disjoint i32 %288, 67108864
@@ -3146,7 +3146,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %303, %301, %291, %3
   %316 = getelementptr inbounds %struct.dtLink, ptr %315, i64 %161, i32 1
   %.0150 = load i32, ptr %316, align 4
   %.not172 = icmp eq i32 %.0150, -1
-  br i1 %.not172, label %.loopexit, label %159, !llvm.loop !29
+  br i1 %.not172, label %.loopexit, label %159, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %124, %.loopexit
   %.0143.lcssa.ph = phi i1 [ %.1144.lcssa, %.loopexit ], [ %.0143211, %124 ]
@@ -3157,7 +3157,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %303, %301, %291, %3
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %75
   %.0143.lcssa = phi i1 [ false, %75 ], [ %317, %._crit_edge.loopexit ]
   %.3 = phi ptr [ %80, %75 ], [ %.3.ph, %._crit_edge.loopexit ]
-  %318 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %.3, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8), !range !30
+  %318 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %.3, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8)
   %319 = getelementptr inbounds i8, ptr %.3, i64 24
   %320 = load i32, ptr %319, align 4
   %.not179 = icmp eq i32 %320, %2
@@ -3173,10 +3173,10 @@ _Z11dtVisfinitePKf.exit.thread:                   ; preds = %._crit_edge, %56, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #11 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #11 align 2 {
   %9 = alloca [3 x float], align 8
   %10 = alloca [3 x float], align 8
-  %11 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %9, ptr noundef nonnull %10), !range !12
+  %11 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %25, label %13
 
@@ -3202,7 +3202,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -3224,7 +3224,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr nocapt
   %.not.i = icmp eq i32 %12, 0
   %13 = zext nneg i32 %12 to i64
   %gep = getelementptr %struct.dtNode, ptr %invariant.gep, i64 %13
-  br i1 %.not.i, label %.preheader51, label %.split, !llvm.loop !31
+  br i1 %.not.i, label %.preheader51, label %.split, !llvm.loop !29
 
 .preheader51:                                     ; preds = %.split, %5
   %.us-phi = phi i32 [ 0, %5 ], [ %.039, %.split ]
@@ -3268,7 +3268,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr nocapt
   %.0.i47 = select i1 %.not.i46, ptr null, ptr %29
   %30 = add nsw i32 %.04054, -1
   %31 = icmp sgt i32 %30, %4
-  br i1 %31, label %.lr.ph, label %.preheader, !llvm.loop !32
+  br i1 %31, label %.lr.ph, label %.preheader, !llvm.loop !30
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %36
   %indvars.iv = phi i64 [ %16, %.lr.ph60.preheader ], [ %indvars.iv.next, %36 ]
@@ -3300,7 +3300,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr nocapt
   %47 = getelementptr inbounds %struct.dtNode, ptr %44, i64 %46
   %.0.i49 = select i1 %.not.i48, ptr null, ptr %47
   %48 = icmp ugt i64 %indvars.iv, 1
-  br i1 %48, label %.lr.ph60, label %._crit_edge, !llvm.loop !33
+  br i1 %48, label %.lr.ph60, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %36, %.preheader
   %.2.lcssa = phi ptr [ %.0.i47, %.preheader ], [ %.0.i49, %36 ]
@@ -3612,7 +3612,7 @@ define noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr nocapture 
 
 .loopexit:                                        ; preds = %327, %.thread150
   %exitcond.not = icmp eq i32 %49, %1
-  br i1 %exitcond.not, label %.critedge, label %43, !llvm.loop !34
+  br i1 %exitcond.not, label %.critedge, label %43, !llvm.loop !32
 
 43:                                               ; preds = %.lr.ph178, %.loopexit
   %.0106177 = phi i32 [ 0, %.lr.ph178 ], [ %49, %.loopexit ]
@@ -3853,7 +3853,7 @@ define noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr nocapture 
   %175 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  %176 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %61, ptr noundef %172, ptr noundef %173, i32 noundef %138, ptr noundef %174, ptr noundef %175, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !12
+  %176 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %61, ptr noundef readonly %172, ptr noundef readonly %173, i32 noundef %138, ptr noundef readonly %174, ptr noundef readonly %175, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %177 = icmp slt i32 %176, 0
   br i1 %177, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %178
 
@@ -3883,7 +3883,7 @@ _ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit: ; 
 
 189:                                              ; preds = %188
   %190 = load ptr, ptr %34, align 8
-  %191 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.0107149155, ptr noundef %.0112147157, ptr noundef nonnull %156, ptr noundef %190, i32 noundef 1, ptr noundef nonnull %6, i32 noundef %.0108148156), !range !12
+  %191 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.0107149155, ptr noundef %.0112147157, ptr noundef nonnull %156, ptr noundef %190, i32 noundef 1, ptr noundef nonnull %6, i32 noundef %.0108148156)
   %192 = load float, ptr %6, align 8
   %193 = fcmp ult float %192, 1.000000e+00
   br i1 %193, label %.thread158, label %194
@@ -4073,7 +4073,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %284, %282
 317:                                              ; preds = %311
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %311, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %311, !llvm.loop !12
 
 318:                                              ; preds = %302
   %319 = or disjoint i32 %303, 67108864
@@ -4103,7 +4103,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %317, %315, %305, %3
   %331 = getelementptr inbounds %struct.dtLink, ptr %330, i64 %136, i32 1
   %.0114 = load i32, ptr %331, align 4
   %.not126 = icmp eq i32 %.0114, -1
-  br i1 %.not126, label %.loopexit, label %134, !llvm.loop !35
+  br i1 %.not126, label %.loopexit, label %134, !llvm.loop !33
 
 .critedge:                                        ; preds = %43, %.loopexit, %27
   %.0106.lcssa = phi i32 [ 0, %27 ], [ %1, %.loopexit ], [ %.0106177, %43 ]
@@ -4139,7 +4139,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %317, %315, %305, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 {
   %9 = alloca [21 x float], align 16
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -4327,7 +4327,7 @@ _Z11dtVisfinitePKf.exit177:                       ; preds = %49
   %108 = load i8, ptr %87, align 2
   %109 = zext i8 %108 to i64
   %110 = icmp ult i64 %indvars.iv.next, %109
-  br i1 %110, label %92, label %._crit_edge.loopexit, !llvm.loop !36
+  br i1 %110, label %92, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %92
   %111 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -4576,7 +4576,7 @@ _Z11dtVisfinitePKf.exit177:                       ; preds = %49
   %270 = getelementptr inbounds %struct.dtLink, ptr %269, i64 %157, i32 1
   %.0152 = load i32, ptr %270, align 4
   %.not167 = icmp eq i32 %.0152, -1
-  br i1 %.not167, label %.loopexit, label %.lr.ph241, !llvm.loop !37
+  br i1 %.not167, label %.loopexit, label %.lr.ph241, !llvm.loop !35
 
 .loopexit.sink.split:                             ; preds = %241, %214, %187, %179
   %271 = load i32, ptr %158, align 4
@@ -4698,7 +4698,7 @@ _Z11dtVisfinitePKf.exit.thread:                   ; preds = %45, %49, %31, %35, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14dtNavMeshQuery22finalizeSlicedFindPathEPjPii(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN14dtNavMeshQuery22finalizeSlicedFindPathEPjPii(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %struct.dtRaycastHit, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %103, label %6
@@ -4801,9 +4801,9 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
   %60 = shl nuw nsw i32 %59, 26
   %61 = or disjoint i32 %55, %60
   store i32 %61, ptr %39, align 4
-  %.not6577 = icmp eq ptr %42, null
-  %.not65 = select i1 %.not.i, i1 true, i1 %.not6577
-  br i1 %.not65, label %.preheader, label %37, !llvm.loop !38
+  %.not6578 = icmp eq ptr %42, null
+  %.not65 = select i1 %.not.i, i1 true, i1 %.not6578
+  br i1 %.not65, label %.preheader, label %37, !llvm.loop !36
 
 .preheader:                                       ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %invariant.gep = getelementptr i8, ptr %1, i64 -4
@@ -4840,7 +4840,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr %79, ptr %63, align 8
   store i32 %82, ptr %64, align 4
-  %83 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %77, ptr noundef nonnull %.152, ptr noundef %.0.i76, ptr noundef %81, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0), !range !12
+  %83 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %77, ptr noundef nonnull %.152, ptr noundef %.0.i76, ptr noundef %81, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0)
   %84 = load i32, ptr %65, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   %85 = add nsw i32 %84, %.049
@@ -4876,7 +4876,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
 
 99:                                               ; preds = %94
   %.not69 = icmp eq ptr %.0.i76, null
-  br i1 %.not69, label %.loopexit, label %66, !llvm.loop !39
+  br i1 %.not69, label %.loopexit, label %66, !llvm.loop !37
 
 .loopexit:                                        ; preds = %99, %96, %20
   %.2 = phi i32 [ 1, %20 ], [ %.1, %96 ], [ %.1, %99 ]
@@ -4893,13 +4893,13 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_PjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef %9) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_PjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef %9) local_unnamed_addr #1 align 2 {
   %11 = alloca %struct.dtRaycastHit, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %7, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 36
   store i32 %9, ptr %13, align 4
-  %14 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 0), !range !12
+  %14 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 0)
   %15 = load float, ptr %11, align 8
   store float %15, ptr %5, align 4
   %.not = icmp eq ptr %6, null
@@ -4930,7 +4930,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_Pj
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %struct.dtRaycastHit, align 8
   %8 = alloca ptr, align 8
   %.not = icmp eq ptr %4, null
@@ -4988,7 +4988,7 @@ define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii
   %35 = call noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr noundef nonnull align 8 dereferenceable(36) %32, i32 noundef %34, ptr noundef nonnull %8, i32 noundef 1)
   %36 = load ptr, ptr %8, align 8
   %.not68 = icmp eq ptr %36, null
-  br i1 %.not68, label %29, label %.thread.preheader, !llvm.loop !40
+  br i1 %.not68, label %29, label %.thread.preheader, !llvm.loop !38
 
 37:                                               ; preds = %29
   %38 = load i32, ptr %15, align 8
@@ -5013,15 +5013,15 @@ define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii
   br label %.thread.preheader
 
 .thread.preheader:                                ; preds = %31, %45
-  %.0.i87.ph = phi ptr [ %46, %45 ], [ %36, %31 ]
+  %.0.i88.ph = phi ptr [ %46, %45 ], [ %36, %31 ]
   br label %.thread
 
 .thread:                                          ; preds = %.thread.preheader, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
-  %.0.i87 = phi ptr [ %54, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ %.0.i87.ph, %.thread.preheader ]
+  %.0.i88 = phi ptr [ %54, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ %.0.i88.ph, %.thread.preheader ]
   %.053 = phi i32 [ %66, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ 0, %.thread.preheader ]
-  %.051 = phi ptr [ %.0.i87, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ null, %.thread.preheader ]
+  %.051 = phi ptr [ %.0.i88, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ null, %.thread.preheader ]
   %47 = load ptr, ptr %27, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i87, i64 20
+  %48 = getelementptr inbounds i8, ptr %.0.i88, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 16777215
   %.not.i = icmp eq i32 %50, 0
@@ -5056,10 +5056,10 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   store i32 %70, ptr %48, align 4
   store ptr %.0.i, ptr %8, align 8
   %.not71 = icmp eq ptr %.0.i, null
-  br i1 %.not71, label %71, label %.thread, !llvm.loop !41
+  br i1 %.not71, label %71, label %.thread, !llvm.loop !39
 
 71:                                               ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
-  store ptr %.0.i87, ptr %8, align 8
+  store ptr %.0.i88, ptr %8, align 8
   %invariant.gep = getelementptr i8, ptr %3, i64 -4
   %72 = getelementptr inbounds i8, ptr %0, i64 64
   %73 = getelementptr inbounds i8, ptr %7, i64 24
@@ -5068,7 +5068,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   br label %76
 
 76:                                               ; preds = %110, %71
-  %77 = phi ptr [ %.0.i87, %71 ], [ %85, %110 ]
+  %77 = phi ptr [ %.0.i88, %71 ], [ %85, %110 ]
   %.050 = phi i32 [ 0, %71 ], [ %.1, %110 ]
   %78 = load ptr, ptr %27, align 8
   %79 = getelementptr inbounds i8, ptr %77, i64 20
@@ -5094,7 +5094,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr %90, ptr %73, align 8
   store i32 %93, ptr %74, align 4
-  %94 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i81, ptr noundef %92, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0), !range !12
+  %94 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i81, ptr noundef %92, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0)
   %95 = load i32, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %96 = add nsw i32 %95, %.050
@@ -5131,7 +5131,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
 110:                                              ; preds = %105
   store ptr %.0.i81, ptr %8, align 8
   %.not75 = icmp eq ptr %.0.i81, null
-  br i1 %.not75, label %.loopexit, label %76, !llvm.loop !42
+  br i1 %.not75, label %.loopexit, label %76, !llvm.loop !40
 
 .loopexit:                                        ; preds = %110, %107, %25
   %.2 = phi i32 [ 1, %25 ], [ %.1, %107 ], [ %.1, %110 ]
@@ -5150,7 +5150,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
 declare noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr noundef nonnull align 8 dereferenceable(36), i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr nocapture noundef %7, i32 noundef %8) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 536870912, 1073741841) i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr nocapture noundef %7, i32 noundef %8) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %10 = load i32, ptr %7, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %._crit_edge
@@ -5166,7 +5166,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nocapt
   %16 = getelementptr inbounds float, ptr %4, i64 %15
   %17 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %_Z8dtVequalPKfS0_.exit, !prof !43
+  br i1 %18, label %19, label %_Z8dtVequalPKfS0_.exit, !prof !41
 
 19:                                               ; preds = %12
   %20 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #20
@@ -5283,7 +5283,7 @@ _Z8dtVequalPKfS0_.exit._crit_edge:                ; preds = %_Z8dtVequalPKfS0_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 {
+define noundef range(i32 536870912, -2147483639) i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 {
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
@@ -5338,7 +5338,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr n
   %46 = load ptr, ptr %12, align 8
   %47 = load ptr, ptr %15, align 8
   %48 = load ptr, ptr %14, align 8
-  %49 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %34, ptr noundef %45, ptr noundef %46, i32 noundef %40, ptr noundef %47, ptr noundef %48, ptr noundef nonnull %16, ptr noundef nonnull %17), !range !12
+  %49 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %34, ptr noundef %45, ptr noundef %46, i32 noundef %40, ptr noundef %47, ptr noundef %48, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %._crit_edge, label %51
 
@@ -5374,13 +5374,13 @@ define noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr n
   %73 = call float @llvm.fmuladd.f32(float %72, float %63, float %70)
   store float %73, ptr %30, align 8
   %74 = load i32, ptr %39, align 4
-  %75 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %20, i8 noundef zeroext 0, i32 noundef %74, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9), !range !44
+  %75 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %20, i8 noundef zeroext 0, i32 noundef %74, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9)
   %.not29 = icmp eq i32 %75, 536870912
   br i1 %.not29, label %76, label %._crit_edge
 
 76:                                               ; preds = %60, %62, %52
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %32, %38, %62, %44, %76, %11
   %.0 = phi i32 [ 536870912, %11 ], [ 536870912, %76 ], [ 536870912, %44 ], [ %75, %62 ], [ -2147483640, %38 ], [ -2147483640, %32 ]
@@ -5390,7 +5390,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr n
 declare noundef zeroext i1 @_Z19dtIntersectSegSeg2DPKfS0_S0_S0_RfS1_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 536870913, 536870912) i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca [3 x float], align 8
   %13 = alloca [3 x float], align 8
   %14 = alloca [3 x float], align 8
@@ -5475,7 +5475,7 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
   br i1 %or.cond7, label %_Z11dtVisfinitePKf.exit.thread, label %61
 
 61:                                               ; preds = %57
-  %62 = call noundef i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %58, ptr noundef nonnull %1, ptr noundef nonnull %12), !range !12
+  %62 = call noundef i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %58, ptr noundef nonnull %1, ptr noundef nonnull %12)
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %_Z11dtVisfinitePKf.exit.thread, label %64
 
@@ -5484,13 +5484,13 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds i32, ptr %3, i64 %66
   %68 = load i32, ptr %67, align 4
-  %69 = call noundef i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %68, ptr noundef nonnull %2, ptr noundef nonnull %13), !range !12
+  %69 = call noundef i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %68, ptr noundef nonnull %2, ptr noundef nonnull %13)
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %_Z11dtVisfinitePKf.exit.thread, label %71
 
 71:                                               ; preds = %64
   %72 = load i32, ptr %3, align 4
-  %73 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %12, i8 noundef zeroext 1, i32 noundef %72, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9), !range !44
+  %73 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %12, i8 noundef zeroext 1, i32 noundef %72, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9)
   %.not191 = icmp eq i32 %73, 536870912
   br i1 %.not191, label %74, label %_Z11dtVisfinitePKf.exit.thread
 
@@ -5544,14 +5544,14 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
   %99 = sext i32 %93 to i64
   %100 = getelementptr inbounds i32, ptr %3, i64 %99
   %101 = load i32, ptr %100, align 4
-  %102 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjjPfS0_RhS1_(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %98, i32 noundef %101, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %19), !range !12
+  %102 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjjPfS0_RhS1_(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %98, i32 noundef %101, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %19)
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %117
 
 104:                                              ; preds = %95
   %105 = getelementptr inbounds i32, ptr %3, i64 %96
   %106 = load i32, ptr %105, align 4
-  %107 = call noundef i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %106, ptr noundef nonnull %2, ptr noundef nonnull %13), !range !12
+  %107 = call noundef i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %106, ptr noundef nonnull %2, ptr noundef nonnull %13)
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %_Z11dtVisfinitePKf.exit.thread, label %109
 
@@ -5559,12 +5559,12 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
   br i1 %.not195, label %112, label %110
 
 110:                                              ; preds = %109
-  %111 = call noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.0170218, i32 noundef %.0155229, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %10), !range !46
+  %111 = call noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.0170218, i32 noundef %.0155229, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %10)
   br label %112
 
 112:                                              ; preds = %110, %109
   %113 = load i32, ptr %105, align 4
-  %114 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %13, i8 noundef zeroext 0, i32 noundef %113, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9), !range !44
+  %114 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %13, i8 noundef zeroext 0, i32 noundef %113, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9)
   %115 = load i32, ptr %8, align 4
   %.not204 = icmp slt i32 %115, %9
   %116 = select i1 %.not204, i32 1073741888, i32 1073741904
@@ -5609,7 +5609,7 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
 140:                                              ; preds = %125
   %141 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
   %142 = icmp eq i8 %141, 0
-  br i1 %142, label %143, label %_Z8dtVequalPKfS0_.exit, !prof !43
+  br i1 %142, label %143, label %_Z8dtVequalPKfS0_.exit, !prof !41
 
 143:                                              ; preds = %140
   %144 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #20
@@ -5675,7 +5675,7 @@ _Z8dtVequalPKfS0_.exit:                           ; preds = %140, %143, %145
   br i1 %.not195, label %183, label %181
 
 181:                                              ; preds = %180
-  %182 = call noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.0170218, i32 noundef %.0168220, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %10), !range !46
+  %182 = call noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.0170218, i32 noundef %.0168220, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %10)
   %.not196 = icmp eq i32 %182, 536870912
   br i1 %.not196, label %._crit_edge234, label %_Z11dtVisfinitePKf.exit.thread
 
@@ -5695,7 +5695,7 @@ _Z8dtVequalPKfS0_.exit:                           ; preds = %140, %143, %145
   %187 = icmp eq i8 %.0163223, 1
   %spec.select = select i1 %187, i8 4, i8 0
   %.0154 = select i1 %.not197, i8 2, i8 %spec.select
-  %188 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %14, i8 noundef zeroext %.0154, i32 noundef %.0158226, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9), !range !44
+  %188 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %14, i8 noundef zeroext %.0154, i32 noundef %.0158226, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9)
   %.not198 = icmp eq i32 %188, 536870912
   br i1 %.not198, label %189, label %_Z11dtVisfinitePKf.exit.thread
 
@@ -5731,7 +5731,7 @@ _Z8dtVequalPKfS0_.exit:                           ; preds = %140, %143, %145
 207:                                              ; preds = %192
   %208 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
   %209 = icmp eq i8 %208, 0
-  br i1 %209, label %210, label %_Z8dtVequalPKfS0_.exit209, !prof !43
+  br i1 %209, label %210, label %_Z8dtVequalPKfS0_.exit209, !prof !41
 
 210:                                              ; preds = %207
   %211 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #20
@@ -5797,7 +5797,7 @@ _Z8dtVequalPKfS0_.exit209:                        ; preds = %207, %210, %212
   br i1 %.not195, label %250, label %248
 
 248:                                              ; preds = %247
-  %249 = call noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.0170218, i32 noundef %.1166, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %10), !range !46
+  %249 = call noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.0170218, i32 noundef %.1166, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %10)
   %.not200 = icmp eq i32 %249, 536870912
   br i1 %.not200, label %._crit_edge238, label %_Z11dtVisfinitePKf.exit.thread
 
@@ -5817,7 +5817,7 @@ _Z8dtVequalPKfS0_.exit209:                        ; preds = %207, %210, %212
   %254 = icmp eq i8 %.1161, 1
   %spec.select206 = select i1 %254, i8 4, i8 0
   %.0153 = select i1 %.not201, i8 2, i8 %spec.select206
-  %255 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %14, i8 noundef zeroext %.0153, i32 noundef %.1157, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9), !range !44
+  %255 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %14, i8 noundef zeroext %.0153, i32 noundef %.1157, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9)
   %.not202 = icmp eq i32 %255, 536870912
   br i1 %.not202, label %256, label %_Z11dtVisfinitePKf.exit.thread
 
@@ -5841,19 +5841,19 @@ _Z8dtVequalPKfS0_.exit209:                        ; preds = %207, %210, %212
   %.1 = phi i32 [ 0, %119 ], [ %.0155229, %244 ], [ %.1166, %256 ], [ %.0155229, %192 ], [ %.0168220, %189 ]
   %260 = add nsw i32 %.1, 1
   %261 = icmp slt i32 %260, %4
-  br i1 %261, label %92, label %._crit_edge, !llvm.loop !47
+  br i1 %261, label %92, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %259
   %.not192 = icmp eq i32 %91, 0
   br i1 %.not192, label %264, label %262
 
 262:                                              ; preds = %._crit_edge
-  %263 = call noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.1171, i32 noundef %65, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %10), !range !46
+  %263 = call noundef i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.1171, i32 noundef %65, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %10)
   %.not193 = icmp eq i32 %263, 536870912
   br i1 %.not193, label %264, label %_Z11dtVisfinitePKf.exit.thread
 
 264:                                              ; preds = %._crit_edge, %262, %74
-  %265 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %13, i8 noundef zeroext 2, i32 noundef 0, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9), !range !44
+  %265 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %13, i8 noundef zeroext 2, i32 noundef 0, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9)
   %266 = load i32, ptr %8, align 4
   %.not194 = icmp slt i32 %266, %9
   %267 = select i1 %.not194, i32 1073741824, i32 1073741840
@@ -5865,7 +5865,7 @@ _Z11dtVisfinitePKf.exit.thread:                   ; preds = %250, %248, %183, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjjPfS0_RhS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjjPfS0_RhS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -5912,7 +5912,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjjPfS0_RhS1_(ptr nocap
   %33 = load ptr, ptr %9, align 8
   %34 = load ptr, ptr %8, align 8
   %35 = load ptr, ptr %10, align 8
-  %36 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %1, ptr noundef %33, ptr noundef %34, i32 noundef %2, ptr noundef %29, ptr noundef %35, ptr noundef %3, ptr noundef %4), !range !12
+  %36 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %1, ptr noundef %33, ptr noundef %34, i32 noundef %2, ptr noundef %29, ptr noundef %35, ptr noundef %3, ptr noundef %4)
   br label %37
 
 37:                                               ; preds = %20, %16, %28
@@ -5921,7 +5921,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjjPfS0_RhS1_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery16moveAlongSurfaceEjPKfS1_PK13dtQueryFilterPfPjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, i32 noundef %8) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery16moveAlongSurfaceEjPKfS1_PK13dtQueryFilterPfPjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, i32 noundef %8) local_unnamed_addr #1 align 2 {
   %10 = alloca [48 x ptr], align 16
   %11 = alloca [3 x float], align 8
   %12 = alloca [18 x float], align 16
@@ -6070,7 +6070,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   %.1143.lcssa = phi i32 [ %102, %136 ], [ %.4, %.loopexit207 ]
   %98 = phi <2 x float> [ %100, %136 ], [ %260, %.loopexit207 ]
   %.not175 = icmp eq i32 %.1143.lcssa, 0
-  br i1 %.not175, label %.loopexit211, label %99, !llvm.loop !48
+  br i1 %.not175, label %.loopexit211, label %99, !llvm.loop !44
 
 99:                                               ; preds = %68, %.loopexit210
   %.0142254 = phi i32 [ 1, %68 ], [ %.1143.lcssa, %.loopexit210 ]
@@ -6132,7 +6132,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   store float %130, ptr %131, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge222, label %116, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge222, label %116, !llvm.loop !45
 
 ._crit_edge222:                                   ; preds = %116, %._crit_edge
   %132 = call noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef nonnull %3, ptr noundef nonnull %12, i32 noundef %112)
@@ -6238,7 +6238,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   %182 = getelementptr inbounds %struct.dtLink, ptr %181, i64 %152, i32 1
   %.0159 = load i32, ptr %182, align 4
   %.not178 = icmp eq i32 %.0159, -1
-  br i1 %.not178, label %.loopexit209, label %.lr.ph227, !llvm.loop !50
+  br i1 %.not178, label %.loopexit209, label %.lr.ph227, !llvm.loop !46
 
 183:                                              ; preds = %143
   %.not177 = icmp eq i16 %149, 0
@@ -6368,7 +6368,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %242, %243
   %.3 = phi i32 [ %.2230, %234 ], [ %256, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ %.2230, %238 ], [ %.2230, %229 ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
-  br i1 %exitcond265.not, label %.loopexit207, label %229, !llvm.loop !51
+  br i1 %exitcond265.not, label %.loopexit207, label %229, !llvm.loop !47
 
 .loopexit207:                                     ; preds = %259, %.preheader206, %215, %.thread
   %.sroa.8.2 = phi float [ %228, %215 ], [ %.sroa.8.1233, %.thread ], [ %.sroa.8.1233, %.preheader206 ], [ %.sroa.8.1233, %259 ]
@@ -6383,7 +6383,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %242, %243
   %264 = zext i8 %263 to i64
   %265 = icmp ult i64 %indvars.iv.next267, %264
   %266 = trunc nuw nsw i64 %indvars.iv266 to i32
-  br i1 %265, label %143, label %.loopexit210, !llvm.loop !52
+  br i1 %265, label %143, label %.loopexit210, !llvm.loop !48
 
 .loopexit211:                                     ; preds = %.loopexit210, %133
   %.sroa.8.3 = phi float [ %135, %133 ], [ %.sroa.8.1.lcssa, %.loopexit210 ]
@@ -6424,7 +6424,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %276
   store i32 %285, ptr %269, align 4
   %.not184203 = icmp eq ptr %272, null
   %.not184 = select i1 %.not.i193, i1 true, i1 %.not184203
-  br i1 %.not184, label %.preheader.preheader, label %.preheader205, !llvm.loop !53
+  br i1 %.not184, label %.preheader.preheader, label %.preheader205, !llvm.loop !49
 
 .preheader.preheader:                             ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197
   %smax = call i32 @llvm.smax.i32(i32 %8, i32 1)
@@ -6455,7 +6455,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %276
   %298 = getelementptr i8, ptr %297, i64 -28
   %.not186204 = icmp eq ptr %295, null
   %.not186 = select i1 %.not.i198, i1 true, i1 %.not186204
-  br i1 %.not186, label %.loopexit.loopexit.split.loop.exit, label %.preheader, !llvm.loop !54
+  br i1 %.not186, label %.loopexit.loopexit.split.loop.exit, label %.preheader, !llvm.loop !50
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %290
   %299 = trunc nuw nsw i64 %indvars.iv.next270 to i32
@@ -6478,12 +6478,12 @@ _Z11dtVisfinitePKf.exit.thread:                   ; preds = %35, %39, %31, %_Z11
 declare noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery15getEdgeMidPointEjjPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15getEdgeMidPointEjjPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [3 x float], align 8
   %6 = alloca [3 x float], align 8
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
-  %9 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjjPfS0_RhS1_(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8), !range !12
+  %9 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjjPfS0_RhS1_(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %23, label %11
 
@@ -6679,7 +6679,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %93 = getelementptr inbounds i8, ptr %92, i64 12
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %._crit_edge, label %96, !llvm.loop !55
+  br i1 %95, label %._crit_edge, label %96, !llvm.loop !51
 
 96:                                               ; preds = %.lr.ph157, %.loopexit
   %97 = phi i32 [ %84, %.lr.ph157 ], [ %94, %.loopexit ]
@@ -6821,7 +6821,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %167 = load ptr, ptr %12, align 8
   %168 = load ptr, ptr %11, align 8
   %169 = load ptr, ptr %15, align 8
-  %170 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %111, ptr noundef %167, ptr noundef %168, i32 noundef %153, ptr noundef nonnull %157, ptr noundef %169, ptr noundef nonnull %17, ptr noundef nonnull %18), !range !12
+  %170 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %111, ptr noundef %167, ptr noundef %168, i32 noundef %153, ptr noundef nonnull %157, ptr noundef %169, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %171 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
   %172 = fcmp ogt float %171, %81
   br i1 %172, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %173
@@ -6955,7 +6955,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %224, %200
 252:                                              ; preds = %246
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %246, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %246, !llvm.loop !12
 
 253:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %254 = and i32 %238, -469762049
@@ -6977,7 +6977,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %252, %250, %240, %2
   %263 = getelementptr inbounds %struct.dtLink, ptr %262, i64 %151, i32 1
   %.0107 = load i32, ptr %263, align 4
   %.not130 = icmp eq i32 %.0107, -1
-  br i1 %.not130, label %.loopexit, label %149, !llvm.loop !56
+  br i1 %.not130, label %.loopexit, label %149, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.loopexit, %60
   %.0104.lcssa = phi i32 [ 0, %60 ], [ %.1105, %.loopexit ]
@@ -7088,7 +7088,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryF
   %60 = fadd float %.sroa.11.0168, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %61 = sitofp i32 %3 to float
@@ -7141,7 +7141,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryF
   %91 = getelementptr inbounds i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %._crit_edge183, label %94, !llvm.loop !58
+  br i1 %93, label %._crit_edge183, label %94, !llvm.loop !54
 
 94:                                               ; preds = %.lr.ph182, %.loopexit
   %95 = phi i32 [ %82, %.lr.ph182 ], [ %92, %.loopexit ]
@@ -7283,7 +7283,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryF
   %165 = load ptr, ptr %12, align 8
   %166 = load ptr, ptr %11, align 8
   %167 = load ptr, ptr %15, align 8
-  %168 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %109, ptr noundef %165, ptr noundef %166, i32 noundef %151, ptr noundef nonnull %155, ptr noundef %167, ptr noundef nonnull %17, ptr noundef nonnull %18), !range !12
+  %168 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %109, ptr noundef %165, ptr noundef %166, i32 noundef %151, ptr noundef nonnull %155, ptr noundef %167, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %169 = call noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
   br i1 %169, label %170, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
@@ -7424,7 +7424,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %226, %202
 254:                                              ; preds = %248
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %248, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %248, !llvm.loop !12
 
 255:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %256 = and i32 %240, -469762049
@@ -7446,7 +7446,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %254, %252, %242, %2
   %265 = getelementptr inbounds %struct.dtLink, ptr %264, i64 %149, i32 1
   %.0113 = load i32, ptr %265, align 4
   %.not139 = icmp eq i32 %.0113, -1
-  br i1 %.not139, label %.loopexit, label %147, !llvm.loop !59
+  br i1 %.not139, label %.loopexit, label %147, !llvm.loop !55
 
 ._crit_edge183:                                   ; preds = %.loopexit, %._crit_edge
   %.0110.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1111, %.loopexit ]
@@ -7460,7 +7460,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %254, %252, %242, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery25getPathFromDijkstraSearchEjPjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery25getPathFromDijkstraSearchEjPjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = tail call noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr noundef nonnull align 8 dereferenceable(100) %7, i32 noundef %1)
@@ -7489,7 +7489,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery25getPathFromDijkstraSearchEjPjPii(ptr n
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %16
-  %23 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %17, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4), !range !30
+  %23 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %17, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4)
   br label %24
 
 24:                                               ; preds = %12, %16, %5, %22
@@ -7618,7 +7618,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %41
   %.2117.lcssa = phi i32 [ %.1116183, %._crit_edge ], [ %.4, %.loopexit156 ]
   %.1.lcssa = phi i32 [ %73, %._crit_edge ], [ %.2, %.loopexit156 ]
   %.not141 = icmp eq i32 %.1.lcssa, 0
-  br i1 %.not141, label %210, label %71, !llvm.loop !60
+  br i1 %.not141, label %210, label %71, !llvm.loop !56
 
 71:                                               ; preds = %68, %.loopexit157
   %.0111184 = phi i32 [ 1, %68 ], [ %.1.lcssa, %.loopexit157 ]
@@ -7707,7 +7707,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %41
   %110 = load ptr, ptr %14, align 8
   %111 = load ptr, ptr %13, align 8
   %112 = load ptr, ptr %15, align 8
-  %113 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %78, ptr noundef %110, ptr noundef %111, i32 noundef %86, ptr noundef nonnull %96, ptr noundef %112, ptr noundef nonnull %17, ptr noundef nonnull %18), !range !12
+  %113 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %78, ptr noundef %110, ptr noundef %111, i32 noundef %86, ptr noundef nonnull %96, ptr noundef %112, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %114 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
   %115 = fcmp ogt float %114, %65
   br i1 %115, label %.loopexit156, label %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
@@ -7771,7 +7771,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   store float %150, ptr %151, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %136, !llvm.loop !61
+  br i1 %exitcond.not, label %.preheader, label %136, !llvm.loop !57
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.loopexit
   %indvars.iv194 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next195, %.loopexit ]
@@ -7792,7 +7792,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   %159 = getelementptr inbounds i8, ptr %162, i64 4
   %.0109 = load i32, ptr %159, align 4
   %.not146.not = icmp eq i32 %.0109, -1
-  br i1 %.not146.not, label %.critedge, label %160, !llvm.loop !62
+  br i1 %.not146.not, label %.critedge, label %160, !llvm.loop !58
 
 160:                                              ; preds = %.lr.ph165, %158
   %.0109163 = phi i32 [ %.0109161, %.lr.ph165 ], [ %.0109, %158 ]
@@ -7843,7 +7843,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   store float %187, ptr %188, align 4
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %._crit_edge168, label %173, !llvm.loop !63
+  br i1 %exitcond193.not, label %._crit_edge168, label %173, !llvm.loop !59
 
 ._crit_edge168:                                   ; preds = %173, %.critedge
   %189 = call noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr noundef nonnull %11, i32 noundef %131, ptr noundef nonnull %12, i32 noundef %169)
@@ -7852,7 +7852,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
 .loopexit:                                        ; preds = %160, %._crit_edge168
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198.not, label %.critedge152, label %.lr.ph170, !llvm.loop !64
+  br i1 %exitcond198.not, label %.critedge152, label %.lr.ph170, !llvm.loop !60
 
 .critedge152:                                     ; preds = %.loopexit, %.preheader
   %190 = icmp slt i32 %.2120173, %8
@@ -7900,7 +7900,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   %209 = getelementptr inbounds %struct.dtLink, ptr %208, i64 %84, i32 1
   %.0124 = load i32, ptr %209, align 4
   %.not142 = icmp eq i32 %.0124, -1
-  br i1 %.not142, label %.loopexit157, label %82, !llvm.loop !65
+  br i1 %.not142, label %.loopexit157, label %82, !llvm.loop !61
 
 210:                                              ; preds = %.loopexit157
   store i32 %.2120.lcssa, ptr %7, align 4
@@ -7914,7 +7914,7 @@ _Z11dtVisfinitePKf.exit.thread:                   ; preds = %37, %41, %33, %_Z11
 declare noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK14dtNavMeshQuery19getPolyWallSegmentsEjPK13dtQueryFilterPfPjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery19getPolyWallSegmentsEjPK13dtQueryFilterPfPjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [16 x %struct.dtSegInterval], align 16
@@ -8056,7 +8056,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery19getPolyWallSegmentsEjPK13dtQueryFilter
 74:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge._crit_edge.i, label %.lr.ph.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %._crit_edge._crit_edge.i, label %.lr.ph.i, !llvm.loop !62
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %75 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -8100,7 +8100,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit:   ; preds = %._crit_edge._crit_e
   %90 = getelementptr inbounds %struct.dtLink, ptr %89, i64 %42, i32 1
   %.0112 = load i32, ptr %90, align 4
   %.not131 = icmp eq i32 %.0112, -1
-  br i1 %.not131, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not131, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 91:                                               ; preds = %34
   %.not129 = icmp eq i16 %39, 0
@@ -8213,7 +8213,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit:   ; preds = %._crit_edge._crit_e
 156:                                              ; preds = %.lr.ph.i147
   %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i148, 1
   %exitcond.not.i152 = icmp eq i64 %indvars.iv.next.i151, %wide.trip.count.i146
-  br i1 %exitcond.not.i152, label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit153, label %.lr.ph.i147, !llvm.loop !66
+  br i1 %exitcond.not.i152, label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit153, label %.lr.ph.i147, !llvm.loop !62
 
 ._crit_edge.loopexit.i150:                        ; preds = %.lr.ph.i147
   %157 = trunc nuw nsw i64 %indvars.iv.i148 to i32
@@ -8270,7 +8270,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit153: ; preds = %156, %._crit_edge.
 173:                                              ; preds = %.lr.ph.i164
   %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i165, 1
   %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, %wide.trip.count.i163
-  br i1 %exitcond.not.i169, label %._crit_edge._crit_edge.i159, label %.lr.ph.i164, !llvm.loop !66
+  br i1 %exitcond.not.i169, label %._crit_edge._crit_edge.i159, label %.lr.ph.i164, !llvm.loop !62
 
 ._crit_edge.loopexit.i167:                        ; preds = %.lr.ph.i164
   %174 = trunc nuw nsw i64 %indvars.iv.i165 to i32
@@ -8486,7 +8486,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit170: ; preds = %._crit_edge, %_ZL1
   %.3 = phi i32 [ %307, %306 ], [ %.2, %308 ], [ %.2, %258 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !64
 
 .loopexit:                                        ; preds = %310, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit170, %92, %148, %150
   %.4109 = phi i32 [ %.0105206, %148 ], [ %151, %150 ], [ %.0105206, %92 ], [ %.0105206, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit170 ], [ %.3108, %310 ]
@@ -8498,7 +8498,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit170: ; preds = %._crit_edge, %_ZL1
   %314 = zext i8 %313 to i64
   %315 = icmp ult i64 %indvars.iv.next219, %314
   %316 = trunc nuw nsw i64 %indvars.iv218 to i32
-  br i1 %315, label %34, label %._crit_edge210, !llvm.loop !69
+  br i1 %315, label %34, label %._crit_edge210, !llvm.loop !65
 
 ._crit_edge210:                                   ; preds = %.loopexit, %26
   %.0105.lcssa = phi i32 [ 1073741824, %26 ], [ %.4109, %.loopexit ]
@@ -8657,7 +8657,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %98 = getelementptr inbounds i8, ptr %97, i64 12
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %._crit_edge, label %101, !llvm.loop !70
+  br i1 %100, label %._crit_edge, label %101, !llvm.loop !66
 
 101:                                              ; preds = %.lr.ph210, %.loopexit
   %102 = phi i32 [ %89, %.lr.ph210 ], [ %99, %.loopexit ]
@@ -8801,7 +8801,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %167 = getelementptr inbounds i8, ptr %148, i64 4
   %.0144 = load i32, ptr %167, align 4
   %.not170 = icmp eq i32 %.0144, -1
-  br i1 %.not170, label %.critedge, label %146, !llvm.loop !71
+  br i1 %.not170, label %.critedge, label %146, !llvm.loop !67
 
 168:                                              ; preds = %.lr.ph200
   %.not169 = icmp eq i16 %142, 0
@@ -8879,7 +8879,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %224 = zext i8 %223 to i64
   %225 = icmp ult i64 %indvars.iv.next, %224
   %226 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %225, label %.lr.ph200, label %.preheader191, !llvm.loop !72
+  br i1 %225, label %.lr.ph200, label %.preheader191, !llvm.loop !68
 
 227:                                              ; preds = %.lr.ph206, %_ZN11dtNodeQueue6modifyEP6dtNode.exit
   %228 = phi ptr [ %.pre221, %.lr.ph206 ], [ %362, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ]
@@ -8977,7 +8977,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %291 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
-  %292 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %116, ptr noundef %288, ptr noundef %289, i32 noundef %231, ptr noundef %290, ptr noundef %291, ptr noundef nonnull %9, ptr noundef nonnull %10), !range !12
+  %292 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %116, ptr noundef readonly %288, ptr noundef readonly %289, i32 noundef %231, ptr noundef readonly %290, ptr noundef readonly %291, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %293 = icmp slt i32 %292, 0
   br i1 %293, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %294
 
@@ -9074,7 +9074,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %322, %304
 350:                                              ; preds = %344
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %344, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %344, !llvm.loop !12
 
 351:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %352 = and i32 %282, 268435456
@@ -9098,7 +9098,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %350, %348, %338, %3
   %363 = getelementptr inbounds %struct.dtLink, ptr %362, i64 %229, i32 1
   %.0143 = load i32, ptr %363, align 4
   %.not162 = icmp eq i32 %.0143, -1
-  br i1 %.not162, label %.loopexit, label %227, !llvm.loop !73
+  br i1 %.not162, label %.loopexit, label %227, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.loopexit, %65
   %.0136.lcssa = phi i32 [ 1073741824, %65 ], [ %.1137.lcssa, %.loopexit ]
@@ -9201,7 +9201,7 @@ define noundef zeroext i1 @_ZNK14dtNavMeshQuery14isInClosedListEj(ptr nocapture 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not8.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
   %.06 = phi i1 [ false, %2 ], [ false, %6 ], [ %.not8.not, %.lr.ph ]
@@ -9337,7 +9337,7 @@ _ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit: ; preds = %27, %31, %35,
 81:                                               ; preds = %76, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %81, %5
   ret void
@@ -9451,7 +9451,7 @@ attributes #22 = { builtin nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 1073741824, i32 -2147483639}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
@@ -9461,15 +9461,15 @@ attributes #22 = { builtin nounwind }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5, !24}
-!24 = !{!"llvm.loop.unswitch.partial.disable"}
+!22 = distinct !{!22, !5, !23}
+!23 = !{!"llvm.loop.unswitch.partial.disable"}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = !{i32 1073741824, i32 1073741841}
+!30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
@@ -9480,12 +9480,12 @@ attributes #22 = { builtin nounwind }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
+!41 = !{!"branch_weights", i32 1, i32 1048575}
 !42 = distinct !{!42, !5}
-!43 = !{!"branch_weights", i32 1, i32 1048575}
-!44 = !{i32 536870912, i32 1073741841}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
-!46 = !{i32 536870912, i32 -2147483639}
+!46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
@@ -9511,7 +9511,3 @@ attributes #22 = { builtin nounwind }
 !69 = distinct !{!69, !5}
 !70 = distinct !{!70, !5}
 !71 = distinct !{!71, !5}
-!72 = distinct !{!72, !5}
-!73 = distinct !{!73, !5}
-!74 = distinct !{!74, !5}
-!75 = distinct !{!75, !5}

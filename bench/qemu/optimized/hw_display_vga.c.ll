@@ -113,7 +113,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.vbe_ioport_read_data = private unnamed_addr constant [3 x i32] [i32 16000, i32 12000, i32 32], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @vga_ioport_invalid(ptr nocapture noundef readonly %s, i32 noundef %addr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @vga_ioport_invalid(ptr nocapture noundef readonly %s, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
   %msr = getelementptr inbounds i8, ptr %s, i64 1645
   %0 = load i8, ptr %msr, align 1
@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vga_ioport_read(ptr noundef %opaque, i32 noundef %addr) #1 {
+define dso_local range(i32 0, 256) i32 @vga_ioport_read(ptr noundef %opaque, i32 noundef %addr) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %msr.i = getelementptr inbounds i8, ptr %opaque, i64 1645
@@ -1027,7 +1027,7 @@ return:                                           ; preds = %entry, %if.end69
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vbe_ioport_read_data(ptr nocapture noundef readonly %opaque, i32 %addr) #1 {
+define dso_local range(i32 0, 65536) i32 @vbe_ioport_read_data(ptr nocapture noundef readonly %opaque, i32 %addr) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
@@ -1508,7 +1508,7 @@ return:                                           ; preds = %entry, %if.end111
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vga_mem_readb(ptr nocapture noundef %s, i64 noundef %addr) local_unnamed_addr #1 {
+define dso_local range(i32 0, 256) i32 @vga_mem_readb(ptr nocapture noundef %s, i64 noundef %addr) local_unnamed_addr #1 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1112
   %0 = load i8, ptr %arrayidx, align 2
@@ -2063,9 +2063,9 @@ sw.epilog:                                        ; preds = %entry, %sw.bb13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vga_mem_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 %size) #1 {
+define internal range(i64 0, 256) i64 @vga_mem_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 %size) #1 {
 entry:
-  %call = tail call i32 @vga_mem_readb(ptr noundef %opaque, i64 noundef %addr), !range !7
+  %call = tail call i32 @vga_mem_readb(ptr noundef %opaque, i64 noundef %addr)
   %conv = zext nneg i32 %call to i64
   ret i64 %conv
 }
@@ -2198,7 +2198,7 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %or = or i32 %shl, %v.061
   %inc = add nuw nsw i32 %j.060, 1
   %exitcond.not = icmp eq i32 %inc, 8
-  br i1 %exitcond.not, label %for.end, label %for.body3, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body3, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body3
   %arrayidx = getelementptr [256 x i32], ptr @expand4, i64 0, i64 %indvars.iv
@@ -2216,7 +2216,7 @@ for.body6:                                        ; preds = %for.end, %for.body6
   %or12 = or i32 %shl11, %v.163
   %inc14 = add nuw nsw i32 %j.162, 1
   %exitcond68.not = icmp eq i32 %inc14, 4
-  br i1 %exitcond68.not, label %for.end15, label %for.body6, !llvm.loop !9
+  br i1 %exitcond68.not, label %for.end15, label %for.body6, !llvm.loop !8
 
 for.end15:                                        ; preds = %for.body6
   %conv = trunc i32 %or12 to i16
@@ -2224,7 +2224,7 @@ for.end15:                                        ; preds = %for.body6
   store i16 %conv, ptr %arrayidx17, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond70.not, label %for.cond25.preheader, label %for.cond1.preheader, !llvm.loop !10
+  br i1 %exitcond70.not, label %for.cond25.preheader, label %for.cond1.preheader, !llvm.loop !9
 
 for.cond25.preheader:                             ; preds = %for.end15, %for.end39
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.end39 ], [ 0, %for.end15 ]
@@ -2244,7 +2244,7 @@ for.body28:                                       ; preds = %for.cond25.preheade
   %or36 = or i32 %2, %v.266
   %inc38 = add nuw nsw i32 %j.265, 1
   %exitcond71.not = icmp eq i32 %inc38, 4
-  br i1 %exitcond71.not, label %for.end39, label %for.body28, !llvm.loop !11
+  br i1 %exitcond71.not, label %for.end39, label %for.body28, !llvm.loop !10
 
 for.end39:                                        ; preds = %for.body28
   %conv40 = trunc i32 %or36 to i8
@@ -2252,7 +2252,7 @@ for.end39:                                        ; preds = %for.body28
   store i8 %conv40, ptr %arrayidx42, align 1
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 16
-  br i1 %exitcond75.not, label %for.end45, label %for.cond25.preheader, !llvm.loop !12
+  br i1 %exitcond75.not, label %for.end45, label %for.cond25.preheader, !llvm.loop !11
 
 for.end45:                                        ; preds = %for.end39
   %vram_size_mb = getelementptr inbounds i8, ptr %s, i64 292
@@ -2262,7 +2262,7 @@ for.end45:                                        ; preds = %for.end39
   %retval.0.i = select i1 %cmp.i, i32 1, i32 %.val.i
   %conv48 = zext nneg i32 %retval.0.i to i64
   %sub.i = add nsw i64 %conv48, -1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 false), !range !13
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
   %sub2.i = add nuw nsw i64 %4, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i
@@ -2388,7 +2388,7 @@ declare void @xen_register_framebuffer(ptr noundef) local_unnamed_addr #7
 declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @vga_get_bpp(ptr nocapture noundef readonly %s) #0 {
+define internal range(i32 0, 65536) i32 @vga_get_bpp(ptr nocapture noundef readonly %s) #0 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 2594
   %s.val = load i16, ptr %0, align 2
@@ -3165,7 +3165,7 @@ if.then63.i:                                      ; preds = %lor.lhs.false61.i, 
 if.end79.i:                                       ; preds = %if.then63.i, %lor.lhs.false61.i
   %surface.0.i = phi ptr [ %call70.i, %if.then63.i ], [ %call.i13, %lor.lhs.false61.i ]
   %full_update.addr.3.i = phi i32 [ 1, %if.then63.i ], [ %or36.i, %lor.lhs.false61.i ]
-  %call80.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque), !range !14
+  %call80.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque)
   %or81.i = or i32 %call80.i, %full_update.addr.3.i
   %last_palette.i = getelementptr inbounds i8, ptr %opaque, i64 3016
   %s.val3.i.i = load ptr, ptr %surface.0.i, align 8
@@ -3459,7 +3459,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %add.ptr7.i.i = getelementptr i8, ptr %d.addr.0.i.i, i64 %idx.ext.i215.i
   %dec.i.i = add nsw i32 %h.addr.0.i.i, -1
   %tobool.not.i171.i = icmp eq i32 %dec.i.i, 0
-  br i1 %tobool.not.i171.i, label %if.end227.i, label %do.body.i.i, !llvm.loop !15
+  br i1 %tobool.not.i171.i, label %if.end227.i, label %do.body.i.i, !llvm.loop !12
 
 if.then213.i:                                     ; preds = %if.then184.i
   %xor.i172.i = xor i32 %60, %59
@@ -3506,7 +3506,7 @@ do.body.i174.i:                                   ; preds = %do.body.i174.i, %if
   %add.ptr1.i.i = getelementptr i8, ptr %d.addr.0.i177.i, i64 %idx.ext.i215.i
   %dec.i211.i = add nsw i32 %h.addr.0.i175.i, -1
   %tobool.not.i212.i = icmp eq i32 %dec.i211.i, 0
-  br i1 %tobool.not.i212.i, label %if.end227.i, label %do.body.i174.i, !llvm.loop !16
+  br i1 %tobool.not.i212.i, label %if.end227.i, label %do.body.i174.i, !llvm.loop !13
 
 if.else214.i:                                     ; preds = %if.then184.i
   %91 = add nsw i32 %and193.i, -176
@@ -3578,7 +3578,7 @@ do.body.us.i.i:                                   ; preds = %do.body.us.i.i, %do
   %add.ptr47.us.i.i = getelementptr i8, ptr %d.addr.0.us.i.i, i64 %idx.ext.i215.i
   %dec.us.i.i = add nsw i32 %h.addr.0.us.i.i, -1
   %tobool48.not.us.i.i = icmp eq i32 %dec.us.i.i, 0
-  br i1 %tobool48.not.us.i.i, label %if.end227.i, label %do.body.us.i.i, !llvm.loop !17
+  br i1 %tobool48.not.us.i.i, label %if.end227.i, label %do.body.us.i.i, !llvm.loop !14
 
 do.body.i216.i:                                   ; preds = %do.body.i216.i.preheader, %do.body.i216.i
   %h.addr.0.i217.i = phi i32 [ %dec.i226.i, %do.body.i216.i ], [ %add.i.i, %do.body.i216.i.preheader ]
@@ -3607,7 +3607,7 @@ do.body.i216.i:                                   ; preds = %do.body.i216.i.preh
   %add.ptr47.i.i = getelementptr i8, ptr %d.addr.0.i219.i, i64 %idx.ext.i215.i
   %dec.i226.i = add nsw i32 %h.addr.0.i217.i, -1
   %tobool48.not.i.i = icmp eq i32 %dec.i226.i, 0
-  br i1 %tobool48.not.i.i, label %if.end227.i, label %do.body.i216.i, !llvm.loop !17
+  br i1 %tobool48.not.i.i, label %if.end227.i, label %do.body.i216.i, !llvm.loop !14
 
 if.end227.i:                                      ; preds = %do.body.i216.i, %do.body.us.i.i, %do.body.i.i, %do.body.i174.i
   %cmp228.i = icmp eq ptr %src.0428.i, %add.ptr144.i
@@ -3744,7 +3744,7 @@ do.body.i229.i:                                   ; preds = %do.body.i229.i.preh
   %add.ptr7.i306.i = getelementptr i8, ptr %d.addr.0.i232.i, i64 %idx.ext.i215.i
   %dec.i307.i = add i32 %h.addr.0.i230.i, -1
   %tobool.not.i308.i = icmp eq i32 %dec.i307.i, 0
-  br i1 %tobool.not.i308.i, label %if.end278.i, label %do.body.i229.i, !llvm.loop !15
+  br i1 %tobool.not.i308.i, label %if.end278.i, label %do.body.i229.i, !llvm.loop !12
 
 do.body.i312.i:                                   ; preds = %do.body.i312.i.preheader, %do.body.i312.i
   %h.addr.0.i313.i = phi i32 [ %dec.i350.i, %do.body.i312.i ], [ %add262.i, %do.body.i312.i.preheader ]
@@ -3783,7 +3783,7 @@ do.body.i312.i:                                   ; preds = %do.body.i312.i.preh
   %add.ptr1.i349.i = getelementptr i8, ptr %d.addr.0.i315.i, i64 %idx.ext.i215.i
   %dec.i350.i = add i32 %h.addr.0.i313.i, -1
   %tobool.not.i351.i = icmp eq i32 %dec.i350.i, 0
-  br i1 %tobool.not.i351.i, label %if.end278.i, label %do.body.i312.i, !llvm.loop !16
+  br i1 %tobool.not.i351.i, label %if.end278.i, label %do.body.i312.i, !llvm.loop !13
 
 do.body.i355.i:                                   ; preds = %do.body.i355.i.preheader, %do.body.i355.i
   %h.addr.0.i356.i = phi i32 [ %dec.i394.i, %do.body.i355.i ], [ %add262.i, %do.body.i355.i.preheader ]
@@ -3812,7 +3812,7 @@ do.body.i355.i:                                   ; preds = %do.body.i355.i.preh
   %add.ptr47.i393.i = getelementptr i8, ptr %d.addr.0.i358.i, i64 %idx.ext.i215.i
   %dec.i394.i = add i32 %h.addr.0.i356.i, -1
   %tobool48.not.i395.i = icmp eq i32 %dec.i394.i, 0
-  br i1 %tobool48.not.i395.i, label %if.end278.i, label %do.body.i355.i, !llvm.loop !17
+  br i1 %tobool48.not.i395.i, label %if.end278.i, label %do.body.i355.i, !llvm.loop !14
 
 if.end278.i:                                      ; preds = %do.body.i355.i, %do.body.i229.i, %do.body.i312.i, %if.then240.i, %land.lhs.true236.i, %land.lhs.true230.i, %if.end227.i, %lor.lhs.false178.i
   %cx_max.2.i = phi i32 [ %cx_max.1.i, %land.lhs.true230.i ], [ %cx_max.1.i, %if.then240.i ], [ %cx_max.1.i, %land.lhs.true236.i ], [ %cx_max.1.i, %if.end227.i ], [ %cx_max.0430.i, %lor.lhs.false178.i ], [ %cx_max.1.i, %do.body.i312.i ], [ %cx_max.1.i, %do.body.i229.i ], [ %cx_max.1.i, %do.body.i355.i ]
@@ -3822,7 +3822,7 @@ if.end278.i:                                      ; preds = %do.body.i355.i, %do
   %incdec.ptr.i = getelementptr i8, ptr %ch_attr_ptr.1432.i, i64 4
   %inc.i = add nuw nsw i32 %cx.0433.i, 1
   %exitcond.i = icmp eq i32 %cx.0433.i, %conv11.i.i
-  br i1 %exitcond.i, label %for.end.i, label %for.body167.i, !llvm.loop !18
+  br i1 %exitcond.i, label %for.end.i, label %for.body167.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %if.end278.i, %for.body167.i
   %cx_max.0.lcssa.i = phi i32 [ %cx_max.0430.i, %for.body167.i ], [ %cx_max.2.i, %if.end278.i ]
@@ -3852,7 +3852,7 @@ if.end291.i:                                      ; preds = %if.then284.i, %for.
   %offset.1.i = select i1 %or.cond163.i, i32 %add296.i, i32 0
   %inc306.i = add nuw nsw i32 %cy.0438.i, 1
   %exitcond445.not.i = icmp eq i32 %inc306.i, %height.0.i.i
-  br i1 %exitcond445.not.i, label %vga_draw_text.exit, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond445.not.i, label %vga_draw_text.exit, label %for.body.i, !llvm.loop !16
 
 vga_draw_text.exit:                               ; preds = %if.end291.i, %vga_get_text_resolution.exit.i, %if.end152.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %font_base.i)
@@ -4150,7 +4150,7 @@ if.end151.i:                                      ; preds = %land.lhs.true129.i,
   ]
 
 if.then154.i:                                     ; preds = %if.end151.i
-  %call155.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque), !range !14
+  %call155.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque)
   %or156.i = or i32 %call155.i, %full_update.addr.2288.i
   %222 = getelementptr i8, ptr %opaque, i64 2594
   %s.val.i195.i = load i16, ptr %222, align 2
@@ -4165,7 +4165,7 @@ if.then154.i:                                     ; preds = %if.end151.i
   br label %if.end205.i
 
 if.then167.i:                                     ; preds = %if.end151.i
-  %call168.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque), !range !14
+  %call168.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque)
   %or169.i = or i32 %call168.i, %full_update.addr.2288.i
   %225 = getelementptr i8, ptr %opaque, i64 2594
   %s.val.i203.i = load i16, ptr %225, align 2
@@ -4249,7 +4249,7 @@ if.end36.us.i.i:                                  ; preds = %if.then33.us.i.i, %
   %indvars.iv.next49.i.i = add nuw nsw i64 %indvars.iv48.i.i, 3
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
   %exitcond57.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, 256
-  br i1 %exitcond57.not.i.i, label %update_palette256.exit.i, label %for.body.us.i.i, !llvm.loop !20
+  br i1 %exitcond57.not.i.i, label %update_palette256.exit.i, label %for.body.us.i.i, !llvm.loop !17
 
 for.body.i.i:                                     ; preds = %sw.bb.i, %if.end36.i.i
   %indvars.iv43.i.i = phi i64 [ %indvars.iv.next44.i.i, %if.end36.i.i ], [ 0, %sw.bb.i ]
@@ -4284,7 +4284,7 @@ if.end36.i.i:                                     ; preds = %if.then33.i.i, %for
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 3
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, 256
-  br i1 %exitcond.not.i.i, label %update_palette256.exit.i, label %for.body.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %update_palette256.exit.i, label %for.body.i.i, !llvm.loop !17
 
 update_palette256.exit.i:                         ; preds = %if.end36.i.i, %if.end36.us.i.i
   %.us-phi.i.i = phi i32 [ %full_update.1.us.i.i, %if.end36.us.i.i ], [ %full_update.1.i.i, %if.end36.i.i ]
@@ -4350,7 +4350,7 @@ if.end36.us.i274.i:                               ; preds = %if.then33.us.i273.i
   %indvars.iv.next49.i276.i = add nuw nsw i64 %indvars.iv48.i241.i, 3
   %indvars.iv.next53.i277.i = add nuw nsw i64 %indvars.iv52.i240.i, 1
   %exitcond57.not.i278.i = icmp eq i64 %indvars.iv.next53.i277.i, 256
-  br i1 %exitcond57.not.i278.i, label %update_palette256.exit279.i, label %for.body.us.i239.i, !llvm.loop !20
+  br i1 %exitcond57.not.i278.i, label %update_palette256.exit279.i, label %for.body.us.i239.i, !llvm.loop !17
 
 for.body.i216.i:                                  ; preds = %sw.bb182.i, %if.end36.i233.i
   %indvars.iv43.i217.i = phi i64 [ %indvars.iv.next44.i236.i, %if.end36.i233.i ], [ 0, %sw.bb182.i ]
@@ -4385,7 +4385,7 @@ if.end36.i233.i:                                  ; preds = %if.then33.i232.i, %
   %indvars.iv.next.i235.i = add nuw nsw i64 %indvars.iv.i218.i, 3
   %indvars.iv.next44.i236.i = add nuw nsw i64 %indvars.iv43.i217.i, 1
   %exitcond.not.i237.i = icmp eq i64 %indvars.iv.next44.i236.i, 256
-  br i1 %exitcond.not.i237.i, label %update_palette256.exit279.i, label %for.body.i216.i, !llvm.loop !20
+  br i1 %exitcond.not.i237.i, label %update_palette256.exit279.i, label %for.body.i216.i, !llvm.loop !17
 
 update_palette256.exit279.i:                      ; preds = %if.end36.i233.i, %if.end36.us.i274.i
   %.us-phi.i238.i = phi i32 [ %full_update.1.us.i275.i, %if.end36.us.i274.i ], [ %full_update.1.i234.i, %if.end36.i233.i ]
@@ -4640,7 +4640,7 @@ if.end335.i:                                      ; preds = %if.else334.i, %if.e
   %inc343.i = add nuw nsw i32 %y.0295.i, 1
   %282 = load i32, ptr %height.i, align 4
   %cmp231.i = icmp slt i32 %inc343.i, %282
-  br i1 %cmp231.i, label %for.body.i59, label %for.end.i65, !llvm.loop !21
+  br i1 %cmp231.i, label %for.body.i59, label %for.end.i65, !llvm.loop !18
 
 for.end.i65:                                      ; preds = %if.end335.i
   %cmp344.i = icmp sgt i32 %y_start.2.i, -1
@@ -4710,7 +4710,7 @@ for.body.i107:                                    ; preds = %for.body.i107, %for
   %inc.i110 = add nuw i32 %i.013.i, 1
   %288 = load i32, ptr %last_scr_height.i91, align 4
   %cmp8.i = icmp ult i32 %inc.i110, %288
-  br i1 %cmp8.i, label %for.body.i107, label %for.end.i111, !llvm.loop !22
+  br i1 %cmp8.i, label %for.body.i107, label %for.end.i111, !llvm.loop !19
 
 for.end.i111:                                     ; preds = %for.body.i107, %if.end3.i
   %289 = load ptr, ptr %con, align 16
@@ -5061,7 +5061,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %incdec.ptr164 = getelementptr i8, ptr %dst.0157, i64 4
   %inc = add nuw nsw i32 %i.0155, 1
   %exitcond.not = icmp eq i32 %inc, %mul
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %con165 = getelementptr inbounds i8, ptr %opaque, i64 2624
@@ -5094,7 +5094,7 @@ for.inc185:                                       ; preds = %for.body170
   %incdec.ptr187 = getelementptr i8, ptr %dst.1161, i64 4
   %inc188 = add nuw nsw i32 %i.1159, 1
   %exitcond183.not = icmp eq i32 %inc188, %mul
-  br i1 %exitcond183.not, label %for.end212, label %for.body170, !llvm.loop !24
+  br i1 %exitcond183.not, label %for.end212, label %for.body170, !llvm.loop !21
 
 for.end189:                                       ; preds = %for.cond167.preheader, %if.then183
   %i.1153 = phi i32 [ %i.1159, %if.then183 ], [ 0, %for.cond167.preheader ]
@@ -5130,7 +5130,7 @@ for.inc208:                                       ; preds = %for.body193, %if.th
   %incdec.ptr210 = getelementptr i8, ptr %dst.2168, i64 4
   %inc211 = add nuw nsw i32 %i.2165, 1
   %exitcond184.not = icmp eq i32 %inc211, %mul
-  br i1 %exitcond184.not, label %for.end212, label %for.body193, !llvm.loop !25
+  br i1 %exitcond184.not, label %for.end212, label %for.body193, !llvm.loop !22
 
 for.end212:                                       ; preds = %for.inc185, %for.inc208, %for.end189
   %i.1153199 = phi i32 [ %i.1153, %for.end189 ], [ %i.1153, %for.inc208 ], [ %mul, %for.inc185 ]
@@ -5197,7 +5197,7 @@ for.body245:                                      ; preds = %sw.epilog, %for.bod
   %61 = load i32, ptr %last_width, align 16
   %mul242 = mul i32 %59, %61
   %cmp243 = icmp ult i32 %inc248, %mul242
-  br i1 %cmp243, label %for.body245, label %for.end249, !llvm.loop !26
+  br i1 %cmp243, label %for.body245, label %for.end249, !llvm.loop !23
 
 for.end249:                                       ; preds = %for.body245, %sw.epilog
   %.lcssa147 = phi i32 [ %60, %sw.epilog ], [ %61, %for.body245 ]
@@ -5228,7 +5228,7 @@ for.body264:                                      ; preds = %for.body264.prehead
   store i32 %or268, ptr %dst.4178, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond186.not, label %for.end271.loopexit, label %for.body264, !llvm.loop !27
+  br i1 %exitcond186.not, label %for.end271.loopexit, label %for.body264, !llvm.loop !24
 
 for.end271.loopexit:                              ; preds = %for.body264
   %.pre188 = load i32, ptr %last_width, align 16
@@ -5257,7 +5257,7 @@ declare void @qemu_console_resize(ptr noundef, i32 noundef, i32 noundef) local_u
 declare void @dpy_text_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc i32 @update_palette16(ptr nocapture noundef %s) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @update_palette16(ptr nocapture noundef %s) unnamed_addr #8 {
 entry:
   %last_palette = getelementptr inbounds i8, ptr %s, i64 3016
   %ar = getelementptr inbounds i8, ptr %s, i64 1363
@@ -5332,7 +5332,7 @@ for.inc.us:                                       ; preds = %if.then36.us, %for.
   %full_update.1.us = phi i32 [ 1, %if.then36.us ], [ %full_update.034.us, %for.body.us ]
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 16
-  br i1 %exitcond42.not, label %for.end, label %for.body.us, !llvm.loop !28
+  br i1 %exitcond42.not, label %for.end, label %for.body.us, !llvm.loop !25
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
@@ -5392,7 +5392,7 @@ for.inc:                                          ; preds = %for.body, %if.then3
   %full_update.1 = phi i32 [ 1, %if.then36 ], [ %full_update.034, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
   %.us-phi = phi i32 [ %full_update.1.us, %for.inc.us ], [ %full_update.1, %for.inc ]
@@ -5531,7 +5531,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i32 %addr.addr.036, 4
   %inc = add nuw nsw i32 %x.038, 1
   %exitcond.not = icmp eq i32 %inc, %shr
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -5665,7 +5665,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i32 %addr.addr.044, 4
   %inc = add nuw nsw i32 %x.046, 1
   %exitcond.not = icmp eq i32 %inc, %shr
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -5783,7 +5783,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i32 %addr.addr.037, 4
   %inc = add nuw nsw i32 %x.039, 1
   %exitcond.not = icmp eq i32 %inc, %shr
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -5917,7 +5917,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i32 %addr.addr.045, 4
   %inc = add nuw nsw i32 %x.047, 1
   %exitcond.not = icmp eq i32 %inc, %shr
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -5998,7 +5998,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add21 = add i32 %addr.addr.039, 4
   %inc = add nuw nsw i32 %x.041, 1
   %exitcond.not = icmp eq i32 %inc, %shr
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -6119,7 +6119,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add37 = add i32 %addr.addr.071, 8
   %inc = add nuw nsw i32 %x.073, 1
   %exitcond.not = icmp eq i32 %inc, %shr
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -6157,7 +6157,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr = getelementptr i8, ptr %d.addr.0, i64 4
   %dec = add i32 %w.0, -1
   %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !35
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !32
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -6195,7 +6195,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr = getelementptr i8, ptr %d.addr.0, i64 4
   %dec = add i32 %w.0, -1
   %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !36
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !33
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -6240,7 +6240,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr = getelementptr i8, ptr %d.addr.0, i64 4
   %dec = add i32 %w.0, -1
   %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !37
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !34
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -6285,7 +6285,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr = getelementptr i8, ptr %d.addr.0, i64 4
   %dec = add i32 %w.0, -1
   %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !38
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !35
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -6324,7 +6324,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr = getelementptr i8, ptr %d.addr.0, i64 4
   %dec = add i32 %w.0, -1
   %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !39
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !36
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -6363,7 +6363,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr = getelementptr i8, ptr %d.addr.0, i64 4
   %dec = add i32 %w.0, -1
   %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !40
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !37
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -6408,7 +6408,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr = getelementptr i8, ptr %d.addr.0, i64 4
   %dec = add i32 %w.0, -1
   %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !41
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !38
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -6454,7 +6454,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr = getelementptr i8, ptr %d.addr.0, i64 4
   %dec = add i32 %w.0, -1
   %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !42
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !39
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -6476,7 +6476,7 @@ declare void @dpy_text_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @vbe_ioport_read_index(ptr nocapture noundef readonly %opaque, i32 %addr) #0 {
+define internal range(i32 0, 65536) i32 @vbe_ioport_read_index(ptr nocapture noundef readonly %opaque, i32 %addr) #0 {
 entry:
   %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
   %0 = load i16, ptr %vbe_index, align 8
@@ -6536,14 +6536,14 @@ attributes #20 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 256}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i64 0, i64 65}
-!14 = !{i32 0, i32 2}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
@@ -6569,6 +6569,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}

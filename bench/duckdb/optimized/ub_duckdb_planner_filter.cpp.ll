@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb19ConjunctionOrFilter15CheckStatisticsERNS_14BaseStatisticsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 %stats) unnamed_addr #1 align 2 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb19ConjunctionOrFilter15CheckStatisticsERNS_14BaseStatisticsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 %stats) unnamed_addr #1 align 2 {
 entry:
   %child_filters = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %child_filters, align 8, !tbaa !10
@@ -859,7 +859,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb20ConjunctionAndFilter15CheckStatisticsERNS_14BaseStatisticsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 %stats) unnamed_addr #1 align 2 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb20ConjunctionAndFilter15CheckStatisticsERNS_14BaseStatisticsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 %stats) unnamed_addr #1 align 2 {
 entry:
   %child_filters = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %child_filters, align 8, !tbaa !10
@@ -1752,7 +1752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb12IsNullFilter15CheckStatisticsERNS_14BaseStatisticsE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(88) %stats) unnamed_addr #1 align 2 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb12IsNullFilter15CheckStatisticsERNS_14BaseStatisticsE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(88) %stats) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb14BaseStatistics11CanHaveNullEv(ptr noundef nonnull align 8 dereferenceable(88) %stats)
   br i1 %call, label %if.end, label %return
@@ -1868,7 +1868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb15IsNotNullFilter15CheckStatisticsERNS_14BaseStatisticsE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(88) %stats) unnamed_addr #1 align 2 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb15IsNotNullFilter15CheckStatisticsERNS_14BaseStatisticsE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(88) %stats) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb14BaseStatistics13CanHaveNoNullEv(ptr noundef nonnull align 8 dereferenceable(88) %stats)
   br i1 %call, label %if.end, label %return

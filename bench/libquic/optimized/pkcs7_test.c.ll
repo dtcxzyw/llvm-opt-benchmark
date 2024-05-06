@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 entry:
   %pkcs7.i = alloca %struct.cbs_st, align 8
   %cbb.i = alloca %struct.cbb_st, align 8
@@ -41,12 +41,12 @@ entry:
   %result_len.i = alloca i64, align 8
   %result2_len.i = alloca i64, align 8
   tail call void @CRYPTO_library_init() #7
-  %call = tail call fastcc i32 @test_cert_reparse(ptr noundef nonnull @kPKCS7NSS, i64 noundef 2895), !range !7
+  %call = tail call fastcc i32 @test_cert_reparse(ptr noundef nonnull @kPKCS7NSS, i64 noundef 2895)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @test_cert_reparse(ptr noundef nonnull @kPKCS7Windows, i64 noundef 693), !range !7
+  %call1 = tail call fastcc i32 @test_cert_reparse(ptr noundef nonnull @kPKCS7Windows, i64 noundef 693)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
@@ -131,7 +131,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i64 %i.04.i, 1
   %call22.i = call i64 @sk_num(ptr noundef %call.i) #7
   %cmp23.i = icmp ult i64 %inc.i, %call22.i
-  br i1 %cmp23.i, label %for.body.i, label %for.end.i, !llvm.loop !8
+  br i1 %cmp23.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %call31.i = call i32 @CBB_init(ptr noundef nonnull %cbb.i, i64 noundef 905) #7
@@ -249,7 +249,7 @@ return:                                           ; preds = %if.then.i22, %if.th
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_cert_reparse(ptr noundef %der_bytes, i64 noundef %der_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_cert_reparse(ptr noundef %der_bytes, i64 noundef %der_len) unnamed_addr #0 {
 entry:
   %pkcs7 = alloca %struct.cbs_st, align 8
   %cbb = alloca %struct.cbb_st, align 8
@@ -331,7 +331,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.019, 1
   %call22 = call i64 @sk_num(ptr noundef %call) #7
   %cmp23 = icmp ult i64 %inc, %call22
-  br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call31 = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef %der_len) #7
@@ -458,7 +458,6 @@ attributes #8 = { cold }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

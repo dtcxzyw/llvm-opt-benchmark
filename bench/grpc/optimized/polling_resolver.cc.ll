@@ -171,10 +171,10 @@ $_ZTIN9grpc_core9Timestamp12ScopedSourceE = comdat any
 @_ZTIN9grpc_core15PollingResolverE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core15PollingResolverE, ptr @_ZTIN9grpc_core8ResolverE }, align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.22 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.24 = private unnamed_addr constant [27 x i8] c"grpc.internal.event_engine\00", align 1
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic.24", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTSN9grpc_core7ExecCtxE = linkonce_odr constant [21 x i8] c"N9grpc_core7ExecCtxE\00", comdat, align 1
@@ -1385,7 +1385,7 @@ _ZN9grpc_core13RefCountedPtrINS_8ResolverEED2Ev.exit:
   store ptr %this, ptr %ref.tmp4, align 8
   %2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   call void @_ZN9grpc_core8Resolver6ResultC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(120) %result)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i3 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #22
           to label %call.i.i2.i.noexc unwind label %lpad5
 
@@ -3047,7 +3047,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %13, %invoke.cont2.i
   %18 = load ptr, ptr %work_serializer_.i.i.i.i.i, align 8
   store ptr null, ptr %state, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i6.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
           to label %invoke.cont6.i.i.i.i.i unwind label %if.then.i.i34.i.i.i.i.i
 

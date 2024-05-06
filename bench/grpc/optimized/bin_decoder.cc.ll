@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [65 x i8] c"Base64 decoding failed, invalid character '%c' in base64 input.\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z44grpc_chttp2_base64_infer_length_after_decodeRK10grpc_slice(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %slice) local_unnamed_addr #0 {
+define noundef range(i64 0, -4611686018427387651) i64 @_Z44grpc_chttp2_base64_infer_length_after_decodeRK10grpc_slice(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %slice) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null

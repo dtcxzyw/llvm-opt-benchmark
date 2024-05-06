@@ -66,7 +66,7 @@ define ptr @plugrack_create(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @plugrack_destroy(ptr noundef %0) #0 {
+define range(i32 -1, 1) i32 @plugrack_destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
@@ -126,7 +126,7 @@ define noundef i32 @plugrack_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noundef %1) #0 {
+define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -151,7 +151,7 @@ define i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noundef %1) #0 {
   ]
 
 12:                                               ; preds = %8
-  %13 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %0, ptr noundef %.015), !range !8
+  %13 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %0, ptr noundef %.015)
   %14 = icmp eq i32 %13, -1
   %spec.select = select i1 %14, i32 -1, i32 %.0
   call void @slurm_xfree(ptr noundef nonnull %3) #10
@@ -159,7 +159,7 @@ define i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noundef %1) #0 {
 
 15:                                               ; preds = %8
   store i8 0, ptr %10, align 1
-  %16 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %0, ptr noundef %.015), !range !8
+  %16 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %0, ptr noundef %.015)
   %17 = icmp eq i32 %16, -1
   %spec.select21 = select i1 %17, i32 -1, i32 %.0
   %18 = load ptr, ptr %3, align 8
@@ -200,7 +200,7 @@ define ptr @plugrack_use_by_type(ptr noundef readonly %0, ptr noundef %1) #0 {
   %11 = load ptr, ptr %9, align 8
   %12 = tail call i32 @xstrcmp(ptr noundef nonnull %1, ptr noundef %11) #10
   %.not23 = icmp eq i32 %12, 0
-  br i1 %.not23, label %13, label %8, !llvm.loop !9
+  br i1 %.not23, label %13, label %8, !llvm.loop !8
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %9, i64 16
@@ -304,7 +304,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_plugrack_read_single_dir(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
   %5 = alloca [64 x i8], align 16
@@ -386,26 +386,26 @@ _so_file.exit.backedge:                           ; preds = %.preheader.i, %79, 
   ]
 
 49:                                               ; preds = %.preheader.i
-  %50 = getelementptr i8, ptr %47, i64 1
+  %50 = getelementptr inbounds i8, ptr %47, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 115
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %49
-  %54 = getelementptr i8, ptr %47, i64 2
+  %54 = getelementptr inbounds i8, ptr %47, i64 2
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 111
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %53
-  %58 = getelementptr i8, ptr %47, i64 3
+  %58 = getelementptr inbounds i8, ptr %47, i64 3
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %62, label %61
 
 61:                                               ; preds = %57, %53, %49, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader.i, !llvm.loop !10
+  br label %.preheader.i, !llvm.loop !9
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %28, align 8
@@ -592,7 +592,7 @@ define noundef i32 @plugrack_print_mpi_plugins(ptr nocapture noundef readonly %0
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %.0.ph26, ptr noundef nonnull %2) #10
   %24 = call ptr @list_next(ptr noundef %5) #10
   %.not24 = icmp eq ptr %24, null
-  br i1 %.not24, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not24, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !10
 
 25:                                               ; preds = %9
   %26 = load ptr, ptr %10, align 8
@@ -603,7 +603,7 @@ define noundef i32 @plugrack_print_mpi_plugins(ptr nocapture noundef readonly %0
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %.014)
   %29 = call ptr @list_next(ptr noundef %5) #10
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !11
+  br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !10
 
 .outer._crit_edge:                                ; preds = %.outer, %27, %1
   call void @list_iterator_destroy(ptr noundef %5) #10
@@ -659,7 +659,7 @@ define internal noundef i32 @_foreach_plugin(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @load_plugins(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.plugrack_foreach_args_t, align 8
   %8 = alloca %struct.plugrack_foreach_args_t, align 8
   %9 = alloca ptr, align 8
@@ -705,14 +705,14 @@ define noundef i32 @load_plugins(ptr nocapture noundef %0, ptr noundef %1, ptr n
   ]
 
 29:                                               ; preds = %25
-  %30 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %17, ptr noundef %.015.i), !range !8
+  %30 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull readonly %17, ptr noundef %.015.i)
   %31 = icmp eq i32 %30, -1
   call void @slurm_xfree(ptr noundef nonnull %9) #10
   br i1 %31, label %plugrack_read_dir.exit.thread, label %plugrack_read_dir.exit
 
 32:                                               ; preds = %25
   store i8 0, ptr %27, align 1
-  %33 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %17, ptr noundef %.015.i), !range !8
+  %33 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull readonly %17, ptr noundef %.015.i)
   %34 = icmp eq i32 %33, -1
   %spec.select21.i = select i1 %34, i32 -1, i32 %.0.i
   %35 = load ptr, ptr %9, align 8
@@ -818,7 +818,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   call void @slurm_xfree(ptr noundef nonnull %13) #10
   %75 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #10
   %.not82 = icmp eq ptr %75, null
-  br i1 %.not82, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not82, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67
   call void @slurm_xfree(ptr noundef nonnull %11) #10
@@ -879,7 +879,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   %107 = phi ptr [ %84, %82 ], [ %96, %._crit_edge119 ]
   %108 = add nuw i64 %.067109, 1
   %109 = icmp ult i64 %108, %106
-  br i1 %109, label %82, label %.loopexit, !llvm.loop !13
+  br i1 %109, label %82, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %105, %76, %100
   %110 = phi i64 [ %.pre121, %100 ], [ 0, %76 ], [ %106, %105 ]
@@ -939,7 +939,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   %142 = phi i64 [ %.pre123, %._crit_edge122 ], [ %120, %119 ]
   %143 = add nuw i64 %.0112, 1
   %144 = icmp ult i64 %143, %142
-  br i1 %144, label %119, label %.thread, !llvm.loop !14
+  br i1 %144, label %119, label %.thread, !llvm.loop !13
 
 145:                                              ; preds = %.loopexit
   br i1 %111, label %.thread95, label %.thread
@@ -976,7 +976,7 @@ define internal void @_plugrack_foreach(ptr noundef %0, ptr noundef %1, ptr noun
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i64, ptr %5, align 8
   %11 = icmp ugt i64 %10, %indvars.iv.next.i
-  br i1 %11, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !15
+  br i1 %11, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
@@ -1084,7 +1084,7 @@ define void @unload_plugins(ptr noundef %0) local_unnamed_addr #0 {
   %16 = add nuw i64 %.0715, 1
   %17 = load i64, ptr %6, align 8
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %9, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %18, label %9, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %9
   %.pre = load ptr, ptr %4, align 8
@@ -1092,7 +1092,7 @@ define void @unload_plugins(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %19 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %.preheader ]
-  %20 = tail call i32 @plugrack_destroy(ptr noundef %19), !range !8
+  %20 = tail call i32 @plugrack_destroy(ptr noundef %19)
   br label %21
 
 21:                                               ; preds = %._crit_edge, %3
@@ -1131,7 +1131,7 @@ define void @unload_plugins(ptr noundef %0) local_unnamed_addr #0 {
   %35 = add nuw i64 %.016, 1
   %36 = load i64, ptr %22, align 8
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %26, label %._crit_edge19, !llvm.loop !17
+  br i1 %37, label %26, label %._crit_edge19, !llvm.loop !16
 
 ._crit_edge19:                                    ; preds = %34, %21
   %38 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1209,7 +1209,7 @@ attributes #12 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
@@ -1218,4 +1218,3 @@ attributes #12 = { noreturn nounwind }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @checksumBaseOffsets = internal unnamed_addr constant [32 x i32] [i32 1528772329, i32 -1202562720, i32 44781738, i32 501640490, i32 2046772858, i32 -1682311005, i32 561937618, i32 -2082390740, i32 -120305841, i32 -476137104, i32 1120316950, i32 -1724770566, i32 2064202589, i32 -1730478276, i32 -149385174, i32 186424539, i32 -443582901, i32 410400444, i32 1568357297, i32 -415373346, i32 -1832990343, i32 -861486926, i32 810158457, i32 -2052439084, i32 2016486843, i32 1823009442, i32 -469243194, i32 1264385086, i32 -1614836618, i32 365568190, i32 -221601837, i32 -1784948906], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local zeroext i16 @pg_checksum_page(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 4
@@ -103,7 +103,7 @@ pg_checksum_block.exit:                           ; preds = %.preheader.i
   store i16 %5, ptr %4, align 4
   %27 = xor i32 %26, %1
   %28 = urem i32 %27, 65535
-  %29 = trunc i32 %28 to i16
+  %29 = trunc nuw i32 %28 to i16
   %30 = add nuw i16 %29, 1
   ret i16 %30
 }
@@ -389,7 +389,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   %.not79 = icmp eq i32 %58, 0
   %59 = shl nuw nsw i32 %.087, 1
   %60 = shl nuw nsw i32 1, %59
-  %61 = trunc i32 %60 to i16
+  %61 = trunc nuw i32 %60 to i16
   %.2 = select i1 %.not79, i1 %.16485, i1 false
   %62 = select i1 %.not79, i16 0, i16 %61
   %.1 = or i16 %62, %.05986
@@ -401,7 +401,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   %65 = trunc i16 %.1 to i8
   store i8 %65, ptr %.06589, align 1
   %66 = lshr i16 %.1, 8
-  %67 = trunc i16 %66 to i8
+  %67 = trunc nuw i16 %66 to i8
   %68 = getelementptr i8, ptr %.06589, i64 1
   store i8 %67, ptr %68, align 1
   %69 = getelementptr i8, ptr %.16788, i64 1
@@ -483,7 +483,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   %96 = xor i32 %95, %.16294
   %97 = urem i32 %96, 65535
-  %98 = trunc i32 %97 to i16
+  %98 = trunc nuw i32 %97 to i16
   %99 = add nuw i16 %98, 1
   store i16 %99, ptr %38, align 8
   br label %100

@@ -838,7 +838,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_GROUP_set_generator(ptr noundef %group, ptr noundef %generator, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_set_generator(ptr noundef %group, ptr noundef %generator, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %generator, null
   br i1 %cmp, label %if.then, label %if.end
@@ -956,7 +956,7 @@ if.then52:                                        ; preds = %land.lhs.true49
   br i1 %tobool55.not, label %return, label %if.end63
 
 if.else:                                          ; preds = %land.lhs.true49, %if.end47
-  %call58 = tail call fastcc i32 @ec_guess_cofactor(ptr noundef nonnull %group), !range !4
+  %call58 = tail call fastcc i32 @ec_guess_cofactor(ptr noundef nonnull %group)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %if.then60, label %if.end63
 
@@ -973,7 +973,7 @@ if.end63:                                         ; preds = %if.else, %if.then52
   br i1 %tobool66.not, label %if.end69, label %if.then67
 
 if.then67:                                        ; preds = %if.end63
-  %call68 = tail call fastcc i32 @ec_precompute_mont_data(ptr noundef nonnull %group), !range !4
+  %call68 = tail call fastcc i32 @ec_precompute_mont_data(ptr noundef nonnull %group)
   br label %return
 
 if.end69:                                         ; preds = %if.end63
@@ -995,7 +995,7 @@ declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ec_guess_cofactor(ptr nocapture noundef readonly %group) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ec_guess_cofactor(ptr nocapture noundef readonly %group) unnamed_addr #0 {
 entry:
   %order = getelementptr inbounds i8, ptr %group, i64 16
   %0 = load ptr, ptr %order, align 8
@@ -1095,7 +1095,7 @@ declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ec_precompute_mont_data(ptr nocapture noundef %group) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ec_precompute_mont_data(ptr nocapture noundef %group) unnamed_addr #0 {
 entry:
   %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %0 = load ptr, ptr %libctx, align 8
@@ -1149,7 +1149,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EC_GROUP_get_order(ptr nocapture noundef readonly %group, ptr noundef %order, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_get_order(ptr nocapture noundef readonly %group, ptr noundef %order, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   %order1 = getelementptr inbounds i8, ptr %group, i64 16
   %0 = load ptr, ptr %order1, align 8
@@ -1191,7 +1191,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EC_GROUP_get_cofactor(ptr nocapture noundef readonly %group, ptr noundef %cofactor, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr nocapture noundef readonly %group, ptr noundef %cofactor, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   %cofactor1 = getelementptr inbounds i8, ptr %group, i64 24
   %0 = load ptr, ptr %cofactor1, align 8
@@ -1530,7 +1530,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EC_GROUP_cmp(ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @EC_GROUP_cmp(ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %field_type.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -1929,7 +1929,7 @@ return:                                           ; preds = %if.end2, %if.then1,
 declare i32 @ossl_ec_GFp_simple_get_Jprojective_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_POINT_set_affine_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %point_set_affine_coordinates = getelementptr inbounds i8, ptr %0, i64 120
@@ -2029,7 +2029,7 @@ return:                                           ; preds = %if.end2, %if.then1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %point_set_affine_coordinates.i = getelementptr inbounds i8, ptr %0, i64 120
@@ -2080,7 +2080,7 @@ EC_POINT_set_affine_coordinates.exit:             ; preds = %if.end2.i, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_POINT_set_affine_coordinates_GF2m(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates_GF2m(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %point_set_affine_coordinates.i = getelementptr inbounds i8, ptr %0, i64 120
@@ -2559,7 +2559,7 @@ if.then2:                                         ; preds = %lor.lhs.false.i, %f
 for.inc:                                          ; preds = %land.rhs.i, %lor.lhs.false.i
   %inc = add nuw i64 %i.014, 1
   %exitcond.not = icmp eq i64 %inc, %num
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call6 = tail call i32 %1(ptr noundef nonnull %group, i64 noundef %num, ptr noundef %points, ptr noundef %ctx) #9
@@ -2639,7 +2639,7 @@ if.then8:                                         ; preds = %lor.lhs.false.i28, 
 for.inc:                                          ; preds = %land.rhs.i25, %lor.lhs.false.i28
   %inc = add nuw i64 %i.052, 1
   %exitcond.not = icmp eq i64 %inc, %num
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %cmp10 = icmp eq ptr %ctx, null
@@ -2986,7 +2986,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @EC_GROUP_get_basis_type(ptr nocapture noundef readonly %group) local_unnamed_addr #6 {
+define range(i32 0, 684) i32 @EC_GROUP_get_basis_type(ptr nocapture noundef readonly %group) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %field_type.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -3008,7 +3008,7 @@ land.rhs:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %land.rhs
   %indvars.iv.next = add i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !8
+  br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !7
 
 for.end:                                          ; preds = %land.rhs
   %3 = trunc i64 %indvars.iv to i32
@@ -3024,7 +3024,7 @@ return:                                           ; preds = %for.inc, %for.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_GROUP_get_trinomial_basis(ptr noundef readonly %group, ptr noundef writeonly %k) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_get_trinomial_basis(ptr noundef readonly %group, ptr noundef writeonly %k) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %return, label %if.end
@@ -3074,7 +3074,7 @@ return:                                           ; preds = %if.end11, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly %group, ptr noundef writeonly %k1, ptr noundef writeonly %k2, ptr noundef writeonly %k3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly %group, ptr noundef writeonly %k1, ptr noundef writeonly %k2, ptr noundef writeonly %k3) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %return, label %if.end
@@ -3154,7 +3154,7 @@ return:                                           ; preds = %if.end28, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_group_set_params(ptr nocapture noundef %group, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_group_set_params(ptr nocapture noundef %group, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %encoding_flag = alloca i32, align 4
   %format = alloca i32, align 4
@@ -3236,7 +3236,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp.i, label %if.then18, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %3, i64 %4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   store i64 %4, ptr %seed_len.i, align 8
   br label %return
 
@@ -3328,7 +3328,7 @@ group_new_from_name.exit:                         ; preds = %if.then.i
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %group_new_from_name.exit
-  %call4 = call i32 @ossl_ec_group_set_params(ptr noundef nonnull %call6.i, ptr noundef %params), !range !4
+  %call4 = call i32 @ossl_ec_group_set_params(ptr noundef nonnull %call6.i, ptr noundef %params)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.then5, label %if.end6
 
@@ -3644,7 +3644,7 @@ lor.lhs.false151.if.end156_crit_edge:             ; preds = %lor.lhs.false151
 if.end156:                                        ; preds = %lor.lhs.false151.if.end156_crit_edge, %if.end143
   %27 = phi ptr [ %.pre101, %lor.lhs.false151.if.end156_crit_edge ], [ null, %if.end143 ]
   %28 = load ptr, ptr %order, align 8
-  %call157 = call i32 @EC_GROUP_set_generator(ptr noundef nonnull %group.083, ptr noundef nonnull %call118, ptr noundef %28, ptr noundef %27), !range !4
+  %call157 = call i32 @EC_GROUP_set_generator(ptr noundef nonnull %group.083, ptr noundef nonnull %call118, ptr noundef %28, ptr noundef %27)
   %tobool158.not = icmp eq i32 %call157, 0
   br i1 %tobool158.not, label %if.end186, label %if.end160
 
@@ -3775,7 +3775,7 @@ lor.lhs.false9:                                   ; preds = %if.end3.i
   %6 = load ptr, ptr %seed.i13, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 531) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seed.i13, i8 0, i64 16, i1 false)
-  %call10 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %call.i, ptr noundef %0, ptr noundef %1, ptr noundef null), !range !4
+  %call10 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %call.i, ptr noundef %0, ptr noundef %1, ptr noundef null)
   %tobool.not = icmp eq i32 %call10, 0
   br i1 %tobool.not, label %err, label %if.end
 
@@ -3924,8 +3924,7 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

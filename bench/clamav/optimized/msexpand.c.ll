@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [9 x i8] c"MSEXPAND\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [2048 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 96

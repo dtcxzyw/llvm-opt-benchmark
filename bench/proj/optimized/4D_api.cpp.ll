@@ -206,7 +206,7 @@ define void @proj_coord(ptr dead_on_unwind noalias nocapture writable writeonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @proj_angular_input(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @proj_angular_input(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %4, label %6
 
@@ -230,7 +230,7 @@ declare noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @_Z8pj_rightP8PJconsts(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @proj_angular_output(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @proj_angular_output(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %4, label %6
 
@@ -250,7 +250,7 @@ proj_angular_input.exit:                          ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @proj_degree_input(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @proj_degree_input(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %4, label %6
 
@@ -270,7 +270,7 @@ define noundef i32 @proj_degree_input(ptr noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @proj_degree_output(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @proj_degree_output(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %4, label %6
 
@@ -2764,7 +2764,7 @@ define hidden noundef ptr @_Z18pj_create_internalP6pj_ctxPKc(ptr noundef %0, ptr
   %.012.i = phi ptr [ %24, %23 ], [ %.022, %20 ]
   %26 = tail call i32 @proj_context_get_use_proj4_init_rules(ptr noundef %.012.i, i32 noundef 0)
   %27 = tail call noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr noundef %.012.i, i32 noundef %21, ptr noundef nonnull %18, i32 noundef %26)
-  %28 = tail call fastcc noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %27), !range !12
+  %28 = tail call fastcc noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %27)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %_Z23pj_create_argv_internalP6pj_ctxiPPc.exit
 
@@ -2822,7 +2822,7 @@ define hidden noundef ptr @_Z23pj_create_argv_internalP6pj_ctxiPPc(ptr noundef %
 10:                                               ; preds = %7
   %11 = tail call i32 @proj_context_get_use_proj4_init_rules(ptr noundef %.012, i32 noundef 0)
   %12 = tail call noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr noundef %.012, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %11)
-  %13 = tail call fastcc noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %12), !range !12
+  %13 = tail call fastcc noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %12)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %17
 
@@ -2893,32 +2893,32 @@ define i32 @proj_context_get_use_proj4_init_rules(ptr noundef %0, i32 noundef %1
   br i1 %.not, label %21, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.6) #36
+  %9 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.6) #36
   %.not22 = icmp eq i32 %9, 0
   br i1 %.not22, label %25, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.7) #36
+  %11 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.7) #36
   %.not23 = icmp eq i32 %11, 0
   br i1 %.not23, label %25, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #36
+  %13 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.8) #36
   %.not24 = icmp eq i32 %13, 0
   br i1 %.not24, label %25, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.9) #36
+  %15 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.9) #36
   %.not25 = icmp eq i32 %15, 0
   br i1 %.not25, label %25, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.10) #36
+  %17 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.10) #36
   %.not26 = icmp eq i32 %17, 0
   br i1 %.not26, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.11) #36
+  %19 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly @.str.11) #36
   %.not27 = icmp eq i32 %19, 0
   br i1 %.not27, label %25, label %20
 
@@ -2941,7 +2941,7 @@ define i32 @proj_context_get_use_proj4_init_rules(ptr noundef %0, i32 noundef %1
 declare noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr noundef %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -3289,7 +3289,7 @@ define internal fastcc noundef i32 @_ZL21cs2cs_emulation_setupP8PJconsts(ptr nou
   %185 = getelementptr inbounds i8, ptr %184, i64 1
   %186 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %185, i32 noundef 44) #36
   %.not138 = icmp eq ptr %186, null
-  br i1 %.not138, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not138, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %177
   %187 = load ptr, ptr %0, align 8
@@ -3472,7 +3472,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @proj_trans_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, i32 noundef %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @proj_trans_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, i32 noundef %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %13 = alloca %struct.PJ_PROJ_INFO, align 8
   store double 0x7FF0000000000000, ptr %7, align 8
   store double 0x7FF0000000000000, ptr %8, align 8
@@ -3628,7 +3628,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i347: ; preds = %_ZNKSt6vectorIdSa
 73:                                               ; preds = %71
   %74 = sub nsw i32 0, %2
   %75 = invoke fastcc noundef i32 @_ZL24target_crs_lon_lat_orderP6pj_ctxP8PJconsts12PJ_DIRECTION(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %74)
-          to label %76 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit337.thread, !range !14
+          to label %76 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit337.thread
 
 76:                                               ; preds = %73
   %77 = icmp eq i32 %75, -1
@@ -3644,7 +3644,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i347: ; preds = %_ZNKSt6vectorIdSa
 
 81:                                               ; preds = %80
   %82 = invoke fastcc noundef i32 @_ZL24target_crs_lon_lat_orderP6pj_ctxP8PJconsts12PJ_DIRECTION(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
-          to label %83 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit337.thread, !range !14
+          to label %83 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit337.thread
 
 83:                                               ; preds = %81
   %84 = icmp eq i32 %82, -1
@@ -3752,7 +3752,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i347: ; preds = %_ZNKSt6vectorIdSa
   store double %135, ptr %136, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %118
   %137 = invoke i64 @proj_trans_generic(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %50, i64 noundef 8, i64 noundef %48, ptr noundef nonnull %53, i64 noundef 8, i64 noundef %48, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0)
@@ -3774,7 +3774,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i347: ; preds = %_ZNKSt6vectorIdSa
   %.1.i = select i1 %143, double %142, double %.0911.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %48
-  br i1 %exitcond.not.i, label %_ZL10simple_minPKdi.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZL10simple_minPKdi.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZL10simple_minPKdi.exit:                         ; preds = %.lr.ph.i
   store double %.1.i, ptr %7, align 8
@@ -3793,7 +3793,7 @@ _ZL10simple_minPKdi.exit:                         ; preds = %.lr.ph.i
   %.1.i221 = select i1 %or.cond15.i, double %145, double %.01316.i
   %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i220, 1
   %exitcond.not.i223 = icmp eq i64 %indvars.iv.next.i222, %48
-  br i1 %exitcond.not.i223, label %_ZL10simple_maxPKdi.exit, label %.lr.ph.i219, !llvm.loop !17
+  br i1 %exitcond.not.i223, label %_ZL10simple_maxPKdi.exit, label %.lr.ph.i219, !llvm.loop !15
 
 _ZL10simple_maxPKdi.exit:                         ; preds = %.lr.ph.i219
   store double %.1.i221, ptr %9, align 8
@@ -3809,7 +3809,7 @@ _ZL10simple_maxPKdi.exit:                         ; preds = %.lr.ph.i219
   %.1.i230 = select i1 %152, double %151, double %.0911.i229
   %indvars.iv.next.i231 = add nuw nsw i64 %indvars.iv.i228, 1
   %exitcond.not.i232 = icmp eq i64 %indvars.iv.next.i231, %48
-  br i1 %exitcond.not.i232, label %_ZL10simple_minPKdi.exit233, label %.lr.ph.i227, !llvm.loop !16
+  br i1 %exitcond.not.i232, label %_ZL10simple_minPKdi.exit233, label %.lr.ph.i227, !llvm.loop !14
 
 _ZL10simple_minPKdi.exit233:                      ; preds = %.lr.ph.i227
   store double %.1.i230, ptr %8, align 8
@@ -3828,7 +3828,7 @@ _ZL10simple_minPKdi.exit233:                      ; preds = %.lr.ph.i227
   %.1.i242 = select i1 %or.cond15.i241, double %154, double %.01316.i239
   %indvars.iv.next.i243 = add nuw nsw i64 %indvars.iv.i238, 1
   %exitcond.not.i244 = icmp eq i64 %indvars.iv.next.i243, %48
-  br i1 %exitcond.not.i244, label %_ZNSt6vectorIdSaIdEED2Ev.exit.thread.sink.split, label %.lr.ph.i237, !llvm.loop !17
+  br i1 %exitcond.not.i244, label %_ZNSt6vectorIdSaIdEED2Ev.exit.thread.sink.split, label %.lr.ph.i237, !llvm.loop !15
 
 158:                                              ; preds = %138
   %brmerge.not = and i1 %.0191, %.0188
@@ -3848,7 +3848,7 @@ _ZL10simple_minPKdi.exit233:                      ; preds = %.lr.ph.i227
   %.1.i252 = select i1 %163, double %162, double %.0911.i251
   %indvars.iv.next.i253 = add nuw nsw i64 %indvars.iv.i250, 1
   %exitcond.not.i254 = icmp eq i64 %indvars.iv.next.i253, %48
-  br i1 %exitcond.not.i254, label %_ZL10simple_minPKdi.exit255, label %.lr.ph.i249, !llvm.loop !16
+  br i1 %exitcond.not.i254, label %_ZL10simple_minPKdi.exit255, label %.lr.ph.i249, !llvm.loop !14
 
 _ZL10simple_minPKdi.exit255:                      ; preds = %.lr.ph.i249
   store double %.1.i252, ptr %8, align 8
@@ -3871,7 +3871,7 @@ _ZL10simple_minPKdi.exit255:                      ; preds = %.lr.ph.i249
   %.1.i262 = select i1 %169, double %168, double %.0911.i261
   %indvars.iv.next.i263 = add nuw nsw i64 %indvars.iv.i260, 1
   %exitcond.not.i264 = icmp eq i64 %indvars.iv.next.i263, %48
-  br i1 %exitcond.not.i264, label %_ZL10simple_minPKdi.exit265, label %.lr.ph.i259, !llvm.loop !16
+  br i1 %exitcond.not.i264, label %_ZL10simple_minPKdi.exit265, label %.lr.ph.i259, !llvm.loop !14
 
 _ZL10simple_minPKdi.exit265:                      ; preds = %.lr.ph.i259
   store double %.1.i262, ptr %7, align 8
@@ -3903,7 +3903,7 @@ _ZL10simple_minPKdi.exit265:                      ; preds = %.lr.ph.i259
   %.1.i274 = select i1 %or.cond15.i273, double %174, double %.01316.i271
   %indvars.iv.next.i275 = add nuw nsw i64 %indvars.iv.i270, 1
   %exitcond.not.i276 = icmp eq i64 %indvars.iv.next.i275, %48
-  br i1 %exitcond.not.i276, label %_ZNSt6vectorIdSaIdEED2Ev.exit.thread.sink.split, label %.lr.ph.i269, !llvm.loop !17
+  br i1 %exitcond.not.i276, label %_ZNSt6vectorIdSaIdEED2Ev.exit.thread.sink.split, label %.lr.ph.i269, !llvm.loop !15
 
 178:                                              ; preds = %170
   br i1 %.0190, label %179, label %186
@@ -3927,7 +3927,7 @@ _ZL10simple_minPKdi.exit265:                      ; preds = %.lr.ph.i259
   %.1.i286 = select i1 %or.cond15.i285, double %182, double %.01316.i283
   %indvars.iv.next.i287 = add nuw nsw i64 %indvars.iv.i282, 1
   %exitcond.not.i288 = icmp eq i64 %indvars.iv.next.i287, %48
-  br i1 %exitcond.not.i288, label %_ZL10simple_maxPKdi.exit289, label %.lr.ph.i281, !llvm.loop !17
+  br i1 %exitcond.not.i288, label %_ZL10simple_maxPKdi.exit289, label %.lr.ph.i281, !llvm.loop !15
 
 _ZL10simple_maxPKdi.exit289:                      ; preds = %.lr.ph.i281
   store double %.1.i286, ptr %9, align 8
@@ -3953,7 +3953,7 @@ _ZL10simple_maxPKdi.exit289:                      ; preds = %.lr.ph.i281
   %.1.i296 = select i1 %193, double %192, double %.0911.i295
   %indvars.iv.next.i297 = add nuw nsw i64 %indvars.iv.i294, 1
   %exitcond.not.i298 = icmp eq i64 %indvars.iv.next.i297, %48
-  br i1 %exitcond.not.i298, label %_ZL10simple_minPKdi.exit299, label %.lr.ph.i293, !llvm.loop !16
+  br i1 %exitcond.not.i298, label %_ZL10simple_minPKdi.exit299, label %.lr.ph.i293, !llvm.loop !14
 
 _ZL10simple_minPKdi.exit299:                      ; preds = %.lr.ph.i293
   store double %.1.i296, ptr %8, align 8
@@ -3972,7 +3972,7 @@ _ZL10simple_minPKdi.exit299:                      ; preds = %.lr.ph.i293
   %.1.i308 = select i1 %or.cond15.i307, double %195, double %.01316.i305
   %indvars.iv.next.i309 = add nuw nsw i64 %indvars.iv.i304, 1
   %exitcond.not.i310 = icmp eq i64 %indvars.iv.next.i309, %48
-  br i1 %exitcond.not.i310, label %_ZNSt6vectorIdSaIdEED2Ev.exit.thread.sink.split, label %.lr.ph.i303, !llvm.loop !17
+  br i1 %exitcond.not.i310, label %_ZNSt6vectorIdSaIdEED2Ev.exit.thread.sink.split, label %.lr.ph.i303, !llvm.loop !15
 
 199:                                              ; preds = %186
   %200 = load double, ptr %50, align 8
@@ -3987,7 +3987,7 @@ _ZL10simple_minPKdi.exit299:                      ; preds = %.lr.ph.i293
   %.1.i318 = select i1 %203, double %202, double %.0911.i317
   %indvars.iv.next.i319 = add nuw nsw i64 %indvars.iv.i316, 1
   %exitcond.not.i320 = icmp eq i64 %indvars.iv.next.i319, %48
-  br i1 %exitcond.not.i320, label %_ZL10simple_minPKdi.exit321, label %.lr.ph.i315, !llvm.loop !16
+  br i1 %exitcond.not.i320, label %_ZL10simple_minPKdi.exit321, label %.lr.ph.i315, !llvm.loop !14
 
 _ZL10simple_minPKdi.exit321:                      ; preds = %.lr.ph.i315
   store double %.1.i318, ptr %7, align 8
@@ -4006,7 +4006,7 @@ _ZL10simple_minPKdi.exit321:                      ; preds = %.lr.ph.i315
   %.1.i330 = select i1 %or.cond15.i329, double %205, double %.01316.i327
   %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i326, 1
   %exitcond.not.i332 = icmp eq i64 %indvars.iv.next.i331, %48
-  br i1 %exitcond.not.i332, label %_ZL10simple_maxPKdi.exit333, label %.lr.ph.i325, !llvm.loop !17
+  br i1 %exitcond.not.i332, label %_ZL10simple_maxPKdi.exit333, label %.lr.ph.i325, !llvm.loop !15
 
 _ZL10simple_maxPKdi.exit333:                      ; preds = %.lr.ph.i325
   store double %.1.i330, ptr %9, align 8
@@ -4319,7 +4319,7 @@ _ZNK16PJCoordOperation14isInstantiableEv.exit:    ; preds = %.lr.ph, %23
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL24target_crs_lon_lat_orderP6pj_ctxP8PJconsts12PJ_DIRECTION(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL24target_crs_lon_lat_orderP6pj_ctxP8PJconsts12PJ_DIRECTION(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   switch i32 %2, label %.thread [
     i32 1, label %5
@@ -4500,7 +4500,7 @@ define internal fastcc noundef double @_ZL16antimeridian_minPKdi(ptr nocapture n
   %22 = zext i32 %.1.i to i64
   %23 = icmp ne i64 %indvars.iv, %22
   %24 = and i1 %21, %23
-  br i1 %24, label %.lr.ph.i, label %_ZL19find_previous_indexiPKdi.exit, !llvm.loop !18
+  br i1 %24, label %.lr.ph.i, label %_ZL19find_previous_indexiPKdi.exit, !llvm.loop !16
 
 _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %7
   %25 = phi double [ %12, %7 ], [ %20, %.lr.ph.i ]
@@ -4556,7 +4556,7 @@ _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %7
   %.5 = phi double [ %.04171, %.lr.ph ], [ %.4, %41 ], [ %.4, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %42
   switch i32 %.248, label %44 [
@@ -4621,7 +4621,7 @@ define internal fastcc noundef double @_ZL16antimeridian_maxPKdi(ptr nocapture n
   %22 = zext i32 %.1.i to i64
   %23 = icmp ne i64 %indvars.iv, %22
   %24 = and i1 %21, %23
-  br i1 %24, label %.lr.ph.i, label %_ZL19find_previous_indexiPKdi.exit, !llvm.loop !18
+  br i1 %24, label %.lr.ph.i, label %_ZL19find_previous_indexiPKdi.exit, !llvm.loop !16
 
 _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %7
   %25 = phi double [ %12, %7 ], [ %20, %.lr.ph.i ]
@@ -4681,7 +4681,7 @@ _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %7
   %.5 = phi double [ %.05183, %.lr.ph ], [ %.4, %43 ], [ %.4, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %44
   switch i32 %.255, label %46 [
@@ -5904,7 +5904,7 @@ define hidden void @_Z29pj_create_prepared_operationsP6pj_ctxPK8PJconstsS3_P11PJ
 81:                                               ; preds = %79
   %82 = add nuw nsw i32 %.06481, 1
   %exitcond.not = icmp eq i32 %82, %33
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %81, %.preheader
   %83 = invoke ptr @proj_destroy(ptr noundef %.0)
@@ -6194,7 +6194,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EE5resetEP
 77:                                               ; preds = %75
   %78 = add nuw nsw i32 %.07188, 1
   %exitcond.not = icmp eq i32 %78, %65
-  br i1 %exitcond.not, label %.thread86, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.thread86, label %.lr.ph, !llvm.loop !20
 
 79:                                               ; preds = %73
   %80 = icmp eq ptr %70, null
@@ -6433,7 +6433,7 @@ _ZSt8_DestroyI16PJCoordOperationEvPT_.exit.i.i.i: ; preds = %12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #33
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 192
   %.not.i.i.i = icmp eq ptr %21, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !21
 
 _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyI16PJCoordOperationEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -6751,7 +6751,7 @@ define void @proj_info(ptr dead_on_unwind noalias nocapture writable writeonly s
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #33
   %19 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %19, %.pre32
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %3, align 8
@@ -7311,7 +7311,7 @@ define void @proj_init_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_
   %71 = load ptr, ptr %.062, align 8
   call void @free(ptr noundef nonnull %.062) #33
   %.not56 = icmp eq ptr %71, null
-  br i1 %.not56, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not56, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit.sink.split:                             ; preds = %36, %24
   %.sink63 = phi ptr [ %25, %24 ], [ %37, %36 ]
@@ -7763,7 +7763,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5osgeo4proj9operation15GridDesc
   tail call void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull align 8 dereferenceable(131) %7) #33
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #39
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -7903,7 +7903,7 @@ define internal fastcc void @_ZL14reproject_bboxP8PJconstsddddRdS1_S1_S1_(ptr no
   store double %41, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 21
-  br i1 %exitcond.not, label %48, label %30, !llvm.loop !27
+  br i1 %exitcond.not, label %48, label %30, !llvm.loop !25
 
 46:                                               ; preds = %14
   %47 = landingpad { ptr, i32 }
@@ -7955,7 +7955,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %48
 71:                                               ; preds = %.preheader, %53, %57
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 84
-  br i1 %exitcond110.not, label %_ZNSt6vectorIdSaIdEED2Ev.exit78, label %.preheader, !llvm.loop !28
+  br i1 %exitcond110.not, label %_ZNSt6vectorIdSaIdEED2Ev.exit78, label %.preheader, !llvm.loop !26
 
 _ZNSt6vectorIdSaIdEED2Ev.exit78:                  ; preds = %71
   tail call void @_ZdlPv(ptr noundef nonnull %24) #39
@@ -8090,7 +8090,7 @@ _ZSt8_DestroyI16PJCoordOperationEvPT_.exit.i.i.i: ; preds = %71
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #33
   %80 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 192
   %.not.i.i.i = icmp eq ptr %80, %20
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !21
 
 _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI16PJCoordOperationEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIP16PJCoordOperationS1_SaIS0_EET0_T_S4_S3_RT1_.exit43
   %.not.i44 = icmp eq ptr %21, null
@@ -8229,7 +8229,7 @@ _ZSt8_DestroyI16PJCoordOperationEvPT_.exit.i.i:   ; preds = %11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #33
   %20 = getelementptr inbounds i8, ptr %.05.i.i, i64 192
   %.not.i.i = icmp eq ptr %20, %1
-  br i1 %.not.i.i, label %_ZSt8_DestroyIP16PJCoordOperationEvT_S2_.exit, label %.lr.ph.i.i, !llvm.loop !23
+  br i1 %.not.i.i, label %_ZSt8_DestroyIP16PJCoordOperationEvT_S2_.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 _ZSt8_DestroyIP16PJCoordOperationEvT_S2_.exit:    ; preds = %_ZSt8_DestroyI16PJCoordOperationEvPT_.exit.i.i, %3
   ret void
@@ -8350,7 +8350,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyISt13move_iterator
   %77 = getelementptr inbounds i8, ptr %.sroa.08.012, i64 192
   %78 = getelementptr inbounds i8, ptr %.013, i64 192
   %.not = icmp eq ptr %77, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi ptr [ %2, %3 ], [ %78, %.lr.ph ]
@@ -8522,7 +8522,7 @@ _ZSt8_DestroyI16PJCoordOperationEvPT_.exit.i.i.i: ; preds = %80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #33
   %89 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 192
   %.not.i.i.i = icmp eq ptr %89, %5
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !21
 
 _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI16PJCoordOperationEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIP16PJCoordOperationS1_SaIS0_EET0_T_S4_S3_RT1_.exit28
   %.not.i29 = icmp eq ptr %6, null
@@ -8657,9 +8657,9 @@ attributes #42 = { nounwind allocsize(0,1) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 -1, i32 2}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
@@ -8673,5 +8673,3 @@ attributes #42 = { nounwind allocsize(0,1) }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

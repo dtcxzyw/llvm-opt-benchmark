@@ -880,7 +880,7 @@ for.end:                                          ; preds = %for.inc, %_ZN6vecto
   %61 = load ptr, ptr %m_inner, align 8
   %m_kind.i.i69 = getelementptr inbounds i8, ptr %61, i64 24
   %62 = load i32, ptr %m_kind.i.i69, align 8
-  %call4.i70 = invoke noundef i32 @_ZN7datalog21sieve_relation_plugin17get_relation_kindERKNS_18relation_signatureEPKbi(ptr noundef nonnull align 8 dereferenceable(104) %p, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i.i, ptr noundef %inner_columns, i32 noundef %62)
+  %call4.i70 = invoke noundef i32 @_ZN7datalog21sieve_relation_plugin17get_relation_kindERKNS_18relation_signatureEPKbi(ptr noundef nonnull align 8 dereferenceable(104) %p, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i.i, ptr noundef readonly %inner_columns, i32 noundef %62)
           to label %invoke.cont30 unwind label %lpad11.loopexit.split-lp
 
 invoke.cont30:                                    ; preds = %for.end
@@ -1456,7 +1456,7 @@ entry:
   %m_inner_cols = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_inner_cols, align 8
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-  tail call void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef %3, ptr noundef %call2)
+  tail call void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_signature.i, ptr noundef %3, ptr noundef %call2)
   ret ptr %call.i
 }
 
@@ -1483,7 +1483,7 @@ entry:
   %m_inner_cols = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_inner_cols, align 8
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-  tail call void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef %3, ptr noundef %call2)
+  tail call void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_signature.i, ptr noundef %3, ptr noundef %call2)
   ret ptr %call.i
 }
 
@@ -2711,7 +2711,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %call.i.noexc unwind label %lpad3.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %invoke.cont6
-  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i4, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef %15, ptr noundef %call7)
+  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i4, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %s, ptr noundef %15, ptr noundef %call7)
           to label %invoke.cont11 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %call.i.noexc
@@ -3032,7 +3032,7 @@ invoke.cont5:                                     ; preds = %invoke.cont4
           to label %call.i.i.noexc unwind label %lpad3.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
-  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i6, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef %2, ptr noundef %call6)
+  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i6, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %s, ptr noundef %2, ptr noundef %call6)
           to label %invoke.cont7 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont7:                                     ; preds = %call.i.i.noexc
@@ -3161,7 +3161,7 @@ invoke.cont10:                                    ; preds = %invoke.cont4, %whil
           to label %call.i.i.noexc unwind label %lpad7.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %invoke.cont10
-  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i5, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef %7, ptr noundef %call5)
+  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i5, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %s, ptr noundef %7, ptr noundef %call5)
           to label %invoke.cont11 unwind label %lpad7.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %call.i.i.noexc
@@ -3345,7 +3345,7 @@ invoke.cont5:                                     ; preds = %invoke.cont4
           to label %call.i.i.noexc unwind label %lpad3.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
-  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i6, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef %2, ptr noundef %call6)
+  invoke void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i6, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %s, ptr noundef %2, ptr noundef %call6)
           to label %invoke.cont7 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont7:                                     ; preds = %call.i.i.noexc
@@ -7423,7 +7423,7 @@ cond.end20:                                       ; preds = %cond.end15, %cond.t
   %m_result_inner_cols = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load ptr, ptr %m_result_inner_cols, align 8
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-  tail call void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(8) %m_result_sig.i, ptr noundef %9, ptr noundef %call23)
+  tail call void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_result_sig.i, ptr noundef %9, ptr noundef %call23)
   ret ptr %call.i
 }
 
@@ -7841,7 +7841,7 @@ entry:
   %m_result_inner_cols = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_result_inner_cols, align 8
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-  tail call void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %m_result_sig.i, ptr noundef %4, ptr noundef %call4)
+  tail call void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_result_sig.i, ptr noundef %4, ptr noundef %call4)
   ret ptr %call.i
 }
 

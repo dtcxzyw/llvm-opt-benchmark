@@ -4906,14 +4906,14 @@ define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %31 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #4
   %32 = and i32 %31, 1
   %33 = lshr i32 %31, 1
-  %34 = uitofp i32 %33 to double
+  %34 = uitofp nneg i32 %33 to double
   %35 = fmul double %34, 3.600000e+09
   %36 = fdiv double %35, 0x41DFFFFFFFC00000
   %37 = fptoui double %36 to i64
   %38 = sdiv i64 %37, 1000000
   store i64 %38, ptr %5, align 8
   %39 = urem i64 %37, 1000000
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %41 = mul nuw nsw i32 %40, 1000
   %42 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %41, ptr %42, align 8
@@ -6808,7 +6808,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %796 = trunc i32 %795 to i8
   store i8 %796, ptr %790, align 1
   %797 = lshr i32 %.08791.i.i, 24
-  %798 = trunc i32 %797 to i8
+  %798 = trunc nuw i32 %797 to i8
   %799 = getelementptr i8, ptr %790, i64 1
   store i8 %798, ptr %799, align 1
   %800 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.092.i.i) #4
@@ -6823,7 +6823,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %807 = getelementptr i8, ptr %790, i64 4
   store i8 %806, ptr %807, align 1
   %808 = lshr i32 %800, 24
-  %809 = trunc i32 %808 to i8
+  %809 = trunc nuw i32 %808 to i8
   %810 = getelementptr i8, ptr %790, i64 5
   store i8 %809, ptr %810, align 1
   %811 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %801) #4
@@ -6852,7 +6852,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %828 = trunc i32 %827 to i8
   store i8 %828, ptr %792, align 1
   %829 = lshr i32 %821, 24
-  %830 = trunc i32 %829 to i8
+  %830 = trunc nuw i32 %829 to i8
   store i8 %830, ptr %793, align 1
   %831 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %822) #4
   %832 = add i32 %.092.i.i, 8
@@ -6868,7 +6868,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %840 = getelementptr i8, ptr %790, i64 6
   store i8 %839, ptr %840, align 1
   %841 = lshr i32 %831, 24
-  %842 = trunc i32 %841 to i8
+  %842 = trunc nuw i32 %841 to i8
   %843 = getelementptr i8, ptr %790, i64 7
   store i8 %842, ptr %843, align 1
   %844 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %832) #4
@@ -7174,7 +7174,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i150, %991
   %1096 = mul nuw nsw i64 %1095, 3600000
   %1097 = udiv i64 %1096, 2147483647
   %1098 = udiv i64 %1096, 2147483647000
-  %.lhs.trunc.i.i = trunc i64 %1097 to i32
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %1097 to i32
   %1099 = urem i32 %.lhs.trunc.i.i, 1000
   %1100 = mul nuw nsw i32 %1099, 1000000
   %1101 = getelementptr inbounds i8, ptr %13, i64 8
@@ -7200,7 +7200,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i150, %991
   %1114 = mul nuw nsw i64 %1113, 3600000
   %1115 = udiv i64 %1114, 2147483647
   %1116 = udiv i64 %1114, 2147483647000
-  %.lhs.trunc.i16.i = trunc i64 %1115 to i32
+  %.lhs.trunc.i16.i = trunc nuw nsw i64 %1115 to i32
   %1117 = urem i32 %.lhs.trunc.i16.i, 1000
   %1118 = mul nuw nsw i32 %1117, 1000000
   %1119 = getelementptr inbounds i8, ptr %12, i64 8
@@ -7247,7 +7247,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i150, %991
   %1151 = mul nuw nsw i64 %1150, 3600000
   %1152 = udiv i64 %1151, 2147483647
   %1153 = udiv i64 %1151, 2147483647000
-  %.lhs.trunc.i.i154 = trunc i64 %1152 to i32
+  %.lhs.trunc.i.i154 = trunc nuw nsw i64 %1152 to i32
   %1154 = urem i32 %.lhs.trunc.i.i154, 1000
   %1155 = mul nuw nsw i32 %1154, 1000000
   %1156 = getelementptr inbounds i8, ptr %11, i64 8
@@ -7487,7 +7487,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %126
   %1347 = mul nuw nsw i64 %1346, 3600000
   %1348 = udiv i64 %1347, 2147483647
   %1349 = udiv i64 %1347, 2147483647000
-  %.lhs.trunc.i.i160 = trunc i64 %1348 to i32
+  %.lhs.trunc.i.i160 = trunc nuw nsw i64 %1348 to i32
   %1350 = urem i32 %.lhs.trunc.i.i160, 1000
   %1351 = mul nuw nsw i32 %1350, 1000000
   %1352 = getelementptr inbounds i8, ptr %10, i64 8
@@ -7513,7 +7513,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %126
   %1365 = mul nuw nsw i64 %1364, 3600000
   %1366 = udiv i64 %1365, 2147483647
   %1367 = udiv i64 %1365, 2147483647000
-  %.lhs.trunc.i24.i = trunc i64 %1366 to i32
+  %.lhs.trunc.i24.i = trunc nuw nsw i64 %1366 to i32
   %1368 = urem i32 %.lhs.trunc.i24.i, 1000
   %1369 = mul nuw nsw i32 %1368, 1000000
   %1370 = getelementptr inbounds i8, ptr %9, i64 8
@@ -7564,7 +7564,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %126
   %1406 = mul nuw nsw i64 %1405, 3600000
   %1407 = udiv i64 %1406, 2147483647
   %1408 = udiv i64 %1406, 2147483647000
-  %.lhs.trunc.i.i163 = trunc i64 %1407 to i32
+  %.lhs.trunc.i.i163 = trunc nuw nsw i64 %1407 to i32
   %1409 = urem i32 %.lhs.trunc.i.i163, 1000
   %1410 = mul nuw nsw i32 %1409, 1000000
   %1411 = getelementptr inbounds i8, ptr %8, i64 8

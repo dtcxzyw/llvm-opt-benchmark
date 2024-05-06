@@ -2080,7 +2080,7 @@ entry:
   %bf.load.i = load i32, ptr %m_models_enabled.i, align 8
   %m_produce_models = getelementptr inbounds i8, ptr %this, i64 96
   %1 = lshr i32 %bf.load.i, 26
-  %2 = trunc i32 %1 to i8
+  %2 = trunc nuw nsw i32 %1 to i8
   %frombool = and i8 %2, 1
   store i8 %frombool, ptr %m_produce_models, align 8
   %3 = load ptr, ptr %result, align 8

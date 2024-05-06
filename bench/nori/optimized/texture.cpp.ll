@@ -182,7 +182,7 @@ define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_
   br label %60
 
 switch.lookup:                                    ; preds = %37
-  %switch.idx.cast = trunc i32 %switch.tableidx to i8
+  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
   %46 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 %switch.idx.cast, ptr %46, align 4
   invoke void @_ZN7nanogui7Texture4initEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -311,7 +311,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN7nanogui7Texture6uploadEPKh(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK7nanogui7Texture15bytes_per_pixelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 1, 17) i64 @_ZNK7nanogui7Texture15bytes_per_pixelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1
   %switch.tableidx = add i8 %3, -1
@@ -376,7 +376,7 @@ switch.lookup3:                                   ; preds = %switch.lookup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK7nanogui7Texture8channelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 1, 5) i64 @_ZNK7nanogui7Texture8channelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4
   %4 = icmp ult i8 %3, 8

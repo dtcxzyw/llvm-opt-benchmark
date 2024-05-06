@@ -823,7 +823,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
   %14 = load i8, ptr %.sroa.4.0.copyload, align 1, !noalias !120, !noundef !4
   %15 = xor i8 %14, %7
   store i8 %15, ptr %.sroa.4.0.copyload, align 1, !noalias !120
-  %16 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.sroa.57.0.copyload
+  %16 = getelementptr i8, ptr %.sroa.4.0.copyload, i64 %.sroa.57.0.copyload
   %17 = icmp eq i64 %.sroa.57.0.copyload, 1
   br i1 %17, label %"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ring..rsa..padding..Verification$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h6d8459b1931f626fE.llvm.4525565709555364834.exit", label %.lr.ph.i
 
@@ -1480,7 +1480,7 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
   %22 = load i8, ptr %21, align 1, !noundef !4
   %23 = xor i8 %22, %11
   store i8 %23, ptr %21, align 1
-  %24 = getelementptr inbounds i8, ptr %21, i64 %19
+  %24 = getelementptr i8, ptr %21, i64 %19
   %25 = icmp eq i64 %19, 1
   br i1 %25, label %.loopexit, label %.lr.ph
 

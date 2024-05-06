@@ -902,7 +902,7 @@ define internal fastcc i32 @__do_pipe_flags(ptr nocapture noundef writeonly %0, 
 declare dso_local void @fd_install(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_pipe2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_pipe2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -915,7 +915,7 @@ define dso_local i64 @__x64_sys_pipe2(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_pipe2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_pipe2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -929,7 +929,7 @@ define dso_local i64 @__ia32_sys_pipe2(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_pipe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_pipe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -939,7 +939,7 @@ define dso_local i64 @__x64_sys_pipe(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_pipe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_pipe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -1860,7 +1860,7 @@ define internal i64 @pipe_write(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pipe_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 512) i32 @pipe_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120
@@ -1966,7 +1966,7 @@ define internal i32 @pipe_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pipe_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pipe_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i32 %1, 21531
@@ -2021,7 +2021,7 @@ define internal i64 @pipe_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @fifo_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -512, 1) i32 @fifo_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 96
@@ -2414,7 +2414,7 @@ define dso_local i32 @round_pipe_size(i32 noundef %0) local_unnamed_addr #5 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pipe_resize_ring(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @pipe_resize_ring(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 40
   %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 4206016) #18
@@ -2521,7 +2521,7 @@ define dso_local ptr @get_pipe_info(ptr nocapture noundef readonly %0, i1 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @pipe_fcntl(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 17592186040321) i64 @pipe_fcntl(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -3021,7 +3021,7 @@ declare void @llvm.write_register.i64(metadata, i64) #13
 declare dso_local i32 @rcuwait_wake_up(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @wait_for_partner(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -512, 1) i32 @wait_for_partner(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3114,7 +3114,7 @@ declare dso_local i32 @unregister_filesystem(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__register_sysctl_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pipefs_init_fs_context(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pipefs_init_fs_context(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 1346981957) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -3168,7 +3168,7 @@ declare dso_local i32 @proc_doulongvec_minmax(ptr noundef, i32 noundef, ptr noun
 declare dso_local i32 @do_proc_douintvec(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define internal noundef i32 @do_proc_dopipe_max_size_conv(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture readnone %3) #14 align 16 {
+define internal noundef range(i32 -22, 1) i32 @do_proc_dopipe_max_size_conv(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture readnone %3) #14 align 16 {
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %22, label %6
 

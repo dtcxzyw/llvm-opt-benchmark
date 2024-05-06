@@ -5242,7 +5242,7 @@ entry:
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !30
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfigE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !30
   %discovery_mechanisms_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %discovery_mechanisms_.i.i, i8 0, i64 24, i1 false), !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %discovery_mechanisms_.i.i, i8 0, i64 24, i1 false), !noalias !30
   %1 = load ptr, ptr %dst, align 8
   store ptr %call.i, ptr %dst, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -8280,7 +8280,7 @@ lpad:                                             ; preds = %invoke.cont14, %if.
 if.end7:                                          ; preds = %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %entries.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entries.i, i8 0, i64 24, i1 false), !noalias !83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %entries.i, i8 0, i64 24, i1 false), !noalias !83
   %discovery_mechanisms_.i = getelementptr inbounds i8, ptr %this, i64 88
   %discovery_mechanisms_.val7.i = load ptr, ptr %discovery_mechanisms_.i, align 8, !noalias !83
   %13 = getelementptr inbounds i8, ptr %this, i64 96
@@ -8342,7 +8342,7 @@ invoke.cont8.i:                                   ; preds = %for.inc.i, %invoke.
   br i1 %cmp.not.i.i11, label %if.else.i.i, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %invoke.cont8.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef nonnull %17, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %priority_child_numbers.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef nonnull %17, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %priority_child_numbers.i)
           to label %.noexc16.i unwind label %lpad.loopexit.i, !noalias !83
 
 .noexc16.i:                                       ; preds = %if.then.i12.i
@@ -8377,7 +8377,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN9grp
 _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i20.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i18.i, %cond.true.i.i.i.i ]
   %add.ptr.i.i14.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::PriorityEndpointIterator::DiscoveryMechanismResult", ptr %cond.i20.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef %add.ptr.i.i14.i, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %priority_child_numbers.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef %add.ptr.i.i14.i, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %priority_child_numbers.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !83
 
 invoke.cont.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i
@@ -22859,7 +22859,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit: ; preds = %invoke.c
   store i64 %9, ptr %8, align 8
   store i64 54, ptr %status, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
           to label %invoke.cont8 unwind label %lpad7
 
@@ -23041,7 +23041,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %7 = phi ptr [ %2, %invoke.cont ], [ %2, %if.then.i.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i6 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
           to label %invoke.cont7 unwind label %if.then.i.i29
 
@@ -23238,7 +23238,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit: ; preds = %invoke.c
   store ptr %10, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %update, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %invoke.cont7 unwind label %lpad6
 

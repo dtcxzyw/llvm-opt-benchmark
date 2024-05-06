@@ -493,7 +493,7 @@ define hidden ptr @lbtru_transport_add(ptr noundef %0, i16 noundef zeroext %1, i
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   store i32 %35, ptr %33, align 8
   %40 = icmp eq i32 %37, 0
   br i1 %40, label %copy_address_wmem.exit, label %41
@@ -732,7 +732,7 @@ lbtru_tag_find.exit:                              ; preds = %28, %39
   %52 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
   %53 = zext i8 %50 to i32
   %54 = and i32 %53, 15
-  %55 = trunc i32 %54 to i8
+  %55 = trunc nuw nsw i32 %54 to i8
   %56 = load i32, ptr @proto_lbtru, align 4
   %57 = lshr i32 %53, 4
   %58 = tail call ptr @val_to_str(i32 noundef %54, ptr noundef nonnull @lbtru_packet_type, ptr noundef nonnull @.str.228) #4
@@ -1353,7 +1353,7 @@ lbtru_client_transport_find.exit.thread.i:        ; preds = %lbtru_client_transp
   %411 = load i32, ptr %6, align 8
   %412 = load i32, ptr %354, align 4
   %413 = load ptr, ptr %355, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %409, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %409, i8 0, i64 24, i1 false)
   store i32 %411, ptr %409, align 8
   %414 = icmp eq i32 %412, 0
   br i1 %414, label %copy_address_wmem.exit.i, label %415
@@ -2709,7 +2709,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_lbtru_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @test_lbtru_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 280
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 3

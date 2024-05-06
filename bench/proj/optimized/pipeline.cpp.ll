@@ -844,8 +844,8 @@ _ZNSt6vectorIN12_GLOBAL__N_14StepESaIS1_EE12emplace_backIJRP8PJconstsRbS8_EEEvDp
 
 313:                                              ; preds = %310
   %.val274 = load ptr, ptr %257, align 8
-  %314 = getelementptr %"struct.(anonymous namespace)::Step", ptr %.val274, i64 %indvars.iv410
-  %315 = getelementptr i8, ptr %314, i64 16
+  %314 = getelementptr inbounds %"struct.(anonymous namespace)::Step", ptr %.val274, i64 %indvars.iv410
+  %315 = getelementptr inbounds i8, ptr %314, i64 16
   %316 = load ptr, ptr %315, align 8
   %317 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %316)
   %318 = tail call noundef i32 @_Z8pj_rightP8PJconsts(ptr noundef %316)

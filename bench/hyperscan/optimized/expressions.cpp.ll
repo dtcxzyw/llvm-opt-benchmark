@@ -782,7 +782,7 @@ if.end:                                           ; preds = %entry
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and = and i32 %1, 61440
-  %trunc = trunc i32 %and to i16
+  %trunc = trunc nuw i32 %and to i16
   switch i16 %trunc, label %if.else94 [
     i16 -32768, label %if.then7
     i16 16384, label %if.then24

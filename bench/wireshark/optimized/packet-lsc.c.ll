@@ -346,7 +346,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_lsc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 3, 21) i32 @get_lsc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #2
   switch i8 %6, label %13 [

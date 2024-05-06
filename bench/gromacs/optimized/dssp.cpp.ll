@@ -809,7 +809,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_15analysismodules12_GLOB
   store ptr @.str.12, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %6, i64 24
   %73 = getelementptr inbounds i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %73, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %73, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx10EnumOptionINS_15analysismodules12_GLOBAL__N_112HydrogenModeEEE, i64 0, i32 0, i64 2), ptr %6, align 8
   %74 = getelementptr inbounds i8, ptr %6, i64 88
   %75 = getelementptr inbounds i8, ptr %6, i64 96
@@ -834,7 +834,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_15analysismodules12_GLOB
   store ptr @.str.14, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %8, i64 24
   %87 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %87, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %87, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx10EnumOptionINS_15analysismodules12_GLOBAL__N_115HBondDefinitionEEE, i64 0, i32 0, i64 2), ptr %8, align 8
   %88 = getelementptr inbounds i8, ptr %8, i64 88
   %89 = getelementptr inbounds i8, ptr %8, i64 96
@@ -947,7 +947,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_15analysismodules12_GLOB
   store ptr @.str.24, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %18, i64 24
   %151 = getelementptr inbounds i8, ptr %18, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %151, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %151, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx10EnumOptionINS_15analysismodules12_GLOBAL__N_111PPStretchesEEE, i64 0, i32 0, i64 2), ptr %18, align 8
   %152 = getelementptr inbounds i8, ptr %18, i64 88
   %153 = getelementptr inbounds i8, ptr %18, i64 96
@@ -1118,7 +1118,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_14Dssp12initAnalysisE
   br i1 %.not.i.i, label %60, label %57
 
 57:                                               ; preds = %47
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %55, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %55, i8 0, i64 136, i1 false)
   %58 = load ptr, ptr %37, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 136
   store ptr %59, ptr %37, align 8
@@ -1155,13 +1155,13 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE12_M_check_le
 _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %72, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %75 = phi ptr [ %74, %72 ], [ null, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %76 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %75, i64 %66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %76, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %76, i8 0, i64 136, i1 false)
   br i1 %67, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i.i.i.i ], [ %75, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE11_M_allocateEm.exit.i.i.i ]
   %.092.i.i.i.i.i.i = phi ptr [ %77, %.lr.ph.i.i.i.i.i.i ], [ %.val15.i.i.i, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE11_M_allocateEm.exit.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %.092.i.i.i.i.i.i, i64 136, i1 false), !alias.scope !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %.092.i.i.i.i.i.i, i64 136, i1 false), !alias.scope !8
   %77 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 136
   %78 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 136
   %.not.i.i.i.i.i.i = icmp eq ptr %77, %55
@@ -2093,7 +2093,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE20_M_allocate_
   %51 = add i64 %reass.sub.fr.i.i, -136
   %52 = urem i64 %51, 136
   %53 = sub i64 %reass.sub.fr.i.i, %52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr align 8 %.val.i, i64 %53, i1 false), !noalias !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr readonly align 8 %.val.i, i64 %53, i1 false), !noalias !16
   %.not.i.i.i = icmp eq ptr %.val36.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE13_M_deallocateEPS3_m.exit.i.i, label %54
 
@@ -2116,7 +2116,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE13_M_de
   br i1 %.not24.i.i, label %61, label %60
 
 60:                                               ; preds = %56
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val36.i.i, ptr align 8 %.val.i, i64 %reass.sub.fr.i.i, i1 false), !noalias !16
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %.val36.i.i, ptr align 8 %.val.i, i64 %reass.sub.fr.i.i, i1 false), !noalias !16
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EEaSERKS5_.exit.i
 
 61:                                               ; preds = %56
@@ -2124,7 +2124,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_17ResInfoESaIS3_EE13_M_de
   br i1 %.not.i.i.i.i.i40.i.i, label %_ZSt4copyIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoES4_ET0_T_S6_S5_.exit.i.i, label %62
 
 62:                                               ; preds = %61
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val36.i.i, ptr align 8 %.val.i, i64 %59, i1 false), !noalias !16
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %.val36.i.i, ptr align 8 %.val.i, i64 %59, i1 false), !noalias !16
   %.pre.i.i = load ptr, ptr %32, align 8, !noalias !16
   %.val28.pre.i.i = load ptr, ptr %37, align 8, !noalias !16
   %.val29.pre.i.i = load ptr, ptr %57, align 8, !noalias !16
@@ -2146,7 +2146,7 @@ _ZSt4copyIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoES4_ET0_T_S6_S5_.exit.i.i
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt4copyIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoES4_ET0_T_S6_S5_.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i.i.i.i ], [ %.val29.i.i, %_ZSt4copyIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoES4_ET0_T_S6_S5_.exit.i.i ]
   %.0810.i.i.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i.i.i ], [ %65, %_ZSt4copyIPN3gmx15analysismodules12_GLOBAL__N_17ResInfoES4_ET0_T_S6_S5_.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.011.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %.0810.i.i.i.i.i.i, i64 136, i1 false), !noalias !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %.011.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(136) %.0810.i.i.i.i.i.i, i64 136, i1 false), !noalias !16
   %66 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i, i64 136
   %67 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 136
   %.not.i.i.i.i.i.i = icmp eq ptr %66, %63
@@ -2394,7 +2394,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12emplace_backIJRA3_fEEERS2_DpOT_.exi
   br label %254
 
 162:                                              ; preds = %150
-  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20calculateHBondEnergyEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull %152, ptr noundef nonnull %154, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3)
+  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20calculateHBondEnergyEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull readonly align 8 dereferenceable(144) %21, ptr noundef nonnull %152, ptr noundef nonnull %154, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3)
           to label %163 unwind label %160, !noalias !16
 
 163:                                              ; preds = %162
@@ -2408,11 +2408,11 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12emplace_backIJRA3_fEEERS2_DpOT_.exi
   br i1 %.not63.i.i, label %.backedge.i.i.backedge, label %170
 
 170:                                              ; preds = %163
-  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20calculateHBondEnergyEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull %154, ptr noundef nonnull %152, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3)
+  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20calculateHBondEnergyEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull readonly align 8 dereferenceable(144) %21, ptr noundef nonnull %154, ptr noundef nonnull %152, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3)
           to label %.backedge.i.i.backedge unwind label %160, !noalias !16
 
 171:                                              ; preds = %150
-  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateHBondGeometryEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull %152, ptr noundef nonnull %154, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3)
+  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateHBondGeometryEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull readonly align 8 dereferenceable(144) %21, ptr noundef nonnull %152, ptr noundef nonnull %154, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3)
           to label %172 unwind label %160, !noalias !16
 
 172:                                              ; preds = %171
@@ -2426,7 +2426,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12emplace_backIJRA3_fEEERS2_DpOT_.exi
   br i1 %.not62.i.i, label %.backedge.i.i.backedge, label %179
 
 179:                                              ; preds = %172
-  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateHBondGeometryEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull %154, ptr noundef nonnull %152, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3)
+  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateHBondGeometryEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull readonly align 8 dereferenceable(144) %21, ptr noundef nonnull %154, ptr noundef nonnull %152, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3)
           to label %.backedge.i.i.backedge unwind label %160, !noalias !16
 
 .backedge.i.i.backedge:                           ; preds = %179, %172, %170, %163, %150, %146
@@ -2647,7 +2647,7 @@ common.resume:                                    ; preds = %256, %common.resume
 266:                                              ; preds = %.lr.ph.i.i
   %267 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val120.i.i, i64 %.054123.i.i
   %268 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val120.i.i, i64 %.0119.i.i
-  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20calculateHBondEnergyEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull %267, ptr noundef nonnull %268, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3), !noalias !16
+  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20calculateHBondEnergyEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull readonly align 8 dereferenceable(144) %21, ptr noundef nonnull %267, ptr noundef nonnull %268, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3), !noalias !16
   %.not61.i.i = icmp eq i64 %.0119.i.i, %259
   br i1 %.not61.i.i, label %278, label %269
 
@@ -2655,13 +2655,13 @@ common.resume:                                    ; preds = %256, %common.resume
   %.val78.i.i = load ptr, ptr %37, align 8, !noalias !16
   %270 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val78.i.i, i64 %.0119.i.i
   %271 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val78.i.i, i64 %.054123.i.i
-  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20calculateHBondEnergyEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull %270, ptr noundef nonnull %271, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3), !noalias !16
+  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20calculateHBondEnergyEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull readonly align 8 dereferenceable(144) %21, ptr noundef nonnull %270, ptr noundef nonnull %271, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3), !noalias !16
   br label %278
 
 272:                                              ; preds = %.lr.ph.i.i
   %273 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val120.i.i, i64 %.054123.i.i
   %274 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val120.i.i, i64 %.0119.i.i
-  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateHBondGeometryEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull %273, ptr noundef nonnull %274, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3), !noalias !16
+  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateHBondGeometryEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull readonly align 8 dereferenceable(144) %21, ptr noundef nonnull %273, ptr noundef nonnull %274, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3), !noalias !16
   %.not.i.i = icmp eq i64 %.0119.i.i, %259
   br i1 %.not.i.i, label %278, label %275
 
@@ -2669,7 +2669,7 @@ common.resume:                                    ; preds = %256, %common.resume
   %.val74.i.i = load ptr, ptr %37, align 8, !noalias !16
   %276 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val74.i.i, i64 %.0119.i.i
   %277 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val74.i.i, i64 %.054123.i.i
-  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateHBondGeometryEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull %276, ptr noundef nonnull %277, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3), !noalias !16
+  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateHBondGeometryEPNS1_7ResInfoES4_RK10t_trxframePK5t_pbc(ptr noundef nonnull readonly align 8 dereferenceable(144) %21, ptr noundef nonnull %276, ptr noundef nonnull %277, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3), !noalias !16
   br label %278
 
 278:                                              ; preds = %275, %272, %269, %266, %.lr.ph.i.i
@@ -4577,7 +4577,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit139.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %1108 = load i64, ptr %1107, align 8, !noalias !16
   %1109 = trunc i64 %1106 to i32
   %1110 = trunc i64 %1108 to i32
-  %1111 = invoke fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateDihedralAngleEiiiiRK10t_trxframePK5t_pbc(i32 noundef %1102, i32 noundef %1105, i32 noundef %1109, i32 noundef %1110, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3)
+  %1111 = invoke fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateDihedralAngleEiiiiRK10t_trxframePK5t_pbc(i32 noundef %1102, i32 noundef %1105, i32 noundef %1109, i32 noundef %1110, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3)
           to label %1112 unwind label %.loopexit.i129.i, !noalias !16
 
 1112:                                             ; preds = %1099
@@ -4639,7 +4639,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.thread.i.i:         ; preds = %_ZNSt6vectorIfSaIfE
   %1134 = load i64, ptr %1133, align 8, !noalias !16
   %1135 = trunc i64 %1132 to i32
   %1136 = trunc i64 %1134 to i32
-  %1137 = invoke fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateDihedralAngleEiiiiRK10t_trxframePK5t_pbc(i32 noundef %1128, i32 noundef %1130, i32 noundef %1135, i32 noundef %1136, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %3)
+  %1137 = invoke fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures22calculateDihedralAngleEiiiiRK10t_trxframePK5t_pbc(i32 noundef %1128, i32 noundef %1130, i32 noundef %1135, i32 noundef %1136, ptr noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3)
           to label %1138 unwind label %.loopexit.i129.i, !noalias !16
 
 1138:                                             ; preds = %1125
@@ -5224,7 +5224,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_14Dssp14finishAnalysi
 define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_14Dssp11writeOutputEv(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.18", align 8
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef zeroext 2)
           to label %5 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -6082,7 +6082,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE1
   br i1 %47, label %48, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 48:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr align 8 %.val, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %46, ptr align 8 %.val, i64 %34, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %48, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_M_allocateEm.exit.i
@@ -6251,7 +6251,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE1
   br i1 %72, label %73, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr align 8 %.val17.i.i.i, i64 %58, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %70, ptr align 8 %.val17.i.i.i, i64 %58, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i: ; preds = %73, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112HydrogenModeESaIS3_EE11_M_allocateEm.exit.i.i.i
@@ -6699,7 +6699,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_
   br i1 %47, label %48, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 48:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr align 8 %.val, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %46, ptr align 8 %.val, i64 %34, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %48, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_M_allocateEm.exit.i
@@ -6868,7 +6868,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_
   br i1 %72, label %73, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr align 8 %.val17.i.i.i, i64 %58, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %70, ptr align 8 %.val17.i.i.i, i64 %58, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i: ; preds = %73, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_115HBondDefinitionESaIS3_EE11_M_allocateEm.exit.i.i.i
@@ -7307,7 +7307,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11
   br i1 %47, label %48, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 48:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr align 8 %.val, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %46, ptr align 8 %.val, i64 %34, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %48, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_M_allocateEm.exit.i
@@ -7476,7 +7476,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11
   br i1 %72, label %73, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr align 8 %.val17.i.i.i, i64 %58, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %70, ptr align 8 %.val17.i.i.i, i64 %58, i1 false)
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i: ; preds = %73, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_111PPStretchesESaIS3_EE11_M_allocateEm.exit.i.i.i
@@ -8053,7 +8053,7 @@ define internal fastcc void @_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123
 
 _ZSt27__uninitialized_default_n_aIPN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataEmS3_ET_S5_T0_RSaIT1_E.exit.i: ; preds = %9
   %19 = mul nuw i64 %10, 112
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.val4, i8 0, i64 %19, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val4, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %.val4, i64 %19
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE17_M_default_appendEm.exit
@@ -8074,7 +8074,7 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #25
   %27 = getelementptr inbounds i8, ptr %26, i64 %6
   %28 = mul nuw nsw i64 %10, 112
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %27, i8 0, i64 %28, i1 false)
   %.not1.i.i.i.i = icmp eq ptr %.val, %.val4
   br i1 %.not1.i.i.i.i, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -8083,7 +8083,7 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS
   %.092.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %.val, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i, i64 16, i1 false), !alias.scope !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i, i64 16, i1 false), !alias.scope !80
   %29 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 16
   %30 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 16
   %31 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 32
@@ -8103,7 +8103,7 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !78, !noalias !75
   %42 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 64
   %43 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(48) %43, i64 48, i1 false), !alias.scope !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(48) %43, i64 48, i1 false), !alias.scope !80
   %44 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 112
   %45 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 112
   %.not.i.i.i.i = icmp eq ptr %44, %.val4

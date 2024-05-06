@@ -3517,7 +3517,7 @@ define void @_ZN5faiss15IndexRefineFlatC2Ev(ptr nocapture noundef nonnull writeo
   store float 0.000000e+00, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = getelementptr inbounds i8, ptr %0, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %8, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %8, i8 0, i64 18, i1 false)
   store float 1.000000e+00, ptr %9, align 4
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss15IndexRefineFlatE, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 57

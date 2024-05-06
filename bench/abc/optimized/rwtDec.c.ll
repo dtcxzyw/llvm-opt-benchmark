@@ -294,7 +294,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %129, ptr %130, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %129, i8 0, i64 96, i1 false)
   tail call void @Rwt_ManIncTravId(ptr noundef nonnull %0) #8
-  %131 = tail call fastcc i32 @Rwt_TravCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %115, ptr noundef %calloc.i11.i), !range !9
+  %131 = tail call fastcc i32 @Rwt_TravCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %115, ptr noundef %calloc.i11.i)
   br label %Rwt_NodePreprocess.exit
 
 Rwt_NodePreprocess.exit:                          ; preds = %118, %119, %125
@@ -314,7 +314,7 @@ Rwt_NodePreprocess.exit:                          ; preds = %118, %119, %125
   %.val39 = load i32, ptr %138, align 4
   %139 = sext i32 %.val39 to i64
   %140 = icmp slt i64 %indvars.iv.next58, %139
-  br i1 %140, label %.lr.ph53, label %.critedge, !llvm.loop !10
+  br i1 %140, label %.lr.ph53, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %Rwt_NodePreprocess.exit, %.preheader
   %141 = phi ptr [ %106, %.preheader ], [ %134, %Rwt_NodePreprocess.exit ]
@@ -323,7 +323,7 @@ Rwt_NodePreprocess.exit:                          ; preds = %118, %119, %125
   %.val38 = load i32, ptr %142, align 4
   %143 = sext i32 %.val38 to i64
   %144 = icmp slt i64 %indvars.iv.next61, %143
-  br i1 %144, label %.preheader, label %._crit_edge, !llvm.loop !11
+  br i1 %144, label %.preheader, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader46
   ret void
@@ -341,7 +341,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @Rwt_ManIncTravId(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Rwt_TravCollect_rec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @Rwt_TravCollect_rec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1073741824
@@ -375,7 +375,7 @@ define internal fastcc i32 @Rwt_TravCollect_rec(ptr noundef %0, ptr nocapture no
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
-  %27 = tail call fastcc i32 @Rwt_TravCollect_rec(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %2), !range !9
+  %27 = tail call fastcc i32 @Rwt_TravCollect_rec(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %2)
   %28 = load ptr, ptr %22, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i32
@@ -386,7 +386,7 @@ define internal fastcc i32 @Rwt_TravCollect_rec(ptr noundef %0, ptr nocapture no
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = tail call fastcc i32 @Rwt_TravCollect_rec(ptr noundef nonnull %0, ptr noundef %36, ptr noundef %2), !range !9
+  %37 = tail call fastcc i32 @Rwt_TravCollect_rec(ptr noundef nonnull %0, ptr noundef %36, ptr noundef %2)
   %38 = load ptr, ptr %32, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = trunc i64 %39 to i32
@@ -660,6 +660,5 @@ attributes #8 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 -2147483648}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

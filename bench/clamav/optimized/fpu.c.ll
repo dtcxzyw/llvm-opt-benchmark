@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [45 x i8] c"fpu: Floating point little endian detected.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @get_fpu_endian() local_unnamed_addr #0 {
+define noundef range(i32 1, 4) i32 @get_fpu_endian() local_unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #2
   ret i32 2
 }

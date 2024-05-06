@@ -695,7 +695,7 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
   br i1 %.not.i.i61, label %_compute_local_id.exit.i, label %304
 
 304:                                              ; preds = %298
-  %305 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %303) #9
+  %305 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %303) #9
   %306 = trunc i64 %305 to i32
   %.01620.i.i = add i32 %306, -1
   %307 = icmp sgt i32 %.01620.i.i, -1
@@ -717,9 +717,9 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
   %spec.store.select.i.i = select i1 %313, i32 0, i32 %.01521.i.i
   %narrow.i.i = add nsw i8 %310, -48
   %314 = zext nneg i8 %narrow.i.i to i32
-  %315 = mul nsw i32 %.022.i.i, %314
+  %315 = mul nuw nsw i32 %.022.i.i, %314
   %316 = add nsw i32 %315, %spec.store.select.i.i
-  %317 = mul nsw i32 %.022.i.i, 10
+  %317 = mul nuw nsw i32 %.022.i.i, 10
   %.016.i.i = add nsw i32 %.01623.i.i, -1
   %318 = icmp sgt i32 %.01623.i.i, 0
   br i1 %318, label %.lr.ph.i.i62, label %_compute_local_id.exit.i, !llvm.loop !14
@@ -791,7 +791,7 @@ declare i32 @gres_node_config_load(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @slurm_list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_remove_shared_recs(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_remove_shared_recs(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @slurm_xstrcmp(ptr noundef %4, ptr noundef %1) #7
@@ -969,7 +969,7 @@ declare ptr @slurm_list_pop(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_list_remove_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_matching_file_gres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_find_matching_file_gres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40

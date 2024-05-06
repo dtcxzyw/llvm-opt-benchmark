@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__ia32_sys_rt_sigreturn = dso_local alias i64 (ptr), ptr @__x64_sys_rt_sigreturn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x64_setup_rt_frame(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @x64_setup_rt_frame(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %5 = inttoptr i64 %4 to ptr

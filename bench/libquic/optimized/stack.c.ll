@@ -406,7 +406,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @sk_find(ptr noundef %sk, ptr noundef writeonly %out_index, ptr noundef %p) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @sk_find(ptr noundef %sk, ptr noundef writeonly %out_index, ptr noundef %p) local_unnamed_addr #7 {
 entry:
   %p.addr = alloca ptr, align 8
   store ptr %p, ptr %p.addr, align 8

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_f_to_c_table = external global %struct.opal_pointer_array_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_enable_progress(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @mca_pml_ob1_enable_progress(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @opal_uses_threads, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %7

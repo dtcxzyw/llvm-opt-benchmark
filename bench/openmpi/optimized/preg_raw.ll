@@ -49,7 +49,7 @@ define internal noundef i32 @generate_ppn(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.1, i64 noundef 4) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -66,7 +66,7 @@ define internal noundef i32 @parse_nodes(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_procs(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.1, i64 noundef 4) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -83,7 +83,7 @@ define internal noundef i32 @parse_procs(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal range(i32 -1366, 1) i32 @copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.1, i64 noundef 4) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -102,7 +102,7 @@ define internal noundef i32 @copy(ptr nocapture noundef writeonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pack(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.1, i64 noundef 4) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %16
@@ -132,7 +132,7 @@ define internal noundef i32 @pack(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal i32 @unpack(ptr nocapture noundef %0, ptr nocapture noundef %1) #2 {
+define internal range(i32 -1366, 1) i32 @unpack(ptr nocapture noundef %0, ptr nocapture noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.1, i64 noundef 4) #9
@@ -158,7 +158,7 @@ define internal i32 @unpack(ptr nocapture noundef %0, ptr nocapture noundef %1) 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @release(ptr noundef %0) #3 {
+define internal range(i32 -1366, 1) i32 @release(ptr noundef %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

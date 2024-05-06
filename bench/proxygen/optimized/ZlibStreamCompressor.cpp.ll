@@ -273,15 +273,15 @@ invoke.cont4:                                     ; preds = %invoke.cont4.lr.ph,
 while.body.lr.ph:                                 ; preds = %invoke.cont4
   %sub = and i64 %sub.ptr.sub.i.fr, -4294967296
   %tobool.not = icmp eq i64 %sub, 0
-  br i1 %tobool.not, label %while.body.lr.ph.split.us, label %while.body.outer, !llvm.loop !4
+  br i1 %tobool.not, label %while.body18.us.preheader, label %while.body.outer, !llvm.loop !4
 
-while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
-  %conv8.us = trunc i64 %sub.ptr.sub.i.fr to i32
+while.body18.us.preheader:                        ; preds = %while.body.lr.ph
+  %conv8.us = trunc nuw i64 %sub.ptr.sub.i.fr to i32
   store ptr %7, ptr %zlibStream_, align 8
   store i32 %conv8.us, ptr %avail_in, align 8
   br label %while.body18.us
 
-while.body18.us:                                  ; preds = %while.body.lr.ph.split.us, %while.cond15thread-pre-split.us
+while.body18.us:                                  ; preds = %while.body18.us.preheader, %while.cond15thread-pre-split.us
   %9 = load ptr, ptr %out, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %10 = load i32, ptr %avail_out.i, align 8

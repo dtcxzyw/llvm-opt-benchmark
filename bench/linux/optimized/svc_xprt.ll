@@ -192,7 +192,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_svc_pool_sta
 @llvm.compiler.used = appending global [60 x ptr] [ptr @__UNIQUE_ID___addressable_svc_age_temp_xprts_now2643, ptr @__UNIQUE_ID___addressable_svc_drop2642, ptr @__UNIQUE_ID___addressable_svc_find_xprt2646, ptr @__UNIQUE_ID___addressable_svc_pool_stats_open2648, ptr @__UNIQUE_ID___addressable_svc_print_addr2635, ptr @__UNIQUE_ID___addressable_svc_recv2641, ptr @__UNIQUE_ID___addressable_svc_reg_xprt_class2623, ptr @__UNIQUE_ID___addressable_svc_reserve2638, ptr @__UNIQUE_ID___addressable_svc_unreg_xprt_class2624, ptr @__UNIQUE_ID___addressable_svc_wake_up2639, ptr @__UNIQUE_ID___addressable_svc_xprt_close2644, ptr @__UNIQUE_ID___addressable_svc_xprt_copy_addrs2634, ptr @__UNIQUE_ID___addressable_svc_xprt_create2633, ptr @__UNIQUE_ID___addressable_svc_xprt_deferred_close2625, ptr @__UNIQUE_ID___addressable_svc_xprt_destroy_all2645, ptr @__UNIQUE_ID___addressable_svc_xprt_enqueue2637, ptr @__UNIQUE_ID___addressable_svc_xprt_init2627, ptr @__UNIQUE_ID___addressable_svc_xprt_names2647, ptr @__UNIQUE_ID___addressable_svc_xprt_put2626, ptr @__UNIQUE_ID___addressable_svc_xprt_received2632, ptr @__UNIQUE_ID_svc_rpc_per_connection_limittype2622, ptr @__param_svc_rpc_per_connection_limit, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched21, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_svc_alloc_arg_err.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2235, ptr @trace_svc_alloc_arg_err.__UNIQUE_ID___addressable___SCK__tp_func_svc_alloc_arg_err2234, ptr @trace_svc_defer.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1969, ptr @trace_svc_defer.__UNIQUE_ID___addressable___SCK__tp_func_svc_defer1968, ptr @trace_svc_defer_drop.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2249, ptr @trace_svc_defer_drop.__UNIQUE_ID___addressable___SCK__tp_func_svc_defer_drop2248, ptr @trace_svc_defer_queue.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2263, ptr @trace_svc_defer_queue.__UNIQUE_ID___addressable___SCK__tp_func_svc_defer_queue2262, ptr @trace_svc_defer_recv.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2277, ptr @trace_svc_defer_recv.__UNIQUE_ID___addressable___SCK__tp_func_svc_defer_recv2276, ptr @trace_svc_drop.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1983, ptr @trace_svc_drop.__UNIQUE_ID___addressable___SCK__tp_func_svc_drop1982, ptr @trace_svc_send.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1997, ptr @trace_svc_send.__UNIQUE_ID___addressable___SCK__tp_func_svc_send1996, ptr @trace_svc_stats_latency.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2025, ptr @trace_svc_stats_latency.__UNIQUE_ID___addressable___SCK__tp_func_svc_stats_latency2024, ptr @trace_svc_xdr_recvfrom.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1913, ptr @trace_svc_xdr_recvfrom.__UNIQUE_ID___addressable___SCK__tp_func_svc_xdr_recvfrom1912, ptr @trace_svc_xdr_sendto.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1927, ptr @trace_svc_xdr_sendto.__UNIQUE_ID___addressable___SCK__tp_func_svc_xdr_sendto1926, ptr @trace_svc_xprt_accept.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2207, ptr @trace_svc_xprt_accept.__UNIQUE_ID___addressable___SCK__tp_func_svc_xprt_accept2206, ptr @trace_svc_xprt_close.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2095, ptr @trace_svc_xprt_close.__UNIQUE_ID___addressable___SCK__tp_func_svc_xprt_close2094, ptr @trace_svc_xprt_create_err.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2039, ptr @trace_svc_xprt_create_err.__UNIQUE_ID___addressable___SCK__tp_func_svc_xprt_create_err2038, ptr @trace_svc_xprt_dequeue.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2067, ptr @trace_svc_xprt_dequeue.__UNIQUE_ID___addressable___SCK__tp_func_svc_xprt_dequeue2066, ptr @trace_svc_xprt_detach.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2109, ptr @trace_svc_xprt_detach.__UNIQUE_ID___addressable___SCK__tp_func_svc_xprt_detach2108, ptr @trace_svc_xprt_enqueue.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2053, ptr @trace_svc_xprt_enqueue.__UNIQUE_ID___addressable___SCK__tp_func_svc_xprt_enqueue2052, ptr @trace_svc_xprt_free.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2123, ptr @trace_svc_xprt_free.__UNIQUE_ID___addressable___SCK__tp_func_svc_xprt_free2122, ptr @trace_svc_xprt_no_write_space.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2081, ptr @trace_svc_xprt_no_write_space.__UNIQUE_ID___addressable___SCK__tp_func_svc_xprt_no_write_space2080], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @svc_reg_xprt_class(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @svc_reg_xprt_class(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store volatile ptr %2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -833,7 +833,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
   %39 = getelementptr i8, ptr %21, i64 -8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = trunc i64 %38 to i32
+  %42 = trunc nuw nsw i64 %38 to i32
   %43 = call ptr %41(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %37, i32 noundef %42, i32 noundef %5) #18
   %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
   br i1 %44, label %45, label %75
@@ -1051,7 +1051,7 @@ define dso_local void @svc_wake_up(ptr nocapture noundef readonly %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @svc_port_is_privileged(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 16 {
+define dso_local range(i32 0, 2) i32 @svc_port_is_privileged(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 16 {
   %2 = load i16, ptr %0, align 2
   switch i16 %2, label %9 [
     i16 2, label %3
@@ -1101,7 +1101,7 @@ define dso_local void @svc_recv(ptr noundef %0) #0 align 16 {
 17:                                               ; preds = %15, %13, %1
   %18 = phi i64 [ %11, %1 ], [ 259, %13 ], [ 259, %15 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 736
-  %20 = trunc i64 %18 to i32
+  %20 = trunc nuw nsw i64 %18 to i32
   %21 = getelementptr inbounds i8, ptr %0, i64 11280
   br label %22
 
@@ -1140,7 +1140,7 @@ define dso_local void @svc_recv(ptr noundef %0) #0 align 16 {
   br label %546
 
 44:                                               ; preds = %38
-  %45 = trunc i64 %25 to i32
+  %45 = trunc nuw nsw i64 %25 to i32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_svc_alloc_arg_err, i64 0, i32 1), i32 2) #18
           to label %66 [label %46], !srcloc !13
 
@@ -3103,7 +3103,7 @@ declare dso_local i32 @__SCT__tp_func_svc_xprt_dequeue(ptr noundef, ptr noundef)
 declare dso_local void @__module_get(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @svc_deferred_recv(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, -3) i32 @svc_deferred_recv(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_svc_defer_recv, i64 0, i32 1), i32 2) #18

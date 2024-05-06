@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c":\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ex_opt_add(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ex_opt_add(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ex_opts, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

@@ -1160,7 +1160,7 @@ Ssw_RarManAssingRandomPis.exit:                   ; preds = %._crit_edge.i, %._c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Ssw_RarManPoIsConst0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Ssw_RarManPoIsConst0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %1, i64 36
   %.val = load i32, ptr %3, align 4
   %.val9 = load ptr, ptr %0, align 8
@@ -1196,7 +1196,7 @@ define noundef i32 @Ssw_RarManPoIsConst0(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Ssw_RarManObjIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define range(i32 0, 2) i32 @Ssw_RarManObjIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr i8, ptr %1, i64 36
   %.val = load i32, ptr %3, align 4
   %.val11 = load ptr, ptr %0, align 8
@@ -1236,7 +1236,7 @@ define noundef i32 @Ssw_RarManObjIsConst(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Ssw_RarManObjsAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #6 {
+define range(i32 0, 2) i32 @Ssw_RarManObjsAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #6 {
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %.val17 = load ptr, ptr %0, align 8
@@ -1389,7 +1389,7 @@ define i32 @Ssw_RarManObjWhichOne(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_RarManCheckNonConstOutputs(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @Ssw_RarManCheckNonConstOutputs(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 100
@@ -2499,7 +2499,7 @@ declare i32 @Ssw_ClassesRefineConst1Group(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @Ssw_ClassesRefineGroup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ssw_RarCheckTrivial(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Ssw_RarCheckTrivial(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 112
   %.val29 = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val29, 0
@@ -2600,7 +2600,7 @@ define noundef i32 @Ssw_RarCheckTrivial(ptr nocapture noundef %0, i32 noundef %1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_RarSimulate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @Ssw_RarSimulate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -2837,7 +2837,7 @@ Abc_Clock.exit200:                                ; preds = %114, %122
   %.0.i199 = phi i64 [ %127, %122 ], [ -1, %114 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %128 = sub nsw i64 %.0.i199, %.0.i
-  %129 = call i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef nonnull %63, i32 noundef %119, i64 noundef %128), !range !46
+  %129 = call i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef nonnull %63, i32 noundef %119, i64 noundef %128)
   switch i32 %129, label %185 [
     i32 2, label %130
     i32 1, label %131
@@ -3103,7 +3103,7 @@ Abc_Clock.exit212:                                ; preds = %216, %219
   %260 = add nuw nsw i32 %.08.i, %259
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i214 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i214, label %Vec_PtrCountZero.exit, label %255, !llvm.loop !47
+  br i1 %exitcond.not.i214, label %Vec_PtrCountZero.exit, label %255, !llvm.loop !46
 
 Vec_PtrCountZero.exit:                            ; preds = %255
   %261 = icmp eq i32 %260, 0
@@ -3113,7 +3113,7 @@ Vec_PtrCountZero.exit:                            ; preds = %255
   %263 = add nuw nsw i32 %.1146285, 1
   %264 = load i32, ptr %1, align 8
   %265 = icmp slt i32 %263, %264
-  br i1 %265, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %265, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %262, %.critedge
   %.1155.lcssa = phi i64 [ %.0154, %.critedge ], [ %.2156, %262 ]
@@ -3186,7 +3186,7 @@ Vec_IntGrow.exit.i:                               ; preds = %288, %Ssw_RarManPre
   store i32 0, ptr %294, align 4
   %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i222, 1
   %exitcond.not.i224 = icmp eq i64 %indvars.iv.next.i223, %wide.trip.count.i221
-  br i1 %exitcond.not.i224, label %Vec_IntFill.exit, label %292, !llvm.loop !49
+  br i1 %exitcond.not.i224, label %Vec_IntFill.exit, label %292, !llvm.loop !48
 
 Vec_IntFill.exit:                                 ; preds = %292, %Vec_IntGrow.exit.i
   %295 = getelementptr inbounds i8, ptr %275, i64 4
@@ -3267,7 +3267,7 @@ Abc_Clock.exit226:                                ; preds = %305, %325
 
 335:                                              ; preds = %301, %334, %Abc_Clock.exit226
   %336 = add nsw i32 %.1, 1
-  br label %102, !llvm.loop !50
+  br label %102, !llvm.loop !49
 
 Vec_PtrCountZero.exit.thread:                     ; preds = %104, %249, %Vec_PtrCountZero.exit, %230, %238, %197, %205, %147, %Abc_Clock.exit206, %130
   %.3 = phi i32 [ %.1148284, %130 ], [ %.2149, %197 ], [ %.2149, %205 ], [ %.2149, %230 ], [ %.2149, %238 ], [ 0, %147 ], [ 0, %Abc_Clock.exit206 ], [ %.2149, %Vec_PtrCountZero.exit ], [ %.2149, %249 ], [ %.0147, %104 ]
@@ -3500,7 +3500,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %36 = load i32, ptr %9, align 8
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !51
+  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !50
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %0, align 8
@@ -3514,7 +3514,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %43 = load i32, ptr %42, align 4
   %44 = shl nsw i32 %43, 6
   %45 = icmp slt i32 %41, %44
-  br i1 %45, label %.lr.ph84.split, label %.preheader80, !llvm.loop !52
+  br i1 %45, label %.lr.ph84.split, label %.preheader80, !llvm.loop !51
 
 46:                                               ; preds = %.lr.ph90, %._crit_edge88
   %indvars.iv109 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next110, %._crit_edge88 ]
@@ -3558,7 +3558,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %72 = load i32, ptr %17, align 8
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next107, %73
-  br i1 %74, label %.lr.ph87, label %._crit_edge88, !llvm.loop !53
+  br i1 %74, label %.lr.ph87, label %._crit_edge88, !llvm.loop !52
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %46
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -3568,7 +3568,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %78 = shl nsw i32 %77, 6
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next110, %79
-  br i1 %80, label %46, label %._crit_edge91, !llvm.loop !54
+  br i1 %80, label %46, label %._crit_edge91, !llvm.loop !53
 
 ._crit_edge91:                                    ; preds = %._crit_edge88, %2, %.preheader80
   %81 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3613,7 +3613,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %.1 = select i1 %97, double %96, double %.094
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge96, label %94, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge96, label %94, !llvm.loop !54
 
 ._crit_edge96:                                    ; preds = %94, %.preheader
   %.055.lcssa = phi i32 [ -1, %.preheader ], [ %.156, %94 ]
@@ -3707,7 +3707,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %144 = getelementptr i8, ptr %143, i64 104
   %.val = load i32, ptr %144, align 8
   %145 = icmp slt i32 %142, %.val
-  br i1 %145, label %.lr.ph100, label %._crit_edge101, !llvm.loop !56
+  br i1 %145, label %.lr.ph100, label %._crit_edge101, !llvm.loop !55
 
 ._crit_edge101:                                   ; preds = %Vec_IntPush.exit, %._crit_edge96
   %146 = load ptr, ptr %90, align 8
@@ -3782,7 +3782,7 @@ Vec_IntPush.exit79:                               ; preds = %.Vec_IntGrow.exit10
   %180 = getelementptr inbounds i8, ptr %179, i64 4
   %181 = load i32, ptr %180, align 4
   %182 = icmp slt i32 %178, %181
-  br i1 %182, label %.preheader, label %._crit_edge103, !llvm.loop !57
+  br i1 %182, label %.preheader, label %._crit_edge103, !llvm.loop !56
 
 ._crit_edge103:                                   ; preds = %Vec_IntPush.exit79, %._crit_edge91
   ret void
@@ -4007,7 +4007,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %7, %2
   store i32 %15, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %13, !llvm.loop !58
+  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %13, !llvm.loop !57
 
 Vec_IntStartNatural.exit:                         ; preds = %13
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
@@ -4029,7 +4029,7 @@ Vec_IntStartNatural.exit:                         ; preds = %13
   store i32 %19, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntAlloc.exit.i, %Vec_IntStartNatural.exit
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %1)
@@ -4104,7 +4104,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   store i32 %52, ptr %54, align 4
   %56 = add nuw nsw i32 %.138, 1
   %exitcond43.not = icmp eq i32 %56, %1
-  br i1 %exitcond43.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !60
+  br i1 %exitcond43.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !59
 
 ._crit_edge41:                                    ; preds = %Vec_IntPush.exit, %._crit_edge
   ret ptr %4
@@ -4120,7 +4120,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @rand() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_RarSimulateGia(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @Ssw_RarSimulateGia(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 68
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4152,7 +4152,7 @@ Vec_IntFree.exit:                                 ; preds = %5, %11
 
 15:                                               ; preds = %13, %Vec_IntFree.exit
   %.0 = phi ptr [ %12, %Vec_IntFree.exit ], [ %14, %13 ]
-  %16 = tail call i32 @Ssw_RarSimulate(ptr noundef %.0, ptr noundef nonnull %1), !range !61
+  %16 = tail call i32 @Ssw_RarSimulate(ptr noundef %.0, ptr noundef nonnull %1)
   %17 = getelementptr inbounds i8, ptr %0, i64 376
   %18 = load ptr, ptr %17, align 8
   tail call void @Abc_CexFree(ptr noundef %18) #19
@@ -4173,7 +4173,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #3
 declare void @Abc_CexFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ssw_RarSignalFilter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @Ssw_RarSignalFilter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -4243,7 +4243,7 @@ Abc_Clock.exit155:                                ; preds = %19, %24
   br i1 %.not130, label %45, label %43
 
 43:                                               ; preds = %40
-  %44 = call i32 @Ssw_RarCheckTrivial(ptr noundef nonnull %0, i32 noundef 1), !range !62
+  %44 = call i32 @Ssw_RarCheckTrivial(ptr noundef nonnull %0, i32 noundef 1)
   %.not131 = icmp eq i32 %44, 0
   br i1 %.not131, label %45, label %509
 
@@ -4322,7 +4322,7 @@ Ssw_RarManPrepareRandom.exit:                     ; preds = %.lr.ph.i, %56
   %90 = add nuw nsw i32 %.071104.i, 1
   %.val89.i = load i32, ptr %64, align 8
   %91 = icmp slt i32 %90, %.val89.i
-  br i1 %91, label %70, label %.critedge.i, !llvm.loop !63
+  br i1 %91, label %70, label %.critedge.i, !llvm.loop !60
 
 .critedge.i:                                      ; preds = %70, %65
   %.val87135.i = phi i32 [ %.val151, %65 ], [ %.val89.i, %70 ]
@@ -4388,7 +4388,7 @@ Ssw_RarManPrepareRandom.exit:                     ; preds = %.lr.ph.i, %56
   %.val76.i = load i32, ptr %97, align 4
   %127 = sext i32 %.val76.i to i64
   %128 = icmp slt i64 %indvars.iv.next.i, %127
-  br i1 %128, label %.lr.ph108.i, label %.critedge2.preheader.i, !llvm.loop !64
+  br i1 %128, label %.lr.ph108.i, label %.critedge2.preheader.i, !llvm.loop !61
 
 .critedge4.preheader.i:                           ; preds = %.critedge2.i, %.critedge2.preheader.i
   %129 = load ptr, ptr %102, align 8
@@ -4426,7 +4426,7 @@ Ssw_RarManPrepareRandom.exit:                     ; preds = %.lr.ph.i, %56
   %149 = add nuw nsw i32 %.2110.i, 1
   %.val88.i = load i32, ptr %64, align 8
   %150 = icmp slt i32 %149, %.val88.i
-  br i1 %150, label %.critedge2.i, label %.critedge4.preheader.i, !llvm.loop !65
+  br i1 %150, label %.critedge2.i, label %.critedge4.preheader.i, !llvm.loop !62
 
 .critedge6.preheader.i:                           ; preds = %.critedge4.i, %.critedge4.preheader.i
   %151 = load ptr, ptr %100, align 8
@@ -4495,7 +4495,7 @@ Ssw_RarManPrepareRandom.exit:                     ; preds = %.lr.ph.i, %56
   %.val93.i = load i32, ptr %193, align 4
   %194 = sext i32 %.val93.i to i64
   %195 = icmp slt i64 %indvars.iv.next129.i, %194
-  br i1 %195, label %.lr.ph114.i, label %.critedge6.preheader.i, !llvm.loop !66
+  br i1 %195, label %.lr.ph114.i, label %.critedge6.preheader.i, !llvm.loop !63
 
 .critedge6.i:                                     ; preds = %.critedge6.preheader.i, %.critedge6.i
   %indvars.iv131.i = phi i64 [ %indvars.iv.next132.i, %.critedge6.i ], [ 0, %.critedge6.preheader.i ]
@@ -4525,13 +4525,13 @@ Ssw_RarManPrepareRandom.exit:                     ; preds = %.lr.ph.i, %56
   %.val92.i = load i32, ptr %213, align 4
   %214 = sext i32 %.val92.i to i64
   %215 = icmp slt i64 %indvars.iv.next132.i, %214
-  br i1 %215, label %.critedge6.i, label %.critedge8.i, !llvm.loop !67
+  br i1 %215, label %.critedge6.i, label %.critedge8.i, !llvm.loop !64
 
 .critedge8.i:                                     ; preds = %.critedge6.i, %.critedge6.preheader.i
   %216 = add nuw nsw i32 %.073119.i, 1
   %217 = load i32, ptr %92, align 4
   %.not.not.i = icmp slt i32 %.073119.i, %217
-  br i1 %.not.not.i, label %103, label %._crit_edge.loopexit.i, !llvm.loop !68
+  br i1 %.not.not.i, label %103, label %._crit_edge.loopexit.i, !llvm.loop !65
 
 ._crit_edge.loopexit.i:                           ; preds = %.critedge8.i
   %.val87.pre.i = load i32, ptr %64, align 8
@@ -4646,7 +4646,7 @@ Vec_IntPush.exit.i:                               ; preds = %263, %Vec_IntGrow.e
   %269 = add nuw nsw i32 %.5123.i, 1
   %.val86.i = load i32, ptr %64, align 8
   %270 = icmp slt i32 %269, %.val86.i
-  br i1 %270, label %230, label %Ssw_RarFindStartingState.exit, !llvm.loop !69
+  br i1 %270, label %230, label %Ssw_RarFindStartingState.exit, !llvm.loop !66
 
 Ssw_RarFindStartingState.exit:                    ; preds = %Vec_IntPush.exit.i, %Vec_IntAlloc.exit.i
   call void @Aig_ManCleanMarkB(ptr noundef nonnull %0) #19
@@ -4759,7 +4759,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val150 = load i32, ptr %289, align 8
   %316 = sext i32 %.val150 to i64
   %317 = icmp slt i64 %indvars.iv.next, %316
-  br i1 %317, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !70
+  br i1 %317, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !67
 
 ._crit_edge.loopexit:                             ; preds = %Vec_IntPush.exit
   %.pre = load i32, ptr %286, align 4
@@ -4770,7 +4770,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val150208235 = phi i32 [ %.val150, %._crit_edge.loopexit ], [ %.val150208, %.preheader ]
   %319 = add nuw nsw i32 %.0123210, 1
   %320 = icmp slt i32 %319, %318
-  br i1 %320, label %.preheader, label %._crit_edge211, !llvm.loop !71
+  br i1 %320, label %.preheader, label %._crit_edge211, !llvm.loop !68
 
 ._crit_edge211:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %285
   %321 = getelementptr inbounds i8, ptr %0, i64 256
@@ -4869,7 +4869,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %.not140, label %411, label %368
 
 368:                                              ; preds = %362
-  %369 = call i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %61, i32 noundef -1, i64 noundef 0), !range !46
+  %369 = call i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %61, i32 noundef -1, i64 noundef 0)
   %.not141 = icmp eq i32 %369, 0
   br i1 %.not141, label %411, label %370
 
@@ -4998,7 +4998,7 @@ Abc_Clock.exit170:                                ; preds = %413, %416
   %433 = add nuw nsw i32 %.1125212, 1
   %434 = load i32, ptr %1, align 8
   %435 = icmp slt i32 %433, %434
-  br i1 %435, label %.lr.ph214, label %._crit_edge215, !llvm.loop !72
+  br i1 %435, label %.lr.ph214, label %._crit_edge215, !llvm.loop !69
 
 ._crit_edge215:                                   ; preds = %432, %357
   %.1125.lcssa = phi i32 [ 0, %357 ], [ %433, %432 ]
@@ -5074,7 +5074,7 @@ Vec_IntGrow.exit.i177:                            ; preds = %461, %Ssw_RarManPre
   store i32 0, ptr %467, align 4
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i180, 1
   %exitcond.not.i182 = icmp eq i64 %indvars.iv.next.i181, %wide.trip.count.i
-  br i1 %exitcond.not.i182, label %Vec_IntFill.exit, label %465, !llvm.loop !49
+  br i1 %exitcond.not.i182, label %Vec_IntFill.exit, label %465, !llvm.loop !48
 
 Vec_IntFill.exit:                                 ; preds = %465, %Vec_IntGrow.exit.i177
   %468 = getelementptr inbounds i8, ptr %448, i64 4
@@ -5110,7 +5110,7 @@ Vec_IntFill.exit:                                 ; preds = %465, %Vec_IntGrow.e
 
 479:                                              ; preds = %476, %478
   %480 = add nsw i32 %.1121, 1
-  br label %342, !llvm.loop !73
+  br label %342, !llvm.loop !70
 
 .loopexit:                                        ; preds = %344, %356, %426, %Abc_Clock.exit168
   %.2 = phi i32 [ %.0124, %356 ], [ %.1125212, %Abc_Clock.exit168 ], [ %.1125212, %426 ], [ %.0124, %344 ]
@@ -5191,7 +5191,7 @@ declare i32 @Ssw_ClassesClassNum(ptr noundef) local_unnamed_addr #3
 declare i32 @Abc_FrameIsBatchMode(...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ssw_RarSignalFilterGia(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @Ssw_RarSignalFilterGia(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Gia_ManToAigSimple(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
@@ -5221,7 +5221,7 @@ define noundef i32 @Ssw_RarSignalFilterGia(ptr noundef %0, ptr noundef %1) local
   br label %13
 
 13:                                               ; preds = %12, %9, %2
-  %14 = tail call i32 @Ssw_RarSignalFilter(ptr noundef %3, ptr noundef %1), !range !61
+  %14 = tail call i32 @Ssw_RarSignalFilter(ptr noundef %3, ptr noundef %1)
   tail call void @Gia_ManReprFromAigRepr(ptr noundef %3, ptr noundef nonnull %0) #19
   %15 = getelementptr inbounds i8, ptr %0, i64 376
   %16 = load ptr, ptr %15, align 8
@@ -5357,13 +5357,13 @@ attributes #23 = { nounwind allocsize(0,1) }
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
-!46 = !{i32 0, i32 3}
+!46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5, !25}
+!51 = distinct !{!51, !5, !25}
+!52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
@@ -5372,16 +5372,13 @@ attributes #23 = { nounwind allocsize(0,1) }
 !58 = distinct !{!58, !5}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
-!61 = !{i32 -1, i32 1}
-!62 = !{i32 0, i32 2}
+!61 = distinct !{!61, !5}
+!62 = distinct !{!62, !5}
 !63 = distinct !{!63, !5}
 !64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
 !66 = distinct !{!66, !5}
 !67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5}
+!68 = distinct !{!68, !5, !25}
 !69 = distinct !{!69, !5}
 !70 = distinct !{!70, !5}
-!71 = distinct !{!71, !5, !25}
-!72 = distinct !{!72, !5}
-!73 = distinct !{!73, !5}

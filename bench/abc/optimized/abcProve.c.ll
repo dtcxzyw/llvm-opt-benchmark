@@ -353,7 +353,7 @@ Abc_Clock.exit176:                                ; preds = %183, %186
   %.val42.val.i = load i32, ptr %207, align 4
   %208 = add nsw i32 %.val42.val.i, %.val.i
   %209 = sdiv i32 134217728, %208
-  %210 = call noundef i32 @llvm.smin.i32(i32 %209, i32 32)
+  %210 = call i32 @llvm.smin.i32(i32 %209, i32 32)
   call void @Fraig_ParamsSetDefault(ptr noundef nonnull %5) #14
   %211 = shl nsw i32 %210, 5
   store i32 %211, ptr %5, align 8

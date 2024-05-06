@@ -1094,7 +1094,7 @@ _ZN10std_detect6detect5cache5Cache4test17h6683126a0687b4c0E.llvm.177201102831098
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i8 @_ZN10std_detect6detect5cache5Cache4test17h6683126a0687b4c0E.llvm.17720110283109806325(ptr nocapture noundef nonnull readonly align 8 %0, i32 noundef %1) unnamed_addr #4 {
+define hidden noundef range(i8 0, 3) i8 @_ZN10std_detect6detect5cache5Cache4test17h6683126a0687b4c0E.llvm.17720110283109806325(ptr nocapture noundef nonnull readonly align 8 %0, i32 noundef %1) unnamed_addr #4 {
   %3 = load atomic i64, ptr %0 monotonic, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %12, label %5

@@ -530,7 +530,7 @@ _ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_t
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit.thread.i.i.i.i.i.i"
   %46 = extractvalue { i64, ptr } %43, 1
-  %bcmp.i.i.i42.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull @.str.21, ptr %46, i64 %.sroa.speculated.i.i.i.i.i40.i.i.i.i.i.i)
+  %bcmp.i.i.i42.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly @.str.21, ptr %46, i64 %.sroa.speculated.i.i.i.i.i40.i.i.i.i.i.i)
   %47 = icmp eq i32 %bcmp.i.i.i42.i.i.i.i.i.i, 0
   br i1 %47, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit47.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit47.thread.i.i.i.i.i.i"
 
@@ -551,7 +551,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i.i.i: ; preds = %"
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i49.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit47.thread.i.i.i.i.i.i"
   %54 = extractvalue { i64, ptr } %51, 1
-  %bcmp.i.i.i50.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull @.str.22, ptr %54, i64 %.sroa.speculated.i.i.i.i.i48.i.i.i.i.i.i)
+  %bcmp.i.i.i50.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly @.str.22, ptr %54, i64 %.sroa.speculated.i.i.i.i.i48.i.i.i.i.i.i)
   %55 = icmp eq i32 %bcmp.i.i.i50.i.i.i.i.i.i, 0
   br i1 %55, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit55.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit55.thread.i.i.i.i.i.i"
 
@@ -572,7 +572,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i49.i.i.i.i.i.i: ; preds = %"
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i57.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit55.thread.i.i.i.i.i.i"
   %62 = extractvalue { i64, ptr } %59, 1
-  %bcmp.i.i.i58.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull @.str, ptr %62, i64 %.sroa.speculated.i.i.i.i.i56.i.i.i.i.i.i)
+  %bcmp.i.i.i58.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly @.str, ptr %62, i64 %.sroa.speculated.i.i.i.i.i56.i.i.i.i.i.i)
   %63 = icmp eq i32 %bcmp.i.i.i58.i.i.i.i.i.i, 0
   br i1 %63, label %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread24
 
@@ -733,7 +733,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK27cmCMakePresetsGraphInternal17BaseMacroExpanderclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RS6_i(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK27cmCMakePresetsGraphInternal17BaseMacroExpanderclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RS6_i(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2513,7 +2513,7 @@ _ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16Exec
 219:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit
   %220 = getelementptr inbounds i8, ptr %0, i64 864
   %221 = getelementptr inbounds i8, ptr %1, i64 864
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %220, ptr noundef nonnull align 8 dereferenceable(12) %221, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %220, ptr noundef nonnull readonly align 8 dereferenceable(12) %221, i64 12, i1 false)
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit
 
 _ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit, %219
@@ -4064,7 +4064,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGra
   %318 = getelementptr inbounds i8, ptr %317, i64 32
   %319 = load i32, ptr %318, align 8
   store i32 1, ptr %313, align 4
-  %320 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %307, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %319)
+  %320 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %307, ptr noundef nonnull readonly align 8 dereferenceable(24) %29, i32 noundef %319)
           to label %.noexc58.i unwind label %.loopexit.i158
 
 .noexc58.i:                                       ; preds = %316
@@ -4186,7 +4186,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %357 = load ptr, ptr %356, align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 32
   %359 = load i32, ptr %358, align 8
-  %360 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %359)
+  %360 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %29, i32 noundef %359)
           to label %361 unwind label %.loopexit.split-lp.i.i
 
 361:                                              ; preds = %.noexc79.i
@@ -4282,7 +4282,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %389 = load ptr, ptr %356, align 8
   %390 = getelementptr inbounds i8, ptr %389, i64 32
   %391 = load i32, ptr %390, align 8
-  %392 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %391)
+  %392 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull readonly align 8 dereferenceable(24) %29, i32 noundef %391)
           to label %393 unwind label %394
 
 393:                                              ; preds = %388
@@ -4379,7 +4379,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit43.i.i: ; p
   %421 = load ptr, ptr %356, align 8
   %422 = getelementptr inbounds i8, ptr %421, i64 32
   %423 = load i32, ptr %422, align 8
-  %424 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %423)
+  %424 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull readonly align 8 dereferenceable(24) %29, i32 noundef %423)
           to label %425 unwind label %426
 
 425:                                              ; preds = %420
@@ -4437,7 +4437,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEE5resetEv.exit48.i.i: ; p
   %444 = load ptr, ptr %356, align 8
   %445 = getelementptr inbounds i8, ptr %444, i64 32
   %446 = load i32, ptr %445, align 8
-  %447 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %443, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %446)
+  %447 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %443, ptr noundef nonnull readonly align 8 dereferenceable(24) %29, i32 noundef %446)
           to label %448 unwind label %.loopexit.i.i
 
 448:                                              ; preds = %442
@@ -4906,7 +4906,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGra
   %614 = getelementptr inbounds i8, ptr %613, i64 32
   %615 = load i32, ptr %614, align 8
   store i32 1, ptr %609, align 4
-  %616 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %603, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %615)
+  %616 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %603, ptr noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %615)
           to label %.noexc58.i197 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc58.i197:                                    ; preds = %612
@@ -5028,7 +5028,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %655 = load ptr, ptr %653, align 8
   %656 = getelementptr inbounds i8, ptr %655, i64 32
   %657 = load i32, ptr %656, align 8
-  %658 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.011.i.i, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %657)
+  %658 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.011.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %657)
           to label %.noexc80.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc80.i:                                       ; preds = %654
@@ -5064,7 +5064,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %670 = load ptr, ptr %668, align 8
   %671 = getelementptr inbounds i8, ptr %670, i64 32
   %672 = load i32, ptr %671, align 8
-  %673 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.013.i.i, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %672)
+  %673 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.013.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %672)
           to label %.noexc81.i unwind label %.loopexit.i195
 
 .noexc81.i:                                       ; preds = %669
@@ -5495,7 +5495,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGra
   %831 = getelementptr inbounds i8, ptr %830, i64 32
   %832 = load i32, ptr %831, align 8
   store i32 1, ptr %826, align 4
-  %833 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %820, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %832)
+  %833 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %820, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %832)
           to label %.noexc58.i272 unwind label %.loopexit.split-lp.loopexit.i271
 
 .noexc58.i272:                                    ; preds = %829
@@ -5622,7 +5622,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %874 = load ptr, ptr %872, align 8
   %875 = getelementptr inbounds i8, ptr %874, i64 32
   %876 = load i32, ptr %875, align 8
-  %877 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %876)
+  %877 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %876)
           to label %.noexc80.i267 unwind label %.loopexit.i265
 
 .noexc80.i267:                                    ; preds = %873
@@ -5658,7 +5658,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %890 = load ptr, ptr %889, align 8
   %891 = getelementptr inbounds i8, ptr %890, i64 32
   %892 = load i32, ptr %891, align 8
-  %893 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %888, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %892)
+  %893 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %888, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %892)
           to label %.noexc81.i270 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc81.i270:                                    ; preds = %887
@@ -5682,7 +5682,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %900 = load ptr, ptr %889, align 8
   %901 = getelementptr inbounds i8, ptr %900, i64 32
   %902 = load i32, ptr %901, align 8
-  %903 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %899, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %902)
+  %903 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %899, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %902)
           to label %.noexc82.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc82.i:                                       ; preds = %898
@@ -5719,7 +5719,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %919 = load ptr, ptr %918, align 8
   %920 = getelementptr inbounds i8, ptr %919, i64 32
   %921 = load i32, ptr %920, align 8
-  %922 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %909, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %921)
+  %922 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %909, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %921)
           to label %.noexc83.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc83.i:                                       ; preds = %917
@@ -5743,7 +5743,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %929 = load ptr, ptr %918, align 8
   %930 = getelementptr inbounds i8, ptr %929, i64 32
   %931 = load i32, ptr %930, align 8
-  %932 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %928, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %931)
+  %932 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %928, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %931)
           to label %.noexc84.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc84.i:                                       ; preds = %927
@@ -5773,7 +5773,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %943 = load ptr, ptr %918, align 8
   %944 = getelementptr inbounds i8, ptr %943, i64 32
   %945 = load i32, ptr %944, align 8
-  %946 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %942, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %945)
+  %946 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %942, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %945)
           to label %.noexc85.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc85.i:                                       ; preds = %941
@@ -5804,7 +5804,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %958 = load ptr, ptr %957, align 8
   %959 = getelementptr inbounds i8, ptr %958, i64 32
   %960 = load i32, ptr %959, align 8
-  %961 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %956, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %960)
+  %961 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %956, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %960)
           to label %.noexc86.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc86.i:                                       ; preds = %955
@@ -5828,7 +5828,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %968 = load ptr, ptr %957, align 8
   %969 = getelementptr inbounds i8, ptr %968, i64 32
   %970 = load i32, ptr %969, align 8
-  %971 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %967, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %970)
+  %971 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %967, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %970)
           to label %.noexc87.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc87.i:                                       ; preds = %966
@@ -5858,7 +5858,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %982 = load ptr, ptr %957, align 8
   %983 = getelementptr inbounds i8, ptr %982, i64 32
   %984 = load i32, ptr %983, align 8
-  %985 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %981, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %984)
+  %985 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %981, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %984)
           to label %.noexc88.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc88.i:                                       ; preds = %980
@@ -5882,7 +5882,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %992 = load ptr, ptr %957, align 8
   %993 = getelementptr inbounds i8, ptr %992, i64 32
   %994 = load i32, ptr %993, align 8
-  %995 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %991, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %994)
+  %995 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %991, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %994)
           to label %.noexc89.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc89.i:                                       ; preds = %990
@@ -5906,7 +5906,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1002 = load ptr, ptr %957, align 8
   %1003 = getelementptr inbounds i8, ptr %1002, i64 32
   %1004 = load i32, ptr %1003, align 8
-  %1005 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1001, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %1004)
+  %1005 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1001, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %1004)
           to label %.noexc90.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc90.i:                                       ; preds = %1000
@@ -5937,7 +5937,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1017 = load ptr, ptr %1016, align 8
   %1018 = getelementptr inbounds i8, ptr %1017, i64 32
   %1019 = load i32, ptr %1018, align 8
-  %1020 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1015, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %1019)
+  %1020 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1015, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %1019)
           to label %.noexc91.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc91.i:                                       ; preds = %1014
@@ -6366,7 +6366,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGra
   %1178 = getelementptr inbounds i8, ptr %1177, i64 32
   %1179 = load i32, ptr %1178, align 8
   store i32 1, ptr %1173, align 4
-  %1180 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1167, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %1179)
+  %1180 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1167, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %1179)
           to label %.noexc58.i356 unwind label %.loopexit.split-lp.loopexit.i354
 
 .noexc58.i356:                                    ; preds = %1176
@@ -6493,7 +6493,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1221 = load ptr, ptr %1218, align 8
   %1222 = getelementptr inbounds i8, ptr %1221, i64 32
   %1223 = load i32, ptr %1222, align 8
-  %1224 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1220, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %1223)
+  %1224 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1220, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %1223)
           to label %.noexc80.i346 unwind label %.loopexit.i344
 
 .noexc80.i346:                                    ; preds = %1219
@@ -6523,7 +6523,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1233 = load ptr, ptr %1232, align 8
   %1234 = getelementptr inbounds i8, ptr %1233, i64 32
   %1235 = load i32, ptr %1234, align 8
-  %1236 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1231, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %1235)
+  %1236 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1231, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %1235)
           to label %.noexc81.i349 unwind label %.loopexit.split-lp.loopexit.split-lp.i320
 
 .noexc81.i349:                                    ; preds = %._crit_edge.i.i348
@@ -6547,7 +6547,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1243 = load ptr, ptr %1232, align 8
   %1244 = getelementptr inbounds i8, ptr %1243, i64 32
   %1245 = load i32, ptr %1244, align 8
-  %1246 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1242, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %1245)
+  %1246 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1242, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %1245)
           to label %.noexc82.i350 unwind label %.loopexit.split-lp.loopexit.split-lp.i320
 
 .noexc82.i350:                                    ; preds = %1241
@@ -6571,7 +6571,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1253 = load ptr, ptr %1232, align 8
   %1254 = getelementptr inbounds i8, ptr %1253, i64 32
   %1255 = load i32, ptr %1254, align 8
-  %1256 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1252, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %1255)
+  %1256 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1252, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %1255)
           to label %.noexc83.i351 unwind label %.loopexit.split-lp.loopexit.split-lp.i320
 
 .noexc83.i351:                                    ; preds = %1251
@@ -6595,7 +6595,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1263 = load ptr, ptr %1232, align 8
   %1264 = getelementptr inbounds i8, ptr %1263, i64 32
   %1265 = load i32, ptr %1264, align 8
-  %1266 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1262, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %1265)
+  %1266 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1262, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %1265)
           to label %.noexc84.i352 unwind label %.loopexit.split-lp.loopexit.split-lp.i320
 
 .noexc84.i352:                                    ; preds = %1261
@@ -6619,7 +6619,7 @@ _ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1273 = load ptr, ptr %1232, align 8
   %1274 = getelementptr inbounds i8, ptr %1273, i64 32
   %1275 = load i32, ptr %1274, align 8
-  %1276 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1272, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %1275)
+  %1276 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %1272, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %1275)
           to label %.noexc85.i353 unwind label %.loopexit.split-lp.loopexit.split-lp.i320
 
 .noexc85.i353:                                    ; preds = %1271
@@ -7731,7 +7731,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpander
   %66 = getelementptr inbounds i8, ptr %65, i64 32
   %67 = load i32, ptr %66, align 8
   store i32 1, ptr %61, align 4
-  %68 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %67)
+  %68 = invoke noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i32 noundef %67)
           to label %.noexc58 unwind label %.loopexit
 
 .noexc58:                                         ; preds = %64
@@ -8080,7 +8080,7 @@ define dso_local void @_ZNK19cmCMakePresetsGraph24PrintConfigurePresetListEPNS_2
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEZNKS0_24PrintConfigurePresetListEPNS0_21PrintPrecedingNewlineEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEZNKS0_24PrintConfigurePresetListEPNS0_21PrintPrecedingNewlineEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %4, align 8
   invoke void @_ZNK19cmCMakePresetsGraph24PrintConfigurePresetListERKSt8functionIFbRKNS_15ConfigurePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1)
@@ -8858,7 +8858,7 @@ define dso_local void @_ZNK19cmCMakePresetsGraph22PrintPackagePresetListEPNS_21P
   %3 = alloca %"class.std::function.356", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph13PackagePresetEEZNKS0_22PrintPackagePresetListEPNS0_21PrintPrecedingNewlineEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph13PackagePresetEEZNKS0_22PrintPackagePresetListEPNS0_21PrintPrecedingNewlineEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %4, align 8
   invoke void @_ZNK19cmCMakePresetsGraph22PrintPackagePresetListERKSt8functionIFbRKNS_13PackagePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1)
@@ -9405,7 +9405,7 @@ define dso_local void @_ZNK19cmCMakePresetsGraph15PrintAllPresetsEv(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEZNKS0_24PrintConfigurePresetListEPNS0_21PrintPrecedingNewlineEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph15ConfigurePresetEEZNKS0_24PrintConfigurePresetListEPNS0_21PrintPrecedingNewlineEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %5, align 8
   invoke void @_ZNK19cmCMakePresetsGraph24PrintConfigurePresetListERKSt8functionIFbRKNS_15ConfigurePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %4)
@@ -9456,7 +9456,7 @@ _ZNK19cmCMakePresetsGraph24PrintConfigurePresetListEPNS_21PrintPrecedingNewlineE
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %22 = getelementptr inbounds i8, ptr %2, i64 16
   %23 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph13PackagePresetEEZNKS0_22PrintPackagePresetListEPNS0_21PrintPrecedingNewlineEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %23, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph13PackagePresetEEZNKS0_22PrintPackagePresetListEPNS0_21PrintPrecedingNewlineEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %22, align 8
   invoke void @_ZNK19cmCMakePresetsGraph22PrintPackagePresetListERKSt8functionIFbRKNS_13PackagePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %4)
@@ -16804,7 +16804,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   store i32 1, ptr %45, align 4
-  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(24) %49, i32 noundef %4)
+  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull readonly align 8 dereferenceable(24) %49, i32 noundef %4)
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %51, label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
@@ -17599,7 +17599,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   store i32 1, ptr %45, align 4
-  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(24) %49, i32 noundef %4)
+  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull readonly align 8 dereferenceable(24) %49, i32 noundef %4)
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %51, label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
@@ -18082,7 +18082,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   store i32 1, ptr %45, align 4
-  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(24) %49, i32 noundef %4)
+  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull readonly align 8 dereferenceable(24) %49, i32 noundef %4)
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %51, label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
@@ -18677,7 +18677,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   store i32 1, ptr %45, align 4
-  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(24) %49, i32 noundef %4)
+  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull readonly align 8 dereferenceable(24) %49, i32 noundef %4)
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %51, label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 
@@ -19128,7 +19128,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   store i32 1, ptr %45, align 4
-  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(24) %49, i32 noundef %4)
+  %50 = tail call noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull readonly align 8 dereferenceable(24) %49, i32 noundef %4)
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %51, label %_ZN12_GLOBAL__N_18VisitEnvERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11CycleStatusERKSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteISC_EESaISF_EEi.exit
 

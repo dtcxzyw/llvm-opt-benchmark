@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @ati_reg_name(i32 noundef %num) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @ati_reg_name(i32 noundef %num) local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }

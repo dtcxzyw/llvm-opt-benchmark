@@ -256,7 +256,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @intel_ddi_level(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_mpllb_calc_state(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_mpllb_calc_state(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 872
   %5 = load i32, ptr %4, align 8
@@ -359,7 +359,7 @@ define dso_local noundef i32 @intel_mpllb_calc_state(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @intel_snps_phy_check_hdmi_link_rate(i32 noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 18) i32 @intel_snps_phy_check_hdmi_link_rate(i32 noundef %0) local_unnamed_addr #3 align 16 {
   br label %7
 
 2:                                                ; preds = %7
@@ -520,7 +520,7 @@ define dso_local void @intel_mpllb_disable(ptr nocapture noundef readonly %0) lo
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_mpllb_calc_port_clock(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 0, 40966618) i32 @intel_mpllb_calc_port_clock(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -567,7 +567,7 @@ define dso_local i32 @intel_mpllb_calc_port_clock(ptr nocapture noundef readnone
   %42 = add nuw nsw i64 %39, %41
   %43 = zext nneg i32 %26 to i64
   %44 = udiv i64 %42, %43
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   ret i32 %45
 }
 

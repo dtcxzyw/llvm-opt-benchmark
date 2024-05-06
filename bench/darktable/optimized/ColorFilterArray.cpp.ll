@@ -86,7 +86,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArrayC2ERKNS_8iPoint2DE(ptr noundef
   %13 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
   %14 = zext i32 %13 to i64
   %15 = lshr i64 %11, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 false)
   %18 = zext i32 %17 to i64
   %19 = mul nuw nsw i64 %18, %14
@@ -158,7 +158,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray7setSizeERKNS_8iPoint2DE(ptr n
   %13 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
   %14 = zext i32 %13 to i64
   %15 = lshr i64 %11, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 false)
   %18 = zext i32 %17 to i64
   %19 = mul nuw nsw i64 %18, %14
@@ -380,7 +380,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = trunc i64 %1 to i32
   %5 = lshr i64 %1, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !6
   %9 = icmp eq i32 %8, %4
@@ -624,7 +624,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef non
   br i1 %46, label %.split.us, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %43
-  %49 = trunc i64 %47 to i32
+  %49 = trunc nuw nsw i64 %47 to i32
   %50 = add i32 %12, %49
   br label %.preheader
 
@@ -1617,7 +1617,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8
   unreachable
 
 12:                                               ; preds = %3
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nuw i64 %5 to i32
   %14 = getelementptr inbounds i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4, !tbaa !37
   %16 = icmp sle i32 %15, %13
@@ -1759,8 +1759,8 @@ define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr
   %57 = icmp ne i32 %8, 1
   %58 = zext i1 %57 to i32
   %59 = add nuw nsw i32 %8, %58
-  %60 = trunc i32 %59 to i8
-  %61 = trunc i32 %8 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
+  %61 = trunc nuw nsw i32 %8 to i8
   %62 = urem i8 %60, %61
   %63 = zext nneg i8 %62 to i64
   %64 = mul nuw nsw i64 %63, %26
@@ -1986,8 +1986,8 @@ define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr
   %151 = icmp ne i32 %5, 1
   %152 = zext i1 %151 to i32
   %153 = add nuw nsw i32 %5, %152
-  %154 = trunc i32 %153 to i8
-  %155 = trunc i32 %5 to i8
+  %154 = trunc nuw nsw i32 %153 to i8
+  %155 = trunc nuw nsw i32 %5 to i8
   %156 = urem i8 %154, %155
   %157 = zext nneg i8 %156 to i64
   %158 = getelementptr i8, ptr %12, i64 %157

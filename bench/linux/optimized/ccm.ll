@@ -757,7 +757,7 @@ define internal i32 @crypto_ccm_setkey(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @crypto_ccm_setauthsize(ptr nocapture readnone %0, i32 noundef %1) #10 align 16 {
+define internal noundef range(i32 -22, 1) i32 @crypto_ccm_setauthsize(ptr nocapture readnone %0, i32 noundef %1) #10 align 16 {
   switch i32 %1, label %4 [
     i32 4, label %3
     i32 6, label %3
@@ -959,7 +959,7 @@ declare dso_local i32 @crypto_skcipher_setkey(ptr noundef, ptr noundef, i32 noun
 declare dso_local i32 @crypto_ahash_setkey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @crypto_ccm_init_crypt(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @crypto_ccm_init_crypt(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
@@ -1233,7 +1233,7 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %82
-  %85 = trunc i32 %23 to i16
+  %85 = trunc nuw i32 %23 to i16
   %86 = call i16 @llvm.bswap.i16(i16 %85)
   br label %90
 

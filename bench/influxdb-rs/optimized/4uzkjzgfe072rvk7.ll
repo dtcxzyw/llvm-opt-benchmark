@@ -436,7 +436,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$alloc..boxed..Box$LT$influx
   br i1 %12, label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i", label %13
 
 13:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i"
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   br label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i"
 
 "_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i": ; preds = %13, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i"
@@ -447,7 +447,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$alloc..boxed..Box$LT$influx
 
 17:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i"
   %18 = getelementptr inbounds i8, ptr %2, i64 32
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
           to label %"_ZN4core3ptr82drop_in_place$LT$influxdb_influxql_parser..show_tag_keys..ShowTagKeysStatement$GT$17h0fbb288c9cf8d7e7E.exit" unwind label %19
 
 "_ZN4core3ptr82drop_in_place$LT$influxdb_influxql_parser..show_tag_keys..ShowTagKeysStatement$GT$17h0fbb288c9cf8d7e7E.exit": ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i", %17
@@ -566,7 +566,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$influx
   br i1 %12, label %"_ZN4core3ptr86drop_in_place$LT$influxdb_influxql_parser..show_field_keys..ShowFieldKeysStatement$GT$17hf6e403255e52f6eaE.exit", label %13
 
 13:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i"
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   br label %"_ZN4core3ptr86drop_in_place$LT$influxdb_influxql_parser..show_field_keys..ShowFieldKeysStatement$GT$17hf6e403255e52f6eaE.exit"
 
 "_ZN4core3ptr86drop_in_place$LT$influxdb_influxql_parser..show_field_keys..ShowFieldKeysStatement$GT$17hf6e403255e52f6eaE.exit": ; preds = %13, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i"
@@ -607,12 +607,12 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$influx
   br i1 %12, label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4.i", label %13
 
 13:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i"
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   br label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4.i"
 
 "_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4.i": ; preds = %13, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i"
   %14 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @"_ZN4core3ptr77drop_in_place$LT$influxdb_influxql_parser..show_tag_values..WithKeyClause$GT$17h3b8d8a5072249112E.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
+  tail call void @"_ZN4core3ptr77drop_in_place$LT$influxdb_influxql_parser..show_tag_values..WithKeyClause$GT$17h3b8d8a5072249112E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14)
   %15 = getelementptr inbounds i8, ptr %2, i64 80
   %16 = load i8, ptr %15, align 8, !range !255, !alias.scope !394, !noundef !4
   %17 = icmp eq i8 %16, 14
@@ -620,7 +620,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$influx
 
 18:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4.i"
   %19 = getelementptr inbounds i8, ptr %2, i64 64
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
           to label %"_ZN4core3ptr86drop_in_place$LT$influxdb_influxql_parser..show_tag_values..ShowTagValuesStatement$GT$17hd30f9a03c01770f1E.exit" unwind label %20
 
 "_ZN4core3ptr86drop_in_place$LT$influxdb_influxql_parser..show_tag_values..ShowTagValuesStatement$GT$17hd30f9a03c01770f1E.exit": ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4.i", %18
@@ -930,7 +930,7 @@ define hidden void @"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$inf
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$17h3afd8564b71b55bbE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$17h3afd8564b71b55bbE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %4
 }
 
@@ -944,7 +944,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$inf
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %4
 }
 
@@ -1174,7 +1174,7 @@ define hidden void @"_ZN4core3ptr269drop_in_place$LT$hashbrown..map..HashMap$LT$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr299drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$GT$17hac57da9083f0ef9fE.llvm.11290379560268722015"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
-  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89e0ede8b45c41d4E.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89e0ede8b45c41d4E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   ret void
 }
 
@@ -1314,7 +1314,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr433drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17hd76a8f7f766186b4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 {
-  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89e0ede8b45c41d4E.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89e0ede8b45c41d4E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   ret void
 }
 
@@ -1617,7 +1617,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_p
 
 8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !906)
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
           to label %15 unwind label %9
 
 9:                                                ; preds = %8
@@ -1629,7 +1629,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_p
   br i1 %13, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h1eb766cd97127655E.exit.i", label %14
 
 14:                                               ; preds = %9
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %11)
           to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h1eb766cd97127655E.exit.i" unwind label %20
 
 15:                                               ; preds = %8
@@ -1639,7 +1639,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_p
   br i1 %18, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit", label %19
 
 19:                                               ; preds = %15
-  tail call void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16)
+  tail call void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %16)
   br label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit"
 
 20:                                               ; preds = %14
@@ -1763,7 +1763,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..st
   br i1 %15, label %"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..show_field_keys..ShowFieldKeysStatement$GT$$GT$17haf0ef94c4ef3a107E.llvm.11290379560268722015.exit", label %16
 
 16:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i.i"
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13), !noalias !980
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13), !noalias !980
   br label %"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..show_field_keys..ShowFieldKeysStatement$GT$$GT$17haf0ef94c4ef3a107E.llvm.11290379560268722015.exit"
 
 "_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..show_field_keys..ShowFieldKeysStatement$GT$$GT$17haf0ef94c4ef3a107E.llvm.11290379560268722015.exit": ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i.i", %16
@@ -1973,7 +1973,7 @@ common.resume:                                    ; preds = %87, %57, %52, %45
   br i1 %80, label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i.i", label %81
 
 81:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i.i4"
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %78), !noalias !1185
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %78), !noalias !1185
   br label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i.i"
 
 "_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i.i": ; preds = %81, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit.i.i4"
@@ -1984,7 +1984,7 @@ common.resume:                                    ; preds = %87, %57, %52, %45
 
 85:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2.i.i"
   %86 = getelementptr inbounds i8, ptr %70, i64 32
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %86)
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86)
           to label %"_ZN4core3ptr107drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..show_tag_keys..ShowTagKeysStatement$GT$$GT$17hb807997debb2d8fbE.llvm.11290379560268722015.exit" unwind label %87, !noalias !1185
 
 87:                                               ; preds = %85
@@ -2139,7 +2139,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$$u5b$influxdb_influxql_parse
   %4 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { ptr, [2 x i64] } }], ptr %0, i64 0, i64 %.08
   %5 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1297)
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4)
           to label %15 unwind label %6
 
 6:                                                ; preds = %.lr.ph
@@ -2297,7 +2297,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$influxdb_influxql_parser..de
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit1.sink.split": ; preds = %1, %23
   %.sink = phi ptr [ %24, %23 ], [ %0, %1 ]
-  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink)
+  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sink)
   br label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit1"
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit1": ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit1.sink.split", %"_ZN4core3ptr121drop_in_place$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..MeasurementName$GT$$GT$17he288ede60e1d6779E.exit"
@@ -2394,7 +2394,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$influxdb_influxql_parser..se
 
 38:                                               ; preds = %"_ZN4core3ptr127drop_in_place$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17he207d608901d920bE.llvm.11290379560268722015.exit"
   %39 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39)
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39)
           to label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit" unwind label %55
 
 "_ZN4core3ptr127drop_in_place$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17he207d608901d920bE.llvm.11290379560268722015.exit4": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcc6e37db21e48299E.llvm.11290379560268722015.exit.i", %33
@@ -2405,7 +2405,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$influxdb_influxql_parser..se
 
 43:                                               ; preds = %"_ZN4core3ptr127drop_in_place$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17he207d608901d920bE.llvm.11290379560268722015.exit4"
   %44 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44)
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
           to label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit6" unwind label %49
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit": ; preds = %"_ZN4core3ptr127drop_in_place$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17he207d608901d920bE.llvm.11290379560268722015.exit", %38, %49
@@ -2416,7 +2416,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$influxdb_influxql_parser..se
   br i1 %47, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$$GT$17h39bfb98ac0a5fc18E.llvm.11290379560268722015.exit", label %48
 
 48:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit"
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$17h3afd8564b71b55bbE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$17h3afd8564b71b55bbE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
           to label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$$GT$17h39bfb98ac0a5fc18E.llvm.11290379560268722015.exit" unwind label %55
 
 49:                                               ; preds = %43
@@ -2431,7 +2431,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$influxdb_influxql_parser..se
   br i1 %53, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$$GT$17h39bfb98ac0a5fc18E.llvm.11290379560268722015.exit8", label %54
 
 54:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit6"
-  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$17h3afd8564b71b55bbE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51)
+  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$17h3afd8564b71b55bbE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %51)
   br label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$$GT$17h39bfb98ac0a5fc18E.llvm.11290379560268722015.exit8"
 
 "_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..ZeroOrMore$LT$influxdb_influxql_parser..select..Dimension$GT$$GT$$GT$17h39bfb98ac0a5fc18E.llvm.11290379560268722015.exit8": ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit6", %54
@@ -2992,7 +2992,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$iox_query_influxql_rewr
   br label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$GT$17h28b5fb4ca45f34aeE.llvm.11290379560268722015.exit5.i"
 
 "_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$GT$17h28b5fb4ca45f34aeE.llvm.11290379560268722015.exit5.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i4.i", %17, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$GT$17h28b5fb4ca45f34aeE.llvm.11290379560268722015.exit.i"
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
           to label %"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E.exit" unwind label %24
 
 21:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E.exit"
@@ -3520,7 +3520,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$influxdb_influxql_parser..sh
   br i1 %11, label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2", label %12
 
 12:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit"
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   br label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2"
 
 "_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2": ; preds = %12, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit"
@@ -3531,7 +3531,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$influxdb_influxql_parser..sh
 
 16:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2"
   %17 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
   br label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit3"
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit3": ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit2", %16
@@ -3721,7 +3721,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$influxdb_influxql_parser..sh
   br i1 %11, label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit1", label %12
 
 12:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit"
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   br label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit1"
 
 "_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit1": ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit", %12
@@ -3759,7 +3759,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$influxdb_influxql_parser..sh
   br i1 %11, label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4", label %12
 
 12:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit"
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$17h850e896226e7a3dfE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   br label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4"
 
 "_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4": ; preds = %12, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show..OnClause$GT$$GT$17h0df7fb28cd05672cE.llvm.11290379560268722015.exit"
@@ -3772,7 +3772,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$influxdb_influxql_parser..sh
 
 17:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4"
   %18 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
+  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
   br label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit5"
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit5": ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..QualifiedMeasurementName$GT$$GT$$GT$17hac2a5873c94270edE.llvm.11290379560268722015.exit4", %17
@@ -3795,7 +3795,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_
 7:                                                ; preds = %5
   %8 = getelementptr inbounds [0 x { i8, [111 x i8] }], ptr %2, i64 0, i64 %.0.i.i
   %9 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %8)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %8)
           to label %5 unwind label %12, !noalias !2310
 
 10:                                               ; preds = %14, %12
@@ -3811,7 +3811,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_
 14:                                               ; preds = %10
   %15 = getelementptr inbounds [0 x { i8, [111 x i8] }], ptr %2, i64 0, i64 %.1.i.i
   %16 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15) #16
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %15) #16
           to label %10 unwind label %17, !noalias !2310
 
 17:                                               ; preds = %14
@@ -4161,7 +4161,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$influxdb_influxql_parser..sh
   br i1 %23, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show_measurements..WithMeasurementClause$GT$$GT$17h1dbf882d950da8f5E.llvm.11290379560268722015.exit2", label %24
 
 24:                                               ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show_measurements..ExtendedOnClause$GT$$GT$17hd571592980eb5e14E.llvm.11290379560268722015.exit"
-  tail call void @"_ZN4core3ptr87drop_in_place$LT$influxdb_influxql_parser..show_measurements..WithMeasurementClause$GT$17hdd635a7fbf34a9daE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(88) %21)
+  tail call void @"_ZN4core3ptr87drop_in_place$LT$influxdb_influxql_parser..show_measurements..WithMeasurementClause$GT$17hdd635a7fbf34a9daE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %21)
   br label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show_measurements..WithMeasurementClause$GT$$GT$17h1dbf882d950da8f5E.llvm.11290379560268722015.exit2"
 
 "_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show_measurements..WithMeasurementClause$GT$$GT$17h1dbf882d950da8f5E.llvm.11290379560268722015.exit2": ; preds = %24, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show_measurements..ExtendedOnClause$GT$$GT$17hd571592980eb5e14E.llvm.11290379560268722015.exit"
@@ -4172,7 +4172,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$influxdb_influxql_parser..sh
 
 28:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show_measurements..WithMeasurementClause$GT$$GT$17h1dbf882d950da8f5E.llvm.11290379560268722015.exit2"
   %29 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29)
+  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
   br label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit3"
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit3": ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..show_measurements..WithMeasurementClause$GT$$GT$17h1dbf882d950da8f5E.llvm.11290379560268722015.exit2", %28
@@ -4478,7 +4478,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$infl
   ret void
 
 6:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %5
 }
 
@@ -4545,7 +4545,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$alloc..boxed..Box$LT$influxd
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit1.sink.split.i": ; preds = %24, %1
   %.sink.i = phi ptr [ %25, %24 ], [ %2, %1 ]
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink.i)
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$influxdb_influxql_parser..expression..conditional..ConditionalExpression$GT$17hed89f2bff1ead8efE.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sink.i)
           to label %"_ZN4core3ptr70drop_in_place$LT$influxdb_influxql_parser..delete..DeleteStatement$GT$17hb947b82350826f91E.llvm.11290379560268722015.exit" unwind label %26
 
 "_ZN4core3ptr70drop_in_place$LT$influxdb_influxql_parser..delete..DeleteStatement$GT$17hb947b82350826f91E.llvm.11290379560268722015.exit": ; preds = %"_ZN4core3ptr121drop_in_place$LT$influxdb_influxql_parser..common..OneOrMore$LT$influxdb_influxql_parser..common..MeasurementName$GT$$GT$17he288ede60e1d6779E.exit.i", %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.llvm.11290379560268722015.exit1.sink.split.i"
@@ -5104,7 +5104,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 7:                                                ; preds = %5
   %8 = getelementptr inbounds [0 x { i8, [111 x i8] }], ptr %2, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %8)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %8)
           to label %5 unwind label %12
 
 10:                                               ; preds = %14, %12
@@ -5120,7 +5120,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 14:                                               ; preds = %10
   %15 = getelementptr inbounds [0 x { i8, [111 x i8] }], ptr %2, i64 0, i64 %.1.i
   %16 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15) #16
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %15) #16
           to label %10 unwind label %18
 
 17:                                               ; preds = %10
@@ -5658,7 +5658,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 18:                                               ; preds = %16
   %19 = getelementptr inbounds [0 x { i64, ptr }], ptr %3, i64 0, i64 %.0.i
   %20 = add nuw nsw i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
           to label %16 unwind label %23
 
 21:                                               ; preds = %25, %23
@@ -5674,7 +5674,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 25:                                               ; preds = %21
   %26 = getelementptr inbounds [0 x { i64, ptr }], ptr %3, i64 0, i64 %.1.i
   %27 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #16
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26) #16
           to label %21 unwind label %28
 
 28:                                               ; preds = %25

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @uaccess_lock_user(ptr noundef %env, i64 noundef %addr, i64 noundef %len, i1 noundef zeroext %copy) local_unnamed_addr #0 {
+define dso_local noundef ptr @uaccess_lock_user(ptr noundef %env, i64 noundef %addr, i64 noundef %len, i1 noundef zeroext %copy) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @malloc(i64 noundef %len) #5
   %tobool.not = icmp ne ptr %call, null
@@ -130,7 +130,7 @@ declare i32 @probe_access_flags(ptr noundef, i64 noundef, i32 noundef, i32 nound
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @uaccess_lock_user_string(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local noundef ptr @uaccess_lock_user_string(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @uaccess_strlen_user(ptr noundef %env, i64 noundef %addr)
   %cmp = icmp slt i64 %call, 0

@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.range_gist_consistent_leaf_element = private unnamed_addr constant [35 x i8] c"range_gist_consistent_leaf_element\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @range_gist_consistent(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_gist_consistent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -668,7 +668,7 @@ declare ptr @multirange_get_typcache(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @multirange_get_union_range(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_gist_consistent(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_gist_consistent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2423,7 +2423,7 @@ define internal i32 @interval_cmp_upper(ptr noundef %0, ptr noundef %1, ptr noun
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @common_entry_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @common_entry_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

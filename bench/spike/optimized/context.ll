@@ -3,7 +3,7 @@ source_filename = "bench/spike/original/context.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@_ZL3cur = internal thread_local global ptr null, align 8
+@_ZL3cur = internal thread_local unnamed_addr global ptr null, align 8
 
 @_ZN9context_tC1Ev = unnamed_addr alias void (ptr), ptr @_ZN9context_tC2Ev
 @_ZN9context_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9context_tD2Ev
@@ -102,7 +102,7 @@ define void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenc
   store ptr %21, ptr %22, align 8
   %23 = ptrtoint ptr %0 to i64
   %24 = lshr i64 %23, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   %26 = trunc i64 %23 to i32
   %27 = load ptr, ptr %7, align 8
   call void (ptr, ptr, i32, ...) @makecontext(ptr noundef %27, ptr noundef nonnull @_ZN9context_t7wrapperEjj, i32 noundef 2, i32 noundef %25, i32 noundef %26) #10

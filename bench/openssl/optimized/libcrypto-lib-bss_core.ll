@@ -83,7 +83,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_bio_init_core(ptr noundef %libctx, ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_bio_init_core(ptr noundef %libctx, ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 17) #3
   %cmp = icmp eq ptr %call.i, null
@@ -259,7 +259,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bio_core_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @bio_core_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
 entry:
   %0 = load ptr, ptr %bio, align 8
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 17) #3
@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bio_core_free(ptr noundef %bio) #0 {
+define internal range(i32 0, 2) i32 @bio_core_free(ptr noundef %bio) #0 {
 entry:
   %0 = load ptr, ptr %bio, align 8
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 17) #3

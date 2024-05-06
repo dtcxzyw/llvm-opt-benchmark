@@ -176,7 +176,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %sub.i = add nsw i64 %0, -1
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !5
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %sub2.i = add nuw nsw i64 %1, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i
@@ -397,7 +397,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.be, %for.body.backedge ]
   %ys.028 = phi i32 [ -1, %for.body.lr.ph ], [ %ys.028.be, %for.body.backedge ]
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw i64 %indvars.iv to i32
   %mul = mul i32 %mul.i, %15
   %conv = zext i32 %mul to i64
   %add = add nuw nsw i64 %add.i, %conv
@@ -417,7 +417,7 @@ for.inc:                                          ; preds = %for.body
 for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %for.inc ], [ %indvars.iv.next32, %for.inc.thread ]
   %ys.028.be = phi i32 [ %spec.select, %for.inc ], [ -1, %for.inc.thread ]
-  br label %for.body, !llvm.loop !6
+  br label %for.body, !llvm.loop !5
 
 for.inc.thread:                                   ; preds = %for.body
   %16 = load ptr, ptr %con33, align 16
@@ -466,7 +466,7 @@ declare void @dpy_gfx_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @bochs_display_vbe_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #5 {
+define internal range(i64 -1, 281474976710656) i64 @bochs_display_vbe_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #5 {
 entry:
   %shr = lshr i64 %addr, 1
   %conv = trunc i64 %shr to i32
@@ -518,7 +518,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @bochs_display_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #5 {
+define internal range(i64 0, 4294967296) i64 @bochs_display_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #5 {
 entry:
   switch i64 %addr, label %sw.default [
     i64 0, label %return
@@ -594,6 +594,5 @@ attributes #10 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

@@ -1720,7 +1720,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.llvm.1033951740711481
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !142, !noalias !147, !nonnull !4, !noundef !4
   %52 = getelementptr inbounds i8, ptr %51, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
   %53 = load i64, ptr %43, align 8, !alias.scope !142, !noalias !147, !noundef !4
   %54 = add i64 %53, %42
   store i64 %54, ptr %43, align 8, !alias.scope !142, !noalias !147
@@ -2752,7 +2752,7 @@ default.unreachable:                              ; preds = %541, %539, %446, %4
   %455 = phi i64 [ %450, %449 ], [ %.pre.i.i.i.i, %.noexc ]
   %456 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !198, !noalias !205, !nonnull !4, !noundef !4
   %457 = getelementptr inbounds i8, ptr %456, i64 %455
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %457, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 false), !noalias !211
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %457, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 false), !noalias !211
   %458 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !198, !noalias !205, !noundef !4
   %459 = add i64 %458, %.sroa.3.0.i
   store i64 %459, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !198, !noalias !205
@@ -2779,7 +2779,7 @@ default.unreachable:                              ; preds = %541, %539, %446, %4
   %468 = phi i64 [ %463, %460 ], [ %.pre.i.i.i293.i, %.noexc21 ]
   %469 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !212, !noalias !219, !nonnull !4, !noundef !4
   %470 = getelementptr inbounds i8, ptr %469, i64 %468
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %470, ptr nonnull align 1 %461, i64 %462, i1 false), !noalias !211
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %470, ptr nonnull readonly align 1 %461, i64 %462, i1 false), !noalias !211
   %471 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !212, !noalias !219, !noundef !4
   %472 = add i64 %471, %462
   store i64 %472, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !212, !noalias !219
@@ -3264,7 +3264,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.thread.i202.cont
   %597 = phi i64 [ %590, %587 ], [ %.pre.i.i.i.i205, %.noexc206 ]
   %598 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !237, !noalias !244, !nonnull !4, !noundef !4
   %599 = getelementptr inbounds i8, ptr %598, i64 %597
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %599, ptr noundef nonnull align 1 dereferenceable(3) %589, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %599, ptr noundef nonnull readonly align 1 dereferenceable(3) %589, i64 3, i1 false)
   %600 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !237, !noalias !244, !noundef !4
   %601 = add i64 %600, 3
   store i64 %601, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !237, !noalias !244
@@ -3308,7 +3308,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit.i197: ; preds = 
   %621 = phi i64 [ %616, %611 ], [ %.pre.i.i.i.i199, %.noexc200 ]
   %622 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !253, !noalias !260, !nonnull !4, !noundef !4
   %623 = getelementptr inbounds i8, ptr %622, i64 %621
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %623, ptr nonnull align 1 %613, i64 %615, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %623, ptr nonnull readonly align 1 %613, i64 %615, i1 false)
   %624 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !253, !noalias !260, !noundef !4
   %625 = add i64 %624, %615
   store i64 %625, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !253, !noalias !260
@@ -3335,7 +3335,7 @@ _ZN6chrono5naive9internals2Of7weekday17h64164c184e0ac397E.exit.i192: ; preds = %
   %632 = phi i64 [ %627, %_ZN6chrono5naive9internals2Of7weekday17h64164c184e0ac397E.exit.i192 ], [ %.pre.i.i.i.i194, %.noexc195 ]
   %633 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !269, !noalias !276, !nonnull !4, !noundef !4
   %634 = getelementptr inbounds i8, ptr %633, i64 %632
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %634, ptr noundef nonnull align 1 dereferenceable(3) %626, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %634, ptr noundef nonnull readonly align 1 dereferenceable(3) %626, i64 3, i1 false)
   %635 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !269, !noalias !276, !noundef !4
   %636 = add i64 %635, 3
   store i64 %636, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !269, !noalias !276
@@ -3363,7 +3363,7 @@ _ZN6chrono5naive9internals2Of7weekday17h64164c184e0ac397E.exit.i187: ; preds = %
   %644 = phi i64 [ %639, %_ZN6chrono5naive9internals2Of7weekday17h64164c184e0ac397E.exit.i187 ], [ %.pre.i.i.i.i189, %.noexc190 ]
   %645 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !285, !noalias !292, !nonnull !4, !noundef !4
   %646 = getelementptr inbounds i8, ptr %645, i64 %644
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %646, ptr nonnull align 1 %637, i64 %638, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %646, ptr nonnull readonly align 1 %637, i64 %638, i1 false)
   %647 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !285, !noalias !292, !noundef !4
   %648 = add i64 %647, %638
   store i64 %648, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !285, !noalias !292
@@ -3845,7 +3845,7 @@ _ZN6chrono5naive9internals2Of7weekday17h64164c184e0ac397E.exit.i187: ; preds = %
   %773 = phi i64 [ %768, %767 ], [ %.pre.i.i.i.i136, %.noexc137 ]
   %774 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !417, !noalias !426, !nonnull !4, !noundef !4
   %775 = getelementptr inbounds i8, ptr %774, i64 %773
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %775, ptr nonnull align 1 %.val286.i, i64 %.val287.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %775, ptr nonnull readonly align 1 %.val286.i, i64 %.val287.i, i1 false)
   %776 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !417, !noalias !426, !noundef !4
   %777 = add i64 %776, %.val287.i
   store i64 %777, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !417, !noalias !426
@@ -3905,7 +3905,7 @@ _ZN6chrono5naive9internals2Of7weekday17h64164c184e0ac397E.exit.i: ; preds = %784
   %791 = phi i64 [ %786, %_ZN6chrono5naive9internals2Of7weekday17h64164c184e0ac397E.exit.i ], [ %.pre.i.i.i.i111, %.noexc112 ]
   %792 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !437, !noalias !444, !nonnull !4, !noundef !4
   %793 = getelementptr inbounds i8, ptr %792, i64 %791
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %793, ptr noundef nonnull align 1 dereferenceable(3) %785, i64 3, i1 false), !noalias !450
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %793, ptr noundef nonnull readonly align 1 dereferenceable(3) %785, i64 3, i1 false), !noalias !450
   %794 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !437, !noalias !444, !noundef !4
   %795 = add i64 %794, 3
   store i64 %795, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !437, !noalias !444
@@ -4021,7 +4021,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit75.i: ; preds = %
   %846 = phi i64 [ %830, %839 ], [ %.pre.i.i.i76.i, %.noexc117 ]
   %847 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !481, !noalias !478, !nonnull !4, !noundef !4
   %848 = getelementptr inbounds i8, ptr %847, i64 %846
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %848, ptr noundef nonnull align 1 dereferenceable(3) %841, i64 3, i1 false), !noalias !450
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %848, ptr noundef nonnull readonly align 1 dereferenceable(3) %841, i64 3, i1 false), !noalias !450
   %849 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !481, !noalias !478, !noundef !4
   %850 = add i64 %849, 3
   store i64 %850, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !481, !noalias !478
@@ -4729,7 +4729,7 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17h38789ca7d40d04
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !175, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %9, ptr nonnull %0, i64 %1), !alias.scope !568
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %0, i64 %1), !alias.scope !568
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit.backedge"
 
@@ -4978,7 +4978,7 @@ define hidden void @_ZN6diesel5mysql10connection3raw13RawConnection23enable_mult
   tail call void @llvm.experimental.noalias.scope.decl(metadata !598)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !601)
   %14 = load ptr, ptr %.sroa.0.0.copyload, align 8, !alias.scope !601, !noalias !603, !nonnull !4, !noundef !4
-  %15 = tail call noundef i32 @mysql_real_query(ptr noundef nonnull %14, ptr noundef nonnull %.sroa.425.0.copyload, i64 noundef %.sroa.5.0.copyload), !noalias !606
+  %15 = tail call noundef i32 @mysql_real_query(ptr noundef nonnull %14, ptr noundef nonnull readonly %.sroa.425.0.copyload, i64 noundef %.sroa.5.0.copyload), !noalias !606
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !607
   call void @_ZN6diesel5mysql10connection3raw13RawConnection18did_an_error_occur17hbd38a2790f749a47E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.0.copyload), !noalias !608
   %16 = load i64, ptr %5, align 8, !range !594, !noalias !607, !noundef !4

@@ -49,68 +49,68 @@ sw.bb6:                                           ; preds = %sw.bb
   tail call void @replay_put_qword(i64 noundef %7) #2
   %down = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i8, ptr %down, align 8
-  %9 = and i8 %8, 1
-  tail call void @replay_put_byte(i8 noundef zeroext %9) #2
+  %conv = and i8 %8, 1
+  tail call void @replay_put_byte(i8 noundef zeroext %conv) #2
   br label %sw.epilog39
 
 sw.bb10:                                          ; preds = %sw.bb
   %u12 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = load i32, ptr %u12, align 8
-  tail call void @replay_put_dword(i32 noundef %10) #2
+  %9 = load i32, ptr %u12, align 8
+  tail call void @replay_put_dword(i32 noundef %9) #2
   %down14 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = load i8, ptr %down14, align 8
-  %12 = and i8 %11, 1
-  tail call void @replay_put_byte(i8 noundef zeroext %12) #2
+  %10 = load i8, ptr %down14, align 8
+  %conv16 = and i8 %10, 1
+  tail call void @replay_put_byte(i8 noundef zeroext %conv16) #2
   br label %sw.epilog39
 
 sw.bb18:                                          ; preds = %entry
   %u19 = getelementptr inbounds i8, ptr %evt, i64 8
-  %13 = load ptr, ptr %u19, align 8
-  %14 = load i32, ptr %13, align 4
-  tail call void @replay_put_dword(i32 noundef %14) #2
-  %down21 = getelementptr inbounds i8, ptr %13, i64 4
-  %15 = load i8, ptr %down21, align 4
-  %16 = and i8 %15, 1
-  tail call void @replay_put_byte(i8 noundef zeroext %16) #2
+  %11 = load ptr, ptr %u19, align 8
+  %12 = load i32, ptr %11, align 4
+  tail call void @replay_put_dword(i32 noundef %12) #2
+  %down21 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = load i8, ptr %down21, align 4
+  %conv23 = and i8 %13, 1
+  tail call void @replay_put_byte(i8 noundef zeroext %conv23) #2
   br label %sw.epilog39
 
 sw.bb24:                                          ; preds = %entry
   %u25 = getelementptr inbounds i8, ptr %evt, i64 8
-  %17 = load ptr, ptr %u25, align 8
-  %18 = load i32, ptr %17, align 8
-  tail call void @replay_put_dword(i32 noundef %18) #2
-  %value = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load i64, ptr %value, align 8
-  tail call void @replay_put_qword(i64 noundef %19) #2
+  %14 = load ptr, ptr %u25, align 8
+  %15 = load i32, ptr %14, align 8
+  tail call void @replay_put_dword(i32 noundef %15) #2
+  %value = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = load i64, ptr %value, align 8
+  tail call void @replay_put_qword(i64 noundef %16) #2
   br label %sw.epilog39
 
 sw.bb27:                                          ; preds = %entry
   %u28 = getelementptr inbounds i8, ptr %evt, i64 8
-  %20 = load ptr, ptr %u28, align 8
-  %21 = load i32, ptr %20, align 8
-  tail call void @replay_put_dword(i32 noundef %21) #2
-  %value31 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = load i64, ptr %value31, align 8
-  tail call void @replay_put_qword(i64 noundef %22) #2
+  %17 = load ptr, ptr %u28, align 8
+  %18 = load i32, ptr %17, align 8
+  tail call void @replay_put_dword(i32 noundef %18) #2
+  %value31 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = load i64, ptr %value31, align 8
+  tail call void @replay_put_qword(i64 noundef %19) #2
   br label %sw.epilog39
 
 sw.bb32:                                          ; preds = %entry
   %u33 = getelementptr inbounds i8, ptr %evt, i64 8
-  %23 = load ptr, ptr %u33, align 8
-  %24 = load i32, ptr %23, align 8
+  %20 = load ptr, ptr %u33, align 8
+  %21 = load i32, ptr %20, align 8
+  tail call void @replay_put_dword(i32 noundef %21) #2
+  %slot = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load i64, ptr %slot, align 8
+  tail call void @replay_put_qword(i64 noundef %22) #2
+  %tracking_id = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = load i64, ptr %tracking_id, align 8
+  tail call void @replay_put_qword(i64 noundef %23) #2
+  %axis36 = getelementptr inbounds i8, ptr %20, i64 24
+  %24 = load i32, ptr %axis36, align 8
   tail call void @replay_put_dword(i32 noundef %24) #2
-  %slot = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load i64, ptr %slot, align 8
+  %value37 = getelementptr inbounds i8, ptr %20, i64 32
+  %25 = load i64, ptr %value37, align 8
   tail call void @replay_put_qword(i64 noundef %25) #2
-  %tracking_id = getelementptr inbounds i8, ptr %23, i64 16
-  %26 = load i64, ptr %tracking_id, align 8
-  tail call void @replay_put_qword(i64 noundef %26) #2
-  %axis36 = getelementptr inbounds i8, ptr %23, i64 24
-  %27 = load i32, ptr %axis36, align 8
-  tail call void @replay_put_dword(i32 noundef %27) #2
-  %value37 = getelementptr inbounds i8, ptr %23, i64 32
-  %28 = load i64, ptr %value37, align 8
-  tail call void @replay_put_qword(i64 noundef %28) #2
   br label %sw.epilog39
 
 sw.epilog39:                                      ; preds = %sw.bb, %sw.bb6, %sw.bb10, %sw.bb32, %sw.bb27, %sw.bb24, %sw.bb18, %entry

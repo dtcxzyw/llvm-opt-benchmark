@@ -1122,7 +1122,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt16allocator_tr
   store ptr %call5.i.i.i.i1.i, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %__n
+  %add.ptr.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i, align 1

@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_GFp_mont_group_copy(ptr noundef %dest, ptr noundef %src) #1 {
+define range(i32 0, 2) i32 @ossl_ec_GFp_mont_group_copy(ptr noundef %dest, ptr noundef %src) #1 {
 entry:
   %field_data1 = getelementptr inbounds i8, ptr %dest, i64 120
   %0 = load ptr, ptr %field_data1, align 8
@@ -281,7 +281,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_GFp_mont_field_inv(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #1 {
+define range(i32 0, 2) i32 @ossl_ec_GFp_mont_field_inv(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #1 {
 entry:
   %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
@@ -395,7 +395,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ec_GFp_mont_field_set_to_one(ptr nocapture noundef readonly %group, ptr noundef %r, ptr nocapture readnone %ctx) #1 {
+define range(i32 0, 2) i32 @ossl_ec_GFp_mont_field_set_to_one(ptr nocapture noundef readonly %group, ptr noundef %r, ptr nocapture readnone %ctx) #1 {
 entry:
   %field_data2 = getelementptr inbounds i8, ptr %group, i64 128
   %0 = load ptr, ptr %field_data2, align 8

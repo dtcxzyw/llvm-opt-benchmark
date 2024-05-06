@@ -18583,11 +18583,11 @@ if.then.i9986:                                    ; preds = %for.inc.i.i9983, %f
   %766 = getelementptr inbounds i8, ptr %call.i.i.i.i9992, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %766, i8 -1, i64 15, i1 false), !noalias !557
   store i8 %765, ptr %call.i.i.i.i9992, align 1, !noalias !557
-  %767 = getelementptr i8, ptr %call.i.i.i.i9992, i64 %add.i.i.i.i9990
-  %result.0.i.i.i = getelementptr i8, ptr %767, i64 16
+  %767 = getelementptr inbounds i8, ptr %call.i.i.i.i9992, i64 %add.i.i.i.i9990
+  %result.0.i.i.i = getelementptr inbounds i8, ptr %767, i64 16
   %768 = trunc nuw nsw i64 %indvars.iv11263 to i32
   store i32 %768, ptr %result.0.i.i.i, align 4, !noalias !557
-  %mpNext.i16.i = getelementptr i8, ptr %767, i64 24
+  %mpNext.i16.i = getelementptr inbounds i8, ptr %767, i64 24
   store ptr null, ptr %mpNext.i16.i, align 8, !noalias !557
   %769 = load i64, ptr %mnElementCount.i.i2972, align 8, !noalias !561
   %conv2.i21.i = trunc i64 %769 to i32
@@ -18615,9 +18615,9 @@ if.then.i33.i:                                    ; preds = %call.i22.i.noexc
   %771 = getelementptr inbounds i8, ptr %call.i.i.i, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %771, i8 -1, i64 15, i1 false)
   store i8 %770, ptr %call.i.i.i, align 1
-  %772 = getelementptr i8, ptr %call.i.i.i, i64 %add.i.i.i10255
-  %add.ptr11.i.i.i = getelementptr i8, ptr %772, i64 16
-  call void @llvm.memset.p0.i64(ptr align 8 %add.ptr11.i.i.i, i8 0, i64 %add.i.i10253, i1 false)
+  %772 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %add.i.i.i10255
+  %add.ptr11.i.i.i = getelementptr inbounds i8, ptr %772, i64 16
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr11.i.i.i, i8 0, i64 %add.i.i10253, i1 false)
   %arrayidx.i.i10257 = getelementptr inbounds ptr, ptr %add.ptr11.i.i.i, i64 %bRehash.sroa.21.0.extract.shift.i34.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i10257, align 8
   %773 = load i64, ptr %mnBucketCount.i.i2968, align 8
@@ -18742,11 +18742,11 @@ if.then.i10012:                                   ; preds = %for.inc.i.i10009, %
   %800 = getelementptr inbounds i8, ptr %call.i.i.i.i10018, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %800, i8 -1, i64 15, i1 false), !noalias !566
   store i8 %799, ptr %call.i.i.i.i10018, align 1, !noalias !566
-  %801 = getelementptr i8, ptr %call.i.i.i.i10018, i64 %add.i.i.i.i10016
-  %result.0.i.i.i10019 = getelementptr i8, ptr %801, i64 16
+  %801 = getelementptr inbounds i8, ptr %call.i.i.i.i10018, i64 %add.i.i.i.i10016
+  %result.0.i.i.i10019 = getelementptr inbounds i8, ptr %801, i64 16
   %802 = trunc nuw nsw i64 %792 to i32
   store i32 %802, ptr %result.0.i.i.i10019, align 4, !noalias !566
-  %mpNext.i16.i10020 = getelementptr i8, ptr %801, i64 24
+  %mpNext.i16.i10020 = getelementptr inbounds i8, ptr %801, i64 24
   store ptr null, ptr %mpNext.i16.i10020, align 8, !noalias !566
   %803 = load i64, ptr %mnElementCount.i.i2978, align 8, !noalias !569
   %conv2.i21.i10023 = trunc i64 %803 to i32
@@ -18774,9 +18774,9 @@ if.then.i33.i10035:                               ; preds = %call.i22.i.noexc100
   %805 = getelementptr inbounds i8, ptr %call.i.i.i10282, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %805, i8 -1, i64 15, i1 false)
   store i8 %804, ptr %call.i.i.i10282, align 1
-  %806 = getelementptr i8, ptr %call.i.i.i10282, i64 %add.i.i.i10279
-  %add.ptr11.i.i.i10283 = getelementptr i8, ptr %806, i64 16
-  call void @llvm.memset.p0.i64(ptr align 8 %add.ptr11.i.i.i10283, i8 0, i64 %add.i.i10277, i1 false)
+  %806 = getelementptr inbounds i8, ptr %call.i.i.i10282, i64 %add.i.i.i10279
+  %add.ptr11.i.i.i10283 = getelementptr inbounds i8, ptr %806, i64 16
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr11.i.i.i10283, i8 0, i64 %add.i.i10277, i1 false)
   %arrayidx.i.i10284 = getelementptr inbounds ptr, ptr %add.ptr11.i.i.i10283, i64 %bRehash.sroa.21.0.extract.shift.i34.i10036
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i10284, align 8
   %807 = load i64, ptr %mnBucketCount.i.i2973, align 8
@@ -31887,7 +31887,7 @@ for.body.i.i.i.i9517:                             ; preds = %invoke.cont2514, %f
 _ZNK5eastl14hash_code_baseINS_4pairIiPKcEENS1_IKS4_bEENS_9use_firstIS6_EEZ8TestHashvE11name_equalsNS_4hashIS4_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS5_mPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i.i: ; preds = %for.body.i.i.i.i9517
   %2597 = getelementptr i8, ptr %pNode.addr.03.i.i.i.i, i64 8
   %pNode.addr.0.val5.i.i.i.i = load ptr, ptr %2597, align 8, !noalias !1018
-  %call.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(16) @.str.130, ptr noundef nonnull dereferenceable(1) %pNode.addr.0.val5.i.i.i.i) #24, !noalias !1018
+  %call.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(16) @.str.130, ptr noundef nonnull readonly dereferenceable(1) %pNode.addr.0.val5.i.i.i.i) #24, !noalias !1018
   %cmp4.i.i.i.i.i.i9538 = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %cmp4.i.i.i.i.i.i9538, label %invoke.cont2520, label %for.inc.i.i.i.i9518
 
@@ -32055,7 +32055,7 @@ for.body.i.i9558:                                 ; preds = %invoke.cont2520, %f
 _ZNK5eastl14hash_code_baseINS_4pairIiPKcEENS1_IKS4_bEENS_9use_firstIS6_EEZ8TestHashvE11name_equalsNS_4hashIS4_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS5_mPNS_9hash_nodeIS6_Lb0EEE.exit.i.i: ; preds = %for.body.i.i9558
   %2620 = getelementptr i8, ptr %pNode.addr.03.i.i, i64 8
   %pNode.addr.0.val5.i.i = load ptr, ptr %2620, align 8, !noalias !1026
-  %call.i.i.i.i9566 = call i32 @strcmp(ptr noundef nonnull dereferenceable(16) @.str.130, ptr noundef nonnull dereferenceable(1) %pNode.addr.0.val5.i.i) #24, !noalias !1026
+  %call.i.i.i.i9566 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(16) @.str.130, ptr noundef nonnull readonly dereferenceable(1) %pNode.addr.0.val5.i.i) #24, !noalias !1026
   %cmp4.i.i.i.i9567 = icmp eq i32 %call.i.i.i.i9566, 0
   br i1 %cmp4.i.i.i.i9567, label %invoke.cont2522.loopexit, label %for.inc.i.i9559
 

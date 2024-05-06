@@ -33,7 +33,7 @@ entry:
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_SignFinal(ptr noundef %ctx, ptr noundef %sig, ptr nocapture noundef writeonly %out_sig_len, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_SignFinal(ptr noundef %ctx, ptr noundef %sig, ptr nocapture noundef writeonly %out_sig_len, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %m = alloca [64 x i8], align 16
   %m_len = alloca i32, align 4

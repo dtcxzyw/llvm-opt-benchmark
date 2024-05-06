@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [45 x i8] c"\\%c is not a valid character escape sequence\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @df_yylex(ptr noundef %0) local_unnamed_addr #0 {
+define hidden i32 @df_yylex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -418,7 +418,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 141:                                              ; preds = %137
   %142 = load ptr, ptr %0, align 8
   %143 = load ptr, ptr %74, align 8
-  %144 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %143) #31
+  %144 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %143) #31
   %145 = getelementptr inbounds i8, ptr %142, i64 72
   %146 = getelementptr inbounds i8, ptr %142, i64 80
   %147 = load i64, ptr %146, align 8
@@ -431,7 +431,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 150:                                              ; preds = %137
   %151 = load ptr, ptr %0, align 8
   %152 = load ptr, ptr %74, align 8
-  %153 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #31
+  %153 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %152) #31
   %154 = getelementptr inbounds i8, ptr %151, i64 72
   %155 = getelementptr inbounds i8, ptr %151, i64 80
   %156 = load i64, ptr %155, align 8
@@ -447,7 +447,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 161:                                              ; preds = %137
   %162 = load ptr, ptr %0, align 8
   %163 = load ptr, ptr %74, align 8
-  %164 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %163) #31
+  %164 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %163) #31
   %165 = getelementptr inbounds i8, ptr %162, i64 72
   %166 = getelementptr inbounds i8, ptr %162, i64 80
   %167 = load i64, ptr %166, align 8
@@ -463,7 +463,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 172:                                              ; preds = %137
   %173 = load ptr, ptr %0, align 8
   %174 = load ptr, ptr %74, align 8
-  %175 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %174) #31
+  %175 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %174) #31
   %176 = getelementptr inbounds i8, ptr %173, i64 72
   %177 = getelementptr inbounds i8, ptr %173, i64 80
   %178 = load i64, ptr %177, align 8
@@ -479,7 +479,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 183:                                              ; preds = %137
   %184 = load ptr, ptr %0, align 8
   %185 = load ptr, ptr %74, align 8
-  %186 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %185) #31
+  %186 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %185) #31
   %187 = getelementptr inbounds i8, ptr %184, i64 72
   %188 = getelementptr inbounds i8, ptr %184, i64 80
   %189 = load i64, ptr %188, align 8
@@ -495,7 +495,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 194:                                              ; preds = %137
   %195 = load ptr, ptr %0, align 8
   %196 = load ptr, ptr %74, align 8
-  %197 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %196) #31
+  %197 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %196) #31
   %198 = getelementptr inbounds i8, ptr %195, i64 72
   %199 = getelementptr inbounds i8, ptr %195, i64 80
   %200 = load i64, ptr %199, align 8
@@ -511,7 +511,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 205:                                              ; preds = %137
   %206 = load ptr, ptr %0, align 8
   %207 = load ptr, ptr %74, align 8
-  %208 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %207) #31
+  %208 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %207) #31
   %209 = getelementptr inbounds i8, ptr %206, i64 72
   %210 = getelementptr inbounds i8, ptr %206, i64 80
   %211 = load i64, ptr %210, align 8
@@ -527,7 +527,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 216:                                              ; preds = %137
   %217 = load ptr, ptr %0, align 8
   %218 = load ptr, ptr %74, align 8
-  %219 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %218) #31
+  %219 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %218) #31
   %220 = getelementptr inbounds i8, ptr %217, i64 72
   %221 = getelementptr inbounds i8, ptr %217, i64 80
   %222 = load i64, ptr %221, align 8
@@ -543,7 +543,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 227:                                              ; preds = %137
   %228 = load ptr, ptr %0, align 8
   %229 = load ptr, ptr %74, align 8
-  %230 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %229) #31
+  %230 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %229) #31
   %231 = getelementptr inbounds i8, ptr %228, i64 72
   %232 = getelementptr inbounds i8, ptr %228, i64 80
   %233 = load i64, ptr %232, align 8
@@ -559,7 +559,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 238:                                              ; preds = %137
   %239 = load ptr, ptr %0, align 8
   %240 = load ptr, ptr %74, align 8
-  %241 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %240) #31
+  %241 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %240) #31
   %242 = getelementptr inbounds i8, ptr %239, i64 72
   %243 = getelementptr inbounds i8, ptr %239, i64 80
   %244 = load i64, ptr %243, align 8
@@ -575,7 +575,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 249:                                              ; preds = %137
   %250 = load ptr, ptr %0, align 8
   %251 = load ptr, ptr %74, align 8
-  %252 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %251) #31
+  %252 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %251) #31
   %253 = getelementptr inbounds i8, ptr %250, i64 72
   %254 = getelementptr inbounds i8, ptr %250, i64 80
   %255 = load i64, ptr %254, align 8
@@ -591,7 +591,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 260:                                              ; preds = %137
   %261 = load ptr, ptr %0, align 8
   %262 = load ptr, ptr %74, align 8
-  %263 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %262) #31
+  %263 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %262) #31
   %264 = getelementptr inbounds i8, ptr %261, i64 72
   %265 = getelementptr inbounds i8, ptr %261, i64 80
   %266 = load i64, ptr %265, align 8
@@ -607,7 +607,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 271:                                              ; preds = %137
   %272 = load ptr, ptr %0, align 8
   %273 = load ptr, ptr %74, align 8
-  %274 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %273) #31
+  %274 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %273) #31
   %275 = getelementptr inbounds i8, ptr %272, i64 72
   %276 = getelementptr inbounds i8, ptr %272, i64 80
   %277 = load i64, ptr %276, align 8
@@ -623,7 +623,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 282:                                              ; preds = %137
   %283 = load ptr, ptr %0, align 8
   %284 = load ptr, ptr %74, align 8
-  %285 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %284) #31
+  %285 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %284) #31
   %286 = getelementptr inbounds i8, ptr %283, i64 72
   %287 = getelementptr inbounds i8, ptr %283, i64 80
   %288 = load i64, ptr %287, align 8
@@ -639,7 +639,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 293:                                              ; preds = %137
   %294 = load ptr, ptr %0, align 8
   %295 = load ptr, ptr %74, align 8
-  %296 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %295) #31
+  %296 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %295) #31
   %297 = getelementptr inbounds i8, ptr %294, i64 72
   %298 = getelementptr inbounds i8, ptr %294, i64 80
   %299 = load i64, ptr %298, align 8
@@ -655,7 +655,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 304:                                              ; preds = %137
   %305 = load ptr, ptr %0, align 8
   %306 = load ptr, ptr %74, align 8
-  %307 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %306) #31
+  %307 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %306) #31
   %308 = getelementptr inbounds i8, ptr %305, i64 72
   %309 = getelementptr inbounds i8, ptr %305, i64 80
   %310 = load i64, ptr %309, align 8
@@ -671,7 +671,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 315:                                              ; preds = %137
   %316 = load ptr, ptr %0, align 8
   %317 = load ptr, ptr %74, align 8
-  %318 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %317) #31
+  %318 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %317) #31
   %319 = getelementptr inbounds i8, ptr %316, i64 72
   %320 = getelementptr inbounds i8, ptr %316, i64 80
   %321 = load i64, ptr %320, align 8
@@ -687,7 +687,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 326:                                              ; preds = %137
   %327 = load ptr, ptr %0, align 8
   %328 = load ptr, ptr %74, align 8
-  %329 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %328) #31
+  %329 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %328) #31
   %330 = getelementptr inbounds i8, ptr %327, i64 72
   %331 = getelementptr inbounds i8, ptr %327, i64 80
   %332 = load i64, ptr %331, align 8
@@ -703,7 +703,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 337:                                              ; preds = %137
   %338 = load ptr, ptr %0, align 8
   %339 = load ptr, ptr %74, align 8
-  %340 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %339) #31
+  %340 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %339) #31
   %341 = getelementptr inbounds i8, ptr %338, i64 72
   %342 = getelementptr inbounds i8, ptr %338, i64 80
   %343 = load i64, ptr %342, align 8
@@ -719,7 +719,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 348:                                              ; preds = %137
   %349 = load ptr, ptr %0, align 8
   %350 = load ptr, ptr %74, align 8
-  %351 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %350) #31
+  %351 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %350) #31
   %352 = getelementptr inbounds i8, ptr %349, i64 72
   %353 = getelementptr inbounds i8, ptr %349, i64 80
   %354 = load i64, ptr %353, align 8
@@ -735,7 +735,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 359:                                              ; preds = %137
   %360 = load ptr, ptr %0, align 8
   %361 = load ptr, ptr %74, align 8
-  %362 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %361) #31
+  %362 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %361) #31
   %363 = getelementptr inbounds i8, ptr %360, i64 72
   %364 = getelementptr inbounds i8, ptr %360, i64 80
   %365 = load i64, ptr %364, align 8
@@ -751,7 +751,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 370:                                              ; preds = %137
   %371 = load ptr, ptr %0, align 8
   %372 = load ptr, ptr %74, align 8
-  %373 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %372) #31
+  %373 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %372) #31
   %374 = getelementptr inbounds i8, ptr %371, i64 72
   %375 = getelementptr inbounds i8, ptr %371, i64 80
   %376 = load i64, ptr %375, align 8
@@ -767,7 +767,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 381:                                              ; preds = %137
   %382 = load ptr, ptr %0, align 8
   %383 = load ptr, ptr %74, align 8
-  %384 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %383) #31
+  %384 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %383) #31
   %385 = getelementptr inbounds i8, ptr %382, i64 72
   %386 = getelementptr inbounds i8, ptr %382, i64 80
   %387 = load i64, ptr %386, align 8
@@ -783,7 +783,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 392:                                              ; preds = %137
   %393 = load ptr, ptr %0, align 8
   %394 = load ptr, ptr %74, align 8
-  %395 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %394) #31
+  %395 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %394) #31
   %396 = getelementptr inbounds i8, ptr %393, i64 72
   %397 = getelementptr inbounds i8, ptr %393, i64 80
   %398 = load i64, ptr %397, align 8
@@ -799,7 +799,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 403:                                              ; preds = %137
   %404 = load ptr, ptr %0, align 8
   %405 = load ptr, ptr %74, align 8
-  %406 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %405) #31
+  %406 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %405) #31
   %407 = getelementptr inbounds i8, ptr %404, i64 72
   %408 = getelementptr inbounds i8, ptr %404, i64 80
   %409 = load i64, ptr %408, align 8
@@ -815,7 +815,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 414:                                              ; preds = %137
   %415 = load ptr, ptr %0, align 8
   %416 = load ptr, ptr %74, align 8
-  %417 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %416) #31
+  %417 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %416) #31
   %418 = getelementptr inbounds i8, ptr %415, i64 72
   %419 = getelementptr inbounds i8, ptr %415, i64 80
   %420 = load i64, ptr %419, align 8
@@ -831,7 +831,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 425:                                              ; preds = %137
   %426 = load ptr, ptr %0, align 8
   %427 = load ptr, ptr %74, align 8
-  %428 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %427) #31
+  %428 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %427) #31
   %429 = getelementptr inbounds i8, ptr %426, i64 72
   %430 = getelementptr inbounds i8, ptr %426, i64 80
   %431 = load i64, ptr %430, align 8
@@ -847,7 +847,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 436:                                              ; preds = %137
   %437 = load ptr, ptr %0, align 8
   %438 = load ptr, ptr %74, align 8
-  %439 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %438) #31
+  %439 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %438) #31
   %440 = getelementptr inbounds i8, ptr %437, i64 72
   %441 = getelementptr inbounds i8, ptr %437, i64 80
   %442 = load i64, ptr %441, align 8
@@ -863,7 +863,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 447:                                              ; preds = %137
   %448 = load ptr, ptr %0, align 8
   %449 = load ptr, ptr %74, align 8
-  %450 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %449) #31
+  %450 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %449) #31
   %451 = getelementptr inbounds i8, ptr %448, i64 72
   %452 = getelementptr inbounds i8, ptr %448, i64 80
   %453 = load i64, ptr %452, align 8
@@ -879,7 +879,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 458:                                              ; preds = %137
   %459 = load ptr, ptr %0, align 8
   %460 = load ptr, ptr %74, align 8
-  %461 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %460) #31
+  %461 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %460) #31
   %462 = getelementptr inbounds i8, ptr %459, i64 72
   %463 = getelementptr inbounds i8, ptr %459, i64 80
   %464 = load i64, ptr %463, align 8
@@ -895,7 +895,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 469:                                              ; preds = %137
   %470 = load ptr, ptr %0, align 8
   %471 = load ptr, ptr %74, align 8
-  %472 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %471) #31
+  %472 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %471) #31
   %473 = getelementptr inbounds i8, ptr %470, i64 72
   %474 = getelementptr inbounds i8, ptr %470, i64 80
   %475 = load i64, ptr %474, align 8
@@ -911,7 +911,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 480:                                              ; preds = %137
   %481 = load ptr, ptr %0, align 8
   %482 = load ptr, ptr %74, align 8
-  %483 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %482) #31
+  %483 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %482) #31
   %484 = getelementptr inbounds i8, ptr %481, i64 72
   %485 = getelementptr inbounds i8, ptr %481, i64 80
   %486 = load i64, ptr %485, align 8
@@ -927,7 +927,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 491:                                              ; preds = %137
   %492 = load ptr, ptr %0, align 8
   %493 = load ptr, ptr %74, align 8
-  %494 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %493) #31
+  %494 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %493) #31
   %495 = getelementptr inbounds i8, ptr %492, i64 72
   %496 = getelementptr inbounds i8, ptr %492, i64 80
   %497 = load i64, ptr %496, align 8
@@ -943,7 +943,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 502:                                              ; preds = %137
   %503 = load ptr, ptr %0, align 8
   %504 = load ptr, ptr %74, align 8
-  %505 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %504) #31
+  %505 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %504) #31
   %506 = getelementptr inbounds i8, ptr %503, i64 72
   %507 = getelementptr inbounds i8, ptr %503, i64 80
   %508 = load i64, ptr %507, align 8
@@ -959,7 +959,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 513:                                              ; preds = %137
   %514 = load ptr, ptr %0, align 8
   %515 = load ptr, ptr %74, align 8
-  %516 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %515) #31
+  %516 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %515) #31
   %517 = getelementptr inbounds i8, ptr %514, i64 72
   %518 = getelementptr inbounds i8, ptr %514, i64 80
   %519 = load i64, ptr %518, align 8
@@ -975,7 +975,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 524:                                              ; preds = %137
   %525 = load ptr, ptr %0, align 8
   %526 = load ptr, ptr %74, align 8
-  %527 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %526) #31
+  %527 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %526) #31
   %528 = getelementptr inbounds i8, ptr %525, i64 72
   %529 = getelementptr inbounds i8, ptr %525, i64 80
   %530 = load i64, ptr %529, align 8
@@ -991,7 +991,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 535:                                              ; preds = %137
   %536 = load ptr, ptr %0, align 8
   %537 = load ptr, ptr %74, align 8
-  %538 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %537) #31
+  %538 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %537) #31
   %539 = getelementptr inbounds i8, ptr %536, i64 72
   %540 = getelementptr inbounds i8, ptr %536, i64 80
   %541 = load i64, ptr %540, align 8
@@ -1007,7 +1007,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 546:                                              ; preds = %137
   %547 = load ptr, ptr %0, align 8
   %548 = load ptr, ptr %74, align 8
-  %549 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %548) #31
+  %549 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %548) #31
   %550 = getelementptr inbounds i8, ptr %547, i64 72
   %551 = getelementptr inbounds i8, ptr %547, i64 80
   %552 = load i64, ptr %551, align 8
@@ -1023,7 +1023,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 557:                                              ; preds = %137
   %558 = load ptr, ptr %0, align 8
   %559 = load ptr, ptr %74, align 8
-  %560 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %559) #31
+  %560 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %559) #31
   %561 = getelementptr inbounds i8, ptr %558, i64 72
   %562 = getelementptr inbounds i8, ptr %558, i64 80
   %563 = load i64, ptr %562, align 8
@@ -1039,7 +1039,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 568:                                              ; preds = %137
   %569 = load ptr, ptr %0, align 8
   %570 = load ptr, ptr %74, align 8
-  %571 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %570) #31
+  %571 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %570) #31
   %572 = getelementptr inbounds i8, ptr %569, i64 72
   %573 = getelementptr inbounds i8, ptr %569, i64 80
   %574 = load i64, ptr %573, align 8
@@ -1055,7 +1055,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 579:                                              ; preds = %137
   %580 = load ptr, ptr %0, align 8
   %581 = load ptr, ptr %74, align 8
-  %582 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %581) #31
+  %582 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %581) #31
   %583 = getelementptr inbounds i8, ptr %580, i64 72
   %584 = getelementptr inbounds i8, ptr %580, i64 80
   %585 = load i64, ptr %584, align 8
@@ -1071,7 +1071,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 590:                                              ; preds = %137
   %591 = load ptr, ptr %0, align 8
   %592 = load ptr, ptr %74, align 8
-  %593 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %592) #31
+  %593 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %592) #31
   %594 = getelementptr inbounds i8, ptr %591, i64 72
   %595 = getelementptr inbounds i8, ptr %591, i64 80
   %596 = load i64, ptr %595, align 8
@@ -1087,7 +1087,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 601:                                              ; preds = %137
   %602 = load ptr, ptr %0, align 8
   %603 = load ptr, ptr %74, align 8
-  %604 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %603) #31
+  %604 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %603) #31
   %605 = getelementptr inbounds i8, ptr %602, i64 72
   %606 = getelementptr inbounds i8, ptr %602, i64 80
   %607 = load i64, ptr %606, align 8
@@ -1103,7 +1103,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 612:                                              ; preds = %137
   %613 = load ptr, ptr %0, align 8
   %614 = load ptr, ptr %74, align 8
-  %615 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %614) #31
+  %615 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %614) #31
   %616 = getelementptr inbounds i8, ptr %613, i64 72
   %617 = getelementptr inbounds i8, ptr %613, i64 80
   %618 = load i64, ptr %617, align 8
@@ -1119,7 +1119,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 623:                                              ; preds = %137
   %624 = load ptr, ptr %0, align 8
   %625 = load ptr, ptr %74, align 8
-  %626 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %625) #31
+  %626 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %625) #31
   %627 = getelementptr inbounds i8, ptr %624, i64 72
   %628 = getelementptr inbounds i8, ptr %624, i64 80
   %629 = load i64, ptr %628, align 8
@@ -1135,7 +1135,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 634:                                              ; preds = %137
   %635 = load ptr, ptr %0, align 8
   %636 = load ptr, ptr %74, align 8
-  %637 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %636) #31
+  %637 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %636) #31
   %638 = getelementptr inbounds i8, ptr %635, i64 72
   %639 = getelementptr inbounds i8, ptr %635, i64 80
   %640 = load i64, ptr %639, align 8
@@ -1151,7 +1151,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 645:                                              ; preds = %137
   %646 = load ptr, ptr %0, align 8
   %647 = load ptr, ptr %74, align 8
-  %648 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %647) #31
+  %648 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %647) #31
   %649 = getelementptr inbounds i8, ptr %646, i64 72
   %650 = getelementptr inbounds i8, ptr %646, i64 80
   %651 = load i64, ptr %650, align 8
@@ -1167,7 +1167,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 656:                                              ; preds = %137
   %657 = load ptr, ptr %0, align 8
   %658 = load ptr, ptr %74, align 8
-  %659 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %658) #31
+  %659 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %658) #31
   %660 = getelementptr inbounds i8, ptr %657, i64 72
   %661 = getelementptr inbounds i8, ptr %657, i64 80
   %662 = load i64, ptr %661, align 8
@@ -1183,7 +1183,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 667:                                              ; preds = %137
   %668 = load ptr, ptr %0, align 8
   %669 = load ptr, ptr %74, align 8
-  %670 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %669) #31
+  %670 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %669) #31
   %671 = getelementptr inbounds i8, ptr %668, i64 72
   %672 = getelementptr inbounds i8, ptr %668, i64 80
   %673 = load i64, ptr %672, align 8
@@ -1200,7 +1200,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 5, ptr %71, align 4
   %679 = load ptr, ptr %0, align 8
   %680 = load ptr, ptr %74, align 8
-  %681 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %680) #31
+  %681 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %680) #31
   %682 = getelementptr inbounds i8, ptr %679, i64 72
   %683 = getelementptr inbounds i8, ptr %679, i64 80
   %684 = load i64, ptr %683, align 8
@@ -1217,7 +1217,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 1, ptr %71, align 4
   %690 = load ptr, ptr %0, align 8
   %691 = load ptr, ptr %74, align 8
-  %692 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %691) #31
+  %692 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %691) #31
   %693 = getelementptr inbounds i8, ptr %690, i64 72
   %694 = getelementptr inbounds i8, ptr %690, i64 80
   %695 = load i64, ptr %694, align 8
@@ -1233,7 +1233,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 700:                                              ; preds = %137
   %701 = load ptr, ptr %0, align 8
   %702 = load ptr, ptr %74, align 8
-  %703 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %702) #31
+  %703 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %702) #31
   %704 = getelementptr inbounds i8, ptr %701, i64 72
   %705 = getelementptr inbounds i8, ptr %701, i64 80
   %706 = load i64, ptr %705, align 8
@@ -1254,7 +1254,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 3, ptr %71, align 4
   %716 = load ptr, ptr %0, align 8
   %717 = load ptr, ptr %74, align 8
-  %718 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %717) #31
+  %718 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %717) #31
   %719 = getelementptr inbounds i8, ptr %716, i64 72
   %720 = getelementptr inbounds i8, ptr %716, i64 80
   %721 = load i64, ptr %720, align 8
@@ -1270,7 +1270,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 726:                                              ; preds = %137
   %727 = load ptr, ptr %0, align 8
   %728 = load ptr, ptr %74, align 8
-  %729 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %728) #31
+  %729 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %728) #31
   %730 = getelementptr inbounds i8, ptr %727, i64 72
   %731 = getelementptr inbounds i8, ptr %727, i64 80
   %732 = load i64, ptr %731, align 8
@@ -1286,7 +1286,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 737:                                              ; preds = %137
   %738 = load ptr, ptr %0, align 8
   %739 = load ptr, ptr %74, align 8
-  %740 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %739) #31
+  %740 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %739) #31
   %741 = getelementptr inbounds i8, ptr %738, i64 72
   %742 = getelementptr inbounds i8, ptr %738, i64 80
   %743 = load i64, ptr %742, align 8
@@ -1303,7 +1303,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 1, ptr %71, align 4
   %749 = load ptr, ptr %0, align 8
   %750 = load ptr, ptr %74, align 8
-  %751 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %750) #31
+  %751 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %750) #31
   %752 = getelementptr inbounds i8, ptr %749, i64 72
   %753 = getelementptr inbounds i8, ptr %749, i64 80
   %754 = load i64, ptr %753, align 8
@@ -1319,7 +1319,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 759:                                              ; preds = %137
   %760 = load ptr, ptr %0, align 8
   %761 = load ptr, ptr %74, align 8
-  %762 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %761) #31
+  %762 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %761) #31
   %763 = getelementptr inbounds i8, ptr %760, i64 72
   %764 = getelementptr inbounds i8, ptr %760, i64 80
   %765 = load i64, ptr %764, align 8
@@ -1339,7 +1339,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 7, ptr %71, align 4
   %774 = load ptr, ptr %0, align 8
   %775 = load ptr, ptr %74, align 8
-  %776 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %775) #31
+  %776 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %775) #31
   %777 = getelementptr inbounds i8, ptr %774, i64 72
   %778 = getelementptr inbounds i8, ptr %774, i64 80
   %779 = load i64, ptr %778, align 8
@@ -1377,7 +1377,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 796:                                              ; preds = %137
   %797 = load ptr, ptr %0, align 8
   %798 = load ptr, ptr %74, align 8
-  %799 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %798) #31
+  %799 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %798) #31
   %800 = getelementptr inbounds i8, ptr %797, i64 64
   %801 = load i64, ptr %800, align 8
   %802 = add i64 %801, %799
@@ -1408,7 +1408,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 1, ptr %71, align 4
   %820 = load ptr, ptr %0, align 8
   %821 = load ptr, ptr %74, align 8
-  %822 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %821) #31
+  %822 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %821) #31
   %823 = getelementptr inbounds i8, ptr %820, i64 64
   %824 = load i64, ptr %823, align 8
   %825 = add i64 %824, %822
@@ -1435,7 +1435,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 838:                                              ; preds = %137
   %839 = load ptr, ptr %0, align 8
   %840 = load ptr, ptr %74, align 8
-  %841 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %840) #31
+  %841 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %840) #31
   %842 = getelementptr inbounds i8, ptr %839, i64 64
   %843 = load i64, ptr %842, align 8
   %844 = add i64 %843, %841
@@ -1485,14 +1485,14 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br label %.loopexit
 
 877:                                              ; preds = %859
-  %878 = trunc i64 %862 to i8
+  %878 = trunc nuw i64 %862 to i8
   %879 = tail call fastcc ptr @g_string_append_c_inline(ptr noundef %866, i8 noundef signext %878)
   br label %.backedge1390
 
 880:                                              ; preds = %137
   %881 = load ptr, ptr %0, align 8
   %882 = load ptr, ptr %74, align 8
-  %883 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %882) #31
+  %883 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %882) #31
   %884 = getelementptr inbounds i8, ptr %881, i64 64
   %885 = load i64, ptr %884, align 8
   %886 = add i64 %885, %883
@@ -1531,7 +1531,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 910:                                              ; preds = %137
   %911 = load ptr, ptr %0, align 8
   %912 = load ptr, ptr %74, align 8
-  %913 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %912) #31
+  %913 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %912) #31
   %914 = getelementptr inbounds i8, ptr %911, i64 64
   %915 = load i64, ptr %914, align 8
   %916 = add i64 %915, %913
@@ -1573,7 +1573,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 940:                                              ; preds = %137
   %941 = load ptr, ptr %0, align 8
   %942 = load ptr, ptr %74, align 8
-  %943 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %942) #31
+  %943 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %942) #31
   %944 = getelementptr inbounds i8, ptr %941, i64 64
   %945 = load i64, ptr %944, align 8
   %946 = add i64 %945, %943
@@ -1615,7 +1615,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 970:                                              ; preds = %137
   %971 = load ptr, ptr %0, align 8
   %972 = load ptr, ptr %74, align 8
-  %973 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %972) #31
+  %973 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %972) #31
   %974 = getelementptr inbounds i8, ptr %971, i64 64
   %975 = load i64, ptr %974, align 8
   %976 = add i64 %975, %973
@@ -1662,7 +1662,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1002:                                             ; preds = %137
   %1003 = load ptr, ptr %0, align 8
   %1004 = load ptr, ptr %74, align 8
-  %1005 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1004) #31
+  %1005 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1004) #31
   %1006 = getelementptr inbounds i8, ptr %1003, i64 64
   %1007 = load i64, ptr %1006, align 8
   %1008 = add i64 %1007, %1005
@@ -1685,7 +1685,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 9, ptr %71, align 4
   %1020 = load ptr, ptr %0, align 8
   %1021 = load ptr, ptr %74, align 8
-  %1022 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1021) #31
+  %1022 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1021) #31
   %1023 = getelementptr inbounds i8, ptr %1020, i64 72
   %1024 = getelementptr inbounds i8, ptr %1020, i64 80
   %1025 = load i64, ptr %1024, align 8
@@ -1706,7 +1706,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1034:                                             ; preds = %137
   %1035 = load ptr, ptr %0, align 8
   %1036 = load ptr, ptr %74, align 8
-  %1037 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1036) #31
+  %1037 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1036) #31
   %1038 = getelementptr inbounds i8, ptr %1035, i64 64
   %1039 = load i64, ptr %1038, align 8
   %1040 = add i64 %1039, %1037
@@ -1737,7 +1737,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 1, ptr %71, align 4
   %1058 = load ptr, ptr %0, align 8
   %1059 = load ptr, ptr %74, align 8
-  %1060 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1059) #31
+  %1060 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1059) #31
   %1061 = getelementptr inbounds i8, ptr %1058, i64 64
   %1062 = load i64, ptr %1061, align 8
   %1063 = add i64 %1062, %1060
@@ -1756,7 +1756,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1073 = load ptr, ptr %0, align 8
   %1074 = getelementptr inbounds i8, ptr %1073, i64 40
   %1075 = load ptr, ptr %1074, align 8
-  %1076 = tail call fastcc i32 @set_lval_charconst(ptr noundef %1073, ptr noundef %1075), !range !7
+  %1076 = tail call fastcc i32 @set_lval_charconst(ptr noundef %1073, ptr noundef %1075)
   %1077 = load ptr, ptr %0, align 8
   %1078 = getelementptr inbounds i8, ptr %1077, i64 40
   store ptr null, ptr %1078, align 8
@@ -1768,7 +1768,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1081:                                             ; preds = %137
   %1082 = load ptr, ptr %0, align 8
   %1083 = load ptr, ptr %74, align 8
-  %1084 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1083) #31
+  %1084 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1083) #31
   %1085 = getelementptr inbounds i8, ptr %1082, i64 64
   %1086 = load i64, ptr %1085, align 8
   %1087 = add i64 %1086, %1084
@@ -1790,7 +1790,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1098:                                             ; preds = %137
   %1099 = load ptr, ptr %0, align 8
   %1100 = load ptr, ptr %74, align 8
-  %1101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1100) #31
+  %1101 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1100) #31
   %1102 = getelementptr inbounds i8, ptr %1099, i64 64
   %1103 = load i64, ptr %1102, align 8
   %1104 = add i64 %1103, %1101
@@ -1812,7 +1812,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1115:                                             ; preds = %137
   %1116 = load ptr, ptr %0, align 8
   %1117 = load ptr, ptr %74, align 8
-  %1118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1117) #31
+  %1118 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1117) #31
   %1119 = getelementptr inbounds i8, ptr %1116, i64 72
   %1120 = getelementptr inbounds i8, ptr %1116, i64 80
   %1121 = load i64, ptr %1120, align 8
@@ -1828,7 +1828,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1126:                                             ; preds = %137
   %1127 = load ptr, ptr %0, align 8
   %1128 = load ptr, ptr %74, align 8
-  %1129 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1128) #31
+  %1129 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1128) #31
   %1130 = getelementptr inbounds i8, ptr %1127, i64 72
   %1131 = getelementptr inbounds i8, ptr %1127, i64 80
   %1132 = load i64, ptr %1131, align 8
@@ -1844,7 +1844,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1137:                                             ; preds = %137
   %1138 = load ptr, ptr %0, align 8
   %1139 = load ptr, ptr %74, align 8
-  %1140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1139) #31
+  %1140 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1139) #31
   %1141 = getelementptr inbounds i8, ptr %1138, i64 72
   %1142 = getelementptr inbounds i8, ptr %1138, i64 80
   %1143 = load i64, ptr %1142, align 8
@@ -1860,7 +1860,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1148:                                             ; preds = %137
   %1149 = load ptr, ptr %0, align 8
   %1150 = load ptr, ptr %74, align 8
-  %1151 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1150) #31
+  %1151 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1150) #31
   %1152 = getelementptr inbounds i8, ptr %1149, i64 72
   %1153 = getelementptr inbounds i8, ptr %1149, i64 80
   %1154 = load i64, ptr %1153, align 8
@@ -1883,13 +1883,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br label %.loopexit
 
 1165:                                             ; preds = %1148
-  %1166 = tail call fastcc i32 @set_lval_integer(ptr noundef %1162, ptr noundef %1163, ptr noundef %1163), !range !8
+  %1166 = tail call fastcc i32 @set_lval_integer(ptr noundef %1162, ptr noundef %1163, ptr noundef %1163)
   br label %.loopexit
 
 1167:                                             ; preds = %137
   %1168 = load ptr, ptr %0, align 8
   %1169 = load ptr, ptr %74, align 8
-  %1170 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1169) #31
+  %1170 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1169) #31
   %1171 = getelementptr inbounds i8, ptr %1168, i64 72
   %1172 = getelementptr inbounds i8, ptr %1168, i64 80
   %1173 = load i64, ptr %1172, align 8
@@ -1899,13 +1899,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1170, ptr %1172, align 8
   %1176 = load ptr, ptr %0, align 8
   %1177 = load ptr, ptr %74, align 8
-  %1178 = tail call fastcc i32 @set_lval_integer(ptr noundef %1176, ptr noundef %1177, ptr noundef %1177), !range !8
+  %1178 = tail call fastcc i32 @set_lval_integer(ptr noundef %1176, ptr noundef %1177, ptr noundef %1177)
   br label %.loopexit
 
 1179:                                             ; preds = %137
   %1180 = load ptr, ptr %0, align 8
   %1181 = load ptr, ptr %74, align 8
-  %1182 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1181) #31
+  %1182 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1181) #31
   %1183 = getelementptr inbounds i8, ptr %1180, i64 72
   %1184 = getelementptr inbounds i8, ptr %1180, i64 80
   %1185 = load i64, ptr %1184, align 8
@@ -1915,13 +1915,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1182, ptr %1184, align 8
   %1188 = load ptr, ptr %0, align 8
   %1189 = load ptr, ptr %74, align 8
-  %1190 = tail call fastcc i32 @set_lval_float(ptr noundef %1188, ptr noundef %1189, ptr noundef %1189), !range !9
+  %1190 = tail call fastcc i32 @set_lval_float(ptr noundef %1188, ptr noundef %1189, ptr noundef %1189)
   br label %.loopexit
 
 1191:                                             ; preds = %137
   %1192 = load ptr, ptr %0, align 8
   %1193 = load ptr, ptr %74, align 8
-  %1194 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1193) #31
+  %1194 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1193) #31
   %1195 = getelementptr inbounds i8, ptr %1192, i64 72
   %1196 = getelementptr inbounds i8, ptr %1192, i64 80
   %1197 = load i64, ptr %1196, align 8
@@ -1944,13 +1944,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br label %.loopexit
 
 1208:                                             ; preds = %1191
-  %1209 = tail call fastcc i32 @set_lval_float(ptr noundef %1205, ptr noundef %1206, ptr noundef %1206), !range !9
+  %1209 = tail call fastcc i32 @set_lval_float(ptr noundef %1205, ptr noundef %1206, ptr noundef %1206)
   br label %.loopexit
 
 1210:                                             ; preds = %137
   %1211 = load ptr, ptr %0, align 8
   %1212 = load ptr, ptr %74, align 8
-  %1213 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1212) #31
+  %1213 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1212) #31
   %1214 = getelementptr inbounds i8, ptr %1211, i64 72
   %1215 = getelementptr inbounds i8, ptr %1211, i64 80
   %1216 = load i64, ptr %1215, align 8
@@ -1960,13 +1960,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1213, ptr %1215, align 8
   %1219 = load ptr, ptr %0, align 8
   %1220 = load ptr, ptr %74, align 8
-  %1221 = tail call fastcc i32 @set_lval_float(ptr noundef %1219, ptr noundef %1220, ptr noundef %1220), !range !9
+  %1221 = tail call fastcc i32 @set_lval_float(ptr noundef %1219, ptr noundef %1220, ptr noundef %1220)
   br label %.loopexit
 
 1222:                                             ; preds = %137
   %1223 = load ptr, ptr %0, align 8
   %1224 = load ptr, ptr %74, align 8
-  %1225 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1224) #31
+  %1225 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1224) #31
   %1226 = getelementptr inbounds i8, ptr %1223, i64 72
   %1227 = getelementptr inbounds i8, ptr %1223, i64 80
   %1228 = load i64, ptr %1227, align 8
@@ -1983,7 +1983,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1234:                                             ; preds = %137
   %1235 = load ptr, ptr %0, align 8
   %1236 = load ptr, ptr %74, align 8
-  %1237 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1236) #31
+  %1237 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1236) #31
   %1238 = getelementptr inbounds i8, ptr %1235, i64 72
   %1239 = getelementptr inbounds i8, ptr %1235, i64 80
   %1240 = load i64, ptr %1239, align 8
@@ -2009,7 +2009,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1250:                                             ; preds = %137
   %1251 = load ptr, ptr %0, align 8
   %1252 = load ptr, ptr %74, align 8
-  %1253 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1252) #31
+  %1253 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1252) #31
   %1254 = getelementptr inbounds i8, ptr %1251, i64 72
   %1255 = getelementptr inbounds i8, ptr %1251, i64 80
   %1256 = load i64, ptr %1255, align 8
@@ -2026,7 +2026,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1262:                                             ; preds = %137
   %1263 = load ptr, ptr %0, align 8
   %1264 = load ptr, ptr %74, align 8
-  %1265 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1264) #31
+  %1265 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1264) #31
   %1266 = getelementptr inbounds i8, ptr %1263, i64 72
   %1267 = getelementptr inbounds i8, ptr %1263, i64 80
   %1268 = load i64, ptr %1267, align 8
@@ -2043,7 +2043,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1274:                                             ; preds = %137
   %1275 = load ptr, ptr %0, align 8
   %1276 = load ptr, ptr %74, align 8
-  %1277 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1276) #31
+  %1277 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1276) #31
   %1278 = getelementptr inbounds i8, ptr %1275, i64 72
   %1279 = getelementptr inbounds i8, ptr %1275, i64 80
   %1280 = load i64, ptr %1279, align 8
@@ -2059,7 +2059,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1285:                                             ; preds = %137
   %1286 = load ptr, ptr %0, align 8
   %1287 = load ptr, ptr %74, align 8
-  %1288 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1287) #31
+  %1288 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1287) #31
   %1289 = getelementptr inbounds i8, ptr %1286, i64 72
   %1290 = getelementptr inbounds i8, ptr %1286, i64 80
   %1291 = load i64, ptr %1290, align 8
@@ -2093,7 +2093,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1309:                                             ; preds = %137
   %1310 = load ptr, ptr %0, align 8
   %1311 = load ptr, ptr %74, align 8
-  %1312 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1311) #31
+  %1312 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1311) #31
   %1313 = getelementptr inbounds i8, ptr %1310, i64 72
   %1314 = getelementptr inbounds i8, ptr %1310, i64 80
   %1315 = load i64, ptr %1314, align 8
@@ -2109,7 +2109,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1320:                                             ; preds = %137
   %1321 = load ptr, ptr %0, align 8
   %1322 = load ptr, ptr %74, align 8
-  %1323 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1322) #31
+  %1323 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1322) #31
   %1324 = getelementptr inbounds i8, ptr %1321, i64 72
   %1325 = getelementptr inbounds i8, ptr %1321, i64 80
   %1326 = load i64, ptr %1325, align 8
@@ -2125,7 +2125,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1331:                                             ; preds = %137
   %1332 = load ptr, ptr %0, align 8
   %1333 = load ptr, ptr %74, align 8
-  %1334 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1333) #31
+  %1334 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1333) #31
   %1335 = getelementptr inbounds i8, ptr %1332, i64 72
   %1336 = getelementptr inbounds i8, ptr %1332, i64 80
   %1337 = load i64, ptr %1336, align 8
@@ -2217,7 +2217,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1395 = getelementptr i8, ptr %1393, i64 %1394
   store ptr %1395, ptr %69, align 8
   %1396 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
-  %1397 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %1396, ptr noundef nonnull %0), !range !10
+  %1397 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %1396, ptr noundef nonnull %0)
   %1398 = load ptr, ptr %74, align 8
   %.not586 = icmp eq i32 %1397, 0
   br i1 %.not586, label %1402, label %1399
@@ -2286,7 +2286,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i8 %1426, ptr %.0131163.i, align 1
   %1428 = add nuw nsw i32 %.0133161.i, 1
   %exitcond.not.i = icmp eq i32 %1428, %1423
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %76, align 8
@@ -2377,7 +2377,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0134.i = add i32 %.pn.i, %1438
   %1468 = icmp slt i32 %.0134.i, 1
-  br i1 %1468, label %.lr.ph168.i, label %._crit_edge169.i, !llvm.loop !12
+  br i1 %1468, label %.lr.ph168.i, label %._crit_edge169.i, !llvm.loop !8
 
 ._crit_edge169.i:                                 ; preds = %1461, %1437
   %1469 = phi ptr [ %1429, %1437 ], [ %1467, %1461 ]
@@ -2416,10 +2416,10 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i8 %1478, ptr %1486, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond179.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond179.not.i, label %.critedge.i, label %1474, !llvm.loop !13
+  br i1 %exitcond179.not.i, label %.critedge.i, label %1474, !llvm.loop !9
 
 .critedge.split.loop.exit.i:                      ; preds = %1474, %1474
-  %1487 = trunc i64 %indvars.iv.i to i32
+  %1487 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1477, %.critedge.split.loop.exit.i
@@ -2509,7 +2509,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1534 = trunc i64 %1533 to i32
   store i32 %1534, ptr %78, align 4
   %1535 = icmp eq i32 %1534, 0
-  br i1 %1535, label %.lr.ph172.i, label %.critedge2.i, !llvm.loop !14
+  br i1 %1535, label %.lr.ph172.i, label %.critedge2.i, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %1523, %.lr.ph172.i, %1503, %1502
   %1536 = phi i32 [ %1516, %1503 ], [ %.1156.i, %1502 ], [ 0, %.lr.ph172.i ], [ %1534, %1523 ]
@@ -2897,7 +2897,7 @@ define internal fastcc noundef zeroext i1 @append_universal_character_name(ptr n
 12:                                               ; preds = %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.031.i
-  br i1 %exitcond.not.i, label %20, label %13, !llvm.loop !15
+  br i1 %exitcond.not.i, label %20, label %13, !llvm.loop !11
 
 13:                                               ; preds = %12, %10
   %indvars.iv.i = phi i64 [ 2, %10 ], [ %indvars.iv.next.i, %12 ]
@@ -2950,7 +2950,7 @@ define internal fastcc noundef zeroext i1 @append_universal_character_name(ptr n
   br label %44
 
 41:                                               ; preds = %29
-  %42 = trunc i64 %23 to i32
+  %42 = trunc nuw nsw i64 %23 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %43 = call ptr @g_string_append_unichar(ptr noundef %1, i32 noundef %42) #32
   br label %44
@@ -3036,7 +3036,7 @@ g_string_append_c_inline.exit:                    ; preds = %30, %24, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_lval_charconst(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = tail call ptr @g_string_free(ptr noundef %1, i32 noundef 0) #32
@@ -3228,7 +3228,7 @@ define internal fastcc noundef i32 @set_lval_charconst(ptr noundef %0, ptr nound
 88:                                               ; preds = %89
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %.031.i.i
-  br i1 %exitcond.not.i.i, label %96, label %89, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %96, label %89, !llvm.loop !11
 
 89:                                               ; preds = %88, %86
   %indvars.iv.i.i = phi i64 [ 2, %86 ], [ %indvars.iv.next.i.i, %88 ]
@@ -3454,7 +3454,7 @@ define internal fastcc void @set_lval_field(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_lval_integer(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 27, 29) i32 @set_lval_integer(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = tail call ptr @__errno_location() #33
@@ -3533,7 +3533,7 @@ parse_unsigned_long_long.exit:                    ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_lval_float(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 29) i32 @set_lval_float(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
@@ -3725,7 +3725,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %47 = getelementptr [7614 x i16], ptr @yy_chk, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not25 = icmp eq i16 %35, %48
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %40, %23
   %.lcssa = phi i64 [ %28, %23 ], [ %46, %40 ]
@@ -3734,7 +3734,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %51 = sext i16 %50 to i32
   %52 = getelementptr i8, ptr %.02328, i64 1
   %exitcond.not = icmp eq ptr %52, %7
-  br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !13
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %1
   %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
@@ -3742,7 +3742,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [878 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -3781,7 +3781,7 @@ define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture nound
   %27 = getelementptr [7614 x i16], ptr @yy_chk, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not18 = icmp eq i16 %21, %28
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i64 [ %15, %11 ], [ %26, %.lr.ph ]
@@ -4805,7 +4805,7 @@ define hidden void @df_yyset_debug(i32 noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @df_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define hidden range(i32 0, 2) i32 @df_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -4833,7 +4833,7 @@ declare ptr @__errno_location() local_unnamed_addr #17
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @df_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 0, 2) i32 @df_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -4978,7 +4978,7 @@ df_yypop_buffer_state.exit:                       ; preds = %23, %42, %45
   %56 = getelementptr ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not21 = icmp eq ptr %57, null
-  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !19
+  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !15
 
 .thread:                                          ; preds = %df_yypop_buffer_state.exit, %df_yy_delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %df_yy_delete_buffer.exit ], [ %54, %df_yypop_buffer_state.exit ]
@@ -5110,16 +5110,12 @@ attributes #35 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 27}
-!8 = !{i32 27, i32 29}
-!9 = !{i32 -1, i32 29}
-!10 = !{i32 -32768, i32 32768}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

@@ -299,7 +299,7 @@ define internal void @serial_base_exit() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef i32 @serial_base_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @serial_base_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @serial_ctrl_type

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PPMD7_kExpEscape = external local_unnamed_addr constant [16 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -115,7 +115,7 @@ Range_Normalize.exit:                             ; preds = %3, %12, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Range_DecodeBit(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 2) i32 @Range_DecodeBit(ptr nocapture noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 14
@@ -172,7 +172,7 @@ Range_Normalize.exit:                             ; preds = %13, %16, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i64], align 16
   %4 = alloca [256 x ptr], align 16
   %5 = alloca i32, align 4

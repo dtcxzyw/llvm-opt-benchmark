@@ -698,7 +698,7 @@ pmix_pointer_array_get_item.exit150.thread:       ; preds = %101, %pmix_pointer_
   %133 = getelementptr inbounds i8, ptr %130, i64 152
   store ptr %132, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %130, i64 144
-  %135 = trunc i64 %indvars.iv to i32
+  %135 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %135, ptr %134, align 8
   %136 = load ptr, ptr @prte_node_pool, align 8
   %137 = call i32 @pmix_pointer_array_set_item(ptr noundef %136, i32 noundef %135, ptr noundef %130) #11

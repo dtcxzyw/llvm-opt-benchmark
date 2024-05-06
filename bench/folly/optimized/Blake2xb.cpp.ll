@@ -160,7 +160,7 @@ lpad:                                             ; preds = %if.then3
 if.else4:                                         ; preds = %if.else
   %outputLengthKnown_5 = getelementptr inbounds i8, ptr %this, i64 448
   store i8 1, ptr %outputLengthKnown_5, align 64, !tbaa !12
-  %1 = trunc i64 %outputLength to i32
+  %1 = trunc nuw i64 %outputLength to i32
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else4, %if.then
@@ -562,7 +562,7 @@ while.body:                                       ; preds = %if.end60, %while.bo
   %conv34 = trunc i64 %div74 to i32
   store i32 %conv34, ptr %nodeOffset, align 8, !tbaa !34
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %storemerge91, i64 64)
-  %conv38 = trunc i64 %.sroa.speculated to i8
+  %conv38 = trunc nuw nsw i64 %.sroa.speculated to i8
   store i8 %conv38, ptr %this, align 64, !tbaa !17
   %8 = load <2 x i64>, ptr %this, align 64, !tbaa !28
   %9 = xor <2 x i64> %8, <i64 7640891576956012808, i64 -4942790177534073029>

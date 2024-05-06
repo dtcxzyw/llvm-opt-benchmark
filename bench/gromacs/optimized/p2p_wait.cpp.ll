@@ -106,7 +106,7 @@ define noundef i32 @_Z9tMPI_TestPP9tmpi_req_PiP12tmpi_status_(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z12tMPI_WaitalliPP9tmpi_req_P12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 25) i32 @_Z12tMPI_WaitalliPP9tmpi_req_P12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %5 = getelementptr inbounds i8, ptr %4, i64 360
   %6 = icmp sgt i32 %0, 0
@@ -226,7 +226,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.lr.ph34.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z12tMPI_TestalliPP9tmpi_req_PiP12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef range(i32 0, 25) i32 @_Z12tMPI_TestalliPP9tmpi_req_PiP12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %6 = getelementptr inbounds i8, ptr %5, i64 360
   %7 = icmp sgt i32 %0, 0
@@ -427,7 +427,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z12tMPI_WaitanyiPP9tmpi_req_PiP12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef range(i32 0, 25) i32 @_Z12tMPI_WaitanyiPP9tmpi_req_PiP12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %6 = getelementptr inbounds i8, ptr %5, i64 360
   %7 = icmp sgt i32 %0, 0
@@ -533,7 +533,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z12tMPI_TestanyiPP9tmpi_req_PiS2_P12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef range(i32 0, 25) i32 @_Z12tMPI_TestanyiPP9tmpi_req_PiS2_P12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %7 = getelementptr inbounds i8, ptr %6, i64 360
   %8 = icmp sgt i32 %0, 0
@@ -653,7 +653,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %17, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z13tMPI_WaitsomeiPP9tmpi_req_PiS2_P12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef range(i32 0, 25) i32 @_Z13tMPI_WaitsomeiPP9tmpi_req_PiS2_P12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %7 = getelementptr inbounds i8, ptr %6, i64 360
   %8 = icmp sgt i32 %0, 0
@@ -802,7 +802,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z13tMPI_TestsomeiPP9tmpi_req_PiS2_P12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef range(i32 0, 25) i32 @_Z13tMPI_TestsomeiPP9tmpi_req_PiS2_P12tmpi_status_(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %7 = getelementptr inbounds i8, ptr %6, i64 360
   %8 = icmp sgt i32 %0, 0

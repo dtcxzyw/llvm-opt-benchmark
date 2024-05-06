@@ -136,7 +136,7 @@ define i32 @get_token_len(ptr noundef %0, ptr noundef readnone %1, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i8, align 1
   %5 = alloca [3 x i8], align 1
   %6 = alloca [3 x i8], align 1
@@ -334,7 +334,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca i8, align 1
   %.not.not = icmp eq ptr %1, null
   br i1 %.not.not, label %.thread58, label %7
@@ -543,7 +543,7 @@ define noundef i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i8, align 1
   %5 = alloca [3 x i8], align 1
   %6 = getelementptr i8, ptr %0, i64 %2
@@ -626,9 +626,9 @@ define noundef i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uri_str_to_bytes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @uri_str_to_bytes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %4 = tail call i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noundef %3), !range !10
+  %4 = tail call i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noundef %3)
   ret i32 %4
 }
 
@@ -656,13 +656,13 @@ define noundef ptr @byte_array_dup(ptr noundef readonly %0) local_unnamed_addr #
 declare ptr @g_byte_array_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @oid_str_to_bytes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = tail call i32 @rel_oid_str_to_bytes(ptr noundef %0, ptr noundef %1, i32 noundef 1), !range !10
+define range(i32 0, 2) i32 @oid_str_to_bytes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+  %3 = tail call i32 @rel_oid_str_to_bytes(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [5 x i8], align 1
   %5 = tail call ptr @g_byte_array_set_size(ptr noundef %1, i32 noundef 0) #13
   %6 = load i8, ptr %0, align 1
@@ -703,7 +703,7 @@ define noundef i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1
   %.1.us = phi ptr [ %.04980.us, %16 ], [ %.081.us, %13 ]
   %19 = getelementptr i8, ptr %.04980.us, i64 1
   %.not.us = icmp eq i8 %15, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
   %20 = phi i8 [ %34, %33 ], [ %6, %.lr.ph ]
@@ -744,7 +744,7 @@ define noundef i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1
   %.1 = phi ptr [ %.081, %._crit_edge105 ], [ %.04980, %28 ]
   %35 = getelementptr i8, ptr %.04980, i64 1
   %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %33, %._crit_edge106
   %.0.lcssa = phi ptr [ %.1.us, %._crit_edge106 ], [ %.1, %33 ]
@@ -792,7 +792,7 @@ define noundef i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 8
   %.not63 = icmp eq i16 %56, 0
-  br i1 %.not63, label %._crit_edge86, label %.lr.ph85, !llvm.loop !12
+  br i1 %.not63, label %._crit_edge86, label %.lr.ph85, !llvm.loop !11
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %.preheader
   %57 = phi i8 [ %41, %.preheader ], [ %52, %.lr.ph85 ]
@@ -834,7 +834,7 @@ define noundef i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1
   %71 = icmp ugt i32 %.255, 127
   %72 = icmp ne i64 %indvars.iv.next, 0
   %73 = and i1 %71, %72
-  br i1 %73, label %66, label %74, !llvm.loop !13
+  br i1 %73, label %66, label %74, !llvm.loop !12
 
 74:                                               ; preds = %66
   %75 = getelementptr [5 x i8], ptr %4, i64 0, i64 %indvars.iv.next
@@ -856,7 +856,7 @@ define noundef i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1
   %spec.select70 = getelementptr i8, ptr %.3.lcssa, i64 %spec.select70.idx
   %83 = load i8, ptr %spec.select70, align 1
   %.not62 = icmp eq i8 %83, 0
-  br i1 %.not62, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not62, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph.split, %26, %28, %16, %.lr.ph.split.us, %58, %60, %.thread, %3, %36, %._crit_edge
   %.058 = phi i32 [ 0, %._crit_edge ], [ 1, %36 ], [ 0, %3 ], [ 0, %58 ], [ 0, %60 ], [ 1, %.thread ], [ 0, %.lr.ph.split.us ], [ 0, %16 ], [ 0, %28 ], [ 0, %26 ], [ 0, %.lr.ph.split ]
@@ -864,7 +864,7 @@ define noundef i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @byte_array_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @byte_array_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1000,7 +1000,7 @@ define ptr @xml_escape(ptr nocapture noundef readonly %0) local_unnamed_addr #3 
 g_string_append_c_inline.exit:                    ; preds = %51, %45, %32, %26, %39, %19, %17, %15, %13, %11
   %53 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %53, 0
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %g_string_append_c_inline.exit, %1
   %54 = tail call ptr @g_string_free(ptr noundef %2, i32 noundef 0) #13
@@ -1201,7 +1201,7 @@ char_def_ia5_alphabet_decode.exit:                ; preds = %.lr.ph, %8
   %15 = add i32 %14, %.012
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %char_def_ia5_alphabet_decode.exit
   %16 = sext i32 %15 to i64
@@ -1244,7 +1244,7 @@ define hidden zeroext i8 @module_check_valid_name(ptr nocapture noundef readonly
   %14 = getelementptr i8, ptr %module_valid_chars.module_valid_chars_lower_case, i64 %13
   %15 = load i8, ptr %14, align 1
   %.not23 = icmp eq i8 %15, 0
-  br i1 %.not23, label %.critedge, label %6, !llvm.loop !17
+  br i1 %.not23, label %.critedge, label %6, !llvm.loop !16
 
 .critedge:                                        ; preds = %6, %11
   %. = select i1 %9, i8 %7, i8 46
@@ -1326,7 +1326,7 @@ define i64 @ws_label_strcpy(ptr nocapture noundef writeonly %0, i64 noundef %1, 
   %.0124.be = phi i64 [ %36, %33 ], [ %49, %46 ], [ %62, %59 ], [ %84, %81 ], [ %110, %107 ], [ %123, %120 ]
   %.0123.be = phi i64 [ %34, %33 ], [ %47, %46 ], [ %60, %59 ], [ %82, %81 ], [ %108, %107 ], [ %121, %120 ]
   %37 = icmp slt i64 %.0126.be, %8
-  br i1 %37, label %14, label %.loopexit, !llvm.loop !18
+  br i1 %37, label %14, label %.loopexit, !llvm.loop !17
 
 38:                                               ; preds = %24, %23
   %switch.tableidx = add i8 %16, -7
@@ -1471,7 +1471,7 @@ switch.lookup:                                    ; preds = %38
   store i8 %115, ptr %116, align 1
   %117 = add nuw nsw i64 %.0139, 1
   %exitcond.not = icmp eq i64 %117, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %113, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %113, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %113
   %118 = getelementptr i8, ptr %0, i64 %.0123142
@@ -1533,7 +1533,7 @@ attributes #14 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -1542,4 +1542,3 @@ attributes #14 = { nounwind allocsize(0) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

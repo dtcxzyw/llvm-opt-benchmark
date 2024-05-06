@@ -210,7 +210,7 @@ sprkStep_CheckNVector.exit.thread:                ; preds = %14, %20, %24, %28, 
 declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @sprkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sprkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -312,7 +312,7 @@ define void @SPRKStepFree(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sprkStep_Init(ptr noundef %0, i32 noundef %1) #0 {
+define range(i32 -22, 1) i32 @sprkStep_Init(ptr noundef %0, i32 noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -386,7 +386,7 @@ sprkStep_AccessStepMem.exit.thread:               ; preds = %9, %4, %18, %21, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sprkStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define range(i32 -21, 1) i32 @sprkStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -451,7 +451,7 @@ sprkStep_AccessStepMem.exit.thread:               ; preds = %12, %7, %23, %32, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sprkStep_TakeStep(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define range(i32 -38, 1) i32 @sprkStep_TakeStep(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -510,7 +510,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   %39 = load double, ptr %38, align 8
   %40 = fadd double %.03259, %35
   %41 = fadd double %.03160, %39
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %42, ptr %19, align 8
   %43 = load ptr, ptr %20, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %43) #7
@@ -672,7 +672,7 @@ sprkStep_AccessStepMem.exit.thread:               ; preds = %12, %7, %28, %27, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -842,7 +842,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sprkStep_TakeStep_Compensated(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -38, 1) i32 @sprkStep_TakeStep_Compensated(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -913,7 +913,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   %48 = load double, ptr %47, align 8
   %49 = fadd double %.04069, %44
   %50 = fadd double %.03970, %48
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %51, ptr %21, align 8
   %52 = load ptr, ptr %22, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %52, double noundef 1.000000e+00, ptr noundef %12, ptr noundef %14) #7

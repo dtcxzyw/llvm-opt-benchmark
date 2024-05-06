@@ -1411,7 +1411,7 @@ define internal i32 @geonw_addr_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @geonw_addr_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @geonw_addr_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) %1, i64 8)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32

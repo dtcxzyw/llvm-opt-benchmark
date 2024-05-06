@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mallinfo = type { i32, i32, i32, i32, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sysinfo(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sysinfo(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.mallinfo, align 4
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6

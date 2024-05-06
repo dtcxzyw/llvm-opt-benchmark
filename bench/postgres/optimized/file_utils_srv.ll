@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pg_pwrite_zeros.zbuffer = internal constant { [8192 x i8] } zeroinitializer, align 4096
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @get_dirent_type(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_dirent_type(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 18
   %7 = load i8, ptr %6, align 2
@@ -265,7 +265,7 @@ define dso_local i64 @pg_pwrite_zeros(i32 noundef %0, i64 noundef %1, i64 nounde
   br i1 %12, label %6, label %.preheader.preheader.i, !llvm.loop !8
 
 .preheader.preheader.i:                           ; preds = %6
-  %13 = trunc i64 %indvars.iv.next to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.next to i32
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
   br label %.preheader.i
 

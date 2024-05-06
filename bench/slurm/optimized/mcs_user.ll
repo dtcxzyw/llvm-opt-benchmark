@@ -33,7 +33,7 @@ define noundef i32 @fini() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1064
   %5 = load i32, ptr %4, align 8
@@ -88,7 +88,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_mcs_get_enforced() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mcs_p_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mcs_p_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @uid_to_string(i32 noundef %0) #3
   store ptr %5, ptr %4, align 8

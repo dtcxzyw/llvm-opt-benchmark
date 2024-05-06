@@ -377,18 +377,18 @@ if.then35:                                        ; preds = %riscv_obj_add_qdict
 lor.lhs.false.i:                                  ; preds = %if.then35
   %refcnt.i = getelementptr inbounds i8, ptr %call32, i64 8
   %28 = load i64, ptr %refcnt.i, align 8
-  %tobool1.not.i94 = icmp eq i64 %28, 0
-  br i1 %tobool1.not.i94, label %if.else.i97, label %land.lhs.true.i
+  %tobool1.not.i95 = icmp eq i64 %28, 0
+  br i1 %tobool1.not.i95, label %if.else.i98, label %land.lhs.true.i
 
-if.else.i97:                                      ; preds = %lor.lhs.false.i
+if.else.i98:                                      ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.11, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #10
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %dec.i = add i64 %28, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
-  %cmp.i95 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i95, label %if.then5.i, label %if.end50
+  %cmp.i96 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i96, label %if.then5.i, label %if.end50
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
   call void @qobject_destroy(ptr noundef nonnull %call32) #7

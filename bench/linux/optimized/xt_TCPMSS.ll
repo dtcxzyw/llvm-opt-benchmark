@@ -62,7 +62,7 @@ define internal i32 @tcpmss_tg_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcpmss_tg4(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -1, 1) i32 @tcpmss_tg4(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 180
@@ -89,7 +89,7 @@ define internal noundef i32 @tcpmss_tg4(ptr noundef %0, ptr nocapture noundef re
   %22 = getelementptr inbounds i8, ptr %21, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = tail call i16 @llvm.bswap.i16(i16 %23)
-  %25 = trunc i32 %13 to i16
+  %25 = trunc nuw nsw i32 %13 to i16
   %26 = add i16 %24, %25
   %27 = tail call i16 @llvm.bswap.i16(i16 %26)
   %28 = getelementptr inbounds i8, ptr %21, i64 10
@@ -115,7 +115,7 @@ define internal noundef i32 @tcpmss_tg4(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcpmss_tg4_check(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @tcpmss_tg4_check(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -197,7 +197,7 @@ define internal noundef i32 @tcpmss_tg4_check(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcpmss_tg6(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -233,7 +233,7 @@ define internal noundef i32 @tcpmss_tg6(ptr noundef %0, ptr nocapture noundef re
   %25 = getelementptr inbounds i8, ptr %24, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = call i16 @llvm.bswap.i16(i16 %26)
-  %28 = trunc i32 %16 to i16
+  %28 = trunc nuw nsw i32 %16 to i16
   %29 = add i16 %27, %28
   %30 = call i16 @llvm.bswap.i16(i16 %29)
   %31 = getelementptr inbounds i8, ptr %0, i64 128
@@ -265,7 +265,7 @@ define internal noundef i32 @tcpmss_tg6(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcpmss_tg6_check(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @tcpmss_tg6_check(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -350,7 +350,7 @@ define internal noundef i32 @tcpmss_tg6_check(ptr nocapture noundef readonly %0)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tcpmss_mangle_packet(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 28
@@ -464,7 +464,7 @@ define internal fastcc noundef i32 @tcpmss_mangle_packet(ptr noundef %0, ptr noc
 
 90:                                               ; preds = %76
   %91 = lshr i16 %62, 8
-  %92 = trunc i16 %91 to i8
+  %92 = trunc nuw i16 %91 to i8
   store i8 %92, ptr %79, align 1
   %93 = trunc i16 %62 to i8
   store i8 %93, ptr %85, align 1
@@ -562,7 +562,7 @@ define internal fastcc noundef i32 @tcpmss_mangle_packet(ptr noundef %0, ptr noc
   %150 = add nsw i64 %149, -20
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %148, ptr align 1 %147, i64 %150, i1 false)
   %151 = getelementptr inbounds i8, ptr %134, i64 16
-  %152 = trunc i32 %18 to i16
+  %152 = trunc nuw nsw i32 %18 to i16
   %153 = tail call i16 @llvm.bswap.i16(i16 %152)
   %154 = add nuw nsw i16 %152, 4
   %155 = tail call i16 @llvm.bswap.i16(i16 %154)
@@ -573,7 +573,7 @@ define internal fastcc noundef i32 @tcpmss_mangle_packet(ptr noundef %0, ptr noc
   %158 = getelementptr i8, ptr %134, i64 21
   store i8 4, ptr %158, align 1
   %159 = lshr i16 %146, 8
-  %160 = trunc i16 %159 to i8
+  %160 = trunc nuw nsw i16 %159 to i8
   %161 = getelementptr i8, ptr %134, i64 22
   store i8 %160, ptr %161, align 1
   %162 = trunc i16 %146 to i8
@@ -654,7 +654,7 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr nocapture nou
   br label %27
 
 27:                                               ; preds = %18, %8
-  %28 = trunc i32 %2 to i16
+  %28 = trunc nuw nsw i32 %2 to i16
   %29 = call i32 @nf_route(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i1 noundef zeroext false, i16 noundef zeroext %28) #10
   %30 = load ptr, ptr %5, align 8
   %31 = icmp eq ptr %30, null

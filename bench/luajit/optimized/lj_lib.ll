@@ -515,7 +515,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %add.ptr1, align 8
   %shr = ashr i64 %2, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp2 = icmp eq i32 %conv, -5
   br i1 %cmp2, label %if.then6, label %if.else
 
@@ -569,7 +569,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true
   %shr.i = ashr i64 %2, 47
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nsw i64 %shr.i to i32
   %cmp2.i = icmp eq i32 %conv.i, -5
   br i1 %cmp2.i, label %if.then6.i, label %if.else.i
 
@@ -614,7 +614,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %2 = load i64, ptr %add.ptr1, align 8
   %shr = ashr i64 %2, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp2 = icmp ult i32 %conv, -13
   %3 = bitcast i64 %2 to double
   br i1 %cmp2, label %if.end, label %lor.lhs.false
@@ -661,7 +661,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %2 = load i64, ptr %add.ptr1, align 8
   %shr.i = ashr i64 %2, 47
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nsw i64 %shr.i to i32
   %cmp.i = icmp ult i32 %conv.i, -13
   %3 = bitcast i64 %2 to double
   br i1 %cmp.i, label %if.end, label %lor.rhs.i
@@ -711,7 +711,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
   %shr.i.i = ashr i64 %2, 47
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nsw i64 %shr.i.i to i32
   %cmp.i.i = icmp ult i32 %conv.i.i, -13
   %3 = bitcast i64 %2 to double
   br i1 %cmp.i.i, label %lj_lib_checkint.exit, label %lor.rhs.i.i
@@ -867,7 +867,7 @@ land.lhs.true.i:                                  ; preds = %cond.true
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
   %shr.i.i = ashr i64 %2, 47
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nsw i64 %shr.i.i to i32
   %cmp2.i.i = icmp eq i32 %conv.i.i, -5
   br i1 %cmp2.i.i, label %if.then6.i.i, label %if.else.i.i
 
@@ -897,7 +897,7 @@ cond.false:                                       ; preds = %entry
 if.then.i:                                        ; preds = %cond.false
   %5 = load i64, ptr %add.ptr1.i, align 8
   %shr.i = ashr i64 %5, 47
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nsw i64 %shr.i to i32
   %cmp2.i22 = icmp eq i32 %conv.i, -5
   br i1 %cmp2.i22, label %if.then6.i, label %if.else.i
 
@@ -1019,7 +1019,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %add.ptr1, align 8
   %shr = ashr i64 %2, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp2 = icmp ult i32 %conv, -14
   br i1 %cmp2, label %if.then6, label %if.else
 
@@ -1056,7 +1056,7 @@ if.then21:                                        ; preds = %if.then17
   br i1 %or.cond25, label %if.end59, label %if.then31
 
 if.then31:                                        ; preds = %if.then21
-  %conv32 = trunc i64 %6 to i32
+  %conv32 = trunc nsw i64 %6 to i32
   br label %return
 
 if.then39:                                        ; preds = %if.then17

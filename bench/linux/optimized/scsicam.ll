@@ -218,7 +218,7 @@ define dso_local noundef i32 @scsicam_bios_param(ptr nocapture noundef readonly 
 7:                                                ; preds = %5
   %8 = getelementptr i8, ptr %2, i64 8
   %9 = getelementptr i8, ptr %2, i64 4
-  %.lhs.trunc = trunc i64 %1 to i32
+  %.lhs.trunc = trunc nuw i64 %1 to i32
   %10 = udiv i32 %.lhs.trunc, 63488
   %.zext = zext nneg i32 %10 to i64
   %11 = urem i32 %.lhs.trunc, 63488
@@ -227,7 +227,7 @@ define dso_local noundef i32 @scsicam_bios_param(ptr nocapture noundef readonly 
 
 13:                                               ; preds = %7
   %14 = add nuw nsw i64 %.zext, 1
-  %.tr = trunc i64 %14 to i32
+  %.tr = trunc nuw nsw i64 %14 to i32
   %.rhs.trunc7 = shl nuw nsw i32 %.tr, 10
   %15 = udiv i32 %.lhs.trunc, %.rhs.trunc7
   %16 = urem i32 %.lhs.trunc, %.rhs.trunc7
@@ -239,7 +239,7 @@ define dso_local noundef i32 @scsicam_bios_param(ptr nocapture noundef readonly 
   %.ph1 = phi i32 [ 62, %7 ], [ %15, %13 ]
   store i32 1024, ptr %8, align 4
   store i32 %.ph1, ptr %9, align 4
-  %18 = trunc i64 %.ph to i32
+  %18 = trunc nuw nsw i64 %.ph to i32
   store i32 %18, ptr %2, align 4
   br label %27
 
@@ -249,11 +249,11 @@ define dso_local noundef i32 @scsicam_bios_param(ptr nocapture noundef readonly 
   %21 = mul nuw nsw i64 %20, %14
   %22 = udiv i64 %1, %21
   %23 = icmp ugt i64 %21, %1
-  %24 = trunc i64 %22 to i32
+  %24 = trunc nuw i64 %22 to i32
   store i32 %24, ptr %8, align 4
-  %25 = trunc i64 %20 to i32
+  %25 = trunc nuw nsw i64 %20 to i32
   store i32 %25, ptr %9, align 4
-  %26 = trunc i64 %14 to i32
+  %26 = trunc nuw nsw i64 %14 to i32
   store i32 %26, ptr %2, align 4
   br i1 %23, label %34, label %27
 
@@ -284,7 +284,7 @@ thread-pre-split:                                 ; preds = %5
 
 40:                                               ; preds = %34
   %41 = select i1 %35, i32 16065, i32 2048
-  %.lhs.trunc4 = trunc i64 %1 to i32
+  %.lhs.trunc4 = trunc nuw i64 %1 to i32
   %42 = udiv i32 %.lhs.trunc4, %41
   br label %43
 

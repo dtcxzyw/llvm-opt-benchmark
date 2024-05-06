@@ -115,7 +115,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = alloca %union.pthread_attr_t, align 8
   %2 = tail call i32 @slurm_get_log_level() #10
   %3 = icmp sgt i32 %2, 3
@@ -606,7 +606,7 @@ _env_append.exit.i.i.i:                           ; preds = %_extend_env.exit.i.
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %21, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.49, ptr noundef nonnull %152) #10
   %153 = load ptr, ptr %21, align 8
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %_env_append.exit72.i.i.i, label %155
+  br i1 %154, label %_env_append.exit73.i.i.i, label %155
 
 155:                                              ; preds = %_env_append.exit.i.i.i
   %156 = load ptr, ptr %23, align 8
@@ -623,31 +623,31 @@ _env_append.exit.i.i.i:                           ; preds = %_extend_env.exit.i.
   br label %165
 
 165:                                              ; preds = %165, %155
-  %.pn.i.i68.i.i.i = phi ptr [ %164, %155 ], [ %.0.i.i69.i.i.i, %165 ]
-  %.0.i.i69.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i68.i.i.i, i64 -8
-  %166 = load ptr, ptr %.0.i.i69.i.i.i, align 8
+  %.pn.i.i69.i.i.i = phi ptr [ %164, %155 ], [ %.0.i.i70.i.i.i, %165 ]
+  %.0.i.i70.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i69.i.i.i, i64 -8
+  %166 = load ptr, ptr %.0.i.i70.i.i.i, align 8
   %167 = icmp eq ptr %166, null
-  br i1 %167, label %165, label %_extend_env.exit.i70.i.i.i, !llvm.loop !6
+  br i1 %167, label %165, label %_extend_env.exit.i71.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i70.i.i.i:                       ; preds = %165
+_extend_env.exit.i71.i.i.i:                       ; preds = %165
   %168 = load ptr, ptr %21, align 8
-  store ptr %168, ptr %.pn.i.i68.i.i.i, align 8
-  br label %_env_append.exit72.i.i.i
+  store ptr %168, ptr %.pn.i.i69.i.i.i, align 8
+  br label %_env_append.exit73.i.i.i
 
-_env_append.exit72.i.i.i:                         ; preds = %_extend_env.exit.i70.i.i.i, %_env_append.exit.i.i.i
+_env_append.exit73.i.i.i:                         ; preds = %_extend_env.exit.i71.i.i.i, %_env_append.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   %169 = getelementptr inbounds i8, ptr %44, i64 80
   %170 = load ptr, ptr %169, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   store ptr null, ptr %20, align 8
   %171 = icmp eq ptr %170, null
-  %spec.store.select.i73.i.i.i = select i1 %171, ptr @.str.74, ptr %170
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %20, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.52, ptr noundef nonnull %spec.store.select.i73.i.i.i) #10
+  %spec.store.select.i74.i.i.i = select i1 %171, ptr @.str.74, ptr %170
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %20, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.52, ptr noundef nonnull %spec.store.select.i74.i.i.i) #10
   %172 = load ptr, ptr %20, align 8
   %173 = icmp eq ptr %172, null
-  br i1 %173, label %_env_append.exit78.i.i.i, label %174
+  br i1 %173, label %_env_append.exit79.i.i.i, label %174
 
-174:                                              ; preds = %_env_append.exit72.i.i.i
+174:                                              ; preds = %_env_append.exit73.i.i.i
   %175 = load ptr, ptr %23, align 8
   %176 = call i64 @slurm_xsize(ptr noundef %175) #10
   %177 = lshr i64 %176, 3
@@ -662,31 +662,31 @@ _env_append.exit72.i.i.i:                         ; preds = %_extend_env.exit.i7
   br label %184
 
 184:                                              ; preds = %184, %174
-  %.pn.i.i74.i.i.i = phi ptr [ %183, %174 ], [ %.0.i.i75.i.i.i, %184 ]
-  %.0.i.i75.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i74.i.i.i, i64 -8
-  %185 = load ptr, ptr %.0.i.i75.i.i.i, align 8
+  %.pn.i.i75.i.i.i = phi ptr [ %183, %174 ], [ %.0.i.i76.i.i.i, %184 ]
+  %.0.i.i76.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i75.i.i.i, i64 -8
+  %185 = load ptr, ptr %.0.i.i76.i.i.i, align 8
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %184, label %_extend_env.exit.i76.i.i.i, !llvm.loop !6
+  br i1 %186, label %184, label %_extend_env.exit.i77.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i76.i.i.i:                       ; preds = %184
+_extend_env.exit.i77.i.i.i:                       ; preds = %184
   %187 = load ptr, ptr %20, align 8
-  store ptr %187, ptr %.pn.i.i74.i.i.i, align 8
-  br label %_env_append.exit78.i.i.i
+  store ptr %187, ptr %.pn.i.i75.i.i.i, align 8
+  br label %_env_append.exit79.i.i.i
 
-_env_append.exit78.i.i.i:                         ; preds = %_extend_env.exit.i76.i.i.i, %_env_append.exit72.i.i.i
+_env_append.exit79.i.i.i:                         ; preds = %_extend_env.exit.i77.i.i.i, %_env_append.exit73.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %188 = getelementptr inbounds i8, ptr %44, i64 88
   %189 = load ptr, ptr %188, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr null, ptr %19, align 8
   %190 = icmp eq ptr %189, null
-  %spec.store.select.i79.i.i.i = select i1 %190, ptr @.str.74, ptr %189
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %19, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.53, ptr noundef nonnull %spec.store.select.i79.i.i.i) #10
+  %spec.store.select.i80.i.i.i = select i1 %190, ptr @.str.74, ptr %189
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %19, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.53, ptr noundef nonnull %spec.store.select.i80.i.i.i) #10
   %191 = load ptr, ptr %19, align 8
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %_env_append.exit84.i.i.i, label %193
+  br i1 %192, label %_env_append.exit85.i.i.i, label %193
 
-193:                                              ; preds = %_env_append.exit78.i.i.i
+193:                                              ; preds = %_env_append.exit79.i.i.i
   %194 = load ptr, ptr %23, align 8
   %195 = call i64 @slurm_xsize(ptr noundef %194) #10
   %196 = lshr i64 %195, 3
@@ -701,31 +701,31 @@ _env_append.exit78.i.i.i:                         ; preds = %_extend_env.exit.i7
   br label %203
 
 203:                                              ; preds = %203, %193
-  %.pn.i.i80.i.i.i = phi ptr [ %202, %193 ], [ %.0.i.i81.i.i.i, %203 ]
-  %.0.i.i81.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i80.i.i.i, i64 -8
-  %204 = load ptr, ptr %.0.i.i81.i.i.i, align 8
+  %.pn.i.i81.i.i.i = phi ptr [ %202, %193 ], [ %.0.i.i82.i.i.i, %203 ]
+  %.0.i.i82.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i81.i.i.i, i64 -8
+  %204 = load ptr, ptr %.0.i.i82.i.i.i, align 8
   %205 = icmp eq ptr %204, null
-  br i1 %205, label %203, label %_extend_env.exit.i82.i.i.i, !llvm.loop !6
+  br i1 %205, label %203, label %_extend_env.exit.i83.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i82.i.i.i:                       ; preds = %203
+_extend_env.exit.i83.i.i.i:                       ; preds = %203
   %206 = load ptr, ptr %19, align 8
-  store ptr %206, ptr %.pn.i.i80.i.i.i, align 8
-  br label %_env_append.exit84.i.i.i
+  store ptr %206, ptr %.pn.i.i81.i.i.i, align 8
+  br label %_env_append.exit85.i.i.i
 
-_env_append.exit84.i.i.i:                         ; preds = %_extend_env.exit.i82.i.i.i, %_env_append.exit78.i.i.i
+_env_append.exit85.i.i.i:                         ; preds = %_extend_env.exit.i83.i.i.i, %_env_append.exit79.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   %207 = getelementptr inbounds i8, ptr %44, i64 112
   %208 = load ptr, ptr %207, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store ptr null, ptr %18, align 8
   %209 = icmp eq ptr %208, null
-  %spec.store.select.i85.i.i.i = select i1 %209, ptr @.str.74, ptr %208
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %18, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.54, ptr noundef nonnull %spec.store.select.i85.i.i.i) #10
+  %spec.store.select.i86.i.i.i = select i1 %209, ptr @.str.74, ptr %208
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %18, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.54, ptr noundef nonnull %spec.store.select.i86.i.i.i) #10
   %210 = load ptr, ptr %18, align 8
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %_env_append.exit90.i.i.i, label %212
+  br i1 %211, label %_env_append.exit91.i.i.i, label %212
 
-212:                                              ; preds = %_env_append.exit84.i.i.i
+212:                                              ; preds = %_env_append.exit85.i.i.i
   %213 = load ptr, ptr %23, align 8
   %214 = call i64 @slurm_xsize(ptr noundef %213) #10
   %215 = lshr i64 %214, 3
@@ -740,31 +740,31 @@ _env_append.exit84.i.i.i:                         ; preds = %_extend_env.exit.i8
   br label %222
 
 222:                                              ; preds = %222, %212
-  %.pn.i.i86.i.i.i = phi ptr [ %221, %212 ], [ %.0.i.i87.i.i.i, %222 ]
-  %.0.i.i87.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i86.i.i.i, i64 -8
-  %223 = load ptr, ptr %.0.i.i87.i.i.i, align 8
+  %.pn.i.i87.i.i.i = phi ptr [ %221, %212 ], [ %.0.i.i88.i.i.i, %222 ]
+  %.0.i.i88.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i87.i.i.i, i64 -8
+  %223 = load ptr, ptr %.0.i.i88.i.i.i, align 8
   %224 = icmp eq ptr %223, null
-  br i1 %224, label %222, label %_extend_env.exit.i88.i.i.i, !llvm.loop !6
+  br i1 %224, label %222, label %_extend_env.exit.i89.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i88.i.i.i:                       ; preds = %222
+_extend_env.exit.i89.i.i.i:                       ; preds = %222
   %225 = load ptr, ptr %18, align 8
-  store ptr %225, ptr %.pn.i.i86.i.i.i, align 8
-  br label %_env_append.exit90.i.i.i
+  store ptr %225, ptr %.pn.i.i87.i.i.i, align 8
+  br label %_env_append.exit91.i.i.i
 
-_env_append.exit90.i.i.i:                         ; preds = %_extend_env.exit.i88.i.i.i, %_env_append.exit84.i.i.i
+_env_append.exit91.i.i.i:                         ; preds = %_extend_env.exit.i89.i.i.i, %_env_append.exit85.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %226 = getelementptr inbounds i8, ptr %44, i64 152
   %227 = load ptr, ptr %226, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr null, ptr %17, align 8
   %228 = icmp eq ptr %227, null
-  %spec.store.select.i91.i.i.i = select i1 %228, ptr @.str.74, ptr %227
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.55, ptr noundef nonnull %spec.store.select.i91.i.i.i) #10
+  %spec.store.select.i92.i.i.i = select i1 %228, ptr @.str.74, ptr %227
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.55, ptr noundef nonnull %spec.store.select.i92.i.i.i) #10
   %229 = load ptr, ptr %17, align 8
   %230 = icmp eq ptr %229, null
-  br i1 %230, label %_env_append.exit96.i.i.i, label %231
+  br i1 %230, label %_env_append.exit97.i.i.i, label %231
 
-231:                                              ; preds = %_env_append.exit90.i.i.i
+231:                                              ; preds = %_env_append.exit91.i.i.i
   %232 = load ptr, ptr %23, align 8
   %233 = call i64 @slurm_xsize(ptr noundef %232) #10
   %234 = lshr i64 %233, 3
@@ -779,31 +779,31 @@ _env_append.exit90.i.i.i:                         ; preds = %_extend_env.exit.i8
   br label %241
 
 241:                                              ; preds = %241, %231
-  %.pn.i.i92.i.i.i = phi ptr [ %240, %231 ], [ %.0.i.i93.i.i.i, %241 ]
-  %.0.i.i93.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i92.i.i.i, i64 -8
-  %242 = load ptr, ptr %.0.i.i93.i.i.i, align 8
+  %.pn.i.i93.i.i.i = phi ptr [ %240, %231 ], [ %.0.i.i94.i.i.i, %241 ]
+  %.0.i.i94.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i93.i.i.i, i64 -8
+  %242 = load ptr, ptr %.0.i.i94.i.i.i, align 8
   %243 = icmp eq ptr %242, null
-  br i1 %243, label %241, label %_extend_env.exit.i94.i.i.i, !llvm.loop !6
+  br i1 %243, label %241, label %_extend_env.exit.i95.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i94.i.i.i:                       ; preds = %241
+_extend_env.exit.i95.i.i.i:                       ; preds = %241
   %244 = load ptr, ptr %17, align 8
-  store ptr %244, ptr %.pn.i.i92.i.i.i, align 8
-  br label %_env_append.exit96.i.i.i
+  store ptr %244, ptr %.pn.i.i93.i.i.i, align 8
+  br label %_env_append.exit97.i.i.i
 
-_env_append.exit96.i.i.i:                         ; preds = %_extend_env.exit.i94.i.i.i, %_env_append.exit90.i.i.i
+_env_append.exit97.i.i.i:                         ; preds = %_extend_env.exit.i95.i.i.i, %_env_append.exit91.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %245 = getelementptr inbounds i8, ptr %44, i64 120
   %246 = load ptr, ptr %245, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr null, ptr %16, align 8
   %247 = icmp eq ptr %246, null
-  %spec.store.select.i97.i.i.i = select i1 %247, ptr @.str.74, ptr %246
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %16, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.56, ptr noundef nonnull %spec.store.select.i97.i.i.i) #10
+  %spec.store.select.i98.i.i.i = select i1 %247, ptr @.str.74, ptr %246
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %16, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.56, ptr noundef nonnull %spec.store.select.i98.i.i.i) #10
   %248 = load ptr, ptr %16, align 8
   %249 = icmp eq ptr %248, null
-  br i1 %249, label %_env_append.exit102.i.i.i, label %250
+  br i1 %249, label %_env_append.exit103.i.i.i, label %250
 
-250:                                              ; preds = %_env_append.exit96.i.i.i
+250:                                              ; preds = %_env_append.exit97.i.i.i
   %251 = load ptr, ptr %23, align 8
   %252 = call i64 @slurm_xsize(ptr noundef %251) #10
   %253 = lshr i64 %252, 3
@@ -818,31 +818,31 @@ _env_append.exit96.i.i.i:                         ; preds = %_extend_env.exit.i9
   br label %260
 
 260:                                              ; preds = %260, %250
-  %.pn.i.i98.i.i.i = phi ptr [ %259, %250 ], [ %.0.i.i99.i.i.i, %260 ]
-  %.0.i.i99.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i98.i.i.i, i64 -8
-  %261 = load ptr, ptr %.0.i.i99.i.i.i, align 8
+  %.pn.i.i99.i.i.i = phi ptr [ %259, %250 ], [ %.0.i.i100.i.i.i, %260 ]
+  %.0.i.i100.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i99.i.i.i, i64 -8
+  %261 = load ptr, ptr %.0.i.i100.i.i.i, align 8
   %262 = icmp eq ptr %261, null
-  br i1 %262, label %260, label %_extend_env.exit.i100.i.i.i, !llvm.loop !6
+  br i1 %262, label %260, label %_extend_env.exit.i101.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i100.i.i.i:                      ; preds = %260
+_extend_env.exit.i101.i.i.i:                      ; preds = %260
   %263 = load ptr, ptr %16, align 8
-  store ptr %263, ptr %.pn.i.i98.i.i.i, align 8
-  br label %_env_append.exit102.i.i.i
+  store ptr %263, ptr %.pn.i.i99.i.i.i, align 8
+  br label %_env_append.exit103.i.i.i
 
-_env_append.exit102.i.i.i:                        ; preds = %_extend_env.exit.i100.i.i.i, %_env_append.exit96.i.i.i
+_env_append.exit103.i.i.i:                        ; preds = %_extend_env.exit.i101.i.i.i, %_env_append.exit97.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %264 = getelementptr inbounds i8, ptr %44, i64 144
   %265 = load ptr, ptr %264, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store ptr null, ptr %15, align 8
   %266 = icmp eq ptr %265, null
-  %spec.store.select.i103.i.i.i = select i1 %266, ptr @.str.74, ptr %265
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %15, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.57, ptr noundef nonnull %spec.store.select.i103.i.i.i) #10
+  %spec.store.select.i104.i.i.i = select i1 %266, ptr @.str.74, ptr %265
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %15, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.57, ptr noundef nonnull %spec.store.select.i104.i.i.i) #10
   %267 = load ptr, ptr %15, align 8
   %268 = icmp eq ptr %267, null
-  br i1 %268, label %_env_append.exit108.i.i.i, label %269
+  br i1 %268, label %_env_append.exit109.i.i.i, label %269
 
-269:                                              ; preds = %_env_append.exit102.i.i.i
+269:                                              ; preds = %_env_append.exit103.i.i.i
   %270 = load ptr, ptr %23, align 8
   %271 = call i64 @slurm_xsize(ptr noundef %270) #10
   %272 = lshr i64 %271, 3
@@ -857,31 +857,31 @@ _env_append.exit102.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %279
 
 279:                                              ; preds = %279, %269
-  %.pn.i.i104.i.i.i = phi ptr [ %278, %269 ], [ %.0.i.i105.i.i.i, %279 ]
-  %.0.i.i105.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i104.i.i.i, i64 -8
-  %280 = load ptr, ptr %.0.i.i105.i.i.i, align 8
+  %.pn.i.i105.i.i.i = phi ptr [ %278, %269 ], [ %.0.i.i106.i.i.i, %279 ]
+  %.0.i.i106.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i105.i.i.i, i64 -8
+  %280 = load ptr, ptr %.0.i.i106.i.i.i, align 8
   %281 = icmp eq ptr %280, null
-  br i1 %281, label %279, label %_extend_env.exit.i106.i.i.i, !llvm.loop !6
+  br i1 %281, label %279, label %_extend_env.exit.i107.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i106.i.i.i:                      ; preds = %279
+_extend_env.exit.i107.i.i.i:                      ; preds = %279
   %282 = load ptr, ptr %15, align 8
-  store ptr %282, ptr %.pn.i.i104.i.i.i, align 8
-  br label %_env_append.exit108.i.i.i
+  store ptr %282, ptr %.pn.i.i105.i.i.i, align 8
+  br label %_env_append.exit109.i.i.i
 
-_env_append.exit108.i.i.i:                        ; preds = %_extend_env.exit.i106.i.i.i, %_env_append.exit102.i.i.i
+_env_append.exit109.i.i.i:                        ; preds = %_extend_env.exit.i107.i.i.i, %_env_append.exit103.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %283 = getelementptr inbounds i8, ptr %44, i64 128
   %284 = load ptr, ptr %283, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr null, ptr %14, align 8
   %285 = icmp eq ptr %284, null
-  %spec.store.select.i109.i.i.i = select i1 %285, ptr @.str.74, ptr %284
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %14, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.58, ptr noundef nonnull %spec.store.select.i109.i.i.i) #10
+  %spec.store.select.i110.i.i.i = select i1 %285, ptr @.str.74, ptr %284
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %14, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.58, ptr noundef nonnull %spec.store.select.i110.i.i.i) #10
   %286 = load ptr, ptr %14, align 8
   %287 = icmp eq ptr %286, null
-  br i1 %287, label %_env_append.exit114.i.i.i, label %288
+  br i1 %287, label %_env_append.exit115.i.i.i, label %288
 
-288:                                              ; preds = %_env_append.exit108.i.i.i
+288:                                              ; preds = %_env_append.exit109.i.i.i
   %289 = load ptr, ptr %23, align 8
   %290 = call i64 @slurm_xsize(ptr noundef %289) #10
   %291 = lshr i64 %290, 3
@@ -896,31 +896,31 @@ _env_append.exit108.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %298
 
 298:                                              ; preds = %298, %288
-  %.pn.i.i110.i.i.i = phi ptr [ %297, %288 ], [ %.0.i.i111.i.i.i, %298 ]
-  %.0.i.i111.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i110.i.i.i, i64 -8
-  %299 = load ptr, ptr %.0.i.i111.i.i.i, align 8
+  %.pn.i.i111.i.i.i = phi ptr [ %297, %288 ], [ %.0.i.i112.i.i.i, %298 ]
+  %.0.i.i112.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i111.i.i.i, i64 -8
+  %299 = load ptr, ptr %.0.i.i112.i.i.i, align 8
   %300 = icmp eq ptr %299, null
-  br i1 %300, label %298, label %_extend_env.exit.i112.i.i.i, !llvm.loop !6
+  br i1 %300, label %298, label %_extend_env.exit.i113.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i112.i.i.i:                      ; preds = %298
+_extend_env.exit.i113.i.i.i:                      ; preds = %298
   %301 = load ptr, ptr %14, align 8
-  store ptr %301, ptr %.pn.i.i110.i.i.i, align 8
-  br label %_env_append.exit114.i.i.i
+  store ptr %301, ptr %.pn.i.i111.i.i.i, align 8
+  br label %_env_append.exit115.i.i.i
 
-_env_append.exit114.i.i.i:                        ; preds = %_extend_env.exit.i112.i.i.i, %_env_append.exit108.i.i.i
+_env_append.exit115.i.i.i:                        ; preds = %_extend_env.exit.i113.i.i.i, %_env_append.exit109.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %302 = getelementptr inbounds i8, ptr %44, i64 136
   %303 = load ptr, ptr %302, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %304 = icmp eq ptr %303, null
-  %spec.store.select.i115.i.i.i = select i1 %304, ptr @.str.74, ptr %303
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %13, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.59, ptr noundef nonnull %spec.store.select.i115.i.i.i) #10
+  %spec.store.select.i116.i.i.i = select i1 %304, ptr @.str.74, ptr %303
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %13, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.59, ptr noundef nonnull %spec.store.select.i116.i.i.i) #10
   %305 = load ptr, ptr %13, align 8
   %306 = icmp eq ptr %305, null
-  br i1 %306, label %_env_append.exit120.i.i.i, label %307
+  br i1 %306, label %_env_append.exit121.i.i.i, label %307
 
-307:                                              ; preds = %_env_append.exit114.i.i.i
+307:                                              ; preds = %_env_append.exit115.i.i.i
   %308 = load ptr, ptr %23, align 8
   %309 = call i64 @slurm_xsize(ptr noundef %308) #10
   %310 = lshr i64 %309, 3
@@ -935,31 +935,31 @@ _env_append.exit114.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %317
 
 317:                                              ; preds = %317, %307
-  %.pn.i.i116.i.i.i = phi ptr [ %316, %307 ], [ %.0.i.i117.i.i.i, %317 ]
-  %.0.i.i117.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i116.i.i.i, i64 -8
-  %318 = load ptr, ptr %.0.i.i117.i.i.i, align 8
+  %.pn.i.i117.i.i.i = phi ptr [ %316, %307 ], [ %.0.i.i118.i.i.i, %317 ]
+  %.0.i.i118.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i117.i.i.i, i64 -8
+  %318 = load ptr, ptr %.0.i.i118.i.i.i, align 8
   %319 = icmp eq ptr %318, null
-  br i1 %319, label %317, label %_extend_env.exit.i118.i.i.i, !llvm.loop !6
+  br i1 %319, label %317, label %_extend_env.exit.i119.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i118.i.i.i:                      ; preds = %317
+_extend_env.exit.i119.i.i.i:                      ; preds = %317
   %320 = load ptr, ptr %13, align 8
-  store ptr %320, ptr %.pn.i.i116.i.i.i, align 8
-  br label %_env_append.exit120.i.i.i
+  store ptr %320, ptr %.pn.i.i117.i.i.i, align 8
+  br label %_env_append.exit121.i.i.i
 
-_env_append.exit120.i.i.i:                        ; preds = %_extend_env.exit.i118.i.i.i, %_env_append.exit114.i.i.i
+_env_append.exit121.i.i.i:                        ; preds = %_extend_env.exit.i119.i.i.i, %_env_append.exit115.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %321 = getelementptr inbounds i8, ptr %44, i64 104
   %322 = load ptr, ptr %321, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %323 = icmp eq ptr %322, null
-  %spec.store.select.i121.i.i.i = select i1 %323, ptr @.str.74, ptr %322
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.60, ptr noundef nonnull %spec.store.select.i121.i.i.i) #10
+  %spec.store.select.i122.i.i.i = select i1 %323, ptr @.str.74, ptr %322
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.60, ptr noundef nonnull %spec.store.select.i122.i.i.i) #10
   %324 = load ptr, ptr %12, align 8
   %325 = icmp eq ptr %324, null
-  br i1 %325, label %_env_append.exit126.i.i.i, label %326
+  br i1 %325, label %_env_append.exit127.i.i.i, label %326
 
-326:                                              ; preds = %_env_append.exit120.i.i.i
+326:                                              ; preds = %_env_append.exit121.i.i.i
   %327 = load ptr, ptr %23, align 8
   %328 = call i64 @slurm_xsize(ptr noundef %327) #10
   %329 = lshr i64 %328, 3
@@ -974,31 +974,31 @@ _env_append.exit120.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %336
 
 336:                                              ; preds = %336, %326
-  %.pn.i.i122.i.i.i = phi ptr [ %335, %326 ], [ %.0.i.i123.i.i.i, %336 ]
-  %.0.i.i123.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i122.i.i.i, i64 -8
-  %337 = load ptr, ptr %.0.i.i123.i.i.i, align 8
+  %.pn.i.i123.i.i.i = phi ptr [ %335, %326 ], [ %.0.i.i124.i.i.i, %336 ]
+  %.0.i.i124.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i123.i.i.i, i64 -8
+  %337 = load ptr, ptr %.0.i.i124.i.i.i, align 8
   %338 = icmp eq ptr %337, null
-  br i1 %338, label %336, label %_extend_env.exit.i124.i.i.i, !llvm.loop !6
+  br i1 %338, label %336, label %_extend_env.exit.i125.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i124.i.i.i:                      ; preds = %336
+_extend_env.exit.i125.i.i.i:                      ; preds = %336
   %339 = load ptr, ptr %12, align 8
-  store ptr %339, ptr %.pn.i.i122.i.i.i, align 8
-  br label %_env_append.exit126.i.i.i
+  store ptr %339, ptr %.pn.i.i123.i.i.i, align 8
+  br label %_env_append.exit127.i.i.i
 
-_env_append.exit126.i.i.i:                        ; preds = %_extend_env.exit.i124.i.i.i, %_env_append.exit120.i.i.i
+_env_append.exit127.i.i.i:                        ; preds = %_extend_env.exit.i125.i.i.i, %_env_append.exit121.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %340 = getelementptr inbounds i8, ptr %44, i64 160
   %341 = load ptr, ptr %340, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %342 = icmp eq ptr %341, null
-  %spec.store.select.i127.i.i.i = select i1 %342, ptr @.str.74, ptr %341
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %11, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.61, ptr noundef nonnull %spec.store.select.i127.i.i.i) #10
+  %spec.store.select.i128.i.i.i = select i1 %342, ptr @.str.74, ptr %341
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %11, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.61, ptr noundef nonnull %spec.store.select.i128.i.i.i) #10
   %343 = load ptr, ptr %11, align 8
   %344 = icmp eq ptr %343, null
-  br i1 %344, label %_env_append.exit132.i.i.i, label %345
+  br i1 %344, label %_env_append.exit133.i.i.i, label %345
 
-345:                                              ; preds = %_env_append.exit126.i.i.i
+345:                                              ; preds = %_env_append.exit127.i.i.i
   %346 = load ptr, ptr %23, align 8
   %347 = call i64 @slurm_xsize(ptr noundef %346) #10
   %348 = lshr i64 %347, 3
@@ -1013,31 +1013,31 @@ _env_append.exit126.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %355
 
 355:                                              ; preds = %355, %345
-  %.pn.i.i128.i.i.i = phi ptr [ %354, %345 ], [ %.0.i.i129.i.i.i, %355 ]
-  %.0.i.i129.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i128.i.i.i, i64 -8
-  %356 = load ptr, ptr %.0.i.i129.i.i.i, align 8
+  %.pn.i.i129.i.i.i = phi ptr [ %354, %345 ], [ %.0.i.i130.i.i.i, %355 ]
+  %.0.i.i130.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i129.i.i.i, i64 -8
+  %356 = load ptr, ptr %.0.i.i130.i.i.i, align 8
   %357 = icmp eq ptr %356, null
-  br i1 %357, label %355, label %_extend_env.exit.i130.i.i.i, !llvm.loop !6
+  br i1 %357, label %355, label %_extend_env.exit.i131.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i130.i.i.i:                      ; preds = %355
+_extend_env.exit.i131.i.i.i:                      ; preds = %355
   %358 = load ptr, ptr %11, align 8
-  store ptr %358, ptr %.pn.i.i128.i.i.i, align 8
-  br label %_env_append.exit132.i.i.i
+  store ptr %358, ptr %.pn.i.i129.i.i.i, align 8
+  br label %_env_append.exit133.i.i.i
 
-_env_append.exit132.i.i.i:                        ; preds = %_extend_env.exit.i130.i.i.i, %_env_append.exit126.i.i.i
+_env_append.exit133.i.i.i:                        ; preds = %_extend_env.exit.i131.i.i.i, %_env_append.exit127.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %359 = getelementptr inbounds i8, ptr %44, i64 176
   %360 = load ptr, ptr %359, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %361 = icmp eq ptr %360, null
-  %spec.store.select.i133.i.i.i = select i1 %361, ptr @.str.74, ptr %360
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.62, ptr noundef nonnull %spec.store.select.i133.i.i.i) #10
+  %spec.store.select.i134.i.i.i = select i1 %361, ptr @.str.74, ptr %360
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.62, ptr noundef nonnull %spec.store.select.i134.i.i.i) #10
   %362 = load ptr, ptr %10, align 8
   %363 = icmp eq ptr %362, null
-  br i1 %363, label %_env_append.exit138.i.i.i, label %364
+  br i1 %363, label %_env_append.exit139.i.i.i, label %364
 
-364:                                              ; preds = %_env_append.exit132.i.i.i
+364:                                              ; preds = %_env_append.exit133.i.i.i
   %365 = load ptr, ptr %23, align 8
   %366 = call i64 @slurm_xsize(ptr noundef %365) #10
   %367 = lshr i64 %366, 3
@@ -1052,31 +1052,31 @@ _env_append.exit132.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %374
 
 374:                                              ; preds = %374, %364
-  %.pn.i.i134.i.i.i = phi ptr [ %373, %364 ], [ %.0.i.i135.i.i.i, %374 ]
-  %.0.i.i135.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i134.i.i.i, i64 -8
-  %375 = load ptr, ptr %.0.i.i135.i.i.i, align 8
+  %.pn.i.i135.i.i.i = phi ptr [ %373, %364 ], [ %.0.i.i136.i.i.i, %374 ]
+  %.0.i.i136.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i135.i.i.i, i64 -8
+  %375 = load ptr, ptr %.0.i.i136.i.i.i, align 8
   %376 = icmp eq ptr %375, null
-  br i1 %376, label %374, label %_extend_env.exit.i136.i.i.i, !llvm.loop !6
+  br i1 %376, label %374, label %_extend_env.exit.i137.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i136.i.i.i:                      ; preds = %374
+_extend_env.exit.i137.i.i.i:                      ; preds = %374
   %377 = load ptr, ptr %10, align 8
-  store ptr %377, ptr %.pn.i.i134.i.i.i, align 8
-  br label %_env_append.exit138.i.i.i
+  store ptr %377, ptr %.pn.i.i135.i.i.i, align 8
+  br label %_env_append.exit139.i.i.i
 
-_env_append.exit138.i.i.i:                        ; preds = %_extend_env.exit.i136.i.i.i, %_env_append.exit132.i.i.i
+_env_append.exit139.i.i.i:                        ; preds = %_extend_env.exit.i137.i.i.i, %_env_append.exit133.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %378 = getelementptr inbounds i8, ptr %44, i64 168
   %379 = load ptr, ptr %378, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %380 = icmp eq ptr %379, null
-  %spec.store.select.i139.i.i.i = select i1 %380, ptr @.str.74, ptr %379
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.63, ptr noundef nonnull %spec.store.select.i139.i.i.i) #10
+  %spec.store.select.i140.i.i.i = select i1 %380, ptr @.str.74, ptr %379
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.63, ptr noundef nonnull %spec.store.select.i140.i.i.i) #10
   %381 = load ptr, ptr %9, align 8
   %382 = icmp eq ptr %381, null
-  br i1 %382, label %_env_append.exit144.i.i.i, label %383
+  br i1 %382, label %_env_append.exit145.i.i.i, label %383
 
-383:                                              ; preds = %_env_append.exit138.i.i.i
+383:                                              ; preds = %_env_append.exit139.i.i.i
   %384 = load ptr, ptr %23, align 8
   %385 = call i64 @slurm_xsize(ptr noundef %384) #10
   %386 = lshr i64 %385, 3
@@ -1091,31 +1091,31 @@ _env_append.exit138.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %393
 
 393:                                              ; preds = %393, %383
-  %.pn.i.i140.i.i.i = phi ptr [ %392, %383 ], [ %.0.i.i141.i.i.i, %393 ]
-  %.0.i.i141.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i140.i.i.i, i64 -8
-  %394 = load ptr, ptr %.0.i.i141.i.i.i, align 8
+  %.pn.i.i141.i.i.i = phi ptr [ %392, %383 ], [ %.0.i.i142.i.i.i, %393 ]
+  %.0.i.i142.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i141.i.i.i, i64 -8
+  %394 = load ptr, ptr %.0.i.i142.i.i.i, align 8
   %395 = icmp eq ptr %394, null
-  br i1 %395, label %393, label %_extend_env.exit.i142.i.i.i, !llvm.loop !6
+  br i1 %395, label %393, label %_extend_env.exit.i143.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i142.i.i.i:                      ; preds = %393
+_extend_env.exit.i143.i.i.i:                      ; preds = %393
   %396 = load ptr, ptr %9, align 8
-  store ptr %396, ptr %.pn.i.i140.i.i.i, align 8
-  br label %_env_append.exit144.i.i.i
+  store ptr %396, ptr %.pn.i.i141.i.i.i, align 8
+  br label %_env_append.exit145.i.i.i
 
-_env_append.exit144.i.i.i:                        ; preds = %_extend_env.exit.i142.i.i.i, %_env_append.exit138.i.i.i
+_env_append.exit145.i.i.i:                        ; preds = %_extend_env.exit.i143.i.i.i, %_env_append.exit139.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %397 = getelementptr inbounds i8, ptr %44, i64 96
   %398 = load ptr, ptr %397, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %399 = icmp eq ptr %398, null
-  %spec.store.select.i145.i.i.i = select i1 %399, ptr @.str.74, ptr %398
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.64, ptr noundef nonnull %spec.store.select.i145.i.i.i) #10
+  %spec.store.select.i146.i.i.i = select i1 %399, ptr @.str.74, ptr %398
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.64, ptr noundef nonnull %spec.store.select.i146.i.i.i) #10
   %400 = load ptr, ptr %8, align 8
   %401 = icmp eq ptr %400, null
-  br i1 %401, label %_env_append.exit150.i.i.i, label %402
+  br i1 %401, label %_env_append.exit151.i.i.i, label %402
 
-402:                                              ; preds = %_env_append.exit144.i.i.i
+402:                                              ; preds = %_env_append.exit145.i.i.i
   %403 = load ptr, ptr %23, align 8
   %404 = call i64 @slurm_xsize(ptr noundef %403) #10
   %405 = lshr i64 %404, 3
@@ -1130,18 +1130,18 @@ _env_append.exit144.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %412
 
 412:                                              ; preds = %412, %402
-  %.pn.i.i146.i.i.i = phi ptr [ %411, %402 ], [ %.0.i.i147.i.i.i, %412 ]
-  %.0.i.i147.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i146.i.i.i, i64 -8
-  %413 = load ptr, ptr %.0.i.i147.i.i.i, align 8
+  %.pn.i.i147.i.i.i = phi ptr [ %411, %402 ], [ %.0.i.i148.i.i.i, %412 ]
+  %.0.i.i148.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i147.i.i.i, i64 -8
+  %413 = load ptr, ptr %.0.i.i148.i.i.i, align 8
   %414 = icmp eq ptr %413, null
-  br i1 %414, label %412, label %_extend_env.exit.i148.i.i.i, !llvm.loop !6
+  br i1 %414, label %412, label %_extend_env.exit.i149.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i148.i.i.i:                      ; preds = %412
+_extend_env.exit.i149.i.i.i:                      ; preds = %412
   %415 = load ptr, ptr %8, align 8
-  store ptr %415, ptr %.pn.i.i146.i.i.i, align 8
-  br label %_env_append.exit150.i.i.i
+  store ptr %415, ptr %.pn.i.i147.i.i.i, align 8
+  br label %_env_append.exit151.i.i.i
 
-_env_append.exit150.i.i.i:                        ; preds = %_extend_env.exit.i148.i.i.i, %_env_append.exit144.i.i.i
+_env_append.exit151.i.i.i:                        ; preds = %_extend_env.exit.i149.i.i.i, %_env_append.exit145.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %416 = getelementptr inbounds i8, ptr %44, i64 184
   %417 = load i32, ptr %416, align 8
@@ -1149,13 +1149,13 @@ _env_append.exit150.i.i.i:                        ; preds = %_extend_env.exit.i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %419 = icmp eq ptr %418, null
-  %spec.store.select.i151.i.i.i = select i1 %419, ptr @.str.74, ptr %418
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.65, ptr noundef nonnull %spec.store.select.i151.i.i.i) #10
+  %spec.store.select.i152.i.i.i = select i1 %419, ptr @.str.74, ptr %418
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.65, ptr noundef nonnull %spec.store.select.i152.i.i.i) #10
   %420 = load ptr, ptr %7, align 8
   %421 = icmp eq ptr %420, null
-  br i1 %421, label %_env_append.exit156.i.i.i, label %422
+  br i1 %421, label %_env_append.exit157.i.i.i, label %422
 
-422:                                              ; preds = %_env_append.exit150.i.i.i
+422:                                              ; preds = %_env_append.exit151.i.i.i
   %423 = load ptr, ptr %23, align 8
   %424 = call i64 @slurm_xsize(ptr noundef %423) #10
   %425 = lshr i64 %424, 3
@@ -1170,31 +1170,31 @@ _env_append.exit150.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %432
 
 432:                                              ; preds = %432, %422
-  %.pn.i.i152.i.i.i = phi ptr [ %431, %422 ], [ %.0.i.i153.i.i.i, %432 ]
-  %.0.i.i153.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i152.i.i.i, i64 -8
-  %433 = load ptr, ptr %.0.i.i153.i.i.i, align 8
+  %.pn.i.i153.i.i.i = phi ptr [ %431, %422 ], [ %.0.i.i154.i.i.i, %432 ]
+  %.0.i.i154.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i153.i.i.i, i64 -8
+  %433 = load ptr, ptr %.0.i.i154.i.i.i, align 8
   %434 = icmp eq ptr %433, null
-  br i1 %434, label %432, label %_extend_env.exit.i154.i.i.i, !llvm.loop !6
+  br i1 %434, label %432, label %_extend_env.exit.i155.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i154.i.i.i:                      ; preds = %432
+_extend_env.exit.i155.i.i.i:                      ; preds = %432
   %435 = load ptr, ptr %7, align 8
-  store ptr %435, ptr %.pn.i.i152.i.i.i, align 8
-  br label %_env_append.exit156.i.i.i
+  store ptr %435, ptr %.pn.i.i153.i.i.i, align 8
+  br label %_env_append.exit157.i.i.i
 
-_env_append.exit156.i.i.i:                        ; preds = %_extend_env.exit.i154.i.i.i, %_env_append.exit150.i.i.i
+_env_append.exit157.i.i.i:                        ; preds = %_extend_env.exit.i155.i.i.i, %_env_append.exit151.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %436 = getelementptr inbounds i8, ptr %44, i64 192
   %437 = load ptr, ptr %436, align 8
   %.not64.i.i.i = icmp eq ptr %437, null
   br i1 %.not64.i.i.i, label %455, label %438
 
-438:                                              ; preds = %_env_append.exit156.i.i.i
+438:                                              ; preds = %_env_append.exit157.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.66, ptr noundef nonnull %437) #10
   %439 = load ptr, ptr %6, align 8
   %440 = icmp eq ptr %439, null
-  br i1 %440, label %_env_append.exit162.i.i.i, label %441
+  br i1 %440, label %_env_append.exit163.i.i.i, label %441
 
 441:                                              ; preds = %438
   %442 = load ptr, ptr %23, align 8
@@ -1211,22 +1211,22 @@ _env_append.exit156.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %451
 
 451:                                              ; preds = %451, %441
-  %.pn.i.i158.i.i.i = phi ptr [ %450, %441 ], [ %.0.i.i159.i.i.i, %451 ]
-  %.0.i.i159.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i158.i.i.i, i64 -8
-  %452 = load ptr, ptr %.0.i.i159.i.i.i, align 8
+  %.pn.i.i159.i.i.i = phi ptr [ %450, %441 ], [ %.0.i.i160.i.i.i, %451 ]
+  %.0.i.i160.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i159.i.i.i, i64 -8
+  %452 = load ptr, ptr %.0.i.i160.i.i.i, align 8
   %453 = icmp eq ptr %452, null
-  br i1 %453, label %451, label %_extend_env.exit.i160.i.i.i, !llvm.loop !6
+  br i1 %453, label %451, label %_extend_env.exit.i161.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i160.i.i.i:                      ; preds = %451
+_extend_env.exit.i161.i.i.i:                      ; preds = %451
   %454 = load ptr, ptr %6, align 8
-  store ptr %454, ptr %.pn.i.i158.i.i.i, align 8
-  br label %_env_append.exit162.i.i.i
+  store ptr %454, ptr %.pn.i.i159.i.i.i, align 8
+  br label %_env_append.exit163.i.i.i
 
-_env_append.exit162.i.i.i:                        ; preds = %_extend_env.exit.i160.i.i.i, %438
+_env_append.exit163.i.i.i:                        ; preds = %_extend_env.exit.i161.i.i.i, %438
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %455
 
-455:                                              ; preds = %_env_append.exit162.i.i.i, %_env_append.exit156.i.i.i
+455:                                              ; preds = %_env_append.exit163.i.i.i, %_env_append.exit157.i.i.i
   %456 = getelementptr inbounds i8, ptr %44, i64 200
   %457 = load ptr, ptr %456, align 8
   %.not65.i.i.i = icmp eq ptr %457, null
@@ -1238,7 +1238,7 @@ _env_append.exit162.i.i.i:                        ; preds = %_extend_env.exit.i1
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.67, ptr noundef nonnull %457) #10
   %459 = load ptr, ptr %5, align 8
   %460 = icmp eq ptr %459, null
-  br i1 %460, label %_env_append.exit168.i.i.i, label %461
+  br i1 %460, label %_env_append.exit169.i.i.i, label %461
 
 461:                                              ; preds = %458
   %462 = load ptr, ptr %23, align 8
@@ -1255,22 +1255,22 @@ _env_append.exit162.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %471
 
 471:                                              ; preds = %471, %461
-  %.pn.i.i164.i.i.i = phi ptr [ %470, %461 ], [ %.0.i.i165.i.i.i, %471 ]
-  %.0.i.i165.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i164.i.i.i, i64 -8
-  %472 = load ptr, ptr %.0.i.i165.i.i.i, align 8
+  %.pn.i.i165.i.i.i = phi ptr [ %470, %461 ], [ %.0.i.i166.i.i.i, %471 ]
+  %.0.i.i166.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i165.i.i.i, i64 -8
+  %472 = load ptr, ptr %.0.i.i166.i.i.i, align 8
   %473 = icmp eq ptr %472, null
-  br i1 %473, label %471, label %_extend_env.exit.i166.i.i.i, !llvm.loop !6
+  br i1 %473, label %471, label %_extend_env.exit.i167.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i166.i.i.i:                      ; preds = %471
+_extend_env.exit.i167.i.i.i:                      ; preds = %471
   %474 = load ptr, ptr %5, align 8
-  store ptr %474, ptr %.pn.i.i164.i.i.i, align 8
-  br label %_env_append.exit168.i.i.i
+  store ptr %474, ptr %.pn.i.i165.i.i.i, align 8
+  br label %_env_append.exit169.i.i.i
 
-_env_append.exit168.i.i.i:                        ; preds = %_extend_env.exit.i166.i.i.i, %458
+_env_append.exit169.i.i.i:                        ; preds = %_extend_env.exit.i167.i.i.i, %458
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %475
 
-475:                                              ; preds = %_env_append.exit168.i.i.i, %455
+475:                                              ; preds = %_env_append.exit169.i.i.i, %455
   %476 = getelementptr inbounds i8, ptr %44, i64 208
   %477 = load ptr, ptr %476, align 8
   %.not66.i.i.i = icmp eq ptr %477, null
@@ -1282,7 +1282,7 @@ _env_append.exit168.i.i.i:                        ; preds = %_extend_env.exit.i1
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.68, ptr noundef nonnull %477) #10
   %479 = load ptr, ptr %4, align 8
   %480 = icmp eq ptr %479, null
-  br i1 %480, label %_env_append.exit174.i.i.i, label %481
+  br i1 %480, label %_env_append.exit175.i.i.i, label %481
 
 481:                                              ; preds = %478
   %482 = load ptr, ptr %23, align 8
@@ -1299,22 +1299,22 @@ _env_append.exit168.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %491
 
 491:                                              ; preds = %491, %481
-  %.pn.i.i170.i.i.i = phi ptr [ %490, %481 ], [ %.0.i.i171.i.i.i, %491 ]
-  %.0.i.i171.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i170.i.i.i, i64 -8
-  %492 = load ptr, ptr %.0.i.i171.i.i.i, align 8
+  %.pn.i.i171.i.i.i = phi ptr [ %490, %481 ], [ %.0.i.i172.i.i.i, %491 ]
+  %.0.i.i172.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i171.i.i.i, i64 -8
+  %492 = load ptr, ptr %.0.i.i172.i.i.i, align 8
   %493 = icmp eq ptr %492, null
-  br i1 %493, label %491, label %_extend_env.exit.i172.i.i.i, !llvm.loop !6
+  br i1 %493, label %491, label %_extend_env.exit.i173.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i172.i.i.i:                      ; preds = %491
+_extend_env.exit.i173.i.i.i:                      ; preds = %491
   %494 = load ptr, ptr %4, align 8
-  store ptr %494, ptr %.pn.i.i170.i.i.i, align 8
-  br label %_env_append.exit174.i.i.i
+  store ptr %494, ptr %.pn.i.i171.i.i.i, align 8
+  br label %_env_append.exit175.i.i.i
 
-_env_append.exit174.i.i.i:                        ; preds = %_extend_env.exit.i172.i.i.i, %478
+_env_append.exit175.i.i.i:                        ; preds = %_extend_env.exit.i173.i.i.i, %478
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %495
 
-495:                                              ; preds = %_env_append.exit174.i.i.i, %475
+495:                                              ; preds = %_env_append.exit175.i.i.i, %475
   %496 = getelementptr inbounds i8, ptr %44, i64 40
   %497 = load i32, ptr %496, align 8
   call void @slurm_mins2time_str(i32 noundef %497, ptr noundef nonnull %25, i32 noundef 32) #10
@@ -1323,7 +1323,7 @@ _env_append.exit174.i.i.i:                        ; preds = %_extend_env.exit.i1
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.69, ptr noundef nonnull %25) #10
   %498 = load ptr, ptr %3, align 8
   %499 = icmp eq ptr %498, null
-  br i1 %499, label %_env_append.exit179.i.i.i, label %500
+  br i1 %499, label %_env_append.exit181.i.i.i, label %500
 
 500:                                              ; preds = %495
   %501 = load ptr, ptr %23, align 8
@@ -1340,29 +1340,29 @@ _env_append.exit174.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %510
 
 510:                                              ; preds = %510, %500
-  %.pn.i.i175.i.i.i = phi ptr [ %509, %500 ], [ %.0.i.i176.i.i.i, %510 ]
-  %.0.i.i176.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i175.i.i.i, i64 -8
-  %511 = load ptr, ptr %.0.i.i176.i.i.i, align 8
+  %.pn.i.i177.i.i.i = phi ptr [ %509, %500 ], [ %.0.i.i178.i.i.i, %510 ]
+  %.0.i.i178.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i177.i.i.i, i64 -8
+  %511 = load ptr, ptr %.0.i.i178.i.i.i, align 8
   %512 = icmp eq ptr %511, null
-  br i1 %512, label %510, label %_extend_env.exit.i177.i.i.i, !llvm.loop !6
+  br i1 %512, label %510, label %_extend_env.exit.i179.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i177.i.i.i:                      ; preds = %510
+_extend_env.exit.i179.i.i.i:                      ; preds = %510
   %513 = load ptr, ptr %3, align 8
-  store ptr %513, ptr %.pn.i.i175.i.i.i, align 8
-  br label %_env_append.exit179.i.i.i
+  store ptr %513, ptr %.pn.i.i177.i.i.i, align 8
+  br label %_env_append.exit181.i.i.i
 
-_env_append.exit179.i.i.i:                        ; preds = %_extend_env.exit.i177.i.i.i, %495
+_env_append.exit181.i.i.i:                        ; preds = %_extend_env.exit.i179.i.i.i, %495
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %514 = call ptr @getenv(ptr noundef nonnull @.str.70) #10
   store ptr %514, ptr %24, align 8
   %.not67.i.i.i = icmp eq ptr %514, null
   br i1 %.not67.i.i.i, label %516, label %515
 
-515:                                              ; preds = %_env_append.exit179.i.i.i
+515:                                              ; preds = %_env_append.exit181.i.i.i
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, ptr noundef nonnull %514)
   br label %516
 
-516:                                              ; preds = %515, %_env_append.exit179.i.i.i
+516:                                              ; preds = %515, %_env_append.exit181.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73) #10
@@ -1385,18 +1385,18 @@ _env_append.exit179.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %529
 
 529:                                              ; preds = %529, %519
-  %.pn.i.i180.i.i.i = phi ptr [ %528, %519 ], [ %.0.i.i181.i.i.i, %529 ]
-  %.0.i.i181.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i180.i.i.i, i64 -8
-  %530 = load ptr, ptr %.0.i.i181.i.i.i, align 8
+  %.pn.i.i182.i.i.i = phi ptr [ %528, %519 ], [ %.0.i.i183.i.i.i, %529 ]
+  %.0.i.i183.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i182.i.i.i, i64 -8
+  %530 = load ptr, ptr %.0.i.i183.i.i.i, align 8
   %531 = icmp eq ptr %530, null
-  br i1 %531, label %529, label %_extend_env.exit.i182.i.i.i, !llvm.loop !6
+  br i1 %531, label %529, label %_extend_env.exit.i184.i.i.i, !llvm.loop !6
 
-_extend_env.exit.i182.i.i.i:                      ; preds = %529
+_extend_env.exit.i184.i.i.i:                      ; preds = %529
   %532 = load ptr, ptr %2, align 8
-  store ptr %532, ptr %.pn.i.i180.i.i.i, align 8
+  store ptr %532, ptr %.pn.i.i182.i.i.i, align 8
   br label %_create_environment.exit.i.i
 
-_create_environment.exit.i.i:                     ; preds = %_extend_env.exit.i182.i.i.i, %516
+_create_environment.exit.i.i:                     ; preds = %_extend_env.exit.i184.i.i.i, %516
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %533 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)

@@ -87,7 +87,7 @@ declare dso_local i32 @hwrng_register(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @via_rng_init(ptr nocapture readnone %0) #4 align 16 {
+define internal noundef range(i32 -19, 1) i32 @via_rng_init(ptr nocapture readnone %0) #4 align 16 {
   %2 = load i64, ptr @__per_cpu_offset, align 16
   %3 = add i64 %2, ptrtoint (ptr @cpu_info to i64)
   %4 = inttoptr i64 %3 to ptr
@@ -127,7 +127,7 @@ define internal noundef i32 @via_rng_init(ptr nocapture readnone %0) #4 align 16
 24:                                               ; preds = %23, %17
   %25 = trunc i64 %19 to i32
   %26 = lshr i64 %22, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %25, -8380752
   %29 = or disjoint i32 %28, 320
   %30 = getelementptr inbounds i8, ptr %4, i64 2
@@ -192,7 +192,7 @@ define internal noundef i32 @via_rng_init(ptr nocapture readnone %0) #4 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @via_rng_data_present(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 align 16 {
+define internal range(i32 0, 2) i32 @via_rng_data_present(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 align 16 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !8

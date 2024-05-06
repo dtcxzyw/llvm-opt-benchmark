@@ -269,7 +269,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_121NonTemporalMemcpyTestEEE, i64 0) #27
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_121NonTemporalMemcpyTestEEE, i64 0) #27
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -1724,7 +1724,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
@@ -2276,7 +2276,7 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29, !noalias !55
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_19TestParamEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !55
   %container_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container_.i.i, i8 0, i64 24, i1 false), !noalias !55
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %container_.i.i, i8 0, i64 24, i1 false), !noalias !55
   %call5.i.i.i.i2.i1.i1.i = invoke noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #29
           to label %invoke.cont.i unwind label %lpad.i, !noalias !55
 
@@ -2285,7 +2285,7 @@ invoke.cont.i:                                    ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i1.i1.i, i64 528
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %call5.i.i.i.i2.i1.i1.i, ptr noundef nonnull align 16 dereferenceable(528) @_ZN12_GLOBAL__N_16paramsE, i64 528, i1 false), !noalias !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(528) %call5.i.i.i.i2.i1.i1.i, ptr noundef nonnull align 16 dereferenceable(528) @_ZN12_GLOBAL__N_16paramsE, i64 528, i1 false), !noalias !55
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !55
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !55
@@ -2566,7 +2566,7 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 
 if.end:                                           ; preds = %entry, %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %3 = call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7testing8internal22ParamIteratorInterfaceIN12_GLOBAL__N_19TestParamEEE, ptr nonnull @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_19TestParamEE8IteratorE, i64 0) #27
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %other, ptr nonnull @_ZTIN7testing8internal22ParamIteratorInterfaceIN12_GLOBAL__N_19TestParamEEE, ptr nonnull @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_19TestParamEE8IteratorE, i64 0) #27
   %cmp1.i = icmp ne ptr %3, null
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %cmp1.i)
   br i1 %call.i, label %_ZN7testing8internal27CheckedDowncastToActualTypeIKNS0_30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_19TestParamEE8IteratorEKNS0_22ParamIteratorInterfaceIS4_EEEEPT_PT0_.exit, label %if.else.i
@@ -3252,7 +3252,7 @@ invoke.cont43:                                    ; preds = %for.body42
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(16) %call2.i60, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp44, ptr noundef nonnull readonly align 8 dereferenceable(16) %call2.i60, i64 16, i1 false)
   store i64 %i.0, ptr %index.i, align 8
   invoke void %10(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %param_name, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp44)
           to label %invoke.cont49 unwind label %lpad45

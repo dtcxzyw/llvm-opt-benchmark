@@ -43,7 +43,7 @@ define dso_local void @Curl_dyn_reset(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @Curl_dyn_tail(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 44) i32 @Curl_dyn_tail(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, %1
@@ -90,7 +90,7 @@ Curl_dyn_reset.exit:                              ; preds = %9, %10
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_dyn_addn(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 101) i32 @Curl_dyn_addn(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -162,7 +162,7 @@ define dso_local noundef i32 @Curl_dyn_addn(ptr nocapture noundef %0, ptr nocapt
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.pre48.i, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %1, i64 %2, i1 false)
   %.pre.i = load ptr, ptr %0, align 8
   br label %34
 
@@ -179,7 +179,7 @@ dyn_nappend.exit:                                 ; preds = %12, %27, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_dyn_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 101) i32 @Curl_dyn_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -252,7 +252,7 @@ define dso_local noundef i32 @Curl_dyn_add(ptr nocapture noundef %0, ptr nocaptu
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.pre48.i, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %1, i64 %3, i1 false)
   %.pre.i = load ptr, ptr %0, align 8
   br label %34
 
@@ -272,7 +272,7 @@ dyn_nappend.exit:                                 ; preds = %12, %27, %34
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_dyn_vaddf(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 101) i32 @Curl_dyn_vaddf(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @Curl_dyn_vprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
   %switch.selectcmp = icmp eq i32 %4, 2
   %switch.select = select i1 %switch.selectcmp, i32 100, i32 27
@@ -284,45 +284,39 @@ define dso_local i32 @Curl_dyn_vaddf(ptr noundef %0, ptr noundef %1, ptr noundef
 declare i32 @Curl_dyn_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_dyn_addf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #1 {
+define dso_local range(i32 0, 101) i32 @Curl_dyn_addf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @Curl_dyn_vprintf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #11
   %switch.selectcmp.i = icmp eq i32 %4, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 100, i32 27
   %switch.selectcmp6.i = icmp eq i32 %4, 0
   %switch.select7.i = select i1 %switch.selectcmp6.i, i32 0, i32 %switch.select.i
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %switch.select7.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @Curl_dyn_ptr(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local ptr @Curl_dyn_ptr(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @Curl_dyn_uptr(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local ptr @Curl_dyn_uptr(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @Curl_dyn_len(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local i64 @Curl_dyn_len(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @Curl_dyn_setlen(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 44) i32 @Curl_dyn_setlen(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, %1
@@ -343,6 +337,12 @@ define dso_local noundef i32 @Curl_dyn_setlen(ptr nocapture noundef %0, i64 noun
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
@@ -359,8 +359,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

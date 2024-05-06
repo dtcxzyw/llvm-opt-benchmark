@@ -345,11 +345,11 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %89
   %133 = phi ptr [ %141, %.lr.ph.i18 ], [ %127, %126 ]
   %134 = getelementptr i8, ptr %133, i64 8
   %.val83.i = load ptr, ptr %134, align 8
-  %135 = getelementptr i32, ptr %.val83.i, i64 %indvars.iv.i
+  %135 = getelementptr inbounds i32, ptr %.val83.i, i64 %indvars.iv.i
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr i8, ptr %135, i64 4
+  %137 = getelementptr inbounds i8, ptr %135, i64 4
   %138 = load float, ptr %137, align 4
-  %139 = getelementptr i8, ptr %135, i64 8
+  %139 = getelementptr inbounds i8, ptr %135, i64 8
   %140 = load float, ptr %139, align 4
   tail call void @Abc_NtkTimeSetArrival(ptr noundef nonnull %.us-phi.i, i32 noundef %136, float noundef %138, float noundef %140) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
@@ -373,11 +373,11 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %89
   %149 = phi ptr [ %157, %.critedge.i ], [ %130, %.critedge.preheader.i ]
   %150 = getelementptr i8, ptr %149, i64 8
   %.val86.i = load ptr, ptr %150, align 8
-  %151 = getelementptr i32, ptr %.val86.i, i64 %indvars.iv110.i
+  %151 = getelementptr inbounds i32, ptr %.val86.i, i64 %indvars.iv110.i
   %152 = load i32, ptr %151, align 4
-  %153 = getelementptr i8, ptr %151, i64 4
+  %153 = getelementptr inbounds i8, ptr %151, i64 4
   %154 = load float, ptr %153, align 4
-  %155 = getelementptr i8, ptr %151, i64 8
+  %155 = getelementptr inbounds i8, ptr %151, i64 8
   %156 = load float, ptr %155, align 4
   tail call void @Abc_NtkTimeSetRequired(ptr noundef nonnull %.us-phi.i, i32 noundef %152, float noundef %154, float noundef %156) #15
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 3
@@ -401,11 +401,11 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %89
   %165 = phi ptr [ %173, %.critedge2.i ], [ %146, %.critedge2.preheader.i ]
   %166 = getelementptr i8, ptr %165, i64 8
   %.val89.i = load ptr, ptr %166, align 8
-  %167 = getelementptr i32, ptr %.val89.i, i64 %indvars.iv113.i
+  %167 = getelementptr inbounds i32, ptr %.val89.i, i64 %indvars.iv113.i
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr i8, ptr %167, i64 4
+  %169 = getelementptr inbounds i8, ptr %167, i64 4
   %170 = load float, ptr %169, align 4
-  %171 = getelementptr i8, ptr %167, i64 8
+  %171 = getelementptr inbounds i8, ptr %167, i64 8
   %172 = load float, ptr %171, align 4
   tail call void @Abc_NtkTimeSetInputDrive(ptr noundef nonnull %.us-phi.i, i32 noundef %168, float noundef %170, float noundef %172) #15
   %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 3
@@ -422,11 +422,11 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %89
   %178 = phi ptr [ %186, %.critedge4.i ], [ %162, %.critedge4.preheader.i ]
   %179 = getelementptr i8, ptr %178, i64 8
   %.val92.i = load ptr, ptr %179, align 8
-  %180 = getelementptr i32, ptr %.val92.i, i64 %indvars.iv116.i
+  %180 = getelementptr inbounds i32, ptr %.val92.i, i64 %indvars.iv116.i
   %181 = load i32, ptr %180, align 4
-  %182 = getelementptr i8, ptr %180, i64 4
+  %182 = getelementptr inbounds i8, ptr %180, i64 4
   %183 = load float, ptr %182, align 4
-  %184 = getelementptr i8, ptr %180, i64 8
+  %184 = getelementptr inbounds i8, ptr %180, i64 8
   %185 = load float, ptr %184, align 4
   tail call void @Abc_NtkTimeSetOutputLoad(ptr noundef nonnull %.us-phi.i, i32 noundef %181, float noundef %183, float noundef %185) #15
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 3
@@ -555,7 +555,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Io_ReadBlifReorderFormalNames(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %4, align 4
   %.val.fr = freeze i32 %.val
@@ -592,8 +592,8 @@ define i32 @Io_ReadBlifReorderFormalNames(ptr nocapture noundef %0, ptr noundef 
   %17 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.0121166) #15
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #17
   %.val145 = load ptr, ptr %15, align 8
-  %19 = getelementptr ptr, ptr %.val145, i64 %indvars.iv
-  %20 = getelementptr i8, ptr %19, i64 16
+  %19 = getelementptr inbounds ptr, ptr %.val145, i64 %indvars.iv
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %sext = shl i64 %18, 32
   %22 = ashr exact i64 %sext, 32
@@ -1055,7 +1055,7 @@ define i32 @Io_ReadFindCiId(ptr nocapture noundef readonly %0, ptr noundef readn
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !14
 
 .critedge.loopexit.split.loop.exit14:             ; preds = %7
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %.critedge.loopexit.split.loop.exit14, %2
@@ -1091,7 +1091,7 @@ define i32 @Io_ReadFindCoId(ptr nocapture noundef readonly %0, ptr noundef readn
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !15
 
 .critedge.loopexit.split.loop.exit14:             ; preds = %7
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %.critedge.loopexit.split.loop.exit14, %2
@@ -1100,7 +1100,7 @@ define i32 @Io_ReadFindCoId(ptr nocapture noundef readonly %0, ptr noundef readn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -1182,7 +1182,7 @@ define noundef i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr nou
   %.val177 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds ptr, ptr %.val177, i64 %indvars.iv345
   %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #17
+  %45 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #17
   %46 = trunc i64 %45 to i32
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.preheader.i, label %.loopexit219
@@ -1293,7 +1293,7 @@ define noundef i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr nou
 
 109:                                              ; preds = %100
   %110 = getelementptr inbounds i8, ptr %44, i64 %76
-  %111 = trunc i64 %indvars.iv345 to i32
+  %111 = trunc nuw nsw i64 %indvars.iv345 to i32
   store i8 61, ptr %110, align 1
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 40
@@ -1344,7 +1344,7 @@ define noundef i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr nou
   br i1 %138, label %139, label %142
 
 139:                                              ; preds = %133
-  %140 = trunc i64 %indvars.iv345 to i32
+  %140 = trunc nuw nsw i64 %indvars.iv345 to i32
   %141 = add nuw nsw i32 %140, 1
   br label %.critedge2
 
@@ -1497,7 +1497,7 @@ define noundef i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr nou
   %.val174 = load ptr, ptr %7, align 8
   %205 = getelementptr inbounds ptr, ptr %.val174, i64 %indvars.iv357
   %206 = load ptr, ptr %205, align 8
-  %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %206) #17
+  %207 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %206) #17
   %208 = trunc i64 %207 to i32
   %209 = icmp sgt i32 %208, 0
   br i1 %209, label %.lr.ph.preheader.i204, label %.loopexit
@@ -1783,7 +1783,7 @@ declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -1805,7 +1805,7 @@ define noundef i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, ptr nounde
   br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %2), !range !26
+  %15 = tail call i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %2)
   %.not11 = icmp eq i32 %15, 0
   br i1 %.not11, label %._crit_edge, label %.loopexit
 
@@ -1820,7 +1820,7 @@ define noundef i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, ptr nounde
   %.val = load i32, ptr %18, align 4
   %19 = sext i32 %.val to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !27
+  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %16, %3
   tail call void @Abc_NtkFinalizeRead(ptr noundef nonnull %1) #15
@@ -1869,7 +1869,7 @@ define internal fastcc ptr @Io_ReadBlifGetTokens(ptr nocapture noundef readonly 
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %17
   %23 = getelementptr inbounds i8, ptr %18, i64 4
@@ -2001,7 +2001,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %91 = load i32, ptr %32, align 4
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next96, %92
-  br i1 %93, label %.lr.ph81, label %.preheader73, !llvm.loop !29
+  br i1 %93, label %.lr.ph81, label %.preheader73, !llvm.loop !28
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit65, %119
   %94 = load ptr, ptr %25, align 8
@@ -2126,7 +2126,7 @@ Vec_PtrPush.exit65:                               ; preds = %.Vec_PtrGrow.exit11
   %158 = load i32, ptr %100, align 4
   %159 = sext i32 %158 to i64
   %160 = icmp slt i64 %indvars.iv.next99, %159
-  br i1 %160, label %.lr.ph84, label %.loopexit, !llvm.loop !30
+  br i1 %160, label %.lr.ph84, label %.loopexit, !llvm.loop !29
 
 .lr.ph88:                                         ; preds = %.preheader, %Vec_PtrPush.exit72
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %Vec_PtrPush.exit72 ], [ 0, %.preheader ]
@@ -2205,7 +2205,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
   %197 = load i32, ptr %100, align 4
   %198 = sext i32 %197 to i64
   %199 = icmp slt i64 %indvars.iv.next102, %198
-  br i1 %199, label %.lr.ph88, label %.sink.split, !llvm.loop !31
+  br i1 %199, label %.lr.ph88, label %.sink.split, !llvm.loop !30
 
 .sink.split:                                      ; preds = %.loopexit, %Vec_PtrPush.exit72, %.preheader, %.preheader73
   %200 = load ptr, ptr %2, align 8
@@ -2295,7 +2295,7 @@ define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %0) unnamed_addr #
 45:                                               ; preds = %41, %43
   %.1 = phi ptr [ %44, %43 ], [ %.0, %41 ]
   %46 = getelementptr inbounds i8, ptr %.093, i64 1
-  br label %41, !llvm.loop !32
+  br label %41, !llvm.loop !31
 
 47:                                               ; preds = %41
   %48 = tail call ptr @Extra_UtilStrsav(ptr noundef %.0) #15
@@ -2683,7 +2683,7 @@ Vec_StrPush.exit108.i:                            ; preds = %240, %Vec_StrGrow.e
   store i8 10, ptr %246, align 1
   %247 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
   %.not86.i = icmp eq ptr %247, null
-  br i1 %.not86.i, label %.loopexit.i, label %.lr.ph167.i, !llvm.loop !33
+  br i1 %.not86.i, label %.loopexit.i, label %.lr.ph167.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %.preheader160.i, %Vec_StrPush.exit130.i
   %248 = phi ptr [ %411, %Vec_StrPush.exit130.i ], [ %133, %.preheader160.i ]
@@ -2721,7 +2721,7 @@ Vec_StrPush.exit108.i:                            ; preds = %240, %Vec_StrGrow.e
 
 267:                                              ; preds = %254
   %268 = load ptr, ptr %87, align 8
-  %269 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %251) #17
+  %269 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %251) #17
   %270 = trunc i64 %269 to i32
   %271 = icmp sgt i32 %270, 0
   br i1 %271, label %.lr.ph.i.i, label %Vec_StrPrintStr.exit.i
@@ -2799,7 +2799,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %296, %Vec_StrGrow.e
   store i8 %275, ptr %302, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_StrPrintStr.exit.loopexit.i, label %273, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %Vec_StrPrintStr.exit.loopexit.i, label %273, !llvm.loop !33
 
 Vec_StrPrintStr.exit.loopexit.i:                  ; preds = %Vec_StrPush.exit.i.i
   %.pre.i = load ptr, ptr %249, align 8
@@ -3037,7 +3037,7 @@ Vec_StrPush.exit130.i:                            ; preds = %404, %Vec_StrGrow.e
   store i8 10, ptr %410, align 1
   %411 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
   %.not.i126 = icmp eq ptr %411, null
-  br i1 %.not.i126, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not.i126, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %Vec_StrPush.exit130.i, %.lr.ph.i, %Vec_StrPush.exit108.i, %.lr.ph167.i, %.preheader.i, %.preheader160.i
   %.080.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader160.i ], [ null, %Vec_StrPush.exit108.i ], [ %134, %.lr.ph167.i ], [ null, %Vec_StrPush.exit130.i ], [ %248, %.lr.ph.i ]
@@ -3441,7 +3441,7 @@ Vec_StrPush.exit158.i:                            ; preds = %519, %Vec_StrGrow.e
 
 616:                                              ; preds = %609, %605
   %617 = tail call ptr @Mio_GateReadTwin(ptr noundef nonnull %588) #15
-  %618 = tail call i32 @Io_ReadBlifReorderFormalNames(ptr noundef nonnull %102, ptr noundef nonnull %588, ptr noundef %617), !range !26
+  %618 = tail call i32 @Io_ReadBlifReorderFormalNames(ptr noundef nonnull %102, ptr noundef nonnull %588, ptr noundef %617)
   %.not.i128 = icmp eq i32 %618, 0
   br i1 %.not.i128, label %621, label %.preheader.i129
 
@@ -3482,14 +3482,14 @@ Vec_StrPush.exit158.i:                            ; preds = %519, %Vec_StrGrow.e
   %637 = load i32, ptr %571, align 4
   %638 = sext i32 %637 to i64
   %639 = icmp slt i64 %indvars.iv.next.i, %638
-  br i1 %639, label %.lr.ph.i131, label %._crit_edge.i, !llvm.loop !36
+  br i1 %639, label %.lr.ph.i131, label %._crit_edge.i, !llvm.loop !35
 
 .lr.ph.i131:                                      ; preds = %636, %.lr.ph.preheader.i
   %640 = phi ptr [ %.pre.i130, %.lr.ph.preheader.i ], [ %653, %636 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %636 ]
   %641 = getelementptr inbounds ptr, ptr %640, i64 %indvars.iv.i
   %642 = load ptr, ptr %641, align 8
-  %643 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %642) #17
+  %643 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %642) #17
   %644 = trunc i64 %643 to i32
   %645 = icmp sgt i32 %644, 0
   br i1 %645, label %.lr.ph.preheader.i.i, label %Io_ReadBlifCleanName.exit.i
@@ -3716,7 +3716,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %646, %650, %.lr.ph.
   %766 = load i32, ptr %758, align 4
   %767 = sext i32 %766 to i64
   %768 = icmp slt i64 %indvars.iv.next.i141, %767
-  br i1 %768, label %.lr.ph.i139, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !37
+  br i1 %768, label %.lr.ph.i139, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !36
 
 769:                                              ; preds = %755
   %770 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(9) @.str.18) #17
@@ -3740,7 +3740,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %646, %650, %.lr.ph.
   %780 = load i32, ptr %772, align 4
   %781 = sext i32 %780 to i64
   %782 = icmp slt i64 %indvars.iv.next.i145, %781
-  br i1 %782, label %.lr.ph.i143, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !38
+  br i1 %782, label %.lr.ph.i143, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !37
 
 783:                                              ; preds = %769
   %784 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(15) @.str.19) #17
@@ -4779,7 +4779,7 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1210, %1212, %1240,
   br i1 %exitcond.not.i.i191, label %Io_ReadFindCiId.exit.i, label %1335, !llvm.loop !14
 
 .critedge.loopexit.split.loop.exit14.i.i:         ; preds = %1335
-  %1340 = trunc i64 %indvars.iv.i.i189 to i32
+  %1340 = trunc nuw nsw i64 %indvars.iv.i.i189 to i32
   br label %Io_ReadFindCiId.exit.i
 
 Io_ReadFindCiId.exit.i:                           ; preds = %1339, %.critedge.loopexit.split.loop.exit14.i.i, %1315
@@ -5000,7 +5000,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1259, %1261, %1280,
   br i1 %.not117, label %1440, label %1442
 
 1440:                                             ; preds = %1438
-  %1441 = tail call fastcc i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef nonnull %0, ptr noundef nonnull %102), !range !26
+  %1441 = tail call fastcc i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef nonnull %0, ptr noundef nonnull %102)
   br label %Io_ReadBlifNetworkNames.exit
 
 1442:                                             ; preds = %1438
@@ -5009,7 +5009,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1259, %1261, %1280,
   br i1 %.not118, label %1444, label %1446
 
 1444:                                             ; preds = %1442
-  %1445 = tail call fastcc i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef nonnull %0, ptr noundef nonnull %102), !range !26
+  %1445 = tail call fastcc i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef nonnull %0, ptr noundef nonnull %102)
   br label %Io_ReadBlifNetworkNames.exit
 
 1446:                                             ; preds = %1442
@@ -5018,7 +5018,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1259, %1261, %1280,
   br i1 %.not119, label %1448, label %1450
 
 1448:                                             ; preds = %1446
-  %1449 = tail call fastcc i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef nonnull %0, ptr noundef nonnull %102), !range !26
+  %1449 = tail call fastcc i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef nonnull %0, ptr noundef nonnull %102)
   br label %Io_ReadBlifNetworkNames.exit
 
 1450:                                             ; preds = %1446
@@ -5027,7 +5027,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1259, %1261, %1280,
   br i1 %.not120, label %1452, label %1454
 
 1452:                                             ; preds = %1450
-  %1453 = tail call fastcc i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef nonnull %0, ptr noundef nonnull %102), !range !26
+  %1453 = tail call fastcc i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef nonnull %0, ptr noundef nonnull %102)
   br label %Io_ReadBlifNetworkNames.exit
 
 1454:                                             ; preds = %1450
@@ -5090,7 +5090,7 @@ Io_ReadBlifNetworkNames.exit.thread:              ; preds = %Vec_StrPush.exit158
   %.197195200 = phi i32 [ %.197.ph, %1471 ], [ 1, %Io_ReadBlifNetworkNames.exit.thread ]
   %.195196199 = phi i32 [ %.195.ph, %1471 ], [ 0, %Io_ReadBlifNetworkNames.exit.thread ]
   %1474 = add nuw nsw i32 %.098, 1
-  br label %88, !llvm.loop !39
+  br label %88, !llvm.loop !38
 
 .loopexit:                                        ; preds = %Io_ReadBlifNetworkNames.exit.thread, %Io_ReadBlifNetworkNames.exit, %1454, %89, %1458
   %1475 = load ptr, ptr %63, align 8
@@ -5119,7 +5119,7 @@ declare i32 @Extra_FileReaderGetFileSize(ptr noundef) local_unnamed_addr #1
 declare i32 @Extra_FileReaderGetCurPosition(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -5290,7 +5290,7 @@ define internal fastcc noundef i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef %0,
   br i1 %exitcond.not.i, label %Io_ReadFindCoId.exit, label %108, !llvm.loop !15
 
 .critedge.loopexit.split.loop.exit14.i:           ; preds = %108
-  %113 = trunc i64 %indvars.iv.i to i32
+  %113 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Io_ReadFindCoId.exit
 
 Io_ReadFindCoId.exit:                             ; preds = %112, %87, %.critedge.loopexit.split.loop.exit14.i
@@ -5505,7 +5505,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %85, %83, %49, %47, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -5604,7 +5604,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %57, %55, %20, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -5703,7 +5703,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %57, %55, %20, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -5913,7 +5913,7 @@ attributes #18 = { nounwind allocsize(1) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = !{i32 0, i32 2}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
@@ -5926,4 +5926,3 @@ attributes #18 = { nounwind allocsize(1) }
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}

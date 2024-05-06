@@ -975,7 +975,7 @@ define dso_local void @dma_fence_init(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dma_fence_signal_locked(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dma_fence_signal_locked(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 @ktime_get() #14
   %3 = tail call i32 @dma_fence_signal_timestamp_locked(ptr noundef %0, i64 noundef %2), !range !28
   ret i32 %3
@@ -1056,7 +1056,7 @@ dma_fence_init.exit:                              ; preds = %5, %13, %26, %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dma_fence_signal_timestamp(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dma_fence_signal_timestamp(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -1091,7 +1091,7 @@ define dso_local i64 @dma_fence_context_alloc(i32 noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dma_fence_signal_timestamp_locked(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dma_fence_signal_timestamp_locked(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1186,7 +1186,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #0
 declare dso_local i64 @ktime_get() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dma_fence_signal(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dma_fence_signal(ptr noundef %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1689,7 +1689,7 @@ define internal fastcc zeroext i1 @__dma_fence_enable_signaling(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dma_fence_add_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dma_fence_add_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %6 = or i1 %4, %5

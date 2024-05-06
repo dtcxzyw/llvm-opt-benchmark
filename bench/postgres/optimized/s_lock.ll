@@ -193,7 +193,7 @@ define dso_local void @set_spins_per_delay(i32 noundef %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @update_spins_per_delay(i32 noundef %0) local_unnamed_addr #5 {
+define dso_local range(i32 -134217728, 134217728) i32 @update_spins_per_delay(i32 noundef %0) local_unnamed_addr #5 {
   %2 = mul i32 %0, 15
   %3 = load i32, ptr @spins_per_delay, align 4
   %4 = add i32 %3, %2

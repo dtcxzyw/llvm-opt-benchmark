@@ -197,7 +197,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.108 = private unnamed_addr constant [43 x i8] c"vhost_vdpa_set_config_call dev: %p fd: %d\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vhost_vdpa_dma_map(ptr noundef %v, i32 noundef %asid, i64 noundef %iova, i64 noundef %size, ptr noundef %vaddr, i1 noundef zeroext %readonly) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 1) i32 @vhost_vdpa_dma_map(ptr noundef %v, i32 noundef %asid, i64 noundef %iova, i64 noundef %size, ptr noundef %vaddr, i1 noundef zeroext %readonly) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %msg = alloca %struct.vhost_msg_v2, align 8
@@ -288,7 +288,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vhost_vdpa_dma_unmap(ptr noundef %v, i32 noundef %asid, i64 noundef %iova, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 1) i32 @vhost_vdpa_dma_unmap(ptr noundef %v, i32 noundef %asid, i64 noundef %iova, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %msg = alloca %struct.vhost_msg_v2, align 8
@@ -580,7 +580,7 @@ if.then20:                                        ; preds = %if.end17
   br label %return
 
 if.end21:                                         ; preds = %if.end17
-  %call22 = call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 3), !range !7
+  %call22 = call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 3)
   br label %return
 
 return:                                           ; preds = %vhost_vdpa_init_svq.exit, %if.end21, %if.then20, %if.then13
@@ -676,7 +676,7 @@ for.body.i:                                       ; preds = %if.end3, %for.body.
   %17 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %17 to i64
   %cmp.i10 = icmp ult i64 %inc.i, %conv.i
-  br i1 %cmp.i10, label %for.body.i, label %vhost_vdpa_svq_cleanup.exit, !llvm.loop !8
+  br i1 %cmp.i10, label %for.body.i, label %vhost_vdpa_svq_cleanup.exit, !llvm.loop !7
 
 vhost_vdpa_svq_cleanup.exit:                      ; preds = %for.body.i, %if.end3
   %.lcssa.i = phi ptr [ %11, %if.end3 ], [ %16, %for.body.i ]
@@ -816,7 +816,7 @@ return:                                           ; preds = %cond.true.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_vdpa_set_mem_table(ptr noundef %dev, ptr nocapture noundef readonly %mem) #0 {
+define internal range(i32 -22, 1) i32 @vhost_vdpa_set_mem_table(ptr noundef %dev, ptr nocapture noundef readonly %mem) #0 {
 entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -932,7 +932,7 @@ trace_vhost_vdpa_dump_regions.exit:               ; preds = %for.body, %land.lhs
   %inc = add nuw i32 %i.034, 1
   %24 = load i32, ptr %mem, align 8
   %cmp = icmp ult i32 %inc, %24
-  br i1 %cmp, label %for.body, label %if.end28, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %if.end28, !llvm.loop !8
 
 if.end28:                                         ; preds = %trace_vhost_vdpa_dump_regions.exit, %for.cond.preheader, %trace_vhost_vdpa_set_mem_table.exit
   %25 = load i32, ptr %padding, align 4
@@ -1311,7 +1311,7 @@ vhost_vdpa_call.exit:                             ; preds = %if.end.i, %cond.tru
   br i1 %tobool8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %vhost_vdpa_call.exit
-  %call11 = call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 8), !range !7
+  %call11 = call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 8)
   br label %return
 
 return:                                           ; preds = %if.then1, %vhost_vdpa_call.exit, %entry, %if.end10
@@ -1337,7 +1337,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_vdpa_set_backend_cap(ptr nocapture noundef %dev) #0 {
+define internal range(i32 -14, 1) i32 @vhost_vdpa_set_backend_cap(ptr nocapture noundef %dev) #0 {
 entry:
   %features = alloca i64, align 8
   %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
@@ -1807,7 +1807,7 @@ vhost_vdpa_call.exit:                             ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_vdpa_dev_start(ptr noundef %dev, i1 noundef zeroext %started) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_vdpa_dev_start(ptr noundef %dev, i1 noundef zeroext %started) #0 {
 entry:
   %svq_addr.i.i40 = alloca %struct.vhost_vring_addr, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1926,7 +1926,7 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
 if.then3.i:                                       ; preds = %vhost_vdpa_host_notifier_uninit.exit.i.i, %if.then7.i.i
   %14 = load i32, ptr %vq_index.i, align 4
   %sub.i = sub i32 %i.021.i, %14
-  tail call fastcc void @vhost_vdpa_host_notifiers_uninit(ptr noundef nonnull %dev, i32 noundef %sub.i)
+  tail call fastcc void @vhost_vdpa_host_notifiers_uninit(ptr noundef nonnull readonly %dev, i32 noundef %sub.i)
   br label %for.end.i
 
 for.inc.i:                                        ; preds = %if.end.i.i
@@ -1936,7 +1936,7 @@ for.inc.i:                                        ; preds = %if.end.i.i
   %16 = load i32, ptr %nvqs.i, align 8
   %add.i = add i32 %16, %15
   %cmp.i = icmp ult i32 %inc.i, %add.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then3.i, %if.end.i
   tail call void @memory_region_transaction_commit() #12
@@ -2170,7 +2170,7 @@ for.inc.i33:                                      ; preds = %if.end24.i
   %45 = load i32, ptr %len.i, align 8
   %46 = zext i32 %45 to i64
   %cmp.i34 = icmp ult i64 %indvars.iv.next.i, %46
-  br i1 %cmp.i34, label %for.body.i23, label %vhost_vdpa_svqs_start.exit.thread, !llvm.loop !11
+  br i1 %cmp.i34, label %for.body.i23, label %vhost_vdpa_svqs_start.exit.thread, !llvm.loop !10
 
 err_map.i:                                        ; preds = %if.then34.i, %vhost_vdpa_svq_map_rings.exit.i, %vhost_vdpa_svq_map_rings.exit.thread.i
   %47 = load ptr, ptr %shadow_vqs.i, align 16
@@ -2209,7 +2209,7 @@ for.body48.i:                                     ; preds = %for.body48.i, %for.
   call void @vhost_svq_stop(ptr noundef %53) #12
   %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next208.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %vhost_vdpa_svqs_start.exit, label %for.body48.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %vhost_vdpa_svqs_start.exit, label %for.body48.i, !llvm.loop !11
 
 vhost_vdpa_svqs_start.exit.thread:                ; preds = %for.inc.i33, %vhost_vdpa_host_notifiers_init.exit, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
@@ -2335,7 +2335,7 @@ for.body.i50:                                     ; preds = %for.body.i50, %for.
   %76 = load i32, ptr %len.i55, align 8
   %77 = zext i32 %76 to i64
   %cmp.i56 = icmp ult i64 %indvars.iv.next.i54, %77
-  br i1 %cmp.i56, label %for.body.i50, label %vhost_vdpa_svqs_stop.exit, !llvm.loop !13
+  br i1 %cmp.i56, label %for.body.i50, label %vhost_vdpa_svqs_stop.exit, !llvm.loop !12
 
 vhost_vdpa_svqs_stop.exit:                        ; preds = %for.body.i50, %vhost_vdpa_suspend.exit, %for.cond.preheader.i45
   %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
@@ -2375,7 +2375,7 @@ if.end20:                                         ; preds = %land.lhs.true, %if.
   %dma_as = getelementptr inbounds i8, ptr %83, i64 472
   %84 = load ptr, ptr %dma_as, align 8
   call void @memory_listener_register(ptr noundef nonnull %listener, ptr noundef %84) #12
-  %call21 = call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 4), !range !7
+  %call21 = call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 4)
   br label %return
 
 return:                                           ; preds = %vhost_vdpa_svqs_start.exit, %if.end8, %if.end20, %if.then19
@@ -2607,7 +2607,7 @@ if.end:                                           ; preds = %entry
   %opaque = getelementptr inbounds i8, ptr %dev, i64 536
   %3 = load ptr, ptr %opaque, align 8
   %call = tail call i32 @vhost_vdpa_reset_device(ptr noundef nonnull %dev)
-  %call1 = tail call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 3), !range !7
+  %call1 = tail call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 3)
   %listener = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @memory_listener_unregister(ptr noundef nonnull %listener) #12
   br label %return
@@ -2706,7 +2706,7 @@ declare zeroext i1 @vhost_svq_valid_features(i64 noundef, ptr noundef) local_unn
 declare i32 @ram_block_discard_disable(i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhost_vdpa_add_status(ptr noundef %dev, i8 noundef zeroext %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_vdpa_add_status(ptr noundef %dev, i8 noundef zeroext %status) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %s = alloca i8, align 1
@@ -3229,7 +3229,7 @@ int128_get64.exit82:                              ; preds = %if.end77.thread, %i
   %iova.085 = phi i64 [ %39, %if.end77.thread ], [ %and31, %if.end77 ]
   %40 = load i8, ptr %readonly, align 16
   %tobool81 = trunc i8 %40 to i1
-  %call82 = call i32 @vhost_vdpa_dma_map(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.085, i64 noundef %retval.sroa.0.0.extract.trunc.i, ptr noundef %add.ptr47, i1 noundef zeroext %tobool81), !range !14
+  %call82 = call i32 @vhost_vdpa_dma_map(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.085, i64 noundef %retval.sroa.0.0.extract.trunc.i, ptr noundef %add.ptr47, i1 noundef zeroext %tobool81)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %return, label %if.then84
 
@@ -3342,7 +3342,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %iommu_next20.i = getelementptr inbounds i8, ptr %iommu.019.i, i64 80
   %iommu.0.i = load ptr, ptr %iommu_next20.i, align 8
   %tobool.not.i61 = icmp eq ptr %iommu.0.i, null
-  br i1 %tobool.not.i61, label %if.end6, label %for.body.i, !llvm.loop !15
+  br i1 %tobool.not.i61, label %if.end6, label %for.body.i, !llvm.loop !13
 
 if.end6:                                          ; preds = %for.inc.i, %if.end.i, %if.then5, %memory_region_get_iommu.exit
   %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
@@ -3526,7 +3526,7 @@ if.end73.thread:                                  ; preds = %int128_get64.exit98
 
 int128_get64.exit116:                             ; preds = %if.end73.thread, %if.end73
   %iova.0148 = phi i64 [ %37, %if.end73.thread ], [ %and31, %if.end73 ]
-  %call85 = call i32 @vhost_vdpa_dma_unmap(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.0148, i64 noundef -9223372036854775808), !range !14
+  %call85 = call i32 @vhost_vdpa_dma_unmap(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.0148, i64 noundef -9223372036854775808)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.end94.thread, label %int128_get64.exit120
 
@@ -3549,7 +3549,7 @@ if.else.i126:                                     ; preds = %if.end94
 int128_get64.exit128:                             ; preds = %if.end73.thread, %if.end94.thread, %if.end94
   %iova.1138 = phi i64 [ %add93, %if.end94.thread ], [ %and31, %if.end94 ], [ %37, %if.end73.thread ]
   %llsize.0.off0137 = phi i64 [ -9223372036854775808, %if.end94.thread ], [ %retval.sroa.0.0.extract.trunc.i90, %if.end94 ], [ %retval.sroa.0.0.extract.trunc.i90, %if.end73.thread ]
-  %call97 = call i32 @vhost_vdpa_dma_unmap(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.1138, i64 noundef %llsize.0.off0137), !range !14
+  %call97 = call i32 @vhost_vdpa_dma_unmap(ptr noundef %add.ptr, i32 noundef 0, i64 noundef %iova.1138, i64 noundef %llsize.0.off0137)
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %if.end102, label %int128_get64.exit132
 
@@ -3810,7 +3810,7 @@ while.end.i.i:                                    ; preds = %if.end
   %6 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %6, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !14
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
@@ -3866,7 +3866,7 @@ if.end27:                                         ; preds = %if.then24
   %14 = load ptr, ptr %vaddr, align 8
   %15 = load i8, ptr %read_only, align 1
   %tobool30 = trunc i8 %15 to i1
-  %call31 = call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %2, i32 noundef 0, i64 noundef %add, i64 noundef %add29, ptr noundef %14, i1 noundef zeroext %tobool30), !range !14
+  %call31 = call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %2, i32 noundef 0, i64 noundef %add, i64 noundef %add29, ptr noundef %14, i1 noundef zeroext %tobool30)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then.i.i, label %if.then33
 
@@ -3879,7 +3879,7 @@ if.then33:                                        ; preds = %if.end27
 
 if.else:                                          ; preds = %if.end22
   %add38 = add i64 %7, 1
-  %call39 = tail call i32 @vhost_vdpa_dma_unmap(ptr noundef nonnull %2, i32 noundef 0, i64 noundef %add, i64 noundef %add38), !range !14
+  %call39 = tail call i32 @vhost_vdpa_dma_unmap(ptr noundef nonnull %2, i32 noundef 0, i64 noundef %add, i64 noundef %add38)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then.i.i, label %if.then41
 
@@ -3908,7 +3908,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %20 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -3997,7 +3997,7 @@ vhost_vdpa_host_notifier_uninit.exit:             ; preds = %for.body, %if.then.
   %add = add i32 %8, %n
   %9 = sext i32 %add to i64
   %cmp = icmp slt i64 %indvars.iv.next, %9
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %vhost_vdpa_host_notifier_uninit.exit, %entry
   tail call void @memory_region_transaction_commit() #12
@@ -4372,7 +4372,7 @@ trace_vhost_vdpa_dump_config.exit:                ; preds = %for.body, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %add = add i32 %b.06, 16
   %cmp = icmp ult i32 %add, %config_len
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %trace_vhost_vdpa_dump_config.exit, %entry
   ret void
@@ -4438,7 +4438,7 @@ if.end:                                           ; preds = %entry
   %perm = getelementptr inbounds i8, ptr %needle, i64 24
   %6 = load i32, ptr %perm, align 1
   %cmp2 = icmp eq i32 %6, 1
-  %call4 = tail call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %v, i32 noundef %1, i64 noundef %2, i64 noundef %add, ptr noundef %5, i1 noundef zeroext %cmp2), !range !14
+  %call4 = tail call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %v, i32 noundef %1, i64 noundef %2, i64 noundef %add, ptr noundef %5, i1 noundef zeroext %cmp2)
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %return, label %if.then13
 
@@ -4491,7 +4491,7 @@ if.end:                                           ; preds = %entry
   %address_space_id = getelementptr inbounds i8, ptr %v, i64 16
   %2 = load i32, ptr %address_space_id, align 16
   %3 = load i64, ptr %call, align 1
-  %call10 = call i32 @vhost_vdpa_dma_unmap(ptr noundef nonnull %v, i32 noundef %2, i64 noundef %3, i64 noundef %and), !range !14
+  %call10 = call i32 @vhost_vdpa_dma_unmap(ptr noundef nonnull %v, i32 noundef %2, i64 noundef %3, i64 noundef %and)
   %cmp = icmp slt i32 %call10, 0
   br i1 %cmp, label %if.then18, label %if.end22
 
@@ -4548,16 +4548,14 @@ attributes #15 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -2147483648, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 -5, i32 1}
-!15 = distinct !{!15, !6}
-!16 = !{i64 2150253602}
-!17 = !{i64 2150254702}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
+!14 = !{i64 2150253602}
+!15 = !{i64 2150254702}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}

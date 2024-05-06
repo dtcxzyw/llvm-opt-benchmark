@@ -65,7 +65,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN152_$LT$diese
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.191778928298338449"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.191778928298338449"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp ult i64 %3, %4
@@ -82,7 +82,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17h833e382d000081b0E.llvm.19177892
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17h49ceb53a7694e050E.llvm.191778928298338449(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h49ceb53a7694e050E.llvm.191778928298338449(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %3 = load i64, ptr %0, align 8, !alias.scope !5, !noalias !8, !noundef !4
@@ -520,7 +520,7 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
 
 .noexc15:                                         ; preds = %23
   %24 = load i64, ptr %3, align 8, !range !78, !noalias !76, !noundef !4
-  %trunc.i = trunc i64 %24 to i1
+  %trunc.i = trunc nuw i64 %24 to i1
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = load ptr, ptr %25, align 8, !noalias !76
   %27 = getelementptr inbounds i8, ptr %3, i64 16
@@ -538,7 +538,7 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
   %33 = extractvalue { i64, ptr } %31, 1
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %26, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %26, i64 %29, i1 false)
   br label %.noexc14
 
 .noexc14:                                         ; preds = %.noexc16, %.noexc15

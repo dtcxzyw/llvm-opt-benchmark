@@ -335,7 +335,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br i1 %189, label %190, label %199
 
 190:                                              ; preds = %185
-  %191 = trunc i64 %indvars.iv to i32
+  %191 = trunc nuw nsw i64 %indvars.iv to i32
   %192 = sub nsw i64 %188, %179
   %193 = getelementptr inbounds i8, ptr %148, i64 24
   %194 = load ptr, ptr %193, align 8
@@ -361,7 +361,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br label %.loopexit387
 
 .loopexit387.loopexit:                            ; preds = %165
-  %204 = trunc i64 %indvars.iv463 to i32
+  %204 = trunc nuw nsw i64 %indvars.iv463 to i32
   %205 = sub nsw i64 %172, %154
   br label %.loopexit387
 
@@ -551,7 +551,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %311 = sext i32 %310 to i64
   %312 = load i64, ptr %276, align 8
   %313 = srem i64 %311, %312
-  %314 = trunc i64 %313 to i32
+  %314 = trunc nsw i64 %313 to i32
   %315 = add nsw i32 %.0280421, 1
   %316 = load i64, ptr %13, align 8
   %317 = sext i32 %315 to i64

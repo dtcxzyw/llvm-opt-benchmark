@@ -88,7 +88,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %size.07 = phi i64 [ %0, %while.body.lr.ph ], [ %sub, %while.body ]
   %cond = call i64 @llvm.umin.i64(i64 %size.07, i64 255)
-  %conv = trunc i64 %cond to i8
+  %conv = trunc nuw i64 %cond to i8
   store i8 2, ptr %header, align 1
   store i8 %conv, ptr %arrayidx3, align 1
   %call4 = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %chr, ptr noundef nonnull %header, i32 noundef 2) #4
@@ -254,7 +254,7 @@ while.body:                                       ; preds = %land.rhs
   %2 = load i64, ptr %offset, align 8
   %sub = sub i64 %1, %2
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
-  %conv8 = trunc i64 %cond to i32
+  %conv8 = trunc nuw nsw i64 %cond to i32
   %data = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %data, align 8
   %add.ptr = getelementptr i8, ptr %3, i64 %2

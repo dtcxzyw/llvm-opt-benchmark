@@ -111,7 +111,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_NAME_set(ptr noundef %xn, ptr noundef %name) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_NAME_set(ptr noundef %xn, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %xn, null
   %tobool1 = icmp ne ptr %name, null
@@ -146,7 +146,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x509_name_ex_new(ptr nocapture noundef writeonly %val, ptr nocapture readnone %it) #0 {
+define internal range(i32 0, 2) i32 @x509_name_ex_new(ptr nocapture noundef writeonly %val, ptr nocapture readnone %it) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #9
   %tobool.not = icmp eq ptr %call, null
@@ -233,7 +233,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_name_ex_d2i(ptr nocapture noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr nocapture readnone %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) #0 {
+define internal range(i32 -2147483648, 2) i32 @x509_name_ex_d2i(ptr nocapture noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr nocapture readnone %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) #0 {
 entry:
   %p = alloca ptr, align 8
   %intname = alloca %union.anon, align 8
@@ -272,7 +272,7 @@ x509_name_ex_free.exit:                           ; preds = %if.end.i, %if.then3
   br label %if.end3
 
 if.end3:                                          ; preds = %x509_name_ex_free.exit, %if.end
-  %call4 = call i32 @x509_name_ex_new(ptr noundef nonnull %nm, ptr poison), !range !7
+  %call4 = call i32 @x509_name_ex_new(ptr noundef nonnull %nm, ptr poison)
   %tobool5.not = icmp eq i32 %call4, 0
   %.pre.pre = load ptr, ptr %nm, align 8
   br i1 %tobool5.not, label %if.then8, label %lor.lhs.false
@@ -322,7 +322,7 @@ for.cond17:                                       ; preds = %for.body20
   %inc = add nuw i64 %j.019, 1
   %call18 = call i64 @sk_num(ptr noundef %call16) #8
   %cmp19 = icmp ult i64 %inc, %call18
-  br i1 %cmp19, label %for.body20, label %for.end, !llvm.loop !8
+  br i1 %cmp19, label %for.body20, label %for.end, !llvm.loop !7
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.cond17
   %j.019 = phi i64 [ 0, %for.body20.lr.ph ], [ %inc, %for.cond17 ]
@@ -340,12 +340,12 @@ for.end:                                          ; preds = %for.cond17, %for.bo
   %14 = load ptr, ptr %intname, align 8
   %call14 = call i64 @sk_num(ptr noundef %14) #8
   %cmp15 = icmp ult i64 %inc28, %call14
-  br i1 %cmp15, label %for.body, label %for.end29, !llvm.loop !10
+  br i1 %cmp15, label %for.body, label %for.end29, !llvm.loop !9
 
 for.end29:                                        ; preds = %for.end, %if.end9
   %15 = load ptr, ptr %intname, align 8
   call void @sk_free(ptr noundef %15) #8
-  %call30 = call fastcc i32 @x509_name_canon(ptr noundef %.pre.pre), !range !7
+  %call30 = call fastcc i32 @x509_name_canon(ptr noundef %.pre.pre)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %if.end33
 
@@ -404,7 +404,7 @@ for.cond.i:                                       ; preds = %if.end18.i
   %3 = load ptr, ptr %0, align 8
   %call3.i = tail call i64 @sk_num(ptr noundef %3) #8
   %cmp.i = icmp ult i64 %inc.i, %call3.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %i.016.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
@@ -474,7 +474,7 @@ x509_name_encode.exit:                            ; preds = %for.end.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %x509_name_encode.exit
-  %call2 = call fastcc i32 @x509_name_canon(ptr noundef nonnull %0), !range !7
+  %call2 = call fastcc i32 @x509_name_canon(ptr noundef nonnull %0)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
@@ -503,7 +503,7 @@ return:                                           ; preds = %x509_name_encode.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_name_ex_print(ptr noundef %out, ptr nocapture noundef readonly %pval, i32 noundef %indent, ptr nocapture readnone %fname, ptr nocapture noundef readonly %pctx) #0 {
+define internal range(i32 0, 3) i32 @x509_name_ex_print(ptr noundef %out, ptr nocapture noundef readonly %pval, i32 noundef %indent, ptr nocapture readnone %fname, ptr nocapture noundef readonly %pctx) #0 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %nm_flags = getelementptr inbounds i8, ptr %pctx, i64 8
@@ -553,7 +553,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @x509_name_canon(ptr nocapture noundef %a) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr nocapture noundef %a) unnamed_addr #0 {
 entry:
   %v.i34 = alloca ptr, align 8
   %v.i = alloca ptr, align 8
@@ -595,7 +595,7 @@ for.cond:                                         ; preds = %if.end39
   %3 = load ptr, ptr %a, align 8
   %call12 = tail call i64 @sk_num(ptr noundef %3) #8
   %cmp13 = icmp ult i64 %inc, %call12
-  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !11
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.075 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -683,7 +683,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %from.039.i, i64 1
   %dec.i = add nsw i32 %len.040.i, -1
   %cmp12.i = icmp sgt i32 %len.040.i, 1
-  br i1 %cmp12.i, label %land.lhs.true.i, label %asn1_string_canon.exit.thread52, !llvm.loop !13
+  br i1 %cmp12.i, label %land.lhs.true.i, label %asn1_string_canon.exit.thread52, !llvm.loop !12
 
 land.lhs.true24.preheader.i:                      ; preds = %land.rhs.i, %land.lhs.true.i
   %idx.ext.i = zext nneg i32 %len.040.i to i64
@@ -714,7 +714,7 @@ land.rhs28.i:                                     ; preds = %land.lhs.true24.i
 while.body37.i:                                   ; preds = %land.rhs28.i
   %dec39.i = add nsw i32 %len.148.i, -1
   %cmp22.i = icmp sgt i32 %len.148.i, 1
-  br i1 %cmp22.i, label %land.lhs.true24.i, label %asn1_string_canon.exit.thread52, !llvm.loop !14
+  br i1 %cmp22.i, label %land.lhs.true24.i, label %asn1_string_canon.exit.thread52, !llvm.loop !13
 
 while.body45.i:                                   ; preds = %while.body45.i.preheader, %if.end83.i
   %i.056.i = phi i32 [ %i.2.i, %if.end83.i ], [ 0, %while.body45.i.preheader ]
@@ -761,7 +761,7 @@ land.rhs66.i:                                     ; preds = %do.body.i
   %26 = load i16, ptr %arrayidx70.i, align 2
   %27 = and i16 %26, 8192
   %tobool73.not.i = icmp eq i16 %27, 0
-  br i1 %tobool73.not.i, label %if.end83.i, label %do.body.i, !llvm.loop !15
+  br i1 %tobool73.not.i, label %if.end83.i, label %do.body.i, !llvm.loop !14
 
 if.else75.i:                                      ; preds = %if.else.i
   %call77.i = tail call i32 @tolower(i32 noundef %conv46.i) #11
@@ -776,7 +776,7 @@ if.end83.i:                                       ; preds = %land.rhs66.i, %do.b
   %i.2.i = phi i32 [ %inc.i, %if.then49.i ], [ %inc81.i, %if.else75.i ], [ %inc62.i, %do.body.i ], [ %inc62.i, %land.rhs66.i ]
   %to.2.i = getelementptr inbounds i8, ptr %to.154.i, i64 1
   %cmp43.i = icmp slt i32 %i.2.i, %len.148.i
-  br i1 %cmp43.i, label %while.body45.i, label %while.end84.loopexit.i, !llvm.loop !16
+  br i1 %cmp43.i, label %while.body45.i, label %while.end84.loopexit.i, !llvm.loop !15
 
 while.end84.loopexit.i:                           ; preds = %if.end83.i
   %.pre.i = load ptr, ptr %data.i, align 8
@@ -822,7 +822,7 @@ if.end.i:                                         ; preds = %for.body.i
   %inc.i30 = add nuw i64 %i.010.i, 1
   %call.i31 = call i64 @sk_num(ptr noundef nonnull %call7) #8
   %cmp.i32 = icmp ult i64 %inc.i30, %call.i31
-  br i1 %cmp.i32, label %for.body.i, label %i2d_name_canon.exit, !llvm.loop !17
+  br i1 %cmp.i32, label %for.body.i, label %i2d_name_canon.exit, !llvm.loop !16
 
 i2d_name_canon.exit:                              ; preds = %for.body.i, %if.end.i, %for.end
   %retval.0.i33 = phi i32 [ 0, %for.end ], [ %call2.i, %for.body.i ], [ %add.i, %if.end.i ]
@@ -854,7 +854,7 @@ if.end.i43:                                       ; preds = %for.body.i37
   %inc.i45 = add nuw i64 %i.010.i38, 1
   %call.i46 = call i64 @sk_num(ptr noundef nonnull %call7) #8
   %cmp.i47 = icmp ult i64 %inc.i45, %call.i46
-  br i1 %cmp.i47, label %for.body.i37, label %i2d_name_canon.exit49, !llvm.loop !17
+  br i1 %cmp.i47, label %for.body.i37, label %i2d_name_canon.exit49, !llvm.loop !16
 
 i2d_name_canon.exit49:                            ; preds = %for.body.i37, %if.end.i43, %if.end50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i34)
@@ -927,14 +927,13 @@ attributes #11 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}

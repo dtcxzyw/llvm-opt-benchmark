@@ -201,7 +201,7 @@ declare void @nlmsg_free(ptr noundef) local_unnamed_addr #2
 declare i32 @nl_socket_modify_cb(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 3) i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca [31 x ptr], align 16
   %4 = tail call ptr @nlmsg_hdr(ptr noundef %0) #8
   %5 = getelementptr inbounds i8, ptr %4, i64 4

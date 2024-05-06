@@ -220,7 +220,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define dso_local void @trace_event_iter_init_pattern(ptr nocapture noundef writeonly %iter, ptr noundef %pattern) local_unnamed_addr #3 {
 entry:
   %group_id.i = getelementptr inbounds i8, ptr %iter, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
   store i64 -1, ptr %group_id.i, align 8
   %pattern.i = getelementptr inbounds i8, ptr %iter, i64 24
   store ptr %pattern, ptr %pattern.i, align 8
@@ -231,7 +231,7 @@ entry:
 define dso_local void @trace_event_iter_init_group(ptr nocapture noundef writeonly %iter, i64 noundef %group_id) local_unnamed_addr #3 {
 entry:
   %group_id.i = getelementptr inbounds i8, ptr %iter, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
   %pattern.i = getelementptr inbounds i8, ptr %iter, i64 24
   store ptr null, ptr %pattern.i, align 8
   store i64 %group_id, ptr %group_id.i, align 8
@@ -294,7 +294,7 @@ entry.tail.i:                                     ; preds = %entry
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %entry, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %line_buf, ptr noundef nonnull dereferenceable(5) @.str.11) #14
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %line_buf, ptr noundef nonnull dereferenceable(5) @.str.11) #14
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.else
 
@@ -352,7 +352,7 @@ if.else.i.i:                                      ; preds = %if.else
   unreachable
 
 trace_event_is_pattern.exit.i:                    ; preds = %if.else
-  %call.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i, i32 noundef 42) #14
+  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %cond.i, i32 noundef 42) #14
   %call.i.fr.i = freeze ptr %call.i.i
   %cmp1.i.not.i = icmp eq ptr %call.i.fr.i, null
   %11 = load i64, ptr @nevent_groups, align 8

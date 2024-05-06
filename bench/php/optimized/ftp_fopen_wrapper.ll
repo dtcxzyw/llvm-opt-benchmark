@@ -1268,7 +1268,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_ftp_dirstream_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 -1, 258) i64 @php_ftp_dirstream_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1374,7 +1374,7 @@ declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #2
 declare ptr @php_basename(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stream_ftp_stream_close(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @php_stream_ftp_stream_close(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca [512 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -1416,7 +1416,7 @@ define internal noundef i32 @php_stream_ftp_stream_stat(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stream_ftp_url_stat(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [512 x i8], align 16
   %8 = alloca %struct.tm, align 8
@@ -1612,7 +1612,7 @@ define internal noundef i32 @php_stream_ftp_url_stat(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stream_ftp_unlink(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @php_stream_ftp_unlink(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [512 x i8], align 16
   store ptr null, ptr %5, align 8
@@ -1690,7 +1690,7 @@ define internal noundef i32 @php_stream_ftp_unlink(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stream_ftp_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @php_stream_ftp_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca [512 x i8], align 16
   %7 = tail call ptr @php_url_parse(ptr noundef %1) #15
   %8 = tail call ptr @php_url_parse(ptr noundef %2) #15
@@ -1870,7 +1870,7 @@ define internal noundef i32 @php_stream_ftp_rename(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr noundef %1, i32 %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr noundef %1, i32 %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [512 x i8], align 16
   store ptr null, ptr %6, align 8
@@ -2029,7 +2029,7 @@ define internal i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr noundef %1, i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stream_ftp_rmdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @php_stream_ftp_rmdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [512 x i8], align 16
   store ptr null, ptr %5, align 8

@@ -1777,7 +1777,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 .lr.ph.preheader.i:                               ; preds = %10
   %12 = zext nneg i32 %4 to i64
   %13 = shl nuw nsw i64 %12, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %13, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 0, i64 %13, i1 false)
   br label %Abc_TtConst0.exit
 
 14:                                               ; preds = %5
@@ -1787,7 +1787,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 .lr.ph.preheader.i32:                             ; preds = %14
   %16 = zext nneg i32 %4 to i64
   %17 = shl nuw nsw i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 -1, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 -1, i64 %17, i1 false)
   br label %Abc_TtConst0.exit
 
 18:                                               ; preds = %tailrecurse
@@ -1925,7 +1925,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 .lr.ph.preheader.i38:                             ; preds = %.loopexit71
   %15 = zext nneg i32 %4 to i64
   %16 = shl nuw nsw i64 %15, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 0, i64 %16, i1 false)
   br label %Abc_TtConst0.exit
 
 17:                                               ; preds = %.lr.ph.i42
@@ -1947,7 +1947,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 .lr.ph.preheader.i47:                             ; preds = %.loopexit70
   %21 = zext nneg i32 %4 to i64
   %22 = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 -1, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 -1, i64 %22, i1 false)
   br label %Abc_TtConst0.exit
 
 .preheader.lr.ph.i:                               ; preds = %.lr.ph.i42
@@ -2130,7 +2130,7 @@ define void @Dau_DsdToTruth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 .lr.ph.preheader.i112:                            ; preds = %42
   %51 = zext nneg i32 %15 to i64
   %52 = shl nuw nsw i64 %51, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, i8 -1, i64 %52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %4, i8 -1, i64 %52, i1 false)
   %.pn109179.pre = load ptr, ptr %1, align 8
   br label %Abc_TtConst1.exit
 
@@ -2200,7 +2200,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i115, %54
 .lr.ph.preheader.i125:                            ; preds = %64
   %73 = zext nneg i32 %15 to i64
   %74 = shl nuw nsw i64 %73, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, i8 0, i64 %74, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %4, i8 0, i64 %74, i1 false)
   %.pn175.pre = load ptr, ptr %1, align 8
   br label %Abc_TtConst0.exit
 
@@ -2473,7 +2473,7 @@ Dau_DsdIsConst0.exit:                             ; preds = %Dau_DsdTtElems.exit
 .lr.ph.preheader.i:                               ; preds = %33
   %35 = zext nneg i32 %8 to i64
   %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, i8 0, i64 %36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %29, i8 0, i64 %36, i1 false)
   br label %Abc_TtConst0.exit
 
 Dau_DsdIsConst1.exit:                             ; preds = %Dau_DsdTtElems.exit
@@ -2489,7 +2489,7 @@ Dau_DsdIsConst1.exit:                             ; preds = %Dau_DsdTtElems.exit
 .lr.ph.preheader.i10:                             ; preds = %39
   %41 = zext nneg i32 %8 to i64
   %42 = shl nuw nsw i64 %41, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, i8 -1, i64 %42, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %29, i8 -1, i64 %42, i1 false)
   br label %Abc_TtConst0.exit
 
 Dau_DsdIsConst1.exit.thread.thread:               ; preds = %Dau_DsdIsConst0.exit, %Dau_DsdIsConst1.exit
@@ -4636,7 +4636,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %207 = add nsw i32 %.lcssa.i.i, 1
   store i32 %207, ptr %15, align 4
   %208 = getelementptr inbounds [32 x [8 x i8]], ptr %16, i64 0, i64 %.pre-phi.i118.i
-  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %208, ptr nonnull dereferenceable(1) %6)
+  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %208, ptr nonnull readonly dereferenceable(1) %6)
   %209 = load i32, ptr %15, align 4
   %210 = add nsw i32 %209, -1
   store i32 %210, ptr %30, align 4
@@ -5211,7 +5211,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %274 = add nsw i32 %.lcssa.i.i, 1
   store i32 %274, ptr %18, align 4
   %275 = getelementptr inbounds [32 x [8 x i8]], ptr %19, i64 0, i64 %.pre-phi.i.i
-  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %275, ptr nonnull dereferenceable(1) %6)
+  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %275, ptr nonnull readonly dereferenceable(1) %6)
   %276 = load i32, ptr %18, align 4
   %277 = add nsw i32 %276, -1
   store i32 %277, ptr %43, align 4
@@ -8893,7 +8893,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %913 = add nsw i32 %.lcssa.i.i, 1
   store i32 %913, ptr %25, align 4
   %914 = getelementptr inbounds [32 x [8 x i8]], ptr %26, i64 0, i64 %.pre-phi.i.i
-  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %914, ptr nonnull dereferenceable(1) %6)
+  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %914, ptr nonnull readonly dereferenceable(1) %6)
   %915 = load i32, ptr %25, align 4
   %916 = add nsw i32 %915, -1
   store i32 %916, ptr %48, align 4
@@ -10713,7 +10713,7 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %788 = add nsw i32 %.lcssa.i.i, 1
   store i32 %788, ptr %23, align 4
   %789 = getelementptr inbounds [32 x [8 x i8]], ptr %24, i64 0, i64 %.pre-phi.i.i
-  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %789, ptr nonnull dereferenceable(1) %8)
+  %strcpy.i.i = call ptr @strcpy(ptr nonnull dereferenceable(1) %789, ptr nonnull readonly dereferenceable(1) %8)
   %790 = load i32, ptr %23, align 4
   %791 = add nsw i32 %790, -1
   store i32 %791, ptr %49, align 4
@@ -11240,7 +11240,7 @@ define range(i32 0, 3) i32 @Dau_DsdDecomposeInt(ptr noundef %0, ptr noundef %1, 
   store i32 %2, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = icmp sgt i32 %2, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br i1 %7, label %.lr.ph.i, label %Dau_DsdInitialize.exit
 
 .lr.ph.i:                                         ; preds = %3
@@ -11256,7 +11256,7 @@ define range(i32 0, 3) i32 @Dau_DsdDecomposeInt(ptr noundef %0, ptr noundef %1, 
   %indvar.i = phi i64 [ %indvar.next.i, %.preheader.us.i ], [ 0, %.preheader.lr.ph.i ]
   %9 = shl nuw nsw i64 %indvar.i, 5
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %gep.i, i8 0, i64 %wide.trip.count.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %gep.i, i8 0, i64 %wide.trip.count.i, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond39.not.i = icmp eq i64 %indvar.next.i, %wide.trip.count.i
   br i1 %exitcond39.not.i, label %Dau_DsdInitialize.exit, label %.preheader.us.i, !llvm.loop !127
@@ -11792,7 +11792,7 @@ Dau_DsdIsConst0.exit.i:                           ; preds = %Dau_DsdTtElems.exit
   br i1 %.not.i, label %76, label %Dau_DsdIsConst1.exit.thread.thread.i
 
 76:                                               ; preds = %Dau_DsdIsConst0.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %72, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %72, i8 0, i64 128, i1 false)
   br label %Dau_DsdToTruth.exit
 
 Dau_DsdIsConst1.exit.i:                           ; preds = %Dau_DsdTtElems.exit.i
@@ -11802,7 +11802,7 @@ Dau_DsdIsConst1.exit.i:                           ; preds = %Dau_DsdTtElems.exit
   br i1 %.not15.i, label %79, label %Dau_DsdIsConst1.exit.thread.thread.i
 
 79:                                               ; preds = %Dau_DsdIsConst1.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %72, i8 -1, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %72, i8 -1, i64 128, i1 false)
   br label %Dau_DsdToTruth.exit
 
 Dau_DsdIsConst1.exit.thread.thread.i:             ; preds = %Dau_DsdIsConst1.exit.i, %Dau_DsdIsConst0.exit.i
@@ -12170,7 +12170,7 @@ Dau_DsdIsConst0.exit.i80:                         ; preds = %Dau_DsdTtElems.exit
   br i1 %.not.i81, label %190, label %Dau_DsdIsConst1.exit.thread.thread.i68
 
 190:                                              ; preds = %Dau_DsdIsConst0.exit.i80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %187, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %187, i8 0, i64 128, i1 false)
   br label %Dau_DsdToTruth.exit103
 
 Dau_DsdIsConst1.exit.i66:                         ; preds = %Dau_DsdTtElems.exit.i65
@@ -12179,7 +12179,7 @@ Dau_DsdIsConst1.exit.i66:                         ; preds = %Dau_DsdTtElems.exit
   br i1 %.not15.i67, label %192, label %Dau_DsdIsConst1.exit.thread.thread.i68
 
 192:                                              ; preds = %Dau_DsdIsConst1.exit.i66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %187, i8 -1, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %187, i8 -1, i64 128, i1 false)
   br label %Dau_DsdToTruth.exit103
 
 Dau_DsdIsConst1.exit.thread.thread.i68:           ; preds = %Dau_DsdIsConst1.exit.i66, %Dau_DsdIsConst0.exit.i80

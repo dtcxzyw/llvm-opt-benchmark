@@ -445,7 +445,7 @@ _ZN6icu_759ClockMath11floorDivideEiiPi.exit:      ; preds = %cond.true.i.i, %con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_755Grego16dayOfWeekInMonthEiii(i32 noundef %year, i32 noundef %month, i32 noundef %dom) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -306783377, 306783379) i32 @_ZN6icu_755Grego16dayOfWeekInMonthEiii(i32 noundef %year, i32 noundef %month, i32 noundef %dom) local_unnamed_addr #0 align 2 {
 entry:
   %add.off = add i32 %dom, -22
   %cmp = icmp ult i32 %add.off, 7

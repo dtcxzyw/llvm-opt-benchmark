@@ -636,7 +636,7 @@ getMagicHeaderName.exit.i.i:                      ; preds = %83, %82, %81, %80, 
   br label %159
 
 141:                                              ; preds = %132
-  %142 = tail call fastcc i32 @egg_parse_encrypt_header(ptr noundef nonnull %139, i64 noundef %136, ptr noundef nonnull %43), !range !4
+  %142 = tail call fastcc i32 @egg_parse_encrypt_header(ptr noundef nonnull %139, i64 noundef %136, ptr noundef nonnull %43)
   %.not70.i.i = icmp eq i32 %142, 0
   br i1 %.not70.i.i, label %egg_parse_archive_extra_field.exit.i, label %143
 
@@ -796,16 +796,16 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
 198:                                              ; preds = %186
   %199 = load ptr, ptr %13, align 8
   %.not55.i = icmp eq ptr %199, null
-  br i1 %.not55.i, label %.critedge.i157, label %200
+  br i1 %.not55.i, label %.critedge.i158, label %200
 
 200:                                              ; preds = %198
   %201 = load i64, ptr %17, align 8
   %202 = getelementptr inbounds i8, ptr %199, i64 88
   %203 = load i64, ptr %202, align 8
   %204 = icmp ugt i64 %201, %203
-  br i1 %204, label %.critedge.i157, label %205
+  br i1 %204, label %.critedge.i158, label %205
 
-.critedge.i157:                                   ; preds = %200, %198
+.critedge.i158:                                   ; preds = %200, %198
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.142) #11
   br label %egg_parse_file_headers.exit
 
@@ -836,10 +836,10 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
     i32 176525539, label %221
     i32 1095190341, label %.thread67.i.loopexit
     i32 619028576, label %219
-    i32 45419539, label %.thread67.i.loopexit293
-    i32 147932943, label %.thread67.i.loopexit403
-    i32 747017483, label %.thread67.i.loopexit514
-    i32 518595301, label %.thread67.i.loopexit624
+    i32 45419539, label %.thread67.i.loopexit295
+    i32 147932943, label %.thread67.i.loopexit405
+    i32 747017483, label %.thread67.i.loopexit516
+    i32 518595301, label %.thread67.i.loopexit626
     i32 122041095, label %.thread67.i
     i32 176525740, label %216
     i32 80098930, label %217
@@ -864,21 +864,21 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
 .thread67.i.loopexit:                             ; preds = %214
   br label %.thread67.i
 
-.thread67.i.loopexit293:                          ; preds = %214
+.thread67.i.loopexit295:                          ; preds = %214
   br label %.thread67.i
 
-.thread67.i.loopexit403:                          ; preds = %214
+.thread67.i.loopexit405:                          ; preds = %214
   br label %.thread67.i
 
-.thread67.i.loopexit514:                          ; preds = %214
+.thread67.i.loopexit516:                          ; preds = %214
   br label %.thread67.i
 
-.thread67.i.loopexit624:                          ; preds = %214
+.thread67.i.loopexit626:                          ; preds = %214
   br label %.thread67.i
 
-.thread67.i:                                      ; preds = %214, %.thread67.i.loopexit624, %.thread67.i.loopexit514, %.thread67.i.loopexit403, %.thread67.i.loopexit293, %.thread67.i.loopexit, %220, %219, %218, %217, %216
-  %.0.i.i150 = phi ptr [ @.str.17, %220 ], [ @.str.16, %219 ], [ @.str.15, %218 ], [ @.str.14, %217 ], [ @.str.13, %216 ], [ @.str.6, %.thread67.i.loopexit ], [ @.str.8, %.thread67.i.loopexit293 ], [ @.str.9, %.thread67.i.loopexit403 ], [ @.str.10, %.thread67.i.loopexit514 ], [ @.str.11, %.thread67.i.loopexit624 ], [ @.str.12, %214 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.145, i32 noundef %215, ptr noundef nonnull %.0.i.i150) #11
+.thread67.i:                                      ; preds = %214, %.thread67.i.loopexit626, %.thread67.i.loopexit516, %.thread67.i.loopexit405, %.thread67.i.loopexit295, %.thread67.i.loopexit, %220, %219, %218, %217, %216
+  %.0.i.i151 = phi ptr [ @.str.17, %220 ], [ @.str.16, %219 ], [ @.str.15, %218 ], [ @.str.14, %217 ], [ @.str.13, %216 ], [ @.str.6, %.thread67.i.loopexit ], [ @.str.8, %.thread67.i.loopexit295 ], [ @.str.9, %.thread67.i.loopexit405 ], [ @.str.10, %.thread67.i.loopexit516 ], [ @.str.11, %.thread67.i.loopexit626 ], [ @.str.12, %214 ]
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.145, i32 noundef %215, ptr noundef nonnull %.0.i.i151) #11
   br label %475
 
 221:                                              ; preds = %214
@@ -905,9 +905,9 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   %233 = getelementptr inbounds i8, ptr %232, i64 88
   %234 = load i64, ptr %233, align 8
   %235 = icmp ugt i64 %234, %231
-  br i1 %235, label %.lr.ph.i151, label %.thread
+  br i1 %235, label %.lr.ph.i152, label %.thread
 
-.lr.ph.i151:                                      ; preds = %229
+.lr.ph.i152:                                      ; preds = %229
   %236 = getelementptr inbounds i8, ptr %211, i64 32
   %237 = getelementptr inbounds i8, ptr %211, i64 24
   %238 = getelementptr inbounds i8, ptr %211, i64 40
@@ -917,9 +917,9 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   %242 = getelementptr inbounds i8, ptr %211, i64 16
   br label %243
 
-243:                                              ; preds = %egg_parse_file_extra_field.exit.i, %.lr.ph.i151
-  %244 = phi i64 [ %231, %.lr.ph.i151 ], [ %467, %egg_parse_file_extra_field.exit.i ]
-  %245 = phi ptr [ %232, %.lr.ph.i151 ], [ %468, %egg_parse_file_extra_field.exit.i ]
+243:                                              ; preds = %egg_parse_file_extra_field.exit.i, %.lr.ph.i152
+  %244 = phi i64 [ %231, %.lr.ph.i152 ], [ %467, %egg_parse_file_extra_field.exit.i ]
+  %245 = phi ptr [ %232, %.lr.ph.i152 ], [ %468, %egg_parse_file_extra_field.exit.i ]
   %246 = getelementptr inbounds i8, ptr %245, i64 104
   %247 = load ptr, ptr %246, align 8
   %248 = call ptr %247(ptr noundef nonnull %245, i64 noundef %244, i64 noundef 4, i32 noundef 0) #11
@@ -943,17 +943,17 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %256 = load ptr, ptr %13, align 8
-  %.not.i.i152 = icmp eq ptr %256, null
-  br i1 %.not.i.i152, label %.critedge.i.i156, label %257
+  %.not.i.i153 = icmp eq ptr %256, null
+  br i1 %.not.i.i153, label %.critedge.i.i157, label %257
 
 257:                                              ; preds = %255
   %258 = load i64, ptr %17, align 8
   %259 = getelementptr inbounds i8, ptr %256, i64 88
   %260 = load i64, ptr %259, align 8
   %261 = icmp ugt i64 %258, %260
-  br i1 %261, label %.critedge.i.i156, label %262
+  br i1 %261, label %.critedge.i.i157, label %262
 
-.critedge.i.i156:                                 ; preds = %257, %255
+.critedge.i.i157:                                 ; preds = %257, %255
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.154) #11
   br label %472
 
@@ -971,7 +971,7 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
 267:                                              ; preds = %262
   %268 = load i32, ptr %265, align 1
   switch i32 %268, label %279 [
-    i32 1095190341, label %getMagicHeaderName.exit.i.i153
+    i32 1095190341, label %getMagicHeaderName.exit.i.i154
     i32 176525539, label %269
     i32 45419539, label %270
     i32 147932943, label %271
@@ -985,41 +985,41 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   ]
 
 269:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 270:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 271:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 272:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 273:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 274:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 275:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 276:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 277:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 278:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
 279:                                              ; preds = %267
-  br label %getMagicHeaderName.exit.i.i153
+  br label %getMagicHeaderName.exit.i.i154
 
-getMagicHeaderName.exit.i.i153:                   ; preds = %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %267
-  %.0.i.i.i154 = phi ptr [ @.str.17, %279 ], [ @.str.16, %278 ], [ @.str.15, %277 ], [ @.str.14, %276 ], [ @.str.13, %275 ], [ @.str.12, %274 ], [ @.str.11, %273 ], [ @.str.10, %272 ], [ @.str.9, %271 ], [ @.str.8, %270 ], [ @.str.7, %269 ], [ @.str.6, %267 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.156, i32 noundef %268, ptr noundef nonnull %.0.i.i.i154) #11
+getMagicHeaderName.exit.i.i154:                   ; preds = %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %267
+  %.0.i.i.i155 = phi ptr [ @.str.17, %279 ], [ @.str.16, %278 ], [ @.str.15, %277 ], [ @.str.14, %276 ], [ @.str.13, %275 ], [ @.str.12, %274 ], [ @.str.11, %273 ], [ @.str.10, %272 ], [ @.str.9, %271 ], [ @.str.8, %270 ], [ @.str.7, %269 ], [ @.str.6, %267 ]
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.156, i32 noundef %268, ptr noundef nonnull %.0.i.i.i155) #11
   %280 = getelementptr inbounds i8, ptr %265, i64 4
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
@@ -1035,7 +1035,7 @@ getMagicHeaderName.exit.i.i153:                   ; preds = %279, %278, %277, %2
   %289 = load ptr, ptr %288, align 8
   br i1 %.not145.i.i, label %295, label %290
 
-290:                                              ; preds = %getMagicHeaderName.exit.i.i153
+290:                                              ; preds = %getMagicHeaderName.exit.i.i154
   %291 = call ptr %289(ptr noundef nonnull %287, i64 noundef %284, i64 noundef 4, i32 noundef 0) #11
   %.not147.i.i = icmp eq ptr %291, null
   br i1 %.not147.i.i, label %292, label %293
@@ -1048,7 +1048,7 @@ getMagicHeaderName.exit.i.i153:                   ; preds = %279, %278, %277, %2
   %294 = load i32, ptr %291, align 4
   br label %301
 
-295:                                              ; preds = %getMagicHeaderName.exit.i.i153
+295:                                              ; preds = %getMagicHeaderName.exit.i.i154
   %296 = call ptr %289(ptr noundef nonnull %287, i64 noundef %284, i64 noundef 2, i32 noundef 0) #11
   %.not146.i.i = icmp eq ptr %296, null
   br i1 %.not146.i.i, label %297, label %298
@@ -1176,8 +1176,8 @@ getMagicHeaderName.exit.i.i153:                   ; preds = %279, %278, %277, %2
 
 348:                                              ; preds = %341, %335
   %.1126.i.i = phi ptr [ %344, %341 ], [ %.0125.i.i, %335 ]
-  %.1.i.i155 = phi i32 [ %347, %341 ], [ %.0121.i.i, %335 ]
-  %349 = icmp eq i32 %.1.i.i155, 0
+  %.1.i.i156 = phi i32 [ %347, %341 ], [ %.0121.i.i, %335 ]
+  %349 = icmp eq i32 %.1.i.i156, 0
   br i1 %349, label %350, label %351
 
 350:                                              ; preds = %348
@@ -1193,7 +1193,7 @@ getMagicHeaderName.exit.i.i153:                   ; preds = %279, %278, %277, %2
 354:                                              ; preds = %351
   %355 = zext i16 %.0122.i.i to i32
   %356 = icmp eq i16 %.0122.i.i, 0
-  %357 = zext i32 %.1.i.i155 to i64
+  %357 = zext i32 %.1.i.i156 to i64
   br i1 %356, label %358, label %362
 
 358:                                              ; preds = %354
@@ -1219,7 +1219,7 @@ getMagicHeaderName.exit.i.i153:                   ; preds = %279, %278, %277, %2
   br label %371
 
 366:                                              ; preds = %351
-  %367 = zext i32 %.1.i.i155 to i64
+  %367 = zext i32 %.1.i.i156 to i64
   %368 = call noalias ptr @strndup(ptr noundef nonnull %.1126.i.i, i64 noundef %367) #11
   store ptr %368, ptr %5, align 8
   %369 = icmp eq ptr %368, null
@@ -1251,7 +1251,7 @@ getMagicHeaderName.exit.i.i153:                   ; preds = %279, %278, %277, %2
   br label %472
 
 381:                                              ; preds = %373
-  %382 = call fastcc i32 @egg_parse_comment_header(ptr noundef nonnull %379, i64 noundef %376, ptr noundef nonnull %265, ptr noundef nonnull %7), !range !5
+  %382 = call fastcc i32 @egg_parse_comment_header(ptr noundef nonnull %379, i64 noundef %376, ptr noundef nonnull %265, ptr noundef nonnull %7)
   %.not160.i.i = icmp eq i32 %382, 0
   br i1 %.not160.i.i, label %384, label %383
 
@@ -1318,7 +1318,7 @@ getMagicHeaderName.exit.i.i153:                   ; preds = %279, %278, %277, %2
   br label %472
 
 415:                                              ; preds = %406
-  %416 = call fastcc i32 @egg_parse_encrypt_header(ptr noundef nonnull %413, i64 noundef %410, ptr noundef nonnull %238), !range !4
+  %416 = call fastcc i32 @egg_parse_encrypt_header(ptr noundef nonnull %413, i64 noundef %410, ptr noundef nonnull %238)
   %.not158.i.i = icmp eq i32 %416, 0
   br i1 %.not158.i.i, label %egg_parse_file_extra_field.exit.i, label %417
 
@@ -1454,7 +1454,7 @@ egg_parse_file_extra_field.exit.i:                ; preds = %463, %462, %461, %4
   %471 = icmp ugt i64 %470, %467
   br i1 %471, label %243, label %.thread
 
-472:                                              ; preds = %446, %437, %429, %420, %417, %414, %405, %395, %387, %380, %370, %350, %340, %327, %315, %307, %297, %292, %266, %.critedge.i.i156
+472:                                              ; preds = %446, %437, %429, %420, %417, %414, %405, %395, %387, %380, %370, %350, %340, %327, %315, %307, %297, %292, %266, %.critedge.i.i157
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1470,8 +1470,8 @@ egg_parse_file_extra_field.exit.i:                ; preds = %463, %462, %461, %4
   call fastcc void @egg_free_egg_file(ptr noundef nonnull %211)
   br label %egg_parse_file_headers.exit
 
-egg_parse_file_headers.exit:                      ; preds = %475, %213, %209, %.critedge.i157
-  %.043.i = phi i32 [ 27, %475 ], [ 27, %209 ], [ 20, %213 ], [ 3, %.critedge.i157 ]
+egg_parse_file_headers.exit:                      ; preds = %475, %213, %209, %.critedge.i158
+  %.043.i = phi i32 [ 27, %475 ], [ 27, %209 ], [ 20, %213 ], [ 3, %.critedge.i158 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i32 noundef %.043.i) #11
   br label %674
 
@@ -1501,16 +1501,16 @@ egg_parse_file_headers.exit:                      ; preds = %475, %213, %209, %.
 488:                                              ; preds = %186
   %489 = load ptr, ptr %13, align 8
   %.not59.i = icmp eq ptr %489, null
-  br i1 %.not59.i, label %.critedge.i158, label %490
+  br i1 %.not59.i, label %.critedge.i160, label %490
 
 490:                                              ; preds = %488
   %491 = load i64, ptr %17, align 8
   %492 = getelementptr inbounds i8, ptr %489, i64 88
   %493 = load i64, ptr %492, align 8
   %494 = icmp ugt i64 %491, %493
-  br i1 %494, label %.critedge.i158, label %495
+  br i1 %494, label %.critedge.i160, label %495
 
-.critedge.i158:                                   ; preds = %490, %488
+.critedge.i160:                                   ; preds = %490, %488
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.209) #11
   br label %546
 
@@ -1618,8 +1618,8 @@ egg_parse_file_headers.exit:                      ; preds = %475, %213, %209, %.
   call void @free(ptr noundef nonnull %501) #11
   br label %546
 
-546:                                              ; preds = %545, %499, %503, %.critedge.i158
-  %.048.i.ph = phi i32 [ 3, %.critedge.i158 ], [ 20, %503 ], [ 27, %499 ], [ 27, %545 ]
+546:                                              ; preds = %545, %499, %503, %.critedge.i160
+  %.048.i.ph = phi i32 [ 3, %.critedge.i160 ], [ 20, %503 ], [ 27, %499 ], [ 27, %545 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, i32 noundef %.048.i.ph) #11
   br label %674
 
@@ -1806,10 +1806,10 @@ getMagicHeaderName.exit:                          ; preds = %597, %599, %600, %6
   br label %631
 
 631:                                              ; preds = %628, %623
-  %.sink513 = phi i64 [ 2, %628 ], [ 4, %623 ]
+  %.sink515 = phi i64 [ 2, %628 ], [ 4, %623 ]
   %.0111 = phi i32 [ %630, %628 ], [ %624, %623 ]
   %632 = load i64, ptr %17, align 8
-  %633 = add i64 %632, %.sink513
+  %633 = add i64 %632, %.sink515
   store i64 %633, ptr %17, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %.0111) #11
   %634 = load ptr, ptr %13, align 8
@@ -1826,7 +1826,7 @@ getMagicHeaderName.exit:                          ; preds = %597, %599, %600, %6
   br label %674
 
 641:                                              ; preds = %631
-  %642 = call fastcc i32 @egg_parse_comment_header(ptr noundef nonnull %639, i64 noundef %636, ptr noundef nonnull %595, ptr noundef nonnull %8), !range !5
+  %642 = call fastcc i32 @egg_parse_comment_header(ptr noundef nonnull %639, i64 noundef %636, ptr noundef nonnull %595, ptr noundef nonnull %8)
   %.not144 = icmp eq i32 %642, 0
   br i1 %.not144, label %644, label %643
 
@@ -2023,7 +2023,7 @@ define internal fastcc void @egg_free_egg_file(ptr nocapture noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @egg_parse_comment_header(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store ptr null, ptr %5, align 8
@@ -2226,7 +2226,7 @@ define internal fastcc void @egg_free_egg_handle(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_egg_peek_file_header(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 28) i32 @cli_egg_peek_file_header(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -2434,7 +2434,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca %struct.z_stream_s, align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq i64 %1, 0
@@ -2616,7 +2616,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca %struct.bz_stream, align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq i64 %1, 0
@@ -2793,7 +2793,7 @@ declare i32 @BZ2_bzDecompress(ptr noundef) local_unnamed_addr #2
 declare i32 @BZ2_bzDecompressEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca %struct.CLI_LZMA, align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq i64 %1, 0
@@ -2961,7 +2961,7 @@ declare i32 @cli_LzmaDecode(ptr noundef) local_unnamed_addr #2
 declare void @cli_LzmaShutdown(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -3144,7 +3144,7 @@ define noundef i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef writeonly %
   %100 = getelementptr inbounds i8, ptr %99, i64 10
   %101 = load i32, ptr %100, align 1
   %102 = zext i32 %101 to i64
-  %103 = call i32 @cli_egg_deflate_decompress(ptr noundef %98, i64 noundef %102, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !4
+  %103 = call i32 @cli_egg_deflate_decompress(ptr noundef %98, i64 noundef %102, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not112 = icmp eq i32 %103, 0
   br i1 %.not112, label %105, label %104
 
@@ -3185,7 +3185,7 @@ define noundef i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef writeonly %
   %123 = getelementptr inbounds i8, ptr %122, i64 10
   %124 = load i32, ptr %123, align 1
   %125 = zext i32 %124 to i64
-  %126 = call i32 @cli_egg_bzip2_decompress(ptr noundef %121, i64 noundef %125, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !4
+  %126 = call i32 @cli_egg_bzip2_decompress(ptr noundef %121, i64 noundef %125, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not111 = icmp eq i32 %126, 0
   br i1 %.not111, label %128, label %127
 
@@ -3305,7 +3305,7 @@ define noundef i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef writeonly %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_egg_skip_file(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 23) i32 @cli_egg_skip_file(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -3371,7 +3371,7 @@ define void @cli_egg_close(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @egg_parse_encrypt_header(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 28) i32 @egg_parse_encrypt_header(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
   %4 = icmp ne i64 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond3 = and i1 %4, %5
@@ -3625,5 +3625,3 @@ attributes #12 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 28}
-!5 = !{i32 0, i32 21}

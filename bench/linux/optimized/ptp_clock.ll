@@ -703,7 +703,7 @@ define dso_local void @ptp_clock_event(ptr noundef %0, ptr noundef %1) #0 align 
   %25 = getelementptr i8, ptr %16, i64 -4112
   %26 = load i64, ptr %14, align 8
   %27 = urem i64 %26, 1000000000
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %29 = udiv i64 %26, 1000000000
   %30 = getelementptr i8, ptr %16, i64 -8
   %31 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %30) #14
@@ -894,7 +894,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ptp_schedule_worker(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ptp_schedule_worker(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1160
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1168

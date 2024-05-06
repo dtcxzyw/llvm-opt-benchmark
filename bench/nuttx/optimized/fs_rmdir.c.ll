@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.inode_search_s = type { ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rmdir(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @rmdir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.inode_search_s, align 8
   store ptr %0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8

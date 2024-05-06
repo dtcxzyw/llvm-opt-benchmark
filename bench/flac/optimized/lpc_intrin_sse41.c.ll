@@ -754,51 +754,51 @@ for.body957:                                      ; preds = %for.body957.prehead
   br i1 %cmp956, label %for.body957, label %if.end977.loopexit863, !llvm.loop !16
 
 if.end977.loopexit:                               ; preds = %for.body
-  %139 = trunc i64 %indvars.iv.next900 to i32
+  %139 = trunc nuw nsw i64 %indvars.iv.next900 to i32
   br label %if.end977
 
 if.end977.loopexit853:                            ; preds = %for.body165
-  %140 = trunc i64 %indvars.iv.next897 to i32
+  %140 = trunc nuw nsw i64 %indvars.iv.next897 to i32
   br label %if.end977
 
 if.end977.loopexit854:                            ; preds = %for.body289
-  %141 = trunc i64 %indvars.iv.next894 to i32
+  %141 = trunc nuw nsw i64 %indvars.iv.next894 to i32
   br label %if.end977
 
 if.end977.loopexit855:                            ; preds = %for.body401
-  %142 = trunc i64 %indvars.iv.next891 to i32
+  %142 = trunc nuw nsw i64 %indvars.iv.next891 to i32
   br label %if.end977
 
 if.end977.loopexit856:                            ; preds = %for.body511
-  %143 = trunc i64 %indvars.iv.next888 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv.next888 to i32
   br label %if.end977
 
 if.end977.loopexit857:                            ; preds = %for.body603
-  %144 = trunc i64 %indvars.iv.next885 to i32
+  %144 = trunc nuw nsw i64 %indvars.iv.next885 to i32
   br label %if.end977
 
 if.end977.loopexit858:                            ; preds = %for.body688
-  %145 = trunc i64 %indvars.iv.next882 to i32
+  %145 = trunc nuw nsw i64 %indvars.iv.next882 to i32
   br label %if.end977
 
 if.end977.loopexit859:                            ; preds = %for.body760
-  %146 = trunc i64 %indvars.iv.next879 to i32
+  %146 = trunc nuw nsw i64 %indvars.iv.next879 to i32
   br label %if.end977
 
 if.end977.loopexit860:                            ; preds = %for.body828
-  %147 = trunc i64 %indvars.iv.next876 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv.next876 to i32
   br label %if.end977
 
 if.end977.loopexit861:                            ; preds = %for.body880
-  %148 = trunc i64 %indvars.iv.next873 to i32
+  %148 = trunc nuw nsw i64 %indvars.iv.next873 to i32
   br label %if.end977
 
 if.end977.loopexit862:                            ; preds = %for.body925
-  %149 = trunc i64 %indvars.iv.next870 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv.next870 to i32
   br label %if.end977
 
 if.end977.loopexit863:                            ; preds = %for.body957
-  %150 = trunc i64 %indvars.iv.next867 to i32
+  %150 = trunc nuw nsw i64 %indvars.iv.next867 to i32
   br label %if.end977
 
 if.end977:                                        ; preds = %if.end977.loopexit863, %if.end977.loopexit862, %if.end977.loopexit861, %if.end977.loopexit860, %if.end977.loopexit859, %if.end977.loopexit858, %if.end977.loopexit857, %if.end977.loopexit856, %if.end977.loopexit855, %if.end977.loopexit854, %if.end977.loopexit853, %if.end977.loopexit, %if.else949, %if.then913, %if.else864, %if.then808, %if.else736, %if.then660, %if.else571, %if.then475, %if.else361, %if.then245, %if.else, %if.then6

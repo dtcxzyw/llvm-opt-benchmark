@@ -1594,7 +1594,7 @@ declare dso_local i64 @ext4_inode_table(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @list_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ext4_getfsmap_compare(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 align 16 {
+define internal range(i32 -1, 2) i32 @ext4_getfsmap_compare(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24

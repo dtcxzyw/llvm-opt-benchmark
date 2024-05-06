@@ -104,7 +104,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tfp_bulk_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_tfp_bulk_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %5
 
@@ -197,12 +197,12 @@ define internal fastcc void @dissect_tfp_common(ptr noundef %0, ptr nocapture no
   %scevgep.i = getelementptr i8, ptr %5, i64 %27
   %narrow.i = sub nsw i32 13, %.0.lcssa42.i
   %28 = zext i32 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %28, i1 false)
   br label %base58_encode.exit
 
 .lr.ph26.i:                                       ; preds = %.lr.ph26.i, %.lr.ph26.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph26.preheader.i ], [ %indvars.iv.next.i, %.lr.ph26.i ]
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %30 = sub i32 %.018.lcssa40.i, %29
   %31 = sext i32 %30 to i64
   %32 = getelementptr [13 x i8], ptr %4, i64 0, i64 %31

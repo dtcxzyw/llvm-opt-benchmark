@@ -2397,7 +2397,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_PyUnicode_IsWhitespace(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsWhitespace(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   switch i32 %ch, label %sw.epilog [
     i32 9, label %return
@@ -2440,7 +2440,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_PyUnicode_IsLinebreak(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsLinebreak(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   switch i32 %ch, label %sw.epilog [
     i32 10, label %return
@@ -2512,7 +2512,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_IsTitlecase(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsTitlecase(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -2543,7 +2543,7 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @_PyUnicode_IsXidStart(i32 noundef %ch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyUnicode_IsXidStart(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -2574,7 +2574,7 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @_PyUnicode_IsXidContinue(i32 noundef %ch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyUnicode_IsXidContinue(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -2605,7 +2605,7 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_ToDecimalDigit(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @_PyUnicode_ToDecimalDigit(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -2646,7 +2646,7 @@ cond.end:                                         ; preds = %gettyperecord.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_IsDecimalDigit(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsDecimalDigit(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i.i, label %gettyperecord.exit.i, label %if.else.i.i
@@ -2675,7 +2675,7 @@ gettyperecord.exit.i:                             ; preds = %if.else.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_ToDigit(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @_PyUnicode_ToDigit(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -2716,7 +2716,7 @@ cond.end:                                         ; preds = %gettyperecord.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_IsDigit(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsDigit(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i.i, label %gettyperecord.exit.i, label %if.else.i.i
@@ -2747,7 +2747,7 @@ gettyperecord.exit.i:                             ; preds = %if.else.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_IsNumeric(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsNumeric(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -2778,7 +2778,7 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_IsPrintable(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsPrintable(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -2809,7 +2809,7 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_IsLowercase(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsLowercase(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -2840,7 +2840,7 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_IsUppercase(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsUppercase(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -3275,7 +3275,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @_PyUnicode_IsCased(i32 noundef %ch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyUnicode_IsCased(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -3306,7 +3306,7 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @_PyUnicode_IsCaseIgnorable(i32 noundef %ch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyUnicode_IsCaseIgnorable(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -3337,7 +3337,7 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyUnicode_IsAlpha(i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_IsAlpha(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i

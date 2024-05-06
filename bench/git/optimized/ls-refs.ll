@@ -120,7 +120,7 @@ if.else13:                                        ; preds = %skip_prefix.exit
   br i1 %tobool15.not, label %if.then16, label %if.else20
 
 if.then16:                                        ; preds = %if.else13
-  %call17 = call fastcc i32 @unborn_config(ptr noundef %r), !range !7
+  %call17 = call fastcc i32 @unborn_config(ptr noundef %r)
   %tobool18 = icmp ne i32 %call17, 0
   %4 = zext i1 %tobool18 to i8
   %bf.load = load i8, ptr %unborn, align 8
@@ -138,7 +138,7 @@ if.end25:                                         ; preds = %if.then4, %if.then7
   %out.2 = phi ptr [ %out.012, %if.then ], [ %out.012, %if.then4 ], [ %out.1, %if.then10 ], [ %out.1, %if.then7 ], [ %out.1, %if.then16 ]
   %call = call i32 @packet_reader_read(ptr noundef %request) #9
   %cmp = icmp eq i32 %call, 1
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end25, %entry
   %status = getelementptr inbounds i8, ptr %request, i64 40
@@ -200,11 +200,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid.i, ptr noundef nonnull dereferenceable(32) %call.i.i, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.i, ptr noundef nonnull readonly dereferenceable(32) %call.i.i, i64 32)
   br label %is_null_oid.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid.i, ptr noundef nonnull dereferenceable(20) %call.i.i, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i, ptr noundef nonnull readonly dereferenceable(20) %call.i.i, i64 20)
   br label %is_null_oid.exit.i
 
 is_null_oid.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -295,7 +295,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @unborn_config(ptr noundef %r) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @unborn_config(ptr noundef %r) unnamed_addr #0 {
 entry:
   %str = alloca ptr, align 8
   store ptr null, ptr %str, align 8
@@ -398,10 +398,10 @@ if.end:                                           ; preds = %strbuf_setlen.exit
   br i1 %tobool.not.i, label %if.end5, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2 = load i64, ptr %nr.i, align 8
   %cmp.i = icmp ugt i64 %2, %indvars.iv.next.i
-  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !9
+  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !8
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.end ]
@@ -513,7 +513,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call fastcc i32 @unborn_config(ptr noundef %r), !range !7
+  %call = tail call fastcc i32 @unborn_config(ptr noundef %r)
   %cmp = icmp eq i32 %call, 2
   br i1 %cmp, label %if.then, label %if.end
 
@@ -588,6 +588,5 @@ attributes #11 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 3}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

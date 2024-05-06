@@ -186,7 +186,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %7 = phi i8 [ %.pre.i.i, %while.body.if.end_crit_edge.i.i ], [ %conv10.i.i, %if.then.i.i ]
   %idxprom16.i.i = zext i8 %7 to i64
   %arrayidx17.i.i = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_.i.i, i64 0, i64 %idxprom16.i.i
-  %conv20.i.i = trunc i32 %sub.i.i to i8
+  %conv20.i.i = trunc nuw i32 %sub.i.i to i8
   %not.i.i = xor i32 %shl.i.i, -1
   %and21.i.i = and i32 %code.addr.018.i.i, %not.i.i
   %cmp.i.i = icmp ugt i8 %conv20.i.i, 8
@@ -262,7 +262,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %7 = phi i8 [ %.pre.i, %while.body.if.end_crit_edge.i ], [ %conv10.i, %if.then.i ]
   %idxprom16.i = zext i8 %7 to i64
   %arrayidx17.i = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_.i, i64 0, i64 %idxprom16.i
-  %conv20.i = trunc i32 %sub.i to i8
+  %conv20.i = trunc nuw i32 %sub.i to i8
   %not.i = xor i32 %shl.i, -1
   %and21.i = and i32 %code.addr.018.i, %not.i
   %cmp.i = icmp ugt i8 %conv20.i, 8
@@ -370,7 +370,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %9 = phi i8 [ %.pre.i.i, %while.body.if.end_crit_edge.i.i ], [ %conv10.i.i, %if.then.i.i ]
   %idxprom16.i.i = zext i8 %9 to i64
   %arrayidx17.i.i = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_.i.i, i64 0, i64 %idxprom16.i.i
-  %conv20.i.i = trunc i32 %sub.i.i to i8
+  %conv20.i.i = trunc nuw i32 %sub.i.i to i8
   %not.i.i = xor i32 %shl.i.i, -1
   %and21.i.i = and i32 %code.addr.018.i.i, %not.i.i
   %cmp.i.i = icmp ugt i8 %conv20.i.i, 8
@@ -526,7 +526,7 @@ if.end:                                           ; preds = %while.body.if.end_c
   %3 = phi i8 [ %.pre, %while.body.if.end_crit_edge ], [ %conv10, %if.then ]
   %idxprom16 = zext i8 %3 to i64
   %arrayidx17 = getelementptr inbounds [46 x %"struct.proxygen::huffman::SuperHuffNode"], ptr %table_, i64 0, i64 %idxprom16
-  %conv20 = trunc i32 %sub to i8
+  %conv20 = trunc nuw i32 %sub to i8
   %not = xor i32 %shl, -1
   %and21 = and i32 %code.addr.018, %not
   %cmp = icmp ugt i8 %conv20, 8
@@ -630,7 +630,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then:                                          ; preds = %for.body
   %shl = shl i32 %and3437, %conv5
   %or = or i32 %shl, %2
-  %conv11 = trunc i32 %add to i8
+  %conv11 = trunc nuw nsw i32 %add to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -968,7 +968,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %2 = trunc i64 %add to i8
+  %2 = trunc nuw i64 %add to i8
   %conv.i9 = sub nuw nsw i8 23, %2
   store i8 %conv.i9, ptr %arrayidx.i, align 1
   %arrayidx2.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add
@@ -1040,7 +1040,7 @@ sw.epilog.i16:                                    ; preds = %sw.bb2.i13, %cond.t
   %12 = load i64, ptr %capacity_.i.i17, align 8
   %and.i.i18 = and i64 %12, 4611686018427387903
   %13 = lshr i64 %12, 56
-  %14 = trunc i64 %13 to i8
+  %14 = trunc nuw i64 %13 to i8
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
 
 _ZNK5folly13fbstring_coreIcE8capacityEv.exit22:   ; preds = %cond.true14, %if.then.i20, %sw.epilog.i16

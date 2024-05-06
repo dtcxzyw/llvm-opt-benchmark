@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_default_pthread_attr = external local_unnamed_addr constant %struct.pthread_attr_s, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @pthread_attr_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @pthread_attr_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

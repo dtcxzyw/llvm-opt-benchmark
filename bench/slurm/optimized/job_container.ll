@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [23 x i8] c"container_p_recv_stepd\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @job_container_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @job_container_init() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -149,7 +149,7 @@ define noundef i32 @job_container_init() local_unnamed_addr #0 {
   br i1 %.not17, label %58, label %56
 
 56:                                               ; preds = %55
-  %57 = call i32 @job_container_fini(), !range !8
+  %57 = call i32 @job_container_fini()
   br label %58
 
 58:                                               ; preds = %56, %55
@@ -186,7 +186,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @job_container_fini() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @job_container_fini() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_container_context_lock) #6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -232,7 +232,7 @@ define i32 @job_container_fini() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %15 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %14, %.preheader
   %.09.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %14 ]
@@ -277,7 +277,7 @@ define i32 @container_g_join(i32 noundef %0, i32 noundef %1) local_unnamed_addr 
   %11 = icmp slt i64 %indvars.iv.next, %10
   %12 = icmp eq i32 %8, 0
   %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
@@ -302,7 +302,7 @@ define i32 @container_g_join_external(i32 noundef %0) local_unnamed_addr #0 {
   %10 = icmp slt i64 %indvars.iv.next, %9
   %11 = icmp eq i32 %7, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -327,7 +327,7 @@ define i32 @container_g_restore(ptr noundef %0, i1 noundef zeroext %1) local_unn
   %11 = icmp slt i64 %indvars.iv.next, %10
   %12 = icmp eq i32 %8, 0
   %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
@@ -352,7 +352,7 @@ define i32 @container_g_stepd_create(i32 noundef %0, ptr noundef %1) local_unnam
   %11 = icmp slt i64 %indvars.iv.next, %10
   %12 = icmp eq i32 %8, 0
   %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
@@ -377,7 +377,7 @@ define i32 @container_g_stepd_delete(i32 noundef %0) local_unnamed_addr #0 {
   %10 = icmp slt i64 %indvars.iv.next, %9
   %11 = icmp eq i32 %7, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -402,7 +402,7 @@ define i32 @container_g_send_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %10 = icmp slt i64 %indvars.iv.next, %9
   %11 = icmp eq i32 %7, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -427,7 +427,7 @@ define i32 @container_g_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %10 = icmp slt i64 %indvars.iv.next, %9
   %11 = icmp eq i32 %7, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -454,7 +454,7 @@ attributes #8 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
@@ -462,4 +462,3 @@ attributes #8 = { noreturn nounwind }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}

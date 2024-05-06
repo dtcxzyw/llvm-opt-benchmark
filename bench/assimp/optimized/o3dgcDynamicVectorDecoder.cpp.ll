@@ -77,7 +77,7 @@ while.body:                                       ; preds = %entry, %while.body
   %0 = getelementptr i64, ptr %data, i64 %p.014
   %arrayidx = getelementptr i8, ptr %0, i64 -8
   %1 = load i64, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr i8, ptr %0, i64 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i64, ptr %arrayidx2, align 8
   %add3 = add i64 %1, 1
   %add4 = add i64 %add3, %2
@@ -177,7 +177,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder12DecodeHeaderERNS_13DynamicVectorERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, 6) i32 @_ZN5o3dgc20DynamicVectorDecoder12DecodeHeaderERNS_13DynamicVectorERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #4 align 2 {
 entry:
   %m_iterator = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %m_iterator, align 8
@@ -1258,7 +1258,7 @@ while.body.i26:                                   ; preds = %_ZN5o3dgc7IUpdateEP
   %12 = getelementptr i64, ptr %data, i64 %p.014.i
   %arrayidx.i27 = getelementptr i8, ptr %12, i64 -8
   %13 = load i64, ptr %arrayidx.i27, align 8
-  %arrayidx2.i = getelementptr i8, ptr %12, i64 8
+  %arrayidx2.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i64, ptr %arrayidx2.i, align 8
   %add3.i = add i64 %13, 1
   %add4.i28 = add i64 %add3.i, %14

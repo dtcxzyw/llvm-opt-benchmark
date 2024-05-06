@@ -133,7 +133,7 @@ if.end38.us:                                      ; preds = %if.then36.us, %for.
   br i1 %tobool41.not.us, label %for.inc.us, label %if.then42
 
 for.inc.us:                                       ; preds = %if.end38.us
-  %add39.us = add nsw i32 %offset.039.us, %div15
+  %add39.us = add nuw nsw i32 %offset.039.us, %div15
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count53
   br i1 %exitcond54.not, label %for.body49.preheader, label %for.body.us, !llvm.loop !5
@@ -172,7 +172,7 @@ if.then42:                                        ; preds = %if.end38, %if.end38
   unreachable
 
 for.inc:                                          ; preds = %if.end38
-  %add39 = add nsw i32 %offset.039, %div15
+  %add39 = add nuw nsw i32 %offset.039, %div15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count53
   br i1 %exitcond.not, label %for.body49.preheader, label %for.body, !llvm.loop !5

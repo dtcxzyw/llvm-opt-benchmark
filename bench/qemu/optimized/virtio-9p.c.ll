@@ -202,9 +202,9 @@ declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr nou
 define internal void @regex_replace(ptr noundef %haystack, ptr noundef %pattern, ptr noundef %replace_fmt, ...) unnamed_addr #0 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %call = call noalias ptr @g_strdup_vprintf(ptr noundef %replace_fmt, ptr noundef nonnull %argp) #11
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   %call3 = call ptr @g_regex_new(ptr noundef %pattern, i32 noundef 0, i32 noundef 0, ptr noundef null) #11
   %0 = load ptr, ptr %haystack, align 8
   %call4 = call ptr @g_regex_replace(ptr noundef %call3, ptr noundef %0, i64 noundef -1, i32 noundef 0, ptr noundef %call, i32 noundef 0, ptr noundef null) #11
@@ -256,13 +256,7 @@ entry:
 
 declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -273,7 +267,7 @@ declare ptr @g_string_assign(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_regex_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -327,7 +321,7 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_device_destructor(ptr nocapture noundef readonly %obj) #0 {
@@ -484,6 +478,12 @@ declare void @qvirtio_pci_destructor(ptr noundef) local_unnamed_addr #2
 
 declare void @qvirtio_pci_start_hw(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -491,9 +491,9 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }

@@ -433,14 +433,14 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_type(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_hwrev(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %6 = add i64 %5, 1
   %7 = icmp ult i64 %6, 6
   br i1 %7, label %checked_strcpy.exit.thread.i, label %checked_strcpy.exit.i
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
 checked_strcpy.exit.i:                            ; preds = %4
@@ -455,14 +455,14 @@ parseString.exit:                                 ; preds = %checked_strcpy.exit
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_fwrev(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %6 = add i64 %5, 1
   %7 = icmp ult i64 %6, 6
   br i1 %7, label %checked_strcpy.exit.thread.i, label %checked_strcpy.exit.i
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
 checked_strcpy.exit.i:                            ; preds = %4
@@ -477,14 +477,14 @@ parseString.exit:                                 ; preds = %checked_strcpy.exit
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_id(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %6 = add i64 %5, 1
   %7 = icmp ult i64 %6, 21
   br i1 %7, label %checked_strcpy.exit.thread.i, label %checked_strcpy.exit.i
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
 checked_strcpy.exit.i:                            ; preds = %4
@@ -563,14 +563,14 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture no
   store i64 %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 56
   store i16 0, ptr %16, align 8
-  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %17 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %18 = add i64 %17, 1
   %19 = icmp ult i64 %18, 21
   br i1 %19, label %checked_strcpy.exit.thread, label %checked_strcpy.exit
 
 checked_strcpy.exit.thread:                       ; preds = %4
   %20 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %1, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %20, ptr readonly align 1 %1, i64 %18, i1 false)
   br label %22
 
 checked_strcpy.exit:                              ; preds = %4
@@ -586,7 +586,7 @@ checked_strcpy.exit:                              ; preds = %4
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_valueSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 84
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
 
@@ -665,7 +665,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 86
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
 
@@ -710,7 +710,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparatorMs(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 87
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
 
@@ -755,7 +755,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_dateSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
 
@@ -800,7 +800,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_timeAndDateSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 89
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
 
@@ -868,12 +868,12 @@ parseUnsigned.exit:                               ; preds = %7, %9
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_silentMode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.38) #11
+  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.38) #11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.39) #11
+  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.39) #11
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %parseBoolean.exit
 
@@ -900,12 +900,12 @@ parseBoolean.exit:                                ; preds = %7
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_cyclicMode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.38) #11
+  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.38) #11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.39) #11
+  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.39) #11
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %parseBoolean.exit
 
@@ -958,7 +958,7 @@ define internal noundef zeroext i1 @parseFieldTS(ptr nocapture noundef %0, ptr n
   %8 = alloca [24 x i8], align 16
   %9 = alloca [24 x i8], align 16
   %10 = alloca [18 x i8], align 16
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %12 = add i64 %11, 1
   %13 = icmp ult i64 %12, 25
   br i1 %13, label %15, label %checked_strcpy.exit
@@ -970,9 +970,9 @@ checked_strcpy.exit:                              ; preds = %5
   br label %108
 
 15:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %1, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %8, ptr readonly align 1 %1, i64 %12, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #11
   %18 = add i64 %17, 1
   %19 = icmp ult i64 %18, 25
   br i1 %19, label %21, label %checked_strcpy.exit19
@@ -984,7 +984,7 @@ checked_strcpy.exit19:                            ; preds = %15
   br label %108
 
 21:                                               ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %16, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %9, ptr nonnull readonly align 1 %16, i64 %18, i1 false)
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #11
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %stripTimeStamp.exit, label %.lr.ph.i

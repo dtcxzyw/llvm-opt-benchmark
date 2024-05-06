@@ -248,7 +248,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @is_down_link(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @is_down_link(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 348
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1

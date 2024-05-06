@@ -34,7 +34,7 @@ entry:
 declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_pq_push(ptr nocapture noundef %pq, ptr noundef %item) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_pq_push(ptr nocapture noundef %pq, ptr noundef %item) local_unnamed_addr #1 {
 entry:
   %capacity = getelementptr inbounds i8, ptr %pq, i64 24
   %0 = load i64, ptr %capacity, align 8
@@ -406,7 +406,7 @@ if.end31:                                         ; preds = %for.end.i, %if.end.
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nghttp2_pq_empty(ptr nocapture noundef readonly %pq) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @nghttp2_pq_empty(ptr nocapture noundef readonly %pq) local_unnamed_addr #5 {
 entry:
   %length = getelementptr inbounds i8, ptr %pq, i64 16
   %0 = load i64, ptr %length, align 8
@@ -514,7 +514,7 @@ if.end10:                                         ; preds = %for.cond5.loopexit,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_pq_each(ptr nocapture noundef readonly %pq, ptr nocapture noundef readonly %fun, ptr noundef %arg) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @nghttp2_pq_each(ptr nocapture noundef readonly %pq, ptr nocapture noundef readonly %fun, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
   %length = getelementptr inbounds i8, ptr %pq, i64 16
   %0 = load i64, ptr %length, align 8

@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__apicid_to_node = external dso_local local_unnamed_addr global [32768 x i16], align 16
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @amd_numa_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @amd_numa_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i64, ptr @max_pfn, align 8
   %2 = shl i64 %1, 12
   %3 = tail call i32 @early_pci_allowed() #5
@@ -221,7 +221,7 @@ define dso_local i32 @amd_numa_init() local_unnamed_addr #0 section ".init.text"
 
 114:                                              ; preds = %112
   %115 = shl i32 %113, %93
-  %116 = trunc i32 %113 to i16
+  %116 = trunc nuw nsw i32 %113 to i16
   br label %117
 
 117:                                              ; preds = %117, %114

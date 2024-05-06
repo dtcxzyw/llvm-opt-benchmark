@@ -394,8 +394,8 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br i1 %192, label %183, label %.split.loop.exit.i, !llvm.loop !10
 
 .split.loop.exit.i:                               ; preds = %189
-  %193 = trunc i64 %indvars.iv.i154 to i32
-  %194 = trunc i64 %indvars.iv.next.i155 to i32
+  %193 = trunc nuw i64 %indvars.iv.i154 to i32
+  %194 = trunc nuw i64 %indvars.iv.next.i155 to i32
   br label %.split.loop.exit83.i
 
 .split.loop.exit83.i:                             ; preds = %185, %.split.loop.exit.i

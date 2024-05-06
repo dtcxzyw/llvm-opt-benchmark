@@ -174,7 +174,7 @@ define hidden noalias noundef ptr @gef_ctx_alloc(ptr noundef %0, ptr noundef %1,
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @gef_ctx_check_signature(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @gef_ctx_check_signature(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -318,7 +318,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_RasTunnelledSignallingMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RasTunnelledSignallingMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_h323_RasTunnelledSignallingMessage_PDU, align 4
@@ -330,7 +330,7 @@ define internal i32 @dissect_RasTunnelledSignallingMessage_PDU(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_RobustnessData_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RobustnessData_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_h323_RobustnessData_PDU, align 4

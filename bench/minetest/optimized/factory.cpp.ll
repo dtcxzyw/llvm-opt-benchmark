@@ -45,7 +45,7 @@ $_ZN14RenderPipeline3ownI19RenderShadowMapStepEEPT_OSt10unique_ptrIS2_St14defaul
 @.str.3 = private unnamed_addr constant [11 x i8] c"sidebyside\00", align 1
 @.str.4 = private unnamed_addr constant [10 x i8] c"topbottom\00", align 1
 @.str.5 = private unnamed_addr constant [10 x i8] c"crossview\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.6 = private unnamed_addr constant [25 x i8] c"Invalid rendering mode: \00", align 1
 @_ZTV14RenderPipeline = external unnamed_addr constant { [11 x ptr] }, align 8
 @_ZTT14RenderPipeline = external unnamed_addr constant [4 x ptr], align 8

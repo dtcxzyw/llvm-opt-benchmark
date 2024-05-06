@@ -82,7 +82,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.70 = private unnamed_addr constant [37 x i8] c"g2 = d2i_ECPKParameters_fp(fp, NULL)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @EC_get_builtin_curves(ptr noundef null, i64 noundef 0) #3
   store i64 %call, ptr @crv_len, align 8
@@ -133,36 +133,36 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @field_tests_ecp_simple() #0 {
+define internal range(i32 0, 2) i32 @field_tests_ecp_simple() #0 {
 entry:
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 144, ptr noundef nonnull @.str.10) #3
   %call = tail call ptr @EC_GFp_simple_method() #3
-  %call1 = tail call fastcc i32 @field_tests(ptr noundef %call, ptr noundef nonnull @params_p256, i32 noundef 32), !range !5
+  %call1 = tail call fastcc i32 @field_tests(ptr noundef %call, ptr noundef nonnull @params_p256, i32 noundef 32)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @field_tests_ecp_mont() #0 {
+define internal range(i32 0, 2) i32 @field_tests_ecp_mont() #0 {
 entry:
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.31) #3
   %call = tail call ptr @EC_GFp_mont_method() #3
-  %call1 = tail call fastcc i32 @field_tests(ptr noundef %call, ptr noundef nonnull @params_p256, i32 noundef 32), !range !5
+  %call1 = tail call fastcc i32 @field_tests(ptr noundef %call, ptr noundef nonnull @params_p256, i32 noundef 32)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @field_tests_ec2_simple() #0 {
+define internal range(i32 0, 2) i32 @field_tests_ec2_simple() #0 {
 entry:
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 161, ptr noundef nonnull @.str.32) #3
   %call = tail call ptr @EC_GF2m_simple_method() #3
-  %call1 = tail call fastcc i32 @field_tests(ptr noundef %call, ptr noundef nonnull @params_b283, i32 noundef 36), !range !5
+  %call1 = tail call fastcc i32 @field_tests(ptr noundef %call, ptr noundef nonnull @params_b283, i32 noundef 36)
   ret i32 %call1
 }
 
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @field_tests_default(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @field_tests_default(i32 noundef %n) #0 {
 entry:
   %0 = load ptr, ptr @curves, align 8
   %idxprom = sext i32 %n to i64
@@ -182,7 +182,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool6.not, label %err, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %call8 = tail call fastcc i32 @group_field_tests(ptr noundef %call2, ptr noundef %call4), !range !5
+  %call8 = tail call fastcc i32 @group_field_tests(ptr noundef %call2, ptr noundef %call4)
   br label %err
 
 err:                                              ; preds = %lor.lhs.false7, %entry, %lor.lhs.false
@@ -208,7 +208,7 @@ if.end14:                                         ; preds = %if.then13, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_private_key() #0 {
+define internal range(i32 0, 2) i32 @set_private_key() #0 {
 entry:
   %call = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef 713) #3
   %call1 = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef 713) #3
@@ -263,7 +263,7 @@ err:                                              ; preds = %lor.lhs.false21, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decoded_flag_test() #0 {
+define internal range(i32 0, 2) i32 @decoded_flag_test() #0 {
 entry:
   %encodedparams = alloca ptr, align 8
   %encp = alloca ptr, align 8
@@ -489,7 +489,7 @@ err:                                              ; preds = %lor.lhs.false116, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecpkparams_i2d2i_test(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @ecpkparams_i2d2i_test(i32 noundef %n) #0 {
 entry:
   %0 = load ptr, ptr @curves, align 8
   %idxprom = sext i32 %n to i64
@@ -565,7 +565,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @field_tests(ptr noundef %meth, ptr noundef %params, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @field_tests(ptr noundef %meth, ptr noundef %params, i32 noundef %len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_CTX_new() #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.11, ptr noundef %call) #3
@@ -625,7 +625,7 @@ lor.lhs.false28:                                  ; preds = %lor.lhs.false20
   br i1 %tobool33.not, label %err, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false28
-  %call35 = tail call fastcc i32 @group_field_tests(ptr noundef %call7, ptr noundef %call), !range !5
+  %call35 = tail call fastcc i32 @group_field_tests(ptr noundef %call7, ptr noundef %call)
   br label %err
 
 err:                                              ; preds = %lor.lhs.false34, %if.end, %lor.lhs.false, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false20, %lor.lhs.false28
@@ -660,7 +660,7 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @EC_GROUP_set_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @group_field_tests(ptr noundef %group, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @group_field_tests(ptr noundef %group, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %field_inv = getelementptr inbounds i8, ptr %0, i64 272
@@ -968,4 +968,3 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

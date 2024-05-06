@@ -208,7 +208,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._find_purge_task_special = private unnamed_addr constant [25 x i8] c"_find_purge_task_special\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca %struct.stat, align 8
   %3 = alloca i32, align 4
@@ -356,7 +356,7 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   br label %218
 
 58:                                               ; preds = %54
-  %59 = call fastcc i32 @_setup_controllers(), !range !6
+  %59 = call fastcc i32 @_setup_controllers()
   %.not4 = icmp eq i32 %59, 0
   br i1 %.not4, label %60, label %218
 
@@ -454,7 +454,7 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   %104 = add nuw nsw i32 %.01830.i.i, 1
   %105 = call i32 @usleep(i32 noundef 10000) #15
   %exitcond.not.i.i = icmp eq i32 %104, 100
-  br i1 %exitcond.not.i.i, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !6
 
 106:                                              ; preds = %99
   %107 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.103, ptr noundef %68) #15
@@ -487,7 +487,7 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   %118 = getelementptr inbounds i8, ptr %4, i64 16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %118, ptr noundef nonnull @.str.97, ptr noundef %68, ptr noundef nonnull @.str.106) #15
   %119 = load ptr, ptr %118, align 8
-  %120 = call fastcc i32 @_init_new_scope(ptr noundef %119), !range !6
+  %120 = call fastcc i32 @_init_new_scope(ptr noundef %119)
   %.not23.i.i = icmp eq i32 %120, 0
   br i1 %.not23.i.i, label %122, label %121
 
@@ -632,7 +632,7 @@ _init_slurmd_system_scope.exit:                   ; preds = %74, %157, %166
   br label %178
 
 178:                                              ; preds = %173, %174, %177
-  %179 = call fastcc i32 @_migrate_to_stepd_scope(), !range !6
+  %179 = call fastcc i32 @_migrate_to_stepd_scope()
   %.not8 = icmp eq i32 %179, 0
   br i1 %.not8, label %185, label %218
 
@@ -699,7 +699,7 @@ _init_slurmd_system_scope.exit:                   ; preds = %74, %157, %166
   call void @slurm_xfree(ptr noundef nonnull %1) #15
   %208 = load ptr, ptr getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 0, i32 2), align 16
   %209 = load ptr, ptr @int_cg_ns, align 8
-  %210 = call fastcc i32 @_enable_subtree_control(ptr noundef %208, ptr noundef %209), !range !6
+  %210 = call fastcc i32 @_enable_subtree_control(ptr noundef %208, ptr noundef %209)
   %.not10.i = icmp eq i32 %210, 0
   br i1 %.not10.i, label %_init_stepd_system_scope.exit, label %211
 
@@ -823,7 +823,7 @@ declare void @free_ebpf_prog(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   switch i32 %0, label %4 [
     i32 3, label %3
@@ -856,7 +856,7 @@ define noundef i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_addr #0 {
   %15 = tail call ptr @bit_alloc(i64 noundef 5) #15
   store ptr %15, ptr %2, align 8
   %16 = load ptr, ptr @stepd_scope_path, align 8
-  %17 = tail call fastcc i32 @_get_controllers(ptr noundef %16, ptr noundef %15), !range !6
+  %17 = tail call fastcc i32 @_get_controllers(ptr noundef %16, ptr noundef %15)
   %18 = tail call i32 @bit_test(ptr noundef %15, i64 noundef %6) #15
   %.not6 = icmp eq i32 %18, 0
   br i1 %.not6, label %19, label %25
@@ -891,7 +891,7 @@ declare void @init_ebpf_prog(ptr noundef) local_unnamed_addr #1
 declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_controllers(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_controllers(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -958,12 +958,12 @@ define internal fastcc noundef i32 @_get_controllers(ptr noundef %0, ptr noundef
 33:                                               ; preds = %30, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit31, label %26, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit31, label %26, !llvm.loop !8
 
 .loopexit31:                                      ; preds = %33, %32
   %34 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.127, ptr noundef nonnull %4) #15
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit31, %23
   call void @slurm_xfree(ptr noundef nonnull %3) #15
@@ -977,7 +977,7 @@ define internal fastcc noundef i32 @_get_controllers(ptr noundef %0, ptr noundef
   br i1 %.not30, label %44, label %switch.early.test
 
 switch.early.test:                                ; preds = %35
-  %37 = trunc i64 %indvars.iv38 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv38 to i32
   switch i32 %37, label %38 [
     i32 3, label %44
     i32 0, label %44
@@ -997,7 +997,7 @@ switch.early.test:                                ; preds = %35
 44:                                               ; preds = %switch.early.test, %switch.early.test, %35, %38, %40
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 5
-  br i1 %exitcond41.not, label %.loopexit, label %35, !llvm.loop !11
+  br i1 %exitcond41.not, label %.loopexit, label %35, !llvm.loop !10
 
 .loopexit:                                        ; preds = %44, %12
   %.023 = phi i32 [ -1, %12 ], [ 0, %44 ]
@@ -1020,7 +1020,7 @@ define noundef i32 @cgroup_p_system_destroy(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [64 x i8], align 16
   store ptr null, ptr %3, align 8
@@ -1067,7 +1067,7 @@ define noundef i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local_u
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   %27 = load ptr, ptr getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 3, i32 2), align 8
   %28 = load ptr, ptr @int_cg_ns, align 8
-  %29 = call fastcc i32 @_enable_subtree_control(ptr noundef %27, ptr noundef %28), !range !6
+  %29 = call fastcc i32 @_enable_subtree_control(ptr noundef %27, ptr noundef %28)
   %30 = load ptr, ptr getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 3, i32 1), align 16
   %31 = call ptr @log_build_step_id_str(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 64, i16 noundef zeroext 6) #15
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, ptr noundef %30, ptr noundef %31) #15
@@ -1094,7 +1094,7 @@ define noundef i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local_u
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   %41 = load ptr, ptr getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4, i32 2), align 16
   %42 = load ptr, ptr @int_cg_ns, align 8
-  %43 = call fastcc i32 @_enable_subtree_control(ptr noundef %41, ptr noundef %42), !range !6
+  %43 = call fastcc i32 @_enable_subtree_control(ptr noundef %41, ptr noundef %42)
   %44 = call i32 @common_cgroup_unlock(ptr noundef nonnull @int_cg) #15
   %45 = load ptr, ptr getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4, i32 1), align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.17, ptr noundef %45) #15
@@ -1121,7 +1121,7 @@ define noundef i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local_u
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   %55 = load ptr, ptr getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 6, i32 2), align 16
   %56 = load ptr, ptr @int_cg_ns, align 8
-  %57 = call fastcc i32 @_enable_subtree_control(ptr noundef %55, ptr noundef %56), !range !6
+  %57 = call fastcc i32 @_enable_subtree_control(ptr noundef %55, ptr noundef %56)
   %58 = load ptr, ptr getelementptr inbounds ([9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 4, i32 1), align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, ptr noundef %58) #15
   %59 = load ptr, ptr %3, align 8
@@ -1178,7 +1178,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @common_cgroup_instantiate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_enable_subtree_control(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_enable_subtree_control(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -1257,7 +1257,7 @@ define internal fastcc i32 @_enable_subtree_control(ptr noundef %0, ptr noundef 
   %.2 = phi i32 [ %.1, %37 ], [ %.01216, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %39, label %5, !llvm.loop !12
+  br i1 %exitcond.not, label %39, label %5, !llvm.loop !11
 
 39:                                               ; preds = %38
   call void @slurm_xfree(ptr noundef nonnull %4) #15
@@ -1271,7 +1271,7 @@ declare i32 @common_cgroup_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @common_cgroup_move_process(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cgroup_p_step_addto(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cgroup_p_step_addto(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @getpid() #15
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -1290,7 +1290,7 @@ define i32 @cgroup_p_step_addto(i32 noundef %0, ptr nocapture noundef readonly %
 
 9:                                                ; preds = %.lr.ph
   %10 = load i32, ptr @task_special_id, align 4
-  %11 = tail call i32 @cgroup_p_task_addto(i32 poison, ptr poison, i32 noundef %7, i32 noundef %10), !range !6
+  %11 = tail call i32 @cgroup_p_task_addto(i32 poison, ptr poison, i32 noundef %7, i32 noundef %10)
   %.not = icmp eq i32 %11, 0
   %spec.select = select i1 %.not, i32 %.0911, i32 -1
   br label %12
@@ -1299,7 +1299,7 @@ define i32 @cgroup_p_step_addto(i32 noundef %0, ptr nocapture noundef readonly %
   %.1 = phi i32 [ %.0911, %.lr.ph ], [ %spec.select, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %12, %3
   %.09.lcssa = phi i32 [ 0, %3 ], [ %.1, %12 ]
@@ -1307,7 +1307,7 @@ define i32 @cgroup_p_step_addto(i32 noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cgroup_p_task_addto(i32 %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cgroup_p_task_addto(i32 %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1926,7 +1926,7 @@ define noundef zeroext i1 @cgroup_p_has_pid(i32 noundef %0) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %16, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.sink.split, label %13, !llvm.loop !14
+  br i1 %or.cond, label %.sink.split, label %13, !llvm.loop !13
 
 .sink.split:                                      ; preds = %13, %.preheader
   %.04.ph = phi i1 [ false, %.preheader ], [ %16, %13 ]
@@ -1941,7 +1941,7 @@ define noundef zeroext i1 @cgroup_p_has_pid(i32 noundef %0) local_unnamed_addr #
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_pid_task(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_find_pid_task(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = load i32, ptr %1, align 4
@@ -1968,13 +1968,13 @@ define internal i32 @_find_pid_task(ptr noundef %0, ptr nocapture noundef readon
   %indvars.iv13 = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv13, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit.loopexit, label %13, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.loopexit.loopexit, label %13, !llvm.loop !14
 
 13:                                               ; preds = %.lr.ph14
   %14 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %5
-  br i1 %16, label %._crit_edge.loopexit.loopexit, label %.lr.ph14, !llvm.loop !15
+  br i1 %16, label %._crit_edge.loopexit.loopexit, label %.lr.ph14, !llvm.loop !14
 
 ._crit_edge.loopexit.loopexit:                    ; preds = %13, %.lr.ph14
   %17 = icmp ult i64 %indvars.iv.next, %10
@@ -2185,7 +2185,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 declare i32 @common_cgroup_set_uint64_param(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_task_cg_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @_find_task_cg_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
@@ -2705,7 +2705,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @list_delete_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_find_purge_task_special(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_find_purge_task_special(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -3066,7 +3066,7 @@ define internal fastcc ptr @_get_self_cg_path() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_setup_controllers() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -3093,7 +3093,7 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
   store ptr %12, ptr %2, align 8
   store ptr null, ptr %5, align 8
   %13 = load ptr, ptr @slurm_cgroup_conf, align 8
-  %14 = tail call fastcc i32 @_get_controllers(ptr noundef %13, ptr noundef %12), !range !6
+  %14 = tail call fastcc i32 @_get_controllers(ptr noundef %13, ptr noundef %12)
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %16, label %15
 
@@ -3103,7 +3103,7 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @slurm_cgroup_conf, align 8
-  %18 = tail call fastcc i32 @_enable_subtree_control(ptr noundef %17, ptr noundef %12), !range !6
+  %18 = tail call fastcc i32 @_enable_subtree_control(ptr noundef %17, ptr noundef %12)
   %19 = load ptr, ptr getelementptr inbounds (%struct.xcgroup_ns_t, ptr @int_cg_ns, i64 0, i32 1), align 8
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #18
   %21 = add i64 %20, 1
@@ -3124,7 +3124,7 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %16, %.critedge.i
   %.014.i = phi i8 [ %.1.i, %.critedge.i ], [ 0, %16 ]
   %.0513.i = phi ptr [ %43, %.critedge.i ], [ %29, %16 ]
-  %30 = trunc i8 %.014.i to i1
+  %30 = trunc nuw i8 %.014.i to i1
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %.lr.ph.i
@@ -3138,7 +3138,7 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
   %.1.i = phi i8 [ %.014.i, %.lr.ph.i ], [ %spec.select.i, %31 ]
   %35 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.97, ptr noundef %26, ptr noundef nonnull %.0513.i) #15
   %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %22) #15
-  %37 = trunc i8 %.1.i to i1
+  %37 = trunc nuw i8 %.1.i to i1
   br i1 %37, label %38, label %.critedge.i
 
 38:                                               ; preds = %34
@@ -3148,13 +3148,13 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
   br i1 %.not9.i, label %._crit_edge.i, label %41
 
 41:                                               ; preds = %38
-  %42 = call fastcc i32 @_enable_subtree_control(ptr noundef %26, ptr noundef %12), !range !6
+  %42 = call fastcc i32 @_enable_subtree_control(ptr noundef %26, ptr noundef %12)
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %41, %34
   %43 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull %5) #15
   %.not7.i = icmp eq ptr %43, null
-  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %38, %16
   call void @slurm_xfree(ptr noundef nonnull %6) #15
@@ -3163,7 +3163,7 @@ define internal fastcc noundef i32 @_setup_controllers() unnamed_addr #0 {
   %44 = load ptr, ptr @stepd_scope_path, align 8
   %45 = call ptr @xdirname(ptr noundef %44) #15
   store ptr %45, ptr %1, align 8
-  %46 = call fastcc i32 @_enable_subtree_control(ptr noundef %45, ptr noundef %12), !range !6
+  %46 = call fastcc i32 @_enable_subtree_control(ptr noundef %45, ptr noundef %12)
   call void @slurm_xfree(ptr noundef nonnull %1) #15
   %.not10.i = icmp eq ptr %12, null
   br i1 %.not10.i, label %_enable_system_controllers.exit, label %.sink.split.i
@@ -3184,7 +3184,7 @@ _enable_system_controllers.exit:                  ; preds = %15, %._crit_edge.i,
 47:                                               ; preds = %_enable_system_controllers.exit, %8, %0
   %48 = load ptr, ptr getelementptr inbounds (%struct.xcgroup_ns_t, ptr @int_cg_ns, i64 0, i32 1), align 8
   %49 = load ptr, ptr @int_cg_ns, align 8
-  %50 = call fastcc i32 @_get_controllers(ptr noundef %48, ptr noundef %49), !range !6
+  %50 = call fastcc i32 @_get_controllers(ptr noundef %48, ptr noundef %49)
   ret i32 %50
 }
 
@@ -3201,7 +3201,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_init_new_scope(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_init_new_scope(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @mkdir(ptr noundef %0, i32 noundef 493) #15
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %8, label %3
@@ -3260,7 +3260,7 @@ declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_migrate_to_stepd_scope() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_migrate_to_stepd_scope() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %2 = tail call i32 @getpid() #15
@@ -3310,14 +3310,14 @@ define internal fastcc noundef i32 @_migrate_to_stepd_scope() unnamed_addr #0 {
   store ptr @.str.2, ptr @invoc_id, align 8
   %23 = load ptr, ptr @stepd_scope_path, align 8
   %24 = load ptr, ptr @int_cg_ns, align 8
-  %25 = call fastcc i32 @_get_controllers(ptr noundef %23, ptr noundef %24), !range !6
+  %25 = call fastcc i32 @_get_controllers(ptr noundef %23, ptr noundef %24)
   %.not5 = icmp eq i32 %25, 0
   br i1 %.not5, label %26, label %40
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr @stepd_scope_path, align 8
   %28 = load ptr, ptr @int_cg_ns, align 8
-  %29 = call fastcc i32 @_enable_subtree_control(ptr noundef %27, ptr noundef %28), !range !6
+  %29 = call fastcc i32 @_enable_subtree_control(ptr noundef %27, ptr noundef %28)
   %.not6 = icmp eq i32 %29, 0
   br i1 %.not6, label %33, label %30
 
@@ -3337,7 +3337,7 @@ define internal fastcc noundef i32 @_migrate_to_stepd_scope() unnamed_addr #0 {
   br label %40
 
 38:                                               ; preds = %33
-  %39 = call fastcc i32 @_setup_controllers(), !range !6
+  %39 = call fastcc i32 @_setup_controllers()
   br label %40
 
 40:                                               ; preds = %22, %38, %35, %30, %11, %7
@@ -3433,14 +3433,13 @@ attributes #18 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

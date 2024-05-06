@@ -8,7 +8,7 @@ define double @trunc(double noundef %0) local_unnamed_addr #0 {
   %2 = alloca float, align 4
   %3 = bitcast double %0 to i64
   %4 = lshr i64 %3, 52
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = and i32 %5, 2047
   %7 = icmp ugt i32 %6, 1074
   br i1 %7, label %21, label %8

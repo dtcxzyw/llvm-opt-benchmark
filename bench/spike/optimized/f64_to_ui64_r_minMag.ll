@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @softfloat_exceptionFlags = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @f64_to_ui64_r_minMag(i64 %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i64 -1, -2047) i64 @f64_to_ui64_r_minMag(i64 %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = lshr i64 %0, 52
   %4 = and i64 %3, 2047
   %5 = and i64 %0, 4503599627370495

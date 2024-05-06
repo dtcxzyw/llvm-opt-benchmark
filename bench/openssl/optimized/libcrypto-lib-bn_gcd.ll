@@ -695,7 +695,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_are_coprime(ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_are_coprime(ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -724,7 +724,7 @@ declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_gcd(ptr noundef %r, ptr noundef %in_a, ptr noundef %in_b, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_gcd(ptr noundef %r, ptr noundef %in_a, ptr noundef %in_b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %in_b) #4
   %tobool.not = icmp eq i32 %call, 0

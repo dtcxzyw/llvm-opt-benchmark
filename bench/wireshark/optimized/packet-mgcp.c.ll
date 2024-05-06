@@ -738,7 +738,7 @@ define internal i32 @mgcp_call_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mgcp_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @mgcp_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -781,7 +781,7 @@ define internal noundef i32 @dissect_mgcp(ptr noundef %0, ptr noundef %1, ptr no
   store ptr @.str.414, ptr %20, align 8
   store i32 0, ptr %19, align 4
   %21 = tail call i32 @tvb_reported_length(ptr noundef %0) #11
-  %22 = call fastcc i32 @is_mgcp_verb(ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %20), !range !4
+  %22 = call fastcc i32 @is_mgcp_verb(ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %20)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %._crit_edge
 
@@ -964,7 +964,7 @@ tvb_find_dot_line.exit:                           ; preds = %.critedge.i, %.thre
   store ptr %16, ptr %60, align 8
   store i32 2, ptr %111, align 8
   %112 = call i32 @tvb_reported_length(ptr noundef %109) #11
-  %113 = call fastcc i32 @is_mgcp_verb(ptr noundef %109, i32 noundef 0, i32 noundef %112, ptr noundef nonnull %15), !range !4
+  %113 = call fastcc i32 @is_mgcp_verb(ptr noundef %109, i32 noundef 0, i32 noundef %112, ptr noundef nonnull %15)
   %.not.i48 = icmp eq i32 %113, 0
   br i1 %.not.i48, label %114, label %141
 
@@ -1088,7 +1088,7 @@ is_mgcp_rspcode.exit.i:                           ; preds = %138, %131
   %165 = load ptr, ptr %58, align 8
   %166 = call ptr @tvb_format_text(ptr noundef %165, ptr noundef %145, i32 noundef %.0.i41.i, i32 noundef %.0237.i.i) #11
   %167 = call i64 @g_strlcpy(ptr noundef nonnull %151, ptr noundef %166, i64 noundef 5) #11
-  %168 = call fastcc i32 @is_mgcp_verb(ptr noundef %145, i32 noundef %.0.i41.i, i32 noundef %154, ptr noundef nonnull %11), !range !4
+  %168 = call fastcc i32 @is_mgcp_verb(ptr noundef %145, i32 noundef %.0.i41.i, i32 noundef %154, ptr noundef nonnull %11)
   %.not.i42.i = icmp eq i32 %168, 0
   br i1 %.not.i42.i, label %177, label %169
 
@@ -1269,7 +1269,7 @@ is_mgcp_rspcode.exit.i.i:                         ; preds = %201, %194
   %256 = icmp slt i32 %.1.i.i, %146
   %257 = icmp ult i32 %.0236.i.i, 3
   %or.cond3.i.i = select i1 %256, i1 %257, i1 false
-  br i1 %or.cond3.i.i, label %153, label %.critedge.i.i, !llvm.loop !5
+  br i1 %or.cond3.i.i, label %153, label %.critedge.i.i, !llvm.loop !4
 
 .critedge.i.i:                                    ; preds = %255, %253, %249, %is_mgcp_rspcode.exit.i.i, %is_mgcp_rspcode.exit.thread.i.i
   %.2246.i.i = phi i32 [ %.0244.i.i, %is_mgcp_rspcode.exit.thread.i.i ], [ %.0244.i.i, %is_mgcp_rspcode.exit.i.i ], [ %.1245309314.i.i, %249 ], [ %.1245309314.i.i, %253 ], [ %.1245309314.i.i, %255 ]
@@ -1739,7 +1739,7 @@ dissect_mgcp_firstline.exit.i:                    ; preds = %162, %473
 489:                                              ; preds = %487
   %490 = call i32 @tvb_offset_exists(ptr noundef %109, i32 noundef %488) #11
   %.not28.i.i = icmp eq i32 %490, 0
-  br i1 %.not28.i.i, label %.critedge.i44.i, label %482, !llvm.loop !7
+  br i1 %.not28.i.i, label %.critedge.i44.i, label %482, !llvm.loop !6
 
 .critedge.i44.i:                                  ; preds = %489, %487, %482, %482
   %491 = load i32, ptr %6, align 4
@@ -1786,7 +1786,7 @@ tvb_find_null_line.exit.i:                        ; preds = %494, %492
   %508 = load i32, ptr %5, align 4
   %509 = call i32 @tvb_offset_exists(ptr noundef %109, i32 noundef %508) #11
   %.not.i48.i = icmp eq i32 %509, 0
-  br i1 %.not.i48.i, label %mgcp_raw_text_add.exit.i, label %503, !llvm.loop !8
+  br i1 %.not.i48.i, label %mgcp_raw_text_add.exit.i, label %503, !llvm.loop !7
 
 mgcp_raw_text_add.exit.i:                         ; preds = %503
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -1813,7 +1813,7 @@ dissect_mgcp_message.exit:                        ; preds = %is_mgcp_rspcode.exi
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   %519 = load i32, ptr %19, align 4
   %520 = icmp slt i32 %519, %21
-  br i1 %520, label %74, label %521, !llvm.loop !9
+  br i1 %520, label %74, label %521, !llvm.loop !8
 
 521:                                              ; preds = %tvb_find_dot_line.exit, %dissect_mgcp_message.exit
   %522 = load i32, ptr @hf_mgcp_messagecount, align 4
@@ -1926,7 +1926,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_rtd_table(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mgcpstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @mgcpstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = load i32, ptr %3, align 8
   switch i32 %7, label %122 [
@@ -2163,7 +2163,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @is_mgcp_verb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_mgcp_verb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca [5 x i8], align 1
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #11
   %7 = icmp sgt i32 %6, 4
@@ -2477,7 +2477,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
 75:                                               ; preds = %68
   %76 = add nuw nsw i32 %.0222273.i, 1
   %exitcond.not.i = icmp eq i32 %76, %67
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %75, %68
   %.0222.lcssa.i = phi i32 [ %67, %75 ], [ %.0222273.i, %68 ]
@@ -2922,7 +2922,7 @@ tvb_parse_param.exit:                             ; preds = %36, %34, %64, %._cr
   %301 = getelementptr ptr, ptr %203, i64 %300
   %302 = load ptr, ptr %301, align 8
   %.not.i61 = icmp eq ptr %302, null
-  br i1 %.not.i61, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i60, !llvm.loop !11
+  br i1 %.not.i61, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i60, !llvm.loop !10
 
 303:                                              ; preds = %189
   %304 = load i32, ptr @hf_mgcp_param_localconnoptions, align 4
@@ -3199,7 +3199,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
   %471 = getelementptr ptr, ptr %315, i64 %470
   %472 = load ptr, ptr %471, align 8
   %.not.i75 = icmp eq ptr %472, null
-  br i1 %.not.i75, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i63, !llvm.loop !12
+  br i1 %.not.i75, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i63, !llvm.loop !11
 
 473:                                              ; preds = %303
   %474 = load i32, ptr @hf_mgcp_param_localvoicemetrics, align 4
@@ -3564,7 +3564,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
   %684 = getelementptr ptr, ptr %489, i64 %683
   %685 = load ptr, ptr %684, align 8
   %.not73.i102 = icmp eq ptr %685, null
-  br i1 %.not73.i102, label %dissect_mgcp_connectionparams.exit, label %491, !llvm.loop !13
+  br i1 %.not73.i102, label %dissect_mgcp_connectionparams.exit, label %491, !llvm.loop !12
 
 686:                                              ; preds = %473
   %687 = load i32, ptr @hf_mgcp_param_remotevoicemetrics, align 4
@@ -3929,7 +3929,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
   %897 = getelementptr ptr, ptr %702, i64 %896
   %898 = load ptr, ptr %897, align 8
   %.not73.i138 = icmp eq ptr %898, null
-  br i1 %.not73.i138, label %dissect_mgcp_connectionparams.exit, label %704, !llvm.loop !14
+  br i1 %.not73.i138, label %dissect_mgcp_connectionparams.exit, label %704, !llvm.loop !13
 
 899:                                              ; preds = %686
   %900 = load i32, ptr @hf_mgcp_param_x_osmux, align 4
@@ -3946,7 +3946,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
 dissect_mgcp_connectionparams.exit:               ; preds = %892, %679, %468, %296, %899, %696, %483, %306, %194, %905, %tvb_parse_param.exit
   %906 = load i32, ptr %4, align 4
   %.not59 = icmp slt i32 %19, %906
-  br i1 %.not59, label %15, label %907, !llvm.loop !15
+  br i1 %.not59, label %15, label %907, !llvm.loop !14
 
 907:                                              ; preds = %dissect_mgcp_connectionparams.exit, %15
   ret void
@@ -4068,15 +4068,14 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

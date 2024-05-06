@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_conncache_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @Curl_conncache_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @curl_easy_init() #7
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %3, ptr %4, align 8

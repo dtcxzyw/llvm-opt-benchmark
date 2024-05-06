@@ -425,19 +425,19 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds ptr, ptr %.val169.val.val.i, i64 %159
   %161 = load ptr, ptr %160, align 8
-  %162 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %161, i32 noundef %2), !range !8
+  %162 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %161, i32 noundef %2)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.1287.i, i32 %162)
   %indvars.iv.next333.i = add nuw nsw i64 %indvars.iv332.i, 1
   %.val166.i = load i32, ptr %151, align 4
   %163 = sext i32 %.val166.i to i64
   %164 = icmp slt i64 %indvars.iv.next333.i, %163
-  br i1 %164, label %154, label %.critedge4.i, !llvm.loop !9
+  br i1 %164, label %154, label %.critedge4.i, !llvm.loop !8
 
 .critedge4.i:                                     ; preds = %154, %148
   %.1.lcssa.i = phi i32 [ %.0290.i, %148 ], [ %spec.select.i, %154 ]
   %indvars.iv.next336.i = add nuw nsw i64 %indvars.iv335.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next336.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge2.preheader.i, label %148, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.critedge2.preheader.i, label %148, !llvm.loop !9
 
 .lr.ph303.i:                                      ; preds = %.critedge2.preheader.i, %.critedge8.i
   %.val178365.i = phi ptr [ %.val178.i, %.critedge8.i ], [ %.val178298.i, %.critedge2.preheader.i ]
@@ -470,13 +470,13 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds ptr, ptr %.val171.val.val.i, i64 %176
   %178 = load ptr, ptr %177, align 8
-  %179 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %178, i32 noundef %2), !range !8
+  %179 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %178, i32 noundef %2)
   %spec.select145.i = tail call i32 @llvm.smax.i32(i32 %.4295.i, i32 %179)
   %indvars.iv.next339.i = add nuw nsw i64 %indvars.iv338.i, 1
   %.val167.i = load i32, ptr %168, align 4
   %180 = sext i32 %.val167.i to i64
   %181 = icmp slt i64 %indvars.iv.next339.i, %180
-  br i1 %181, label %171, label %.critedge8.loopexit.i, !llvm.loop !11
+  br i1 %181, label %171, label %.critedge8.loopexit.i, !llvm.loop !10
 
 .critedge8.loopexit.i:                            ; preds = %171
   %.val178.pre.i = load ptr, ptr %26, align 8
@@ -490,7 +490,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %.val178.val.i = load i32, ptr %182, align 4
   %183 = sext i32 %.val178.val.i to i64
   %184 = icmp slt i64 %indvars.iv.next342.i, %183
-  br i1 %184, label %.lr.ph303.i, label %.critedge6.i, !llvm.loop !12
+  br i1 %184, label %.lr.ph303.i, label %.critedge6.i, !llvm.loop !11
 
 .critedge10.preheader.i:                          ; preds = %187, %.preheader280.i
   %.6.lcssa.i = phi i32 [ 0, %.preheader280.i ], [ %spec.select146.i, %187 ]
@@ -516,11 +516,11 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %193 = sext i32 %.val181.val.i to i64
   %194 = getelementptr inbounds ptr, ptr %.val180.val.val.i, i64 %193
   %195 = load ptr, ptr %194, align 8
-  %196 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %195, i32 noundef 0), !range !8
+  %196 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %195, i32 noundef 0)
   %spec.select146.i = tail call i32 @llvm.smax.i32(i32 %.6306.i, i32 %196)
   %indvars.iv.next345.i = add nuw nsw i64 %indvars.iv344.i, 1
   %exitcond348.not.i = icmp eq i64 %indvars.iv.next345.i, %wide.trip.count347.i
-  br i1 %exitcond348.not.i, label %.critedge10.preheader.i, label %187, !llvm.loop !13
+  br i1 %exitcond348.not.i, label %.critedge10.preheader.i, label %187, !llvm.loop !12
 
 .critedge10.i:                                    ; preds = %.critedge10.preheader.i, %.critedge10.i
   %indvars.iv349.i = phi i64 [ %indvars.iv.next350.i, %.critedge10.i ], [ 0, %.critedge10.preheader.i ]
@@ -541,7 +541,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %203 = sext i32 %.val183.val.i to i64
   %204 = getelementptr inbounds ptr, ptr %.val182.val.val.i, i64 %203
   %205 = load ptr, ptr %204, align 8
-  %206 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %205, i32 noundef 0), !range !8
+  %206 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %205, i32 noundef 0)
   %spec.select147.i = tail call i32 @llvm.smax.i32(i32 %.8312.i, i32 %206)
   %indvars.iv.next350.i = add nuw nsw i64 %indvars.iv349.i, 1
   %.val184.i = load ptr, ptr %27, align 8
@@ -549,7 +549,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %.val184.val.i = load i32, ptr %207, align 4
   %208 = sext i32 %.val184.val.i to i64
   %209 = icmp slt i64 %indvars.iv.next350.i, %208
-  br i1 %209, label %.critedge10.i, label %.critedge6.i, !llvm.loop !14
+  br i1 %209, label %.critedge10.i, label %.critedge6.i, !llvm.loop !13
 
 .critedge6.i:                                     ; preds = %.critedge8.i, %.critedge10.i, %.critedge10.preheader.i, %.critedge2.preheader.i
   %.10.i = phi i32 [ %.6.lcssa.i, %.critedge10.preheader.i ], [ %.0.lcssa.i, %.critedge2.preheader.i ], [ %spec.select147.i, %.critedge10.i ], [ %.4.lcssa.i, %.critedge8.i ]
@@ -922,7 +922,7 @@ Vec_IntFillExtra.exit237.i:                       ; preds = %._crit_edge.i227.i,
   %.val168.i = load i32, ptr %227, align 4
   %357 = sext i32 %.val168.i to i64
   %358 = icmp slt i64 %indvars.iv.next353.i, %357
-  br i1 %358, label %230, label %.critedge16.loopexit.i, !llvm.loop !15
+  br i1 %358, label %230, label %.critedge16.loopexit.i, !llvm.loop !14
 
 .critedge16.loopexit.i:                           ; preds = %356
   %.val151.pre.i = load i32, ptr %48, align 4
@@ -933,7 +933,7 @@ Vec_IntFillExtra.exit237.i:                       ; preds = %._crit_edge.i227.i,
   %indvars.iv.next356.i = add nuw nsw i64 %indvars.iv355.i, 1
   %359 = sext i32 %.val151.i to i64
   %360 = icmp slt i64 %indvars.iv.next356.i, %359
-  br i1 %360, label %.lr.ph321.i, label %.critedge14.i, !llvm.loop !16
+  br i1 %360, label %.lr.ph321.i, label %.critedge14.i, !llvm.loop !15
 
 .lr.ph327.i:                                      ; preds = %.preheader.i, %.critedge20.i
   %.val152375.i = phi i32 [ %.val152.i, %.critedge20.i ], [ %.val150.i, %.preheader.i ]
@@ -1249,7 +1249,7 @@ Vec_IntFillExtra.exit265.i:                       ; preds = %._crit_edge.i255.i,
   %.val175.i = load i32, ptr %363, align 4
   %493 = sext i32 %.val175.i to i64
   %494 = icmp slt i64 %indvars.iv.next359.i, %493
-  br i1 %494, label %366, label %.critedge20.loopexit.i, !llvm.loop !17
+  br i1 %494, label %366, label %.critedge20.loopexit.i, !llvm.loop !16
 
 .critedge20.loopexit.i:                           ; preds = %492
   %.val152.pre.i = load i32, ptr %48, align 4
@@ -1260,7 +1260,7 @@ Vec_IntFillExtra.exit265.i:                       ; preds = %._crit_edge.i255.i,
   %indvars.iv.next362.i = add nuw nsw i64 %indvars.iv361.i, 1
   %495 = sext i32 %.val152.i to i64
   %496 = icmp slt i64 %indvars.iv.next362.i, %495
-  br i1 %496, label %.lr.ph327.i, label %.critedge14.i, !llvm.loop !18
+  br i1 %496, label %.lr.ph327.i, label %.critedge14.i, !llvm.loop !17
 
 .critedge14.i:                                    ; preds = %.critedge16.i, %.critedge20.i, %.preheader.i, %.preheader278.i
   %497 = load ptr, ptr %54, align 8
@@ -1334,7 +1334,7 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
 523:                                              ; preds = %518, %522
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %518, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge, label %518, !llvm.loop !18
 
 .critedge:                                        ; preds = %523, %.preheader
   br i1 %.not.i, label %524, label %525
@@ -1423,7 +1423,7 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NtkRetimeTiming_rec(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %.val2.i = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 16
   %.val3.i = load i32, ptr %3, align 8
@@ -1493,13 +1493,13 @@ define internal fastcc i32 @Abc_NtkRetimeTiming_rec(ptr nocapture noundef %0, i3
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %.val40.val.val, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %34, i32 noundef %1), !range !8
+  %35 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %34, i32 noundef %1)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.050, i32 %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val39 = load i32, ptr %21, align 4
   %36 = sext i32 %.val39 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %27, label %.critedge, !llvm.loop !20
+  br i1 %37, label %27, label %.critedge, !llvm.loop !19
 
 38:                                               ; preds = %.lr.ph54, %38
   %indvars.iv58 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next59, %38 ]
@@ -1515,13 +1515,13 @@ define internal fastcc i32 @Abc_NtkRetimeTiming_rec(ptr nocapture noundef %0, i3
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds ptr, ptr %.val43.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %45, i32 noundef 0), !range !8
+  %46 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %45, i32 noundef 0)
   %spec.select37 = tail call i32 @llvm.smax.i32(i32 %.253, i32 %46)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %.val42 = load i32, ptr %24, align 4
   %47 = sext i32 %.val42 to i64
   %48 = icmp slt i64 %indvars.iv.next59, %47
-  br i1 %48, label %38, label %.critedge, !llvm.loop !21
+  br i1 %48, label %38, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %27, %38, %.preheader46, %.preheader
   %.4 = phi i32 [ 0, %.preheader ], [ 0, %.preheader46 ], [ %spec.select37, %38 ], [ %spec.select, %27 ]
@@ -1669,7 +1669,7 @@ attributes #10 = { nounwind allocsize(1) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 1048576}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -1682,4 +1682,3 @@ attributes #10 = { nounwind allocsize(1) }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

@@ -26601,7 +26601,7 @@ _ZN6duckdb10unique_ptrINS_10FileHandleESt14default_deleteIS1_ELb1EE13AssertNotNu
 declare void @_ZN6duckdb12MemoryStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6duckdb21WriteCSVExecutionModeEbb(i1 noundef zeroext %preserve_insertion_order, i1 noundef zeroext %supports_batch_index) #10 {
+define noundef range(i32 0, 3) i32 @_ZN6duckdb21WriteCSVExecutionModeEbb(i1 noundef zeroext %preserve_insertion_order, i1 noundef zeroext %supports_batch_index) #10 {
 entry:
   %. = select i1 %supports_batch_index, i32 2, i32 0
   %retval.0 = select i1 %preserve_insertion_order, i32 %., i32 1

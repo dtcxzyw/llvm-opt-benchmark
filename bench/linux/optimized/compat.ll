@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @overflowgid = external dso_local local_unnamed_addr global i32, align 4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @get_compat_ipc64_perm(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @get_compat_ipc64_perm(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.compat_ipc64_perm, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false), !annotation !5
@@ -50,7 +50,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @get_compat_ipc_perm(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @get_compat_ipc_perm(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.compat_ipc_perm, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5

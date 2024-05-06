@@ -305,7 +305,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
   %37 = udiv i64 %36, 1000000000
   store i64 %37, ptr %9, align 8
   %38 = urem i64 %36, 1000000000
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %39, ptr %40, align 8
   %41 = load i32, ptr @hf_net_dm_timestamp, align 4
@@ -490,7 +490,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare i32 @dissect_netlink_attributes(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_net_dm_attrs_port(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_net_dm_attrs_port(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = and i32 %4, 16383
@@ -536,7 +536,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_net_dm_attrs_stats(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_net_dm_attrs_stats(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = and i32 %4, 16383
   %cond = icmp eq i32 %8, 0
   br i1 %cond, label %9, label %14

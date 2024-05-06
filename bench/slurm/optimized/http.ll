@@ -240,7 +240,7 @@ _decode_seq.exit:                                 ; preds = %64, %61
   br i1 %.not37, label %83, label %75
 
 75:                                               ; preds = %73
-  %76 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef nonnull %4, i1 noundef zeroext %1), !range !6
+  %76 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef nonnull %4, i1 noundef zeroext %1)
   br label %83
 
 77:                                               ; preds = %switch.early.test.i
@@ -259,7 +259,7 @@ _decode_seq.exit:                                 ; preds = %64, %61
   %.1 = phi i32 [ 0, %16 ], [ %76, %75 ], [ 0, %73 ], [ 0, %_decode_seq.exit ], [ 0, %30 ]
   %84 = getelementptr inbounds i8, ptr %.133, i64 1
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %7, label %.thread47, !llvm.loop !7
+  br i1 %.not, label %7, label %.thread47, !llvm.loop !6
 
 .critedge:                                        ; preds = %7
   %85 = load ptr, ptr %4, align 8
@@ -267,7 +267,7 @@ _decode_seq.exit:                                 ; preds = %64, %61
   br i1 %.not50, label %.thread, label %86
 
 86:                                               ; preds = %.critedge
-  %87 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef nonnull %4, i1 noundef zeroext %1), !range !6
+  %87 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef nonnull %4, i1 noundef zeroext %1)
   %.not40 = icmp eq i32 %87, 0
   br i1 %.not40, label %.thread, label %.thread47
 
@@ -299,7 +299,7 @@ declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_xstrncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_path(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_add_path(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @xstrcasecmp(ptr noundef %4, ptr noundef nonnull @.str.17) #4
   %.not = icmp eq i32 %5, 0
@@ -357,7 +357,7 @@ define ptr @get_http_status_code_string(i32 noundef %0) local_unnamed_addr #2 {
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 44
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !8
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -383,7 +383,7 @@ define ptr @get_http_method_string(i32 noundef %0) local_unnamed_addr #2 {
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !9
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -409,7 +409,7 @@ define ptr @get_http_method_string_lc(i32 noundef %0) local_unnamed_addr #2 {
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !10
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -429,7 +429,7 @@ define ptr @get_http_method_string_lc(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_http_method(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @get_http_method(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -511,9 +511,8 @@ attributes #5 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

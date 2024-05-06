@@ -24,7 +24,7 @@ declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @qdev_get_machine() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nvdimm_device_list(ptr noundef %obj, ptr noundef %opaque) #0 {
+define internal noundef i32 @nvdimm_device_list(ptr noundef %obj, ptr noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str) #2
   %tobool.not = icmp eq ptr %call, null

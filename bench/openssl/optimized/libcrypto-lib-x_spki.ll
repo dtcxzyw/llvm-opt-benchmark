@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [10 x i8] c"signature\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @NETSCAPE_SPKAC_it() #0 {
+define noundef nonnull ptr @NETSCAPE_SPKAC_it() #0 {
 entry:
   ret ptr @NETSCAPE_SPKAC_it.local_it
 }
@@ -61,7 +61,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @NETSCAPE_SPKI_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @NETSCAPE_SPKI_it() local_unnamed_addr #0 {
 entry:
   ret ptr @NETSCAPE_SPKI_it.local_it
 }

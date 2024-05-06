@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [40 x i8] c"assertion failed: keylen <= sizeof(key)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %digest, i32 noundef %keylen, ptr noundef %out, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %digest, i32 noundef %keylen, ptr noundef %out, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %iter.addr = alloca i32, align 4
   %mode = alloca i32, align 4
@@ -121,21 +121,21 @@ declare i32 @EVP_KDF_derive(ptr noundef, ptr noundef, i64 noundef, ptr noundef) 
 declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS5_PBKDF2_HMAC(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %digest, i32 noundef %keylen, ptr noundef %out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS5_PBKDF2_HMAC(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %digest, i32 noundef %keylen, ptr noundef %out) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %digest, i32 noundef %keylen, ptr noundef %out, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %digest, i32 noundef %keylen, ptr noundef %out, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS5_PBKDF2_HMAC_SHA1(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, i32 noundef %keylen, ptr noundef %out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS5_PBKDF2_HMAC_SHA1(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, i32 noundef %keylen, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef null) #5
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef nonnull %call, i32 noundef %keylen, ptr noundef %out, ptr noundef null, ptr noundef null), !range !4
+  %call1 = tail call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef nonnull %call, i32 noundef %keylen, ptr noundef %out, ptr noundef null, ptr noundef null)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -422,7 +422,7 @@ if.end50:                                         ; preds = %if.end44
   %10 = load ptr, ptr %iter54, align 8
   %call55 = call i64 @ASN1_INTEGER_get(ptr noundef %10) #5
   %conv56 = trunc i64 %call55 to i32
-  %call57 = call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %8, i32 noundef %9, i32 noundef %conv56, ptr noundef nonnull %prfmd.024, i32 noundef %call10, ptr noundef nonnull %key, ptr noundef %libctx, ptr noundef %propq), !range !4
+  %call57 = call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %8, i32 noundef %9, i32 noundef %conv56, ptr noundef nonnull %prfmd.024, i32 noundef %call10, ptr noundef nonnull %key, ptr noundef %libctx, ptr noundef %propq)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err, label %if.end60
 
@@ -485,4 +485,3 @@ attributes #7 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -109,7 +109,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp22, label %while.cond, label %while.end.split.loop.exit25, !llvm.loop !5
 
 while.end.split.loop.exit25:                      ; preds = %land.rhs
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit25
@@ -652,7 +652,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp22.i, label %while.cond.i, label %while.end.split.loop.exit25.i, !llvm.loop !5
 
 while.end.split.loop.exit25.i:                    ; preds = %land.rhs.i
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nsw i64 %indvars.iv.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.cond.i, %while.end.split.loop.exit25.i
@@ -721,7 +721,7 @@ if.end17:                                         ; preds = %for.body.i18, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext i8 @_ZNK6icu_755Norms21combinesWithCCBetweenERKNS_4NormEhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %norm, i8 noundef zeroext %lowCC, i32 noundef %highCC) local_unnamed_addr #1 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_755Norms21combinesWithCCBetweenERKNS_4NormEhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %norm, i8 noundef zeroext %lowCC, i32 noundef %highCC) local_unnamed_addr #1 align 2 {
 entry:
   %conv = zext i8 %lowCC to i32
   %sub = sub nsw i32 %highCC, %conv
@@ -986,7 +986,7 @@ for.inc:                                          ; preds = %if.end47
   br i1 %exitcond.not, label %if.end54.loopexit, label %for.body, !llvm.loop !14
 
 if.end54.loopexit.split.loop.exit37:              ; preds = %if.end47
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.end54.loopexit
 
 if.end54.loopexit:                                ; preds = %for.inc, %if.end54.loopexit.split.loop.exit37
@@ -1256,11 +1256,11 @@ if.else73:                                        ; preds = %if.end24
   br i1 %36, label %if.else105, label %if.then76
 
 if.then76:                                        ; preds = %if.else73
-  %rem.i.lhs.trunc = trunc i32 %35 to i16
+  %rem.i.lhs.trunc = trunc nuw i32 %35 to i16
   %rem.i112 = urem i16 %rem.i.lhs.trunc, 28
-  %div.i.lhs.trunc = trunc i32 %35 to i16
+  %div.i.lhs.trunc = trunc nuw i32 %35 to i16
   %div.i113 = udiv i16 %div.i.lhs.trunc, 28
-  %div1.i.lhs.trunc = trunc i32 %35 to i16
+  %div1.i.lhs.trunc = trunc nuw i32 %35 to i16
   %div1.i114 = udiv i16 %div1.i.lhs.trunc, 588
   %conv.i73 = or disjoint i16 %div1.i114, 4352
   store i16 %conv.i73, ptr %buffer, align 2

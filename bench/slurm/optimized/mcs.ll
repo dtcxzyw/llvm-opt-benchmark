@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [12 x i8] c"privatedata\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mcs_g_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mcs_g_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_mcs_context_lock) #8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -274,14 +274,14 @@ define noundef i32 @slurm_mcs_reset_params() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @slurm_mcs_get_enforced() local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @slurm_mcs_get_enforced() local_unnamed_addr #6 {
   %.b1 = load i1, ptr @label_strict_enforced, align 1
   %1 = zext i1 %.b1 to i32
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @slurm_mcs_get_select(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @slurm_mcs_get_select(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load i32, ptr @select_value, align 4
   switch i32 %2, label %10 [
     i32 2, label %11
@@ -309,7 +309,7 @@ define noundef i32 @slurm_mcs_get_select(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @slurm_mcs_get_privatedata() local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @slurm_mcs_get_privatedata() local_unnamed_addr #6 {
   %.b1 = load i1, ptr @private_data, align 1
   %1 = zext i1 %.b1 to i32
   ret i32 %1

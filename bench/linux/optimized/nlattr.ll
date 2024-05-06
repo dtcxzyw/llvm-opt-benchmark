@@ -1578,7 +1578,7 @@ define dso_local noundef ptr @nla_find(ptr noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @nla_strscpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i64 -7, 65536) i64 @nla_strscpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = load i16, ptr %1, align 2
   %5 = add i16 %4, -4
   %6 = zext i16 %5 to i64
@@ -1665,7 +1665,7 @@ define dso_local noalias ptr @nla_strdup(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @nla_memcpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #5 align 16 {
+define dso_local range(i32 -2147483648, 65536) i32 @nla_memcpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #5 align 16 {
   %4 = load i16, ptr %1, align 2
   %5 = add i16 %4, -4
   %6 = zext i16 %5 to i32
@@ -1995,7 +1995,7 @@ define dso_local void @__nla_put_nohdr(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nla_put(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @nla_put(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 116
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -2042,7 +2042,7 @@ define dso_local noundef i32 @nla_put(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nla_put_64bit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 %4) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @nla_put_64bit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 %4) #0 align 16 {
   %6 = add i32 %2, 7
   %7 = and i32 %6, -4
   %8 = getelementptr inbounds i8, ptr %0, i64 116
@@ -2089,7 +2089,7 @@ define dso_local noundef i32 @nla_put_64bit(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nla_put_nohdr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @nla_put_nohdr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 116
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -2124,7 +2124,7 @@ define dso_local noundef i32 @nla_put_nohdr(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nla_append(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @nla_append(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 116
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0

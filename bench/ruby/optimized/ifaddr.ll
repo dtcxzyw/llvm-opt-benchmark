@@ -452,7 +452,7 @@ get_ifaddrs.exit:                                 ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ifaddr_ifindex(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @ifaddr_ifindex(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
@@ -485,7 +485,7 @@ get_ifaddrs.exit:                                 ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ifaddr_flags(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @ifaddr_flags(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit
@@ -689,7 +689,7 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %.137.in42.i = phi ptr [ %2, %14 ], [ %.137.i, %23 ]
   %.137.i = load ptr, ptr %.137.in42.i, align 8
   %24 = getelementptr inbounds [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv.i
-  %25 = trunc i64 %indvars.iv.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %25, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %.137.i, ptr %26, align 8
@@ -766,7 +766,7 @@ define internal void @ifaddr_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @ifaddr_memsize(ptr nocapture noundef readonly %0) #3 {
+define internal range(i64 64, 81) i64 @ifaddr_memsize(ptr nocapture noundef readonly %0) #3 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   %spec.select = select i1 %3, i64 80, i64 64

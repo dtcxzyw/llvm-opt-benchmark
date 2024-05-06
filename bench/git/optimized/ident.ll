@@ -422,7 +422,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @split_ident_line(ptr nocapture noundef writeonly %split, ptr noundef %line, i32 noundef %len) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr nocapture noundef writeonly %split, ptr noundef %line, i32 noundef %len) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr inbounds i8, ptr %split, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
@@ -653,7 +653,7 @@ if.then9:                                         ; preds = %do.body.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ident.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %namemail.i)
   %conv.i = trunc i64 %sub.ptr.sub13 to i32
-  %call.i = call i32 @split_ident_line(ptr noundef nonnull %ident.i, ptr noundef nonnull %str.addr.0.i, i32 noundef %conv.i), !range !14
+  %call.i = call i32 @split_ident_line(ptr noundef nonnull %ident.i, ptr noundef nonnull %str.addr.0.i, i32 noundef %conv.i)
   %tobool.not.i18 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i18, label %if.end.i, label %for.end
 
@@ -704,7 +704,7 @@ for.inc:                                          ; preds = %do.cond.i
   %arrayidx = getelementptr inbounds ptr, ptr %header, i64 %inc
   %18 = load ptr, ptr %arrayidx, align 8
   %tobool7.not = icmp eq ptr %18, null
-  br i1 %tobool7.not, label %if.then18.loopexit, label %do.body.i.preheader, !llvm.loop !15
+  br i1 %tobool7.not, label %if.then18.loopexit, label %do.body.i.preheader, !llvm.loop !14
 
 for.end:                                          ; preds = %if.then8.i, %if.end.i, %if.then9
   %retval.0.i = phi i64 [ %sub.i, %if.then8.i ], [ 0, %if.then9 ], [ 0, %if.end.i ]
@@ -934,7 +934,7 @@ for.inc.i:                                        ; preds = %switch.early.test.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.06.i, i64 1
   %13 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i47 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i47, label %if.then88, label %for.body.i, !llvm.loop !16
+  br i1 %tobool.not.i47, label %if.then88, label %for.body.i, !llvm.loop !15
 
 if.then88:                                        ; preds = %for.inc.i
   %call89 = tail call fastcc ptr @_(ptr noundef nonnull @.str.7)
@@ -1161,7 +1161,7 @@ if.end:                                           ; preds = %switch.early.test.i
   %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.028, i64 1
   %2 = load i8, ptr %incdec.ptr, align 1
   %cmp.not = icmp eq i8 %2, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !17
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !16
 
 while.end:                                        ; preds = %if.end, %switch.early.test.i, %entry
   %src.addr.0.lcssa = phi ptr [ %src, %entry ], [ %src.addr.028, %switch.early.test.i ], [ %incdec.ptr, %if.end ]
@@ -1191,7 +1191,7 @@ switch.early.test.i18:                            ; preds = %while.body6
 
 if.end10:                                         ; preds = %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %while.body6
   %cmp4.not = icmp eq i64 %sub, 0
-  br i1 %cmp4.not, label %while.end11.thread, label %while.body6, !llvm.loop !18
+  br i1 %cmp4.not, label %while.end11.thread, label %while.body6, !llvm.loop !17
 
 while.end11.thread:                               ; preds = %if.end10, %while.end
   tail call void @strbuf_grow(ptr noundef %sb, i64 noundef 0) #18
@@ -1226,7 +1226,7 @@ sw.epilog:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %for.body, %for.body, %sw.epilog
   %inc18 = add nuw i64 %i.036, 1
   %exitcond.not = icmp eq i64 %inc18, %len.031
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %while.end11.thread
   %buf19 = getelementptr inbounds i8, ptr %sb, i64 16
@@ -1330,7 +1330,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @committer_ident_sufficiently_given() local_unnamed_addr #9 {
+define dso_local range(i32 0, 3) i32 @committer_ident_sufficiently_given() local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr @committer_ident_explicitly_given, align 4
   %and.i = and i32 %0, 2
@@ -1338,7 +1338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @author_ident_sufficiently_given() local_unnamed_addr #9 {
+define dso_local range(i32 0, 3) i32 @author_ident_sufficiently_given() local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr @author_ident_explicitly_given, align 4
   %and.i = and i32 %0, 2
@@ -1346,7 +1346,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @git_ident_config(ptr noundef %var, ptr noundef %value, ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @git_ident_config(ptr noundef %var, ptr noundef %value, ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %data) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(19) @.str.16) #19
   %tobool.not = icmp eq i32 %call, 0
@@ -1825,9 +1825,8 @@ attributes #21 = { cold }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 -1, i32 1}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

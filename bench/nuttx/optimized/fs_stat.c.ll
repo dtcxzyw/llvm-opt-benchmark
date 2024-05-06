@@ -60,7 +60,7 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
 
 33:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %34 = load i16, ptr %20, align 2
   %35 = and i16 %34, 15
   %36 = icmp eq i16 %35, 5
@@ -198,7 +198,7 @@ stat_recursive.exit:                              ; preds = %92, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @stat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 poison)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8
@@ -217,7 +217,7 @@ define i32 @stat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare ptr @__errno() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @lstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 poison)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8

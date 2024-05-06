@@ -75,7 +75,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   br label %.lr.ph97
 
 .preheader:                                       ; preds = %.lr.ph97, %._crit_edge
-  %invariant.gep = getelementptr i8, ptr %21, i64 4
+  %invariant.gep = getelementptr inbounds i8, ptr %21, i64 4
   %invariant.gep103 = getelementptr i8, ptr %25, i64 -8
   br i1 %35, label %.lr.ph108, label %.loopexit93
 
@@ -105,7 +105,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 58:                                               ; preds = %55
   %59 = zext nneg i32 %56 to i64
-  %gep102.us = getelementptr i32, ptr %invariant.gep, i64 %59
+  %gep102.us = getelementptr inbounds i32, ptr %invariant.gep, i64 %59
   %60 = load i32, ptr %gep102.us, align 4
   %61 = sext i32 %60 to i64
   %gep104.us = getelementptr double, ptr %invariant.gep103, i64 %61
@@ -195,7 +195,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   store double %111, ptr %109, align 8
   %112 = load i32, ptr %103, align 4
   %113 = add nsw i32 %112, 1
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %102
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %102
   %114 = load i32, ptr %gep, align 4
   %115 = icmp slt i32 %113, %114
   br i1 %115, label %.lr.ph100.preheader, label %.loopexit

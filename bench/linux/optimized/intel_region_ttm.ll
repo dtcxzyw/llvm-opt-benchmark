@@ -66,7 +66,7 @@ define dso_local void @intel_region_ttm_device_fini(ptr noundef %0) local_unname
 declare dso_local void @ttm_device_fini(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_region_to_ttm_type(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 65539) i32 @intel_region_to_ttm_type(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 0

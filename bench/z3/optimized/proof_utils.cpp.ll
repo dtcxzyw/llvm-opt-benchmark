@@ -5488,8 +5488,8 @@ if.then:                                          ; preds = %invoke.cont4
   %6 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %7 = getelementptr i8, ptr %fact, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %7, i64 32
+  %7 = getelementptr inbounds i8, ptr %fact, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %7, i64 32
   %cmp.not73 = icmp eq i32 %6, 0
   br i1 %cmp.not73, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %for.body.preheader
 

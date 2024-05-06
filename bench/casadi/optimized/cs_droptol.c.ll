@@ -14,7 +14,7 @@ define i32 @cs_droptol(ptr noundef %0, double noundef %1) local_unnamed_addr #0 
 declare i32 @cs_fkeep(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cs_tol(i32 %0, i32 %1, double noundef %2, ptr nocapture noundef readonly %3) #2 {
+define internal range(i32 0, 2) i32 @cs_tol(i32 %0, i32 %1, double noundef %2, ptr nocapture noundef readonly %3) #2 {
   %5 = tail call double @llvm.fabs.f64(double %2)
   %6 = load double, ptr %3, align 8
   %7 = fcmp ogt double %5, %6

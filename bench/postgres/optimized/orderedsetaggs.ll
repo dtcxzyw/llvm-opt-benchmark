@@ -968,7 +968,7 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
   br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 66:                                               ; preds = %.lr.ph
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nuw nsw i64 %indvars.iv to i32
   %68 = getelementptr inbounds i8, ptr %15, i64 32
   %69 = load i8, ptr %68, align 8
   %70 = trunc i8 %69 to i1
@@ -1049,7 +1049,7 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
   store i8 %107, ptr %106, align 1
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %108 = load i32, ptr %4, align 4
-  %109 = trunc i64 %indvars.iv.next69 to i32
+  %109 = trunc nuw i64 %indvars.iv.next69 to i32
   %110 = icmp sgt i32 %108, %109
   br i1 %110, label %79, label %.loopexit, !llvm.loop !10
 
@@ -1105,7 +1105,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef %0, ptr nocapture noundef
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %38 ], [ 0, %.lr.ph ]
   %13 = getelementptr %struct.pct_info, ptr %8, i64 %indvars.iv58
   %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %15 = trunc i64 %indvars.iv58 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv58 to i32
   store i32 %15, ptr %14, align 8
   %16 = getelementptr i8, ptr %2, i64 %indvars.iv58
   %17 = load i8, ptr %16, align 1
@@ -1152,7 +1152,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef %0, ptr nocapture noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.lr.ph ]
   %39 = getelementptr %struct.pct_info, ptr %8, i64 %indvars.iv
   %40 = getelementptr inbounds i8, ptr %39, i64 24
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %41, ptr %40, align 8
   %42 = getelementptr i8, ptr %2, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1
@@ -1315,7 +1315,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
   br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 71:                                               ; preds = %.lr.ph
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   %73 = getelementptr inbounds i8, ptr %20, i64 32
   %74 = load i8, ptr %73, align 8
   %75 = trunc i8 %74 to i1
@@ -1446,7 +1446,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
   store i8 0, ptr %139, align 1
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %140 = load i32, ptr %8, align 4
-  %141 = trunc i64 %indvars.iv.next85 to i32
+  %141 = trunc nuw i64 %indvars.iv.next85 to i32
   %142 = icmp sgt i32 %140, %141
   br i1 %142, label %84, label %.loopexit, !llvm.loop !13
 
@@ -1579,7 +1579,7 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %.not70, label %73, label %60
 
 60:                                               ; preds = %56
-  %61 = trunc i8 %.042.ph to i1
+  %61 = trunc nuw i8 %.042.ph to i1
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
@@ -1618,7 +1618,7 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %31, label %78, label %74
 
 74:                                               ; preds = %73
-  %75 = trunc i8 %.042.ph to i1
+  %75 = trunc nuw i8 %.042.ph to i1
   br i1 %75, label %78, label %76
 
 76:                                               ; preds = %74
@@ -1653,7 +1653,7 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %31, label %88, label %84
 
 84:                                               ; preds = %83
-  %85 = trunc i8 %.042.ph to i1
+  %85 = trunc nuw i8 %.042.ph to i1
   br i1 %85, label %88, label %86
 
 86:                                               ; preds = %84
@@ -2268,7 +2268,7 @@ define internal fastcc void @hypothetical_check_argtypes(ptr nocapture noundef r
 15:                                               ; preds = %.preheader
   %16 = load ptr, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = trunc i64 %indvars.iv.next to i32
+  %17 = trunc nuw i64 %indvars.iv.next to i32
   %18 = tail call i32 @get_fn_expr_argtype(ptr noundef %16, i32 noundef %17) #10
   %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %8, i64 0, i64 %indvars.iv, i32 2
   %20 = load i32, ptr %19, align 4
@@ -2377,7 +2377,7 @@ declare i64 @interval_pl(ptr noundef) #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pct_info_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @pct_info_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %3, %4

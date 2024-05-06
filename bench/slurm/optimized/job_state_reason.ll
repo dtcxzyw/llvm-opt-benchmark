@@ -246,7 +246,7 @@ define i32 @job_state_reason_num(ptr noundef %0) #1 {
   br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !6
 
 .split.loop.exit8:                                ; preds = %2
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %6, %.split.loop.exit8

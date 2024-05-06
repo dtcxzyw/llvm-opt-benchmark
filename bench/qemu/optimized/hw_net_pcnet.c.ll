@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [27 x i8] c"pcnet: Bad SWSTYLE=0x%02x\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @pcnet_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size_) local_unnamed_addr #0 {
+define dso_local range(i64 1, 0) i64 @pcnet_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size_) local_unnamed_addr #0 {
 entry:
   %rda.i236 = alloca %struct.anon.4, align 4
   %rda10.i237 = alloca %struct.anon.5, align 4
@@ -127,7 +127,7 @@ lor.lhs.false26:                                  ; preds = %if.end
   store i8 %conv1.i, ptr %padr.i, align 1
   %arrayinit.element.i = getelementptr inbounds i8, ptr %padr.i, i64 1
   %7 = lshr i16 %6, 8
-  %conv5.i = trunc i16 %7 to i8
+  %conv5.i = trunc nuw i16 %7 to i8
   store i8 %conv5.i, ptr %arrayinit.element.i, align 1
   %arrayinit.element6.i = getelementptr inbounds i8, ptr %padr.i, i64 2
   %arrayidx8.i = getelementptr i8, ptr %call, i64 8294
@@ -136,7 +136,7 @@ lor.lhs.false26:                                  ; preds = %if.end
   store i8 %conv11.i, ptr %arrayinit.element6.i, align 1
   %arrayinit.element12.i = getelementptr inbounds i8, ptr %padr.i, i64 3
   %9 = lshr i16 %8, 8
-  %conv17.i = trunc i16 %9 to i8
+  %conv17.i = trunc nuw i16 %9 to i8
   store i8 %conv17.i, ptr %arrayinit.element12.i, align 1
   %arrayinit.element18.i = getelementptr inbounds i8, ptr %padr.i, i64 4
   %arrayidx20.i = getelementptr i8, ptr %call, i64 8296
@@ -145,7 +145,7 @@ lor.lhs.false26:                                  ; preds = %if.end
   store i8 %conv23.i, ptr %arrayinit.element18.i, align 1
   %arrayinit.element24.i = getelementptr inbounds i8, ptr %padr.i, i64 5
   %11 = lshr i16 %10, 8
-  %conv29.i = trunc i16 %11 to i8
+  %conv29.i = trunc nuw i16 %11 to i8
   store i8 %conv29.i, ptr %arrayinit.element24.i, align 1
   %12 = and i16 %0, 8192
   %tobool.not.i = icmp eq i16 %12, 0
@@ -156,7 +156,7 @@ padr_match.exit.thread:                           ; preds = %lor.lhs.false26
   br label %lor.lhs.false30
 
 padr_match.exit:                                  ; preds = %lor.lhs.false26
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) %padr.i, i64 6)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) %padr.i, i64 6)
   %tobool35.not.i.not = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %padr.i)
   br i1 %tobool35.not.i.not, label %if.then38, label %lor.lhs.false30
@@ -166,7 +166,7 @@ lor.lhs.false30:                                  ; preds = %padr_match.exit.thr
   br i1 %tobool.not.i176, label %padr_bcast.exit, label %lor.lhs.false34
 
 padr_bcast.exit:                                  ; preds = %lor.lhs.false30
-  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @padr_bcast.BCAST, i64 6)
+  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @padr_bcast.BCAST, i64 6)
   %tobool1.not.i.not = icmp eq i32 %bcmp.i179, 0
   br i1 %tobool1.not.i.not, label %if.then38, label %lor.lhs.false34
 
@@ -248,7 +248,7 @@ if.then.i:                                        ; preds = %for.body
   %25 = load i16, ptr %buf_length.i, align 4
   store i16 %25, ptr %buf_length4.i, align 4
   %shr.i = lshr i32 %24, 16
-  %26 = trunc i32 %shr.i to i16
+  %26 = trunc nuw i32 %shr.i to i16
   %conv8.i = and i16 %26, -256
   store i16 %conv8.i, ptr %status.i, align 2
   %27 = load i16, ptr %msg_length.i, align 2
@@ -282,7 +282,7 @@ pcnet_rmd_load.exit:                              ; preds = %pcnet_rmd_load.exit
   br i1 %tobool74.not, label %for.cond, label %if.then75, !llvm.loop !5
 
 if.then75:                                        ; preds = %pcnet_rmd_load.exit
-  %conv76 = trunc i32 %rcvrc.1 to i16
+  %conv76 = trunc nuw i32 %rcvrc.1 to i16
   store i16 %conv76, ptr %arrayidx48, align 4
   call fastcc void @pcnet_rdte_poll(ptr noundef nonnull %call)
   br label %if.end81
@@ -417,7 +417,7 @@ if.then.i191:                                     ; preds = %if.end163
   %buf_length4.i194 = getelementptr inbounds i8, ptr %rmd102, i64 4
   store i16 %56, ptr %buf_length4.i194, align 4
   %shr.i195 = lshr i32 %55, 16
-  %57 = trunc i32 %shr.i195 to i16
+  %57 = trunc nuw i32 %shr.i195 to i16
   %conv8.i196 = and i16 %57, -256
   %status.i197 = getelementptr inbounds i8, ptr %rmd102, i64 6
   store i16 %conv8.i196, ptr %status.i197, align 2
@@ -779,7 +779,7 @@ if.then.i224:                                     ; preds = %if.end468
   %160 = load i16, ptr %buf_length.i226, align 4
   store i16 %160, ptr %buf_length, align 4
   %shr.i228 = lshr i32 %159, 16
-  %161 = trunc i32 %shr.i228 to i16
+  %161 = trunc nuw i32 %shr.i228 to i16
   %conv8.i229 = and i16 %161, -256
   store i16 %conv8.i229, ptr %status177, align 2
   %msg_length.i231 = getelementptr inbounds i8, ptr %rda.i215, i64 6
@@ -985,7 +985,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %tobool15.not.i, label %land.lhs.true16.i, label %pcnet_poll.exit
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i
-  %call.i = call fastcc i32 @pcnet_tdte_poll(ptr noundef nonnull %call), !range !10
+  %call.i = call fastcc i32 @pcnet_tdte_poll(ptr noundef nonnull %call)
   %tobool17.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool17.not.i, label %pcnet_poll.exit, label %if.then18.i
 
@@ -1011,7 +1011,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @qemu_get_nic_opaque(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @ladr_match(ptr nocapture noundef readonly %s, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ladr_match(ptr nocapture noundef readonly %s, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %ladr = alloca [8 x i8], align 1
   %0 = load i8, ptr %buf, align 2
@@ -1054,7 +1054,7 @@ if.then:                                          ; preds = %land.lhs.true
   store i8 %conv41, ptr %arrayinit.element36, align 1
   %arrayinit.element42 = getelementptr inbounds i8, ptr %ladr, i64 7
   %sum.shift = lshr i64 %2, 56
-  %conv47 = trunc i64 %sum.shift to i8
+  %conv47 = trunc nuw i64 %sum.shift to i8
   store i8 %conv47, ptr %arrayinit.element42, align 1
   %call = tail call i32 @net_crc32_le(ptr noundef nonnull %buf, i32 noundef 6) #11
   %shr50 = lshr i32 %call, 26
@@ -1121,7 +1121,7 @@ while.body.i73:                                   ; preds = %if.then, %while.bod
   %idx.addr.07.i74 = phi i32 [ %add.i75, %while.body.i73 ], [ %add, %if.then ]
   %add.i75 = add nsw i32 %idx.addr.07.i74, %conv.i
   %cmp.i76 = icmp slt i32 %add.i75, 1
-  br i1 %cmp.i76, label %while.body.i73, label %pcnet_rdra_addr.exit77, !llvm.loop !11
+  br i1 %cmp.i76, label %while.body.i73, label %pcnet_rdra_addr.exit77, !llvm.loop !10
 
 pcnet_rdra_addr.exit77:                           ; preds = %while.body.i73, %if.then
   %idx.addr.0.lcssa.i65 = phi i32 [ %add, %if.then ], [ %add.i75, %while.body.i73 ]
@@ -1174,7 +1174,7 @@ if.then.i:                                        ; preds = %pcnet_rdra_addr.exi
   %buf_length4.i = getelementptr inbounds i8, ptr %rmd, i64 4
   store i16 %22, ptr %buf_length4.i, align 4
   %shr.i = lshr i32 %21, 16
-  %23 = trunc i32 %shr.i to i16
+  %23 = trunc nuw i32 %shr.i to i16
   %conv8.i = and i16 %23, -256
   %status.i = getelementptr inbounds i8, ptr %rmd, i64 6
   store i16 %conv8.i, ptr %status.i, align 2
@@ -1241,7 +1241,7 @@ if.then.i106:                                     ; preds = %do.body22
   %buf_length4.i109 = getelementptr inbounds i8, ptr %rmd23, i64 4
   store i16 %38, ptr %buf_length4.i109, align 4
   %shr.i110 = lshr i32 %37, 16
-  %39 = trunc i32 %shr.i110 to i16
+  %39 = trunc nuw i32 %shr.i110 to i16
   %conv8.i111 = and i16 %39, -256
   %status.i112 = getelementptr inbounds i8, ptr %rmd23, i64 6
   store i16 %conv8.i111, ptr %status.i112, align 2
@@ -1304,7 +1304,7 @@ if.then.i127:                                     ; preds = %pcnet_rmd_load.exit
   %buf_length4.i130 = getelementptr inbounds i8, ptr %rmd45, i64 4
   store i16 %54, ptr %buf_length4.i130, align 4
   %shr.i131 = lshr i32 %53, 16
-  %55 = trunc i32 %shr.i131 to i16
+  %55 = trunc nuw i32 %shr.i131 to i16
   %conv8.i132 = and i16 %55, -256
   %status.i133 = getelementptr inbounds i8, ptr %rmd45, i64 6
   store i16 %conv8.i132, ptr %status.i133, align 2
@@ -1352,20 +1352,20 @@ pcnet_rmd_load.exit138:                           ; preds = %if.else.i123.pcnet_
   %conv69 = trunc i32 %add6.i to i16
   store i16 %conv69, ptr %arrayidx2, align 4
   %shr72 = lshr i32 %add6.i, 16
-  %conv73 = trunc i32 %shr72 to i16
+  %conv73 = trunc nuw i32 %shr72 to i16
   store i16 %conv73, ptr %arrayidx, align 2
   %conv77 = trunc i64 %nrda.0 to i16
   %arrayidx79 = getelementptr i8, ptr %s, i64 8320
   store i16 %conv77, ptr %arrayidx79, align 4
   %shr80 = lshr i64 %nrda.0, 16
-  %conv81 = trunc i64 %shr80 to i16
+  %conv81 = trunc nuw i64 %shr80 to i16
   %arrayidx83 = getelementptr i8, ptr %s, i64 8322
   store i16 %conv81, ptr %arrayidx83, align 2
   %conv85 = trunc i64 %nnrd.0 to i16
   %arrayidx87 = getelementptr i8, ptr %s, i64 8340
   store i16 %conv85, ptr %arrayidx87, align 4
   %shr88 = lshr i64 %nnrd.0, 16
-  %conv89 = trunc i64 %shr88 to i16
+  %conv89 = trunc nuw i64 %shr88 to i16
   %arrayidx91 = getelementptr i8, ptr %s, i64 8342
   store i16 %conv89, ptr %arrayidx91, align 2
   br label %if.end93
@@ -1410,7 +1410,7 @@ if.then.i148:                                     ; preds = %if.then102
   %buf_length4.i151 = getelementptr inbounds i8, ptr %rmd103, i64 4
   store i16 %77, ptr %buf_length4.i151, align 4
   %shr.i152 = lshr i32 %76, 16
-  %78 = trunc i32 %shr.i152 to i16
+  %78 = trunc nuw i32 %shr.i152 to i16
   %conv8.i153 = and i16 %78, -256
   %status.i154 = getelementptr inbounds i8, ptr %rmd103, i64 6
   store i16 %conv8.i153, ptr %status.i154, align 2
@@ -1504,7 +1504,7 @@ if.then.i169:                                     ; preds = %if.then154
   %buf_length4.i172 = getelementptr inbounds i8, ptr %rmd155, i64 4
   store i16 %101, ptr %buf_length4.i172, align 4
   %shr.i173 = lshr i32 %100, 16
-  %102 = trunc i32 %shr.i173 to i16
+  %102 = trunc nuw i32 %shr.i173 to i16
   %conv8.i174 = and i16 %102, -256
   %status.i175 = getelementptr inbounds i8, ptr %rmd155, i64 6
   store i16 %conv8.i174, ptr %status.i175, align 2
@@ -1568,7 +1568,7 @@ if.then:                                          ; preds = %entry
   %buf_length4 = getelementptr inbounds i8, ptr %rmd, i64 4
   store i16 %5, ptr %buf_length4, align 4
   %shr = lshr i32 %4, 16
-  %6 = trunc i32 %shr to i16
+  %6 = trunc nuw i32 %shr to i16
   %conv8 = and i16 %6, -256
   %status = getelementptr inbounds i8, ptr %rmd, i64 6
   store i16 %conv8, ptr %status, align 2
@@ -1857,7 +1857,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @pcnet_bcr_readw(ptr nocapture noundef readonly %s, i32 noundef %rap) local_unnamed_addr #4 {
+define dso_local range(i32 0, 65536) i32 @pcnet_bcr_readw(ptr nocapture noundef readonly %s, i32 noundef %rap) local_unnamed_addr #4 {
 entry:
   %and = and i32 %rap, 127
   %0 = and i32 %rap, 124
@@ -2113,7 +2113,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %tobool15.not.i, label %land.lhs.true16.i, label %pcnet_poll.exit
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i
-  %call.i = tail call fastcc i32 @pcnet_tdte_poll(ptr noundef nonnull %opaque), !range !10
+  %call.i = tail call fastcc i32 @pcnet_tdte_poll(ptr noundef nonnull %opaque)
   %tobool17.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool17.not.i, label %pcnet_poll.exit, label %if.then18.i
 
@@ -2134,7 +2134,7 @@ pcnet_poll.exit:                                  ; preds = %lor.lhs.false.i, %l
   br label %if.end37
 
 if.else32:                                        ; preds = %if.else
-  %conv33 = trunc i64 %add to i16
+  %conv33 = trunc nuw i64 %add to i16
   store i16 %conv33, ptr %arrayidx24, align 4
   br label %if.end37
 
@@ -2961,7 +2961,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = add i16 %checksum.029, %conv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
   %arrayidx27 = getelementptr i8, ptr %s, i64 8264
@@ -2993,7 +2993,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pcnet_tdte_poll(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcnet_tdte_poll(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %xda.i38 = alloca %struct.anon.6, align 4
   %xda.i = alloca %struct.anon.6, align 4
@@ -3043,7 +3043,7 @@ if.then.i:                                        ; preds = %if.then
   %length4.i = getelementptr inbounds i8, ptr %tmd, i64 4
   store i16 %10, ptr %length4.i, align 4
   %shr.i = lshr i32 %9, 16
-  %11 = trunc i32 %shr.i to i16
+  %11 = trunc nuw i32 %shr.i to i16
   %conv8.i = and i16 %11, -256
   %status.i = getelementptr inbounds i8, ptr %tmd, i64 6
   store i16 %conv8.i, ptr %status.i, align 2
@@ -3104,7 +3104,7 @@ if.end:                                           ; preds = %if.then28, %if.then
   %conv46 = trunc i32 %add to i16
   store i16 %conv46, ptr %arrayidx2, align 4
   %shr49 = lshr i32 %add, 16
-  %conv50 = trunc i32 %shr49 to i16
+  %conv50 = trunc nuw i32 %shr49 to i16
   store i16 %conv50, ptr %arrayidx, align 2
   br label %if.end54
 
@@ -3146,7 +3146,7 @@ if.then.i47:                                      ; preds = %if.then64
   %length4.i50 = getelementptr inbounds i8, ptr %tmd65, i64 4
   store i16 %31, ptr %length4.i50, align 4
   %shr.i51 = lshr i32 %30, 16
-  %32 = trunc i32 %shr.i51 to i16
+  %32 = trunc nuw i32 %shr.i51 to i16
   %conv8.i52 = and i16 %32, -256
   %status.i53 = getelementptr inbounds i8, ptr %tmd65, i64 6
   store i16 %conv8.i52, ptr %status.i53, align 2
@@ -3269,7 +3269,7 @@ txagain.outer:                                    ; preds = %if.end301, %if.end
 txagain:                                          ; preds = %txagain.outer, %if.else348
   %count.0.in = phi i32 [ %count.0, %if.else348 ], [ %count.0.in.ph, %txagain.outer ]
   %count.0 = add i32 %count.0.in, -1
-  %call = call fastcc i32 @pcnet_tdte_poll(ptr noundef nonnull %s), !range !10
+  %call = call fastcc i32 @pcnet_tdte_poll(ptr noundef nonnull %s)
   %tobool9.not = icmp eq i32 %call, 0
   br i1 %tobool9.not, label %if.else306, label %if.then10
 
@@ -3299,7 +3299,7 @@ if.then.i:                                        ; preds = %if.then10
   %15 = load i16, ptr %length.i, align 4
   store i16 %15, ptr %length4.i, align 4
   %shr.i = lshr i32 %14, 16
-  %16 = trunc i32 %shr.i to i16
+  %16 = trunc nuw i32 %shr.i to i16
   %conv8.i = and i16 %16, -256
   store i16 %conv8.i, ptr %status.i, align 2
   %17 = load i16, ptr %status9.i, align 2
@@ -3542,7 +3542,7 @@ if.then.i85:                                      ; preds = %txdone
   store i16 %90, ptr %length6.i, align 4
   %91 = load i32, ptr %misc17.i, align 4
   %shr.i91 = lshr i32 %91, 16
-  %conv7.i = trunc i32 %shr.i91 to i16
+  %conv7.i = trunc nuw i32 %shr.i91 to i16
   store i16 %conv7.i, ptr %status9.i92, align 2
   %92 = load ptr, ptr %phys_mem_write35.i131, align 16
   %93 = load ptr, ptr %dma_opaque.i98, align 8
@@ -3642,7 +3642,7 @@ if.then.i103:                                     ; preds = %if.then310
   %117 = load i16, ptr %length.i105, align 4
   store i16 %117, ptr %length4.i106, align 4
   %shr.i107 = lshr i32 %116, 16
-  %118 = trunc i32 %shr.i107 to i16
+  %118 = trunc nuw i32 %shr.i107 to i16
   %conv8.i108 = and i16 %118, -256
   store i16 %conv8.i108, ptr %status.i109, align 2
   %119 = load i16, ptr %status9.i110, align 2
@@ -3692,7 +3692,7 @@ if.then.i134:                                     ; preds = %pcnet_tmd_load.exit
   %129 = load i16, ptr %length4.i106, align 4
   store i16 %129, ptr %length6.i141, align 4
   %shr.i143 = lshr i32 %or318, 16
-  %conv7.i144 = trunc i32 %shr.i143 to i16
+  %conv7.i144 = trunc nuw i32 %shr.i143 to i16
   store i16 %conv7.i144, ptr %status9.i145, align 2
   %130 = load ptr, ptr %phys_mem_write35.i131, align 16
   %131 = load ptr, ptr %dma_opaque.i98, align 8
@@ -3903,20 +3903,20 @@ trace_pcnet_rlen_tlen.exit:                       ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i67)
   %cmp = icmp ult i32 %rlen.0, 9
   %shl171 = shl nuw nsw i32 1, %rlen.0
-  %34 = trunc i32 %shl171 to i16
+  %34 = trunc nuw i32 %shl171 to i16
   %conv175 = select i1 %cmp, i16 %34, i16 512
   %arrayidx177 = getelementptr i8, ptr %s, i64 8420
   store i16 %conv175, ptr %arrayidx177, align 4
   %cmp178 = icmp ult i32 %tlen.0, 9
   %shl181 = shl nuw nsw i32 1, %tlen.0
-  %35 = trunc i32 %shl181 to i16
+  %35 = trunc nuw i32 %shl181 to i16
   %conv185 = select i1 %cmp178, i16 %35, i16 512
   %arrayidx187 = getelementptr i8, ptr %s, i64 8424
   store i16 %conv185, ptr %arrayidx187, align 4
   %shl188 = shl nuw nsw i32 %tlen.0, 12
   %shl189 = shl nuw nsw i32 %rlen.0, 8
   %or190 = or i32 %shl188, %shl189
-  %conv191 = trunc i32 %or190 to i16
+  %conv191 = trunc nuw i32 %or190 to i16
   %arrayidx193 = getelementptr i8, ptr %s, i64 8280
   store i16 %conv191, ptr %arrayidx193, align 4
   %arrayidx195 = getelementptr i8, ptr %s, i64 8298
@@ -4089,6 +4089,5 @@ attributes #13 = { nounwind allocsize(0,1) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

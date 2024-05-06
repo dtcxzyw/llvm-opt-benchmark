@@ -6341,7 +6341,7 @@ declare void @_ZN5arith6solver14init_left_sideERNS0_24scoped_internalize_stateE(
 declare noundef i32 @_ZN5arith6solver33register_theory_var_in_lar_solverEi(ptr noundef nonnull align 8 dereferenceable(1144), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1144) %this, i1 noundef zeroext %is_int, i32 noundef %bk, i1 noundef zeroext %is_true) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -2, 3) i32 @_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1144) %this, i1 noundef zeroext %is_int, i32 noundef %bk, i1 noundef zeroext %is_true) local_unnamed_addr #3 align 2 {
 entry:
   switch i32 %bk, label %sw.epilog [
     i32 0, label %sw.bb

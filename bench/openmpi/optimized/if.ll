@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [17 x i8] c"invalid-net-mask\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @opal_ifnametoaddr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_ifnametoaddr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %.09 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not10 = icmp eq ptr %.09, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -83,7 +83,7 @@ define i32 @opal_ifnametoindex(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @opal_ifnametokindex(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @opal_ifnametokindex(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %.07 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not8 = icmp eq ptr %.07, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -113,7 +113,7 @@ define i32 @opal_ifnametokindex(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @opal_ifindextokindex(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 -1, 65536) i32 @opal_ifindextokindex(i32 noundef %0) local_unnamed_addr #3 {
   %.07 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not8 = icmp eq ptr %.07, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -143,7 +143,7 @@ define i32 @opal_ifindextokindex(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_ifaddrtoname(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -13, 1) i32 @opal_ifaddrtoname(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.addrinfo, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.sockaddr_in, align 4
@@ -255,7 +255,7 @@ declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #7
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #4 {
+define range(i32 -13, 65536) i32 @opal_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca %struct.addrinfo, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.sockaddr_in, align 4
@@ -427,7 +427,7 @@ define i32 @opal_ifnext(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @opal_ifindextoaddr(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextoaddr(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %.010 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not11 = icmp eq ptr %.010, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not11, label %.loopexit, label %.lr.ph
@@ -458,7 +458,7 @@ define noundef i32 @opal_ifindextoaddr(i32 noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @opal_ifkindextoaddr(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifkindextoaddr(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %.010 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not11 = icmp eq ptr %.010, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not11, label %.loopexit, label %.lr.ph
@@ -490,7 +490,7 @@ define noundef i32 @opal_ifkindextoaddr(i32 noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @opal_ifindextomask(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextomask(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %.09 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not10 = icmp eq ptr %.09, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -520,7 +520,7 @@ define noundef i32 @opal_ifindextomask(i32 noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @opal_ifindextomac(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextomac(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %.08 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not9 = icmp eq ptr %.08, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not9, label %.loopexit, label %.lr.ph
@@ -549,7 +549,7 @@ define noundef i32 @opal_ifindextomac(i32 noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @opal_ifindextomtu(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextomtu(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %.08 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not9 = icmp eq ptr %.08, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not9, label %.loopexit, label %.lr.ph
@@ -579,7 +579,7 @@ define noundef i32 @opal_ifindextomtu(i32 noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @opal_ifindextoflags(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextoflags(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %.08 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not9 = icmp eq ptr %.08, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not9, label %.loopexit, label %.lr.ph
@@ -609,7 +609,7 @@ define noundef i32 @opal_ifindextoflags(i32 noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_ifindextoname(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_ifindextoname(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.09 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not10 = icmp eq ptr %.09, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -639,7 +639,7 @@ define noundef i32 @opal_ifindextoname(i32 noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_ifkindextoname(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @opal_ifkindextoname(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.09 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1, i32 1), align 8
   %.not10 = icmp eq ptr %.09, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -670,9 +670,9 @@ define noundef i32 @opal_ifkindextoname(i32 noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @opal_ifislocal(ptr noundef %0) local_unnamed_addr #4 {
+define zeroext i1 @opal_ifislocal(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca [101 x i8], align 16
-  %3 = call i32 @opal_ifaddrtoname(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 100), !range !25
+  %3 = call i32 @opal_ifaddrtoname(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 100)
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
@@ -724,12 +724,12 @@ define noundef i32 @opal_iftupletoaddr(ptr noundef %0, ptr noundef writeonly %1,
   %22 = load i8, ptr %.1.i, align 1
   %cond.i = icmp eq i8 %22, 46
   %23 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  br i1 %cond.i, label %.preheader.i, label %24, !llvm.loop !26
+  br i1 %cond.i, label %.preheader.i, label %24, !llvm.loop !25
 
 24:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.split.loop.exit22.i, label %14, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.split.loop.exit22.i, label %14, !llvm.loop !26
 
 .split.loop.exit22.i:                             ; preds = %14, %24
   %25 = load i32, ptr %7, align 16
@@ -790,7 +790,7 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
 52:                                               ; preds = %.preheader, %50
   %.132 = phi i32 [ %51, %50 ], [ %.031, %.preheader ]
   %53 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %.preheader, !llvm.loop !28
+  br label %.preheader, !llvm.loop !27
 
 54:                                               ; preds = %.preheader
   switch i32 %.031, label %58 [
@@ -847,12 +847,12 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
   %69 = load i8, ptr %.1.i46, align 1
   %cond.i47 = icmp eq i8 %69, 46
   %70 = getelementptr inbounds i8, ptr %.1.i46, i64 1
-  br i1 %cond.i47, label %.preheader.i45, label %71, !llvm.loop !26
+  br i1 %cond.i47, label %.preheader.i45, label %71, !llvm.loop !25
 
 71:                                               ; preds = %.preheader.i45
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 4
-  br i1 %exitcond.not.i49, label %.split.loop.exit22.i50, label %61, !llvm.loop !27
+  br i1 %exitcond.not.i49, label %.split.loop.exit22.i50, label %61, !llvm.loop !26
 
 .split.loop.exit22.i50:                           ; preds = %61, %71
   %72 = load i32, ptr %5, align 16
@@ -917,7 +917,7 @@ define noundef zeroext i1 @opal_ifisloopback(i32 noundef %0) local_unnamed_addr 
   %10 = getelementptr inbounds i8, ptr %.09, i64 16
   %.0 = load volatile ptr, ptr %10, align 8
   %.not.not = icmp eq ptr %.0, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %5, %9, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ false, %9 ], [ true, %5 ]
@@ -969,7 +969,7 @@ define noundef i32 @opal_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
 18:                                               ; preds = %20
   %19 = add nuw i64 %.02750, 1
   %exitcond.not = icmp eq i64 %19, %15
-  br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !30
+  br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !29
 
 20:                                               ; preds = %.lr.ph, %18
   %.02750 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
@@ -992,7 +992,7 @@ define noundef i32 @opal_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
 .lr.ph.i37:                                       ; preds = %27, %31
   %.09.i = phi ptr [ %.0.i38, %31 ], [ %.07.i, %27 ]
   %28 = getelementptr inbounds i8, ptr %.09.i, i64 40
-  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %14) #15
+  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %14) #15
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %opal_ifnametokindex.exit, label %31
 
@@ -1033,7 +1033,7 @@ opal_ifnametokindex.exit.thread:                  ; preds = %31, %27, %43, %opal
   %48 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
   %49 = load ptr, ptr %48, align 8
   %.not32 = icmp eq ptr %49, null
-  br i1 %.not32, label %opal_ifkindextoaddr.exit.thread, label %.preheader, !llvm.loop !31
+  br i1 %.not32, label %opal_ifkindextoaddr.exit.thread, label %.preheader, !llvm.loop !30
 
 opal_ifkindextoaddr.exit.thread:                  ; preds = %9, %opal_ifnametokindex.exit, %43, %opal_ifnametokindex.exit.thread, %11, %2, %38
   %.0 = phi i32 [ %37, %38 ], [ -1, %2 ], [ -13, %11 ], [ 0, %opal_ifnametokindex.exit ], [ 0, %43 ], [ -13, %opal_ifnametokindex.exit.thread ], [ -1, %9 ]
@@ -1081,7 +1081,7 @@ define void @opal_ifgetaliases(ptr noundef %0) local_unnamed_addr #4 {
   %15 = getelementptr inbounds i8, ptr %.011, i64 16
   %.0 = load volatile ptr, ptr %15, align 8
   %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.opal_list_t, ptr @opal_if_list, i64 0, i32 1)
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %14, %1
   ret void
@@ -1153,11 +1153,10 @@ attributes #17 = { nounwind willreturn memory(none) }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = !{i32 -13, i32 1}
+!25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}

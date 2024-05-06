@@ -61,7 +61,7 @@ define hidden i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef readon
   br label %147
 
 22:                                               ; preds = %.critedge
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %19, i8 0, i64 416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %19, i8 0, i64 416, i1 false)
   %23 = load ptr, ptr %18, align 8
   br label %.critedge.thread
 
@@ -430,7 +430,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_crl_get_version(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_crl_get_version(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @mbedtls_asn1_get_int(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
   switch i32 %4, label %6 [
     i32 0, label %8

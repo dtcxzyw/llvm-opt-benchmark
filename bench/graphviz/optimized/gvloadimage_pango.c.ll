@@ -136,7 +136,7 @@ declare zeroext i1 @gvusershape_file_access(ptr noundef) local_unnamed_addr #1
 declare ptr @cairo_image_surface_create_from_png_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @reader(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 11) i32 @reader(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
   %4 = zext i32 %2 to i64
   %5 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   %6 = icmp eq i64 %5, %4

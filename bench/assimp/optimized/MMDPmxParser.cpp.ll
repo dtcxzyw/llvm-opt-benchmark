@@ -432,26 +432,26 @@ invoke.cont10:                                    ; preds = %if.then7
 
 invoke.cont14:                                    ; preds = %invoke.cont10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
-  %call.i10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
+  %call.i12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad16
 
 call.i.noexc:                                     ; preds = %invoke.cont14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %.noexc11 unwind label %lpad16
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+          to label %.noexc13 unwind label %lpad16
 
-.noexc11:                                         ; preds = %call.i.noexc
+.noexc13:                                         ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call11) #15
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %call11, i64 %call.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %call11, ptr noundef nonnull %add.ptr.i9)
+  %add.ptr.i10 = getelementptr inbounds i8, ptr %call11, i64 %call.i.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %call11, ptr noundef nonnull %add.ptr.i10)
           to label %invoke.cont17 unwind label %lpad.i
 
-lpad.i:                                           ; preds = %.noexc11
+lpad.i:                                           ; preds = %.noexc13
   %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #15
   br label %lpad16.body
 
-invoke.cont17:                                    ; preds = %.noexc11
+invoke.cont17:                                    ; preds = %.noexc13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   call void @_ZdaPv(ptr noundef nonnull %call11) #18
   br label %cleanup
@@ -490,13 +490,13 @@ lpad21:                                           ; preds = %if.else
 cleanup:                                          ; preds = %invoke.cont17, %invoke.cont22, %if.then
   %7 = load ptr, ptr %buffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i12
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i14
 
-if.then.i.i.i12:                                  ; preds = %cleanup
+if.then.i.i.i14:                                  ; preds = %cleanup
   call void @_ZdlPv(ptr noundef nonnull %7) #18
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %cleanup, %if.then.i.i.i12
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %cleanup, %if.then.i.i.i14
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #15
   ret void
 
@@ -1937,7 +1937,7 @@ _ZN3pmx9ReadIndexEPSii.exit77:                    ; preds = %if.then55, %sw.bb.i
   %30 = load i32, ptr %ik_link_count, align 4
   %conv64 = sext i32 %30 to i64
   %31 = icmp slt i32 %30, 0
-  %32 = shl nsw i64 %conv64, 5
+  %32 = shl nuw nsw i64 %conv64, 5
   %33 = select i1 %31, i64 -1, i64 %32
   %call.i78 = call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #17, !noalias !23
   %isempty.i = icmp eq i32 %30, 0
@@ -2401,7 +2401,7 @@ sw.bb:                                            ; preds = %entry
   %3 = load i32, ptr %offset_count, align 4
   %conv = sext i32 %3 to i64
   %4 = icmp slt i32 %3, 0
-  %5 = shl nsw i64 %conv, 4
+  %5 = shl nuw nsw i64 %conv, 4
   %6 = or disjoint i64 %5, 8
   %7 = select i1 %4, i64 -1, i64 %6
   %call.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #17, !noalias !27
@@ -2582,7 +2582,7 @@ sw.bb52:                                          ; preds = %entry
   %50 = load i32, ptr %offset_count, align 4
   %conv55 = sext i32 %50 to i64
   %51 = icmp slt i32 %50, 0
-  %52 = shl nsw i64 %conv55, 7
+  %52 = shl nuw nsw i64 %conv55, 7
   %53 = or disjoint i64 %52, 8
   %54 = select i1 %51, i64 -1, i64 %53
   %call.i48 = call noalias noundef nonnull ptr @_Znam(i64 noundef %54) #17, !noalias !39
@@ -2639,7 +2639,7 @@ sw.bb70:                                          ; preds = %entry, %entry, %ent
   %63 = load i32, ptr %offset_count, align 4
   %conv73 = sext i32 %63 to i64
   %64 = icmp slt i32 %63, 0
-  %65 = shl nsw i64 %conv73, 5
+  %65 = shl nuw nsw i64 %conv73, 5
   %66 = or disjoint i64 %65, 8
   %67 = select i1 %64, i64 -1, i64 %66
   %call.i59 = call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #17, !noalias !43
@@ -2833,7 +2833,7 @@ entry:
   %2 = load i32, ptr %element_count, align 4
   %conv = sext i32 %2 to i64
   %3 = icmp slt i32 %2, 0
-  %4 = shl nsw i64 %conv, 3
+  %4 = shl nuw nsw i64 %conv, 3
   %5 = select i1 %3, i64 -1, i64 %4
   %call.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #17, !noalias !47
   %isempty.i = icmp eq i32 %2, 0
@@ -3774,7 +3774,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt10u
   %30 = load i32, ptr %index_count, align 8
   %conv55 = sext i32 %30 to i64
   %31 = icmp slt i32 %30, 0
-  %32 = shl nsw i64 %conv55, 2
+  %32 = shl nuw nsw i64 %conv55, 2
   %33 = select i1 %31, i64 -1, i64 %32
   %call.i49 = call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #17, !noalias !55
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i49, i8 0, i64 %33, i1 false), !noalias !55
@@ -3851,7 +3851,7 @@ for.end70:                                        ; preds = %_ZN3pmx9ReadIndexEP
   %43 = load i32, ptr %texture_count, align 8
   %conv74 = sext i32 %43 to i64
   %44 = icmp slt i32 %43, 0
-  %45 = shl nsw i64 %conv74, 5
+  %45 = shl nuw nsw i64 %conv74, 5
   %46 = or disjoint i64 %45, 8
   %47 = select i1 %44, i64 -1, i64 %46
   %call.i54 = call noalias noundef nonnull ptr @_Znam(i64 noundef %47) #17, !noalias !59
@@ -4109,7 +4109,7 @@ for.end127:                                       ; preds = %for.body120, %_ZNSt
   %86 = load i32, ptr %morph_count, align 8
   %conv131 = sext i32 %86 to i64
   %87 = icmp slt i32 %86, 0
-  %88 = shl nsw i64 %conv131, 7
+  %88 = shl nuw nsw i64 %conv131, 7
   %89 = or disjoint i64 %88, 8
   %90 = select i1 %87, i64 -1, i64 %89
   %call.i137 = call noalias noundef nonnull ptr @_Znam(i64 noundef %90) #17, !noalias !71
@@ -4444,7 +4444,7 @@ for.body188:                                      ; preds = %_ZNSt10unique_ptrIA
   %joint_type.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 64
   %call5.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_type.i, i64 noundef 1)
   %param.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 68
-  call void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) %param.i, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
+  call void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) %param.i, ptr noundef nonnull %stream, ptr noundef nonnull readonly %setting)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
@@ -4886,7 +4886,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %conv.i.i = trunc i32 %cp to i8
+  %conv.i.i = trunc nuw nsw i32 %cp to i8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %result, i64 1
   store i8 %conv.i.i, ptr %result, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
@@ -4897,7 +4897,7 @@ if.else.i.i:                                      ; preds = %if.end
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
   %shr.i.i = lshr i32 %cp, 6
-  %3 = trunc i32 %shr.i.i to i8
+  %3 = trunc nuw i32 %shr.i.i to i8
   %conv3.i.i = or disjoint i8 %3, -64
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %result, i64 1
   store i8 %conv3.i.i, ptr %result, align 1
@@ -4916,7 +4916,7 @@ if.else8.i.i:                                     ; preds = %if.else.i.i
 
 if.then10.i.i:                                    ; preds = %if.else8.i.i
   %shr11.i.i = lshr i32 %cp, 12
-  %6 = trunc i32 %shr11.i.i to i8
+  %6 = trunc nuw i32 %shr11.i.i to i8
   %conv13.i.i = or disjoint i8 %6, -32
   store i8 %conv13.i.i, ptr %result, align 1
   %shr15.i.i = lshr i32 %cp, 6
@@ -4933,8 +4933,8 @@ if.then10.i.i:                                    ; preds = %if.else8.i.i
 
 if.else24.i.i:                                    ; preds = %if.else8.i.i
   %shr25.i.i = lshr i32 %cp, 18
-  %11 = trunc i32 %shr25.i.i to i8
-  %conv27.i.i = or i8 %11, -16
+  %11 = trunc nuw i32 %shr25.i.i to i8
+  %conv27.i.i = or disjoint i8 %11, -16
   store i8 %conv27.i.i, ptr %result, align 1
   %shr29.i.i = lshr i32 %cp, 12
   %12 = trunc i32 %shr29.i.i to i8

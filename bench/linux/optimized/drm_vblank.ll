@@ -1419,7 +1419,7 @@ define internal fastcc i64 @drm_vblank_count_and_time(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_crtc_next_vblank_start(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_crtc_next_vblank_start(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 364

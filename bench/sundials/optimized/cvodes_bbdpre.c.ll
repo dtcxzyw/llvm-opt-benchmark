@@ -915,7 +915,7 @@ define internal i32 @cvBBDPrecSolve(double %0, ptr nocapture readnone %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -983,7 +983,7 @@ define noundef i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @CVBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1026,7 +1026,7 @@ define noundef i32 @CVBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @CVBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1221,7 +1221,7 @@ define internal noundef i32 @CVBBDPrecFreeB(ptr nocapture noundef %0) #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVBBDPrecReInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVBBDPrecReInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -1266,7 +1266,7 @@ define noundef i32 @CVBBDPrecReInitB(ptr noundef %0, i32 noundef %1, i64 noundef
 ._crit_edge:                                      ; preds = %.lr.ph
   %24 = getelementptr inbounds i8, ptr %.019, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @CVBBDPrecReInit(ptr noundef %25, i64 noundef %2, i64 noundef %3, double noundef %4), !range !5
+  %26 = tail call i32 @CVBBDPrecReInit(ptr noundef %25, i64 noundef %2, i64 noundef %3, double noundef %4)
   br label %27
 
 27:                                               ; preds = %._crit_edge, %18, %12, %7
@@ -1325,4 +1325,3 @@ attributes #10 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -5, i32 1}

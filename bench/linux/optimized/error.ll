@@ -398,7 +398,7 @@ define internal fastcc i32 @jhash(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @p9_errstr2errno(ptr noundef %0, i32 noundef %1) #3 align 16 {
+define dso_local range(i32 1, 0) i32 @p9_errstr2errno(ptr noundef %0, i32 noundef %1) #3 align 16 {
   %3 = tail call fastcc i32 @jhash(ptr noundef %0, i32 noundef %1)
   %4 = and i32 %3, 31
   %5 = zext nneg i32 %4 to i64

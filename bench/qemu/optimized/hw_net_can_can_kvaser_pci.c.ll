@@ -204,7 +204,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @kvaser_pci_s5920_io_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #2 {
+define internal range(i64 0, 4294967296) i64 @kvaser_pci_s5920_io_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #2 {
 entry:
   %cond = icmp eq i64 %addr, 56
   br i1 %cond, label %sw.bb, label %return
@@ -300,7 +300,7 @@ declare i64 @can_sja_mem_read(ptr noundef, i64 noundef, i32 noundef) local_unnam
 declare void @can_sja_mem_write(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @kvaser_pci_xilinx_io_read(ptr nocapture readnone %opaque, i64 noundef %addr, i32 %size) #3 {
+define internal noundef range(i64 0, 209) i64 @kvaser_pci_xilinx_io_read(ptr nocapture readnone %opaque, i64 noundef %addr, i32 %size) #3 {
 entry:
   %cond = icmp eq i64 %addr, 7
   %. = select i1 %cond, i64 208, i64 0

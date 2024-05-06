@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [28 x i8] c"Zstd compression failed: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_zstd(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_zstd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #10
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #10
   %4 = icmp eq i32 %3, -30
@@ -81,7 +81,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_zstd_open(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_zstd_open(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 80
@@ -162,7 +162,7 @@ define internal noundef i32 @archive_compressor_zstd_open(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_zstd_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -20, 1) i32 @archive_compressor_zstd_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -232,7 +232,7 @@ string_to_number.exit.thread:                     ; preds = %15, %13, %24, %22, 
   br i1 %or.cond, label %148, label %42
 
 42:                                               ; preds = %38
-  %43 = trunc i64 %19 to i32
+  %43 = trunc nsw i64 %19 to i32
   store i32 %43, ptr %10, align 8
   br label %148
 
@@ -458,7 +458,7 @@ string_to_number.exit47.thread:                   ; preds = %121, %119, %130, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_zstd_flush(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_zstd_flush(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -485,12 +485,12 @@ define internal noundef i32 @archive_compressor_zstd_flush(ptr nocapture noundef
   br label %17
 
 17:                                               ; preds = %16, %10, %6, %1
-  %18 = tail call fastcc i32 @drive_compressor(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1, ptr noundef null, i64 noundef 0), !range !5
+  %18 = tail call fastcc i32 @drive_compressor(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1, ptr noundef null, i64 noundef 0)
   ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_zstd_close(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_zstd_close(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
@@ -503,7 +503,7 @@ define internal noundef i32 @archive_compressor_zstd_close(ptr nocapture noundef
   br label %8
 
 8:                                                ; preds = %7, %1
-  %9 = tail call fastcc i32 @drive_compressor(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1, ptr noundef null, i64 noundef 0), !range !5
+  %9 = tail call fastcc i32 @drive_compressor(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1, ptr noundef null, i64 noundef 0)
   ret i32 %9
 }
 
@@ -556,10 +556,10 @@ declare i32 @archive_write_get_bytes_per_block(ptr noundef) local_unnamed_addr #
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_zstd_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_zstd_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc i32 @drive_compressor(ptr noundef %0, ptr noundef %5, i32 noundef 0, ptr noundef %1, i64 noundef %2), !range !5
+  %6 = tail call fastcc i32 @drive_compressor(ptr noundef %0, ptr noundef %5, i32 noundef 0, ptr noundef %1, i64 noundef %2)
   ret i32 %6
 }
 
@@ -568,7 +568,7 @@ declare i64 @ZSTD_initCStream(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @ZSTD_CCtx_setParameter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.ZSTD_inBuffer_s, align 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -744,4 +744,3 @@ attributes #14 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -30, i32 1}

@@ -207,7 +207,7 @@ for.body.i:                                       ; preds = %if.end52, %for.body
   %13 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.i = icmp eq i8 %13, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %14 = trunc i64 %indvars.iv.next.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %spec.select.i = select i1 %tobool.not.i, i32 %size.011.i, i32 %14
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 96
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -244,7 +244,7 @@ for.body.i47:                                     ; preds = %virtio_input_bits_c
   %16 = load i8, ptr %arrayidx.i50, align 1
   %tobool.not.i51 = icmp eq i8 %16, 0
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i48, 1
-  %17 = trunc i64 %indvars.iv.next.i52 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.next.i52 to i32
   %spec.select.i53 = select i1 %tobool.not.i51, i32 %size.011.i49, i32 %17
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i52, 2
   br i1 %exitcond.not.i54, label %for.end.i55, label %for.body.i47, !llvm.loop !5
@@ -281,7 +281,7 @@ for.body.i69:                                     ; preds = %virtio_input_bits_c
   %19 = load i8, ptr %arrayidx.i72, align 1
   %tobool.not.i73 = icmp eq i8 %19, 0
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i70, 1
-  %20 = trunc i64 %indvars.iv.next.i74 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.next.i74 to i32
   %spec.select.i75 = select i1 %tobool.not.i73, i32 %size.011.i71, i32 %20
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i74, 8
   br i1 %exitcond.not.i76, label %for.end.i77, label %for.body.i69, !llvm.loop !5
@@ -341,7 +341,7 @@ for.body.i113:                                    ; preds = %virtio_input_bits_c
   %24 = load i8, ptr %arrayidx.i116, align 1
   %tobool.not.i117 = icmp eq i8 %24, 0
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i114, 1
-  %25 = trunc i64 %indvars.iv.next.i118 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.next.i118 to i32
   %spec.select.i119 = select i1 %tobool.not.i117, i32 %size.011.i115, i32 %25
   %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i118, 2
   br i1 %exitcond.not.i120, label %for.end.i121, label %for.body.i113, !llvm.loop !5
@@ -378,7 +378,7 @@ for.body.i135:                                    ; preds = %virtio_input_bits_c
   %27 = load i8, ptr %arrayidx.i138, align 1
   %tobool.not.i139 = icmp eq i8 %27, 0
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i136, 1
-  %28 = trunc i64 %indvars.iv.next.i140 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.next.i140 to i32
   %spec.select.i141 = select i1 %tobool.not.i139, i32 %size.011.i137, i32 %28
   %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i140, 2
   br i1 %exitcond.not.i142, label %for.end.i143, label %for.body.i135, !llvm.loop !5

@@ -165,7 +165,7 @@ Vec_IntFreeP.exit:                                ; preds = %.critedge, %46, %.t
   store i32 1, ptr %76, align 4
   %.val218 = load i64, ptr %70, align 4
   %77 = lshr i64 %.val218, 32
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw i64 %77 to i32
   %79 = and i32 %78, 536870911
   %80 = sub nsw i32 %68, %79
   %81 = sext i32 %80 to i64
@@ -242,7 +242,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %114 = and i32 %113, 536870911
   %115 = sub nsw i32 %68, %114
   %116 = lshr i64 %.val200, 32
-  %117 = trunc i64 %116 to i32
+  %117 = trunc nuw i64 %116 to i32
   %118 = and i32 %117, 536870911
   %119 = sub nsw i32 %68, %118
   %120 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %68, i32 noundef %115, i32 noundef %119)
@@ -328,7 +328,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i32, ptr %.val180, i64 %159
   store i32 1, ptr %160, align 4
-  %161 = trunc i64 %indvars.iv.next288 to i32
+  %161 = trunc nsw i64 %indvars.iv.next288 to i32
   %162 = shl i32 %161, 2
   %163 = or disjoint i32 %162, 2
   %164 = load i32, ptr %7, align 4
@@ -465,13 +465,13 @@ Vec_IntPush.exit232:                              ; preds = %.Vec_IntGrow.exit10
   store i32 1, ptr %223, align 4
   %.val220 = load i64, ptr %218, align 4
   %224 = lshr i64 %.val220, 32
-  %225 = trunc i64 %224 to i32
+  %225 = trunc nuw i64 %224 to i32
   %226 = and i32 %225, 536870911
   %227 = sub nsw i32 %209, %226
   %228 = sext i32 %227 to i64
   %229 = getelementptr inbounds i32, ptr %.val190, i64 %228
   store i32 1, ptr %229, align 4
-  %230 = trunc i64 %indvars.iv.next291 to i32
+  %230 = trunc nsw i64 %indvars.iv.next291 to i32
   %231 = shl i32 %230, 2
   %232 = or disjoint i32 %231, 1
   %233 = load i32, ptr %7, align 4
@@ -543,7 +543,7 @@ Vec_IntPush.exit239:                              ; preds = %.Vec_IntGrow.exit10
   %262 = and i32 %261, 536870911
   %263 = sub nsw i32 %209, %262
   %264 = lshr i64 %.val202, 32
-  %265 = trunc i64 %264 to i32
+  %265 = trunc nuw i64 %264 to i32
   %266 = and i32 %265, 536870911
   %267 = sub nsw i32 %209, %266
   %268 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %206, i32 noundef %209, i32 noundef %263, i32 noundef %267)
@@ -653,7 +653,7 @@ Vec_IntPush.exit247:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %310, ptr %274, align 4
   %311 = sext i32 %286 to i64
   %312 = getelementptr inbounds i32, ptr %309, i64 %311
-  %313 = trunc i64 %indvars.iv293 to i32
+  %313 = trunc nuw nsw i64 %indvars.iv293 to i32
   store i32 %313, ptr %312, align 4
   %.val174.pre = load i32, ptr %13, align 4
   br label %314
@@ -728,7 +728,7 @@ Vec_IntFree.exit250:                              ; preds = %.critedge6, %329
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %335 = getelementptr inbounds i32, ptr %332, i64 %indvars.iv.i
   %336 = load i32, ptr %335, align 4
-  %337 = trunc i64 %indvars.iv.i to i32
+  %337 = trunc nuw nsw i64 %indvars.iv.i to i32
   %338 = xor i32 %337, -1
   %339 = add i32 %330, %338
   %340 = sext i32 %339 to i64
@@ -997,7 +997,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %.val76, i64 %70
-  %72 = trunc i64 %indvars.iv.next111 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv.next111 to i32
   store i32 %72, ptr %71, align 4
   %.val71 = load i32, ptr %44, align 4
   %73 = sext i32 %.val71 to i64
@@ -1020,7 +1020,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %79 = load i32, ptr %78, align 4
   %.val82.val = load i32, ptr %44, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %80 = trunc i64 %indvars.iv.next114 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.next114 to i32
   %81 = add i32 %.val82.val, %80
   %82 = sext i32 %79 to i64
   %83 = getelementptr inbounds i32, ptr %.val76, i64 %82

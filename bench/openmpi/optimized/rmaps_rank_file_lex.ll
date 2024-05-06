@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_rmaps_rank_file_lex() local_unnamed_addr #0 {
+define range(i32 0, 17) i32 @prte_rmaps_rank_file_lex() local_unnamed_addr #0 {
   %.b = load i1, ptr @yy_init, align 4
   br i1 %.b, label %._crit_edge232, label %1
 
@@ -807,7 +807,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   br i1 %exitcond101.not.i, label %.critedge.i, label %338, !llvm.loop !12
 
 .critedge.split.loop.exit.i:                      ; preds = %338, %338
-  %351 = trunc i64 %indvars.iv.i to i32
+  %351 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %341, %.critedge.split.loop.exit.i

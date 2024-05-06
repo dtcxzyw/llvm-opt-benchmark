@@ -58,7 +58,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.end.us:                                        ; preds = %for.body.us
   %11 = trunc nuw nsw i64 %indvars.iv279 to i32
-  %12 = tail call i4 @llvm.cttz.i4(i4 %10, i1 true), !range !4
+  %12 = tail call range(i4 0, 5) i4 @llvm.cttz.i4(i4 %10, i1 true)
   %13 = zext nneg i4 %12 to i32
   %add = or disjoint i32 %11, %13
   br label %return
@@ -66,7 +66,7 @@ if.end.us:                                        ; preds = %for.body.us
 for.inc.us:                                       ; preds = %for.body.us
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 4
   %cmp7.us = icmp ult i64 %indvars.iv.next280, %5
-  br i1 %cmp7.us, label %for.body.us, label %for.cond.preheader.i, !llvm.loop !5
+  br i1 %cmp7.us, label %for.body.us, label %for.cond.preheader.i, !llvm.loop !4
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %cmp.i.i, label %for.body.us172, label %for.body.lr.ph.split.split
@@ -85,19 +85,19 @@ for.body.us172:                                   ; preds = %for.body.lr.ph.spli
 
 if.end.us178:                                     ; preds = %for.body.us172
   %conv37.us179 = zext i4 %18 to i16
-  %19 = getelementptr i32, ptr %indices, i64 %indvars.iv275
+  %19 = getelementptr inbounds i32, ptr %indices, i64 %indvars.iv275
   br label %while.body.us.us
 
 for.inc.us180:                                    ; preds = %if.end64.us.us, %for.body.us172
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 4
   %cmp7.us182 = icmp ult i64 %indvars.iv.next276, %5
-  br i1 %cmp7.us182, label %for.body.us172, label %for.cond.preheader.i, !llvm.loop !5
+  br i1 %cmp7.us182, label %for.body.us172, label %for.cond.preheader.i, !llvm.loop !4
 
 while.body.us.us:                                 ; preds = %if.end64.us.us, %if.end.us178
   %hits.0136.us.us = phi i16 [ %conv37.us179, %if.end.us178 ], [ %and.i.us.us, %if.end64.us.us ]
-  %20 = tail call i16 @llvm.cttz.i16(i16 %hits.0136.us.us, i1 true), !range !7
+  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %hits.0136.us.us, i1 true)
   %21 = zext nneg i16 %20 to i64
-  %arrayidx49.us.us = getelementptr i32, ptr %19, i64 %21
+  %arrayidx49.us.us = getelementptr inbounds i32, ptr %19, i64 %21
   %22 = load i32, ptr %arrayidx49.us.us, align 4
   %idxprom50.us.us = sext i32 %22 to i64
   %arrayidx52.us.us = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings, i64 %idxprom50.us.us, i32 2
@@ -109,7 +109,7 @@ if.end64.us.us:                                   ; preds = %while.body.us.us
   %sub.i.us.us = add nsw i16 %hits.0136.us.us, -1
   %and.i.us.us = and i16 %sub.i.us.us, %hits.0136.us.us
   %tobool45.not.us.us = icmp eq i16 %and.i.us.us, 0
-  br i1 %tobool45.not.us.us, label %for.inc.us180, label %while.body.us.us, !llvm.loop !8
+  br i1 %tobool45.not.us.us, label %for.inc.us180, label %while.body.us.us, !llvm.loop !6
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
   br i1 %cmp7.i, label %for.body.us185, label %for.body
@@ -128,21 +128,21 @@ for.body.us185:                                   ; preds = %for.body.lr.ph.spli
 
 if.end.us191:                                     ; preds = %for.body.us185
   %conv37.us192 = zext i4 %28 to i16
-  %29 = getelementptr i32, ptr %indices, i64 %indvars.iv271
+  %29 = getelementptr inbounds i32, ptr %indices, i64 %indvars.iv271
   br label %while.body.us145.us
 
 for.inc.us193:                                    ; preds = %if.end64.us149.us, %for.body.us185
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 4
   %cmp7.us195 = icmp ult i64 %indvars.iv.next272, %5
-  br i1 %cmp7.us195, label %for.body.us185, label %for.cond.preheader.i, !llvm.loop !5
+  br i1 %cmp7.us195, label %for.body.us185, label %for.cond.preheader.i, !llvm.loop !4
 
 while.body.us145.us:                              ; preds = %if.end64.us149.us, %if.end.us191
   %hits.0136.us146.us = phi i16 [ %conv37.us192, %if.end.us191 ], [ %and.i.us148.us, %if.end64.us149.us ]
-  %30 = tail call i16 @llvm.cttz.i16(i16 %hits.0136.us146.us, i1 true), !range !7
+  %30 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %hits.0136.us146.us, i1 true)
   %sub.i.us147.us = add nsw i16 %hits.0136.us146.us, -1
   %and.i.us148.us = and i16 %sub.i.us147.us, %hits.0136.us146.us
   %31 = zext nneg i16 %30 to i64
-  %arrayidx56.us.us = getelementptr i32, ptr %29, i64 %31
+  %arrayidx56.us.us = getelementptr inbounds i32, ptr %29, i64 %31
   %32 = load i32, ptr %arrayidx56.us.us, align 4
   %idxprom57.us.us = sext i32 %32 to i64
   %arrayidx58.us.us = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings, i64 %idxprom57.us.us
@@ -168,7 +168,7 @@ while.body.i.us.us:                               ; preds = %if.then.i.us.us, %w
 
 _ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit.us.us: ; preds = %while.body.i.us.us
   %not.i.us.us = xor i32 %37, -1
-  %38 = tail call i32 @llvm.cttz.i32(i32 %not.i.us.us, i1 true), !range !9
+  %38 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %not.i.us.us, i1 true)
   %cmp25.i.not.us.us = icmp ult i32 %38, %size.addr.010.i.us.us
   br i1 %cmp25.i.not.us.us, label %if.end64.us149.us, label %if.then62.loopexit308
 
@@ -177,11 +177,11 @@ if.then.i.us.us:                                  ; preds = %while.body.i.us.us
   %add.ptr24.i.us.us = getelementptr inbounds i8, ptr %right.08.i.us.us, i64 32
   %sub.i45.us.us = add nsw i32 %size.addr.010.i.us.us, -32
   %cmp.i.us.us = icmp sgt i32 %size.addr.010.i.us.us, 32
-  br i1 %cmp.i.us.us, label %while.body.i.us.us, label %if.then62.loopexit307, !llvm.loop !10
+  br i1 %cmp.i.us.us, label %while.body.i.us.us, label %if.then62.loopexit307, !llvm.loop !7
 
 if.end64.us149.us:                                ; preds = %_ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit.us.us
   %tobool45.not.us150.us = icmp eq i16 %and.i.us148.us, 0
-  br i1 %tobool45.not.us150.us, label %for.inc.us193, label %while.body.us145.us, !llvm.loop !8
+  br i1 %tobool45.not.us150.us, label %for.inc.us193, label %while.body.us145.us, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph.split.split, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph.split.split ]
@@ -196,7 +196,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %tobool38.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %44 = tail call i4 @llvm.cttz.i4(i4 %43, i1 true), !range !4
+  %44 = tail call range(i4 0, 5) i4 @llvm.cttz.i4(i4 %43, i1 true)
   %45 = zext nneg i4 %44 to i32
   br label %if.then62
 
@@ -222,7 +222,7 @@ if.then62:                                        ; preds = %if.then62.loopexit3
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %cmp7 = icmp ult i64 %indvars.iv.next, %5
-  br i1 %cmp7, label %for.body, label %for.cond.preheader.i, !llvm.loop !5
+  br i1 %cmp7, label %for.body, label %for.cond.preheader.i, !llvm.loop !4
 
 for.cond.preheader.i:                             ; preds = %for.inc, %for.inc.us193, %for.inc.us180, %for.inc.us, %if.then.for.cond.preheader.i_crit_edge
   %idx.ext69.pre-phi = phi i64 [ %.pre, %if.then.for.cond.preheader.i_crit_edge ], [ %5, %for.inc.us ], [ %5, %for.inc.us180 ], [ %5, %for.inc.us193 ], [ %5, %for.inc ]
@@ -274,7 +274,7 @@ _ZNK8facebook5velox10StringVieweqERKS1_.exit.i:   ; preds = %if.then4.i.i
 for.inc.i:                                        ; preds = %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i, %if.end9.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !8
 
 return.loopexit60.split.loop.exit.i:              ; preds = %if.then4.i.i
   %55 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -325,7 +325,7 @@ if.end147.us:                                     ; preds = %while.body128.us
   %shr.us = lshr i32 %bits.0204.us, 2
   %inc.us = add nuw nsw i32 %offset125.0205.us, 1
   %tobool127.not.us = icmp ult i32 %bits.0204.us, 4
-  br i1 %tobool127.not.us, label %for.inc149, label %while.body128.us, !llvm.loop !12
+  br i1 %tobool127.not.us, label %for.inc149, label %while.body128.us, !llvm.loop !9
 
 while.body128.lr.ph.split:                        ; preds = %while.body128.lr.ph
   br i1 %cmp.i.i, label %while.body128.us209, label %while.body128
@@ -341,7 +341,7 @@ if.end147.us215:                                  ; preds = %while.body128.us209
   %shr.us216 = lshr i32 %bits.0204.us211, 2
   %inc.us217 = add nuw nsw i32 %offset125.0205.us210, 1
   %tobool127.not.us218 = icmp ult i32 %bits.0204.us211, 4
-  br i1 %tobool127.not.us218, label %for.inc149, label %while.body128.us209, !llvm.loop !12
+  br i1 %tobool127.not.us218, label %for.inc149, label %while.body128.us209, !llvm.loop !9
 
 while.body128:                                    ; preds = %while.body128.lr.ph.split, %if.end147
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %if.end147 ], [ %indvars.iv282, %while.body128.lr.ph.split ]
@@ -383,11 +383,11 @@ if.then.i67:                                      ; preds = %while.body.i58
   %add.ptr24.i69 = getelementptr inbounds i8, ptr %right.08.i61, i64 32
   %sub.i70 = add nsw i32 %size.addr.010.i59, -32
   %cmp.i71 = icmp sgt i32 %size.addr.010.i59, 32
-  br i1 %cmp.i71, label %while.body.i58, label %return.loopexit299, !llvm.loop !10
+  br i1 %cmp.i71, label %while.body.i58, label %return.loopexit299, !llvm.loop !7
 
 _ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit72: ; preds = %while.body.i58
   %not.i65 = xor i32 %69, -1
-  %70 = tail call i32 @llvm.cttz.i32(i32 %not.i65, i1 true), !range !9
+  %70 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %not.i65, i1 true)
   %cmp25.i66.not = icmp ult i32 %70, %size.addr.010.i59
   br i1 %cmp25.i66.not, label %if.end147, label %return.loopexit303
 
@@ -395,14 +395,14 @@ if.end147:                                        ; preds = %_ZN8facebook5velox4
   %shr = lshr i32 %bits.0204, 2
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %tobool127.not = icmp ult i32 %bits.0204, 4
-  br i1 %tobool127.not, label %for.inc149, label %while.body128, !llvm.loop !12
+  br i1 %tobool127.not, label %for.inc149, label %while.body128, !llvm.loop !9
 
 for.inc149:                                       ; preds = %if.end147, %if.end147.us215, %if.end147.us, %for.body83
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 4
   %indvars = trunc i64 %indvars.iv.next283 to i32
   %add.ptr153 = getelementptr inbounds i8, ptr %strings.addr.0227, i64 64
   %cmp82 = icmp sgt i32 %1, %indvars
-  br i1 %cmp82, label %for.body83, label %for.end154, !llvm.loop !13
+  br i1 %cmp82, label %for.body83, label %for.end154, !llvm.loop !10
 
 for.end154:                                       ; preds = %for.inc149, %arrayctor.loop.preheader
   %strings.addr.0.lcssa = phi ptr [ %strings, %arrayctor.loop.preheader ], [ %add.ptr153, %for.inc149 ]
@@ -449,7 +449,7 @@ _ZNK8facebook5velox10StringVieweqERKS1_.exit29.i98: ; preds = %if.then4.i23.i96
 for.inc13.i85:                                    ; preds = %_ZNK8facebook5velox10StringVieweqERKS1_.exit29.i98, %if.end9.i14.i90, %for.body7.i81
   %indvars.iv.next56.i86 = add nuw nsw i64 %indvars.iv55.i82, 1
   %exitcond59.not.i87 = icmp eq i64 %indvars.iv.next56.i86, %wide.trip.count58.i78
-  br i1 %exitcond59.not.i87, label %return, label %for.body7.i81, !llvm.loop !14
+  br i1 %exitcond59.not.i87, label %return, label %for.body7.i81, !llvm.loop !11
 
 return.loopexit.split.loop.exit.i102:             ; preds = %if.then4.i23.i96
   %75 = trunc nuw nsw i64 %indvars.iv55.i82 to i32
@@ -508,14 +508,11 @@ attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i4 0, i4 5}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i16 0, i16 17}
-!8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 33}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

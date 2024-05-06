@@ -1018,7 +1018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3zmq29zap_client_common_handshake_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK3zmq29zap_client_common_handshake_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 {
 entry:
   %state = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %state, align 8
@@ -1030,7 +1030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZTv0_n72_NK3zmq29zap_client_common_handshake_t6statusEv(ptr nocapture noundef readonly %this) unnamed_addr #7 align 2 {
+define noundef range(i32 0, 3) i32 @_ZTv0_n72_NK3zmq29zap_client_common_handshake_t6statusEv(ptr nocapture noundef readonly %this) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -72
@@ -1046,7 +1046,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq29zap_client_common_handshake_t17zap_msg_availableEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq29zap_client_common_handshake_t17zap_msg_availableEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   %state = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %state, align 8
@@ -1100,13 +1100,13 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZTv0_n64_N3zmq29zap_client_common_handshake_t17zap_msg_availableEv(ptr noundef %this) unnamed_addr #8 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZTv0_n64_N3zmq29zap_client_common_handshake_t17zap_msg_availableEv(ptr noundef %this) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -64
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %call = tail call noundef i32 @_ZN3zmq29zap_client_common_handshake_t17zap_msg_availableEv(ptr noundef nonnull align 8 dereferenceable(80) %3), !range !9
+  %call = tail call noundef i32 @_ZN3zmq29zap_client_common_handshake_t17zap_msg_availableEv(ptr noundef nonnull align 8 dereferenceable(80) %3)
   ret i32 %call
 }
 
@@ -1287,4 +1287,3 @@ attributes #16 = { noreturn nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 1}

@@ -42,7 +42,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gnet_stats_f
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable_gnet_stats_add_basic563, ptr @__UNIQUE_ID___addressable_gnet_stats_add_queue569, ptr @__UNIQUE_ID___addressable_gnet_stats_basic_sync_init560, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_app571, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_basic564, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_basic_hw565, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_queue570, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_rate_est568, ptr @__UNIQUE_ID___addressable_gnet_stats_finish_copy572, ptr @__UNIQUE_ID___addressable_gnet_stats_start_copy559, ptr @__UNIQUE_ID___addressable_gnet_stats_start_copy_compat558], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gnet_stats_start_copy_compat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_start_copy_compat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %17, label %9
@@ -140,7 +140,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gnet_stats_start_copy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_start_copy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) #0 align 16 {
   %6 = tail call i32 @gnet_stats_start_copy_compat(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3, i32 noundef %4), !range !5
   ret i32 %6
 }
@@ -234,13 +234,13 @@ define dso_local void @gnet_stats_add_basic(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gnet_stats_copy_basic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i1 zeroext %3) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_basic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i1 zeroext %3) #0 align 16 {
   %5 = tail call fastcc i32 @___gnet_stats_copy_basic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @___gnet_stats_copy_basic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @___gnet_stats_copy_basic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.gnet_stats_basic, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
@@ -376,13 +376,13 @@ define internal fastcc noundef i32 @___gnet_stats_copy_basic(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gnet_stats_copy_basic_hw(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i1 zeroext %3) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_basic_hw(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i1 zeroext %3) #0 align 16 {
   %5 = tail call fastcc i32 @___gnet_stats_copy_basic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 7)
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gnet_stats_copy_rate_est(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_rate_est(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.gnet_stats_rate_est64, align 8
   %4 = alloca %struct.gnet_stats_rate_est, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
@@ -394,7 +394,7 @@ define dso_local noundef i32 @gnet_stats_copy_rate_est(ptr nocapture noundef %0,
 6:                                                ; preds = %2
   %7 = load i64, ptr %3, align 8
   %8 = call i64 @llvm.umin.i64(i64 %7, i64 4294967295)
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8
@@ -571,7 +571,7 @@ define dso_local void @gnet_stats_add_queue(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gnet_stats_copy_queue(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_queue(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.gnet_stats_queue, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #8
   %6 = getelementptr inbounds i8, ptr %5, i64 4
@@ -710,7 +710,7 @@ define dso_local noundef i32 @gnet_stats_copy_queue(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gnet_stats_copy_app(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_app(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -781,7 +781,7 @@ define dso_local noundef i32 @gnet_stats_copy_app(ptr nocapture noundef %0, ptr 
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gnet_stats_finish_copy(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_finish_copy(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

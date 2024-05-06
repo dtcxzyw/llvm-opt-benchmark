@@ -174,7 +174,7 @@ define internal i32 @dissect_hdmi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %48, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #5
   %50 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 9) #5
   %51 = lshr i16 %50, 10
-  %52 = trunc i16 %51 to i8
+  %52 = trunc nuw nsw i16 %51 to i8
   %53 = and i8 %52, 31
   %54 = or disjoint i8 %53, 64
   store i8 %54, ptr %5, align 1

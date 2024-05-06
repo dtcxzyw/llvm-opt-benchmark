@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spawn_job(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -47, 1) i32 @spawn_job(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.__sigset_t, align 8
   %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pfexec_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %8, 64
@@ -203,7 +203,7 @@ define internal i32 @kill_proc(ptr noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %2, i64 56
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
@@ -384,7 +384,7 @@ define internal i32 @signal_proc(ptr noundef %0, i32 noundef %1) #0 {
   %10 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   %12 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i = icmp eq ptr %13, null

@@ -27,7 +27,7 @@ entry:
   %0 = tail call i32 @llvm.umin.i32(i32 %indent, i32 64)
   %indent.addr.0 = select i1 %cmp, i32 0, i32 %0
   %sub = tail call i32 @llvm.usub.sat.i32(i32 %indent.addr.0, i32 6)
-  %1 = trunc i32 %sub to i8
+  %1 = trunc nuw nsw i32 %sub to i8
   %div.neg.lhs.trunc = add nuw nsw i8 %1, 3
   %div.neg5584 = lshr i8 %div.neg.lhs.trunc, 2
   %narrow56 = sub nuw nsw i8 16, %div.neg5584
@@ -44,14 +44,14 @@ for.body.lr.ph:                                   ; preds = %entry
   %2 = sext i32 %len to i64
   %3 = zext nneg i8 %narrow56 to i64
   %wide.trip.count82 = zext nneg i32 %rows.0 to i64
-  %wide.trip.count = zext i8 %narrow56 to i64
+  %wide.trip.count = zext nneg i8 %narrow56 to i64
   br label %for.body14.lr.ph
 
 for.body14.lr.ph:                                 ; preds = %if.end116, %for.body.lr.ph
   %indvars.iv78 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next79, %if.end116 ]
   %ret.068 = phi i32 [ 0, %for.body.lr.ph ], [ %add117, %if.end116 ]
-  %4 = mul nsw i64 %indvars.iv78, %3
-  %5 = trunc i64 %4 to i32
+  %4 = mul nuw nsw i64 %indvars.iv78, %3
+  %5 = trunc nsw i64 %4 to i32
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 289, ptr noundef nonnull @.str, i32 noundef %indent.addr.0, ptr noundef nonnull @.str.1, i32 noundef %5) #6
   %add.ptr29 = getelementptr inbounds i8, ptr %v, i64 %4
   br label %for.body14
@@ -184,7 +184,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_dump_fp(ptr noundef %fp, ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull @write_fp, ptr noundef %fp, ptr noundef %s, i32 noundef %len, i32 noundef 0)
+  %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull readonly @write_fp, ptr noundef %fp, ptr noundef readonly %s, i32 noundef %len, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -206,7 +206,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_dump(ptr noundef %bp, ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull @write_bio, ptr noundef %bp, ptr noundef %s, i32 noundef %len, i32 noundef 0)
+  %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull readonly @write_bio, ptr noundef %bp, ptr noundef readonly %s, i32 noundef %len, i32 noundef 0)
   ret i32 %call.i
 }
 

@@ -1011,7 +1011,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
   %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i64 %1, 63
-  %21 = trunc i64 %.lobit to i32
+  %21 = trunc nuw nsw i64 %.lobit to i32
   %22 = add i32 %.0.i, %21
   %23 = zext i32 %22 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
@@ -1084,7 +1084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc i64 %.0.lcssa.i to i8
+  %56 = trunc nuw i64 %.0.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -1673,7 +1673,7 @@ _ZN29cmCommandArgumentParserHelper8SetErrorERKNSt7__cxx1112basic_stringIcSt11cha
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN29cmCommandArgumentParserHelper11ParseStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN29cmCommandArgumentParserHelper11ParseStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   br i1 %5, label %40, label %6

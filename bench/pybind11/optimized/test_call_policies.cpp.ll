@@ -34105,7 +34105,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ28test_submodule_call_policies
 define internal fastcc void @_ZN8pybind116detail15argument_loaderIJPZ28test_submodule_call_policiesRNS_7module_EE6ParentPZ28test_submodule_call_policiesS3_E5ChildEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"struct.std::type_index", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZTIZ28test_submodule_call_policiesRN8pybind117module_EE5Child, ptr %3, align 8
   %4 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -34132,7 +34132,7 @@ _ZNSt11_Tuple_implILm1EJN8pybind116detail11type_casterIZ28test_submodule_call_po
   store ptr null, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %13 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ28test_submodule_call_policiesRN8pybind117module_EE6Parent, ptr %2, align 8
   %14 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)

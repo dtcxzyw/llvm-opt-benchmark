@@ -105,7 +105,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %6
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN18cmExprParserHelper11ParseStringEPKci(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN18cmExprParserHelper11ParseStringEPKci(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x %"struct.std::pair"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
   %6 = alloca ptr, align 8
@@ -490,7 +490,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN18cmExprParserHelper8LexInputEPci(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN18cmExprParserHelper8LexInputEPci(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %21, label %5
 

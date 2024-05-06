@@ -71,10 +71,10 @@ while.body:                                       ; preds = %entry, %while.body
   %2 = phi ptr [ %4, %while.body ], [ %0, %entry ]
   %uri = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %uri, align 8
-  %call = tail call i32 @evrpc_unregister_rpc(ptr noundef nonnull %base, ptr noundef %3), !range !4
+  %call = tail call i32 @evrpc_unregister_rpc(ptr noundef nonnull %base, ptr noundef %3)
   %4 = load ptr, ptr %registered_rpcs, align 8
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %while.cond1.preheader, label %while.body, !llvm.loop !5
+  br i1 %cmp.not, label %while.cond1.preheader, label %while.body, !llvm.loop !4
 
 while.cond22.preheader:                           ; preds = %do.body5, %while.cond1.preheader
   %5 = load ptr, ptr %base, align 8
@@ -95,7 +95,7 @@ do.body5:                                         ; preds = %do.body5.lr.ph, %do
   tail call void @event_mm_free_(ptr noundef nonnull %6) #11
   %10 = load ptr, ptr %pause_requests, align 8
   %cmp3.not = icmp eq ptr %10, null
-  br i1 %cmp3.not, label %while.cond22.preheader, label %do.body5, !llvm.loop !7
+  br i1 %cmp3.not, label %while.cond22.preheader, label %do.body5, !llvm.loop !6
 
 for.cond.i.i.preheader:                           ; preds = %while.cond22.preheader, %evrpc_remove_hook.exit
   %11 = phi ptr [ %16, %evrpc_remove_hook.exit ], [ %5, %while.cond22.preheader ]
@@ -115,7 +115,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i.prehea
   %cmp1.i.i = icmp eq ptr %hook.0.i.i37, %11
   %13 = load ptr, ptr %hook.0.i.i37, align 8
   %cmp2.not.i.i = icmp eq ptr %13, null
-  br i1 %cmp1.i.i, label %do.body.i.i, label %for.cond.i.ithread-pre-split, !llvm.loop !8
+  br i1 %cmp1.i.i, label %do.body.i.i, label %for.cond.i.ithread-pre-split, !llvm.loop !7
 
 do.body.i.i:                                      ; preds = %for.body.i.i
   %tqe_prev10.i.i = getelementptr inbounds i8, ptr %hook.0.i.i37, i64 8
@@ -132,7 +132,7 @@ do.body.i.i:                                      ; preds = %for.body.i.i
 evrpc_remove_hook.exit:                           ; preds = %for.cond.i.ithread-pre-split, %do.body.i.i
   %16 = phi ptr [ %.pre, %do.body.i.i ], [ %11, %for.cond.i.ithread-pre-split ]
   %cmp25.not = icmp eq ptr %16, null
-  br i1 %cmp25.not, label %while.cond31.preheader, label %for.cond.i.i.preheader, !llvm.loop !9
+  br i1 %cmp25.not, label %while.cond31.preheader, label %for.cond.i.i.preheader, !llvm.loop !8
 
 for.cond.i.i20.preheader:                         ; preds = %while.cond31.preheader, %evrpc_remove_hook.exit32
   %17 = phi ptr [ %21, %evrpc_remove_hook.exit32 ], [ %12, %while.cond31.preheader ]
@@ -146,7 +146,7 @@ for.body.i.i24:                                   ; preds = %for.cond.i.i20.preh
   %cmp1.i.i25 = icmp eq ptr %hook.0.i.i2239, %17
   %18 = load ptr, ptr %hook.0.i.i2239, align 8
   %cmp2.not.i.i27 = icmp eq ptr %18, null
-  br i1 %cmp1.i.i25, label %do.body.i.i26, label %for.cond.i.i20thread-pre-split, !llvm.loop !8
+  br i1 %cmp1.i.i25, label %do.body.i.i26, label %for.cond.i.i20thread-pre-split, !llvm.loop !7
 
 do.body.i.i26:                                    ; preds = %for.body.i.i24
   %tqe_prev10.i.i28 = getelementptr inbounds i8, ptr %hook.0.i.i2239, i64 8
@@ -163,7 +163,7 @@ do.body.i.i26:                                    ; preds = %for.body.i.i24
 evrpc_remove_hook.exit32:                         ; preds = %for.cond.i.i20thread-pre-split, %do.body.i.i26
   %21 = phi ptr [ %.pre43, %do.body.i.i26 ], [ %17, %for.cond.i.i20thread-pre-split ]
   %cmp34.not = icmp eq ptr %21, null
-  br i1 %cmp34.not, label %while.end39, label %for.cond.i.i20.preheader, !llvm.loop !10
+  br i1 %cmp34.not, label %while.end39, label %for.cond.i.i20.preheader, !llvm.loop !9
 
 while.end39:                                      ; preds = %evrpc_remove_hook.exit32, %while.cond31.preheader
   tail call void @event_mm_free_(ptr noundef nonnull %base) #11
@@ -171,7 +171,7 @@ while.end39:                                      ; preds = %evrpc_remove_hook.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evrpc_unregister_rpc(ptr nocapture noundef %base, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @evrpc_unregister_rpc(ptr nocapture noundef %base, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %registered_rpcs = getelementptr inbounds i8, ptr %base, i64 56
   br label %for.cond
@@ -187,7 +187,7 @@ for.body:                                         ; preds = %for.cond
   %0 = load ptr, ptr %uri, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #12
   %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %do.body, label %for.cond, !llvm.loop !11
+  br i1 %cmp1, label %do.body, label %for.cond, !llvm.loop !10
 
 do.body:                                          ; preds = %for.body
   %1 = load ptr, ptr %rpc.0, align 8
@@ -236,7 +236,7 @@ return:                                           ; preds = %for.cond, %evrpc_co
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evrpc_remove_hook(ptr nocapture noundef %vbase, i32 noundef %hook_type, ptr noundef readnone %handle) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evrpc_remove_hook(ptr nocapture noundef %vbase, i32 noundef %hook_type, ptr noundef readnone %handle) local_unnamed_addr #0 {
 entry:
   switch i32 %hook_type, label %sw.epilog [
     i32 0, label %sw.bb
@@ -262,7 +262,7 @@ for.cond.i:                                       ; preds = %for.body.i, %sw.epi
 
 for.body.i:                                       ; preds = %for.cond.i
   %cmp1.i = icmp eq ptr %hook.0.i, %handle
-  br i1 %cmp1.i, label %do.body.i, label %for.cond.i, !llvm.loop !8
+  br i1 %cmp1.i, label %do.body.i, label %for.cond.i, !llvm.loop !7
 
 do.body.i:                                        ; preds = %for.body.i
   %0 = load ptr, ptr %hook.0.i, align 8
@@ -557,7 +557,7 @@ do.body2.i.i:                                     ; preds = %if.then, %do.body2.
   tail call void @event_mm_free_(ptr noundef nonnull %3) #11
   %9 = load ptr, ptr %1, align 8
   %cmp.not.i.i = icmp eq ptr %9, null
-  br i1 %cmp.not.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.i.i, !llvm.loop !11
 
 evrpc_hook_context_free_.exit:                    ; preds = %do.body2.i.i, %if.then
   tail call void @event_mm_free_(ptr noundef nonnull %1) #11
@@ -860,7 +860,7 @@ do.body:                                          ; preds = %do.body.lr.ph, %do.
   tail call fastcc void @evrpc_request_wrapper_free(ptr noundef nonnull %2)
   %6 = load ptr, ptr %requests, align 8
   %cmp.not = icmp eq ptr %6, null
-  br i1 %cmp.not, label %while.cond14.preheader, label %do.body, !llvm.loop !13
+  br i1 %cmp.not, label %while.cond14.preheader, label %do.body, !llvm.loop !12
 
 while.cond42.preheader:                           ; preds = %do.body18, %while.cond14.preheader
   %connections = getelementptr inbounds i8, ptr %pool, i64 56
@@ -886,7 +886,7 @@ do.body18:                                        ; preds = %do.body18.lr.ph, %d
   tail call void @event_mm_free_(ptr noundef nonnull %8) #11
   %12 = load ptr, ptr %pause_requests, align 8
   %cmp16.not = icmp eq ptr %12, null
-  br i1 %cmp16.not, label %while.cond42.preheader, label %do.body18, !llvm.loop !14
+  br i1 %cmp16.not, label %while.cond42.preheader, label %do.body18, !llvm.loop !13
 
 while.cond69.preheader:                           ; preds = %do.body46, %while.cond42.preheader
   %13 = load ptr, ptr %pool, align 8
@@ -907,7 +907,7 @@ do.body46:                                        ; preds = %do.body46.lr.ph, %d
   tail call void @evhttp_connection_free(ptr noundef nonnull %14) #11
   %18 = load ptr, ptr %connections, align 8
   %cmp44.not = icmp eq ptr %18, null
-  br i1 %cmp44.not, label %while.cond69.preheader, label %do.body46, !llvm.loop !15
+  br i1 %cmp44.not, label %while.cond69.preheader, label %do.body46, !llvm.loop !14
 
 for.cond.i.i.preheader:                           ; preds = %while.cond69.preheader, %evrpc_remove_hook.exit
   %19 = phi ptr [ %24, %evrpc_remove_hook.exit ], [ %13, %while.cond69.preheader ]
@@ -927,7 +927,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i.prehea
   %cmp1.i.i = icmp eq ptr %hook.0.i.i55, %19
   %21 = load ptr, ptr %hook.0.i.i55, align 8
   %cmp2.not.i.i = icmp eq ptr %21, null
-  br i1 %cmp1.i.i, label %do.body.i.i, label %for.cond.i.ithread-pre-split, !llvm.loop !8
+  br i1 %cmp1.i.i, label %do.body.i.i, label %for.cond.i.ithread-pre-split, !llvm.loop !7
 
 do.body.i.i:                                      ; preds = %for.body.i.i
   %tqe_prev10.i.i = getelementptr inbounds i8, ptr %hook.0.i.i55, i64 8
@@ -944,7 +944,7 @@ do.body.i.i:                                      ; preds = %for.body.i.i
 evrpc_remove_hook.exit:                           ; preds = %for.cond.i.ithread-pre-split, %do.body.i.i
   %24 = phi ptr [ %.pre, %do.body.i.i ], [ %19, %for.cond.i.ithread-pre-split ]
   %cmp72.not = icmp eq ptr %24, null
-  br i1 %cmp72.not, label %while.cond77.preheader, label %for.cond.i.i.preheader, !llvm.loop !16
+  br i1 %cmp72.not, label %while.cond77.preheader, label %for.cond.i.i.preheader, !llvm.loop !15
 
 for.cond.i.i37.preheader:                         ; preds = %while.cond77.preheader, %evrpc_remove_hook.exit49
   %25 = phi ptr [ %29, %evrpc_remove_hook.exit49 ], [ %20, %while.cond77.preheader ]
@@ -958,7 +958,7 @@ for.body.i.i41:                                   ; preds = %for.cond.i.i37.preh
   %cmp1.i.i42 = icmp eq ptr %hook.0.i.i3957, %25
   %26 = load ptr, ptr %hook.0.i.i3957, align 8
   %cmp2.not.i.i44 = icmp eq ptr %26, null
-  br i1 %cmp1.i.i42, label %do.body.i.i43, label %for.cond.i.i37thread-pre-split, !llvm.loop !8
+  br i1 %cmp1.i.i42, label %do.body.i.i43, label %for.cond.i.i37thread-pre-split, !llvm.loop !7
 
 do.body.i.i43:                                    ; preds = %for.body.i.i41
   %tqe_prev10.i.i45 = getelementptr inbounds i8, ptr %hook.0.i.i3957, i64 8
@@ -975,7 +975,7 @@ do.body.i.i43:                                    ; preds = %for.body.i.i41
 evrpc_remove_hook.exit49:                         ; preds = %for.cond.i.i37thread-pre-split, %do.body.i.i43
   %29 = phi ptr [ %.pre61, %do.body.i.i43 ], [ %25, %for.cond.i.i37thread-pre-split ]
   %cmp80.not = icmp eq ptr %29, null
-  br i1 %cmp80.not, label %while.end85, label %for.cond.i.i37.preheader, !llvm.loop !17
+  br i1 %cmp80.not, label %while.end85, label %for.cond.i.i37.preheader, !llvm.loop !16
 
 while.end85:                                      ; preds = %evrpc_remove_hook.exit49, %while.cond77.preheader
   tail call void @event_mm_free_(ptr noundef nonnull %pool) #11
@@ -1014,7 +1014,7 @@ do.body2.i.i:                                     ; preds = %if.then, %do.body2.
   tail call void @event_mm_free_(ptr noundef nonnull %2) #11
   %8 = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.i.i, !llvm.loop !11
 
 evrpc_hook_context_free_.exit:                    ; preds = %do.body2.i.i, %if.then
   tail call void @event_mm_free_(ptr noundef nonnull %0) #11
@@ -1229,7 +1229,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @evhttp_connection_set_timeout(ptr noundef nonnull %evcon.07, i32 noundef %timeout_in_secs) #11
   %evcon.0 = load ptr, ptr %evcon.07, align 8
   %cmp.not = icmp eq ptr %evcon.0, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
   %timeout = getelementptr inbounds i8, ptr %pool, i64 72
@@ -1238,7 +1238,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evrpc_resume_request(ptr nocapture noundef %vbase, ptr noundef readnone %ctx, i32 noundef %res) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @evrpc_resume_request(ptr nocapture noundef %vbase, ptr noundef readnone %ctx, i32 noundef %res) local_unnamed_addr #0 {
 entry:
   %pause_requests = getelementptr inbounds i8, ptr %vbase, i64 32
   br label %for.cond
@@ -1253,7 +1253,7 @@ for.body:                                         ; preds = %for.cond
   %ctx1 = getelementptr inbounds i8, ptr %pause.0, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   %cmp2 = icmp eq ptr %0, %ctx
-  br i1 %cmp2, label %if.end5, label %for.cond, !llvm.loop !19
+  br i1 %cmp2, label %if.end5, label %for.cond, !llvm.loop !18
 
 if.end5:                                          ; preds = %for.body
   %cb = getelementptr inbounds i8, ptr %pause.0, i64 24
@@ -1313,7 +1313,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %requests.i.i = getelementptr inbounds i8, ptr %connection.0.i.i, i64 296
   %4 = load ptr, ptr %requests.i.i, align 8
   %cmp2.i.i = icmp eq ptr %4, null
-  br i1 %cmp2.i.i, label %do.body.i, label %for.cond.i.i, !llvm.loop !20
+  br i1 %cmp2.i.i, label %do.body.i, label %for.cond.i.i, !llvm.loop !19
 
 do.body.i:                                        ; preds = %for.body.i.i
   %next.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -1436,7 +1436,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @evrpc_hook_find_meta(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %data_size) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @evrpc_hook_find_meta(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %data_size) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %cmp = icmp eq ptr %0, null
@@ -1453,7 +1453,7 @@ for.body:                                         ; preds = %for.cond
   %1 = load ptr, ptr %key3, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %key) #12
   %cmp4 = icmp eq i32 %call, 0
-  br i1 %cmp4, label %if.then5, label %for.cond, !llvm.loop !21
+  br i1 %cmp4, label %if.then5, label %for.cond, !llvm.loop !20
 
 if.then5:                                         ; preds = %for.body
   %data6 = getelementptr inbounds i8, ptr %meta.0, i64 24
@@ -1487,7 +1487,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evrpc_send_request_generic(ptr noundef %pool, ptr noundef %request, ptr noundef %reply, ptr noundef %cb, ptr noundef %cb_arg, ptr noundef %rpcname, ptr noundef %req_marshal, ptr noundef %rpl_clear, ptr noundef %rpl_unmarshal) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @evrpc_send_request_generic(ptr noundef %pool, ptr noundef %request, ptr noundef %reply, ptr noundef %cb, ptr noundef %cb_arg, ptr noundef %rpcname, ptr noundef %req_marshal, ptr noundef %rpl_clear, ptr noundef %rpl_unmarshal) local_unnamed_addr #0 {
 entry:
   %status = alloca %struct.evrpc_status, align 8
   %call.i = tail call ptr @event_mm_malloc_(i64 noundef 232) #11
@@ -1557,7 +1557,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %requests.i.i.i = getelementptr inbounds i8, ptr %connection.0.i.i.i, i64 296
   %4 = load ptr, ptr %requests.i.i.i, align 8
   %cmp2.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp2.i.i.i, label %do.body.i.i, label %for.cond.i.i.i, !llvm.loop !20
+  br i1 %cmp2.i.i.i, label %do.body.i.i, label %for.cond.i.i.i, !llvm.loop !19
 
 do.body.i.i:                                      ; preds = %for.body.i.i.i
   %next.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -1588,7 +1588,7 @@ return:                                           ; preds = %for.cond.i.i.i, %do
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evrpc_register_generic(ptr noundef %base, ptr noundef %name, ptr noundef %callback, ptr noundef %cbarg, ptr noundef %req_new, ptr noundef %req_new_arg, ptr noundef %req_free, ptr noundef %req_unmarshal, ptr noundef %rpl_new, ptr noundef %rpl_new_arg, ptr noundef %rpl_free, ptr noundef %rpl_complete, ptr noundef %rpl_marshal) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @evrpc_register_generic(ptr noundef %base, ptr noundef %name, ptr noundef %callback, ptr noundef %cbarg, ptr noundef %req_new, ptr noundef %req_new_arg, ptr noundef %req_free, ptr noundef %req_unmarshal, ptr noundef %rpl_new, ptr noundef %rpl_new_arg, ptr noundef %rpl_free, ptr noundef %rpl_complete, ptr noundef %rpl_marshal) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 120) #11
   %cmp.i = icmp eq ptr %call.i, null
@@ -1991,7 +1991,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %requests.i.i = getelementptr inbounds i8, ptr %connection.0.i.i, i64 296
   %12 = load ptr, ptr %requests.i.i, align 8
   %cmp2.i.i = icmp eq ptr %12, null
-  br i1 %cmp2.i.i, label %do.body.i, label %for.cond.i.i, !llvm.loop !20
+  br i1 %cmp2.i.i, label %do.body.i, label %for.cond.i.i, !llvm.loop !19
 
 do.body.i:                                        ; preds = %for.body.i.i
   %next.i = getelementptr inbounds i8, ptr %11, i64 8
@@ -2045,21 +2045,20 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

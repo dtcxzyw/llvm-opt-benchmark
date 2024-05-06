@@ -5310,7 +5310,7 @@ common.resume:                                    ; preds = %115, %"_ZN63_$LT$al
   %36 = extractvalue { i64, ptr } %34, 1
   %37 = icmp ne ptr %36, null
   tail call void @llvm.assume(i1 %37)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %36, ptr noundef nonnull align 1 dereferenceable(34) @anon.28dedb513a003e7c9dacffd0755bec19.33, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %36, ptr noundef nonnull readonly align 1 dereferenceable(34) @anon.28dedb513a003e7c9dacffd0755bec19.33, i64 34, i1 false)
   %38 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.15234885945043149955(ptr noalias noundef nonnull readonly align 1 @anon.93245e8f96c02d2faf95a87e43b1c55b.17.llvm.15234885945043149955, i64 noundef 8, i64 noundef 32, i1 noundef zeroext false)
           to label %.noexc.i unwind label %42, !noalias !1669
 

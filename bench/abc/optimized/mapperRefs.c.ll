@@ -99,7 +99,7 @@ define i32 @Map_NodeIncRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @Map_NodeDecRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Map_NodeDecRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -242,7 +242,7 @@ define float @Map_CutGetAreaFlow(ptr nocapture noundef %0, i32 noundef %1) local
 16:                                               ; preds = %.lr.ph, %Map_NodeReadRefPhaseEst.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Map_NodeReadRefPhaseEst.exit ]
   %.03235 = phi float [ %11, %.lr.ph ], [ %48, %Map_NodeReadRefPhaseEst.exit ]
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl nuw i32 1, %17
   %19 = and i32 %18, %9
   %20 = icmp eq i32 %19, 0
@@ -356,7 +356,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %.05566.us = phi float [ %.4.us, %79 ], [ %9, %.lr.ph.split.us.preheader ]
   %25 = getelementptr inbounds [6 x ptr], ptr %24, i64 0, i64 %indvars.iv70
   %26 = load ptr, ptr %25, align 8
-  %27 = trunc i64 %indvars.iv70 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv70 to i32
   %28 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %27) #8
   %29 = getelementptr inbounds i8, ptr %26, i64 144
   %30 = load ptr, ptr %29, align 8
@@ -453,7 +453,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %.05566 = phi float [ %.4, %137 ], [ %9, %.lr.ph ]
   %83 = getelementptr inbounds [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8
-  %85 = trunc i64 %indvars.iv to i32
+  %85 = trunc nuw nsw i64 %indvars.iv to i32
   %86 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %85) #8
   %87 = getelementptr inbounds i8, ptr %84, i64 144
   %88 = load ptr, ptr %87, align 8
@@ -694,7 +694,7 @@ tailrecurse:                                      ; preds = %23
 
 69:                                               ; preds = %.lr.ph49, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %69 ]
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   %71 = lshr i32 %64, %70
   %72 = and i32 %71, 1
   %73 = getelementptr inbounds [6 x ptr], ptr %68, i64 0, i64 %indvars.iv

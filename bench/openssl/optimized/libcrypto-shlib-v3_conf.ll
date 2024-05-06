@@ -540,7 +540,7 @@ return:                                           ; preds = %err, %if.end24
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %sk) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %sk) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_section(ptr noundef %conf, ptr noundef %section) #6
   %cmp = icmp eq ptr %call, null
@@ -726,22 +726,22 @@ declare ptr @X509v3_add_ext(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @X509_EXTENSION_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_EXT_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_EXT_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %cert, null
   %extensions = getelementptr inbounds i8, ptr %cert, i64 104
   %spec.select = select i1 %cmp.not, ptr null, ptr %extensions
-  %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select), !range !10
+  %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %crl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %crl, null
   %extensions = getelementptr inbounds i8, ptr %crl, i64 56
   %spec.select = select i1 %cmp.not, ptr null, ptr %extensions
-  %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select), !range !10
+  %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select)
   ret i32 %call
 }
 
@@ -750,7 +750,7 @@ define i32 @X509V3_EXT_REQ_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr no
 entry:
   %exts = alloca ptr, align 8
   store ptr null, ptr %exts, align 8
-  %call = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef nonnull %exts), !range !10
+  %call = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef nonnull %exts)
   %tobool = icmp ne i32 %call, 0
   %cmp = icmp ne ptr %req, null
   %or.cond = and i1 %cmp, %tobool
@@ -946,7 +946,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_set_issuer_pkey(ptr noundef %ctx, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_set_issuer_pkey(ptr noundef %ctx, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1049,7 +1049,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_EXT_add_conf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_EXT_add_conf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_new(ptr noundef null) #6
   %cmp = icmp eq ptr %call, null
@@ -1060,7 +1060,7 @@ if.end:                                           ; preds = %entry
   %cmp.not.i = icmp eq ptr %cert, null
   %extensions.i = getelementptr inbounds i8, ptr %cert, i64 104
   %spec.select.i = select i1 %cmp.not.i, ptr null, ptr %extensions.i
-  %call.i = tail call noundef i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i), !range !10
+  %call.i = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i)
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef null) #6
   tail call void @NCONF_free(ptr noundef nonnull %call) #6
   br label %return
@@ -1071,7 +1071,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_EXT_CRL_add_conf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %crl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_EXT_CRL_add_conf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_new(ptr noundef null) #6
   %cmp = icmp eq ptr %call, null
@@ -1082,7 +1082,7 @@ if.end:                                           ; preds = %entry
   %cmp.not.i = icmp eq ptr %crl, null
   %extensions.i = getelementptr inbounds i8, ptr %crl, i64 56
   %spec.select.i = select i1 %cmp.not.i, ptr null, ptr %extensions.i
-  %call.i = tail call noundef i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i), !range !10
+  %call.i = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i)
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef null) #6
   tail call void @NCONF_free(ptr noundef nonnull %call) #6
   br label %return
@@ -1104,7 +1104,7 @@ if.end:                                           ; preds = %entry
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef %conf) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %exts.i)
   store ptr null, ptr %exts.i, align 8
-  %call.i = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef nonnull %exts.i), !range !10
+  %call.i = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef nonnull %exts.i)
   %tobool.i = icmp ne i32 %call.i, 0
   %cmp.i = icmp ne ptr %req, null
   %or.cond.i = and i1 %cmp.i, %tobool.i
@@ -1240,4 +1240,3 @@ attributes #6 = { nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}

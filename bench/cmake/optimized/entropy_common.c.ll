@@ -9,7 +9,7 @@ define dso_local noundef i32 @FSE_versionNumber() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @FSE_isError(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @FSE_isError(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i64 %0, -120
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -26,7 +26,7 @@ define dso_local ptr @FSE_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @HUF_isError(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @HUF_isError(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i64 %0, -120
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -100,7 +100,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
 33:                                               ; preds = %32
   %34 = xor i32 %.0142.i, -1
   %35 = or i32 %34, -2147483648
-  %36 = tail call i32 @llvm.cttz.i32(i32 %35, i1 true), !range !5
+  %36 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %35, i1 true)
   %37 = icmp ugt i32 %36, 23
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -123,9 +123,9 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %43 = lshr i32 %.2.val.i, %.2148.i
   %44 = xor i32 %43, -1
   %45 = or i32 %44, -2147483648
-  %46 = tail call i32 @llvm.cttz.i32(i32 %45, i1 true), !range !5
+  %46 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %45, i1 true)
   %47 = icmp ugt i32 %46, 23
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
   %.1155.i.lcssa = phi i32 [ %.0154.i, %33 ], [ %38, %.lr.ph ]
@@ -222,7 +222,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   br i1 %91, label %110, label %92
 
 92:                                               ; preds = %90
-  %93 = tail call i32 @llvm.ctlz.i32(i32 %.1136.i, i1 true), !range !5
+  %93 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.1136.i, i1 true)
   %94 = xor i32 %93, 31
   %95 = sub nuw nsw i32 32, %93
   %96 = shl nuw nsw i32 1, %94
@@ -357,7 +357,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
   store i8 %28, ptr %30, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %31 = icmp ult i64 %indvars.iv.next.i, %16
-  br i1 %31, label %.lr.ph.i, label %.loopexit94.i, !llvm.loop !8
+  br i1 %31, label %.lr.ph.i, label %.loopexit94.i, !llvm.loop !7
 
 32:                                               ; preds = %11
   %.not88.i = icmp ult i64 %13, %6
@@ -400,14 +400,14 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
   %52 = add i32 %.08097.i, 1
   %53 = zext i32 %52 to i64
   %54 = icmp ugt i64 %.078.i, %53
-  br i1 %54, label %.lr.ph99.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %54, label %.lr.ph99.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %42
   %55 = icmp eq i32 %51, 0
   br i1 %55, label %HUF_readStats_body_default.exit, label %56
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = tail call i32 @llvm.ctlz.i32(i32 %51, i1 true), !range !5
+  %57 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %51, i1 true)
   %58 = xor i32 %57, 31
   %59 = icmp ugt i32 %58, 11
   br i1 %59, label %HUF_readStats_body_default.exit, label %60
@@ -417,7 +417,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
   store i32 %61, ptr %4, align 4
   %62 = shl nuw nsw i32 2, %58
   %63 = sub i32 %62, %51
-  %64 = tail call i32 @llvm.ctlz.i32(i32 %63, i1 true), !range !5
+  %64 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %63, i1 true)
   %65 = xor i32 %64, 31
   %66 = shl nuw i32 1, %65
   %.not92.i = icmp eq i32 %66, %63
@@ -425,7 +425,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
 
 67:                                               ; preds = %60
   %68 = sub nuw nsw i32 32, %64
-  %69 = trunc i32 %68 to i8
+  %69 = trunc nuw nsw i32 %68 to i8
   %70 = getelementptr inbounds i8, ptr %0, i64 %.078.i
   store i8 %69, ptr %70, align 1
   %71 = zext nneg i32 %68 to i64
@@ -492,8 +492,7 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

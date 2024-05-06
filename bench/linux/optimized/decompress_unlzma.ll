@@ -321,7 +321,7 @@ define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef
   br i1 %189, label %194, label %190
 
 190:                                              ; preds = %179
-  %191 = call fastcc i32 @process_bit0(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %138, ptr noundef %187, i32 noundef %84, i32 noundef %116) #12, !range !13
+  %191 = call fastcc i32 @process_bit0(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %138, ptr noundef %187, i32 noundef %84, i32 noundef %116) #12
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %201, label %193
 
@@ -417,7 +417,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @rc_is_bit_0(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 2) i32 @rc_is_bit_0(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 16777216
@@ -444,7 +444,7 @@ define internal fastcc i32 @rc_is_bit_0(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @process_bit0(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 section ".init.text" align 16 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
   store i32 1, ptr %8, align 4
@@ -513,7 +513,7 @@ define internal fastcc noundef i32 @process_bit0(ptr nocapture noundef %0, ptr n
 59:                                               ; preds = %57, %58
   %60 = load i32, ptr %8, align 4
   %61 = icmp slt i32 %60, 256
-  br i1 %61, label %45, label %.loopexit, !llvm.loop !14
+  br i1 %61, label %45, label %.loopexit, !llvm.loop !13
 
 .loopexit3:                                       ; preds = %58, %57
   %.pr.pre = load i32, ptr %8, align 4
@@ -531,7 +531,7 @@ define internal fastcc noundef i32 @process_bit0(ptr nocapture noundef %0, ptr n
   %66 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %65, ptr noundef nonnull %8) #12, !range !12
   %67 = load i32, ptr %8, align 4
   %68 = icmp slt i32 %67, 256
-  br i1 %68, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %68, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %59, %.preheader, %.loopexit3
   %69 = phi i32 [ %.pr.pre, %.loopexit3 ], [ %67, %.preheader ], [ %60, %59 ]
@@ -555,7 +555,7 @@ define internal fastcc noundef i32 @process_bit0(ptr nocapture noundef %0, ptr n
   %79 = phi i32 [ %75, %74 ], [ %77, %76 ], [ 0, %.loopexit ]
   store i32 %79, ptr %2, align 4
   %80 = trunc i32 %69 to i8
-  %81 = tail call fastcc i32 @write_byte(ptr noundef %0, i8 noundef zeroext %80) #12, !range !13
+  %81 = tail call fastcc i32 @write_byte(ptr noundef %0, i8 noundef zeroext %80) #12, !range !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   ret i32 %81
 }
@@ -670,7 +670,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %87 = getelementptr inbounds i8, ptr %2, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = tail call fastcc zeroext i8 @peek_old_byte(ptr noundef %0, i32 noundef %88) #12
-  %90 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %89) #12, !range !13
+  %90 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %89) #12, !range !15
   br label %331
 
 91:                                               ; preds = %60
@@ -1181,7 +1181,7 @@ define internal fastcc zeroext i8 @peek_old_byte(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @rc_get_bit(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #6 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @rc_get_bit(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #6 section ".init.text" align 16 {
   %4 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %0, ptr noundef %1) #12, !range !12
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1227,7 +1227,7 @@ define internal fastcc noundef i32 @rc_get_bit(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @write_byte(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @write_byte(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1280,7 +1280,7 @@ define internal fastcc noundef i32 @write_byte(ptr nocapture noundef %0, i8 noun
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @rc_direct_bit(ptr nocapture noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @rc_direct_bit(ptr nocapture noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 16777216
@@ -1319,7 +1319,7 @@ define internal fastcc i32 @copy_bytes(ptr nocapture noundef %0, i32 noundef %1,
 6:                                                ; preds = %14, %3
   %7 = phi i32 [ %2, %3 ], [ %12, %14 ]
   %8 = tail call fastcc zeroext i8 @peek_old_byte(ptr noundef %0, i32 noundef %1) #12
-  %9 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %8) #12, !range !13
+  %9 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %8) #12, !range !15
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %20
 
@@ -1382,9 +1382,9 @@ attributes #12 = { cold }
 !10 = distinct !{!10, !7, !8}
 !11 = distinct !{!11, !7, !8}
 !12 = !{i32 0, i32 2}
-!13 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !7, !8}
 !14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!15 = !{i32 -1, i32 1}
 !16 = distinct !{!16, !7, !8}
 !17 = distinct !{!17, !7, !8}
 !18 = distinct !{!18, !7, !8}

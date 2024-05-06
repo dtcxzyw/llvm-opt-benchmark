@@ -83,7 +83,7 @@ define dso_local ptr @Curl_checkheaders(ptr nocapture noundef readonly %0, ptr n
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_get_upload_buffer(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_get_upload_buffer(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2405,7 +2405,7 @@ declare ptr @Curl_get_scheme_handler(ptr noundef) local_unnamed_addr #1
 declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_retry_request(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %1, align 8

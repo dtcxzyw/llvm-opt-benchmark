@@ -56,7 +56,7 @@ SXNET_add_id_asc.exit.thread:                     ; preds = %for.body
   br label %return
 
 SXNET_add_id_asc.exit:                            ; preds = %for.body
-  %call1.i = call i32 @SXNET_add_id_INTEGER(ptr noundef nonnull %sx, ptr noundef nonnull %call.i, ptr noundef %1, i32 noundef -1), !range !9
+  %call1.i = call i32 @SXNET_add_id_INTEGER(ptr noundef nonnull %sx, ptr noundef nonnull %call.i, ptr noundef %1, i32 noundef -1)
   %tobool.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not, label %return, label %for.cond
 
@@ -97,7 +97,7 @@ for.body:                                         ; preds = %entry, %for.body
   %5 = load ptr, ptr %ids, align 8
   %call2 = tail call i64 @sk_num(ptr noundef %5) #4
   %cmp = icmp ult i64 %inc, %call2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %entry
   ret i32 1
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SXNET_add_id_asc(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SXNET_add_id_asc(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %zone) #4
   %tobool.not = icmp eq ptr %call, null
@@ -179,7 +179,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen), !range !9
+  %call1 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -192,7 +192,7 @@ declare ptr @s2i_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %psx, null
   %tobool1 = icmp ne ptr %zone, null
@@ -256,7 +256,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %3 = load ptr, ptr %ids.i, align 8
   %call.i21 = tail call i64 @sk_num(ptr noundef %3) #4
   %cmp.i = icmp ult i64 %inc.i, %call.i21
-  br i1 %cmp.i, label %for.body.i, label %if.end24, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %if.end24, !llvm.loop !10
 
 for.body.i:                                       ; preds = %if.end20, %for.cond.i
   %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end20 ]
@@ -324,7 +324,7 @@ return:                                           ; preds = %err, %if.end43, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SXNET_add_id_ulong(ptr noundef %psx, i64 noundef %lzone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SXNET_add_id_ulong(ptr noundef %psx, i64 noundef %lzone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_STRING_type_new(i32 noundef 2) #4
   %tobool.not = icmp eq ptr %call, null
@@ -341,7 +341,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call3 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen), !range !9
+  %call3 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -372,7 +372,7 @@ for.cond:                                         ; preds = %for.body
   %1 = load ptr, ptr %ids, align 8
   %call = tail call i64 @sk_num(ptr noundef %1) #4
   %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !10
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.07 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
@@ -420,7 +420,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %1 = load ptr, ptr %ids.i, align 8
   %call.i = tail call i64 @sk_num(ptr noundef %1) #4
   %cmp.i = icmp ult i64 %inc.i, %call.i
-  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !10
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
@@ -475,7 +475,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %1 = load ptr, ptr %ids.i, align 8
   %call.i = tail call i64 @sk_num(ptr noundef %1) #4
   %cmp.i = icmp ult i64 %inc.i, %call.i
-  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !10
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
@@ -536,6 +536,5 @@ attributes #5 = { nounwind willreturn memory(read) }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}

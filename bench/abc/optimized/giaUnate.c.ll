@@ -84,7 +84,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %23, %17
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %31 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.i
-  %32 = trunc i64 %indvars.iv.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %32, ptr %31, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -158,7 +158,7 @@ Vec_IntAlloc.exit.i120:                           ; preds = %53, %47
 60:                                               ; preds = %60, %.lr.ph.i121
   %indvars.iv.i123 = phi i64 [ 0, %.lr.ph.i121 ], [ %indvars.iv.next.i124, %60 ]
   %61 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.i123
-  %62 = trunc i64 %indvars.iv.i123 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.i123 to i32
   store i32 %62, ptr %61, align 4
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, %wide.trip.count.i122
@@ -1001,7 +1001,7 @@ define i32 @Gia_ManCheckUnate_rec(ptr noundef %0, i32 noundef %1) local_unnamed_
   %21 = tail call i32 @Gia_ManCheckUnate_rec(ptr noundef nonnull %0, i32 noundef %20)
   %.val44 = load i64, ptr %14, align 4
   %22 = lshr i64 %.val44, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 536870911
   %25 = sub nsw i32 %1, %24
   %26 = tail call i32 @Gia_ManCheckUnate_rec(ptr noundef nonnull %0, i32 noundef %25)
@@ -1320,7 +1320,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 .critedge:                                        ; preds = %91, %.lr.ph82.split
   %.148.lcssa = phi i32 [ %.04779, %.lr.ph82.split ], [ %.249, %91 ]
   %.145.lcssa = phi i32 [ %.04480, %.lr.ph82.split ], [ %.246, %91 ]
-  %93 = trunc i64 %indvars.iv to i32
+  %93 = trunc nuw nsw i64 %indvars.iv to i32
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %93, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val59 = load ptr, ptr %23, align 8
@@ -1434,7 +1434,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1453,7 +1453,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1542,7 +1542,7 @@ Abc_Clock.exit:                                   ; preds = %7, %10
   br label %40
 
 33:                                               ; preds = %._crit_edge66.us
-  %34 = trunc i64 %indvars.iv94 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv94 to i32
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %34, ptr noundef %18)
   br label %36
 
@@ -1718,19 +1718,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
@@ -1752,8 +1752,8 @@ attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind allocsize(0) }

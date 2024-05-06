@@ -66,7 +66,7 @@ return:                                           ; preds = %entry, %if.end18, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @nghttp2_ratelim_drain(ptr nocapture noundef %rl, i64 noundef %n) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @nghttp2_ratelim_drain(ptr nocapture noundef %rl, i64 noundef %n) local_unnamed_addr #1 {
 entry:
   %val = getelementptr inbounds i8, ptr %rl, i64 16
   %0 = load i64, ptr %val, align 8

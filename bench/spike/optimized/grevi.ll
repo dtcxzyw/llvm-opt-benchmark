@@ -76,10 +76,10 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z16fast_rv32i_greviP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_greviP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %1, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = and i32 %6, 63
   switch i32 %7, label %20 [
     i32 24, label %8
@@ -243,7 +243,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef i64 @_Z16fast_rv64i_greviP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %1, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = and i32 %6, 63
   switch i32 %7, label %20 [
     i32 56, label %8
@@ -388,10 +388,10 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %69, %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18logged_rv32i_greviP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_greviP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %1, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = and i32 %6, 63
   switch i32 %7, label %20 [
     i32 24, label %8
@@ -598,7 +598,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 define noundef i64 @_Z18logged_rv64i_greviP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %1, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = and i32 %6, 63
   switch i32 %7, label %20 [
     i32 56, label %8
@@ -800,10 +800,10 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z16fast_rv32e_greviP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_greviP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %1, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = and i32 %6, 63
   switch i32 %7, label %20 [
     i32 24, label %8
@@ -985,7 +985,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %85, %86
 define noundef i64 @_Z16fast_rv64e_greviP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %1, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = and i32 %6, 63
   switch i32 %7, label %20 [
     i32 56, label %8
@@ -1162,10 +1162,10 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %87, %88
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18logged_rv32e_greviP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_greviP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %1, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = and i32 %6, 63
   switch i32 %7, label %20 [
     i32 24, label %8
@@ -1404,7 +1404,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %113, %114
 define noundef i64 @_Z18logged_rv64e_greviP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %1, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = and i32 %6, 63
   switch i32 %7, label %20 [
     i32 56, label %8

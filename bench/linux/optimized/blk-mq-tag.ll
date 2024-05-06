@@ -1355,7 +1355,7 @@ declare dso_local ptr @xa_find_after(ptr noundef, ptr noundef, i64 noundef, i32 
 declare dso_local void @blk_queue_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_mq_init_bitmaps(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_bitmaps(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = sub i32 %2, %3
   %8 = icmp eq i32 %5, 1
   %9 = tail call i32 @sbitmap_queue_init_node(ptr noundef %0, i32 noundef %7, i32 noundef -1, i1 noundef zeroext %8, i32 noundef 3264, i32 noundef %4) #9

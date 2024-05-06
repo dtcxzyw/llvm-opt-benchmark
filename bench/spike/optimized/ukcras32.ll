@@ -158,7 +158,7 @@ define noundef i64 @_Z19fast_rv64i_ukcras32P11processor_t6insn_tm(ptr nocapture 
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 659712
   %34 = lshr i64 %28, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = trunc i64 %32 to i32
   %37 = add i32 %36, %35
   %38 = icmp ult i32 %37, %35
@@ -175,7 +175,7 @@ define noundef i64 @_Z19fast_rv64i_ukcras32P11processor_t6insn_tm(ptr nocapture 
   %44 = shl nuw i64 %43, 32
   %45 = trunc i64 %28 to i32
   %46 = lshr i64 %32, 32
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw i64 %46 to i32
   %.not.i = icmp ugt i32 %47, %45
   %48 = tail call noundef i32 @llvm.usub.sat.i32(i32 %45, i32 %47)
   br i1 %.not.i, label %49, label %51
@@ -276,7 +276,7 @@ define noundef i64 @_Z21logged_rv64i_ukcras32P11processor_t6insn_tm(ptr noundef 
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 659712
   %34 = lshr i64 %28, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = trunc i64 %32 to i32
   %37 = add i32 %36, %35
   %38 = icmp ult i32 %37, %35
@@ -293,7 +293,7 @@ define noundef i64 @_Z21logged_rv64i_ukcras32P11processor_t6insn_tm(ptr noundef 
   %44 = shl nuw i64 %43, 32
   %45 = trunc i64 %28 to i32
   %46 = lshr i64 %32, 32
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw i64 %46 to i32
   %.not.i = icmp ugt i32 %47, %45
   %48 = tail call noundef i32 @llvm.usub.sat.i32(i32 %45, i32 %47)
   br i1 %.not.i, label %49, label %51
@@ -493,7 +493,7 @@ define noundef i64 @_Z19fast_rv64e_ukcras32P11processor_t6insn_tm(ptr nocapture 
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 659712
   %55 = lshr i64 %42, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = trunc i64 %53 to i32
   %58 = add i32 %57, %56
   %59 = icmp ult i32 %58, %56
@@ -510,7 +510,7 @@ define noundef i64 @_Z19fast_rv64e_ukcras32P11processor_t6insn_tm(ptr nocapture 
   %65 = shl nuw i64 %64, 32
   %66 = trunc i64 %42 to i32
   %67 = lshr i64 %53, 32
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw i64 %67 to i32
   %.not.i = icmp ugt i32 %68, %66
   %69 = tail call noundef i32 @llvm.usub.sat.i32(i32 %66, i32 %68)
   br i1 %.not.i, label %70, label %72
@@ -653,7 +653,7 @@ define noundef i64 @_Z21logged_rv64e_ukcras32P11processor_t6insn_tm(ptr noundef 
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 659712
   %55 = lshr i64 %42, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = trunc i64 %53 to i32
   %58 = add i32 %57, %56
   %59 = icmp ult i32 %58, %56
@@ -670,7 +670,7 @@ define noundef i64 @_Z21logged_rv64e_ukcras32P11processor_t6insn_tm(ptr noundef 
   %65 = shl nuw i64 %64, 32
   %66 = trunc i64 %42 to i32
   %67 = lshr i64 %53, 32
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw i64 %67 to i32
   %.not.i = icmp ugt i32 %68, %66
   %69 = tail call noundef i32 @llvm.usub.sat.i32(i32 %66, i32 %68)
   br i1 %.not.i, label %70, label %72

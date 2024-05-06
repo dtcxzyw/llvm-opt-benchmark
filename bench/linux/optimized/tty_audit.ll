@@ -115,7 +115,7 @@ define dso_local void @tty_audit_tiocsti(ptr nocapture noundef readonly %0, i8 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_audit_push() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @tty_audit_push() local_unnamed_addr #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 1880
@@ -230,7 +230,7 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 1
   %7 = and i32 %6, 1
-  %8 = trunc i32 %7 to i8
+  %8 = trunc nuw nsw i32 %7 to i8
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds i8, ptr %10, i64 1880

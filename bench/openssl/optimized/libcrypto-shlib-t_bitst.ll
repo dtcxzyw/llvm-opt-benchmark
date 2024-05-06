@@ -59,7 +59,7 @@ declare i32 @ASN1_BIT_STRING_get_bit(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_BIT_STRING_set_asc(ptr noundef %bs, ptr nocapture noundef readonly %name, i32 noundef %value, ptr nocapture noundef readonly %tbl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_BIT_STRING_set_asc(ptr noundef %bs, ptr nocapture noundef readonly %name, i32 noundef %value, ptr nocapture noundef readonly %tbl) local_unnamed_addr #0 {
 entry:
   %lname7.i = getelementptr inbounds i8, ptr %tbl, i64 8
   %0 = load ptr, ptr %lname7.i, align 8
@@ -71,12 +71,12 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %bnam.09.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %tbl, %entry ]
   %sname.i = getelementptr inbounds i8, ptr %bnam.09.i, i64 16
   %2 = load ptr, ptr %sname.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #5
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #5
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %ASN1_BIT_STRING_num_asc.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #5
+  %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %name) #5
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %ASN1_BIT_STRING_num_asc.exit, label %for.inc.i
 

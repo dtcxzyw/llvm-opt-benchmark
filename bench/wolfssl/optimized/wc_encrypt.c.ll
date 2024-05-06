@@ -144,7 +144,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.body
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader

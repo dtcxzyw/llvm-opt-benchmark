@@ -470,7 +470,7 @@ e1000_wol_exclusion.exit:                         ; preds = %2, %2, %2, %2, %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @e1000_set_wol(ptr nocapture noundef %0, ptr nocapture noundef %1) #1 align 16 {
+define internal range(i32 -95, 1) i32 @e1000_set_wol(ptr nocapture noundef %0, ptr nocapture noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 81
@@ -655,7 +655,7 @@ define internal noundef i32 @e1000_nway_reset(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @e1000_get_link(ptr noundef %0) #1 align 16 {
+define internal range(i32 0, 2) i32 @e1000_get_link(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 4
@@ -675,7 +675,7 @@ define internal i32 @e1000_get_link(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @e1000_get_eeprom_len(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 0, 131071) i32 @e1000_get_eeprom_len(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3548
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -871,7 +871,7 @@ define internal i32 @e1000_set_eeprom(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @e1000_get_coalesce(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #4 align 16 {
+define internal noundef range(i32 -95, 1) i32 @e1000_get_coalesce(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #4 align 16 {
   %5 = getelementptr i8, ptr %0, i64 3488
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %6, 6
@@ -899,7 +899,7 @@ define internal noundef i32 @e1000_get_coalesce(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_coalesce(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #1 align 16 {
+define internal noundef range(i32 -95, 1) i32 @e1000_set_coalesce(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = getelementptr i8, ptr %0, i64 3464
   %6 = getelementptr i8, ptr %0, i64 3488
   %7 = load i32, ptr %6, align 8
@@ -2822,7 +2822,7 @@ define internal void @e1000_get_strings(ptr nocapture readnone %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_phys_id(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define internal noundef range(i32 0, 3) i32 @e1000_set_phys_id(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 3464
   switch i32 %1, label %12 [
     i32 1, label %4
@@ -2935,7 +2935,7 @@ define internal void @e1000_get_ethtool_stats(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @e1000_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #2 align 16 {
+define internal noundef range(i32 -95, 47) i32 @e1000_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #2 align 16 {
   %3 = icmp eq i32 %1, 1
   %4 = select i1 %3, i32 46, i32 -95
   %5 = icmp eq i32 %1, 0
@@ -3073,7 +3073,7 @@ define internal noundef i32 @e1000_get_link_ksettings(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_link_ksettings(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -95, 1) i32 @e1000_set_link_ksettings(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %0, i64 2304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
@@ -3589,7 +3589,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #7
 declare dso_local i64 @dma_map_page_attrs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_set_phy_loopback(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 9) i32 @e1000_set_phy_loopback(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2

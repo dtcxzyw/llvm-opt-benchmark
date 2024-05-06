@@ -249,7 +249,7 @@ entry:
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vfio_pci_igd_opregion_init(ptr nocapture noundef %vdev, ptr nocapture noundef readonly %info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @vfio_pci_igd_opregion_init(ptr nocapture noundef %vdev, ptr nocapture noundef readonly %info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %size = getelementptr inbounds i8, ptr %info, i64 16
@@ -1649,7 +1649,7 @@ sw.epilog2:                                       ; preds = %sw.bb, %trace_vfio_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vfio_radeon_reset(ptr noundef %vdev) #0 {
+define internal range(i32 -22, 1) i32 @vfio_radeon_reset(ptr noundef %vdev) #0 {
 entry:
   %_now.i.i54 = alloca %struct.timeval, align 8
   %_now.i.i40 = alloca %struct.timeval, align 8
@@ -2016,7 +2016,7 @@ if.else37.i:                                      ; preds = %do.end.i
   br label %vfio_add_nv_gpudirect_cap.exit.thread
 
 if.end39.i:                                       ; preds = %do.end.i
-  %conv40.i = trunc i32 %.mux.i to i8
+  %conv40.i = trunc nuw i32 %.mux.i to i8
   %call41.i = call i32 @pci_add_capability(ptr noundef nonnull %vdev, i8 noundef zeroext 9, i8 noundef zeroext %conv40.i, i8 noundef zeroext 8, ptr noundef %errp) #10
   %cmp42.i = icmp slt i32 %call41.i, 0
   br i1 %cmp42.i, label %if.then44.i, label %if.end45.i
@@ -2155,7 +2155,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_ati_3c3_quirk_read(ptr noundef %opaque, i64 %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @vfio_ati_3c3_quirk_read(ptr noundef %opaque, i64 %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i32 @vfio_pci_read_config(ptr noundef %opaque, i32 noundef 33, i32 noundef %size) #10
@@ -2848,7 +2848,7 @@ return:                                           ; preds = %if.end, %trace_vfio
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_generic_quirk_mirror_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @vfio_generic_quirk_mirror_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -3104,7 +3104,7 @@ land.rhs.i:                                       ; preds = %entry, %for.inc.i
   br i1 %tobool1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.rhs.i
-  tail call fastcc void @vfio_ioeventfd_exit(ptr noundef %vdev, ptr noundef nonnull %ioeventfd.02.i)
+  tail call fastcc void @vfio_ioeventfd_exit(ptr noundef readonly %vdev, ptr noundef nonnull %ioeventfd.02.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i
@@ -3600,7 +3600,7 @@ if.then8:                                         ; preds = %if.then5
   %conv11 = zext i32 %2 to i64
   %name = getelementptr inbounds i8, ptr %0, i64 2680
   %3 = load ptr, ptr %name, align 8
-  %conv12 = trunc i64 %and9 to i32
+  %conv12 = trunc nuw nsw i64 %and9 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %4, 0
@@ -3636,7 +3636,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_vfio_quirk_rtl8168_msix_write.exit:         ; preds = %if.then8, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %msix_table_mmio = getelementptr inbounds i8, ptr %0, i64 1600
-  %10 = tail call i32 @llvm.cttz.i32(i32 %size, i1 false), !range !23
+  %10 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %size, i1 false)
   %call41 = tail call i32 @memory_region_dispatch_write(ptr noundef nonnull %msix_table_mmio, i64 noundef %and9, i64 noundef %conv11, i32 noundef %10, i32 1) #10
   br label %return
 
@@ -3683,7 +3683,7 @@ if.then:                                          ; preds = %land.lhs.true
   %and4 = and i32 %3, 4095
   %conv = zext nneg i32 %and4 to i64
   %msix_table_mmio = getelementptr inbounds i8, ptr %0, i64 1600
-  %4 = tail call i32 @llvm.cttz.i32(i32 %size, i1 false), !range !23
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %size, i1 false)
   %call34 = call i32 @memory_region_dispatch_read(ptr noundef nonnull %msix_table_mmio, i64 noundef %conv, ptr noundef nonnull %data, i32 noundef %4, i32 1) #10
   %name = getelementptr inbounds i8, ptr %0, i64 2680
   %5 = load ptr, ptr %name, align 8
@@ -3809,4 +3809,3 @@ attributes #12 = { nounwind allocsize(0) }
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = !{i32 0, i32 33}

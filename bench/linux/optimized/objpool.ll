@@ -51,7 +51,7 @@ define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %
   %21 = and i32 %20, 262136
   %22 = zext nneg i32 %17 to i64
   %23 = shl nuw nsw i64 1, %22
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %25 = load i32, ptr @nr_cpu_ids, align 4
   %26 = getelementptr inbounds i8, ptr %0, i64 8
@@ -506,7 +506,7 @@ define dso_local void @objpool_free(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @objpool_drop(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @objpool_drop(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4

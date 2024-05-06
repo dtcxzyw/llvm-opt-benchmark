@@ -82,7 +82,7 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_hsts_parse(ptr noundef %h, ptr noundef %hostname, ptr noundef %header) local_unnamed_addr #0 {
+define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %h, ptr noundef %hostname, ptr noundef %header) local_unnamed_addr #0 {
 entry:
   %expires = alloca i64, align 8
   %endp = alloca ptr, align 8
@@ -116,7 +116,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool8.not, label %if.else52, label %if.then9
 
 if.then9:                                         ; preds = %while.end
-  %tobool10 = trunc i8 %gotma.0 to i1
+  %tobool10 = trunc nuw i8 %gotma.0 to i1
   br i1 %tobool10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.then9
@@ -214,7 +214,7 @@ while.end89:                                      ; preds = %while.cond74
   br i1 %tobool96.not, label %do.end, label %do.body, !llvm.loop !10
 
 do.end:                                           ; preds = %while.end89
-  %tobool97 = trunc i8 %gotma.1 to i1
+  %tobool97 = trunc nuw i8 %gotma.1 to i1
   br i1 %tobool97, label %if.end99, label %return
 
 if.end99:                                         ; preds = %do.end
@@ -710,7 +710,7 @@ declare i32 @Curl_rename(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_hsts_loadfile(ptr nocapture readnone %data, ptr noundef %h, ptr noundef %file) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone %data, ptr noundef %h, ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %host.i.i = alloca [257 x i8], align 16
   %date.i.i = alloca [65 x i8], align 16
@@ -764,7 +764,7 @@ while.cond12.i.backedge:                          ; preds = %while.body19.i, %wh
 if.end24.i:                                       ; preds = %while.cond12.i
   call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %host.i.i)
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %date.i.i)
-  %call.i.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %lineptr.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %host.i.i, ptr noundef nonnull %date.i.i) #9
+  %call.i.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %lineptr.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %host.i.i, ptr noundef nonnull %date.i.i) #9
   %cmp.i.i = icmp eq i32 %call.i.i, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %hsts_add.exit.i
 
@@ -1021,11 +1021,11 @@ while.body:                                       ; preds = %if.then, %while.bod
   %l.08 = phi ptr [ %0, %if.then ], [ %3, %while.body ]
   %1 = load ptr, ptr %hsts, align 8
   %2 = load ptr, ptr %l.08, align 8
-  %call3 = tail call i32 @Curl_hsts_loadfile(ptr nonnull poison, ptr noundef %1, ptr noundef %2), !range !15
+  %call3 = tail call i32 @Curl_hsts_loadfile(ptr nonnull poison, ptr noundef %1, ptr noundef %2)
   %next = getelementptr inbounds i8, ptr %l.08, i64 8
   %3 = load ptr, ptr %next, align 8
   %tobool1.not = icmp eq ptr %3, null
-  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !16
+  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %while.body
   %call4 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %data, i32 noundef 7) #9
@@ -1100,5 +1100,4 @@ attributes #10 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 0, i32 28}
-!16 = distinct !{!16, !5}
+!15 = distinct !{!15, !5}

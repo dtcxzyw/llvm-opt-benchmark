@@ -41,7 +41,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @write_image(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture noundef readnone %10, i32 noundef %11) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture noundef readnone %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca %struct.dt_imageio_jpeg_error_mgr, align 8
   %14 = alloca i32, align 4
   %15 = alloca [1 x ptr], align 8
@@ -383,7 +383,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 declare i32 @dt_exif_write_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @read_image(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @read_image(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.dt_imageio_jpeg_error_mgr, align 8
   %4 = alloca [1 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 368, ptr nonnull %3) #19
@@ -683,7 +683,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !72

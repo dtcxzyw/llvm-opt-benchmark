@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_util_check_context_cwd(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -74, 1) i32 @pmix_util_check_context_cwd(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge, label %5
 
@@ -54,7 +54,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_util_check_context_app(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -190, 1) i32 @pmix_util_check_context_app(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noalias ptr @pmix_basename(ptr noundef %4) #7
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8

@@ -4501,7 +4501,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6casadi15KinsolInterface12func_wrapperEP17_generic_N_VectorS2_Pv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6casadi15KinsolInterface12func_wrapperEP17_generic_N_VectorS2_Pv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4724,7 +4724,7 @@ define noundef i32 @_ZN6casadi15KinsolInterface12func_wrapperEP17_generic_N_Vect
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uerrEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6casadi15KinsolInterface12djac_wrapperElP17_generic_N_VectorS2_P7_DlsMatPvS2_S2_(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readnone %6) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6casadi15KinsolInterface12djac_wrapperElP17_generic_N_VectorS2_P7_DlsMatPvS2_S2_(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readnone %6) #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5086,7 +5086,7 @@ declare noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 de
 declare noundef ptr @_ZNK6casadi8Sparsity3rowEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6casadi15KinsolInterface12bjac_wrapperElllP17_generic_N_VectorS2_P7_DlsMatPvS2_S2_(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr nocapture noundef readnone %7, ptr nocapture noundef readnone %8) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6casadi15KinsolInterface12bjac_wrapperElllP17_generic_N_VectorS2_P7_DlsMatPvS2_S2_(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr nocapture noundef readnone %7, ptr nocapture noundef readnone %8) #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5456,7 +5456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6casadi15KinsolInterface14jtimes_wrapperEP17_generic_N_VectorS2_S2_PiPv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr noundef readonly %4) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6casadi15KinsolInterface14jtimes_wrapperEP17_generic_N_VectorS2_S2_PiPv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr noundef readonly %4) #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5769,7 +5769,7 @@ _ZSt6copy_nIPPKdmS2_ET1_T_T0_S3_.exit:            ; preds = %6, %_ZSt8__copy_nIP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6casadi15KinsolInterface14psetup_wrapperEP17_generic_N_VectorS2_S2_S2_PvS2_S2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readnone %6) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6casadi15KinsolInterface14psetup_wrapperEP17_generic_N_VectorS2_S2_S2_PvS2_S2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readnone %6) #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6343,7 +6343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare noundef i32 @_ZNK6casadi6Linsol5nfactEPKdi(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6casadi15KinsolInterface14psolve_wrapperEP17_generic_N_VectorS2_S2_S2_S2_PvS2_(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5, ptr nocapture noundef readnone %6) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6casadi15KinsolInterface14psolve_wrapperEP17_generic_N_VectorS2_S2_S2_S2_PvS2_(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5, ptr nocapture noundef readnone %6) #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6711,7 +6711,7 @@ define void @_ZNK6casadi15KinsolInterface6psolveERNS_12KinsolMemoryEP17_generic_
 declare noundef i32 @_ZNK6casadi6Linsol5solveEPKdPdxbi(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6casadi15KinsolInterface6lsetupEP9KINMemRec(ptr nocapture noundef readonly %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN6casadi15KinsolInterface6lsetupEP9KINMemRec(ptr nocapture noundef readonly %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   %4 = invoke noundef ptr @_ZN6casadi15KinsolInterface6to_memEPv(ptr noundef %3)
@@ -7328,7 +7328,7 @@ define void @_ZN6casadi12KinsolMemoryD2Ev(ptr noundef nonnull align 8 dereferenc
 declare void @KINFree(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi15KinsolInterface8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1696) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi15KinsolInterface8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1696) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

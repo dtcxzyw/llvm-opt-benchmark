@@ -230,42 +230,42 @@ entry:
   %agg.tmp = alloca %"struct.folly::EventBase::Options", align 8
   %call = tail call noalias noundef nonnull dereferenceable(576) ptr @_Znwm(i64 noundef 576) #17
   %0 = load i8, ptr %__args, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %agg.tmp, align 8
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %agg.tmp, align 8
   %backendFactory.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i, i8 0, i64 32, i1 false)
-  %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
-  %tobool.not.i.i.not.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %tobool.not.i.i.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %backendFactory3.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %call3.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %3 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
-  store <2 x ptr> %3, ptr %_M_manager.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
+  store <2 x ptr> %2, ptr %_M_manager.i.i.i, align 8
   br label %invoke.cont
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %cleanup.action, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
           to label %cleanup.action unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #15
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #15
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i, %entry
@@ -277,44 +277,44 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i, %e
 
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %call, ptr %agg.result, align 8
-  %8 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i3 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i3 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i3, label %_ZN5folly9EventBase7OptionsD2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont2
-  %call.i.i.i6 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
+  %call.i.i.i6 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsD2Ev.exit unwind label %terminate.lpad.i.i.i7
 
 terminate.lpad.i.i.i7:                            ; preds = %if.then.i.i.i4
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %invoke.cont2, %if.then.i.i.i4
   ret void
 
 lpad1:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i9 = icmp eq ptr %12, null
+  %11 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i9 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i9, label %cleanup.action, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %lpad1
-  %call.i.i.i12 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
+  %call.i.i.i12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
           to label %cleanup.action unwind label %terminate.lpad.i.i.i13
 
 terminate.lpad.i.i.i13:                           ; preds = %if.then.i.i.i10
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #15
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #15
   unreachable
 
 cleanup.action:                                   ; preds = %if.then.i.i.i10, %lpad1, %if.then.i.i.i, %lpad.i.i
-  %.pn = phi { ptr, i32 } [ %4, %if.then.i.i.i ], [ %4, %lpad.i.i ], [ %11, %lpad1 ], [ %11, %if.then.i.i.i10 ]
+  %.pn = phi { ptr, i32 } [ %3, %if.then.i.i.i ], [ %3, %lpad.i.i ], [ %10, %lpad1 ], [ %10, %if.then.i.i.i10 ]
   call void @_ZdlPv(ptr noundef nonnull %call) #18
   resume { ptr, i32 } %.pn
 }

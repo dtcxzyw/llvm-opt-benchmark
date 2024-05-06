@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [34 x i8] c"user data duplication unsupported\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_err_load_UI_strings() local_unnamed_addr #0 {
+define noundef i32 @ossl_err_load_UI_strings() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ERR_reason_error_string(i64 noundef 335544424) #2
   %cmp = icmp eq ptr %call, null

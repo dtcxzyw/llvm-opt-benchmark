@@ -601,7 +601,7 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr i64, ptr %4, i64 %indvars.iv172
   %46 = load i64, ptr %45, align 8
-  %47 = trunc i64 %indvars.iv.next173 to i16
+  %47 = trunc nuw nsw i64 %indvars.iv.next173 to i16
   call void @ScanKeyEntryInitialize(ptr noundef %34, i32 noundef %38, i16 noundef signext %47, i16 noundef zeroext %40, i32 noundef 0, i32 noundef %42, i32 noundef %44, i64 noundef %46) #6
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
   br i1 %exitcond176.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !11

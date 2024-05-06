@@ -134,7 +134,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.test_WPACKET_quic_vlint_random = private unnamed_addr constant [4 x i64] [i64 63, i64 16383, i64 1073741823, i64 4611686018427387903], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BUF_MEM_new() #3
   store ptr %call, ptr @buf, align 8
@@ -166,7 +166,7 @@ declare ptr @BUF_MEM_new() local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_WPACKET_init() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_init() #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %written = alloca i64, align 8
@@ -453,7 +453,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_WPACKET_set_max_size() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_set_max_size() #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %written = alloca i64, align 8
@@ -605,7 +605,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_WPACKET_start_sub_packet() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_start_sub_packet() #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %written = alloca i64, align 8
@@ -1061,7 +1061,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_WPACKET_set_flags() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_set_flags() #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %written = alloca i64, align 8
@@ -1369,7 +1369,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_WPACKET_allocate_bytes() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_allocate_bytes() #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %written = alloca i64, align 8
@@ -1477,7 +1477,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_WPACKET_memcpy() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_memcpy() #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %written = alloca i64, align 8
@@ -1576,7 +1576,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_WPACKET_init_der() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_init_der() #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %sbuf = alloca [1024 x i8], align 16
@@ -1809,7 +1809,7 @@ return:                                           ; preds = %if.else, %if.then93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_WPACKET_quic() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_quic() #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %written = alloca i64, align 8
@@ -2485,7 +2485,7 @@ return:                                           ; preds = %lor.lhs.false464, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_WPACKET_quic_vlint_random() #0 {
+define internal range(i32 0, 2) i32 @test_WPACKET_quic_vlint_random() #0 {
 entry:
   %written = alloca i64, align 8
   %rand_data = alloca [9 x i8], align 8

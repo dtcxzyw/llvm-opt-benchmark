@@ -2796,7 +2796,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %ehcleanup
 
 invoke.cont16:                                    ; preds = %invoke.cont12
-  %conv.i.i = trunc i64 %sub.ptr.div.i to i32
+  %conv.i.i = trunc nuw i64 %sub.ptr.div.i to i32
   %count = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %conv.i.i, ptr %count, align 4
   %target = getelementptr inbounds i8, ptr %this, i64 32
@@ -4324,7 +4324,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %conv.i.i.i = trunc i64 %add.i to i32
+  %conv.i.i.i = trunc nuw i64 %add.i to i32
   %lit_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %conv.i.i.i, ptr %lit_offset, align 4
   %6 = load i64, ptr %_M_string_length.i, align 8
@@ -4346,7 +4346,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %conv.i.i = trunc i64 %6 to i32
+  %conv.i.i = trunc nuw i64 %6 to i32
   %lit_length = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %conv.i.i, ptr %lit_length, align 4
   %target = getelementptr inbounds i8, ptr %this, i64 40
@@ -4455,7 +4455,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i25
   resume { ptr, i32 } %5
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %conv.i.i = trunc i64 %add to i32
+  %conv.i.i = trunc nuw i64 %add to i32
   ret i32 %conv.i.i
 }
 
@@ -4529,7 +4529,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %conv.i.i.i = trunc i64 %add.i to i32
+  %conv.i.i.i = trunc nuw i64 %add.i to i32
   %lit_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %conv.i.i.i, ptr %lit_offset, align 4
   %6 = load i64, ptr %_M_string_length.i, align 8
@@ -4551,7 +4551,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %conv.i.i = trunc i64 %6 to i32
+  %conv.i.i = trunc nuw i64 %6 to i32
   %lit_length = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %conv.i.i, ptr %lit_length, align 4
   %target = getelementptr inbounds i8, ptr %this, i64 40
@@ -4632,7 +4632,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %conv.i.i.i = trunc i64 %add.i to i32
+  %conv.i.i.i = trunc nuw i64 %add.i to i32
   %lit_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %conv.i.i.i, ptr %lit_offset, align 4
   %6 = load i64, ptr %_M_string_length.i, align 8
@@ -4654,7 +4654,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %conv.i.i = trunc i64 %6 to i32
+  %conv.i.i = trunc nuw i64 %6 to i32
   %lit_length = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %conv.i.i, ptr %lit_length, align 4
   %target = getelementptr inbounds i8, ptr %this, i64 40
@@ -4735,7 +4735,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %conv.i.i.i = trunc i64 %add.i to i32
+  %conv.i.i.i = trunc nuw i64 %add.i to i32
   %lit_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %conv.i.i.i, ptr %lit_offset, align 4
   %6 = load i64, ptr %_M_string_length.i, align 8
@@ -4757,7 +4757,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %conv.i.i = trunc i64 %6 to i32
+  %conv.i.i = trunc nuw i64 %6 to i32
   %lit_length = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %conv.i.i, ptr %lit_length, align 4
   %target = getelementptr inbounds i8, ptr %this, i64 40
@@ -5099,7 +5099,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i97
   br label %ehcleanup49
 
 invoke.cont45:                                    ; preds = %invoke.cont32
-  %conv.i.i = trunc i64 %sub.ptr.div.i to i32
+  %conv.i.i = trunc nuw i64 %sub.ptr.div.i to i32
   %count = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %conv.i.i, ptr %count, align 4
   %last_start = getelementptr inbounds i8, ptr %this, i64 32

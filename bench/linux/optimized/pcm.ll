@@ -228,7 +228,7 @@ define dso_local ptr @snd_pcm_format_name(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_pcm_new_stream(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_stream(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 184
@@ -495,13 +495,13 @@ declare dso_local void @snd_pcm_group_init(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
   %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef %5), !range !12
   ret i32 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef writeonly %6) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef writeonly %6) unnamed_addr #1 align 16 {
   %8 = zext i1 %5 to i8
   %9 = icmp eq ptr %0, null
   br i1 %9, label %95, label %10
@@ -677,13 +677,13 @@ snd_pcm_free_stream.exit10:                       ; preds = %88, %92
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_pcm_new_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
   %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true, ptr noundef %5), !range !12
   ret i32 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_pcm_attach_substream(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %3, null
   %7 = or i1 %5, %6
@@ -2112,7 +2112,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #3 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pcm_class_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pcm_class_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8

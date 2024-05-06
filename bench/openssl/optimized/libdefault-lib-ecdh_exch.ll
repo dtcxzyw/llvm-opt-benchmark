@@ -49,7 +49,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecdh_init(ptr noundef %vpecdhctx, ptr noundef %vecdh, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecdh_init(ptr noundef %vpecdhctx, ptr noundef %vecdh, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0
@@ -73,7 +73,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   store i32 -1, ptr %cofactor_mode, align 8
   %kdf_type = getelementptr inbounds i8, ptr %vpecdhctx, i64 28
   store i32 0, ptr %kdf_type, align 4
-  %call7 = tail call i32 @ecdh_set_ctx_params(ptr noundef nonnull %vpecdhctx, ptr noundef %params), !range !4
+  %call7 = tail call i32 @ecdh_set_ctx_params(ptr noundef nonnull %vpecdhctx, ptr noundef %params)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %land.rhs
 
@@ -90,7 +90,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecdh_derive(ptr nocapture noundef readonly %vpecdhctx, ptr noundef %secret, ptr nocapture noundef writeonly %psecretlen, i64 noundef %outlen) #0 {
+define internal range(i32 0, 2) i32 @ecdh_derive(ptr nocapture noundef readonly %vpecdhctx, ptr noundef %secret, ptr nocapture noundef writeonly %psecretlen, i64 noundef %outlen) #0 {
 entry:
   %stmplen.i = alloca i64, align 8
   %kdf_type = getelementptr inbounds i8, ptr %vpecdhctx, i64 28
@@ -101,7 +101,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call fastcc i32 @ecdh_plain_derive(ptr noundef nonnull %vpecdhctx, ptr noundef %secret, ptr noundef %psecretlen, i64 noundef %outlen), !range !4
+  %call = tail call fastcc i32 @ecdh_plain_derive(ptr noundef nonnull %vpecdhctx, ptr noundef %secret, ptr noundef %psecretlen, i64 noundef %outlen)
   br label %return
 
 sw.bb1:                                           ; preds = %entry
@@ -163,7 +163,7 @@ if.end6.i:                                        ; preds = %if.end.i.i.i, %if.e
   br i1 %cmp8.i, label %ecdh_X9_63_kdf_derive.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %call11.i = call fastcc i32 @ecdh_plain_derive(ptr noundef nonnull %vpecdhctx, ptr noundef nonnull %call7.i, ptr noundef nonnull %stmplen.i, i64 noundef %retval.0.i.i.i), !range !4
+  %call11.i = call fastcc i32 @ecdh_plain_derive(ptr noundef nonnull readonly %vpecdhctx, ptr noundef nonnull %call7.i, ptr noundef nonnull %stmplen.i, i64 noundef %retval.0.i.i.i)
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   %.pre.i = load i64, ptr %stmplen.i, align 8
   br i1 %tobool12.not.i, label %err.i, label %if.end14.i
@@ -202,7 +202,7 @@ return:                                           ; preds = %entry, %ecdh_X9_63_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecdh_set_peer(ptr noundef %vpecdhctx, ptr noundef %vecdh) #0 {
+define internal range(i32 0, 2) i32 @ecdh_set_peer(ptr noundef %vpecdhctx, ptr noundef %vecdh) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0
@@ -399,7 +399,7 @@ return:                                           ; preds = %if.else31, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecdh_set_ctx_params(ptr noundef %vpecdhctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecdh_set_ctx_params(ptr noundef %vpecdhctx, ptr noundef %params) #0 {
 entry:
   %name = alloca [80 x i8], align 16
   %str = alloca ptr, align 8
@@ -560,7 +560,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecdh_get_ctx_params(ptr noundef readonly %vpecdhctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecdh_get_ctx_params(ptr noundef readonly %vpecdhctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpecdhctx, null
   br i1 %cmp, label %return, label %if.end
@@ -686,7 +686,7 @@ declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_ec_check_key(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ecdh_plain_derive(ptr nocapture noundef readonly %vpecdhctx, ptr noundef %secret, ptr nocapture noundef writeonly %psecretlen, i64 noundef %outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecdh_plain_derive(ptr nocapture noundef readonly %vpecdhctx, ptr noundef %secret, ptr nocapture noundef writeonly %psecretlen, i64 noundef %outlen) unnamed_addr #0 {
 entry:
   %k = getelementptr inbounds i8, ptr %vpecdhctx, i64 8
   %0 = load ptr, ptr %k, align 8
@@ -914,4 +914,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 8, ptr noundef nonnull @_ZL7options)
   %cmp = icmp slt i32 %call, 0

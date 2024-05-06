@@ -674,7 +674,7 @@ _ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN5faiss22pq4_get_packed_elementEPKhmmmm(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #9 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN5faiss22pq4_get_packed_elementEPKhmmmm(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #9 {
   %6 = udiv i64 %3, %1
   %7 = add i64 %2, 1
   %8 = lshr i64 %7, 1
@@ -769,13 +769,13 @@ define void @_ZN5faiss12pq4_pack_LUTEiiPKhPh(i32 noundef %0, i32 noundef %1, ptr
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv29 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next30, %._crit_edge.us ]
-  %9 = mul nsw i64 %indvars.iv29, %8
+  %9 = mul nuw nsw i64 %indvars.iv29, %8
   br label %10
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
   %11 = lshr exact i64 %indvars.iv, 1
-  %12 = mul nsw i64 %11, %7
+  %12 = mul nuw nsw i64 %11, %7
   %13 = add nuw nsw i64 %12, %indvars.iv29
   %14 = shl nsw i64 %13, 5
   %15 = getelementptr inbounds i8, ptr %3, i64 %14
@@ -899,13 +899,13 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
   %46 = add nuw nsw i64 %indvars.iv.i, %39
   %47 = shl nsw i64 %46, 4
   %48 = getelementptr inbounds i8, ptr %36, i64 %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %45, ptr noundef nonnull align 1 dereferenceable(16) %48, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %45, ptr noundef nonnull readonly align 1 dereferenceable(16) %48, i64 16, i1 false)
   %49 = getelementptr inbounds i8, ptr %45, i64 16
   %50 = shl i64 %46, 36
   %sext.i = ashr exact i64 %50, 32
   %51 = or i64 %sext.i, 16
   %52 = getelementptr inbounds i8, ptr %36, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %52, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %49, ptr noundef nonnull readonly align 1 dereferenceable(16) %52, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %53 = icmp ult i64 %indvars.iv.next.i, %28
   br i1 %53, label %40, label %._crit_edge.us.i, !llvm.loop !19
@@ -1028,13 +1028,13 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %50 = add nsw i64 %indvars.iv.i, %43
   %51 = shl nsw i64 %50, 4
   %52 = getelementptr inbounds i8, ptr %2, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %52, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %49, ptr noundef nonnull readonly align 1 dereferenceable(16) %52, i64 16, i1 false)
   %53 = getelementptr inbounds i8, ptr %49, i64 16
   %54 = shl i64 %50, 36
   %sext.i = ashr exact i64 %54, 32
   %55 = or i64 %sext.i, 16
   %56 = getelementptr inbounds i8, ptr %2, i64 %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %53, ptr noundef nonnull align 1 dereferenceable(16) %56, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %53, ptr noundef nonnull readonly align 1 dereferenceable(16) %56, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %57 = icmp ult i64 %indvars.iv.next.i, %29
   br i1 %57, label %44, label %._crit_edge.us.i, !llvm.loop !23

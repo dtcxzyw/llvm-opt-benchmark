@@ -46,7 +46,7 @@ define internal noundef i32 @pdlopen_component_query(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pdlopen_component_register() #1 {
+define internal range(i32 -2147483648, 1) i32 @pdlopen_component_register() #1 {
   store ptr @.str.1, ptr getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 1), align 8
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @pmix_mca_pdl_pdlopen_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (%struct.pmix_pdl_pdlopen_component_t, ptr @pmix_mca_pdl_pdlopen_component, i64 0, i32 1)) #4
   %2 = icmp slt i32 %1, 0

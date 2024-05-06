@@ -574,7 +574,7 @@ if.end57:                                         ; preds = %xhci_dma_read_u32s.
   %slotid2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %slotid.060, ptr %slotid2.i, align 8
   %epid3.i = getelementptr inbounds i8, ptr %call.i, i64 12
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %epid3.i, align 4
   %transfers.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr null, ptr %transfers.i, align 8
@@ -1102,7 +1102,7 @@ if.end21:                                         ; preds = %if.end18, %if.end11
   %iso_xfer = getelementptr inbounds i8, ptr %14, i64 197
   %28 = load i8, ptr %iso_xfer, align 1
   %tobool22 = trunc i8 %28 to i1
-  %call24 = tail call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %14), !range !12
+  %call24 = tail call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %14)
   %cmp = icmp slt i32 %call24, 0
   br i1 %tobool22, label %if.then23, label %if.else35
 
@@ -1343,7 +1343,7 @@ do.cond.i:                                        ; preds = %land.lhs.true.i122,
   %control_td_set.2.i = phi i1 [ true, %if.end73.i ], [ false, %land.lhs.true.i122 ], [ true, %if.end64.i ], [ %control_td_set.0.i, %if.end52.i ]
   %link_cnt.1.i = phi i32 [ %link_cnt.0.i, %if.end73.i ], [ %link_cnt.0.i, %land.lhs.true.i122 ], [ %link_cnt.0.i, %if.end64.i ], [ %inc.i, %if.end52.i ]
   %cmp80.i = icmp slt i32 %length.1.i, 131072
-  br i1 %cmp80.i, label %do.body.i, label %do.body83.i, !llvm.loop !13
+  br i1 %cmp80.i, label %do.body.i, label %do.body83.i, !llvm.loop !12
 
 do.body83.i:                                      ; preds = %do.cond.i
   %55 = load i32, ptr @qemu_loglevel, align 4
@@ -1432,13 +1432,13 @@ for.body.lr.ph:                                   ; preds = %if.end99
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %65 = load ptr, ptr %trbs.i128, align 8
   %arrayidx109 = getelementptr %struct.XHCITRB, ptr %65, i64 %indvars.iv
-  %call110 = call fastcc i32 @xhci_ring_fetch(ptr noundef %0, ptr noundef nonnull %ring.0, ptr noundef %arrayidx109, ptr noundef null), !range !15
+  %call110 = call fastcc i32 @xhci_ring_fetch(ptr noundef %0, ptr noundef nonnull %ring.0, ptr noundef %arrayidx109, ptr noundef null)
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %if.then112, label %for.cond
 
@@ -1581,7 +1581,7 @@ if.end31.i:                                       ; preds = %if.end25.i
   store i8 0, ptr %iso_xfer.i, align 1
   %timed_xfer.i = getelementptr inbounds i8, ptr %call.i127, i64 198
   store i8 0, ptr %timed_xfer.i, align 2
-  %call.i156 = call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %call.i127), !range !12
+  %call.i156 = call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %call.i127)
   %cmp35.i = icmp slt i32 %call.i156, 0
   br i1 %cmp35.i, label %if.end124, label %if.end38.i
 
@@ -1840,7 +1840,7 @@ trace_usb_xhci_unimplemented.exit.i.i:            ; preds = %if.else.i.i.i.i, %i
   br label %if.end124
 
 sw.epilog.i.i:                                    ; preds = %xhci_check_intr_iso_kick.exit69.i.i, %sw.bb3.i.i, %xhci_check_intr_iso_kick.exit.i.i
-  %call17.i.i = call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %call.i127), !range !12
+  %call17.i.i = call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %call.i127)
   %cmp.i.i = icmp slt i32 %call17.i.i, 0
   br i1 %cmp.i.i, label %if.end124, label %if.end19.i.i
 
@@ -1960,7 +1960,7 @@ if.end160:                                        ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @xhci_setup_packet(ptr noundef %xfer) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @xhci_setup_packet(ptr noundef %xfer) unnamed_addr #2 {
 entry:
   %in_xfer = getelementptr inbounds i8, ptr %xfer, i64 196
   %0 = load i8, ptr %in_xfer, align 4
@@ -2079,7 +2079,7 @@ for.inc.us.i:                                     ; preds = %if.else.us.i, %if.e
   %20 = phi i32 [ %.pre27.i, %if.else.us.i ], [ %13, %if.end.us.i ]
   %inc.us.i = add nuw i32 %i.024.us.i, 1
   %cmp.us.i = icmp ult i32 %inc.us.i, %20
-  br i1 %cmp.us.i, label %for.body.us.i, label %xhci_xfer_create_sgl.exit, !llvm.loop !16
+  br i1 %cmp.us.i, label %for.body.us.i, label %xhci_xfer_create_sgl.exit, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %21 = phi i32 [ %28, %for.inc.i ], [ %12, %for.body.lr.ph.i ]
@@ -2141,7 +2141,7 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   %28 = phi i32 [ %.pre, %for.inc.sink.split.i ], [ %21, %if.end.i18 ]
   %inc.i = add nuw i32 %i.024.i, 1
   %cmp.i = icmp ult i32 %inc.i, %28
-  br i1 %cmp.i, label %for.body.i, label %xhci_xfer_create_sgl.exit, !llvm.loop !16
+  br i1 %cmp.i, label %for.body.i, label %xhci_xfer_create_sgl.exit, !llvm.loop !14
 
 err.i:                                            ; preds = %sw.bb15.us.i, %sw.bb.us.i, %if.then21.i, %sw.bb.i
   tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #15
@@ -2505,7 +2505,7 @@ xhci_dma_read_u32s.exit34:                        ; preds = %if.then2.xhci_dma_r
   %conv15 = or i32 %and7, %14
   store i32 %conv15, ptr %ctx2, align 8
   %shr = lshr i64 %11, 32
-  %conv19 = trunc i64 %shr to i32
+  %conv19 = trunc nuw i64 %shr to i32
   %arrayidx20 = getelementptr inbounds i8, ptr %ctx2, i64 4
   store i32 %conv19, ptr %arrayidx20, align 4
   %15 = load i64, ptr %sctx, align 8
@@ -2556,7 +2556,7 @@ if.then26:                                        ; preds = %xhci_dma_write_u32s
   %arrayidx33 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %conv32, ptr %arrayidx33, align 8
   %shr35 = lshr i64 %20, 32
-  %conv37 = trunc i64 %shr35 to i32
+  %conv37 = trunc nuw i64 %shr35 to i32
   %arrayidx38 = getelementptr inbounds i8, ptr %ctx, i64 12
   store i32 %conv37, ptr %arrayidx38, align 4
   br label %if.end39
@@ -2564,7 +2564,7 @@ if.then26:                                        ; preds = %xhci_dma_write_u32s
 if.end39:                                         ; preds = %if.then, %if.then26
   %23 = load i64, ptr %pctx, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i43)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i43, ptr noundef nonnull align 16 dereferenceable(20) %ctx, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i43, ptr noundef nonnull readonly align 16 dereferenceable(20) %ctx, i64 20, i1 false)
   %24 = load ptr, ptr %as.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -2904,7 +2904,7 @@ return:                                           ; preds = %if.then26.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @xhci_ring_fetch(ptr nocapture noundef readonly %xhci, ptr nocapture noundef %ring, ptr noundef %trb, ptr noundef writeonly %addr) unnamed_addr #2 {
+define internal fastcc range(i32 0, 64) i32 @xhci_ring_fetch(ptr nocapture noundef readonly %xhci, ptr nocapture noundef %ring, ptr noundef %trb, ptr noundef writeonly %addr) unnamed_addr #2 {
 entry:
   %_now.i.i36 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3286,7 +3286,7 @@ land.lhs.true.if.then28_crit_edge:                ; preds = %land.lhs.true
   br label %if.then28
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %tobool18 = trunc i8 %shortpkt.244 to i1
+  %tobool18 = trunc nuw i8 %shortpkt.244 to i1
   %and21 = and i32 %6, 4
   %tobool22.not = icmp ne i32 %and21, 0
   %or.cond33.not = and i1 %tobool22.not, %tobool18
@@ -3320,7 +3320,7 @@ if.then28:                                        ; preds = %land.lhs.true.if.th
   %15 = load i64, ptr %addr, align 8
   store i64 %15, ptr %ptr, align 8
   %cmp38 = icmp eq i32 %10, 1
-  %tobool41 = trunc i8 %shortpkt.244 to i1
+  %tobool41 = trunc nuw i8 %shortpkt.244 to i1
   %cond = select i1 %tobool41, i32 13, i32 1
   %storemerge = select i1 %cmp38, i32 %cond, i32 %10
   store i32 %storemerge, ptr %ccode44, align 4
@@ -3362,7 +3362,7 @@ if.end65:                                         ; preds = %if.end56.if.end65_c
   %spec.select35 = select i1 %cond1, i8 %shortpkt.245, i8 0
   %inc = add nuw i32 %i.054, 1
   %cmp = icmp ult i32 %inc, %19
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %if.end65, %if.end56, %entry
   ret void
@@ -3704,13 +3704,13 @@ while.cond.sink.split:                            ; preds = %entry, %while.body
 
 while.cond:                                       ; preds = %while.cond.sink.split, %entry
   %1 = phi i32 [ %0, %entry ], [ %.sink56, %while.cond.sink.split ]
-  %2 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !18
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %tobool.not = icmp ult i32 %2, 2
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %inc = add i32 %1, 1
-  br label %while.cond.sink.split, !llvm.loop !19
+  br label %while.cond.sink.split, !llvm.loop !16
 
 while.end:                                        ; preds = %while.cond
   %cmp6 = icmp eq i32 %1, 0
@@ -3799,7 +3799,7 @@ if.then14.i:                                      ; preds = %for.body.i
 
 if.then15.i:                                      ; preds = %if.then14.i
   %14 = load i32, ptr %numports_3.i, align 4
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw i64 %indvars.iv.i to i32
   %add17.i = add i32 %14, %15
   %idxprom.i = zext i32 %add17.i to i64
   %arrayidx.i = getelementptr [30 x %struct.XHCIPort], ptr %ports.i, i64 0, i64 %idxprom.i
@@ -3832,7 +3832,7 @@ if.else32.i:                                      ; preds = %if.end26.i
 
 if.end33.i:                                       ; preds = %if.end26.i
   %name.i = getelementptr inbounds i8, ptr %port.0.i, i64 28
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw i64 %indvars.iv.i to i32
   %19 = add nuw nsw i32 %18, 1
   %call35.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 20, ptr noundef nonnull @.str.184, i32 noundef %19) #15
   %20 = load i32, ptr %speedmask29.i, align 8
@@ -3865,7 +3865,7 @@ if.then42.i:                                      ; preds = %if.then40.i
 
 if.else48.i:                                      ; preds = %if.then40.i
   %26 = load i32, ptr %numports_2.i, align 16
-  %27 = trunc i64 %indvars.iv.i to i32
+  %27 = trunc nuw i64 %indvars.iv.i to i32
   %add51.i = add i32 %26, %27
   %idxprom52.i = zext i32 %add51.i to i64
   %arrayidx53.i = getelementptr [30 x %struct.XHCIPort], ptr %ports.i, i64 0, i64 %idxprom52.i
@@ -3891,7 +3891,7 @@ if.else66.i:                                      ; preds = %if.end58.i
 if.end67.i:                                       ; preds = %if.end58.i
   %name68.i = getelementptr inbounds i8, ptr %port.1.i, i64 28
   %28 = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %call71.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name68.i, i64 noundef 20, ptr noundef nonnull @.str.185, i32 noundef %29) #15
   %30 = load i32, ptr %speedmask63.i, align 8
   %or73.i = or i32 %30, %speedmask.0.i
@@ -3901,10 +3901,10 @@ if.end74.i:                                       ; preds = %if.end67.i, %if.end
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i, %if.end37.if.end74_crit_edge.i ], [ %28, %if.end67.i ]
   %speedmask.1.i = phi i32 [ %speedmask.0.i, %if.end37.if.end74_crit_edge.i ], [ %or73.i, %if.end67.i ]
   %arrayidx78.i = getelementptr [15 x %struct.USBPort], ptr %uports.i, i64 0, i64 %indvars.iv.i
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   tail call void @usb_register_port(ptr noundef nonnull %bus.i, ptr noundef %arrayidx78.i, ptr noundef nonnull %call.i, i32 noundef %31, ptr noundef nonnull @xhci_uport_ops, i32 noundef %speedmask.1.i) #15
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %usb_xhci_init.exit, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %usb_xhci_init.exit, label %for.body.i, !llvm.loop !17
 
 usb_xhci_init.exit:                               ; preds = %if.end74.i, %if.end5.i
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #17
@@ -3948,7 +3948,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc37 = add nuw i32 %i.053, 1
   %33 = load i32, ptr %numports.i, align 16
   %cmp32 = icmp ult i32 %inc37, %33
-  br i1 %cmp32, label %for.body, label %for.end, !llvm.loop !21
+  br i1 %cmp32, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %usb_xhci_init.exit
   ret void
@@ -4004,7 +4004,7 @@ for.body:                                         ; preds = %trace_usb_xhci_exit
   tail call fastcc void @xhci_disable_slot(ptr noundef nonnull %call.i, i32 noundef %add)
   %7 = load i32, ptr %numslots, align 4
   %cmp = icmp ult i32 %add, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %trace_usb_xhci_exit.exit
   %mfwrap_timer = getelementptr inbounds i8, ptr %call.i, i64 29920
@@ -4045,7 +4045,7 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %inc13 = add nuw i32 %i.125, 1
   %10 = load i32, ptr %numports, align 16
   %cmp8 = icmp ult i32 %inc13, %10
-  br i1 %cmp8, label %for.body9, label %for.end14, !llvm.loop !23
+  br i1 %cmp8, label %for.body9, label %for.end14, !llvm.loop !20
 
 for.end14:                                        ; preds = %for.body9, %if.end
   %bus = getelementptr inbounds i8, ptr %call.i, i64 160
@@ -4119,7 +4119,7 @@ for.body:                                         ; preds = %trace_usb_xhci_rese
   tail call fastcc void @xhci_disable_slot(ptr noundef nonnull %call.i, i32 noundef %add)
   %8 = load i32, ptr %numslots, align 4
   %cmp = icmp ult i32 %add, %8
-  br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !24
+  br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !21
 
 for.cond9.preheader:                              ; preds = %for.body5, %for.cond3.preheader
   %numintrs = getelementptr inbounds i8, ptr %call.i, i64 1736
@@ -4139,7 +4139,7 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %f
   %inc7 = add nuw i32 %i.149, 1
   %10 = load i32, ptr %numports, align 16
   %cmp4 = icmp ult i32 %inc7, %10
-  br i1 %cmp4, label %for.body5, label %for.cond9.preheader, !llvm.loop !25
+  br i1 %cmp4, label %for.body5, label %for.cond9.preheader, !llvm.loop !22
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
   %i.251 = phi i32 [ 0, %for.body11.lr.ph ], [ %inc43, %for.body11 ]
@@ -4156,7 +4156,7 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   store i32 0, ptr %ev_buffer_get, align 4
   %inc43 = add nuw i32 %i.251, 1
   %cmp10 = icmp ult i32 %inc43, %9
-  br i1 %cmp10, label %for.body11, label %for.end44, !llvm.loop !26
+  br i1 %cmp10, label %for.body11, label %for.end44, !llvm.loop !23
 
 for.end44:                                        ; preds = %for.body11, %for.cond9.preheader
   %call45 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
@@ -4447,7 +4447,7 @@ for.body.i:                                       ; preds = %xhci_lookup_port.ex
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i32 %slot.016.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %9
-  br i1 %exitcond.not.i, label %xhci_detach_slot.exit, label %for.body.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %xhci_detach_slot.exit, label %for.body.i, !llvm.loop !24
 
 for.end.i:                                        ; preds = %for.body.i, %xhci_lookup_port.exit
   %slot.0.lcssa.i = phi i32 [ 0, %xhci_lookup_port.exit ], [ %slot.016.i, %for.body.i ]
@@ -4468,13 +4468,13 @@ for.body9.i:                                      ; preds = %for.inc18.i, %for.c
   br i1 %tobool.not.i6, label %for.inc18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %for.body9.i
-  %12 = trunc i64 %.pre.i to i32
+  %12 = trunc nuw nsw i64 %.pre.i to i32
   tail call fastcc void @xhci_ep_nuke_xfers(ptr noundef nonnull %0, i32 noundef %add.i5, i32 noundef %12, i32 noundef 0)
   br label %for.inc18.i
 
 for.inc18.i:                                      ; preds = %if.then15.i, %for.body9.i
   %exitcond23.not.i = icmp eq i64 %.pre.i, 31
-  br i1 %exitcond23.not.i, label %for.end20.i, label %for.body9.i, !llvm.loop !28
+  br i1 %exitcond23.not.i, label %for.end20.i, label %for.body9.i, !llvm.loop !25
 
 for.end20.i:                                      ; preds = %for.inc18.i
   %uport24.i = getelementptr [64 x %struct.XHCISlot], ptr %slots.i, i64 0, i64 %idxprom11.i, i32 4
@@ -4511,7 +4511,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i32 %slot.016.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %2
-  br i1 %exitcond.not.i, label %xhci_detach_slot.exit, label %for.body.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %xhci_detach_slot.exit, label %for.body.i, !llvm.loop !24
 
 for.end.i:                                        ; preds = %for.body.i, %entry
   %slot.0.lcssa.i = phi i32 [ 0, %entry ], [ %slot.016.i, %for.body.i ]
@@ -4532,13 +4532,13 @@ for.body9.i:                                      ; preds = %for.inc18.i, %for.c
   br i1 %tobool.not.i, label %for.inc18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %for.body9.i
-  %5 = trunc i64 %.pre.i to i32
+  %5 = trunc nuw nsw i64 %.pre.i to i32
   tail call fastcc void @xhci_ep_nuke_xfers(ptr noundef nonnull %add.ptr, i32 noundef %add.i, i32 noundef %5, i32 noundef 0)
   br label %for.inc18.i
 
 for.inc18.i:                                      ; preds = %if.then15.i, %for.body9.i
   %exitcond23.not.i = icmp eq i64 %.pre.i, 31
-  br i1 %exitcond23.not.i, label %for.end20.i, label %for.body9.i, !llvm.loop !28
+  br i1 %exitcond23.not.i, label %for.end20.i, label %for.body9.i, !llvm.loop !25
 
 for.end20.i:                                      ; preds = %for.inc18.i
   %uport24.i = getelementptr [64 x %struct.XHCISlot], ptr %slots.i, i64 0, i64 %idxprom11.i, i32 4
@@ -5142,7 +5142,7 @@ declare void @usb_device_ep_stopped(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @usb_cancel_packet(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @xhci_cap_read(ptr nocapture noundef readonly %ptr, i64 noundef %reg, i32 %size) #2 {
+define internal range(i64 0, 4294967296) i64 @xhci_cap_read(ptr nocapture noundef readonly %ptr, i64 noundef %reg, i32 %size) #2 {
 entry:
   %_now.i.i19 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5346,7 +5346,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @xhci_oper_read(ptr nocapture noundef readonly %ptr, i64 noundef %reg, i32 %size) #2 {
+define internal range(i64 0, 4294967296) i64 @xhci_oper_read(ptr nocapture noundef readonly %ptr, i64 noundef %reg, i32 %size) #2 {
 entry:
   %_now.i.i11 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5909,7 +5909,7 @@ sw.epilog:                                        ; preds = %if.then23.i79, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @xhci_runtime_read(ptr nocapture noundef readonly %ptr, i64 noundef %reg, i32 %size) #2 {
+define internal range(i64 0, 4294967296) i64 @xhci_runtime_read(ptr nocapture noundef readonly %ptr, i64 noundef %reg, i32 %size) #2 {
 entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5931,7 +5931,7 @@ sw.bb:                                            ; preds = %if.then
   br label %if.end
 
 sw.default:                                       ; preds = %if.then
-  %conv1 = trunc i64 %reg to i32
+  %conv1 = trunc nuw nsw i64 %reg to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %2, 0
@@ -6621,7 +6621,7 @@ if.then6:                                         ; preds = %if.then3
 while.cond.i:                                     ; preds = %sw.epilog.i, %if.then6
   %count.0.i = phi i32 [ 0, %if.then6 ], [ %inc126.i, %sw.epilog.i ]
   %slotid.0.i = phi i32 [ 0, %if.then6 ], [ %slotid.1.i, %sw.epilog.i ]
-  %call3.i = call fastcc i32 @xhci_ring_fetch(ptr noundef %ptr, ptr noundef nonnull %cmd_ring.i, ptr noundef nonnull %trb.i, ptr noundef nonnull %addr.i), !range !15
+  %call3.i = call fastcc i32 @xhci_ring_fetch(ptr noundef %ptr, ptr noundef nonnull %cmd_ring.i, ptr noundef nonnull %trb.i, ptr noundef nonnull %addr.i)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %xhci_process_commands.exit, label %while.body.i
 
@@ -6663,14 +6663,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %do.end12.i, label %for.body.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %do.end12.i, label %for.body.i, !llvm.loop !26
 
 do.end12.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   store i32 9, ptr %ccode121.i, align 4
   br label %sw.epilog.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %12 = trunc i64 %indvars.iv.i to i32
+  %12 = trunc nuw i64 %indvars.iv.i to i32
   %add.i = add nuw i32 %12, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %13 = load i32, ptr @trace_events_enabled_count, align 4
@@ -6947,7 +6947,7 @@ if.end73.i.i:                                     ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.end73.i.i, %for.body.i.i
   %inc.i.i = add nuw i32 %i.096.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %45
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !30
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !27
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %for.cond.preheader.i.i
   %uport86.i.i = getelementptr inbounds i8, ptr %arrayidx.i73.i, i64 16
@@ -6956,7 +6956,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %for.c
   store i64 %27, ptr %ctx.i.i, align 8
   %47 = load i32, ptr %arrayidx87.i.i, align 8
   %shr.i89.i = lshr i32 %47, 22
-  %conv88.i.i = trunc i32 %shr.i89.i to i16
+  %conv88.i.i = trunc nuw nsw i32 %shr.i89.i to i16
   %intr.i.i = getelementptr inbounds i8, ptr %arrayidx.i73.i, i64 2
   store i16 %conv88.i.i, ptr %intr.i.i, align 2
   call void @usb_device_reset(ptr noundef nonnull %43) #15
@@ -6990,7 +6990,7 @@ if.end101.i.i:                                    ; preds = %if.end100.i.i, %if.
   %add102.i.i = add i64 %27, 32
   call fastcc void @xhci_enable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i64.i, i32 noundef 1, i64 noundef %add102.i.i, ptr noundef nonnull %ep0_ctx.i.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %slot_ctx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i.i, i64 16, i1 false)
   %49 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -7017,7 +7017,7 @@ do.end.i80.i.i:                                   ; preds = %if.then46.i.i.i, %d
 xhci_dma_write_u32s.exit.i.i:                     ; preds = %do.end.i80.i.i, %if.end101.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i83.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i83.i.i, ptr noundef nonnull align 16 dereferenceable(20) %ep0_ctx.i.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i83.i.i, ptr noundef nonnull readonly align 16 dereferenceable(20) %ep0_ctx.i.i, i64 20, i1 false)
   %52 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -7149,14 +7149,14 @@ for.body.i150.i:                                  ; preds = %for.inc.i151.i, %fo
   br i1 %tobool13.not.i.i, label %for.inc.i151.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %for.body.i150.i
-  %68 = trunc i64 %indvars.iv157.i.i to i32
+  %68 = trunc nuw nsw i64 %indvars.iv157.i.i to i32
   call fastcc void @xhci_disable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i101.i, i32 noundef %68)
   br label %for.inc.i151.i
 
 for.inc.i151.i:                                   ; preds = %if.then14.i.i, %for.body.i150.i
   %indvars.iv.next158.i.i = add nuw nsw i64 %indvars.iv157.i.i, 1
   %exitcond161.not.i.i = icmp eq i64 %indvars.iv.next158.i.i, 32
-  br i1 %exitcond161.not.i.i, label %for.end.i152.i, label %for.body.i150.i, !llvm.loop !31
+  br i1 %exitcond161.not.i.i, label %for.end.i152.i, label %for.body.i150.i, !llvm.loop !28
 
 for.end.i152.i:                                   ; preds = %for.inc.i151.i
   %69 = load ptr, ptr %as.i487.i, align 8
@@ -7193,7 +7193,7 @@ xhci_dma_read_u32s.exit.i161.i:                   ; preds = %do.end.i.i.i, %for.
   %and.i162.i = phi i32 [ %71, %for.end.xhci_dma_read_u32s.exit_crit_edge.i.i ], [ 402653183, %do.end.i.i.i ]
   store i32 %and.i162.i, ptr %arrayidx17.phi.trans.insert.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i117.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i117.i, ptr noundef nonnull align 16 dereferenceable(16) %slot_ctx.i120.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i117.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i120.i, i64 16, i1 false)
   %74 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -7329,7 +7329,7 @@ if.else.i.i97.i.i:                                ; preds = %if.end42.i146.i
 for.body.us.i.i.i.i:                              ; preds = %if.end42.i146.i, %for.inc.us.i.i.i.i
   %indvars.iv26.i.i.i.i = phi i64 [ %indvars.iv.next27.i.i.i.i, %for.inc.us.i.i.i.i ], [ 2, %if.end42.i146.i ]
   %j.022.us.i.i.i.i = phi i32 [ %j.1.us.i.i.i.i, %for.inc.us.i.i.i.i ], [ 0, %if.end42.i146.i ]
-  %91 = trunc i64 %indvars.iv26.i.i.i.i to i32
+  %91 = trunc nuw nsw i64 %indvars.iv26.i.i.i.i to i32
   %shl.us.i.i.i.i = shl nuw i32 1, %91
   %and.us.i.i.i.i = and i32 %shl.us.i.i.i.i, %or45.i.i
   %tobool.not.us.i.i.i.i = icmp eq i32 %and.us.i.i.i.i, 0
@@ -7385,7 +7385,7 @@ for.inc.us.i.i.i.i:                               ; preds = %if.end14.us.i.i.i.i
   %j.1.us.i.i.i.i = phi i32 [ %inc.us.i.i.i.i, %if.end14.us.i.i.i.i ], [ %j.022.us.i.i.i.i, %lor.lhs.false.us.i.i.i.i ], [ %j.022.us.i.i.i.i, %for.body.us.i.i.i.i ], [ %j.022.us.i.i.i.i, %if.end4.us.i.i.i.i ], [ %j.022.us.i.i.i.i, %if.end.i.us.i.i.i.i ], [ %j.022.us.i.i.i.i, %lor.lhs.false.i.us.i.i.i.i ]
   %indvars.iv.next27.i.i.i.i = add nuw nsw i64 %indvars.iv26.i.i.i.i, 1
   %exitcond30.not.i.i.i.i = icmp eq i64 %indvars.iv.next27.i.i.i.i, 32
-  br i1 %exitcond30.not.i.i.i.i, label %xhci_epmask_to_eps_with_streams.exit.i.i.i, label %for.body.us.i.i.i.i, !llvm.loop !32
+  br i1 %exitcond30.not.i.i.i.i, label %xhci_epmask_to_eps_with_streams.exit.i.i.i, label %for.body.us.i.i.i.i, !llvm.loop !29
 
 xhci_epmask_to_eps_with_streams.exit.i.i.i:       ; preds = %for.inc.us.i.i.i.i
   %tobool.not.i.i.i = icmp eq i32 %j.1.us.i.i.i.i, 0
@@ -7405,7 +7405,7 @@ xhci_free_device_streams.exit.i.i:                ; preds = %if.then.i.i.i, %xhc
 for.body48.i.i:                                   ; preds = %for.inc82.i.i, %xhci_free_device_streams.exit.i.i
   %indvars.iv.i.i = phi i64 [ 2, %xhci_free_device_streams.exit.i.i ], [ %indvars.iv.next.i.i, %for.inc82.i.i ]
   %102 = load i32, ptr %ictl_ctx.i119.i, align 4
-  %103 = trunc i64 %indvars.iv.i.i to i32
+  %103 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shl.i.i = shl nuw i32 1, %103
   %and50.i.i = and i32 %shl.i.i, %102
   %tobool51.not.i.i = icmp eq i32 %and50.i.i, 0
@@ -7453,7 +7453,7 @@ xhci_dma_read_u32s.exit108.i.i:                   ; preds = %do.end.i105.i.i, %i
   %add68.i.i = add i64 %105, %65
   call fastcc void @xhci_enable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i101.i, i32 noundef %103, i64 noundef %add68.i.i, ptr noundef nonnull %ep_ctx.i.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i109.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i109.i.i, ptr noundef nonnull align 16 dereferenceable(20) %ep_ctx.i.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i109.i.i, ptr noundef nonnull readonly align 16 dereferenceable(20) %ep_ctx.i.i, i64 20, i1 false)
   %109 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -7484,7 +7484,7 @@ xhci_dma_write_u32s.exit120.i.i:                  ; preds = %do.end.i117.i.i, %x
 for.inc82.i.i:                                    ; preds = %xhci_dma_write_u32s.exit120.i.i, %if.end54.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i147.i = icmp eq i64 %indvars.iv.next.i.i, 32
-  br i1 %exitcond.not.i147.i, label %for.end84.i.i, label %for.body48.i.i, !llvm.loop !33
+  br i1 %exitcond.not.i147.i, label %for.end84.i.i, label %for.body48.i.i, !llvm.loop !30
 
 for.end84.i.i:                                    ; preds = %for.inc82.i.i
   %112 = load i32, ptr %arrayidx27.i.i, align 4
@@ -7501,7 +7501,7 @@ if.else.i.i134.i.i:                               ; preds = %for.end84.i.i
 for.body.i.i.i.i:                                 ; preds = %for.end84.i.i, %for.inc.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.inc.i.i.i.i ], [ 2, %for.end84.i.i ]
   %j.022.i.i.i.i = phi i32 [ %j.1.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.end84.i.i ]
-  %114 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %114 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %shl.i.i.i.i = shl nuw i32 1, %114
   %and.i.i128.i.i = and i32 %shl.i.i.i.i, %112
   %tobool.not.i.i.i.i = icmp eq i32 %and.i.i128.i.i, 0
@@ -7559,7 +7559,7 @@ for.inc.i.i.i.i:                                  ; preds = %if.end14.i.i.i.i, %
   %j.1.i.i.i.i = phi i32 [ %inc.i.i.i.i, %if.end14.i.i.i.i ], [ %j.022.i.i.i.i, %lor.lhs.false.i.i.i.i ], [ %j.022.i.i.i.i, %for.body.i.i.i.i ], [ %j.022.i.i.i.i, %if.end4.i.i.i.i ], [ %j.022.i.i.i.i, %if.end.i.i.i.i.i ], [ %j.022.i.i.i.i, %lor.lhs.false.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 32
-  br i1 %exitcond.not.i.i.i.i, label %xhci_epmask_to_eps_with_streams.exit.i131.i.i, label %for.body.i.i.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i.i.i, label %xhci_epmask_to_eps_with_streams.exit.i131.i.i, label %for.body.i.i.i.i, !llvm.loop !29
 
 xhci_epmask_to_eps_with_streams.exit.i131.i.i:    ; preds = %for.inc.i.i.i.i
   %cmp.i.i.i = icmp eq i32 %j.1.i.i.i.i, 0
@@ -7582,7 +7582,7 @@ for.body.preheader.i.i.i:                         ; preds = %if.end.i.i.i
 for.cond.i.i.i:                                   ; preds = %if.end9.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !31
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.body.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
@@ -7641,7 +7641,7 @@ if.then98.i.i:                                    ; preds = %for.body93.i.i
 for.inc101.i.i:                                   ; preds = %if.then98.i.i, %for.body93.i.i
   %inc102.i.i = add nuw nsw i32 %i.2152.i.i, 1
   %exitcond156.not.i.i = icmp eq i32 %inc102.i.i, 32
-  br i1 %exitcond156.not.i.i, label %xhci_configure_slot.exit.i, label %for.body93.i.i, !llvm.loop !35
+  br i1 %exitcond156.not.i.i, label %xhci_configure_slot.exit.i, label %for.body93.i.i, !llvm.loop !32
 
 if.end104.i.i:                                    ; preds = %for.end.i.i.i, %xhci_epmask_to_eps_with_streams.exit.i131.i.i
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %epctxs.i.i.i)
@@ -7657,7 +7657,7 @@ if.end104.i.i:                                    ; preds = %for.end.i.i.i, %xhc
   %or114.i.i = or disjoint i32 %and112.i.i, %and110.i.i
   store i32 %or114.i.i, ptr %slot_ctx.i120.i, align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i135.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i135.i.i, ptr noundef nonnull align 16 dereferenceable(16) %slot_ctx.i120.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i135.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i120.i, i64 16, i1 false)
   %138 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -7869,13 +7869,13 @@ xhci_dma_read_u32s.exit44.i.i:                    ; preds = %do.end.i41.i.i, %xh
   %165 = load <2 x i32>, ptr %arrayidx21.i.i, align 4
   %166 = extractelement <2 x i32> %165, i64 1
   %shr.i228.i = lshr i32 %166, 22
-  %conv.i229.i = trunc i32 %shr.i228.i to i16
+  %conv.i229.i = trunc nuw nsw i32 %shr.i228.i to i16
   store i16 %conv.i229.i, ptr %intr.i230.i, align 2
   %167 = and <2 x i32> %165, <i32 65535, i32 -4194304>
   %168 = or disjoint <2 x i32> %167, %164
   store <2 x i32> %168, ptr %arrayidx19.phi.trans.insert.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i193.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i193.i, ptr noundef nonnull align 16 dereferenceable(16) %slot_ctx.i198.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i193.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i198.i, i64 16, i1 false)
   %169 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -7974,7 +7974,7 @@ xhci_dma_read_u32s.exit74.i254.i:                 ; preds = %do.end.i71.i251.i, 
   %or62.i.i = or disjoint i32 %and60.i.i, %and58.i.i
   store i32 %or62.i.i, ptr %arrayidx57.phi.trans.insert.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i75.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i75.i.i, ptr noundef nonnull align 16 dereferenceable(20) %ep0_ctx.i196.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i75.i.i, ptr noundef nonnull readonly align 16 dereferenceable(20) %ep0_ctx.i196.i, i64 20, i1 false)
   %181 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -8114,7 +8114,7 @@ for.body.i.i294.i:                                ; preds = %for.body.i.i294.i, 
   %197 = load i32, ptr %nr_pstreams.i.i, align 4
   %198 = zext i32 %197 to i64
   %cmp.i.i297.i = icmp ult i64 %indvars.iv.next.i.i296.i, %198
-  br i1 %cmp.i.i297.i, label %for.body.i.i294.i, label %xhci_stop_ep.exit.i, !llvm.loop !36
+  br i1 %cmp.i.i297.i, label %for.body.i.i294.i, label %xhci_stop_ep.exit.i, !llvm.loop !33
 
 xhci_stop_ep.exit.i:                              ; preds = %for.body.i.i294.i, %if.end12.i.i, %if.end5.i.i, %if.end.i289.i
   %retval.0.i298.i = phi i32 [ 5, %if.end.i289.i ], [ 12, %if.end5.i.i ], [ 1, %if.end12.i.i ], [ 1, %for.body.i.i294.i ]
@@ -8246,7 +8246,7 @@ for.body.i.i353.i:                                ; preds = %for.body.i.i353.i, 
   %215 = load i32, ptr %nr_pstreams.i349.i, align 4
   %216 = zext i32 %215 to i64
   %cmp.i.i357.i = icmp ult i64 %indvars.iv.next.i.i356.i, %216
-  br i1 %cmp.i.i357.i, label %for.body.i.i353.i, label %xhci_reset_ep.exit.i, !llvm.loop !36
+  br i1 %cmp.i.i357.i, label %for.body.i.i353.i, label %xhci_reset_ep.exit.i, !llvm.loop !33
 
 xhci_reset_ep.exit.i:                             ; preds = %for.body.i.i353.i, %if.end48.i.i, %lor.lhs.false39.i.i, %lor.lhs.false32.i.i, %if.end21.i.i, %if.end12.i344.i, %if.end5.i334.i, %if.end.i332.i
   %retval.0.i345.i = phi i32 [ 5, %if.end.i332.i ], [ 12, %if.end5.i334.i ], [ 19, %if.end12.i344.i ], [ 4, %lor.lhs.false39.i.i ], [ 4, %lor.lhs.false32.i.i ], [ 4, %if.end21.i.i ], [ 1, %if.end48.i.i ], [ 1, %for.body.i.i353.i ]
@@ -8450,14 +8450,14 @@ for.body.i450.i:                                  ; preds = %for.inc.i454.i, %if
   br i1 %tobool.not.i452.i, label %for.inc.i454.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %for.body.i450.i
-  %244 = trunc i64 %indvars.iv.i451.i to i32
+  %244 = trunc nuw nsw i64 %indvars.iv.i451.i to i32
   call fastcc void @xhci_disable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i419.i, i32 noundef %244)
   br label %for.inc.i454.i
 
 for.inc.i454.i:                                   ; preds = %if.then10.i.i, %for.body.i450.i
   %indvars.iv.next.i455.i = add nuw nsw i64 %indvars.iv.i451.i, 1
   %exitcond.not.i456.i = icmp eq i64 %indvars.iv.next.i455.i, 32
-  br i1 %exitcond.not.i456.i, label %for.end.i457.i, label %for.body.i450.i, !llvm.loop !37
+  br i1 %exitcond.not.i456.i, label %for.end.i457.i, label %for.body.i450.i, !llvm.loop !34
 
 for.end.i457.i:                                   ; preds = %for.inc.i454.i
   %245 = load ptr, ptr %as.i487.i, align 8
@@ -8494,7 +8494,7 @@ xhci_dma_read_u32s.exit.i468.i:                   ; preds = %do.end.i.i465.i, %f
   %and.i469.i = phi i32 [ %247, %for.end.xhci_dma_read_u32s.exit_crit_edge.i474.i ], [ 268435455, %do.end.i.i465.i ]
   store i32 %and.i469.i, ptr %arrayidx12.phi.trans.insert.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i435.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i435.i, ptr noundef nonnull align 16 dereferenceable(16) %slot_ctx.i437.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i435.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i437.i, i64 16, i1 false)
   %250 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
@@ -8586,7 +8586,7 @@ sw.bb104.i:                                       ; preds = %while.body.i
 if.then107.i:                                     ; preds = %sw.bb104.i
   %260 = load i64, ptr %trb.i, align 8
   %shr109.i = lshr i64 %260, 32
-  %conv.i = trunc i64 %shr109.i to i32
+  %conv.i = trunc nuw i64 %shr109.i to i32
   %conv111.i = trunc i64 %260 to i32
   %sub.i494.i = add i32 %conv111.i, -1229146232
   %shr.i495.i = lshr i32 %conv.i, 8
@@ -8657,7 +8657,7 @@ sw.epilog.i:                                      ; preds = %trace_usb_xhci_unim
   call fastcc void @xhci_event(ptr noundef %ptr, ptr noundef nonnull %event.i, i32 noundef 0)
   %inc126.i = add nuw nsw i32 %count.0.i, 1
   %exitcond537.i = icmp eq i32 %inc126.i, 258
-  br i1 %exitcond537.i, label %if.then129.i, label %while.cond.i, !llvm.loop !38
+  br i1 %exitcond537.i, label %if.then129.i, label %while.cond.i, !llvm.loop !35
 
 if.then129.i:                                     ; preds = %sw.epilog.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i500.i)
@@ -8715,7 +8715,7 @@ if.else10:                                        ; preds = %if.end
   br i1 %or.cond13, label %if.end33, label %if.else29
 
 if.else29:                                        ; preds = %if.else10
-  %conv30 = trunc i64 %shr to i32
+  %conv30 = trunc nuw i64 %shr to i32
   %cmp1.not.i = icmp ult i32 %275, %conv30
   br i1 %cmp1.not.i, label %if.else.i22, label %if.end7.i
 
@@ -8821,14 +8821,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @xhci_disable_ep(ptr noundef nonnull %xhci, i32 noundef %slotid, i32 noundef %9)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %for.inc
   %arrayidx11 = getelementptr [64 x %struct.XHCISlot], ptr %slots, i64 0, i64 %idxprom
@@ -9079,7 +9079,7 @@ declare i32 @usb_device_alloc_streams(ptr noundef, ptr noundef, i32 noundef, i32
 declare i32 @dma_memory_set(ptr noundef, i64 noundef, i8 noundef zeroext, i64 noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @xhci_port_read(ptr nocapture noundef readonly %ptr, i64 noundef %reg, i32 %size) #2 {
+define internal range(i64 0, 4294967296) i64 @xhci_port_read(ptr nocapture noundef readonly %ptr, i64 noundef %reg, i32 %size) #2 {
 entry:
   %_now.i.i5 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -9551,13 +9551,13 @@ attributes #19 = { cold }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = !{i32 -1, i32 1}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = !{i32 0, i32 64}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = !{i32 0, i32 33}
+!18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
@@ -9576,6 +9576,3 @@ attributes #19 = { cold }
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}

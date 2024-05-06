@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ia32_signal_class = dso_local local_unnamed_addr global [4 x i32] [i32 37, i32 270, i32 238, i32 -1], align 16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @ia32_classify_syscall(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 7) i32 @ia32_classify_syscall(i32 noundef %0) local_unnamed_addr #0 align 16 {
   switch i32 %0, label %6 [
     i32 5, label %7
     i32 295, label %2

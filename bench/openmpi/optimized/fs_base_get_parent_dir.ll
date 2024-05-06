@@ -28,7 +28,7 @@ define void @mca_fs_base_get_parent_dir(ptr nocapture noundef readonly %0, ptr n
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %9 = call i32 @lstat(ptr noundef nonnull %0, ptr noundef nonnull %4) #10
+  %9 = call i32 @lstat(ptr noundef nonnull readonly %0, ptr noundef nonnull %4) #10
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %15
 
@@ -47,13 +47,13 @@ define void @mca_fs_base_get_parent_dir(ptr nocapture noundef readonly %0, ptr n
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %3)
-  %18 = call i64 @readlink(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4096) #10
+  %18 = call i64 @readlink(ptr noundef nonnull readonly %0, ptr noundef nonnull %3, i64 noundef 4096) #10
   %19 = and i64 %18, 4294967295
   %20 = icmp eq i64 %19, 4294967295
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %17
-  %22 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
+  %22 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #10
   br label %mca_fs_base_get_real_filename.exit
 
 23:                                               ; preds = %17
@@ -111,7 +111,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_fs_base_get_fstype(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 1, 7) i32 @mca_fs_base_get_fstype(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
@@ -167,7 +167,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_fs_base_get_mpi_err(i32 noundef %0) local_unnamed_addr #6 {
+define range(i32 16, 46) i32 @mca_fs_base_get_mpi_err(i32 noundef %0) local_unnamed_addr #6 {
   switch i32 %0, label %10 [
     i32 13, label %11
     i32 36, label %2
@@ -235,7 +235,7 @@ define i32 @mca_fs_base_get_file_perm(ptr nocapture noundef readonly %0) local_u
 declare i32 @umask(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @mca_fs_base_get_file_amode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 256) i32 @mca_fs_base_get_file_amode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = lshr i32 %1, 2
   %.2 = and i32 %3, 3
   %4 = icmp eq i32 %0, 0

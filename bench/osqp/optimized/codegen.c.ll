@@ -581,7 +581,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   %186 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.158, ptr noundef %1) #8
   %187 = getelementptr inbounds i8, ptr %165, i64 32
   %188 = load ptr, ptr %187, align 8
-  %189 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %188, ptr noundef nonnull %6), !range !6
+  %189 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %188, ptr noundef nonnull %6)
   %.not53.i.i.i = icmp eq i64 %189, 0
   br i1 %.not53.i.i.i, label %193, label %190
 
@@ -594,7 +594,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   %194 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.159, ptr noundef %1) #8
   %195 = getelementptr inbounds i8, ptr %165, i64 40
   %196 = load ptr, ptr %195, align 8
-  %197 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %196, ptr noundef nonnull %6), !range !6
+  %197 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %196, ptr noundef nonnull %6)
   %.not54.i.i.i = icmp eq i64 %197, 0
   br i1 %.not54.i.i.i, label %201, label %198
 
@@ -607,7 +607,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   %202 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.160, ptr noundef %1) #8
   %203 = getelementptr inbounds i8, ptr %165, i64 48
   %204 = load ptr, ptr %203, align 8
-  %205 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %204, ptr noundef nonnull %6), !range !6
+  %205 = call fastcc i64 @write_OSQPVectorf(ptr noundef nonnull %13, ptr noundef %204, ptr noundef nonnull %6)
   %.not55.i.i.i = icmp eq i64 %205, 0
   br i1 %.not55.i.i.i, label %write_data.exit.thread.i.i, label %206
 
@@ -659,7 +659,7 @@ write_data.exit.i.i:                              ; preds = %206, %198, %190, %1
   %233 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.182, ptr noundef %1) #8
   %234 = getelementptr inbounds i8, ptr %223, i64 80
   %235 = load ptr, ptr %234, align 8
-  %236 = call fastcc i64 @write_csc(ptr noundef nonnull %13, ptr noundef %235, ptr noundef nonnull %5), !range !6
+  %236 = call fastcc i64 @write_csc(ptr noundef nonnull %13, ptr noundef %235, ptr noundef nonnull %5)
   %.not171.i.i.i = icmp eq i64 %236, 0
   br i1 %.not171.i.i.i, label %240, label %237
 
@@ -690,7 +690,7 @@ write_data.exit.i.i:                              ; preds = %206, %198, %190, %1
   %252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, double noundef %251) #8
   %253 = add nuw nsw i64 %.016.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %253, %244
-  br i1 %exitcond.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %247
   %254 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -720,7 +720,7 @@ write_vecf.exit.i.i.i:                            ; preds = %255, %._crit_edge.i
   %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.64, i64 noundef %265) #8
   %267 = add nuw nsw i64 %.016.i178.i.i.i, 1
   %exitcond.not.i179.i.i.i = icmp eq i64 %267, %244
-  br i1 %exitcond.not.i179.i.i.i, label %._crit_edge.i176.i.i.i, label %.lr.ph.i177.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i179.i.i.i, label %._crit_edge.i176.i.i.i, label %.lr.ph.i177.i.i.i, !llvm.loop !7
 
 ._crit_edge.i176.i.i.i:                           ; preds = %.lr.ph.i177.i.i.i, %261
   %268 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -758,7 +758,7 @@ write_veci.exit.i.i.i:                            ; preds = %269, %._crit_edge.i
   %285 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, double noundef %284) #8
   %286 = add nuw nsw i64 %.016.i183.i.i.i, 1
   %exitcond.not.i184.i.i.i = icmp eq i64 %286, %231
-  br i1 %exitcond.not.i184.i.i.i, label %._crit_edge.i181.i.i.i, label %.lr.ph.i182.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i184.i.i.i, label %._crit_edge.i181.i.i.i, label %.lr.ph.i182.i.i.i, !llvm.loop !6
 
 ._crit_edge.i181.i.i.i:                           ; preds = %.lr.ph.i182.i.i.i, %280
   %287 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -776,7 +776,7 @@ write_vecf.exit185.i.i.i:                         ; preds = %288, %._crit_edge.i
   %292 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.188, ptr noundef %1) #8
   %293 = getelementptr inbounds i8, ptr %223, i64 168
   %294 = load ptr, ptr %293, align 8
-  %295 = call fastcc i64 @write_csc(ptr noundef %13, ptr noundef %294, ptr noundef nonnull %5), !range !6
+  %295 = call fastcc i64 @write_csc(ptr noundef %13, ptr noundef %294, ptr noundef nonnull %5)
   %.not173.i.i.i = icmp eq i64 %295, 0
   br i1 %.not173.i.i.i, label %299, label %296
 
@@ -813,7 +813,7 @@ write_vecf.exit185.i.i.i:                         ; preds = %288, %._crit_edge.i
   %317 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.64, i64 noundef %316) #8
   %318 = add nuw nsw i64 %.016.i189.i.i.i, 1
   %exitcond.not.i190.i.i.i = icmp eq i64 %318, %309
-  br i1 %exitcond.not.i190.i.i.i, label %._crit_edge.i187.i.i.i, label %.lr.ph.i188.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i190.i.i.i, label %._crit_edge.i187.i.i.i, label %.lr.ph.i188.i.i.i, !llvm.loop !7
 
 ._crit_edge.i187.i.i.i:                           ; preds = %.lr.ph.i188.i.i.i, %312
   %319 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -851,7 +851,7 @@ write_veci.exit191.i.i.i:                         ; preds = %320, %._crit_edge.i
   %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.64, i64 noundef %338) #8
   %340 = add nuw nsw i64 %.016.i195.i.i.i, 1
   %exitcond.not.i196.i.i.i = icmp eq i64 %340, %331
-  br i1 %exitcond.not.i196.i.i.i, label %._crit_edge.i193.i.i.i, label %.lr.ph.i194.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i196.i.i.i, label %._crit_edge.i193.i.i.i, label %.lr.ph.i194.i.i.i, !llvm.loop !7
 
 ._crit_edge.i193.i.i.i:                           ; preds = %.lr.ph.i194.i.i.i, %334
   %341 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -882,7 +882,7 @@ write_veci.exit197.i.i.i:                         ; preds = %342, %._crit_edge.i
   %354 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.64, i64 noundef %353) #8
   %355 = add nuw nsw i64 %.016.i201.i.i.i, 1
   %exitcond.not.i202.i.i.i = icmp eq i64 %355, %231
-  br i1 %exitcond.not.i202.i.i.i, label %._crit_edge.i199.i.i.i, label %.lr.ph.i200.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i202.i.i.i, label %._crit_edge.i199.i.i.i, label %.lr.ph.i200.i.i.i, !llvm.loop !7
 
 ._crit_edge.i199.i.i.i:                           ; preds = %.lr.ph.i200.i.i.i, %349
   %356 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -912,7 +912,7 @@ write_veci.exit203.i.i.i:                         ; preds = %357, %._crit_edge.i
   %368 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, double noundef %367) #8
   %369 = add nuw nsw i64 %.016.i207.i.i.i, 1
   %exitcond.not.i208.i.i.i = icmp eq i64 %369, %244
-  br i1 %exitcond.not.i208.i.i.i, label %._crit_edge.i205.i.i.i, label %.lr.ph.i206.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i208.i.i.i, label %._crit_edge.i205.i.i.i, label %.lr.ph.i206.i.i.i, !llvm.loop !6
 
 ._crit_edge.i205.i.i.i:                           ; preds = %.lr.ph.i206.i.i.i, %363
   %370 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -942,7 +942,7 @@ write_vecf.exit209.i.i.i:                         ; preds = %371, %._crit_edge.i
   %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.64, i64 noundef %381) #8
   %383 = add nuw nsw i64 %.016.i213.i.i.i, 1
   %exitcond.not.i214.i.i.i = icmp eq i64 %383, %244
-  br i1 %exitcond.not.i214.i.i.i, label %._crit_edge.i211.i.i.i, label %.lr.ph.i212.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i214.i.i.i, label %._crit_edge.i211.i.i.i, label %.lr.ph.i212.i.i.i, !llvm.loop !7
 
 ._crit_edge.i211.i.i.i:                           ; preds = %.lr.ph.i212.i.i.i, %377
   %384 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -972,7 +972,7 @@ write_veci.exit215.i.i.i:                         ; preds = %385, %._crit_edge.i
   %396 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.64, i64 noundef %395) #8
   %397 = add nuw nsw i64 %.016.i219.i.i.i, 1
   %exitcond.not.i220.i.i.i = icmp eq i64 %397, %244
-  br i1 %exitcond.not.i220.i.i.i, label %._crit_edge.i217.i.i.i, label %.lr.ph.i218.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i220.i.i.i, label %._crit_edge.i217.i.i.i, label %.lr.ph.i218.i.i.i, !llvm.loop !7
 
 ._crit_edge.i217.i.i.i:                           ; preds = %.lr.ph.i218.i.i.i, %391
   %398 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %13)
@@ -1075,7 +1075,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %462 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.85, ptr noundef %1) #8
   %463 = getelementptr inbounds i8, ptr %161, i64 24
   %464 = load ptr, ptr %463, align 8
-  %465 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %464, ptr noundef nonnull %7), !range !6
+  %465 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %464, ptr noundef nonnull %7)
   %.not265.i.i = icmp eq i64 %465, 0
   br i1 %.not265.i.i, label %469, label %466
 
@@ -1088,7 +1088,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %470 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.87, ptr noundef %1) #8
   %471 = getelementptr inbounds i8, ptr %161, i64 32
   %472 = load ptr, ptr %471, align 8
-  %473 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %472, ptr noundef nonnull %7), !range !6
+  %473 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %472, ptr noundef nonnull %7)
   %.not266.i.i = icmp eq i64 %473, 0
   br i1 %.not266.i.i, label %477, label %474
 
@@ -1105,7 +1105,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %480 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.88, ptr noundef %1) #8
   %481 = getelementptr inbounds i8, ptr %161, i64 40
   %482 = load ptr, ptr %481, align 8
-  %483 = call fastcc i64 @write_OSQPVectori(ptr noundef %13, ptr noundef %482, ptr noundef nonnull %7), !range !6
+  %483 = call fastcc i64 @write_OSQPVectori(ptr noundef %13, ptr noundef %482, ptr noundef nonnull %7)
   %.not267.i.i = icmp eq i64 %483, 0
   br i1 %.not267.i.i, label %487, label %484
 
@@ -1118,7 +1118,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %488 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.89, ptr noundef %1) #8
   %489 = getelementptr inbounds i8, ptr %161, i64 48
   %490 = load ptr, ptr %489, align 8
-  %491 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %490, ptr noundef nonnull %7), !range !6
+  %491 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %490, ptr noundef nonnull %7)
   %.not268.i.i = icmp eq i64 %491, 0
   br i1 %.not268.i.i, label %495, label %492
 
@@ -1131,7 +1131,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %496 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.90, ptr noundef %1) #8
   %497 = getelementptr inbounds i8, ptr %161, i64 56
   %498 = load ptr, ptr %497, align 8
-  %499 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %498, ptr noundef nonnull %7), !range !6
+  %499 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %498, ptr noundef nonnull %7)
   %.not269.i.i = icmp eq i64 %499, 0
   br i1 %.not269.i.i, label %503, label %500
 
@@ -1144,7 +1144,7 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
   %504 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.91, ptr noundef %1) #8
   %505 = getelementptr inbounds i8, ptr %161, i64 64
   %506 = load ptr, ptr %505, align 8
-  %507 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %506, ptr noundef nonnull %7), !range !6
+  %507 = call fastcc i64 @write_OSQPVectorf(ptr noundef %13, ptr noundef %506, ptr noundef nonnull %7)
   %.not270.i.i = icmp eq i64 %507, 0
   br i1 %.not270.i.i, label %511, label %508
 
@@ -1495,7 +1495,7 @@ define i64 @codegen_example(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i64 @write_OSQPVectorf(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPVectorf(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
   %4 = alloca [255 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %24, label %5
@@ -1522,7 +1522,7 @@ define internal fastcc noundef i64 @write_OSQPVectorf(ptr nocapture noundef %0, 
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.65, double noundef %16) #8
   %18 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %18, %9
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
   %19 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %0)
@@ -1545,7 +1545,7 @@ write_vecf.exit:                                  ; preds = %._crit_edge.i, %20
 declare i64 @_osqp_error_line(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i64 @write_OSQPVectori(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPVectori(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
   %4 = alloca [259 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %24, label %5
@@ -1572,7 +1572,7 @@ define internal fastcc noundef i64 @write_OSQPVectori(ptr nocapture noundef %0, 
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.64, i64 noundef %16) #8
   %18 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %18, %9
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
   %19 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %0)
@@ -1607,7 +1607,7 @@ define internal fastcc i64 @write_scaling(ptr nocapture noundef %0, ptr noundef 
   %9 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.225, ptr noundef %2) #8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = call fastcc i64 @write_OSQPVectorf(ptr noundef %0, ptr noundef %11, ptr noundef nonnull %4), !range !6
+  %12 = call fastcc i64 @write_OSQPVectorf(ptr noundef %0, ptr noundef %11, ptr noundef nonnull %4)
   %.not43 = icmp eq i64 %12, 0
   br i1 %.not43, label %16, label %13
 
@@ -1620,7 +1620,7 @@ define internal fastcc i64 @write_scaling(ptr nocapture noundef %0, ptr noundef 
   %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.226, ptr noundef %2) #8
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = call fastcc i64 @write_OSQPVectorf(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %4), !range !6
+  %20 = call fastcc i64 @write_OSQPVectorf(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %4)
   %.not44 = icmp eq i64 %20, 0
   br i1 %.not44, label %24, label %21
 
@@ -1633,7 +1633,7 @@ define internal fastcc i64 @write_scaling(ptr nocapture noundef %0, ptr noundef 
   %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.227, ptr noundef %2) #8
   %26 = getelementptr inbounds i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = call fastcc i64 @write_OSQPVectorf(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %4), !range !6
+  %28 = call fastcc i64 @write_OSQPVectorf(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %4)
   %.not45 = icmp eq i64 %28, 0
   br i1 %.not45, label %32, label %29
 
@@ -1646,7 +1646,7 @@ define internal fastcc i64 @write_scaling(ptr nocapture noundef %0, ptr noundef 
   %33 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.228, ptr noundef %2) #8
   %34 = getelementptr inbounds i8, ptr %1, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = call fastcc i64 @write_OSQPVectorf(ptr noundef %0, ptr noundef %35, ptr noundef nonnull %4), !range !6
+  %36 = call fastcc i64 @write_OSQPVectorf(ptr noundef %0, ptr noundef %35, ptr noundef nonnull %4)
   %.not46 = icmp eq i64 %36, 0
   br i1 %.not46, label %40, label %37
 
@@ -1675,7 +1675,7 @@ define internal fastcc i64 @write_scaling(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i64 @write_OSQPMatrix(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc i64 @write_OSQPMatrix(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
   %4 = alloca [259 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %5
@@ -1683,7 +1683,7 @@ define internal fastcc noundef i64 @write_OSQPMatrix(ptr nocapture noundef %0, p
 5:                                                ; preds = %3
   %6 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.167, ptr noundef %2) #8
   %7 = load ptr, ptr %1, align 8
-  %8 = call fastcc i64 @write_csc(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %4), !range !6
+  %8 = call fastcc i64 @write_csc(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %4)
   %.not15 = icmp eq i64 %8, 0
   br i1 %.not15, label %9, label %16
 
@@ -1702,7 +1702,7 @@ define internal fastcc noundef i64 @write_OSQPMatrix(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i64 @write_csc(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i64 0, 11) i64 @write_csc(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
   %4 = alloca [255 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %71, label %5
@@ -1731,7 +1731,7 @@ define internal fastcc noundef i64 @write_csc(ptr nocapture noundef %0, ptr noun
   %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.64, i64 noundef %18) #8
   %20 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %.016.i, %10
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
   %21 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %0)
@@ -1764,7 +1764,7 @@ write_veci.exit:                                  ; preds = %._crit_edge.i, %22
   %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.64, i64 noundef %35) #8
   %37 = add nuw nsw i64 %.016.i44, 1
   %exitcond.not.i45 = icmp eq i64 %37, %28
-  br i1 %exitcond.not.i45, label %._crit_edge.i42, label %.lr.ph.i43, !llvm.loop !8
+  br i1 %exitcond.not.i45, label %._crit_edge.i42, label %.lr.ph.i43, !llvm.loop !7
 
 ._crit_edge.i42:                                  ; preds = %.lr.ph.i43, %31
   %38 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %0)
@@ -1796,7 +1796,7 @@ write_veci.exit46:                                ; preds = %._crit_edge.i42, %3
   %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.65, double noundef %51) #8
   %53 = add nuw nsw i64 %.016.i50, 1
   %exitcond.not.i51 = icmp eq i64 %53, %44
-  br i1 %exitcond.not.i51, label %._crit_edge.i48, label %.lr.ph.i49, !llvm.loop !7
+  br i1 %exitcond.not.i51, label %._crit_edge.i48, label %.lr.ph.i49, !llvm.loop !6
 
 ._crit_edge.i48:                                  ; preds = %.lr.ph.i49, %47
   %54 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %0)
@@ -1856,6 +1856,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 0, i64 11}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

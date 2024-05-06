@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @qtest_allowed = dso_local local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @qtest_driver() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qtest_driver() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @qtest_get_virtual_clock() local_unnamed_addr #0 {
+define dso_local noundef i64 @qtest_get_virtual_clock() local_unnamed_addr #0 {
 entry:
   ret i64 0
 }

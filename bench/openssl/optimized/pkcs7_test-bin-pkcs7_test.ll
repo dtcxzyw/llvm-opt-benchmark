@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [57 x i8] c"PKCS7_verify(p7, NULL, store, msg_bio, NULL, PKCS7_TEXT)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @pkcs7_verify_test) #2
   ret i32 1
@@ -37,7 +37,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkcs7_verify_test() #0 {
+define internal range(i32 0, 2) i32 @pkcs7_verify_test() #0 {
 entry:
   %call = tail call ptr @BIO_s_mem() #2
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #2

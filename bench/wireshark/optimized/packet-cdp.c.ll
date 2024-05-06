@@ -659,7 +659,7 @@ define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.110281151 = phi i32 [ %135, %134 ], [ %129, %124 ]
   %.010341150 = phi i16 [ %137, %134 ], [ %130, %124 ]
   %131 = zext i16 %.010341150 to i32
-  %132 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.110281151, i32 noundef %131, ptr noundef %.01023), !range !4
+  %132 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.110281151, i32 noundef %131, ptr noundef %.01023)
   %133 = icmp slt i32 %132, 0
   br i1 %133, label %._crit_edge1155, label %134
 
@@ -669,7 +669,7 @@ define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %137 = sub i16 %.010341150, %136
   %138 = add i32 %.010201152, -1
   %.not1090 = icmp eq i32 %138, 0
-  br i1 %.not1090, label %._crit_edge1155, label %.lr.ph1154, !llvm.loop !5
+  br i1 %.not1090, label %._crit_edge1155, label %.lr.ph1154, !llvm.loop !4
 
 ._crit_edge1155:                                  ; preds = %134, %.lr.ph1154, %124
   %.01034.lcssa = phi i16 [ %130, %124 ], [ %.010341150, %.lr.ph1154 ], [ %137, %134 ]
@@ -762,7 +762,7 @@ dissect_capabilities.exit:                        ; preds = %149, %154
   %198 = call ptr @proto_tree_add_string(ptr noundef %185, i32 noundef %191, ptr noundef %0, i32 noundef %.019.i, i32 noundef %196, ptr noundef %197) #3
   %199 = sub i32 %.01718.i, %196
   %200 = icmp sgt i32 %199, 0
-  br i1 %200, label %.lr.ph.i, label %add_multi_line_string_to_tree.exit, !llvm.loop !7
+  br i1 %200, label %.lr.ph.i, label %add_multi_line_string_to_tree.exit, !llvm.loop !6
 
 add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -854,7 +854,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   %256 = add i32 %.210291145, 5
   %257 = add i16 %.110351144, -5
   %.not1084 = icmp eq i16 %257, 0
-  br i1 %.not1084, label %.loopexit, label %.lr.ph1147, !llvm.loop !8
+  br i1 %.not1084, label %.loopexit, label %.lr.ph1147, !llvm.loop !7
 
 258:                                              ; preds = %67
   br i1 %.not1049, label %311, label %259
@@ -1214,7 +1214,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   %.310301133 = phi i32 [ %514, %513 ], [ %508, %506 ]
   %.210361132 = phi i16 [ %516, %513 ], [ %509, %506 ]
   %510 = zext i16 %.210361132 to i32
-  %511 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.310301133, i32 noundef %510, ptr noundef %.310261101), !range !4
+  %511 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.310301133, i32 noundef %510, ptr noundef %.310261101)
   %512 = icmp slt i32 %511, 0
   br i1 %512, label %._crit_edge1137, label %513
 
@@ -1224,7 +1224,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   %516 = sub i16 %.210361132, %515
   %517 = add i32 %.110211134, -1
   %.not1069 = icmp eq i32 %517, 0
-  br i1 %.not1069, label %._crit_edge1137, label %.lr.ph1136, !llvm.loop !9
+  br i1 %.not1069, label %._crit_edge1137, label %.lr.ph1136, !llvm.loop !8
 
 ._crit_edge1137:                                  ; preds = %513, %.lr.ph1136, %506
   %.21036.lcssa = phi i16 [ %509, %506 ], [ %.210361132, %.lr.ph1136 ], [ %516, %513 ]
@@ -1306,7 +1306,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   %567 = add nsw i32 %.010181124, -4
   %568 = add i32 %.410311123, 4
   %569 = icmp ugt i32 %567, 3
-  br i1 %569, label %.lr.ph1127, label %._crit_edge1128, !llvm.loop !10
+  br i1 %569, label %.lr.ph1127, label %._crit_edge1128, !llvm.loop !9
 
 ._crit_edge1128:                                  ; preds = %.lr.ph1127, %559
   %.41031.lcssa = phi i32 [ %561, %559 ], [ %568, %.lr.ph1127 ]
@@ -1362,7 +1362,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   %599 = add nsw i32 %.010191120, -4
   %600 = add i32 %.510321119, 4
   %601 = icmp ugt i32 %599, 3
-  br i1 %601, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %601, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %591
   %.51032.lcssa = phi i32 [ %593, %591 ], [ %600, %.lr.ph ]
@@ -1553,7 +1553,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   %726 = icmp ne i16 %647, 0
   %727 = icmp ugt i16 %655, 7
   %728 = select i1 %726, i1 %727, i1 false
-  br i1 %728, label %.lr.ph.i1099, label %.loopexit.i, !llvm.loop !12
+  br i1 %728, label %.lr.ph.i1099, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %724, %657, %604
   %.191.i = phi i16 [ %655, %657 ], [ %642, %604 ], [ %655, %724 ]
@@ -1919,7 +1919,7 @@ dissect_spare_poe_tlv.exit:                       ; preds = %739, %744
   %.61033 = phi i32 [ %973, %972 ], [ %957, %956 ], [ %941, %940 ], [ %925, %924 ], [ %909, %908 ], [ %893, %892 ], [ %877, %876 ], [ %861, %860 ], [ %845, %844 ], [ %829, %828 ], [ %813, %812 ], [ %789, %788 ], [ %773, %772 ], [ %757, %dissect_spare_poe_tlv.exit ], [ %730, %dissect_nrgyz_tlv.exit ], [ %590, %589 ], [ %602, %._crit_edge ], [ %558, %557 ], [ %570, %._crit_edge1128 ], [ %538, %537 ], [ %519, %._crit_edge1137 ], [ %491, %490 ], [ %477, %476 ], [ %461, %460 ], [ %446, %445 ], [ %431, %430 ], [ %417, %416 ], [ %402, %401 ], [ %380, %379 ], [ %358, %357 ], [ %343, %342 ], [ %328, %327 ], [ %312, %311 ], [ %235, %234 ], [ %218, %217 ], [ %202, %201 ], [ %181, %dissect_capabilities.exit ], [ %140, %._crit_edge1155 ], [ %115, %114 ], [ %87, %86 ], [ %246, %245 ], [ %256, %.lr.ph1147 ]
   %974 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.61033) #3
   %.not1048 = icmp eq i32 %974, 0
-  br i1 %.not1048, label %.loopexit1103, label %51, !llvm.loop !13
+  br i1 %.not1048, label %.loopexit1103, label %51, !llvm.loop !12
 
 .loopexit1103:                                    ; preds = %.loopexit, %44, %65
   %.7 = phi i32 [ %66, %65 ], [ 4, %44 ], [ %.61033, %.loopexit ]
@@ -1994,7 +1994,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp slt i32 %3, 1
   br i1 %7, label %105, label %8
@@ -2218,13 +2218,12 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 65791}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

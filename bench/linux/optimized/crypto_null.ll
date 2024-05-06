@@ -139,7 +139,7 @@ declare dso_local void @crypto_unregister_shash(ptr noundef) local_unnamed_addr 
 declare dso_local void @crypto_unregister_skcipher(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @crypto_null_mod_init() #3 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @crypto_null_mod_init() #3 section ".init.text" align 16 {
   %1 = tail call i32 @crypto_register_algs(ptr noundef nonnull @null_algs, i32 noundef 2) #8
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %12, label %3
@@ -184,7 +184,7 @@ define internal void @null_crypt(ptr nocapture readnone %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @null_compress(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #5 align 16 {
+define internal noundef range(i32 -22, 1) i32 @null_compress(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #5 align 16 {
   %6 = load i32, ptr %4, align 4
   %7 = icmp ult i32 %6, %2
   br i1 %7, label %10, label %8

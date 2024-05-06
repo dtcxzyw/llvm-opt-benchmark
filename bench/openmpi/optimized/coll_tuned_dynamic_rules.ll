@@ -23,7 +23,7 @@ define noalias noundef ptr @ompi_coll_tuned_mk_alg_rules(i32 noundef %0) local_u
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = getelementptr inbounds %struct.alg_rule_s, ptr %3, i64 %indvars.iv
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -56,7 +56,7 @@ define noalias noundef ptr @ompi_coll_tuned_mk_com_rules(i32 noundef %0, i32 nou
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %1, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %10, align 4
@@ -92,7 +92,7 @@ define noalias noundef ptr @ompi_coll_tuned_mk_msg_rules(i32 noundef %0, i32 nou
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %2, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 12
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -103,14 +103,14 @@ define noalias noundef ptr @ompi_coll_tuned_mk_msg_rules(i32 noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ompi_coll_tuned_dump_msg_rule(ptr noundef readnone %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ompi_coll_tuned_dump_msg_rule(ptr noundef readnone %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   %. = sext i1 %.not to i32
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ompi_coll_tuned_dump_com_rule(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ompi_coll_tuned_dump_com_rule(ptr noundef readonly %0) local_unnamed_addr #2 {
 .loopexit:
   %.not = icmp eq ptr %0, null
   %spec.select = sext i1 %.not to i32
@@ -118,7 +118,7 @@ define noundef i32 @ompi_coll_tuned_dump_com_rule(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ompi_coll_tuned_dump_alg_rule(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ompi_coll_tuned_dump_alg_rule(ptr noundef readonly %0) local_unnamed_addr #2 {
 .loopexit:
   %.not = icmp eq ptr %0, null
   %spec.select = sext i1 %.not to i32
@@ -126,7 +126,7 @@ define noundef i32 @ompi_coll_tuned_dump_alg_rule(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ompi_coll_tuned_dump_all_rules(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ompi_coll_tuned_dump_all_rules(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #2 {
 .loopexit:
   %.not = icmp eq ptr %0, null
   %spec.select = sext i1 %.not to i32
@@ -134,7 +134,7 @@ define noundef i32 @ompi_coll_tuned_dump_all_rules(ptr noundef readnone %0, i32 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @ompi_coll_tuned_free_msg_rules_in_com_rule(ptr noundef %0) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @ompi_coll_tuned_free_msg_rules_in_com_rule(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -164,7 +164,7 @@ define noundef i32 @ompi_coll_tuned_free_msg_rules_in_com_rule(ptr noundef %0) l
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_coll_tuned_free_coms_in_alg_rule(ptr noundef %0) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @ompi_coll_tuned_free_coms_in_alg_rule(ptr noundef %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %2
 

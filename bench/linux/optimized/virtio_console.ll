@@ -2628,7 +2628,7 @@ define internal i64 @get_chars(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @put_chars(i32 noundef %0, ptr noundef %1, i64 noundef %2) #4 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @put_chars(i32 noundef %0, ptr noundef %1, i64 noundef %2) #4 align 16 {
   %4 = alloca [1 x %struct.scatterlist], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !13
@@ -2678,7 +2678,7 @@ define internal i64 @put_chars(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @notifier_add_vio(ptr nocapture noundef %0, i32 %1) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @notifier_add_vio(ptr nocapture noundef %0, i32 %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 396
   %4 = load i32, ptr %3, align 4
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pdrvdata_lock) #17
@@ -2976,7 +2976,7 @@ declare dso_local i32 @virtqueue_add_outbuf(ptr noundef, ptr noundef, i32 nounde
 declare dso_local zeroext i1 @virtqueue_is_broken(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_port_name(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #12 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_port_name(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #12 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
@@ -3402,7 +3402,7 @@ reclaim_dma_bufs.exit:                            ; preds = %.preheader.i, %19, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @port_fops_poll(ptr noundef %0, ptr noundef %1) #4 align 16 {
+define internal range(i32 0, 128) i32 @port_fops_poll(ptr noundef %0, ptr noundef %1) #4 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
@@ -3495,7 +3495,7 @@ define internal i32 @port_fops_poll(ptr noundef %0, ptr noundef %1) #4 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @port_fops_open(ptr noundef %0, ptr noundef %1) #4 align 16 {
+define internal noundef range(i32 -16, 1) i32 @port_fops_open(ptr noundef %0, ptr noundef %1) #4 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 568
   %5 = load ptr, ptr %4, align 8
@@ -3993,7 +3993,7 @@ declare dso_local void @schedule() local_unnamed_addr #1
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @wait_port_writable(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #4 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @wait_port_writable(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #4 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = tail call fastcc zeroext i1 @will_write_block(ptr noundef %0)
   br i1 %4, label %5, label %.thread3

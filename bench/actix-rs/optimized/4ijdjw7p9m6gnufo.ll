@@ -1157,7 +1157,7 @@ _ZN3std9panicking3try17ha0d307a91cc12b25E.exit:   ; preds = %1, %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbb2737a21b4515f5E.llvm.14469375430496879520"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbb2737a21b4515f5E.llvm.14469375430496879520"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [5 x i64] }, align 8
   %4 = alloca { [2 x i64] }, align 16
@@ -1524,7 +1524,7 @@ common.resume:                                    ; preds = %21, %29
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17hded44ed0b1139368E.llvm.14469375430496879520.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !324
   %26 = load i64, ptr %1, align 8, !range !113, !alias.scope !327, !noundef !4
   %.not.i = icmp eq i64 %26, 2
@@ -2332,7 +2332,7 @@ define void @"_ZN64_$LT$actix_files..files..Files$u20$as$u20$core..clone..Clone$
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %15, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %15, i64 %16, i1 false)
   store i64 %18, ptr %12, align 8
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %19, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
@@ -2903,7 +2903,7 @@ define void @"_ZN84_$LT$actix_files..files..Files$u20$as$u20$actix_web..service.
   %83 = getelementptr inbounds i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5), !noalias !571
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4), !noalias !571
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(152) %9, i64 152, i1 false), !noalias !574
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull readonly align 8 dereferenceable(152) %9, i64 152, i1 false), !noalias !574
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3), !noalias !571
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %0, i64 176, i1 false)
   %84 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !575
@@ -2935,11 +2935,11 @@ define void @"_ZN84_$LT$actix_files..files..Files$u20$as$u20$actix_web..service.
   unreachable
 
 92:                                               ; preds = %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %85, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false), !noalias !578
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %85, ptr noundef nonnull readonly align 8 dereferenceable(176) %7, i64 176, i1 false), !noalias !578
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3), !noalias !571
   %93 = getelementptr inbounds i8, ptr %5, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull align 8 dereferenceable(152) %9, i64 152, i1 false), !noalias !574
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull readonly align 8 dereferenceable(152) %9, i64 152, i1 false), !noalias !574
   %94 = getelementptr inbounds i8, ptr %5, i64 176
   store ptr %85, ptr %94, align 8, !noalias !571
   %95 = getelementptr inbounds i8, ptr %5, i64 184
@@ -3057,7 +3057,7 @@ define { ptr, ptr } @"_ZN117_$LT$actix_files..files..Files$u20$as$u20$actix_serv
   %13 = extractvalue { i64, ptr } %11, 1
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %9, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %9, i64 %10, i1 false)
   store i64 %12, ptr %5, align 8
   %.sroa.04.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %13, ptr %.sroa.04.sroa.4.0..sroa_idx, align 8

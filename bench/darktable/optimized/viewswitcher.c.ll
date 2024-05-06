@@ -581,7 +581,7 @@ declare i64 @gtk_container_get_type() local_unnamed_addr #6
 declare void @g_object_set_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_viewswitcher_button_press_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_lib_viewswitcher_button_press_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !39
   %6 = icmp eq i32 %5, 1

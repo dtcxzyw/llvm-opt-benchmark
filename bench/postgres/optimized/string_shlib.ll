@@ -154,7 +154,7 @@ define i32 @pg_strip_crlf(ptr nocapture noundef %0) local_unnamed_addr #9 {
   br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit, %1

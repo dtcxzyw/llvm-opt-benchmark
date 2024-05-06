@@ -66,7 +66,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_tls13_encryption() #0 {
+define internal range(i32 0, 2) i32 @test_tls13_encryption() #0 {
 entry:
   %refdatalen.i18 = alloca i64, align 8
   %refdatalen.i = alloca i64, align 8
@@ -104,7 +104,7 @@ for.body:                                         ; preds = %entry, %if.end55
   %seq4.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %4 = load ptr, ptr %seq4.i, align 8
   %call5.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %4, ptr noundef null) #5
-  %call6.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull %arrayidx, ptr noundef nonnull %ptlen.i)
+  %call6.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %arrayidx, ptr noundef nonnull %ptlen.i)
   %5 = insertelement <4 x ptr> poison, ptr %call3.i, i64 0
   %6 = insertelement <4 x ptr> %5, ptr %call.i, i64 1
   %7 = insertelement <4 x ptr> %6, ptr %call5.i, i64 2
@@ -139,7 +139,7 @@ if.end:                                           ; preds = %if.end.i
   call void @CRYPTO_free(ptr noundef nonnull %call6.i, ptr noundef nonnull @.str.1, i32 noundef 263) #5
   %12 = load i64, ptr %call5.i, align 1
   call void @CRYPTO_free(ptr noundef nonnull %call5.i, ptr noundef nonnull @.str.1, i32 noundef 265) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %iv, ptr nonnull align 1 %call3.i, i64 %conv, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %iv, ptr nonnull align 1 %call3.i, i64 %conv, i1 false)
   call void @CRYPTO_free(ptr noundef nonnull %call3.i, ptr noundef nonnull @.str.1, i32 noundef 267) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptlen.i)
   %call5 = call ptr @EVP_aes_128_gcm() #5
@@ -172,7 +172,7 @@ if.end20:                                         ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i)
   store i64 0, ptr %refdatalen.i, align 8
   %ciphertext.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %call.i12 = call fastcc ptr @multihexstr2buf(ptr noundef nonnull %ciphertext.i, ptr noundef nonnull %refdatalen.i)
+  %call.i12 = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %ciphertext.i, ptr noundef nonnull %refdatalen.i)
   %call3.i14 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call.i12) #5
   %tobool4.not.i = icmp eq i32 %call3.i14, 0
   br i1 %tobool4.not.i, label %if.then5.i, label %if.end6.i
@@ -231,7 +231,7 @@ if.then46:                                        ; preds = %if.end37
 if.end47:                                         ; preds = %if.end37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i18)
   store i64 0, ptr %refdatalen.i18, align 8
-  %call2.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull %arrayidx, ptr noundef nonnull %refdatalen.i18)
+  %call2.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %arrayidx, ptr noundef nonnull %refdatalen.i18)
   %call3.i20 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call2.i) #5
   %tobool4.not.i21 = icmp eq i32 %call3.i20, 0
   br i1 %tobool4.not.i21, label %if.then5.i30, label %if.end6.i22

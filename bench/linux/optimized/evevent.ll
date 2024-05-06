@@ -212,7 +212,7 @@ define dso_local i32 @acpi_ev_fixed_event_detect() local_unnamed_addr #0 align 1
 declare dso_local i32 @acpi_hw_register_read(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_any_fixed_event_status_set() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @acpi_any_fixed_event_status_set() local_unnamed_addr #0 align 16 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #4

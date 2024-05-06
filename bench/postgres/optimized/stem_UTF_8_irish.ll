@@ -103,7 +103,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_3_11 = internal constant [3 x i8] c"tar", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @irish_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @irish_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20

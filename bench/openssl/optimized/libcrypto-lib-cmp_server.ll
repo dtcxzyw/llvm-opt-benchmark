@@ -96,7 +96,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @OSSL_CMP_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_SRV_CTX_init(ptr noundef writeonly %srv_ctx, ptr noundef %custom_ctx, ptr noundef %process_cert_request, ptr noundef %process_rr, ptr noundef %process_genm, ptr noundef %process_error, ptr noundef %process_certConf, ptr noundef %process_pollReq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init(ptr noundef writeonly %srv_ctx, ptr noundef %custom_ctx, ptr noundef %process_cert_request, ptr noundef %process_rr, ptr noundef %process_genm, ptr noundef %process_error, ptr noundef %process_certConf, ptr noundef %process_pollReq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -178,7 +178,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_SRV_CTX_set_send_unprotected_errors(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_send_unprotected_errors(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -202,7 +202,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_SRV_CTX_set_accept_unprotected(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_unprotected(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -226,7 +226,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_SRV_CTX_set_accept_raverified(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_raverified(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -250,7 +250,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_SRV_CTX_set_grant_implicit_confirm(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_grant_implicit_confirm(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -627,7 +627,7 @@ declare i32 @OSSL_CMP_CTX_set1_senderNonce(ptr noundef, ptr noundef) local_unnam
 declare i32 @ossl_cmp_msg_check_update(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @unprotected_exception(ptr noundef %ctx, ptr noundef %req, i32 noundef %invalid_protection, i32 noundef %accept_unprotected_requests) #0 {
+define internal range(i32 -1, 2) i32 @unprotected_exception(ptr noundef %ctx, ptr noundef %req, i32 noundef %invalid_protection, i32 noundef %accept_unprotected_requests) #0 {
 entry:
   %cmp = icmp ne ptr %ctx, null
   %cmp1 = icmp ne ptr %req, null
@@ -691,7 +691,7 @@ sw.default:                                       ; preds = %switch.hole_check, 
   br label %return
 
 switch.hole_check:                                ; preds = %if.end
-  %switch.maskindex = trunc i32 %call to i8
+  %switch.maskindex = trunc nuw i32 %call to i8
   %switch.shifted = lshr i8 -107, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default

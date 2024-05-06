@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_Py_hashtable_compare_direct(ptr noundef readnone %key1, ptr noundef readnone %key2) #0 {
+define dso_local range(i32 0, 2) i32 @_Py_hashtable_compare_direct(ptr noundef readnone %key1, ptr noundef readnone %key2) #0 {
 entry:
   %cmp = icmp eq ptr %key1, %key2
   %conv = zext i1 %cmp to i32
@@ -233,7 +233,7 @@ return:                                           ; preds = %if.end7, %entry, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_Py_hashtable_set(ptr nocapture noundef %ht, ptr noundef %key, ptr noundef %value) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @_Py_hashtable_set(ptr nocapture noundef %ht, ptr noundef %key, ptr noundef %value) local_unnamed_addr #2 {
 entry:
   %alloc = getelementptr inbounds i8, ptr %ht, i64 64
   %0 = load ptr, ptr %alloc, align 8

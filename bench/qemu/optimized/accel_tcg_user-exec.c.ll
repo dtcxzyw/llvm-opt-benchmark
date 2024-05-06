@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.RBRootLeftCached = type { %struct.RBRoot, ptr }
 %struct.RBRoot = type { ptr }
 
-@helper_retaddr = dso_local thread_local global i64 0, align 8
+@helper_retaddr = dso_local thread_local local_unnamed_addr global i64 0, align 8
 @.str = private unnamed_addr constant [30 x i8] c"../qemu/accel/tcg/user-exec.c\00", align 1
 @pageflags_root = internal global %struct.RBRootLeftCached zeroinitializer, align 8
 @.str.1 = private unnamed_addr constant [19 x i8] c"%-*s %-*s %-*s %s\0A\00", align 1
@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.store_atom_16 = private unnamed_addr constant [14 x i8] c"store_atom_16\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @adjust_signal_pc(ptr nocapture noundef %pc, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @adjust_signal_pc(ptr nocapture noundef %pc, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   %1 = load i64, ptr %0, align 8
@@ -90,7 +90,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @handle_sigsegv_accerr_write(ptr noundef %cpu, ptr noundef %old_set, i64 noundef %host_pc, i64 noundef %guest_addr) local_unnamed_addr #2 {
 entry:
-  %call = tail call i32 @page_unprotect(i64 noundef %guest_addr, i64 noundef %host_pc), !range !5
+  %call = tail call i32 @page_unprotect(i64 noundef %guest_addr, i64 noundef %host_pc)
   switch i32 %call, label %default.unreachable1 [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb1
@@ -114,7 +114,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @page_unprotect(i64 noundef %address, i64 noundef %pc) local_unnamed_addr #2 {
+define dso_local range(i32 0, 3) i32 @page_unprotect(i64 noundef %address, i64 noundef %pc) local_unnamed_addr #2 {
 entry:
   tail call void @mmap_lock() #16
   %call.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %address, i64 noundef %address) #16
@@ -186,7 +186,7 @@ if.end29:                                         ; preds = %if.then17, %if.then
   %4 = or i1 %current_tb_invalidated.034, %call30
   %add36 = add i64 %i.035, 4096
   %cmp13 = icmp ult i64 %add36, %1
-  br i1 %cmp13, label %for.body, label %if.end37, !llvm.loop !6
+  br i1 %cmp13, label %for.body, label %if.end37, !llvm.loop !5
 
 if.end37:                                         ; preds = %if.end29, %if.then6
   %current_tb_invalidated.1 = phi i1 [ %call10, %if.then6 ], [ %4, %if.end29 ]
@@ -246,7 +246,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   %call4 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %n.07, i64 noundef 0, i64 noundef -1) #16
   %cmp.not = icmp eq ptr %call4, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
   %rc.1 = phi i32 [ 0, %entry ], [ %call1, %for.body ], [ 0, %for.inc ]
@@ -294,7 +294,7 @@ for.inc.i:                                        ; preds = %entry, %for.inc.i
   %call.i2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.19, i64 noundef %0, i64 noundef %add.i, i64 noundef %sub.i, i32 noundef %cond.i, i32 noundef %cond3.i, i32 noundef %cond6.i)
   %call4.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %n.07.i, i64 noundef 0, i64 noundef -1) #16
   %cmp.not.i = icmp eq ptr %call4.i, null
-  br i1 %cmp.not.i, label %walk_memory_regions.exit, label %for.inc.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %walk_memory_regions.exit, label %for.inc.i, !llvm.loop !7
 
 walk_memory_regions.exit:                         ; preds = %for.inc.i, %entry
   tail call void @mmap_unlock() #16
@@ -966,7 +966,7 @@ if.then26:                                        ; preds = %if.end23
   br i1 %tobool29.not, label %while.end, label %if.end31
 
 if.end31:                                         ; preds = %if.then26
-  %call32 = tail call i32 @page_unprotect(i64 noundef %start.addr.0, i64 noundef 0), !range !5
+  %call32 = tail call i32 @page_unprotect(i64 noundef %start.addr.0, i64 noundef 0)
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %while.end, label %if.end35
 
@@ -1060,7 +1060,7 @@ if.else7:                                         ; preds = %if.end4
   unreachable
 
 if.end8:                                          ; preds = %if.end4
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %align), !range !9
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align)
   %or.cond20 = icmp eq i64 %1, 1
   br i1 %or.cond20, label %do.body, label %if.else10
 
@@ -1179,7 +1179,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %add.ptr.i18 = getelementptr i8, ptr %call.i16, i64 -16
   %cmp20.not21 = icmp eq ptr %add.ptr.i18, null
   %cmp20.not = or i1 %tobool.not.i17, %cmp20.not21
-  br i1 %cmp20.not, label %if.end23, label %while.body, !llvm.loop !10
+  br i1 %cmp20.not, label %if.end23, label %while.body, !llvm.loop !8
 
 if.end23:                                         ; preds = %while.body, %while.cond.preheader, %if.end8
   %prot.1 = phi i32 [ %2, %if.end8 ], [ %2, %while.cond.preheader ], [ %or, %while.body ]
@@ -1209,7 +1209,7 @@ declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i1 @tb_invalidate_phys_page_unwind(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2049) i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %or = or i64 %addr, -4096
   %sub = sub nsw i64 0, %or
@@ -1233,7 +1233,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %nonfault, i64 noundef %ra) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2049) i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %nonfault, i64 noundef %ra) unnamed_addr #2 {
 entry:
   switch i32 %access_type, label %do.body [
     i32 1, label %sw.epilog
@@ -1384,7 +1384,7 @@ if.end3:                                          ; preds = %if.then1, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn uwtable
-define dso_local i32 @cpu_ldub_code(ptr nocapture noundef readnone %env, i64 noundef %ptr) local_unnamed_addr #9 {
+define dso_local range(i32 0, 256) i32 @cpu_ldub_code(ptr nocapture noundef readnone %env, i64 noundef %ptr) local_unnamed_addr #9 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 1, ptr %0, align 8
@@ -1400,7 +1400,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn uwtable
-define dso_local i32 @cpu_lduw_code(ptr nocapture noundef readnone %env, i64 noundef %ptr) local_unnamed_addr #9 {
+define dso_local range(i32 0, 65536) i32 @cpu_lduw_code(ptr nocapture noundef readnone %env, i64 noundef %ptr) local_unnamed_addr #9 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 1, ptr %0, align 8
@@ -1647,7 +1647,7 @@ cpu_mmu_lookup.exit:                              ; preds = %get_alignment_bits.
 declare i64 @llvm.bswap.i64(i64) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_ldub_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i64 0, 256) i64 @helper_ldub_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %shr.i = lshr i32 %oi, 4
   %0 = and i32 %oi, 112
@@ -1693,7 +1693,7 @@ do_ld1_mmu.exit:                                  ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_lduw_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i64 0, 65536) i64 @helper_lduw_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %0 = and i32 %oi, 112
   %cmp = icmp eq i32 %0, 16
@@ -1772,11 +1772,11 @@ if.then19.i:                                      ; preds = %if.end.i
   br i1 %or.cond.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then19.i
-  %6 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !11
+  %6 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !9
   br label %load_atom_extract_al16_or_al8.exit.i
 
 if.else.i.i:                                      ; preds = %if.then19.i
-  %7 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !12
+  %7 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !10
   br label %load_atom_extract_al16_or_al8.exit.i
 
 load_atom_extract_al16_or_al8.exit.i:             ; preds = %if.else.i.i, %if.then.i.i
@@ -1900,7 +1900,7 @@ if.end34.i:                                       ; preds = %sw.bb27.i
   br i1 %tobool.not.i.i20.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end34.i
-  %17 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %16) #19, !srcloc !13
+  %17 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %16) #19, !srcloc !11
   br label %load_atom_extract_al16_or_exit.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end34.i
@@ -1937,7 +1937,7 @@ if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %25 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %16) #19, !srcloc !14
+  %25 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %16) #19, !srcloc !12
   br label %cleanup.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
@@ -1982,7 +1982,7 @@ load_atom_2.exit:                                 ; preds = %if.then.i9, %load_a
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_ldul_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i64 0, 4294967296) i64 @helper_ldul_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %0 = and i32 %oi, 112
   %cmp = icmp eq i32 %0, 32
@@ -2061,11 +2061,11 @@ if.then19.i:                                      ; preds = %if.end.i
   br i1 %or.cond.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then19.i
-  %6 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !11
+  %6 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !9
   br label %load_atom_extract_al16_or_al8.exit.i
 
 if.else.i.i:                                      ; preds = %if.then19.i
-  %7 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !12
+  %7 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !10
   br label %load_atom_extract_al16_or_al8.exit.i
 
 load_atom_extract_al16_or_al8.exit.i:             ; preds = %if.else.i.i, %if.then.i.i
@@ -2138,7 +2138,7 @@ if.else.i13.i:                                    ; preds = %sw.bb20.i.i
 
 sw.bb35.i.i:                                      ; preds = %if.end23.i
   %conv36.i.i = trunc i64 %add.i.i.i to i32
-  %12 = tail call i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false), !range !15
+  %12 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false)
   %cond43.i.i = tail call i32 @llvm.umin.i32(i32 %and1.i.i, i32 %12)
   br label %sw.epilog.i.i
 
@@ -2211,7 +2211,7 @@ if.end31.i:                                       ; preds = %sw.bb26.i
   br i1 %tobool.not.i.i23.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end31.i
-  %22 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #19, !srcloc !13
+  %22 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #19, !srcloc !11
   br label %load_atom_extract_al16_or_exit.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end31.i
@@ -2248,7 +2248,7 @@ if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %30 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #19, !srcloc !14
+  %30 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #19, !srcloc !12
   br label %cleanup.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
@@ -2372,11 +2372,11 @@ if.then10.i:                                      ; preds = %if.end.i
   br i1 %or.cond.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %6 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !11
+  %6 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !9
   br label %load_atom_extract_al16_or_al8.exit.i
 
 if.else.i.i:                                      ; preds = %if.then10.i
-  %7 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !12
+  %7 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %5) #19, !srcloc !10
   br label %load_atom_extract_al16_or_al8.exit.i
 
 load_atom_extract_al16_or_al8.exit.i:             ; preds = %if.else.i.i, %if.then.i.i
@@ -2449,7 +2449,7 @@ if.else.i8.i:                                     ; preds = %sw.bb20.i.i
 
 sw.bb35.i.i:                                      ; preds = %if.end12.i
   %conv36.i.i = trunc i64 %add.i.i.i to i32
-  %12 = tail call i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false), !range !15
+  %12 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false)
   %cond43.i.i = tail call i32 @llvm.umin.i32(i32 %and1.i.i, i32 %12)
   br label %sw.epilog.i.i
 
@@ -2510,7 +2510,7 @@ if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %20 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %15) #19, !srcloc !14
+  %20 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %15) #19, !srcloc !12
   %extract.t.i.i.i.i = extractelement <2 x i64> %20, i64 0
   %extract.t3.i.i.i.i = extractelement <2 x i64> %20, i64 1
   br label %load_atom_extract_al16_or_exit.exit.i
@@ -2571,7 +2571,7 @@ load_atom_8.exit:                                 ; preds = %if.then.i10, %load_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_ldsb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i64 -128, 128) i64 @helper_ldsb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %shr.i.i = lshr i32 %oi, 4
   %0 = and i32 %oi, 112
@@ -2617,7 +2617,7 @@ helper_ldub_mmu.exit:                             ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_ldsw_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i64 -32768, 32768) i64 @helper_ldsw_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %0 = and i32 %oi, 112
   %cmp.i = icmp eq i32 %0, 16
@@ -2629,7 +2629,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_ldsl_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_ldsl_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %0 = and i32 %oi, 112
   %cmp.i = icmp eq i32 %0, 32
@@ -2698,7 +2698,7 @@ cpu_mmu_lookup.exit:                              ; preds = %get_alignment_bits.
   br i1 %or.cond.i, label %if.then.i15, label %if.end.i
 
 if.then.i15:                                      ; preds = %cpu_mmu_lookup.exit
-  %4 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1) #19, !srcloc !13
+  %4 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1) #19, !srcloc !11
   %retval.sroa.0.0.extract.trunc.i.i = extractelement <2 x i64> %4, i64 0
   %retval.sroa.2.0.extract.trunc.i.i = extractelement <2 x i64> %4, i64 1
   br label %load_atom_16.exit
@@ -2745,7 +2745,7 @@ if.else.i.i:                                      ; preds = %sw.bb20.i.i
 
 sw.bb35.i.i:                                      ; preds = %if.end.i
   %conv36.i.i = trunc i64 %add.i.i.i to i32
-  %7 = tail call i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false), !range !15
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false)
   %cond43.i.i = tail call i32 @llvm.umin.i32(i32 %7, i32 4)
   br label %sw.epilog.i.i
 
@@ -2906,7 +2906,7 @@ sw.bb27.i:                                        ; preds = %required_atomicity.
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb27.i
-  %37 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1) #19, !srcloc !13
+  %37 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1) #19, !srcloc !11
   %retval.sroa.0.0.extract.trunc.i.i.i = extractelement <2 x i64> %37, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i = extractelement <2 x i64> %37, i64 1
   br label %load_atom_16.exit
@@ -2944,7 +2944,7 @@ if.end13.i.i:                                     ; preds = %if.end8.i.i
   br i1 %tobool.not.i.i64.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end13.i.i
-  %42 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1) #19, !srcloc !14
+  %42 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1) #19, !srcloc !12
   %extract.t.i.i.i = extractelement <2 x i64> %42, i64 0
   %extract.t3.i.i.i = extractelement <2 x i64> %42, i64 1
   br label %cleanup.i.i
@@ -3206,7 +3206,7 @@ do.body1.i.i:                                     ; preds = %do.body1.i.i, %if.t
   %11 = cmpxchg weak ptr %add.ptr.i, i32 %old.0.i.i, i32 %or.i.i monotonic monotonic, align 4
   %12 = extractvalue { i32, i1 } %11, 1
   %13 = extractvalue { i32, i1 } %11, 0
-  br i1 %12, label %store_atom_2.exit, label %do.body1.i.i, !llvm.loop !16
+  br i1 %12, label %store_atom_2.exit, label %do.body1.i.i, !llvm.loop !13
 
 if.else.i:                                        ; preds = %if.end5.i
   %and11.i = and i64 %add.i.i.i, 7
@@ -3228,7 +3228,7 @@ do.body1.i15.i:                                   ; preds = %do.body1.i15.i, %if
   %15 = cmpxchg weak ptr %add.ptr15.i, i64 %old.0.i16.i, i64 %or.i18.i monotonic monotonic, align 8
   %16 = extractvalue { i64, i1 } %15, 1
   %17 = extractvalue { i64, i1 } %15, 0
-  br i1 %16, label %store_atom_2.exit, label %do.body1.i15.i, !llvm.loop !17
+  br i1 %16, label %store_atom_2.exit, label %do.body1.i15.i, !llvm.loop !14
 
 if.else18.i:                                      ; preds = %if.else.i
   %and19.i = and i64 %add.i.i.i, 15
@@ -3255,7 +3255,7 @@ do.body.i28.i:                                    ; preds = %do.body.i28.i, %if.
   %20 = cmpxchg weak ptr %add.ptr33.i, i128 %old.sroa.0.0.i.i, i128 %or.i.i.i monotonic monotonic, align 16
   %21 = extractvalue { i128, i1 } %20, 1
   %22 = extractvalue { i128, i1 } %20, 0
-  br i1 %21, label %store_atom_2.exit, label %do.body.i28.i, !llvm.loop !18
+  br i1 %21, label %store_atom_2.exit, label %do.body.i28.i, !llvm.loop !15
 
 do.body.i:                                        ; preds = %if.else18.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 897, ptr noundef nonnull @__func__.store_atom_2, ptr noundef null) #17
@@ -3384,7 +3384,7 @@ if.else.i.i:                                      ; preds = %sw.bb20.i.i
 
 sw.bb35.i.i:                                      ; preds = %if.end.i
   %conv36.i.i = trunc i64 %add.i.i.i to i32
-  %8 = tail call i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false), !range !15
+  %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false)
   %cond43.i.i = tail call i32 @llvm.umin.i32(i32 %and1.i.i, i32 %8)
   br label %sw.epilog.i.i
 
@@ -3457,7 +3457,7 @@ do.body1.i.i.i:                                   ; preds = %do.body1.i.i.i, %sw
   %13 = cmpxchg weak ptr %add.ptr.i26.i, i32 %old.0.i.i.i, i32 %or.i.i.i monotonic monotonic, align 4
   %14 = extractvalue { i32, i1 } %13, 1
   %15 = extractvalue { i32, i1 } %13, 0
-  br i1 %14, label %store_whole_le4.exit.i, label %do.body1.i.i.i, !llvm.loop !16
+  br i1 %14, label %store_whole_le4.exit.i, label %do.body1.i.i.i, !llvm.loop !13
 
 store_whole_le4.exit.i:                           ; preds = %do.body1.i.i.i
   %16 = lshr i32 %spec.select, 24
@@ -3492,7 +3492,7 @@ do.body1.i.i38.i:                                 ; preds = %do.body1.i.i38.i, %
   %20 = cmpxchg weak ptr %add.ptr.i36.i, i32 %old.0.i.i39.i, i32 %or.i.i41.i monotonic monotonic, align 4
   %21 = extractvalue { i32, i1 } %20, 1
   %22 = extractvalue { i32, i1 } %20, 0
-  br i1 %21, label %store_atom_4.exit, label %do.body1.i.i38.i, !llvm.loop !16
+  br i1 %21, label %store_atom_4.exit, label %do.body1.i.i38.i, !llvm.loop !13
 
 do.body.i:                                        ; preds = %sw.bb3.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 948, ptr noundef nonnull @__func__.store_atom_4, ptr noundef null) #17
@@ -3523,7 +3523,7 @@ do.body1.i.i50.i:                                 ; preds = %do.body1.i.i50.i, %
   %24 = cmpxchg weak ptr %add.ptr.i48.i, i64 %old.0.i.i51.i, i64 %or.i.i53.i monotonic monotonic, align 8
   %25 = extractvalue { i64, i1 } %24, 1
   %26 = extractvalue { i64, i1 } %24, 0
-  br i1 %25, label %store_atom_4.exit, label %do.body1.i.i50.i, !llvm.loop !17
+  br i1 %25, label %store_atom_4.exit, label %do.body1.i.i50.i, !llvm.loop !14
 
 if.else.i:                                        ; preds = %sw.bb18.i
   %27 = trunc i64 %add.i.i.i to i32
@@ -3553,7 +3553,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %30 = cmpxchg weak ptr %add.ptr.i57.i, i128 %old.sroa.0.0.i.i.i, i128 %or.i.i.i.i monotonic monotonic, align 16
   %31 = extractvalue { i128, i1 } %30, 1
   %32 = extractvalue { i128, i1 } %30, 0
-  br i1 %31, label %store_atom_4.exit, label %do.body.i.i.i, !llvm.loop !18
+  br i1 %31, label %store_atom_4.exit, label %do.body.i.i.i, !llvm.loop !15
 
 do.body32.i:                                      ; preds = %required_atomicity.exit.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 966, ptr noundef nonnull @__func__.store_atom_4, ptr noundef null) #17
@@ -3682,7 +3682,7 @@ if.else.i.i:                                      ; preds = %sw.bb20.i.i
 
 sw.bb35.i.i:                                      ; preds = %if.end.i
   %conv36.i.i = trunc i64 %add.i.i.i to i32
-  %8 = tail call i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false), !range !15
+  %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false)
   %cond43.i.i = tail call i32 @llvm.umin.i32(i32 %and1.i.i, i32 %8)
   br label %sw.epilog.i.i
 
@@ -3785,7 +3785,7 @@ do.body1.i.i.i:                                   ; preds = %do.body1.i.i.i, %sw
   %12 = cmpxchg weak ptr %add.ptr.i30.i, i64 %old.0.i.i.i, i64 %or.i.i.i monotonic monotonic, align 8
   %13 = extractvalue { i64, i1 } %12, 1
   %14 = extractvalue { i64, i1 } %12, 0
-  br i1 %13, label %for.body.preheader.i.i, label %do.body1.i.i.i, !llvm.loop !17
+  br i1 %13, label %for.body.preheader.i.i, label %do.body1.i.i.i, !llvm.loop !14
 
 for.body.preheader.i.i:                           ; preds = %do.body1.i.i.i
   %sh_prom6.i.i = zext nneg i32 %mul.i.i to i64
@@ -3803,49 +3803,49 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %shr.i33.i = lshr i64 %val_le.addr.06.i.i, 8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %and.i6
-  br i1 %exitcond.not.i.i, label %store_atom_8.exit, label %for.body.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %store_atom_8.exit, label %for.body.i.i, !llvm.loop !16
 
 sw.bb11.i:                                        ; preds = %sw.bb4.i, %sw.bb4.i, %sw.bb4.i
-  %wide.trip.count.i35.i = zext nneg i32 %sub.i8 to i64
-  br label %for.body.i36.i
+  %wide.trip.count.i37.i = zext nneg i32 %sub.i8 to i64
+  br label %for.body.i38.i
 
-for.body.i36.i:                                   ; preds = %for.body.i36.i, %sw.bb11.i
-  %indvars.iv.i37.i = phi i64 [ 0, %sw.bb11.i ], [ %indvars.iv.next.i41.i, %for.body.i36.i ]
-  %val_le.addr.06.i38.i = phi i64 [ %spec.select, %sw.bb11.i ], [ %shr.i42.i, %for.body.i36.i ]
-  %conv.i39.i = trunc i64 %val_le.addr.06.i38.i to i8
-  %arrayidx.i40.i = getelementptr i8, ptr %1, i64 %indvars.iv.i37.i
-  store i8 %conv.i39.i, ptr %arrayidx.i40.i, align 1
-  %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i37.i, 1
-  %shr.i42.i = lshr i64 %val_le.addr.06.i38.i, 8
-  %exitcond.not.i43.i = icmp eq i64 %indvars.iv.next.i41.i, %wide.trip.count.i35.i
-  br i1 %exitcond.not.i43.i, label %store_bytes_leN.exit45.i, label %for.body.i36.i, !llvm.loop !19
+for.body.i38.i:                                   ; preds = %for.body.i38.i, %sw.bb11.i
+  %indvars.iv.i39.i = phi i64 [ 0, %sw.bb11.i ], [ %indvars.iv.next.i43.i, %for.body.i38.i ]
+  %val_le.addr.06.i40.i = phi i64 [ %spec.select, %sw.bb11.i ], [ %shr.i44.i, %for.body.i38.i ]
+  %conv.i41.i = trunc i64 %val_le.addr.06.i40.i to i8
+  %arrayidx.i42.i = getelementptr i8, ptr %1, i64 %indvars.iv.i39.i
+  store i8 %conv.i41.i, ptr %arrayidx.i42.i, align 1
+  %indvars.iv.next.i43.i = add nuw nsw i64 %indvars.iv.i39.i, 1
+  %shr.i44.i = lshr i64 %val_le.addr.06.i40.i, 8
+  %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i43.i, %wide.trip.count.i37.i
+  br i1 %exitcond.not.i45.i, label %store_bytes_leN.exit46.i, label %for.body.i38.i, !llvm.loop !16
 
-store_bytes_leN.exit45.i:                         ; preds = %for.body.i36.i
-  %add.ptr14.i = getelementptr i8, ptr %1, i64 %wide.trip.count.i35.i
-  %mul.i46.i = shl nuw nsw i64 %and.i6, 3
+store_bytes_leN.exit46.i:                         ; preds = %for.body.i38.i
+  %add.ptr14.i = getelementptr i8, ptr %1, i64 %wide.trip.count.i37.i
+  %mul.i47.i = shl nuw nsw i64 %and.i6, 3
   %15 = ptrtoint ptr %add.ptr14.i to i64
-  %conv.i47.i = shl i64 %15, 3
-  %mul1.i48.i = and i64 %conv.i47.i, 56
-  %sub.i49.i = sub nuw nsw i64 64, %mul.i46.i
-  %shr.i51.i = lshr i64 -1, %sub.i49.i
-  %shl3.i52.i = shl i64 %shr.i42.i, %mul1.i48.i
-  %shl5.i53.i = shl i64 %shr.i51.i, %mul1.i48.i
-  %idx.ext.i54.i = and i64 %15, 7
-  %idx.neg.i55.i = sub nsw i64 0, %idx.ext.i54.i
-  %add.ptr.i56.i = getelementptr i8, ptr %add.ptr14.i, i64 %idx.neg.i55.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i56.i, i64 8) ]
-  %16 = load atomic i64, ptr %add.ptr.i56.i monotonic, align 8
-  %not.i.i57.i = xor i64 %shl5.i53.i, -1
-  br label %do.body1.i.i58.i
+  %conv.i48.i = shl i64 %15, 3
+  %mul1.i49.i = and i64 %conv.i48.i, 56
+  %sub.i50.i = sub nuw nsw i64 64, %mul.i47.i
+  %shr.i52.i = lshr i64 -1, %sub.i50.i
+  %shl3.i53.i = shl i64 %shr.i44.i, %mul1.i49.i
+  %shl5.i54.i = shl i64 %shr.i52.i, %mul1.i49.i
+  %idx.ext.i55.i = and i64 %15, 7
+  %idx.neg.i56.i = sub nsw i64 0, %idx.ext.i55.i
+  %add.ptr.i57.i = getelementptr i8, ptr %add.ptr14.i, i64 %idx.neg.i56.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i57.i, i64 8) ]
+  %16 = load atomic i64, ptr %add.ptr.i57.i monotonic, align 8
+  %not.i.i58.i = xor i64 %shl5.i54.i, -1
+  br label %do.body1.i.i59.i
 
-do.body1.i.i58.i:                                 ; preds = %do.body1.i.i58.i, %store_bytes_leN.exit45.i
-  %old.0.i.i59.i = phi i64 [ %16, %store_bytes_leN.exit45.i ], [ %19, %do.body1.i.i58.i ]
-  %and.i.i60.i = and i64 %old.0.i.i59.i, %not.i.i57.i
-  %or.i.i61.i = or i64 %and.i.i60.i, %shl3.i52.i
-  %17 = cmpxchg weak ptr %add.ptr.i56.i, i64 %old.0.i.i59.i, i64 %or.i.i61.i monotonic monotonic, align 8
+do.body1.i.i59.i:                                 ; preds = %do.body1.i.i59.i, %store_bytes_leN.exit46.i
+  %old.0.i.i60.i = phi i64 [ %16, %store_bytes_leN.exit46.i ], [ %19, %do.body1.i.i59.i ]
+  %and.i.i61.i = and i64 %old.0.i.i60.i, %not.i.i58.i
+  %or.i.i62.i = or i64 %and.i.i61.i, %shl3.i53.i
+  %17 = cmpxchg weak ptr %add.ptr.i57.i, i64 %old.0.i.i60.i, i64 %or.i.i62.i monotonic monotonic, align 8
   %18 = extractvalue { i64, i1 } %17, 1
   %19 = extractvalue { i64, i1 } %17, 0
-  br i1 %18, label %store_atom_8.exit, label %do.body1.i.i58.i, !llvm.loop !17
+  br i1 %18, label %store_atom_8.exit, label %do.body1.i.i59.i, !llvm.loop !14
 
 do.body.i:                                        ; preds = %sw.bb4.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 1018, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #17
@@ -3853,19 +3853,19 @@ do.body.i:                                        ; preds = %sw.bb4.i
 
 sw.bb17.i:                                        ; preds = %required_atomicity.exit.i
   %20 = trunc i64 %add.i.i.i to i32
-  %conv.i65.i = shl i32 %20, 3
-  %mul2.i.i = and i32 %conv.i65.i, 120
+  %conv.i66.i = shl i32 %20, 3
+  %mul2.i.i = and i32 %conv.i66.i, 120
   %a.sroa.0.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %sh_prom.i.i.i = zext nneg i32 %mul2.i.i to i128
   %shl.i.i.i = shl i128 %a.sroa.0.0.insert.ext.i.i.i, %sh_prom.i.i.i
   %shl.i22.i.i = shl i128 18446744073709551615, %sh_prom.i.i.i
   %retval.sroa.0.0.extract.trunc.i23.i.i = trunc i128 %shl.i22.i.i to i64
   %retval.sroa.2.0.extract.shift.i24.i.i = and i128 %shl.i22.i.i, -18446744073709551616
-  %idx.ext.i66.i = and i64 %add.i.i.i, 15
-  %idx.neg.i67.i = sub nsw i64 0, %idx.ext.i66.i
-  %add.ptr.i68.i = getelementptr i8, ptr %1, i64 %idx.neg.i67.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i68.i, i64 16) ]
-  %21 = load i128, ptr %add.ptr.i68.i, align 16
+  %idx.ext.i67.i = and i64 %add.i.i.i, 15
+  %idx.neg.i68.i = sub nsw i64 0, %idx.ext.i67.i
+  %add.ptr.i69.i = getelementptr i8, ptr %1, i64 %idx.neg.i68.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i69.i, i64 16) ]
+  %21 = load i128, ptr %add.ptr.i69.i, align 16
   %not.i.i.i.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i.i, -1
   %b.sroa.0.0.insert.ext.i.i.i.i = zext i64 %not.i.i.i.i to i128
   %22 = or disjoint i128 %retval.sroa.2.0.extract.shift.i24.i.i, %b.sroa.0.0.insert.ext.i.i.i.i
@@ -3876,16 +3876,16 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %sw.
   %old.sroa.0.0.i.i.i = phi i128 [ %21, %sw.bb17.i ], [ %25, %do.body.i.i.i ]
   %and.i.i.i.i = and i128 %old.sroa.0.0.i.i.i, %b.sroa.0.0.insert.insert.i.i.i.i
   %or.i.i.i.i = or i128 %and.i.i.i.i, %shl.i.i.i
-  %23 = cmpxchg weak ptr %add.ptr.i68.i, i128 %old.sroa.0.0.i.i.i, i128 %or.i.i.i.i monotonic monotonic, align 16
+  %23 = cmpxchg weak ptr %add.ptr.i69.i, i128 %old.sroa.0.0.i.i.i, i128 %or.i.i.i.i monotonic monotonic, align 16
   %24 = extractvalue { i128, i1 } %23, 1
   %25 = extractvalue { i128, i1 } %23, 0
-  br i1 %24, label %store_atom_8.exit, label %do.body.i.i.i, !llvm.loop !18
+  br i1 %24, label %store_atom_8.exit, label %do.body.i.i.i, !llvm.loop !15
 
 do.body23.i:                                      ; preds = %required_atomicity.exit.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 1030, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #17
   unreachable
 
-store_atom_8.exit:                                ; preds = %do.body.i.i.i, %do.body1.i.i58.i, %for.body.i.i, %if.then.i10, %sw.bb.i, %sw.bb2.i, %sw.bb3.i
+store_atom_8.exit:                                ; preds = %do.body.i.i.i, %do.body1.i.i59.i, %for.body.i.i, %if.then.i10, %sw.bb.i, %sw.bb2.i, %sw.bb3.i
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   ret void
@@ -3964,14 +3964,14 @@ if.then.i12:                                      ; preds = %cpu_mmu_lookup.exit
 
 if.then.i.i:                                      ; preds = %if.then.i12
   %7 = bitcast i128 %val.sroa.0.0.insert.insert.i to <2 x i64>
-  tail call void asm "vmovdqa $1, $0", "=*m,x,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1, <2 x i64> %7) #16, !srcloc !20
+  tail call void asm "vmovdqa $1, $0", "=*m,x,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %1, <2 x i64> %7) #16, !srcloc !17
   br label %store_atom_16.exit
 
 do.body.i.i:                                      ; preds = %if.then.i12, %do.body.i.i
   %8 = load i128, ptr %1, align 16
   %9 = cmpxchg ptr %1, i128 %8, i128 %val.sroa.0.0.insert.insert.i seq_cst seq_cst, align 16
   %10 = extractvalue { i128, i1 } %9, 1
-  br i1 %10, label %store_atom_16.exit, label %do.body.i.i, !llvm.loop !21
+  br i1 %10, label %store_atom_16.exit, label %do.body.i.i, !llvm.loop !18
 
 if.end.i:                                         ; preds = %cpu_mmu_lookup.exit
   %and1.i.i = and i32 %shr.i, 7
@@ -4027,7 +4027,7 @@ if.else.i.i:                                      ; preds = %sw.bb20.i.i
 
 sw.bb35.i.i:                                      ; preds = %if.end.i
   %conv36.i.i = trunc i64 %add.i.i.i to i32
-  %14 = tail call i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false), !range !15
+  %14 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false)
   %cond43.i.i = tail call i32 @llvm.umin.i32(i32 %and1.i.i, i32 %14)
   br label %sw.epilog.i.i
 
@@ -4185,7 +4185,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %sw.
   %23 = cmpxchg weak ptr %add.ptr.i54.i, i128 %old.sroa.0.0.i.i.i, i128 %or.i.i.i.i monotonic monotonic, align 16
   %24 = extractvalue { i128, i1 } %23, 1
   %25 = extractvalue { i128, i1 } %23, 0
-  br i1 %24, label %for.body.preheader.i.i, label %do.body.i.i.i, !llvm.loop !18
+  br i1 %24, label %for.body.preheader.i.i, label %do.body.i.i.i, !llvm.loop !15
 
 for.body.preheader.i.i:                           ; preds = %do.body.i.i.i
   %sub25.i.i = add nsw i32 %mul.i.i, -64
@@ -4204,69 +4204,69 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %shr.i56.i = lshr i64 %val_le.addr.06.i.i, 8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %and.i10
-  br i1 %exitcond.not.i.i, label %store_atom_16.exit, label %for.body.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %store_atom_16.exit, label %for.body.i.i, !llvm.loop !16
 
 sw.bb20.i:                                        ; preds = %sw.bb12.i, %sw.bb12.i, %sw.bb12.i, %sw.bb12.i, %sw.bb12.i, %sw.bb12.i, %sw.bb12.i
-  %wide.trip.count.i58.i = zext nneg i32 %sub.i11 to i64
-  br label %for.body.i59.i
+  %wide.trip.count.i60.i = zext nneg i32 %sub.i11 to i64
+  br label %for.body.i61.i
 
-for.body.i59.i:                                   ; preds = %for.body.i59.i, %sw.bb20.i
-  %indvars.iv.i60.i = phi i64 [ 0, %sw.bb20.i ], [ %indvars.iv.next.i64.i, %for.body.i59.i ]
-  %val_le.addr.06.i61.i = phi i64 [ %val.addr.0.off0, %sw.bb20.i ], [ %shr.i65.i, %for.body.i59.i ]
-  %conv.i62.i = trunc i64 %val_le.addr.06.i61.i to i8
-  %arrayidx.i63.i = getelementptr i8, ptr %1, i64 %indvars.iv.i60.i
-  store i8 %conv.i62.i, ptr %arrayidx.i63.i, align 1
-  %indvars.iv.next.i64.i = add nuw nsw i64 %indvars.iv.i60.i, 1
-  %shr.i65.i = lshr i64 %val_le.addr.06.i61.i, 8
-  %exitcond.not.i66.i = icmp eq i64 %indvars.iv.next.i64.i, %wide.trip.count.i58.i
-  br i1 %exitcond.not.i66.i, label %store_bytes_leN.exit68.i, label %for.body.i59.i, !llvm.loop !19
+for.body.i61.i:                                   ; preds = %for.body.i61.i, %sw.bb20.i
+  %indvars.iv.i62.i = phi i64 [ 0, %sw.bb20.i ], [ %indvars.iv.next.i66.i, %for.body.i61.i ]
+  %val_le.addr.06.i63.i = phi i64 [ %val.addr.0.off0, %sw.bb20.i ], [ %shr.i67.i, %for.body.i61.i ]
+  %conv.i64.i = trunc i64 %val_le.addr.06.i63.i to i8
+  %arrayidx.i65.i = getelementptr i8, ptr %1, i64 %indvars.iv.i62.i
+  store i8 %conv.i64.i, ptr %arrayidx.i65.i, align 1
+  %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i62.i, 1
+  %shr.i67.i = lshr i64 %val_le.addr.06.i63.i, 8
+  %exitcond.not.i68.i = icmp eq i64 %indvars.iv.next.i66.i, %wide.trip.count.i60.i
+  br i1 %exitcond.not.i68.i, label %store_bytes_leN.exit69.i, label %for.body.i61.i, !llvm.loop !16
 
-store_bytes_leN.exit68.i:                         ; preds = %for.body.i59.i
+store_bytes_leN.exit69.i:                         ; preds = %for.body.i61.i
   %mul.i = shl nuw nsw i32 %sub.i11, 3
-  %sh_prom.i69.i = zext nneg i32 %mul.i to i128
-  %shr.i70.i = lshr i128 %val.sroa.0.0.insert.insert.i, %sh_prom.i69.i
-  %add.ptr28.i = getelementptr i8, ptr %1, i64 %wide.trip.count.i58.i
-  %mul.i71.i = shl nuw nsw i32 %conv14.i, 3
+  %sh_prom.i70.i = zext nneg i32 %mul.i to i128
+  %shr.i71.i = lshr i128 %val.sroa.0.0.insert.insert.i, %sh_prom.i70.i
+  %add.ptr28.i = getelementptr i8, ptr %1, i64 %wide.trip.count.i60.i
+  %mul.i72.i = shl nuw nsw i32 %conv14.i, 3
   %26 = ptrtoint ptr %add.ptr28.i to i64
   %27 = trunc i64 %26 to i32
-  %conv.i72.i = shl i32 %27, 3
-  %mul2.i73.i = and i32 %conv.i72.i, 120
-  %cmp.i74.i = icmp ult i32 %conv14.i, 9
-  %sub.i75.i = sub nsw i32 64, %mul.i71.i
-  %sh_prom.i76.i = zext nneg i32 %sub.i75.i to i64
-  %shr.i77.i = lshr i64 -1, %sh_prom.i76.i
-  %sub5.i78.i = sub nuw nsw i32 128, %mul.i71.i
-  %sh_prom6.i79.i = zext nneg i32 %sub5.i78.i to i64
-  %shr7.i80.i = lshr i64 -1, %sh_prom6.i79.i
-  %28 = zext i64 %shr.i77.i to i128
-  %29 = zext nneg i64 %shr7.i80.i to i128
-  %sh_prom.i.i85.i = zext nneg i32 %mul2.i73.i to i128
-  %shl.i.i86.i = shl i128 %shr.i70.i, %sh_prom.i.i85.i
+  %conv.i73.i = shl i32 %27, 3
+  %mul2.i74.i = and i32 %conv.i73.i, 120
+  %cmp.i75.i = icmp ult i32 %conv14.i, 9
+  %sub.i76.i = sub nsw i32 64, %mul.i72.i
+  %sh_prom.i77.i = zext nneg i32 %sub.i76.i to i64
+  %shr.i78.i = lshr i64 -1, %sh_prom.i77.i
+  %sub5.i79.i = sub nuw nsw i32 128, %mul.i72.i
+  %sh_prom6.i80.i = zext nneg i32 %sub5.i79.i to i64
+  %shr7.i81.i = lshr i64 -1, %sh_prom6.i80.i
+  %28 = zext i64 %shr.i78.i to i128
+  %29 = zext nneg i64 %shr7.i81.i to i128
+  %sh_prom.i.i86.i = zext nneg i32 %mul2.i74.i to i128
+  %shl.i.i87.i = shl i128 %shr.i71.i, %sh_prom.i.i86.i
   %30 = shl nuw nsw i128 %29, 64
   %31 = or disjoint i128 %30, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i20.i87.i = select i1 %cmp.i74.i, i128 %28, i128 %31
-  %shl.i22.i88.i = shl i128 %a.sroa.0.0.insert.insert.i20.i87.i, %sh_prom.i.i85.i
-  %retval.sroa.0.0.extract.trunc.i23.i89.i = trunc i128 %shl.i22.i88.i to i64
-  %retval.sroa.2.0.extract.shift.i24.i90.i = and i128 %shl.i22.i88.i, -18446744073709551616
-  %idx.ext.i91.i = and i64 %26, 15
-  %idx.neg.i92.i = sub nsw i64 0, %idx.ext.i91.i
-  %add.ptr.i93.i = getelementptr i8, ptr %add.ptr28.i, i64 %idx.neg.i92.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i93.i, i64 16) ]
-  %32 = load i128, ptr %add.ptr.i93.i, align 16
-  %not.i.i.i94.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i89.i, -1
-  %b.sroa.0.0.insert.ext.i.i.i95.i = zext i64 %not.i.i.i94.i to i128
-  %33 = or disjoint i128 %retval.sroa.2.0.extract.shift.i24.i90.i, %b.sroa.0.0.insert.ext.i.i.i95.i
-  %b.sroa.0.0.insert.insert.i.i.i96.i = xor i128 %33, -18446744073709551616
-  br label %do.body.i.i97.i
+  %a.sroa.0.0.insert.insert.i20.i88.i = select i1 %cmp.i75.i, i128 %28, i128 %31
+  %shl.i22.i89.i = shl i128 %a.sroa.0.0.insert.insert.i20.i88.i, %sh_prom.i.i86.i
+  %retval.sroa.0.0.extract.trunc.i23.i90.i = trunc i128 %shl.i22.i89.i to i64
+  %retval.sroa.2.0.extract.shift.i24.i91.i = and i128 %shl.i22.i89.i, -18446744073709551616
+  %idx.ext.i92.i = and i64 %26, 15
+  %idx.neg.i93.i = sub nsw i64 0, %idx.ext.i92.i
+  %add.ptr.i94.i = getelementptr i8, ptr %add.ptr28.i, i64 %idx.neg.i93.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i94.i, i64 16) ]
+  %32 = load i128, ptr %add.ptr.i94.i, align 16
+  %not.i.i.i95.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i90.i, -1
+  %b.sroa.0.0.insert.ext.i.i.i96.i = zext i64 %not.i.i.i95.i to i128
+  %33 = or disjoint i128 %retval.sroa.2.0.extract.shift.i24.i91.i, %b.sroa.0.0.insert.ext.i.i.i96.i
+  %b.sroa.0.0.insert.insert.i.i.i97.i = xor i128 %33, -18446744073709551616
+  br label %do.body.i.i98.i
 
-do.body.i.i97.i:                                  ; preds = %do.body.i.i97.i, %store_bytes_leN.exit68.i
-  %old.sroa.0.0.i.i98.i = phi i128 [ %32, %store_bytes_leN.exit68.i ], [ %36, %do.body.i.i97.i ]
-  %and.i.i.i99.i = and i128 %old.sroa.0.0.i.i98.i, %b.sroa.0.0.insert.insert.i.i.i96.i
-  %or.i.i.i100.i = or i128 %and.i.i.i99.i, %shl.i.i86.i
-  %34 = cmpxchg weak ptr %add.ptr.i93.i, i128 %old.sroa.0.0.i.i98.i, i128 %or.i.i.i100.i monotonic monotonic, align 16
+do.body.i.i98.i:                                  ; preds = %do.body.i.i98.i, %store_bytes_leN.exit69.i
+  %old.sroa.0.0.i.i99.i = phi i128 [ %32, %store_bytes_leN.exit69.i ], [ %36, %do.body.i.i98.i ]
+  %and.i.i.i100.i = and i128 %old.sroa.0.0.i.i99.i, %b.sroa.0.0.insert.insert.i.i.i97.i
+  %or.i.i.i101.i = or i128 %and.i.i.i100.i, %shl.i.i87.i
+  %34 = cmpxchg weak ptr %add.ptr.i94.i, i128 %old.sroa.0.0.i.i99.i, i128 %or.i.i.i101.i monotonic monotonic, align 16
   %35 = extractvalue { i128, i1 } %34, 1
   %36 = extractvalue { i128, i1 } %34, 0
-  br i1 %35, label %store_atom_16.exit, label %do.body.i.i97.i, !llvm.loop !18
+  br i1 %35, label %store_atom_16.exit, label %do.body.i.i98.i, !llvm.loop !15
 
 do.body.i:                                        ; preds = %sw.bb12.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 1100, ptr noundef nonnull @__func__.store_atom_16, ptr noundef null) #17
@@ -4280,7 +4280,7 @@ sw.epilog36.i:                                    ; preds = %required_atomicity.
   tail call void @cpu_loop_exit_atomic(ptr noundef nonnull %cpu, i64 noundef %ra) #17
   unreachable
 
-store_atom_16.exit:                               ; preds = %do.body.i.i97.i, %for.body.i.i, %do.body.i.i, %if.then.i.i, %sw.bb.i, %sw.bb7.i, %sw.bb8.i, %sw.bb10.i
+store_atom_16.exit:                               ; preds = %do.body.i.i98.i, %for.body.i.i, %do.body.i.i, %if.then.i.i, %sw.bb.i, %sw.bb7.i, %sw.bb8.i, %sw.bb10.i
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   ret void
@@ -4489,7 +4489,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldub_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_ldub_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %shr.i.i = lshr i32 %mmu_idx, 4
   %0 = and i32 %mmu_idx, 112
@@ -4536,7 +4536,7 @@ cpu_ldb_mmu.exit:                                 ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsb_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @cpu_ldsb_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %shr.i.i.i = lshr i32 %mmu_idx, 4
   %0 = and i32 %mmu_idx, 112
@@ -4583,7 +4583,7 @@ cpu_ldub_mmuidx_ra.exit:                          ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_lduw_be_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_lduw_be_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %or.i = or i32 %mmu_idx, 272
   %0 = and i32 %or.i, 112
@@ -4597,7 +4597,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsw_be_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_be_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %or.i.i = or i32 %mmu_idx, 272
   %0 = and i32 %or.i.i, 112
@@ -4637,7 +4637,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_lduw_le_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_lduw_le_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %or.i = or i32 %mmu_idx, 16
   %0 = and i32 %or.i, 112
@@ -4651,7 +4651,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsw_le_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_le_mmuidx_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %or.i.i = or i32 %mmu_idx, 16
   %0 = and i32 %or.i.i, 112
@@ -4819,7 +4819,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldub_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_ldub_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %shr.i.i.i = lshr i32 %call, 4
@@ -4869,7 +4869,7 @@ cpu_ldub_mmuidx_ra.exit:                          ; preds = %get_alignment_bits.
 declare i32 @riscv_cpu_mmu_index(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsb_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @cpu_ldsb_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %shr.i.i.i.i = lshr i32 %call.i, 4
@@ -4917,7 +4917,7 @@ cpu_ldub_data_ra.exit:                            ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_lduw_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_lduw_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %or.i.i = or i32 %call, 272
@@ -4932,7 +4932,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsw_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %or.i.i.i = or i32 %call.i, 272
@@ -4975,7 +4975,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_lduw_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_lduw_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %or.i.i = or i32 %call, 16
@@ -4990,7 +4990,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsw_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %or.i.i.i = or i32 %call.i, 16
@@ -5168,7 +5168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldub_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_ldub_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %shr.i.i.i.i = lshr i32 %call.i, 4
@@ -5216,7 +5216,7 @@ cpu_ldub_data_ra.exit:                            ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsb_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @cpu_ldsb_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
 entry:
   %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %shr.i.i.i.i.i = lshr i32 %call.i.i, 4
@@ -5264,7 +5264,7 @@ cpu_ldub_data.exit:                               ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_lduw_be_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_lduw_be_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %or.i.i.i = or i32 %call.i, 272
@@ -5279,7 +5279,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsw_be_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_be_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
 entry:
   %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %or.i.i.i.i = or i32 %call.i.i, 272
@@ -5322,7 +5322,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_lduw_le_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_lduw_le_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %or.i.i.i = or i32 %call.i, 16
@@ -5337,7 +5337,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_ldsw_le_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_le_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #2 {
 entry:
   %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #16
   %or.i.i.i.i = or i32 %call.i.i, 16
@@ -5515,7 +5515,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_cmpxchgb(ptr noundef %env, i64 noundef %addr, i32 noundef %oldv, i32 noundef %newv, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_cmpxchgb(ptr noundef %env, i64 noundef %addr, i32 noundef %oldv, i32 noundef %newv, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -5568,7 +5568,7 @@ cpu_atomic_cmpxchgb_mmu.exit:                     ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_cmpxchgb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %cmpv, i32 noundef %newv, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_cmpxchgb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %cmpv, i32 noundef %newv, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -5619,7 +5619,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_cmpxchgw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %oldv, i32 noundef %newv, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_cmpxchgw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %oldv, i32 noundef %newv, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -5684,7 +5684,7 @@ cpu_atomic_cmpxchgw_be_mmu.exit:                  ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_cmpxchgw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %cmpv, i32 noundef %newv, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_cmpxchgw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %cmpv, i32 noundef %newv, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -5747,7 +5747,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_cmpxchgw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %oldv, i32 noundef %newv, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_cmpxchgw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %oldv, i32 noundef %newv, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -5809,7 +5809,7 @@ cpu_atomic_cmpxchgw_le_mmu.exit:                  ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_cmpxchgw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %cmpv, i32 noundef %newv, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_cmpxchgw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %cmpv, i32 noundef %newv, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -6524,7 +6524,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_addb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_fetch_addb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -6575,7 +6575,7 @@ cpu_atomic_fetch_addb_mmu.exit:                   ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_addb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_fetch_addb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -6624,16 +6624,16 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_addw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_addw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_addw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_fetch_addw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_addw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_addw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -6681,7 +6681,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %4 = trunc i32 %xval to i16
@@ -6695,7 +6695,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %7 = cmpxchg ptr %1, i16 %ldn.0, i16 %6 seq_cst seq_cst, align 2
   %8 = extractvalue { i16, i1 } %7, 0
   %cmp.not = icmp eq i16 %ldn.0, %8
-  br i1 %cmp.not, label %do.body8, label %do.body, !llvm.loop !24
+  br i1 %cmp.not, label %do.body8, label %do.body, !llvm.loop !20
 
 do.body8:                                         ; preds = %do.body
   %conv2 = zext i16 %5 to i32
@@ -6706,7 +6706,7 @@ do.body8:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_addw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_addw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -6766,7 +6766,7 @@ cpu_atomic_fetch_addw_le_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_addw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_addw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -6881,7 +6881,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !21
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -6894,7 +6894,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp.not, label %do.body2, label %do.body, !llvm.loop !26
+  br i1 %cmp.not, label %do.body2, label %do.body, !llvm.loop !22
 
 do.body2:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -7075,7 +7075,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -7088,7 +7088,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp.not, label %do.body2, label %do.body, !llvm.loop !28
+  br i1 %cmp.not, label %do.body2, label %do.body, !llvm.loop !24
 
 do.body2:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -7212,7 +7212,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_andb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_fetch_andb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -7263,7 +7263,7 @@ cpu_atomic_fetch_andb_mmu.exit:                   ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_andb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_fetch_andb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -7312,7 +7312,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_andw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_andw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -7374,7 +7374,7 @@ cpu_atomic_fetch_andw_be_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_andw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_andw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -7434,7 +7434,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_andw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_andw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -7494,7 +7494,7 @@ cpu_atomic_fetch_andw_le_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_andw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_andw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -8016,7 +8016,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_orb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_fetch_orb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -8067,7 +8067,7 @@ cpu_atomic_fetch_orb_mmu.exit:                    ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_orb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_fetch_orb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -8116,7 +8116,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_orw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_orw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -8178,7 +8178,7 @@ cpu_atomic_fetch_orw_be_mmu.exit:                 ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_orw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_orw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -8238,7 +8238,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_orw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_orw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -8298,7 +8298,7 @@ cpu_atomic_fetch_orw_le_mmu.exit:                 ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_orw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_orw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -8820,7 +8820,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_xorb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_fetch_xorb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -8871,7 +8871,7 @@ cpu_atomic_fetch_xorb_mmu.exit:                   ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_xorb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_fetch_xorb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -8920,7 +8920,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_xorw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_xorw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -8982,7 +8982,7 @@ cpu_atomic_fetch_xorw_be_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_xorw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_xorw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -9042,7 +9042,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_xorw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_xorw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -9102,7 +9102,7 @@ cpu_atomic_fetch_xorw_le_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_xorw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_xorw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -9624,7 +9624,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_sminb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @helper_atomic_fetch_sminb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -9665,7 +9665,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
   fence seq_cst
   %5 = load atomic i8, ptr %3 monotonic, align 1
   %sext.i = shl i32 %val, 24
@@ -9680,7 +9680,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_fetch_sminb_mmu.exit, label %do.body.i, !llvm.loop !30
+  br i1 %cmp10.not.i, label %cpu_atomic_fetch_sminb_mmu.exit, label %do.body.i, !llvm.loop !26
 
 cpu_atomic_fetch_sminb_mmu.exit:                  ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -9690,7 +9690,7 @@ cpu_atomic_fetch_sminb_mmu.exit:                  ; preds = %do.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_sminb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @cpu_atomic_fetch_sminb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -9729,7 +9729,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
   fence seq_cst
   %3 = load atomic i8, ptr %1 monotonic, align 1
   %sext = shl i32 %xval, 24
@@ -9744,7 +9744,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !30
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !26
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -9754,16 +9754,16 @@ do.body12:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_sminw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @helper_atomic_fetch_sminw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_sminw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  %call = tail call i32 @cpu_atomic_fetch_sminw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_sminw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_fetch_sminw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -9811,7 +9811,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !32
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !27
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -9828,7 +9828,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
   %cmp9.not = icmp eq i16 %ldn.0, %7
-  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !33
+  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !28
 
 do.body11:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -9838,16 +9838,16 @@ do.body11:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_sminw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @helper_atomic_fetch_sminw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_sminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  %call = tail call i32 @cpu_atomic_fetch_sminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_sminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_fetch_sminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -9895,7 +9895,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !29
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -9910,7 +9910,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !35
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !30
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -9977,7 +9977,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -9990,7 +9990,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp3.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !37
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !32
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10050,7 +10050,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !33
   fence seq_cst
   %5 = load atomic i32, ptr %3 monotonic, align 4
   br label %do.body.i
@@ -10061,7 +10061,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i32 %cmp.0.i, i32 %cond.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp4.not.i = extractvalue { i32, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_fetch_sminl_le_mmu.exit, label %do.body.i, !llvm.loop !39
+  br i1 %cmp4.not.i, label %cpu_atomic_fetch_sminl_le_mmu.exit, label %do.body.i, !llvm.loop !34
 
 cpu_atomic_fetch_sminl_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -10119,7 +10119,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !33
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -10130,7 +10130,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i32 %cmp.0, i32 %cond seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   %cmp4.not = extractvalue { i32, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !39
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !34
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10197,7 +10197,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !35
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -10210,7 +10210,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp3.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !41
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !36
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10270,7 +10270,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !42
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
   fence seq_cst
   %5 = load atomic i64, ptr %3 monotonic, align 8
   br label %do.body.i
@@ -10281,7 +10281,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i64 %cmp.0.i, i64 %cond.i seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp4.not.i = extractvalue { i64, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_fetch_sminq_le_mmu.exit, label %do.body.i, !llvm.loop !43
+  br i1 %cmp4.not.i, label %cpu_atomic_fetch_sminq_le_mmu.exit, label %do.body.i, !llvm.loop !38
 
 cpu_atomic_fetch_sminq_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -10339,7 +10339,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !42
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -10350,7 +10350,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i64 %cmp.0, i64 %cond seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
   %cmp4.not = extractvalue { i64, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !43
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !38
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10360,7 +10360,7 @@ do.body5:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_uminb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_fetch_uminb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -10401,7 +10401,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !44
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
   fence seq_cst
   %5 = load atomic i8, ptr %3 monotonic, align 1
   %conv3.i = and i32 %val, 255
@@ -10415,7 +10415,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_fetch_uminb_mmu.exit, label %do.body.i, !llvm.loop !45
+  br i1 %cmp10.not.i, label %cpu_atomic_fetch_uminb_mmu.exit, label %do.body.i, !llvm.loop !40
 
 cpu_atomic_fetch_uminb_mmu.exit:                  ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -10425,7 +10425,7 @@ cpu_atomic_fetch_uminb_mmu.exit:                  ; preds = %do.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_uminb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_fetch_uminb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -10464,7 +10464,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !44
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
   fence seq_cst
   %3 = load atomic i8, ptr %1 monotonic, align 1
   %conv3 = and i32 %xval, 255
@@ -10478,7 +10478,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !45
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !40
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10488,16 +10488,16 @@ do.body12:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_uminw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_uminw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_uminw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_fetch_uminw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_uminw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_uminw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -10545,7 +10545,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !46
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !41
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -10561,7 +10561,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
   %cmp9.not = icmp eq i16 %ldn.0, %7
-  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !47
+  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !42
 
 do.body11:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10571,16 +10571,16 @@ do.body11:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_uminw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_uminw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_uminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_fetch_uminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_uminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_uminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -10628,7 +10628,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !48
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !43
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -10642,7 +10642,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !49
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !44
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10709,7 +10709,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !50
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !45
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -10722,7 +10722,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp3.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !51
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !46
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10782,7 +10782,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !52
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !47
   fence seq_cst
   %5 = load atomic i32, ptr %3 monotonic, align 4
   br label %do.body.i
@@ -10793,7 +10793,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i32 %cmp.0.i, i32 %cond.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp4.not.i = extractvalue { i32, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_fetch_uminl_le_mmu.exit, label %do.body.i, !llvm.loop !53
+  br i1 %cmp4.not.i, label %cpu_atomic_fetch_uminl_le_mmu.exit, label %do.body.i, !llvm.loop !48
 
 cpu_atomic_fetch_uminl_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -10851,7 +10851,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !52
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !47
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -10862,7 +10862,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i32 %cmp.0, i32 %cond seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   %cmp4.not = extractvalue { i32, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !53
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !48
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -10929,7 +10929,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !54
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !49
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -10942,7 +10942,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp3.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !55
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !50
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11002,7 +11002,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !56
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !51
   fence seq_cst
   %5 = load atomic i64, ptr %3 monotonic, align 8
   br label %do.body.i
@@ -11013,7 +11013,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i64 %cmp.0.i, i64 %cond.i seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp4.not.i = extractvalue { i64, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_fetch_uminq_le_mmu.exit, label %do.body.i, !llvm.loop !57
+  br i1 %cmp4.not.i, label %cpu_atomic_fetch_uminq_le_mmu.exit, label %do.body.i, !llvm.loop !52
 
 cpu_atomic_fetch_uminq_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -11071,7 +11071,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !56
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !51
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -11082,7 +11082,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i64 %cmp.0, i64 %cond seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
   %cmp4.not = extractvalue { i64, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !57
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !52
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11092,7 +11092,7 @@ do.body5:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_smaxb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @helper_atomic_fetch_smaxb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -11133,7 +11133,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !58
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !53
   fence seq_cst
   %5 = load atomic i8, ptr %3 monotonic, align 1
   %sext.i = shl i32 %val, 24
@@ -11148,7 +11148,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_fetch_smaxb_mmu.exit, label %do.body.i, !llvm.loop !59
+  br i1 %cmp10.not.i, label %cpu_atomic_fetch_smaxb_mmu.exit, label %do.body.i, !llvm.loop !54
 
 cpu_atomic_fetch_smaxb_mmu.exit:                  ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -11158,7 +11158,7 @@ cpu_atomic_fetch_smaxb_mmu.exit:                  ; preds = %do.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_smaxb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @cpu_atomic_fetch_smaxb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -11197,7 +11197,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !58
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !53
   fence seq_cst
   %3 = load atomic i8, ptr %1 monotonic, align 1
   %sext = shl i32 %xval, 24
@@ -11212,7 +11212,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !59
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !54
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11222,16 +11222,16 @@ do.body12:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_smaxw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @helper_atomic_fetch_smaxw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_smaxw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  %call = tail call i32 @cpu_atomic_fetch_smaxw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_smaxw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_fetch_smaxw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -11279,7 +11279,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !60
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !55
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -11296,7 +11296,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
   %cmp9.not = icmp eq i16 %ldn.0, %7
-  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !61
+  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !56
 
 do.body11:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11306,16 +11306,16 @@ do.body11:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_smaxw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @helper_atomic_fetch_smaxw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_smaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  %call = tail call i32 @cpu_atomic_fetch_smaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_smaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_fetch_smaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -11363,7 +11363,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !62
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !57
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -11378,7 +11378,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !63
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !58
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11445,7 +11445,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !64
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !59
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -11458,7 +11458,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp3.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !65
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !60
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11518,7 +11518,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !66
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !61
   fence seq_cst
   %5 = load atomic i32, ptr %3 monotonic, align 4
   br label %do.body.i
@@ -11529,7 +11529,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i32 %cmp.0.i, i32 %cond.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp4.not.i = extractvalue { i32, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_fetch_smaxl_le_mmu.exit, label %do.body.i, !llvm.loop !67
+  br i1 %cmp4.not.i, label %cpu_atomic_fetch_smaxl_le_mmu.exit, label %do.body.i, !llvm.loop !62
 
 cpu_atomic_fetch_smaxl_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -11587,7 +11587,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !66
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !61
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -11598,7 +11598,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i32 %cmp.0, i32 %cond seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   %cmp4.not = extractvalue { i32, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !67
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !62
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11665,7 +11665,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !68
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !63
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -11678,7 +11678,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp3.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !69
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !64
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11738,7 +11738,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !70
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !65
   fence seq_cst
   %5 = load atomic i64, ptr %3 monotonic, align 8
   br label %do.body.i
@@ -11749,7 +11749,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i64 %cmp.0.i, i64 %cond.i seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp4.not.i = extractvalue { i64, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_fetch_smaxq_le_mmu.exit, label %do.body.i, !llvm.loop !71
+  br i1 %cmp4.not.i, label %cpu_atomic_fetch_smaxq_le_mmu.exit, label %do.body.i, !llvm.loop !66
 
 cpu_atomic_fetch_smaxq_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -11807,7 +11807,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !70
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !65
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -11818,7 +11818,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i64 %cmp.0, i64 %cond seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
   %cmp4.not = extractvalue { i64, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !71
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !66
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11828,7 +11828,7 @@ do.body5:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_umaxb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_fetch_umaxb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -11869,7 +11869,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !72
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !67
   fence seq_cst
   %5 = load atomic i8, ptr %3 monotonic, align 1
   %conv3.i = and i32 %val, 255
@@ -11883,7 +11883,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_fetch_umaxb_mmu.exit, label %do.body.i, !llvm.loop !73
+  br i1 %cmp10.not.i, label %cpu_atomic_fetch_umaxb_mmu.exit, label %do.body.i, !llvm.loop !68
 
 cpu_atomic_fetch_umaxb_mmu.exit:                  ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -11893,7 +11893,7 @@ cpu_atomic_fetch_umaxb_mmu.exit:                  ; preds = %do.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_umaxb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_fetch_umaxb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -11932,7 +11932,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !72
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !67
   fence seq_cst
   %3 = load atomic i8, ptr %1 monotonic, align 1
   %conv3 = and i32 %xval, 255
@@ -11946,7 +11946,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !73
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !68
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -11956,16 +11956,16 @@ do.body12:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_umaxw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_umaxw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_umaxw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_fetch_umaxw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_umaxw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_umaxw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -12013,7 +12013,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !74
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !69
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -12029,7 +12029,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
   %cmp9.not = icmp eq i16 %ldn.0, %7
-  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !75
+  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !70
 
 do.body11:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -12039,16 +12039,16 @@ do.body11:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_fetch_umaxw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_fetch_umaxw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_fetch_umaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_fetch_umaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_fetch_umaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_umaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -12096,7 +12096,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !76
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !71
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -12110,7 +12110,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !77
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !72
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -12177,7 +12177,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !78
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !73
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -12190,7 +12190,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp3.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !79
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !74
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -12250,7 +12250,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !80
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !75
   fence seq_cst
   %5 = load atomic i32, ptr %3 monotonic, align 4
   br label %do.body.i
@@ -12261,7 +12261,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i32 %cmp.0.i, i32 %cond.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp4.not.i = extractvalue { i32, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_fetch_umaxl_le_mmu.exit, label %do.body.i, !llvm.loop !81
+  br i1 %cmp4.not.i, label %cpu_atomic_fetch_umaxl_le_mmu.exit, label %do.body.i, !llvm.loop !76
 
 cpu_atomic_fetch_umaxl_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -12319,7 +12319,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !80
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !75
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -12330,7 +12330,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i32 %cmp.0, i32 %cond seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   %cmp4.not = extractvalue { i32, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !81
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !76
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -12397,7 +12397,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !82
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !77
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -12410,7 +12410,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp3.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !83
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !78
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -12470,7 +12470,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !84
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !79
   fence seq_cst
   %5 = load atomic i64, ptr %3 monotonic, align 8
   br label %do.body.i
@@ -12481,7 +12481,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i64 %cmp.0.i, i64 %cond.i seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp4.not.i = extractvalue { i64, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_fetch_umaxq_le_mmu.exit, label %do.body.i, !llvm.loop !85
+  br i1 %cmp4.not.i, label %cpu_atomic_fetch_umaxq_le_mmu.exit, label %do.body.i, !llvm.loop !80
 
 cpu_atomic_fetch_umaxq_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -12539,7 +12539,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !84
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !79
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -12550,7 +12550,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i64 %cmp.0, i64 %cond seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
   %cmp4.not = extractvalue { i64, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !85
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !80
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -12560,7 +12560,7 @@ do.body5:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_add_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_add_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -12612,7 +12612,7 @@ cpu_atomic_add_fetchb_mmu.exit:                   ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_add_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_add_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -12662,16 +12662,16 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_add_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_add_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_add_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_add_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_add_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_add_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -12719,7 +12719,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !86
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !81
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %4 = trunc i32 %xval to i16
@@ -12733,7 +12733,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %7 = cmpxchg ptr %1, i16 %ldn.0, i16 %6 seq_cst seq_cst, align 2
   %8 = extractvalue { i16, i1 } %7, 0
   %cmp.not = icmp eq i16 %ldn.0, %8
-  br i1 %cmp.not, label %do.body8, label %do.body, !llvm.loop !87
+  br i1 %cmp.not, label %do.body8, label %do.body, !llvm.loop !82
 
 do.body8:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -12744,7 +12744,7 @@ do.body8:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_add_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_add_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -12805,7 +12805,7 @@ cpu_atomic_add_fetchw_le_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_add_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_add_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -12921,7 +12921,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !88
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !83
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -12934,7 +12934,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp.not, label %do.body2, label %do.body, !llvm.loop !89
+  br i1 %cmp.not, label %do.body2, label %do.body, !llvm.loop !84
 
 do.body2:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -13117,7 +13117,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !90
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !85
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -13130,7 +13130,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp.not, label %do.body2, label %do.body, !llvm.loop !91
+  br i1 %cmp.not, label %do.body2, label %do.body, !llvm.loop !86
 
 do.body2:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -13256,7 +13256,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_and_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_and_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -13308,7 +13308,7 @@ cpu_atomic_and_fetchb_mmu.exit:                   ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_and_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_and_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -13358,7 +13358,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_and_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_and_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -13421,7 +13421,7 @@ cpu_atomic_and_fetchw_be_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_and_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_and_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -13482,7 +13482,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_and_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_and_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -13543,7 +13543,7 @@ cpu_atomic_and_fetchw_le_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_and_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_and_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -14074,7 +14074,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_or_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_or_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -14126,7 +14126,7 @@ cpu_atomic_or_fetchb_mmu.exit:                    ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_or_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_or_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -14176,7 +14176,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_or_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_or_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -14239,7 +14239,7 @@ cpu_atomic_or_fetchw_be_mmu.exit:                 ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_or_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_or_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -14300,7 +14300,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_or_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_or_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -14361,7 +14361,7 @@ cpu_atomic_or_fetchw_le_mmu.exit:                 ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_or_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_or_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -14892,7 +14892,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_xor_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_xor_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -14944,7 +14944,7 @@ cpu_atomic_xor_fetchb_mmu.exit:                   ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_xor_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_xor_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -14994,7 +14994,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_xor_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_xor_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -15057,7 +15057,7 @@ cpu_atomic_xor_fetchw_be_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_xor_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_xor_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -15118,7 +15118,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_xor_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_xor_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -15179,7 +15179,7 @@ cpu_atomic_xor_fetchw_le_mmu.exit:                ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_xor_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_xor_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -15710,7 +15710,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_smin_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @helper_atomic_smin_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -15751,7 +15751,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !92
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !87
   fence seq_cst
   %5 = load atomic i8, ptr %3 monotonic, align 1
   %sext.i = shl i32 %val, 24
@@ -15766,7 +15766,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_smin_fetchb_mmu.exit, label %do.body.i, !llvm.loop !93
+  br i1 %cmp10.not.i, label %cpu_atomic_smin_fetchb_mmu.exit, label %do.body.i, !llvm.loop !88
 
 cpu_atomic_smin_fetchb_mmu.exit:                  ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -15776,7 +15776,7 @@ cpu_atomic_smin_fetchb_mmu.exit:                  ; preds = %do.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_smin_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @cpu_atomic_smin_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -15815,7 +15815,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !92
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !87
   fence seq_cst
   %3 = load atomic i8, ptr %1 monotonic, align 1
   %sext = shl i32 %xval, 24
@@ -15830,7 +15830,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !93
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !88
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -15840,16 +15840,16 @@ do.body12:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_smin_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @helper_atomic_smin_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_smin_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  %call = tail call i32 @cpu_atomic_smin_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_smin_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_smin_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -15897,7 +15897,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !94
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !89
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -15914,7 +15914,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
   %cmp9.not = icmp eq i16 %ldn.0, %7
-  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !95
+  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !90
 
 do.body11:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -15924,16 +15924,16 @@ do.body11:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_smin_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @helper_atomic_smin_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_smin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  %call = tail call i32 @cpu_atomic_smin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_smin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_smin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -15981,7 +15981,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !96
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !91
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -15996,7 +15996,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !97
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !92
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16063,7 +16063,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !98
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !93
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -16076,7 +16076,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp3.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !99
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !94
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16136,7 +16136,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !100
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !95
   fence seq_cst
   %5 = load atomic i32, ptr %3 monotonic, align 4
   br label %do.body.i
@@ -16147,7 +16147,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i32 %cmp.0.i, i32 %cond.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp4.not.i = extractvalue { i32, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_smin_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !101
+  br i1 %cmp4.not.i, label %cpu_atomic_smin_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !96
 
 cpu_atomic_smin_fetchl_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -16205,7 +16205,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !100
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !95
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -16216,7 +16216,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i32 %cmp.0, i32 %cond seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   %cmp4.not = extractvalue { i32, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !101
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !96
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16283,7 +16283,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !102
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !97
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -16296,7 +16296,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp3.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !103
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !98
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16356,7 +16356,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !104
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !99
   fence seq_cst
   %5 = load atomic i64, ptr %3 monotonic, align 8
   br label %do.body.i
@@ -16367,7 +16367,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i64 %cmp.0.i, i64 %cond.i seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp4.not.i = extractvalue { i64, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_smin_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !105
+  br i1 %cmp4.not.i, label %cpu_atomic_smin_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !100
 
 cpu_atomic_smin_fetchq_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -16425,7 +16425,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !104
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !99
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -16436,7 +16436,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i64 %cmp.0, i64 %cond seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
   %cmp4.not = extractvalue { i64, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !105
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !100
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16446,7 +16446,7 @@ do.body5:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_umin_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_umin_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -16487,7 +16487,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !106
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !101
   fence seq_cst
   %5 = load atomic i8, ptr %3 monotonic, align 1
   %conv3.i = and i32 %val, 255
@@ -16501,7 +16501,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_umin_fetchb_mmu.exit, label %do.body.i, !llvm.loop !107
+  br i1 %cmp10.not.i, label %cpu_atomic_umin_fetchb_mmu.exit, label %do.body.i, !llvm.loop !102
 
 cpu_atomic_umin_fetchb_mmu.exit:                  ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -16511,7 +16511,7 @@ cpu_atomic_umin_fetchb_mmu.exit:                  ; preds = %do.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_umin_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_umin_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -16550,7 +16550,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !106
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !101
   fence seq_cst
   %3 = load atomic i8, ptr %1 monotonic, align 1
   %conv3 = and i32 %xval, 255
@@ -16564,7 +16564,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !107
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !102
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16574,16 +16574,16 @@ do.body12:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_umin_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_umin_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_umin_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_umin_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_umin_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_umin_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -16631,7 +16631,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !108
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !103
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -16647,7 +16647,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
   %cmp9.not = icmp eq i16 %ldn.0, %7
-  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !109
+  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !104
 
 do.body11:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16657,16 +16657,16 @@ do.body11:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_umin_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_umin_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_umin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_umin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_umin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_umin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -16714,7 +16714,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !110
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !105
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -16728,7 +16728,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !111
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !106
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16795,7 +16795,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !112
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !107
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -16808,7 +16808,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp3.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !113
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !108
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -16868,7 +16868,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !114
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !109
   fence seq_cst
   %5 = load atomic i32, ptr %3 monotonic, align 4
   br label %do.body.i
@@ -16879,7 +16879,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i32 %cmp.0.i, i32 %cond.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp4.not.i = extractvalue { i32, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_umin_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !115
+  br i1 %cmp4.not.i, label %cpu_atomic_umin_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !110
 
 cpu_atomic_umin_fetchl_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -16937,7 +16937,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !114
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !109
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -16948,7 +16948,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i32 %cmp.0, i32 %cond seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   %cmp4.not = extractvalue { i32, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !115
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !110
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17015,7 +17015,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !116
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !111
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -17028,7 +17028,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp3.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !117
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !112
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17088,7 +17088,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !118
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !113
   fence seq_cst
   %5 = load atomic i64, ptr %3 monotonic, align 8
   br label %do.body.i
@@ -17099,7 +17099,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i64 %cmp.0.i, i64 %cond.i seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp4.not.i = extractvalue { i64, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_umin_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !119
+  br i1 %cmp4.not.i, label %cpu_atomic_umin_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !114
 
 cpu_atomic_umin_fetchq_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -17157,7 +17157,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !118
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !113
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -17168,7 +17168,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i64 %cmp.0, i64 %cond seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
   %cmp4.not = extractvalue { i64, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !119
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !114
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17178,7 +17178,7 @@ do.body5:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_smax_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @helper_atomic_smax_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -17219,7 +17219,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !120
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !115
   fence seq_cst
   %5 = load atomic i8, ptr %3 monotonic, align 1
   %sext.i = shl i32 %val, 24
@@ -17234,7 +17234,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_smax_fetchb_mmu.exit, label %do.body.i, !llvm.loop !121
+  br i1 %cmp10.not.i, label %cpu_atomic_smax_fetchb_mmu.exit, label %do.body.i, !llvm.loop !116
 
 cpu_atomic_smax_fetchb_mmu.exit:                  ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -17244,7 +17244,7 @@ cpu_atomic_smax_fetchb_mmu.exit:                  ; preds = %do.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_smax_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -128, 128) i32 @cpu_atomic_smax_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -17283,7 +17283,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !120
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !115
   fence seq_cst
   %3 = load atomic i8, ptr %1 monotonic, align 1
   %sext = shl i32 %xval, 24
@@ -17298,7 +17298,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !121
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !116
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17308,16 +17308,16 @@ do.body12:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_smax_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @helper_atomic_smax_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_smax_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  %call = tail call i32 @cpu_atomic_smax_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_smax_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_smax_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -17365,7 +17365,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !122
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !117
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -17382,7 +17382,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
   %cmp9.not = icmp eq i16 %ldn.0, %7
-  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !123
+  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !118
 
 do.body11:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17392,16 +17392,16 @@ do.body11:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_smax_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @helper_atomic_smax_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_smax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  %call = tail call i32 @cpu_atomic_smax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_smax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_smax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -17449,7 +17449,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !124
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !119
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -17464,7 +17464,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !125
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !120
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17531,7 +17531,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !126
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !121
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -17544,7 +17544,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp3.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !127
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !122
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17604,7 +17604,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !128
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !123
   fence seq_cst
   %5 = load atomic i32, ptr %3 monotonic, align 4
   br label %do.body.i
@@ -17615,7 +17615,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i32 %cmp.0.i, i32 %cond.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp4.not.i = extractvalue { i32, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_smax_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !129
+  br i1 %cmp4.not.i, label %cpu_atomic_smax_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !124
 
 cpu_atomic_smax_fetchl_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -17673,7 +17673,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !128
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !123
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -17684,7 +17684,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i32 %cmp.0, i32 %cond seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   %cmp4.not = extractvalue { i32, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !129
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !124
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17751,7 +17751,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !130
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !125
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -17764,7 +17764,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp3.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !131
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !126
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17824,7 +17824,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !132
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !127
   fence seq_cst
   %5 = load atomic i64, ptr %3 monotonic, align 8
   br label %do.body.i
@@ -17835,7 +17835,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i64 %cmp.0.i, i64 %cond.i seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp4.not.i = extractvalue { i64, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_smax_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !133
+  br i1 %cmp4.not.i, label %cpu_atomic_smax_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !128
 
 cpu_atomic_smax_fetchq_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -17893,7 +17893,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !132
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !127
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -17904,7 +17904,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i64 %cmp.0, i64 %cond seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
   %cmp4.not = extractvalue { i64, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !133
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !128
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -17914,7 +17914,7 @@ do.body5:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_umax_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_umax_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -17955,7 +17955,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !134
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !129
   fence seq_cst
   %5 = load atomic i8, ptr %3 monotonic, align 1
   %conv3.i = and i32 %val, 255
@@ -17969,7 +17969,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_umax_fetchb_mmu.exit, label %do.body.i, !llvm.loop !135
+  br i1 %cmp10.not.i, label %cpu_atomic_umax_fetchb_mmu.exit, label %do.body.i, !llvm.loop !130
 
 cpu_atomic_umax_fetchb_mmu.exit:                  ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -17979,7 +17979,7 @@ cpu_atomic_umax_fetchb_mmu.exit:                  ; preds = %do.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_umax_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_umax_fetchb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -18018,7 +18018,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !134
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !129
   fence seq_cst
   %3 = load atomic i8, ptr %1 monotonic, align 1
   %conv3 = and i32 %xval, 255
@@ -18032,7 +18032,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !135
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !130
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -18042,16 +18042,16 @@ do.body12:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_umax_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_umax_fetchw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_umax_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_umax_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_umax_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_umax_fetchw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -18099,7 +18099,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !136
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !131
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -18115,7 +18115,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
   %cmp9.not = icmp eq i16 %ldn.0, %7
-  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !137
+  br i1 %cmp9.not, label %do.body11, label %do.body, !llvm.loop !132
 
 do.body11:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -18125,16 +18125,16 @@ do.body11:                                        ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_umax_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_umax_fetchw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %call = tail call i32 @cpu_atomic_umax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  %call = tail call i32 @cpu_atomic_umax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_umax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_umax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %xval, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -18182,7 +18182,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !138
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !133
   fence seq_cst
   %3 = load atomic i16, ptr %1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -18196,7 +18196,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
-  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !139
+  br i1 %cmp10.not, label %do.body12, label %do.body, !llvm.loop !134
 
 do.body12:                                        ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -18263,7 +18263,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !140
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !135
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -18276,7 +18276,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i32 %ldn.0, i32 %5 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp3.not = icmp eq i32 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !141
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !136
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -18336,7 +18336,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !142
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !137
   fence seq_cst
   %5 = load atomic i32, ptr %3 monotonic, align 4
   br label %do.body.i
@@ -18347,7 +18347,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i32 %cmp.0.i, i32 %cond.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %cmp4.not.i = extractvalue { i32, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_umax_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !143
+  br i1 %cmp4.not.i, label %cpu_atomic_umax_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !138
 
 cpu_atomic_umax_fetchl_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -18405,7 +18405,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !142
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !137
   fence seq_cst
   %3 = load atomic i32, ptr %1 monotonic, align 4
   br label %do.body
@@ -18416,7 +18416,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i32 %cmp.0, i32 %cond seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   %cmp4.not = extractvalue { i32, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !143
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !138
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -18483,7 +18483,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !144
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !139
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -18496,7 +18496,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %6 = cmpxchg ptr %1, i64 %ldn.0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp3.not = icmp eq i64 %ldn.0, %7
-  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !145
+  br i1 %cmp3.not, label %do.body4, label %do.body, !llvm.loop !140
 
 do.body4:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -18556,7 +18556,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %1, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !146
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !141
   fence seq_cst
   %5 = load atomic i64, ptr %3 monotonic, align 8
   br label %do.body.i
@@ -18567,7 +18567,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %6 = cmpxchg ptr %3, i64 %cmp.0.i, i64 %cond.i seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 0
   %cmp4.not.i = extractvalue { i64, i1 } %6, 1
-  br i1 %cmp4.not.i, label %cpu_atomic_umax_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !147
+  br i1 %cmp4.not.i, label %cpu_atomic_umax_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !142
 
 cpu_atomic_umax_fetchq_le_mmu.exit:               ; preds = %do.body.i
   fence syncscope("singlethread") seq_cst
@@ -18625,7 +18625,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !146
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !141
   fence seq_cst
   %3 = load atomic i64, ptr %1 monotonic, align 8
   br label %do.body
@@ -18636,7 +18636,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = cmpxchg ptr %1, i64 %cmp.0, i64 %cond seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
   %cmp4.not = extractvalue { i64, i1 } %4, 1
-  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !147
+  br i1 %cmp4.not, label %do.body5, label %do.body, !llvm.loop !142
 
 do.body5:                                         ; preds = %do.body
   fence syncscope("singlethread") seq_cst
@@ -18646,7 +18646,7 @@ do.body5:                                         ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_xchgb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @helper_atomic_xchgb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -18697,7 +18697,7 @@ cpu_atomic_xchgb_mmu.exit:                        ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_xchgb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 256) i32 @cpu_atomic_xchgb_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -18746,7 +18746,7 @@ atomic_mmu_lookup.exit:                           ; preds = %get_alignment_bits.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_xchgw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_xchgw_be(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -18808,7 +18808,7 @@ cpu_atomic_xchgw_be_mmu.exit:                     ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_xchgw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_xchgw_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -18868,7 +18868,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @helper_atomic_xchgw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @helper_atomic_xchgw_le(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
@@ -18928,7 +18928,7 @@ cpu_atomic_xchgw_le_mmu.exit:                     ; preds = %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_atomic_xchgw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 65536) i32 @cpu_atomic_xchgw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
@@ -19553,146 +19553,141 @@ attributes #19 = { nounwind memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 0, i64 65}
-!10 = distinct !{!10, !7}
-!11 = !{i64 8262804}
-!12 = !{i64 8262880}
-!13 = !{i64 3399615}
-!14 = !{i64 3399860}
-!15 = !{i32 0, i32 33}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = !{i64 3400215}
-!21 = distinct !{!21, !7}
-!22 = !{i32 0, i32 65536}
-!23 = !{i64 2156106479}
-!24 = distinct !{!24, !7}
-!25 = !{i64 2156242386}
-!26 = distinct !{!26, !7}
-!27 = !{i64 2156379433}
-!28 = distinct !{!28, !7}
-!29 = !{i64 2155939325}
-!30 = distinct !{!30, !7}
-!31 = !{i32 -32768, i32 32768}
-!32 = !{i64 2156063529}
-!33 = distinct !{!33, !7}
-!34 = !{i64 2156005094}
-!35 = distinct !{!35, !7}
-!36 = !{i64 2156199276}
-!37 = distinct !{!37, !7}
-!38 = !{i64 2156140501}
-!39 = distinct !{!39, !7}
-!40 = !{i64 2156335969}
-!41 = distinct !{!41, !7}
-!42 = !{i64 2156276722}
-!43 = distinct !{!43, !7}
-!44 = !{i64 2155944544}
-!45 = distinct !{!45, !7}
-!46 = !{i64 2156068900}
-!47 = distinct !{!47, !7}
-!48 = !{i64 2156010376}
-!49 = distinct !{!49, !7}
-!50 = !{i64 2156204667}
-!51 = distinct !{!51, !7}
-!52 = !{i64 2156145803}
-!53 = distinct !{!53, !7}
-!54 = !{i64 2156341392}
-!55 = distinct !{!55, !7}
-!56 = !{i64 2156282056}
-!57 = distinct !{!57, !7}
-!58 = !{i64 2155949761}
-!59 = distinct !{!59, !7}
-!60 = !{i64 2156074269}
-!61 = distinct !{!61, !7}
-!62 = !{i64 2156015656}
-!63 = distinct !{!63, !7}
-!64 = !{i64 2156210056}
-!65 = distinct !{!65, !7}
-!66 = !{i64 2156151103}
-!67 = distinct !{!67, !7}
-!68 = !{i64 2156346827}
-!69 = distinct !{!69, !7}
-!70 = !{i64 2156287388}
-!71 = distinct !{!71, !7}
-!72 = !{i64 2155954980}
-!73 = distinct !{!73, !7}
-!74 = !{i64 2156079640}
-!75 = distinct !{!75, !7}
-!76 = !{i64 2156020938}
-!77 = distinct !{!77, !7}
-!78 = !{i64 2156215447}
-!79 = distinct !{!79, !7}
-!80 = !{i64 2156156405}
-!81 = distinct !{!81, !7}
-!82 = !{i64 2156352264}
-!83 = distinct !{!83, !7}
-!84 = !{i64 2156292722}
-!85 = distinct !{!85, !7}
-!86 = !{i64 2156111412}
-!87 = distinct !{!87, !7}
-!88 = !{i64 2156247339}
-!89 = distinct !{!89, !7}
-!90 = !{i64 2156384418}
-!91 = distinct !{!91, !7}
-!92 = !{i64 2155960197}
-!93 = distinct !{!93, !7}
-!94 = !{i64 2156085009}
-!95 = distinct !{!95, !7}
-!96 = !{i64 2156026218}
-!97 = distinct !{!97, !7}
-!98 = !{i64 2156220836}
-!99 = distinct !{!99, !7}
-!100 = !{i64 2156161705}
-!101 = distinct !{!101, !7}
-!102 = !{i64 2156357699}
-!103 = distinct !{!103, !7}
-!104 = !{i64 2156302115}
-!105 = distinct !{!105, !7}
-!106 = !{i64 2155965430}
-!107 = distinct !{!107, !7}
-!108 = !{i64 2156090380}
-!109 = distinct !{!109, !7}
-!110 = !{i64 2156031500}
-!111 = distinct !{!111, !7}
-!112 = !{i64 2156226227}
-!113 = distinct !{!113, !7}
-!114 = !{i64 2156167007}
-!115 = distinct !{!115, !7}
-!116 = !{i64 2156363136}
-!117 = distinct !{!117, !7}
-!118 = !{i64 2156307449}
-!119 = distinct !{!119, !7}
-!120 = !{i64 2155970661}
-!121 = distinct !{!121, !7}
-!122 = !{i64 2156095749}
-!123 = distinct !{!123, !7}
-!124 = !{i64 2156036780}
-!125 = distinct !{!125, !7}
-!126 = !{i64 2156231616}
-!127 = distinct !{!127, !7}
-!128 = !{i64 2156176368}
-!129 = distinct !{!129, !7}
-!130 = !{i64 2156368571}
-!131 = distinct !{!131, !7}
-!132 = !{i64 2156312781}
-!133 = distinct !{!133, !7}
-!134 = !{i64 2155975894}
-!135 = distinct !{!135, !7}
-!136 = !{i64 2156101120}
-!137 = distinct !{!137, !7}
-!138 = !{i64 2156046123}
-!139 = distinct !{!139, !7}
-!140 = !{i64 2156237007}
-!141 = distinct !{!141, !7}
-!142 = !{i64 2156181670}
-!143 = distinct !{!143, !7}
-!144 = !{i64 2156374008}
-!145 = distinct !{!145, !7}
-!146 = !{i64 2156318115}
-!147 = distinct !{!147, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{i64 8262804}
+!10 = !{i64 8262880}
+!11 = !{i64 3399615}
+!12 = !{i64 3399860}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = !{i64 3400215}
+!18 = distinct !{!18, !6}
+!19 = !{i64 2156106479}
+!20 = distinct !{!20, !6}
+!21 = !{i64 2156242386}
+!22 = distinct !{!22, !6}
+!23 = !{i64 2156379433}
+!24 = distinct !{!24, !6}
+!25 = !{i64 2155939325}
+!26 = distinct !{!26, !6}
+!27 = !{i64 2156063529}
+!28 = distinct !{!28, !6}
+!29 = !{i64 2156005094}
+!30 = distinct !{!30, !6}
+!31 = !{i64 2156199276}
+!32 = distinct !{!32, !6}
+!33 = !{i64 2156140501}
+!34 = distinct !{!34, !6}
+!35 = !{i64 2156335969}
+!36 = distinct !{!36, !6}
+!37 = !{i64 2156276722}
+!38 = distinct !{!38, !6}
+!39 = !{i64 2155944544}
+!40 = distinct !{!40, !6}
+!41 = !{i64 2156068900}
+!42 = distinct !{!42, !6}
+!43 = !{i64 2156010376}
+!44 = distinct !{!44, !6}
+!45 = !{i64 2156204667}
+!46 = distinct !{!46, !6}
+!47 = !{i64 2156145803}
+!48 = distinct !{!48, !6}
+!49 = !{i64 2156341392}
+!50 = distinct !{!50, !6}
+!51 = !{i64 2156282056}
+!52 = distinct !{!52, !6}
+!53 = !{i64 2155949761}
+!54 = distinct !{!54, !6}
+!55 = !{i64 2156074269}
+!56 = distinct !{!56, !6}
+!57 = !{i64 2156015656}
+!58 = distinct !{!58, !6}
+!59 = !{i64 2156210056}
+!60 = distinct !{!60, !6}
+!61 = !{i64 2156151103}
+!62 = distinct !{!62, !6}
+!63 = !{i64 2156346827}
+!64 = distinct !{!64, !6}
+!65 = !{i64 2156287388}
+!66 = distinct !{!66, !6}
+!67 = !{i64 2155954980}
+!68 = distinct !{!68, !6}
+!69 = !{i64 2156079640}
+!70 = distinct !{!70, !6}
+!71 = !{i64 2156020938}
+!72 = distinct !{!72, !6}
+!73 = !{i64 2156215447}
+!74 = distinct !{!74, !6}
+!75 = !{i64 2156156405}
+!76 = distinct !{!76, !6}
+!77 = !{i64 2156352264}
+!78 = distinct !{!78, !6}
+!79 = !{i64 2156292722}
+!80 = distinct !{!80, !6}
+!81 = !{i64 2156111412}
+!82 = distinct !{!82, !6}
+!83 = !{i64 2156247339}
+!84 = distinct !{!84, !6}
+!85 = !{i64 2156384418}
+!86 = distinct !{!86, !6}
+!87 = !{i64 2155960197}
+!88 = distinct !{!88, !6}
+!89 = !{i64 2156085009}
+!90 = distinct !{!90, !6}
+!91 = !{i64 2156026218}
+!92 = distinct !{!92, !6}
+!93 = !{i64 2156220836}
+!94 = distinct !{!94, !6}
+!95 = !{i64 2156161705}
+!96 = distinct !{!96, !6}
+!97 = !{i64 2156357699}
+!98 = distinct !{!98, !6}
+!99 = !{i64 2156302115}
+!100 = distinct !{!100, !6}
+!101 = !{i64 2155965430}
+!102 = distinct !{!102, !6}
+!103 = !{i64 2156090380}
+!104 = distinct !{!104, !6}
+!105 = !{i64 2156031500}
+!106 = distinct !{!106, !6}
+!107 = !{i64 2156226227}
+!108 = distinct !{!108, !6}
+!109 = !{i64 2156167007}
+!110 = distinct !{!110, !6}
+!111 = !{i64 2156363136}
+!112 = distinct !{!112, !6}
+!113 = !{i64 2156307449}
+!114 = distinct !{!114, !6}
+!115 = !{i64 2155970661}
+!116 = distinct !{!116, !6}
+!117 = !{i64 2156095749}
+!118 = distinct !{!118, !6}
+!119 = !{i64 2156036780}
+!120 = distinct !{!120, !6}
+!121 = !{i64 2156231616}
+!122 = distinct !{!122, !6}
+!123 = !{i64 2156176368}
+!124 = distinct !{!124, !6}
+!125 = !{i64 2156368571}
+!126 = distinct !{!126, !6}
+!127 = !{i64 2156312781}
+!128 = distinct !{!128, !6}
+!129 = !{i64 2155975894}
+!130 = distinct !{!130, !6}
+!131 = !{i64 2156101120}
+!132 = distinct !{!132, !6}
+!133 = !{i64 2156046123}
+!134 = distinct !{!134, !6}
+!135 = !{i64 2156237007}
+!136 = distinct !{!136, !6}
+!137 = !{i64 2156181670}
+!138 = distinct !{!138, !6}
+!139 = !{i64 2156374008}
+!140 = distinct !{!140, !6}
+!141 = !{i64 2156318115}
+!142 = distinct !{!142, !6}

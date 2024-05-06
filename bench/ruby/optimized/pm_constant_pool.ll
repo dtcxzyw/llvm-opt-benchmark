@@ -182,7 +182,7 @@ define hidden ptr @pm_constant_pool_id_to_constant(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @pm_constant_pool_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
+define hidden range(i32 0, 1073741824) i32 @pm_constant_pool_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -1

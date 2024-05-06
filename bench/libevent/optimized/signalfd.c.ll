@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @evthread_lock_fns_ = external local_unnamed_addr global %struct.evthread_lock_callbacks, align 8
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local noundef i32 @sigfd_init_(ptr nocapture noundef %base) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sigfd_init_(ptr nocapture noundef %base) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %base, i64 984
   %0 = load i32, ptr %flags, align 8
@@ -45,7 +45,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sigfd_add(ptr noundef %base, i32 noundef %signo, i16 noundef signext %old, i16 signext %events, ptr nocapture readnone %p) #2 {
+define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %base, i32 noundef %signo, i16 noundef signext %old, i16 signext %events, ptr nocapture readnone %p) #2 {
 entry:
   %mask = alloca %struct.__sigset_t, align 8
   %sig1 = getelementptr inbounds i8, ptr %base, i64 40
@@ -163,7 +163,7 @@ return:                                           ; preds = %if.end6, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sigfd_del(ptr nocapture noundef %base, i32 noundef %signo, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #2 {
+define internal range(i32 -1, 1) i32 @sigfd_del(ptr nocapture noundef %base, i32 noundef %signo, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #2 {
 entry:
   %mask = alloca %struct.__sigset_t, align 8
   %idxprom = sext i32 %signo to i64

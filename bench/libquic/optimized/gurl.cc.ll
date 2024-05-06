@@ -2291,7 +2291,7 @@ entry:
   %host = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %host, align 8
   %h.sroa.6.0.extract.shift = lshr i64 %0, 32
-  %h.sroa.6.0.extract.trunc = trunc i64 %h.sroa.6.0.extract.shift to i32
+  %h.sroa.6.0.extract.trunc = trunc nuw i64 %h.sroa.6.0.extract.shift to i32
   %cmp = icmp sgt i32 %h.sroa.6.0.extract.trunc, 1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -2359,7 +2359,7 @@ cond.true:                                        ; preds = %entry
   %parsed_ = getelementptr inbounds i8, ptr %this, i64 40
   %call = tail call i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull align 8 dereferenceable(72) %parsed_)
   %ref.tmp.sroa.2.0.extract.shift = lshr i64 %call, 32
-  %ref.tmp.sroa.2.0.extract.trunc = trunc i64 %ref.tmp.sroa.2.0.extract.shift to i32
+  %ref.tmp.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift to i32
   %cmp.i = icmp slt i32 %ref.tmp.sroa.2.0.extract.trunc, 1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 

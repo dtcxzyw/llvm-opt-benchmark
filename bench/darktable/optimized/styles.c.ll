@@ -132,7 +132,7 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_styles_tooltip_callback(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
+define hidden noundef range(i32 0, 2) i32 @_styles_tooltip_callback(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -286,7 +286,7 @@ declare void @g_value_unset(ptr noundef) local_unnamed_addr #4
 declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_ask_before_delete_style(i32 noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_ask_before_delete_style(i32 noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.1) #13
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %11, label %4

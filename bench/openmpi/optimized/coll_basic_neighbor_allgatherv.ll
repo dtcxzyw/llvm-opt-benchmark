@@ -85,7 +85,7 @@ define i32 @mca_coll_basic_neighbor_allgatherv(ptr noundef %0, i32 noundef %1, p
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %43
-  %49 = trunc i64 %indvars.iv136.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv136.i to i32
   %50 = call i32 @mca_topo_base_cart_shift(ptr noundef %7, i32 noundef %49, i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %12) #3
   %.pr.pre.i = load i32, ptr %11, align 4
   br label %thread-pre-split.i
@@ -399,7 +399,7 @@ mca_coll_basic_neighbor_allgatherv_cart.exit:     ; preds = %126, %148, %18, %27
 
 210:                                              ; preds = %200, %187
   %.1.ph.i = phi i32 [ %204, %200 ], [ %199, %187 ]
-  %211 = trunc i64 %indvars.iv.i38 to i32
+  %211 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   %212 = shl nuw i32 %211, 1
   %213 = add i32 %212, 2
   %214 = icmp sgt i32 %213, 0
@@ -651,7 +651,7 @@ ompi_request_cancel.exit.i.i67:                   ; preds = %312, %309
   br i1 %exitcond125.not.i, label %._crit_edge.i53, label %321, !llvm.loop !9
 
 328:                                              ; preds = %321
-  %329 = trunc i64 %indvars.iv121.i to i32
+  %329 = trunc nuw nsw i64 %indvars.iv121.i to i32
   %330 = add nsw i32 %266, %329
   %331 = icmp sgt i32 %330, -1
   br i1 %331, label %.lr.ph.preheader.i.i54, label %mca_coll_basic_neighbor_allgatherv_dist_graph.exit

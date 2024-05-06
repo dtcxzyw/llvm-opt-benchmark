@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.oidparse = private unnamed_addr constant [9 x i8] c"oidparse\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @oidin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -46,7 +46,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidrecv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @oidrecv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -467,7 +467,7 @@ define dso_local i32 @oidparse(ptr nocapture noundef readonly %0) local_unnamed_
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4
@@ -479,7 +479,7 @@ define dso_local i32 @oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @oideq(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 2) i64 @oideq(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -492,7 +492,7 @@ define dso_local i64 @oideq(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @oidne(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 2) i64 @oidne(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -505,7 +505,7 @@ define dso_local i64 @oidne(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @oidlt(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 2) i64 @oidlt(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -518,7 +518,7 @@ define dso_local i64 @oidlt(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @oidle(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 2) i64 @oidle(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -531,7 +531,7 @@ define dso_local i64 @oidle(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @oidge(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 2) i64 @oidge(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -544,7 +544,7 @@ define dso_local i64 @oidge(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @oidgt(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 2) i64 @oidgt(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -557,7 +557,7 @@ define dso_local i64 @oidgt(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @oidlarger(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 4294967296) i64 @oidlarger(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -570,7 +570,7 @@ define dso_local i64 @oidlarger(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @oidsmaller(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 4294967296) i64 @oidsmaller(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -583,7 +583,7 @@ define dso_local i64 @oidsmaller(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidvectoreq(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @oidvectoreq(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #11
   %3 = and i64 %2, 4294967295
   %4 = icmp eq i64 %3, 0
@@ -594,7 +594,7 @@ define dso_local i64 @oidvectoreq(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @btoidvectorcmp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidvectorne(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @oidvectorne(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #11
   %3 = and i64 %2, 4294967295
   %4 = icmp ne i64 %3, 0
@@ -603,7 +603,7 @@ define dso_local i64 @oidvectorne(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidvectorlt(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @oidvectorlt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #11
   %3 = lshr i64 %2, 31
   %.lobit = and i64 %3, 1
@@ -611,7 +611,7 @@ define dso_local i64 @oidvectorlt(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidvectorle(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @oidvectorle(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #11
   %3 = trunc i64 %2 to i32
   %4 = icmp slt i32 %3, 1
@@ -620,7 +620,7 @@ define dso_local i64 @oidvectorle(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidvectorge(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @oidvectorge(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #11
   %3 = lshr i64 %2, 31
   %.lobit = and i64 %3, 1
@@ -629,7 +629,7 @@ define dso_local i64 @oidvectorge(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidvectorgt(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @oidvectorgt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #11
   %3 = trunc i64 %2 to i32
   %4 = icmp sgt i32 %3, 0

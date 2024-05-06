@@ -37,7 +37,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd7b7b3d844ff0f1dE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef returned %1) unnamed_addr #1 {
+define hidden noundef range(i64 1, 6) i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd7b7b3d844ff0f1dE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef returned %1) unnamed_addr #1 {
   %.off.i = add i64 %1, -1
   %switch.i = icmp ult i64 %.off.i, 5
   br i1 %switch.i, label %"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481.exit", label %_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E.exit.i
@@ -336,7 +336,7 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..tr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef returned %1) unnamed_addr #2 {
+define hidden noundef range(i64 1, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef returned %1) unnamed_addr #2 {
   %.off = add i64 %1, -1
   %switch = icmp ult i64 %.off, 5
   br i1 %switch, label %3, label %_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E.exit

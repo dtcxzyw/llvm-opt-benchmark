@@ -2645,7 +2645,7 @@ obj_to_asn1obj.exit:                              ; preds = %RSTRING_PTR.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_asn1obj_eq(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_asn1obj_eq(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i64, ptr @sivVALUE, align 8

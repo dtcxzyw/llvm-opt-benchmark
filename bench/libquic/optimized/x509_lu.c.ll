@@ -594,7 +594,7 @@ return:                                           ; preds = %for.body, %return.s
 declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_get_by_subject(ptr nocapture noundef %vs, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr nocapture noundef %vs, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %stmp.i.i.i = alloca %struct.x509_object_st, align 8
   %x509_s.i.i.i = alloca %struct.x509_st, align 8
@@ -871,7 +871,7 @@ sw.epilog:                                        ; preds = %sw.bb1, %sw.bb, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_STORE_add_cert(ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_STORE_add_cert(ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -1062,7 +1062,7 @@ sw.epilog:                                        ; preds = %sw.bb1, %sw.bb, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_STORE_add_crl(ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_STORE_add_crl(ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -1325,7 +1325,7 @@ if.then5:                                         ; preds = %if.end
   %3 = load ptr, ptr %ctx, align 8
   %objs_lock7 = getelementptr inbounds i8, ptr %3, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock7) #10
-  %call8 = call i32 @X509_STORE_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 1, ptr noundef %nm, ptr noundef nonnull %xobj), !range !13
+  %call8 = call i32 @X509_STORE_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 1, ptr noundef %nm, ptr noundef nonnull %xobj)
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %if.then9, label %if.end10
 
@@ -1407,7 +1407,7 @@ for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %cnt, align 4
   %cmp22 = icmp slt i32 %inc, %17
-  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %if.end21
   %18 = load ptr, ptr %ctx, align 8
@@ -1430,7 +1430,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @X509_STORE_get_by_subject(ptr noundef %ctx, i32 noundef 2, ptr noundef %nm, ptr noundef nonnull %xobj), !range !13
+  %call1 = call i32 @X509_STORE_get_by_subject(ptr noundef %ctx, i32 noundef 2, ptr noundef %nm, ptr noundef nonnull %xobj)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then2, label %if.end3
 
@@ -1511,7 +1511,7 @@ for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %cnt, align 4
   %cmp12 = icmp slt i32 %inc, %13
-  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %14 = load ptr, ptr %ctx, align 8
@@ -1531,7 +1531,7 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @X509_CRL_match(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_STORE_CTX_get1_issuer(ptr nocapture noundef writeonly %issuer, ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @X509_STORE_CTX_get1_issuer(ptr nocapture noundef writeonly %issuer, ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %stmp.i.i = alloca %struct.x509_object_st, align 8
   %x509_s.i.i = alloca %struct.x509_st, align 8
@@ -1539,7 +1539,7 @@ entry:
   %idx.i.i = alloca i64, align 8
   %obj = alloca %struct.x509_object_st, align 8
   %call = tail call ptr @X509_get_issuer_name(ptr noundef %x) #10
-  %call1 = call i32 @X509_STORE_get_by_subject(ptr noundef %ctx, i32 noundef 1, ptr noundef %call, ptr noundef nonnull %obj), !range !13
+  %call1 = call i32 @X509_STORE_get_by_subject(ptr noundef %ctx, i32 noundef 1, ptr noundef %call, ptr noundef nonnull %obj)
   switch i32 %call1, label %if.then5 [
     i32 1, label %if.end7
     i32 -1, label %if.then3
@@ -1671,7 +1671,7 @@ for.cond:                                         ; preds = %if.end34
   %17 = load ptr, ptr %objs18, align 8
   %call19 = call i64 @sk_num(ptr noundef %17) #10
   %cmp20 = icmp ult i64 %inc, %call19
-  br i1 %cmp20, label %for.body, label %if.end42, !llvm.loop !16
+  br i1 %cmp20, label %for.body, label %if.end42, !llvm.loop !15
 
 for.body:                                         ; preds = %if.then16, %for.cond
   %i.039 = phi i64 [ %inc, %for.cond ], [ %conv, %if.then16 ]
@@ -1840,7 +1840,6 @@ attributes #10 = { nounwind }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = !{i32 -2147483648, i32 2}
+!13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}

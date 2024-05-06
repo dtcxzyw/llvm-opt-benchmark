@@ -90,7 +90,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.1 = private unnamed_addr constant [11 x i8] c"(conflict)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cmd_read_tree(i32 noundef %argc, ptr noundef %argv, ptr noundef %cmd_prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %argc, ptr noundef %argv, ptr noundef %cmd_prefix) local_unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %t = alloca [8 x %struct.tree_desc], align 16
@@ -960,7 +960,7 @@ for.body.lr.ph:                                   ; preds = %debug_stage.exit
 
 for.body:                                         ; preds = %for.body.lr.ph, %debug_stage.exit26
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %debug_stage.exit26 ]
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %call3 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf, i64 noundef 24, ptr noundef nonnull @.str.60, i32 noundef %6) #8
   %arrayidx5 = getelementptr inbounds ptr, ptr %stages, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx5, align 8

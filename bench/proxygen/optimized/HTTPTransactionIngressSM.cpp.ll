@@ -562,9 +562,9 @@ while.end22:                                      ; preds = %while.cond8, %_ZN6g
   %11 = load i8, ptr %add.ptr.i, align 1
   %cmp = icmp eq i8 %11, -1
   %retval.sroa.0.0.insert.ext.i = zext i8 %s to i16
-  %retval.sroa.0.0.insert.ext.i21 = zext i8 %11 to i16
-  %retval.sroa.0.0.insert.insert.i22 = or disjoint i16 %retval.sroa.0.0.insert.ext.i21, 256
-  %retval.sroa.0.0 = select i1 %cmp, i16 %retval.sroa.0.0.insert.ext.i, i16 %retval.sroa.0.0.insert.insert.i22
+  %retval.sroa.0.0.insert.ext.i22 = zext i8 %11 to i16
+  %retval.sroa.0.0.insert.insert.i23 = or disjoint i16 %retval.sroa.0.0.insert.ext.i22, 256
+  %retval.sroa.0.0 = select i1 %cmp, i16 %retval.sroa.0.0.insert.ext.i, i16 %retval.sroa.0.0.insert.insert.i23
   ret i16 %retval.sroa.0.0
 }
 

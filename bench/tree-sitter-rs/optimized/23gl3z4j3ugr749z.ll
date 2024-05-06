@@ -65,7 +65,7 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
 
 36:                                               ; preds = %3
   %37 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !7, !noalias !8, !noundef !5
-  %trunc.i.i.i = trunc i64 %37 to i1
+  %trunc.i.i.i = trunc nuw i64 %37 to i1
   br i1 %trunc.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4941a9f7fc303549E.exit", label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; preds = %36
@@ -102,7 +102,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25)
   %45 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !7, !noalias !19, !noundef !5
-  %trunc.i.i.i12 = trunc i64 %45 to i1
+  %trunc.i.i.i12 = trunc nuw i64 %45 to i1
   br i1 %trunc.i.i.i12, label %50, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i13
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i13: ; preds = %44
@@ -152,13 +152,13 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i13: 
 
 .noexc25:                                         ; preds = %50
   %54 = load i8, ptr %15, align 8, !range !41, !noalias !35, !noundef !5
-  %trunc.i.i.i24 = trunc i8 %54 to i1
+  %trunc.i.i.i24 = trunc nuw i8 %54 to i1
   br i1 %trunc.i.i.i24, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17ha63a470ac73650f4E.llvm.4737732271168901859.exit.thread.i.i", label %55
 
 55:                                               ; preds = %.noexc25
   %56 = getelementptr inbounds i8, ptr %15, i64 1
   %57 = load i8, ptr %56, align 1, !range !41, !noalias !35, !noundef !5
-  %trunc1.i.i.i = trunc i8 %57 to i1
+  %trunc1.i.i.i = trunc nuw i8 %57 to i1
   br i1 %trunc1.i.i.i, label %62, label %60
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17ha63a470ac73650f4E.llvm.4737732271168901859.exit.thread.i.i": ; preds = %.noexc25
@@ -329,12 +329,12 @@ _ZN5serde2de9MapAccess10next_value17h5dea298616bea054E.exit.thread: ; preds = %"
 
 .noexc.i.i:                                       ; preds = %98
   %100 = load i8, ptr %8, align 8, !range !41, !noalias !78, !noundef !5
-  %trunc.i.i.i.i = trunc i8 %100 to i1
+  %trunc.i.i.i.i = trunc nuw i8 %100 to i1
   br i1 %trunc.i.i.i.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17ha63a470ac73650f4E.llvm.4737732271168901859.exit.thread.i.i.i", label %101
 
 101:                                              ; preds = %.noexc.i.i
   %102 = load i8, ptr %91, align 1, !range !41, !noalias !78, !noundef !5
-  %trunc1.i.i.i.i = trunc i8 %102 to i1
+  %trunc1.i.i.i.i = trunc nuw i8 %102 to i1
   br i1 %trunc1.i.i.i.i, label %107, label %105
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17ha63a470ac73650f4E.llvm.4737732271168901859.exit.thread.i.i.i": ; preds = %.noexc.i.i
@@ -754,7 +754,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %16 = extractvalue { i64, ptr } %15, 1
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
   %.sink11 = extractvalue { i64, ptr } %15, 0
   store i64 %.sink11, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -804,7 +804,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %16 = extractvalue { i64, ptr } %15, 1
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %12, i64 %.sroa.4.0.copyload.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload.i, i1 false)
   %.sink11.i = extractvalue { i64, ptr } %15, 0
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload.i, ptr %18, align 8, !alias.scope !134, !noalias !137
@@ -855,7 +855,7 @@ define hidden void @"_ZN83_$LT$serde_json..value..de..KeyClassifier$u20$as$u20$s
   %16 = extractvalue { i64, ptr } %15, 1
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %12, i64 %.sroa.4.0.copyload.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload.i.i, i1 false)
   %.sink11.i.i = extractvalue { i64, ptr } %15, 0
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload.i.i, ptr %18, align 8, !alias.scope !156, !noalias !157
@@ -894,7 +894,7 @@ declare void @_ZN3std4path4Path5_join17h429da7dd389f28c5E(ptr noalias nocapture 
 declare void @_ZN3std4path7PathBuf5_push17h22c4519a173299cbE(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.10168209630498492890(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.10168209630498492890(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

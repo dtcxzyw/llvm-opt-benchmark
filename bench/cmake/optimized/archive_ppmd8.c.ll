@@ -110,7 +110,7 @@ define dso_local void @Ppmd8_Free(ptr nocapture noundef %0) #2 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noundef i32 @Ppmd8_Alloc(ptr nocapture noundef %0, i32 noundef %1) #2 {
+define dso_local range(i32 0, 2) i32 @Ppmd8_Alloc(ptr nocapture noundef %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1664,7 +1664,7 @@ AllocUnits.exit211:                               ; preds = %356, %359
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Ppmd8_RangeDec_Init(ptr nocapture noundef %0) #9 {
+define dso_local range(i32 0, 2) i32 @Ppmd8_RangeDec_Init(ptr nocapture noundef %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1696,7 +1696,7 @@ define dso_local i32 @Ppmd8_RangeDec_Init(ptr nocapture noundef %0) #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Ppmd8_DecodeSymbol(ptr noundef %0) #9 {
+define dso_local range(i32 -2, 256) i32 @Ppmd8_DecodeSymbol(ptr noundef %0) #9 {
   %2 = alloca %struct.CPpmd_State, align 2
   %3 = alloca [32 x i64], align 16
   %4 = alloca [256 x ptr], align 16

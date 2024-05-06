@@ -412,7 +412,7 @@ define dso_local noundef zeroext i1 @_ZN25cmBinUtilsWindowsPELinker16ScanDepende
   br label %175
 
 22:                                               ; preds = %19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %6, align 8

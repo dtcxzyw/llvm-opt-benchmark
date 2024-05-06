@@ -104,7 +104,7 @@ define noundef i32 @ompi_datatype_create_subarray(i32 noundef %0, ptr nocapture 
   %71 = load ptr, ptr %6, align 8
   store ptr %71, ptr %8, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, %55
-  %72 = trunc i64 %indvars.iv.next to i32
+  %72 = trunc nsw i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %.059, %72
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 

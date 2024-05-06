@@ -1127,9 +1127,9 @@ if.else.i:                                        ; preds = %entry
   %9 = load i32, ptr %Y2.i39.i, align 4, !tbaa !74
   %TabHeight24.i = getelementptr inbounds i8, ptr %this, i64 352
   %10 = load i32, ptr %TabHeight24.i, align 8, !tbaa !62
-  %.neg22 = add i32 %8, -2
+  %.neg23 = add i32 %8, -2
   %11 = add i32 %9, %10
-  %sub26.i = sub i32 %.neg22, %11
+  %sub26.i = sub i32 %.neg23, %11
   %spec.select.i = zext nneg i8 %3 to i32
   br label %_ZN3irr3gui11IGUIElement6removeEv.exit
 
@@ -1223,15 +1223,15 @@ _ZN3irr3gui11IGUIElement6removeEv.exit:           ; preds = %if.else.i, %if.then
   store <2 x i64> %.pre, ptr %LastParentRect.i, align 8
   store ptr %this, ptr %Parent.i, align 8, !tbaa !93
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call5.i.i.i.i.i.i.i5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i5, i64 16
+  %call5.i.i.i.i.i.i.i6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i6, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !48
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i5, ptr noundef nonnull %Children.i.i) #19
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i6, ptr noundef nonnull %Children.i.i) #19
   %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load i64, ptr %_M_size.i.i.i.i, align 8, !tbaa !94
   %add.i.i.i.i = add i64 %17, 1
   store i64 %add.i.i.i.i, ptr %_M_size.i.i.i.i, align 8, !tbaa !94
-  store ptr %call5.i.i.i.i.i.i.i5, ptr %ParentPos.i, align 8, !tbaa !48
+  store ptr %call5.i.i.i.i.i.i.i6, ptr %ParentPos.i, align 8, !tbaa !48
   tail call void @_ZN3irr3gui11IGUIElement27recalculateAbsolutePositionEb(ptr noundef nonnull align 8 dereferenceable(308) %call, i1 noundef zeroext true)
   store ptr getelementptr inbounds inrange(-24, 336) ({ [45 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui7CGUITabE, i64 0, i32 0, i64 3), ptr %call, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-24, 16) ({ [45 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui7CGUITabE, i64 0, i32 1, i64 3), ptr %12, align 8, !tbaa !3
@@ -1664,9 +1664,9 @@ if.else.i:                                        ; preds = %if.end
   %11 = load i32, ptr %Y2.i39.i, align 4, !tbaa !74
   %TabHeight24.i = getelementptr inbounds i8, ptr %this, i64 352
   %12 = load i32, ptr %TabHeight24.i, align 8, !tbaa !62
-  %.neg21 = add i32 %10, -2
+  %.neg22 = add i32 %10, -2
   %13 = add i32 %11, %12
-  %sub26.i = sub i32 %.neg21, %13
+  %sub26.i = sub i32 %.neg22, %13
   %spec.select.i = zext nneg i8 %5 to i32
   br label %_ZN3irr3gui11IGUIElement6removeEv.exit
 
@@ -4547,9 +4547,9 @@ if.then.i126:                                     ; preds = %if.end32
   %retval.sroa.2.0.copyload.i.i130 = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i129, align 8, !tbaa.struct !77
   %sub.i.i.i131 = sub i64 %retval.sroa.2.0.copyload.i.i130, %retval.sroa.0.0.copyload.i.i128
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i130, 32
-  %ref.tmp.sroa.7.12.extract.trunc.i = trunc i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
+  %ref.tmp.sroa.7.12.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i.i128, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %sub.i4.i.i132 = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc.i, %ref.tmp.sroa.0.4.extract.trunc.i
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i131 to i32
   %conv.i133 = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
@@ -4630,9 +4630,9 @@ if.then.i145:                                     ; preds = %_ZN3irr3gui11IGUIEl
   %retval.sroa.2.0.copyload.i.i149 = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i148, align 8, !tbaa.struct !77
   %sub.i.i.i150 = sub i64 %retval.sroa.2.0.copyload.i.i149, %retval.sroa.0.0.copyload.i.i147
   %ref.tmp.sroa.7.12.extract.shift.i151 = lshr i64 %retval.sroa.2.0.copyload.i.i149, 32
-  %ref.tmp.sroa.7.12.extract.trunc.i152 = trunc i64 %ref.tmp.sroa.7.12.extract.shift.i151 to i32
+  %ref.tmp.sroa.7.12.extract.trunc.i152 = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift.i151 to i32
   %ref.tmp.sroa.0.4.extract.shift.i153 = lshr i64 %retval.sroa.0.0.copyload.i.i147, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i154 = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i153 to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i154 = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i153 to i32
   %sub.i4.i.i155 = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc.i152, %ref.tmp.sroa.0.4.extract.trunc.i154
   %ref.tmp4.sroa.0.0.extract.trunc.i156 = trunc i64 %sub.i.i.i150 to i32
   %conv.i157 = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i156 to float
@@ -4814,7 +4814,7 @@ _ZN3irr3gui14CGUITabControl10calcTabPosEv.exit:   ; preds = %if.else.i, %if.then
 for.body.lr.ph:                                   ; preds = %_ZN3irr3gui14CGUITabControl10calcTabPosEv.exit
   %retval.sroa.0.sroa.5.0.insert.ext.i = zext i32 %retval.sroa.0.sroa.5.0.i to i64
   %retval.sroa.0.sroa.5.0.insert.shift.i = shl nuw i64 %retval.sroa.0.sroa.5.0.insert.ext.i, 32
-  %conv11.i = uitofp i8 %2 to float
+  %conv11.i = uitofp nneg i8 %2 to float
   %conv18.i = sitofp i32 %retval.sroa.9.0.v.i to float
   %conv28.i = sitofp i32 %retval.sroa.0.sroa.5.0.i to float
   %conv39.i = sitofp i32 %retval.sroa.9.12.insert.shift50.pn.in.in.i to float
@@ -4842,9 +4842,9 @@ if.then.i:                                        ; preds = %for.body
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i, align 8, !tbaa.struct !77
   %sub.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i, 32
-  %ref.tmp.sroa.7.12.extract.trunc.i = trunc i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
+  %ref.tmp.sroa.7.12.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i.i, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %sub.i4.i.i = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc.i, %ref.tmp.sroa.0.4.extract.trunc.i
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i to i32
   %conv.i8 = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
@@ -5580,18 +5580,18 @@ if.end:                                           ; preds = %for.body, %if.then,
 define linkonce_odr void @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, i64 %absoluteMovement.coerce) unnamed_addr #0 comdat align 2 {
 entry:
   %absoluteMovement.sroa.2.0.extract.shift = lshr i64 %absoluteMovement.coerce, 32
-  %absoluteMovement.sroa.2.0.extract.trunc = trunc i64 %absoluteMovement.sroa.2.0.extract.shift to i32
+  %absoluteMovement.sroa.2.0.extract.trunc = trunc nuw i64 %absoluteMovement.sroa.2.0.extract.shift to i32
   %DesiredRect = getelementptr inbounds i8, ptr %this, i64 96
   %ret.sroa.0.0.copyload.i = load i64, ptr %DesiredRect, align 8, !tbaa.struct !76
   %ret.sroa.0.sroa.6.0.extract.shift.i = lshr i64 %ret.sroa.0.0.copyload.i, 32
-  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
+  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc nuw i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
   %ret.sroa.8.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 104
   %ret.sroa.8.0.copyload.i = load i64, ptr %ret.sroa.8.0.this.sroa_idx.i, align 8, !tbaa.struct !77
   %add.i.i.i = add i64 %ret.sroa.0.0.copyload.i, %absoluteMovement.coerce
   %add4.i.i.i = add nsw i32 %ret.sroa.0.sroa.6.0.extract.trunc.i, %absoluteMovement.sroa.2.0.extract.trunc
   %add.i4.i.i = add i64 %ret.sroa.8.0.copyload.i, %absoluteMovement.coerce
   %ret.sroa.8.12.extract.shift.i = lshr i64 %ret.sroa.8.0.copyload.i, 32
-  %ret.sroa.8.12.extract.trunc.i = trunc i64 %ret.sroa.8.12.extract.shift.i to i32
+  %ret.sroa.8.12.extract.trunc.i = trunc nuw i64 %ret.sroa.8.12.extract.shift.i to i32
   %add4.i7.i.i = add nsw i32 %ret.sroa.8.12.extract.trunc.i, %absoluteMovement.sroa.2.0.extract.trunc
   %ref.tmp.sroa.0.sroa.0.0.extract.trunc = trunc i64 %add.i.i.i to i32
   %Parent.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -5606,9 +5606,9 @@ if.then.i:                                        ; preds = %entry
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i, align 8, !tbaa.struct !77
   %sub.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i, 32
-  %ref.tmp.sroa.7.12.extract.trunc.i = trunc i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
+  %ref.tmp.sroa.7.12.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i.i, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %sub.i4.i.i = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc.i, %ref.tmp.sroa.0.4.extract.trunc.i
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i to i32
   %conv.i = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
@@ -6883,7 +6883,7 @@ _ZN3irr4core4rectIiE6repairEv.exit:               ; preds = %if.then15.i, %if.en
   %ret.sroa.0.0.copyload.i = load i64, ptr %RelativeRect, align 8, !tbaa.struct !76
   %ret.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %ret.sroa.0.0.copyload.i to i32
   %ret.sroa.0.sroa.6.0.extract.shift.i = lshr i64 %ret.sroa.0.0.copyload.i, 32
-  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
+  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc nuw i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
   %ret.sroa.8.0.copyload.i = load i64, ptr %LowerRightCorner.i232, align 8, !tbaa.struct !77
   %add.i.i.i = add nsw i32 %parentAbsolute.sroa.0.0, %ret.sroa.0.sroa.0.0.extract.trunc.i
   %add4.i.i.i = add nsw i32 %parentAbsolute.sroa.8.0, %ret.sroa.0.sroa.6.0.extract.trunc.i
@@ -6891,7 +6891,7 @@ _ZN3irr4core4rectIiE6repairEv.exit:               ; preds = %if.then15.i, %if.en
   %add.i4.i.i = add nsw i32 %parentAbsolute.sroa.0.0, %ret.sroa.8.8.extract.trunc.i
   %ret.sroa.8.8.insert.ext.i = zext i32 %add.i4.i.i to i64
   %ret.sroa.8.12.extract.shift.i = lshr i64 %ret.sroa.8.0.copyload.i, 32
-  %ret.sroa.8.12.extract.trunc.i = trunc i64 %ret.sroa.8.12.extract.shift.i to i32
+  %ret.sroa.8.12.extract.trunc.i = trunc nuw i64 %ret.sroa.8.12.extract.shift.i to i32
   %add4.i7.i.i = add nsw i32 %parentAbsolute.sroa.8.0, %ret.sroa.8.12.extract.trunc.i
   %ret.sroa.8.12.insert.ext.i = zext i32 %add4.i7.i.i to i64
   %ret.sroa.8.12.insert.shift.i = shl nuw i64 %ret.sroa.8.12.insert.ext.i, 32

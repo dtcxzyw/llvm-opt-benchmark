@@ -240,7 +240,7 @@ define ptr @Lpk_CutTruth_rec(ptr noundef %0, ptr nocapture noundef %1, i32 nound
 select.unfold.preheader.i:                        ; preds = %16
   %21 = zext nneg i32 %spec.select.i to i64
   %22 = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %13, i8 -1, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %13, i8 -1, i64 %22, i1 false)
   br label %Kit_TruthFill.exit
 
 23:                                               ; preds = %7
@@ -874,7 +874,7 @@ Vec_PtrPush.exit43:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8240084
   %4 = load i32, ptr %1, align 4
   %5 = shl i32 %4, 2
@@ -1133,7 +1133,7 @@ define noundef i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr nocapture
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @Lpk_NodeCutsOneFilter(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Lpk_NodeCutsOneFilter(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph81, label %Lpk_NodeCutsOneDominance.exit
 
@@ -1453,7 +1453,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
   ]
 
 13:                                               ; preds = %3
-  %14 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef nonnull %10), !range !33
+  %14 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef nonnull %10)
   %.not108 = icmp eq i32 %14, 0
   br i1 %.not108, label %15, label %23
 
@@ -1521,7 +1521,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
   %.1 = phi i32 [ %.0137, %33 ], [ %49, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %33, !llvm.loop !34
+  br i1 %exitcond.not, label %.critedge, label %33, !llvm.loop !33
 
 .critedge:                                        ; preds = %53, %23
   %54 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1582,7 +1582,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
   %85 = and i32 %83, 63
   %86 = zext nneg i32 %85 to i64
   %87 = icmp ult i64 %indvars.iv.next165, %86
-  br i1 %87, label %69, label %.preheader126, !llvm.loop !35
+  br i1 %87, label %69, label %.preheader126, !llvm.loop !34
 
 88:                                               ; preds = %.lr.ph147, %135
   %.val115191 = phi i32 [ %.val115145, %.lr.ph147 ], [ %.val115, %135 ]
@@ -1619,7 +1619,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
 103:                                              ; preds = %100
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %.loopexit125, label %100, !llvm.loop !36
+  br i1 %exitcond171.not, label %.loopexit125, label %100, !llvm.loop !35
 
 104:                                              ; preds = %100
   %105 = trunc nuw nsw i64 %indvars.iv167 to i32
@@ -1662,7 +1662,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
   %124 = getelementptr inbounds [100 x i32], ptr %68, i64 0, i64 %indvars.iv175
   store i32 %123, ptr %124, align 4
   %125 = icmp sgt i64 %indvars.iv.next176, %121
-  br i1 %125, label %.lr.ph144, label %._crit_edge.loopexit, !llvm.loop !37
+  br i1 %125, label %.lr.ph144, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph144
   %.pre190 = load i32, ptr %58, align 4
@@ -1690,7 +1690,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %137 = sext i32 %.val115 to i64
   %138 = icmp slt i64 %indvars.iv.next179, %137
-  br i1 %138, label %88, label %.critedge2, !llvm.loop !38
+  br i1 %138, label %88, label %.critedge2, !llvm.loop !37
 
 .critedge2:                                       ; preds = %135, %.preheader126
   %139 = phi i32 [ %65, %.preheader126 ], [ %136, %135 ]
@@ -1726,7 +1726,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
 
 Lpk_NodeCutSignature.exit:                        ; preds = %144, %.critedge2
   %154 = load i32, ptr %55, align 4
-  %155 = tail call i32 @Lpk_NodeCutsOneFilter(ptr noundef nonnull %54, i32 noundef %154, ptr noundef nonnull %58), !range !33
+  %155 = tail call i32 @Lpk_NodeCutsOneFilter(ptr noundef nonnull %54, i32 noundef %154, ptr noundef nonnull %58)
   %.not109 = icmp eq i32 %155, 0
   br i1 %.not109, label %156, label %.loopexit127
 
@@ -1785,7 +1785,7 @@ Lpk_NodeCutSignature.exit:                        ; preds = %144, %.critedge2
   %185 = getelementptr inbounds [100 x i32], ptr %157, i64 0, i64 %indvars.iv187
   store i32 %184, ptr %185, align 4
   %186 = icmp slt i64 %indvars.iv.next188, %182
-  br i1 %186, label %.lr.ph153, label %._crit_edge154, !llvm.loop !39
+  br i1 %186, label %.lr.ph153, label %._crit_edge154, !llvm.loop !38
 
 ._crit_edge154:                                   ; preds = %.lr.ph153, %.preheader
   %.1100.lcssa = phi i64 [ %indvars.iv181, %.preheader ], [ %indvars.iv.next188, %.lr.ph153 ]
@@ -1797,7 +1797,7 @@ Lpk_NodeCutSignature.exit:                        ; preds = %144, %.critedge2
 189:                                              ; preds = %.lr.ph150
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %.loopexit, label %.lr.ph150, !llvm.loop !40
+  br i1 %exitcond185.not, label %.loopexit, label %.lr.ph150, !llvm.loop !39
 
 .loopexit:                                        ; preds = %189, %156, %._crit_edge154
   %.3130 = phi i32 [ %177, %._crit_edge154 ], [ 0, %156 ], [ %173, %189 ]
@@ -1815,7 +1815,7 @@ Lpk_NodeCutSignature.exit:                        ; preds = %144, %.critedge2
   %198 = zext nneg i32 %191 to i64
   %199 = getelementptr inbounds [100 x i32], ptr %157, i64 0, i64 %198
   store i32 %2, ptr %199, align 4
-  %200 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %10), !range !33
+  %200 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %10)
   %201 = load i32, ptr %58, align 4
   %202 = shl nuw nsw i32 %200, 12
   %203 = xor i32 %202, 4096
@@ -1837,7 +1837,7 @@ Lpk_NodeCutSignature.exit:                        ; preds = %144, %.critedge2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NodeIsTravIdCurrent(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsTravIdCurrent(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %.val2 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 16
   %.val3 = load i32, ptr %2, align 8
@@ -1927,7 +1927,7 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %37, !llvm.loop !41
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %37, !llvm.loop !40
 
 ._crit_edge.i.i.i:                                ; preds = %37, %Vec_IntGrow.exit.i.i.i
   store i32 %4, ptr %5, align 4
@@ -2089,7 +2089,7 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %59, align 4
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %57, !llvm.loop !41
+  br i1 %exitcond.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %57, !llvm.loop !40
 
 ._crit_edge.i.i.i.i:                              ; preds = %57, %Vec_IntGrow.exit.i.i.i.i
   store i32 %24, ptr %25, align 4
@@ -2125,7 +2125,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
   %.val38 = load i32, ptr %11, align 4
   %74 = sext i32 %.val38 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %14, label %.critedge2.loopexit, !llvm.loop !42
+  br i1 %75, label %14, label %.critedge2.loopexit, !llvm.loop !41
 
 .critedge2.loopexit:                              ; preds = %73
   %.val44.pre = load i32, ptr %3, align 4
@@ -2137,7 +2137,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %76 = sext i32 %.val44 to i64
   %77 = icmp slt i64 %indvars.iv.next61, %76
-  br i1 %77, label %8, label %.critedge.preheader, !llvm.loop !43
+  br i1 %77, label %8, label %.critedge.preheader, !llvm.loop !42
 
 78:                                               ; preds = %.lr.ph58, %.critedge6
   %.val4372 = phi i32 [ %.val44, %.lr.ph58 ], [ %.val43, %.critedge6 ]
@@ -2175,7 +2175,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
   %.val37 = load i32, ptr %81, align 4
   %95 = sext i32 %.val37 to i64
   %96 = icmp slt i64 %indvars.iv.next64, %95
-  br i1 %96, label %84, label %.critedge6.loopexit, !llvm.loop !44
+  br i1 %96, label %84, label %.critedge6.loopexit, !llvm.loop !43
 
 .critedge6.loopexit:                              ; preds = %84
   %.val43.pre = load i32, ptr %3, align 4
@@ -2186,7 +2186,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %97 = sext i32 %.val43 to i64
   %98 = icmp slt i64 %indvars.iv.next67, %97
-  br i1 %98, label %78, label %.critedge4, !llvm.loop !45
+  br i1 %98, label %78, label %.critedge4, !llvm.loop !44
 
 .critedge4:                                       ; preds = %.critedge6, %2, %.critedge.preheader
   %.0.lcssa76 = phi i32 [ %.1.lcssa, %.critedge.preheader ], [ 0, %2 ], [ %.1.lcssa, %.critedge6 ]
@@ -2194,7 +2194,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Lpk_NodeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8240896
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -2255,7 +2255,7 @@ define noundef i32 @Lpk_NodeCuts(ptr nocapture noundef %0) local_unnamed_addr #0
   %37 = and i32 %36, 63
   %38 = zext nneg i32 %37 to i64
   %39 = icmp ult i64 %indvars.iv.next, %38
-  br i1 %39, label %40, label %Lpk_NodeCutSignature.exit, !llvm.loop !46
+  br i1 %39, label %40, label %Lpk_NodeCutSignature.exit, !llvm.loop !45
 
 40:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
@@ -2271,7 +2271,7 @@ Lpk_NodeCutSignature.exit:                        ; preds = %35, %.lr.ph90
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next106, %46
-  br i1 %47, label %.lr.ph90, label %Lpk_NodeCutSignature.exit._crit_edge, !llvm.loop !47
+  br i1 %47, label %.lr.ph90, label %Lpk_NodeCutSignature.exit._crit_edge, !llvm.loop !46
 
 Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignature.exit
   %48 = icmp eq i32 %45, 10000
@@ -2348,7 +2348,7 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   br i1 %94, label %95, label %107
 
 95:                                               ; preds = %68
-  %96 = tail call i32 @Lpk_NodeCutsCheckDsd(ptr noundef nonnull %0, ptr noundef nonnull %64), !range !33
+  %96 = tail call i32 @Lpk_NodeCutsCheckDsd(ptr noundef nonnull %0, ptr noundef nonnull %64)
   %97 = load i32, ptr %64, align 4
   %98 = shl nuw nsw i32 %96, 30
   %99 = and i32 %97, -1073741825
@@ -2372,7 +2372,7 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   %108 = load i32, ptr %12, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next109, %109
-  br i1 %110, label %63, label %._crit_edge94, !llvm.loop !48
+  br i1 %110, label %63, label %._crit_edge94, !llvm.loop !47
 
 ._crit_edge94:                                    ; preds = %107
   %.pre116 = load i32, ptr %60, align 4
@@ -2422,11 +2422,11 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   %132 = phi i32 [ %119, %115 ], [ %116, %129 ]
   %.1.us = phi i32 [ %.096.us, %115 ], [ 1, %129 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge99.us, label %115, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge99.us, label %115, !llvm.loop !48
 
 ._crit_edge99.us:                                 ; preds = %131
   %.not81.us = icmp eq i32 %.1.us, 0
-  br i1 %.not81.us, label %.loopexit, label %.lr.ph98.us, !llvm.loop !50
+  br i1 %.not81.us, label %.loopexit, label %.lr.ph98.us, !llvm.loop !49
 
 .loopexit:                                        ; preds = %._crit_edge99.us, %58, %.preheader, %._crit_edge94, %1
   %.076 = phi i32 [ 0, %1 ], [ 0, %._crit_edge94 ], [ 1, %.preheader ], [ 0, %58 ], [ 1, %._crit_edge99.us ]
@@ -2498,7 +2498,7 @@ attributes #14 = { nounwind allocsize(0) }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = !{i32 0, i32 2}
+!33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
@@ -2515,4 +2515,3 @@ attributes #14 = { nounwind allocsize(0) }
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}

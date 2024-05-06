@@ -779,12 +779,12 @@ if.then2:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %1, align 8
-  %call8 = call fastcc i32 @gettmarg(ptr noundef %module.val, ptr noundef nonnull %0, ptr noundef nonnull %buf, ptr noundef nonnull @.str.36), !range !5
+  %call8 = call fastcc i32 @gettmarg(ptr noundef %module.val, ptr noundef nonnull %0, ptr noundef nonnull %buf, ptr noundef nonnull @.str.36)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
-  %call10 = call fastcc i32 @checktm(ptr noundef nonnull %buf), !range !5
+  %call10 = call fastcc i32 @checktm(ptr noundef nonnull %buf)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.end14
 
@@ -894,7 +894,7 @@ entry:
   %tm = alloca %struct.tm, align 8
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %call1 = call fastcc i32 @gettmarg(ptr noundef %module.val, ptr noundef %tm_tuple, ptr noundef nonnull %tm, ptr noundef nonnull @.str.48), !range !5
+  %call1 = call fastcc i32 @gettmarg(ptr noundef %module.val, ptr noundef %tm_tuple, ptr noundef nonnull %tm, ptr noundef nonnull @.str.48)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -949,12 +949,12 @@ if.then2:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %1, align 8
-  %call8 = call fastcc i32 @gettmarg(ptr noundef %module.val, ptr noundef nonnull %0, ptr noundef nonnull %buf, ptr noundef nonnull @.str.51), !range !5
+  %call8 = call fastcc i32 @gettmarg(ptr noundef %module.val, ptr noundef nonnull %0, ptr noundef nonnull %buf, ptr noundef nonnull @.str.51)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
-  %call10 = call fastcc i32 @checktm(ptr noundef nonnull %buf), !range !5
+  %call10 = call fastcc i32 @checktm(ptr noundef nonnull %buf)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.end14
 
@@ -1063,7 +1063,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @tzset() #11
-  %call1 = tail call fastcc i32 @init_timezone(ptr noundef nonnull %call), !range !6
+  %call1 = tail call fastcc i32 @init_timezone(ptr noundef nonnull %call)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -1137,7 +1137,7 @@ entry:
   %t = alloca i64, align 8
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %call1 = call fastcc i32 @py_process_time(ptr noundef %module.val, ptr noundef nonnull %t, ptr noundef null), !range !6
+  %call1 = call fastcc i32 @py_process_time(ptr noundef %module.val, ptr noundef nonnull %t, ptr noundef null)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -1158,7 +1158,7 @@ entry:
   %t = alloca i64, align 8
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %call1 = call fastcc i32 @py_process_time(ptr noundef %module.val, ptr noundef nonnull %t, ptr noundef null), !range !6
+  %call1 = call fastcc i32 @py_process_time(ptr noundef %module.val, ptr noundef nonnull %t, ptr noundef null)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -1332,7 +1332,7 @@ if.else22:                                        ; preds = %if.else14
 if.then25:                                        ; preds = %if.else22
   %1 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %1, align 8
-  %call27 = call fastcc i32 @py_process_time(ptr noundef %module.val, ptr noundef nonnull %t, ptr noundef nonnull %info), !range !6
+  %call27 = call fastcc i32 @py_process_time(ptr noundef %module.val, ptr noundef nonnull %t, ptr noundef nonnull %info)
   %cmp28 = icmp slt i32 %call27, 0
   br i1 %cmp28, label %return, label %if.end44
 
@@ -1728,7 +1728,7 @@ declare i32 @_PyTime_localtime(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gettmarg(ptr nocapture noundef readonly %state, ptr noundef %args, ptr noundef %p, ptr noundef %format) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gettmarg(ptr nocapture noundef readonly %state, ptr noundef %args, ptr noundef %p, ptr noundef %format) unnamed_addr #0 {
 entry:
   %y = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %p, i8 0, i64 56, i1 false)
@@ -1820,7 +1820,7 @@ return:                                           ; preds = %if.then27, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @checktm(ptr nocapture noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @checktm(ptr nocapture noundef %buf) unnamed_addr #0 {
 entry:
   %tm_mon = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i32, ptr %tm_mon, align 8
@@ -1966,7 +1966,7 @@ declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #1
 declare void @tzset() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @init_timezone(ptr noundef %m) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @init_timezone(ptr noundef %m) unnamed_addr #0 {
 entry:
   %p = alloca %struct.tm, align 8
   %janname = alloca [10 x i8], align 1
@@ -2087,7 +2087,7 @@ declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @py_process_time(ptr noundef %state, ptr noundef %tp, ptr noundef writeonly %info) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @py_process_time(ptr noundef %state, ptr noundef %tp, ptr noundef writeonly %info) unnamed_addr #0 {
 entry:
   %process.i = alloca %struct.tms, align 8
   %ts = alloca %struct.timespec, align 8
@@ -2276,12 +2276,12 @@ declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 declare ptr @_PyNamespace_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @time_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @time_exec(ptr noundef %module) #0 {
 entry:
   %ticks_per_second = alloca i64, align 8
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %call1 = tail call fastcc i32 @init_timezone(ptr noundef %module), !range !6
+  %call1 = tail call fastcc i32 @init_timezone(ptr noundef %module)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2410,5 +2410,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = !{i32 -1, i32 1}

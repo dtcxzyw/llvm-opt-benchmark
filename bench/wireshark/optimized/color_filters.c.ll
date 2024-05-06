@@ -113,7 +113,7 @@ define internal i32 @color_filters_find_by_name_cb(ptr nocapture noundef readonl
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -255,7 +255,7 @@ define ptr @color_filters_tmp_color(i8 noundef zeroext %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @color_filters_reset_tmp(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_reset_tmp(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   br label %4
 
 2:                                                ; preds = %4
@@ -265,7 +265,7 @@ define noundef i32 @color_filters_reset_tmp(ptr nocapture noundef writeonly %0) 
 
 4:                                                ; preds = %1, %2
   %.05 = phi i8 [ 1, %1 ], [ %3, %2 ]
-  %5 = tail call i32 @color_filters_set_tmp(i8 noundef zeroext %.05, ptr noundef null, i32 noundef 1, ptr noundef %0), !range !7
+  %5 = tail call i32 @color_filters_set_tmp(i8 noundef zeroext %.05, ptr noundef null, i32 noundef 1, ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %2
 
@@ -317,16 +317,16 @@ define internal void @color_filter_delete_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @color_filters_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @color_filter_list, align 8
   tail call void @g_slist_free_full(ptr noundef %3, ptr noundef nonnull @color_filter_delete_cb) #15
   store ptr null, ptr @color_filter_list, align 8
-  %4 = tail call fastcc i32 @color_filters_get(ptr noundef %0, ptr noundef %1), !range !7
+  %4 = tail call fastcc i32 @color_filters_get(ptr noundef %0, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @color_filters_get(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 22), align 8
   %4 = tail call ptr @g_strsplit(ptr noundef %3, ptr noundef nonnull @.str.14, i32 noundef -1) #15
   %5 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 23), align 8
@@ -388,7 +388,7 @@ define internal fastcc noundef i32 @color_filters_get(ptr nocapture noundef writ
   tail call void @g_free(ptr noundef %9) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.not.i, label %color_filters_add_tmp.exit, label %7, !llvm.loop !8
+  br i1 %exitcond.not.i, label %color_filters_add_tmp.exit, label %7, !llvm.loop !7
 
 color_filters_add_tmp.exit:                       ; preds = %7
   tail call void @g_strfreev(ptr noundef nonnull %4) #15
@@ -413,7 +413,7 @@ color_filters_add_tmp.exit:                       ; preds = %7
 
 56:                                               ; preds = %50
   tail call void @g_free(ptr noundef %47) #15
-  %57 = tail call i32 @color_filters_read_globals(ptr noundef nonnull @color_filter_list, ptr noundef %0, ptr noundef %1), !range !7
+  %57 = tail call i32 @color_filters_read_globals(ptr noundef nonnull @color_filter_list, ptr noundef %0, ptr noundef %1)
   br label %68
 
 58:                                               ; preds = %color_filters_add_tmp.exit
@@ -442,13 +442,13 @@ color_filters_add_tmp.exit:                       ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @color_filters_reload(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_reload(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @color_filter_deleted_list, align 8
   %4 = load ptr, ptr @color_filter_list, align 8
   %5 = tail call ptr @g_slist_concat(ptr noundef %3, ptr noundef %4) #15
   store ptr %5, ptr @color_filter_deleted_list, align 8
   store ptr null, ptr @color_filter_list, align 8
-  %6 = tail call fastcc i32 @color_filters_get(ptr noundef %0, ptr noundef %1), !range !7
+  %6 = tail call fastcc i32 @color_filters_get(ptr noundef %0, ptr noundef %1)
   ret i32 %6
 }
 
@@ -488,10 +488,10 @@ define internal void @color_filters_clone_cb(ptr nocapture noundef readonly %0, 
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull align 8 dereferenceable(6) %11, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull readonly align 8 dereferenceable(6) %11, i64 6, i1 false)
   %12 = getelementptr inbounds i8, ptr %3, i64 22
   %13 = getelementptr inbounds i8, ptr %0, i64 22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull align 2 dereferenceable(6) %13, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull readonly align 2 dereferenceable(6) %13, i64 6, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %3, i64 28
@@ -506,7 +506,7 @@ define internal void @color_filters_clone_cb(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @color_filters_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -614,7 +614,7 @@ define internal void @color_filter_compile_cb(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @color_filters_used() local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @color_filters_used() local_unnamed_addr #6 {
   %1 = load ptr, ptr @color_filter_list, align 8
   %2 = icmp ne ptr %1, null
   %3 = zext i1 %2 to i32
@@ -622,7 +622,7 @@ define i32 @color_filters_used() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @tmp_color_filters_used() local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @tmp_color_filters_used() local_unnamed_addr #6 {
   %.b = load i1, ptr @tmp_colors_set, align 4
   %1 = zext i1 %.b to i32
   ret i32 %1
@@ -658,7 +658,7 @@ define internal void @prime_edt(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @color_filters_use_hfid(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_use_hfid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @color_filter_list, align 8
   %.not1 = icmp eq ptr %2, null
   br i1 %.not1, label %9, label %3
@@ -677,7 +677,7 @@ define i32 @color_filters_use_hfid(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -704,7 +704,7 @@ define internal noundef i32 @find_hfid(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @color_filters_use_proto(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_use_proto(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @color_filter_list, align 8
   %.not1 = icmp eq ptr %2, null
   br i1 %.not1, label %9, label %3
@@ -723,7 +723,7 @@ define i32 @color_filters_use_proto(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -781,7 +781,7 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
   %14 = getelementptr inbounds i8, ptr %.01118, i64 8
   %.011.pr = load ptr, ptr %14, align 8
   %.not14 = icmp eq ptr %.011.pr, null
-  br i1 %.not14, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %.not14, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %13, %11, %1
   %.0 = phi ptr [ null, %1 ], [ null, %13 ], [ %5, %11 ]
@@ -791,7 +791,7 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
 declare zeroext i1 @dfilter_apply_edt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @color_filters_read_globals(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_read_globals(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @get_datafile_path(ptr noundef nonnull @.str.4) #15
   %5 = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str.5)
   %6 = icmp eq ptr %5, null
@@ -904,7 +904,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 256
   %.not91 = icmp eq i16 %25, 0
-  br i1 %.not91, label %.critedge, label %18, !llvm.loop !10
+  br i1 %.not91, label %.critedge, label %18, !llvm.loop !9
 
 .critedge:                                        ; preds = %20
   switch i32 %19, label %26 [
@@ -1098,7 +1098,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @color_filters_import(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_import(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %12
@@ -1135,7 +1135,7 @@ define noundef i32 @color_filters_import(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @color_filters_write(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_write(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.write_filter_data, align 8
   %4 = alloca ptr, align 8
   %5 = call i32 @create_persconffile_dir(ptr noundef nonnull %4) #15
@@ -1191,7 +1191,7 @@ declare i32 @create_persconffile_dir(ptr noundef) local_unnamed_addr #2
 declare ptr @get_persconffile_path(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @color_filters_export(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_export(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.write_filter_data, align 8
   %6 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.11)
   %7 = icmp eq ptr %6, null
@@ -1247,10 +1247,10 @@ define internal void @color_filter_list_clone_cb(ptr nocapture noundef readonly 
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull align 8 dereferenceable(6) %11, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull readonly align 8 dereferenceable(6) %11, i64 6, i1 false)
   %12 = getelementptr inbounds i8, ptr %3, i64 22
   %13 = getelementptr inbounds i8, ptr %0, i64 22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull align 2 dereferenceable(6) %13, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull readonly align 2 dereferenceable(6) %13, i64 6, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %3, i64 28
@@ -1373,7 +1373,6 @@ attributes #18 = { nounwind allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

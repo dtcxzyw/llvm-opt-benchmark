@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [47 x i8] c"mca_sharedfp_individual_seek: NOT IMPLEMENTED\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_sharedfp_individual_seek(ptr nocapture noundef readnone %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_sharedfp_individual_seek(ptr nocapture noundef readnone %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @mca_sharedfp_individual_usage_counter, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6

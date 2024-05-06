@@ -903,9 +903,9 @@ _ZL12calc_com_pbciP10t_topologyPA3_fP5t_pbcPKiPfb.exit: ; preds = %._crit_edge74
   %350 = load ptr, ptr %249, align 8
   %351 = getelementptr inbounds i32, ptr %350, i64 %indvars.iv
   %352 = load i32, ptr %351, align 4
-  %353 = getelementptr i8, ptr %351, i64 4
+  %353 = getelementptr inbounds i8, ptr %351, i64 4
   %354 = load i32, ptr %353, align 4
-  %355 = getelementptr i8, ptr %351, i64 8
+  %355 = getelementptr inbounds i8, ptr %351, i64 8
   %356 = load i32, ptr %355, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #16

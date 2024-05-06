@@ -69,7 +69,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmac_bad() #0 {
+define internal range(i32 0, 2) i32 @test_cmac_bad() #0 {
 entry:
   %call = tail call ptr @CMAC_CTX_new() #6
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 146, ptr noundef nonnull @.str.4, ptr noundef %call) #6
@@ -160,7 +160,7 @@ err:                                              ; preds = %lor.lhs.false47, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmac_run() #0 {
+define internal range(i32 0, 2) i32 @test_cmac_run() #0 {
 entry:
   %buf = alloca [16 x i8], align 16
   %len = alloca i64, align 8
@@ -626,7 +626,7 @@ err:                                              ; preds = %if.end313, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmac_copy() #0 {
+define internal range(i32 0, 2) i32 @test_cmac_copy() #0 {
 entry:
   %buf = alloca [16 x i8], align 16
   %len = alloca i64, align 8

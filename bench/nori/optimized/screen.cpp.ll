@@ -183,7 +183,7 @@ define hidden ptr @nvgCreateGL3(i32 noundef %0) local_unnamed_addr #3 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19glnvg__renderCreatePv(ptr noundef %0) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL19glnvg__renderCreatePv(ptr noundef %0) #3 {
   %2 = alloca i32, align 4
   store i32 4, ptr %2, align 4
   %3 = getelementptr i8, ptr %0, i64 68
@@ -461,7 +461,7 @@ _ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread: ; preds = %19, %_ZL18glnvg_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL26glnvg__renderDeleteTexturePvi(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL26glnvg__renderDeleteTexturePvi(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -515,7 +515,7 @@ _ZL20glnvg__deleteTextureP12GLNVGcontexti.exit:   ; preds = %8, %2, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL26glnvg__renderUpdateTexturePviiiiiPKh(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL26glnvg__renderUpdateTexturePviiiiiPKh(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #3 {
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
@@ -583,7 +583,7 @@ _ZL18glnvg__bindTextureP12GLNVGcontextj.exit23:   ; preds = %13, %7, %29, %_ZL18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL27glnvg__renderGetTextureSizePviPiS0_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #5 {
+define internal noundef range(i32 0, 2) i32 @_ZL27glnvg__renderGetTextureSizePviPiS0_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
@@ -757,7 +757,7 @@ define internal void @_ZL18glnvg__renderFlushPv(ptr noundef %0) #3 {
   br i1 %.not16.i, label %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit, label %65
 
 65:                                               ; preds = %61, %57, %53, %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %50, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %50, i64 16, i1 false)
   %66 = load i32, ptr %50, align 4
   %67 = getelementptr inbounds i8, ptr %49, i64 32
   %68 = load i32, ptr %67, align 4
@@ -6211,7 +6211,7 @@ define hidden noundef zeroext i8 @_ZNK7nanogui6Screen12pixel_formatEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i8 @_ZNK7nanogui6Screen16component_formatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) local_unnamed_addr #16 align 2 {
+define hidden noundef zeroext range(i8 2, 10) i8 @_ZNK7nanogui6Screen16component_formatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 348
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -6247,7 +6247,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7nanogui6Screen10drop_eventERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
   %3 = alloca [513 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca [513 x i8], align 16
@@ -7292,7 +7292,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
   br i1 %17, label %18, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit"
 
 18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
-  tail call void @_ZN7nanogui6Screen19drop_callback_eventEiPPKc(ptr noundef nonnull align 8 dereferenceable(384) %14, i32 noundef %1, ptr noundef %2)
+  tail call void @_ZN7nanogui6Screen19drop_callback_eventEiPPKc(ptr noundef nonnull align 8 dereferenceable(384) %14, i32 noundef %1, ptr noundef readonly %2)
   br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit"
 
 "_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18

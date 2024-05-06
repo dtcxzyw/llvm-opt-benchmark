@@ -910,7 +910,7 @@ gv_isspace.exit818.thread:                        ; preds = %.preheader900, %372
   br i1 %386, label %387, label %390
 
 387:                                              ; preds = %384
-  %388 = trunc i32 %.3584 to i8
+  %388 = trunc nuw i32 %.3584 to i8
   %389 = getelementptr inbounds i8, ptr %.0563, i64 1
   store i8 %388, ptr %.0563, align 1
   br label %423
@@ -938,7 +938,7 @@ gv_isspace.exit818.thread:                        ; preds = %.preheader900, %372
   br i1 %399, label %.critedge, label %400
 
 400:                                              ; preds = %397
-  %401 = trunc i32 %.3584 to i8
+  %401 = trunc nuw i32 %.3584 to i8
   %402 = getelementptr inbounds i8, ptr %.0563, i64 1
   store i8 %401, ptr %.0563, align 1
   %403 = add nsw i32 %.4652, -1
@@ -977,7 +977,7 @@ gv_isspace.exit818.thread:                        ; preds = %.preheader900, %372
   br i1 %or.cond85, label %.critedge, label %420
 
 420:                                              ; preds = %416
-  %421 = trunc i32 %.3584 to i8
+  %421 = trunc nuw i32 %.3584 to i8
   %422 = getelementptr inbounds i8, ptr %.0563, i64 1
   store i8 %421, ptr %.0563, align 1
   br label %423
@@ -1284,7 +1284,7 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
   %.25 = phi i32 [ %.24, %524 ], [ %.15614.ph, %534 ]
   %.0597 = phi ptr [ %518, %524 ], [ %535, %534 ]
   %.12593 = phi i32 [ %521, %524 ], [ %.7588.ph, %534 ]
-  %541 = call i32 @llvm.ctpop.i32(i32 %.6675), !range !4
+  %541 = call range(i32 0, 8) i32 @llvm.ctpop.i32(i32 %.6675)
   %542 = icmp ult i32 %541, 2
   br i1 %542, label %550, label %.preheader886
 
@@ -1870,4 +1870,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 8}

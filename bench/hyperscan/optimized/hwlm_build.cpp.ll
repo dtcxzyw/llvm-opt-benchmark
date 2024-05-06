@@ -1345,7 +1345,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN3ue28hwlmSizeEPK4HWLM(ptr noundef %h) local_unnamed_addr #3 {
+define hidden noundef range(i64 193, 192) i64 @_ZN3ue28hwlmSizeEPK4HWLM(ptr noundef %h) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %h, align 16
   switch i8 %0, label %sw.epilog.thread [
@@ -1382,7 +1382,7 @@ declare noundef i64 @_ZN3ue28noodSizeEPK9noodTable(ptr noundef) local_unnamed_ad
 declare noundef i64 @_ZN3ue27fdrSizeEPK3FDR(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN3ue223hwlmFloodProneSuffixLenEmRKNS_14CompileContextE(i64 noundef %numLiterals, ptr noundef nonnull align 8 dereferenceable(320) %cc) local_unnamed_addr #3 {
+define hidden noundef range(i64 -1, 4) i64 @_ZN3ue223hwlmFloodProneSuffixLenEmRKNS_14CompileContextE(i64 noundef %numLiterals, ptr noundef nonnull align 8 dereferenceable(320) %cc) local_unnamed_addr #3 {
 entry:
   %allowNoodle = getelementptr inbounds i8, ptr %cc, i64 46
   %0 = load i8, ptr %allowNoodle, align 2

@@ -96,7 +96,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr nocapture noundef writeonly %ctx, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr nocapture noundef writeonly %ctx, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_up_ref(ptr noundef %cert) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -114,7 +114,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CT_POLICY_EVAL_CTX_set1_issuer(ptr nocapture noundef writeonly %ctx, ptr noundef %issuer) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CT_POLICY_EVAL_CTX_set1_issuer(ptr nocapture noundef writeonly %ctx, ptr noundef %issuer) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_up_ref(ptr noundef %issuer) #5
   %tobool.not = icmp eq i32 %call, 0

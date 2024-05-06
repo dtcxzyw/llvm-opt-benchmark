@@ -2995,7 +2995,7 @@ define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @BF_decode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = add nsw i32 %4, -32
@@ -3006,7 +3006,7 @@ define internal fastcc noundef i32 @BF_decode(ptr nocapture noundef writeonly %0
   %7 = phi i32 [ %58, %53 ], [ %5, %2 ]
   %.039.idx2 = phi i64 [ %.add53, %53 ], [ 0, %2 ]
   %.0401 = phi ptr [ %43, %53 ], [ %1, %2 ]
-  %.039.ptr3 = getelementptr i8, ptr %0, i64 %.039.idx2
+  %.039.ptr3 = getelementptr inbounds i8, ptr %0, i64 %.039.idx2
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
@@ -3033,7 +3033,7 @@ define internal fastcc noundef i32 @BF_decode(ptr nocapture noundef writeonly %0
   %25 = shl nuw i8 %10, 2
   %26 = lshr i8 %22, 4
   %27 = or disjoint i8 %26, %25
-  %.ptr = getelementptr i8, ptr %.039.ptr3, i64 1
+  %.ptr = getelementptr inbounds i8, ptr %.039.ptr3, i64 1
   store i8 %27, ptr %.039.ptr3, align 1
   %.not = icmp ult i64 %.039.idx2, 15
   br i1 %.not, label %28, label %split
@@ -3057,7 +3057,7 @@ define internal fastcc noundef i32 @BF_decode(ptr nocapture noundef writeonly %0
   %40 = shl i8 %22, 4
   %41 = lshr i8 %37, 2
   %42 = or disjoint i8 %41, %40
-  %.ptr54 = getelementptr i8, ptr %.039.ptr3, i64 2
+  %.ptr54 = getelementptr inbounds i8, ptr %.039.ptr3, i64 2
   store i8 %42, ptr %.ptr, align 1
   %43 = getelementptr inbounds i8, ptr %.0401, i64 4
   %44 = load i8, ptr %29, align 1
@@ -3113,7 +3113,7 @@ define internal fastcc void @BF_encode(ptr nocapture noundef writeonly %0, ptr n
   store i8 %18, ptr %11, align 1
   %20 = shl nuw nsw i32 %13, 2
   %21 = and i32 %20, 60
-  %invariant.gep = getelementptr i8, ptr %1, i64 2
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 2
   br label %22
 
 22:                                               ; preds = %2, %22
@@ -3121,7 +3121,7 @@ define internal fastcc void @BF_encode(ptr nocapture noundef writeonly %0, ptr n
   %24 = phi ptr [ %19, %2 ], [ %54, %22 ]
   %.04 = phi ptr [ %0, %2 ], [ %37, %22 ]
   %.030.idx3 = phi i64 [ 0, %2 ], [ %.add35, %22 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.030.idx3
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.030.idx3
   %.add35 = add nuw nsw i64 %.030.idx3, 3
   %25 = load i8, ptr %gep, align 1
   %26 = zext i8 %25 to i32

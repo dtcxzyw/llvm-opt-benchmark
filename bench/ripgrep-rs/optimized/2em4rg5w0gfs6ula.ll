@@ -121,8 +121,8 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %48 = call i8 @llvm.umin.i8(i8 %43, i8 %46)
   %.0.sroa.speculated.i1.i.i31 = zext i8 %48 to i32
   %49 = add nuw nsw i32 %.0.sroa.speculated.i1.i.i31, 1
-  %.not.i32 = icmp ult i32 %49, %.0.sroa.speculated.i.i.i30
-  br i1 %.not.i32, label %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge, label %53
+  %.not.i32.not = icmp ult i32 %49, %.0.sroa.speculated.i.i.i30
+  br i1 %.not.i32.not, label %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge, label %53
 
 50:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge, %.preheader.split
   %51 = phi i64 [ %.pre, %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge ], [ %34, %.preheader.split ]

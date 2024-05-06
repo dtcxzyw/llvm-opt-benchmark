@@ -179,8 +179,8 @@ entry:
   %_now.i.i29 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load atomic i8, ptr @qmp_dispatcher_co_busy monotonic, align 1
-  %tobool32.i71 = trunc i8 %0 to i1
-  br i1 %tobool32.i71, label %while.end9.i.preheader.lr.ph, label %if.else.i
+  %tobool32.i72 = trunc i8 %0 to i1
+  br i1 %tobool32.i72, label %while.end9.i.preheader.lr.ph, label %if.else.i
 
 while.end9.i.preheader.lr.ph:                     ; preds = %entry
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
@@ -485,23 +485,23 @@ lor.lhs.false.i:                                  ; preds = %trace_monitor_qmp_e
   %refcnt.i = getelementptr inbounds i8, ptr %call51, i64 8
   %49 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %49, 0
-  br i1 %tobool1.not.i, label %if.else.i60, label %land.lhs.true.i58
+  br i1 %tobool1.not.i, label %if.else.i61, label %land.lhs.true.i59
 
-if.else.i60:                                      ; preds = %lor.lhs.false.i
+if.else.i61:                                      ; preds = %lor.lhs.false.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.12, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #7
   unreachable
 
-land.lhs.true.i58:                                ; preds = %lor.lhs.false.i
+land.lhs.true.i59:                                ; preds = %lor.lhs.false.i
   %dec.i = add i64 %49, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
-  %cmp.i59 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i59, label %if.then5.i, label %if.end60
+  %cmp.i60 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i60, label %if.then5.i, label %if.end60
 
-if.then5.i:                                       ; preds = %land.lhs.true.i58
+if.then5.i:                                       ; preds = %land.lhs.true.i59
   tail call void @qobject_destroy(ptr noundef nonnull %call51) #6
   br label %if.end60
 
-if.end60:                                         ; preds = %trace_monitor_qmp_err_in_band.exit, %if.then5.i, %land.lhs.true.i58, %if.end42
+if.end60:                                         ; preds = %trace_monitor_qmp_err_in_band.exit, %if.then5.i, %land.lhs.true.i59, %if.end42
   br i1 %tobool.i25, label %if.end64, label %if.then62
 
 if.then62:                                        ; preds = %if.end60
@@ -510,16 +510,16 @@ if.then62:                                        ; preds = %if.end60
 
 if.end64:                                         ; preds = %if.then62, %if.end60
   %50 = load ptr, ptr %req, align 8
-  %tobool.not.i61 = icmp eq ptr %50, null
-  br i1 %tobool.not.i61, label %qmp_request_free.exit, label %lor.lhs.false.i.i
+  %tobool.not.i62 = icmp eq ptr %50, null
+  br i1 %tobool.not.i62, label %qmp_request_free.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end64
   %refcnt.i.i = getelementptr inbounds i8, ptr %50, i64 8
   %51 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %51, 0
-  br i1 %tobool1.not.i.i, label %if.else.i.i62, label %land.lhs.true.i.i
+  br i1 %tobool1.not.i.i, label %if.else.i.i63, label %land.lhs.true.i.i
 
-if.else.i.i62:                                    ; preds = %lor.lhs.false.i.i
+if.else.i.i63:                                    ; preds = %lor.lhs.false.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.12, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #7
   unreachable
 
@@ -791,7 +791,7 @@ declare void @json_message_parser_init(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_qmp_command(ptr noundef %opaque, ptr noundef %req, ptr noundef %err) #0 {
 entry:
-  %_now.i.i49 = alloca %struct.timeval, align 8
+  %_now.i.i50 = alloca %struct.timeval, align 8
   %_now.i.i31 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %tobool.not.i = icmp eq ptr %req, null
@@ -809,13 +809,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  %.not78 = icmp eq ptr %err, null
+  %.not79 = icmp eq ptr %err, null
   %req. = select i1 %cmp.i, ptr %req, ptr null
-  br i1 %.not78, label %land.lhs.true, label %if.else
+  br i1 %.not79, label %land.lhs.true, label %if.else
 
 qobject_check_type.exit:                          ; preds = %entry
-  %.not79 = icmp eq ptr %err, null
-  br i1 %.not79, label %if.else, label %for.body.us
+  %.not80 = icmp eq ptr %err, null
+  br i1 %.not80, label %if.else, label %for.body.us
 
 if.else:                                          ; preds = %qobject_type.exit.i, %qobject_check_type.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_qmp_command) #7
@@ -943,19 +943,19 @@ lor.lhs.false.i:                                  ; preds = %if.then22, %trace_m
   %refcnt.i = getelementptr inbounds i8, ptr %req, i64 8
   %19 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %19, 0
-  br i1 %tobool1.not.i, label %if.else.i47, label %land.lhs.true.i45
+  br i1 %tobool1.not.i, label %if.else.i48, label %land.lhs.true.i46
 
-if.else.i47:                                      ; preds = %lor.lhs.false.i
+if.else.i48:                                      ; preds = %lor.lhs.false.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.12, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #7
   unreachable
 
-land.lhs.true.i45:                                ; preds = %lor.lhs.false.i
+land.lhs.true.i46:                                ; preds = %lor.lhs.false.i
   %dec.i = add i64 %19, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
-  %cmp.i46 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i46, label %if.then5.i, label %return
+  %cmp.i47 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i47, label %if.then5.i, label %return
 
-if.then5.i:                                       ; preds = %land.lhs.true.i45
+if.then5.i:                                       ; preds = %land.lhs.true.i46
   tail call void @qobject_destroy(ptr noundef nonnull %req) #6
   br label %return
 
@@ -971,11 +971,11 @@ for.body.us:                                      ; preds = %if.end17, %land.lhs
   %21 = inttoptr i64 %20 to ptr
   tail call void %21(ptr noundef nonnull %qmp_queue_lock, ptr noundef nonnull @.str.8, i32 noundef 122) #6
   %qmp_requests = getelementptr inbounds i8, ptr %opaque, i64 328
-  %tv_usec.i.i62 = getelementptr inbounds i8, ptr %_now.i.i49, i64 8
+  %tv_usec.i.i63 = getelementptr inbounds i8, ptr %_now.i.i50, i64 8
   %22 = getelementptr i8, ptr %opaque, i64 273
   %opaque.val.us = load i8, ptr %22, align 1
-  %tobool.i48.us = trunc i8 %opaque.val.us to i1
-  br i1 %tobool.i48.us, label %lor.lhs.false.us, label %if.then57.us
+  %tobool.i49.us = trunc i8 %opaque.val.us to i1
+  br i1 %tobool.i49.us, label %lor.lhs.false.us, label %if.then57.us
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
   %23 = load ptr, ptr %qmp_requests, align 8
@@ -988,44 +988,44 @@ if.then57.us:                                     ; preds = %lor.lhs.false.us, %
   %call58.us = tail call i32 @monitor_suspend(ptr noundef nonnull %opaque) #6
   %.pre = load ptr, ptr %qmp_requests, align 8
   %length61.us.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
-  %.pre80 = load i32, ptr %length61.us.phi.trans.insert, align 8
+  %.pre81 = load i32, ptr %length61.us.phi.trans.insert, align 8
   br label %if.end59.us
 
 if.end59.us:                                      ; preds = %if.then57.us, %lor.lhs.false.us
-  %25 = phi i32 [ %.pre80, %if.then57.us ], [ %24, %lor.lhs.false.us ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i49)
+  %25 = phi i32 [ %.pre81, %if.then57.us ], [ %24, %lor.lhs.false.us ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i50)
   %26 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i50.us = icmp ne i32 %26, 0
+  %tobool.i.i51.us = icmp ne i32 %26, 0
   %27 = load i16, ptr @_TRACE_MONITOR_QMP_IN_BAND_ENQUEUE_DSTATE, align 2
-  %tobool4.i.i51.us = icmp ne i16 %27, 0
-  %or.cond.i.i52.us = select i1 %tobool.i.i50.us, i1 %tobool4.i.i51.us, i1 false
-  br i1 %or.cond.i.i52.us, label %land.lhs.true5.i.i53.us, label %trace_monitor_qmp_in_band_enqueue.exit.us
+  %tobool4.i.i52.us = icmp ne i16 %27, 0
+  %or.cond.i.i53.us = select i1 %tobool.i.i51.us, i1 %tobool4.i.i52.us, i1 false
+  br i1 %or.cond.i.i53.us, label %land.lhs.true5.i.i54.us, label %trace_monitor_qmp_in_band_enqueue.exit.us
 
-land.lhs.true5.i.i53.us:                          ; preds = %if.end59.us
+land.lhs.true5.i.i54.us:                          ; preds = %if.end59.us
   %28 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i54.us = and i32 %28, 32768
-  %cmp.i.not.i.i55.us = icmp eq i32 %and.i.i.i54.us, 0
-  br i1 %cmp.i.not.i.i55.us, label %trace_monitor_qmp_in_band_enqueue.exit.us, label %if.then.i.i56.us
+  %and.i.i.i55.us = and i32 %28, 32768
+  %cmp.i.not.i.i56.us = icmp eq i32 %and.i.i.i55.us, 0
+  br i1 %cmp.i.not.i.i56.us, label %trace_monitor_qmp_in_band_enqueue.exit.us, label %if.then.i.i57.us
 
-if.then.i.i56.us:                                 ; preds = %land.lhs.true5.i.i53.us
+if.then.i.i57.us:                                 ; preds = %land.lhs.true5.i.i54.us
   %29 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i57.us = trunc i8 %29 to i1
-  br i1 %tobool7.i.i57.us, label %if.then8.i.i59.us, label %if.else.i.i58.us
+  %tobool7.i.i58.us = trunc i8 %29 to i1
+  br i1 %tobool7.i.i58.us, label %if.then8.i.i60.us, label %if.else.i.i59.us
 
-if.else.i.i58.us:                                 ; preds = %if.then.i.i56.us
+if.else.i.i59.us:                                 ; preds = %if.then.i.i57.us
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef nonnull %call48, ptr noundef nonnull %opaque, i32 noundef %25) #6
   br label %trace_monitor_qmp_in_band_enqueue.exit.us
 
-if.then8.i.i59.us:                                ; preds = %if.then.i.i56.us
-  %call9.i.i60.us = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49, ptr noundef null) #6
-  %call10.i.i61.us = tail call i32 @qemu_get_thread_id() #6
-  %30 = load i64, ptr %_now.i.i49, align 8
-  %31 = load i64, ptr %tv_usec.i.i62, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i61.us, i64 noundef %30, i64 noundef %31, ptr noundef nonnull %call48, ptr noundef nonnull %opaque, i32 noundef %25) #6
+if.then8.i.i60.us:                                ; preds = %if.then.i.i57.us
+  %call9.i.i61.us = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i50, ptr noundef null) #6
+  %call10.i.i62.us = tail call i32 @qemu_get_thread_id() #6
+  %30 = load i64, ptr %_now.i.i50, align 8
+  %31 = load i64, ptr %tv_usec.i.i63, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i62.us, i64 noundef %30, i64 noundef %31, ptr noundef nonnull %call48, ptr noundef nonnull %opaque, i32 noundef %25) #6
   br label %trace_monitor_qmp_in_band_enqueue.exit.us
 
-trace_monitor_qmp_in_band_enqueue.exit.us:        ; preds = %if.then8.i.i59.us, %if.else.i.i58.us, %land.lhs.true5.i.i53.us, %if.end59.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i49)
+trace_monitor_qmp_in_band_enqueue.exit.us:        ; preds = %if.then8.i.i60.us, %if.else.i.i59.us, %land.lhs.true5.i.i54.us, %if.end59.us
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i50)
   %32 = load ptr, ptr %qmp_requests, align 8
   %length63.us = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load i32, ptr %length63.us, align 8
@@ -1049,7 +1049,7 @@ if.else67:                                        ; preds = %trace_monitor_qmp_i
   tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 437, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_qmp_command) #7
   unreachable
 
-return:                                           ; preds = %if.then.i, %qemu_lockable_auto_unlock.exit.us, %if.then5.i, %land.lhs.true.i45
+return:                                           ; preds = %if.then.i, %qemu_lockable_auto_unlock.exit.us, %if.then5.i, %land.lhs.true.i46
   ret void
 }
 
@@ -1201,29 +1201,29 @@ sw.bb2:                                           ; preds = %entry
   %tobool.i.i = trunc i8 %mon.val.i to i1
   %qmp_requests.i = getelementptr inbounds i8, ptr %opaque, i64 328
   %9 = load ptr, ptr %qmp_requests.i, align 8
-  br i1 %tobool.i.i, label %lor.lhs.false.i14, label %land.rhs.i
+  br i1 %tobool.i.i, label %lor.lhs.false.i15, label %land.rhs.i
 
-lor.lhs.false.i14:                                ; preds = %sw.bb2
+lor.lhs.false.i15:                                ; preds = %sw.bb2
   %length.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i32, ptr %length.i, align 8
-  %cmp.i15 = icmp eq i32 %10, 8
-  br i1 %cmp.i15, label %land.rhs.i, label %if.end.critedge.i
+  %cmp.i16 = icmp eq i32 %10, 8
+  br i1 %cmp.i16, label %land.rhs.i, label %if.end.critedge.i
 
-land.rhs.i:                                       ; preds = %lor.lhs.false.i14, %sw.bb2
-  %call5.i11 = tail call i32 @g_queue_is_empty(ptr noundef %9) #6
-  %tobool.not.i12 = icmp eq i32 %call5.i11, 0
+land.rhs.i:                                       ; preds = %lor.lhs.false.i15, %sw.bb2
+  %call5.i12 = tail call i32 @g_queue_is_empty(ptr noundef %9) #6
+  %tobool.not.i13 = icmp eq i32 %call5.i12, 0
   tail call fastcc void @monitor_qmp_cleanup_req_queue_locked(ptr noundef nonnull %opaque)
-  br i1 %tobool.not.i12, label %if.then.i13, label %monitor_qmp_cleanup_queue_and_resume.exit
+  br i1 %tobool.not.i13, label %if.then.i14, label %monitor_qmp_cleanup_queue_and_resume.exit
 
-if.then.i13:                                      ; preds = %land.rhs.i
+if.then.i14:                                      ; preds = %land.rhs.i
   tail call void @monitor_resume(ptr noundef nonnull %opaque) #6
   br label %monitor_qmp_cleanup_queue_and_resume.exit
 
-if.end.critedge.i:                                ; preds = %lor.lhs.false.i14
+if.end.critedge.i:                                ; preds = %lor.lhs.false.i15
   tail call fastcc void @monitor_qmp_cleanup_req_queue_locked(ptr noundef nonnull %opaque)
   br label %monitor_qmp_cleanup_queue_and_resume.exit
 
-monitor_qmp_cleanup_queue_and_resume.exit:        ; preds = %land.rhs.i, %if.then.i13, %if.end.critedge.i
+monitor_qmp_cleanup_queue_and_resume.exit:        ; preds = %land.rhs.i, %if.then.i14, %if.end.critedge.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %qmp_queue_lock.i, ptr noundef nonnull @.str.8, i32 noundef 132) #6
   %parser = getelementptr inbounds i8, ptr %opaque, i64 168
   tail call void @json_message_parser_destroy(ptr noundef nonnull %parser) #6

@@ -176,7 +176,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @oss_init_out(ptr noundef %hw, ptr noundef %as, ptr noundef %drv_opaque) #0 {
+define internal range(i32 -1, 1) i32 @oss_init_out(ptr noundef %hw, ptr noundef %as, ptr noundef %drv_opaque) #0 {
 entry:
   %req = alloca %struct.oss_params, align 4
   %obt = alloca %struct.oss_params, align 4
@@ -223,7 +223,7 @@ aud_to_ossfmt.exit:                               ; preds = %entry, %sw.bb1.i, %
   %3 = load i32, ptr %nchannels, align 4
   %nchannels5 = getelementptr inbounds i8, ptr %req, i64 8
   store i32 %3, ptr %nchannels5, align 4
-  %call6 = call fastcc i32 @oss_open(i32 noundef 0, ptr noundef nonnull %req, ptr noundef nonnull %as, ptr noundef nonnull %obt, ptr noundef nonnull %fd, ptr noundef %drv_opaque), !range !5
+  %call6 = call fastcc i32 @oss_open(i32 noundef 0, ptr noundef nonnull %req, ptr noundef nonnull %as, ptr noundef nonnull %obt, ptr noundef nonnull %fd, ptr noundef %drv_opaque)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -531,7 +531,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.ptr12 = getelementptr i8, ptr %buf.addr.039, i64 %cond7
   %sub13 = sub i64 %len.addr.038, %cond7
   %tobool1.not = icmp eq i64 %sub13, 0
-  br i1 %tobool1.not, label %return, label %while.body, !llvm.loop !6
+  br i1 %tobool1.not, label %return, label %while.body, !llvm.loop !5
 
 while.body16:                                     ; preds = %if.end28, %while.body16.lr.ph
   %len.addr.142 = phi i64 [ %len, %while.body16.lr.ph ], [ %sub34, %if.end28 ]
@@ -560,7 +560,7 @@ if.end28:                                         ; preds = %while.body16
   %sub34 = sub nsw i64 %len.addr.142, %call18
   %tobool15.not = icmp eq i64 %sub34, 0
   %or.cond = select i1 %cmp30, i1 true, i1 %tobool15.not
-  br i1 %or.cond, label %return, label %while.body16, !llvm.loop !8
+  br i1 %or.cond, label %return, label %while.body16, !llvm.loop !7
 
 return:                                           ; preds = %while.body, %if.end28, %oss_get_available_bytes.exit, %while.cond14.preheader, %if.then21, %if.then25
   %retval.0 = phi i64 [ %pos.041, %if.then25 ], [ %pos.041, %if.then21 ], [ 0, %while.cond14.preheader ], [ 0, %oss_get_available_bytes.exit ], [ %add29, %if.end28 ], [ %cond, %while.body ]
@@ -793,7 +793,7 @@ if.end30:                                         ; preds = %if.end30.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @oss_init_in(ptr noundef %hw, ptr noundef %as, ptr noundef %drv_opaque) #0 {
+define internal range(i32 -1, 1) i32 @oss_init_in(ptr noundef %hw, ptr noundef %as, ptr noundef %drv_opaque) #0 {
 entry:
   %req = alloca %struct.oss_params, align 4
   %obt = alloca %struct.oss_params, align 4
@@ -839,7 +839,7 @@ aud_to_ossfmt.exit:                               ; preds = %entry, %sw.bb1.i, %
   %3 = load i32, ptr %nchannels, align 4
   %nchannels5 = getelementptr inbounds i8, ptr %req, i64 8
   store i32 %3, ptr %nchannels5, align 4
-  %call6 = call fastcc i32 @oss_open(i32 noundef 1, ptr noundef nonnull %req, ptr noundef nonnull %as, ptr noundef nonnull %obt, ptr noundef nonnull %fd, ptr noundef %drv_opaque), !range !5
+  %call6 = call fastcc i32 @oss_open(i32 noundef 1, ptr noundef nonnull %req, ptr noundef nonnull %as, ptr noundef nonnull %obt, ptr noundef nonnull %fd, ptr noundef %drv_opaque)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -993,7 +993,7 @@ if.end:                                           ; preds = %while.body
   %add = add i64 %call1, %pos.013
   %sub = sub i64 %len.addr.014, %call1
   %tobool.not = icmp eq i64 %sub, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end, %entry, %sw.default, %if.then, %if.then
   %pos.011 = phi i64 [ %pos.013, %sw.default ], [ %pos.013, %if.then ], [ %pos.013, %if.then ], [ 0, %entry ], [ %add, %if.end ]
@@ -1046,7 +1046,7 @@ if.end10:                                         ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @oss_open(i32 noundef %in, ptr nocapture noundef %req, ptr noundef %as, ptr nocapture noundef writeonly %obt, ptr nocapture noundef writeonly %pfd, ptr nocapture noundef readonly %dev) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @oss_open(i32 noundef %in, ptr nocapture noundef %req, ptr noundef %as, ptr nocapture noundef writeonly %obt, ptr nocapture noundef writeonly %pfd, ptr nocapture noundef readonly %dev) unnamed_addr #0 {
 entry:
   %abinfo = alloca %struct.audio_buf_info, align 4
   %fmt = alloca i32, align 4
@@ -1180,7 +1180,7 @@ if.then57:                                        ; preds = %if.end50
   %19 = load i32, ptr %nfrags, align 4
   %shl = shl i32 %19, 16
   %20 = load i32, ptr %fragsize, align 4
-  %21 = call i32 @llvm.cttz.i32(i32 %20, i1 false), !range !10
+  %21 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %20, i1 false)
   %or61 = or disjoint i32 %21, %shl
   store i32 %or61, ptr %mmmmssss, align 4
   %call62 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call, i64 noundef 3221508106, ptr noundef nonnull %mmmmssss) #13
@@ -1383,9 +1383,7 @@ attributes #15 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i32 0, i32 33}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

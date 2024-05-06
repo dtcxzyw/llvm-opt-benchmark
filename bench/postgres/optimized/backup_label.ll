@@ -212,7 +212,7 @@ line_starts_with.exit:                            ; preds = %36, %.critedge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %71 = load i8, ptr %34, align 1
   store i8 0, ptr %34, align 1
-  %72 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1118.ph, ptr noundef nonnull @.str.23, ptr noundef nonnull %2, ptr noundef nonnull %11) #6
+  %72 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %.1118.ph, ptr noundef nonnull @.str.23, ptr noundef nonnull %2, ptr noundef nonnull %11) #6
   %73 = icmp eq i32 %72, 1
   store i8 %71, ptr %34, align 1
   br i1 %73, label %parse_tli.exit, label %parse_tli.exit.thread
@@ -375,7 +375,7 @@ line_starts_with.exit88:                          ; preds = %84, %.critedge.i76
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %119 = load i8, ptr %34, align 1
   store i8 0, ptr %34, align 1
-  %120 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.3120.ph, ptr noundef nonnull @.str.23, ptr noundef nonnull %4, ptr noundef nonnull %7) #6
+  %120 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %.3120.ph, ptr noundef nonnull @.str.23, ptr noundef nonnull %4, ptr noundef nonnull %7) #6
   %121 = icmp eq i32 %120, 1
   store i8 %119, ptr %34, align 1
   br i1 %121, label %parse_tli.exit105, label %parse_tli.exit105.thread

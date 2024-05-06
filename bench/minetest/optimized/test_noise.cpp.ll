@@ -1211,7 +1211,7 @@ entry:
 for.cond2.preheader:                              ; preds = %if.end.9, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %if.end.9 ]
   %y.039 = phi i32 [ 0, %entry ], [ %inc20, %if.end.9 ]
-  %conv6 = uitofp i32 %y.039 to float
+  %conv6 = uitofp nneg i32 %y.039 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 10
   %call = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 0.000000e+00, float noundef %conv6, i32 noundef 1337)
   %arrayidx = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %indvars.iv
@@ -1752,7 +1752,7 @@ entry:
 for.cond2.preheader:                              ; preds = %for.cond.cleanup4, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.cleanup4 ], [ 0, %entry ]
   %z.055 = phi i32 [ %inc29, %for.cond.cleanup4 ], [ 0, %entry ]
-  %conv11 = uitofp i32 %z.055 to float
+  %conv11 = uitofp nneg i32 %z.055 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 100
   br label %for.cond6.preheader
 
@@ -1763,7 +1763,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup4
 for.cond6.preheader:                              ; preds = %if.end.9, %for.cond2.preheader
   %indvars.iv1 = phi i64 [ %indvars.iv.next2, %if.end.9 ], [ %indvars.iv, %for.cond2.preheader ]
   %y.053 = phi i32 [ %inc25, %if.end.9 ], [ 0, %for.cond2.preheader ]
-  %conv10 = uitofp i32 %y.053 to float
+  %conv10 = uitofp nneg i32 %y.053 to float
   %indvars.iv.next2 = add nuw nsw i64 %indvars.iv1, 10
   %call = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 0.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
   %arrayidx = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %indvars.iv1

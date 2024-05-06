@@ -274,13 +274,13 @@ $_ZTV13BaseException = comdat any
 @.str.24 = private unnamed_addr constant [48 x i8] c"This function shall not be called for PlayerSAO\00", align 1
 @__PRETTY_FUNCTION__._ZNK9PlayerSAO13getStaticDataEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = private unnamed_addr constant [59 x i8] c"virtual void PlayerSAO::getStaticData(std::string *) const\00", align 1
 @.str.25 = private unnamed_addr constant [19 x i8] c"properties_changed\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.26 = private unnamed_addr constant [22 x i8] c"PlayerSAO::step() id=\00", align 1
 @.str.27 = private unnamed_addr constant [51 x i8] c" is attached to nonexistent parent. This is a bug.\00", align 1
 @.str.28 = private unnamed_addr constant [32 x i8] c"Punch action called without SAO\00", align 1
 @__PRETTY_FUNCTION__._ZN9PlayerSAO5punchEN3irr4core8vector3dIfEEPK16ToolCapabilitiesP18ServerActiveObjectft = private unnamed_addr constant [94 x i8] c"virtual u32 PlayerSAO::punch(v3f, const ToolCapabilities *, ServerActiveObject *, float, u16)\00", align 1
 @.str.29 = private unnamed_addr constant [11 x i8] c"enable_pvp\00", align 1
-@actionstream = external thread_local global %class.LogStream, align 8
+@actionstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.30 = private unnamed_addr constant [6 x i8] c" (id=\00", align 1
 @.str.31 = private unnamed_addr constant [6 x i8] c", hp=\00", align 1
 @.str.32 = private unnamed_addr constant [11 x i8] c") punched \00", align 1
@@ -5571,7 +5571,7 @@ if.end37:                                         ; preds = %if.then33, %cleanup
   %call41 = call i64 @_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft(ptr noundef nonnull align 8 dereferenceable(56) %m_armor_groups, ptr noundef nonnull %toolcap, float noundef %time_from_last_punch, i16 noundef zeroext %initial_wear)
   %hitparams.sroa.0.0.extract.trunc = trunc i64 %call41 to i32
   %hitparams.sroa.6.0.extract.shift = lshr i64 %call41, 32
-  %hitparams.sroa.6.0.extract.trunc = trunc i64 %hitparams.sroa.6.0.extract.shift to i32
+  %hitparams.sroa.6.0.extract.trunc = trunc nuw i64 %hitparams.sroa.6.0.extract.shift to i32
   %m_player = getelementptr inbounds i8, ptr %this, i64 856
   %18 = load ptr, ptr %m_player, align 8, !tbaa !17
   %m_sao.i = getelementptr inbounds i8, ptr %18, i64 440
@@ -6178,7 +6178,7 @@ if.end47:                                         ; preds = %if.then46, %if.end3
   br i1 %cmp50.not, label %if.else, label %if.then51
 
 if.then51:                                        ; preds = %if.end47
-  %conv52 = trunc i32 %hp.1 to i16
+  %conv52 = trunc nuw i32 %hp.1 to i16
   store i16 %conv52, ptr %m_hp, align 8, !tbaa !114
   %16 = load ptr, ptr %m_env, align 8, !tbaa !175
   %m_server.i = getelementptr inbounds i8, ptr %16, i64 128
@@ -6776,7 +6776,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = add i64 %28, -4
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -6811,7 +6811,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 4, %30
   %spec.select6.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, %if.end46

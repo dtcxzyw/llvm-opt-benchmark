@@ -33,7 +33,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !4
 
 .critedge.loopexit:                               ; preds = %.lr.ph
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %5
@@ -122,7 +122,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %.1113 = phi ptr [ %.0112141, %39 ], [ %34, %.lr.ph144._crit_edge ]
   %.1 = phi i64 [ %43, %39 ], [ %58, %.lr.ph144._crit_edge ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %62 = trunc i64 %indvars.iv.next163 to i32
+  %62 = trunc nuw i64 %indvars.iv.next163 to i32
   %63 = icmp slt i32 %62, %0
   br i1 %63, label %.lr.ph144, label %._crit_edge, !llvm.loop !6
 
@@ -195,7 +195,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %.3115 = phi ptr [ %.2114151, %78 ], [ %87, %85 ]
   %.3 = phi i64 [ %82, %78 ], [ %95, %85 ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %101 = trunc i64 %indvars.iv.next166 to i32
+  %101 = trunc nuw i64 %indvars.iv.next166 to i32
   %102 = icmp slt i32 %101, %0
   br i1 %102, label %.lr.ph155, label %._crit_edge156, !llvm.loop !7
 

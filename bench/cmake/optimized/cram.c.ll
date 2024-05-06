@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [68 x i8] c"%s %02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_auth_create_cram_md5_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_auth_create_cram_md5_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #3
   %7 = tail call i32 @curlx_uztoui(i64 noundef %6) #4

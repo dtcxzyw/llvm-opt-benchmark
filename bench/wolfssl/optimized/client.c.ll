@@ -3336,7 +3336,7 @@ if.then16.us:                                     ; preds = %if.end14.us
 
 if.end27.us:                                      ; preds = %if.then16.us, %SetKeyShare.exit.us, %if.else23.us, %if.else.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   br i1 %cmp1.not.i, label %if.then16.i.us, label %land.lhs.true.i.us
 
 land.lhs.true.i.us:                               ; preds = %if.end27.us
@@ -3362,7 +3362,7 @@ if.else19.i.us:                                   ; preds = %if.then4.i67.us
   %h_length.i.us = getelementptr inbounds i8, ptr %call6.i.us, i64 20
   %19 = load i32, ptr %h_length.i.us, align 4
   %conv10.i.us = sext i32 %19 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i, ptr align 1 %18, i64 %conv10.i.us, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %sin_addr.i, ptr align 1 %18, i64 %conv10.i.us, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call1314.i.us = call zeroext i16 @htons(i16 noundef zeroext %port) #23
   store i16 %call1314.i.us, ptr %sin_port15.i, align 2

@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_format_warc(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_format_warc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #14
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %28, label %4
@@ -109,7 +109,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_warc_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #4 {
+define internal range(i32 -20, 1) i32 @_warc_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.3) #16
@@ -137,7 +137,7 @@ define internal noundef i32 @_warc_options(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_warc_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.archive_string, align 8
   %4 = alloca %struct.warc_essential_hdr_t, align 8
   %5 = alloca %struct.warc_essential_hdr_t, align 8
@@ -304,7 +304,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_popul_ehdr(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.warc_essential_hdr_t) align 8 %1) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.warc_essential_hdr_t) align 8 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca [100 x i8], align 16

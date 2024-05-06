@@ -132,7 +132,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.105 = private unnamed_addr constant [21 x i8] c"nested_elements == 3\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @keyHashSlot(ptr noundef %key, i32 noundef %keylen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 16384) i32 @keyHashSlot(ptr noundef %key, i32 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %cmp23 = icmp sgt i32 %keylen, 0
   br i1 %cmp23, label %for.body.preheader, label %for.end
@@ -218,7 +218,7 @@ return:                                           ; preds = %if.end31, %if.then2
 declare zeroext i16 @crc16(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @patternHashSlot(ptr noundef %pattern, i32 noundef %length) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 16384) i32 @patternHashSlot(ptr noundef %pattern, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp32 = icmp sgt i32 %length, 0
   br i1 %cmp32, label %for.body.preheader, label %for.end
@@ -415,7 +415,7 @@ declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @crc64(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @verifyDumpPayload(ptr noundef %p, i64 noundef %len, ptr noundef writeonly %rdbver_ptr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @verifyDumpPayload(ptr noundef %p, i64 noundef %len, ptr noundef writeonly %rdbver_ptr) local_unnamed_addr #0 {
 entry:
   %crc = alloca i64, align 8
   %cmp = icmp ult i64 %len, 10
@@ -2350,7 +2350,7 @@ declare void @addReplyErrorSds(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef i32 @verifyClusterNodeId(ptr nocapture noundef readonly %name, i32 noundef %length) local_unnamed_addr #7 {
+define dso_local range(i32 -1, 1) i32 @verifyClusterNodeId(ptr nocapture noundef readonly %name, i32 noundef %length) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq i32 %length, 40
   br i1 %cmp.not, label %for.body, label %return
@@ -2377,7 +2377,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @isValidAuxChar(i32 noundef %c) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @isValidAuxChar(i32 noundef %c) local_unnamed_addr #8 {
 entry:
   %call = tail call ptr @__ctype_b_loc() #21
   %0 = load ptr, ptr %call, align 8
@@ -2403,7 +2403,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @isValidAuxString(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @isValidAuxString(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #9 {
 entry:
   %cmp5.not = icmp eq i32 %length, 0
   br i1 %cmp5.not, label %return, label %for.body.lr.ph
@@ -3920,7 +3920,7 @@ declare ptr @clusterNodePreferredEndpoint(ptr noundef) local_unnamed_addr #1
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clusterRedirectBlockedClientIfNeeded(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @clusterRedirectBlockedClientIfNeeded(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @getMyClusterNode() #16
   %flags = getelementptr inbounds i8, ptr %c, i64 8

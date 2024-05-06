@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @lj_prng_u64d(ptr nocapture noundef %rs) local_unnamed_addr #0 {
+define hidden range(i64 4607182418800017408, 4611686018427387904) i64 @lj_prng_u64d(ptr nocapture noundef %rs) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %rs, align 8
   %shl = shl i64 %0, 31
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lj_prng_seed_secure(ptr noundef %rs) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @lj_prng_seed_secure(ptr noundef %rs) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %rs, i64 noundef 32, i32 noundef 0) #5
   %cmp = icmp eq i64 %call, 32

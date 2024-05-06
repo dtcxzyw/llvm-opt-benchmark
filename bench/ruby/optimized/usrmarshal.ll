@@ -75,7 +75,7 @@ rb_num2int_inline.exit:                           ; preds = %5, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @usr_value(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @usr_value(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @usrmarshal_type) #3
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64

@@ -11976,7 +11976,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %3
 declare void @_ZN6casadi18DaeBuilderInternal4liftEbb(ptr noundef nonnull align 8 dereferenceable(1177), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder15value_referenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK6casadi10DaeBuilder15value_referenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(400) ptr @_ZNK6casadi10DaeBuilder8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 8

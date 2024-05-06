@@ -657,7 +657,7 @@ proto_item_set_hidden.exit132:                    ; preds = %79, %76, %75, %73, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal noundef range(i32 -2147483648, 49) i32 @dissect_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
   %6 = icmp slt i32 %5, 48
   %. = tail call i32 @llvm.smin.i32(i32 %5, i32 48)
@@ -707,7 +707,7 @@ proto_item_set_hidden.exit:                       ; preds = %14, %21, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cell_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_cell_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %273, label %6
 
@@ -1322,7 +1322,7 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 5, ptr %7, align 4
   %8 = load i32, ptr @proto_aal5_sdu, align 4
-  %9 = tail call fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, ptr noundef nonnull @shortname_aal5_sdu), !range !4
+  %9 = tail call fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, ptr noundef nonnull @shortname_aal5_sdu)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %138
 
@@ -1408,7 +1408,7 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %48 = getelementptr inbounds i8, ptr %5, i64 4
   %49 = or i32 %41, 8
   store i32 %49, ptr %48, align 4
-  br label %.thread90
+  br label %.thread91
 
 50:                                               ; preds = %44
   %51 = add nsw i32 %.074, -4
@@ -1441,29 +1441,29 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %65 = getelementptr inbounds i8, ptr %5, i64 4
   %66 = or i32 %41, 1024
   store i32 %66, ptr %65, align 4
-  br label %.thread90
+  br label %.thread91
 
 67:                                               ; preds = %58, %61, %53, %40
   %68 = phi i32 [ %41, %40 ], [ %55, %53 ], [ %60, %58 ], [ %41, %61 ]
   %.072 = phi i32 [ 0, %40 ], [ 0, %53 ], [ 0, %58 ], [ %62, %61 ]
   %.071 = phi i32 [ %42, %40 ], [ %42, %53 ], [ %42, %58 ], [ %51, %61 ]
-  br i1 %.not80, label %.thread90, label %77
+  br i1 %.not80, label %.thread91, label %77
 
-.thread90:                                        ; preds = %64, %47, %67
-  %.07196 = phi i32 [ %.071, %67 ], [ %42, %47 ], [ %42, %64 ]
-  %.07294 = phi i32 [ %.072, %67 ], [ 0, %47 ], [ 0, %64 ]
+.thread91:                                        ; preds = %64, %47, %67
+  %.07197 = phi i32 [ %.071, %67 ], [ %42, %47 ], [ %42, %64 ]
+  %.07295 = phi i32 [ %.072, %67 ], [ 0, %47 ], [ 0, %64 ]
   %69 = phi i32 [ %68, %67 ], [ %49, %47 ], [ %66, %64 ]
-  %70 = icmp sgt i32 %.07196, -1
+  %70 = icmp sgt i32 %.07197, -1
   br i1 %70, label %number_of_cells.exit, label %71
 
-71:                                               ; preds = %.thread90
+71:                                               ; preds = %.thread91
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.141, i32 noundef 324, ptr noundef nonnull @.str.168) #7
   unreachable
 
-number_of_cells.exit:                             ; preds = %.thread90
-  %72 = icmp ugt i32 %.07196, 51
+number_of_cells.exit:                             ; preds = %.thread91
+  %72 = icmp ugt i32 %.07197, 51
   %.neg.i = select i1 %72, i32 -52, i32 0
-  %storemerge.i = sub nsw i32 0, %.07196
+  %storemerge.i = sub nsw i32 0, %.07197
   %73 = icmp eq i32 %.neg.i, %storemerge.i
   %or.cond4.not = select i1 %72, i1 %73, i1 false
   br i1 %or.cond4.not, label %80, label %74
@@ -1482,7 +1482,7 @@ number_of_cells.exit:                             ; preds = %.thread90
   br label %84
 
 80:                                               ; preds = %74, %number_of_cells.exit
-  %.ph98 = phi i32 [ %69, %number_of_cells.exit ], [ %76, %74 ]
+  %.ph99 = phi i32 [ %69, %number_of_cells.exit ], [ %76, %74 ]
   %.073.ph = phi i32 [ 1, %number_of_cells.exit ], [ %spec.store.select.i, %74 ]
   %81 = getelementptr inbounds i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
@@ -1493,13 +1493,13 @@ number_of_cells.exit:                             ; preds = %.thread90
 
 84:                                               ; preds = %77, %80
   %85 = phi ptr [ %81, %80 ], [ %78, %77 ]
-  %.073107 = phi i32 [ %.073.ph, %80 ], [ -1, %77 ]
-  %86 = phi i32 [ %.ph98, %80 ], [ %68, %77 ]
-  %.07293105 = phi i32 [ %.07294, %80 ], [ %.072, %77 ]
-  %.07195103 = phi i32 [ %.07196, %80 ], [ %.071, %77 ]
+  %.073108 = phi i32 [ %.073.ph, %80 ], [ -1, %77 ]
+  %86 = phi i32 [ %.ph99, %80 ], [ %68, %77 ]
+  %.07294106 = phi i32 [ %.07295, %80 ], [ %.072, %77 ]
+  %.07196104 = phi i32 [ %.07197, %80 ], [ %.071, %77 ]
   %87 = load ptr, ptr %85, align 8
   tail call void @col_clear(ptr noundef %87, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef nonnull %1, i32 noundef %.07195103, i32 noundef %.073107, i32 noundef %.07293105, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef nonnull %1, i32 noundef %.07196104, i32 noundef %.073108, i32 noundef %.07294106, ptr noundef nonnull %5)
   %88 = load i32, ptr @proto_aal5_sdu, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %90 = load i32, ptr @ett_encaps, align 4
@@ -1535,7 +1535,7 @@ proto_item_set_generated.exit:                    ; preds = %84, %94, %97
   unreachable
 
 104:                                              ; preds = %102
-  %105 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %93, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.165, i32 noundef %.07195103, i32 noundef 52) #6
+  %105 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %93, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.165, i32 noundef %.07196104, i32 noundef 52) #6
   br label %106
 
 106:                                              ; preds = %104, %proto_item_set_generated.exit
@@ -1548,17 +1548,17 @@ proto_item_set_generated.exit:                    ; preds = %84, %94, %97
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %106
-  call fastcc void @dissect_payload_and_padding(ptr noundef %110, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.07195103, i32 noundef %.07293105, ptr noundef nonnull %5)
+  call fastcc void @dissect_payload_and_padding(ptr noundef %110, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.07196104, i32 noundef %.07294106, ptr noundef nonnull %5)
   br label %136
 
 114:                                              ; preds = %106
-  %.not85 = icmp eq i32 %.07195103, 0
+  %.not85 = icmp eq i32 %.07196104, 0
   br i1 %.not85, label %131, label %115
 
 115:                                              ; preds = %114
-  %116 = call ptr @tvb_new_subset_length(ptr noundef %110, i32 noundef 0, i32 noundef %.07195103) #6
+  %116 = call ptr @tvb_new_subset_length(ptr noundef %110, i32 noundef 0, i32 noundef %.07196104) #6
   %117 = getelementptr inbounds i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
   store i8 4, ptr %117, align 4
   %118 = getelementptr inbounds i8, ptr %5, i64 36
   %119 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1573,8 +1573,8 @@ proto_item_set_generated.exit:                    ; preds = %84, %94, %97
   %126 = getelementptr inbounds i8, ptr %5, i64 72
   %127 = load i32, ptr %126, align 4
   %.not25.i = icmp eq i32 %127, 0
-  %spec.store.select.i87 = select i1 %.not25.i, i16 0, i16 256
-  store i16 %spec.store.select.i87, ptr %125, align 2
+  %spec.store.select.i88 = select i1 %.not25.i, i16 0, i16 256
+  store i16 %spec.store.select.i88, ptr %125, align 2
   %128 = getelementptr inbounds i8, ptr %6, i64 24
   store i32 0, ptr %128, align 4
   %129 = load ptr, ptr @dh_atm_truncated, align 8
@@ -1582,11 +1582,11 @@ proto_item_set_generated.exit:                    ; preds = %84, %94, %97
   br label %131
 
 131:                                              ; preds = %115, %114
-  %.not86 = icmp eq i32 %.07293105, 0
+  %.not86 = icmp eq i32 %.07294106, 0
   br i1 %.not86, label %136, label %132
 
 132:                                              ; preds = %131
-  %133 = call ptr @tvb_new_subset_length_caplen(ptr noundef %110, i32 noundef %.07195103, i32 noundef %.07293105, i32 noundef -1) #6
+  %133 = call ptr @tvb_new_subset_length_caplen(ptr noundef %110, i32 noundef %.07196104, i32 noundef %.07294106, i32 noundef -1) #6
   %134 = load ptr, ptr @dh_padding, align 8
   %135 = call i32 @call_dissector(ptr noundef %134, ptr noundef %133, ptr noundef nonnull %1, ptr noundef %2) #6
   br label %136
@@ -1606,15 +1606,15 @@ define internal i32 @dissect_11_or_aal5_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca %struct.atm_phdr, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @__const.dissect_n1_nocw.pd, i64 80, i1 false)
   %7 = load i32, ptr @proto_11_or_aal5_pdu, align 4
-  %8 = tail call fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull @shortname_11_or_aal5_pdu), !range !4
+  %8 = tail call fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull @shortname_11_or_aal5_pdu)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %132
 
 9:                                                ; preds = %4
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
-  %.fr112 = freeze i32 %10
+  %.fr113 = freeze i32 %10
   %11 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.fr112, ptr %11, align 4
+  store i32 %.fr113, ptr %11, align 4
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #6
   %13 = icmp slt i8 %12, 0
   br i1 %13, label %18, label %14
@@ -1671,7 +1671,7 @@ define internal i32 @dissect_11_or_aal5_pdu(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %44, label %35
 
 35:                                               ; preds = %31
-  %36 = add i32 %.fr112, -3
+  %36 = add i32 %.fr113, -3
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %39, label %38
 
@@ -1694,7 +1694,7 @@ pw_cell_size.exit28.i:                            ; preds = %39, %pw_cell_size.e
   %40 = udiv i32 %36, %.sink.i
   %.neg38.i = mul i32 %40, %.0.i27.neg.i
   %41 = icmp ugt i32 %.sink.i, %36
-  %storemerge.i = sub i32 3, %.fr112
+  %storemerge.i = sub i32 3, %.fr113
   %42 = icmp ne i32 %.neg38.i, %storemerge.i
   %or.cond4 = or i1 %41, %42
   br i1 %or.cond4, label %.sink.split, label %54
@@ -1704,7 +1704,7 @@ pw_cell_size.exit28.i:                            ; preds = %39, %pw_cell_size.e
   unreachable
 
 44:                                               ; preds = %31
-  %45 = add i32 %.fr112, -4
+  %45 = add i32 %.fr113, -4
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %48, label %47
 
@@ -1723,7 +1723,7 @@ number_of_cells.exit105:                          ; preds = %48
   %50 = urem i32 %45, 48
   %.neg38.i97 = sub nsw i32 %50, %45
   %51 = icmp ult i32 %45, 48
-  %storemerge.i100 = sub i32 4, %.fr112
+  %storemerge.i100 = sub i32 4, %.fr113
   %52 = icmp ne i32 %.neg38.i97, %storemerge.i100
   %or.cond6 = or i1 %52, %51
   br i1 %or.cond6, label %.sink.split, label %54
@@ -1872,7 +1872,7 @@ pw_cell_size.exit:                                ; preds = %91, %92, %93
 107:                                              ; preds = %106
   %108 = call ptr @tvb_new_subset_remaining(ptr noundef %102, i32 noundef 1) #6
   %109 = getelementptr inbounds i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
   store i8 4, ptr %109, align 4
   %110 = getelementptr inbounds i8, ptr %5, i64 36
   %111 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1887,8 +1887,8 @@ pw_cell_size.exit:                                ; preds = %91, %92, %93
   %118 = getelementptr inbounds i8, ptr %5, i64 72
   %119 = load i32, ptr %118, align 4
   %.not25.i = icmp eq i32 %119, 0
-  %spec.store.select.i110 = select i1 %.not25.i, i16 0, i16 256
-  store i16 %spec.store.select.i110, ptr %117, align 2
+  %spec.store.select.i111 = select i1 %.not25.i, i16 0, i16 256
+  store i16 %spec.store.select.i111, ptr %117, align 2
   %120 = getelementptr inbounds i8, ptr %6, i64 24
   store i32 0, ptr %120, align 4
   %121 = load ptr, ptr @dh_atm_untruncated, align 8
@@ -1926,7 +1926,7 @@ define internal i32 @dissect_n1_cw(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 2, ptr %6, align 4
   %7 = load i32, ptr @proto_n1_cw, align 4
-  %8 = tail call fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull @shortname_n1_cw), !range !4
+  %8 = tail call fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull @shortname_n1_cw)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %101
 
@@ -2381,7 +2381,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
   %7 = icmp slt i32 %6, 4
   br i1 %7, label %8, label %14
@@ -2612,7 +2612,7 @@ define internal fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr nou
 prepare_pseudo_header_atm.exit:                   ; preds = %42, %45
   %storemerge = phi i32 [ 1, %45 ], [ 0, %42 ]
   store i32 %storemerge, ptr %13, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %7, i8 0, i64 24, i1 false)
   store i8 7, ptr %14, align 4
   %46 = load <2 x i32>, ptr %15, align 4
   %47 = icmp sgt <2 x i32> %46, <i32 -1, i32 -1>
@@ -2641,7 +2641,7 @@ prepare_pseudo_header_atm.exit:                   ; preds = %42, %45
   %58 = add i32 %57, 1
   store i32 %58, ptr %5, align 4
   %59 = icmp slt i32 %.1, %3
-  br i1 %59, label %21, label %._crit_edge, !llvm.loop !5
+  br i1 %59, label %21, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %56, %6
   %.not = icmp eq i32 %4, 0
@@ -2687,6 +2687,5 @@ attributes #7 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

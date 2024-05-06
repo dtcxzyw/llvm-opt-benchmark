@@ -375,7 +375,7 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 5:                                                ; preds = %3
   %6 = lshr i64 %2, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %8 = trunc i64 %2 to i32
   %9 = add i32 %4, %8
   %10 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 4)
@@ -802,7 +802,7 @@ define dso_local i64 @hash_bytes_uint32_extended(i32 noundef %0, i64 noundef %1)
 
 3:                                                ; preds = %2
   %4 = lshr i64 %1, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %6 = trunc i64 %1 to i32
   %7 = add i32 %6, -1636608428
   %8 = xor i32 %5, -415931063

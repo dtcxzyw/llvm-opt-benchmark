@@ -535,7 +535,7 @@ copy_fh.exit.thread141.thread.thread.thread190:   ; preds = %9, %copy_fh.exit.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @oabd_param(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @oabd_param(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp eq i32 %1, 0
   %or.cond = and i1 %4, %5

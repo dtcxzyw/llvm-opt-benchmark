@@ -84,7 +84,7 @@ if.end:                                           ; preds = %while.body7
   br i1 %cmp6, label %while.body7, label %while.end.loopexit, !llvm.loop !5
 
 while.end.loopexit:                               ; preds = %if.end
-  %11 = trunc i64 %indvars.iv.next to i32
+  %11 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.body
@@ -420,11 +420,11 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit100: ; preds = %if.
   br i1 %cmp10, label %while.body, label %while.end.loopexit171, !llvm.loop !10
 
 while.end.loopexit:                               ; preds = %if.end24.us
-  %34 = trunc i64 %indvars.iv.next188 to i32
+  %34 = trunc nsw i64 %indvars.iv.next188 to i32
   br label %while.end
 
 while.end.loopexit171:                            ; preds = %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit100
-  %35 = trunc i64 %indvars.iv.next to i32
+  %35 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit171, %while.end.loopexit, %do.body

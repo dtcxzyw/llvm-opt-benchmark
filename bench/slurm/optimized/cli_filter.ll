@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [25 x i8] c"cli_filter_p_post_submit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_filter_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cli_filter_init() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8

@@ -60,7 +60,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN7rocksdbL26flush_operation_propertiesE = internal global [3 x %"struct.rocksdb::OperationProperty"] zeroinitializer, align 16
 @.str.35 = private unnamed_addr constant [15 x i8] c"BytesMemtables\00", align 1
 @_ZN7rocksdb12perf_contextE = external thread_local global %"struct.rocksdb::PerfContext", align 8
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_instrumented_mutex.cc, ptr null }]
 
 ; Function Attrs: nounwind

@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [75 x i8] c"\016ACPI: PM: Registering ACPI NVS region [mem %#010lx-%#010lx] (%ld bytes)\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_nvs_register(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @acpi_nvs_register(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 32) #6
   %5 = icmp eq ptr %4, null
@@ -56,7 +56,7 @@ define dso_local noundef i32 @acpi_nvs_register(i64 noundef %0, i64 noundef %1) 
   %24 = and i64 %15, 4095
   %25 = sub nuw nsw i64 4096, %24
   %26 = tail call i64 @llvm.umin.i64(i64 %16, i64 %25)
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %28 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 %27, ptr %28, align 8
   %29 = add i64 %26, %15
@@ -176,7 +176,7 @@ declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #1
 declare dso_local void @acpi_os_unmap_iomem(ptr noundef, i64 noundef) local_unnamed_addr #1 section ".ref.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @suspend_nvs_alloc() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @suspend_nvs_alloc() local_unnamed_addr #0 align 16 {
   br label %1
 
 1:                                                ; preds = %5, %0
@@ -250,7 +250,7 @@ define dso_local noundef i32 @suspend_nvs_alloc() local_unnamed_addr #0 align 16
 declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @suspend_nvs_save() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @suspend_nvs_save() local_unnamed_addr #0 align 16 {
   %1 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #7
   %2 = load ptr, ptr @nvs_list, align 8
   %3 = icmp eq ptr %2, @nvs_list

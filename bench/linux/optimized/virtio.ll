@@ -561,7 +561,7 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @virtio_features_ok(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @virtio_features_ok(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #8
   %3 = load ptr, ptr @virtio_check_mem_acc_cb, align 8
   %4 = tail call zeroext i1 %3(ptr noundef %0) #8
@@ -715,7 +715,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef i32 @virtio_dev_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal noundef range(i32 0, 2) i32 @virtio_dev_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -1051,7 +1051,7 @@ define internal void @virtio_dev_remove(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @device_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @device_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 728
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #8
@@ -1063,7 +1063,7 @@ define internal i64 @device_show(ptr nocapture noundef readonly %0, ptr nocaptur
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vendor_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vendor_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 732
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #8
@@ -1072,7 +1072,7 @@ define internal i64 @vendor_show(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @status_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @status_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -16
   %5 = getelementptr i8, ptr %0, i64 736
   %6 = load ptr, ptr %5, align 8
@@ -1086,7 +1086,7 @@ define internal i64 @status_show(ptr noundef %0, ptr nocapture readnone %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @modalias_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 728
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 732

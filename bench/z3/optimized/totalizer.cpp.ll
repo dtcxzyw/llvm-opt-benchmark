@@ -368,7 +368,7 @@ if.then.i.i82:                                    ; preds = %_ZN15ref_vector_cor
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit: ; preds = %invoke.cont48, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %if.then.i.i82
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw i64 %indvars.iv to i32
   %m_ref_count.i.i.i.i.i188 = getelementptr inbounds i8, ptr %call.i1.i53, i64 8
   br label %for.body53
 

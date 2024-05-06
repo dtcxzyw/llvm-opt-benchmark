@@ -426,7 +426,7 @@ define internal zeroext i16 @queue_attr_visible(ptr nocapture readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_max_open_zones_show(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_max_open_zones_show(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef 0) #15
   %4 = sext i32 %3 to i64
   ret i64 %4
@@ -436,14 +436,14 @@ define internal noundef i64 @queue_max_open_zones_show(ptr nocapture readonly %0
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_max_active_zones_show(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_max_active_zones_show(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef 0) #15
   %4 = sext i32 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_ra_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_ra_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -504,7 +504,7 @@ define internal i64 @queue_ra_store(ptr nocapture noundef readonly %0, ptr nound
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_max_hw_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_max_hw_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 1
@@ -515,7 +515,7 @@ define internal noundef i64 @queue_max_hw_sectors_show(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_max_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_max_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 1
@@ -620,7 +620,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_max_segments_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_max_segments_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 220
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -630,7 +630,7 @@ define internal noundef i64 @queue_max_segments_show(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_max_discard_segments_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_max_discard_segments_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i64
@@ -640,7 +640,7 @@ define internal noundef i64 @queue_max_discard_segments_show(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_max_integrity_segments_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_max_integrity_segments_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 222
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i64
@@ -650,7 +650,7 @@ define internal noundef i64 @queue_max_integrity_segments_show(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_max_segment_size_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_max_segment_size_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -660,7 +660,7 @@ define internal noundef i64 @queue_max_segment_size_show(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_logical_block_size_show(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_logical_block_size_show(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -680,7 +680,7 @@ define internal noundef i64 @queue_logical_block_size_show(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_physical_block_size_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_physical_block_size_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -690,7 +690,7 @@ define internal noundef i64 @queue_physical_block_size_show(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_chunk_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_chunk_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -700,7 +700,7 @@ define internal noundef i64 @queue_chunk_sectors_show(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_io_min_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_io_min_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 180
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -710,7 +710,7 @@ define internal noundef i64 @queue_io_min_show(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_io_opt_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_io_opt_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -720,7 +720,7 @@ define internal noundef i64 @queue_io_opt_show(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_discard_granularity_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_discard_granularity_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -730,7 +730,7 @@ define internal noundef i64 @queue_discard_granularity_show(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_discard_max_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_discard_max_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 188
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -771,7 +771,7 @@ define internal i64 @queue_discard_max_store(ptr nocapture noundef %0, ptr nound
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = call i64 @llvm.umin.i64(i64 %21, i64 %24)
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 %26, ptr %27, align 4
   br label %28
@@ -782,7 +782,7 @@ define internal i64 @queue_discard_max_store(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_discard_max_hw_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_discard_max_hw_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -793,21 +793,21 @@ define internal noundef i64 @queue_discard_max_hw_show(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_discard_zeroes_data_show(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_discard_zeroes_data_show(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef 0) #15
   %4 = sext i32 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_write_same_max_show(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_write_same_max_show(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef 0) #15
   %4 = sext i32 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_write_zeroes_max_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_write_zeroes_max_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -818,7 +818,7 @@ define internal noundef i64 @queue_write_zeroes_max_show(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_zone_append_max_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_zone_append_max_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 204
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -829,7 +829,7 @@ define internal noundef i64 @queue_zone_append_max_show(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_zone_write_granularity_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_zone_write_granularity_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -839,7 +839,7 @@ define internal noundef i64 @queue_zone_write_granularity_show(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_nonrot_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_nonrot_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = lshr i64 %4, 6
@@ -889,14 +889,14 @@ define internal noundef i64 @queue_zoned_show(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_nr_zones_show(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_nr_zones_show(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef 0) #15
   %4 = sext i32 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_nomerges_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_nomerges_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = load volatile i64, ptr %3, align 8
@@ -947,7 +947,7 @@ define internal i64 @queue_nomerges_store(ptr noundef %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_iostats_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_iostats_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = lshr i64 %4, 7
@@ -990,7 +990,7 @@ define internal i64 @queue_iostats_store(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_stable_writes_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_stable_writes_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = lshr i64 %4, 15
@@ -1033,7 +1033,7 @@ define internal i64 @queue_stable_writes_store(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_random_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_random_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = lshr i64 %4, 10
@@ -1076,7 +1076,7 @@ define internal i64 @queue_random_store(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_poll_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_poll_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = lshr i64 %4, 16
@@ -1124,7 +1124,7 @@ declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i64 @queue_wc_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #9 align 16 {
+define internal noundef range(i64 11, 15) i64 @queue_wc_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 131072
@@ -1184,7 +1184,7 @@ define internal noundef i64 @queue_wc_store(ptr noundef %0, ptr nocapture nounde
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_fua_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_fua_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -1196,7 +1196,7 @@ define internal noundef i64 @queue_fua_show(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_dax_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_dax_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = lshr i64 %4, 19
@@ -1207,7 +1207,7 @@ define internal noundef i64 @queue_dax_show(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_poll_delay_show(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_poll_delay_show(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef -1) #15
   %4 = sext i32 %3 to i64
   ret i64 %4
@@ -1219,7 +1219,7 @@ define internal noundef i64 @queue_poll_delay_store(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_virt_boundary_mask_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_virt_boundary_mask_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %4) #15
@@ -1228,7 +1228,7 @@ define internal noundef i64 @queue_virt_boundary_mask_show(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_dma_alignment_show(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_dma_alignment_show(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -1275,7 +1275,7 @@ define internal zeroext i16 @blk_mq_queue_attr_visible(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @queue_io_timeout_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_io_timeout_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -1322,7 +1322,7 @@ declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_u
 declare dso_local i64 @__msecs_to_jiffies(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_requests_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_requests_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %4) #15
@@ -1331,7 +1331,7 @@ define internal noundef i64 @queue_requests_show(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @queue_requests_store(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @queue_requests_store(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1388,7 +1388,7 @@ declare dso_local i64 @elv_iosched_show(ptr noundef, ptr noundef) #2
 declare dso_local i64 @elv_iosched_store(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @queue_rq_affinity_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @queue_rq_affinity_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i64, ptr %3, align 8
   %5 = load volatile i64, ptr %3, align 8

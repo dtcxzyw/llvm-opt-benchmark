@@ -64,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.40 = private unnamed_addr constant [37 x i8] c"%s: unable to instantiate %ps cgroup\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xcgroup_ns_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcgroup_ns_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.xcgroup_t, align 8
@@ -126,7 +126,7 @@ declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xcgroup_ns_is_available(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @xcgroup_ns_is_available(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.xcgroup_t, align 8
@@ -158,7 +158,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare void @common_cgroup_ns_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = tail call i32 @umask(i32 noundef 18) #6
@@ -316,7 +316,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @mount(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @xcgroup_ns_umount(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcgroup_ns_umount(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @umount(ptr noundef %3) #6
@@ -418,7 +418,7 @@ define i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr nocapture noundef writeon
 
 44:                                               ; preds = %32
   %45 = getelementptr inbounds i8, ptr %30, i64 1
-  %46 = call i32 @xcgroup_load(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %45), !range !9
+  %46 = call i32 @xcgroup_load(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %45)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %19, %44
@@ -436,7 +436,7 @@ declare i32 @common_file_read_content(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca %struct.stat, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -530,7 +530,7 @@ define void @xcgroup_wait_pid_moved(ptr noundef %0, ptr noundef %1) local_unname
 12:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !9
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
@@ -543,7 +543,7 @@ define void @xcgroup_wait_pid_moved(ptr noundef %0, ptr noundef %1) local_unname
   %18 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef 100) #6
   call void @slurm_xfree(ptr noundef nonnull %3) #6
   %exitcond26.not = icmp eq i32 %7, 10
-  br i1 %exitcond26.not, label %25, label %6, !llvm.loop !11
+  br i1 %exitcond26.not, label %25, label %6, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %6, %12
   call void @slurm_xfree(ptr noundef nonnull %3) #6
@@ -743,7 +743,7 @@ define i32 @xcgroup_get_uint64_param(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.xcgroup_t, align 8
@@ -781,7 +781,7 @@ define noundef i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %1
   store i8 0, ptr %9, align 1
   %21 = load ptr, ptr %0, align 8
-  %22 = call i32 @xcgroup_load(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %8), !range !9
+  %22 = call i32 @xcgroup_load(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %8)
   %.not21 = icmp eq i32 %22, 0
   br i1 %.not21, label %33, label %23
 
@@ -883,7 +883,7 @@ define noundef i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_addr #0 {
 
 69:                                               ; preds = %55
   call void @slurm_xfree(ptr noundef nonnull %2) #6
-  br i1 %35, label %34, label %70, !llvm.loop !12
+  br i1 %35, label %34, label %70, !llvm.loop !11
 
 70:                                               ; preds = %69
   call void @common_cgroup_destroy(ptr noundef nonnull %4) #6
@@ -899,7 +899,7 @@ declare ptr @xstrrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @common_cgroup_set_param(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xcgroup_create_slurm_cg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcgroup_create_slurm_cg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 1), align 8
   %5 = tail call ptr @xstrdup(ptr noundef %4) #6
@@ -947,7 +947,7 @@ declare i32 @getgid() local_unnamed_addr #2
 declare i32 @common_cgroup_instantiate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [64 x i8], align 16
   %9 = getelementptr inbounds i8, ptr %3, i64 120
   %10 = getelementptr inbounds i8, ptr %3, i64 160
@@ -1113,7 +1113,6 @@ attributes #7 = { nounwind willreturn memory(none) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}

@@ -656,7 +656,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @brin_minmax_multi_add_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @brin_minmax_multi_add_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.compare_context, align 8
   %4 = alloca i32, align 4
@@ -809,7 +809,7 @@ brin_minmax_multi_get_values.exit:                ; preds = %37, %39
   %.086 = phi ptr [ %53, %brin_minmax_multi_get_values.exit ], [ %67, %65 ], [ %93, %77 ]
   %103 = getelementptr inbounds i8, ptr %23, i64 68
   %104 = load i32, ptr %103, align 4
-  %105 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull %7, i16 noundef zeroext %17, i32 noundef %104, i16 noundef zeroext 1)
+  %105 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull readonly %7, i16 noundef zeroext %17, i32 noundef %104, i16 noundef zeroext 1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %106 = getelementptr inbounds i8, ptr %.086, i64 24
   %107 = load i32, ptr %106, align 8
@@ -824,7 +824,7 @@ brin_minmax_multi_get_values.exit:                ; preds = %37, %39
 
 115:                                              ; preds = %102
   %116 = load i32, ptr %103, align 4
-  %117 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull %7, i16 noundef zeroext %17, i32 noundef %116, i16 noundef zeroext 1)
+  %117 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull readonly %7, i16 noundef zeroext %17, i32 noundef %116, i16 noundef zeroext 1)
   tail call fastcc void @range_deduplicate_values(ptr noundef nonnull %.086)
   %118 = load i32, ptr %106, align 8
   %119 = shl i32 %118, 1
@@ -1028,13 +1028,13 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   %220 = sext i32 %219 to i64
   %221 = getelementptr [0 x i64], ptr %216, i64 0, i64 %220
   %222 = load i64, ptr %221, align 8
-  %223 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 1)
+  %223 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 1)
   %224 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %223, i32 noundef %16, i64 noundef %12, i64 noundef %217) #12
   %.not.i.i31.i = icmp eq i64 %224, 0
   br i1 %.not.i.i31.i, label %225, label %.loopexit3.i.i
 
 225:                                              ; preds = %215
-  %226 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 5)
+  %226 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 5)
   %227 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %226, i32 noundef %16, i64 noundef %12, i64 noundef %222) #12
   %.not44.i.i.i = icmp eq i64 %227, 0
   br i1 %.not44.i.i.i, label %228, label %.loopexit3.i.i
@@ -1085,7 +1085,7 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   br i1 %.not46.i.i.i, label %range_contains_value.exit.thread.i, label %.outer.i.i.i
 
 .loopexit3.i.i:                                   ; preds = %.outer.i.i.i, %245, %228, %225, %215, %ensure_free_space_in_buffer.exit.i
-  %250 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 3)
+  %250 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 3)
   %251 = getelementptr inbounds i8, ptr %.086, i64 28
   %252 = load i32, ptr %251, align 4
   %253 = icmp sgt i32 %252, 15
@@ -1292,7 +1292,7 @@ define internal void @brin_minmax_multi_serialize(ptr nocapture noundef readonly
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = load i32, ptr %5, align 8
-  %22 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %0, i16 noundef zeroext %20, i32 noundef %21, i16 noundef zeroext 1)
+  %22 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %0, i16 noundef zeroext %20, i32 noundef %21, i16 noundef zeroext 1)
   %23 = load i16, ptr %19, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = zext i16 %23 to i64
@@ -1845,7 +1845,7 @@ fetch_att.exit.us:                                ; preds = %93, %91, %89, %88
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @brin_minmax_multi_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3598,7 +3598,7 @@ compare_values.exit.thread:                       ; preds = %.lr.ph, %compare_va
 declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compare_values(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @compare_values(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3626,7 +3626,7 @@ define internal i32 @compare_values(ptr nocapture noundef readonly %0, ptr nocap
 declare ptr @bsearch_arg(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compare_expanded_ranges(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @compare_expanded_ranges(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3677,7 +3677,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_distances(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @compare_distances(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

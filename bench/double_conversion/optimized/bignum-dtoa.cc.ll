@@ -62,7 +62,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %and3.i = and i64 %significand.0, 4503599627370496
   %cmp4.i = icmp eq i64 %and3.i, 0
   %significand.masked.i = and i64 %significand.0, 4503599627370495
-  %significand.masked.numleadingzeros.i = tail call i64 @llvm.ctlz.i64(i64 %significand.masked.i, i1 true), !range !4
+  %significand.masked.numleadingzeros.i = tail call range(i64 12, 65) i64 @llvm.ctlz.i64(i64 %significand.masked.i, i1 true)
   %8 = trunc nuw nsw i64 %significand.masked.numleadingzeros.i to i32
   %9 = add nsw i32 %exponent.0, 11
   %10 = sub nsw i32 %9, %8
@@ -241,7 +241,7 @@ for.cond.us.us.i:                                 ; preds = %entry.split.us.i, %
 if.then21.us.us.i:                                ; preds = %for.cond.us.us.i
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 10)
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i32 noundef 10)
-  br label %for.cond.us.us.i, !llvm.loop !5
+  br label %for.cond.us.us.i, !llvm.loop !4
 
 for.cond.us.i:                                    ; preds = %entry.split.us.i, %if.then21.us.i
   %call1.us.i = call noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
@@ -264,7 +264,7 @@ if.then21.us.i:                                   ; preds = %for.cond.us.i
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 10)
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i32 noundef 10)
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %spec.select.i, i32 noundef 10)
-  br label %for.cond.us.i, !llvm.loop !5
+  br label %for.cond.us.i, !llvm.loop !4
 
 entry.split.i:                                    ; preds = %sw.bb
   br i1 %cmp.i.i56, label %for.cond.us5.i, label %for.cond.i
@@ -289,7 +289,7 @@ for.cond.us5.i:                                   ; preds = %entry.split.i, %if.
 if.then21.us13.i:                                 ; preds = %for.cond.us5.i
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 10)
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i32 noundef 10)
-  br label %for.cond.us5.i, !llvm.loop !5
+  br label %for.cond.us5.i, !llvm.loop !4
 
 for.cond.i:                                       ; preds = %entry.split.i, %if.then21.i
   %call1.i = call noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
@@ -312,7 +312,7 @@ if.then21.i:                                      ; preds = %for.cond.i
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 10)
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i32 noundef 10)
   call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %spec.select.i, i32 noundef 10)
-  br label %for.cond.i, !llvm.loop !5
+  br label %for.cond.i, !llvm.loop !4
 
 if.else25.i:                                      ; preds = %for.cond.i, %for.cond.us5.i, %for.cond.us.i, %for.cond.us.us.i
   %.us-phi.i = phi i1 [ %cmp.i32.us.us.i, %for.cond.us.us.i ], [ %cmp.i32.us.i, %for.cond.us.i ], [ %cmp.i34.us.i, %for.cond.us5.i ], [ %cmp.i34.i, %for.cond.i ]
@@ -391,7 +391,7 @@ if.else8.i:                                       ; preds = %if.then4.i
 
 if.else9.i:                                       ; preds = %if.else.i61
   %add.i63 = add nsw i32 %26, %requested_digits
-  call fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %add.i63, ptr noundef nonnull %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr %buffer.coerce0, ptr noundef %length)
+  call fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %add.i63, ptr noundef nonnull %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr %buffer.coerce0, ptr noundef writeonly %length)
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %_ZN17double_conversionL15FixupMultiply10EibPiPNS_6BignumES2_S2_S2_.exit
@@ -434,7 +434,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
   %call4 = tail call noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
@@ -472,7 +472,7 @@ if.end22:                                         ; preds = %for.body17
   %inc26 = add i8 %1, 1
   store i8 %inc26, ptr %arrayidx.i24, align 1
   %cmp16 = icmp sgt i32 %i13.037, 1
-  br i1 %cmp16, label %for.body17, label %for.end28, !llvm.loop !8
+  br i1 %cmp16, label %for.body17, label %for.end28, !llvm.loop !7
 
 for.end28.critedge:                               ; preds = %entry
   %call4.c = tail call noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
@@ -549,8 +549,7 @@ attributes #5 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 12, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

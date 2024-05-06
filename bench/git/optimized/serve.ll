@@ -192,11 +192,11 @@ if.then:                                          ; preds = %entry
   br label %for.cond
 
 if.then2:                                         ; preds = %entry
-  %call = tail call fastcc i32 @process_request(), !range !7
+  %call = tail call fastcc i32 @process_request()
   br label %if.end7
 
 for.cond:                                         ; preds = %if.then, %for.cond
-  %call3 = tail call fastcc i32 @process_request(), !range !7
+  %call3 = tail call fastcc i32 @process_request()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %for.cond, label %if.end7
 
@@ -205,7 +205,7 @@ if.end7:                                          ; preds = %for.cond, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_request() unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_request() unnamed_addr #0 {
 entry:
   %reader = alloca %struct.packet_reader, align 8
   call void @packet_reader_init(ptr noundef nonnull %reader, i32 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 7) #6
@@ -234,7 +234,7 @@ while.body:                                       ; preds = %while.body.outer, %
     i32 2, label %sw.bb12
     i32 3, label %sw.bb16
     i32 4, label %sw.bb18
-  ], !llvm.loop !8
+  ], !llvm.loop !7
 
 sw.bb:                                            ; preds = %while.body
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.13, i32 noundef 268, ptr noundef nonnull @.str.18) #8
@@ -258,7 +258,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %3 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %3, %2
-  br i1 %cmp.i.i, label %do.body.i.i, label %lor.lhs.false, !llvm.loop !9
+  br i1 %cmp.i.i, label %do.body.i.i, label %lor.lhs.false, !llvm.loop !8
 
 if.then.i:                                        ; preds = %do.body.i.i
   %tobool.not.i6.i = icmp eq ptr %scevgep.i, null
@@ -282,7 +282,7 @@ do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %6 = load i8, ptr %str.addr.0.i.i.i, align 1
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %prefix.addr.0.i.i.i, i64 1
   %cmp.i.i.i = icmp eq i8 %6, %5
-  br i1 %cmp.i.i.i, label %do.body.i.i.i, label %for.inc.i.i, !llvm.loop !9
+  br i1 %cmp.i.i.i, label %do.body.i.i.i, label %for.inc.i.i, !llvm.loop !8
 
 if.end3.i.i:                                      ; preds = %do.body.i.i.i
   %7 = load i8, ptr %str.addr.0.i.i.i, align 1
@@ -294,7 +294,7 @@ if.end3.i.i:                                      ; preds = %do.body.i.i.i
 for.inc.i.i:                                      ; preds = %do.cond.i.i.i, %if.end3.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %get_capability.exit.i, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %get_capability.exit.i, label %for.body.i.i, !llvm.loop !9
 
 get_capability.exit.i.loopexit:                   ; preds = %if.end3.i.i
   br label %get_capability.exit.i
@@ -355,7 +355,7 @@ do.cond.i.i.i8:                                   ; preds = %do.body.i.i.i4
   %14 = load i8, ptr %str.addr.0.i.i.i5, align 1
   %incdec.ptr1.i.i.i10 = getelementptr inbounds i8, ptr %prefix.addr.0.i.i.i6, i64 1
   %cmp.i.i.i11 = icmp eq i8 %14, %13
-  br i1 %cmp.i.i.i11, label %do.body.i.i.i4, label %for.inc.i.i12, !llvm.loop !9
+  br i1 %cmp.i.i.i11, label %do.body.i.i.i4, label %for.inc.i.i12, !llvm.loop !8
 
 if.end3.i.i16:                                    ; preds = %do.body.i.i.i4
   %15 = load i8, ptr %str.addr.0.i.i.i5, align 1
@@ -371,7 +371,7 @@ if.then10.i.i:                                    ; preds = %if.end3.i.i16
 for.inc.i.i12:                                    ; preds = %do.cond.i.i.i8, %if.end3.i.i16
   %indvars.iv.next.i.i13 = add nuw nsw i64 %indvars.iv.i.i2, 1
   %exitcond.not.i.i14 = icmp eq i64 %indvars.iv.next.i.i13, 8
-  br i1 %exitcond.not.i.i14, label %if.else, label %for.body.i.i1, !llvm.loop !10
+  br i1 %exitcond.not.i.i14, label %if.else, label %for.body.i.i1, !llvm.loop !9
 
 lor.lhs.false.i18:                                ; preds = %if.end3.i.i16, %if.then10.i.i
   %value.0.i19 = phi ptr [ %incdec.ptr.i.i17, %if.then10.i.i ], [ null, %if.end3.i.i16 ]
@@ -406,7 +406,7 @@ if.then6.i:                                       ; preds = %if.end.i21
 if.then8:                                         ; preds = %if.then6.i, %if.end.i21, %lor.lhs.false6.i
   %command.128 = phi ptr [ %retval.0.i.i, %lor.lhs.false6.i ], [ %command.054.ph, %if.end.i21 ], [ %command.054.ph, %if.then6.i ]
   %call11 = call i32 @packet_reader_read(ptr noundef nonnull %reader) #6
-  br label %while.body.outer, !llvm.loop !8
+  br label %while.body.outer, !llvm.loop !7
 
 if.else:                                          ; preds = %lor.lhs.false.i18, %lor.lhs.false, %for.inc.i.i12, %lor.lhs.false2.i.if.else.loopexit57_crit_edge
   %21 = phi ptr [ %.pre.pre, %lor.lhs.false2.i.if.else.loopexit57_crit_edge ], [ %1, %for.inc.i.i12 ], [ null, %lor.lhs.false ], [ %1, %lor.lhs.false.i18 ]
@@ -536,7 +536,7 @@ if.end2:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @session_id_advertise(ptr noundef %r, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @session_id_advertise(ptr noundef %r, ptr noundef %value) #0 {
 entry:
   %0 = load i32, ptr @advertise_sid, align 4
   %cmp = icmp eq i32 %0, -1
@@ -638,7 +638,6 @@ attributes #8 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

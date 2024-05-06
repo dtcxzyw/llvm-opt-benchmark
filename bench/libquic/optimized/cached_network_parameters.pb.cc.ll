@@ -138,7 +138,7 @@ invoke.cont:                                      ; preds = %if.end
   %bandwidth_estimate_bytes_per_second_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i.i, i8 0, i64 32, i1 false)
   store ptr %call, ptr @_ZN3net23CachedNetworkParameters17default_instance_E, align 8
   tail call void @_ZN6google8protobuf8internal10OnShutdownEPFvvE(ptr noundef nonnull @_ZN3net59protobuf_ShutdownFile_cached_5fnetwork_5fparameters_2eprotoEv)
   br label %return
@@ -192,7 +192,7 @@ invoke.cont:                                      ; preds = %entry
   %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 40
   %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i, i8 0, i64 32, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
@@ -243,7 +243,7 @@ invoke.cont:                                      ; preds = %entry
   %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 40
   %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i, i8 0, i64 32, i1 false)
   invoke void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %from)
           to label %invoke.cont2 unwind label %lpad
 
@@ -588,7 +588,7 @@ invoke.cont:                                      ; preds = %entry
   %bandwidth_estimate_bytes_per_second_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i.i, i8 0, i64 32, i1 false)
   %cmp.not = icmp eq ptr %arena, null
   br i1 %cmp.not, label %if.end, label %if.then
 

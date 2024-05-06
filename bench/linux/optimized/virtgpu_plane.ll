@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [48 x i8] c"handle 0x%x, crtc %dx%d+%d+%d, src %dx%d+%d+%d\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @virtio_gpu_translate_format(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @virtio_gpu_translate_format(i32 noundef %0) local_unnamed_addr #0 align 16 {
   switch i32 %0, label %5 [
     i32 875713112, label %.thread
     i32 875713089, label %2
@@ -86,7 +86,7 @@ declare dso_local ptr @__drmm_universal_plane_alloc(ptr noundef, i64 noundef, i6
 declare dso_local void @drm_plane_enable_fb_damage_clips(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtio_gpu_plane_prepare_fb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @virtio_gpu_plane_prepare_fb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8

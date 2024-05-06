@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tgkill(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tgkill(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.siginfo, align 8
   %5 = icmp ult i32 %2, 64
   br i1 %5, label %6, label %24
@@ -18,7 +18,7 @@ define noundef i32 @tgkill(i32 noundef %0, i32 noundef %1, i32 noundef %2) local
 6:                                                ; preds = %3
   %7 = load ptr, ptr @g_readytorun, align 8
   %8 = tail call i32 @sched_lock() #2
-  %9 = trunc i32 %2 to i8
+  %9 = trunc nuw nsw i32 %2 to i8
   store i8 %9, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %10, align 1

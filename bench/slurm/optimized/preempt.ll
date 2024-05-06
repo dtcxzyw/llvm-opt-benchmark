@@ -369,7 +369,7 @@ _is_job_preempt_exempt.exit.thread:               ; preds = %21, %13, %10, %.thr
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_youngest(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_by_youngest(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 888
@@ -384,7 +384,7 @@ define internal i32 @_sort_by_youngest(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_by_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_by_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
@@ -470,7 +470,7 @@ define zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnamed_addr #0
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_job_by_preempt_mode(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_find_job_by_preempt_mode(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca i16, align 2
   %4 = load i16, ptr %1, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
@@ -525,7 +525,7 @@ define i32 @slurm_job_preempt(ptr noundef %0, ptr noundef %1, i16 noundef zeroex
   br label %_job_check_grace.exit
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @_job_check_grace_internal(ptr noundef nonnull %0, ptr noundef %1), !range !8
+  %17 = tail call i32 @_job_check_grace_internal(ptr noundef nonnull %0, ptr noundef %1)
   %.lobit.i = lshr i32 %17, 31
   br label %_job_check_grace.exit
 
@@ -718,7 +718,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #4
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_is_job_preempt_exempt_internal(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_is_job_preempt_exempt_internal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i1 @job_borrow_from_resv_check(ptr noundef %0, ptr noundef %1) #8
   br i1 %3, label %7, label %4
 
@@ -765,7 +765,7 @@ declare zeroext i1 @acct_policy_is_job_preempt_exempt(ptr noundef) local_unnamed
 declare i32 @list_for_each_nobreak(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_job_check_grace_internal(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 2) i32 @_job_check_grace_internal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 688
   %5 = load i64, ptr %4, align 8
@@ -899,4 +899,3 @@ attributes #10 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -1, i32 2}

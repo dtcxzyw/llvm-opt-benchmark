@@ -125,7 +125,7 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17hbfc00971168f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN67_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..Ord$GT$3cmp17h65742839ffa4b1f1E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #0 {
+define noundef range(i8 -1, 2) i8 @"_ZN67_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..Ord$GT$3cmp17h65742839ffa4b1f1E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load float, ptr %3, align 4, !noundef !9
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -142,7 +142,7 @@ define noundef i8 @"_ZN67_$LT$common..types..ScoredPointOffset$u20$as$u20$core..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define noundef i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc02ee03a84527b57E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #4 {
+define noundef range(i8 -1, 2) i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc02ee03a84527b57E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -166,7 +166,7 @@ define { i1, i8 } @"_ZN73_$LT$common..types..TelemetryDetail$u20$as$u20$core..de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN80_$LT$common..types..DetailsLevel$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h5309712cf6d11a76E"(i64 noundef %0) unnamed_addr #5 {
+define noundef range(i8 0, 3) i8 @"_ZN80_$LT$common..types..DetailsLevel$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h5309712cf6d11a76E"(i64 noundef %0) unnamed_addr #5 {
   %switch.selectcmp = icmp eq i64 %0, 1
   %switch.select = select i1 %switch.selectcmp, i8 1, i8 2
   %switch.selectcmp1 = icmp eq i64 %0, 0

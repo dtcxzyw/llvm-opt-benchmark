@@ -39,7 +39,7 @@ define void @Init_type(i64 noundef %0) local_unnamed_addr #0 {
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_sym_const_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_sym_const_p(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_to_id(i64 noundef %1) #5
   %4 = tail call i32 @rb_is_const_id(i64 noundef %3) #6
   %.not = icmp eq i32 %4, 0
@@ -48,7 +48,7 @@ define internal i64 @bug_sym_const_p(i64 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_sym_class_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_sym_class_p(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_to_id(i64 noundef %1) #5
   %4 = tail call i32 @rb_is_class_id(i64 noundef %3) #6
   %.not = icmp eq i32 %4, 0
@@ -57,7 +57,7 @@ define internal i64 @bug_sym_class_p(i64 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_sym_global_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_sym_global_p(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_to_id(i64 noundef %1) #5
   %4 = tail call i32 @rb_is_global_id(i64 noundef %3) #6
   %.not = icmp eq i32 %4, 0
@@ -66,7 +66,7 @@ define internal i64 @bug_sym_global_p(i64 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_sym_instance_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_sym_instance_p(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_to_id(i64 noundef %1) #5
   %4 = tail call i32 @rb_is_instance_id(i64 noundef %3) #6
   %.not = icmp eq i32 %4, 0
@@ -75,7 +75,7 @@ define internal i64 @bug_sym_instance_p(i64 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_sym_attrset_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_sym_attrset_p(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_to_id(i64 noundef %1) #5
   %4 = tail call i32 @rb_is_attrset_id(i64 noundef %3) #6
   %.not = icmp eq i32 %4, 0
@@ -84,7 +84,7 @@ define internal i64 @bug_sym_attrset_p(i64 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_sym_local_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_sym_local_p(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_to_id(i64 noundef %1) #5
   %4 = tail call i32 @rb_is_local_id(i64 noundef %3) #6
   %.not = icmp eq i32 %4, 0
@@ -93,7 +93,7 @@ define internal i64 @bug_sym_local_p(i64 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_sym_junk_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @bug_sym_junk_p(i64 %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_to_id(i64 noundef %1) #5
   %4 = tail call i32 @rb_is_junk_id(i64 noundef %3) #6
   %.not = icmp eq i32 %4, 0
@@ -116,7 +116,7 @@ define internal i64 @bug_id2str(i64 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @bug_static_p(i64 %0, i64 noundef %1) #2 {
+define internal noundef range(i64 0, 21) i64 @bug_static_p(i64 %0, i64 noundef %1) #2 {
   %3 = and i64 %1, 255
   %4 = icmp eq i64 %3, 12
   %5 = select i1 %4, i64 20, i64 0
@@ -124,7 +124,7 @@ define internal noundef i64 @bug_static_p(i64 %0, i64 noundef %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @bug_dynamic_p(i64 %0, i64 noundef %1) #3 {
+define internal range(i64 0, 21) i64 @bug_dynamic_p(i64 %0, i64 noundef %1) #3 {
   %3 = and i64 %1, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %1, 0

@@ -1030,7 +1030,7 @@ objectNamesToOids.exit:                           ; preds = %205, %.lr.ph297.i, 
   unreachable
 
 381:                                              ; preds = %374
-  %382 = call fastcc i64 @string_to_privilege(ptr noundef nonnull %376), !range !7
+  %382 = call fastcc i64 @string_to_privilege(ptr noundef nonnull %376)
   %383 = and i64 %382, %347
   %.not56 = icmp eq i64 %383, 0
   br i1 %.not56, label %389, label %384
@@ -1056,7 +1056,7 @@ objectNamesToOids.exit:                           ; preds = %205, %.lr.ph297.i, 
   %394 = load i32, ptr %355, align 4
   %395 = sext i32 %394 to i64
   %396 = icmp slt i64 %indvars.iv.next141, %395
-  br i1 %396, label %359, label %.thread64, !llvm.loop !8
+  br i1 %396, label %359, label %.thread64, !llvm.loop !7
 
 .thread64:                                        ; preds = %392, %354, %353
   call fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %3)
@@ -1085,7 +1085,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @string_to_privilege(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i64 0, 8193) i64 @string_to_privilege(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.140) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %53, label %4
@@ -1530,7 +1530,7 @@ define internal fastcc void @ExecGrantStmt_oids(ptr noundef %0) unnamed_addr #0 
   %159 = add i16 %.024.i.i, 1
   %160 = load i16, ptr %120, align 4
   %.not.i.i = icmp sgt i16 %159, %160
-  br i1 %.not.i.i, label %expand_all_col_privileges.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %expand_all_col_privileges.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 expand_all_col_privileges.exit.i:                 ; preds = %158, %131, %129, %119
   %.0122.i = phi i1 [ false, %119 ], [ false, %129 ], [ true, %131 ], [ true, %158 ]
@@ -1578,7 +1578,7 @@ expand_all_col_privileges.exit.i:                 ; preds = %158, %131, %129, %1
   %182 = trunc i8 %181 to i1
   %183 = load i32, ptr %32, align 4
   %184 = getelementptr inbounds i8, ptr %77, i64 4
-  %185 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %179, i64 noundef %180, i1 noundef zeroext %182, i64 noundef %.1.i, i32 noundef %65, i32 noundef %183, i32 noundef %.147.i, ptr noundef nonnull %184, i16 noundef signext 0, ptr noundef null), !range !10
+  %185 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %179, i64 noundef %180, i1 noundef zeroext %182, i64 noundef %.1.i, i32 noundef %65, i32 noundef %183, i32 noundef %.147.i, ptr noundef nonnull %184, i16 noundef signext 0, ptr noundef null)
   %186 = load i8, ptr %0, align 8
   %187 = trunc i8 %186 to i1
   %188 = load i8, ptr %48, align 8
@@ -1639,7 +1639,7 @@ recordExtensionInitPriv.exit.i:                   ; preds = %204, %201
   br i1 %219, label %.thread164.i, label %220
 
 220:                                              ; preds = %.lr.ph66
-  %221 = call fastcc i64 @string_to_privilege(ptr noundef nonnull %218), !range !7
+  %221 = call fastcc i64 @string_to_privilege(ptr noundef nonnull %218)
   %222 = and i64 %221, 16344
   %.not145.i = icmp eq i64 %222, 0
   br i1 %.not145.i, label %.thread164.i, label %223
@@ -1824,7 +1824,7 @@ expand_col_privileges.exit.i:                     ; preds = %262, %.lr.ph.i150.i
   %310 = icmp eq i64 %278, 39
   %311 = load i32, ptr %22, align 4
   %312 = getelementptr inbounds i8, ptr %294, i64 4
-  %313 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %308, i64 noundef %309, i1 noundef zeroext %310, i64 noundef %278, i32 noundef %65, i32 noundef %311, i32 noundef 6, ptr noundef nonnull %274, i16 noundef signext %281, ptr noundef nonnull %312), !range !10
+  %313 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %308, i64 noundef %309, i1 noundef zeroext %310, i64 noundef %278, i32 noundef %65, i32 noundef %311, i32 noundef 6, ptr noundef nonnull %274, i16 noundef signext %281, ptr noundef nonnull %312)
   %314 = load i8, ptr %0, align 8
   %315 = trunc i8 %314 to i1
   %316 = load i8, ptr %48, align 8
@@ -1972,7 +1972,7 @@ ExecGrant_Attribute.exit.i:                       ; preds = %recordExtensionInit
   %375 = add i16 %.0205.i, 1
   %376 = sext i16 %375 to i32
   %377 = icmp sgt i32 %123, %376
-  br i1 %377, label %275, label %.loopexit.i, !llvm.loop !11
+  br i1 %377, label %275, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %374, %._crit_edge.i
   call void @pfree(ptr noundef %174) #8
@@ -2131,7 +2131,7 @@ ExecGrant_Relation.exit:                          ; preds = %.loopexit.i, %.lr.p
   %447 = trunc i8 %446 to i1
   %448 = load i64, ptr %403, align 8
   %449 = load i32, ptr %13, align 4
-  %450 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %444, i64 noundef %445, i1 noundef zeroext %447, i64 noundef %448, i32 noundef %413, i32 noundef %449, i32 noundef 22, ptr noundef nonnull %10, i16 noundef signext 0, ptr noundef null), !range !10
+  %450 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %444, i64 noundef %445, i1 noundef zeroext %447, i64 noundef %448, i32 noundef %413, i32 noundef %449, i32 noundef 22, ptr noundef nonnull %10, i16 noundef signext 0, ptr noundef null)
   %451 = load i8, ptr %0, align 8
   %452 = trunc i8 %451 to i1
   %453 = load i8, ptr %404, align 8
@@ -2293,7 +2293,7 @@ ExecGrant_Largeobject.exit:                       ; preds = %recordExtensionInit
   %531 = trunc i8 %530 to i1
   %532 = load i64, ptr %493, align 8
   %533 = load i32, ptr %4, align 4
-  %534 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %528, i64 noundef %529, i1 noundef zeroext %531, i64 noundef %532, i32 noundef %504, i32 noundef %533, i32 noundef 27, ptr noundef %513, i16 noundef signext 0, ptr noundef null), !range !10
+  %534 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %528, i64 noundef %529, i1 noundef zeroext %531, i64 noundef %532, i32 noundef %504, i32 noundef %533, i32 noundef 27, ptr noundef %513, i16 noundef signext 0, ptr noundef null)
   %535 = load i8, ptr %0, align 8
   %536 = trunc i8 %535 to i1
   %537 = load i8, ptr %494, align 8
@@ -2637,7 +2637,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapt
   unreachable
 
 113:                                              ; preds = %106
-  %114 = tail call fastcc i64 @string_to_privilege(ptr noundef nonnull %108), !range !7
+  %114 = tail call fastcc i64 @string_to_privilege(ptr noundef nonnull %108)
   %115 = and i64 %114, %83
   %.not89 = icmp eq i64 %115, 0
   br i1 %.not89, label %121, label %116
@@ -2657,7 +2657,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapt
   %123 = load i32, ptr %91, align 4
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next196, %124
-  br i1 %125, label %95, label %.thread107, !llvm.loop !12
+  br i1 %125, label %95, label %.thread107, !llvm.loop !10
 
 .thread107:                                       ; preds = %121, %90, %89
   %storemerge = phi i64 [ 0, %89 ], [ 0, %90 ], [ %122, %121 ]
@@ -2697,7 +2697,7 @@ SetDefaultACLsInSchemas.exit100.us:               ; preds = %.lr.ph174.split.us
   %140 = load i32, ptr %127, align 4
   %141 = sext i32 %140 to i64
   %.not91.us = icmp slt i64 %indvars.iv.next202, %141
-  br i1 %.not91.us, label %.lr.ph174.split.us, label %SetDefaultACLsInSchemas.exit, !llvm.loop !13
+  br i1 %.not91.us, label %.lr.ph174.split.us, label %SetDefaultACLsInSchemas.exit, !llvm.loop !11
 
 142:                                              ; preds = %.thread107
   %143 = tail call i32 @GetUserId() #8
@@ -2736,7 +2736,7 @@ SetDefaultACLsInSchemas.exit100.us:               ; preds = %.lr.ph174.split.us
   %158 = load i32, ptr %145, align 4
   %159 = sext i32 %158 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %159
-  br i1 %.not.i, label %151, label %SetDefaultACLsInSchemas.exit, !llvm.loop !14
+  br i1 %.not.i, label %151, label %SetDefaultACLsInSchemas.exit, !llvm.loop !12
 
 .lr.ph174.split:                                  ; preds = %.lr.ph174, %SetDefaultACLsInSchemas.exit100
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %SetDefaultACLsInSchemas.exit100 ], [ 0, %.lr.ph174 ]
@@ -2776,14 +2776,14 @@ SetDefaultACLsInSchemas.exit100.us:               ; preds = %.lr.ph174.split.us
   %176 = load i32, ptr %131, align 4
   %177 = sext i32 %176 to i64
   %.not.i99 = icmp slt i64 %indvars.iv.next.i98, %177
-  br i1 %.not.i99, label %.lr.ph.i96, label %SetDefaultACLsInSchemas.exit100, !llvm.loop !14
+  br i1 %.not.i99, label %.lr.ph.i96, label %SetDefaultACLsInSchemas.exit100, !llvm.loop !12
 
 SetDefaultACLsInSchemas.exit100:                  ; preds = %.lr.ph.i96, %.preheader.i94
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %178 = load i32, ptr %127, align 4
   %179 = sext i32 %178 to i64
   %.not91 = icmp slt i64 %indvars.iv.next199, %179
-  br i1 %.not91, label %.lr.ph174.split, label %SetDefaultACLsInSchemas.exit, !llvm.loop !13
+  br i1 %.not91, label %.lr.ph174.split, label %SetDefaultACLsInSchemas.exit, !llvm.loop !11
 
 SetDefaultACLsInSchemas.exit:                     ; preds = %SetDefaultACLsInSchemas.exit100, %SetDefaultACLsInSchemas.exit100.us, %151, %.preheader, %149, %.preheader.i
   ret void
@@ -3774,7 +3774,7 @@ define internal fastcc i64 @pg_class_aclmask_ext(i32 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @object_aclcheck(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @object_aclcheck(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef null)
   %.not.i = icmp eq i64 %5, 0
   %..i = zext i1 %.not.i to i32
@@ -3782,7 +3782,7 @@ define dso_local i32 @object_aclcheck(i32 noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @object_aclcheck_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @object_aclcheck_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4)
   %.not = icmp eq i64 %6, 0
   %. = zext i1 %.not to i32
@@ -4137,7 +4137,7 @@ pg_type_aclmask_ext.exit:                         ; preds = %58, %64, %86, %108,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef null)
   %.not.i = icmp eq i64 %5, 0
   %..i = zext i1 %.not.i to i32
@@ -4145,7 +4145,7 @@ define dso_local i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_attribute_aclcheck_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef %4)
   %.not = icmp eq i64 %6, 0
   %. = zext i1 %.not to i32
@@ -4272,13 +4272,13 @@ define internal fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %0, i16 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_attribute_aclcheck_all(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef null), !range !15
+define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = zext i32 %0 to i64
   %8 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %7) #8
@@ -4370,7 +4370,7 @@ define dso_local i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef 
 48:                                               ; preds = %.sink.split, %47, %.lr.ph.split.us.split
   %49 = add i16 %.03548.us, 1
   %.not41.us = icmp sgt i16 %49, %25
-  br i1 %.not41.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !16
+  br i1 %.not41.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !13
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %73
   %.03449.us56 = phi i32 [ %.1.us62, %73 ], [ 1, %.lr.ph ]
@@ -4426,7 +4426,7 @@ define dso_local i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef 
   %.1.us62 = phi i32 [ %.03449.us56, %72 ], [ %.03449.us56, %.lr.ph.split.split.us ], [ 0, %71 ]
   %74 = add i16 %.03548.us57, 1
   %.not41.us63 = icmp sgt i16 %74, %25
-  br i1 %.not41.us63, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !16
+  br i1 %.not41.us63, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %99
   %.03449 = phi i32 [ %.1, %99 ], [ 1, %.lr.ph ]
@@ -4485,7 +4485,7 @@ define dso_local i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef 
   %.1 = phi i32 [ %.03449, %87 ], [ 1, %98 ], [ %.03449, %.lr.ph.split.split ], [ 0, %97 ]
   %100 = add i16 %.03548, 1
   %.not41 = icmp sgt i16 %100, %25
-  br i1 %.not41, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !16
+  br i1 %.not41, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %71, %73, %47, %48, %99, %15, %.thread.us61, %10
   %.033 = phi i32 [ 1, %10 ], [ 1, %15 ], [ 1, %.thread.us61 ], [ %.1, %99 ], [ 0, %47 ], [ 1, %48 ], [ 1, %71 ], [ %.1.us62, %73 ]
@@ -4507,7 +4507,7 @@ declare i64 @aclmask(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 nou
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_class_aclcheck(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_class_aclcheck(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef 1, ptr noundef null)
   %.not.i = icmp eq i64 %4, 0
   %..i = zext i1 %.not.i to i32
@@ -4515,7 +4515,7 @@ define dso_local i32 @pg_class_aclcheck(i32 noundef %0, i32 noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_class_aclcheck_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_class_aclcheck_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef 1, ptr noundef %3)
   %.not = icmp eq i64 %5, 0
   %. = zext i1 %.not to i32
@@ -4523,7 +4523,7 @@ define dso_local i32 @pg_class_aclcheck_ext(i32 noundef %0, i32 noundef %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_parameter_aclcheck(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_parameter_aclcheck(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %5 = tail call zeroext i1 @superuser_arg(i32 noundef %1) #8
@@ -4584,7 +4584,7 @@ pg_parameter_aclmask.exit:                        ; preds = %3, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3)
   %.not = icmp eq i64 %5, 0
   %. = zext i1 %.not to i32
@@ -5156,7 +5156,7 @@ define dso_local void @recordExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
   %47 = add i16 %.071, 1
   %48 = sext i16 %47 to i32
   %.not68 = icmp sgt i16 %47, %25
-  br i1 %.not68, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not68, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %46, %23, %13
   %49 = call i64 @SysCacheGetAttr(i32 noundef 55, ptr noundef nonnull %9, i16 noundef signext 31, ptr noundef nonnull %3) #8
@@ -5394,7 +5394,7 @@ define dso_local void @removeExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
   %28 = add i16 %.035, 1
   %29 = sext i16 %28 to i32
   %.not32 = icmp sgt i16 %28, %22
-  br i1 %.not32, label %.split25, label %.lr.ph, !llvm.loop !18
+  br i1 %.not32, label %.split25, label %.lr.ph, !llvm.loop !15
 
 .split25:                                         ; preds = %27, %20, %10
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
@@ -5483,7 +5483,7 @@ define internal fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef %1, i6
   br i1 %.not86, label %56, label %55
 
 55:                                               ; preds = %54
-  call void %3(ptr noundef nonnull %0, ptr noundef nonnull %49) #8, !callees !19
+  call void %3(ptr noundef nonnull %0, ptr noundef nonnull %49) #8, !callees !16
   br label %56
 
 56:                                               ; preds = %55, %54
@@ -5525,7 +5525,7 @@ define internal fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef %1, i6
   %82 = load i32, ptr %7, align 4
   %83 = call i32 @get_object_type(i32 noundef %1, i32 noundef %34) #8
   %84 = inttoptr i64 %75 to ptr
-  %85 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %77, i64 noundef %78, i1 noundef zeroext %80, i64 noundef %81, i32 noundef %34, i32 noundef %82, i32 noundef %83, ptr noundef %84, i16 noundef signext 0, ptr noundef null), !range !10
+  %85 = call fastcc i64 @restrict_and_check_grant(i1 noundef zeroext %77, i64 noundef %78, i1 noundef zeroext %80, i64 noundef %81, i32 noundef %34, i32 noundef %82, i32 noundef %83, ptr noundef %84, i16 noundef signext 0, ptr noundef null)
   %86 = load i8, ptr %0, align 8
   %87 = trunc i8 %86 to i1
   %88 = load i8, ptr %27, align 8
@@ -5688,7 +5688,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @select_best_grantor(i32 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @restrict_and_check_grant(i1 noundef zeroext %0, i64 noundef %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i16 noundef signext %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4294967296) i64 @restrict_and_check_grant(i1 noundef zeroext %0, i64 noundef %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i16 noundef signext %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca i8, align 1
   switch i32 %6, label %27 [
     i32 6, label %30
@@ -6218,7 +6218,7 @@ define internal fastcc ptr @getRelationsInNamespace(i32 noundef %0, i8 noundef s
   %18 = call ptr @lappend_oid(ptr noundef %.012, i32 noundef %17) #8
   %19 = call ptr @heap_getnext(ptr noundef %8, i32 noundef 1) #8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %18, %.lr.ph ]
@@ -6305,17 +6305,14 @@ attributes #11 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 8193}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 0, i64 4294967296}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = !{i32 0, i32 2}
-!16 = distinct !{!16, !6}
+!15 = distinct !{!15, !6}
+!16 = !{ptr @ExecGrant_Language_check, ptr @ExecGrant_Type_check}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = !{ptr @ExecGrant_Language_check, ptr @ExecGrant_Type_check}
-!20 = distinct !{!20, !6}

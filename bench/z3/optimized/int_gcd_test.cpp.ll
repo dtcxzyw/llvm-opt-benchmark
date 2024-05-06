@@ -204,7 +204,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(504)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2lp12int_gcd_testclEv(ptr noundef nonnull align 8 dereferenceable(148) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 3, 6) i32 @_ZN2lp12int_gcd_testclEv(ptr noundef nonnull align 8 dereferenceable(148) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(504) %0)
@@ -1784,7 +1784,7 @@ call4.i.noexc:                                    ; preds = %for.body.i265
 
 if.then.i:                                        ; preds = %call4.i.noexc
   %152 = load i32, ptr %__begin1.06.i, align 8
-  invoke void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull align 8 dereferenceable(148) %this, i32 noundef %152)
+  invoke void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull readonly align 8 dereferenceable(148) %this, i32 noundef %152)
           to label %for.inc.i unwind label %lpad.loopexit
 
 for.inc.i:                                        ; preds = %if.then.i, %call4.i.noexc
@@ -2954,7 +2954,7 @@ call4.i.noexc:                                    ; preds = %for.body.i
 
 if.then.i:                                        ; preds = %call4.i.noexc
   %76 = load i32, ptr %__begin1.06.i, align 8
-  invoke void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull align 8 dereferenceable(148) %this, i32 noundef %76)
+  invoke void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull readonly align 8 dereferenceable(148) %this, i32 noundef %76)
           to label %for.inc.i unwind label %lpad75.loopexit
 
 for.inc.i:                                        ; preds = %if.then.i, %call4.i.noexc
@@ -4733,7 +4733,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then.i14:                                      ; preds = %for.body.i
   %21 = load i32, ptr %__begin1.06.i, align 8
-  tail call void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull align 8 dereferenceable(148) %this, i32 noundef %21)
+  tail call void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull readonly align 8 dereferenceable(148) %this, i32 noundef %21)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i14, %for.body.i
@@ -4769,7 +4769,7 @@ for.body.i22:                                     ; preds = %for.inc.i25, %for.b
 
 if.then.i28:                                      ; preds = %for.body.i22
   %28 = load i32, ptr %__begin1.06.i23, align 8
-  tail call void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull align 8 dereferenceable(148) %this, i32 noundef %28)
+  tail call void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull readonly align 8 dereferenceable(148) %this, i32 noundef %28)
   br label %for.inc.i25
 
 for.inc.i25:                                      ; preds = %if.then.i28, %for.body.i22

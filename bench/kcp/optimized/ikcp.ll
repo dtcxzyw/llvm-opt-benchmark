@@ -1232,7 +1232,7 @@ while.end:                                        ; preds = %if.then48, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ikcp_input(ptr noundef %kcp, ptr noundef readonly %data, i64 noundef %size) local_unnamed_addr #1 {
+define dso_local range(i32 -3, 1) i32 @ikcp_input(ptr noundef %kcp, ptr noundef readonly %data, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %snd_una = getelementptr inbounds i8, ptr %kcp, i64 16
   %0 = load i32, ptr %snd_una, align 8
@@ -2710,7 +2710,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ikcp_setmtu(ptr nocapture noundef %kcp, i32 noundef %mtu) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 1) i32 @ikcp_setmtu(ptr nocapture noundef %kcp, i32 noundef %mtu) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %mtu, 50
   br i1 %cmp, label %return, label %if.end

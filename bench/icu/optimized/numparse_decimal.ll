@@ -69,8 +69,8 @@ if.then:                                          ; preds = %invoke.cont9
           to label %invoke.cont13.invoke unwind label %lpad10.loopexit.split-lp
 
 invoke.cont13.invoke:                             ; preds = %if.then, %if.else
-  %.sink55 = phi i64 [ 8, %if.else ], [ 648, %if.then ]
-  %fSymbols.i40 = getelementptr inbounds i8, ptr %symbols, i64 %.sink55
+  %.sink56 = phi i64 [ 8, %if.else ], [ 648, %if.then ]
+  %fSymbols.i40 = getelementptr inbounds i8, ptr %symbols, i64 %.sink56
   %0 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %decimalSeparator, ptr noundef nonnull align 8 dereferenceable(64) %fSymbols.i40)
           to label %if.end unwind label %lpad10.loopexit.split-lp
 
@@ -216,15 +216,15 @@ invoke.cont99:                                    ; preds = %invoke.cont97
   %separatorSet101 = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %call82, ptr %separatorSet101, align 8
   %8 = load ptr, ptr %fLocalSeparatorSet, align 8
-  %isnull.i45 = icmp eq ptr %8, null
-  br i1 %isnull.i45, label %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit47, label %delete.notnull.i46
+  %isnull.i46 = icmp eq ptr %8, null
+  br i1 %isnull.i46, label %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit48, label %delete.notnull.i47
 
-delete.notnull.i46:                               ; preds = %invoke.cont99
+delete.notnull.i47:                               ; preds = %invoke.cont99
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %8) #7
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %8) #7
-  br label %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit47
+  br label %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit48
 
-_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit47: ; preds = %invoke.cont99, %delete.notnull.i46
+_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit48: ; preds = %invoke.cont99, %delete.notnull.i47
   store ptr %call82, ptr %fLocalSeparatorSet, align 8
   br label %if.end105
 
@@ -234,8 +234,8 @@ lpad87:                                           ; preds = %if.else80
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call82) #7
   br label %ehcleanup
 
-if.end105:                                        ; preds = %if.then74, %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit47
-  %.sink = phi ptr [ null, %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit47 ], [ %call79, %if.then74 ]
+if.end105:                                        ; preds = %if.then74, %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit48
+  %.sink = phi ptr [ null, %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit48 ], [ %call79, %if.then74 ]
   %leadSet104 = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %.sink, ptr %leadSet104, align 8
   %fCodePointZero.i = getelementptr inbounds i8, ptr %symbols, i64 1928
@@ -272,8 +272,8 @@ invoke.cont125:                                   ; preds = %new.notnull119, %in
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull119 ], [ %arrayctor.cur.add, %invoke.cont125 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call117, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i48 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
-  store i16 2, ptr %fUnion2.i48, align 8
+  %fUnion2.i49 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
+  store i16 2, ptr %fUnion2.i49, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 648
   br i1 %arrayctor.done, label %new.cont133.loopexit, label %invoke.cont125
@@ -285,16 +285,16 @@ new.cont133.loopexit:                             ; preds = %invoke.cont125
 new.cont133:                                      ; preds = %new.cont133.loopexit, %if.then116
   %11 = phi ptr [ null, %if.then116 ], [ %.ptr, %new.cont133.loopexit ]
   %12 = load ptr, ptr %fLocalDigitStrings, align 8
-  %isnull.i49 = icmp eq ptr %12, null
-  br i1 %isnull.i49, label %_ZN6icu_7510LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit, label %delete.notnull.i50
+  %isnull.i50 = icmp eq ptr %12, null
+  br i1 %isnull.i50, label %_ZN6icu_7510LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit, label %delete.notnull.i51
 
-delete.notnull.i50:                               ; preds = %new.cont133
+delete.notnull.i51:                               ; preds = %new.cont133
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 8
   %arraydestroy.isempty.i = icmp eq i64 %14, 0
   br i1 %arraydestroy.isempty.i, label %arraydestroy.done2.i, label %arraydestroy.body.preheader.i
 
-arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i50
+arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i51
   %delete.end.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %12, i64 %14
   br label %arraydestroy.body.i
 
@@ -305,13 +305,13 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %12
   br i1 %arraydestroy.done.i, label %arraydestroy.done2.i, label %arraydestroy.body.i
 
-arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i, %delete.notnull.i50
+arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i, %delete.notnull.i51
   call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %13) #7
   br label %_ZN6icu_7510LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit
 
 _ZN6icu_7510LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit: ; preds = %new.cont133, %arraydestroy.done2.i
   store ptr %11, ptr %fLocalDigitStrings, align 8
-  %arrayidx.i51 = getelementptr inbounds i8, ptr %symbols, i64 264
+  %arrayidx.i52 = getelementptr inbounds i8, ptr %symbols, i64 264
   %fSymbols6.i = getelementptr inbounds i8, ptr %symbols, i64 8
   br label %for.body
 
@@ -320,7 +320,7 @@ for.body:                                         ; preds = %_ZN6icu_7510LocalAr
   %cmp3.i = icmp eq i64 %indvars.iv, 0
   %15 = add nuw nsw i64 %indvars.iv, 17
   %arrayidx7.i = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols6.i, i64 0, i64 %15
-  %retval.0.i = select i1 %cmp3.i, ptr %arrayidx.i51, ptr %arrayidx7.i
+  %retval.0.i = select i1 %cmp3.i, ptr %arrayidx.i52, ptr %arrayidx7.i
   %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %11, i64 %indvars.iv
   %call140 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i)
           to label %for.inc unwind label %lpad10.loopexit
@@ -635,7 +635,7 @@ if.end56.thread:                                  ; preds = %if.then48
   br label %if.then59
 
 if.end51:                                         ; preds = %invoke.cont45
-  %tobool52 = trunc i8 %maybeMore.1343 to i1
+  %tobool52 = trunc nuw i8 %maybeMore.1343 to i1
   br i1 %tobool52, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end51
@@ -701,7 +701,7 @@ if.then82:                                        ; preds = %if.end74
           to label %invoke.cont85 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont85:                                    ; preds = %if.then82
-  %tobool87 = trunc i8 %maybeMore.3220 to i1
+  %tobool87 = trunc nuw i8 %maybeMore.3220 to i1
   br i1 %tobool87, label %invoke.cont95, label %lor.rhs88
 
 lor.rhs88:                                        ; preds = %invoke.cont85
@@ -741,7 +741,7 @@ if.then107:                                       ; preds = %if.end103
           to label %invoke.cont109 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont109:                                   ; preds = %if.then107
-  %tobool111 = trunc i8 %maybeMore.4 to i1
+  %tobool111 = trunc nuw i8 %maybeMore.4 to i1
   br i1 %tobool111, label %invoke.cont118, label %lor.rhs112
 
 lor.rhs112:                                       ; preds = %invoke.cont109
@@ -790,7 +790,7 @@ if.then137:                                       ; preds = %land.lhs.true129
           to label %invoke.cont140 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont140:                                   ; preds = %if.then137
-  %tobool142 = trunc i8 %maybeMore.5 to i1
+  %tobool142 = trunc nuw i8 %maybeMore.5 to i1
   br i1 %tobool142, label %invoke.cont150, label %lor.rhs143
 
 lor.rhs143:                                       ; preds = %invoke.cont140
@@ -819,7 +819,7 @@ if.then153:                                       ; preds = %invoke.cont150
 
 if.end158:                                        ; preds = %invoke.cont150, %land.lhs.true129, %if.end123
   %maybeMore.6 = phi i8 [ %maybeMore.5, %if.end123 ], [ %frombool148, %invoke.cont150 ], [ %maybeMore.5, %land.lhs.true129 ]
-  %tobool159 = trunc i8 %isGrouping.0 to i1
+  %tobool159 = trunc nuw i8 %isGrouping.0 to i1
   br i1 %tobool159, label %if.end172, label %land.lhs.true160
 
 land.lhs.true160:                                 ; preds = %if.end158
@@ -889,7 +889,7 @@ if.end192:                                        ; preds = %invoke.cont184, %in
   br i1 %isDecimal.1, label %land.lhs.true199, label %land.lhs.true194
 
 land.lhs.true194:                                 ; preds = %if.end192
-  %tobool195 = trunc i8 %isGrouping.2 to i1
+  %tobool195 = trunc nuw i8 %isGrouping.2 to i1
   br i1 %tobool195, label %if.else202, label %while.end
 
 land.lhs.true199:                                 ; preds = %if.end192
@@ -902,7 +902,7 @@ if.else202:                                       ; preds = %land.lhs.true194, %
   br i1 %cmp203, label %land.lhs.true204, label %if.end208
 
 land.lhs.true204:                                 ; preds = %if.else202
-  %tobool205 = trunc i8 %isGrouping.2 to i1
+  %tobool205 = trunc nuw i8 %isGrouping.2 to i1
   br i1 %tobool205, label %if.end268, label %if.end208
 
 if.end208:                                        ; preds = %if.else202, %land.lhs.true204
@@ -959,7 +959,7 @@ _ZNK6icu_758numparse4impl14DecimalMatcher13validateGroupEiib.exit163: ; preds = 
   br i1 %or.cond112, label %if.else231, label %if.then219
 
 if.then219:                                       ; preds = %_ZNK6icu_758numparse4impl14DecimalMatcher13validateGroupEiib.exit163
-  %tobool220 = trunc i8 %isGrouping.2 to i1
+  %tobool220 = trunc nuw i8 %isGrouping.2 to i1
   %cmp222 = icmp eq i32 %currGroupCount.0, 0
   %or.cond1 = select i1 %tobool220, i1 %cmp222, i1 false
   %tobool.i.not = xor i1 %tobool.i, true
@@ -991,7 +991,7 @@ if.then247:                                       ; preds = %if.else239
 
 if.end250:                                        ; preds = %if.then247, %if.else239
   %currGroupOffset.1 = phi i32 [ %currGroupOffset.0.ph, %if.else239 ], [ %call249, %if.then247 ]
-  %tobool251 = trunc i8 %isGrouping.2 to i1
+  %tobool251 = trunc nuw i8 %isGrouping.2 to i1
   %cond252 = select i1 %tobool251, i32 1, i32 2
   %fUnion2.i.val = load i16, ptr %fUnion2.i, align 8
   %fUnion2.i113.val = load i16, ptr %fUnion2.i113, align 8
@@ -1124,7 +1124,7 @@ if.end309:                                        ; preds = %land.lhs.true303, %
   br i1 %tobool311, label %if.then312, label %if.end322
 
 if.then312:                                       ; preds = %if.end309
-  %tobool313 = trunc i8 %maybeMore.10254 to i1
+  %tobool313 = trunc nuw i8 %maybeMore.10254 to i1
   br i1 %tobool313, label %lor.end318, label %lor.rhs314
 
 lor.rhs314:                                       ; preds = %if.then312
@@ -1224,7 +1224,7 @@ invoke.cont374:                                   ; preds = %if.end373
 
 invoke.cont375:                                   ; preds = %invoke.cont374
   %cmp377 = icmp eq i32 %call376, 0
-  %tobool379 = trunc i8 %maybeMore.10254 to i1
+  %tobool379 = trunc nuw i8 %maybeMore.10254 to i1
   %57 = select i1 %cmp377, i1 true, i1 %tobool379
   br label %cleanup
 

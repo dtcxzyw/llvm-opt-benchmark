@@ -451,7 +451,7 @@ if.end:                                           ; preds = %dynamic_cast.end
   ret ptr %1
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -1686,7 +1686,7 @@ entry:
   %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %0, 24
-  %conv7.i = trunc i32 %shr6.i to i8
+  %conv7.i = trunc nuw i32 %shr6.i to i8
   %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
@@ -1708,7 +1708,7 @@ entry:
   %arrayidx5.i16 = getelementptr inbounds i8, ptr %b.i9, i64 2
   store i8 %conv4.i15, ptr %arrayidx5.i16, align 1
   %shr6.i17 = lshr i32 %2, 24
-  %conv7.i18 = trunc i32 %shr6.i17 to i8
+  %conv7.i18 = trunc nuw i32 %shr6.i17 to i8
   %arrayidx8.i19 = getelementptr inbounds i8, ptr %b.i9, i64 3
   store i8 %conv7.i18, ptr %arrayidx8.i19, align 1
   %vtable.i.i.i20 = load ptr, ptr %os, align 8
@@ -1730,7 +1730,7 @@ entry:
   %arrayidx5.i29 = getelementptr inbounds i8, ptr %b.i22, i64 2
   store i8 %conv4.i28, ptr %arrayidx5.i29, align 1
   %shr6.i30 = lshr i32 %4, 24
-  %conv7.i31 = trunc i32 %shr6.i30 to i8
+  %conv7.i31 = trunc nuw i32 %shr6.i30 to i8
   %arrayidx8.i32 = getelementptr inbounds i8, ptr %b.i22, i64 3
   store i8 %conv7.i31, ptr %arrayidx8.i32, align 1
   %vtable.i.i.i33 = load ptr, ptr %os, align 8
@@ -1752,7 +1752,7 @@ entry:
   %arrayidx5.i42 = getelementptr inbounds i8, ptr %b.i35, i64 2
   store i8 %conv4.i41, ptr %arrayidx5.i42, align 1
   %shr6.i43 = lshr i32 %6, 24
-  %conv7.i44 = trunc i32 %shr6.i43 to i8
+  %conv7.i44 = trunc nuw i32 %shr6.i43 to i8
   %arrayidx8.i45 = getelementptr inbounds i8, ptr %b.i35, i64 3
   store i8 %conv7.i44, ptr %arrayidx8.i45, align 1
   %vtable.i.i.i46 = load ptr, ptr %os, align 8
@@ -1774,7 +1774,7 @@ entry:
   %arrayidx5.i56 = getelementptr inbounds i8, ptr %b.i49, i64 2
   store i8 %conv4.i55, ptr %arrayidx5.i56, align 1
   %shr6.i57 = lshr i32 %8, 24
-  %conv7.i58 = trunc i32 %shr6.i57 to i8
+  %conv7.i58 = trunc nuw i32 %shr6.i57 to i8
   %arrayidx8.i59 = getelementptr inbounds i8, ptr %b.i49, i64 3
   store i8 %conv7.i58, ptr %arrayidx8.i59, align 1
   %vtable.i.i.i60 = load ptr, ptr %os, align 8
@@ -1796,7 +1796,7 @@ entry:
   %arrayidx5.i70 = getelementptr inbounds i8, ptr %b.i63, i64 2
   store i8 %conv4.i69, ptr %arrayidx5.i70, align 1
   %shr6.i71 = lshr i32 %10, 24
-  %conv7.i72 = trunc i32 %shr6.i71 to i8
+  %conv7.i72 = trunc nuw i32 %shr6.i71 to i8
   %arrayidx8.i73 = getelementptr inbounds i8, ptr %b.i63, i64 3
   store i8 %conv7.i72, ptr %arrayidx8.i73, align 1
   %vtable.i.i.i74 = load ptr, ptr %os, align 8
@@ -1818,7 +1818,7 @@ entry:
   %arrayidx5.i84 = getelementptr inbounds i8, ptr %b.i77, i64 2
   store i8 %conv4.i83, ptr %arrayidx5.i84, align 1
   %shr6.i85 = lshr i32 %12, 24
-  %conv7.i86 = trunc i32 %shr6.i85 to i8
+  %conv7.i86 = trunc nuw i32 %shr6.i85 to i8
   %arrayidx8.i87 = getelementptr inbounds i8, ptr %b.i77, i64 3
   store i8 %conv7.i86, ptr %arrayidx8.i87, align 1
   %vtable.i.i.i88 = load ptr, ptr %os, align 8
@@ -1840,7 +1840,7 @@ entry:
   %arrayidx5.i98 = getelementptr inbounds i8, ptr %b.i91, i64 2
   store i8 %conv4.i97, ptr %arrayidx5.i98, align 1
   %shr6.i99 = lshr i32 %14, 24
-  %conv7.i100 = trunc i32 %shr6.i99 to i8
+  %conv7.i100 = trunc nuw i32 %shr6.i99 to i8
   %arrayidx8.i101 = getelementptr inbounds i8, ptr %b.i91, i64 3
   store i8 %conv7.i100, ptr %arrayidx8.i101, align 1
   %vtable.i.i.i102 = load ptr, ptr %os, align 8
@@ -1862,7 +1862,7 @@ entry:
   %arrayidx5.i112 = getelementptr inbounds i8, ptr %b.i105, i64 2
   store i8 %conv4.i111, ptr %arrayidx5.i112, align 1
   %shr6.i113 = lshr i32 %16, 24
-  %conv7.i114 = trunc i32 %shr6.i113 to i8
+  %conv7.i114 = trunc nuw i32 %shr6.i113 to i8
   %arrayidx8.i115 = getelementptr inbounds i8, ptr %b.i105, i64 3
   store i8 %conv7.i114, ptr %arrayidx8.i115, align 1
   %vtable.i.i.i116 = load ptr, ptr %os, align 8
@@ -2011,7 +2011,7 @@ entry:
   %arrayidx17.i = getelementptr inbounds i8, ptr %b.i, i64 6
   store i8 %conv16.i, ptr %arrayidx17.i, align 1
   %shr18.i = lshr i64 %0, 56
-  %conv19.i = trunc i64 %shr18.i to i8
+  %conv19.i = trunc nuw i64 %shr18.i to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %b.i, i64 7
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
@@ -2049,7 +2049,7 @@ entry:
   %arrayidx17.i28 = getelementptr inbounds i8, ptr %b.i9, i64 6
   store i8 %conv16.i27, ptr %arrayidx17.i28, align 1
   %shr18.i29 = lshr i64 %2, 56
-  %conv19.i30 = trunc i64 %shr18.i29 to i8
+  %conv19.i30 = trunc nuw i64 %shr18.i29 to i8
   %arrayidx20.i31 = getelementptr inbounds i8, ptr %b.i9, i64 7
   store i8 %conv19.i30, ptr %arrayidx20.i31, align 1
   %vtable.i.i.i32 = load ptr, ptr %os, align 8
@@ -2087,7 +2087,7 @@ entry:
   %arrayidx17.i53 = getelementptr inbounds i8, ptr %b.i34, i64 6
   store i8 %conv16.i52, ptr %arrayidx17.i53, align 1
   %shr18.i54 = lshr i64 %4, 56
-  %conv19.i55 = trunc i64 %shr18.i54 to i8
+  %conv19.i55 = trunc nuw i64 %shr18.i54 to i8
   %arrayidx20.i56 = getelementptr inbounds i8, ptr %b.i34, i64 7
   store i8 %conv19.i55, ptr %arrayidx20.i56, align 1
   %vtable.i.i.i57 = load ptr, ptr %os, align 8
@@ -2125,7 +2125,7 @@ entry:
   %arrayidx17.i78 = getelementptr inbounds i8, ptr %b.i59, i64 6
   store i8 %conv16.i77, ptr %arrayidx17.i78, align 1
   %shr18.i79 = lshr i64 %6, 56
-  %conv19.i80 = trunc i64 %shr18.i79 to i8
+  %conv19.i80 = trunc nuw i64 %shr18.i79 to i8
   %arrayidx20.i81 = getelementptr inbounds i8, ptr %b.i59, i64 7
   store i8 %conv19.i80, ptr %arrayidx20.i81, align 1
   %vtable.i.i.i82 = load ptr, ptr %os, align 8
@@ -2163,7 +2163,7 @@ entry:
   %arrayidx17.i104 = getelementptr inbounds i8, ptr %b.i85, i64 6
   store i8 %conv16.i103, ptr %arrayidx17.i104, align 1
   %shr18.i105 = lshr i64 %8, 56
-  %conv19.i106 = trunc i64 %shr18.i105 to i8
+  %conv19.i106 = trunc nuw i64 %shr18.i105 to i8
   %arrayidx20.i107 = getelementptr inbounds i8, ptr %b.i85, i64 7
   store i8 %conv19.i106, ptr %arrayidx20.i107, align 1
   %vtable.i.i.i108 = load ptr, ptr %os, align 8
@@ -2201,7 +2201,7 @@ entry:
   %arrayidx17.i130 = getelementptr inbounds i8, ptr %b.i111, i64 6
   store i8 %conv16.i129, ptr %arrayidx17.i130, align 1
   %shr18.i131 = lshr i64 %10, 56
-  %conv19.i132 = trunc i64 %shr18.i131 to i8
+  %conv19.i132 = trunc nuw i64 %shr18.i131 to i8
   %arrayidx20.i133 = getelementptr inbounds i8, ptr %b.i111, i64 7
   store i8 %conv19.i132, ptr %arrayidx20.i133, align 1
   %vtable.i.i.i134 = load ptr, ptr %os, align 8
@@ -2239,7 +2239,7 @@ entry:
   %arrayidx17.i156 = getelementptr inbounds i8, ptr %b.i137, i64 6
   store i8 %conv16.i155, ptr %arrayidx17.i156, align 1
   %shr18.i157 = lshr i64 %12, 56
-  %conv19.i158 = trunc i64 %shr18.i157 to i8
+  %conv19.i158 = trunc nuw i64 %shr18.i157 to i8
   %arrayidx20.i159 = getelementptr inbounds i8, ptr %b.i137, i64 7
   store i8 %conv19.i158, ptr %arrayidx20.i159, align 1
   %vtable.i.i.i160 = load ptr, ptr %os, align 8
@@ -2277,7 +2277,7 @@ entry:
   %arrayidx17.i182 = getelementptr inbounds i8, ptr %b.i163, i64 6
   store i8 %conv16.i181, ptr %arrayidx17.i182, align 1
   %shr18.i183 = lshr i64 %14, 56
-  %conv19.i184 = trunc i64 %shr18.i183 to i8
+  %conv19.i184 = trunc nuw i64 %shr18.i183 to i8
   %arrayidx20.i185 = getelementptr inbounds i8, ptr %b.i163, i64 7
   store i8 %conv19.i184, ptr %arrayidx20.i185, align 1
   %vtable.i.i.i186 = load ptr, ptr %os, align 8
@@ -2315,7 +2315,7 @@ entry:
   %arrayidx17.i208 = getelementptr inbounds i8, ptr %b.i189, i64 6
   store i8 %conv16.i207, ptr %arrayidx17.i208, align 1
   %shr18.i209 = lshr i64 %16, 56
-  %conv19.i210 = trunc i64 %shr18.i209 to i8
+  %conv19.i210 = trunc nuw i64 %shr18.i209 to i8
   %arrayidx20.i211 = getelementptr inbounds i8, ptr %b.i189, i64 7
   store i8 %conv19.i210, ptr %arrayidx20.i211, align 1
   %vtable.i.i.i212 = load ptr, ptr %os, align 8
@@ -2455,7 +2455,7 @@ entry:
   %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %0, 24
-  %conv7.i = trunc i32 %shr6.i to i8
+  %conv7.i = trunc nuw i32 %shr6.i to i8
   %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
@@ -2477,7 +2477,7 @@ entry:
   %arrayidx5.i23 = getelementptr inbounds i8, ptr %b.i16, i64 2
   store i8 %conv4.i22, ptr %arrayidx5.i23, align 1
   %shr6.i24 = lshr i32 %2, 24
-  %conv7.i25 = trunc i32 %shr6.i24 to i8
+  %conv7.i25 = trunc nuw i32 %shr6.i24 to i8
   %arrayidx8.i26 = getelementptr inbounds i8, ptr %b.i16, i64 3
   store i8 %conv7.i25, ptr %arrayidx8.i26, align 1
   %vtable.i.i.i27 = load ptr, ptr %os, align 8
@@ -2499,7 +2499,7 @@ entry:
   %arrayidx5.i36 = getelementptr inbounds i8, ptr %b.i29, i64 2
   store i8 %conv4.i35, ptr %arrayidx5.i36, align 1
   %shr6.i37 = lshr i32 %4, 24
-  %conv7.i38 = trunc i32 %shr6.i37 to i8
+  %conv7.i38 = trunc nuw i32 %shr6.i37 to i8
   %arrayidx8.i39 = getelementptr inbounds i8, ptr %b.i29, i64 3
   store i8 %conv7.i38, ptr %arrayidx8.i39, align 1
   %vtable.i.i.i40 = load ptr, ptr %os, align 8
@@ -2521,7 +2521,7 @@ entry:
   %arrayidx5.i49 = getelementptr inbounds i8, ptr %b.i42, i64 2
   store i8 %conv4.i48, ptr %arrayidx5.i49, align 1
   %shr6.i50 = lshr i32 %6, 24
-  %conv7.i51 = trunc i32 %shr6.i50 to i8
+  %conv7.i51 = trunc nuw i32 %shr6.i50 to i8
   %arrayidx8.i52 = getelementptr inbounds i8, ptr %b.i42, i64 3
   store i8 %conv7.i51, ptr %arrayidx8.i52, align 1
   %vtable.i.i.i53 = load ptr, ptr %os, align 8
@@ -2543,7 +2543,7 @@ entry:
   %arrayidx5.i62 = getelementptr inbounds i8, ptr %b.i55, i64 2
   store i8 %conv4.i61, ptr %arrayidx5.i62, align 1
   %shr6.i63 = lshr i32 %8, 24
-  %conv7.i64 = trunc i32 %shr6.i63 to i8
+  %conv7.i64 = trunc nuw i32 %shr6.i63 to i8
   %arrayidx8.i65 = getelementptr inbounds i8, ptr %b.i55, i64 3
   store i8 %conv7.i64, ptr %arrayidx8.i65, align 1
   %vtable.i.i.i66 = load ptr, ptr %os, align 8
@@ -2565,7 +2565,7 @@ entry:
   %arrayidx5.i76 = getelementptr inbounds i8, ptr %b.i69, i64 2
   store i8 %conv4.i75, ptr %arrayidx5.i76, align 1
   %shr6.i77 = lshr i32 %10, 24
-  %conv7.i78 = trunc i32 %shr6.i77 to i8
+  %conv7.i78 = trunc nuw i32 %shr6.i77 to i8
   %arrayidx8.i79 = getelementptr inbounds i8, ptr %b.i69, i64 3
   store i8 %conv7.i78, ptr %arrayidx8.i79, align 1
   %vtable.i.i.i80 = load ptr, ptr %os, align 8
@@ -2587,7 +2587,7 @@ entry:
   %arrayidx5.i90 = getelementptr inbounds i8, ptr %b.i83, i64 2
   store i8 %conv4.i89, ptr %arrayidx5.i90, align 1
   %shr6.i91 = lshr i32 %12, 24
-  %conv7.i92 = trunc i32 %shr6.i91 to i8
+  %conv7.i92 = trunc nuw i32 %shr6.i91 to i8
   %arrayidx8.i93 = getelementptr inbounds i8, ptr %b.i83, i64 3
   store i8 %conv7.i92, ptr %arrayidx8.i93, align 1
   %vtable.i.i.i94 = load ptr, ptr %os, align 8
@@ -2609,7 +2609,7 @@ entry:
   %arrayidx5.i104 = getelementptr inbounds i8, ptr %b.i97, i64 2
   store i8 %conv4.i103, ptr %arrayidx5.i104, align 1
   %shr6.i105 = lshr i32 %14, 24
-  %conv7.i106 = trunc i32 %shr6.i105 to i8
+  %conv7.i106 = trunc nuw i32 %shr6.i105 to i8
   %arrayidx8.i107 = getelementptr inbounds i8, ptr %b.i97, i64 3
   store i8 %conv7.i106, ptr %arrayidx8.i107, align 1
   %vtable.i.i.i108 = load ptr, ptr %os, align 8
@@ -2631,7 +2631,7 @@ entry:
   %arrayidx5.i118 = getelementptr inbounds i8, ptr %b.i111, i64 2
   store i8 %conv4.i117, ptr %arrayidx5.i118, align 1
   %shr6.i119 = lshr i32 %16, 24
-  %conv7.i120 = trunc i32 %shr6.i119 to i8
+  %conv7.i120 = trunc nuw i32 %shr6.i119 to i8
   %arrayidx8.i121 = getelementptr inbounds i8, ptr %b.i111, i64 3
   store i8 %conv7.i120, ptr %arrayidx8.i121, align 1
   %vtable.i.i.i122 = load ptr, ptr %os, align 8
@@ -2653,7 +2653,7 @@ entry:
   %arrayidx5.i132 = getelementptr inbounds i8, ptr %b.i125, i64 2
   store i8 %conv4.i131, ptr %arrayidx5.i132, align 1
   %shr6.i133 = lshr i32 %18, 24
-  %conv7.i134 = trunc i32 %shr6.i133 to i8
+  %conv7.i134 = trunc nuw i32 %shr6.i133 to i8
   %arrayidx8.i135 = getelementptr inbounds i8, ptr %b.i125, i64 3
   store i8 %conv7.i134, ptr %arrayidx8.i135, align 1
   %vtable.i.i.i136 = load ptr, ptr %os, align 8
@@ -2675,7 +2675,7 @@ entry:
   %arrayidx5.i146 = getelementptr inbounds i8, ptr %b.i139, i64 2
   store i8 %conv4.i145, ptr %arrayidx5.i146, align 1
   %shr6.i147 = lshr i32 %20, 24
-  %conv7.i148 = trunc i32 %shr6.i147 to i8
+  %conv7.i148 = trunc nuw i32 %shr6.i147 to i8
   %arrayidx8.i149 = getelementptr inbounds i8, ptr %b.i139, i64 3
   store i8 %conv7.i148, ptr %arrayidx8.i149, align 1
   %vtable.i.i.i150 = load ptr, ptr %os, align 8
@@ -2697,7 +2697,7 @@ entry:
   %arrayidx5.i160 = getelementptr inbounds i8, ptr %b.i153, i64 2
   store i8 %conv4.i159, ptr %arrayidx5.i160, align 1
   %shr6.i161 = lshr i32 %22, 24
-  %conv7.i162 = trunc i32 %shr6.i161 to i8
+  %conv7.i162 = trunc nuw i32 %shr6.i161 to i8
   %arrayidx8.i163 = getelementptr inbounds i8, ptr %b.i153, i64 3
   store i8 %conv7.i162, ptr %arrayidx8.i163, align 1
   %vtable.i.i.i164 = load ptr, ptr %os, align 8
@@ -2719,7 +2719,7 @@ entry:
   %arrayidx5.i174 = getelementptr inbounds i8, ptr %b.i167, i64 2
   store i8 %conv4.i173, ptr %arrayidx5.i174, align 1
   %shr6.i175 = lshr i32 %24, 24
-  %conv7.i176 = trunc i32 %shr6.i175 to i8
+  %conv7.i176 = trunc nuw i32 %shr6.i175 to i8
   %arrayidx8.i177 = getelementptr inbounds i8, ptr %b.i167, i64 3
   store i8 %conv7.i176, ptr %arrayidx8.i177, align 1
   %vtable.i.i.i178 = load ptr, ptr %os, align 8
@@ -2741,7 +2741,7 @@ entry:
   %arrayidx5.i188 = getelementptr inbounds i8, ptr %b.i181, i64 2
   store i8 %conv4.i187, ptr %arrayidx5.i188, align 1
   %shr6.i189 = lshr i32 %26, 24
-  %conv7.i190 = trunc i32 %shr6.i189 to i8
+  %conv7.i190 = trunc nuw i32 %shr6.i189 to i8
   %arrayidx8.i191 = getelementptr inbounds i8, ptr %b.i181, i64 3
   store i8 %conv7.i190, ptr %arrayidx8.i191, align 1
   %vtable.i.i.i192 = load ptr, ptr %os, align 8
@@ -2763,7 +2763,7 @@ entry:
   %arrayidx5.i202 = getelementptr inbounds i8, ptr %b.i195, i64 2
   store i8 %conv4.i201, ptr %arrayidx5.i202, align 1
   %shr6.i203 = lshr i32 %28, 24
-  %conv7.i204 = trunc i32 %shr6.i203 to i8
+  %conv7.i204 = trunc nuw i32 %shr6.i203 to i8
   %arrayidx8.i205 = getelementptr inbounds i8, ptr %b.i195, i64 3
   store i8 %conv7.i204, ptr %arrayidx8.i205, align 1
   %vtable.i.i.i206 = load ptr, ptr %os, align 8
@@ -2785,7 +2785,7 @@ entry:
   %arrayidx5.i216 = getelementptr inbounds i8, ptr %b.i209, i64 2
   store i8 %conv4.i215, ptr %arrayidx5.i216, align 1
   %shr6.i217 = lshr i32 %30, 24
-  %conv7.i218 = trunc i32 %shr6.i217 to i8
+  %conv7.i218 = trunc nuw i32 %shr6.i217 to i8
   %arrayidx8.i219 = getelementptr inbounds i8, ptr %b.i209, i64 3
   store i8 %conv7.i218, ptr %arrayidx8.i219, align 1
   %vtable.i.i.i220 = load ptr, ptr %os, align 8
@@ -3011,7 +3011,7 @@ entry:
   %arrayidx17.i = getelementptr inbounds i8, ptr %b.i, i64 6
   store i8 %conv16.i, ptr %arrayidx17.i, align 1
   %shr18.i = lshr i64 %0, 56
-  %conv19.i = trunc i64 %shr18.i to i8
+  %conv19.i = trunc nuw i64 %shr18.i to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %b.i, i64 7
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
@@ -3049,7 +3049,7 @@ entry:
   %arrayidx17.i35 = getelementptr inbounds i8, ptr %b.i16, i64 6
   store i8 %conv16.i34, ptr %arrayidx17.i35, align 1
   %shr18.i36 = lshr i64 %2, 56
-  %conv19.i37 = trunc i64 %shr18.i36 to i8
+  %conv19.i37 = trunc nuw i64 %shr18.i36 to i8
   %arrayidx20.i38 = getelementptr inbounds i8, ptr %b.i16, i64 7
   store i8 %conv19.i37, ptr %arrayidx20.i38, align 1
   %vtable.i.i.i39 = load ptr, ptr %os, align 8
@@ -3087,7 +3087,7 @@ entry:
   %arrayidx17.i60 = getelementptr inbounds i8, ptr %b.i41, i64 6
   store i8 %conv16.i59, ptr %arrayidx17.i60, align 1
   %shr18.i61 = lshr i64 %4, 56
-  %conv19.i62 = trunc i64 %shr18.i61 to i8
+  %conv19.i62 = trunc nuw i64 %shr18.i61 to i8
   %arrayidx20.i63 = getelementptr inbounds i8, ptr %b.i41, i64 7
   store i8 %conv19.i62, ptr %arrayidx20.i63, align 1
   %vtable.i.i.i64 = load ptr, ptr %os, align 8
@@ -3125,7 +3125,7 @@ entry:
   %arrayidx17.i85 = getelementptr inbounds i8, ptr %b.i66, i64 6
   store i8 %conv16.i84, ptr %arrayidx17.i85, align 1
   %shr18.i86 = lshr i64 %6, 56
-  %conv19.i87 = trunc i64 %shr18.i86 to i8
+  %conv19.i87 = trunc nuw i64 %shr18.i86 to i8
   %arrayidx20.i88 = getelementptr inbounds i8, ptr %b.i66, i64 7
   store i8 %conv19.i87, ptr %arrayidx20.i88, align 1
   %vtable.i.i.i89 = load ptr, ptr %os, align 8
@@ -3163,7 +3163,7 @@ entry:
   %arrayidx17.i110 = getelementptr inbounds i8, ptr %b.i91, i64 6
   store i8 %conv16.i109, ptr %arrayidx17.i110, align 1
   %shr18.i111 = lshr i64 %8, 56
-  %conv19.i112 = trunc i64 %shr18.i111 to i8
+  %conv19.i112 = trunc nuw i64 %shr18.i111 to i8
   %arrayidx20.i113 = getelementptr inbounds i8, ptr %b.i91, i64 7
   store i8 %conv19.i112, ptr %arrayidx20.i113, align 1
   %vtable.i.i.i114 = load ptr, ptr %os, align 8
@@ -3201,7 +3201,7 @@ entry:
   %arrayidx17.i136 = getelementptr inbounds i8, ptr %b.i117, i64 6
   store i8 %conv16.i135, ptr %arrayidx17.i136, align 1
   %shr18.i137 = lshr i64 %10, 56
-  %conv19.i138 = trunc i64 %shr18.i137 to i8
+  %conv19.i138 = trunc nuw i64 %shr18.i137 to i8
   %arrayidx20.i139 = getelementptr inbounds i8, ptr %b.i117, i64 7
   store i8 %conv19.i138, ptr %arrayidx20.i139, align 1
   %vtable.i.i.i140 = load ptr, ptr %os, align 8
@@ -3239,7 +3239,7 @@ entry:
   %arrayidx17.i162 = getelementptr inbounds i8, ptr %b.i143, i64 6
   store i8 %conv16.i161, ptr %arrayidx17.i162, align 1
   %shr18.i163 = lshr i64 %12, 56
-  %conv19.i164 = trunc i64 %shr18.i163 to i8
+  %conv19.i164 = trunc nuw i64 %shr18.i163 to i8
   %arrayidx20.i165 = getelementptr inbounds i8, ptr %b.i143, i64 7
   store i8 %conv19.i164, ptr %arrayidx20.i165, align 1
   %vtable.i.i.i166 = load ptr, ptr %os, align 8
@@ -3277,7 +3277,7 @@ entry:
   %arrayidx17.i188 = getelementptr inbounds i8, ptr %b.i169, i64 6
   store i8 %conv16.i187, ptr %arrayidx17.i188, align 1
   %shr18.i189 = lshr i64 %14, 56
-  %conv19.i190 = trunc i64 %shr18.i189 to i8
+  %conv19.i190 = trunc nuw i64 %shr18.i189 to i8
   %arrayidx20.i191 = getelementptr inbounds i8, ptr %b.i169, i64 7
   store i8 %conv19.i190, ptr %arrayidx20.i191, align 1
   %vtable.i.i.i192 = load ptr, ptr %os, align 8
@@ -3315,7 +3315,7 @@ entry:
   %arrayidx17.i214 = getelementptr inbounds i8, ptr %b.i195, i64 6
   store i8 %conv16.i213, ptr %arrayidx17.i214, align 1
   %shr18.i215 = lshr i64 %16, 56
-  %conv19.i216 = trunc i64 %shr18.i215 to i8
+  %conv19.i216 = trunc nuw i64 %shr18.i215 to i8
   %arrayidx20.i217 = getelementptr inbounds i8, ptr %b.i195, i64 7
   store i8 %conv19.i216, ptr %arrayidx20.i217, align 1
   %vtable.i.i.i218 = load ptr, ptr %os, align 8
@@ -3353,7 +3353,7 @@ entry:
   %arrayidx17.i240 = getelementptr inbounds i8, ptr %b.i221, i64 6
   store i8 %conv16.i239, ptr %arrayidx17.i240, align 1
   %shr18.i241 = lshr i64 %18, 56
-  %conv19.i242 = trunc i64 %shr18.i241 to i8
+  %conv19.i242 = trunc nuw i64 %shr18.i241 to i8
   %arrayidx20.i243 = getelementptr inbounds i8, ptr %b.i221, i64 7
   store i8 %conv19.i242, ptr %arrayidx20.i243, align 1
   %vtable.i.i.i244 = load ptr, ptr %os, align 8
@@ -3391,7 +3391,7 @@ entry:
   %arrayidx17.i266 = getelementptr inbounds i8, ptr %b.i247, i64 6
   store i8 %conv16.i265, ptr %arrayidx17.i266, align 1
   %shr18.i267 = lshr i64 %20, 56
-  %conv19.i268 = trunc i64 %shr18.i267 to i8
+  %conv19.i268 = trunc nuw i64 %shr18.i267 to i8
   %arrayidx20.i269 = getelementptr inbounds i8, ptr %b.i247, i64 7
   store i8 %conv19.i268, ptr %arrayidx20.i269, align 1
   %vtable.i.i.i270 = load ptr, ptr %os, align 8
@@ -3429,7 +3429,7 @@ entry:
   %arrayidx17.i292 = getelementptr inbounds i8, ptr %b.i273, i64 6
   store i8 %conv16.i291, ptr %arrayidx17.i292, align 1
   %shr18.i293 = lshr i64 %22, 56
-  %conv19.i294 = trunc i64 %shr18.i293 to i8
+  %conv19.i294 = trunc nuw i64 %shr18.i293 to i8
   %arrayidx20.i295 = getelementptr inbounds i8, ptr %b.i273, i64 7
   store i8 %conv19.i294, ptr %arrayidx20.i295, align 1
   %vtable.i.i.i296 = load ptr, ptr %os, align 8
@@ -3467,7 +3467,7 @@ entry:
   %arrayidx17.i318 = getelementptr inbounds i8, ptr %b.i299, i64 6
   store i8 %conv16.i317, ptr %arrayidx17.i318, align 1
   %shr18.i319 = lshr i64 %24, 56
-  %conv19.i320 = trunc i64 %shr18.i319 to i8
+  %conv19.i320 = trunc nuw i64 %shr18.i319 to i8
   %arrayidx20.i321 = getelementptr inbounds i8, ptr %b.i299, i64 7
   store i8 %conv19.i320, ptr %arrayidx20.i321, align 1
   %vtable.i.i.i322 = load ptr, ptr %os, align 8
@@ -3505,7 +3505,7 @@ entry:
   %arrayidx17.i344 = getelementptr inbounds i8, ptr %b.i325, i64 6
   store i8 %conv16.i343, ptr %arrayidx17.i344, align 1
   %shr18.i345 = lshr i64 %26, 56
-  %conv19.i346 = trunc i64 %shr18.i345 to i8
+  %conv19.i346 = trunc nuw i64 %shr18.i345 to i8
   %arrayidx20.i347 = getelementptr inbounds i8, ptr %b.i325, i64 7
   store i8 %conv19.i346, ptr %arrayidx20.i347, align 1
   %vtable.i.i.i348 = load ptr, ptr %os, align 8
@@ -3543,7 +3543,7 @@ entry:
   %arrayidx17.i370 = getelementptr inbounds i8, ptr %b.i351, i64 6
   store i8 %conv16.i369, ptr %arrayidx17.i370, align 1
   %shr18.i371 = lshr i64 %28, 56
-  %conv19.i372 = trunc i64 %shr18.i371 to i8
+  %conv19.i372 = trunc nuw i64 %shr18.i371 to i8
   %arrayidx20.i373 = getelementptr inbounds i8, ptr %b.i351, i64 7
   store i8 %conv19.i372, ptr %arrayidx20.i373, align 1
   %vtable.i.i.i374 = load ptr, ptr %os, align 8
@@ -3581,7 +3581,7 @@ entry:
   %arrayidx17.i396 = getelementptr inbounds i8, ptr %b.i377, i64 6
   store i8 %conv16.i395, ptr %arrayidx17.i396, align 1
   %shr18.i397 = lshr i64 %30, 56
-  %conv19.i398 = trunc i64 %shr18.i397 to i8
+  %conv19.i398 = trunc nuw i64 %shr18.i397 to i8
   %arrayidx20.i399 = getelementptr inbounds i8, ptr %b.i377, i64 7
   store i8 %conv19.i398, ptr %arrayidx20.i399, align 1
   %vtable.i.i.i400 = load ptr, ptr %os, align 8
@@ -3781,7 +3781,7 @@ attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }

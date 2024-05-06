@@ -1566,7 +1566,7 @@ if.then857:                                       ; preds = %for.end
   br i1 %or.cond333, label %if.then863, label %if.end895
 
 if.then863:                                       ; preds = %if.then857
-  %call864 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %frontend_, ptr noundef %backend_, ptr noundef %capture_, ptr noundef nonnull %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv.i, ptr noundef nonnull align 8 dereferenceable(16) %backend.i), !range !7
+  %call864 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %frontend_, ptr noundef %backend_, ptr noundef %capture_, ptr noundef nonnull %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv.i, ptr noundef nonnull align 8 dereferenceable(16) %backend.i)
   %cmp866 = icmp slt i32 %call864, 0
   br i1 %cmp866, label %delete.notnull870, label %if.end895
 
@@ -1625,7 +1625,7 @@ land.lhs.true897:                                 ; preds = %if.end895
   br i1 %tobool898, label %if.then899, label %if.end935
 
 if.then899:                                       ; preds = %land.lhs.true897
-  %call904 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %backend_, ptr noundef %frontend_, ptr noundef %capture_, ptr noundef nonnull %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv21.i, ptr noundef nonnull align 8 dereferenceable(16) %stats), !range !7
+  %call904 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %backend_, ptr noundef %frontend_, ptr noundef %capture_, ptr noundef nonnull %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv21.i, ptr noundef nonnull align 8 dereferenceable(16) %stats)
   %cmp906 = icmp slt i32 %call904, 0
   br i1 %cmp906, label %delete.notnull910, label %if.then939
 
@@ -1762,7 +1762,7 @@ if.end997:                                        ; preds = %if.then943.thread, 
   %frontend_in.4 = phi i8 [ %frontend_in.3, %if.then939 ], [ %frontend_in.3, %if.end981 ], [ %frontend_in.1.lcssa, %for.end ], [ %frontend_in.3, %if.then955 ], [ %frontend_in.3, %if.then983 ], [ %frontend_in.3, %if.else986 ], [ %frontend_in.3, %if.else989 ], [ %frontend_in.3, %if.else958 ], [ %frontend_in.3, %if.then939.thread ], [ %frontend_in.3, %if.else946.thread ], [ %frontend_in.3, %if.then943.thread ]
   %poller_wait.3 = phi ptr [ %poller_wait.0402, %if.then939 ], [ %poller_wait.2, %if.end981 ], [ %poller_wait.0402, %for.end ], [ %call13, %if.then955 ], [ %poller_frontend_only.0, %if.then983 ], [ %poller_both_blocked.0, %if.else986 ], [ %spec.select332, %if.else989 ], [ %spec.select335, %if.else958 ], [ %poller_wait.0402, %if.then939.thread ], [ %spec.select334445, %if.else946.thread ], [ %poller_send_blocked.0, %if.then943.thread ]
   %cmp707.not = icmp eq i32 %state.1.lcssa, 2
-  br i1 %cmp707.not, label %delete.notnull1000, label %while.body, !llvm.loop !8
+  br i1 %cmp707.not, label %delete.notnull1000, label %while.body, !llvm.loop !7
 
 delete.notnull1000:                               ; preds = %if.end997
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
@@ -1872,7 +1872,7 @@ declare noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr n
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %from_, ptr noundef %to_, ptr noundef %capture_, ptr noundef %msg_, ptr nocapture noundef nonnull align 8 dereferenceable(16) %recving, ptr nocapture noundef nonnull align 8 dereferenceable(16) %sending) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %from_, ptr noundef %to_, ptr noundef %capture_, ptr noundef %msg_, ptr nocapture noundef nonnull align 8 dereferenceable(16) %recving, ptr nocapture noundef nonnull align 8 dereferenceable(16) %sending) unnamed_addr #0 {
 entry:
   %ctrl.i = alloca %"class.zmq::msg_t", align 8
   %more = alloca i32, align 4
@@ -1914,12 +1914,12 @@ if.end20.us.us:                                   ; preds = %if.end12.us.us
   store <2 x i64> %5, ptr %sending, align 8
   %6 = load i32, ptr %more, align 4
   %cmp25.us.us = icmp eq i32 %6, 0
-  br i1 %cmp25.us.us, label %for.inc.split.us.us, label %while.body.us.us, !llvm.loop !9
+  br i1 %cmp25.us.us, label %for.inc.split.us.us, label %while.body.us.us, !llvm.loop !8
 
 for.inc.split.us.us:                              ; preds = %if.end20.us.us
   %inc.us = add nuw nsw i32 %i.019.us, 1
   %exitcond30.not = icmp eq i32 %inc.us, 1000
-  br i1 %exitcond30.not, label %return, label %while.body.preheader.us, !llvm.loop !10
+  br i1 %exitcond30.not, label %return, label %while.body.preheader.us, !llvm.loop !9
 
 while.body.preheader:                             ; preds = %entry, %for.inc.split
   %i.019 = phi i32 [ %inc, %for.inc.split ], [ 0, %entry ]
@@ -1989,12 +1989,12 @@ if.end20:                                         ; preds = %if.end16
   store <2 x i64> %14, ptr %sending, align 8
   %15 = load i32, ptr %more, align 4
   %cmp25 = icmp eq i32 %15, 0
-  br i1 %cmp25, label %for.inc.split, label %while.body, !llvm.loop !9
+  br i1 %cmp25, label %for.inc.split, label %while.body, !llvm.loop !8
 
 for.inc.split:                                    ; preds = %if.end20
   %inc = add nuw nsw i32 %i.019, 1
   %exitcond.not = icmp eq i32 %inc, 1000
-  br i1 %exitcond.not, label %return, label %while.body.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %return, label %while.body.preheader, !llvm.loop !9
 
 return:                                           ; preds = %for.inc.split, %if.end6, %if.end16, %for.inc.split.us.us, %if.end6.us.us, %if.end12.us.us, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, %if.then
   %retval.0 = phi i32 [ %., %if.then ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread ], [ -1, %if.end12.us.us ], [ -1, %if.end6.us.us ], [ 0, %for.inc.split.us.us ], [ -1, %if.end16 ], [ -1, %if.end6 ], [ 0, %for.inc.split ]
@@ -2064,7 +2064,6 @@ attributes #14 = { cold }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

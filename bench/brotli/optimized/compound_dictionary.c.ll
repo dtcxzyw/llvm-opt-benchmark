@@ -285,7 +285,7 @@ return:                                           ; preds = %entry, %if.end
 declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @AttachPreparedDictionary(ptr nocapture noundef %compound, ptr noundef %dictionary) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr nocapture noundef %compound, ptr noundef %dictionary) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %compound, align 8
   %cmp = icmp eq i64 %0, 15

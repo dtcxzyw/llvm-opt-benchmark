@@ -1212,7 +1212,7 @@ common.ret57:                                     ; preds = %if.end17, %if.then5
 if.end9:                                          ; preds = %if.then5
   store <4 x i8> <i8 0, i8 0, i8 1, i8 -48>, ptr %call6, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %call6, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %serverinfo, i64 %serverinfo_length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr nonnull readonly align 1 %serverinfo, i64 %serverinfo_length, i1 false)
   %call10 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull %call6, i64 noundef %add.i)
   tail call void @CRYPTO_free(ptr noundef nonnull %call6, ptr noundef nonnull @.str, i32 noundef 793) #6
   br label %common.ret57
@@ -1430,9 +1430,9 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7, label %if.then9, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end5
-  %call1142 = call i32 @PEM_read_bio(ptr noundef nonnull %call2, ptr noundef nonnull %name, ptr noundef nonnull %header, ptr noundef nonnull %extension, ptr noundef nonnull %extension_length) #6
-  %cmp1243 = icmp eq i32 %call1142, 0
-  br i1 %cmp1243, label %if.then17, label %if.end18
+  %call1143 = call i32 @PEM_read_bio(ptr noundef nonnull %call2, ptr noundef nonnull %name, ptr noundef nonnull %header, ptr noundef nonnull %extension, ptr noundef nonnull %extension_length) #6
+  %cmp1244 = icmp eq i32 %call1143, 0
+  br i1 %cmp1244, label %if.then17, label %if.end18
 
 if.then9:                                         ; preds = %if.end5
   tail call void @ERR_new() #6
@@ -1445,16 +1445,16 @@ if.then14:                                        ; preds = %extension_append.ex
   br i1 %0, label %if.then17, label %for.end
 
 if.then17:                                        ; preds = %for.cond.preheader, %if.then14
-  %serverinfo.0.lcssa60 = phi ptr [ %call75, %if.then14 ], [ null, %for.cond.preheader ]
+  %serverinfo.0.lcssa61 = phi ptr [ %call75, %if.then14 ], [ null, %for.cond.preheader ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 871, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_file) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 389, ptr noundef null) #6
   br label %end
 
 if.end18:                                         ; preds = %for.cond.preheader, %extension_append.exit
-  %serverinfo.046 = phi ptr [ %call75, %extension_append.exit ], [ null, %for.cond.preheader ]
-  %num_extensions.045 = phi i64 [ %inc, %extension_append.exit ], [ 0, %for.cond.preheader ]
-  %serverinfo_length.044 = phi i64 [ %add74, %extension_append.exit ], [ 0, %for.cond.preheader ]
+  %serverinfo.047 = phi ptr [ %call75, %extension_append.exit ], [ null, %for.cond.preheader ]
+  %num_extensions.046 = phi i64 [ %inc, %extension_append.exit ], [ 0, %for.cond.preheader ]
+  %serverinfo_length.045 = phi i64 [ %add74, %extension_append.exit ], [ 0, %for.cond.preheader ]
   %1 = load ptr, ptr %name, align 8
   %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %conv21 = and i64 %call19, 4294967295
@@ -1549,15 +1549,15 @@ if.then70:                                        ; preds = %lor.lhs.false59, %i
 
 if.end72:                                         ; preds = %lor.lhs.false59, %lor.lhs.false47.split
   %phi.call = phi i64 [ %add.i, %lor.lhs.false47.split ], [ %6, %lor.lhs.false59 ]
-  %add74 = add i64 %phi.call, %serverinfo_length.044
-  %call75 = call ptr @CRYPTO_realloc(ptr noundef %serverinfo.046, i64 noundef %add74, ptr noundef nonnull @.str, i32 noundef 917) #6
+  %add74 = add i64 %phi.call, %serverinfo_length.045
+  %call75 = call ptr @CRYPTO_realloc(ptr noundef %serverinfo.047, i64 noundef %add74, ptr noundef nonnull @.str, i32 noundef 917) #6
   %cmp76 = icmp eq ptr %call75, null
   br i1 %cmp76, label %end, label %if.end79
 
 if.end79:                                         ; preds = %if.end72
   %10 = load ptr, ptr %extension, align 8
   %11 = load i64, ptr %extension_length, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call75, i64 %serverinfo_length.044
+  %add.ptr = getelementptr inbounds i8, ptr %call75, i64 %serverinfo_length.045
   br i1 %cmp27, label %if.then.i, label %extension_append.exit
 
 if.then.i:                                        ; preds = %if.end79
@@ -1567,7 +1567,7 @@ if.then.i:                                        ; preds = %if.end79
 extension_append.exit:                            ; preds = %if.end79, %if.then.i
   %cond.i.i = phi i64 [ 4, %if.then.i ], [ 0, %if.end79 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %cond.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %10, i64 %11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr readonly align 1 %10, i64 %11, i1 false)
   %12 = load ptr, ptr %name, align 8
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 925) #6
   store ptr null, ptr %name, align 8
@@ -1577,7 +1577,7 @@ extension_append.exit:                            ; preds = %if.end79, %if.then.
   %14 = load ptr, ptr %extension, align 8
   call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 929) #6
   store ptr null, ptr %extension, align 8
-  %inc = add i64 %num_extensions.045, 1
+  %inc = add i64 %num_extensions.046, 1
   %call11 = call i32 @PEM_read_bio(ptr noundef nonnull %call2, ptr noundef nonnull %name, ptr noundef nonnull %header, ptr noundef nonnull %extension, ptr noundef nonnull %extension_length) #6
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.then14, label %if.end18
@@ -1589,7 +1589,7 @@ for.end:                                          ; preds = %if.then14
 end:                                              ; preds = %if.end72, %for.end, %if.then70, %if.then54, %if.then39, %if.then34, %if.then24, %if.then17, %if.then9, %if.then4, %if.then
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then9 ], [ 0, %if.then17 ], [ %call81, %for.end ], [ 0, %if.then24 ], [ 0, %if.then54 ], [ 0, %if.then70 ], [ 0, %if.then34 ], [ 0, %if.then39 ], [ 0, %if.end72 ]
   %bin.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ %call2, %if.then9 ], [ %call2, %if.then17 ], [ %call2, %for.end ], [ %call2, %if.then24 ], [ %call2, %if.then54 ], [ %call2, %if.then70 ], [ %call2, %if.then34 ], [ %call2, %if.then39 ], [ %call2, %if.end72 ]
-  %serverinfo.1 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ %serverinfo.0.lcssa60, %if.then17 ], [ %call75, %for.end ], [ %serverinfo.046, %if.then24 ], [ %serverinfo.046, %if.then54 ], [ %serverinfo.046, %if.then70 ], [ %serverinfo.046, %if.then34 ], [ %serverinfo.046, %if.then39 ], [ %serverinfo.046, %if.end72 ]
+  %serverinfo.1 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ %serverinfo.0.lcssa61, %if.then17 ], [ %call75, %for.end ], [ %serverinfo.047, %if.then24 ], [ %serverinfo.047, %if.then54 ], [ %serverinfo.047, %if.then70 ], [ %serverinfo.047, %if.then34 ], [ %serverinfo.047, %if.then39 ], [ %serverinfo.047, %if.end72 ]
   %15 = load ptr, ptr %name, align 8
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 937) #6
   %16 = load ptr, ptr %header, align 8

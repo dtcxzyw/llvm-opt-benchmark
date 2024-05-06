@@ -123,7 +123,7 @@ define dso_local zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 %1, i32 nou
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %5, i32 %1, i1 noundef zeroext true) #10
   %9 = lshr i32 %8, 31
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = getelementptr inbounds i8, ptr %0, i64 7184
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64

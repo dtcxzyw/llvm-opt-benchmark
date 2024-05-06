@@ -260,7 +260,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.248 = private unnamed_addr constant [31 x i8] c"No extensions matched with %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @x509_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @x509_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %ext_copy = alloca i32, align 4
   %ext_ctx = alloca %struct.v3_ext_ctx, align 8
@@ -1563,7 +1563,7 @@ if.end587:                                        ; preds = %if.then580, %if.end
   br i1 %or.cond16.not, label %land.lhs.true593, label %land.lhs.true608
 
 land.lhs.true593:                                 ; preds = %if.end587
-  %call594 = call fastcc i32 @self_signed(ptr noundef nonnull %call, ptr noundef nonnull %x.0383), !range !10
+  %call594 = call fastcc i32 @self_signed(ptr noundef nonnull %call, ptr noundef nonnull %x.0383)
   %tobool595.not = icmp eq i32 %call594, 0
   br i1 %tobool595.not, label %end, label %land.lhs.true608
 
@@ -1880,7 +1880,7 @@ for.body781:                                      ; preds = %cond.end775, %for.b
   %inc786 = add nuw nsw i32 %j.01094, 1
   %call779 = call i32 @OPENSSL_sk_num(ptr noundef %cond776) #7
   %cmp780 = icmp slt i32 %inc786, %call779
-  br i1 %cmp780, label %for.body781, label %for.end787, !llvm.loop !11
+  br i1 %cmp780, label %for.body781, label %for.end787, !llvm.loop !10
 
 for.end787:                                       ; preds = %for.body781, %cond.end775
   call void @X509_email_free(ptr noundef %cond776) #7
@@ -1956,7 +1956,7 @@ for.body825:                                      ; preds = %if.then820, %for.bo
   %inc829 = add nuw nsw i32 %j.11091, 1
   %call823 = call i32 @X509_PURPOSE_get_count() #7
   %cmp824 = icmp slt i32 %inc829, %call823
-  br i1 %cmp824, label %for.body825, label %for.inc936, !llvm.loop !12
+  br i1 %cmp824, label %for.body825, label %for.inc936, !llvm.loop !11
 
 if.else831:                                       ; preds = %if.else818
   %cmp832 = icmp eq i32 %i.41096, %modulus.0.lcssa
@@ -2093,7 +2093,7 @@ for.body899:                                      ; preds = %if.end895, %for.bod
   %74 = load i32, ptr %n880, align 4
   %75 = sext i32 %74 to i64
   %cmp898 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %cmp898, label %for.body899, label %for.inc936, !llvm.loop !13
+  br i1 %cmp898, label %for.body899, label %for.inc936, !llvm.loop !12
 
 if.else907:                                       ; preds = %if.else877
   %cmp908 = icmp eq i32 %i.41096, %ocspid.0.lcssa
@@ -2114,7 +2114,7 @@ if.then915:                                       ; preds = %if.else912
 for.inc936:                                       ; preds = %for.body899, %for.body825, %if.end895, %if.then820, %if.then735, %if.then743, %for.end787, %if.then800, %if.then810, %if.then856, %if.then865, %if.else912, %if.then915, %if.then910, %if.then872, %if.then860, %if.end852, %if.then815, %if.then805, %if.then793, %if.else795, %if.end762, %if.then739
   %inc937 = add nuw i32 %i.41096, 1
   %exitcond.not = icmp eq i32 %i.41096, %num.0.lcssa
-  br i1 %exitcond.not, label %for.end938, label %for.body733, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end938, label %for.body733, !llvm.loop !13
 
 for.end938:                                       ; preds = %for.inc936, %if.end730
   %tobool939.not = icmp eq i32 %checkend.0.lcssa, 0
@@ -2253,7 +2253,7 @@ declare ptr @X509_STORE_new() local_unnamed_addr #1
 declare void @X509_STORE_set_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @callb(i32 noundef %ok, ptr noundef %ctx) #0 {
+define internal noundef i32 @callb(i32 noundef %ok, ptr noundef %ctx) #0 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_get_error(ptr noundef %ctx) #7
   %cmp = icmp ne i32 %call, 18
@@ -2483,7 +2483,7 @@ end:                                              ; preds = %if.then16, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @self_signed(ptr noundef %ctx, ptr noundef %cert) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @self_signed(ptr noundef %ctx, ptr noundef %cert) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_STORE_CTX_new() #7
   %cmp = icmp eq ptr %call, null
@@ -2544,7 +2544,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %warn_copying.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %call2.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %names, ptr noundef nonnull dereferenceable(1) %call1.i) #8
+  %call2.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %names, ptr noundef nonnull dereferenceable(1) %call1.i) #8
   %cmp3.not.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.not.i, label %warn_copying.exit, label %if.then.i
 
@@ -2559,7 +2559,7 @@ warn_copying.exit:                                ; preds = %if.end, %land.lhs.t
   br i1 %cmp.not.i, label %warn_copying.exit28, label %land.lhs.true.i23
 
 land.lhs.true.i23:                                ; preds = %warn_copying.exit
-  %call2.i24 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %names, ptr noundef nonnull dereferenceable(1) %call1.i21) #8
+  %call2.i24 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %names, ptr noundef nonnull dereferenceable(1) %call1.i21) #8
   %cmp3.not.i25 = icmp eq ptr %call2.i24, null
   br i1 %cmp3.not.i25, label %warn_copying.exit28, label %if.then.i26
 
@@ -2598,7 +2598,7 @@ land.lhs.true19:                                  ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true19
   %inc = add nuw nsw i32 %i.030, 1
   %exitcond.not = icmp eq i32 %inc, %call2
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call26 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call7) #7
@@ -2719,7 +2719,7 @@ if.else9:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else9, %if.then7
-  br i1 %tobool.not, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %tobool.not, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -2798,14 +2798,14 @@ if.end.us.i:                                      ; preds = %while.body.us.i, %w
   %sub.ptr.lhs.cast15.us.i = ptrtoint ptr %incdec.ptr17.us.i to i64
   %sub.ptr.sub16.us.i = sub i64 %sub.ptr.lhs.cast15.us.i, %sub.ptr.rhs.cast.i
   %cmp.not17.us.i = icmp sgt i64 %sub.ptr.sub16.us.i, %conv1.i
-  br i1 %cmp.not17.us.i, label %parse_ext_names.exit, label %while.body.lr.ph.us.i, !llvm.loop !17
+  br i1 %cmp.not17.us.i, label %parse_ext_names.exit, label %while.body.lr.ph.us.i, !llvm.loop !16
 
 if.then.us.i:                                     ; preds = %while.body.us.i
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %q.018.us.i, i64 1
   %sub.ptr.lhs.cast.us.i = ptrtoint ptr %incdec.ptr.us.i to i64
   %sub.ptr.sub.us.i = sub i64 %sub.ptr.lhs.cast.us.i, %sub.ptr.rhs.cast.i
   %cmp.not.us.i = icmp sgt i64 %sub.ptr.sub.us.i, %conv1.i
-  br i1 %cmp.not.us.i, label %parse_ext_names.exit, label %while.body.us.i, !llvm.loop !17
+  br i1 %cmp.not.us.i, label %parse_ext_names.exit, label %while.body.us.i, !llvm.loop !16
 
 parse_ext_names.exit:                             ; preds = %if.end.us.i, %if.then.us.i
   %cnt.0.ph.lcssa.i = phi i32 [ %cnt.0.ph24.us.i, %if.then.us.i ], [ %spec.select.i, %if.end.us.i ]
@@ -2849,7 +2849,7 @@ if.then.i:                                        ; preds = %while.body.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not.i = icmp sgt i64 %sub.ptr.sub.i, %conv1.i25
-  br i1 %cmp.not.i, label %for.body.lr.ph, label %while.body.i, !llvm.loop !17
+  br i1 %cmp.not.i, label %for.body.lr.ph, label %while.body.i, !llvm.loop !16
 
 if.end.i:                                         ; preds = %while.body.i, %while.body.i
   %cmp9.not.i = icmp eq ptr %q.0.ph23.i, %q.018.i
@@ -2869,7 +2869,7 @@ if.end16.i:                                       ; preds = %if.then11.i, %if.en
   %sub.ptr.lhs.cast15.i = ptrtoint ptr %incdec.ptr17.i to i64
   %sub.ptr.sub16.i = sub i64 %sub.ptr.lhs.cast15.i, %sub.ptr.rhs.cast.i
   %cmp.not17.i = icmp sgt i64 %sub.ptr.sub16.i, %conv1.i25
-  br i1 %cmp.not17.i, label %for.body.lr.ph, label %while.body.lr.ph.i, !llvm.loop !17
+  br i1 %cmp.not17.i, label %for.body.lr.ph, label %while.body.lr.ph.i, !llvm.loop !16
 
 for.body.lr.ph:                                   ; preds = %if.end16.i, %if.then.i, %if.end17
   %cmp3457 = icmp sgt i32 %cnt.0.ph.lcssa.i.fr, 0
@@ -2923,13 +2923,13 @@ for.inc.us:                                       ; preds = %if.end47.us, %for.b
   %exts2.3.us = phi ptr [ %exts2.2.us, %if.end47.us ], [ %exts2.159.us, %for.body36.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond72.not, label %for.inc54.us, label %for.body36.us, !llvm.loop !18
+  br i1 %exitcond72.not, label %for.inc54.us, label %for.body36.us, !llvm.loop !17
 
 for.inc54.us:                                     ; preds = %for.inc.us, %lor.lhs.false.us, %for.body.us
   %exts2.4.us = phi ptr [ %exts2.062.us, %for.body.us ], [ %exts2.062.us, %lor.lhs.false.us ], [ %exts2.3.us, %for.inc.us ]
   %inc55.us = add nuw nsw i32 %i.061.us, 1
   %exitcond74.not = icmp eq i32 %inc55.us, %smax73
-  br i1 %exitcond74.not, label %for.end56, label %for.body.us, !llvm.loop !19
+  br i1 %exitcond74.not, label %for.end56, label %for.body.us, !llvm.loop !18
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.061 = phi i32 [ %inc55, %for.body ], [ 0, %for.body.lr.ph ]
@@ -2939,7 +2939,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call25 = tail call ptr @OBJ_nid2sn(i32 noundef %call24) #7
   %inc55 = add nuw nsw i32 %i.061, 1
   %exitcond.not = icmp eq i32 %inc55, %smax73
-  br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !18
 
 for.end56:                                        ; preds = %for.body, %for.inc54.us
   %exts2.0.lcssa = phi ptr [ %exts2.4.us, %for.inc54.us ], [ null, %for.body ]
@@ -3089,7 +3089,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -3098,4 +3098,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

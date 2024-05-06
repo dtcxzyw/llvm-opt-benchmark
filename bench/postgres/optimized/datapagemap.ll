@@ -35,7 +35,7 @@ define dso_local void @datapagemap_add(ptr nocapture noundef %0, i32 noundef %1)
   %19 = zext nneg i32 %3 to i64
   %20 = getelementptr i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
-  %22 = trunc i32 %17 to i8
+  %22 = trunc nuw i32 %17 to i8
   %23 = or i8 %21, %22
   store i8 %23, ptr %20, align 1
   ret void

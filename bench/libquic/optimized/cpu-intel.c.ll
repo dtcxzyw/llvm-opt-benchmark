@@ -131,7 +131,7 @@ if.end64:                                         ; preds = %if.end60
   %cmp.i = icmp eq i8 %14, 126
   %idx.ext.i = zext i1 %cmp.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call61, i64 %idx.ext.i
-  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i) #5
+  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %handle_cpu_env.exit, label %if.end.i
 
@@ -147,7 +147,7 @@ if.then3.i:                                       ; preds = %if.end.i
   store i32 %conv6.i, ptr @OPENSSL_ia32cap_P, align 16
   %shr.i = lshr i64 %15, 32
   %19 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %20 = trunc i64 %shr.i to i32
+  %20 = trunc nuw i64 %shr.i to i32
   %21 = xor i32 %20, -1
   %conv11.i = and i32 %19, %21
   br label %handle_cpu_env.exit.sink.split
@@ -156,7 +156,7 @@ if.else.i:                                        ; preds = %if.end.i
   %conv12.i = trunc i64 %15 to i32
   store i32 %conv12.i, ptr @OPENSSL_ia32cap_P, align 16
   %shr14.i = lshr i64 %15, 32
-  %conv15.i = trunc i64 %shr14.i to i32
+  %conv15.i = trunc nuw i64 %shr14.i to i32
   br label %handle_cpu_env.exit.sink.split
 
 handle_cpu_env.exit.sink.split:                   ; preds = %if.else.i, %if.then3.i
@@ -177,7 +177,7 @@ if.then67:                                        ; preds = %handle_cpu_env.exit
   %cmp.i33 = icmp eq i8 %22, 126
   %idx.ext.i34 = zext i1 %cmp.i33 to i64
   %add.ptr.i35 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i34
-  %call.i36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %add.ptr.i35, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i32) #5
+  %call.i36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %add.ptr.i35, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i32) #5
   %tobool.not.i37 = icmp eq i32 %call.i36, 0
   br i1 %tobool.not.i37, label %handle_cpu_env.exit47, label %if.end.i38
 
@@ -193,7 +193,7 @@ if.then3.i43:                                     ; preds = %if.end.i38
   store i32 %conv6.i44, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 8
   %shr.i45 = lshr i64 %23, 32
   %27 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 3), align 4
-  %28 = trunc i64 %shr.i45 to i32
+  %28 = trunc nuw i64 %shr.i45 to i32
   %29 = xor i32 %28, -1
   %conv11.i46 = and i32 %27, %29
   br label %handle_cpu_env.exit47.sink.split
@@ -202,7 +202,7 @@ if.else.i39:                                      ; preds = %if.end.i38
   %conv12.i40 = trunc i64 %23 to i32
   store i32 %conv12.i40, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 8
   %shr14.i41 = lshr i64 %23, 32
-  %conv15.i42 = trunc i64 %shr14.i41 to i32
+  %conv15.i42 = trunc nuw i64 %shr14.i41 to i32
   br label %handle_cpu_env.exit47.sink.split
 
 handle_cpu_env.exit47.sink.split:                 ; preds = %if.else.i39, %if.then3.i43

@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.aiTextureTypeToString = private unnamed_addr constant [22 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.7, ptr @.str.6, ptr @.str.8, ptr @.str.5, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.21, ptr @.str.18, ptr @.str.19, ptr @.str.20], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @aiTextureTypeToString(i32 noundef %in) local_unnamed_addr #0 {
+define noundef nonnull ptr @aiTextureTypeToString(i32 noundef %in) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %in, 22
   br i1 %0, label %switch.lookup, label %return

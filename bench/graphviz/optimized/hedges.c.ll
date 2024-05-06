@@ -255,7 +255,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare ptr @getsite() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @right_of(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @right_of(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40
@@ -566,7 +566,7 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   br label %88
 
 80:                                               ; preds = %79
-  %81 = tail call i32 @right_of(ptr noundef nonnull %.1, ptr noundef nonnull %0), !range !4
+  %81 = tail call i32 @right_of(ptr noundef nonnull %.1, ptr noundef nonnull %0)
   %.not46 = icmp eq i32 %81, 0
   br i1 %.not46, label %.preheader79, label %.preheader
 
@@ -581,7 +581,7 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   br i1 %.not49, label %.critedge, label %85
 
 85:                                               ; preds = %82
-  %86 = tail call i32 @right_of(ptr noundef %84, ptr noundef nonnull %0), !range !4
+  %86 = tail call i32 @right_of(ptr noundef %84, ptr noundef nonnull %0)
   %.not50 = icmp eq i32 %86, 0
   br i1 %.not50, label %.critedge, label %82
 
@@ -596,7 +596,7 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   br i1 %.not47, label %.critedge2, label %90
 
 90:                                               ; preds = %88
-  %91 = tail call i32 @right_of(ptr noundef %89, ptr noundef nonnull %0), !range !4
+  %91 = tail call i32 @right_of(ptr noundef %89, ptr noundef nonnull %0)
   %.not48 = icmp eq i32 %91, 0
   br i1 %.not48, label %88, label %.critedge2
 
@@ -757,4 +757,3 @@ attributes #17 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

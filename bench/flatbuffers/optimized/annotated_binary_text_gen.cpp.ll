@@ -1088,13 +1088,13 @@ land.lhs.true15.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp17.i, label %if.then18.i, label %if.end32.i
 
 if.then18.i:                                      ; preds = %land.lhs.true15.i
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %67, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %67, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %.noexc23 unwind label %lpad67.loopexit.split-lp.loopexit
 
 .noexc23:                                         ; preds = %if.then18.i
   %68 = load ptr, ptr %regions.i, align 8
   %add.ptr.i.i20 = getelementptr inbounds i8, ptr %68, i64 160
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i20, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i20, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %.noexc24 unwind label %lpad67.loopexit.split-lp.loopexit
 
 .noexc24:                                         ; preds = %.noexc23
@@ -1123,7 +1123,7 @@ call27.i.noexc:                                   ; preds = %call24.i.noexc
 call28.i.noexc:                                   ; preds = %call27.i.noexc
   %71 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %71, i64 -160
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i.i, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i.i, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %return.i unwind label %lpad67.loopexit.split-lp.loopexit
 
 if.end32.i:                                       ; preds = %land.lhs.true15.i, %land.lhs.true.i, %call11.i.noexc
@@ -1136,7 +1136,7 @@ if.end32.i:                                       ; preds = %land.lhs.true15.i, 
 
 for.body.i:                                       ; preds = %if.end32.i, %.noexc30
   %__begin2.sroa.0.0156.i = phi ptr [ %incdec.ptr.i.i, %.noexc30 ], [ %72, %if.end32.i ]
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %__begin2.sroa.0.0156.i, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %ofs, ptr noundef nonnull align 8 dereferenceable(160) %__begin2.sroa.0.0156.i, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %.noexc30 unwind label %lpad67.loopexit
 
 .noexc30:                                         ; preds = %for.body.i
@@ -3512,7 +3512,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -4361,7 +4361,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -4502,7 +4502,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -4566,7 +4566,7 @@ if.end16.i:                                       ; preds = %if.end12.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
   %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
-  %conv = trunc i64 %__val.lobit to i32
+  %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #9
@@ -4639,7 +4639,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -5049,7 +5049,7 @@ call48.i.noexc:                                   ; preds = %call47.i.noexc
 if.then50.i:                                      ; preds = %call48.i.noexc
   %add.i = add i64 %call43.i, 3
   store i64 %add.i, ptr %doc_continuation, align 8
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias nonnull align 8 %value52.i, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr noundef nonnull align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias nonnull align 8 %value52.i, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %.noexc38 unwind label %lpad.loopexit.split-lp
 
 .noexc38:                                         ; preds = %if.then50.i
@@ -5168,7 +5168,7 @@ invoke.cont101.i:                                 ; preds = %.noexc39
           to label %invoke.cont103.i unwind label %lpad100.i
 
 invoke.cont103.i:                                 ; preds = %invoke.cont101.i
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias nonnull align 8 %ref.tmp106.i, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr noundef nonnull align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias nonnull align 8 %ref.tmp106.i, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %invoke.cont107.i unwind label %lpad100.i
 
 invoke.cont107.i:                                 ; preds = %invoke.cont103.i

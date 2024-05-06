@@ -70,7 +70,7 @@ define dso_local void @intel_nhlt_free(ptr noundef %0) #0 align 16 {
 declare dso_local void @acpi_put_table(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_nhlt_get_dmic_geo(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit3, label %4
 
@@ -284,7 +284,7 @@ define dso_local i32 @intel_nhlt_ssp_endpoint_mask(ptr noundef readonly %0, i8 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_nhlt_ssp_mclk_mask(ptr noundef readonly %0, i32 noundef %1) #5 align 16 {
+define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef readonly %0, i32 noundef %1) #5 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 

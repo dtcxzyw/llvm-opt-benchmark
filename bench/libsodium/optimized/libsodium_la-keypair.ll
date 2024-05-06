@@ -66,7 +66,7 @@ declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_sign_ed25519_pk_to_curve25519(ptr noundef nonnull %curve25519_pk, ptr noundef nonnull %ed25519_pk) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_sign_ed25519_pk_to_curve25519(ptr noundef nonnull %curve25519_pk, ptr noundef nonnull %ed25519_pk) local_unnamed_addr #0 {
 entry:
   %A = alloca %struct.ge25519_p3, align 8
   %x = alloca [5 x i64], align 16

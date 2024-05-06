@@ -173,7 +173,7 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
   br i1 %40, label %42, label %.lr.ph.split.us.split.us._crit_edge
 
 42:                                               ; preds = %.lr.ph.split.us.split.us
-  %43 = trunc i64 %41 to i32
+  %43 = trunc nuw nsw i64 %41 to i32
   %44 = tail call ptr @build_column_default(ptr noundef %6, i32 noundef %43) #8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.split.us, label %46
@@ -205,7 +205,7 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
   br i1 %56, label %58, label %.lr.ph.split.us.split._crit_edge
 
 58:                                               ; preds = %.lr.ph.split.us.split
-  %59 = trunc i64 %57 to i32
+  %59 = trunc nuw nsw i64 %57 to i32
   %60 = tail call ptr @build_column_default(ptr noundef %6, i32 noundef %59) #8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.split.us, label %62
@@ -235,7 +235,7 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
   br i1 %68, label %70, label %.lr.ph.split.split.us._crit_edge
 
 70:                                               ; preds = %.lr.ph.split.split.us
-  %71 = trunc i64 %69 to i32
+  %71 = trunc nuw nsw i64 %69 to i32
   %72 = call ptr @build_column_default(ptr noundef %6, i32 noundef %71) #8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.split.us, label %74
@@ -274,7 +274,7 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
   br i1 %87, label %89, label %.lr.ph.split.split._crit_edge
 
 89:                                               ; preds = %.lr.ph.split.split
-  %90 = trunc i64 %88 to i32
+  %90 = trunc nuw nsw i64 %88 to i32
   %91 = call ptr @build_column_default(ptr noundef %6, i32 noundef %90) #8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.split.us, label %98
@@ -681,7 +681,7 @@ define dso_local ptr @ExecLookupResultRelByOid(ptr nocapture noundef %0, i32 nou
   br i1 %3, label %36, label %45
 
 36:                                               ; preds = %35
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = getelementptr inbounds i8, ptr %0, i64 344
   store i32 %1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 348
@@ -880,7 +880,7 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %71, %67, %51, %44
 
 100:                                              ; preds = %97, %95
   %101 = load ptr, ptr %83, align 8
-  %102 = trunc i64 %indvars.iv to i32
+  %102 = trunc nuw nsw i64 %indvars.iv to i32
   %103 = tail call zeroext i1 @bms_is_member(i32 noundef %102, ptr noundef %101) #8
   %104 = getelementptr inbounds i8, ptr %.0331333, i64 160
   %105 = zext i1 %103 to i8
@@ -933,7 +933,7 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %71, %67, %51, %44
   %.val308 = load ptr, ptr %129, align 8
   %130 = getelementptr %union.ListCell, ptr %.val308, i64 %indvars.iv393
   %131 = load ptr, ptr %130, align 8
-  %132 = trunc i64 %indvars.iv393 to i32
+  %132 = trunc nuw nsw i64 %indvars.iv393 to i32
   tail call void %126(ptr noundef nonnull %17, ptr noundef %117, ptr noundef %131, i32 noundef %132, i32 noundef %2) #8
   br label %133
 
@@ -1519,7 +1519,7 @@ ExecInitMerge.exit:                               ; preds = %._crit_edge.i, %.lr
   %442 = load ptr, ptr %435, align 8
   %443 = call ptr @hash_search(ptr noundef %442, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #8
   %444 = getelementptr inbounds i8, ptr %443, i64 4
-  %445 = trunc i64 %indvars.iv408 to i32
+  %445 = trunc nuw nsw i64 %indvars.iv408 to i32
   store i32 %445, ptr %444, align 4
   %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next409, %wide.trip.count411
@@ -3243,7 +3243,7 @@ ItemPointerIndicatesMovedPartitions.exit.i:       ; preds = %256
   unreachable
 
 ItemPointerIndicatesMovedPartitions.exit.thread.i: ; preds = %ItemPointerIndicatesMovedPartitions.exit.i, %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %2, ptr noundef nonnull align 2 dereferenceable(6) %41, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %2, ptr noundef nonnull readonly align 2 dereferenceable(6) %41, i64 6, i1 false)
   br label %51
 
 267:                                              ; preds = %223
@@ -6137,7 +6137,7 @@ define internal fastcc void @ExecCheckPlanOutput(ptr nocapture readonly %.64.val
 .split15:                                         ; preds = %24
   %28 = getelementptr inbounds i8, ptr %10, i64 8
   %29 = getelementptr inbounds i8, ptr %18, i64 68
-  %30 = trunc i64 %indvars.iv.next to i32
+  %30 = trunc nuw nsw i64 %indvars.iv.next to i32
   %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %31)
   %32 = tail call i32 @errcode(i32 noundef 67141764) #8
@@ -6163,7 +6163,7 @@ define internal fastcc void @ExecCheckPlanOutput(ptr nocapture readonly %.64.val
   br i1 %46, label %52, label %.split20
 
 .split20:                                         ; preds = %40, %43
-  %47 = trunc i64 %indvars.iv.next to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.next to i32
   %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %48)
   %49 = tail call i32 @errcode(i32 noundef 67141764) #8
@@ -6179,7 +6179,7 @@ define internal fastcc void @ExecCheckPlanOutput(ptr nocapture readonly %.64.val
   br i1 %55, label %.lr.ph25, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %52
-  %56 = trunc i64 %indvars.iv.next to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %1

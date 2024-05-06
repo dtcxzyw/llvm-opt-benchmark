@@ -189,7 +189,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(argmem: read)
-define internal fastcc i32 @acpi_get_subtable_type(ptr nocapture noundef readonly %0) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 5) i32 @acpi_get_subtable_type(ptr nocapture noundef readonly %0) unnamed_addr #3 section ".init.text" align 16 {
   %2 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %14, label %4
@@ -216,7 +216,7 @@ define internal fastcc i32 @acpi_get_subtable_type(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: read)
-define internal fastcc i64 @acpi_get_entry_length(ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc range(i64 0, 4294967296) i64 @acpi_get_entry_length(ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #4 section ".init.text" align 16 {
   switch i32 %.8.val, label %21 [
     i32 0, label %1
     i32 1, label %5

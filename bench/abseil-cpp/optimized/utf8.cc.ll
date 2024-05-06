@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i64 @_ZN4absl16strings_internal14EncodeUTF8CharEPcDi(ptr nocapture noundef writeonly %buffer, i32 noundef zeroext %utf8_char) local_unnamed_addr #0 {
+define dso_local noundef range(i64 1, 5) i64 @_ZN4absl16strings_internal14EncodeUTF8CharEPcDi(ptr nocapture noundef writeonly %buffer, i32 noundef zeroext %utf8_char) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %utf8_char, 128
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %utf8_char to i8
+  %conv = trunc nuw nsw i32 %utf8_char to i8
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -24,7 +24,7 @@ if.then2:                                         ; preds = %if.else
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 %conv3, ptr %arrayidx, align 1
   %shr = lshr i32 %utf8_char, 6
-  %2 = trunc i32 %shr to i8
+  %2 = trunc nuw i32 %shr to i8
   %conv5 = or disjoint i8 %2, -64
   br label %return
 

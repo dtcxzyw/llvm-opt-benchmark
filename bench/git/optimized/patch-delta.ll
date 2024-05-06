@@ -31,7 +31,7 @@ do.body.i:                                        ; preds = %st_left_shift.exit.
   br i1 %or.cond.i.i, label %if.then.i.i, label %st_left_shift.exit.i
 
 if.then.i.i:                                      ; preds = %do.body.i
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef %and.i, i32 noundef %2) #5
   unreachable
 
@@ -39,7 +39,7 @@ st_left_shift.exit.i:                             ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %data.0.i, i64 1
   %shl.i.i = shl i64 %and.i, %indvars.iv.i
   %or.i = or i64 %shl.i.i, %size.0.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 7
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %tobool.i = icmp slt i8 %0, 0
   %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr
   %3 = select i1 %tobool.i, i1 %cmp.i, i1 false
@@ -63,7 +63,7 @@ do.body.i67:                                      ; preds = %get_delta_hdr_size.
   br i1 %or.cond.i.i75, label %if.then.i.i83, label %st_left_shift.exit.i76
 
 if.then.i.i83:                                    ; preds = %do.body.i67
-  %6 = trunc i64 %indvars.iv.i68 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i68 to i32
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef %and.i71, i32 noundef %6) #5
   unreachable
 
@@ -71,7 +71,7 @@ st_left_shift.exit.i76:                           ; preds = %do.body.i67
   %incdec.ptr.i77 = getelementptr inbounds i8, ptr %data.0.i69, i64 1
   %shl.i.i78 = shl i64 %and.i71, %indvars.iv.i68
   %or.i79 = or i64 %shl.i.i78, %size.0.i70
-  %indvars.iv.next.i80 = add nuw i64 %indvars.iv.i68, 7
+  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i68, 7
   %tobool.i81 = icmp slt i8 %4, 0
   %cmp.i82 = icmp ult ptr %incdec.ptr.i77, %add.ptr
   %7 = select i1 %tobool.i81, i1 %cmp.i82, i1 false

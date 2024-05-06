@@ -28,28 +28,28 @@ entry:
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local i64 @icount_get_raw() local_unnamed_addr #0 {
+define dso_local noundef i64 @icount_get_raw() local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local i64 @icount_get() local_unnamed_addr #0 {
+define dso_local noundef i64 @icount_get() local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local i64 @icount_to_ns(i64 noundef %icount) local_unnamed_addr #0 {
+define dso_local noundef i64 @icount_to_ns(i64 noundef %icount) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local i64 @icount_round(i64 noundef %count) local_unnamed_addr #0 {
+define dso_local noundef i64 @icount_round(i64 noundef %count) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable

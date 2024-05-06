@@ -901,7 +901,7 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
   %55 = getelementptr inbounds i8, ptr %53, i64 24
   store i32 4, ptr %55, align 8
   %56 = lshr i16 %33, 10
-  %57 = trunc i16 %56 to i8
+  %57 = trunc nuw nsw i16 %56 to i8
   %58 = getelementptr inbounds i8, ptr %53, i64 10
   store i8 %57, ptr %58, align 2
   %59 = getelementptr inbounds i8, ptr %53, i64 8
@@ -1380,7 +1380,7 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
   %366 = getelementptr inbounds i8, ptr %364, i64 24
   store i32 5, ptr %366, align 8
   %367 = lshr i16 %344, 10
-  %368 = trunc i16 %367 to i8
+  %368 = trunc nuw nsw i16 %367 to i8
   %369 = getelementptr inbounds i8, ptr %364, i64 10
   store i8 %368, ptr %369, align 2
   %370 = getelementptr inbounds i8, ptr %364, i64 8
@@ -1724,7 +1724,7 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   %47 = getelementptr inbounds i8, ptr %45, i64 24
   store i32 4, ptr %47, align 8
   %48 = lshr i16 %25, 10
-  %49 = trunc i16 %48 to i8
+  %49 = trunc nuw nsw i16 %48 to i8
   %50 = getelementptr inbounds i8, ptr %45, i64 10
   store i8 %49, ptr %50, align 2
   %51 = getelementptr inbounds i8, ptr %45, i64 8
@@ -2052,7 +2052,7 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   %227 = getelementptr inbounds i8, ptr %225, i64 24
   store i32 5, ptr %227, align 8
   %228 = lshr i16 %205, 10
-  %229 = trunc i16 %228 to i8
+  %229 = trunc nuw nsw i16 %228 to i8
   %230 = getelementptr inbounds i8, ptr %225, i64 10
   store i8 %229, ptr %230, align 2
   %231 = getelementptr inbounds i8, ptr %225, i64 8

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [39 x i8] c"WWPack: structs pointer out of bounds\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %2, i64 673
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #5
   %9 = zext i16 %4 to i64

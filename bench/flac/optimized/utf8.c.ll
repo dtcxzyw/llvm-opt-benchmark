@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [9 x i8] c"US-ASCII\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @utf8_encode(ptr noundef %from, ptr noundef %to) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2) i32 @utf8_encode(ptr noundef %from, ptr noundef %to) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @nl_langinfo(i32 noundef 14) #7
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -39,7 +39,7 @@ if.end4.i:                                        ; preds = %current_charset.exi
 
 safe_malloc_add_2op_.exit.i:                      ; preds = %if.end4.i
   %add.i.i = add nuw i64 %call.i1, 1
-  %call.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i) #9
+  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #9
   %tobool.not.i2 = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i2, label %convert_string.exit, label %if.end7.i
 
@@ -72,7 +72,7 @@ convert_string.exit:                              ; preds = %for.inc.i, %current
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @utf8_decode(ptr noundef %from, ptr noundef %to) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2) i32 @utf8_decode(ptr noundef %from, ptr noundef %to) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @nl_langinfo(i32 noundef 14) #7
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -102,7 +102,7 @@ if.end4.i:                                        ; preds = %current_charset.exi
 
 safe_malloc_add_2op_.exit.i:                      ; preds = %if.end4.i
   %add.i.i = add nuw i64 %call.i1, 1
-  %call.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i) #9
+  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #9
   %tobool.not.i2 = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i2, label %convert_string.exit, label %if.end7.i
 

@@ -173,12 +173,12 @@ define i32 @ws_getopt(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nou
   %78 = load ptr, ptr %1, align 8
   %79 = zext nneg i32 %.044 to i64
   %80 = load ptr, ptr @stderr, align 8
-  %81 = call i32 @fputs(ptr noundef %78, ptr noundef %80) #7
+  %81 = call i32 @fputs(ptr noundef readonly %78, ptr noundef %80) #7
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %__getopt_msg.exit, label %83
 
 83:                                               ; preds = %77
-  %84 = call i32 @fputs(ptr noundef nonnull @.str, ptr noundef %80) #7
+  %84 = call i32 @fputs(ptr noundef nonnull readonly @.str, ptr noundef %80) #7
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %__getopt_msg.exit, label %86
 
@@ -343,7 +343,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 29:                                               ; preds = %25
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nsw i64 %indvars.iv to i32
   store i32 %30, ptr @ws_optind, align 4
   br label %31
 
@@ -650,7 +650,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   br label %__getopt_long_core.exit
 
 167:                                              ; preds = %43, %.thread147.i, %45, %._crit_edge180.i, %33, %31
-  %168 = tail call i32 @ws_getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %168 = tail call i32 @ws_getopt(i32 noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2)
   br label %__getopt_long_core.exit
 
 __getopt_long_core.exit:                          ; preds = %113, %118, %130, %133, %135, %143, %148, %164, %167

@@ -1197,7 +1197,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_dpnss_sic(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 2, 4) i32 @dissect_dpnss_sic(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %4 = lshr i8 %3, 4
   %5 = and i8 %4, 7

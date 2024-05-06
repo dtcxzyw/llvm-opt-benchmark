@@ -86,7 +86,7 @@ define i32 @mca_coll_basic_scatterv_intra(ptr noundef %0, ptr nocapture noundef 
 44:                                               ; preds = %40
   %45 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
   %46 = zext nneg i32 %42 to i64
-  %47 = trunc i64 %indvars.iv73 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv73 to i32
   %48 = tail call i32 %45(ptr noundef %38, i64 noundef %46, ptr noundef %3, i32 noundef %47, i32 noundef -26, i32 noundef 4, ptr noundef %8) #2
   %.not56.us = icmp eq i32 %48, 0
   br i1 %.not56.us, label %49, label %.loopexit
@@ -125,7 +125,7 @@ define i32 @mca_coll_basic_scatterv_intra(ptr noundef %0, ptr nocapture noundef 
 65:                                               ; preds = %61
   %66 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
   %67 = zext nneg i32 %63 to i64
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   %69 = tail call i32 %66(ptr noundef %54, i64 noundef %67, ptr noundef %3, i32 noundef %68, i32 noundef -26, i32 noundef 4, ptr noundef %8) #2
   %.not56 = icmp eq i32 %69, 0
   br i1 %.not56, label %70, label %.loopexit
@@ -202,7 +202,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %14
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   %46 = tail call i32 %40(ptr noundef %39, i64 noundef %43, ptr noundef %3, i32 noundef %45, i32 noundef -26, i32 noundef 4, ptr noundef %8, ptr noundef nonnull %44) #2
   %.not45 = icmp eq i32 %46, 0
   %indvars.iv.next = add nuw i64 %indvars.iv, 1

@@ -1096,7 +1096,7 @@ gv_alloc.exit.i:                                  ; preds = %._crit_edge
 .lr.ph.preheader.i:                               ; preds = %gv_alloc.exit.i
   %53 = zext nneg i32 %0 to i64
   %54 = shl nuw nsw i64 %53, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr nonnull align 8 %8, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr nonnull readonly align 8 %8, i64 %54, i1 false)
   br label %QuadTree_new.exit
 
 QuadTree_new.exit:                                ; preds = %gv_alloc.exit.i, %.lr.ph.preheader.i
@@ -1120,7 +1120,7 @@ QuadTree_add.exit:                                ; preds = %QuadTree_add.exit.p
   %60 = mul nsw i64 %indvars.iv120, %5
   %61 = getelementptr inbounds double, ptr %3, i64 %60
   %62 = trunc nuw nsw i64 %indvars.iv120 to i32
-  %63 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef nonnull %45, ptr noundef %61, double noundef 1.000000e+00, i32 noundef %62, i32 noundef 0)
+  %63 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef nonnull %45, ptr noundef readonly %61, double noundef 1.000000e+00, i32 noundef %62, i32 noundef 0)
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
   br i1 %exitcond124.not, label %._crit_edge105, label %QuadTree_add.exit
@@ -1303,7 +1303,7 @@ QuadTree_new.exit:                                ; preds = %gv_alloc.exit.i
 .lr.ph.preheader:                                 ; preds = %gv_alloc.exit.i
   %18 = zext nneg i32 %0 to i64
   %19 = shl nuw nsw i64 %18, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %1, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr readonly align 8 %1, i64 %19, i1 false)
   %20 = getelementptr inbounds i8, ptr %6, i64 32
   store double %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 64
@@ -1520,7 +1520,7 @@ QuadTree_new.exit.i:                              ; preds = %gv_alloc.exit.i.i
 .lr.ph.preheader.i132:                            ; preds = %gv_alloc.exit.i.i
   %103 = zext nneg i32 %87 to i64
   %104 = shl nuw nsw i64 %103, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %98, ptr align 8 %71, i64 %104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %98, ptr readonly align 8 %71, i64 %104, i1 false)
   %105 = getelementptr inbounds i8, ptr %91, i64 32
   store double %90, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %91, i64 64
@@ -1637,7 +1637,7 @@ QuadTree_new.exit.i147:                           ; preds = %gv_alloc.exit.i.i14
 .lr.ph.preheader.i148:                            ; preds = %gv_alloc.exit.i.i146
   %162 = zext nneg i32 %146 to i64
   %163 = shl nuw nsw i64 %162, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %157, ptr align 8 %129, i64 %163, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %157, ptr readonly align 8 %129, i64 %163, i1 false)
   %164 = getelementptr inbounds i8, ptr %150, i64 32
   store double %149, ptr %164, align 8
   %165 = getelementptr inbounds i8, ptr %150, i64 64

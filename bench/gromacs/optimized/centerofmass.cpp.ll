@@ -1404,7 +1404,7 @@ define void @_Z20gmx_calc_comg_blockaPK10gmx_mtop_tPA3_fPK8t_blockabS3_(ptr noun
   br i1 %3, label %8, label %9
 
 8:                                                ; preds = %5
-  tail call void @_Z18gmx_calc_com_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %4)
+  tail call void @_Z18gmx_calc_com_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %2, ptr noundef readonly %7, ptr noundef writeonly %4)
   br label %_Z19gmx_calc_comg_blockPK10gmx_mtop_tPA3_fPK7t_blockPKibS3_.exit
 
 9:                                                ; preds = %5
@@ -1534,7 +1534,7 @@ define void @_Z22gmx_calc_comg_f_blockaPK10gmx_mtop_tPA3_fPK8t_blockabS3_(ptr no
   br i1 %35, label %12, label %_Z21gmx_calc_comg_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKibS3_.exit, !llvm.loop !28
 
 36:                                               ; preds = %5
-  tail call void @_Z20gmx_calc_cog_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %4)
+  tail call void @_Z20gmx_calc_cog_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %2, ptr noundef readonly %7, ptr noundef writeonly %4)
   br label %_Z21gmx_calc_comg_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKibS3_.exit
 
 _Z21gmx_calc_comg_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKibS3_.exit: ; preds = %._crit_edge.i.i, %8, %36

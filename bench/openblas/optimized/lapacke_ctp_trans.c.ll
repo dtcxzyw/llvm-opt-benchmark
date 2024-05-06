@@ -75,7 +75,7 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %49 = phi i64 [ 1, %31 ], [ %46, %45 ]
   %50 = phi i32 [ %27, %31 ], [ %51, %45 ]
   %51 = add nuw nsw i32 %50, 1
-  %52 = mul nsw i32 %51, %50
+  %52 = mul nuw nsw i32 %51, %50
   %53 = lshr i32 %52, 1
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr { float, float }, ptr %4, i64 %54

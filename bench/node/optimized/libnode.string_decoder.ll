@@ -180,7 +180,7 @@ if.end40:                                         ; preds = %for.inc, %for.cond.
   %add.ptr48 = getelementptr inbounds i8, ptr %data.addr.0, i64 %.sroa.speculated
   %sub49 = sub i64 %nread.0, %.sroa.speculated
   %10 = load i8, ptr %arrayidx.i48, align 1
-  %11 = trunc i64 %.sroa.speculated to i8
+  %11 = trunc nuw i64 %.sroa.speculated to i8
   %conv54 = sub i8 %10, %11
   store i8 %conv54, ptr %arrayidx.i48, align 1
   %12 = load i8, ptr %arrayidx.i52, align 1
@@ -335,7 +335,7 @@ if.then192:                                       ; preds = %if.else186
 
 if.then205:                                       ; preds = %if.else, %if.else
   %rem206 = urem i64 %nread.1, 3
-  %conv207 = trunc i64 %rem206 to i8
+  %conv207 = trunc nuw nsw i64 %rem206 to i8
   %arrayidx209 = getelementptr inbounds i8, ptr %this, i64 5
   store i8 %conv207, ptr %arrayidx209, align 1
   %cmp213.not = icmp eq i64 %rem206, 0

@@ -807,7 +807,7 @@ for.body.i:                                       ; preds = %for.inc45.i, %for.b
   br i1 %49, label %switch.hole_check, label %for.inc45.i
 
 switch.hole_check:                                ; preds = %for.body.i
-  %switch.maskindex = trunc i32 %48 to i16
+  %switch.maskindex = trunc nuw i32 %48 to i16
   %switch.shifted = lshr i16 7935, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %for.inc45.i

@@ -451,7 +451,7 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #5
 declare i32 @switch_g_build_jobinfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @step_ctx_destroy(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @step_ctx_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = icmp eq ptr %0, null

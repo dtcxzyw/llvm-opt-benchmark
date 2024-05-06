@@ -219,14 +219,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_scrypt_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_scrypt_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @kdf_scrypt_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @kdf_scrypt_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -306,7 +306,7 @@ if.end12:                                         ; preds = %land.lhs.true.if.en
   %or.cond.not57.i = and i1 %cmp.i16, %cmp1.i
   %cmp3.i = icmp ugt i64 %10, 1
   %or.cond1.not56.i = and i1 %cmp3.i, %or.cond.not57.i
-  %16 = tail call i64 @llvm.ctpop.i64(i64 %10), !range !5
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %tobool.not.i = icmp ult i64 %16, 2
   %or.cond49.i = select i1 %or.cond1.not56.i, i1 %tobool.not.i, i1 false
   br i1 %or.cond49.i, label %if.end.i, label %return
@@ -425,19 +425,19 @@ for.body15.i.us.i:                                ; preds = %for.body15.i.us.i, 
   tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr49.i, ptr noundef %add.ptr47.i, i64 noundef %11)
   %inc18.i.us.i = add nuw i64 %i.157.i.us.i, 1
   %exitcond68.not.i.us.i = icmp eq i64 %inc18.i.us.i, %10
-  br i1 %exitcond68.not.i.us.i, label %for.end21.i.loopexit.us.i, label %for.body15.i.us.i, !llvm.loop !6
+  br i1 %exitcond68.not.i.us.i, label %for.end21.i.loopexit.us.i, label %for.body15.i.us.i, !llvm.loop !4
 
 for.body28.i.us.i:                                ; preds = %for.end21.i.loopexit.us.i, %for.body28.i.us.i
   %i.263.i.us.i = phi i64 [ %inc50.i.us.i, %for.body28.i.us.i ], [ 0, %for.end21.i.loopexit.us.i ]
   tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef %add.ptr47.i, i64 noundef %11)
   %inc50.i.us.i = add nuw i64 %i.263.i.us.i, 1
   %exitcond71.not.i.us.i = icmp eq i64 %inc50.i.us.i, %10
-  br i1 %exitcond71.not.i.us.i, label %for.cond52.preheader.i.us.i, label %for.body28.i.us.i, !llvm.loop !8
+  br i1 %exitcond71.not.i.us.i, label %for.cond52.preheader.i.us.i, label %for.body28.i.us.i, !llvm.loop !6
 
 for.cond52.preheader.i.us.i:                      ; preds = %for.body28.i.us.i
   %inc.us.i = add nuw i64 %i.058.us.i, 1
   %exitcond60.not.i = icmp eq i64 %inc.us.i, %12
-  br i1 %exitcond60.not.i, label %err.i, label %for.body.us.i, !llvm.loop !9
+  br i1 %exitcond60.not.i, label %err.i, label %for.body.us.i, !llvm.loop !7
 
 for.end21.i.loopexit.us.i:                        ; preds = %for.body15.i.us.i
   tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef %add.ptr24.i.i, i64 noundef %11)
@@ -478,7 +478,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %inc.i.i = add nuw i64 %i.052.i.i, 1
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %pV.053.i.i, i64 4
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul24.i
-  br i1 %exitcond.not.i.i, label %for.body15.i.i, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %for.body15.i.i, label %for.body.i.i, !llvm.loop !8
 
 for.body15.i.i:                                   ; preds = %for.body.i.i, %for.body15.i.i
   %pV.158.i.i = phi ptr [ %add.ptr20.i.i, %for.body15.i.i ], [ %incdec.ptr11.i.i, %for.body.i.i ]
@@ -488,7 +488,7 @@ for.body15.i.i:                                   ; preds = %for.body.i.i, %for.
   %inc18.i.i = add nuw i64 %i.157.i.i, 1
   %add.ptr20.i.i = getelementptr inbounds i32, ptr %pV.158.i.i, i64 %mul24.i
   %exitcond68.not.i.i = icmp eq i64 %inc18.i.i, %10
-  br i1 %exitcond68.not.i.i, label %for.end21.i.loopexit.i, label %for.body15.i.i, !llvm.loop !6
+  br i1 %exitcond68.not.i.i, label %for.end21.i.loopexit.i, label %for.body15.i.i, !llvm.loop !4
 
 for.end21.i.loopexit.i:                           ; preds = %for.body15.i.i
   tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr24.i.i, i64 noundef %11)
@@ -515,13 +515,13 @@ for.body42.us.i.i:                                ; preds = %for.body42.us.i.i, 
   store i32 %xor.us.i.i, ptr %arrayidx45.us.i.i, align 4
   %inc47.us.i.i = add nuw i64 %k.060.us.i.i, 1
   %exitcond69.not.i.i = icmp eq i64 %inc47.us.i.i, %mul24.i
-  br i1 %exitcond69.not.i.i, label %for.cond38.for.end48_crit_edge.us.i.i, label %for.body42.us.i.i, !llvm.loop !11
+  br i1 %exitcond69.not.i.i, label %for.cond38.for.end48_crit_edge.us.i.i, label %for.body42.us.i.i, !llvm.loop !9
 
 for.cond38.for.end48_crit_edge.us.i.i:            ; preds = %for.body42.us.i.i
   tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr47.i, i64 noundef %11)
   %inc50.us.i.i = add nuw i64 %i.263.us.i.i, 1
   %exitcond70.not.i.i = icmp eq i64 %inc50.us.i.i, %10
-  br i1 %exitcond70.not.i.i, label %for.body56.i.i, label %for.body28.us.i.i, !llvm.loop !8
+  br i1 %exitcond70.not.i.i, label %for.body56.i.i, label %for.body28.us.i.i, !llvm.loop !6
 
 for.body56.i.i:                                   ; preds = %for.cond38.for.end48_crit_edge.us.i.i, %for.body56.i.i
   %pB.166.i.i = phi ptr [ %incdec.ptr70.i.i, %for.body56.i.i ], [ %add.ptr61.i, %for.cond38.for.end48_crit_edge.us.i.i ]
@@ -545,12 +545,12 @@ for.body56.i.i:                                   ; preds = %for.cond38.for.end4
   store i8 %conv69.i.i, ptr %incdec.ptr66.i.i, align 1
   %inc72.i.i = add nuw i64 %i.365.i.i, 1
   %exitcond72.not.i.i = icmp eq i64 %inc72.i.i, %mul24.i
-  br i1 %exitcond72.not.i.i, label %scryptROMix.exit.loopexit.i, label %for.body56.i.i, !llvm.loop !12
+  br i1 %exitcond72.not.i.i, label %scryptROMix.exit.loopexit.i, label %for.body56.i.i, !llvm.loop !10
 
 scryptROMix.exit.loopexit.i:                      ; preds = %for.body56.i.i
   %inc.i = add nuw i64 %i.058.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %12
-  br i1 %exitcond.not.i, label %err.i, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %err.i, label %for.body.i, !llvm.loop !7
 
 err.i:                                            ; preds = %scryptROMix.exit.loopexit.i, %for.cond52.preheader.i.us.i
   %conv64.i = trunc i64 %keylen to i32
@@ -581,7 +581,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_scrypt_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_scrypt_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %u64_value = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -666,7 +666,7 @@ if.then17:                                        ; preds = %if.end14
   %8 = load i64, ptr %u64_value, align 8
   %cmp20 = icmp ult i64 %8, 2
   %or.cond = select i1 %tobool19, i1 true, i1 %cmp20
-  %9 = call i64 @llvm.ctpop.i64(i64 %8), !range !5
+  %9 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
   %cmp1.i45 = icmp ugt i64 %9, 1
   %or.cond55 = select i1 %or.cond, i1 true, i1 %cmp1.i45
   br i1 %or.cond55, label %return, label %if.end25
@@ -758,7 +758,7 @@ if.then.i46:                                      ; preds = %lor.lhs.false62
   br i1 %cmp5.i, label %return, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %if.then.i46, %lor.lhs.false62
-  %call66 = call fastcc i32 @set_digest(ptr noundef nonnull %vctx), !range !4
+  %call66 = call fastcc i32 @set_digest(ptr noundef nonnull %vctx)
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %return, label %if.end70
 
@@ -817,7 +817,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_digest(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_digest(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %sha256 = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %sha256, align 8
@@ -895,7 +895,7 @@ for.body5:                                        ; preds = %for.cond3.preheader
   store i32 %xor, ptr %arrayidx, align 4
   %inc = add nuw nsw i64 %j.010, 1
   %exitcond.not = icmp eq i64 %inc, 16
-  br i1 %exitcond.not, label %for.end, label %for.body5, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body5, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %x.i)
@@ -1053,7 +1053,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %xor346.i = xor i32 %or344.i, %xor170.i
   %sub.i = add nsw i32 %i.023.i, -2
   %cmp.i = icmp ugt i32 %i.023.i, 2
-  br i1 %cmp.i, label %for.body.i, label %for.cond347.preheader.i, !llvm.loop !14
+  br i1 %cmp.i, label %for.body.i, label %for.cond347.preheader.i, !llvm.loop !12
 
 for.body349.i:                                    ; preds = %for.body349.i, %for.cond347.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond347.preheader.i ], [ %indvars.iv.next.i, %for.body349.i ]
@@ -1065,7 +1065,7 @@ for.body349.i:                                    ; preds = %for.body349.i, %for
   store i32 %add353.i, ptr %arrayidx352.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %salsa208_word_specification.exit, label %for.body349.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %salsa208_word_specification.exit, label %for.body349.i, !llvm.loop !13
 
 salsa208_word_specification.exit:                 ; preds = %for.body349.i
   call void @OPENSSL_cleanse(ptr noundef nonnull %x.i, i64 noundef 64) #7
@@ -1079,7 +1079,7 @@ salsa208_word_specification.exit:                 ; preds = %for.body349.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %add.ptr9, ptr noundef nonnull align 16 dereferenceable(64) %X, i64 64, i1 false)
   %inc12 = add nuw i64 %i.013, 1
   %exitcond15.not = icmp eq i64 %inc12, %mul
-  br i1 %exitcond15.not, label %for.end13, label %for.cond3.preheader, !llvm.loop !16
+  br i1 %exitcond15.not, label %for.end13, label %for.cond3.preheader, !llvm.loop !14
 
 for.end13:                                        ; preds = %salsa208_word_specification.exit, %entry
   call void @OPENSSL_cleanse(ptr noundef nonnull %X, i64 noundef 64) #7
@@ -1131,16 +1131,14 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

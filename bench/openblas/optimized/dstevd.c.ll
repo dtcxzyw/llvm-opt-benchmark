@@ -43,9 +43,9 @@ define void @dstevd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %23, ptr %12, align 4, !tbaa !3
   %27 = shl i32 %23, 2
   %28 = or disjoint i32 %27, 1
-  %29 = mul nsw i32 %23, %23
+  %29 = mul nuw nsw i32 %23, %23
   %30 = add nsw i32 %28, %29
-  %31 = mul nsw i32 %23, 5
+  %31 = mul nuw nsw i32 %23, 5
   %32 = add nuw nsw i32 %31, 3
   br label %40
 

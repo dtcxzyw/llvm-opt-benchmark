@@ -237,7 +237,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %65, %55, %51
   %102 = load i64, ptr %101, align 8
   %103 = icmp sgt i64 %102, %.010291320
   %spec.select1182 = call i64 @llvm.smax.i64(i64 %102, i64 %.010291320)
-  %104 = trunc i64 %indvars.iv1484 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv1484 to i32
   %spec.select1183 = select i1 %103, i32 %104, i32 %.010201322
   %105 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv1484
   %106 = load i64, ptr %105, align 8
@@ -579,7 +579,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %65, %55, %51
   br label %236, !llvm.loop !14
 
 .loopexit1283.loopexit:                           ; preds = %238
-  %241 = trunc i64 %indvars.iv1512 to i32
+  %241 = trunc nsw i64 %indvars.iv1512 to i32
   br label %.loopexit1283
 
 .loopexit1283:                                    ; preds = %.loopexit1283.loopexit, %233
@@ -651,7 +651,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %65, %55, %51
   br i1 %274, label %275, label %._crit_edge1570
 
 ._crit_edge1570:                                  ; preds = %267
-  %.pre1584 = trunc i64 %indvars.iv1518 to i32
+  %.pre1584 = trunc nuw nsw i64 %indvars.iv1518 to i32
   br label %318
 
 275:                                              ; preds = %267
@@ -680,7 +680,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %65, %55, %51
   %293 = getelementptr inbounds ptr, ptr %136, i64 %292
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds i32, ptr %294, i64 %.pre-phi
-  %296 = trunc i64 %indvars.iv1518 to i32
+  %296 = trunc nuw nsw i64 %indvars.iv1518 to i32
   store i32 %296, ptr %295, align 4
   %297 = load i32, ptr %18, align 4
   %.not1172 = icmp eq i32 %297, 0
@@ -793,7 +793,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %65, %55, %51
   br i1 %354, label %.preheader1274, label %.loopexit1275.loopexit, !llvm.loop !16
 
 .loopexit1275.loopexit:                           ; preds = %.preheader1274
-  %355 = trunc i64 %indvars.iv1515 to i32
+  %355 = trunc nsw i64 %indvars.iv1515 to i32
   %sext1586 = shl i64 %indvars.iv1515, 32
   %.pre1572 = ashr exact i64 %sext1586, 32
   %.phi.trans.insert1574 = getelementptr inbounds i64, ptr %10, i64 %.pre1572
@@ -2309,7 +2309,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %49, %39, %35
   %85 = load i64, ptr %84, align 8
   %86 = icmp sgt i64 %85, %.08501090
   %spec.select973 = call i64 @llvm.smax.i64(i64 %85, i64 %.08501090)
-  %87 = trunc i64 %indvars.iv1332 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv1332 to i32
   %spec.select974 = select i1 %86, i32 %87, i32 %.08411092
   %88 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv1332
   %89 = load i64, ptr %88, align 8
@@ -2623,7 +2623,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %49, %39, %35
   br label %205, !llvm.loop !39
 
 .loopexit1046.loopexit:                           ; preds = %207
-  %210 = trunc i64 %indvars.iv1360 to i32
+  %210 = trunc nsw i64 %indvars.iv1360 to i32
   br label %.loopexit1046
 
 .loopexit1046:                                    ; preds = %.loopexit1046.loopexit, %202
@@ -2695,7 +2695,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %49, %39, %35
   br i1 %243, label %244, label %._crit_edge1409
 
 ._crit_edge1409:                                  ; preds = %236
-  %.pre1419 = trunc i64 %indvars.iv1366 to i32
+  %.pre1419 = trunc nuw nsw i64 %indvars.iv1366 to i32
   br label %288
 
 244:                                              ; preds = %236
@@ -2724,7 +2724,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %49, %39, %35
   %262 = getelementptr inbounds ptr, ptr %115, i64 %261
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr inbounds i32, ptr %263, i64 %.pre-phi
-  %265 = trunc i64 %indvars.iv1366 to i32
+  %265 = trunc nuw nsw i64 %indvars.iv1366 to i32
   store i32 %265, ptr %264, align 4
   %266 = load i32, ptr %16, align 4
   %.not964 = icmp eq i32 %266, 0
@@ -2838,7 +2838,7 @@ ADIOI_OneSidedSetup.exit:                         ; preds = %49, %39, %35
   br i1 %324, label %.preheader, label %.loopexit1038.loopexit, !llvm.loop !41
 
 .loopexit1038.loopexit:                           ; preds = %.preheader
-  %325 = trunc i64 %indvars.iv1363 to i32
+  %325 = trunc nsw i64 %indvars.iv1363 to i32
   %sext1424 = shl i64 %indvars.iv1363, 32
   %.pre1411 = ashr exact i64 %sext1424, 32
   %.phi.trans.insert1413 = getelementptr inbounds i64, ptr %10, i64 %.pre1411

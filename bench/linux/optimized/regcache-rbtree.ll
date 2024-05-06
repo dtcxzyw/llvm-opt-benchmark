@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [62 x i8] c"%d nodes, %d registers, average %d registers, used %zu bytes\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @regcache_rbtree_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @regcache_rbtree_init(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 16) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 568
@@ -49,7 +49,7 @@ define internal noundef i32 @regcache_rbtree_init(ptr noundef %0) #0 align 16 {
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = tail call i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %21, i32 noundef %23), !range !8
+  %24 = tail call i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %21, i32 noundef %23)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %12, label %26
 
@@ -86,7 +86,7 @@ define internal noundef i32 @regcache_rbtree_exit(ptr nocapture noundef %0) #0 a
   tail call void @kfree(ptr noundef %13) #10
   tail call void @kfree(ptr noundef %9) #10
   %14 = icmp eq ptr %10, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %5
   %15 = load ptr, ptr %2, align 8
@@ -107,7 +107,7 @@ define internal void @rbtree_debugfs_init(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @regcache_rbtree_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @regcache_rbtree_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 568
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -167,7 +167,7 @@ define internal noundef i32 @regcache_rbtree_read(ptr noundef %0, i32 noundef %1
 46:                                               ; preds = %42, %40
   %47 = phi ptr [ %45, %42 ], [ %29, %40 ]
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread, label %28, !llvm.loop !10
+  br i1 %48, label %.thread, label %28, !llvm.loop !9
 
 49:                                               ; preds = %28
   %50 = getelementptr i8, ptr %29, i64 -24
@@ -190,7 +190,7 @@ define internal noundef i32 @regcache_rbtree_read(ptr noundef %0, i32 noundef %1
   %57 = getelementptr inbounds i8, ptr %54, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = zext i32 %56 to i64
-  %60 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, i64 %59) #10, !srcloc !11
+  %60 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, i64 %59) #10, !srcloc !10
   %61 = icmp ult i8 %60, 2
   tail call void @llvm.assume(i1 %61)
   %62 = icmp eq i8 %60, 0
@@ -208,7 +208,7 @@ define internal noundef i32 @regcache_rbtree_read(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 568
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -268,7 +268,7 @@ define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %
 46:                                               ; preds = %42, %40
   %47 = phi ptr [ %45, %42 ], [ %29, %40 ]
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread, label %28, !llvm.loop !10
+  br i1 %48, label %.thread, label %28, !llvm.loop !9
 
 49:                                               ; preds = %28
   %50 = getelementptr i8, ptr %29, i64 -24
@@ -291,7 +291,7 @@ define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %
   %57 = getelementptr inbounds i8, ptr %54, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = zext i32 %56 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, i64 %59) #10, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, i64 %59) #10, !srcloc !11
   %60 = load ptr, ptr %54, align 8
   tail call void @regcache_set_val(ptr noundef %0, ptr noundef %60, i32 noundef %56, i32 noundef %2) #10
   br label %.thread31
@@ -359,7 +359,7 @@ define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %
   %107 = getelementptr inbounds i8, ptr %72, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %110, label %.preheader, !llvm.loop !13
+  br i1 %109, label %110, label %.preheader, !llvm.loop !12
 
 110:                                              ; preds = %105, %103
   %111 = icmp eq ptr %101, null
@@ -439,7 +439,7 @@ define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %
   store i32 %100, ptr %118, align 8
   store ptr %155, ptr %139, align 8
   %165 = zext i32 %117 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %155, i64 %165) #10, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %155, i64 %165) #10, !srcloc !11
   %166 = load ptr, ptr %101, align 8
   tail call void @regcache_set_val(ptr noundef %0, ptr noundef %166, i32 noundef %117, i32 noundef %2) #10
   store ptr %101, ptr %6, align 8
@@ -450,7 +450,7 @@ define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %
   %168 = load i32, ptr %167, align 8
   %169 = and i32 %168, 17
   %170 = icmp eq i32 %169, 0
-  br i1 %170, label %175, label %171, !prof !14
+  br i1 %170, label %175, label %171, !prof !13
 
 171:                                              ; preds = %.thread24
   %172 = and i32 %168, 1
@@ -500,7 +500,7 @@ define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %
 202:                                              ; preds = %198, %192
   %203 = add nuw i32 %193, 1
   %204 = icmp eq i32 %203, %188
-  br i1 %204, label %.thread27, label %192, !llvm.loop !15
+  br i1 %204, label %.thread27, label %192, !llvm.loop !14
 
 .loopexit:                                        ; preds = %198, %186
   %205 = phi i32 [ 0, %186 ], [ %193, %198 ]
@@ -576,7 +576,7 @@ define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %
   %250 = load i32, ptr %61, align 4
   %251 = udiv i32 %249, %250
   %252 = zext i32 %251 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %240, i64 %252) #10, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %240, i64 %252) #10, !srcloc !11
   %253 = load ptr, ptr %180, align 8
   tail call void @regcache_set_val(ptr noundef %0, ptr noundef %253, i32 noundef %251, i32 noundef %2) #10
   %254 = load ptr, ptr %5, align 8
@@ -610,7 +610,7 @@ define internal noundef i32 @regcache_rbtree_write(ptr noundef %0, i32 noundef %
   %276 = select i1 %270, ptr %273, ptr %275
   %277 = load ptr, ptr %276, align 8
   %278 = icmp eq ptr %277, null
-  br i1 %278, label %279, label %259, !llvm.loop !16
+  br i1 %278, label %279, label %259, !llvm.loop !15
 
 279:                                              ; preds = %272
   %280 = ptrtoint ptr %260 to i64
@@ -701,7 +701,7 @@ define internal i32 @regcache_rbtree_sync(ptr noundef %0, i32 noundef %1, i32 no
 44:                                               ; preds = %37, %23
   %45 = tail call ptr @rb_next(ptr noundef nonnull %12) #10
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit, label %11, !llvm.loop !17
+  br i1 %46, label %.loopexit, label %11, !llvm.loop !16
 
 .loopexit:                                        ; preds = %44, %11, %3
   store i8 0, ptr %4, align 8
@@ -773,7 +773,7 @@ define internal noundef i32 @regcache_rbtree_drop(ptr nocapture noundef readonly
 40:                                               ; preds = %35, %21
   %41 = tail call ptr @rb_next(ptr noundef nonnull %11) #10
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.loopexit, label %10, !llvm.loop !18
+  br i1 %42, label %.loopexit, label %10, !llvm.loop !17
 
 .loopexit:                                        ; preds = %40, %10, %3
   ret i32 0
@@ -870,7 +870,7 @@ define internal noundef i32 @rbtree_show(ptr noundef %0, ptr nocapture readnone 
   %42 = add i32 %40, %17
   %43 = tail call ptr @rb_next(ptr noundef nonnull %20) #10
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %16, !llvm.loop !19
+  br i1 %44, label %45, label %16, !llvm.loop !18
 
 45:                                               ; preds = %16
   %46 = icmp eq i32 %41, 0
@@ -962,15 +962,14 @@ attributes #12 = { nounwind allocsize(0) }
 !5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i32 -12, i32 1}
+!8 = distinct !{!8, !6, !7}
 !9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{i64 2148585159, i64 2148585233}
-!12 = !{i64 2148571832, i64 2148571871, i64 2148571892, i64 2148571929, i64 2148571952, i64 2148571822}
-!13 = distinct !{!13, !6, !7}
-!14 = !{!"branch_weights", i32 2000, i32 1}
+!10 = !{i64 2148585159, i64 2148585233}
+!11 = !{i64 2148571832, i64 2148571871, i64 2148571892, i64 2148571929, i64 2148571952, i64 2148571822}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = distinct !{!14, !6, !7}
 !15 = distinct !{!15, !6, !7}
 !16 = distinct !{!16, !6, !7}
 !17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}

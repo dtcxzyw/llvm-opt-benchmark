@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ChooseContextMap.kStaticContextMapSimpleUTF8 = internal constant <{ i32, i32, i32, i32, [60 x i32] }> <{ i32 0, i32 0, i32 1, i32 1, [60 x i32] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @BrotliEncoderSetParameter(ptr nocapture noundef %state, i32 noundef %p, i32 noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BrotliEncoderSetParameter(ptr nocapture noundef %state, i32 noundef %p, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %is_initialized_ = getelementptr inbounds i8, ptr %state, i64 6972
   %0 = load i32, ptr %is_initialized_, align 4
@@ -293,7 +293,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BrotliEncoderCompress(i32 noundef %quality, i32 noundef %lgwin, i32 noundef %mode, i64 noundef %input_size, ptr noundef %input_buffer, ptr nocapture noundef %encoded_size, ptr noundef %encoded_buffer) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliEncoderCompress(i32 noundef %quality, i32 noundef %lgwin, i32 noundef %mode, i64 noundef %input_size, ptr noundef %input_buffer, ptr nocapture noundef %encoded_size, ptr noundef %encoded_buffer) local_unnamed_addr #1 {
 entry:
   %available_in = alloca i64, align 8
   %next_in = alloca ptr, align 8
@@ -389,7 +389,7 @@ if.end.i49:                                       ; preds = %BrotliEncoderSetPar
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end.i49, %BrotliEncoderSetParameter.exit45
-  %call15 = call i32 @BrotliEncoderCompressStream(ptr noundef nonnull %call.i, i32 noundef 2, ptr noundef nonnull %available_in, ptr noundef nonnull %next_in, ptr noundef nonnull %available_out, ptr noundef nonnull %next_out, ptr noundef nonnull %total_out), !range !4
+  %call15 = call i32 @BrotliEncoderCompressStream(ptr noundef nonnull %call.i, i32 noundef 2, ptr noundef nonnull %available_in, ptr noundef nonnull %next_in, ptr noundef nonnull %available_out, ptr noundef nonnull %next_out, ptr noundef nonnull %total_out)
   %4 = load i32, ptr %stream_state_.i.i, align 4
   %cmp.i51 = icmp eq i32 %4, 2
   br i1 %cmp.i51, label %BrotliEncoderIsFinished.exit, label %BrotliEncoderIsFinished.exit.thread
@@ -476,12 +476,12 @@ if.end33.i:                                       ; preds = %if.then28.i, %while
   %result.1.i = phi i64 [ %inc31.i, %if.then28.i ], [ %inc24.i, %while.body.i ]
   %arrayidx34.i = getelementptr inbounds i8, ptr %encoded_buffer, i64 %result.1.i
   %arrayidx35.i = getelementptr inbounds i8, ptr %input_buffer, i64 %offset.037.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx34.i, ptr noundef nonnull align 1 dereferenceable(1) %arrayidx35.i, i64 %cond34.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %arrayidx34.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %arrayidx35.i, i64 %cond34.i, i1 false)
   %add38.i = add i64 %result.1.i, %cond34.i
   %add40.i = add i64 %cond34.i, %offset.037.i
   %sub42.i = sub i64 %size.038.i, %cond34.i
   %cmp4.not.i = icmp eq i64 %sub42.i, 0
-  br i1 %cmp4.not.i, label %MakeUncompressedStream.exit, label %while.body.i, !llvm.loop !5
+  br i1 %cmp4.not.i, label %MakeUncompressedStream.exit, label %while.body.i, !llvm.loop !4
 
 MakeUncompressedStream.exit:                      ; preds = %if.end33.i
   %arrayidx44.i = getelementptr inbounds i8, ptr %encoded_buffer, i64 %add38.i
@@ -496,7 +496,7 @@ return:                                           ; preds = %if.end3, %BrotliEnc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BrotliEncoderCompressStream(ptr noundef %s, i32 noundef %op, ptr nocapture noundef %available_in, ptr nocapture noundef %next_in, ptr nocapture noundef %available_out, ptr nocapture noundef %next_out, ptr noundef writeonly %total_out) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliEncoderCompressStream(ptr noundef %s, i32 noundef %op, ptr nocapture noundef %available_in, ptr nocapture noundef %next_in, ptr nocapture noundef %available_out, ptr nocapture noundef %next_out, ptr noundef writeonly %total_out) local_unnamed_addr #1 {
 entry:
   %storage_ix.i = alloca i64, align 8
   %memory_manager_.i = getelementptr inbounds i8, ptr %s, i64 1400
@@ -718,11 +718,11 @@ if.then43.i:                                      ; preds = %if.end39.i
   %one_pass_arena_.i = getelementptr inbounds i8, ptr %s, i64 6880
   store ptr %call44.i, ptr %one_pass_arena_.i, align 8
   %cmd_depth.i.i = getelementptr inbounds i8, ptr %call44.i, i64 768
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %cmd_depth.i.i, ptr noundef nonnull align 16 dereferenceable(128) @InitCommandPrefixCodes.kDefaultCommandDepths, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %cmd_depth.i.i, ptr noundef nonnull align 16 dereferenceable(128) @InitCommandPrefixCodes.kDefaultCommandDepths, i64 128, i1 false)
   %cmd_bits.i.i = getelementptr inbounds i8, ptr %call44.i, i64 896
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cmd_bits.i.i, ptr noundef nonnull align 16 dereferenceable(256) @InitCommandPrefixCodes.kDefaultCommandBits, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %cmd_bits.i.i, ptr noundef nonnull align 16 dereferenceable(256) @InitCommandPrefixCodes.kDefaultCommandBits, i64 256, i1 false)
   %cmd_code.i.i = getelementptr inbounds i8, ptr %call44.i, i64 1664
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %cmd_code.i.i, ptr noundef nonnull align 16 dereferenceable(57) @InitCommandPrefixCodes.kDefaultCommandCode, i64 57, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(57) %cmd_code.i.i, ptr noundef nonnull align 16 dereferenceable(57) @InitCommandPrefixCodes.kDefaultCommandCode, i64 57, i1 false)
   %cmd_code_numbits.i.i = getelementptr inbounds i8, ptr %call44.i, i64 2176
   store i64 448, ptr %cmd_code_numbits.i.i, align 8
   br label %if.end53.i
@@ -917,7 +917,7 @@ if.end18.i:                                       ; preds = %if.end.i.i81
   br i1 %cmp19.not.i, label %if.end27.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end18.i
-  %call23.i = tail call fastcc i32 @EncodeData(ptr noundef nonnull %s, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %available_out_.i.i.i, ptr noundef nonnull %next_out_.i.i.i), !range !4
+  %call23.i = tail call fastcc i32 @EncodeData(ptr noundef nonnull %s, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %available_out_.i.i.i, ptr noundef nonnull %next_out_.i.i.i)
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %return, label %while.bodythread-pre-split.i
 
@@ -976,7 +976,7 @@ if.then.i69.i:                                    ; preds = %if.then31.i
 
 cond.false.i.i:                                   ; preds = %if.then31.i
   %sub.i70.i = add i32 %45, -1
-  %53 = tail call i32 @llvm.ctlz.i32(i32 %sub.i70.i, i1 true), !range !7
+  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i70.i, i1 true)
   %54 = sub nuw nsw i32 39, %53
   %55 = lshr i32 %54, 3
   br label %cond.end.i.i
@@ -1381,7 +1381,7 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
   %htsize.0.i.i.i = phi i64 [ 256, %if.end65.i ], [ %shl.i.i96.i, %while.cond.i.i.i ]
   %114 = icmp ult i64 %htsize.0.i.i.i, %invariant.umin.i.i.i
   %shl.i.i96.i = shl i64 %htsize.0.i.i.i, 1
-  br i1 %114, label %while.cond.i.i.i, label %HashTableSize.exit.i.i, !llvm.loop !8
+  br i1 %114, label %while.cond.i.i.i, label %HashTableSize.exit.i.i, !llvm.loop !6
 
 HashTableSize.exit.i.i:                           ; preds = %while.cond.i.i.i
   %and.i.i130 = and i64 %htsize.0.i.i.i, 698880
@@ -1581,16 +1581,16 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %143 = load ptr, ptr %buffer_.i34.i, align 8
   %144 = load i32, ptr %cur_size_.i.i, align 8
   %conv22.i12.i = zext i32 %144 to i64
-  %145 = getelementptr i8, ptr %143, i64 %i.i.0111.i
-  %arrayidx24.i.i = getelementptr i8, ptr %145, i64 %conv22.i12.i
+  %145 = getelementptr inbounds i8, ptr %143, i64 %i.i.0111.i
+  %arrayidx24.i.i = getelementptr inbounds i8, ptr %145, i64 %conv22.i12.i
   store i8 0, ptr %arrayidx24.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.i.0111.i, 1
   %exitcond112.not.i = icmp eq i64 %inc.i.i, 7
-  br i1 %exitcond112.not.i, label %RingBufferInitBuffer.exit.i, label %for.body.i.i, !llvm.loop !9
+  br i1 %exitcond112.not.i, label %RingBufferInitBuffer.exit.i, label %for.body.i.i, !llvm.loop !7
 
 RingBufferInitBuffer.exit.i:                      ; preds = %for.body.i.i
   %146 = load ptr, ptr %buffer_.i34.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %146, ptr align 1 %136, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %146, ptr readonly align 1 %136, i64 %cond.i, i1 false)
   %.pre113.i = load i32, ptr %pos_.i.i, align 4
   br label %RingBufferWrite.exit.i
 
@@ -1636,12 +1636,12 @@ for.body.i41.i:                                   ; preds = %for.body.i41.i, %if
   %153 = load ptr, ptr %buffer_.i34.i, align 8
   %154 = load i32, ptr %cur_size_.i.i, align 8
   %conv22.i44.i = zext i32 %154 to i64
-  %155 = getelementptr i8, ptr %153, i64 %i.i19.0110.i
-  %arrayidx24.i46.i = getelementptr i8, ptr %155, i64 %conv22.i44.i
+  %155 = getelementptr inbounds i8, ptr %153, i64 %i.i19.0110.i
+  %arrayidx24.i46.i = getelementptr inbounds i8, ptr %155, i64 %conv22.i44.i
   store i8 0, ptr %arrayidx24.i46.i, align 1
   %inc.i47.i = add nuw nsw i64 %i.i19.0110.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i47.i, 7
-  br i1 %exitcond.not.i, label %RingBufferInitBuffer.exit56.i, label %for.body.i41.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %RingBufferInitBuffer.exit56.i, label %for.body.i41.i, !llvm.loop !7
 
 RingBufferInitBuffer.exit56.i:                    ; preds = %for.body.i41.i
   %156 = load ptr, ptr %buffer_.i34.i, align 8
@@ -1678,11 +1678,11 @@ if.then.i71.i:                                    ; preds = %if.end20.i.i
   %conv1.i.i192 = zext i32 %164 to i64
   %conv4.i72.i = zext i32 %.pre268 to i64
   %165 = load ptr, ptr %buffer_.i34.i, align 8
-  %166 = getelementptr i8, ptr %165, i64 %conv4.i72.i
-  %arrayidx.i75.i = getelementptr i8, ptr %166, i64 %conv22.i.i
+  %166 = getelementptr inbounds i8, ptr %165, i64 %conv4.i72.i
+  %arrayidx.i75.i = getelementptr inbounds i8, ptr %166, i64 %conv22.i.i
   %sub.i76.i = sub nsw i64 %conv1.i.i192, %conv22.i.i
   %cond.i.i80.i = tail call i64 @llvm.umin.i64(i64 %sub.i76.i, i64 %cond.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i75.i, ptr align 1 %136, i64 %cond.i.i80.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i75.i, ptr readonly align 1 %136, i64 %cond.i.i80.i, i1 false)
   %.pre = load i32, ptr %ringbuffer_1.i, align 8
   br label %RingBufferWriteTail.exit.i
 
@@ -1696,7 +1696,7 @@ RingBufferWriteTail.exit.i:                       ; preds = %if.then.i71.i, %if.
   br i1 %cmp25.i.not.i, label %if.else.i.i189, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %RingBufferWriteTail.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr align 1 %136, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr readonly align 1 %136, i64 %cond.i, i1 false)
   br label %if.end46.i.i
 
 if.else.i.i189:                                   ; preds = %RingBufferWriteTail.exit.i
@@ -1704,14 +1704,14 @@ if.else.i.i189:                                   ; preds = %RingBufferWriteTail
   %conv35.i.i = zext i32 %169 to i64
   %sub36.i.i = sub nsw i64 %conv35.i.i, %conv22.i.i
   %cond.i.i.i190 = tail call i64 @llvm.umin.i64(i64 %sub36.i.i, i64 %cond.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr align 1 %136, i64 %cond.i.i.i190, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr readonly align 1 %136, i64 %cond.i.i.i190, i1 false)
   %170 = load ptr, ptr %buffer_.i34.i, align 8
   %171 = load i32, ptr %ringbuffer_1.i, align 8
   %conv40.i.i = zext i32 %171 to i64
   %sub41.i.i = sub nsw i64 %conv40.i.i, %conv22.i.i
   %add.ptr.i.i191 = getelementptr inbounds i8, ptr %136, i64 %sub41.i.i
   %sub45.i.i = sub i64 %cond.i, %sub41.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %170, ptr align 1 %add.ptr.i.i191, i64 %sub45.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %170, ptr readonly align 1 %add.ptr.i.i191, i64 %sub45.i.i, i1 false)
   br label %if.end46.i.i
 
 if.end46.i.i:                                     ; preds = %if.else.i.i189, %if.then29.i.i
@@ -1951,7 +1951,7 @@ if.then.i239:                                     ; preds = %if.end125
   br label %UpdateSizeHint.exit246
 
 UpdateSizeHint.exit246:                           ; preds = %if.end125, %if.then.i239
-  %call127 = tail call fastcc i32 @EncodeData(ptr noundef nonnull %s, i32 noundef %cond, i32 noundef %force_flush.0, ptr noundef nonnull %available_out_.i.i, ptr noundef nonnull %next_out_.i.i), !range !4
+  %call127 = tail call fastcc i32 @EncodeData(ptr noundef nonnull %s, i32 noundef %cond, i32 noundef %force_flush.0, ptr noundef nonnull %available_out_.i.i, ptr noundef nonnull %next_out_.i.i)
   %tobool128.not = icmp eq i32 %call127, 0
   br i1 %tobool128.not, label %return, label %if.end130
 
@@ -1975,7 +1975,7 @@ return:                                           ; preds = %land.lhs.true92, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BrotliEncoderIsFinished(ptr nocapture noundef readonly %s) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @BrotliEncoderIsFinished(ptr nocapture noundef readonly %s) local_unnamed_addr #4 {
 entry:
   %stream_state_ = getelementptr inbounds i8, ptr %s, i64 6964
   %0 = load i32, ptr %stream_state_, align 4
@@ -1995,7 +1995,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @EncodeData(ptr noundef %s, i32 noundef %is_last, i32 noundef %force_flush, ptr nocapture noundef writeonly %out_size, ptr nocapture noundef writeonly %output) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @EncodeData(ptr noundef %s, i32 noundef %is_last, i32 noundef %force_flush, ptr nocapture noundef writeonly %out_size, ptr nocapture noundef writeonly %output) unnamed_addr #1 {
 entry:
   %literal_histo.i.i = alloca [256 x i32], align 16
   %block_params.i = alloca %struct.BrotliEncoderParams, align 8
@@ -2174,7 +2174,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %Ge
   %htsize.0.i.i = phi i64 [ 256, %GetBrotliStorage.exit ], [ %shl.i.i, %while.cond.i.i ]
   %25 = icmp ult i64 %htsize.0.i.i, %invariant.umin.i.i
   %shl.i.i = shl i64 %htsize.0.i.i, 1
-  br i1 %25, label %while.cond.i.i, label %HashTableSize.exit.i, !llvm.loop !8
+  br i1 %25, label %while.cond.i.i, label %HashTableSize.exit.i, !llvm.loop !6
 
 HashTableSize.exit.i:                             ; preds = %while.cond.i.i
   %and.i1142 = and i64 %htsize.0.i.i, 698880
@@ -2580,7 +2580,7 @@ cond.true.i380:                                   ; preds = %for.body.i
 for.inc.i:                                        ; preds = %for.body.i, %cond.true.i380
   %inc.i = add nuw nsw i64 %i.i.01445, 1
   %exitcond.not = icmp eq i64 %inc.i, 4
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i
   %57 = load i32, ptr %params4.i1421, align 8
@@ -2602,29 +2602,29 @@ for.end.i:                                        ; preds = %for.inc.i
 
 sw.bb.i375:                                       ; preds = %for.end.i
   %privat.i376 = getelementptr inbounds i8, ptr %s, i64 1712
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  store ptr %hasher_, ptr %privat.i376, align 8, !alias.scope !11
-  %58 = load ptr, ptr %hasher_, align 8, !noalias !11
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  store ptr %hasher_, ptr %privat.i376, align 8, !alias.scope !9
+  %58 = load ptr, ptr %hasher_, align 8, !noalias !9
   %buckets_.i = getelementptr inbounds i8, ptr %s, i64 1720
-  store ptr %58, ptr %buckets_.i, align 8, !alias.scope !11
+  store ptr %58, ptr %buckets_.i, align 8, !alias.scope !9
   br label %if.end57.i.thread
 
 sw.bb19.i:                                        ; preds = %for.end.i
   %privat21.i374 = getelementptr inbounds i8, ptr %s, i64 1712
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  store ptr %hasher_, ptr %privat21.i374, align 8, !alias.scope !14
-  %59 = load ptr, ptr %hasher_, align 8, !noalias !14
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  store ptr %hasher_, ptr %privat21.i374, align 8, !alias.scope !12
+  %59 = load ptr, ptr %hasher_, align 8, !noalias !12
   %buckets_.i1151 = getelementptr inbounds i8, ptr %s, i64 1720
-  store ptr %59, ptr %buckets_.i1151, align 8, !alias.scope !14
+  store ptr %59, ptr %buckets_.i1151, align 8, !alias.scope !12
   br label %if.end57.i.thread
 
 sw.bb22.i373:                                     ; preds = %for.end.i
   %privat24.i = getelementptr inbounds i8, ptr %s, i64 1712
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  store ptr %hasher_, ptr %privat24.i, align 8, !alias.scope !17
-  %60 = load ptr, ptr %hasher_, align 8, !noalias !17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  store ptr %hasher_, ptr %privat24.i, align 8, !alias.scope !15
+  %60 = load ptr, ptr %hasher_, align 8, !noalias !15
   %buckets_.i1152 = getelementptr inbounds i8, ptr %s, i64 1720
-  store ptr %60, ptr %buckets_.i1152, align 8, !alias.scope !17
+  store ptr %60, ptr %buckets_.i1152, align 8, !alias.scope !15
   br label %if.end57.i.thread
 
 sw.bb25.i:                                        ; preds = %for.end.i
@@ -2639,101 +2639,101 @@ sw.bb28.i:                                        ; preds = %for.end.i
 
 sw.bb31.i:                                        ; preds = %for.end.i
   %s.val1124 = load i32, ptr %quality, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %common1.i = getelementptr inbounds i8, ptr %s, i64 1744
-  store ptr %hasher_, ptr %common1.i, align 8, !alias.scope !20
+  store ptr %hasher_, ptr %common1.i, align 8, !alias.scope !18
   %extra2.i = getelementptr inbounds i8, ptr %s, i64 1728
-  %61 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !20
-  store <2 x ptr> %61, ptr %extra2.i, align 8, !alias.scope !20
+  %61 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !18
+  store <2 x ptr> %61, ptr %extra2.i, align 8, !alias.scope !18
   %cmp.inv.i = icmp slt i32 %s.val1124, 7
   %cond.i1153 = select i1 %cmp.inv.i, i32 8, i32 7
   %sub.i1154 = add nsw i32 %s.val1124, -4
   %shl.i1155 = shl i32 %cond.i1153, %sub.i1154
   %conv.i1156 = zext i32 %shl.i1155 to i64
   %max_hops.i = getelementptr inbounds i8, ptr %s, i64 1720
-  store i64 %conv.i1156, ptr %max_hops.i, align 8, !alias.scope !20
+  store i64 %conv.i1156, ptr %max_hops.i, align 8, !alias.scope !18
   br label %if.end57.i.thread
 
 sw.bb34.i:                                        ; preds = %for.end.i
   %s.val1125 = load i32, ptr %quality, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %common1.i1157 = getelementptr inbounds i8, ptr %s, i64 1744
-  store ptr %hasher_, ptr %common1.i1157, align 8, !alias.scope !23
+  store ptr %hasher_, ptr %common1.i1157, align 8, !alias.scope !21
   %extra2.i1158 = getelementptr inbounds i8, ptr %s, i64 1728
-  %62 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !23
-  store <2 x ptr> %62, ptr %extra2.i1158, align 8, !alias.scope !23
+  %62 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !21
+  store <2 x ptr> %62, ptr %extra2.i1158, align 8, !alias.scope !21
   %cmp.inv.i1161 = icmp slt i32 %s.val1125, 7
   %cond.i1162 = select i1 %cmp.inv.i1161, i32 8, i32 7
   %sub.i1163 = add nsw i32 %s.val1125, -4
   %shl.i1164 = shl i32 %cond.i1162, %sub.i1163
   %conv.i1165 = zext i32 %shl.i1164 to i64
   %max_hops.i1166 = getelementptr inbounds i8, ptr %s, i64 1720
-  store i64 %conv.i1165, ptr %max_hops.i1166, align 8, !alias.scope !23
+  store i64 %conv.i1165, ptr %max_hops.i1166, align 8, !alias.scope !21
   br label %if.end57.i.thread
 
 sw.bb37.i:                                        ; preds = %for.end.i
   %s.val1126 = load i32, ptr %quality, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %common1.i1167 = getelementptr inbounds i8, ptr %s, i64 2760
-  store ptr %hasher_, ptr %common1.i1167, align 8, !alias.scope !26
+  store ptr %hasher_, ptr %common1.i1167, align 8, !alias.scope !24
   %extra2.i1168 = getelementptr inbounds i8, ptr %s, i64 2744
-  %63 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !26
-  store <2 x ptr> %63, ptr %extra2.i1168, align 8, !alias.scope !26
+  %63 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !24
+  store <2 x ptr> %63, ptr %extra2.i1168, align 8, !alias.scope !24
   %cmp.inv.i1171 = icmp slt i32 %s.val1126, 7
   %cond.i1172 = select i1 %cmp.inv.i1171, i32 8, i32 7
   %sub.i1173 = add nsw i32 %s.val1126, -4
   %shl.i1174 = shl i32 %cond.i1172, %sub.i1173
   %conv.i1175 = zext i32 %shl.i1174 to i64
   %max_hops.i1176 = getelementptr inbounds i8, ptr %s, i64 2736
-  store i64 %conv.i1175, ptr %max_hops.i1176, align 8, !alias.scope !26
+  store i64 %conv.i1175, ptr %max_hops.i1176, align 8, !alias.scope !24
   br label %if.end57.i.thread
 
 sw.bb40.i:                                        ; preds = %for.end.i
   %privat42.i = getelementptr inbounds i8, ptr %s, i64 1712
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  store ptr %hasher_, ptr %privat42.i, align 8, !alias.scope !29
-  %64 = load ptr, ptr %hasher_, align 8, !noalias !29
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  store ptr %hasher_, ptr %privat42.i, align 8, !alias.scope !27
+  %64 = load ptr, ptr %hasher_, align 8, !noalias !27
   %buckets_.i1177 = getelementptr inbounds i8, ptr %s, i64 1720
-  store ptr %64, ptr %buckets_.i1177, align 8, !alias.scope !29
+  store ptr %64, ptr %buckets_.i1177, align 8, !alias.scope !27
   br label %if.end57.i.thread
 
 sw.bb43.i:                                        ; preds = %for.end.i
   %common1.i1178 = getelementptr inbounds i8, ptr %s, i64 1928
-  store ptr %hasher_, ptr %common1.i1178, align 8, !alias.scope !32
+  store ptr %hasher_, ptr %common1.i1178, align 8, !alias.scope !30
   %ha_common.i = getelementptr inbounds i8, ptr %s, i64 1768
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ha_common.i, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ha_common.i, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
   %hb_common.i = getelementptr inbounds i8, ptr %s, i64 1848
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hb_common.i, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %hb_common.i, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
   %fresh.i = getelementptr inbounds i8, ptr %s, i64 1936
-  store i32 1, ptr %fresh.i, align 8, !alias.scope !32
+  store i32 1, ptr %fresh.i, align 8, !alias.scope !30
   %params4.i1179 = getelementptr inbounds i8, ptr %s, i64 1944
-  store ptr %s, ptr %params4.i1179, align 8, !alias.scope !32
+  store ptr %s, ptr %params4.i1179, align 8, !alias.scope !30
   br label %if.end57.i.thread
 
 sw.bb46.i:                                        ; preds = %for.end.i
   %common1.i1180 = getelementptr inbounds i8, ptr %s, i64 1928
-  store ptr %hasher_, ptr %common1.i1180, align 8, !alias.scope !35
+  store ptr %hasher_, ptr %common1.i1180, align 8, !alias.scope !33
   %ha_common.i1181 = getelementptr inbounds i8, ptr %s, i64 1768
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ha_common.i1181, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ha_common.i1181, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
   %hb_common.i1182 = getelementptr inbounds i8, ptr %s, i64 1848
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hb_common.i1182, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %hb_common.i1182, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
   %fresh.i1183 = getelementptr inbounds i8, ptr %s, i64 1936
-  store i32 1, ptr %fresh.i1183, align 8, !alias.scope !35
+  store i32 1, ptr %fresh.i1183, align 8, !alias.scope !33
   %params4.i1184 = getelementptr inbounds i8, ptr %s, i64 1944
-  store ptr %s, ptr %params4.i1184, align 8, !alias.scope !35
+  store ptr %s, ptr %params4.i1184, align 8, !alias.scope !33
   br label %if.end57.i.thread
 
 sw.bb49.i:                                        ; preds = %for.end.i
   %common1.i1185 = getelementptr inbounds i8, ptr %s, i64 1976
-  store ptr %hasher_, ptr %common1.i1185, align 8, !alias.scope !38
+  store ptr %hasher_, ptr %common1.i1185, align 8, !alias.scope !36
   %ha_common.i1186 = getelementptr inbounds i8, ptr %s, i64 1816
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ha_common.i1186, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ha_common.i1186, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
   %hb_common.i1187 = getelementptr inbounds i8, ptr %s, i64 1896
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hb_common.i1187, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %hb_common.i1187, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
   %fresh.i1188 = getelementptr inbounds i8, ptr %s, i64 1984
-  store i32 1, ptr %fresh.i1188, align 8, !alias.scope !38
+  store i32 1, ptr %fresh.i1188, align 8, !alias.scope !36
   %params4.i1189 = getelementptr inbounds i8, ptr %s, i64 1992
-  store ptr %s, ptr %params4.i1189, align 8, !alias.scope !38
+  store ptr %s, ptr %params4.i1189, align 8, !alias.scope !36
   br label %if.end57.i.thread
 
 sw.bb52.i:                                        ; preds = %for.end.i
@@ -2743,16 +2743,16 @@ sw.bb52.i:                                        ; preds = %for.end.i
   %hasher_.val1127 = load ptr, ptr %65, align 8
   %s.val1128 = load i32, ptr %lgwin62.i.i, align 8
   %buckets_.i1190 = getelementptr inbounds i8, ptr %s, i64 1720
-  store ptr %hasher_.val, ptr %buckets_.i1190, align 8, !alias.scope !41
+  store ptr %hasher_.val, ptr %buckets_.i1190, align 8, !alias.scope !39
   %forest_.i1191 = getelementptr inbounds i8, ptr %s, i64 1736
-  store ptr %hasher_.val1127, ptr %forest_.i1191, align 8, !alias.scope !41
+  store ptr %hasher_.val1127, ptr %forest_.i1191, align 8, !alias.scope !39
   %notmask.i = shl nsw i32 -1, %s.val1128
   %sub.neg.i = add nsw i32 %notmask.i, 1
   %sub.i1192 = xor i32 %notmask.i, -1
   %conv.i1193 = zext nneg i32 %sub.i1192 to i64
-  store i64 %conv.i1193, ptr %privat54.i, align 8, !alias.scope !41
+  store i64 %conv.i1193, ptr %privat54.i, align 8, !alias.scope !39
   %invalid_pos_.i1194 = getelementptr inbounds i8, ptr %s, i64 1728
-  store i32 %sub.neg.i, ptr %invalid_pos_.i1194, align 8, !alias.scope !41
+  store i32 %sub.neg.i, ptr %invalid_pos_.i1194, align 8, !alias.scope !39
   br label %if.end57.i.thread
 
 if.end57.i.thread:                                ; preds = %sw.bb.i375, %sw.bb19.i, %sw.bb22.i373, %sw.bb25.i, %sw.bb28.i, %sw.bb31.i, %sw.bb34.i, %sw.bb37.i, %sw.bb40.i, %sw.bb43.i, %sw.bb46.i, %sw.bb49.i, %sw.bb52.i, %for.end.i
@@ -2792,7 +2792,7 @@ if.then60.i:                                      ; preds = %if.end57.i.thread, 
 sw.bb64.i:                                        ; preds = %if.then60.i
   %67 = getelementptr i8, ptr %s, i64 1720
   %privat65.i.val = load ptr, ptr %67, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %cmp.i1195 = icmp ult i64 %conv145, 2049
   %or.cond.i1196 = and i1 %cmp.i1195, %42
   br i1 %or.cond.i1196, label %for.cond.preheader.i, label %if.else.i1197
@@ -2804,23 +2804,23 @@ for.cond.preheader.i:                             ; preds = %sw.bb64.i
 for.body.i1198:                                   ; preds = %for.cond.preheader.i, %for.body.i1198
   %i.02.i = phi i64 [ %inc.i1202, %for.body.i1198 ], [ 0, %for.cond.preheader.i ]
   %arrayidx.i1199 = getelementptr inbounds i8, ptr %6, i64 %i.02.i
-  %arrayidx.val.i = load i64, ptr %arrayidx.i1199, align 1, !alias.scope !44
+  %arrayidx.val.i = load i64, ptr %arrayidx.i1199, align 1, !alias.scope !42
   %mul.i.i1200 = mul i64 %arrayidx.val.i, 8922571613522624512
   %shr.i.i1201 = lshr i64 %mul.i.i1200, 48
   %arrayidx2.i = getelementptr inbounds i32, ptr %privat65.i.val, i64 %shr.i.i1201
-  store i32 0, ptr %arrayidx2.i, align 4, !noalias !44
+  store i32 0, ptr %arrayidx2.i, align 4, !noalias !42
   %inc.i1202 = add nuw nsw i64 %i.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i1202, %conv145
-  br i1 %exitcond.not.i, label %sw.epilog91.i, label %for.body.i1198, !llvm.loop !47
+  br i1 %exitcond.not.i, label %sw.epilog91.i, label %for.body.i1198, !llvm.loop !45
 
 if.else.i1197:                                    ; preds = %sw.bb64.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262144) %privat65.i.val, i8 0, i64 262144, i1 false), !noalias !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(262144) %privat65.i.val, i8 0, i64 262144, i1 false), !noalias !42
   br label %sw.epilog91.i
 
 sw.bb66.i:                                        ; preds = %if.then60.i
   %68 = getelementptr i8, ptr %s, i64 1720
   %privat67.i.val = load ptr, ptr %68, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %cmp.i1203 = icmp ult i64 %conv145, 2049
   %or.cond.i1204 = and i1 %cmp.i1203, %42
   br i1 %or.cond.i1204, label %for.cond.preheader.i1206, label %if.else.i1205
@@ -2832,21 +2832,21 @@ for.cond.preheader.i1206:                         ; preds = %sw.bb66.i
 for.body.i1207:                                   ; preds = %for.cond.preheader.i1206, %for.body.i1207
   %i.03.i = phi i64 [ %inc7.i, %for.body.i1207 ], [ 0, %for.cond.preheader.i1206 ]
   %arrayidx.i1208 = getelementptr inbounds i8, ptr %6, i64 %i.03.i
-  %arrayidx.val.i1209 = load i64, ptr %arrayidx.i1208, align 1, !alias.scope !48
+  %arrayidx.val.i1209 = load i64, ptr %arrayidx.i1208, align 1, !alias.scope !46
   %mul.i.i1210 = mul i64 %arrayidx.val.i1209, 8922571613522624512
   %shr.i.i1211 = lshr i64 %mul.i.i1210, 48
   %arrayidx5.i1216 = getelementptr inbounds i32, ptr %privat67.i.val, i64 %shr.i.i1211
-  store i32 0, ptr %arrayidx5.i1216, align 4, !noalias !48
+  store i32 0, ptr %arrayidx5.i1216, align 4, !noalias !46
   %add.i1213.c = add nuw nsw i64 %shr.i.i1211, 8
   %and.i1214.c = and i64 %add.i1213.c, 65535
   %arrayidx5.i1216.c = getelementptr inbounds i32, ptr %privat67.i.val, i64 %and.i1214.c
-  store i32 0, ptr %arrayidx5.i1216.c, align 4, !noalias !48
+  store i32 0, ptr %arrayidx5.i1216.c, align 4, !noalias !46
   %inc7.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i1217 = icmp eq i64 %inc7.i, %conv145
-  br i1 %exitcond.not.i1217, label %sw.epilog91.i, label %for.body.i1207, !llvm.loop !51
+  br i1 %exitcond.not.i1217, label %sw.epilog91.i, label %for.body.i1207, !llvm.loop !49
 
 if.else.i1205:                                    ; preds = %sw.bb66.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262144) %privat67.i.val, i8 0, i64 262144, i1 false), !noalias !48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(262144) %privat67.i.val, i8 0, i64 262144, i1 false), !noalias !46
   br label %sw.epilog91.i
 
 sw.bb68.i:                                        ; preds = %if.then60.i
@@ -2914,7 +2914,7 @@ for.body.i1218:                                   ; preds = %for.body.i1218, %sw
   store i32 %privat89.i.val1129, ptr %arrayidx.i1219, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i1220 = icmp eq i64 %indvars.iv.next.i, 131072
-  br i1 %exitcond.not.i1220, label %sw.epilog91.i, label %for.body.i1218, !llvm.loop !52
+  br i1 %exitcond.not.i1220, label %sw.epilog91.i, label %for.body.i1218, !llvm.loop !50
 
 sw.epilog91.i:                                    ; preds = %for.body.i1218, %for.body.i1207, %for.body.i1198, %if.else.i1205, %for.cond.preheader.i1206, %if.else.i1197, %for.cond.preheader.i, %if.then60.i, %sw.bb86.i, %sw.bb84.i, %sw.bb82.i, %sw.bb80.i, %sw.bb78.i, %sw.bb76.i, %sw.bb74.i, %sw.bb72.i, %sw.bb70.i, %sw.bb68.i
   store i32 1, ptr %is_prepared_.i3721493, align 8
@@ -3110,8 +3110,8 @@ if.then.i431:                                     ; preds = %sw.bb6.i
   %conv5.i827 = trunc nuw i64 %sub2.i432 to i32
   %buckets_.i828 = getelementptr inbounds i8, ptr %s, i64 1760
   %94 = load ptr, ptr %buckets_.i828, align 8
-  %95 = getelementptr i32, ptr %94, i64 %conv3.i822
-  %arrayidx6.i829 = getelementptr i32, ptr %95, i64 %conv4.i825
+  %95 = getelementptr inbounds i32, ptr %94, i64 %conv3.i822
+  %arrayidx6.i829 = getelementptr inbounds i32, ptr %95, i64 %conv4.i825
   store i32 %conv5.i827, ptr %arrayidx6.i829, align 4
   %96 = load ptr, ptr %num_.i816, align 8
   %arrayidx9.i832 = getelementptr inbounds i16, ptr %96, i64 %idxprom.i817
@@ -3138,8 +3138,8 @@ if.then.i431:                                     ; preds = %sw.bb6.i
   %conv4.i796 = zext i32 %shl.i795 to i64
   %conv5.i798 = trunc nuw i64 %sub3.i433 to i32
   %103 = load ptr, ptr %buckets_.i828, align 8
-  %104 = getelementptr i32, ptr %103, i64 %conv3.i793
-  %arrayidx6.i800 = getelementptr i32, ptr %104, i64 %conv4.i796
+  %104 = getelementptr inbounds i32, ptr %103, i64 %conv3.i793
+  %arrayidx6.i800 = getelementptr inbounds i32, ptr %104, i64 %conv4.i796
   store i32 %conv5.i798, ptr %arrayidx6.i800, align 4
   %105 = load ptr, ptr %num_.i816, align 8
   %arrayidx9.i803 = getelementptr inbounds i16, ptr %105, i64 %idxprom.i788
@@ -3166,8 +3166,8 @@ if.then.i431:                                     ; preds = %sw.bb6.i
   %conv4.i = zext i32 %shl.i772 to i64
   %conv5.i = trunc nuw i64 %sub4.i434 to i32
   %112 = load ptr, ptr %buckets_.i828, align 8
-  %113 = getelementptr i32, ptr %112, i64 %conv3.i
-  %arrayidx6.i = getelementptr i32, ptr %113, i64 %conv4.i
+  %113 = getelementptr inbounds i32, ptr %112, i64 %conv3.i
+  %arrayidx6.i = getelementptr inbounds i32, ptr %113, i64 %conv4.i
   store i32 %conv5.i, ptr %arrayidx6.i, align 4
   %114 = load ptr, ptr %num_.i816, align 8
   %arrayidx9.i = getelementptr inbounds i16, ptr %114, i64 %idxprom.i769
@@ -3733,31 +3733,31 @@ if.end.i1636:                                     ; preds = %if.then.i1645, %Sti
   %sub5.i1638 = sub nsw i64 %conv142, %and4.i1637
   %spec.select1118 = tail call i64 @llvm.umin.i64(i64 %available.i1632.0, i64 %sub5.i1638)
   %add.ptr.i1641 = getelementptr inbounds i8, ptr %6, i64 %and4.i1637
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %cmp.i1291 = icmp ult i64 %spec.select1118, 32
   br i1 %cmp.i1291, label %PrepareHROLLING_FAST.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i1636
   %factor.i = getelementptr inbounds i8, ptr %s, i64 1756
-  %197 = load i32, ptr %factor.i, align 4, !alias.scope !53, !noalias !56
+  %197 = load i32, ptr %factor.i, align 4, !alias.scope !51, !noalias !54
   br label %for.body.i1292
 
 for.body.i1292:                                   ; preds = %for.body.i1292, %if.end.i
   %i.08.i = phi i64 [ 0, %if.end.i ], [ %add.i1295, %for.body.i1292 ]
   %add1.i67.i = phi i32 [ 0, %if.end.i ], [ %add1.i.i, %for.body.i1292 ]
   %arrayidx.i1293 = getelementptr inbounds i8, ptr %add.ptr.i1641, i64 %i.08.i
-  %198 = load i8, ptr %arrayidx.i1293, align 1, !alias.scope !56, !noalias !53
+  %198 = load i8, ptr %arrayidx.i1293, align 1, !alias.scope !54, !noalias !51
   %mul.i.i1294 = mul i32 %add1.i67.i, %197
   %conv.i.i.i = zext i8 %198 to i32
   %add.i.i.i = add i32 %mul.i.i1294, 1
   %add1.i.i = add i32 %add.i.i.i, %conv.i.i.i
   %add.i1295 = add nuw nsw i64 %i.08.i, 4
   %cmp1.i1296 = icmp ult i64 %i.08.i, 28
-  br i1 %cmp1.i1296, label %for.body.i1292, label %return.loopexit.i, !llvm.loop !58
+  br i1 %cmp1.i1296, label %for.body.i1292, label %return.loopexit.i, !llvm.loop !56
 
 return.loopexit.i:                                ; preds = %for.body.i1292
-  store i32 %add1.i.i, ptr %hb.i, align 8, !alias.scope !53, !noalias !56
+  store i32 %add1.i.i, ptr %hb.i, align 8, !alias.scope !51, !noalias !54
   br label %PrepareHROLLING_FAST.exit
 
 PrepareHROLLING_FAST.exit:                        ; preds = %if.end.i1636, %return.loopexit.i
@@ -3833,31 +3833,31 @@ if.end.i1615:                                     ; preds = %if.then.i1617, %Sti
   %sub5.i = sub nsw i64 %conv142, %and4.i
   %spec.select1119 = tail call i64 @llvm.umin.i64(i64 %available.i.0, i64 %sub5.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %and4.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %cmp.i1306 = icmp ult i64 %spec.select1119, 32
   br i1 %cmp.i1306, label %PrepareHROLLING_FAST.exit1320, label %if.end.i1307
 
 if.end.i1307:                                     ; preds = %if.end.i1615
   %factor.i1308 = getelementptr inbounds i8, ptr %s, i64 1756
-  %205 = load i32, ptr %factor.i1308, align 4, !alias.scope !59, !noalias !62
+  %205 = load i32, ptr %factor.i1308, align 4, !alias.scope !57, !noalias !60
   br label %for.body.i1309
 
 for.body.i1309:                                   ; preds = %for.body.i1309, %if.end.i1307
   %i.08.i1310 = phi i64 [ 0, %if.end.i1307 ], [ %add.i1317, %for.body.i1309 ]
   %add1.i67.i1311 = phi i32 [ 0, %if.end.i1307 ], [ %add1.i.i1316, %for.body.i1309 ]
   %arrayidx.i1312 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.08.i1310
-  %206 = load i8, ptr %arrayidx.i1312, align 1, !alias.scope !62, !noalias !59
+  %206 = load i8, ptr %arrayidx.i1312, align 1, !alias.scope !60, !noalias !57
   %mul.i.i1313 = mul i32 %add1.i67.i1311, %205
   %conv.i.i.i1314 = zext i8 %206 to i32
   %add.i.i.i1315 = add i32 %mul.i.i1313, 1
   %add1.i.i1316 = add i32 %add.i.i.i1315, %conv.i.i.i1314
   %add.i1317 = add nuw nsw i64 %i.08.i1310, 4
   %cmp1.i1318 = icmp ult i64 %i.08.i1310, 28
-  br i1 %cmp1.i1318, label %for.body.i1309, label %return.loopexit.i1319, !llvm.loop !58
+  br i1 %cmp1.i1318, label %for.body.i1309, label %return.loopexit.i1319, !llvm.loop !56
 
 return.loopexit.i1319:                            ; preds = %for.body.i1309
-  store i32 %add1.i.i1316, ptr %hb.i531, align 8, !alias.scope !59, !noalias !62
+  store i32 %add1.i.i1316, ptr %hb.i531, align 8, !alias.scope !57, !noalias !60
   br label %PrepareHROLLING_FAST.exit1320
 
 PrepareHROLLING_FAST.exit1320:                    ; preds = %if.end.i1615, %return.loopexit.i1319
@@ -3957,31 +3957,31 @@ StitchToPreviousBlockH65.exit:                    ; preds = %if.then.i.i554, %sw
   %sub5.i1666 = sub nsw i64 %conv142, %and4.i1665
   %spec.select1120 = tail call i64 @llvm.umin.i64(i64 %sub5.i1666, i64 %conv145)
   %add.ptr.i1669 = getelementptr inbounds i8, ptr %6, i64 %and4.i1665
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %cmp.i1321 = icmp ult i64 %spec.select1120, 32
   br i1 %cmp.i1321, label %PrepareHROLLING.exit, label %if.end.i1322
 
 if.end.i1322:                                     ; preds = %StitchToPreviousBlockH65.exit
   %factor.i1323 = getelementptr inbounds i8, ptr %s, i64 1804
-  %228 = load i32, ptr %factor.i1323, align 4, !alias.scope !64, !noalias !67
+  %228 = load i32, ptr %factor.i1323, align 4, !alias.scope !62, !noalias !65
   br label %for.body.i1324
 
 for.body.i1324:                                   ; preds = %for.body.i1324, %if.end.i1322
   %i.08.i1325 = phi i64 [ 0, %if.end.i1322 ], [ %add.i1332, %for.body.i1324 ]
   %add1.i67.i1326 = phi i32 [ 0, %if.end.i1322 ], [ %add1.i.i1331, %for.body.i1324 ]
   %arrayidx.i1327 = getelementptr inbounds i8, ptr %add.ptr.i1669, i64 %i.08.i1325
-  %229 = load i8, ptr %arrayidx.i1327, align 1, !alias.scope !67, !noalias !64
+  %229 = load i8, ptr %arrayidx.i1327, align 1, !alias.scope !65, !noalias !62
   %mul.i.i1328 = mul i32 %add1.i67.i1326, %228
   %conv.i.i.i1329 = zext i8 %229 to i32
   %add.i.i.i1330 = add i32 %mul.i.i1328, 1
   %add1.i.i1331 = add i32 %add.i.i.i1330, %conv.i.i.i1329
   %add.i1332 = add nuw nsw i64 %i.08.i1325, 1
   %exitcond.not.i1333 = icmp eq i64 %add.i1332, 32
-  br i1 %exitcond.not.i1333, label %return.loopexit.i1334, label %for.body.i1324, !llvm.loop !69
+  br i1 %exitcond.not.i1333, label %return.loopexit.i1334, label %for.body.i1324, !llvm.loop !67
 
 return.loopexit.i1334:                            ; preds = %for.body.i1324
-  store i32 %add1.i.i1331, ptr %hb.i551, align 8, !alias.scope !64, !noalias !67
+  store i32 %add1.i.i1331, ptr %hb.i551, align 8, !alias.scope !62, !noalias !65
   br label %PrepareHROLLING.exit
 
 PrepareHROLLING.exit:                             ; preds = %StitchToPreviousBlockH65.exit, %return.loopexit.i1334
@@ -4088,7 +4088,7 @@ for.body.i1750:                                   ; preds = %if.end24.i, %if.end
   br i1 %cmp2.i1752.not, label %if.end.i1753, label %if.then.i1756
 
 if.then.i1756:                                    ; preds = %for.body.i1750
-  %236 = tail call i64 @llvm.cttz.i64(i64 %xor.i, i1 true), !range !70
+  %236 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %s1.addr.i.01449 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %arrayidx26.i1704 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -4101,7 +4101,7 @@ if.end.i1753:                                     ; preds = %for.body.i1750
   %add.ptr3.i = getelementptr inbounds i8, ptr %s1.addr.i.01449, i64 8
   %sub.i1755 = add i64 %limit.addr.i.01447, -8
   %cmp.i1740 = icmp ugt i64 %sub.i1755, 7
-  br i1 %cmp.i1740, label %for.body.i1750, label %while.cond.i.preheader, !llvm.loop !71
+  br i1 %cmp.i1740, label %for.body.i1750, label %while.cond.i.preheader, !llvm.loop !68
 
 land.rhs.i1746:                                   ; preds = %land.rhs.i1746.preheader, %while.body.i
   %s1.addr.i.11455 = phi ptr [ %incdec.ptr8.i, %while.body.i ], [ %s1.addr.i.0.lcssa, %land.rhs.i1746.preheader ]
@@ -4117,7 +4117,7 @@ while.body.i:                                     ; preds = %land.rhs.i1746
   %incdec.ptr.i1745 = getelementptr inbounds i8, ptr %s2.addr.i.11454, i64 1
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %s1.addr.i.11455, i64 1
   %tobool.i1742.not = icmp eq i64 %dec.i1744, 0
-  br i1 %tobool.i1742.not, label %while.end.i, label %land.rhs.i1746, !llvm.loop !72
+  br i1 %tobool.i1742.not, label %while.end.i, label %land.rhs.i1746, !llvm.loop !69
 
 while.end.i:                                      ; preds = %land.rhs.i1746, %while.body.i, %while.cond.i.preheader
   %s1.addr.i.1.lcssa = phi ptr [ %s1.addr.i.0.lcssa, %while.cond.i.preheader ], [ %scevgep, %while.body.i ], [ %s1.addr.i.11455, %land.rhs.i1746 ]
@@ -4149,9 +4149,9 @@ if.then41.i:                                      ; preds = %FindMatchLengthWith
   br label %StoreAndFindMatchesH10.exit
 
 if.end49.i:                                       ; preds = %FindMatchLengthWithLimit.exit
-  %arrayidx51.i = getelementptr i8, ptr %arrayidx.i1690, i64 %add31.i
+  %arrayidx51.i = getelementptr inbounds i8, ptr %arrayidx.i1690, i64 %add31.i
   %243 = load i8, ptr %arrayidx51.i, align 1
-  %arrayidx54.i = getelementptr i8, ptr %235, i64 %add31.i
+  %arrayidx54.i = getelementptr inbounds i8, ptr %235, i64 %add31.i
   %244 = load i8, ptr %arrayidx54.i, align 1
   %cmp56.i = icmp ugt i8 %243, %244
   br i1 %cmp56.i, label %if.then60.i1707, label %if.then68.i
@@ -4193,7 +4193,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %if.then41.i, %if.th
   store i32 %.sink, ptr %arrayidx47.i, align 4
   %inc.i581 = add nuw nsw i64 %i.i565.01474, 1
   %exitcond1483.not = icmp eq i64 %inc.i581, %cond.i.i576
-  br i1 %exitcond1483.not, label %InitOrStitchToPreviousBlock.exit, label %for.body.i579, !llvm.loop !73
+  br i1 %exitcond1483.not, label %InitOrStitchToPreviousBlock.exit, label %for.body.i579, !llvm.loop !70
 
 InitOrStitchToPreviousBlock.exit:                 ; preds = %StoreAndFindMatchesH10.exit, %if.then.i572, %HasherSetup.exit, %sw.bb24.i, %sw.bb16.i, %if.then.i505, %sw.bb14.i, %if.then.i490, %sw.bb12.i, %if.then.i475, %sw.bb10.i, %if.then.i460, %sw.bb8.i, %if.then.i446, %sw.bb6.i, %if.then.i431, %sw.bb4.i, %if.then.i416, %sw.bb2.i, %if.then.i401, %sw.bb.i, %if.then.i389, %PrepareHROLLING.exit, %PrepareHROLLING_FAST.exit1320, %PrepareHROLLING_FAST.exit
   %last_flush_pos_ = getelementptr inbounds i8, ptr %s, i64 1512
@@ -4326,7 +4326,7 @@ land.lhs.true249:                                 ; preds = %land.lhs.true245
   br i1 %cmp251, label %if.then253, label %if.end259
 
 if.then253:                                       ; preds = %land.lhs.true249
-  %call254 = tail call fastcc i32 @UpdateLastProcessedPos(ptr noundef nonnull %s), !range !4
+  %call254 = tail call fastcc i32 @UpdateLastProcessedPos(ptr noundef nonnull %s)
   %tobool255.not = icmp eq i32 %call254, 0
   br i1 %tobool255.not, label %return.sink.split, label %if.then256
 
@@ -4366,7 +4366,7 @@ if.else.i1768:                                    ; preds = %if.then263
 if.then3.i:                                       ; preds = %if.else.i1768
   %sub.i1772 = add nsw i64 %271, -2
   %conv.i27.i = trunc nuw nsw i64 %sub.i1772 to i32
-  %274 = tail call i32 @llvm.ctlz.i32(i32 %conv.i27.i, i1 true), !range !7
+  %274 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i27.i, i1 true)
   %sub4.i1773 = sub nuw nsw i32 30, %274
   %shl.i1774 = shl nuw nsw i32 %sub4.i1773, 1
   %sh_prom.i1777 = zext nneg i32 %sub4.i1773 to i64
@@ -4382,7 +4382,7 @@ if.else9.i:                                       ; preds = %if.else.i1768
 
 if.then12.i:                                      ; preds = %if.else9.i
   %conv.i.i1771 = add nsw i32 %conv.i, -66
-  %277 = tail call i32 @llvm.ctlz.i32(i32 %conv.i.i1771, i1 true), !range !7
+  %277 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i.i1771, i1 true)
   %conv16.i = sub nuw nsw i32 41, %277
   br label %CombineLengthCodes.exit
 
@@ -4528,7 +4528,7 @@ if.end.i.i:                                       ; preds = %if.end.i1369
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %conv.i132.i = uitofp i64 %292 to double
-  %conv3.i.i = uitofp i64 %conv303 to double
+  %conv3.i.i = uitofp nneg i64 %conv303 to double
   %mul.i.i1377 = fmul double %conv3.i.i, 0x3FEFAE147AE147AE
   %cmp4.i.i = fcmp olt double %mul.i.i1377, %conv.i132.i
   br i1 %cmp4.i.i, label %if.then6.i.i, label %if.end3.i
@@ -4555,7 +4555,7 @@ for.body.i.i:                                     ; preds = %if.then6.i.i, %for.
   %add16.i.i = add i32 %pos.033.i.i, 13
   %inc17.i.i = add nuw nsw i64 %i.034.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc17.i.i, %div10.i.i
-  br i1 %exitcond.not.i.i, label %while.body.i.i.i, label %for.body.i.i, !llvm.loop !74
+  br i1 %exitcond.not.i.i, label %while.body.i.i.i, label %for.body.i.i, !llvm.loop !71
 
 while.body.i.i.i:                                 ; preds = %for.body.i.i, %FastLog2.exit.i.i
   %population.addr.i24.0.idx37.i.i = phi i64 [ %incdec.ptr.i.add.i.i, %FastLog2.exit.i.i ], [ 0, %for.body.i.i ]
@@ -4606,7 +4606,7 @@ FastLog2.exit.i.i:                                ; preds = %if.end.i33.i.i, %if
   %neg8.i.i.i = fneg double %conv6.i.i.i
   %308 = tail call double @llvm.fmuladd.f64(double %neg8.i.i.i, double %retval.i.0.i.i, double %305)
   %cmp.i28.i.i = icmp ult i64 %population.addr.i24.0.idx37.i.i, 1016
-  br i1 %cmp.i28.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !75
+  br i1 %cmp.i28.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !72
 
 while.end.i.i.i:                                  ; preds = %FastLog2.exit.i.i
   %div.i.i = fdiv double %mul8.i.i, 1.300000e+01
@@ -4646,7 +4646,7 @@ ShannonEntropy.exit.i.i.if.end3.i_crit_edge:      ; preds = %ShannonEntropy.exit
 
 if.then2.i:                                       ; preds = %ShannonEntropy.exit.i.i, %if.end.i1369
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %literal_histo.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull readonly align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
   %conv.i1381 = zext i32 %result.0.i.i1364 to i64
   call void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_last, ptr noundef %6, i64 noundef %conv.i1381, i64 noundef %conv142, i64 noundef %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %284) #18
   br label %WriteMetaBlockInternal.exit
@@ -4768,7 +4768,7 @@ if.end42.i:                                       ; preds = %if.end39.i, %if.the
   br i1 %cmp44.i, label %if.then46.i, label %WriteMetaBlockInternal.exit
 
 if.then46.i:                                      ; preds = %if.end42.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull readonly align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
   store i8 %311, ptr %284, align 1
   store i8 %312, ptr %arrayidx300, align 1
   %conv53.i = and i64 %313, 255
@@ -4872,7 +4872,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BrotliEncoderHasMoreOutput(ptr nocapture noundef readonly %s) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @BrotliEncoderHasMoreOutput(ptr nocapture noundef readonly %s) local_unnamed_addr #4 {
 entry:
   %available_out_ = getelementptr inbounds i8, ptr %s, i64 6928
   %0 = load i64, ptr %available_out_, align 8
@@ -5014,7 +5014,7 @@ declare hidden void @BrotliCleanupSharedEncoderDictionary(ptr noundef, ptr nound
 declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef %state, ptr noundef %dictionary) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef %state, ptr noundef %dictionary) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %dictionary, align 4
   %cmp = icmp eq i32 %0, -558043678
@@ -5122,7 +5122,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.030, 1
   %19 = load i64, ptr %compound56, align 8
   %cmp57 = icmp ult i64 %inc, %19
-  br i1 %cmp57, label %for.body, label %for.end, !llvm.loop !76
+  br i1 %cmp57, label %for.body, label %for.end, !llvm.loop !73
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.030 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -5319,7 +5319,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   %htsize.0.i = phi i64 [ 256, %if.then ], [ %shl.i208, %while.cond.i ]
   %5 = icmp ult i64 %htsize.0.i, %invariant.umin.i
   %shl.i208 = shl nuw nsw i64 %htsize.0.i, 1
-  br i1 %5, label %while.cond.i, label %HashTableSize.exit, !llvm.loop !8
+  br i1 %5, label %while.cond.i, label %HashTableSize.exit, !llvm.loop !6
 
 HashTableSize.exit:                               ; preds = %while.cond.i
   %cmp14 = icmp ult i64 %htsize.0.i, 1024
@@ -5583,7 +5583,7 @@ if.end39:                                         ; preds = %for.body
   %add40 = add i64 %call, %result.046
   %inc = add nuw i64 %i.047, 1
   %exitcond.not = icmp eq i64 %inc, %10
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !77
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !74
 
 for.end:                                          ; preds = %if.end39, %if.then32
   %result.0.lcssa = phi i64 [ 1320, %if.then32 ], [ %add40, %if.end39 ]
@@ -5664,7 +5664,7 @@ if.end71:                                         ; preds = %if.then68, %if.end6
   %spec.select43 = select i1 %tobool72.not, i64 %result.6, i64 %add74
   %inc77 = add nuw i64 %i.150, 1
   %exitcond52.not = icmp eq i64 %inc77, %num_instances.058
-  br i1 %exitcond52.not, label %for.end78, label %for.body50, !llvm.loop !78
+  br i1 %exitcond52.not, label %for.end78, label %for.body50, !llvm.loop !75
 
 for.end78:                                        ; preds = %if.end71, %if.end46
   %result.2.lcssa = phi i64 [ %add44, %if.end46 ], [ %spec.select43, %if.end71 ]
@@ -5688,7 +5688,7 @@ declare hidden void @BrotliCompressFragmentFast(ptr noundef, ptr noundef, i64 no
 declare hidden void @BrotliCompressFragmentTwoPass(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @UpdateLastProcessedPos(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @UpdateLastProcessedPos(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %last_processed_pos_ = getelementptr inbounds i8, ptr %s, i64 1520
   %0 = load i64, ptr %last_processed_pos_, align 8
@@ -5843,7 +5843,7 @@ while.body:                                       ; preds = %land.rhs
   store i32 %inc32, ptr %wrapped_last_processed_pos, align 4
   %21 = load i32, ptr %bytes, align 4
   %cmp18.not = icmp eq i32 %21, 0
-  br i1 %cmp18.not, label %if.end99, label %land.rhs, !llvm.loop !79
+  br i1 %cmp18.not, label %if.end99, label %land.rhs, !llvm.loop !76
 
 if.else:                                          ; preds = %if.then
   %sub33 = sub i64 %conv6, %cond
@@ -5865,7 +5865,7 @@ while.cond43:                                     ; preds = %while.cond43, %if.t
   %arrayidx45 = getelementptr inbounds [16 x i64], ptr %chunk_offsets, i64 0, i64 %add44
   %22 = load i64, ptr %arrayidx45, align 8
   %cmp46.not = icmp ult i64 %add, %22
-  br i1 %cmp46.not, label %while.end50, label %while.cond43, !llvm.loop !80
+  br i1 %cmp46.not, label %while.end50, label %while.cond43, !llvm.loop !77
 
 while.end50:                                      ; preds = %while.cond43
   %chunk_source = getelementptr inbounds i8, ptr %s, i64 232
@@ -5936,7 +5936,7 @@ if.end96:                                         ; preds = %if.then86, %while.b
   %chunk_length.1 = phi i64 [ %sub94, %if.then86 ], [ %chunk_length.0109, %while.body74 ]
   %36 = load i32, ptr %bytes, align 4
   %cmp62.not = icmp eq i32 %36, 0
-  br i1 %cmp62.not, label %if.end99, label %land.rhs64, !llvm.loop !81
+  br i1 %cmp62.not, label %if.end99, label %land.rhs64, !llvm.loop !78
 
 if.end99:                                         ; preds = %while.body, %land.rhs, %land.rhs64, %if.then82, %if.end96, %while.cond.preheader, %while.end50, %if.else
   %37 = load i32, ptr %arrayidx, align 4
@@ -5960,7 +5960,7 @@ if.else.i117:                                     ; preds = %if.end99
 if.then3.i:                                       ; preds = %if.else.i117
   %sub.i118 = add nsw i64 %conv100, -2
   %conv.i27.i = trunc nuw nsw i64 %sub.i118 to i32
-  %41 = tail call i32 @llvm.ctlz.i32(i32 %conv.i27.i, i1 true), !range !7
+  %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i27.i, i1 true)
   %sub4.i = sub nsw i32 30, %41
   %shl.i119 = shl nuw nsw i32 %sub4.i, 1
   %sh_prom.i = zext nneg i32 %sub4.i to i64
@@ -5976,7 +5976,7 @@ if.else9.i:                                       ; preds = %if.else.i117
 
 if.then12.i:                                      ; preds = %if.else9.i
   %sub13.i = add nsw i32 %37, -66
-  %44 = tail call i32 @llvm.ctlz.i32(i32 %sub13.i, i1 true), !range !7
+  %44 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub13.i, i1 true)
   %conv16.i = sub nuw nsw i32 41, %44
   br label %GetInsertLengthCode.exit
 
@@ -6005,7 +6005,7 @@ if.else.i129:                                     ; preds = %GetInsertLengthCode
 if.then3.i133:                                    ; preds = %if.else.i129
   %sub4.i134 = add nsw i64 %conv105, -6
   %conv.i20.i = trunc nuw nsw i64 %sub4.i134 to i32
-  %45 = tail call i32 @llvm.ctlz.i32(i32 %conv.i20.i, i1 true), !range !7
+  %45 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i20.i, i1 true)
   %sub5.i = sub nsw i32 30, %45
   %shl.i135 = shl nuw nsw i32 %sub5.i, 1
   %sh_prom.i137 = zext nneg i32 %sub5.i to i64
@@ -6021,7 +6021,7 @@ if.else10.i:                                      ; preds = %if.else.i129
 
 if.then13.i:                                      ; preds = %if.else10.i
   %sub14.i = add nsw i32 %add104, -70
-  %48 = tail call i32 @llvm.ctlz.i32(i32 %sub14.i, i1 true), !range !7
+  %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub14.i, i1 true)
   %conv17.i = sub nuw nsw i32 43, %48
   br label %GetCopyLengthCode.exit
 
@@ -6169,12 +6169,12 @@ for.body4:                                        ; preds = %for.body, %for.body
   store i32 0, ptr %arrayidx5, align 4
   %inc = add nuw nsw i32 %j.01, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %for.inc6, label %for.body4, !llvm.loop !82
+  br i1 %exitcond.not, label %for.inc6, label %for.body4, !llvm.loop !79
 
 for.inc6:                                         ; preds = %for.body4
   %inc7 = add nuw nsw i64 %i.03, 1
   %exitcond4.not = icmp eq i64 %inc7, %input_size
-  br i1 %exitcond4.not, label %if.end, label %for.body, !llvm.loop !83
+  br i1 %exitcond4.not, label %if.end, label %for.body, !llvm.loop !80
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(524288) %self.8.val, i8 0, i64 524288, i1 false)
@@ -6216,7 +6216,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i16 0, ptr %arrayidx2, align 2
   %inc = add nuw nsw i64 %i.09, 1
   %exitcond.not = icmp eq i64 %inc, %input_size
-  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !84
+  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !81
 
 if.else:                                          ; preds = %entry
   %mul = shl i64 %.pre, 1
@@ -6258,7 +6258,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i16 0, ptr %arrayidx2, align 2
   %inc = add nuw nsw i64 %i.09, 1
   %exitcond.not = icmp eq i64 %inc, %input_size
-  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !85
+  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !82
 
 if.else:                                          ; preds = %entry
   %mul = shl i64 %.pre, 1
@@ -6297,7 +6297,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i16 -13108, ptr %arrayidx11, align 2
   %inc = add nuw nsw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %input_size
-  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !86
+  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !83
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(131072) %0, i8 -52, i64 131072, i1 false)
@@ -6339,7 +6339,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i16 -13108, ptr %arrayidx11, align 2
   %inc = add nuw nsw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %input_size
-  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !87
+  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !84
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(131072) %0, i8 -52, i64 131072, i1 false)
@@ -6381,7 +6381,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i16 -13108, ptr %arrayidx11, align 2
   %inc = add nuw nsw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %input_size
-  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !88
+  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !85
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(131072) %0, i8 -52, i64 131072, i1 false)
@@ -6426,12 +6426,12 @@ for.body4:                                        ; preds = %for.body, %for.body
   store i32 0, ptr %arrayidx5, align 4
   %inc = add nuw nsw i32 %j.01, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %for.inc6, label %for.body4, !llvm.loop !89
+  br i1 %exitcond.not, label %for.inc6, label %for.body4, !llvm.loop !86
 
 for.inc6:                                         ; preds = %for.body4
   %inc7 = add nuw nsw i64 %i.03, 1
   %exitcond4.not = icmp eq i64 %inc7, %input_size
-  br i1 %exitcond4.not, label %if.end, label %for.body, !llvm.loop !90
+  br i1 %exitcond4.not, label %if.end, label %for.body, !llvm.loop !87
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4194304) %self.8.val, i8 0, i64 4194304, i1 false)
@@ -6477,26 +6477,26 @@ if.then:                                          ; preds = %entry
   store ptr %5, ptr %arrayidx26, align 8
   %arrayidx29 = getelementptr inbounds i8, ptr %self, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, i8 0, i64 16, i1 false)
-  store ptr %ha_common, ptr %self, align 8, !alias.scope !91
+  store ptr %ha_common, ptr %self, align 8, !alias.scope !88
   %buckets_.i = getelementptr inbounds i8, ptr %self, i64 8
-  store ptr %2, ptr %buckets_.i, align 8, !alias.scope !91
+  store ptr %2, ptr %buckets_.i, align 8, !alias.scope !88
   %hb = getelementptr inbounds i8, ptr %self, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  store i32 0, ptr %hb, align 8, !alias.scope !94
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  store i32 0, ptr %hb, align 8, !alias.scope !91
   %next_ix.i = getelementptr inbounds i8, ptr %self, i64 32
-  store i64 0, ptr %next_ix.i, align 8, !alias.scope !94
+  store i64 0, ptr %next_ix.i, align 8, !alias.scope !91
   %factor.i = getelementptr inbounds i8, ptr %self, i64 44
-  store i32 69069, ptr %factor.i, align 4, !alias.scope !94
+  store i32 69069, ptr %factor.i, align 4, !alias.scope !91
   %factor_remove.i = getelementptr inbounds i8, ptr %self, i64 48
-  store i32 381957665, ptr %factor_remove.i, align 8, !alias.scope !94
+  store i32 381957665, ptr %factor_remove.i, align 8, !alias.scope !91
   %table.i = getelementptr inbounds i8, ptr %self, i64 24
-  store ptr %4, ptr %table.i, align 8, !alias.scope !94
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !94
+  store ptr %4, ptr %table.i, align 8, !alias.scope !91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !91
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %self.val = phi ptr [ %self.val.pre, %entry.if.end_crit_edge ], [ %2, %if.then ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %tobool.not.i = icmp ne i32 %one_shot, 0
   %cmp.i = icmp ult i64 %input_size, 2049
   %or.cond.i = and i1 %tobool.not.i, %cmp.i
@@ -6509,50 +6509,50 @@ for.cond.preheader.i:                             ; preds = %if.end
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.03.i = phi i64 [ %inc7.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %i.03.i
-  %arrayidx.val.i = load i64, ptr %arrayidx.i, align 1, !alias.scope !97
+  %arrayidx.val.i = load i64, ptr %arrayidx.i, align 1, !alias.scope !94
   %mul.i.i = mul i64 %arrayidx.val.i, 8922571613522624512
   %shr.i.i = lshr i64 %mul.i.i, 48
   %arrayidx5.i = getelementptr inbounds i32, ptr %self.val, i64 %shr.i.i
-  store i32 0, ptr %arrayidx5.i, align 4, !noalias !97
+  store i32 0, ptr %arrayidx5.i, align 4, !noalias !94
   %add.i.c = add nuw nsw i64 %shr.i.i, 8
   %and.i.c = and i64 %add.i.c, 65535
   %arrayidx5.i.c = getelementptr inbounds i32, ptr %self.val, i64 %and.i.c
-  store i32 0, ptr %arrayidx5.i.c, align 4, !noalias !97
+  store i32 0, ptr %arrayidx5.i.c, align 4, !noalias !94
   %inc7.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, %input_size
-  br i1 %exitcond.not.i, label %PrepareH3.exit, label %for.body.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %PrepareH3.exit, label %for.body.i, !llvm.loop !49
 
 if.else.i:                                        ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262144) %self.val, i8 0, i64 262144, i1 false), !noalias !97
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(262144) %self.val, i8 0, i64 262144, i1 false), !noalias !94
   br label %PrepareH3.exit
 
 PrepareH3.exit:                                   ; preds = %for.body.i, %if.else.i
   %hb37 = getelementptr inbounds i8, ptr %self, i64 16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %cmp.i25 = icmp ult i64 %input_size, 32
   br i1 %cmp.i25, label %PrepareHROLLING_FAST.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PrepareH3.exit
   %factor.i26 = getelementptr inbounds i8, ptr %self, i64 44
-  %6 = load i32, ptr %factor.i26, align 4, !alias.scope !100, !noalias !103
+  %6 = load i32, ptr %factor.i26, align 4, !alias.scope !97, !noalias !100
   br label %for.body.i27
 
 for.body.i27:                                     ; preds = %for.body.i27, %if.end.i
   %i.08.i = phi i64 [ 0, %if.end.i ], [ %add.i30, %for.body.i27 ]
   %add1.i67.i = phi i32 [ 0, %if.end.i ], [ %add1.i.i, %for.body.i27 ]
   %arrayidx.i28 = getelementptr inbounds i8, ptr %data, i64 %i.08.i
-  %7 = load i8, ptr %arrayidx.i28, align 1, !alias.scope !103, !noalias !100
+  %7 = load i8, ptr %arrayidx.i28, align 1, !alias.scope !100, !noalias !97
   %mul.i.i29 = mul i32 %add1.i67.i, %6
   %conv.i.i.i = zext i8 %7 to i32
   %add.i.i.i = add i32 %mul.i.i29, 1
   %add1.i.i = add i32 %add.i.i.i, %conv.i.i.i
   %add.i30 = add nuw nsw i64 %i.08.i, 4
   %cmp1.i = icmp ult i64 %i.08.i, 28
-  br i1 %cmp1.i, label %for.body.i27, label %return.loopexit.i, !llvm.loop !58
+  br i1 %cmp1.i, label %for.body.i27, label %return.loopexit.i, !llvm.loop !56
 
 return.loopexit.i:                                ; preds = %for.body.i27
-  store i32 %add1.i.i, ptr %hb37, align 8, !alias.scope !100, !noalias !103
+  store i32 %add1.i.i, ptr %hb37, align 8, !alias.scope !97, !noalias !100
   br label %PrepareHROLLING_FAST.exit
 
 PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.i, %PrepareH3.exit, %return.loopexit.i
@@ -6595,26 +6595,26 @@ if.then:                                          ; preds = %entry
   store ptr %5, ptr %arrayidx26, align 8
   %arrayidx29 = getelementptr inbounds i8, ptr %self, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, i8 0, i64 16, i1 false)
-  store ptr %ha_common, ptr %self, align 8, !alias.scope !105
+  store ptr %ha_common, ptr %self, align 8, !alias.scope !102
   %buckets_.i = getelementptr inbounds i8, ptr %self, i64 8
-  store ptr %2, ptr %buckets_.i, align 8, !alias.scope !105
+  store ptr %2, ptr %buckets_.i, align 8, !alias.scope !102
   %hb = getelementptr inbounds i8, ptr %self, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  store i32 0, ptr %hb, align 8, !alias.scope !108
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  store i32 0, ptr %hb, align 8, !alias.scope !105
   %next_ix.i = getelementptr inbounds i8, ptr %self, i64 32
-  store i64 0, ptr %next_ix.i, align 8, !alias.scope !108
+  store i64 0, ptr %next_ix.i, align 8, !alias.scope !105
   %factor.i = getelementptr inbounds i8, ptr %self, i64 44
-  store i32 69069, ptr %factor.i, align 4, !alias.scope !108
+  store i32 69069, ptr %factor.i, align 4, !alias.scope !105
   %factor_remove.i = getelementptr inbounds i8, ptr %self, i64 48
-  store i32 381957665, ptr %factor_remove.i, align 8, !alias.scope !108
+  store i32 381957665, ptr %factor_remove.i, align 8, !alias.scope !105
   %table.i = getelementptr inbounds i8, ptr %self, i64 24
-  store ptr %4, ptr %table.i, align 8, !alias.scope !108
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !108
+  store ptr %4, ptr %table.i, align 8, !alias.scope !105
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !105
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %self.val = phi ptr [ %self.val.pre, %entry.if.end_crit_edge ], [ %2, %if.then ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %tobool.not.i = icmp ne i32 %one_shot, 0
   %cmp.i = icmp ult i64 %input_size, 32769
   %or.cond.i = and i1 %tobool.not.i, %cmp.i
@@ -6627,7 +6627,7 @@ for.cond.preheader.i:                             ; preds = %if.end
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc6.i
   %i.03.i = phi i64 [ %inc7.i, %for.inc6.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %i.03.i
-  %arrayidx.val.i = load i64, ptr %arrayidx.i, align 1, !alias.scope !111
+  %arrayidx.val.i = load i64, ptr %arrayidx.i, align 1, !alias.scope !108
   %mul.i.i = mul i64 %arrayidx.val.i, -2064201331557805312
   %shr.i.i = lshr i64 %mul.i.i, 44
   %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
@@ -6640,47 +6640,47 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.b
   %and.i = and i32 %add.i, 1048575
   %idxprom.i = zext nneg i32 %and.i to i64
   %arrayidx5.i = getelementptr inbounds i32, ptr %self.val, i64 %idxprom.i
-  store i32 0, ptr %arrayidx5.i, align 4, !noalias !111
+  store i32 0, ptr %arrayidx5.i, align 4, !noalias !108
   %inc.i = add nuw nsw i32 %j.01.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 4
-  br i1 %exitcond.not.i, label %for.inc6.i, label %for.body4.i, !llvm.loop !89
+  br i1 %exitcond.not.i, label %for.inc6.i, label %for.body4.i, !llvm.loop !86
 
 for.inc6.i:                                       ; preds = %for.body4.i
   %inc7.i = add nuw nsw i64 %i.03.i, 1
   %exitcond4.not.i = icmp eq i64 %inc7.i, %input_size
-  br i1 %exitcond4.not.i, label %PrepareH54.exit, label %for.body.i, !llvm.loop !90
+  br i1 %exitcond4.not.i, label %PrepareH54.exit, label %for.body.i, !llvm.loop !87
 
 if.else.i:                                        ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4194304) %self.val, i8 0, i64 4194304, i1 false), !noalias !111
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(4194304) %self.val, i8 0, i64 4194304, i1 false), !noalias !108
   br label %PrepareH54.exit
 
 PrepareH54.exit:                                  ; preds = %for.inc6.i, %if.else.i
   %hb37 = getelementptr inbounds i8, ptr %self, i64 16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %cmp.i25 = icmp ult i64 %input_size, 32
   br i1 %cmp.i25, label %PrepareHROLLING_FAST.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PrepareH54.exit
   %factor.i26 = getelementptr inbounds i8, ptr %self, i64 44
-  %6 = load i32, ptr %factor.i26, align 4, !alias.scope !114, !noalias !117
+  %6 = load i32, ptr %factor.i26, align 4, !alias.scope !111, !noalias !114
   br label %for.body.i27
 
 for.body.i27:                                     ; preds = %for.body.i27, %if.end.i
   %i.08.i = phi i64 [ 0, %if.end.i ], [ %add.i30, %for.body.i27 ]
   %add1.i67.i = phi i32 [ 0, %if.end.i ], [ %add1.i.i, %for.body.i27 ]
   %arrayidx.i28 = getelementptr inbounds i8, ptr %data, i64 %i.08.i
-  %7 = load i8, ptr %arrayidx.i28, align 1, !alias.scope !117, !noalias !114
+  %7 = load i8, ptr %arrayidx.i28, align 1, !alias.scope !114, !noalias !111
   %mul.i.i29 = mul i32 %add1.i67.i, %6
   %conv.i.i.i = zext i8 %7 to i32
   %add.i.i.i = add i32 %mul.i.i29, 1
   %add1.i.i = add i32 %add.i.i.i, %conv.i.i.i
   %add.i30 = add nuw nsw i64 %i.08.i, 4
   %cmp1.i = icmp ult i64 %i.08.i, 28
-  br i1 %cmp1.i, label %for.body.i27, label %return.loopexit.i, !llvm.loop !58
+  br i1 %cmp1.i, label %for.body.i27, label %return.loopexit.i, !llvm.loop !56
 
 return.loopexit.i:                                ; preds = %for.body.i27
-  store i32 %add1.i.i, ptr %hb37, align 8, !alias.scope !114, !noalias !117
+  store i32 %add1.i.i, ptr %hb37, align 8, !alias.scope !111, !noalias !114
   br label %PrepareHROLLING_FAST.exit
 
 PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.i, %PrepareH54.exit, %return.loopexit.i
@@ -6697,8 +6697,8 @@ entry:
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %num_.i25.phi.trans.insert = getelementptr inbounds i8, ptr %self, i64 48
-  %.pre = load ptr, ptr %num_.i25.phi.trans.insert, align 8, !alias.scope !119, !noalias !122
-  %.pre.i.pre = load i64, ptr %self, align 8, !alias.scope !119, !noalias !122
+  %.pre = load ptr, ptr %num_.i25.phi.trans.insert, align 8, !alias.scope !116, !noalias !119
+  %.pre.i.pre = load i64, ptr %self, align 8, !alias.scope !116, !noalias !119
   br label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6723,53 +6723,53 @@ if.then:                                          ; preds = %entry
   %arrayidx26 = getelementptr inbounds i8, ptr %self, i64 192
   store ptr %5, ptr %arrayidx26, align 8
   %arrayidx29 = getelementptr inbounds i8, ptr %self, i64 200
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %common_.i = getelementptr inbounds i8, ptr %self, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, i8 0, i64 16, i1 false)
-  store ptr %ha_common, ptr %common_.i, align 8, !alias.scope !124
+  store ptr %ha_common, ptr %common_.i, align 8, !alias.scope !121
   %hash_mul_.i = getelementptr inbounds i8, ptr %self, i64 16
-  store i64 8922571613522624512, ptr %hash_mul_.i, align 8, !alias.scope !124
+  store i64 8922571613522624512, ptr %hash_mul_.i, align 8, !alias.scope !121
   %bucket_bits.i = getelementptr inbounds i8, ptr %self, i64 164
-  %6 = load i32, ptr %bucket_bits.i, align 4, !noalias !124
+  %6 = load i32, ptr %bucket_bits.i, align 4, !noalias !121
   %sh_prom.i = zext nneg i32 %6 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  store i64 %shl.i, ptr %self, align 8, !alias.scope !124
+  store i64 %shl.i, ptr %self, align 8, !alias.scope !121
   %block_bits.i = getelementptr inbounds i8, ptr %self, i64 168
   %block_bits_.i = getelementptr inbounds i8, ptr %self, i64 28
   %block_size_.i = getelementptr inbounds i8, ptr %self, i64 8
   %block_mask_.i = getelementptr inbounds i8, ptr %self, i64 24
-  %7 = load <2 x i32>, ptr %block_bits.i, align 8, !noalias !124
+  %7 = load <2 x i32>, ptr %block_bits.i, align 8, !noalias !121
   %8 = extractelement <2 x i32> %7, i64 0
   %sh_prom5.i = zext nneg i32 %8 to i64
   %shl6.i = shl nuw i64 1, %sh_prom5.i
-  store i64 %shl6.i, ptr %block_size_.i, align 8, !alias.scope !124
+  store i64 %shl6.i, ptr %block_size_.i, align 8, !alias.scope !121
   %9 = trunc i64 %shl6.i to i32
   %conv.i = add i32 %9, -1
-  store i32 %conv.i, ptr %block_mask_.i, align 8, !alias.scope !124
-  store <2 x i32> %7, ptr %block_bits_.i, align 4, !alias.scope !124
+  store i32 %conv.i, ptr %block_mask_.i, align 8, !alias.scope !121
+  store <2 x i32> %7, ptr %block_bits_.i, align 4, !alias.scope !121
   %num_.i = getelementptr inbounds i8, ptr %self, i64 48
-  store ptr %2, ptr %num_.i, align 8, !alias.scope !124
+  store ptr %2, ptr %num_.i, align 8, !alias.scope !121
   %buckets_.i = getelementptr inbounds i8, ptr %self, i64 56
-  store ptr %3, ptr %buckets_.i, align 8, !alias.scope !124
+  store ptr %3, ptr %buckets_.i, align 8, !alias.scope !121
   %hb = getelementptr inbounds i8, ptr %self, i64 64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  store i32 0, ptr %hb, align 8, !alias.scope !127
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
+  store i32 0, ptr %hb, align 8, !alias.scope !124
   %next_ix.i = getelementptr inbounds i8, ptr %self, i64 80
-  store i64 0, ptr %next_ix.i, align 8, !alias.scope !127
+  store i64 0, ptr %next_ix.i, align 8, !alias.scope !124
   %factor.i = getelementptr inbounds i8, ptr %self, i64 92
-  store i32 69069, ptr %factor.i, align 4, !alias.scope !127
+  store i32 69069, ptr %factor.i, align 4, !alias.scope !124
   %factor_remove.i = getelementptr inbounds i8, ptr %self, i64 96
-  store i32 -236195711, ptr %factor_remove.i, align 8, !alias.scope !127
+  store i32 -236195711, ptr %factor_remove.i, align 8, !alias.scope !124
   %table.i = getelementptr inbounds i8, ptr %self, i64 72
-  store ptr %4, ptr %table.i, align 8, !alias.scope !127
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !127
+  store ptr %4, ptr %table.i, align 8, !alias.scope !124
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !124
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %.pre.i = phi i64 [ %.pre.i.pre, %entry.if.end_crit_edge ], [ %shl.i, %if.then ]
   %10 = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %2, %if.then ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %tobool.not.i = icmp eq i32 %one_shot, 0
   %shr.i = lshr i64 %.pre.i, 6
   %cmp.not.i = icmp ult i64 %shr.i, %input_size
@@ -6782,53 +6782,53 @@ for.cond.preheader.i:                             ; preds = %if.end
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %hash_mul_.i26 = getelementptr inbounds i8, ptr %self, i64 16
-  %11 = load i64, ptr %hash_mul_.i26, align 8, !alias.scope !119, !noalias !122
+  %11 = load i64, ptr %hash_mul_.i26, align 8, !alias.scope !116, !noalias !119
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %i.09.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %i.09.i
-  %t.i.i.0.copyload.i = load i64, ptr %arrayidx.i, align 1, !alias.scope !122, !noalias !119
+  %t.i.i.0.copyload.i = load i64, ptr %arrayidx.i, align 1, !alias.scope !119, !noalias !116
   %mul.i.i = mul i64 %t.i.i.0.copyload.i, %11
   %shr.i.i = lshr i64 %mul.i.i, 49
   %arrayidx2.i = getelementptr inbounds i16, ptr %10, i64 %shr.i.i
-  store i16 0, ptr %arrayidx2.i, align 2, !noalias !130
+  store i16 0, ptr %arrayidx2.i, align 2, !noalias !127
   %inc.i = add nuw nsw i64 %i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %input_size
-  br i1 %exitcond.not.i, label %PrepareH6.exit, label %for.body.i, !llvm.loop !85
+  br i1 %exitcond.not.i, label %PrepareH6.exit, label %for.body.i, !llvm.loop !82
 
 if.else.i:                                        ; preds = %if.end
   %mul.i = shl i64 %.pre.i, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %10, i8 0, i64 %mul.i, i1 false), !noalias !130
+  tail call void @llvm.memset.p0.i64(ptr align 2 %10, i8 0, i64 %mul.i, i1 false), !noalias !127
   br label %PrepareH6.exit
 
 PrepareH6.exit:                                   ; preds = %for.body.i, %if.else.i
   %hb37 = getelementptr inbounds i8, ptr %self, i64 64
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %cmp.i = icmp ult i64 %input_size, 32
   br i1 %cmp.i, label %PrepareHROLLING.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PrepareH6.exit
   %factor.i27 = getelementptr inbounds i8, ptr %self, i64 92
-  %12 = load i32, ptr %factor.i27, align 4, !alias.scope !131, !noalias !134
+  %12 = load i32, ptr %factor.i27, align 4, !alias.scope !128, !noalias !131
   br label %for.body.i28
 
 for.body.i28:                                     ; preds = %for.body.i28, %if.end.i
   %i.08.i = phi i64 [ 0, %if.end.i ], [ %add.i, %for.body.i28 ]
   %add1.i67.i = phi i32 [ 0, %if.end.i ], [ %add1.i.i, %for.body.i28 ]
   %arrayidx.i29 = getelementptr inbounds i8, ptr %data, i64 %i.08.i
-  %13 = load i8, ptr %arrayidx.i29, align 1, !alias.scope !134, !noalias !131
+  %13 = load i8, ptr %arrayidx.i29, align 1, !alias.scope !131, !noalias !128
   %mul.i.i30 = mul i32 %add1.i67.i, %12
   %conv.i.i.i = zext i8 %13 to i32
   %add.i.i.i = add i32 %mul.i.i30, 1
   %add1.i.i = add i32 %add.i.i.i, %conv.i.i.i
   %add.i = add nuw nsw i64 %i.08.i, 1
   %exitcond.not.i31 = icmp eq i64 %add.i, 32
-  br i1 %exitcond.not.i31, label %return.loopexit.i, label %for.body.i28, !llvm.loop !69
+  br i1 %exitcond.not.i31, label %return.loopexit.i, label %for.body.i28, !llvm.loop !67
 
 return.loopexit.i:                                ; preds = %for.body.i28
-  store i32 %add1.i.i, ptr %hb37, align 8, !alias.scope !131, !noalias !134
+  store i32 %add1.i.i, ptr %hb37, align 8, !alias.scope !128, !noalias !131
   br label %PrepareHROLLING.exit
 
 PrepareHROLLING.exit:                             ; preds = %for.cond.preheader.i, %PrepareH6.exit, %return.loopexit.i
@@ -6936,7 +6936,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   store i32 %inc31.i, ptr %arrayidx30.i, align 4
   %inc32.i = add nuw nsw i64 %pos.080.i, 1
   %exitcond.not.i = icmp eq i64 %inc32.i, %indvars.iv.i
-  br i1 %exitcond.not.i, label %for.inc33.loopexit.i, label %for.body10.i, !llvm.loop !136
+  br i1 %exitcond.not.i, label %for.inc33.loopexit.i, label %for.body10.i, !llvm.loop !133
 
 for.inc33.loopexit.i:                             ; preds = %for.body10.i
   %10 = add i32 %total.084.i, 62
@@ -6947,7 +6947,7 @@ for.inc33.i:                                      ; preds = %for.inc33.loopexit.
   %add34.i = add i64 %start_pos.addr.083.i, 4096
   %indvars.iv.next.i = add i64 %indvars.iv.i, 4096
   %cmp2.not.i = icmp ugt i64 %indvars.iv.next.i, %.pre
-  br i1 %cmp2.not.i, label %while.cond.i77.preheader.loopexit.i, label %for.body.i, !llvm.loop !137
+  br i1 %cmp2.not.i, label %while.cond.i77.preheader.loopexit.i, label %for.body.i, !llvm.loop !134
 
 while.body.i84.i:                                 ; preds = %FastLog2.exit.i, %while.cond.i77.preheader.i
   %population.addr.i66.0.idx89.i = phi i64 [ 0, %while.cond.i77.preheader.i ], [ %incdec.ptr.i85.add.i, %FastLog2.exit.i ]
@@ -6998,7 +6998,7 @@ FastLog2.exit.i:                                  ; preds = %if.end.i101.i, %if.
   %neg8.i97.i = fneg double %conv6.i95.i
   %16 = tail call double @llvm.fmuladd.f64(double %neg8.i97.i, double %retval.i.0.i, double %13)
   %cmp.i78.i = icmp ult i64 %population.addr.i66.0.idx89.i, 120
-  br i1 %cmp.i78.i, label %while.body.i84.i, label %while.end.i79.i, !llvm.loop !75
+  br i1 %cmp.i78.i, label %while.body.i84.i, label %while.end.i79.i, !llvm.loop !72
 
 while.end.i79.i:                                  ; preds = %FastLog2.exit.i
   %tobool9.i80.not.i = icmp eq i64 %add5.i94.i, 0
@@ -7083,7 +7083,7 @@ FastLog2.exit131.i:                               ; preds = %if.end.i126.i, %if.
   %neg8.i.i = fneg double %conv6.i.i
   %24 = tail call double @llvm.fmuladd.f64(double %neg8.i.i, double %retval.i123.0.i, double %21)
   %cmp.i.i = icmp ult i64 %population.addr.i.0.idx92.i, 120
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !75
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !72
 
 while.end.i.i:                                    ; preds = %FastLog2.exit131.i
   %tobool9.i.not.i = icmp eq i64 %add5.i.i, 0
@@ -7113,7 +7113,7 @@ ShannonEntropy.exit.i:                            ; preds = %FastLog2.exit148.i,
   %add46.i = fadd double %entropy.sroa.7.093.i, %retval1.i.2.i
   %inc48.i = add nuw nsw i64 %i.094.i, 1
   %exitcond96.not.i = icmp eq i64 %inc48.i, 13
-  br i1 %exitcond96.not.i, label %for.end49.i, label %for.body41.i, !llvm.loop !138
+  br i1 %exitcond96.not.i, label %for.end49.i, label %for.body41.i, !llvm.loop !135
 
 for.end49.i:                                      ; preds = %ShannonEntropy.exit.i
   %div.i = fdiv double 1.000000e+00, %total.0.lcssa.i
@@ -7174,13 +7174,13 @@ for.body12:                                       ; preds = %for.body12.preheade
   store i32 %inc, ptr %arrayidx21, align 4
   %pos.0 = add nuw i64 %pos.065, 1
   %exitcond.not = icmp eq i64 %pos.0, %indvars.iv
-  br i1 %exitcond.not, label %for.inc28, label %for.body12, !llvm.loop !139
+  br i1 %exitcond.not, label %for.inc28, label %for.body12, !llvm.loop !136
 
 for.inc28:                                        ; preds = %for.body12, %for.body
   %add29 = add i64 %start_pos.addr.068, 4096
   %indvars.iv.next = add i64 %indvars.iv, 4096
   %cmp5.not = icmp ugt i64 %indvars.iv.next, %.pre
-  br i1 %cmp5.not, label %for.end30, label %for.body, !llvm.loop !140
+  br i1 %cmp5.not, label %for.end30, label %for.body, !llvm.loop !137
 
 for.end30:                                        ; preds = %for.inc28, %if.else3
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %monogram_histo.i)
@@ -7210,7 +7210,7 @@ for.body.i23:                                     ; preds = %for.body.i23, %for.
   store i32 %add5.i, ptr %arrayidx4.i, align 4
   %inc.i = add nuw nsw i64 %i.0120.i, 1
   %exitcond.not.i26 = icmp eq i64 %inc.i, 9
-  br i1 %exitcond.not.i26, label %odd_number_of_elements_left.i157.i.preheader, label %for.body.i23, !llvm.loop !141
+  br i1 %exitcond.not.i26, label %odd_number_of_elements_left.i157.i.preheader, label %for.body.i23, !llvm.loop !138
 
 odd_number_of_elements_left.i157.i.preheader:     ; preds = %for.body.i23
   %population.addr.i132.1.idx.sroa.gep.i = getelementptr inbounds i8, ptr %monogram_histo.i, i64 8
@@ -7401,7 +7401,7 @@ odd_number_of_elements_left.i89.i:                ; preds = %FastLog2.exit233.i,
   %sum.i67.1.i = phi i64 [ 0, %ShannonEntropy.exit131.i ], [ %add.i85.i, %FastLog2.exit233.i ]
   %retval1.i68.1.i = phi double [ 0.000000e+00, %ShannonEntropy.exit131.i ], [ %54, %FastLog2.exit233.i ]
   %population.addr.i64.1.ptr.i = getelementptr inbounds i8, ptr %two_prefix_histo.i, i64 %population.addr.i64.1.idx.i
-  %incdec.ptr3.i90.ptr.i = getelementptr i8, ptr %population.addr.i64.1.ptr.i, i64 4
+  %incdec.ptr3.i90.ptr.i = getelementptr inbounds i8, ptr %population.addr.i64.1.ptr.i, i64 4
   %55 = load i32, ptr %population.addr.i64.1.ptr.i, align 4
   %conv4.i91.i = zext i32 %55 to i64
   %add5.i92.i = add i64 %sum.i67.1.i, %conv4.i91.i
@@ -7540,7 +7540,7 @@ ShannonEntropy.exit.i40:                          ; preds = %FastLog2.exit268.i,
   %add20.i = fadd double %entropy.sroa.15.0122.i, %retval1.i.2.i41
   %inc22.i = add nuw nsw i64 %i.1121.i, 1
   %exitcond126.not.i = icmp eq i64 %inc22.i, 3
-  br i1 %exitcond126.not.i, label %for.end23.i, label %for.body16.i, !llvm.loop !142
+  br i1 %exitcond126.not.i, label %for.end23.i, label %for.body16.i, !llvm.loop !139
 
 for.end23.i:                                      ; preds = %ShannonEntropy.exit.i40
   %add11.i = fadd double %retval1.i102.2.i, %retval1.i68.2.i
@@ -7668,142 +7668,139 @@ attributes #18 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 33}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"InitializeH2: %self"}
-!13 = distinct !{!13, !"InitializeH2"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"InitializeH3: %self"}
-!16 = distinct !{!16, !"InitializeH3"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"InitializeH4: %self"}
-!19 = distinct !{!19, !"InitializeH4"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"InitializeH40: %self"}
-!22 = distinct !{!22, !"InitializeH40"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"InitializeH41: %self"}
-!25 = distinct !{!25, !"InitializeH41"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"InitializeH42: %self"}
-!28 = distinct !{!28, !"InitializeH42"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"InitializeH54: %self"}
-!31 = distinct !{!31, !"InitializeH54"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"InitializeH35: %self"}
-!34 = distinct !{!34, !"InitializeH35"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"InitializeH55: %self"}
-!37 = distinct !{!37, !"InitializeH55"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"InitializeH65: %self"}
-!40 = distinct !{!40, !"InitializeH65"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"InitializeH10: %self"}
-!43 = distinct !{!43, !"InitializeH10"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"PrepareH2: %data"}
-!46 = distinct !{!46, !"PrepareH2"}
-!47 = distinct !{!47, !6}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"PrepareH3: %data"}
-!50 = distinct !{!50, !"PrepareH3"}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"PrepareHROLLING_FAST: %self"}
-!55 = distinct !{!55, !"PrepareHROLLING_FAST"}
-!56 = !{!57}
-!57 = distinct !{!57, !55, !"PrepareHROLLING_FAST: %data"}
-!58 = distinct !{!58, !6}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"PrepareHROLLING_FAST: %self"}
-!61 = distinct !{!61, !"PrepareHROLLING_FAST"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"InitializeH2: %self"}
+!11 = distinct !{!11, !"InitializeH2"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"InitializeH3: %self"}
+!14 = distinct !{!14, !"InitializeH3"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"InitializeH4: %self"}
+!17 = distinct !{!17, !"InitializeH4"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"InitializeH40: %self"}
+!20 = distinct !{!20, !"InitializeH40"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"InitializeH41: %self"}
+!23 = distinct !{!23, !"InitializeH41"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"InitializeH42: %self"}
+!26 = distinct !{!26, !"InitializeH42"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"InitializeH54: %self"}
+!29 = distinct !{!29, !"InitializeH54"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"InitializeH35: %self"}
+!32 = distinct !{!32, !"InitializeH35"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"InitializeH55: %self"}
+!35 = distinct !{!35, !"InitializeH55"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"InitializeH65: %self"}
+!38 = distinct !{!38, !"InitializeH65"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"InitializeH10: %self"}
+!41 = distinct !{!41, !"InitializeH10"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"PrepareH2: %data"}
+!44 = distinct !{!44, !"PrepareH2"}
+!45 = distinct !{!45, !5}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"PrepareH3: %data"}
+!48 = distinct !{!48, !"PrepareH3"}
+!49 = distinct !{!49, !5}
+!50 = distinct !{!50, !5}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"PrepareHROLLING_FAST: %self"}
+!53 = distinct !{!53, !"PrepareHROLLING_FAST"}
+!54 = !{!55}
+!55 = distinct !{!55, !53, !"PrepareHROLLING_FAST: %data"}
+!56 = distinct !{!56, !5}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"PrepareHROLLING_FAST: %self"}
+!59 = distinct !{!59, !"PrepareHROLLING_FAST"}
+!60 = !{!61}
+!61 = distinct !{!61, !59, !"PrepareHROLLING_FAST: %data"}
 !62 = !{!63}
-!63 = distinct !{!63, !61, !"PrepareHROLLING_FAST: %data"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"PrepareHROLLING: %self"}
-!66 = distinct !{!66, !"PrepareHROLLING"}
-!67 = !{!68}
-!68 = distinct !{!68, !66, !"PrepareHROLLING: %data"}
-!69 = distinct !{!69, !6}
-!70 = !{i64 0, i64 65}
-!71 = distinct !{!71, !6}
-!72 = distinct !{!72, !6}
-!73 = distinct !{!73, !6}
-!74 = distinct !{!74, !6}
-!75 = distinct !{!75, !6}
-!76 = distinct !{!76, !6}
-!77 = distinct !{!77, !6}
-!78 = distinct !{!78, !6}
-!79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6}
-!81 = distinct !{!81, !6}
-!82 = distinct !{!82, !6}
-!83 = distinct !{!83, !6}
-!84 = distinct !{!84, !6}
-!85 = distinct !{!85, !6}
-!86 = distinct !{!86, !6}
-!87 = distinct !{!87, !6}
-!88 = distinct !{!88, !6}
-!89 = distinct !{!89, !6}
-!90 = distinct !{!90, !6}
+!63 = distinct !{!63, !64, !"PrepareHROLLING: %self"}
+!64 = distinct !{!64, !"PrepareHROLLING"}
+!65 = !{!66}
+!66 = distinct !{!66, !64, !"PrepareHROLLING: %data"}
+!67 = distinct !{!67, !5}
+!68 = distinct !{!68, !5}
+!69 = distinct !{!69, !5}
+!70 = distinct !{!70, !5}
+!71 = distinct !{!71, !5}
+!72 = distinct !{!72, !5}
+!73 = distinct !{!73, !5}
+!74 = distinct !{!74, !5}
+!75 = distinct !{!75, !5}
+!76 = distinct !{!76, !5}
+!77 = distinct !{!77, !5}
+!78 = distinct !{!78, !5}
+!79 = distinct !{!79, !5}
+!80 = distinct !{!80, !5}
+!81 = distinct !{!81, !5}
+!82 = distinct !{!82, !5}
+!83 = distinct !{!83, !5}
+!84 = distinct !{!84, !5}
+!85 = distinct !{!85, !5}
+!86 = distinct !{!86, !5}
+!87 = distinct !{!87, !5}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"InitializeH3: %self"}
+!90 = distinct !{!90, !"InitializeH3"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"InitializeH3: %self"}
-!93 = distinct !{!93, !"InitializeH3"}
+!92 = distinct !{!92, !93, !"InitializeHROLLING_FAST: %self"}
+!93 = distinct !{!93, !"InitializeHROLLING_FAST"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"InitializeHROLLING_FAST: %self"}
-!96 = distinct !{!96, !"InitializeHROLLING_FAST"}
+!95 = distinct !{!95, !96, !"PrepareH3: %data"}
+!96 = distinct !{!96, !"PrepareH3"}
 !97 = !{!98}
-!98 = distinct !{!98, !99, !"PrepareH3: %data"}
-!99 = distinct !{!99, !"PrepareH3"}
+!98 = distinct !{!98, !99, !"PrepareHROLLING_FAST: %self"}
+!99 = distinct !{!99, !"PrepareHROLLING_FAST"}
 !100 = !{!101}
-!101 = distinct !{!101, !102, !"PrepareHROLLING_FAST: %self"}
-!102 = distinct !{!102, !"PrepareHROLLING_FAST"}
-!103 = !{!104}
-!104 = distinct !{!104, !102, !"PrepareHROLLING_FAST: %data"}
+!101 = distinct !{!101, !99, !"PrepareHROLLING_FAST: %data"}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"InitializeH54: %self"}
+!104 = distinct !{!104, !"InitializeH54"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"InitializeH54: %self"}
-!107 = distinct !{!107, !"InitializeH54"}
+!106 = distinct !{!106, !107, !"InitializeHROLLING_FAST: %self"}
+!107 = distinct !{!107, !"InitializeHROLLING_FAST"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"InitializeHROLLING_FAST: %self"}
-!110 = distinct !{!110, !"InitializeHROLLING_FAST"}
+!109 = distinct !{!109, !110, !"PrepareH54: %data"}
+!110 = distinct !{!110, !"PrepareH54"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"PrepareH54: %data"}
-!113 = distinct !{!113, !"PrepareH54"}
+!112 = distinct !{!112, !113, !"PrepareHROLLING_FAST: %self"}
+!113 = distinct !{!113, !"PrepareHROLLING_FAST"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"PrepareHROLLING_FAST: %self"}
-!116 = distinct !{!116, !"PrepareHROLLING_FAST"}
-!117 = !{!118}
-!118 = distinct !{!118, !116, !"PrepareHROLLING_FAST: %data"}
+!115 = distinct !{!115, !113, !"PrepareHROLLING_FAST: %data"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"PrepareH6: %self"}
+!118 = distinct !{!118, !"PrepareH6"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"PrepareH6: %self"}
-!121 = distinct !{!121, !"PrepareH6"}
-!122 = !{!123}
-!123 = distinct !{!123, !121, !"PrepareH6: %data"}
+!120 = distinct !{!120, !118, !"PrepareH6: %data"}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"InitializeH6: %self"}
+!123 = distinct !{!123, !"InitializeH6"}
 !124 = !{!125}
-!125 = distinct !{!125, !126, !"InitializeH6: %self"}
-!126 = distinct !{!126, !"InitializeH6"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"InitializeHROLLING: %self"}
-!129 = distinct !{!129, !"InitializeHROLLING"}
-!130 = !{!120, !123}
+!125 = distinct !{!125, !126, !"InitializeHROLLING: %self"}
+!126 = distinct !{!126, !"InitializeHROLLING"}
+!127 = !{!117, !120}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"PrepareHROLLING: %self"}
+!130 = distinct !{!130, !"PrepareHROLLING"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"PrepareHROLLING: %self"}
-!133 = distinct !{!133, !"PrepareHROLLING"}
-!134 = !{!135}
-!135 = distinct !{!135, !133, !"PrepareHROLLING: %data"}
-!136 = distinct !{!136, !6}
-!137 = distinct !{!137, !6}
-!138 = distinct !{!138, !6}
-!139 = distinct !{!139, !6}
-!140 = distinct !{!140, !6}
-!141 = distinct !{!141, !6}
-!142 = distinct !{!142, !6}
+!132 = distinct !{!132, !130, !"PrepareHROLLING: %data"}
+!133 = distinct !{!133, !5}
+!134 = distinct !{!134, !5}
+!135 = distinct !{!135, !5}
+!136 = distinct !{!136, !5}
+!137 = distinct !{!137, !5}
+!138 = distinct !{!138, !5}
+!139 = distinct !{!139, !5}

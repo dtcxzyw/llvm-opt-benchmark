@@ -853,7 +853,7 @@ define i32 @Cbs2_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_un
 
 Cbs2_VarIsJust.exit:                              ; preds = %51
   %55 = lshr i64 %.val47, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = and i32 %56, 536870911
   %58 = sub nsw i32 %42, %57
   %59 = sext i32 %58 to i64
@@ -877,7 +877,7 @@ Cbs2_VarIsJust.exit.thread:                       ; preds = %.lr.ph103, %51, %Cb
   %71 = and i32 %70, 1
   %72 = xor i32 %71, %69
   %73 = lshr i64 %.val47, 32
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw i64 %73 to i32
   %75 = and i32 %74, 536870911
   %76 = sub nsw i32 %42, %75
   %77 = sext i32 %76 to i64
@@ -885,7 +885,7 @@ Cbs2_VarIsJust.exit.thread:                       ; preds = %.lr.ph103, %51, %Cb
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i32
   %81 = lshr i64 %.val47, 61
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw nsw i64 %81 to i32
   %83 = and i32 %82, 1
   %84 = xor i32 %83, %80
   %85 = load i32, ptr %11, align 4
@@ -917,7 +917,7 @@ Cbs2_VarIsJust.exit.thread:                       ; preds = %.lr.ph103, %51, %Cb
   %101 = or disjoint i32 %100, %99
   %102 = xor i32 %101, 1
   %103 = lshr i64 %.val49.i, 32
-  %104 = trunc i64 %103 to i32
+  %104 = trunc nuw i64 %103 to i32
   %105 = and i32 %104, 536870911
   %106 = sub nsw i32 %42, %105
   %107 = trunc i32 %102 to i8
@@ -989,11 +989,11 @@ Cbs2_ManAssign.exit.i:                            ; preds = %124, %._crit_edge.i
 140:                                              ; preds = %138
   %.val50.i = load i64, ptr %47, align 4
   %141 = lshr i64 %.val50.i, 32
-  %142 = trunc i64 %141 to i32
+  %142 = trunc nuw i64 %141 to i32
   %143 = and i32 %142, 536870911
   %144 = sub nsw i32 %42, %143
   %145 = lshr i64 %.val50.i, 61
-  %146 = trunc i64 %145 to i32
+  %146 = trunc nuw nsw i64 %145 to i32
   %147 = and i32 %146, 1
   %148 = shl nsw i32 %144, 1
   %149 = or disjoint i32 %148, %147
@@ -1070,7 +1070,7 @@ Cbs2_ManPropagateTwo.exit:                        ; preds = %89
   %186 = and i32 %185, 536870911
   %187 = sub nsw i32 %42, %186
   %188 = lshr i64 %.val41.i, 32
-  %189 = trunc i64 %188 to i32
+  %189 = trunc nuw i64 %188 to i32
   %190 = and i32 %189, 536870911
   %191 = sub nsw i32 %42, %190
   %192 = tail call fastcc i32 @Cbs2_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %42, i32 noundef %187, i32 noundef %191)
@@ -1132,7 +1132,7 @@ define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 n
   %23 = and i32 %22, 1
   %24 = xor i32 %23, %21
   %25 = lshr i64 %.val101, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = and i32 %26, 536870911
   %28 = sub nsw i32 %1, %27
   %29 = sext i32 %28 to i64
@@ -1140,7 +1140,7 @@ define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 n
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
   %33 = lshr i64 %.val101, 61
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = and i32 %34, 1
   %36 = xor i32 %35, %32
   %37 = getelementptr inbounds i8, ptr %.val100, i64 %7
@@ -1183,7 +1183,7 @@ define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 n
 55:                                               ; preds = %53
   %56 = shl nsw i32 %17, 1
   %57 = or disjoint i32 %56, %23
-  %58 = trunc i32 %22 to i8
+  %58 = trunc nuw nsw i32 %22 to i8
   %59 = and i8 %58, 1
   %60 = xor i8 %59, 1
   store i8 %60, ptr %19, align 1
@@ -1255,16 +1255,16 @@ Cbs2_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %7
 93:                                               ; preds = %91
   %.val110 = load i64, ptr %8, align 4
   %94 = lshr i64 %.val110, 32
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw i64 %94 to i32
   %96 = and i32 %95, 536870911
   %97 = sub nsw i32 %1, %96
   %98 = lshr i64 %.val110, 61
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw nsw i64 %98 to i32
   %100 = and i32 %99, 1
   %101 = shl nsw i32 %97, 1
   %102 = or disjoint i32 %101, %100
   %.val.i112 = load ptr, ptr %14, align 8
-  %103 = trunc i64 %98 to i8
+  %103 = trunc nuw nsw i64 %98 to i8
   %104 = and i8 %103, 1
   %105 = xor i8 %104, 1
   %106 = sext i32 %97 to i64
@@ -1366,11 +1366,11 @@ Cbs2_ManAssign.exit122:                           ; preds = %._crit_edge.i.i113,
 153:                                              ; preds = %151
   %.val111 = load i64, ptr %8, align 4
   %154 = lshr i64 %.val111, 32
-  %155 = trunc i64 %154 to i32
+  %155 = trunc nuw i64 %154 to i32
   %156 = and i32 %155, 536870911
   %157 = sub nsw i32 %1, %156
   %158 = lshr i64 %.val111, 61
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nuw nsw i64 %158 to i32
   %160 = and i32 %159, 1
   %161 = shl nsw i32 %157, 1
   %162 = or disjoint i32 %161, %160
@@ -1674,7 +1674,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %128, %.lr.ph100, %C
   %154 = and i32 %153, 1
   %155 = xor i32 %154, %152
   %156 = lshr i64 %.val46.i, 32
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw i64 %156 to i32
   %158 = and i32 %157, 536870911
   %159 = sub nsw i32 %137, %158
   %160 = sext i32 %159 to i64
@@ -1682,7 +1682,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %128, %.lr.ph100, %C
   %162 = load i8, ptr %161, align 1
   %163 = sext i8 %162 to i32
   %164 = lshr i64 %.val46.i, 61
-  %165 = trunc i64 %164 to i32
+  %165 = trunc nuw nsw i64 %164 to i32
   %166 = and i32 %165, 1
   %167 = xor i32 %166, %163
   %168 = load i32, ptr %18, align 8
@@ -1697,7 +1697,7 @@ Cbs2_ManPropagateClauses.exit.thread:             ; preds = %128, %.lr.ph100, %C
   %173 = or i32 %.03168, 1
   %.val42.i = load i64, ptr %145, align 4
   %174 = lshr i64 %.val42.i, 32
-  %175 = trunc i64 %174 to i32
+  %175 = trunc nuw i64 %174 to i32
   %176 = and i32 %175, 536870911
   %177 = sub nsw i32 %137, %176
   store i8 0, ptr %139, align 1
@@ -1867,7 +1867,7 @@ Cbs2_ManAssign.exit73.i:                          ; preds = %241, %._crit_edge.i
   %255 = and i32 %.03168, -2
   %.val44.i = load i64, ptr %145, align 4
   %256 = lshr i64 %.val44.i, 32
-  %257 = trunc i64 %256 to i32
+  %257 = trunc nuw i64 %256 to i32
   %258 = and i32 %257, 536870911
   %259 = sub nsw i32 %137, %258
   store i8 1, ptr %139, align 1
@@ -1966,7 +1966,7 @@ Cbs2_ManPropagateUnassigned.exit:                 ; preds = %.sink.split.i, %251
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cbs2_ManUpdateFrontier(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Cbs2_ManUpdateFrontier(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -2042,7 +2042,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 
 Cbs2_VarIsJust.exit:                              ; preds = %37
   %45 = lshr i64 %.val46, 32
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw i64 %45 to i32
   %47 = and i32 %46, 536870911
   %48 = sub nsw i32 %27, %47
   %49 = sext i32 %48 to i64
@@ -2138,7 +2138,7 @@ Cbs2_VarIsJust.exit.thread:                       ; preds = %29, %37, %Cbs2_QueP
 
 Cbs2_VarIsJust.exit52:                            ; preds = %92
   %100 = lshr i64 %.val45, 32
-  %101 = trunc i64 %100 to i32
+  %101 = trunc nuw i64 %100 to i32
   %102 = and i32 %101, 536870911
   %103 = sub nsw i32 %84, %102
   %104 = sext i32 %103 to i64
@@ -2434,9 +2434,9 @@ Cbs2_ManDecideHighest.exit:                       ; preds = %57, %60, %Cbs2_QueS
   %88 = getelementptr inbounds i32, ptr %.val67, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = icmp sgt i32 %79, %89
-  %91 = trunc i64 %80 to i32
+  %91 = trunc nuw i64 %80 to i32
   %92 = lshr i64 %68, 61
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nuw nsw i64 %92 to i32
   %94 = trunc i64 %68 to i32
   %95 = lshr i32 %94, 29
   %.sink = select i1 %90, i32 %95, i32 %93
@@ -3002,7 +3002,7 @@ define i32 @Cbs2_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not, label %7, label %139
 
 7:                                                ; preds = %2
-  %8 = call i32 @Cbs2_ManUpdateFrontier(ptr noundef nonnull %0, i32 noundef %5, ptr noundef nonnull %3), !range !21
+  %8 = call i32 @Cbs2_ManUpdateFrontier(ptr noundef nonnull %0, i32 noundef %5, ptr noundef nonnull %3)
   %.not61 = icmp eq i32 %8, 0
   br i1 %.not61, label %9, label %139
 
@@ -3098,9 +3098,9 @@ Cbs2_ManDecideHighest.exit:                       ; preds = %40, %43, %34
   %71 = getelementptr inbounds i32, ptr %.val72, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = icmp sgt i32 %62, %72
-  %74 = trunc i64 %63 to i32
+  %74 = trunc nuw i64 %63 to i32
   %75 = lshr i64 %51, 61
-  %76 = trunc i64 %75 to i32
+  %76 = trunc nuw nsw i64 %75 to i32
   %77 = trunc i64 %51 to i32
   %78 = lshr i32 %77, 29
   %.sink = select i1 %73, i32 %78, i32 %76
@@ -3244,7 +3244,7 @@ define i32 @Cbs2_ManSolve_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cbs2_ManSolve(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Cbs2_ManSolve(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3476,7 +3476,7 @@ Vec_IntPush.exit.i:                               ; preds = %115, %Vec_IntGrow.e
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next.i, %124
-  br i1 %125, label %76, label %Cbs2_ManSaveModel.exit, !llvm.loop !22
+  br i1 %125, label %76, label %Cbs2_ManSaveModel.exit, !llvm.loop !21
 
 Cbs2_ManSaveModel.exit:                           ; preds = %122, %76, %Cbs2_ManSolve_rec.exit, %50
   %.0.ph = phi i32 [ 1, %Cbs2_ManSolve_rec.exit ], [ 1, %50 ], [ 0, %76 ], [ 0, %122 ]
@@ -3540,7 +3540,7 @@ Cbs2_ManCancelUntil.exit:                         ; preds = %.lr.ph.i28, %132, %
   %.val7.i = load i32, ptr %144, align 4
   %153 = sext i32 %.val7.i to i64
   %154 = icmp slt i64 %indvars.iv.next.i35, %153
-  br i1 %154, label %148, label %Cbs2_ManCleanWatch.exit, !llvm.loop !23
+  br i1 %154, label %148, label %Cbs2_ManCleanWatch.exit, !llvm.loop !22
 
 Cbs2_ManCleanWatch.exit:                          ; preds = %148, %Cbs2_ManCancelUntil.exit
   store i32 0, ptr %144, align 4
@@ -3567,7 +3567,7 @@ Cbs2_ManCleanWatch.exit:                          ; preds = %148, %Cbs2_ManCance
   %.val6.i = load i32, ptr %155, align 4
   %164 = sext i32 %.val6.i to i64
   %165 = icmp slt i64 %indvars.iv.next.i40, %164
-  br i1 %165, label %159, label %Cbs2_ManBumpClean.exit, !llvm.loop !24
+  br i1 %165, label %159, label %Cbs2_ManBumpClean.exit, !llvm.loop !23
 
 Cbs2_ManBumpClean.exit:                           ; preds = %159, %Cbs2_ManCleanWatch.exit
   %166 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3609,7 +3609,7 @@ Cbs2_ManBumpClean.exit:                           ; preds = %159, %Cbs2_ManClean
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cbs2_ManSolve2(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Cbs2_ManSolve2(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3894,7 +3894,7 @@ Vec_IntPush.exit.i:                               ; preds = %144, %Vec_IntGrow.e
   %151 = load i32, ptr %14, align 4
   %152 = sext i32 %151 to i64
   %153 = icmp slt i64 %indvars.iv.next.i, %152
-  br i1 %153, label %111, label %Cbs2_ManSaveModelAll.exit, !llvm.loop !25
+  br i1 %153, label %111, label %Cbs2_ManSaveModelAll.exit, !llvm.loop !24
 
 Cbs2_ManSaveModelAll.exitthread-pre-split:        ; preds = %111, %86, %Cbs2_ManSolve_rec.exit
   %.0.ph = phi i32 [ 1, %Cbs2_ManSolve_rec.exit ], [ 1, %86 ], [ 0, %111 ]
@@ -3963,7 +3963,7 @@ Cbs2_ManCancelUntil.exit:                         ; preds = %.lr.ph.i44, %161, %
   %.val7.i = load i32, ptr %173, align 4
   %182 = sext i32 %.val7.i to i64
   %183 = icmp slt i64 %indvars.iv.next.i51, %182
-  br i1 %183, label %177, label %Cbs2_ManCleanWatch.exit, !llvm.loop !23
+  br i1 %183, label %177, label %Cbs2_ManCleanWatch.exit, !llvm.loop !22
 
 Cbs2_ManCleanWatch.exit:                          ; preds = %177, %Cbs2_ManCancelUntil.exit
   store i32 0, ptr %173, align 4
@@ -3990,7 +3990,7 @@ Cbs2_ManCleanWatch.exit:                          ; preds = %177, %Cbs2_ManCance
   %.val6.i = load i32, ptr %184, align 4
   %193 = sext i32 %.val6.i to i64
   %194 = icmp slt i64 %indvars.iv.next.i56, %193
-  br i1 %194, label %188, label %Cbs2_ManBumpClean.exit, !llvm.loop !24
+  br i1 %194, label %188, label %Cbs2_ManBumpClean.exit, !llvm.loop !23
 
 Cbs2_ManBumpClean.exit:                           ; preds = %188, %Cbs2_ManCleanWatch.exit
   %195 = getelementptr inbounds i8, ptr %0, i64 80
@@ -4185,7 +4185,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #26
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #26
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -4204,7 +4204,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4235,7 +4235,7 @@ define void @Cbs2_ObjPrintFanouts(ptr nocapture noundef readonly %0, i32 noundef
   %12 = getelementptr inbounds i32, ptr %.val, i64 %11
   %.0 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %.0, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %8, %2
   %putchar = tail call i32 @putchar(i32 10)
@@ -4272,7 +4272,7 @@ define void @Cbs2_ManPrintFanouts(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not8, label %23, label %15
 
 15:                                               ; preds = %12
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %16)
   %.val6.i = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds i32, ptr %.val6.i, i64 %indvars.iv
@@ -4289,7 +4289,7 @@ define void @Cbs2_ManPrintFanouts(ptr nocapture noundef readonly %0) local_unnam
   %22 = getelementptr inbounds i32, ptr %.val.i, i64 %21
   %.0.i = load i32, ptr %22, align 4
   %.not.i = icmp eq i32 %.0.i, 0
-  br i1 %.not.i, label %Cbs2_ObjPrintFanouts.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not.i, label %Cbs2_ObjPrintFanouts.exit, label %.lr.ph.i, !llvm.loop !25
 
 Cbs2_ObjPrintFanouts.exit:                        ; preds = %.lr.ph.i, %15
   %putchar.i = tail call i32 @putchar(i32 10)
@@ -4303,7 +4303,7 @@ Cbs2_ObjPrintFanouts.exit:                        ; preds = %.lr.ph.i, %15
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %9, label %.critedge, !llvm.loop !27
+  br i1 %28, label %9, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %9, %23, %1
   ret void
@@ -4398,7 +4398,7 @@ common.ret29:                                     ; preds = %11, %2, %3, %16
   %18 = and i32 %17, 536870911
   %19 = sub nsw i32 %1, %18
   %20 = lshr i64 %.val21, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 536870911
   %23 = sub nsw i32 %1, %22
   tail call void @Cbs2_ManCreateFanout_rec(ptr noundef nonnull %0, i32 noundef %19)
@@ -4469,7 +4469,7 @@ tailrecurse:                                      ; preds = %30, %2
   %20 = and i32 %19, 536870911
   %21 = sub nsw i32 %.tr23, %20
   %22 = lshr i64 %.val18, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 536870911
   %25 = sub nsw i32 %.tr23, %24
   %.val22 = load ptr, ptr %5, align 8
@@ -4627,7 +4627,7 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %25
   br i1 %.not77, label %102, label %74
 
 74:                                               ; preds = %72
-  %75 = trunc i64 %indvars.iv to i32
+  %75 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %30, ptr noundef nonnull %39, i32 noundef %75) #26
   %76 = load i32, ptr %24, align 4
   %77 = load i32, ptr %22, align 8
@@ -4798,7 +4798,7 @@ Abc_Clock.exit99:                                 ; preds = %129, %132
   %151 = and i32 %150, 1
   %152 = shl nsw i32 %149, 1
   %153 = or disjoint i32 %152, %151
-  %154 = call i32 @Cbs2_ManSolve(ptr noundef nonnull %17, i32 noundef %153), !range !28
+  %154 = call i32 @Cbs2_ManSolve(ptr noundef nonnull %17, i32 noundef %153)
   %.val89 = load ptr, ptr %40, align 8
   %155 = ptrtoint ptr %.val89 to i64
   %156 = sub i64 %135, %155
@@ -4809,7 +4809,7 @@ Abc_Clock.exit99:                                 ; preds = %129, %132
   %160 = and i32 %159, 536870911
   %161 = sub nsw i32 %158, %160
   call void @Cbs2_ManDeleteFanout_rec(ptr noundef nonnull %17, i32 noundef %161)
-  %162 = trunc i32 %154 to i8
+  %162 = trunc nsw i32 %154 to i8
   %163 = load i32, ptr %24, align 4
   %164 = load i32, ptr %22, align 8
   %165 = icmp eq i32 %163, %164
@@ -4883,7 +4883,7 @@ Vec_StrPush.exit107:                              ; preds = %.Vec_StrGrow.exit10
   %193 = load i32, ptr %52, align 8
   %194 = add nsw i32 %193, %192
   store i32 %194, ptr %52, align 8
-  %195 = trunc i64 %indvars.iv to i32
+  %195 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %30, ptr noundef null, i32 noundef %195) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %196 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #26
@@ -4945,7 +4945,7 @@ Abc_Clock.exit111:                                ; preds = %207, %215
   %228 = load i32, ptr %56, align 4
   %229 = add nsw i32 %228, %227
   store i32 %229, ptr %56, align 4
-  %230 = trunc i64 %indvars.iv to i32
+  %230 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %30, ptr noundef nonnull %39, i32 noundef %230) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %231 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #26
@@ -4976,7 +4976,7 @@ Abc_Clock.exit113:                                ; preds = %224, %233
   %.val80 = load i32, ptr %244, align 4
   %245 = sext i32 %.val80 to i64
   %246 = icmp slt i64 %indvars.iv.next, %245
-  br i1 %246, label %59, label %.critedge.loopexit, !llvm.loop !29
+  br i1 %246, label %59, label %.critedge.loopexit, !llvm.loop !27
 
 .critedge.loopexit:                               ; preds = %242, %59
   %.val84129 = phi ptr [ %243, %242 ], [ %60, %59 ]
@@ -5373,7 +5373,7 @@ Cbs2_QuePush.exit63:                              ; preds = %._crit_edge.i57, %1
   store i32 %130, ptr %149, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %127, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %127, !llvm.loop !28
 
 .loopexit:                                        ; preds = %Cbs2_QuePush.exit63, %Cbs2_QueGrow.exit, %Cbs2_QuePush.exit48, %Cbs2_QuePush.exit55
   %150 = tail call fastcc i32 @Cbs2_ManDeriveReason(ptr noundef nonnull %0, i32 noundef %1)
@@ -5694,7 +5694,7 @@ Cbs2_QuePush.exit87:                              ; preds = %._crit_edge.i81, %1
   store i32 %142, ptr %161, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %Cbs2_QuePush.exit87, %Cbs2_QueGrow.exit, %77, %Cbs2_QuePush.exit, %Cbs2_QuePush.exit79, %18, %63
   %.157 = phi i32 [ %.05690, %18 ], [ %65, %63 ], [ %.05690, %77 ], [ %.05690, %Cbs2_QuePush.exit79 ], [ %.05690, %Cbs2_QuePush.exit ], [ %.05690, %Cbs2_QueGrow.exit ], [ %.05690, %Cbs2_QuePush.exit87 ]
@@ -5702,7 +5702,7 @@ Cbs2_QuePush.exit87:                              ; preds = %._crit_edge.i81, %1
   %162 = load i32, ptr %9, align 4
   %163 = sext i32 %162 to i64
   %164 = icmp slt i64 %indvars.iv.next99, %163
-  br i1 %164, label %18, label %._crit_edge, !llvm.loop !32
+  br i1 %164, label %18, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.056.lcssa = phi i32 [ %8, %2 ], [ %.157, %.loopexit ]
@@ -5734,7 +5734,7 @@ Cbs2_QuePush.exit87:                              ; preds = %._crit_edge.i81, %1
   %.val70 = load i32, ptr %177, align 4
   %178 = sext i32 %.val70 to i64
   %179 = icmp slt i64 %indvars.iv.next102, %178
-  br i1 %179, label %169, label %.critedge.loopexit, !llvm.loop !33
+  br i1 %179, label %169, label %.critedge.loopexit, !llvm.loop !31
 
 .critedge.loopexit:                               ; preds = %169
   %.pre105 = load i32, ptr %9, align 4
@@ -5822,7 +5822,7 @@ Cbs2_QuePush.exit.i:                              ; preds = %Cbs2_QuePush.exit.s
   %220 = load i32, ptr %9, align 4
   %221 = sext i32 %220 to i64
   %222 = icmp slt i64 %indvars.iv.next.i, %221
-  br i1 %222, label %193, label %.critedge.i, !llvm.loop !34
+  br i1 %222, label %193, label %.critedge.i, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %Cbs2_QuePush.exit.i, %193, %189
   %223 = phi i32 [ %187, %189 ], [ %220, %Cbs2_QuePush.exit.i ], [ %194, %193 ]
@@ -6040,19 +6040,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #15
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #18
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #18
+declare void @llvm.va_start.p0(ptr) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
@@ -6084,8 +6084,8 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #15 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nofree nounwind }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -6118,17 +6118,15 @@ attributes #27 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = !{i32 0, i32 2}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = !{i32 -1, i32 2}
+!28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

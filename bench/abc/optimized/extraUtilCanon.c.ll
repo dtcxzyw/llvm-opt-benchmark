@@ -389,7 +389,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br i1 %exitcond252.not, label %._crit_edge.loopexit, label %190, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %190
-  %195 = trunc i64 %indvars.iv.next247 to i32
+  %195 = trunc nuw i64 %indvars.iv.next247 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader191
@@ -489,7 +489,7 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
   %16 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv24
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
-  %19 = trunc i64 %indvars.iv24 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv24 to i32
   %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %19, i32 noundef %18)
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv24
@@ -557,7 +557,7 @@ define void @Map_Var4Test() local_unnamed_addr #0 {
 7:                                                ; preds = %0, %7
   %.03 = phi i32 [ 0, %0 ], [ %9, %7 ]
   store i32 %.03, ptr %6, align 4
-  %8 = call fastcc i32 @Extra_TruthCanonN_rec(i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0)
+  %8 = call fastcc i32 @Extra_TruthCanonN_rec(i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull writeonly %5, i32 noundef 0)
   %9 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %9, 65536
   br i1 %exitcond.not, label %10, label %7, !llvm.loop !16

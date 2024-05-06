@@ -33,7 +33,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_mdc2() #0 {
+define internal range(i32 0, 2) i32 @test_mdc2() #0 {
 entry:
   %pad_type = alloca i32, align 4
   %md = alloca [16 x i8], align 16

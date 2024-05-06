@@ -277,7 +277,7 @@ declare ptr @qio_task_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @qio_channel_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_websock_handshake_io(ptr noundef %ioc, i32 %condition, ptr noundef %user_data) #0 {
+define internal range(i32 0, 2) i32 @qio_channel_websock_handshake_io(ptr noundef %ioc, i32 %condition, ptr noundef %user_data) #0 {
 entry:
   %_now.i.i24 = alloca %struct.timeval, align 8
   %_now.i.i10 = alloca %struct.timeval, align 8
@@ -1070,7 +1070,7 @@ declare void @qio_task_complete(ptr noundef) local_unnamed_addr #1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_websock_handshake_send(ptr noundef %ioc, i32 %condition, ptr noundef %user_data) #0 {
+define internal range(i32 0, 2) i32 @qio_channel_websock_handshake_send(ptr noundef %ioc, i32 %condition, ptr noundef %user_data) #0 {
 entry:
   %_now.i.i47 = alloca %struct.timeval, align 8
   %_now.i.i33 = alloca %struct.timeval, align 8
@@ -1458,7 +1458,7 @@ declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #1
 declare void @error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_websock_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i64 -9223372036854775808, 8193) i64 @qio_channel_websock_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   %conv = trunc i64 %niov to i32
@@ -1631,7 +1631,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
-  %call6 = tail call fastcc i64 @qio_channel_websock_read_wire(ptr noundef %call.i26, ptr noundef %errp), !range !11
+  %call6 = tail call fastcc i64 @qio_channel_websock_read_wire(ptr noundef %call.i26, ptr noundef %errp)
   %cmp = icmp slt i64 %call6, 0
   br i1 %cmp, label %return, label %if.end9
 
@@ -1662,7 +1662,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %inc = add nuw i64 %i.029, 1
   %exitcond.not = icmp eq i64 %inc, %niov
   %or.cond = select i1 %cmp23, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %if.end9
   %got.1 = phi i64 [ 0, %if.end9 ], [ %add, %for.body ]
@@ -1893,7 +1893,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %if.end
-  %conv7 = trunc i64 %size to i8
+  %conv7 = trunc nuw nsw i64 %size to i8
   store i8 %conv7, ptr %b1, align 1
   br label %if.end20
 
@@ -1903,7 +1903,7 @@ if.else8:                                         ; preds = %if.end
 
 if.then11:                                        ; preds = %if.else8
   store i8 126, ptr %b1, align 1
-  %conv13 = trunc i64 %size to i16
+  %conv13 = trunc nuw i64 %size to i16
   %2 = tail call noundef i16 @llvm.bswap.i16(i16 %conv13)
   %u = getelementptr inbounds i8, ptr %header, i64 2
   store i16 %2, ptr %u, align 1
@@ -1977,7 +1977,7 @@ for.body:                                         ; preds = %trace_qio_channel_w
   %cmp22 = icmp ult i64 %inc, %niov
   %cmp24 = icmp ne i64 %sub32, 0
   %13 = and i1 %cmp22, %cmp24
-  br i1 %13, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %13, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %trace_qio_channel_websock_encode.exit
   ret void
@@ -2055,7 +2055,7 @@ if.end3:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %qio_channel_websock_write_wire.exit, %if.end3
   %io_err7 = getelementptr inbounds i8, ptr %call.i, i64 248
-  %call8 = tail call fastcc i64 @qio_channel_websock_read_wire(ptr noundef %call.i, ptr noundef nonnull %io_err7), !range !11
+  %call8 = tail call fastcc i64 @qio_channel_websock_read_wire(ptr noundef %call.i, ptr noundef nonnull %io_err7)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then6, %if.end3, %qio_channel_websock_write_wire.exit
@@ -2119,7 +2119,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @qio_channel_websock_read_wire(ptr noundef %ioc, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775808, 2) i64 @qio_channel_websock_read_wire(ptr noundef %ioc, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i23 = alloca %struct.timeval, align 8
@@ -2425,7 +2425,7 @@ for.body.i:                                       ; preds = %if.end14.i, %for.bo
   store i32 %xor.i, ptr %arrayidx.i, align 4
   %inc.i = add nuw nsw i64 %i.057.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %div51.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !13
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %38 = and i64 %payload_len.054.i, -4
@@ -2448,7 +2448,7 @@ for.body23.i:                                     ; preds = %for.end.i, %for.bod
   store i8 %xor32.i, ptr %arrayidx30.i, align 1
   %inc35.i = add nuw i64 %i.159.i, 1
   %exitcond60.not.i = icmp eq i64 %inc35.i, %payload_len.054.i
-  br i1 %exitcond60.not.i, label %if.end37.i, label %for.body23.i, !llvm.loop !15
+  br i1 %exitcond60.not.i, label %if.end37.i, label %for.body23.i, !llvm.loop !14
 
 if.end37.i:                                       ; preds = %for.body23.i, %for.end.i, %if.end28
   %payload_len.1.i = phi i64 [ 0, %if.end28 ], [ %payload_len.054.i, %for.end.i ], [ %payload_len.054.i, %for.body23.i ]
@@ -2583,7 +2583,7 @@ qio_channel_websock_decode_payload.exit:          ; preds = %if.then44.i, %if.en
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov76.i)
   %65 = load i64, ptr %offset, align 8
   %cmp20.not = icmp eq i64 %65, 0
-  br i1 %cmp20.not, label %return, label %while.body, !llvm.loop !16
+  br i1 %cmp20.not, label %return, label %while.body, !llvm.loop !15
 
 if.then33:                                        ; preds = %if.then2.i, %if.else65.i, %qio_channel_websock_write_wire.exit.i
   %retval.0.i35.ph = phi i64 [ -1, %qio_channel_websock_write_wire.exit.i ], [ -1, %if.else65.i ], [ -2, %if.then2.i ]
@@ -2733,9 +2733,8 @@ attributes #18 = { noreturn nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i64 -9223372036854775808, i64 2}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

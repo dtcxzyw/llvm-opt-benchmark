@@ -978,11 +978,11 @@ define internal i32 @dissect_awdl_data(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %.071 = phi i32 [ %36, %.lr.ph ], [ %29, %23 ]
-  %35 = call fastcc i32 @awdl_add_tagged_field(ptr noundef %1, ptr noundef %33, ptr noundef %0, i32 noundef %.071, i32 noundef 2), !range !4
+  %35 = call fastcc i32 @awdl_add_tagged_field(ptr noundef %1, ptr noundef %33, ptr noundef %0, i32 noundef %.071, i32 noundef 2)
   %36 = add i32 %35, %.071
   %37 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #5
   %.not = icmp eq i8 %37, 3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %.0.lcssa = phi i32 [ %29, %23 ], [ %36, %.lr.ph ]
@@ -1103,12 +1103,12 @@ proto_item_set_generated.exit:                    ; preds = %4, %40, %43
 .lr.ph.i:                                         ; preds = %proto_item_set_generated.exit, %.lr.ph.i
   %.01115.i = phi i32 [ %61, %.lr.ph.i ], [ %53, %proto_item_set_generated.exit ]
   %.01214.i = phi i32 [ %60, %.lr.ph.i ], [ 12, %proto_item_set_generated.exit ]
-  %59 = call fastcc i32 @awdl_add_tagged_field(ptr noundef %1, ptr noundef %57, ptr noundef %0, i32 noundef %.01214.i, i32 noundef 3), !range !4
+  %59 = call fastcc i32 @awdl_add_tagged_field(ptr noundef %1, ptr noundef %57, ptr noundef %0, i32 noundef %.01214.i, i32 noundef 3)
   %.0.i = call i32 @llvm.umin.i32(i32 %59, i32 %.01115.i)
   %60 = add i32 %.0.i, %.01214.i
   %61 = sub nsw i32 %.01115.i, %.0.i
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph.i, label %awdl_add_tagged_parameters.exit, !llvm.loop !7
+  br i1 %62, label %.lr.ph.i, label %awdl_add_tagged_parameters.exit, !llvm.loop !6
 
 awdl_add_tagged_parameters.exit:                  ; preds = %.lr.ph.i, %proto_item_set_generated.exit
   %63 = add i32 %53, 12
@@ -1161,7 +1161,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @awdl_add_tagged_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.awdl_tagged_field_data, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #5
   %8 = zext i8 %7 to i32
@@ -1358,7 +1358,7 @@ thread-pre-split:                                 ; preds = %4
   %55 = sub i32 %50, %49
   store i32 %55, ptr %7, align 4
   %.not = icmp eq i32 %50, %49
-  br i1 %.not, label %.loopexit, label %41, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %41, !llvm.loop !7
 
 56:                                               ; preds = %4
   %57 = load i32, ptr @hf_awdl_dns_priority, align 4
@@ -1454,7 +1454,7 @@ define internal i32 @awdl_tag_sync_params(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @awdl_tag_election_params(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 19, 38) i32 @awdl_tag_election_params(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = load i32, ptr @hf_awdl_electionparams_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
@@ -1546,7 +1546,7 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
   %.252 = phi i32 [ %32, %29 ], [ %.15157, %26 ]
   %34 = add nuw nsw i32 %.058, 1
   %exitcond.not = icmp eq i32 %34, 8
-  br i1 %exitcond.not, label %35, label %26, !llvm.loop !9
+  br i1 %exitcond.not, label %35, label %26, !llvm.loop !8
 
 35:                                               ; preds = %33
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.556, i32 noundef %20) #5
@@ -1559,7 +1559,7 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
   %.1 = phi i32 [ %36, %35 ], [ %.04962, %.preheader ]
   %38 = add nuw nsw i32 %.05360, 1
   %exitcond63.not = icmp eq i32 %38, 32
-  br i1 %exitcond63.not, label %39, label %.preheader, !llvm.loop !10
+  br i1 %exitcond63.not, label %39, label %.preheader, !llvm.loop !9
 
 39:                                               ; preds = %37
   tail call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.1) #5
@@ -1600,7 +1600,7 @@ define internal i32 @awdl_tag_ht_capabilities(ptr noundef %0, ptr nocapture read
 25:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge, label %26, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %26, !llvm.loop !10
 
 26:                                               ; preds = %4, %25
   %indvars.iv = phi i32 [ 0, %4 ], [ %indvars.iv.next, %25 ]
@@ -1909,7 +1909,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
   %37 = add nuw i32 %.083102, 1
   %38 = load i32, ptr %5, align 4
   %39 = icmp ult i32 %37, %38
-  br i1 %39, label %.lr.ph103, label %.loopexit, !llvm.loop !12
+  br i1 %39, label %.lr.ph103, label %.loopexit, !llvm.loop !11
 
 40:                                               ; preds = %4
   %41 = load i32, ptr @hf_awdl_channelseq_channel_list, align 4
@@ -1943,7 +1943,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
   %60 = add nuw i32 %.08298, 1
   %61 = load i32, ptr %5, align 4
   %62 = icmp ult i32 %60, %61
-  br i1 %62, label %.lr.ph99, label %.loopexit, !llvm.loop !13
+  br i1 %62, label %.lr.ph99, label %.loopexit, !llvm.loop !12
 
 63:                                               ; preds = %4
   %64 = load i32, ptr @hf_awdl_channelseq_channel_list, align 4
@@ -1976,7 +1976,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
   %82 = add nuw i32 %.096, 1
   %83 = load i32, ptr %5, align 4
   %84 = icmp ult i32 %82, %83
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph99, %.lr.ph103, %63, %40, %26
   %.3 = phi i32 [ 6, %26 ], [ 6, %40 ], [ 6, %63 ], [ %35, %.lr.ph103 ], [ %58, %.lr.ph99 ], [ %80, %.lr.ph ]
@@ -2007,7 +2007,7 @@ define internal noundef i32 @awdl_tag_sync_tree(ptr noundef %0, ptr nocapture re
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %.08, i32 noundef 6, i32 noundef 0) #5
   %9 = add i32 %.08, 6
   %.not = icmp sgt i32 %9, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %9, %.lr.ph ]
@@ -2126,7 +2126,7 @@ define internal fastcc i32 @add_awdl_dns_entry(ptr nocapture noundef readonly %0
 
 41:                                               ; preds = %39, %34
   %42 = icmp slt i32 %.1.i, %19
-  br i1 %42, label %.lr.ph.i, label %add_awdl_dns_name.exit, !llvm.loop !16
+  br i1 %42, label %.lr.ph.i, label %add_awdl_dns_name.exit, !llvm.loop !15
 
 add_awdl_dns_name.exit:                           ; preds = %41, %10
   %.0.lcssa.i = phi i32 [ %7, %10 ], [ %.1.i, %41 ]
@@ -2201,16 +2201,15 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 2, i32 65539}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

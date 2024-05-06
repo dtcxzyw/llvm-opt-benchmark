@@ -1776,7 +1776,7 @@ define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds i8, ptr %49, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %54, ptr %3, i64 %4)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %54, ptr readonly %3, i64 %4)
   %.not.i = icmp ne i32 %bcmp.i, 0
   %.not48 = icmp eq ptr %.015.i, null
   %or.cond51 = select i1 %.not.i, i1 true, i1 %.not48

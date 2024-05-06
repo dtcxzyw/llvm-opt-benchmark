@@ -111,7 +111,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @evp_pkey_ctx_state(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @evp_pkey_ctx_state(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %ctx, align 8
   switch i32 %0, label %if.end52 [
@@ -1251,7 +1251,7 @@ declare ptr @evp_pkey_export_to_provider(ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @EVP_KEYMGMT_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PKEY_meth_add0(ptr noundef %pmeth) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_meth_add0(ptr noundef %pmeth) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @app_pkey_methods, align 8
   %cmp = icmp eq ptr %0, null
@@ -1318,7 +1318,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_meth_remove(ptr noundef %pmeth) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_meth_remove(ptr noundef %pmeth) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @app_pkey_methods, align 8
   %call.i = tail call ptr @OPENSSL_sk_delete_ptr(ptr noundef %0, ptr noundef %pmeth) #10
@@ -1328,7 +1328,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @EVP_PKEY_meth_get_count() local_unnamed_addr #0 {
+define range(i64 -2147483638, 2147483658) i64 @EVP_PKEY_meth_get_count() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @app_pkey_methods, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2119,7 +2119,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call i32 @ERR_set_mark() #10
   %conv = sext i32 %p1 to i64
-  %call1 = tail call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef nonnull %ctx, i32 noundef %keytype, i32 noundef %optype, i32 noundef %cmd, ptr noundef null, ptr noundef %p2, i64 noundef %conv), !range !7
+  %call1 = tail call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef nonnull %ctx, i32 noundef %keytype, i32 noundef %optype, i32 noundef %cmd, ptr noundef null, ptr noundef %p2, i64 noundef %conv)
   %cmp2 = icmp eq i32 %call1, -2
   br i1 %cmp2, label %if.then4, label %if.else
 
@@ -2190,7 +2190,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end.i:                                         ; preds = %if.end
   %call.i = tail call i32 @ERR_set_mark() #10
-  %call1.i = tail call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef nonnull %ctx, i32 noundef -1, i32 noundef %op, i32 noundef %ctrl, ptr noundef null, ptr noundef %md, i64 noundef 0), !range !7
+  %call1.i = tail call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef nonnull %ctx, i32 noundef -1, i32 noundef %op, i32 noundef %ctrl, ptr noundef null, ptr noundef %md, i64 noundef 0)
   %cmp2.i = icmp eq i32 %call1.i, -2
   br i1 %cmp2.i, label %if.then4.i, label %if.else.i
 
@@ -2285,7 +2285,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end.i:                                         ; preds = %if.end
   %call.i = tail call i32 @ERR_set_mark() #10
   %conv.i = sext i32 %datalen to i64
-  %call1.i = tail call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef nonnull %ctx, i32 noundef -1, i32 noundef %op, i32 noundef %ctrl, ptr noundef null, ptr noundef %data, i64 noundef %conv.i), !range !7
+  %call1.i = tail call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef nonnull %ctx, i32 noundef -1, i32 noundef %op, i32 noundef %ctrl, ptr noundef null, ptr noundef %data, i64 noundef %conv.i)
   %cmp2.i = icmp eq i32 %call1.i, -2
   br i1 %cmp2.i, label %if.then4.i, label %if.else.i
 
@@ -2629,7 +2629,7 @@ entry:
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @evp_pkey_ctx_store_cached_data(ptr nocapture noundef %ctx, i32 noundef %keytype, i32 noundef %optype, i32 noundef %cmd, ptr noundef %name, ptr noundef %data, i64 noundef %data_len) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @evp_pkey_ctx_store_cached_data(ptr nocapture noundef %ctx, i32 noundef %keytype, i32 noundef %optype, i32 noundef %cmd, ptr noundef %name, ptr noundef %data, i64 noundef %data_len) unnamed_addr #0 {
 entry:
   switch i32 %cmd, label %sw.default [
     i32 -1, label %if.then.i
@@ -2641,12 +2641,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp1.not.i, label %sw.default, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(7) @.str.16) #11
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(7) @.str.16) #11
   %cmp7.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.i, label %sw.epilog, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then6.i
-  %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(10) @.str.17) #11
+  %call9.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(10) @.str.17) #11
   %cmp10.i = icmp eq i32 %call9.i, 0
   br i1 %cmp10.i, label %sw.epilog, label %sw.default
 
@@ -2963,7 +2963,7 @@ entry:
   %call = tail call i32 @ERR_set_mark() #10
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #11
   %add = add i64 %call1, 1
-  %call2 = tail call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef %ctx, i32 noundef -1, i32 noundef -1, i32 noundef -1, ptr noundef %name, ptr noundef %value, i64 noundef %add), !range !7
+  %call2 = tail call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef %ctx, i32 noundef -1, i32 noundef -1, i32 noundef -1, ptr noundef %name, ptr noundef %value, i64 noundef %add)
   %cmp = icmp eq i32 %call2, -2
   br i1 %cmp, label %if.then, label %if.else
 
@@ -4095,4 +4095,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -2, i32 2}

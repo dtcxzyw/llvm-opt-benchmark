@@ -144,7 +144,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %3 = load ptr, ptr @stderr, align 8
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef %4) #13
   br label %for.inc
 
@@ -157,7 +157,7 @@ if.end:                                           ; preds = %for.body
   %7 = load ptr, ptr @stderr, align 8
   %key = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %8 = load i32, ptr %key, align 4
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef %5, i32 noundef %8, i64 noundef %conv.i, i64 noundef 0) #13
   br label %for.inc
 
@@ -176,7 +176,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_map_insert(ptr nocapture noundef %map, i32 noundef %key, ptr noundef %data) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_map_insert(ptr nocapture noundef %map, i32 noundef %key, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -206,12 +206,12 @@ if.then6:                                         ; preds = %if.then3
   %tablelenbits = getelementptr inbounds i8, ptr %map, i64 28
   %2 = load i32, ptr %tablelenbits, align 4
   %add9 = add i32 %2, 1
-  %call = tail call fastcc i32 @map_resize(ptr noundef nonnull %map, i32 noundef %mul8, i32 noundef %add9), !range !8
+  %call = tail call fastcc i32 @map_resize(ptr noundef nonnull %map, i32 noundef %mul8, i32 noundef %add9)
   %cmp10.not = icmp eq i32 %call, 0
   br i1 %cmp10.not, label %if.end21, label %return
 
 if.else14:                                        ; preds = %if.then3
-  %call15 = tail call fastcc i32 @map_resize(ptr noundef nonnull %map, i32 noundef 16, i32 noundef 4), !range !8
+  %call15 = tail call fastcc i32 @map_resize(ptr noundef nonnull %map, i32 noundef 16, i32 noundef 4)
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %if.end21, label %return
 
@@ -302,7 +302,7 @@ return:                                           ; preds = %if.else.i, %if.else
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @map_resize(ptr nocapture noundef %map, i32 noundef %new_tablelen, i32 noundef %new_tablelenbits) unnamed_addr #1 {
+define internal fastcc range(i32 -901, 1) i32 @map_resize(ptr nocapture noundef %map, i32 noundef %new_tablelen, i32 noundef %new_tablelenbits) unnamed_addr #1 {
 entry:
   %mem = getelementptr inbounds i8, ptr %map, i64 8
   %0 = load ptr, ptr %mem, align 8
@@ -410,7 +410,7 @@ for.inc:                                          ; preds = %insert.exit.thread,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
   %cmp2 = icmp ult i64 %indvars.iv.next, %12
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %13 = load ptr, ptr %mem, align 8
@@ -489,7 +489,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @nghttp2_map_remove(ptr nocapture noundef %map, i32 noundef %key) local_unnamed_addr #7 {
+define hidden range(i32 -501, 1) i32 @nghttp2_map_remove(ptr nocapture noundef %map, i32 noundef %key) local_unnamed_addr #7 {
 entry:
   %size = getelementptr inbounds i8, ptr %map, i64 16
   %0 = load i64, ptr %size, align 8
@@ -671,5 +671,4 @@ attributes #14 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -901, i32 1}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}

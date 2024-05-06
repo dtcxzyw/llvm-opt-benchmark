@@ -36002,7 +36002,7 @@ _ZN8pybind116detail15argument_loaderIJPKN19exercise_trampoline10SimpleBaseEEEC2E
   br i1 %27, label %.sink.split.i, label %"_ZNO8pybind116detail15argument_loaderIJPKN19exercise_trampoline10SimpleBaseEEE4callIbNS0_9void_typeERZNS2_4wrapENS_7module_EE3$_3EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit16.i"
 
 "_ZNO8pybind116detail15argument_loaderIJPKN19exercise_trampoline10SimpleBaseEEE4callIbNS0_9void_typeERZNS2_4wrapENS_7module_EE3$_3EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit16.i": ; preds = %26
-  %28 = call ptr @__dynamic_cast(ptr nonnull %.val15.i, ptr nonnull @_ZTIN19exercise_trampoline10SimpleBaseE, ptr nonnull @_ZTIN19exercise_trampoline16SimpleCppDerivedE, i64 0) #26
+  %28 = call ptr @__dynamic_cast(ptr nonnull readonly %.val15.i, ptr nonnull @_ZTIN19exercise_trampoline10SimpleBaseE, ptr nonnull @_ZTIN19exercise_trampoline16SimpleCppDerivedE, i64 0) #26
   %.fr.i = freeze ptr %28
   %.not2.i = icmp eq ptr %.fr.i, null
   %spec.select.i = select i1 %.not2.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
@@ -41018,7 +41018,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %4 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ23test_submodule_picklingRN8pybind117module_EE18PickleableWithDict, ptr %2, align 8
   %5 = invoke noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)

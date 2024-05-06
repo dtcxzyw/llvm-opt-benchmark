@@ -1247,7 +1247,7 @@ define hidden void @"_ZN4core3ptr278drop_in_place$LT$core..option..Option$LT$cor
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr310drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$alloc..string..String$GT$$C$uu_du..file_as_vec$LT$$RF$alloc..string..String$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$$GT$17hbc784f756223d3ccE.llvm.17785794609419294129"(ptr noalias noundef nonnull align 8 dereferenceable(128) %6)
+  tail call void @"_ZN4core3ptr310drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$alloc..string..String$GT$$C$uu_du..file_as_vec$LT$$RF$alloc..string..String$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$$GT$17hbc784f756223d3ccE.llvm.17785794609419294129"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %6)
   br label %4
 }
 
@@ -1723,7 +1723,7 @@ define hidden void @"_ZN4core3ptr421drop_in_place$LT$core..iter..adapters..chain
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr310drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$alloc..string..String$GT$$C$uu_du..file_as_vec$LT$$RF$alloc..string..String$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$$GT$17hbc784f756223d3ccE.llvm.17785794609419294129"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5)
+  tail call void @"_ZN4core3ptr310drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$alloc..string..String$GT$$C$uu_du..file_as_vec$LT$$RF$alloc..string..String$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$$GT$17hbc784f756223d3ccE.llvm.17785794609419294129"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %5)
   br label %"_ZN4core3ptr278drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$alloc..string..String$GT$$C$alloc..vec..Vec$LT$alloc..string..String$GT$$C$uu_du..file_as_vec$LT$$RF$alloc..string..String$GT$$GT$$GT$$GT$17hdd369b8f34ce71e8E.llvm.17785794609419294129.exit"
 
 "_ZN4core3ptr278drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$alloc..string..String$GT$$C$alloc..vec..Vec$LT$alloc..string..String$GT$$C$uu_du..file_as_vec$LT$$RF$alloc..string..String$GT$$GT$$GT$$GT$17hdd369b8f34ce71e8E.llvm.17785794609419294129.exit": ; preds = %1, %4
@@ -2857,7 +2857,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$alloc..vec..Vec$LT$glob..Pat
   %.07.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.07.i.i
   %8 = add nuw i64 %.07.i.i, 1
-  tail call void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h95c622137c462049E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7), !noalias !1343
+  tail call void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h95c622137c462049E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7), !noalias !1343
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2645e1e4583ce60aE.llvm.17785794609419294129.exit", label %.lr.ph.i.i
 
@@ -5722,7 +5722,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.07.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.07.i
   %8 = add nuw i64 %.07.i, 1
-  tail call void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h95c622137c462049E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7)
+  tail call void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h95c622137c462049E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7)
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN4core3ptr44drop_in_place$LT$$u5b$glob..Pattern$u5d$$GT$17h11c0344a2bc96f32E.llvm.17785794609419294129.exit", label %.lr.ph.i
 

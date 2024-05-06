@@ -13,20 +13,20 @@ target triple = "x86_64-pc-linux-gnu"
 @g_pidhash = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxtask_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @nxthread_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4), !range !6
+define range(i32 -12, 1) i32 @nxtask_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+  %6 = tail call fastcc i32 @nxthread_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nxthread_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @nxthread_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = load ptr, ptr @g_readytorun, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #9, !srcloc !7
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #9, !srcloc !6
   %8 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   br label %9
 
 9:                                                ; preds = %._crit_edge34.i, %5
@@ -43,7 +43,7 @@ define internal fastcc noundef i32 @nxthread_setup_scheduler(ptr noundef %0, i32
   %15 = add nuw nsw i32 %.02230.i, 1
   %16 = load volatile i32, ptr @g_npidhash, align 4
   %17 = icmp slt i32 %15, %16
-  br i1 %17, label %18, label %._crit_edge.i, !llvm.loop !9
+  br i1 %17, label %18, label %._crit_edge.i, !llvm.loop !8
 
 18:                                               ; preds = %14, %.lr.ph.i
   %.02230.i = phi i32 [ 0, %.lr.ph.i ], [ %15, %14 ]
@@ -70,7 +70,7 @@ define internal fastcc noundef i32 @nxthread_setup_scheduler(ptr noundef %0, i32
   br i1 %.not.i.i, label %58, label %30
 
 30:                                               ; preds = %26
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   br label %58
 
 ._crit_edge.i:                                    ; preds = %14, %9
@@ -88,7 +88,7 @@ define internal fastcc noundef i32 @nxthread_setup_scheduler(ptr noundef %0, i32
   br i1 %.not.i25.i, label %nxtask_assign_pid.exit, label %39
 
 39:                                               ; preds = %37
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   br label %nxtask_assign_pid.exit
 
 40:                                               ; preds = %._crit_edge.i
@@ -117,7 +117,7 @@ define internal fastcc noundef i32 @nxthread_setup_scheduler(ptr noundef %0, i32
   %55 = sdiv i32 %54, 2
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next.i, %56
-  br i1 %57, label %.lr.ph33.i, label %._crit_edge34.i, !llvm.loop !12
+  br i1 %57, label %.lr.ph33.i, label %._crit_edge34.i, !llvm.loop !11
 
 ._crit_edge34.i:                                  ; preds = %.lr.ph33.i, %40
   store ptr %35, ptr @g_pidhash, align 8
@@ -215,13 +215,13 @@ nxtask_assign_pid.exit:                           ; preds = %39, %37, %nxtask_sa
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pthread_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @nxthread_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 1), !range !6
+define range(i32 -12, 1) i32 @pthread_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call fastcc i32 @nxthread_setup_scheduler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxtask_setup_arguments(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -36, 1) i32 @nxtask_setup_arguments(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr @g_noname, ptr %1
   %4 = getelementptr inbounds i8, ptr %0, i64 976
@@ -245,7 +245,7 @@ define noundef i32 @nxtask_setup_arguments(ptr noundef %0, ptr noundef %1, ptr n
   store i8 %12, ptr %.0911.i, align 1
   %14 = add nuw nsw i32 %.0812.i, 1
   %exitcond.not.i = icmp eq i32 %14, 31
-  br i1 %exitcond.not.i, label %nxtask_setup_name.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %nxtask_setup_name.exit, label %5, !llvm.loop !12
 
 nxtask_setup_name.exit:                           ; preds = %5, %8
   %.09.lcssa.i = phi ptr [ %.0911.i, %5 ], [ %13, %8 ]
@@ -278,10 +278,10 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
 26:                                               ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 257
-  br i1 %exitcond.i, label %nxtask_setup_stackargs.exit, label %18, !llvm.loop !14
+  br i1 %exitcond.i, label %nxtask_setup_stackargs.exit, label %18, !llvm.loop !13
 
 .loopexit.loopexit.i:                             ; preds = %18
-  %27 = trunc i64 %indvars.iv.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %nxtask_setup_name.exit
@@ -329,12 +329,12 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   %49 = getelementptr inbounds i8, ptr %.05162.i, i64 %48
   %50 = sub i64 %.263.i, %48
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count.i
-  br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %34
   %.pre-phi.i = phi i64 [ 0, %34 ], [ %wide.trip.count.i, %.lr.ph.i ]
-  %51 = getelementptr ptr, ptr %32, i64 %.pre-phi.i
-  %52 = getelementptr i8, ptr %51, i64 8
+  %51 = getelementptr inbounds ptr, ptr %32, i64 %.pre-phi.i
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 16
@@ -408,13 +408,12 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -12, i32 1}
-!7 = !{i64 660922, i64 660940}
-!8 = !{i64 661541}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{i64 661662}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!6 = !{i64 660922, i64 660940}
+!7 = !{i64 661541}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{i64 661662}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}

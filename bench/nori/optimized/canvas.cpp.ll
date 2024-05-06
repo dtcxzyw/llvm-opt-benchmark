@@ -174,7 +174,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
 
 60:                                               ; preds = %.thread, %52
   %61 = phi i8 [ %.ph, %.thread ], [ %53, %52 ]
-  %62 = trunc i8 %61 to i1
+  %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %60
@@ -427,9 +427,9 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit:            ; preds = %2
   %20 = trunc i8 %19 to i1
   %21 = trunc i64 %16 to i32
   %22 = lshr i64 %16, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = lshr i64 %17, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   %26 = add nsw i32 %21, -2
   %27 = add nsw i32 %23, -2
   %28 = select i1 %20, i32 %27, i32 %23
@@ -569,7 +569,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %1
   %4 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %3)
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.2.0.extract.shift = lshr i64 %4, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, %.sroa.0.0.extract.trunc

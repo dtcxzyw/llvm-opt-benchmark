@@ -119,7 +119,7 @@ entry:
   %conv1.i = zext i64 %b to i128
   %mul.i = mul nuw i128 %conv1.i, %conv.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %and = and i64 %m, 4294967296
   %tobool.not = icmp eq i64 %and, 0

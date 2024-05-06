@@ -111,7 +111,7 @@ define void @Ppmd7_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ppmd7_Alloc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Ppmd7_Alloc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

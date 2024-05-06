@@ -366,7 +366,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @nbd_errno_to_system_errno(i32 noundef %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 109) i32 @nbd_errno_to_system_errno(i32 noundef %err) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   switch i32 %err, label %sw.default [

@@ -150,7 +150,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @addto_update_list(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
   %.not = icmp eq ptr %0, null
@@ -455,7 +455,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_update_object_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @_sort_update_object_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
 .thread7:
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
@@ -807,7 +807,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cluster_first_reg(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cluster_first_reg(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.accounting_update_msg_t, align 8
@@ -868,7 +868,7 @@ declare i32 @slurm_send_node_msg(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_usage_information(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @set_usage_information(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -1293,7 +1293,7 @@ define ptr @acct_get_db_name() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @archive_setup_end_time(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @archive_setup_end_time(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   store i64 %0, ptr %3, align 8
@@ -1389,7 +1389,7 @@ define i64 @archive_setup_end_time(i64 noundef %0, i32 noundef %1) local_unnamed
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
@@ -1444,7 +1444,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not70, label %48, label %36
 
 36:                                               ; preds = %31
-  %37 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %35), !range !15
+  %37 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %35)
   %.not71 = icmp eq i64 %37, 0
   br i1 %.not71, label %38, label %40
 
@@ -1470,7 +1470,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not73, label %63, label %51
 
 51:                                               ; preds = %48
-  %52 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %50), !range !15
+  %52 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %50)
   %.not74 = icmp eq i64 %52, 0
   br i1 %.not74, label %53, label %55
 
@@ -1497,7 +1497,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
 
 66:                                               ; preds = %63
   %67 = load i32, ptr %49, align 4
-  %68 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %67), !range !15
+  %68 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %67)
   %.not77 = icmp eq i64 %68, 0
   br i1 %.not77, label %69, label %71
 
@@ -1522,7 +1522,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not79, label %90, label %80
 
 80:                                               ; preds = %77
-  %81 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %79), !range !15
+  %81 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %79)
   %.not80 = icmp eq i64 %81, 0
   br i1 %.not80, label %82, label %84
 
@@ -1547,7 +1547,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not83, label %103, label %93
 
 93:                                               ; preds = %90
-  %94 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %92), !range !15
+  %94 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %92)
   %.not84 = icmp eq i64 %94, 0
   br i1 %.not84, label %95, label %97
 
@@ -1572,7 +1572,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not87, label %116, label %106
 
 106:                                              ; preds = %103
-  %107 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %105), !range !15
+  %107 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %105)
   %.not88 = icmp eq i64 %107, 0
   br i1 %.not88, label %108, label %110
 
@@ -1597,7 +1597,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not91, label %129, label %119
 
 119:                                              ; preds = %116
-  %120 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %118), !range !15
+  %120 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %118)
   %.not92 = icmp eq i64 %120, 0
   br i1 %.not92, label %121, label %123
 
@@ -1647,7 +1647,7 @@ declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 declare void @env_array_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @archive_write_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @archive_write_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
@@ -1743,7 +1743,7 @@ define noundef i32 @archive_write_file(ptr nocapture noundef readonly %0, ptr no
   %53 = load ptr, ptr %11, align 8
   %54 = call i32 @access(ptr noundef %53, i32 noundef 0) #10
   %.not10.i = icmp eq i32 %54, 0
-  br i1 %.not10.i, label %.lr.ph.i, label %_make_archive_name.exit, !llvm.loop !16
+  br i1 %.not10.i, label %.lr.ph.i, label %_make_archive_name.exit, !llvm.loop !15
 
 _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   call void @slurm_xfree(ptr noundef nonnull %10) #10
@@ -1838,7 +1838,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %92, %89
-  br label %.lr.ph.split.us, !llvm.loop !17
+  br label %.lr.ph.split.us, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.split.us, %64
   %94 = call i32 @fsync(i32 noundef %60) #10
@@ -1938,6 +1938,5 @@ attributes #12 = { noreturn nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = !{i64 -9223372036854775808, i64 9223372036854775807}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

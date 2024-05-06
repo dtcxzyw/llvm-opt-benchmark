@@ -225,7 +225,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ssl_session_eq(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_ssl_session_eq(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4

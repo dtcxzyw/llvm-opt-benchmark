@@ -1101,7 +1101,7 @@ declare dso_local void @nf_defrag_ipv6_disable(ptr noundef) local_unnamed_addr #
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @getorigdst(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #5 align 16 {
+define internal range(i32 -92, 1) i32 @getorigdst(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #5 align 16 {
   %5 = alloca %struct.nf_conntrack_tuple, align 4
   %6 = alloca %struct.sockaddr_in, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
@@ -1213,7 +1213,7 @@ declare dso_local void @lock_sock_nested(ptr noundef, i32 noundef) local_unnamed
 declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ipv6_getorigdst(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #5 align 16 {
+define internal range(i32 -92, 1) i32 @ipv6_getorigdst(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #5 align 16 {
   %5 = alloca %struct.nf_conntrack_tuple, align 4
   %6 = alloca %struct.sockaddr_in6, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9

@@ -8682,7 +8682,7 @@ define dso_local void @blk_rq_unprep_clone(ptr nocapture noundef %0) #0 align 16
 declare dso_local void @bio_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_rq_prep_clone(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @blk_rq_prep_clone(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 align 16 {
   %7 = icmp eq ptr %2, null
   %8 = select i1 %7, ptr @fs_bio_set, ptr %2
   %9 = getelementptr inbounds i8, ptr %1, i64 56
@@ -9695,7 +9695,7 @@ define dso_local ptr @blk_mq_alloc_disk_for_queue(ptr noundef %0, ptr noundef %1
 declare dso_local zeroext i1 @blk_get_queue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_mq_init_allocated_queue(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -11177,7 +11177,7 @@ define internal fastcc void @blk_mq_update_queue_map(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @blk_mq_alloc_set_map_and_rqs(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @blk_mq_alloc_set_map_and_rqs(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 84
@@ -12259,7 +12259,7 @@ blk_freeze_queue.exit:                            ; preds = %31, %36, %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_mq_poll(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @blk_mq_poll(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = zext i32 %1 to i64
   %7 = tail call ptr @xa_load(ptr noundef %5, i64 noundef %6) #21
@@ -12412,7 +12412,7 @@ define dso_local i32 @blk_mq_poll(ptr noundef %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_rq_poll(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

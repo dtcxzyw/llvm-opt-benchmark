@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @OnigEncodingUS_ASCII = hidden local_unnamed_addr constant %struct.OnigEncodingTypeST { ptr @us_ascii_mbc_enc_len, ptr @.str, i32 1, i32 1, ptr @onigenc_is_mbc_newline_0x0a, ptr @onigenc_single_byte_mbc_to_code, ptr @onigenc_single_byte_code_to_mbclen, ptr @onigenc_single_byte_code_to_mbc, ptr @onigenc_ascii_mbc_case_fold, ptr @onigenc_ascii_apply_all_case_fold, ptr @onigenc_ascii_get_case_fold_codes_by_str, ptr @onigenc_minimum_property_name_to_ctype, ptr @onigenc_ascii_is_code_ctype, ptr @onigenc_not_support_get_ctype_code_range, ptr @onigenc_single_byte_left_adjust_char_head, ptr @onigenc_always_true_is_allowed_reverse_match, ptr @onigenc_single_byte_ascii_only_case_map, i32 2, i32 0 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @us_ascii_mbc_enc_len(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 -1, 2) i32 @us_ascii_mbc_enc_len(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %4, -1
   %. = select i1 %.not, i32 1, i32 -1

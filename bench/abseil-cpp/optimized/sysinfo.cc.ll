@@ -21,7 +21,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 
 @_ZN4absl13base_internalL8num_cpusE = internal unnamed_addr global i32 0, align 4
 @_ZN4absl13base_internalL21nominal_cpu_frequencyE = internal unnamed_addr global double 1.000000e+00, align 8
-@_ZZN4absl13base_internal12GetCachedTIDEvE9thread_id = internal thread_local global i32 0, align 4
+@_ZZN4absl13base_internal12GetCachedTIDEvE9thread_id = internal thread_local unnamed_addr global i32 0, align 4
 @_ZGVZN4absl13base_internal12GetCachedTIDEvE9thread_id = internal thread_local unnamed_addr global i1 false, align 1
 @_ZN4absl13base_internalL18init_num_cpus_onceE = internal global { { i32 } } zeroinitializer, align 4
 @_ZN4absl13base_internalL31init_nominal_cpu_frequency_onceE = internal global { { i32 } } zeroinitializer, align 4
@@ -527,7 +527,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

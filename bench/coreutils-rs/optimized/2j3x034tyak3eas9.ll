@@ -1132,7 +1132,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %18
   %210 = phi i64 [ %202, %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i ], [ %.pre.i.i.i, %.noexc97 ]
   %211 = load ptr, ptr %.sroa.339.0..sroa_idx40, align 8, !alias.scope !160, !noalias !165, !nonnull !5, !noundef !5
   %212 = getelementptr inbounds i8, ptr %211, i64 %210
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %212, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %201, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %212, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %201, i1 false)
   %213 = load i64, ptr %.sroa.442.0..sroa_idx43, align 8, !alias.scope !160, !noalias !165, !noundef !5
   %214 = add i64 %213, %201
   store i64 %214, ptr %.sroa.442.0..sroa_idx43, align 8, !alias.scope !160, !noalias !165

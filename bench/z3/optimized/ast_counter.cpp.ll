@@ -595,7 +595,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK7counter21get_max_counter_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZNK7counter21get_max_counter_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @tpm_util_test_tpmdev(i32 noundef %tpm_fd, ptr nocapture noundef writeonly %tpm_version) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tpm_util_test_tpmdev(i32 noundef %tpm_fd, ptr nocapture noundef writeonly %tpm_version) local_unnamed_addr #0 {
 entry:
   %buf.i6 = alloca [1024 x i8], align 16
   %buf.i = alloca [1024 x i8], align 16
@@ -178,7 +178,7 @@ entry:
   %ordinal7 = getelementptr inbounds i8, ptr %test_req_tpm2, i64 6
   store i32 -2130640896, ptr %ordinal7, align 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i)
-  %call.i = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %test_req_tpm2, i64 noundef 10, ptr noundef nonnull %buf.i, i64 noundef 1024)
+  %call.i = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull readonly %test_req_tpm2, i64 noundef 10, ptr noundef nonnull %buf.i, i64 noundef 1024)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %tpm_util_test.exit.thread, label %tpm_util_test.exit
 
@@ -194,7 +194,7 @@ tpm_util_test.exit:                               ; preds = %entry
 
 if.end:                                           ; preds = %tpm_util_test.exit.thread, %tpm_util_test.exit
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i6)
-  %call.i7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %test_req, i64 noundef 10, ptr noundef nonnull %buf.i6, i64 noundef 1024)
+  %call.i7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull readonly %test_req, i64 noundef 10, ptr noundef nonnull %buf.i6, i64 noundef 1024)
   %cmp.i8 = icmp slt i32 %call.i7, 0
   br i1 %cmp.i8, label %tpm_util_test.exit12.thread, label %tpm_util_test.exit12
 
@@ -219,7 +219,7 @@ return:                                           ; preds = %tpm_util_test.exit1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tpm_util_get_buffer_size(i32 noundef %tpm_fd, i32 noundef %tpm_version, ptr nocapture noundef %buffersize) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @tpm_util_get_buffer_size(i32 noundef %tpm_fd, i32 noundef %tpm_version, ptr nocapture noundef %buffersize) local_unnamed_addr #0 {
 entry:
   %_now.i.i51 = alloca %struct.timeval, align 8
   %_now.i.i37 = alloca %struct.timeval, align 8

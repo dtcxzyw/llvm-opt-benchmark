@@ -1417,7 +1417,7 @@ do.body6:                                         ; preds = %do.body6, %do.body
   br i1 %cmp.not, label %do.end, label %do.body6, !llvm.loop !20
 
 do.end:                                           ; preds = %do.body6
-  %conv18 = trunc i64 %rem17 to i32
+  %conv18 = trunc nuw nsw i64 %rem17 to i32
   %inc = add i64 %num_segments.0, 1
   %arrayidx.i.i25 = getelementptr inbounds [5 x i32], ptr %segments, i64 0, i64 %num_segments.0
   store i32 %conv18, ptr %arrayidx.i.i25, align 4
@@ -1480,7 +1480,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %9 = trunc i32 %value.addr.0.lcssa.i.i to i8
+  %9 = trunc nuw i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i.i = or disjoint i8 %9, 48
   %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
   store i8 %conv.i.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
@@ -1491,7 +1491,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cursor.2.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull readonly align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %call30, i64 %sub.ptr.sub.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i)
   %cmp34.not69 = icmp eq i64 %num_segments.0, 0
@@ -1550,7 +1550,7 @@ if.then.i.i42:                                    ; preds = %while.end.i.i30
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i34:                                    ; preds = %while.end.i.i30
-  %15 = trunc i32 %value.addr.0.lcssa.i.i32 to i8
+  %15 = trunc nuw i32 %value.addr.0.lcssa.i.i32 to i8
   %conv.i.i.i35 = or disjoint i8 %15, 48
   %incdec.ptr.i.i14.i.i36 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
   store i8 %conv.i.i.i35, ptr %incdec.ptr.i.i14.i.i36, align 1
@@ -1562,7 +1562,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %sub.ptr.sub.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i38, %sub.ptr.rhs.cast.i.i39
   %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i40
   %add.ptr.i2.i41 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2.i41, ptr nonnull align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i2.i41, ptr nonnull readonly align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i27)
   %cmp34.not = icmp eq ptr %incdec.ptr35, %segments
   br i1 %cmp34.not, label %while.end, label %while.body, !llvm.loop !24
@@ -1649,7 +1649,7 @@ if.then.i:                                        ; preds = %if.end
           to label %invoke.cont2.i unwind label %lpad.i5
 
 invoke.cont2.i:                                   ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %abs.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %abs.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i64 16, i1 false), !noalias !25
   %call4.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1286NegateEv(ptr noundef nonnull align 8 dereferenceable(16) %abs.i)
           to label %invoke.cont3.i unwind label %lpad.i5
 
@@ -1784,7 +1784,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %6 = trunc i32 %value.addr.0.lcssa.i.i to i8
+  %6 = trunc nuw i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i.i = or disjoint i8 %6, 48
   %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
   store i8 %conv.i.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
@@ -1862,7 +1862,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !28
   %call3.i = call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s.coerce1, i64 noundef %s.coerce0, ptr noundef nonnull %dec.i), !noalias !28
   br i1 %call3.i, label %if.end5.i, label %if.then4.i
 
@@ -2428,7 +2428,7 @@ if.end:                                           ; preds = %entry
   %idx.ext.i = zext nneg i32 %.sroa.speculated27 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i, ptr nonnull align 1 %bytes, i64 %idx.ext.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i, ptr nonnull readonly align 1 %bytes, i64 %idx.ext.i, i1 false)
   %17 = load i64, ptr %result.i, align 8
   %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
@@ -2456,7 +2456,7 @@ if.end14:                                         ; preds = %if.end, %if.else
   %idx.ext.i20 = sext i32 %sub17 to i64
   %idx.neg.i21 = sub nsw i64 0, %idx.ext.i20
   %add.ptr1.i22 = getelementptr inbounds i8, ptr %add.ptr.i19, i64 %idx.neg.i21
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i22, ptr nonnull align 1 %add.ptr, i64 %idx.ext.i20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i22, ptr nonnull readonly align 1 %add.ptr, i64 %idx.ext.i20, i1 false)
   %20 = load i64, ptr %result.i18, align 8
   %21 = tail call noundef i64 @llvm.bswap.i64(i64 %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i18)
@@ -2545,7 +2545,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %abs.i, ptr noundef nonnull align 8 dereferenceable(16) %decimal, i64 16, i1 false), !noalias !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %abs.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %decimal, i64 16, i1 false), !noalias !68
   %call4.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1286NegateEv(ptr noundef nonnull align 8 dereferenceable(16) %abs.i)
           to label %invoke.cont3.i unwind label %lpad.i
 
@@ -2939,7 +2939,7 @@ do.body6:                                         ; preds = %do.body6, %do.body
   br i1 %cmp.not, label %do.end, label %do.body6, !llvm.loop !81
 
 do.end:                                           ; preds = %do.body6
-  %conv18 = trunc i64 %rem17 to i32
+  %conv18 = trunc nuw nsw i64 %rem17 to i32
   %inc = add i64 %num_segments.0, 1
   %arrayidx.i.i25 = getelementptr inbounds [9 x i32], ptr %segments, i64 0, i64 %num_segments.0
   store i32 %conv18, ptr %arrayidx.i.i25, align 4
@@ -3002,7 +3002,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %9 = trunc i32 %value.addr.0.lcssa.i.i to i8
+  %9 = trunc nuw i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i.i = or disjoint i8 %9, 48
   %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
   store i8 %conv.i.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
@@ -3013,7 +3013,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cursor.2.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull readonly align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %call30, i64 %sub.ptr.sub.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i)
   %cmp34.not76 = icmp eq i64 %num_segments.0, 0
@@ -3072,7 +3072,7 @@ if.then.i.i42:                                    ; preds = %while.end.i.i30
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i34:                                    ; preds = %while.end.i.i30
-  %15 = trunc i32 %value.addr.0.lcssa.i.i32 to i8
+  %15 = trunc nuw i32 %value.addr.0.lcssa.i.i32 to i8
   %conv.i.i.i35 = or disjoint i8 %15, 48
   %incdec.ptr.i.i14.i.i36 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
   store i8 %conv.i.i.i35, ptr %incdec.ptr.i.i14.i.i36, align 1
@@ -3084,7 +3084,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %sub.ptr.sub.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i38, %sub.ptr.rhs.cast.i.i39
   %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i40
   %add.ptr.i2.i41 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2.i41, ptr nonnull align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i2.i41, ptr nonnull readonly align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i27)
   %cmp34.not = icmp eq ptr %incdec.ptr35, %segments
   br i1 %cmp34.not, label %while.end, label %while.body, !llvm.loop !83
@@ -3161,7 +3161,7 @@ if.then.i:                                        ; preds = %if.end
           to label %invoke.cont2.i unwind label %lpad.i5
 
 invoke.cont2.i:                                   ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %abs.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %abs.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !84
   %call4.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2566NegateEv(ptr noundef nonnull align 8 dereferenceable(32) %abs.i)
           to label %invoke.cont3.i unwind label %lpad.i5
 
@@ -3180,7 +3180,7 @@ lpad.i5:                                          ; preds = %if.else.invoke.i, %
   br label %common.resume
 
 if.else.i:                                        ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !84
   br label %if.else.invoke.i
 
 if.else.invoke.i:                                 ; preds = %if.else.i, %invoke.cont3.i
@@ -3231,7 +3231,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !87
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !87
   %call3.i = call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s.coerce1, i64 noundef %s.coerce0, ptr noundef nonnull %dec.i), !noalias !87
   br i1 %call3.i, label %if.end5.i, label %if.then4.i
 
@@ -3821,7 +3821,7 @@ if.then16:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i14)
   store i64 0, ptr %result.i14, align 8
   %add.ptr1.i16 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 %idx.neg22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i16, ptr nonnull align 1 %add.ptr23, i64 %idx.ext21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i16, ptr nonnull readonly align 1 %add.ptr23, i64 %idx.ext21, i1 false)
   %19 = load i64, ptr %result.i14, align 8
   %20 = tail call noundef i64 @llvm.bswap.i64(i64 %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i14)
@@ -4445,7 +4445,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %abs.i, ptr noundef nonnull align 8 dereferenceable(32) %decimal, i64 32, i1 false), !noalias !133
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %abs.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %decimal, i64 32, i1 false), !noalias !133
   %call4.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2566NegateEv(ptr noundef nonnull align 8 dereferenceable(32) %abs.i)
           to label %invoke.cont3.i unwind label %lpad.i
 
@@ -4464,7 +4464,7 @@ lpad.i:                                           ; preds = %if.else.invoke.i, %
   br label %common.resume
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(32) %decimal, i64 32, i1 false), !noalias !133
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %decimal, i64 32, i1 false), !noalias !133
   br label %if.else.invoke.i
 
 if.else.invoke.i:                                 ; preds = %if.else.i, %invoke.cont3.i
@@ -6751,7 +6751,7 @@ for.body15.us:                                    ; preds = %cleanup.done.us, %f
   %conv19.us = trunc i128 %add.us to i64
   store i64 %conv19.us, ptr %arrayidx16.us, align 8
   %shr.us = lshr i128 %add.us, 64
-  %conv21.us = trunc i128 %shr.us to i64
+  %conv21.us = trunc nuw i128 %shr.us to i64
   %inc.us = add nuw i64 %i.021.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %out_size
   br i1 %exitcond.not, label %for.cond13.for.end_crit_edge.us, label %for.body15.us, !llvm.loop !216
@@ -8936,10 +8936,10 @@ lor.lhs.false:                                    ; preds = %entry
   %3 = extractelement <2 x i1> %1, i64 1
   %or.cond = select i1 %3, i1 %2, i1 false
   %cmp6 = icmp eq i64 %parts_le.sroa.2.0.copyload, 0
-  %or.cond47 = select i1 %or.cond, i1 %cmp6, i1 false
+  %or.cond48 = select i1 %or.cond, i1 %cmp6, i1 false
   %cmp9 = icmp ult i64 %parts_le.sroa.0.0.copyload, 16777215
-  %or.cond48 = select i1 %or.cond47, i1 %cmp9, i1 false
-  br i1 %or.cond48, label %if.then, label %if.end
+  %or.cond49 = select i1 %or.cond48, i1 %cmp9, i1 false
+  br i1 %or.cond49, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %sub.i = sub nsw i32 0, %scale
@@ -8950,8 +8950,8 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.then.i.i:                                      ; preds = %if.then
   %6 = sext i32 %sub.i to i64
   %7 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %6
-  %arrayidx.i.i8 = getelementptr i8, ptr %7, i64 304
-  %8 = load float, ptr %arrayidx.i.i8, align 4
+  %arrayidx.i.i9 = getelementptr i8, ptr %7, i64 304
+  %8 = load float, ptr %arrayidx.i.i9, align 4
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit
 
 if.else.i.i:                                      ; preds = %if.then
@@ -8985,55 +8985,55 @@ if.end:                                           ; preds = %lor.lhs.false
   %ref.tmp.sroa.3.0.copyload = load i64, ptr %ref.tmp.sroa.3.0.whole_decimal.sroa_idx, align 8
   %ref.tmp.sroa.4.0.whole_decimal.sroa_idx = getelementptr inbounds i8, ptr %whole_decimal, i64 24
   %ref.tmp.sroa.4.0.copyload = load i64, ptr %ref.tmp.sroa.4.0.whole_decimal.sroa_idx, align 8
-  %cmp.i.i14 = icmp eq i64 %ref.tmp.sroa.4.0.copyload, 0
-  %cond.i.i15 = select i1 %cmp.i.i14, float 0.000000e+00, float 0x7FF0000000000000
-  %cmp.i7.i16 = icmp eq i64 %ref.tmp.sroa.3.0.copyload, 0
-  %cond.i8.i17 = select i1 %cmp.i7.i16, float 0.000000e+00, float 0x7FF0000000000000
-  %add13.i18 = fadd float %cond.i8.i17, %cond.i.i15
-  %conv15.i19 = uitofp i64 %ref.tmp.sroa.2.0.copyload to float
-  %mul.i.i20 = fmul float %conv15.i19, 0x43F0000000000000
-  %add17.i21 = fadd float %mul.i.i20, %add13.i18
-  %conv19.i22 = uitofp i64 %ref.tmp.sroa.0.0.copyload to float
-  %add20.i23 = fadd float %add17.i21, %conv19.i22
+  %cmp.i.i15 = icmp eq i64 %ref.tmp.sroa.4.0.copyload, 0
+  %cond.i.i16 = select i1 %cmp.i.i15, float 0.000000e+00, float 0x7FF0000000000000
+  %cmp.i7.i17 = icmp eq i64 %ref.tmp.sroa.3.0.copyload, 0
+  %cond.i8.i18 = select i1 %cmp.i7.i17, float 0.000000e+00, float 0x7FF0000000000000
+  %add13.i19 = fadd float %cond.i8.i18, %cond.i.i16
+  %conv15.i20 = uitofp i64 %ref.tmp.sroa.2.0.copyload to float
+  %mul.i.i21 = fmul float %conv15.i20, 0x43F0000000000000
+  %add17.i22 = fadd float %mul.i.i21, %add13.i19
+  %conv19.i23 = uitofp i64 %ref.tmp.sroa.0.0.copyload to float
+  %add20.i24 = fadd float %add17.i22, %conv19.i23
   %ref.tmp12.sroa.0.0.copyload = load i64, ptr %fraction_decimal, align 8
   %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 8
   %ref.tmp12.sroa.2.0.copyload = load i64, ptr %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx, align 8
   %ref.tmp12.sroa.3.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 16
   %12 = load <2 x i64>, ptr %ref.tmp12.sroa.3.0.fraction_decimal.sroa_idx, align 8
-  %sub.i28 = sub nsw i32 0, %scale
+  %sub.i29 = sub nsw i32 0, %scale
   %13 = icmp ult i32 %scale, 77
-  br i1 %13, label %if.then.i.i44, label %if.else.i.i29
+  br i1 %13, label %if.then.i.i45, label %if.else.i.i30
 
-if.then.i.i44:                                    ; preds = %if.end
-  %14 = sext i32 %sub.i28 to i64
+if.then.i.i45:                                    ; preds = %if.end
+  %14 = sext i32 %sub.i29 to i64
   %15 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %14
-  %arrayidx.i.i45 = getelementptr i8, ptr %15, i64 304
-  %16 = load float, ptr %arrayidx.i.i45, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46
+  %arrayidx.i.i46 = getelementptr i8, ptr %15, i64 304
+  %16 = load float, ptr %arrayidx.i.i46, align 4
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47
 
-if.else.i.i29:                                    ; preds = %if.end
-  %conv.i.i30 = sitofp i32 %sub.i28 to float
-  %call.i.i.i31 = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i30) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46
+if.else.i.i30:                                    ; preds = %if.end
+  %conv.i.i31 = sitofp i32 %sub.i29 to float
+  %call.i.i.i32 = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i31) #19
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47
 
-_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46: ; preds = %if.then.i.i44, %if.else.i.i29
-  %retval.0.i.i32 = phi float [ %16, %if.then.i.i44 ], [ %call.i.i.i31, %if.else.i.i29 ]
+_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47: ; preds = %if.then.i.i45, %if.else.i.i30
+  %retval.0.i.i33 = phi float [ %16, %if.then.i.i45 ], [ %call.i.i.i32, %if.else.i.i30 ]
   %17 = icmp eq <2 x i64> %12, zeroinitializer
   %18 = select <2 x i1> %17, <2 x float> zeroinitializer, <2 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %shift49 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %19 = fadd <2 x float> %18, %shift49
-  %add13.i37 = extractelement <2 x float> %19, i64 0
-  %conv15.i38 = uitofp i64 %ref.tmp12.sroa.2.0.copyload to float
-  %mul.i.i39 = fmul float %conv15.i38, 0x43F0000000000000
-  %add17.i40 = fadd float %mul.i.i39, %add13.i37
-  %conv19.i41 = uitofp i64 %ref.tmp12.sroa.0.0.copyload to float
-  %add20.i42 = fadd float %add17.i40, %conv19.i41
-  %mul.i43 = fmul float %add20.i42, %retval.0.i.i32
-  %add = fadd float %add20.i23, %mul.i43
+  %shift50 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %19 = fadd <2 x float> %18, %shift50
+  %add13.i38 = extractelement <2 x float> %19, i64 0
+  %conv15.i39 = uitofp i64 %ref.tmp12.sroa.2.0.copyload to float
+  %mul.i.i40 = fmul float %conv15.i39, 0x43F0000000000000
+  %add17.i41 = fadd float %mul.i.i40, %add13.i38
+  %conv19.i42 = uitofp i64 %ref.tmp12.sroa.0.0.copyload to float
+  %add20.i43 = fadd float %add17.i41, %conv19.i42
+  %mul.i44 = fmul float %add20.i43, %retval.0.i.i33
+  %add = fadd float %add20.i24, %mul.i44
   br label %return
 
-return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit
-  %retval.0 = phi float [ %mul.i, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit ], [ %add, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit46 ]
+return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit
+  %retval.0 = phi float [ %mul.i, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit ], [ %add, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit47 ]
   ret float %retval.0
 }
 
@@ -9058,10 +9058,10 @@ lor.lhs.false:                                    ; preds = %entry
   %2 = extractelement <2 x i1> %1, i64 1
   %or.cond = select i1 %cmp1, i1 %2, i1 false
   %3 = extractelement <2 x i1> %1, i64 0
-  %or.cond49 = select i1 %or.cond, i1 %3, i1 false
+  %or.cond50 = select i1 %or.cond, i1 %3, i1 false
   %cmp9 = icmp ult i64 %parts_le.sroa.0.0.copyload, 9007199254740991
-  %or.cond50 = select i1 %or.cond49, i1 %cmp9, i1 false
-  br i1 %or.cond50, label %if.then, label %if.end
+  %or.cond51 = select i1 %or.cond50, i1 %cmp9, i1 false
+  br i1 %or.cond51, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %sub.i = sub nsw i32 0, %scale
@@ -9072,8 +9072,8 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.then.i.i:                                      ; preds = %if.then
   %6 = sext i32 %sub.i to i64
   %7 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %6
-  %arrayidx.i.i8 = getelementptr i8, ptr %7, i64 608
-  %8 = load double, ptr %arrayidx.i.i8, align 8
+  %arrayidx.i.i9 = getelementptr i8, ptr %7, i64 608
+  %8 = load double, ptr %arrayidx.i.i9, align 8
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
 
 if.else.i.i:                                      ; preds = %if.then
@@ -9108,57 +9108,57 @@ if.end:                                           ; preds = %lor.lhs.false
   %ref.tmp.sroa.3.0.copyload = load i64, ptr %ref.tmp.sroa.3.0.whole_decimal.sroa_idx, align 8
   %ref.tmp.sroa.4.0.whole_decimal.sroa_idx = getelementptr inbounds i8, ptr %whole_decimal, i64 24
   %ref.tmp.sroa.4.0.copyload = load i64, ptr %ref.tmp.sroa.4.0.whole_decimal.sroa_idx, align 8
-  %conv.i14 = uitofp i64 %ref.tmp.sroa.4.0.copyload to double
-  %mul.i.i15 = fmul double %conv.i14, 0x4BF0000000000000
-  %add.i16 = fadd double %mul.i.i15, 0.000000e+00
-  %conv11.i17 = uitofp i64 %ref.tmp.sroa.3.0.copyload to double
-  %mul.i7.i18 = fmul double %conv11.i17, 0x47F0000000000000
-  %add13.i19 = fadd double %mul.i7.i18, %add.i16
-  %conv15.i20 = uitofp i64 %ref.tmp.sroa.2.0.copyload to double
-  %mul.i9.i21 = fmul double %conv15.i20, 0x43F0000000000000
-  %add17.i22 = fadd double %mul.i9.i21, %add13.i19
-  %conv19.i23 = uitofp i64 %ref.tmp.sroa.0.0.copyload to double
-  %add20.i24 = fadd double %add17.i22, %conv19.i23
+  %conv.i15 = uitofp i64 %ref.tmp.sroa.4.0.copyload to double
+  %mul.i.i16 = fmul double %conv.i15, 0x4BF0000000000000
+  %add.i17 = fadd double %mul.i.i16, 0.000000e+00
+  %conv11.i18 = uitofp i64 %ref.tmp.sroa.3.0.copyload to double
+  %mul.i7.i19 = fmul double %conv11.i18, 0x47F0000000000000
+  %add13.i20 = fadd double %mul.i7.i19, %add.i17
+  %conv15.i21 = uitofp i64 %ref.tmp.sroa.2.0.copyload to double
+  %mul.i9.i22 = fmul double %conv15.i21, 0x43F0000000000000
+  %add17.i23 = fadd double %mul.i9.i22, %add13.i20
+  %conv19.i24 = uitofp i64 %ref.tmp.sroa.0.0.copyload to double
+  %add20.i25 = fadd double %add17.i23, %conv19.i24
   %ref.tmp12.sroa.0.0.copyload = load i64, ptr %fraction_decimal, align 8
   %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 8
   %13 = load <2 x i64>, ptr %ref.tmp12.sroa.2.0.fraction_decimal.sroa_idx, align 8
   %ref.tmp12.sroa.4.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 24
   %ref.tmp12.sroa.4.0.copyload = load i64, ptr %ref.tmp12.sroa.4.0.fraction_decimal.sroa_idx, align 8
-  %sub.i29 = sub nsw i32 0, %scale
+  %sub.i30 = sub nsw i32 0, %scale
   %14 = icmp ult i32 %scale, 77
-  br i1 %14, label %if.then.i.i46, label %if.else.i.i30
+  br i1 %14, label %if.then.i.i47, label %if.else.i.i31
 
-if.then.i.i46:                                    ; preds = %if.end
-  %15 = sext i32 %sub.i29 to i64
+if.then.i.i47:                                    ; preds = %if.end
+  %15 = sext i32 %sub.i30 to i64
   %16 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %15
-  %arrayidx.i.i47 = getelementptr i8, ptr %16, i64 608
-  %17 = load double, ptr %arrayidx.i.i47, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48
+  %arrayidx.i.i48 = getelementptr i8, ptr %16, i64 608
+  %17 = load double, ptr %arrayidx.i.i48, align 8
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49
 
-if.else.i.i30:                                    ; preds = %if.end
-  %conv.i.i31 = sitofp i32 %sub.i29 to double
-  %call3.i.i32 = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i31) #19
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48
+if.else.i.i31:                                    ; preds = %if.end
+  %conv.i.i32 = sitofp i32 %sub.i30 to double
+  %call3.i.i33 = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i32) #19
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49
 
-_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48: ; preds = %if.then.i.i46, %if.else.i.i30
-  %retval.0.i.i33 = phi double [ %17, %if.then.i.i46 ], [ %call3.i.i32, %if.else.i.i30 ]
-  %conv.i34 = uitofp i64 %ref.tmp12.sroa.4.0.copyload to double
-  %mul.i.i35 = fmul double %conv.i34, 0x4BF0000000000000
-  %add.i36 = fadd double %mul.i.i35, 0.000000e+00
+_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49: ; preds = %if.then.i.i47, %if.else.i.i31
+  %retval.0.i.i34 = phi double [ %17, %if.then.i.i47 ], [ %call3.i.i33, %if.else.i.i31 ]
+  %conv.i35 = uitofp i64 %ref.tmp12.sroa.4.0.copyload to double
+  %mul.i.i36 = fmul double %conv.i35, 0x4BF0000000000000
+  %add.i37 = fadd double %mul.i.i36, 0.000000e+00
   %18 = uitofp <2 x i64> %13 to <2 x double>
   %19 = fmul <2 x double> %18, <double 0x43F0000000000000, double 0x47F0000000000000>
   %20 = extractelement <2 x double> %19, i64 1
-  %add13.i39 = fadd double %20, %add.i36
+  %add13.i40 = fadd double %20, %add.i37
   %21 = extractelement <2 x double> %19, i64 0
-  %add17.i42 = fadd double %21, %add13.i39
-  %conv19.i43 = uitofp i64 %ref.tmp12.sroa.0.0.copyload to double
-  %add20.i44 = fadd double %add17.i42, %conv19.i43
-  %mul.i45 = fmul double %add20.i44, %retval.0.i.i33
-  %add = fadd double %add20.i24, %mul.i45
+  %add17.i43 = fadd double %21, %add13.i40
+  %conv19.i44 = uitofp i64 %ref.tmp12.sroa.0.0.copyload to double
+  %add20.i45 = fadd double %add17.i43, %conv19.i44
+  %mul.i46 = fmul double %add20.i45, %retval.0.i.i34
+  %add = fadd double %add20.i25, %mul.i46
   br label %return
 
-return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
-  %retval.0 = phi double [ %mul.i, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit ], [ %add, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit48 ]
+return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
+  %retval.0 = phi double [ %mul.i, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit ], [ %add, %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit49 ]
   ret double %retval.0
 }
 

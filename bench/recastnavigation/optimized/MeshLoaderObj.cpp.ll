@@ -308,12 +308,12 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   ]
 
 41:                                               ; preds = %.lr.ph.i
-  %42 = trunc i8 %.01824.i to i1
+  %42 = trunc nuw i8 %.01824.i to i1
   %not..i = xor i1 %42, true
   br label %50
 
 43:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %44 = trunc i8 %.01824.i to i1
+  %44 = trunc nuw i8 %.01824.i to i1
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %43, %.lr.ph.i
@@ -487,7 +487,7 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
   br i1 %exitcond.i, label %.lr.ph, label %.outer.i, !llvm.loop !9
 
 _ZL9parseFacePcPiii.exit:                         ; preds = %94
-  %108 = trunc i64 %indvars.iv.i to i32
+  %108 = trunc nuw nsw i64 %indvars.iv.i to i32
   %109 = icmp sgt i32 %108, 2
   br i1 %109, label %.lr.ph, label %.loopexit
 
@@ -622,12 +622,12 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %166 = mul nsw i32 %165, 3
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds float, ptr %162, i64 %167
-  %169 = getelementptr i8, ptr %164, i64 4
+  %169 = getelementptr inbounds i8, ptr %164, i64 4
   %170 = load i32, ptr %169, align 4
   %171 = mul nsw i32 %170, 3
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds float, ptr %162, i64 %172
-  %174 = getelementptr i8, ptr %164, i64 8
+  %174 = getelementptr inbounds i8, ptr %164, i64 8
   %175 = load i32, ptr %174, align 4
   %176 = mul nsw i32 %175, 3
   %177 = sext i32 %176 to i64

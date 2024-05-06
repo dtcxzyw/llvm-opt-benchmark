@@ -370,7 +370,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
   %37 = load i16, ptr %36, align 8
   %38 = zext i16 %37 to i32
   %39 = udiv i32 %38, %33
-  %40 = trunc i32 %39 to i16
+  %40 = trunc nuw nsw i32 %39 to i16
   store i16 %40, ptr %36, align 8
   br label %41
 
@@ -654,7 +654,7 @@ define internal void @cpu_detect_tlb_hygon(ptr nocapture noundef readonly %0) #0
   %7 = extractvalue { i32, i32, i32, i32 } %6, 0
   %8 = extractvalue { i32, i32, i32, i32 } %6, 1
   %9 = lshr i32 %8, 16
-  %10 = trunc i32 %9 to i16
+  %10 = trunc nuw i32 %9 to i16
   %11 = and i16 %10, 4095
   store i16 %11, ptr @tlb_lld_4k, align 2
   %12 = trunc i32 %8 to i16
@@ -669,12 +669,12 @@ define internal void @cpu_detect_tlb_hygon(ptr nocapture noundef readonly %0) #0
   %18 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483643, i32 0) #5, !srcloc !5
   %19 = extractvalue { i32, i32, i32, i32 } %18, 0
   %20 = lshr i32 %19, 16
-  %21 = trunc i32 %20 to i16
+  %21 = trunc nuw i32 %20 to i16
   %22 = and i16 %21, 255
   br label %25
 
 23:                                               ; preds = %5
-  %24 = trunc i32 %15 to i16
+  %24 = trunc nuw nsw i32 %15 to i16
   br label %25
 
 25:                                               ; preds = %23, %17
@@ -694,7 +694,7 @@ define internal void @cpu_detect_tlb_hygon(ptr nocapture noundef readonly %0) #0
   br label %37
 
 35:                                               ; preds = %25
-  %36 = trunc i32 %28 to i16
+  %36 = trunc nuw nsw i32 %28 to i16
   br label %37
 
 37:                                               ; preds = %35, %30

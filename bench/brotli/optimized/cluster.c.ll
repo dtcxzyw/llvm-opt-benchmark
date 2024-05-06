@@ -60,7 +60,7 @@ FastLog2.exit105:                                 ; preds = %if.end.i100, %if.th
   %retval.i97.0 = phi double [ %3, %if.then.i103 ], [ %call.i102, %if.end.i100 ]
   %mul3.i = fmul double %retval.i97.0, %conv1.i
   %4 = tail call double @llvm.fmuladd.f64(double %conv.i, double %retval.i106.0, double %mul3.i)
-  %conv4.i = uitofp i64 %add.i to double
+  %conv4.i = uitofp nneg i64 %add.i to double
   %cmp.i91 = icmp ult i64 %add.i, 256
   br i1 %cmp.i91, label %if.then.i95, label %if.end.i92
 
@@ -303,7 +303,7 @@ FastLog2.exit105.i:                               ; preds = %if.end.i100.i, %if.
   %retval.i97.0.i = phi double [ %5, %if.then.i103.i ], [ %call.i102.i, %if.end.i100.i ]
   %mul3.i.i = fmul double %retval.i97.0.i, %conv1.i.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %retval.i106.0.i, double %mul3.i.i)
-  %conv4.i.i = uitofp i64 %add.i.i to double
+  %conv4.i.i = uitofp nneg i64 %add.i.i to double
   %cmp.i91.i = icmp ult i64 %add.i.i, 256
   br i1 %cmp.i91.i, label %if.then.i95.i, label %if.end.i92.i
 
@@ -352,7 +352,7 @@ cond.false.i:                                     ; preds = %if.else39.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.else39.i
   %cond.i = phi double [ %cond.i.i, %cond.false.i ], [ 0x547D42AEA2879F2E, %if.else39.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx13.i, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx13.i, i64 1040, i1 false)
   %14 = load i64, ptr %total_count_31.i, align 8
   %15 = load i64, ptr %total_count_1.i.i, align 8
   %add.i85.i = add i64 %15, %14
@@ -663,7 +663,7 @@ FastLog2.exit105.i119:                            ; preds = %if.end.i100.i117, %
   %retval.i97.0.i120 = phi double [ %44, %if.then.i103.i194 ], [ %call.i102.i118, %if.end.i100.i117 ]
   %mul3.i.i121 = fmul double %retval.i97.0.i120, %conv1.i.i115
   %45 = tail call double @llvm.fmuladd.f64(double %conv.i.i109, double %retval.i106.0.i114, double %mul3.i.i121)
-  %conv4.i.i122 = uitofp i64 %add.i.i108 to double
+  %conv4.i.i122 = uitofp nneg i64 %add.i.i108 to double
   %cmp.i91.i123 = icmp ult i64 %add.i.i108, 256
   br i1 %cmp.i91.i123, label %if.then.i95.i192, label %if.end.i92.i124
 
@@ -712,7 +712,7 @@ cond.false.i143:                                  ; preds = %if.else39.i141
 
 cond.end.i147:                                    ; preds = %cond.false.i143, %if.else39.i141
   %cond.i148 = phi double [ %cond.i.i146, %cond.false.i143 ], [ 0x547D42AEA2879F2E, %if.else39.i141 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx13.i130, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx13.i130, i64 1040, i1 false)
   %53 = load i64, ptr %total_count_31.i139, align 8
   %54 = load i64, ptr %total_count_1.i.i149, align 8
   %add.i85.i150 = add i64 %54, %53
@@ -876,7 +876,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.us, label %for.body7.us.us.preheader, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx3.us, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx3.us, i64 1040, i1 false)
   %total_count_.i.i.us = getelementptr inbounds i8, ptr %arrayidx4.us, i64 1024
   %2 = load i64, ptr %total_count_.i.i.us, align 8
   %3 = load i64, ptr %total_count_1.i.i, align 8
@@ -922,7 +922,7 @@ for.body7.us68:                                   ; preds = %BrotliHistogramBitC
   br i1 %cmp.i44.us, label %BrotliHistogramBitCostDistanceLiteral.exit61.us, label %if.else.i45.us
 
 if.else.i45.us:                                   ; preds = %for.body7.us68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx3.us, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx3.us, i64 1040, i1 false)
   %total_count_.i.i46.us = getelementptr inbounds i8, ptr %arrayidx11.us, i64 1024
   %10 = load i64, ptr %total_count_.i.i46.us, align 8
   %11 = load i64, ptr %total_count_1.i.i, align 8
@@ -1014,7 +1014,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Br
   br i1 %cmp.i41, label %BrotliHistogramBitCostDistanceLiteral.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx3, i64 1040, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(1040) %arrayidx3, i64 1040, i1 false)
   %total_count_.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 1024
   %19 = load i64, ptr %total_count_.i.i, align 8
   %20 = load i64, ptr %total_count_1.i.i, align 8
@@ -1097,7 +1097,7 @@ for.end37:                                        ; preds = %for.inc35, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BrotliHistogramReindexLiteral(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexLiteral(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %length, 0
   br i1 %cmp.not, label %for.end45.thread, label %for.body4.preheader
@@ -1309,7 +1309,7 @@ if.end82:                                         ; preds = %cond.true72, %for.e
   tail call void @BrotliHistogramRemapLiteral(ptr noundef %in, i64 noundef %in_size, ptr noundef %cond7, i64 noundef %call83, ptr noundef %out, ptr noundef %call16, ptr noundef %histogram_symbols)
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call16) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond7) #7
-  %call84 = tail call i64 @BrotliHistogramReindexLiteral(ptr noundef %m, ptr noundef %out, ptr noundef %histogram_symbols, i64 noundef %in_size), !range !27
+  %call84 = tail call i64 @BrotliHistogramReindexLiteral(ptr noundef %m, ptr noundef %out, ptr noundef %histogram_symbols, i64 noundef %in_size)
   store i64 %call84, ptr %out_size, align 8
   ret void
 }
@@ -1364,7 +1364,7 @@ FastLog2.exit105:                                 ; preds = %if.end.i100, %if.th
   %retval.i97.0 = phi double [ %3, %if.then.i103 ], [ %call.i102, %if.end.i100 ]
   %mul3.i = fmul double %retval.i97.0, %conv1.i
   %4 = tail call double @llvm.fmuladd.f64(double %conv.i, double %retval.i106.0, double %mul3.i)
-  %conv4.i = uitofp i64 %add.i to double
+  %conv4.i = uitofp nneg i64 %add.i to double
   %cmp.i91 = icmp ult i64 %add.i, 256
   br i1 %cmp.i91, label %if.then.i95, label %if.end.i92
 
@@ -1433,7 +1433,7 @@ for.body.i:                                       ; preds = %cond.end, %for.body
   store i32 %add4.i, ptr %arrayidx3.i, align 4
   %inc.i = add nuw nsw i64 %i.i.080, 1
   %exitcond.not = icmp eq i64 %inc.i, 704
-  br i1 %exitcond.not, label %HistogramAddHistogramCommand.exit, label %for.body.i, !llvm.loop !28
+  br i1 %exitcond.not, label %HistogramAddHistogramCommand.exit, label %for.body.i, !llvm.loop !27
 
 HistogramAddHistogramCommand.exit:                ; preds = %for.body.i
   %call50 = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %tmp) #7
@@ -1529,7 +1529,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond.loopexit:                                ; preds = %BrotliCompareAndPushToQueueCommand.exit, %for.body
   %num_pairs.1.lcssa = phi i64 [ %num_pairs.0214, %for.body ], [ %num_pairs.3, %BrotliCompareAndPushToQueueCommand.exit ]
   %exitcond.not = icmp eq i64 %add, %num_clusters
-  br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !28
 
 while.cond.preheader:                             ; preds = %for.cond.loopexit, %entry
   %num_pairs.0.lcssa = phi i64 [ 0, %entry ], [ %num_pairs.1.lcssa, %for.cond.loopexit ]
@@ -1604,7 +1604,7 @@ FastLog2.exit105.i:                               ; preds = %if.end.i100.i, %if.
   %retval.i97.0.i = phi double [ %5, %if.then.i103.i ], [ %call.i102.i, %if.end.i100.i ]
   %mul3.i.i = fmul double %retval.i97.0.i, %conv1.i.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %retval.i106.0.i, double %mul3.i.i)
-  %conv4.i.i = uitofp i64 %add.i.i to double
+  %conv4.i.i = uitofp nneg i64 %add.i.i to double
   %cmp.i91.i = icmp ult i64 %add.i.i, 256
   br i1 %cmp.i91.i, label %if.then.i95.i, label %if.end.i92.i
 
@@ -1653,7 +1653,7 @@ cond.false.i:                                     ; preds = %if.else39.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.else39.i
   %cond.i = phi double [ %cond.i.i, %cond.false.i ], [ 0x547D42AEA2879F2E, %if.else39.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx13.i, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx13.i, i64 2832, i1 false)
   %14 = load i64, ptr %total_count_31.i, align 8
   %15 = load i64, ptr %total_count_1.i.i, align 8
   %add.i87.i = add i64 %15, %14
@@ -1670,7 +1670,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %cond
   store i32 %add4.i.i, ptr %arrayidx3.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.i.080.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i, 704
-  br i1 %exitcond.not.i, label %HistogramAddHistogramCommand.exit.i, label %for.body.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %HistogramAddHistogramCommand.exit.i, label %for.body.i.i, !llvm.loop !27
 
 HistogramAddHistogramCommand.exit.i:              ; preds = %for.body.i.i
   %call50.i = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %tmp) #7
@@ -1739,7 +1739,7 @@ BrotliCompareAndPushToQueueCommand.exit:          ; preds = %for.body3, %Histogr
   %num_pairs.3 = phi i64 [ %num_pairs.1211, %for.body3 ], [ %inc81.i, %if.then79.i ], [ %num_pairs.1211, %if.else76.i ], [ %num_pairs.2, %if.end74.i ], [ %num_pairs.1211, %HistogramAddHistogramCommand.exit.i ]
   %inc = add nuw i64 %idx2.0212, 1
   %cmp2 = icmp ult i64 %inc, %num_clusters
-  br i1 %cmp2, label %for.body3, label %for.cond.loopexit, !llvm.loop !30
+  br i1 %cmp2, label %for.body3, label %for.cond.loopexit, !llvm.loop !29
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.preheader
   %num_pairs.4.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.4.ph.be, %while.cond.outer.backedge ]
@@ -1758,7 +1758,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
 while.body:                                       ; preds = %while.cond
   %21 = load double, ptr %cost_diff, align 8
   %cmp11 = fcmp ult double %21, %cost_diff_threshold.0
-  br i1 %cmp11, label %if.end, label %while.cond, !llvm.loop !31
+  br i1 %cmp11, label %if.end, label %while.cond, !llvm.loop !30
 
 if.end:                                           ; preds = %while.body
   %22 = load i32, ptr %pairs, align 8
@@ -1785,7 +1785,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   store i32 %add4.i, ptr %arrayidx3.i, align 4
   %inc.i = add nuw nsw i64 %i.i.0217, 1
   %exitcond233.not = icmp eq i64 %inc.i, 704
-  br i1 %exitcond233.not, label %HistogramAddHistogramCommand.exit, label %for.body.i, !llvm.loop !28
+  br i1 %exitcond233.not, label %HistogramAddHistogramCommand.exit, label %for.body.i, !llvm.loop !27
 
 HistogramAddHistogramCommand.exit:                ; preds = %for.body.i
   %28 = load double, ptr %cost_combo, align 8
@@ -1813,7 +1813,7 @@ if.then32:                                        ; preds = %for.body29
 for.inc35:                                        ; preds = %for.body29, %if.then32
   %inc36 = add nuw i64 %i.0219, 1
   %exitcond234.not = icmp eq i64 %inc36, %symbols_size
-  br i1 %exitcond234.not, label %for.body40.preheader, label %for.body29, !llvm.loop !32
+  br i1 %exitcond234.not, label %for.body40.preheader, label %for.body29, !llvm.loop !31
 
 for.body40.preheader:                             ; preds = %for.inc35, %HistogramAddHistogramCommand.exit
   br label %for.body40
@@ -1837,7 +1837,7 @@ if.then43:                                        ; preds = %for.body40
 for.inc49:                                        ; preds = %for.body40
   %inc50 = add nuw i64 %i.1220, 1
   %exitcond235.not = icmp eq i64 %inc50, %umax
-  br i1 %exitcond235.not, label %for.end51, label %for.body40, !llvm.loop !33
+  br i1 %exitcond235.not, label %for.end51, label %for.body40, !llvm.loop !32
 
 for.end51:                                        ; preds = %for.inc49, %if.then43
   %dec = add i64 %num_clusters.addr.0.ph, -1
@@ -1851,7 +1851,7 @@ for.cond79.preheader:                             ; preds = %for.inc76, %for.end
 
 while.cond.outer.backedge:                        ; preds = %BrotliCompareAndPushToQueueCommand.exit198, %for.cond79.preheader
   %num_pairs.4.ph.be = phi i64 [ %copy_to_idx.0.lcssa, %for.cond79.preheader ], [ %num_pairs.7, %BrotliCompareAndPushToQueueCommand.exit198 ]
-  br label %while.cond.outer, !llvm.loop !31
+  br label %while.cond.outer, !llvm.loop !30
 
 for.body54:                                       ; preds = %for.end51, %for.inc76
   %copy_to_idx.0223 = phi i64 [ %copy_to_idx.1, %for.inc76 ], [ 0, %for.end51 ]
@@ -1910,7 +1910,7 @@ for.inc76:                                        ; preds = %for.body54, %lor.lh
   %copy_to_idx.1 = phi i64 [ %copy_to_idx.0223, %for.body54 ], [ %copy_to_idx.0223, %lor.lhs.false ], [ %inc75, %if.end74 ]
   %inc77 = add nuw i64 %i.2222, 1
   %exitcond236.not = icmp eq i64 %inc77, %num_pairs.4.ph
-  br i1 %exitcond236.not, label %for.cond79.preheader, label %for.body54, !llvm.loop !34
+  br i1 %exitcond236.not, label %for.cond79.preheader, label %for.body54, !llvm.loop !33
 
 for.body81:                                       ; preds = %for.cond79.preheader, %BrotliCompareAndPushToQueueCommand.exit198
   %i.3228 = phi i64 [ %inc85, %BrotliCompareAndPushToQueueCommand.exit198 ], [ 0, %for.cond79.preheader ]
@@ -1964,7 +1964,7 @@ FastLog2.exit105.i119:                            ; preds = %if.end.i100.i117, %
   %retval.i97.0.i120 = phi double [ %44, %if.then.i103.i194 ], [ %call.i102.i118, %if.end.i100.i117 ]
   %mul3.i.i121 = fmul double %retval.i97.0.i120, %conv1.i.i115
   %45 = tail call double @llvm.fmuladd.f64(double %conv.i.i109, double %retval.i106.0.i114, double %mul3.i.i121)
-  %conv4.i.i122 = uitofp i64 %add.i.i108 to double
+  %conv4.i.i122 = uitofp nneg i64 %add.i.i108 to double
   %cmp.i91.i123 = icmp ult i64 %add.i.i108, 256
   br i1 %cmp.i91.i123, label %if.then.i95.i192, label %if.end.i92.i124
 
@@ -2013,7 +2013,7 @@ cond.false.i143:                                  ; preds = %if.else39.i141
 
 cond.end.i147:                                    ; preds = %cond.false.i143, %if.else39.i141
   %cond.i148 = phi double [ %cond.i.i146, %cond.false.i143 ], [ 0x547D42AEA2879F2E, %if.else39.i141 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx13.i130, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx13.i130, i64 2832, i1 false)
   %53 = load i64, ptr %total_count_31.i139, align 8
   %54 = load i64, ptr %total_count_1.i.i149, align 8
   %add.i87.i150 = add i64 %54, %53
@@ -2030,7 +2030,7 @@ for.body.i.i151:                                  ; preds = %for.body.i.i151, %c
   store i32 %add4.i.i155, ptr %arrayidx3.i.i154, align 4
   %inc.i.i156 = add nuw nsw i64 %i.i.080.i152, 1
   %exitcond.not.i157 = icmp eq i64 %inc.i.i156, 704
-  br i1 %exitcond.not.i157, label %HistogramAddHistogramCommand.exit.i158, label %for.body.i.i151, !llvm.loop !28
+  br i1 %exitcond.not.i157, label %HistogramAddHistogramCommand.exit.i158, label %for.body.i.i151, !llvm.loop !27
 
 HistogramAddHistogramCommand.exit.i158:           ; preds = %for.body.i.i151
   %call50.i159 = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %tmp) #7
@@ -2099,7 +2099,7 @@ BrotliCompareAndPushToQueueCommand.exit198:       ; preds = %for.body81, %Histog
   %num_pairs.7 = phi i64 [ %num_pairs.5227, %for.body81 ], [ %inc81.i181, %if.then79.i176 ], [ %num_pairs.5227, %if.else76.i174 ], [ %num_pairs.6, %if.end74.i184 ], [ %num_pairs.5227, %HistogramAddHistogramCommand.exit.i158 ]
   %inc85 = add nuw i64 %i.3228, 1
   %cmp80 = icmp ult i64 %inc85, %dec
-  br i1 %cmp80, label %for.body81, label %while.cond.outer.backedge, !llvm.loop !35
+  br i1 %cmp80, label %for.body81, label %while.cond.outer.backedge, !llvm.loop !34
 
 while.end:                                        ; preds = %while.cond
   ret i64 %num_clusters.addr.0.ph
@@ -2133,7 +2133,7 @@ for.body.i:                                       ; preds = %if.else, %for.body.
   store i32 %add4.i, ptr %arrayidx3.i, align 4
   %inc.i = add nuw nsw i64 %i.i.010, 1
   %exitcond.not = icmp eq i64 %inc.i, 704
-  br i1 %exitcond.not, label %HistogramAddHistogramCommand.exit, label %for.body.i, !llvm.loop !28
+  br i1 %exitcond.not, label %HistogramAddHistogramCommand.exit, label %for.body.i, !llvm.loop !27
 
 HistogramAddHistogramCommand.exit:                ; preds = %for.body.i
   %call = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %tmp) #7
@@ -2174,7 +2174,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.us, label %for.body7.us.us.preheader, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx3.us, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx3.us, i64 2832, i1 false)
   %total_count_.i.i.us = getelementptr inbounds i8, ptr %arrayidx4.us, i64 2816
   %2 = load i64, ptr %total_count_.i.i.us, align 8
   %3 = load i64, ptr %total_count_1.i.i, align 8
@@ -2192,7 +2192,7 @@ for.body.i.i.us:                                  ; preds = %for.body.i.i.us, %i
   store i32 %add4.i.i.us, ptr %arrayidx3.i.i.us, align 4
   %inc.i.i.us = add nuw nsw i64 %i.i.010.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %inc.i.i.us, 704
-  br i1 %exitcond.not.i.us, label %BrotliHistogramBitCostDistanceCommand.exit.us, label %for.body.i.i.us, !llvm.loop !28
+  br i1 %exitcond.not.i.us, label %BrotliHistogramBitCostDistanceCommand.exit.us, label %for.body.i.i.us, !llvm.loop !27
 
 BrotliHistogramBitCostDistanceCommand.exit.us:    ; preds = %for.body.i.i.us
   %call.i.us = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %tmp) #7
@@ -2220,7 +2220,7 @@ for.body7.us68:                                   ; preds = %BrotliHistogramBitC
   br i1 %cmp.i44.us, label %BrotliHistogramBitCostDistanceCommand.exit61.us, label %if.else.i45.us
 
 if.else.i45.us:                                   ; preds = %for.body7.us68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx3.us, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx3.us, i64 2832, i1 false)
   %total_count_.i.i46.us = getelementptr inbounds i8, ptr %arrayidx11.us, i64 2816
   %10 = load i64, ptr %total_count_.i.i46.us, align 8
   %11 = load i64, ptr %total_count_1.i.i, align 8
@@ -2238,7 +2238,7 @@ for.body.i.i49.us:                                ; preds = %for.body.i.i49.us, 
   store i32 %add4.i.i53.us, ptr %arrayidx3.i.i52.us, align 4
   %inc.i.i54.us = add nuw nsw i64 %i.i.010.i50.us, 1
   %exitcond.not.i55.us = icmp eq i64 %inc.i.i54.us, 704
-  br i1 %exitcond.not.i55.us, label %HistogramAddHistogramCommand.exit.i56.us, label %for.body.i.i49.us, !llvm.loop !28
+  br i1 %exitcond.not.i55.us, label %HistogramAddHistogramCommand.exit.i56.us, label %for.body.i.i49.us, !llvm.loop !27
 
 HistogramAddHistogramCommand.exit.i56.us:         ; preds = %for.body.i.i49.us
   %call.i57.us = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %tmp) #7
@@ -2261,14 +2261,14 @@ for.inc.us75:                                     ; preds = %if.then.us74, %Brot
   %best_bits.1.us77 = phi double [ %retval.0.i60.us, %if.then.us74 ], [ %best_bits.064.us70, %BrotliHistogramBitCostDistanceCommand.exit61.us ]
   %inc.us78 = add nuw i64 %j.065.us69, 1
   %exitcond.not = icmp eq i64 %inc.us78, %num_clusters
-  br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us68, !llvm.loop !36
+  br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us68, !llvm.loop !35
 
 for.cond5.for.end_crit_edge.us:                   ; preds = %for.inc.us75, %for.inc.us.us
   %.us-phi.us = phi i32 [ %best_out.1.us.us, %for.inc.us.us ], [ %best_out.1.us76, %for.inc.us75 ]
   store i32 %.us-phi.us, ptr %0, align 4
   %inc17.us = add nuw i64 %i.067.us, 1
   %exitcond91.not = icmp eq i64 %inc17.us, %in_size
-  br i1 %exitcond91.not, label %for.body21.preheader, label %for.body.us, !llvm.loop !37
+  br i1 %exitcond91.not, label %for.body21.preheader, label %for.body.us, !llvm.loop !36
 
 for.body7.us.us:                                  ; preds = %for.body7.us.us.preheader, %for.inc.us.us
   %j.065.us.us = phi i64 [ %inc.us.us, %for.inc.us.us ], [ 0, %for.body7.us.us.preheader ]
@@ -2287,7 +2287,7 @@ for.inc.us.us:                                    ; preds = %if.then.us.us, %for
   %best_bits.1.us.us = phi double [ 0.000000e+00, %if.then.us.us ], [ %best_bits.064.us.us, %for.body7.us.us ]
   %inc.us.us = add nuw i64 %j.065.us.us, 1
   %exitcond90.not = icmp eq i64 %inc.us.us, %num_clusters
-  br i1 %exitcond90.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us.us, !llvm.loop !38
+  br i1 %exitcond90.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us.us, !llvm.loop !37
 
 for.cond19.preheader:                             ; preds = %BrotliHistogramBitCostDistanceCommand.exit, %entry
   %cmp2083.not = icmp eq i64 %num_clusters, 0
@@ -2312,7 +2312,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Br
   br i1 %cmp.i41, label %BrotliHistogramBitCostDistanceCommand.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx3, i64 2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2832) %arrayidx3, i64 2832, i1 false)
   %total_count_.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 2816
   %19 = load i64, ptr %total_count_.i.i, align 8
   %20 = load i64, ptr %total_count_1.i.i, align 8
@@ -2330,7 +2330,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i32 %add4.i.i, ptr %arrayidx3.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i, 704
-  br i1 %exitcond.not.i, label %HistogramAddHistogramCommand.exit.i, label %for.body.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %HistogramAddHistogramCommand.exit.i, label %for.body.i.i, !llvm.loop !27
 
 HistogramAddHistogramCommand.exit.i:              ; preds = %for.body.i.i
   %call.i = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %tmp) #7
@@ -2340,7 +2340,7 @@ BrotliHistogramBitCostDistanceCommand.exit:       ; preds = %for.body, %Histogra
   store i32 %cond, ptr %17, align 4
   %inc17 = add nuw i64 %i.067, 1
   %exitcond92.not = icmp eq i64 %inc17, %in_size
-  br i1 %exitcond92.not, label %for.cond19.preheader, label %for.body, !llvm.loop !37
+  br i1 %exitcond92.not, label %for.cond19.preheader, label %for.body, !llvm.loop !36
 
 for.cond28.preheader:                             ; preds = %for.body21, %for.cond19.preheader
   br i1 %cmp66.not, label %for.end37, label %for.body30
@@ -2356,7 +2356,7 @@ for.body21:                                       ; preds = %for.body21.preheade
   store double 0x7FF0000000000000, ptr %bit_cost_.i, align 8
   %inc26 = add nuw i64 %i.184, 1
   %exitcond93.not = icmp eq i64 %inc26, %num_clusters
-  br i1 %exitcond93.not, label %for.cond28.preheader, label %for.body21, !llvm.loop !39
+  br i1 %exitcond93.not, label %for.cond28.preheader, label %for.body21, !llvm.loop !38
 
 for.body30:                                       ; preds = %for.cond28.preheader, %for.inc35
   %i.287 = phi i64 [ %inc36, %for.inc35 ], [ 0, %for.cond28.preheader ]
@@ -2383,19 +2383,19 @@ for.body.i:                                       ; preds = %for.body30, %for.bo
   store i32 %add4.i, ptr %arrayidx3.i, align 4
   %inc.i = add nuw nsw i64 %i.i.085, 1
   %exitcond94.not = icmp eq i64 %inc.i, 704
-  br i1 %exitcond94.not, label %for.inc35, label %for.body.i, !llvm.loop !28
+  br i1 %exitcond94.not, label %for.inc35, label %for.body.i, !llvm.loop !27
 
 for.inc35:                                        ; preds = %for.body.i
   %inc36 = add nuw i64 %i.287, 1
   %exitcond95.not = icmp eq i64 %inc36, %in_size
-  br i1 %exitcond95.not, label %for.end37, label %for.body30, !llvm.loop !40
+  br i1 %exitcond95.not, label %for.end37, label %for.body30, !llvm.loop !39
 
 for.end37:                                        ; preds = %for.inc35, %for.cond28.preheader
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BrotliHistogramReindexCommand(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexCommand(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %length, 0
   br i1 %cmp.not, label %for.end45.thread, label %for.body4.preheader
@@ -2431,7 +2431,7 @@ for.inc12:                                        ; preds = %for.body4, %if.then
   %next_index.1 = phi i32 [ %inc11, %if.then ], [ %next_index.048, %for.body4 ]
   %inc13 = add nuw i64 %i.149, 1
   %exitcond.not = icmp eq i64 %inc13, %length
-  br i1 %exitcond.not, label %for.end14, label %for.body4, !llvm.loop !41
+  br i1 %exitcond.not, label %for.end14, label %for.body4, !llvm.loop !40
 
 for.end14:                                        ; preds = %for.inc12
   %cmp15.not = icmp eq i32 %next_index.1, 0
@@ -2476,7 +2476,7 @@ if.end38:                                         ; preds = %if.then31, %for.bod
   store i32 %5, ptr %arrayidx26, align 4
   %inc44 = add nuw i64 %i.252, 1
   %exitcond57.not = icmp eq i64 %inc44, %length
-  br i1 %exitcond57.not, label %for.end45, label %for.body25, !llvm.loop !42
+  br i1 %exitcond57.not, label %for.end45, label %for.body25, !llvm.loop !41
 
 for.end45:                                        ; preds = %if.end38
   tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call) #7
@@ -2491,7 +2491,7 @@ for.body50:                                       ; preds = %for.end45, %for.bod
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx51, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx52, i64 2832, i1 false)
   %inc54 = add nuw nsw i64 %i.355, 1
   %exitcond58.not = icmp eq i64 %inc54, %conv47
-  br i1 %exitcond58.not, label %for.end55, label %for.body50, !llvm.loop !43
+  br i1 %exitcond58.not, label %for.end55, label %for.body50, !llvm.loop !42
 
 for.end55:                                        ; preds = %for.body50, %for.end45.thread, %for.end45
   %conv4780 = phi i64 [ 0, %for.end45.thread ], [ 0, %for.end45 ], [ %conv47, %for.body50 ]
@@ -2525,7 +2525,7 @@ for.body:                                         ; preds = %cond.true9, %for.bo
   store i32 1, ptr %arrayidx, align 4
   %inc = add nuw i64 %i.097, 1
   %exitcond.not = icmp eq i64 %inc, %in_size
-  br i1 %exitcond.not, label %for.body20, label %for.body, !llvm.loop !44
+  br i1 %exitcond.not, label %for.body20, label %for.body, !llvm.loop !43
 
 for.body20:                                       ; preds = %for.body, %for.body20
   %i.199 = phi i64 [ %inc28, %for.body20 ], [ 0, %for.body ]
@@ -2540,7 +2540,7 @@ for.body20:                                       ; preds = %for.body, %for.body
   store i32 %conv, ptr %arrayidx26, align 4
   %inc28 = add nuw i64 %i.199, 1
   %exitcond105.not = icmp eq i64 %inc28, %in_size
-  br i1 %exitcond105.not, label %for.body38.preheader, label %for.body20, !llvm.loop !45
+  br i1 %exitcond105.not, label %for.body38.preheader, label %for.body20, !llvm.loop !44
 
 for.body38.preheader:                             ; preds = %for.body20, %for.end45
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.end45 ], [ %in_size, %for.body20 ]
@@ -2561,7 +2561,7 @@ for.body38:                                       ; preds = %for.body38.preheade
   store i32 %conv40, ptr %arrayidx42, align 4
   %inc44 = add nuw nsw i64 %j.0101, 1
   %exitcond106.not = icmp eq i64 %inc44, %umax
-  br i1 %exitcond106.not, label %for.end45, label %for.body38, !llvm.loop !46
+  br i1 %exitcond106.not, label %for.end45, label %for.body38, !llvm.loop !45
 
 for.end45:                                        ; preds = %for.body38
   %arrayidx46 = getelementptr inbounds i32, ptr %histogram_symbols, i64 %i.2103
@@ -2571,7 +2571,7 @@ for.end45:                                        ; preds = %for.body38
   %add51 = add i64 %i.2103, 64
   %cmp31 = icmp ult i64 %add51, %in_size
   %indvars.iv.next = add i64 %indvars.iv, -64
-  br i1 %cmp31, label %for.body38.preheader, label %for.end52, !llvm.loop !47
+  br i1 %cmp31, label %for.body38.preheader, label %for.end52, !llvm.loop !46
 
 for.end52:                                        ; preds = %for.end45, %cond.true9
   %num_clusters.0.lcssa = phi i64 [ 0, %cond.true9 ], [ %add49, %for.end45 ]
@@ -2586,7 +2586,7 @@ while.cond:                                       ; preds = %for.end52, %while.c
   %_new_size.0 = phi i64 [ %mul69, %while.cond ], [ 2048, %for.end52 ]
   %cmp67.not = icmp ugt i64 %_new_size.0, %cond.i
   %mul69 = shl i64 %_new_size.0, 1
-  br i1 %cmp67.not, label %cond.true72, label %while.cond, !llvm.loop !48
+  br i1 %cmp67.not, label %cond.true72, label %while.cond, !llvm.loop !47
 
 cond.true72:                                      ; preds = %while.cond
   %mul73 = mul i64 %_new_size.0, 24
@@ -2603,7 +2603,7 @@ if.end82:                                         ; preds = %cond.true72, %for.e
   tail call void @BrotliHistogramRemapCommand(ptr noundef %in, i64 noundef %in_size, ptr noundef %cond7, i64 noundef %call83, ptr noundef %out, ptr noundef %call16, ptr noundef %histogram_symbols)
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call16) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond7) #7
-  %call84 = tail call i64 @BrotliHistogramReindexCommand(ptr noundef %m, ptr noundef %out, ptr noundef %histogram_symbols, i64 noundef %in_size), !range !27
+  %call84 = tail call i64 @BrotliHistogramReindexCommand(ptr noundef %m, ptr noundef %out, ptr noundef %histogram_symbols, i64 noundef %in_size)
   store i64 %call84, ptr %out_size, align 8
   ret void
 }
@@ -2658,7 +2658,7 @@ FastLog2.exit105:                                 ; preds = %if.end.i100, %if.th
   %retval.i97.0 = phi double [ %3, %if.then.i103 ], [ %call.i102, %if.end.i100 ]
   %mul3.i = fmul double %retval.i97.0, %conv1.i
   %4 = tail call double @llvm.fmuladd.f64(double %conv.i, double %retval.i106.0, double %mul3.i)
-  %conv4.i = uitofp i64 %add.i to double
+  %conv4.i = uitofp nneg i64 %add.i to double
   %cmp.i91 = icmp ult i64 %add.i, 256
   br i1 %cmp.i91, label %if.then.i95, label %if.end.i92
 
@@ -2727,7 +2727,7 @@ for.body.i:                                       ; preds = %cond.end, %for.body
   store i32 %add4.i, ptr %arrayidx3.i, align 4
   %inc.i = add nuw nsw i64 %i.i.080, 1
   %exitcond.not = icmp eq i64 %inc.i, 544
-  br i1 %exitcond.not, label %HistogramAddHistogramDistance.exit, label %for.body.i, !llvm.loop !49
+  br i1 %exitcond.not, label %HistogramAddHistogramDistance.exit, label %for.body.i, !llvm.loop !48
 
 HistogramAddHistogramDistance.exit:               ; preds = %for.body.i
   %call50 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %tmp) #7
@@ -2823,7 +2823,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond.loopexit:                                ; preds = %BrotliCompareAndPushToQueueDistance.exit, %for.body
   %num_pairs.1.lcssa = phi i64 [ %num_pairs.0214, %for.body ], [ %num_pairs.3, %BrotliCompareAndPushToQueueDistance.exit ]
   %exitcond.not = icmp eq i64 %add, %num_clusters
-  br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !50
+  br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !49
 
 while.cond.preheader:                             ; preds = %for.cond.loopexit, %entry
   %num_pairs.0.lcssa = phi i64 [ 0, %entry ], [ %num_pairs.1.lcssa, %for.cond.loopexit ]
@@ -2898,7 +2898,7 @@ FastLog2.exit105.i:                               ; preds = %if.end.i100.i, %if.
   %retval.i97.0.i = phi double [ %5, %if.then.i103.i ], [ %call.i102.i, %if.end.i100.i ]
   %mul3.i.i = fmul double %retval.i97.0.i, %conv1.i.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %retval.i106.0.i, double %mul3.i.i)
-  %conv4.i.i = uitofp i64 %add.i.i to double
+  %conv4.i.i = uitofp nneg i64 %add.i.i to double
   %cmp.i91.i = icmp ult i64 %add.i.i, 256
   br i1 %cmp.i91.i, label %if.then.i95.i, label %if.end.i92.i
 
@@ -2947,7 +2947,7 @@ cond.false.i:                                     ; preds = %if.else39.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.else39.i
   %cond.i = phi double [ %cond.i.i, %cond.false.i ], [ 0x547D42AEA2879F2E, %if.else39.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx13.i, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx13.i, i64 2192, i1 false)
   %14 = load i64, ptr %total_count_31.i, align 8
   %15 = load i64, ptr %total_count_1.i.i, align 8
   %add.i87.i = add i64 %15, %14
@@ -2964,7 +2964,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %cond
   store i32 %add4.i.i, ptr %arrayidx3.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.i.080.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i, 544
-  br i1 %exitcond.not.i, label %HistogramAddHistogramDistance.exit.i, label %for.body.i.i, !llvm.loop !49
+  br i1 %exitcond.not.i, label %HistogramAddHistogramDistance.exit.i, label %for.body.i.i, !llvm.loop !48
 
 HistogramAddHistogramDistance.exit.i:             ; preds = %for.body.i.i
   %call50.i = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %tmp) #7
@@ -3033,7 +3033,7 @@ BrotliCompareAndPushToQueueDistance.exit:         ; preds = %for.body3, %Histogr
   %num_pairs.3 = phi i64 [ %num_pairs.1211, %for.body3 ], [ %inc81.i, %if.then79.i ], [ %num_pairs.1211, %if.else76.i ], [ %num_pairs.2, %if.end74.i ], [ %num_pairs.1211, %HistogramAddHistogramDistance.exit.i ]
   %inc = add nuw i64 %idx2.0212, 1
   %cmp2 = icmp ult i64 %inc, %num_clusters
-  br i1 %cmp2, label %for.body3, label %for.cond.loopexit, !llvm.loop !51
+  br i1 %cmp2, label %for.body3, label %for.cond.loopexit, !llvm.loop !50
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.preheader
   %num_pairs.4.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.4.ph.be, %while.cond.outer.backedge ]
@@ -3052,7 +3052,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
 while.body:                                       ; preds = %while.cond
   %21 = load double, ptr %cost_diff, align 8
   %cmp11 = fcmp ult double %21, %cost_diff_threshold.0
-  br i1 %cmp11, label %if.end, label %while.cond, !llvm.loop !52
+  br i1 %cmp11, label %if.end, label %while.cond, !llvm.loop !51
 
 if.end:                                           ; preds = %while.body
   %22 = load i32, ptr %pairs, align 8
@@ -3079,7 +3079,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   store i32 %add4.i, ptr %arrayidx3.i, align 4
   %inc.i = add nuw nsw i64 %i.i.0217, 1
   %exitcond233.not = icmp eq i64 %inc.i, 544
-  br i1 %exitcond233.not, label %HistogramAddHistogramDistance.exit, label %for.body.i, !llvm.loop !49
+  br i1 %exitcond233.not, label %HistogramAddHistogramDistance.exit, label %for.body.i, !llvm.loop !48
 
 HistogramAddHistogramDistance.exit:               ; preds = %for.body.i
   %28 = load double, ptr %cost_combo, align 8
@@ -3107,7 +3107,7 @@ if.then32:                                        ; preds = %for.body29
 for.inc35:                                        ; preds = %for.body29, %if.then32
   %inc36 = add nuw i64 %i.0219, 1
   %exitcond234.not = icmp eq i64 %inc36, %symbols_size
-  br i1 %exitcond234.not, label %for.body40.preheader, label %for.body29, !llvm.loop !53
+  br i1 %exitcond234.not, label %for.body40.preheader, label %for.body29, !llvm.loop !52
 
 for.body40.preheader:                             ; preds = %for.inc35, %HistogramAddHistogramDistance.exit
   br label %for.body40
@@ -3131,7 +3131,7 @@ if.then43:                                        ; preds = %for.body40
 for.inc49:                                        ; preds = %for.body40
   %inc50 = add nuw i64 %i.1220, 1
   %exitcond235.not = icmp eq i64 %inc50, %umax
-  br i1 %exitcond235.not, label %for.end51, label %for.body40, !llvm.loop !54
+  br i1 %exitcond235.not, label %for.end51, label %for.body40, !llvm.loop !53
 
 for.end51:                                        ; preds = %for.inc49, %if.then43
   %dec = add i64 %num_clusters.addr.0.ph, -1
@@ -3145,7 +3145,7 @@ for.cond79.preheader:                             ; preds = %for.inc76, %for.end
 
 while.cond.outer.backedge:                        ; preds = %BrotliCompareAndPushToQueueDistance.exit198, %for.cond79.preheader
   %num_pairs.4.ph.be = phi i64 [ %copy_to_idx.0.lcssa, %for.cond79.preheader ], [ %num_pairs.7, %BrotliCompareAndPushToQueueDistance.exit198 ]
-  br label %while.cond.outer, !llvm.loop !52
+  br label %while.cond.outer, !llvm.loop !51
 
 for.body54:                                       ; preds = %for.end51, %for.inc76
   %copy_to_idx.0223 = phi i64 [ %copy_to_idx.1, %for.inc76 ], [ 0, %for.end51 ]
@@ -3204,7 +3204,7 @@ for.inc76:                                        ; preds = %for.body54, %lor.lh
   %copy_to_idx.1 = phi i64 [ %copy_to_idx.0223, %for.body54 ], [ %copy_to_idx.0223, %lor.lhs.false ], [ %inc75, %if.end74 ]
   %inc77 = add nuw i64 %i.2222, 1
   %exitcond236.not = icmp eq i64 %inc77, %num_pairs.4.ph
-  br i1 %exitcond236.not, label %for.cond79.preheader, label %for.body54, !llvm.loop !55
+  br i1 %exitcond236.not, label %for.cond79.preheader, label %for.body54, !llvm.loop !54
 
 for.body81:                                       ; preds = %for.cond79.preheader, %BrotliCompareAndPushToQueueDistance.exit198
   %i.3228 = phi i64 [ %inc85, %BrotliCompareAndPushToQueueDistance.exit198 ], [ 0, %for.cond79.preheader ]
@@ -3258,7 +3258,7 @@ FastLog2.exit105.i119:                            ; preds = %if.end.i100.i117, %
   %retval.i97.0.i120 = phi double [ %44, %if.then.i103.i194 ], [ %call.i102.i118, %if.end.i100.i117 ]
   %mul3.i.i121 = fmul double %retval.i97.0.i120, %conv1.i.i115
   %45 = tail call double @llvm.fmuladd.f64(double %conv.i.i109, double %retval.i106.0.i114, double %mul3.i.i121)
-  %conv4.i.i122 = uitofp i64 %add.i.i108 to double
+  %conv4.i.i122 = uitofp nneg i64 %add.i.i108 to double
   %cmp.i91.i123 = icmp ult i64 %add.i.i108, 256
   br i1 %cmp.i91.i123, label %if.then.i95.i192, label %if.end.i92.i124
 
@@ -3307,7 +3307,7 @@ cond.false.i143:                                  ; preds = %if.else39.i141
 
 cond.end.i147:                                    ; preds = %cond.false.i143, %if.else39.i141
   %cond.i148 = phi double [ %cond.i.i146, %cond.false.i143 ], [ 0x547D42AEA2879F2E, %if.else39.i141 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx13.i130, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx13.i130, i64 2192, i1 false)
   %53 = load i64, ptr %total_count_31.i139, align 8
   %54 = load i64, ptr %total_count_1.i.i149, align 8
   %add.i87.i150 = add i64 %54, %53
@@ -3324,7 +3324,7 @@ for.body.i.i151:                                  ; preds = %for.body.i.i151, %c
   store i32 %add4.i.i155, ptr %arrayidx3.i.i154, align 4
   %inc.i.i156 = add nuw nsw i64 %i.i.080.i152, 1
   %exitcond.not.i157 = icmp eq i64 %inc.i.i156, 544
-  br i1 %exitcond.not.i157, label %HistogramAddHistogramDistance.exit.i158, label %for.body.i.i151, !llvm.loop !49
+  br i1 %exitcond.not.i157, label %HistogramAddHistogramDistance.exit.i158, label %for.body.i.i151, !llvm.loop !48
 
 HistogramAddHistogramDistance.exit.i158:          ; preds = %for.body.i.i151
   %call50.i159 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %tmp) #7
@@ -3393,7 +3393,7 @@ BrotliCompareAndPushToQueueDistance.exit198:      ; preds = %for.body81, %Histog
   %num_pairs.7 = phi i64 [ %num_pairs.5227, %for.body81 ], [ %inc81.i181, %if.then79.i176 ], [ %num_pairs.5227, %if.else76.i174 ], [ %num_pairs.6, %if.end74.i184 ], [ %num_pairs.5227, %HistogramAddHistogramDistance.exit.i158 ]
   %inc85 = add nuw i64 %i.3228, 1
   %cmp80 = icmp ult i64 %inc85, %dec
-  br i1 %cmp80, label %for.body81, label %while.cond.outer.backedge, !llvm.loop !56
+  br i1 %cmp80, label %for.body81, label %while.cond.outer.backedge, !llvm.loop !55
 
 while.end:                                        ; preds = %while.cond
   ret i64 %num_clusters.addr.0.ph
@@ -3427,7 +3427,7 @@ for.body.i:                                       ; preds = %if.else, %for.body.
   store i32 %add4.i, ptr %arrayidx3.i, align 4
   %inc.i = add nuw nsw i64 %i.i.010, 1
   %exitcond.not = icmp eq i64 %inc.i, 544
-  br i1 %exitcond.not, label %HistogramAddHistogramDistance.exit, label %for.body.i, !llvm.loop !49
+  br i1 %exitcond.not, label %HistogramAddHistogramDistance.exit, label %for.body.i, !llvm.loop !48
 
 HistogramAddHistogramDistance.exit:               ; preds = %for.body.i
   %call = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %tmp) #7
@@ -3468,7 +3468,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.us, label %for.body7.us.us.preheader, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx3.us, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx3.us, i64 2192, i1 false)
   %total_count_.i.i.us = getelementptr inbounds i8, ptr %arrayidx4.us, i64 2176
   %2 = load i64, ptr %total_count_.i.i.us, align 8
   %3 = load i64, ptr %total_count_1.i.i, align 8
@@ -3486,7 +3486,7 @@ for.body.i.i.us:                                  ; preds = %for.body.i.i.us, %i
   store i32 %add4.i.i.us, ptr %arrayidx3.i.i.us, align 4
   %inc.i.i.us = add nuw nsw i64 %i.i.010.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %inc.i.i.us, 544
-  br i1 %exitcond.not.i.us, label %BrotliHistogramBitCostDistanceDistance.exit.us, label %for.body.i.i.us, !llvm.loop !49
+  br i1 %exitcond.not.i.us, label %BrotliHistogramBitCostDistanceDistance.exit.us, label %for.body.i.i.us, !llvm.loop !48
 
 BrotliHistogramBitCostDistanceDistance.exit.us:   ; preds = %for.body.i.i.us
   %call.i.us = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %tmp) #7
@@ -3514,7 +3514,7 @@ for.body7.us68:                                   ; preds = %BrotliHistogramBitC
   br i1 %cmp.i44.us, label %BrotliHistogramBitCostDistanceDistance.exit61.us, label %if.else.i45.us
 
 if.else.i45.us:                                   ; preds = %for.body7.us68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx3.us, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx3.us, i64 2192, i1 false)
   %total_count_.i.i46.us = getelementptr inbounds i8, ptr %arrayidx11.us, i64 2176
   %10 = load i64, ptr %total_count_.i.i46.us, align 8
   %11 = load i64, ptr %total_count_1.i.i, align 8
@@ -3532,7 +3532,7 @@ for.body.i.i49.us:                                ; preds = %for.body.i.i49.us, 
   store i32 %add4.i.i53.us, ptr %arrayidx3.i.i52.us, align 4
   %inc.i.i54.us = add nuw nsw i64 %i.i.010.i50.us, 1
   %exitcond.not.i55.us = icmp eq i64 %inc.i.i54.us, 544
-  br i1 %exitcond.not.i55.us, label %HistogramAddHistogramDistance.exit.i56.us, label %for.body.i.i49.us, !llvm.loop !49
+  br i1 %exitcond.not.i55.us, label %HistogramAddHistogramDistance.exit.i56.us, label %for.body.i.i49.us, !llvm.loop !48
 
 HistogramAddHistogramDistance.exit.i56.us:        ; preds = %for.body.i.i49.us
   %call.i57.us = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %tmp) #7
@@ -3555,14 +3555,14 @@ for.inc.us75:                                     ; preds = %if.then.us74, %Brot
   %best_bits.1.us77 = phi double [ %retval.0.i60.us, %if.then.us74 ], [ %best_bits.064.us70, %BrotliHistogramBitCostDistanceDistance.exit61.us ]
   %inc.us78 = add nuw i64 %j.065.us69, 1
   %exitcond.not = icmp eq i64 %inc.us78, %num_clusters
-  br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us68, !llvm.loop !57
+  br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us68, !llvm.loop !56
 
 for.cond5.for.end_crit_edge.us:                   ; preds = %for.inc.us75, %for.inc.us.us
   %.us-phi.us = phi i32 [ %best_out.1.us.us, %for.inc.us.us ], [ %best_out.1.us76, %for.inc.us75 ]
   store i32 %.us-phi.us, ptr %0, align 4
   %inc17.us = add nuw i64 %i.067.us, 1
   %exitcond91.not = icmp eq i64 %inc17.us, %in_size
-  br i1 %exitcond91.not, label %for.body21.preheader, label %for.body.us, !llvm.loop !58
+  br i1 %exitcond91.not, label %for.body21.preheader, label %for.body.us, !llvm.loop !57
 
 for.body7.us.us:                                  ; preds = %for.body7.us.us.preheader, %for.inc.us.us
   %j.065.us.us = phi i64 [ %inc.us.us, %for.inc.us.us ], [ 0, %for.body7.us.us.preheader ]
@@ -3581,7 +3581,7 @@ for.inc.us.us:                                    ; preds = %if.then.us.us, %for
   %best_bits.1.us.us = phi double [ 0.000000e+00, %if.then.us.us ], [ %best_bits.064.us.us, %for.body7.us.us ]
   %inc.us.us = add nuw i64 %j.065.us.us, 1
   %exitcond90.not = icmp eq i64 %inc.us.us, %num_clusters
-  br i1 %exitcond90.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us.us, !llvm.loop !59
+  br i1 %exitcond90.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us.us, !llvm.loop !58
 
 for.cond19.preheader:                             ; preds = %BrotliHistogramBitCostDistanceDistance.exit, %entry
   %cmp2083.not = icmp eq i64 %num_clusters, 0
@@ -3606,7 +3606,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Br
   br i1 %cmp.i41, label %BrotliHistogramBitCostDistanceDistance.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx3, i64 2192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %tmp, ptr noundef nonnull readonly align 8 dereferenceable(2192) %arrayidx3, i64 2192, i1 false)
   %total_count_.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 2176
   %19 = load i64, ptr %total_count_.i.i, align 8
   %20 = load i64, ptr %total_count_1.i.i, align 8
@@ -3624,7 +3624,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i32 %add4.i.i, ptr %arrayidx3.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i, 544
-  br i1 %exitcond.not.i, label %HistogramAddHistogramDistance.exit.i, label %for.body.i.i, !llvm.loop !49
+  br i1 %exitcond.not.i, label %HistogramAddHistogramDistance.exit.i, label %for.body.i.i, !llvm.loop !48
 
 HistogramAddHistogramDistance.exit.i:             ; preds = %for.body.i.i
   %call.i = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %tmp) #7
@@ -3634,7 +3634,7 @@ BrotliHistogramBitCostDistanceDistance.exit:      ; preds = %for.body, %Histogra
   store i32 %cond, ptr %17, align 4
   %inc17 = add nuw i64 %i.067, 1
   %exitcond92.not = icmp eq i64 %inc17, %in_size
-  br i1 %exitcond92.not, label %for.cond19.preheader, label %for.body, !llvm.loop !58
+  br i1 %exitcond92.not, label %for.cond19.preheader, label %for.body, !llvm.loop !57
 
 for.cond28.preheader:                             ; preds = %for.body21, %for.cond19.preheader
   br i1 %cmp66.not, label %for.end37, label %for.body30
@@ -3650,7 +3650,7 @@ for.body21:                                       ; preds = %for.body21.preheade
   store double 0x7FF0000000000000, ptr %bit_cost_.i, align 8
   %inc26 = add nuw i64 %i.184, 1
   %exitcond93.not = icmp eq i64 %inc26, %num_clusters
-  br i1 %exitcond93.not, label %for.cond28.preheader, label %for.body21, !llvm.loop !60
+  br i1 %exitcond93.not, label %for.cond28.preheader, label %for.body21, !llvm.loop !59
 
 for.body30:                                       ; preds = %for.cond28.preheader, %for.inc35
   %i.287 = phi i64 [ %inc36, %for.inc35 ], [ 0, %for.cond28.preheader ]
@@ -3677,19 +3677,19 @@ for.body.i:                                       ; preds = %for.body30, %for.bo
   store i32 %add4.i, ptr %arrayidx3.i, align 4
   %inc.i = add nuw nsw i64 %i.i.085, 1
   %exitcond94.not = icmp eq i64 %inc.i, 544
-  br i1 %exitcond94.not, label %for.inc35, label %for.body.i, !llvm.loop !49
+  br i1 %exitcond94.not, label %for.inc35, label %for.body.i, !llvm.loop !48
 
 for.inc35:                                        ; preds = %for.body.i
   %inc36 = add nuw i64 %i.287, 1
   %exitcond95.not = icmp eq i64 %inc36, %in_size
-  br i1 %exitcond95.not, label %for.end37, label %for.body30, !llvm.loop !61
+  br i1 %exitcond95.not, label %for.end37, label %for.body30, !llvm.loop !60
 
 for.end37:                                        ; preds = %for.inc35, %for.cond28.preheader
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BrotliHistogramReindexDistance(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexDistance(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %length, 0
   br i1 %cmp.not, label %for.end45.thread, label %for.body4.preheader
@@ -3725,7 +3725,7 @@ for.inc12:                                        ; preds = %for.body4, %if.then
   %next_index.1 = phi i32 [ %inc11, %if.then ], [ %next_index.048, %for.body4 ]
   %inc13 = add nuw i64 %i.149, 1
   %exitcond.not = icmp eq i64 %inc13, %length
-  br i1 %exitcond.not, label %for.end14, label %for.body4, !llvm.loop !62
+  br i1 %exitcond.not, label %for.end14, label %for.body4, !llvm.loop !61
 
 for.end14:                                        ; preds = %for.inc12
   %cmp15.not = icmp eq i32 %next_index.1, 0
@@ -3770,7 +3770,7 @@ if.end38:                                         ; preds = %if.then31, %for.bod
   store i32 %5, ptr %arrayidx26, align 4
   %inc44 = add nuw i64 %i.252, 1
   %exitcond57.not = icmp eq i64 %inc44, %length
-  br i1 %exitcond57.not, label %for.end45, label %for.body25, !llvm.loop !63
+  br i1 %exitcond57.not, label %for.end45, label %for.body25, !llvm.loop !62
 
 for.end45:                                        ; preds = %if.end38
   tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call) #7
@@ -3785,7 +3785,7 @@ for.body50:                                       ; preds = %for.end45, %for.bod
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx51, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx52, i64 2192, i1 false)
   %inc54 = add nuw nsw i64 %i.355, 1
   %exitcond58.not = icmp eq i64 %inc54, %conv47
-  br i1 %exitcond58.not, label %for.end55, label %for.body50, !llvm.loop !64
+  br i1 %exitcond58.not, label %for.end55, label %for.body50, !llvm.loop !63
 
 for.end55:                                        ; preds = %for.body50, %for.end45.thread, %for.end45
   %conv4780 = phi i64 [ 0, %for.end45.thread ], [ 0, %for.end45 ], [ %conv47, %for.body50 ]
@@ -3819,7 +3819,7 @@ for.body:                                         ; preds = %cond.true9, %for.bo
   store i32 1, ptr %arrayidx, align 4
   %inc = add nuw i64 %i.097, 1
   %exitcond.not = icmp eq i64 %inc, %in_size
-  br i1 %exitcond.not, label %for.body20, label %for.body, !llvm.loop !65
+  br i1 %exitcond.not, label %for.body20, label %for.body, !llvm.loop !64
 
 for.body20:                                       ; preds = %for.body, %for.body20
   %i.199 = phi i64 [ %inc28, %for.body20 ], [ 0, %for.body ]
@@ -3834,7 +3834,7 @@ for.body20:                                       ; preds = %for.body, %for.body
   store i32 %conv, ptr %arrayidx26, align 4
   %inc28 = add nuw i64 %i.199, 1
   %exitcond105.not = icmp eq i64 %inc28, %in_size
-  br i1 %exitcond105.not, label %for.body38.preheader, label %for.body20, !llvm.loop !66
+  br i1 %exitcond105.not, label %for.body38.preheader, label %for.body20, !llvm.loop !65
 
 for.body38.preheader:                             ; preds = %for.body20, %for.end45
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.end45 ], [ %in_size, %for.body20 ]
@@ -3855,7 +3855,7 @@ for.body38:                                       ; preds = %for.body38.preheade
   store i32 %conv40, ptr %arrayidx42, align 4
   %inc44 = add nuw nsw i64 %j.0101, 1
   %exitcond106.not = icmp eq i64 %inc44, %umax
-  br i1 %exitcond106.not, label %for.end45, label %for.body38, !llvm.loop !67
+  br i1 %exitcond106.not, label %for.end45, label %for.body38, !llvm.loop !66
 
 for.end45:                                        ; preds = %for.body38
   %arrayidx46 = getelementptr inbounds i32, ptr %histogram_symbols, i64 %i.2103
@@ -3865,7 +3865,7 @@ for.end45:                                        ; preds = %for.body38
   %add51 = add i64 %i.2103, 64
   %cmp31 = icmp ult i64 %add51, %in_size
   %indvars.iv.next = add i64 %indvars.iv, -64
-  br i1 %cmp31, label %for.body38.preheader, label %for.end52, !llvm.loop !68
+  br i1 %cmp31, label %for.body38.preheader, label %for.end52, !llvm.loop !67
 
 for.end52:                                        ; preds = %for.end45, %cond.true9
   %num_clusters.0.lcssa = phi i64 [ 0, %cond.true9 ], [ %add49, %for.end45 ]
@@ -3880,7 +3880,7 @@ while.cond:                                       ; preds = %for.end52, %while.c
   %_new_size.0 = phi i64 [ %mul69, %while.cond ], [ 2048, %for.end52 ]
   %cmp67.not = icmp ugt i64 %_new_size.0, %cond.i
   %mul69 = shl i64 %_new_size.0, 1
-  br i1 %cmp67.not, label %cond.true72, label %while.cond, !llvm.loop !69
+  br i1 %cmp67.not, label %cond.true72, label %while.cond, !llvm.loop !68
 
 cond.true72:                                      ; preds = %while.cond
   %mul73 = mul i64 %_new_size.0, 24
@@ -3897,7 +3897,7 @@ if.end82:                                         ; preds = %cond.true72, %for.e
   tail call void @BrotliHistogramRemapDistance(ptr noundef %in, i64 noundef %in_size, ptr noundef %cond7, i64 noundef %call83, ptr noundef %out, ptr noundef %call16, ptr noundef %histogram_symbols)
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call16) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond7) #7
-  %call84 = tail call i64 @BrotliHistogramReindexDistance(ptr noundef %m, ptr noundef %out, ptr noundef %histogram_symbols, i64 noundef %in_size), !range !27
+  %call84 = tail call i64 @BrotliHistogramReindexDistance(ptr noundef %m, ptr noundef %out, ptr noundef %histogram_symbols, i64 noundef %in_size)
   store i64 %call84, ptr %out_size, align 8
   ret void
 }
@@ -3961,7 +3961,7 @@ attributes #7 = { nounwind }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{i64 0, i64 4294967296}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
@@ -3969,8 +3969,8 @@ attributes #7 = { nounwind }
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5, !14}
+!35 = distinct !{!35, !5, !14}
+!36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
@@ -3990,8 +3990,8 @@ attributes #7 = { nounwind }
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5, !14}
+!56 = distinct !{!56, !5, !14}
+!57 = distinct !{!57, !5}
 !58 = distinct !{!58, !5}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
@@ -4003,4 +4003,3 @@ attributes #7 = { nounwind }
 !66 = distinct !{!66, !5}
 !67 = distinct !{!67, !5}
 !68 = distinct !{!68, !5}
-!69 = distinct !{!69, !5}

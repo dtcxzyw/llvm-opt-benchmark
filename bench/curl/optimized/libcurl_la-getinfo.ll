@@ -67,14 +67,14 @@ entry:
 declare void @Curl_ssl_free_certinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_getinfo(ptr noundef %data, i32 noundef %info, ...) local_unnamed_addr #0 {
+define hidden range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %data, i32 noundef %info, ...) local_unnamed_addr #0 {
 entry:
   %arg = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %arg)
+  call void @llvm.va_start.p0(ptr nonnull %arg)
   %and = and i32 %info, 15728640
   %0 = add nsw i32 %and, -1048576
   %1 = lshr exact i32 %0, 20
@@ -820,19 +820,13 @@ sw.bb.i86:                                        ; preds = %vaarg.end84
 
 sw.epilog:                                        ; preds = %sw.bb.i86, %if.then.i78, %sw.bb5.i76, %sw.bb3.i80, %sw.bb1.i81, %sw.bb.i82, %if.then70, %return.sink.split.i44, %if.then53, %return.sink.split.i33, %if.then36, %return.sink.split.i24, %if.then19, %return.sink.split.i, %if.then3, %if.end, %vaarg.end84, %vaarg.end67, %vaarg.end50, %vaarg.end33, %vaarg.end16, %vaarg.end
   %result.0 = phi i32 [ 48, %if.end ], [ 48, %vaarg.end84 ], [ 48, %vaarg.end67 ], [ 48, %vaarg.end50 ], [ 48, %vaarg.end33 ], [ 48, %vaarg.end16 ], [ 48, %vaarg.end ], [ 48, %if.then3 ], [ 0, %return.sink.split.i ], [ 48, %if.then19 ], [ 0, %return.sink.split.i24 ], [ 48, %if.then36 ], [ 0, %return.sink.split.i33 ], [ 48, %if.then53 ], [ 0, %return.sink.split.i44 ], [ 48, %if.then70 ], [ 0, %sw.bb5.i76 ], [ 0, %if.then.i78 ], [ 0, %sw.bb3.i80 ], [ 0, %sw.bb1.i81 ], [ 0, %sw.bb.i82 ], [ 0, %sw.bb.i86 ]
-  call void @llvm.va_end(ptr nonnull %arg)
+  call void @llvm.va_end.p0(ptr nonnull %arg)
   br label %return
 
 return:                                           ; preds = %entry, %sw.epilog
   %retval.0 = phi i32 [ %result.0, %sw.epilog ], [ 43, %entry ]
   ret i32 %retval.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare i32 @Curl_getconnectinfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -843,6 +837,12 @@ declare ptr @Curl_cookie_list(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_ssl_backend() local_unnamed_addr #1
 
 declare ptr @Curl_ssl_get_internals(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3

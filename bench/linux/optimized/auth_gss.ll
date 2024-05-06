@@ -939,7 +939,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare dso_local ptr @rpc_find_or_alloc_pipe_dir_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @gss_pipe_match_pdo(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @gss_pipe_match_pdo(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @gss_pipe_dir_object_ops
@@ -1573,7 +1573,7 @@ define internal void @gss_pipe_release(ptr nocapture noundef readonly %0) #2 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gss_pipe_open_v1(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v1(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 872
@@ -2356,7 +2356,7 @@ define internal i64 @gss_v0_upcall(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gss_pipe_open_v0(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v0(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 872
@@ -2418,7 +2418,7 @@ declare dso_local i32 @rpc_task_gfp_mask() local_unnamed_addr #1
 declare dso_local void @rpcauth_init_cred(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @gss_cred_init(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 -10, -11) i32 @gss_cred_init(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = getelementptr i8, ptr %0, i64 -24
@@ -2850,7 +2850,7 @@ define internal void @gss_destroy_cred(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @gss_match(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #2 align 16 {
+define internal range(i32 0, 2) i32 @gss_match(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1
@@ -2925,7 +2925,7 @@ define internal i32 @gss_match(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gss_marshal(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -127, 1) i32 @gss_marshal(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.xdr_netobj, align 8
   %4 = alloca %struct.kvec, align 8
   %5 = alloca %struct.xdr_buf, align 8
@@ -3400,7 +3400,7 @@ define internal i32 @gss_refresh(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gss_validate(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -13, 1) i32 @gss_validate(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.kvec, align 8
   %4 = alloca %struct.xdr_buf, align 8
   %5 = alloca %struct.xdr_netobj, align 8
@@ -4592,7 +4592,7 @@ gss_unwrap_resp_priv.exit.thread:                 ; preds = %289, %276, %275, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gss_key_timeout(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -13, 1) i32 @gss_key_timeout(ptr noundef %0) #2 align 16 {
   %2 = load volatile i64, ptr @jiffies, align 64
   %3 = load i32, ptr @gss_key_expire_timeo, align 4
   tail call void @__rcu_read_lock() #18

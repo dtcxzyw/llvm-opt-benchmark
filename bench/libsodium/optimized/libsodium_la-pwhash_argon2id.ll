@@ -114,7 +114,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_pwhash_argon2id(ptr noundef nonnull %out, i64 noundef %outlen, ptr noundef nonnull %passwd, i64 noundef %passwdlen, ptr noundef nonnull %salt, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef %alg) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @crypto_pwhash_argon2id(ptr noundef nonnull %out, i64 noundef %outlen, ptr noundef nonnull %passwd, i64 noundef %passwdlen, ptr noundef nonnull %salt, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef %alg) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %out, i8 0, i64 %outlen, i1 false)
   %cmp = icmp ugt i64 %outlen, 4294967295
@@ -198,7 +198,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @_sodium_argon2id_hash_raw(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_pwhash_argon2id_str(ptr noundef nonnull %out, ptr noundef nonnull %passwd, i64 noundef %passwdlen, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @crypto_pwhash_argon2id_str(ptr noundef nonnull %out, ptr noundef nonnull %passwd, i64 noundef %passwdlen, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
   %salt = alloca [16 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %out, i8 0, i64 128, i1 false)
@@ -244,7 +244,7 @@ declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @_sodium_argon2id_hash_encoded(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_pwhash_argon2id_str_verify(ptr noundef nonnull %str, ptr noundef nonnull %passwd, i64 noundef %passwdlen) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @crypto_pwhash_argon2id_str_verify(ptr noundef nonnull %str, ptr noundef nonnull %passwd, i64 noundef %passwdlen) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %passwdlen, 4294967295
   br i1 %cmp, label %if.then, label %if.end4

@@ -55,7 +55,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_sgbuf_ge
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_snd_devm_alloc_dir_pages392, ptr @__UNIQUE_ID___addressable_snd_dma_alloc_dir_pages387, ptr @__UNIQUE_ID___addressable_snd_dma_alloc_pages_fallback388, ptr @__UNIQUE_ID___addressable_snd_dma_buffer_mmap393, ptr @__UNIQUE_ID___addressable_snd_dma_buffer_sync394, ptr @__UNIQUE_ID___addressable_snd_dma_free_pages389, ptr @__UNIQUE_ID___addressable_snd_sgbuf_get_addr395, ptr @__UNIQUE_ID___addressable_snd_sgbuf_get_chunk_size397, ptr @__UNIQUE_ID___addressable_snd_sgbuf_get_page396], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_dma_alloc_dir_pages(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @snd_dma_alloc_dir_pages(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #0 align 16 {
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %7, label %8, !prof !5
 
@@ -139,7 +139,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_dma_alloc_pages_fallback(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @snd_dma_alloc_pages_fallback(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = tail call noundef i32 @snd_dma_alloc_dir_pages(i32 noundef %0, ptr noundef %1, i32 noundef 0, i64 noundef %2, ptr noundef %3), !range !18
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.preheader, label %.loopexit4

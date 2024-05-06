@@ -7542,7 +7542,7 @@ define internal noundef ptr @row_prop_write(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @row_prop_exists(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @row_prop_exists(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -7828,7 +7828,7 @@ define internal void @row_dim_write(ptr nocapture readnone %0, ptr noundef readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @row_dim_exists(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @row_dim_exists(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
@@ -7998,7 +7998,7 @@ define internal i32 @row_dim_exists(ptr nocapture noundef readonly %0, ptr nound
 
 .thread:                                          ; preds = %79, %74, %82
   %.092 = phi ptr [ %83, %82 ], [ %75, %74 ], [ %75, %79 ]
-  %84 = tail call i32 @row_prop_exists(ptr noundef %0, ptr noundef nonnull %.092, i32 noundef %2, ptr poison), !range !5
+  %84 = tail call i32 @row_prop_exists(ptr noundef %0, ptr noundef nonnull %.092, i32 noundef %2, ptr poison)
   %85 = getelementptr inbounds i8, ptr %.092, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 64
@@ -8294,7 +8294,7 @@ define internal void @pdo_stmt_iter_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pdo_stmt_iter_valid(ptr nocapture noundef readonly %0) #10 {
+define internal range(i32 -1, 1) i32 @pdo_stmt_iter_valid(ptr nocapture noundef readonly %0) #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
@@ -8453,4 +8453,3 @@ attributes #18 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 0, i32 2}

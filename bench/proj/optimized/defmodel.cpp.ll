@@ -7209,7 +7209,7 @@ define internal void @_ZL10forward_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef 
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load double, ptr %12, align 8
-  %14 = tail call fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7forwardERS4_ddddbRdS7_S7_(ptr noundef nonnull align 8 dereferenceable(64) %.val, ptr noundef nonnull align 8 dereferenceable(16) %6, double noundef %7, double noundef %9, double noundef %11, double noundef %13, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %14 = tail call fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7forwardERS4_ddddbRdS7_S7_(ptr noundef nonnull readonly align 8 dereferenceable(64) %.val, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, double noundef %7, double noundef %9, double noundef %11, double noundef %13, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %2
@@ -7252,7 +7252,7 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef 
   %19 = phi <2 x double> [ %10, %2 ], [ %32, %15 ]
   %20 = extractelement <2 x double> %19, i64 0
   %21 = extractelement <2 x double> %19, i64 1
-  %22 = call fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7forwardERS4_ddddbRdS7_S7_(ptr noundef nonnull align 8 dereferenceable(64) %.val, ptr noundef nonnull align 8 dereferenceable(16) %9, double noundef %20, double noundef %21, double noundef %18, double noundef %14, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %22 = call fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7forwardERS4_ddddbRdS7_S7_(ptr noundef nonnull readonly align 8 dereferenceable(64) %.val, ptr noundef nonnull readonly align 8 dereferenceable(16) %9, double noundef %20, double noundef %21, double noundef %18, double noundef %14, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %22, label %23, label %43
 
 23:                                               ; preds = %17
@@ -10514,7 +10514,7 @@ define internal fastcc ptr @_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull align 8 dereferenceable(184) %7, i64 184, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(184) %6, ptr noundef nonnull readonly align 8 dereferenceable(184) %7, i64 184, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %.01315.i.i = load ptr, ptr %8, align 8

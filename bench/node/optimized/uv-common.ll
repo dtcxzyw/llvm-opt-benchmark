@@ -371,7 +371,7 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_replace_allocator(ptr noundef %malloc_func, ptr noundef %realloc_func, ptr noundef %calloc_func, ptr noundef %free_func) local_unnamed_addr #4 {
+define dso_local range(i32 -22, 1) i32 @uv_replace_allocator(ptr noundef %malloc_func, ptr noundef %realloc_func, ptr noundef %calloc_func, ptr noundef %free_func) local_unnamed_addr #4 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %realloc_func, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %malloc_func, i64 1
@@ -439,7 +439,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @uv_handle_size(i32 noundef %type) local_unnamed_addr #5 {
+define dso_local range(i64 -1, 313) i64 @uv_handle_size(i32 noundef %type) local_unnamed_addr #5 {
 entry:
   %switch.tableidx = add i32 %type, -1
   %0 = icmp ult i32 %switch.tableidx, 16
@@ -457,7 +457,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @uv_req_size(i32 noundef %type) local_unnamed_addr #5 {
+define dso_local range(i64 -1, 1321) i64 @uv_req_size(i32 noundef %type) local_unnamed_addr #5 {
 entry:
   %switch.tableidx = add i32 %type, -1
   %0 = icmp ult i32 %switch.tableidx, 10
@@ -1281,7 +1281,7 @@ define internal fastcc ptr @uv__unknown_err_code(i32 noundef %err) unnamed_addr 
 entry:
   %buf = alloca [32 x i8], align 16
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.84, i32 noundef %err) #24
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #23
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %buf) #23
   %add.i = add i64 %call.i, 1
   %cmp.not.i.i = icmp eq i64 %add.i, 0
   br i1 %cmp.not.i.i, label %uv__strdup.exit, label %uv__malloc.exit.i
@@ -1293,7 +1293,7 @@ uv__malloc.exit.i:                                ; preds = %entry
   br i1 %cmp.i, label %uv__strdup.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %uv__malloc.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 16 %buf, i64 %add.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 16 %buf, i64 %add.i, i1 false)
   br label %uv__strdup.exit
 
 uv__strdup.exit:                                  ; preds = %entry, %uv__malloc.exit.i, %if.end.i
@@ -2384,7 +2384,7 @@ declare i32 @uv__udp_disconnect(ptr noundef) local_unnamed_addr #6
 declare i32 @uv__udp_connect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__udp_is_connected(ptr noundef %handle) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @uv__udp_is_connected(ptr noundef %handle) local_unnamed_addr #0 {
 entry:
   %addr = alloca %struct.sockaddr_storage, align 8
   %addrlen = alloca i32, align 4
@@ -2413,7 +2413,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @uv_udp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @uv__udp_check_before_send(ptr nocapture noundef readonly %handle, ptr noundef readonly %addr) local_unnamed_addr #11 {
+define hidden range(i32 -106, 111) i32 @uv__udp_check_before_send(ptr nocapture noundef readonly %handle, ptr noundef readonly %addr) local_unnamed_addr #11 {
 entry:
   %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
@@ -2860,7 +2860,7 @@ do.end14:                                         ; preds = %do.body12, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @uv_has_ref(ptr nocapture noundef readonly %handle) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @uv_has_ref(ptr nocapture noundef readonly %handle) local_unnamed_addr #11 {
 entry:
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -2927,7 +2927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_fs_event_getpath(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %size) local_unnamed_addr #15 {
+define dso_local range(i32 -105, 1) i32 @uv_fs_event_getpath(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %size) local_unnamed_addr #15 {
 entry:
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -3085,7 +3085,7 @@ return:                                           ; preds = %if.end, %uv__fs_get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @uv__fs_get_dirent_type(ptr nocapture noundef readonly %dent) local_unnamed_addr #11 {
+define hidden range(i32 0, 8) i32 @uv__fs_get_dirent_type(ptr nocapture noundef readonly %dent) local_unnamed_addr #11 {
 entry:
   %d_type = getelementptr inbounds i8, ptr %dent, i64 18
   %0 = load i8, ptr %d_type, align 2
@@ -3150,19 +3150,13 @@ for.end:                                          ; preds = %for.body, %for.cond
 define dso_local i32 @uv_loop_configure(ptr noundef %loop, i32 noundef %option, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @uv__loop_configure(ptr noundef %loop, i32 noundef %option, ptr noundef nonnull %ap) #24
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %call
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #18
-
 declare i32 @uv__loop_configure(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #18
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @uv_default_loop() local_unnamed_addr #0 {
@@ -3214,7 +3208,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_loop_close(ptr noundef %loop) local_unnamed_addr #0 {
+define dso_local range(i32 -16, 1) i32 @uv_loop_close(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
@@ -3511,16 +3505,22 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) #19
+declare noalias noundef ptr @malloc(i64 noundef) #18
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) #20
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) #21
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
@@ -3546,10 +3546,10 @@ attributes #14 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable
 attributes #15 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nounwind willreturn memory(read) }
 attributes #24 = { nounwind }

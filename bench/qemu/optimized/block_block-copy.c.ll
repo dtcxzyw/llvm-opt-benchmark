@@ -379,7 +379,7 @@ declare void @progress_set_remaining(ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @bdrv_get_dirty_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @block_copy_reset_unallocated(ptr noundef %s, i64 noundef %offset, ptr nocapture noundef writeonly %count) #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @block_copy_reset_unallocated(ptr noundef %s, i64 noundef %offset, ptr nocapture noundef writeonly %count) #0 {
 entry:
   %clusters = alloca i64, align 8
   %call = call i32 @block_copy_is_cluster_allocated(ptr noundef %s, i64 noundef %offset, ptr noundef nonnull %clusters)
@@ -1655,7 +1655,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %block_copy_chunk_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_copy_block_status(ptr nocapture noundef readonly %s, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum) #0 {
+define internal range(i32 0, -2147483648) i32 @block_copy_block_status(ptr nocapture noundef readonly %s, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum) #0 {
 entry:
   %num = alloca i64, align 8
   %skip_unallocated = getelementptr inbounds i8, ptr %s, i64 128

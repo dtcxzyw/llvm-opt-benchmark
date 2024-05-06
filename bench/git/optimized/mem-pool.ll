@@ -140,13 +140,13 @@ if.else:                                          ; preds = %if.then5
   %add1.i19 = add i64 %4, %add.i17
   store i64 %add1.i19, ptr %pool_alloc.i18, align 8
   %cmp.i.i20 = icmp ugt i64 %3, -25
-  br i1 %cmp.i.i20, label %if.then.i.i26, label %mem_pool_alloc_block.exit27
+  br i1 %cmp.i.i20, label %if.then.i.i27, label %mem_pool_alloc_block.exit28
 
-if.then.i.i26:                                    ; preds = %if.else
+if.then.i.i27:                                    ; preds = %if.else
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 24, i64 noundef %3) #10
   unreachable
 
-mem_pool_alloc_block.exit27:                      ; preds = %if.else
+mem_pool_alloc_block.exit28:                      ; preds = %if.else
   %call2.i21 = tail call ptr @xmalloc(i64 noundef %add.i17) #11
   %space.i22 = getelementptr inbounds i8, ptr %call2.i21, i64 24
   %next_free.i23 = getelementptr inbounds i8, ptr %call2.i21, i64 8
@@ -159,8 +159,8 @@ mem_pool_alloc_block.exit27:                      ; preds = %if.else
   store ptr %call2.i21, ptr %pool, align 8
   br label %if.end13
 
-if.end13:                                         ; preds = %land.lhs.true, %mem_pool_alloc_block.exit, %mem_pool_alloc_block.exit27
-  %p.1 = phi ptr [ %call2.i, %mem_pool_alloc_block.exit ], [ %call2.i21, %mem_pool_alloc_block.exit27 ], [ %0, %land.lhs.true ]
+if.end13:                                         ; preds = %land.lhs.true, %mem_pool_alloc_block.exit, %mem_pool_alloc_block.exit28
+  %p.1 = phi ptr [ %call2.i, %mem_pool_alloc_block.exit ], [ %call2.i21, %mem_pool_alloc_block.exit28 ], [ %0, %land.lhs.true ]
   %next_free14 = getelementptr inbounds i8, ptr %p.1, i64 8
   %7 = load ptr, ptr %next_free14, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %div15
@@ -227,7 +227,7 @@ entry:
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @mem_pool_contains(ptr nocapture noundef readonly %pool, ptr noundef readnone %mem) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @mem_pool_contains(ptr nocapture noundef readonly %pool, ptr noundef readnone %mem) local_unnamed_addr #5 {
 entry:
   %p.05 = load ptr, ptr %pool, align 8
   %tobool.not6 = icmp eq ptr %p.05, null

@@ -346,7 +346,7 @@ define void @If_ManCacheAnalize(ptr nocapture noundef readonly %0) local_unnamed
 
 16:                                               ; preds = %.lr.ph.i.i.i
   %17 = add nuw nsw i32 %.01116.i.i.i, 2
-  %18 = mul nsw i32 %17, %17
+  %18 = mul nuw nsw i32 %17, %17
   %.not.i.i.i = icmp ugt i32 %18, %14
   br i1 %.not.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
@@ -445,7 +445,7 @@ Hsh_IntManStart.exit.i:                           ; preds = %33, %Vec_IntStartFu
 
 51:                                               ; preds = %.lr.ph.i.i17.i
   %52 = add nuw nsw i32 %.01116.i.i18.i, 2
-  %53 = mul nsw i32 %52, %52
+  %53 = mul nuw nsw i32 %52, %52
   %.not.i.i19.i = icmp ugt i32 %53, %49
   br i1 %.not.i.i19.i, label %Abc_PrimeCudd.exit.i20.i, label %.lr.ph.i.i17.i, !llvm.loop !6
 
@@ -637,7 +637,7 @@ Hsh_IntObj.exit.lr.ph.split.i.i.i:                ; preds = %Hsh_IntObj.exit.lr.
   %133 = mul nsw i32 %132, %.val41.i.i
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i32, ptr %.val42.val.i.i, i64 %134
-  %bcmp25.i.i.i = tail call i32 @bcmp(ptr %107, ptr %135, i64 %129)
+  %bcmp25.i.i.i = tail call i32 @bcmp(ptr readonly %107, ptr %135, i64 %129)
   %.not1626.i.i.i = icmp eq i32 %bcmp25.i.i.i, 0
   br i1 %.not1626.i.i.i, label %Hsh_IntManAdd.exit.i, label %.lr.ph.i53.i.i
 
@@ -656,7 +656,7 @@ Hsh_IntObj.exit.i.i.i:                            ; preds = %.lr.ph.i53.i.i
   %144 = mul nsw i32 %143, %.val41.i.i
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i32, ptr %.val42.val.i.i, i64 %145
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %107, ptr %146, i64 %129)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %107, ptr %146, i64 %129)
   %.not16.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not16.i.i.i, label %Hsh_IntManAdd.exit.i, label %.lr.ph.i53.i.i, !llvm.loop !10
 

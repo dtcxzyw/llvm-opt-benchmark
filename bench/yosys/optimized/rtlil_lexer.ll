@@ -59,7 +59,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z20rtlil_frontend_yylexv() local_unnamed_addr #3 {
+define noundef range(i32 -128, 297) i32 @_Z20rtlil_frontend_yylexv() local_unnamed_addr #3 {
   %1 = alloca ptr, align 8
   %.b = load i1, ptr @_ZL7yy_init, align 4
   br i1 %.b, label %._crit_edge295, label %2
@@ -562,7 +562,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   br i1 %or.cond138, label %480, label %187
 
 187:                                              ; preds = %180
-  %188 = trunc i64 %183 to i32
+  %188 = trunc nsw i64 %183 to i32
   store i32 %188, ptr @rtlil_frontend_yylval, align 8
   br label %480
 
@@ -888,7 +888,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i143, %333
   br label %.backedge.backedge
 
 357:                                              ; preds = %268
-  %358 = tail call fastcc noundef i32 @_ZL18yy_get_next_bufferv(), !range !15
+  %358 = tail call fastcc noundef i32 @_ZL18yy_get_next_bufferv()
   switch i32 %358, label %default.unreachable299 [
     i32 1, label %359
     i32 0, label %368
@@ -1177,7 +1177,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL18yy_get_next_bufferv() unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() unnamed_addr #3 {
   %1 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
   %2 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
   %3 = getelementptr inbounds ptr, ptr %1, i64 %2
@@ -1231,7 +1231,7 @@ define internal fastcc noundef i32 @_ZL18yy_get_next_bufferv() unnamed_addr #3 {
   store i8 %33, ptr %.03257, align 1
   %35 = add nuw nsw i32 %.03455, 1
   %exitcond.not = icmp eq i32 %35, %30
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %3, align 8
@@ -1306,7 +1306,7 @@ define internal fastcc noundef i32 @_ZL18yy_get_next_bufferv() unnamed_addr #3 {
   %.pn = load i32, ptr %.pn.in, align 8
   %.035 = add i32 %.pn, %42
   %67 = icmp slt i32 %.035, 1
-  br i1 %67, label %.lr.ph62, label %._crit_edge63, !llvm.loop !17
+  br i1 %67, label %.lr.ph62, label %._crit_edge63, !llvm.loop !16
 
 ._crit_edge63:                                    ; preds = %63, %41
   %68 = phi ptr [ %36, %41 ], [ %66, %63 ]
@@ -2276,7 +2276,7 @@ define noundef nonnull ptr @_Z35rtlil_frontend_avoid_input_warningsv() local_unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL7yyinputv() #3 {
+define internal noundef range(i32 0, 256) i32 @_ZL7yyinputv() #3 {
   %1 = load i8, ptr @_ZL12yy_hold_char, align 1
   %2 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
   store i8 %1, ptr %2, align 1
@@ -2307,7 +2307,7 @@ define internal noundef i32 @_ZL7yyinputv() #3 {
 17:                                               ; preds = %4
   %18 = load ptr, ptr @rtlil_frontend_yytext, align 8
   store ptr %15, ptr @_ZL10yy_c_buf_p, align 8
-  %19 = tail call fastcc noundef i32 @_ZL18yy_get_next_bufferv(), !range !15
+  %19 = tail call fastcc noundef i32 @_ZL18yy_get_next_bufferv()
   switch i32 %19, label %default.unreachable5 [
     i32 2, label %20
     i32 1, label %39
@@ -2438,6 +2438,5 @@ attributes #33 = { noreturn nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = !{i32 0, i32 3}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

@@ -115,7 +115,7 @@ entry:
 declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @_Py_HashBytes(ptr noundef %src, i64 noundef %len) local_unnamed_addr #4 {
+define dso_local range(i64 0, -1) i64 @_Py_HashBytes(ptr noundef %src, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end

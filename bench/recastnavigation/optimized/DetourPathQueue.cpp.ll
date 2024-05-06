@@ -394,7 +394,7 @@ define noundef i32 @_ZNK11dtPathQueue16getRequestStatusEj(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN11dtPathQueue13getPathResultEjPjPii(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
+define noundef range(i32 1073741824, -2147483647) i32 @_ZN11dtPathQueue13getPathResultEjPjPii(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
   br label %7
 
 6:                                                ; preds = %7

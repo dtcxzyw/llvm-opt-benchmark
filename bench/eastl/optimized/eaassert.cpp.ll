@@ -27,18 +27,12 @@ entry:
 define dso_local noundef zeroext i1 @_ZN2EA6Assert6Detail5VCallEPKcS3_iS3_S3_z(ptr noundef %expr, ptr noundef %filename, i32 noundef %line, ptr noundef %function, ptr noundef %msg, ...) local_unnamed_addr #2 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load ptr, ptr @_ZN2EA6Assert6Detail12_GLOBAL__N_116gFailureCallbackE, align 8
   %call2 = call noundef zeroext i1 %0(ptr noundef %expr, ptr noundef %filename, i32 noundef %line, ptr noundef %function, ptr noundef %msg, ptr noundef nonnull %args)
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret i1 %call2
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA6Assert6Detail4CallEPKcS3_iS3_(ptr noundef %expr, ptr noundef %filename, i32 noundef %line, ptr noundef %function) local_unnamed_addr #2 {
@@ -55,16 +49,22 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN2EA6Assert6Detail12_GLOBAL__N_122DefaultFailureCallbackEPKcS4_iS4_S4_P13__va_list_tag(ptr nocapture readnone %expr, ptr nocapture readnone %filename, i32 %line, ptr nocapture readnone %function, ptr nocapture readnone %msg, ptr nocapture readnone %args) #4 {
+define internal noundef zeroext i1 @_ZN2EA6Assert6Detail12_GLOBAL__N_122DefaultFailureCallbackEPKcS4_iS4_S4_P13__va_list_tag(ptr nocapture readnone %expr, ptr nocapture readnone %filename, i32 %line, ptr nocapture readnone %function, ptr nocapture readnone %msg, ptr nocapture readnone %args) #3 {
 entry:
   ret i1 true
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

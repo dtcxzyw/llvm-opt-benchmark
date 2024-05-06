@@ -103,7 +103,7 @@ return:                                           ; preds = %entry, %RAND_set_ra
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RAND_set_rand_method(ptr noundef %meth) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RAND_set_rand_method(ptr noundef %meth) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @rand_init, ptr noundef nonnull @do_rand_init_ossl_) #4
   %tobool.i = icmp ne i32 %call.i, 0
@@ -203,7 +203,7 @@ do_rand_init.exit:                                ; preds = %entry, %if.end7.i, 
 declare void @ossl_rand_pool_keep_random_devices_open(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @RAND_poll() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RAND_poll() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @RAND_get_rand_method()
   %call1 = tail call ptr @RAND_OpenSSL() #4
@@ -402,7 +402,7 @@ declare ptr @ENGINE_get_RAND(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RAND_set_rand_engine(ptr noundef %engine) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RAND_set_rand_engine(ptr noundef %engine) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @rand_init, ptr noundef nonnull @do_rand_init_ossl_) #4
   %tobool = icmp ne i32 %call, 0
@@ -1346,7 +1346,7 @@ entry:
 declare i32 @CONF_module_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @random_conf_init(ptr noundef %md, ptr noundef %cnf) #0 {
+define internal range(i32 0, 2) i32 @random_conf_init(ptr noundef %md, ptr noundef %cnf) #0 {
 entry:
   %call = tail call ptr @NCONF_get0_libctx(ptr noundef %cnf) #4
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %call, i32 noundef 5) #4
@@ -1555,7 +1555,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RAND_set_DRBG_type(ptr noundef %ctx, ptr noundef %drbg, ptr noundef %propq, ptr noundef %cipher, ptr noundef %digest) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RAND_set_DRBG_type(ptr noundef %ctx, ptr noundef %drbg, ptr noundef %propq, ptr noundef %cipher, ptr noundef %digest) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %ctx, i32 noundef 5) #4
   %cmp = icmp eq ptr %call.i, null
@@ -1638,7 +1638,7 @@ return:                                           ; preds = %if.then.i16, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RAND_set_seed_source_type(ptr noundef %ctx, ptr noundef %seed, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RAND_set_seed_source_type(ptr noundef %ctx, ptr noundef %seed, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %ctx, i32 noundef 5) #4
   %cmp = icmp eq ptr %call.i, null

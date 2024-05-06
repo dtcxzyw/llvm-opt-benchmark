@@ -3184,7 +3184,7 @@ for.inc1132:                                      ; preds = %invoke.cont1127
   br i1 %exitcond731.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %for.body1102, !llvm.loop !26
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %for.inc1132
-  %mul1135 = mul nsw i32 %89, 5
+  %mul1135 = mul nuw nsw i32 %89, 5
   %add1137 = add i32 %add875, %mul1135
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i223) #22
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i215) #22

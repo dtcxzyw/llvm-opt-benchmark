@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [19 x i8] c"Can't find key end\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @test_start_file(ptr nocapture noundef writeonly %s, ptr noundef %testfile) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @test_start_file(ptr nocapture noundef writeonly %s, ptr noundef %testfile) local_unnamed_addr #0 {
 entry:
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 21, ptr noundef nonnull @.str.1, ptr noundef %testfile) #5
   tail call void @set_test_title(ptr noundef %testfile) #5
@@ -81,7 +81,7 @@ entry:
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @test_readstanza(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @test_readstanza(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %numpairs = getelementptr inbounds i8, ptr %s, i64 36
   store i32 0, ptr %numpairs, align 4
@@ -302,7 +302,7 @@ if.end51:                                         ; preds = %if.then49, %if.end4
   br i1 %cmp53, label %if.then55, label %if.end60
 
 if.then55:                                        ; preds = %if.end51
-  %call56 = tail call fastcc i32 @read_key(ptr noundef nonnull %s), !range !8
+  %call56 = tail call fastcc i32 @read_key(ptr noundef nonnull %s)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %if.end60
 
@@ -312,7 +312,7 @@ if.end60:                                         ; preds = %if.then55, %if.end5
   br i1 %cmp62, label %if.then64, label %if.end69
 
 if.then64:                                        ; preds = %if.end60
-  %call65 = tail call fastcc i32 @read_key(ptr noundef nonnull %s), !range !8
+  %call65 = tail call fastcc i32 @read_key(ptr noundef nonnull %s)
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %return, label %if.end69
 
@@ -353,7 +353,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @read_key(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_key(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %tmpbuf = alloca [128 x i8], align 16
   %key = getelementptr inbounds i8, ptr %s, i64 2440
@@ -400,7 +400,7 @@ while.body:                                       ; preds = %while.cond
 if.end20:                                         ; preds = %while.body
   %lhsv = load i64, ptr %tmpbuf, align 16
   %.not = icmp eq i64 %lhsv, 4921947503096311085
-  br i1 %.not, label %return, label %while.cond, !llvm.loop !9
+  br i1 %.not, label %return, label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.25) #5
@@ -438,7 +438,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 156) #5
   %incdec.ptr = getelementptr inbounds i8, ptr %pp.06, i64 16
   %cmp = icmp ugt i32 %i.07, 1
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %entry
   store i32 0, ptr %numpairs, align 4
@@ -484,6 +484,5 @@ attributes #7 = { nounwind willreturn memory(none) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

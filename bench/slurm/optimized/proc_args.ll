@@ -1080,7 +1080,7 @@ define ptr @mbytes_to_str(i64 noundef %0) local_unnamed_addr #2 {
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define i32 @str_to_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @str_to_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #20
   %5 = load ptr, ptr %3, align 8
@@ -2881,7 +2881,7 @@ define ptr @print_commandline(i32 noundef %0, ptr nocapture noundef readonly %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_signal_opts(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @get_signal_opts(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %0, null
   br i1 %6, label %47, label %7
@@ -3172,7 +3172,7 @@ define ptr @sig_num2name(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @parse_uint16(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @parse_uint16(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = call i64 @strtoll(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #20
   %5 = load ptr, ptr %3, align 8
@@ -3193,7 +3193,7 @@ define noundef i32 @parse_uint16(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @parse_uint32(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @parse_uint32(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = call i64 @strtoll(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #20
   %5 = load ptr, ptr %3, align 8
@@ -3214,7 +3214,7 @@ define noundef i32 @parse_uint32(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @parse_uint64(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @parse_uint64(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = call i64 @strtoll(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #20
   %5 = load ptr, ptr %3, align 8
@@ -3234,7 +3234,7 @@ define noundef i32 @parse_uint64(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @parse_int(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
+define range(i32 0, 2147483647) i32 @parse_int(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %.not = icmp eq ptr %1, null
@@ -3622,7 +3622,7 @@ define i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 declare i32 @time_str2secs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @parse_compress_type(ptr noundef %0) local_unnamed_addr #2 {
+define zeroext range(i16 0, 3) i16 @parse_compress_type(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -3649,7 +3649,7 @@ define noundef zeroext i16 @parse_compress_type(ptr noundef %0) local_unnamed_ad
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define i32 @parse_send_libs(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @parse_send_libs(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -3740,7 +3740,7 @@ define zeroext i1 @subpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @validate_acctg_freq(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @validate_acctg_freq(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8

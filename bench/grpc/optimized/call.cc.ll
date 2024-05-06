@@ -984,21 +984,21 @@ $_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_me
 @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E), align 8
 @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E = linkonce_odr global %"class.grpc_core::NoDestruct.357" zeroinitializer, comdat, align 8
 @_ZGVN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E), align 8
-@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
+@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local local_unnamed_addr global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
 @.str.93 = private unnamed_addr constant [21 x i8] c"Call creation failed\00", align 1
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTSN9grpc_core7ExecCtxE = linkonce_odr constant [21 x i8] c"N9grpc_core7ExecCtxE\00", comdat, align 1
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @grpc_trace_channel = external local_unnamed_addr global %"class.grpc_core::TraceFlag", align 8
 @.str.94 = private unnamed_addr constant [33 x i8] c"on_complete for cancel_stream op\00", align 1
 @.str.95 = private unnamed_addr constant [17 x i8] c"return 123456789\00", align 1
@@ -1044,13 +1044,13 @@ $_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_me
 @_ZZN9grpc_core4PollINS_5EmptyEE14value_if_readyEvE5value = linkonce_odr global %"struct.grpc_core::Empty" zeroinitializer, comdat, align 1
 @.str.131 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.132 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.133 = private unnamed_addr constant [18 x i8] c"CLIENT_CALL[%p]: \00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_12BatchBuilderEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_12BatchBuilderEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @.str.134 = private unnamed_addr constant [18 x i8] c"SERVER_CALL[%p]: \00", align 1
 @.str.135 = private unnamed_addr constant [6 x i8] c"Unset\00", align 1
 @.str.136 = private unnamed_addr constant [20 x i8] c"FinishedWithFailure\00", align 1
@@ -5836,7 +5836,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %call.val.i.i.i = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i = zext i32 %call.val.i.i.i to i64
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendESt17basic_string_viewIcSt11char_traitsIcEEl(ptr noundef nonnull align 8 dereferenceable(17) %encoder, i64 26, ptr nonnull @.str.168, i64 noundef %conv.i.i.i.i.i.i)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendESt17basic_string_viewIcSt11char_traitsIcEEl(ptr noundef nonnull readonly align 8 dereferenceable(17) %encoder, i64 26, ptr nonnull @.str.168, i64 noundef %conv.i.i.i.i.i.i)
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS
 
 _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS: ; preds = %if.then.i.i.i, %entry
@@ -5848,7 +5848,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
 if.then.i7.i.i:                                   ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %call.val.i8.i.i = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendESt17basic_string_viewIcSt11char_traitsIcEEl(ptr noundef nonnull align 8 dereferenceable(17) %encoder, i64 22, ptr nonnull @.str.159, i64 noundef %call.val.i8.i.i)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendESt17basic_string_viewIcSt11char_traitsIcEEl(ptr noundef nonnull readonly align 8 dereferenceable(17) %encoder, i64 22, ptr nonnull @.str.159, i64 noundef %call.val.i8.i.i)
   %.pre.i.i = load i16, ptr %this, align 8
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS4
 
@@ -5866,7 +5866,7 @@ if.then.i12.i.i:                                  ; preds = %_ZNK9grpc_core5Tabl
   store i64 10, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx.i.i.i.i.i.i.i, align 8
   %ref.tmp.sroa.3.0.agg.tmp.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 16
   store ptr @.str.156, ptr %ref.tmp.sroa.3.0.agg.tmp.sroa_idx.i.i.i.i.i.i.i, align 8
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull align 8 dereferenceable(17) %encoder, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp.i.i.i.i.i.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull readonly align 8 dereferenceable(17) %encoder, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp.i.i.i.i.i.i.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i)
   %.pre28.i.i = load i16, ptr %this, align 8
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS5
@@ -5885,7 +5885,7 @@ if.then.i17.i.i:                                  ; preds = %_ZNK9grpc_core5Tabl
   store i64 4, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx.i.i.i.i.i18.i.i, align 8
   %ref.tmp.sroa.3.0.agg.tmp.sroa_idx.i.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i14.i.i, i64 16
   store ptr @.str.154, ptr %ref.tmp.sroa.3.0.agg.tmp.sroa_idx.i.i.i.i.i19.i.i, align 8
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull align 8 dereferenceable(17) %encoder, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp.i.i.i.i.i14.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull readonly align 8 dereferenceable(17) %encoder, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp.i.i.i.i.i14.i.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i14.i.i)
   %.pre29.i.i = load i16, ptr %this, align 8
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS6
@@ -5904,7 +5904,7 @@ if.then.i24.i.i:                                  ; preds = %_ZNK9grpc_core5Tabl
   store i64 8, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx.i.i.i.i.i25.i.i, align 8
   %ref.tmp.sroa.3.0.agg.tmp.sroa_idx.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i21.i.i, i64 16
   store ptr @.str.148, ptr %ref.tmp.sroa.3.0.agg.tmp.sroa_idx.i.i.i.i.i26.i.i, align 8
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull align 8 dereferenceable(17) %encoder, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp.i.i.i.i.i21.i.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull readonly align 8 dereferenceable(17) %encoder, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp.i.i.i.i.i21.i.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %u.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i21.i.i)
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS8
 
@@ -5926,7 +5926,7 @@ for.body:                                         ; preds = %land.lhs.true.i.i.i
   %data.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014, i64 16
   %arrayidx.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.359"], ptr %data.i, i64 0, i64 %__begin3.sroa.5.015
   %second = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull align 8 dereferenceable(17) %encoder, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %second)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull readonly align 8 dereferenceable(17) %encoder, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %arrayidx.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %second)
   %inc.i = add i64 %__begin3.sroa.5.015, 1
   %cmp.not1.i = icmp eq ptr %__begin3.sroa.0.014, null
   br i1 %cmp.not1.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit, label %land.rhs.i
@@ -14904,7 +14904,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt10unique_ptrI1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont48, label %for.body.i.i.i.i.i.i, !llvm.loop !158
 
 invoke.cont48:                                    ; preds = %for.body.i.i.i.i.i.i, %if.end40, %if.then42, %if.then.i25, %if.then.i.i, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %message_slice, i8 0, i64 32, i1 false), !alias.scope !170
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %message_slice, i8 0, i64 32, i1 false), !alias.scope !170
   %29 = load ptr, ptr %add.ptr.i.i.i.i.i.i10, align 8
   %30 = load i16, ptr %29, align 2
   %and2.i.i.i.i.i27 = and i16 %30, 1024
@@ -35894,7 +35894,7 @@ if.then.i3.i.i.i.i:                               ; preds = %_ZN9grpc_core13RefC
   store ptr %6, ptr %next_factory.i.i.i.i.i.i, align 8, !alias.scope !883
   store ptr null, ptr %next_factory.i.i.i.i1.i.i.i, align 8, !noalias !883
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %next_.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %next_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %next_.i.i.i.i.i, i64 16, i1 false)
   call void @_ZN9grpc_core14promise_detail8SeqStateINS0_9SeqTraitsENS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverIS9_E4NextEvEUlSt8optionalIS9_EE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp.i.i) #28, !noalias !883
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp.i.i), !noalias !874
   %state.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -35984,7 +35984,7 @@ tail0.i.i.i.i.i:                                  ; preds = %sw.bb.i.i.i.i.i, %"
 
 "_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_4RaceIJNS1_3SeqINS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverISB_E4NextEvEUlSt8optionalISB_EE_EEENS1_3MapIZNS_25ExternallyObservableLatchIvE4WaitEvEUlvE_ZZNS_22ClientPromiseBasedCall24StartRecvInitialMetadataEP19grpc_metadata_arrayRKNS_16PromiseBasedCall10CompletionERNS_5Party11BulkSpawnerEENK3$_0clEvEUlNS_5EmptyEE_EEEEEvEEJS12_EEEvPT_DpOT0_.exit": ; preds = %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_3MapINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEZZZNS_12PipeReceiverIS9_E4NextEvENKUlSt8optionalIS9_EE_clESF_ENUlvE_clEvEUlSF_E_EEvEEJSK_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %tail0.i.i.i.i.i
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %next_.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %next_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %next_.i.i.i.i, i64 16, i1 false)
   store i8 1, ptr %started_, align 1
   call void @_ZN9grpc_core14promise_detail8SeqStateINS0_9SeqTraitsENS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverIS9_E4NextEvEUlSt8optionalIS9_EE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %p) #28
   br label %if.end
@@ -39322,7 +39322,7 @@ if.then7:                                         ; preds = %if.end
   %status6.i = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load ptr, ptr %status6.i, align 8
   store i32 %retval.0.i.i, ptr %17, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %message_slice.i, i8 0, i64 32, i1 false), !alias.scope !985
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %message_slice.i, i8 0, i64 32, i1 false), !alias.scope !985
   %18 = load i16, ptr %.cast, align 2
   %and2.i.i.i.i.i6.i = and i16 %18, 1024
   %cmp.i.i.not.i.i.i.i = icmp eq i16 %and2.i.i.i.i.i6.i, 0

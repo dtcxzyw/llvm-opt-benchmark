@@ -277,7 +277,7 @@ declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_icep_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_icep_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @icep_magic, i64 noundef 4) #3
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %8, label %7
@@ -292,7 +292,7 @@ define internal noundef i32 @dissect_icep_tcp(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_icep_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_icep_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
   %5 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @icep_magic, i64 noundef 4) #3
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %9, label %7

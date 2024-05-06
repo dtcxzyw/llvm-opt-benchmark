@@ -1044,7 +1044,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
   %2 = load ptr, ptr %__node.033, align 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZSt8_DestroyISt10unique_ptrIA_cSt14default_deleteIS1_EEEvPT_.exit.i.i.i, %for.body
+for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyISt10unique_ptrIA_cSt14default_deleteIS1_EEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyISt10unique_ptrIA_cSt14default_deleteIS1_EEEvPT_.exit.i.i.i ], [ 0, %for.body ]
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
   %3 = load ptr, ptr %__first.addr.04.i.i.i.ptr, align 8

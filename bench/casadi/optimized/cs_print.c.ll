@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [6 x i8] c"  ...\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit65.sink.split, label %3
 
@@ -65,7 +65,7 @@ define noundef i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %28 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next141
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, -1
-  %31 = trunc i64 %indvars.iv140 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv140 to i32
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %31, i32 noundef %26, i32 noundef %30)
   %33 = load i32, ptr %27, align 4
   %34 = load i32, ptr %28, align 4
@@ -106,7 +106,7 @@ define noundef i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %47 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next149
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, -1
-  %50 = trunc i64 %indvars.iv148 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv148 to i32
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %50, i32 noundef %45, i32 noundef %49)
   %52 = load i32, ptr %46, align 4
   %53 = load i32, ptr %47, align 4
@@ -144,7 +144,7 @@ define noundef i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %65 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next122
   %66 = load i32, ptr %65, align 4
   %67 = add nsw i32 %66, -1
-  %68 = trunc i64 %indvars.iv121 to i32
+  %68 = trunc nuw nsw i64 %indvars.iv121 to i32
   %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %68, i32 noundef %63, i32 noundef %67)
   %70 = load i32, ptr %64, align 4
   %71 = load i32, ptr %65, align 4
@@ -192,7 +192,7 @@ define noundef i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %87 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next130
   %88 = load i32, ptr %87, align 4
   %89 = add nsw i32 %88, -1
-  %90 = trunc i64 %indvars.iv129 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv129 to i32
   %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %90, i32 noundef %85, i32 noundef %89)
   %92 = load i32, ptr %86, align 4
   %93 = load i32, ptr %87, align 4

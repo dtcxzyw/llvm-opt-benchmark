@@ -1623,7 +1623,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i:               ; preds = %372
   store i64 0, ptr %376, align 8
   %377 = getelementptr inbounds i8, ptr %41, i64 176
   %378 = getelementptr inbounds i8, ptr %45, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %378, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %377, i8 0, i64 32, i1 false)
   %379 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
@@ -1761,7 +1761,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2EOS7_.exit.i495: ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.i.i489
   %424 = getelementptr inbounds i8, ptr %46, i64 176
   %425 = getelementptr inbounds i8, ptr %53, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %425, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %424, i8 0, i64 32, i1 false)
   %426 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
@@ -1783,7 +1783,7 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2EOS7
   %433 = getelementptr inbounds i8, ptr %46, i64 216
   %434 = getelementptr inbounds i8, ptr %46, i64 232
   %435 = getelementptr inbounds i8, ptr %46, i64 240
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %433, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %433, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRN3nix14AddCompletionsEmSt17basic_string_viewIcSt11char_traitsIcEEEZNS0_11MixEvalArgsC1EvE3$_7E9_M_invokeERKSt9_Any_dataS2_OmOS6_", ptr %435, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN3nix14AddCompletionsEmSt17basic_string_viewIcSt11char_traitsIcEEEZNS0_11MixEvalArgsC1EvE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %434, align 8
   %436 = getelementptr inbounds i8, ptr %46, i64 252
@@ -3915,7 +3915,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i:               ; preds = %380
   store i64 0, ptr %384, align 8
   %385 = getelementptr inbounds i8, ptr %40, i64 176
   %386 = getelementptr inbounds i8, ptr %44, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %386, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %385, i8 0, i64 32, i1 false)
   %387 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
@@ -4053,7 +4053,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2EOS7_.exit.i496: ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.i.i490
   %432 = getelementptr inbounds i8, ptr %45, i64 176
   %433 = getelementptr inbounds i8, ptr %52, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %433, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %432, i8 0, i64 32, i1 false)
   %434 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
@@ -4075,7 +4075,7 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2EOS7
   %441 = getelementptr inbounds i8, ptr %45, i64 216
   %442 = getelementptr inbounds i8, ptr %45, i64 232
   %443 = getelementptr inbounds i8, ptr %45, i64 240
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %441, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %441, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRN3nix14AddCompletionsEmSt17basic_string_viewIcSt11char_traitsIcEEEZNS0_11MixEvalArgsC1EvE3$_7E9_M_invokeERKSt9_Any_dataS2_OmOS6_", ptr %443, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN3nix14AddCompletionsEmSt17basic_string_viewIcSt11char_traitsIcEEEZNS0_11MixEvalArgsC1EvE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %442, align 8
   %444 = getelementptr inbounds i8, ptr %45, i64 252

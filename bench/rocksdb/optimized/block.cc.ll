@@ -281,7 +281,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZTVN7rocksdb13DataBlockIterE = unnamed_addr constant { [36 x ptr] } { [36 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb13DataBlockIterD2Ev, ptr @_ZN7rocksdb13DataBlockIterD0Ev, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE20SetRangeDelReadSeqnoEm, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE5ValidEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE11SeekToFirstEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE10SeekToLastEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE4SeekERKS1_, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE11SeekForPrevERKS1_, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE4NextEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE16NextAndGetResultEPNS_13IterateResultE, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE4PrevEv, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE3keyEv, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_5SliceEE8user_keyEv, ptr @_ZNK7rocksdb13DataBlockIter5valueEv, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE6statusEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE12PrepareValueEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE20MayBeOutOfLowerBoundEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE21UpperBoundCheckResultEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17SetPinnedItersMgrEPNS_22PinnedIteratorsManagerE, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE11IsKeyPinnedEv, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE13IsValuePinnedEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS8_, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17GetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17SetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_5SliceEE24IsDeleteRangeSentinelKeyEv, ptr @_ZN7rocksdb13DataBlockIter10InvalidateERKNS_6StatusE, ptr @_ZN7rocksdb13DataBlockIter15SeekToFirstImplEv, ptr @_ZN7rocksdb13DataBlockIter14SeekToLastImplEv, ptr @_ZN7rocksdb13DataBlockIter8SeekImplERKNS_5SliceE, ptr @_ZN7rocksdb13DataBlockIter15SeekForPrevImplERKNS_5SliceE, ptr @_ZN7rocksdb13DataBlockIter8NextImplEv, ptr @_ZN7rocksdb13DataBlockIter8PrevImplEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE18GetRestartIntervalEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE12NumberOfKeysEj] }, align 8
 @_ZTVN7rocksdb13MetaBlockIterE = unnamed_addr constant { [36 x ptr] } { [36 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb13MetaBlockIterD2Ev, ptr @_ZN7rocksdb13MetaBlockIterD0Ev, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE20SetRangeDelReadSeqnoEm, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE5ValidEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE11SeekToFirstEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE10SeekToLastEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE4SeekERKS1_, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE11SeekForPrevERKS1_, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE4NextEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE16NextAndGetResultEPNS_13IterateResultE, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE4PrevEv, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE3keyEv, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_5SliceEE8user_keyEv, ptr @_ZNK7rocksdb13MetaBlockIter5valueEv, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE6statusEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE12PrepareValueEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE20MayBeOutOfLowerBoundEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE21UpperBoundCheckResultEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17SetPinnedItersMgrEPNS_22PinnedIteratorsManagerE, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE11IsKeyPinnedEv, ptr @_ZNK7rocksdb9BlockIterINS_5SliceEE13IsValuePinnedEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS8_, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17GetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17SetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_5SliceEE24IsDeleteRangeSentinelKeyEv, ptr @_ZN7rocksdb9BlockIterINS_5SliceEE10InvalidateERKNS_6StatusE, ptr @_ZN7rocksdb13MetaBlockIter15SeekToFirstImplEv, ptr @_ZN7rocksdb13MetaBlockIter14SeekToLastImplEv, ptr @_ZN7rocksdb13MetaBlockIter8SeekImplERKNS_5SliceE, ptr @_ZN7rocksdb13MetaBlockIter15SeekForPrevImplERKNS_5SliceE, ptr @_ZN7rocksdb13MetaBlockIter8NextImplEv, ptr @_ZN7rocksdb13MetaBlockIter8PrevImplEv, ptr @_ZN7rocksdb13MetaBlockIter18GetRestartIntervalEv, ptr @_ZN7rocksdb13MetaBlockIter12NumberOfKeysEj] }, align 8
 @_ZTVN7rocksdb14IndexBlockIterE = unnamed_addr constant { [36 x ptr] } { [36 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb14IndexBlockIterD2Ev, ptr @_ZN7rocksdb14IndexBlockIterD0Ev, ptr @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEE20SetRangeDelReadSeqnoEm, ptr @_ZNK7rocksdb9BlockIterINS_10IndexValueEE5ValidEv, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE11SeekToFirstEv, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE10SeekToLastEv, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE4SeekERKNS_5SliceE, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE11SeekForPrevERKNS_5SliceE, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE4NextEv, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE16NextAndGetResultEPNS_13IterateResultE, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE4PrevEv, ptr @_ZNK7rocksdb9BlockIterINS_10IndexValueEE3keyEv, ptr @_ZNK7rocksdb14IndexBlockIter8user_keyEv, ptr @_ZNK7rocksdb14IndexBlockIter5valueEv, ptr @_ZNK7rocksdb9BlockIterINS_10IndexValueEE6statusEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEE12PrepareValueEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEE20MayBeOutOfLowerBoundEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEE21UpperBoundCheckResultEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEE17SetPinnedItersMgrEPNS_22PinnedIteratorsManagerE, ptr @_ZNK7rocksdb9BlockIterINS_10IndexValueEE11IsKeyPinnedEv, ptr @_ZNK7rocksdb14IndexBlockIter13IsValuePinnedEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEE11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS8_, ptr @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEE17GetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEE17SetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_10IndexValueEE24IsDeleteRangeSentinelKeyEv, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE10InvalidateERKNS_6StatusE, ptr @_ZN7rocksdb14IndexBlockIter15SeekToFirstImplEv, ptr @_ZN7rocksdb14IndexBlockIter14SeekToLastImplEv, ptr @_ZN7rocksdb14IndexBlockIter8SeekImplERKNS_5SliceE, ptr @_ZN7rocksdb14IndexBlockIter15SeekForPrevImplERKNS_5SliceE, ptr @_ZN7rocksdb14IndexBlockIter8NextImplEv, ptr @_ZN7rocksdb14IndexBlockIter8PrevImplEv, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE18GetRestartIntervalEv, ptr @_ZN7rocksdb9BlockIterINS_10IndexValueEE12NumberOfKeysEj] }, align 8
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"bad entry in block\00", align 1
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.6 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -2864,7 +2864,7 @@ invoke.cont11.thread:                             ; preds = %call3.i.noexc
 if.else.i:                                        ; preds = %call3.i.noexc
   %19 = load ptr, ptr %block_ids.i, align 8
   %sub.i12 = add i32 %call3.i14, -1
-  %call5.i15 = invoke noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKNS_5SliceEPjjjS4_Pb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(16) %seek_key.i, ptr noundef %19, i32 noundef 0, i32 noundef %sub.i12, ptr noundef nonnull %index, ptr noundef nonnull %prefix_may_exist)
+  %call5.i15 = invoke noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKNS_5SliceEPjjjS4_Pb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(16) %seek_key.i, ptr noundef %19, i32 noundef 0, i32 noundef %sub.i12, ptr noundef nonnull writeonly %index, ptr noundef nonnull writeonly %prefix_may_exist)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %if.else.i
@@ -9603,25 +9603,25 @@ if.then.i:                                        ; preds = %invoke.cont
   %2 = load ptr, ptr %key_, align 8
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %kTsMin) #15
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %kTsMin) #15
-  %call5.i.i.i.i.i37 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call5.i.i.i.i.i38 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
           to label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 unwind label %lpad3
 
 _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35: ; preds = %if.then.i
   %_M_end_of_storage.i.i26 = getelementptr inbounds i8, ptr %key_parts_with_ts, i64 16
-  store ptr %2, ptr %call5.i.i.i.i.i37, align 8
-  %ref.tmp2.sroa.2.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 8
-  store i64 %shared_len, ptr %ref.tmp2.sroa.2.0.call5.i.i.i.i.i37.sroa_idx, align 8
-  %ref.tmp2.sroa.3.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 16
-  store ptr %non_shared_data, ptr %ref.tmp2.sroa.3.0.call5.i.i.i.i.i37.sroa_idx, align 8
-  %ref.tmp2.sroa.4.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 24
-  store i64 %non_shared_len, ptr %ref.tmp2.sroa.4.0.call5.i.i.i.i.i37.sroa_idx, align 8
-  %ref.tmp2.sroa.5.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 32
-  store ptr %call.i, ptr %ref.tmp2.sroa.5.0.call5.i.i.i.i.i37.sroa_idx, align 8
-  %ref.tmp2.sroa.6.0.call5.i.i.i.i.i37.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 40
-  store i64 %call2.i, ptr %ref.tmp2.sroa.6.0.call5.i.i.i.i.i37.sroa_idx, align 8
+  store ptr %2, ptr %call5.i.i.i.i.i38, align 8
+  %ref.tmp2.sroa.2.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 8
+  store i64 %shared_len, ptr %ref.tmp2.sroa.2.0.call5.i.i.i.i.i38.sroa_idx, align 8
+  %ref.tmp2.sroa.3.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 16
+  store ptr %non_shared_data, ptr %ref.tmp2.sroa.3.0.call5.i.i.i.i.i38.sroa_idx, align 8
+  %ref.tmp2.sroa.4.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 24
+  store i64 %non_shared_len, ptr %ref.tmp2.sroa.4.0.call5.i.i.i.i.i38.sroa_idx, align 8
+  %ref.tmp2.sroa.5.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 32
+  store ptr %call.i, ptr %ref.tmp2.sroa.5.0.call5.i.i.i.i.i38.sroa_idx, align 8
+  %ref.tmp2.sroa.6.0.call5.i.i.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 40
+  store i64 %call2.i, ptr %ref.tmp2.sroa.6.0.call5.i.i.i.i.i38.sroa_idx, align 8
   %_M_finish.i33 = getelementptr inbounds i8, ptr %key_parts_with_ts, i64 8
-  store ptr %call5.i.i.i.i.i37, ptr %key_parts_with_ts, align 8
-  %add.ptr.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i37, i64 48
+  store ptr %call5.i.i.i.i.i38, ptr %key_parts_with_ts, align 8
+  %add.ptr.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 48
   store ptr %add.ptr.i36, ptr %_M_finish.i33, align 8
   store ptr %add.ptr.i36, ptr %_M_end_of_storage.i.i26, align 8
   br label %if.end
@@ -9695,12 +9695,12 @@ invoke.cont23:                                    ; preds = %invoke.cont18
 invoke.cont23.if.end_crit_edge:                   ; preds = %invoke.cont23
   %.pre = load ptr, ptr %key_parts_with_ts, align 8
   %_M_finish.i.phi.trans.insert = getelementptr inbounds i8, ptr %key_parts_with_ts, i64 8
-  %.pre45 = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
+  %.pre46 = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont23.if.end_crit_edge, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35
-  %9 = phi ptr [ %.pre45, %invoke.cont23.if.end_crit_edge ], [ %add.ptr.i36, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
-  %10 = phi ptr [ %.pre, %invoke.cont23.if.end_crit_edge ], [ %call5.i.i.i.i.i37, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
+  %9 = phi ptr [ %.pre46, %invoke.cont23.if.end_crit_edge ], [ %add.ptr.i36, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
+  %10 = phi ptr [ %.pre, %invoke.cont23.if.end_crit_edge ], [ %call5.i.i.i.i.i38, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i

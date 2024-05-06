@@ -133,7 +133,7 @@ define dso_local void @nghttp2_downcase(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @nghttp2_adjust_local_window_size(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
+define dso_local range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %25
@@ -209,7 +209,7 @@ define dso_local noundef i32 @nghttp2_adjust_local_window_size(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @nghttp2_increase_local_window_size(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
+define dso_local range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %0, align 4
   %7 = sub nsw i32 2147483647, %5
@@ -237,7 +237,7 @@ define dso_local noundef i32 @nghttp2_increase_local_window_size(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @nghttp2_should_send_window_update(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @nghttp2_should_send_window_update(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %8
 
@@ -427,7 +427,7 @@ define dso_local noundef nonnull ptr @nghttp2_strerror(i32 noundef %0) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_check_header_name(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -471,7 +471,7 @@ define dso_local noundef i32 @nghttp2_check_header_name(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_check_header_value(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not8 = icmp eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -496,7 +496,7 @@ define dso_local noundef i32 @nghttp2_check_header_value(ptr noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %nghttp2_check_header_value.exit, label %4
 
@@ -536,7 +536,7 @@ nghttp2_check_header_value.exit:                  ; preds = %.lr.ph.i, %10, %4, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_check_method(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %.lr.ph.preheader
 
@@ -564,7 +564,7 @@ define dso_local noundef i32 @nghttp2_check_method(ptr noundef readonly %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_check_path(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not8 = icmp eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -589,7 +589,7 @@ define dso_local noundef i32 @nghttp2_check_path(ptr noundef readonly %0, i64 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_check_authority(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not8 = icmp eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph

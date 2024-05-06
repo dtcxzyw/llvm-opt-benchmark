@@ -166,7 +166,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkReadLogFile(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Abc_NtkReadLogFile(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca [1000 x i8], align 16
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.13)
   %6 = icmp eq ptr %5, null
@@ -491,7 +491,7 @@ Vec_IntFree.exit122:                              ; preds = %122, %124
   br i1 %.not103, label %144, label %136
 
 136:                                              ; preds = %133
-  %137 = trunc i64 %indvars.iv to i32
+  %137 = trunc nuw nsw i64 %indvars.iv to i32
   %138 = and i32 %137, 31
   %139 = shl nuw i32 1, %138
   %140 = lshr i64 %indvars.iv, 5

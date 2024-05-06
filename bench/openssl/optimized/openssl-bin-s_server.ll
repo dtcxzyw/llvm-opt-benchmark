@@ -3245,7 +3245,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare i32 @SSL_CTX_set_generate_session_id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @generate_session_id(ptr noundef %ssl, ptr noundef %id, ptr nocapture noundef readonly %id_len) #0 {
+define internal range(i32 0, 2) i32 @generate_session_id(ptr noundef %ssl, ptr noundef %id, ptr nocapture noundef readonly %id_len) #0 {
 entry:
   %0 = load ptr, ptr @session_id_prefix, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
@@ -3333,7 +3333,7 @@ entry:
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @alpn_cb(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 3) i32 @alpn_cb(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %.b13 = load i1, ptr @s_quiet, align 4
   br i1 %.b13, label %if.end13, label %if.then
@@ -3562,7 +3562,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare void @SSL_CTX_set_psk_find_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @psk_find_session_cb(ptr noundef %ssl, ptr nocapture noundef readonly %identity, i64 noundef %identity_len, ptr nocapture noundef writeonly %sess) #0 {
+define internal range(i32 0, 2) i32 @psk_find_session_cb(ptr noundef %ssl, ptr nocapture noundef readonly %identity, i64 noundef %identity_len, ptr nocapture noundef writeonly %sess) #0 {
 entry:
   %key_len = alloca i64, align 8
   %0 = load ptr, ptr @psk_identity, align 8
@@ -5005,7 +5005,7 @@ err:                                              ; preds = %if.then77, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sv_body(i32 noundef %s, i32 noundef %stype, i32 %prot, ptr noundef %context) #0 {
+define internal range(i32 -11, 2) i32 @sv_body(i32 noundef %s, i32 noundef %stype, i32 %prot, ptr noundef %context) #0 {
 entry:
   %readfds = alloca %struct.fd_set, align 8
   %timeout = alloca %struct.timeval, align 8
@@ -5714,7 +5714,7 @@ if.then468:                                       ; preds = %land.lhs.true465
   store i32 0, ptr %read_counter, align 4
   %call469 = call ptr @SSL_get_rbio(ptr noundef %call9) #14
   call void @BIO_set_callback_arg(ptr noundef %call469, ptr noundef nonnull %read_counter) #14
-  %call470 = call fastcc i32 @init_ssl_connection(ptr noundef %call9), !range !24
+  %call470 = call fastcc i32 @init_ssl_connection(ptr noundef %call9)
   %call471 = call ptr @SSL_get_rbio(ptr noundef %call9) #14
   call void @BIO_set_callback_arg(ptr noundef %call471, ptr noundef null) #14
   %cmp472 = icmp eq i32 %call470, 0
@@ -5734,7 +5734,7 @@ while.body494:                                    ; preds = %again, %while.body4
   %call496 = call i32 @SSL_read(ptr noundef %call9, ptr noundef %call, i32 noundef 16384) #14
   %call491 = call i32 @SSL_get_error(ptr noundef %call9, i32 noundef %call496) #14
   %cmp492 = icmp eq i32 %call491, 4
-  br i1 %cmp492, label %while.body494, label %while.end497, !llvm.loop !25
+  br i1 %cmp492, label %while.body494, label %while.end497, !llvm.loop !24
 
 while.end497:                                     ; preds = %while.body494, %again
   %i.5.lcssa = phi i32 [ %call489, %again ], [ %call496, %while.body494 ]
@@ -5989,7 +5989,7 @@ declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @SSL_get_rbio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @count_reads_callback(ptr noundef %bio, i32 noundef %cmd, ptr noundef %argp, i64 noundef %len, i32 noundef %argi, i64 noundef %argl, i32 noundef %ret, ptr noundef %processed) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @count_reads_callback(ptr noundef %bio, i32 noundef %cmd, ptr noundef %argp, i64 noundef %len, i32 noundef %argi, i64 noundef %argl, i32 noundef %ret, ptr noundef %processed) #0 {
 entry:
   %call = tail call ptr @BIO_get_callback_arg(ptr noundef %bio) #14
   switch i32 %cmd, label %sw.epilog [
@@ -6229,7 +6229,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %38 = load i32, ptr @keymatexportlen, align 4
   %39 = sext i32 %38 to i64
   %cmp74 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %cmp74, label %for.body, label %for.end, !llvm.loop !26
+  br i1 %cmp74, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body, %if.else
   %40 = load ptr, ptr @bio_s_out, align 8
@@ -6299,7 +6299,7 @@ declare void @wait_for_async(ptr noundef) local_unnamed_addr #1
 declare void @BIO_set_callback_arg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @init_ssl_connection(ptr noundef %con) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @init_ssl_connection(ptr noundef %con) unnamed_addr #0 {
 entry:
   %fd = alloca i32, align 4
   %.b35 = load i1, ptr @dtlslisten, align 4
@@ -6386,7 +6386,7 @@ while.body:                                       ; preds = %land.rhs
   tail call void @lookup_srp_user(ptr noundef nonnull @srp_callback_parm, ptr noundef %5) #14
   %call44 = tail call i32 @SSL_accept(ptr noundef %con) #14
   %cmp45 = icmp slt i32 %call44, 1
-  br i1 %cmp45, label %land.rhs, label %if.end82, !llvm.loop !27
+  br i1 %cmp45, label %land.rhs, label %if.end82, !llvm.loop !26
 
 do.cond:                                          ; preds = %land.rhs
   %cmp50 = icmp slt i32 %call44.sink, 0
@@ -6395,7 +6395,7 @@ do.cond:                                          ; preds = %land.rhs
 land.rhs52:                                       ; preds = %do.cond
   %call53 = tail call i32 @SSL_waiting_for_async(ptr noundef %con) #14
   %tobool54.not = icmp eq i32 %call53, 0
-  br i1 %tobool54.not, label %if.then59.loopexit, label %do.body, !llvm.loop !28
+  br i1 %tobool54.not, label %if.then59.loopexit, label %do.body, !llvm.loop !27
 
 if.end56:                                         ; preds = %if.then10, %if.end24
   %dtlslisten.sink = phi ptr [ @dtlslisten, %if.end24 ], [ @stateless, %if.then10 ]
@@ -6687,7 +6687,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %next = getelementptr inbounds i8, ptr %sess.010, i64 32
   %sess.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %sess.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end:                                          ; preds = %for.inc, %entry
   %5 = load ptr, ptr @bio_err, align 8
@@ -6748,7 +6748,7 @@ if.end10:                                         ; preds = %land.lhs.true, %for
   %next11 = getelementptr inbounds i8, ptr %sess.016, i64 32
   %sess.0 = load ptr, ptr %next11, align 8
   %tobool.not = icmp eq ptr %sess.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !30
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %if.end10, %entry, %if.then
   ret void
@@ -6824,10 +6824,9 @@ attributes #16 = { nounwind willreturn memory(none) }
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
-!24 = !{i32 0, i32 2}
+!24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}

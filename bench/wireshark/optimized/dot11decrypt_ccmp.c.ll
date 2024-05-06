@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Dot11DecryptCcmpDecrypt(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @Dot11DecryptCcmpDecrypt(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [30 x i8], align 16
   %8 = alloca [13 x i8], align 1
   %9 = alloca [16 x i8], align 16
@@ -61,7 +61,7 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
   store i8 %spec.select, ptr %8, align 1
   %48 = getelementptr inbounds i8, ptr %8, i64 1
   %49 = getelementptr inbounds i8, ptr %0, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %48, ptr noundef nonnull align 1 dereferenceable(6) %49, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %48, ptr noundef nonnull readonly align 1 dereferenceable(6) %49, i64 6, i1 false)
   %50 = lshr i16 %27, 8
   %51 = trunc nuw i16 %50 to i8
   %52 = getelementptr inbounds i8, ptr %8, i64 7

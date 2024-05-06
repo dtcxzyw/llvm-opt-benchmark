@@ -220,7 +220,7 @@ agdictof.exit.i:                                  ; preds = %31, %28, %25, %22, 
   br i1 %.not82.i, label %44, label %39
 
 39:                                               ; preds = %38
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.1) #8
+  %40 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.1) #8
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %44
 
@@ -876,7 +876,7 @@ topdictsize.exit:                                 ; preds = %agdictof.exit24, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agraphattr_delete(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @agraphattr_delete(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %0, ptr @Ag_G_global, align 8
   %2 = load ptr, ptr @AgDataRecName, align 8
   %3 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef %2, i32 noundef 0) #7
@@ -1104,7 +1104,7 @@ define ptr @agxget(ptr noundef %0, ptr nocapture noundef readonly %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agset(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agset(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Agsym_s, align 8
   %5 = load ptr, ptr @AgDataRecName, align 8
   %6 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef %5, i32 noundef 0) #7
@@ -1239,7 +1239,7 @@ define noundef i32 @agsafeset(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agcopyattr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @agcopyattr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsym_s, align 8
   %4 = tail call ptr @agraphof(ptr noundef %0) #7
   %5 = load i32, ptr %0, align 8

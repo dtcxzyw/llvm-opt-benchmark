@@ -302,7 +302,7 @@ define dso_local zeroext i1 @io_futex_remove_all(ptr nocapture noundef readonly 
 declare dso_local zeroext i1 @io_match_task_safe(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @io_futex_prep(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -22, 1) i32 @io_futex_prep(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -498,7 +498,7 @@ define internal void @io_futex_wakev_fn(ptr nocapture readnone %0, ptr noundef %
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_futexv_wait(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -529, 1) i32 @io_futexv_wait(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
@@ -612,7 +612,7 @@ define dso_local noundef i32 @io_futexv_wait(ptr noundef %0, i32 noundef %1) loc
 declare dso_local i32 @futex_wait_multiple_setup(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_futex_wait(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -529, 1) i32 @io_futex_wait(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8

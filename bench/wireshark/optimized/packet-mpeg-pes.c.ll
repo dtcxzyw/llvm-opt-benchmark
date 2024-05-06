@@ -425,7 +425,7 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   %7 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 3) #3
@@ -488,7 +488,7 @@ define internal noundef i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, pt
   %43 = add i32 %39, 512
   %44 = sdiv i32 %43, 8
   %45 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %44) #3
-  %46 = call i32 @dissect_mpeg_pes(ptr noundef %45, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null), !range !4
+  %46 = call i32 @dissect_mpeg_pes(ptr noundef %45, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   br label %206
 
 47:                                               ; preds = %10
@@ -497,7 +497,7 @@ define internal noundef i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, pt
   %50 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %48, i32 noundef %49, ptr noundef nonnull @Sequence_extension_sequence) #3
   %51 = sdiv i32 %50, 8
   %52 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %51) #3
-  %53 = call i32 @dissect_mpeg_pes(ptr noundef %52, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null), !range !4
+  %53 = call i32 @dissect_mpeg_pes(ptr noundef %52, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   br label %206
 
 54:                                               ; preds = %10
@@ -506,7 +506,7 @@ define internal noundef i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, pt
   %57 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @Group_of_pictures_sequence) #3
   %58 = sdiv i32 %57, 8
   %59 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %58) #3
-  %60 = call i32 @dissect_mpeg_pes(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null), !range !4
+  %60 = call i32 @dissect_mpeg_pes(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   br label %206
 
 61:                                               ; preds = %10
@@ -540,7 +540,7 @@ define internal noundef i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, pt
   store i64 %84, ptr %5, align 8
   %85 = mul nuw nsw i64 %83, 1000000000
   %86 = udiv i64 %85, 27000000
-  %87 = trunc i64 %86 to i32
+  %87 = trunc nuw nsw i64 %86 to i32
   %88 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %87, ptr %88, align 8
   %89 = load i32, ptr @hf_mpeg_pes_scr, align 4
@@ -691,7 +691,7 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %178
-  %182 = call i32 @dissect_mpeg_pes(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null), !range !4
+  %182 = call i32 @dissect_mpeg_pes(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   br label %206
 
 183:                                              ; preds = %178
@@ -814,7 +814,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   store i64 %23, ptr %4, align 8
   %24 = mul nuw nsw i64 %22, 1000000000
   %25 = udiv i64 %24, 90000
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %26, ptr %27, align 8
   %28 = load i32, ptr @hf_mpeg_pes_pts, align 4
@@ -842,7 +842,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   store i64 %43, ptr %5, align 8
   %44 = mul nuw nsw i64 %42, 1000000000
   %45 = udiv i64 %44, 90000
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw nsw i64 %45 to i32
   %47 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %46, ptr %47, align 8
   %48 = load i32, ptr @hf_mpeg_pes_dts, align 4
@@ -875,7 +875,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   store i64 %68, ptr %6, align 8
   %69 = mul nuw nsw i64 %67, 1000000000
   %70 = udiv i64 %69, 27000000
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw nsw i64 %70 to i32
   %72 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %71, ptr %72, align 8
   %73 = load i32, ptr @hf_mpeg_pes_escr, align 4
@@ -1214,4 +1214,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -5574,7 +5574,7 @@ eh.resume:                                        ; preds = %cleanup.action, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes9RealToInt13applyInternalEPNS1_17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull %assertionsToPreprocess) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6passes9RealToInt13applyInternalEPNS1_17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull %assertionsToPreprocess) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %var_eq = alloca %"class.std::vector.97", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8

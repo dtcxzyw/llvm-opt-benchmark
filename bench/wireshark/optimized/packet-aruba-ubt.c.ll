@@ -777,7 +777,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %indvars.iv = phi i64 [ 0, %248 ], [ %indvars.iv.next, %295 ]
   %.4588 = phi i32 [ %258, %248 ], [ %.5, %295 ]
   %268 = lshr exact i64 %indvars.iv, 5
-  %269 = trunc i64 %268 to i32
+  %269 = trunc nuw nsw i64 %268 to i32
   switch i32 %269, label %284 [
     i32 0, label %270
     i32 1, label %274
@@ -857,7 +857,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %indvars.iv610 = phi i64 [ 0, %297 ], [ %indvars.iv.next611, %334 ]
   %.6593 = phi i32 [ %.5, %297 ], [ %.7, %334 ]
   %307 = lshr exact i64 %indvars.iv610, 5
-  %308 = trunc i64 %307 to i32
+  %308 = trunc nuw nsw i64 %307 to i32
   switch i32 %308, label %323 [
     i32 0, label %309
     i32 1, label %313
@@ -937,7 +937,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %indvars.iv614 = phi i64 [ 0, %336 ], [ %indvars.iv.next615, %373 ]
   %.8598 = phi i32 [ %.7, %336 ], [ %.9, %373 ]
   %346 = lshr exact i64 %indvars.iv614, 5
-  %347 = trunc i64 %346 to i32
+  %347 = trunc nuw nsw i64 %346 to i32
   switch i32 %347, label %362 [
     i32 0, label %348
     i32 1, label %352

@@ -602,7 +602,7 @@ declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #1
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_visible_in_snapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_visible_in_snapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FullTransactionId, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -845,7 +845,7 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp_fxid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @cmp_fxid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.sroa.02.0.copyload = load i64, ptr %0, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %3 = icmp ult i64 %.sroa.02.0.copyload, %.sroa.0.0.copyload

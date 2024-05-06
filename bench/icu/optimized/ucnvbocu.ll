@@ -388,7 +388,7 @@ cond.end:                                         ; preds = %if.end132
 
 if.then140:                                       ; preds = %cond.false, %if.else.i137, %if.else4.i, %if.else7.i, %cond.end
   %cond145 = phi i32 [ %add137, %cond.end ], [ 49617, %if.else4.i ], [ 30481, %if.else.i137 ], [ 12400, %cond.false ], [ %add.i, %if.else7.i ]
-  %conv141 = trunc i32 %c.1 to i16
+  %conv141 = trunc nuw i32 %c.1 to i16
   %incdec.ptr142 = getelementptr inbounds i8, ptr %target.6, i64 2
   store i16 %conv141, ptr %target.6, align 2
   br label %while.cond44.preheader, !llvm.loop !6
@@ -879,7 +879,7 @@ cond.end:                                         ; preds = %if.end144
 
 if.then153:                                       ; preds = %cond.false, %if.else.i161, %if.else4.i, %if.else7.i, %cond.end
   %cond151169 = phi i32 [ %add149, %cond.end ], [ 49617, %if.else4.i ], [ 30481, %if.else.i161 ], [ 12400, %cond.false ], [ %add.i, %if.else7.i ]
-  %conv154 = trunc i32 %c.1 to i16
+  %conv154 = trunc nuw i32 %c.1 to i16
   %incdec.ptr155 = getelementptr inbounds i8, ptr %target.6, i64 2
   store i16 %conv154, ptr %target.6, align 2
   br label %if.end176
@@ -1032,7 +1032,7 @@ while.body:                                       ; preds = %land.rhs
 if.then20:                                        ; preds = %while.body
   %cmp21.not = icmp eq i16 %7, 32
   %spec.select125 = select i1 %cmp21.not, i32 %prev.1153, i32 64
-  %conv24 = trunc i16 %7 to i8
+  %conv24 = trunc nuw i16 %7 to i8
   br label %if.end34
 
 if.else:                                          ; preds = %while.body
@@ -1101,7 +1101,7 @@ if.then45:                                        ; preds = %while.body43.prehea
 if.then49:                                        ; preds = %if.then45
   %cmp50.not = icmp eq i16 %11, 32
   %spec.select126 = select i1 %cmp50.not, i32 %prev.4169215, i32 64
-  %conv53 = trunc i16 %11 to i8
+  %conv53 = trunc nuw i16 %11 to i8
   %incdec.ptr54 = getelementptr inbounds i8, ptr %target.3167217, i64 1
   store i8 %conv53, ptr %target.3167217, align 1
   %cmp42 = icmp ult ptr %incdec.ptr46, %2
@@ -1222,7 +1222,7 @@ if.else102:                                       ; preds = %if.then97
   br i1 %cmp106.not, label %if.end112.thread, label %if.end112
 
 if.end112.thread:                                 ; preds = %if.else102
-  %conv113129 = trunc i32 %add111 to i8
+  %conv113129 = trunc nuw i32 %add111 to i8
   %incdec.ptr114130 = getelementptr inbounds i8, ptr %target.5, i64 1
   store i8 %conv113129, ptr %target.5, align 1
   br label %cond.false118
@@ -1230,7 +1230,7 @@ if.end112.thread:                                 ; preds = %if.else102
 if.end112:                                        ; preds = %if.else102, %if.then99
   %diff.1 = phi i32 [ %add101, %if.then99 ], [ %add111, %if.else102 ]
   %m.1 = phi i32 [ %rem.sext, %if.then99 ], [ %add109, %if.else102 ]
-  %conv113 = trunc i32 %diff.1 to i8
+  %conv113 = trunc nuw i32 %diff.1 to i8
   %incdec.ptr114 = getelementptr inbounds i8, ptr %target.5, i64 1
   store i8 %conv113, ptr %target.5, align 1
   %cmp115 = icmp sgt i32 %m.1, 19
@@ -1273,7 +1273,7 @@ if.then133:                                       ; preds = %if.else125
   ]
 
 sw.bb:                                            ; preds = %if.then133
-  %conv135 = trunc i32 %shr to i8
+  %conv135 = trunc nsw i32 %shr to i8
   %incdec.ptr136 = getelementptr inbounds i8, ptr %target.5, i64 1
   store i8 %conv135, ptr %target.5, align 1
   br label %sw.bb137
@@ -1465,7 +1465,7 @@ while.body:                                       ; preds = %land.rhs
 if.then22:                                        ; preds = %while.body
   %cmp23.not = icmp eq i16 %8, 32
   %spec.select161 = select i1 %cmp23.not, i32 %prev.1194, i32 64
-  %conv26 = trunc i16 %8 to i8
+  %conv26 = trunc nuw i16 %8 to i8
   br label %if.end42
 
 if.else:                                          ; preds = %while.body
@@ -1544,7 +1544,7 @@ if.then52:                                        ; preds = %while.body50.prehea
 if.then57:                                        ; preds = %if.then52
   %cmp58.not = icmp eq i16 %12, 32
   %spec.select162 = select i1 %cmp58.not, i32 %prev.4218282, i32 64
-  %conv61 = trunc i16 %12 to i8
+  %conv61 = trunc nuw i16 %12 to i8
   %incdec.ptr62 = getelementptr inbounds i8, ptr %target.3215285, i64 1
   store i8 %conv61, ptr %target.3215285, align 1
   %incdec.ptr63 = getelementptr inbounds i8, ptr %offsets.3217283, i64 4
@@ -1677,7 +1677,7 @@ if.else114:                                       ; preds = %if.then109
   br i1 %cmp118.not, label %if.end124.thread, label %if.end124
 
 if.end124.thread:                                 ; preds = %if.else114
-  %conv125165 = trunc i32 %add123 to i8
+  %conv125165 = trunc nuw i32 %add123 to i8
   %incdec.ptr126166 = getelementptr inbounds i8, ptr %target.5, i64 1
   store i8 %conv125165, ptr %target.5, align 1
   br label %cond.false130
@@ -1685,7 +1685,7 @@ if.end124.thread:                                 ; preds = %if.else114
 if.end124:                                        ; preds = %if.else114, %if.then111
   %diff.1 = phi i32 [ %add113, %if.then111 ], [ %add123, %if.else114 ]
   %m.1 = phi i32 [ %rem.sext, %if.then111 ], [ %add121, %if.else114 ]
-  %conv125 = trunc i32 %diff.1 to i8
+  %conv125 = trunc nuw i32 %diff.1 to i8
   %incdec.ptr126 = getelementptr inbounds i8, ptr %target.5, i64 1
   store i8 %conv125, ptr %target.5, align 1
   %cmp127 = icmp sgt i32 %m.1, 19
@@ -1733,7 +1733,7 @@ if.then147:                                       ; preds = %if.else139
   ]
 
 sw.bb:                                            ; preds = %if.then147
-  %conv149 = trunc i32 %shr to i8
+  %conv149 = trunc nsw i32 %shr to i8
   %incdec.ptr150 = getelementptr inbounds i8, ptr %target.5, i64 1
   store i8 %conv149, ptr %target.5, align 1
   %incdec.ptr151 = getelementptr inbounds i8, ptr %offsets.5, i64 4
@@ -1804,7 +1804,7 @@ sw.bb177:                                         ; preds = %sw.bb173, %if.else1
   br label %sw.epilog180
 
 sw.epilog180:                                     ; preds = %if.else166, %sw.bb177
-  %conv181 = trunc i32 %sub167 to i8
+  %conv181 = trunc nsw i32 %sub167 to i8
   %charErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 91
   store i8 %conv181, ptr %charErrorBufferLength, align 1
   %mul = shl nsw i32 %sub167, 3
@@ -2107,7 +2107,7 @@ cond.false115:                                    ; preds = %if.then101
 
 cond.end119:                                      ; preds = %cond.false115, %cond.true113
   %cond120 = phi i32 [ %add114, %cond.true113 ], [ %conv118, %cond.false115 ]
-  %.neg = trunc i32 %diff.addr.1.neg to i16
+  %.neg = trunc nuw i32 %diff.addr.1.neg to i16
   %rem123113114 = urem i16 %.neg, 243
   %div124116117 = udiv i16 %.neg, 243
   %div124116.zext = zext nneg i16 %div124116117 to i32

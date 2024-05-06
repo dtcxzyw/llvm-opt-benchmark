@@ -588,7 +588,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.rawspeed::FileReader", align 8
@@ -1039,7 +1039,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   %263 = icmp ne i32 %255, 0
   %264 = xor i1 %262, %263
   call void @llvm.assume(i1 %264)
-  %265 = mul nsw i32 %258, %255
+  %265 = mul nuw nsw i32 %258, %255
   %266 = icmp eq i32 %249, %265
   call void @llvm.assume(i1 %266)
   %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %245, ptr noundef nonnull @.str.22, i32 noundef %252, i32 noundef %255) #20
@@ -1067,7 +1067,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   %282 = icmp ne i32 %275, 0
   %283 = xor i1 %281, %282
   call void @llvm.assume(i1 %283)
-  %284 = mul nsw i32 %277, %275
+  %284 = mul nuw nsw i32 %277, %275
   %285 = icmp eq i32 %271, %284
   call void @llvm.assume(i1 %285)
   %286 = icmp eq i32 %275, 1
@@ -1076,7 +1076,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   br i1 %288, label %289, label %.loopexit44
 
 289:                                              ; preds = %243
-  %290 = mul nsw i32 %275, %273
+  %290 = mul nuw nsw i32 %275, %273
   %291 = icmp ule i32 %290, %271
   call void @llvm.assume(i1 %291)
   %292 = icmp eq i32 %290, 0
@@ -1215,7 +1215,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
 
 408:                                              ; preds = %407
   call void @llvm.assume(i1 %385)
-  %409 = mul nsw i32 %404, %378
+  %409 = mul nuw nsw i32 %404, %378
   %410 = icmp eq i32 %409, %402
   call void @llvm.assume(i1 %410)
   %411 = icmp sgt i32 %404, -1
@@ -1328,7 +1328,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   call void @llvm.assume(i1 %396)
   call void @llvm.assume(i1 %397)
   call void @llvm.assume(i1 %399)
-  %491 = mul nsw i32 %394, %378
+  %491 = mul nuw nsw i32 %394, %378
   %492 = icmp eq i32 %491, %391
   call void @llvm.assume(i1 %492)
   %493 = icmp sgt i32 %394, -1
@@ -1550,7 +1550,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   br i1 %643, label %.loopexit33, label %644
 
 644:                                              ; preds = %622
-  %645 = mul nsw i32 %633, %630
+  %645 = mul nuw nsw i32 %633, %630
   %646 = zext nneg i32 %628 to i64
   %647 = zext nneg i32 %630 to i64
   %648 = zext nneg i32 %633 to i64
@@ -1689,7 +1689,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   br i1 %750, label %.loopexit28, label %751
 
 751:                                              ; preds = %729
-  %752 = mul nsw i32 %740, %737
+  %752 = mul nuw nsw i32 %740, %737
   %753 = zext nneg i32 %735 to i64
   %754 = zext nneg i32 %737 to i64
   %755 = zext nneg i32 %740 to i64

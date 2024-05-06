@@ -1111,7 +1111,7 @@ define internal noundef i32 @noqueue_init(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pfifo_fast_enqueue(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @pfifo_fast_enqueue(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 15
@@ -1448,7 +1448,7 @@ define internal ptr @pfifo_fast_peek(ptr nocapture noundef readonly %0) #4 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pfifo_fast_init(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pfifo_fast_init(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 64
   %6 = load ptr, ptr %5, align 64
@@ -1669,7 +1669,7 @@ define internal void @pfifo_fast_destroy(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pfifo_fast_change_tx_queue_len(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca [3 x ptr], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 384
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #20

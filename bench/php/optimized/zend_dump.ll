@@ -795,7 +795,7 @@ zend_dump_var.exit:                               ; preds = %.thread.i, %57, %51
   %88 = and i32 %11, 251658240
   %89 = add nsw i32 %88, -16777216
   %90 = lshr exact i32 %89, 24
-  %trunc = trunc i32 %90 to i8
+  %trunc = trunc nuw i32 %90 to i8
   switch i8 %trunc, label %191 [
     i8 0, label %91
     i8 3, label %96
@@ -1893,7 +1893,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not116, label %25, label %17
 
 17:                                               ; preds = %15
-  %18 = trunc i8 %.194 to i1
+  %18 = trunc nuw i8 %.194 to i1
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %17
@@ -1914,7 +1914,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not117, label %35, label %27
 
 27:                                               ; preds = %25
-  %28 = trunc i8 %.396 to i1
+  %28 = trunc nuw i8 %.396 to i1
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %27
@@ -1940,7 +1940,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not119, label %47, label %39
 
 39:                                               ; preds = %37
-  %40 = trunc i8 %.598 to i1
+  %40 = trunc nuw i8 %.598 to i1
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %39
@@ -1960,7 +1960,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not120, label %56, label %48
 
 48:                                               ; preds = %47
-  %49 = trunc i8 %.7100 to i1
+  %49 = trunc nuw i8 %.7100 to i1
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %48
@@ -1981,7 +1981,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not121, label %75, label %58
 
 58:                                               ; preds = %56
-  %59 = trunc i8 %.9102 to i1
+  %59 = trunc nuw i8 %.9102 to i1
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %58
@@ -2017,7 +2017,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %75
-  %79 = trunc i8 %.9102 to i1
+  %79 = trunc nuw i8 %.9102 to i1
   br i1 %79, label %83, label %80
 
 80:                                               ; preds = %78
@@ -2036,7 +2036,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not122, label %96, label %88
 
 88:                                               ; preds = %86
-  %89 = trunc i8 %.9102 to i1
+  %89 = trunc nuw i8 %.9102 to i1
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %88
@@ -2059,7 +2059,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %or.cond.not, label %99, label %107
 
 99:                                               ; preds = %96
-  %100 = trunc i8 %.11104 to i1
+  %100 = trunc nuw i8 %.11104 to i1
   br i1 %100, label %104, label %101
 
 101:                                              ; preds = %99
@@ -2079,7 +2079,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not123, label %117, label %109
 
 109:                                              ; preds = %107
-  %110 = trunc i8 %.11104 to i1
+  %110 = trunc nuw i8 %.11104 to i1
   br i1 %110, label %114, label %111
 
 111:                                              ; preds = %109
@@ -2097,7 +2097,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not124, label %126, label %118
 
 118:                                              ; preds = %117
-  %119 = trunc i8 %.11104 to i1
+  %119 = trunc nuw i8 %.11104 to i1
   br i1 %119, label %123, label %120
 
 120:                                              ; preds = %118
@@ -2118,7 +2118,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not126, label %136, label %128
 
 128:                                              ; preds = %126
-  %129 = trunc i8 %.15108 to i1
+  %129 = trunc nuw i8 %.15108 to i1
   br i1 %129, label %133, label %130
 
 130:                                              ; preds = %128
@@ -2139,7 +2139,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not127, label %146, label %138
 
 138:                                              ; preds = %136
-  %139 = trunc i8 %.17110 to i1
+  %139 = trunc nuw i8 %.17110 to i1
   br i1 %139, label %143, label %140
 
 140:                                              ; preds = %138
@@ -2160,7 +2160,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not128, label %156, label %148
 
 148:                                              ; preds = %146
-  %149 = trunc i8 %.19 to i1
+  %149 = trunc nuw i8 %.19 to i1
   br i1 %149, label %153, label %150
 
 150:                                              ; preds = %148
@@ -2181,7 +2181,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not129, label %340, label %158
 
 158:                                              ; preds = %156
-  %159 = trunc i8 %.21 to i1
+  %159 = trunc nuw i8 %.21 to i1
   br i1 %159, label %163, label %160
 
 160:                                              ; preds = %158
@@ -2255,7 +2255,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not138, label %198, label %190
 
 190:                                              ; preds = %188
-  %191 = trunc i8 %.190 to i1
+  %191 = trunc nuw i8 %.190 to i1
   br i1 %191, label %195, label %192
 
 192:                                              ; preds = %190
@@ -2274,7 +2274,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not132, label %199, label %207
 
 199:                                              ; preds = %198
-  %200 = trunc i8 %.392 to i1
+  %200 = trunc nuw i8 %.392 to i1
   br i1 %200, label %204, label %201
 
 201:                                              ; preds = %199
@@ -2369,7 +2369,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not145, label %258, label %250
 
 250:                                              ; preds = %248
-  %251 = trunc i8 %.2 to i1
+  %251 = trunc nuw i8 %.2 to i1
   br i1 %251, label %255, label %252
 
 252:                                              ; preds = %250
@@ -2390,7 +2390,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not146, label %268, label %260
 
 260:                                              ; preds = %258
-  %261 = trunc i8 %.4 to i1
+  %261 = trunc nuw i8 %.4 to i1
   br i1 %261, label %265, label %262
 
 262:                                              ; preds = %260
@@ -2411,7 +2411,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not147, label %278, label %270
 
 270:                                              ; preds = %268
-  %271 = trunc i8 %.6 to i1
+  %271 = trunc nuw i8 %.6 to i1
   br i1 %271, label %275, label %272
 
 272:                                              ; preds = %270
@@ -2432,7 +2432,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not148, label %288, label %280
 
 280:                                              ; preds = %278
-  %281 = trunc i8 %.8 to i1
+  %281 = trunc nuw i8 %.8 to i1
   br i1 %281, label %285, label %282
 
 282:                                              ; preds = %280
@@ -2453,7 +2453,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not149, label %298, label %290
 
 290:                                              ; preds = %288
-  %291 = trunc i8 %.10 to i1
+  %291 = trunc nuw i8 %.10 to i1
   br i1 %291, label %295, label %292
 
 292:                                              ; preds = %290
@@ -2474,7 +2474,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not150, label %308, label %300
 
 300:                                              ; preds = %298
-  %301 = trunc i8 %.12 to i1
+  %301 = trunc nuw i8 %.12 to i1
   br i1 %301, label %305, label %302
 
 302:                                              ; preds = %300
@@ -2495,7 +2495,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not151, label %318, label %310
 
 310:                                              ; preds = %308
-  %311 = trunc i8 %.14 to i1
+  %311 = trunc nuw i8 %.14 to i1
   br i1 %311, label %315, label %312
 
 312:                                              ; preds = %310
@@ -2516,7 +2516,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not152, label %328, label %320
 
 320:                                              ; preds = %318
-  %321 = trunc i8 %.16 to i1
+  %321 = trunc nuw i8 %.16 to i1
   br i1 %321, label %325, label %322
 
 322:                                              ; preds = %320
@@ -2537,7 +2537,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not153, label %338, label %330
 
 330:                                              ; preds = %328
-  %331 = trunc i8 %.18 to i1
+  %331 = trunc nuw i8 %.18 to i1
   br i1 %331, label %335, label %332
 
 332:                                              ; preds = %330
@@ -2562,7 +2562,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not155, label %355, label %342
 
 342:                                              ; preds = %340
-  %343 = trunc i8 %.23 to i1
+  %343 = trunc nuw i8 %.23 to i1
   br i1 %343, label %347, label %344
 
 344:                                              ; preds = %342
@@ -2594,7 +2594,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not158, label %365, label %357
 
 357:                                              ; preds = %355
-  %358 = trunc i8 %.25 to i1
+  %358 = trunc nuw i8 %.25 to i1
   br i1 %358, label %362, label %359
 
 359:                                              ; preds = %357
@@ -3112,8 +3112,8 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   br i1 %.not189, label %.loopexit199, label %151
 
 151:                                              ; preds = %148, %145
-  %152 = trunc i64 %indvars.iv to i32
-  tail call fastcc void @zend_dump_block_info(ptr noundef nonnull %.0147, i32 noundef %152, i32 noundef %1)
+  %152 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call fastcc void @zend_dump_block_info(ptr noundef nonnull readonly %.0147, i32 noundef %152, i32 noundef %1)
   br i1 %.not163, label %zend_dump_block_header.exit, label %153
 
 153:                                              ; preds = %151
@@ -3135,7 +3135,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %161 = load i32, ptr %160, align 4
   %162 = getelementptr inbounds i8, ptr %.042.i, i64 64
   %163 = load i32, ptr %162, align 8
-  tail call void @zend_dump_ssa_var(ptr noundef %0, ptr noundef nonnull %spec.select192, i32 noundef %161, i8 noundef zeroext 0, i32 noundef %163, i32 noundef %1)
+  tail call void @zend_dump_ssa_var(ptr noundef readonly %0, ptr noundef nonnull readonly %spec.select192, i32 noundef %161, i8 noundef zeroext 0, i32 noundef %163, i32 noundef %1)
   %164 = getelementptr inbounds i8, ptr %.042.i, i64 8
   %165 = load i32, ptr %164, align 8
   %166 = icmp slt i32 %165, 0
@@ -3169,7 +3169,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %181 = getelementptr inbounds i32, ptr %180, i64 %indvars.iv.i
   %182 = load i32, ptr %181, align 4
   %183 = load i32, ptr %162, align 8
-  tail call void @zend_dump_ssa_var(ptr noundef %0, ptr noundef nonnull %spec.select192, i32 noundef %182, i8 noundef zeroext 0, i32 noundef %183, i32 noundef %1)
+  tail call void @zend_dump_ssa_var(ptr noundef readonly %0, ptr noundef nonnull readonly %spec.select192, i32 noundef %182, i8 noundef zeroext 0, i32 noundef %183, i32 noundef %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %184 = load ptr, ptr %139, align 8
   %185 = getelementptr inbounds %struct._zend_basic_block, ptr %184, i64 %indvars.iv, i32 5
@@ -3184,7 +3184,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %192 = load ptr, ptr %191, align 8
   %193 = load i32, ptr %192, align 4
   %194 = load i32, ptr %162, align 8
-  tail call void @zend_dump_ssa_var(ptr noundef %0, ptr noundef nonnull %spec.select192, i32 noundef %193, i8 noundef zeroext 0, i32 noundef %194, i32 noundef %1)
+  tail call void @zend_dump_ssa_var(ptr noundef readonly %0, ptr noundef nonnull readonly %spec.select192, i32 noundef %193, i8 noundef zeroext 0, i32 noundef %194, i32 noundef %1)
   %195 = load ptr, ptr @stderr, align 8
   %196 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 2, i64 1, ptr %195) #7
   %197 = getelementptr inbounds i8, ptr %.042.i, i64 76
@@ -3242,7 +3242,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %230 = load i32, ptr %47, align 8
   %231 = icmp slt i32 %229, %230
   %232 = select i1 %231, i8 8, i8 0
-  tail call void @zend_dump_ssa_var(ptr noundef %0, ptr noundef nonnull %spec.select192, i32 noundef %225, i8 noundef zeroext %232, i32 noundef %229, i32 noundef %1)
+  tail call void @zend_dump_ssa_var(ptr noundef readonly %0, ptr noundef nonnull readonly %spec.select192, i32 noundef %225, i8 noundef zeroext %232, i32 noundef %229, i32 noundef %1)
   %233 = load i64, ptr %200, align 8
   %234 = icmp sgt i64 %233, 0
   br i1 %234, label %235, label %238
@@ -3296,7 +3296,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %265 = load i32, ptr %47, align 8
   %266 = icmp slt i32 %264, %265
   %267 = select i1 %266, i8 8, i8 0
-  tail call void @zend_dump_ssa_var(ptr noundef %0, ptr noundef nonnull %spec.select192, i32 noundef %260, i8 noundef zeroext %267, i32 noundef %264, i32 noundef %1)
+  tail call void @zend_dump_ssa_var(ptr noundef readonly %0, ptr noundef nonnull readonly %spec.select192, i32 noundef %260, i8 noundef zeroext %267, i32 noundef %264, i32 noundef %1)
   %268 = getelementptr inbounds i8, ptr %.042.i, i64 24
   %269 = load i64, ptr %268, align 8
   %270 = icmp sgt i64 %269, 0
@@ -3399,7 +3399,7 @@ zend_dump_block_header.exit:                      ; preds = %._crit_edge.i, %151
 zend_dump_op_line.exit:                           ; preds = %310, %322, %324
   %.017.i = phi ptr [ %.0, %324 ], [ %.0, %322 ], [ null, %310 ]
   %.0.i = phi ptr [ %329, %324 ], [ null, %322 ], [ null, %310 ]
-  tail call void @zend_dump_op(ptr noundef nonnull %0, ptr noundef %147, ptr noundef %.0146203, i32 noundef %1, ptr noundef %.017.i, ptr noundef %.0.i)
+  tail call void @zend_dump_op(ptr noundef nonnull readonly %0, ptr noundef %147, ptr noundef %.0146203, i32 noundef %1, ptr noundef %.017.i, ptr noundef %.0.i)
   %330 = load ptr, ptr @stderr, align 8
   %fputc.i = tail call i32 @fputc(i32 10, ptr %330)
   %331 = getelementptr inbounds i8, ptr %.0146203, i64 32
@@ -3820,7 +3820,7 @@ zend_dump_op_array_name.exit:                     ; preds = %13, %18, %21
   br i1 %.not, label %36, label %34
 
 34:                                               ; preds = %29
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @zend_dump_block_info(ptr noundef nonnull %1, i32 noundef %35, i32 noundef 0)
   %.pre = load i32, ptr %1, align 8
   br label %36
@@ -4251,12 +4251,12 @@ zend_dump_op_array_name.exit:                     ; preds = %12, %17, %20
   %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 24
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.13, i32 noundef %41, ptr noundef nonnull %40) #8
   br label %zend_dump_var.exit
 
 .thread.i:                                        ; preds = %29
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.16, i32 noundef %43) #8
   br label %zend_dump_var.exit
 
@@ -4333,7 +4333,7 @@ zend_dump_op_array_name.exit:                     ; preds = %17, %22, %25
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr inbounds %struct._zend_ssa_var, ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 8
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @zend_dump_ssa_var(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %38, i8 noundef zeroext 8, i32 noundef %37, i32 noundef %2)
   %39 = load ptr, ptr %4, align 8
   %40 = getelementptr inbounds %struct._zend_ssa_var, ptr %39, i64 %indvars.iv
@@ -4601,7 +4601,7 @@ zend_dump_op_array_name.exit:                     ; preds = %16, %21, %24
 
 34:                                               ; preds = %.lr.ph.split
   %35 = load ptr, ptr @stderr, align 8
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.112, i32 noundef %36) #8
   %38 = getelementptr inbounds i8, ptr %33, i64 8
   %39 = load i32, ptr %38, align 8

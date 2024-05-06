@@ -348,7 +348,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr nocapture noundef readonly %0, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @intel_bios_dp_max_link_rate(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 2000001) i32 @intel_bios_dp_max_link_rate(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 
@@ -421,7 +421,7 @@ define dso_local noundef i32 @intel_bios_dp_max_link_rate(ptr noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_bios_dp_max_lane_count(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 5) i32 @intel_bios_dp_max_lane_count(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -517,7 +517,7 @@ define dso_local zeroext i1 @intel_bios_encoder_is_lspcon(ptr noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_bios_hdmi_level_shift(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -1, 32) i32 @intel_bios_hdmi_level_shift(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 
@@ -548,7 +548,7 @@ define dso_local i32 @intel_bios_hdmi_level_shift(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_bios_hdmi_max_tmds_clock(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 0, 594001) i32 @intel_bios_hdmi_max_tmds_clock(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %22, label %3
 
@@ -6401,7 +6401,7 @@ define dso_local zeroext i1 @intel_bios_dp_has_shared_aux_ch(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_bios_dp_boost_level(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 256) i32 @intel_bios_dp_boost_level(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 
@@ -6445,7 +6445,7 @@ define dso_local i32 @intel_bios_dp_boost_level(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_bios_hdmi_boost_level(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 256) i32 @intel_bios_hdmi_boost_level(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 
@@ -6489,7 +6489,7 @@ define dso_local i32 @intel_bios_hdmi_boost_level(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_bios_hdmi_ddc_pin(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 256) i32 @intel_bios_hdmi_ddc_pin(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %67, label %3
 
@@ -6784,7 +6784,7 @@ define internal i32 @opregion_get_panel_type(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vbt_get_panel_type(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture readnone %2, i1 zeroext %3) #5 align 16 {
+define internal range(i32 -1, 256) i32 @vbt_get_panel_type(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture readnone %2, i1 zeroext %3) #5 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 6856
   br label %6
 
@@ -7018,7 +7018,7 @@ define internal i32 @pnpid_get_panel_type(ptr noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @fallback_get_panel_type(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i1 noundef zeroext %3) #13 align 16 {
+define internal noundef range(i32 -1, 1) i32 @fallback_get_panel_type(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i1 noundef zeroext %3) #13 align 16 {
   %5 = xor i1 %3, true
   %6 = sext i1 %5 to i32
   ret i32 %6

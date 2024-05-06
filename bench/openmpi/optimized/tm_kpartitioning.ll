@@ -166,7 +166,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
   br i1 %exitcond.not.i, label %._crit_edge124.i, label %.lr.ph123.i, !llvm.loop !4
 
 ._crit_edge124.loopexit.split.loop.exit.i:        ; preds = %.lr.ph123.i
-  %58 = trunc i64 %indvars.iv.i to i32
+  %58 = trunc nsw i64 %indvars.iv.i to i32
   br label %._crit_edge124.i
 
 ._crit_edge124.i:                                 ; preds = %57, %._crit_edge124.loopexit.split.loop.exit.i, %.lr.ph137.i
@@ -178,7 +178,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph130.preheader.i:                            ; preds = %._crit_edge124.i
   %61 = sext i32 %.092135.i to i64
-  %62 = trunc i64 %indvars.iv157.i to i32
+  %62 = trunc nuw nsw i64 %indvars.iv157.i to i32
   br label %.lr.ph130.i
 
 .lr.ph130.i:                                      ; preds = %.lr.ph130.i, %.lr.ph130.preheader.i
@@ -192,7 +192,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
   br i1 %exitcond156.not.i, label %._crit_edge131.loopexit.i, label %.lr.ph130.i, !llvm.loop !6
 
 ._crit_edge131.loopexit.i:                        ; preds = %.lr.ph130.i
-  %65 = trunc i64 %indvars.iv.next154.i to i32
+  %65 = trunc nsw i64 %indvars.iv.next154.i to i32
   br label %._crit_edge131.i
 
 ._crit_edge131.i:                                 ; preds = %._crit_edge131.loopexit.i, %._crit_edge124.i
@@ -229,7 +229,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
 
 76:                                               ; preds = %.preheader.i
   %77 = getelementptr inbounds i32, ptr %49, i64 %73
-  %78 = trunc i64 %indvars.iv161.i to i32
+  %78 = trunc nuw nsw i64 %indvars.iv161.i to i32
   store i32 %78, ptr %77, align 4
   %79 = add nsw i32 %70, 1
   store i32 %79, ptr %69, align 4
@@ -516,7 +516,7 @@ define hidden noundef ptr @tm_kpartition_build_tree_from_topology(ptr noundef %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %64 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %65, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -764,7 +764,7 @@ display_partition.exit:                           ; preds = %display_partition.e
   %95 = add nsw i32 %.083.i, 1
   %96 = sext i32 %.083.i to i64
   %97 = getelementptr inbounds i32, ptr %85, i64 %96
-  %98 = trunc i64 %indvars.iv.i82 to i32
+  %98 = trunc nuw nsw i64 %indvars.iv.i82 to i32
   store i32 %98, ptr %97, align 4
   br label %99
 
@@ -785,7 +785,7 @@ display_partition.exit:                           ; preds = %display_partition.e
   br i1 %103, label %104, label %112
 
 104:                                              ; preds = %101
-  %105 = trunc i64 %indvars.iv111.i to i32
+  %105 = trunc nuw nsw i64 %indvars.iv111.i to i32
   %106 = load ptr, ptr @stderr, align 8
   %107 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 11, i64 1, ptr %106) #16
   tail call void @tm_print_1D_tab(ptr noundef %32, i32 noundef %2) #13
@@ -900,7 +900,7 @@ split_com_mat.exit:                               ; preds = %._crit_edge90.i, %8
   br label %158
 
 154:                                              ; preds = %._crit_edge.us.i88
-  %155 = trunc i64 %indvars.iv49.i to i32
+  %155 = trunc nuw nsw i64 %indvars.iv49.i to i32
   %156 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %155)
   tail call void @tm_print_1D_tab(ptr noundef %153, i32 noundef %70) #13
   br label %157
@@ -966,7 +966,7 @@ split_com_mat.exit:                               ; preds = %._crit_edge90.i, %8
   br i1 %180, label %181, label %184
 
 181:                                              ; preds = %.lr.ph33.split.split.i
-  %182 = trunc i64 %indvars.iv39.i to i32
+  %182 = trunc nuw nsw i64 %indvars.iv39.i to i32
   %183 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %182)
   tail call void @tm_print_1D_tab(ptr noundef %178, i32 noundef %70) #13
   %.pre.i = load i32, ptr @verbose_level, align 4
@@ -1090,7 +1090,7 @@ split_constraints.exit:                           ; preds = %219, %204, %218
   %224 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv148
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 48
-  %227 = trunc i64 %indvars.iv148 to i32
+  %227 = trunc nuw nsw i64 %indvars.iv148 to i32
   store i32 %227, ptr %226, align 8
   %228 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv148
   %229 = load ptr, ptr %228, align 8

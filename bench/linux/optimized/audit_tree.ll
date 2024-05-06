@@ -181,7 +181,7 @@ define dso_local zeroext i1 @audit_tree_match(ptr nocapture noundef readonly %0,
   br i1 %16, label %.split.loop.exit, label %.preheader, !llvm.loop !14
 
 .split.loop.exit:                                 ; preds = %13
-  %17 = trunc i64 %indvars.iv.next to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.split.loop.exit4
 
 .split.loop.exit4:                                ; preds = %.preheader, %.split.loop.exit
@@ -195,7 +195,7 @@ define dso_local zeroext i1 @audit_tree_match(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @audit_remove_tree_rule(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @audit_remove_tree_rule(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -433,7 +433,7 @@ declare dso_local void @path_put(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @iterate_mounts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @compare_root(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #6 align 16 {
+define internal range(i32 0, 2) i32 @compare_root(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -557,7 +557,7 @@ define internal fastcc void @trim_marked(ptr noundef %0) unnamed_addr #1 align 1
 declare dso_local void @drop_collected_mounts(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @audit_make_tree(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @audit_make_tree(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 47
   br i1 %5, label %6, label %32
@@ -926,7 +926,7 @@ put_tree.exit:                                    ; preds = %106, %108, %80, %82
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @audit_launch_prune() unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @audit_launch_prune() unnamed_addr #1 align 16 {
   %1 = load ptr, ptr @prune_thread, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %13
@@ -957,7 +957,7 @@ define internal fastcc noundef i32 @audit_launch_prune() unnamed_addr #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tag_mount(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8

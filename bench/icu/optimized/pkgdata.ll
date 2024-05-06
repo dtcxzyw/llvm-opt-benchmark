@@ -2676,7 +2676,7 @@ declare void @writeAssemblyCode(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @writeObjectCode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir, i8 noundef signext %mode, ptr noundef %objectFile, ptr noundef %command) unnamed_addr #6 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir, i8 noundef signext %mode, ptr noundef %objectFile, ptr noundef %command) unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %command, null
   %cmp1 = icmp eq i8 %mode, 115
@@ -2856,7 +2856,7 @@ return:                                           ; preds = %if.end90, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse uwtable
-define internal fastcc noundef i32 @_ZL18pkg_createSymLinksPKca(ptr noundef %targetDir) unnamed_addr #12 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_createSymLinksPKca(ptr noundef %targetDir) unnamed_addr #12 {
 entry:
   %cmd = alloca [2048 x i8], align 16
   %name1 = alloca [512 x i8], align 16
@@ -2972,7 +2972,7 @@ declare ptr @getLongPathname(ptr noundef) local_unnamed_addr #5
 declare signext i8 @uprv_pathIsAbsolute_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef signext i8 @_ZL14getPkgDataPathPKcaPcm(ptr noundef %cmd, i8 noundef signext %verbose) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL14getPkgDataPathPKcaPcm(ptr noundef %cmd, i8 noundef signext %verbose) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %cmdBuf = alloca %"class.icu_75::CharString", align 8
   %status = alloca i32, align 4

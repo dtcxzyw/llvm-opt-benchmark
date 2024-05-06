@@ -603,7 +603,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @umeas_getPrefixPower_75(i32 noundef %unitPrefix) local_unnamed_addr #6 {
+define range(i32 -2147483648, 2147483618) i32 @umeas_getPrefixPower_75(i32 noundef %unitPrefix) local_unnamed_addr #6 {
 entry:
   %0 = add i32 %unitPrefix, 59
   %or.cond = icmp ult i32 %0, 8
@@ -613,7 +613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @umeas_getPrefixBase_75(i32 noundef %unitPrefix) local_unnamed_addr #6 {
+define noundef range(i32 10, 1025) i32 @umeas_getPrefixBase_75(i32 noundef %unitPrefix) local_unnamed_addr #6 {
 entry:
   %0 = add i32 %unitPrefix, 59
   %or.cond = icmp ult i32 %0, 8

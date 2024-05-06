@@ -95,7 +95,7 @@ define noundef zeroext i1 @"_ZN60_$LT$mio..interest..Interest$u20$as$u20$core..f
   br i1 %.not38, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = trunc i8 %.022 to i1
+  %19 = trunc nuw i8 %.022 to i1
   br i1 %19, label %28, label %22
 
 20:                                               ; preds = %22, %16
@@ -135,7 +135,7 @@ define noundef zeroext i1 @"_ZN60_$LT$mio..interest..Interest$u20$as$u20$core..f
   br i1 %33, label %48, label %22
 
 34:                                               ; preds = %20
-  %35 = trunc i8 %.1 to i1
+  %35 = trunc nuw i8 %.1 to i1
   br i1 %35, label %42, label %36
 
 36:                                               ; preds = %42, %34

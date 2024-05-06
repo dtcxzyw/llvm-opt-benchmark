@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [7 x i8] c"xdigit\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @wctype(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @wctype(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %27 [
     i8 97, label %3

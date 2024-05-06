@@ -332,7 +332,7 @@ declare void @riscv_cpu_set_geilen(ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @riscv_cpu_set_aia_ireg_rmw_fn(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @riscv_imsic_rmw(ptr nocapture noundef readonly %arg, i64 noundef %reg, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask) #0 {
+define internal range(i32 -22, 1) i32 @riscv_imsic_rmw(ptr nocapture noundef readonly %arg, i64 noundef %reg, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask) #0 {
 entry:
   %0 = trunc i64 %reg to i32
   %1 = lshr i32 %0, 16
@@ -523,12 +523,12 @@ sw.bb35:                                          ; preds = %if.end32
 
 sw.bb37:                                          ; preds = %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32
   %sub = add nsw i32 %conv5, -128
-  %call38 = tail call fastcc i32 @riscv_imsic_eix_rmw(ptr noundef nonnull %arg, i32 noundef %4, i32 noundef %page.0, i32 noundef %sub, i1 noundef zeroext true, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask), !range !7
+  %call38 = tail call fastcc i32 @riscv_imsic_eix_rmw(ptr noundef nonnull %arg, i32 noundef %4, i32 noundef %page.0, i32 noundef %sub, i1 noundef zeroext true, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask)
   br label %return
 
 sw.bb39:                                          ; preds = %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32
   %sub40 = add nsw i32 %conv5, -192
-  %call41 = tail call fastcc i32 @riscv_imsic_eix_rmw(ptr noundef nonnull %arg, i32 noundef %4, i32 noundef %page.0, i32 noundef %sub40, i1 noundef zeroext false, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask), !range !7
+  %call41 = tail call fastcc i32 @riscv_imsic_eix_rmw(ptr noundef nonnull %arg, i32 noundef %4, i32 noundef %page.0, i32 noundef %sub40, i1 noundef zeroext false, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask)
   br label %return
 
 do.body:                                          ; preds = %if.then, %land.lhs.true22, %if.then20, %if.else15, %if.end32
@@ -663,7 +663,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !7
 
 riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.inc.i.i, %if.end18, %land.lhs.true.i
   %.sink9.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end18 ], [ 0, %for.inc.i.i ], [ 1, %for.body.i.i ]
@@ -760,7 +760,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !7
 
 riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.inc.i.i, %if.end, %land.lhs.true.i
   %.sink9.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end ], [ 0, %for.inc.i.i ], [ 1, %for.body.i.i ]
@@ -840,7 +840,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !7
 
 riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.inc.i.i, %if.end, %land.lhs.true.i
   %.sink9.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end ], [ 0, %for.inc.i.i ], [ 1, %for.body.i.i ]
@@ -895,7 +895,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %riscv_imsic_topei.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %riscv_imsic_topei.exit, label %for.body.i, !llvm.loop !7
 
 riscv_imsic_topei.exit:                           ; preds = %for.inc.i, %entry, %if.then.i
   %retval.0.i = phi i32 [ %or.i, %if.then.i ], [ 0, %entry ], [ 0, %for.inc.i ]
@@ -972,7 +972,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !7
 
 riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.inc.i.i, %if.end6, %land.lhs.true.i
   %.sink9.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end6 ], [ 0, %for.inc.i.i ], [ 1, %for.body.i.i ]
@@ -988,7 +988,7 @@ if.end7:                                          ; preds = %riscv_imsic_update.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @riscv_imsic_eix_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %xlen, i32 noundef %page, i32 noundef %num, i1 noundef zeroext %pend, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @riscv_imsic_eix_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %xlen, i32 noundef %page, i32 noundef %num, i1 noundef zeroext %pend, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %cond = select i1 %pend, i32 1, i32 2
   %cmp.not = icmp eq i32 %xlen, 32
@@ -1047,7 +1047,7 @@ for.body:                                         ; preds = %if.then10, %for.bod
   store i64 %or, ptr %val, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end16, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %if.end16, label %for.body, !llvm.loop !8
 
 if.end16:                                         ; preds = %for.body, %if.end6.if.end16_crit_edge
   %wide.trip.count39.pre-phi = phi i64 [ %.pre41, %if.end6.if.end16_crit_edge ], [ %wide.trip.count, %for.body ]
@@ -1085,7 +1085,7 @@ if.then28:                                        ; preds = %if.end23
 for.inc44:                                        ; preds = %if.then28, %if.end23, %for.body19
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count39.pre-phi
-  br i1 %exitcond40.not, label %for.end46, label %for.body19, !llvm.loop !10
+  br i1 %exitcond40.not, label %for.end46, label %for.body19, !llvm.loop !9
 
 for.end46:                                        ; preds = %for.inc44
   %eidelivery.i = getelementptr inbounds i8, ptr %imsic, i64 1112
@@ -1129,7 +1129,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !7
 
 riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.inc.i.i, %for.end46, %land.lhs.true.i
   %.sink9.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %for.end46 ], [ 0, %for.inc.i.i ], [ 1, %for.body.i.i ]
@@ -1168,7 +1168,6 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -22, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

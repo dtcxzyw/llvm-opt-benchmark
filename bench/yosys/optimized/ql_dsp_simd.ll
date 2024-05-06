@@ -1625,7 +1625,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge3325
           to label %449 unwind label %456
 
 449:                                              ; preds = %447
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %62, i8 0, i64 48, i1 false)
   %450 = load ptr, ptr %61, align 8
   invoke void @_ZNK5Yosys5RTLIL6Module14selected_cellsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.221") align 8 %63, ptr noundef nonnull align 8 dereferenceable(560) %450)
           to label %451 unwind label %458
@@ -1720,7 +1720,7 @@ _ZNK5Yosys5RTLIL4Cell13has_keep_attrEv.exit.thread: ; preds = %468, %471, %.noex
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, i8 0, i64 48, i1 false), !alias.scope !60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %64, i8 0, i64 48, i1 false), !alias.scope !60
   %483 = load ptr, ptr @_ZZN12_GLOBAL__N_113QlDspSimdPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE13m_DspCfgPorts, align 8, !noalias !60
   %484 = load ptr, ptr getelementptr inbounds (%"class.std::vector.95", ptr @_ZZN12_GLOBAL__N_113QlDspSimdPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE13m_DspCfgPorts, i64 0, i32 0, i32 0, i32 0, i32 1), align 8, !noalias !60
   %.not4.i = icmp eq ptr %483, %484
@@ -3500,13 +3500,13 @@ _ZNSt6vectorIN5Yosys7hashlib4dictIN12_GLOBAL__N_113QlDspSimdPass9DspConfigES_IPN
   %1232 = load ptr, ptr %62, align 8
   %1233 = load ptr, ptr %273, align 8
   %1234 = icmp eq ptr %1232, %1233
-  %.pre26.i.i = load ptr, ptr %285, align 8
-  %.not10.i.i.i.i.i17.i = icmp eq ptr %.pre26.i.i, %.val12.i.i
+  %.pre28.i.i = load ptr, ptr %285, align 8
+  %.not10.i.i.i.i.i17.i = icmp eq ptr %.pre28.i.i, %.val12.i.i
   %or.cond.i = select i1 %1234, i1 true, i1 %.not10.i.i.i.i.i17.i
   br i1 %or.cond.i, label %_ZNK5Yosys7hashlib4dictIN12_GLOBAL__N_113QlDspSimdPass9DspConfigESt6vectorIPNS_5RTLIL4CellESaIS8_EENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i30.i, label %.lr.ph.i.i.i.i.i18.i
 
 .lr.ph.i.i.i.i.i18.i:                             ; preds = %1231, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i.i.i.i22.i
-  %.sroa.07.011.i.i.i.i.i20.i = phi ptr [ %1239, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i.i.i.i22.i ], [ %.pre26.i.i, %1231 ]
+  %.sroa.07.011.i.i.i.i.i20.i = phi ptr [ %1239, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i.i.i.i22.i ], [ %.pre28.i.i, %1231 ]
   %1235 = getelementptr inbounds i8, ptr %.sroa.07.011.i.i.i.i.i20.i, i64 16
   %1236 = load i64, ptr %1235, align 8
   %.not.i.i.i.i.i.i.i21.i = icmp eq i64 %1236, 0
@@ -3524,12 +3524,12 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i.i.i.i22.i: ; 
 
 _ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_113QlDspSimdPass9DspConfigEE4hashERKS4_.exit.loopexit.i.i24.i: ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i.i.i.i22.i
   %.pre.pre.i.i = load ptr, ptr %285, align 8
-  %.pre27.pre.i.i = load ptr, ptr %286, align 8
+  %.pre29.pre.i.i = load ptr, ptr %286, align 8
   br label %_ZNK5Yosys7hashlib4dictIN12_GLOBAL__N_113QlDspSimdPass9DspConfigESt6vectorIPNS_5RTLIL4CellESaIS8_EENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i30.i
 
 _ZNK5Yosys7hashlib4dictIN12_GLOBAL__N_113QlDspSimdPass9DspConfigESt6vectorIPNS_5RTLIL4CellESaIS8_EENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i30.i: ; preds = %_ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_113QlDspSimdPass9DspConfigEE4hashERKS4_.exit.loopexit.i.i24.i, %1231
-  %1240 = phi ptr [ %.val12.i.i, %1231 ], [ %.pre27.pre.i.i, %_ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_113QlDspSimdPass9DspConfigEE4hashERKS4_.exit.loopexit.i.i24.i ]
-  %1241 = phi ptr [ %.pre26.i.i, %1231 ], [ %.pre.pre.i.i, %_ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_113QlDspSimdPass9DspConfigEE4hashERKS4_.exit.loopexit.i.i24.i ]
+  %1240 = phi ptr [ %.val12.i.i, %1231 ], [ %.pre29.pre.i.i, %_ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_113QlDspSimdPass9DspConfigEE4hashERKS4_.exit.loopexit.i.i24.i ]
+  %1241 = phi ptr [ %.pre28.i.i, %1231 ], [ %.pre.pre.i.i, %_ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_113QlDspSimdPass9DspConfigEE4hashERKS4_.exit.loopexit.i.i24.i ]
   %.not4.i.i.i.i.i.i.i.i274 = icmp eq ptr %1241, %1240
   br i1 %.not4.i.i.i.i.i.i.i.i274, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringENS3_7SigSpecENS1_8hash_opsIS4_EEE7entry_tES9_EvT_SB_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i275
 

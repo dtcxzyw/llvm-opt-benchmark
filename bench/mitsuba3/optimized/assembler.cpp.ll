@@ -736,7 +736,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
   %77 = getelementptr inbounds i8, ptr %2, i64 256
   %78 = load i64, ptr %77, align 8, !tbaa !70
   %79 = tail call i64 @llvm.cttz.i64(i64 %78, i1 true), !range !71
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw nsw i64 %79 to i32
   %81 = tail call noundef i32 @llvm.umin.i32(i32 %80, i32 3)
   %82 = shl nuw nsw i32 1, %81
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %4) #11
@@ -953,7 +953,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   store i8 1, ptr %120, align 1, !tbaa !81
   %121 = getelementptr inbounds i8, ptr %111, i64 9
   store i8 0, ptr %121, align 1, !tbaa !82
-  %122 = trunc i64 %34 to i8
+  %122 = trunc nuw nsw i64 %34 to i8
   %123 = getelementptr inbounds i8, ptr %111, i64 10
   store i8 %122, ptr %123, align 1, !tbaa !83
   %124 = getelementptr inbounds i8, ptr %111, i64 11
@@ -1299,7 +1299,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   store i8 0, ptr %174, align 1, !tbaa !81
   %175 = getelementptr inbounds i8, ptr %173, i64 9
   store i8 0, ptr %175, align 1, !tbaa !82
-  %176 = trunc i64 %47 to i8
+  %176 = trunc nuw nsw i64 %47 to i8
   %177 = getelementptr inbounds i8, ptr %173, i64 10
   store i8 %176, ptr %177, align 1, !tbaa !83
   %178 = getelementptr inbounds i8, ptr %173, i64 11

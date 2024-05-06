@@ -2498,7 +2498,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @match_class(i32 noundef %c, i32 noundef %cl) unnamed_addr #5 {
+define internal fastcc range(i32 0, 8193) i32 @match_class(i32 noundef %c, i32 noundef %cl) unnamed_addr #5 {
 entry:
   %call.i = tail call ptr @__ctype_tolower_loc() #11
   %0 = load ptr, ptr %call.i, align 8, !tbaa !17

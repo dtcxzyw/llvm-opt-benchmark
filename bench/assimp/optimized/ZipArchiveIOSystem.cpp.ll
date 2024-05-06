@@ -262,7 +262,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6Assimp14IOSystem2Unzip4seekEPvS1_mi(ptr nocapture readnone %0, ptr noundef %stream, i64 noundef %offset, i32 noundef %origin) #2 align 2 {
+define hidden noundef range(i64 -1, 1) i64 @_ZN6Assimp14IOSystem2Unzip4seekEPvS1_mi(ptr nocapture readnone %0, ptr noundef %stream, i64 noundef %offset, i32 noundef %origin) #2 align 2 {
 entry:
   %switch.selectcmp = icmp eq i32 %origin, 2
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 1
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN6Assimp7ZipFile4SeekEm8aiOrigin(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #15 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN6Assimp7ZipFile4SeekEm8aiOrigin(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #15 align 2 {
 entry:
   switch i32 %pOrigin, label %return [
     i32 0, label %sw.bb

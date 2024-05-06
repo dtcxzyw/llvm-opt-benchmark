@@ -341,7 +341,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef %title, ptr noundef %exts, i64 noundef %flag, i32 noundef %indent) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef %title, ptr noundef %exts, i64 noundef %flag, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @sk_num(ptr noundef %exts) #3
   %cmp = icmp eq i64 %call, 0

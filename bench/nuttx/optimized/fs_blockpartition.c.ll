@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_part_bops = internal constant %struct.block_operations { ptr @part_open, ptr @part_close, ptr @part_read, ptr @part_write, ptr @part_geometry, ptr @part_ioctl, ptr @part_unlink }, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @register_partition_with_inode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @register_partition_with_inode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.geometry, align 4
   %7 = icmp eq ptr %2, null
   br i1 %7, label %29, label %8
@@ -68,7 +68,7 @@ declare void @inode_release(ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @register_blockpartition(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @register_blockpartition(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.geometry, align 4
   %7 = alloca ptr, align 8
   %8 = and i32 %1, 146

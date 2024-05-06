@@ -631,7 +631,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader40 ]
   %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader40 ]
   %72 = urem i32 %.11531, 10
-  %73 = trunc i32 %72 to i8
+  %73 = trunc nuw nsw i32 %72 to i8
   %74 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %73, ptr %74, align 1
   %75 = udiv i32 %.11531, 10
@@ -708,7 +708,7 @@ Vec_StrPush.exit30:                               ; preds = %.Vec_StrGrow.exit10
   %106 = sext i32 %104 to i64
   %107 = getelementptr inbounds i8, ptr %103, i64 %106
   store i8 %80, ptr %107, align 1
-  %108 = trunc i64 %indvars.iv37 to i32
+  %108 = trunc nuw i64 %indvars.iv37 to i32
   %109 = icmp sgt i32 %108, 1
   br i1 %109, label %76, label %.loopexit, !llvm.loop !10
 

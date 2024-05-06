@@ -84,7 +84,7 @@ define dso_local i32 @utf8_to_utf32(ptr nocapture noundef readonly %0, i32 nound
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %20
-  %33 = trunc i64 %23 to i32
+  %33 = trunc nuw nsw i64 %23 to i32
   store i32 %33, ptr %2, align 4
   br label %.loopexit
 
@@ -272,7 +272,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr nocapture noundef readonly %0, i32 nou
   %70 = add nuw nsw i32 %47, 983040
   %71 = getelementptr i8, ptr %12, i64 2
   %72 = lshr i32 %70, 10
-  %73 = trunc i32 %72 to i16
+  %73 = trunc nuw i32 %72 to i16
   %74 = and i16 %73, 1023
   %75 = or disjoint i16 %74, -10240
   %76 = tail call i16 @llvm.bswap.i16(i16 %75)
@@ -289,7 +289,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr nocapture noundef readonly %0, i32 nou
 
 84:                                               ; preds = %62
   %85 = getelementptr i8, ptr %12, i64 2
-  %86 = trunc i64 %38 to i16
+  %86 = trunc nuw i64 %38 to i16
   %87 = tail call i16 @llvm.bswap.i16(i16 %86)
   %88 = select i1 %10, i16 %87, i16 %86
   store i16 %88, ptr %12, align 2
@@ -409,7 +409,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr nocapture noundef readonly %0, i32 nou
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %.loopexit12
-  %58 = trunc i64 %55 to i32
+  %58 = trunc nuw nsw i64 %55 to i32
   %59 = icmp ult i32 %58, 1114112
   %60 = and i64 %55, 2095104
   %61 = icmp ne i64 %60, 55296
@@ -470,7 +470,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr nocapture noundef readonly %0, i32 nou
   br label %.loopexit10
 
 99:                                               ; preds = %24
-  %100 = trunc i16 %21 to i8
+  %100 = trunc nuw nsw i16 %21 to i8
   %101 = getelementptr i8, ptr %12, i64 1
   store i8 %100, ptr %12, align 1
   %102 = add nsw i32 %13, -1
@@ -496,7 +496,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__register_nls(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @__register_nls(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -537,7 +537,7 @@ define dso_local noundef i32 @__register_nls(ptr noundef %0, ptr noundef %1) #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @unregister_nls(ptr noundef readonly %0) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @unregister_nls(ptr noundef readonly %0) #3 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @nls_lock) #9
   %2 = load ptr, ptr @tables, align 8
   %3 = icmp eq ptr %2, null
@@ -585,7 +585,7 @@ define dso_local ptr @load_nls(ptr noundef %0) #3 align 16 {
 .preheader.i:                                     ; preds = %1, %15
   %4 = phi ptr [ %17, %15 ], [ %2, %1 ]
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef %5, ptr noundef %0) #9
+  %6 = tail call i32 @strcmp(ptr noundef %5, ptr noundef readonly %0) #9
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %19, label %8
 
@@ -596,7 +596,7 @@ define dso_local ptr @load_nls(ptr noundef %0) #3 align 16 {
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef %0) #9
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef readonly %0) #9
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %19, label %15
 
@@ -623,7 +623,7 @@ define dso_local ptr @load_nls(ptr noundef %0) #3 align 16 {
 .preheader.i1:                                    ; preds = %.loopexit, %37
   %26 = phi ptr [ %39, %37 ], [ %24, %.loopexit ]
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @strcmp(ptr noundef %27, ptr noundef %0) #9
+  %28 = tail call i32 @strcmp(ptr noundef %27, ptr noundef readonly %0) #9
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %41, label %30
 
@@ -634,7 +634,7 @@ define dso_local ptr @load_nls(ptr noundef %0) #3 align 16 {
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %30
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef %0) #9
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef readonly %0) #9
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %41, label %37
 
@@ -688,7 +688,7 @@ define dso_local nonnull ptr @load_nls_default() #3 align 16 {
 .preheader.i:                                     ; preds = %0, %14
   %3 = phi ptr [ %16, %14 ], [ %1, %0 ]
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @strcmp(ptr noundef %4, ptr noundef nonnull dereferenceable(5) @.str.1) #9
+  %5 = tail call i32 @strcmp(ptr noundef %4, ptr noundef nonnull readonly dereferenceable(5) @.str.1) #9
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %18, label %7
 
@@ -699,7 +699,7 @@ define dso_local nonnull ptr @load_nls_default() #3 align 16 {
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(5) @.str.1) #9
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(5) @.str.1) #9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %18, label %14
 
@@ -726,7 +726,7 @@ define dso_local nonnull ptr @load_nls_default() #3 align 16 {
 .preheader.i1:                                    ; preds = %.loopexit, %36
   %25 = phi ptr [ %38, %36 ], [ %23, %.loopexit ]
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 @strcmp(ptr noundef %26, ptr noundef nonnull dereferenceable(5) @.str.1) #9
+  %27 = tail call i32 @strcmp(ptr noundef %26, ptr noundef nonnull readonly dereferenceable(5) @.str.1) #9
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %40, label %29
 
@@ -737,7 +737,7 @@ define dso_local nonnull ptr @load_nls_default() #3 align 16 {
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(5) @.str.1) #9
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(5) @.str.1) #9
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %40, label %36
 
@@ -778,7 +778,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @uni2char(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #7 align 16 {
+define internal noundef range(i32 -36, 2) i32 @uni2char(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #7 align 16 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %18, label %5
 
@@ -808,7 +808,7 @@ define internal noundef i32 @uni2char(i16 noundef zeroext %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @char2uni(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal range(i32 -22, 2) i32 @char2uni(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
   %6 = getelementptr [256 x i16], ptr @charset2uni, i64 0, i64 %5

@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [30 x i8] c"unable to write pkcs7 object\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pkcs7_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %p7 = alloca ptr, align 8
   %informat = alloca i32, align 4

@@ -902,7 +902,7 @@ define dso_local noundef i64 @postgresql_fdw_validator(ptr nocapture noundef rea
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %18) #9
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %18) #9
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %52, label %27
 

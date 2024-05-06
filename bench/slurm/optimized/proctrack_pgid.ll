@@ -97,7 +97,7 @@ define noundef i32 @proctrack_p_destroy(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @proctrack_p_find(i32 noundef %0) local_unnamed_addr #2 {
+define range(i64 -2147483648, 2147483648) i64 @proctrack_p_find(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call i32 @getpgid(i32 noundef %0) #8
   %3 = icmp eq i32 %2, -1
   %narrow = select i1 %3, i32 0, i32 %2
@@ -116,7 +116,7 @@ define zeroext i1 @proctrack_p_has_pid(i64 noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr #2 {
   %2 = trunc i64 %0 to i32
   %3 = tail call i64 @time(ptr noundef null) #8
   %or.cond = icmp ult i64 %0, 2
@@ -184,7 +184,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 declare i32 @sleep(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @proctrack_p_get_pids(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @proctrack_p_get_pids(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -293,11 +293,11 @@ define noundef i32 @proctrack_p_get_pids(i64 noundef %0, ptr nocapture noundef w
   br i1 %.not34, label %.outer._crit_edge.loopexit39, label %.lr.ph, !llvm.loop !8
 
 .outer._crit_edge.loopexit:                       ; preds = %.backedge
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.outer._crit_edge
 
 .outer._crit_edge.loopexit39:                     ; preds = %.outer
-  %64 = trunc i64 %indvars.iv.next to i32
+  %64 = trunc nuw i64 %indvars.iv.next to i32
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit39, %.outer._crit_edge.loopexit, %17

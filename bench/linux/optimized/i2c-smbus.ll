@@ -41,7 +41,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_i2c_register
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_i2c_handle_smbus_alert412, ptr @__UNIQUE_ID___addressable_i2c_register_spd415, ptr @__UNIQUE_ID___addressable_smbalert_driver_init414, ptr @__UNIQUE_ID_author416, ptr @__UNIQUE_ID_description417, ptr @__UNIQUE_ID_file418, ptr @__UNIQUE_ID_license419, ptr @__exitcall_smbalert_driver_exit, ptr @smbalert_driver_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_handle_smbus_alert(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @i2c_handle_smbus_alert(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @system_wq, align 8
@@ -410,7 +410,7 @@ declare dso_local i32 @i2c_smbus_read_byte(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @smbus_do_alert(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -16, 1) i32 @smbus_do_alert(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call ptr @i2c_verify_client(ptr noundef %0) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %31, label %5

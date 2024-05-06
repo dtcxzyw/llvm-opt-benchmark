@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [4 x i8] c"old\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %testdateutc.i = alloca i64, align 8
   %call = tail call ptr @test_get_argument(i64 noundef 0) #5

@@ -178,7 +178,7 @@ define dso_local noundef nonnull ptr @copy_msg(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @store_msg(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @store_msg(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i64 @llvm.umin.i64(i64 %2, i64 4048)
   %5 = getelementptr i8, ptr %1, i64 48
   %6 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef %5, i64 noundef %4) #7

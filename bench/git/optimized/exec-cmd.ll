@@ -302,7 +302,7 @@ define dso_local noundef i32 @execl_git_cmd(ptr noundef %cmd, ...) local_unnamed
 entry:
   %argv = alloca [33 x ptr], align 16
   %param = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %param)
+  call void @llvm.va_start.p0(ptr nonnull %param)
   store ptr %cmd, ptr %argv, align 16
   %param.promoted = load i32, ptr %param, align 16
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %param, i64 8
@@ -344,8 +344,8 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %vaarg.end
-  %5 = trunc i64 %indvars.iv to i32
-  call void @llvm.va_end(ptr nonnull %param)
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @llvm.va_end.p0(ptr nonnull %param)
   %cmp4 = icmp ugt i32 %5, 30
   br i1 %cmp4, label %if.then5, label %if.end8
 
@@ -374,12 +374,6 @@ return:                                           ; preds = %if.end8, %_.exit
   ret i32 -1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
-
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 
 declare void @strbuf_add_absolute_path(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -389,10 +383,16 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
@@ -407,8 +407,8 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

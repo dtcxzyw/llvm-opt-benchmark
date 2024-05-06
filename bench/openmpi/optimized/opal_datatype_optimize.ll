@@ -257,7 +257,7 @@ GET_FIRST_NON_LOOP.exit:                          ; preds = %GET_FIRST_NON_LOOP.
   br i1 %121, label %.lr.ph.i.i, label %GET_FIRST_NON_LOOP.exit.i, !llvm.loop !4
 
 GET_FIRST_NON_LOOP.exit.i:                        ; preds = %.lr.ph.i.i
-  %122 = trunc i64 %indvars.iv.i to i32
+  %122 = trunc nsw i64 %indvars.iv.i to i32
   %123 = load i16, ptr %66, align 8
   %124 = and i16 %123, 16
   %.not381.i = icmp eq i16 %124, 0
@@ -428,7 +428,7 @@ GET_FIRST_NON_LOOP.exit.i:                        ; preds = %.lr.ph.i.i
   %.4442.i = phi ptr [ %249, %248 ], [ %.3450.i, %.preheader.i ]
   %.4364441.i = phi i32 [ %250, %248 ], [ %.3363449.i, %.preheader.i ]
   %208 = load ptr, ptr %3, align 8
-  %209 = trunc i64 %indvars.iv548.i to i32
+  %209 = trunc nuw i64 %indvars.iv548.i to i32
   %210 = add i32 %203, %209
   %211 = zext i32 %210 to i64
   %212 = getelementptr inbounds %union.dt_elem_desc, ptr %208, i64 %211
@@ -560,7 +560,7 @@ GET_FIRST_NON_LOOP.exit.i:                        ; preds = %.lr.ph.i.i
   br i1 %288, label %.lr.ph.i37, label %opal_datatype_optimize_short.exit, !llvm.loop !6
 
 .loopexit391.loopexit.i:                          ; preds = %64
-  %289 = trunc i64 %indvars.iv.i to i32
+  %289 = trunc nsw i64 %indvars.iv.i to i32
   br label %.loopexit391.i
 
 .loopexit391.i:                                   ; preds = %451, %431, %411, %358, %351, %343, %337, %299, %.loopexit391.loopexit.i

@@ -42,8 +42,8 @@ if.end6.i:                                        ; preds = %lor.lhs.false.i
 
 if.then8.i:                                       ; preds = %if.end6.i
   %5 = load i64, ptr %0, align 8
-  %and2.i.i2.i = and i64 %5, 1
-  %tobool.i.not.i3.i = icmp eq i64 %and2.i.i2.i, 0
+  %and2.i.i3.i = and i64 %5, 1
+  %tobool.i.not.i4.i = icmp eq i64 %and2.i.i3.i, 0
   br label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -52,18 +52,18 @@ if.end11.i:                                       ; preds = %if.end6.i
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
-  %conv.i.i4.i = sext i32 %7 to i64
-  %div2.i.i5.i = lshr i64 %conv.i.i4.i, 6
-  %arrayidx.i.i6.i = getelementptr inbounds i64, ptr %0, i64 %div2.i.i5.i
-  %8 = load i64, ptr %arrayidx.i.i6.i, align 8
-  %and.i.i7.i = and i64 %conv.i.i4.i, 63
-  %shl.i.i8.i = shl nuw i64 1, %and.i.i7.i
-  %and2.i.i9.i = and i64 %shl.i.i8.i, %8
-  %tobool.i.not.i10.i = icmp eq i64 %and2.i.i9.i, 0
+  %conv.i.i5.i = sext i32 %7 to i64
+  %div2.i.i6.i = lshr i64 %conv.i.i5.i, 6
+  %arrayidx.i.i7.i = getelementptr inbounds i64, ptr %0, i64 %div2.i.i6.i
+  %8 = load i64, ptr %arrayidx.i.i7.i, align 8
+  %and.i.i8.i = and i64 %conv.i.i5.i, 63
+  %shl.i.i9.i = shl nuw i64 1, %and.i.i8.i
+  %and2.i.i10.i = and i64 %shl.i.i9.i, %8
+  %tobool.i.not.i11.i = icmp eq i64 %and2.i.i10.i, 0
   br label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit: ; preds = %entry, %if.then4.i, %if.then8.i, %if.end11.i
-  %retval.0.i = phi i1 [ %tobool.i.not.i.i, %if.then4.i ], [ %tobool.i.not.i3.i, %if.then8.i ], [ %tobool.i.not.i10.i, %if.end11.i ], [ false, %entry ]
+  %retval.0.i = phi i1 [ %tobool.i.not.i.i, %if.then4.i ], [ %tobool.i.not.i4.i, %if.then8.i ], [ %tobool.i.not.i11.i, %if.end11.i ], [ false, %entry ]
   %throwOnNestedNulls.not = xor i1 %throwOnNestedNulls, true
   %brmerge = or i1 %retval.0.i, %throwOnNestedNulls.not
   br i1 %brmerge, label %return, label %if.then1

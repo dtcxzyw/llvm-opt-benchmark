@@ -136,7 +136,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @uart_read(ptr noundef %opaque, i64 noundef %offset, ptr nocapture noundef writeonly %value, i32 %size, i32 %attrs.coerce) #0 {
+define internal range(i32 0, 3) i32 @uart_read(ptr noundef %opaque, i64 noundef %offset, ptr nocapture noundef writeonly %value, i32 %size, i32 %attrs.coerce) #0 {
 entry:
   %refclk = getelementptr inbounds i8, ptr %opaque, i64 1288
   %0 = load ptr, ptr %refclk, align 8
@@ -262,7 +262,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @uart_write(ptr noundef %opaque, i64 noundef %offset, i64 noundef %value, i32 %size, i32 %attrs.coerce) #0 {
+define internal range(i32 0, 3) i32 @uart_write(ptr noundef %opaque, i64 noundef %offset, i64 noundef %value, i32 %size, i32 %attrs.coerce) #0 {
 entry:
   %break_enabled.i.i = alloca i32, align 4
   %value.addr = alloca i64, align 8
@@ -354,7 +354,7 @@ sw.bb31:                                          ; preds = %if.end9
   br i1 %cmp33.not, label %sw.epilog55, label %if.then35
 
 if.then35:                                        ; preds = %sw.bb31
-  %conv36 = trunc i64 %and32 to i32
+  %conv36 = trunc nuw nsw i64 %and32 to i32
   %arrayidx38 = getelementptr i8, ptr %opaque, i64 1112
   store i32 %conv36, ptr %arrayidx38, align 4
   br label %sw.epilog55
@@ -365,7 +365,7 @@ sw.bb40:                                          ; preds = %if.end9
   br i1 %cmp42, label %if.then44, label %sw.epilog55
 
 if.then44:                                        ; preds = %sw.bb40
-  %conv45 = trunc i64 %and41 to i32
+  %conv45 = trunc nuw nsw i64 %and41 to i32
   %arrayidx47 = getelementptr i8, ptr %opaque, i64 1140
   store i32 %conv45, ptr %arrayidx47, align 4
   br label %sw.epilog55
@@ -1154,7 +1154,7 @@ if.end14.i:                                       ; preds = %do.end.i, %if.end.i
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i = getelementptr i8, ptr %tx_fifo.i, i64 %idx.ext.i
   %conv16.i = sext i32 %size.addr.0.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf, i64 %conv16.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %buf, i64 %conv16.i, i1 false)
   %7 = load i32, ptr %tx_count.i, align 16
   %add.i = add i32 %7, %size.addr.0.i
   store i32 %add.i, ptr %tx_count.i, align 16
@@ -1263,7 +1263,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cadence_uart_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 0, 2) i32 @cadence_uart_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 1112
   %0 = load i32, ptr %arrayidx, align 8

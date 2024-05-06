@@ -298,7 +298,7 @@ chachapoly_pad_ciphertext.exit:                   ; preds = %18
   %49 = getelementptr inbounds i8, ptr %5, i64 6
   store i8 %48, ptr %49, align 2
   %50 = lshr i64 %30, 56
-  %51 = trunc i64 %50 to i8
+  %51 = trunc nuw i64 %50 to i8
   %52 = getelementptr inbounds i8, ptr %5, i64 7
   store i8 %51, ptr %52, align 1
   %53 = getelementptr inbounds i8, ptr %0, i64 224
@@ -331,7 +331,7 @@ chachapoly_pad_ciphertext.exit:                   ; preds = %18
   %74 = getelementptr inbounds i8, ptr %5, i64 14
   store i8 %73, ptr %74, align 2
   %75 = lshr i64 %54, 56
-  %76 = trunc i64 %75 to i8
+  %76 = trunc nuw i64 %75 to i8
   %77 = getelementptr inbounds i8, ptr %5, i64 15
   store i8 %76, ptr %77, align 1
   %78 = getelementptr inbounds i8, ptr %0, i64 136
@@ -452,7 +452,7 @@ define hidden i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_chachapoly_self_test(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @mbedtls_chachapoly_self_test(i32 noundef %0) local_unnamed_addr #0 {
 .critedge:
   %1 = alloca %struct.mbedtls_chachapoly_context, align 8
   %2 = alloca [200 x i8], align 16

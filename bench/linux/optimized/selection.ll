@@ -65,7 +65,7 @@ define dso_local zeroext i1 @vc_is_sel(ptr noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sel_loadlut(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @sel_loadlut(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [4 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !5
@@ -116,7 +116,7 @@ define dso_local noundef i32 @set_selection_user(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @vc_sel) #9
   tail call void @console_lock() #9
   %3 = load i32, ptr @fg_console, align 4
@@ -155,7 +155,7 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
   %25 = zext i16 %21 to i32
   %26 = and i32 %24, 65535
   %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 %25)
-  %28 = trunc i32 %27 to i16
+  %28 = trunc nuw i32 %27 to i16
   store i16 %28, ptr %0, align 2
   %29 = getelementptr inbounds i8, ptr %0, i64 2
   %30 = load i16, ptr %29, align 2
@@ -166,7 +166,7 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
   %35 = zext i16 %31 to i32
   %36 = and i32 %34, 65535
   %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 %35)
-  %38 = trunc i32 %37 to i16
+  %38 = trunc nuw i32 %37 to i16
   store i16 %38, ptr %29, align 2
   %39 = getelementptr inbounds i8, ptr %0, i64 4
   %40 = load i16, ptr %39, align 2
@@ -176,7 +176,7 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
   %44 = zext i16 %41 to i32
   %45 = and i32 %43, 65535
   %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 %44)
-  %47 = trunc i32 %46 to i16
+  %47 = trunc nuw i32 %46 to i16
   store i16 %47, ptr %39, align 2
   %48 = getelementptr inbounds i8, ptr %0, i64 6
   %49 = load i16, ptr %48, align 2
@@ -186,7 +186,7 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
   %53 = zext i16 %50 to i32
   %54 = and i32 %52, 65535
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 %53)
-  %56 = trunc i32 %55 to i16
+  %56 = trunc nuw i32 %55 to i16
   store i16 %56, ptr %48, align 2
   %57 = tail call i32 @mouse_reporting() #9
   %58 = icmp eq i32 %57, 0
@@ -755,7 +755,7 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
   br i1 %391, label %392, label %394
 
 392:                                              ; preds = %388
-  %393 = trunc i32 %390 to i8
+  %393 = trunc nuw nsw i32 %390 to i8
   store i8 %393, ptr %386, align 1
   br label %442
 
@@ -765,7 +765,7 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
 
 396:                                              ; preds = %394
   %397 = lshr i32 %390, 6
-  %398 = trunc i32 %397 to i8
+  %398 = trunc nuw nsw i32 %397 to i8
   %399 = or disjoint i8 %398, -64
   store i8 %399, ptr %386, align 1
   %400 = trunc i32 %390 to i8
@@ -781,7 +781,7 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
 
 406:                                              ; preds = %404
   %407 = lshr i32 %390, 12
-  %408 = trunc i32 %407 to i8
+  %408 = trunc nuw nsw i32 %407 to i8
   %409 = or disjoint i8 %408, -32
   store i8 %409, ptr %386, align 1
   %410 = lshr i32 %390, 6
@@ -803,7 +803,7 @@ define dso_local noundef i32 @set_selection_kernel(ptr nocapture noundef %0, ptr
 
 421:                                              ; preds = %419
   %422 = lshr i32 %390, 18
-  %423 = trunc i32 %422 to i8
+  %423 = trunc nuw nsw i32 %422 to i8
   %424 = or disjoint i8 %423, -16
   store i8 %424, ptr %386, align 1
   %425 = lshr i32 %390, 12
@@ -908,7 +908,7 @@ declare dso_local void @console_unlock() local_unnamed_addr #5
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @paste_selection(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8

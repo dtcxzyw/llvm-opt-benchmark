@@ -1217,7 +1217,7 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @snd_hda_get_input_pin_attr(i32 noundef %0) #7 align 16 {
+define dso_local range(i32 0, 6) i32 @snd_hda_get_input_pin_attr(i32 noundef %0) #7 align 16 {
   %2 = lshr i32 %0, 24
   %3 = and i32 %2, 63
   %4 = and i32 %0, -1073741824
@@ -1355,7 +1355,7 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
   %7 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %1) #11
   %8 = icmp ne ptr %5, null
   br i1 %8, label %9, label %10
@@ -1848,7 +1848,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hda_add_verbs(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @snd_hda_add_verbs(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1624
   %4 = tail call ptr @snd_array_new(ptr noundef %3) #11
   %5 = icmp eq ptr %4, null
@@ -2384,7 +2384,7 @@ declare dso_local i32 @_snd_hdac_read_parm(ptr noundef, i16 noundef zeroext, i32
 declare dso_local zeroext i1 @snd_hda_check_amp_caps(ptr noundef, i16 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @compare_seq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal range(i32 -65535, 65536) i32 @compare_seq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = sext i16 %4 to i32

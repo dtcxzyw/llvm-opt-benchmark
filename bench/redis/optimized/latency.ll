@@ -99,7 +99,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.73 = private unnamed_addr constant [36 x i8] c"No samples available for event '%s'\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @dictStringKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #0 {
+define dso_local range(i32 0, 2) i32 @dictStringKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key1, ptr noundef nonnull dereferenceable(1) %key2) #13
   %cmp = icmp eq i32 %call, 0
@@ -1445,7 +1445,7 @@ if.else41:                                        ; preds = %if.end30
   br i1 %cmp42, label %if.then44, label %if.else47
 
 if.then44:                                        ; preds = %if.else41
-  %div.lhs.trunc = trunc i32 %conv36 to i16
+  %div.lhs.trunc = trunc nuw i32 %conv36 to i16
   %div38 = udiv i16 %div.lhs.trunc, 60
   %div.zext = zext nneg i16 %div38 to i32
   %call46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.46, i32 noundef %div.zext) #14

@@ -960,7 +960,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
   %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i64 %1, 63
-  %21 = trunc i64 %.lobit to i32
+  %21 = trunc nuw nsw i64 %.lobit to i32
   %22 = add i32 %.0.i, %21
   %23 = zext i32 %22 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
@@ -1033,7 +1033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc i64 %.0.lcssa.i to i8
+  %56 = trunc nuw i64 %.0.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -1183,7 +1183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 58:                                               ; preds = %._crit_edge.i
-  %59 = trunc i32 %.0.lcssa.i to i8
+  %59 = trunc nuw i32 %.0.lcssa.i to i8
   %60 = or disjoint i8 %59, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

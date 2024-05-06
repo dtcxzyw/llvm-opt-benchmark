@@ -14,32 +14,29 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef i32 @_ZN2EA4StdC6CscanfEPFiNS0_10ReadActionEiPvES2_PKcz(ptr noundef %pReadFunction8, ptr noundef %pContext, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKcP13__va_list_tag(ptr noundef %pReadFunction8, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKcP13__va_list_tag(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKcP13__va_list_tag(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC6FscanfEP8_IO_FILEPKcz(ptr noundef %pFile, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKcP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal11FILEReader8ENS0_10ReadActionEiPv, ptr noundef %pFile, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal11FILEReader8ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal11FILEReader8ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC5ScanfEPKcz(ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %0 = load ptr, ptr @stdin, align 8
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKcP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal11FILEReader8ENS0_10ReadActionEiPv, ptr noundef %0, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
@@ -53,12 +50,12 @@ entry:
   store ptr %pDestination, ptr %sc, align 8
   %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKcP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal13StringReader8ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal13StringReader8ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal13StringReader8ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC7VcscanfEPFiNS0_10ReadActionEiPvES2_PKcP13__va_list_tag(ptr noundef %pReadFunction8, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef %arguments) local_unnamed_addr #0 {
@@ -97,29 +94,29 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC6CscanfEPFiNS0_10ReadActionEiPvES2_PKDsz(ptr noundef %pReadFunction16, ptr noundef %pContext, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDsP13__va_list_tag(ptr noundef %pReadFunction16, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDsP13__va_list_tag(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDsP13__va_list_tag(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC6FscanfEP8_IO_FILEPKDsz(ptr noundef %pFile, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDsP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal12FILEReader16ENS0_10ReadActionEiPv, ptr noundef %pFile, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal12FILEReader16ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal12FILEReader16ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC5ScanfEPKDsz(ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %0 = load ptr, ptr @stdin, align 8
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDsP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal12FILEReader16ENS0_10ReadActionEiPv, ptr noundef %0, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
@@ -133,12 +130,12 @@ entry:
   store ptr %pDestination, ptr %sc, align 8
   %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDsP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader16ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal14StringReader16ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal14StringReader16ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC7VcscanfEPFiNS0_10ReadActionEiPvES2_PKDsP13__va_list_tag(ptr noundef %pReadFunction16, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef %arguments) local_unnamed_addr #0 {
@@ -177,29 +174,29 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC6CscanfEPFiNS0_10ReadActionEiPvES2_PKDiz(ptr noundef %pReadFunction32, ptr noundef %pContext, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef %pReadFunction32, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC6FscanfEP8_IO_FILEPKDiz(ptr noundef %pFile, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal12FILEReader32ENS0_10ReadActionEiPv, ptr noundef %pFile, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal12FILEReader32ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal12FILEReader32ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC5ScanfEPKDiz(ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %0 = load ptr, ptr @stdin, align 8
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal12FILEReader32ENS0_10ReadActionEiPv, ptr noundef %0, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
@@ -213,12 +210,12 @@ entry:
   store ptr %pDestination, ptr %sc, align 8
   %mbEndFound.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i32 0, ptr %mbEndFound.i, align 8
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
-declare noundef i32 @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #2
+declare noundef i32 @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv(i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC7VcscanfEPFiNS0_10ReadActionEiPvES2_PKDiP13__va_list_tag(ptr noundef %pReadFunction32, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef %arguments) local_unnamed_addr #0 {
@@ -257,9 +254,9 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC6CscanfEPFiNS0_10ReadActionEiPvES2_PKwz(ptr noundef %pReadFunctionW, ptr noundef %pContext, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call.i.i = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef %pReadFunctionW, ptr noundef %pContext, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i
 }
 
@@ -270,16 +267,13 @@ entry:
   ret i32 %call.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA4StdC6FscanfEP8_IO_FILEPKwz(ptr noundef %pFile, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %call.i.i = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal12FILEReader32ENS0_10ReadActionEiPv, ptr noundef %pFile, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i
 }
 
@@ -294,10 +288,10 @@ entry:
 define dso_local noundef i32 @_ZN2EA4StdC5ScanfEPKwz(ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %0 = load ptr, ptr @stdin, align 8
   %call.i.i = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal12FILEReader32ENS0_10ReadActionEiPv, ptr noundef %0, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i
 }
 
@@ -314,14 +308,14 @@ define dso_local noundef i32 @_ZN2EA4StdC6SscanfEPKwS2_z(ptr noundef %pTextBuffe
 entry:
   %sc.i.i = alloca %"struct.EA::StdC::ScanfLocal::SscanfContext32", align 8
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sc.i.i)
   store ptr %pTextBuffer, ptr %sc.i.i, align 8
   %mbEndFound.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 8
   store i32 0, ptr %mbEndFound.i.i.i, align 8
   %call.i.i = call noundef i32 @_ZN2EA4StdC10ScanfLocal10VscanfCoreEPFiNS0_10ReadActionEiPvES3_PKDiP13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv, ptr noundef nonnull %sc.i.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sc.i.i)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret i32 %call.i.i
 }
 
@@ -338,6 +332,12 @@ entry:
   ret i32 %call.i
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
@@ -345,8 +345,8 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

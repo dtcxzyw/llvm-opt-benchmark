@@ -174,7 +174,7 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %exr_attr_float_vector_init.exit
 
 if.end13.i:                                       ; preds = %if.end3.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fv, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fv, i8 0, i64 16, i1 false)
   %cmp14.not.i = icmp eq i32 %nent, 0
   br i1 %cmp14.not.i, label %return, label %if.then16.i
 
@@ -220,7 +220,7 @@ return:                                           ; preds = %if.end13.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @exr_attr_float_vector_destroy(ptr noundef readonly %ctxt, ptr noundef %fv) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_float_vector_destroy(ptr noundef readonly %ctxt, ptr noundef %fv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

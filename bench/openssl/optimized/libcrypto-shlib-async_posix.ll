@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [43 x i8] c"../openssl/crypto/async/arch/async_posix.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @async_local_init() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @async_local_init() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CRYPTO_THREAD_lock_new() #6
   store ptr %call, ptr @async_mem_lock, align 8
@@ -40,7 +40,7 @@ entry:
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASYNC_is_capable() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASYNC_is_capable() local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.ucontext_t, align 8
   %call = call i32 @getcontext(ptr noundef nonnull %ctx) #7
@@ -53,7 +53,7 @@ entry:
 declare i32 @getcontext(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASYNC_set_mem_functions(ptr noundef %alloc_fn, ptr noundef %free_fn) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASYNC_set_mem_functions(ptr noundef %alloc_fn, ptr noundef %free_fn) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 256, ptr noundef null) #6
   %0 = load ptr, ptr @async_mem_lock, align 8
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @async_fibre_makecontext(ptr noundef %fibre) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @async_fibre_makecontext(ptr noundef %fibre) local_unnamed_addr #0 {
 entry:
   %num = alloca i64, align 8
   %env_init = getelementptr inbounds i8, ptr %fibre, i64 1168

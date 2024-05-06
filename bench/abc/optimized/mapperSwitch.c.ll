@@ -30,7 +30,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %.0491.us = phi float [ %.4.us, %59 ], [ %.56.val, %.lr.ph ]
   %7 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %indvars.iv5
   %8 = load ptr, ptr %7, align 8
-  %9 = trunc i64 %indvars.iv5 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv5 to i32
   %10 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %9) #2
   %11 = getelementptr inbounds i8, ptr %8, i64 144
   %12 = load ptr, ptr %11, align 8
@@ -126,7 +126,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %.0491 = phi float [ %.4, %115 ], [ %.56.val, %.lr.ph ]
   %63 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw nsw i64 %indvars.iv to i32
   %66 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %65) #2
   %67 = getelementptr inbounds i8, ptr %64, i64 144
   %68 = load ptr, ptr %67, align 8

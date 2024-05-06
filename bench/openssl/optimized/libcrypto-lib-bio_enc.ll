@@ -662,7 +662,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enc_new(ptr noundef %bi) #1 {
+define internal range(i32 0, 2) i32 @enc_new(ptr noundef %bi) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4432, ptr noundef nonnull @.str.1, i32 noundef 68) #5
   %cmp = icmp eq ptr %call, null
@@ -699,7 +699,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enc_free(ptr noundef %a) #1 {
+define internal range(i32 0, 2) i32 @enc_free(ptr noundef %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

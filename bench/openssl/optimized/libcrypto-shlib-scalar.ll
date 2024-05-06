@@ -55,7 +55,7 @@ for.body4:                                        ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body4
-  %conv15 = trunc i128 %shr to i64
+  %conv15 = trunc nuw i128 %shr to i64
   store i64 %conv15, ptr %arrayidx17, align 8
   %3 = load i64, ptr %accum, align 16
   %mul19 = mul i64 %3, 269446386856070085
@@ -99,7 +99,7 @@ for.end40:                                        ; preds = %if.end
   %conv47 = trunc i128 %add46 to i64
   store i64 %conv47, ptr %arrayidx50, align 16
   %shr51 = lshr i128 %add46, 64
-  %conv52 = trunc i128 %shr51 to i64
+  %conv52 = trunc nuw nsw i128 %shr51 to i64
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 7
   br i1 %exitcond44.not, label %for.body.i, label %for.body, !llvm.loop !7
@@ -124,7 +124,7 @@ for.body.i:                                       ; preds = %for.end40, %for.bod
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv9.i = trunc i128 %shr.i to i64
+  %conv9.i = trunc nsw i128 %shr.i to i64
   %add10.i = add nsw i64 %conv9.i, %conv52
   br label %for.body14.i
 
@@ -176,7 +176,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv9.i = trunc i128 %shr.i to i64
+  %conv9.i = trunc nsw i128 %shr.i to i64
   br label %for.body14.i
 
 for.body14.i:                                     ; preds = %for.body14.i, %for.end.i
@@ -245,8 +245,8 @@ for.body.i:                                       ; preds = %for.body, %for.body
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv11 = trunc i128 %shr to i64
-  %conv9.i = trunc i128 %shr.i to i64
+  %conv11 = trunc nuw nsw i128 %shr to i64
+  %conv9.i = trunc nsw i128 %shr.i to i64
   %add10.i = add nsw i64 %conv9.i, %conv11
   br label %for.body14.i
 
@@ -274,7 +274,7 @@ sc_subx.exit:                                     ; preds = %for.body14.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @ossl_curve448_scalar_decode(ptr nocapture noundef %s, ptr nocapture noundef readonly %ser) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ossl_curve448_scalar_decode(ptr nocapture noundef %s, ptr nocapture noundef readonly %ser) local_unnamed_addr #0 {
 entry:
   br label %for.cond1.preheader.i
 
@@ -327,7 +327,7 @@ for.body:                                         ; preds = %for.end.i, %for.bod
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
-  tail call fastcc void @sc_montmul(ptr noundef nonnull %s, ptr noundef nonnull %s, ptr noundef nonnull @ossl_curve448_scalar_one)
+  tail call fastcc void @sc_montmul(ptr noundef nonnull %s, ptr noundef nonnull readonly %s, ptr noundef nonnull readonly @ossl_curve448_scalar_one)
   tail call fastcc void @sc_montmul(ptr noundef nonnull %s, ptr noundef nonnull %s, ptr noundef nonnull @sc_r2)
   %4 = and i128 %sub, 79228162495817593519834398720
   %isnotneg = icmp ne i128 %4, 0
@@ -407,7 +407,7 @@ while.cond.preheader:                             ; preds = %scalar_decode_short
   br i1 %tobool.not32, label %while.end, label %while.body
 
 if.then7:                                         ; preds = %scalar_decode_short.exit
-  call fastcc void @sc_montmul(ptr noundef %s, ptr noundef nonnull %t1, ptr noundef nonnull @ossl_curve448_scalar_one)
+  call fastcc void @sc_montmul(ptr noundef %s, ptr noundef nonnull readonly %t1, ptr noundef nonnull readonly @ossl_curve448_scalar_one)
   tail call fastcc void @sc_montmul(ptr noundef %s, ptr noundef %s, ptr noundef nonnull @sc_r2)
   call void @OPENSSL_cleanse(ptr noundef nonnull %t1, i64 noundef 56) #6
   br label %return
@@ -452,7 +452,7 @@ for.end.i.i:                                      ; preds = %for.body4.i.i, %for
   br i1 %exitcond.not.i.i, label %for.body.i.preheader, label %for.cond1.preheader.i.i, !llvm.loop !12
 
 for.body.i.preheader:                             ; preds = %for.end.i.i
-  call fastcc void @sc_montmul(ptr noundef nonnull %t2, ptr noundef nonnull %t2, ptr noundef nonnull @ossl_curve448_scalar_one)
+  call fastcc void @sc_montmul(ptr noundef nonnull %t2, ptr noundef nonnull readonly %t2, ptr noundef nonnull readonly @ossl_curve448_scalar_one)
   call fastcc void @sc_montmul(ptr noundef nonnull %t2, ptr noundef nonnull %t2, ptr noundef nonnull @sc_r2)
   br label %for.body.i19
 
@@ -493,8 +493,8 @@ for.body.i.i:                                     ; preds = %for.body.i19, %for.
   br i1 %exitcond.not.i.i30, label %for.end.i.i31, label %for.body.i.i, !llvm.loop !8
 
 for.end.i.i31:                                    ; preds = %for.body.i.i
-  %conv11.i = trunc i128 %shr.i24 to i64
-  %conv9.i.i = trunc i128 %shr.i.i to i64
+  %conv11.i = trunc nuw nsw i128 %shr.i24 to i64
+  %conv9.i.i = trunc nsw i128 %shr.i.i to i64
   %add10.i.i = add nsw i64 %conv9.i.i, %conv11.i
   br label %for.body14.i.i
 
@@ -522,7 +522,7 @@ ossl_curve448_scalar_add.exit:                    ; preds = %for.body14.i.i
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %ossl_curve448_scalar_add.exit, %while.cond.preheader
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %s, ptr noundef nonnull align 16 dereferenceable(56) %t1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %s, ptr noundef nonnull readonly align 16 dereferenceable(56) %t1, i64 56, i1 false)
   call void @OPENSSL_cleanse(ptr noundef nonnull %t1, i64 noundef 56) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %t2, i64 noundef 56) #6
   br label %return
@@ -586,7 +586,7 @@ for.body.us:                                      ; preds = %entry, %for.body.us
   br i1 %exitcond30.not, label %for.cond12.preheader, label %for.body.us, !llvm.loop !17
 
 for.cond12.preheader.loopexit25:                  ; preds = %for.body
-  %extract.t24 = trunc i128 %shr to i64
+  %extract.t24 = trunc nuw nsw i128 %shr to i64
   br label %for.cond12.preheader
 
 for.cond12.preheader:                             ; preds = %for.body.us, %for.cond12.preheader.loopexit25

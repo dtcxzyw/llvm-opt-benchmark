@@ -465,7 +465,7 @@ define dso_local void @setledstate(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vt_get_leds(i32 noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @vt_get_leds(i32 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = zext i32 %0 to i64
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @led_lock) #18
   %5 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3, i32 2
@@ -921,7 +921,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @conv_8bit_to_uni(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vt_do_kdskbmode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @vt_do_kdskbmode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #18
@@ -1056,7 +1056,7 @@ do_compute_shiftstate.exit:                       ; preds = %68, %34, %do_comput
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vt_do_kdskbmeta(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @vt_do_kdskbmeta(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #18
@@ -1661,7 +1661,7 @@ define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local noundef i32 @vt_do_kdgkbmode(i32 noundef %0) local_unnamed_addr #8 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @vt_do_kdgkbmode(i32 noundef %0) local_unnamed_addr #8 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %2, i32 3
   %4 = load i8, ptr %3, align 1
@@ -1692,7 +1692,7 @@ define dso_local noundef i32 @vt_do_kdgkbmode(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @vt_do_kdgkbmeta(i32 noundef %0) local_unnamed_addr #8 align 16 {
+define dso_local range(i32 3, 5) i32 @vt_do_kdgkbmeta(i32 noundef %0) local_unnamed_addr #8 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %2, i32 4
   %4 = load i8, ptr %3, align 1
@@ -1753,7 +1753,7 @@ define dso_local void @vt_reset_keyboard(i32 noundef %0) local_unnamed_addr #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @vt_get_kbd_mode_bit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
+define dso_local range(i32 0, 2) i32 @vt_get_kbd_mode_bit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3, i32 4
   %5 = load i8, ptr %4, align 1
@@ -5959,7 +5959,7 @@ declare dso_local ptr @memdup_user(ptr noundef, i64 noundef) local_unnamed_addr 
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @getkeycode_helper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @getkeycode_helper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @input_get_keycode(ptr noundef %4, ptr noundef %1) #18
@@ -5974,7 +5974,7 @@ define internal i32 @getkeycode_helper(ptr nocapture noundef readonly %0, ptr no
 declare dso_local i32 @input_get_keycode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @setkeycode_helper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @setkeycode_helper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @input_set_keycode(ptr noundef %4, ptr noundef %1) #18

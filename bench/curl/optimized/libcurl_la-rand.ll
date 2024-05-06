@@ -25,7 +25,7 @@ while.body:                                       ; preds = %entry, %while.cond.
   %num.addr.012 = phi i64 [ %0, %while.cond.loopexit ], [ %num, %entry ]
   %rnd.addr.011 = phi ptr [ %incdec.ptr, %while.cond.loopexit ], [ %rnd, %entry ]
   %cond = call i64 @llvm.umin.i64(i64 %num.addr.012, i64 4)
-  %call = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r), !range !6
+  %call = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %while.body4.preheader, label %return
 
@@ -45,7 +45,7 @@ while.body4:                                      ; preds = %while.body4.prehead
   store i32 %shr, ptr %r, align 4
   %dec5 = add i64 %left.09, -1
   %tobool3.not = icmp eq i64 %dec5, 0
-  br i1 %tobool3.not, label %while.cond.loopexit, label %while.body4, !llvm.loop !7
+  br i1 %tobool3.not, label %while.cond.loopexit, label %while.body4, !llvm.loop !6
 
 return:                                           ; preds = %while.body, %while.cond.loopexit, %entry
   %retval.0 = phi i32 [ 43, %entry ], [ %call, %while.body ], [ 0, %while.cond.loopexit ]
@@ -53,7 +53,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @randit(ptr noundef %data, ptr noundef %rnd) unnamed_addr #0 {
+define internal fastcc range(i32 5, 4) i32 @randit(ptr noundef %data, ptr noundef %rnd) unnamed_addr #0 {
 entry:
   %call = tail call i32 @Curl_ssl_random(ptr noundef %data, ptr noundef %rnd, i64 noundef 4) #5
   %cmp.not = icmp eq i32 %call, 4
@@ -162,7 +162,7 @@ while.body.i:                                     ; preds = %if.end, %while.cond
   %num.addr.012.i = phi i64 [ %1, %while.cond.loopexit.i ], [ %div39, %if.end ]
   %rnd.addr.011.i = phi ptr [ %incdec.ptr.i, %while.cond.loopexit.i ], [ %buffer, %if.end ]
   %cond.i = call i64 @llvm.umin.i64(i64 %num.addr.012.i, i64 4)
-  %call.i = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r.i), !range !6
+  %call.i = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r.i)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %while.body4.preheader.i, label %Curl_rand.exit
 
@@ -182,7 +182,7 @@ while.body4.i:                                    ; preds = %while.body4.i, %whi
   store i32 %shr.i, ptr %r.i, align 4
   %dec5.i = add i64 %left.09.i, -1
   %tobool3.not.i = icmp eq i64 %dec5.i, 0
-  br i1 %tobool3.not.i, label %while.cond.loopexit.i, label %while.body4.i, !llvm.loop !7
+  br i1 %tobool3.not.i, label %while.cond.loopexit.i, label %while.body4.i, !llvm.loop !6
 
 Curl_rand.exit:                                   ; preds = %while.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
@@ -209,14 +209,14 @@ do.body1.preheader:                               ; preds = %entry, %do.end3
   br label %do.body1
 
 do.body1:                                         ; preds = %do.body1.preheader, %do.cond
-  %call = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r), !range !6
+  %call = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %do.cond, label %return
 
 do.cond:                                          ; preds = %do.body1
   %0 = load i32, ptr %r, align 4
   %cmp = icmp ugt i32 %0, -5
-  br i1 %cmp, label %do.body1, label %do.end3, !llvm.loop !8
+  br i1 %cmp, label %do.body1, label %do.end3, !llvm.loop !7
 
 do.end3:                                          ; preds = %do.cond
   %rem = urem i32 %0, 62
@@ -227,7 +227,7 @@ do.end3:                                          ; preds = %do.cond
   store i8 %1, ptr %rnd.addr.010, align 1
   %num.addr.0 = add i64 %num.addr.011, -1
   %tobool.not = icmp eq i64 %num.addr.0, 0
-  br i1 %tobool.not, label %while.end, label %do.body1.preheader, !llvm.loop !9
+  br i1 %tobool.not, label %while.end, label %do.body1.preheader, !llvm.loop !8
 
 while.end:                                        ; preds = %do.end3, %entry
   %rnd.addr.0.lcssa = phi ptr [ %rnd, %entry ], [ %incdec.ptr, %do.end3 ]
@@ -280,7 +280,6 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 5, i32 4}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

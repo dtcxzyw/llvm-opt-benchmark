@@ -53,7 +53,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @vlv_dsi_lenovo_yoga_tab3_backlight_fixup.backlight_off_sequence = internal constant [16 x i8] c"\07\0B\00\00\00\04\08\00\00\00,\00\00\01\00\00", align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pixel_format_from_register_bits(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4) i32 @pixel_format_from_register_bits(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = add i32 %0, -128
   %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 25)
   switch i32 %3, label %7 [

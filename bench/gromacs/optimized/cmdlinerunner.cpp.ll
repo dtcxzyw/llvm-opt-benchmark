@@ -331,7 +331,7 @@ _ZNKSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_dele
   %7 = getelementptr inbounds i8, ptr %.val, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !10
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.4") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %.val), !noalias !15
-  invoke void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner12createModuleESt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS2_EE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %3)
+  invoke void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner12createModuleESt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS2_EE(ptr dead_on_unwind writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %3)
           to label %9 unwind label %14
 
 9:                                                ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEclEv.exit.i.i.i
@@ -749,7 +749,7 @@ _ZNKSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_dele
   %7 = getelementptr inbounds i8, ptr %.val, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !21
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.4") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %.val), !noalias !26
-  invoke void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner12createModuleESt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS2_EE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %3)
+  invoke void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner12createModuleESt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS2_EE(ptr dead_on_unwind writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %3)
           to label %9 unwind label %14
 
 9:                                                ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEclEv.exit.i.i.i

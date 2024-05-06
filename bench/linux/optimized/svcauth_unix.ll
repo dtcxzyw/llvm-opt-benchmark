@@ -360,7 +360,7 @@ define dso_local void @unix_gid_cache_destroy(ptr noundef %0) local_unnamed_addr
 declare dso_local void @cache_unregister_net(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @svcauth_unix_set_client(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 5, 9) i32 @svcauth_unix_set_client(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.unix_gid, align 8
   %3 = alloca %struct.ip_map, align 8
   %4 = alloca %struct.timespec64, align 8
@@ -886,7 +886,7 @@ define internal fastcc noundef zeroext i1 @refcount_dec_and_test(ptr noundef %0)
 declare dso_local void @groups_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @svcauth_null_accept(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 1, 9) i32 @svcauth_null_accept(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -1007,7 +1007,7 @@ define internal noundef i32 @svcauth_null_release(ptr nocapture noundef %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @svcauth_tls_accept(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 1, 9) i32 @svcauth_tls_accept(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -1122,7 +1122,7 @@ define internal noundef i32 @svcauth_tls_accept(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @svcauth_unix_accept(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -1703,7 +1703,7 @@ define internal noalias noundef ptr @unix_gid_alloc() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @unix_gid_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal range(i32 0, 2) i32 @unix_gid_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %3, align 8
@@ -2048,7 +2048,7 @@ define internal void @ip_map_request(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ip_map_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ip_map_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca [50 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca %struct.timespec64, align 8
@@ -2259,7 +2259,7 @@ define internal noalias noundef ptr @ip_map_alloc() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ip_map_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 align 16 {
+define internal range(i32 0, 2) i32 @ip_map_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = tail call i32 @strcmp(ptr noundef %3, ptr noundef %4) #19
@@ -2333,7 +2333,7 @@ declare dso_local i32 @sunrpc_cache_pipe_upcall(ptr noundef, ptr noundef) local_
 declare dso_local i64 @rpc_pton(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__ip_map_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__ip_map_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.ip_map, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false), !annotation !11

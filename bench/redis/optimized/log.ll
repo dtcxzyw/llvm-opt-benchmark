@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @log_var_names = hidden global [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @log_var_update_state(ptr nocapture noundef %log_var) local_unnamed_addr #0 {
+define hidden range(i32 1, 3) i32 @log_var_update_state(ptr nocapture noundef %log_var) local_unnamed_addr #0 {
 entry:
   %name = getelementptr inbounds i8, ptr %log_var, i64 8
   %0 = load ptr, ptr %name, align 8

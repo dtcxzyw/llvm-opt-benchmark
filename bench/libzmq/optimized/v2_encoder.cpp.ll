@@ -176,7 +176,7 @@ if.then32:                                        ; preds = %if.end29
 if.end37:                                         ; preds = %if.end29, %if.then32
   %conv34.sink.in = phi i64 [ %shr.i, %if.then32 ], [ %size.0, %if.end29 ]
   %header_size.0 = phi i64 [ 9, %if.then32 ], [ 2, %if.end29 ]
-  %conv34.sink = trunc i64 %conv34.sink.in to i8
+  %conv34.sink = trunc nuw i64 %conv34.sink.in to i8
   %15 = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %conv34.sink, ptr %15, align 1
   %16 = load i8, ptr %flags.i, align 1

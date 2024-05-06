@@ -126,7 +126,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %33
 
 setOne.exit.i:                                    ; preds = %27
-  %32 = trunc i64 %20 to i32
+  %32 = trunc nuw nsw i64 %20 to i32
   store i32 %32, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %.backedge
@@ -216,7 +216,7 @@ setFold.exit.i:                                   ; preds = %63, %59
   br label %.loopexit.i
 
 readPos.exit.i.i:                                 ; preds = %72
-  %77 = trunc i64 %65 to i32
+  %77 = trunc nuw nsw i64 %65 to i32
   store i32 %77, ptr @opts.0, align 8
   %78 = load i8, ptr %66, align 1
   %.not.i.i = icmp eq i8 %78, 44
@@ -251,7 +251,7 @@ readPos.exit.i.i:                                 ; preds = %72
   br label %.loopexit.i
 
 readPos.exit16.i.i:                               ; preds = %91
-  %96 = trunc i64 %84 to i32
+  %96 = trunc nuw nsw i64 %84 to i32
   %97 = icmp ugt i32 %96, 1
   br i1 %97, label %setTwo.exit.i, label %.loopexit.i
 
@@ -295,7 +295,7 @@ setTwo.exit.i:                                    ; preds = %readPos.exit16.i.i
   br label %118
 
 setOne.exit87.i:                                  ; preds = %112
-  %117 = trunc i64 %105 to i32
+  %117 = trunc nuw nsw i64 %105 to i32
   store i32 %117, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %.backedge
@@ -335,7 +335,7 @@ setOne.exit87.i:                                  ; preds = %112
   br label %139
 
 setOne.exit93.i:                                  ; preds = %133
-  %138 = trunc i64 %126 to i32
+  %138 = trunc nuw nsw i64 %126 to i32
   store i32 %138, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %.backedge
@@ -405,7 +405,7 @@ setOne.exit93.i:                                  ; preds = %133
   br label %178
 
 setOne.exit103.i:                                 ; preds = %172
-  %177 = trunc i64 %165 to i32
+  %177 = trunc nuw nsw i64 %165 to i32
   store i32 %177, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %.backedge
@@ -460,7 +460,7 @@ setOne.exit103.i:                                 ; preds = %172
   br label %208
 
 setOne.exit111.i:                                 ; preds = %202
-  %207 = trunc i64 %195 to i32
+  %207 = trunc nuw nsw i64 %195 to i32
   store i32 %207, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %.backedge
@@ -528,7 +528,7 @@ openFile.exit.i:                                  ; preds = %218
   br label %241
 
 setOne.exit117.i:                                 ; preds = %235
-  %240 = trunc i64 %228 to i32
+  %240 = trunc nuw nsw i64 %228 to i32
   store i32 %240, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.backedge
@@ -599,7 +599,7 @@ setOne.exit117.i:                                 ; preds = %235
   br label %282
 
 setOne.exit127.i:                                 ; preds = %276
-  %281 = trunc i64 %269 to i32
+  %281 = trunc nuw nsw i64 %269 to i32
   store i32 %281, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.backedge
@@ -654,7 +654,7 @@ setOne.exit127.i:                                 ; preds = %276
   br label %setTwoTwoOpt.exit.thread.i
 
 readPos.exit.i133.i:                              ; preds = %306
-  %311 = trunc i64 %299 to i32
+  %311 = trunc nuw nsw i64 %299 to i32
   store i32 %311, ptr @opts.0, align 8
   %312 = load i8, ptr %300, align 1
   %.not.i134.i = icmp eq i8 %312, 44
@@ -689,7 +689,7 @@ readPos.exit.i133.i:                              ; preds = %306
   br label %setTwoTwoOpt.exit.thread20.i
 
 readPos.exit30.i.i:                               ; preds = %325
-  %330 = trunc i64 %318 to i32
+  %330 = trunc nuw nsw i64 %318 to i32
   store i32 %330, ptr @opts.1, align 8
   %331 = load i8, ptr %319, align 1
   %.not26.i.i = icmp eq i8 %331, 44
@@ -724,7 +724,7 @@ readPos.exit30.i.i:                               ; preds = %325
   br label %setTwoTwoOpt.exit.thread.i
 
 readPos.exit33.i.i:                               ; preds = %342
-  %347 = trunc i64 %335 to i32
+  %347 = trunc nuw nsw i64 %335 to i32
   store i32 %347, ptr @opts.3, align 8
   %348 = load i8, ptr %336, align 1
   %.not27.i.i = icmp eq i8 %348, 44
@@ -772,7 +772,7 @@ setTwoTwoOpt.exit.thread24.i:                     ; preds = %361, %356
   br label %365
 
 setTwoTwoOpt.exit.i:                              ; preds = %359
-  %364 = trunc i64 %352 to i32
+  %364 = trunc nuw nsw i64 %352 to i32
   store i32 %364, ptr @opts.4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -812,7 +812,7 @@ setTwoTwoOpt.exit.i:                              ; preds = %359
   br label %386
 
 readOne.exit.i:                                   ; preds = %380
-  %385 = trunc i64 %373 to i32
+  %385 = trunc nuw nsw i64 %373 to i32
   store i32 %385, ptr @opts.2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.backedge
@@ -852,7 +852,7 @@ readOne.exit.i:                                   ; preds = %380
   br label %407
 
 setOne.exit149.i:                                 ; preds = %401
-  %406 = trunc i64 %394 to i32
+  %406 = trunc nuw nsw i64 %394 to i32
   store i32 %406, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.backedge
@@ -1206,7 +1206,7 @@ define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #0 {
 declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @setTwo(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @setTwo(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 10) #9
   %4 = load ptr, ptr %2, align 8
@@ -1230,7 +1230,7 @@ define internal fastcc noundef i32 @setTwo(ptr noundef %0) unnamed_addr #2 {
   br label %readPos.exit.thread
 
 readPos.exit:                                     ; preds = %10
-  %15 = trunc i64 %3 to i32
+  %15 = trunc nuw nsw i64 %3 to i32
   store i32 %15, ptr @opts.0, align 8
   %16 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %16, 44
@@ -1265,7 +1265,7 @@ readPos.exit:                                     ; preds = %10
   br label %readPos.exit.thread
 
 readPos.exit16:                                   ; preds = %29
-  %34 = trunc i64 %22 to i32
+  %34 = trunc nuw nsw i64 %22 to i32
   %35 = icmp ugt i32 %34, 1
   br i1 %35, label %36, label %readPos.exit.thread
 
@@ -1279,7 +1279,7 @@ readPos.exit.thread:                              ; preds = %31, %26, %12, %7, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @setTwoOpt(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @setTwoOpt(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 10) #9
   %4 = load ptr, ptr %2, align 8
@@ -1303,7 +1303,7 @@ define internal fastcc noundef i32 @setTwoOpt(ptr noundef %0) unnamed_addr #2 {
   br label %readPos.exit.thread
 
 readPos.exit:                                     ; preds = %10
-  %15 = trunc i64 %3 to i32
+  %15 = trunc nuw nsw i64 %3 to i32
   store i32 %15, ptr @opts.0, align 8
   %16 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %16, 44
@@ -1337,7 +1337,7 @@ readPos.exit:                                     ; preds = %10
   br label %readPos.exit.thread
 
 readPos.exit17:                                   ; preds = %27
-  %32 = trunc i64 %20 to i32
+  %32 = trunc nuw nsw i64 %20 to i32
   %33 = icmp ugt i32 %32, 1
   br i1 %33, label %34, label %readPos.exit.thread
 

@@ -94,7 +94,7 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %36 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %37, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -214,7 +214,7 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
 
 .lr.ph138:                                        ; preds = %.lr.ph138.preheader, %.lr.ph138
   %indvars.iv151 = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next152, %.lr.ph138 ]
-  %87 = trunc i64 %indvars.iv151 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv151 to i32
   %88 = sdiv i32 %87, %.0109.val.val
   %89 = shl nuw nsw i64 %indvars.iv151, 1
   %90 = getelementptr inbounds i32, ptr %28, i64 %89
@@ -248,7 +248,7 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
   %indvars.iv146 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next147, %.lr.ph135 ]
-  %100 = trunc i64 %indvars.iv146 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv146 to i32
   %101 = srem i32 %100, %.0109.val.val
   %102 = sub nsw i32 %100, %101
   %103 = sext i32 %102 to i64

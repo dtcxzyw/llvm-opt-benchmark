@@ -299,7 +299,7 @@ Dot11DecryptTkipMixingPhase1.exit:                ; preds = %37
   %266 = getelementptr i8, ptr %265, i64 4
   store i8 %263, ptr %266, align 2
   %267 = lshr i16 %262, 8
-  %268 = trunc i16 %267 to i8
+  %268 = trunc nuw i16 %267 to i8
   %269 = getelementptr i8, ptr %265, i64 5
   store i8 %268, ptr %269, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

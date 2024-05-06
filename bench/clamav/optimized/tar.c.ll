@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"%06o\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tar_addfile(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tar_addfile(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tar_header, align 1
   %5 = alloca %struct.stat, align 8
   %6 = alloca [8192 x i8], align 16

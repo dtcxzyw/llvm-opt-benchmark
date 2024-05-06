@@ -227,7 +227,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_md_clone(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 -20736, 1) i32 @mbedtls_md_clone(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %48, label %4
 
@@ -328,7 +328,7 @@ declare void @mbedtls_sha256_clone(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @mbedtls_sha512_clone(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_md_setup(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden range(i32 -20864, 1) i32 @mbedtls_md_setup(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
   %or.cond = or i1 %5, %4
@@ -771,8 +771,8 @@ define hidden i32 @mbedtls_md_file(ptr noundef %0, ptr nocapture noundef readonl
 
 10:                                               ; preds = %7
   tail call void @setbuf(ptr noundef nonnull %8, ptr noundef null) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %11 = call i32 @mbedtls_md_setup(ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef 0), !range !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  %11 = call i32 @mbedtls_md_setup(ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef 0)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %.loopexit
 
@@ -789,7 +789,7 @@ define hidden i32 @mbedtls_md_file(ptr noundef %0, ptr nocapture noundef readonl
 15:                                               ; preds = %.preheader
   %16 = call i32 @mbedtls_md_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %14)
   %.not20 = icmp eq i32 %16, 0
-  br i1 %.not20, label %.preheader, label %.loopexit, !llvm.loop !5
+  br i1 %.not20, label %.preheader, label %.loopexit, !llvm.loop !4
 
 17:                                               ; preds = %.preheader
   %18 = call i32 @ferror(ptr noundef nonnull %8) #13
@@ -907,7 +907,7 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
   store i8 %44, ptr %41, align 1
   %45 = add nuw nsw i64 %.052, 1
   %exitcond.not = icmp eq i64 %45, %.041
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %46 = call i32 @mbedtls_md_starts(ptr noundef nonnull %0)
@@ -1056,8 +1056,8 @@ define hidden i32 @mbedtls_md_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %10 = call i32 @mbedtls_md_setup(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef 1), !range !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %10 = call i32 @mbedtls_md_setup(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef 1)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %mbedtls_md_hmac_update.exit.thread
 
@@ -1240,7 +1240,6 @@ attributes #14 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -20864, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

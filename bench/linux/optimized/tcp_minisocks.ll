@@ -47,7 +47,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_child_pr
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_tcp_ca_openreq_child947, ptr @__UNIQUE_ID___addressable_tcp_check_req962, ptr @__UNIQUE_ID___addressable_tcp_child_process963, ptr @__UNIQUE_ID___addressable_tcp_create_openreq_child957, ptr @__UNIQUE_ID___addressable_tcp_openreq_init_rwin946, ptr @__UNIQUE_ID___addressable_tcp_time_wait942, ptr @__UNIQUE_ID___addressable_tcp_timewait_state_process938, ptr @__UNIQUE_ID___addressable_tcp_twsk_destructor943, ptr @__UNIQUE_ID___addressable_tcp_twsk_purge944], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_timewait_state_process(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local noundef range(i32 0, 4) i32 @tcp_timewait_state_process(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca %struct.tcp_options_received, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [3 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @fsdev_co_throttle_request, ptr @.str.22, ptr @.str.23, i32 97, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_wait_impl, ptr @.str.22, ptr @.str.24, i32 119, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_next, ptr @.str.22, ptr @.str.24, i32 128, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @fsdev_throttle_parse_opts(ptr noundef %opts, ptr noundef %fst, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fsdev_throttle_parse_opts(ptr noundef %opts, ptr noundef %fst, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %cfg = getelementptr inbounds i8, ptr %fst, i64 304
   tail call void @throttle_config_init(ptr noundef nonnull %cfg) #3

@@ -731,7 +731,7 @@ asm_tail_prep.exit:                               ; preds = %while.end.i, %if.el
   %nins2.i = getelementptr inbounds i8, ptr %42, i64 12
   %44 = load i32, ptr %nins2.i, align 4
   store <4 x i32> <i32 -16401, i32 0, i32 0, i32 0>, ptr %freeset.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %phireg.i.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %phireg.i.i, i8 0, i64 64, i1 false)
   br label %for.body.i.i143
 
 for.body.i.i143:                                  ; preds = %for.body.i.i143, %asm_tail_prep.exit
@@ -1536,7 +1536,7 @@ if.then.i.i207:                                   ; preds = %asm_baseslot.exit.i
   unreachable
 
 checkmclim.exit.i:                                ; preds = %asm_baseslot.exit.i
-  %call5.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 4), !range !17
+  %call5.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 4)
   %138 = load ptr, ptr %T22, align 16
   %link.i = getelementptr inbounds i8, ptr %138, i64 106
   %139 = load i16, ptr %link.i, align 2
@@ -1981,7 +1981,7 @@ if.else.i75.i:                                    ; preds = %emit_movmroi.exit.i
   br i1 %tobool.not.i.i.i190, label %ra_alloc1.exit.i.i, label %if.then.i67.i.i
 
 if.then.i67.i.i:                                  ; preds = %if.else.i75.i
-  %call.i.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef 49131), !range !17
+  %call.i.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef 49131)
   %.pre.i.i191 = load ptr, ptr %mcp, align 16
   br label %ra_alloc1.exit.i.i
 
@@ -2047,7 +2047,7 @@ if.then22.i.i:                                    ; preds = %if.else17.i.i
   br i1 %tobool.not.i79.i.i, label %ra_alloc1.exit87.i.i, label %if.then.i80.i.i
 
 if.then.i80.i.i:                                  ; preds = %if.then22.i.i
-  %call.i81.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef -65536), !range !17
+  %call.i81.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef -65536)
   br label %ra_alloc1.exit87.i.i
 
 ra_alloc1.exit87.i.i:                             ; preds = %if.then.i80.i.i, %if.then22.i.i
@@ -2110,7 +2110,7 @@ if.then28.i.i:                                    ; preds = %if.else25.i.i
   br i1 %tobool.not.i124.i.i, label %ra_alloc1.exit132.i.i, label %if.then.i125.i.i
 
 if.then.i125.i.i:                                 ; preds = %if.then28.i.i
-  %call.i126.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef 49131), !range !17
+  %call.i126.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %and.i71.i, i32 noundef 49131)
   br label %ra_alloc1.exit132.i.i
 
 ra_alloc1.exit132.i.i:                            ; preds = %if.then.i125.i.i, %if.then28.i.i
@@ -2366,7 +2366,7 @@ if.then.i.i81.i:                                  ; preds = %if.end81.i.i
 for.inc.i.i185:                                   ; preds = %if.end81.i.i, %for.body.i69.i
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i70.i, 1
   %exitcond.not.i.i186 = icmp eq i64 %indvars.iv.next.i73.i, %wide.trip.count.i.i183
-  br i1 %exitcond.not.i.i186, label %asm_stack_restore.exit.i, label %for.body.i69.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i186, label %asm_stack_restore.exit.i, label %for.body.i69.i, !llvm.loop !17
 
 asm_stack_restore.exit.i:                         ; preds = %for.inc.i.i185, %if.end69.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %k.i.i)
@@ -2439,7 +2439,7 @@ if.end5.i:                                        ; preds = %do.body.i
   %252 = load i32, ptr %curins, align 8
   %253 = load i32, ptr %snapref.i, align 4
   %cmp17.i = icmp ult i32 %252, %253
-  br i1 %cmp17.i, label %do.body.i, label %do.end.i, !llvm.loop !19
+  br i1 %cmp17.i, label %do.body.i, label %do.end.i, !llvm.loop !18
 
 do.end.i:                                         ; preds = %if.end5.i
   store i32 1, ptr %snapalloc.i, align 4
@@ -2533,7 +2533,7 @@ if.then.i.i236:                                   ; preds = %for.body.i.i232
 for.inc.i.i237:                                   ; preds = %if.then.i.i236, %for.body.i.i232
   %indvars.iv.next.i.i238 = add nuw nsw i64 %indvars.iv.i.i233, 1
   %exitcond.not.i.i239 = icmp eq i64 %indvars.iv.next.i.i238, %wide.trip.count.i.i231
-  br i1 %exitcond.not.i.i239, label %asm_snap_alloc.exit.loopexit.i, label %for.body.i.i232, !llvm.loop !20
+  br i1 %exitcond.not.i.i239, label %asm_snap_alloc.exit.loopexit.i, label %for.body.i.i232, !llvm.loop !19
 
 asm_snap_alloc.exit.loopexit.i:                   ; preds = %for.inc.i.i237
   %.pre.i240 = load ptr, ptr %T22, align 16
@@ -2654,7 +2654,7 @@ for.inc.i254:                                     ; preds = %if.then9.i, %land.l
   %nins4.i = getelementptr inbounds i8, ptr %291, i64 12
   %293 = load i32, ptr %nins4.i, align 4
   %cmp.i256 = icmp ult i32 %inc.i255, %293
-  br i1 %cmp.i256, label %for.body.i243, label %if.end83, !llvm.loop !21
+  br i1 %cmp.i256, label %for.body.i243, label %if.end83, !llvm.loop !20
 
 if.end83:                                         ; preds = %for.inc.i254, %asm_snap_alloc.exit.i, %for.cond.preheader.i, %if.end78
   %294 = load ptr, ptr %mcp, align 16
@@ -2792,7 +2792,7 @@ while.body.i.i4115:                               ; preds = %if.end3.i, %while.b
   %blocked.0132.i.i = phi i32 [ %blocked.0132.i.i.be, %while.body.i.i4115.backedge ], [ 0, %if.end3.i ]
   %blockedby.0131.i.i = phi i32 [ %blockedby.0131.i.i.be, %while.body.i.i4115.backedge ], [ 0, %if.end3.i ]
   %phiset.0130.i.i = phi i32 [ %phiset.0130.i.i.be, %while.body.i.i4115.backedge ], [ %300, %if.end3.i ]
-  %301 = call i32 @llvm.cttz.i32(i32 %phiset.0130.i.i, i1 true), !range !22
+  %301 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %phiset.0130.i.i, i1 true)
   %302 = load ptr, ptr %ir37, align 16
   %idxprom.i.i4116 = zext nneg i32 %301 to i64
   %arrayidx.i.i4117 = getelementptr inbounds [32 x i16], ptr %phireg.i.i, i64 0, i64 %idxprom.i.i4116
@@ -2837,7 +2837,7 @@ if.end25.thread.i.i:                              ; preds = %if.then7.i.i4255
   br label %if.end30.i.i
 
 if.else.i.i4262:                                  ; preds = %if.then7.i.i4255
-  %call.i.i4263 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv11.i.i4256), !range !17
+  %call.i.i4263 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv11.i.i4256)
   %311 = load ptr, ptr %mcp, align 16
   %312 = load ptr, ptr %mclim, align 8
   %cmp.i151.i.i = icmp ult ptr %311, %312
@@ -3007,7 +3007,7 @@ while.body.i.i4115.backedge:                      ; preds = %if.end30.i.i, %if.e
   %blocked.0132.i.i.be = phi i32 [ %blocked.2.i.i, %if.end30.i.i ], [ 0, %if.end40.i.i ]
   %blockedby.0131.i.i.be = phi i32 [ %blockedby.3.i.i, %if.end30.i.i ], [ 0, %if.end40.i.i ]
   %phiset.0130.i.i.be = phi i32 [ %and32.i.i, %if.end30.i.i ], [ %350, %if.end40.i.i ]
-  br label %while.body.i.i4115, !llvm.loop !23
+  br label %while.body.i.i4115, !llvm.loop !21
 
 while.end.i.i:                                    ; preds = %if.end30.i.i
   %tobool33.not.i.i4126 = icmp eq i32 %blocked.2.i.i, 0
@@ -3035,12 +3035,12 @@ if.then.i82.i.i4221:                              ; preds = %if.then39.i.i
   br i1 %tobool.not.i.i85.i.i, label %if.then.i.i87.i.i, label %if.else.i.i86.i.i
 
 if.then.i.i87.i.i:                                ; preds = %if.then.i82.i.i4221
-  %call.i.i88.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and1.i.i.i4222), !range !17
+  %call.i.i88.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and1.i.i.i4222)
   br label %ra_pick.exit.i.i.i
 
 if.else.i.i86.i.i:                                ; preds = %if.then.i82.i.i4221
   %339 = call i32 @llvm.bswap.i32(i32 %and.i.i84.i.i)
-  %340 = call i32 @llvm.ctlz.i32(i32 %339, i1 true), !range !22
+  %340 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %339, i1 true)
   %xor2.i.i.i.i4223 = xor i32 %340, 7
   br label %ra_pick.exit.i.i.i
 
@@ -3051,7 +3051,7 @@ ra_pick.exit.i.i.i:                               ; preds = %if.else.i.i86.i.i, 
   %tobool4.not.i.i.i = icmp eq i32 %and3.i.i.i4225, 0
   %spec.select.i.i.i4226 = select i1 %tobool4.not.i.i.i, i32 %and.i81.i.i, i32 %and3.i.i.i4225
   %341 = call i32 @llvm.bswap.i32(i32 %spec.select.i.i.i4226)
-  %342 = call i32 @llvm.ctlz.i32(i32 %341, i1 true), !range !22
+  %342 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %341, i1 true)
   %xor9.i.i.i = xor i32 %342, 7
   call fastcc void @ra_rename(ptr noundef nonnull %as_, i32 noundef %xor9.i.i.i, i32 noundef %retval.0.i.i.i.i4224)
   br label %asm_phi_break.exit.i.i
@@ -3069,12 +3069,12 @@ if.then.i91.i.i:                                  ; preds = %asm_phi_break.exit.
   br i1 %tobool.not.i.i96.i.i, label %if.then.i.i106.i.i, label %if.else.i.i97.i.i
 
 if.then.i.i106.i.i:                               ; preds = %if.then.i91.i.i
-  %call.i.i107.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and1.i93.i.i), !range !17
+  %call.i.i107.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and1.i93.i.i)
   br label %ra_pick.exit.i99.i.i
 
 if.else.i.i97.i.i:                                ; preds = %if.then.i91.i.i
   %344 = call i32 @llvm.bswap.i32(i32 %and.i.i95.i.i)
-  %345 = call i32 @llvm.ctlz.i32(i32 %344, i1 true), !range !22
+  %345 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %344, i1 true)
   %xor2.i.i98.i.i = xor i32 %345, 7
   br label %ra_pick.exit.i99.i.i
 
@@ -3085,7 +3085,7 @@ ra_pick.exit.i99.i.i:                             ; preds = %if.else.i.i97.i.i, 
   %tobool4.not.i103.i.i = icmp eq i32 %and3.i102.i.i, 0
   %spec.select.i104.i.i = select i1 %tobool4.not.i103.i.i, i32 %and.i89.i.i, i32 %and3.i102.i.i
   %346 = call i32 @llvm.bswap.i32(i32 %spec.select.i104.i.i)
-  %347 = call i32 @llvm.ctlz.i32(i32 %346, i1 true), !range !22
+  %347 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %346, i1 true)
   %xor9.i105.i.i = xor i32 %347, 7
   call fastcc void @ra_rename(ptr noundef nonnull %as_, i32 noundef %xor9.i105.i.i, i32 noundef %retval.0.i.i100.i.i)
   br label %asm_phi_break.exit108.i.i
@@ -3121,19 +3121,19 @@ while.cond47.i.i:                                 ; preds = %while.body49.i.i, %
   br i1 %tobool48.not.i.i4129, label %while.end60.i.i, label %while.body49.i.i
 
 while.body49.i.i:                                 ; preds = %while.cond47.i.i
-  %354 = call i32 @llvm.cttz.i32(i32 %work.0.i.i, i1 true), !range !22
+  %354 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.0.i.i, i1 true)
   %idxprom52.i.i4130 = zext nneg i32 %354 to i64
   %arrayidx53.i.i4131 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom52.i.i4130
   %355 = load i32, ptr %arrayidx53.i.i4131, align 4
   %conv55.i.i4132 = and i32 %355, 65535
-  %call56.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv55.i.i4132), !range !17
+  %call56.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv55.i.i4132)
   %shl57.i.i = shl nuw i32 1, %354
   %not58.i.i = xor i32 %shl57.i.i, -1
   %and59.i.i4133 = and i32 %work.0.i.i, %not58.i.i
   %356 = load ptr, ptr %mcp, align 16
   %357 = load ptr, ptr %mclim, align 8
   %cmp.i124.i.i4134 = icmp ult ptr %356, %357
-  br i1 %cmp.i124.i.i4134, label %if.then.i128.i.i, label %while.cond47.i.i, !llvm.loop !24
+  br i1 %cmp.i124.i.i4134, label %if.then.i128.i.i, label %while.cond47.i.i, !llvm.loop !22
 
 if.then.i128.i.i:                                 ; preds = %while.body49.i.i
   call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #17
@@ -3154,19 +3154,19 @@ while.cond67.i.i:                                 ; preds = %while.body69.i.i, %
   br i1 %tobool68.not.i.i, label %while.end80.i.i, label %while.body69.i.i
 
 while.body69.i.i:                                 ; preds = %while.cond67.i.i
-  %361 = call i32 @llvm.cttz.i32(i32 %work.1.i.i, i1 true), !range !22
+  %361 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.1.i.i, i1 true)
   %idxprom72.i.i = zext nneg i32 %361 to i64
   %arrayidx73.i.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom72.i.i
   %362 = load i32, ptr %arrayidx73.i.i, align 4
   %conv75.i.i = and i32 %362, 65535
-  %call76.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv75.i.i), !range !17
+  %call76.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %conv75.i.i)
   %shl77.i.i = shl nuw i32 1, %361
   %not78.i.i = xor i32 %shl77.i.i, -1
   %and79.i.i = and i32 %work.1.i.i, %not78.i.i
   %363 = load ptr, ptr %mcp, align 16
   %364 = load ptr, ptr %mclim, align 8
   %cmp.i115.i.i = icmp ult ptr %363, %364
-  br i1 %cmp.i115.i.i, label %if.then.i119.i.i, label %while.cond67.i.i, !llvm.loop !25
+  br i1 %cmp.i115.i.i, label %if.then.i119.i.i, label %while.cond67.i.i, !llvm.loop !23
 
 if.then.i119.i.i:                                 ; preds = %while.body69.i.i
   call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #17
@@ -3180,7 +3180,7 @@ while.end80.i.i:                                  ; preds = %while.cond67.i.i
 while.body84.i.i:                                 ; preds = %while.end80.i.i, %if.end107.i.i
   %work.2135.i.i = phi i32 [ %and110.i.i, %if.end107.i.i ], [ %365, %while.end80.i.i ]
   %366 = call i32 @llvm.bswap.i32(i32 %work.2135.i.i)
-  %367 = call i32 @llvm.ctlz.i32(i32 %366, i1 true), !range !22
+  %367 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %366, i1 true)
   %xor87.i.i = xor i32 %367, 7
   %idxprom89.i.i = zext nneg i32 %xor87.i.i to i64
   %arrayidx90.i.i = getelementptr inbounds [32 x i16], ptr %phireg.i.i, i64 0, i64 %idxprom89.i.i
@@ -3245,7 +3245,7 @@ land.lhs.true.i6389:                              ; preds = %if.end.i6388
   br i1 %cmp18.i, label %if.then20.i6391, label %if.end27.i6371
 
 if.then20.i6391:                                  ; preds = %land.lhs.true.i6389
-  %call.i6392 = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv17.i), !range !17
+  %call.i6392 = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv17.i)
   br label %ra_allocref.exit
 
 if.end27.i6371:                                   ; preds = %land.lhs.true.i6389, %if.end.i6388, %if.then.i6369
@@ -3266,7 +3266,7 @@ if.then34.i6382:                                  ; preds = %land.lhs.true30.i
   %and35.i6385 = and i32 %and.i6367, %not.i6384
   %tobool36.not.i = icmp eq i32 %and35.i6385, 0
   %spec.select.i6386 = select i1 %tobool36.not.i, i32 %and.i6367, i32 %and35.i6385
-  %385 = call i32 @llvm.cttz.i32(i32 %spec.select.i6386, i1 true), !range !22
+  %385 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i6386, i1 true)
   br label %ra_allocref.exit
 
 if.else.i6374:                                    ; preds = %land.lhs.true30.i, %if.end27.i6371
@@ -3274,12 +3274,12 @@ if.else.i6374:                                    ; preds = %land.lhs.true30.i, 
   %tobool43.not.i = icmp eq i32 %and42.i6375, 0
   %spec.select36.i = select i1 %tobool43.not.i, i32 %and.i6367, i32 %and42.i6375
   %386 = call i32 @llvm.bswap.i32(i32 %spec.select36.i)
-  %387 = call i32 @llvm.ctlz.i32(i32 %386, i1 true), !range !22
+  %387 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %386, i1 true)
   %xor48.i = xor i32 %387, 7
   br label %ra_allocref.exit
 
 if.else50.i:                                      ; preds = %if.then.i112.i.i
-  %call51.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %shl105.i.i), !range !17
+  %call51.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %shl105.i.i)
   br label %ra_allocref.exit
 
 ra_allocref.exit:                                 ; preds = %if.then4.i, %if.then20.i6391, %if.then34.i6382, %if.else.i6374, %if.else50.i
@@ -3437,7 +3437,7 @@ if.end107.i.i:                                    ; preds = %ra_save.exit6362, %
   %not109.i.i = xor i32 %shl108.i.i, -1
   %and110.i.i = and i32 %work.2135.i.i, %not109.i.i
   %tobool83.not.i.i = icmp eq i32 %and110.i.i, 0
-  br i1 %tobool83.not.i.i, label %asm_phi_shuffle.exit.i, label %while.body84.i.i, !llvm.loop !26
+  br i1 %tobool83.not.i.i, label %asm_phi_shuffle.exit.i, label %while.body84.i.i, !llvm.loop !24
 
 asm_phi_shuffle.exit.i:                           ; preds = %if.end107.i.i, %while.end80.i.i
   %401 = load ptr, ptr %mcp, align 16
@@ -3484,7 +3484,7 @@ for.inc.i.i4177:                                  ; preds = %if.then.i22.i4174, 
   %o.i.i4179 = getelementptr inbounds i8, ptr %ir.0544.i.i, i64 -3
   %411 = load i8, ptr %o.i.i4179, align 1
   %cmp.i.i4180 = icmp eq i8 %411, 19
-  br i1 %cmp.i.i4180, label %for.body.i.i4169, label %for.end.i25.i, !llvm.loop !27
+  br i1 %cmp.i.i4180, label %for.body.i.i4169, label %for.end.i25.i, !llvm.loop !25
 
 for.end.i25.i:                                    ; preds = %for.inc.i.i4177
   %and22.i.i = and i32 %need.1.i.i, 1
@@ -3542,7 +3542,7 @@ if.end35.i28.i:                                   ; preds = %if.then46.i.i.i.i.i
   br i1 %cmp44547.i.i, label %for.body46.us.i.i.preheader, label %for.end83.i.i
 
 for.body46.lr.ph.i.i:                             ; preds = %if.then23.i.i4181
-  %419 = call i32 @llvm.cttz.i32(i32 %and24.i.i, i1 true), !range !22
+  %419 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and24.i.i, i1 true)
   %r.0.fr.i61.i = freeze i32 %419
   %cmp.i82.i.i4183 = icmp ult i32 %r.0.fr.i61.i, 16
   %and26.i.i.i4184 = shl nuw nsw i32 %r.0.fr.i61.i, 3
@@ -3708,7 +3708,7 @@ for.inc81.us.i.i:                                 ; preds = %emit_rmro.exit.i136
   %o42.us.i.i = getelementptr inbounds i8, ptr %ir.1548.us.i.i, i64 -3
   %442 = load i8, ptr %o42.us.i.i, align 1
   %cmp44.us.i.i = icmp eq i8 %442, 19
-  br i1 %cmp44.us.i.i, label %for.body46.us.i.i, label %for.end83.i.i, !llvm.loop !28
+  br i1 %cmp44.us.i.i, label %for.body46.us.i.i, label %for.end83.i.i, !llvm.loop !26
 
 for.body46.i.i:                                   ; preds = %for.body46.lr.ph.i.i, %for.inc81.i.i
   %443 = phi ptr [ %460, %for.inc81.i.i ], [ %401, %for.body46.lr.ph.i.i ]
@@ -3848,7 +3848,7 @@ for.inc81.i.i:                                    ; preds = %emit_rmro.exit375.i
   %o42.i.i = getelementptr inbounds i8, ptr %ir.1548.i.i, i64 -3
   %461 = load i8, ptr %o42.i.i, align 1
   %cmp44.i.i = icmp eq i8 %461, 19
-  br i1 %cmp44.i.i, label %for.body46.i.i, label %for.end83.i.i, !llvm.loop !28
+  br i1 %cmp44.i.i, label %for.body46.i.i, label %for.end83.i.i, !llvm.loop !26
 
 for.end83.i.i:                                    ; preds = %for.inc81.i.i, %for.inc81.us.i.i, %if.end35.i28.i
   %r.0.fr.i64.i = phi i32 [ 0, %if.end35.i28.i ], [ %r.0.fr.i65.i6688, %for.inc81.us.i.i ], [ %r.0.fr.i61.i, %for.inc81.i.i ]
@@ -3944,7 +3944,7 @@ if.then99.i29.i:                                  ; preds = %if.end96.i.i
   %478 = load i32, ptr %freeset.i.i, align 8
   %and102.i.i4203 = and i32 %478, -65536
   %tobool103.not.i.i = icmp eq i32 %and102.i.i4203, 0
-  %479 = call i32 @llvm.cttz.i32(i32 %and102.i.i4203, i1 true), !range !29
+  %479 = call range(i32 16, 33) i32 @llvm.cttz.i32(i32 %and102.i.i4203, i1 true)
   %spec.select78.i.i = select i1 %tobool103.not.i.i, i32 16, i32 %479
   %480 = shl nuw i32 1, %spec.select78.i.i
   %481 = and i32 %480, %478
@@ -4148,7 +4148,7 @@ for.inc169.i.i:                                   ; preds = %emit_rmro.exit507.i
   %o127.i.i = getelementptr inbounds i8, ptr %ir.2551.i.i, i64 -3
   %510 = load i8, ptr %o127.i.i, align 1
   %cmp129.i.i = icmp eq i8 %510, 19
-  br i1 %cmp129.i.i, label %for.body131.i.i, label %for.end171.i.i, !llvm.loop !30
+  br i1 %cmp129.i.i, label %for.body131.i.i, label %for.end171.i.i, !llvm.loop !27
 
 for.end171.i.i:                                   ; preds = %for.inc169.i.i, %if.end120.i.i
   %511 = phi ptr [ %489, %if.end120.i.i ], [ %509, %for.inc169.i.i ]
@@ -4333,7 +4333,7 @@ if.then.i4095:                                    ; preds = %sw.bb2.i
   %538 = add nsw i8 %537, -13
   %539 = icmp ult i8 %538, 2
   %cond.i370 = select i1 %539, i32 -65536, i32 49135
-  %call.i4096 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv3.i368, i32 noundef %cond.i370), !range !17
+  %call.i4096 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv3.i368, i32 noundef %cond.i370)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %sw.bb2.i, %if.then.i4095
@@ -4386,7 +4386,7 @@ if.then24.i:                                      ; preds = %lor.lhs.false.i4014
   unreachable
 
 if.end25.i4015:                                   ; preds = %lor.lhs.false.i4014
-  %554 = call i32 @llvm.ctpop.i32(i32 %and9.i4004), !range !31
+  %554 = call range(i32 0, 31) i32 @llvm.ctpop.i32(i32 %and9.i4004)
   %tobool.not.i4016 = icmp ult i32 %554, 2
   br i1 %tobool.not.i4016, label %if.else60.i, label %if.then27.i4017
 
@@ -4398,7 +4398,7 @@ if.then27.i4017:                                  ; preds = %if.end25.i4015
 
 if.then33.i4018:                                  ; preds = %if.then27.i4017
   %conv35.i4019 = zext i16 %549 to i32
-  %call.i4020 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv35.i4019, i32 noundef %and8.i4002), !range !17
+  %call.i4020 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv35.i4019, i32 noundef %and8.i4002)
   %.pre.i4021 = shl nuw i32 1, %call.i4020
   br label %if.end39.i
 
@@ -4407,12 +4407,12 @@ if.else.i4025:                                    ; preds = %if.then27.i4017
   br i1 %tobool.not.i.i.i4026, label %if.then.i.i.i4079, label %if.else.i.i.i4027
 
 if.then.i.i.i4079:                                ; preds = %if.else.i4025
-  %call.i.i.i4080 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and8.i4002), !range !17
+  %call.i.i.i4080 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and8.i4002)
   br label %ra_scratch.exit.i4029
 
 if.else.i.i.i4027:                                ; preds = %if.else.i4025
   %556 = call i32 @llvm.bswap.i32(i32 %and9.i4004)
-  %557 = call i32 @llvm.ctlz.i32(i32 %556, i1 true), !range !22
+  %557 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %556, i1 true)
   %xor2.i.i.i4028 = xor i32 %557, 7
   br label %ra_scratch.exit.i4029
 
@@ -4653,7 +4653,7 @@ sw.bb.i3995:                                      ; preds = %if.end23.i, %if.end
 if.then27.i:                                      ; preds = %sw.bb.i3995
   %590 = load i16, ptr %arrayidx63, align 8
   %conv28.i = zext i16 %590 to i32
-  %call.i3997 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv28.i, i32 noundef 1), !range !17
+  %call.i3997 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv28.i, i32 noundef 1)
   br label %for.inc
 
 sw.bb14.i:                                        ; preds = %checkmclim.exit188
@@ -4696,7 +4696,7 @@ for.inc.i3976:                                    ; preds = %if.then.i3984, %lor
   %597 = phi i32 [ %inc.i3985, %if.then.i3984 ], [ %593, %lor.lhs.false19.i ], [ %593, %for.body.i3972 ]
   %incdec.ptr.i3977 = getelementptr inbounds i8, ptr %ira.014.i, i64 8
   %cmp.i3978 = icmp ult ptr %incdec.ptr.i3977, %arrayidx63
-  br i1 %cmp.i3978, label %for.body.i3972, label %for.end.i3968, !llvm.loop !32
+  br i1 %cmp.i3978, label %for.body.i3972, label %for.end.i3968, !llvm.loop !28
 
 for.end.i3968:                                    ; preds = %for.inc.i3976, %sw.bb14.i
   %598 = phi i32 [ %gcsteps.promoted, %sw.bb14.i ], [ %597, %for.inc.i3976 ]
@@ -4839,7 +4839,7 @@ sw.bb18.i:                                        ; preds = %checkmclim.exit188
   br i1 %tobool.not.i.i3779, label %ra_alloc1.exit.i3782, label %if.then.i.i3780
 
 if.then.i.i3780:                                  ; preds = %sw.bb18.i
-  %call.i.i3781 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135), !range !17
+  %call.i.i3781 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135)
   br label %ra_alloc1.exit.i3782
 
 ra_alloc1.exit.i3782:                             ; preds = %if.then.i.i3780, %sw.bb18.i
@@ -4857,12 +4857,12 @@ ra_alloc1.exit.i3782:                             ; preds = %if.then.i.i3780, %s
   br i1 %tobool.not.i.i.i3792, label %if.then.i.i.i3906, label %if.else.i.i.i3793
 
 if.then.i.i.i3906:                                ; preds = %ra_alloc1.exit.i3782
-  %call.i.i.i3907 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i3789), !range !17
+  %call.i.i.i3907 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i3789)
   br label %ra_scratch.exit.i3795
 
 if.else.i.i.i3793:                                ; preds = %ra_alloc1.exit.i3782
   %619 = call i32 @llvm.bswap.i32(i32 %and.i.i.i3791)
-  %620 = call i32 @llvm.ctlz.i32(i32 %619, i1 true), !range !22
+  %620 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %619, i1 true)
   %xor2.i.i.i3794 = xor i32 %620, 7
   br label %ra_scratch.exit.i3795
 
@@ -5149,7 +5149,7 @@ if.then510.i.i3754:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i3760, label %if.then517.i.i3764, label %ra_evict.exit.i3761
 
 if.then517.i.i3764:                               ; preds = %if.then510.i.i3754
-  %676 = call i32 @llvm.cttz.i32(i32 %and508.i.i3752, i1 true), !range !22
+  %676 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i3752, i1 true)
   %idxprom521.i.i3765 = zext nneg i32 %676 to i64
   %arrayidx522.i.i3766 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i3765
   %677 = load i32, ptr %arrayidx522.i.i3766, align 4
@@ -5158,12 +5158,12 @@ if.then517.i.i3764:                               ; preds = %if.then510.i.i3754
 
 ra_evict.exit.i3761:                              ; preds = %if.then517.i.i3764, %if.then510.i.i3754, %land.lhs.true507.i.i3750, %if.then.i.i.i.i3721
   %ref.0.i.i3762 = phi i32 [ %conv504.i.i3748, %if.then.i.i.i.i3721 ], [ %conv504.i.i3748, %if.then510.i.i3754 ], [ %conv524.i.i3767, %if.then517.i.i3764 ], [ %conv504.i.i3748, %land.lhs.true507.i.i3750 ]
-  %call.i.i3763 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3762), !range !17
+  %call.i.i3763 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3762)
   br label %ra_scratch.exit.i.i3685
 
 if.else.i.i.i.i3683:                              ; preds = %if.else14.i.i3680
   %678 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i3681)
-  %679 = call i32 @llvm.ctlz.i32(i32 %678, i1 true), !range !22
+  %679 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %678, i1 true)
   %xor2.i.i.i.i3684 = xor i32 %679, 7
   br label %ra_scratch.exit.i.i3685
 
@@ -5523,7 +5523,7 @@ if.then96.i.i:                                    ; preds = %land.lhs.true91.i.i
 
 if.then.i6206:                                    ; preds = %if.then96.i.i
   %conv99.i.i = zext i16 %719 to i32
-  %call.i6207 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv99.i.i, i32 noundef %and10.i.i3655), !range !17
+  %call.i6207 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv99.i.i, i32 noundef %and10.i.i3655)
   %.pre6669 = load i32, ptr %weakset.i.i, align 16
   %.pre6670 = load ptr, ptr %ir37, align 16
   br label %ra_alloc1.exit6214
@@ -5584,7 +5584,7 @@ if.then143.i.i:                                   ; preds = %lor.lhs.false138.i.
 
 if.then.i.i.i3609:                                ; preds = %if.then143.i.i
   %conv147.i.i = zext i16 %730 to i32
-  %call.i.i.i3610 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv147.i.i, i32 noundef 49135), !range !17
+  %call.i.i.i3610 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv147.i.i, i32 noundef 49135)
   br label %ra_alloc1.exit.i.i3611
 
 ra_alloc1.exit.i.i3611:                           ; preds = %if.then.i.i.i3609, %if.then143.i.i
@@ -5618,7 +5618,7 @@ if.then159.i.i:                                   ; preds = %ra_alloc1.exit.i.i3
 
 if.then.i82.i.i:                                  ; preds = %if.then159.i.i
   %conv163.i.i = zext i16 %735 to i32
-  %call.i83.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv163.i.i, i32 noundef %and151.i.i), !range !17
+  %call.i83.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv163.i.i, i32 noundef %and151.i.i)
   %.pre.i.i3650 = load i32, ptr %weakset.i.i, align 16
   br label %ra_alloc1.exit89.i.i
 
@@ -5649,7 +5649,7 @@ if.else165.i.i:                                   ; preds = %ra_alloc1.exit.i.i3
 
 if.then.i6191:                                    ; preds = %if.else165.i.i
   %conv173.i.i = zext i16 %742 to i32
-  %call.i6192 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv173.i.i, i32 noundef %and151.i.i), !range !17
+  %call.i6192 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv173.i.i, i32 noundef %and151.i.i)
   %.pre6668 = load i32, ptr %weakset.i.i, align 16
   br label %ra_alloc1.exit6199
 
@@ -5710,12 +5710,12 @@ if.else14.i.i.i3622:                              ; preds = %land.lhs.true.i.i.i
   br i1 %tobool.not.i.i.i.i.i3624, label %if.then.i.i.i.i.i3642, label %if.else.i.i.i.i.i3625
 
 if.then.i.i.i.i.i3642:                            ; preds = %if.else14.i.i.i3622
-  %call.i.i.i.i.i3643 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %allow.0.i.i), !range !17
+  %call.i.i.i.i.i3643 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %allow.0.i.i)
   br label %ra_scratch.exit.i.i.i3627
 
 if.else.i.i.i.i.i3625:                            ; preds = %if.else14.i.i.i3622
   %751 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i.i3623)
-  %752 = call i32 @llvm.ctlz.i32(i32 %751, i1 true), !range !22
+  %752 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %751, i1 true)
   %xor2.i.i.i.i.i3626 = xor i32 %752, 7
   br label %ra_scratch.exit.i.i.i3627
 
@@ -6163,7 +6163,7 @@ if.then510.i.i3461:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i3465, label %if.then517.i.i3469, label %ra_evict.exit.i3466
 
 if.then517.i.i3469:                               ; preds = %if.then510.i.i3461
-  %810 = call i32 @llvm.cttz.i32(i32 %and508.i.i3459, i1 true), !range !22
+  %810 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i3459, i1 true)
   %idxprom521.i.i3470 = zext nneg i32 %810 to i64
   %arrayidx522.i.i3471 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i3470
   %811 = load i32, ptr %arrayidx522.i.i3471, align 4
@@ -6172,12 +6172,12 @@ if.then517.i.i3469:                               ; preds = %if.then510.i.i3461
 
 ra_evict.exit.i3466:                              ; preds = %if.then517.i.i3469, %if.then510.i.i3461, %land.lhs.true507.i.i3457, %if.then.i.i.i.i3423
   %ref.0.i.i3467 = phi i32 [ %conv504.i.i3455, %if.then.i.i.i.i3423 ], [ %conv504.i.i3455, %if.then510.i.i3461 ], [ %conv524.i.i3472, %if.then517.i.i3469 ], [ %conv504.i.i3455, %land.lhs.true507.i.i3457 ]
-  %call.i.i3468 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3467), !range !17
+  %call.i.i3468 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3467)
   br label %ra_scratch.exit.i.i3406
 
 if.else.i.i.i.i3404:                              ; preds = %if.else14.i.i3401
   %812 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i3402)
-  %813 = call i32 @llvm.ctlz.i32(i32 %812, i1 true), !range !22
+  %813 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %812, i1 true)
   %xor2.i.i.i.i3405 = xor i32 %813, 7
   br label %ra_scratch.exit.i.i3406
 
@@ -6316,7 +6316,7 @@ ra_dest.exit.i3421.sink.split:                    ; preds = %if.end15.i.i6049, %
 ra_dest.exit.i3421:                               ; preds = %ra_dest.exit.i3421.sink.split, %if.end17.i.i3415
   %823 = load i16, ptr %arrayidx63, align 8
   %conv2.i3422 = zext i16 %823 to i32
-  %call3.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv2.i3422, i32 noundef -65536), !range !17
+  %call3.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv2.i3422, i32 noundef -65536)
   call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef 1359999740, i32 noundef %dest.1.i.i3416, i32 noundef %call3.i)
   br label %for.inc
 
@@ -6393,7 +6393,7 @@ if.then510.i6023:                                 ; preds = %land.lhs.true507.i6
   br i1 %tobool516.not.i6029, label %if.then517.i6032, label %ra_evict.exit6036
 
 if.then517.i6032:                                 ; preds = %if.then510.i6023
-  %838 = call i32 @llvm.cttz.i32(i32 %and508.i6021, i1 true), !range !22
+  %838 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i6021, i1 true)
   %idxprom521.i6033 = zext nneg i32 %838 to i64
   %arrayidx522.i6034 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i6033
   %839 = load i32, ptr %arrayidx522.i6034, align 4
@@ -6402,12 +6402,12 @@ if.then517.i6032:                                 ; preds = %if.then510.i6023
 
 ra_evict.exit6036:                                ; preds = %if.then.i.i.i59.i, %land.lhs.true507.i6019, %if.then510.i6023, %if.then517.i6032
   %ref.0.i6030 = phi i32 [ %conv504.i6017, %if.then.i.i.i59.i ], [ %conv504.i6017, %if.then510.i6023 ], [ %conv524.i6035, %if.then517.i6032 ], [ %conv504.i6017, %land.lhs.true507.i6019 ]
-  %call.i6031 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i6030), !range !17
+  %call.i6031 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i6030)
   br label %ra_scratch.exit.i44.i
 
 if.else.i.i.i42.i:                                ; preds = %if.else14.i39.i
   %840 = call i32 @llvm.bswap.i32(i32 %and.i.i.i40.pre-phi.i)
-  %841 = call i32 @llvm.ctlz.i32(i32 %840, i1 true), !range !22
+  %841 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %840, i1 true)
   %xor2.i.i.i43.i = xor i32 %841, 7
   br label %ra_scratch.exit.i44.i
 
@@ -6546,7 +6546,7 @@ ra_dest.exit69.i.sink.split:                      ; preds = %if.end15.i.i5921, %
 ra_dest.exit69.i:                                 ; preds = %ra_dest.exit69.i.sink.split, %if.end17.i53.i
   %851 = load i16, ptr %arrayidx63, align 8
   %conv12.i = zext i16 %851 to i32
-  %call13.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv12.i, i32 noundef -65536), !range !17
+  %call13.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv12.i, i32 noundef -65536)
   %852 = trunc nuw i16 %796 to i8
   %conv14.i3371 = add nuw nsw i8 %852, 9
   %853 = load ptr, ptr %mcp, align 16
@@ -6838,7 +6838,7 @@ if.then510.i.i3339:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i3343, label %if.then517.i.i3346, label %ra_evict.exit.i3344
 
 if.then517.i.i3346:                               ; preds = %if.then510.i.i3339
-  %904 = call i32 @llvm.cttz.i32(i32 %and508.i.i3337, i1 true), !range !22
+  %904 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i3337, i1 true)
   %idxprom521.i.i3347 = zext nneg i32 %904 to i64
   %arrayidx522.i.i3348 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i3347
   %905 = load i32, ptr %arrayidx522.i.i3348, align 4
@@ -6847,12 +6847,12 @@ if.then517.i.i3346:                               ; preds = %if.then510.i.i3339
 
 ra_evict.exit.i3344:                              ; preds = %if.then517.i.i3346, %if.then510.i.i3339, %land.lhs.true507.i.i3336, %if.then.i.i.i.i3307
   %ref.0.i.i3345 = phi i32 [ %conv504.i.i3334, %if.then.i.i.i.i3307 ], [ %conv504.i.i3334, %if.then510.i.i3339 ], [ %conv524.i.i3349, %if.then517.i.i3346 ], [ %conv504.i.i3334, %land.lhs.true507.i.i3336 ]
-  %call.i33.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3345), !range !17
+  %call.i33.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3345)
   br label %ra_scratch.exit.i.i3221
 
 if.else.i.i.i.i3219:                              ; preds = %if.else14.i.i3216
   %906 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i3217)
-  %907 = call i32 @llvm.ctlz.i32(i32 %906, i1 true), !range !22
+  %907 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %906, i1 true)
   %xor2.i.i.i.i3220 = xor i32 %907, 7
   br label %ra_scratch.exit.i.i3221
 
@@ -7000,7 +7000,7 @@ ra_dest.exit.i3236:                               ; preds = %ra_dest.exit.i3236.
 
 ra_alloc1.exit.i3242:                             ; preds = %ra_dest.exit.i3236
   %conv3.i3243 = zext i16 %918 to i32
-  %call.i.i3244 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv3.i3243, i32 noundef -65536), !range !17
+  %call.i.i3244 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv3.i3243, i32 noundef -65536)
   %shl.i19.i = shl nuw i32 1, %call.i.i3244
   %not.i.i3245 = xor i32 %shl.i19.i, -1
   %920 = load i32, ptr %weakset.i.i, align 16
@@ -7039,7 +7039,7 @@ if.then510.i43.i:                                 ; preds = %land.lhs.true507.i3
   br i1 %tobool516.not.i49.i, label %if.then517.i52.i, label %ra_evict.exit56.i
 
 if.then517.i52.i:                                 ; preds = %if.then510.i43.i
-  %928 = call i32 @llvm.cttz.i32(i32 %and508.i41.i, i1 true), !range !22
+  %928 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i41.i, i1 true)
   %idxprom521.i53.i = zext nneg i32 %928 to i64
   %arrayidx522.i54.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i53.i
   %929 = load i32, ptr %arrayidx522.i54.i, align 4
@@ -7048,12 +7048,12 @@ if.then517.i52.i:                                 ; preds = %if.then510.i43.i
 
 ra_evict.exit56.i:                                ; preds = %if.then517.i52.i, %if.then510.i43.i, %land.lhs.true507.i39.i, %if.then.i.i.i3277
   %ref.0.i50.i = phi i32 [ %conv504.i37.i, %if.then.i.i.i3277 ], [ %conv504.i37.i, %if.then510.i43.i ], [ %conv524.i55.i, %if.then517.i52.i ], [ %conv504.i37.i, %land.lhs.true507.i39.i ]
-  %call.i51.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i50.i), !range !17
+  %call.i51.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i50.i)
   br label %ra_scratch.exit.i3275
 
 if.else.i.i.i3273:                                ; preds = %cond.false.i
   %930 = call i32 @llvm.bswap.i32(i32 %and.i.i.i3271)
-  %931 = call i32 @llvm.ctlz.i32(i32 %930, i1 true), !range !22
+  %931 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %930, i1 true)
   %xor2.i.i.i3274 = xor i32 %931, 7
   br label %ra_scratch.exit.i3275
 
@@ -7102,7 +7102,7 @@ asm_tobit.exit:                                   ; preds = %cond.end.i3248, %if
   %shl.i3268 = shl nuw i32 1, %cond.i3249
   %not.i3269 = and i32 %shl.i3268, -65536
   %and7.i = xor i32 %not.i3269, -65536
-  %call8.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv6.i3267, i32 noundef %and7.i), !range !17
+  %call8.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv6.i3267, i32 noundef %and7.i)
   call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef 1477440252, i32 noundef %cond.i3249, i32 noundef %call8.i)
   %937 = load i16, ptr %arrayidx63, align 8
   %conv10.i3270 = zext i16 %937 to i32
@@ -7226,7 +7226,7 @@ if.then510.i.i3177:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i3182, label %if.then517.i.i3186, label %ra_evict.exit.i3183
 
 if.then517.i.i3186:                               ; preds = %if.then510.i.i3177
-  %969 = call i32 @llvm.cttz.i32(i32 %and508.i.i3175, i1 true), !range !22
+  %969 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i3175, i1 true)
   %idxprom521.i.i3187 = zext nneg i32 %969 to i64
   %arrayidx522.i.i3188 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i3187
   %970 = load i32, ptr %arrayidx522.i.i3188, align 4
@@ -7235,12 +7235,12 @@ if.then517.i.i3186:                               ; preds = %if.then510.i.i3177
 
 ra_evict.exit.i3183:                              ; preds = %if.then517.i.i3186, %if.then510.i.i3177, %land.lhs.true507.i.i3173, %if.then.i.i.i.i3144
   %ref.0.i.i3184 = phi i32 [ %conv504.i.i3171, %if.then.i.i.i.i3144 ], [ %conv504.i.i3171, %if.then510.i.i3177 ], [ %conv524.i.i3189, %if.then517.i.i3186 ], [ %conv504.i.i3171, %land.lhs.true507.i.i3173 ]
-  %call.i.i3185 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3184), !range !17
+  %call.i.i3185 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3184)
   br label %ra_scratch.exit.i.i3104
 
 if.else.i.i.i.i3102:                              ; preds = %if.else14.i.i3099
   %971 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i3100)
-  %972 = call i32 @llvm.ctlz.i32(i32 %971, i1 true), !range !22
+  %972 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %971, i1 true)
   %xor2.i.i.i.i3103 = xor i32 %972, 7
   br label %ra_scratch.exit.i.i3104
 
@@ -7514,7 +7514,7 @@ if.then510.i.i3073:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i3076, label %if.then517.i.i3079, label %ra_evict.exit.i3077
 
 if.then517.i.i3079:                               ; preds = %if.then510.i.i3073
-  %1023 = call i32 @llvm.cttz.i32(i32 %and508.i.i3071, i1 true), !range !22
+  %1023 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i3071, i1 true)
   %idxprom521.i.i3080 = zext nneg i32 %1023 to i64
   %arrayidx522.i.i3081 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i3080
   %1024 = load i32, ptr %arrayidx522.i.i3081, align 4
@@ -7523,12 +7523,12 @@ if.then517.i.i3079:                               ; preds = %if.then510.i.i3073
 
 ra_evict.exit.i3077:                              ; preds = %if.then517.i.i3079, %if.then510.i.i3073, %land.lhs.true507.i.i3070, %if.then.i.i.i.i3041
   %ref.0.i.i3078 = phi i32 [ %conv504.i.i3068, %if.then.i.i.i.i3041 ], [ %conv504.i.i3068, %if.then510.i.i3073 ], [ %conv524.i.i3082, %if.then517.i.i3079 ], [ %conv504.i.i3068, %land.lhs.true507.i.i3070 ]
-  %call.i211.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3078), !range !17
+  %call.i211.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3078)
   br label %ra_scratch.exit.i.i2902
 
 if.else.i.i.i.i2900:                              ; preds = %if.else14.i.i2897
   %1025 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.i2898)
-  %1026 = call i32 @llvm.ctlz.i32(i32 %1025, i1 true), !range !22
+  %1026 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1025, i1 true)
   %xor2.i.i.i.i2901 = xor i32 %1026, 7
   br label %ra_scratch.exit.i.i2902
 
@@ -7678,7 +7678,7 @@ cond.end.i2917:                                   ; preds = %cond.end.i2917.sink
 
 if.then.i42.i:                                    ; preds = %cond.end.i2917
   %conv11.i = zext i16 %1036 to i32
-  %call.i.i2922 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv11.i, i32 noundef 49135), !range !17
+  %call.i.i2922 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv11.i, i32 noundef 49135)
   br label %ra_alloc1.exit.i2923
 
 ra_alloc1.exit.i2923:                             ; preds = %if.then.i42.i, %cond.end.i2917
@@ -7933,13 +7933,13 @@ if.then34.i:                                      ; preds = %asm_guardcc.exit.i2
   br i1 %tobool.not.i.i.i2957, label %if.then.i.i.i2965, label %if.else.i.i.i2958
 
 if.then.i.i.i2965:                                ; preds = %if.then34.i
-  %call.i.i.i2966 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and35.i), !range !17
+  %call.i.i.i2966 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and35.i)
   %.pre.i2967 = load ptr, ptr %mcp, align 16
   br label %ra_scratch.exit.i2960
 
 if.else.i.i.i2958:                                ; preds = %if.then34.i
   %1062 = call i32 @llvm.bswap.i32(i32 %and.i.i.i2956)
-  %1063 = call i32 @llvm.ctlz.i32(i32 %1062, i1 true), !range !22
+  %1063 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1062, i1 true)
   %xor2.i.i.i2959 = xor i32 %1063, 7
   br label %ra_scratch.exit.i2960
 
@@ -8239,7 +8239,7 @@ if.then510.i.i.i:                                 ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i.i, label %if.then517.i.i.i, label %ra_evict.exit.i.i
 
 if.then517.i.i.i:                                 ; preds = %if.then510.i.i.i
-  %1111 = call i32 @llvm.cttz.i32(i32 %and508.i.i.i, i1 true), !range !22
+  %1111 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i.i, i1 true)
   %idxprom521.i.i.i = zext nneg i32 %1111 to i64
   %arrayidx522.i.i.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i.i
   %1112 = load i32, ptr %arrayidx522.i.i.i, align 4
@@ -8248,12 +8248,12 @@ if.then517.i.i.i:                                 ; preds = %if.then510.i.i.i
 
 ra_evict.exit.i.i:                                ; preds = %if.then517.i.i.i, %if.then510.i.i.i, %land.lhs.true507.i.i.i, %if.then.i.i.i.i.i
   %ref.0.i.i.i = phi i32 [ %conv504.i.i.i, %if.then.i.i.i.i.i ], [ %conv504.i.i.i, %if.then510.i.i.i ], [ %conv524.i.i.i, %if.then517.i.i.i ], [ %conv504.i.i.i, %land.lhs.true507.i.i.i ]
-  %call.i181.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i.i), !range !17
+  %call.i181.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i.i)
   br label %ra_scratch.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.else14.i.i.i
   %1113 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i.i)
-  %1114 = call i32 @llvm.ctlz.i32(i32 %1113, i1 true), !range !22
+  %1114 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1113, i1 true)
   %xor2.i.i.i.i.i = xor i32 %1114, 7
   br label %ra_scratch.exit.i.i.i
 
@@ -8464,7 +8464,7 @@ if.then510.i218.i.i:                              ; preds = %land.lhs.true507.i2
   br i1 %tobool516.not.i224.i.i, label %if.then517.i227.i.i, label %ra_evict.exit231.i.i
 
 if.then517.i227.i.i:                              ; preds = %if.then510.i218.i.i
-  %1156 = call i32 @llvm.cttz.i32(i32 %and508.i216.i.i, i1 true), !range !22
+  %1156 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i216.i.i, i1 true)
   %idxprom521.i228.i.i = zext nneg i32 %1156 to i64
   %arrayidx522.i229.i.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i228.i.i
   %1157 = load i32, ptr %arrayidx522.i229.i.i, align 4
@@ -8473,12 +8473,12 @@ if.then517.i227.i.i:                              ; preds = %if.then510.i218.i.i
 
 ra_evict.exit231.i.i:                             ; preds = %if.then517.i227.i.i, %if.then510.i218.i.i, %land.lhs.true507.i214.i.i, %if.then.i.i.i.i
   %ref.0.i225.i.i = phi i32 [ %conv504.i212.i.i, %if.then.i.i.i.i ], [ %conv504.i212.i.i, %if.then510.i218.i.i ], [ %conv524.i230.i.i, %if.then517.i227.i.i ], [ %conv504.i212.i.i, %land.lhs.true507.i214.i.i ]
-  %call.i226.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i225.i.i), !range !17
+  %call.i226.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i225.i.i)
   br label %ra_scratch.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else.i140.i
   %1158 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.i)
-  %1159 = call i32 @llvm.ctlz.i32(i32 %1158, i1 true), !range !22
+  %1159 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1158, i1 true)
   %xor2.i.i.i.i = xor i32 %1159, 7
   br label %ra_scratch.exit.i.i
 
@@ -8793,7 +8793,7 @@ if.else48.i.i:                                    ; preds = %if.end27.i.i
 
 if.then.i125.i.i318:                              ; preds = %if.else48.i.i
   %conv29.i.i = zext i16 %1183 to i32
-  %call.i.i.i319 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv29.i.i, i32 noundef 49135), !range !17
+  %call.i.i.i319 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv29.i.i, i32 noundef 49135)
   %.pre.i.i320 = load ptr, ptr %mcp, align 16
   br label %ra_alloc1.exit.i.i321
 
@@ -8960,7 +8960,7 @@ if.then510.i.i2772:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i2776, label %if.then517.i.i2780, label %ra_evict.exit.i2777
 
 if.then517.i.i2780:                               ; preds = %if.then510.i.i2772
-  %1224 = call i32 @llvm.cttz.i32(i32 %and508.i.i2770, i1 true), !range !22
+  %1224 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i2770, i1 true)
   %idxprom521.i.i2781 = zext nneg i32 %1224 to i64
   %arrayidx522.i.i2782 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i2781
   %1225 = load i32, ptr %arrayidx522.i.i2782, align 4
@@ -8969,12 +8969,12 @@ if.then517.i.i2780:                               ; preds = %if.then510.i.i2772
 
 ra_evict.exit.i2777:                              ; preds = %if.then517.i.i2780, %if.then510.i.i2772, %land.lhs.true507.i.i2768, %if.then.i.i.i.i2739
   %ref.0.i.i2778 = phi i32 [ %conv504.i.i2766, %if.then.i.i.i.i2739 ], [ %conv504.i.i2766, %if.then510.i.i2772 ], [ %conv524.i.i2783, %if.then517.i.i2780 ], [ %conv504.i.i2766, %land.lhs.true507.i.i2768 ]
-  %call.i.i2779 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2778), !range !17
+  %call.i.i2779 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2778)
   br label %ra_scratch.exit.i.i2695
 
 if.else.i.i.i.i2693:                              ; preds = %if.else14.i.i2690
   %1226 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i2691)
-  %1227 = call i32 @llvm.ctlz.i32(i32 %1226, i1 true), !range !22
+  %1227 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1226, i1 true)
   %xor2.i.i.i.i2694 = xor i32 %1227, 7
   br label %ra_scratch.exit.i.i2695
 
@@ -9183,7 +9183,7 @@ if.end61.i.i:                                     ; preds = %if.then36.i.i2731, 
 
 if.then.i.i.i2722:                                ; preds = %if.end61.i.i
   %conv63.i.i2723 = zext i16 %1240 to i32
-  %call.i.i.i2724 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv63.i.i2723, i32 noundef 49135), !range !17
+  %call.i.i.i2724 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv63.i.i2723, i32 noundef 49135)
   br label %ra_alloc1.exit.i.i2725
 
 ra_alloc1.exit.i.i2725:                           ; preds = %if.then.i.i.i2722, %if.end61.i.i
@@ -9279,7 +9279,7 @@ if.then510.i.i2661:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i2666, label %if.then517.i.i2670, label %ra_evict.exit.i2667
 
 if.then517.i.i2670:                               ; preds = %if.then510.i.i2661
-  %1276 = call i32 @llvm.cttz.i32(i32 %and508.i.i2659, i1 true), !range !22
+  %1276 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i2659, i1 true)
   %idxprom521.i.i2671 = zext nneg i32 %1276 to i64
   %arrayidx522.i.i2672 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i2671
   %1277 = load i32, ptr %arrayidx522.i.i2672, align 4
@@ -9288,12 +9288,12 @@ if.then517.i.i2670:                               ; preds = %if.then510.i.i2661
 
 ra_evict.exit.i2667:                              ; preds = %if.then517.i.i2670, %if.then510.i.i2661, %land.lhs.true507.i.i2657, %if.then.i.i.i.i2628
   %ref.0.i.i2668 = phi i32 [ %conv504.i.i2655, %if.then.i.i.i.i2628 ], [ %conv504.i.i2655, %if.then510.i.i2661 ], [ %conv524.i.i2673, %if.then517.i.i2670 ], [ %conv504.i.i2655, %land.lhs.true507.i.i2657 ]
-  %call.i.i2669 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2668), !range !17
+  %call.i.i2669 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2668)
   br label %ra_scratch.exit.i.i2609
 
 if.else.i.i.i.i2607:                              ; preds = %if.else14.i.i2604
   %1278 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i2605)
-  %1279 = call i32 @llvm.ctlz.i32(i32 %1278, i1 true), !range !22
+  %1279 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1278, i1 true)
   %xor2.i.i.i.i2608 = xor i32 %1279, 7
   br label %ra_scratch.exit.i.i2609
 
@@ -9515,7 +9515,7 @@ if.then510.i.i2576:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i2580, label %if.then517.i.i2584, label %ra_evict.exit.i2581
 
 if.then517.i.i2584:                               ; preds = %if.then510.i.i2576
-  %1318 = call i32 @llvm.cttz.i32(i32 %and508.i.i2574, i1 true), !range !22
+  %1318 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i2574, i1 true)
   %idxprom521.i.i2585 = zext nneg i32 %1318 to i64
   %arrayidx522.i.i2586 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i2585
   %1319 = load i32, ptr %arrayidx522.i.i2586, align 4
@@ -9524,12 +9524,12 @@ if.then517.i.i2584:                               ; preds = %if.then510.i.i2576
 
 ra_evict.exit.i2581:                              ; preds = %if.then517.i.i2584, %if.then510.i.i2576, %land.lhs.true507.i.i2572, %if.then.i.i.i.i2543
   %ref.0.i.i2582 = phi i32 [ %conv504.i.i2570, %if.then.i.i.i.i2543 ], [ %conv504.i.i2570, %if.then510.i.i2576 ], [ %conv524.i.i2587, %if.then517.i.i2584 ], [ %conv504.i.i2570, %land.lhs.true507.i.i2572 ]
-  %call.i.i2583 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2582), !range !17
+  %call.i.i2583 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2582)
   br label %ra_scratch.exit.i.i2461
 
 if.else.i.i.i.i2459:                              ; preds = %if.else14.i.i2456
   %1320 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i2457)
-  %1321 = call i32 @llvm.ctlz.i32(i32 %1320, i1 true), !range !22
+  %1321 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1320, i1 true)
   %xor2.i.i.i.i2460 = xor i32 %1321, 7
   br label %ra_scratch.exit.i.i2461
 
@@ -9682,7 +9682,7 @@ ra_dest.exit.i2476:                               ; preds = %ra_dest.exit.i2476.
 
 if.then.i.i.i2485:                                ; preds = %ra_dest.exit.i2476
   %conv.i14.i = zext i16 %1331 to i32
-  %call.i.i.i2486 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv.i14.i, i32 noundef 49135), !range !17
+  %call.i.i.i2486 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv.i14.i, i32 noundef 49135)
   %.pre.i2487 = load ptr, ptr %ir37, align 16
   br label %ra_alloc1.exit.i.i2488
 
@@ -9721,7 +9721,7 @@ if.then.i25.i.i:                                  ; preds = %if.else.i17.i
   %conv9.i.i2497 = zext i16 %1336 to i32
   %not.i.i2498 = and i32 %shl.i.i15.i, 49135
   %and.i.i2499 = xor i32 %not.i.i2498, 49135
-  %call.i26.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv9.i.i2497, i32 noundef %and.i.i2499), !range !17
+  %call.i26.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv9.i.i2497, i32 noundef %and.i.i2499)
   %.pre.i.i2500 = load i32, ptr %weakset.i.i, align 16
   %.pre33.i.i = load i8, ptr %base.i, align 4
   br label %ra_alloc1.exit32.i.i
@@ -9957,7 +9957,7 @@ if.then510.i.i2428:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i2433, label %if.then517.i.i2437, label %ra_evict.exit.i2434
 
 if.then517.i.i2437:                               ; preds = %if.then510.i.i2428
-  %1390 = call i32 @llvm.cttz.i32(i32 %and508.i.i2426, i1 true), !range !22
+  %1390 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i2426, i1 true)
   %idxprom521.i.i2438 = zext nneg i32 %1390 to i64
   %arrayidx522.i.i2439 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i2438
   %1391 = load i32, ptr %arrayidx522.i.i2439, align 4
@@ -9966,12 +9966,12 @@ if.then517.i.i2437:                               ; preds = %if.then510.i.i2428
 
 ra_evict.exit.i2434:                              ; preds = %if.then517.i.i2437, %if.then510.i.i2428, %land.lhs.true507.i.i2424, %if.then.i.i.i.i2395
   %ref.0.i.i2435 = phi i32 [ %conv504.i.i2422, %if.then.i.i.i.i2395 ], [ %conv504.i.i2422, %if.then510.i.i2428 ], [ %conv524.i.i2440, %if.then517.i.i2437 ], [ %conv504.i.i2422, %land.lhs.true507.i.i2424 ]
-  %call.i.i2436 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2435), !range !17
+  %call.i.i2436 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2435)
   br label %ra_scratch.exit.i.i2379
 
 if.else.i.i.i.i2377:                              ; preds = %if.else14.i.i2374
   %1392 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i2375)
-  %1393 = call i32 @llvm.ctlz.i32(i32 %1392, i1 true), !range !22
+  %1393 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1392, i1 true)
   %xor2.i.i.i.i2378 = xor i32 %1393, 7
   br label %ra_scratch.exit.i.i2379
 
@@ -10160,12 +10160,12 @@ if.else14.i.i147.i:                               ; preds = %land.lhs.true.i.i23
   br i1 %tobool.not.i.i.i.i149.i, label %if.then.i.i.i.i238.i, label %if.else.i.i.i.i150.i
 
 if.then.i.i.i.i238.i:                             ; preds = %if.else14.i.i147.i
-  %call.i.i.i.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %cond.i143.i), !range !17
+  %call.i.i.i.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %cond.i143.i)
   br label %ra_scratch.exit.i.i152.i
 
 if.else.i.i.i.i150.i:                             ; preds = %if.else14.i.i147.i
   %1416 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i148.i)
-  %1417 = call i32 @llvm.ctlz.i32(i32 %1416, i1 true), !range !22
+  %1417 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1416, i1 true)
   %xor2.i.i.i.i151.i = xor i32 %1417, 7
   br label %ra_scratch.exit.i.i152.i
 
@@ -10539,7 +10539,7 @@ if.then510.i.i281.i:                              ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i285.i, label %if.then517.i.i289.i, label %ra_evict.exit.i286.i
 
 if.then517.i.i289.i:                              ; preds = %if.then510.i.i281.i
-  %1480 = call i32 @llvm.cttz.i32(i32 %and508.i.i279.i, i1 true), !range !22
+  %1480 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i279.i, i1 true)
   %idxprom521.i.i290.i = zext nneg i32 %1480 to i64
   %arrayidx522.i.i291.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i290.i
   %1481 = load i32, ptr %arrayidx522.i.i291.i, align 4
@@ -10548,12 +10548,12 @@ if.then517.i.i289.i:                              ; preds = %if.then510.i.i281.i
 
 ra_evict.exit.i286.i:                             ; preds = %if.then517.i.i289.i, %if.then510.i.i281.i, %land.lhs.true507.i.i277.i, %if.then.i.i.i248.i
   %ref.0.i.i287.i = phi i32 [ %conv504.i.i275.i, %if.then.i.i.i248.i ], [ %conv504.i.i275.i, %if.then510.i.i281.i ], [ %conv524.i.i292.i, %if.then517.i.i289.i ], [ %conv504.i.i275.i, %land.lhs.true507.i.i277.i ]
-  %call.i.i288.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i287.i), !range !17
+  %call.i.i288.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i287.i)
   br label %ra_scratch.exit.i246.i
 
 if.else.i.i.i244.i:                               ; preds = %if.then51.i.i
   %1482 = call i32 @llvm.bswap.i32(i32 %and.i.i.i242.i)
-  %1483 = call i32 @llvm.ctlz.i32(i32 %1482, i1 true), !range !22
+  %1483 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1482, i1 true)
   %xor2.i.i.i245.i = xor i32 %1483, 7
   br label %ra_scratch.exit.i246.i
 
@@ -11207,7 +11207,7 @@ if.then510.i.i2033:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i2038, label %if.then517.i.i2041, label %ra_evict.exit.i2039
 
 if.then517.i.i2041:                               ; preds = %if.then510.i.i2033
-  %1594 = call i32 @llvm.cttz.i32(i32 %and508.i.i2031, i1 true), !range !22
+  %1594 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i2031, i1 true)
   %idxprom521.i.i2042 = zext nneg i32 %1594 to i64
   %arrayidx522.i.i2043 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i2042
   %1595 = load i32, ptr %arrayidx522.i.i2043, align 4
@@ -11216,12 +11216,12 @@ if.then517.i.i2041:                               ; preds = %if.then510.i.i2033
 
 ra_evict.exit.i2039:                              ; preds = %if.then517.i.i2041, %if.then510.i.i2033, %land.lhs.true507.i.i2030, %if.then.i.i.i1996
   %ref.0.i.i2040 = phi i32 [ %conv504.i.i2028, %if.then.i.i.i1996 ], [ %conv504.i.i2028, %if.then510.i.i2033 ], [ %conv524.i.i2044, %if.then517.i.i2041 ], [ %conv504.i.i2028, %land.lhs.true507.i.i2030 ]
-  %call.i620.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2040), !range !17
+  %call.i620.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2040)
   br label %ra_scratch.exit.i1938
 
 if.else.i.i.i1936:                                ; preds = %if.then.i1932
   %1596 = call i32 @llvm.bswap.i32(i32 %and.i.i.i1934)
-  %1597 = call i32 @llvm.ctlz.i32(i32 %1596, i1 true), !range !22
+  %1597 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1596, i1 true)
   %xor2.i.i.i1937 = xor i32 %1597, 7
   br label %ra_scratch.exit.i1938
 
@@ -11240,7 +11240,7 @@ ra_scratch.exit.i1938:                            ; preds = %if.else.i.i.i1936, 
   br i1 %tobool.not.i.i1946, label %ra_alloc1.exit.i1949, label %if.then.i.i1947
 
 if.then.i.i1947:                                  ; preds = %ra_scratch.exit.i1938
-  %call.i.i1948 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135), !range !17
+  %call.i.i1948 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135)
   br label %ra_alloc1.exit.i1949
 
 ra_alloc1.exit.i1949:                             ; preds = %if.then.i.i1947, %ra_scratch.exit.i1938
@@ -11382,12 +11382,12 @@ if.else14.i.i1833:                                ; preds = %land.lhs.true.i.i19
   br i1 %tobool.not.i.i.i.i1835, label %if.then.i.i.i.i1927, label %if.else.i.i.i.i1836
 
 if.then.i.i.i.i1927:                              ; preds = %if.else14.i.i1833
-  %call.i.i.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %cond.i1831), !range !17
+  %call.i.i.i.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %cond.i1831)
   br label %ra_scratch.exit.i.i1838
 
 if.else.i.i.i.i1836:                              ; preds = %if.else14.i.i1833
   %1615 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.i1834)
-  %1616 = call i32 @llvm.ctlz.i32(i32 %1615, i1 true), !range !22
+  %1616 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1615, i1 true)
   %xor2.i.i.i.i1837 = xor i32 %1616, 7
   br label %ra_scratch.exit.i.i1838
 
@@ -11533,7 +11533,7 @@ ra_dest.exit.i1852:                               ; preds = %ra_dest.exit.i1852.
   br i1 %tobool.not.i114.i, label %ra_alloc1.exit123.i, label %if.then.i115.i
 
 if.then.i115.i:                                   ; preds = %ra_dest.exit.i1852
-  %call.i116.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135), !range !17
+  %call.i116.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135)
   br label %ra_alloc1.exit123.i
 
 ra_alloc1.exit123.i:                              ; preds = %if.then.i115.i, %ra_dest.exit.i1852
@@ -11894,7 +11894,7 @@ if.end102.i:                                      ; preds = %if.else96.i
   br i1 %tobool.not.i300.i, label %ra_alloc1.exit309.i, label %if.then.i301.i
 
 if.then.i301.i:                                   ; preds = %if.end102.i
-  %call.i302.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135), !range !17
+  %call.i302.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef 32768, i32 noundef 49135)
   br label %ra_alloc1.exit309.i
 
 ra_alloc1.exit309.i:                              ; preds = %if.then.i301.i, %if.end102.i
@@ -12276,13 +12276,13 @@ if.else163.i:                                     ; preds = %if.else146.i
   br i1 %tobool.not.i.i517.i, label %if.then.i.i524.i, label %if.else.i.i518.i
 
 if.then.i.i524.i:                                 ; preds = %if.else163.i
-  %call.i.i525.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and165.i), !range !17
+  %call.i.i525.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and165.i)
   %.pre.i1857 = load ptr, ptr %mcp, align 16
   br label %ra_scratch.exit526.i
 
 if.else.i.i518.i:                                 ; preds = %if.else163.i
   %1693 = call i32 @llvm.bswap.i32(i32 %and.i.i516.i)
-  %1694 = call i32 @llvm.ctlz.i32(i32 %1693, i1 true), !range !22
+  %1694 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1693, i1 true)
   %xor2.i.i519.i = xor i32 %1694, 7
   br label %ra_scratch.exit526.i
 
@@ -12451,7 +12451,7 @@ if.then5.i.i:                                     ; preds = %if.end.i300.i
 
 if.then.i.i324.i:                                 ; preds = %if.then5.i.i
   %conv6.i.i = zext i16 %1709 to i32
-  %call.i.i325.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv6.i.i, i32 noundef -65536), !range !17
+  %call.i.i325.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv6.i.i, i32 noundef -65536)
   br label %ra_alloc1.exit.i326.i
 
 ra_alloc1.exit.i326.i:                            ; preds = %if.then.i.i324.i, %if.then5.i.i
@@ -12907,7 +12907,7 @@ if.else32.i.i:                                    ; preds = %if.else.i304.i
   br i1 %tobool.not.i54.i.i, label %ra_alloc1.exit62.i.i, label %if.then.i55.i.i
 
 if.then.i55.i.i:                                  ; preds = %if.else32.i.i
-  %call.i56.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv9.i.i, i32 noundef 49135), !range !17
+  %call.i56.i.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv9.i.i, i32 noundef 49135)
   br label %ra_alloc1.exit62.i.i
 
 ra_alloc1.exit62.i.i:                             ; preds = %if.then.i55.i.i, %if.else32.i.i
@@ -13737,7 +13737,7 @@ if.else41.i.i:                                    ; preds = %if.then.i359.i
 
 if.then.i.i366.i:                                 ; preds = %if.else41.i.i
   %conv5.i.i = zext i16 %1897 to i32
-  %call.i.i367.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv5.i.i, i32 noundef 45096), !range !17
+  %call.i.i367.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv5.i.i, i32 noundef 45096)
   br label %ra_alloc1.exit.i368.i
 
 ra_alloc1.exit.i368.i:                            ; preds = %if.then.i.i366.i, %if.else41.i.i
@@ -14047,7 +14047,7 @@ if.then510.i.i1257:                               ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i1262, label %if.then517.i.i1266, label %ra_evict.exit.i1263
 
 if.then517.i.i1266:                               ; preds = %if.then510.i.i1257
-  %1989 = call i32 @llvm.cttz.i32(i32 %and508.i.i1255, i1 true), !range !22
+  %1989 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i1255, i1 true)
   %idxprom521.i.i1267 = zext nneg i32 %1989 to i64
   %arrayidx522.i.i1268 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i1267
   %1990 = load i32, ptr %arrayidx522.i.i1268, align 4
@@ -14056,12 +14056,12 @@ if.then517.i.i1266:                               ; preds = %if.then510.i.i1257
 
 ra_evict.exit.i1263:                              ; preds = %if.then517.i.i1266, %if.then510.i.i1257, %land.lhs.true507.i.i1253, %if.then.i.i.i.i1247
   %ref.0.i.i1264 = phi i32 [ %conv504.i.i1251, %if.then.i.i.i.i1247 ], [ %conv504.i.i1251, %if.then510.i.i1257 ], [ %conv524.i.i1269, %if.then517.i.i1266 ], [ %conv504.i.i1251, %land.lhs.true507.i.i1253 ]
-  %call.i.i1265 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i1264), !range !17
+  %call.i.i1265 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i1264)
   br label %ra_scratch.exit.i.i1125
 
 if.else.i.i.i.i1123:                              ; preds = %if.else14.i.i1120
   %1991 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i1121)
-  %1992 = call i32 @llvm.ctlz.i32(i32 %1991, i1 true), !range !22
+  %1992 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1991, i1 true)
   %xor2.i.i.i.i1124 = xor i32 %1992, 7
   br label %ra_scratch.exit.i.i1125
 
@@ -14216,12 +14216,12 @@ sw.bb.i1179:                                      ; preds = %ra_dest.exit.i1140
   br i1 %tobool.not.i.i.i1184, label %if.then.i.i.i1245, label %if.else.i.i.i1185
 
 if.then.i.i.i1245:                                ; preds = %sw.bb.i1179
-  %call.i.i.i1246 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i1182), !range !17
+  %call.i.i.i1246 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i1182)
   br label %ra_scratch.exit.i1187
 
 if.else.i.i.i1185:                                ; preds = %sw.bb.i1179
   %2004 = call i32 @llvm.bswap.i32(i32 %and.i.i.i1183)
-  %2005 = call i32 @llvm.ctlz.i32(i32 %2004, i1 true), !range !22
+  %2005 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2004, i1 true)
   %xor2.i.i.i1186 = xor i32 %2005, 7
   br label %ra_scratch.exit.i1187
 
@@ -14527,7 +14527,7 @@ while.body.i1173:                                 ; preds = %land.rhs.i, %while.
   %2023 = load i16, ptr %irp.0.i, align 8
   %idxprom30.i = zext i16 %2023 to i64
   %arrayidx31.i = getelementptr inbounds %union.IRIns, ptr %2016, i64 %idxprom30.i
-  br label %while.cond.i, !llvm.loop !33
+  br label %while.cond.i, !llvm.loop !29
 
 while.end.i1174:                                  ; preds = %land.rhs.i
   %2024 = load i16, ptr %irp.0.i, align 8
@@ -14536,7 +14536,7 @@ while.end.i1174:                                  ; preds = %land.rhs.i
 
 if.then36.i:                                      ; preds = %while.end.i1174
   %conv38.i = zext i16 %2017 to i32
-  %call39.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv38.i, i32 noundef 49135), !range !17
+  %call39.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv38.i, i32 noundef 49135)
   %shl40.i = shl nuw i32 1, %call39.i
   %2025 = load i32, ptr %weakset.i.i, align 16
   %or.i1176 = or i32 %2025, %shl40.i
@@ -14553,12 +14553,12 @@ sw.bb42.i1142:                                    ; preds = %ra_dest.exit.i1140
   br i1 %tobool.not.i.i.i105.i, label %if.then.i.i.i142.i, label %if.else.i.i.i106.i
 
 if.then.i.i.i142.i:                               ; preds = %sw.bb42.i1142
-  %call.i.i.i143.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i103.i), !range !17
+  %call.i.i.i143.i = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i103.i)
   br label %ra_scratch.exit.i108.i
 
 if.else.i.i.i106.i:                               ; preds = %sw.bb42.i1142
   %2027 = call i32 @llvm.bswap.i32(i32 %and.i.i.i104.i)
-  %2028 = call i32 @llvm.ctlz.i32(i32 %2027, i1 true), !range !22
+  %2028 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2027, i1 true)
   %xor2.i.i.i107.i = xor i32 %2028, 7
   br label %ra_scratch.exit.i108.i
 
@@ -15059,7 +15059,7 @@ sw.bb69.i:                                        ; preds = %checkmclim.exit188
 
 if.then.i.i986:                                   ; preds = %sw.bb69.i
   %conv.i987 = zext i16 %ir.val.i to i32
-  %call.i.i988 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv.i987, i32 noundef 49135), !range !17
+  %call.i.i988 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv.i987, i32 noundef 49135)
   br label %ra_alloc1.exit.i989
 
 ra_alloc1.exit.i989:                              ; preds = %if.then.i.i986, %sw.bb69.i
@@ -15077,12 +15077,12 @@ ra_alloc1.exit.i989:                              ; preds = %if.then.i.i986, %sw
   br i1 %tobool.not.i.i.i999, label %if.then.i.i.i1043, label %if.else.i.i.i1000
 
 if.then.i.i.i1043:                                ; preds = %ra_alloc1.exit.i989
-  %call.i.i.i1044 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i996), !range !17
+  %call.i.i.i1044 = call fastcc i32 @ra_evict(ptr noundef nonnull %as_, i32 noundef %and.i996)
   br label %ra_scratch.exit.i1002
 
 if.else.i.i.i1000:                                ; preds = %ra_alloc1.exit.i989
   %2077 = call i32 @llvm.bswap.i32(i32 %and.i.i.i998)
-  %2078 = call i32 @llvm.ctlz.i32(i32 %2077, i1 true), !range !22
+  %2078 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2077, i1 true)
   %xor2.i.i.i1001 = xor i32 %2078, 7
   br label %ra_scratch.exit.i1002
 
@@ -15360,7 +15360,7 @@ if.then.i.i950:                                   ; preds = %if.else.i947
   %shl.i952 = shl nuw i32 1, %conv5.i
   %not.i953 = and i32 %shl.i952, 4039
   %and.i954 = xor i32 %not.i953, 4039
-  %call.i.i955 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv7.i951, i32 noundef %and.i954), !range !17
+  %call.i.i955 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv7.i951, i32 noundef %and.i954)
   br label %ra_alloc1.exit.i956
 
 ra_alloc1.exit.i956:                              ; preds = %if.then.i.i950, %if.else.i947
@@ -15586,7 +15586,7 @@ if.then510.i.i:                                   ; preds = %land.lhs.true507.i.
   br i1 %tobool516.not.i.i, label %if.then517.i.i, label %ra_evict.exit.i
 
 if.then517.i.i:                                   ; preds = %if.then510.i.i
-  %2139 = call i32 @llvm.cttz.i32(i32 %and508.i.i, i1 true), !range !22
+  %2139 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i.i, i1 true)
   %idxprom521.i.i = zext nneg i32 %2139 to i64
   %arrayidx522.i.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i.i
   %2140 = load i32, ptr %arrayidx522.i.i, align 4
@@ -15595,12 +15595,12 @@ if.then517.i.i:                                   ; preds = %if.then510.i.i
 
 ra_evict.exit.i:                                  ; preds = %if.then517.i.i, %if.then510.i.i, %land.lhs.true507.i.i, %if.then.i.i.i.i918
   %ref.0.i.i = phi i32 [ %conv504.i.i, %if.then.i.i.i.i918 ], [ %conv504.i.i, %if.then510.i.i ], [ %conv524.i.i, %if.then517.i.i ], [ %conv504.i.i, %land.lhs.true507.i.i ]
-  %call.i434.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i), !range !17
+  %call.i434.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i)
   br label %ra_scratch.exit.i.i865
 
 if.else.i.i.i.i863:                               ; preds = %if.else14.i.i
   %2141 = call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi.i)
-  %2142 = call i32 @llvm.ctlz.i32(i32 %2141, i1 true), !range !22
+  %2142 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2141, i1 true)
   %xor2.i.i.i.i864 = xor i32 %2142, 7
   br label %ra_scratch.exit.i.i865
 
@@ -15740,7 +15740,7 @@ ra_dest.exit.i:                                   ; preds = %ra_dest.exit.i.sink
   br i1 %2122, label %if.then25.i915, label %if.else.i873
 
 if.then25.i915:                                   ; preds = %ra_dest.exit.i
-  %call26.i916 = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536), !range !17
+  %call26.i916 = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536)
   %cond.i917 = select i1 %cmp6.i836, i32 1510994684, i32 1510994940
   call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef %cond.i917, i32 noundef %dest.1.i.i, i32 noundef %call26.i916)
   %cmp29.i = icmp eq i32 %call26.i916, %dest.1.i.i
@@ -15765,7 +15765,7 @@ cond.true.i904:                                   ; preds = %if.else.i873, %if.e
   br i1 %tobool.not.i119.i, label %ra_alloc1.exit.i910, label %if.then.i120.i
 
 if.then.i120.i:                                   ; preds = %cond.true.i904
-  %call.i.i909 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135), !range !17
+  %call.i.i909 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
   br label %ra_alloc1.exit.i910
 
 ra_alloc1.exit.i910:                              ; preds = %if.then.i120.i, %cond.true.i904
@@ -15798,7 +15798,7 @@ if.then.i129.i:                                   ; preds = %land.lhs.true.i124.
   br i1 %tobool.not.i.i.i897, label %cond.end.thread.i, label %if.then.i.i.i898
 
 if.then.i.i.i898:                                 ; preds = %if.then.i129.i
-  %call.i.i.i899 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135), !range !17
+  %call.i.i.i899 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
   br label %cond.end.thread.i
 
 cond.end.thread.i:                                ; preds = %if.then.i.i.i898, %if.then.i129.i
@@ -15811,7 +15811,7 @@ cond.end.thread.i:                                ; preds = %if.then.i.i.i898, %
   br label %if.end44.i
 
 if.end.i128.i:                                    ; preds = %land.lhs.true.i124.i, %if.else.i873
-  %call3.i.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135), !range !17
+  %call3.i.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
   br label %cond.end.i878
 
 cond.end.i878:                                    ; preds = %if.end.i128.i, %ra_alloc1.exit.i910
@@ -15916,7 +15916,7 @@ if.then69.i:                                      ; preds = %if.then63.i
   br i1 %tobool.not.i161.i, label %ra_alloc1.exit170.i, label %if.then.i162.i
 
 if.then.i162.i:                                   ; preds = %if.then69.i
-  %call.i163.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536), !range !17
+  %call.i163.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536)
   br label %ra_alloc1.exit170.i
 
 ra_alloc1.exit170.i:                              ; preds = %if.then.i162.i, %if.then69.i
@@ -16006,7 +16006,7 @@ if.then510.i5083:                                 ; preds = %land.lhs.true507.i5
   br i1 %tobool516.not.i5089, label %if.then517.i5092, label %ra_evict.exit5096
 
 if.then517.i5092:                                 ; preds = %if.then510.i5083
-  %2203 = call i32 @llvm.cttz.i32(i32 %and508.i5081, i1 true), !range !22
+  %2203 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i5081, i1 true)
   %idxprom521.i5093 = zext nneg i32 %2203 to i64
   %arrayidx522.i5094 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i5093
   %2204 = load i32, ptr %arrayidx522.i5094, align 4
@@ -16015,12 +16015,12 @@ if.then517.i5092:                                 ; preds = %if.then510.i5083
 
 ra_evict.exit5096:                                ; preds = %if.then.i.i.i197.i, %land.lhs.true507.i5079, %if.then510.i5083, %if.then517.i5092
   %ref.0.i5090 = phi i32 [ %conv504.i5077, %if.then.i.i.i197.i ], [ %conv504.i5077, %if.then510.i5083 ], [ %conv524.i5095, %if.then517.i5092 ], [ %conv504.i5077, %land.lhs.true507.i5079 ]
-  %call.i5091 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i5090), !range !17
+  %call.i5091 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i5090)
   br label %ra_scratch.exit.i182.i
 
 if.else.i.i.i180.i:                               ; preds = %if.else14.i177.i
   %2205 = call i32 @llvm.bswap.i32(i32 %and.i.i.i178.pre-phi.i)
-  %2206 = call i32 @llvm.ctlz.i32(i32 %2205, i1 true), !range !22
+  %2206 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2205, i1 true)
   %xor2.i.i.i181.i = xor i32 %2206, 7
   br label %ra_scratch.exit.i182.i
 
@@ -16175,7 +16175,7 @@ if.then91.i:                                      ; preds = %ra_dest.exit207.i
   br i1 %tobool96.not.i, label %cond.false99.i, label %ra_alloc1.exit4970
 
 ra_alloc1.exit4970:                               ; preds = %if.then91.i
-  %call.i4963 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536), !range !17
+  %call.i4963 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536)
   %shl.i4966 = shl nuw i32 1, %call.i4963
   %not.i4967 = xor i32 %shl.i4966, -1
   %2220 = load i32, ptr %weakset.i.i, align 16
@@ -16214,7 +16214,7 @@ if.then510.i4942:                                 ; preds = %land.lhs.true507.i4
   br i1 %tobool516.not.i4948, label %if.then517.i4951, label %ra_evict.exit4955
 
 if.then517.i4951:                                 ; preds = %if.then510.i4942
-  %2228 = call i32 @llvm.cttz.i32(i32 %and508.i4940, i1 true), !range !22
+  %2228 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i4940, i1 true)
   %idxprom521.i4952 = zext nneg i32 %2228 to i64
   %arrayidx522.i4953 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i4952
   %2229 = load i32, ptr %arrayidx522.i4953, align 4
@@ -16223,12 +16223,12 @@ if.then517.i4951:                                 ; preds = %if.then510.i4942
 
 ra_evict.exit4955:                                ; preds = %if.then.i.i212.i, %land.lhs.true507.i4938, %if.then510.i4942, %if.then517.i4951
   %ref.0.i4949 = phi i32 [ %conv504.i4936, %if.then.i.i212.i ], [ %conv504.i4936, %if.then510.i4942 ], [ %conv524.i4954, %if.then517.i4951 ], [ %conv504.i4936, %land.lhs.true507.i4938 ]
-  %call.i4950 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i4949), !range !17
+  %call.i4950 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i4949)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i854:                                 ; preds = %cond.false99.i
   %2230 = call i32 @llvm.bswap.i32(i32 %and.i.i.i853)
-  %2231 = call i32 @llvm.ctlz.i32(i32 %2230, i1 true), !range !22
+  %2231 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2230, i1 true)
   %xor2.i.i.i = xor i32 %2231, 7
   br label %ra_scratch.exit.i
 
@@ -16348,7 +16348,7 @@ if.end126.i:                                      ; preds = %emit_rr.exit318.i, 
   %2244 = select i1 %cmp138.i, i32 524800, i32 0
   %cond142.i = select i1 %tobool132.not.i, i32 %2244, i32 524800
   %or143.i = or disjoint i32 %cond142.i, %dest.1.i192.i
-  %call144.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536), !range !17
+  %call144.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef -65536)
   call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef %cond76.i, i32 noundef %or143.i, i32 noundef %call144.i)
   br label %for.inc
 
@@ -16434,7 +16434,7 @@ if.then510.i4917:                                 ; preds = %land.lhs.true507.i4
   br i1 %tobool516.not.i4923, label %if.then517.i4926, label %ra_evict.exit4930
 
 if.then517.i4926:                                 ; preds = %if.then510.i4917
-  %2273 = call i32 @llvm.cttz.i32(i32 %and508.i4915, i1 true), !range !22
+  %2273 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i4915, i1 true)
   %idxprom521.i4927 = zext nneg i32 %2273 to i64
   %arrayidx522.i4928 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i4927
   %2274 = load i32, ptr %arrayidx522.i4928, align 4
@@ -16443,12 +16443,12 @@ if.then517.i4926:                                 ; preds = %if.then510.i4917
 
 ra_evict.exit4930:                                ; preds = %if.then.i.i.i345.i, %land.lhs.true507.i4913, %if.then510.i4917, %if.then517.i4926
   %ref.0.i4924 = phi i32 [ %conv504.i4911, %if.then.i.i.i345.i ], [ %conv504.i4911, %if.then510.i4917 ], [ %conv524.i4929, %if.then517.i4926 ], [ %conv504.i4911, %land.lhs.true507.i4913 ]
-  %call.i4925 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i4924), !range !17
+  %call.i4925 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i4924)
   br label %ra_scratch.exit.i330.i
 
 if.else.i.i.i328.i:                               ; preds = %if.else14.i325.i
   %2275 = call i32 @llvm.bswap.i32(i32 %and.i.i.i326.pre-phi.i)
-  %2276 = call i32 @llvm.ctlz.i32(i32 %2275, i1 true), !range !22
+  %2276 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2275, i1 true)
   %xor2.i.i.i329.i = xor i32 %2276, 7
   br label %ra_scratch.exit.i330.i
 
@@ -16605,7 +16605,7 @@ if.else170.i:                                     ; preds = %ra_dest.exit355.i
 if.end173.i:                                      ; preds = %if.else170.i, %if.then164.i844, %if.then159.i845, %ra_dest.exit355.i
   %op156.0.i = phi i32 [ -1106312963, %if.then159.i845 ], [ -1240530691, %if.then164.i844 ], [ -1223753475, %if.else170.i ], [ -1089535747, %ra_dest.exit355.i ]
   %dest154.0.i = phi i32 [ %or160.i, %if.then159.i845 ], [ %or165.i, %if.then164.i844 ], [ %dest.1.i340.i, %if.else170.i ], [ %dest.1.i340.i, %ra_dest.exit355.i ]
-  %call174.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135), !range !17
+  %call174.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
   call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef %op156.0.i, i32 noundef %dest154.0.i, i32 noundef %call174.i)
   br label %for.inc
 
@@ -16692,7 +16692,7 @@ if.then510.i4791:                                 ; preds = %land.lhs.true507.i4
   br i1 %tobool516.not.i4797, label %if.then517.i4800, label %ra_evict.exit4804
 
 if.then517.i4800:                                 ; preds = %if.then510.i4791
-  %2313 = call i32 @llvm.cttz.i32(i32 %and508.i4789, i1 true), !range !22
+  %2313 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i4789, i1 true)
   %idxprom521.i4801 = zext nneg i32 %2313 to i64
   %arrayidx522.i4802 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i4801
   %2314 = load i32, ptr %arrayidx522.i4802, align 4
@@ -16701,12 +16701,12 @@ if.then517.i4800:                                 ; preds = %if.then510.i4791
 
 ra_evict.exit4804:                                ; preds = %if.then.i.i.i382.i, %land.lhs.true507.i4787, %if.then510.i4791, %if.then517.i4800
   %ref.0.i4798 = phi i32 [ %conv504.i4785, %if.then.i.i.i382.i ], [ %conv504.i4785, %if.then510.i4791 ], [ %conv524.i4803, %if.then517.i4800 ], [ %conv504.i4785, %land.lhs.true507.i4787 ]
-  %call.i4799 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i4798), !range !17
+  %call.i4799 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i4798)
   br label %ra_scratch.exit.i367.i
 
 if.else.i.i.i365.i:                               ; preds = %if.else14.i362.i
   %2315 = call i32 @llvm.bswap.i32(i32 %and.i.i.i363.pre-phi.i)
-  %2316 = call i32 @llvm.ctlz.i32(i32 %2315, i1 true), !range !22
+  %2316 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2315, i1 true)
   %xor2.i.i.i366.i = xor i32 %2316, 7
   br label %ra_scratch.exit.i367.i
 
@@ -16860,7 +16860,7 @@ if.then192.i:                                     ; preds = %lor.lhs.false187.i,
   br label %for.inc
 
 if.else193.i:                                     ; preds = %lor.lhs.false187.i
-  %call195.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135), !range !17
+  %call195.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
   %or196.i = or disjoint i32 %dest.1.i377.i, 524800
   call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef 1660944638, i32 noundef %or196.i, i32 noundef %call195.i)
   br label %for.inc
@@ -16938,7 +16938,7 @@ if.then510.i:                                     ; preds = %land.lhs.true507.i
   br i1 %tobool516.not.i, label %if.then517.i, label %ra_evict.exit
 
 if.then517.i:                                     ; preds = %if.then510.i
-  %2353 = call i32 @llvm.cttz.i32(i32 %and508.i, i1 true), !range !22
+  %2353 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i, i1 true)
   %idxprom521.i = zext nneg i32 %2353 to i64
   %arrayidx522.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom521.i
   %2354 = load i32, ptr %arrayidx522.i, align 4
@@ -16947,12 +16947,12 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i419.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i419.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i4678 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i), !range !17
+  %call.i4678 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i404.i
 
 if.else.i.i.i402.i:                               ; preds = %if.else14.i399.i
   %2355 = call i32 @llvm.bswap.i32(i32 %and.i.i.i400.pre-phi.i)
-  %2356 = call i32 @llvm.ctlz.i32(i32 %2355, i1 true), !range !22
+  %2356 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2355, i1 true)
   %xor2.i.i.i403.i = xor i32 %2356, 7
   br label %ra_scratch.exit.i404.i
 
@@ -17102,7 +17102,7 @@ land.lhs.true202.i:                               ; preds = %ra_dest.exit429.i, 
   br i1 %tobool206.not.i, label %if.then207.i, label %if.else210.i
 
 if.then207.i:                                     ; preds = %land.lhs.true202.i
-  %call209.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135), !range !17
+  %call209.i = call fastcc i32 @asm_fuseload(ptr noundef nonnull %as_, i32 noundef %conv13.i, i32 noundef 49135)
   call fastcc void @emit_mrm(ptr noundef nonnull %as_, i32 noundef -1962934018, i32 noundef %dest.1.i414.i, i32 noundef %call209.i)
   br label %for.inc
 
@@ -17554,7 +17554,7 @@ if.then11.i:                                      ; preds = %asm_callx_func.exit
   br i1 %tobool.not.i30.i, label %ra_alloc1.exit.i, label %if.then.i31.i
 
 if.then.i31.i:                                    ; preds = %if.then11.i
-  %call.i.i734 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %func.0.i, i32 noundef 45096), !range !17
+  %call.i.i734 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %func.0.i, i32 noundef 45096)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i31.i, %if.then11.i
@@ -17606,7 +17606,7 @@ for.inc:                                          ; preds = %asm_callx.exit, %as
   store i32 %storemerge, ptr %curins, align 8
   %2445 = load i32, ptr %stopins.i, align 4
   %cmp57 = icmp ugt i32 %storemerge, %2445
-  br i1 %cmp57, label %for.body, label %for.end, !llvm.loop !34
+  br i1 %cmp57, label %for.body, label %for.end, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %if.end52
   %2446 = load ptr, ptr %realign, align 16
@@ -17659,7 +17659,7 @@ if.end106:                                        ; preds = %if.then99, %checkmc
 
 while.body.i:                                     ; preds = %if.end106, %if.end.i
   %work.025.i = phi i32 [ %and6.i, %if.end.i ], [ %and.i377, %if.end106 ]
-  %2458 = call i32 @llvm.cttz.i32(i32 %work.025.i, i1 true), !range !22
+  %2458 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.025.i, i1 true)
   %idxprom.i378 = zext nneg i32 %2458 to i64
   %arrayidx.i379 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom.i378
   %2459 = load i32, ptr %arrayidx.i379, align 4
@@ -17668,7 +17668,7 @@ while.body.i:                                     ; preds = %if.end106, %if.end.
   br i1 %cmp3.i380, label %if.then.i388, label %if.end.i
 
 if.then.i388:                                     ; preds = %while.body.i
-  %call.i389 = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv1.i), !range !17
+  %call.i389 = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv1.i)
   %2460 = load ptr, ptr %mcp, align 16
   %2461 = load ptr, ptr %mclim, align 8
   %cmp.i35.i = icmp ult ptr %2460, %2461
@@ -17683,7 +17683,7 @@ if.end.i:                                         ; preds = %if.then.i388, %whil
   %not5.i = xor i32 %shl.i, -1
   %and6.i = and i32 %work.025.i, %not5.i
   %tobool.not.i381 = icmp eq i32 %and6.i, 0
-  br i1 %tobool.not.i381, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !35
+  br i1 %tobool.not.i381, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !31
 
 while.end.loopexit.i:                             ; preds = %if.end.i
   %.pre.i382 = load i32, ptr %freeset.i.i, align 8
@@ -17698,7 +17698,7 @@ while.end.i383:                                   ; preds = %while.end.loopexit.
 
 while.body12.i:                                   ; preds = %while.end.i383, %if.end27.i
   %work.127.i = phi i32 [ %and30.i, %if.end27.i ], [ %and9.i, %while.end.i383 ]
-  %2463 = call i32 @llvm.cttz.i32(i32 %work.127.i, i1 true), !range !22
+  %2463 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.127.i, i1 true)
   %idxprom16.i = zext nneg i32 %2463 to i64
   %arrayidx17.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom16.i
   %2464 = load i32, ptr %arrayidx17.i, align 4
@@ -17707,7 +17707,7 @@ while.body12.i:                                   ; preds = %while.end.i383, %if
   br i1 %cmp23.i, label %if.then25.i, label %if.end27.i
 
 if.then25.i:                                      ; preds = %while.body12.i
-  %call26.i = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv19.i), !range !17
+  %call26.i = call fastcc i32 @ra_rematk(ptr noundef nonnull %as_, i32 noundef %conv19.i)
   %2465 = load ptr, ptr %mcp, align 16
   %2466 = load ptr, ptr %mclim, align 8
   %cmp.i.i386 = icmp ult ptr %2465, %2466
@@ -17722,7 +17722,7 @@ if.end27.i:                                       ; preds = %if.then25.i, %while
   %not29.i = xor i32 %shl28.i, -1
   %and30.i = and i32 %work.127.i, %not29.i
   %tobool11.not.i = icmp eq i32 %and30.i, 0
-  br i1 %tobool11.not.i, label %ra_evictk.exit, label %while.body12.i, !llvm.loop !36
+  br i1 %tobool11.not.i, label %ra_evictk.exit, label %while.body12.i, !llvm.loop !32
 
 ra_evictk.exit:                                   ; preds = %if.end27.i, %while.end.i383
   %2467 = load ptr, ptr %parent29, align 8
@@ -17780,7 +17780,7 @@ if.then.i152.i:                                   ; preds = %for.body.i.i508
 for.inc.i.i513:                                   ; preds = %if.then.i152.i, %for.body.i.i508
   %indvars.iv.next.i.i514 = add nuw nsw i64 %indvars.iv.i.i509, 1
   %exitcond.not.i.i515 = icmp eq i64 %indvars.iv.next.i.i514, %wide.trip.count.i.i507
-  br i1 %exitcond.not.i.i515, label %if.end.i399, label %for.body.i.i508, !llvm.loop !20
+  br i1 %exitcond.not.i.i515, label %if.end.i399, label %for.body.i.i508, !llvm.loop !19
 
 if.end.i399:                                      ; preds = %for.inc.i.i513, %if.then.i497, %land.lhs.true.i395, %if.then109
   %2478 = load ptr, ptr %ir37, align 16
@@ -18085,7 +18085,7 @@ if.end80.i:                                       ; preds = %if.then72.i472, %lo
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %cmp11.i = icmp ugt i32 %indvars.i, 32768
-  br i1 %cmp11.i, label %for.body.i464, label %for.end.loopexit.i, !llvm.loop !37
+  br i1 %cmp11.i, label %for.body.i464, label %for.end.loopexit.i, !llvm.loop !33
 
 for.end.loopexit.i:                               ; preds = %if.end80.i
   %2511 = icmp eq i32 %pass2.1.i, 0
@@ -18183,7 +18183,7 @@ if.then164.i:                                     ; preds = %if.end148.i
 
 if.end165.i:                                      ; preds = %if.end148.i
   %2528 = trunc nuw i64 %indvars.iv273.i to i32
-  %call166.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %2528, i32 noundef %and161.i), !range !17
+  %call166.i = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %2528, i32 noundef %and161.i)
   %arrayidx113.val.i = load i8, ptr %t114.i, align 4
   %2529 = getelementptr i8, ptr %arrayidx113.i, i64 7
   %arrayidx113.val151.i = load i8, ptr %2529, align 1
@@ -18333,7 +18333,7 @@ for.inc187.i:                                     ; preds = %if.end185.i, %if.el
   %indvars.iv.next274.i = add nsw i64 %indvars.iv273.i, -1
   %indvars276.i = trunc i64 %indvars.iv.next274.i to i32
   %cmp107.i = icmp ugt i32 %indvars276.i, 32768
-  br i1 %cmp107.i, label %for.body109.i, label %if.end190.i, !llvm.loop !38
+  br i1 %cmp107.i, label %for.body109.i, label %if.end190.i, !llvm.loop !34
 
 if.end190.i:                                      ; preds = %for.inc187.i, %if.then104.i, %for.end.i408
   %pass3.5.i = phi i32 [ %pass3.0.lcssa.i, %for.end.i408 ], [ %pass3.0.lcssa.i, %if.then104.i ], [ %pass3.4.i, %for.inc187.i ]
@@ -18397,7 +18397,7 @@ if.then199.i:                                     ; preds = %emit_addptr.exit.i4
 
 while.body.i425:                                  ; preds = %if.then199.i, %if.end230.i
   %work.0267.i = phi i32 [ %and217.i, %if.end230.i ], [ %and202.i, %if.then199.i ]
-  %2547 = call i32 @llvm.cttz.i32(i32 %work.0267.i, i1 true), !range !22
+  %2547 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.0267.i, i1 true)
   %idxprom205.i = zext nneg i32 %2547 to i64
   %arrayidx206.i = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom205.i
   %2548 = load i32, ptr %arrayidx206.i, align 4
@@ -18543,7 +18543,7 @@ if.then.i331.i:                                   ; preds = %emit_loadofs.exit.i
 
 if.end230.i:                                      ; preds = %emit_loadofs.exit.i, %while.body.i425
   %tobool203.not.i = icmp eq i32 %and217.i, 0
-  br i1 %tobool203.not.i, label %while.cond234.i.preheader, label %while.body.i425, !llvm.loop !39
+  br i1 %tobool203.not.i, label %while.cond234.i.preheader, label %while.body.i425, !llvm.loop !35
 
 while.cond234.i.preheader:                        ; preds = %if.end230.i, %emit_addptr.exit.i423, %if.then199.i
   br label %while.cond234.i.outer
@@ -18556,7 +18556,7 @@ while.cond234.i.outer:                            ; preds = %while.cond234.i.pre
   %tobool265.not.i = icmp eq i32 %and264.i, 0
   %and269.i = xor i32 %and264.i, 49135
   %and270.i = and i32 %and269.i, %allow.7.i.ph
-  %2563 = call i32 @llvm.cttz.i32(i32 %and264.i, i1 true), !range !22
+  %2563 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and264.i, i1 true)
   %idxprom.i4350 = zext nneg i32 %2563 to i64
   %arrayidx.i4351 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom.i4350
   %shl.i4360 = shl nuw nsw i32 1, %2563
@@ -18565,7 +18565,7 @@ while.cond234.i.outer:                            ; preds = %while.cond234.i.pre
   %and279.i = and i32 %live.7.i.ph, -65536
   %tobool280.not.i = icmp eq i32 %and279.i, 0
   %and285.i = xor i32 %and279.i, -65536
-  %2564 = call i32 @llvm.cttz.i32(i32 %and279.i, i1 true), !range !29
+  %2564 = call range(i32 16, 33) i32 @llvm.cttz.i32(i32 %and279.i, i1 true)
   %idxprom.i4264 = zext nneg i32 %2564 to i64
   %arrayidx.i4265 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom.i4264
   %shl.i4271 = shl nuw i32 1, %2564
@@ -18582,7 +18582,7 @@ while.cond234.i:                                  ; preds = %while.cond234.i.out
   br i1 %cmp237.not.i, label %while.end259.i, label %while.body239.i
 
 while.body239.i:                                  ; preds = %while.cond234.i
-  %2566 = call i32 @llvm.cttz.i32(i32 %and236.i, i1 true), !range !22
+  %2566 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and236.i, i1 true)
   %2567 = load ptr, ptr %ir37, align 16
   %idxprom242.i = zext nneg i32 %2566 to i64
   %arrayidx243.i = getelementptr inbounds [32 x i16], ptr %sloadins.i, i64 0, i64 %idxprom242.i
@@ -18672,7 +18672,7 @@ emit_movrr.exit.i:                                ; preds = %if.then46.i.i18.i.i
   store ptr %storemerge231.i, ptr %mcp, align 16
   %2579 = load ptr, ptr %mclim, align 8
   %cmp.i318.i = icmp ult ptr %storemerge231.i, %2579
-  br i1 %cmp.i318.i, label %if.then.i322.i, label %while.cond234.i.outer, !llvm.loop !40
+  br i1 %cmp.i318.i, label %if.then.i322.i, label %while.cond234.i.outer, !llvm.loop !36
 
 if.then.i322.i:                                   ; preds = %emit_movrr.exit.i
   call fastcc void @asm_mclimit(ptr noundef nonnull %as_) #17
@@ -18695,7 +18695,7 @@ if.then274.i:                                     ; preds = %if.then266.i
   unreachable
 
 if.end276.i:                                      ; preds = %if.then266.i
-  %2581 = call i32 @llvm.cttz.i32(i32 %and271.i, i1 true), !range !22
+  %2581 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and271.i, i1 true)
   %2582 = load i32, ptr %arrayidx.i4351, align 4
   %idxprom2.i4352 = zext nneg i32 %2581 to i64
   %arrayidx3.i4353 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom2.i4352
@@ -18810,7 +18810,7 @@ if.then290.i:                                     ; preds = %if.then281.i
   unreachable
 
 if.end292.i:                                      ; preds = %if.then281.i
-  %2604 = call i32 @llvm.cttz.i32(i32 %and287.i, i1 true), !range !29
+  %2604 = call range(i32 16, 33) i32 @llvm.cttz.i32(i32 %and287.i, i1 true)
   %2605 = load i32, ptr %arrayidx.i4265, align 4
   %idxprom2.i = zext nneg i32 %2604 to i64
   %arrayidx3.i4266 = getelementptr inbounds [32 x i32], ptr %as_, i64 0, i64 %idxprom2.i
@@ -19065,7 +19065,7 @@ if.end110:                                        ; preds = %asm_head_root.exit,
 while.body.i574:                                  ; preds = %if.end110, %if.end15.i
   %work.013.i = phi i32 [ %and16.i, %if.end15.i ], [ %2652, %if.end110 ]
   %2653 = call i32 @llvm.bswap.i32(i32 %work.013.i)
-  %2654 = call i32 @llvm.ctlz.i32(i32 %2653, i1 true), !range !22
+  %2654 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2653, i1 true)
   %xor1.i = xor i32 %2654, 7
   %idxprom.i575 = zext nneg i32 %xor1.i to i64
   %arrayidx.i576 = getelementptr inbounds [32 x i16], ptr %phireg.i.i, i64 0, i64 %idxprom.i575
@@ -19120,7 +19120,7 @@ if.end15.i:                                       ; preds = %if.then14.i, %if.th
   %not.i589 = xor i32 %shl.i588, -1
   %and16.i = and i32 %work.013.i, %not.i589
   %tobool.not.i590 = icmp eq i32 %and16.i, 0
-  br i1 %tobool.not.i590, label %asm_phi_fixup.exit, label %while.body.i574, !llvm.loop !41
+  br i1 %tobool.not.i590, label %asm_phi_fixup.exit, label %while.body.i574, !llvm.loop !37
 
 asm_phi_fixup.exit:                               ; preds = %if.end15.i, %if.end110
   %2666 = load ptr, ptr %curfinal, align 8
@@ -19191,7 +19191,7 @@ if.end5.i608:                                     ; preds = %do.body.i606
   %2683 = load i32, ptr %curins, align 8
   %2684 = load i32, ptr %snapref.i, align 4
   %cmp17.i615 = icmp ult i32 %2683, %2684
-  br i1 %cmp17.i615, label %do.body.i606, label %do.end.i616, !llvm.loop !19
+  br i1 %cmp17.i615, label %do.body.i606, label %do.end.i616, !llvm.loop !18
 
 do.end.i616:                                      ; preds = %if.end5.i608
   store i32 1, ptr %snapalloc.i, align 4
@@ -19375,7 +19375,7 @@ for.body.i654:                                    ; preds = %for.body.i654, %for
   %2712 = and i64 %indvars.iv.next.i658, 4294967295
   %cmp.not.i659 = icmp eq i64 %2712, 0
   %2713 = trunc nuw i64 %indvars.iv.i655 to i32
-  br i1 %cmp.not.i659, label %asm_snap_fixup_mcofs.exit, label %for.body.i654, !llvm.loop !42
+  br i1 %cmp.not.i659, label %asm_snap_fixup_mcofs.exit, label %for.body.i654, !llvm.loop !38
 
 asm_snap_fixup_mcofs.exit:                        ; preds = %for.body.i654, %if.end163
   %mcofs13.i = getelementptr inbounds i8, ptr %2708, i64 6
@@ -19457,7 +19457,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %asm_snap_alloc.exit.loopexit, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %asm_snap_alloc.exit.loopexit, label %for.body.i, !llvm.loop !19
 
 asm_snap_alloc.exit.loopexit:                     ; preds = %for.inc.i
   %.pre = load ptr, ptr %T.i, align 8
@@ -19580,7 +19580,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %nins4 = getelementptr inbounds i8, ptr %29, i64 12
   %31 = load i32, ptr %nins4, align 4
   %cmp = icmp ult i32 %inc, %31
-  br i1 %cmp, label %for.body, label %if.end11, !llvm.loop !21
+  br i1 %cmp, label %for.body, label %if.end11, !llvm.loop !20
 
 if.end11:                                         ; preds = %for.inc, %for.cond.preheader, %asm_snap_alloc.exit
   ret void
@@ -19863,7 +19863,7 @@ declare hidden ptr @lj_snap_regspmap(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ra_allocref(ptr nocapture noundef %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_allocref(ptr nocapture noundef %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -19903,7 +19903,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp18, label %if.then20, label %if.end27
 
 if.then20:                                        ; preds = %land.lhs.true
-  %call = tail call fastcc i32 @ra_rematk(ptr noundef nonnull %as, i32 noundef %conv17), !range !17
+  %call = tail call fastcc i32 @ra_rematk(ptr noundef nonnull %as, i32 noundef %conv17)
   br label %found
 
 if.end27:                                         ; preds = %if.end, %land.lhs.true, %if.then
@@ -19926,7 +19926,7 @@ if.then34:                                        ; preds = %land.lhs.true30
   %and35 = and i32 %and, %not
   %tobool36.not = icmp eq i32 %and35, 0
   %spec.select = select i1 %tobool36.not, i32 %and, i32 %and35
-  %12 = tail call i32 @llvm.cttz.i32(i32 %spec.select, i1 true), !range !22
+  %12 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select, i1 true)
   br label %found
 
 if.else:                                          ; preds = %land.lhs.true30, %if.end27
@@ -19934,12 +19934,12 @@ if.else:                                          ; preds = %land.lhs.true30, %i
   %tobool43.not = icmp eq i32 %and42, 0
   %spec.select36 = select i1 %tobool43.not, i32 %and, i32 %and42
   %13 = tail call i32 @llvm.bswap.i32(i32 %spec.select36)
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %13, i1 true), !range !22
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %xor48 = xor i32 %14, 7
   br label %found
 
 if.else50:                                        ; preds = %entry
-  %call51 = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %allow), !range !17
+  %call51 = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %allow)
   br label %found
 
 found:                                            ; preds = %if.else50, %if.else, %if.then34, %if.then4, %if.then20
@@ -20654,7 +20654,7 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %conv, %cond.true ], [ 2, %entry ]
   %tobool2.not = icmp eq i32 %allow, 0
-  %1 = tail call i32 @llvm.cttz.i32(i32 %allow, i1 true), !range !22
+  %1 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %allow, i1 true)
   %cond6 = select i1 %tobool2.not, i32 0, i32 %1
   %J = getelementptr inbounds i8, ptr %as, i64 152
   %2 = load ptr, ptr %J, align 8
@@ -20834,7 +20834,7 @@ if.end32:                                         ; preds = %if.then30, %emit_rm
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ra_rematk(ptr nocapture noundef %as, i32 noundef %ref) unnamed_addr #8 {
+define internal fastcc range(i32 0, 256) i32 @ra_rematk(ptr nocapture noundef %as, i32 noundef %ref) unnamed_addr #8 {
 entry:
   %ir1 = getelementptr inbounds i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -20987,7 +20987,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ra_evict(ptr nocapture noundef %as, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr nocapture noundef %as, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %allow, 65536
   br i1 %cmp, label %if.then, label %if.else
@@ -21368,7 +21368,7 @@ if.then510:                                       ; preds = %land.lhs.true507
   br i1 %tobool516.not, label %if.then517, label %if.end526
 
 if.then517:                                       ; preds = %if.then510
-  %34 = tail call i32 @llvm.cttz.i32(i32 %and508, i1 true), !range !22
+  %34 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508, i1 true)
   %idxprom521 = zext nneg i32 %34 to i64
   %arrayidx522 = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom521
   %35 = load i32, ptr %arrayidx522, align 4
@@ -21377,7 +21377,7 @@ if.then517:                                       ; preds = %if.then510
 
 if.end526:                                        ; preds = %if.then510, %if.then517, %land.lhs.true507, %if.end502
   %ref.0 = phi i32 [ %conv504, %if.end502 ], [ %conv504, %if.then510 ], [ %conv524, %if.then517 ], [ %conv504, %land.lhs.true507 ]
-  %call = tail call fastcc i32 @ra_restore(ptr noundef %as, i32 noundef %ref.0), !range !17
+  %call = tail call fastcc i32 @ra_restore(ptr noundef %as, i32 noundef %ref.0)
   ret i32 %call
 }
 
@@ -21520,7 +21520,7 @@ while.body:                                       ; preds = %if.else45, %while.b
   %21 = ptrtoint ptr %20 to i64
   %and46 = and i64 %21, 7
   %tobool47.not = icmp eq i64 %and46, 0
-  br i1 %tobool47.not, label %while.end.loopexit, label %while.body, !llvm.loop !43
+  br i1 %tobool47.not, label %while.end.loopexit, label %while.body, !llvm.loop !39
 
 while.end.loopexit:                               ; preds = %while.body
   %.pre = load i64, ptr %arrayidx, align 8
@@ -21753,13 +21753,13 @@ emit_op.exit:                                     ; preds = %if.else26.i, %if.en
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ra_restore(ptr nocapture noundef %as, i32 noundef %ref) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_restore(ptr nocapture noundef %as, i32 noundef %ref) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %ref, 32769
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @ra_rematk(ptr noundef %as, i32 noundef %ref), !range !17
+  %call = tail call fastcc i32 @ra_rematk(ptr noundef %as, i32 noundef %ref)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -22048,7 +22048,7 @@ if.end24:                                         ; preds = %if.end21, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ra_alloc1(ptr nocapture noundef %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_alloc1(ptr nocapture noundef %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %ir = getelementptr inbounds i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir, align 8
@@ -22061,7 +22061,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow), !range !17
+  %call = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -22234,7 +22234,7 @@ if.then39:                                        ; preds = %if.end.i, %asm_sunk
 for.inc:                                          ; preds = %if.end.i, %if.then.i68, %for.body, %asm_sunk_store.exit, %if.then39
   %incdec.ptr = getelementptr inbounds i8, ptr %irs.098, i64 -8
   %cmp30 = icmp ugt ptr %incdec.ptr, %arrayidx96
-  br i1 %cmp30, label %for.body, label %if.end122, !llvm.loop !44
+  br i1 %cmp30, label %for.body, label %if.end122, !llvm.loop !40
 
 if.else44:                                        ; preds = %if.end
   %o45 = getelementptr inbounds i8, ptr %arrayidx96, i64 5
@@ -22279,7 +22279,7 @@ land.lhs.true70:                                  ; preds = %lor.lhs.false65, %f
 for.inc82:                                        ; preds = %land.lhs.true70, %lor.lhs.false65
   %incdec.ptr83 = getelementptr inbounds i8, ptr %irc.090, i64 -8
   %cmp59 = icmp ugt ptr %incdec.ptr83, %arrayidx96
-  br i1 %cmp59, label %for.body61, label %tailrecurse.backedge, !llvm.loop !45
+  br i1 %cmp59, label %for.body61, label %tailrecurse.backedge, !llvm.loop !41
 
 nosink:                                           ; preds = %if.else44, %land.lhs.true49, %land.lhs.true70
   %t = getelementptr inbounds i8, ptr %arrayidx96, i64 4
@@ -22300,7 +22300,7 @@ lor.lhs.false100:                                 ; preds = %nosink
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %if.else118, label %for.body.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %if.else118, label %for.body.i, !llvm.loop !42
 
 for.body.i:                                       ; preds = %lor.lhs.false100, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 16, %lor.lhs.false100 ]
@@ -22311,7 +22311,7 @@ for.body.i:                                       ; preds = %lor.lhs.false100, %
   br i1 %cmp2.not.not.i, label %if.then106, label %for.cond.i
 
 if.then106:                                       ; preds = %for.body.i, %nosink
-  %call108 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref.tr94, i32 noundef %cond), !range !17
+  %call108 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref.tr94, i32 noundef %cond)
   %33 = load i8, ptr %t, align 4
   %34 = and i8 %33, 64
   %tobool113.not = icmp eq i8 %34, 0
@@ -22384,7 +22384,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %ra_alloc1.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref.0, i32 noundef -65536), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref.0, i32 noundef -65536)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then, %if.then.i
@@ -22637,7 +22637,7 @@ if.end25.sink.split:                              ; preds = %if.end35.i190, %if.
 if.end25:                                         ; preds = %if.end25.sink.split, %asm_guardcc.exit
   %not = and i32 %shl.i, -65536
   %and26 = xor i32 %not, -65536
-  %call27 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %rref.0, i32 noundef %and26), !range !17
+  %call27 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %rref.0, i32 noundef %and26)
   tail call fastcc void @emit_mrm(ptr noundef nonnull %as, i32 noundef 772761340, i32 noundef %r.0.i, i32 noundef %call27)
   br label %if.end411
 
@@ -22758,12 +22758,12 @@ if.then118:                                       ; preds = %lor.lhs.false114
   %op2121 = getelementptr inbounds i8, ptr %arrayidx95, i64 2
   %51 = load i16, ptr %op2121, align 2
   %conv122 = zext i16 %51 to i32
-  %call123 = call fastcc i32 @asm_isk32(ptr noundef nonnull %as, i32 noundef %conv122, ptr noundef nonnull %imm), !range !47
+  %call123 = call fastcc i32 @asm_isk32(ptr noundef nonnull %as, i32 noundef %conv122, ptr noundef nonnull %imm)
   %tobool124.not = icmp eq i32 %call123, 0
   br i1 %tobool124.not, label %if.then125, label %if.else132
 
 if.then125:                                       ; preds = %if.then118
-  %call128 = tail call fastcc i32 @ra_alloc1(ptr noundef nonnull %as, i32 noundef %conv122, i32 noundef 49135), !range !17
+  %call128 = tail call fastcc i32 @ra_alloc1(ptr noundef nonnull %as, i32 noundef %conv122, i32 noundef 49135)
   %shl129 = shl nuw i32 1, %call128
   %not130 = and i32 %shl129, 49135
   %and131 = xor i32 %not130, 49135
@@ -22797,7 +22797,7 @@ if.then185:                                       ; preds = %land.lhs.true171
   store i32 %dec, ptr %curins, align 8
   %59 = load i16, ptr %arrayidx95, align 8
   %conv195 = zext i16 %59 to i32
-  %call196 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %conv195, i32 noundef 49135), !range !17
+  %call196 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %conv195, i32 noundef 49135)
   %60 = load i32, ptr %curins, align 8
   %inc = add i32 %60, 1
   store i32 %inc, ptr %curins, align 8
@@ -22826,7 +22826,7 @@ test_nofuse:                                      ; preds = %if.then125, %if.els
   store i32 %dec209, ptr %curins208, align 8
   %64 = load i16, ptr %arrayidx95, align 8
   %conv211 = zext i16 %64 to i32
-  %call212 = tail call fastcc i32 @asm_fuseloadm(ptr noundef nonnull %as, i32 noundef %conv211, i32 noundef %allow.0, i32 noundef %cond), !range !17
+  %call212 = tail call fastcc i32 @asm_fuseloadm(ptr noundef nonnull %as, i32 noundef %conv211, i32 noundef %allow.0, i32 noundef %cond)
   %65 = load i32, ptr %curins208, align 8
   %inc214 = add i32 %65, 1
   store i32 %inc214, ptr %curins208, align 8
@@ -22894,7 +22894,7 @@ if.then313:                                       ; preds = %land.lhs.true262, %
   %and319 = and i8 %69, -32
   %or320 = or disjoint i8 %and319, 19
   store i8 %or320, ptr %t263, align 4
-  %call324 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135), !range !17
+  %call324 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135)
   store i8 %69, ptr %t263, align 4
   %cmp326 = icmp eq i32 %call324, 32
   br i1 %cmp326, label %if.then328, label %if.end370
@@ -23041,7 +23041,7 @@ if.then.i316:                                     ; preds = %land.lhs.true.i
   br i1 %tobool.not.i.i, label %ra_alloc1.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i316
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135), !range !17
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.then.i316
@@ -23055,7 +23055,7 @@ ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.th
   br label %if.end370
 
 if.end.i314:                                      ; preds = %land.lhs.true.i, %if.else361
-  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135), !range !17
+  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135)
   br label %if.end370
 
 if.end370:                                        ; preds = %if.end.i314, %ra_alloc1.exit.i, %if.then313
@@ -23250,7 +23250,7 @@ if.else401:                                       ; preds = %if.else.i, %if.end8
   br i1 %tobool.not.i397, label %ra_alloc1.exit406, label %if.then.i398
 
 if.then.i398:                                     ; preds = %if.else401
-  %call.i399 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135), !range !17
+  %call.i399 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref29.0, i32 noundef 49135)
   br label %ra_alloc1.exit406
 
 ra_alloc1.exit406:                                ; preds = %if.else401, %if.then.i398
@@ -23286,7 +23286,7 @@ if.then.i420:                                     ; preds = %land.lhs.true.i408
   br i1 %tobool.not.i.i423, label %ra_alloc1.exit.i426, label %if.then.i.i424
 
 if.then.i.i424:                                   ; preds = %if.then.i420
-  %call.i.i425 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %rref32.0, i32 noundef %and407), !range !17
+  %call.i.i425 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %rref32.0, i32 noundef %and407)
   %.pre = load i32, ptr %weakset.i404, align 8
   br label %ra_alloc1.exit.i426
 
@@ -23300,7 +23300,7 @@ ra_alloc1.exit.i426:                              ; preds = %if.then.i.i424, %if
   br label %asm_fuseloadm.exit432
 
 if.end.i417:                                      ; preds = %land.lhs.true.i408, %ra_alloc1.exit406
-  %call3.i418 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %rref32.0, i32 noundef %and407), !range !17
+  %call3.i418 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %rref32.0, i32 noundef %and407)
   br label %asm_fuseloadm.exit432
 
 asm_fuseloadm.exit432:                            ; preds = %ra_alloc1.exit.i426, %if.end.i417
@@ -23503,7 +23503,7 @@ if.then510.i:                                     ; preds = %land.lhs.true507.i
   br i1 %tobool516.not.i, label %if.then517.i, label %ra_evict.exit
 
 if.then517.i:                                     ; preds = %if.then510.i
-  %27 = tail call i32 @llvm.cttz.i32(i32 %and508.i, i1 true), !range !22
+  %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i, i1 true)
   %idxprom521.i = zext nneg i32 %27 to i64
   %arrayidx522.i = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom521.i
   %28 = load i32, ptr %arrayidx522.i, align 4
@@ -23512,12 +23512,12 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i), !range !17
+  %call.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %29 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi)
-  %30 = tail call i32 @llvm.ctlz.i32(i32 %29, i1 true), !range !22
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
   %xor2.i.i.i = xor i32 %30, 7
   br label %ra_scratch.exit.i
 
@@ -23703,12 +23703,12 @@ if.else14.i:                                      ; preds = %if.else.i.if.else14
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else14.i
-  %call.i.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %allow.0), !range !17
+  %call.i.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %allow.0)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %17 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi)
-  %18 = tail call i32 @llvm.ctlz.i32(i32 %17, i1 true), !range !22
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %xor2.i.i.i = xor i32 %18, 7
   br label %ra_scratch.exit.i
 
@@ -23896,7 +23896,7 @@ if.then.i87:                                      ; preds = %land.lhs.true.i79
   br i1 %tobool.not.i.i, label %ra_alloc1.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i87
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %spec.select, i32 noundef %and52), !range !17
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %spec.select, i32 noundef %and52)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.then.i87
@@ -23910,7 +23910,7 @@ ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.th
   br label %if.end58
 
 if.end.i85:                                       ; preds = %land.lhs.true.i79, %asm_swapops.exit
-  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %spec.select, i32 noundef %and52), !range !17
+  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %spec.select, i32 noundef %and52)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end.i85, %ra_alloc1.exit.i, %if.then13.i, %if.then6.i, %ra_dest.exit
@@ -24138,7 +24138,7 @@ if.then.i116:                                     ; preds = %land.lhs.true.i104
   br i1 %tobool.not.i.i119, label %ra_alloc1.exit.i122, label %if.then.i.i120
 
 if.then.i.i120:                                   ; preds = %if.then.i116
-  %call.i.i121 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref.1, i32 noundef 49135), !range !17
+  %call.i.i121 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref.1, i32 noundef 49135)
   br label %ra_alloc1.exit.i122
 
 ra_alloc1.exit.i122:                              ; preds = %if.then.i.i120, %if.then.i116
@@ -24152,7 +24152,7 @@ ra_alloc1.exit.i122:                              ; preds = %if.then.i.i120, %if
   br label %asm_fuseloadm.exit128
 
 if.end.i113:                                      ; preds = %land.lhs.true.i104, %if.else107
-  %call3.i114 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %lref.1, i32 noundef 49135), !range !17
+  %call3.i114 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %lref.1, i32 noundef 49135)
   br label %asm_fuseloadm.exit128
 
 asm_fuseloadm.exit128:                            ; preds = %ra_alloc1.exit.i122, %if.end.i113
@@ -24299,7 +24299,7 @@ if.then510.i:                                     ; preds = %land.lhs.true507.i
   br i1 %tobool516.not.i, label %if.then517.i, label %ra_evict.exit
 
 if.then517.i:                                     ; preds = %if.then510.i
-  %28 = tail call i32 @llvm.cttz.i32(i32 %and508.i, i1 true), !range !22
+  %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i, i1 true)
   %idxprom521.i = zext nneg i32 %28 to i64
   %arrayidx522.i = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom521.i
   %29 = load i32, ptr %arrayidx522.i, align 4
@@ -24308,12 +24308,12 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i292 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i), !range !17
+  %call.i292 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %30 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi)
-  %31 = tail call i32 @llvm.ctlz.i32(i32 %30, i1 true), !range !22
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
   %xor2.i.i.i = xor i32 %31, 7
   br label %ra_scratch.exit.i
 
@@ -24395,7 +24395,7 @@ if.then.i69:                                      ; preds = %land.lhs.true.i67
   br i1 %tobool.not.i.i, label %ra_alloc1.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i69
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv12, i32 noundef 49135), !range !17
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv12, i32 noundef 49135)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.then.i69
@@ -24409,7 +24409,7 @@ ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.th
   br label %asm_fuseloadm.exit
 
 if.end.i68:                                       ; preds = %land.lhs.true.i67, %if.then11
-  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %conv12, i32 noundef 49135), !range !17
+  %call3.i = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %conv12, i32 noundef 49135)
   br label %asm_fuseloadm.exit
 
 asm_fuseloadm.exit:                               ; preds = %ra_alloc1.exit.i, %if.end.i68
@@ -24582,12 +24582,12 @@ if.else14.i104:                                   ; preds = %if.else.i102.if.els
   br i1 %tobool.not.i.i.i106, label %if.then.i.i.i124, label %if.else.i.i.i107
 
 if.then.i.i.i124:                                 ; preds = %if.else14.i104
-  %call.i.i.i125 = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef 49135), !range !17
+  %call.i.i.i125 = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef 49135)
   br label %ra_scratch.exit.i109
 
 if.else.i.i.i107:                                 ; preds = %if.else14.i104
   %66 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i105.pre-phi)
-  %67 = tail call i32 @llvm.ctlz.i32(i32 %66, i1 true), !range !22
+  %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %66, i1 true)
   %xor2.i.i.i108 = xor i32 %67, 7
   br label %ra_scratch.exit.i109
 
@@ -24630,7 +24630,7 @@ ra_dest.exit134:                                  ; preds = %if.end17.i118, %if.
   br i1 %tobool.not.i139, label %ra_alloc1.exit, label %if.then.i140
 
 if.then.i140:                                     ; preds = %ra_dest.exit134
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv, i32 noundef 49135), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv, i32 noundef 49135)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %ra_dest.exit134, %if.then.i140
@@ -24675,7 +24675,7 @@ if.then.i156:                                     ; preds = %land.lhs.true.i144
   br i1 %tobool.not.i.i159, label %ra_alloc1.exit.i162, label %if.then.i.i160
 
 if.then.i.i160:                                   ; preds = %if.then.i156
-  %call.i.i161 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv68, i32 noundef %and69), !range !17
+  %call.i.i161 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv68, i32 noundef %and69)
   %.pre = load i32, ptr %weakset.i, align 8
   br label %ra_alloc1.exit.i162
 
@@ -24689,7 +24689,7 @@ ra_alloc1.exit.i162:                              ; preds = %if.then.i.i160, %if
   br label %asm_fuseloadm.exit168
 
 if.end.i153:                                      ; preds = %land.lhs.true.i144, %ra_alloc1.exit
-  %call3.i154 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %conv68, i32 noundef %and69), !range !17
+  %call3.i154 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %conv68, i32 noundef %and69)
   br label %asm_fuseloadm.exit168
 
 asm_fuseloadm.exit168:                            ; preds = %ra_alloc1.exit.i162, %if.end.i153
@@ -24741,12 +24741,12 @@ if.else14.i175:                                   ; preds = %if.else.i173.if.els
   br i1 %tobool.not.i.i.i177, label %if.then.i.i.i195, label %if.else.i.i.i178
 
 if.then.i.i.i195:                                 ; preds = %if.else14.i175
-  %call.i.i.i196 = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef 49133), !range !17
+  %call.i.i.i196 = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef 49133)
   br label %ra_scratch.exit.i180
 
 if.else.i.i.i178:                                 ; preds = %if.else14.i175
   %88 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i176.pre-phi)
-  %89 = tail call i32 @llvm.ctlz.i32(i32 %88, i1 true), !range !22
+  %89 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %88, i1 true)
   %xor2.i.i.i179 = xor i32 %89, 7
   br label %ra_scratch.exit.i180
 
@@ -24840,7 +24840,7 @@ if.then510.i326:                                  ; preds = %land.lhs.true507.i3
   br i1 %tobool516.not.i332, label %if.then517.i335, label %ra_evict.exit339
 
 if.then517.i335:                                  ; preds = %if.then510.i326
-  %118 = tail call i32 @llvm.cttz.i32(i32 %and508.i324, i1 true), !range !22
+  %118 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i324, i1 true)
   %idxprom521.i336 = zext nneg i32 %118 to i64
   %arrayidx522.i337 = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom521.i336
   %119 = load i32, ptr %arrayidx522.i337, align 4
@@ -24849,12 +24849,12 @@ if.then517.i335:                                  ; preds = %if.then510.i326
 
 ra_evict.exit339:                                 ; preds = %if.then.i.i210, %land.lhs.true507.i322, %if.then510.i326, %if.then517.i335
   %ref.0.i333 = phi i32 [ %conv504.i320, %if.then.i.i210 ], [ %conv504.i320, %if.then510.i326 ], [ %conv524.i338, %if.then517.i335 ], [ %conv504.i320, %land.lhs.true507.i322 ]
-  %call.i334 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i333), !range !17
+  %call.i334 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i333)
   br label %ra_scratch.exit
 
 if.else.i.i:                                      ; preds = %if.then92
   %120 = tail call i32 @llvm.bswap.i32(i32 %and.i.i)
-  %121 = tail call i32 @llvm.ctlz.i32(i32 %120, i1 true), !range !22
+  %121 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %120, i1 true)
   %xor2.i.i = xor i32 %121, 7
   br label %ra_scratch.exit
 
@@ -24913,7 +24913,7 @@ if.end103:                                        ; preds = %emit_rr.exit233, %r
   br i1 %tobool106.not, label %if.else109, label %if.then107
 
 if.then107:                                       ; preds = %if.end103
-  %call108 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv, i32 noundef 2), !range !17
+  %call108 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv, i32 noundef 2)
   br label %if.end115
 
 if.else109:                                       ; preds = %if.end103
@@ -24930,7 +24930,7 @@ if.then.i.i243:                                   ; preds = %if.then112
   %arrayidx19.i342 = getelementptr inbounds i8, ptr %as, i64 4
   %131 = load i32, ptr %arrayidx19.i342, align 4
   %conv504.i344 = and i32 %131, 65535
-  %call.i358 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv504.i344), !range !17
+  %call.i358 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv504.i344)
   br label %ra_scratch.exit245
 
 ra_scratch.exit245:                               ; preds = %if.then112, %if.then.i.i243
@@ -25096,12 +25096,12 @@ if.else14.i:                                      ; preds = %if.else.i.if.else14
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else14.i
-  %call.i.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %allow.0), !range !17
+  %call.i.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %allow.0)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %11 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi)
-  %12 = tail call i32 @llvm.ctlz.i32(i32 %11, i1 true), !range !22
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %xor2.i.i.i = xor i32 %12, 7
   br label %ra_scratch.exit.i
 
@@ -25224,7 +25224,7 @@ asm_swapops.exit:                                 ; preds = %if.end25.i, %if.end
   %shl17 = shl nuw i32 1, %dest.1.i
   %not18 = xor i32 %shl17, -1
   %and19 = and i32 %allow.0, %not18
-  %call20 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %34, i32 noundef %and19), !range !17
+  %call20 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %34, i32 noundef %and19)
   br label %if.end22
 
 if.end22:                                         ; preds = %ra_dest.exit, %.thread41
@@ -25326,7 +25326,7 @@ if.then510.i:                                     ; preds = %land.lhs.true507.i
   br i1 %tobool516.not.i, label %if.then517.i, label %ra_evict.exit
 
 if.then517.i:                                     ; preds = %if.then510.i
-  %32 = tail call i32 @llvm.cttz.i32(i32 %and508.i, i1 true), !range !22
+  %32 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i, i1 true)
   %idxprom521.i = zext nneg i32 %32 to i64
   %arrayidx522.i = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom521.i
   %33 = load i32, ptr %arrayidx522.i, align 4
@@ -25335,12 +25335,12 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i1404 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i), !range !17
+  %call.i1404 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %34 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i)
-  %35 = tail call i32 @llvm.ctlz.i32(i32 %34, i1 true), !range !22
+  %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
   %xor2.i.i.i = xor i32 %35, 7
   br label %ra_scratch.exit.i
 
@@ -25392,7 +25392,7 @@ ra_dest.exit:                                     ; preds = %if.end17.i, %if.the
 
 if.then.i171:                                     ; preds = %ra_dest.exit
   %conv3 = zext i16 %40 to i32
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv3, i32 noundef %and4), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv3, i32 noundef %and4)
   %.pre = load ptr, ptr %ir.i, align 8
   br label %ra_alloc1.exit
 
@@ -25427,7 +25427,7 @@ if.then.i181:                                     ; preds = %if.then
   %47 = and i8 %kt.sroa.0.0.copyload, 31
   %cmp19 = icmp eq i8 %47, 14
   %cond = select i1 %cmp19, i32 -65536, i32 %and14
-  %call.i182 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv8, i32 noundef %cond), !range !17
+  %call.i182 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv8, i32 noundef %cond)
   %.pre1413 = load i32, ptr %weakset.i, align 8
   br label %ra_alloc1.exit189
 
@@ -25445,12 +25445,12 @@ ra_alloc1.exit189:                                ; preds = %if.then, %if.then.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %ra_alloc1.exit189
-  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %and24), !range !17
+  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %and24)
   br label %ra_scratch.exit
 
 if.else.i.i:                                      ; preds = %ra_alloc1.exit189
   %50 = tail call i32 @llvm.bswap.i32(i32 %and.i.i)
-  %51 = tail call i32 @llvm.ctlz.i32(i32 %50, i1 true), !range !22
+  %51 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
   %xor2.i.i = xor i32 %51, 7
   br label %ra_scratch.exit
 
@@ -27264,12 +27264,12 @@ if.else14.i:                                      ; preds = %if.else.i.if.else14
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else14.i
-  %call.i.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %cond), !range !17
+  %call.i.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %cond)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %10 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi)
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %10, i1 true), !range !22
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %xor2.i.i.i = xor i32 %11, 7
   br label %ra_scratch.exit.i
 
@@ -27384,7 +27384,7 @@ if.end61.i:                                       ; preds = %if.then36.i, %if.el
 
 if.then.i.i:                                      ; preds = %if.end61.i
   %conv63.i = zext i16 %18 to i32
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef 49135), !range !17
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef 49135)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.end61.i
@@ -27531,7 +27531,7 @@ if.then.i41:                                      ; preds = %if.then27
   %.off = add nsw i8 %2, -13
   %switch = icmp ult i8 %.off, 2
   %spec.select35 = select i1 %switch, i32 -65536, i32 49135
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv55, i32 noundef %spec.select35), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv55, i32 noundef %spec.select35)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then27, %if.then.i41
@@ -27635,7 +27635,7 @@ if.end61.i:                                       ; preds = %if.then36.i, %if.el
 
 if.then.i.i:                                      ; preds = %if.end61.i
   %conv63.i = zext i16 %21 to i32
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef %allow.0), !range !17
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef %allow.0)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.end61.i
@@ -28143,7 +28143,7 @@ return:                                           ; preds = %if.end35, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @asm_fuseload(ptr noundef %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -28257,7 +28257,7 @@ if.then15:                                        ; preds = %if.end11
   %not16 = xor i32 %14, -1
   %and17 = and i32 %13, -65536
   %and18 = and i32 %and17, %not16
-  %15 = tail call i32 @llvm.ctpop.i32(i32 %and18), !range !48
+  %15 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %and18)
   %tobool20.not = icmp ult i32 %15, 2
   br i1 %tobool20.not, label %if.then21, label %if.end231
 
@@ -28327,7 +28327,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %36 = ptrtoint ptr %35 to i64
   %and.i106 = and i64 %36, 7
   %tobool73.not.i = icmp eq i64 %and.i106, 0
-  br i1 %tobool73.not.i, label %while.end.i, label %while.body.i, !llvm.loop !49
+  br i1 %tobool73.not.i, label %while.end.i, label %while.body.i, !llvm.loop !43
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.preheader.i
   %.lcssa.i = phi ptr [ %32, %while.cond.preheader.i ], [ %35, %while.body.i ]
@@ -28393,7 +28393,7 @@ if.then30:                                        ; preds = %if.else
   %not34 = xor i32 %46, -1
   %and35 = and i32 %45, 49135
   %and36 = and i32 %and35, %not34
-  %47 = tail call i32 @llvm.ctpop.i32(i32 %and36), !range !50
+  %47 = tail call range(i32 0, 15) i32 @llvm.ctpop.i32(i32 %and36)
   %tobool39.not = icmp ult i32 %47, 2
   br i1 %tobool39.not, label %if.then40, label %if.end220
 
@@ -28475,7 +28475,7 @@ while.body.i139:                                  ; preds = %while.cond.preheade
   %68 = ptrtoint ptr %67 to i64
   %and.i141 = and i64 %68, 7
   %tobool73.not.i142 = icmp eq i64 %and.i141, 0
-  br i1 %tobool73.not.i142, label %while.end.i143, label %while.body.i139, !llvm.loop !49
+  br i1 %tobool73.not.i142, label %while.end.i143, label %while.body.i139, !llvm.loop !43
 
 while.end.i143:                                   ; preds = %while.body.i139, %while.cond.preheader.i135
   %.lcssa.i144 = phi ptr [ %64, %while.cond.preheader.i135 ], [ %67, %while.body.i139 ]
@@ -28591,7 +28591,7 @@ lor.lhs.false28.us.i:                             ; preds = %if.else.us20.i
 if.end37.us22.i:                                  ; preds = %lor.lhs.false28.us.i
   %dec.us23.i = add i32 %dec3.us14.i, -1
   %cmp2.us24.i = icmp ugt i32 %dec.us23.i, %ref
-  br i1 %cmp2.us24.i, label %while.body.us13.i, label %land.lhs.true73, !llvm.loop !51
+  br i1 %cmp2.us24.i, label %while.body.us13.i, label %land.lhs.true73, !llvm.loop !44
 
 land.lhs.true73:                                  ; preds = %if.end37.us22.i, %while.cond.preheader.i169
   %t = getelementptr inbounds i8, ptr %arrayidx, i64 4
@@ -28603,7 +28603,7 @@ land.lhs.true73:                                  ; preds = %if.end37.us22.i, %w
   br i1 %cmp77, label %if.end220, label %if.then79
 
 if.then79:                                        ; preds = %land.lhs.true73
-  %call80 = tail call fastcc i32 @ra_alloc1(ptr noundef %as, i32 noundef 32768, i32 noundef %cond), !range !17
+  %call80 = tail call fastcc i32 @ra_alloc1(ptr noundef %as, i32 noundef 32768, i32 noundef %cond)
   %conv81 = trunc nuw i32 %call80 to i8
   %mrm82 = getelementptr inbounds i8, ptr %as, i64 160
   %base83 = getelementptr inbounds i8, ptr %as, i64 164
@@ -28666,7 +28666,7 @@ lor.lhs.false28.us.i187:                          ; preds = %if.else.us20.i184
 if.end37.us22.i191:                               ; preds = %lor.lhs.false28.us.i187
   %dec.us23.i192 = add i32 %dec3.us14.i178, -1
   %cmp2.us24.i193 = icmp ugt i32 %dec.us23.i192, %ref
-  br i1 %cmp2.us24.i193, label %while.body.us13.i177, label %if.then122, !llvm.loop !51
+  br i1 %cmp2.us24.i193, label %while.body.us13.i177, label %if.then122, !llvm.loop !44
 
 if.then122:                                       ; preds = %if.end37.us22.i191, %while.cond.preheader.i172
   tail call fastcc void @asm_fusefref(ptr noundef %as, ptr noundef nonnull %arrayidx, i32 noundef %cond)
@@ -28744,7 +28744,7 @@ lor.lhs.false28.us.i212:                          ; preds = %if.else.us20.i209
 if.end37.us22.i216:                               ; preds = %lor.lhs.false28.us.i212
   %dec.us23.i217 = add i32 %dec3.us14.i203, -1
   %cmp2.us24.i218 = icmp ugt i32 %dec.us23.i217, %ref
-  br i1 %cmp2.us24.i218, label %while.body.us13.i202, label %if.then178, !llvm.loop !51
+  br i1 %cmp2.us24.i218, label %while.body.us13.i202, label %if.then178, !llvm.loop !44
 
 if.then178:                                       ; preds = %if.end37.us22.i216, %while.cond.preheader.i197
   %103 = load i16, ptr %arrayidx, align 8
@@ -28867,7 +28867,7 @@ if.end61.i:                                       ; preds = %if.then36.i, %if.el
 
 if.then.i.i:                                      ; preds = %if.end61.i
   %conv63.i = zext i16 %114 to i32
-  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef 0), !range !17
+  %call.i.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63.i, i32 noundef 0)
   br label %ra_alloc1.exit.i
 
 ra_alloc1.exit.i:                                 ; preds = %if.then.i.i, %if.end61.i
@@ -28897,7 +28897,7 @@ if.end231:                                        ; preds = %if.then60, %land.lh
   br i1 %or.cond, label %if.end231.split, label %land.lhs.true238
 
 if.end231.split:                                  ; preds = %if.end231
-  %call25092 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow), !range !17
+  %call25092 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow)
   br label %return
 
 land.lhs.true238:                                 ; preds = %if.end231
@@ -28917,7 +28917,7 @@ lor.lhs.false245:                                 ; preds = %lor.lhs.false241
   br i1 %cmp246, label %fusespill, label %lor.lhs.false245.split
 
 lor.lhs.false245.split:                           ; preds = %lor.lhs.false245
-  %call25093 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow), !range !17
+  %call25093 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow)
   br label %return
 
 return:                                           ; preds = %if.end231.split, %lor.lhs.false245.split, %asm_fusefref.exit, %if.then204, %if.then178, %if.then158, %if.then122, %if.then79, %asm_fuseloadk64.exit166, %if.then43, %asm_fuseloadk64.exit, %ra_spill.exit, %if.then3
@@ -29175,7 +29175,7 @@ return:                                           ; preds = %if.then.i, %if.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @asm_isk32(ptr nocapture noundef readonly %as, i32 noundef %ref, ptr nocapture noundef writeonly %k) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @asm_isk32(ptr nocapture noundef readonly %as, i32 noundef %ref, ptr nocapture noundef writeonly %k) unnamed_addr #11 {
 entry:
   %cmp = icmp ult i32 %ref, 32768
   br i1 %cmp, label %if.then, label %return
@@ -29226,7 +29226,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asm_fuseloadm(ptr noundef %as, i32 noundef %ref, i32 noundef %allow, i32 noundef %is64) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @asm_fuseloadm(ptr noundef %as, i32 noundef %ref, i32 noundef %allow, i32 noundef %is64) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %is64, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -29253,7 +29253,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %ra_alloc1.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then, %if.then.i
@@ -29267,7 +29267,7 @@ ra_alloc1.exit:                                   ; preds = %if.then, %if.then.i
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call3 = tail call fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %ref, i32 noundef %allow), !range !17
+  %call3 = tail call fastcc i32 @asm_fuseload(ptr noundef %as, i32 noundef %ref, i32 noundef %allow)
   br label %return
 
 return:                                           ; preds = %if.end, %ra_alloc1.exit
@@ -29276,7 +29276,7 @@ return:                                           ; preds = %if.end, %ra_alloc1.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef i32 @noconflict(ptr nocapture readonly %as.144.val, i32 %as.200.val, i32 noundef %ref, i32 noundef %conflict, i32 noundef %check) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @noconflict(ptr nocapture readonly %as.144.val, i32 %as.200.val, i32 noundef %ref, i32 noundef %conflict, i32 noundef %check) unnamed_addr #12 {
 entry:
   %add = add nuw nsw i32 %ref, 31
   %cmp = icmp ult i32 %add, %as.200.val
@@ -29310,7 +29310,7 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
 if.else.us.us:                                    ; preds = %while.body.us.us
   %dec.us.us = add i32 %dec3.us.us, -1
   %cmp2.us.us = icmp ugt i32 %dec.us.us, %ref
-  br i1 %cmp2.us.us, label %while.body.us.us, label %return, !llvm.loop !51
+  br i1 %cmp2.us.us, label %while.body.us.us, label %return, !llvm.loop !44
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %if.else19.us
   %dec3.us = phi i32 [ %dec.us, %if.else19.us ], [ %dec1, %while.body.lr.ph.split.us ]
@@ -29330,7 +29330,7 @@ if.else.us:                                       ; preds = %while.body.us
 if.else19.us:                                     ; preds = %if.else.us
   %dec.us = add i32 %dec3.us, -1
   %cmp2.us = icmp ugt i32 %dec.us, %ref
-  br i1 %cmp2.us, label %while.body.us, label %return, !llvm.loop !51
+  br i1 %cmp2.us, label %while.body.us, label %return, !llvm.loop !44
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %tobool.not, label %while.body.us13, label %while.body
@@ -29361,7 +29361,7 @@ lor.lhs.false28.us:                               ; preds = %if.else.us20
 if.end37.us22:                                    ; preds = %lor.lhs.false28.us
   %dec.us23 = add i32 %dec3.us14, -1
   %cmp2.us24 = icmp ugt i32 %dec.us23, %ref
-  br i1 %cmp2.us24, label %while.body.us13, label %return, !llvm.loop !51
+  br i1 %cmp2.us24, label %while.body.us13, label %return, !llvm.loop !44
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %if.end37
   %dec3 = phi i32 [ %dec, %if.end37 ], [ %dec1, %while.body.lr.ph.split ]
@@ -29395,7 +29395,7 @@ lor.lhs.false28:                                  ; preds = %if.else19
 if.end37:                                         ; preds = %lor.lhs.false28
   %dec = add i32 %dec3, -1
   %cmp2 = icmp ugt i32 %dec, %ref
-  br i1 %cmp2, label %while.body, label %return, !llvm.loop !51
+  br i1 %cmp2, label %while.body, label %return, !llvm.loop !44
 
 return:                                           ; preds = %while.body, %if.else, %if.else, %lor.lhs.false28, %if.else19, %if.end37, %while.body.us13, %lor.lhs.false28.us, %if.else.us20, %if.end37.us22, %while.body.us, %if.else.us, %if.else.us, %if.else19.us, %while.body.us.us, %if.else.us.us, %while.cond.preheader, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %while.cond.preheader ], [ 0, %while.body.us.us ], [ 1, %if.else.us.us ], [ 0, %while.body.us ], [ 0, %if.else.us ], [ 0, %if.else.us ], [ 1, %if.else19.us ], [ 0, %while.body.us13 ], [ 0, %lor.lhs.false28.us ], [ 0, %if.else.us20 ], [ 1, %if.end37.us22 ], [ 0, %while.body ], [ 0, %if.else ], [ 0, %if.else ], [ 0, %lor.lhs.false28 ], [ 0, %if.else19 ], [ 1, %if.end37 ]
@@ -29481,7 +29481,7 @@ if.end61:                                         ; preds = %if.end, %if.else, %
 
 if.then.i:                                        ; preds = %if.end61
   %conv63 = zext i16 %3 to i32
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63, i32 noundef %allow), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv63, i32 noundef %allow)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.end61, %if.then.i
@@ -29552,7 +29552,7 @@ if.then9:                                         ; preds = %sw.bb5
 
 if.then.i:                                        ; preds = %if.then9
   %conv10 = zext i16 %5 to i32
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv10, i32 noundef %allow), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv10, i32 noundef %allow)
   %.pre = load ptr, ptr %ir1, align 8
   br label %ra_alloc1.exit
 
@@ -29638,7 +29638,7 @@ if.end72:                                         ; preds = %entry
   br label %ra_alloc1.exit52
 
 if.then.i45:                                      ; preds = %sw.bb, %sw.bb5, %if.then26, %sw.bb21, %if.then
-  %call.i46 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow), !range !17
+  %call.i46 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %allow)
   br label %ra_alloc1.exit52
 
 ra_alloc1.exit52:                                 ; preds = %if.end72, %if.then.i45
@@ -29866,7 +29866,7 @@ if.end151.sink.split:                             ; preds = %land.lhs.true137, %
 
 if.end151:                                        ; preds = %if.end151.sink.split, %if.then106, %land.lhs.true111, %land.lhs.true116, %land.lhs.true137, %land.lhs.true101, %land.lhs.true95
   %idx33.1 = phi i32 [ %idx33.0, %land.lhs.true95 ], [ %idx33.0, %land.lhs.true137 ], [ %idx33.0, %land.lhs.true101 ], [ %idx33.0, %land.lhs.true116 ], [ %idx33.0, %land.lhs.true111 ], [ %idx33.0, %if.then106 ], [ %idx33.1.ph, %if.end151.sink.split ]
-  %call152 = tail call fastcc i32 @ra_alloc1(ptr noundef nonnull %as, i32 noundef %idx33.1, i32 noundef %allow), !range !17
+  %call152 = tail call fastcc i32 @ra_alloc1(ptr noundef nonnull %as, i32 noundef %idx33.1, i32 noundef %allow)
   %shl153 = shl nuw i32 1, %call152
   %not = xor i32 %shl153, -1
   %and154 = and i32 %not, %allow
@@ -29888,7 +29888,7 @@ noadd:                                            ; preds = %if.end17, %land.lhs
   br i1 %tobool.not.i60, label %ra_alloc1.exit, label %if.then.i61
 
 if.then.i61:                                      ; preds = %noadd
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref.addr.1, i32 noundef %allow.addr.0), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref.addr.1, i32 noundef %allow.addr.0)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %noadd, %if.then.i61
@@ -29974,7 +29974,7 @@ while.body.us.us.i.i:                             ; preds = %if.else.us.us.i.i, 
 if.else.us.us.i.i:                                ; preds = %while.body.us.us.i.i
   %dec.us.us.i.i = add i32 %dec3.us.us.i.i, -1
   %cmp2.us.us.i.i = icmp ugt i32 %dec.us.us.i.i, %conv18.i
-  br i1 %cmp2.us.us.i.i, label %while.body.us.us.i.i, label %return.sink.split.i, !llvm.loop !51
+  br i1 %cmp2.us.us.i.i, label %while.body.us.us.i.i, label %return.sink.split.i, !llvm.loop !44
 
 land.lhs.true28.i:                                ; preds = %entry
   %op2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
@@ -30019,7 +30019,7 @@ asm_fuseabase.exit:                               ; preds = %while.body.us.us.i.
 
 if.then.i18:                                      ; preds = %asm_fuseabase.exit
   %retval.0.i = zext i16 %retval.0.i.in to i32
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %retval.0.i, i32 noundef %allow), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %retval.0.i, i32 noundef %allow)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %asm_fuseabase.exit, %if.then.i18
@@ -30065,7 +30065,7 @@ if.else:                                          ; preds = %ra_alloc1.exit
 if.then.i25:                                      ; preds = %if.else
   %conv14 = zext i16 %20 to i32
   %and = and i32 %not.i, %allow
-  %call.i26 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv14, i32 noundef %and), !range !17
+  %call.i26 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %conv14, i32 noundef %and)
   %.pre = load i32, ptr %weakset.i, align 8
   br label %ra_alloc1.exit32
 
@@ -30236,7 +30236,7 @@ if.then50:                                        ; preds = %land.lhs.true
 if.end53:                                         ; preds = %if.then50, %land.lhs.true, %if.end45
   %cmp54 = icmp ult i32 %dest, 16
   %cond = select i1 %cmp54, i32 49135, i32 -65536
-  %call = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref, i32 noundef %cond), !range !17
+  %call = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %lref, i32 noundef %cond)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end53, %entry
@@ -30528,7 +30528,7 @@ if.then74:                                        ; preds = %if.else72
 if.then.i:                                        ; preds = %if.then74
   %26 = load i32, ptr %as, align 8
   %conv14.i = and i32 %26, 65535
-  %call.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv14.i), !range !17
+  %call.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv14.i)
   %.pre.i = load i32, ptr %freeset.i, align 8
   br label %if.end.i
 
@@ -30546,7 +30546,7 @@ if.then25.i:                                      ; preds = %if.end.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %as, i64 8
   %29 = load i32, ptr %arrayidx27.i, align 8
   %conv29.i41 = and i32 %29, 65535
-  %call30.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv29.i41), !range !17
+  %call30.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv29.i41)
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then25.i, %if.end.i
@@ -31144,7 +31144,7 @@ for.body.lr.ph:                                   ; preds = %if.end8
 for.cond:                                         ; preds = %if.end96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !52
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !45
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -31364,7 +31364,7 @@ emit_rr.exit25.i:                                 ; preds = %if.then46.i.i18.i, 
 
 if.else62:                                        ; preds = %if.else51
   %shl63 = shl nuw i32 1, %r.0170
-  %call = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %6, i32 noundef %shl63), !range !17
+  %call = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %6, i32 noundef %shl63)
   br label %if.end96
 
 if.then80:                                        ; preds = %if.end25, %if.then21
@@ -31376,7 +31376,7 @@ if.then80:                                        ; preds = %if.end25, %if.then2
   br i1 %tobool.not.i89, label %ra_alloc1.exit, label %if.then.i90
 
 if.then.i90:                                      ; preds = %if.then80
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %6, i32 noundef -65536), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %6, i32 noundef -65536)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.then80, %if.then.i90
@@ -31450,7 +31450,7 @@ if.else89:                                        ; preds = %if.end25.thread163
   br i1 %tobool.not.i107, label %ra_alloc1.exit116, label %if.then.i108
 
 if.then.i108:                                     ; preds = %if.else89
-  %call.i109 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %6, i32 noundef 49135), !range !17
+  %call.i109 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %6, i32 noundef 49135)
   br label %ra_alloc1.exit116
 
 ra_alloc1.exit116:                                ; preds = %if.else89, %if.then.i108
@@ -31557,19 +31557,19 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %2 = tail call i32 @llvm.cttz.i32(i32 %work.0, i1 true), !range !22
+  %2 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.0, i1 true)
   %idxprom = zext nneg i32 %2 to i64
   %arrayidx = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
   %conv2 = and i32 %3, 65535
-  %call = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv2), !range !17
+  %call = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv2)
   %shl = shl nuw i32 1, %2
   %not3 = xor i32 %shl, -1
   %and4 = and i32 %work.0, %not3
   %4 = load ptr, ptr %mcp.i23, align 8
   %5 = load ptr, ptr %mclim.i24, align 8
   %cmp.i25 = icmp ult ptr %4, %5
-  br i1 %cmp.i25, label %if.then.i29, label %while.cond, !llvm.loop !53
+  br i1 %cmp.i25, label %if.then.i29, label %while.cond, !llvm.loop !46
 
 if.then.i29:                                      ; preds = %while.body
   tail call fastcc void @asm_mclimit(ptr noundef nonnull %as) #17
@@ -31587,19 +31587,19 @@ while.cond8:                                      ; preds = %while.body10, %whil
   br i1 %tobool9.not, label %while.end21, label %while.body10
 
 while.body10:                                     ; preds = %while.cond8
-  %7 = tail call i32 @llvm.cttz.i32(i32 %work.1, i1 true), !range !22
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %work.1, i1 true)
   %idxprom13 = zext nneg i32 %7 to i64
   %arrayidx14 = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom13
   %8 = load i32, ptr %arrayidx14, align 4
   %conv16 = and i32 %8, 65535
-  %call17 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv16), !range !17
+  %call17 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv16)
   %shl18 = shl nuw i32 1, %7
   %not19 = xor i32 %shl18, -1
   %and20 = and i32 %work.1, %not19
   %9 = load ptr, ptr %mcp.i23, align 8
   %10 = load ptr, ptr %mclim.i24, align 8
   %cmp.i = icmp ult ptr %9, %10
-  br i1 %cmp.i, label %if.then.i, label %while.cond8, !llvm.loop !54
+  br i1 %cmp.i, label %if.then.i, label %while.cond8, !llvm.loop !47
 
 if.then.i:                                        ; preds = %while.body10
   tail call fastcc void @asm_mclimit(ptr noundef nonnull %as) #17
@@ -31653,12 +31653,12 @@ if.else14.i:                                      ; preds = %if.else.i.if.else14
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else14.i
-  %call.i.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %shl), !range !17
+  %call.i.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %shl)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %6 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi)
-  %7 = tail call i32 @llvm.ctlz.i32(i32 %6, i1 true), !range !22
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %xor2.i.i.i = xor i32 %7, 7
   br label %ra_scratch.exit.i
 
@@ -31896,7 +31896,7 @@ emit_rmro.exit:                                   ; preds = %if.then40, %if.then
   br label %if.end48
 
 if.else45:                                        ; preds = %entry, %land.lhs.true35, %land.lhs.true31, %lor.lhs.false, %land.lhs.true26, %land.lhs.true
-  %call46 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef 0), !range !17
+  %call46 = tail call fastcc i32 @asm_fuseload(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef 0)
   tail call fastcc void @emit_mrm(ptr noundef nonnull %as, i32 noundef -587202306, i32 noundef 0, i32 noundef %call46)
   br label %if.end48
 
@@ -32001,7 +32001,7 @@ if.then510.i:                                     ; preds = %land.lhs.true507.i
   br i1 %tobool516.not.i, label %if.then517.i, label %ra_evict.exit
 
 if.then517.i:                                     ; preds = %if.then510.i
-  %27 = tail call i32 @llvm.cttz.i32(i32 %and508.i, i1 true), !range !22
+  %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i, i1 true)
   %idxprom521.i = zext nneg i32 %27 to i64
   %arrayidx522.i = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom521.i
   %28 = load i32, ptr %arrayidx522.i, align 4
@@ -32010,12 +32010,12 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i54 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i), !range !17
+  %call.i54 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %29 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi)
-  %30 = tail call i32 @llvm.ctlz.i32(i32 %29, i1 true), !range !22
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
   %xor2.i.i.i = xor i32 %30, 7
   br label %ra_scratch.exit.i
 
@@ -32070,7 +32070,7 @@ if.then.i19:                                      ; preds = %ra_dest.exit
   %shl = shl nuw i32 1, %dest.1.i
   %not = and i32 %shl, 49135
   %and = xor i32 %not, 49135
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %spec.select16, i32 noundef %and), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %spec.select16, i32 noundef %and)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %ra_dest.exit, %if.then.i19
@@ -32199,7 +32199,7 @@ if.end:                                           ; preds = %if.then4
   br i1 %tobool.not.i, label %ra_alloc1.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef -65536), !range !17
+  %call.i = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef -65536)
   br label %ra_alloc1.exit
 
 ra_alloc1.exit:                                   ; preds = %if.end, %if.then.i
@@ -32437,7 +32437,7 @@ if.then.i84:                                      ; preds = %if.else14
   %shl = shl nuw i32 1, %dest
   %not = and i32 %shl, 49135
   %and15 = xor i32 %not, 49135
-  %call.i85 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %and15), !range !17
+  %call.i85 = tail call fastcc i32 @ra_allocref(ptr noundef nonnull %as, i32 noundef %ref, i32 noundef %and15)
   br label %ra_alloc1.exit91
 
 ra_alloc1.exit91:                                 ; preds = %if.else14, %if.then.i84
@@ -32683,13 +32683,13 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %and), !range !17
+  %call.i.i = tail call fastcc i32 @ra_evict(ptr noundef nonnull %as, i32 noundef %and)
   %.pre = load i32, ptr %freeset.i.i, align 8
   br label %ra_scratch.exit
 
 if.else.i.i:                                      ; preds = %entry
   %1 = tail call i32 @llvm.bswap.i32(i32 %and.i.i)
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %1, i1 true), !range !22
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %xor2.i.i = xor i32 %2, 7
   br label %ra_scratch.exit
 
@@ -32785,7 +32785,7 @@ if.then510.i:                                     ; preds = %land.lhs.true507.i
   br i1 %tobool516.not.i, label %if.then517.i, label %ra_evict.exit
 
 if.then517.i:                                     ; preds = %if.then510.i
-  %30 = tail call i32 @llvm.cttz.i32(i32 %and508.i, i1 true), !range !22
+  %30 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and508.i, i1 true)
   %idxprom521.i = zext nneg i32 %30 to i64
   %arrayidx522.i = getelementptr inbounds [32 x i32], ptr %as, i64 0, i64 %idxprom521.i
   %31 = load i32, ptr %arrayidx522.i, align 4
@@ -32794,13 +32794,13 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i), !range !17
+  %call.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   %.pre158.pre = load i32, ptr %modset.i, align 4
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
   %32 = tail call i32 @llvm.bswap.i32(i32 %and.i.i.i.pre-phi)
-  %33 = tail call i32 @llvm.ctlz.i32(i32 %32, i1 true), !range !22
+  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
   %xor2.i.i.i = xor i32 %33, 7
   br label %ra_scratch.exit.i
 
@@ -33198,21 +33198,21 @@ attributes #17 = { noreturn }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 256}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = !{i32 0, i32 33}
+!22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = !{i32 16, i32 33}
+!29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = !{i32 0, i32 31}
+!31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
@@ -33228,11 +33228,4 @@ attributes #17 = { noreturn }
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
-!47 = !{i32 0, i32 2}
-!48 = !{i32 0, i32 17}
-!49 = distinct !{!49, !5}
-!50 = !{i32 0, i32 15}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
+!47 = distinct !{!47, !5}

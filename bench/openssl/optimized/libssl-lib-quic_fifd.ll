@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.quic_txpim_chunk_st = type { i64, i64, i64, i8 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_quic_fifd_init(ptr nocapture noundef writeonly %fifd, ptr noundef %cfq, ptr noundef %ackm, ptr noundef %txpim, ptr noundef %get_sstream_by_id, ptr noundef %get_sstream_by_id_arg, ptr noundef %regen_frame, ptr noundef %regen_frame_arg, ptr noundef %confirm_frame, ptr noundef %confirm_frame_arg, ptr noundef %sstream_updated, ptr noundef %sstream_updated_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_fifd_init(ptr nocapture noundef writeonly %fifd, ptr noundef %cfq, ptr noundef %ackm, ptr noundef %txpim, ptr noundef %get_sstream_by_id, ptr noundef %get_sstream_by_id_arg, ptr noundef %regen_frame, ptr noundef %regen_frame_arg, ptr noundef %confirm_frame, ptr noundef %confirm_frame_arg, ptr noundef %sstream_updated, ptr noundef %sstream_updated_arg) local_unnamed_addr #0 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %cfq, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %ackm, i64 1

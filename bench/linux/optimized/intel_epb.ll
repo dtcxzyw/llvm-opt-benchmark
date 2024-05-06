@@ -49,7 +49,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_intel_epb_init312], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @intel_epb_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @intel_epb_init() #0 section ".init.text" align 16 {
   %1 = tail call ptr @x86_match_cpu(ptr noundef nonnull @intel_epb_normal) #6
   %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
   %3 = and i64 %2, 34359738368
@@ -138,7 +138,7 @@ define internal noundef i32 @intel_epb_online(i32 noundef %0) #3 align 16 {
   %27 = or i64 %25, %26
   %28 = trunc i64 %27 to i32
   %29 = lshr i64 %8, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 432, i32 %28, i32 %30) #6, !srcloc !9
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #6
           to label %intel_epb_restore.exit [label %31], !srcloc !7
@@ -250,7 +250,7 @@ define internal void @intel_epb_restore() #3 align 16 {
   %25 = or i64 %23, %24
   %26 = trunc i64 %25 to i32
   %27 = lshr i64 %6, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 432, i32 %26, i32 %28) #6, !srcloc !9
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #6
           to label %30 [label %29], !srcloc !7
@@ -276,7 +276,7 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @energy_perf_bias_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @energy_perf_bias_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 648
   %6 = load i32, ptr %5, align 8

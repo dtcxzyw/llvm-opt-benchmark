@@ -4957,7 +4957,7 @@ _ZN6casadi10casadi_addIyEEvxPKT_PS1_.exit:        ; preds = %.lr.ph.i, %83, %.lr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi6MapSum10sp_reverseEPPyS2_PxS1_Pv(ptr noundef nonnull align 8 dereferenceable(1400) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi6MapSum10sp_reverseEPPyS2_PxS1_Pv(ptr noundef nonnull align 8 dereferenceable(1400) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1304
   %8 = tail call noundef i64 @_ZNK6casadi8Function4sz_wEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = getelementptr inbounds i8, ptr %0, i64 184
@@ -7274,9 +7274,9 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit128:             ; preds = %298, %301
 .preheader.us:                                    ; preds = %.preheader227, %._crit_edge264.us
   %309 = phi ptr [ %342, %._crit_edge264.us ], [ %306, %.preheader227 ]
   %.045265.us = phi i64 [ %344, %._crit_edge264.us ], [ 0, %.preheader227 ]
-  %310 = mul nsw i64 %.045265.us, %2
+  %310 = mul nuw nsw i64 %.045265.us, %2
   %311 = add nuw nsw i64 %310, %.046268
-  %312 = mul nsw i64 %311, %297
+  %312 = mul nuw nsw i64 %311, %297
   br label %313
 
 313:                                              ; preds = %.preheader.us, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit139.us
@@ -8760,9 +8760,9 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit128:             ; preds = %296, %299
 .preheader.us:                                    ; preds = %.preheader227, %._crit_edge264.us
   %307 = phi ptr [ %340, %._crit_edge264.us ], [ %304, %.preheader227 ]
   %.045265.us = phi i64 [ %342, %._crit_edge264.us ], [ 0, %.preheader227 ]
-  %308 = mul nsw i64 %.045265.us, %2
+  %308 = mul nuw nsw i64 %.045265.us, %2
   %309 = add nuw nsw i64 %308, %.046268
-  %310 = mul nsw i64 %309, %295
+  %310 = mul nuw nsw i64 %309, %295
   br label %311
 
 311:                                              ; preds = %.preheader.us, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit139.us

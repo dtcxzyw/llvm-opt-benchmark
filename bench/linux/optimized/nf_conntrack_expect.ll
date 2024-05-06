@@ -318,7 +318,7 @@ define dso_local ptr @__nf_ct_expect_find(ptr noundef %0, ptr nocapture readnone
 nf_ct_expect_dst_hash.exit:                       ; preds = %15, %19
   %20 = getelementptr inbounds i8, ptr %2, i64 20
   %21 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef align 4 dereferenceable(16) %20, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef readonly align 4 dereferenceable(16) %20, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 336
   %23 = load i32, ptr %22, align 16
   store i32 %23, ptr %21, align 8
@@ -537,7 +537,7 @@ define dso_local ptr @nf_ct_find_expectation(ptr noundef %0, ptr nocapture nound
 nf_ct_expect_dst_hash.exit:                       ; preds = %16, %20
   %21 = getelementptr inbounds i8, ptr %2, i64 20
   %22 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef align 4 dereferenceable(16) %21, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef readonly align 4 dereferenceable(16) %21, i64 16, i1 false)
   %23 = getelementptr inbounds i8, ptr %0, i64 336
   %24 = load i32, ptr %23, align 16
   store i32 %24, ptr %22, align 8
@@ -1015,7 +1015,7 @@ define internal void @nf_ct_expect_free_rcu(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_ct_expect_related_report(ptr noundef %0, i32 %1, i32 %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -114, 1) i32 @nf_ct_expect_related_report(ptr noundef %0, i32 %1, i32 %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.anon.30, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.anon.30, align 8
@@ -1083,7 +1083,7 @@ define dso_local noundef i32 @nf_ct_expect_related_report(ptr noundef %0, i32 %1
 nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %39 = getelementptr inbounds i8, ptr %0, i64 52
   %40 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef align 4 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef readonly align 4 dereferenceable(16) %39, i64 16, i1 false)
   %41 = getelementptr inbounds i8, ptr %31, i64 336
   %42 = load i32, ptr %41, align 16
   store i32 %42, ptr %40, align 8
@@ -1563,7 +1563,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 
 nf_ct_expect_dst_hash.exit20:                     ; preds = %348, %356
   %357 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef align 4 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef readonly align 4 dereferenceable(16) %39, i64 16, i1 false)
   %358 = getelementptr inbounds i8, ptr %352, i64 336
   %359 = load i32, ptr %358, align 16
   store i32 %359, ptr %357, align 8
@@ -1995,7 +1995,7 @@ define dso_local void @nf_conntrack_expect_pernet_fini(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_conntrack_expect_init() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @nf_conntrack_expect_init() local_unnamed_addr #0 align 16 {
   %1 = load i32, ptr @nf_ct_expect_hsize, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %8

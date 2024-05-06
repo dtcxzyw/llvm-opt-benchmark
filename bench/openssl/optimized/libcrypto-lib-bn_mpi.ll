@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_mpi2bn = private unnamed_addr constant [10 x i8] c"BN_mpi2bn\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_bn2mpi(ptr noundef %a, ptr noundef %d) local_unnamed_addr #0 {
+define range(i32 -2147483644, -2147483648) i32 @BN_bn2mpi(ptr noundef %a, ptr noundef %d) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %a) #2
   %add = add nsw i32 %call, 7
@@ -23,7 +23,7 @@ entry:
 if.end7:                                          ; preds = %entry
   %add8 = add nsw i32 %div, %ext.0
   %conv11 = lshr i32 %add8, 24
-  %conv13 = trunc i32 %conv11 to i8
+  %conv13 = trunc nuw i32 %conv11 to i8
   store i8 %conv13, ptr %d, align 1
   %0 = lshr i32 %add8, 16
   %conv18 = trunc i32 %0 to i8
@@ -140,7 +140,7 @@ if.then32:                                        ; preds = %if.end29
 if.end34:                                         ; preds = %if.end29
   %add.ptr = getelementptr inbounds i8, ptr %d, i64 4
   %4 = load i8, ptr %add.ptr, align 1
-  %conv39 = trunc i64 %or16 to i32
+  %conv39 = trunc nuw nsw i64 %or16 to i32
   %call40 = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr, i32 noundef %conv39, ptr noundef nonnull %a.025) #2
   %cmp41 = icmp eq ptr %call40, null
   br i1 %cmp41, label %if.then43, label %if.end48

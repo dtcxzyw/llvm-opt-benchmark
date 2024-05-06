@@ -260,7 +260,7 @@ declare i32 @gnutls_certificate_set_x509_trust_mem(ptr noundef, ptr noundef, i32
 declare void @gnutls_certificate_set_verify_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL27verify_certificate_callbackP18gnutls_session_int(ptr noundef %session) #0 {
+define internal noundef range(i32 -43, 1) i32 @_ZL27verify_certificate_callbackP18gnutls_session_int(ptr noundef %session) #0 {
 entry:
   %status = alloca i32, align 4
   %call = tail call ptr @gnutls_session_get_ptr(ptr noundef %session)

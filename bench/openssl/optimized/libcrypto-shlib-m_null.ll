@@ -9,25 +9,25 @@ target triple = "x86_64-unknown-linux-gnu"
 @null_md = internal constant %struct.evp_md_st { i32 0, i32 0, i32 0, i64 0, i32 1, ptr @init, ptr @update, ptr @final, ptr null, ptr null, i32 0, i32 8, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_md_null() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_md_null() local_unnamed_addr #0 {
 entry:
   ret ptr @null_md
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @init(ptr nocapture readnone %ctx) #0 {
+define internal noundef i32 @init(ptr nocapture readnone %ctx) #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @update(ptr nocapture readnone %ctx, ptr nocapture readnone %data, i64 %count) #0 {
+define internal noundef i32 @update(ptr nocapture readnone %ctx, ptr nocapture readnone %data, i64 %count) #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @final(ptr nocapture readnone %ctx, ptr nocapture readnone %md) #0 {
+define internal noundef i32 @final(ptr nocapture readnone %ctx, ptr nocapture readnone %md) #0 {
 entry:
   ret i32 1
 }

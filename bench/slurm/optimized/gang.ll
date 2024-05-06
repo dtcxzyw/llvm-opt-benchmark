@@ -921,7 +921,7 @@ define dso_local void @gs_job_start(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_gs_part(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_gs_part(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %3) #9
   %.not = icmp eq i32 %4, 0
@@ -1537,7 +1537,7 @@ define internal fastcc void @_remove_job_from_part(i32 noundef %0, ptr nocapture
   br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %10, !llvm.loop !9
 
 _find_job_index.exit:                             ; preds = %10
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %_find_job_index.exit.thread, label %21
 
@@ -2463,7 +2463,7 @@ _suspend_job.exit:                                ; preds = %206, %215, %217, %2
   br i1 %exitcond.not.i36, label %.backedge.i37, label %.lr.ph.i33, !llvm.loop !24
 
 239:                                              ; preds = %.lr.ph.i33
-  %240 = trunc i64 %indvars.iv.i34 to i32
+  %240 = trunc nuw nsw i64 %indvars.iv.i34 to i32
   %241 = add i32 %234, -1
   store i32 %241, ptr %233, align 4
   %242 = icmp ugt i32 %241, %240
@@ -2751,7 +2751,7 @@ declare void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_partitions(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -65535, 65536) i32 @_sort_partitions(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3024,7 +3024,7 @@ define internal fastcc void @_clear_shadow(ptr noundef readnone %0) unnamed_addr
   br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !24
 
 14:                                               ; preds = %.lr.ph
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = add i32 %9, -1
   store i32 %16, ptr %8, align 4
   %17 = icmp ugt i32 %16, %15

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.xdr_netobj = type { i32, ptr }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @gss_krb5_get_mic_v2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 851969) i32 @gss_krb5_get_mic_v2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.xdr_netobj, align 8
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 0

@@ -319,7 +319,7 @@ define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, -1) i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @getc(ptr noundef %3)
@@ -1280,7 +1280,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @_CustomReadFunc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @_CustomReadFunc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   %4 = tail call i32 @ReadInt(ptr noundef %0) #7
   %5 = sext i32 %4 to i64
   %6 = icmp eq i32 %4, 0

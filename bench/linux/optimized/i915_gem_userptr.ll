@@ -329,7 +329,7 @@ declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @i915_gem_object_userptr_submit_done(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -11, 1) i32 @i915_gem_object_userptr_submit_done(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1040
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1128
@@ -563,7 +563,7 @@ define dso_local i32 @i915_gem_userptr_ioctl(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @probe_range(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @probe_range(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.vma_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #14
   %5 = getelementptr inbounds i8, ptr %0, i64 64

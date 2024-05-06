@@ -59,7 +59,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @FLAC__bitreader_init(ptr nocapture noundef writeonly %br, ptr noundef %rcb, ptr noundef %cd) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_init(ptr nocapture noundef writeonly %br, ptr noundef %rcb, ptr noundef %cd) local_unnamed_addr #4 {
 entry:
   %words = getelementptr inbounds i8, ptr %br, i64 12
   %capacity = getelementptr inbounds i8, ptr %br, i64 8
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr nocapture noundef %br) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr nocapture noundef %br) local_unnamed_addr #7 {
 entry:
   %last_seen_framesync = getelementptr inbounds i8, ptr %br, i64 48
   %0 = load i32, ptr %last_seen_framesync, align 8
@@ -293,7 +293,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr nocapture noundef readonly %br) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr nocapture noundef readonly %br) local_unnamed_addr #9 {
 entry:
   %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %0 = load i32, ptr %consumed_bits, align 8
@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr nocapture noundef readonly %br) local_unnamed_addr #9 {
+define hidden range(i32 1, 9) i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr nocapture noundef readonly %br) local_unnamed_addr #9 {
 entry:
   %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %0 = load i32, ptr %consumed_bits, align 8
@@ -369,7 +369,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_raw_uint32(ptr nocapture noundef %br, ptr nocapture noundef %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr nocapture noundef %br, ptr nocapture noundef %val, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %bits, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -424,9 +424,9 @@ while.cond:                                       ; preds = %while.body, %if.end
   br i1 %cmp13, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %call = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br), !range !7
+  %call = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br)
   %tobool14.not = icmp eq i32 %call, 0
-  br i1 %tobool14.not, label %return, label %while.cond, !llvm.loop !8
+  br i1 %tobool14.not, label %return, label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
   %cmp19 = icmp ult i32 %3, %2
@@ -573,7 +573,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @bitreader_read_from_client_(ptr nocapture noundef %br) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @bitreader_read_from_client_(ptr nocapture noundef %br) unnamed_addr #8 {
 entry:
   %bytes = alloca i64, align 8
   %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
@@ -766,7 +766,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 %34, ptr %arrayidx57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre53 = load i32, ptr %words7, align 4
@@ -794,14 +794,14 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_raw_int32(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int32(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %uval = alloca i32, align 4
   %cmp = icmp eq i32 %bits, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %uval, i32 noundef %bits), !range !7
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %uval, i32 noundef %bits)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -824,7 +824,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_raw_uint64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %hi = alloca i32, align 4
   %lo = alloca i32, align 4
@@ -833,12 +833,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = add i32 %bits, -32
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %hi, i32 noundef %sub), !range !7
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %hi, i32 noundef %sub)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call2 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo, i32 noundef 32), !range !7
+  %call2 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo, i32 noundef 32)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -852,7 +852,7 @@ if.end5:                                          ; preds = %if.end
   br label %if.end12
 
 if.else:                                          ; preds = %entry
-  %call7 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo, i32 noundef %bits), !range !7
+  %call7 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo, i32 noundef %bits)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %if.end10
 
@@ -872,7 +872,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_raw_int64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %hi.i = alloca i32, align 4
   %lo.i = alloca i32, align 4
@@ -887,12 +887,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then.i:                                        ; preds = %lor.lhs.false
   %sub.i = add i32 %bits, -32
-  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %hi.i, i32 noundef %sub.i), !range !7
+  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %hi.i, i32 noundef %sub.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call2.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo.i, i32 noundef 32), !range !7
+  %call2.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo.i, i32 noundef 32)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %if.end5.i
 
@@ -906,7 +906,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %if.end
 
 if.else.i:                                        ; preds = %lor.lhs.false
-  %call7.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo.i, i32 noundef %bits), !range !7
+  %call7.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %lo.i, i32 noundef %bits)
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %if.end10.i
 
@@ -940,30 +940,30 @@ return:                                           ; preds = %FLAC__bitreader_rea
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_uint32_little_endian(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_uint32_little_endian(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val) local_unnamed_addr #8 {
 entry:
   %x8 = alloca i32, align 4
   %x32 = alloca i32, align 4
   store i32 0, ptr %x32, align 4
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x32, i32 noundef 8), !range !7
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x32, i32 noundef 8)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8), !range !7
+  %call1 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %0 = load i32, ptr %x8, align 4
   %1 = load i32, ptr %x32, align 4
-  %call5 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8), !range !7
+  %call5 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
   %2 = load i32, ptr %x8, align 4
-  %call11 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8), !range !7
+  %call11 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x8, i32 noundef 8)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.end14
 
@@ -984,7 +984,7 @@ return:                                           ; preds = %if.end8, %if.end4, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_skip_bits_no_crc(ptr nocapture noundef %br, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_bits_no_crc(ptr nocapture noundef %br, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
   %cmp.not = icmp eq i32 %bits, 0
@@ -1000,7 +1000,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %sub = sub nuw nsw i32 8, %and
   %cond = tail call i32 @llvm.umin.i32(i32 %sub, i32 %bits)
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef %cond), !range !7
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef %cond)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1015,7 +1015,7 @@ if.end7:                                          ; preds = %if.end, %if.then
 
 if.then9:                                         ; preds = %if.end7
   %div16 = lshr i32 %bits.addr.0, 3
-  %call10 = tail call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef nonnull %br, i32 noundef %div16), !range !7
+  %call10 = tail call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef nonnull %br, i32 noundef %div16)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
@@ -1029,7 +1029,7 @@ if.end14:                                         ; preds = %if.end13, %if.end7
   br i1 %cmp15.not, label %if.end22, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %call17 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef %bits.addr.1), !range !7
+  %call17 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef %bits.addr.1)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %return, label %if.end22
 
@@ -1042,7 +1042,7 @@ return:                                           ; preds = %if.then16, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr nocapture noundef %br, i32 noundef %nvals) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr nocapture noundef %br, i32 noundef %nvals) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
   %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
@@ -1086,14 +1086,14 @@ while.body16.lr.ph:                               ; preds = %while.cond14.prehea
   br label %while.body16
 
 while.body:                                       ; preds = %land.rhs
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %while.body
   %dec = add i32 %nvals.addr.027, -1
   %cond = icmp eq i32 %dec, 0
-  br i1 %cond, label %return, label %land.rhs, !llvm.loop !10
+  br i1 %cond, label %return, label %land.rhs, !llvm.loop !9
 
 while.cond32.preheader:                           ; preds = %if.end30
   %tobool33.not32 = icmp eq i32 %nvals.addr.2, 0
@@ -1125,23 +1125,23 @@ if.then22:                                        ; preds = %if.then18
   br label %if.end30
 
 if.else:                                          ; preds = %while.body16
-  %call26 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br), !range !7
+  %call26 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.then18, %if.then22
   %nvals.addr.2 = phi i32 [ %sub, %if.then22 ], [ %sub, %if.then18 ], [ %nvals.addr.130, %if.else ]
   %cmp15 = icmp ugt i32 %nvals.addr.2, 7
-  br i1 %cmp15, label %while.body16, label %while.cond32.preheader, !llvm.loop !11
+  br i1 %cmp15, label %while.body16, label %while.cond32.preheader, !llvm.loop !10
 
 while.cond32:                                     ; preds = %while.body34
   %dec39 = add nsw i32 %nvals.addr.333, -1
   %tobool33.not = icmp eq i32 %dec39, 0
-  br i1 %tobool33.not, label %return, label %while.body34, !llvm.loop !12
+  br i1 %tobool33.not, label %return, label %while.body34, !llvm.loop !11
 
 while.body34:                                     ; preds = %while.body34.preheader, %while.cond32
   %nvals.addr.333 = phi i32 [ %dec39, %while.cond32 ], [ %nvals.addr.333.ph, %while.body34.preheader ]
-  %call35 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call35 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %return, label %while.cond32
 
@@ -1151,7 +1151,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %nvals) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %nvals) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
   %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
@@ -1196,7 +1196,7 @@ while.body18.lr.ph:                               ; preds = %while.cond15.prehea
   br label %while.body18
 
 while.body:                                       ; preds = %land.rhs
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %return, label %if.end10
 
@@ -1207,7 +1207,7 @@ if.end10:                                         ; preds = %while.body
   store i8 %conv, ptr %val.addr.047, align 1
   %dec = add i32 %nvals.addr.048, -1
   %cond = icmp eq i32 %dec, 0
-  br i1 %cond, label %return, label %land.rhs, !llvm.loop !13
+  br i1 %cond, label %return, label %land.rhs, !llvm.loop !12
 
 while.cond57.preheader:                           ; preds = %if.end55
   %tobool58.not55 = icmp eq i32 %nvals.addr.2, 0
@@ -1276,7 +1276,7 @@ if.then47:                                        ; preds = %if.then21
   br label %if.end55
 
 if.else:                                          ; preds = %while.body18
-  %call51 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br), !range !7
+  %call51 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br)
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %return, label %if.end55
 
@@ -1284,12 +1284,12 @@ if.end55:                                         ; preds = %if.else, %if.then21
   %val.addr.2 = phi ptr [ %add.ptr, %if.then47 ], [ %add.ptr, %if.then21 ], [ %val.addr.151, %if.else ]
   %nvals.addr.2 = phi i32 [ %sub, %if.then47 ], [ %sub, %if.then21 ], [ %nvals.addr.152, %if.else ]
   %cmp16 = icmp ugt i32 %nvals.addr.2, 7
-  br i1 %cmp16, label %while.body18, label %while.cond57.preheader, !llvm.loop !14
+  br i1 %cmp16, label %while.body18, label %while.cond57.preheader, !llvm.loop !13
 
 while.body59:                                     ; preds = %while.body59.preheader, %if.end63
   %nvals.addr.357 = phi i32 [ %dec66, %if.end63 ], [ %nvals.addr.357.ph, %while.body59.preheader ]
   %val.addr.356 = phi ptr [ %incdec.ptr65, %if.end63 ], [ %val.addr.356.ph, %while.body59.preheader ]
-  %call60 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call60 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %return, label %if.end63
 
@@ -1300,7 +1300,7 @@ if.end63:                                         ; preds = %while.body59
   store i8 %conv64, ptr %val.addr.356, align 1
   %dec66 = add nsw i32 %nvals.addr.357, -1
   %tobool58.not = icmp eq i32 %dec66, 0
-  br i1 %tobool58.not, label %return, label %while.body59, !llvm.loop !15
+  br i1 %tobool58.not, label %return, label %while.body59, !llvm.loop !14
 
 return:                                           ; preds = %while.body, %if.end10, %if.else, %while.body59, %if.end63, %if.end5, %while.cond57.preheader, %if.then3
   %retval.0 = phi i32 [ 0, %if.then3 ], [ 1, %while.cond57.preheader ], [ 1, %if.end5 ], [ 0, %while.body59 ], [ 1, %if.end63 ], [ 0, %if.else ], [ 0, %while.body ], [ 1, %if.end10 ]
@@ -1308,7 +1308,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_unary_unsigned(ptr nocapture noundef %br, ptr nocapture noundef %val) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nocapture noundef %br, ptr nocapture noundef %val) local_unnamed_addr #8 {
 entry:
   store i32 0, ptr %val, align 4
   %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
@@ -1346,7 +1346,7 @@ cond.end:                                         ; preds = %while.body2
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %shl, i1 true), !range !16
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %shl, i1 true)
   %cast.i = trunc nuw nsw i64 %6 to i32
   %add = add i32 %.pre48, %cast.i
   store i32 %add, ptr %val, align 4
@@ -1374,7 +1374,7 @@ if.else:                                          ; preds = %while.body2.if.else
   store i32 0, ptr %consumed_bits, align 8
   %11 = load i32, ptr %words, align 4
   %cmp = icmp ult i32 %inc17, %11
-  br i1 %cmp, label %while.body2, label %while.end, !llvm.loop !17
+  br i1 %cmp, label %while.body2, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %if.else, %while.body
   %12 = phi i32 [ %.pre49, %while.body ], [ 0, %if.else ]
@@ -1399,7 +1399,7 @@ if.then22:                                        ; preds = %while.end
   br i1 %tobool36.not, label %if.else43, label %if.then37
 
 if.then37:                                        ; preds = %if.then22
-  %16 = tail call i64 @llvm.ctlz.i64(i64 %shl35, i1 true), !range !16
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %shl35, i1 true)
   %cast.i38 = trunc nuw nsw i64 %16 to i32
   %17 = load i32, ptr %val, align 4
   %add39 = add i32 %17, %cast.i38
@@ -1418,7 +1418,7 @@ if.else43:                                        ; preds = %if.then22
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else43, %while.end
-  %call50 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br), !range !7
+  %call50 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %br)
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %return, label %while.body
 
@@ -1433,7 +1433,7 @@ return:                                           ; preds = %if.end49, %return.s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_rice_signed_block(ptr nocapture noundef %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr nocapture noundef %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #8 {
 entry:
   %lsbs = alloca i32, align 4
   %msbs = alloca i32, align 4
@@ -1449,7 +1449,7 @@ while.cond.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end
   %val.0114 = phi ptr [ %incdec.ptr, %if.end ], [ %vals, %while.cond.preheader ]
-  %call = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %br, ptr noundef nonnull %msbs), !range !7
+  %call = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %br, ptr noundef nonnull %msbs)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1462,7 +1462,7 @@ if.end:                                           ; preds = %while.body
   %incdec.ptr = getelementptr inbounds i8, ptr %val.0114, i64 4
   store i32 %xor, ptr %val.0114, align 4
   %cmp1 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp1, label %while.body, label %return, !llvm.loop !18
+  br i1 %cmp1, label %while.body, label %return, !llvm.loop !16
 
 if.end4:                                          ; preds = %entry
   %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
@@ -1504,7 +1504,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %b.0110 = phi i64 [ %b.0.ph, %while.body13.lr.ph ], [ %b.2, %if.end59 ]
   %ucbits.0109 = phi i32 [ %ucbits.0.ph, %while.body13.lr.ph ], [ %ucbits.1, %if.end59 ]
   %cwords.0108 = phi i32 [ %cwords.0.ph, %while.body13.lr.ph ], [ %cwords.3, %if.end59 ]
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %b.0110, i1 false), !range !16
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %b.0110, i1 false)
   %cast.i.i = trunc nuw nsw i64 %6 to i32
   %cmp15 = icmp eq i32 %cast.i.i, 64
   br i1 %cmp15, label %do.body, label %if.end25
@@ -1521,11 +1521,11 @@ if.end19:                                         ; preds = %do.body
   %idxprom21 = zext i32 %inc to i64
   %arrayidx22 = getelementptr inbounds i64, ptr %7, i64 %idxprom21
   %8 = load i64, ptr %arrayidx22, align 8
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %8, i1 false), !range !16
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
   %cast.i.i92 = trunc nuw nsw i64 %9 to i32
   %add = add i32 %x.0, %cast.i.i92
   %cmp24 = icmp eq i32 %cast.i.i92, 64
-  br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !19
+  br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !17
 
 if.end25:                                         ; preds = %if.end19, %while.body13
   %x.1 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
@@ -1587,7 +1587,7 @@ if.end59:                                         ; preds = %if.end47, %if.then3
   %incdec.ptr66 = getelementptr inbounds i8, ptr %val.1111, i64 4
   store i32 %xor65, ptr %val.1111, align 4
   %cmp12 = icmp ult ptr %incdec.ptr66, %add.ptr
-  br i1 %cmp12, label %while.body13, label %while.end112, !llvm.loop !20
+  br i1 %cmp12, label %while.body13, label %while.end112, !llvm.loop !18
 
 incomplete_msbs:                                  ; preds = %do.body
   %13 = add i32 %cwords.0108, 1
@@ -1600,7 +1600,7 @@ incomplete_msbs:                                  ; preds = %do.body
 if.end71:                                         ; preds = %cond.end, %if.end4, %incomplete_msbs
   %x.4 = phi i32 [ %x.0, %incomplete_msbs ], [ 0, %if.end4 ], [ 0, %cond.end ]
   %val.3 = phi ptr [ %val.1111, %incomplete_msbs ], [ %vals, %if.end4 ], [ %incdec.ptr93, %cond.end ]
-  %call72 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %br, ptr noundef nonnull %msbs), !range !7
+  %call72 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %br, ptr noundef nonnull %msbs)
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %return, label %if.end75
 
@@ -1622,7 +1622,7 @@ if.end80:                                         ; preds = %if.end75, %incomple
   %ucbits.2 = phi i32 [ 0, %if.end75 ], [ %rem, %incomplete_lsbs ]
   %val.4 = phi ptr [ %val.3, %if.end75 ], [ %val.1111, %incomplete_lsbs ]
   %sub81 = sub i32 %parameter, %ucbits.2
-  %call82 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %lsbs, i32 noundef %sub81), !range !7
+  %call82 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %lsbs, i32 noundef %sub81)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %return, label %if.end85
 
@@ -1661,10 +1661,10 @@ cond.end:                                         ; preds = %if.end85, %cond.tru
   %cmp107 = icmp uge i32 %17, %18
   %cmp109 = icmp ult ptr %incdec.ptr93, %add.ptr
   %23 = select i1 %cmp107, i1 %cmp109, i1 false
-  br i1 %23, label %if.end71, label %do.end111, !llvm.loop !21
+  br i1 %23, label %if.end71, label %do.end111, !llvm.loop !19
 
 do.end111:                                        ; preds = %cond.end
-  br label %while.cond11.preheader, !llvm.loop !20
+  br label %while.cond11.preheader, !llvm.loop !18
 
 while.end112:                                     ; preds = %if.end59, %while.cond11.preheader
   %cwords.0.lcssa = phi i32 [ %cwords.0.ph, %while.cond11.preheader ], [ %cwords.3, %if.end59 ]
@@ -1688,7 +1688,7 @@ return:                                           ; preds = %if.end25, %while.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr nocapture noundef %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr nocapture noundef %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #10 {
 entry:
   %lsbs = alloca i32, align 4
   %msbs = alloca i32, align 4
@@ -1704,7 +1704,7 @@ while.cond.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end
   %val.0114 = phi ptr [ %incdec.ptr, %if.end ], [ %vals, %while.cond.preheader ]
-  %call = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %br, ptr noundef nonnull %msbs), !range !7
+  %call = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %br, ptr noundef nonnull %msbs)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1717,7 +1717,7 @@ if.end:                                           ; preds = %while.body
   %incdec.ptr = getelementptr inbounds i8, ptr %val.0114, i64 4
   store i32 %xor, ptr %val.0114, align 4
   %cmp1 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp1, label %while.body, label %return, !llvm.loop !22
+  br i1 %cmp1, label %while.body, label %return, !llvm.loop !20
 
 if.end4:                                          ; preds = %entry
   %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
@@ -1759,7 +1759,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %b.0110 = phi i64 [ %b.0.ph, %while.body13.lr.ph ], [ %b.2, %if.end59 ]
   %ucbits.0109 = phi i32 [ %ucbits.0.ph, %while.body13.lr.ph ], [ %ucbits.1, %if.end59 ]
   %cwords.0108 = phi i32 [ %cwords.0.ph, %while.body13.lr.ph ], [ %cwords.3, %if.end59 ]
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %b.0110, i1 false), !range !16
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %b.0110, i1 false)
   %cast.i.i = trunc nuw nsw i64 %6 to i32
   %cmp15 = icmp eq i32 %cast.i.i, 64
   br i1 %cmp15, label %do.body, label %if.end25
@@ -1776,11 +1776,11 @@ if.end19:                                         ; preds = %do.body
   %idxprom21 = zext i32 %inc to i64
   %arrayidx22 = getelementptr inbounds i64, ptr %7, i64 %idxprom21
   %8 = load i64, ptr %arrayidx22, align 8
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %8, i1 false), !range !16
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
   %cast.i.i92 = trunc nuw nsw i64 %9 to i32
   %add = add i32 %x.0, %cast.i.i92
   %cmp24 = icmp eq i32 %cast.i.i92, 64
-  br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !23
+  br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !21
 
 if.end25:                                         ; preds = %if.end19, %while.body13
   %x.1 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
@@ -1842,7 +1842,7 @@ if.end59:                                         ; preds = %if.end47, %if.then3
   %incdec.ptr66 = getelementptr inbounds i8, ptr %val.1111, i64 4
   store i32 %xor65, ptr %val.1111, align 4
   %cmp12 = icmp ult ptr %incdec.ptr66, %add.ptr
-  br i1 %cmp12, label %while.body13, label %while.end112, !llvm.loop !24
+  br i1 %cmp12, label %while.body13, label %while.end112, !llvm.loop !22
 
 incomplete_msbs:                                  ; preds = %do.body
   %13 = add i32 %cwords.0108, 1
@@ -1855,7 +1855,7 @@ incomplete_msbs:                                  ; preds = %do.body
 if.end71:                                         ; preds = %cond.end, %if.end4, %incomplete_msbs
   %x.4 = phi i32 [ %x.0, %incomplete_msbs ], [ 0, %if.end4 ], [ 0, %cond.end ]
   %val.3 = phi ptr [ %val.1111, %incomplete_msbs ], [ %vals, %if.end4 ], [ %incdec.ptr93, %cond.end ]
-  %call72 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %br, ptr noundef nonnull %msbs), !range !7
+  %call72 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %br, ptr noundef nonnull %msbs)
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %return, label %if.end75
 
@@ -1877,7 +1877,7 @@ if.end80:                                         ; preds = %if.end75, %incomple
   %ucbits.2 = phi i32 [ 0, %if.end75 ], [ %rem, %incomplete_lsbs ]
   %val.4 = phi ptr [ %val.3, %if.end75 ], [ %val.1111, %incomplete_lsbs ]
   %sub81 = sub i32 %parameter, %ucbits.2
-  %call82 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %lsbs, i32 noundef %sub81), !range !7
+  %call82 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %lsbs, i32 noundef %sub81)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %return, label %if.end85
 
@@ -1916,10 +1916,10 @@ cond.end:                                         ; preds = %if.end85, %cond.tru
   %cmp107 = icmp uge i32 %17, %18
   %cmp109 = icmp ult ptr %incdec.ptr93, %add.ptr
   %23 = select i1 %cmp107, i1 %cmp109, i1 false
-  br i1 %23, label %if.end71, label %do.end111, !llvm.loop !25
+  br i1 %23, label %if.end71, label %do.end111, !llvm.loop !23
 
 do.end111:                                        ; preds = %cond.end
-  br label %while.cond11.preheader, !llvm.loop !24
+  br label %while.cond11.preheader, !llvm.loop !22
 
 while.end112:                                     ; preds = %if.end59, %while.cond11.preheader
   %cwords.0.lcssa = phi i32 [ %cwords.0.ph, %while.cond11.preheader ], [ %cwords.3, %if.end59 ]
@@ -1943,10 +1943,10 @@ return:                                           ; preds = %if.end25, %while.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_utf8_uint32(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, ptr noundef writeonly %raw, ptr nocapture noundef %rawlen) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, ptr noundef writeonly %raw, ptr nocapture noundef %rawlen) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -2004,7 +2004,7 @@ for.body.lr.ph:                                   ; preds = %if.else36, %if.else
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end68.us
   %i.119.us = phi i32 [ %dec.us, %if.end68.us ], [ %i.0.ph, %for.body.lr.ph ]
   %v.118.us = phi i32 [ %or.us, %if.end68.us ], [ %and11, %for.body.lr.ph ]
-  %call52.us = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call52.us = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool53.not.us = icmp eq i32 %call52.us, 0
   br i1 %tobool53.not.us, label %return, label %if.end55.us
 
@@ -2020,12 +2020,12 @@ if.end68.us:                                      ; preds = %if.end55.us
   %or.us = or disjoint i32 %and69.us, %shl.us
   %dec.us = add nsw i32 %i.119.us, -1
   %tobool51.not.us = icmp eq i32 %dec.us, 0
-  br i1 %tobool51.not.us, label %return.sink.split, label %for.body.us, !llvm.loop !26
+  br i1 %tobool51.not.us, label %return.sink.split, label %for.body.us, !llvm.loop !24
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end68
   %i.119 = phi i32 [ %dec, %if.end68 ], [ %i.0.ph, %for.body.lr.ph ]
   %v.118 = phi i32 [ %or, %if.end68 ], [ %and11, %for.body.lr.ph ]
-  %call52 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call52 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %return, label %if.end55
 
@@ -2048,7 +2048,7 @@ if.end68:                                         ; preds = %if.end55
   %or = or disjoint i32 %and69, %shl
   %dec = add nsw i32 %i.119, -1
   %tobool51.not = icmp eq i32 %dec, 0
-  br i1 %tobool51.not, label %return.sink.split, label %for.body, !llvm.loop !26
+  br i1 %tobool51.not, label %return.sink.split, label %for.body, !llvm.loop !24
 
 return.sink.split:                                ; preds = %if.end68, %if.end55, %if.end68.us, %if.end55.us, %if.end3, %if.else36
   %v.1.lcssa.sink = phi i32 [ -1, %if.else36 ], [ %.pre, %if.end3 ], [ -1, %if.end55.us ], [ %or.us, %if.end68.us ], [ -1, %if.end55 ], [ %or, %if.end68 ]
@@ -2061,10 +2061,10 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitreader_read_utf8_uint64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, ptr noundef writeonly %raw, ptr nocapture noundef %rawlen) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, ptr noundef writeonly %raw, ptr nocapture noundef %rawlen) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -2147,7 +2147,7 @@ for.body.lr.ph:                                   ; preds = %if.else41, %if.else
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end82.us
   %i.120.us = phi i32 [ %dec.us, %if.end82.us ], [ %i.0.ph, %for.body.lr.ph ]
   %v.119.us = phi i64 [ %or.us, %if.end82.us ], [ %v.026, %for.body.lr.ph ]
-  %call66.us = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call66.us = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool67.not.us = icmp eq i32 %call66.us, 0
   br i1 %tobool67.not.us, label %return, label %if.end69.us
 
@@ -2164,12 +2164,12 @@ if.end82.us:                                      ; preds = %if.end69.us
   %or.us = or disjoint i64 %shl.us, %conv84.us
   %dec.us = add nsw i32 %i.120.us, -1
   %tobool65.not.us = icmp eq i32 %dec.us, 0
-  br i1 %tobool65.not.us, label %return.sink.split, label %for.body.us, !llvm.loop !27
+  br i1 %tobool65.not.us, label %return.sink.split, label %for.body.us, !llvm.loop !25
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end82
   %i.120 = phi i32 [ %dec, %if.end82 ], [ %i.0.ph, %for.body.lr.ph ]
   %v.119 = phi i64 [ %or, %if.end82 ], [ %v.026, %for.body.lr.ph ]
-  %call66 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
+  %call66 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8)
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %return, label %if.end69
 
@@ -2193,7 +2193,7 @@ if.end82:                                         ; preds = %if.end69
   %or = or disjoint i64 %shl, %conv84
   %dec = add nsw i32 %i.120, -1
   %tobool65.not = icmp eq i32 %dec, 0
-  br i1 %tobool65.not, label %return.sink.split, label %for.body, !llvm.loop !27
+  br i1 %tobool65.not, label %return.sink.split, label %for.body, !llvm.loop !25
 
 return.sink.split:                                ; preds = %if.end82, %if.end69, %if.end82.us, %if.end69.us, %if.end64, %if.else50
   %v.1.lcssa.sink = phi i64 [ -1, %if.else50 ], [ %v.0, %if.end64 ], [ -1, %if.end69.us ], [ %or.us, %if.end82.us ], [ -1, %if.end69 ], [ %or, %if.end82 ]
@@ -2261,7 +2261,7 @@ attributes #19 = { nounwind allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -2270,7 +2270,7 @@ attributes #19 = { nounwind allocsize(0) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i64 0, i64 65}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
@@ -2280,5 +2280,3 @@ attributes #19 = { nounwind allocsize(0) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}

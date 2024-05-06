@@ -97,7 +97,7 @@ define internal i32 @memsostream_puts(ptr nocapture noundef %0, ptr nocapture no
 declare i32 @lib_snoflush(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @memsostream_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #4 {
+define internal range(i32 -1, -2147483648) i32 @memsostream_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #4 {
   switch i32 %2, label %18 [
     i32 1, label %.sink.split
     i32 0, label %9

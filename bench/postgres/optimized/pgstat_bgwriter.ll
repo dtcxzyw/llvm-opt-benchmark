@@ -92,7 +92,7 @@ pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changeco
 
 pgstat_begin_changecount_read.exit.i:             ; preds = %10, %pgstat_end_changecount_read.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %5, ptr noundef nonnull readonly align 1 dereferenceable(32) %6, i64 32, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !8
   %11 = and i32 %8, 1
   %.not.i5.i = icmp eq i32 %11, 0
@@ -136,7 +136,7 @@ pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changeco
 
 pgstat_begin_changecount_read.exit.i:             ; preds = %6, %pgstat_end_changecount_read.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 4), ptr noundef nonnull align 1 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i64 0, i32 3, i32 4), ptr noundef nonnull readonly align 1 dereferenceable(32) %2, i64 32, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !8
   %7 = and i32 %4, 1
   %.not.i5.i = icmp eq i32 %7, 0

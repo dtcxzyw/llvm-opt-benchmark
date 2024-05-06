@@ -1263,7 +1263,7 @@ Abc_Clock.exit:                                   ; preds = %7, %14
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
   %.05.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %24 ]
-  call fastcc void @Fx_PrintDiv(ptr noundef nonnull %21, i32 noundef %.05.i)
+  call fastcc void @Fx_PrintDiv(ptr noundef nonnull readonly %21, i32 noundef %.05.i)
   %29 = add nuw nsw i32 %.05.i, 1
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr i8, ptr %30, i64 4
@@ -1606,7 +1606,7 @@ Abc_Clock.exit38:                                 ; preds = %163, %166
   %indvars.iv35.i = phi i64 [ %180, %.lr.ph31.i ], [ %indvars.iv.next36.i, %.critedge.i ]
   %.val24.i = load ptr, ptr %179, align 8
   %196 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv35.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %196, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %196, i8 0, i64 16, i1 false)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %.val22.i = load i32, ptr %175, align 4
   %197 = sext i32 %.val22.i to i64
@@ -3783,7 +3783,7 @@ define internal fastcc i32 @Hsh_VecManAdd(ptr nocapture noundef %0, ptr nocaptur
 
 14:                                               ; preds = %.lr.ph.i
   %15 = add nuw nsw i32 %.01116.i, 2
-  %16 = mul nsw i32 %15, %15
+  %16 = mul nuw nsw i32 %15, %15
   %.not.i = icmp ugt i32 %16, %12
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !48
 
@@ -5329,7 +5329,7 @@ define void @Fx_ManCreateDivisors(ptr nocapture noundef %0) local_unnamed_addr #
 
 5:                                                ; preds = %.lr.ph.i.i
   %6 = add nuw nsw i32 %.01116.i.i, 2
-  %7 = mul nsw i32 %6, %6
+  %7 = mul nuw nsw i32 %6, %6
   %.not.i.i = icmp ugt i32 %7, %3
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !48
 

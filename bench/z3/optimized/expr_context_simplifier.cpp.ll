@@ -1702,8 +1702,8 @@ if.end138:                                        ; preds = %sw.bb9, %entry, %_Z
   %111 = load i32, ptr %m_num_args.i202, align 8
   %idx.ext.i = zext i32 %111 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %112 = getelementptr i8, ptr %a, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %112, i64 32
+  %112 = getelementptr inbounds i8, ptr %a, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %112, i64 32
   %cmp146.not250 = icmp eq i32 %111, 0
   br i1 %cmp146.not250, label %for.end.thread, label %for.body.lr.ph
 

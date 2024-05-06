@@ -921,7 +921,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
   %.07.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ 0, %13 ]
   %21 = getelementptr inbounds ptr, ptr %19, i64 %.07.i.i
   %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %16) #17
+  %23 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %16) #17
   %24 = icmp eq i32 %23, 0
   %25 = add nuw i64 %.07.i.i, 1
   %26 = icmp uge i64 %25, %18
@@ -1037,7 +1037,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_128SanitizeOptimizationSettingsERN4Json5Va
   %.07.i.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i25.i ]
   %64 = getelementptr inbounds ptr, ptr %62, i64 %.07.i.i.i.i
   %65 = load ptr, ptr %64, align 8
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %59) #17
+  %66 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(1) %59) #17
   %67 = icmp eq i32 %66, 0
   %68 = add nuw i64 %.07.i.i.i.i, 1
   %69 = icmp uge i64 %68, %61

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @systemd_journal_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 10, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @systemd_journal_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @systemd_journal_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(262144) ptr @g_malloc(i64 noundef 262144) #7
   %5 = tail call ptr @__errno_location() #8
   store i32 0, ptr %5, align 4
@@ -118,17 +118,17 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @systemd_journal_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @systemd_journal_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #9
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @systemd_journal_read_export_entry(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !6
+  %10 = tail call fastcc i32 @systemd_journal_read_export_entry(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @systemd_journal_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @systemd_journal_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #9
@@ -137,7 +137,7 @@ define internal noundef i32 @systemd_journal_seek_read(ptr nocapture noundef rea
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @systemd_journal_read_export_entry(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !6
+  %13 = tail call fastcc i32 @systemd_journal_read_export_entry(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %18
 
@@ -172,7 +172,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @systemd_journal_read_export_entry(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   tail call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef 262144) #9
   %7 = load ptr, ptr %2, align 8
@@ -227,7 +227,7 @@ define internal fastcc noundef i32 @systemd_journal_read_export_entry(ptr nounde
   %36 = sdiv i64 %33, 1000000
   store i64 %36, ptr %11, align 8
   %37 = urem i64 %33, 1000000
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %39 = mul nuw nsw i32 %38, 1000
   store i32 %39, ptr %12, align 8
   store i32 6, ptr %13, align 8
@@ -300,7 +300,7 @@ define internal fastcc noundef i32 @systemd_journal_read_export_entry(ptr nounde
   %70 = add nuw nsw i32 %.062114, 1
   %exitcond.not = icmp eq i32 %70, 100
   %or.cond146 = select i1 %69, i1 true, i1 %exitcond.not
-  br i1 %or.cond146, label %71, label %14, !llvm.loop !7
+  br i1 %or.cond146, label %71, label %14, !llvm.loop !6
 
 71:                                               ; preds = %67, %14
   %.272 = phi i32 [ %.171, %67 ], [ %.070111, %14 ]
@@ -384,5 +384,4 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

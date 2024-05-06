@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4llvhL15offsetsFromUTF8E = internal unnamed_addr constant [6 x i32] [i32 0, i32 12416, i32 925824, i32 63447168, i32 -100130688, i32 -2113396608], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh19ConvertUTF32toUTF16EPPKjS1_PPtS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef readnone %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh19ConvertUTF32toUTF16EPPKjS1_PPtS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef readnone %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -60,7 +60,7 @@ if.then3.us.us:                                   ; preds = %if.end.us.us
   br i1 %or.cond.us.us, label %while.end, label %if.else12.us.us
 
 if.else12.us.us:                                  ; preds = %if.then3.us.us
-  %conv.us.us = trunc i32 %2 to i16
+  %conv.us.us = trunc nuw i32 %2 to i16
   %incdec.ptr13.us.us = getelementptr inbounds i8, ptr %target.026.us.us, i64 2
   store i16 %conv.us.us, ptr %target.026.us.us, align 2
   br label %if.end34.us.us
@@ -94,7 +94,7 @@ if.then6:                                         ; preds = %if.then3
   br label %if.end34
 
 if.else12:                                        ; preds = %if.then3
-  %conv = trunc i32 %7 to i16
+  %conv = trunc nuw i32 %7 to i16
   %incdec.ptr13 = getelementptr inbounds i8, ptr %target.026, i64 2
   store i16 %conv, ptr %target.026, align 2
   br label %if.end34
@@ -140,7 +140,7 @@ while.end:                                        ; preds = %if.end34, %while.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh19ConvertUTF16toUTF32EPPKtS1_PPjS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef readnone %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh19ConvertUTF16toUTF32EPPKtS1_PPjS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef readnone %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -243,7 +243,7 @@ while.end:                                        ; preds = %if.end33.us, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh18ConvertUTF16toUTF8EPPKtS1_PPhS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef readnone %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF16toUTF8EPPKtS1_PPhS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef readnone %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -473,7 +473,7 @@ while.end:                                        ; preds = %sw.bb69.us, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef readnone %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef readnone %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -672,7 +672,7 @@ while.end:                                        ; preds = %sw.bb44.us, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @_ZN4llvh19isLegalUTF8SequenceEPKhS1_(ptr noundef %source, ptr noundef %sourceEnd) local_unnamed_addr #1 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_ZN4llvh19isLegalUTF8SequenceEPKhS1_(ptr noundef %source, ptr noundef %sourceEnd) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %source, align 1
   %idxprom = zext i8 %0 to i64
@@ -688,7 +688,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr noundef nonnull %source, i32 noundef %add), !range !9
+  %call = tail call fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr noundef nonnull %source, i32 noundef %add)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -697,7 +697,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr nocapture noundef readonly %source, i32 noundef %length) unnamed_addr #1 {
+define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr nocapture noundef readonly %source, i32 noundef %length) unnamed_addr #1 {
 entry:
   %idx.ext = sext i32 %length to i64
   %add.ptr = getelementptr inbounds i8, ptr %source, i64 %idx.ext
@@ -774,7 +774,7 @@ return:                                           ; preds = %sw.epilog54, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4llvh18getNumBytesForUTF8Eh(i8 noundef zeroext %first) local_unnamed_addr #2 {
+define hidden noundef range(i32 -127, 129) i32 @_ZN4llvh18getNumBytesForUTF8Eh(i8 noundef zeroext %first) local_unnamed_addr #2 {
 entry:
   %idxprom = zext i8 %first to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZN4llvhL20trailingBytesForUTF8E, i64 0, i64 %idxprom
@@ -785,7 +785,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @_ZN4llvh17isLegalUTF8StringEPPKhS1_(ptr nocapture noundef %source, ptr noundef %sourceEnd) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_ZN4llvh17isLegalUTF8StringEPPKhS1_(ptr nocapture noundef %source, ptr noundef %sourceEnd) local_unnamed_addr #3 {
 entry:
   %source.promoted = load ptr, ptr %source, align 8
   %cmp.not8 = icmp eq ptr %source.promoted, %sourceEnd
@@ -810,7 +810,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp2, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %call = tail call fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr noundef nonnull %0, i32 noundef %add), !range !9
+  %call = tail call fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr noundef nonnull %0, i32 noundef %add)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -818,7 +818,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %conv1
   store ptr %add.ptr, ptr %source, align 8
   %cmp.not = icmp eq ptr %add.ptr, %sourceEnd
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !10
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !9
 
 return:                                           ; preds = %lor.lhs.false, %while.body, %if.end, %entry
   %retval.0 = phi i8 [ 1, %entry ], [ 1, %if.end ], [ 0, %while.body ], [ 0, %lor.lhs.false ]
@@ -826,7 +826,7 @@ return:                                           ; preds = %lor.lhs.false, %whi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -855,7 +855,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.end:                                           ; preds = %while.body
   %conv3 = zext i16 %conv to i32
   %add = add nuw nsw i32 %conv3, 1
-  %call = tail call fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr noundef nonnull %source.069, i32 noundef %add), !range !9
+  %call = tail call fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr noundef nonnull %source.069, i32 noundef %add)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %while.end, label %if.end5
 
@@ -968,7 +968,7 @@ if.else:                                          ; preds = %if.then44
   br label %if.end89
 
 if.else54:                                        ; preds = %if.then41
-  %conv55 = trunc i32 %sub to i16
+  %conv55 = trunc nuw i32 %sub to i16
   %incdec.ptr56 = getelementptr inbounds i8, ptr %target.070, i64 2
   store i16 %conv55, ptr %target.070, align 2
   br label %if.end89
@@ -1018,7 +1018,7 @@ if.end80:                                         ; preds = %if.else71
 if.end89:                                         ; preds = %if.else68, %if.end80, %if.else, %if.else54
   %target.1 = phi ptr [ %incdec.ptr52, %if.else ], [ %incdec.ptr56, %if.else54 ], [ %incdec.ptr69, %if.else68 ], [ %incdec.ptr87, %if.end80 ]
   %cmp = icmp ult ptr %source.6, %sourceEnd
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end89, %while.body, %if.end, %entry, %if.then74, %if.then62, %if.then46, %if.then36
   %target.057 = phi ptr [ %target.070, %if.then36 ], [ %target.070, %if.then46 ], [ %target.070, %if.then62 ], [ %target.070, %if.then74 ], [ %1, %entry ], [ %target.1, %if.end89 ], [ %target.070, %while.body ], [ %target.070, %if.end ]
@@ -1030,14 +1030,14 @@ while.end:                                        ; preds = %if.end89, %while.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh25ConvertUTF8toUTF32PartialEPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh25ConvertUTF8toUTF32PartialEPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %sourceStart, ptr noundef %sourceEnd, ptr noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags, i8 noundef zeroext 1), !range !12
+  %call = tail call fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %sourceStart, ptr noundef %sourceEnd, ptr noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags, i8 noundef zeroext 1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags, i8 noundef zeroext %InputIsPartial) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags, i8 noundef zeroext %InputIsPartial) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -1184,7 +1184,7 @@ while.cond.backedge:                              ; preds = %if.then51, %sw.epil
   store i32 %.sink, ptr %target.0103, align 4
   %target.0.be = getelementptr inbounds i8, ptr %target.0103, i64 4
   %cmp = icmp ult ptr %source.0.be, %sourceEnd
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
 
 if.end:                                           ; preds = %while.body
   %cmp5.not = icmp ult ptr %target.0103, %targetEnd
@@ -1193,7 +1193,7 @@ if.end:                                           ; preds = %while.body
 if.end7:                                          ; preds = %if.end
   %conv8 = zext i16 %conv to i32
   %add = add nuw nsw i32 %conv8, 1
-  %call9 = tail call fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr noundef nonnull %source.0102, i32 noundef %add), !range !9
+  %call9 = tail call fastcc noundef zeroext i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr noundef nonnull %source.0102, i32 noundef %add)
   %tobool10.not = icmp eq i8 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %if.end19
 
@@ -1410,9 +1410,9 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %sourceStart, ptr noundef %sourceEnd, ptr noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags, i8 noundef zeroext 0), !range !12
+  %call = tail call fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %sourceStart, ptr noundef %sourceEnd, ptr noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags, i8 noundef zeroext 0)
   ret i32 %call
 }
 
@@ -1432,8 +1432,6 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, arg
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 4}
-!13 = distinct !{!13, !5}

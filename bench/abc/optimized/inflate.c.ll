@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @fixedtables.distfix = internal constant [32 x %struct.code] [%struct.code { i8 16, i8 5, i16 1 }, %struct.code { i8 23, i8 5, i16 257 }, %struct.code { i8 19, i8 5, i16 17 }, %struct.code { i8 27, i8 5, i16 4097 }, %struct.code { i8 17, i8 5, i16 5 }, %struct.code { i8 25, i8 5, i16 1025 }, %struct.code { i8 21, i8 5, i16 65 }, %struct.code { i8 29, i8 5, i16 16385 }, %struct.code { i8 16, i8 5, i16 3 }, %struct.code { i8 24, i8 5, i16 513 }, %struct.code { i8 20, i8 5, i16 33 }, %struct.code { i8 28, i8 5, i16 8193 }, %struct.code { i8 18, i8 5, i16 9 }, %struct.code { i8 26, i8 5, i16 2049 }, %struct.code { i8 22, i8 5, i16 129 }, %struct.code { i8 64, i8 5, i16 0 }, %struct.code { i8 16, i8 5, i16 2 }, %struct.code { i8 23, i8 5, i16 385 }, %struct.code { i8 19, i8 5, i16 25 }, %struct.code { i8 27, i8 5, i16 6145 }, %struct.code { i8 17, i8 5, i16 7 }, %struct.code { i8 25, i8 5, i16 1537 }, %struct.code { i8 21, i8 5, i16 97 }, %struct.code { i8 29, i8 5, i16 24577 }, %struct.code { i8 16, i8 5, i16 4 }, %struct.code { i8 24, i8 5, i16 769 }, %struct.code { i8 20, i8 5, i16 49 }, %struct.code { i8 28, i8 5, i16 12289 }, %struct.code { i8 18, i8 5, i16 13 }, %struct.code { i8 26, i8 5, i16 3073 }, %struct.code { i8 22, i8 5, i16 193 }, %struct.code { i8 64, i8 5, i16 0 }], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @inflateReset(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @inflateReset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -85,7 +85,7 @@ define noundef i32 @inflateReset(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @inflateReset2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @inflateReset2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateReset.exit, label %4
 
@@ -203,7 +203,7 @@ inflateReset.exit:                                ; preds = %33, %28, %select.un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @inflateInit2_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -6, 1) i32 @inflateInit2_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %80, label %6
 
@@ -376,13 +376,13 @@ declare hidden ptr @zcalloc(ptr noundef, i32 noundef, i32 noundef) #2
 declare hidden void @zcfree(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @inflateInit_(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call i32 @inflateInit2_(ptr noundef %0, i32 noundef 15, ptr noundef %1, i32 noundef %2), !range !4
+define range(i32 -6, 1) i32 @inflateInit_(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = tail call i32 @inflateInit2_(ptr noundef %0, i32 noundef 15, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @inflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @inflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %31, label %5
 
@@ -643,7 +643,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %95 = add i64 %94, %.19152333
   %indvars.iv.next2867 = add nuw nsw i64 %indvars.iv2866, 8
   %96 = icmp ult i64 %indvars.iv2866, 8
-  br i1 %96, label %.lr.ph2335, label %._crit_edge2336.loopexit, !llvm.loop !5
+  br i1 %96, label %.lr.ph2335, label %._crit_edge2336.loopexit, !llvm.loop !4
 
 ._crit_edge2336.loopexit:                         ; preds = %89
   %97 = trunc nuw nsw i64 %indvars.iv.next2867 to i32
@@ -764,7 +764,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %145 = add i64 %144, %.29162284
   %indvars.iv.next2846 = add nuw nsw i64 %indvars.iv2845, 8
   %146 = icmp ult i64 %indvars.iv2845, 8
-  br i1 %146, label %.lr.ph2286, label %._crit_edge2287.loopexit, !llvm.loop !7
+  br i1 %146, label %.lr.ph2286, label %._crit_edge2287.loopexit, !llvm.loop !6
 
 ._crit_edge2287.loopexit:                         ; preds = %139
   %147 = trunc nuw nsw i64 %indvars.iv.next2846 to i32
@@ -858,7 +858,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %178 = add i64 %177, %.49182294
   %indvars.iv.next2849 = add nuw nsw i64 %indvars.iv2848, 8
   %179 = icmp ult i64 %indvars.iv2848, 24
-  br i1 %179, label %.lr.ph2297, label %._crit_edge2298, !llvm.loop !8
+  br i1 %179, label %.lr.ph2297, label %._crit_edge2298, !llvm.loop !7
 
 ._crit_edge2298:                                  ; preds = %172, %168
   %.41047.lcssa = phi ptr [ %.01043, %168 ], [ %174, %172 ]
@@ -929,7 +929,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %206 = add i64 %205, %.69202304
   %indvars.iv.next2852 = add nuw nsw i64 %indvars.iv2851, 8
   %207 = icmp ult i64 %indvars.iv2851, 8
-  br i1 %207, label %.lr.ph2307, label %._crit_edge2308, !llvm.loop !9
+  br i1 %207, label %.lr.ph2307, label %._crit_edge2308, !llvm.loop !8
 
 ._crit_edge2308:                                  ; preds = %200, %196
   %.61049.lcssa = phi ptr [ %.01043, %196 ], [ %202, %200 ]
@@ -1011,7 +1011,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %241 = add i64 %240, %.89222314
   %indvars.iv.next2855 = add nuw nsw i64 %indvars.iv2854, 8
   %242 = icmp ult i64 %indvars.iv2854, 8
-  br i1 %242, label %.lr.ph2316, label %._crit_edge2317, !llvm.loop !10
+  br i1 %242, label %.lr.ph2316, label %._crit_edge2317, !llvm.loop !9
 
 ._crit_edge2317:                                  ; preds = %235, %.preheader1265
   %243 = phi i32 [ %227, %.preheader1265 ], [ %232, %235 ]
@@ -1200,7 +1200,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %322 = icmp ne i8 %307, 0
   %323 = icmp ult i64 %indvars.iv.next2858, %305
   %324 = select i1 %322, i1 %323, i1 false
-  br i1 %324, label %.preheader1264, label %325, !llvm.loop !11
+  br i1 %324, label %.preheader1264, label %325, !llvm.loop !10
 
 325:                                              ; preds = %321
   %326 = trunc nuw i64 %indvars.iv.next2858 to i32
@@ -1290,7 +1290,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %363 = icmp ne i8 %348, 0
   %364 = icmp ult i64 %indvars.iv.next2861, %346
   %365 = select i1 %363, i1 %364, i1 false
-  br i1 %365, label %.preheader1263, label %366, !llvm.loop !12
+  br i1 %365, label %.preheader1263, label %366, !llvm.loop !11
 
 366:                                              ; preds = %362
   %367 = trunc nuw i64 %indvars.iv.next2861 to i32
@@ -1362,7 +1362,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %394 = add i64 %393, %.149282323
   %indvars.iv.next2864 = add nuw nsw i64 %indvars.iv2863, 8
   %395 = icmp ult i64 %indvars.iv2863, 8
-  br i1 %395, label %.lr.ph2325, label %._crit_edge2326.loopexit, !llvm.loop !13
+  br i1 %395, label %.lr.ph2325, label %._crit_edge2326.loopexit, !llvm.loop !12
 
 ._crit_edge2326.loopexit:                         ; preds = %388
   %396 = trunc nuw nsw i64 %indvars.iv.next2864 to i32
@@ -1426,7 +1426,7 @@ define i32 @inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %417 = add i64 %416, %.169302112
   %indvars.iv.next2843 = add nuw nsw i64 %indvars.iv2842, 8
   %418 = icmp ult i64 %indvars.iv2842, 24
-  br i1 %418, label %.lr.ph2114, label %._crit_edge2115, !llvm.loop !14
+  br i1 %418, label %.lr.ph2114, label %._crit_edge2115, !llvm.loop !13
 
 ._crit_edge2115:                                  ; preds = %411, %.preheader1273
   %.201063.lcssa = phi ptr [ %.01043, %.preheader1273 ], [ %413, %411 ]
@@ -1588,7 +1588,7 @@ default.unreachable2892:                          ; preds = %444
   %473 = add i64 %472, %.219352101
   %indvars.iv.next2841 = add nuw nsw i64 %indvars.iv2840, 8
   %474 = icmp ult i64 %indvars.iv2840, 24
-  br i1 %474, label %.lr.ph2104, label %._crit_edge2105.loopexit, !llvm.loop !15
+  br i1 %474, label %.lr.ph2104, label %._crit_edge2105.loopexit, !llvm.loop !14
 
 ._crit_edge2105.loopexit:                         ; preds = %467
   %475 = trunc nuw nsw i64 %indvars.iv.next2841 to i32
@@ -1673,7 +1673,7 @@ default.unreachable2892:                          ; preds = %444
   %504 = add i64 %503, %.249381756
   %indvars.iv.next2802 = add nuw nsw i64 %indvars.iv2801, 8
   %505 = icmp ult i64 %indvars.iv2801, 6
-  br i1 %505, label %.lr.ph1758, label %._crit_edge1759.loopexit, !llvm.loop !16
+  br i1 %505, label %.lr.ph1758, label %._crit_edge1759.loopexit, !llvm.loop !15
 
 ._crit_edge1759.loopexit:                         ; preds = %498
   %506 = trunc nuw nsw i64 %indvars.iv.next2802 to i32
@@ -1781,7 +1781,7 @@ default.unreachable2892:                          ; preds = %444
   %544 = lshr i64 %.27941.lcssa, 3
   %545 = add i32 %.27.lcssa, -3
   %546 = icmp ult i64 %indvars.iv.next2805, %524
-  br i1 %546, label %.preheader1257, label %.preheader1286, !llvm.loop !17
+  br i1 %546, label %.preheader1257, label %.preheader1286, !llvm.loop !16
 
 .lr.ph1932:                                       ; preds = %.preheader1286, %.lr.ph1932
   %547 = phi i32 [ %548, %.lr.ph1932 ], [ %.lcssa, %.preheader1286 ]
@@ -1793,7 +1793,7 @@ default.unreachable2892:                          ; preds = %444
   %553 = getelementptr inbounds [320 x i16], ptr %46, i64 0, i64 %552
   store i16 0, ptr %553, align 2
   %554 = icmp ult i32 %547, 18
-  br i1 %554, label %.lr.ph1932, label %._crit_edge1933.loopexit, !llvm.loop !18
+  br i1 %554, label %.lr.ph1932, label %._crit_edge1933.loopexit, !llvm.loop !17
 
 ._crit_edge1933.loopexit:                         ; preds = %.lr.ph1932
   store i32 %548, ptr %45, align 4
@@ -1925,7 +1925,7 @@ default.unreachable2892:                          ; preds = %444
   %595 = add i64 %594, %.319451988
   %indvars.iv.next2820 = add nuw nsw i64 %indvars.iv2819, 8
   %596 = icmp ult i64 %indvars.iv.next2820, %587
-  br i1 %596, label %.lr.ph1990, label %._crit_edge1991.loopexit, !llvm.loop !19
+  br i1 %596, label %.lr.ph1990, label %._crit_edge1991.loopexit, !llvm.loop !18
 
 ._crit_edge1991.loopexit:                         ; preds = %589
   %597 = trunc nuw i64 %indvars.iv.next2820 to i32
@@ -1999,7 +1999,7 @@ default.unreachable2892:                          ; preds = %444
   %624 = add i64 %623, %.329461965
   %indvars.iv.next2814 = add nuw nsw i64 %indvars.iv2813, 8
   %625 = icmp ult i64 %indvars.iv.next2814, %612
-  br i1 %625, label %.lr.ph1967, label %._crit_edge1968.loopexit, !llvm.loop !20
+  br i1 %625, label %.lr.ph1967, label %._crit_edge1968.loopexit, !llvm.loop !19
 
 ._crit_edge1968.loopexit:                         ; preds = %618
   %626 = trunc nuw i64 %indvars.iv.next2814 to i32
@@ -2050,7 +2050,7 @@ default.unreachable2892:                          ; preds = %444
   %649 = add i64 %648, %.339471955
   %indvars.iv.next2811 = add nuw nsw i64 %indvars.iv2810, 8
   %650 = icmp ult i64 %indvars.iv.next2811, %608
-  br i1 %650, label %.lr.ph1957, label %._crit_edge1958.loopexit, !llvm.loop !21
+  br i1 %650, label %.lr.ph1957, label %._crit_edge1958.loopexit, !llvm.loop !20
 
 ._crit_edge1958.loopexit:                         ; preds = %643
   %651 = trunc nuw i64 %indvars.iv.next2811 to i32
@@ -2088,7 +2088,7 @@ default.unreachable2892:                          ; preds = %444
   %666 = add i64 %665, %.349481975
   %indvars.iv.next2817 = add nuw nsw i64 %indvars.iv2816, 8
   %667 = icmp ult i64 %indvars.iv.next2817, %616
-  br i1 %667, label %.lr.ph1977, label %._crit_edge1978.loopexit, !llvm.loop !22
+  br i1 %667, label %.lr.ph1977, label %._crit_edge1978.loopexit, !llvm.loop !21
 
 ._crit_edge1978.loopexit:                         ; preds = %660
   %668 = trunc nuw i64 %indvars.iv.next2817 to i32
@@ -2134,7 +2134,7 @@ default.unreachable2892:                          ; preds = %444
   %684 = getelementptr inbounds [320 x i16], ptr %46, i64 0, i64 %683
   store i16 %.0883, ptr %684, align 2
   %.not1170 = icmp eq i32 %681, 0
-  br i1 %.not1170, label %.loopexit1248, label %.preheader1247, !llvm.loop !23
+  br i1 %.not1170, label %.loopexit1248, label %.preheader1247, !llvm.loop !22
 
 .loopexit1248:                                    ; preds = %.preheader1247
   store i32 %682, ptr %45, align 4
@@ -2147,7 +2147,7 @@ default.unreachable2892:                          ; preds = %444
   %.36950 = phi i64 [ %599, %._crit_edge1991 ], [ %.35949, %.loopexit1248 ]
   %.36 = phi i32 [ %600, %._crit_edge1991 ], [ %.35, %.loopexit1248 ]
   %686 = icmp ult i32 %.lcssa19841998, %561
-  br i1 %686, label %.preheader1255, label %._crit_edge2004, !llvm.loop !24
+  br i1 %686, label %.preheader1255, label %._crit_edge2004, !llvm.loop !23
 
 ._crit_edge2004:                                  ; preds = %685, %558
   %.331076.lcssa = phi ptr [ %.321075, %558 ], [ %.401083, %685 ]
@@ -2464,7 +2464,7 @@ default.unreachable2892:                          ; preds = %444
   %806 = add i64 %805, %.449582046
   %807 = add i32 %.442047, 8
   %808 = icmp ult i32 %807, %796
-  br i1 %808, label %.lr.ph2048, label %._crit_edge2049, !llvm.loop !25
+  br i1 %808, label %.lr.ph2048, label %._crit_edge2049, !llvm.loop !24
 
 ._crit_edge2049:                                  ; preds = %799, %.preheader1281
   %.481091.lcssa = phi ptr [ %.471090, %.preheader1281 ], [ %801, %799 ]
@@ -2708,7 +2708,7 @@ default.unreachable2892:                          ; preds = %444
   %907 = add i64 %906, %.519652091
   %908 = add i32 %.512092, 8
   %909 = icmp ult i32 %908, %897
-  br i1 %909, label %.lr.ph2093, label %._crit_edge2094, !llvm.loop !26
+  br i1 %909, label %.lr.ph2093, label %._crit_edge2094, !llvm.loop !25
 
 ._crit_edge2094:                                  ; preds = %900, %.preheader1276
   %.551098.lcssa = phi ptr [ %.541097, %.preheader1276 ], [ %902, %900 ]
@@ -2820,7 +2820,7 @@ default.unreachable2892:                          ; preds = %444
   store i8 %957, ptr %.11041, align 1
   %959 = add i32 %.10, -1
   %.not1190 = icmp eq i32 %959, 0
-  br i1 %.not1190, label %960, label %955, !llvm.loop !27
+  br i1 %.not1190, label %960, label %955, !llvm.loop !26
 
 960:                                              ; preds = %955
   %961 = sub i32 %.0976, %spec.select1240
@@ -2875,7 +2875,7 @@ default.unreachable2892:                          ; preds = %444
   %983 = add i64 %982, %.549681739
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %984 = icmp ult i64 %indvars.iv, 24
-  br i1 %984, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !28
+  br i1 %984, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %977
   %985 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -2984,7 +2984,7 @@ default.unreachable2892:                          ; preds = %444
   %1023 = add i64 %1022, %.579711746
   %indvars.iv.next2799 = add nuw nsw i64 %indvars.iv2798, 8
   %1024 = icmp ult i64 %indvars.iv2798, 24
-  br i1 %1024, label %.lr.ph1748, label %._crit_edge1749.loopexit, !llvm.loop !29
+  br i1 %1024, label %.lr.ph1748, label %._crit_edge1749.loopexit, !llvm.loop !28
 
 ._crit_edge1749.loopexit:                         ; preds = %1017
   %1025 = trunc nuw nsw i64 %indvars.iv.next2799 to i32
@@ -3166,7 +3166,7 @@ default.unreachable2892:                          ; preds = %444
   br i1 %.not1233, label %1074, label %1071
 
 1071:                                             ; preds = %1070, %.loopexit
-  %1072 = call fastcc i32 @updatewindow(ptr noundef nonnull %0, i32 noundef %.5902), !range !30
+  %1072 = call fastcc i32 @updatewindow(ptr noundef nonnull %0, i32 noundef %.5902)
   %.not1234 = icmp eq i32 %1072, 0
   br i1 %.not1234, label %._crit_edge2889, label %1073
 
@@ -3271,7 +3271,7 @@ declare hidden i32 @inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr nou
 declare hidden void @inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @updatewindow(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @updatewindow(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
@@ -3386,7 +3386,7 @@ define internal fastcc noundef i32 @updatewindow(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @inflateEnd(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @inflateEnd(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %22, label %3
 
@@ -3431,7 +3431,7 @@ define noundef i32 @inflateEnd(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @inflateSetDictionary(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %46, label %5
 
@@ -3466,7 +3466,7 @@ define noundef i32 @inflateSetDictionary(ptr noundef readonly %0, ptr noundef %1
 19:                                               ; preds = %.thread, %14
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
-  %22 = tail call fastcc i32 @updatewindow(ptr noundef nonnull %0, i32 noundef %21), !range !30
+  %22 = tail call fastcc i32 @updatewindow(ptr noundef nonnull %0, i32 noundef %21)
   %.not38 = icmp eq i32 %22, 0
   br i1 %.not38, label %24, label %23
 
@@ -3515,7 +3515,7 @@ define noundef i32 @inflateSetDictionary(ptr noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @inflateGetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @inflateGetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -3545,7 +3545,7 @@ define noundef i32 @inflateGetHeader(ptr noundef readonly %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @inflateSync(ptr noundef %0) local_unnamed_addr #5 {
+define range(i32 -5, 1) i32 @inflateSync(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca [4 x i8], align 1
   %3 = icmp eq ptr %0, null
   br i1 %3, label %98, label %4
@@ -3607,7 +3607,7 @@ define noundef i32 @inflateSync(ptr noundef %0) local_unnamed_addr #5 {
   %30 = lshr i64 %27, 8
   %31 = add i32 %storemerge56, -8
   %.not53 = icmp eq i32 %31, 0
-  br i1 %.not53, label %.lr.ph.preheader.i, label %.lr.ph, !llvm.loop !31
+  br i1 %.not53, label %.lr.ph.preheader.i, label %.lr.ph, !llvm.loop !29
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph
   store i64 %30, ptr %22, align 8
@@ -3633,7 +3633,7 @@ define noundef i32 @inflateSync(ptr noundef %0) local_unnamed_addr #5 {
   %41 = icmp ult i64 %indvars.iv.next.i, %32
   %42 = icmp ult i32 %.1.i, 4
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !32
+  br i1 %43, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !30
 
 syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %.014.lcssa.i = phi i32 [ 0, %.thread ], [ %.1.i, %.lr.ph.i ]
@@ -3674,7 +3674,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %62 = icmp ult i64 %indvars.iv.next.i50, %53
   %63 = icmp ult i32 %.1.i49, 4
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %.lr.ph.i44, label %._crit_edge.loopexit.i51, !llvm.loop !32
+  br i1 %64, label %.lr.ph.i44, label %._crit_edge.loopexit.i51, !llvm.loop !30
 
 ._crit_edge.loopexit.i51:                         ; preds = %.lr.ph.i44
   %65 = trunc nuw i64 %indvars.iv.next.i50 to i32
@@ -3757,7 +3757,7 @@ inflateReset.exit:                                ; preds = %75, %80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @inflateSyncPoint(ptr noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 -2, 2) i32 @inflateSyncPoint(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -3785,7 +3785,7 @@ define i32 @inflateSyncPoint(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @inflateCopy(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -4, 1) i32 @inflateCopy(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -3907,7 +3907,7 @@ define noundef i32 @inflateCopy(ptr noundef writeonly %0, ptr noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @inflateUndermine(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, -1) i32 @inflateUndermine(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -3999,32 +3999,30 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -6, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = !{i32 0, i32 2}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}

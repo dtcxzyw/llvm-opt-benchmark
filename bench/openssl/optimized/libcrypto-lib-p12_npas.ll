@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.PKCS12_newpass = private unnamed_addr constant [15 x i8] c"PKCS12_newpass\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS12_newpass(ptr noundef %p12, ptr noundef %oldpass, ptr noundef %newpass) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_newpass(ptr noundef %p12, ptr noundef %oldpass, ptr noundef %newpass) local_unnamed_addr #0 {
 entry:
   %p8_nid.i.i.i = alloca i32, align 4
   %p8_saltlen.i.i.i = alloca i32, align 4
@@ -100,7 +100,7 @@ if.then15.i:                                      ; preds = %if.else.i
   %3 = load ptr, ptr %enc_data.i, align 8
   %algorithm.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %algorithm.i, align 8
-  %call17.i = call fastcc i32 @alg_get(ptr noundef %4, ptr noundef nonnull %pbe_nid.i, ptr noundef nonnull %pbe_iter.i, ptr noundef nonnull %pbe_saltlen.i, ptr noundef nonnull %cipherid.i), !range !4
+  %call17.i = call fastcc i32 @alg_get(ptr noundef %4, ptr noundef nonnull %pbe_nid.i, ptr noundef nonnull %pbe_iter.i, ptr noundef nonnull %pbe_saltlen.i, ptr noundef nonnull %cipherid.i)
   %tobool.i = icmp eq i32 %call17.i, 0
   %cmp23.i = icmp eq ptr %call16.i, null
   %or.cond.i = select i1 %tobool.i, i1 true, i1 %cmp23.i
@@ -140,7 +140,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %8 = load ptr, ptr %value.i.i.i, align 8
   call void @X509_SIG_get0(ptr noundef %8, ptr noundef nonnull %shalg.i.i.i, ptr noundef null) #3
   %9 = load ptr, ptr %shalg.i.i.i, align 8
-  %call6.i.i.i = call fastcc i32 @alg_get(ptr noundef %9, ptr noundef nonnull %p8_nid.i.i.i, ptr noundef nonnull %p8_iter.i.i.i, ptr noundef nonnull %p8_saltlen.i.i.i, ptr noundef nonnull %cipherid.i.i.i), !range !4
+  %call6.i.i.i = call fastcc i32 @alg_get(ptr noundef %9, ptr noundef nonnull %p8_nid.i.i.i, ptr noundef nonnull %p8_iter.i.i.i, ptr noundef nonnull %p8_saltlen.i.i.i, ptr noundef nonnull %cipherid.i.i.i)
   %tobool.not.i.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %newpass_bag.exit.thread.sink.split.i.i, label %if.end8.i.i.i
 
@@ -185,7 +185,7 @@ for.inc.i.i:                                      ; preds = %if.end20.i.i.i, %fo
   %inc.i.i = add nuw nsw i32 %i.010.i.i, 1
   %call1.i.i = call i32 @OPENSSL_sk_num(ptr noundef %bags.1.i) #3
   %cmp.i.i = icmp slt i32 %inc.i.i, %call1.i.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %if.end30.i, !llvm.loop !5
+  br i1 %cmp.i.i, label %for.body.i.i, label %if.end30.i, !llvm.loop !4
 
 newpass_bags.exit.i:                              ; preds = %if.end16.i.i.i, %if.end.i.i.i, %newpass_bag.exit.thread.sink.split.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %p8_nid.i.i.i)
@@ -229,7 +229,7 @@ for.inc.i:                                        ; preds = %if.end47.i, %if.els
   %inc.i = add nuw nsw i32 %i.059.i, 1
   %call6.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #3
   %cmp7.i = icmp slt i32 %inc.i, %call6.i
-  br i1 %cmp7.i, label %for.body.i, label %for.end.i, !llvm.loop !7
+  br i1 %cmp7.i, label %for.body.i, label %for.end.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %authsafes.i = getelementptr inbounds i8, ptr %p12, i64 16
@@ -342,7 +342,7 @@ declare ptr @PKCS12_unpack_p7data(ptr noundef) local_unnamed_addr #1
 declare ptr @PKCS12_unpack_p7encdata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @alg_get(ptr noundef %alg, ptr nocapture noundef writeonly %pnid, ptr nocapture noundef writeonly %piter, ptr nocapture noundef writeonly %psaltlen, ptr nocapture noundef writeonly %cipherid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %alg, ptr nocapture noundef writeonly %pnid, ptr nocapture noundef writeonly %piter, ptr nocapture noundef writeonly %psaltlen, ptr nocapture noundef writeonly %cipherid) unnamed_addr #0 {
 entry:
   %aparamtype = alloca i32, align 4
   %aoid = alloca ptr, align 8
@@ -539,7 +539,6 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

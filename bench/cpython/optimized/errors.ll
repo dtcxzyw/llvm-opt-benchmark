@@ -906,7 +906,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [60 x i8] c"sys.unraisablehook argument type must be UnraisableHookArgs\00", align 1
 @.str.20 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @.str.21 = private unnamed_addr constant [69 x i8] c"calling %R should have returned an instance of BaseException, not %s\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.22 = private unnamed_addr constant [10 x i8] c"<unknown>\00", align 1
 @.str.23 = private unnamed_addr constant [30 x i8] c"Normalization failed: type=%s\00", align 1
 @.str.24 = private unnamed_addr constant [38 x i8] c"Normalization failed: type=%s args=%S\00", align 1
@@ -4361,7 +4361,7 @@ if.end:                                           ; preds = %entry
   %call4 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %args, i64 noundef 2) #16
   %call5 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %args, i64 noundef 3) #16
   %call6 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %args, i64 noundef 4) #16
-  %call7 = tail call fastcc i32 @write_unraisable_exc(ptr noundef %1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5, ptr noundef %call6), !range !9
+  %call7 = tail call fastcc i32 @write_unraisable_exc(ptr noundef %1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5, ptr noundef %call6)
   %cmp = icmp slt i32 %call7, 0
   %._Py_NoneStruct = select i1 %cmp, ptr null, ptr @_Py_NoneStruct
   br label %return
@@ -4374,7 +4374,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare ptr @PyStructSequence_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_unraisable_exc(ptr noundef %tstate, ptr noundef %exc_type, ptr noundef %exc_value, ptr noundef %exc_tb, ptr noundef %err_msg, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_unraisable_exc(ptr noundef %tstate, ptr noundef %exc_type, ptr noundef %exc_value, ptr noundef %exc_tb, ptr noundef %err_msg, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PySys_GetAttr(ptr noundef %tstate, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 626)) #16
   %cmp = icmp eq ptr %call, null
@@ -5307,7 +5307,7 @@ default_hook:                                     ; preds = %_PyErr_Fetch.exit.t
   %58 = phi ptr [ %55, %_PyErr_Fetch.exit116 ], [ %22, %if.then35 ], [ %22, %if.then1.i84 ], [ %22, %if.end.i81 ], [ %22, %if.then42 ], [ %22, %if.then1.i66 ], [ %22, %if.end.i63 ], [ null, %_PyErr_Fetch.exit.thread ]
   %err_msg.1 = phi ptr [ %call49, %_PyErr_Fetch.exit116 ], [ %err_msg.0, %if.then35 ], [ %err_msg.0, %if.then1.i84 ], [ %err_msg.0, %if.end.i81 ], [ %err_msg.0, %if.then42 ], [ %err_msg.0, %if.then1.i66 ], [ %err_msg.0, %if.end.i63 ], [ null, %_PyErr_Fetch.exit.thread ]
   %obj.addr.1 = phi ptr [ %obj.addr.0, %_PyErr_Fetch.exit116 ], [ %obj, %if.then35 ], [ %obj, %if.then1.i84 ], [ %obj, %if.end.i81 ], [ %obj, %if.then42 ], [ %obj, %if.then1.i66 ], [ %obj, %if.end.i63 ], [ %obj, %_PyErr_Fetch.exit.thread ]
-  %call50 = tail call fastcc i32 @write_unraisable_exc(ptr noundef nonnull %1, ptr noundef %58, ptr noundef %57, ptr noundef %56, ptr noundef %err_msg.1, ptr noundef %obj.addr.1), !range !9
+  %call50 = tail call fastcc i32 @write_unraisable_exc(ptr noundef nonnull %1, ptr noundef %58, ptr noundef %57, ptr noundef %56, ptr noundef %err_msg.1, ptr noundef %obj.addr.1)
   br label %done
 
 done:                                             ; preds = %if.end.i, %if.then1.i, %if.then46, %default_hook
@@ -6248,7 +6248,7 @@ do.cond.i:                                        ; preds = %do.body.i
 for.inc.i:                                        ; preds = %do.cond.i, %do.cond.i
   %inc.i = add nuw nsw i32 %i.014.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %lineno
-  br i1 %exitcond.not.i, label %after_loop.thread.i, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %after_loop.thread.i, label %for.body.i, !llvm.loop !9
 
 after_loop.thread.i:                              ; preds = %for.inc.i
   %call1018.i = call i32 @fclose(ptr noundef nonnull %call2)
@@ -6421,5 +6421,4 @@ attributes #19 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 1}
-!10 = distinct !{!10, !6}
+!9 = distinct !{!9, !6}

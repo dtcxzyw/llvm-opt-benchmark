@@ -469,7 +469,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @set_die_is_recursing_routine(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @die_webcgi_recursing() #5 {
+define internal range(i32 0, 2) i32 @die_webcgi_recursing() #5 {
 entry:
   %0 = load i32, ptr @dead, align 4
   %inc = add nsw i32 %0, 1

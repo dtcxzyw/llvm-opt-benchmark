@@ -889,7 +889,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [42 x i8] c"Found non-str '%s' in skip_file_prefixes.\00", align 1
 @.str.5 = private unnamed_addr constant [4 x i8] c"sys\00", align 1
 @.str.6 = private unnamed_addr constant [9 x i8] c"<string>\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyExc_RuntimeError = external local_unnamed_addr global ptr, align 8
 @.str.7 = private unnamed_addr constant [59 x i8] c"warnings_get_state: could not identify current interpreter\00", align 1
 @.str.8 = private unnamed_addr constant [34 x i8] c"'registry' must be a dict or None\00", align 1
@@ -956,7 +956,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.48 = private unnamed_addr constant [15 x i8] c"_defaultaction\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyWarnings_InitState(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyWarnings_InitState(ptr nocapture noundef %interp) local_unnamed_addr #0 {
 entry:
   %warnings = getelementptr inbounds i8, ptr %interp, i64 4256
   %0 = load ptr, ptr %warnings, align 8
@@ -1198,7 +1198,7 @@ declare ptr @PyDict_New() local_unnamed_addr #1
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyErr_WarnFormat(ptr noundef %category, i64 noundef %stack_level, ptr noundef %format, ...) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyErr_WarnFormat(ptr noundef %category, i64 noundef %stack_level, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -1254,7 +1254,7 @@ _PyErr_WarnFormatV.exit:                          ; preds = %entry, %warn_unicod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyErr_ResourceWarning(ptr noundef %source, i64 noundef %stack_level, ptr noundef %format, ...) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyErr_ResourceWarning(ptr noundef %source, i64 noundef %stack_level, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -1311,7 +1311,7 @@ _PyErr_WarnFormatV.exit:                          ; preds = %entry, %warn_unicod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyErr_WarnEx(ptr noundef %category, ptr noundef %text, i64 noundef %stack_level) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyErr_WarnEx(ptr noundef %category, ptr noundef %text, i64 noundef %stack_level) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %text) #7
   %cmp = icmp eq ptr %call, null
@@ -1364,7 +1364,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PyErr_Warn(ptr noundef %category, ptr noundef %text) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @PyErr_Warn(ptr noundef %category, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyUnicode_FromString(ptr noundef %text) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -1417,7 +1417,7 @@ PyErr_WarnEx.exit:                                ; preds = %entry, %warn_unicod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyErr_WarnExplicitObject(ptr noundef %category, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %module, ptr noundef %registry) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyErr_WarnExplicitObject(ptr noundef %category, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %module, ptr noundef %registry) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %category, null
   %0 = load ptr, ptr @PyExc_RuntimeWarning, align 8
@@ -2185,7 +2185,7 @@ if.end126:                                        ; preds = %if.then109, %if.the
   ]
 
 if.then133:                                       ; preds = %if.else118, %if.then109, %if.end76, %if.end126
-  %call134 = call fastcc i32 @call_show_warning(ptr noundef %tstate, ptr noundef %category.addr.0, ptr noundef nonnull %text.0, ptr noundef nonnull %message.addr.0, ptr noundef %filename, i32 noundef %lineno, ptr noundef nonnull %call32, ptr noundef %sourceline, ptr noundef %spec.store.select), !range !8
+  %call134 = call fastcc i32 @call_show_warning(ptr noundef %tstate, ptr noundef %category.addr.0, ptr noundef nonnull %text.0, ptr noundef nonnull %message.addr.0, ptr noundef %filename, i32 noundef %lineno, ptr noundef nonnull %call32, ptr noundef %sourceline, ptr noundef %spec.store.select)
   %cmp135 = icmp slt i32 %call134, 0
   br i1 %cmp135, label %cleanup, label %return_none
 
@@ -2323,7 +2323,7 @@ return:                                           ; preds = %if.then9, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyErr_WarnExplicit(ptr noundef %category, ptr noundef %text, ptr noundef %filename_str, i32 noundef %lineno, ptr noundef %module_str, ptr noundef %registry) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyErr_WarnExplicit(ptr noundef %category, ptr noundef %text, ptr noundef %filename_str, i32 noundef %lineno, ptr noundef %module_str, ptr noundef %registry) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %text) #7
   %cmp = icmp eq ptr %call, null
@@ -2487,7 +2487,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @PyUnicode_DecodeFSDefault(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyErr_WarnExplicitFormat(ptr noundef %category, ptr noundef %filename_str, i32 noundef %lineno, ptr noundef %module_str, ptr noundef %registry, ptr noundef %format, ...) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyErr_WarnExplicitFormat(ptr noundef %category, ptr noundef %filename_str, i32 noundef %lineno, ptr noundef %module_str, ptr noundef %registry, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef %filename_str) #7
@@ -2617,7 +2617,7 @@ entry:
   %0 = load ptr, ptr @PyExc_RuntimeWarning, align 8
   %ag_qualname = getelementptr inbounds i8, ptr %agen, i64 32
   %1 = load ptr, ptr %ag_qualname, align 8
-  %call1 = tail call i32 (ptr, ptr, i64, ptr, ...) @_PyErr_WarnFormat(ptr noundef %agen, ptr noundef %0, i64 poison, ptr noundef nonnull @.str.1, ptr noundef %method, ptr noundef %1), !range !8
+  %call1 = tail call i32 (ptr, ptr, i64, ptr, ...) @_PyErr_WarnFormat(ptr noundef %agen, ptr noundef %0, i64 poison, ptr noundef nonnull @.str.1, ptr noundef %method, ptr noundef %1)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -2633,7 +2633,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_PyErr_WarnFormat(ptr noundef %source, ptr noundef %category, i64 %stack_level, ptr noundef %format, ...) unnamed_addr #0 {
+define internal range(i32 -1, 1) i32 @_PyErr_WarnFormat(ptr noundef %source, ptr noundef %category, i64 %stack_level, ptr noundef %format, ...) unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -2763,7 +2763,7 @@ if.then13:                                        ; preds = %if.end11
   %8 = load ptr, ptr @PyExc_RuntimeWarning, align 8
   %cr_qualname = getelementptr inbounds i8, ptr %coro, i64 32
   %9 = load ptr, ptr %cr_qualname, align 8
-  %call14 = tail call i32 (ptr, ptr, i64, ptr, ...) @_PyErr_WarnFormat(ptr noundef %coro, ptr noundef %8, i64 poison, ptr noundef nonnull @.str.2, ptr noundef %9), !range !8
+  %call14 = tail call i32 (ptr, ptr, i64, ptr, ...) @_PyErr_WarnFormat(ptr noundef %coro, ptr noundef %8, i64 poison, ptr noundef nonnull @.str.2, ptr noundef %9)
   %cmp = icmp slt i32 %call14, 0
   br i1 %cmp, label %if.then15, label %if.end17
 
@@ -2971,7 +2971,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then1.i12
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %idx.0122.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %skip_file_prefixes.val.i
-  br i1 %exitcond.not.i, label %if.end11.i, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %if.end11.i, label %for.body.i, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %idx.0122.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -3124,7 +3124,7 @@ if.then5.i.us.i.us.i:                             ; preds = %if.end.i9.us.i.us.i
 
 next_external_frame.exit.loopexit116.us.i:        ; preds = %if.then5.i.us.i.us.i, %if.end.i9.us.i.us.i, %land.rhs.us.i.us.i, %get_frame_filename.exit.us.i.us.i
   %cmp22.us.i = icmp sgt i64 %stack_level.addr.1126.us.i, 2
-  br i1 %cmp22.us.i, label %while.body26.us.i, label %if.else33.i, !llvm.loop !10
+  br i1 %cmp22.us.i, label %while.body26.us.i, label %if.else33.i, !llvm.loop !9
 
 if.then16.i:                                      ; preds = %if.then5.i.i.i, %if.end11.i
   %dec127.i = add i64 %stack_level, -1
@@ -3157,7 +3157,7 @@ do.end.i:                                         ; preds = %if.then1.i90.i, %if
   %cmp17.i = icmp sgt i64 %dec131.i, 1
   %cmp18.i = icmp ne ptr %call19.i, null
   %29 = select i1 %cmp17.i, i1 %cmp18.i, i1 false
-  br i1 %29, label %while.body.i, label %if.end29.i, !llvm.loop !11
+  br i1 %29, label %while.body.i, label %if.end29.i, !llvm.loop !10
 
 while.body26.i:                                   ; preds = %while.body26.lr.ph.i, %next_external_frame.exit.i
   %stack_level.addr.1126.i = phi i64 [ %dec21.i, %next_external_frame.exit.i ], [ %stack_level, %while.body26.lr.ph.i ]
@@ -3251,18 +3251,18 @@ for.body.i.i.i:                                   ; preds = %if.end.i14.i.i, %if
   %40 = load ptr, ptr %arrayidx.i.i.i, align 8
   %call5.i.i.i = tail call i64 @PyUnicode_Tailmatch(ptr noundef nonnull %32, ptr noundef %40, i64 noundef 0, i64 noundef -1, i32 noundef -1) #7
   %cmp6.i.i.i = icmp eq i64 %call5.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %do.body.i.i.backedge, label %if.end8.i.i.i, !llvm.loop !12
+  br i1 %cmp6.i.i.i, label %do.body.i.i.backedge, label %if.end8.i.i.i, !llvm.loop !11
 
 if.end8.i.i.i:                                    ; preds = %for.body.i.i.i
   %cmp9.i.i.i = icmp slt i64 %call5.i.i.i, 0
   %inc.i.i.i = add nuw nsw i64 %idx.08.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %skip_file_prefixes.val.i.i.i
   %or.cond.i.i.i = select i1 %cmp9.i.i.i, i1 true, i1 %exitcond.not.i.i.i
-  br i1 %or.cond.i.i.i, label %next_external_frame.exit.i, label %for.body.i.i.i, !llvm.loop !13
+  br i1 %or.cond.i.i.i, label %next_external_frame.exit.i, label %for.body.i.i.i, !llvm.loop !12
 
 next_external_frame.exit.i:                       ; preds = %if.end.i14.i.i, %lor.rhs.i.i, %get_frame_filename.exit.i66.i, %if.end8.i.i.i
   %cmp22.i = icmp sgt i64 %stack_level.addr.1126.i, 2
-  br i1 %cmp22.i, label %while.body26.i, label %if.end29.i, !llvm.loop !10
+  br i1 %cmp22.i, label %while.body26.i, label %if.end29.i, !llvm.loop !9
 
 if.end29.i:                                       ; preds = %next_external_frame.exit.i, %do.end.i, %if.then16.i
   %f.2.i = phi ptr [ %call13.i, %if.then16.i ], [ %call19.i, %do.end.i ], [ %call.i.i, %next_external_frame.exit.i ]
@@ -3790,7 +3790,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @call_show_warning(ptr noundef %tstate, ptr noundef %category, ptr noundef %text, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %lineno_obj, ptr noundef %sourceline, ptr noundef %source) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @call_show_warning(ptr noundef %tstate, ptr noundef %category, ptr noundef %text, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %lineno_obj, ptr noundef %sourceline, ptr noundef %source) unnamed_addr #0 {
 entry:
   %obj.i = alloca ptr, align 8
   %lineno_str.i = alloca [128 x i8], align 16
@@ -3921,7 +3921,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
 for.inc.us.i:                                     ; preds = %for.body.us.i, %for.body.us.i, %for.body.us.i
   %inc.us.i = add nuw nsw i64 %i.043.us.i, 1
   %exitcond62.not.i = icmp eq i64 %inc.us.i, %sourceline.val.i
-  br i1 %exitcond62.not.i, label %for.end.i, label %for.body.us.i, !llvm.loop !14
+  br i1 %exitcond62.not.i, label %for.end.i, label %for.body.us.i, !llvm.loop !13
 
 for.body.us47.i:                                  ; preds = %for.body.lr.ph.i, %for.inc.us51.i
   %i.043.us48.i = phi i64 [ %inc.us52.i, %for.inc.us51.i ], [ 0, %for.body.lr.ph.i ]
@@ -3936,7 +3936,7 @@ for.body.us47.i:                                  ; preds = %for.body.lr.ph.i, %
 for.inc.us51.i:                                   ; preds = %for.body.us47.i, %for.body.us47.i, %for.body.us47.i
   %inc.us52.i = add nuw nsw i64 %i.043.us48.i, 1
   %exitcond.not.i = icmp eq i64 %inc.us52.i, %sourceline.val.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.us47.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.us47.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %i.043.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
@@ -3951,7 +3951,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 for.inc.i:                                        ; preds = %for.body.i, %for.body.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.043.i, 1
   %exitcond63.not.i = icmp eq i64 %inc.i, %sourceline.val.i
-  br i1 %exitcond63.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond63.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.inc.us51.i, %for.body.us47.i, %for.inc.us.i, %for.body.us.i, %for.inc.i, %for.body.i, %PyUnicode_DATA.exit.i
   %i.0.lcssa.i = phi i64 [ 0, %PyUnicode_DATA.exit.i ], [ %sourceline.val.i, %for.inc.i ], [ %i.043.i, %for.body.i ], [ %sourceline.val.i, %for.inc.us.i ], [ %i.043.us.i, %for.body.us.i ], [ %sourceline.val.i, %for.inc.us51.i ], [ %i.043.us48.i, %for.body.us47.i ]
@@ -4876,7 +4876,7 @@ declare ptr @PyUnicode_Splitlines(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @PyList_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @warnings_module_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @warnings_module_exec(ptr noundef %module) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4956,10 +4956,9 @@ attributes #8 = { cold }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

@@ -330,7 +330,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_property_string() #0 {
+define internal range(i32 0, 2) i32 @test_property_string() #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 62, ptr noundef nonnull @.str.13, ptr noundef %call) #5
@@ -534,7 +534,7 @@ if.end:                                           ; preds = %land.lhs.true120, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_property_query_value_create() #0 {
+define internal range(i32 0, 2) i32 @test_property_query_value_create() #0 {
 entry:
   %call = tail call ptr @ossl_method_store_new(ptr noundef null) #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 176, ptr noundef nonnull @.str.70, ptr noundef %call) #5
@@ -542,7 +542,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.71, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.71, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end, label %land.lhs.true4
 
@@ -592,7 +592,7 @@ if.end:                                           ; preds = %land.lhs.true20, %l
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_property_parse(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_property_parse(i32 noundef %n) #0 {
 entry:
   %call = tail call ptr @ossl_method_store_new(ptr noundef null) #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 156, ptr noundef nonnull @.str.70, ptr noundef %call) #5
@@ -600,7 +600,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end, label %land.lhs.true4
 
@@ -641,7 +641,7 @@ if.end:                                           ; preds = %land.lhs.true14, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_property_parse_error(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_property_parse_error(i32 noundef %n) #0 {
 entry:
   %call = tail call ptr @ossl_method_store_new(ptr noundef null) #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 224, ptr noundef nonnull @.str.70, ptr noundef %call) #5
@@ -649,7 +649,7 @@ entry:
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.85, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.85, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %err, label %if.end
 
@@ -687,7 +687,7 @@ err:                                              ; preds = %if.else, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_property_merge(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_property_merge(i32 noundef %n) #0 {
 entry:
   %call = tail call ptr @ossl_method_store_new(ptr noundef null) #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 274, ptr noundef nonnull @.str.70, ptr noundef %call) #5
@@ -695,7 +695,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.151, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.151, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end, label %land.lhs.true4
 
@@ -752,7 +752,7 @@ if.end:                                           ; preds = %land.lhs.true27, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_property_defn_cache() #0 {
+define internal range(i32 0, 2) i32 @test_property_defn_cache() #0 {
 entry:
   %red = alloca ptr, align 8
   %blue = alloca ptr, align 8
@@ -765,7 +765,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.175, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.175, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then, label %land.lhs.true4
 
@@ -890,7 +890,7 @@ land.end66:                                       ; preds = %if.then56, %land.rh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_definition_compares(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_definition_compares(i32 noundef %n) #0 {
 entry:
   %call = tail call ptr @ossl_method_store_new(ptr noundef null) #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 359, ptr noundef nonnull @.str.70, ptr noundef %call) #5
@@ -898,7 +898,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %land.end, label %land.lhs.true4
 
@@ -939,7 +939,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_register_deregister() #0 {
+define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
 entry:
   %prov = alloca %struct.ossl_provider_st, align 4
   store i32 1, ptr %prov, align 4
@@ -949,7 +949,7 @@ entry:
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.207, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.207, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %err, label %for.body
 
@@ -974,7 +974,7 @@ if.then10:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %exitcond.not = icmp eq i64 %add, 4
-  br i1 %exitcond.not, label %for.body15, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.body15, label %for.body, !llvm.loop !5
 
 for.body15:                                       ; preds = %for.inc, %for.inc38
   %i.121 = phi i64 [ %inc39, %for.inc38 ], [ 0, %for.inc ]
@@ -1007,7 +1007,7 @@ if.then34:                                        ; preds = %lor.lhs.false28, %f
 for.inc38:                                        ; preds = %lor.lhs.false28
   %inc39 = add nuw nsw i64 %i.121, 1
   %exitcond25.not = icmp eq i64 %inc39, 4
-  br i1 %exitcond25.not, label %for.end40, label %for.body15, !llvm.loop !8
+  br i1 %exitcond25.not, label %for.end40, label %for.body15, !llvm.loop !7
 
 for.end40:                                        ; preds = %for.inc38
   %call41 = call i32 @ossl_method_store_remove(ptr noundef %call, i32 noundef 6, ptr noundef nonnull @.str.126) #5
@@ -1025,7 +1025,7 @@ err:                                              ; preds = %for.end40, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_property() #0 {
+define internal range(i32 0, 2) i32 @test_property() #0 {
 entry:
   %result = alloca ptr, align 8
   %nullprov = alloca ptr, align 8
@@ -1035,7 +1035,7 @@ entry:
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.222, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.222, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %err, label %for.body
 
@@ -1064,7 +1064,7 @@ if.then11:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %exitcond.not = icmp eq i64 %add, 6
-  br i1 %exitcond.not, label %for.body16, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.body16, label %for.body, !llvm.loop !8
 
 for.body16:                                       ; preds = %for.inc, %if.end32
   %i.151 = phi i64 [ %inc34, %if.end32 ], [ 0, %for.inc ]
@@ -1099,7 +1099,7 @@ if.end32:                                         ; preds = %lor.lhs.false26
   call void @ossl_property_free(ptr noundef null) #5
   %inc34 = add nuw nsw i64 %i.151, 1
   %exitcond60.not = icmp eq i64 %inc34, 11
-  br i1 %exitcond60.not, label %for.body39, label %for.body16, !llvm.loop !10
+  br i1 %exitcond60.not, label %for.body39, label %for.body16, !llvm.loop !9
 
 for.body39:                                       ; preds = %if.end32, %if.end84
   %i.252 = phi i64 [ %inc86, %if.end84 ], [ 0, %if.end32 ]
@@ -1168,7 +1168,7 @@ if.end84:                                         ; preds = %lor.lhs.false78, %l
   call void @ossl_property_free(ptr noundef null) #5
   %inc86 = add nuw nsw i64 %i.252, 1
   %exitcond61.not = icmp eq i64 %inc86, 11
-  br i1 %exitcond61.not, label %for.body91, label %for.body39, !llvm.loop !11
+  br i1 %exitcond61.not, label %for.body91, label %for.body39, !llvm.loop !10
 
 for.body91:                                       ; preds = %if.end84, %if.end137
   %i.353 = phi i64 [ %inc139, %if.end137 ], [ 0, %if.end84 ]
@@ -1237,7 +1237,7 @@ if.end137:                                        ; preds = %lor.lhs.false131, %
   call void @ossl_property_free(ptr noundef null) #5
   %inc139 = add nuw nsw i64 %i.353, 1
   %exitcond62.not = icmp eq i64 %inc139, 11
-  br i1 %exitcond62.not, label %err, label %for.body91, !llvm.loop !12
+  br i1 %exitcond62.not, label %err, label %for.body91, !llvm.loop !11
 
 err:                                              ; preds = %if.end137, %entry, %lor.lhs.false, %if.then134, %if.then115, %if.then81, %if.then63, %if.then30, %if.then11
   %ret.0 = phi i32 [ 0, %if.then11 ], [ 0, %if.then30 ], [ 0, %if.then63 ], [ 0, %if.then81 ], [ 0, %if.then115 ], [ 0, %if.then134 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end137 ]
@@ -1246,7 +1246,7 @@ err:                                              ; preds = %if.end137, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_query_cache_stochastic() #0 {
+define internal range(i32 0, 2) i32 @test_query_cache_stochastic() #0 {
 entry:
   %buf = alloca [50 x i8], align 16
   %result = alloca ptr, align 8
@@ -1259,7 +1259,7 @@ entry:
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.85, ptr noundef null), !range !5
+  %call2 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.85, ptr noundef null)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %err, label %for.body
 
@@ -1269,7 +1269,7 @@ for.body:                                         ; preds = %lor.lhs.false, %for
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %0 = shl i32 %indvars.iv.tr, 1
   store i32 %0, ptr %arrayidx, align 4
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call4 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 50, ptr noundef nonnull @.str.237, i32 noundef %1) #5
   %call6 = call i32 @ossl_method_store_add(ptr noundef %call, ptr noundef nonnull %prov, i32 noundef %1, ptr noundef nonnull %buf, ptr noundef nonnull @.str.239, ptr noundef nonnull @up_ref, ptr noundef nonnull @down_ref) #5
   %cmp7 = icmp ne i32 %call6, 0
@@ -1301,12 +1301,12 @@ if.then24:                                        ; preds = %lor.lhs.false18, %l
 for.inc:                                          ; preds = %lor.lhs.false18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10001
-  br i1 %exitcond.not, label %for.body29, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.body29, label %for.body, !llvm.loop !12
 
 for.body29:                                       ; preds = %for.inc, %for.body29
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %for.body29 ], [ 1, %for.inc ]
   %errors.024 = phi i32 [ %errors.1, %for.body29 ], [ 0, %for.inc ]
-  %2 = trunc i64 %indvars.iv28 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv28 to i32
   %call31 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 50, ptr noundef nonnull @.str.237, i32 noundef %2) #5
   %call33 = call i32 @ossl_method_store_cache_get(ptr noundef %call, ptr noundef null, i32 noundef %2, ptr noundef nonnull %buf, ptr noundef nonnull %result) #5
   %tobool34.not = icmp eq i32 %call33, 0
@@ -1318,7 +1318,7 @@ for.body29:                                       ; preds = %for.inc, %for.body2
   %errors.1 = add nuw nsw i32 %errors.024, %inc42
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 10001
-  br i1 %exitcond31.not, label %for.end46, label %for.body29, !llvm.loop !14
+  br i1 %exitcond31.not, label %for.end46, label %for.body29, !llvm.loop !13
 
 for.end46:                                        ; preds = %for.body29
   %call47 = call i32 @test_int_gt(ptr noundef nonnull @.str.12, i32 noundef 599, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, i32 noundef %errors.1, i32 noundef 10) #5
@@ -1338,7 +1338,7 @@ err:                                              ; preds = %for.end46, %land.rh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fips_mode() #0 {
+define internal range(i32 0, 2) i32 @test_fips_mode() #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 611, ptr noundef nonnull @.str.13, ptr noundef %call) #5
@@ -1473,7 +1473,7 @@ err:                                              ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_property_list_to_string(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @test_property_list_to_string(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [20 x %struct.anon.6], ptr @to_string_tests, i64 0, i64 %idxprom
@@ -1557,10 +1557,10 @@ declare void @ossl_method_store_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @add_property_names(ptr noundef %n, ...) unnamed_addr #0 {
+define internal range(i32 0, 2) i32 @add_property_names(ptr noundef %n, ...) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
   %0 = getelementptr inbounds i8, ptr %args, i64 16
   br label %do.body
@@ -1594,10 +1594,10 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
   %4 = load ptr, ptr %vaarg.addr, align 8
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !15
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %vaarg.end
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %spec.select
 }
 
@@ -1606,12 +1606,6 @@ declare ptr @ossl_parse_query(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare i32 @ossl_property_match_count(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @ossl_property_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare ptr @ossl_parse_property(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1632,13 +1626,13 @@ declare ptr @ossl_prop_defn_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_method_store_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @up_ref(ptr nocapture readnone %p) #3 {
+define internal noundef i32 @up_ref(ptr nocapture readnone %p) #2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @down_ref(ptr nocapture readnone %p) #3 {
+define internal void @down_ref(ptr nocapture readnone %p) #2 {
 entry:
   ret void
 }
@@ -1676,15 +1670,21 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 
@@ -1695,14 +1695,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

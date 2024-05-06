@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.29 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @kat_test) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @badkeylen_test) #2
@@ -52,7 +52,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kat_test() #0 {
+define internal range(i32 0, 2) i32 @kat_test() #0 {
 entry:
   %tag = alloca [32 x i8], align 16
   %ct = alloca [32 x i8], align 16
@@ -60,7 +60,7 @@ entry:
   %taglen = alloca i32, align 4
   store i32 0, ptr %ctlen, align 4
   store i32 0, ptr %taglen, align 4
-  %call = call fastcc i32 @do_encrypt(ptr noundef null, ptr noundef nonnull %ct, ptr noundef nonnull %ctlen, ptr noundef nonnull %tag, ptr noundef nonnull %taglen), !range !5
+  %call = call fastcc i32 @do_encrypt(ptr noundef null, ptr noundef nonnull %ct, ptr noundef nonnull %ctlen, ptr noundef nonnull %tag, ptr noundef nonnull %taglen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
@@ -80,7 +80,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
 
 land.rhs:                                         ; preds = %land.lhs.true5
   %2 = load i32, ptr %ctlen, align 4
-  %call12 = call fastcc i32 @do_decrypt(ptr noundef nonnull @gcm_iv, ptr noundef nonnull %ct, i32 noundef %2, ptr noundef nonnull %tag, i32 noundef %1), !range !5
+  %call12 = call fastcc i32 @do_decrypt(ptr noundef nonnull @gcm_iv, ptr noundef nonnull %ct, i32 noundef %2, ptr noundef nonnull %tag, i32 noundef %1)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true5, %land.lhs.true, %entry
@@ -89,7 +89,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @badkeylen_test() #0 {
+define internal range(i32 0, 2) i32 @badkeylen_test() #0 {
 entry:
   %call = tail call ptr @EVP_aes_192_gcm() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 111, ptr noundef nonnull @.str.26, ptr noundef %call) #2
@@ -125,7 +125,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ivgen_test() #0 {
+define internal range(i32 0, 2) i32 @ivgen_test() #0 {
 entry:
   %iv_gen = alloca [16 x i8], align 16
   %tag = alloca [32 x i8], align 16
@@ -134,14 +134,14 @@ entry:
   %taglen = alloca i32, align 4
   store i32 0, ptr %ctlen, align 4
   store i32 0, ptr %taglen, align 4
-  %call = call fastcc i32 @do_encrypt(ptr noundef nonnull %iv_gen, ptr noundef nonnull %ct, ptr noundef nonnull %ctlen, ptr noundef nonnull %tag, ptr noundef nonnull %taglen), !range !5
+  %call = call fastcc i32 @do_encrypt(ptr noundef nonnull %iv_gen, ptr noundef nonnull %ct, ptr noundef nonnull %ctlen, ptr noundef nonnull %tag, ptr noundef nonnull %taglen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
   %0 = load i32, ptr %ctlen, align 4
   %1 = load i32, ptr %taglen, align 4
-  %call6 = call fastcc i32 @do_decrypt(ptr noundef nonnull %iv_gen, ptr noundef nonnull %ct, i32 noundef %0, ptr noundef nonnull %tag, i32 noundef %1), !range !5
+  %call6 = call fastcc i32 @do_decrypt(ptr noundef nonnull %iv_gen, ptr noundef nonnull %ct, i32 noundef %0, ptr noundef nonnull %tag, i32 noundef %1)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -150,7 +150,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_encrypt(ptr noundef %iv_gen, ptr noundef %ct, ptr noundef %ct_len, ptr noundef %tag, ptr nocapture noundef writeonly %tag_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_encrypt(ptr noundef %iv_gen, ptr noundef %ct, ptr noundef %ct_len, ptr noundef %tag, ptr nocapture noundef writeonly %tag_len) unnamed_addr #0 {
 entry:
   %outlen = alloca i32, align 4
   %outbuf = alloca [64 x i8], align 16
@@ -242,7 +242,7 @@ land.end:                                         ; preds = %lor.end, %land.lhs.
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_decrypt(ptr noundef %iv, ptr noundef %ct, i32 noundef %ct_len, ptr noundef %tag, i32 noundef %tag_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %iv, ptr noundef %ct, i32 noundef %ct_len, ptr noundef %tag, i32 noundef %tag_len) unnamed_addr #0 {
 entry:
   %outlen = alloca i32, align 4
   %ptlen = alloca i32, align 4
@@ -369,4 +369,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

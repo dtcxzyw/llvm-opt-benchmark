@@ -229,7 +229,7 @@ define i32 @parse(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3
   br i1 %96, label %97, label %105
 
 97:                                               ; preds = %88
-  %98 = call i32 @_foreach_flag_parser(ptr noundef %3, ptr noundef nonnull %14), !range !6
+  %98 = call i32 @_foreach_flag_parser(ptr noundef %3, ptr noundef nonnull %14)
   %.not23.i = icmp eq i32 %98, 1
   br i1 %.not23.i, label %121, label %99
 
@@ -622,7 +622,7 @@ _parser_linked.exit:                              ; preds = %314, %315
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not117 = icmp eq i32 %.0.i125, 0
-  br i1 %.not117, label %184, label %.critedge, !llvm.loop !7
+  br i1 %.not117, label %184, label %.critedge, !llvm.loop !6
 
 316:                                              ; preds = %77
   %317 = getelementptr inbounds i8, ptr %2, i64 92
@@ -784,7 +784,7 @@ thread-pre-split133:                              ; preds = %323, %326
   %385 = getelementptr inbounds ptr, ptr %384, i64 %indvars.iv.next.i
   %386 = load ptr, ptr %385, align 8
   %.not32.i130 = icmp eq ptr %386, null
-  br i1 %.not32.i130, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not32.i130, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @slurm_xfree(ptr noundef nonnull %346) #5
@@ -1227,7 +1227,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   %155 = load i8, ptr %45, align 8
   %156 = zext i8 %155 to i32
   %157 = icmp slt i32 %154, %156
-  br i1 %157, label %56, label %.critedge, !llvm.loop !10
+  br i1 %157, label %56, label %.critedge, !llvm.loop !9
 
 158:                                              ; preds = %.preheader, %_dump_linked.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_dump_linked.exit ]
@@ -1424,7 +1424,7 @@ _dump_linked.exit:                                ; preds = %173, %176, %179, %2
   %.062.i = phi i32 [ %250, %256 ], [ %250, %253 ], [ %250, %246 ], [ 0, %173 ], [ 0, %176 ], [ 0, %179 ], [ 0, %225 ], [ 0, %223 ], [ 0, %219 ], [ 0, %217 ], [ 0, %215 ], [ 0, %212 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not66 = icmp eq i32 %.062.i, 0
-  br i1 %.not66, label %158, label %.critedge, !llvm.loop !11
+  br i1 %.not66, label %158, label %.critedge, !llvm.loop !10
 
 269:                                              ; preds = %24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
@@ -1556,7 +1556,7 @@ _dump_list.exit:                                  ; preds = %283, %284, %286, %2
   %327 = tail call i32 @data_parser_p_dump(ptr noundef %4, i32 noundef %325, ptr noundef nonnull %323, i64 noundef 4294967294, ptr noundef %326) #5
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %.not46.i = icmp eq i32 %327, 0
-  br i1 %.not46.i, label %321, label %.critedge, !llvm.loop !12
+  br i1 %.not46.i, label %321, label %.critedge, !llvm.loop !11
 
 328:                                              ; preds = %315
   %329 = getelementptr inbounds i8, ptr %2, i64 96
@@ -1588,7 +1588,7 @@ _dump_list.exit:                                  ; preds = %283, %284, %286, %2
   %spec.select.i76 = select i1 %.not44.i, i1 %.03450.i, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %336
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i75, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i75, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i75
   br i1 %spec.select.i76, label %.critedge, label %342
@@ -1599,7 +1599,7 @@ _dump_list.exit:                                  ; preds = %283, %284, %286, %2
   %345 = tail call i32 @data_parser_p_dump(ptr noundef %4, i32 noundef %343, ptr noundef nonnull %338, i64 noundef 4294967294, ptr noundef %344) #5
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %.not43.i = icmp eq i32 %345, 0
-  br i1 %.not43.i, label %334, label %.critedge, !llvm.loop !14
+  br i1 %.not43.i, label %334, label %.critedge, !llvm.loop !13
 
 346:                                              ; preds = %315
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.47) #6
@@ -1664,7 +1664,7 @@ declare ptr @data_set_list(ptr noundef) local_unnamed_addr #1
 declare ptr @data_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_flag_parser(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_flag_parser(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1961,7 +1961,7 @@ _set_flag_bit.exit:                               ; preds = %37, %44, %47, %54, 
   %170 = load i8, ptr %16, align 8
   %171 = zext i8 %170 to i32
   %172 = icmp slt i32 %169, %171
-  br i1 %172, label %21, label %._crit_edge, !llvm.loop !15
+  br i1 %172, label %21, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_set_flag_bit.exit
   %173 = load i64, ptr %10, align 8
@@ -2006,7 +2006,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare ptr @parser_obj_free_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_parse_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_parse_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -2118,7 +2118,7 @@ declare i64 @data_get_list_length(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_array_entry(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -2274,7 +2274,7 @@ declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_foreach_dump_list(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_foreach_dump_list(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @data_list_append(ptr noundef %4) #5
@@ -2317,13 +2317,12 @@ attributes #6 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 1, i32 5}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

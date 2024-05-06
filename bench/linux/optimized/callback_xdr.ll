@@ -72,7 +72,7 @@ define internal noundef zeroext i1 @nfs4_encode_void(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs4_callback_compound(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.cb_process_state, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #11
   %3 = getelementptr inbounds i8, ptr %2, i64 16
@@ -459,7 +459,7 @@ declare dso_local ptr @xdr_encode_opaque(ptr noundef, ptr noundef, i32 noundef) 
 declare dso_local i32 @nfs4_callback_getattr(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @decode_getattr_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 0, 572981249) i32 @decode_getattr_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6, !prof !6
@@ -671,7 +671,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
 declare dso_local i32 @nfs4_callback_recall(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @decode_recall_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 148
   store i32 4, ptr %4, align 4
   %5 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 16) #11

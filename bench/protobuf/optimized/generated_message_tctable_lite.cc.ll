@@ -379,7 +379,7 @@ $_ZZN6google8protobuf8internal8TcParser9MiniParseILb1EEEPKcPNS0_11MessageLiteES5
 @.str.58 = private unnamed_addr constant [21 x i8] c" | ::_fl::kSplitTrue\00", align 1
 @_ZZN6google8protobuf8internal8TcParser19GenericFallbackImplINS0_11MessageLiteENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPS4_SC_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmE4kOps = linkonce_odr constant %"struct.google::protobuf::internal::TcParser::UnknownFieldOps" { ptr @_ZN6google8protobuf8internal8TcParser20WriteVarintToUnknownINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_11MessageLiteEii, ptr @_ZN6google8protobuf8internal8TcParser29WriteLengthDelimitedToUnknownINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_11MessageLiteEiSt17basic_string_viewIcS7_E }, comdat, align 8
 @_ZZN6google8protobuf8internal8TcParser9MiniParseILb0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmE15kMiniParseTable = linkonce_odr local_unnamed_addr constant [16 x ptr] [ptr @_ZN6google8protobuf8internal8TcParser10MpFallbackEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser8MpVarintILb0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser14MpPackedVarintILb0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser7MpFixedILb0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser13MpPackedFixedILb0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser8MpStringILb0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser9MpMessageILb0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser5MpMapILb0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser5ErrorEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser8MpVarintILb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser14MpPackedVarintILb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser7MpFixedILb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser13MpPackedFixedILb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser8MpStringILb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser9MpMessageILb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm, ptr @_ZN6google8protobuf8internal8TcParser5MpMapILb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm], comdat, align 16
-@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
+@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local local_unnamed_addr global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
 @.str.64 = private unnamed_addr constant [131 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/protobuf/protobuf/src/google/protobuf/parse_context.h\00", align 1
 @.str.65 = private unnamed_addr constant [15 x i8] c"dst != nullptr\00", align 1
 @.str.66 = private unnamed_addr constant [2 x i8] c",\00", align 1
@@ -9098,8 +9098,8 @@ if.end.i43:                                       ; preds = %if.end21.i
 
 if.then15.i48:                                    ; preds = %if.end.i43
   %div.i111 = lshr i64 %sub11.i, 5
-  %21 = getelementptr i32, ptr %aux.i.sroa.0.0.copyload, i64 %div.i111
-  %arrayidx16.i = getelementptr i8, ptr %21, i64 8
+  %21 = getelementptr inbounds i32, ptr %aux.i.sroa.0.0.copyload, i64 %div.i111
+  %arrayidx16.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i32, ptr %arrayidx16.i, align 4
   %23 = trunc i64 %sub11.i to i32
   %sh_prom.i50 = and i32 %23, 31
@@ -9114,8 +9114,8 @@ if.end20.i:                                       ; preds = %if.end.i43
   %conv24.i = lshr i32 %20, 5
   %div25.i110 = and i32 %conv24.i, 2047
   %26 = zext nneg i32 %div25.i110 to i64
-  %27 = getelementptr i32, ptr %aux.i.sroa.0.0.copyload, i64 %26
-  %add.ptr.i45 = getelementptr i8, ptr %27, i64 8
+  %27 = getelementptr inbounds i32, ptr %aux.i.sroa.0.0.copyload, i64 %26
+  %add.ptr.i45 = getelementptr inbounds i8, ptr %27, i64 8
   %cmp28.i169.not = icmp ult i32 %20, 65536
   br i1 %cmp28.i169.not, label %if.then27.i, label %while.body.i
 
@@ -9365,8 +9365,8 @@ if.end.i43:                                       ; preds = %if.end21.i
 
 if.then15.i48:                                    ; preds = %if.end.i43
   %div.i111 = lshr i64 %sub11.i, 5
-  %21 = getelementptr i32, ptr %aux.i.sroa.0.0.copyload, i64 %div.i111
-  %arrayidx16.i = getelementptr i8, ptr %21, i64 8
+  %21 = getelementptr inbounds i32, ptr %aux.i.sroa.0.0.copyload, i64 %div.i111
+  %arrayidx16.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i32, ptr %arrayidx16.i, align 4
   %23 = trunc i64 %sub11.i to i32
   %sh_prom.i50 = and i32 %23, 31
@@ -9381,8 +9381,8 @@ if.end20.i:                                       ; preds = %if.end.i43
   %conv24.i = lshr i32 %20, 5
   %div25.i110 = and i32 %conv24.i, 2047
   %26 = zext nneg i32 %div25.i110 to i64
-  %27 = getelementptr i32, ptr %aux.i.sroa.0.0.copyload, i64 %26
-  %add.ptr.i45 = getelementptr i8, ptr %27, i64 8
+  %27 = getelementptr inbounds i32, ptr %aux.i.sroa.0.0.copyload, i64 %26
+  %add.ptr.i45 = getelementptr inbounds i8, ptr %27, i64 8
   %cmp28.i169.not = icmp ult i32 %20, 65536
   br i1 %cmp28.i169.not, label %if.then27.i, label %while.body.i
 
@@ -9988,7 +9988,7 @@ if.end.i:                                         ; preds = %entry
   %idx.ext.i = and i64 %2, 255
   %add.ptr.i128 = getelementptr inbounds %"union.google::protobuf::internal::TcParseTableBase::FieldAux", ptr %5, i64 %idx.ext.i
   %aux.i.sroa.0.0.copyload = load ptr, ptr %add.ptr.i128, align 8
-  %invariant.gep = getelementptr i8, ptr %aux.i.sroa.0.0.copyload, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %aux.i.sroa.0.0.copyload, i64 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %aux.i.sroa.0.0.copyload, i64 4
   %total_size_.i = getelementptr inbounds i8, ptr %add.ptr.i124, i64 4
   %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %add.ptr.i124, i64 8
@@ -10159,7 +10159,7 @@ if.end.i61:                                       ; preds = %if.end25.i
 
 if.then15.i:                                      ; preds = %if.end.i61
   %div.i121 = lshr i64 %sub11.i, 5
-  %gep199 = getelementptr i32, ptr %invariant.gep, i64 %div.i121
+  %gep199 = getelementptr inbounds i32, ptr %invariant.gep, i64 %div.i121
   %22 = load i32, ptr %gep199, align 4
   %23 = trunc i64 %sub11.i to i32
   %sh_prom.i = and i32 %23, 31
@@ -10174,7 +10174,7 @@ if.end20.i:                                       ; preds = %if.end.i61
   %conv24.i = lshr i32 %21, 5
   %div25.i120 = and i32 %conv24.i, 2047
   %26 = zext nneg i32 %div25.i120 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %26
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %26
   %cmp28.i195.not = icmp ult i32 %21, 65536
   br i1 %cmp28.i195.not, label %if.then31.i, label %while.body.i
 
@@ -10290,7 +10290,7 @@ if.end.i:                                         ; preds = %entry
   %idx.ext.i = and i64 %1, 255
   %add.ptr.i128 = getelementptr inbounds %"union.google::protobuf::internal::TcParseTableBase::FieldAux", ptr %4, i64 %idx.ext.i
   %aux.i.sroa.0.0.copyload = load ptr, ptr %add.ptr.i128, align 8
-  %invariant.gep = getelementptr i8, ptr %aux.i.sroa.0.0.copyload, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %aux.i.sroa.0.0.copyload, i64 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %aux.i.sroa.0.0.copyload, i64 4
   %total_size_.i = getelementptr inbounds i8, ptr %add.ptr.i124, i64 4
   %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %add.ptr.i124, i64 8
@@ -10461,7 +10461,7 @@ if.end.i61:                                       ; preds = %if.end25.i
 
 if.then15.i:                                      ; preds = %if.end.i61
   %div.i121 = lshr i64 %sub11.i, 5
-  %gep201 = getelementptr i32, ptr %invariant.gep, i64 %div.i121
+  %gep201 = getelementptr inbounds i32, ptr %invariant.gep, i64 %div.i121
   %21 = load i32, ptr %gep201, align 4
   %22 = trunc i64 %sub11.i to i32
   %sh_prom.i = and i32 %22, 31
@@ -10476,7 +10476,7 @@ if.end20.i:                                       ; preds = %if.end.i61
   %conv24.i = lshr i32 %20, 5
   %div25.i120 = and i32 %conv24.i, 2047
   %25 = zext nneg i32 %div25.i120 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %25
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %25
   %cmp28.i197.not = icmp ult i32 %20, 65536
   br i1 %cmp28.i197.not, label %if.then31.i, label %while.body.i
 
@@ -18113,8 +18113,8 @@ if.end.i177:                                      ; preds = %land.rhs
 
 if.then15.i:                                      ; preds = %if.end.i177
   %div.i153 = lshr i64 %sub11.i, 5
-  %40 = getelementptr i32, ptr %37, i64 %div.i153
-  %arrayidx16.i = getelementptr i8, ptr %40, i64 8
+  %40 = getelementptr inbounds i32, ptr %37, i64 %div.i153
+  %arrayidx16.i = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load i32, ptr %arrayidx16.i, align 4
   %42 = trunc i64 %sub11.i to i32
   %sh_prom.i180 = and i32 %42, 31
@@ -18129,8 +18129,8 @@ if.end20.i:                                       ; preds = %if.end.i177
   %conv24.i = lshr i32 %39, 5
   %div25.i152 = and i32 %conv24.i, 2047
   %45 = zext nneg i32 %div25.i152 to i64
-  %46 = getelementptr i32, ptr %37, i64 %45
-  %add.ptr.i179 = getelementptr i8, ptr %46, i64 8
+  %46 = getelementptr inbounds i32, ptr %37, i64 %45
+  %add.ptr.i179 = getelementptr inbounds i8, ptr %46, i64 8
   %cmp28.i260.not = icmp ult i32 %39, 65536
   br i1 %cmp28.i260.not, label %if.then42, label %while.body.i
 
@@ -20459,8 +20459,8 @@ if.end.i177:                                      ; preds = %land.rhs
 
 if.then15.i:                                      ; preds = %if.end.i177
   %div.i153 = lshr i64 %sub11.i, 5
-  %49 = getelementptr i32, ptr %46, i64 %div.i153
-  %arrayidx16.i = getelementptr i8, ptr %49, i64 8
+  %49 = getelementptr inbounds i32, ptr %46, i64 %div.i153
+  %arrayidx16.i = getelementptr inbounds i8, ptr %49, i64 8
   %50 = load i32, ptr %arrayidx16.i, align 4
   %51 = trunc i64 %sub11.i to i32
   %sh_prom.i180 = and i32 %51, 31
@@ -20475,8 +20475,8 @@ if.end20.i:                                       ; preds = %if.end.i177
   %conv24.i = lshr i32 %48, 5
   %div25.i152 = and i32 %conv24.i, 2047
   %54 = zext nneg i32 %div25.i152 to i64
-  %55 = getelementptr i32, ptr %46, i64 %54
-  %add.ptr.i179 = getelementptr i8, ptr %55, i64 8
+  %55 = getelementptr inbounds i32, ptr %46, i64 %54
+  %add.ptr.i179 = getelementptr inbounds i8, ptr %55, i64 8
   %cmp28.i267.not = icmp ult i32 %48, 65536
   br i1 %cmp28.i267.not, label %if.then42, label %while.body.i
 
@@ -21739,7 +21739,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds %"union.google::protobuf::internal::TcParseTableBase::FieldAux", ptr %4, i64 %idx.ext.i.i
   %5 = load i64, ptr %add.ptr.i.i, align 8
   %6 = inttoptr i64 %5 to ptr
-  %invariant.gep = getelementptr i8, ptr %6, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %6, i64 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %6, i64 4
   %total_size_.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
@@ -21909,7 +21909,7 @@ if.end.i52:                                       ; preds = %if.end
 
 if.then15.i:                                      ; preds = %if.end.i52
   %div.i98 = lshr i64 %sub11.i, 5
-  %gep186 = getelementptr i32, ptr %invariant.gep, i64 %div.i98
+  %gep186 = getelementptr inbounds i32, ptr %invariant.gep, i64 %div.i98
   %23 = load i32, ptr %gep186, align 4
   %24 = trunc i64 %sub11.i to i32
   %sh_prom.i = and i32 %24, 31
@@ -21924,7 +21924,7 @@ if.end20.i:                                       ; preds = %if.end.i52
   %conv24.i = lshr i32 %22, 5
   %div25.i97 = and i32 %conv24.i, 2047
   %27 = zext nneg i32 %div25.i97 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %27
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %27
   %cmp28.i182.not = icmp ult i32 %22, 65536
   br i1 %cmp28.i182.not, label %if.then16, label %while.body.i
 
@@ -24436,8 +24436,8 @@ if.end.i8:                                        ; preds = %entry
 
 if.then15.i:                                      ; preds = %if.end.i8
   %div.i27 = lshr i64 %sub11.i, 5
-  %2 = getelementptr i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %div.i27
-  %arrayidx16.i = getelementptr i8, ptr %2, i64 8
+  %2 = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %div.i27
+  %arrayidx16.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %arrayidx16.i, align 4
   %4 = trunc i64 %sub11.i to i32
   %sh_prom.i = and i32 %4, 31
@@ -24452,8 +24452,8 @@ if.end20.i:                                       ; preds = %if.end.i8
   %conv24.i = lshr i32 %1, 5
   %div25.i26 = and i32 %conv24.i, 2047
   %7 = zext nneg i32 %div25.i26 to i64
-  %8 = getelementptr i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
-  %add.ptr.i = getelementptr i8, ptr %8, i64 8
+  %8 = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 8
   %cmp28.i31.not = icmp ult i32 %1, 65536
   br i1 %cmp28.i31.not, label %if.then, label %while.body.i
 
@@ -41130,8 +41130,8 @@ if.end.i8:                                        ; preds = %entry
 
 if.then15.i:                                      ; preds = %if.end.i8
   %div.i27 = lshr i64 %sub11.i, 5
-  %2 = getelementptr i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %div.i27
-  %arrayidx16.i = getelementptr i8, ptr %2, i64 8
+  %2 = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %div.i27
+  %arrayidx16.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %arrayidx16.i, align 4
   %4 = trunc i64 %sub11.i to i32
   %sh_prom.i = and i32 %4, 31
@@ -41146,8 +41146,8 @@ if.end20.i:                                       ; preds = %if.end.i8
   %conv24.i = lshr i32 %1, 5
   %div25.i26 = and i32 %conv24.i, 2047
   %7 = zext nneg i32 %div25.i26 to i64
-  %8 = getelementptr i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
-  %add.ptr.i = getelementptr i8, ptr %8, i64 8
+  %8 = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 8
   %cmp28.i31.not = icmp ult i32 %1, 65536
   br i1 %cmp28.i31.not, label %if.then, label %while.body.i
 
@@ -41477,8 +41477,8 @@ if.end.i8:                                        ; preds = %entry
 
 if.then15.i:                                      ; preds = %if.end.i8
   %div.i27 = lshr i64 %sub11.i, 5
-  %2 = getelementptr i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %div.i27
-  %arrayidx16.i = getelementptr i8, ptr %2, i64 8
+  %2 = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %div.i27
+  %arrayidx16.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %arrayidx16.i, align 4
   %4 = trunc i64 %sub11.i to i32
   %sh_prom.i = and i32 %4, 31
@@ -41493,8 +41493,8 @@ if.end20.i:                                       ; preds = %if.end.i8
   %conv24.i = lshr i32 %1, 5
   %div25.i26 = and i32 %conv24.i, 2047
   %7 = zext nneg i32 %div25.i26 to i64
-  %8 = getelementptr i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
-  %add.ptr.i = getelementptr i8, ptr %8, i64 8
+  %8 = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 8
   %cmp28.i34.not = icmp ult i32 %1, 65536
   br i1 %cmp28.i34.not, label %if.then, label %while.body.i
 

@@ -87,7 +87,7 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly %1, ptr noundef reado
   br i1 %.not141151, label %.critedge, label %.lr.ph153.preheader
 
 .lr.ph153.preheader:                              ; preds = %.lr.ph156
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %58
@@ -150,7 +150,7 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly %1, ptr noundef reado
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i32, ptr %23, i64 %81
-  %83 = trunc i64 %indvars.iv.i to i32
+  %83 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %83, ptr %82, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -191,7 +191,7 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly %1, ptr noundef reado
   %97 = load i32, ptr %96, align 4
   %98 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv59.i
   store i32 %97, ptr %98, align 4
-  %99 = trunc i64 %indvars.iv59.i to i32
+  %99 = trunc nuw nsw i64 %indvars.iv59.i to i32
   store i32 %99, ptr %96, align 4
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
   br i1 %exitcond63.not.i, label %init_ata.exit, label %.lr.ph51.i, !llvm.loop !9
@@ -215,7 +215,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv176 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next177, %.lr.ph158 ]
   %100 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv176
-  %101 = trunc i64 %indvars.iv176 to i32
+  %101 = trunc nuw nsw i64 %indvars.iv176 to i32
   store i32 %101, ptr %100, align 4
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179

@@ -193,7 +193,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   switch i32 %2, label %21 [
     i32 2, label %7
     i32 3, label %16
@@ -10700,7 +10700,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %63 = add nsw i32 %60, 600
   %64 = srem i32 %63, 6
   %65 = sext i32 %64 to i64
-  %66 = mul nsw i32 %55, %17
+  %66 = mul nuw nsw i32 %55, %17
   %67 = add nsw i32 %59, %44
   %68 = shl i32 %67, 1
   %69 = and i32 %68, 14
@@ -15150,7 +15150,7 @@ define internal fastcc void @green_equilibration_favg(ptr noundef %0, ptr nounde
 
 .split.split.us:                                  ; preds = %.split, %136
   %118 = phi i64 [ %137, %136 ], [ 0, %.split ]
-  %119 = mul nsw i64 %118, %17
+  %119 = mul nuw nsw i64 %118, %17
   %120 = insertelement <4 x i64> poison, i64 %119, i64 0
   %121 = shufflevector <4 x i64> %120, <4 x i64> poison, <4 x i32> zeroinitializer
   br label %122
@@ -15179,7 +15179,7 @@ define internal fastcc void @green_equilibration_favg(ptr noundef %0, ptr nounde
 
 .split.split:                                     ; preds = %.split, %.loopexit
   %139 = phi i64 [ %168, %.loopexit ], [ 0, %.split ]
-  %140 = mul nsw i64 %139, %17
+  %140 = mul nuw nsw i64 %139, %17
   %141 = insertelement <4 x i64> poison, i64 %140, i64 0
   %142 = shufflevector <4 x i64> %141, <4 x i64> poison, <4 x i32> zeroinitializer
   br label %143
@@ -16966,7 +16966,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   br i1 %1273, label %1274, label %.loopexit77
 
 1274:                                             ; preds = %1258
-  %1275 = mul nsw i32 %1262, 112
+  %1275 = mul nuw nsw i32 %1262, 112
   %1276 = add nsw i32 %1275, -113
   %1277 = add nsw i32 %1276, %1272
   %1278 = sdiv i32 %1277, 2
@@ -17120,7 +17120,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   br i1 %1394, label %1395, label %.loopexit76
 
 1395:                                             ; preds = %.preheader90
-  %1396 = mul nsw i32 %1387, 112
+  %1396 = mul nuw nsw i32 %1387, 112
   %1397 = add nsw i32 %1396, -113
   %1398 = add nsw i32 %1397, %1393
   %1399 = sdiv i32 %1398, 2
@@ -26319,7 +26319,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !484
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -27117,7 +27117,7 @@ define internal fastcc void @rcd_ppg_border(ptr nocapture noundef %0, ptr nocapt
   %506 = getelementptr inbounds float, ptr %0, i64 %505
   %507 = icmp uge i64 %504, %499
   %508 = icmp slt i64 %504, %500
-  %509 = mul nsw i64 %504, %15
+  %509 = mul nuw nsw i64 %504, %15
   %510 = add nsw i64 %509, %501
   %511 = shl nsw i64 %510, 2
   %512 = getelementptr inbounds float, ptr %0, i64 %511

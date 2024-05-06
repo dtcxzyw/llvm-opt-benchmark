@@ -621,7 +621,7 @@ declare i32 @slurm_load_jobs(i64 noundef, ptr noundef, i16 noundef zeroext) loca
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_purge_known_jobs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_purge_known_jobs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0

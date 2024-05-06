@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vaes_gcm_setiv(ptr noundef %ctx, ptr noundef %iv, i64 noundef %ivlen) #0 {
+define internal range(i32 0, 2) i32 @vaes_gcm_setiv(ptr noundef %ctx, ptr noundef %iv, i64 noundef %ivlen) #0 {
 entry:
   %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   %len = getelementptr inbounds i8, ptr %ctx, i64 296
@@ -76,7 +76,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vaes_gcm_aadupdate(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len) #0 {
+define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len) #0 {
 entry:
   %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   %len = getelementptr inbounds i8, ptr %ctx, i64 296
@@ -188,7 +188,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vaes_gcm_cipherupdate(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #0 {
+define internal range(i32 0, 2) i32 @vaes_gcm_cipherupdate(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #0 {
 entry:
   %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 304
@@ -236,7 +236,7 @@ return:                                           ; preds = %if.then9, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vaes_gcm_cipherfinal(ptr noundef %ctx, ptr noundef %tag) #0 {
+define internal range(i32 0, 2) i32 @vaes_gcm_cipherfinal(ptr noundef %ctx, ptr noundef %tag) #0 {
 entry:
   %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   %mres = getelementptr inbounds i8, ptr %ctx, i64 624
@@ -323,7 +323,7 @@ declare i32 @ossl_gcm_setiv(ptr noundef, ptr noundef, i64 noundef) #1
 declare i32 @ossl_gcm_aad_update(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @generic_aes_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #0 {
+define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #0 {
 entry:
   %enc = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4

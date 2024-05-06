@@ -1321,8 +1321,8 @@ gistDeCompressAtt.exit40:                         ; preds = %gistdentryinit.exit
   %. = select i1 %119, ptr %127, ptr %116
   %.sink55 = select i1 %brmerge27.i, ptr %., ptr %116
   %.sink = select i1 %brmerge27.i, ptr %., ptr %127
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 16 dereferenceable(32) %.sink55, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 16 dereferenceable(32) %.sink, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink55, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink, i64 32, i1 false)
   store i8 0, ptr %124, align 1
   %128 = getelementptr [32 x %struct.FmgrInfo], ptr %109, i64 0, i64 %indvars.iv
   %129 = getelementptr [32 x i32], ptr %110, i64 0, i64 %indvars.iv
@@ -2613,7 +2613,7 @@ declare i64 @gistXLogAssignLSN() local_unnamed_addr #1
 declare i64 @GetFakeLSNForUnloggedRel() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @gist_stratnum_identity(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, 65536) i64 @gist_stratnum_identity(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 65535

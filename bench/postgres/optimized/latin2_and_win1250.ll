@@ -52,7 +52,7 @@ define noundef nonnull ptr @pg_finfo_win1250_to_latin2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @latin2_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @latin2_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -82,7 +82,7 @@ declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 nound
 declare i32 @latin2mic(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @mic_to_latin2(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @mic_to_latin2(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -110,7 +110,7 @@ define i64 @mic_to_latin2(ptr nocapture noundef readonly %0) local_unnamed_addr 
 declare i32 @mic2latin(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @win1250_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @win1250_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -138,7 +138,7 @@ define i64 @win1250_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr
 declare i32 @latin2mic_with_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @mic_to_win1250(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @mic_to_win1250(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -166,7 +166,7 @@ define i64 @mic_to_win1250(ptr nocapture noundef readonly %0) local_unnamed_addr
 declare i32 @mic2latin_with_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @latin2_to_win1250(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @latin2_to_win1250(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -194,7 +194,7 @@ define i64 @latin2_to_win1250(ptr nocapture noundef readonly %0) local_unnamed_a
 declare i32 @local2local(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @win1250_to_latin2(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @win1250_to_latin2(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8

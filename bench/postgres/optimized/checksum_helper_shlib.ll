@@ -77,7 +77,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pg_checksum_init(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pg_checksum_init(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   switch i32 %1, label %41 [
     i32 5, label %32
@@ -172,7 +172,7 @@ declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #1
 declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pg_checksum_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pg_checksum_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %15 [
     i32 5, label %10
@@ -208,7 +208,7 @@ define noundef i32 @pg_checksum_update(ptr nocapture noundef %0, ptr noundef %1,
 declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pg_checksum_final(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 65) i32 @pg_checksum_final(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %36 [
     i32 5, label %29

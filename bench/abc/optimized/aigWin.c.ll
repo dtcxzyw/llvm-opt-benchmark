@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_ManFindCut_int(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Aig_ManFindCut_int(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val, 0
@@ -756,9 +756,9 @@ Vec_PtrPush.exit58:                               ; preds = %.Vec_PtrGrow.exit11
   br label %157
 
 157:                                              ; preds = %157, %Vec_PtrPush.exit58
-  %158 = tail call i32 @Aig_ManFindCut_int(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4), !range !8
+  %158 = tail call i32 @Aig_ManFindCut_int(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4)
   %.not = icmp eq i32 %158, 0
-  br i1 %.not, label %.preheader, label %157, !llvm.loop !9
+  br i1 %.not, label %.preheader, label %157, !llvm.loop !8
 
 .preheader:                                       ; preds = %157
   %.val59 = load i32, ptr %60, align 4
@@ -782,7 +782,7 @@ Vec_PtrPush.exit58:                               ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %60, align 4
   %167 = sext i32 %.val to i64
   %168 = icmp slt i64 %indvars.iv.next, %167
-  br i1 %168, label %161, label %.critedge, !llvm.loop !10
+  br i1 %168, label %161, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %161, %.preheader
   ret void
@@ -810,6 +810,5 @@ attributes #4 = { nounwind allocsize(0) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

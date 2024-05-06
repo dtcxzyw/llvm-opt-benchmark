@@ -115,7 +115,7 @@ declare dso_local void @acpi_bus_unregister_driver(ptr noundef) local_unnamed_ad
 declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_thermal_init() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @acpi_thermal_init() #0 section ".init.text" align 16 {
   %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @thermal_dmi_table) #11
   %2 = load i32, ptr @off, align 4
   %3 = icmp eq i32 %2, 0
@@ -1116,7 +1116,7 @@ define internal i32 @acpi_thermal_unbind_cooling_device(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thermal_get_temp(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thermal_get_temp(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = alloca i64, align 8
   %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #11
   %5 = icmp eq ptr %4, null
@@ -1158,7 +1158,7 @@ define internal noundef i32 @thermal_get_temp(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thermal_get_trend(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thermal_get_trend(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #11
   %5 = icmp ne ptr %4, null
   %6 = icmp ne ptr %1, null
@@ -1554,7 +1554,7 @@ define internal noundef i32 @acpi_thermal_suspend(ptr nocapture readnone %0) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_thermal_resume(ptr noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef readonly %0) #2 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   %3 = icmp eq ptr %0, null

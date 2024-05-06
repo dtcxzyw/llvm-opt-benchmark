@@ -273,7 +273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %state = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %state, align 8
@@ -386,7 +386,7 @@ do.end12:                                         ; preds = %do.end, %if.then8
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZTv0_n32_N3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE(ptr noundef %this, ptr noundef %msg_) unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZTv0_n32_N3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE(ptr noundef %this, ptr noundef %msg_) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -437,7 +437,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call noundef i32 @_ZN3zmq14plain_server_t13process_helloEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_), !range !4
+  %call = tail call noundef i32 @_ZN3zmq14plain_server_t13process_helloEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_)
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -498,7 +498,7 @@ if.end28:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14plain_server_t13process_helloEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_server_t13process_helloEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %username = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -973,4 +973,3 @@ attributes #16 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

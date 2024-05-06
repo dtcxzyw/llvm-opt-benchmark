@@ -76,7 +76,7 @@ init_block.exit:                                  ; preds = %for.body12.i
   %opt_len.i = getelementptr inbounds i8, ptr %s, i64 7024
   %last_lit.i = getelementptr inbounds i8, ptr %s, i64 7012
   store i32 0, ptr %last_lit.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %opt_len.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(20) %opt_len.i, i8 0, i64 20, i1 false)
   ret void
 }
 
@@ -1205,7 +1205,7 @@ init_block.exit:                                  ; preds = %for.body12.i
   %opt_len.i99 = getelementptr inbounds i8, ptr %s, i64 7024
   %last_lit.i = getelementptr inbounds i8, ptr %s, i64 7012
   store i32 0, ptr %last_lit.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %opt_len.i99, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(20) %opt_len.i99, i8 0, i64 20, i1 false)
   %tobool.not = icmp eq i32 %last, 0
   br i1 %tobool.not, label %if.end133, label %if.then132
 

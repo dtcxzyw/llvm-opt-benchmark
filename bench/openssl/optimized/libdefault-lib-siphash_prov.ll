@@ -72,7 +72,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @siphash_set_params(ptr noundef %vmacctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @siphash_set_params(ptr noundef %vmacctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siphash_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @siphash_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #4
   %cmp.not = icmp eq ptr %call, null
@@ -218,7 +218,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siphash_set_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @siphash_set_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %size = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -358,4 +358,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

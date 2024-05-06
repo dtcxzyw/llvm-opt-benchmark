@@ -57,7 +57,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7openvdb5v11_04util10printBytesERSomRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bii(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 noundef %bytes, ptr noundef nonnull align 8 dereferenceable(32) %head, ptr noundef nonnull align 8 dereferenceable(32) %tail, i1 noundef zeroext %exact, i32 noundef %width, i32 noundef %precision) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_ZN7openvdb5v11_04util10printBytesERSomRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bii(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 noundef %bytes, ptr noundef nonnull align 8 dereferenceable(32) %head, ptr noundef nonnull align 8 dereferenceable(32) %tail, i1 noundef zeroext %exact, i32 noundef %width, i32 noundef %precision) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -235,7 +235,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7openvdb5v11_04util11printNumberERSomRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bii(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %head, ptr noundef nonnull align 8 dereferenceable(32) %tail, i1 noundef zeroext %exact, i32 noundef %width, i32 noundef %precision) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_ZN7openvdb5v11_04util11printNumberERSomRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bii(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %head, ptr noundef nonnull align 8 dereferenceable(32) %tail, i1 noundef zeroext %exact, i32 noundef %width, i32 noundef %precision) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -383,7 +383,7 @@ ehcleanup:                                        ; preds = %lpad101, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7openvdb5v11_04util9printTimeERSodRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_iii(ptr noundef nonnull align 8 dereferenceable(8) %os, double noundef %milliseconds, ptr noundef nonnull align 8 dereferenceable(32) %head, ptr noundef nonnull align 8 dereferenceable(32) %tail, i32 noundef %width, i32 noundef %precision, i32 noundef %verbose) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_ZN7openvdb5v11_04util9printTimeERSodRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_iii(ptr noundef nonnull align 8 dereferenceable(8) %os, double noundef %milliseconds, ptr noundef nonnull align 8 dereferenceable(32) %head, ptr noundef nonnull align 8 dereferenceable(32) %tail, i32 noundef %width, i32 noundef %precision, i32 noundef %verbose) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

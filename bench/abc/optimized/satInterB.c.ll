@@ -795,7 +795,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 
 61:                                               ; preds = %.lr.ph.i
   %62 = getelementptr inbounds [0 x i32], ptr %29, i64 0, i64 %indvars.iv.i
-  %63 = trunc i64 %indvars.iv.i to i32
+  %63 = trunc nuw nsw i64 %indvars.iv.i to i32
   %64 = getelementptr inbounds i8, ptr %.05066.i, i64 36
   store i32 %54, ptr %64, align 4
   store i32 %25, ptr %62, align 4
@@ -1008,7 +1008,7 @@ define void @Intb_ManProofWriteOne(ptr nocapture noundef %0, ptr nocapture nound
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Intb_ManGetGlobalVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 -1, 2147483647) i32 @Intb_ManGetGlobalVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -1293,7 +1293,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %exitcond.not, label %._crit_edge285, label %.lr.ph284, !llvm.loop !20
 
 ._crit_edge285.loopexit.split.loop.exit:          ; preds = %.lr.ph284
-  %156 = trunc i64 %indvars.iv338 to i32
+  %156 = trunc nuw nsw i64 %indvars.iv338 to i32
   br label %._crit_edge285
 
 ._crit_edge285:                                   ; preds = %155, %._crit_edge285.loopexit.split.loop.exit, %144
@@ -1358,7 +1358,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %exitcond345.not, label %._crit_edge290.thread, label %180, !llvm.loop !21
 
 ._crit_edge290.loopexit:                          ; preds = %180
-  %186 = trunc i64 %indvars.iv341 to i32
+  %186 = trunc nuw nsw i64 %indvars.iv341 to i32
   br label %._crit_edge290
 
 ._crit_edge290:                                   ; preds = %._crit_edge290.loopexit, %.preheader270
@@ -1411,7 +1411,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %210 = getelementptr inbounds i32, ptr %207, i64 %indvars.iv346
   store i32 %209, ptr %210, align 4
   %211 = load i32, ptr %76, align 8
-  %212 = trunc i64 %indvars.iv.next347 to i32
+  %212 = trunc nuw i64 %indvars.iv.next347 to i32
   %213 = icmp sgt i32 %211, %212
   br i1 %213, label %.lr.ph298, label %.preheader268, !llvm.loop !22
 
@@ -1442,7 +1442,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %exitcond353.not, label %._crit_edge301.thread, label %219, !llvm.loop !23
 
 ._crit_edge301.loopexit:                          ; preds = %219
-  %224 = trunc i64 %indvars.iv349 to i32
+  %224 = trunc nuw nsw i64 %indvars.iv349 to i32
   br label %._crit_edge301
 
 ._crit_edge301:                                   ; preds = %._crit_edge301.loopexit, %.preheader267
@@ -1762,7 +1762,7 @@ Abc_Clock.exit259:                                ; preds = %.loopexit, %364
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Intb_ManProofRecordOne(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Intb_ManProofRecordOne(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 134217720
@@ -1819,8 +1819,8 @@ define noundef i32 @Intb_ManProofRecordOne(ptr nocapture noundef %0, ptr noundef
 
 30:                                               ; preds = %.lr.ph88, %47
   %31 = phi i32 [ %9, %.lr.ph88 ], [ %48, %47 ]
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next112, %47 ]
-  %32 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv111
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next111, %47 ]
+  %32 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv110
   %33 = load i32, ptr %32, align 4
   %34 = xor i32 %33, 1
   %35 = ashr i32 %33, 1
@@ -1843,7 +1843,7 @@ Intb_ManEnqueue.exit.thread:                      ; preds = %30
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds i32, ptr %42, i64 %45
   store i32 %34, ptr %46, align 4
-  %.pre124 = load i32, ptr %3, align 4
+  %.pre123 = load i32, ptr %3, align 4
   br label %47
 
 Intb_ManEnqueue.exit:                             ; preds = %30
@@ -1851,12 +1851,12 @@ Intb_ManEnqueue.exit:                             ; preds = %30
   br i1 %.not82, label %47, label %.loopexit
 
 47:                                               ; preds = %Intb_ManEnqueue.exit.thread, %Intb_ManEnqueue.exit
-  %48 = phi i32 [ %.pre124, %Intb_ManEnqueue.exit.thread ], [ %31, %Intb_ManEnqueue.exit ]
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %48 = phi i32 [ %.pre123, %Intb_ManEnqueue.exit.thread ], [ %31, %Intb_ManEnqueue.exit ]
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 16777215
   %51 = zext nneg i32 %50 to i64
-  %52 = icmp ult i64 %indvars.iv.next112, %51
+  %52 = icmp ult i64 %indvars.iv.next111, %51
   br i1 %52, label %30, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %47, %.preheader84
@@ -1888,44 +1888,44 @@ Intb_ManEnqueue.exit:                             ; preds = %30
   br i1 %.not107, label %._crit_edge95, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %wide.trip.count122 = zext nneg i32 %64 to i64
-  %wide.trip.count117 = zext nneg i32 %60 to i64
+  %wide.trip.count121 = zext nneg i32 %64 to i64
+  %wide.trip.count116 = zext nneg i32 %60 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %77
-  %indvars.iv119 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next120, %77 ]
-  %67 = getelementptr inbounds [0 x i32], ptr %65, i64 0, i64 %indvars.iv119
+  %indvars.iv118 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next119, %77 ]
+  %67 = getelementptr inbounds [0 x i32], ptr %65, i64 0, i64 %indvars.iv118
   %68 = load i32, ptr %67, align 4
   br label %69
 
 69:                                               ; preds = %.preheader.us, %73
-  %indvars.iv114 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next115, %73 ]
-  %70 = getelementptr inbounds [0 x i32], ptr %66, i64 0, i64 %indvars.iv114
+  %indvars.iv113 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next114, %73 ]
+  %70 = getelementptr inbounds [0 x i32], ptr %66, i64 0, i64 %indvars.iv113
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %68, %71
   br i1 %72, label %._crit_edge91.us, label %73
 
 73:                                               ; preds = %69
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge91.us.thread, label %69, !llvm.loop !33
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
+  br i1 %exitcond117.not, label %._crit_edge91.us.thread, label %69, !llvm.loop !33
 
 ._crit_edge91.us.thread:                          ; preds = %73
-  %74 = trunc i64 %indvars.iv119 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv118 to i32
   br label %._crit_edge95
 
 ._crit_edge91.us:                                 ; preds = %69
-  %75 = trunc i64 %indvars.iv114 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv113 to i32
   %76 = icmp eq i32 %60, %75
   br i1 %76, label %._crit_edge95.loopexit, label %77
 
 77:                                               ; preds = %._crit_edge91.us
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge95.thread, label %.preheader.us, !llvm.loop !34
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
+  br i1 %exitcond122.not, label %._crit_edge95.thread, label %.preheader.us, !llvm.loop !34
 
 ._crit_edge95.loopexit:                           ; preds = %._crit_edge91.us
-  %78 = trunc i64 %indvars.iv119 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv118 to i32
   br label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %._crit_edge95.loopexit, %._crit_edge91.us.thread, %.preheader.lr.ph, %.preheader83
@@ -2094,7 +2094,7 @@ Intb_ManEnqueue.exit76:                           ; preds = %144
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Intb_ManProcessRoots(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Intb_ManProcessRoots(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2411,7 +2411,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %.not49, label %.critedge, label %.lr.ph, !llvm.loop !39
 
 .critedge:                                        ; preds = %.lr.ph, %33, %27
-  %34 = call i32 @Intb_ManProcessRoots(ptr noundef nonnull %0), !range !40
+  %34 = call i32 @Intb_ManProcessRoots(ptr noundef nonnull %0)
   %.not51 = icmp eq i32 %34, 0
   br i1 %.not51, label %.loopexit, label %35
 
@@ -2431,14 +2431,14 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %.not53, label %41, label %43
 
 41:                                               ; preds = %.lr.ph70
-  %42 = call i32 @Intb_ManProofRecordOne(ptr noundef nonnull %0, ptr noundef nonnull %.169), !range !40
+  %42 = call i32 @Intb_ManProofRecordOne(ptr noundef nonnull %0, ptr noundef nonnull %.169)
   %.not54 = icmp eq i32 %42, 0
   br i1 %.not54, label %.loopexit, label %43
 
 43:                                               ; preds = %41, %.lr.ph70
   %.1 = load ptr, ptr %.169, align 8
   %.not52 = icmp eq ptr %.1, null
-  br i1 %.not52, label %.loopexit, label %.lr.ph70, !llvm.loop !41
+  br i1 %.not52, label %.loopexit, label %.lr.ph70, !llvm.loop !40
 
 .loopexit:                                        ; preds = %43, %41, %35, %.critedge
   %44 = load i32, ptr %21, align 8
@@ -2615,7 +2615,7 @@ define ptr @Intb_ManDeriveClauses(ptr nocapture noundef readonly %0, ptr nocaptu
   %47 = and i32 %46, 16777215
   %48 = zext nneg i32 %47 to i64
   %49 = icmp ult i64 %indvars.iv.next, %48
-  br i1 %49, label %21, label %._crit_edge, !llvm.loop !42
+  br i1 %49, label %21, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %37, %15
   %.035.lcssa = phi ptr [ %18, %15 ], [ %44, %37 ]
@@ -2626,7 +2626,7 @@ define ptr @Intb_ManDeriveClauses(ptr nocapture noundef readonly %0, ptr nocaptu
   %.1 = phi ptr [ %.03447, %13 ], [ %50, %._crit_edge ]
   %.036 = load ptr, ptr %.03648, align 8
   %.not = icmp eq ptr %.036, null
-  br i1 %.not, label %.critedge, label %9, !llvm.loop !43
+  br i1 %.not, label %.critedge, label %9, !llvm.loop !42
 
 .critedge:                                        ; preds = %9, %51, %3
   %.034.lcssa = phi ptr [ %.val41, %3 ], [ %.1, %51 ], [ %.03447, %9 ]
@@ -2724,7 +2724,6 @@ attributes #19 = { nounwind }
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
-!40 = !{i32 0, i32 2}
+!40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}

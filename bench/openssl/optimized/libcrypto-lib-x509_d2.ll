@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_set_default_paths_ex(ptr noundef %ctx, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_set_default_paths_ex(ptr noundef %ctx, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_LOOKUP_file() #2
   %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %ctx, ptr noundef %call) #2
@@ -50,14 +50,14 @@ declare ptr @X509_LOOKUP_store() local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_set_default_paths(ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_set_default_paths(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @X509_STORE_set_default_paths_ex(ptr noundef %ctx, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @X509_STORE_set_default_paths_ex(ptr noundef %ctx, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_load_file_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_load_file_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -80,7 +80,7 @@ return:                                           ; preds = %lor.lhs.false3, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_load_file(ptr noundef %ctx, ptr noundef %file) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_load_file(ptr noundef %ctx, ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %file, null
   br i1 %cmp.i, label %X509_STORE_load_file_ex.exit, label %lor.lhs.false.i
@@ -103,7 +103,7 @@ X509_STORE_load_file_ex.exit:                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_load_path(ptr noundef %ctx, ptr noundef %path) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_load_path(ptr noundef %ctx, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %path, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -126,7 +126,7 @@ return:                                           ; preds = %lor.lhs.false3, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_load_store_ex(ptr noundef %ctx, ptr noundef %uri, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_load_store_ex(ptr noundef %ctx, ptr noundef %uri, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -149,7 +149,7 @@ return:                                           ; preds = %lor.lhs.false3, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_load_store(ptr noundef %ctx, ptr noundef %uri) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_load_store(ptr noundef %ctx, ptr noundef %uri) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %uri, null
   br i1 %cmp.i, label %X509_STORE_load_store_ex.exit, label %lor.lhs.false.i
@@ -172,7 +172,7 @@ X509_STORE_load_store_ex.exit:                    ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_load_locations_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %path, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_load_locations_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %path, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   %cmp1 = icmp eq ptr %path, null
@@ -216,9 +216,9 @@ return:                                           ; preds = %lor.lhs.false.i7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_load_locations(ptr noundef %ctx, ptr noundef %file, ptr noundef %path) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_load_locations(ptr noundef %ctx, ptr noundef %file, ptr noundef %path) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @X509_STORE_load_locations_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %path, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @X509_STORE_load_locations_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %path, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -232,4 +232,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

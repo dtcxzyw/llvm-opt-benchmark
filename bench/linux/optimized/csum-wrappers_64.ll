@@ -82,14 +82,14 @@ define dso_local zeroext i16 @csum_ipv6_magic(ptr noundef %0, ptr noundef %1, i3
   %13 = tail call i64 asm "\09addq ($2),$0\0A\09adcq 8($2),$0\0A\09adcq ($3),$0\0A\09adcq 8($3),$0\0A\09adcq $$0,$0\0A", "=r,0,r,r,~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr %0, ptr %1) #5, !srcloc !9
   %14 = trunc i64 %13 to i32
   %15 = lshr i64 %13, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %14, i32 %16) #6, !srcloc !10
   %18 = shl i32 %17, 16
   %19 = and i32 %17, -65536
   %20 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18, i32 %19) #5, !srcloc !11
   %21 = xor i32 %20, -1
   %22 = lshr i32 %21, 16
-  %23 = trunc i32 %22 to i16
+  %23 = trunc nuw i32 %22 to i16
   ret i16 %23
 }
 

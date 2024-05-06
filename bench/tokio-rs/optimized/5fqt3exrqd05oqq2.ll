@@ -27,7 +27,7 @@ define hidden void @"_ZN121_$LT$tokio_stream..wrappers..mpsc_unbounded..Unbounde
 
 7:                                                ; preds = %3
   %.sroa.52.0.extract.shift.i = lshr i24 %6, 16
-  %.sroa.52.0.extract.trunc.i = trunc i24 %.sroa.52.0.extract.shift.i to i8
+  %.sroa.52.0.extract.trunc.i = trunc nuw i24 %.sroa.52.0.extract.shift.i to i8
   %.sroa.4.0.extract.shift.i = lshr i24 %6, 8
   %.sroa.4.0.extract.trunc.i = trunc i24 %.sroa.4.0.extract.shift.i to i8
   store i8 %.sroa.4.0.extract.trunc.i, ptr %5, align 1, !noalias !9

@@ -79,7 +79,7 @@ define dso_local void @tick_setup_oneshot(ptr noundef %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tick_switch_to_oneshot(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tick_switch_to_oneshot(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #4, !srcloc !8
   %3 = inttoptr i64 %2 to ptr
   %4 = load ptr, ptr %3, align 8
@@ -135,7 +135,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local void @tick_broadcast_switch_to_oneshot() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tick_oneshot_mode_active() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @tick_oneshot_mode_active() local_unnamed_addr #0 align 16 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
   store i64 0, ptr %1, align 8, !annotation !9
@@ -159,7 +159,7 @@ define dso_local i32 @tick_oneshot_mode_active() local_unnamed_addr #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tick_init_highres() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tick_init_highres() local_unnamed_addr #0 align 16 {
   %1 = tail call i32 @tick_switch_to_oneshot(ptr noundef nonnull @hrtimer_interrupt), !range !14
   ret i32 %1
 }

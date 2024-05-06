@@ -409,7 +409,7 @@ land.rhs:                                         ; preds = %invoke.cont20, %whi
   br i1 %cmp29, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv.next197 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next197 to i32
   store i32 %6, ptr %apparent_length, align 4
   %cmp30 = icmp eq i64 %indvars.iv.next197, 0
   br i1 %cmp30, label %while.end, label %while.cond, !llvm.loop !5

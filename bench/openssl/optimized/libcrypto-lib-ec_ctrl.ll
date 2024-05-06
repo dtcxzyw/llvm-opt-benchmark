@@ -264,7 +264,7 @@ return:                                           ; preds = %land.lhs.true4.i, %
 declare void @OSSL_PARAM_construct_size_t(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_PKEY_CTX_get_ecdh_kdf_outlen(ptr noundef %ctx, ptr nocapture noundef writeonly %plen) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @EVP_PKEY_CTX_get_ecdh_kdf_outlen(ptr noundef %ctx, ptr nocapture noundef writeonly %plen) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -405,7 +405,7 @@ declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_CTX_get0_ecdh_kdf_ukm(ptr noundef %ctx, ptr noundef %pukm) local_unnamed_addr #0 {
+define range(i32 -2, -2147483648) i32 @EVP_PKEY_CTX_get0_ecdh_kdf_ukm(ptr noundef %ctx, ptr noundef %pukm) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8

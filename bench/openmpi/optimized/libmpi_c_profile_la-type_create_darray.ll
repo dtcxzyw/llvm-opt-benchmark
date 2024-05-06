@@ -172,7 +172,7 @@ define i32 @PMPI_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %132
 
 84:                                               ; preds = %80
-  %85 = mul nsw i32 %67, %.06195
+  %85 = mul nuw nsw i32 %67, %.06195
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4

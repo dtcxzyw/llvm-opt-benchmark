@@ -1620,7 +1620,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17grpc_event_engine12experimental12Epoll1Poller11DoEpollWaitENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr noundef nonnull align 8 dereferenceable(1281) %this, i64 %timeout.coerce) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2147483648) i32 @_ZN17grpc_event_engine12experimental12Epoll1Poller11DoEpollWaitENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr noundef nonnull align 8 dereferenceable(1281) %this, i64 %timeout.coerce) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1843,7 +1843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17grpc_event_engine12experimental12Epoll1Poller4WorkENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN4absl12lts_2023080211FunctionRefIFvvEEE(ptr noundef nonnull align 8 dereferenceable(1281) %this, i64 %timeout.coerce, ptr %schedule_poll_again.coerce0, ptr nocapture readonly %schedule_poll_again.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN17grpc_event_engine12experimental12Epoll1Poller4WorkENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN4absl12lts_2023080211FunctionRefIFvvEEE(ptr noundef nonnull align 8 dereferenceable(1281) %this, i64 %timeout.coerce, ptr %schedule_poll_again.coerce0, ptr nocapture readonly %schedule_poll_again.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pending_events = alloca %"class.absl::lts_20230802::InlinedVector", align 8
   store i64 0, ptr %pending_events, align 8
@@ -1856,7 +1856,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = invoke noundef i32 @_ZN17grpc_event_engine12experimental12Epoll1Poller11DoEpollWaitENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr noundef nonnull align 8 dereferenceable(1281) %this, i64 %timeout.coerce)
-          to label %invoke.cont unwind label %lpad.loopexit.split-lp, !range !26
+          to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
   %cmp4 = icmp eq i32 %call, 0
@@ -2108,7 +2108,7 @@ define void @_ZN17grpc_event_engine12experimental16MakeEpoll1PollerEPNS0_9Schedu
 entry:
   %0 = load atomic i8, ptr @_ZGVZN17grpc_event_engine12experimental16MakeEpoll1PollerEPNS0_9SchedulerEE22kEpoll1PollerSupported acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !27
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !26
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17grpc_event_engine12experimental16MakeEpoll1PollerEPNS0_9SchedulerEE22kEpoll1PollerSupported) #20
@@ -2131,17 +2131,17 @@ init.end:                                         ; preds = %invoke.cont, %init.
   br i1 %tobool1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %init.end
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  store ptr null, ptr %agg.result, align 8, !alias.scope !28
-  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(1304) ptr @_Znwm(i64 noundef 1304) #22, !noalias !28
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  store ptr null, ptr %agg.result, align 8, !alias.scope !27
+  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(1304) ptr @_Znwm(i64 noundef 1304) #22, !noalias !27
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !28
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !27
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !28
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !28
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !27
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !27
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZN17grpc_event_engine12experimental12Epoll1PollerC1EPNS0_9SchedulerE(ptr noundef nonnull align 8 dereferenceable(1281) %_M_impl.i.i.i.i.i.i, ptr noundef %scheduler)
-          to label %_ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !28
+          to label %_ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !27
 
 common.resume:                                    ; preds = %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %4, %lpad ]
@@ -2150,13 +2150,13 @@ common.resume:                                    ; preds = %lpad, %_ZNSt15__all
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental12Epoll1PollerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %if.then
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #18, !noalias !28
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #18, !noalias !27
   br label %common.resume
 
 _ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit: ; preds = %if.then
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !28
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !28
+  store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !27
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !27
   br label %return
 
 lpad:                                             ; preds = %init
@@ -2476,7 +2476,7 @@ delete.end:                                       ; preds = %entry, %delete.end
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(80) %3) #20
   store ptr %4, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_117fork_fd_list_headE, align 8
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %while.cond6.preheader, label %delete.end, !llvm.loop !31
+  br i1 %cmp.not, label %while.cond6.preheader, label %delete.end, !llvm.loop !30
 
 while.body8:                                      ; preds = %while.cond6.preheader, %while.body8
   %6 = phi ptr [ %9, %while.body8 ], [ %0, %while.cond6.preheader ]
@@ -2490,7 +2490,7 @@ while.body8:                                      ; preds = %while.cond6.prehead
   tail call void @_ZN17grpc_event_engine12experimental12Epoll1Poller5CloseEv(ptr noundef nonnull align 8 dereferenceable(1281) %7)
   %9 = load ptr, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_116fork_poller_listB5cxx11E, align 8
   %cmp.i = icmp eq ptr %9, @_ZN17grpc_event_engine12experimental12_GLOBAL__N_116fork_poller_listB5cxx11E
-  br i1 %cmp.i, label %while.end10, label %while.body8, !llvm.loop !32
+  br i1 %cmp.i, label %while.end10, label %while.body8, !llvm.loop !31
 
 while.end10:                                      ; preds = %while.body8, %while.cond6.preheader
   tail call void @gpr_mu_unlock(ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_115fork_fd_list_muE)
@@ -2619,7 +2619,7 @@ entry:
   %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_.i1.i, align 8
   %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !33
+  %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !32
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %.sink.i = select i1 %tobool.i.not.i, i64 5, i64 %2
   %shr.i.sink.i = lshr i64 %0, 1
@@ -2669,7 +2669,7 @@ for.inc.i.i:                                      ; preds = %_ZN4absl12lts_20230
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0.i, i64 8
   %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %.sink.i
-  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !33
 
 invoke.cont21.i:                                  ; preds = %for.inc.i.i, %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIPN17grpc_event_engine12experimental17Epoll1EventHandleEELb0EE8AllocateERS7_m.exit.i.i
   br i1 %tobool.i.not.i, label %_ZN4absl12lts_2023080223inlined_vector_internal7StorageIPN17grpc_event_engine12experimental17Epoll1EventHandleELm5ESaIS6_EE15EmplaceBackSlowIJRKS6_EEERS6_DpOT_.exit, label %if.then.i.i
@@ -2839,12 +2839,11 @@ attributes #23 = { noreturn }
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN4absl12lts_202308029StrFormatIJPN17grpc_event_engine12experimental12Epoll1PollerEPKcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSG_: %agg.result"}
 !25 = distinct !{!25, !"_ZN4absl12lts_202308029StrFormatIJPN17grpc_event_engine12experimental12Epoll1PollerEPKcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSG_"}
-!26 = !{i32 0, i32 -2147483648}
-!27 = !{!"branch_weights", i32 1, i32 1048575}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: %agg.result"}
-!30 = distinct !{!30, !"_ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
+!26 = !{!"branch_weights", i32 1, i32 1048575}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: %agg.result"}
+!29 = distinct !{!29, !"_ZSt11make_sharedIN17grpc_event_engine12experimental12Epoll1PollerEJRPNS1_9SchedulerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
+!30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = !{}
-!34 = distinct !{!34, !5}
+!32 = !{}
+!33 = distinct !{!33, !5}

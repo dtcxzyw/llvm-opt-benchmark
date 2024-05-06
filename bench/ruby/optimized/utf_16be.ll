@@ -23,7 +23,7 @@ define void @Init_utf_16be() local_unnamed_addr #0 {
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @utf16be_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -4, 5) i32 @utf16be_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = and i32 %5, 248
@@ -79,7 +79,7 @@ define internal noundef i32 @utf16be_mbc_enc_len(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @utf16be_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 0, 2) i32 @utf16be_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = icmp ult ptr %4, %1
   br i1 %5, label %6, label %12
@@ -103,7 +103,7 @@ define internal noundef i32 @utf16be_is_mbc_newline(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf16be_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 0, 1114112) i32 @utf16be_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = and i32 %5, 252
@@ -141,14 +141,14 @@ define internal i32 @utf16be_mbc_to_code(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @utf16be_code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #3 {
+define internal noundef range(i32 2, 5) i32 @utf16be_code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #3 {
   %3 = icmp ugt i32 %0, 65535
   %4 = select i1 %3, i32 4, i32 2
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @utf16be_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #4 {
+define internal range(i32 2, 5) i32 @utf16be_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #4 {
   %4 = icmp ugt i32 %0, 65535
   br i1 %4, label %5, label %15
 

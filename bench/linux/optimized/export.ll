@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [53 x i8] c"\013isofs: Unable to find the \22..\22 directory for NFS.\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @isofs_export_encode_fh(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef readonly %3) #0 align 16 {
+define internal noundef range(i32 1, 256) i32 @isofs_export_encode_fh(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef readonly %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -48
   %6 = load i32, ptr %2, align 4
   %7 = icmp ne ptr %3, null

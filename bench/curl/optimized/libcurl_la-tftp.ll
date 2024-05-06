@@ -115,7 +115,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @tftp_connect(ptr noundef nonnull %data, ptr noundef nonnull %done), !range !4
+  %call = tail call i32 @tftp_connect(ptr noundef nonnull %data, ptr noundef nonnull %done)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -138,7 +138,7 @@ if.end8:                                          ; preds = %entry, %if.end4
   br i1 %or.cond.i, label %tftp_perform.exit, label %tftp_perform.exit.thread
 
 tftp_perform.exit.thread:                         ; preds = %if.end8
-  %call3.i = tail call i32 @tftp_multi_statemach(ptr noundef nonnull %data, ptr noundef nonnull %done)
+  %call3.i = tail call i32 @tftp_multi_statemach(ptr noundef nonnull %data, ptr noundef nonnull writeonly %done)
   br label %if.then11
 
 tftp_perform.exit:                                ; preds = %if.end8
@@ -148,7 +148,7 @@ tftp_perform.exit:                                ; preds = %if.end8
 if.then11:                                        ; preds = %tftp_perform.exit.thread, %tftp_perform.exit
   %error = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i32, ptr %error, align 8
-  %call12 = tail call fastcc i32 @tftp_translate_code(i32 noundef %6), !range !5
+  %call12 = tail call fastcc i32 @tftp_translate_code(i32 noundef %6)
   br label %return
 
 return:                                           ; preds = %tftp_perform.exit, %if.then11, %if.end4, %if.then
@@ -157,7 +157,7 @@ return:                                           ; preds = %tftp_perform.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tftp_done(ptr noundef %data, i32 %status, i1 zeroext %premature) #0 {
+define internal range(i32 0, 75) i32 @tftp_done(ptr noundef %data, i32 %status, i1 zeroext %premature) #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -174,7 +174,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %error = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %error, align 8
-  %call5 = tail call fastcc i32 @tftp_translate_code(i32 noundef %2), !range !5
+  %call5 = tail call fastcc i32 @tftp_translate_code(i32 noundef %2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then4, %entry
@@ -183,7 +183,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tftp_connect(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal range(i32 0, 28) i32 @tftp_connect(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
 entry:
   %buffer = alloca [256 x i8], align 16
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
@@ -252,7 +252,7 @@ if.end38:                                         ; preds = %if.then26, %if.end2
   %conv42 = trunc i32 %9 to i16
   %local_addr = getelementptr inbounds i8, ptr %call, i64 48
   store i16 %conv42, ptr %local_addr, align 8
-  %call43 = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %call), !range !6
+  %call43 = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %call)
   %bits = getelementptr inbounds i8, ptr %0, i64 704
   %bf.load = load i32, ptr %bits, align 8
   %10 = and i32 %bf.load, 4194304
@@ -600,7 +600,7 @@ if.then23.i.i:                                    ; preds = %if.else20.i.i
   br label %tftp_receive_packet.exit.thread
 
 if.end26.i.i:                                     ; preds = %if.else20.i.i
-  %conv27.i.i = trunc i64 %call12.i.i to i32
+  %conv27.i.i = trunc nuw nsw i64 %call12.i.i to i32
   store i32 %conv27.i.i, ptr %blksize.i, align 4
   br i1 %tobool4.not.i.i, label %if.end73.i.i, label %land.lhs.true31.i.i
 
@@ -653,7 +653,7 @@ if.end70.i.i:                                     ; preds = %if.then67.i.i
 
 if.end73.i.i:                                     ; preds = %if.end70.i.i, %do.end61.i.i, %if.else44.i.i, %if.then39.i.i, %land.lhs.true31.i.i, %if.end26.i.i
   %cmp.i.i = icmp ult ptr %arrayidx8.i.i.i, %add.ptr.i.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %sw.epilog.i, !llvm.loop !7
+  br i1 %cmp.i.i, label %while.body.i.i, label %sw.epilog.i, !llvm.loop !4
 
 sw.default.i:                                     ; preds = %if.else.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.31) #14
@@ -765,7 +765,7 @@ if.end:                                           ; preds = %do.body, %entry
 declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tftp_set_timeouts(ptr noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 29) i32 @tftp_set_timeouts(ptr noundef %state) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 0
@@ -852,7 +852,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 declare i32 @Curl_pgrsDone(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @tftp_translate_code(i32 noundef %error) unnamed_addr #5 {
+define internal fastcc range(i32 0, 75) i32 @tftp_translate_code(i32 noundef %error) unnamed_addr #5 {
 entry:
   switch i32 %error, label %sw.default [
     i32 -100, label %if.else
@@ -1177,7 +1177,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 
 do.end.i.i:                                       ; preds = %if.then.i.i, %land.lhs.true.i.i
   store i32 2, ptr %state, align 8
-  %call.i.i = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %state), !range !6
+  %call.i.i = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %state)
   %tobool4.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end6.i.i, label %tftp_send_first.exit
 
@@ -1194,12 +1194,12 @@ if.then.i80.i:                                    ; preds = %land.lhs.true.i76.i
 
 do.end.i81.i:                                     ; preds = %if.then.i80.i, %land.lhs.true.i76.i
   store i32 1, ptr %state, align 8
-  %call.i82.i = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %state), !range !6
+  %call.i82.i = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %state)
   %tobool4.not.i83.i = icmp eq i32 %call.i82.i, 0
   br i1 %tobool4.not.i83.i, label %if.end6.i85.i, label %tftp_send_first.exit
 
 if.end6.i85.i:                                    ; preds = %do.end.i81.i
-  %call7.i86.i = tail call fastcc i32 @tftp_rx(ptr noundef nonnull %state, i32 noundef 6), !range !9
+  %call7.i86.i = tail call fastcc i32 @tftp_rx(ptr noundef nonnull %state, i32 noundef 6)
   br label %tftp_send_first.exit
 
 land.lhs.true.i89.i:                              ; preds = %do.end
@@ -1215,7 +1215,7 @@ if.then.i93.i:                                    ; preds = %land.lhs.true.i89.i
 
 do.end.i94.i:                                     ; preds = %if.then.i93.i, %land.lhs.true.i89.i
   store i32 2, ptr %state, align 8
-  %call.i95.i = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %state), !range !6
+  %call.i95.i = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %state)
   %tobool4.not.i96.i = icmp eq i32 %call.i95.i, 0
   br i1 %tobool4.not.i96.i, label %if.end6.i98.i, label %tftp_send_first.exit
 
@@ -1236,12 +1236,12 @@ if.then.i107.i:                                   ; preds = %land.lhs.true.i103.
 
 do.end.i108.i:                                    ; preds = %if.then.i107.i, %land.lhs.true.i103.i
   store i32 1, ptr %state, align 8
-  %call.i109.i = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %state), !range !6
+  %call.i109.i = tail call fastcc i32 @tftp_set_timeouts(ptr noundef nonnull %state)
   %tobool4.not.i110.i = icmp eq i32 %call.i109.i, 0
   br i1 %tobool4.not.i110.i, label %if.end6.i112.i, label %tftp_send_first.exit
 
 if.end6.i112.i:                                   ; preds = %do.end.i108.i
-  %call7.i113.i = tail call fastcc i32 @tftp_rx(ptr noundef nonnull %state, i32 noundef 3), !range !9
+  %call7.i113.i = tail call fastcc i32 @tftp_rx(ptr noundef nonnull %state, i32 noundef 3)
   br label %tftp_send_first.exit
 
 sw.bb152.i:                                       ; preds = %do.end
@@ -1261,7 +1261,7 @@ tftp_send_first.exit:                             ; preds = %if.then4.i, %if.end
   br label %sw.epilog
 
 do.end5:                                          ; preds = %entry
-  %call6 = tail call fastcc i32 @tftp_rx(ptr noundef nonnull %state, i32 noundef %event), !range !9
+  %call6 = tail call fastcc i32 @tftp_rx(ptr noundef nonnull %state, i32 noundef %event)
   br label %sw.epilog
 
 do.end9:                                          ; preds = %entry
@@ -1297,7 +1297,7 @@ declare void @Curl_setup_transfer(ptr noundef, i32 noundef, i64 noundef, i1 noun
 declare i32 @Curl_socket_check(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tftp_rx(ptr noundef %state, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc range(i32 0, 72) i32 @tftp_rx(ptr noundef %state, i32 noundef %event) unnamed_addr #0 {
 entry:
   %buffer = alloca [256 x i8], align 16
   %data1 = getelementptr inbounds i8, ptr %state, i64 16
@@ -1376,7 +1376,7 @@ if.end30:                                         ; preds = %do.body, %land.lhs.
   store i8 4, ptr %arrayidx5.i, align 1
   %9 = load i16, ptr %block, align 4
   %shr.i = lshr i16 %9, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   %10 = load ptr, ptr %spacket, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 2
   store i8 %conv1.i, ptr %arrayidx.i, align 1
@@ -1429,7 +1429,7 @@ sw.bb55:                                          ; preds = %entry
   store i8 4, ptr %arrayidx5.i70, align 1
   %20 = load i16, ptr %block56, align 4
   %shr.i71 = lshr i16 %20, 8
-  %conv1.i72 = trunc i16 %shr.i71 to i8
+  %conv1.i72 = trunc nuw i16 %shr.i71 to i8
   %21 = load ptr, ptr %spacket58, align 8
   %arrayidx.i73 = getelementptr inbounds i8, ptr %21, i64 2
   store i8 %conv1.i72, ptr %arrayidx.i73, align 1
@@ -1526,7 +1526,7 @@ sw.bb117:                                         ; preds = %entry
   %block120 = getelementptr inbounds i8, ptr %state, i64 324
   %39 = load i16, ptr %block120, align 4
   %shr.i77 = lshr i16 %39, 8
-  %conv1.i78 = trunc i16 %shr.i77 to i8
+  %conv1.i78 = trunc nuw i16 %shr.i77 to i8
   %40 = load ptr, ptr %spacket118, align 8
   %arrayidx.i79 = getelementptr inbounds i8, ptr %40, i64 2
   store i8 %conv1.i78, ptr %arrayidx.i79, align 1
@@ -1670,7 +1670,7 @@ if.end41:                                         ; preds = %if.else39, %if.end3
   %block45 = getelementptr inbounds i8, ptr %state, i64 324
   %16 = load i16, ptr %block45, align 4
   %shr.i = lshr i16 %16, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   %17 = load ptr, ptr %spacket43, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %17, i64 2
   store i8 %conv1.i, ptr %arrayidx.i, align 1
@@ -1732,7 +1732,7 @@ if.end69:                                         ; preds = %do.body62
   %cmp79 = icmp slt i32 %30, %31
   %tobool81 = icmp ne i64 %26, 0
   %32 = select i1 %cmp79, i1 %tobool81, i1 false
-  br i1 %32, label %do.body62, label %do.end82, !llvm.loop !10
+  br i1 %32, label %do.body62, label %do.end82, !llvm.loop !6
 
 do.end82:                                         ; preds = %if.end69
   %sockfd83 = getelementptr inbounds i8, ptr %state, i64 24
@@ -1841,7 +1841,7 @@ sw.bb149:                                         ; preds = %entry
   %block153 = getelementptr inbounds i8, ptr %state, i64 324
   %53 = load i16, ptr %block153, align 4
   %shr.i90 = lshr i16 %53, 8
-  %conv1.i91 = trunc i16 %shr.i90 to i8
+  %conv1.i91 = trunc nuw i16 %shr.i90 to i8
   %54 = load ptr, ptr %spacket151, align 8
   %arrayidx.i92 = getelementptr inbounds i8, ptr %54, i64 2
   store i8 %conv1.i91, ptr %arrayidx.i92, align 1
@@ -1881,7 +1881,7 @@ declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_un
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @tftp_option_add(i32 %state.316.val, ptr nocapture noundef %csize, ptr noundef %buf, ptr nocapture noundef readonly %option) unnamed_addr #8 {
+define internal fastcc range(i32 0, 72) i32 @tftp_option_add(i32 %state.316.val, ptr nocapture noundef %csize, ptr noundef %buf, ptr nocapture noundef readonly %option) unnamed_addr #8 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %option) #13
   %0 = load i64, ptr %csize, align 8
@@ -1974,10 +1974,6 @@ attributes #15 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 28}
-!5 = !{i32 0, i32 75}
-!6 = !{i32 0, i32 29}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 72}
-!10 = distinct !{!10, !8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

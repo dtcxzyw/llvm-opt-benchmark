@@ -341,7 +341,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_set1_RSA(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_set1_RSA(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tobool.not.i.i.i = icmp eq ptr %pkey, null
   br i1 %tobool.not.i.i.i, label %EVP_PKEY_assign_RSA.exit, label %land.lhs.true.i.i.i
@@ -392,7 +392,7 @@ return:                                           ; preds = %EVP_PKEY_assign_RSA
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_assign_RSA(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_assign_RSA(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tobool.not.i.i = icmp eq ptr %pkey, null
   br i1 %tobool.not.i.i, label %EVP_PKEY_assign.exit, label %land.lhs.true.i.i
@@ -438,7 +438,7 @@ EVP_PKEY_assign.exit:                             ; preds = %entry, %if.then6.i.
 declare i32 @RSA_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_assign(ptr noundef %pkey, i32 noundef %type, ptr noundef %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_assign(ptr noundef %pkey, i32 noundef %type, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %pkey, null
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
@@ -560,7 +560,7 @@ if.end:                                           ; preds = %EVP_PKEY_get0_RSA.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_set1_DSA(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_set1_DSA(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tobool.not.i.i.i = icmp eq ptr %pkey, null
   br i1 %tobool.not.i.i.i, label %EVP_PKEY_assign_DSA.exit, label %land.lhs.true.i.i.i
@@ -611,7 +611,7 @@ return:                                           ; preds = %EVP_PKEY_assign_DSA
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_assign_DSA(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_assign_DSA(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tobool.not.i.i = icmp eq ptr %pkey, null
   br i1 %tobool.not.i.i, label %EVP_PKEY_assign.exit, label %land.lhs.true.i.i
@@ -706,7 +706,7 @@ if.end:                                           ; preds = %EVP_PKEY_get0_DSA.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_set1_EC_KEY(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_set1_EC_KEY(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tobool.not.i.i.i = icmp eq ptr %pkey, null
   br i1 %tobool.not.i.i.i, label %EVP_PKEY_assign_EC_KEY.exit, label %land.lhs.true.i.i.i
@@ -757,7 +757,7 @@ return:                                           ; preds = %EVP_PKEY_assign_EC_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_assign_EC_KEY(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_assign_EC_KEY(ptr noundef %pkey, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tobool.not.i.i = icmp eq ptr %pkey, null
   br i1 %tobool.not.i.i, label %EVP_PKEY_assign.exit, label %land.lhs.true.i.i
@@ -852,7 +852,7 @@ if.end:                                           ; preds = %EVP_PKEY_get0_EC_KE
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_PKEY_set_type(ptr noundef %pkey, i32 noundef %type) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_PKEY_set_type(ptr noundef %pkey, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkey, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true

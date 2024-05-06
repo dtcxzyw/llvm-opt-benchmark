@@ -30,7 +30,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_block_source_from_file(ptr nocapture noundef writeonly %bs, ptr nocapture noundef readonly %name) local_unnamed_addr #3 {
+define dso_local range(i32 -4, 1) i32 @reftable_block_source_from_file(ptr nocapture noundef writeonly %bs, ptr nocapture noundef readonly %name) local_unnamed_addr #3 {
 entry:
   %st = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %st, i8 0, i64 144, i1 false)

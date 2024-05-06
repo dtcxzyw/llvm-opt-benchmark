@@ -1733,7 +1733,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %if.end76, %if.end.i
           to label %invoke.cont84 unwind label %lpad6.loopexit.split-lp.loopexit
 
 invoke.cont84:                                    ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
-  %100 = trunc i64 %indvars.iv184 to i32
+  %100 = trunc nuw i64 %indvars.iv184 to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %97, i32 noundef %100, ptr noundef %call.i120, ptr noundef null, ptr noundef %cond.i42)
           to label %for.inc87 unwind label %lpad6.loopexit.split-lp.loopexit
 

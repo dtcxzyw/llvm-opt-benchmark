@@ -858,7 +858,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
   %310 = sext i32 %309 to i64
   %311 = getelementptr inbounds [3 x float], ptr %306, i64 %310, i64 1
   %312 = load float, ptr %311, align 4
-  %313 = getelementptr i8, ptr %303, i64 8
+  %313 = getelementptr inbounds i8, ptr %303, i64 8
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds float, ptr %314, i64 %indvars.iv572
   store float %312, ptr %315, align 4
@@ -869,7 +869,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
   %320 = sext i32 %319 to i64
   %321 = getelementptr inbounds [3 x float], ptr %316, i64 %320, i64 2
   %322 = load float, ptr %321, align 4
-  %323 = getelementptr i8, ptr %303, i64 16
+  %323 = getelementptr inbounds i8, ptr %303, i64 16
   %324 = load ptr, ptr %323, align 8
   %325 = getelementptr inbounds float, ptr %324, i64 %indvars.iv572
   store float %322, ptr %325, align 4
@@ -996,8 +996,8 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit352:      ; preds = %364
   %383 = getelementptr inbounds %struct.t_atom, ptr %377, i64 %382
   %384 = load float, ptr %383, align 4
   %385 = getelementptr inbounds ptr, ptr %230, i64 %indvars.iv582
-  %386 = getelementptr i8, ptr %385, i64 8
-  %387 = getelementptr i8, ptr %385, i64 16
+  %386 = getelementptr inbounds i8, ptr %385, i64 8
+  %387 = getelementptr inbounds i8, ptr %385, i64 16
   br label %388
 
 388:                                              ; preds = %.lr.ph501, %388

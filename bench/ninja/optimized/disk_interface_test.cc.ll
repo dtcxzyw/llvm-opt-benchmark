@@ -1255,7 +1255,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit108:         ; preds = %192, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i107
   store ptr null, ptr %193, align 8
-  %195 = call noalias ptr @fopen(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.45)
+  %195 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.38, ptr noundef nonnull @.str.45)
   %.not.i = icmp eq ptr %195, null
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
 
@@ -2057,7 +2057,7 @@ define internal void @_ZN12_GLOBAL__N_147DiskInterfaceTest_StatMissingFileWithCa
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN17RealDiskInterface14AllowStatCacheEb(ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext true)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
-  %18 = call noalias ptr @fopen(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.45)
+  %18 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.38, ptr noundef nonnull @.str.45)
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
 
@@ -3491,7 +3491,7 @@ define internal void @_ZN12_GLOBAL__N_139DiskInterfaceTest_StatExistingFile_Test
   %15 = alloca %"class.testing::Message", align 8
   %16 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
-  %17 = call noalias ptr @fopen(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.45)
+  %17 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.55, ptr noundef nonnull @.str.45)
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
 
@@ -8446,7 +8446,7 @@ define internal void @_ZN12_GLOBAL__N_133DiskInterfaceTest_RemoveFile_Test8TestB
   %24 = alloca %"class.std::allocator", align 1
   %25 = alloca %"class.testing::Message", align 8
   %26 = alloca %"class.testing::internal::AssertHelper", align 8
-  %27 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.45)
+  %27 = tail call noalias ptr @fopen(ptr noundef nonnull readonly @.str.92, ptr noundef nonnull @.str.45)
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit.thread, label %_ZN12_GLOBAL__N_117DiskInterfaceTest5TouchEPKc.exit
 
@@ -11413,9 +11413,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -11423,9 +11423,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #22
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #25
           to label %44 unwind label %37
 
@@ -11439,7 +11439,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #24
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 

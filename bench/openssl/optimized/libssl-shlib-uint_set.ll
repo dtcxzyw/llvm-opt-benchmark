@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_uint_set_init(ptr nocapture noundef writeonly %s) local_unnamed_addr #0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
   ret void
 }
 
@@ -33,7 +33,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_uint_set_insert(ptr nocapture noundef %s, ptr nocapture noundef readonly %range) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_uint_set_insert(ptr nocapture noundef %s, ptr nocapture noundef readonly %range) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %range, align 8
   %end2 = getelementptr inbounds i8, ptr %range, i64 8
@@ -498,7 +498,7 @@ return:                                           ; preds = %if.end, %entry, %os
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_uint_set_remove(ptr nocapture noundef %s, ptr nocapture noundef readonly %range) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_uint_set_remove(ptr nocapture noundef %s, ptr nocapture noundef readonly %range) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %range, align 8
   %end2 = getelementptr inbounds i8, ptr %range, i64 8
@@ -654,7 +654,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_uint_set_query(ptr nocapture noundef readonly %s, i64 noundef %v) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_uint_set_query(ptr nocapture noundef readonly %s, i64 noundef %v) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 16
   %s.val = load i64, ptr %0, align 8

@@ -163,7 +163,7 @@ default.unreachable:                              ; preds = %7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !38
   store i64 %18, ptr %0, align 8, !alias.scope !30, !noalias !59
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i, i64 24, i1 false), !noalias !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i, i64 24, i1 false), !noalias !59
   br label %"_ZN296_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$diesel..sqlite..backend..Sqlite$C$diesel..backend..sql_dialect..default_keyword_for_insert..DoesNotSupportDefaultKeyword$GT$$GT$8walk_ast17h94769db10aef44fcE.llvm.11978665099207668901.exit"
 
 "_ZN296_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$diesel..sqlite..backend..Sqlite$C$diesel..backend..sql_dialect..default_keyword_for_insert..DoesNotSupportDefaultKeyword$GT$$GT$8walk_ast17h94769db10aef44fcE.llvm.11978665099207668901.exit": ; preds = %20, %22
@@ -540,7 +540,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !110
   %20 = load i8, ptr %11, align 1, !range !125, !noalias !110, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !110
-  %21 = trunc i8 %20 to i1
+  %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %36, label %23
 
 22:                                               ; preds = %3
@@ -640,7 +640,7 @@ default.unreachable:                              ; preds = %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !141
   %43 = load i8, ptr %7, align 1, !range !125, !noalias !141, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !141
-  %44 = trunc i8 %43 to i1
+  %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %66, label %46
 
 45:                                               ; preds = %36
@@ -789,7 +789,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !177
   %21 = load i8, ptr %11, align 1, !range !125, !noalias !177, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !177
-  %22 = trunc i8 %21 to i1
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %37, label %24
 
 23:                                               ; preds = %3
@@ -890,7 +890,7 @@ default.unreachable:                              ; preds = %24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !221
   %44 = load i8, ptr %7, align 1, !range !125, !noalias !221, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !221
-  %45 = trunc i8 %44 to i1
+  %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %67, label %47
 
 46:                                               ; preds = %37
@@ -1039,7 +1039,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !262
   %21 = load i8, ptr %12, align 1, !range !125, !noalias !262, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !262
-  %22 = trunc i8 %21 to i1
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %37, label %24
 
 23:                                               ; preds = %3
@@ -1148,7 +1148,7 @@ default.unreachable:                              ; preds = %24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !304
   %.pre.i = load i8, ptr %8, align 1, !range !125, !noalias !300
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !300
-  %44 = trunc i8 %.pre.i to i1
+  %44 = trunc nuw i8 %.pre.i to i1
   br i1 %44, label %67, label %46
 
 45:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.i.i.i"
@@ -1312,7 +1312,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !378
   %.pre.i = load i8, ptr %13, align 1, !range !125, !noalias !373
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !373
-  %21 = trunc i8 %.pre.i to i1
+  %21 = trunc nuw i8 %.pre.i to i1
   br i1 %21, label %35, label %23
 
 22:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.i.i.i"
@@ -1424,7 +1424,7 @@ default.unreachable:                              ; preds = %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !442
   %.pre.i65 = load i8, ptr %8, align 1, !range !125, !noalias !437
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !437
-  %44 = trunc i8 %.pre.i65 to i1
+  %44 = trunc nuw i8 %.pre.i65 to i1
   br i1 %44, label %67, label %46
 
 45:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.i.i.i61"
@@ -1577,7 +1577,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples96_$LT$impl$u20$diesel..insert
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !513
   %18 = load i8, ptr %11, align 1, !range !125, !noalias !513, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !513
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.thread", label %21
 
 20:                                               ; preds = %3
@@ -1660,7 +1660,7 @@ default.unreachable:                              ; preds = %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !542
   %34 = load i8, ptr %7, align 1, !range !125, !noalias !542, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !542
-  %35 = trunc i8 %34 to i1
+  %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit71.thread", label %37
 
 36:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.thread"
@@ -1796,7 +1796,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples96_$LT$impl$u20$diesel..insert
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !578
   %19 = load i8, ptr %11, align 1, !range !125, !noalias !578, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !578
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.thread", label %22
 
 21:                                               ; preds = %3
@@ -1880,7 +1880,7 @@ default.unreachable:                              ; preds = %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !613
   %35 = load i8, ptr %7, align 1, !range !125, !noalias !613, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !613
-  %36 = trunc i8 %35 to i1
+  %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit72.thread", label %38
 
 37:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.thread"
@@ -2021,7 +2021,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples96_$LT$impl$u20$diesel..insert
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !653
   %.pre.i = load i8, ptr %11, align 1, !range !125, !noalias !648
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !648
-  %19 = trunc i8 %.pre.i to i1
+  %19 = trunc nuw i8 %.pre.i to i1
   br i1 %19, label %.thread106, label %21
 
 20:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.i.i.i"
@@ -2114,7 +2114,7 @@ default.unreachable:                              ; preds = %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !691
   %.pre.i71 = load i8, ptr %7, align 1, !range !125, !noalias !686
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !686
-  %36 = trunc i8 %.pre.i71 to i1
+  %36 = trunc nuw i8 %.pre.i71 to i1
   br i1 %36, label %.thread125, label %38
 
 37:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.i.i.i67"
@@ -2250,7 +2250,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples96_$LT$impl$u20$diesel..insert
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !732
   %19 = load i8, ptr %11, align 1, !range !125, !noalias !732, !noundef !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !732
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.thread", label %22
 
 21:                                               ; preds = %3
@@ -2342,7 +2342,7 @@ default.unreachable:                              ; preds = %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !771
   %.pre.i = load i8, ptr %7, align 1, !range !125, !noalias !767
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !767
-  %35 = trunc i8 %.pre.i to i1
+  %35 = trunc nuw i8 %.pre.i to i1
   br i1 %35, label %.thread113, label %37
 
 36:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.i.i.i"

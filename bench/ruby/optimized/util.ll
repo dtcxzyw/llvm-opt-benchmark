@@ -380,7 +380,7 @@ define dso_local noalias nonnull ptr @ruby_strdup(ptr nocapture noundef nonnull 
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull align 1 %0, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %4, ptr nonnull readonly align 1 %0, i64 %3, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %1, %5
@@ -411,14 +411,14 @@ define dso_local noalias nonnull ptr @ruby_getcwd() local_unnamed_addr #2 {
   unreachable
 
 8:                                                ; preds = %0
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #21
   %10 = add i64 %9, 1
   %11 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %10) #22
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %ruby_strdup.exit, label %12
 
 12:                                               ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %4, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %11, ptr nonnull readonly align 1 %4, i64 %10, i1 false)
   br label %ruby_strdup.exit
 
 ruby_strdup.exit:                                 ; preds = %8, %12
@@ -1668,7 +1668,7 @@ Balloc.exit:                                      ; preds = %465, %495
   br i1 %.not.i764, label %ruby_nonempty_memcpy.exit, label %505
 
 505:                                              ; preds = %Balloc.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %500, ptr nonnull align 1 %439, i64 %504, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %500, ptr nonnull readonly align 1 %439, i64 %504, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %505
@@ -5280,7 +5280,7 @@ Balloc.exit:                                      ; preds = %527, %557
 
 568:                                              ; preds = %Balloc.exit
   %569 = getelementptr inbounds i8, ptr %.9455, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %562, ptr nonnull align 1 %569, i64 %567, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %562, ptr nonnull readonly align 1 %569, i64 %567, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %568
@@ -6075,7 +6075,7 @@ Balloc.exit:                                      ; preds = %45, %75
 
 85:                                               ; preds = %Balloc.exit
   %86 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %86, i64 %84, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %80, ptr nonnull readonly align 1 %86, i64 %84, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %85, %Balloc.exit

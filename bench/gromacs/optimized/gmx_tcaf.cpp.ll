@@ -1164,7 +1164,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %497, %494
   %503 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %493, ptr noundef nonnull @.str.65, double noundef %502) #16
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %498
+.lr.ph.i:                                         ; preds = %498, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %498 ]
   %504 = getelementptr inbounds ptr, ptr %214, i64 %indvars.iv.i
   %505 = load ptr, ptr %504, align 8
@@ -1429,7 +1429,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit262.i:     ; preds = %571, %568
   %.0204339.us.i = phi i32 [ %spec.select.us.i, %.loopexit318.us.i ], [ 0, %572 ]
   %579 = shl nsw i64 %indvars.iv414.i, 2
   %580 = getelementptr inbounds ptr, ptr %526, i64 %indvars.iv414.i
-  %invariant.gep451.i = getelementptr ptr, ptr %214, i64 %579
+  %invariant.gep451.i = getelementptr inbounds ptr, ptr %214, i64 %579
   br label %596
 
 581:                                              ; preds = %596
@@ -1439,7 +1439,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit262.i:     ; preds = %571, %568
 
 583:                                              ; preds = %.preheader.us.i, %583
   %indvars.iv410.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next411.i, %583 ]
-  %gep454.i = getelementptr ptr, ptr %invariant.gep451.i, i64 %indvars.iv410.i
+  %gep454.i = getelementptr inbounds ptr, ptr %invariant.gep451.i, i64 %indvars.iv410.i
   %584 = load ptr, ptr %gep454.i, align 8
   %585 = load float, ptr %584, align 4
   %586 = load ptr, ptr %603, align 8
@@ -1465,7 +1465,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit262.i:     ; preds = %571, %568
 
 596:                                              ; preds = %596, %.preheader319.us.i
   %indvars.iv406.i = phi i64 [ %indvars.iv.next407.i, %596 ], [ 0, %.preheader319.us.i ]
-  %gep452.i = getelementptr ptr, ptr %invariant.gep451.i, i64 %indvars.iv406.i
+  %gep452.i = getelementptr inbounds ptr, ptr %invariant.gep451.i, i64 %indvars.iv406.i
   %597 = load ptr, ptr %gep452.i, align 8
   %598 = load float, ptr %597, align 4
   %599 = load ptr, ptr %580, align 8
@@ -1486,12 +1486,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit262.i:     ; preds = %571, %568
   %.0204339.i = phi i32 [ %spec.select.i, %.loopexit318.i ], [ 0, %572 ]
   %604 = shl nsw i64 %indvars.iv400.i, 2
   %605 = getelementptr inbounds ptr, ptr %526, i64 %indvars.iv400.i
-  %invariant.gep.i = getelementptr ptr, ptr %214, i64 %604
+  %invariant.gep.i = getelementptr inbounds ptr, ptr %214, i64 %604
   br label %606
 
 606:                                              ; preds = %606, %.preheader319.i
   %indvars.iv392.i = phi i64 [ 0, %.preheader319.i ], [ %indvars.iv.next393.i, %606 ]
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv392.i
+  %gep.i = getelementptr inbounds ptr, ptr %invariant.gep.i, i64 %indvars.iv392.i
   %607 = load ptr, ptr %gep.i, align 8
   %608 = getelementptr inbounds float, ptr %607, i64 %indvars.iv420.i
   %609 = load float, ptr %608, align 4
@@ -1538,7 +1538,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit262.i:     ; preds = %571, %568
 
 624:                                              ; preds = %624, %.preheader.i
   %indvars.iv396.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next397.i, %624 ]
-  %gep450.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv396.i
+  %gep450.i = getelementptr inbounds ptr, ptr %invariant.gep.i, i64 %indvars.iv396.i
   %625 = load ptr, ptr %gep450.i, align 8
   %626 = getelementptr inbounds float, ptr %625, i64 %indvars.iv420.i
   %627 = load float, ptr %626, align 4

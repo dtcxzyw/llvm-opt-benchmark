@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i64 @fread_unlocked(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i64 0, -9223372036854775808) i64 @fread_unlocked(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = mul i64 %2, %1
   %6 = tail call i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %5, ptr noundef %3) #3
   %7 = icmp sgt i64 %6, 0
@@ -22,7 +22,7 @@ define i64 @fread_unlocked(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr n
 declare i64 @lib_fread_unlocked(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @fread(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i64 0, -9223372036854775808) i64 @fread(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @flockfile(ptr noundef %3)
   %5 = mul i64 %2, %1
   %6 = tail call i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %5, ptr noundef %3) #3

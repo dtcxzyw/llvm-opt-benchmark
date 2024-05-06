@@ -28,7 +28,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 @.str.3 = private unnamed_addr constant [11 x i8] c"pfft_setup\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23gmx_parallel_3dfft_initPP18gmx_parallel_3dfftPKiPPfPP9t_complexPP10tmpi_comm_biN3gmx13PinningPolicyE(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z23gmx_parallel_3dfft_initPP18gmx_parallel_3dfftPKiPPfPP9t_complexPP10tmpi_comm_biN3gmx13PinningPolicyE(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [2 x ptr], align 16
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8

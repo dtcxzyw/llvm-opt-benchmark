@@ -31,7 +31,7 @@ define dso_local void @acpi_ds_scope_stack_clear(ptr nocapture noundef %0) local
 declare dso_local void @acpi_ut_delete_generic_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ds_scope_stack_push(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_ds_scope_stack_push(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -90,7 +90,7 @@ declare dso_local ptr @acpi_ut_create_generic_state() local_unnamed_addr #1
 declare dso_local void @acpi_ut_push_generic_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ds_scope_stack_pop(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 14) i32 @acpi_ds_scope_stack_pop(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1080
   %3 = tail call ptr @acpi_ut_pop_generic_state(ptr noundef %2) #2
   %4 = icmp eq ptr %3, null

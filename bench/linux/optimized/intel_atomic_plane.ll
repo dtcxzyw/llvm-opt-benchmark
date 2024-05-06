@@ -2691,7 +2691,7 @@ intel_plane_update_arm.exit9:                     ; preds = %235, %234, %259, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_atomic_plane_check_clipping(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @intel_atomic_plane_check_clipping(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 184
@@ -2853,7 +2853,7 @@ declare dso_local zeroext i1 @drm_rect_clip_scaled(ptr noundef, ptr noundef, ptr
 declare dso_local void @drm_rect_rotate_inv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_plane_check_src_coordinates(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_plane_check_src_coordinates(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184

@@ -221,7 +221,7 @@ define dso_local void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %1)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !31
   %95 = getelementptr inbounds i8, ptr %0, i64 2
   %96 = lshr exact i32 %53, 16
-  %97 = trunc i32 %96 to i16
+  %97 = trunc nuw i32 %96 to i16
   %98 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %95, i16 %97, ptr elementtype(i16) %95) #5, !srcloc !32
   %99 = icmp eq i16 %98, 0
   br i1 %99, label %120, label %100

@@ -185,7 +185,7 @@ declare i32 @task_cgroup_memory_init() local_unnamed_addr #1
 declare i32 @task_cgroup_devices_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @fini() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @fini() local_unnamed_addr #0 {
   %.b3 = load i1, ptr @use_cpuset, align 1
   br i1 %.b3, label %1, label %3
 
@@ -258,7 +258,7 @@ define noundef i32 @task_p_slurmd_resume_job(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_p_pre_setuid(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_p_pre_setuid(ptr noundef %0) local_unnamed_addr #0 {
   %.b5 = load i1, ptr @use_cpuset, align 1
   br i1 %.b5, label %2, label %4
 
@@ -302,7 +302,7 @@ declare i32 @task_cgroup_memory_create(ptr noundef) local_unnamed_addr #1
 declare i32 @task_cgroup_devices_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_p_pre_launch_priv(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_p_pre_launch_priv(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.b16 = load i1, ptr @use_cpuset, align 1
   br i1 %.b16, label %4, label %13
 
@@ -402,7 +402,7 @@ define i32 @task_p_post_term(ptr noundef %0, ptr nocapture noundef readnone %1) 
 declare i32 @task_cgroup_memory_check_oom(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_p_post_step(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_p_post_step(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %.b3.i = load i1, ptr @use_cpuset, align 1
   br i1 %.b3.i, label %2, label %4
 
@@ -449,7 +449,7 @@ fini.exit:                                        ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_p_add_pid(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_p_add_pid(i32 noundef %0) local_unnamed_addr #0 {
   %.b6 = load i1, ptr @use_cpuset, align 1
   br i1 %.b6, label %2, label %4
 

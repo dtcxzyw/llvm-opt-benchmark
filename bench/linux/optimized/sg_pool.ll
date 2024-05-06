@@ -163,7 +163,7 @@ define internal ptr @sg_pool_alloc(i32 noundef %0, i32 noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @sg_pool_init() #2 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @sg_pool_init() #2 section ".init.text" align 16 {
   br label %1
 
 1:                                                ; preds = %21, %0

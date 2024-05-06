@@ -192,7 +192,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_recor
   %43 = load i64, ptr %9, align 8, !alias.scope !4, !noalias !7, !noundef !15
   %44 = add i64 %43, %38
   store i64 %44, ptr %9, align 8, !alias.scope !4, !noalias !7
-  %trunc.i = trunc i8 %40 to i1
+  %trunc.i = trunc nuw i8 %40 to i1
   br i1 %trunc.i, label %45, label %"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17h2111a403b7222bf2E.llvm.14933412330345768097.exit"
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge": ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader", %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
@@ -239,7 +239,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_recor
   %57 = phi ptr [ %46, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i, %56 ]
   %58 = phi i64 [ %52, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i.i.i.i, %56 ]
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %.val.i, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %.val.i, i64 %44, i1 false)
   %60 = load i64, ptr %16, align 8, !alias.scope !37, !noalias !44, !noundef !15
   %61 = add i64 %60, %44
   store i64 %61, ptr %16, align 8, !alias.scope !37, !noalias !44
@@ -407,7 +407,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   %68 = load i64, ptr %21, align 8, !alias.scope !85, !noalias !88, !noundef !15
   %69 = add i64 %68, %63
   store i64 %69, ptr %21, align 8, !alias.scope !85, !noalias !88
-  %trunc.i = trunc i8 %65 to i1
+  %trunc.i = trunc nuw i8 %65 to i1
   br i1 %trunc.i, label %70, label %"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17haf0ce7edc6bda9c6E.exit"
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge": ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader", %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
@@ -454,7 +454,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   %82 = phi ptr [ %71, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i, %81 ]
   %83 = phi i64 [ %77, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i.i.i.i, %81 ]
   %84 = getelementptr inbounds i8, ptr %82, i64 %83
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull align 1 %.val.i12, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull readonly align 1 %.val.i12, i64 %69, i1 false)
   %85 = load i64, ptr %28, align 8, !alias.scope !110, !noalias !117, !noundef !15
   %86 = add i64 %85, %69
   store i64 %86, ptr %28, align 8, !alias.scope !110, !noalias !117
@@ -550,7 +550,7 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$15wri
   %33 = phi ptr [ %22, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i, %32 ]
   %34 = phi i64 [ %28, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i.i.i.i, %32 ]
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %.val.i, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %.val.i, i64 %21, i1 false)
   %36 = load i64, ptr %11, align 8, !alias.scope !146, !noalias !153, !noundef !15
   %37 = add i64 %36, %21
   store i64 %37, ptr %11, align 8, !alias.scope !146, !noalias !153
@@ -630,7 +630,7 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16wri
   %37 = load i64, ptr %13, align 8, !noundef !15
   %38 = add i64 %37, %32
   store i64 %38, ptr %13, align 8
-  %trunc = trunc i8 %34 to i1
+  %trunc = trunc nuw i8 %34 to i1
   br i1 %trunc, label %42, label %39
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit._crit_edge": ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit", %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph"
@@ -683,7 +683,7 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16wri
   %54 = phi ptr [ %43, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i, %53 ]
   %55 = phi i64 [ %49, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i.i.i.i, %53 ]
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %.val.i, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %.val.i, i64 %38, i1 false)
   %57 = load i64, ptr %23, align 8, !alias.scope !188, !noalias !195, !noundef !15
   %58 = add i64 %57, %38
   store i64 %58, ptr %23, align 8, !alias.scope !188, !noalias !195
@@ -707,12 +707,12 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_termi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8, !range !24, !alias.scope !205, !noundef !15
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %"_ZN3csv6writer15Writer$LT$W$GT$17check_field_count17hf2d27f16f2b44173E.exit", label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr %0, align 8, !range !208, !alias.scope !205, !noundef !15
-  %trunc.i = trunc i64 %7 to i1
+  %trunc.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i, label %12, label %8
 
 8:                                                ; preds = %6
@@ -819,7 +819,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_termi
   %53 = phi ptr [ %42, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i, %52 ]
   %54 = phi i64 [ %48, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i.i.i.i, %52 ]
   %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %.val.i, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %.val.i, i64 %41, i1 false)
   %56 = load i64, ptr %30, align 8, !alias.scope !228, !noalias !235, !noundef !15
   %57 = add i64 %56, %41
   store i64 %57, ptr %30, align 8, !alias.scope !228, !noalias !235
@@ -978,12 +978,12 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
   %60 = getelementptr inbounds i8, ptr %0, i64 24
   %61 = load i8, ptr %60, align 8, !range !24, !alias.scope !282, !noundef !15
-  %62 = trunc i8 %61 to i1
+  %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %74, label %63
 
 63:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit39._crit_edge"
   %64 = load i64, ptr %0, align 8, !range !208, !alias.scope !282, !noundef !15
-  %trunc.i.i = trunc i64 %64 to i1
+  %trunc.i.i = trunc nuw i64 %64 to i1
   br i1 %trunc.i.i, label %67, label %65
 
 65:                                               ; preds = %63
@@ -1142,7 +1142,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %117 = zext i8 %116 to i64
   %118 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %117
   %119 = load i8, ptr %118, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
-  %120 = trunc i8 %119 to i1
+  %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread, label %121
 
 121:                                              ; preds = %.lr.ph.i.i
@@ -1151,7 +1151,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %124 = zext i8 %123 to i64
   %125 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %124
   %126 = load i8, ptr %125, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
-  %127 = trunc i8 %126 to i1
+  %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread, label %128
 
 128:                                              ; preds = %121
@@ -1160,7 +1160,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %131 = zext i8 %130 to i64
   %132 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %131
   %133 = load i8, ptr %132, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
-  %134 = trunc i8 %133 to i1
+  %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread, label %135
 
 135:                                              ; preds = %128
@@ -1169,7 +1169,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %138 = zext i8 %137 to i64
   %139 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %138
   %140 = load i8, ptr %139, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
-  %141 = trunc i8 %140 to i1
+  %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread, label %142
 
 142:                                              ; preds = %135
@@ -1178,7 +1178,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %145 = zext i8 %144 to i64
   %146 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %145
   %147 = load i8, ptr %146, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
-  %148 = trunc i8 %147 to i1
+  %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread, label %149
 
 149:                                              ; preds = %142
@@ -1187,7 +1187,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %152 = zext i8 %151 to i64
   %153 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %152
   %154 = load i8, ptr %153, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
-  %155 = trunc i8 %154 to i1
+  %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread, label %156
 
 156:                                              ; preds = %149
@@ -1196,7 +1196,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %159 = zext i8 %158 to i64
   %160 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
-  %162 = trunc i8 %161 to i1
+  %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread, label %163
 
 163:                                              ; preds = %156
@@ -1205,7 +1205,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %166 = zext i8 %165 to i64
   %167 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %166
   %168 = load i8, ptr %167, align 1, !range !24, !alias.scope !320, !noalias !319, !noundef !15
-  %169 = trunc i8 %168 to i1
+  %169 = trunc nuw i8 %168 to i1
   %170 = add i64 %.sroa.12.034.i.i, -8
   %171 = getelementptr inbounds i8, ptr %.sroa.0.035.i.i, i64 8
   %172 = icmp ult i64 %170, 8
@@ -1229,7 +1229,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %178 = zext i8 %.val3.i.i.i to i64
   %179 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 %178
   %180 = load i8, ptr %179, align 1, !range !24, !alias.scope !320, !noalias !325, !noundef !15
-  %181 = trunc i8 %180 to i1
+  %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread, label %174
 
 _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit: ; preds = %110
@@ -1273,7 +1273,7 @@ _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread64: ; pr
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ed213980287b77aE.exit": ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit44"
   %196 = load ptr, ptr %21, align 8, !alias.scope !326, !noalias !329, !nonnull !15, !noundef !15
   %197 = getelementptr inbounds i8, ptr %196, i64 %189
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %197, ptr nonnull align 1 %104, i64 %103, i1 false), !alias.scope !337, !noalias !341
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %197, ptr nonnull readonly align 1 %104, i64 %103, i1 false), !alias.scope !337, !noalias !341
   br label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit39"
 
 _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread: ; preds = %156, %149, %142, %135, %128, %121, %.lr.ph.i.i, %176, %._crit_edge.i.i, %110, %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit
@@ -1324,7 +1324,7 @@ _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread: ; pred
   %217 = load i8, ptr %37, align 1, !noundef !15
   %218 = load i8, ptr %38, align 8, !noundef !15
   %219 = load i8, ptr %39, align 4, !range !24, !noundef !15
-  %220 = trunc i8 %219 to i1
+  %220 = trunc nuw i8 %219 to i1
   call void @_ZN8csv_core6writer5quote17hf68ef9032790a696E(ptr noalias nocapture noundef nonnull sret({ i64, i8, [7 x i8], i64 }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %104, i64 noundef %103, ptr noalias noundef nonnull align 1 %216, i64 noundef %215, i8 noundef %217, i8 noundef %218, i1 noundef zeroext %220)
   %221 = load i64, ptr %40, align 8, !noundef !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -1385,7 +1385,7 @@ define hidden void @"_ZN3csv6writer15Writer$LT$W$GT$3new17hef22d92ebda15527E"(pt
           to label %25 unwind label %23
 
 14:                                               ; preds = %8
-  %15 = trunc i8 %7 to i1
+  %15 = trunc nuw i8 %7 to i1
   %. = select i1 %15, i8 0, i8 3
   %16 = extractvalue { ptr, i64 } %11, 0
   %17 = extractvalue { ptr, i64 } %11, 1
@@ -1480,7 +1480,7 @@ define hidden noalias noundef ptr @"_ZN3csv6writer15Writer$LT$W$GT$5flush17ha65a
   %21 = phi ptr [ %4, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i, %20 ]
   %22 = phi i64 [ %15, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i" ], [ %.pre.i.i.i.i, %20 ]
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %.val.i, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %.val.i, i64 %10, i1 false)
   %24 = load i64, ptr %14, align 8, !alias.scope !375, !noalias !382, !noundef !15
   %25 = add i64 %24, %10
   store i64 %25, ptr %14, align 8, !alias.scope !375, !noalias !382
@@ -1544,7 +1544,7 @@ define hidden noalias noundef ptr @"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h
   %21 = phi ptr [ %4, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit" ], [ %.pre, %20 ]
   %22 = phi i64 [ %15, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit" ], [ %.pre.i.i.i, %20 ]
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %.val, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %.val, i64 %10, i1 false)
   %24 = load i64, ptr %14, align 8, !alias.scope !393, !noalias !400, !noundef !15
   %25 = add i64 %24, %10
   store i64 %25, ptr %14, align 8, !alias.scope !393, !noalias !400
@@ -1627,7 +1627,7 @@ define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_co
   %34 = phi i64 [ %28, %24 ], [ %.pre.i.i.i.i, %33 ]
   %35 = load ptr, ptr %.val, align 8, !alias.scope !406, !noalias !413, !nonnull !15, !noundef !15
   %36 = getelementptr inbounds i8, ptr %35, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %2, i64 %3, i1 false), !noalias !423
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !noalias !423
   %37 = load i64, ptr %27, align 8, !alias.scope !406, !noalias !413, !noundef !15
   %38 = add i64 %37, %3
   store i64 %38, ptr %27, align 8, !alias.scope !406, !noalias !413
@@ -1713,7 +1713,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %30 = phi i64 [ %24, %20 ], [ %.pre.i.i.i.i, %29 ]
   %31 = load ptr, ptr %.val, align 8, !alias.scope !424, !noalias !431, !nonnull !15, !noundef !15
   %32 = getelementptr inbounds i8, ptr %31, i64 %30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %33 = load i64, ptr %23, align 8, !alias.scope !424, !noalias !431, !noundef !15
   %34 = add i64 %33, %2
   store i64 %34, ptr %23, align 8, !alias.scope !424, !noalias !431
@@ -1782,7 +1782,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
   %23 = phi i64 [ %16, %12 ], [ %.pre.i.i.i.i, %.noexc ]
   %24 = load ptr, ptr %.val, align 8, !alias.scope !439, !noalias !446, !nonnull !15, !noundef !15
   %25 = getelementptr inbounds i8, ptr %24, i64 %23
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %13, i64 %14, i1 false), !noalias !456
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %13, i64 %14, i1 false), !noalias !456
   %26 = load i64, ptr %15, align 8, !alias.scope !439, !noalias !446, !noundef !15
   %27 = add i64 %26, %14
   store i64 %27, ptr %15, align 8, !alias.scope !439, !noalias !446

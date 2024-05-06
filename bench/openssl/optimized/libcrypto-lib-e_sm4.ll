@@ -196,7 +196,7 @@ entry:
 declare void @CRYPTO_cfb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm4_ctr_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @sm4_ctr_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
   %call = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3

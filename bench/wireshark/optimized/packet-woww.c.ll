@@ -7365,7 +7365,7 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %60
   %indvars.iv.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %63 = trunc i64 %indvars.iv.i to i32
+  %63 = trunc nuw nsw i64 %indvars.iv.i to i32
   %64 = add i32 %.047, %63
   %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
   %66 = getelementptr i8, ptr %62, i64 %indvars.iv.i
@@ -7461,7 +7461,7 @@ session_key_is_fully_deduced.exit95.i:            ; preds = %82
   %106 = zext i8 %105 to i16
   %107 = add nuw nsw i16 %106, %43
   %108 = urem i16 %107, 40
-  %109 = trunc i16 %108 to i8
+  %109 = trunc nuw nsw i16 %108 to i8
   store i8 %109, ptr %47, align 1
   %110 = getelementptr i8, ptr %62, i64 %wide.trip.count.i
   %111 = getelementptr i8, ptr %110, i64 -1
@@ -7505,7 +7505,7 @@ session_key_is_fully_deduced.exit95.i:            ; preds = %82
   %129 = zext i8 %120 to i16
   %130 = add nuw nsw i16 %129, 1
   %131 = urem i16 %130, 40
-  %132 = trunc i16 %131 to i8
+  %132 = trunc nuw nsw i16 %131 to i8
   store i8 %132, ptr %.073.i, align 1
   %indvars.iv.next.i100.i = add nuw nsw i64 %indvars.iv.i99.i, 1
   %exitcond.not.i101.i = icmp eq i64 %indvars.iv.next.i100.i, %wide.trip.count.i
@@ -7685,7 +7685,7 @@ define internal fastcc void @deduce_header(ptr nocapture noundef writeonly %0, p
   %7 = zext i8 %6 to i16
   %8 = add nuw nsw i16 %7, 4
   %9 = urem i16 %8, 40
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw nsw i16 %9 to i8
   store i8 %10, ptr %5, align 1
   %11 = getelementptr i8, ptr %2, i64 3
   %12 = load i8, ptr %11, align 1
@@ -7704,7 +7704,7 @@ define internal fastcc void @deduce_header(ptr nocapture noundef writeonly %0, p
   %22 = zext i8 %21 to i16
   %23 = add nuw nsw i16 %22, 1
   %24 = urem i16 %23, 40
-  %25 = trunc i16 %24 to i8
+  %25 = trunc nuw nsw i16 %24 to i8
   store i8 %25, ptr %5, align 1
   %26 = load i8, ptr %13, align 1
   store i8 %26, ptr %3, align 8
@@ -7722,7 +7722,7 @@ define internal fastcc void @deduce_header(ptr nocapture noundef writeonly %0, p
   %36 = zext i8 %35 to i16
   %37 = add nuw nsw i16 %36, 1
   %38 = urem i16 %37, 40
-  %39 = trunc i16 %38 to i8
+  %39 = trunc nuw nsw i16 %38 to i8
   store i8 %39, ptr %5, align 1
   %40 = load i8, ptr %27, align 1
   store i8 %40, ptr %3, align 8
@@ -23235,7 +23235,7 @@ define internal fastcc void @add_packed_guid(ptr noundef %0, ptr noundef %1) unn
 
 10:                                               ; preds = %2, %18
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %18 ]
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = shl nuw nsw i32 1, %11
   %13 = and i32 %12, %9
   %.not = icmp eq i32 %13, 0
@@ -23381,7 +23381,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %59 ], [ 0, %._crit_edge60 ]
   %.04763 = phi i32 [ %.2, %59 ], [ 0, %._crit_edge60 ]
   %37 = getelementptr i32, ptr %12, i64 %indvars.iv75
-  %38 = trunc i64 %indvars.iv75 to i32
+  %38 = trunc nuw i64 %indvars.iv75 to i32
   %39 = shl i32 %38, 5
   br label %40
 

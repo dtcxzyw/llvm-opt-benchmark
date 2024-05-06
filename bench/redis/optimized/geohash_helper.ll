@@ -52,7 +52,7 @@ if.end11:                                         ; preds = %if.then8, %if.then4
   %step.1 = phi i32 [ %dec9, %if.then8 ], [ %dec, %if.then4 ], [ %sub, %while.end ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %step.1, i32 1)
   %spec.store.select2 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 26)
-  %conv = trunc i32 %spec.store.select2 to i8
+  %conv = trunc nuw nsw i32 %spec.store.select2 to i8
   br label %return
 
 return:                                           ; preds = %entry, %if.end11
@@ -61,7 +61,7 @@ return:                                           ; preds = %entry, %if.end11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef i32 @geohashBoundingBox(ptr nocapture noundef readonly %shape, ptr noundef writeonly %bounds) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @geohashBoundingBox(ptr nocapture noundef readonly %shape, ptr noundef writeonly %bounds) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %bounds, null
   br i1 %tobool.not, label %return, label %if.end
@@ -242,7 +242,7 @@ if.end11.i:                                       ; preds = %if.then8.i, %if.the
   %step.1.i = phi i32 [ %dec9.i, %if.then8.i ], [ %dec.i, %if.then4.i ], [ %sub.i28, %while.end.i ]
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %step.1.i, i32 1)
   %spec.store.select2.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 26)
-  %conv.i = trunc i32 %spec.store.select2.i to i8
+  %conv.i = trunc nuw nsw i32 %spec.store.select2.i to i8
   br label %geohashEstimateStepsByRadius.exit
 
 geohashEstimateStepsByRadius.exit:                ; preds = %cond.end, %if.end11.i
@@ -317,7 +317,7 @@ geohashEstimateStepsByRadius.exit:                ; preds = %cond.end, %if.end11
 
 if.then56:                                        ; preds = %geohashEstimateStepsByRadius.exit
   %dec = add nsw i32 %conv, -1
-  %conv57 = trunc i32 %dec to i8
+  %conv57 = trunc nuw nsw i32 %dec to i8
   %call58 = call i32 @geohashEncode(ptr noundef nonnull %long_range, ptr noundef nonnull %lat_range, double noundef %6, double noundef %7, i8 noundef zeroext %conv57, ptr noundef nonnull %hash) #10
   call void @geohashNeighbors(ptr noundef nonnull %hash, ptr noundef nonnull %neighbors) #10
   %58 = load double, ptr %long_range, align 8
@@ -509,7 +509,7 @@ declare double @sin(double noundef) local_unnamed_addr #2
 declare double @asin(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local i32 @geohashGetDistanceIfInRadius(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadius(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
 entry:
   %mul.i.i = fmul double %x1, 0x3F91DF46A2529D39
   %mul.i8.i = fmul double %x2, 0x3F91DF46A2529D39
@@ -553,7 +553,7 @@ geohashGetDistance.exit:                          ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
 entry:
   %mul.i.i.i = fmul double %x1, 0x3F91DF46A2529D39
   %mul.i8.i.i = fmul double %x2, 0x3F91DF46A2529D39
@@ -597,7 +597,7 @@ geohashGetDistanceIfInRadius.exit:                ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef i32 @geohashGetDistanceIfInRectangle(double noundef %width_m, double noundef %height_m, double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double noundef %width_m, double noundef %height_m, double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
 entry:
   %mul.i.i = fmul double %y1, 0x3F91DF46A2529D39
   %mul.i1.i = fmul double %y2, 0x3F91DF46A2529D39

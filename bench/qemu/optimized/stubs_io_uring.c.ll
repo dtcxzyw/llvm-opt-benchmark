@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local noalias nonnull ptr @luring_init(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @luring_init(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
   unreachable

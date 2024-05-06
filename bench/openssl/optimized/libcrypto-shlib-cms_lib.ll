@@ -35,27 +35,27 @@ entry:
   br i1 %cmp, label %cond.end.thread, label %cond.end
 
 cond.end.thread:                                  ; preds = %entry
-  %call113 = tail call ptr @CMS_ContentInfo_it() #5
+  %call115 = tail call ptr @CMS_ContentInfo_it() #5
   br label %ossl_cms_ctx_get0_propq.exit
 
 cond.end:                                         ; preds = %entry
   %0 = load ptr, ptr %a, align 8
   %cmp.not.i = icmp eq ptr %0, null
   %call1 = tail call ptr @CMS_ContentInfo_it() #5
-  br i1 %cmp.not.i, label %ossl_cms_ctx_get0_propq.exit, label %cond.true.i7
+  br i1 %cmp.not.i, label %ossl_cms_ctx_get0_propq.exit, label %cond.true.i9
 
-cond.true.i7:                                     ; preds = %cond.end
+cond.true.i9:                                     ; preds = %cond.end
   %ctx.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %ctx.i, align 8
   %propq.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %propq.i, align 8
   br label %ossl_cms_ctx_get0_propq.exit
 
-ossl_cms_ctx_get0_propq.exit:                     ; preds = %cond.end.thread, %cond.end, %cond.true.i7
-  %cond.i622 = phi ptr [ %1, %cond.true.i7 ], [ null, %cond.end ], [ null, %cond.end.thread ]
-  %call11621 = phi ptr [ %call1, %cond.true.i7 ], [ %call1, %cond.end ], [ %call113, %cond.end.thread ]
-  %cond.i8 = phi ptr [ %2, %cond.true.i7 ], [ null, %cond.end ], [ null, %cond.end.thread ]
-  %call4 = tail call ptr @ASN1_item_d2i_ex(ptr noundef %a, ptr noundef %in, i64 noundef %len, ptr noundef %call11621, ptr noundef %cond.i622, ptr noundef %cond.i8) #5
+ossl_cms_ctx_get0_propq.exit:                     ; preds = %cond.end.thread, %cond.end, %cond.true.i9
+  %cond.i724 = phi ptr [ %1, %cond.true.i9 ], [ null, %cond.end ], [ null, %cond.end.thread ]
+  %call11823 = phi ptr [ %call1, %cond.true.i9 ], [ %call1, %cond.end ], [ %call115, %cond.end.thread ]
+  %cond.i10 = phi ptr [ %2, %cond.true.i9 ], [ null, %cond.end ], [ null, %cond.end.thread ]
+  %call4 = tail call ptr @ASN1_item_d2i_ex(ptr noundef %a, ptr noundef %in, i64 noundef %len, ptr noundef %call11823, ptr noundef %cond.i724, ptr noundef %cond.i10) #5
   %cmp5.not = icmp eq ptr %call4, null
   br i1 %cmp5.not, label %if.end, label %if.then
 
@@ -117,29 +117,29 @@ declare i32 @ERR_set_mark() local_unnamed_addr #1
 define void @ossl_cms_resolve_libctx(ptr noundef %ci) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %ci, null
-  br i1 %cmp.not.i, label %ossl_cms_ctx_get0_propq.exit, label %cond.true.i11
+  br i1 %cmp.not.i, label %ossl_cms_ctx_get0_propq.exit, label %cond.true.i13
 
-cond.true.i11:                                    ; preds = %entry
+cond.true.i13:                                    ; preds = %entry
   %ctx.i = getelementptr inbounds i8, ptr %ci, i64 16
   %0 = load ptr, ptr %ctx.i, align 8
   %propq.i = getelementptr inbounds i8, ptr %ci, i64 24
   %1 = load ptr, ptr %propq.i, align 8
   br label %ossl_cms_ctx_get0_propq.exit
 
-ossl_cms_ctx_get0_propq.exit:                     ; preds = %entry, %cond.true.i11
-  %cond.i1016 = phi ptr [ %0, %cond.true.i11 ], [ null, %entry ]
-  %cond.i12 = phi ptr [ %1, %cond.true.i11 ], [ null, %entry ]
+ossl_cms_ctx_get0_propq.exit:                     ; preds = %entry, %cond.true.i13
+  %cond.i1118 = phi ptr [ %0, %cond.true.i13 ], [ null, %entry ]
+  %cond.i14 = phi ptr [ %1, %cond.true.i13 ], [ null, %entry ]
   tail call void @ossl_cms_SignerInfos_set_cmsctx(ptr noundef %ci) #5
   tail call void @ossl_cms_RecipientInfos_set_cmsctx(ptr noundef %ci) #5
   %2 = load ptr, ptr %ci, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %2) #5
   switch i32 %call.i, label %cms_get0_certificate_choices.exit.thread [
-    i32 22, label %cms_get0_certificate_choices.exit.thread22
+    i32 22, label %cms_get0_certificate_choices.exit.thread24
     i32 23, label %cms_get0_certificate_choices.exit
     i32 1059, label %cms_get0_certificate_choices.exit
   ]
 
-cms_get0_certificate_choices.exit.thread22:       ; preds = %ossl_cms_ctx_get0_propq.exit
+cms_get0_certificate_choices.exit.thread24:       ; preds = %ossl_cms_ctx_get0_propq.exit
   %d.i = getelementptr inbounds i8, ptr %ci, i64 8
   %3 = load ptr, ptr %d.i, align 8
   %certificates.i = getelementptr inbounds i8, ptr %3, i64 24
@@ -159,32 +159,32 @@ cms_get0_certificate_choices.exit:                ; preds = %ossl_cms_ctx_get0_p
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.end10, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %cms_get0_certificate_choices.exit.thread22, %cms_get0_certificate_choices.exit
-  %retval.0.i25 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread22 ], [ %5, %cms_get0_certificate_choices.exit ]
-  %6 = load ptr, ptr %retval.0.i25, align 8
-  %call.i1319 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #5
-  %cmp520 = icmp sgt i32 %call.i1319, 0
-  br i1 %cmp520, label %for.body, label %if.end10
+for.cond.preheader:                               ; preds = %cms_get0_certificate_choices.exit.thread24, %cms_get0_certificate_choices.exit
+  %retval.0.i27 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread24 ], [ %5, %cms_get0_certificate_choices.exit ]
+  %6 = load ptr, ptr %retval.0.i27, align 8
+  %call.i1521 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #5
+  %cmp522 = icmp sgt i32 %call.i1521, 0
+  br i1 %cmp522, label %for.body, label %if.end10
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.021 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %7 = load ptr, ptr %retval.0.i25, align 8
-  %call.i14 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %i.021) #5
-  %8 = load i32, ptr %call.i14, align 8
+  %i.023 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %7 = load ptr, ptr %retval.0.i27, align 8
+  %call.i16 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %i.023) #5
+  %8 = load i32, ptr %call.i16, align 8
   %cmp7 = icmp eq i32 %8, 0
   br i1 %cmp7, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %for.body
-  %d = getelementptr inbounds i8, ptr %call.i14, i64 8
+  %d = getelementptr inbounds i8, ptr %call.i16, i64 8
   %9 = load ptr, ptr %d, align 8
-  %call9 = tail call i32 @ossl_x509_set0_libctx(ptr noundef %9, ptr noundef %cond.i1016, ptr noundef %cond.i12) #5
+  %call9 = tail call i32 @ossl_x509_set0_libctx(ptr noundef %9, ptr noundef %cond.i1118, ptr noundef %cond.i14) #5
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8
-  %inc = add nuw nsw i32 %i.021, 1
-  %10 = load ptr, ptr %retval.0.i25, align 8
-  %call.i13 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #5
-  %cmp5 = icmp slt i32 %inc, %call.i13
+  %inc = add nuw nsw i32 %i.023, 1
+  %10 = load ptr, ptr %retval.0.i27, align 8
+  %call.i15 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #5
+  %cmp5 = icmp slt i32 %inc, %call.i15
   br i1 %cmp5, label %for.body, label %if.end10, !llvm.loop !4
 
 if.end10:                                         ; preds = %for.inc, %for.cond.preheader, %cms_get0_certificate_choices.exit.thread, %cms_get0_certificate_choices.exit
@@ -343,7 +343,7 @@ if.end:                                           ; preds = %if.end9.i, %if.then
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_set_detached(ptr noundef %cms, i32 noundef %detached) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_set_detached(ptr noundef %cms, i32 noundef %detached) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_content(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -856,7 +856,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_set1_eContentType(ptr nocapture noundef readonly %cms, ptr noundef %oid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_set1_eContentType(ptr nocapture noundef readonly %cms, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @cms_get0_econtent_type(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -887,7 +887,7 @@ declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_is_detached(ptr noundef %cms) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CMS_is_detached(ptr noundef %cms) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_content(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -1124,7 +1124,7 @@ declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #1
 declare ptr @CMS_CertificateChoices_it() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_add0_cert(ptr nocapture noundef readonly %cms, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add0_cert(ptr nocapture noundef readonly %cms, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
@@ -1208,14 +1208,14 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_add1_cert(ptr nocapture noundef readonly %cms, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add1_cert(ptr nocapture noundef readonly %cms, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_up_ref(ptr noundef %cert) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @CMS_add0_cert(ptr noundef %cms, ptr noundef %cert), !range !7
+  %call1 = tail call i32 @CMS_add0_cert(ptr noundef %cms, ptr noundef %cert)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -1312,7 +1312,7 @@ declare ptr @CMS_RevocationInfoChoice_it() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_add0_crl(ptr nocapture noundef readonly %cms, ptr noundef %crl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add0_crl(ptr nocapture noundef readonly %cms, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_add0_RevocationInfoChoice(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -1330,14 +1330,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_add1_crl(ptr nocapture noundef readonly %cms, ptr noundef %crl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add1_crl(ptr nocapture noundef readonly %cms, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_CRL_up_ref(ptr noundef %crl) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @CMS_add0_RevocationInfoChoice(ptr noundef %cms)
+  %call.i = tail call ptr @CMS_add0_RevocationInfoChoice(ptr noundef readonly %cms)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.end4, label %CMS_add0_crl.exit
 
@@ -1425,7 +1425,7 @@ for.inc:                                          ; preds = %for.body, %if.then5
   %9 = load ptr, ptr %retval.0.i16, align 8
   %call.i6 = call i32 @OPENSSL_sk_num(ptr noundef %9) #5
   %cmp2 = icmp slt i32 %inc, %call.i6
-  br i1 %cmp2, label %for.body, label %for.end.loopexit, !llvm.loop !8
+  br i1 %cmp2, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %certs, align 8
@@ -1530,7 +1530,7 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
   %11 = load ptr, ptr %retval.0.i, align 8
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #5
   %cmp3 = icmp slt i32 %inc, %call2
-  br i1 %cmp3, label %for.body, label %return, !llvm.loop !9
+  br i1 %cmp3, label %for.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %if.then9, %for.inc, %cms_get0_revocation_choices.exit, %sw.bb6.i, %sw.bb1.i, %sw.default.i, %if.then21
   %retval.0 = phi ptr [ null, %if.then21 ], [ null, %sw.default.i ], [ null, %sw.bb1.i ], [ null, %sw.bb6.i ], [ null, %cms_get0_revocation_choices.exit ], [ null, %if.then9 ], [ %crls.2, %for.inc ]
@@ -1593,7 +1593,7 @@ declare ptr @X509_get0_subject_key_id(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_OCTET_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_set1_ias(ptr nocapture noundef %pias, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_set1_ias(ptr nocapture noundef %pias, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_IssuerAndSerialNumber_it() #5
   %call1 = tail call ptr @ASN1_item_new(ptr noundef %call) #5
@@ -1643,7 +1643,7 @@ declare i32 @X509_NAME_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_set1_keyid(ptr nocapture noundef %pkeyid, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_set1_keyid(ptr nocapture noundef %pkeyid, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get0_subject_key_id(ptr noundef %cert) #5
   %cmp = icmp eq ptr %call, null
@@ -1698,6 +1698,5 @@ attributes #5 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

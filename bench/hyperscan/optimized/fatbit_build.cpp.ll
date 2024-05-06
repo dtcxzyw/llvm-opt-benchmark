@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue211fatbit_sizeEj(i32 noundef %total_bits) local_unnamed_addr #0 {
+define hidden noundef range(i32 32, 0) i32 @_ZN3ue211fatbit_sizeEj(i32 noundef %total_bits) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZN3ue210mmbit_sizeEj(i32 noundef %total_bits)
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %call, i32 32)

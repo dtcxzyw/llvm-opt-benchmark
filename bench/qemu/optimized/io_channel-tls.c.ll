@@ -135,7 +135,7 @@ declare ptr @qcrypto_tls_session_new(ptr noundef, ptr noundef, ptr noundef, i32 
 declare void @qcrypto_tls_session_set_callbacks(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_tls_write_handler(ptr noundef %buf, i64 noundef %len, ptr noundef %opaque) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @qio_channel_tls_write_handler(ptr noundef %buf, i64 noundef %len, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
   %master = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -160,7 +160,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_tls_read_handler(ptr noundef %buf, i64 noundef %len, ptr noundef %opaque) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @qio_channel_tls_read_handler(ptr noundef %buf, i64 noundef %len, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
   %master = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -966,7 +966,7 @@ declare void @g_source_add_child_source(ptr noundef, ptr noundef) local_unnamed_
 declare void @g_source_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qio_channel_tls_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly %timeout) #0 {
+define internal range(i32 0, 2) i32 @qio_channel_tls_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly %timeout) #0 {
 entry:
   store i32 -1, ptr %timeout, align 4
   %tioc.i = getelementptr inbounds i8, ptr %source, i64 96
@@ -980,7 +980,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qio_channel_tls_source_check(ptr nocapture noundef readonly %source) #0 {
+define internal range(i32 0, 2) i32 @qio_channel_tls_source_check(ptr nocapture noundef readonly %source) #0 {
 entry:
   %tioc = getelementptr inbounds i8, ptr %source, i64 96
   %0 = load ptr, ptr %tioc, align 8

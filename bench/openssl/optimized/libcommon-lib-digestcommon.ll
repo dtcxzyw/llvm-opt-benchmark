@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @digest_default_known_gettable_params = internal constant [5 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str, i32 2, ptr null, i64 8, i64 -1 }, %struct.ossl_param_st { ptr @.str.2, i32 2, ptr null, i64 8, i64 -1 }, %struct.ossl_param_st { ptr @.str.3, i32 1, ptr null, i64 4, i64 -1 }, %struct.ossl_param_st { ptr @.str.4, i32 1, ptr null, i64 4, i64 -1 }, %struct.ossl_param_st zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_digest_default_get_params(ptr noundef %params, i64 noundef %blksz, i64 noundef %paramsz, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_digest_default_get_params(ptr noundef %params, i64 noundef %blksz, i64 noundef %paramsz, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #3
   %cmp.not = icmp eq ptr %call, null
@@ -85,7 +85,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_digest_default_gettable_params(ptr nocapture noundef readnone %provctx) local_unnamed_addr #2 {
+define noundef nonnull ptr @ossl_digest_default_gettable_params(ptr nocapture noundef readnone %provctx) local_unnamed_addr #2 {
 entry:
   ret ptr @digest_default_known_gettable_params
 }

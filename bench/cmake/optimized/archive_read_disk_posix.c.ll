@@ -108,7 +108,7 @@ define dso_local ptr @archive_read_disk_uname(ptr noundef %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_gname_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_gname_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.2) #17
   %6 = icmp eq i32 %5, -30
   br i1 %6, label %17, label %7
@@ -143,7 +143,7 @@ define dso_local noundef i32 @archive_read_disk_set_gname_lookup(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_uname_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_uname_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.3) #17
   %6 = icmp eq i32 %5, -30
   br i1 %6, label %17, label %7
@@ -274,7 +274,7 @@ define internal i32 @tree_enter_working_dir(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_symlink_logical(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_symlink_logical(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.4) #17
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %setup_symlink_mode.exit, label %4
@@ -304,7 +304,7 @@ setup_symlink_mode.exit:                          ; preds = %9, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_symlink_physical(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_symlink_physical(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.5) #17
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %setup_symlink_mode.exit, label %4
@@ -334,7 +334,7 @@ setup_symlink_mode.exit:                          ; preds = %9, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_symlink_hybrid(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_symlink_hybrid(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.6) #17
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %setup_symlink_mode.exit, label %4
@@ -364,7 +364,7 @@ setup_symlink_mode.exit:                          ; preds = %9, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_atime_restored(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_atime_restored(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.7) #17
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %14, label %4
@@ -392,7 +392,7 @@ define dso_local noundef i32 @archive_read_disk_set_atime_restored(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_behavior(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_behavior(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.8) #17
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %archive_read_disk_set_atime_restored.exit, label %5
@@ -444,7 +444,7 @@ archive_read_disk_set_atime_restored.exit:        ; preds = %16, %11, %8, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.9) #17
   %6 = icmp eq i32 %5, -30
   br i1 %6, label %11, label %7
@@ -464,7 +464,7 @@ define dso_local noundef i32 @archive_read_disk_set_matching(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_set_metadata_filter_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_metadata_filter_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.10) #17
   %5 = icmp eq i32 %4, -30
   br i1 %5, label %9, label %6
@@ -482,7 +482,7 @@ define dso_local noundef i32 @archive_read_disk_set_metadata_filter_callback(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_disk_can_descend(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 2) i32 @archive_read_disk_can_descend(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 6, ptr noundef nonnull @.str.11) #17
@@ -508,7 +508,7 @@ define dso_local i32 @archive_read_disk_can_descend(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_descend(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_descend(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 6, ptr noundef nonnull @.str.12) #17
@@ -761,7 +761,7 @@ define internal fastcc void @tree_push(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 33, ptr noundef nonnull @.str.13) #17
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %26, label %5
@@ -823,7 +823,7 @@ _archive_read_disk_open.exit:                     ; preds = %tree_open.exit.thre
 declare void @archive_clear_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_disk_open_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_open_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.archive_string, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 33, ptr noundef nonnull @.str.14) #17
   %5 = icmp eq i32 %4, -30
@@ -977,7 +977,7 @@ define dso_local i32 @archive_read_disk_current_filesystem_is_remote(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_archive_read_close(ptr noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @_archive_read_close(ptr noundef %0) #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 65535, ptr noundef nonnull @.str.18) #17
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %tree_close.exit, label %4
@@ -1123,7 +1123,7 @@ tree_close.exit:                                  ; preds = %72, %68, %8, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_archive_read_free(ptr noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @_archive_read_free(ptr noundef %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %50, label %3
 
@@ -1139,7 +1139,7 @@ define internal noundef i32 @_archive_read_free(ptr noundef %0) #0 {
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @_archive_read_close(ptr noundef nonnull %0), !range !8
+  %10 = tail call i32 @_archive_read_close(ptr noundef nonnull %0)
   br label %11
 
 11:                                               ; preds = %6, %9
@@ -1174,7 +1174,7 @@ define internal noundef i32 @_archive_read_free(ptr noundef %0) #0 {
   %27 = load i32, ptr %19, align 8
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i, %28
-  br i1 %29, label %23, label %._crit_edge.i, !llvm.loop !9
+  br i1 %29, label %23, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %23, %15
   %30 = getelementptr inbounds i8, ptr %13, i64 496
@@ -1344,7 +1344,7 @@ define internal i32 @_archive_read_next_header2(ptr noundef %0, ptr noundef %1) 
   br i1 %.not47.i.i, label %76, label %73
 
 73:                                               ; preds = %.lr.ph.i.i
-  %74 = call fastcc i32 @tree_dir_next_posix(ptr noundef nonnull %13), !range !10
+  %74 = call fastcc i32 @tree_dir_next_posix(ptr noundef nonnull %13)
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %.backedge.i.i, label %tree_next.exit.i
 
@@ -1381,7 +1381,7 @@ define internal i32 @_archive_read_next_header2(ptr noundef %0, ptr noundef %1) 
 92:                                               ; preds = %.lr.ph.i.i.i
   %93 = add i64 %.024.i.i.i, -1
   %94 = icmp ugt i64 %93, 1
-  br i1 %94, label %.lr.ph.i.i.i, label %.critedge.i.i.i, !llvm.loop !11
+  br i1 %94, label %.lr.ph.i.i.i, label %.critedge.i.i.i, !llvm.loop !9
 
 .critedge.i.i.i:                                  ; preds = %92, %.lr.ph.i.i.i, %80
   %.0.lcssa.i.i.i = phi i64 [ %84, %80 ], [ %.024.i.i.i, %.lr.ph.i.i.i ], [ 1, %92 ]
@@ -1453,7 +1453,7 @@ tree_append.exit.i.i:                             ; preds = %103, %99, %.critedg
 128:                                              ; preds = %.lr.ph.i63.i.i
   %129 = add i64 %.024.i64.i.i, -1
   %130 = icmp ugt i64 %129, 1
-  br i1 %130, label %.lr.ph.i63.i.i, label %.critedge.i55.i.i, !llvm.loop !11
+  br i1 %130, label %.lr.ph.i63.i.i, label %.critedge.i55.i.i, !llvm.loop !9
 
 .critedge.i55.i.i:                                ; preds = %128, %.lr.ph.i63.i.i, %116
   %.0.lcssa.i56.i.i = phi i64 [ %120, %116 ], [ %.024.i64.i.i, %.lr.ph.i63.i.i ], [ 1, %128 ]
@@ -1596,7 +1596,7 @@ tree_pop.exit.i.i:                                ; preds = %193
 203:                                              ; preds = %201
   %204 = and i32 %78, -29
   store i32 %204, ptr %77, align 8
-  %205 = call fastcc i32 @tree_dir_next_posix(ptr noundef nonnull %13), !range !10
+  %205 = call fastcc i32 @tree_dir_next_posix(ptr noundef nonnull %13)
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %.backedge.i.i, label %tree_next.exit.i
 
@@ -1606,7 +1606,7 @@ tree_pop.exit.i.i:                                ; preds = %193
   br i1 %.not51.i.i, label %234, label %209
 
 209:                                              ; preds = %207
-  %210 = call fastcc i32 @tree_ascend(ptr noundef nonnull %13), !range !12
+  %210 = call fastcc i32 @tree_ascend(ptr noundef nonnull %13)
   %211 = load ptr, ptr %24, align 8
   %212 = load i64, ptr %25, align 8
   %213 = getelementptr inbounds i8, ptr %211, i64 %212
@@ -1704,7 +1704,7 @@ tree_pop.exit76.i.i:                              ; preds = %252
 .backedge.i.i:                                    ; preds = %tree_pop.exit76.i.i, %203, %73
   %259 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %259, null
-  br i1 %.not.i.i, label %.loopexit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %.loopexit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 .loopexit.sink.split.i.i:                         ; preds = %.backedge.i.i, %tree_pop.exit72.i.i, %198, %tree_pop.exit.i.i, %tree_append.exit.i.i, %69
   %.sink.i.i = phi i32 [ -1, %tree_pop.exit.i.i ], [ 2, %198 ], [ %233, %tree_pop.exit72.i.i ], [ 1, %tree_append.exit.i.i ], [ 0, %69 ], [ 0, %.backedge.i.i ]
@@ -1718,7 +1718,7 @@ tree_next.exit.i:                                 ; preds = %203, %73, %.loopexi
     i32 -1, label %273
     i32 0, label %285
     i32 1, label %297
-  ], !llvm.loop !14
+  ], !llvm.loop !11
 
 260:                                              ; preds = %tree_next.exit.i
   %261 = load i32, ptr %35, align 8
@@ -1819,7 +1819,7 @@ tree_next.exit.i:                                 ; preds = %203, %73, %.loopexi
   %.val191.i = load ptr, ptr %24, align 8
   %.str.23..str.24.i = select i1 %314, ptr @.str.23, ptr @.str.24
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %7, ptr noundef nonnull %.str.23..str.24.i, ptr noundef %.val191.i) #17
-  br label %.outer, !llvm.loop !14
+  br label %.outer, !llvm.loop !11
 
 315:                                              ; preds = %310, %306
   %.val193.i = load ptr, ptr %24, align 8
@@ -1986,7 +1986,7 @@ tree_current_is_dir.exit.i:                       ; preds = %359, %353, %350, %3
   %.0.in.i.i = getelementptr inbounds i8, ptr %.04.i.i, i64 16
   %.0.i212.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i213.i = icmp eq ptr %.0.i212.i, null
-  br i1 %.not.i213.i, label %tree_target_is_same_as_parent.exit.thread.i, label %374, !llvm.loop !15
+  br i1 %.not.i213.i, label %tree_target_is_same_as_parent.exit.thread.i, label %374, !llvm.loop !12
 
 tree_target_is_same_as_parent.exit.i:             ; preds = %378, %366, %.tree_target_is_same_as_parent.exit_crit_edge.i
   %384 = phi i32 [ %.pre.i, %.tree_target_is_same_as_parent.exit_crit_edge.i ], [ %.pre293.i, %366 ], [ %372, %378 ]
@@ -2075,7 +2075,7 @@ tree_target_is_same_as_parent.exit.thread.i:      ; preds = %383, %tree_current_
 423:                                              ; preds = %416
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %416, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %416, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %423, %410
   %424 = add nsw i32 %412, 1
@@ -2690,7 +2690,7 @@ tree_enter_initial_dir.exit:                      ; preds = %656, %660, %664
   %706 = load i32, ptr %683, align 8
   %707 = sext i32 %706 to i64
   %708 = icmp slt i64 %indvars.iv.next.i, %707
-  br i1 %708, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
+  br i1 %708, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %709 = call i64 @archive_entry_size(ptr noundef %1) #17
@@ -2892,7 +2892,7 @@ tree_enter_initial_dir.exit:                      ; preds = %51, %46, %42, %16
   %.140.i = phi i64 [ %spec.select..i, %73 ], [ %82, %80 ]
   %81 = icmp ult i64 %.140.i, 65536
   %82 = add i64 %.140.i, %spec.select..0.i
-  br i1 %81, label %80, label %.loopexit.i, !llvm.loop !18
+  br i1 %81, label %80, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %80, %67
   %.pn.i = phi i64 [ %72, %67 ], [ %.140.i, %80 ]
@@ -3239,7 +3239,7 @@ declare i32 @archive_match_owner_excluded(ptr noundef, ptr noundef) local_unname
 declare i32 @archive_read_disk_entry_from_file(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tree_dir_next_posix(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @tree_dir_next_posix(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3274,7 +3274,7 @@ tree_dup.exit:                                    ; preds = %9, %12
   br i1 %15, label %16, label %49
 
 16:                                               ; preds = %tree_dup.exit
-  %17 = tail call fastcc i32 @tree_ascend(ptr noundef nonnull %0), !range !12
+  %17 = tail call fastcc i32 @tree_ascend(ptr noundef nonnull %0)
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3414,7 +3414,7 @@ tree_pop.exit:                                    ; preds = %40
 90:                                               ; preds = %.lr.ph.i
   %91 = add i64 %.024.i, -1
   %92 = icmp ugt i64 %91, 1
-  br i1 %92, label %.lr.ph.i, label %.critedge.i, !llvm.loop !11
+  br i1 %92, label %.lr.ph.i, label %.critedge.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %90, %.lr.ph.i, %79
   %.0.lcssa.i = phi i64 [ %64, %79 ], [ %.024.i, %.lr.ph.i ], [ 1, %90 ]
@@ -3464,7 +3464,7 @@ tree_append.exit:                                 ; preds = %.critedge.i, %97, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tree_ascend(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @tree_ascend(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
@@ -3563,7 +3563,7 @@ declare noundef i32 @fstatvfs(i32 noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @fstatfs(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_xfer_size(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @get_xfer_size(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 488
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -3799,14 +3799,11 @@ attributes #23 = { nounwind allocsize(0) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -30, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -2, i32 2}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 -2, i32 1}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}

@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @engine_table_register(ptr nocapture noundef %table, ptr noundef %cleanup, ptr noundef %e, ptr nocapture noundef readonly %nids, i32 noundef %num_nids, i32 noundef %setdefault) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @engine_table_register(ptr nocapture noundef %table, ptr noundef %cleanup, ptr noundef %e, ptr nocapture noundef readonly %nids, i32 noundef %num_nids, i32 noundef %setdefault) local_unnamed_addr #2 {
 entry:
   %tmplate = alloca %struct.st_engine_pile, align 8
   %0 = load ptr, ptr @global_engine_lock, align 8
@@ -526,7 +526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @engine_pile_hash(ptr nocapture noundef readonly %c) #4 {
+define internal range(i64 -2147483648, 2147483648) i64 @engine_pile_hash(ptr nocapture noundef readonly %c) #4 {
 entry:
   %0 = load i32, ptr %c, align 8
   %conv = sext i32 %0 to i64

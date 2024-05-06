@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [28 x i8] c"PyTraceMalloc_Untrack error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Mem(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Mem(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %mod, ptr noundef nonnull @test_methods) #4
   %cmp = icmp slt i32 %call, 0

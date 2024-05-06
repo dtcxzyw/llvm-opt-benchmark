@@ -194,7 +194,7 @@ do.end:                                           ; preds = %entry, %if.then
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @mchp_pfsoc_ctrl_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
+define internal range(i64 0, 65537) i64 @mchp_pfsoc_ctrl_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
 entry:
   %cond = icmp eq i64 %offset, 84
   br i1 %cond, label %sw.epilog, label %do.body
@@ -243,7 +243,7 @@ sw.epilog:                                        ; preds = %if.then, %do.body, 
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @mchp_pfsoc_pll_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
+define internal range(i64 0, 33554433) i64 @mchp_pfsoc_pll_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
 entry:
   %cond = icmp eq i64 %offset, 4
   br i1 %cond, label %sw.epilog, label %do.body
@@ -264,7 +264,7 @@ sw.epilog:                                        ; preds = %entry, %if.then, %d
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @mchp_pfsoc_io_calib_ddr_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
+define internal range(i64 0, 5) i64 @mchp_pfsoc_io_calib_ddr_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
 entry:
   %cond = icmp eq i64 %offset, 8
   br i1 %cond, label %sw.epilog, label %do.body

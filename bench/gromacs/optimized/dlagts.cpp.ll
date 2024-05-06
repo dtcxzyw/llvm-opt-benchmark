@@ -185,11 +185,11 @@ thread-pre-split353:                              ; preds = %47, %31, %36
   %107 = load double, ptr %106, align 8
   %108 = getelementptr inbounds double, ptr %15, i64 %indvars.iv433
   %109 = load double, ptr %108, align 8
-  %110 = getelementptr i8, ptr %106, i64 8
+  %110 = getelementptr inbounds i8, ptr %106, i64 8
   %111 = load double, ptr %110, align 8
   %112 = fneg double %109
   %113 = tail call double @llvm.fmuladd.f64(double %112, double %111, double %107)
-  %114 = getelementptr i8, ptr %106, i64 16
+  %114 = getelementptr inbounds i8, ptr %106, i64 16
   br label %.sink.split
 
 115:                                              ; preds = %.lr.ph399
@@ -201,7 +201,7 @@ thread-pre-split353:                              ; preds = %47, %31, %36
   br i1 %118, label %121, label %128
 
 121:                                              ; preds = %115
-  %122 = getelementptr i8, ptr %119, i64 8
+  %122 = getelementptr inbounds i8, ptr %119, i64 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %105, %121
@@ -287,7 +287,7 @@ thread-pre-split353:                              ; preds = %47, %31, %36
   %163 = load double, ptr %162, align 8
   %164 = getelementptr inbounds double, ptr %15, i64 %indvars.iv430
   %165 = load double, ptr %164, align 8
-  %166 = getelementptr i8, ptr %162, i64 8
+  %166 = getelementptr inbounds i8, ptr %162, i64 8
   %167 = load double, ptr %166, align 8
   %168 = fneg double %165
   %169 = tail call double @llvm.fmuladd.f64(double %168, double %167, double %163)

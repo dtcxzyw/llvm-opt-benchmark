@@ -125,7 +125,7 @@ declare i32 @arkExpStab(ptr noundef, double noundef, ptr noundef, ptr noundef) #
 declare i32 @SUNAdaptController_Write(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = icmp eq ptr %0, null

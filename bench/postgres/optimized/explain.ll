@@ -1774,12 +1774,12 @@ ExplainIndentText.exit.i:                         ; preds = %195, %188
   %211 = sub i64 %208, %210
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %212 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %211) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.374, ptr noundef nonnull @.str.375, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull %2)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.374, ptr noundef nonnull @.str.375, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %213 = load i64, ptr %207, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %214 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %213) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.376, ptr noundef nonnull @.str.375, ptr noundef nonnull %13, i1 noundef zeroext true, ptr noundef nonnull %2)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.376, ptr noundef nonnull @.str.375, ptr noundef nonnull %13, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   br label %show_memory_counters.exit
 
@@ -1813,7 +1813,7 @@ show_memory_counters.exit:                        ; preds = %206, %ExplainIndent
   %230 = fdiv double %229, 1.000000e+09
   %231 = fmul double %230, 1.000000e+03
   %232 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %231) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef %232, i1 noundef zeroext true, ptr noundef nonnull %2)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef %232, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @pfree(ptr noundef %232) #11
   br label %233
 
@@ -1922,7 +1922,7 @@ ExplainPrintJITSummary.exit:                      ; preds = %241, %257
 284:                                              ; preds = %281
   %285 = fmul double %278, 1.000000e+03
   %286 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %285) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.34, ptr noundef %286, i1 noundef zeroext true, ptr noundef nonnull %2)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.34, ptr noundef %286, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @pfree(ptr noundef %286) #11
   br label %287
 
@@ -2146,7 +2146,7 @@ define dso_local void @ExplainPrintPlan(ptr noundef %0, ptr nocapture noundef re
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr @GetConfigOptionByName(ptr noundef %50, ptr noundef null, i1 noundef zeroext true) #11
   %52 = load ptr, ptr %49, align 8
-  call fastcc void @ExplainProperty(ptr noundef %52, ptr noundef null, ptr noundef %51, i1 noundef zeroext false, ptr noundef %0)
+  call fastcc void @ExplainProperty(ptr noundef %52, ptr noundef null, ptr noundef %51, i1 noundef zeroext false, ptr noundef readonly %0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = load i32, ptr %4, align 4
   %54 = sext i32 %53 to i64
@@ -2203,7 +2203,7 @@ define dso_local void @ExplainPrintPlan(ptr noundef %0, ptr nocapture noundef re
 
 ._crit_edge30.i:                                  ; preds = %71, %59
   %75 = load ptr, ptr %5, align 8
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef %75, i1 noundef zeroext false, ptr noundef %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef %75, i1 noundef zeroext false, ptr noundef readonly %0)
   br label %ExplainPrintSettings.exit
 
 ExplainPrintSettings.exit:                        ; preds = %37, %._crit_edge.i, %56, %._crit_edge30.i
@@ -2227,7 +2227,7 @@ ExplainPrintSettings.exit:                        ; preds = %37, %._crit_edge.i,
 86:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %87 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %82) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %88
 
@@ -2702,61 +2702,61 @@ ExplainIndentText.exit152:                        ; preds = %177, %184
 245:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %246 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %16) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.357, ptr noundef null, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.357, ptr noundef null, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %247 = getelementptr inbounds i8, ptr %1, i64 8
   %248 = load i64, ptr %247, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %249 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %248) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.358, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.358, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %250 = getelementptr inbounds i8, ptr %1, i64 16
   %251 = load i64, ptr %250, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %252 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %251) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.359, ptr noundef null, ptr noundef nonnull %10, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.359, ptr noundef null, ptr noundef nonnull %10, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %253 = getelementptr inbounds i8, ptr %1, i64 24
   %254 = load i64, ptr %253, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %255 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %254) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %256 = getelementptr inbounds i8, ptr %1, i64 32
   %257 = load i64, ptr %256, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %258 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %257) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.361, ptr noundef null, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.361, ptr noundef null, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %259 = getelementptr inbounds i8, ptr %1, i64 40
   %260 = load i64, ptr %259, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %261 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %260) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.362, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.362, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %262 = getelementptr inbounds i8, ptr %1, i64 48
   %263 = load i64, ptr %262, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %264 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %263) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.363, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.363, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %265 = getelementptr inbounds i8, ptr %1, i64 56
   %266 = load i64, ptr %265, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %267 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %266) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.364, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.364, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %268 = getelementptr inbounds i8, ptr %1, i64 64
   %269 = load i64, ptr %268, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %270 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %269) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.365, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.365, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %271 = getelementptr inbounds i8, ptr %1, i64 72
   %272 = load i64, ptr %271, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %273 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %272) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.366, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.366, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %274 = load i8, ptr @track_io_timing, align 1
   %275 = trunc i8 %274 to i1
@@ -2768,42 +2768,42 @@ ExplainIndentText.exit152:                        ; preds = %177, %184
   %279 = sitofp i64 %278 to double
   %280 = fdiv double %279, 1.000000e+06
   %281 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %280) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.34, ptr noundef %281, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.34, ptr noundef %281, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %281) #11
   %282 = getelementptr inbounds i8, ptr %1, i64 88
   %283 = load i64, ptr %282, align 8
   %284 = sitofp i64 %283 to double
   %285 = fdiv double %284, 1.000000e+06
   %286 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %285) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.34, ptr noundef %286, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.34, ptr noundef %286, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %286) #11
   %287 = getelementptr inbounds i8, ptr %1, i64 96
   %288 = load i64, ptr %287, align 8
   %289 = sitofp i64 %288 to double
   %290 = fdiv double %289, 1.000000e+06
   %291 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %290) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.34, ptr noundef %291, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.34, ptr noundef %291, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %291) #11
   %292 = getelementptr inbounds i8, ptr %1, i64 104
   %293 = load i64, ptr %292, align 8
   %294 = sitofp i64 %293 to double
   %295 = fdiv double %294, 1.000000e+06
   %296 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %295) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.370, ptr noundef nonnull @.str.34, ptr noundef %296, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.370, ptr noundef nonnull @.str.34, ptr noundef %296, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %296) #11
   %297 = getelementptr inbounds i8, ptr %1, i64 112
   %298 = load i64, ptr %297, align 8
   %299 = sitofp i64 %298 to double
   %300 = fdiv double %299, 1.000000e+06
   %301 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %300) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.371, ptr noundef nonnull @.str.34, ptr noundef %301, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.371, ptr noundef nonnull @.str.34, ptr noundef %301, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %301) #11
   %302 = getelementptr inbounds i8, ptr %1, i64 120
   %303 = load i64, ptr %302, align 8
   %304 = sitofp i64 %303 to double
   %305 = fdiv double %304, 1.000000e+06
   %306 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %305) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.372, ptr noundef nonnull @.str.34, ptr noundef %306, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.372, ptr noundef nonnull @.str.34, ptr noundef %306, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %306) #11
   br label %307
 
@@ -3577,33 +3577,33 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
   br label %225
 
 204:                                              ; preds = %145
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.157, ptr noundef null, ptr noundef nonnull %.0648, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.157, ptr noundef null, ptr noundef nonnull %.0648, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.not688 = icmp eq ptr %.1651, null
   br i1 %.not688, label %206, label %205
 
 205:                                              ; preds = %204
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.158, ptr noundef null, ptr noundef nonnull %.1651, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.158, ptr noundef null, ptr noundef nonnull %.1651, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %206
 
 206:                                              ; preds = %205, %204
   br i1 %.not689, label %208, label %207
 
 207:                                              ; preds = %206
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.159, ptr noundef null, ptr noundef %.0652, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.159, ptr noundef null, ptr noundef %.0652, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %208
 
 208:                                              ; preds = %207, %206
   br i1 %.not690, label %210, label %209
 
 209:                                              ; preds = %208
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef %.0653, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef %.0653, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %210
 
 210:                                              ; preds = %209, %208
   br i1 %.not687, label %212, label %211
 
 211:                                              ; preds = %210
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef nonnull %2, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef nonnull %2, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %212
 
 212:                                              ; preds = %211, %210
@@ -3611,7 +3611,7 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
   br i1 %.not691, label %214, label %213
 
 213:                                              ; preds = %212
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.162, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.162, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %214
 
 214:                                              ; preds = %213, %212
@@ -3619,7 +3619,7 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
   br i1 %.not692, label %216, label %215
 
 215:                                              ; preds = %214
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef nonnull %.0655, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef nonnull %.0655, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %216
 
 216:                                              ; preds = %215, %214
@@ -3627,12 +3627,12 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
   %218 = load i8, ptr %217, align 4
   %219 = trunc i8 %218 to i1
   %220 = select i1 %219, ptr @.str.50, ptr @.str.51
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.164, ptr noundef null, ptr noundef nonnull %220, i1 noundef zeroext true, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.164, ptr noundef null, ptr noundef nonnull %220, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   %221 = getelementptr inbounds i8, ptr %38, i64 38
   %222 = load i8, ptr %221, align 2
   %223 = trunc i8 %222 to i1
   %224 = select i1 %223, ptr @.str.50, ptr @.str.51
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.165, ptr noundef null, ptr noundef nonnull %224, i1 noundef zeroext true, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.165, ptr noundef null, ptr noundef nonnull %224, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   br label %225
 
 225:                                              ; preds = %216, %200
@@ -3664,7 +3664,7 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
 227:                                              ; preds = %225, %225, %225, %225, %225, %225, %225, %225, %225, %225, %225
   %228 = getelementptr inbounds i8, ptr %38, i64 104
   %229 = load i32, ptr %228, align 8
-  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull %38, i32 noundef %229, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull readonly %38, i32 noundef %229, ptr noundef nonnull readonly %4)
   br label %301
 
 230:                                              ; preds = %225, %225
@@ -3674,7 +3674,7 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
   br i1 %.not696, label %301, label %233
 
 233:                                              ; preds = %230
-  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull %38, i32 noundef %232, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull readonly %38, i32 noundef %232, ptr noundef nonnull readonly %4)
   br label %301
 
 234:                                              ; preds = %225
@@ -3685,7 +3685,7 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
   tail call fastcc void @ExplainIndexScanDetails(i32 noundef %236, i32 noundef %238, ptr noundef nonnull %4)
   %239 = getelementptr inbounds i8, ptr %38, i64 104
   %240 = load i32, ptr %239, align 8
-  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull %38, i32 noundef %240, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull readonly %38, i32 noundef %240, ptr noundef nonnull readonly %4)
   br label %301
 
 241:                                              ; preds = %225
@@ -3696,7 +3696,7 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
   tail call fastcc void @ExplainIndexScanDetails(i32 noundef %243, i32 noundef %245, ptr noundef nonnull %4)
   %246 = getelementptr inbounds i8, ptr %38, i64 104
   %247 = load i32, ptr %246, align 8
-  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull %38, i32 noundef %247, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull readonly %38, i32 noundef %247, ptr noundef nonnull readonly %4)
   br label %301
 
 248:                                              ; preds = %225
@@ -3736,13 +3736,13 @@ explain_get_index_name.exit:                      ; preds = %252, %.thread.i
   br label %301
 
 265:                                              ; preds = %explain_get_index_name.exit
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef nonnull %.1.i, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef nonnull %.1.i, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %301
 
 266:                                              ; preds = %225
   %267 = getelementptr inbounds i8, ptr %38, i64 112
   %268 = load i32, ptr %267, align 8
-  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull %38, i32 noundef %268, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainTargetRel(ptr noundef nonnull readonly %38, i32 noundef %268, ptr noundef nonnull readonly %4)
   br label %301
 
 269:                                              ; preds = %225, %225, %225
@@ -3807,7 +3807,7 @@ explain_get_index_name.exit:                      ; preds = %252, %.thread.i
 
 289:                                              ; preds = %.thread, %278
   %.0657967 = phi ptr [ @.str.167, %.thread ], [ %.0657, %278 ]
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef nonnull %.0657967, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef nonnull %.0657967, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %301
 
 290:                                              ; preds = %225
@@ -3834,7 +3834,7 @@ switch.lookup1209:                                ; preds = %290
   br label %301
 
 300:                                              ; preds = %295
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.182, ptr noundef null, ptr noundef nonnull %.0658, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.182, ptr noundef null, ptr noundef nonnull %.0658, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %301
 
 301:                                              ; preds = %225, %298, %300, %289, %.thread968, %287, %284, %262, %265, %230, %233, %266, %241, %234, %227
@@ -3865,24 +3865,24 @@ switch.lookup1209:                                ; preds = %290
   %319 = getelementptr inbounds i8, ptr %38, i64 8
   %320 = load double, ptr %319, align 8
   %321 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 2, double noundef %320) #11
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.184, ptr noundef null, ptr noundef %321, i1 noundef zeroext true, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.184, ptr noundef null, ptr noundef %321, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   tail call void @pfree(ptr noundef %321) #11
   %322 = getelementptr inbounds i8, ptr %38, i64 16
   %323 = load double, ptr %322, align 8
   %324 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 2, double noundef %323) #11
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.185, ptr noundef null, ptr noundef %324, i1 noundef zeroext true, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.185, ptr noundef null, ptr noundef %324, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   tail call void @pfree(ptr noundef %324) #11
   %325 = getelementptr inbounds i8, ptr %38, i64 24
   %326 = load double, ptr %325, align 8
   %327 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %326) #11
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.186, ptr noundef null, ptr noundef %327, i1 noundef zeroext true, ptr noundef nonnull %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.186, ptr noundef null, ptr noundef %327, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   tail call void @pfree(ptr noundef %327) #11
   %328 = getelementptr inbounds i8, ptr %38, i64 32
   %329 = load i32, ptr %328, align 8
   %330 = sext i32 %329 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36)
   %331 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %36, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %330) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.187, ptr noundef null, ptr noundef nonnull %36, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.187, ptr noundef null, ptr noundef nonnull %36, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
   br label %332
 
@@ -3953,19 +3953,19 @@ switch.lookup1209:                                ; preds = %290
 
 367:                                              ; preds = %366
   %368 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %350) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.34, ptr noundef %368, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.34, ptr noundef %368, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %368) #11
   %369 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %354) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.34, ptr noundef %369, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.34, ptr noundef %369, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %369) #11
   br label %370
 
 370:                                              ; preds = %367, %366
   %371 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %357) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.192, ptr noundef null, ptr noundef %371, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.192, ptr noundef null, ptr noundef %371, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %371) #11
   %372 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %344) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.193, ptr noundef null, ptr noundef %372, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.193, ptr noundef null, ptr noundef %372, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %372) #11
   br label %388
 
@@ -3987,19 +3987,19 @@ switch.lookup1209:                                ; preds = %290
 
 382:                                              ; preds = %378
   %383 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef 0.000000e+00) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.34, ptr noundef %383, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.34, ptr noundef %383, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %383) #11
   %384 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef 0.000000e+00) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.34, ptr noundef %384, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.34, ptr noundef %384, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %384) #11
   br label %385
 
 385:                                              ; preds = %382, %378
   %386 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef 0.000000e+00) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.192, ptr noundef null, ptr noundef %386, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.192, ptr noundef null, ptr noundef %386, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %386) #11
   %387 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef 0.000000e+00) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.193, ptr noundef null, ptr noundef %387, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.193, ptr noundef null, ptr noundef %387, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %387) #11
   br label %388
 
@@ -4105,19 +4105,19 @@ ExplainIndentText.exit753:                        ; preds = %431, %438
 
 449:                                              ; preds = %446
   %450 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %415) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.34, ptr noundef %450, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.34, ptr noundef %450, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %450) #11
   %451 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %419) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.34, ptr noundef %451, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.34, ptr noundef %451, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %451) #11
   br label %452
 
 452:                                              ; preds = %449, %446
   %453 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %422) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.192, ptr noundef null, ptr noundef %453, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.192, ptr noundef null, ptr noundef %453, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %453) #11
   %454 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %409) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.193, ptr noundef null, ptr noundef %454, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.193, ptr noundef null, ptr noundef %454, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %454) #11
   br label %455
 
@@ -4207,7 +4207,7 @@ list_length.exit.i:                               ; preds = %478, %472
 
 ._crit_edge.i:                                    ; preds = %.lr.ph10.i, %.lr.ph.i, %list_length.exit.i
   %.0.lcssa.i = phi ptr [ null, %list_length.exit.i ], [ null, %.lr.ph.i ], [ %494, %.lr.ph10.i ]
-  call void @ExplainPropertyList(ptr noundef nonnull @.str.241, ptr noundef %.0.lcssa.i, ptr noundef %4)
+  call void @ExplainPropertyList(ptr noundef nonnull @.str.241, ptr noundef %.0.lcssa.i, ptr noundef readonly %4)
   br label %show_plan_tlist.exit
 
 show_plan_tlist.exit:                             ; preds = %._crit_edge.i, %469, %467, %467, %467, %463, %.loopexit1005
@@ -4243,7 +4243,7 @@ show_plan_tlist.exit:                             ; preds = %._crit_edge.i, %469
 508:                                              ; preds = %._crit_edge1107, %504
   %.pre-phi1152 = phi i1 [ %.pre1151, %._crit_edge1107 ], [ true, %504 ]
   %509 = select i1 %.pre-phi1152, ptr @.str.50, ptr @.str.51
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.197, ptr noundef null, ptr noundef nonnull %509, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.197, ptr noundef null, ptr noundef nonnull %509, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   %.pr973.pre = load i32, ptr %38, align 4
   br label %thread-pre-split972
 
@@ -4309,7 +4309,7 @@ show_scan_qual.exit:                              ; preds = %520
   %525 = load ptr, ptr %524, align 8
   %526 = call ptr @set_deparse_context_plan(ptr noundef %525, ptr noundef %.val.i.i, ptr noundef %1) #11
   %527 = call ptr @deparse_expression(ptr noundef %523, ptr noundef %526, i1 noundef zeroext %521, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef %527, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef %527, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1143 = load ptr, ptr %512, align 8
   %.not730 = icmp eq ptr %.pre1143, null
   br i1 %.not730, label %show_scan_qual.exit.thread, label %528
@@ -4343,7 +4343,7 @@ show_scan_qual.exit.thread:                       ; preds = %520, %528, %show_sc
   %543 = load ptr, ptr %542, align 8
   %544 = call ptr @set_deparse_context_plan(ptr noundef %543, ptr noundef %.val.i.i755, ptr noundef %1) #11
   %545 = call ptr @deparse_expression(ptr noundef %541, ptr noundef %544, i1 noundef zeroext %538, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef %545, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef %545, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1144 = load ptr, ptr %37, align 8
   %.pre1145 = load i32, ptr %.pre1144, align 4
   br label %show_scan_qual.exit756
@@ -4372,7 +4372,7 @@ show_scan_qual.exit758:                           ; preds = %553
   %558 = load ptr, ptr %557, align 8
   %559 = call ptr @set_deparse_context_plan(ptr noundef %558, ptr noundef %.val.i.i757, ptr noundef %1) #11
   %560 = call ptr @deparse_expression(ptr noundef %556, ptr noundef %559, i1 noundef zeroext %554, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %560, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %560, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1146 = load ptr, ptr %547, align 8
   %.not731 = icmp eq ptr %.pre1146, null
   br i1 %.not731, label %show_scan_qual.exit766, label %561
@@ -4406,7 +4406,7 @@ show_scan_qual.exit758:                           ; preds = %553
   %577 = load ptr, ptr %576, align 8
   %578 = call ptr @set_deparse_context_plan(ptr noundef %577, ptr noundef %.val.i.i759, ptr noundef %1) #11
   %579 = call ptr @deparse_expression(ptr noundef %575, ptr noundef %578, i1 noundef zeroext %572, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef %579, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef %579, i1 noundef zeroext false, ptr noundef readonly %4)
   br label %show_scan_qual.exit760
 
 show_scan_qual.exit760:                           ; preds = %571, %574
@@ -4444,7 +4444,7 @@ show_scan_qual.exit760:                           ; preds = %571, %574
   %598 = load ptr, ptr %597, align 8
   %599 = call ptr @set_deparse_context_plan(ptr noundef %598, ptr noundef %.val.i.i761, ptr noundef %1) #11
   %600 = call ptr @deparse_expression(ptr noundef %596, ptr noundef %599, i1 noundef zeroext %593, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef %600, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef %600, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1140 = load ptr, ptr %37, align 8
   %.pre1141 = load i32, ptr %.pre1140, align 4
   br label %show_scan_qual.exit762
@@ -4473,7 +4473,7 @@ show_scan_qual.exit764:                           ; preds = %608
   %613 = load ptr, ptr %612, align 8
   %614 = call ptr @set_deparse_context_plan(ptr noundef %613, ptr noundef %.val.i.i763, ptr noundef %1) #11
   %615 = call ptr @deparse_expression(ptr noundef %611, ptr noundef %614, i1 noundef zeroext %609, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %615, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %615, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1142 = load ptr, ptr %602, align 8
   %.not729 = icmp eq ptr %.pre1142, null
   br i1 %.not729, label %show_scan_qual.exit764.thread, label %616
@@ -4519,7 +4519,7 @@ show_scan_qual.exit764.thread:                    ; preds = %608, %616, %show_sc
   %638 = load ptr, ptr %637, align 8
   %639 = call ptr @set_deparse_context_plan(ptr noundef %638, ptr noundef %.val.i.i765, ptr noundef %1) #11
   %640 = call ptr @deparse_expression(ptr noundef %636, ptr noundef %639, i1 noundef zeroext %633, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef %640, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef %640, i1 noundef zeroext false, ptr noundef readonly %4)
   br label %show_scan_qual.exit766
 
 641:                                              ; preds = %thread-pre-split972
@@ -4547,7 +4547,7 @@ show_scan_qual.exit768:                           ; preds = %650
   %655 = load ptr, ptr %654, align 8
   %656 = call ptr @set_deparse_context_plan(ptr noundef %655, ptr noundef %.val.i.i767, ptr noundef %1) #11
   %657 = call ptr @deparse_expression(ptr noundef %653, ptr noundef %656, i1 noundef zeroext %651, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.204, ptr noundef null, ptr noundef %657, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.204, ptr noundef null, ptr noundef %657, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1138 = load ptr, ptr %642, align 8
   %.not726 = icmp eq ptr %.pre1138, null
   br i1 %.not726, label %show_scan_qual.exit768.thread, label %658
@@ -4581,7 +4581,7 @@ show_scan_qual.exit770:                           ; preds = %667
   %672 = load ptr, ptr %671, align 8
   %673 = call ptr @set_deparse_context_plan(ptr noundef %672, ptr noundef %.val.i.i769, ptr noundef %1) #11
   %674 = call ptr @deparse_expression(ptr noundef %670, ptr noundef %673, i1 noundef zeroext %668, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %674, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %674, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1139 = load ptr, ptr %659, align 8
   %.not727 = icmp eq ptr %.pre1139, null
   br i1 %.not727, label %show_scan_qual.exit770.thread, label %675
@@ -4740,13 +4740,13 @@ ExplainIndentText.exit.i:                         ; preds = %728, %721
   br label %show_tablesample.exit
 
 751:                                              ; preds = %713
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef %694, i1 noundef zeroext false, ptr noundef nonnull %4)
-  call void @ExplainPropertyList(ptr noundef nonnull @.str.250, ptr noundef %.0.lcssa.i776, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef %694, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
+  call void @ExplainPropertyList(ptr noundef nonnull @.str.250, ptr noundef %.0.lcssa.i776, ptr noundef nonnull readonly %4)
   %.not52.i = icmp eq ptr %.046.i, null
   br i1 %.not52.i, label %show_tablesample.exit, label %752
 
 752:                                              ; preds = %751
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef nonnull %.046.i, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef nonnull %.046.i, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_tablesample.exit
 
 show_tablesample.exit:                            ; preds = %752, %751, %749, %thread-pre-split972, %thread-pre-split972, %thread-pre-split972, %thread-pre-split972, %thread-pre-split972, %thread-pre-split972
@@ -4774,7 +4774,7 @@ show_scan_qual.exit780:                           ; preds = %761
   %766 = load ptr, ptr %765, align 8
   %767 = call ptr @set_deparse_context_plan(ptr noundef %766, ptr noundef %.val.i.i779, ptr noundef %1) #11
   %768 = call ptr @deparse_expression(ptr noundef %764, ptr noundef %767, i1 noundef zeroext %762, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %768, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %768, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1137 = load ptr, ptr %753, align 8
   %.not725 = icmp eq ptr %.pre1137, null
   br i1 %.not725, label %show_scan_qual.exit766, label %769
@@ -4807,7 +4807,7 @@ show_scan_qual.exit780:                           ; preds = %761
   %781 = fdiv double %.0.i, %776
   %.sink.i = select i1 %780, double %781, double 0.000000e+00
   %782 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %.sink.i) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.202, ptr noundef null, ptr noundef %782, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.202, ptr noundef null, ptr noundef %782, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %782) #11
   br label %show_scan_qual.exit766
 
@@ -4836,7 +4836,7 @@ show_scan_qual.exit783:                           ; preds = %792
   %797 = load ptr, ptr %796, align 8
   %798 = call ptr @set_deparse_context_plan(ptr noundef %797, ptr noundef %.val.i.i782, ptr noundef %1) #11
   %799 = call ptr @deparse_expression(ptr noundef %795, ptr noundef %798, i1 noundef zeroext %793, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %799, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %799, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1136 = load ptr, ptr %784, align 8
   %.not722 = icmp eq ptr %.pre1136, null
   br i1 %.not722, label %show_scan_qual.exit783.thread, label %800
@@ -4851,7 +4851,7 @@ show_scan_qual.exit783.thread:                    ; preds = %792, %800, %show_sc
   %803 = sext i32 %802 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   %804 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %35, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %803) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef nonnull %35, i1 noundef zeroext true, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef nonnull %35, i1 noundef zeroext true, ptr noundef readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
   %805 = getelementptr inbounds i8, ptr %38, i64 120
   %806 = load ptr, ptr %805, align 8
@@ -4887,7 +4887,7 @@ show_scan_qual.exit783.thread:                    ; preds = %792, %800, %show_sc
 
 821:                                              ; preds = %819, %815
   %822 = phi ptr [ @.str.51, %819 ], [ @.str.50, %815 ]
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.207, ptr noundef null, ptr noundef nonnull %822, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.207, ptr noundef null, ptr noundef nonnull %822, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   br label %show_scan_qual.exit766
 
 823:                                              ; preds = %thread-pre-split972
@@ -4915,7 +4915,7 @@ show_scan_qual.exit785:                           ; preds = %832
   %837 = load ptr, ptr %836, align 8
   %838 = call ptr @set_deparse_context_plan(ptr noundef %837, ptr noundef %.val.i.i784, ptr noundef %1) #11
   %839 = call ptr @deparse_expression(ptr noundef %835, ptr noundef %838, i1 noundef zeroext %833, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %839, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %839, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1135 = load ptr, ptr %824, align 8
   %.not720 = icmp eq ptr %.pre1135, null
   br i1 %.not720, label %show_scan_qual.exit785.thread, label %840
@@ -4930,7 +4930,7 @@ show_scan_qual.exit785.thread:                    ; preds = %832, %840, %show_sc
   %843 = sext i32 %842 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
   %844 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %34, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %843) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef nonnull %34, i1 noundef zeroext true, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef nonnull %34, i1 noundef zeroext true, ptr noundef readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
   %845 = getelementptr inbounds i8, ptr %38, i64 152
   %846 = load ptr, ptr %845, align 8
@@ -5023,7 +5023,7 @@ show_scan_qual.exit787:                           ; preds = %883
   %888 = load ptr, ptr %887, align 8
   %889 = call ptr @set_deparse_context_plan(ptr noundef %888, ptr noundef %.val.i.i786, ptr noundef %1) #11
   %890 = call ptr @deparse_expression(ptr noundef %886, ptr noundef %889, i1 noundef zeroext %884, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %890, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %890, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1134 = load ptr, ptr %875, align 8
   %.not719 = icmp eq ptr %.pre1134, null
   br i1 %.not719, label %show_scan_qual.exit766, label %891
@@ -5070,7 +5070,7 @@ show_scan_qual.exit789:                           ; preds = %907
   %912 = load ptr, ptr %911, align 8
   %913 = call ptr @set_deparse_context_plan(ptr noundef %912, ptr noundef %.val.i.i788, ptr noundef %1) #11
   %914 = call ptr @deparse_expression(ptr noundef %910, ptr noundef %913, i1 noundef zeroext %908, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %914, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %914, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1132 = load ptr, ptr %900, align 8
   %.not716 = icmp eq ptr %.pre1132, null
   br i1 %.not716, label %show_scan_qual.exit766, label %915
@@ -5120,7 +5120,7 @@ list_length.exit.thread:                          ; preds = %916, %922, %list_le
   %937 = load ptr, ptr %936, align 8
   %938 = call ptr @set_deparse_context_plan(ptr noundef %937, ptr noundef %.val.i.i791, ptr noundef %1) #11
   %939 = call ptr @deparse_expression(ptr noundef %935, ptr noundef %938, i1 noundef zeroext %932, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef %939, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef %939, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1127 = load ptr, ptr %37, align 8
   %.pre1128 = load i32, ptr %.pre1127, align 4
   br label %show_scan_qual.exit792
@@ -5149,7 +5149,7 @@ show_scan_qual.exit794:                           ; preds = %947
   %952 = load ptr, ptr %951, align 8
   %953 = call ptr @set_deparse_context_plan(ptr noundef %952, ptr noundef %.val.i.i793, ptr noundef %1) #11
   %954 = call ptr @deparse_expression(ptr noundef %950, ptr noundef %953, i1 noundef zeroext %948, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %954, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %954, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1129 = load ptr, ptr %941, align 8
   %.not715 = icmp eq ptr %.pre1129, null
   br i1 %.not715, label %show_scan_qual.exit766, label %955
@@ -5199,7 +5199,7 @@ list_length.exit796.thread:                       ; preds = %956, %962, %list_le
   %977 = load ptr, ptr %976, align 8
   %978 = call ptr @set_deparse_context_plan(ptr noundef %977, ptr noundef %.val.i.i797, ptr noundef %1) #11
   %979 = call ptr @deparse_expression(ptr noundef %975, ptr noundef %978, i1 noundef zeroext %972, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef %979, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef %979, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1124 = load ptr, ptr %37, align 8
   %.pre1125 = load i32, ptr %.pre1124, align 4
   br label %show_scan_qual.exit798
@@ -5228,7 +5228,7 @@ show_scan_qual.exit800:                           ; preds = %987
   %992 = load ptr, ptr %991, align 8
   %993 = call ptr @set_deparse_context_plan(ptr noundef %992, ptr noundef %.val.i.i799, ptr noundef %1) #11
   %994 = call ptr @deparse_expression(ptr noundef %990, ptr noundef %993, i1 noundef zeroext %988, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %994, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %994, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1126 = load ptr, ptr %981, align 8
   %.not714 = icmp eq ptr %.pre1126, null
   br i1 %.not714, label %show_scan_qual.exit766, label %995
@@ -5262,7 +5262,7 @@ show_scan_qual.exit802:                           ; preds = %1005
   %1010 = load ptr, ptr %1009, align 8
   %1011 = call ptr @set_deparse_context_plan(ptr noundef %1010, ptr noundef %.val.i.i801, ptr noundef %1) #11
   %1012 = call ptr @deparse_expression(ptr noundef %1008, ptr noundef %1011, i1 noundef zeroext %1006, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1012, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1012, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1123 = load ptr, ptr %997, align 8
   %.not713 = icmp eq ptr %.pre1123, null
   br i1 %.not713, label %show_scan_qual.exit802.thread, label %1013
@@ -5322,7 +5322,7 @@ show_scan_qual.exit807:                           ; preds = %1034
   %1039 = load ptr, ptr %1038, align 8
   %1040 = call ptr @set_deparse_context_plan(ptr noundef %1039, ptr noundef %.val.i.i806, ptr noundef %1) #11
   %1041 = call ptr @deparse_expression(ptr noundef %1037, ptr noundef %1040, i1 noundef zeroext %1035, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1041, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1041, i1 noundef zeroext false, ptr noundef readonly %4)
   %.pre1122 = load ptr, ptr %1026, align 8
   %.not711 = icmp eq ptr %.pre1122, null
   br i1 %.not711, label %show_scan_qual.exit807.thread, label %1042
@@ -5374,7 +5374,7 @@ show_upper_qual.exit:                             ; preds = %1058
   %1063 = load ptr, ptr %1062, align 8
   %1064 = call ptr @set_deparse_context_plan(ptr noundef %1063, ptr noundef %.val.i.i810, ptr noundef %1) #11
   %1065 = call ptr @deparse_expression(ptr noundef %1061, ptr noundef %1064, i1 noundef zeroext %1059, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef %1065, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef %1065, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1120 = load ptr, ptr %1049, align 8
   %.not709 = icmp eq ptr %.pre1120, null
   br i1 %.not709, label %show_upper_qual.exit.thread, label %1066
@@ -5413,7 +5413,7 @@ show_upper_qual.exit815:                          ; preds = %1075
   %1080 = load ptr, ptr %1079, align 8
   %1081 = call ptr @set_deparse_context_plan(ptr noundef %1080, ptr noundef %.val.i.i814, ptr noundef %1) #11
   %1082 = call ptr @deparse_expression(ptr noundef %1078, ptr noundef %1081, i1 noundef zeroext %1076, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1082, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1082, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1121 = load ptr, ptr %1067, align 8
   %.not710 = icmp eq ptr %.pre1121, null
   br i1 %.not710, label %show_scan_qual.exit766, label %1083
@@ -5453,7 +5453,7 @@ list_length.exit.thread.i818:                     ; preds = %list_length.exit.i8
   %1100 = load ptr, ptr %1099, align 8
   %1101 = call ptr @set_deparse_context_plan(ptr noundef %1100, ptr noundef %.val.i.i819, ptr noundef %1) #11
   %1102 = call ptr @deparse_expression(ptr noundef %1098, ptr noundef %1101, i1 noundef zeroext %1095, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.213, ptr noundef null, ptr noundef %1102, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.213, ptr noundef null, ptr noundef %1102, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1117 = load ptr, ptr %1087, align 8
   br label %show_upper_qual.exit820
 
@@ -5487,7 +5487,7 @@ show_upper_qual.exit825:                          ; preds = %1111
   %1116 = load ptr, ptr %1115, align 8
   %1117 = call ptr @set_deparse_context_plan(ptr noundef %1116, ptr noundef %.val.i.i824, ptr noundef %1) #11
   %1118 = call ptr @deparse_expression(ptr noundef %1114, ptr noundef %1117, i1 noundef zeroext %1112, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef %1118, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef %1118, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1118 = load ptr, ptr %1104, align 8
   %.not707 = icmp eq ptr %.pre1118, null
   br i1 %.not707, label %show_upper_qual.exit825.thread, label %1119
@@ -5526,7 +5526,7 @@ show_upper_qual.exit830:                          ; preds = %1128
   %1133 = load ptr, ptr %1132, align 8
   %1134 = call ptr @set_deparse_context_plan(ptr noundef %1133, ptr noundef %.val.i.i829, ptr noundef %1) #11
   %1135 = call ptr @deparse_expression(ptr noundef %1131, ptr noundef %1134, i1 noundef zeroext %1129, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1135, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1135, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1119 = load ptr, ptr %1120, align 8
   %.not708 = icmp eq ptr %.pre1119, null
   br i1 %.not708, label %show_scan_qual.exit766, label %1136
@@ -5566,7 +5566,7 @@ list_length.exit.thread.i833:                     ; preds = %list_length.exit.i8
   %1153 = load ptr, ptr %1152, align 8
   %1154 = call ptr @set_deparse_context_plan(ptr noundef %1153, ptr noundef %.val.i.i834, ptr noundef %1) #11
   %1155 = call ptr @deparse_expression(ptr noundef %1151, ptr noundef %1154, i1 noundef zeroext %1148, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef %1155, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef %1155, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1114 = load ptr, ptr %1140, align 8
   br label %show_upper_qual.exit835
 
@@ -5600,7 +5600,7 @@ show_upper_qual.exit840:                          ; preds = %1164
   %1169 = load ptr, ptr %1168, align 8
   %1170 = call ptr @set_deparse_context_plan(ptr noundef %1169, ptr noundef %.val.i.i839, ptr noundef %1) #11
   %1171 = call ptr @deparse_expression(ptr noundef %1167, ptr noundef %1170, i1 noundef zeroext %1165, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef %1171, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef %1171, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1115 = load ptr, ptr %1157, align 8
   %.not705 = icmp eq ptr %.pre1115, null
   br i1 %.not705, label %show_upper_qual.exit840.thread, label %1172
@@ -5639,7 +5639,7 @@ show_upper_qual.exit845:                          ; preds = %1181
   %1186 = load ptr, ptr %1185, align 8
   %1187 = call ptr @set_deparse_context_plan(ptr noundef %1186, ptr noundef %.val.i.i844, ptr noundef %1) #11
   %1188 = call ptr @deparse_expression(ptr noundef %1184, ptr noundef %1187, i1 noundef zeroext %1182, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1188, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1188, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1116 = load ptr, ptr %1173, align 8
   %.not706 = icmp eq ptr %.pre1116, null
   br i1 %.not706, label %show_scan_qual.exit766, label %1189
@@ -5695,7 +5695,7 @@ list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.
 1217:                                             ; preds = %list_length.exit.thread.i.i, %list_length.exit.i.i
   %1218 = phi i1 [ true, %list_length.exit.i.i ], [ %1216, %list_length.exit.thread.i.i ]
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.255, i1 noundef zeroext false, ptr noundef nonnull %4)
-  call fastcc void @show_grouping_set_keys(ptr noundef nonnull %1203, ptr noundef nonnull %1191, ptr noundef null, ptr noundef %1209, i1 noundef zeroext %1218, ptr noundef %1199, ptr noundef nonnull %4)
+  call fastcc void @show_grouping_set_keys(ptr noundef nonnull readonly %1203, ptr noundef nonnull readonly %1191, ptr noundef null, ptr noundef %1209, i1 noundef zeroext %1218, ptr noundef %1199, ptr noundef nonnull %4)
   %1219 = getelementptr inbounds i8, ptr %1191, i64 176
   %1220 = load ptr, ptr %1219, align 8
   %1221 = getelementptr inbounds i8, ptr %1220, i64 4
@@ -5715,7 +5715,7 @@ list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.
   %1227 = load ptr, ptr %1226, align 8
   %1228 = getelementptr inbounds i8, ptr %1227, i64 64
   %1229 = load ptr, ptr %1228, align 8
-  call fastcc void @show_grouping_set_keys(ptr noundef %1203, ptr noundef %1227, ptr noundef %1229, ptr noundef %1209, i1 noundef zeroext %1218, ptr noundef %1199, ptr noundef %4)
+  call fastcc void @show_grouping_set_keys(ptr noundef readonly %1203, ptr noundef %1227, ptr noundef %1229, ptr noundef %1209, i1 noundef zeroext %1218, ptr noundef %1199, ptr noundef %4)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1230 = load i32, ptr %1221, align 4
   %1231 = sext i32 %1230 to i64
@@ -5770,7 +5770,7 @@ list_length.exit.thread.i851:                     ; preds = %list_length.exit.i8
   %1255 = load ptr, ptr %1254, align 8
   %1256 = call ptr @set_deparse_context_plan(ptr noundef %1255, ptr noundef %.val.i.i852, ptr noundef %1) #11
   %1257 = call ptr @deparse_expression(ptr noundef %1253, ptr noundef %1256, i1 noundef zeroext %1250, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1257, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1257, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_upper_qual.exit853
 
 show_upper_qual.exit853:                          ; preds = %1249, %1252
@@ -5801,7 +5801,7 @@ show_upper_qual.exit853:                          ; preds = %1249, %1252
   %1274 = sext i32 %1273 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
   %1275 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %33, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1274) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.271, ptr noundef null, ptr noundef nonnull %33, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.271, ptr noundef null, ptr noundef nonnull %33, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
   br label %1276
 
@@ -5821,17 +5821,17 @@ show_upper_qual.exit853:                          ; preds = %1249, %1252
   %1284 = sext i32 %1283 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   %1285 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %32, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1284) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef nonnull %32, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef nonnull %32, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
   %1286 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %31, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1262) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %31, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %31, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   %1287 = getelementptr inbounds i8, ptr %0, i64 544
   %1288 = load i64, ptr %1287, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   %1289 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %30, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1288) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.274, ptr noundef nonnull %30, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.274, ptr noundef nonnull %30, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   br label %1345
 
@@ -6027,15 +6027,15 @@ ExplainIndentText.exit76.i:                       ; preds = %1383, %1376
   %1393 = sext i32 %1362 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
   %1394 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %29, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1393) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef nonnull %29, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef nonnull %29, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   %1395 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %28, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1364) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %28, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %28, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
   %1396 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %27, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1360) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.274, ptr noundef nonnull %27, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.274, ptr noundef nonnull %27, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
   br label %1397
 
@@ -6097,7 +6097,7 @@ show_upper_qual.exit865:                          ; preds = %1418
   %1423 = load ptr, ptr %1422, align 8
   %1424 = call ptr @set_deparse_context_plan(ptr noundef %1423, ptr noundef %.val.i.i864, ptr noundef %1) #11
   %1425 = call ptr @deparse_expression(ptr noundef %1421, ptr noundef %1424, i1 noundef zeroext %1419, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1425, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1425, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1113 = load ptr, ptr %1409, align 8
   %.not703 = icmp eq ptr %.pre1113, null
   br i1 %.not703, label %show_upper_qual.exit865.thread, label %1426
@@ -6136,7 +6136,7 @@ list_length.exit.thread.i868:                     ; preds = %list_length.exit.i8
   %1441 = load ptr, ptr %1440, align 8
   %1442 = call ptr @set_deparse_context_plan(ptr noundef %1441, ptr noundef %.val.i.i869, ptr noundef %1) #11
   %1443 = call ptr @deparse_expression(ptr noundef %1439, ptr noundef %1442, i1 noundef zeroext %1436, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1443, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1443, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_scan_qual.exit766
 
 1444:                                             ; preds = %thread-pre-split972
@@ -6150,7 +6150,7 @@ list_length.exit.thread.i868:                     ; preds = %list_length.exit.i8
   %1452 = load ptr, ptr %1451, align 8
   %1453 = getelementptr i8, ptr %1448, i64 8
   %.val.i871 = load ptr, ptr %1453, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val.i871, ptr noundef nonnull @.str.254, i32 noundef %1450, i32 noundef 0, ptr noundef %1452, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1446, ptr noundef %4)
+  call fastcc void @show_sort_group_keys(ptr %.val.i871, ptr noundef nonnull @.str.254, i32 noundef %1450, i32 noundef 0, ptr noundef %1452, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1446, ptr noundef readonly %4)
   %1454 = call ptr @list_delete_first(ptr noundef %1446) #11
   %1455 = getelementptr inbounds i8, ptr %38, i64 56
   %1456 = load ptr, ptr %1455, align 8
@@ -6182,7 +6182,7 @@ show_upper_qual.exit876:                          ; preds = %1464
   %1469 = load ptr, ptr %1468, align 8
   %1470 = call ptr @set_deparse_context_plan(ptr noundef %1469, ptr noundef %.val.i.i875, ptr noundef %1) #11
   %1471 = call ptr @deparse_expression(ptr noundef %1467, ptr noundef %1470, i1 noundef zeroext %1465, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1471, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1471, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1112 = load ptr, ptr %1455, align 8
   %.not702 = icmp eq ptr %.pre1112, null
   br i1 %.not702, label %show_scan_qual.exit766, label %1472
@@ -6203,7 +6203,7 @@ show_upper_qual.exit876:                          ; preds = %1464
   %1481 = load ptr, ptr %1480, align 8
   %1482 = getelementptr inbounds i8, ptr %.val749, i64 136
   %1483 = load ptr, ptr %1482, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val749, ptr noundef nonnull @.str.260, i32 noundef %1475, i32 noundef 0, ptr noundef %1477, ptr noundef %1479, ptr noundef %1481, ptr noundef %1483, ptr noundef %1, ptr noundef %4)
+  call fastcc void @show_sort_group_keys(ptr %.val749, ptr noundef nonnull @.str.260, i32 noundef %1475, i32 noundef 0, ptr noundef %1477, ptr noundef %1479, ptr noundef %1481, ptr noundef %1483, ptr noundef %1, ptr noundef readonly %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   %1484 = load i8, ptr %337, align 1
   %1485 = trunc i8 %1484 to i1
@@ -6263,12 +6263,12 @@ ExplainIndentText.exit.i882:                      ; preds = %1515, %1508
   br label %1521
 
 1519:                                             ; preds = %1493
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.280, ptr noundef null, ptr noundef %1495, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.280, ptr noundef null, ptr noundef %1495, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   %1520 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %25, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1500) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.274, ptr noundef nonnull %25, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.274, ptr noundef nonnull %25, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef %1498, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef %1498, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %1521
 
 1521:                                             ; preds = %1519, %ExplainIndentText.exit.i882, %1490, %1486
@@ -6341,12 +6341,12 @@ ExplainIndentText.exit49.i:                       ; preds = %1556, %1549
   br label %1562
 
 1560:                                             ; preds = %1541
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.280, ptr noundef null, ptr noundef %1532, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.280, ptr noundef null, ptr noundef %1532, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   %1561 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %24, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1537) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.274, ptr noundef nonnull %24, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.274, ptr noundef nonnull %24, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef %1535, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef %1535, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %1562
 
 1562:                                             ; preds = %1560, %ExplainIndentText.exit49.i
@@ -6385,7 +6385,7 @@ show_sort_info.exit:                              ; preds = %1566, %1473, %1521,
   %1581 = load ptr, ptr %1580, align 8
   %1582 = getelementptr inbounds i8, ptr %.val750, i64 136
   %1583 = load ptr, ptr %1582, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val750, ptr noundef nonnull @.str.260, i32 noundef %1573, i32 noundef %1575, ptr noundef %1577, ptr noundef %1579, ptr noundef %1581, ptr noundef %1583, ptr noundef %1, ptr noundef %4)
+  call fastcc void @show_sort_group_keys(ptr %.val750, ptr noundef nonnull @.str.260, i32 noundef %1573, i32 noundef %1575, ptr noundef %1577, ptr noundef %1579, ptr noundef %1581, ptr noundef %1583, ptr noundef %1, ptr noundef readonly %4)
   %1584 = getelementptr inbounds i8, ptr %0, i64 296
   %1585 = load i8, ptr %337, align 1
   %1586 = trunc i8 %1585 to i1
@@ -6397,7 +6397,7 @@ show_sort_info.exit:                              ; preds = %1566, %1473, %1521,
   br i1 %1589, label %1590, label %1605
 
 1590:                                             ; preds = %1587
-  call fastcc void @show_incremental_sort_group_info(ptr noundef nonnull %1584, ptr noundef nonnull @.str.283, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @show_incremental_sort_group_info(ptr noundef nonnull readonly %1584, ptr noundef nonnull @.str.283, i1 noundef zeroext true, ptr noundef nonnull %4)
   %1591 = getelementptr inbounds i8, ptr %0, i64 344
   %1592 = load i64, ptr %1591, align 8
   %1593 = icmp sgt i64 %1592, 0
@@ -6414,7 +6414,7 @@ show_sort_info.exit:                              ; preds = %1566, %1473, %1521,
   br label %1599
 
 1599:                                             ; preds = %1597, %1594
-  call fastcc void @show_incremental_sort_group_info(ptr noundef nonnull %1591, ptr noundef nonnull @.str.284, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @show_incremental_sort_group_info(ptr noundef nonnull readonly %1591, ptr noundef nonnull @.str.284, i1 noundef zeroext true, ptr noundef nonnull %4)
   br label %1600
 
 1600:                                             ; preds = %1599, %1590
@@ -6526,7 +6526,7 @@ show_sort_info.exit:                              ; preds = %1566, %1473, %1521,
   %1655 = load ptr, ptr %1654, align 8
   %1656 = getelementptr inbounds i8, ptr %.val751, i64 152
   %1657 = load ptr, ptr %1656, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val751, ptr noundef nonnull @.str.260, i32 noundef %1649, i32 noundef 0, ptr noundef %1651, ptr noundef %1653, ptr noundef %1655, ptr noundef %1657, ptr noundef %1, ptr noundef %4)
+  call fastcc void @show_sort_group_keys(ptr %.val751, ptr noundef nonnull @.str.260, i32 noundef %1649, i32 noundef 0, ptr noundef %1651, ptr noundef %1653, ptr noundef %1655, ptr noundef %1657, ptr noundef %1, ptr noundef readonly %4)
   br label %show_scan_qual.exit766
 
 1658:                                             ; preds = %thread-pre-split972
@@ -6560,7 +6560,7 @@ list_length.exit.thread.i892:                     ; preds = %list_length.exit.i8
   %1674 = load ptr, ptr %1673, align 8
   %1675 = call ptr @set_deparse_context_plan(ptr noundef %1674, ptr noundef %.val.i.i893, ptr noundef %1) #11
   %1676 = call ptr @deparse_expression(ptr noundef %1672, ptr noundef %1675, i1 noundef zeroext %1669, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.216, ptr noundef null, ptr noundef %1676, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.216, ptr noundef null, ptr noundef %1676, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1110 = load ptr, ptr %1661, align 8
   br label %show_upper_qual.exit894
 
@@ -6594,7 +6594,7 @@ show_upper_qual.exit899:                          ; preds = %1685
   %1690 = load ptr, ptr %1689, align 8
   %1691 = call ptr @set_deparse_context_plan(ptr noundef %1690, ptr noundef %.val.i.i898, ptr noundef %1) #11
   %1692 = call ptr @deparse_expression(ptr noundef %1688, ptr noundef %1691, i1 noundef zeroext %1686, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1692, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.201, ptr noundef null, ptr noundef %1692, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1111 = load ptr, ptr %1678, align 8
   %.not701 = icmp eq ptr %.pre1111, null
   br i1 %.not701, label %show_scan_qual.exit766, label %1693
@@ -6833,7 +6833,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1736, %1729
 1813:                                             ; preds = %._crit_edge146.i
   %1814 = icmp eq i32 %1812, 1
   %1815 = select i1 %1814, ptr @.str.301, ptr @.str.302
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.300, ptr noundef null, ptr noundef nonnull %1815, i1 noundef zeroext false, ptr noundef %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.300, ptr noundef null, ptr noundef nonnull %1815, i1 noundef zeroext false, ptr noundef readonly %4)
   %.not131.i = icmp eq ptr %.0116.lcssa.i, null
   br i1 %.not131.i, label %1817, label %1816
 
@@ -6872,7 +6872,7 @@ show_upper_qual.exit.i:                           ; preds = %list_length.exit.th
   %1831 = load ptr, ptr %1830, align 8
   %1832 = call ptr @set_deparse_context_plan(ptr noundef %1831, ptr noundef %.val.i.i.i, ptr noundef %1) #11
   %1833 = call ptr @deparse_expression(ptr noundef %1829, ptr noundef %1832, i1 noundef zeroext %1828, i1 noundef zeroext false) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.304, ptr noundef null, ptr noundef %1833, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.304, ptr noundef null, ptr noundef %1833, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %1834 = load i8, ptr %337, align 1
   %1835 = trunc i8 %1834 to i1
   br i1 %1835, label %1836, label %show_instrumentation_count.exit.i
@@ -6900,7 +6900,7 @@ show_upper_qual.exit.i:                           ; preds = %list_length.exit.th
   %1845 = fdiv double %.0.i.i, %1840
   %.sink.i.i = select i1 %1844, double %1845, double 0.000000e+00
   %1846 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %.sink.i.i) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.305, ptr noundef null, ptr noundef %1846, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.305, ptr noundef null, ptr noundef %1846, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %1846) #11
   br label %show_instrumentation_count.exit.i
 
@@ -6930,10 +6930,10 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %1
   %1863 = load double, ptr %1862, align 8
   %1864 = fsub double %1860, %1863
   %1865 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %1864) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.306, ptr noundef null, ptr noundef %1865, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.306, ptr noundef null, ptr noundef %1865, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %1865) #11
   %1866 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %1863) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.307, ptr noundef null, ptr noundef %1866, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.307, ptr noundef null, ptr noundef %1866, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %1866) #11
   br label %1922
 
@@ -7026,16 +7026,16 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %1
 
 1917:                                             ; preds = %1875
   %1918 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %1886) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.306, ptr noundef null, ptr noundef %1918, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.306, ptr noundef null, ptr noundef %1918, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %1918) #11
   %1919 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %1888) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.313, ptr noundef null, ptr noundef %1919, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.313, ptr noundef null, ptr noundef %1919, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %1919) #11
   %1920 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %1890) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.314, ptr noundef null, ptr noundef %1920, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.314, ptr noundef null, ptr noundef %1920, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %1920) #11
   %1921 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %1893) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.315, ptr noundef null, ptr noundef %1921, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.315, ptr noundef null, ptr noundef %1921, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @pfree(ptr noundef %1921) #11
   br label %1922
 
@@ -7109,28 +7109,28 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %1
   %1953 = sext i32 %1952 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   %1954 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %23, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1953) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.316, ptr noundef null, ptr noundef nonnull %23, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.316, ptr noundef null, ptr noundef nonnull %23, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   %1955 = extractelement <4 x i32> %1944, i64 1
   %1956 = sext i32 %1955 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   %1957 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %22, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1956) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.317, ptr noundef null, ptr noundef nonnull %22, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.317, ptr noundef null, ptr noundef nonnull %22, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   %1958 = zext nneg i32 %1945 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   %1959 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1958) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.318, ptr noundef null, ptr noundef nonnull %21, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.318, ptr noundef null, ptr noundef nonnull %21, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
   %1960 = extractelement <4 x i32> %1944, i64 3
   %1961 = sext i32 %1960 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   %1962 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %20, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1961) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.319, ptr noundef null, ptr noundef nonnull %20, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.319, ptr noundef null, ptr noundef nonnull %20, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   %1963 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1949) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %19, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %19, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   br label %show_scan_qual.exit766
 
@@ -7254,12 +7254,12 @@ list_length.exit.thread.i920:                     ; preds = %list_length.exit.i9
 
 2024:                                             ; preds = %._crit_edge.i923
   %2025 = load ptr, ptr %18, align 8
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.323, ptr noundef null, ptr noundef %2025, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.323, ptr noundef null, ptr noundef %2025, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %2026 = getelementptr inbounds i8, ptr %0, i64 353
   %2027 = load i8, ptr %2026, align 1
   %2028 = trunc i8 %2027 to i1
   %2029 = select i1 %2028, ptr @.str.325, ptr @.str.326
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.324, ptr noundef null, ptr noundef nonnull %2029, i1 noundef zeroext false, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.324, ptr noundef null, ptr noundef nonnull %2029, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %2066
 
 2030:                                             ; preds = %._crit_edge.i923
@@ -7357,28 +7357,28 @@ ExplainIndentText.exit91.i:                       ; preds = %2058, %2051
   %2083 = load i64, ptr %2071, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   %2084 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2083) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.329, ptr noundef null, ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.329, ptr noundef null, ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   %2085 = load i64, ptr %2072, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   %2086 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2085) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.330, ptr noundef null, ptr noundef nonnull %16, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.330, ptr noundef null, ptr noundef nonnull %16, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   %2087 = getelementptr inbounds i8, ptr %0, i64 376
   %2088 = load i64, ptr %2087, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   %2089 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2088) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.331, ptr noundef null, ptr noundef nonnull %15, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.331, ptr noundef null, ptr noundef nonnull %15, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   %2090 = getelementptr inbounds i8, ptr %0, i64 384
   %2091 = load i64, ptr %2090, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %2092 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2091) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %2093 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %.081.i) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %13, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %13, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   br label %2116
 
@@ -7495,28 +7495,28 @@ ExplainIndentText.exit93.i:                       ; preds = %2151, %2144
   %2162 = load i64, ptr %2124, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %2163 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2162) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.329, ptr noundef null, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.329, ptr noundef null, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %2164 = load i64, ptr %2125, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %2165 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2164) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.330, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.330, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %2166 = getelementptr inbounds i8, ptr %2124, i64 16
   %2167 = load i64, ptr %2166, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %2168 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2167) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.331, ptr noundef null, ptr noundef nonnull %10, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.331, ptr noundef null, ptr noundef nonnull %10, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %2169 = getelementptr inbounds i8, ptr %2124, i64 24
   %2170 = load i64, ptr %2169, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %2171 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2170) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %2172 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2136) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %2173
 
@@ -7792,7 +7792,7 @@ list_length.exit936:                              ; preds = %2287, %2292
   %2301 = sext i32 %2300 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %2302 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2301) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.342, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.342, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %ExplainMissingMembers.exit
 
@@ -7824,7 +7824,7 @@ list_length.exit939:                              ; preds = %2303, %2308
   %2317 = sext i32 %2316 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %2318 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2317) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.342, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.342, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %ExplainMissingMembers.exit
 
@@ -8275,16 +8275,16 @@ define internal fastcc void @report_triggers(ptr nocapture noundef readonly %0, 
 61:                                               ; preds = %34
   %62 = getelementptr inbounds i8, ptr %19, i64 8
   %63 = load ptr, ptr %62, align 8
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.81, ptr noundef null, ptr noundef %63, i1 noundef zeroext false, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.81, ptr noundef null, ptr noundef %63, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   %.not52 = icmp eq ptr %.0, null
   br i1 %.not52, label %65, label %64
 
 64:                                               ; preds = %61
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.82, ptr noundef null, ptr noundef nonnull %.0, i1 noundef zeroext false, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.82, ptr noundef null, ptr noundef nonnull %.0, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   br label %65
 
 65:                                               ; preds = %64, %61
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.83, ptr noundef null, ptr noundef nonnull %29, i1 noundef zeroext false, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.83, ptr noundef null, ptr noundef nonnull %29, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   %66 = load i8, ptr %14, align 1
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %73
@@ -8294,14 +8294,14 @@ define internal fastcc void @report_triggers(ptr nocapture noundef readonly %0, 
   %70 = load double, ptr %69, align 8
   %71 = fmul double %70, 1.000000e+03
   %72 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %71) #11
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.34, ptr noundef %72, i1 noundef zeroext true, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.34, ptr noundef %72, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   tail call void @pfree(ptr noundef %72) #11
   br label %73
 
 73:                                               ; preds = %68, %65
   %74 = load double, ptr %22, align 8
   %75 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %74) #11
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.85, ptr noundef null, ptr noundef %75, i1 noundef zeroext true, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.85, ptr noundef null, ptr noundef %75, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   tail call void @pfree(ptr noundef %75) #11
   br label %76
 
@@ -8399,7 +8399,7 @@ ExplainIndentText.exit:                           ; preds = %29, %36
   %44 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %45 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %44) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
@@ -8511,25 +8511,25 @@ ExplainIndentText.exit68:                         ; preds = %81, %88
   %120 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %121 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %120) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.73, i1 noundef zeroext true, ptr noundef nonnull %0)
   %122 = and i32 %1, 4
   %.not69 = icmp eq i32 %122, 0
   %123 = select i1 %.not69, ptr @.str.51, ptr @.str.50
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef nonnull %123, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef nonnull %123, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   %124 = and i32 %1, 2
   %.not70 = icmp eq i32 %124, 0
   %125 = select i1 %.not70, ptr @.str.51, ptr @.str.50
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.65, ptr noundef null, ptr noundef nonnull %125, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.65, ptr noundef null, ptr noundef nonnull %125, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   %126 = and i32 %1, 8
   %.not71 = icmp eq i32 %126, 0
   %127 = select i1 %.not71, ptr @.str.51, ptr @.str.50
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef nonnull %127, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef nonnull %127, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   %128 = and i32 %1, 16
   %.not72 = icmp eq i32 %128, 0
   %129 = select i1 %.not72, ptr @.str.51, ptr @.str.50
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull %129, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull %129, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.73, ptr nonnull poison, i1 noundef zeroext true, ptr noundef nonnull %0)
   %130 = getelementptr inbounds i8, ptr %0, i64 9
   %131 = load i8, ptr %130, align 1
@@ -8551,14 +8551,14 @@ ExplainIndentText.exit68:                         ; preds = %81, %88
   %141 = fdiv double %140, 1.000000e+09
   %142 = fmul double %141, 1.000000e+03
   %143 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %142) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.34, ptr noundef %143, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.34, ptr noundef %143, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %143) #11
   %144 = load i64, ptr %10, align 8
   %145 = sitofp i64 %144 to double
   %146 = fdiv double %145, 1.000000e+09
   %147 = fmul double %146, 1.000000e+03
   %148 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %147) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.34, ptr noundef %148, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.34, ptr noundef %148, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %148) #11
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.69, ptr nonnull poison, i1 noundef zeroext true, ptr noundef nonnull %0)
   %149 = load i64, ptr %12, align 8
@@ -8566,27 +8566,27 @@ ExplainIndentText.exit68:                         ; preds = %81, %88
   %151 = fdiv double %150, 1.000000e+09
   %152 = fmul double %151, 1.000000e+03
   %153 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %152) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.34, ptr noundef %153, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.34, ptr noundef %153, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %153) #11
   %154 = load i64, ptr %15, align 8
   %155 = sitofp i64 %154 to double
   %156 = fdiv double %155, 1.000000e+09
   %157 = fmul double %156, 1.000000e+03
   %158 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %157) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.34, ptr noundef %158, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.34, ptr noundef %158, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %158) #11
   %159 = load i64, ptr %18, align 8
   %160 = sitofp i64 %159 to double
   %161 = fdiv double %160, 1.000000e+09
   %162 = fmul double %161, 1.000000e+03
   %163 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %162) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.34, ptr noundef %163, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.34, ptr noundef %163, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %163) #11
   %164 = sitofp i64 %20 to double
   %165 = fdiv double %164, 1.000000e+09
   %166 = fmul double %165, 1.000000e+03
   %167 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 3, double noundef %166) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.34, ptr noundef %167, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.34, ptr noundef %167, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %167) #11
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.74, ptr nonnull poison, i1 noundef zeroext true, ptr noundef nonnull %0)
   br label %168
@@ -8607,7 +8607,7 @@ define dso_local void @ExplainQueryText(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext false, ptr noundef %0)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext false, ptr noundef readonly %0)
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -8644,7 +8644,7 @@ define dso_local void @ExplainQueryParameters(ptr nocapture noundef readonly %0,
   br i1 %.not11, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext false, ptr noundef %0)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext false, ptr noundef readonly %0)
   br label %15
 
 15:                                               ; preds = %3, %5, %14, %12, %10
@@ -9476,8 +9476,8 @@ explain_get_index_name.exit:                      ; preds = %5, %.thread.i
   %switch.select = select i1 %switch.selectcmp, ptr @.str.235, ptr @.str.93
   %switch.selectcmp10 = icmp eq i32 %1, -1
   %switch.select11 = select i1 %switch.selectcmp10, ptr @.str.234, ptr %switch.select
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef nonnull %switch.select11, i1 noundef zeroext false, ptr noundef nonnull %2)
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef nonnull %.1.i, i1 noundef zeroext false, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef nonnull %switch.select11, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef nonnull %.1.i, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -9542,7 +9542,7 @@ ExplainOpenSetAsideGroup.exit:                    ; preds = %17, %.sink.split.i
 29:                                               ; preds = %ExplainOpenSetAsideGroup.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %10) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.239, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull %1)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.239, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %31
 
@@ -9756,7 +9756,7 @@ define internal fastcc void @show_instrumentation_count(ptr noundef %0, i32 noun
   %20 = fdiv double %.0, %14
   %.sink = select i1 %19, double %20, double 0.000000e+00
   %21 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef 0, double noundef %.sink) #11
-  tail call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef null, ptr noundef %21, i1 noundef zeroext true, ptr noundef nonnull %3)
+  tail call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef null, ptr noundef %21, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   tail call void @pfree(ptr noundef %21) #11
   br label %22
 
@@ -9778,13 +9778,13 @@ define internal fastcc void @show_tidbitmap_info(ptr nocapture noundef readonly 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %8) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.242, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull %1)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.242, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %11 = getelementptr inbounds i8, ptr %0, i64 280
   %12 = load i64, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %12) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.243, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull %1)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.243, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %49
 
@@ -9891,7 +9891,7 @@ define internal fastcc void @show_expression(ptr noundef %0, ptr noundef %1, ptr
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @set_deparse_context_plan(ptr noundef %7, ptr noundef %.8.val, ptr noundef %2) #11
   %9 = tail call ptr @deparse_expression(ptr noundef %0, ptr noundef %8, i1 noundef zeroext %3, i1 noundef zeroext false) #11
-  tail call fastcc void @ExplainProperty(ptr noundef %1, ptr noundef null, ptr noundef %9, i1 noundef zeroext false, ptr noundef %4)
+  tail call fastcc void @ExplainProperty(ptr noundef %1, ptr noundef null, ptr noundef %9, i1 noundef zeroext false, ptr noundef readonly %4)
   ret void
 }
 
@@ -9994,19 +9994,19 @@ ExplainIndentText.exit:                           ; preds = %24, %31
 53:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %54 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %9) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %55 = getelementptr inbounds i8, ptr %1, i64 8
   %56 = load i64, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %57 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %56) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.339, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.339, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %58 = getelementptr inbounds i8, ptr %1, i64 16
   %59 = load i64, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.48, i64 noundef %59) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.340, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.340, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %61
 
@@ -10185,7 +10185,7 @@ list_length.exit.thread:                          ; preds = %35, %list_length.ex
   br i1 %or.cond, label %89, label %90
 
 89:                                               ; preds = %87
-  tail call fastcc void @ExplainProperty(ptr noundef %.048, ptr noundef null, ptr noundef nonnull %.1, i1 noundef zeroext false, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef %.048, ptr noundef null, ptr noundef nonnull %.1, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   br label %90
 
 90:                                               ; preds = %89, %87
@@ -10193,11 +10193,11 @@ list_length.exit.thread:                          ; preds = %35, %list_length.ex
   br i1 %.not, label %92, label %91
 
 91:                                               ; preds = %90
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef nonnull %.2, i1 noundef zeroext false, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef nonnull %.2, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   br label %92
 
 92:                                               ; preds = %91, %90
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.231, ptr noundef null, ptr noundef %.049, i1 noundef zeroext false, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.231, ptr noundef null, ptr noundef %.049, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   br label %93
 
 93:                                               ; preds = %82, %84, %92
@@ -10563,7 +10563,7 @@ define internal fastcc void @show_grouping_set_keys(ptr nocapture noundef readon
   br label %71
 
 70:                                               ; preds = %._crit_edge.thread
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull %spec.select73, ptr noundef null, ptr noundef nonnull @.str.262, i1 noundef zeroext false, ptr noundef nonnull %6)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull %spec.select73, ptr noundef null, ptr noundef nonnull @.str.262, i1 noundef zeroext false, ptr noundef nonnull readonly %6)
   br label %71
 
 71:                                               ; preds = %.split, %.split61, %70
@@ -10760,7 +10760,7 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   %84 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %85 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %84) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull %3)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @ExplainPropertyList(ptr noundef nonnull @.str.291, ptr noundef %.1, ptr noundef nonnull %3)
   %86 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10780,12 +10780,12 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.293, ptr noundef %95, i1 noundef zeroext true, ptr noundef nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %96 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %93) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.294, ptr noundef nonnull @.str.274, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull %3)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.294, ptr noundef nonnull @.str.274, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %97 = load i64, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %98 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %97) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.295, ptr noundef nonnull @.str.274, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull %3)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.295, ptr noundef nonnull @.str.274, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.293, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %3)
   br label %99
@@ -10808,12 +10808,12 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.293, ptr noundef %109, i1 noundef zeroext true, ptr noundef nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %110 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %107) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.294, ptr noundef nonnull @.str.274, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull %3)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.294, ptr noundef nonnull @.str.274, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %111 = load i64, ptr %100, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %112 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %111) #11
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.295, ptr noundef nonnull @.str.274, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull %3)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.295, ptr noundef nonnull @.str.274, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.293, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %3)
   br label %113

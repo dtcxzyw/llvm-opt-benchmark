@@ -255,7 +255,7 @@ define internal noundef i64 @ossl_rsa_is_public(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_rsa_is_private(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_rsa_is_private(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #5
@@ -317,7 +317,7 @@ RSA_PRIVATE.exit.thread:                          ; preds = %RSA_PRIVATE.exit, %
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ossl_rsa_export(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call fastcc i32 @can_export_rsaprivatekey(i64 noundef %2), !range !8
+  %4 = tail call fastcc i32 @can_export_rsaprivatekey(i64 noundef %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -338,7 +338,7 @@ declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ossl_rsa_to_der(i64 noundef %0) #0 {
-  %2 = tail call fastcc i32 @can_export_rsaprivatekey(i64 noundef %0), !range !8
+  %2 = tail call fastcc i32 @can_export_rsaprivatekey(i64 noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -444,7 +444,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
   %42 = load i64, ptr %4, align 8
   %43 = call ptr @ossl_evp_get_digestbyname(i64 noundef %42) #5
   %44 = call i64 @rb_string_value(ptr noundef nonnull %5) #5
-  %45 = call i64 @rb_str_new(ptr noundef null, i64 noundef %41) #5, !callees !9
+  %45 = call i64 @rb_str_new(ptr noundef null, i64 noundef %41) #5, !callees !8
   %46 = call ptr @EVP_MD_CTX_new() #5
   %.not19 = icmp eq ptr %46, null
   br i1 %.not19, label %77, label %47
@@ -475,7 +475,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
 58:                                               ; preds = %55
   %59 = load i64, ptr %5, align 8
   %60 = inttoptr i64 %59 to ptr
-  %61 = load i64, ptr %60, align 8, !noalias !10
+  %61 = load i64, ptr %60, align 8, !noalias !9
   %62 = and i64 %61, 8192
   %.not.i.i = icmp eq i64 %62, 0
   %63 = getelementptr inbounds i8, ptr %60, i64 24
@@ -495,7 +495,7 @@ RSTRING_PTR.exit:                                 ; preds = %58, %64
 
 68:                                               ; preds = %RSTRING_PTR.exit
   %69 = inttoptr i64 %45 to ptr
-  %70 = load i64, ptr %69, align 8, !noalias !13
+  %70 = load i64, ptr %69, align 8, !noalias !12
   %71 = and i64 %70, 8192
   %.not.i.i33 = icmp eq i64 %71, 0
   %72 = getelementptr inbounds i8, ptr %69, i64 24
@@ -525,7 +525,7 @@ RSTRING_PTR.exit36:                               ; preds = %68, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_rsa_verify_pss(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_rsa_verify_pss(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -650,7 +650,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
 59:                                               ; preds = %56
   %60 = load i64, ptr %6, align 8
   %61 = inttoptr i64 %60 to ptr
-  %62 = load i64, ptr %61, align 8, !noalias !16
+  %62 = load i64, ptr %61, align 8, !noalias !15
   %63 = and i64 %62, 8192
   %.not.i.i = icmp eq i64 %63, 0
   %64 = getelementptr inbounds i8, ptr %61, i64 24
@@ -671,7 +671,7 @@ RSTRING_PTR.exit:                                 ; preds = %59, %65
 69:                                               ; preds = %RSTRING_PTR.exit
   %70 = load i64, ptr %5, align 8
   %71 = inttoptr i64 %70 to ptr
-  %72 = load i64, ptr %71, align 8, !noalias !19
+  %72 = load i64, ptr %71, align 8, !noalias !18
   %73 = and i64 %72, 8192
   %.not.i.i35 = icmp eq i64 %73, 0
   %74 = getelementptr inbounds i8, ptr %71, i64 24
@@ -1153,7 +1153,7 @@ declare void @RSA_get0_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @can_export_rsaprivatekey(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @can_export_rsaprivatekey(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1292,17 +1292,16 @@ attributes #6 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 0, i32 2}
-!9 = !{ptr @rb_str_new, ptr @rb_str_new_static}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"rbimpl_rstring_getmem: argument 0"}
-!12 = distinct !{!12, !"rbimpl_rstring_getmem"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"rbimpl_rstring_getmem: argument 0"}
-!15 = distinct !{!15, !"rbimpl_rstring_getmem"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"rbimpl_rstring_getmem: argument 0"}
-!18 = distinct !{!18, !"rbimpl_rstring_getmem"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"rbimpl_rstring_getmem: argument 0"}
-!21 = distinct !{!21, !"rbimpl_rstring_getmem"}
+!8 = !{ptr @rb_str_new, ptr @rb_str_new_static}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"rbimpl_rstring_getmem: argument 0"}
+!11 = distinct !{!11, !"rbimpl_rstring_getmem"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"rbimpl_rstring_getmem: argument 0"}
+!14 = distinct !{!14, !"rbimpl_rstring_getmem"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"rbimpl_rstring_getmem: argument 0"}
+!17 = distinct !{!17, !"rbimpl_rstring_getmem"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"rbimpl_rstring_getmem: argument 0"}
+!20 = distinct !{!20, !"rbimpl_rstring_getmem"}

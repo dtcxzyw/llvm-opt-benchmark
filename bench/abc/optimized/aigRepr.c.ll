@@ -325,10 +325,10 @@ define ptr @Aig_ManDupRepr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #21
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #21
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #20
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #18
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -340,10 +340,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %7
   br i1 %.not.i85, label %Abc_UtilStrsav.exit86, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #21
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #21
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #20
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #18
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #18
   br label %Abc_UtilStrsav.exit86
 
 Abc_UtilStrsav.exit86:                            ; preds = %Abc_UtilStrsav.exit, %15
@@ -872,7 +872,7 @@ define i32 @Aig_ManCountReprs(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr i8, ptr %0, i64 312
   %5 = icmp eq ptr %1, null
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -907,7 +907,7 @@ define noundef i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = ptrtoint ptr %.val to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %2), !range !14
+  %19 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %2)
   %.not21 = icmp eq i32 %19, 0
   br i1 %.not21, label %20, label %._crit_edge
 
@@ -917,7 +917,7 @@ define noundef i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noun
   %22 = ptrtoint ptr %.val23 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %2), !range !14
+  %25 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %2)
   %.not22 = icmp eq i32 %25, 0
   br i1 %.not22, label %26, label %._crit_edge
 
@@ -941,9 +941,9 @@ Aig_ObjEquiv.exit:                                ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_ObjCheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Aig_ObjCheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #18
-  %4 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !14
+  %4 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
@@ -1064,7 +1064,7 @@ Aig_ManRemapRepr.exit:                            ; preds = %Aig_ObjFindReprTran
   %51 = getelementptr i8, ptr %50, i64 4
   %.val23.i = load i32, ptr %51, align 4
   %52 = icmp sgt i32 %.val23.i, 0
-  br i1 %52, label %.lr.ph.i, label %Aig_ManRemapRepr.exit.thread, !llvm.loop !15
+  br i1 %52, label %.lr.ph.i, label %Aig_ManRemapRepr.exit.thread, !llvm.loop !14
 
 Aig_ManRemapRepr.exit.thread:                     ; preds = %Aig_ManRemapRepr.exit, %42, %1
   %.0.lcssa = phi ptr [ %0, %1 ], [ %43, %42 ], [ %.012, %Aig_ManRemapRepr.exit ]
@@ -1139,7 +1139,7 @@ define void @Aig_ManMarkValidChoices(ptr noundef %0) local_unnamed_addr #6 {
 
 35:                                               ; preds = %29
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #18
-  %36 = tail call noundef i32 @Aig_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %27), !range !14
+  %36 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %27)
   %.not34 = icmp eq i32 %36, 0
   br i1 %.not34, label %40, label %37
 
@@ -1190,7 +1190,7 @@ define void @Aig_ManMarkValidChoices(ptr noundef %0) local_unnamed_addr #6 {
   %.val = load i32, ptr %62, align 4
   %63 = sext i32 %.val to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %12, label %.critedge, !llvm.loop !16
+  br i1 %64, label %12, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %60, %1
   ret void
@@ -1285,7 +1285,7 @@ Aig_ObjSetRepr_.exit:                             ; preds = %26, %.sink.split.i,
   %.val = load i32, ptr %52, align 4
   %53 = sext i32 %.val to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %12, label %.critedge, !llvm.loop !17
+  br i1 %54, label %12, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %Aig_ObjSetRepr_.exit, %.preheader, %3
   %.2 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %.1, %Aig_ObjSetRepr_.exit ]
@@ -1349,7 +1349,6 @@ attributes #21 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 2}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

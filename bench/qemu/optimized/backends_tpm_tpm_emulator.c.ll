@@ -604,7 +604,7 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tpm_emulator_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -2147483648, 1) i32 @tpm_emulator_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %_now.i.i24.i = alloca %struct.timeval, align 8
   %_now.i.i10.i = alloca %struct.timeval, align 8
@@ -644,7 +644,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_tpm_emulator_set_state_blobs.exit.i:        ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call2.i = tail call fastcc i32 @tpm_emulator_stop_tpm(ptr noundef %opaque), !range !7
+  %call2.i = tail call fastcc i32 @tpm_emulator_stop_tpm(ptr noundef %opaque)
   %cmp.i = icmp slt i32 %call2.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -689,7 +689,7 @@ if.end.i:                                         ; preds = %trace_tpm_emulator_
   %state_blobs1.i = getelementptr inbounds i8, ptr %call.i.i, i64 248
   %permanent.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
   %12 = load i32, ptr %state_blobs1.i, align 8
-  %call3.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef %call.i.i, i32 noundef 1, ptr noundef nonnull %permanent.i, i32 noundef %12), !range !7
+  %call3.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef %call.i.i, i32 noundef 1, ptr noundef nonnull %permanent.i, i32 noundef %12)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %return, label %lor.lhs.false.i
 
@@ -697,7 +697,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %volatil.i = getelementptr inbounds i8, ptr %call.i.i, i64 280
   %volatil_flags.i = getelementptr inbounds i8, ptr %call.i.i, i64 272
   %13 = load i32, ptr %volatil_flags.i, align 8
-  %call5.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef nonnull %call.i.i, i32 noundef 2, ptr noundef nonnull %volatil.i, i32 noundef %13), !range !7
+  %call5.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef nonnull %call.i.i, i32 noundef 2, ptr noundef nonnull %volatil.i, i32 noundef %13)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %return, label %lor.lhs.false7.i
 
@@ -705,7 +705,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
   %savestate.i = getelementptr inbounds i8, ptr %call.i.i, i64 304
   %savestate_flags.i = getelementptr inbounds i8, ptr %call.i.i, i64 296
   %14 = load i32, ptr %savestate_flags.i, align 8
-  %call8.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef nonnull %call.i.i, i32 noundef 3, ptr noundef nonnull %savestate.i, i32 noundef %14), !range !7
+  %call8.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef nonnull %call.i.i, i32 noundef 3, ptr noundef nonnull %savestate.i, i32 noundef %14)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %return, label %if.end11.i
 
@@ -744,7 +744,7 @@ if.else.i.i33.i:                                  ; preds = %if.then.i.i31.i
 
 if.end:                                           ; preds = %if.else.i.i33.i, %if.then8.i.i34.i, %land.lhs.true5.i.i28.i, %if.end11.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i24.i)
-  %call1 = tail call fastcc i32 @tpm_emulator_startup_tpm_resume(ptr noundef %opaque, i64 noundef 0, i1 noundef zeroext true), !range !7
+  %call1 = tail call fastcc i32 @tpm_emulator_startup_tpm_resume(ptr noundef %opaque, i64 noundef 0, i1 noundef zeroext true)
   %cmp2 = icmp slt i32 %call1, 0
   %. = select i1 %cmp2, i32 -5, i32 0
   br label %return
@@ -755,7 +755,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tpm_emulator_pre_save(ptr noundef %opaque) #0 {
+define internal range(i32 -1, 1) i32 @tpm_emulator_pre_save(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
@@ -796,21 +796,21 @@ trace_tpm_emulator_pre_save.exit:                 ; preds = %entry, %land.lhs.tr
   tail call void @tpm_backend_finish_sync(ptr noundef %opaque) #12
   %state_blobs1.i = getelementptr inbounds i8, ptr %call.i, i64 248
   %permanent.i = getelementptr inbounds i8, ptr %call.i, i64 256
-  %call.i4 = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 1, ptr noundef nonnull %permanent.i, ptr noundef nonnull %state_blobs1.i), !range !7
+  %call.i4 = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 1, ptr noundef nonnull %permanent.i, ptr noundef nonnull %state_blobs1.i)
   %cmp.i = icmp slt i32 %call.i4, 0
   br i1 %cmp.i, label %err_exit.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %trace_tpm_emulator_pre_save.exit
   %volatil.i = getelementptr inbounds i8, ptr %call.i, i64 280
   %volatil_flags.i = getelementptr inbounds i8, ptr %call.i, i64 272
-  %call2.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 2, ptr noundef nonnull %volatil.i, ptr noundef nonnull %volatil_flags.i), !range !7
+  %call2.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 2, ptr noundef nonnull %volatil.i, ptr noundef nonnull %volatil_flags.i)
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %err_exit.i, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   %savestate.i = getelementptr inbounds i8, ptr %call.i, i64 304
   %savestate_flags.i = getelementptr inbounds i8, ptr %call.i, i64 296
-  %call5.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 3, ptr noundef nonnull %savestate.i, ptr noundef nonnull %savestate_flags.i), !range !7
+  %call5.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 3, ptr noundef nonnull %savestate.i, ptr noundef nonnull %savestate_flags.i)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %err_exit.i, label %tpm_emulator_get_state_blobs.exit
 
@@ -831,7 +831,7 @@ tpm_emulator_get_state_blobs.exit:                ; preds = %lor.lhs.false4.i, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tpm_emulator_startup_tpm_resume(ptr noundef %tb, i64 noundef %buffersize, i1 noundef zeroext %is_resume) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_startup_tpm_resume(ptr noundef %tb, i64 noundef %buffersize, i1 noundef zeroext %is_resume) unnamed_addr #0 {
 entry:
   %0 = alloca [8 x i8], align 16
   %_now.i.i = alloca %struct.timeval, align 8
@@ -878,7 +878,7 @@ trace_tpm_emulator_startup_tpm_resume.exit:       ; preds = %entry, %land.lhs.tr
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %trace_tpm_emulator_startup_tpm_resume.exit
-  %call1 = tail call fastcc i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %buffersize, ptr noundef null), !range !7
+  %call1 = tail call fastcc i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %buffersize, ptr noundef null)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end
 
@@ -957,7 +957,7 @@ return:                                           ; preds = %qemu_lockable_auto_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tpm_emulator_stop_tpm(ptr noundef %tb) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_stop_tpm(ptr noundef %tb) unnamed_addr #0 {
 entry:
   %0 = alloca [4 x i8], align 16
   %res = alloca i32, align 4
@@ -1027,7 +1027,7 @@ return:                                           ; preds = %tpm_emulator_ctrlcm
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tpm_emulator_set_state_blob(ptr noundef %tpm_emu, i32 noundef %type, ptr nocapture noundef readonly %tsb, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_state_blob(ptr noundef %tpm_emu, i32 noundef %type, ptr nocapture noundef readonly %tsb, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = alloca [16 x i8], align 16
@@ -1173,13 +1173,13 @@ return:                                           ; preds = %entry, %trace_tpm_e
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %wanted_size, ptr noundef writeonly %actual_size) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %wanted_size, ptr noundef writeonly %actual_size) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = alloca [8 x i8], align 16
   %psbs = alloca %struct.ptm_setbuffersize, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
-  %call1 = tail call fastcc i32 @tpm_emulator_stop_tpm(ptr noundef %tb), !range !7
+  %call1 = tail call fastcc i32 @tpm_emulator_stop_tpm(ptr noundef %tb)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -1311,7 +1311,7 @@ return:                                           ; preds = %entry, %trace_tpm_e
 declare void @tpm_backend_finish_sync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tpm_emulator_get_state_blob(ptr noundef %tpm_emu, i8 noundef zeroext %type, ptr noundef %tsb, ptr nocapture noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_get_state_blob(ptr noundef %tpm_emu, i8 noundef zeroext %type, ptr noundef %tsb, ptr nocapture noundef %flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = alloca [16 x i8], align 16
@@ -1733,7 +1733,7 @@ tpm_emulator_probe_caps.exit.i:                   ; preds = %if.end.i.i20.i, %sw
 
 lor.lhs.false.i:                                  ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %tpm_emulator_ctrlcmd.exit.i23.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %call25.i = call fastcc i32 @tpm_emulator_check_caps(ptr noundef nonnull %call.i3), !range !7
+  %call25.i = call fastcc i32 @tpm_emulator_check_caps(ptr noundef nonnull %call.i3)
   %tobool26.not.i = icmp eq i32 %call25.i, 0
   br i1 %tobool26.not.i, label %tpm_emulator_handle_device_opts.exit, label %err30.i
 
@@ -1776,7 +1776,7 @@ tpm_emulator_handle_device_opts.exit.thread:      ; preds = %err30.i, %land.lhs.
   br label %if.then
 
 tpm_emulator_handle_device_opts.exit:             ; preds = %lor.lhs.false.i
-  %call29.i = call fastcc i32 @tpm_emulator_block_migration(ptr noundef nonnull %call.i3), !range !7
+  %call29.i = call fastcc i32 @tpm_emulator_block_migration(ptr noundef nonnull %call.i3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   %tobool.not = icmp eq i32 %call29.i, 0
   br i1 %tobool.not, label %return, label %if.then
@@ -1791,7 +1791,7 @@ return:                                           ; preds = %tpm_emulator_handle
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tpm_emulator_startup_tpm(ptr noundef %tb, i64 noundef %buffersize) #0 {
+define internal range(i32 -1, 1) i32 @tpm_emulator_startup_tpm(ptr noundef %tb, i64 noundef %buffersize) #0 {
 entry:
   %call = tail call zeroext i1 @runstate_check(i32 noundef 1) #12
   br i1 %call, label %if.then, label %if.end3
@@ -1801,11 +1801,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %call2 = tail call fastcc i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %buffersize, ptr noundef null), !range !7
+  %call2 = tail call fastcc i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %buffersize, ptr noundef null)
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %call4 = tail call fastcc i32 @tpm_emulator_startup_tpm_resume(ptr noundef %tb, i64 noundef %buffersize, i1 noundef zeroext false), !range !7
+  %call4 = tail call fastcc i32 @tpm_emulator_startup_tpm_resume(ptr noundef %tb, i64 noundef %buffersize, i1 noundef zeroext false)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end3, %if.then1
@@ -2012,7 +2012,7 @@ return:                                           ; preds = %trace_tpm_emulator_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tpm_emulator_reset_tpm_established_flag(ptr noundef %tb, i8 zeroext %locty) #0 {
+define internal range(i32 -1, 1) i32 @tpm_emulator_reset_tpm_established_flag(ptr noundef %tb, i8 zeroext %locty) #0 {
 entry:
   %0 = alloca [8 x i8], align 16
   %reset_est = alloca %struct.ptm_reset_est, align 4
@@ -2112,7 +2112,7 @@ entry:
 define internal i64 @tpm_emulator_get_buffer_size(ptr noundef %tb) #0 {
 entry:
   %actual_size = alloca i64, align 8
-  %call = call fastcc i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef 0, ptr noundef nonnull %actual_size), !range !7
+  %call = call fastcc i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef 0, ptr noundef nonnull %actual_size)
   %cmp = icmp slt i32 %call, 0
   %0 = load i64, ptr %actual_size, align 8
   %retval.0 = select i1 %cmp, i64 4096, i64 %0
@@ -2475,7 +2475,7 @@ _nocheck__trace_tpm_emulator_handle_device_opts_unspec.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tpm_emulator_check_caps(ptr nocapture noundef readonly %tpm_emu) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_check_caps(ptr nocapture noundef readonly %tpm_emu) unnamed_addr #0 {
 entry:
   %tpm_version = getelementptr inbounds i8, ptr %tpm_emu, i64 160
   %0 = load i32, ptr %tpm_version, align 8
@@ -2515,7 +2515,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tpm_emulator_block_migration(ptr noundef %tpm_emu) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_block_migration(ptr noundef %tpm_emu) unnamed_addr #0 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -2609,4 +2609,3 @@ attributes #15 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}

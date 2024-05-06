@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [5 x i8] c"%16s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_REQ_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #2
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #2
@@ -39,7 +39,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @BIO_set_fp(ptr noundef nonnull %call1, ptr noundef %fp, i32 noundef 0) #2
-  %call.i = tail call noundef i32 @X509_REQ_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !7
+  %call.i = tail call i32 @X509_REQ_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef 0, i64 noundef 0)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #2
   br label %return
 
@@ -57,16 +57,16 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @BIO_set_fp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_REQ_print(ptr noundef %bio, ptr noundef %req) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_print(ptr noundef %bio, ptr noundef %req) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @X509_REQ_print_ex(ptr noundef %bio, ptr noundef %req, i64 noundef 0, i64 noundef 0), !range !7
+  %call = tail call i32 @X509_REQ_print_ex(ptr noundef %bio, ptr noundef %req, i64 noundef 0, i64 noundef 0)
   ret i32 %call
 }
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_REQ_print_ex(ptr noundef %bio, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %bio, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %and = and i64 %nmflags, 983040
   %cmp = icmp eq i64 %and, 262144
@@ -239,7 +239,7 @@ for.body115.us:                                   ; preds = %for.body115.lr.ph, 
 for.cond118.us:                                   ; preds = %for.body121.us
   %dec.us = add nsw i32 %k.083.us, -1
   %cmp119.us = icmp sgt i32 %k.083.us, 1
-  br i1 %cmp119.us, label %for.body121.us, label %for.cond118.for.end_crit_edge.us, !llvm.loop !8
+  br i1 %cmp119.us, label %for.body121.us, label %for.cond118.for.end_crit_edge.us, !llvm.loop !7
 
 if.end131.us:                                     ; preds = %for.cond118.for.end_crit_edge.us
   switch i32 %9, label %for.inc154.us [
@@ -263,7 +263,7 @@ for.inc154.us:                                    ; preds = %if.end131.us, %if.t
   %call152.us = tail call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull %.str.16.sink) #2
   %inc.us = add nuw nsw i32 %j.085.us, 1
   %exitcond97.not = icmp eq i32 %inc.us, %call101
-  br i1 %exitcond97.not, label %for.inc156, label %for.body115.us, !llvm.loop !10
+  br i1 %exitcond97.not, label %for.inc156, label %for.body115.us, !llvm.loop !9
 
 for.body121.us:                                   ; preds = %for.body115.us, %for.cond118.us
   %k.083.us = phi i32 [ %sub, %for.body115.us ], [ %dec.us, %for.cond118.us ]
@@ -313,13 +313,13 @@ for.inc154:                                       ; preds = %if.end131, %if.then
   %call150 = tail call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull %.str.6.sink) #2
   %inc = add nuw nsw i32 %j.085, 1
   %exitcond.not = icmp eq i32 %inc, %call101
-  br i1 %exitcond.not, label %for.inc156, label %for.body115, !llvm.loop !10
+  br i1 %exitcond.not, label %for.inc156, label %for.body115, !llvm.loop !9
 
 for.inc156:                                       ; preds = %for.inc154, %for.inc154.us, %for.cond112.preheader, %if.then105, %for.body
   %inc157 = add nuw i64 %i.088, 1
   %call86 = tail call i64 @sk_num(ptr noundef %8) #2
   %cmp87 = icmp ult i64 %inc157, %call86
-  br i1 %cmp87, label %for.body, label %if.end160, !llvm.loop !11
+  br i1 %cmp87, label %for.body, label %if.end160, !llvm.loop !10
 
 if.end160:                                        ; preds = %for.inc156, %for.cond.preheader, %if.then79, %if.end66
   %and161 = and i64 %cflag, 256
@@ -341,7 +341,7 @@ for.cond169:                                      ; preds = %if.end195
   %inc202 = add nuw i64 %i168.091, 1
   %call170 = tail call i64 @sk_num(ptr noundef nonnull %call164) #2
   %cmp171 = icmp ult i64 %inc202, %call170
-  br i1 %cmp171, label %for.body173, label %for.end203, !llvm.loop !12
+  br i1 %cmp171, label %for.body173, label %for.end203, !llvm.loop !11
 
 for.body173:                                      ; preds = %if.then166, %for.cond169
   %i168.091 = phi i64 [ %inc202, %for.cond169 ], [ 0, %if.then166 ]
@@ -468,9 +468,8 @@ attributes #2 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

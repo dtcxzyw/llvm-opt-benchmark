@@ -35,7 +35,7 @@ declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5cmsys13DynamicLoader12CloseLibraryEPv(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys13DynamicLoader12CloseLibraryEPv(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

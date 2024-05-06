@@ -33,7 +33,7 @@ entry:
   store ptr null, ptr %_pollfds, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_signaler, i8 0, i64 32, i1 false)
   %call = invoke noundef i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %invoke.cont unwind label %lpad, !range !4
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
@@ -55,7 +55,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EED2Ev.exit: ; preds = %lpad, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fd_size = alloca i64, align 8
   %_use_signaler = getelementptr inbounds i8, ptr %this, i64 41
@@ -116,7 +116,7 @@ for.inc.sink.split:                               ; preds = %if.then10, %land.lh
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body, %if.then16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.029, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end
   %7 = load i32, ptr %_pollset_size, align 4
@@ -229,7 +229,7 @@ for.inc123:                                       ; preds = %for.body59, %if.the
   %item_nbr.2 = phi i32 [ %item_nbr.132, %if.then67 ], [ %inc88, %do.end ], [ %inc120, %if.else90 ], [ %item_nbr.132, %for.body59 ]
   %incdec.ptr.i13 = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 32
   %cmp.i11.not = icmp eq ptr %incdec.ptr.i13, %13
-  br i1 %cmp.i11.not, label %return, label %for.body59, !llvm.loop !7
+  br i1 %cmp.i11.not, label %return, label %for.body59, !llvm.loop !6
 
 return:                                           ; preds = %for.inc123, %if.end48, %for.end, %if.then36
   %retval.0 = phi i32 [ -1, %if.then36 ], [ 0, %for.end ], [ 0, %if.end48 ], [ 0, %for.inc123 ]
@@ -283,7 +283,7 @@ if.then:                                          ; preds = %invoke.cont13
 for.inc:                                          ; preds = %for.body, %invoke.cont, %invoke.cont13, %if.then
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
   %_signaler19 = getelementptr inbounds i8, ptr %this, i64 8
@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3zmq15socket_poller_t11signaler_fdEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %fd_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq15socket_poller_t11signaler_fdEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %fd_) local_unnamed_addr #0 align 2 {
 entry:
   %_signaler = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_signaler, align 8
@@ -389,7 +389,7 @@ declare noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 d
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %socket_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %socket_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -407,7 +407,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %if.end, label %for.body.i, !llvm.loop !9
+  br i1 %cmp.i.not.i, label %if.end, label %for.body.i, !llvm.loop !8
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit: ; preds = %for.body.i, %entry
   %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %b_.sroa.0.04.i, %for.body.i ]
@@ -612,7 +612,7 @@ declare i32 @llvm.eh.typeid.for(ptr) #10
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -634,7 +634,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %if.end, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.i.not.i, label %if.end, label %for.body.i, !llvm.loop !9
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit: ; preds = %for.body.i, %entry
   %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %b_.sroa.0.04.i, %for.body.i ]
@@ -762,7 +762,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readnone %socket_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readnone %socket_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
 entry:
   %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -780,7 +780,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit, label %for.body.i, !llvm.loop !11
+  br i1 %cmp.i.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit, label %for.body.i, !llvm.loop !10
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit: ; preds = %for.body.i, %for.inc.i, %entry
   %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %incdec.ptr.i.i, %for.inc.i ], [ %b_.sroa.0.04.i, %for.body.i ]
@@ -805,7 +805,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t9modify_fdEis(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t9modify_fdEis(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
 entry:
   %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -827,7 +827,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.i.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.body.i, !llvm.loop !9
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit: ; preds = %for.body.i, %for.inc.i, %entry
   %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %incdec.ptr.i.i, %for.inc.i ], [ %b_.sroa.0.04.i, %for.body.i ]
@@ -852,7 +852,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t6removeEPNS_13socket_base_tE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %socket_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6removeEPNS_13socket_base_tE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %socket_) local_unnamed_addr #0 align 2 {
 entry:
   %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -870,7 +870,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !9
+  br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !8
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit: ; preds = %for.body.i, %entry
   %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %b_.sroa.0.04.i, %for.body.i ]
@@ -920,7 +920,7 @@ return:                                           ; preds = %_ZNSt6vectorIN3zmq1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t9remove_fdEi(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t9remove_fdEi(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_) local_unnamed_addr #11 align 2 {
 entry:
   %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -942,7 +942,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !9
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit: ; preds = %for.body.i, %entry
   %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %b_.sroa.0.04.i, %for.body.i ]
@@ -1020,7 +1020,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i16 0, ptr %events, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1150,7 +1150,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %cmp.i = icmp ne ptr %incdec.ptr.i, %1
   %cmp = icmp slt i32 %found.1, %n_events_
   %25 = select i1 %cmp.i, i1 %cmp, i1 false
-  br i1 %25, label %for.body, label %return, !llvm.loop !13
+  br i1 %25, label %for.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %if.then, %for.inc, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %found.1, %for.inc ], [ -1, %if.then ]
@@ -1158,7 +1158,7 @@ return:                                           ; preds = %if.then, %for.inc, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb(ptr noundef nonnull align 8 dereferenceable(16) %clock_, i64 noundef %timeout_, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %now_, ptr nocapture noundef nonnull align 8 dereferenceable(8) %end_, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first_pass_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb(ptr noundef nonnull align 8 dereferenceable(16) %clock_, i64 noundef %timeout_, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %now_, ptr nocapture noundef nonnull align 8 dereferenceable(8) %end_, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first_pass_) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i64 %timeout_, 0
   br i1 %cmp, label %return, label %if.end
@@ -1227,7 +1227,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call noundef i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noundef nonnull align 8 dereferenceable(56) %this), !range !4
+  %call4 = tail call noundef i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %cmp5 = icmp eq i32 %call4, -1
   br i1 %cmp5, label %return, label %if.end8
 
@@ -1353,7 +1353,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i16 0, ptr %events.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 if.end62:                                         ; preds = %if.end55
   br i1 %cmp.i13, label %while.end, label %if.end.i
@@ -1379,7 +1379,7 @@ _ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit: ; preds = %
   %now.1 = phi i64 [ %call.i, %if.then7.i ], [ %call.i, %if.end8.i ], [ %now.0, %if.end.i ]
   %retval.0.i = phi i32 [ 1, %if.then7.i ], [ %..i, %if.end8.i ], [ 1, %if.end.i ]
   %cmp64 = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp64, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp64, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end62, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit
   %call67 = tail call ptr @__errno_location() #23
@@ -1458,14 +1458,13 @@ attributes #28 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

@@ -1006,7 +1006,7 @@ define internal fastcc void @i915_gem_object_put(ptr noundef %0) unnamed_addr #4
 declare dso_local void @intel_engine_cleanup_common(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xcs_resume(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @xcs_resume(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

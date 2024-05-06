@@ -490,7 +490,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef %0, ptr noundef %1) unna
 140:                                              ; preds = %138, %135
   %.057.i = phi ptr [ %137, %135 ], [ %139, %138 ]
   %141 = load ptr, ptr %114, align 8
-  %142 = trunc i64 %indvars.iv91.i to i32
+  %142 = trunc nuw nsw i64 %indvars.iv91.i to i32
   call void %141(ptr noundef %0, ptr noundef %.057.i, i32 noundef %142) #8
   %.pre.i = load i32, ptr %111, align 4
   br label %143
@@ -592,7 +592,7 @@ list_head.exit.us.i:                              ; preds = %177, %.lr.ph61.spli
   %194 = load i32, ptr %193, align 4
   %195 = getelementptr inbounds i8, ptr %189, i64 80
   %196 = load i32, ptr %195, align 4
-  %197 = trunc i64 %indvars.iv.i30 to i32
+  %197 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   %198 = call i64 %192(ptr noundef %0, i32 noundef %197, i32 noundef %194, i32 noundef %196, ptr noundef nonnull %3) #8
   %199 = getelementptr i64, ptr %153, i64 %indvars.iv.i30
   store i64 %198, ptr %199, align 8

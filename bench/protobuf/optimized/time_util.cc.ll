@@ -537,8 +537,8 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf4util8TimeUtil10FromStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_8DurationE(i64 %value.coerce0, ptr %value.coerce1, ptr nocapture noundef writeonly %duration) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i45 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
-  %agg.tmp.i28 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
+  %agg.tmp.i46 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
+  %agg.tmp.i29 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %seconds_part = alloca %"class.std::__cxx11::basic_string", align 8
   %nanos_part = alloca %"class.std::__cxx11::basic_string", align 8
@@ -581,17 +581,17 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.then10:                                        ; preds = %for.cond.i.i
   %cmp.i.i = icmp ugt i64 %conv7, %value.coerce0
-  br i1 %cmp.i.i, label %if.then.i.i25.invoke, label %invoke.cont
+  br i1 %cmp.i.i, label %if.then.i.i26.invoke, label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then10
   %4 = xor i64 %conv7, -1
   %sub14 = add i64 %4, %value.coerce0
   %sub.i = sub i64 %value.coerce0, %conv7
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub14)
-  %add.ptr.i15 = getelementptr inbounds i8, ptr %value.coerce1, i64 %conv7
+  %add.ptr.i16 = getelementptr inbounds i8, ptr %value.coerce1, i64 %conv7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i, ptr nonnull %add.ptr.i15) #14
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i, ptr nonnull %add.ptr.i16) #14
   %5 = extractvalue { i64, ptr } %call.i, 0
   %6 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %5, ptr %6) #14
@@ -609,7 +609,7 @@ invoke.cont18:                                    ; preds = %invoke.cont
   %call21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %nanos_part, ptr noundef nonnull @.str.3)
           to label %if.end42 unwind label %lpad
 
-lpad:                                             ; preds = %if.then.i.i25.invoke, %invoke.cont18
+lpad:                                             ; preds = %if.then.i.i26.invoke, %invoke.cont18
   %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -621,57 +621,57 @@ lpad17:                                           ; preds = %invoke.cont
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.body.i.i
-  %cmp.i.i18 = icmp ugt i64 %conv7, %value.coerce0
-  br i1 %cmp.i.i18, label %if.then.i.i25.invoke, label %invoke.cont25
+  %cmp.i.i19 = icmp ugt i64 %conv7, %value.coerce0
+  br i1 %cmp.i.i19, label %if.then.i.i26.invoke, label %invoke.cont25
 
-if.then.i.i25.invoke:                             ; preds = %if.then10, %if.else
+if.then.i.i26.invoke:                             ; preds = %if.then10, %if.else
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, i64 noundef %conv7, i64 noundef %value.coerce0) #16
-          to label %if.then.i.i25.cont unwind label %lpad
+          to label %if.then.i.i26.cont unwind label %lpad
 
-if.then.i.i25.cont:                               ; preds = %if.then.i.i25.invoke
+if.then.i.i26.cont:                               ; preds = %if.then.i.i26.invoke
   unreachable
 
 invoke.cont25:                                    ; preds = %if.else
   %sub24 = sub i64 %dec4.i.i, %conv7
-  %sub.i19 = sub i64 %value.coerce0, %conv7
-  %.sroa.speculated.i20 = call i64 @llvm.umin.i64(i64 %sub.i19, i64 %sub24)
-  %add.ptr.i22 = getelementptr inbounds i8, ptr %value.coerce1, i64 %conv7
+  %sub.i20 = sub i64 %value.coerce0, %conv7
+  %.sroa.speculated.i21 = call i64 @llvm.umin.i64(i64 %sub.i20, i64 %sub24)
+  %add.ptr.i23 = getelementptr inbounds i8, ptr %value.coerce1, i64 %conv7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i28)
-  %call.i32 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i20, ptr nonnull %add.ptr.i22) #14
-  %12 = extractvalue { i64, ptr } %call.i32, 0
-  %13 = extractvalue { i64, ptr } %call.i32, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i28, i64 %12, ptr %13) #14
-  %14 = load i64, ptr %agg.tmp.i28, align 8
-  %15 = getelementptr inbounds i8, ptr %agg.tmp.i28, i64 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i29)
+  %call.i33 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i21, ptr nonnull %add.ptr.i23) #14
+  %12 = extractvalue { i64, ptr } %call.i33, 0
+  %13 = extractvalue { i64, ptr } %call.i33, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i29, i64 %12, ptr %13) #14
+  %14 = load i64, ptr %agg.tmp.i29, align 8
+  %15 = getelementptr inbounds i8, ptr %agg.tmp.i29, i64 8
   %16 = load ptr, ptr %15, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, i64 %14, ptr %16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i28)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i29)
   %call30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %seconds_part, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #14
   %17 = xor i64 %__size.1.i.i, -1
   %sub35 = add i64 %17, %value.coerce0
-  %sub.i36 = sub i64 %value.coerce0, %__size.1.i.i
-  %.sroa.speculated.i37 = call i64 @llvm.umin.i64(i64 %sub.i36, i64 %sub35)
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %value.coerce1, i64 %__size.1.i.i
+  %sub.i37 = sub i64 %value.coerce0, %__size.1.i.i
+  %.sroa.speculated.i38 = call i64 @llvm.umin.i64(i64 %sub.i37, i64 %sub35)
+  %add.ptr.i40 = getelementptr inbounds i8, ptr %value.coerce1, i64 %__size.1.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i45)
-  %call.i49 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i37, ptr nonnull %add.ptr.i39) #14
-  %18 = extractvalue { i64, ptr } %call.i49, 0
-  %19 = extractvalue { i64, ptr } %call.i49, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i45, i64 %18, ptr %19) #14
-  %20 = load i64, ptr %agg.tmp.i45, align 8
-  %21 = getelementptr inbounds i8, ptr %agg.tmp.i45, i64 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i46)
+  %call.i50 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i38, ptr nonnull %add.ptr.i40) #14
+  %18 = extractvalue { i64, ptr } %call.i50, 0
+  %19 = extractvalue { i64, ptr } %call.i50, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i46, i64 %18, ptr %19) #14
+  %20 = load i64, ptr %agg.tmp.i46, align 8
+  %21 = getelementptr inbounds i8, ptr %agg.tmp.i46, i64 8
   %22 = load ptr, ptr %21, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, i64 %20, ptr %22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %invoke.cont29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i45)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i46)
   %call41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %nanos_part, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #14
@@ -719,7 +719,7 @@ if.end57:                                         ; preds = %if.end49
 for.body.i:                                       ; preds = %if.end57, %for.body.i
   %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end57 ]
   %result.04.i = phi i64 [ %mul.i, %for.body.i ], [ 1, %if.end57 ]
-  %mul.i = mul nsw i64 %result.04.i, 10
+  %mul.i = mul nuw nsw i64 %result.04.i, 10
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %conv60
   br i1 %exitcond.not.i, label %invoke.cont68, label %for.body.i, !llvm.loop !39
@@ -778,7 +778,7 @@ define void @_ZN6google8protobuf4util8TimeUtil21NanosecondsToDurationEl(ptr noal
 entry:
   %div = sdiv i64 %nanos, 1000000000
   %rem = srem i64 %nanos, 1000000000
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nsw i64 %rem to i32
   %cmp2.i = icmp slt i64 %nanos, -999999999
   %cmp3.i = icmp sgt i32 %conv, 0
   %or.cond1.i = and i1 %cmp2.i, %cmp3.i
@@ -816,7 +816,7 @@ define void @_ZN6google8protobuf4util8TimeUtil22MicrosecondsToDurationEl(ptr noa
 entry:
   %div = sdiv i64 %micros, 1000000
   %rem = srem i64 %micros, 1000000
-  %0 = trunc i64 %rem to i32
+  %0 = trunc nsw i64 %rem to i32
   %conv = mul nsw i32 %0, 1000
   %cmp2.i = icmp slt i64 %micros, -999999
   %cmp3.i = icmp sgt i32 %0, 0
@@ -855,7 +855,7 @@ define void @_ZN6google8protobuf4util8TimeUtil22MillisecondsToDurationEl(ptr noa
 entry:
   %div = sdiv i64 %millis, 1000
   %rem = srem i64 %millis, 1000
-  %0 = trunc i64 %rem to i32
+  %0 = trunc nsw i64 %rem to i32
   %conv = mul nsw i32 %0, 1000000
   %cmp2.i = icmp slt i64 %millis, -999
   %cmp3.i = icmp sgt i32 %0, 0
@@ -986,7 +986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil17DurationToMinutesERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -153722867280912930, 153722867280912931) i64 @_ZN6google8protobuf4util8TimeUtil17DurationToMinutesERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1001,7 +1001,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil15DurationToHoursERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -153722867280912930, 153722867280912931) i64 @_ZN6google8protobuf4util8TimeUtil15DurationToHoursERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1020,7 +1020,7 @@ define void @_ZN6google8protobuf4util8TimeUtil22NanosecondsToTimestampEl(ptr noa
 entry:
   %div = sdiv i64 %nanos, 1000000000
   %rem = srem i64 %nanos, 1000000000
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nsw i64 %rem to i32
   %cmp2.i = icmp slt i32 %conv, 0
   %add4.i = add nsw i32 %conv, 1000000000
   %nanos.addr.1.i = select i1 %cmp2.i, i32 %add4.i, i32 %conv
@@ -1039,7 +1039,7 @@ define void @_ZN6google8protobuf4util8TimeUtil23MicrosecondsToTimestampEl(ptr no
 entry:
   %div = sdiv i64 %micros, 1000000
   %rem = srem i64 %micros, 1000000
-  %0 = trunc i64 %rem to i32
+  %0 = trunc nsw i64 %rem to i32
   %conv = mul nsw i32 %0, 1000
   %cmp2.i = icmp slt i32 %0, 0
   %add4.i = add nsw i32 %conv, 1000000000
@@ -1060,7 +1060,7 @@ define void @_ZN6google8protobuf4util8TimeUtil23MillisecondsToTimestampEl(ptr no
 entry:
   %div = sdiv i64 %millis, 1000
   %rem = srem i64 %millis, 1000
-  %0 = trunc i64 %rem to i32
+  %0 = trunc nsw i64 %rem to i32
   %conv = mul nsw i32 %0, 1000000
   %cmp2.i = icmp slt i32 %0, 0
   %add4.i = add nsw i32 %conv, 1000000000
@@ -1573,7 +1573,7 @@ entry:
   %coerce3.sroa.0.0.extract.trunc.i.i26 = trunc i128 %div.i.i to i64
   %3 = mul i128 %div.i.i, 1000000000
   %rem.i.i.decomposed = sub i128 %mul.i.i18.frozen, %3
-  %conv.i = trunc i128 %rem.i.i.decomposed to i32
+  %conv.i = trunc nuw nsw i128 %rem.i.i.decomposed to i32
   %sub.i27 = sub nsw i64 0, %coerce3.sroa.0.0.extract.trunc.i.i26
   %sub9.i = sub nsw i32 0, %conv.i
   %nanos.0.i = select i1 %negative.1, i32 %sub9.i, i32 %conv.i
@@ -1737,7 +1737,7 @@ entry:
   %coerce3.sroa.0.0.extract.trunc.i.i27 = trunc i128 %div.i.i26 to i64
   %3 = mul i128 %div.i.i26, 1000000000
   %rem.i.i.decomposed = sub i128 %div.i.i18.frozen, %3
-  %conv.i = trunc i128 %rem.i.i.decomposed to i32
+  %conv.i = trunc nuw nsw i128 %rem.i.i.decomposed to i32
   %sub.i28 = sub nsw i64 0, %coerce3.sroa.0.0.extract.trunc.i.i27
   %sub9.i = sub nsw i32 0, %conv.i
   %nanos.0.i = select i1 %negative.1, i32 %sub9.i, i32 %conv.i
@@ -1794,7 +1794,7 @@ entry:
   %coerce3.sroa.0.0.extract.trunc.i.i = trunc i128 %div.i.i to i64
   %6 = mul i128 %div.i.i, 1000000000
   %rem.i.i.decomposed = sub i128 %rem.i.frozen, %6
-  %conv.i = trunc i128 %rem.i.i.decomposed to i32
+  %conv.i = trunc nuw nsw i128 %rem.i.i.decomposed to i32
   %sub.i25 = sub nsw i64 0, %coerce3.sroa.0.0.extract.trunc.i.i
   %sub9.i = sub nsw i32 0, %conv.i
   %nanos.0.i = select i1 %or.cond, i32 %sub9.i, i32 %conv.i

@@ -650,7 +650,7 @@ define dso_local i64 @ZSTDMT_toFlushNow(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @ZSTDMT_initCStream_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %5, i64 noundef %6) local_unnamed_addr #1 {
+define dso_local range(i64 -64, 1) i64 @ZSTDMT_initCStream_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca %struct.ZSTD_CCtx_params_s, align 8
   %9 = alloca %struct.ZSTD_customMem, align 8
   %10 = alloca %struct.ZSTD_customMem, align 8
@@ -704,7 +704,7 @@ define dso_local noundef i64 @ZSTDMT_initCStream_internal(ptr noundef %0, ptr no
 ZSTDMT_freeJobsTable.exit.i.i:                    ; preds = %35, %34, %27
   store i32 0, ptr %23, align 8
   %.val12.i.i = load ptr, ptr %30, align 8
-  %36 = tail call i32 @llvm.ctlz.i32(i32 %22, i1 true), !range !12
+  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %37 = xor i32 %36, 31
   %38 = shl nuw i32 2, %37
   %39 = sub nuw nsw i32 32, %36
@@ -950,7 +950,7 @@ ZSTDMT_resize.exit:                               ; preds = %106
   %138 = getelementptr inbounds i8, ptr %136, i64 96
   %139 = load i64, ptr %138, align 8
   %140 = icmp ult i64 %137, %139
-  br i1 %140, label %.split.i, label %141, !llvm.loop !13
+  br i1 %140, label %.split.i, label %141, !llvm.loop !12
 
 .split.i:                                         ; preds = %132, %.split.i
   br label %.split.i
@@ -959,7 +959,7 @@ ZSTDMT_resize.exit:                               ; preds = %106
   %142 = add nuw i32 %133, 1
   store i32 %142, ptr %124, align 4
   %exitcond.not.i = icmp eq i32 %142, %126
-  br i1 %exitcond.not.i, label %ZSTDMT_waitForAllJobsCompleted.exit, label %132, !llvm.loop !14
+  br i1 %exitcond.not.i, label %ZSTDMT_waitForAllJobsCompleted.exit, label %132, !llvm.loop !13
 
 ZSTDMT_waitForAllJobsCompleted.exit:              ; preds = %141, %123
   %143 = getelementptr inbounds i8, ptr %0, i64 2832
@@ -1218,7 +1218,7 @@ ZSTDMT_computeTargetJobLog.exit:                  ; preds = %257, %.thread114, %
 285:                                              ; preds = %279
   %286 = lshr i64 %282, 10
   %287 = trunc i64 %286 to i32
-  %288 = tail call i32 @llvm.ctlz.i32(i32 %287, i1 true), !range !12
+  %288 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %287, i1 true)
   %289 = sub nuw nsw i32 41, %288
   %290 = getelementptr inbounds i8, ptr %0, i64 2808
   store i64 0, ptr %290, align 8
@@ -1676,7 +1676,7 @@ define dso_local i64 @ZSTDMT_compressStream_generic(ptr noundef %0, ptr nocaptur
 32:                                               ; preds = %34
   %33 = add nuw i32 %.026.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %33, %26
-  br i1 %exitcond.not.i.i, label %ZSTDMT_getInputDataInUse.exit.i, label %34, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %ZSTDMT_getInputDataInUse.exit.i, label %34, !llvm.loop !14
 
 34:                                               ; preds = %32, %.lr.ph.i.i
   %.026.i.i = phi i32 [ %24, %.lr.ph.i.i ], [ %33, %32 ]
@@ -2015,7 +2015,7 @@ ZSTDMT_tryGetInputRange.exit.thread:              ; preds = %ZSTDMT_tryGetInputR
   %160 = add i64 %159, %158
   %161 = add nuw nsw i64 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %161, 32
-  br i1 %exitcond.not.i.i.i, label %ZSTD_rollingHash_compute.exit.i, label %.lr.ph.i.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i.i, label %ZSTD_rollingHash_compute.exit.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 162:                                              ; preds = %149
   %163 = getelementptr inbounds i8, ptr %128, i64 %138
@@ -2035,7 +2035,7 @@ ZSTDMT_tryGetInputRange.exit.thread:              ; preds = %ZSTDMT_tryGetInputR
   %172 = add i64 %171, %170
   %173 = add nuw nsw i64 %.010.i.i60.i, 1
   %exitcond.not.i.i62.i = icmp eq i64 %.010.i.i60.i, %166
-  br i1 %exitcond.not.i.i62.i, label %.lr.ph.i.i65, label %.lr.ph.i.i59.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i62.i, label %.lr.ph.i.i65, label %.lr.ph.i.i59.i, !llvm.loop !15
 
 .lr.ph.i.i65:                                     ; preds = %.lr.ph.i.i59.i, %.lr.ph.i.i65
   %.010.i.i = phi i64 [ %180, %.lr.ph.i.i65 ], [ 0, %.lr.ph.i.i59.i ]
@@ -2048,7 +2048,7 @@ ZSTDMT_tryGetInputRange.exit.thread:              ; preds = %ZSTDMT_tryGetInputR
   %179 = add i64 %178, %177
   %180 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i.i66 = icmp eq i64 %180, %150
-  br i1 %exitcond.not.i.i66, label %ZSTD_rollingHash_compute.exit.i, label %.lr.ph.i.i65, !llvm.loop !16
+  br i1 %exitcond.not.i.i66, label %ZSTD_rollingHash_compute.exit.i, label %.lr.ph.i.i65, !llvm.loop !15
 
 181:                                              ; preds = %147
   %182 = getelementptr inbounds i8, ptr %128, i64 %138
@@ -2066,7 +2066,7 @@ ZSTDMT_tryGetInputRange.exit.thread:              ; preds = %ZSTDMT_tryGetInputR
   %189 = add i64 %188, %187
   %190 = add nuw nsw i64 %.010.i.i65.i, 1
   %exitcond.not.i.i67.i = icmp eq i64 %190, 32
-  br i1 %exitcond.not.i.i67.i, label %ZSTD_rollingHash_compute.exit69.i, label %.lr.ph.i.i64.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i67.i, label %ZSTD_rollingHash_compute.exit69.i, label %.lr.ph.i.i64.i, !llvm.loop !15
 
 ZSTD_rollingHash_compute.exit69.i:                ; preds = %.lr.ph.i.i64.i
   %191 = and i64 %189, %133
@@ -2105,7 +2105,7 @@ ZSTD_rollingHash_compute.exit.i:                  ; preds = %.lr.ph.i.i65, %.lr.
 
 210:                                              ; preds = %.lr.ph.i
   %exitcond.not.i = icmp eq i64 %209, %..i
-  br i1 %exitcond.not.i, label %findSynchronizationPoint.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %findSynchronizationPoint.exit, label %.lr.ph.i, !llvm.loop !16
 
 findSynchronizationPoint.exit:                    ; preds = %210, %.lr.ph.i, %ZSTDMT_tryGetInputRange.exit.thread, %142, %ZSTD_rollingHash_compute.exit69.i, %ZSTD_rollingHash_compute.exit.i
   %.sroa.0.0.i = phi i64 [ %..i, %142 ], [ %..i, %ZSTDMT_tryGetInputRange.exit.thread ], [ 0, %ZSTD_rollingHash_compute.exit69.i ], [ %..i, %ZSTD_rollingHash_compute.exit.i ], [ %..i, %210 ], [ %209, %.lr.ph.i ]
@@ -2468,7 +2468,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %385, %ZSTDMT_writeL
   %405 = load i64, ptr %398, align 8
   %406 = load i64, ptr %404, align 8
   %407 = icmp eq i64 %405, %406
-  br i1 %407, label %.loopexit.split.i, label %.preheader.split.split.i, !llvm.loop !18
+  br i1 %407, label %.loopexit.split.i, label %.preheader.split.split.i, !llvm.loop !17
 
 .preheader.split.split.i:                         ; preds = %.preheader.split.i, %.preheader.split.split.i
   br label %.preheader.split.split.i
@@ -2501,7 +2501,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %385, %ZSTDMT_writeL
   %427 = getelementptr inbounds i8, ptr %425, i64 96
   %428 = load i64, ptr %427, align 8
   %429 = icmp ult i64 %426, %428
-  br i1 %429, label %.split.i.i, label %430, !llvm.loop !13
+  br i1 %429, label %.split.i.i, label %430, !llvm.loop !12
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i75, %.split.i.i
   br label %.split.i.i
@@ -2510,7 +2510,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %385, %ZSTDMT_writeL
   %431 = add nuw i32 %422, 1
   store i32 %431, ptr %386, align 4
   %exitcond.not.i.i76 = icmp eq i32 %431, %420
-  br i1 %exitcond.not.i.i76, label %ZSTDMT_waitForAllJobsCompleted.exit.i, label %.lr.ph.i.i75, !llvm.loop !14
+  br i1 %exitcond.not.i.i76, label %ZSTDMT_waitForAllJobsCompleted.exit.i, label %.lr.ph.i.i75, !llvm.loop !13
 
 ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %430, %418
   %432 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2986,32 +2986,32 @@ ZSTDMT_getCCtx.exit:                              ; preds = %9, %15
   %.0.i = phi ptr [ %14, %9 ], [ %17, %15 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load i64, ptr %20, align 8, !noalias !19
+  %21 = load i64, ptr %20, align 8, !noalias !18
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %ZSTDMT_getCCtx.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i8 0, i64 24, i1 false), !alias.scope !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i8 0, i64 24, i1 false), !alias.scope !18
   br label %ZSTDMT_getSeq.exit
 
 24:                                               ; preds = %ZSTDMT_getCCtx.exit
   %25 = getelementptr inbounds i8, ptr %19, i64 20
-  %26 = load i32, ptr %25, align 4, !noalias !19
+  %26 = load i32, ptr %25, align 4, !noalias !18
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %ZSTD_customFree.exit.i.i, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %19, i64 48
   %29 = add i32 %26, -1
-  store i32 %29, ptr %25, align 4, !noalias !19
+  store i32 %29, ptr %25, align 4, !noalias !18
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds [1 x %struct.buffer_s], ptr %28, i64 0, i64 %30
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %31, align 8, !noalias !19
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %31, align 8, !noalias !18
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 8
-  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !noalias !19
+  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !noalias !18
   %32 = icmp uge i64 %.sroa.4.0.copyload.i.i, %21
   %33 = lshr i64 %.sroa.4.0.copyload.i.i, 3
   %34 = icmp ule i64 %33, %21
@@ -3020,9 +3020,9 @@ ZSTDMT_getCCtx.exit:                              ; preds = %9, %15
 
 36:                                               ; preds = %27
   %37 = getelementptr i8, ptr %19, i64 32
-  %.val.i.i = load ptr, ptr %37, align 8, !noalias !19
+  %.val.i.i = load ptr, ptr %37, align 8, !noalias !18
   %38 = getelementptr i8, ptr %19, i64 40
-  %.val17.i.i = load ptr, ptr %38, align 8, !noalias !19
+  %.val17.i.i = load ptr, ptr %38, align 8, !noalias !18
   %.not.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i, null
   br i1 %.not.i.i.i, label %ZSTD_customFree.exit.i.i, label %39
 
@@ -3031,23 +3031,23 @@ ZSTDMT_getCCtx.exit:                              ; preds = %9, %15
   br i1 %.not4.i.i.i, label %41, label %40
 
 40:                                               ; preds = %39
-  tail call void %.val.i.i(ptr noundef %.val17.i.i, ptr noundef nonnull %.sroa.0.0.copyload.i.i) #15, !noalias !19
+  tail call void %.val.i.i(ptr noundef %.val17.i.i, ptr noundef nonnull %.sroa.0.0.copyload.i.i) #15, !noalias !18
   br label %ZSTD_customFree.exit.i.i
 
 41:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %.sroa.0.0.copyload.i.i) #15, !noalias !19
+  tail call void @free(ptr noundef nonnull %.sroa.0.0.copyload.i.i) #15, !noalias !18
   br label %ZSTD_customFree.exit.i.i
 
 ZSTD_customFree.exit.i.i:                         ; preds = %41, %40, %36, %24
   %42 = getelementptr inbounds i8, ptr %19, i64 24
-  %.val18.i.i = load ptr, ptr %42, align 8, !noalias !19
+  %.val18.i.i = load ptr, ptr %42, align 8, !noalias !18
   %.not.i20.i.i = icmp eq ptr %.val18.i.i, null
   br i1 %.not.i20.i.i, label %46, label %43
 
 43:                                               ; preds = %ZSTD_customFree.exit.i.i
   %44 = getelementptr i8, ptr %19, i64 40
-  %.val19.i.i = load ptr, ptr %44, align 8, !noalias !19
-  %45 = tail call ptr %.val18.i.i(ptr noundef %.val19.i.i, i64 noundef %21) #15, !noalias !19
+  %.val19.i.i = load ptr, ptr %44, align 8, !noalias !18
+  %45 = tail call ptr %.val18.i.i(ptr noundef %.val19.i.i, i64 noundef %21) #15, !noalias !18
   br label %ZSTD_customMalloc.exit.i.i
 
 46:                                               ; preds = %ZSTD_customFree.exit.i.i
@@ -3063,7 +3063,7 @@ ZSTD_customMalloc.exit.i.i:                       ; preds = %46, %43
 ZSTDMT_getBuffer.exit.i:                          ; preds = %ZSTD_customMalloc.exit.i.i, %27
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %27 ], [ %.0.i.i.i, %ZSTD_customMalloc.exit.i.i ]
   %.sroa.4.0.i.i = phi i64 [ %.sroa.4.0.copyload.i.i, %27 ], [ %49, %ZSTD_customMalloc.exit.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i8 0, i64 24, i1 false), !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i8 0, i64 24, i1 false), !alias.scope !21
   %50 = udiv i64 %.sroa.4.0.i.i, 12
   br label %ZSTDMT_getSeq.exit
 
@@ -3280,7 +3280,7 @@ ZSTDMT_getBuffer.exit:                            ; preds = %64, %ZSTD_customMal
   %147 = getelementptr inbounds i8, ptr %141, i64 2416
   %148 = load i32, ptr %147, align 8
   %149 = icmp ult i32 %148, %143
-  br i1 %149, label %.split.i, label %150, !llvm.loop !25
+  br i1 %149, label %.split.i, label %150, !llvm.loop !24
 
 .split.i:                                         ; preds = %139, %.split.i
   br label %.split.i
@@ -3460,7 +3460,7 @@ ZSTDMT_serialState_update.exit:                   ; preds = %207, %212
   store i64 %245, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %234, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %234, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %240, %224
   %.0118.lcssa = phi ptr [ %.sroa.045.0, %224 ], [ %242, %240 ]
@@ -3688,18 +3688,17 @@ attributes #17 = { nounwind allocsize(0) }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 0, i32 33}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"ZSTDMT_getSeq: argument 0"}
-!21 = distinct !{!21, !"ZSTDMT_getSeq"}
-!22 = !{!23, !20}
-!23 = distinct !{!23, !24, !"bufferToSeq: argument 0"}
-!24 = distinct !{!24, !"bufferToSeq"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"ZSTDMT_getSeq: argument 0"}
+!20 = distinct !{!20, !"ZSTDMT_getSeq"}
+!21 = !{!22, !19}
+!22 = distinct !{!22, !23, !"bufferToSeq: argument 0"}
+!23 = distinct !{!23, !"bufferToSeq"}
+!24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}

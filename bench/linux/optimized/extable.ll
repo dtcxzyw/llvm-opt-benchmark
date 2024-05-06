@@ -23,7 +23,7 @@ define dso_local void @sort_extable(ptr noundef %0, ptr noundef %1) local_unname
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @cmp_ex_sort(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 -1, 2) i32 @cmp_ex_sort(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = ptrtoint ptr %0 to i64
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
@@ -195,7 +195,7 @@ define dso_local ptr @search_extable(ptr noundef %0, i64 noundef %1, i64 noundef
 declare dso_local ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @cmp_ex_search(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 -1, 2) i32 @cmp_ex_search(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = ptrtoint ptr %1 to i64
   %5 = load i32, ptr %1, align 4

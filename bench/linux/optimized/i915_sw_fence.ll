@@ -256,13 +256,13 @@ define dso_local void @i915_sw_fence_commit(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_sw_fence_await_sw_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 2) i32 @i915_sw_fence_await_sw_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @__i915_sw_fence_await_sw_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !19
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__i915_sw_fence_await_sw_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 2) i32 @__i915_sw_fence_await_sw_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = and i32 %3, 1024
   %7 = icmp eq i32 %6, 0
@@ -418,7 +418,7 @@ define internal fastcc noundef i32 @__i915_sw_fence_await_sw_fence(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_sw_fence_await_sw_fence_gfp(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 2) i32 @i915_sw_fence_await_sw_fence_gfp(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @__i915_sw_fence_await_sw_fence(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %2), !range !19
   ret i32 %4
 }
@@ -755,7 +755,7 @@ define internal void @dma_i915_sw_fence_wake_timer(ptr nocapture noundef readonl
 declare dso_local i32 @dma_fence_add_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__i915_sw_fence_await_dma_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @__i915_sw_fence_await_dma_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1

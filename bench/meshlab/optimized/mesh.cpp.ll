@@ -60392,7 +60392,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
   %107 = getelementptr inbounds i8, ptr %.185110.i, i64 16
   store double %106, ptr %107, align 8
   %108 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %55, i64 0, i64 %68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %92, ptr noundef nonnull align 8 dereferenceable(18) %108, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %92, ptr noundef nonnull readonly align 8 dereferenceable(18) %108, i64 18, i1 false)
   %sext.i = shl i64 %66, 32
   %109 = ashr exact i64 %sext.i, 32
   %110 = load ptr, ptr %4, align 8

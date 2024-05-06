@@ -851,7 +851,7 @@ define dso_local i64 @multirange_out(ptr nocapture noundef readonly %0) local_un
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %16 ]
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %21 = call ptr @multirange_get_range(ptr noundef %12, ptr noundef %6, i32 noundef %20)
+  %21 = call ptr @multirange_get_range(ptr noundef readonly %12, ptr noundef %6, i32 noundef %20)
   %22 = getelementptr ptr, ptr %19, i64 %indvars.iv.i
   store ptr %21, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1047,7 +1047,7 @@ define dso_local i64 @multirange_send(ptr nocapture noundef readonly %0) local_u
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %24 ]
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %29 = tail call ptr @multirange_get_range(ptr noundef %21, ptr noundef %5, i32 noundef %28)
+  %29 = tail call ptr @multirange_get_range(ptr noundef readonly %21, ptr noundef %5, i32 noundef %28)
   %30 = getelementptr ptr, ptr %27, i64 %indvars.iv.i
   store ptr %29, ptr %30, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2151,7 +2151,7 @@ multirange_get_typcache.exit:                     ; preds = %24, %34
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %41 ]
   %45 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %46 = tail call ptr @multirange_get_range(ptr noundef %39, ptr noundef %5, i32 noundef %45)
+  %46 = tail call ptr @multirange_get_range(ptr noundef readonly %39, ptr noundef %5, i32 noundef %45)
   %47 = getelementptr ptr, ptr %44, i64 %indvars.iv.i
   store ptr %46, ptr %47, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2178,7 +2178,7 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
 .lr.ph.i19:                                       ; preds = %51, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i21, %.lr.ph.i19 ], [ 0, %51 ]
   %55 = trunc nuw nsw i64 %indvars.iv.i20 to i32
-  %56 = tail call ptr @multirange_get_range(ptr noundef %48, ptr noundef %9, i32 noundef %55)
+  %56 = tail call ptr @multirange_get_range(ptr noundef readonly %48, ptr noundef %9, i32 noundef %55)
   %57 = getelementptr ptr, ptr %54, i64 %indvars.iv.i20
   store ptr %56, ptr %57, align 8
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
@@ -2280,7 +2280,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %40 ]
   %44 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %45 = tail call ptr @multirange_get_range(ptr noundef %30, ptr noundef %5, i32 noundef %44)
+  %45 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %5, i32 noundef %44)
   %46 = getelementptr ptr, ptr %43, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2308,7 +2308,7 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
 .lr.ph.i15:                                       ; preds = %50, %.lr.ph.i15
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %.lr.ph.i15 ], [ 0, %50 ]
   %54 = trunc nuw nsw i64 %indvars.iv.i16 to i32
-  %55 = tail call ptr @multirange_get_range(ptr noundef %47, ptr noundef %9, i32 noundef %54)
+  %55 = tail call ptr @multirange_get_range(ptr noundef readonly %47, ptr noundef %9, i32 noundef %54)
   %56 = getelementptr ptr, ptr %53, i64 %indvars.iv.i16
   store ptr %55, ptr %56, align 8
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
@@ -2522,7 +2522,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %42 ]
   %46 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %47 = tail call ptr @multirange_get_range(ptr noundef %30, ptr noundef %5, i32 noundef %46)
+  %47 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %5, i32 noundef %46)
   %48 = getelementptr ptr, ptr %45, i64 %indvars.iv.i
   store ptr %47, ptr %48, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2548,7 +2548,7 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
 .lr.ph.i16:                                       ; preds = %51, %.lr.ph.i16
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %.lr.ph.i16 ], [ 0, %51 ]
   %55 = trunc nuw nsw i64 %indvars.iv.i17 to i32
-  %56 = tail call ptr @multirange_get_range(ptr noundef %30, ptr noundef %9, i32 noundef %55)
+  %56 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %9, i32 noundef %55)
   %57 = getelementptr ptr, ptr %54, i64 %indvars.iv.i17
   store ptr %56, ptr %57, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
@@ -2960,7 +2960,7 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %57 ]
   %61 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %62 = call ptr @multirange_get_range(ptr noundef %33, ptr noundef %53, i32 noundef %61)
+  %62 = call ptr @multirange_get_range(ptr noundef readonly %33, ptr noundef %53, i32 noundef %61)
   %63 = getelementptr ptr, ptr %60, i64 %indvars.iv.i
   store ptr %62, ptr %63, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3090,7 +3090,7 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %45 ]
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %50 = call ptr @multirange_get_range(ptr noundef %41, ptr noundef %35, i32 noundef %49)
+  %50 = call ptr @multirange_get_range(ptr noundef readonly %41, ptr noundef %35, i32 noundef %49)
   %51 = getelementptr ptr, ptr %48, i64 %indvars.iv.i
   store ptr %50, ptr %51, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3118,7 +3118,7 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
 .lr.ph.i13:                                       ; preds = %56, %.lr.ph.i13
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %.lr.ph.i13 ], [ 0, %56 ]
   %60 = trunc nuw nsw i64 %indvars.iv.i14 to i32
-  %61 = call ptr @multirange_get_range(ptr noundef %52, ptr noundef %39, i32 noundef %60)
+  %61 = call ptr @multirange_get_range(ptr noundef readonly %52, ptr noundef %39, i32 noundef %60)
   %62 = getelementptr ptr, ptr %59, i64 %indvars.iv.i14
   store ptr %61, ptr %62, align 8
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
@@ -3293,7 +3293,7 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3306,7 +3306,7 @@ define dso_local i64 @multirange_empty(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_lower_inc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_lower_inc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3369,7 +3369,7 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_upper_inc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_upper_inc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3435,7 +3435,7 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_lower_inf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_lower_inf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3498,7 +3498,7 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_upper_inf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_upper_inf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3564,7 +3564,7 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_contains_elem(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_contains_elem(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3704,7 +3704,7 @@ multirange_bsearch_match.exit:                    ; preds = %31, %40, %42, %mult
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @elem_contained_by_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @elem_contained_by_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -3754,7 +3754,7 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_contains_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_contains_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3881,7 +3881,7 @@ multirange_bsearch_match.exit:                    ; preds = %multirange_range_co
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @range_contains_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_contains_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3975,7 +3975,7 @@ range_bounds_contains.exit:                       ; preds = %24, %21, %13, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @range_contained_by_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_contained_by_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4027,7 +4027,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_contained_by_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_contained_by_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4138,7 +4138,7 @@ define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr 
 declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4197,7 +4197,7 @@ define dso_local noundef zeroext i1 @multirange_ne_internal(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4250,7 +4250,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @range_overlaps_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_overlaps_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4364,7 +4364,7 @@ multirange_bsearch_match.exit:                    ; preds = %21, %multirange_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_overlaps_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_overlaps_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4416,7 +4416,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_overlaps_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_overlaps_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4573,7 +4573,7 @@ define dso_local zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @range_overleft_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_overleft_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -4661,7 +4661,7 @@ range_overleft_multirange_internal.exit:          ; preds = %multirange_get_typc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_overleft_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_overleft_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -4741,7 +4741,7 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_overleft_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_overleft_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -4853,7 +4853,7 @@ define dso_local zeroext i1 @range_overright_multirange_internal(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @range_overright_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_overright_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -4939,7 +4939,7 @@ range_overright_multirange_internal.exit:         ; preds = %multirange_get_typc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_overright_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_overright_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -5017,7 +5017,7 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_overright_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_overright_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -5094,7 +5094,7 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_contains_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_contains_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5209,7 +5209,7 @@ range_bounds_contains.exit:                       ; preds = %17, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @multirange_contained_by_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_contained_by_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5261,7 +5261,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @range_before_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_before_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -5377,7 +5377,7 @@ define dso_local zeroext i1 @range_before_multirange_internal(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_before_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_before_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -5497,7 +5497,7 @@ define dso_local zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_before_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_before_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -5611,7 +5611,7 @@ define dso_local zeroext i1 @multirange_before_multirange_internal(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @range_after_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_after_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -5699,7 +5699,7 @@ range_after_multirange_internal.exit:             ; preds = %multirange_get_typc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_after_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_after_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -5785,7 +5785,7 @@ range_before_multirange_internal.exit:            ; preds = %multirange_get_typc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_after_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_after_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -5926,7 +5926,7 @@ define dso_local zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, 
 declare zeroext i1 @bounds_adjacent(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @range_adjacent_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @range_adjacent_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5978,7 +5978,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_adjacent_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_adjacent_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6046,7 +6046,7 @@ multirange_get_typcache.exit:                     ; preds = %23, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_adjacent_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @multirange_adjacent_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -6163,7 +6163,7 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @multirange_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
@@ -6299,16 +6299,16 @@ multirange_get_typcache.exit:                     ; preds = %26, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @multirange_cmp(ptr noundef %0), !range !39
+define dso_local range(i64 0, 2) i64 @multirange_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @multirange_cmp(ptr noundef %0)
   %3 = lshr i64 %2, 31
   %.lobit = and i64 %3, 1
   ret i64 %.lobit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @multirange_cmp(ptr noundef %0), !range !39
+define dso_local range(i64 0, 2) i64 @multirange_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @multirange_cmp(ptr noundef %0)
   %3 = trunc nsw i64 %2 to i32
   %4 = icmp slt i32 %3, 1
   %5 = zext i1 %4 to i64
@@ -6316,8 +6316,8 @@ define dso_local i64 @multirange_le(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @multirange_cmp(ptr noundef %0), !range !39
+define dso_local range(i64 0, 2) i64 @multirange_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @multirange_cmp(ptr noundef %0)
   %3 = lshr i64 %2, 31
   %.lobit = and i64 %3, 1
   %4 = xor i64 %.lobit, 1
@@ -6325,8 +6325,8 @@ define dso_local i64 @multirange_ge(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @multirange_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @multirange_cmp(ptr noundef %0), !range !39
+define dso_local range(i64 0, 2) i64 @multirange_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @multirange_cmp(ptr noundef %0)
   %3 = trunc nsw i64 %2 to i32
   %4 = icmp sgt i32 %3, 0
   %5 = zext i1 %4 to i64
@@ -6496,7 +6496,7 @@ declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hash_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hash_multirange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -6630,7 +6630,7 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
   %84 = add i32 %82, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %78
   %85 = zext i32 %84 to i64
@@ -6794,7 +6794,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   %88 = add i64 %86, %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %78, %46
   %.0.lcssa = phi i64 [ 1, %46 ], [ %88, %78 ]
@@ -6911,6 +6911,5 @@ attributes #14 = { nounwind willreturn memory(read) }
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
-!39 = !{i64 -2147483648, i64 2147483648}
+!39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}

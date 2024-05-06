@@ -390,7 +390,7 @@ declare i64 @rb_io_taint_check(i64 noundef) local_unnamed_addr #2
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @rsock_sockaddr_len(ptr noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 268) i32 @rsock_sockaddr_len(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %sockaddr_len.exit, label %3
 
@@ -592,7 +592,7 @@ rb_num2int_inline.exit:                           ; preds = %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @sock_connect(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @sock_connect(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
@@ -1062,7 +1062,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @sock_s_getservbyname(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 1, 0) i64 @sock_s_getservbyname(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -1169,7 +1169,7 @@ rb_num2long_inline.exit:                          ; preds = %9, %11
 
 27:                                               ; preds = %23
   %28 = load i64, ptr @rb_eSocket, align 8
-  %29 = trunc i64 %.0.i to i32
+  %29 = trunc nuw nsw i64 %.0.i to i32
   call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.50, i32 noundef %29, ptr noundef %.0) #15
   unreachable
 
@@ -1430,7 +1430,7 @@ RSTRING_PTR.exit:                                 ; preds = %33, %37
   br i1 %.not.i51, label %.thread86, label %38
 
 38:                                               ; preds = %RSTRING_PTR.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 1 %.sroa.2.0.i, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %9, ptr readonly align 1 %.sroa.2.0.i, i64 %29, i1 false)
   br label %.thread86
 
 39:                                               ; preds = %22
@@ -1566,7 +1566,7 @@ RARRAY_AREF.exit73:                               ; preds = %RARRAY_AREF.exit70,
   br i1 %.not44, label %114, label %.thread101
 
 .thread86:                                        ; preds = %38, %RSTRING_PTR.exit
-  %110 = trunc i64 %29 to i32
+  %110 = trunc nuw i64 %29 to i32
   %111 = call i32 @rb_getnameinfo(ptr noundef nonnull %9, i32 noundef %110, ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull %7, i64 noundef 1024, i32 noundef %.038) #13
   %.not4490 = icmp eq i32 %111, 0
   br i1 %.not4490, label %.thread93, label %.thread96
@@ -1691,7 +1691,7 @@ define internal i64 @sock_s_unpack_sockaddr_in(i64 %0, i64 noundef %1) #0 {
 
 RSTRING_LENINT.exit:                              ; preds = %16
   %18 = getelementptr inbounds i8, ptr %4, i64 2
-  %19 = trunc i64 %8 to i32
+  %19 = trunc nuw i64 %8 to i32
   %20 = call i64 @rsock_make_ipaddr(ptr noundef nonnull %4, i32 noundef %19) #13
   %21 = load i16, ptr %18, align 2
   %22 = call zeroext i16 @ntohs(i16 noundef zeroext %21) #19
@@ -1741,7 +1741,7 @@ RSTRING_PTR.exit:                                 ; preds = %14, %19
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %20
 
 20:                                               ; preds = %RSTRING_PTR.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %15, ptr align 1 %.sroa.2.0.i, i64 %10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %15, ptr readonly align 1 %.sroa.2.0.i, i64 %10, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %20
@@ -1788,7 +1788,7 @@ define internal i64 @sock_s_unpack_sockaddr_un(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %16
-  %20 = trunc i64 %8 to i32
+  %20 = trunc nuw i64 %8 to i32
   %21 = call i64 @rsock_unixpath_str(ptr noundef nonnull %4, i32 noundef %20) #13
   ret i64 %21
 }

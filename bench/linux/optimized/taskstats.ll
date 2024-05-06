@@ -607,7 +607,7 @@ declare dso_local ptr @genlmsg_put(ptr noundef, i32 noundef, i32 noundef, ptr no
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @taskstats_user_cmd(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca [1 x %struct.cpumask], align 8
   %5 = alloca [1 x %struct.cpumask], align 8
@@ -990,7 +990,7 @@ define internal i32 @taskstats_user_cmd(ptr nocapture readnone %0, ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @cgroupstats_user_cmd(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @cgroupstats_user_cmd(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -1102,7 +1102,7 @@ prepare_reply.exit.thread:                        ; preds = %15, %31, %42, %41, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @add_del_listener(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr @__cpu_possible_mask, align 8
   %6 = xor i64 %5, -1

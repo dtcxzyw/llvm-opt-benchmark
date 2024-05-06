@@ -46,15 +46,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5draco22SelectPredictionMethodEiPKNS_17PointCloudEncoderE(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define noundef range(i32 0, 7) i32 @_ZN5draco22SelectPredictionMethodEiPKNS_17PointCloudEncoderE(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18EncoderOptionsBaseIiEEPKNS_17PointCloudEncoderE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %1), !range !4
+  %5 = tail call noundef i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18EncoderOptionsBaseIiEEPKNS_17PointCloudEncoderE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %1)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18EncoderOptionsBaseIiEEPKNS_17PointCloudEncoderE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 7) i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18EncoderOptionsBaseIiEEPKNS_17PointCloudEncoderE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.16", align 1
@@ -385,7 +385,7 @@ define linkonce_odr noundef i32 @_ZNK5draco12DracoOptionsIiE15GetAttributeIntERK
   %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %9, !llvm.loop !5
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %9, !llvm.loop !4
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %9
   %13 = icmp eq ptr %.19.i.i.i.i, %7
@@ -426,7 +426,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i.i.i.i14 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 %.1.in.v.i.i.i.i13
   %.1.i.i.i.i15 = load ptr, ptr %.1.in.i.i.i.i14, align 8
   %.not.i.i.i.i16 = icmp eq ptr %.1.i.i.i.i15, null
-  br i1 %.not.i.i.i.i16, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %.lr.ph.i.i.i.i11, !llvm.loop !7
+  br i1 %.not.i.i.i.i16, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %.lr.ph.i.i.i.i11, !llvm.loop !6
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %27 = icmp eq ptr %.19.i.i.i.i12, %20
@@ -505,7 +505,7 @@ declare noundef zeroext i1 @_ZN5draco18IsDataTypeIntegralENS_8DataTypeE(i32 noun
 declare noundef i32 @_ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5draco30GetPredictionMethodFromOptionsEiRKNS_18EncoderOptionsBaseIiEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2, 7) i32 @_ZN5draco30GetPredictionMethodFromOptionsEiRKNS_18EncoderOptionsBaseIiEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.16", align 1
@@ -703,7 +703,6 @@ attributes #12 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 7}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

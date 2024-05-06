@@ -79,7 +79,7 @@ define internal void @ompi_request_destruct(ptr nocapture readnone %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_request_init() local_unnamed_addr #3 {
+define range(i32 -101, 1) i32 @ompi_request_init() local_unnamed_addr #3 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
   %2 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_request_t_class, i64 0, i32 4), align 8
   %.not = icmp eq i32 %1, %2
@@ -314,7 +314,7 @@ opal_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %opal_ob
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_request_persistent_noop_create(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @ompi_request_persistent_noop_create(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
   %2 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_request_t_class, i64 0, i32 8), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #10
   %4 = load i32, ptr @opal_class_init_epoch, align 4

@@ -45,7 +45,7 @@ define hidden void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512(ptr nocapture noundef nonnull writeonly align 1 %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #1 {
   %3 = load i8, ptr %1, align 1, !range !11, !noundef !4
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.7545075396174394512.exit.thread, label %5
 
 5:                                                ; preds = %2
@@ -492,7 +492,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuar
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !182, !noundef !4
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit.i, label %7
 
 7:                                                ; preds = %1
@@ -776,7 +776,7 @@ define hidden void @"_ZN4core3ptr149drop_in_place$LT$std..sync..poison..PoisonEr
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
   %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !282, !noundef !4
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit.i.i, label %7
 
 7:                                                ; preds = %1
@@ -1194,7 +1194,7 @@ define hidden void @"_ZN4core3ptr665drop_in_place$LT$tokio_util..sync..reusable_
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !nonnull !4, !noundef !4
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !noalias !440, !nonnull !4, !noundef !4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.3.0..sroa_idx.i, i64 96, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull readonly align 8 dereferenceable(96) %.sroa.3.0..sroa_idx.i, i64 96, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !443)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !446)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !449)
@@ -1751,7 +1751,7 @@ common.ret:                                       ; preds = %33, %"_ZN4core3ptr7
   ret void
 
 57:                                               ; preds = %50, %46
-  %58 = trunc i8 %30 to i1
+  %58 = trunc nuw i8 %30 to i1
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %58, label %66, label %60
 
@@ -2015,7 +2015,7 @@ define hidden void @"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !592)
   %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !592, !noundef !4
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.7545075396174394512.exit, label %7
 
 7:                                                ; preds = %1

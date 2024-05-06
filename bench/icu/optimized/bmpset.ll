@@ -420,7 +420,7 @@ if.then32.split.loop.exit:                        ; preds = %for.cond
   br label %if.then32
 
 if.then32.split.loop.exit155:                     ; preds = %if.end30
-  %16 = trunc i64 %indvars.iv.next to i32
+  %16 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.then32
 
 if.then32:                                        ; preds = %if.then32.split.loop.exit155, %if.then32.split.loop.exit
@@ -950,7 +950,7 @@ if.then12:                                        ; preds = %if.else8
   br i1 %cmp20, label %if.then21, label %if.else23
 
 if.then21:                                        ; preds = %if.then12
-  %conv22 = trunc i32 %and19 to i8
+  %conv22 = trunc nuw nsw i32 %and19 to i8
   br label %return
 
 if.else23:                                        ; preds = %if.then12
@@ -2314,7 +2314,7 @@ return:                                           ; preds = %do.body, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_756BMPSet12spanBackUTF8EPKhi17USetSpanCondition(ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %this, ptr noundef %s, i32 noundef %length, i32 noundef %spanCondition) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_756BMPSet12spanBackUTF8EPKhi17USetSpanCondition(ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %this, ptr noundef %s, i32 noundef %length, i32 noundef %spanCondition) local_unnamed_addr #9 align 2 {
 entry:
   %length.addr = alloca i32, align 4
   %cmp.not = icmp ne i32 %spanCondition, 0
@@ -2369,7 +2369,7 @@ if.else:                                          ; preds = %do.body5.preheader,
 
 if.end13:                                         ; preds = %if.else
   %indvars.iv.next78 = add nsw i64 %indvars.iv77121, -1
-  %6 = trunc i64 %indvars.iv.next78 to i32
+  %6 = trunc nsw i64 %indvars.iv.next78 to i32
   store i32 %6, ptr %length.addr, align 4
   %arrayidx16 = getelementptr inbounds i8, ptr %s, i64 %indvars.iv.next78
   %7 = load i8, ptr %arrayidx16, align 1
@@ -2394,7 +2394,7 @@ if.else28:                                        ; preds = %do.body21.preheader
 
 if.end32:                                         ; preds = %if.else28
   %indvars.iv.next = add nsw i64 %indvars.iv116, -1
-  %11 = trunc i64 %indvars.iv.next to i32
+  %11 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %11, ptr %length.addr, align 4
   %arrayidx35 = getelementptr inbounds i8, ptr %s, i64 %indvars.iv.next
   %12 = load i8, ptr %arrayidx35, align 1

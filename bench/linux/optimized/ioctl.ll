@@ -46,7 +46,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_compat_ptr_i
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_compat_ptr_ioctl448, ptr @__UNIQUE_ID___addressable_copy_fsxattr_to_user446, ptr @__UNIQUE_ID___addressable_fiemap_fill_next_extent441, ptr @__UNIQUE_ID___addressable_fiemap_prep442, ptr @__UNIQUE_ID___addressable_fileattr_fill_flags444, ptr @__UNIQUE_ID___addressable_fileattr_fill_xflags443, ptr @__UNIQUE_ID___addressable_vfs_fileattr_get445, ptr @__UNIQUE_ID___addressable_vfs_fileattr_set447, ptr @__UNIQUE_ID___addressable_vfs_ioctl440], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vfs_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @vfs_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 72
@@ -75,7 +75,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fiemap_fill_next_extent(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local range(i32 -14, 2) i32 @fiemap_fill_next_extent(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.fiemap_extent, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -345,7 +345,7 @@ define dso_local i32 @vfs_fileattr_get(ptr noundef %0, ptr noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @copy_fsxattr_to_user(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -14, 1) i32 @copy_fsxattr_to_user(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.fsxattr, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -570,7 +570,7 @@ define dso_local i32 @vfs_fileattr_set(ptr noundef %0, ptr noundef %1, ptr nound
 declare dso_local zeroext i1 @inode_owner_or_capable(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_ioctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_ioctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -631,7 +631,7 @@ __se_sys_ioctl.exit:                              ; preds = %1, %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_ioctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_ioctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -712,7 +712,7 @@ define dso_local i64 @compat_ptr_ioctl(ptr noundef %0, i32 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.space_resv_32, align 4
   %3 = alloca %struct.space_resv_32, align 4
   %4 = alloca %struct.space_resv_32, align 4

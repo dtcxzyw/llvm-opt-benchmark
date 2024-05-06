@@ -31,10 +31,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [5 x i8] c"ncfx\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @commview_ncf_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @commview_ncf_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.commview_ncf_header, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = call fastcc i32 @commview_ncf_read_header(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %1, ptr noundef %2), !range !4
+  %6 = call fastcc i32 @commview_ncf_read_header(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -118,7 +118,7 @@ define hidden i32 @commview_ncf_open(ptr nocapture noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @commview_ncf_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @commview_ncf_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef %0, i32 noundef 2, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %57, label %6
@@ -262,10 +262,10 @@ define internal i32 @commview_ncf_seek_read(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @commview_ncfx_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @commview_ncfx_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.commview_ncfx_header, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = call fastcc i32 @commview_ncfx_read_header(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %1, ptr noundef %2), !range !4
+  %6 = call fastcc i32 @commview_ncfx_read_header(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -355,7 +355,7 @@ define hidden i32 @commview_ncfx_open(ptr nocapture noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @commview_ncfx_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @commview_ncfx_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef %0, i32 noundef 4, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %48, label %6
@@ -499,7 +499,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @commview_ncf_read_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.commview_ncf_header, align 4
   %7 = alloca %struct.tm, align 16
-  %8 = call fastcc i32 @commview_ncf_read_header(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, ptr noundef %4), !range !4
+  %8 = call fastcc i32 @commview_ncf_read_header(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %132, label %9
 
@@ -803,7 +803,7 @@ define internal fastcc i32 @commview_ncfx_read_packet(ptr noundef %0, ptr nocapt
   %7 = alloca %struct.tm, align 16
   %8 = alloca %struct.commview_ncfx_rf_header, align 4
   %9 = alloca %struct.commview_ncfx_mcs_header, align 1
-  %10 = call fastcc i32 @commview_ncfx_read_header(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, ptr noundef %4), !range !4
+  %10 = call fastcc i32 @commview_ncfx_read_header(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %commview_ncfx_read_rf_header.exit.thread, label %11
 
@@ -1063,7 +1063,7 @@ commview_ncfx_read_rf_header.exit:                ; preds = %54
 
 132:                                              ; preds = %127
   %133 = add i32 %12, -44
-  %134 = call fastcc i32 @commview_ncfx_read_mcs_header(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %3, ptr noundef %4), !range !4
+  %134 = call fastcc i32 @commview_ncfx_read_mcs_header(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %.not116 = icmp eq i32 %134, 0
   br i1 %.not116, label %commview_ncfx_read_rf_header.exit.thread, label %135
 
@@ -1240,7 +1240,7 @@ commview_ncfx_read_rf_header.exit.thread:         ; preds = %54, %51, %48, %45, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @commview_ncfx_read_mcs_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @commview_ncfx_read_mcs_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %15, label %6
@@ -1270,7 +1270,7 @@ define internal fastcc i32 @commview_ncfx_read_mcs_header(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @commview_ncf_dump_can_write_encap(i32 noundef %0) #4 {
+define internal range(i32 -8, 1) i32 @commview_ncf_dump_can_write_encap(i32 noundef %0) #4 {
   switch i32 %0, label %2 [
     i32 1, label %3
     i32 20, label %3
@@ -1295,7 +1295,7 @@ define internal noundef i32 @commview_ncf_dump_open(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.commview_ncf_header, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 24, i1 false)
@@ -1318,7 +1318,7 @@ define internal i32 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, ptr nound
   br label %202
 
 15:                                               ; preds = %10
-  %16 = trunc i32 %12 to i16
+  %16 = trunc nuw i32 %12 to i16
   store i16 %16, ptr %6, align 4
   %17 = getelementptr inbounds i8, ptr %6, i64 2
   store i16 %16, ptr %17, align 2
@@ -1518,7 +1518,7 @@ define internal i32 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, ptr nound
   %116 = load i16, ptr %115, align 4
   %117 = trunc i16 %116 to i8
   %118 = lshr i16 %116, 8
-  %119 = trunc i16 %118 to i8
+  %119 = trunc nuw i16 %118 to i8
   br label %.thread
 
 .thread:                                          ; preds = %110, %114
@@ -1702,7 +1702,7 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #6
 declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @commview_ncfx_dump_can_write_encap(i32 noundef %0) #4 {
+define internal range(i32 -8, 1) i32 @commview_ncfx_dump_can_write_encap(i32 noundef %0) #4 {
   switch i32 %0, label %2 [
     i32 1, label %3
     i32 20, label %3
@@ -1726,7 +1726,7 @@ define internal noundef i32 @commview_ncfx_dump_open(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @commview_ncfx_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @commview_ncfx_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.commview_ncfx_header, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, i8 0, i64 20, i1 false)
@@ -1940,4 +1940,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

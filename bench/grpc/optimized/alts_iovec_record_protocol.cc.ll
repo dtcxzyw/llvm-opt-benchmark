@@ -82,7 +82,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 40)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull readonly align 1 dereferenceable(40) @.str, i64 40, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -98,7 +98,7 @@ if.then1:                                         ; preds = %if.end
 if.then.i25:                                      ; preds = %if.then1
   %call2.i28 = tail call ptr @gpr_malloc(i64 noundef 59)
   store ptr %call2.i28, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %call2.i28, ptr noundef nonnull align 1 dereferenceable(59) @.str.1, i64 59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %call2.i28, ptr noundef nonnull readonly align 1 dereferenceable(59) @.str.1, i64 59, i1 false)
   br label %return
 
 if.end2:                                          ; preds = %if.end
@@ -114,7 +114,7 @@ if.then4:                                         ; preds = %if.end2
 if.then.i33:                                      ; preds = %if.then4
   %call2.i36 = tail call ptr @gpr_malloc(i64 noundef 52)
   store ptr %call2.i36, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %call2.i36, ptr noundef nonnull align 1 dereferenceable(52) @.str.2, i64 52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %call2.i36, ptr noundef nonnull readonly align 1 dereferenceable(52) @.str.2, i64 52, i1 false)
   br label %return
 
 if.end5:                                          ; preds = %if.end2
@@ -131,7 +131,7 @@ if.then2.i:                                       ; preds = %if.end5
 if.then.i.i:                                      ; preds = %if.then2.i
   %call2.i.i = tail call ptr @gpr_malloc(i64 noundef 19)
   store ptr %call2.i.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
   br label %return
 
 if.end3.i:                                        ; preds = %if.end5
@@ -145,7 +145,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 if.then.i6.i:                                     ; preds = %if.then5.i
   %call2.i9.i = tail call ptr @gpr_malloc(i64 noundef 28)
   store ptr %call2.i9.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i9.i, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i9.i, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
   br label %return
 
 if.end6.i:                                        ; preds = %if.end3.i
@@ -159,7 +159,7 @@ if.then9.i:                                       ; preds = %if.end6.i
 if.then.i14.i:                                    ; preds = %if.then9.i
   %call2.i17.i = tail call ptr @gpr_malloc(i64 noundef 16)
   store ptr %call2.i17.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i17.i, ptr noundef nonnull align 1 dereferenceable(16) @.str.17, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i17.i, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.17, i64 16, i1 false)
   br label %return
 
 if.end10.i:                                       ; preds = %if.end6.i
@@ -175,7 +175,7 @@ if.then13.i:                                      ; preds = %if.end10.i
 if.then.i22.i:                                    ; preds = %if.then13.i
   %call2.i25.i = tail call ptr @gpr_malloc(i64 noundef 25)
   store ptr %call2.i25.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call2.i25.i, ptr noundef nonnull align 1 dereferenceable(25) @.str.18, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call2.i25.i, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.18, i64 25, i1 false)
   br label %return
 
 if.end9:                                          ; preds = %if.end10.i
@@ -201,7 +201,7 @@ if.end14:                                         ; preds = %if.end9, %_ZL16get_
   %4 = trunc i64 %add55 to i32
   %conv.i = add i32 %4, 4
   %shr.i.i = lshr i32 %conv.i, 24
-  %conv2.i.i = trunc i32 %shr.i.i to i8
+  %conv2.i.i = trunc nuw i32 %shr.i.i to i8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %header.coerce0, i64 3
   store i8 %conv2.i.i, ptr %arrayidx.i.i, align 1
   %shr3.i.i = lshr i32 %conv.i, 16
@@ -303,7 +303,7 @@ if.then4:                                         ; preds = %if.end3
 if.then.i:                                        ; preds = %if.then4
   %call2.i = call ptr @gpr_malloc(i64 noundef 31)
   store ptr %call2.i, ptr %error_details, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %call2.i, ptr noundef nonnull align 1 dereferenceable(31) @.str.19, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %call2.i, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.19, i64 31, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then4, %if.end3, %if.end, %entry
@@ -326,7 +326,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 40)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull readonly align 1 dereferenceable(40) @.str, i64 40, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -342,7 +342,7 @@ if.then1:                                         ; preds = %if.end
 if.then.i23:                                      ; preds = %if.then1
   %call2.i26 = tail call ptr @gpr_malloc(i64 noundef 59)
   store ptr %call2.i26, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %call2.i26, ptr noundef nonnull align 1 dereferenceable(59) @.str.1, i64 59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %call2.i26, ptr noundef nonnull readonly align 1 dereferenceable(59) @.str.1, i64 59, i1 false)
   br label %return
 
 if.end2:                                          ; preds = %if.end
@@ -358,7 +358,7 @@ if.then4:                                         ; preds = %if.end2
 if.then.i31:                                      ; preds = %if.then4
   %call2.i34 = tail call ptr @gpr_malloc(i64 noundef 54)
   store ptr %call2.i34, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %call2.i34, ptr noundef nonnull align 1 dereferenceable(54) @.str.4, i64 54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %call2.i34, ptr noundef nonnull readonly align 1 dereferenceable(54) @.str.4, i64 54, i1 false)
   br label %return
 
 if.end5:                                          ; preds = %if.end2
@@ -375,7 +375,7 @@ if.then2.i:                                       ; preds = %if.end5
 if.then.i.i:                                      ; preds = %if.then2.i
   %call2.i.i = tail call ptr @gpr_malloc(i64 noundef 19)
   store ptr %call2.i.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
   br label %return
 
 if.end3.i:                                        ; preds = %if.end5
@@ -389,7 +389,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 if.then.i6.i:                                     ; preds = %if.then5.i
   %call2.i9.i = tail call ptr @gpr_malloc(i64 noundef 28)
   store ptr %call2.i9.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i9.i, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i9.i, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
   br label %return
 
 if.end6.i:                                        ; preds = %if.end3.i
@@ -403,7 +403,7 @@ if.then9.i:                                       ; preds = %if.end6.i
 if.then.i14.i:                                    ; preds = %if.then9.i
   %call2.i17.i = tail call ptr @gpr_malloc(i64 noundef 16)
   store ptr %call2.i17.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i17.i, ptr noundef nonnull align 1 dereferenceable(16) @.str.17, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i17.i, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.17, i64 16, i1 false)
   br label %return
 
 if.end10.i:                                       ; preds = %if.end6.i
@@ -419,7 +419,7 @@ if.then13.i:                                      ; preds = %if.end10.i
 if.then.i22.i:                                    ; preds = %if.then13.i
   %call2.i25.i = tail call ptr @gpr_malloc(i64 noundef 25)
   store ptr %call2.i25.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call2.i25.i, ptr noundef nonnull align 1 dereferenceable(25) @.str.18, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call2.i25.i, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.18, i64 25, i1 false)
   br label %return
 
 if.end9:                                          ; preds = %if.end10.i
@@ -455,7 +455,7 @@ if.then2.i42:                                     ; preds = %if.end.i
 if.then.i6.i44:                                   ; preds = %if.then2.i42
   %call2.i9.i45 = tail call ptr @gpr_malloc(i64 noundef 18)
   store ptr %call2.i9.i45, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call2.i9.i45, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call2.i9.i45, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
   br label %return
 
 if.end3.i47:                                      ; preds = %if.end.i
@@ -471,7 +471,7 @@ if.then7.i:                                       ; preds = %if.end3.i47
 if.then.i14.i49:                                  ; preds = %if.then7.i
   %call2.i17.i50 = tail call ptr @gpr_malloc(i64 noundef 26)
   store ptr %call2.i17.i50, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i17.i50, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i17.i50, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
   br label %return
 
 if.end14:                                         ; preds = %if.end3.i47
@@ -505,7 +505,7 @@ return:                                           ; preds = %if.then.i14.i49, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %data_length, ptr noundef readonly %header, ptr noundef writeonly %error_details) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %data_length, ptr noundef readonly %header, ptr noundef writeonly %error_details) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %header, null
   br i1 %cmp, label %if.then, label %if.end
@@ -517,7 +517,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 19)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -534,7 +534,7 @@ if.then2:                                         ; preds = %if.end
 if.then.i6:                                       ; preds = %if.then2
   %call2.i9 = tail call ptr @gpr_malloc(i64 noundef 18)
   store ptr %call2.i9, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call2.i9, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call2.i9, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -550,7 +550,7 @@ if.then7:                                         ; preds = %if.end3
 if.then.i14:                                      ; preds = %if.then7
   %call2.i17 = tail call ptr @gpr_malloc(i64 noundef 26)
   store ptr %call2.i17, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i17, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i17, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then.i14, %if.then7, %if.then.i6, %if.then2, %if.then.i, %if.then, %if.end3
@@ -606,7 +606,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 40)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull readonly align 1 dereferenceable(40) @.str, i64 40, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -622,7 +622,7 @@ if.then1:                                         ; preds = %if.end
 if.then.i30:                                      ; preds = %if.then1
   %call2.i33 = tail call ptr @gpr_malloc(i64 noundef 62)
   store ptr %call2.i33, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %call2.i33, ptr noundef nonnull align 1 dereferenceable(62) @.str.6, i64 62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %call2.i33, ptr noundef nonnull readonly align 1 dereferenceable(62) @.str.6, i64 62, i1 false)
   br label %return
 
 if.end2:                                          ; preds = %if.end
@@ -638,7 +638,7 @@ if.then4:                                         ; preds = %if.end2
 if.then.i38:                                      ; preds = %if.then4
   %call2.i41 = tail call ptr @gpr_malloc(i64 noundef 52)
   store ptr %call2.i41, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %call2.i41, ptr noundef nonnull align 1 dereferenceable(52) @.str.2, i64 52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %call2.i41, ptr noundef nonnull readonly align 1 dereferenceable(52) @.str.2, i64 52, i1 false)
   br label %return
 
 if.end5:                                          ; preds = %if.end2
@@ -667,7 +667,7 @@ if.then7:                                         ; preds = %_ZL16get_total_leng
 if.then.i47:                                      ; preds = %if.then7
   %call2.i50 = tail call ptr @gpr_malloc(i64 noundef 28)
   store ptr %call2.i50, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i50, ptr noundef nonnull align 1 dereferenceable(28) @.str.7, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i50, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.7, i64 28, i1 false)
   br label %return
 
 if.end8:                                          ; preds = %_ZL16get_total_lengthPK5iovecm.exit
@@ -685,7 +685,7 @@ if.then12:                                        ; preds = %if.end8
 if.then.i55:                                      ; preds = %if.then12
   %call2.i58 = tail call ptr @gpr_malloc(i64 noundef 35)
   store ptr %call2.i58, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %call2.i58, ptr noundef nonnull align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %call2.i58, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
   br label %return
 
 if.end20:                                         ; preds = %if.end8
@@ -693,7 +693,7 @@ if.end20:                                         ; preds = %if.end8
   %4 = trunc i64 %add15 to i32
   %conv.i = add i32 %4, 4
   %shr.i.i = lshr i32 %conv.i, 24
-  %conv2.i.i = trunc i32 %shr.i.i to i8
+  %conv2.i.i = trunc nuw i32 %shr.i.i to i8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 3
   store i8 %conv2.i.i, ptr %arrayidx.i.i, align 1
   %shr3.i.i = lshr i32 %conv.i, 16
@@ -760,7 +760,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 40)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull readonly align 1 dereferenceable(40) @.str, i64 40, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -776,7 +776,7 @@ if.then1:                                         ; preds = %if.end
 if.then.i30:                                      ; preds = %if.then1
   %call2.i33 = tail call ptr @gpr_malloc(i64 noundef 62)
   store ptr %call2.i33, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %call2.i33, ptr noundef nonnull align 1 dereferenceable(62) @.str.6, i64 62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %call2.i33, ptr noundef nonnull readonly align 1 dereferenceable(62) @.str.6, i64 62, i1 false)
   br label %return
 
 if.end2:                                          ; preds = %if.end
@@ -792,7 +792,7 @@ if.then4:                                         ; preds = %if.end2
 if.then.i38:                                      ; preds = %if.then4
   %call2.i41 = tail call ptr @gpr_malloc(i64 noundef 54)
   store ptr %call2.i41, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %call2.i41, ptr noundef nonnull align 1 dereferenceable(54) @.str.4, i64 54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %call2.i41, ptr noundef nonnull readonly align 1 dereferenceable(54) @.str.4, i64 54, i1 false)
   br label %return
 
 if.end5:                                          ; preds = %if.end2
@@ -823,7 +823,7 @@ if.then7:                                         ; preds = %_ZL16get_total_leng
 if.then.i47:                                      ; preds = %if.then7
   %call2.i50 = tail call ptr @gpr_malloc(i64 noundef 58)
   store ptr %call2.i50, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %call2.i50, ptr noundef nonnull align 1 dereferenceable(58) @.str.10, i64 58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %call2.i50, ptr noundef nonnull readonly align 1 dereferenceable(58) @.str.10, i64 58, i1 false)
   br label %return
 
 if.end8:                                          ; preds = %_ZL16get_total_lengthPK5iovecm.exit
@@ -837,7 +837,7 @@ if.then10:                                        ; preds = %if.end8
 if.then.i55:                                      ; preds = %if.then10
   %call2.i58 = tail call ptr @gpr_malloc(i64 noundef 19)
   store ptr %call2.i58, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i58, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i58, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
   br label %return
 
 if.end11:                                         ; preds = %if.end8
@@ -851,7 +851,7 @@ if.then14:                                        ; preds = %if.end11
 if.then.i63:                                      ; preds = %if.then14
   %call2.i66 = tail call ptr @gpr_malloc(i64 noundef 28)
   store ptr %call2.i66, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i66, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i66, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
   br label %return
 
 if.end15:                                         ; preds = %if.end11
@@ -866,7 +866,7 @@ if.then19:                                        ; preds = %if.end15
   br label %return
 
 if.end20:                                         ; preds = %if.end15
-  %call22 = tail call fastcc noundef i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %total_length.0.lcssa.i, ptr noundef nonnull %header.coerce0, ptr noundef %error_details), !range !6
+  %call22 = tail call fastcc noundef i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %total_length.0.lcssa.i, ptr noundef nonnull %header.coerce0, ptr noundef %error_details)
   %cmp23.not = icmp eq i32 %call22, 0
   br i1 %cmp23.not, label %if.end25, label %return
 
@@ -908,7 +908,7 @@ return:                                           ; preds = %if.then.i63, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect, ptr noundef writeonly %rp, ptr noundef %error_details) local_unnamed_addr #2 {
+define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect, ptr noundef writeonly %rp, ptr noundef %error_details) local_unnamed_addr #2 {
 entry:
   %counter_length = alloca i64, align 8
   %frombool1 = zext i1 %is_integrity_only to i8
@@ -925,7 +925,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 64)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %call2.i, ptr noundef nonnull align 1 dereferenceable(64) @.str.16, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %call2.i, ptr noundef nonnull readonly align 1 dereferenceable(64) @.str.16, i64 64, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1036,4 +1036,3 @@ attributes #11 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 14}

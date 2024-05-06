@@ -79,12 +79,12 @@ define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 18:                                               ; preds = %15
-  %19 = trunc i64 %indvars.iv110 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv110 to i32
   %20 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %19) #15
   br label %27
 
 21:                                               ; preds = %15
-  %22 = trunc i64 %indvars.iv110 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv110 to i32
   %23 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %22) #15
   %24 = ptrtoint ptr %23 to i64
   %25 = xor i64 %24, 1
@@ -216,7 +216,7 @@ declare i32 @Abc_SopGetPhase(ptr noundef) local_unnamed_addr #1
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkSopToBdd(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkSopToBdd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef %0) #15
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %5
@@ -956,7 +956,7 @@ define i32 @Abc_ConvertZddToSop(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkBddToSop(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkBddToSop(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 32
@@ -1695,7 +1695,7 @@ define void @Abc_CountZddCubes_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkAigToBdd(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkAigToBdd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef %0) #15
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5
@@ -1753,7 +1753,7 @@ Vec_IntAlloc.exit:                                ; preds = %5, %11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %25) #15
   %.val84 = load ptr, ptr %18, align 8
   %27 = getelementptr i8, ptr %.val84, i64 8
@@ -2172,7 +2172,7 @@ common.ret14:                                     ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkSopToAig(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkSopToAig(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr (...) @Hop_ManStart() #15
   %3 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef %0) #15
   %.not = icmp eq i32 %3, 0
@@ -2366,12 +2366,12 @@ define ptr @Abc_ConvertSopToAigInternal(ptr noundef %0, ptr noundef %1) local_un
   ]
 
 22:                                               ; preds = %20
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %23) #15
   br label %.sink.split
 
 25:                                               ; preds = %20
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %26) #15
   %28 = ptrtoint ptr %27 to i64
   %29 = xor i64 %28, 1
@@ -2760,10 +2760,10 @@ define ptr @Abc_NtkAigToGia(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val136) #18
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val136) #18
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #16
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.val136) #15
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %.val136) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -2775,10 +2775,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %7
   br i1 %.not.i156, label %Abc_UtilStrsav.exit157, label %14
 
 14:                                               ; preds = %Abc_UtilStrsav.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val137) #18
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val137) #18
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #16
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %.val137) #15
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %.val137) #15
   br label %Abc_UtilStrsav.exit157
 
 Abc_UtilStrsav.exit157:                           ; preds = %Abc_UtilStrsav.exit, %14
@@ -3927,7 +3927,7 @@ define noundef i32 @Abc_NtkSopToBlifMv(ptr nocapture noundef readnone %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkToSop(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkToSop(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val25 = load i32, ptr %4, align 4
   switch i32 %.val25, label %.fold.split [
@@ -3943,12 +3943,12 @@ define noundef i32 @Abc_NtkToSop(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %6, label %50, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @Abc_NtkSopToBdd(ptr noundef nonnull %0), !range !37
+  %8 = tail call i32 @Abc_NtkSopToBdd(ptr noundef nonnull %0)
   %.not24 = icmp eq i32 %8, 0
   br i1 %.not24, label %50, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @Abc_NtkBddToSop(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1), !range !37
+  %10 = tail call i32 @Abc_NtkBddToSop(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1)
   br label %50
 
 11:                                               ; preds = %3
@@ -4022,16 +4022,16 @@ Abc_NtkMapToSop.exit:                             ; preds = %39, %11
   br label %50
 
 44:                                               ; preds = %3
-  %45 = tail call i32 @Abc_NtkBddToSop(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1), !range !37
+  %45 = tail call i32 @Abc_NtkBddToSop(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1)
   br label %50
 
 46:                                               ; preds = %3
-  %47 = tail call i32 @Abc_NtkAigToBdd(ptr noundef nonnull %0), !range !37
+  %47 = tail call i32 @Abc_NtkAigToBdd(ptr noundef nonnull %0)
   %.not23 = icmp eq i32 %47, 0
   br i1 %.not23, label %50, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @Abc_NtkBddToSop(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1), !range !37
+  %49 = tail call i32 @Abc_NtkBddToSop(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1)
   br label %50
 
 .fold.split:                                      ; preds = %3
@@ -4043,7 +4043,7 @@ Abc_NtkMapToSop.exit:                             ; preds = %39, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkToBdd(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkToBdd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val14 = load i32, ptr %2, align 4
   switch i32 %.val14, label %.fold.split [
@@ -4122,16 +4122,16 @@ Abc_ObjIsBarBuf.exit.thread.i:                    ; preds = %Abc_ObjIsBarBuf.exi
 
 Abc_NtkMapToSop.exit:                             ; preds = %31, %3
   store i32 1, ptr %2, align 4
-  %36 = tail call i32 @Abc_NtkSopToBdd(ptr noundef %0), !range !37
+  %36 = tail call i32 @Abc_NtkSopToBdd(ptr noundef %0)
   br label %42
 
 37:                                               ; preds = %1
-  %38 = tail call i32 @Abc_NtkSopToAig(ptr noundef nonnull %0), !range !37
-  %39 = tail call i32 @Abc_NtkAigToBdd(ptr noundef nonnull %0), !range !37
+  %38 = tail call i32 @Abc_NtkSopToAig(ptr noundef nonnull %0)
+  %39 = tail call i32 @Abc_NtkAigToBdd(ptr noundef nonnull %0)
   br label %42
 
 40:                                               ; preds = %1
-  %41 = tail call i32 @Abc_NtkAigToBdd(ptr noundef nonnull %0), !range !37
+  %41 = tail call i32 @Abc_NtkAigToBdd(ptr noundef nonnull %0)
   br label %42
 
 .fold.split:                                      ; preds = %1
@@ -4143,7 +4143,7 @@ Abc_NtkMapToSop.exit:                             ; preds = %31, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkToAig(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkToAig(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val15 = load i32, ptr %2, align 4
   switch i32 %.val15, label %.fold.split [
@@ -4222,20 +4222,20 @@ Abc_ObjIsBarBuf.exit.thread.i:                    ; preds = %Abc_ObjIsBarBuf.exi
 
 Abc_NtkMapToSop.exit:                             ; preds = %31, %3
   store i32 1, ptr %2, align 4
-  %36 = tail call i32 @Abc_NtkSopToAig(ptr noundef %0), !range !37
+  %36 = tail call i32 @Abc_NtkSopToAig(ptr noundef %0)
   br label %43
 
 37:                                               ; preds = %1
-  %38 = tail call i32 @Abc_NtkBddToSop(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 1000000000, i32 noundef 1), !range !37
+  %38 = tail call i32 @Abc_NtkBddToSop(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 1000000000, i32 noundef 1)
   %.not14 = icmp eq i32 %38, 0
   br i1 %.not14, label %43, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call i32 @Abc_NtkSopToAig(ptr noundef nonnull %0), !range !37
+  %40 = tail call i32 @Abc_NtkSopToAig(ptr noundef nonnull %0)
   br label %43
 
 41:                                               ; preds = %1
-  %42 = tail call i32 @Abc_NtkSopToAig(ptr noundef nonnull %0), !range !37
+  %42 = tail call i32 @Abc_NtkSopToAig(ptr noundef nonnull %0)
   br label %43
 
 .fold.split:                                      ; preds = %1
@@ -4271,7 +4271,7 @@ define void @Abc_ObjFaninSort(ptr nocapture noundef readonly %0) local_unnamed_a
   %.val37 = phi i32 [ %.val, %.loopexit44.loopexit ], [ %.val3761, %11 ]
   %10 = icmp slt i64 %indvars.iv.next57, %.pre-phi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %10, label %11, label %._crit_edge, !llvm.loop !38
+  br i1 %10, label %11, label %._crit_edge, !llvm.loop !37
 
 11:                                               ; preds = %.lr.ph52, %.loopexit44
   %.val3761 = phi i32 [ %.val3750, %.lr.ph52 ], [ %.val37, %.loopexit44 ]
@@ -4312,14 +4312,14 @@ define void @Abc_ObjFaninSort(ptr nocapture noundef readonly %0) local_unnamed_a
   %26 = getelementptr inbounds i8, ptr %.046, i64 %9
   %27 = load i8, ptr %26, align 1
   %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %.lr.ph49
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %.val = load i32, ptr %5, align 4
-  %28 = trunc i64 %indvars.iv.next54 to i32
+  %28 = trunc nuw i64 %indvars.iv.next54 to i32
   %29 = icmp sgt i32 %.val, %28
-  br i1 %29, label %.lr.ph49, label %.loopexit44.loopexit, !llvm.loop !40
+  br i1 %29, label %.lr.ph49, label %.loopexit44.loopexit, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.loopexit44, %1
   ret void
@@ -4375,7 +4375,7 @@ define void @Abc_NtkFaninSort(ptr nocapture noundef readonly %0) local_unnamed_a
   %.val37.i = phi i32 [ %.val.i, %.loopexit44.loopexit.i ], [ %.val3761.i, %24 ]
   %23 = icmp slt i64 %indvars.iv.next57.i, %.pre-phi.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %23, label %24, label %Abc_ObjFaninSort.exit, !llvm.loop !38
+  br i1 %23, label %24, label %Abc_ObjFaninSort.exit, !llvm.loop !37
 
 24:                                               ; preds = %.loopexit44.i, %.lr.ph52.i
   %.val3761.i = phi i32 [ %.val3750.i, %.lr.ph52.i ], [ %.val37.i, %.loopexit44.i ]
@@ -4416,14 +4416,14 @@ define void @Abc_NtkFaninSort(ptr nocapture noundef readonly %0) local_unnamed_a
   %39 = getelementptr inbounds i8, ptr %.046.i, i64 %22
   %40 = load i8, ptr %39, align 1
   %.not.i = icmp eq i8 %40, 0
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %32, %.lr.ph49.i
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %.val.i = load i32, ptr %18, align 4
-  %41 = trunc i64 %indvars.iv.next54.i to i32
+  %41 = trunc nuw i64 %indvars.iv.next54.i to i32
   %42 = icmp sgt i32 %.val.i, %41
-  br i1 %42, label %.lr.ph49.i, label %.loopexit44.loopexit.i, !llvm.loop !40
+  br i1 %42, label %.lr.ph49.i, label %.loopexit44.loopexit.i, !llvm.loop !39
 
 Abc_ObjFaninSort.exit:                            ; preds = %.loopexit44.i, %14, %11, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4432,7 +4432,7 @@ Abc_ObjFaninSort.exit:                            ; preds = %.loopexit44.i, %14,
   %.val = load i32, ptr %44, align 4
   %45 = sext i32 %.val to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !41
+  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %Abc_ObjFaninSort.exit, %1
   ret void
@@ -4709,8 +4709,7 @@ attributes #19 = { noreturn nounwind }
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
-!37 = !{i32 0, i32 2}
+!37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}

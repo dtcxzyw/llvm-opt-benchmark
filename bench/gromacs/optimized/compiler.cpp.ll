@@ -17545,7 +17545,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i: ; preds = %_ZNSt
   br i1 %.not59.i, label %205, label %.loopexit.i
 
 205:                                              ; preds = %201
-  invoke fastcc void @_ZL20alloc_selection_dataRKSt10shared_ptrIN3gmx20SelectionTreeElementEEib(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %81, i1 noundef zeroext true)
+  invoke fastcc void @_ZL20alloc_selection_dataRKSt10shared_ptrIN3gmx20SelectionTreeElementEEib(ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %81, i1 noundef zeroext true)
           to label %.loopexit.i unwind label %.loopexit.split-lp.i
 
 206:                                              ; preds = %183
@@ -17571,7 +17571,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i: ; preds = %_ZNSt
   br i1 %.not52.i, label %215, label %.invoke.i
 
 215:                                              ; preds = %211
-  invoke fastcc void @_ZL20alloc_selection_dataRKSt10shared_ptrIN3gmx20SelectionTreeElementEEib(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %81, i1 noundef zeroext true)
+  invoke fastcc void @_ZL20alloc_selection_dataRKSt10shared_ptrIN3gmx20SelectionTreeElementEEib(ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %81, i1 noundef zeroext true)
           to label %216 unwind label %.loopexit.split-lp.i
 
 216:                                              ; preds = %215

@@ -378,9 +378,9 @@ $_ZN5folly6detail30StaticSingletonManagerWithRtti5debugINS0_14UniqueInstance5Val
 @.str.47 = private unnamed_addr constant [3 x i8] c": \00", align 1
 @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache = linkonce_odr global { i32 } zeroinitializer, comdat, align 4
 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE = external global [2048 x %"struct.std::atomic.0"], align 128
-@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE26tls_lastDeferredReaderSlotEvE2tl = linkonce_odr thread_local global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
+@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE26tls_lastDeferredReaderSlotEvE2tl = linkonce_odr thread_local local_unnamed_addr global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
 @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state = linkonce_odr global { [257 x [256 x i8]], %"struct.std::atomic.103" } zeroinitializer, comdat, align 8
-@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_lastTokenlessSlotEvE2tl = linkonce_odr thread_local global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
+@_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_lastTokenlessSlotEvE2tl = linkonce_odr thread_local local_unnamed_addr global %"struct.folly::relaxed_atomic" zeroinitializer, comdat, align 4
 @_ZZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE5Entry12tryWaitUntilINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEE3opt = linkonce_odr constant { %"class.std::chrono::duration", i8 } { %"class.std::chrono::duration" { i64 10000 }, i8 1 }, comdat, align 8
 @_ZN5folly6detail11MemoryIdler18defaultIdleTimeoutE = external local_unnamed_addr global %"class.folly::AtomicStruct", align 8
 @_ZGVN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E6uniqueE = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E6uniqueE), align 8
@@ -2135,7 +2135,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %conv.i.i.i.i.i.i.i = zext i64 %1 to i128
   %mul.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i, 14181476777654086739
   %shr.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i, 64
-  %conv1.i.i.i.i.i.i.i = trunc i128 %shr.i.i.i.i.i.i.i to i64
+  %conv1.i.i.i.i.i.i.i = trunc nuw i128 %shr.i.i.i.i.i.i.i to i64
   %mul2.i.i.i.i.i.i.i = mul i64 %1, -4265267296055464877
   %xor.i.i.i.i.i.i.i = xor i64 %mul2.i.i.i.i.i.i.i, %conv1.i.i.i.i.i.i.i
   %mul3.i.i.i.i.i.i.i = mul i64 %xor.i.i.i.i.i.i.i, -4265267296055464877
@@ -2155,7 +2155,7 @@ if.then.i53:                                      ; preds = %for.body.i
   %sh_prom.i.i = and i64 %2, 255
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i
   %sub.i.i = xor i64 %notmask.i.i, -1
-  %conv.i.i = trunc i64 %or.i.i.i.i.i.i.i to i8
+  %conv.i.i = trunc nuw i64 %or.i.i.i.i.i.i.i to i8
   %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
@@ -2333,7 +2333,7 @@ if.then.i78.i:                                    ; preds = %if.end19.i
   unreachable
 
 _ZN5folly3f146detail8F14ChunkIPKvE6setTagEmm.exit.i: ; preds = %if.end19.i
-  %conv4.i.i = trunc i64 %or.i.i.i.i.i.i.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i.i.i.i.i.i.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i76.i, align 1, !tbaa !42, !noalias !114
   %rawItems_.i.i.i79.i = getelementptr inbounds i8, ptr %chunk.1.i, i64 16
   %arrayidx.i.i.i.i.i80.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i79.i, i64 0, i64 %conv.i
@@ -2865,7 +2865,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %conv.i5.i.i = zext i64 %3 to i128
   %mul.i.i.i = mul nuw i128 %conv.i5.i.i, 14181476777654086739
   %shr.i.i.i = lshr i128 %mul.i.i.i, 64
-  %conv1.i.i.i = trunc i128 %shr.i.i.i to i64
+  %conv1.i.i.i = trunc nuw i128 %shr.i.i.i to i64
   %mul2.i.i.i = mul i64 %3, -4265267296055464877
   %xor.i.i.i = xor i64 %mul2.i.i.i, %conv1.i.i.i
   %mul3.i.i.i = mul i64 %xor.i.i.i, -4265267296055464877
@@ -2876,7 +2876,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %mul.i8.i.i = shl nuw nsw i64 %or.i.i.i, 1
   %add.i.i.i = or disjoint i64 %mul.i8.i.i, 1
   %4 = load ptr, ptr %hs, align 8, !tbaa !108
-  %conv.i10.i.i = trunc i64 %or.i.i.i to i8
+  %conv.i10.i.i = trunc nuw i64 %or.i.i.i to i8
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i10.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
@@ -3129,7 +3129,7 @@ while.body.i:                                     ; preds = %if.end.i16, %while.
   %conv.i5.i.i = zext i64 %13 to i128
   %mul.i.i.i = mul nuw i128 %conv.i5.i.i, 14181476777654086739
   %shr.i.i.i = lshr i128 %mul.i.i.i, 64
-  %conv1.i.i.i = trunc i128 %shr.i.i.i to i64
+  %conv1.i.i.i = trunc nuw i128 %shr.i.i.i to i64
   %mul2.i.i.i = mul i64 %13, -4265267296055464877
   %xor.i.i.i = xor i64 %mul2.i.i.i, %conv1.i.i.i
   %mul3.i.i.i = mul i64 %xor.i.i.i, -4265267296055464877
@@ -3140,7 +3140,7 @@ while.body.i:                                     ; preds = %if.end.i16, %while.
   %mul.i8.i.i = shl nuw nsw i64 %or.i.i.i, 1
   %add.i.i.i = or disjoint i64 %mul.i8.i.i, 1
   %14 = load ptr, ptr %hs, align 8, !tbaa !108
-  %conv.i10.i.i = trunc i64 %or.i.i.i to i8
+  %conv.i10.i.i = trunc nuw i64 %or.i.i.i to i8
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i10.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
@@ -3637,7 +3637,7 @@ invoke.cont73:                                    ; preds = %if.else.i, %while.b
   %conv.i201 = zext i64 %17 to i128
   %mul.i202 = mul nuw i128 %conv.i201, 14181476777654086739
   %shr.i203 = lshr i128 %mul.i202, 64
-  %conv1.i = trunc i128 %shr.i203 to i64
+  %conv1.i = trunc nuw i128 %shr.i203 to i64
   %mul2.i = mul i64 %17, -4265267296055464877
   %xor.i = xor i64 %mul2.i, %conv1.i
   %mul3.i204 = mul i64 %xor.i, -4265267296055464877
@@ -3708,7 +3708,7 @@ if.then.i19.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont86:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i212, align 1, !tbaa !42
   %control_.i.i214 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %25 = load i8, ptr %control_.i.i214, align 2, !tbaa !120

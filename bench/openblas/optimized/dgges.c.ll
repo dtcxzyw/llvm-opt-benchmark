@@ -192,7 +192,7 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
 
 114:                                              ; preds = %113
   %115 = shl i32 %92, 3
-  %116 = mul nsw i32 %92, 6
+  %116 = mul nuw nsw i32 %92, 6
   %117 = add nuw nsw i32 %116, 16
   %118 = tail call i32 @llvm.smax.i32(i32 %115, i32 %117)
   %119 = sub nsw i32 %118, %92

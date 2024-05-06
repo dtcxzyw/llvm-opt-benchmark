@@ -90,13 +90,13 @@ $_ZTIN9grpc_core9Timestamp12ScopedSourceE = comdat any
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic", align 1
 @_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.24, ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_security_context.cc, ptr null }]
@@ -114,7 +114,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define noundef i32 @grpc_call_set_credentials(ptr noundef %call, ptr noundef %creds) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 3) i32 @grpc_call_set_credentials(ptr noundef %call, ptr noundef %creds) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, i32 0, i64 2), ptr %exec_ctx, align 8
@@ -776,7 +776,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @grpc_auth_context_set_peer_identity_property_name(ptr noundef %ctx, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @grpc_auth_context_set_peer_identity_property_name(ptr noundef %ctx, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %it = alloca %struct.grpc_auth_property_iterator, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -795,7 +795,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %or.cond.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %it, i8 0, i64 24, i1 false), !alias.scope !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %it, i8 0, i64 24, i1 false), !alias.scope !14
   br label %grpc_auth_context_find_properties_by_name.exit
 
 if.end3.i:                                        ; preds = %if.end.i
@@ -968,7 +968,7 @@ return:                                           ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @grpc_auth_context_peer_is_authenticated(ptr noundef %ctx) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @grpc_auth_context_peer_is_authenticated(ptr noundef %ctx) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
@@ -1055,7 +1055,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end2
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !20
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i
@@ -1211,7 +1211,7 @@ _ZN17grpc_auth_context15ensure_capacityEv.exit.i: ; preds = %if.then.i.i, %entry
   br i1 %cmp.not.i, label %_ZN17grpc_auth_context12add_propertyEPKcS1_m.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN17grpc_auth_context15ensure_capacityEv.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i, ptr nonnull align 1 %value, i64 %value_length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i, ptr nonnull readonly align 1 %value, i64 %value_length, i1 false)
   %.pre10.i = load ptr, ptr %value5.i, align 8
   br label %_ZN17grpc_auth_context12add_propertyEPKcS1_m.exit
 

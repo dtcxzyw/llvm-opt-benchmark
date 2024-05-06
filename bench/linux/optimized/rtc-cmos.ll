@@ -812,7 +812,7 @@ declare dso_local i32 @hpet_rtc_interrupt(i32 noundef, ptr noundef) #1
 declare dso_local i32 @hpet_register_irq_handler(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cmos_interrupt(i32 noundef %0, ptr noundef %1) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @cmos_interrupt(i32 noundef %0, ptr noundef %1) #3 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @rtc_lock) #9
   %3 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #9
   %4 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #9
@@ -958,7 +958,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 sect
 declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @cmos_read_time(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define internal range(i32 -2147483648, 1) i32 @cmos_read_time(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !13
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %12
@@ -989,7 +989,7 @@ define internal i32 @cmos_set_time(ptr nocapture readnone %0, ptr noundef %1) #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cmos_read_alarm(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
+define internal noundef range(i32 -110, 1) i32 @cmos_read_alarm(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
   %3 = alloca %struct.cmos_read_alarm_callback_param, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
@@ -1016,7 +1016,7 @@ define internal noundef i32 @cmos_read_alarm(ptr nocapture noundef readonly %0, 
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  %19 = trunc i32 %16 to i8
+  %19 = trunc nuw nsw i32 %16 to i8
   %20 = call i32 @_bcd2bin(i8 noundef zeroext %19) #11
   br label %21
 
@@ -1029,7 +1029,7 @@ define internal noundef i32 @cmos_read_alarm(ptr nocapture noundef readonly %0, 
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %21
-  %27 = trunc i32 %24 to i8
+  %27 = trunc nuw nsw i32 %24 to i8
   %28 = call i32 @_bcd2bin(i8 noundef zeroext %27) #11
   br label %29
 
@@ -1042,7 +1042,7 @@ define internal noundef i32 @cmos_read_alarm(ptr nocapture noundef readonly %0, 
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %29
-  %35 = trunc i32 %32 to i8
+  %35 = trunc nuw nsw i32 %32 to i8
   %36 = call i32 @_bcd2bin(i8 noundef zeroext %35) #11
   br label %37
 
@@ -1061,7 +1061,7 @@ define internal noundef i32 @cmos_read_alarm(ptr nocapture noundef readonly %0, 
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %42
-  %47 = trunc i32 %44 to i8
+  %47 = trunc nuw nsw i32 %44 to i8
   %48 = call i32 @_bcd2bin(i8 noundef zeroext %47) #11
   br label %49
 
@@ -1080,7 +1080,7 @@ define internal noundef i32 @cmos_read_alarm(ptr nocapture noundef readonly %0, 
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %54
-  %59 = trunc i32 %56 to i8
+  %59 = trunc nuw nsw i32 %56 to i8
   %60 = call i32 @_bcd2bin(i8 noundef zeroext %59) #11
   %61 = add i32 %60, -1
   br label %62
@@ -1106,7 +1106,7 @@ define internal noundef i32 @cmos_read_alarm(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cmos_set_alarm(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define internal noundef range(i32 -110, 1) i32 @cmos_set_alarm(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = alloca %struct.rtc_time, align 4
   %4 = alloca %struct.rtc_time, align 4
   %5 = alloca %struct.rtc_time, align 4
@@ -1876,7 +1876,7 @@ declare dso_local void @hpet_unregister_irq_handler(ptr noundef) local_unnamed_a
 declare dso_local i32 @acpi_remove_fixed_event_handler(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cmos_aie_poweroff(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @cmos_aie_poweroff(ptr noundef %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.rtc_time, align 4
   %3 = alloca %struct.rtc_wkalrm, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 120

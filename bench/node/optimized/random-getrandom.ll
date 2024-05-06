@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__random_getrandom(ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__random_getrandom(ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
   %cmp1.not14 = icmp eq i64 %buflen, 0
   br i1 %cmp1.not14, label %return, label %do.body.preheader

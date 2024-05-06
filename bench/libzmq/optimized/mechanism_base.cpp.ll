@@ -38,7 +38,7 @@ entry:
 declare void @_ZN3zmq11mechanism_tC2ERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1488), ptr noundef nonnull align 8 dereferenceable(1336)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3zmq16mechanism_base_t29check_basic_command_structureEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1496) %this, ptr noundef nonnull %msg_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq16mechanism_base_t29check_basic_command_structureEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1496) %this, ptr noundef nonnull %msg_) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp = icmp ult i64 %call, 2

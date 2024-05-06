@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [5 x i8] c"%lu\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @do_shorthand_operation__streaminfo(ptr noundef %filename, i32 noundef %prefix_with_filename, ptr noundef %chain, ptr nocapture noundef readonly %operation, ptr nocapture noundef writeonly %needs_write) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr noundef %filename, i32 noundef %prefix_with_filename, ptr noundef %chain, ptr nocapture noundef readonly %operation, ptr nocapture noundef writeonly %needs_write) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @FLAC__metadata_iterator_new() #5
   %cmp = icmp eq ptr %call, null

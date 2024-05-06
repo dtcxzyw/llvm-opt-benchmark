@@ -3378,8 +3378,8 @@ invoke.cont50:                                    ; preds = %if.else43
   %19 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %19 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %20 = getelementptr i8, ptr %e, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %20, i64 32
+  %20 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %20, i64 32
   %cmp56.not162 = icmp eq i32 %19, 0
   br i1 %cmp56.not162, label %for.end.thread, label %for.body.preheader
 

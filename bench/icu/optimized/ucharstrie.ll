@@ -143,7 +143,7 @@ if.then2.i.us38.i.i:                              ; preds = %if.then.i.us34.i.i
 if.then.i.i:                                      ; preds = %if.then2.i.us.i.i, %if.else.i.us.i.i, %if.else15.us.i.i, %cond.true
   %pos.addr.0.lcssa.i.i = phi ptr [ %incdec.ptr.i.i, %cond.true ], [ %incdec.ptr.i.us.i.i, %if.then2.i.us.i.i ], [ %add.ptr.i.us.i.i, %if.else.i.us.i.i ], [ %incdec.ptr.i.i, %if.else15.us.i.i ]
   %node.0.lcssa.i.i = phi i32 [ %conv.i.i, %cond.true ], [ %and17.i.i, %if.then2.i.us.i.i ], [ %and17.i.i, %if.else.i.us.i.i ], [ %and17.i.i, %if.else15.us.i.i ]
-  %call.i.i = tail call noundef i32 @_ZN6icu_7510UCharsTrie10branchNextEPKDsii(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %pos.addr.0.lcssa.i.i, i32 noundef %node.0.lcssa.i.i, i32 noundef %cp)
+  %call.i.i = tail call noundef i32 @_ZN6icu_7510UCharsTrie10branchNextEPKDsii(ptr noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef nonnull %pos.addr.0.lcssa.i.i, i32 noundef %node.0.lcssa.i.i, i32 noundef %cp)
   br label %cond.end10
 
 if.then3.i.i:                                     ; preds = %if.then2.i.us38.i.i, %if.else.i.us36.i.i, %if.else15.us32.i.i, %if.else.lr.ph.split.i.i, %if.else.us.i.i
@@ -249,7 +249,7 @@ if.then2.i.us38.i.i40:                            ; preds = %if.then.i.us34.i.i3
 if.then.i.i47:                                    ; preds = %if.then2.i.us.i.i55, %if.else.i.us.i.i53, %if.else15.us.i.i45, %cond.false
   %pos.addr.0.lcssa.i.i48 = phi ptr [ %incdec.ptr.i.i6, %cond.false ], [ %incdec.ptr.i.us.i.i56, %if.then2.i.us.i.i55 ], [ %add.ptr.i.us.i.i54, %if.else.i.us.i.i53 ], [ %incdec.ptr.i.i6, %if.else15.us.i.i45 ]
   %node.0.lcssa.i.i49 = phi i32 [ %conv.i.i8, %cond.false ], [ %and17.i.i11, %if.then2.i.us.i.i55 ], [ %and17.i.i11, %if.else.i.us.i.i53 ], [ %and17.i.i11, %if.else15.us.i.i45 ]
-  %call.i.i50 = tail call noundef i32 @_ZN6icu_7510UCharsTrie10branchNextEPKDsii(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %pos.addr.0.lcssa.i.i48, i32 noundef %node.0.lcssa.i.i49, i32 noundef %conv2)
+  %call.i.i50 = tail call noundef i32 @_ZN6icu_7510UCharsTrie10branchNextEPKDsii(ptr noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef nonnull %pos.addr.0.lcssa.i.i48, i32 noundef %node.0.lcssa.i.i49, i32 noundef %conv2)
   br label %_ZN6icu_7510UCharsTrie5firstEi.exit57
 
 if.then3.i.i22:                                   ; preds = %if.then2.i.us38.i.i40, %if.else.i.us36.i.i38, %if.else15.us32.i.i20, %if.else.lr.ph.split.i.i14, %if.else.us.i.i42
@@ -405,7 +405,7 @@ if.then2.i.us38.i:                                ; preds = %if.then.i.us34.i
 if.then.i:                                        ; preds = %if.then2.i.us.i, %if.else.i.us.i, %if.else15.us.i, %if.end11
   %pos.addr.0.lcssa.i = phi ptr [ %incdec.ptr, %if.end11 ], [ %incdec.ptr.i.us.i, %if.then2.i.us.i ], [ %add.ptr.i.us.i, %if.else.i.us.i ], [ %incdec.ptr, %if.else15.us.i ]
   %node.0.lcssa.i = phi i32 [ %conv, %if.end11 ], [ %and17.i, %if.then2.i.us.i ], [ %and17.i, %if.else.i.us.i ], [ %and17.i, %if.else15.us.i ]
-  %call.i = tail call noundef i32 @_ZN6icu_7510UCharsTrie10branchNextEPKDsii(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %pos.addr.0.lcssa.i, i32 noundef %node.0.lcssa.i, i32 noundef %uchar)
+  %call.i = tail call noundef i32 @_ZN6icu_7510UCharsTrie10branchNextEPKDsii(ptr noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef nonnull %pos.addr.0.lcssa.i, i32 noundef %node.0.lcssa.i, i32 noundef %uchar)
   br label %return
 
 if.then3.i:                                       ; preds = %if.then2.i.us38.i, %if.else.i.us36.i, %if.else15.us32.i, %if.else.lr.ph.split.i, %if.else.us.i
@@ -1221,7 +1221,7 @@ if.else:                                          ; preds = %if.then11
 if.else18:                                        ; preds = %_ZN6icu_7510UCharsTrie9skipValueEPKDsi.exit
   %idx.ext = sext i32 %value.0.i49 to i64
   %add.ptr = getelementptr inbounds i16, ptr %pos.addr.0.i40, i64 %idx.ext
-  %call19 = tail call noundef signext i8 @_ZN6icu_7510UCharsTrie15findUniqueValueEPKDsaRi(ptr noundef nonnull %add.ptr, i8 noundef signext %haveUniqueValue.addr.0, ptr noundef nonnull align 4 dereferenceable(4) %uniqueValue), !range !13
+  %call19 = tail call noundef signext i8 @_ZN6icu_7510UCharsTrie15findUniqueValueEPKDsaRi(ptr noundef nonnull %add.ptr, i8 noundef signext %haveUniqueValue.addr.0, ptr noundef nonnull align 4 dereferenceable(4) %uniqueValue)
   %tobool20.not = icmp eq i8 %call19, 0
   br i1 %tobool20.not, label %return, label %do.cond
 
@@ -1229,7 +1229,7 @@ do.cond:                                          ; preds = %if.else18, %if.then
   %haveUniqueValue.addr.1 = phi i8 [ %haveUniqueValue.addr.0, %if.then13 ], [ 1, %if.else ], [ 1, %if.else18 ]
   %dec = add nsw i32 %length.addr.1, -1
   %cmp24 = icmp sgt i32 %length.addr.1, 2
-  br i1 %cmp24, label %do.body, label %do.end, !llvm.loop !14
+  br i1 %cmp24, label %do.body, label %do.end, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond
   %add.ptr25 = getelementptr inbounds i8, ptr %pos.addr.0.i40, i64 2
@@ -1241,7 +1241,7 @@ return:                                           ; preds = %_ZN6icu_7510UCharsT
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_7510UCharsTrie15findUniqueValueEPKDsaRi(ptr noundef %pos, i8 noundef signext %haveUniqueValue, ptr nocapture noundef nonnull align 4 dereferenceable(4) %uniqueValue) local_unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510UCharsTrie15findUniqueValueEPKDsaRi(ptr noundef %pos, i8 noundef signext %haveUniqueValue, ptr nocapture noundef nonnull align 4 dereferenceable(4) %uniqueValue) local_unnamed_addr #6 align 2 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %pos, i64 2
   %0 = load i16, ptr %pos, align 2
@@ -1288,7 +1288,7 @@ for.cond.outer.backedge:                          ; preds = %if.end7, %_ZN6icu_7
   %haveUniqueValue.addr.0.ph.be = phi i8 [ %haveUniqueValue.addr.1, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ 1, %if.end7 ]
   %pos.addr.0.ph.be = phi ptr [ %pos.addr.0.i, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %incdec.ptr8, %if.end7 ]
   %node.0.ph.be = phi i32 [ %and33, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %conv9, %if.end7 ]
-  br label %for.cond.outer, !llvm.loop !15
+  br label %for.cond.outer, !llvm.loop !14
 
 if.else:                                          ; preds = %for.cond
   %cmp10 = icmp ult i32 %node.0, 64
@@ -1301,7 +1301,7 @@ if.then11:                                        ; preds = %if.else
   %incdec.ptr13 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %3 = load i16, ptr %add.ptr, align 2
   %conv14 = zext i16 %3 to i32
-  br label %for.cond, !llvm.loop !15
+  br label %for.cond, !llvm.loop !14
 
 if.else15:                                        ; preds = %if.else
   %tobool.not = icmp ult i32 %node.0, 32768
@@ -1413,7 +1413,7 @@ return:                                           ; preds = %if.end28, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7510UCharsTrie13getNextUCharsERNS_10AppendableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 65537) i32 @_ZNK6icu_7510UCharsTrie13getNextUCharsERNS_10AppendableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #7 align 2 {
 entry:
   %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
@@ -1573,7 +1573,7 @@ if.else.i17:                                      ; preds = %if.then.i15
 _ZN6icu_7510UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %_ZN6icu_7510UCharsTrie11jumpByDeltaEPKDs.exit, %if.then2.i18, %if.else.i17
   %pos.addr.0.i14 = phi ptr [ %add.ptr.i19, %if.then2.i18 ], [ %incdec.ptr3.i, %if.else.i17 ], [ %incdec.ptr.i, %_ZN6icu_7510UCharsTrie11jumpByDeltaEPKDs.exit ]
   %cmp = icmp sgt i32 %sub, 5
-  br i1 %cmp, label %while.body, label %do.body.preheader, !llvm.loop !16
+  br i1 %cmp, label %while.body, label %do.body.preheader, !llvm.loop !15
 
 do.body.preheader:                                ; preds = %_ZN6icu_7510UCharsTrie9skipDeltaEPKDs.exit, %entry
   %length.addr.1.ph = phi i32 [ %length, %entry ], [ %sub, %_ZN6icu_7510UCharsTrie9skipDeltaEPKDs.exit ]
@@ -1611,7 +1611,7 @@ _ZN6icu_7510UCharsTrie9skipValueEPKDs.exit:       ; preds = %do.body, %if.then2.
   %pos.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %if.then2.i.i ], [ %add.ptr.i.i, %if.else.i.i ], [ %incdec.ptr.i20, %do.body ]
   %dec = add nsw i32 %length.addr.1, -1
   %cmp6 = icmp sgt i32 %length.addr.1, 2
-  br i1 %cmp6, label %do.body, label %do.end, !llvm.loop !17
+  br i1 %cmp6, label %do.body, label %do.end, !llvm.loop !16
 
 do.end:                                           ; preds = %_ZN6icu_7510UCharsTrie9skipValueEPKDs.exit
   %9 = load i16, ptr %pos.addr.0.i.i, align 2
@@ -1652,8 +1652,7 @@ attributes #10 = { nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i8 0, i8 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

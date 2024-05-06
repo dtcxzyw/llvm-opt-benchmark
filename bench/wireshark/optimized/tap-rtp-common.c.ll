@@ -26,7 +26,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @rtpstream_info_malloc_and_init() local_unnamed_addr #2 {
   %1 = tail call noalias dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %1, i8 0, i64 7304, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(7304) %1, i8 0, i64 7304, i1 false)
   ret ptr %1
 }
 
@@ -41,7 +41,7 @@ define hidden void @rtpstream_info_copy_deep(ptr nocapture noundef writeonly %0,
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %3, ptr %0, align 8
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %copy_address.exit, label %9
@@ -65,7 +65,7 @@ copy_address.exit:                                ; preds = %2, %9
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store i32 %17, ptr %15, align 8
   %22 = icmp eq i32 %19, 0
   br i1 %22, label %copy_address.exit8, label %23
@@ -98,13 +98,13 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @rtpstream_info_malloc_and_copy_deep(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %2, ptr noundef nonnull align 8 dereferenceable(7304) %0, i64 7304, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(7304) %2, ptr noundef nonnull readonly align 8 dereferenceable(7304) %0, i64 7304, i1 false)
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 %3, ptr %2, align 8
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %copy_address.exit.i, label %9
@@ -128,7 +128,7 @@ copy_address.exit.i:                              ; preds = %9, %1
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store i32 %17, ptr %15, align 8
   %22 = icmp eq i32 %19, 0
   br i1 %22, label %rtpstream_info_copy_deep.exit, label %23
@@ -191,7 +191,7 @@ rtpstream_info_free_data.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @rtpstream_info_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @rtpstream_info_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %9, label %4
 
@@ -215,7 +215,7 @@ define hidden i32 @rtpstream_info_cmp(ptr noundef %0, ptr noundef %1) local_unna
 declare i32 @rtpstream_id_equal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @rtpstream_info_is_reverse(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @rtpstream_info_is_reverse(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -453,7 +453,7 @@ define hidden void @register_tap_listener_rtpstream(ptr noundef %0, ptr noundef 
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rtpstream_packet_cb(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #2 {
+define hidden range(i32 0, 2) i32 @rtpstream_packet_cb(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #2 {
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
@@ -525,7 +525,7 @@ rtpstream_info_multihash_lookup.exit:             ; preds = %.lr.ph.i
 
 rtpstream_info_multihash_lookup.exit.thread:      ; preds = %37, %33, %28, %25, %rtpstream_info_multihash_lookup.exit
   %41 = call noalias noundef dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %41, i8 0, i64 7304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(7304) %41, i8 0, i64 7304, i1 false)
   call void @rtpstream_id_copy_pinfo(ptr noundef %1, ptr noundef %41, i32 noundef 0) #15
   %42 = load i32, ptr %10, align 8
   %43 = getelementptr inbounds i8, ptr %41, i64 60
@@ -545,10 +545,10 @@ rtpstream_info_multihash_lookup.exit.thread:      ; preds = %37, %33, %28, %25, 
   store ptr %52, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %41, i64 2176
   %55 = getelementptr inbounds i8, ptr %1, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
   %56 = getelementptr inbounds i8, ptr %41, i64 2208
   %57 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
   %58 = getelementptr inbounds i8, ptr %41, i64 2240
   store i32 1, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %41, i64 7276
@@ -712,7 +712,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @rtpstream_is_payload_used(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @rtpstream_is_payload_used(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = zext i8 %1 to i64
   %5 = getelementptr [256 x ptr], ptr %3, i64 0, i64 %4

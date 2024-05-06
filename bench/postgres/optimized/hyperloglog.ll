@@ -78,7 +78,7 @@ define dso_local void @initHyperLogLogError(ptr nocapture noundef %0, double nou
 3:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 4, %2 ], [ %indvars.iv.next, %8 ]
   %4 = shl nuw nsw i64 1, %indvars.iv
-  %5 = uitofp i64 %4 to double
+  %5 = uitofp nneg i64 %4 to double
   %sqrt = tail call double @llvm.sqrt.f64(double %5)
   %6 = fdiv double 1.040000e+00, %sqrt
   %7 = fcmp olt double %6, %1
@@ -90,7 +90,7 @@ define dso_local void @initHyperLogLogError(ptr nocapture noundef %0, double nou
   br i1 %exitcond.not, label %.split.loop.exit9, label %3, !llvm.loop !5
 
 .split.loop.exit:                                 ; preds = %3
-  %9 = trunc i64 %indvars.iv to i8
+  %9 = trunc nuw nsw i64 %indvars.iv to i8
   br label %.split.loop.exit9
 
 .split.loop.exit9:                                ; preds = %8, %.split.loop.exit
@@ -125,8 +125,8 @@ define dso_local void @addHyperLogLog(ptr nocapture noundef readonly %0, i32 nou
   br label %rho.exit
 
 12:                                               ; preds = %2
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %7, i1 true), !range !7
-  %14 = trunc i32 %13 to i8
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = xor i8 %14, 31
   %16 = sub nuw nsw i8 32, %15
   %17 = icmp ugt i8 %16, %8
@@ -136,7 +136,7 @@ define dso_local void @addHyperLogLog(ptr nocapture noundef readonly %0, i32 nou
 
 rho.exit:                                         ; preds = %10, %12
   %.0.i = phi i8 [ %11, %10 ], [ %spec.select.i, %12 ]
-  %19 = trunc i64 %5 to i32
+  %19 = trunc nsw i64 %5 to i32
   %20 = lshr i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
@@ -174,7 +174,7 @@ define dso_local double @estimateHyperLogLog(ptr nocapture noundef readonly %0) 
   %14 = sext i32 %13 to i64
   %15 = load i64, ptr %2, align 8
   %16 = icmp ugt i64 %15, %14
-  br i1 %16, label %5, label %._crit_edge, !llvm.loop !8
+  br i1 %16, label %5, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %5
   %17 = getelementptr inbounds i8, ptr %0, i64 16
@@ -213,7 +213,7 @@ define dso_local double @estimateHyperLogLog(ptr nocapture noundef readonly %0) 
   %35 = add i32 %.12335, 1
   %36 = sext i32 %35 to i64
   %37 = icmp ugt i64 %15, %36
-  br i1 %37, label %29, label %._crit_edge38, !llvm.loop !9
+  br i1 %37, label %29, label %._crit_edge38, !llvm.loop !8
 
 ._crit_edge38:                                    ; preds = %29
   %.not = icmp eq i32 %spec.select, 0
@@ -286,6 +286,5 @@ attributes #11 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 33}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

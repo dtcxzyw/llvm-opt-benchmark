@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ssl_verify_alarm_type = private unnamed_addr constant [49 x i32] [i32 48, i32 48, i32 42, i32 42, i32 42, i32 51, i32 51, i32 42, i32 45, i32 42, i32 45, i32 42, i32 42, i32 42, i32 42, i32 80, i32 48, i32 48, i32 48, i32 48, i32 48, i32 44, i32 48, i32 48, i32 43, i32 42, i32 42, i32 46, i32 46, i32 46, i32 46, i32 48, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 46, i32 40], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl3_do_write(ptr noundef %ssl, i32 noundef %type) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @ssl3_do_write(ptr noundef %ssl, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %init_buf = getelementptr inbounds i8, ptr %ssl, i64 56
   %0 = load ptr, ptr %init_buf, align 8
@@ -321,7 +321,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl3_send_change_cipher_spec(ptr noundef %ssl, i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @ssl3_send_change_cipher_spec(ptr noundef %ssl, i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %ssl, i64 52
   %0 = load i32, ptr %state, align 4
@@ -459,7 +459,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ssl_add_cert_chain(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ssl3_get_message(ptr noundef %ssl, i32 noundef %header_state, i32 noundef %body_state, i32 noundef %msg_type, i64 noundef %max, i32 noundef %hash_message, ptr nocapture noundef writeonly %ok) local_unnamed_addr #0 {
+define hidden range(i64 -2147483648, 2147483648) i64 @ssl3_get_message(ptr noundef %ssl, i32 noundef %header_state, i32 noundef %body_state, i32 noundef %msg_type, i64 noundef %max, i32 noundef %hash_message, ptr nocapture noundef writeonly %ok) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -749,7 +749,7 @@ declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @ssl3_update_handshake_hash(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl3_cert_verify_hash(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef %out_md, i32 noundef %pkey_type) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef %out_md, i32 noundef %pkey_type) local_unnamed_addr #0 {
 entry:
   %mctx = alloca %struct.env_md_ctx_st, align 8
   %len = alloca i32, align 4
@@ -869,7 +869,7 @@ declare ptr @EVP_md5_sha1() local_unnamed_addr #1
 declare ptr @EVP_sha1() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ssl_verify_alarm_type(i64 noundef %type) local_unnamed_addr #3 {
+define hidden range(i32 40, 81) i32 @ssl_verify_alarm_type(i64 noundef %type) local_unnamed_addr #3 {
 entry:
   %switch.tableidx = add i64 %type, -2
   %0 = icmp ult i64 %switch.tableidx, 49

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [23 x i8] c"inet_pton: %s (%d): %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @ws_inet_ntop4(ptr noundef %0, ptr noundef returned %1, i64 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @ws_inet_ntop4(ptr noundef %0, ptr noundef returned %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = trunc i64 %2 to i32
@@ -58,7 +58,7 @@ inet_pton_internal.exit:                          ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @ws_inet_ntop6(ptr noundef %0, ptr noundef returned %1, i64 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @ws_inet_ntop6(ptr noundef %0, ptr noundef returned %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = trunc i64 %2 to i32

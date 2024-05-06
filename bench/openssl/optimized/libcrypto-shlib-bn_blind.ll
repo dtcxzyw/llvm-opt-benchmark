@@ -159,7 +159,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_BLINDING_update(ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_BLINDING_update(ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %b, align 8
   %cmp = icmp eq ptr %0, null
@@ -491,7 +491,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
-  %call = tail call i32 @BN_BLINDING_update(ptr noundef nonnull %b, ptr noundef %ctx), !range !4
+  %call = tail call i32 @BN_BLINDING_update(ptr noundef nonnull %b, ptr noundef %ctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end7
 
@@ -590,7 +590,7 @@ for.body:                                         ; preds = %if.then5, %for.body
   store i64 %and, ptr %arrayidx, align 8
   %inc = add nuw i64 %i.030, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %if.then5
   %or = tail call i32 @llvm.smax.i32(i32 %3, i32 %4)
@@ -695,6 +695,5 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

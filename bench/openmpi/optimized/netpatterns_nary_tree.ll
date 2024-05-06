@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [44 x i8] c"Cannot allocate memory for children_ranks.\0A\00", align 1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %0, 2
   br i1 %5, label %74, label %.preheader108
 
@@ -31,7 +31,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 nound
   %.094111 = phi i32 [ %11, %.lr.ph113 ], [ -1, %.preheader108 ]
   %.196110 = phi i32 [ %9, %.lr.ph113 ], [ %1, %.preheader108 ]
   %9 = sub nsw i32 %.196110, %.091112
-  %10 = mul nsw i32 %.091112, %0
+  %10 = mul nuw nsw i32 %.091112, %0
   %11 = add nsw i32 %.094111, 1
   %12 = icmp sgt i32 %9, -1
   br i1 %12, label %.lr.ph113, label %._crit_edge, !llvm.loop !4
@@ -55,7 +55,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 nound
   %.089115 = phi i32 [ %20, %.lr.ph118 ], [ 0, %16 ]
   %.192114 = phi i32 [ %19, %.lr.ph118 ], [ 1, %16 ]
   %18 = add nuw nsw i32 %.088116, %.192114
-  %19 = mul nsw i32 %.192114, %0
+  %19 = mul nuw nsw i32 %.192114, %0
   %20 = add nuw nsw i32 %.089115, 1
   %exitcond.not = icmp eq i32 %.089115, %.094111
   br i1 %exitcond.not, label %._crit_edge119, label %.lr.ph118, !llvm.loop !6
@@ -86,7 +86,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 nound
   %.293123 = phi i32 [ %31, %.lr.ph126 ], [ 1, %26 ]
   %.297122 = phi i32 [ %30, %.lr.ph126 ], [ %2, %26 ]
   %30 = sub nsw i32 %.297122, %.293123
-  %31 = mul nsw i32 %.293123, %0
+  %31 = mul nuw nsw i32 %.293123, %0
   %32 = add nuw nsw i32 %.086124, 1
   %33 = icmp sgt i32 %30, 0
   br i1 %33, label %.lr.ph126, label %._crit_edge127, !llvm.loop !7
@@ -112,7 +112,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 nound
   %.190131 = phi i32 [ %40, %.lr.ph133 ], [ 0, %.preheader107 ]
   %.3130 = phi i32 [ %39, %.lr.ph133 ], [ 1, %.preheader107 ]
   %38 = add nuw nsw i32 %.1132, %.3130
-  %39 = mul nsw i32 %.3130, %0
+  %39 = mul nuw nsw i32 %.3130, %0
   %40 = add nuw i32 %.190131, 1
   %exitcond142.not = icmp eq i32 %.190131, %.094.lcssa145
   br i1 %exitcond142.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !8
@@ -161,7 +161,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 nound
   %59 = load ptr, ptr %34, align 8
   %60 = sub nsw i64 %indvars.iv, %57
   %61 = getelementptr inbounds i32, ptr %59, i64 %60
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nsw i64 %indvars.iv to i32
   store i32 %62, ptr %61, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not105.not = icmp slt i64 %indvars.iv, %58
@@ -237,7 +237,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare void @ompi_netpatterns_cleanup_recursive_knomial_tree_node(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp slt i32 %0, 2
   br i1 %5, label %81, label %.preheader120
 
@@ -258,7 +258,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noundef %0, i
   %.0106123 = phi i32 [ %11, %.lr.ph125 ], [ -1, %.preheader120 ]
   %.1108122 = phi i32 [ %9, %.lr.ph125 ], [ %1, %.preheader120 ]
   %9 = sub nsw i32 %.1108122, %.0103124
-  %10 = mul nsw i32 %.0103124, %0
+  %10 = mul nuw nsw i32 %.0103124, %0
   %11 = add nsw i32 %.0106123, 1
   %12 = icmp sgt i32 %9, -1
   br i1 %12, label %.lr.ph125, label %._crit_edge, !llvm.loop !10
@@ -282,7 +282,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noundef %0, i
   %.0101127 = phi i32 [ %20, %.lr.ph130 ], [ 0, %16 ]
   %.1104126 = phi i32 [ %19, %.lr.ph130 ], [ 1, %16 ]
   %18 = add nuw nsw i32 %.0100128, %.1104126
-  %19 = mul nsw i32 %.1104126, %0
+  %19 = mul nuw nsw i32 %.1104126, %0
   %20 = add nuw nsw i32 %.0101127, 1
   %exitcond.not = icmp eq i32 %.0101127, %.0106123
   br i1 %exitcond.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !11
@@ -322,7 +322,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noundef %0, i
   %.2105135 = phi i32 [ %35, %.lr.ph138 ], [ 1, %31 ]
   %.2109134 = phi i32 [ %34, %.lr.ph138 ], [ %2, %31 ]
   %34 = sub nsw i32 %.2109134, %.2105135
-  %35 = mul nsw i32 %.2105135, %0
+  %35 = mul nuw nsw i32 %.2105135, %0
   %36 = add nuw nsw i32 %.098136, 1
   %37 = icmp sgt i32 %34, 0
   br i1 %37, label %.lr.ph138, label %._crit_edge139, !llvm.loop !12
@@ -354,7 +354,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noundef %0, i
   %.1102145 = phi i32 [ %46, %.lr.ph147 ], [ 0, %.preheader119 ]
   %.3144 = phi i32 [ %45, %.lr.ph147 ], [ 1, %.preheader119 ]
   %44 = add nuw nsw i32 %.1146, %.3144
-  %45 = mul nsw i32 %.3144, %0
+  %45 = mul nuw nsw i32 %.3144, %0
   %46 = add nuw i32 %.1102145, 1
   %exitcond158.not = icmp eq i32 %.1102145, %.0106.lcssa161
   br i1 %exitcond158.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !13
@@ -396,7 +396,7 @@ define noundef i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noundef %0, i
   %64 = load ptr, ptr %42, align 8
   %65 = sub nsw i64 %indvars.iv, %62
   %66 = getelementptr inbounds i32, ptr %64, i64 %65
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nsw i64 %indvars.iv to i32
   store i32 %67, ptr %66, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not118.not = icmp slt i64 %indvars.iv.next, %63
@@ -475,7 +475,7 @@ define i32 @ompi_roundup_to_power_radix(i32 noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
+define range(i32 -2, 1) i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 5
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #9
@@ -492,7 +492,7 @@ define i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(i32 noundef %0, i
   %11 = add nsw i32 %1, -1
   %12 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %12, align 4
-  %13 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %11, i32 noundef 0, ptr noundef nonnull %6), !range !16
+  %13 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %11, i32 noundef 0, ptr noundef nonnull %6)
   br label %14
 
 14:                                               ; preds = %10, %7
@@ -501,7 +501,7 @@ define i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(i32 noundef %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #6 {
+define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #6 {
   %5 = sdiv i32 %1, %0
   %.not = icmp eq i32 %5, 0
   %6 = mul i32 %5, %0
@@ -570,21 +570,21 @@ define internal fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %1, i3
   store i32 %2, ptr %33, align 4
   %34 = load ptr, ptr %21, align 8
   %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv82
-  %36 = trunc i64 %30 to i32
+  %36 = trunc nsw i64 %30 to i32
   store i32 %36, ptr %35, align 4
-  %37 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %.0, i32 noundef %36, ptr noundef nonnull %3), !range !16
+  %37 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %.0, i32 noundef %36, ptr noundef nonnull %3)
   %.not72.us = icmp eq i32 %37, 0
   br i1 %.not72.us, label %38, label %.loopexit
 
 38:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %exitcond86.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !16
 
 39:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %39 ]
@@ -595,7 +595,7 @@ define internal fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %1, i3
   store i32 1, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %41, i64 20
   store i32 %2, ptr %43, align 4
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %44, i32 %.062)
   %45 = trunc i64 %indvars.iv to i32
   %46 = mul i32 %.064, %45
@@ -613,7 +613,7 @@ define internal fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %1, i3
   %56 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv
   store i32 %48, ptr %56, align 4
   %57 = add nuw i32 %.0, %54
-  %58 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %57, i32 noundef %48, ptr noundef nonnull %3), !range !16
+  %58 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %57, i32 noundef %48, ptr noundef nonnull %3)
   %.not72 = icmp eq i32 %58, 0
   br i1 %.not72, label %39, label %.loopexit
 
@@ -662,5 +662,4 @@ attributes #11 = { cold }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 -2, i32 1}
-!17 = distinct !{!17, !5}
+!16 = distinct !{!16, !5}

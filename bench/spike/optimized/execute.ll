@@ -342,7 +342,7 @@ _ZN11processor_t22take_pending_interruptEv.exit:  ; preds = %50
 100:                                              ; preds = %97
   %.fca.0.extract20 = extractvalue { i64, i8 } %98, 0
   %.sroa.187.0.extract.shift = lshr i64 %.fca.0.extract20, 32
-  %.sroa.187.0.extract.trunc = trunc i64 %.sroa.187.0.extract.shift to i32
+  %.sroa.187.0.extract.trunc = trunc nuw i64 %.sroa.187.0.extract.shift to i32
   %101 = call ptr @__cxa_allocate_exception(i64 24) #18
   %102 = load i8, ptr %47, align 2
   %103 = and i8 %102, 1
@@ -370,7 +370,7 @@ _ZN11processor_t22take_pending_interruptEv.exit:  ; preds = %50
 112:                                              ; preds = %109
   %.fca.0.extract = extractvalue { i64, i8 } %110, 0
   %.sroa.1.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %113 = load i64, ptr %4, align 8
   invoke void @_ZN11processor_t19take_trigger_actionEN8triggers8action_tEmmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i32 noundef %.sroa.1.0.extract.trunc, i64 noundef 0, i64 noundef %113, i1 noundef zeroext false)
           to label %306 unwind label %300
@@ -1500,7 +1500,7 @@ define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr nocap
   br label %.loopexit
 
 20:                                               ; preds = %3
-  %21 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !11
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %22 = icmp ult i32 %21, 2
   br i1 %22, label %23, label %32
 
@@ -1521,7 +1521,7 @@ define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr nocap
   %29 = load i64, ptr %28, align 8
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, i64 noundef %29) #18
   %31 = icmp ugt i64 %indvars.iv, 1
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 32:                                               ; preds = %20
   tail call void @abort() #22
@@ -1725,7 +1725,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 30:                                               ; preds = %.sink.split, %22
   %.1 = phi i64 [ %19, %22 ], [ %.1.ph, %.sink.split ]
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %30, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %31 = load ptr, ptr %0, align 8
@@ -1807,6 +1807,5 @@ attributes #22 = { noreturn nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 33}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

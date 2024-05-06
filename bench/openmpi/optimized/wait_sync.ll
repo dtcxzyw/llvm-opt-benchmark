@@ -190,7 +190,7 @@ wait_sync_update.exit:                            ; preds = %27, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_sync_wait_mt(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_sync_wait_mt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load volatile i32, ptr %0, align 8
   %3 = icmp slt i32 %2, 1
   br i1 %3, label %96, label %4

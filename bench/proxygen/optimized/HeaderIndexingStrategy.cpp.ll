@@ -98,7 +98,7 @@ if.else.i.i:                                      ; preds = %entry
   br i1 %or.cond.i.i, label %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, label %sw.epilog
 
 _ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit: ; preds = %if.else.i.i
-  %conv.i.i = trunc i64 %sub.ptr.div.i.i to i8
+  %conv.i.i = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   switch i8 %conv.i.i, label %sw.epilog [
     i8 4, label %sw.bb
     i8 42, label %return

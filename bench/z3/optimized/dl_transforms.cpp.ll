@@ -61,7 +61,7 @@ entry:
   %transf = alloca %"class.datalog::rule_transformer", align 8
   %m_enable_bind_variables.i = getelementptr inbounds i8, ptr %ctx, i64 3514
   %0 = load i8, ptr %m_enable_bind_variables.i, align 2
-  %1 = and i8 %0, 1
+  %frombool.i = and i8 %0, 1
   store i8 0, ptr %m_enable_bind_variables.i, align 2
   invoke void @_ZN7datalog16rule_transformerC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(32) %transf, ptr noundef nonnull align 8 dereferenceable(3556) %ctx)
           to label %invoke.cont unwind label %lpad
@@ -87,8 +87,8 @@ invoke.cont6:                                     ; preds = %invoke.cont3
   store ptr null, ptr %m_transformer.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog13mk_coi_filterE, i64 0, i32 0, i64 2), ptr %call5, align 8
   %m.i = getelementptr inbounds i8, ptr %call5, i64 24
-  %2 = load ptr, ptr %ctx, align 8
-  store ptr %2, ptr %m.i, align 8
+  %1 = load ptr, ptr %ctx, align 8
+  store ptr %1, ptr %m.i, align 8
   %m_context.i = getelementptr inbounds i8, ptr %call5, i64 32
   store ptr %ctx, ptr %m_context.i, align 8
   %m_new_tail.i = getelementptr inbounds i8, ptr %call5, i64 40
@@ -110,10 +110,10 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 invoke.cont11:                                    ; preds = %invoke.cont10
   %m_params.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %m_params.i, align 8
-  %4 = load ptr, ptr %3, align 8
-  %g.i = getelementptr inbounds i8, ptr %3, i64 8
-  %call.i41 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
+  %2 = load ptr, ptr %m_params.i, align 8
+  %3 = load ptr, ptr %2, align 8
+  %g.i = getelementptr inbounds i8, ptr %2, i64 8
+  %call.i41 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont14 unwind label %lpad1
 
 invoke.cont14:                                    ; preds = %invoke.cont11
@@ -132,21 +132,21 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %if.end unwind label %lpad1
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad1:                                            ; preds = %invoke.cont123.invoke, %if.end147, %invoke.cont137, %invoke.cont87, %invoke.cont65, %invoke.cont43, %if.end29, %if.end, %invoke.cont11, %invoke.cont161, %invoke.cont160, %invoke.cont158, %if.end157, %invoke.cont155, %invoke.cont153, %if.then152, %invoke.cont145, %invoke.cont143, %if.then142, %invoke.cont136, %invoke.cont134, %invoke.cont133, %invoke.cont132, %invoke.cont130, %invoke.cont129, %invoke.cont128, %invoke.cont126, %if.end125, %invoke.cont121, %if.else, %invoke.cont117, %invoke.cont116, %invoke.cont115, %invoke.cont113, %invoke.cont112, %invoke.cont111, %invoke.cont109, %invoke.cont108, %invoke.cont107, %invoke.cont105, %invoke.cont104, %invoke.cont103, %invoke.cont101, %invoke.cont100, %invoke.cont99, %invoke.cont97, %invoke.cont96, %invoke.cont95, %invoke.cont93, %if.then92, %invoke.cont86, %invoke.cont84, %invoke.cont83, %invoke.cont82, %invoke.cont79, %invoke.cont78, %invoke.cont76, %if.end75, %invoke.cont73, %invoke.cont71, %if.then70, %invoke.cont64, %invoke.cont62, %invoke.cont61, %invoke.cont60, %invoke.cont57, %invoke.cont56, %invoke.cont54, %if.end53, %invoke.cont51, %invoke.cont49, %if.then48, %invoke.cont42, %invoke.cont40, %if.end39, %invoke.cont37, %invoke.cont35, %if.then34, %invoke.cont27, %invoke.cont25, %if.then24, %invoke.cont18, %invoke.cont16, %if.then, %invoke.cont10, %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont3, %invoke.cont2, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7datalog16rule_transformerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %transf) #8
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont18, %invoke.cont14
-  %7 = load ptr, ptr %m_params.i, align 8
-  %8 = load ptr, ptr %7, align 8
-  %g.i43 = getelementptr inbounds i8, ptr %7, i64 8
-  %call.i44 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %g.i43, i1 noundef zeroext false)
+  %6 = load ptr, ptr %m_params.i, align 8
+  %7 = load ptr, ptr %6, align 8
+  %g.i43 = getelementptr inbounds i8, ptr %6, i64 8
+  %call.i44 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %g.i43, i1 noundef zeroext false)
           to label %invoke.cont22 unwind label %lpad1
 
 invoke.cont22:                                    ; preds = %if.end
@@ -165,10 +165,10 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %if.end29 unwind label %lpad1
 
 if.end29:                                         ; preds = %invoke.cont27, %invoke.cont22
-  %9 = load ptr, ptr %m_params.i, align 8
-  %10 = load ptr, ptr %9, align 8
-  %g.i46 = getelementptr inbounds i8, ptr %9, i64 8
-  %call.i47 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %g.i46, i1 noundef zeroext false)
+  %8 = load ptr, ptr %m_params.i, align 8
+  %9 = load ptr, ptr %8, align 8
+  %g.i46 = getelementptr inbounds i8, ptr %8, i64 8
+  %call.i47 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %g.i46, i1 noundef zeroext false)
           to label %invoke.cont32 unwind label %lpad1
 
 invoke.cont32:                                    ; preds = %if.end29
@@ -199,10 +199,10 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %invoke.cont43 unwind label %lpad1
 
 invoke.cont43:                                    ; preds = %invoke.cont42
-  %11 = load ptr, ptr %m_params.i, align 8
-  %12 = load ptr, ptr %11, align 8
-  %g.i49 = getelementptr inbounds i8, ptr %11, i64 8
-  %call.i50 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %g.i49, i1 noundef zeroext true)
+  %10 = load ptr, ptr %m_params.i, align 8
+  %11 = load ptr, ptr %10, align 8
+  %g.i49 = getelementptr inbounds i8, ptr %10, i64 8
+  %call.i50 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %g.i49, i1 noundef zeroext true)
           to label %invoke.cont46 unwind label %lpad1
 
 invoke.cont46:                                    ; preds = %invoke.cont43
@@ -245,8 +245,8 @@ invoke.cont60:                                    ; preds = %invoke.cont57
   store ptr null, ptr %m_transformer.i.i53, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog13mk_coi_filterE, i64 0, i32 0, i64 2), ptr %call59, align 8
   %m.i54 = getelementptr inbounds i8, ptr %call59, i64 24
-  %13 = load ptr, ptr %ctx, align 8
-  store ptr %13, ptr %m.i54, align 8
+  %12 = load ptr, ptr %ctx, align 8
+  store ptr %12, ptr %m.i54, align 8
   %m_context.i55 = getelementptr inbounds i8, ptr %call59, i64 32
   store ptr %ctx, ptr %m_context.i55, align 8
   %m_new_tail.i56 = getelementptr inbounds i8, ptr %call59, i64 40
@@ -267,10 +267,10 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %invoke.cont65 unwind label %lpad1
 
 invoke.cont65:                                    ; preds = %invoke.cont64
-  %14 = load ptr, ptr %m_params.i, align 8
-  %15 = load ptr, ptr %14, align 8
-  %g.i58 = getelementptr inbounds i8, ptr %14, i64 8
-  %call.i59 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %g.i58, i1 noundef zeroext true)
+  %13 = load ptr, ptr %m_params.i, align 8
+  %14 = load ptr, ptr %13, align 8
+  %g.i58 = getelementptr inbounds i8, ptr %13, i64 8
+  %call.i59 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %g.i58, i1 noundef zeroext true)
           to label %invoke.cont68 unwind label %lpad1
 
 invoke.cont68:                                    ; preds = %invoke.cont65
@@ -313,8 +313,8 @@ invoke.cont82:                                    ; preds = %invoke.cont79
   store ptr null, ptr %m_transformer.i.i63, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7datalog13mk_coi_filterE, i64 0, i32 0, i64 2), ptr %call81, align 8
   %m.i64 = getelementptr inbounds i8, ptr %call81, i64 24
-  %16 = load ptr, ptr %ctx, align 8
-  store ptr %16, ptr %m.i64, align 8
+  %15 = load ptr, ptr %ctx, align 8
+  store ptr %15, ptr %m.i64, align 8
   %m_context.i65 = getelementptr inbounds i8, ptr %call81, i64 32
   store ptr %ctx, ptr %m_context.i65, align 8
   %m_new_tail.i66 = getelementptr inbounds i8, ptr %call81, i64 40
@@ -335,10 +335,10 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %invoke.cont87 unwind label %lpad1
 
 invoke.cont87:                                    ; preds = %invoke.cont86
-  %17 = load ptr, ptr %m_params.i, align 8
-  %18 = load ptr, ptr %17, align 8
-  %g.i68 = getelementptr inbounds i8, ptr %17, i64 8
-  %call.i69 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %g.i68, i1 noundef zeroext true)
+  %16 = load ptr, ptr %m_params.i, align 8
+  %17 = load ptr, ptr %16, align 8
+  %g.i68 = getelementptr inbounds i8, ptr %16, i64 8
+  %call.i69 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %g.i68, i1 noundef zeroext true)
           to label %invoke.cont90 unwind label %lpad1
 
 invoke.cont90:                                    ; preds = %invoke.cont87
@@ -433,8 +433,8 @@ invoke.cont121:                                   ; preds = %if.else
           to label %invoke.cont123.invoke unwind label %lpad1
 
 invoke.cont123.invoke:                            ; preds = %invoke.cont121, %invoke.cont117
-  %19 = phi ptr [ %call118, %invoke.cont117 ], [ %call122, %invoke.cont121 ]
-  invoke void @_ZN7datalog16rule_transformer15register_pluginEPNS0_6pluginE(ptr noundef nonnull align 8 dereferenceable(32) %transf, ptr noundef nonnull %19)
+  %18 = phi ptr [ %call118, %invoke.cont117 ], [ %call122, %invoke.cont121 ]
+  invoke void @_ZN7datalog16rule_transformer15register_pluginEPNS0_6pluginE(ptr noundef nonnull align 8 dereferenceable(32) %transf, ptr noundef nonnull %18)
           to label %if.end125 unwind label %lpad1
 
 if.end125:                                        ; preds = %invoke.cont123.invoke
@@ -474,10 +474,10 @@ invoke.cont136:                                   ; preds = %invoke.cont134
           to label %invoke.cont137 unwind label %lpad1
 
 invoke.cont137:                                   ; preds = %invoke.cont136
-  %20 = load ptr, ptr %m_params.i, align 8
-  %21 = load ptr, ptr %20, align 8
-  %g.i72 = getelementptr inbounds i8, ptr %20, i64 8
-  %call.i73 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %g.i72, i1 noundef zeroext false)
+  %19 = load ptr, ptr %m_params.i, align 8
+  %20 = load ptr, ptr %19, align 8
+  %g.i72 = getelementptr inbounds i8, ptr %19, i64 8
+  %call.i73 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %g.i72, i1 noundef zeroext false)
           to label %invoke.cont140 unwind label %lpad1
 
 invoke.cont140:                                   ; preds = %invoke.cont137
@@ -496,10 +496,10 @@ invoke.cont145:                                   ; preds = %invoke.cont143
           to label %if.end147 unwind label %lpad1
 
 if.end147:                                        ; preds = %invoke.cont145, %invoke.cont140
-  %22 = load ptr, ptr %m_params.i, align 8
-  %23 = load ptr, ptr %22, align 8
-  %g.i76 = getelementptr inbounds i8, ptr %22, i64 8
-  %call.i77 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %g.i76, i1 noundef zeroext false)
+  %21 = load ptr, ptr %m_params.i, align 8
+  %22 = load ptr, ptr %21, align 8
+  %g.i76 = getelementptr inbounds i8, ptr %21, i64 8
+  %call.i77 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %g.i76, i1 noundef zeroext false)
           to label %invoke.cont150 unwind label %lpad1
 
 invoke.cont150:                                   ; preds = %if.end147
@@ -535,12 +535,12 @@ invoke.cont161:                                   ; preds = %invoke.cont160
 
 invoke.cont162:                                   ; preds = %invoke.cont161
   call void @_ZN7datalog16rule_transformerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %transf) #8
-  store i8 %1, ptr %m_enable_bind_variables.i, align 2
+  store i8 %frombool.i, ptr %m_enable_bind_variables.i, align 2
   ret void
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad1 ], [ %5, %lpad ]
-  store i8 %1, ptr %m_enable_bind_variables.i, align 2
+  %.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  store i8 %frombool.i, ptr %m_enable_bind_variables.i, align 2
   resume { ptr, i32 } %.pn
 }
 

@@ -149,7 +149,7 @@ declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noun
 declare i32 @close(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_gdb_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ir_gdb_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
 ir_gdbjit_strz.exit.i.i:
   %5 = alloca %struct._ir_gdbjit_ctx, align 8
   %6 = ptrtoint ptr %1 to i64
@@ -497,7 +497,7 @@ ir_gdbjit_sleb128.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %152
 ir_gdbjit_debugline.exit.i:                       ; preds = %.lr.ph.i74.i.i, %167
   %.08.lcssa.i72.i.i = phi i32 [ %170, %167 ], [ %175, %.lr.ph.i74.i.i ]
   %.0.lcssa.i73.i.i = phi ptr [ %169, %167 ], [ %174, %.lr.ph.i74.i.i ]
-  %177 = trunc i32 %.08.lcssa.i72.i.i to i8
+  %177 = trunc nuw nsw i32 %.08.lcssa.i72.i.i to i8
   %178 = getelementptr inbounds i8, ptr %.0.lcssa.i73.i.i, i64 1
   store i8 %177, ptr %.0.lcssa.i73.i.i, align 1
   %179 = getelementptr inbounds i8, ptr %.0.lcssa.i73.i.i, i64 2
@@ -599,7 +599,7 @@ ir_gdbjit_strz.exit.i47.i:                        ; preds = %198
 ir_gdbjit_uleb128.exit.i.i:                       ; preds = %.lr.ph.i.i50.i, %._crit_edge.i.i
   %.08.lcssa.i.i48.i = phi i32 [ %3, %._crit_edge.i.i ], [ %224, %.lr.ph.i.i50.i ]
   %.0.lcssa.i.i49.i = phi ptr [ %219, %._crit_edge.i.i ], [ %223, %.lr.ph.i.i50.i ]
-  %226 = trunc i32 %.08.lcssa.i.i48.i to i8
+  %226 = trunc nuw nsw i32 %.08.lcssa.i.i48.i to i8
   %227 = getelementptr inbounds i8, ptr %.0.lcssa.i.i49.i, i64 1
   store i8 %226, ptr %.0.lcssa.i.i49.i, align 1
   %228 = icmp ugt i32 %4, %3
@@ -627,7 +627,7 @@ ir_gdbjit_uleb128.exit.i.i:                       ; preds = %.lr.ph.i.i50.i, %._
 ir_gdbjit_uleb128.exit83.i.i:                     ; preds = %.lr.ph.i80.i.i, %229
   %.08.lcssa.i78.i.i = phi i32 [ %4, %229 ], [ %236, %.lr.ph.i80.i.i ]
   %.0.lcssa.i79.i.i = phi ptr [ %231, %229 ], [ %235, %.lr.ph.i80.i.i ]
-  %238 = trunc i32 %.08.lcssa.i78.i.i to i8
+  %238 = trunc nuw nsw i32 %.08.lcssa.i78.i.i to i8
   %239 = getelementptr inbounds i8, ptr %.0.lcssa.i79.i.i, i64 1
   store i8 %238, ptr %.0.lcssa.i79.i.i, align 1
   br label %240
@@ -676,7 +676,7 @@ ir_gdbjit_buildobj.exit:                          ; preds = %240, %.lr.ph96.preh
   store ptr %259, ptr %260, align 8
   %261 = getelementptr inbounds i8, ptr %256, i64 24
   store i64 %253, ptr %261, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %259, ptr nonnull align 8 %13, i64 %253, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %259, ptr nonnull readonly align 8 %13, i64 %253, i1 false)
   %262 = getelementptr inbounds i8, ptr %256, i64 8
   store ptr null, ptr %262, align 8
   %263 = load ptr, ptr getelementptr inbounds (%struct._ir_gdbjit_descriptor, ptr @__jit_debug_descriptor, i64 0, i32 3), align 8

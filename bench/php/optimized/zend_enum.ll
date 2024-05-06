@@ -647,7 +647,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_enum_build_backed_enum_table(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 268435456
@@ -940,7 +940,7 @@ declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_enum_get_case_by_value(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i8, ptr %1, align 8
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %8, label %15
@@ -2356,7 +2356,7 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
   %.0203 = phi i1 [ true, %64 ], [ false, %.thread325 ], [ false, %.thread251 ], [ false, %.thread283 ], [ false, %23 ], [ false, %47 ]
   %67 = load i64, ptr %5, align 8
   %68 = load ptr, ptr %4, align 8
-  %69 = call i32 @zend_enum_get_case_by_value(ptr noundef nonnull %6, ptr noundef nonnull %10, i64 noundef %67, ptr noundef %68, i1 noundef zeroext %2), !range !6
+  %69 = call i32 @zend_enum_get_case_by_value(ptr noundef nonnull %6, ptr noundef nonnull %10, i64 noundef %67, ptr noundef %68, i1 noundef zeroext %2)
   %70 = icmp eq i32 %69, -1
   br i1 %70, label %94, label %71
 
@@ -2537,4 +2537,3 @@ attributes #17 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
 !5 = !{i64 2728517, i64 2728538}
-!6 = !{i32 -1, i32 1}

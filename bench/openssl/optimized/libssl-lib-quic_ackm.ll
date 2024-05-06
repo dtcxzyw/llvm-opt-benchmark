@@ -43,9 +43,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx3 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_ack_flush_deadline, i64 0, i64 %indvars.iv
   store i64 -1, ptr %arrayidx3, align 8
   %arrayidx6 = getelementptr inbounds [3 x %struct.tx_pkt_history_st], ptr %call, i64 0, i64 %indvars.iv
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %arrayidx6, i8 0, i64 24, i1 false)
   %watermark.i = getelementptr inbounds i8, ptr %arrayidx6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %watermark.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %watermark.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @tx_pkt_info_hash, ptr noundef nonnull @tx_pkt_info_compare) #11
   %map.i = getelementptr inbounds i8, ptr %arrayidx6, i64 24
   store ptr %call.i.i, ptr %map.i, align 8
@@ -159,7 +159,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ackm_on_tx_packet(ptr nocapture noundef %ackm, ptr noundef %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_on_tx_packet(ptr nocapture noundef %ackm, ptr noundef %pkt) local_unnamed_addr #0 {
 entry:
   %pkt_space = getelementptr inbounds i8, ptr %pkt, i64 32
   %bf.load = load i8, ptr %pkt_space, align 8
@@ -317,7 +317,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %0 = freeze i64 %retval.sroa.0.0.copyload9.pre.i
   %1 = add i64 %retval.sroa.0.011.i, -1
   %or.cond.not.i = icmp ult i64 %1, %0
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %retval.sroa.0.1.i = select i1 %or.cond.not.i, i64 %retval.sroa.0.011.i, i64 %0
   %space.1.i = select i1 %or.cond.not.i, i32 %space.013.i, i32 %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1246,7 +1246,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %ackm, i32 noundef %pkt_space) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %ackm, i32 noundef %pkt_space) local_unnamed_addr #0 {
 entry:
   %space.i = alloca i32, align 4
   %discarded = getelementptr inbounds i8, ptr %ackm, i64 458
@@ -1557,7 +1557,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %0 = freeze i64 %retval.sroa.0.0.copyload9.pre.i
   %1 = add i64 %retval.sroa.0.011.i, -1
   %or.cond.not.i = icmp ult i64 %1, %0
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %retval.sroa.0.1.i = select i1 %or.cond.not.i, i64 %retval.sroa.0.011.i, i64 %0
   %space.1.i = select i1 %or.cond.not.i, i32 %space.013.i, i32 %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1987,7 +1987,7 @@ if.end61:                                         ; preds = %if.end41, %if.then4
   %20 = load i64, ptr %arrayidx64, align 8
   %retval.sroa.0.0.i28 = call i64 @llvm.uadd.sat.i64(i64 %20, i64 %duration.sroa.0.1)
   %cmp5.i = icmp ult i64 %retval.sroa.0.0.i28, %pto_timeout.sroa.0.031
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %cmp5.i, i32 %21, i32 %pto_space.030
   %spec.select21 = call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i28, i64 %pto_timeout.sroa.0.031)
   br label %for.inc
@@ -2027,7 +2027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_ackm_get_largest_unacked(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space, ptr nocapture noundef writeonly %pn) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_ackm_get_largest_unacked(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space, ptr nocapture noundef writeonly %pn) local_unnamed_addr #5 {
 entry:
   %idxprom.i = sext i32 %pkt_space to i64
   %0 = getelementptr [3 x %struct.tx_pkt_history_st], ptr %ackm, i64 0, i64 %idxprom.i, i32 0, i32 1
@@ -2046,7 +2046,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_is_ack_desired(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_is_ack_desired(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space) local_unnamed_addr #0 {
 entry:
   %rx_ack_desired = getelementptr inbounds i8, ptr %ackm, i64 461
   %idxprom = sext i32 %pkt_space to i64
@@ -2079,7 +2079,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ackm_on_rx_packet(ptr noundef %ackm, ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_on_rx_packet(ptr noundef %ackm, ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
 entry:
   %r.i.i.i = alloca %struct.uint_range_st, align 8
   %r.i.i = alloca %struct.uint_range_st, align 8
@@ -2407,7 +2407,7 @@ return:                                           ; preds = %entry, %rx_pkt_hist
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %ackm, i64 noundef %pn, i32 noundef %pkt_space) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %ackm, i64 noundef %pn, i32 noundef %pkt_space) local_unnamed_addr #0 {
 entry:
   %rx_history.i = getelementptr inbounds i8, ptr %ackm, i64 144
   %idxprom.i = sext i32 %pkt_space to i64
@@ -2592,7 +2592,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ackm_mark_packet_pseudo_lost(ptr nocapture noundef %ackm, i32 noundef %pkt_space, i64 noundef %pn) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_mark_packet_pseudo_lost(ptr nocapture noundef %ackm, i32 noundef %pkt_space, i64 noundef %pn) local_unnamed_addr #0 {
 entry:
   %rtt.i = alloca %struct.ossl_rtt_info_st, align 8
   %key.i.i = alloca %struct.ossl_ackm_tx_pkt_st, align 8
@@ -2802,7 +2802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @tx_pkt_info_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @tx_pkt_info_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8

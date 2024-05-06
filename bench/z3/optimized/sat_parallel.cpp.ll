@@ -1166,8 +1166,8 @@ for.body.preheader.i22:                           ; preds = %entry
   store i32 %num_extra_solvers, ptr %incdec.ptr.i27, align 4
   %incdec.ptr2.ptr.i28 = getelementptr inbounds i8, ptr %call.i26, i64 8
   store ptr %incdec.ptr2.ptr.i28, ptr %m_limits, align 8
-  %0 = getelementptr i8, ptr %call.i26, i64 %mul.i24
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %0, i64 8
+  %0 = getelementptr inbounds i8, ptr %call.i26, i64 %mul.i24
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i22

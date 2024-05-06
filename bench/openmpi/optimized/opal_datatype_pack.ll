@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_datatype_basicDatatypes = external local_unnamed_addr global [28 x ptr], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_pack_homogeneous_contig(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @opal_pack_homogeneous_contig(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -99,7 +99,7 @@ define noundef i32 @opal_pack_homogeneous_contig(ptr noundef %0, ptr nocapture n
   br i1 %or.cond, label %._crit_edge.loopexit, label %29, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %43
-  %57 = trunc i64 %indvars.iv.next to i32
+  %57 = trunc nuw i64 %indvars.iv.next to i32
   %.pre60 = load i64, ptr %9, align 8
   br label %._crit_edge
 
@@ -127,7 +127,7 @@ define noundef i32 @opal_pack_homogeneous_contig(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_pack_homogeneous_contig_with_gaps(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @opal_pack_homogeneous_contig_with_gaps(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -422,7 +422,7 @@ define i32 @opal_pack_homogeneous_contig_with_gaps(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_generic_simple_pack(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @opal_generic_simple_pack(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6215,7 +6215,7 @@ pack_predefined_data.exit:                        ; preds = %.lr.ph4019.i.i, %.p
   br i1 %2977, label %2978, label %2980
 
 2978:                                             ; preds = %2975
-  %2979 = trunc i64 %indvars.iv to i32
+  %2979 = trunc nuw i64 %indvars.iv to i32
   store i32 %2979, ptr %2, align 4
   br label %3091
 
@@ -6448,7 +6448,7 @@ pack_contiguous_loop.exit._crit_edge:             ; preds = %pack_contiguous_loo
   br i1 %3097, label %34, label %._crit_edge870.loopexit, !llvm.loop !139
 
 ._crit_edge870.loopexit:                          ; preds = %3091
-  %3098 = trunc i64 %indvars.iv.next to i32
+  %3098 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge870
 
 ._crit_edge870:                                   ; preds = %._crit_edge870.loopexit, %4
@@ -6504,7 +6504,7 @@ pack_contiguous_loop.exit._crit_edge:             ; preds = %pack_contiguous_loo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_pack_general(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @opal_pack_general(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -6774,7 +6774,7 @@ pack_predefined_heterogeneous.exit:               ; preds = %66, %.loopexit.i, %
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %152
-  %156 = trunc i64 %indvars.iv to i32
+  %156 = trunc nuw i64 %indvars.iv to i32
   store i32 %156, ptr %2, align 4
   br label %223
 
@@ -6911,7 +6911,7 @@ pack_predefined_heterogeneous.exit:               ; preds = %66, %.loopexit.i, %
   br i1 %229, label %34, label %._crit_edge183.loopexit, !llvm.loop !142
 
 ._crit_edge183.loopexit:                          ; preds = %223
-  %230 = trunc i64 %indvars.iv.next to i32
+  %230 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge183
 
 ._crit_edge183:                                   ; preds = %._crit_edge183.loopexit, %4

@@ -119,7 +119,7 @@ if.then21:                                        ; preds = %if.end18
 if.end22:                                         ; preds = %if.end18
   %call23 = tail call ptr @wolfSSL_new(ptr noundef %call14) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @__ctype_b_loc() #15
   %6 = load ptr, ptr %call.i.i, align 8
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %6, i64 98
@@ -141,7 +141,7 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i
   %h_length.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
   %11 = load i32, ptr %h_length.i.i, align 4
   %conv10.i.i = sext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %10, i64 %conv10.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %sin_addr.i.i, ptr align 1 %10, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #15
   %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2

@@ -817,7 +817,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %244, %241
   br i1 %or.cond.i, label %246, label %249
 
 246:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
-  invoke fastcc void @_ZL6do_fitP8_IO_FILEibiPfPS1_iP7t_pargsPK16gmx_output_env_tPKc(ptr noundef %240, i32 noundef 0, i1 noundef zeroext true, i32 noundef %236, ptr noundef %237, ptr noundef %147, i32 noundef %238, ptr noundef %105, ptr noundef %239, ptr noundef %231)
+  invoke fastcc void @_ZL6do_fitP8_IO_FILEibiPfPS1_iP7t_pargsPK16gmx_output_env_tPKc(ptr noundef %240, i32 noundef 0, i1 noundef zeroext true, i32 noundef %236, ptr noundef %237, ptr noundef readonly %147, i32 noundef %238, ptr noundef %105, ptr noundef %239, ptr noundef %231)
           to label %.noexc189 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 247:                                              ; preds = %.noexc
@@ -857,7 +857,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %244, %241
 
 .lr.ph.split.us.i:                                ; preds = %250, %.noexc192
   %.03343.us.i = phi i32 [ %262, %.noexc192 ], [ 0, %250 ]
-  invoke fastcc void @_ZL6do_fitP8_IO_FILEibiPfPS1_iP7t_pargsPK16gmx_output_env_tPKc(ptr noundef %240, i32 noundef %.03343.us.i, i1 noundef zeroext false, i32 noundef %236, ptr noundef %237, ptr noundef %147, i32 noundef %238, ptr noundef %105, ptr noundef %239, ptr noundef null)
+  invoke fastcc void @_ZL6do_fitP8_IO_FILEibiPfPS1_iP7t_pargsPK16gmx_output_env_tPKc(ptr noundef %240, i32 noundef %.03343.us.i, i1 noundef zeroext false, i32 noundef %236, ptr noundef %237, ptr noundef readonly %147, i32 noundef %238, ptr noundef %105, ptr noundef %239, ptr noundef null)
           to label %.noexc191 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc191:                                        ; preds = %.lr.ph.split.us.i
@@ -876,7 +876,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %244, %241
 
 .noexc193:                                        ; preds = %.lr.ph.split.i
   %264 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %263, i64 noundef %261, ptr noundef nonnull @.str.177, ptr noundef %255, i32 noundef %.03343.i) #21
-  invoke fastcc void @_ZL6do_fitP8_IO_FILEibiPfPS1_iP7t_pargsPK16gmx_output_env_tPKc(ptr noundef %240, i32 noundef %.03343.i, i1 noundef zeroext false, i32 noundef %236, ptr noundef %237, ptr noundef %147, i32 noundef %238, ptr noundef %105, ptr noundef %239, ptr noundef %263)
+  invoke fastcc void @_ZL6do_fitP8_IO_FILEibiPfPS1_iP7t_pargsPK16gmx_output_env_tPKc(ptr noundef %240, i32 noundef %.03343.i, i1 noundef zeroext false, i32 noundef %236, ptr noundef %237, ptr noundef readonly %147, i32 noundef %238, ptr noundef %105, ptr noundef %239, ptr noundef %263)
           to label %.noexc194 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc194:                                        ; preds = %.noexc193

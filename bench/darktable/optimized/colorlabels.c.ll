@@ -44,7 +44,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_get_colorlabel(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 6) i32 @_get_colorlabel(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -486,7 +486,7 @@ define internal noundef i32 @_lib_colorlabels_destroy(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_colorlabels_key_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 {
+define internal noundef range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 {
   %4 = alloca [128 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6

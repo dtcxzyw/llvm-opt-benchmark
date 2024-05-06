@@ -53,7 +53,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_free(ptr noundef %bio) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @BIO_free(ptr noundef %bio) local_unnamed_addr #0 {
 entry:
   %cmp.not14 = icmp eq ptr %bio, null
   br i1 %cmp.not14, label %return, label %for.body
@@ -735,7 +735,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @BIO_get_retry_flags(ptr nocapture noundef readonly %bio) local_unnamed_addr #6 {
+define hidden range(i32 0, 16) i32 @BIO_get_retry_flags(ptr nocapture noundef readonly %bio) local_unnamed_addr #6 {
 entry:
   %flags = getelementptr inbounds i8, ptr %bio, i64 32
   %0 = load i32, ptr %flags, align 8
@@ -1185,7 +1185,7 @@ return:                                           ; preds = %if.then1, %if.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_indent(ptr noundef %bio, i32 noundef %indent, i32 noundef %max_indent) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_indent(ptr noundef %bio, i32 noundef %indent, i32 noundef %max_indent) local_unnamed_addr #0 {
 entry:
   %spec.select = tail call i32 @llvm.umin.i32(i32 %indent, i32 %max_indent)
   %num_write.i.i = getelementptr inbounds i8, ptr %bio, i64 72
@@ -1233,7 +1233,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_read_asn1(ptr noundef %bio, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %bio, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_len) local_unnamed_addr #0 {
 entry:
   %header = alloca [6 x i8], align 2
   %num_read.i = getelementptr inbounds i8, ptr %bio, i64 64

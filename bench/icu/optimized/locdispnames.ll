@@ -2476,7 +2476,7 @@ eh.resume:                                        ; preds = %lpad86, %ehcleanup
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513BreakIterator14getDisplayNameERKNS_6LocaleERNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %objectLocale, ptr noundef nonnull returned align 8 dereferenceable(64) %name) local_unnamed_addr #1 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_756Locale14getDisplayNameERKS0_RNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(217) %objectLocale, ptr noundef nonnull align 8 dereferenceable(217) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %name)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_756Locale14getDisplayNameERKS0_RNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(217) %objectLocale, ptr noundef nonnull align 8 dereferenceable(217) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %name)
   ret ptr %name
 }
 

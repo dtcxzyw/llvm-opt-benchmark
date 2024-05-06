@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN11flatbuffers12_GLOBAL__N_123JsonSchemaCodeGenerator12GenerateCodeERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZN11flatbuffers12_GLOBAL__N_123JsonSchemaCodeGenerator12GenerateCodeERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator.i = alloca %"class.flatbuffers::jsons::JsonSchemaGenerator", align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %generator.i)
@@ -4012,7 +4012,7 @@ invoke.cont510:                                   ; preds = %invoke.cont.i1203
   %indent_step.i823 = getelementptr inbounds i8, ptr %254, i64 1004
   %255 = load i32, ptr %indent_step.i823, align 4, !noalias !164
   %.sroa.speculated.i824 = call i32 @llvm.smax.i32(i32 %255, i32 0)
-  %mul.i825 = mul nsw i32 %.sroa.speculated.i824, 7
+  %mul.i825 = mul nuw nsw i32 %.sroa.speculated.i824, 7
   %conv.i826 = zext nneg i32 %mul.i825 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i821) #19, !noalias !164
   %call.i1.i827 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp511)

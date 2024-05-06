@@ -103,7 +103,7 @@ define noundef zeroext i1 @_ZN5Ipopt28RestoPenaltyConvergenceCheck14InitializeIm
 declare noundef zeroext i1 @_ZN5Ipopt21RestoConvergenceCheck14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt28RestoPenaltyConvergenceCheck16TestOrigProgressEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN5Ipopt28RestoPenaltyConvergenceCheck16TestOrigProgressEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZNK5Ipopt17PenaltyLSAcceptor28IsAcceptableToCurrentIterateEddb(ptr noundef nonnull align 8 dereferenceable(224) %5, double noundef %1, double noundef %2, i1 noundef zeroext true)

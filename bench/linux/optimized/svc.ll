@@ -647,7 +647,7 @@ declare dso_local i32 @svc_generic_init_request(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @svc_generic_rpcbind_set(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nlmsvc_dispatch(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @nlmsvc_dispatch(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 11312
@@ -806,7 +806,7 @@ declare dso_local i32 @svc_bind(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @create_lockd_family(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = load i32, ptr @nlm_udpport, align 4
-  %6 = trunc i32 %2 to i16
+  %6 = trunc nuw nsw i32 %2 to i16
   %7 = tail call ptr @svc_find_xprt(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %1, i16 noundef zeroext %6, i16 noundef zeroext 0) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %.thread
@@ -878,7 +878,7 @@ declare dso_local i32 @timer_delete_sync(ptr noundef) local_unnamed_addr #2
 declare dso_local void @nlm_shutdown_hosts_net(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @param_set_grace_period(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @param_set_grace_period(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !annotation !18
@@ -913,7 +913,7 @@ declare dso_local i32 @param_get_ulong(ptr noundef, ptr noundef) #2
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @param_set_timeout(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @param_set_timeout(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !annotation !18
@@ -943,7 +943,7 @@ define internal noundef i32 @param_set_timeout(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @param_set_port(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @param_set_port(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !annotation !18

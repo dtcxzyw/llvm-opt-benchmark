@@ -1407,7 +1407,7 @@ entry:
   %t1.i21.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 16
   %t1.i13.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %t1.i.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 16
-  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br i1 %call.i, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1438,7 +1438,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %call.i19.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end8.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end4.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i13.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i13.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i13.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
@@ -1495,7 +1495,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 if.end20.i:                                       ; preds = %if.end16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i43.i)
-  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %entry, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %if.end20.i
@@ -1511,7 +1511,7 @@ entry:
   %t1.i25.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %t1.i13.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %t1.i.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br i1 %call.i, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1609,13 +1609,13 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %call.i55.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end20.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end16.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i49.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i49.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i49.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 if.end20.i:                                       ; preds = %if.end16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i49.i)
-  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %entry, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %if.end20.i
@@ -1631,7 +1631,7 @@ entry:
   %t1.i25.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %t1.i13.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %t1.i.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br i1 %call.i, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1687,7 +1687,7 @@ if.end8.i:                                        ; preds = %if.end4.i
   br i1 %call.i31.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end12.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i25.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i25.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i25.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
@@ -1735,7 +1735,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 if.end20.i:                                       ; preds = %if.end16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i45.i)
-  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %entry, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %if.end20.i
@@ -1751,7 +1751,7 @@ entry:
   %t1.i21.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %t1.i13.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %t1.i.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br i1 %call.i, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1765,7 +1765,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %call.i.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end4.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
@@ -1855,7 +1855,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 if.end20.i:                                       ; preds = %if.end16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i45.i)
-  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %entry, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %if.end20.i
@@ -1871,7 +1871,7 @@ entry:
   %t1.i26.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %t1.i13.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %t1.i.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br i1 %call.i, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1951,7 +1951,7 @@ if.end12.i:                                       ; preds = %if.end8.i
   br i1 %call.i45.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end16.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end12.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i39.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %t1.i39.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i39.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
@@ -1979,7 +1979,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 if.end20.i:                                       ; preds = %if.end16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i47.i)
-  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %entry, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %if.end20.i
@@ -1995,7 +1995,7 @@ entry:
   %t1.i18.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %t1.i13.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %t1.i.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br i1 %call.i, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -2074,7 +2074,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 if.end20.i:                                       ; preds = %if.end16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i28.i)
-  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
+  %call22.i = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr noundef writeonly %c)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %entry, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %if.end20.i
@@ -2340,11 +2340,11 @@ _ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit: ; preds = %if.end, 
   %call.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i, i8 noundef signext %conv.i, i64 noundef %d, i64 noundef 0, i8 noundef signext %conv11, i8 noundef signext %conv6, i8 noundef signext %conv) #10
   %3 = extractvalue { i64, i64 } %call.i, 0
   %4 = extractvalue { i64, i64 } %call.i, 1
-  %retval.sroa.12.8.extract.shift101 = lshr i64 %4, 8
-  %retval.sroa.13.8.extract.shift107 = lshr i64 %4, 16
-  %retval.sroa.14.8.extract.shift113 = lshr i64 %4, 24
-  %retval.sroa.15.8.extract.shift119 = lshr i64 %4, 32
-  %retval.sroa.16.8.extract.shift125 = and i64 %4, -1099511627776
+  %retval.sroa.12.8.extract.shift107 = lshr i64 %4, 8
+  %retval.sroa.13.8.extract.shift113 = lshr i64 %4, 16
+  %retval.sroa.14.8.extract.shift119 = lshr i64 %4, 24
+  %retval.sroa.15.8.extract.shift125 = lshr i64 %4, 32
+  %retval.sroa.16.8.extract.shift131 = and i64 %4, -1099511627776
   br label %return
 
 if.end22:                                         ; preds = %if.then5
@@ -2371,18 +2371,18 @@ _ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit: ; preds = %if.end2
   %cmp.i = icmp slt i64 %rem, 0
   %add1.i = add nsw i64 %rem, 24
   %hh.addr.0.i = select i1 %cmp.i, i64 %add1.i, i64 %rem
-  %conv.i49 = trunc nuw nsw i64 %hh.addr.0.i to i8
+  %conv.i50 = trunc nuw nsw i64 %hh.addr.0.i to i8
   %rem.lobit.i = ashr i64 %rem, 63
   %cd.addr.0.i = add nsw i64 %rem.lobit.i, %div
   %conv.i.i = trunc nuw nsw i64 %m.addr.0.i.i to i8
-  %call.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i, i8 noundef signext %conv.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i, i8 noundef signext %conv.i49, i8 noundef signext %conv6, i8 noundef signext %conv) #10
+  %call.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i, i8 noundef signext %conv.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i, i8 noundef signext %conv.i50, i8 noundef signext %conv6, i8 noundef signext %conv) #10
   %5 = extractvalue { i64, i64 } %call.i.i, 0
   %6 = extractvalue { i64, i64 } %call.i.i, 1
-  %retval.sroa.12.8.extract.shift99 = lshr i64 %6, 8
-  %retval.sroa.13.8.extract.shift105 = lshr i64 %6, 16
-  %retval.sroa.14.8.extract.shift111 = lshr i64 %6, 24
-  %retval.sroa.15.8.extract.shift117 = lshr i64 %6, 32
-  %retval.sroa.16.8.extract.shift123 = and i64 %6, -1099511627776
+  %retval.sroa.12.8.extract.shift105 = lshr i64 %6, 8
+  %retval.sroa.13.8.extract.shift111 = lshr i64 %6, 16
+  %retval.sroa.14.8.extract.shift117 = lshr i64 %6, 24
+  %retval.sroa.15.8.extract.shift123 = lshr i64 %6, 32
+  %retval.sroa.16.8.extract.shift129 = and i64 %6, -1099511627776
   br label %return
 
 if.end24:                                         ; preds = %if.then
@@ -2406,13 +2406,13 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit: ; preds = %if.end24, %if.then.i.i.i, %if.then2.i.i.i
   %m.addr.0.i.i.i = phi i64 [ %add3.i.i.i, %if.then2.i.i.i ], [ %rem.i.i.i, %if.then.i.i.i ], [ 12, %if.end24 ]
   %y.addr.0.i.i.i = phi i64 [ %sub.i.i.i, %if.then2.i.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %y, %if.end24 ]
-  %cmp.i50 = icmp slt i64 %rem26, 0
-  %add1.i51 = add nsw i64 %rem26, 60
-  %mm.addr.0.i = select i1 %cmp.i50, i64 %add1.i51, i64 %rem26
-  %conv.i52 = trunc nuw nsw i64 %mm.addr.0.i to i8
+  %cmp.i54 = icmp slt i64 %rem26, 0
+  %add1.i55 = add nsw i64 %rem26, 60
+  %mm.addr.0.i = select i1 %cmp.i54, i64 %add1.i55, i64 %rem26
+  %conv.i56 = trunc nuw nsw i64 %mm.addr.0.i to i8
   %rem5.i = srem i64 %hh, 24
-  %rem.lobit.i53 = ashr i64 %rem26, 63
-  %ch.addr.0.i = add nsw i64 %rem.lobit.i53, %div25
+  %rem.lobit.i59 = ashr i64 %rem26, 63
+  %ch.addr.0.i = add nsw i64 %rem.lobit.i59, %div25
   %rem6.i = srem i64 %ch.addr.0.i, 24
   %add7.i = add nsw i64 %rem6.i, %rem5.i
   %div2.i = sdiv i64 %hh, 24
@@ -2425,19 +2425,19 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit: ; preds = %if.end24
   %hh.addr.0.i.i = select i1 %cmp.i.i, i8 %add1.i.i, i8 %rem.i9.i
   %div.i10.i = sdiv i8 %rem.i.lhs.trunc.i, 24
   %div.i.sext.i = sext i8 %div.i10.i to i64
-  %add.i.i54 = add nsw i64 %add4.i, %div.i.sext.i
+  %add.i.i60 = add nsw i64 %add4.i, %div.i.sext.i
   %7 = ashr i8 %rem.i9.i, 7
   %rem.lobit.i.i = sext i8 %7 to i64
-  %cd.addr.0.i.i = add nsw i64 %add.i.i54, %rem.lobit.i.i
+  %cd.addr.0.i.i = add nsw i64 %add.i.i60, %rem.lobit.i.i
   %conv.i.i.i = trunc nuw nsw i64 %m.addr.0.i.i.i to i8
-  %call.i.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i, i8 noundef signext %conv.i.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i.i, i8 noundef signext %hh.addr.0.i.i, i8 noundef signext %conv.i52, i8 noundef signext %conv) #10
+  %call.i.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i, i8 noundef signext %conv.i.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i.i, i8 noundef signext %hh.addr.0.i.i, i8 noundef signext %conv.i56, i8 noundef signext %conv) #10
   %8 = extractvalue { i64, i64 } %call.i.i.i, 0
   %9 = extractvalue { i64, i64 } %call.i.i.i, 1
-  %retval.sroa.12.8.extract.shift97 = lshr i64 %9, 8
-  %retval.sroa.13.8.extract.shift103 = lshr i64 %9, 16
-  %retval.sroa.14.8.extract.shift109 = lshr i64 %9, 24
-  %retval.sroa.15.8.extract.shift115 = lshr i64 %9, 32
-  %retval.sroa.16.8.extract.shift121 = and i64 %9, -1099511627776
+  %retval.sroa.12.8.extract.shift103 = lshr i64 %9, 8
+  %retval.sroa.13.8.extract.shift109 = lshr i64 %9, 16
+  %retval.sroa.14.8.extract.shift115 = lshr i64 %9, 24
+  %retval.sroa.15.8.extract.shift121 = lshr i64 %9, 32
+  %retval.sroa.16.8.extract.shift127 = and i64 %9, -1099511627776
   br label %return
 
 if.end28:                                         ; preds = %entry
@@ -2455,56 +2455,56 @@ if.end28:                                         ; preds = %entry
   %rem38 = srem i64 %cm.0, 60
   %add39 = add nsw i64 %rem38, %rem37
   %conv40 = trunc nuw nsw i64 %ss.addr.0 to i8
-  %cmp.not.i.i.i55 = icmp eq i64 %m, 12
-  br i1 %cmp.not.i.i.i55, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93, label %if.then.i.i.i56
+  %cmp.not.i.i.i61 = icmp eq i64 %m, 12
+  br i1 %cmp.not.i.i.i61, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99, label %if.then.i.i.i62
 
-if.then.i.i.i56:                                  ; preds = %if.end28
-  %div.i.i.i57 = sdiv i64 %m, 12
-  %add.i.i.i58 = add nsw i64 %div.i.i.i57, %y
-  %rem.i.i.i59 = srem i64 %m, 12
-  %cmp1.i.i.i60 = icmp slt i64 %rem.i.i.i59, 1
-  br i1 %cmp1.i.i.i60, label %if.then2.i.i.i90, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93
+if.then.i.i.i62:                                  ; preds = %if.end28
+  %div.i.i.i63 = sdiv i64 %m, 12
+  %add.i.i.i64 = add nsw i64 %div.i.i.i63, %y
+  %rem.i.i.i65 = srem i64 %m, 12
+  %cmp1.i.i.i66 = icmp slt i64 %rem.i.i.i65, 1
+  br i1 %cmp1.i.i.i66, label %if.then2.i.i.i96, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99
 
-if.then2.i.i.i90:                                 ; preds = %if.then.i.i.i56
-  %sub.i.i.i91 = add nsw i64 %add.i.i.i58, -1
-  %add3.i.i.i92 = add nsw i64 %rem.i.i.i59, 12
-  br label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93
+if.then2.i.i.i96:                                 ; preds = %if.then.i.i.i62
+  %sub.i.i.i97 = add nsw i64 %add.i.i.i64, -1
+  %add3.i.i.i98 = add nsw i64 %rem.i.i.i65, 12
+  br label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99
 
-_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93: ; preds = %if.end28, %if.then.i.i.i56, %if.then2.i.i.i90
-  %m.addr.0.i.i.i61 = phi i64 [ %add3.i.i.i92, %if.then2.i.i.i90 ], [ %rem.i.i.i59, %if.then.i.i.i56 ], [ 12, %if.end28 ]
-  %y.addr.0.i.i.i62 = phi i64 [ %sub.i.i.i91, %if.then2.i.i.i90 ], [ %add.i.i.i58, %if.then.i.i.i56 ], [ %y, %if.end28 ]
-  %rem.i63.lhs.trunc = trunc nsw i64 %add39 to i8
-  %rem.i63127 = srem i8 %rem.i63.lhs.trunc, 60
-  %cmp.i64 = icmp slt i8 %rem.i63127, 0
-  %add1.i65 = add nsw i8 %rem.i63127, 60
-  %mm.addr.0.i66 = select i1 %cmp.i64, i8 %add1.i65, i8 %rem.i63127
-  %rem5.i68 = srem i64 %hh, 24
-  %div.i69128 = sdiv i8 %rem.i63.lhs.trunc, 60
-  %div.i69.sext = sext i8 %div.i69128 to i64
-  %add.i70 = add nsw i64 %add36, %div.i69.sext
-  %10 = ashr i8 %rem.i63127, 7
-  %rem.lobit.i71 = sext i8 %10 to i64
-  %ch.addr.0.i72 = add nsw i64 %add.i70, %rem.lobit.i71
-  %rem6.i73 = srem i64 %ch.addr.0.i72, 24
-  %add7.i74 = add nsw i64 %rem6.i73, %rem5.i68
-  %div2.i75 = sdiv i64 %hh, 24
-  %div3.i76 = sdiv i64 %ch.addr.0.i72, 24
-  %add4.i77 = add nsw i64 %div3.i76, %div2.i75
-  %rem.i.lhs.trunc.i78 = trunc nsw i64 %add7.i74 to i8
-  %rem.i9.i79 = srem i8 %rem.i.lhs.trunc.i78, 24
-  %cmp.i.i80 = icmp slt i8 %rem.i9.i79, 0
-  %add1.i.i81 = add nsw i8 %rem.i9.i79, 24
-  %hh.addr.0.i.i82 = select i1 %cmp.i.i80, i8 %add1.i.i81, i8 %rem.i9.i79
-  %div.i10.i83 = sdiv i8 %rem.i.lhs.trunc.i78, 24
-  %div.i.sext.i84 = sext i8 %div.i10.i83 to i64
-  %add.i.i85 = add nsw i64 %add4.i77, %div.i.sext.i84
-  %11 = ashr i8 %rem.i9.i79, 7
-  %rem.lobit.i.i86 = sext i8 %11 to i64
-  %cd.addr.0.i.i87 = add nsw i64 %add.i.i85, %rem.lobit.i.i86
-  %conv.i.i.i88 = trunc nuw nsw i64 %m.addr.0.i.i.i61 to i8
-  %call.i.i.i89 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i62, i8 noundef signext %conv.i.i.i88, i64 noundef %d, i64 noundef %cd.addr.0.i.i87, i8 noundef signext %hh.addr.0.i.i82, i8 noundef signext %mm.addr.0.i66, i8 noundef signext %conv40) #10
-  %12 = extractvalue { i64, i64 } %call.i.i.i89, 0
-  %13 = extractvalue { i64, i64 } %call.i.i.i89, 1
+_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99: ; preds = %if.end28, %if.then.i.i.i62, %if.then2.i.i.i96
+  %m.addr.0.i.i.i67 = phi i64 [ %add3.i.i.i98, %if.then2.i.i.i96 ], [ %rem.i.i.i65, %if.then.i.i.i62 ], [ 12, %if.end28 ]
+  %y.addr.0.i.i.i68 = phi i64 [ %sub.i.i.i97, %if.then2.i.i.i96 ], [ %add.i.i.i64, %if.then.i.i.i62 ], [ %y, %if.end28 ]
+  %rem.i69.lhs.trunc = trunc nsw i64 %add39 to i8
+  %rem.i69133 = srem i8 %rem.i69.lhs.trunc, 60
+  %cmp.i70 = icmp slt i8 %rem.i69133, 0
+  %add1.i71 = add nsw i8 %rem.i69133, 60
+  %mm.addr.0.i72 = select i1 %cmp.i70, i8 %add1.i71, i8 %rem.i69133
+  %rem5.i74 = srem i64 %hh, 24
+  %div.i75134 = sdiv i8 %rem.i69.lhs.trunc, 60
+  %div.i75.sext = sext i8 %div.i75134 to i64
+  %add.i76 = add nsw i64 %add36, %div.i75.sext
+  %10 = ashr i8 %rem.i69133, 7
+  %rem.lobit.i77 = sext i8 %10 to i64
+  %ch.addr.0.i78 = add nsw i64 %add.i76, %rem.lobit.i77
+  %rem6.i79 = srem i64 %ch.addr.0.i78, 24
+  %add7.i80 = add nsw i64 %rem6.i79, %rem5.i74
+  %div2.i81 = sdiv i64 %hh, 24
+  %div3.i82 = sdiv i64 %ch.addr.0.i78, 24
+  %add4.i83 = add nsw i64 %div3.i82, %div2.i81
+  %rem.i.lhs.trunc.i84 = trunc nsw i64 %add7.i80 to i8
+  %rem.i9.i85 = srem i8 %rem.i.lhs.trunc.i84, 24
+  %cmp.i.i86 = icmp slt i8 %rem.i9.i85, 0
+  %add1.i.i87 = add nsw i8 %rem.i9.i85, 24
+  %hh.addr.0.i.i88 = select i1 %cmp.i.i86, i8 %add1.i.i87, i8 %rem.i9.i85
+  %div.i10.i89 = sdiv i8 %rem.i.lhs.trunc.i84, 24
+  %div.i.sext.i90 = sext i8 %div.i10.i89 to i64
+  %add.i.i91 = add nsw i64 %add4.i83, %div.i.sext.i90
+  %11 = ashr i8 %rem.i9.i85, 7
+  %rem.lobit.i.i92 = sext i8 %11 to i64
+  %cd.addr.0.i.i93 = add nsw i64 %add.i.i91, %rem.lobit.i.i92
+  %conv.i.i.i94 = trunc nuw nsw i64 %m.addr.0.i.i.i67 to i8
+  %call.i.i.i95 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i68, i8 noundef signext %conv.i.i.i94, i64 noundef %d, i64 noundef %cd.addr.0.i.i93, i8 noundef signext %hh.addr.0.i.i88, i8 noundef signext %mm.addr.0.i72, i8 noundef signext %conv40) #10
+  %12 = extractvalue { i64, i64 } %call.i.i.i95, 0
+  %13 = extractvalue { i64, i64 } %call.i.i.i95, 1
   %retval.sroa.12.8.extract.shift = lshr i64 %13, 8
   %retval.sroa.13.8.extract.shift = lshr i64 %13, 16
   %retval.sroa.14.8.extract.shift = lshr i64 %13, 24
@@ -2512,14 +2512,14 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93: ; preds = %if.end
   %retval.sroa.16.8.extract.shift = and i64 %13, -1099511627776
   br label %return
 
-return:                                           ; preds = %if.then10, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit
-  %retval.sroa.16.sroa.0.0 = phi i64 [ %retval.sroa.16.8.extract.shift125, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.16.8.extract.shift123, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.16.8.extract.shift121, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.16.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ 0, %if.then10 ]
-  %retval.sroa.15.0 = phi i64 [ %retval.sroa.15.8.extract.shift119, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.15.8.extract.shift117, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.15.8.extract.shift115, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.15.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %ss, %if.then10 ]
-  %retval.sroa.14.0 = phi i64 [ %retval.sroa.14.8.extract.shift113, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.14.8.extract.shift111, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.14.8.extract.shift109, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.14.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %mm, %if.then10 ]
-  %retval.sroa.13.0 = phi i64 [ %retval.sroa.13.8.extract.shift107, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.13.8.extract.shift105, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.13.8.extract.shift103, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.13.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %hh, %if.then10 ]
-  %retval.sroa.12.0.in = phi i64 [ %retval.sroa.12.8.extract.shift101, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.12.8.extract.shift99, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.12.8.extract.shift97, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.12.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %d, %if.then10 ]
-  %retval.sroa.6.0.in = phi i64 [ %4, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %6, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %9, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %13, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %m, %if.then10 ]
-  %retval.sroa.0.0 = phi i64 [ %3, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %5, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %8, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %12, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %y, %if.then10 ]
+return:                                           ; preds = %if.then10, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit
+  %retval.sroa.16.sroa.0.0 = phi i64 [ %retval.sroa.16.8.extract.shift131, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.16.8.extract.shift129, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.16.8.extract.shift127, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.16.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ 0, %if.then10 ]
+  %retval.sroa.15.0 = phi i64 [ %retval.sroa.15.8.extract.shift125, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.15.8.extract.shift123, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.15.8.extract.shift121, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.15.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %ss, %if.then10 ]
+  %retval.sroa.14.0 = phi i64 [ %retval.sroa.14.8.extract.shift119, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.14.8.extract.shift117, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.14.8.extract.shift115, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.14.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %mm, %if.then10 ]
+  %retval.sroa.13.0 = phi i64 [ %retval.sroa.13.8.extract.shift113, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.13.8.extract.shift111, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.13.8.extract.shift109, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.13.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %hh, %if.then10 ]
+  %retval.sroa.12.0.in = phi i64 [ %retval.sroa.12.8.extract.shift107, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.12.8.extract.shift105, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.12.8.extract.shift103, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.12.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %d, %if.then10 ]
+  %retval.sroa.6.0.in = phi i64 [ %4, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %6, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %9, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %13, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %m, %if.then10 ]
+  %retval.sroa.0.0 = phi i64 [ %3, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %5, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %8, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %12, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %y, %if.then10 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %retval.sroa.15.8.insert.ext = shl nuw i64 %retval.sroa.15.0, 32
   %retval.sroa.15.8.insert.shift = and i64 %retval.sroa.15.8.insert.ext, 1095216660480

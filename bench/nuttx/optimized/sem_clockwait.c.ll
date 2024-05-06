@@ -74,7 +74,7 @@ declare i32 @nxsem_wait(ptr noundef) local_unnamed_addr #1
 declare i32 @wd_cancel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxsem_clockwait_uninterruptible(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -3, -4) i32 @nxsem_clockwait_uninterruptible(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %4, %3

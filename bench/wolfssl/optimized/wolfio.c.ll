@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @EmbedReceive(ptr nocapture noundef readonly %ssl, ptr noundef %buf, i32 noundef %sz, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @EmbedReceive(ptr nocapture noundef readonly %ssl, ptr noundef %buf, i32 noundef %sz, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %rflags = getelementptr inbounds i8, ptr %ssl, i64 660
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EmbedSend(ptr nocapture noundef readonly %ssl, ptr noundef %buf, i32 noundef %sz, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @EmbedSend(ptr nocapture noundef readonly %ssl, ptr noundef %buf, i32 noundef %sz, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %wflags = getelementptr inbounds i8, ptr %ssl, i64 664

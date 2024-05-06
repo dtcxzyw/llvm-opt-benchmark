@@ -315,7 +315,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @strmap_contains(ptr noundef %map, ptr noundef %str) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @strmap_contains(ptr noundef %map, ptr noundef %str) local_unnamed_addr #4 {
 entry:
   %entry1.i = alloca %struct.strmap_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i)
@@ -434,7 +434,7 @@ if.end:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @strset_add(ptr noundef %set, ptr noundef %str) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @strset_add(ptr noundef %set, ptr noundef %str) local_unnamed_addr #4 {
 entry:
   %entry1.i = alloca %struct.strmap_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i)

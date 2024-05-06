@@ -32,7 +32,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vnc_zlib_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @vnc_zlib_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
   tail call void @vnc_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef 6) #6
   %offset = getelementptr inbounds i8, ptr %vs, i64 49344

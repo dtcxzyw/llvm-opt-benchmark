@@ -2802,7 +2802,7 @@ define dso_local noundef ptr @minimal_tuple_from_heap_tuple(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @varsize_any(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i64 0, 1073741824) i64 @varsize_any(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp eq i8 %2, 1

@@ -764,7 +764,7 @@ return:                                           ; preds = %nrvo.skipdtor, %if.
 declare noundef ptr @_ZNK3zmq12ws_address_t4pathEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13ws_listener_t13create_socketEPKc(ptr noundef nonnull align 8 dereferenceable(1632) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13ws_listener_t13create_socketEPKc(ptr noundef nonnull align 8 dereferenceable(1632) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 {
 entry:
   %address = alloca %"class.zmq::tcp_address_t", align 4
   %flag = alloca i32, align 4
@@ -851,7 +851,7 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare noundef i32 @_ZN3zmq22stream_listener_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1520)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13ws_listener_t17set_local_addressEPKc(ptr noundef nonnull align 8 dereferenceable(1632) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13ws_listener_t17set_local_addressEPKc(ptr noundef nonnull align 8 dereferenceable(1632) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %host_address = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -915,7 +915,7 @@ lpad13:                                           ; preds = %if.end16, %if.else1
 if.end16:                                         ; preds = %if.else12, %invoke.cont
   %call17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %host_address) #14
   %call19 = invoke noundef i32 @_ZN3zmq13ws_listener_t13create_socketEPKc(ptr noundef nonnull align 8 dereferenceable(1632) %this, ptr noundef %call17)
-          to label %invoke.cont18 unwind label %lpad13, !range !4
+          to label %invoke.cont18 unwind label %lpad13
 
 invoke.cont18:                                    ; preds = %if.end16
   %cmp20.not = icmp eq i32 %call19, -1
@@ -1106,4 +1106,3 @@ attributes #19 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

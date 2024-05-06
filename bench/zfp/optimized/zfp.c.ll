@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.zfp_stream_maximum_size = private unnamed_addr constant [4 x i32] [i32 32, i32 64, i32 32, i32 64], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @zfp_type_size(i32 noundef %0) local_unnamed_addr #0 {
+define range(i64 0, 9) i64 @zfp_type_size(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 4
   br i1 %2, label %switch.lookup, label %4
@@ -273,7 +273,7 @@ define i32 @zfp_field_type(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @zfp_field_precision(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 65) i32 @zfp_field_precision(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %switch.tableidx = add i32 %2, -1
   %3 = icmp ult i32 %switch.tableidx, 4
@@ -291,7 +291,7 @@ zfp_type_size.exit:                               ; preds = %1, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @zfp_field_dimensionality(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 5) i32 @zfp_field_dimensionality(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -545,7 +545,7 @@ zfp_field_dimensionality.exit.thread15:           ; preds = %16, %1, %zfp_field_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @zfp_field_stride(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @zfp_field_stride(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %zfp_field_dimensionality.exit.thread, label %3
 
@@ -656,7 +656,7 @@ zfp_field_dimensionality.exit.thread:             ; preds = %3, %zfp_field_dimen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @zfp_field_is_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @zfp_field_is_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -774,7 +774,7 @@ define i64 @zfp_field_metadata(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %.not6.i, label %21, label %zfp_field_dimensionality.exit
 
 14:                                               ; preds = %4
-  %15 = add i64 %3, -1
+  %15 = add nsw i64 %3, -1
   %.not57 = icmp ult i64 %3, 281474976710657
   br i1 %.not57, label %zfp_field_dimensionality.exit62, label %54
 
@@ -976,7 +976,7 @@ define void @zfp_field_set_stride_4d(ptr nocapture noundef writeonly %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @zfp_field_set_metadata(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @zfp_field_set_metadata(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %.not = icmp ult i64 %1, 4503599627370496
   br i1 %.not, label %3, label %49
 
@@ -1163,7 +1163,7 @@ define ptr @zfp_stream_bit_stream(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @zfp_stream_compression_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -1278,7 +1278,7 @@ zfp_stream_compression_mode.exit:                 ; preds = %24
   %28 = uitofp i32 %3 to double
   %29 = shl i32 %1, 1
   %30 = shl nuw i32 1, %29
-  %31 = uitofp i32 %30 to double
+  %31 = uitofp nneg i32 %30 to double
   %32 = fdiv double %28, %31
   br label %zfp_stream_compression_mode.exit.thread
 
@@ -1618,7 +1618,7 @@ define i64 @zfp_stream_compressed_size(ptr nocapture noundef readonly %0) local_
 declare i64 @stream_size(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @zfp_stream_maximum_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define range(i64 0, 2305843009213693952) i64 @zfp_stream_maximum_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val, -1075
@@ -1784,7 +1784,7 @@ define void @zfp_stream_set_reversible(ptr nocapture noundef writeonly %0) local
 define double @zfp_stream_set_rate(ptr nocapture noundef writeonly %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = shl i32 %3, 1
   %7 = shl nuw i32 1, %6
-  %8 = uitofp i32 %7 to double
+  %8 = uitofp nneg i32 %7 to double
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %1, double 5.000000e-01)
   %10 = tail call double @llvm.floor.f64(double %9)
   %11 = fptoui double %10 to i32
@@ -1884,7 +1884,7 @@ define double @zfp_stream_set_accuracy(ptr nocapture noundef writeonly %0, doubl
 declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 6) i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp ult i64 %1, 4095
   br i1 %3, label %4, label %19
 
@@ -1893,7 +1893,7 @@ define i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly %0, i64 noundef 
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw nsw i64 %1 to i32
   %8 = add nuw nsw i32 %7, 1
   br label %35
 
@@ -1902,7 +1902,7 @@ define i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly %0, i64 noundef 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = trunc i64 %1 to i32
+  %12 = trunc nuw nsw i64 %1 to i32
   %13 = add nsw i32 %12, -2047
   br label %35
 
@@ -1911,7 +1911,7 @@ define i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly %0, i64 noundef 
   br i1 %15, label %35, label %16
 
 16:                                               ; preds = %14
-  %17 = trunc i64 %1 to i32
+  %17 = trunc nuw nsw i64 %1 to i32
   %18 = add nsw i32 %17, -3251
   br label %35
 
@@ -1925,11 +1925,11 @@ define i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly %0, i64 noundef 
   %26 = and i32 %25, 32767
   %27 = add nuw nsw i32 %26, 1
   %28 = lshr i64 %1, 42
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = and i32 %29, 127
   %31 = add nuw nsw i32 %30, 1
   %32 = lshr i64 %1, 49
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = add nsw i32 %33, -16495
   br label %35
 
@@ -1994,7 +1994,7 @@ zfp_stream_compression_mode.exit:                 ; preds = %49, %41, %35, %59, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @zfp_stream_set_params(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @zfp_stream_set_params(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = icmp ule i32 %1, %2
   %7 = add i32 %3, -1
   %8 = icmp ult i32 %7, 64
@@ -2091,7 +2091,7 @@ define i32 @zfp_stream_omp_chunk_size(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   switch i32 %1, label %22 [
     i32 0, label %3
     i32 1, label %10
@@ -2149,7 +2149,7 @@ define noundef i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @zfp_stream_set_omp_threads(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_threads(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 1
@@ -2181,7 +2181,7 @@ define noundef i32 @zfp_stream_set_omp_threads(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @zfp_stream_set_omp_chunk_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_chunk_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 1
@@ -2327,7 +2327,7 @@ define void @zfp_demote_int32_to_int8(ptr nocapture noundef writeonly %0, ptr no
   %10 = ashr i32 %9, 23
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -128)
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nsw i32 %12 to i8
   %14 = getelementptr inbounds i8, ptr %.011, i64 1
   store i8 %13, ptr %.011, align 1
   %.not = icmp eq i32 %7, 0
@@ -2353,7 +2353,7 @@ define void @zfp_demote_int32_to_uint8(ptr nocapture noundef writeonly %0, ptr n
   %10 = ashr i32 %9, 23
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -128)
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nsw i32 %12 to i8
   %14 = xor i8 %13, -128
   %15 = getelementptr inbounds i8, ptr %.011, i64 1
   store i8 %14, ptr %.011, align 1
@@ -2380,7 +2380,7 @@ define void @zfp_demote_int32_to_int16(ptr nocapture noundef writeonly %0, ptr n
   %10 = ashr i32 %9, 15
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 32767)
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -32768)
-  %13 = trunc i32 %12 to i16
+  %13 = trunc nsw i32 %12 to i16
   %14 = getelementptr inbounds i8, ptr %.011, i64 2
   store i16 %13, ptr %.011, align 2
   %.not = icmp eq i32 %7, 0
@@ -2406,7 +2406,7 @@ define void @zfp_demote_int32_to_uint16(ptr nocapture noundef writeonly %0, ptr 
   %10 = ashr i32 %9, 15
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 32767)
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -32768)
-  %13 = trunc i32 %12 to i16
+  %13 = trunc nsw i32 %12 to i16
   %14 = xor i16 %13, -32768
   %15 = getelementptr inbounds i8, ptr %.011, i64 2
   store i16 %14, ptr %.011, align 2
@@ -6957,7 +6957,7 @@ zfp_field_dimensionality.exit:                    ; preds = %18
 30:                                               ; preds = %18, %zfp_field_dimensionality.exit, %26, %24
   %.sink = phi ptr [ %29, %zfp_field_dimensionality.exit ], [ %28, %26 ], [ %25, %24 ], [ %23, %18 ]
   store i64 %9, ptr %.sink, align 8
-  %31 = call i64 @zfp_stream_maximum_size(ptr noundef %0, ptr noundef nonnull %5), !range !5
+  %31 = call i64 @zfp_stream_maximum_size(ptr noundef %0, ptr noundef nonnull %5)
   %32 = load i32, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 4
   %34 = load i32, ptr %33, align 4
@@ -7163,7 +7163,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #19
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
-declare !callback !6 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #19
+declare !callback !5 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @compress_finish_par(ptr %.16.val, ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #11 {
@@ -11803,7 +11803,7 @@ define i64 @zfp_read_header(ptr nocapture noundef %0, ptr nocapture noundef writ
   %34 = add nuw nsw i64 %33, 1
   store i64 %34, ptr %31, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   br label %68
 
 36:                                               ; preds = %24
@@ -11815,7 +11815,7 @@ define i64 @zfp_read_header(ptr nocapture noundef %0, ptr nocapture noundef writ
   %41 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   br label %68
 
 43:                                               ; preds = %24
@@ -11860,7 +11860,7 @@ default.unreachable:                              ; preds = %24
 
 68:                                               ; preds = %54, %43, %36, %32
   %69 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
   %70 = add nuw nsw i64 %.024, 52
   br label %71
 
@@ -11894,7 +11894,7 @@ default.unreachable:                              ; preds = %24
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %.thread
-  %88 = trunc i64 %.02340 to i32
+  %88 = trunc nuw nsw i64 %.02340 to i32
   %89 = add nuw nsw i32 %88, 1
   br label %116
 
@@ -11903,7 +11903,7 @@ default.unreachable:                              ; preds = %24
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %90
-  %93 = trunc i64 %.02340 to i32
+  %93 = trunc nuw nsw i64 %.02340 to i32
   %94 = add nsw i32 %93, -2047
   br label %116
 
@@ -11912,7 +11912,7 @@ default.unreachable:                              ; preds = %24
   br i1 %96, label %116, label %97
 
 97:                                               ; preds = %95
-  %98 = trunc i64 %.02340 to i32
+  %98 = trunc nuw nsw i64 %.02340 to i32
   %99 = add nsw i32 %98, -3251
   br label %116
 
@@ -11926,11 +11926,11 @@ default.unreachable:                              ; preds = %24
   %107 = and i32 %106, 32767
   %108 = add nuw nsw i32 %107, 1
   %109 = lshr i64 %83, 42
-  %110 = trunc i64 %109 to i32
+  %110 = trunc nuw nsw i64 %109 to i32
   %111 = and i32 %110, 127
   %112 = add nuw nsw i32 %111, 1
   %113 = lshr i64 %83, 49
-  %114 = trunc i64 %113 to i32
+  %114 = trunc nuw nsw i64 %113 to i32
   %115 = add nsw i32 %114, -16495
   br label %116
 
@@ -12022,6 +12022,5 @@ attributes #23 = { nounwind allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 2305843009213693952}
-!6 = !{!7}
-!7 = !{i64 2, i64 -1, i64 -1, i1 true}
+!5 = !{!6}
+!6 = !{i64 2, i64 -1, i64 -1, i1 true}

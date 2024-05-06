@@ -1218,7 +1218,7 @@ define dso_local i32 @acpi_dev_get_property(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_node_prop_get(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %6 = or i1 %4, %5
@@ -1334,7 +1334,7 @@ define dso_local noundef i32 @acpi_node_prop_get(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly %4) #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1949,7 +1949,7 @@ define dso_local zeroext i1 @is_acpi_device_node(ptr noundef readonly %0) #6 ali
 declare dso_local i32 @acpi_dev_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @stop_on_next(ptr noundef %0, ptr nocapture noundef %1) #7 align 16 {
+define internal noundef range(i32 0, 2) i32 @stop_on_next(ptr noundef %0, ptr nocapture noundef %1) #7 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -2335,7 +2335,7 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
   %7 = zext i32 %4 to i64
   %8 = zext i32 %3 to i64
   %9 = tail call i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef %1, i64 noundef %7, i64 noundef %8, ptr noundef %5), !range !32

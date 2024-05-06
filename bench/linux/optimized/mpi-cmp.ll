@@ -13,7 +13,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_cmpabs: 
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_mpi_cmp345, ptr @__UNIQUE_ID___addressable_mpi_cmp_ui344, ptr @__UNIQUE_ID___addressable_mpi_cmpabs346], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mpi_cmp_ui(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local range(i32 -1, 2) i32 @mpi_cmp_ui(ptr noundef %0, i64 noundef %1) #0 align 16 {
   tail call void @mpi_normalize(ptr noundef %0) #2
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4

@@ -34,7 +34,7 @@ ecx_newctx.exit:                                  ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_init(ptr noundef %vecxctx, ptr noundef %vkey, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @ecx_init(ptr noundef %vecxctx, ptr noundef %vkey, ptr nocapture readnone %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -98,7 +98,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_set_peer(ptr noundef %vecxctx, ptr noundef %vkey) #0 {
+define internal range(i32 0, 2) i32 @ecx_set_peer(ptr noundef %vecxctx, ptr noundef %vkey) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0

@@ -162,7 +162,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local zeroext i1 @amd_iommu_pc_supported() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @_init_events_attrs() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @_init_events_attrs() unnamed_addr #0 section ".init.text" align 16 {
   br label %1
 
 1:                                                ; preds = %1, %0
@@ -286,7 +286,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @_iommu_event_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_iommu_event_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %5) #12
@@ -325,7 +325,7 @@ declare dso_local i32 @perf_pmu_register(ptr noundef, ptr noundef, i32 noundef) 
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @perf_iommu_event_init(ptr nocapture noundef %0) #9 align 16 {
+define internal noundef range(i32 -22, 1) i32 @perf_iommu_event_init(ptr nocapture noundef %0) #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -371,7 +371,7 @@ define internal noundef i32 @perf_iommu_event_init(ptr nocapture noundef %0) #9 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @perf_iommu_add(ptr noundef %0, i32 noundef %1) #10 align 16 {
+define internal noundef range(i32 -28, 1) i32 @perf_iommu_add(ptr noundef %0, i32 noundef %1) #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 480
   store i32 3, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -735,7 +735,7 @@ define internal noundef i64 @domid_mask_show(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @_iommu_cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @_iommu_cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
   %4 = load i32, ptr @nr_cpu_ids, align 4
   %5 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext true, ptr noundef %2, ptr noundef nonnull @iommu_cpumask, i32 noundef %4) #12
   %6 = sext i32 %5 to i64

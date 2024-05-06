@@ -380,7 +380,7 @@ define hidden void @"_ZN110_$LT$futures_util..future..try_future..TryFlattenStre
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN110_$LT$futures_util..future..try_future..TryFlattenStream$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hc8cb37cd05b2967fE"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(184) %1) unnamed_addr #4 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !21
   ret void
 }
 
@@ -7034,7 +7034,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h8c541b45dc8a7dc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hc8e490c07fde8912E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #0 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hc8e490c07fde8912E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1162)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !1162, !noundef !4
@@ -10384,7 +10384,7 @@ define void @_ZN10ockam_node6router5utils11router_addr17h810f075a2112ddd0E(ptr n
   %39 = extractvalue { ptr, i64 } %37, 1
   %40 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %40)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %35, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %35, i64 %36, i1 false)
   store ptr %38, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %39, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10547,7 +10547,7 @@ define void @_ZN10ockam_node6router6Router4init17h18c2c9f8a27b64efE(ptr noalias 
   %25 = extractvalue { ptr, i64 } %20, 1
   %26 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %26)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %18, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %18, i64 %19, i1 false)
   %27 = getelementptr inbounds i8, ptr %10, i64 24
   store i8 %16, ptr %27, align 8
   store ptr %24, ptr %10, align 8
@@ -10597,7 +10597,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.exit: ; preds = %23
   %42 = extractvalue { ptr, i64 } %37, 1
   %43 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %43)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 1 %35, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %35, i64 %36, i1 false)
   store ptr %41, ptr %29, align 8
   %.sroa.0.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store i64 %42, ptr %.sroa.0.sroa.4.0..0..sroa_idx, align 8
@@ -11092,7 +11092,7 @@ _ZN10ockam_node7storage8database10migrations17migration_support8migrator13NextMi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN120_$LT$ockam_node..storage..database..migrations..migration_support..migrator..NextMigration$u20$as$u20$core..cmp..Ord$GT$3cmp17h0babd38697b8f08dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
+define noundef range(i8 -1, 2) i8 @"_ZN120_$LT$ockam_node..storage..database..migrations..migration_support..migrator..NextMigration$u20$as$u20$core..cmp..Ord$GT$3cmp17h0babd38697b8f08dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
   %.val7 = load ptr, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val8 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
@@ -11156,7 +11156,7 @@ _ZN10ockam_node7storage8database10migrations17migration_support8migrator13NextMi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN127_$LT$ockam_node..storage..database..migrations..migration_support..migrator..NextMigration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he1013a1e9206b7fdE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
+define noundef range(i8 -1, 2) i8 @"_ZN127_$LT$ockam_node..storage..database..migrations..migration_support..migrator..NextMigration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he1013a1e9206b7fdE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1600)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1603)
   %.val7.i = load ptr, ptr %0, align 8, !alias.scope !1600, !noalias !1603, !noundef !4
@@ -11496,7 +11496,7 @@ declare hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h514aa9994fa6
 declare hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17hc8a7d5bb2c3fe014E(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #22
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.16910215836284360165(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #23 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.16910215836284360165(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #23 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

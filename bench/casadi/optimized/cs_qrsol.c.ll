@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %83, label %4
 
@@ -61,7 +61,7 @@ define noundef i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef %2) loc
   %33 = load ptr, ptr %30, align 8
   %34 = getelementptr inbounds double, ptr %33, i64 %indvars.iv
   %35 = load double, ptr %34, align 8
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 @cs_happly(ptr noundef %32, i32 noundef %36, double noundef %35, ptr noundef nonnull %23) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -121,7 +121,7 @@ define noundef i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef %2) loc
   %70 = load ptr, ptr %66, align 8
   %71 = getelementptr inbounds double, ptr %70, i64 %indvars.iv.next99
   %72 = load double, ptr %71, align 8
-  %73 = trunc i64 %indvars.iv.next99 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv.next99 to i32
   %74 = tail call i32 @cs_happly(ptr noundef %69, i32 noundef %73, double noundef %72, ptr noundef nonnull %54) #2
   %75 = icmp ugt i64 %indvars.iv98, 1
   br i1 %75, label %68, label %._crit_edge96, !llvm.loop !6

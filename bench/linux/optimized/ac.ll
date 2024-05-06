@@ -53,7 +53,7 @@ define internal void @acpi_ac_exit() #0 section ".exit.text" align 16 {
 declare dso_local void @platform_driver_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @acpi_ac_init() #0 section ".init.text" align 16 {
+define internal range(i32 -19, 1) i32 @acpi_ac_init() #0 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_disabled, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %10
@@ -207,7 +207,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @get_ac_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @get_ac_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = tail call ptr @power_supply_get_drvdata(ptr noundef %0) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %29, label %6

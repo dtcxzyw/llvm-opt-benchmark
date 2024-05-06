@@ -260,7 +260,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   br i1 %13, label %"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.6974339801470247616.exit.i", label %14
 
 14:                                               ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %11)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %11)
           to label %"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.6974339801470247616.exit.i" unwind label %15
 
 15:                                               ; preds = %14
@@ -329,7 +329,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   br i1 %13, label %"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.6974339801470247616.exit.i", label %14
 
 14:                                               ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %11)
+  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %11)
           to label %"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.6974339801470247616.exit.i" unwind label %15
 
 15:                                               ; preds = %14
@@ -398,7 +398,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   br i1 %13, label %"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.6974339801470247616.exit.i", label %14
 
 14:                                               ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %11)
+  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %11)
           to label %"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.6974339801470247616.exit.i" unwind label %15
 
 15:                                               ; preds = %14
@@ -467,7 +467,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   br i1 %13, label %"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.6974339801470247616.exit.i", label %14
 
 14:                                               ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %11)
+  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %11)
           to label %"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.6974339801470247616.exit.i" unwind label %15
 
 15:                                               ; preds = %14
@@ -536,7 +536,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   br i1 %13, label %"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.6974339801470247616.exit.i", label %14
 
 14:                                               ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %11)
+  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %11)
           to label %"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.6974339801470247616.exit.i" unwind label %15
 
 15:                                               ; preds = %14
@@ -605,7 +605,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   br i1 %13, label %"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.6974339801470247616.exit.i", label %14
 
 14:                                               ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %11)
+  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %11)
           to label %"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.6974339801470247616.exit.i" unwind label %15
 
 15:                                               ; preds = %14
@@ -1997,7 +1997,7 @@ define hidden void @"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..Fut
   br i1 %11, label %"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.6974339801470247616.exit.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.6974339801470247616.exit.i" unwind label %13
 
 13:                                               ; preds = %12
@@ -2080,7 +2080,7 @@ define hidden void @"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..Fut
   br i1 %11, label %"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.6974339801470247616.exit.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.6974339801470247616.exit.i" unwind label %13
 
 13:                                               ; preds = %12
@@ -2146,7 +2146,7 @@ define hidden void @"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..Fut
   br i1 %11, label %"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.6974339801470247616.exit.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.6974339801470247616.exit.i" unwind label %13
 
 13:                                               ; preds = %12
@@ -2212,7 +2212,7 @@ define hidden void @"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..Fut
   br i1 %11, label %"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.6974339801470247616.exit.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.6974339801470247616.exit.i" unwind label %13
 
 13:                                               ; preds = %12
@@ -2278,7 +2278,7 @@ define hidden void @"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..Fut
   br i1 %11, label %"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.6974339801470247616.exit.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.6974339801470247616.exit.i" unwind label %13
 
 13:                                               ; preds = %12
@@ -2344,7 +2344,7 @@ define hidden void @"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..Fut
   br i1 %11, label %"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.6974339801470247616.exit.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.6974339801470247616.exit.i" unwind label %13
 
 13:                                               ; preds = %12
@@ -3166,7 +3166,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$L
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr101drop_in_place$LT$std..sync..mutex..Mutex$LT$aws_credential_types..provider..error..TokenError$GT$$GT$17h0aa0ebaa556f0fe2E.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   ret void
 }
 
@@ -4130,7 +4130,7 @@ define hidden void @"_ZN4core3ptr104drop_in_place$LT$alloc..sync..ArcInner$LT$aw
   tail call void @llvm.experimental.noalias.scope.decl(metadata !970)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !973)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !976)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56293998ca5b43abE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56293998ca5b43abE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
           to label %9 unwind label %3
 
 3:                                                ; preds = %1
@@ -5060,7 +5060,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br i1 %3, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h86d9ac182922ea11E.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h86d9ac182922ea11E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h86d9ac182922ea11E.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -5092,7 +5092,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..lock..Lock
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr107drop_in_place$LT$std..sync..mutex..Mutex$LT$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h84e74487fbdfd50dE.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   ret void
 }
 
@@ -6464,14 +6464,14 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$slab..Entry$LT$h2.
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2019)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2022)
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %16)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %16)
           to label %20 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..extensions..Extensions$GT$17hffc646b2429d3de7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19) #29
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..extensions..Extensions$GT$17hffc646b2429d3de7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19) #29
           to label %common.resume.i.i.i.i.i unwind label %28
 
 20:                                               ; preds = %15
@@ -6599,7 +6599,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$futures_channel..lock..Lock
   br i1 %3, label %"_ZN4core3ptr107drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$$GT$17h48cfd0818d9bccf0E.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   br label %"_ZN4core3ptr107drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$$GT$17h48cfd0818d9bccf0E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr107drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$$GT$17h48cfd0818d9bccf0E.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -8465,7 +8465,7 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMa
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hc1b5f033e32cd721E.llvm.7909737541732249412.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i", %1
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2747)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb75a5167c3dbd5eeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb75a5167c3dbd5eeE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %15 unwind label %9
 
 9:                                                ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hc1b5f033e32cd721E.llvm.7909737541732249412.exit"
@@ -8624,7 +8624,7 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$alloc..v
 8:                                                ; preds = %6
   %9 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %3, i64 0, i64 %.0.i.i
   %10 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h715a1198de9bed58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h715a1198de9bed58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %6 unwind label %13, !noalias !2784
 
 11:                                               ; preds = %15, %13
@@ -8640,7 +8640,7 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$alloc..v
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h715a1198de9bed58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #29
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h715a1198de9bed58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16) #29
           to label %11 unwind label %18, !noalias !2784
 
 18:                                               ; preds = %15
@@ -9208,19 +9208,19 @@ common.resume:                                    ; preds = %12, %16, %"_ZN4core
 
 "_ZN4core3ptr109drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90dd9b14ee5f1852E.exit": ; preds = %.invoke, %33, %29, %26, %36, %"_ZN4core3ptr184drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..invoke_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h99eacc3583835d71E.exit.i.i.i"
   %47 = getelementptr inbounds i8, ptr %0, i64 1360
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47)
           to label %51 unwind label %48
 
 48:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90dd9b14ee5f1852E.exit"
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = getelementptr inbounds i8, ptr %0, i64 1384
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50) #29
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50) #29
           to label %.body9 unwind label %53
 
 51:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90dd9b14ee5f1852E.exit"
   %52 = getelementptr inbounds i8, ptr %0, i64 1384
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit" unwind label %60
 
 53:                                               ; preds = %48
@@ -9428,19 +9428,19 @@ common.resume:                                    ; preds = %12, %16, %"_ZN4core
 
 "_ZN4core3ptr109drop_in_place$LT$aws_sdk_dynamodb..operation..put_item..PutItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17hab5fdce96c9cdfeeE.exit": ; preds = %.invoke, %33, %29, %26, %36, %"_ZN4core3ptr184drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..invoke_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h99eacc3583835d71E.exit.i.i.i"
   %47 = getelementptr inbounds i8, ptr %0, i64 1680
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47)
           to label %51 unwind label %48
 
 48:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$aws_sdk_dynamodb..operation..put_item..PutItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17hab5fdce96c9cdfeeE.exit"
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = getelementptr inbounds i8, ptr %0, i64 1704
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50) #29
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50) #29
           to label %.body9 unwind label %53
 
 51:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$aws_sdk_dynamodb..operation..put_item..PutItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17hab5fdce96c9cdfeeE.exit"
   %52 = getelementptr inbounds i8, ptr %0, i64 1704
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit" unwind label %60
 
 53:                                               ; preds = %48
@@ -10584,7 +10584,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %33
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i1.i", %15
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i" unwind label %22
 
 22:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.7909737541732249412.exit"
@@ -10879,19 +10879,19 @@ common.resume:                                    ; preds = %12, %16, %"_ZN4core
 
 "_ZN4core3ptr115drop_in_place$LT$aws_sdk_dynamodb..operation..update_item..UpdateItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h40d15c27aae7a5a4E.exit": ; preds = %.invoke, %33, %29, %26, %36, %"_ZN4core3ptr184drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..invoke_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h99eacc3583835d71E.exit.i.i.i"
   %47 = getelementptr inbounds i8, ptr %0, i64 1824
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47)
           to label %51 unwind label %48
 
 48:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_sdk_dynamodb..operation..update_item..UpdateItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h40d15c27aae7a5a4E.exit"
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = getelementptr inbounds i8, ptr %0, i64 1848
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50) #29
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50) #29
           to label %.body9 unwind label %53
 
 51:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_sdk_dynamodb..operation..update_item..UpdateItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h40d15c27aae7a5a4E.exit"
   %52 = getelementptr inbounds i8, ptr %0, i64 1848
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit" unwind label %60
 
 53:                                               ; preds = %48
@@ -15032,7 +15032,7 @@ define hidden void @"_ZN4core3ptr154drop_in_place$LT$core..result..Result$LT$aws
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i" unwind label %4
 
 4:                                                ; preds = %3
@@ -15106,7 +15106,7 @@ define hidden void @"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futur
   br label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$17h687820ecc49f01d5E.llvm.7909737541732249412.exit"
 
 10:                                               ; preds = %1
-  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$17h687820ecc49f01d5E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$17h687820ecc49f01d5E.llvm.7909737541732249412.exit": ; preds = %4, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i.i", %10
@@ -16856,19 +16856,19 @@ common.resume.i:                                  ; preds = %"_ZN4core3ptr77drop
 
 "_ZN4core3ptr104drop_in_place$LT$aws_sdk_dynamodb..operation..query..Query..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e902b9f92410f71E.exit.i": ; preds = %"_ZN4core3ptr184drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..invoke_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h99eacc3583835d71E.exit.i.i.i.i", %40, %37, %.invoke.i, %33, %30
   %51 = getelementptr inbounds i8, ptr %0, i64 1928
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %51)
           to label %55 unwind label %52
 
 52:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$aws_sdk_dynamodb..operation..query..Query..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e902b9f92410f71E.exit.i"
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = getelementptr inbounds i8, ptr %0, i64 1952
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54) #29
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54) #29
           to label %.body9.i unwind label %57
 
 55:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$aws_sdk_dynamodb..operation..query..Query..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e902b9f92410f71E.exit.i"
   %56 = getelementptr inbounds i8, ptr %0, i64 1952
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i" unwind label %64
 
 57:                                               ; preds = %52
@@ -17782,7 +17782,7 @@ define internal fastcc void @"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..
 13:                                               ; preds = %11
   %14 = getelementptr inbounds [0 x ptr], ptr %.val.i.i.i, i64 0, i64 %.1.i.i.i.i.i
   %15 = add i64 %.1.i.i.i.i.i, 1
-  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17hb1da776200e24d6bE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14) #29
+  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17hb1da776200e24d6bE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14) #29
           to label %11 unwind label %16, !noalias !5586
 
 16:                                               ; preds = %13
@@ -17985,7 +17985,7 @@ define hidden void @"_ZN4core3ptr167drop_in_place$LT$aws_config..profile..cell..
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   br label %"_ZN4core3ptr236drop_in_place$LT$tokio..sync..once_cell..OnceCell$LT$core..result..Result$LT$alloc..sync..Arc$LT$aws_config..sso..token..SsoTokenProvider$GT$$C$std..sync..mutex..Mutex$LT$aws_credential_types..provider..error..TokenError$GT$$GT$$GT$$GT$17h19bdc55c7f89f8d3E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr236drop_in_place$LT$tokio..sync..once_cell..OnceCell$LT$core..result..Result$LT$alloc..sync..Arc$LT$aws_config..sso..token..SsoTokenProvider$GT$$C$std..sync..mutex..Mutex$LT$aws_credential_types..provider..error..TokenError$GT$$GT$$GT$$GT$17h19bdc55c7f89f8d3E.llvm.7909737541732249412.exit": ; preds = %1, %8, %13, %14
@@ -18130,7 +18130,7 @@ common.ret:                                       ; preds = %"_ZN63_$LT$alloc..a
   br label %common.ret
 
 13:                                               ; preds = %4
-  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %common.ret
 
 14:                                               ; preds = %1
@@ -18655,7 +18655,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %31 = getelementptr inbounds i8, ptr %0, i64 1616
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5894)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5897)
-  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbf5363a1676fd14aE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31)
+  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbf5363a1676fd14aE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %31)
           to label %40 unwind label %32
 
 32:                                               ; preds = %30
@@ -19321,7 +19321,7 @@ common.ret:                                       ; preds = %"_ZN63_$LT$alloc..a
   br label %common.ret
 
 13:                                               ; preds = %4
-  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %common.ret
 
 14:                                               ; preds = %1
@@ -19575,7 +19575,7 @@ common.ret:                                       ; preds = %"_ZN63_$LT$alloc..a
   br label %common.ret
 
 13:                                               ; preds = %4
-  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %common.ret
 
 14:                                               ; preds = %1
@@ -19711,7 +19711,7 @@ common.ret:                                       ; preds = %"_ZN63_$LT$alloc..a
   br label %common.ret
 
 13:                                               ; preds = %4
-  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %common.ret
 
 14:                                               ; preds = %1
@@ -19881,7 +19881,7 @@ define hidden void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_
   br label %"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E.exit.i.i"
 
 17:                                               ; preds = %.lr.ph.i.i
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7)
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %7)
           to label %"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E.exit.i.i" unwind label %21, !noalias !6323
 
 "_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E.exit.i.i": ; preds = %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i.i.i.i.i", %11
@@ -19901,7 +19901,7 @@ define hidden void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_
 23:                                               ; preds = %19
   %24 = getelementptr inbounds [0 x { { i64, [9 x i64] }, i64 }], ptr %3, i64 0, i64 %.1.i.i
   %25 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %24) #29
+  invoke void @"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %24) #29
           to label %19 unwind label %26, !noalias !6323
 
 26:                                               ; preds = %23
@@ -20087,7 +20087,7 @@ define hidden void @"_ZN4core3ptr178drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %24
 
 "_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$17hc4986e1e699a468eE.llvm.7909737541732249412.exit": ; preds = %5, %6, %7, %8, %9, %10
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i" unwind label %13
 
 13:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$17hc4986e1e699a468eE.llvm.7909737541732249412.exit"
@@ -20171,7 +20171,7 @@ common.ret:                                       ; preds = %"_ZN63_$LT$alloc..a
   br label %common.ret
 
 13:                                               ; preds = %4
-  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %common.ret
 
 14:                                               ; preds = %1
@@ -20471,7 +20471,7 @@ define hidden void @"_ZN4core3ptr180drop_in_place$LT$aws_config..profile..cell..
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   br label %"_ZN4core3ptr249drop_in_place$LT$tokio..sync..once_cell..OnceCell$LT$core..result..Result$LT$alloc..sync..Arc$LT$aws_config..profile..credentials..ChainProvider$GT$$C$std..sync..mutex..Mutex$LT$aws_credential_types..provider..error..CredentialsError$GT$$GT$$GT$$GT$17h21d05178d3e36908E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr249drop_in_place$LT$tokio..sync..once_cell..OnceCell$LT$core..result..Result$LT$alloc..sync..Arc$LT$aws_config..profile..credentials..ChainProvider$GT$$C$std..sync..mutex..Mutex$LT$aws_credential_types..provider..error..CredentialsError$GT$$GT$$GT$$GT$17h21d05178d3e36908E.llvm.7909737541732249412.exit": ; preds = %1, %8, %13, %14
@@ -20532,7 +20532,7 @@ define hidden void @"_ZN4core3ptr182drop_in_place$LT$core..option..Option$LT$cor
   ret void
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i.i" unwind label %4
 
 4:                                                ; preds = %3
@@ -20644,7 +20644,7 @@ define hidden void @"_ZN4core3ptr183drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %24
 
 "_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$17hac5a8dbc66e41031E.llvm.7909737541732249412.exit": ; preds = %5, %6, %7, %8, %9, %10
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i" unwind label %13
 
 13:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$17hac5a8dbc66e41031E.llvm.7909737541732249412.exit"
@@ -20705,7 +20705,7 @@ define hidden void @"_ZN4core3ptr183drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %17
 
 5:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i" unwind label %6
 
 6:                                                ; preds = %5
@@ -21401,7 +21401,7 @@ define internal fastcc void @"_ZN4core3ptr186drop_in_place$LT$regex_automata..ut
 13:                                               ; preds = %11
   %14 = getelementptr inbounds [0 x ptr], ptr %.val.i.i.i, i64 0, i64 %.1.i.i.i.i.i
   %15 = add i64 %.1.i.i.i.i.i, 1
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h83b0e870533656c9E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14) #29
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h83b0e870533656c9E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14) #29
           to label %11 unwind label %16, !noalias !6757
 
 16:                                               ; preds = %13
@@ -21966,7 +21966,7 @@ define hidden void @"_ZN4core3ptr189drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %17
 
 5:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i" unwind label %6
 
 6:                                                ; preds = %5
@@ -22252,7 +22252,7 @@ define hidden void @"_ZN4core3ptr192drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %16
 
 "_ZN4core3ptr81drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$17h96db4150761d3862E.exit": ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i" unwind label %5
 
 5:                                                ; preds = %"_ZN4core3ptr81drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$17h96db4150761d3862E.exit"
@@ -22552,7 +22552,7 @@ define hidden void @"_ZN4core3ptr196drop_in_place$LT$core..result..Result$LT$all
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   br label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$aws_config..sso..token..SsoTokenProvider$GT$$GT$17hea3aefac8e8bf5d7E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$aws_config..sso..token..SsoTokenProvider$GT$$GT$17hea3aefac8e8bf5d7E.llvm.7909737541732249412.exit": ; preds = %9, %4, %10
@@ -23486,14 +23486,14 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client.
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit5"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i4", %12, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit"
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit" unwind label %16
 
 16:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit5"
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #29
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #29
           to label %21 unwind label %19
 
 19:                                               ; preds = %16
@@ -23507,7 +23507,7 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client.
 
 "_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit5"
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
   ret void
 }
 
@@ -23587,7 +23587,7 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..Vec$LT
 6:                                                ; preds = %4
   %7 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %.val, i64 0, i64 %.0.i.i
   %8 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$17h754b0fe93670d3bdE"(ptr noalias noundef nonnull align 64 dereferenceable(64) %7)
+  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$17h754b0fe93670d3bdE"(ptr noalias noundef nonnull readonly align 64 dereferenceable(64) %7)
           to label %4 unwind label %11
 
 9:                                                ; preds = %13, %11
@@ -23603,7 +23603,7 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..Vec$LT
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %.val, i64 0, i64 %.1.i.i
   %15 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$17h754b0fe93670d3bdE"(ptr noalias noundef nonnull align 64 dereferenceable(64) %14) #29
+  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$17h754b0fe93670d3bdE"(ptr noalias noundef nonnull readonly align 64 dereferenceable(64) %14) #29
           to label %9 unwind label %16
 
 16:                                               ; preds = %13
@@ -23661,7 +23661,7 @@ define hidden void @"_ZN4core3ptr209drop_in_place$LT$core..result..Result$LT$all
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   br label %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$aws_config..profile..credentials..ChainProvider$GT$$GT$17hd7c016a68738dfa7E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$aws_config..profile..credentials..ChainProvider$GT$$GT$17hd7c016a68738dfa7E.llvm.7909737541732249412.exit": ; preds = %9, %4, %10
@@ -24716,11 +24716,11 @@ define hidden void @"_ZN4core3ptr230drop_in_place$LT$futures_util..stream..futur
 
 .body:                                            ; preds = %3, %8, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %4, %8 ], [ %4, %3 ]
-  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr205drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17hd0ba22881f1e6df1E.llvm.7909737541732249412.exit" unwind label %18
 
 "_ZN4core3ptr293drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17ha989200feec9feccE.llvm.7909737541732249412.exit": ; preds = %9, %13
-  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret void
 
 18:                                               ; preds = %.body
@@ -24832,11 +24832,11 @@ define hidden void @"_ZN4core3ptr235drop_in_place$LT$futures_util..stream..futur
 
 .body:                                            ; preds = %3, %8, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %4, %8 ], [ %4, %3 ]
-  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr205drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17hd0ba22881f1e6df1E.llvm.7909737541732249412.exit" unwind label %18
 
 "_ZN4core3ptr298drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h78c95f2a03dc388dE.llvm.7909737541732249412.exit": ; preds = %9, %13
-  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret void
 
 18:                                               ; preds = %.body
@@ -24902,11 +24902,11 @@ define hidden void @"_ZN4core3ptr236drop_in_place$LT$futures_util..stream..futur
 
 .body:                                            ; preds = %3, %8, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %4, %8 ], [ %4, %3 ]
-  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr205drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17hd0ba22881f1e6df1E.llvm.7909737541732249412.exit" unwind label %18
 
 "_ZN4core3ptr299drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he7b52bedfac9faccE.llvm.7909737541732249412.exit": ; preds = %9, %13
-  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret void
 
 18:                                               ; preds = %.body
@@ -24949,7 +24949,7 @@ define hidden void @"_ZN4core3ptr236drop_in_place$LT$tokio..sync..once_cell..Onc
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   br label %"_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4aa297354fc1dddeE.llvm.7909737541732249412.exit"
 
 "_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4aa297354fc1dddeE.llvm.7909737541732249412.exit": ; preds = %1, %8, %13, %14
@@ -24992,7 +24992,7 @@ common.ret:                                       ; preds = %"_ZN63_$LT$alloc..a
   br label %common.ret
 
 13:                                               ; preds = %4
-  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %common.ret
 
 14:                                               ; preds = %1
@@ -25121,11 +25121,11 @@ define hidden void @"_ZN4core3ptr237drop_in_place$LT$futures_util..stream..futur
 
 .body:                                            ; preds = %3, %8, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %4, %8 ], [ %4, %3 ]
-  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr205drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17hd0ba22881f1e6df1E.llvm.7909737541732249412.exit" unwind label %18
 
 "_ZN4core3ptr300drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf5ce3dd8c0c1db60E.llvm.7909737541732249412.exit": ; preds = %9, %13
-  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret void
 
 18:                                               ; preds = %.body
@@ -25197,11 +25197,11 @@ define hidden void @"_ZN4core3ptr240drop_in_place$LT$futures_util..stream..futur
 
 .body:                                            ; preds = %3, %8, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %4, %8 ], [ %4, %3 ]
-  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr205drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17hd0ba22881f1e6df1E.llvm.7909737541732249412.exit" unwind label %18
 
 "_ZN4core3ptr303drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0ad7451b1b9ead1aE.llvm.7909737541732249412.exit": ; preds = %9, %13
-  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret void
 
 18:                                               ; preds = %.body
@@ -25631,7 +25631,7 @@ define hidden void @"_ZN4core3ptr249drop_in_place$LT$tokio..sync..once_cell..Onc
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   br label %"_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h07ef6254445c0190E.llvm.7909737541732249412.exit"
 
 "_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h07ef6254445c0190E.llvm.7909737541732249412.exit": ; preds = %1, %8, %13, %14
@@ -25680,7 +25680,7 @@ define hidden void @"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$fut
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %4
 }
 
@@ -25794,14 +25794,14 @@ define hidden void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client.
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit5"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i4", %12, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit"
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit" unwind label %16
 
 16:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit5"
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #29
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #29
           to label %21 unwind label %19
 
 19:                                               ; preds = %16
@@ -25815,7 +25815,7 @@ define hidden void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client.
 
 "_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E.llvm.7909737541732249412.exit5"
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
   ret void
 }
 
@@ -25925,7 +25925,7 @@ define hidden void @"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$fut
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %4
 }
 
@@ -25939,7 +25939,7 @@ define hidden void @"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$fut
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %4
 }
 
@@ -25961,7 +25961,7 @@ define hidden void @"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$fut
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %4
 }
 
@@ -26046,7 +26046,7 @@ define hidden void @"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$fut
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %4
 }
 
@@ -26722,11 +26722,11 @@ define hidden void @"_ZN4core3ptr283drop_in_place$LT$futures_util..stream..futur
 
 .body:                                            ; preds = %10, %15, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %11, %15 ], [ %11, %10 ]
-  invoke void @"_ZN4core3ptr172drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$$GT$17h4e8584d047333d81E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr172drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$$GT$17h4e8584d047333d81E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr200drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$$GT$17h0539fb51ecce288dE.llvm.7909737541732249412.exit" unwind label %24
 
 "_ZN4core3ptr346drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h5713e46235c7b10eE.llvm.7909737541732249412.exit": ; preds = %"_ZN110_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h28ba35ca2e5db0ceE.llvm.7909737541732249412.exit.i", %19
-  tail call void @"_ZN4core3ptr172drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$$GT$17h4e8584d047333d81E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr172drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$$GT$17h4e8584d047333d81E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret void
 
 24:                                               ; preds = %.body
@@ -26746,7 +26746,7 @@ define hidden void @"_ZN4core3ptr286drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br i1 %3, label %"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -26822,7 +26822,7 @@ define hidden void @"_ZN4core3ptr287drop_in_place$LT$futures_util..stream..futur
   br i1 %8, label %"_ZN4core3ptr286drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h446ff6126ef7ad70E.exit", label %9
 
 9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %2)
+  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %2)
           to label %"_ZN4core3ptr286drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h446ff6126ef7ad70E.exit" unwind label %17
 
 "_ZN4core3ptr286drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h446ff6126ef7ad70E.exit": ; preds = %5, %9
@@ -27038,7 +27038,7 @@ define hidden void @"_ZN4core3ptr291drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br i1 %3, label %"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -27052,7 +27052,7 @@ define hidden void @"_ZN4core3ptr292drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br i1 %3, label %"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -27081,7 +27081,7 @@ define hidden void @"_ZN4core3ptr292drop_in_place$LT$futures_util..stream..futur
   br i1 %8, label %"_ZN4core3ptr291drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc9619ae6807001c7E.exit", label %9
 
 9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %2)
+  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %2)
           to label %"_ZN4core3ptr291drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc9619ae6807001c7E.exit" unwind label %17
 
 "_ZN4core3ptr291drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc9619ae6807001c7E.exit": ; preds = %5, %9
@@ -27123,7 +27123,7 @@ define hidden void @"_ZN4core3ptr293drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br i1 %3, label %"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -27254,7 +27254,7 @@ define hidden void @"_ZN4core3ptr293drop_in_place$LT$futures_util..stream..futur
   br i1 %8, label %"_ZN4core3ptr292drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha2761aa04040ae4aE.exit", label %9
 
 9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %2)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %2)
           to label %"_ZN4core3ptr292drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha2761aa04040ae4aE.exit" unwind label %17
 
 "_ZN4core3ptr292drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha2761aa04040ae4aE.exit": ; preds = %5, %9
@@ -27350,7 +27350,7 @@ define hidden void @"_ZN4core3ptr294drop_in_place$LT$futures_util..stream..futur
   br i1 %8, label %"_ZN4core3ptr293drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h700158f6b0bbe5a5E.exit", label %9
 
 9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %2)
+  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %2)
           to label %"_ZN4core3ptr293drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h700158f6b0bbe5a5E.exit" unwind label %17
 
 "_ZN4core3ptr293drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h700158f6b0bbe5a5E.exit": ; preds = %5, %9
@@ -27438,7 +27438,7 @@ define hidden void @"_ZN4core3ptr296drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br i1 %3, label %"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -27605,7 +27605,7 @@ define hidden void @"_ZN4core3ptr297drop_in_place$LT$futures_util..stream..futur
   br i1 %8, label %"_ZN4core3ptr296drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7f29ac739b6089c4E.exit", label %9
 
 9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %2)
+  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %2)
           to label %"_ZN4core3ptr296drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7f29ac739b6089c4E.exit" unwind label %17
 
 "_ZN4core3ptr296drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7f29ac739b6089c4E.exit": ; preds = %5, %9
@@ -27712,11 +27712,11 @@ define hidden void @"_ZN4core3ptr298drop_in_place$LT$futures_util..stream..futur
 
 .body:                                            ; preds = %3, %8, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %4, %8 ], [ %4, %3 ]
-  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr205drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17hd0ba22881f1e6df1E.llvm.7909737541732249412.exit" unwind label %18
 
 "_ZN4core3ptr361drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h44168956bf2b3c00E.llvm.7909737541732249412.exit": ; preds = %9, %13
-  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h16034c2c4388e8f4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   ret void
 
 18:                                               ; preds = %.body
@@ -28533,11 +28533,11 @@ define hidden void @"_ZN4core3ptr316drop_in_place$LT$alloc..sync..ArcInner$LT$fu
   br i1 %9, label %"_ZN4core3ptr286drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h446ff6126ef7ad70E.exit.i", label %10
 
 10:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %3)
+  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %3)
           to label %"_ZN4core3ptr286drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h446ff6126ef7ad70E.exit.i" unwind label %18
 
 "_ZN4core3ptr286drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h446ff6126ef7ad70E.exit.i": ; preds = %10, %6
-  tail call void @"_ZN4core3ptr337drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h75b306a8cb497082E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @"_ZN4core3ptr337drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h75b306a8cb497082E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) #29
   resume { ptr, i32 } %7
 
 "_ZN4core3ptr286drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h446ff6126ef7ad70E.exit4.i": ; preds = %1
@@ -29147,11 +29147,11 @@ define hidden void @"_ZN4core3ptr321drop_in_place$LT$alloc..sync..ArcInner$LT$fu
   br i1 %9, label %"_ZN4core3ptr291drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc9619ae6807001c7E.exit.i", label %10
 
 10:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %3)
+  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %3)
           to label %"_ZN4core3ptr291drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc9619ae6807001c7E.exit.i" unwind label %18
 
 "_ZN4core3ptr291drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc9619ae6807001c7E.exit.i": ; preds = %10, %6
-  tail call void @"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17haf284797db08e7f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17haf284797db08e7f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) #29
   resume { ptr, i32 } %7
 
 "_ZN4core3ptr291drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc9619ae6807001c7E.exit4.i": ; preds = %1
@@ -29205,11 +29205,11 @@ define hidden void @"_ZN4core3ptr322drop_in_place$LT$alloc..sync..ArcInner$LT$fu
   br i1 %9, label %"_ZN4core3ptr292drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha2761aa04040ae4aE.exit.i", label %10
 
 10:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %3)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %3)
           to label %"_ZN4core3ptr292drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha2761aa04040ae4aE.exit.i" unwind label %18
 
 "_ZN4core3ptr292drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha2761aa04040ae4aE.exit.i": ; preds = %10, %6
-  tail call void @"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha940643a3a2054e7E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha940643a3a2054e7E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) #29
   resume { ptr, i32 } %7
 
 "_ZN4core3ptr292drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha2761aa04040ae4aE.exit4.i": ; preds = %1
@@ -29353,11 +29353,11 @@ define hidden void @"_ZN4core3ptr323drop_in_place$LT$alloc..sync..ArcInner$LT$fu
   br i1 %9, label %"_ZN4core3ptr293drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h700158f6b0bbe5a5E.exit.i", label %10
 
 10:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %3)
+  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %3)
           to label %"_ZN4core3ptr293drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h700158f6b0bbe5a5E.exit.i" unwind label %18
 
 "_ZN4core3ptr293drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h700158f6b0bbe5a5E.exit.i": ; preds = %10, %6
-  tail call void @"_ZN4core3ptr344drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h62dcb9e9cfba47c8E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @"_ZN4core3ptr344drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h62dcb9e9cfba47c8E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) #29
   resume { ptr, i32 } %7
 
 "_ZN4core3ptr293drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h700158f6b0bbe5a5E.exit4.i": ; preds = %1
@@ -29398,7 +29398,7 @@ define hidden void @"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$fut
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %4
 }
 
@@ -29425,11 +29425,11 @@ define hidden void @"_ZN4core3ptr326drop_in_place$LT$alloc..sync..ArcInner$LT$fu
   br i1 %9, label %"_ZN4core3ptr296drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7f29ac739b6089c4E.exit.i", label %10
 
 10:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %3)
+  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %3)
           to label %"_ZN4core3ptr296drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7f29ac739b6089c4E.exit.i" unwind label %18
 
 "_ZN4core3ptr296drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7f29ac739b6089c4E.exit.i": ; preds = %10, %6
-  tail call void @"_ZN4core3ptr347drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha7999777914aa0f3E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @"_ZN4core3ptr347drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha7999777914aa0f3E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) #29
   resume { ptr, i32 } %7
 
 "_ZN4core3ptr296drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7f29ac739b6089c4E.exit4.i": ; preds = %1
@@ -30769,7 +30769,7 @@ define hidden void @"_ZN4core3ptr354drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br i1 %3, label %"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %0)
+  tail call void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %0)
   br label %"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -30798,7 +30798,7 @@ define hidden void @"_ZN4core3ptr355drop_in_place$LT$futures_util..stream..futur
   br i1 %8, label %"_ZN4core3ptr354drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hac3e7504407679cbE.exit", label %9
 
 9:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %2)
+  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %2)
           to label %"_ZN4core3ptr354drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hac3e7504407679cbE.exit" unwind label %17
 
 "_ZN4core3ptr354drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hac3e7504407679cbE.exit": ; preds = %5, %9
@@ -31396,7 +31396,7 @@ define hidden void @"_ZN4core3ptr369drop_in_place$LT$$LT$futures_util..stream..f
   br i1 %11, label %"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.6974339801470247616.exit.i.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr169drop_in_place$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31178cef417461baE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr256drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h92528d728a0f636cE.llvm.6974339801470247616.exit.i.i" unwind label %13, !noalias !9362
 
 13:                                               ; preds = %12
@@ -31504,11 +31504,11 @@ define hidden void @"_ZN4core3ptr369drop_in_place$LT$alloc..sync..ArcInner$LT$fu
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr339drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h0bed74d7d5142e23E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #29
+  invoke void @"_ZN4core3ptr339drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h0bed74d7d5142e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #29
           to label %8 unwind label %17
 
 8:                                                ; preds = %6
-  tail call void @"_ZN4core3ptr390drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hbe580740bc17d8bdE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @"_ZN4core3ptr390drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hbe580740bc17d8bdE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) #29
   resume { ptr, i32 } %7
 
 9:                                                ; preds = %1
@@ -31714,7 +31714,7 @@ define hidden void @"_ZN4core3ptr374drop_in_place$LT$$LT$futures_util..stream..f
   br i1 %11, label %"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.6974339801470247616.exit.i.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr174drop_in_place$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41b5448b8a68e1e0E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr261drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17he2906b8984833d49E.llvm.6974339801470247616.exit.i.i" unwind label %13, !noalias !9424
 
 13:                                               ; preds = %12
@@ -31847,7 +31847,7 @@ define hidden void @"_ZN4core3ptr375drop_in_place$LT$$LT$futures_util..stream..f
   br i1 %11, label %"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.6974339801470247616.exit.i.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc29c6f4329ae5100E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr262drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h59784f5f8af03debE.llvm.6974339801470247616.exit.i.i" unwind label %13, !noalias !9454
 
 13:                                               ; preds = %12
@@ -31958,7 +31958,7 @@ define hidden void @"_ZN4core3ptr376drop_in_place$LT$$LT$futures_util..stream..f
   br i1 %11, label %"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.6974339801470247616.exit.i.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr176drop_in_place$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he22f0ef38f3b0721E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h0f1a4bfd7bce84d0E.llvm.6974339801470247616.exit.i.i" unwind label %13, !noalias !9481
 
 13:                                               ; preds = %12
@@ -32049,7 +32049,7 @@ define hidden void @"_ZN4core3ptr376drop_in_place$LT$$LT$futures_util..stream..f
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr376drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$object_store..ObjectMeta$GT$$C$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..list_with_delimiter..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h580402583b5b7e76E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #4 {
-  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd63d9dc0308ea156E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd63d9dc0308ea156E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   ret void
 }
 
@@ -32130,7 +32130,7 @@ define hidden void @"_ZN4core3ptr379drop_in_place$LT$$LT$futures_util..stream..f
   br i1 %11, label %"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.6974339801470247616.exit.i.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr179drop_in_place$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7224e98a183e931E.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr266drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf6099c895e89e84fE.llvm.6974339801470247616.exit.i.i" unwind label %13, !noalias !9559
 
 13:                                               ; preds = %12
@@ -32483,11 +32483,11 @@ define hidden void @"_ZN4core3ptr384drop_in_place$LT$alloc..sync..ArcInner$LT$fu
   br i1 %9, label %"_ZN4core3ptr354drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hac3e7504407679cbE.exit.i", label %10
 
 10:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %3)
+  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %3)
           to label %"_ZN4core3ptr354drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hac3e7504407679cbE.exit.i" unwind label %18
 
 "_ZN4core3ptr354drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hac3e7504407679cbE.exit.i": ; preds = %10, %6
-  tail call void @"_ZN4core3ptr405drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h30f1ee0476fce41eE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @"_ZN4core3ptr405drop_in_place$LT$alloc..sync..Weak$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h30f1ee0476fce41eE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) #29
   resume { ptr, i32 } %7
 
 "_ZN4core3ptr354drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hac3e7504407679cbE.exit4.i": ; preds = %1
@@ -34675,7 +34675,7 @@ define hidden void @"_ZN4core3ptr437drop_in_place$LT$$LT$futures_util..stream..f
   br i1 %11, label %"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.6974339801470247616.exit.i.i", label %12
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull align 8 %9)
+  invoke void @"_ZN4core3ptr237drop_in_place$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8804fdfa83a8e53eE.llvm.7909737541732249412"(ptr noundef nonnull readonly align 8 %9)
           to label %"_ZN4core3ptr324drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49cbba49148878a3E.llvm.6974339801470247616.exit.i.i" unwind label %13, !noalias !10700
 
 13:                                               ; preds = %12
@@ -36764,7 +36764,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h5ab603fa32e912e3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11574)
   %2 = load ptr, ptr %0, align 8, !alias.scope !11574, !noundef !5
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hb5d16d6caa5cb096E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hb5d16d6caa5cb096E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17hbf047313bc7508caE.llvm.7909737541732249412.exit" unwind label %3, !noalias !11574
 
 3:                                                ; preds = %1
@@ -37361,7 +37361,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$aws_config..ecs..Provider$GT
   br label %9
 
 8:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$aws_config..http_credential_provider..HttpProviderAuth$C$aws_credential_types..credentials_impl..Credentials$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h99ce366d8714e074E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  tail call void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$aws_config..http_credential_provider..HttpProviderAuth$C$aws_credential_types..credentials_impl..Credentials$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h99ce366d8714e074E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   br label %9
 
 9:                                                ; preds = %8, %6, %1
@@ -38112,14 +38112,14 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$aws_sdk_sts..client..Handle$
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 480
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit" unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 504
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #29
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9) #29
           to label %common.resume unwind label %10
 
 10:                                               ; preds = %7
@@ -38134,7 +38134,7 @@ common.resume:                                    ; preds = %2, %7
 
 "_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit": ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 504
-  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   ret void
 
 13:                                               ; preds = %2
@@ -42194,14 +42194,14 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_sdk_dynamodb..client..Ha
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 480
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit" unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 504
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #29
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9) #29
           to label %common.resume unwind label %10
 
 10:                                               ; preds = %7
@@ -42216,7 +42216,7 @@ common.resume:                                    ; preds = %2, %7
 
 "_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit": ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 504
-  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h935fe2094dc349c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   ret void
 
 13:                                               ; preds = %2
@@ -42737,19 +42737,19 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_types..sdk_config..SdkCo
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr53drop_in_place$LT$h2..proto..streams..store..Store$GT$17hbb13026239a218f2E.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$slab..Entry$LT$h2..proto..streams..stream..Stream$GT$$GT$$GT$17he5ea0556beb7c230E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$slab..Entry$LT$h2..proto..streams..stream..Stream$GT$$GT$$GT$17he5ea0556beb7c230E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr73drop_in_place$LT$slab..Slab$LT$h2..proto..streams..stream..Stream$GT$$GT$17h8d69bcfc07e1039dE.llvm.7909737541732249412.exit" unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h688f928483415cd1E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  invoke void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h688f928483415cd1E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4)
           to label %"_ZN4core3ptr121drop_in_place$LT$indexmap..map..IndexMap$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h91981f31aaa69aa8E.llvm.7909737541732249412.exit" unwind label %6
 
 "_ZN4core3ptr73drop_in_place$LT$slab..Slab$LT$h2..proto..streams..stream..Stream$GT$$GT$17h8d69bcfc07e1039dE.llvm.7909737541732249412.exit": ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h688f928483415cd1E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5)
+  tail call void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h688f928483415cd1E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %5)
   ret void
 
 6:                                                ; preds = %2
@@ -43399,7 +43399,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$aws_config..imds..region..Bu
   br i1 %9, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit", label %10
 
 10:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7)
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %7)
           to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit" unwind label %15
 
 "_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -43409,7 +43409,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$aws_config..imds..region..Bu
   br i1 %13, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit2", label %14
 
 14:                                               ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.llvm.7909737541732249412.exit"
-  tail call void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %11)
+  tail call void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %11)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit2"
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit2": ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.llvm.7909737541732249412.exit", %14
@@ -44042,14 +44042,14 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$h2..proto..streams..streams.
 
 10:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$h2..proto..streams..counts..Counts$GT$17hfc3e6edb83c8850bE.llvm.7909737541732249412.exit"
   %11 = getelementptr inbounds i8, ptr %0, i64 432
-  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$slab..Entry$LT$h2..proto..streams..stream..Stream$GT$$GT$$GT$17he5ea0556beb7c230E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$slab..Entry$LT$h2..proto..streams..stream..Stream$GT$$GT$$GT$17he5ea0556beb7c230E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %"_ZN4core3ptr53drop_in_place$LT$h2..proto..streams..store..Store$GT$17hbb13026239a218f2E.llvm.7909737541732249412.exit" unwind label %12
 
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
   %14 = getelementptr inbounds i8, ptr %0, i64 472
-  invoke void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h688f928483415cd1E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14)
+  invoke void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h688f928483415cd1E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %14)
           to label %common.resume unwind label %15
 
 15:                                               ; preds = %12
@@ -44064,7 +44064,7 @@ common.resume:                                    ; preds = %6, %12
 
 "_ZN4core3ptr53drop_in_place$LT$h2..proto..streams..store..Store$GT$17hbb13026239a218f2E.llvm.7909737541732249412.exit": ; preds = %10
   %17 = getelementptr inbounds i8, ptr %0, i64 472
-  tail call void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h688f928483415cd1E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17)
+  tail call void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$17h688f928483415cd1E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %17)
   ret void
 
 18:                                               ; preds = %6, %2
@@ -44347,7 +44347,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex.
   br i1 %24, label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..PikeVMCache$GT$17hefc1afb045591fb6E.llvm.7909737541732249412.exit", label %25
 
 25:                                               ; preds = %.body
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$17ha8a3d9dc84ab5d59E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(216) %22)
+  tail call void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$17ha8a3d9dc84ab5d59E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %22)
   br label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..PikeVMCache$GT$17hefc1afb045591fb6E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr61drop_in_place$LT$regex_automata..util..captures..Captures$GT$17hb1cb34180cf7ac34E.exit": ; preds = %18, %"_ZN4core3ptr62drop_in_place$LT$regex_automata..util..captures..GroupInfo$GT$17hafd2700cead45fdbE.llvm.7909737541732249412.exit.i"
@@ -44357,7 +44357,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex.
   br i1 %28, label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..PikeVMCache$GT$17hefc1afb045591fb6E.llvm.7909737541732249412.exit8", label %29
 
 29:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..captures..Captures$GT$17hb1cb34180cf7ac34E.exit"
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$17ha8a3d9dc84ab5d59E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(216) %26)
+  tail call void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$17ha8a3d9dc84ab5d59E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %26)
   br label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..PikeVMCache$GT$17hefc1afb045591fb6E.llvm.7909737541732249412.exit8"
 
 "_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..PikeVMCache$GT$17hefc1afb045591fb6E.llvm.7909737541732249412.exit": ; preds = %25, %.body
@@ -45327,7 +45327,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$object_store..aws..client..S
   %52 = getelementptr inbounds i8, ptr %0, i64 744
   %.val16 = load ptr, ptr %52, align 8
   tail call fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$17h0178914be5dde9b7E"(i64 %.val, ptr %.val16) #29
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr68drop_in_place$LT$object_store..aws..builder..S3EncryptionHeaders$GT$17h3b0ea2b5e4577d3eE.exit" unwind label %86
 
 53:                                               ; preds = %"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$object_store..client..CredentialProvider$u2b$Credential$u20$$u3d$$u20$object_store..aws..credential..AwsCredential$GT$$GT$$GT$17hf982e8250038df7aE.exit33"
@@ -45423,7 +45423,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$object_store..aws..client..S
   br label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$17h0178914be5dde9b7E.exit"
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$17h0178914be5dde9b7E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i.i.i", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$17hc3d7df78292885dcE.exit", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$17hc3d7df78292885dcE.exit", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$17hc3d7df78292885dcE.exit"
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   ret void
 
 86:                                               ; preds = %49, %32, %"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$object_store..client..CredentialProvider$u2b$Credential$u20$$u3d$$u20$object_store..aws..credential..AwsCredential$GT$$GT$$GT$17hf982e8250038df7aE.exit"
@@ -45566,7 +45566,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$object_store..client..Client
   br i1 %44, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h86d9ac182922ea11E.llvm.7909737541732249412.exit", label %45
 
 45:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.7909737541732249412.exit"
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h86d9ac182922ea11E.llvm.7909737541732249412.exit" unwind label %137
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.7909737541732249412.exit79": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i78", %39, %"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17hfb47c4a461874398E.exit77"
@@ -45575,7 +45575,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$object_store..client..Client
   br i1 %47, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h86d9ac182922ea11E.llvm.7909737541732249412.exit82", label %48
 
 48:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.7909737541732249412.exit79"
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h86d9ac182922ea11E.llvm.7909737541732249412.exit82" unwind label %56
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$17h86d9ac182922ea11E.llvm.7909737541732249412.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.7909737541732249412.exit", %45, %56
@@ -47608,7 +47608,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$aws_config..imds..credential
   br i1 %23, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit", label %24
 
 24:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.7909737541732249412.exit"
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %21)
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %21)
           to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit" unwind label %45
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.7909737541732249412.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i4", %17, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.llvm.7909737541732249412.exit"
@@ -47618,7 +47618,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$aws_config..imds..credential
   br i1 %27, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit8", label %28
 
 28:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.7909737541732249412.exit5"
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %25)
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %25)
           to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit8" unwind label %36
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_config..imds..client..Client$GT$$GT$17hf685b20615400b18E.llvm.7909737541732249412.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.7909737541732249412.exit", %24, %36
@@ -48729,11 +48729,11 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_config..ecs..EcsCredenti
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %0, i64 208
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$aws_config..ecs..EcsConfigurationError$GT$17hd43cf8e6cc470e60E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$aws_config..ecs..EcsConfigurationError$GT$17hd43cf8e6cc470e60E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12)
           to label %"_ZN4core3ptr86drop_in_place$LT$tokio..sync..once_cell..OnceCell$LT$aws_config..ecs..Provider$GT$$GT$17h73a9b5d8a896013fE.exit" unwind label %14
 
 13:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$aws_config..http_credential_provider..HttpProviderAuth$C$aws_credential_types..credentials_impl..Credentials$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h99ce366d8714e074E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %2)
+  invoke void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$aws_config..http_credential_provider..HttpProviderAuth$C$aws_credential_types..credentials_impl..Credentials$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h99ce366d8714e074E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %2)
           to label %"_ZN4core3ptr86drop_in_place$LT$tokio..sync..once_cell..OnceCell$LT$aws_config..ecs..Provider$GT$$GT$17h73a9b5d8a896013fE.exit" unwind label %14
 
 14:                                               ; preds = %13, %11
@@ -50988,7 +50988,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefil
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr64drop_in_place$LT$aws_config..meta..token..TokenProviderChain$GT$17hb55ee12566c99c48E.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18866)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56293998ca5b43abE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56293998ca5b43abE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %8 unwind label %2
 
 2:                                                ; preds = %1
@@ -52076,7 +52076,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappe
   br i1 %3, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$$GT$17h354c1f81d52daf20E.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$17ha8a3d9dc84ab5d59E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(216) %0)
+  tail call void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$17ha8a3d9dc84ab5d59E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %0)
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$$GT$17h354c1f81d52daf20E.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$regex_automata..nfa..thompson..pikevm..Cache$GT$$GT$17h354c1f81d52daf20E.llvm.7909737541732249412.exit": ; preds = %1, %4
@@ -52360,7 +52360,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$aws_config..environment..Inv
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr65drop_in_place$LT$aws_config..imds..region..ImdsRegionProvider$GT$17hb7883149df9f494aE"(ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr53drop_in_place$LT$aws_config..imds..client..Client$GT$17h637c5d9f2bac176cE.exit" unwind label %2
 
 2:                                                ; preds = %1
@@ -53114,7 +53114,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$aws_config..default_provider
   br i1 %24, label %common.resume, label %25
 
 25:                                               ; preds = %20
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %22)
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %22)
           to label %common.resume unwind label %30
 
 "_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.llvm.7909737541732249412.exit.i": ; preds = %19, %15
@@ -53124,7 +53124,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$aws_config..default_provider
   br i1 %28, label %"_ZN4core3ptr54drop_in_place$LT$aws_config..imds..region..Builder$GT$17h4e8103f1bfa4e7aaE.exit", label %29
 
 29:                                               ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.llvm.7909737541732249412.exit.i"
-  tail call void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %26)
+  tail call void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %26)
   br label %"_ZN4core3ptr54drop_in_place$LT$aws_config..imds..region..Builder$GT$17h4e8103f1bfa4e7aaE.exit"
 
 30:                                               ; preds = %25
@@ -53150,7 +53150,7 @@ common.resume:                                    ; preds = %11, %20, %25
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr66drop_in_place$LT$aws_config..meta..region..RegionProviderChain$GT$17h9af85c1f5aed39b5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20073)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %10 unwind label %2
 
 2:                                                ; preds = %1
@@ -53912,7 +53912,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..types.._co
   br i1 %3, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$$GT$17h0d49cda94e8d96e8E.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17haaffffa7f473647bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17haaffffa7f473647bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$$GT$17h0d49cda94e8d96e8E.llvm.7909737541732249412.exit" unwind label %5
 
 5:                                                ; preds = %4
@@ -54061,7 +54061,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http
 30:                                               ; preds = %32, %16
   %.pn4 = phi { ptr, i32 } [ %33, %32 ], [ %.pn, %16 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 208
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %31)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %31)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit" unwind label %36
 
 32:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hf773585d308d7eb4E.exit"
@@ -54071,7 +54071,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http
 
 34:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hf773585d308d7eb4E.exit"
   %35 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %35)
+  tail call void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %35)
   ret void
 
 36:                                               ; preds = %30, %16, %3
@@ -55215,7 +55215,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$regex_automata..util..determ
 define hidden void @"_ZN4core3ptr68drop_in_place$LT$tokio..runtime..scheduler..current_thread..Core$GT$17h7d8ff7f50f0596b4E"(ptr noalias noundef align 8 dereferenceable(112) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21118)
-  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h835af5a8a8da6eaeE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h835af5a8a8da6eaeE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
           to label %11 unwind label %3
 
 3:                                                ; preds = %1
@@ -55646,7 +55646,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17hca532aad0990147bE"(ptr noalias noundef align 8 dereferenceable(208) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit" unwind label %2
 
 2:                                                ; preds = %1
@@ -58947,7 +58947,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$aws_config..profile..token..
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %0, i64 552
-  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
+  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
   br label %"_ZN4core3ptr167drop_in_place$LT$aws_config..profile..cell..ErrorTakingOnceCell$LT$aws_config..sso..token..SsoTokenProvider$C$aws_credential_types..provider..error..TokenError$GT$$GT$17h38426bf508ca5a0bE.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr167drop_in_place$LT$aws_config..profile..cell..ErrorTakingOnceCell$LT$aws_config..sso..token..SsoTokenProvider$C$aws_credential_types..provider..error..TokenError$GT$$GT$17h38426bf508ca5a0bE.llvm.7909737541732249412.exit": ; preds = %10, %18, %23, %24
@@ -59404,7 +59404,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17hbf047313bc7508caE.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hb5d16d6caa5cb096E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hb5d16d6caa5cb096E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h810342d5ae23c55bE.llvm.7909737541732249412.exit" unwind label %3
 
 "_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h810342d5ae23c55bE.llvm.7909737541732249412.exit": ; preds = %1
@@ -60166,7 +60166,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$std..thr
 define hidden void @"_ZN4core3ptr75drop_in_place$LT$aws_config..default_provider..token..DefaultTokenChain$GT$17hc5477abff66c25b9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23799)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23802)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56293998ca5b43abE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56293998ca5b43abE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %8 unwind label %2
 
 2:                                                ; preds = %1
@@ -60208,7 +60208,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$aws_config..default_provider
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr75drop_in_place$LT$aws_config..imds..credentials..ImdsCredentialsProvider$GT$17ha5ad6c5bd7767df6E"(ptr noalias noundef align 8 dereferenceable(152) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr53drop_in_place$LT$aws_config..imds..client..Client$GT$17h637c5d9f2bac176cE.exit" unwind label %2
 
 2:                                                ; preds = %1
@@ -61109,14 +61109,14 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..mode
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr76drop_in_place$LT$http..response..Response$LT$hyper..body..body..Body$GT$$GT$17h96cd59246b755251E"(ptr noalias noundef align 8 dereferenceable(160) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24265)
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %5 unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 96
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..extensions..Extensions$GT$17hffc646b2429d3de7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #29
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..extensions..Extensions$GT$17hffc646b2429d3de7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4) #29
           to label %.body unwind label %13
 
 5:                                                ; preds = %1
@@ -61725,7 +61725,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_
 define hidden void @"_ZN4core3ptr77drop_in_place$LT$aws_config..default_provider..region..DefaultRegionChain$GT$17h6110fd261b7808adE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24478)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24481)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %10 unwind label %2
 
 2:                                                ; preds = %1
@@ -64151,7 +64151,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  tail call void @"_ZN4core3ptr206drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$alloc..string..String$C$aws_config..imds..client..SensitiveString$C$aws_config..imds..client..error..InnerImdsError$GT$$GT$17hbda26438131bc124E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   br label %4
 }
 
@@ -65067,7 +65067,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$aws_smithy_runtime_api..clie
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17h8f796722085c901fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26105)
-  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbf5363a1676fd14aE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbf5363a1676fd14aE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %10 unwind label %2
 
 2:                                                ; preds = %1
@@ -65426,7 +65426,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$aws_config..profile..credent
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
   br label %"_ZN4core3ptr180drop_in_place$LT$aws_config..profile..cell..ErrorTakingOnceCell$LT$aws_config..profile..credentials..ChainProvider$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17hf730538e05f5a8baE.llvm.7909737541732249412.exit"
 
 "_ZN4core3ptr180drop_in_place$LT$aws_config..profile..cell..ErrorTakingOnceCell$LT$aws_config..profile..credentials..ChainProvider$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17hf730538e05f5a8baE.llvm.7909737541732249412.exit": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$aws_config..profile..credentials..Config$GT$$GT$17h3e2f91714bfc44eeE.llvm.7909737541732249412.exit", %16, %21, %22
@@ -65975,11 +65975,11 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$tokio..sync..once_cell..Once
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr59drop_in_place$LT$aws_config..ecs..EcsConfigurationError$GT$17hd43cf8e6cc470e60E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
+  tail call void @"_ZN4core3ptr59drop_in_place$LT$aws_config..ecs..EcsConfigurationError$GT$17hd43cf8e6cc470e60E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %11)
   br label %"_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27b3f9c32e962741E.llvm.7909737541732249412.exit"
 
 12:                                               ; preds = %5
-  tail call void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$aws_config..http_credential_provider..HttpProviderAuth$C$aws_credential_types..credentials_impl..Credentials$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h99ce366d8714e074E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  tail call void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$aws_config..http_credential_provider..HttpProviderAuth$C$aws_credential_types..credentials_impl..Credentials$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h99ce366d8714e074E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   br label %"_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27b3f9c32e962741E.llvm.7909737541732249412.exit"
 
 "_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27b3f9c32e962741E.llvm.7909737541732249412.exit": ; preds = %1, %5, %10, %12
@@ -67128,7 +67128,7 @@ common.ret.sink.split.i66:                        ; preds = %"_ZN4core3ptr53drop
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27025)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27028)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27031)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %279)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %279)
           to label %288 unwind label %280
 
 280:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$aws_config..default_provider..region..DefaultRegionChain..region..$u7b$$u7b$closure$u7d$$u7d$$GT$17h38ca77cbfeacdaa4E.exit.i"
@@ -67562,7 +67562,7 @@ common.ret.sink.split.i66:                        ; preds = %"_ZN4core3ptr53drop
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27150)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27156)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %456)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %456)
           to label %465 unwind label %457
 
 457:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$aws_config..default_provider..region..DefaultRegionChain..region..$u7b$$u7b$closure$u7d$$u7d$$GT$17h38ca77cbfeacdaa4E.exit.i76"
@@ -67909,7 +67909,7 @@ common.ret.sink.split.i66:                        ; preds = %"_ZN4core3ptr53drop
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27249)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27252)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27255)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %605)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h05cb9dda556d82a4E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %605)
           to label %614 unwind label %606
 
 606:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$aws_config..default_provider..region..DefaultRegionChain..region..$u7b$$u7b$closure$u7d$$u7d$$GT$17h38ca77cbfeacdaa4E.exit"
@@ -69679,7 +69679,7 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$futures_channel..oneshot..In
   br i1 %3, label %"_ZN4core3ptr112drop_in_place$LT$futures_channel..lock..Lock$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$$GT$17h8ea022fa04b10dceE.llvm.7909737541732249412.exit", label %4
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$http..header..map..HeaderMap$GT$17hf70c63f20be2a588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr112drop_in_place$LT$futures_channel..lock..Lock$LT$core..option..Option$LT$http..header..map..HeaderMap$GT$$GT$$GT$17h8ea022fa04b10dceE.llvm.7909737541732249412.exit" unwind label %5
 
 5:                                                ; preds = %4
@@ -72538,7 +72538,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..clie
   br i1 %28, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..response..Response$GT$$GT$17ha0501eb17874da2aE.llvm.7909737541732249412.exit", label %29
 
 29:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17hf2174feb983c6c5fE.llvm.7909737541732249412.exit10"
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %26)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %26)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i.i" unwind label %30
 
 30:                                               ; preds = %29
@@ -72944,7 +72944,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$aws_sdk_dynamodb..types.._ex
   br label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._comparison_operator..ComparisonOperator$GT$$GT$17h24a5f1f218e93f13E.llvm.7909737541732249412.exit"
 
 19:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17haaffffa7f473647bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17haaffffa7f473647bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$$GT$17h0d49cda94e8d96e8E.llvm.7909737541732249412.exit" unwind label %23
 
 "_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._comparison_operator..ComparisonOperator$GT$$GT$17h24a5f1f218e93f13E.llvm.7909737541732249412.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i.i.i", %15, %14, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17hf87a617cbbaa7facE.llvm.7909737541732249412.exit"
@@ -72953,7 +72953,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$aws_sdk_dynamodb..types.._ex
   br i1 %21, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$$GT$17h0d49cda94e8d96e8E.llvm.7909737541732249412.exit3", label %22
 
 22:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._comparison_operator..ComparisonOperator$GT$$GT$17h24a5f1f218e93f13E.llvm.7909737541732249412.exit"
-  tail call void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17haaffffa7f473647bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17haaffffa7f473647bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   br label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$$GT$17h0d49cda94e8d96e8E.llvm.7909737541732249412.exit3"
 
 "_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$$GT$17h0d49cda94e8d96e8E.llvm.7909737541732249412.exit3": ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..types.._comparison_operator..ComparisonOperator$GT$$GT$17h24a5f1f218e93f13E.llvm.7909737541732249412.exit", %22
@@ -75064,7 +75064,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$aws_
   ret void
 
 5:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h08ee740dc25012f2E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h98cab9763f9036ffE.exit.i" unwind label %6
 
 6:                                                ; preds = %5
@@ -78055,7 +78055,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 30:                                               ; preds = %.body.i
   %31 = getelementptr inbounds [0 x { { { { ptr, ptr } }, {} }, {} }], ptr %3, i64 0, i64 %.1.i
   %32 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$aws_config..meta..region..ProvideRegion$GT$$GT$17h3b6777d36823af6dE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #29
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$aws_config..meta..region..ProvideRegion$GT$$GT$17h3b6777d36823af6dE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31) #29
           to label %.body.i unwind label %34
 
 33:                                               ; preds = %.body.i
@@ -78506,7 +78506,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 8:                                                ; preds = %6
   %9 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h715a1198de9bed58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h715a1198de9bed58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %6 unwind label %13
 
 11:                                               ; preds = %15, %13
@@ -78522,7 +78522,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h715a1198de9bed58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #29
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h715a1198de9bed58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16) #29
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -78794,7 +78794,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 37:                                               ; preds = %.body.i
   %38 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { { ptr, ptr } }, {} }, {} } }], ptr %3, i64 0, i64 %.1.i
   %39 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr145drop_in_place$LT$$LP$alloc..borrow..Cow$LT$str$GT$$C$alloc..boxed..Box$LT$dyn$u20$aws_credential_types..provider..token..ProvideToken$GT$$RP$$GT$17h40bbb9716b53cd5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %38) #29
+  invoke fastcc void @"_ZN4core3ptr145drop_in_place$LT$$LP$alloc..borrow..Cow$LT$str$GT$$C$alloc..boxed..Box$LT$dyn$u20$aws_credential_types..provider..token..ProvideToken$GT$$RP$$GT$17h40bbb9716b53cd5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %38) #29
           to label %.body.i unwind label %41
 
 40:                                               ; preds = %.body.i
@@ -79627,7 +79627,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E.exit.i"
 
 17:                                               ; preds = %.lr.ph.i
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7)
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h059f402dc1718a96E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %7)
           to label %"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E.exit.i" unwind label %21
 
 "_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E.exit.i": ; preds = %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7909737541732249412.exit.i.i1.i.i.i.i.i.i", %11
@@ -79647,7 +79647,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 23:                                               ; preds = %19
   %24 = getelementptr inbounds [0 x { { i64, [9 x i64] }, i64 }], ptr %3, i64 0, i64 %.1.i
   %25 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %24) #29
+  invoke void @"_ZN4core3ptr154drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17he698b2ebab1917e6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %24) #29
           to label %19 unwind label %27
 
 26:                                               ; preds = %19
@@ -85550,7 +85550,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17haab043c4bea42552E.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #15 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17haab043c4bea42552E.llvm.7909737541732249412"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #15 {
   %3 = load i64, ptr %0, align 8, !range !32048, !noundef !5
   %4 = load i64, ptr %1, align 8, !range !1491, !noundef !5
   %5 = icmp ult i64 %3, %4
@@ -87561,7 +87561,7 @@ define hidden void @"_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provider..error..CredentialsError$GT$17h4168cc08c912059fE.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   br label %"_ZN4core3ptr209drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$aws_config..profile..credentials..ChainProvider$GT$$C$std..sync..mutex..Mutex$LT$aws_credential_types..provider..error..CredentialsError$GT$$GT$$GT$17h7f6b636b775c6af7E.llvm.7909737541732249412.exit"
 }
 
@@ -87587,11 +87587,11 @@ define hidden void @"_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr59drop_in_place$LT$aws_config..ecs..EcsConfigurationError$GT$17hd43cf8e6cc470e60E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
+  tail call void @"_ZN4core3ptr59drop_in_place$LT$aws_config..ecs..EcsConfigurationError$GT$17hd43cf8e6cc470e60E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %11)
   br label %"_ZN4core3ptr46drop_in_place$LT$aws_config..ecs..Provider$GT$17h69c6c963de207eefE.llvm.7909737541732249412.exit"
 
 12:                                               ; preds = %5
-  tail call void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$aws_config..http_credential_provider..HttpProviderAuth$C$aws_credential_types..credentials_impl..Credentials$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h99ce366d8714e074E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  tail call void @"_ZN4core3ptr257drop_in_place$LT$aws_smithy_runtime..client..orchestrator..operation..Operation$LT$aws_config..http_credential_provider..HttpProviderAuth$C$aws_credential_types..credentials_impl..Credentials$C$aws_credential_types..provider..error..CredentialsError$GT$$GT$17h99ce366d8714e074E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   br label %"_ZN4core3ptr46drop_in_place$LT$aws_config..ecs..Provider$GT$17h69c6c963de207eefE.llvm.7909737541732249412.exit"
 }
 
@@ -87627,7 +87627,7 @@ define hidden void @"_ZN83_$LT$tokio..sync..once_cell..OnceCell$LT$T$GT$$u20$as$
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  tail call void @"_ZN4core3ptr70drop_in_place$LT$aws_credential_types..provider..error..TokenError$GT$17hf5e07fcf98ac1284E.llvm.7909737541732249412"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   br label %"_ZN4core3ptr196drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$aws_config..sso..token..SsoTokenProvider$GT$$C$std..sync..mutex..Mutex$LT$aws_credential_types..provider..error..TokenError$GT$$GT$$GT$17hea8da1f0dde48cacE.llvm.7909737541732249412.exit"
 }
 

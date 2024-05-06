@@ -737,7 +737,7 @@ define internal i32 @dissect_tipc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %15 = trunc i32 %14 to i8
   %16 = and i8 %15, 15
   %17 = lshr i32 %12, 25
-  %18 = trunc i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = and i8 %18, 15
   %20 = and i32 %12, 131071
   %21 = load i32, ptr @proto_tipc, align 4
@@ -1214,7 +1214,7 @@ tipc_v2_set_info_col.exit:                        ; preds = %95, %110, %112, %11
   %273 = lshr i32 %269, 12
   %274 = and i32 %273, 4095
   %275 = lshr i32 %269, 24
-  %276 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %271, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %275, i32 noundef %274, i32 noundef %272) #7
+  %276 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %271, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %275, i32 noundef %274, i32 noundef %272) #7
   %277 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %278 = tail call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %277, ptr noundef %.0262, i32 noundef 12, i32 noundef 4, ptr noundef %271) #7
   %279 = load i32, ptr @hf_tipc_org_port, align 4
@@ -1232,7 +1232,7 @@ tipc_v2_set_info_col.exit:                        ; preds = %95, %110, %112, %11
   %289 = lshr i32 %285, 12
   %290 = and i32 %289, 4095
   %291 = lshr i32 %285, 24
-  %292 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %287, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %291, i32 noundef %290, i32 noundef %288) #7
+  %292 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %287, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %291, i32 noundef %290, i32 noundef %288) #7
   %293 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %294 = tail call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %293, ptr noundef %.0262, i32 noundef 24, i32 noundef 4, ptr noundef %287) #7
   %295 = tail call i32 @tvb_get_ntohl(ptr noundef %.0262, i32 noundef 28) #7
@@ -1242,7 +1242,7 @@ tipc_v2_set_info_col.exit:                        ; preds = %95, %110, %112, %11
   %299 = lshr i32 %295, 12
   %300 = and i32 %299, 4095
   %301 = lshr i32 %295, 24
-  %302 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %297, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %301, i32 noundef %300, i32 noundef %298) #7
+  %302 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %297, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %301, i32 noundef %300, i32 noundef %298) #7
   %303 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %304 = tail call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %303, ptr noundef %.0262, i32 noundef 28, i32 noundef 4, ptr noundef %297) #7
   %305 = icmp ugt i8 %.0142.i, 8
@@ -1344,7 +1344,7 @@ dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %329
   %364 = lshr i32 %360, 12
   %365 = and i32 %364, 4095
   %366 = lshr i32 %360, 24
-  %367 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %362, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %366, i32 noundef %365, i32 noundef %363) #7
+  %367 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %362, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %366, i32 noundef %365, i32 noundef %363) #7
   %368 = load i32, ptr @hf_tipc_prev_proc, align 4
   %369 = tail call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %368, ptr noundef %.0262, i32 noundef 8, i32 noundef 4, ptr noundef %362) #7
   switch i32 %35, label %486 [
@@ -1638,7 +1638,7 @@ dissect_tipc_int_prot_msg.exit:                   ; preds = %473, %462, %.thread
   %514 = lshr i32 %510, 12
   %515 = and i32 %514, 4095
   %516 = lshr i32 %510, 24
-  %517 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %512, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %516, i32 noundef %515, i32 noundef %513) #7
+  %517 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %512, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %516, i32 noundef %515, i32 noundef %513) #7
   %518 = load i32, ptr @hf_tipc_org_proc, align 4
   %519 = call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %518, ptr noundef %.0262, i32 noundef 24, i32 noundef 4, ptr noundef %512) #7
   %520 = call i32 @tvb_get_ntohl(ptr noundef %.0262, i32 noundef 28) #7
@@ -1648,7 +1648,7 @@ dissect_tipc_int_prot_msg.exit:                   ; preds = %473, %462, %.thread
   %524 = lshr i32 %520, 12
   %525 = and i32 %524, 4095
   %526 = lshr i32 %520, 24
-  %527 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %522, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %526, i32 noundef %525, i32 noundef %523) #7
+  %527 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %522, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %526, i32 noundef %525, i32 noundef %523) #7
   %528 = load i32, ptr @hf_tipc_dst_proc, align 4
   %529 = call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %528, ptr noundef %.0262, i32 noundef 28, i32 noundef 4, ptr noundef %522) #7
   %530 = icmp ugt i32 %342, 8
@@ -1767,7 +1767,7 @@ define internal i32 @tipc_addr_to_str_buf(ptr nocapture noundef readonly %0, ptr
   %20 = or disjoint i32 %.masked, %19
   %21 = lshr i32 %15, 4
   %22 = sext i32 %2 to i64
-  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %22, ptr noundef nonnull @.str.462, i32 noundef %7, i32 noundef %21, i32 noundef %20) #7
+  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %22, ptr noundef nonnull @.str.462, i32 noundef %7, i32 noundef %21, i32 noundef %20) #7
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %25 = trunc i64 %24 to i32
   %26 = add i32 %25, 1
@@ -1916,7 +1916,7 @@ define internal fastcc void @dissect_tipc_name_dist_data(ptr noundef %0, ptr nou
   %57 = lshr i32 %53, 12
   %58 = and i32 %57, 4095
   %59 = lshr i32 %53, 24
-  %60 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %55, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %59, i32 noundef %58, i32 noundef %56) #7
+  %60 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %55, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %59, i32 noundef %58, i32 noundef %56) #7
   %61 = load i32, ptr @hf_tipcv2_name_dist_port_id_node, align 4
   %62 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %52, i32 noundef 4, ptr noundef %55) #7
   %63 = add i32 %.171, 24
@@ -2036,7 +2036,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %22 = lshr i32 %18, 12
   %23 = and i32 %22, 4095
   %24 = lshr i32 %18, 24
-  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %24, i32 noundef %23, i32 noundef %21) #7
+  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %20, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %24, i32 noundef %23, i32 noundef %21) #7
   %26 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %27 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %20) #7
   %28 = load i32, ptr @handle_v2_as, align 4
@@ -2065,7 +2065,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %46 = lshr i32 %42, 12
   %47 = and i32 %46, 4095
   %48 = lshr i32 %42, 24
-  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %48, i32 noundef %47, i32 noundef %45) #7
+  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %44, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %48, i32 noundef %47, i32 noundef %45) #7
   %50 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %51 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %50, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef %44) #7
   %52 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #7
@@ -2075,7 +2075,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %56 = lshr i32 %52, 12
   %57 = and i32 %56, 4095
   %58 = lshr i32 %52, 24
-  %59 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %54, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %58, i32 noundef %57, i32 noundef %55) #7
+  %59 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %54, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %58, i32 noundef %57, i32 noundef %55) #7
   %60 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %61 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %60, ptr noundef %0, i32 noundef 28, i32 noundef 4, ptr noundef %54) #7
   br label %62
@@ -2119,7 +2119,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %89 = lshr i32 %85, 12
   %90 = and i32 %89, 4095
   %91 = lshr i32 %85, 24
-  %92 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %87, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %91, i32 noundef %90, i32 noundef %88) #7
+  %92 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %87, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %91, i32 noundef %90, i32 noundef %88) #7
   %93 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %94 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %93, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %87) #7
   %95 = load i32, ptr @handle_v2_as, align 4
@@ -2146,7 +2146,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %111 = lshr i32 %107, 12
   %112 = and i32 %111, 4095
   %113 = lshr i32 %107, 24
-  %114 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %109, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %113, i32 noundef %112, i32 noundef %110) #7
+  %114 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %109, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %113, i32 noundef %112, i32 noundef %110) #7
   %115 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %116 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %115, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef %109) #7
   %117 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #7
@@ -2156,7 +2156,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %121 = lshr i32 %117, 12
   %122 = and i32 %121, 4095
   %123 = lshr i32 %117, 24
-  %124 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %119, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %123, i32 noundef %122, i32 noundef %120) #7
+  %124 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %119, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %123, i32 noundef %122, i32 noundef %120) #7
   %125 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %126 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %125, ptr noundef %0, i32 noundef 28, i32 noundef 4, ptr noundef %119) #7
   br label %127
@@ -2222,7 +2222,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %172 = lshr i32 %168, 12
   %173 = and i32 %172, 4095
   %174 = lshr i32 %168, 24
-  %175 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %170, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %174, i32 noundef %173, i32 noundef %171) #7
+  %175 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %170, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %174, i32 noundef %173, i32 noundef %171) #7
   %176 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %177 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %176, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %170) #7
   %178 = load i32, ptr @hf_tipcv2_next_sent_broadcast, align 4
@@ -2263,7 +2263,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %208 = lshr i32 %204, 12
   %209 = and i32 %208, 4095
   %210 = lshr i32 %204, 24
-  %211 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %206, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %210, i32 noundef %209, i32 noundef %207) #7
+  %211 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %206, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %210, i32 noundef %209, i32 noundef %207) #7
   %212 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %213 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %212, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef %206) #7
   %214 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #7
@@ -2273,7 +2273,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %218 = lshr i32 %214, 12
   %219 = and i32 %218, 4095
   %220 = lshr i32 %214, 24
-  %221 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %216, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %220, i32 noundef %219, i32 noundef %217) #7
+  %221 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %216, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %220, i32 noundef %219, i32 noundef %217) #7
   %222 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %223 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %222, ptr noundef %0, i32 noundef 28, i32 noundef 4, ptr noundef %216) #7
   %224 = load i32, ptr @hf_tipcv2_timestamp, align 4
@@ -2341,7 +2341,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %271 = lshr i32 %267, 12
   %272 = and i32 %271, 4095
   %273 = lshr i32 %267, 24
-  %274 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %269, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %273, i32 noundef %272, i32 noundef %270) #7
+  %274 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %269, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %273, i32 noundef %272, i32 noundef %270) #7
   %275 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %276 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %275, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %269) #7
   %277 = load i32, ptr @hf_tipc_org_port, align 4
@@ -2355,7 +2355,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %285 = lshr i32 %281, 12
   %286 = and i32 %285, 4095
   %287 = lshr i32 %281, 24
-  %288 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %283, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %287, i32 noundef %286, i32 noundef %284) #7
+  %288 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %283, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %287, i32 noundef %286, i32 noundef %284) #7
   %289 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %290 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %289, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef %283) #7
   %291 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #7
@@ -2365,7 +2365,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %295 = lshr i32 %291, 12
   %296 = and i32 %295, 4095
   %297 = lshr i32 %291, 24
-  %298 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %293, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %297, i32 noundef %296, i32 noundef %294) #7
+  %298 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %293, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %297, i32 noundef %296, i32 noundef %294) #7
   %299 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %300 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %299, ptr noundef %0, i32 noundef 28, i32 noundef 4, ptr noundef %293) #7
   %301 = load i32, ptr @hf_tipc_unused_word, align 4
@@ -2406,7 +2406,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %326 = lshr i32 %322, 12
   %327 = and i32 %326, 4095
   %328 = lshr i32 %322, 24
-  %329 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %324, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %328, i32 noundef %327, i32 noundef %325) #7
+  %329 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %324, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %328, i32 noundef %327, i32 noundef %325) #7
   %330 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %331 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %330, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %324) #7
   %332 = load i32, ptr @handle_v2_as, align 4
@@ -2439,7 +2439,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %354 = lshr i32 %350, 12
   %355 = and i32 %354, 4095
   %356 = lshr i32 %350, 24
-  %357 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %352, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %356, i32 noundef %355, i32 noundef %353) #7
+  %357 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %352, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %356, i32 noundef %355, i32 noundef %353) #7
   %358 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %359 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %358, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef %352) #7
   %360 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #7
@@ -2449,7 +2449,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %364 = lshr i32 %360, 12
   %365 = and i32 %364, 4095
   %366 = lshr i32 %360, 24
-  %367 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %362, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %366, i32 noundef %365, i32 noundef %363) #7
+  %367 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %362, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %366, i32 noundef %365, i32 noundef %363) #7
   %368 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %369 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %368, ptr noundef %0, i32 noundef 28, i32 noundef 4, ptr noundef %362) #7
   %370 = load i32, ptr @hf_tipc_unused_word, align 4
@@ -2490,7 +2490,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %388 = lshr i32 %384, 12
   %389 = and i32 %388, 4095
   %390 = lshr i32 %384, 24
-  %391 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %386, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %390, i32 noundef %389, i32 noundef %387) #7
+  %391 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %386, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %390, i32 noundef %389, i32 noundef %387) #7
   %392 = load i32, ptr @hf_tipcv2_cluster_address, align 4
   %393 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %392, ptr noundef %0, i32 noundef 40, i32 noundef 4, ptr noundef %386) #7
   %394 = load i32, ptr @hf_tipcv2_bitmap, align 4
@@ -2505,7 +2505,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %401 = lshr i32 %397, 12
   %402 = and i32 %401, 4095
   %403 = lshr i32 %397, 24
-  %404 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %399, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %403, i32 noundef %402, i32 noundef %400) #7
+  %404 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %399, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %403, i32 noundef %402, i32 noundef %400) #7
   %405 = load i32, ptr @hf_tipcv2_node_address, align 4
   %406 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %405, ptr noundef %0, i32 noundef 40, i32 noundef 4, ptr noundef %399) #7
   br label %.loopexit
@@ -2518,7 +2518,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %412 = lshr i32 %408, 12
   %413 = and i32 %412, 4095
   %414 = lshr i32 %408, 24
-  %415 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %410, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %414, i32 noundef %413, i32 noundef %411) #7
+  %415 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %410, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %414, i32 noundef %413, i32 noundef %411) #7
   %416 = load i32, ptr @hf_tipcv2_network_region, align 4
   %417 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %416, ptr noundef %0, i32 noundef 40, i32 noundef 4, ptr noundef %410) #7
   %418 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 44) #7
@@ -2528,7 +2528,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %422 = lshr i32 %418, 12
   %423 = and i32 %422, 4095
   %424 = lshr i32 %418, 24
-  %425 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %420, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %424, i32 noundef %423, i32 noundef %421) #7
+  %425 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %420, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %424, i32 noundef %423, i32 noundef %421) #7
   %426 = load i32, ptr @hf_tipcv2_local_router, align 4
   %427 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %426, ptr noundef %0, i32 noundef 44, i32 noundef 4, ptr noundef %420) #7
   %428 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 48) #7
@@ -2538,7 +2538,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %432 = lshr i32 %428, 12
   %433 = and i32 %432, 4095
   %434 = lshr i32 %428, 24
-  %435 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %430, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %434, i32 noundef %433, i32 noundef %431) #7
+  %435 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %430, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %434, i32 noundef %433, i32 noundef %431) #7
   %436 = load i32, ptr @hf_tipcv2_remote_router, align 4
   %437 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %436, ptr noundef %0, i32 noundef 48, i32 noundef 4, ptr noundef %430) #7
   %438 = load i32, ptr @hf_tipcv2_dist_dist, align 4
@@ -2563,7 +2563,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %455 = lshr i32 %451, 12
   %456 = and i32 %455, 4095
   %457 = lshr i32 %451, 24
-  %458 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %453, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %457, i32 noundef %456, i32 noundef %454) #7
+  %458 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %453, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %457, i32 noundef %456, i32 noundef %454) #7
   %459 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %460 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %459, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %453) #7
   %461 = load i32, ptr @hf_tipc_unused_word, align 4
@@ -2601,7 +2601,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %483 = lshr i32 %479, 12
   %484 = and i32 %483, 4095
   %485 = lshr i32 %479, 24
-  %486 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %481, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %485, i32 noundef %484, i32 noundef %482) #7
+  %486 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %481, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %485, i32 noundef %484, i32 noundef %482) #7
   %487 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %488 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %487, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef %481) #7
   %489 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #7
@@ -2611,7 +2611,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %493 = lshr i32 %489, 12
   %494 = and i32 %493, 4095
   %495 = lshr i32 %489, 24
-  %496 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %491, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %495, i32 noundef %494, i32 noundef %492) #7
+  %496 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %491, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %495, i32 noundef %494, i32 noundef %492) #7
   %497 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %498 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %497, ptr noundef %0, i32 noundef 28, i32 noundef 4, ptr noundef %491) #7
   br label %499
@@ -2650,7 +2650,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %521 = lshr i32 %517, 12
   %522 = and i32 %521, 4095
   %523 = lshr i32 %517, 24
-  %524 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %519, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %523, i32 noundef %522, i32 noundef %520) #7
+  %524 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %519, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %523, i32 noundef %522, i32 noundef %520) #7
   %525 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %526 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %525, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %519) #7
   %527 = load i32, ptr @hf_tipc_unused_word, align 4
@@ -2664,7 +2664,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %535 = lshr i32 %531, 12
   %536 = and i32 %535, 4095
   %537 = lshr i32 %531, 24
-  %538 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %533, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %537, i32 noundef %536, i32 noundef %534) #7
+  %538 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %533, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %537, i32 noundef %536, i32 noundef %534) #7
   %539 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %540 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %539, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef %533) #7
   %541 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #7
@@ -2674,7 +2674,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %545 = lshr i32 %541, 12
   %546 = and i32 %545, 4095
   %547 = lshr i32 %541, 24
-  %548 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %543, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %547, i32 noundef %546, i32 noundef %544) #7
+  %548 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %543, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %547, i32 noundef %546, i32 noundef %544) #7
   %549 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %550 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %549, ptr noundef %0, i32 noundef 28, i32 noundef 4, ptr noundef %543) #7
   %551 = load i32, ptr @handle_v2_as, align 4
@@ -2706,7 +2706,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
 565:                                              ; preds = %559
   %566 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 36) #7
   %567 = lshr i32 %566, 24
-  %568 = trunc i32 %567 to i8
+  %568 = trunc nuw i32 %567 to i8
   %569 = load i32, ptr @hf_tipcv2_item_size, align 4
   %570 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %569, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef 0) #7
   br label %571
@@ -2733,7 +2733,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %586 = lshr i32 %582, 12
   %587 = and i32 %586, 4095
   %588 = lshr i32 %582, 24
-  %589 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %584, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %588, i32 noundef %587, i32 noundef %585) #7
+  %589 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %584, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %588, i32 noundef %587, i32 noundef %585) #7
   %590 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %591 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %590, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %584) #7
   %592 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #7
@@ -2765,7 +2765,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %613 = lshr i32 %609, 12
   %614 = and i32 %613, 4095
   %615 = lshr i32 %609, 24
-  %616 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %611, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %615, i32 noundef %614, i32 noundef %612) #7
+  %616 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %611, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %615, i32 noundef %614, i32 noundef %612) #7
   %617 = load i32, ptr @hf_tipcv2_orig_node, align 4
   %618 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %617, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef %611) #7
   %619 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #7
@@ -2775,7 +2775,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %623 = lshr i32 %619, 12
   %624 = and i32 %623, 4095
   %625 = lshr i32 %619, 24
-  %626 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %621, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %625, i32 noundef %624, i32 noundef %622) #7
+  %626 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %621, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %625, i32 noundef %624, i32 noundef %622) #7
   %627 = load i32, ptr @hf_tipcv2_dest_node, align 4
   %628 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %627, ptr noundef %0, i32 noundef 28, i32 noundef 4, ptr noundef %621) #7
   br label %629
@@ -2859,7 +2859,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %678 = lshr i32 %674, 12
   %679 = and i32 %678, 4095
   %680 = lshr i32 %674, 24
-  %681 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %676, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %680, i32 noundef %679, i32 noundef %677) #7
+  %681 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %676, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %680, i32 noundef %679, i32 noundef %677) #7
   %682 = load i32, ptr @hf_tipcv2_destination_domain, align 4
   %683 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %682, ptr noundef %0, i32 noundef 8, i32 noundef 4, ptr noundef %676) #7
   %684 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
@@ -2869,7 +2869,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %688 = lshr i32 %684, 12
   %689 = and i32 %688, 4095
   %690 = lshr i32 %684, 24
-  %691 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %686, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %690, i32 noundef %689, i32 noundef %687) #7
+  %691 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %686, i64 noundef 15, ptr noundef nonnull @.str.462, i32 noundef %690, i32 noundef %689, i32 noundef %687) #7
   %692 = load i32, ptr @hf_tipcv2_prev_node, align 4
   %693 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %692, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %686) #7
   %694 = load i32, ptr @hf_tipcv2_network_id, align 4
@@ -2952,7 +2952,7 @@ declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_tipc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 131072) i32 @get_tipc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #7
   %6 = and i32 %5, 131071
   ret i32 %6

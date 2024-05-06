@@ -3009,7 +3009,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt13unordered_setIP8AstCFuncSt4h
   %9 = load ptr, ptr %.040, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyISt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEEvPT_.exit.i.i.i, %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyISt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyISt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
   %.05.i.i.i.ptr = getelementptr inbounds i8, ptr %9, i64 %.05.i.i.i.idx
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.ptr, i64 16
@@ -3401,7 +3401,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt18unordered_multimapIPK11AstVa
   %9 = load ptr, ptr %.040, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEEEvPT_.exit.i.i.i, %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
   %.05.i.i.i.ptr = getelementptr inbounds i8, ptr %9, i64 %.05.i.i.i.idx
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.ptr, i64 16
@@ -3707,10 +3707,10 @@ define linkonce_odr dso_local void @_ZN15LocalizeVisitor13moveVarScopesEv(ptr no
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 208
   %10 = load ptr, ptr %9, align 8
-  %.not87112 = icmp eq ptr %8, %10
-  br i1 %.not87112, label %_ZNSt6vectorIP11AstVarScopeSaIS1_EE5clearEv.exit, label %.lr.ph115
+  %.not89114 = icmp eq ptr %8, %10
+  br i1 %.not89114, label %_ZNSt6vectorIP11AstVarScopeSaIS1_EE5clearEv.exit, label %.lr.ph117
 
-.lr.ph115:                                        ; preds = %1
+.lr.ph117:                                        ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3725,9 +3725,9 @@ define linkonce_odr dso_local void @_ZN15LocalizeVisitor13moveVarScopesEv(ptr no
   %22 = getelementptr inbounds i8, ptr %0, i64 192
   br label %23
 
-23:                                               ; preds = %.lr.ph115, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86
-  %.sroa.083.0113 = phi ptr [ %8, %.lr.ph115 ], [ %299, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86 ]
-  %24 = load ptr, ptr %.sroa.083.0113, align 8
+23:                                               ; preds = %.lr.ph117, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88
+  %.sroa.085.0115 = phi ptr [ %8, %.lr.ph117 ], [ %299, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88 ]
+  %24 = load ptr, ptr %.sroa.085.0115, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 112
   %26 = load i32, ptr %25, align 8
   %27 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
@@ -3742,9 +3742,9 @@ define linkonce_odr dso_local void @_ZN15LocalizeVisitor13moveVarScopesEv(ptr no
 ._ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread_crit_edge: ; preds = %23
   %.phi.trans.insert = getelementptr inbounds i8, ptr %24, i64 136
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.pre134 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %.phi.trans.insert135 = getelementptr inbounds i8, ptr %24, i64 128
-  %.pre136 = load i64, ptr %.phi.trans.insert135, align 8
+  %.pre136 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
+  %.phi.trans.insert137 = getelementptr inbounds i8, ptr %24, i64 128
+  %.pre138 = load i64, ptr %.phi.trans.insert137, align 8
   br label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread
 
 32:                                               ; preds = %23
@@ -3753,7 +3753,7 @@ define linkonce_odr dso_local void @_ZN15LocalizeVisitor13moveVarScopesEv(ptr no
   %35 = getelementptr inbounds i8, ptr %34, i64 248
   %.sroa.0.0.copyload.i.i = load i8, ptr %35, align 8
   %36 = icmp eq i8 %.sroa.0.0.copyload.i.i, 13
-  br i1 %36, label %37, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86
+  br i1 %36, label %37, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %24, i64 136
@@ -3825,11 +3825,11 @@ _ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit: ; preds = %37, %_ZNSt5d
   %72 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %73 = load i64, ptr %72, align 8
   %74 = icmp eq i64 %73, 1
-  br i1 %74, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86
+  br i1 %74, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88
 
 _ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread: ; preds = %._ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread_crit_edge, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit
-  %75 = phi i64 [ %.pre136, %._ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread_crit_edge ], [ %70, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit ]
-  %76 = phi i32 [ %.pre134, %._ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread_crit_edge ], [ %71, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit ]
+  %75 = phi i64 [ %.pre138, %._ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread_crit_edge ], [ %70, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit ]
+  %76 = phi i32 [ %.pre136, %._ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread_crit_edge ], [ %71, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit ]
   %77 = phi i32 [ %.pre, %._ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread_crit_edge ], [ %71, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit ]
   %78 = getelementptr inbounds i8, ptr %24, i64 136
   %79 = icmp ne i32 %77, %76
@@ -3895,7 +3895,7 @@ _ZN20AstUserAllocatorBaseI11AstVarScopeSt13unordered_setIP8AstCFuncSt4hashIS3_ES
   %107 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %108 = load i64, ptr %107, align 8
   switch i64 %108, label %109 [
-    i64 0, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86
+    i64 0, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88
     i64 1, label %_ZN15LocalizeVisitor13existsNonLeafERKSt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE.exit
   ]
 
@@ -3921,7 +3921,7 @@ _ZN20AstUserAllocatorBaseI11AstVarScopeSt13unordered_setIP8AstCFuncSt4hashIS3_ES
   %121 = and i64 %120, 4294967295
   %.not8.i = icmp eq i64 %121, 0
   %.not.i46 = select i1 %118, i1 true, i1 %.not8.i
-  br i1 %.not.i46, label %112, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86
+  br i1 %.not.i46, label %112, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88
 
 _ZN15LocalizeVisitor13existsNonLeafERKSt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE.exit: ; preds = %112, %_ZN20AstUserAllocatorBaseI11AstVarScopeSt13unordered_setIP8AstCFuncSt4hashIS3_ESt8equal_toIS3_ESaIS3_EELi3EEclIJEEERS9_PS0_DpOT_.exit
   %122 = call noundef i32 @_ZL5debugv()
@@ -3973,11 +3973,11 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %130, %132
   %143 = call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %24, ptr noundef null)
   call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %143)
   %144 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %.sroa.072.0107 = load ptr, ptr %144, align 8
-  %.not89108 = icmp eq ptr %.sroa.072.0107, null
-  br i1 %.not89108, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86, label %.lr.ph111
+  %.sroa.074.0109 = load ptr, ptr %144, align 8
+  %.not91110 = icmp eq ptr %.sroa.074.0109, null
+  br i1 %.not91110, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88, label %.lr.ph113
 
-.lr.ph111:                                        ; preds = %140
+.lr.ph113:                                        ; preds = %140
   %145 = getelementptr inbounds i8, ptr %24, i64 168
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %24, i64 160
@@ -3990,9 +3990,9 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %130, %132
   %154 = ptrtoint ptr %24 to i64
   br label %155
 
-155:                                              ; preds = %.lr.ph111, %._crit_edge
-  %.sroa.072.0109 = phi ptr [ %.sroa.072.0107, %.lr.ph111 ], [ %.sroa.072.0, %._crit_edge ]
-  %156 = getelementptr inbounds i8, ptr %.sroa.072.0109, i64 8
+155:                                              ; preds = %.lr.ph113, %._crit_edge
+  %.sroa.074.0111 = phi ptr [ %.sroa.074.0109, %.lr.ph113 ], [ %.sroa.074.0, %._crit_edge ]
+  %156 = getelementptr inbounds i8, ptr %.sroa.074.0111, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %147, align 8
   %159 = getelementptr inbounds i8, ptr %157, i64 320
@@ -4150,16 +4150,16 @@ _ZN8AstCFunc9addInitspEP7AstNode.exit:            ; preds = %_ZN6AstVarC2EP8File
   %214 = getelementptr inbounds i8, ptr %157, i64 144
   %215 = load i64, ptr %214, align 8
   %216 = inttoptr i64 %215 to ptr
-  %.not7.i59 = icmp eq i64 %215, 0
-  %.not.i60 = select i1 %213, i1 true, i1 %.not7.i59
-  br i1 %.not.i60, label %217, label %_ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit
+  %.not7.i60 = icmp eq i64 %215, 0
+  %.not.i61 = select i1 %213, i1 true, i1 %.not7.i60
+  br i1 %.not.i61, label %217, label %_ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit
 
 217:                                              ; preds = %_ZN8AstCFunc9addInitspEP7AstNode.exit
   %218 = load ptr, ptr %19, align 8
   %219 = load ptr, ptr %20, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 -56
-  %.not.i.i62 = icmp eq ptr %218, %220
-  br i1 %.not.i.i62, label %229, label %221
+  %.not.i.i63 = icmp eq ptr %218, %220
+  br i1 %.not.i.i63, label %229, label %221
 
 221:                                              ; preds = %217
   %222 = getelementptr inbounds i8, ptr %218, i64 32
@@ -4180,14 +4180,14 @@ _ZN8AstCFunc9addInitspEP7AstNode.exit:            ; preds = %_ZN6AstVarC2EP8File
 
 229:                                              ; preds = %217
   invoke void @_ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEESaISE_EE16_M_push_back_auxIJEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %18)
-          to label %.noexc64 unwind label %295
+          to label %.noexc65 unwind label %295
 
-.noexc64:                                         ; preds = %229
-  %.pre.i63 = load ptr, ptr %19, align 8, !noalias !57
+.noexc65:                                         ; preds = %229
+  %.pre.i64 = load ptr, ptr %19, align 8, !noalias !57
   br label %_ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEESaISE_EE12emplace_backIJEEERSE_DpOT_.exit.i
 
-_ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEESaISE_EE12emplace_backIJEEERSE_DpOT_.exit.i: ; preds = %.noexc64, %221
-  %230 = phi ptr [ %.pre.i63, %.noexc64 ], [ %228, %221 ]
+_ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEESaISE_EE12emplace_backIJEEERSE_DpOT_.exit.i: ; preds = %.noexc65, %221
+  %230 = phi ptr [ %.pre.i64, %.noexc65 ], [ %228, %221 ]
   %231 = load ptr, ptr %21, align 8, !noalias !8
   %232 = icmp eq ptr %230, %231
   br i1 %232, label %233, label %_ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEESaISE_EE4backEv.exit.i
@@ -4209,21 +4209,21 @@ _ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equa
   br label %_ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit
 
 _ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit: ; preds = %_ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEESaISE_EE4backEv.exit.i, %_ZN8AstCFunc9addInitspEP7AstNode.exit
-  %.0.i61 = phi ptr [ %216, %_ZN8AstCFunc9addInitspEP7AstNode.exit ], [ %239, %_ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEESaISE_EE4backEv.exit.i ]
-  %242 = getelementptr inbounds i8, ptr %.0.i61, i64 24
+  %.0.i62 = phi ptr [ %216, %_ZN8AstCFunc9addInitspEP7AstNode.exit ], [ %239, %_ZNSt5dequeISt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEESaISE_EE4backEv.exit.i ]
+  %242 = getelementptr inbounds i8, ptr %.0.i62, i64 24
   %243 = load i64, ptr %242, align 8
   %.not.not.i.i.i = icmp eq i64 %243, 0
   br i1 %.not.not.i.i.i, label %244, label %251
 
 244:                                              ; preds = %_ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit
-  %245 = getelementptr inbounds i8, ptr %.0.i61, i64 16
+  %245 = getelementptr inbounds i8, ptr %.0.i62, i64 16
   br label %246
 
 246:                                              ; preds = %247, %244
   %.sroa.06.0.in.i.i.i = phi ptr [ %245, %244 ], [ %.sroa.06.0.i.i.i, %247 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
-  %.not.i.i.i65 = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i.i65, label %._crit_edge, label %247
+  %.not.i.i.i66 = icmp eq ptr %.sroa.06.0.i.i.i, null
+  br i1 %.not.i.i.i66, label %._crit_edge, label %247
 
 247:                                              ; preds = %246
   %248 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
@@ -4232,10 +4232,10 @@ _ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVa
   br i1 %250, label %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS4_.exit.i.i, label %246, !llvm.loop !60
 
 251:                                              ; preds = %_ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit
-  %252 = getelementptr inbounds i8, ptr %.0.i61, i64 8
+  %252 = getelementptr inbounds i8, ptr %.0.i62, i64 8
   %253 = load i64, ptr %252, align 8
   %254 = urem i64 %154, %253
-  %255 = load ptr, ptr %.0.i61, align 8
+  %255 = load ptr, ptr %.0.i62, align 8
   %256 = getelementptr inbounds ptr, ptr %255, i64 %254
   %257 = load ptr, ptr %256, align 8
   %.not.i.i.i.i.i = icmp eq ptr %257, null
@@ -4283,17 +4283,17 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_S
   br i1 %275, label %271, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %272, %271
-  %.not91105 = icmp eq ptr %.sroa.06.1.i.i.i, %.sroa.03.0.i.i
-  br i1 %.not91105, label %._crit_edge, label %.lr.ph.preheader
+  %.not93107 = icmp eq ptr %.sroa.06.1.i.i.i, %.sroa.03.0.i.i
+  br i1 %.not93107, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.loopexit
   %_ZN7AstNode12s_editCntGblE.promoted = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN13AstNodeVarRef4varpEP6AstVar.exit
-  %.sroa.0.0106 = phi ptr [ %287, %_ZN13AstNodeVarRef4varpEP6AstVar.exit ], [ %.sroa.06.1.i.i.i, %.lr.ph.preheader ]
+  %.sroa.0.0108 = phi ptr [ %287, %_ZN13AstNodeVarRef4varpEP6AstVar.exit ], [ %.sroa.06.1.i.i.i, %.lr.ph.preheader ]
   %276 = phi i64 [ %286, %_ZN13AstNodeVarRef4varpEP6AstVar.exit ], [ %_ZN7AstNode12s_editCntGblE.promoted, %.lr.ph.preheader ]
-  %277 = getelementptr inbounds i8, ptr %.sroa.0.0106, i64 16
+  %277 = getelementptr inbounds i8, ptr %.sroa.0.0108, i64 16
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 160
   store ptr null, ptr %279, align 8
@@ -4302,8 +4302,8 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_S
   %281 = load ptr, ptr %199, align 8
   %282 = getelementptr inbounds i8, ptr %278, i64 72
   %283 = load ptr, ptr %282, align 8
-  %.not.i.i.i66 = icmp eq ptr %283, %281
-  br i1 %.not.i.i.i66, label %_ZN13AstNodeVarRef4varpEP6AstVar.exit, label %284
+  %.not.i.i.i68 = icmp eq ptr %283, %281
+  br i1 %.not.i.i.i68, label %_ZN13AstNodeVarRef4varpEP6AstVar.exit, label %284
 
 284:                                              ; preds = %.lr.ph
   store ptr %281, ptr %282, align 8
@@ -4313,9 +4313,9 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_S
 
 _ZN13AstNodeVarRef4varpEP6AstVar.exit:            ; preds = %284, %.lr.ph
   %286 = phi i64 [ %285, %284 ], [ %276, %.lr.ph ]
-  %287 = load ptr, ptr %.sroa.0.0106, align 8
-  %.not91 = icmp eq ptr %287, %.sroa.03.0.i.i
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  %287 = load ptr, ptr %.sroa.0.0108, align 8
+  %.not93 = icmp eq ptr %287, %.sroa.03.0.i.i
+  br i1 %.not93, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 288:                                              ; preds = %161
   %289 = landingpad { ptr, i32 }
@@ -4355,26 +4355,26 @@ _ZN13AstNodeVarRef4varpEP6AstVar.exit:            ; preds = %284, %.lr.ph
 
 ._crit_edge:                                      ; preds = %266, %.lr.ph.i.i.i.i.i, %246, %_ZN13AstNodeVarRef4varpEP6AstVar.exit, %251, %.loopexit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  %.sroa.072.0 = load ptr, ptr %.sroa.072.0109, align 8
-  %.not89 = icmp eq ptr %.sroa.072.0, null
-  br i1 %.not89, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86, label %155
+  %.sroa.074.0 = load ptr, ptr %.sroa.074.0111, align 8
+  %.not91 = icmp eq ptr %.sroa.074.0, null
+  br i1 %.not91, label %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88, label %155
 
-_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86: ; preds = %113, %._crit_edge, %140, %_ZN20AstUserAllocatorBaseI11AstVarScopeSt13unordered_setIP8AstCFuncSt4hashIS3_ESt8equal_toIS3_ESaIS3_EELi3EEclIJEEERS9_PS0_DpOT_.exit, %32, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit
-  %299 = getelementptr inbounds i8, ptr %.sroa.083.0113, i64 8
-  %.not87 = icmp eq ptr %299, %10
-  br i1 %.not87, label %._crit_edge116, label %23
+_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88: ; preds = %113, %._crit_edge, %140, %_ZN20AstUserAllocatorBaseI11AstVarScopeSt13unordered_setIP8AstCFuncSt4hashIS3_ESt8equal_toIS3_ESaIS3_EELi3EEclIJEEERS9_PS0_DpOT_.exit, %32, %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit
+  %299 = getelementptr inbounds i8, ptr %.sroa.085.0115, i64 8
+  %.not89 = icmp eq ptr %299, %10
+  br i1 %.not89, label %._crit_edge118, label %23
 
-._crit_edge116:                                   ; preds = %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread86
-  %.pre137 = load ptr, ptr %7, align 8
-  %.pre138 = load ptr, ptr %9, align 8
-  %.not.i.i67 = icmp eq ptr %.pre138, %.pre137
-  br i1 %.not.i.i67, label %_ZNSt6vectorIP11AstVarScopeSaIS1_EE5clearEv.exit, label %300
+._crit_edge118:                                   ; preds = %_ZN15LocalizeVisitor13isOptimizableEP11AstVarScope.exit.thread88
+  %.pre139 = load ptr, ptr %7, align 8
+  %.pre140 = load ptr, ptr %9, align 8
+  %.not.i.i69 = icmp eq ptr %.pre140, %.pre139
+  br i1 %.not.i.i69, label %_ZNSt6vectorIP11AstVarScopeSaIS1_EE5clearEv.exit, label %300
 
-300:                                              ; preds = %._crit_edge116
-  store ptr %.pre137, ptr %9, align 8
+300:                                              ; preds = %._crit_edge118
+  store ptr %.pre139, ptr %9, align 8
   br label %_ZNSt6vectorIP11AstVarScopeSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP11AstVarScopeSaIS1_EE5clearEv.exit: ; preds = %1, %._crit_edge116, %300
+_ZNSt6vectorIP11AstVarScopeSaIS1_EE5clearEv.exit: ; preds = %1, %._crit_edge118, %300
   ret void
 
 301:                                              ; preds = %295, %.body, %294, %288, %138
@@ -5647,7 +5647,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_S
   br label %.sink.split
 
 22:                                               ; preds = %.lr.ph
-  %23 = trunc i8 %.05568 to i1
+  %23 = trunc nuw i8 %.05568 to i1
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -5708,7 +5708,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_S
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %44
-  %45 = trunc i8 %.2 to i1
+  %45 = trunc nuw i8 %.2 to i1
   br i1 %45, label %46, label %._crit_edge.thread
 
 46:                                               ; preds = %._crit_edge

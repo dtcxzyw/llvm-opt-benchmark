@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [27 x i8] c"PCI INT %c: not connected\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_pci_irq_enable(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @acpi_pci_irq_enable(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -178,7 +178,7 @@ define internal fastcc ptr @acpi_pci_irq_lookup(ptr noundef %0, i32 noundef %1) 
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = trunc i32 %1 to i8
+  %10 = trunc nuw i32 %1 to i8
   br label %48
 
 11:                                               ; preds = %2
@@ -382,7 +382,7 @@ declare dso_local i32 @acpi_pci_link_free_irq(ptr noundef) local_unnamed_addr #2
 declare dso_local void @acpi_unregister_gsi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_pci_irq_find_prt_entry(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_pci_irq_find_prt_entry(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   store i64 -1, ptr %4, align 8

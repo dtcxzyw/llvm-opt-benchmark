@@ -567,7 +567,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   br i1 %.not320, label %33, label %37
 
 33:                                               ; preds = %26
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = sext i8 %28 to i32
   %36 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %2, ptr noundef nonnull @ei_json_3gpp_encoding_error, ptr noundef %19, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.247, i32 noundef %34, i32 noundef %35) #5
   br label %304

@@ -314,7 +314,7 @@ BufferGetPage.exit.i49:                           ; preds = %112, %106
   br i1 %or.cond, label %.loopexit.thread.i, label %137
 
 137:                                              ; preds = %.outer.split.i
-  %138 = trunc i8 %.0118.i to i1
+  %138 = trunc nuw i8 %.0118.i to i1
   br i1 %138, label %.critedge.i54, label %139
 
 139:                                              ; preds = %137
@@ -465,7 +465,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %163, %156, %BTreeTu
   br i1 %204, label %205, label %219
 
 205:                                              ; preds = %202
-  %206 = trunc i8 %.1119.i to i1
+  %206 = trunc nuw i8 %.1119.i to i1
   br i1 %206, label %207, label %.sink.split.i
 
 207:                                              ; preds = %205
@@ -499,7 +499,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %163, %156, %BTreeTu
   br i1 %221, label %224, label %222
 
 222:                                              ; preds = %219
-  %223 = trunc i8 %.1119.i to i1
+  %223 = trunc nuw i8 %.1119.i to i1
   %not..i = xor i1 %223, true
   %spec.select.i = select i1 %not..i, i1 %.1116.i, i1 false
   br label %224
@@ -511,7 +511,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %163, %156, %BTreeTu
   %.2114.i = phi i32 [ %.1113.i, %219 ], [ %.0112.i, %139 ], [ %.1113.i, %222 ]
   %.2109.i = phi ptr [ %.1108159.i, %219 ], [ %134, %139 ], [ %.1108159.i, %222 ]
   %.2.i = phi ptr [ %.1.i, %219 ], [ %.0106.i, %139 ], [ %.1.i, %222 ]
-  %225 = trunc i8 %.2120.i to i1
+  %225 = trunc nuw i8 %.2120.i to i1
   br i1 %225, label %226, label %.split.i
 
 226:                                              ; preds = %224
@@ -1179,7 +1179,7 @@ BufferGetPage.exit.i:                             ; preds = %96, %90
   %.val288.i = load i64, ptr %.0.i.i.i, align 4
   %133 = call i64 @llvm.fshl.i64(i64 %.val288.i, i64 %.val288.i, i64 32)
   %134 = lshr i64 %133, 32
-  %135 = trunc i64 %134 to i32
+  %135 = trunc nuw i64 %134 to i32
   store i32 %135, ptr %120, align 4
   %136 = trunc i64 %133 to i32
   %137 = getelementptr inbounds i8, ptr %120, i64 4
@@ -1754,7 +1754,7 @@ BufferGetPage.exit302.i:                          ; preds = %368, %362
   %435 = select i1 %434, i8 48, i8 64
   %436 = call i64 @XLogInsert(i8 noundef zeroext 11, i8 noundef zeroext %435) #9
   %437 = lshr i64 %436, 32
-  %438 = trunc i64 %437 to i32
+  %438 = trunc nuw i64 %437 to i32
   store i32 %438, ptr %.0.i.i.i, align 4
   %439 = trunc i64 %436 to i32
   %440 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -2050,7 +2050,7 @@ BufferGetPage.exit158:                            ; preds = %524, %530
 
 581:                                              ; preds = %575
   %582 = lshr i64 %580, 32
-  %583 = trunc i64 %582 to i32
+  %583 = trunc nuw i64 %582 to i32
   store i32 %583, ptr %.0137, align 4
   %584 = trunc i64 %580 to i32
   %585 = getelementptr inbounds i8, ptr %.0137, i64 4
@@ -2062,7 +2062,7 @@ BufferGetPage.exit158:                            ; preds = %524, %530
 
 ._crit_edge:                                      ; preds = %586
   %.pre = lshr i64 %580, 32
-  %.pre177 = trunc i64 %.pre to i32
+  %.pre177 = trunc nuw i64 %.pre to i32
   %.pre179 = trunc i64 %580 to i32
   br label %605
 
@@ -2089,7 +2089,7 @@ BufferGetPage.exit158:                            ; preds = %524, %530
 BufferGetPage.exit160:                            ; preds = %589, %595
   %.0.i.i159 = phi ptr [ %594, %589 ], [ %600, %595 ]
   %601 = lshr i64 %580, 32
-  %602 = trunc i64 %601 to i32
+  %602 = trunc nuw i64 %601 to i32
   store i32 %602, ptr %.0.i.i159, align 4
   %603 = trunc i64 %580 to i32
   %604 = getelementptr inbounds i8, ptr %.0.i.i159, i64 4
@@ -2394,7 +2394,7 @@ BufferGetPage.exit87.i:                           ; preds = %54, %48
   %60 = tail call ptr @palloc(i64 noundef 8) #9
   %61 = getelementptr inbounds i8, ptr %60, i64 6
   %62 = lshr i32 %13, 16
-  %63 = trunc i32 %62 to i16
+  %63 = trunc nuw i32 %62 to i16
   store i16 %63, ptr %60, align 2
   %64 = trunc i32 %13 to i16
   %65 = getelementptr inbounds i8, ptr %60, i64 2
@@ -2411,7 +2411,7 @@ BufferGetPage.exit87.i:                           ; preds = %54, %48
   %73 = getelementptr i8, ptr %.0.i.i.i, i64 %72
   %74 = tail call ptr @CopyIndexTuple(ptr noundef %73) #9
   %75 = lshr i32 %14, 16
-  %76 = trunc i32 %75 to i16
+  %76 = trunc nuw i32 %75 to i16
   store i16 %76, ptr %74, align 2
   %77 = trunc i32 %14 to i16
   %78 = getelementptr inbounds i8, ptr %74, i64 2
@@ -2563,7 +2563,7 @@ BufferGetPage.exit87.i:                           ; preds = %54, %48
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %165, i32 noundef %168) #9
   %169 = call i64 @XLogInsert(i8 noundef zeroext 11, i8 noundef zeroext -96) #9
   %170 = lshr i64 %169, 32
-  %171 = trunc i64 %170 to i32
+  %171 = trunc nuw i64 %170 to i32
   store i32 %171, ptr %.0.i.i.i, align 4
   %172 = trunc i64 %169 to i32
   %173 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -2654,7 +2654,7 @@ BufferGetPage.exit:                               ; preds = %181, %187
   %212 = getelementptr i8, ptr %.0.i.i, i64 %211
   %213 = tail call ptr @CopyIndexTuple(ptr noundef %212) #9
   %214 = lshr i32 %180, 16
-  %215 = trunc i32 %214 to i16
+  %215 = trunc nuw i32 %214 to i16
   store i16 %215, ptr %213, align 2
   %216 = trunc i32 %180 to i16
   %217 = getelementptr inbounds i8, ptr %213, i64 2
@@ -3505,7 +3505,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_bt_blk_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @_bt_blk_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4

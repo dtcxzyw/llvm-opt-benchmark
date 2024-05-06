@@ -130,7 +130,7 @@ define dso_local i32 @svc_authorise(ptr noundef %0) local_unnamed_addr #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @svc_auth_register(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @svc_auth_register(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp ult i32 %0, 8
   br i1 %3, label %4, label %12
 

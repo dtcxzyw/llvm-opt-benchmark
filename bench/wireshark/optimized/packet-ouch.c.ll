@@ -355,7 +355,7 @@ define internal void @format_tif(ptr nocapture noundef writeonly %0, i32 noundef
 9:                                                ; preds = %2
   %10 = udiv i32 %1, 3600
   %11 = urem i32 %1, 3600
-  %.lhs.trunc = trunc i32 %11 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %11 to i16
   %12 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %12 to i32
   %13 = urem i32 %1, 60
@@ -375,7 +375,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %7 = icmp eq i8 %5, 85
@@ -406,7 +406,7 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.226, ptr noundef %14) #5
   %23 = load i32, ptr @hf_ouch_packet_type, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  %trunc = trunc i32 %13 to i8
+  %trunc = trunc nuw i32 %13 to i8
   switch i8 %trunc, label %466 [
     i8 79, label %25
     i8 65, label %54
@@ -468,12 +468,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %57 = tail call ptr @wmem_packet_scope() #5
   %58 = tail call noalias ptr @wmem_alloc(ptr noundef %57, i64 noundef 240) #5
   %59 = urem i64 %56, 1000000000
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw nsw i64 %59 to i32
   %61 = udiv i64 %56, 1000000000
   %62 = trunc i64 %61 to i32
   %63 = udiv i32 %62, 3600
   %64 = urem i32 %62, 3600
-  %.lhs.trunc.i = trunc i32 %64 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %64 to i16
   %65 = udiv i16 %.lhs.trunc.i, 60
   %.zext.i = zext nneg i16 %65 to i32
   %66 = urem i32 %62, 60
@@ -556,12 +556,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %133 = tail call ptr @wmem_packet_scope() #5
   %134 = tail call noalias ptr @wmem_alloc(ptr noundef %133, i64 noundef 240) #5
   %135 = urem i64 %132, 1000000000
-  %136 = trunc i64 %135 to i32
+  %136 = trunc nuw nsw i64 %135 to i32
   %137 = udiv i64 %132, 1000000000
   %138 = trunc i64 %137 to i32
   %139 = udiv i32 %138, 3600
   %140 = urem i32 %138, 3600
-  %.lhs.trunc.i510 = trunc i32 %140 to i16
+  %.lhs.trunc.i510 = trunc nuw nsw i32 %140 to i16
   %141 = udiv i16 %.lhs.trunc.i510, 60
   %.zext.i511 = zext nneg i16 %141 to i32
   %142 = urem i32 %138, 60
@@ -577,12 +577,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %150 = tail call ptr @wmem_packet_scope() #5
   %151 = tail call noalias ptr @wmem_alloc(ptr noundef %150, i64 noundef 240) #5
   %152 = urem i64 %149, 1000000000
-  %153 = trunc i64 %152 to i32
+  %153 = trunc nuw nsw i64 %152 to i32
   %154 = udiv i64 %149, 1000000000
   %155 = trunc i64 %154 to i32
   %156 = udiv i32 %155, 3600
   %157 = urem i32 %155, 3600
-  %.lhs.trunc.i512 = trunc i32 %157 to i16
+  %.lhs.trunc.i512 = trunc nuw nsw i32 %157 to i16
   %158 = udiv i16 %.lhs.trunc.i512, 60
   %.zext.i513 = zext nneg i16 %158 to i32
   %159 = urem i32 %155, 60
@@ -632,12 +632,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %199 = tail call ptr @wmem_packet_scope() #5
   %200 = tail call noalias ptr @wmem_alloc(ptr noundef %199, i64 noundef 240) #5
   %201 = urem i64 %198, 1000000000
-  %202 = trunc i64 %201 to i32
+  %202 = trunc nuw nsw i64 %201 to i32
   %203 = udiv i64 %198, 1000000000
   %204 = trunc i64 %203 to i32
   %205 = udiv i32 %204, 3600
   %206 = urem i32 %204, 3600
-  %.lhs.trunc.i514 = trunc i32 %206 to i16
+  %.lhs.trunc.i514 = trunc nuw nsw i32 %206 to i16
   %207 = udiv i16 %.lhs.trunc.i514, 60
   %.zext.i515 = zext nneg i16 %207 to i32
   %208 = urem i32 %204, 60
@@ -657,12 +657,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %220 = tail call ptr @wmem_packet_scope() #5
   %221 = tail call noalias ptr @wmem_alloc(ptr noundef %220, i64 noundef 240) #5
   %222 = urem i64 %219, 1000000000
-  %223 = trunc i64 %222 to i32
+  %223 = trunc nuw nsw i64 %222 to i32
   %224 = udiv i64 %219, 1000000000
   %225 = trunc i64 %224 to i32
   %226 = udiv i32 %225, 3600
   %227 = urem i32 %225, 3600
-  %.lhs.trunc.i516 = trunc i32 %227 to i16
+  %.lhs.trunc.i516 = trunc nuw nsw i32 %227 to i16
   %228 = udiv i16 %.lhs.trunc.i516, 60
   %.zext.i517 = zext nneg i16 %228 to i32
   %229 = urem i32 %225, 60
@@ -688,12 +688,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %247 = tail call ptr @wmem_packet_scope() #5
   %248 = tail call noalias ptr @wmem_alloc(ptr noundef %247, i64 noundef 240) #5
   %249 = urem i64 %246, 1000000000
-  %250 = trunc i64 %249 to i32
+  %250 = trunc nuw nsw i64 %249 to i32
   %251 = udiv i64 %246, 1000000000
   %252 = trunc i64 %251 to i32
   %253 = udiv i32 %252, 3600
   %254 = urem i32 %252, 3600
-  %.lhs.trunc.i518 = trunc i32 %254 to i16
+  %.lhs.trunc.i518 = trunc nuw nsw i32 %254 to i16
   %255 = udiv i16 %.lhs.trunc.i518, 60
   %.zext.i519 = zext nneg i16 %255 to i32
   %256 = urem i32 %252, 60
@@ -717,12 +717,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %272 = tail call ptr @wmem_packet_scope() #5
   %273 = tail call noalias ptr @wmem_alloc(ptr noundef %272, i64 noundef 240) #5
   %274 = urem i64 %271, 1000000000
-  %275 = trunc i64 %274 to i32
+  %275 = trunc nuw nsw i64 %274 to i32
   %276 = udiv i64 %271, 1000000000
   %277 = trunc i64 %276 to i32
   %278 = udiv i32 %277, 3600
   %279 = urem i32 %277, 3600
-  %.lhs.trunc.i520 = trunc i32 %279 to i16
+  %.lhs.trunc.i520 = trunc nuw nsw i32 %279 to i16
   %280 = udiv i16 %.lhs.trunc.i520, 60
   %.zext.i521 = zext nneg i16 %280 to i32
   %281 = urem i32 %277, 60
@@ -742,12 +742,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %293 = tail call ptr @wmem_packet_scope() #5
   %294 = tail call noalias ptr @wmem_alloc(ptr noundef %293, i64 noundef 240) #5
   %295 = urem i64 %292, 1000000000
-  %296 = trunc i64 %295 to i32
+  %296 = trunc nuw nsw i64 %295 to i32
   %297 = udiv i64 %292, 1000000000
   %298 = trunc i64 %297 to i32
   %299 = udiv i32 %298, 3600
   %300 = urem i32 %298, 3600
-  %.lhs.trunc.i522 = trunc i32 %300 to i16
+  %.lhs.trunc.i522 = trunc nuw nsw i32 %300 to i16
   %301 = udiv i16 %.lhs.trunc.i522, 60
   %.zext.i523 = zext nneg i16 %301 to i32
   %302 = urem i32 %298, 60
@@ -773,12 +773,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %320 = tail call ptr @wmem_packet_scope() #5
   %321 = tail call noalias ptr @wmem_alloc(ptr noundef %320, i64 noundef 240) #5
   %322 = urem i64 %319, 1000000000
-  %323 = trunc i64 %322 to i32
+  %323 = trunc nuw nsw i64 %322 to i32
   %324 = udiv i64 %319, 1000000000
   %325 = trunc i64 %324 to i32
   %326 = udiv i32 %325, 3600
   %327 = urem i32 %325, 3600
-  %.lhs.trunc.i524 = trunc i32 %327 to i16
+  %.lhs.trunc.i524 = trunc nuw nsw i32 %327 to i16
   %328 = udiv i16 %.lhs.trunc.i524, 60
   %.zext.i525 = zext nneg i16 %328 to i32
   %329 = urem i32 %325, 60
@@ -806,12 +806,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %349 = tail call ptr @wmem_packet_scope() #5
   %350 = tail call noalias ptr @wmem_alloc(ptr noundef %349, i64 noundef 240) #5
   %351 = urem i64 %348, 1000000000
-  %352 = trunc i64 %351 to i32
+  %352 = trunc nuw nsw i64 %351 to i32
   %353 = udiv i64 %348, 1000000000
   %354 = trunc i64 %353 to i32
   %355 = udiv i32 %354, 3600
   %356 = urem i32 %354, 3600
-  %.lhs.trunc.i526 = trunc i32 %356 to i16
+  %.lhs.trunc.i526 = trunc nuw nsw i32 %356 to i16
   %357 = udiv i16 %.lhs.trunc.i526, 60
   %.zext.i527 = zext nneg i16 %357 to i32
   %358 = urem i32 %354, 60
@@ -833,12 +833,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %372 = tail call ptr @wmem_packet_scope() #5
   %373 = tail call noalias ptr @wmem_alloc(ptr noundef %372, i64 noundef 240) #5
   %374 = urem i64 %371, 1000000000
-  %375 = trunc i64 %374 to i32
+  %375 = trunc nuw nsw i64 %374 to i32
   %376 = udiv i64 %371, 1000000000
   %377 = trunc i64 %376 to i32
   %378 = udiv i32 %377, 3600
   %379 = urem i32 %377, 3600
-  %.lhs.trunc.i528 = trunc i32 %379 to i16
+  %.lhs.trunc.i528 = trunc nuw nsw i32 %379 to i16
   %380 = udiv i16 %.lhs.trunc.i528, 60
   %.zext.i529 = zext nneg i16 %380 to i32
   %381 = urem i32 %377, 60
@@ -856,12 +856,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %391 = tail call ptr @wmem_packet_scope() #5
   %392 = tail call noalias ptr @wmem_alloc(ptr noundef %391, i64 noundef 240) #5
   %393 = urem i64 %390, 1000000000
-  %394 = trunc i64 %393 to i32
+  %394 = trunc nuw nsw i64 %393 to i32
   %395 = udiv i64 %390, 1000000000
   %396 = trunc i64 %395 to i32
   %397 = udiv i32 %396, 3600
   %398 = urem i32 %396, 3600
-  %.lhs.trunc.i530 = trunc i32 %398 to i16
+  %.lhs.trunc.i530 = trunc nuw nsw i32 %398 to i16
   %399 = udiv i16 %.lhs.trunc.i530, 60
   %.zext.i531 = zext nneg i16 %399 to i32
   %400 = urem i32 %396, 60
@@ -877,12 +877,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %408 = tail call ptr @wmem_packet_scope() #5
   %409 = tail call noalias ptr @wmem_alloc(ptr noundef %408, i64 noundef 240) #5
   %410 = urem i64 %407, 1000000000
-  %411 = trunc i64 %410 to i32
+  %411 = trunc nuw nsw i64 %410 to i32
   %412 = udiv i64 %407, 1000000000
   %413 = trunc i64 %412 to i32
   %414 = udiv i32 %413, 3600
   %415 = urem i32 %413, 3600
-  %.lhs.trunc.i532 = trunc i32 %415 to i16
+  %.lhs.trunc.i532 = trunc nuw nsw i32 %415 to i16
   %416 = udiv i16 %.lhs.trunc.i532, 60
   %.zext.i533 = zext nneg i16 %416 to i32
   %417 = urem i32 %413, 60
@@ -898,12 +898,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %425 = tail call ptr @wmem_packet_scope() #5
   %426 = tail call noalias ptr @wmem_alloc(ptr noundef %425, i64 noundef 240) #5
   %427 = urem i64 %424, 1000000000
-  %428 = trunc i64 %427 to i32
+  %428 = trunc nuw nsw i64 %427 to i32
   %429 = udiv i64 %424, 1000000000
   %430 = trunc i64 %429 to i32
   %431 = udiv i32 %430, 3600
   %432 = urem i32 %430, 3600
-  %.lhs.trunc.i534 = trunc i32 %432 to i16
+  %.lhs.trunc.i534 = trunc nuw nsw i32 %432 to i16
   %433 = udiv i16 %.lhs.trunc.i534, 60
   %.zext.i535 = zext nneg i16 %433 to i32
   %434 = urem i32 %430, 60
@@ -925,12 +925,12 @@ define internal i32 @dissect_ouch(ptr noundef %0, ptr nocapture noundef readonly
   %448 = tail call ptr @wmem_packet_scope() #5
   %449 = tail call noalias ptr @wmem_alloc(ptr noundef %448, i64 noundef 240) #5
   %450 = urem i64 %447, 1000000000
-  %451 = trunc i64 %450 to i32
+  %451 = trunc nuw nsw i64 %450 to i32
   %452 = udiv i64 %447, 1000000000
   %453 = trunc i64 %452 to i32
   %454 = udiv i32 %453, 3600
   %455 = urem i32 %453, 3600
-  %.lhs.trunc.i536 = trunc i32 %455 to i16
+  %.lhs.trunc.i536 = trunc nuw nsw i32 %455 to i16
   %456 = udiv i16 %.lhs.trunc.i536, 60
   %.zext.i537 = zext nneg i16 %456 to i32
   %457 = urem i32 %453, 60
@@ -966,7 +966,7 @@ define hidden void @proto_reg_handoff_ouch() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ouch_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_ouch_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   switch i8 %5, label %29 [
@@ -1064,7 +1064,7 @@ define internal noundef i32 @dissect_ouch_heur(ptr noundef %0, ptr nocapture nou
   br i1 %.not, label %27, label %29
 
 27:                                               ; preds = %9, %9, %9, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %14, %13, %11, %10, %7
-  %28 = tail call i32 @dissect_ouch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison), !range !4
+  %28 = tail call i32 @dissect_ouch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %29
 
 29:                                               ; preds = %4, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %14, %13, %11, %10, %9, %7, %27
@@ -1119,4 +1119,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 65536}

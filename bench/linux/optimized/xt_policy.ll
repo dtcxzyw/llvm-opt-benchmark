@@ -276,7 +276,7 @@ define internal zeroext i1 @policy_mt(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @policy_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @policy_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 304

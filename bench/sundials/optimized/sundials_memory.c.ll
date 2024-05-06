@@ -48,7 +48,7 @@ define noundef i32 @SUNMemoryHelper_CopyOps(ptr nocapture noundef readonly %0, p
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @SUNMemoryHelper_ImplementsRequiredOps(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @SUNMemoryHelper_ImplementsRequiredOps(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

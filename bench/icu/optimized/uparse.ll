@@ -845,13 +845,13 @@ if.then4:                                         ; preds = %while.body
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %while.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr7 = getelementptr inbounds i8, ptr %read.012, i64 2
   %cmp1 = icmp ult ptr %add.ptr7, %add.ptr
   br i1 %cmp1, label %while.body, label %while.end.loopexit, !llvm.loop !13
 
 while.end.loopexit:                               ; preds = %if.end6
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end

@@ -42,7 +42,7 @@ invoke.cont4:
   %4 = load float, ptr %m_xf.i, align 4
   %sub.i = fsub float %3, %4
   %5 = lshr i64 %0, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = bitcast i32 %6 to float
   %y3.i = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load float, ptr %y3.i, align 4

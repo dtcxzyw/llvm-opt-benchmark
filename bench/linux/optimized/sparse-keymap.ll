@@ -226,7 +226,7 @@ define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr no
 declare dso_local ptr @devm_kmemdup(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sparse_keymap_getkeycode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -363,7 +363,7 @@ define internal noundef i32 @sparse_keymap_getkeycode(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sparse_keymap_setkeycode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8

@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [42 x i8] c"Some initial ewt component = 0.0 illegal.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -661,7 +661,7 @@ IDAnlsIC.exit.thread134:                          ; preds = %355, %IDAnlsIC.exit
   br i1 %.not123, label %368, label %366
 
 366:                                              ; preds = %365
-  %367 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.3112), !range !4
+  %367 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.3112)
   br label %368
 
 368:                                              ; preds = %365, %11, %366, %62, %38, %24, %16, %10, %5
@@ -687,7 +687,7 @@ declare double @IDAWrmsNorm(ptr noundef, ptr noundef, ptr noundef, i32 noundef) 
 declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -99, -3) i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %13 [
     i32 -8, label %3
     i32 -12, label %4
@@ -768,4 +768,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -99, i32 -3}

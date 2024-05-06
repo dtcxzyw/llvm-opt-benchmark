@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [7 x i8] c"1.47.0\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @uv_version() local_unnamed_addr #0 {
+define dso_local noundef i32 @uv_version() local_unnamed_addr #0 {
 entry:
   ret i32 77568
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @uv_version_string() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @uv_version_string() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }

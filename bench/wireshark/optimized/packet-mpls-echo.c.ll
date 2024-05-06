@@ -2019,7 +2019,7 @@ define internal fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr nound
   br i1 %396, label %switch.hole_check, label %408
 
 switch.hole_check:                                ; preds = %384
-  %switch.maskindex = trunc i32 %395 to i8
+  %switch.maskindex = trunc nuw i32 %395 to i8
   %switch.shifted = lshr i8 83, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %408

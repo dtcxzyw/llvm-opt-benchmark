@@ -1900,7 +1900,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit43.i: ; preds = %while.body.
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr34, i64 %inc2.i35.i
   %23 = load ptr, ptr %__begin3.sroa.0.0169, align 8
   %24 = load i64, ptr %_M_string_length.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %23, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr align 1 %23, i64 %24, i1 false)
   %25 = load i64, ptr %_M_string_length.i.i.i, align 8
   %add.i90 = add i64 %25, %inc2.i35.i
   br label %if.end.i91

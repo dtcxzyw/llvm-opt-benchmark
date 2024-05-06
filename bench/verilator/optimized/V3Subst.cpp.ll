@@ -4090,7 +4090,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeI13SubstVarEntrySaIS0_EE19_M_dest
   %invariant.gep = getelementptr inbounds i8, ptr %9, i64 32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyI13SubstVarEntryEvPT_.exit.i.i.i, %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyI13SubstVarEntryEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyI13SubstVarEntryEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.05.i.i.i.idx
   %10 = load ptr, ptr %gep, align 8

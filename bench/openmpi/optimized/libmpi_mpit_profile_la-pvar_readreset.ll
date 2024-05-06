@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_pvar_readreset = weak alias i32 (ptr, ptr, ptr), ptr @PMPI_T_pvar_readreset
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
-define i32 @PMPI_T_pvar_readreset(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define range(i32 55, 60) i32 @PMPI_T_pvar_readreset(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not1 = icmp eq i32 %4, 0
   %. = select i1 %.not1, i32 55, i32 59

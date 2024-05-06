@@ -557,7 +557,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 
 66:                                               ; preds = %56, %53
   %.061 = phi double [ %65, %56 ], [ 0.000000e+00, %53 ]
-  %67 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %22, i32 noundef %6, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %13), !range !5
+  %67 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %22, i32 noundef %6, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %68 = load ptr, ptr %12, align 8
   %.not76 = icmp eq ptr %68, null
   br i1 %.not76, label %73, label %69
@@ -713,7 +713,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
 
 .split:                                           ; preds = %16, %15
   %.sink = phi i32 [ 0, %15 ], [ %3, %16 ]
-  %18 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.sink, ptr noundef nonnull %7, ptr noundef null), !range !5
+  %18 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.sink, ptr noundef nonnull %7, ptr noundef null)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %61, label %20
 
@@ -827,7 +827,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
 declare zeroext i1 @get_restriction_variable(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pattern_fixed_prefix(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   switch i32 %1, label %default.unreachable [
     i32 0, label %6
     i32 1, label %8
@@ -837,19 +837,19 @@ define internal fastcc i32 @pattern_fixed_prefix(ptr nocapture noundef readonly 
   ]
 
 6:                                                ; preds = %5
-  %7 = tail call fastcc i32 @like_fixed_prefix(ptr noundef %0, i1 noundef zeroext false, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !5
+  %7 = tail call fastcc i32 @like_fixed_prefix(ptr noundef %0, i1 noundef zeroext false, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %36
 
 8:                                                ; preds = %5
-  %9 = tail call fastcc i32 @like_fixed_prefix(ptr noundef %0, i1 noundef zeroext true, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !5
+  %9 = tail call fastcc i32 @like_fixed_prefix(ptr noundef %0, i1 noundef zeroext true, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %36
 
 10:                                               ; preds = %5
-  %11 = tail call fastcc i32 @regex_fixed_prefix(ptr noundef %0, i1 noundef zeroext false, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !5
+  %11 = tail call fastcc i32 @regex_fixed_prefix(ptr noundef %0, i1 noundef zeroext false, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %36
 
 12:                                               ; preds = %5
-  %13 = tail call fastcc i32 @regex_fixed_prefix(ptr noundef %0, i1 noundef zeroext true, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !5
+  %13 = tail call fastcc i32 @regex_fixed_prefix(ptr noundef %0, i1 noundef zeroext true, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %36
 
 14:                                               ; preds = %5
@@ -948,7 +948,7 @@ declare double @mcv_selectivity(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @like_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @pg_database_encoding_max_length() #11
@@ -1111,7 +1111,7 @@ pattern_char_isalpha.exit.us.us:                  ; preds = %.pattern_char_isalp
   store i8 %77, ptr %83, align 1
   %84 = add nsw i32 %.1.us.us, 1
   %85 = icmp slt i32 %84, %.072
-  br i1 %85, label %.lr.ph.split.us.split.us, label %pattern_char_isalpha.exit.thread, !llvm.loop !6
+  br i1 %85, label %.lr.ph.split.us.split.us, label %pattern_char_isalpha.exit.thread, !llvm.loop !5
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %9, label %.lr.ph.split.us.split.split, label %.lr.ph.split.us.split.split.us
@@ -1195,7 +1195,7 @@ pattern_char_isalpha.exit.us.us143:               ; preds = %.critedge.i.us.us, 
   store i8 %92, ptr %119, align 1
   %120 = add nsw i32 %.1.us.us142, 1
   %121 = icmp slt i32 %120, %.072
-  br i1 %121, label %.lr.ph.split.us.split.split.us, label %pattern_char_isalpha.exit.thread, !llvm.loop !6
+  br i1 %121, label %.lr.ph.split.us.split.split.us, label %pattern_char_isalpha.exit.thread, !llvm.loop !5
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %152
   %.070102.us = phi i32 [ %153, %152 ], [ 0, %.lr.ph.split.us.split ]
@@ -1276,7 +1276,7 @@ pattern_char_isalpha.exit.us:                     ; preds = %.critedge.i.us, %14
   store i8 %128, ptr %155, align 1
   %156 = add nsw i32 %.1.us, 1
   %157 = icmp slt i32 %156, %.072
-  br i1 %157, label %.lr.ph.split.us.split.split, label %pattern_char_isalpha.exit.thread, !llvm.loop !6
+  br i1 %157, label %.lr.ph.split.us.split.split, label %pattern_char_isalpha.exit.thread, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %163
   %.070102 = phi i32 [ %165, %163 ], [ 0, %.lr.ph ]
@@ -1310,7 +1310,7 @@ pattern_char_isalpha.exit.us:                     ; preds = %.critedge.i.us, %14
   store i8 %164, ptr %167, align 1
   %168 = add nsw i32 %.1, 1
   %169 = icmp slt i32 %168, %.072
-  br i1 %169, label %.lr.ph.split, label %pattern_char_isalpha.exit.thread, !llvm.loop !6
+  br i1 %169, label %.lr.ph.split, label %pattern_char_isalpha.exit.thread, !llvm.loop !5
 
 pattern_char_isalpha.exit.thread:                 ; preds = %163, %161, %.lr.ph.split, %.lr.ph.split, %116, %89, %pattern_char_isalpha.exit.us.us143, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.split.us, %152, %125, %pattern_char_isalpha.exit.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split, %127, %80, %75, %pattern_char_isalpha.exit.us.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %66
   %.070.lcssa = phi i32 [ 0, %66 ], [ %.070102.us.us, %.lr.ph.split.us.split.us ], [ %.070102.us.us, %.lr.ph.split.us.split.us ], [ %.070102.us.us, %pattern_char_isalpha.exit.us.us ], [ %.070102.us.us, %75 ], [ %81, %80 ], [ %.070102.us, %127 ], [ %.070102.us, %.lr.ph.split.us.split.split ], [ %.070102.us, %.lr.ph.split.us.split.split ], [ %.070102.us, %pattern_char_isalpha.exit.us ], [ %.070102.us, %125 ], [ %153, %152 ], [ %.070102.us.us139, %.lr.ph.split.us.split.split.us ], [ %.070102.us.us139, %.lr.ph.split.us.split.split.us ], [ %.070102.us.us139, %pattern_char_isalpha.exit.us.us143 ], [ %.070102.us.us139, %89 ], [ %117, %116 ], [ %.070102, %.lr.ph.split ], [ %.070102, %.lr.ph.split ], [ %.070102, %161 ], [ %165, %163 ]
@@ -1328,7 +1328,7 @@ pattern_char_isalpha.exit.thread:                 ; preds = %163, %161, %.lr.ph.
   %175 = add nsw i64 %170, 4
   %176 = tail call ptr @palloc(i64 noundef %175) #11
   %177 = getelementptr inbounds i8, ptr %176, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %177, ptr nonnull align 1 %69, i64 %170, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %177, ptr nonnull readonly align 1 %69, i64 %170, i1 false)
   %178 = trunc i64 %175 to i32
   %179 = shl i32 %178, 2
   store i32 %179, ptr %176, align 4
@@ -1365,10 +1365,10 @@ pattern_char_isalpha.exit.thread:                 ; preds = %163, %161, %.lr.ph.
 190:                                              ; preds = %.lr.ph.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %like_selectivity.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %like_selectivity.exit, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %191 = trunc i64 %indvars.iv.i to i32
+  %191 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %183
@@ -1405,7 +1405,7 @@ pattern_char_isalpha.exit.thread:                 ; preds = %163, %161, %.lr.ph.
   %201 = fmul double %.02436.i, %.sink.i
   %202 = add nsw i32 %.2.i, 1
   %203 = icmp slt i32 %202, %186
-  br i1 %203, label %.lr.ph39.i, label %like_selectivity.exit, !llvm.loop !9
+  br i1 %203, label %.lr.ph39.i, label %like_selectivity.exit, !llvm.loop !8
 
 like_selectivity.exit:                            ; preds = %190, %197, %200, %._crit_edge.i
   %.024.lcssa.i = phi double [ 1.000000e+00, %._crit_edge.i ], [ %201, %200 ], [ %.02436.i, %197 ], [ 1.000000e+00, %190 ]
@@ -1425,7 +1425,7 @@ like_selectivity.exit:                            ; preds = %190, %197, %200, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @regex_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @regex_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
@@ -1798,10 +1798,10 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
 53:                                               ; preds = %.lr.ph104
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, %4
-  br i1 %exitcond122.not, label %.critedge, label %.lr.ph104, !llvm.loop !10
+  br i1 %exitcond122.not, label %.critedge, label %.lr.ph104, !llvm.loop !9
 
 .critedge.loopexit.split.loop.exit127:            ; preds = %.lr.ph104
-  %54 = trunc i64 %indvars.iv119 to i32
+  %54 = trunc nsw i64 %indvars.iv119 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %.critedge.loopexit.split.loop.exit127, %37
@@ -1837,10 +1837,10 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
 66:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %.critedge5, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge5, label %.lr.ph, !llvm.loop !10
 
 .critedge5.loopexit.split.loop.exit125:           ; preds = %.lr.ph
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge5
 
 .critedge5:                                       ; preds = %66, %.critedge5.loopexit.split.loop.exit125, %.preheader
@@ -1877,7 +1877,7 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
   %.5 = phi i32 [ %.080111, %9 ], [ %.080111, %18 ], [ %.080111, %15 ], [ %.3.lcssa, %55 ], [ %.3.lcssa, %.critedge ], [ %.080111, %59 ], [ %.080111, %58 ], [ %.080111, %62 ], [ %.080111, %61 ], [ %.4.lcssa, %68 ], [ %.4.lcssa, %.critedge5 ], [ %71, %73 ], [ %71, %72 ], [ %.080111, %76 ], [ %.080111, %75 ]
   %79 = add i32 %.5, 1
   %80 = icmp slt i32 %79, %1
-  br i1 %80, label %.lr.ph112, label %.loopexit, !llvm.loop !12
+  br i1 %80, label %.lr.ph112, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %78, %70, %2, %28
   %.288 = phi double [ %34, %28 ], [ 1.000000e+00, %2 ], [ %.187, %78 ], [ %.086108, %70 ]
@@ -2062,18 +2062,18 @@ select.unfold:                                    ; preds = %15, %22, %25
   %92 = getelementptr i8, ptr %81, i64 %indvars.iv.next
   store i8 0, ptr %92, align 1
   %93 = icmp sgt i64 %indvars.iv, 1
-  br i1 %93, label %90, label %.split.us.thread, !llvm.loop !13
+  br i1 %93, label %90, label %.split.us.thread, !llvm.loop !12
 
 .lr.ph.us:                                        ; preds = %90
   %94 = add nuw nsw i64 %indvars.iv, 4
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw i64 %94 to i32
   %96 = shl i32 %95, 2
   br label %97
 
 97:                                               ; preds = %105, %.lr.ph.us
   %98 = tail call ptr @palloc(i64 noundef %94) #11
   %99 = getelementptr inbounds i8, ptr %98, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %99, ptr align 1 %81, i64 %indvars.iv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %99, ptr readonly align 1 %81, i64 %indvars.iv, i1 false)
   store i32 %96, ptr %98, align 4
   %100 = ptrtoint ptr %98 to i64
   %101 = tail call ptr @makeConst(i32 noundef 17, i32 noundef -1, i32 noundef 0, i32 noundef -1, i64 noundef %100, i1 noundef zeroext false, i1 noundef zeroext false) #11
@@ -2089,7 +2089,7 @@ select.unfold:                                    ; preds = %15, %22, %25
   tail call void @pfree(ptr noundef %107) #11
   tail call void @pfree(ptr noundef nonnull %101) #11
   %108 = tail call fastcc zeroext i1 @byte_increment(ptr noundef %gep) #11
-  br i1 %108, label %97, label %._crit_edge.split.us.us, !llvm.loop !14
+  br i1 %108, label %97, label %._crit_edge.split.us.us, !llvm.loop !13
 
 .lr.ph129.split:                                  ; preds = %.thread, %._crit_edge.split
   %.197127 = phi i32 [ %110, %._crit_edge.split ], [ %41, %.thread ]
@@ -2122,14 +2122,14 @@ select.unfold:                                    ; preds = %15, %22, %25
   tail call void @pfree(ptr noundef %124) #11
   tail call void @pfree(ptr noundef nonnull %118) #11
   %125 = tail call zeroext i1 %87(ptr noundef %116, i32 noundef %111) #11
-  br i1 %125, label %.lr.ph, label %._crit_edge.split, !llvm.loop !14
+  br i1 %125, label %.lr.ph, label %._crit_edge.split, !llvm.loop !13
 
 ._crit_edge.split:                                ; preds = %122, %.lr.ph129.split
   %126 = sext i32 %110 to i64
   %127 = getelementptr i8, ptr %.091, i64 %126
   store i8 0, ptr %127, align 1
   %128 = icmp sgt i32 %110, 0
-  br i1 %128, label %.lr.ph129.split, label %._crit_edge130, !llvm.loop !13
+  br i1 %128, label %.lr.ph129.split, label %._crit_edge130, !llvm.loop !12
 
 ._crit_edge130:                                   ; preds = %._crit_edge.split, %.thread
   %.not109 = icmp eq ptr %.094.ph, null
@@ -2214,13 +2214,12 @@ attributes #14 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

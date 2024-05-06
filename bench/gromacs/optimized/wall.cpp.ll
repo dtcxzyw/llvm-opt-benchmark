@@ -269,12 +269,12 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = 
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr float, ptr %118, i64 %125
-  %120 = getelementptr i8, ptr %119, i64 16
-  %121 = getelementptr float, ptr %120, i64 %indvars.iv69
+  %119 = getelementptr inbounds float, ptr %118, i64 %125
+  %120 = getelementptr inbounds i8, ptr %119, i64 16
+  %121 = getelementptr inbounds float, ptr %120, i64 %indvars.iv69
   %122 = load float, ptr %121, align 4
-  %123 = getelementptr float, ptr %118, i64 %indvars.iv69
-  %124 = getelementptr float, ptr %123, i64 %126
+  %123 = getelementptr inbounds float, ptr %118, i64 %indvars.iv69
+  %124 = getelementptr inbounds float, ptr %123, i64 %126
   store float %122, ptr %124, align 4
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next70, 8

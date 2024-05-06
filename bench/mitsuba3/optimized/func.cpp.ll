@@ -71,7 +71,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13Func
 20:                                               ; preds = %11
   %21 = getelementptr inbounds i8, ptr %0, i64 156
   %22 = zext nneg i8 %5 to i64
-  %23 = trunc i32 %16 to i8
+  %23 = trunc nuw nsw i32 %16 to i8
   %24 = add nuw nsw i64 %22, 7
   %25 = and i64 %24, 56
   %26 = add nsw i64 %22, -1
@@ -115,7 +115,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13Func
   %54 = getelementptr inbounds i8, ptr %0, i64 140
   %55 = and i8 %51, -2
   %56 = icmp eq i8 %55, 32
-  %57 = trunc i32 %16 to i8
+  %57 = trunc nuw nsw i32 %16 to i8
   %58 = select i1 %56, i8 %57, i8 0
   %59 = add i8 %58, %51
   %60 = zext i8 %59 to i32
@@ -149,7 +149,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef i32 @_ZN6asmjit9_abi_1_103x8612FuncInternal14initFuncDetailERNS0_10FuncDetailERKNS0_13FuncSignatureEj(ptr noundef nonnull align 4 dereferenceable(412), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: minsize mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_109FuncFrame4initERKNS0_10FuncDetailE(ptr nocapture noundef nonnull align 4 dereferenceable(100) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(412) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame4initERKNS0_10FuncDetailE(ptr nocapture noundef nonnull align 4 dereferenceable(100) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(412) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 4, !tbaa !20
   %4 = add i8 %3, -1
   %5 = icmp ult i8 %4, 16
@@ -246,7 +246,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_109FuncFrame4initERKNS0_10FuncDe
 }
 
 ; Function Attrs: minsize mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_109FuncFrame8finalizeEv(ptr nocapture noundef nonnull align 4 dereferenceable(100) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8finalizeEv(ptr nocapture noundef nonnull align 4 dereferenceable(100) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [2 x i32], align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4, !tbaa !46
@@ -321,7 +321,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_109FuncFrame8finalizeEv(ptr noca
 58:                                               ; preds = %53, %43
   %59 = getelementptr inbounds i8, ptr %0, i64 5
   store i8 %29, ptr %59, align 1, !tbaa !53
-  %60 = trunc i32 %51 to i8
+  %60 = trunc nuw i32 %51 to i8
   store i8 %60, ptr %44, align 2, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i64 0, ptr %2, align 8

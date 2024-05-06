@@ -101,7 +101,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.15 = private unnamed_addr constant [120 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/server/serverinventorymgr.cpp\00", align 1
 @__PRETTY_FUNCTION__._ZN22ServerInventoryManager12getInventoryERK17InventoryLocation = private unnamed_addr constant [83 x i8] c"virtual Inventory *ServerInventoryManager::getInventory(const InventoryLocation &)\00", align 1
 @__PRETTY_FUNCTION__._ZN22ServerInventoryManager20setInventoryModifiedERK17InventoryLocation = private unnamed_addr constant [85 x i8] c"virtual void ServerInventoryManager::setInventoryModified(const InventoryLocation &)\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.16 = private unnamed_addr constant [37 x i8] c"Server clearing detached inventory \22\00", align 1
 @.str.17 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.18 = private unnamed_addr constant [37 x i8] c"Server creating detached inventory \22\00", align 1
@@ -565,7 +565,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %pos.coerce, 0

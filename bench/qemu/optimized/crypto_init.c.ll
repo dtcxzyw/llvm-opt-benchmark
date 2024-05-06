@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [40 x i8] c"Unable to initialize GNUTLS library: %s\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_init(ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_init(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @gnutls_global_init() #3
   %cmp = icmp slt i32 %call, 0

@@ -313,7 +313,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, %.03040.us.us
   %spec.select37.us.us = tail call i32 @llvm.smax.i32(i32 %27, i32 %.03040.us.us)
-  %29 = trunc i64 %indvars.iv69 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv69 to i32
   %spec.select38.us.us = select i1 %28, i32 %29, i32 %.042.us.us
   br label %30
 
@@ -358,7 +358,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
   %48 = load i32, ptr %47, align 8
   %49 = icmp sgt i32 %48, %.03040.us
   %spec.select37.us = tail call i32 @llvm.smax.i32(i32 %48, i32 %.03040.us)
-  %50 = trunc i64 %indvars.iv74 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv74 to i32
   %spec.select38.us = select i1 %49, i32 %50, i32 %.042.us
   br label %51
 
@@ -405,7 +405,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
   %66 = load i32, ptr %65, align 8
   %67 = icmp sgt i32 %66, %.03040.us45
   %spec.select37.us48 = tail call i32 @llvm.smax.i32(i32 %66, i32 %.03040.us45)
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select38.us49 = select i1 %67, i32 %68, i32 %.042.us43
   br label %69
 
@@ -452,7 +452,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
   %86 = load i32, ptr %85, align 8
   %87 = icmp sgt i32 %86, %.03040
   %spec.select37 = tail call i32 @llvm.smax.i32(i32 %86, i32 %.03040)
-  %88 = trunc i64 %indvars.iv64 to i32
+  %88 = trunc nuw nsw i64 %indvars.iv64 to i32
   %spec.select38 = select i1 %87, i32 %88, i32 %.042
   br label %89
 

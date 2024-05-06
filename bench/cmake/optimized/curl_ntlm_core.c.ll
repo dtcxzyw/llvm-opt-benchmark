@@ -344,7 +344,7 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr nocaptur
   %15 = mul i64 %7, 10000000
   %16 = add i64 %15, 116444736000000000
   %17 = lshr i64 %16, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = trunc i64 %16 to i32
   %20 = getelementptr inbounds i8, ptr %13, i64 16
   %21 = load i32, ptr %8, align 4

@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @getNextToken(ptr noundef %buf, ptr noundef %token, ptr nocapture noundef writeonly %linenumber, ptr noundef %comment, ptr noundef %status) local_unnamed_addr #1 {
+define dso_local range(i32 0, 7) i32 @getNextToken(ptr noundef %buf, ptr noundef %token, ptr nocapture noundef writeonly %linenumber, ptr noundef %comment, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %target.i = alloca [3 x i16], align 2
   %0 = load i32, ptr %status, align 4

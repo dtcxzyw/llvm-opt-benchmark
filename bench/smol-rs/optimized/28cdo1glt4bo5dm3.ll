@@ -402,7 +402,7 @@ default.unreachable73:                            ; preds = %308, %2
 120:                                              ; preds = %113
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %121 = load i64, ptr %12, align 8, !range !47, !alias.scope !44, !noalias !48, !noundef !4
-  %trunc.i.i.i = trunc i64 %121 to i1
+  %trunc.i.i.i = trunc nuw i64 %121 to i1
   br i1 %trunc.i.i.i, label %122, label %133
 
 122:                                              ; preds = %120
@@ -482,7 +482,7 @@ default.unreachable73:                            ; preds = %308, %2
   store i64 %157, ptr %142, align 8, !alias.scope !52, !noalias !57
   store i64 0, ptr %140, align 8, !alias.scope !55, !noalias !52
   %158 = getelementptr inbounds i8, ptr %135, i64 4
-  %159 = trunc i8 %137 to i1
+  %159 = trunc nuw i8 %137 to i1
   br i1 %159, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i, label %160
 
 160:                                              ; preds = %150
@@ -740,7 +740,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i: ; preds = %165, 
 249:                                              ; preds = %184
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %250 = load i64, ptr %11, align 8, !range !47, !alias.scope !85, !noalias !88, !noundef !4
-  %trunc.i118.i.i = trunc i64 %250 to i1
+  %trunc.i118.i.i = trunc nuw i64 %250 to i1
   br i1 %trunc.i118.i.i, label %251, label %262
 
 251:                                              ; preds = %249
@@ -819,7 +819,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i: ; preds = %165, 
   store i64 %285, ptr %270, align 8, !alias.scope !91, !noalias !94
   store i64 0, ptr %174, align 8, !alias.scope !94, !noalias !96
   %286 = getelementptr inbounds i8, ptr %264, i64 4
-  %287 = trunc i8 %266 to i1
+  %287 = trunc nuw i8 %266 to i1
   br i1 %287, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i126.i.i, label %288
 
 288:                                              ; preds = %278
@@ -1049,7 +1049,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i126.i.i: ; preds = %29
 359:                                              ; preds = %"_ZN14event_listener14Event$LT$T$GT$6notify17h45e8141d091a30f2E.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %360 = load i64, ptr %14, align 8, !range !47, !alias.scope !125, !noalias !128, !noundef !4
-  %trunc.i139.i.i = trunc i64 %360 to i1
+  %trunc.i139.i.i = trunc nuw i64 %360 to i1
   br i1 %trunc.i139.i.i, label %361, label %372
 
 361:                                              ; preds = %359
@@ -1093,14 +1093,14 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i126.i.i: ; preds = %29
   %377 = getelementptr inbounds i8, ptr %374, i64 8
   %378 = getelementptr inbounds i8, ptr %0, i64 224
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, ptr noundef nonnull align 8 dereferenceable(24) %377, i64 24, i1 false), !alias.scope !134
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %378, ptr noundef nonnull align 8 dereferenceable(24) %377, i64 24, i1 false), !alias.scope !134
   store i64 0, ptr %377, align 8, !alias.scope !136, !noalias !131
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %374, i64 16
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !136, !noalias !131
   %.sroa.5.0..sroa_idx.i143.i.i = getelementptr inbounds i8, ptr %374, i64 24
   store i64 0, ptr %.sroa.5.0..sroa_idx.i143.i.i, align 8, !alias.scope !136, !noalias !131
   %379 = getelementptr inbounds i8, ptr %374, i64 4
-  %380 = trunc i8 %376 to i1
+  %380 = trunc nuw i8 %376 to i1
   br i1 %380, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i145.i.i, label %381
 
 381:                                              ; preds = %372
@@ -1452,7 +1452,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$std..sync..mutex..M
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0

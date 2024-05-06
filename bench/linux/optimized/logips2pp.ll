@@ -380,7 +380,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i32 @ps2_sliced_command(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ps2pp_process_byte(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 1, 3) i32 @ps2pp_process_byte(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -562,7 +562,7 @@ declare dso_local i64 @psmouse_attr_show_helper(ptr noundef, ptr noundef, ptr no
 declare dso_local i64 @psmouse_attr_set_helper(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @ps2pp_attr_show_smartscroll(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @ps2pp_attr_show_smartscroll(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 396
   %5 = load i8, ptr %4, align 4, !range !9, !noundef !10
   %6 = zext nneg i8 %5 to i32

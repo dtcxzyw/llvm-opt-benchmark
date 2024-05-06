@@ -739,7 +739,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN14ModApiMainMenu11getBoolDataEP9lua_StateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr noundef %L, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %valid) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN14ModApiMainMenu11getBoolDataEP9lua_StateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr noundef %L, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %valid) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10002, ptr noundef nonnull @.str.14)
   %0 = load ptr, ptr %name, align 8, !tbaa !11
@@ -8278,7 +8278,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN14ModApiMainMenu14l_delete_worldEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN14ModApiMainMenu14l_delete_worldEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %worlds = alloca %"class.std::vector.248", align 8
   %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 1)

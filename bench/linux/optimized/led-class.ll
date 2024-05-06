@@ -731,7 +731,7 @@ define dso_local void @devm_led_classdev_unregister(ptr noundef %0, ptr noundef 
 declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @devm_led_classdev_match(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 align 16 {
+define internal range(i32 0, 2) i32 @devm_led_classdev_match(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -775,7 +775,7 @@ define internal i32 @leds_init() #7 section ".init.text" align 16 {
 declare dso_local ptr @class_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @brightness_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @brightness_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @led_update_brightness(ptr noundef %5) #10
@@ -842,7 +842,7 @@ declare dso_local void @led_trigger_remove(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @max_brightness_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @max_brightness_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 12

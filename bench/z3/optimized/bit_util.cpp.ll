@@ -18,7 +18,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z7msb_posj(i32 noundef %v) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, -2147483648) i32 @_Z7msb_posj(i32 noundef %v) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ugt i32 %v, 65535
   %shl = select i1 %cmp, i32 16, i32 0
@@ -40,18 +40,18 @@ entry:
   ret i32 %or16
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z8nlz_corej(i32 noundef %x) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef range(i32 0, 32) i32 @_Z8nlz_corej(i32 noundef %x) local_unnamed_addr #3 {
 entry:
-  %0 = tail call i32 @llvm.ctlz.i32(i32 %x, i1 true), !range !4
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %x, i1 true)
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z3nlzjPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef i32 @_Z3nlzjPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
 entry:
   %cmp.not7 = icmp eq i32 %sz, 0
   br i1 %cmp.not7, label %return, label %while.body.preheader
@@ -73,10 +73,10 @@ while.body:                                       ; preds = %while.body.preheade
 if.then:                                          ; preds = %while.body
   %add = add i32 %r.08, 32
   %cmp.not.wide = icmp eq i64 %2, 0
-  br i1 %cmp.not.wide, label %return, label %while.body, !llvm.loop !5
+  br i1 %cmp.not.wide, label %return, label %while.body, !llvm.loop !4
 
 if.else:                                          ; preds = %while.body
-  %4 = tail call noundef i32 @llvm.ctlz.i32(i32 %3, i1 true), !range !4
+  %4 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %add2 = or disjoint i32 %4, %r.08
   br label %return
 
@@ -85,18 +85,18 @@ return:                                           ; preds = %if.then, %entry, %i
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z8ntz_corej(i32 noundef %x) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef range(i32 0, 32) i32 @_Z8ntz_corej(i32 noundef %x) local_unnamed_addr #3 {
 entry:
-  %0 = tail call i32 @llvm.cttz.i32(i32 %x, i1 true), !range !4
+  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %x, i1 true)
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z3ntzjPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef i32 @_Z3ntzjPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
 entry:
   %cmp7.not = icmp eq i32 %sz, 0
   br i1 %cmp7.not, label %return, label %for.body.preheader
@@ -118,10 +118,10 @@ if.then:                                          ; preds = %for.body
   %add = add i32 %r.08, 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 if.else:                                          ; preds = %for.body
-  %2 = tail call noundef i32 @llvm.cttz.i32(i32 %1, i1 true), !range !4
+  %2 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %add2 = or disjoint i32 %2, %r.08
   br label %return
 
@@ -130,8 +130,8 @@ return:                                           ; preds = %if.then, %entry, %i
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z4copyjPKjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %dst_sz, ptr nocapture noundef writeonly %dst) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @_Z4copyjPKjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %dst_sz, ptr nocapture noundef writeonly %dst) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp ult i32 %dst_sz, %src_sz
   br i1 %cmp.not, label %for.cond13.preheader, label %for.cond.preheader
@@ -176,7 +176,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %7, ptr %arrayidx3, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !7
 
 for.body15:                                       ; preds = %for.body15.preheader, %for.body15
   %indvars.iv28 = phi i64 [ 0, %for.body15.preheader ], [ %indvars.iv.next29, %for.body15 ]
@@ -186,14 +186,14 @@ for.body15:                                       ; preds = %for.body15.preheade
   store i32 %8, ptr %arrayidx19, align 4
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
-  br i1 %exitcond32.not, label %if.end, label %for.body15, !llvm.loop !9
+  br i1 %exitcond32.not, label %if.end, label %for.body15, !llvm.loop !8
 
 if.end:                                           ; preds = %for.body15, %for.body6.preheader, %for.cond4.preheader, %for.cond13.preheader
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z7is_zerojPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_Z7is_zerojPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
 entry:
   %cmp3 = icmp eq i32 %sz, 0
   br i1 %cmp3, label %return, label %for.body.preheader
@@ -208,13 +208,13 @@ for.cond:                                         ; preds = %for.body.preheader,
   %indvars.iv8 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv8, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !10
+  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv.next
   %2 = load i32, ptr %arrayidx, align 4
   %tobool.not = icmp eq i32 %2, 0
-  br i1 %tobool.not, label %for.cond, label %return.loopexit, !llvm.loop !10
+  br i1 %tobool.not, label %for.cond, label %return.loopexit, !llvm.loop !9
 
 return.loopexit:                                  ; preds = %for.body, %for.cond
   %cmp.le = icmp uge i64 %indvars.iv.next, %0
@@ -225,8 +225,8 @@ return:                                           ; preds = %return.loopexit, %f
   ret i1 %cmp.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_Z5resetjPj(i32 noundef %sz, ptr nocapture noundef writeonly %data) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define hidden void @_Z5resetjPj(i32 noundef %sz, ptr nocapture noundef writeonly %data) local_unnamed_addr #7 {
 entry:
   %cmp3.not = icmp eq i32 %sz, 0
   br i1 %cmp3.not, label %for.end, label %for.body.preheader
@@ -241,8 +241,8 @@ for.end:                                          ; preds = %for.body.preheader,
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z3shljPKjjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %k, i32 noundef %dst_sz, ptr nocapture noundef %dst) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @_Z3shljPKjjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %k, i32 noundef %dst_sz, ptr nocapture noundef %dst) local_unnamed_addr #6 {
 entry:
   %div64 = lshr i32 %k, 5
   %0 = and i32 %k, 31
@@ -308,7 +308,7 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx21 = getelementptr inbounds i32, ptr %dst, i64 %idxprom20
   store i32 %13, ptr %arrayidx21, align 4
   %cmp16.not.wide = icmp eq i64 %12, 0
-  br i1 %cmp16.not.wide, label %while.cond22.preheader, label %while.body, !llvm.loop !11
+  br i1 %cmp16.not.wide, label %while.cond22.preheader, label %while.body, !llvm.loop !10
 
 while.end28:                                      ; preds = %while.body24.preheader, %while.cond22.preheader
   %cmp29.not = icmp eq i32 %0, 0
@@ -338,7 +338,7 @@ for.body37:                                       ; preds = %for.body37.preheade
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next92 to i32
   %exitcond.not = icmp eq i32 %17, %lftr.wideiv
-  br i1 %exitcond.not, label %if.end93, label %for.body37, !llvm.loop !12
+  br i1 %exitcond.not, label %if.end93, label %for.body37, !llvm.loop !11
 
 if.else48:                                        ; preds = %entry
   %narrow = sub nuw nsw i32 32, %0
@@ -362,7 +362,7 @@ for.body60:                                       ; preds = %for.body60.preheade
   store i32 %or74, ptr %arrayidx68, align 4
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
-  br i1 %exitcond96.not, label %for.end77, label %for.body60, !llvm.loop !13
+  br i1 %exitcond96.not, label %for.end77, label %for.body60, !llvm.loop !12
 
 for.end77:                                        ; preds = %for.body60, %if.else48
   %prev53.0.lcssa = phi i32 [ 0, %if.else48 ], [ %shr64, %for.body60 ]
@@ -395,8 +395,8 @@ if.end93:                                         ; preds = %for.body37, %for.bo
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z3shrjPKjjPj(i32 noundef %sz, ptr nocapture noundef readonly %src, i32 noundef %k, ptr nocapture noundef writeonly %dst) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @_Z3shrjPKjjPj(i32 noundef %sz, ptr nocapture noundef readonly %src, i32 noundef %k, ptr nocapture noundef writeonly %dst) local_unnamed_addr #6 {
 entry:
   %div61 = lshr i32 %k, 5
   %cmp.not = icmp ult i32 %div61, %sz
@@ -407,9 +407,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.not.i, label %if.end80, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then
-  %0 = zext i32 %sz to i64
+  %0 = zext nneg i32 %sz to i64
   %1 = shl nuw nsw i64 %0, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %dst, i8 0, i64 %1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %dst, i8 0, i64 %1, i1 false)
   br label %if.end80
 
 if.end:                                           ; preds = %entry
@@ -467,7 +467,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %or, ptr %arrayidx14, align 4
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
+  br i1 %exitcond79.not, label %for.end.loopexit, label %for.body, !llvm.loop !13
 
 for.end.loopexit:                                 ; preds = %for.body
   %5 = zext i32 %sub11 to i64
@@ -494,7 +494,7 @@ for.body31:                                       ; preds = %for.body31.preheade
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %inc38 = add i32 %j.171, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %for.body44.preheader, label %for.body31, !llvm.loop !15
+  br i1 %exitcond84.not, label %for.body44.preheader, label %for.body31, !llvm.loop !14
 
 for.body44.preheader:                             ; preds = %for.body31, %for.end
   %8 = zext i32 %sub6 to i64
@@ -521,7 +521,7 @@ for.body55:                                       ; preds = %for.body55.preheade
   %or69 = or i32 %shl66, %shr62
   store i32 %or69, ptr %arrayidx59, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end72.loopexit, label %for.body55, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end72.loopexit, label %for.body55, !llvm.loop !15
 
 for.end72.loopexit:                               ; preds = %for.body55
   %16 = zext i32 %sub53 to i64
@@ -540,8 +540,8 @@ if.end80:                                         ; preds = %for.body44.preheade
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_Z3shrjPKjjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %k, i32 noundef %dst_sz, ptr nocapture noundef writeonly %dst) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_Z3shrjPKjjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %k, i32 noundef %dst_sz, ptr nocapture noundef writeonly %dst) local_unnamed_addr #8 {
 entry:
   %div82 = lshr i32 %k, 5
   %cmp.not = icmp ult i32 %div82, %src_sz
@@ -554,7 +554,7 @@ if.then:                                          ; preds = %entry
 for.body.preheader.i:                             ; preds = %if.then
   %0 = zext i32 %dst_sz to i64
   %1 = shl nuw nsw i64 %0, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %dst, i8 0, i64 %1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %dst, i8 0, i64 %1, i1 false)
   br label %for.end110
 
 if.end:                                           ; preds = %entry
@@ -601,7 +601,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %or, ptr %arrayidx17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %for.body
   %5 = zext i32 %sub14 to i64
@@ -638,7 +638,7 @@ for.body47:                                       ; preds = %for.body47.preheade
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %inc54 = add i32 %j.191, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
-  br i1 %exitcond102.not, label %if.end101, label %for.body47, !llvm.loop !18
+  br i1 %exitcond102.not, label %if.end101, label %for.body47, !llvm.loop !17
 
 if.else57:                                        ; preds = %if.end
   %cmp59 = icmp ugt i32 %sub6, %dst_sz
@@ -665,7 +665,7 @@ for.body66:                                       ; preds = %for.body66.preheade
   %or80 = or i32 %shl77, %shr73
   store i32 %or80, ptr %arrayidx70, align 4
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %for.end83, label %for.body66, !llvm.loop !19
+  br i1 %exitcond107.not, label %for.end83, label %for.body66, !llvm.loop !18
 
 for.end83:                                        ; preds = %for.body66, %if.else57
   %idxprom84 = zext i32 %sub64 to i64
@@ -710,8 +710,8 @@ for.end110:                                       ; preds = %for.body105.prehead
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z23has_one_at_first_k_bitsjPKjj(i32 noundef %sz, ptr nocapture noundef readonly %data, i32 noundef %k) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef zeroext i1 @_Z23has_one_at_first_k_bitsjPKjj(i32 noundef %sz, ptr nocapture noundef readonly %data, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   %div10 = lshr i32 %k, 5
   %spec.select = tail call i32 @llvm.umin.i32(i32 %div10, i32 %sz)
@@ -725,7 +725,7 @@ for.body.preheader:                               ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -755,7 +755,7 @@ return:                                           ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_Z3incjPj(i32 noundef %sz, ptr nocapture noundef %data) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @_Z3incjPj(i32 noundef %sz, ptr nocapture noundef %data) local_unnamed_addr #6 {
 entry:
   %cmp5.not = icmp eq i32 %sz, 0
   br i1 %cmp5.not, label %return, label %for.body.preheader
@@ -772,7 +772,7 @@ for.cond:                                         ; preds = %for.body.preheader,
   %indvars.iv11 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv11, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !20
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv.next
@@ -780,7 +780,7 @@ for.body:                                         ; preds = %for.cond
   %inc = add i32 %2, 1
   store i32 %inc, ptr %arrayidx, align 4
   %cmp3.not = icmp eq i32 %inc, 0
-  br i1 %cmp3.not, label %for.cond, label %return.loopexit, !llvm.loop !21
+  br i1 %cmp3.not, label %for.cond, label %return.loopexit, !llvm.loop !20
 
 return.loopexit:                                  ; preds = %for.body, %for.cond
   %cmp.le = icmp ult i64 %indvars.iv.next, %0
@@ -792,7 +792,7 @@ return:                                           ; preds = %return.loopexit, %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_Z3decjPj(i32 noundef %sz, ptr nocapture noundef %data) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @_Z3decjPj(i32 noundef %sz, ptr nocapture noundef %data) local_unnamed_addr #6 {
 entry:
   %cmp5.not = icmp eq i32 %sz, 0
   br i1 %cmp5.not, label %return, label %for.body.preheader
@@ -809,7 +809,7 @@ for.cond:                                         ; preds = %for.body.preheader,
   %indvars.iv11 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv11, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !21
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv.next
@@ -817,7 +817,7 @@ for.body:                                         ; preds = %for.cond
   %dec = add i32 %2, -1
   store i32 %dec, ptr %arrayidx, align 4
   %cmp3.not = icmp eq i32 %2, 0
-  br i1 %cmp3.not, label %for.cond, label %return.loopexit, !llvm.loop !22
+  br i1 %cmp3.not, label %for.cond, label %return.loopexit, !llvm.loop !21
 
 return.loopexit:                                  ; preds = %for.body, %for.cond
   %cmp.le = icmp ult i64 %indvars.iv.next, %0
@@ -829,7 +829,7 @@ return:                                           ; preds = %return.loopexit, %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z2ltjPjS_(i32 noundef %sz, ptr nocapture noundef readonly %data1, ptr nocapture noundef readonly %data2) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_Z2ltjPjS_(i32 noundef %sz, ptr nocapture noundef readonly %data1, ptr nocapture noundef readonly %data2) local_unnamed_addr #5 {
 entry:
   %0 = zext i32 %sz to i64
   br label %while.cond
@@ -850,7 +850,7 @@ while.body:                                       ; preds = %while.cond
 
 if.end:                                           ; preds = %while.body
   %cmp8 = icmp ugt i32 %2, %3
-  br i1 %cmp8, label %return, label %while.cond, !llvm.loop !23
+  br i1 %cmp8, label %return, label %while.cond, !llvm.loop !22
 
 return:                                           ; preds = %while.cond, %if.end, %while.body
   %retval.0 = phi i1 [ true, %while.body ], [ false, %if.end ], [ false, %while.cond ]
@@ -858,7 +858,7 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_Z3addjPKjS0_Pj(i32 noundef %sz, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly %c) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @_Z3addjPKjS0_Pj(i32 noundef %sz, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly %c) local_unnamed_addr #6 {
 entry:
   %cmp13.not = icmp eq i32 %sz, 0
   br i1 %cmp13.not, label %for.end, label %for.body.preheader
@@ -884,7 +884,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %or = zext i1 %or12 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !23
 
 for.end.loopexit:                                 ; preds = %for.body
   %2 = xor i1 %or12, true
@@ -896,38 +896,35 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_bit_util.cpp() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_bit_util.cpp() #9 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #14
+declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -935,24 +932,23 @@ attributes #15 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

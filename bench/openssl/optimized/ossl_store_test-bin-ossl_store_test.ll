@@ -68,13 +68,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.test_store_get_params = private unnamed_addr constant [3 x ptr] [ptr @.str.34, ptr @.str.35, ptr @.str.36], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -164,7 +164,7 @@ declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnam
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_store_open() #1 {
+define internal range(i32 0, 2) i32 @test_store_open() #1 {
 entry:
   %0 = load ptr, ptr @inputdir, align 8
   %1 = load ptr, ptr @infile, align 8
@@ -233,7 +233,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_store_get_params(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_store_get_params(i32 noundef %idx) #1 {
 entry:
   %uri = alloca [4096 x i8], align 16
   %0 = icmp ult i32 %idx, 3
@@ -322,7 +322,7 @@ return:                                           ; preds = %get_params.exit, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_store_attach_unregistered_scheme() #1 {
+define internal range(i32 0, 2) i32 @test_store_attach_unregistered_scheme() #1 {
 entry:
   %0 = load ptr, ptr @inputdir, align 8
   %1 = load ptr, ptr @sm2file, align 8

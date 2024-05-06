@@ -518,7 +518,7 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN19Op
 _ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEZNS0_28BuiltinTransformRegistryImpl11registerAllEvE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEZNS0_28BuiltinTransformRegistryImpl11registerAllEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataC2EPKcS3_St8functionIFvRNS_10OpRcPtrVecEEE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %agg.tmp)

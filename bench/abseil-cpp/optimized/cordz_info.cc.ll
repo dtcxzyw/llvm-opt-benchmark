@@ -579,7 +579,7 @@ if.end.i6:                                        ; preds = %if.end4.i, %if.then
   %stack_.sink.i = phi ptr [ %stack_.i, %if.end4.i ], [ %parent_stack_.i, %if.then1.i ]
   %stack_depth_.sink.i = phi ptr [ %stack_depth_.i, %if.end4.i ], [ %parent_stack_depth_.i, %if.then1.i ]
   %mul6.i = shl i64 %.sink.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %parent_stack_, ptr nonnull align 8 %stack_.sink.i, i64 %mul6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %parent_stack_, ptr nonnull align 8 %stack_.sink.i, i64 %mul6.i, i1 false)
   %2 = load i64, ptr %stack_depth_.sink.i, align 8
   store i64 %2, ptr %parent_stack_depth_, align 8
   %method_ = getelementptr inbounds i8, ptr %this, i64 1112
@@ -848,7 +848,7 @@ if.then:                                          ; preds = %_ZNK4absl13cord_int
   store i64 %6, ptr %agg.result, align 8
   store ptr %agg.result, ptr %analyzer, align 8
   %memory_usage_.i = getelementptr inbounds i8, ptr %analyzer, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_usage_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %memory_usage_.i, i8 0, i64 16, i1 false)
   %refcount2.i = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load atomic i32, ptr %refcount2.i acquire, align 4
   %shr.i.i = ashr i32 %7, 1

@@ -348,7 +348,7 @@ if.end71:                                         ; preds = %lor.rhs
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
   %length_.i.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   %length_3.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %length_3.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %length_3.i.i, i64 16, i1 false)
   %transport_params_.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 48
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i64 0, i32 0, i64 2), ptr %transport_params_.i, align 8
   %store_.i1.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 56
@@ -357,7 +357,7 @@ if.end71:                                         ; preds = %lor.rhs
   %_M_refcount4.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp82, i64 16
   %length_.i5.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 72
   %length_3.i6.i = getelementptr inbounds i8, ptr %ref.tmp82, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_.i5.i, ptr noundef nonnull align 8 dereferenceable(16) %length_3.i6.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length_.i5.i, ptr noundef nonnull align 8 dereferenceable(16) %length_3.i6.i, i64 16, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store i8 1, ptr %agg.result, align 8, !alias.scope !17
   %value_.i.i42 = getelementptr inbounds i8, ptr %agg.result, i64 8

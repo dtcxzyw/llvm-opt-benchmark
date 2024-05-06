@@ -254,7 +254,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   br i1 %exitcond226.not, label %._crit_edge188, label %.preheader171, !llvm.loop !10
 
 ._crit_edge188:                                   ; preds = %._crit_edge184, %.preheader172
-  %101 = call i32 @mca_sharedfp_individual_create_buff(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %.0102.lcssa, i32 poison), !range !11
+  %101 = call i32 @mca_sharedfp_individual_create_buff(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %.0102.lcssa, i32 poison)
   %.not144 = icmp eq i32 %101, 0
   %.pre237.pre.pre239 = load ptr, ptr %5, align 8
   br i1 %.not144, label %102, label %._crit_edge.thread
@@ -322,7 +322,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   store i64 %storemerge.i, ptr %134, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %88
-  br i1 %exitcond.not.i, label %mca_sharedfp_individual_assign_globaloffset.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %mca_sharedfp_individual_assign_globaloffset.exit, label %.lr.ph.i, !llvm.loop !11
 
 mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
   %144 = getelementptr inbounds i64, ptr %128, i64 %88
@@ -353,7 +353,7 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
   %159 = load i32, ptr %3, align 4
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next228, %160
-  br i1 %161, label %162, label %.loopexit.loopexit, !llvm.loop !13
+  br i1 %161, label %162, label %.loopexit.loopexit, !llvm.loop !12
 
 162:                                              ; preds = %.lr.ph193, %158
   %indvars.iv227 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next228, %158 ]
@@ -672,7 +672,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   %indvars93 = trunc i64 %indvars.iv.next to i32
   %74 = load i32, ptr %10, align 4
   %75 = icmp sgt i32 %74, %indvars93
-  br i1 %75, label %55, label %._crit_edge, !llvm.loop !14
+  br i1 %75, label %55, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %73
   store i32 0, ptr %10, align 4
@@ -732,7 +732,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   call void @free(ptr noundef nonnull %.06085) #8
   %.060 = load ptr, ptr %13, align 8
   %.not70 = icmp eq ptr %.060, null
-  br i1 %.not70, label %._crit_edge88, label %.lr.ph87, !llvm.loop !15
+  br i1 %.not70, label %._crit_edge88, label %.lr.ph87, !llvm.loop !14
 
 ._crit_edge88:                                    ; preds = %100, %77
   store i32 0, ptr %8, align 8
@@ -744,7 +744,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @mca_sharedfp_individual_create_buff(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 %3) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @mca_sharedfp_individual_create_buff(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 %3) local_unnamed_addr #3 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %5
 
@@ -827,14 +827,14 @@ define noundef i32 @mca_sharedfp_individual_sort_timestamps(ptr nocapture nounde
   %.2.us = phi i32 [ 1, %13 ], [ %.143.us, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %6, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.us, label %6, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %33
   %34 = add nuw nsw i32 %.03844.us, 1
   %35 = icmp slt i32 %.03844.us, %3
   %36 = icmp ne i32 %.2.us, 0
   %37 = select i1 %35, i1 %36, i1 false
-  br i1 %37, label %.preheader.us, label %._crit_edge45, !llvm.loop !17
+  br i1 %37, label %.preheader.us, label %._crit_edge45, !llvm.loop !16
 
 ._crit_edge45:                                    ; preds = %._crit_edge.us, %4
   ret i32 0
@@ -873,7 +873,7 @@ define i64 @mca_sharedfp_individual_assign_globaloffset(ptr nocapture noundef re
   store i64 %storemerge, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %15
   %16 = zext nneg i32 %1 to i64
@@ -957,10 +957,9 @@ attributes #10 = { nounwind allocsize(1) }
 !8 = !{!"llvm.loop.unswitch.partial.disable"}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 -2, i32 1}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

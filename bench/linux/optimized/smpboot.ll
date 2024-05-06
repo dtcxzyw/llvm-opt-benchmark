@@ -175,7 +175,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cpu_clusterg
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable___max_logical_packages497, ptr @__UNIQUE_ID___addressable_cpu_clustergroup_mask504, ptr @__UNIQUE_ID___addressable_cpu_core_map494, ptr @__UNIQUE_ID___addressable_cpu_die_map495, ptr @__UNIQUE_ID___addressable_cpu_info496, ptr @__UNIQUE_ID___addressable_cpu_sibling_map493, ptr @__UNIQUE_ID___addressable_topology_phys_to_logical_pkg498, ptr @__setup__setup_possible_cpus, ptr @__setup_cpu_init_udelay, ptr @apic_icr_write.__UNIQUE_ID___addressable___SCK__apic_call_icr_write481, ptr @apic_read.__UNIQUE_ID___addressable___SCK__apic_call_read476, ptr @apic_write.__UNIQUE_ID___addressable___SCK__apic_call_write477, ptr @wakeup_secondary_cpu_via_init.__UNIQUE_ID___addressable___SCK__preempt_schedule505], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
-define dso_local i32 @arch_update_cpu_topology() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @arch_update_cpu_topology() local_unnamed_addr #0 align 16 {
   %1 = load i8, ptr @x86_topology_update, align 1, !range !6, !noundef !7
   %2 = zext nneg i8 %1 to i32
   store i8 0, ptr @x86_topology_update, align 1
@@ -2967,7 +2967,7 @@ define internal noundef i32 @x86_smt_flags() #18 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define internal i32 @x86_cluster_flags() #6 align 16 {
+define internal range(i32 768, 2817) i32 @x86_cluster_flags() #6 align 16 {
   %1 = load i32, ptr @sysctl_sched_itmt_enabled, align 4
   %2 = icmp eq i32 %1, 0
   %3 = select i1 %2, i32 768, i32 2816
@@ -2975,7 +2975,7 @@ define internal i32 @x86_cluster_flags() #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define internal i32 @x86_core_flags() #6 align 16 {
+define internal range(i32 512, 2561) i32 @x86_core_flags() #6 align 16 {
   %1 = load i32, ptr @sysctl_sched_itmt_enabled, align 4
   %2 = icmp eq i32 %1, 0
   %3 = select i1 %2, i32 512, i32 2560
@@ -2996,7 +2996,7 @@ define internal nonnull ptr @cpu_cpu_mask(i32 noundef %0) #19 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @x86_die_flags() #2 align 16 {
+define internal range(i32 0, 2049) i32 @x86_die_flags() #2 align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 591, i32 128, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 65)) #23
           to label %1 [label %1, label %5], !srcloc !59
 

@@ -56,7 +56,7 @@ define noundef ptr @Llb_BddComputeBad(ptr noundef %0, ptr noundef %1, i64 nounde
   %27 = getelementptr inbounds ptr, ptr %.val95, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %.val100 = load i32, ptr %7, align 8
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add nsw i32 %.val100, %29
   %31 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %30) #3
   %32 = getelementptr inbounds i8, ptr %28, i64 40

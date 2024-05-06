@@ -75,7 +75,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 if.end5.i:                                        ; preds = %for.body.i, %if.then
   %.lcssa = phi i32 [ 1, %if.then ], [ %1, %for.body.i ]
-  %call7.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %convbuf, i64 noundef 50, ptr noundef nonnull @.str.36, i32 noundef %.lcssa) #5
+  %call7.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %convbuf, i64 noundef 50, ptr noundef nonnull @.str.36, i32 noundef %.lcssa) #5
   br label %if.end19
 
 for.cond:                                         ; preds = %entry, %for.cond

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local zeroext i1 @softfloat_eq128(i64 noundef %a64, i64 noundef %a0, i64 noundef %b64, i64 noundef %b0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @softfloat_eq128(i64 noundef %a64, i64 noundef %a0, i64 noundef %b64, i64 noundef %b0) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %a64, %b64
   %cmp1 = icmp eq i64 %a0, %b0

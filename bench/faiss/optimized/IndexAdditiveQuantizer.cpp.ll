@@ -1331,7 +1331,7 @@ define noundef nonnull ptr @_ZNK5faiss22IndexAdditiveQuantizer29get_FlatCodesDis
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEEC2ERKNS_22IndexAdditiveQuantizerES4_.exit, label %.noexc7.i
 
@@ -1401,7 +1401,7 @@ _ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i27: ; preds = %42
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i28 = icmp eq i32 %44, 0
   br i1 %.not.i.i.i.i.i28, label %_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEEC2ERKNS_22IndexAdditiveQuantizerES4_.exit, label %.noexc7.i29
 
@@ -1508,7 +1508,7 @@ _ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i35: ; preds = %81
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i36 = icmp eq i64 %96, 0
   br i1 %.not.i.i.i.i.i36, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEC2ERKNS_22IndexAdditiveQuantizerE.exit, label %.noexc8.i
 
@@ -1591,7 +1591,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Sear
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i41: ; preds = %112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i42 = icmp eq i64 %127, 0
   br i1 %.not.i.i.i.i.i42, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEC2ERKNS_22IndexAdditiveQuantizerE.exit, label %.noexc8.i43
 
@@ -1662,7 +1662,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i49: ; preds = %142
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i50 = icmp eq i64 %157, 0
   br i1 %.not.i.i.i.i.i50, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEC2ERKNS_22IndexAdditiveQuantizerE.exit, label %.noexc8.i51
 
@@ -1733,7 +1733,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i57: ; preds = %172
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %180, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i58 = icmp eq i64 %187, 0
   br i1 %.not.i.i.i.i.i58, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEC2ERKNS_22IndexAdditiveQuantizerE.exit, label %.noexc8.i59
 
@@ -1804,7 +1804,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i65: ; preds = %202
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %210, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %210, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i66 = icmp eq i64 %217, 0
   br i1 %.not.i.i.i.i.i66, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEC2ERKNS_22IndexAdditiveQuantizerE.exit, label %.noexc8.i67
 
@@ -1875,7 +1875,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i73: ; preds = %232
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %240, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %240, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i74 = icmp eq i64 %247, 0
   br i1 %.not.i.i.i.i.i74, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEC2ERKNS_22IndexAdditiveQuantizerE.exit, label %.noexc8.i75
 
@@ -1946,7 +1946,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i81: ; preds = %262
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %270, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %270, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i82 = icmp eq i64 %277, 0
   br i1 %.not.i.i.i.i.i82, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEC2ERKNS_22IndexAdditiveQuantizerE.exit, label %.noexc8.i83
 
@@ -8282,7 +8282,7 @@ define void @_ZN5faiss23ResidualCoarseQuantizerC2EiRKSt6vectorImSaImEENS_10Metri
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %7, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss23ResidualCoarseQuantizerE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN5faiss17ResidualQuantizerC1EmRKSt6vectorImSaImEENS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(432) %7, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 0)
           to label %16 unwind label %32
@@ -8879,7 +8879,7 @@ define void @_ZN5faiss26LocalSearchCoarseQuantizerC2EimmNS_10MetricTypeE(ptr nou
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %8, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss26LocalSearchCoarseQuantizerE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(393) %8, i64 noundef %7, i64 noundef %2, i64 noundef %3, i32 noundef 0)
           to label %17 unwind label %32

@@ -609,7 +609,7 @@ _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, ptr nocapture noundef writeonly %out_tags, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 36) i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, ptr nocapture noundef writeonly %out_tags, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -722,7 +722,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3net22CryptoHandshakeMessage13GetNthValue24EjjPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, i32 noundef %index, ptr nocapture noundef writeonly %out) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 38) i32 @_ZNK3net22CryptoHandshakeMessage13GetNthValue24EjjPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, i32 noundef %index, ptr nocapture noundef writeonly %out) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp6.i = alloca %"class.base::BasicStringPiece", align 8
   %value = alloca %"class.base::BasicStringPiece", align 8
@@ -765,7 +765,7 @@ _ZNK3net22CryptoHandshakeMessage14GetStringPieceEjPN4base16BasicStringPieceINSt7
 _ZNK3net22CryptoHandshakeMessage14GetStringPieceEjPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit: ; preds = %_ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE4findERS9_.exit.i
   %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i)
   %call27 = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
   br i1 %call27, label %return, label %if.end4
@@ -824,7 +824,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK3net22CryptoHandshakeMessage9GetUint32EjPj(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 36) i32 @_ZNK3net22CryptoHandshakeMessage9GetUint32EjPj(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -874,7 +874,7 @@ _ZNK3net22CryptoHandshakeMessage6GetPODEjPvm.exit: ; preds = %entry, %_ZNKSt8_Rb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK3net22CryptoHandshakeMessage6GetPODEjPvm(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 36) i32 @_ZNK3net22CryptoHandshakeMessage6GetPODEjPvm(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -927,7 +927,7 @@ return:                                           ; preds = %if.end12, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK3net22CryptoHandshakeMessage9GetUint64EjPm(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 36) i32 @_ZNK3net22CryptoHandshakeMessage9GetUint64EjPm(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %tag, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

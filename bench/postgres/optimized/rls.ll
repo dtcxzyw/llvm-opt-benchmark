@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.check_enable_rls = private unnamed_addr constant [17 x i8] c"check_enable_rls\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @check_enable_rls(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @check_enable_rls(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %6
 
@@ -113,7 +113,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @row_security_active(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @row_security_active(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -167,7 +167,7 @@ check_enable_rls.exit:                            ; preds = %1, %7, %10, %23, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @row_security_active_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @row_security_active_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

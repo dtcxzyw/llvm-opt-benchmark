@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_psquash = external local_unnamed_addr global %struct.pmix_psquash_base_module_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   %3 = load i8, ptr getelementptr inbounds (%struct.pmix_psquash_globals_t, ptr @pmix_psquash_globals, i64 0, i32 1), align 1

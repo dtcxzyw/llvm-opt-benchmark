@@ -74,7 +74,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @pthread_detach(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_thread_join(ptr nocapture noundef %hnd) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @Curl_thread_join(ptr nocapture noundef %hnd) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %hnd, align 8
   %1 = load i64, ptr %0, align 8

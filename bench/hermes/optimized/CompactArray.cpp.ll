@@ -61,7 +61,7 @@ for.body.us.us60:                                 ; preds = %for.body.lr.ph.spli
   br i1 %cmp.i.i.us.us65, label %if.end.i.i.us.us66, label %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
 
 if.end.i.i.us.us66:                               ; preds = %for.body.us.us60
-  %conv1.i.i.us.us67 = trunc i16 %6 to i8
+  %conv1.i.i.us.us67 = trunc nuw i16 %6 to i8
   %arrayidx.i.i13.us.us68 = getelementptr inbounds i8, ptr %call.i, i64 %indvars.iv130
   store i8 %conv1.i.i.us.us67, ptr %arrayidx.i.i13.us.us68, align 1
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
@@ -79,7 +79,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   br i1 %cmp.i.i.us, label %if.end.i.i.us, label %_ZN6hermes12CompactArray6trySetEjj.exit.us
 
 if.end.i.i.us:                                    ; preds = %for.body.us
-  %conv1.i.i.us = trunc i32 %7 to i8
+  %conv1.i.i.us = trunc nuw i32 %7 to i8
   %arrayidx.i.i13.us = getelementptr inbounds i8, ptr %call.i, i64 %indvars.iv140
   store i8 %conv1.i.i.us, ptr %arrayidx.i.i13.us, align 1
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us
@@ -124,7 +124,7 @@ for.body.us26:                                    ; preds = %for.body.lr.ph.spli
   br i1 %cmp.i5.i.us, label %if.end.i6.i.us, label %_ZN6hermes12CompactArray6trySetEjj.exit.us39
 
 if.end.i6.i.us:                                   ; preds = %for.body.us26
-  %conv1.i7.i.us = trunc i32 %10 to i16
+  %conv1.i7.i.us = trunc nuw i32 %10 to i16
   %arrayidx.i9.i.us = getelementptr inbounds i16, ptr %call.i, i64 %indvars.iv125
   store i16 %conv1.i7.i.us, ptr %arrayidx.i9.i.us, align 2
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us39

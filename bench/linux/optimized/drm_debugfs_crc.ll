@@ -67,7 +67,7 @@ declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_crtc_add_crc_entry(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @drm_crtc_add_crc_entry(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = zext i1 %1 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 1520
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #8
@@ -552,7 +552,7 @@ define internal i64 @crtc_crc_read(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crtc_crc_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 66) i32 @crtc_crc_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 592

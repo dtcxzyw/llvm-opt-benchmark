@@ -427,12 +427,12 @@ define dso_local i64 @name_bpchar(ptr nocapture noundef readonly %0) local_unnam
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpchartypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpchartypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #12
-  %6 = tail call fastcc i32 @anychar_typmodin(ptr noundef %5, ptr noundef nonnull @.str.2), !range !9
+  %6 = tail call fastcc i32 @anychar_typmodin(ptr noundef %5, ptr noundef nonnull @.str.2)
   %7 = zext nneg i32 %6 to i64
   ret i64 %7
 }
@@ -440,7 +440,7 @@ define dso_local i64 @bpchartypmodin(ptr nocapture noundef readonly %0) local_un
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @anychar_typmodin(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 5, 10485765) i32 @anychar_typmodin(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = call ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef nonnull %3) #12
   %5 = load i32, ptr %3, align 4
@@ -543,7 +543,7 @@ define internal fastcc ptr @varchar_input(ptr noundef %0, i64 noundef %1, i32 no
 14:                                               ; preds = %.lr.ph
   %15 = add i64 %.02125, 1
   %exitcond.not = icmp eq i64 %15, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %9, %14
   %.02125 = phi i64 [ %15, %14 ], [ %12, %9 ]
@@ -742,7 +742,7 @@ define dso_local i64 @varchar(ptr nocapture noundef readonly %0) local_unnamed_a
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %33, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
@@ -772,12 +772,12 @@ define dso_local i64 @varchar(ptr nocapture noundef readonly %0) local_unnamed_a
 declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @varchartypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @varchartypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #12
-  %6 = tail call fastcc i32 @anychar_typmodin(ptr noundef %5, ptr noundef nonnull @__func__.varchar), !range !9
+  %6 = tail call fastcc i32 @anychar_typmodin(ptr noundef %5, ptr noundef nonnull @__func__.varchar)
   %7 = zext nneg i32 %6 to i64
   ret i64 %7
 }
@@ -825,10 +825,10 @@ define dso_local i32 @bpchartruelen(ptr nocapture noundef readonly %0, i32 nound
   %11 = getelementptr i8, ptr %0, i64 %10
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 32
-  br i1 %.not, label %6, label %.split.loop.exit, !llvm.loop !12
+  br i1 %.not, label %6, label %.split.loop.exit, !llvm.loop !11
 
 .split.loop.exit:                                 ; preds = %9
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   br label %.split.loop.exit6
 
 .split.loop.exit6:                                ; preds = %6, %.split.loop.exit
@@ -837,7 +837,7 @@ define dso_local i32 @bpchartruelen(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpcharlen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharlen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -895,10 +895,10 @@ define dso_local i64 @bpcharlen(ptr nocapture noundef readonly %0) local_unnamed
   %38 = getelementptr i8, ptr %30, i64 %37
   %39 = load i8, ptr %38, align 1
   %.not.i.i = icmp eq i8 %39, 32
-  br i1 %.not.i.i, label %33, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %33, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %36
-  %40 = trunc i64 %indvars.iv.i.i to i32
+  %40 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %33, %.split.loop.exit.i.i
@@ -925,7 +925,7 @@ bcTruelen.exit:                                   ; preds = %33, %.split.loop.ex
 declare i32 @pg_database_encoding_max_length() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpcharoctetlen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharoctetlen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @toast_raw_datum_size(i64 noundef %3) #12
@@ -938,7 +938,7 @@ define dso_local i64 @bpcharoctetlen(ptr nocapture noundef readonly %0) local_un
 declare i64 @toast_raw_datum_size(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpchareq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpchareq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1015,10 +1015,10 @@ check_collation_set.exit:                         ; preds = %1
   %49 = getelementptr i8, ptr %41, i64 %48
   %50 = load i8, ptr %49, align 1
   %.not.i.i = icmp eq i8 %50, 32
-  br i1 %.not.i.i, label %44, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %44, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %47
-  %51 = trunc i64 %indvars.iv.i.i to i32
+  %51 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %44, %.split.loop.exit.i.i
@@ -1076,10 +1076,10 @@ bcTruelen.exit:                                   ; preds = %44, %.split.loop.ex
   %84 = getelementptr i8, ptr %76, i64 %83
   %85 = load i8, ptr %84, align 1
   %.not.i.i53 = icmp eq i8 %85, 32
-  br i1 %.not.i.i53, label %79, label %.split.loop.exit.i.i54, !llvm.loop !12
+  br i1 %.not.i.i53, label %79, label %.split.loop.exit.i.i54, !llvm.loop !11
 
 .split.loop.exit.i.i54:                           ; preds = %82
-  %86 = trunc i64 %indvars.iv.i.i50 to i32
+  %86 = trunc nuw i64 %indvars.iv.i.i50 to i32
   br label %bcTruelen.exit56
 
 bcTruelen.exit56:                                 ; preds = %79, %.split.loop.exit.i.i54
@@ -1165,7 +1165,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 declare i32 @varstr_cmp(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpcharne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpcharne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1242,10 +1242,10 @@ check_collation_set.exit:                         ; preds = %1
   %49 = getelementptr i8, ptr %41, i64 %48
   %50 = load i8, ptr %49, align 1
   %.not.i.i = icmp eq i8 %50, 32
-  br i1 %.not.i.i, label %44, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %44, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %47
-  %51 = trunc i64 %indvars.iv.i.i to i32
+  %51 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %44, %.split.loop.exit.i.i
@@ -1303,10 +1303,10 @@ bcTruelen.exit:                                   ; preds = %44, %.split.loop.ex
   %84 = getelementptr i8, ptr %76, i64 %83
   %85 = load i8, ptr %84, align 1
   %.not.i.i53 = icmp eq i8 %85, 32
-  br i1 %.not.i.i53, label %79, label %.split.loop.exit.i.i54, !llvm.loop !12
+  br i1 %.not.i.i53, label %79, label %.split.loop.exit.i.i54, !llvm.loop !11
 
 .split.loop.exit.i.i54:                           ; preds = %82
-  %86 = trunc i64 %indvars.iv.i.i50 to i32
+  %86 = trunc nuw i64 %indvars.iv.i.i50 to i32
   br label %bcTruelen.exit56
 
 bcTruelen.exit56:                                 ; preds = %79, %.split.loop.exit.i.i54
@@ -1381,7 +1381,7 @@ bcTruelen.exit56:                                 ; preds = %79, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpcharlt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpcharlt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1443,10 +1443,10 @@ define dso_local i64 @bpcharlt(ptr nocapture noundef readonly %0) local_unnamed_
   %42 = getelementptr i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %40
-  %44 = trunc i64 %indvars.iv.i.i to i32
+  %44 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %37, %.split.loop.exit.i.i
@@ -1504,10 +1504,10 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !11
 
 .split.loop.exit.i.i29:                           ; preds = %75
-  %79 = trunc i64 %indvars.iv.i.i25 to i32
+  %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
   br label %bcTruelen.exit31
 
 bcTruelen.exit31:                                 ; preds = %72, %.split.loop.exit.i.i29
@@ -1549,7 +1549,7 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpcharle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpcharle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1611,10 +1611,10 @@ define dso_local i64 @bpcharle(ptr nocapture noundef readonly %0) local_unnamed_
   %42 = getelementptr i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %40
-  %44 = trunc i64 %indvars.iv.i.i to i32
+  %44 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %37, %.split.loop.exit.i.i
@@ -1672,10 +1672,10 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !11
 
 .split.loop.exit.i.i29:                           ; preds = %75
-  %79 = trunc i64 %indvars.iv.i.i25 to i32
+  %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
   br label %bcTruelen.exit31
 
 bcTruelen.exit31:                                 ; preds = %72, %.split.loop.exit.i.i29
@@ -1717,7 +1717,7 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpchargt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpchargt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1779,10 +1779,10 @@ define dso_local i64 @bpchargt(ptr nocapture noundef readonly %0) local_unnamed_
   %42 = getelementptr i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %40
-  %44 = trunc i64 %indvars.iv.i.i to i32
+  %44 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %37, %.split.loop.exit.i.i
@@ -1840,10 +1840,10 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !11
 
 .split.loop.exit.i.i29:                           ; preds = %75
-  %79 = trunc i64 %indvars.iv.i.i25 to i32
+  %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
   br label %bcTruelen.exit31
 
 bcTruelen.exit31:                                 ; preds = %72, %.split.loop.exit.i.i29
@@ -1885,7 +1885,7 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpcharge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpcharge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1947,10 +1947,10 @@ define dso_local i64 @bpcharge(ptr nocapture noundef readonly %0) local_unnamed_
   %42 = getelementptr i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %40
-  %44 = trunc i64 %indvars.iv.i.i to i32
+  %44 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %37, %.split.loop.exit.i.i
@@ -2008,10 +2008,10 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !11
 
 .split.loop.exit.i.i29:                           ; preds = %75
-  %79 = trunc i64 %indvars.iv.i.i25 to i32
+  %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
   br label %bcTruelen.exit31
 
 bcTruelen.exit31:                                 ; preds = %72, %.split.loop.exit.i.i29
@@ -2053,7 +2053,7 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpcharcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2115,10 +2115,10 @@ define dso_local i64 @bpcharcmp(ptr nocapture noundef readonly %0) local_unnamed
   %42 = getelementptr i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %40
-  %44 = trunc i64 %indvars.iv.i.i to i32
+  %44 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %37, %.split.loop.exit.i.i
@@ -2176,10 +2176,10 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i28 = icmp eq i8 %78, 32
-  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %72, label %.split.loop.exit.i.i29, !llvm.loop !11
 
 .split.loop.exit.i.i29:                           ; preds = %75
-  %79 = trunc i64 %indvars.iv.i.i25 to i32
+  %79 = trunc nuw i64 %indvars.iv.i.i25 to i32
   br label %bcTruelen.exit31
 
 bcTruelen.exit31:                                 ; preds = %72, %.split.loop.exit.i.i29
@@ -2299,10 +2299,10 @@ define dso_local i64 @bpchar_larger(ptr nocapture noundef readonly %0) local_unn
   %42 = getelementptr i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %40
-  %44 = trunc i64 %indvars.iv.i.i to i32
+  %44 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %37, %.split.loop.exit.i.i
@@ -2360,10 +2360,10 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i21 = icmp eq i8 %78, 32
-  br i1 %.not.i.i21, label %72, label %.split.loop.exit.i.i22, !llvm.loop !12
+  br i1 %.not.i.i21, label %72, label %.split.loop.exit.i.i22, !llvm.loop !11
 
 .split.loop.exit.i.i22:                           ; preds = %75
-  %79 = trunc i64 %indvars.iv.i.i18 to i32
+  %79 = trunc nuw i64 %indvars.iv.i.i18 to i32
   br label %bcTruelen.exit24
 
 bcTruelen.exit24:                                 ; preds = %72, %.split.loop.exit.i.i22
@@ -2448,10 +2448,10 @@ define dso_local i64 @bpchar_smaller(ptr nocapture noundef readonly %0) local_un
   %42 = getelementptr i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 32
-  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %37, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %40
-  %44 = trunc i64 %indvars.iv.i.i to i32
+  %44 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %37, %.split.loop.exit.i.i
@@ -2509,10 +2509,10 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %77 = getelementptr i8, ptr %69, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i.i21 = icmp eq i8 %78, 32
-  br i1 %.not.i.i21, label %72, label %.split.loop.exit.i.i22, !llvm.loop !12
+  br i1 %.not.i.i21, label %72, label %.split.loop.exit.i.i22, !llvm.loop !11
 
 .split.loop.exit.i.i22:                           ; preds = %75
-  %79 = trunc i64 %indvars.iv.i.i18 to i32
+  %79 = trunc nuw i64 %indvars.iv.i.i18 to i32
   br label %bcTruelen.exit24
 
 bcTruelen.exit24:                                 ; preds = %72, %.split.loop.exit.i.i22
@@ -2535,7 +2535,7 @@ bcTruelen.exit24:                                 ; preds = %72, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashbpchar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashbpchar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2612,10 +2612,10 @@ define dso_local i64 @hashbpchar(ptr nocapture noundef readonly %0) local_unname
   %48 = getelementptr i8, ptr %40, i64 %47
   %49 = load i8, ptr %48, align 1
   %.not.i.i = icmp eq i8 %49, 32
-  br i1 %.not.i.i, label %43, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %43, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %46
-  %50 = trunc i64 %indvars.iv.i.i to i32
+  %50 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %43, %.split.loop.exit.i.i
@@ -2758,10 +2758,10 @@ define dso_local i64 @hashbpcharextended(ptr nocapture noundef readonly %0) loca
   %48 = getelementptr i8, ptr %40, i64 %47
   %49 = load i8, ptr %48, align 1
   %.not.i.i = icmp eq i8 %49, 32
-  br i1 %.not.i.i, label %43, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %43, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %46
-  %50 = trunc i64 %indvars.iv.i.i to i32
+  %50 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %43, %.split.loop.exit.i.i
@@ -2824,7 +2824,7 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpchar_pattern_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpchar_pattern_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2914,10 +2914,10 @@ define internal fastcc i32 @internal_bpchar_pattern_compare(ptr nocapture nounde
   %35 = getelementptr i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1
   %.not.i.i = icmp eq i8 %36, 32
-  br i1 %.not.i.i, label %30, label %.split.loop.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %30, label %.split.loop.exit.i.i, !llvm.loop !11
 
 .split.loop.exit.i.i:                             ; preds = %33
-  %37 = trunc i64 %indvars.iv.i.i to i32
+  %37 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %bcTruelen.exit
 
 bcTruelen.exit:                                   ; preds = %30, %.split.loop.exit.i.i
@@ -2975,10 +2975,10 @@ bcTruelen.exit:                                   ; preds = %30, %.split.loop.ex
   %70 = getelementptr i8, ptr %62, i64 %69
   %71 = load i8, ptr %70, align 1
   %.not.i.i28 = icmp eq i8 %71, 32
-  br i1 %.not.i.i28, label %65, label %.split.loop.exit.i.i29, !llvm.loop !12
+  br i1 %.not.i.i28, label %65, label %.split.loop.exit.i.i29, !llvm.loop !11
 
 .split.loop.exit.i.i29:                           ; preds = %68
-  %72 = trunc i64 %indvars.iv.i.i25 to i32
+  %72 = trunc nuw i64 %indvars.iv.i.i25 to i32
   br label %bcTruelen.exit31
 
 bcTruelen.exit31:                                 ; preds = %65, %.split.loop.exit.i.i29
@@ -3012,7 +3012,7 @@ bcTruelen.exit31:                                 ; preds = %65, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpchar_pattern_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpchar_pattern_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3048,7 +3048,7 @@ define dso_local i64 @bpchar_pattern_le(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpchar_pattern_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpchar_pattern_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3084,7 +3084,7 @@ define dso_local i64 @bpchar_pattern_ge(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bpchar_pattern_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bpchar_pattern_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3120,7 +3120,7 @@ define dso_local i64 @bpchar_pattern_gt(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @btbpchar_pattern_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @btbpchar_pattern_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3214,7 +3214,6 @@ attributes #13 = { cold nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 5, i32 10485765}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

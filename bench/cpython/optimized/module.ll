@@ -1521,7 +1521,7 @@ declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, pt
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @module_exec(ptr noundef %module) #1 {
+define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %module) #1 {
 entry:
   %call = tail call i32 @sqlite3_libversion_number() #5
   %cmp = icmp slt i32 %call, 3015002
@@ -1795,7 +1795,7 @@ if.end247:                                        ; preds = %if.end240
 if.end254:                                        ; preds = %if.end247
   %str_value = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr %call251, ptr %str_value, align 8
-  %call256 = tail call fastcc i32 @add_error_constants(ptr noundef %module), !range !7
+  %call256 = tail call fastcc i32 @add_error_constants(ptr noundef %module)
   %cmp257 = icmp slt i32 %call256, 0
   br i1 %cmp257, label %error, label %if.end259
 
@@ -1821,7 +1821,7 @@ if.end271:                                        ; preds = %if.end267
   br i1 %cmp273, label %error, label %if.end275
 
 if.end275:                                        ; preds = %if.end271
-  %call276 = tail call fastcc i32 @get_threadsafety(ptr noundef nonnull %call.i), !range !8
+  %call276 = tail call fastcc i32 @get_threadsafety(ptr noundef nonnull %call.i)
   %cmp277 = icmp slt i32 %call276, 0
   br i1 %cmp277, label %error, label %if.end279
 
@@ -1842,7 +1842,7 @@ if.end289:                                        ; preds = %if.end284
   br i1 %cmp291, label %error, label %if.end294
 
 if.end294:                                        ; preds = %if.end289
-  %call295 = tail call fastcc i32 @load_functools_lru_cache(ptr noundef %module), !range !7
+  %call295 = tail call fastcc i32 @load_functools_lru_cache(ptr noundef %module)
   %cmp296 = icmp slt i32 %call295, 0
   br i1 %cmp296, label %error, label %return
 
@@ -1880,7 +1880,7 @@ declare ptr @PyErr_NewException(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_error_constants(ptr noundef %module) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @add_error_constants(ptr noundef %module) unnamed_addr #1 {
 entry:
   br label %for.body
 
@@ -1890,7 +1890,7 @@ for.cond:                                         ; preds = %for.body
   %arrayidx = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %entry, %for.cond
   %1 = phi ptr [ @.str.1, %entry ], [ %0, %for.cond ]
@@ -2246,7 +2246,7 @@ declare ptr @sqlite3_libversion() local_unnamed_addr #2
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_threadsafety(ptr nocapture noundef readonly %state) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 4) i32 @get_threadsafety(ptr nocapture noundef readonly %state) unnamed_addr #1 {
 entry:
   %call = tail call i32 @sqlite3_threadsafe() #5
   %0 = icmp ult i32 %call, 3
@@ -2291,7 +2291,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_functools_lru_cache(ptr noundef %module) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @load_functools_lru_cache(ptr noundef %module) unnamed_addr #1 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
   %call1 = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211) #5
@@ -2337,6 +2337,4 @@ attributes #6 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 1}
-!8 = !{i32 -1, i32 4}
-!9 = distinct !{!9, !5}
+!7 = distinct !{!7, !5}

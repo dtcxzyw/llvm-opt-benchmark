@@ -1574,7 +1574,7 @@ declare dso_local i64 @__vfs_getxattr(ptr noundef, ptr noundef, ptr noundef, ptr
 declare dso_local i32 @security_genfs_sid(ptr noundef, ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc noundef zeroext i16 @inode_mode_to_security_class(i16 noundef zeroext %0) unnamed_addr #6 align 16 {
+define internal fastcc noundef zeroext range(i16 7, 15) i16 @inode_mode_to_security_class(i16 noundef zeroext %0) unnamed_addr #6 align 16 {
   %2 = zext i16 %0 to i32
   %3 = add nsw i32 %2, -4096
   %4 = lshr i32 %3, 12
@@ -2441,7 +2441,7 @@ define internal i32 @selinux_syslog(i32 noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_vm_enough_memory(ptr nocapture readnone %0, i64 %1) #1 align 16 {
+define internal range(i32 0, 2) i32 @selinux_vm_enough_memory(ptr nocapture readnone %0, i64 %1) #1 align 16 {
   %3 = alloca %struct.av_decision, align 4
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
@@ -3127,7 +3127,7 @@ define internal void @selinux_free_mnt_opts(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_sb_mnt_opts_compat(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds (%struct.lsm_blob_sizes, ptr @selinux_blob_sizes, i64 0, i32 3), align 4
@@ -3292,7 +3292,7 @@ define internal i32 @selinux_sb_mnt_opts_compat(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_sb_remount(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds (%struct.lsm_blob_sizes, ptr @selinux_blob_sizes, i64 0, i32 3), align 4
@@ -6833,7 +6833,7 @@ define internal i32 @selinux_inode_setsecurity(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_inode_listsecurity(ptr nocapture readnone %0, ptr noundef writeonly %1, i64 noundef %2) #1 align 16 {
+define internal noundef range(i32 0, 18) i32 @selinux_inode_listsecurity(ptr nocapture readnone %0, ptr noundef writeonly %1, i64 noundef %2) #1 align 16 {
   %4 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 1), align 1, !range !7, !noundef !8
   %5 = icmp eq i8 %4, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !9
@@ -6870,7 +6870,7 @@ define internal void @selinux_inode_getsecid(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_inode_copy_up(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @selinux_inode_copy_up(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #1 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -6909,7 +6909,7 @@ define internal noundef i32 @selinux_inode_copy_up(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @selinux_inode_copy_up_xattr(ptr nocapture noundef readonly %0) #12 align 16 {
+define internal range(i32 -95, 2) i32 @selinux_inode_copy_up_xattr(ptr nocapture noundef readonly %0) #12 align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(17) @.str.21) #24
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i32 1, i32 -95
@@ -9896,7 +9896,7 @@ define internal void @selinux_d_instantiate(ptr noundef %0, ptr noundef %1) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_getselfattr(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 %3) #1 align 16 {
+define internal range(i32 1, 0) i32 @selinux_getselfattr(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 %3) #1 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   store ptr null, ptr %5, align 8
@@ -9922,7 +9922,7 @@ define internal i32 @selinux_getselfattr(i32 noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_setselfattr(i32 noundef %0, ptr noundef %1, i64 %2, i32 %3) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @selinux_setselfattr(i32 noundef %0, ptr noundef %1, i64 %2, i32 %3) #1 align 16 {
   %5 = zext i32 %0 to i64
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -9971,7 +9971,7 @@ define internal i32 @selinux_setprocattr(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @selinux_ismaclabel(ptr nocapture noundef readonly %0) #12 align 16 {
+define internal range(i32 0, 2) i32 @selinux_ismaclabel(ptr nocapture noundef readonly %0) #12 align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str) #24
   %3 = icmp eq i32 %2, 0
   %4 = zext i1 %3 to i32
@@ -11122,7 +11122,7 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %6, i64 16
   store i16 %28, ptr %36, align 8
-  %37 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null), !range !28
+  %37 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %52
 
@@ -11188,7 +11188,7 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
   store ptr null, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %9, i64 16
   store i16 %28, ptr %73, align 8
-  %74 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 1, ptr noundef null), !range !28
+  %74 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 1, ptr noundef null)
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %107
 
@@ -11319,9 +11319,9 @@ define internal i32 @selinux_socket_getpeersec_stream(ptr nocapture noundef read
   br i1 %31, label %32, label %33, !prof !10
 
 32:                                               ; preds = %30
-  call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #24, !srcloc !29
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.56, i32 249, i32 2307, i64 12) #24, !srcloc !30
-  call void asm sideeffect "44: nop\0A\09.pushsection .discard.instr_end\0A\09.long 44b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 44) #24, !srcloc !31
+  call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #24, !srcloc !28
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.56, i32 249, i32 2307, i64 12) #24, !srcloc !29
+  call void asm sideeffect "44: nop\0A\09.pushsection .discard.instr_end\0A\09.long 44b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 44) #24, !srcloc !30
   br label %39
 
 33:                                               ; preds = %30
@@ -11367,7 +11367,7 @@ define internal i32 @selinux_socket_getpeersec_stream(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_socket_getpeersec_dgram(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -11701,7 +11701,7 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
   %27 = zext nneg i32 %20 to i64
   %28 = getelementptr i8, ptr %12, i64 %27
   %29 = icmp slt i32 %21, %3
-  br i1 %29, label %.preheader.split.us, label %.thread, !llvm.loop !32
+  br i1 %29, label %.preheader.split.us, label %.thread, !llvm.loop !31
 
 .preheader.split.us4:                             ; preds = %.preheader.split.us4.preheader, %47
   %30 = phi ptr [ %49, %47 ], [ %2, %.preheader.split.us4.preheader ]
@@ -11742,7 +11742,7 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
   %48 = zext nneg i32 %38 to i64
   %49 = getelementptr i8, ptr %30, i64 %48
   %50 = icmp slt i32 %39, %3
-  br i1 %50, label %.preheader.split.us4, label %.thread, !llvm.loop !32
+  br i1 %50, label %.preheader.split.us4, label %.thread, !llvm.loop !31
 
 .thread:                                          ; preds = %.preheader.split.us4, %34, %37, %41, %44, %47, %26, %23, %19, %16, %.preheader.split.us, %.preheader, %7, %4
   %51 = phi i32 [ 0, %4 ], [ 0, %7 ], [ -22, %.preheader ], [ -22, %.preheader.split.us ], [ -22, %16 ], [ -22, %19 ], [ %24, %23 ], [ 0, %26 ], [ -22, %.preheader.split.us4 ], [ -22, %34 ], [ -22, %37 ], [ %42, %41 ], [ %45, %44 ], [ 0, %47 ]
@@ -11958,13 +11958,13 @@ define internal i32 @selinux_secmark_relabel_packet(i32 noundef %0) #1 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_secmark_refcount_inc() #1 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #24, !srcloc !33
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #24, !srcloc !32
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_secmark_refcount_dec() #1 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #24, !srcloc !34
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #24, !srcloc !33
   ret void
 }
 
@@ -12102,9 +12102,9 @@ define internal i32 @selinux_key_permission(ptr noundef %0, ptr nocapture nounde
   br label %10
 
 9:                                                ; preds = %3
-  tail call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #24, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 6732, i32 2305, i64 12) #24, !srcloc !36
-  tail call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #24, !srcloc !37
+  tail call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #24, !srcloc !34
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 6732, i32 2305, i64 12) #24, !srcloc !35
+  tail call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #24, !srcloc !36
   br label %26
 
 10:                                               ; preds = %8, %7, %6, %5, %4, %3
@@ -12325,7 +12325,7 @@ define internal i32 @selinux_uring_cmd(ptr nocapture noundef readonly %0) #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_fs_context_submount(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @selinux_fs_context_submount(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds (%struct.lsm_blob_sizes, ptr @selinux_blob_sizes, i64 0, i32 3), align 4
@@ -12389,7 +12389,7 @@ define internal noundef i32 @selinux_fs_context_submount(ptr nocapture noundef w
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_fs_context_dup(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @selinux_fs_context_dup(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -12466,7 +12466,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
 19:                                               ; preds = %.thread, %14
   %20 = phi i8 [ %13, %.thread ], [ %8, %14 ]
   %21 = add i32 %9, 1
-  br label %7, !llvm.loop !38
+  br label %7, !llvm.loop !37
 
 22:                                               ; preds = %14, %7
   %23 = getelementptr i8, ptr %4, i64 %10
@@ -12475,7 +12475,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
 24:                                               ; preds = %27, %48, %43, %44, %34
   %25 = add nuw nsw i64 %28, 1
   %26 = icmp eq i64 %25, 5
-  br i1 %26, label %.thread12, label %27, !llvm.loop !39
+  br i1 %26, label %.thread12, label %27, !llvm.loop !38
 
 27:                                               ; preds = %24, %22
   %28 = phi i64 [ 0, %22 ], [ %25, %24 ]
@@ -12549,7 +12549,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
   %68 = phi ptr [ %66, %65 ], [ %61, %.preheader ]
   %69 = getelementptr i8, ptr %62, i64 1
   %70 = icmp ult ptr %69, %23
-  br i1 %70, label %.preheader, label %.loopexit, !llvm.loop !40
+  br i1 %70, label %.preheader, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %67, %59
   %71 = phi ptr [ %50, %59 ], [ %68, %67 ]
@@ -12830,7 +12830,7 @@ define internal i32 @selinux_secid_to_secctx(i32 noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_inode_getsecctx(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @selinux_inode_getsecctx(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = tail call i32 @selinux_inode_getsecurity(ptr nonnull poison, ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %1, i1 noundef zeroext true)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %7, label %6
@@ -12845,7 +12845,7 @@ define internal i32 @selinux_inode_getsecctx(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_sk_alloc_security(ptr nocapture noundef writeonly %0, i32 %1, i32 noundef %2) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @selinux_sk_alloc_security(ptr nocapture noundef writeonly %0, i32 %1, i32 noundef %2) #1 align 16 {
   %4 = or i32 %2, 256
   %5 = and i32 %2, 17
   %6 = icmp eq i32 %5, 0
@@ -12883,7 +12883,7 @@ define internal noundef i32 @selinux_sk_alloc_security(ptr nocapture noundef wri
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_tun_dev_alloc_security(ptr nocapture noundef writeonly %0) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @selinux_tun_dev_alloc_security(ptr nocapture noundef writeonly %0) #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 4) #28
   %4 = icmp eq ptr %3, null
@@ -12911,7 +12911,7 @@ define internal noundef i32 @selinux_tun_dev_alloc_security(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_key_alloc(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @selinux_key_alloc(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #1 align 16 {
   %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 4) #28
   %6 = icmp eq ptr %5, null
@@ -12949,7 +12949,7 @@ define internal noundef i32 @selinux_key_alloc(ptr nocapture noundef writeonly %
 declare dso_local i32 @selinux_audit_rule_init(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_perf_event_alloc(ptr nocapture noundef writeonly %0) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @selinux_perf_event_alloc(ptr nocapture noundef writeonly %0) #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 4) #28
   %4 = icmp eq ptr %3, null
@@ -14255,7 +14255,7 @@ declare dso_local i32 @__vfs_setxattr_noperm(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @security_sid_mls_copy(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
-define internal fastcc noundef zeroext i16 @socket_type_to_security_class(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 align 16 {
+define internal fastcc noundef zeroext range(i16 15, 94) i16 @socket_type_to_security_class(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 align 16 {
   %4 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 2, i64 2), align 4, !range !7, !noundef !8
   %5 = icmp ne i8 %4, 0
   switch i32 %0, label %45 [
@@ -14707,7 +14707,7 @@ declare dso_local i32 @selinux_netlbl_socket_connect(ptr noundef, ptr noundef) l
 declare dso_local i32 @selinux_netlbl_socket_setsockopt(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @selinux_parse_skb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.ipv6hdr, align 4
   %8 = alloca i16, align 2
@@ -15516,9 +15516,9 @@ define internal fastcc i32 @selinux_add_opt(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %44, label %46, label %52
 
 45:                                               ; preds = %20
-  tail call void asm sideeffect "1062: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1062b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1062) #24, !srcloc !41
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 1038, i32 2305, i64 12) #24, !srcloc !42
-  tail call void asm sideeffect "1063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1063) #24, !srcloc !43
+  tail call void asm sideeffect "1062: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1062b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1062) #24, !srcloc !40
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 1038, i32 2305, i64 12) #24, !srcloc !41
+  tail call void asm sideeffect "1063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1063) #24, !srcloc !42
   br label %54
 
 46:                                               ; preds = %41, %33, %30, %26
@@ -15659,7 +15659,7 @@ define internal noundef i32 @selinux_ip_postroute(ptr nocapture readnone %0, ptr
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %9, i64 16
   store i16 %41, ptr %44, align 8
-  %45 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10), !range !28
+  %45 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10)
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %.thread
 
@@ -15918,7 +15918,7 @@ define internal noundef i32 @selinux_ip_postroute(ptr nocapture readnone %0, ptr
   store ptr null, ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %13, i64 16
   store i16 %180, ptr %188, align 8
-  %189 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null), !range !28
+  %189 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null)
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %220
 
@@ -15993,7 +15993,7 @@ define internal noundef i32 @selinux_ip_postroute(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @selinux_ip_forward(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -16075,7 +16075,7 @@ define internal noundef i32 @selinux_ip_forward(ptr nocapture readnone %0, ptr n
   store ptr null, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %11, i64 16
   store i16 %31, ptr %48, align 8
-  %49 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null), !range !28
+  %49 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %88
 
@@ -16165,7 +16165,7 @@ define internal noundef i32 @selinux_ip_forward(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_ip_output(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal range(i32 0, 2) i32 @selinux_ip_output(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = tail call i32 @netlbl_enabled() #24
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %29, label %6
@@ -16288,19 +16288,18 @@ attributes #31 = { nounwind allocsize(1) }
 !25 = !{!"branch_weights", i32 2146410176, i32 1073472}
 !26 = !{i16 7, i16 15}
 !27 = !{i16 15, i16 94}
-!28 = !{i32 -22, i32 1}
-!29 = !{i64 2149822934, i64 2149822748, i64 2149822800, i64 2149822846, i64 2149822874}
-!30 = !{i64 2149823005, i64 2149823034, i64 2149823080, i64 2149823138, i64 2149823192, i64 2149823246, i64 2149823301, i64 2149823332, i64 2149823640, i64 2149823646, i64 2149823693, i64 2149823716, i64 2149823742}
-!31 = !{i64 2149824197, i64 2149824013, i64 2149824063, i64 2149824109, i64 2149824137}
-!32 = distinct !{!32, !12, !13}
-!33 = !{i64 2148498753, i64 2148498792, i64 2148498813, i64 2148498850, i64 2148498873, i64 2148498743}
-!34 = !{i64 2148499116, i64 2148499155, i64 2148499176, i64 2148499213, i64 2148499236, i64 2148499106}
-!35 = !{i64 2164148368, i64 2164148172, i64 2164148224, i64 2164148270, i64 2164148298}
-!36 = !{i64 2164148445, i64 2164148474, i64 2164148520, i64 2164148578, i64 2164148632, i64 2164148686, i64 2164148741, i64 2164148772, i64 2164149080, i64 2164149086, i64 2164149133, i64 2164149156, i64 2164149182}
-!37 = !{i64 2164149645, i64 2164149451, i64 2164149501, i64 2164149547, i64 2164149575}
+!28 = !{i64 2149822934, i64 2149822748, i64 2149822800, i64 2149822846, i64 2149822874}
+!29 = !{i64 2149823005, i64 2149823034, i64 2149823080, i64 2149823138, i64 2149823192, i64 2149823246, i64 2149823301, i64 2149823332, i64 2149823640, i64 2149823646, i64 2149823693, i64 2149823716, i64 2149823742}
+!30 = !{i64 2149824197, i64 2149824013, i64 2149824063, i64 2149824109, i64 2149824137}
+!31 = distinct !{!31, !12, !13}
+!32 = !{i64 2148498753, i64 2148498792, i64 2148498813, i64 2148498850, i64 2148498873, i64 2148498743}
+!33 = !{i64 2148499116, i64 2148499155, i64 2148499176, i64 2148499213, i64 2148499236, i64 2148499106}
+!34 = !{i64 2164148368, i64 2164148172, i64 2164148224, i64 2164148270, i64 2164148298}
+!35 = !{i64 2164148445, i64 2164148474, i64 2164148520, i64 2164148578, i64 2164148632, i64 2164148686, i64 2164148741, i64 2164148772, i64 2164149080, i64 2164149086, i64 2164149133, i64 2164149156, i64 2164149182}
+!36 = !{i64 2164149645, i64 2164149451, i64 2164149501, i64 2164149547, i64 2164149575}
+!37 = distinct !{!37, !12, !13}
 !38 = distinct !{!38, !12, !13}
 !39 = distinct !{!39, !12, !13}
-!40 = distinct !{!40, !12, !13}
-!41 = !{i64 2164063857, i64 2164063661, i64 2164063713, i64 2164063759, i64 2164063787}
-!42 = !{i64 2164063934, i64 2164063963, i64 2164064009, i64 2164064067, i64 2164064121, i64 2164064175, i64 2164064230, i64 2164064261, i64 2164064569, i64 2164064575, i64 2164064622, i64 2164064645, i64 2164064671}
-!43 = !{i64 2164065134, i64 2164064940, i64 2164064990, i64 2164065036, i64 2164065064}
+!40 = !{i64 2164063857, i64 2164063661, i64 2164063713, i64 2164063759, i64 2164063787}
+!41 = !{i64 2164063934, i64 2164063963, i64 2164064009, i64 2164064067, i64 2164064121, i64 2164064175, i64 2164064230, i64 2164064261, i64 2164064569, i64 2164064575, i64 2164064622, i64 2164064645, i64 2164064671}
+!42 = !{i64 2164065134, i64 2164064940, i64 2164064990, i64 2164065036, i64 2164065064}

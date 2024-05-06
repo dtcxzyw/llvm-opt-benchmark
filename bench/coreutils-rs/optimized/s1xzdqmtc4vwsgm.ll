@@ -134,7 +134,7 @@ default.unreachable:                              ; preds = %.lr.ph
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h57a096544aee8d1eE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20"
   %42 = load ptr, ptr %11, align 8, !alias.scope !10, !noalias !13, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds i8, ptr %42, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %14, i64 %16, i1 false), !noalias !10
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %14, i64 %16, i1 false), !noalias !10
   %44 = add i64 %39, %16
   store i64 %44, ptr %10, align 8, !alias.scope !10, !noalias !13
   br label %48
@@ -524,7 +524,7 @@ default.unreachable:                              ; preds = %.lr.ph
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h57a096544aee8d1eE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20"
   %42 = load ptr, ptr %11, align 8, !alias.scope !55, !noalias !58, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds i8, ptr %42, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %14, i64 %16, i1 false), !noalias !55
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %14, i64 %16, i1 false), !noalias !55
   %44 = add i64 %39, %16
   store i64 %44, ptr %10, align 8, !alias.scope !55, !noalias !58
   br label %48

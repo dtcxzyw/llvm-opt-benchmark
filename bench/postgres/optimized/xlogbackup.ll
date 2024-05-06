@@ -44,11 +44,11 @@ define dso_local ptr @build_backup_content(ptr noundef %0, i1 noundef zeroext %1
   %20 = udiv i64 %16, %19
   %21 = trunc i64 %20 to i32
   %22 = urem i64 %16, %19
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %18, i32 noundef %21, i32 noundef %23) #2
   %25 = load i64, ptr %12, align 8
   %26 = lshr i64 %25, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = trunc i64 %25 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef %27, i32 noundef %28, ptr noundef nonnull %4) #2
   br i1 %1, label %29, label %47
@@ -65,11 +65,11 @@ define dso_local ptr @build_backup_content(ptr noundef %0, i1 noundef zeroext %1
   %38 = udiv i64 %34, %37
   %39 = trunc i64 %38 to i32
   %40 = urem i64 %34, %37
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %36, i32 noundef %39, i32 noundef %41) #2
   %43 = load i64, ptr %30, align 8
   %44 = lshr i64 %43, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = trunc i64 %43 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef %45, i32 noundef %46, ptr noundef nonnull %5) #2
   br label %47
@@ -78,7 +78,7 @@ define dso_local ptr @build_backup_content(ptr noundef %0, i1 noundef zeroext %1
   %48 = getelementptr inbounds i8, ptr %0, i64 1048
   %49 = load i64, ptr %48, align 8
   %50 = lshr i64 %49, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   %52 = trunc i64 %49 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %7, ptr noundef nonnull @.str.3, i32 noundef %51, i32 noundef %52) #2
   call void @appendStringInfoString(ptr noundef %7, ptr noundef nonnull @.str.4) #2
@@ -112,7 +112,7 @@ define dso_local ptr @build_backup_content(ptr noundef %0, i1 noundef zeroext %1
 
 69:                                               ; preds = %65
   %70 = lshr i64 %67, 32
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw i64 %70 to i32
   %72 = trunc i64 %67 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %7, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %72) #2
   %73 = getelementptr inbounds i8, ptr %0, i64 1080

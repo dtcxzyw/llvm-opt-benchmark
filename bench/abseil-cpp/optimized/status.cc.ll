@@ -1480,7 +1480,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4absl17ErrnoToStatusCodeEi(i32 noundef %error_number) local_unnamed_addr #7 {
+define dso_local noundef range(i32 0, 15) i32 @_ZN4absl17ErrnoToStatusCodeEi(i32 noundef %error_number) local_unnamed_addr #7 {
 entry:
   %0 = icmp ult i32 %error_number, 127
   br i1 %0, label %switch.lookup, label %return
@@ -1537,7 +1537,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN4absl12_GLOBAL__N_123MessageForErrnoToStatusB5cxx11EiSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %entry
-  %call = call noundef i32 @_ZN4absl17ErrnoToStatusCodeEi(i32 noundef %error_number), !range !9
+  %call = call noundef i32 @_ZN4absl17ErrnoToStatusCodeEi(i32 noundef %error_number)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
@@ -1709,7 +1709,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
 _ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #12
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !9
 
 _ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i
   %.pre.i.i.i = load i64, ptr %__ptr, align 8
@@ -1874,6 +1874,5 @@ attributes #15 = { noreturn nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN4absl12_GLOBAL__N_123MessageForErrnoToStatusB5cxx11EiSt17basic_string_viewIcSt11char_traitsIcEE: %agg.result"}
 !8 = distinct !{!8, !"_ZN4absl12_GLOBAL__N_123MessageForErrnoToStatusB5cxx11EiSt17basic_string_viewIcSt11char_traitsIcEE"}
-!9 = !{i32 0, i32 15}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}

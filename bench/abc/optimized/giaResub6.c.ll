@@ -181,7 +181,7 @@ Vec_WrdFill.exit56.i:                             ; preds = %Vec_WrdFill.exit.i,
   %74 = load ptr, ptr %73, align 8
   %75 = shl nuw nsw i32 %35, 3
   %76 = zext nneg i32 %75 to i64
-  call void @llvm.memset.p0.i64(ptr align 8 %74, i8 -1, i64 %76, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %74, i8 -1, i64 %76, i1 false)
   br label %Abc_TtFill.exit.i
 
 Abc_TtFill.exit.i:                                ; preds = %.lr.ph.preheader.i.i, %._crit_edge.i
@@ -312,7 +312,7 @@ Res6_ManStart.exit:                               ; preds = %Vec_IntGrow.exit59.
   br label %139
 
 133:                                              ; preds = %.lr.ph77
-  %134 = trunc i64 %indvars.iv88 to i32
+  %134 = trunc nuw nsw i64 %indvars.iv88 to i32
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %134, ptr noundef %0)
   call fastcc void @Res6_ManStop(ptr noundef %26)
   %.not70 = icmp eq ptr %120, null
@@ -381,7 +381,7 @@ Res6_ManStart.exit:                               ; preds = %Vec_IntGrow.exit59.
   br label %165
 
 159:                                              ; preds = %.lr.ph82
-  %160 = trunc i64 %indvars.iv98 to i32
+  %160 = trunc nuw nsw i64 %indvars.iv98 to i32
   %161 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %160, ptr noundef %0)
   call fastcc void @Res6_ManStop(ptr noundef %26)
   %.not69 = icmp eq ptr %120, null
@@ -785,7 +785,7 @@ define void @Res6_ManPrintProblem(ptr nocapture noundef readonly %0, i32 noundef
   %44 = mul nuw i64 %.429.i63.us.us, 4294967297
   %.5.i64.us.us = select i1 %36, i64 %44, i64 %.429.i63.us.us
   store i64 %.5.i64.us.us, ptr %39, align 8
-  %45 = trunc i64 %indvars.iv77 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv77 to i32
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %45)
   %47 = load ptr, ptr %30, align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv77
@@ -818,7 +818,7 @@ define void @Res6_ManPrintProblem(ptr nocapture noundef readonly %0, i32 noundef
   %65 = mul nuw i64 %64, 4294967297
   %.5.i64.us = select i1 %36, i64 %65, i64 %.429.i63.us
   store i64 %.5.i64.us, ptr %56, align 8
-  %66 = trunc i64 %indvars.iv74 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv74 to i32
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %66)
   %68 = load ptr, ptr %30, align 8
   %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv74
@@ -889,14 +889,14 @@ define void @Res6_ManPrintProblem(ptr nocapture noundef readonly %0, i32 noundef
 107:                                              ; preds = %._crit_edge, %76
   %.pre-phi81 = phi i64 [ %.pre80, %._crit_edge ], [ %93, %76 ]
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %78, %76 ]
-  %108 = trunc i64 %.pre-phi to i32
+  %108 = trunc nuw i64 %.pre-phi to i32
   %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %108)
   %110 = load ptr, ptr %21, align 8
   %111 = getelementptr inbounds ptr, ptr %110, i64 %.pre-phi
   %112 = load ptr, ptr %111, align 8
   tail call void @Dau_DsdPrintFromTruth2(ptr noundef %112, i32 noundef %5) #18
   %putchar47 = tail call i32 @putchar(i32 10)
-  %113 = trunc i64 %.pre-phi81 to i32
+  %113 = trunc nuw i64 %.pre-phi81 to i32
   %114 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %113)
   %115 = load ptr, ptr %21, align 8
   %116 = getelementptr inbounds ptr, ptr %115, i64 %.pre-phi81
@@ -911,7 +911,7 @@ define void @Res6_ManPrintProblem(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67, %.lr.ph67.split
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.lr.ph67.split ], [ 0, %.lr.ph67 ]
-  %121 = trunc i64 %indvars.iv71 to i32
+  %121 = trunc nuw nsw i64 %indvars.iv71 to i32
   %122 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %121)
   %123 = load ptr, ptr %30, align 8
   %124 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv71
@@ -1254,7 +1254,7 @@ define void @Res6_PrintSolution(ptr nocapture noundef readonly %0, i32 noundef %
   %.val = load i32, ptr %3, align 4
   %4 = sdiv i32 %.val, 2
   %5 = add nsw i32 %4, -1
-  %6 = tail call ptr @Res6_FindSupport(ptr noundef %0, i32 noundef %1)
+  %6 = tail call ptr @Res6_FindSupport(ptr noundef readonly %0, i32 noundef %1)
   %7 = getelementptr i8, ptr %6, i64 4
   %.val.i = load i32, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1596,7 +1596,7 @@ Abc_TtXor.exit:                                   ; preds = %.lr.ph22.i
   %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8
   %.pre82 = load i32, ptr %11, align 4
   %.pre83 = shl nsw i32 %.pre78, 1
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nsw i64 %indvars.iv to i32
   %44 = add nsw i32 %.pre83, %43
   %45 = or disjoint i32 %44, 1
   %46 = sext i32 %45 to i64
@@ -1654,7 +1654,7 @@ Abc_TtAnd.exit:                                   ; preds = %Abc_TtAnd.exit.loop
   %.pre-phi85 = phi i32 [ %.pre84, %Abc_TtAnd.exit.loopexit ], [ %23, %57 ]
   %64 = phi i32 [ %.pre76, %Abc_TtAnd.exit.loopexit ], [ %34, %57 ]
   %65 = phi ptr [ %.pre, %Abc_TtAnd.exit.loopexit ], [ %21, %57 ]
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nsw i64 %indvars.iv to i32
   %67 = add nsw i32 %.pre-phi85, %66
   %68 = or disjoint i32 %67, 1
   %69 = sext i32 %68 to i64
@@ -1694,7 +1694,7 @@ Abc_TtXor.exit51:                                 ; preds = %.lr.ph.i60, %.lr.ph
   %.val = load i32, ptr %5, align 4
   %88 = sext i32 %.val to i64
   %89 = icmp slt i64 %87, %88
-  %90 = trunc i64 %87 to i32
+  %90 = trunc nsw i64 %87 to i32
   br i1 %89, label %13, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %Abc_TtXor.exit51, %3
@@ -1930,7 +1930,7 @@ Res6_ManReadSol.exit:                             ; preds = %Vec_IntPush.exit.i,
   br label %.critedge
 
 .critedge:                                        ; preds = %58, %59
-  %70 = call i32 @Res6_FindBestEval(ptr noundef nonnull %14, ptr noundef nonnull %20, i32 noundef 0)
+  %70 = call i32 @Res6_FindBestEval(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %20, i32 noundef 0)
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73
 

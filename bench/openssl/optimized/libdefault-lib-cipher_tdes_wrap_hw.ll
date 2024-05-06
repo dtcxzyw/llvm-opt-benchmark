@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @wrap_cbc = internal constant %struct.prov_cipher_hw_st { ptr @ossl_cipher_hw_tdes_ede3_initkey, ptr @ossl_cipher_hw_tdes_cbc, ptr @ossl_cipher_hw_tdes_copyctx }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_prov_cipher_hw_tdes_wrap_cbc() local_unnamed_addr #0 {
+define noundef nonnull ptr @ossl_prov_cipher_hw_tdes_wrap_cbc() local_unnamed_addr #0 {
 entry:
   ret ptr @wrap_cbc
 }

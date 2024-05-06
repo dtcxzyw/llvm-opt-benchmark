@@ -2043,7 +2043,7 @@ declare dso_local void @intel_uncore_forcewake_get__locked(ptr noundef, i32 noun
 declare dso_local void @intel_uncore_forcewake_put__locked(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_rc6_residency_us(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 18446744073709552) i64 @intel_rc6_residency_us(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 @intel_rc6_residency_ns(ptr noundef %0, i32 noundef %1)
   %4 = add i64 %3, 999
   %5 = udiv i64 %4, 1000

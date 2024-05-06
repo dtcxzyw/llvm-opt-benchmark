@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [5 x i8] c".%u\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @Cudd_ApaNumberOfDigits(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -67108864, 67108865) i32 @Cudd_ApaNumberOfDigits(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sdiv i32 %0, 32
   %3 = shl nsw i32 %2, 5
   %.not = icmp ne i32 %3, %0
@@ -85,7 +85,7 @@ define noundef i32 @Cudd_ApaAdd(i32 noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Cudd_ApaSubtract(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @Cudd_ApaSubtract(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -125,7 +125,7 @@ define i32 @Cudd_ApaSubtract(i32 noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Cudd_ApaShortDivision(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 0, -1) i32 @Cudd_ApaShortDivision(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -278,7 +278,7 @@ define void @Cudd_ApaPowerOfTwo(i32 noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 {
+define range(i32 -1, 2) i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -346,8 +346,8 @@ define noundef i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture noundef readon
   %21 = zext i32 %.034.lcssa to i64
   %22 = zext i32 %.0.lcssa to i64
   %wide.trip.count68 = zext nneg i32 %15 to i64
-  %invariant.gep = getelementptr i32, ptr %1, i64 %21
-  %invariant.gep74 = getelementptr i32, ptr %3, i64 %22
+  %invariant.gep = getelementptr inbounds i32, ptr %1, i64 %21
+  %invariant.gep74 = getelementptr inbounds i32, ptr %3, i64 %22
   br label %.lr.ph53
 
 23:                                               ; preds = %27
@@ -357,9 +357,9 @@ define noundef i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture noundef readon
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %23
   %indvars.iv65 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next66, %23 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv65
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv65
   %24 = load i32, ptr %gep, align 4
-  %gep75 = getelementptr i32, ptr %invariant.gep74, i64 %indvars.iv65
+  %gep75 = getelementptr inbounds i32, ptr %invariant.gep74, i64 %indvars.iv65
   %25 = load i32, ptr %gep75, align 4
   %26 = icmp ugt i32 %24, %25
   br i1 %26, label %.loopexit, label %27
@@ -374,7 +374,7 @@ define noundef i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noundef i32 @Cudd_ApaCompareRatios(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @Cudd_ApaCompareRatios(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #7 {
   %7 = sext i32 %0 to i64
   %8 = shl nsw i64 %7, 2
   %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #17
@@ -514,8 +514,8 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
   %57 = zext i32 %.034.lcssa.i to i64
   %58 = zext i32 %.0.lcssa.i to i64
   %wide.trip.count68.i = zext nneg i32 %51 to i64
-  %invariant.gep.i = getelementptr i32, ptr %9, i64 %57
-  %invariant.gep74.i = getelementptr i32, ptr %27, i64 %58
+  %invariant.gep.i = getelementptr inbounds i32, ptr %9, i64 %57
+  %invariant.gep74.i = getelementptr inbounds i32, ptr %27, i64 %58
   br label %.lr.ph53.i
 
 59:                                               ; preds = %63
@@ -525,9 +525,9 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
 
 .lr.ph53.i:                                       ; preds = %59, %.lr.ph53.preheader.i
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next66.i, %59 ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv65.i
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv65.i
   %60 = load i32, ptr %gep.i, align 4
-  %gep75.i = getelementptr i32, ptr %invariant.gep74.i, i64 %indvars.iv65.i
+  %gep75.i = getelementptr inbounds i32, ptr %invariant.gep74.i, i64 %indvars.iv65.i
   %61 = load i32, ptr %gep75.i, align 4
   %62 = icmp ugt i32 %60, %61
   br i1 %62, label %Cudd_ApaCompare.exit.thread, label %63
@@ -586,7 +586,7 @@ Cudd_ApaCompare.exit.thread:                      ; preds = %63, %.lr.ph53.i, %5
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Cudd_ApaPrintHex(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Cudd_ApaPrintHex(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -616,7 +616,7 @@ define noundef i32 @Cudd_ApaPrintHex(ptr nocapture noundef %0, i32 noundef %1, p
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cudd_ApaPrintDecimal(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Cudd_ApaPrintDecimal(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #11 {
   %4 = sitofp i32 %1 to double
   %5 = fmul double %4, 0x40234413509F79FF
   %6 = fptosi double %5 to i32
@@ -736,7 +736,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_ApaPrintExponential(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Cudd_ApaPrintExponential(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #11 {
   %5 = sitofp i32 %1 to double
   %6 = fmul double %5, 0x40234413509F79FF
   %7 = fptosi double %6 to i32
@@ -894,7 +894,7 @@ define noalias noundef ptr @Cudd_ApaCountMinterm(ptr nocapture noundef readonly 
 .lr.ph.preheader.i:                               ; preds = %20
   %22 = zext nneg i32 %spec.select.i to i64
   %23 = shl nuw nsw i64 %22, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %23, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %18, i8 0, i64 %23, i1 false)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %20
@@ -928,7 +928,7 @@ Cudd_ApaPowerOfTwo.exit:                          ; preds = %._crit_edge.i, %27
 .lr.ph.preheader.i70:                             ; preds = %35
   %37 = zext nneg i32 %24 to i64
   %38 = shl nuw nsw i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %32, i8 0, i64 %38, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %32, i8 0, i64 %38, i1 false)
   br label %Cudd_ApaSetToLiteral.exit
 
 Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.preheader.i70
@@ -1287,7 +1287,7 @@ define internal noundef i32 @cuddApaStCountfree(ptr nocapture readnone %0, ptr n
 declare void @st__free_table(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cudd_ApaPrintMinterm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Cudd_ApaPrintMinterm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #11 {
   %5 = alloca i32, align 4
   %6 = call ptr @Cudd_ApaCountMinterm(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5)
   %7 = icmp eq ptr %6, null
@@ -1295,7 +1295,7 @@ define i32 @Cudd_ApaPrintMinterm(ptr nocapture noundef %0, ptr nocapture noundef
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %5, align 4
-  %10 = tail call i32 @Cudd_ApaPrintDecimal(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %6), !range !19
+  %10 = tail call i32 @Cudd_ApaPrintDecimal(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %6)
   tail call void @free(ptr noundef nonnull %6) #18
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6) #18
   %12 = icmp eq i32 %11, -1
@@ -1308,7 +1308,7 @@ define i32 @Cudd_ApaPrintMinterm(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_ApaPrintMintermExp(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Cudd_ApaPrintMintermExp(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = alloca i32, align 4
   %7 = call ptr @Cudd_ApaCountMinterm(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %6)
   %8 = icmp eq ptr %7, null
@@ -1316,7 +1316,7 @@ define noundef i32 @Cudd_ApaPrintMintermExp(ptr nocapture noundef %0, ptr nocapt
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %6, align 4
-  %11 = tail call i32 @Cudd_ApaPrintExponential(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %7, i32 noundef %4), !range !19
+  %11 = tail call i32 @Cudd_ApaPrintExponential(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %7, i32 noundef %4)
   tail call void @free(ptr noundef nonnull %7) #18
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6) #18
   %13 = icmp eq i32 %12, -1
@@ -1329,7 +1329,7 @@ define noundef i32 @Cudd_ApaPrintMintermExp(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cudd_ApaPrintDensity(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Cudd_ApaPrintDensity(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #11 {
   %5 = alloca i32, align 4
   %6 = call ptr @Cudd_ApaCountMinterm(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5)
   %7 = icmp eq ptr %6, null
@@ -1375,7 +1375,7 @@ Cudd_ApaIntDivision.exit.loopexit:                ; preds = %.lr.ph.i
 
 Cudd_ApaIntDivision.exit:                         ; preds = %Cudd_ApaIntDivision.exit.loopexit, %8
   %.015.lcssa.i = phi double [ 0.000000e+00, %8 ], [ %28, %Cudd_ApaIntDivision.exit.loopexit ]
-  %29 = tail call i32 @Cudd_ApaPrintDecimal(ptr noundef %0, i32 noundef %10, ptr noundef %13), !range !19
+  %29 = tail call i32 @Cudd_ApaPrintDecimal(ptr noundef %0, i32 noundef %10, ptr noundef %13)
   tail call void @free(ptr noundef nonnull %6) #18
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %31, label %30
@@ -1457,4 +1457,3 @@ attributes #18 = { nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 0, i32 2}

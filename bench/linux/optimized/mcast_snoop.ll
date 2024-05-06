@@ -9,7 +9,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ipv6_mc_chec
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_ipv6_mc_check_mld738], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ipv6_mc_check_mld(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -61, 1) i32 @ipv6_mc_check_mld(ptr noundef %0) #0 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 192

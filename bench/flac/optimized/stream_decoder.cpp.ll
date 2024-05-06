@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC7Decoder6Stream13eof_callback_EPK19FLAC__StreamDecoderPv(ptr nocapture readnone %decoder, ptr noundef %client_data) #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN4FLAC7Decoder6Stream13eof_callback_EPK19FLAC__StreamDecoderPv(ptr nocapture readnone %decoder, ptr noundef %client_data) #0 align 2 {
 entry:
   %vtable = load ptr, ptr %client_data, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 264

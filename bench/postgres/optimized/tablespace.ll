@@ -57,7 +57,7 @@ define dso_local void @init_tablespaces() local_unnamed_addr #0 {
 
 16:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   %18 = call ptr @PQgetvalue(ptr noundef %5, i32 noundef %17, i32 noundef %12) #7
   %19 = call ptr @pg_strdup(ptr noundef %18) #7
   %20 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i64 0, i32 3), align 8

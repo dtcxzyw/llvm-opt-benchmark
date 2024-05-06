@@ -24,7 +24,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_digest_sign_init(ptr noundef %vpmacctx, ptr noundef %mdname, ptr noundef %vkey, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @mac_digest_sign_init(ptr noundef %vpmacctx, ptr noundef %mdname, ptr noundef %vkey, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool = icmp eq i32 %call, 0

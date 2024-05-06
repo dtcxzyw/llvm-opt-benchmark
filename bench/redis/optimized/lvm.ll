@@ -62,7 +62,7 @@ declare hidden i32 @luaO_str2d(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaV_tostring(ptr noundef %L, ptr nocapture noundef %obj) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @luaV_tostring(ptr noundef %L, ptr nocapture noundef %obj) local_unnamed_addr #0 {
 entry:
   %s = alloca [32 x i8], align 16
   %tt = getelementptr inbounds i8, ptr %obj, i64 8
@@ -590,7 +590,7 @@ cleanup:                                          ; preds = %if.end24, %if.else1
 declare hidden i32 @luaG_ordererror(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_orderTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @call_orderTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, i32 noundef %event) unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaT_gettmbyobj(ptr noundef %L, ptr noundef %p1, i32 noundef %event) #9
   %tt = getelementptr inbounds i8, ptr %call, i64 8
@@ -686,7 +686,7 @@ cleanup:                                          ; preds = %lor.end.fold.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaV_equalval(ptr noundef %L, ptr nocapture noundef readonly %t1, ptr nocapture noundef readonly %t2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaV_equalval(ptr noundef %L, ptr nocapture noundef readonly %t1, ptr nocapture noundef readonly %t2) local_unnamed_addr #0 {
 entry:
   %tt = getelementptr inbounds i8, ptr %t1, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !4
@@ -1098,7 +1098,7 @@ do.end:                                           ; preds = %if.end83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @call_binTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @call_binTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaT_gettmbyobj(ptr noundef %L, ptr noundef %p1, i32 noundef %event) #9
   %tt = getelementptr inbounds i8, ptr %call, i64 8

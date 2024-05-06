@@ -737,7 +737,7 @@ while.body:                                       ; preds = %while.body.backedge
   ]
 
 sw.bb:                                            ; preds = %while.body, %while.body
-  %tobool13 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool13 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool13, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %sw.bb
@@ -820,7 +820,7 @@ if.end26:                                         ; preds = %if.then22, %if.end1
   br label %return
 
 sw.bb27:                                          ; preds = %while.body, %while.body
-  %tobool28 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool28 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool28, label %land.lhs.true29, label %if.end35
 
 land.lhs.true29:                                  ; preds = %sw.bb27
@@ -893,7 +893,7 @@ if.end42:                                         ; preds = %if.then37, %if.end3
   br label %while.body.backedge
 
 sw.bb46:                                          ; preds = %while.body, %while.body
-  %tobool47 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool47 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool47, label %if.else, label %if.then48
 
 if.then48:                                        ; preds = %sw.bb46
@@ -960,7 +960,7 @@ if.end56:                                         ; preds = %if.then51, %if.else
   br label %while.body.backedge
 
 sw.bb61:                                          ; preds = %while.body, %while.body
-  %tobool62 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool62 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool62, label %if.else65, label %if.then63
 
 if.then63:                                        ; preds = %sw.bb61
@@ -1249,7 +1249,7 @@ _ZN7rocksdb6StatusD2Ev.exit214:                   ; preds = %if.end99, %_ZNKSt14
   br label %while.body.backedge
 
 sw.bb100:                                         ; preds = %while.body, %while.body
-  %tobool101 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool101 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool101, label %land.lhs.true102, label %if.end106
 
 land.lhs.true102:                                 ; preds = %sw.bb100
@@ -1531,7 +1531,7 @@ _ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit301: ; preds = %invoke.cont.i2
   br label %sw.bb139
 
 sw.bb139:                                         ; preds = %while.body, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit301, %sw.bb134
-  %tobool140 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool140 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool140, label %if.then141, label %return
 
 if.then141:                                       ; preds = %sw.bb139
@@ -1598,7 +1598,7 @@ sw.bb149:                                         ; preds = %while.body
   br i1 %cmp150.not, label %sw.bb162, label %if.then151
 
 if.then151:                                       ; preds = %sw.bb149
-  %tobool152 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool152 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool152, label %if.then153, label %return
 
 if.then153:                                       ; preds = %if.then151
@@ -1662,7 +1662,7 @@ if.end159:                                        ; preds = %if.then153, %_ZN7ro
   br label %return
 
 sw.bb162:                                         ; preds = %sw.bb149, %while.body
-  %tobool163 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool163 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool163, label %if.then164, label %while.body.backedge
 
 if.then164:                                       ; preds = %sw.bb162
@@ -1885,7 +1885,7 @@ _ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit427: ; preds = %invoke.cont.i4
   br label %if.end185
 
 if.end185:                                        ; preds = %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit427, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit406
-  %tobool186 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool186 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool186, label %if.then187, label %while.body.backedge
 
 if.then187:                                       ; preds = %if.end185
@@ -1939,7 +1939,7 @@ _ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit448: ; preds = %invoke.cont.i4
 sw.default:                                       ; preds = %while.body
   %call190 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 40, ptr noundef nonnull @.str.15, i32 noundef %call12) #21
   %154 = load i64, ptr %size_.i67, align 8
-  %tobool192 = trunc i8 %in_fragmented_record.0 to i1
+  %tobool192 = trunc nuw i8 %in_fragmented_record.0 to i1
   br i1 %tobool192, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %sw.default
@@ -2418,8 +2418,8 @@ if.then:                                          ; preds = %entry
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %call.i, ptr %size_.i, align 8
   store ptr @.str.19, ptr %ref.tmp2, align 8
-  %size_.i3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store i64 35, ptr %size_.i3, align 8
+  %size_.i4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  store i64 35, ptr %size_.i4, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 noundef zeroext 0)
   br label %return
 
@@ -2438,12 +2438,12 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   store ptr %class_name, ptr %ref.tmp5, align 8
-  %call.i4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %class_name) #23
-  %size_.i5 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
-  store i64 %call.i4, ptr %size_.i5, align 8
+  %call.i6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %class_name) #23
+  %size_.i7 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  store i64 %call.i6, ptr %size_.i7, align 8
   store ptr @.str.20, ptr %ref.tmp7, align 8
-  %size_.i7 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  store i64 34, ptr %size_.i7, align 8
+  %size_.i9 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  store i64 34, ptr %size_.i9, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, i8 noundef zeroext 0)
   br label %return
 

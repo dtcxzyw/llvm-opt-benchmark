@@ -879,7 +879,7 @@ eh.resume:                                        ; preds = %lpad18, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen21HQUniStreamDispatcher12handleStreamEmRN5folly2io6CursorEmm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %preface, i64 noundef %consumed) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN8proxygen21HQUniStreamDispatcher12handleStreamEmRN5folly2io6CursorEmm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %preface, i64 noundef %consumed) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca %"class.folly::Optional.11", align 8
   %pushId = alloca %"class.folly::Optional", align 8
@@ -1076,7 +1076,7 @@ eh.resume:                                        ; preds = %lpad, %lpad50
 declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen22HQBidiStreamDispatcher12handleStreamEmRN5folly2io6CursorEmm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %preface, i64 noundef %consumed) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN8proxygen22HQBidiStreamDispatcher12handleStreamEmRN5folly2io6CursorEmm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %preface, i64 noundef %consumed) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca %"class.folly::Optional.13", align 8
   %sessionID = alloca %"class.folly::Optional", align 8

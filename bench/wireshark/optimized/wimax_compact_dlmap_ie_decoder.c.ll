@@ -847,13 +847,13 @@ wimax_compact_dlmap_rcid_ie_decoder.exit671:      ; preds = %150, %.sink.split.i
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader, %258, %263
   %.13 = phi i32 [ %266, %263 ], [ %.11, %258 ], [ %.11, %.preheader ], [ %261, %.lr.ph.split.us ], [ %269, %.lr.ph.split ]
   %271 = tail call fastcc i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %.13, i32 noundef %.5600)
-  %272 = add i32 %.4589744, %271
+  %272 = add nuw nsw i32 %.4589744, %271
   %273 = add nuw nsw i32 %271, %.5600
   %274 = lshr i32 %273, 1
   %275 = add i32 %274, %.13
   %276 = and i32 %273, 1
   %277 = tail call fastcc i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %275, i32 noundef %276)
-  %278 = add i32 %272, %277
+  %278 = add nuw nsw i32 %272, %277
   br label %wimax_compact_dlmap_format_configuration_ie_decoder.exit
 
 279:                                              ; preds = %5
@@ -1001,13 +1001,13 @@ wimax_compact_dlmap_rcid_ie_decoder.exit685:      ; preds = %310, %.sink.split.i
   %348 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %347, ptr noundef %2, i32 noundef %.16, i32 noundef %.809, i32 noundef 0) #2
   %349 = tail call fastcc i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %346, i32 noundef %318)
   %350 = add nuw nsw i32 %.5590, 2
-  %351 = add nsw i32 %350, %349
+  %351 = add nuw nsw i32 %350, %349
   %352 = add nuw nsw i32 %349, %318
   %353 = lshr i32 %352, 1
   %354 = add i32 %353, %346
   %355 = and i32 %352, 1
   %356 = tail call fastcc i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %354, i32 noundef %355)
-  %357 = add nsw i32 %351, %356
+  %357 = add nuw nsw i32 %351, %356
   %358 = add nuw nsw i32 %355, %356
   %359 = lshr i32 %358, 1
   %360 = add i32 %359, %354
@@ -1034,7 +1034,7 @@ wimax_compact_dlmap_rcid_ie_decoder.exit685:      ; preds = %310, %.sink.split.i
   %367 = select i1 %.not640, i32 %hf_cdlmap_companded_sc.val819, i32 %hf_cdlmap_companded_sc_1.val820
   %368 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %367, ptr noundef %2, i32 noundef %360, i32 noundef %.812, i32 noundef 0) #2
   %369 = add i32 %360, 1
-  %370 = add i32 %357, 2
+  %370 = add nuw nsw i32 %357, 2
   br label %386
 
 371:                                              ; preds = %362
@@ -1059,7 +1059,7 @@ wimax_compact_dlmap_rcid_ie_decoder.exit685:      ; preds = %310, %.sink.split.i
 
 384:                                              ; preds = %378, %372
   %.18 = phi i32 [ %375, %372 ], [ %383, %378 ]
-  %385 = add i32 %357, 2
+  %385 = add nuw nsw i32 %357, 2
   br label %386
 
 386:                                              ; preds = %362, %384, %364
@@ -1073,8 +1073,8 @@ wimax_compact_dlmap_rcid_ie_decoder.exit685:      ; preds = %310, %.sink.split.i
   %388 = select i1 %.not641, i32 %hf_cdlmap_bin_offset.val821, i32 %hf_cdlmap_bin_offset_1.val822
   %389 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %388, ptr noundef %2, i32 noundef %.19, i32 noundef %.815, i32 noundef 0) #2
   %390 = tail call fastcc i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %387, i32 noundef %361)
-  %391 = add i32 %.6591, 2
-  %392 = add i32 %391, %390
+  %391 = add nuw nsw i32 %.6591, 2
+  %392 = add nuw nsw i32 %391, %390
   br label %wimax_compact_dlmap_format_configuration_ie_decoder.exit
 
 393:                                              ; preds = %5
@@ -1112,7 +1112,7 @@ wimax_compact_dlmap_rcid_ie_decoder.exit685:      ; preds = %310, %.sink.split.i
 
 416:                                              ; preds = %.thread, %394
   %.21707 = phi i32 [ %409, %.thread ], [ %403, %394 ]
-  %417 = tail call i32 @wimax_extended_diuc_dependent_ie_decoder(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %.21707, i32 noundef %4), !range !6
+  %417 = tail call i32 @wimax_extended_diuc_dependent_ie_decoder(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %.21707, i32 noundef %4)
   %418 = add nuw nsw i32 %417, 2
   %419 = lshr i32 %417, 1
   %420 = add i32 %419, %.21707
@@ -1468,7 +1468,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 3) i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
   %6 = and i32 %3, 1
   %.not = icmp eq i32 %6, 0
@@ -1508,7 +1508,7 @@ define internal fastcc noundef i32 @wimax_compact_dlmap_harq_control_ie_decoder(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 5) i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
   %6 = and i32 %3, 1
   %.not = icmp eq i32 %6, 0
@@ -1563,7 +1563,7 @@ define internal fastcc noundef i32 @wimax_compact_dlmap_cqich_control_ie_decoder
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @wimax_extended_diuc_dependent_ie_decoder(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 2, 33) i32 @wimax_extended_diuc_dependent_ie_decoder(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #2
   %7 = and i32 %4, 1
   %.not = icmp eq i32 %7, 0
@@ -1782,4 +1782,3 @@ attributes #2 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 2, i32 33}

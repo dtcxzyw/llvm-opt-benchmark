@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_vuv_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vuv_handle_config_change(ptr noundef %dev) #0 {
+define internal range(i32 -1, 1) i32 @vuv_handle_config_change(ptr noundef %dev) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %0 = load ptr, ptr %dev, align 8

@@ -547,7 +547,7 @@ declare i32 @mbedtls_md_hmac_reset(ptr noundef) local_unnamed_addr #1
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_pkcs5_self_test(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_pkcs5_self_test(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.mbedtls_md_context_t, align 8
   %3 = alloca [64 x i8], align 16
   call void @mbedtls_md_init(ptr noundef nonnull %2) #8
@@ -594,7 +594,7 @@ define hidden noundef i32 @mbedtls_pkcs5_self_test(i32 noundef %0) local_unnamed
 
 .preheader.split:                                 ; preds = %.preheader, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader ]
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %23)
   %25 = getelementptr inbounds [6 x [32 x i8]], ptr @password_test_data, i64 0, i64 %indvars.iv
   %26 = getelementptr inbounds [6 x i64], ptr @plen_test_data, i64 0, i64 %indvars.iv

@@ -148,7 +148,7 @@ land.rhs.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.then32, %land.rhs.i
   %fn.07.i54 = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %5, %if.then32 ]
   %9 = load ptr, ptr %fn.07.i54, align 8
-  %call.i = call fastcc i32 @parse_credential_file(ptr noundef %9, ptr noundef nonnull %c, ptr noundef nonnull @print_entry, ptr noundef null, i32 noundef 0), !range !5
+  %call.i = call fastcc i32 @parse_credential_file(ptr noundef %9, ptr noundef nonnull %c, ptr noundef nonnull @print_entry, ptr noundef null, i32 noundef 0)
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.rhs.i, label %if.end44
 
@@ -421,7 +421,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_credential_file(ptr noundef %fn, ptr noundef %c, ptr noundef readonly %match_cb, ptr noundef readonly %other_cb, i32 noundef %match_password) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %fn, ptr noundef %c, ptr noundef readonly %match_cb, ptr noundef readonly %other_cb, i32 noundef %match_password) unnamed_addr #0 {
 entry:
   %line = alloca %struct.strbuf, align 8
   %entry1 = alloca %struct.credential, align 8
@@ -472,7 +472,7 @@ if.end25.us.us:                                   ; preds = %land.lhs.true15.us.
   %found_credential.1.us.us = phi i32 [ %found_credential.011.us.us, %if.else.us.us ], [ 1, %land.lhs.true15.us.us ]
   %call7.us.us = call i32 @strbuf_getline_lf(ptr noundef nonnull %line, ptr noundef nonnull %call) #12
   %cmp8.not.us.us = icmp eq i32 %call7.us.us, -1
-  br i1 %cmp8.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !6
+  br i1 %cmp8.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !5
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %if.else.us
   %3 = load ptr, ptr %buf, align 8
@@ -494,7 +494,7 @@ land.lhs.true15.us:                               ; preds = %while.body.us
 if.else.us:                                       ; preds = %land.lhs.true15.us, %while.body.us
   %call7.us = call i32 @strbuf_getline_lf(ptr noundef nonnull %line, ptr noundef nonnull %call) #12
   %cmp8.not.us = icmp eq i32 %call7.us, -1
-  br i1 %cmp8.not.us, label %while.end, label %while.body.us, !llvm.loop !6
+  br i1 %cmp8.not.us, label %while.end, label %while.body.us, !llvm.loop !5
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %tobool19.not, label %while.body.us12, label %while.body
@@ -518,14 +518,14 @@ land.lhs.true15.us20:                             ; preds = %while.body.us12
   br i1 %tobool17.not.us22, label %if.else.us24, label %if.end25.us25
 
 if.else.us24:                                     ; preds = %land.lhs.true15.us20, %while.body.us12
-  call void %other_cb(ptr noundef nonnull %line) #12, !callees !8
+  call void %other_cb(ptr noundef nonnull %line) #12, !callees !7
   br label %if.end25.us25
 
 if.end25.us25:                                    ; preds = %land.lhs.true15.us20, %if.else.us24
   %found_credential.1.us26 = phi i32 [ %found_credential.011.us13, %if.else.us24 ], [ 1, %land.lhs.true15.us20 ]
   %call7.us27 = call i32 @strbuf_getline_lf(ptr noundef nonnull %line, ptr noundef nonnull %call) #12
   %cmp8.not.us28 = icmp eq i32 %call7.us27, -1
-  br i1 %cmp8.not.us28, label %while.end, label %while.body.us12, !llvm.loop !6
+  br i1 %cmp8.not.us28, label %while.end, label %while.body.us12, !llvm.loop !5
 
 if.then:                                          ; preds = %entry
   %call2 = tail call ptr @__errno_location() #15
@@ -557,14 +557,14 @@ land.lhs.true15:                                  ; preds = %while.body
   br i1 %tobool17.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true15, %land.lhs.true15.us
-  call void %match_cb(ptr noundef nonnull %entry1) #12, !callees !9
+  call void %match_cb(ptr noundef nonnull %entry1) #12, !callees !8
   br label %while.end
 
 if.else:                                          ; preds = %land.lhs.true15, %while.body
-  call void %other_cb(ptr noundef nonnull %line) #12, !callees !8
+  call void %other_cb(ptr noundef nonnull %line) #12, !callees !7
   %call7 = call i32 @strbuf_getline_lf(ptr noundef nonnull %line, ptr noundef nonnull %call) #12
   %cmp8.not = icmp eq i32 %call7, -1
-  br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !6
+  br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %if.else, %if.end25.us25, %if.else.us, %if.end25.us.us, %while.cond.preheader, %if.then20
   %found_credential.2 = phi i32 [ 1, %if.then20 ], [ 0, %while.cond.preheader ], [ %found_credential.1.us.us, %if.end25.us.us ], [ 0, %if.else.us ], [ %found_credential.1.us26, %if.end25.us25 ], [ 0, %if.else ]
@@ -679,7 +679,7 @@ print_line.exit:                                  ; preds = %strbuf_avail.exit.i
   br label %if.end5
 
 if.end5:                                          ; preds = %print_line.exit, %if.end
-  %call6 = call fastcc i32 @parse_credential_file(ptr noundef %fn, ptr noundef %c, ptr noundef null, ptr noundef nonnull @print_line, i32 noundef %match_password), !range !5
+  %call6 = call fastcc i32 @parse_credential_file(ptr noundef %fn, ptr noundef %c, ptr noundef null, ptr noundef nonnull @print_line, i32 noundef %match_password)
   %call7 = call i32 @commit_lock_file(ptr noundef nonnull @credential_lock) #12
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then10, label %if.end11
@@ -770,7 +770,7 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare void @strbuf_addstr_urlencode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @is_rfc3986_unreserved(i8 noundef signext %ch) #10 {
+define internal range(i32 0, 2) i32 @is_rfc3986_unreserved(i8 noundef signext %ch) #10 {
 entry:
   %idxprom = zext i8 %ch to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
@@ -798,7 +798,7 @@ lor.end:                                          ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @is_rfc3986_reserved_or_unreserved(i8 noundef signext %ch) #10 {
+define internal range(i32 0, 2) i32 @is_rfc3986_reserved_or_unreserved(i8 noundef signext %ch) #10 {
 entry:
   %idxprom.i = zext i8 %ch to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
@@ -872,8 +872,7 @@ attributes #15 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{ptr @print_line}
-!9 = !{ptr @print_entry}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = !{ptr @print_line}
+!8 = !{ptr @print_entry}

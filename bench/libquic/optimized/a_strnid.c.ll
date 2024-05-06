@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef i32 @ASN1_STRING_set_default_mask_asc(ptr noundef %p) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @ASN1_STRING_set_default_mask_asc(ptr noundef %p) local_unnamed_addr #2 {
 entry:
   %end = alloca ptr, align 8
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %p, ptr noundef nonnull dereferenceable(6) @.str, i64 noundef 5) #13
@@ -223,7 +223,7 @@ declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_STRING_TABLE_add(i32 noundef %nid, i64 noundef %minsize, i64 noundef %maxsize, i64 noundef %mask, i64 noundef %flags) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @ASN1_STRING_TABLE_add(i32 noundef %nid, i64 noundef %minsize, i64 noundef %maxsize, i64 noundef %mask, i64 noundef %flags) local_unnamed_addr #5 {
 entry:
   %idx.i = alloca i64, align 8
   %fnd.i = alloca %struct.asn1_string_table_st, align 8

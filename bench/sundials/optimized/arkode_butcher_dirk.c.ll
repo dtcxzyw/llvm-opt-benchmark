@@ -3760,13 +3760,13 @@ declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ARKodeButcherTable_LoadDIRKByName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @arkButcherTableDIRKNameToID(ptr noundef %0), !range !4
+  %2 = tail call i32 @arkButcherTableDIRKNameToID(ptr noundef %0)
   %3 = tail call ptr @ARKodeButcherTable_LoadDIRK(i32 noundef %2)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkButcherTableDIRKNameToID(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 124) i32 @arkButcherTableDIRKNameToID(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(17) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %77, label %4
@@ -3915,4 +3915,3 @@ attributes #4 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 124}

@@ -166,7 +166,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call2 = tail call ptr @qemu_plugin_tb_get_insn(ptr noundef %tb, i64 noundef %i.033) #5
   %call3 = tail call ptr @qemu_plugin_insn_disas(ptr noundef %call2) #5
   %call4 = tail call i64 @qemu_plugin_insn_vaddr(ptr noundef %call2) #5
-  %tobool5 = trunc i8 %skip.034 to i1
+  %tobool5 = trunc nuw i8 %skip.034 to i1
   %3 = load ptr, ptr @imatches, align 8
   %tobool6 = icmp ne ptr %3, null
   %or.cond = select i1 %tobool5, i1 %tobool6, i1 false
@@ -194,13 +194,13 @@ for.body10:                                       ; preds = %for.cond7.preheader
   %9 = load i32, ptr %len, align 8
   %10 = zext i32 %9 to i64
   %cmp8 = icmp ult i64 %indvars.iv.next, %10
-  %tobool9 = trunc i8 %spec.select to i1
+  %tobool9 = trunc nuw i8 %spec.select to i1
   %11 = select i1 %cmp8, i1 %tobool9, i1 false
   br i1 %11, label %for.body10, label %if.end14, !llvm.loop !6
 
 if.end14:                                         ; preds = %for.body10, %for.cond7.preheader, %for.body
   %skip.3 = phi i8 [ %skip.034, %for.body ], [ %skip.034, %for.cond7.preheader ], [ %spec.select, %for.body10 ]
-  %tobool15 = trunc i8 %skip.3 to i1
+  %tobool15 = trunc nuw i8 %skip.3 to i1
   %12 = load ptr, ptr @amatches, align 8
   %tobool17 = icmp ne ptr %12, null
   %or.cond1 = select i1 %tobool15, i1 %tobool17, i1 false
@@ -226,13 +226,13 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %spec.select20 = select i1 %cmp29, i8 0, i8 %skip.430
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %cmp22 = icmp ult i64 %indvars.iv.next36, %15
-  %tobool24 = trunc i8 %spec.select20 to i1
+  %tobool24 = trunc nuw i8 %spec.select20 to i1
   %17 = select i1 %cmp22, i1 %tobool24, i1 false
   br i1 %17, label %for.body26, label %if.end35, !llvm.loop !7
 
 if.end35:                                         ; preds = %for.body26, %for.cond20.preheader, %if.end14
   %skip.6 = phi i8 [ %skip.3, %if.end14 ], [ %skip.3, %for.cond20.preheader ], [ %spec.select20, %for.body26 ]
-  %tobool36 = trunc i8 %skip.6 to i1
+  %tobool36 = trunc nuw i8 %skip.6 to i1
   br i1 %tobool36, label %if.then37, label %if.else
 
 if.then37:                                        ; preds = %if.end35

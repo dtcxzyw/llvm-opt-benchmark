@@ -5248,8 +5248,8 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %82, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %76, %130
-  %.0112163 = phi ptr [ %133, %130 ], [ %79, %76 ]
-  %.0113162 = phi ptr [ %.1, %130 ], [ null, %76 ]
+  %.0112164 = phi ptr [ %133, %130 ], [ %79, %76 ]
+  %.0113163 = phi ptr [ %.1, %130 ], [ null, %76 ]
   %83 = tail call ptr @copy_type_info_single(ptr noundef %1) #5
   %84 = tail call ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %83) #5
   %.not129 = icmp eq ptr %84, null
@@ -5306,9 +5306,9 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br label %159
 
 113:                                              ; preds = %100, %97
-  %.1 = phi ptr [ %.0113162, %97 ], [ %99, %100 ]
-  %114 = getelementptr inbounds i8, ptr %.0112163, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0112163, i64 -4
+  %.1 = phi ptr [ %.0113163, %97 ], [ %99, %100 ]
+  %114 = getelementptr inbounds i8, ptr %.0112164, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0112164, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %115, %.pre.i
@@ -5330,15 +5330,15 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   %128 = load i32, ptr %123, align 4
   %129 = shl i32 %128, 1
   store i32 %129, ptr %123, align 4
-  %.pre18.i139 = load i32, ptr %122, align 4
+  %.pre18.i140 = load i32, ptr %122, align 4
   br label %130
 
 130:                                              ; preds = %113, %117
-  %131 = phi i32 [ %.pre18.i139, %117 ], [ %115, %113 ]
-  %.1.i138 = phi ptr [ %122, %117 ], [ %114, %113 ]
+  %131 = phi i32 [ %.pre18.i140, %117 ], [ %115, %113 ]
+  %.1.i139 = phi ptr [ %122, %117 ], [ %114, %113 ]
   %132 = add i32 %131, 1
-  store i32 %132, ptr %.1.i138, align 4
-  %133 = getelementptr inbounds i8, ptr %.1.i138, i64 8
+  store i32 %132, ptr %.1.i139, align 4
+  %133 = getelementptr inbounds i8, ptr %.1.i139, i64 8
   %134 = zext i32 %131 to i64
   %135 = getelementptr inbounds ptr, ptr %133, i64 %134
   store ptr %84, ptr %135, align 8
@@ -5350,69 +5350,69 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %.not127, label %.loopexit, label %137
 
 137:                                              ; preds = %._crit_edge
-  %138 = load i32, ptr %.1.i138, align 4
-  %.not169 = icmp eq i32 %138, 0
-  br i1 %.not169, label %.loopexit, label %.lr.ph168.preheader
+  %138 = load i32, ptr %.1.i139, align 4
+  %.not170 = icmp eq i32 %138, 0
+  br i1 %.not170, label %.loopexit, label %.lr.ph169.preheader
 
-.lr.ph168.preheader:                              ; preds = %137
+.lr.ph169.preheader:                              ; preds = %137
   %wide.trip.count = zext i32 %138 to i64
-  br label %.lr.ph168
+  br label %.lr.ph169
 
-.lr.ph168:                                        ; preds = %.lr.ph168.preheader, %145
-  %indvars.iv = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next, %145 ]
+.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %145
+  %indvars.iv = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next, %145 ]
   %139 = getelementptr inbounds ptr, ptr %133, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, %84
   br i1 %141, label %145, label %142
 
-142:                                              ; preds = %.lr.ph168
+142:                                              ; preds = %.lr.ph169
   %143 = tail call ptr @copy_attributes_single(ptr noundef nonnull %.1) #5
   %144 = getelementptr inbounds i8, ptr %140, i64 64
   store ptr %143, ptr %144, align 8
   br label %145
 
-145:                                              ; preds = %.lr.ph168, %142
+145:                                              ; preds = %.lr.ph169, %142
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph168, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph169, !llvm.loop !19
 
 .loopexit:                                        ; preds = %145, %76, %137, %._crit_edge
-  %.0112.lcssa184 = phi ptr [ %133, %137 ], [ %133, %._crit_edge ], [ %79, %76 ], [ %133, %145 ]
-  store ptr %.0112.lcssa184, ptr %14, align 8
+  %.0112.lcssa185 = phi ptr [ %133, %137 ], [ %133, %._crit_edge ], [ %79, %76 ], [ %133, %145 ]
+  store ptr %.0112.lcssa185, ptr %14, align 8
   store i8 16, ptr %6, align 4
   %146 = getelementptr inbounds i8, ptr %0, i64 56
   %147 = load i64, ptr %3, align 8
   %148 = load i64, ptr %146, align 8
-  %.not.unshifted.i141 = xor i64 %148, %147
-  %.not.i142 = icmp ult i64 %.not.unshifted.i141, 4294967296
-  br i1 %.not.i142, label %150, label %149
+  %.not.unshifted.i142 = xor i64 %148, %147
+  %.not.i143 = icmp ult i64 %.not.unshifted.i142, 4294967296
+  br i1 %.not.i143, label %150, label %149
 
 149:                                              ; preds = %.loopexit
-  %.sroa.33.0.extract.shift.i143 = lshr i64 %147, 16
-  br label %extend_span_with_token.exit149
+  %.sroa.33.0.extract.shift.i144 = lshr i64 %147, 16
+  br label %extend_span_with_token.exit150
 
 150:                                              ; preds = %.loopexit
-  %.sroa.4.0.extract.shift.i148 = lshr i64 %147, 24
+  %.sroa.4.0.extract.shift.i149 = lshr i64 %147, 24
   %151 = trunc i64 %148 to i32
   %152 = lshr i32 %151, 24
   %153 = lshr i32 %151, 16
-  %154 = trunc i64 %.sroa.4.0.extract.shift.i148 to i32
+  %154 = trunc i64 %.sroa.4.0.extract.shift.i149 to i32
   %155 = sub i32 %153, %154
   %156 = add i32 %155, %152
   %157 = zext i32 %156 to i64
-  br label %extend_span_with_token.exit149
+  br label %extend_span_with_token.exit150
 
-extend_span_with_token.exit149:                   ; preds = %149, %150
-  %.sroa.311.0.i144 = phi i64 [ %.sroa.33.0.extract.shift.i143, %149 ], [ %157, %150 ]
-  %.sroa.311.0.insert.ext.i145 = shl nuw i64 %.sroa.311.0.i144, 16
-  %.sroa.311.0.insert.shift.i146 = and i64 %.sroa.311.0.insert.ext.i145, 16711680
+extend_span_with_token.exit150:                   ; preds = %149, %150
+  %.sroa.311.0.i145 = phi i64 [ %.sroa.33.0.extract.shift.i144, %149 ], [ %157, %150 ]
+  %.sroa.311.0.insert.ext.i146 = shl nuw i64 %.sroa.311.0.i145, 16
+  %.sroa.311.0.insert.shift.i147 = and i64 %.sroa.311.0.insert.ext.i146, 16711680
   %158 = and i64 %147, -16711681
-  %.sroa.010.0.insert.insert.i147 = or disjoint i64 %.sroa.311.0.insert.shift.i146, %158
-  store i64 %.sroa.010.0.insert.insert.i147, ptr %3, align 8
+  %.sroa.010.0.insert.insert.i148 = or disjoint i64 %.sroa.311.0.insert.shift.i147, %158
+  store i64 %.sroa.010.0.insert.insert.i148, ptr %3, align 8
   br label %159
 
-159:                                              ; preds = %.critedge, %extend_span_with_token.exit149, %103, %93, %89, %extend_span_with_token.exit, %38, %33, %12
-  %.0110 = phi ptr [ %36, %33 ], [ %47, %38 ], [ %3, %extend_span_with_token.exit ], [ %96, %93 ], [ %112, %103 ], [ %90, %89 ], [ %3, %extend_span_with_token.exit149 ], [ %13, %12 ], [ %3, %.critedge ]
+159:                                              ; preds = %.critedge, %extend_span_with_token.exit150, %103, %93, %89, %extend_span_with_token.exit, %38, %33, %12
+  %.0110 = phi ptr [ %36, %33 ], [ %47, %38 ], [ %3, %extend_span_with_token.exit ], [ %96, %93 ], [ %112, %103 ], [ %90, %89 ], [ %3, %extend_span_with_token.exit150 ], [ %13, %12 ], [ %3, %.critedge ]
   ret ptr %.0110
 }
 

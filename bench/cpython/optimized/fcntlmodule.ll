@@ -815,7 +815,7 @@ declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fcntl_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @fcntl_exec(ptr noundef %module) #0 {
 entry:
   %call.i = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull @.str.20, i64 noundef 1) #7
   %tobool.not.i = icmp eq i32 %call.i, 0

@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @filter_provider_init(ptr nocapture noundef readnone %handle, ptr nocapture noundef readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @filter_provider_init(ptr nocapture noundef readnone %handle, ptr nocapture noundef readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2040) @ourglobals, i8 0, i64 2040, i1 false)
   %call = tail call ptr @OSSL_LIB_CTX_new() #6
@@ -66,7 +66,7 @@ declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #2
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @filter_provider_set_filter(i32 noundef %operation, ptr noundef %filterstr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @filter_provider_set_filter(i32 noundef %operation, ptr noundef %filterstr) local_unnamed_addr #0 {
 entry:
   %no_cache = alloca i32, align 4
   store i32 0, ptr %no_cache, align 4
@@ -185,7 +185,7 @@ declare void @OSSL_PROVIDER_unquery_operation(ptr noundef, i32 noundef, ptr noun
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @filter_provider_check_clean_finish() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @filter_provider_check_clean_finish() local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (%struct.filter_prov_globals_st, ptr @ourglobals, i64 0, i32 5), align 8
   %call1 = tail call i32 @test_ulong_eq(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef 0) #6

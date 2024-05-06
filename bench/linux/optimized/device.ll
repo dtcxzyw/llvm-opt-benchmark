@@ -20,7 +20,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_device_g
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_snd_device_disconnect314, ptr @__UNIQUE_ID___addressable_snd_device_free315, ptr @__UNIQUE_ID___addressable_snd_device_get_state317, ptr @__UNIQUE_ID___addressable_snd_device_new313, ptr @__UNIQUE_ID___addressable_snd_device_register316], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_device_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @snd_device_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
   %7 = or i1 %5, %6
@@ -239,7 +239,7 @@ __snd_device_free.exit:                           ; preds = %41, %46, %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_device_register(ptr noundef readonly %0, ptr noundef readnone %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_device_register(ptr noundef readonly %0, ptr noundef readnone %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %5 = or i1 %3, %4
@@ -294,7 +294,7 @@ define dso_local i32 @snd_device_register(ptr noundef readonly %0, ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_device_register_all(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_device_register_all(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 

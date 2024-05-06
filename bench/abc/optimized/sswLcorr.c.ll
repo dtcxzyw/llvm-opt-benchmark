@@ -86,7 +86,7 @@ declare void @Ssw_SmlObjAssignConst(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @Ssw_SmlObjSetWord(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_ManSweepResimulate(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ssw_ManSweepResimulate(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -1134,7 +1134,7 @@ Aig_ObjRepr.exit134:                              ; preds = %.lr.ph143, %146
   br i1 %160, label %.critedge6.thread, label %162
 
 .critedge6.thread:                                ; preds = %154, %.critedge6
-  %161 = tail call i32 @Ssw_ManSweepResimulate(ptr noundef nonnull %0), !range !13
+  %161 = tail call i32 @Ssw_ManSweepResimulate(ptr noundef nonnull %0)
   br label %162
 
 162:                                              ; preds = %.critedge6.thread, %.critedge6
@@ -1182,7 +1182,7 @@ Aig_ObjRepr.exit134:                              ; preds = %.lr.ph143, %146
   %189 = getelementptr i8, ptr %188, i64 104
   %.val125 = load i32, ptr %189, align 8
   %190 = icmp slt i32 %187, %.val125
-  br i1 %190, label %118, label %.critedge4, !llvm.loop !14
+  br i1 %190, label %118, label %.critedge4, !llvm.loop !13
 
 .critedge4:                                       ; preds = %186, %Vec_PtrCleanSimInfo.exit
   %191 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1191,7 +1191,7 @@ Aig_ObjRepr.exit134:                              ; preds = %.lr.ph143, %146
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %.critedge4
-  %195 = tail call i32 @Ssw_ManSweepResimulate(ptr noundef nonnull %0), !range !13
+  %195 = tail call i32 @Ssw_ManSweepResimulate(ptr noundef nonnull %0)
   br label %196
 
 196:                                              ; preds = %194, %.critedge4
@@ -1269,5 +1269,4 @@ attributes #10 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
-!14 = distinct !{!14, !5}
+!13 = distinct !{!13, !5}

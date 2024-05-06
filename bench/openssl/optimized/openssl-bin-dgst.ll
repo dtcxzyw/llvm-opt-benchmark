@@ -128,7 +128,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.112 = private unnamed_addr constant [2 x i8] c" \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dgst_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %passin = alloca ptr, align 8
   %md = alloca ptr, align 8
@@ -771,7 +771,7 @@ if.end318:                                        ; preds = %if.end312, %if.end3
 if.then321:                                       ; preds = %if.end318
   %41 = load ptr, ptr @stdin, align 8
   %call322 = call i64 @BIO_ctrl(ptr noundef %call114, i32 noundef 106, i64 noundef 0, ptr noundef %41) #6
-  %call323 = call i32 @do_fp(ptr noundef %call137, ptr noundef %call, ptr noundef %call293, i32 noundef %separator.0, i32 noundef %out_bin.2, i32 noundef %xoflen.0, ptr noundef %sigkey.3132142, ptr noundef %sigbuf.0, i32 noundef %siglen.0, ptr noundef null, ptr noundef %md_name.0, ptr noundef nonnull @.str.91), !range !9
+  %call323 = call i32 @do_fp(ptr noundef %call137, ptr noundef %call, ptr noundef %call293, i32 noundef %separator.0, i32 noundef %out_bin.2, i32 noundef %xoflen.0, ptr noundef %sigkey.3132142, ptr noundef %sigbuf.0, i32 noundef %siglen.0, ptr noundef null, ptr noundef %md_name.0, ptr noundef nonnull @.str.91)
   br label %end
 
 if.else324:                                       ; preds = %if.end318
@@ -807,7 +807,7 @@ if.then343:                                       ; preds = %for.body337
   br label %for.inc356
 
 if.else346:                                       ; preds = %for.body337
-  %call349 = call i32 @do_fp(ptr noundef %call137, ptr noundef %call, ptr noundef %call293, i32 noundef %separator.0, i32 noundef %out_bin.2, i32 noundef %xoflen.0, ptr noundef %sigkey.3132142, ptr noundef %sigbuf.0, i32 noundef %siglen.0, ptr noundef %sig_name.0, ptr noundef %md_name.0, ptr noundef %43), !range !9
+  %call349 = call i32 @do_fp(ptr noundef %call137, ptr noundef %call, ptr noundef %call293, i32 noundef %separator.0, i32 noundef %out_bin.2, i32 noundef %xoflen.0, ptr noundef %sigkey.3132142, ptr noundef %sigbuf.0, i32 noundef %siglen.0, ptr noundef %sig_name.0, ptr noundef %md_name.0, ptr noundef %43)
   %tobool350.not = icmp eq i32 %call349, 0
   %spec.select122 = select i1 %tobool350.not, i32 %ret.0260, i32 1
   %call354 = call i64 @BIO_ctrl(ptr noundef %call116, i32 noundef 1, i64 noundef 0, ptr noundef null) #6
@@ -817,7 +817,7 @@ for.inc356:                                       ; preds = %if.else346, %if.the
   %ret.2 = phi i32 [ 1, %if.then343 ], [ %spec.select122, %if.else346 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %end, label %for.body337, !llvm.loop !10
+  br i1 %exitcond.not, label %end, label %for.body337, !llvm.loop !9
 
 end:                                              ; preds = %for.inc356, %if.then321
   %ret.3 = phi i32 [ %call323, %if.then321 ], [ %ret.2, %for.inc356 ]
@@ -1043,7 +1043,7 @@ declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #1
 declare i64 @EVP_MD_get_flags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @do_fp(ptr noundef %out, ptr noundef %buf, ptr noundef %bp, i32 noundef %sep, i32 noundef %binout, i32 noundef %xoflen, ptr noundef readnone %key, ptr noundef %sigin, i32 noundef %siglen, ptr noundef %sig_name, ptr noundef %md_name, ptr noundef %file) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_fp(ptr noundef %out, ptr noundef %buf, ptr noundef %bp, i32 noundef %sep, i32 noundef %binout, i32 noundef %xoflen, ptr noundef readnone %key, ptr noundef %sigin, i32 noundef %siglen, ptr noundef %sig_name, ptr noundef %md_name, ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %backslash = alloca i32, align 4
@@ -1079,7 +1079,7 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %while.body
   %cmp7 = icmp eq i32 %call4, 0
-  br i1 %cmp7, label %while.end, label %while.cond, !llvm.loop !11
+  br i1 %cmp7, label %while.end, label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end, %lor.rhs
   %cmp11.not = icmp eq ptr %sigin, null
@@ -1228,7 +1228,7 @@ for.body:                                         ; preds = %if.end89, %for.body
   %sext71 = shl i64 %17, 32
   %18 = ashr exact i64 %sext71, 32
   %cmp91 = icmp slt i64 %indvars.iv.next68, %18
-  br i1 %cmp91, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp91, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %if.end89
   %call95 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.104, ptr noundef %call84) #6
@@ -1285,7 +1285,7 @@ for.body120.us:                                   ; preds = %for.body120.lr.ph, 
   %sext70 = shl i64 %21, 32
   %22 = ashr exact i64 %sext70, 32
   %cmp118.us = icmp slt i64 %indvars.iv.next65, %22
-  br i1 %cmp118.us, label %for.body120.us, label %for.end133, !llvm.loop !13
+  br i1 %cmp118.us, label %for.body120.us, label %for.end133, !llvm.loop !12
 
 for.body120:                                      ; preds = %for.body120.lr.ph, %if.end126
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end126 ], [ 0, %for.body120.lr.ph ]
@@ -1306,7 +1306,7 @@ if.end126:                                        ; preds = %if.then124, %for.bo
   %sext = shl i64 %24, 32
   %25 = ashr exact i64 %sext, 32
   %cmp118 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %cmp118, label %for.body120, label %for.end133, !llvm.loop !13
+  br i1 %cmp118, label %for.body120, label %for.end133, !llvm.loop !12
 
 for.end133:                                       ; preds = %if.end126, %for.body120.us, %if.end115
   %call134 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.70) #6
@@ -1380,7 +1380,7 @@ for.body:                                         ; preds = %entry, %for.body
   %spec.select = add i64 %newline_count.021, %inc
   %inc3 = add nuw i64 %i.022, 1
   %exitcond.not = icmp eq i64 %inc3, %call
-  br i1 %exitcond.not, label %while.body.preheader, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %while.body.preheader, label %for.body, !llvm.loop !13
 
 while.body.preheader:                             ; preds = %for.body
   %add = add i64 %call, 1
@@ -1415,7 +1415,7 @@ if.end19:                                         ; preds = %if.else, %if.then12
   %i.2 = phi i64 [ %inc15, %if.then12 ], [ %inc17, %if.else ]
   %inc20 = add nuw i64 %e.024, 1
   %exitcond27.not = icmp eq i64 %inc20, %call
-  br i1 %exitcond27.not, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %exitcond27.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end19, %for.end.thread
   %call532 = phi ptr [ %call531, %for.end.thread ], [ %call5, %if.end19 ]
@@ -1457,10 +1457,9 @@ attributes #9 = { nounwind willreturn memory(none) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

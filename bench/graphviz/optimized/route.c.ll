@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opn = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2, i32 %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2, i32 %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load <2 x double>, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
@@ -65,7 +65,7 @@ define noundef i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2, i32 %3,
   %36 = load double, ptr %7, align 8
   %37 = load double, ptr %9, align 8
   %38 = load double, ptr %10, align 8
-  %39 = tail call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, double %35, double %36, double %37, double %38), !range !4
+  %39 = tail call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, double %35, double %36, double %37, double %38)
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %growops.exit, label %41
 
@@ -86,7 +86,7 @@ growops.exit:                                     ; preds = %30, %33, %41
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, double %4, double %5, double %6, double %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, double %4, double %5, double %6, double %7) unnamed_addr #0 {
   %9 = alloca [4 x double], align 16
   %10 = alloca [3 x double], align 16
   %11 = alloca [3 x double], align 16
@@ -898,7 +898,7 @@ growops.exit52.i:                                 ; preds = %427, %419
 
 splinefits.exit:                                  ; preds = %430, %412
   %indvars.iv.next80.lcssa.sink.i = phi i64 [ %indvars.iv.next87.i, %412 ], [ %indvars.iv.next80.i, %430 ]
-  %437 = trunc i64 %indvars.iv.next80.lcssa.sink.i to i32
+  %437 = trunc nsw i64 %indvars.iv.next80.lcssa.sink.i to i32
   store i32 %437, ptr @opl, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   br label %530
@@ -962,7 +962,7 @@ splinefits.exit:                                  ; preds = %430, %412
   %478 = fsub double %476, %472
   %479 = call double @hypot(double noundef %477, double noundef %478) #9
   %480 = fcmp ogt double %479, %.0116198
-  %481 = trunc i64 %indvars.iv225 to i32
+  %481 = trunc nuw nsw i64 %indvars.iv225 to i32
   %.1118 = select i1 %480, i32 %481, i32 %.0117197
   %.1 = select i1 %480, double %479, double %.0116198
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
@@ -1019,13 +1019,13 @@ splinefits.exit:                                  ; preds = %430, %412
   %524 = fdiv double %518, %sqrt.i153
   %.sroa.6.0.i154 = select i1 %522, double %524, double %518
   %.sroa.0.0.i155 = select i1 %522, double %523, double %516
-  %525 = call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %491, double %4, double %5, double %.sroa.0.0.i155, double %.sroa.6.0.i154), !range !4
+  %525 = call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %491, double %4, double %5, double %.sroa.0.0.i155, double %.sroa.6.0.i154)
   %526 = icmp slt i32 %525, 0
   br i1 %526, label %530, label %527
 
 527:                                              ; preds = %._crit_edge201
   %528 = sub nsw i32 %3, %.0117.lcssa
-  %529 = call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %483, i32 noundef %528, double %.sroa.0.0.i155, double %.sroa.6.0.i154, double %6, double %7), !range !4
+  %529 = call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %483, i32 noundef %528, double %.sroa.0.0.i155, double %.sroa.6.0.i154, double %6, double %7)
   br label %530
 
 530:                                              ; preds = %.thread, %splinefits.exit, %527, %._crit_edge201, %16
@@ -1079,4 +1079,3 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

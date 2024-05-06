@@ -1237,98 +1237,98 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 invoke.cont:                                      ; preds = %for.body
   %call8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call7) #25
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8) #30
-  %call1.i = tail call i32 @strncmp(ptr noundef nonnull @.str, ptr noundef %call8, i64 noundef %call.i) #30
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call8) #30
+  %call1.i = tail call i32 @strncmp(ptr noundef nonnull @.str, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp.i19 = icmp eq i32 %call1.i, 0
   br i1 %cmp.i19, label %sw.bb, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont
-  %call2.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8NameTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call2.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8NameTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %sw.bb13, label %if.else5.i
 
 if.else5.i:                                       ; preds = %if.else.i
-  %call6.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13ObjectRefTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call6.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13ObjectRefTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %sw.bb16, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.else5.i
-  %call10.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15MaterialRefTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call10.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15MaterialRefTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp11.i = icmp eq i32 %call10.i, 0
   br i1 %cmp11.i, label %sw.bb19, label %if.else13.i
 
 if.else13.i:                                      ; preds = %if.else9.i
-  %call14.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13MetricKeyTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call14.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13MetricKeyTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp15.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.i, label %for.inc, label %if.else17.i
 
 if.else17.i:                                      ; preds = %if.else13.i
-  %call18.i = tail call i32 @strncmp(ptr noundef nonnull @.str.1, ptr noundef %call8, i64 noundef %call.i) #30
+  %call18.i = tail call i32 @strncmp(ptr noundef nonnull @.str.1, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp19.i = icmp eq i32 %call18.i, 0
   br i1 %cmp19.i, label %sw.bb23, label %if.else21.i
 
 if.else21.i:                                      ; preds = %if.else17.i
-  %call22.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL14CameraNodeTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call22.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL14CameraNodeTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp23.i = icmp eq i32 %call22.i, 0
   br i1 %cmp23.i, label %sw.bb26, label %if.else25.i
 
 if.else25.i:                                      ; preds = %if.else21.i
-  %call26.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13LightNodeTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call26.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13LightNodeTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp27.i = icmp eq i32 %call26.i, 0
   br i1 %cmp27.i, label %sw.bb29, label %if.else29.i
 
 if.else29.i:                                      ; preds = %if.else25.i
-  %call30.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL18GeometryObjectTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call30.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL18GeometryObjectTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp31.i = icmp eq i32 %call30.i, 0
   br i1 %cmp31.i, label %sw.bb32, label %if.else33.i
 
 if.else33.i:                                      ; preds = %if.else29.i
-  %call34.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL16CameraObjectTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call34.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL16CameraObjectTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp35.i = icmp eq i32 %call34.i, 0
   br i1 %cmp35.i, label %sw.bb35, label %if.else37.i
 
 if.else37.i:                                      ; preds = %if.else33.i
-  %call38.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15LightObjectTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call38.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15LightObjectTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp39.i = icmp eq i32 %call38.i, 0
   br i1 %cmp39.i, label %sw.bb38, label %if.else41.i
 
 if.else41.i:                                      ; preds = %if.else37.i
-  %call42.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13TransformTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call42.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13TransformTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp43.i = icmp eq i32 %call42.i, 0
   br i1 %cmp43.i, label %sw.bb41, label %if.else45.i
 
 if.else45.i:                                      ; preds = %if.else41.i
-  %call46.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8MeshTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call46.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8MeshTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp47.i = icmp eq i32 %call46.i, 0
   br i1 %cmp47.i, label %sw.bb44, label %if.else49.i
 
 if.else49.i:                                      ; preds = %if.else45.i
-  %call50.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15VertexArrayTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call50.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15VertexArrayTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp51.i = icmp eq i32 %call50.i, 0
   br i1 %cmp51.i, label %sw.bb47, label %if.else53.i
 
 if.else53.i:                                      ; preds = %if.else49.i
-  %call54.i = tail call i32 @strncmp(ptr noundef nonnull @.str.3, ptr noundef %call8, i64 noundef %call.i) #30
+  %call54.i = tail call i32 @strncmp(ptr noundef nonnull @.str.3, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp55.i = icmp eq i32 %call54.i, 0
   br i1 %cmp55.i, label %sw.bb50, label %if.else57.i
 
 if.else57.i:                                      ; preds = %if.else53.i
-  %call58.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL12MaterialTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call58.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL12MaterialTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp59.i = icmp eq i32 %call58.i, 0
   br i1 %cmp59.i, label %sw.bb53, label %if.else61.i
 
 if.else61.i:                                      ; preds = %if.else57.i
-  %call62.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ColorTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call62.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ColorTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp63.i = icmp eq i32 %call62.i, 0
   br i1 %cmp63.i, label %sw.bb56, label %if.else65.i
 
 if.else65.i:                                      ; preds = %if.else61.i
-  %call66.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ParamTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call66.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ParamTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp67.i = icmp eq i32 %call66.i, 0
   br i1 %cmp67.i, label %sw.bb59, label %if.else69.i
 
 if.else69.i:                                      ; preds = %if.else65.i
-  %call70.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL11TextureTypeE, ptr noundef %call8, i64 noundef %call.i) #30
+  %call70.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL11TextureTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #30
   %cmp71.i = icmp eq i32 %call70.i, 0
   br i1 %cmp71.i, label %sw.bb62, label %for.inc
 
@@ -4012,22 +4012,22 @@ if.then3:                                         ; preds = %if.end
 
 invoke.cont5:                                     ; preds = %if.then3
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %propKey) #25
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.40, ptr noundef nonnull dereferenceable(1) %call6) #30
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.40, ptr noundef nonnull readonly dereferenceable(1) %call6) #30
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end11, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont5
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.41, ptr noundef nonnull dereferenceable(1) %call6) #30
+  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.41, ptr noundef nonnull readonly dereferenceable(1) %call6) #30
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.end11, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.42, ptr noundef nonnull dereferenceable(1) %call6) #30
+  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.42, ptr noundef nonnull readonly dereferenceable(1) %call6) #30
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %if.end11, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else4.i
-  %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.43, ptr noundef nonnull dereferenceable(1) %call6) #30
+  %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.43, ptr noundef nonnull readonly dereferenceable(1) %call6) #30
   %cmp10.i = icmp eq i32 %call9.i, 0
   br i1 %cmp10.i, label %if.end11, label %cleanup
 

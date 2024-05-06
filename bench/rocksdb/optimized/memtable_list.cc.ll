@@ -2874,7 +2874,7 @@ invoke.cont109:                                   ; preds = %_ZNSt6vectorIPN7roc
   br i1 %write_edits, label %if.then111, label %if.else118
 
 if.then111:                                       ; preds = %invoke.cont109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp113, i8 0, i64 32, i1 false)
   %call.i.i2.i155 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
           to label %invoke.cont114 unwind label %lpad93.loopexit
 
@@ -7534,7 +7534,7 @@ entry:
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %__functor.val, i64 40
   %10 = load ptr, ptr %9, align 8
-  tail call void @_ZN7rocksdb12MemTableList29RemoveMemTablesOrRestoreFlagsERKNS_6StatusEPNS_16ColumnFamilyDataEmPNS_9LogBufferEPNS_10autovectorIPNS_8MemTableELm8EEEPNS_17InstrumentedMutexE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef %2, i64 noundef %4, ptr noundef %6, ptr noundef %8, ptr noundef %10)
+  tail call void @_ZN7rocksdb12MemTableList29RemoveMemTablesOrRestoreFlagsERKNS_6StatusEPNS_16ColumnFamilyDataEmPNS_9LogBufferEPNS_10autovectorIPNS_8MemTableELm8EEEPNS_17InstrumentedMutexE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %__args, ptr noundef %2, i64 noundef %4, ptr noundef %6, ptr noundef %8, ptr noundef %10)
   ret void
 }
 
@@ -7560,7 +7560,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__source.val4, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val4, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

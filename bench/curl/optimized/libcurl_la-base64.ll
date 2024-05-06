@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @base64url = internal constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_base64_decode(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
 entry:
   %lookup = alloca [256 x i8], align 16
   store ptr null, ptr %outptr, align 8
@@ -189,14 +189,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_base64_encode(ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_base64_encode(ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64encdec, ptr noundef %inputbuff, i64 noundef %insize, ptr noundef %outptr, ptr noundef %outlen), !range !9
+  %call = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64encdec, ptr noundef %inputbuff, i64 noundef %insize, ptr noundef %outptr, ptr noundef %outlen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @base64_encode(ptr nocapture noundef readonly %table64, ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr nocapture noundef readonly %table64, ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %table64, i64 64
   store ptr null, ptr %outptr, align 8
@@ -268,7 +268,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %sub = add i64 %insize.addr.152, -3
   %add.ptr = getelementptr inbounds i8, ptr %in.053, i64 3
   %cmp = icmp ugt i64 %sub, 2
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !10
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %output.0.lcssa = phi ptr [ %call2, %while.cond.preheader ], [ %incdec.ptr33, %while.body ]
@@ -352,9 +352,9 @@ return:                                           ; preds = %if.end, %if.end81
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_base64url_encode(ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_base64url_encode(ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64url, ptr noundef %inputbuff, i64 noundef %insize, ptr noundef %outptr, ptr noundef %outlen), !range !9
+  %call = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64url, ptr noundef %inputbuff, i64 noundef %insize, ptr noundef %outptr, ptr noundef %outlen)
   ret i32 %call
 }
 
@@ -376,5 +376,4 @@ attributes #5 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 28}
-!10 = distinct !{!10, !5}
+!9 = distinct !{!9, !5}

@@ -80,7 +80,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_asn1_time_to_tm(ptr noundef writeonly %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #1 {
 entry:
   %tmp = alloca %struct.tm, align 8
   %type = getelementptr inbounds i8, ptr %d, i64 4
@@ -809,7 +809,7 @@ if.then.i:                                        ; preds = %entry
   br label %ASN1_TIME_to_tm.exit
 
 if.end4.i:                                        ; preds = %entry
-  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull %t), !range !8
+  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull readonly %t)
   br label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
@@ -879,7 +879,7 @@ return:                                           ; preds = %err.i, %if.then46.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TIME_to_tm(ptr noundef readonly %s, ptr noundef %tm) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_TIME_to_tm(ptr noundef readonly %s, ptr noundef %tm) local_unnamed_addr #1 {
 entry:
   %now_t = alloca i64, align 8
   %cmp = icmp eq ptr %s, null
@@ -894,7 +894,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %call5 = tail call i32 @ossl_asn1_time_to_tm(ptr noundef %tm, ptr noundef nonnull %s), !range !8
+  %call5 = tail call i32 @ossl_asn1_time_to_tm(ptr noundef %tm, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end4
@@ -923,7 +923,7 @@ declare i32 @ASN1_UTCTIME_set_string(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_TIME_set_string_X509(ptr noundef %s, ptr noundef %str) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_TIME_set_string_X509(ptr noundef %s, ptr noundef %str) local_unnamed_addr #1 {
 ASN1_TIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
   %tm = alloca %struct.tm, align 8
@@ -954,7 +954,7 @@ if.end6:                                          ; preds = %ASN1_TIME_check.exi
   br i1 %or.cond, label %if.then11, label %if.end34
 
 if.then11:                                        ; preds = %if.end6
-  %call12 = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull %t), !range !8
+  %call12 = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull %t)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %out, label %if.end15
 
@@ -1043,7 +1043,7 @@ if.then.i:                                        ; preds = %entry
   br label %ASN1_TIME_to_tm.exit
 
 if.end4.i:                                        ; preds = %entry
-  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_from, ptr noundef nonnull %from), !range !8
+  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_from, ptr noundef nonnull readonly %from)
   br label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
@@ -1066,7 +1066,7 @@ if.then.i6:                                       ; preds = %if.end
   br label %ASN1_TIME_to_tm.exit11
 
 if.end4.i3:                                       ; preds = %if.end
-  %call5.i4 = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_to, ptr noundef nonnull %to), !range !8
+  %call5.i4 = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_to, ptr noundef nonnull readonly %to)
   br label %ASN1_TIME_to_tm.exit11
 
 ASN1_TIME_to_tm.exit11:                           ; preds = %if.then.i6, %if.end4.i3
@@ -1087,28 +1087,28 @@ return:                                           ; preds = %ASN1_TIME_to_tm.exi
 declare i32 @OPENSSL_gmtime_diff(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_TIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @ossl_asn1_time_print_ex(ptr noundef %bp, ptr noundef %tm, i64 noundef 0), !range !9
+  %call.i = tail call i32 @ossl_asn1_time_print_ex(ptr noundef %bp, ptr noundef readonly %tm, i64 noundef 0)
   %cmp.i = icmp sgt i32 %call.i, 0
   %conv.i = zext i1 %cmp.i to i32
   ret i32 %conv.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TIME_print_ex(ptr noundef %bp, ptr nocapture noundef readonly %tm, i64 noundef %flags) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_TIME_print_ex(ptr noundef %bp, ptr nocapture noundef readonly %tm, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @ossl_asn1_time_print_ex(ptr noundef %bp, ptr noundef %tm, i64 noundef %flags), !range !9
+  %call = tail call i32 @ossl_asn1_time_print_ex(ptr noundef %bp, ptr noundef %tm, i64 noundef %flags)
   %cmp = icmp sgt i32 %call, 0
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_asn1_time_print_ex(ptr noundef %bp, ptr nocapture noundef readonly %tm, i64 noundef %flags) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @ossl_asn1_time_print_ex(ptr noundef %bp, ptr nocapture noundef readonly %tm, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
   %stm = alloca %struct.tm, align 8
-  %call = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %stm, ptr noundef %tm), !range !8
+  %call = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %stm, ptr noundef %tm)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -1159,7 +1159,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end25, label %land.rhs, !llvm.loop !10
+  br i1 %exitcond.not, label %if.end25, label %land.rhs, !llvm.loop !8
 
 if.end25.loopexit.split.loop.exit:                ; preds = %land.rhs
   %9 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1269,7 +1269,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TIME_cmp_time_t(ptr noundef readonly %s, i64 noundef %t) local_unnamed_addr #1 {
+define range(i32 -2, 2) i32 @ASN1_TIME_cmp_time_t(ptr noundef readonly %s, i64 noundef %t) local_unnamed_addr #1 {
 entry:
   %now_t.i = alloca i64, align 8
   %t.addr = alloca i64, align 8
@@ -1291,7 +1291,7 @@ if.then.i:                                        ; preds = %entry
   br label %ASN1_TIME_to_tm.exit
 
 if.end4.i:                                        ; preds = %entry
-  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %stm, ptr noundef nonnull %s), !range !8
+  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %stm, ptr noundef nonnull readonly %s)
   br label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
@@ -1331,14 +1331,14 @@ return:                                           ; preds = %if.end11, %if.end8,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_TIME_normalize(ptr noundef %t) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_TIME_normalize(ptr noundef %t) local_unnamed_addr #1 {
 entry:
   %tm = alloca %struct.tm, align 8
   %cmp = icmp eq ptr %t, null
   br i1 %cmp, label %return, label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %entry
-  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull %t), !range !8
+  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull readonly %t)
   %tobool.not = icmp eq i32 %call5.i, 0
   br i1 %tobool.not, label %return, label %if.end23.i
 
@@ -1391,7 +1391,7 @@ return:                                           ; preds = %if.end44.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TIME_compare(ptr noundef %a, ptr noundef %b) local_unnamed_addr #1 {
+define range(i32 -2, 2) i32 @ASN1_TIME_compare(ptr noundef %a, ptr noundef %b) local_unnamed_addr #1 {
 entry:
   %day = alloca i32, align 4
   %sec = alloca i32, align 4
@@ -1460,7 +1460,7 @@ if.then.i:                                        ; preds = %if.end4
   br label %ASN1_TIME_to_tm.exit
 
 if.end4.i:                                        ; preds = %if.end4
-  %call5.i = tail call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %call2, ptr noundef nonnull %call1.i), !range !8
+  %call5.i = tail call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %call2, ptr noundef nonnull readonly %call1.i)
   br label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
@@ -1520,6 +1520,4 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
-!9 = !{i32 -1, i32 2}
-!10 = distinct !{!10, !5}
+!8 = distinct !{!8, !5}

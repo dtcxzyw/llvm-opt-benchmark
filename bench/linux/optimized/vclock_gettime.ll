@@ -117,7 +117,7 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %54, label %.preheader12, label %55, !llvm.loop !23
 
 55:                                               ; preds = %.preheader12
-  %56 = trunc i64 %52 to i32
+  %56 = trunc nuw nsw i64 %52 to i32
   br label %57
 
 57:                                               ; preds = %55, %32
@@ -194,7 +194,7 @@ define i32 @__vdso_gettimeofday(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %97, label %.preheader, label %98, !llvm.loop !23
 
 98:                                               ; preds = %.preheader
-  %99 = trunc i64 %95 to i32
+  %99 = trunc nuw nsw i64 %95 to i32
   br label %100
 
 100:                                              ; preds = %98, %79
@@ -346,7 +346,7 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %50, label %.preheader18, label %51, !llvm.loop !23
 
 51:                                               ; preds = %.preheader18
-  %52 = trunc i64 %48 to i32
+  %52 = trunc nuw nsw i64 %48 to i32
   br label %53
 
 53:                                               ; preds = %51, %38
@@ -494,7 +494,7 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %143, label %.preheader13, label %144, !llvm.loop !23
 
 144:                                              ; preds = %.preheader13
-  %145 = trunc i64 %141 to i32
+  %145 = trunc nuw nsw i64 %141 to i32
   br label %146
 
 146:                                              ; preds = %144, %118
@@ -572,7 +572,7 @@ define i32 @__vdso_clock_gettime(i32 noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %188, label %.preheader, label %189, !llvm.loop !23
 
 189:                                              ; preds = %.preheader
-  %190 = trunc i64 %186 to i32
+  %190 = trunc nuw nsw i64 %186 to i32
   br label %191
 
 191:                                              ; preds = %189, %170
@@ -983,7 +983,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: noimplicitfloat nounwind null_pointer_is_valid
-define internal fastcc i64 @vread_pvclock() unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @vread_pvclock() unnamed_addr #0 align 16 {
   %.pre = load i32, ptr @pvclock_page, align 64
   br label %1
 
@@ -1012,7 +1012,7 @@ define internal fastcc i64 @vread_pvclock() unnamed_addr #0 align 16 {
   %18 = lshr i64 %10, %17
   %extract.t12 = trunc i64 %18 to i32
   %extract15 = lshr i64 %18, 32
-  %extract.t16 = trunc i64 %extract15 to i32
+  %extract.t16 = trunc nuw i64 %extract15 to i32
   br label %22
 
 19:                                               ; preds = %7
@@ -1020,7 +1020,7 @@ define internal fastcc i64 @vread_pvclock() unnamed_addr #0 align 16 {
   %21 = shl i64 %10, %20
   %extract.t11 = trunc i64 %21 to i32
   %extract13 = lshr i64 %21, 32
-  %extract.t14 = trunc i64 %extract13 to i32
+  %extract.t14 = trunc nuw i64 %extract13 to i32
   br label %22
 
 22:                                               ; preds = %19, %15

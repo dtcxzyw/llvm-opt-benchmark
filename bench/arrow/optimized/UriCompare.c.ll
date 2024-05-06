@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriEqualsUriA(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uriEqualsUriA(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %b, null
@@ -183,7 +183,7 @@ return:                                           ; preds = %if.end144, %do.body
 declare i32 @uriCompareRangeA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriEqualsUriW(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uriEqualsUriW(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %b, null

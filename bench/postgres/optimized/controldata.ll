@@ -1255,19 +1255,19 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %.0320.lcssa, label %507, label %.critedge
 
 507:                                              ; preds = %506
-  %508 = trunc i8 %.0318.lcssa to i1
+  %508 = trunc nuw i8 %.0318.lcssa to i1
   br i1 %508, label %509, label %551
 
 509:                                              ; preds = %507
-  %510 = trunc i8 %.0316.lcssa to i1
+  %510 = trunc nuw i8 %.0316.lcssa to i1
   br i1 %510, label %511, label %551
 
 511:                                              ; preds = %509
-  %512 = trunc i8 %.0312.lcssa to i1
+  %512 = trunc nuw i8 %.0312.lcssa to i1
   br i1 %512, label %513, label %551
 
 513:                                              ; preds = %511
-  %514 = trunc i8 %.0314.lcssa to i1
+  %514 = trunc nuw i8 %.0314.lcssa to i1
   br i1 %514, label %519, label %515
 
 515:                                              ; preds = %513
@@ -1277,54 +1277,54 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %518, label %551, label %519
 
 519:                                              ; preds = %515, %513
-  %520 = trunc i8 %.0310.lcssa to i1
+  %520 = trunc nuw i8 %.0310.lcssa to i1
   br i1 %520, label %521, label %551
 
 521:                                              ; preds = %519
   br i1 %1, label %524, label %522
 
 522:                                              ; preds = %521
-  %523 = trunc i8 %.2309 to i1
+  %523 = trunc nuw i8 %.2309 to i1
   br i1 %523, label %524, label %551
 
 524:                                              ; preds = %522, %521
-  %525 = trunc i8 %.0305.lcssa to i1
+  %525 = trunc nuw i8 %.0305.lcssa to i1
   br i1 %525, label %526, label %551
 
 526:                                              ; preds = %524
-  %527 = trunc i8 %.0303.lcssa to i1
+  %527 = trunc nuw i8 %.0303.lcssa to i1
   br i1 %527, label %528, label %551
 
 528:                                              ; preds = %526
-  %529 = trunc i8 %.0301.lcssa to i1
+  %529 = trunc nuw i8 %.0301.lcssa to i1
   br i1 %529, label %530, label %551
 
 530:                                              ; preds = %528
-  %531 = trunc i8 %.0299.lcssa to i1
+  %531 = trunc nuw i8 %.0299.lcssa to i1
   br i1 %531, label %532, label %551
 
 532:                                              ; preds = %530
-  %533 = trunc i8 %.0297.lcssa to i1
+  %533 = trunc nuw i8 %.0297.lcssa to i1
   br i1 %533, label %534, label %551
 
 534:                                              ; preds = %532
-  %535 = trunc i8 %.0295.lcssa to i1
+  %535 = trunc nuw i8 %.0295.lcssa to i1
   br i1 %535, label %536, label %551
 
 536:                                              ; preds = %534
-  %537 = trunc i8 %.0293.lcssa to i1
+  %537 = trunc nuw i8 %.0293.lcssa to i1
   br i1 %537, label %538, label %551
 
 538:                                              ; preds = %536
-  %539 = trunc i8 %.0291.lcssa to i1
+  %539 = trunc nuw i8 %.0291.lcssa to i1
   br i1 %539, label %540, label %551
 
 540:                                              ; preds = %538
-  %541 = trunc i8 %.0289.lcssa to i1
+  %541 = trunc nuw i8 %.0289.lcssa to i1
   br i1 %541, label %542, label %551
 
 542:                                              ; preds = %540
-  %543 = trunc i8 %.0287.lcssa to i1
+  %543 = trunc nuw i8 %.0287.lcssa to i1
   br i1 %543, label %547, label %544
 
 544:                                              ; preds = %542
@@ -1333,11 +1333,11 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %546, label %551, label %547
 
 547:                                              ; preds = %544, %542
-  %548 = trunc i8 %.0285.lcssa to i1
+  %548 = trunc nuw i8 %.0285.lcssa to i1
   br i1 %548, label %549, label %551
 
 549:                                              ; preds = %547
-  %550 = trunc i8 %.1284.lcssa to i1
+  %550 = trunc nuw i8 %.1284.lcssa to i1
   br i1 %550, label %618, label %551
 
 551:                                              ; preds = %549, %547, %544, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %519, %515, %511, %509, %507
@@ -1357,7 +1357,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %555
 
 555:                                              ; preds = %554, %551
-  %556 = trunc i8 %.0318.lcssa to i1
+  %556 = trunc nuw i8 %.0318.lcssa to i1
   br i1 %556, label %558, label %557
 
 557:                                              ; preds = %555
@@ -1365,7 +1365,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %558
 
 558:                                              ; preds = %557, %555
-  %559 = trunc i8 %.0316.lcssa to i1
+  %559 = trunc nuw i8 %.0316.lcssa to i1
   br i1 %559, label %561, label %560
 
 560:                                              ; preds = %558
@@ -1373,7 +1373,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %561
 
 561:                                              ; preds = %560, %558
-  %562 = trunc i8 %.0314.lcssa to i1
+  %562 = trunc nuw i8 %.0314.lcssa to i1
   br i1 %562, label %568, label %563
 
 563:                                              ; preds = %561
@@ -1387,7 +1387,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %568
 
 568:                                              ; preds = %567, %563, %561
-  %569 = trunc i8 %.0312.lcssa to i1
+  %569 = trunc nuw i8 %.0312.lcssa to i1
   br i1 %569, label %571, label %570
 
 570:                                              ; preds = %568
@@ -1395,7 +1395,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %571
 
 571:                                              ; preds = %570, %568
-  %572 = trunc i8 %.0310.lcssa to i1
+  %572 = trunc nuw i8 %.0310.lcssa to i1
   br i1 %572, label %574, label %573
 
 573:                                              ; preds = %571
@@ -1406,7 +1406,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %1, label %578, label %575
 
 575:                                              ; preds = %574
-  %576 = trunc i8 %.2309 to i1
+  %576 = trunc nuw i8 %.2309 to i1
   br i1 %576, label %578, label %577
 
 577:                                              ; preds = %575
@@ -1414,7 +1414,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %578
 
 578:                                              ; preds = %577, %575, %574
-  %579 = trunc i8 %.0305.lcssa to i1
+  %579 = trunc nuw i8 %.0305.lcssa to i1
   br i1 %579, label %581, label %580
 
 580:                                              ; preds = %578
@@ -1422,7 +1422,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %581
 
 581:                                              ; preds = %580, %578
-  %582 = trunc i8 %.0303.lcssa to i1
+  %582 = trunc nuw i8 %.0303.lcssa to i1
   br i1 %582, label %584, label %583
 
 583:                                              ; preds = %581
@@ -1430,7 +1430,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %584
 
 584:                                              ; preds = %583, %581
-  %585 = trunc i8 %.0301.lcssa to i1
+  %585 = trunc nuw i8 %.0301.lcssa to i1
   br i1 %585, label %587, label %586
 
 586:                                              ; preds = %584
@@ -1438,7 +1438,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %587
 
 587:                                              ; preds = %586, %584
-  %588 = trunc i8 %.0299.lcssa to i1
+  %588 = trunc nuw i8 %.0299.lcssa to i1
   br i1 %588, label %590, label %589
 
 589:                                              ; preds = %587
@@ -1446,7 +1446,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %590
 
 590:                                              ; preds = %589, %587
-  %591 = trunc i8 %.0297.lcssa to i1
+  %591 = trunc nuw i8 %.0297.lcssa to i1
   br i1 %591, label %593, label %592
 
 592:                                              ; preds = %590
@@ -1454,7 +1454,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %593
 
 593:                                              ; preds = %592, %590
-  %594 = trunc i8 %.0295.lcssa to i1
+  %594 = trunc nuw i8 %.0295.lcssa to i1
   br i1 %594, label %596, label %595
 
 595:                                              ; preds = %593
@@ -1462,7 +1462,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %596
 
 596:                                              ; preds = %595, %593
-  %597 = trunc i8 %.0293.lcssa to i1
+  %597 = trunc nuw i8 %.0293.lcssa to i1
   br i1 %597, label %599, label %598
 
 598:                                              ; preds = %596
@@ -1470,7 +1470,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %599
 
 599:                                              ; preds = %598, %596
-  %600 = trunc i8 %.0291.lcssa to i1
+  %600 = trunc nuw i8 %.0291.lcssa to i1
   br i1 %600, label %602, label %601
 
 601:                                              ; preds = %599
@@ -1478,7 +1478,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %602
 
 602:                                              ; preds = %601, %599
-  %603 = trunc i8 %.0289.lcssa to i1
+  %603 = trunc nuw i8 %.0289.lcssa to i1
   br i1 %603, label %605, label %604
 
 604:                                              ; preds = %602
@@ -1486,7 +1486,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %605
 
 605:                                              ; preds = %604, %602
-  %606 = trunc i8 %.0287.lcssa to i1
+  %606 = trunc nuw i8 %.0287.lcssa to i1
   br i1 %606, label %611, label %607
 
 607:                                              ; preds = %605
@@ -1499,7 +1499,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %611
 
 611:                                              ; preds = %610, %607, %605
-  %612 = trunc i8 %.0285.lcssa to i1
+  %612 = trunc nuw i8 %.0285.lcssa to i1
   br i1 %612, label %614, label %613
 
 613:                                              ; preds = %611
@@ -1507,7 +1507,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br label %614
 
 614:                                              ; preds = %613, %611
-  %615 = trunc i8 %.1284.lcssa to i1
+  %615 = trunc nuw i8 %.1284.lcssa to i1
   br i1 %615, label %617, label %616
 
 616:                                              ; preds = %614

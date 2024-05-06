@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [17 x i8] c"PMI_CONTROL_PORT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mpi_p_slurmstepd_prefork(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mpi_p_slurmstepd_prefork(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 189), align 8

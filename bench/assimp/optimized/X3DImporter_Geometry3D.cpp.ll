@@ -2478,7 +2478,7 @@ lpad36:                                           ; preds = %if.then34
   br label %ehcleanup236
 
 if.end38:                                         ; preds = %if.end
-  %mul = mul nsw i32 %xDimension.0855861869, %zDimension.0870
+  %mul = mul nuw nsw i32 %xDimension.0855861869, %zDimension.0870
   %conv = zext nneg i32 %mul to i64
   %_M_finish.i = getelementptr inbounds i8, ptr %height, i64 8
   %31 = load ptr, ptr %_M_finish.i, align 8
@@ -2839,9 +2839,9 @@ for.body96.us.preheader:                          ; preds = %for.end68
 
 for.body96.us:                                    ; preds = %for.body96.us.preheader, %for.cond98.for.inc158_crit_edge.us
   %fzi.0908.us = phi i32 [ %add140.us, %for.cond98.for.inc158_crit_edge.us ], [ 0, %for.body96.us.preheader ]
-  %mul129.us = mul nsw i32 %fzi.0908.us, %xDimension.0855861869
+  %mul129.us = mul nuw nsw i32 %fzi.0908.us, %xDimension.0855861869
   %add140.us = add nuw nsw i32 %fzi.0908.us, 1
-  %mul141.us = mul nsw i32 %add140.us, %xDimension.0855861869
+  %mul141.us = mul nuw nsw i32 %add140.us, %xDimension.0855861869
   %.pre984 = load ptr, ptr %_M_finish.i.i529, align 8
   br i1 %ccw.0806819840, label %for.body100.us.us, label %for.body100.us909
 

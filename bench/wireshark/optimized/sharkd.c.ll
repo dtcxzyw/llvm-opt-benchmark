@@ -243,7 +243,7 @@ declare void @wtap_cleanup() local_unnamed_addr #1
 declare void @free_progdirs() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = call ptr @wtap_open_offline(ptr noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef nonnull %6, i32 noundef 1) #9
   %8 = icmp eq ptr %7, null
@@ -332,8 +332,8 @@ declare void @wtap_set_cb_new_secrets(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @secrets_wtap_callback(i32 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @sharkd_cf_open(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @cf_open(ptr noundef nonnull @cfile, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3), !range !5
+define hidden range(i32 0, 2) i32 @sharkd_cf_open(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @cf_open(ptr noundef nonnull @cfile, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
@@ -409,7 +409,7 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
   %32 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
   %33 = call i32 @wtap_read(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not21.us.i = icmp eq i32 %33, 0
-  br i1 %.not21.us.i, label %.loopexit.i, label %process_packet.exit.thread.us.i, !llvm.loop !6
+  br i1 %.not21.us.i, label %.loopexit.i, label %process_packet.exit.thread.us.i, !llvm.loop !5
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %79
   %.07.i = phi i32 [ %.1.i, %79 ], [ 0, %.lr.ph.i ]
@@ -529,7 +529,7 @@ process_packet.exit.i:                            ; preds = %73, %69, %67, %.thr
   %80 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42), align 8
   %81 = call i32 @wtap_read(ptr noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not21.i = icmp eq i32 %81, 0
-  br i1 %.not21.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !6
+  br i1 %.not21.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %79, %31, %.split.us.i, %14
   %.not23.i = icmp eq ptr %.fr.i, null
@@ -577,7 +577,7 @@ define hidden ptr @sharkd_get_frame(i32 noundef %0) local_unnamed_addr #0 {
 declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @sharkd_dissect_request(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca %struct.epan_dissect, align 8
   %13 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 42, i32 4), align 8
   %14 = tail call ptr @frame_data_sequence_find(ptr noundef %13, i32 noundef %0) #9
@@ -777,7 +777,7 @@ define hidden noundef i32 @sharkd_retap() local_unnamed_addr #0 {
   %34 = add i32 %.017, 1
   %35 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i64 0, i32 13), align 8
   %.not13 = icmp ugt i32 %34, %35
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph, %0
   call void @wtap_rec_cleanup(ptr noundef nonnull %2) #9
@@ -887,7 +887,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   %45 = load ptr, ptr %3, align 8
   %46 = call zeroext i1 @dfilter_apply_edt(ptr noundef %45, ptr noundef nonnull %8) #9
   %47 = shl nuw nsw i32 1, %22
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nuw i32 %47 to i8
   %.134 = select i1 %46, i32 %.03139, i32 %.03338
   %49 = select i1 %46, i8 %48, i8 0
   %.2 = or i8 %49, %.1
@@ -895,7 +895,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   call void @epan_dissect_reset(ptr noundef nonnull %8) #9
   %50 = add i32 %.03139, 1
   %.not = icmp ugt i32 %50, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %34, %29, %13
   %.031.lcssa = phi i32 [ 1, %13 ], [ %.03139, %29 ], [ %50, %34 ]
@@ -1084,8 +1084,7 @@ attributes #12 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

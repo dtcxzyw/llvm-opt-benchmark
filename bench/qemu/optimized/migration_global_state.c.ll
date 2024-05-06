@@ -110,7 +110,7 @@ declare void @strpadcpy(ptr noundef, i32 noundef, ptr noundef, i8 noundef signex
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @global_state_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -22, 1) i32 @global_state_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_err = alloca ptr, align 8

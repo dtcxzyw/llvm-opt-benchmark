@@ -45,7 +45,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_unbind_
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_bind_one362, ptr @__UNIQUE_ID___addressable_acpi_find_child_by_adr361, ptr @__UNIQUE_ID___addressable_acpi_find_child_device360, ptr @__UNIQUE_ID___addressable_acpi_unbind_one363, ptr @__UNIQUE_ID___addressable_register_acpi_bus_type358, ptr @__UNIQUE_ID___addressable_unregister_acpi_bus_type359], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_acpi_bus_type(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @register_acpi_bus_type(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @acpi_disabled, align 4
   %3 = icmp ne i32 %2, 0
   %4 = icmp eq ptr %0, null
@@ -93,7 +93,7 @@ declare dso_local void @up_write(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @unregister_acpi_bus_type(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @unregister_acpi_bus_type(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @acpi_disabled, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %14
@@ -173,7 +173,7 @@ define dso_local ptr @acpi_find_child_by_adr(ptr noundef %0, i64 noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_bind_one(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_bind_one(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 632
@@ -600,7 +600,7 @@ declare dso_local void @pci_acpi_cleanup(ptr noundef, ptr noundef) local_unnamed
 declare dso_local i32 @acpi_dev_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @check_one_child(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @check_one_child(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 132

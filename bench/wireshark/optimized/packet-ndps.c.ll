@@ -4300,7 +4300,7 @@ define internal i32 @ndps_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @ndps_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @ndps_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -13706,7 +13706,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_ndps_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 65540) i32 @get_ndps_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #6
   %7 = zext i16 %6 to i32

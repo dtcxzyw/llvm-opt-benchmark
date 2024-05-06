@@ -722,13 +722,13 @@ define void @_ZN25diesel_demo_step_3_sqlite20establish_connection17hf1c16252fd1c
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %32 = load i64, ptr %15, align 8, !range !84, !alias.scope !82, !noalias !79, !noundef !4
-  %trunc.i = trunc i64 %32 to i1
+  %trunc.i = trunc nuw i64 %32 to i1
   br i1 %trunc.i, label %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h8bb06e2f22bf848fE.exit"
 
 33:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9ab32a2be449cf66E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !85
   %34 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !79
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.69b38f0b2fd4f2f77f24bc5b0f73ccc8.44, i64 noundef 24, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.69b38f0b2fd4f2f77f24bc5b0f73ccc8.11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.69b38f0b2fd4f2f77f24bc5b0f73ccc8.46) #16
           to label %37 unwind label %35, !noalias !85
 
@@ -753,7 +753,7 @@ common.resume:                                    ; preds = %.body, %35
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h8bb06e2f22bf848fE.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9ab32a2be449cf66E.exit"
   %40 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !alias.scope !85
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %40, i64 24, i1 false), !alias.scope !85
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)
   %41 = getelementptr inbounds i8, ptr %16, i64 8
@@ -1032,7 +1032,7 @@ define void @_ZN25diesel_demo_step_3_sqlite11create_post17h939a05665460c1ddE(ptr
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !188
   %21 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !183
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !183
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.69b38f0b2fd4f2f77f24bc5b0f73ccc8.50, i64 noundef 21, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.69b38f0b2fd4f2f77f24bc5b0f73ccc8.10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.69b38f0b2fd4f2f77f24bc5b0f73ccc8.51) #16
           to label %24 unwind label %22, !noalias !188
 
@@ -1055,7 +1055,7 @@ define void @_ZN25diesel_demo_step_3_sqlite11create_post17h939a05665460c1ddE(ptr
   resume { ptr, i32 } %23
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h5cd4e2598ff50ce3E.exit": ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !alias.scope !188
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %8, i64 56, i1 false), !alias.scope !188
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   ret void

@@ -55,7 +55,7 @@ define hidden i32 @lexbor_hash_make_id(ptr nocapture noundef readonly %0, i64 no
 declare zeroext i1 @lexbor_str_data_ncmp(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lexbor_hash_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
+define hidden range(i32 0, 3) i32 @lexbor_hash_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
   %5 = icmp ult i64 %3, 17
   br i1 %5, label %12, label %6
 
@@ -117,7 +117,7 @@ define hidden i32 @lexbor_hash_make_id_lower(ptr nocapture noundef readonly %0, 
 declare zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lexbor_hash_copy_lower(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
+define hidden range(i32 0, 3) i32 @lexbor_hash_copy_lower(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
   %5 = icmp ult i64 %3, 17
   br i1 %5, label %12, label %6
 
@@ -199,7 +199,7 @@ define hidden i32 @lexbor_hash_make_id_upper(ptr nocapture noundef readonly %0, 
 declare zeroext i1 @lexbor_str_data_nupcmp_right(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lexbor_hash_copy_upper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
+define hidden range(i32 0, 3) i32 @lexbor_hash_copy_upper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
   %5 = icmp ult i64 %3, 17
   br i1 %5, label %12, label %6
 
@@ -315,7 +315,7 @@ define hidden void @lexbor_hash_clean(ptr nocapture noundef readonly %0) local_u
   %6 = getelementptr i8, ptr %0, i64 24
   %.val3 = load i64, ptr %6, align 8
   %7 = shl i64 %.val3, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.val, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val, i8 0, i64 %7, i1 false)
   ret void
 }
 

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mstate_aux = type { i32, i32, i16, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecMcSheng8_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
@@ -1222,7 +1222,7 @@ nfaExecMcSheng8_Q2i.exit:                         ; preds = %if.end.i.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecMcSheng16_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
@@ -1815,11 +1815,11 @@ if.then.i124.i:                                   ; preds = %if.else.i56.i
   br i1 %tobool5.i.not.i, label %if.end17.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i124.i
-  %109 = tail call i32 @llvm.cttz.i32(i32 %and4.i.i, i1 true), !range !11
+  %109 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %and4.i.i, i1 true)
   %sub9.i.i = add nsw i32 %109, -4
   %110 = zext i8 %104 to i64
-  %111 = getelementptr i8, ptr %add.ptr.i88.i, i64 %110
-  %add.ptr12.i.i = getelementptr i8, ptr %111, i64 4
+  %111 = getelementptr inbounds i8, ptr %add.ptr.i88.i, i64 %110
+  %add.ptr12.i.i = getelementptr inbounds i8, ptr %111, i64 4
   %conv13.i.i = zext nneg i32 %sub9.i.i to i64
   %mul.i148.i = shl nuw nsw i64 %conv13.i.i, 1
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 %mul.i148.i
@@ -1841,7 +1841,7 @@ if.end.i59.i:                                     ; preds = %if.end17.i.i, %if.t
   %s.addr.i21.1.i = zext i16 %s.addr.i21.1.in.i to i32
   %incdec.ptr.i60.i = getelementptr inbounds i8, ptr %c.i24.0.i, i64 1
   %tobool34.i69.not.i = icmp sgt i16 %s.addr.i21.1.in.i, -1
-  br i1 %tobool34.i69.not.i, label %while.cond.i48.i, label %if.end40.i.i, !llvm.loop !12
+  br i1 %tobool34.i69.not.i, label %while.cond.i48.i, label %if.end40.i.i, !llvm.loop !11
 
 if.end40.i.i:                                     ; preds = %if.end.i59.i, %exit.i356.i.i
   %s.i.24.i = phi i32 [ %conv283.i365.i.i, %exit.i356.i.i ], [ %s.addr.i21.1.i, %if.end.i59.i ]
@@ -1914,7 +1914,7 @@ if.end61.i.i:                                     ; preds = %while.cond.i48.i, %
   %cached_accept_id.i.3.i = phi i32 [ %cached_accept_id.i.1.i, %if.then44.i.i ], [ %118, %doComplexReport.exit223.i.i ], [ %cached_accept_id.i.1.i, %exit.i356.i.i ], [ %cached_accept_id.i.1.i, %if.then.i218.i.i ], [ %cached_accept_id.i.1.i, %cond.end.i188.i.i ], [ %cached_accept_id.i.1.i, %for.cond.i197.i.i ], [ %cached_accept_id.i.1.i, %while.cond.i48.i ]
   %cached_accept_state.i.3.i = phi i32 [ %cached_accept_state.i.1.i, %if.then44.i.i ], [ %and53.i.i, %doComplexReport.exit223.i.i ], [ %cached_accept_state.i.1.i, %exit.i356.i.i ], [ %cached_accept_state.i.1.i, %if.then.i218.i.i ], [ %cached_accept_state.i.1.i, %cond.end.i188.i.i ], [ %cached_accept_state.i.1.i, %for.cond.i197.i.i ], [ %cached_accept_state.i.1.i, %while.cond.i48.i ]
   %cmp62.i.i = icmp ult ptr %c.i.22.i, %min_accel_offset.i.0.i
-  br i1 %cmp62.i.i, label %do.body11.i.i, label %do.end64.i.i, !llvm.loop !13
+  br i1 %cmp62.i.i, label %do.body11.i.i, label %do.end64.i.i, !llvm.loop !12
 
 do.end64.i.i:                                     ; preds = %if.end61.i.i
   %cmp65.i.i = icmp ne ptr %c.i.22.i, %add.ptr.i.i
@@ -2389,11 +2389,11 @@ if.then.i194.i:                                   ; preds = %if.else.i12.i
   br i1 %tobool5.i220.not.i, label %if.end17.i185.i, label %if.then6.i222.i
 
 if.then6.i222.i:                                  ; preds = %if.then.i194.i
-  %207 = tail call i32 @llvm.cttz.i32(i32 %and4.i219.i, i1 true), !range !11
+  %207 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %and4.i219.i, i1 true)
   %sub9.i225.i = add nsw i32 %207, -4
   %208 = zext i8 %202 to i64
-  %209 = getelementptr i8, ptr %add.ptr.i98.i, i64 %208
-  %add.ptr12.i229.i = getelementptr i8, ptr %209, i64 4
+  %209 = getelementptr inbounds i8, ptr %add.ptr.i98.i, i64 %208
+  %add.ptr12.i229.i = getelementptr inbounds i8, ptr %209, i64 4
   %conv13.i230.i = zext nneg i32 %sub9.i225.i to i64
   %mul.i231.i = shl nuw nsw i64 %conv13.i230.i, 1
   %add.ptr14.i232.i = getelementptr inbounds i8, ptr %add.ptr12.i229.i, i64 %mul.i231.i
@@ -2418,7 +2418,7 @@ if.end.i13.i:                                     ; preds = %if.end17.i185.i, %i
   %tobool27.i.not.i = icmp eq i32 %and26.i.i, 0
   %tobool34.i.not.i = icmp sgt i16 %s.addr.i.1.in.i, -1
   %or.cond524.i = and i1 %tobool34.i.not.i, %tobool27.i.not.i
-  br i1 %or.cond524.i, label %while.cond.i.i, label %if.end119.i.i, !llvm.loop !12
+  br i1 %or.cond524.i, label %while.cond.i.i, label %if.end119.i.i, !llvm.loop !11
 
 if.end119.i.i:                                    ; preds = %if.end.i13.i
   %tobool116.i.i = icmp slt i16 %s.addr.i.1.in.i, 0
@@ -2497,7 +2497,7 @@ if.end156.i.i:                                    ; preds = %while.cond.i.i, %fo
   %cmp158.i.i = icmp ult ptr %c.i.416.i, %add.ptr.i.i
   %tobool71.i.i = icmp ne i32 %s.i.417.i, 0
   %or.cond3.i = and i1 %tobool71.i.i, %cmp158.i.i
-  br i1 %or.cond3.i, label %if.else73.i.i, label %if.end165.i.i, !llvm.loop !14
+  br i1 %or.cond3.i, label %if.else73.i.i, label %if.end165.i.i, !llvm.loop !13
 
 if.end165.i.i:                                    ; preds = %do.body11.i.i, %if.end156.i.i, %if.then100.i.i, %if.then81.i.i, %with_accel.i.i, %do.end64.i.i
   %s.i.5.i = phi i32 [ %s.i.3.i, %if.then81.i.i ], [ %and104.i.i, %if.then100.i.i ], [ %s.i.23.i, %do.end64.i.i ], [ 0, %with_accel.i.i ], [ %s.i.417.i, %if.end156.i.i ], [ 0, %do.body11.i.i ]
@@ -2768,7 +2768,7 @@ if.end11:                                         ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng8_inAccept(ptr nocapture noundef readonly %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAccept(ptr nocapture noundef readonly %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
 entry:
   %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -2800,7 +2800,7 @@ for.body.preheader.i:                             ; preds = %if.end.i
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -2815,7 +2815,7 @@ mcshengHasAccept.exit:                            ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden signext i8 @nfaExecMcSheng8_inAnyAccept(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #3 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAnyAccept(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #3 {
 entry:
   %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -2833,7 +2833,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng16_inAccept(ptr nocapture noundef readonly %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAccept(ptr nocapture noundef readonly %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
 entry:
   %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -2865,7 +2865,7 @@ for.body.preheader.i:                             ; preds = %if.end.i
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %mcshengHasAccept.exit, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -2880,7 +2880,7 @@ mcshengHasAccept.exit:                            ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden signext i8 @nfaExecMcSheng16_inAnyAccept(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #3 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAnyAccept(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #3 {
 entry:
   %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -2898,7 +2898,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecMcSheng8_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
@@ -3983,7 +3983,7 @@ nfaExecMcSheng8_Q2i.exit:                         ; preds = %if.end.i.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecMcSheng16_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
@@ -4566,11 +4566,11 @@ if.then.i124.i:                                   ; preds = %if.else.i56.i
   br i1 %tobool5.i.not.i, label %if.end17.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i124.i
-  %109 = tail call i32 @llvm.cttz.i32(i32 %and4.i.i, i1 true), !range !11
+  %109 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %and4.i.i, i1 true)
   %sub9.i.i = add nsw i32 %109, -4
   %110 = zext i8 %104 to i64
-  %111 = getelementptr i8, ptr %add.ptr.i88.i, i64 %110
-  %add.ptr12.i.i = getelementptr i8, ptr %111, i64 4
+  %111 = getelementptr inbounds i8, ptr %add.ptr.i88.i, i64 %110
+  %add.ptr12.i.i = getelementptr inbounds i8, ptr %111, i64 4
   %conv13.i.i = zext nneg i32 %sub9.i.i to i64
   %mul.i148.i = shl nuw nsw i64 %conv13.i.i, 1
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 %mul.i148.i
@@ -4592,14 +4592,14 @@ if.end.i59.i:                                     ; preds = %if.end17.i.i, %if.t
   %s.addr.i21.1.i = zext i16 %s.addr.i21.1.in.i to i32
   %incdec.ptr.i60.i = getelementptr inbounds i8, ptr %c.i24.0.i, i64 1
   %tobool34.i69.not.i = icmp sgt i16 %s.addr.i21.1.in.i, -1
-  br i1 %tobool34.i69.not.i, label %while.cond.i48.i, label %if.then77.i, !llvm.loop !12
+  br i1 %tobool34.i69.not.i, label %while.cond.i48.i, label %if.then77.i, !llvm.loop !11
 
 if.end61.i.i:                                     ; preds = %while.cond.i48.i, %exit.i356.i.i
   %113 = phi i16 [ %28, %exit.i356.i.i ], [ %97, %while.cond.i48.i ]
   %s.i.24.i = phi i32 [ %conv283.i365.i.i, %exit.i356.i.i ], [ %s.addr.i21.0.i, %while.cond.i48.i ]
   %c.i.22.i = phi ptr [ %c.i282.i.8.i, %exit.i356.i.i ], [ %c.i24.0.i, %while.cond.i48.i ]
   %cmp62.i.i = icmp ult ptr %c.i.22.i, %min_accel_offset.i.0.i
-  br i1 %cmp62.i.i, label %do.body11.i.i, label %do.end64.i.i, !llvm.loop !13
+  br i1 %cmp62.i.i, label %do.body11.i.i, label %do.end64.i.i, !llvm.loop !12
 
 do.end64.i.i:                                     ; preds = %if.end61.i.i
   %cmp65.i.i = icmp ne ptr %c.i.22.i, %add.ptr.i.i
@@ -5065,11 +5065,11 @@ if.then.i194.i:                                   ; preds = %if.else.i12.i
   br i1 %tobool5.i220.not.i, label %if.end17.i185.i, label %if.then6.i222.i
 
 if.then6.i222.i:                                  ; preds = %if.then.i194.i
-  %201 = tail call i32 @llvm.cttz.i32(i32 %and4.i219.i, i1 true), !range !11
+  %201 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %and4.i219.i, i1 true)
   %sub9.i225.i = add nsw i32 %201, -4
   %202 = zext i8 %196 to i64
-  %203 = getelementptr i8, ptr %add.ptr.i98.i, i64 %202
-  %add.ptr12.i229.i = getelementptr i8, ptr %203, i64 4
+  %203 = getelementptr inbounds i8, ptr %add.ptr.i98.i, i64 %202
+  %add.ptr12.i229.i = getelementptr inbounds i8, ptr %203, i64 4
   %conv13.i230.i = zext nneg i32 %sub9.i225.i to i64
   %mul.i231.i = shl nuw nsw i64 %conv13.i230.i, 1
   %add.ptr14.i232.i = getelementptr inbounds i8, ptr %add.ptr12.i229.i, i64 %mul.i231.i
@@ -5094,7 +5094,7 @@ if.end.i13.i:                                     ; preds = %if.end17.i185.i, %i
   %tobool27.i.not.i = icmp eq i32 %and26.i.i, 0
   %tobool34.i.not.i = icmp sgt i16 %s.addr.i.1.in.i, -1
   %or.cond523.i = and i1 %tobool34.i.not.i, %tobool27.i.not.i
-  br i1 %or.cond523.i, label %while.cond.i.i, label %if.end119.i.i, !llvm.loop !12
+  br i1 %or.cond523.i, label %while.cond.i.i, label %if.end119.i.i, !llvm.loop !11
 
 if.end119.i.i:                                    ; preds = %if.end.i13.i
   %tobool116.i.i = icmp slt i16 %s.addr.i.1.in.i, 0
@@ -5106,7 +5106,7 @@ if.end156.i.i:                                    ; preds = %while.cond.i.i, %if
   %cmp158.i.i = icmp ult ptr %c.i.49.i, %add.ptr.i.i
   %tobool71.i.i = icmp ne i32 %s.i.411.i, 0
   %or.cond3.i = and i1 %tobool71.i.i, %cmp158.i.i
-  br i1 %or.cond3.i, label %if.else73.i.i, label %exit.i.i, !llvm.loop !14
+  br i1 %or.cond3.i, label %if.else73.i.i, label %exit.i.i, !llvm.loop !13
 
 exit.i.i:                                         ; preds = %do.body11.i.i, %if.end156.i.i, %if.then100.i.i, %if.then81.i.i, %with_accel.i.i, %do.end64.i.i
   %s.i.5.i = phi i32 [ %s.i.3.i, %if.then81.i.i ], [ %and104.i.i, %if.then100.i.i ], [ %s.i.24.i, %do.end64.i.i ], [ 0, %with_accel.i.i ], [ %s.i.411.i, %if.end156.i.i ], [ 0, %do.body11.i.i ]
@@ -5221,7 +5221,7 @@ nfaExecMcSheng16_Q2i.exit:                        ; preds = %if.end.i.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecMcSheng8_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
@@ -6259,7 +6259,7 @@ for.body.preheader.i.i:                           ; preds = %if.end.i.i139
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %return, label %for.body.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %return, label %for.body.i.i, !llvm.loop !14
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
@@ -6274,7 +6274,7 @@ return:                                           ; preds = %for.cond.i.i, %for.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecMcSheng16_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
@@ -6832,11 +6832,11 @@ if.then.i124.i:                                   ; preds = %if.else.i56.i
   br i1 %tobool5.i.not.i, label %if.end17.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i124.i
-  %105 = tail call i32 @llvm.cttz.i32(i32 %and4.i.i, i1 true), !range !11
+  %105 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %and4.i.i, i1 true)
   %sub9.i.i = add nsw i32 %105, -4
   %106 = zext i8 %100 to i64
-  %107 = getelementptr i8, ptr %add.ptr.i88.i, i64 %106
-  %add.ptr12.i.i = getelementptr i8, ptr %107, i64 4
+  %107 = getelementptr inbounds i8, ptr %add.ptr.i88.i, i64 %106
+  %add.ptr12.i.i = getelementptr inbounds i8, ptr %107, i64 4
   %conv13.i.i = zext nneg i32 %sub9.i.i to i64
   %mul.i148.i = shl nuw nsw i64 %conv13.i.i, 1
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 %mul.i148.i
@@ -6861,14 +6861,14 @@ if.end.i59.i:                                     ; preds = %if.end17.i.i, %if.t
   %cmp.i49.i = icmp ult ptr %incdec.ptr.i60.i, %min_accel_offset.i.0.i
   %cmp9.i83.i = icmp uge i16 %109, %93
   %110 = select i1 %cmp.i49.i, i1 %cmp9.i83.i, i1 false
-  br i1 %110, label %while.body.i51.i, label %if.end61.i.i, !llvm.loop !12
+  br i1 %110, label %while.body.i51.i, label %if.end61.i.i, !llvm.loop !11
 
 if.end61.i.i:                                     ; preds = %if.end.i59.i, %if.else22.i.i, %exit.i356.i.i
   %111 = phi i16 [ %26, %exit.i356.i.i ], [ %93, %if.else22.i.i ], [ %93, %if.end.i59.i ]
   %c.i.2.i = phi ptr [ %c.i282.i.8.i, %exit.i356.i.i ], [ %c.i.1.i, %if.else22.i.i ], [ %incdec.ptr.i60.i, %if.end.i59.i ]
   %s.i.2.i = phi i32 [ %conv283.i365.i.i, %exit.i356.i.i ], [ %s.addr.i21.0150.i, %if.else22.i.i ], [ %s.addr.i21.0.i, %if.end.i59.i ]
   %cmp62.i.i = icmp ult ptr %c.i.2.i, %min_accel_offset.i.0.i
-  br i1 %cmp62.i.i, label %do.body11.i.i, label %do.end64.i.i, !llvm.loop !13
+  br i1 %cmp62.i.i, label %do.body11.i.i, label %do.end64.i.i, !llvm.loop !12
 
 do.end64.i.i:                                     ; preds = %if.end61.i.i
   %cmp65.i.i = icmp ne ptr %c.i.2.i, %add.ptr.i.i
@@ -7327,11 +7327,11 @@ if.then.i194.i:                                   ; preds = %if.else.i12.i
   br i1 %tobool5.i220.not.i, label %if.end17.i185.i, label %if.then6.i222.i
 
 if.then6.i222.i:                                  ; preds = %if.then.i194.i
-  %198 = tail call i32 @llvm.cttz.i32(i32 %and4.i219.i, i1 true), !range !11
+  %198 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %and4.i219.i, i1 true)
   %sub9.i225.i = add nsw i32 %198, -4
   %199 = zext i8 %193 to i64
-  %200 = getelementptr i8, ptr %add.ptr.i98.i, i64 %199
-  %add.ptr12.i229.i = getelementptr i8, ptr %200, i64 4
+  %200 = getelementptr inbounds i8, ptr %add.ptr.i98.i, i64 %199
+  %add.ptr12.i229.i = getelementptr inbounds i8, ptr %200, i64 4
   %conv13.i230.i = zext nneg i32 %sub9.i225.i to i64
   %mul.i231.i = shl nuw nsw i64 %conv13.i230.i, 1
   %add.ptr14.i232.i = getelementptr inbounds i8, ptr %add.ptr12.i229.i, i64 %mul.i231.i
@@ -7354,7 +7354,7 @@ if.end.i13.i:                                     ; preds = %if.end17.i185.i, %i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %c.i3.0.i, i64 1
   %and26.i.i = and i32 %s.addr.i.1.i, 16384
   %tobool27.i.not.i = icmp eq i32 %and26.i.i, 0
-  br i1 %tobool27.i.not.i, label %while.cond.i.i, label %if.end156.i.i, !llvm.loop !12
+  br i1 %tobool27.i.not.i, label %while.cond.i.i, label %if.end156.i.i, !llvm.loop !11
 
 if.end156.i.i:                                    ; preds = %if.end.i13.i, %while.cond.i.i, %exit.i.i.i
   %c.i.4.i = phi ptr [ %c.i.i.8.i, %exit.i.i.i ], [ %incdec.ptr.i.i, %if.end.i13.i ], [ %c.i3.0.i, %while.cond.i.i ]
@@ -7362,7 +7362,7 @@ if.end156.i.i:                                    ; preds = %if.end.i13.i, %whil
   %cmp158.i.i = icmp ult ptr %c.i.4.i, %add.ptr.i.i
   %tobool71.i.i = icmp ne i32 %s.i.4.i, 0
   %or.cond3.i = and i1 %cmp158.i.i, %tobool71.i.i
-  br i1 %or.cond3.i, label %if.else73.i.i, label %if.end165.i.i, !llvm.loop !14
+  br i1 %or.cond3.i, label %if.else73.i.i, label %if.end165.i.i, !llvm.loop !13
 
 if.end165.i.i:                                    ; preds = %do.body11.i.i, %if.end156.i.i, %if.then100.i.i, %if.then81.i.i, %with_accel.i.i, %do.end64.i.i
   %s.i.5.i = phi i32 [ %s.i.3.i, %if.then81.i.i ], [ %and104.i.i, %if.then100.i.i ], [ %s.i.2.i, %do.end64.i.i ], [ 0, %with_accel.i.i ], [ %s.i.4.i, %if.end156.i.i ], [ 0, %do.body11.i.i ]
@@ -7456,7 +7456,7 @@ for.body.preheader.i.i:                           ; preds = %if.end.i.i
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %return, label %for.body.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %return, label %for.body.i.i, !llvm.loop !14
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
@@ -7471,7 +7471,7 @@ return:                                           ; preds = %for.cond.i.i, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng8_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #4 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i64 %offset, 0
   %cond.in.in.v = select i1 %tobool.not, i64 72, i64 74
@@ -7491,7 +7491,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng16_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #4 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i64 %offset, 0
   %cond.in.in.v = select i1 %tobool.not, i64 72, i64 74
@@ -7510,7 +7510,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecMcSheng8_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #1 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %state, align 1
   %aux_offset.i11.i = getelementptr inbounds i8, ptr %nfa, i64 76
@@ -7556,7 +7556,7 @@ mcshengCheckEOD.exit:                             ; preds = %for.cond.i.i, %for.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecMcSheng16_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #1 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #1 {
 entry:
   %0 = load i16, ptr %state, align 2
   %aux_offset.i11.i = getelementptr inbounds i8, ptr %nfa, i64 76
@@ -7700,8 +7700,7 @@ attributes #12 = { nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 4, i32 33}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

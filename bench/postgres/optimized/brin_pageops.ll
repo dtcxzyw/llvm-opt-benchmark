@@ -253,11 +253,11 @@ brin_can_do_samepage_update.exit.thread:          ; preds = %97, %brin_can_do_sa
   tail call void @XLogBeginInsert() #5
   call void @XLogRegisterData(ptr noundef nonnull %13, i32 noundef 2) #5
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %4, i8 noundef zeroext 8) #5
-  %137 = trunc i64 %9 to i32
+  %137 = trunc nuw nsw i64 %9 to i32
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %8, i32 noundef %137) #5
   %138 = call i64 @XLogInsert(i8 noundef zeroext 17, i8 noundef zeroext 48) #5
   %139 = lshr i64 %138, 32
-  %140 = trunc i64 %139 to i32
+  %140 = trunc nuw i64 %139 to i32
   store i32 %140, ptr %.0.i.i, align 4
   %141 = trunc i64 %138 to i32
   %142 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -424,13 +424,13 @@ br_page_get_freespace.exit:                       ; preds = %199, %195, %187, %1
   call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 14) #5
   %224 = select i1 %173, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.0121, i8 noundef zeroext %224) #5
-  %225 = trunc i64 %9 to i32
+  %225 = trunc nuw nsw i64 %9 to i32
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %8, i32 noundef %225) #5
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %169, i8 noundef zeroext 0) #5
   call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %4, i8 noundef zeroext 8) #5
   %226 = call i64 @XLogInsert(i8 noundef zeroext 17, i8 noundef zeroext %220) #5
   %227 = lshr i64 %226, 32
-  %228 = trunc i64 %227 to i32
+  %228 = trunc nuw i64 %227 to i32
   store i32 %228, ptr %.0.i.i, align 4
   %229 = trunc i64 %226 to i32
   %230 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -622,7 +622,7 @@ BufferGetPage.exit:                               ; preds = %46, %50
   br label %64
 
 64:                                               ; preds = %63, %60
-  %65 = trunc i8 %.1 to i1
+  %65 = trunc nuw i8 %.1 to i1
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %64
@@ -643,7 +643,7 @@ BufferGetPage.exit:                               ; preds = %46, %50
 
 72:                                               ; preds = %BufferGetPage.exit, %43
   tail call void @LockBuffer(i32 noundef %.069, i32 noundef 2) #5
-  %73 = trunc i8 %.1 to i1
+  %73 = trunc nuw i8 %.1 to i1
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %72
@@ -1149,12 +1149,12 @@ br_page_get_freespace.exit63:                     ; preds = %100, %96, %88, %86
   %124 = load i32, ptr %3, align 4
   %125 = select i1 %73, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %124, i8 noundef zeroext %125) #5
-  %126 = trunc i64 %6 to i32
+  %126 = trunc nuw nsw i64 %6 to i32
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %5, i32 noundef %126) #5
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %54, i8 noundef zeroext 0) #5
   %127 = call i64 @XLogInsert(i8 noundef zeroext 17, i8 noundef zeroext %121) #5
   %128 = lshr i64 %127, 32
-  %129 = trunc i64 %128 to i32
+  %129 = trunc nuw i64 %128 to i32
   store i32 %129, ptr %.0.i.i59, align 4
   %130 = trunc i64 %127 to i32
   %131 = getelementptr inbounds i8, ptr %.0.i.i59, i64 4

@@ -68,7 +68,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hyperv_parav
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_hyperv_paravisor_present584], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @ms_hyperv_platform() #0 section ".init.text" align 16 {
+define internal noundef range(i32 0, 1073741825) i32 @ms_hyperv_platform() #0 section ".init.text" align 16 {
   %1 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #9
   %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
@@ -366,7 +366,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hv_get_tsc_khz() #5 align 16 {
+define internal range(i64 0, 18446744073709552) i64 @hv_get_tsc_khz() #5 align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1073741858) #9, !srcloc !6
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1
@@ -385,7 +385,7 @@ define internal i64 @hv_get_tsc_khz() #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hv_nmi_unknown(i32 %0, ptr nocapture readnone %1) #5 align 16 {
+define internal range(i32 0, 2) i32 @hv_nmi_unknown(i32 %0, ptr nocapture readnone %1) #5 align 16 {
   %3 = load i32, ptr @unknown_nmi_panic, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %12, label %5

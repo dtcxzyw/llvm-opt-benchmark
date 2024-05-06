@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dh_gen_set_template(ptr noundef writeonly %genctx, ptr noundef %templ) #0 {
+define internal range(i32 0, 2) i32 @dh_gen_set_template(ptr noundef writeonly %genctx, ptr noundef %templ) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0
@@ -102,9 +102,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dh_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dh_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @dh_gen_common_set_params(ptr noundef %genctx, ptr noundef %params), !range !4
+  %call = tail call fastcc i32 @dh_gen_common_set_params(ptr noundef %genctx, ptr noundef %params)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -473,7 +473,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dh_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.17) #7
   %cmp.not = icmp eq ptr %call, null
@@ -551,7 +551,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dh_set_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dh_set_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.20) #7
   %cmp.not = icmp eq ptr %call, null
@@ -587,7 +587,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_has(ptr noundef %keydata, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @dh_has(ptr noundef %keydata, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0
@@ -656,7 +656,7 @@ return:                                           ; preds = %if.end20, %if.end20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @dh_match(ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -732,7 +732,7 @@ return:                                           ; preds = %if.end41, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef %checktype) #0 {
+define internal range(i32 0, 2) i32 @dh_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef %checktype) #0 {
 entry:
   %status.i = alloca i32, align 4
   %priv_key.i = alloca ptr, align 8
@@ -865,7 +865,7 @@ return:                                           ; preds = %if.then31, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dh_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0
@@ -1037,9 +1037,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dhx_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dhx_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @dh_gen_common_set_params(ptr noundef %genctx, ptr noundef %params), !range !4
+  %call = tail call fastcc i32 @dh_gen_common_set_params(ptr noundef %genctx, ptr noundef %params)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1223,7 +1223,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp5.not, label %if.end3.split, label %if.then6
 
 if.end3.split:                                    ; preds = %if.end3
-  %call1116 = tail call i32 @dh_gen_set_params(ptr noundef null, ptr noundef %params), !range !4
+  %call1116 = tail call i32 @dh_gen_set_params(ptr noundef null, ptr noundef %params)
   br label %if.end10
 
 if.then6:                                         ; preds = %if.end3
@@ -1250,7 +1250,7 @@ if.then6:                                         ; preds = %if.end3
   store i32 2, ptr %generator, align 8
   %dh_type = getelementptr inbounds i8, ptr %call4, i64 112
   store i32 %type, ptr %dh_type, align 8
-  %call1117 = tail call i32 @dh_gen_set_params(ptr noundef nonnull %call4, ptr noundef %params), !range !4
+  %call1117 = tail call i32 @dh_gen_set_params(ptr noundef nonnull %call4, ptr noundef %params)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end3.split, %if.then6
@@ -1274,7 +1274,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @ossl_dh_get0_params(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dh_gen_common_set_params(ptr noundef %genctx, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dh_gen_common_set_params(ptr noundef %genctx, ptr noundef %params) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -1569,4 +1569,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

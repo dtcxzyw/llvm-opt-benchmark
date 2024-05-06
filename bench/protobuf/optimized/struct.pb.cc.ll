@@ -232,7 +232,7 @@ $_ZN6google8protobuf8internal8MapFieldINS0_27Struct_FieldsEntry_DoNotUseENSt7__c
 @_ZTVN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEE = linkonce_odr hidden unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEE, ptr @_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EED2Ev, ptr @_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EED0Ev, ptr @_ZNK6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf7Message5ClearEv, ptr @_ZNK6google8protobuf7Message13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf7Message12ByteSizeLongEv, ptr @_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE14_InternalParseEPKcPNS1_12ParseContextE, ptr @_ZNK6google8protobuf8internal12MapEntryBase12GetClassDataEv, ptr @_ZNK6google8protobuf7Message18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE = external constant ptr, align 8
 @.str.8 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
+@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local local_unnamed_addr global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
 @_ZZNK6google8protobuf8internal12MapEntryBase12GetClassDataEvE4data = linkonce_odr hidden constant { ptr, i32, i8, ptr, ptr } { ptr null, i32 20, i8 0, ptr @_ZN6google8protobuf7Message9MergeImplERNS0_11MessageLiteERKS2_, ptr @_ZN6google8protobuf7Message18kDescriptorMethodsE }, comdat, align 8
 @_ZN6google8protobuf8internal8MapFieldINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE7kVTableE = linkonce_odr hidden constant { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @_ZN6google8protobuf8internal12MapFieldBase10GetMapImplERKNS1_20MapFieldBaseForParseEb, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE18LookupMapValueImplERKNS1_12MapFieldBaseERKNS0_6MapKeyEPNS0_16MapValueConstRefE, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE18DeleteMapValueImplERNS1_12MapFieldBaseERKNS0_6MapKeyE, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE23SetMapIteratorValueImplEPNS0_11MapIteratorE, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE32InsertOrLookupMapValueNoSyncImplERNS1_12MapFieldBaseERKNS0_6MapKeyEPNS0_11MapValueRefE, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE18ClearMapNoSyncImplERNS1_12MapFieldBaseE, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE13MergeFromImplERNS1_12MapFieldBaseERKSB_, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE8SwapImplERNS1_12MapFieldBaseESC_, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE21UnsafeShallowSwapImplERNS1_12MapFieldBaseESC_, ptr @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE32SpaceUsedExcludingSelfNoLockImplERKNS1_12MapFieldBaseE, ptr @_ZN6google8protobuf8internal8MapFieldINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE16GetPrototypeImplERKNS1_12MapFieldBaseE }, comdat, align 8
 @.str.13 = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/protobuf/protobuf/src/google/protobuf/map_field.h\00", align 1
@@ -3291,7 +3291,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
   br label %_ZN6google8protobuf5Value5ClearEv.exit.i.i
 
 _ZN6google8protobuf5Value5ClearEv.exit.i.i:       ; preds = %if.then.i.i.i.i, %if.end.i.i
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %second)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second)
   br label %_ZN6google8protobuf5ValueaSERKS1_.exit
 
 _ZN6google8protobuf5ValueaSERKS1_.exit:           ; preds = %for.body, %_ZN6google8protobuf5Value5ClearEv.exit.i.i
@@ -4241,14 +4241,14 @@ if.end:                                           ; preds = %entry
   %type_.i.i.i = getelementptr inbounds i8, ptr %map_iter, i64 64
   %1 = load i32, ptr %type_.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %1, 9
-  br i1 %cmp.i.i.i, label %_ZN6google8protobuf8internal9SetMapKeyEPNS0_6MapKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end5.i.i.i
+  br i1 %cmp.i.i.i, label %_ZN6google8protobuf8internal9SetMapKeyEPNS0_6MapKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i.i.i
 
-if.end5.i.i.i:                                    ; preds = %if.end
+if.end.i.i.i:                                     ; preds = %if.end
   store i32 9, ptr %type_.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #23
   br label %_ZN6google8protobuf8internal9SetMapKeyEPNS0_6MapKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN6google8protobuf8internal9SetMapKeyEPNS0_6MapKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end, %if.end5.i.i.i
+_ZN6google8protobuf8internal9SetMapKeyEPNS0_6MapKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end, %if.end.i.i.i
   %call2.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %key_, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
@@ -4917,7 +4917,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i
   br label %_ZN6google8protobuf5Value5ClearEv.exit.i.i.i.i.i.i
 
 _ZN6google8protobuf5Value5ClearEv.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second.i)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i: ; preds = %_ZN6google8protobuf5Value5ClearEv.exit.i.i.i.i.i.i, %if.then.i.i.i7, %for.body.i
@@ -5062,7 +5062,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i
   br label %_ZN6google8protobuf5Value5ClearEv.exit.i.i.i.i.i.i
 
 _ZN6google8protobuf5Value5ClearEv.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second.i)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i: ; preds = %_ZN6google8protobuf5Value5ClearEv.exit.i.i.i.i.i.i, %if.then.i.i.i7, %for.body.i

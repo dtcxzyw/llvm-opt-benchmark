@@ -100,7 +100,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %9
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define noundef i32 @opal_pointer_array_init(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -5, 1) i32 @opal_pointer_array_init(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %2, %3
   %or.cond = or i1 %5, %6
@@ -396,7 +396,7 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %108, label %5
 
@@ -721,7 +721,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_pointer_array_set_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_pointer_array_set_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @opal_uses_threads, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %8

@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_cfq_item_is_unreliable(ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_cfq_item_is_unreliable(ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %item, i64 80
   %0 = load i32, ptr %flags, align 8

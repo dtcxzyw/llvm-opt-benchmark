@@ -155,7 +155,7 @@ define dso_local void @version() local_unnamed_addr #0 {
 declare void @print_version(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @header_cb(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #4 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @header_cb(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #4 {
   %5 = mul i64 %2, %1
   %6 = trunc i64 %5 to i32
   %7 = icmp sgt i32 %6, 11
@@ -242,7 +242,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @write_cb(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #4 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #4 {
   %5 = mul i64 %2, %1
   %6 = trunc i64 %5 to i32
   %.not = icmp eq i32 %6, 0
@@ -315,7 +315,7 @@ declare i32 @json_object_object_get_ex(ptr noundef, ptr noundef, ptr noundef) lo
 declare ptr @json_object_get_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

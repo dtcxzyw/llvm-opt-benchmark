@@ -1318,7 +1318,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %890 = and i1 %889, %888
   %891 = or i1 %890, %887
   %892 = and i64 %879, 2147483632
-  %893 = trunc i64 %892 to i32
+  %893 = trunc nuw nsw i64 %892 to i32
   %894 = or disjoint i32 %893, 2
   %895 = shl nuw nsw i64 %892, 2
   %896 = insertelement <8 x float> poison, float %824, i64 0
@@ -2103,7 +2103,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !114
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

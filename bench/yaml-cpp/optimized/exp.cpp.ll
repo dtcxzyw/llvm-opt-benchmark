@@ -380,7 +380,7 @@ if.end:                                           ; preds = %invoke.cont5
 
 if.then27:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %conv.i = trunc i32 %call6 to i8
+  %conv.i = trunc nuw i32 %call6 to i8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #7, !noalias !6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 1, i8 noundef signext %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN4YAML3Exp3StrB5cxx11Ej.exit unwind label %lpad.i
@@ -403,7 +403,7 @@ if.end29:                                         ; preds = %if.end
 if.then31:                                        ; preds = %if.end29
   %shr = lshr i32 %call6, 6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i43)
-  %6 = trunc i32 %shr to i8
+  %6 = trunc nuw i32 %shr to i8
   %conv.i44 = or disjoint i8 %6, -64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i43) #7, !noalias !9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, i64 noundef 1, i8 noundef signext %conv.i44, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i43)
@@ -480,7 +480,7 @@ if.end42:                                         ; preds = %if.end29
 if.then44:                                        ; preds = %if.end42
   %shr47 = lshr i32 %call6, 12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i56)
-  %12 = trunc i32 %shr47 to i8
+  %12 = trunc nuw i32 %shr47 to i8
   %conv.i57 = or disjoint i8 %12, -32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i56) #7, !noalias !18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, i64 noundef 1, i8 noundef signext %conv.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i56)
@@ -611,7 +611,7 @@ ehcleanup68:                                      ; preds = %lpad.i64, %ehcleanu
 if.end69:                                         ; preds = %if.end42
   %shr73 = lshr i32 %call6, 18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i104)
-  %22 = trunc i32 %shr73 to i8
+  %22 = trunc nuw i32 %shr73 to i8
   %conv.i105 = or disjoint i8 %22, -16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i104) #7, !noalias !33
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72, i64 noundef 1, i8 noundef signext %conv.i105, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i104)

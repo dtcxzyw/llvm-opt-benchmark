@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_rocm_runtime_initialized = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @MPIX_Query_rocm_support() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @MPIX_Query_rocm_support() local_unnamed_addr #0 {
   %1 = load i8, ptr @opal_built_with_rocm_support, align 1
   %2 = trunc i8 %1 to i1
   %3 = load i8, ptr @opal_rocm_runtime_initialized, align 1

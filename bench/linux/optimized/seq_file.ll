@@ -124,7 +124,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_seq_hlist_ne
 @llvm.compiler.used = appending global [40 x ptr] [ptr @__UNIQUE_ID___addressable___seq_open_private346, ptr @__UNIQUE_ID___addressable_mangle_path338, ptr @__UNIQUE_ID___addressable_seq_bprintf337, ptr @__UNIQUE_ID___addressable_seq_dentry341, ptr @__UNIQUE_ID___addressable_seq_escape_mem334, ptr @__UNIQUE_ID___addressable_seq_file_path340, ptr @__UNIQUE_ID___addressable_seq_hex_dump356, ptr @__UNIQUE_ID___addressable_seq_hlist_next369, ptr @__UNIQUE_ID___addressable_seq_hlist_next_percpu382, ptr @__UNIQUE_ID___addressable_seq_hlist_next_rcu380, ptr @__UNIQUE_ID___addressable_seq_hlist_start367, ptr @__UNIQUE_ID___addressable_seq_hlist_start_head368, ptr @__UNIQUE_ID___addressable_seq_hlist_start_head_rcu375, ptr @__UNIQUE_ID___addressable_seq_hlist_start_percpu381, ptr @__UNIQUE_ID___addressable_seq_hlist_start_rcu374, ptr @__UNIQUE_ID___addressable_seq_list_next359, ptr @__UNIQUE_ID___addressable_seq_list_next_rcu366, ptr @__UNIQUE_ID___addressable_seq_list_start357, ptr @__UNIQUE_ID___addressable_seq_list_start_head358, ptr @__UNIQUE_ID___addressable_seq_list_start_head_rcu365, ptr @__UNIQUE_ID___addressable_seq_list_start_rcu364, ptr @__UNIQUE_ID___addressable_seq_lseek332, ptr @__UNIQUE_ID___addressable_seq_open329, ptr @__UNIQUE_ID___addressable_seq_open_private347, ptr @__UNIQUE_ID___addressable_seq_pad353, ptr @__UNIQUE_ID___addressable_seq_path339, ptr @__UNIQUE_ID___addressable_seq_printf336, ptr @__UNIQUE_ID___addressable_seq_put_decimal_ll351, ptr @__UNIQUE_ID___addressable_seq_put_decimal_ull350, ptr @__UNIQUE_ID___addressable_seq_putc348, ptr @__UNIQUE_ID___addressable_seq_puts349, ptr @__UNIQUE_ID___addressable_seq_read330, ptr @__UNIQUE_ID___addressable_seq_read_iter331, ptr @__UNIQUE_ID___addressable_seq_release333, ptr @__UNIQUE_ID___addressable_seq_release_private345, ptr @__UNIQUE_ID___addressable_seq_vprintf335, ptr @__UNIQUE_ID___addressable_seq_write352, ptr @__UNIQUE_ID___addressable_single_open342, ptr @__UNIQUE_ID___addressable_single_open_size343, ptr @__UNIQUE_ID___addressable_single_release344], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @seq_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @seq_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -745,7 +745,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @seq_lseek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i64 -2147483648, -9223372036854775808) i64 @seq_lseek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56
@@ -1162,7 +1162,7 @@ define dso_local i32 @seq_file_path(ptr nocapture noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @seq_path_root(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @seq_path_root(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1439,7 +1439,7 @@ define dso_local ptr @single_start(ptr nocapture readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @single_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @single_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 4197568, i64 noundef 32) #31
   %6 = icmp eq ptr %5, null
@@ -1523,7 +1523,7 @@ define dso_local noundef i32 @single_open_size(ptr noundef %0, ptr noundef %1, p
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @single_open(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !24
+  %10 = tail call i32 @single_open(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %13, label %12
 
@@ -1627,7 +1627,7 @@ define dso_local ptr @__seq_open_private(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @seq_open_private(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @seq_open_private(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = sext i32 %2 to i64
   %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 4197824) #29
   %6 = icmp eq ptr %5, null
@@ -1892,7 +1892,7 @@ define dso_local void @seq_put_hex_ll(ptr nocapture noundef %0, ptr noundef read
 
 40:                                               ; preds = %38, %19, %13, %6, %4
   %41 = icmp eq i64 %2, 0
-  %42 = tail call i64 @llvm.ctlz.i64(i64 %2, i1 true), !range !25
+  %42 = tail call i64 @llvm.ctlz.i64(i64 %2, i1 true), !range !24
   %43 = sub nuw nsw i64 67, %42
   %44 = lshr i64 %43, 2
   %45 = trunc nuw nsw i64 %44 to i32
@@ -1930,7 +1930,7 @@ define dso_local void @seq_put_hex_ll(ptr nocapture noundef %0, ptr noundef read
   %70 = lshr i64 %62, 4
   %71 = add nsw i64 %61, -1
   %.not = icmp eq i64 %61, 0
-  br i1 %.not, label %.loopexit.loopexit, label %60, !llvm.loop !26
+  br i1 %.not, label %.loopexit.loopexit, label %60, !llvm.loop !25
 
 .loopexit.loopexit:                               ; preds = %60
   %.pre = load i64, ptr %48, align 8
@@ -2073,7 +2073,7 @@ define dso_local void @seq_put_decimal_ll(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @seq_write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #16 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @seq_write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #16 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
@@ -2262,7 +2262,7 @@ define dso_local void @seq_hex_dump(ptr nocapture noundef %0, ptr noundef %1, i3
   %65 = add i32 %18, %10
   %66 = sext i32 %65 to i64
   %67 = icmp ult i64 %66, %6
-  br i1 %67, label %16, label %.loopexit, !llvm.loop !27
+  br i1 %67, label %16, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %64, %16, %8
   ret void
@@ -2281,7 +2281,7 @@ define dso_local ptr @seq_list_start(ptr noundef readonly %0, i64 noundef %1) #1
   %6 = add i64 %10, -1
   %7 = load ptr, ptr %9, align 8
   %8 = icmp eq ptr %7, %0
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .preheader:                                       ; preds = %2, %5
   %9 = phi ptr [ %7, %5 ], [ %3, %2 ]
@@ -2307,7 +2307,7 @@ define dso_local ptr @seq_list_start_head(ptr noundef readonly %0, i64 noundef %
 7:                                                ; preds = %.preheader
   %8 = load ptr, ptr %10, align 8
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .preheader:                                       ; preds = %4, %7
   %10 = phi ptr [ %8, %7 ], [ %5, %4 ]
@@ -2342,7 +2342,7 @@ define dso_local ptr @seq_list_start_rcu(ptr noundef %0, i64 noundef %1) #18 ali
   %6 = add i64 %10, -1
   %7 = load volatile ptr, ptr %9, align 8
   %8 = icmp eq ptr %7, %0
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .preheader:                                       ; preds = %2, %5
   %9 = phi ptr [ %7, %5 ], [ %3, %2 ]
@@ -2368,7 +2368,7 @@ define dso_local ptr @seq_list_start_head_rcu(ptr noundef %0, i64 noundef %1) #1
 7:                                                ; preds = %.preheader
   %8 = load volatile ptr, ptr %10, align 8
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .preheader:                                       ; preds = %4, %7
   %10 = phi ptr [ %8, %7 ], [ %5, %4 ]
@@ -2403,7 +2403,7 @@ define dso_local ptr @seq_hlist_start(ptr nocapture noundef readonly %0, i64 nou
   %6 = add i64 %10, -1
   %7 = load ptr, ptr %9, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .preheader:                                       ; preds = %2, %5
   %9 = phi ptr [ %7, %5 ], [ %3, %2 ]
@@ -2429,7 +2429,7 @@ define dso_local ptr @seq_hlist_start_head(ptr nocapture noundef readonly %0, i6
 7:                                                ; preds = %.preheader
   %8 = load ptr, ptr %10, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .preheader:                                       ; preds = %4, %7
   %10 = phi ptr [ %8, %7 ], [ %5, %4 ]
@@ -2464,7 +2464,7 @@ define dso_local ptr @seq_hlist_start_rcu(ptr noundef %0, i64 noundef %1) #18 al
   %6 = add i64 %10, -1
   %7 = load volatile ptr, ptr %9, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .preheader:                                       ; preds = %2, %5
   %9 = phi ptr [ %7, %5 ], [ %3, %2 ]
@@ -2490,7 +2490,7 @@ define dso_local ptr @seq_hlist_start_head_rcu(ptr noundef %0, i64 noundef %1) #
 7:                                                ; preds = %.preheader
   %8 = load volatile ptr, ptr %10, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .preheader:                                       ; preds = %4, %7
   %10 = phi ptr [ %8, %7 ], [ %5, %4 ]
@@ -2536,7 +2536,7 @@ define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr nocapture nound
   br label %.loopexit
 
 13:                                               ; preds = %5
-  %14 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %11) #32, !srcloc !32
+  %14 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %11) #32, !srcloc !31
   %15 = trunc i64 %14 to i32
   store i32 %15, ptr %1, align 4
   %16 = icmp ult i32 %15, 64
@@ -2562,14 +2562,14 @@ define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr nocapture nound
   %29 = add i64 %26, -1
   %30 = load ptr, ptr %25, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.loopexit6, label %.preheader, !llvm.loop !33
+  br i1 %31, label %.loopexit6, label %.preheader, !llvm.loop !32
 
 .loopexit6:                                       ; preds = %28, %17
   %32 = phi i64 [ %6, %17 ], [ %29, %28 ]
   %33 = add nuw nsw i32 %15, 1
   store i32 %33, ptr %1, align 4
   %34 = icmp eq i32 %15, 63
-  br i1 %34, label %.thread, label %5, !prof !34, !llvm.loop !35
+  br i1 %34, label %.thread, label %5, !prof !33, !llvm.loop !34
 
 .loopexit:                                        ; preds = %13, %.preheader, %.thread
   %35 = phi ptr [ null, %.thread ], [ %25, %.preheader ], [ null, %13 ]
@@ -2600,7 +2600,7 @@ define dso_local ptr @seq_hlist_next_percpu(ptr nocapture noundef readonly %0, p
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %17) #32, !srcloc !32
+  %20 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %17) #32, !srcloc !31
   br label %21
 
 21:                                               ; preds = %19, %13, %9
@@ -2639,7 +2639,7 @@ define dso_local ptr @seq_hlist_next_percpu(ptr nocapture noundef readonly %0, p
   br i1 %45, label %48, label %46
 
 46:                                               ; preds = %39
-  %47 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %44) #32, !srcloc !32
+  %47 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %44) #32, !srcloc !31
   br label %48
 
 48:                                               ; preds = %46, %39, %37
@@ -2648,7 +2648,7 @@ define dso_local ptr @seq_hlist_next_percpu(ptr nocapture noundef readonly %0, p
   store i32 %50, ptr %2, align 4
   %51 = load i32, ptr @nr_cpu_ids, align 4
   %52 = icmp ugt i32 %51, %50
-  br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !36
+  br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %48, %.preheader, %21, %4
   %53 = phi ptr [ %7, %4 ], [ null, %21 ], [ %35, %.preheader ], [ null, %48 ]
@@ -2755,16 +2755,15 @@ attributes #32 = { nounwind memory(read) }
 !21 = !{i64 2153361726, i64 2153361755, i64 2153361801, i64 2153361859, i64 2153361913, i64 2153361967, i64 2153362022, i64 2153362053}
 !22 = !{i64 2153363133, i64 2153362942, i64 2153362994, i64 2153363040, i64 2153363068}
 !23 = !{i64 2153363207, i64 2153363236, i64 2153363282, i64 2153363340, i64 2153363394, i64 2153363448, i64 2153363503, i64 2153363534}
-!24 = !{i32 -12, i32 1}
-!25 = !{i64 0, i64 65}
+!24 = !{i64 0, i64 65}
+!25 = distinct !{!25, !19, !17}
 !26 = distinct !{!26, !19, !17}
 !27 = distinct !{!27, !19, !17}
 !28 = distinct !{!28, !19, !17}
 !29 = distinct !{!29, !19, !17}
 !30 = distinct !{!30, !19, !17}
-!31 = distinct !{!31, !19, !17}
-!32 = !{i64 1082414}
-!33 = distinct !{!33, !19, !17}
-!34 = !{!"branch_weights", i32 1, i32 1999}
+!31 = !{i64 1082414}
+!32 = distinct !{!32, !19, !17}
+!33 = !{!"branch_weights", i32 1, i32 1999}
+!34 = distinct !{!34, !19, !17}
 !35 = distinct !{!35, !19, !17}
-!36 = distinct !{!36, !19, !17}

@@ -93,7 +93,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6eab450f761c7ea1E.llvm.1787
 declare noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E() unnamed_addr #4
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.17873999582721484206(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.17873999582721484206(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

@@ -341,7 +341,7 @@ define void @Lpk_CreateCommonOrder(ptr nocapture noundef readonly %0, ptr nocapt
   %50 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %indvars.iv141
   %51 = load i32, ptr %50, align 4
   %52 = icmp slt i32 %.06399, %51
-  %53 = trunc i64 %indvars.iv141 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv141 to i32
   %spec.select = select i1 %52, i32 %53, i32 %.06498
   %spec.select74 = tail call i32 @llvm.smax.i32(i32 %.06399, i32 %51)
   br label %54
@@ -597,7 +597,7 @@ Kit_DsdLitSupport.exit116:                        ; preds = %30, %51, %67
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %85 ], [ 0, %._crit_edge ]
   %.084124 = phi i32 [ %.185, %85 ], [ -1, %._crit_edge ]
   %.086123 = phi i32 [ %.187, %85 ], [ 1000000000, %._crit_edge ]
-  %78 = trunc i64 %indvars.iv141 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv141 to i32
   %79 = shl nuw nsw i32 1, %78
   %80 = and i32 %79, %75
   %.not104 = icmp eq i32 %80, 0
@@ -765,7 +765,7 @@ define ptr @Lpk_MapTreeMulti_rec(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %.not89, label %38, label %35
 
 35:                                               ; preds = %31
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %36)
   br label %38
 
@@ -1045,7 +1045,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   br i1 %.not207, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph172
-  %46 = trunc i64 %indvars.iv225 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv225 to i32
   %47 = shl nuw i32 1, %46
   %48 = add nuw nsw i64 %indvars.iv225, 1
   %49 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %indvars.iv225
@@ -1108,7 +1108,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   br i1 %.not156, label %75, label %71
 
 71:                                               ; preds = %65
-  %72 = trunc i64 %indvars.iv230 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv230 to i32
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %37, i32 noundef %72)
   %74 = load ptr, ptr @stdout, align 8
   call void @Kit_DsdPrint(ptr noundef %74, ptr noundef %70) #11
@@ -1133,7 +1133,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
 
 .lr.ph179:                                        ; preds = %76, %87
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %87 ], [ 0, %76 ]
-  %80 = trunc i64 %indvars.iv236 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv236 to i32
   %81 = shl nuw i32 1, %80
   %82 = and i32 %81, %79
   %.not155 = icmp eq i32 %82, 0
@@ -1230,7 +1230,7 @@ Kit_DsdNtkRoot.exit.preheader:                    ; preds = %.preheader162
   br i1 %.not, label %113, label %109
 
 109:                                              ; preds = %.lr.ph192
-  %110 = trunc i64 %indvars.iv259 to i32
+  %110 = trunc nuw nsw i64 %indvars.iv259 to i32
   %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %37, i32 noundef %110)
   %112 = load ptr, ptr @stdout, align 8
   call void @Kit_DsdPrint(ptr noundef %112, ptr noundef %107) #11
@@ -1341,7 +1341,7 @@ Kit_DsdNtkRoot.exit:                              ; preds = %Kit_DsdNtkRoot.exit
   br i1 %.not215, label %.loopexit, label %.lr.ph200
 
 .lr.ph200:                                        ; preds = %.lr.ph204
-  %156 = trunc i64 %indvars.iv.next284 to i32
+  %156 = trunc nuw nsw i64 %indvars.iv.next284 to i32
   %157 = shl nuw i32 1, %156
   %158 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %indvars.iv.next284
   %smax280 = call i32 @llvm.smax.i32(i32 %157, i32 1)
@@ -1370,7 +1370,7 @@ Kit_DsdNtkRoot.exit:                              ; preds = %Kit_DsdNtkRoot.exit
 
 select.unfold.i158:                               ; preds = %172, %._crit_edge205
   %indvars.iv.i159 = phi i64 [ %169, %._crit_edge205 ], [ %173, %172 ]
-  %170 = trunc i64 %indvars.iv.i159 to i32
+  %170 = trunc nuw i64 %indvars.iv.i159 to i32
   %171 = icmp sgt i32 %170, 0
   br i1 %171, label %172, label %Extra_TruthIsEqual.exit.preheader
 

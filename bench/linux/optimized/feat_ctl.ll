@@ -97,7 +97,7 @@ define dso_local void @init_ia32_feat_ctl(ptr noundef %0) local_unnamed_addr #1 
 
 38:                                               ; preds = %37, %31
   %39 = lshr i64 %36, 32
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = getelementptr i8, ptr %0, i64 12
   store i32 %40, ptr %42, align 4
@@ -122,7 +122,7 @@ define dso_local void @init_ia32_feat_ctl(ptr noundef %0) local_unnamed_addr #1 
 50:                                               ; preds = %._crit_edge5, %46
   %.pre-phi8 = phi i64 [ %.pre7, %._crit_edge5 ], [ %49, %46 ]
   %51 = lshr i64 %.pre-phi8, 32
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw i64 %51 to i32
   %53 = getelementptr i8, ptr %0, i64 16
   store i32 %52, ptr %53, align 8
   %54 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1170) #3, !srcloc !5
@@ -147,7 +147,7 @@ define dso_local void @init_ia32_feat_ctl(ptr noundef %0) local_unnamed_addr #1 
   %.pre-phi12 = phi i64 [ %.pre11, %._crit_edge4 ], [ %60, %57 ]
   %62 = trunc i64 %55 to i32
   %63 = lshr i64 %.pre-phi12, 32
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw i64 %63 to i32
   %65 = getelementptr i8, ptr %0, i64 20
   store i32 %62, ptr %65, align 4
   %66 = getelementptr i8, ptr %0, i64 24
@@ -166,7 +166,7 @@ define dso_local void @init_ia32_feat_ctl(ptr noundef %0) local_unnamed_addr #1 
 
 73:                                               ; preds = %72, %61
   %74 = lshr i64 %71, 32
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw i64 %74 to i32
   %76 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1169) #3, !srcloc !5
   %77 = extractvalue { i32, i64, i64 } %76, 1
   %78 = extractvalue { i32, i64, i64 } %76, 2
@@ -188,7 +188,7 @@ define dso_local void @init_ia32_feat_ctl(ptr noundef %0) local_unnamed_addr #1 
 83:                                               ; preds = %._crit_edge3, %79
   %.pre-phi16 = phi i64 [ %.pre15, %._crit_edge3 ], [ %82, %79 ]
   %84 = lshr i64 %.pre-phi16, 32
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw i64 %84 to i32
   %86 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1164) #3, !srcloc !5
   %87 = extractvalue { i32, i64, i64 } %86, 1
   %88 = extractvalue { i32, i64, i64 } %86, 2

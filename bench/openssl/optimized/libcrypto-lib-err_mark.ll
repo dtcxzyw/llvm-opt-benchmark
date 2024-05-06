@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/err/err_local.h\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ERR_set_mark() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ERR_set_mark() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_err_get_state_int() #2
   %cmp = icmp eq ptr %call, null
@@ -37,7 +37,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @ossl_err_get_state_int() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ERR_pop_to_mark() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ERR_pop_to_mark() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_err_get_state_int() #2
   %cmp = icmp eq ptr %call, null
@@ -172,7 +172,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ERR_clear_last_mark() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ERR_clear_last_mark() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_err_get_state_int() #2
   %cmp = icmp eq ptr %call, null

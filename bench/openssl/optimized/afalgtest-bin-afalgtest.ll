@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [4 x i8] c"ret\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @global_init() local_unnamed_addr #0 {
+define dso_local noundef i32 @global_init() local_unnamed_addr #0 {
 entry:
   tail call void @ENGINE_load_builtin_engines() #2
   ret i32 1
@@ -42,7 +42,7 @@ entry:
 declare void @ENGINE_load_builtin_engines() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ENGINE_by_id(ptr noundef nonnull @.str) #2
   store ptr %call, ptr @e, align 8
@@ -69,7 +69,7 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_afalg_aes_cbc(i32 noundef %keysize_idx) #0 {
+define internal range(i32 0, 2) i32 @test_afalg_aes_cbc(i32 noundef %keysize_idx) #0 {
 entry:
   %ebuf = alloca [49 x i8], align 16
   %dbuf = alloca [49 x i8], align 16

@@ -53,7 +53,7 @@ define void @Io_WriteEqn(ptr nocapture noundef readonly %0, ptr noundef %1) loca
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %11, align 8
-  %20 = trunc i64 %indvars.iv62.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv62.i to i32
   %21 = tail call ptr @Nm_ManFindNameById(ptr noundef %19, i32 noundef %20) #8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit.i, label %23
@@ -292,7 +292,7 @@ Io_NtkWriteEqnCos.exit.i:                         ; preds = %100, %Io_NtkWriteEq
   br i1 %133, label %Extra_ProgressBarUpdate.exit.i, label %134
 
 134:                                              ; preds = %130, %129
-  %135 = trunc i64 %indvars.iv80.i to i32
+  %135 = trunc nuw nsw i64 %indvars.iv80.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %115, i32 noundef %135, ptr noundef null) #8
   br label %Extra_ProgressBarUpdate.exit.i
 
@@ -309,7 +309,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %140 = getelementptr inbounds ptr, ptr %.val38.val.val.i, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = tail call ptr @Abc_ObjName(ptr noundef %141) #8
-  %143 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #9
+  %143 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %142, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #9
   %.not.i65.i = icmp eq i32 %143, 0
   %.idx.i.i = select i1 %.not.i65.i, i64 4, i64 0
   %144 = getelementptr inbounds i8, ptr %142, i64 %.idx.i.i
@@ -337,12 +337,12 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %155 = getelementptr inbounds ptr, ptr %.val43.val.val.i, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = tail call ptr @Abc_ObjName(ptr noundef %156) #8
-  %158 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %157, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #9
+  %158 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %157, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #9
   %.not.i66.i = icmp eq i32 %158, 0
   %.idx.i67.i = select i1 %.not.i66.i, i64 4, i64 0
   %159 = getelementptr inbounds i8, ptr %157, i64 %.idx.i67.i
   %160 = load ptr, ptr %119, align 8
-  %161 = trunc i64 %indvars.iv.i14 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv.i14 to i32
   %162 = tail call ptr @Hop_IthVar(ptr noundef %160, i32 noundef %161) #8
   store ptr %159, ptr %162, align 8
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1

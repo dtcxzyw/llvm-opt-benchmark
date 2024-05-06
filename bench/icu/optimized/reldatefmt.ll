@@ -4661,7 +4661,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then7:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %valueStr.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i)
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
+  %call.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #20
   %conv.i.i = trunc i64 %call.i.i to i32
   %cmp.i.i = icmp sgt i32 %conv.i.i, 6
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -4670,7 +4670,7 @@ land.lhs.true.i.i:                                ; preds = %if.then7
   %idx.ext.i.i = and i64 %call.i.i, 2147483647
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -7
-  %call2.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr1.i.i, ptr noundef nonnull dereferenceable(8) @.str.1) #20
+  %call2.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr1.i.i, ptr noundef nonnull dereferenceable(8) @.str.1) #20
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i, label %land.lhs.true5.i.i
 
@@ -4682,7 +4682,7 @@ land.lhs.true5.i.i:                               ; preds = %if.end.i.i, %land.l
   %idx.ext6.pre-phi.i.i = phi i64 [ %idx.ext.i.i, %land.lhs.true.i.i ], [ 6, %if.end.i.i ]
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext6.pre-phi.i.i
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 -6
-  %call9.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr8.i.i, ptr noundef nonnull dereferenceable(7) @.str.2) #20
+  %call9.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr8.i.i, ptr noundef nonnull dereferenceable(7) @.str.2) #20
   %cmp10.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %cmp10.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i, label %if.end12.i.i
 
@@ -4823,7 +4823,7 @@ _ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink12consumeAliasEPKcRKNS_13Resourc
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #20
   %conv.i10 = trunc i64 %call.i to i32
   %cmp.i11 = icmp sgt i32 %conv.i10, 6
   br i1 %cmp.i11, label %land.lhs.true.i, label %if.end.i12
@@ -4832,7 +4832,7 @@ land.lhs.true.i:                                  ; preds = %if.else
   %idx.ext.i = and i64 %call.i, 2147483647
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -7
-  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr1.i, ptr noundef nonnull dereferenceable(8) @.str.1) #20
+  %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr1.i, ptr noundef nonnull dereferenceable(8) @.str.1) #20
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %.thread, label %land.lhs.true5.i
 
@@ -4844,7 +4844,7 @@ land.lhs.true5.i:                                 ; preds = %if.end.i12, %land.l
   %idx.ext6.pre-phi.i = phi i64 [ %idx.ext.i, %land.lhs.true.i ], [ 6, %if.end.i12 ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext6.pre-phi.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 -6
-  %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr8.i, ptr noundef nonnull dereferenceable(7) @.str.2) #20
+  %call9.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr8.i, ptr noundef nonnull dereferenceable(7) @.str.2) #20
   %cmp10.i = icmp eq i32 %call9.i, 0
   br i1 %cmp10.i, label %.thread, label %22
 
@@ -4966,37 +4966,37 @@ if.else30.tail.i:                                 ; preds = %sub_131.i
   br i1 %59, label %if.then17, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit
 
 sw.bb42.i:                                        ; preds = %.thread
-  %call44.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.11, i64 noundef 4) #20
+  %call44.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.11, i64 noundef 4) #20
   %cmp45.i = icmp eq i32 %call44.i, 0
   br i1 %cmp45.i, label %if.then17, label %if.else47.i
 
 if.else47.i:                                      ; preds = %sw.bb42.i
-  %call49.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #20
+  %call49.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #20
   %cmp50.i = icmp eq i32 %call49.i, 0
   br i1 %cmp50.i, label %if.then17, label %if.else52.i
 
 if.else52.i:                                      ; preds = %if.else47.i
-  %call54.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.13, i64 noundef 4) #20
+  %call54.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.13, i64 noundef 4) #20
   %cmp55.i = icmp eq i32 %call54.i, 0
   br i1 %cmp55.i, label %if.then17, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit
 
 sw.bb60.i:                                        ; preds = %.thread
-  %call62.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #20
+  %call62.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #20
   %cmp63.i = icmp eq i32 %call62.i, 0
   br i1 %cmp63.i, label %if.then17, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit
 
 sw.bb66.i:                                        ; preds = %.thread
-  %call68.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(7) @.str.15, i64 noundef 6) #20
+  %call68.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(7) @.str.15, i64 noundef 6) #20
   %cmp69.i = icmp eq i32 %call68.i, 0
   br i1 %cmp69.i, label %if.then17, label %if.else71.i
 
 if.else71.i:                                      ; preds = %sw.bb66.i
-  %call73.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(7) @.str.16, i64 noundef 6) #20
+  %call73.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(7) @.str.16, i64 noundef 6) #20
   %cmp74.i = icmp eq i32 %call73.i, 0
   br i1 %cmp74.i, label %if.then17, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit
 
 sw.bb78.i:                                        ; preds = %.thread
-  %call80.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.17, i64 noundef 7) #20
+  %call80.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.17, i64 noundef 7) #20
   %cmp81.i = icmp eq i32 %call80.i, 0
   br i1 %cmp81.i, label %if.then17, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit
 

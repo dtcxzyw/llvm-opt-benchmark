@@ -583,7 +583,7 @@ if.else17:                                        ; preds = %do.body14
   unreachable
 
 do.end19:                                         ; preds = %do.body14
-  %conv = trunc i32 %add to i8
+  %conv = trunc nuw nsw i32 %add to i8
   tail call void @replay_put_event(i8 noundef zeroext %conv) #11
   br label %return
 
@@ -970,8 +970,8 @@ entry:
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #7
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5

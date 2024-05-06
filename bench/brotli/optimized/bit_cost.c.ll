@@ -269,7 +269,7 @@ for.end160:                                       ; preds = %for.end139, %if.end
   store i32 %inc156.lcssa127, ptr %arrayidx155, align 4
   %mul161 = shl nuw nsw i64 %max_depth.0.lcssa, 1
   %add162 = add nuw nsw i64 %mul161, 18
-  %conv163 = uitofp i64 %add162 to double
+  %conv163 = uitofp nneg i64 %add162 to double
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end160, %FastLog2.exit22.i
@@ -537,7 +537,7 @@ for.cond128.preheader:                            ; preds = %for.body99
   br i1 %cmp129112, label %land.rhs.preheader, label %for.end139.thread
 
 land.rhs.preheader:                               ; preds = %for.cond128.preheader
-  %19 = trunc i64 %i.3121 to i32
+  %19 = trunc nuw i64 %i.3121 to i32
   %20 = sub nuw nsw i32 704, %19
   br label %land.rhs
 
@@ -590,7 +590,7 @@ for.body135:                                      ; preds = %land.rhs
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %20, %for.body135 ]
-  %conv140 = zext i32 %reps.0.lcssa to i64
+  %conv140 = zext nneg i32 %reps.0.lcssa to i64
   %add141 = add nuw nsw i64 %i.3121, %conv140
   %cmp142 = icmp eq i64 %add141, 704
   br i1 %cmp142, label %for.end160, label %if.end145
@@ -613,7 +613,7 @@ if.then148:                                       ; preds = %for.end139.thread, 
   br label %if.end159
 
 while.body.preheader:                             ; preds = %if.end145
-  %sub152 = add i32 %reps.0.lcssa, -2
+  %sub152 = add nsw i32 %reps.0.lcssa, -2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -641,7 +641,7 @@ for.end160:                                       ; preds = %for.end139.thread, 
   store i32 %inc156.lcssa127, ptr %arrayidx155, align 4
   %mul161 = shl nuw nsw i64 %max_depth.0.lcssa, 1
   %add162 = add nuw nsw i64 %mul161, 18
-  %conv163 = uitofp i64 %add162 to double
+  %conv163 = uitofp nneg i64 %add162 to double
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end160, %FastLog2.exit22.i
@@ -903,7 +903,7 @@ for.cond128.preheader:                            ; preds = %for.body99
   br i1 %cmp129112, label %land.rhs.preheader, label %for.end139.thread
 
 land.rhs.preheader:                               ; preds = %for.cond128.preheader
-  %19 = trunc i64 %i.3121 to i32
+  %19 = trunc nuw i64 %i.3121 to i32
   %20 = sub nuw nsw i32 544, %19
   br label %land.rhs
 
@@ -956,7 +956,7 @@ for.body135:                                      ; preds = %land.rhs
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %20, %for.body135 ]
-  %conv140 = zext i32 %reps.0.lcssa to i64
+  %conv140 = zext nneg i32 %reps.0.lcssa to i64
   %add141 = add nuw nsw i64 %i.3121, %conv140
   %cmp142 = icmp eq i64 %add141, 544
   br i1 %cmp142, label %for.end160, label %if.end145
@@ -979,7 +979,7 @@ if.then148:                                       ; preds = %for.end139.thread, 
   br label %if.end159
 
 while.body.preheader:                             ; preds = %if.end145
-  %sub152 = add i32 %reps.0.lcssa, -2
+  %sub152 = add nsw i32 %reps.0.lcssa, -2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -1007,7 +1007,7 @@ for.end160:                                       ; preds = %for.end139.thread, 
   store i32 %inc156.lcssa127, ptr %arrayidx155, align 4
   %mul161 = shl nuw nsw i64 %max_depth.0.lcssa, 1
   %add162 = add nuw nsw i64 %mul161, 18
-  %conv163 = uitofp i64 %add162 to double
+  %conv163 = uitofp nneg i64 %add162 to double
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end160, %FastLog2.exit22.i

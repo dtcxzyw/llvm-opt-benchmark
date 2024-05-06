@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [39 x i8] c"residual norm = %12.3lg  eps = %12.3lg\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -240,7 +240,7 @@ define noundef i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr nound
   %86 = getelementptr inbounds i8, ptr %calloc, i64 144
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %calloc, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %87, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %87, i8 0, i64 56, i1 false)
   %88 = getelementptr inbounds i8, ptr %calloc, i64 116
   store i32 0, ptr %88, align 4
   %89 = load ptr, ptr %10, align 8
@@ -418,7 +418,7 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
 
 65:                                               ; preds = %61, %58, %54
   %66 = getelementptr inbounds i8, ptr %3, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
   %67 = getelementptr inbounds i8, ptr %3, i64 152
   %68 = load i32, ptr %67, align 8
   %.not66 = icmp eq i32 %68, 0
@@ -1063,7 +1063,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare i32 @SUNLinSolSetPreconditioner(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @KINSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1121,7 +1121,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %15, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @kinLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @kinLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1150,7 +1150,7 @@ define noundef i32 @kinLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -8, 1) i32 @KINSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1294,7 +1294,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %12, %7, %kinLs_Acce
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINSetJacTimesVecFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @KINSetJacTimesVecFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1358,7 +1358,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %21, %25, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINSetJacTimesVecSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @KINSetJacTimesVecSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1408,7 +1408,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %14, %16, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1438,7 +1438,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetJacNumIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetJacNumIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1468,7 +1468,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetLinWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetLinWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1550,7 +1550,7 @@ declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1580,7 +1580,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1610,7 +1610,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1640,7 +1640,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1670,7 +1670,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetNumLinConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumLinConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1700,7 +1700,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1730,7 +1730,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetNumLinFuncEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumLinFuncEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1760,7 +1760,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @KINGetLastLinFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetLastLinFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

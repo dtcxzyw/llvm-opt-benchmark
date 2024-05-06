@@ -209,7 +209,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 16
-  %call.i18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %call2) #12
+  %call.i18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %call2) #12
   %cmp2.i = icmp eq i32 %call.i18, 0
   br i1 %cmp2.i, label %eepro100_get_class_by_name.exit, label %for.cond.i
 
@@ -284,7 +284,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %entr
   %indvars.iv.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i.i
   %0 = load ptr, ptr %arrayidx.i.i, align 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %call.i) #12
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %call.i) #12
   %cmp2.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.i.i, label %eepro100_get_class.exit, label %for.cond.i.i
 
@@ -310,7 +310,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %ee
   %indvars.iv.i.i.i = phi i64 [ 0, %eepro100_get_class.exit ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
   %arrayidx.i.i.i = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 16
-  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %call.i.i37) #12
+  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %call.i.i37) #12
   %cmp2.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp2.i.i.i, label %eepro100_get_class.exit.i, label %for.cond.i.i.i
 
@@ -581,7 +581,7 @@ declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zero
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @eepro100_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @eepro100_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   switch i32 %size, label %sw.default [
     i32 1, label %sw.bb
@@ -639,7 +639,7 @@ eepro100_read_eeprom.exit.i:                      ; preds = %sw.bb5.i
   %3 = and i16 %arrayidx.val.i.i.i, 247
   %masksel.i.i = select i1 %tobool.not.i.i, i16 0, i16 8
   %val.0.i.i = or disjoint i16 %masksel.i.i, %3
-  %conv6.i = trunc i16 %val.0.i.i to i8
+  %conv6.i = trunc nuw i16 %val.0.i.i to i8
   br label %eepro100_read1.exit
 
 sw.bb7.i:                                         ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i
@@ -1357,20 +1357,20 @@ if.end16.i:                                       ; preds = %if.end19.sink.split
   br label %eepro100_ru_command.exit
 
 sw.bb17.i:                                        ; preds = %entry
-  %arrayidx.i21.i = getelementptr i8, ptr %s, i64 11892
-  %14 = ptrtoint ptr %arrayidx.i21.i to i64
-  %and.i22.i = and i64 %14, 3
-  %tobool.not.i23.i = icmp eq i64 %and.i22.i, 0
-  br i1 %tobool.not.i23.i, label %e100_read_reg4.exit26.i, label %if.else.i24.i
+  %arrayidx.i22.i = getelementptr i8, ptr %s, i64 11892
+  %14 = ptrtoint ptr %arrayidx.i22.i to i64
+  %and.i23.i = and i64 %14, 3
+  %tobool.not.i24.i = icmp eq i64 %and.i23.i, 0
+  br i1 %tobool.not.i24.i, label %e100_read_reg4.exit27.i, label %if.else.i25.i
 
-if.else.i24.i:                                    ; preds = %sw.bb17.i
+if.else.i25.i:                                    ; preds = %sw.bb17.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.33, i32 noundef 341, ptr noundef nonnull @__PRETTY_FUNCTION__.e100_read_reg4) #13
   unreachable
 
-e100_read_reg4.exit26.i:                          ; preds = %sw.bb17.i
-  %arrayidx.val.i25.i = load i32, ptr %arrayidx.i21.i, align 1
+e100_read_reg4.exit27.i:                          ; preds = %sw.bb17.i
+  %arrayidx.val.i26.i = load i32, ptr %arrayidx.i22.i, align 1
   %ru_base.i = getelementptr inbounds i8, ptr %s, i64 11756
-  store i32 %arrayidx.val.i25.i, ptr %ru_base.i, align 4
+  store i32 %arrayidx.val.i26.i, ptr %ru_base.i, align 4
   br label %eepro100_ru_command.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -1378,7 +1378,7 @@ sw.default.i:                                     ; preds = %entry
   %16 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 69, i64 1, ptr %15) #15
   br label %eepro100_ru_command.exit
 
-eepro100_ru_command.exit:                         ; preds = %entry, %e100_read_reg4.exit.i, %sw.bb5.i, %if.end16.i, %e100_read_reg4.exit26.i, %sw.default.i
+eepro100_ru_command.exit:                         ; preds = %entry, %e100_read_reg4.exit.i, %sw.bb5.i, %if.end16.i, %e100_read_reg4.exit27.i, %sw.default.i
   %17 = lshr i8 %val, 4
   switch i8 %17, label %sw.default.i16 [
     i8 0, label %eepro100_cu_command.exit
@@ -1979,7 +1979,7 @@ for.body.i:                                       ; preds = %sw.bb48, %for.body.
   %idxprom.i = zext nneg i32 %shr14.i to i64
   %arrayidx15.i = getelementptr [8 x i8], ptr %mult.i, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx15.i, align 1
-  %10 = trunc i32 %shl.i to i8
+  %10 = trunc nuw i32 %shl.i to i8
   %conv17.i = or i8 %9, %10
   store i8 %conv17.i, ptr %arrayidx15.i, align 1
   %add19.i = add nuw nsw i32 %conv110.i, 6
@@ -2060,7 +2060,7 @@ for.body.i41:                                     ; preds = %land.lhs.true.i, %f
   %conv56.i = zext i16 %size.1.i to i64
   %sub.i = sub nsw i64 2600, %conv56.i
   %cond.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv55.i)
-  %conv59.i = trunc i64 %cond.i to i16
+  %conv59.i = trunc nuw i64 %cond.i to i16
   store i16 %conv59.i, ptr %tx_buffer_size.i, align 2
   %21 = load i32, ptr %tx_buffer_address.i, align 4
   %conv61.i = zext i32 %21 to i64
@@ -2111,7 +2111,7 @@ for.body83.i:                                     ; preds = %if.end75.i, %for.in
   %conv100.i = zext i16 %size.374.i to i64
   %sub101.i = sub nsw i64 2600, %conv100.i
   %cond108.i = call i64 @llvm.umin.i64(i64 %sub101.i, i64 %conv99.i)
-  %conv109.i = trunc i64 %cond108.i to i16
+  %conv109.i = trunc nuw i64 %cond108.i to i16
   store i16 %conv109.i, ptr %tx_buffer_size.i, align 2
   %27 = load i32, ptr %tx_buffer_address.i, align 4
   %conv111.i = zext i32 %27 to i64
@@ -2210,66 +2210,66 @@ if.then72:                                        ; preds = %if.end70
   %43 = and i8 %42, 63
   store i8 %43, ptr %mem.i, align 16
   %44 = load i8, ptr %arrayidx.i.i, align 1
-  %not.i.i44 = xor i8 %44, -1
+  %not.i.i45 = xor i8 %44, -1
   %45 = load i8, ptr %arrayidx4.i.i, align 1
-  %or11.i.i46 = or i8 %45, 32
-  store i8 %or11.i.i46, ptr %arrayidx4.i.i, align 1
-  store i8 %or11.i.i46, ptr %scb_stat.i.i, align 16
-  %or10.i.i48 = or i8 %not.i.i44, 15
-  %and.i.i49 = and i8 %or11.i.i46, %or10.i.i48
-  %tobool.not.i.i50 = icmp ne i8 %and.i.i49, 0
+  %or11.i.i47 = or i8 %45, 32
+  store i8 %or11.i.i47, ptr %arrayidx4.i.i, align 1
+  store i8 %or11.i.i47, ptr %scb_stat.i.i, align 16
+  %or10.i.i49 = or i8 %not.i.i45, 15
+  %and.i.i50 = and i8 %or11.i.i47, %or10.i.i49
+  %tobool.not.i.i51 = icmp ne i8 %and.i.i50, 0
   %46 = and i8 %44, 1
-  %tobool16.not.not.i.i51 = icmp eq i8 %46, 0
-  %or.cond.i.i52 = and i1 %tobool16.not.not.i.i51, %tobool.not.i.i50
+  %tobool16.not.not.i.i52 = icmp eq i8 %46, 0
+  %or.cond.i.i53 = and i1 %tobool16.not.not.i.i52, %tobool.not.i.i51
   %47 = load i8, ptr %int_stat.i.i.i, align 1
-  %tobool.not.i.i.i54 = icmp eq i8 %47, 0
-  br i1 %or.cond.i.i52, label %if.then.i.i59, label %if.else.i.i55
+  %tobool.not.i.i.i55 = icmp eq i8 %47, 0
+  br i1 %or.cond.i.i53, label %if.then.i.i60, label %if.else.i.i56
 
-if.then.i.i59:                                    ; preds = %if.then72
-  br i1 %tobool.not.i.i.i54, label %for.end.sink.split, label %for.end
+if.then.i.i60:                                    ; preds = %if.then72
+  br i1 %tobool.not.i.i.i55, label %for.end.sink.split, label %for.end
 
-if.else.i.i55:                                    ; preds = %if.then72
-  br i1 %tobool.not.i.i.i54, label %for.end, label %for.end.sink.split
+if.else.i.i56:                                    ; preds = %if.then72
+  br i1 %tobool.not.i.i.i55, label %for.end, label %for.end.sink.split
 
 if.else:                                          ; preds = %if.end70
   br i1 %cmp6.not, label %for.cond, label %if.then74
 
 if.then74:                                        ; preds = %if.else
-  %mem.i60 = getelementptr inbounds i8, ptr %s, i64 11888
-  %48 = load i8, ptr %mem.i60, align 16
+  %mem.i61 = getelementptr inbounds i8, ptr %s, i64 11888
+  %48 = load i8, ptr %mem.i61, align 16
   %49 = and i8 %48, 63
-  %conv1.i61 = or disjoint i8 %49, 64
-  store i8 %conv1.i61, ptr %mem.i60, align 16
+  %conv1.i62 = or disjoint i8 %49, 64
+  store i8 %conv1.i62, ptr %mem.i61, align 16
   %50 = load i8, ptr %arrayidx.i.i, align 1
-  %not.i.i63 = xor i8 %50, -1
+  %not.i.i64 = xor i8 %50, -1
   %51 = load i8, ptr %arrayidx4.i.i, align 1
-  %or11.i.i65 = or i8 %51, 32
-  store i8 %or11.i.i65, ptr %arrayidx4.i.i, align 1
-  store i8 %or11.i.i65, ptr %scb_stat.i.i, align 16
-  %or10.i.i67 = or i8 %not.i.i63, 15
-  %and.i.i68 = and i8 %or11.i.i65, %or10.i.i67
-  %tobool.not.i.i69 = icmp ne i8 %and.i.i68, 0
+  %or11.i.i66 = or i8 %51, 32
+  store i8 %or11.i.i66, ptr %arrayidx4.i.i, align 1
+  store i8 %or11.i.i66, ptr %scb_stat.i.i, align 16
+  %or10.i.i68 = or i8 %not.i.i64, 15
+  %and.i.i69 = and i8 %or11.i.i66, %or10.i.i68
+  %tobool.not.i.i70 = icmp ne i8 %and.i.i69, 0
   %52 = and i8 %50, 1
-  %tobool16.not.not.i.i70 = icmp eq i8 %52, 0
-  %or.cond.i.i71 = and i1 %tobool16.not.not.i.i70, %tobool.not.i.i69
+  %tobool16.not.not.i.i71 = icmp eq i8 %52, 0
+  %or.cond.i.i72 = and i1 %tobool16.not.not.i.i71, %tobool.not.i.i70
   %53 = load i8, ptr %int_stat.i.i.i, align 1
-  %tobool.not.i.i.i73 = icmp eq i8 %53, 0
-  br i1 %or.cond.i.i71, label %if.then.i.i78, label %if.else.i.i74
+  %tobool.not.i.i.i74 = icmp eq i8 %53, 0
+  br i1 %or.cond.i.i72, label %if.then.i.i79, label %if.else.i.i75
 
-if.then.i.i78:                                    ; preds = %if.then74
-  br i1 %tobool.not.i.i.i73, label %for.end.sink.split, label %for.end
+if.then.i.i79:                                    ; preds = %if.then74
+  br i1 %tobool.not.i.i.i74, label %for.end.sink.split, label %for.end
 
-if.else.i.i74:                                    ; preds = %if.then74
-  br i1 %tobool.not.i.i.i73, label %for.end, label %for.end.sink.split
+if.else.i.i75:                                    ; preds = %if.then74
+  br i1 %tobool.not.i.i.i74, label %for.end, label %for.end.sink.split
 
-for.end.sink.split:                               ; preds = %if.then.i.i78, %if.else.i.i74, %if.then.i.i59, %if.else.i.i55
-  %.sink15.i.i76.sink = phi i32 [ 1, %if.then.i.i59 ], [ 0, %if.else.i.i55 ], [ 1, %if.then.i.i78 ], [ 0, %if.else.i.i74 ]
-  %.sink.i.i77.sink = phi i8 [ 1, %if.then.i.i59 ], [ 0, %if.else.i.i55 ], [ 1, %if.then.i.i78 ], [ 0, %if.else.i.i74 ]
-  call void @pci_set_irq(ptr noundef nonnull %s, i32 noundef %.sink15.i.i76.sink) #11
-  store i8 %.sink.i.i77.sink, ptr %int_stat.i.i.i, align 1
+for.end.sink.split:                               ; preds = %if.then.i.i79, %if.else.i.i75, %if.then.i.i60, %if.else.i.i56
+  %.sink15.i.i77.sink = phi i32 [ 1, %if.then.i.i60 ], [ 0, %if.else.i.i56 ], [ 1, %if.then.i.i79 ], [ 0, %if.else.i.i75 ]
+  %.sink.i.i78.sink = phi i8 [ 1, %if.then.i.i60 ], [ 0, %if.else.i.i56 ], [ 1, %if.then.i.i79 ], [ 0, %if.else.i.i75 ]
+  call void @pci_set_irq(ptr noundef nonnull %s, i32 noundef %.sink15.i.i77.sink) #11
+  store i8 %.sink.i.i78.sink, ptr %int_stat.i.i.i, align 1
   br label %for.end
 
-for.end:                                          ; preds = %for.cond, %for.end.sink.split, %if.else.i.i74, %if.then.i.i78, %if.else.i.i55, %if.then.i.i59
+for.end:                                          ; preds = %for.cond, %for.end.sink.split, %if.else.i.i75, %if.then.i.i79, %if.else.i.i56, %if.then.i.i60
   ret void
 }
 
@@ -2543,7 +2543,7 @@ if.end118:                                        ; preds = %if.end113
   %add140 = add i32 %30, %29
   %conv141 = zext i32 %add140 to i64
   %add142 = add nuw nsw i64 %conv141, 12
-  %conv143 = trunc i64 %spec.select to i16
+  %conv143 = trunc nuw i64 %spec.select to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.addr.i.i58)
   store i16 %conv143, ptr %val.addr.i.i58, align 2
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9

@@ -208,7 +208,7 @@ define dso_local i32 @snd_dma_pointer(i64 noundef %0, i32 noundef %1) #0 align 1
 
 17:                                               ; preds = %11, %7
   %18 = phi i32 [ %10, %7 ], [ %16, %11 ]
-  %19 = trunc i32 %18 to i16
+  %19 = trunc nuw nsw i32 %18 to i16
   %20 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %19) #2, !srcloc !6
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %21, 1
@@ -234,7 +234,7 @@ define dso_local i32 @snd_dma_pointer(i64 noundef %0, i32 noundef %1) #0 align 1
 
 37:                                               ; preds = %33, %30
   %38 = phi i32 [ %32, %30 ], [ %36, %33 ]
-  %39 = trunc i32 %38 to i16
+  %39 = trunc nuw nsw i32 %38 to i16
   %40 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %39) #2, !srcloc !6
   %41 = zext i8 %40 to i32
   %42 = add nuw nsw i32 %41, 1
@@ -274,7 +274,7 @@ define dso_local i32 @snd_dma_pointer(i64 noundef %0, i32 noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_devm_request_dma(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @snd_devm_request_dma(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i32 @request_dma(i32 noundef %1, ptr noundef %2) #2
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %11

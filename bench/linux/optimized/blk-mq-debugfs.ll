@@ -1168,7 +1168,7 @@ define internal noundef i32 @queue_state_show(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @queue_state_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i64 -22, 16) i64 @queue_state_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)

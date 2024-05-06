@@ -78,7 +78,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_debugfs_
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_drm_debugfs_add_file391, ptr @__UNIQUE_ID___addressable_drm_debugfs_add_files392, ptr @__UNIQUE_ID___addressable_drm_debugfs_create_files389, ptr @__UNIQUE_ID___addressable_drm_debugfs_gpuva_info388, ptr @__UNIQUE_ID___addressable_drm_debugfs_remove_files390], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_debugfs_gpuva_info(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @drm_debugfs_gpuva_info(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -878,7 +878,7 @@ define internal i32 @drm_debugfs_entry_open(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @connector_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i64 -22, 12) i64 @connector_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca [12 x i8], align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -1036,7 +1036,7 @@ define internal i32 @vrr_range_open(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vrr_range_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @vrr_range_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 176
@@ -1069,7 +1069,7 @@ define internal i32 @output_bpc_open(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @output_bpc_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @output_bpc_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 176

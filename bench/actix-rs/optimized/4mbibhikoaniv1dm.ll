@@ -2810,11 +2810,11 @@ default.unreachable6:                             ; preds = %6
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = add i64 %2, -3
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc3c52f1989495d36E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %30, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %31)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc3c52f1989495d36E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %30, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %31)
   %32 = add i64 %2, -2
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc3c52f1989495d36E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %30, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %32)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc3c52f1989495d36E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %30, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %32)
   %33 = add i64 %2, -1
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc3c52f1989495d36E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %30, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %33)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc3c52f1989495d36E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %30, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %33)
   br label %_ZN6brotli3enc19backward_references29StitchToPreviousBlockInternal17h3ac16e462cabe5ddE.llvm.6642645476840219850.exit
 
 34:                                               ; preds = %6
@@ -2826,11 +2826,11 @@ default.unreachable6:                             ; preds = %6
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = add i64 %2, -3
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h05739ace4fbac820E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %38, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %39)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h05739ace4fbac820E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %38, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %39)
   %40 = add i64 %2, -2
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h05739ace4fbac820E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %38, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %40)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h05739ace4fbac820E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %38, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %40)
   %41 = add i64 %2, -1
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h05739ace4fbac820E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %38, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %41)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h05739ace4fbac820E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %38, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %41)
   br label %_ZN6brotli3enc19backward_references29StitchToPreviousBlockInternal17h3ac16e462cabe5ddE.llvm.6642645476840219850.exit
 
 42:                                               ; preds = %6
@@ -2842,11 +2842,11 @@ default.unreachable6:                             ; preds = %6
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   %47 = add i64 %2, -3
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(112) %46, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %47)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %46, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %47)
   %48 = add i64 %2, -2
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(112) %46, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %48)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %46, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %48)
   %49 = add i64 %2, -1
-  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(112) %46, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %49)
+  tail call void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %46, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %49)
   br label %_ZN6brotli3enc19backward_references29StitchToPreviousBlockInternal17h3ac16e462cabe5ddE.llvm.6642645476840219850.exit
 
 50:                                               ; preds = %6
@@ -2858,11 +2858,11 @@ default.unreachable6:                             ; preds = %6
 53:                                               ; preds = %50
   %54 = getelementptr inbounds i8, ptr %0, i64 8
   %55 = add i64 %2, -3
-  tail call void @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %54, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %55)
+  tail call void @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %54, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %55)
   %56 = add i64 %2, -2
-  tail call void @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %54, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %56)
+  tail call void @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %54, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %56)
   %57 = add i64 %2, -1
-  tail call void @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850"(ptr noalias noundef nonnull align 8 dereferenceable(88) %54, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %57)
+  tail call void @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %54, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, i64 noundef %57)
   br label %_ZN6brotli3enc19backward_references29StitchToPreviousBlockInternal17h3ac16e462cabe5ddE.llvm.6642645476840219850.exit
 
 58:                                               ; preds = %6
@@ -3030,7 +3030,7 @@ define hidden noundef i32 @"_ZN127_$LT$brotli..enc..backward_references..H2Sub$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef range(i32 0, 65536) i32 @"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.not.i.i = icmp ult i64 %2, 8
   br i1 %.not.i.i, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit"
@@ -3063,7 +3063,7 @@ define hidden noundef i32 @"_ZN127_$LT$brotli..enc..backward_references..H3Sub$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef range(i32 0, 65536) i32 @"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.not.i.i = icmp ult i64 %2, 8
   br i1 %.not.i.i, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit"
@@ -3096,7 +3096,7 @@ define hidden noundef i32 @"_ZN127_$LT$brotli..enc..backward_references..H4Sub$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef range(i32 0, 131072) i32 @"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.not.i.i = icmp ult i64 %2, 8
   br i1 %.not.i.i, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit"
@@ -3129,7 +3129,7 @@ define hidden noundef i32 @"_ZN128_$LT$brotli..enc..backward_references..H54Sub$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef range(i32 0, 1048576) i32 @"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.not.i.i = icmp ult i64 %2, 8
   br i1 %.not.i.i, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit"
@@ -8389,7 +8389,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17hf008dd397a10d318
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %99), !noalias !1472
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false), !noalias !1472
   store i64 2020, ptr %414, align 8, !noalias !1472
-  %429 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h5709ef39877f7b90E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %395, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %.0115.i40, i64 noundef %428, i64 noundef %spec.store.select.i46, ptr noalias noundef nonnull align 8 dereferenceable(32) %99)
+  %429 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h5709ef39877f7b90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %395, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %.0115.i40, i64 noundef %428, i64 noundef %spec.store.select.i46, ptr noalias noundef nonnull align 8 dereferenceable(32) %99)
   br i1 %429, label %.preheader.i67, label %430
 
 430:                                              ; preds = %426
@@ -8594,7 +8594,7 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.ex
   store i64 2020, ptr %420, align 8, !noalias !1472
   %504 = add i64 %.2.i71, 1
   %spec.store.select1.i75 = tail call i64 @llvm.umin.i64(i64 %504, i64 %401)
-  %505 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h5709ef39877f7b90E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %395, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %504, i64 noundef %.066.i72, i64 noundef %spec.store.select1.i75, ptr noalias noundef nonnull align 8 dereferenceable(32) %98)
+  %505 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h5709ef39877f7b90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %395, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %504, i64 noundef %.066.i72, i64 noundef %spec.store.select1.i75, ptr noalias noundef nonnull align 8 dereferenceable(32) %98)
   br i1 %505, label %557, label %split.i
 
 split.i:                                          ; preds = %557, %.preheader.i67
@@ -9753,7 +9753,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h69c4cc4c30a475c2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77), !noalias !1812
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false), !noalias !1812
   store i64 2020, ptr %995, align 8, !noalias !1812
-  %1010 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17haccd165781ce8098E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %976, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %.0115.i207, i64 noundef %1009, i64 noundef %spec.store.select.i213, ptr noalias noundef nonnull align 8 dereferenceable(32) %77)
+  %1010 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17haccd165781ce8098E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %976, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %.0115.i207, i64 noundef %1009, i64 noundef %spec.store.select.i213, ptr noalias noundef nonnull align 8 dereferenceable(32) %77)
   br i1 %1010, label %.preheader.i234, label %1011
 
 1011:                                             ; preds = %1007
@@ -9958,7 +9958,7 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.ex
   store i64 2020, ptr %1001, align 8, !noalias !1812
   %1085 = add i64 %.2.i238, 1
   %spec.store.select1.i242 = tail call i64 @llvm.umin.i64(i64 %1085, i64 %982)
-  %1086 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17haccd165781ce8098E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %976, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %1085, i64 noundef %.066.i239, i64 noundef %spec.store.select1.i242, ptr noalias noundef nonnull align 8 dereferenceable(32) %76)
+  %1086 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17haccd165781ce8098E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %976, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %1085, i64 noundef %.066.i239, i64 noundef %spec.store.select1.i242, ptr noalias noundef nonnull align 8 dereferenceable(32) %76)
   br i1 %1086, label %1138, label %split.i243
 
 split.i243:                                       ; preds = %1138, %.preheader.i234

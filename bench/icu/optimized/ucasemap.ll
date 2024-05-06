@@ -1520,8 +1520,8 @@ cond.true224:                                     ; preds = %cond.false222
 cond.false225:                                    ; preds = %cond.false222
   %shr228 = lshr i32 %c.1, 5
   %27 = zext nneg i32 %shr228 to i64
-  %28 = getelementptr i16, ptr %21, i64 %27
-  %arrayidx231 = getelementptr i8, ptr %28, i64 4160
+  %28 = getelementptr inbounds i16, ptr %21, i64 %27
+  %arrayidx231 = getelementptr inbounds i8, ptr %28, i64 4160
   %29 = load i16, ptr %arrayidx231, align 2
   %conv232 = zext i16 %29 to i32
   %shr233 = lshr i32 %or185, 5
@@ -1649,7 +1649,7 @@ _ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKhii(ptr nocapture noundef readonly %s, i32 noundef %i, i32 noundef %length) local_unnamed_addr #0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKhii(ptr nocapture noundef readonly %s, i32 noundef %i, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   br label %while.cond
 
@@ -2118,7 +2118,7 @@ land.lhs.true211:                                 ; preds = %while.end
   br i1 %or.cond, label %land.lhs.true219, label %if.else227
 
 land.lhs.true219:                                 ; preds = %land.lhs.true211
-  %call220 = call noundef signext i8 @_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKhii(ptr noundef nonnull %src, i32 noundef %nextIndex.4.lcssa, i32 noundef %srcLength), !range !10
+  %call220 = call noundef signext i8 @_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKhii(ptr noundef nonnull %src, i32 noundef %nextIndex.4.lcssa, i32 noundef %srcLength)
   %tobool221.not = icmp eq i8 %call220, 0
   br i1 %tobool221.not, label %if.then222, label %if.else227
 
@@ -2161,7 +2161,7 @@ if.else247:                                       ; preds = %if.end241
 lor.lhs.false249:                                 ; preds = %if.else247
   %17 = load i8, ptr %arrayidx, align 1
   %shr.i = lshr i32 %upper.0, 6
-  %18 = trunc i32 %shr.i to i8
+  %18 = trunc nuw nsw i32 %shr.i to i8
   %conv.i = or disjoint i8 %18, -64
   %cmp255.not = icmp eq i8 %17, %conv.i
   br i1 %cmp255.not, label %lor.lhs.false256, label %lor.end
@@ -2298,7 +2298,7 @@ while.body349:                                    ; preds = %if.end346, %while.b
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull @.str.4, i32 noundef 2)
   %dec = add nsw i32 %numYpogegrammeni.2194, -1
   %cmp348 = icmp ugt i32 %numYpogegrammeni.2194, 1
-  br i1 %cmp348, label %while.body349, label %if.end368, !llvm.loop !11
+  br i1 %cmp348, label %while.body349, label %if.end368, !llvm.loop !10
 
 if.else352:                                       ; preds = %do.end
   %cmp353 = icmp sgt i32 %c.2, -1
@@ -2357,7 +2357,7 @@ if.end368:                                        ; preds = %while.body349, %if.
   %nextState.2 = phi i32 [ %nextState.1, %if.end337 ], [ %nextState.0, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %nextState.0, %if.end.i ], [ %nextState.0, %if.then4.i ], [ %nextState.0, %if.else8.i ], [ %nextState.0, %if.then1.i ], [ %nextState.0, %if.end.i176 ], [ %nextState.1, %if.end346 ], [ %nextState.1, %while.body349 ]
   %nextIndex.5 = phi i32 [ %nextIndex.4.lcssa, %if.end337 ], [ %nextIndex.3, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %nextIndex.3, %if.end.i ], [ %nextIndex.3, %if.then4.i ], [ %nextIndex.3, %if.else8.i ], [ %nextIndex.3, %if.then1.i ], [ %nextIndex.3, %if.end.i176 ], [ %nextIndex.4.lcssa, %if.end346 ], [ %nextIndex.4.lcssa, %while.body349 ]
   %cmp = icmp slt i32 %nextIndex.5, %srcLength
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end368, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit, %if.else361, %entry
   ret void
@@ -2709,7 +2709,7 @@ if.end5.i.backedge:                               ; preds = %for.cond1.backedge.
   %.be = phi i32 [ %7, %for.cond1.backedge.i ], [ %36, %if.end275.i ]
   %prev.1215.i.be = phi i32 [ %prev.1.be.i, %for.cond1.backedge.i ], [ %prev.2.i, %if.end275.i ]
   %srcIndex.1214.i.be = phi i32 [ %srcIndex.1.be.i, %for.cond1.backedge.i ], [ %srcIndex.6195.i, %if.end275.i ]
-  br label %if.end5.i, !llvm.loop !13
+  br label %if.end5.i, !llvm.loop !12
 
 if.else28.i:                                      ; preds = %if.end5.i
   %cmp30.i = icmp ult i8 %4, -29
@@ -2946,8 +2946,8 @@ cond.true215.i:                                   ; preds = %cond.false213.i
 cond.false216.i:                                  ; preds = %cond.false213.i
   %shr219.i = lshr i32 %c.1.i, 5
   %28 = zext nneg i32 %shr219.i to i64
-  %29 = getelementptr i16, ptr %22, i64 %28
-  %arrayidx222.i = getelementptr i8, ptr %29, i64 4160
+  %29 = getelementptr inbounds i16, ptr %22, i64 %28
+  %arrayidx222.i = getelementptr inbounds i8, ptr %29, i64 4160
   %30 = load i16, ptr %arrayidx222.i, align 2
   %conv223.i = zext i16 %30 to i32
   %shr224.i = lshr i32 %or176.i, 5
@@ -3347,7 +3347,6 @@ attributes #12 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i8 0, i8 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

@@ -45,7 +45,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.land.lhs.true_crit_edge.i, label %land.rhs.i.i, !llvm.loop !5
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -78,7 +78,7 @@ while.body9.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.land.lhs.true_crit_edge.i, !llvm.loop !7
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
@@ -116,7 +116,7 @@ while.body.i36.i:                                 ; preds = %land.rhs.i33.i, %la
   br i1 %exitcond.not.i.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, label %land.rhs.i33.i, !llvm.loop !8
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i33.i
-  %13 = trunc i64 %indvars.iv.i34.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.i34.i to i32
   br label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i
 
 _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i: ; preds = %while.body.i36.i, %while.end.loopexit.split.loop.exit.i.i
@@ -194,7 +194,7 @@ while.body.i51.i:                                 ; preds = %land.rhs.i48.i, %la
   br i1 %exitcond.not.i53.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit55.i, label %land.rhs.i48.i, !llvm.loop !8
 
 while.end.loopexit.split.loop.exit.i54.i:         ; preds = %land.rhs.i48.i
-  %19 = trunc i64 %indvars.iv.i49.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i49.i to i32
   br label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit55.i
 
 _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit55.i: ; preds = %while.body.i51.i, %while.end.loopexit.split.loop.exit.i54.i
@@ -229,7 +229,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.then.i.i, label %land.rhs.i.i.i, !llvm.loop !9
 
 while.end.loopexit.split.loop.exit.i.i.i:         ; preds = %land.rhs.i.i.i, %land.rhs.i.i.i
-  %22 = trunc i64 %indvars.iv.i.i.i to i32
+  %22 = trunc nsw i64 %indvars.iv.i.i.i to i32
   br label %_ZN3url13FindNextSlashIcEEiPKT_ii.exit.i.i
 
 _ZN3url13FindNextSlashIcEEiPKT_ii.exit.i.i:       ; preds = %while.end.loopexit.split.loop.exit.i.i.i, %if.then13.i
@@ -380,7 +380,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.land.lhs.true_crit_edge.i, label %land.rhs.i.i, !llvm.loop !10
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -413,7 +413,7 @@ while.body8.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.land.lhs.true_crit_edge.i, !llvm.loop !11
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
@@ -451,7 +451,7 @@ while.body.i36.i:                                 ; preds = %land.rhs.i33.i, %la
   br i1 %exitcond.not.i.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, label %land.rhs.i33.i, !llvm.loop !12
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i33.i
-  %13 = trunc i64 %indvars.iv.i34.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.i34.i to i32
   br label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i
 
 _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %while.body.i36.i, %while.end.loopexit.split.loop.exit.i.i
@@ -529,7 +529,7 @@ while.body.i51.i:                                 ; preds = %land.rhs.i48.i, %la
   br i1 %exitcond.not.i53.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit55.i, label %land.rhs.i48.i, !llvm.loop !12
 
 while.end.loopexit.split.loop.exit.i54.i:         ; preds = %land.rhs.i48.i
-  %19 = trunc i64 %indvars.iv.i49.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i49.i to i32
   br label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit55.i
 
 _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit55.i: ; preds = %while.body.i51.i, %while.end.loopexit.split.loop.exit.i54.i
@@ -564,7 +564,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.then.i.i, label %land.rhs.i.i.i, !llvm.loop !13
 
 while.end.loopexit.split.loop.exit.i.i.i:         ; preds = %land.rhs.i.i.i, %land.rhs.i.i.i
-  %22 = trunc i64 %indvars.iv.i.i.i to i32
+  %22 = trunc nsw i64 %indvars.iv.i.i.i to i32
   br label %_ZN3url13FindNextSlashItEEiPKT_ii.exit.i.i
 
 _ZN3url13FindNextSlashItEEiPKT_ii.exit.i.i:       ; preds = %while.end.loopexit.split.loop.exit.i.i.i, %if.then13.i

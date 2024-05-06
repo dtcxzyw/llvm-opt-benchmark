@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [11 x i8] c"textlayout\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gvtextlayout_select(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 300, 1000) i32 @gvtextlayout_select(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @gvplugin_load(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef null) #2
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3

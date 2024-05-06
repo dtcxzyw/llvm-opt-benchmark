@@ -495,7 +495,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 187:                                              ; preds = %203, %181
   %188 = phi i64 [ 0, %181 ], [ %204, %203 ]
-  %189 = trunc i64 %188 to i32
+  %189 = trunc nuw nsw i64 %188 to i32
   %190 = shl nuw nsw i32 1, %189
   %191 = and i32 %190, %185
   %192 = icmp eq i32 %191, 0
@@ -1649,7 +1649,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @remapped_nvme_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @remapped_nvme_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1826,7 +1826,7 @@ declare dso_local void @ata_pci_remove_one(ptr noundef) local_unnamed_addr #1
 declare dso_local void @ata_pci_shutdown_one(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ahci_pci_device_suspend(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -5, 1) i32 @ahci_pci_device_suspend(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32

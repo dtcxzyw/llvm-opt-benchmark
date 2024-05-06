@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [39 x i8] c"Usage: %s sharedobject [ entrypoint ]\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %sd.i = alloca ptr, align 8
   %sym.i = alloca ptr, align 8

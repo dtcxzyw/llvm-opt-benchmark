@@ -74,7 +74,7 @@ define hidden void @_ZN7nanogui12VScrollPanel14perform_layoutEP10NVGcontext(ptr 
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 %22(ptr noundef nonnull align 8 dereferenceable(140) %19, ptr noundef %1)
   %.sroa.1.0.extract.shift = lshr i64 %23, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %24 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 %.sroa.1.0.extract.trunc, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 48
@@ -470,7 +470,7 @@ define hidden void @_ZN7nanogui12VScrollPanel4drawEP10NVGcontext(ptr nocapture n
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i64 %48(ptr noundef nonnull align 8 dereferenceable(140) %29, ptr noundef %1)
   %.sroa.1.0.extract.shift = lshr i64 %49, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   store i32 %.sroa.1.0.extract.trunc, ptr %30, align 4
   %50 = load i32, ptr %33, align 4
   %51 = sitofp i32 %50 to float

@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @stack_guard_gap = external dso_local local_unnamed_addr global i64, align 8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @pmd_huge(i64 %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @pmd_huge(i64 %0) local_unnamed_addr #0 align 16 {
   %2 = and i64 %0, -97
   %3 = icmp ne i64 %2, 0
   %4 = and i64 %0, 129
@@ -27,7 +27,7 @@ define dso_local i32 @pmd_huge(i64 %0) local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @pud_huge(i64 %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @pud_huge(i64 %0) local_unnamed_addr #0 align 16 {
   %2 = and i64 %0, -97
   %3 = icmp ne i64 %2, 0
   %4 = and i64 %0, 129

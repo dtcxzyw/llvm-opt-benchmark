@@ -888,7 +888,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_Py_TrueStruct = external global %struct._longobject, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTraceMalloc_Init() local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTraceMalloc_Init() local_unnamed_addr #0 {
 entry:
   %hashtable_alloc.i.i5 = alloca %struct._Py_hashtable_allocator_t, align 8
   %hashtable_alloc.i.i = alloca %struct._Py_hashtable_allocator_t, align 8
@@ -1012,7 +1012,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hashtable_compare_unicode(ptr noundef %key1, ptr noundef %key2) #0 {
+define internal range(i32 0, 2) i32 @hashtable_compare_unicode(ptr noundef %key1, ptr noundef %key2) #0 {
 entry:
   %cmp = icmp ne ptr %key1, null
   %cmp1 = icmp ne ptr %key2, null
@@ -1064,7 +1064,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal noundef i32 @hashtable_compare_traceback(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #3 {
+define internal range(i32 0, 2) i32 @hashtable_compare_traceback(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #3 {
 entry:
   %nframe = getelementptr inbounds i8, ptr %key1, i64 8
   %0 = load i16, ptr %nframe, align 8
@@ -1130,7 +1130,7 @@ entry:
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTraceMalloc_Start(i32 noundef %max_nframe) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTraceMalloc_Start(i32 noundef %max_nframe) local_unnamed_addr #0 {
 entry:
   %alloc = alloca %struct.PyMemAllocatorEx, align 8
   %0 = add i32 %max_nframe, -65536
@@ -1143,7 +1143,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call i32 @_PyTraceMalloc_Init(), !range !7
+  %call3 = tail call i32 @_PyTraceMalloc_Init()
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %return, label %if.end7
 
@@ -1483,7 +1483,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load i16, ptr %nframe, align 8
   %10 = zext i16 %9 to i64
   %cmp5 = icmp ult i64 %indvars.iv.next, %10
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end3
   %call7 = tail call i64 @_Py_write_noraise(i32 noundef %fd, ptr noundef nonnull @.str.5, i64 noundef 1) #13
@@ -1629,7 +1629,7 @@ declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #1
 declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyTraceMalloc_Untrack(i32 noundef %domain, i64 noundef %ptr) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @PyTraceMalloc_Untrack(i32 noundef %domain, i64 noundef %ptr) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -1719,7 +1719,7 @@ tracemalloc_deinit.exit:                          ; preds = %entry, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTraceMalloc_NewReference(ptr noundef %op) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTraceMalloc_NewReference(ptr noundef %op) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 0, i32 1), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -1811,7 +1811,7 @@ while.body.i.i.i:                                 ; preds = %_PyFrame_IsIncomple
   %previous.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i.i, i64 8
   %5 = load ptr, ptr %previous.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %traceback_get_frames.exit, label %land.rhs.i.i.i, !llvm.loop !9
+  br i1 %tobool.not.i.i.i, label %traceback_get_frames.exit, label %land.rhs.i.i.i, !llvm.loop !8
 
 while.body.lr.ph.i:                               ; preds = %_PyFrame_IsIncomplete.exit.i.i.i, %land.rhs.i.i.i
   %frames.i = getelementptr inbounds i8, ptr %0, i64 12
@@ -1932,7 +1932,7 @@ land.rhs.i.i:                                     ; preds = %if.end14.i, %while.
   switch i8 %24, label %_PyFrame_IsIncomplete.exit.i.i [
     i8 3, label %while.body.i.i
     i8 1, label %while.body.i.loopexit
-  ], !llvm.loop !10
+  ], !llvm.loop !9
 
 _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %land.rhs.i.i
   %instr_ptr.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 56
@@ -1944,13 +1944,13 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %land.rhs.i.i
   %idx.ext.i.i.i = sext i32 %26 to i64
   %add.ptr.i.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i.i, i64 %idx.ext.i.i.i
   %cmp7.i.i.i = icmp ult ptr %25, %add.ptr.i.i.i
-  br i1 %cmp7.i.i.i, label %while.body.i.i, label %while.body.i.loopexit, !llvm.loop !10
+  br i1 %cmp7.i.i.i, label %while.body.i.i, label %while.body.i.loopexit, !llvm.loop !9
 
 while.body.i.i:                                   ; preds = %_PyFrame_IsIncomplete.exit.i.i, %land.rhs.i.i
   %previous.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 8
   %27 = load ptr, ptr %previous.i.i, align 8
   %tobool.not.i9.i = icmp eq ptr %27, null
-  br i1 %tobool.not.i9.i, label %traceback_get_frames.exit, label %land.rhs.i.i, !llvm.loop !9
+  br i1 %tobool.not.i9.i, label %traceback_get_frames.exit, label %land.rhs.i.i, !llvm.loop !8
 
 traceback_get_frames.exit:                        ; preds = %while.body.i.i.i, %if.end14.i, %while.body.i.i, %entry, %if.end.i
   %28 = load i16, ptr %nframe, align 8
@@ -1980,7 +1980,7 @@ while.body.i17:                                   ; preds = %while.body.i17, %wh
   %add6.i = add i64 %mult.015.i, 82520
   %add7.i = add i64 %add6.i, %reass.add.i
   %cmp.i19 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %cmp.i19, label %while.body.i17, label %traceback_hash.exit, !llvm.loop !11
+  br i1 %cmp.i19, label %while.body.i17, label %traceback_hash.exit, !llvm.loop !10
 
 traceback_hash.exit:                              ; preds = %while.body.i17
   %32 = load i16, ptr %total_nframe, align 2
@@ -2194,7 +2194,7 @@ if.end18:                                         ; preds = %_Py_NewRef.exit.i
   %10 = load i16, ptr %nframe, align 8
   %11 = zext i16 %10 to i64
   %cmp11 = icmp ult i64 %indvars.iv.next, %11
-  br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end18, %for.cond.preheader
   br i1 %cmp.not, label %return, label %if.then22
@@ -2473,7 +2473,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 declare i32 @_Py_hashtable_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tracemalloc_get_traces_fill(ptr nocapture readnone %traces, ptr nocapture readnone %key, ptr nocapture noundef readonly %value, ptr nocapture noundef readonly %user_data) #0 {
+define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr nocapture readnone %traces, ptr nocapture readnone %key, ptr nocapture noundef readonly %value, ptr nocapture noundef readonly %user_data) #0 {
 entry:
   %domain = getelementptr inbounds i8, ptr %user_data, i64 32
   %0 = load i32, ptr %domain, align 8
@@ -2783,7 +2783,7 @@ declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_Compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @hashtable_hash_uint(ptr noundef %key_raw) #8 {
+define internal noundef range(i64 0, 4294967296) i64 @hashtable_hash_uint(ptr noundef %key_raw) #8 {
 entry:
   %0 = ptrtoint ptr %key_raw to i64
   %conv1 = and i64 %0, 4294967295
@@ -3051,7 +3051,7 @@ declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 declare i32 @PyThread_tss_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tracemalloc_copy_trace(ptr nocapture readnone %traces, ptr noundef %key, ptr nocapture noundef readonly %value, ptr noundef %user_data) #0 {
+define internal range(i32 -1, 1) i32 @tracemalloc_copy_trace(ptr nocapture readnone %traces, ptr noundef %key, ptr nocapture noundef readonly %value, ptr noundef %user_data) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1, i32 1), align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 27, i32 1, i32 1), align 8
@@ -3077,7 +3077,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tracemalloc_copy_domain(ptr nocapture readnone %domains, ptr noundef %key, ptr noundef %value, ptr noundef %user_data) #0 {
+define internal range(i32 -1, 1) i32 @tracemalloc_copy_domain(ptr nocapture readnone %domains, ptr noundef %key, ptr noundef %value, ptr noundef %user_data) #0 {
 entry:
   %hashtable_alloc.i.i.i = alloca %struct._Py_hashtable_allocator_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i.i.i)
@@ -3152,9 +3152,8 @@ attributes #14 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

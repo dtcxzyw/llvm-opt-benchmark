@@ -62,7 +62,7 @@ entry:
   %seed = getelementptr inbounds i8, ptr %params, i64 32
   %4 = load ptr, ptr %seed, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 34) #5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %params, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %params, i8 0, i64 96, i1 false)
   %pcounter.i = getelementptr inbounds i8, ptr %params, i64 48
   store i32 -1, ptr %pcounter.i, align 8
   %gindex.i = getelementptr inbounds i8, ptr %params, i64 56
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_set_seed(ptr nocapture noundef %params, ptr noundef %seed, i64 noundef %seedlen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_set_seed(ptr nocapture noundef %params, ptr noundef %seed, i64 noundef %seedlen) local_unnamed_addr #2 {
 entry:
   %seed1 = getelementptr inbounds i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed1, align 8
@@ -283,7 +283,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_set_validate_params(ptr nocapture noundef %params, ptr noundef %seed, i64 noundef %seedlen, i32 noundef %counter) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_set_validate_params(ptr nocapture noundef %params, ptr noundef %seed, i64 noundef %seedlen, i32 noundef %counter) local_unnamed_addr #2 {
 entry:
   %seed1.i = getelementptr inbounds i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed1.i, align 8
@@ -366,7 +366,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %src, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -533,7 +533,7 @@ return:                                           ; preds = %if.else4.i67, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ffc_params_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %ignore_q) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %ignore_q) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -572,7 +572,7 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_todata(ptr nocapture noundef readonly %ffc, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_todata(ptr nocapture noundef readonly %ffc, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ffc, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -734,7 +734,7 @@ declare ptr @ossl_ffc_named_group_get_name(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_param_build_set_utf8_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_print(ptr noundef %bp, ptr nocapture noundef readonly %ffc, i32 noundef %indent) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_print(ptr noundef %bp, ptr nocapture noundef readonly %ffc, i32 noundef %indent) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ffc, align 8
   %call = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.15, ptr noundef %0, ptr noundef null, i32 noundef %indent) #5

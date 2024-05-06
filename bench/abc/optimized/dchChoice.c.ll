@@ -196,7 +196,7 @@ Aig_ObjEquiv.exit:                                ; preds = %12, %13
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dch_ObjMarkTfi_rec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Dch_ObjMarkTfi_rec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %.lr.ph
 
@@ -234,7 +234,7 @@ tailrecurse:                                      ; preds = %7
   %15 = ptrtoint ptr %.val24 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %17), !range !7
+  %18 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %17)
   %19 = getelementptr i8, ptr %.tr2933, i64 16
   %.val25 = load ptr, ptr %19, align 8
   %20 = ptrtoint ptr %.val25 to i64
@@ -252,17 +252,17 @@ tailrecurse:                                      ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
-  %4 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef %0, ptr noundef %2), !range !7
+  %4 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef %0, ptr noundef %2)
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
-  %5 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef %0, ptr noundef %1), !range !7
+  %5 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %3
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
-  %7 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef %0, ptr noundef %2), !range !7
+  %7 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef %0, ptr noundef %2)
   br label %8
 
 8:                                                ; preds = %6, %3
@@ -346,7 +346,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %13, %7, %Aig_ObjRep
   %.val = load i32, ptr %35, align 4
   %36 = sext i32 %.val to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %7, label %.critedge, !llvm.loop !8
+  br i1 %37, label %7, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %Aig_ObjRepr.exit.thread
   %38 = icmp eq i32 %.144, 0
@@ -432,15 +432,15 @@ define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #11
-  %36 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %35), !range !7
+  %36 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %35)
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #11
-  %37 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef nonnull %13), !range !7
+  %37 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef nonnull %13)
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %Dch_ObjCheckSuppRed.exit, label %Dch_ObjCheckSuppRed.exit.thread
 
 Dch_ObjCheckSuppRed.exit:                         ; preds = %32
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #11
-  %38 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %35), !range !7
+  %38 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %35)
   %.not53 = icmp eq i32 %38, 0
   br i1 %.not53, label %47, label %Dch_ObjCheckSuppRed.exit.thread
 
@@ -537,7 +537,7 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
   %.val = load i32, ptr %90, align 4
   %91 = sext i32 %.val to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %9, label %.critedge, !llvm.loop !9
+  br i1 %92, label %9, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %88
   %93 = icmp eq i32 %.5, 0
@@ -554,7 +554,7 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
 declare void @Aig_ManCleanMarkA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %1, i64 24
   %.val68 = load i64, ptr %4, align 8
   %5 = and i64 %.val68, 7
@@ -598,7 +598,7 @@ define noundef i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocapture nounde
   br i1 %.not95, label %26, label %21
 
 21:                                               ; preds = %14
-  %22 = tail call i32 @Aig_ManCheckAcyclic_rec(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %2), !range !7
+  %22 = tail call i32 @Aig_ManCheckAcyclic_rec(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %2)
   %.not52 = icmp eq i32 %22, 0
   br i1 %.not52, label %23, label %._crit_edge
 
@@ -630,7 +630,7 @@ define noundef i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocapture nounde
   br i1 %.not96, label %37, label %32
 
 32:                                               ; preds = %26
-  %33 = tail call i32 @Aig_ManCheckAcyclic_rec(ptr noundef nonnull %0, ptr noundef nonnull %30, i32 noundef %2), !range !7
+  %33 = tail call i32 @Aig_ManCheckAcyclic_rec(ptr noundef nonnull %0, ptr noundef nonnull %30, i32 noundef %2)
   %.not55 = icmp eq i32 %33, 0
   br i1 %.not55, label %34, label %37
 
@@ -685,7 +685,7 @@ Aig_ObjEquiv.exit:                                ; preds = %Aig_ObjRepr.exit.th
   br i1 %.not97, label %58, label %53
 
 53:                                               ; preds = %.lr.ph
-  %54 = tail call i32 @Aig_ManCheckAcyclic_rec(ptr noundef nonnull %0, ptr noundef nonnull %.0100, i32 noundef %2), !range !7
+  %54 = tail call i32 @Aig_ManCheckAcyclic_rec(ptr noundef nonnull %0, ptr noundef nonnull %.0100, i32 noundef %2)
   %.not60 = icmp eq i32 %54, 0
   br i1 %.not60, label %55, label %._crit_edge103
 
@@ -717,7 +717,7 @@ Aig_ObjEquiv.exit91:                              ; preds = %58
   %62 = getelementptr inbounds ptr, ptr %.val72, i64 %61
   %63 = load ptr, ptr %62, align 8
   %.not58 = icmp eq ptr %63, null
-  br i1 %.not58, label %Aig_ObjEquiv.exit.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %.not58, label %Aig_ObjEquiv.exit.thread, label %.lr.ph, !llvm.loop !9
 
 Aig_ObjEquiv.exit.thread:                         ; preds = %58, %Aig_ObjEquiv.exit91, %Aig_ObjRepr.exit.thread, %Aig_ObjEquiv.exit, %Aig_ObjRepr.exit
   %.val86 = load i32, ptr %7, align 8
@@ -766,7 +766,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -800,7 +800,7 @@ define noundef i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %8
-  %20 = tail call i32 @Aig_ManCheckAcyclic_rec(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %1), !range !7
+  %20 = tail call i32 @Aig_ManCheckAcyclic_rec(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %1)
   %.not18 = icmp eq i32 %20, 0
   br i1 %.not18, label %21, label %._crit_edge
 
@@ -824,7 +824,7 @@ define noundef i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) local_un
   %.val20 = load i32, ptr %26, align 4
   %27 = sext i32 %.val20 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %8, label %.critedge, !llvm.loop !11
+  br i1 %28, label %8, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %24, %2, %21, %22
   %.2 = phi i32 [ 0, %22 ], [ 0, %21 ], [ 1, %2 ], [ 1, %24 ]
@@ -832,7 +832,7 @@ define noundef i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %4 = icmp eq ptr %1, null
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -868,7 +868,7 @@ define noundef i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1) local_un
   %15 = ptrtoint ptr %.val22 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %17), !range !7
+  %18 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %17)
   %.not17 = icmp eq i32 %18, 0
   br i1 %.not17, label %19, label %._crit_edge
 
@@ -878,7 +878,7 @@ define noundef i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1) local_un
   %21 = ptrtoint ptr %.val23 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %23), !range !7
+  %24 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %23)
   %.not18 = icmp eq i32 %24, 0
   br i1 %.not18, label %25, label %._crit_edge
 
@@ -902,7 +902,7 @@ Aig_ObjEquiv.exit:                                ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Dch_ObjCheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Dch_ObjCheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not17 = icmp eq ptr %2, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -927,11 +927,11 @@ Aig_ObjEquiv.exit:                                ; preds = %5
   %12 = getelementptr inbounds ptr, ptr %.val14, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %5, %Aig_ObjEquiv.exit, %3
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
-  %14 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1), !range !7
+  %14 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1)
   br i1 %.not17, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge
@@ -955,7 +955,7 @@ Aig_ObjEquiv.exit16:                              ; preds = %16
   %23 = getelementptr inbounds ptr, ptr %.val, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not13 = icmp eq ptr %24, null
-  br i1 %.not13, label %._crit_edge23, label %16, !llvm.loop !13
+  br i1 %.not13, label %._crit_edge23, label %16, !llvm.loop !12
 
 ._crit_edge23:                                    ; preds = %16, %Aig_ObjEquiv.exit16, %._crit_edge
   ret i32 %14
@@ -1200,11 +1200,11 @@ Aig_ObjEquiv.exit.i:                              ; preds = %143
   %150 = getelementptr inbounds ptr, ptr %.val14.i, i64 %149
   %151 = load ptr, ptr %150, align 8
   %.not.i70 = icmp eq ptr %151, null
-  br i1 %.not.i70, label %.lr.ph22.i, label %143, !llvm.loop !12
+  br i1 %.not.i70, label %.lr.ph22.i, label %143, !llvm.loop !11
 
 .lr.ph22.i:                                       ; preds = %143, %Aig_ObjEquiv.exit.i
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
-  %152 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %126), !range !7
+  %152 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %126)
   br label %153
 
 153:                                              ; preds = %Aig_ObjEquiv.exit16.i, %.lr.ph22.i
@@ -1224,7 +1224,7 @@ Aig_ObjEquiv.exit16.i:                            ; preds = %153
   %160 = getelementptr inbounds ptr, ptr %.val.i71, i64 %159
   %161 = load ptr, ptr %160, align 8
   %.not13.i = icmp eq ptr %161, null
-  br i1 %.not13.i, label %Dch_ObjCheckTfi.exit, label %153, !llvm.loop !13
+  br i1 %.not13.i, label %Dch_ObjCheckTfi.exit, label %153, !llvm.loop !12
 
 Dch_ObjCheckTfi.exit:                             ; preds = %153, %Aig_ObjEquiv.exit16.i
   %.not51 = icmp eq i32 %152, 0
@@ -1235,7 +1235,7 @@ Dch_ObjCheckTfi.exit:                             ; preds = %153, %Aig_ObjEquiv.
   br i1 %.not52, label %165, label %163
 
 163:                                              ; preds = %162
-  %164 = tail call i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef %126, ptr noundef %131), !range !7
+  %164 = tail call i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef %126, ptr noundef %131)
   %.not53 = icmp eq i32 %164, 0
   br i1 %.not53, label %._crit_edge, label %175
 
@@ -1255,7 +1255,7 @@ Dch_ObjCheckTfi.exit:                             ; preds = %153, %Aig_ObjEquiv.
   %171 = getelementptr inbounds ptr, ptr %166, i64 %170
   %172 = load ptr, ptr %171, align 8
   %.not54 = icmp eq ptr %172, null
-  br i1 %.not54, label %173, label %167, !llvm.loop !14
+  br i1 %.not54, label %173, label %167, !llvm.loop !13
 
 173:                                              ; preds = %167
   %174 = getelementptr inbounds ptr, ptr %166, i64 %170
@@ -1326,7 +1326,7 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
   %.val42 = load i32, ptr %31, align 4
   %32 = sext i32 %.val42 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %.critedge.preheader, !llvm.loop !15
+  br i1 %33, label %.lr.ph, label %.critedge.preheader, !llvm.loop !14
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %34 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1367,7 +1367,7 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
   %.val41 = load i32, ptr %50, align 4
   %51 = sext i32 %.val41 to i64
   %52 = icmp slt i64 %indvars.iv.next64, %51
-  br i1 %52, label %.lr.ph58, label %.critedge2.preheader, !llvm.loop !16
+  br i1 %52, label %.lr.ph58, label %.critedge2.preheader, !llvm.loop !15
 
 .lr.ph61:                                         ; preds = %.critedge2.preheader, %Aig_ObjChild0CopyRepr.exit
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %Aig_ObjChild0CopyRepr.exit ], [ 0, %.critedge2.preheader ]
@@ -1437,7 +1437,7 @@ Aig_ObjChild0CopyRepr.exit:                       ; preds = %Aig_ObjChild0Copy.e
   %.val = load i32, ptr %94, align 4
   %95 = sext i32 %.val to i64
   %96 = icmp slt i64 %indvars.iv.next67, %95
-  br i1 %96, label %.lr.ph61, label %.critedge4, !llvm.loop !17
+  br i1 %96, label %.lr.ph61, label %.critedge4, !llvm.loop !16
 
 .critedge4:                                       ; preds = %Aig_ObjChild0CopyRepr.exit, %.critedge2.preheader
   %97 = getelementptr i8, ptr %0, i64 104
@@ -1530,7 +1530,7 @@ attributes #13 = { nounwind allocsize(0,1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -1540,4 +1540,3 @@ attributes #13 = { nounwind allocsize(0,1) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

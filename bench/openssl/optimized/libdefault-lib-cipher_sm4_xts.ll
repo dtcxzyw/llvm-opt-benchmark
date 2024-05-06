@@ -34,27 +34,27 @@ sm4_xts_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm4_xts_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @sm4_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @sm4_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm4_xts_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @sm4_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @sm4_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm4_xts_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %cmp = icmp ult i64 %outsize, %inl
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @sm4_xts_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 poison, ptr noundef %in, i64 noundef %inl), !range !4
+  %call = tail call i32 @sm4_xts_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 poison, ptr noundef %in, i64 noundef %inl)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return.sink.split, label %return
 
@@ -72,7 +72,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm4_xts_stream_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_stream_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm4_xts_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -240,7 +240,7 @@ declare i32 @ossl_cipher_generic_get_ctx_params(ptr noundef, ptr noundef) #1
 declare ptr @ossl_cipher_generic_gettable_ctx_params(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm4_xts_set_ctx_params(ptr nocapture noundef writeonly %vxctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_set_ctx_params(ptr nocapture noundef writeonly %vxctx, ptr noundef %params) #0 {
 entry:
   %xts_standard = alloca ptr, align 8
   %cmp = icmp eq ptr %params, null
@@ -315,7 +315,7 @@ declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef,
 declare ptr @ossl_prov_cipher_hw_sm4_xts(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sm4_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sm4_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -323,7 +323,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
-  %0 = trunc i32 %enc to i8
+  %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.value = shl i8 %0, 1
   %bf.shl = and i8 %bf.value, 2
@@ -363,7 +363,7 @@ if.end13:                                         ; preds = %if.then9
   br i1 %tobool15.not, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end13, %if.end7
-  %call19 = tail call i32 @sm4_xts_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !4
+  %call19 = tail call i32 @sm4_xts_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then2, %entry, %if.end18, %if.then12
@@ -410,4 +410,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

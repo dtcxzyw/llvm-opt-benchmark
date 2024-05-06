@@ -3832,7 +3832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare void @_ZN6casadi13CodeGenerator14add_dependencyB5cxx11ERKNS_8FunctionE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(3097), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi10FastNewton8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1688) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi10FastNewton8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1688) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef i32 @_ZNK6casadi10Rootfinder8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1592) %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7

@@ -143,7 +143,7 @@ return:                                           ; preds = %if.end14, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @X509_issuer_and_serial_hash(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %md = alloca [16 x i8], align 16
@@ -423,7 +423,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @X509_issuer_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %x, align 8
@@ -447,7 +447,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @X509_NAME_hash(ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_NAME_hash(ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %md = alloca [20 x i8], align 16
   %call = tail call i32 @i2d_X509_NAME(ptr noundef %x, ptr noundef null) #8
@@ -466,17 +466,17 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @X509_issuer_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_issuer_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
   %issuer = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %issuer, align 8
-  %call = tail call i64 @X509_NAME_hash_old(ptr noundef %1), !range !7
+  %call = tail call i64 @X509_NAME_hash_old(ptr noundef %1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @X509_NAME_hash_old(ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_NAME_hash_old(ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %md_ctx = alloca %struct.env_md_ctx_st, align 8
   %md = alloca [16 x i8], align 16
@@ -532,7 +532,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @X509_subject_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %x, align 8
@@ -556,12 +556,12 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @X509_subject_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_subject_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
   %subject = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %subject, align 8
-  %call = tail call i64 @X509_NAME_hash_old(ptr noundef %1), !range !7
+  %call = tail call i64 @X509_NAME_hash_old(ptr noundef %1)
   ret i64 %call
 }
 
@@ -643,7 +643,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.08, 1
   %call = call i64 @sk_num(ptr noundef nonnull %sk) #8
   %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !7
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.08 = phi i64 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -730,7 +730,7 @@ for.inc:                                          ; preds = %if.end14.i, %if.the
   %inc = add nuw i64 %i.09, 1
   %call = tail call i64 @sk_num(ptr noundef %sk) #8
   %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %X509_NAME_cmp.exit, %for.inc, %entry
   %retval.0 = phi ptr [ null, %entry ], [ null, %for.inc ], [ %call1, %X509_NAME_cmp.exit ]
@@ -781,7 +781,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_check_private_key(ptr noundef readonly %x, ptr noundef %k) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_check_private_key(ptr noundef readonly %x, ptr noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %x, null
   br i1 %cmp.i, label %if.end7.thread, label %lor.lhs.false.i
@@ -997,7 +997,7 @@ for.inc:                                          ; preds = %if.end23.i, %if.end
   %inc = add nuw i64 %i.1175, 1
   %call12 = tail call i64 @sk_num(ptr noundef %chain) #8
   %cmp13 = icmp ult i64 %inc, %call12
-  br i1 %cmp13, label %for.body, label %land.lhs.true.i64, !llvm.loop !11
+  br i1 %cmp13, label %for.body, label %land.lhs.true.i64, !llvm.loop !10
 
 land.lhs.true.i64:                                ; preds = %for.inc, %check_suite_b.exit
   %tflags.2.lcssa = phi i64 [ %tflags.1, %check_suite_b.exit ], [ %tflags.4, %for.inc ]
@@ -1173,7 +1173,7 @@ for.body:                                         ; preds = %entry, %for.body
   %inc = add nuw i64 %i.07, 1
   %call1 = tail call i64 @sk_num(ptr noundef %call) #8
   %cmp = icmp ult i64 %inc, %call1
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry
   ret ptr %call
@@ -1216,9 +1216,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i64 0, i64 4294967296}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

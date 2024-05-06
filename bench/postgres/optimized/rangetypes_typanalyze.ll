@@ -468,7 +468,7 @@ define internal i32 @range_bound_qsort_cmp(ptr noundef %0, ptr noundef %1, ptr n
 declare ptr @range_serialize(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @float8_qsort_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -1, 2) i32 @float8_qsort_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
   %6 = fcmp olt double %4, %5

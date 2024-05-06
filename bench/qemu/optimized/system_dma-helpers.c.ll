@@ -772,7 +772,7 @@ entry:
 
 if.end19:                                         ; preds = %entry
   %add = add nuw i64 %sub, 1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %add, i1 true), !range !11
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add, i1 true)
   %sub20 = xor i64 %2, 63
   %notmask15 = shl nsw i64 -1, %sub20
   %sub23 = xor i64 %notmask15, -1
@@ -974,4 +974,3 @@ attributes #12 = { noreturn nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = !{i64 0, i64 65}

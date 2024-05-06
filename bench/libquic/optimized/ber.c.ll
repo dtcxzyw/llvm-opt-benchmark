@@ -9,11 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [3 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBS_asn1_ber_to_der(ptr noundef %in, ptr noundef %out, ptr noundef %out_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CBS_asn1_ber_to_der(ptr noundef %in, ptr noundef %out, ptr noundef %out_len) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %conversion_needed = alloca i8, align 1
-  %call = call fastcc i32 @cbs_find_ber(ptr noundef %in, ptr noundef nonnull %conversion_needed, i32 noundef 0), !range !7
+  %call = call fastcc i32 @cbs_find_ber(ptr noundef %in, ptr noundef nonnull %conversion_needed, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -34,7 +34,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %call7 = call fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef nonnull %cbb, i32 noundef 0, i8 noundef signext 0, i32 noundef 0), !range !7
+  %call7 = call fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef nonnull %cbb, i32 noundef 0, i8 noundef signext 0, i32 noundef 0)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then12, label %lor.lhs.false9
 
@@ -53,7 +53,7 @@ return:                                           ; preds = %lor.lhs.false9, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cbs_find_ber(ptr noundef %orig_in, ptr nocapture noundef writeonly %ber_found, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %orig_in, ptr nocapture noundef writeonly %ber_found, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %in = alloca %struct.cbs_st, align 8
   %contents = alloca %struct.cbs_st, align 8
@@ -133,14 +133,14 @@ if.end21:                                         ; preds = %if.end.i, %if.then1
   br i1 %tobool23.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end21
-  %call24 = call fastcc i32 @cbs_find_ber(ptr noundef nonnull %contents, ptr noundef nonnull %ber_found, i32 noundef %add), !range !7
+  %call24 = call fastcc i32 @cbs_find_ber(ptr noundef nonnull %contents, ptr noundef nonnull %ber_found, i32 noundef %add)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end28
 
 if.end28:                                         ; preds = %lor.lhs.false, %if.end15
   %call2 = call i64 @CBS_len(ptr noundef nonnull %in) #3
   %cmp3.not = icmp eq i64 %call2, 0
-  br i1 %cmp3.not, label %return, label %while.body, !llvm.loop !8
+  br i1 %cmp3.not, label %return, label %while.body, !llvm.loop !7
 
 return.sink.split:                                ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %land.lhs.true10
   store i8 1, ptr %ber_found, align 1
@@ -156,7 +156,7 @@ declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef %out, i32 noundef %string_tag, i8 noundef signext %looking_for_eoc, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cbs_convert_ber(ptr noundef %in, ptr noundef %out, i32 noundef %string_tag, i8 noundef signext %looking_for_eoc, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %contents = alloca %struct.cbs_st, align 8
   %tag = alloca i32, align 4
@@ -264,7 +264,7 @@ land.lhs.true35:                                  ; preds = %if.end28
   br i1 %cmp38, label %if.then40, label %if.end47
 
 if.then40:                                        ; preds = %land.lhs.true35
-  %call41 = call fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef %out_contents.0, i32 noundef %child_string_tag.1, i8 noundef signext 1, i32 noundef %add55), !range !7
+  %call41 = call fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef %out_contents.0, i32 noundef %child_string_tag.1, i8 noundef signext 1, i32 noundef %add55)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %return, label %lor.lhs.false
 
@@ -276,7 +276,7 @@ lor.lhs.false:                                    ; preds = %if.then40
 while.cond.backedge:                              ; preds = %lor.lhs.false, %if.end67
   %call = call i64 @CBS_len(ptr noundef %in) #3
   %cmp1.not = icmp eq i64 %call, 0
-  br i1 %cmp1.not, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %cmp1.not, label %while.end, label %while.body, !llvm.loop !9
 
 if.end47:                                         ; preds = %land.lhs.true35, %if.end28
   %8 = phi i64 [ %5, %land.lhs.true35 ], [ %4, %if.end28 ]
@@ -291,7 +291,7 @@ if.end51:                                         ; preds = %if.end47
   br i1 %tobool53.not, label %if.else60, label %if.then54
 
 if.then54:                                        ; preds = %if.end51
-  %call56 = call fastcc i32 @cbs_convert_ber(ptr noundef nonnull %contents, ptr noundef %out_contents.0, i32 noundef %child_string_tag.1, i8 noundef signext 0, i32 noundef %add55), !range !7
+  %call56 = call fastcc i32 @cbs_convert_ber(ptr noundef nonnull %contents, ptr noundef %out_contents.0, i32 noundef %child_string_tag.1, i8 noundef signext 0, i32 noundef %add55)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %if.end67
 
@@ -365,7 +365,7 @@ lor.lhs.false12:                                  ; preds = %while.body
   %call14 = call i64 @CBS_len(ptr noundef nonnull %chunk) #3
   %call15 = call i32 @CBB_add_bytes(ptr noundef nonnull %result, ptr noundef %call13, i64 noundef %call14) #3
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %err, label %while.cond, !llvm.loop !11
+  br i1 %tobool16.not, label %err, label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %while.cond
   %call19 = call i32 @CBB_finish(ptr noundef nonnull %result, ptr noundef nonnull %data, ptr noundef nonnull %len) #3
@@ -424,8 +424,7 @@ attributes #3 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

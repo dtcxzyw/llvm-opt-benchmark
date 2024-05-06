@@ -46,7 +46,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nlmsvc_unloc
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_nlmsvc_unlock_all_by_ip719, ptr @__UNIQUE_ID___addressable_nlmsvc_unlock_all_by_sb718], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @lock_to_openmode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @lock_to_openmode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 84
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 1
@@ -378,7 +378,7 @@ define dso_local void @nlmsvc_mark_resources(ptr noundef %0) local_unnamed_addr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nlm_traverse_files(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.file_lock, align 8
   tail call void @mutex_lock(ptr noundef nonnull @nlm_file_mutex) #12
   %5 = icmp eq ptr %2, null
@@ -671,7 +671,7 @@ define dso_local void @nlmsvc_free_host_resources(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @nlmsvc_same_host(ptr noundef readnone %0, ptr noundef readnone %1) #7 align 16 {
+define internal noundef range(i32 0, 2) i32 @nlmsvc_same_host(ptr noundef readnone %0, ptr noundef readnone %1) #7 align 16 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -687,7 +687,7 @@ define dso_local void @nlmsvc_invalidate_all() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @nlmsvc_is_client(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #9 align 16 {
+define internal noundef range(i32 0, 2) i32 @nlmsvc_is_client(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 310
   %4 = load i8, ptr %3, align 2
   %5 = and i8 %4, 2
@@ -713,7 +713,7 @@ define internal noundef i32 @nlmsvc_is_client(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nlmsvc_unlock_all_by_sb(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -5, 1) i32 @nlmsvc_unlock_all_by_sb(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.file_lock, align 8
   tail call void @mutex_lock(ptr noundef nonnull @nlm_file_mutex) #12
   %3 = getelementptr inbounds i8, ptr %2, i64 84
@@ -973,7 +973,7 @@ define internal noundef i32 @nlmsvc_always_match(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nlmsvc_unlock_all_by_ip(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -5, 1) i32 @nlmsvc_unlock_all_by_ip(ptr noundef %0) #1 align 16 {
   %2 = tail call fastcc i32 @nlm_traverse_files(ptr noundef %0, ptr noundef nonnull @nlmsvc_match_ip, ptr noundef null), !range !13
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i32 0, i32 -5
@@ -981,7 +981,7 @@ define dso_local i32 @nlmsvc_unlock_all_by_ip(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlmsvc_match_ip(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal range(i32 0, 2) i32 @nlmsvc_match_ip(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = load i16, ptr %3, align 2
   %5 = load i16, ptr %0, align 2

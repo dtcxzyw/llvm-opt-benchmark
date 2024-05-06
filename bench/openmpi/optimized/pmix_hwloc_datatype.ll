@@ -174,7 +174,7 @@ declare i32 @hwloc_bitmap_list_sscanf(ptr noundef, ptr noundef) local_unnamed_ad
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hwloc_copy_cpuset(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -47, 1) i32 @pmix_hwloc_copy_cpuset(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %5
@@ -781,7 +781,7 @@ declare i32 @hwloc_topology_set_flags(ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @hwloc_topology_load(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_hwloc_copy_topology(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -47, 1) i32 @pmix_hwloc_copy_topology(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
@@ -825,7 +825,7 @@ define ptr @pmix_hwloc_print_topology(ptr nocapture noundef readonly %0) local_u
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %9, i32 noundef 0, i32 noundef 0) #7
+  %10 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %9, i32 noundef 0, i32 noundef 0) #7
   call fastcc void @print_hwloc_obj(ptr noundef nonnull %2, ptr noundef null, ptr noundef %9, ptr noundef %10)
   %11 = load ptr, ptr %2, align 8
   br label %12
@@ -1145,7 +1145,7 @@ pmix_hwloc_release_topology.exit:                 ; preds = %pmix_hwloc_destruct
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hwloc_get_topology_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_hwloc_get_topology_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @hwloc_shmem_topology_get_length(ptr noundef %4, ptr noundef %1, i64 noundef 0) #6

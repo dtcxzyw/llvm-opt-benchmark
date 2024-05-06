@@ -1545,10 +1545,10 @@ define void @_ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i(ptr noc
   %7 = alloca [3 x %class.QPoint], align 16
   %.sroa.015.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.3.0.extract.shift = lshr i64 %2, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.6.0.extract.shift = lshr i64 %3, 32
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %8 = icmp sgt i32 %.sroa.0.0.extract.trunc, %.sroa.015.0.extract.trunc
   store i64 %3, ptr %7, align 16
   %9 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1584,10 +1584,10 @@ define void @_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect(ptr noc
   %5 = alloca [3 x %class.QPoint], align 16
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
-  %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %.sroa.9.8.extract.trunc = trunc i64 %3 to i32
   %.sroa.12.8.extract.shift = lshr i64 %3, 32
-  %.sroa.12.8.extract.trunc = trunc i64 %.sroa.12.8.extract.shift to i32
+  %.sroa.12.8.extract.trunc = trunc nuw i64 %.sroa.12.8.extract.shift to i32
   %reass.sub = sub i32 %.sroa.12.8.extract.trunc, %.sroa.4.0.extract.trunc
   %6 = add i32 %reass.sub, 1
   %7 = sdiv i32 %6, 2
@@ -1622,7 +1622,7 @@ define void @_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i(ptr
   %.sroa.025.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.018.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.6.0.extract.shift = lshr i64 %3, 32
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %8 = icmp sgt i32 %.sroa.018.0.extract.trunc, %.sroa.025.0.extract.trunc
   %.sroa.6.0.insert.shift = and i64 %3, -4294967296
   store i64 %3, ptr %6, align 16
@@ -2717,7 +2717,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_
 9:                                                ; preds = %8
   %10 = shl nuw i64 %1, 1
   %11 = add i64 %10, -1
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %11, i1 true), !range !14
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
   %14 = shl i64 2, %13
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
@@ -2875,7 +2875,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE
 17:                                               ; preds = %16
   %18 = shl nuw i64 %.sroa.speculated, 1
   %19 = add i64 %18, -1
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !14
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %21 = xor i64 %20, 63
   %22 = shl i64 2, %21
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -3085,12 +3085,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
 138:                                              ; preds = %54, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit
   %139 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %139, 128
-  br i1 %exitcond.not, label %140, label %54, !llvm.loop !15
+  br i1 %exitcond.not, label %140, label %54, !llvm.loop !14
 
 140:                                              ; preds = %138
   %141 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %141, %47
-  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !16
+  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %140, %.loopexit
   ret void
@@ -3124,7 +3124,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE
 8:                                                ; preds = %7
   %9 = shl nuw i64 %.0, 1
   %10 = add i64 %9, -1
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !14
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
   %13 = shl i64 2, %12
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -3324,7 +3324,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
 121:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit
   %122 = add nuw nsw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %122, 128
-  br i1 %exitcond.not, label %123, label %43, !llvm.loop !17
+  br i1 %exitcond.not, label %123, label %43, !llvm.loop !16
 
 123:                                              ; preds = %121
   %124 = load ptr, ptr %42, align 8
@@ -3339,7 +3339,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE8freeDataEv.exit: ; preds = %123, %125
   %126 = add nuw nsw i64 %.02233, 1
   %exitcond35.not = icmp eq i64 %126, %38
-  br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !18
+  br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit31
   %127 = icmp eq ptr %15, null
@@ -3427,8 +3427,7 @@ attributes #17 = { builtin allocsize(0) }
 !11 = distinct !{!11, !5, !12}
 !12 = !{!"llvm.loop.unswitch.partial.disable"}
 !13 = distinct !{!13, !5}
-!14 = !{i64 0, i64 65}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

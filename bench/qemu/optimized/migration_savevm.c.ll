@@ -790,7 +790,7 @@ for.body.i:                                       ; preds = %if.then7, %for.inc.
   %se.010.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.07.i, %if.then7 ]
   %instance_id.09.i = phi i32 [ %instance_id.1.i, %for.inc.i ], [ 0, %if.then7 ]
   %idstr1.i = getelementptr inbounds i8, ptr %se.010.i, i64 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr4, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %idstr4, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -874,7 +874,7 @@ if.end:                                           ; preds = %entry, %save_state_
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %se.019.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.017.i, %if.end ]
   %idstr1.i = getelementptr inbounds i8, ptr %se.019.i, i64 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %idstr) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull readonly dereferenceable(1) %idstr) #19
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.lhs.true.i, label %if.end.i
 
@@ -891,7 +891,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp4.i, label %if.then2, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i, %for.body.i
-  %call7.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %idstr) #19
+  %call7.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull readonly dereferenceable(1) %idstr) #19
   %tobool8.not.i = icmp eq ptr %call7.i, null
   br i1 %tobool8.not.i, label %for.inc.i, label %land.lhs.true9.i
 
@@ -902,7 +902,7 @@ land.lhs.true9.i:                                 ; preds = %if.end.i
   br i1 %tobool10.not.i, label %for.inc.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %land.lhs.true9.i
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %idstr) #19
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %idstr) #19
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %land.lhs.true17.i, label %for.inc.i
 
@@ -1125,7 +1125,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vmstate_replace_hack_for_ppc(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @vmstate_replace_hack_for_ppc(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vmsd, align 8
   %se.017.i = load ptr, ptr @savevm_state, align 8
@@ -1135,7 +1135,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %se.019.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.017.i, %entry ]
   %idstr1.i = getelementptr inbounds i8, ptr %se.019.i, i64 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %0) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.lhs.true.i, label %if.end.i
 
@@ -1152,7 +1152,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp4.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i, %for.body.i
-  %call7.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %0) #19
+  %call7.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %tobool8.not.i = icmp eq ptr %call7.i, null
   br i1 %tobool8.not.i, label %for.inc.i, label %land.lhs.true9.i
 
@@ -1163,7 +1163,7 @@ land.lhs.true9.i:                                 ; preds = %if.end.i
   br i1 %tobool10.not.i, label %for.inc.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %land.lhs.true9.i
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #19
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %land.lhs.true17.i, label %for.inc.i
 
@@ -1246,12 +1246,12 @@ savevm_state_handler_remove.exit:                 ; preds = %save_state_priority
   br label %if.end
 
 if.end:                                           ; preds = %for.inc.i, %entry, %savevm_state_handler_remove.exit
-  %call.i7 = tail call noundef i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef nonnull %vmsd, ptr noundef %opaque, i32 noundef -1, i32 noundef 0, ptr noundef null), !range !13
+  %call.i7 = tail call i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef nonnull %vmsd, ptr noundef %opaque, i32 noundef -1, i32 noundef 0, ptr noundef null)
   ret i32 %call.i7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque, i32 noundef %alias_id, i32 noundef %required_for_version, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque, i32 noundef %alias_id, i32 noundef %required_for_version, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %alias_id, -1
   br i1 %cmp, label %if.end, label %lor.lhs.false
@@ -1332,7 +1332,7 @@ for.body.i:                                       ; preds = %cond.true, %for.inc
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #19
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -1348,7 +1348,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %i
   %instance_id.1.i = phi i32 [ %instance_id.010.i, %if.end.i ], [ %instance_id.010.i, %for.body.i ], [ %spec.select.i, %land.lhs.true.i ]
   %se.0.i = load ptr, ptr %se.011.i, align 8
   %tobool.not.i = icmp eq ptr %se.0.i, null
-  br i1 %tobool.not.i, label %if.end26.thread, label %for.body.i, !llvm.loop !14
+  br i1 %tobool.not.i, label %if.end26.thread, label %for.body.i, !llvm.loop !13
 
 if.end26.thread:                                  ; preds = %for.inc.i, %if.end14, %cond.true
   %cond = phi i32 [ %instance_id, %if.end14 ], [ 0, %cond.true ], [ %instance_id.1.i, %for.inc.i ]
@@ -1376,7 +1376,7 @@ for.body.i32:                                     ; preds = %if.then33, %for.inc
   %se.010.i = phi ptr [ %se.0.i37, %for.inc.i35 ], [ %se.07.i, %if.then33 ]
   %instance_id.09.i = phi i32 [ %instance_id.1.i36, %for.inc.i35 ], [ 0, %if.then33 ]
   %idstr1.i = getelementptr inbounds i8, ptr %se.010.i, i64 16
-  %call.i33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr2747, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
+  %call.i33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %idstr2747, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
   %cmp.i34 = icmp eq i32 %call.i33, 0
   br i1 %cmp.i34, label %land.lhs.true.i40, label %for.inc.i35
 
@@ -1477,7 +1477,7 @@ if.end:                                           ; preds = %if.then3, %while.bo
   %incdec.ptr = getelementptr i8, ptr %field.016, i64 104
   %5 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %5, null
-  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end, %while.cond.preheader
   %field.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %incdec.ptr, %if.end ]
@@ -1518,7 +1518,7 @@ if.end20:                                         ; preds = %while.body13
   tail call fastcc void @vmstate_check(ptr noundef nonnull %8)
   %incdec.ptr21 = getelementptr i8, ptr %subsection.018, i64 8
   %tobool11.not = icmp eq ptr %incdec.ptr21, null
-  br i1 %tobool11.not, label %while.end22, label %land.rhs, !llvm.loop !16
+  br i1 %tobool11.not, label %while.end22, label %land.rhs, !llvm.loop !15
 
 while.end22:                                      ; preds = %land.rhs, %if.end20, %if.end9
   ret void
@@ -1613,7 +1613,7 @@ savevm_state_handler_remove.exit:                 ; preds = %save_state_priority
 
 for.inc:                                          ; preds = %land.rhs, %land.lhs.true, %savevm_state_handler_remove.exit
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !17
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -1802,7 +1802,7 @@ trace_savevm_send_open_return_path.exit:          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_savevm_send_packaged(ptr noundef %f, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qemu_savevm_send_packaged(ptr noundef %f, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tmp = alloca i32, align 4
@@ -2029,7 +2029,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %add28 = add i16 %tmplen.026, 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %if.end
   %tmplen.0.lcssa = phi i16 [ %inc, %if.end ], [ %add28, %for.body ]
@@ -2251,7 +2251,7 @@ if.then:                                          ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %se.0 = load ptr, ptr %se.010, align 8
   %tobool.not.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !19
+  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !18
 
 return:                                           ; preds = %for.inc, %entry, %if.then
   %tobool.not6 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %for.inc ]
@@ -2292,7 +2292,7 @@ do.body:                                          ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %do.body
   %se.0 = load ptr, ptr %se.010, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -2409,7 +2409,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true4
   %se.0 = load ptr, ptr %se.09, align 8
   %tobool.not.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !21
+  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !20
 
 return:                                           ; preds = %land.lhs.true4, %for.inc, %entry
   %tobool.not.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %land.lhs.true4 ]
@@ -2417,7 +2417,7 @@ return:                                           ; preds = %land.lhs.true4, %fo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_savevm_state_prepare(ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qemu_savevm_state_prepare(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %se.011 = load ptr, ptr @savevm_state, align 8
   %tobool.not12 = icmp eq ptr %se.011, null
@@ -2465,7 +2465,7 @@ if.end11:                                         ; preds = %if.then6.if.end11_c
 for.inc:                                          ; preds = %if.end11, %if.then6, %for.body, %lor.lhs.false
   %se.0 = load ptr, ptr %se.013, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !22
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !21
 
 return:                                           ; preds = %if.end11, %for.inc, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %for.inc ], [ %call15, %if.end11 ]
@@ -2607,7 +2607,7 @@ save_section_footer.exit:                         ; preds = %if.end24, %if.then.
 for.inc:                                          ; preds = %save_section_footer.exit, %if.then18, %if.end10, %lor.lhs.false, %if.then
   %se.0 = load ptr, ptr %se.030, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end.sink.split:                               ; preds = %save_section_footer.exit, %if.then
   %call28.lcssa.sink = phi i32 [ %call7, %if.then ], [ %call28, %save_section_footer.exit ]
@@ -2930,7 +2930,7 @@ declare void @qemu_file_set_error(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @precopy_notify(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_savevm_state_resume_prepare(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qemu_savevm_state_resume_prepare(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3013,7 +3013,7 @@ if.end11:                                         ; preds = %if.then6.if.end11_c
 for.inc:                                          ; preds = %if.end11, %if.then6, %for.body, %lor.lhs.false
   %se.0 = load ptr, ptr %se.013, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !24
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !23
 
 return:                                           ; preds = %if.end11, %for.inc, %trace_savevm_state_resume_prepare.exit
   %retval.0 = phi i32 [ 0, %trace_savevm_state_resume_prepare.exit ], [ 0, %for.inc ], [ %call15, %if.end11 ]
@@ -3242,7 +3242,7 @@ for.inc:                                          ; preds = %if.end44, %land.lhs
   %ret.1 = phi i32 [ %call36, %if.end44 ], [ %ret.067, %land.lhs.true23 ], [ %ret.067, %land.lhs.true20 ], [ %ret.067, %land.lhs.true12 ], [ %ret.067, %land.lhs.true ], [ %ret.067, %lor.lhs.false ], [ %ret.067, %for.body ]
   %se.0 = load ptr, ptr %se.068, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !25
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !24
 
 return:                                           ; preds = %if.end29, %if.end44, %for.inc, %trace_savevm_state_iterate.exit, %if.end44.thread
   %retval.0 = phi i32 [ %call36, %if.end44.thread ], [ 1, %trace_savevm_state_iterate.exit ], [ 0, %if.end29 ], [ 0, %if.end44 ], [ %ret.1, %for.inc ]
@@ -3395,7 +3395,7 @@ if.then20:                                        ; preds = %save_section_footer
 for.inc:                                          ; preds = %save_section_footer.exit, %if.then6, %for.body, %lor.lhs.false
   %se.0 = load ptr, ptr %se.040, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !26
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %entry
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 0) #16
@@ -3494,7 +3494,7 @@ trace_vmstate_downtime_save.exit:                 ; preds = %if.end10, %land.lhs
 for.inc:                                          ; preds = %land.lhs.true, %trace_vmstate_downtime_save.exit
   %se.0 = load ptr, ptr %se.046, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !27
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.inc, %entry
   br i1 %inactivate_disks, label %if.then14, label %if.end19
@@ -3869,7 +3869,7 @@ trace_vmstate_downtime_save.exit.i:               ; preds = %if.else.i.i54.i, %i
 for.inc.i:                                        ; preds = %trace_vmstate_downtime_save.exit.i, %if.then13.i, %lor.lhs.false8.i, %land.lhs.true5.i, %for.body.i
   %se.0.i = load ptr, ptr %se.075.i, align 8
   %tobool.not.i = icmp eq ptr %se.0.i, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !28
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !27
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i59.i)
@@ -3983,7 +3983,7 @@ if.end11:                                         ; preds = %if.then6.if.end11_c
 for.inc:                                          ; preds = %if.then6, %for.body, %lor.lhs.false, %if.end11
   %se.0 = load ptr, ptr %se.014, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -4039,7 +4039,7 @@ if.end11:                                         ; preds = %if.then6.if.end11_c
 for.inc:                                          ; preds = %if.then6, %for.body, %lor.lhs.false, %if.end11
   %se.0 = load ptr, ptr %se.014, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !30
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -4121,7 +4121,7 @@ if.then5:                                         ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then5
   %se.0 = load ptr, ptr %se.09, align 8
   %tobool1.not = icmp eq ptr %se.0, null
-  br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %trace_savevm_state_cleanup.exit
   ret void
@@ -4167,7 +4167,7 @@ if.end3:                                          ; preds = %for.body
 for.inc:                                          ; preds = %if.end3, %for.body
   %se.0 = load ptr, ptr %se.011, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc, %if.end
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 0) #16
@@ -4247,7 +4247,7 @@ if.then:                                          ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
   %se.0 = load ptr, ptr %se.09, align 8
   %tobool.not = icmp eq ptr %se.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !33
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !32
 
 for.end:                                          ; preds = %for.inc, %trace_loadvm_state_cleanup.exit
   ret void
@@ -4429,7 +4429,7 @@ trace_qemu_loadvm_state_section_startfull.exit.i: ; preds = %if.else.i.i.i, %if.
 for.body.i.i:                                     ; preds = %trace_qemu_loadvm_state_section_startfull.exit.i, %for.inc.i.i
   %se.019.i.i = phi ptr [ %se.0.i.i, %for.inc.i.i ], [ %se.017.i.i, %trace_qemu_loadvm_state_section_startfull.exit.i ]
   %idstr1.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 16
-  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull dereferenceable(1) %idstr.i) #19
+  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull readonly dereferenceable(1) %idstr.i) #19
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
@@ -4446,7 +4446,7 @@ lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
   br i1 %cmp4.i.i, label %if.end16.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %for.body.i.i
-  %call7.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull dereferenceable(1) %idstr.i) #19
+  %call7.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull readonly dereferenceable(1) %idstr.i) #19
   %tobool8.not.i.i = icmp eq ptr %call7.i.i, null
   br i1 %tobool8.not.i.i, label %for.inc.i.i, label %land.lhs.true9.i.i
 
@@ -4457,7 +4457,7 @@ land.lhs.true9.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool10.not.i.i, label %for.inc.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %land.lhs.true9.i.i
-  %call15.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %idstr.i) #19
+  %call15.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %idstr.i) #19
   %tobool16.not.i.i = icmp eq i32 %call15.i.i, 0
   br i1 %tobool16.not.i.i, label %land.lhs.true17.i.i, label %for.inc.i.i
 
@@ -4644,7 +4644,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %load_section_id.i33 = getelementptr inbounds i8, ptr %se.0.i, i64 292
   %34 = load i32, ptr %load_section_id.i33, align 4
   %cmp4.i = icmp eq i32 %34, %call.i24
-  br i1 %cmp4.i, label %if.end12.i, label %for.cond.i, !llvm.loop !34
+  br i1 %cmp4.i, label %if.end12.i, label %for.cond.i, !llvm.loop !33
 
 if.then11.i:                                      ; preds = %for.cond.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.169, i32 noundef %call.i24) #16
@@ -5521,7 +5521,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub39.i = add i16 %len.addr.0.i, -16
   %call42.i = call i32 @ram_discard_range(ptr noundef nonnull %ramid.i, i64 noundef %call35.i, i64 noundef %call37.i) #16
   %tobool43.not.i = icmp eq i32 %call42.i, 0
-  br i1 %tobool43.not.i, label %while.cond.i, label %loadvm_postcopy_ram_handle_discard.exit, !llvm.loop !35
+  br i1 %tobool43.not.i, label %while.cond.i, label %loadvm_postcopy_ram_handle_discard.exit, !llvm.loop !34
 
 while.end.i:                                      ; preds = %while.cond.i
   call fastcc void @trace_loadvm_postcopy_ram_handle_discard_end()
@@ -5883,7 +5883,7 @@ for.body.i87:                                     ; preds = %if.end37.i, %for.bo
   %inc.i = add nuw i32 %i.044.i, 1
   %182 = load i32, ptr %postcopy_channels.i, align 8
   %cmp.i90 = icmp ult i32 %inc.i, %182
-  br i1 %cmp.i90, label %for.body.i87, label %for.end.i, !llvm.loop !36
+  br i1 %cmp.i90, label %for.body.i87, label %for.end.i, !llvm.loop !35
 
 for.end.i:                                        ; preds = %for.body.i87, %if.end37.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.264) #16
@@ -5895,7 +5895,7 @@ while.body42.i:                                   ; preds = %for.end.i, %while.b
   call void @qemu_sem_wait(ptr noundef nonnull %postcopy_pause_sem_dst.i) #16
   %184 = load i32, ptr %state.i, align 8
   %cmp41.i = icmp eq i32 %184, 6
-  br i1 %cmp41.i, label %while.body42.i, label %while.end43.i, !llvm.loop !37
+  br i1 %cmp41.i, label %while.body42.i, label %while.end43.i, !llvm.loop !36
 
 while.end43.i:                                    ; preds = %while.body42.i, %for.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i29.i)
@@ -5976,7 +5976,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %se.0.i = load ptr, ptr %se.010.i, align 8
   %tobool.not.not.i = icmp eq ptr %se.0.i, null
-  br i1 %tobool.not.not.i, label %if.end, label %for.body.i, !llvm.loop !19
+  br i1 %tobool.not.not.i, label %if.end, label %for.body.i, !llvm.loop !18
 
 if.then:                                          ; preds = %land.lhs.true.i
   %idstr.i = getelementptr inbounds i8, ptr %se.010.i, i64 16
@@ -6116,7 +6116,7 @@ if.end11.i:                                       ; preds = %if.then6.if.end11_c
 for.inc.i29:                                      ; preds = %if.end11.i, %if.then6.i27, %lor.lhs.false.i, %for.body.i24
   %se.0.i30 = load ptr, ptr %se.017.i, align 8
   %tobool.not.i = icmp eq ptr %se.0.i30, null
-  br i1 %tobool.not.i, label %if.end7, label %for.body.i24, !llvm.loop !38
+  br i1 %tobool.not.i, label %if.end7, label %for.body.i24, !llvm.loop !37
 
 qemu_loadvm_state_setup.exit:                     ; preds = %if.end11.i
   tail call void @qemu_file_set_error(ptr noundef %f, i32 noundef %call15.i) #16
@@ -6165,7 +6165,7 @@ if.then6.i61:                                     ; preds = %if.end.i42
 for.inc.i45:                                      ; preds = %if.then6.i61, %if.end.i42, %lor.lhs.false.i40, %for.body.i36
   %se.0.i46 = load ptr, ptr %se.010.i37, align 8
   %tobool.not.i47 = icmp eq ptr %se.0.i46, null
-  br i1 %tobool.not.i47, label %for.end.i, label %for.body.i36, !llvm.loop !39
+  br i1 %tobool.not.i47, label %for.end.i, label %for.body.i36, !llvm.loop !38
 
 for.end.i:                                        ; preds = %for.inc.i45, %if.then9
   %switchover_ack_pending_num9.i = getelementptr inbounds i8, ptr %call, i64 1176
@@ -6286,7 +6286,7 @@ while.body:                                       ; preds = %if.else, %while.bod
   %call35 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %call28, i64 noundef %conv34) #16
   %sub = sub i32 %size.073, %cond
   %cmp30.not = icmp eq i32 %sub, 0
-  br i1 %cmp30.not, label %while.end, label %while.body, !llvm.loop !40
+  br i1 %cmp30.not, label %while.end, label %while.body, !llvm.loop !39
 
 while.end:                                        ; preds = %while.body, %if.else
   tail call void @g_free(ptr noundef %call28) #16
@@ -6318,7 +6318,7 @@ declare i64 @qemu_get_buffer(ptr noundef, ptr noundef, i64 noundef) #1
 declare void @cpu_synchronize_all_post_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_load_device_state(ptr noundef %f) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qemu_load_device_state(ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migration_incoming_get_current() #16
   %call1 = tail call i32 @qemu_loadvm_state_main(ptr noundef %f, ptr noundef %call)
@@ -6553,7 +6553,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
 while.body.i:                                     ; preds = %while.cond.i
   %call9.i = call i32 @qemu_savevm_state_iterate(ptr noundef nonnull %call2.i, i1 noundef zeroext false)
   %cmp10.i = icmp sgt i32 %call9.i, 0
-  br i1 %cmp10.i, label %while.end.i, label %while.cond.i, !llvm.loop !41
+  br i1 %cmp10.i, label %while.end.i, label %while.cond.i, !llvm.loop !40
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.i
   %call13.i = call i32 @qemu_file_get_error(ptr noundef nonnull %call2.i) #16
@@ -7098,7 +7098,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @configuration_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -22, 1) i32 @configuration_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
 entry:
   %0 = load ptr, ptr @current_machine, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #16
@@ -7171,7 +7171,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i64 %or.i.i, ptr %add.ptr.i.i, align 8
   %inc.i = add nuw i32 %i.017.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %6
-  br i1 %exitcond.not.i, label %for.cond2.preheader.i, label %for.body.i, !llvm.loop !42
+  br i1 %exitcond.not.i, label %for.cond2.preheader.i, label %for.body.i, !llvm.loop !41
 
 should_validate_capability.exit.i:                ; preds = %for.inc28.i, %for.cond2.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond2.preheader.i ], [ %indvars.iv.next.i, %for.inc28.i ]
@@ -7203,7 +7203,7 @@ for.inc28.i:                                      ; preds = %if.then20.i, %if.en
   %ret.1.i = phi i1 [ false, %if.then20.i ], [ %ret.019.i, %if.end.i ], [ %ret.019.i, %should_validate_capability.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next.i, 23
-  br i1 %exitcond20.not.i, label %configuration_validate_capabilities.exit, label %should_validate_capability.exit.i, !llvm.loop !43
+  br i1 %exitcond20.not.i, label %configuration_validate_capabilities.exit, label %should_validate_capability.exit.i, !llvm.loop !42
 
 configuration_validate_capabilities.exit:         ; preds = %for.inc28.i
   tail call void @g_free(ptr noundef nonnull %call.i.i.i) #16
@@ -7264,7 +7264,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %s
   %result.1.i = phi i32 [ %result.05.i, %should_validate_capability.exit.i ], [ %spec.select.i, %land.lhs.true.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 23
-  br i1 %exitcond.not.i, label %get_validatable_capabilities_count.exit, label %should_validate_capability.exit.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %get_validatable_capabilities_count.exit, label %should_validate_capability.exit.i, !llvm.loop !43
 
 get_validatable_capabilities_count.exit:          ; preds = %for.inc.i
   %caps_count = getelementptr inbounds i8, ptr %opaque, i64 92
@@ -7300,7 +7300,7 @@ for.inc:                                          ; preds = %should_validate_cap
   %j.1 = phi i32 [ %inc, %if.then ], [ %j.016, %land.lhs.true ], [ %j.016, %should_validate_capability.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %for.end, label %should_validate_capability.exit, !llvm.loop !45
+  br i1 %exitcond.not, label %for.end, label %should_validate_capability.exit, !llvm.loop !44
 
 for.end:                                          ; preds = %for.inc
   %uuid = getelementptr inbounds i8, ptr %opaque, i64 104
@@ -7367,7 +7367,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %s
   %result.1.i = phi i32 [ %result.05.i, %should_validate_capability.exit.i ], [ %spec.select.i, %land.lhs.true.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 23
-  br i1 %exitcond.not.i, label %get_validatable_capabilities_count.exit, label %should_validate_capability.exit.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %get_validatable_capabilities_count.exit, label %should_validate_capability.exit.i, !llvm.loop !43
 
 get_validatable_capabilities_count.exit:          ; preds = %for.inc.i
   %cmp = icmp ne i32 %result.1.i, 0
@@ -7375,7 +7375,7 @@ get_validatable_capabilities_count.exit:          ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_capability(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @get_capability(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %capability_str = alloca [256 x i8], align 16
   %call = tail call i32 @qemu_get_byte(ptr noundef %f) #16
@@ -7400,7 +7400,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.07, 1
   %exitcond.not = icmp eq i32 %inc, 23
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !46
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !45
 
 for.end:                                          ; preds = %for.inc
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.111, ptr noundef nonnull %capability_str) #16
@@ -7432,7 +7432,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vmstate_uuid_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -22, 1) i32 @vmstate_uuid_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %uuid_src = alloca [37 x i8], align 16
   %uuid_dst = alloca [37 x i8], align 16
@@ -8229,7 +8229,7 @@ declare i32 @migrate_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @snapshot_save_job_run(ptr noundef %job, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @snapshot_save_job_run(ptr noundef %job, ptr noundef %errp) #0 {
 entry:
   %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8
@@ -8292,7 +8292,7 @@ declare void @aio_co_wake(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_strList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @snapshot_load_job_run(ptr noundef %job, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @snapshot_load_job_run(ptr noundef %job, ptr noundef %errp) #0 {
 entry:
   %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8
@@ -8351,7 +8351,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @snapshot_delete_job_run(ptr noundef %job, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @snapshot_delete_job_run(ptr noundef %job, ptr noundef %errp) #0 {
 entry:
   %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8
@@ -8456,7 +8456,7 @@ attributes #20 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
@@ -8489,4 +8489,3 @@ attributes #20 = { nounwind allocsize(0) }
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}

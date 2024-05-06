@@ -938,8 +938,8 @@ for.body.preheader:                               ; preds = %land.lhs.true.i
   store i32 0, ptr %m_pos.i.i13, align 8
   %idx.ext.i27 = zext i32 %12 to i64
   %add.ptr.i28.idx = shl nuw nsw i64 %idx.ext.i27, 3
-  %27 = getelementptr i8, ptr %11, i64 %add.ptr.i28.idx
-  %add.ptr.i28.ptr = getelementptr i8, ptr %27, i64 32
+  %27 = getelementptr inbounds i8, ptr %11, i64 %add.ptr.i28.idx
+  %add.ptr.i28.ptr = getelementptr inbounds i8, ptr %27, i64 32
   %m_args.i.ptr = getelementptr inbounds i8, ptr %11, i64 32
   br label %for.body.outer
 

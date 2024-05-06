@@ -2014,7 +2014,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @accel_file_in_cache(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @accel_file_in_cache(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_file_handle, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
@@ -2138,7 +2138,7 @@ declare i32 @OnUpdateBool(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @OnUpdateLong(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateMemoryConsumption(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateMemoryConsumption(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %7) #15
   %9 = icmp slt i32 %8, 8
@@ -2162,7 +2162,7 @@ define internal noundef i32 @OnUpdateMemoryConsumption(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateInternedStringsBuffer(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateInternedStringsBuffer(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = load ptr, ptr %0, align 8
@@ -2192,7 +2192,7 @@ define internal noundef i32 @OnUpdateInternedStringsBuffer(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateMaxAcceleratedFiles(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateMaxAcceleratedFiles(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2223,7 +2223,7 @@ define internal noundef i32 @OnUpdateMaxAcceleratedFiles(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateMaxWastedPercentage(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateMaxWastedPercentage(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %7) #15
   %9 = add i32 %8, -51
@@ -2313,7 +2313,7 @@ define internal i32 @OnUpdateJit(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateJitDebug(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateJitDebug(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = load ptr, ptr %0, align 8
@@ -2335,7 +2335,7 @@ define internal noundef i32 @OnUpdateJitDebug(ptr nocapture noundef readonly %0,
 declare i32 @OnUpdateReal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateCounter(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateCounter(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_quantity_warn(ptr noundef %1, ptr noundef %7) #14
   %or.cond = icmp ult i64 %8, 256
@@ -2359,7 +2359,7 @@ define internal noundef i32 @OnUpdateCounter(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateUnrollL(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateUnrollL(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_quantity_warn(ptr noundef %1, ptr noundef %7) #14
   %9 = add i64 %8, -1
@@ -2384,7 +2384,7 @@ define internal noundef i32 @OnUpdateUnrollL(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateUnrollC(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateUnrollC(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_quantity_warn(ptr noundef %1, ptr noundef %7) #14
   %9 = add i64 %8, -1
@@ -2409,7 +2409,7 @@ define internal noundef i32 @OnUpdateUnrollC(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateUnrollR(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateUnrollR(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_quantity_warn(ptr noundef %1, ptr noundef %7) #14
   %or.cond = icmp ult i64 %8, 4
@@ -2433,7 +2433,7 @@ define internal noundef i32 @OnUpdateUnrollR(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateMaxTraceLength(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateMaxTraceLength(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_quantity_warn(ptr noundef %1, ptr noundef %7) #14
   %9 = add i64 %8, -4

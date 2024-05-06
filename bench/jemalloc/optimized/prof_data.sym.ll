@@ -136,7 +136,7 @@ if.then.i.i:                                      ; preds = %if.end.i6
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i6, %if.then.i.i
   %6 = load ptr, ptr @tdatas, align 8
-  %call2.i = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %6, ptr noundef nonnull @prof_tdata_count_iter, ptr noundef nonnull %tdata_count)
+  %call2.i = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %6, ptr noundef nonnull readonly @prof_tdata_count_iter, ptr noundef nonnull %tdata_count)
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
   %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @tdatas_mtx, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #10
   %7 = load i64, ptr %tdata_count, align 8

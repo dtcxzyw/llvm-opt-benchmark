@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [42 x i8] c"Windows dump is only available for x86-64\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @win_dump_available(ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @win_dump_available(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 486, ptr noundef nonnull @__func__.win_dump_available, ptr noundef nonnull @.str.1) #2
   ret i1 false

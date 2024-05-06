@@ -219,7 +219,7 @@ Curl_dynhds_get.exit:                             ; preds = %20, %2, %16
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_dynhds_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
@@ -253,14 +253,14 @@ define dso_local noundef i32 @Curl_dynhds_add(ptr nocapture noundef %0, ptr noca
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %24, i64 32
   store ptr %26, ptr %24, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr readonly align 1 %1, i64 %2, i1 false)
   %27 = getelementptr inbounds i8, ptr %24, i64 16
   store i64 %2, ptr %27, align 8
   %28 = getelementptr i8, ptr %26, i64 %2
   %29 = getelementptr i8, ptr %28, i64 1
   %30 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %29, ptr %30, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr readonly align 1 %3, i64 %4, i1 false)
   %31 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 %4, ptr %31, align 8
   %32 = and i32 %21, 1
@@ -344,15 +344,15 @@ entry_new.exit.thread58:                          ; preds = %19, %56, %entry_new
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_dynhds_cadd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_dynhds_cadd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
-  %6 = tail call i32 @Curl_dynhds_add(ptr noundef %0, ptr noundef %1, i64 noundef %4, ptr noundef %2, i64 noundef %5), !range !9
+  %6 = tail call i32 @Curl_dynhds_add(ptr noundef %0, ptr noundef %1, i64 noundef %4, ptr noundef %2, i64 noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne i64 %2, 0
   %or.cond = and i1 %4, %5
@@ -384,7 +384,7 @@ define dso_local noundef i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %0, 
   %12 = getelementptr inbounds i8, ptr %.05476, i64 1
   %13 = add i64 %.05775, -1
   %.not70 = icmp eq i64 %13, 0
-  br i1 %.not70, label %.critedge72, label %.preheader, !llvm.loop !10
+  br i1 %.not70, label %.critedge72, label %.preheader, !llvm.loop !9
 
 .critedge:                                        ; preds = %.preheader
   %14 = load ptr, ptr %0, align 8
@@ -425,7 +425,7 @@ define dso_local noundef i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %0, 
   %41 = getelementptr inbounds i8, ptr %35, i64 %40
   store i8 32, ptr %41, align 1
   %42 = getelementptr inbounds i8, ptr %41, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %.05476, i64 %.05775, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %.05476, i64 %.05775, i1 false)
   %43 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 %21, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8
@@ -464,7 +464,7 @@ define dso_local noundef i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %0, 
   %.058 = getelementptr inbounds i8, ptr %.05879, i64 1
   %.055 = add nuw i64 %.05580, 1
   %58 = icmp ult i64 %.055, %2
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %57, %.lr.ph, %51
   %.058.lcssa = phi ptr [ %.05877, %51 ], [ %.05879, %.lr.ph ], [ %.058, %57 ]
@@ -485,7 +485,7 @@ define dso_local noundef i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %0, 
   %65 = ptrtoint ptr %.058.lcssa to i64
   %66 = sub i64 %64, %65
   %.056 = select i1 %.not68, i64 %59, i64 %66
-  %67 = tail call i32 @Curl_dynhds_add(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %54, ptr noundef nonnull %.058.lcssa, i64 noundef %.056), !range !9
+  %67 = tail call i32 @Curl_dynhds_add(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %54, ptr noundef nonnull %.058.lcssa, i64 noundef %.056)
   br label %.critedge72
 
 .critedge72:                                      ; preds = %.critedge3, %.critedge, %49, %8, %3, %63, %28
@@ -497,13 +497,13 @@ define dso_local noundef i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %0, 
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_dynhds_h1_cadd_line(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_cadd_line(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split4, label %.split
 
 .split:                                           ; preds = %2
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
-  %4 = tail call i32 @Curl_dynhds_h1_add_line(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3), !range !12
+  %4 = tail call i32 @Curl_dynhds_h1_add_line(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   br label %.split4
 
 .split4:                                          ; preds = %2, %.split
@@ -522,7 +522,7 @@ define dso_local i32 @Curl_dynhds_h1_dprint(ptr nocapture noundef readonly %0, p
   %6 = add nuw i64 %.021, 1
   %7 = load i64, ptr %3, align 8
   %8 = icmp ult i64 %6, %7
-  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %2, %5
   %.021 = phi i64 [ %6, %5 ], [ 0, %2 ]
@@ -590,7 +590,7 @@ define dso_local ptr @Curl_dynhds_to_nva(ptr nocapture noundef readonly %0, ptr 
   %24 = add nuw i64 %.02528, 1
   %25 = load i64, ptr %4, align 8
   %26 = icmp ult i64 %24, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi i64 [ 0, %.preheader ], [ %25, %.lr.ph ]
@@ -632,9 +632,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 28}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 0, i32 44}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!12 = distinct !{!12, !6}

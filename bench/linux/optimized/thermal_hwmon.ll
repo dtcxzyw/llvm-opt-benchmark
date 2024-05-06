@@ -54,7 +54,7 @@ thermal_hwmon_lookup_by_type.exit.thread:         ; preds = %5
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %7, i64 -56
-  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef %4) #9
+  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef readonly %4) #9
   %12 = call ptr @strreplace(ptr noundef nonnull %2, i8 noundef zeroext 45, i8 noundef zeroext 95) #9
   %13 = call i32 @strcmp(ptr noundef %10, ptr noundef nonnull dereferenceable(1) %2) #9
   %14 = icmp eq i32 %13, 0
@@ -233,7 +233,7 @@ declare dso_local ptr @hwmon_device_register_for_thermal(ptr noundef, ptr nounde
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @temp_input_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @temp_input_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !5
@@ -259,7 +259,7 @@ define internal i64 @temp_input_show(ptr nocapture readnone %0, ptr nocapture no
 declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @temp_crit_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @temp_crit_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %1, i64 -56
   %6 = load ptr, ptr %5, align 8
@@ -329,7 +329,7 @@ thermal_hwmon_lookup_by_type.exit.thread:         ; preds = %5
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %7, i64 -56
-  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef %4) #9
+  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef readonly %4) #9
   %12 = call ptr @strreplace(ptr noundef nonnull %2, i8 noundef zeroext 45, i8 noundef zeroext 95) #9
   %13 = call i32 @strcmp(ptr noundef %10, ptr noundef nonnull dereferenceable(1) %2) #9
   %14 = icmp eq i32 %13, 0

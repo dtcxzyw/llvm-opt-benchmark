@@ -145,15 +145,15 @@ for.inc.i:                                        ; preds = %if.else16.i, %if.th
   br i1 %exitcond.not.i, label %qed_count_contiguous_clusters.exit, label %for.body.i, !llvm.loop !5
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %if.else16.i
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw i64 %indvars.iv.i to i32
   br label %qed_count_contiguous_clusters.exit
 
 for.end.loopexit.split.loop.exit31.i:             ; preds = %if.then9.i
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw i64 %indvars.iv.i to i32
   br label %qed_count_contiguous_clusters.exit
 
 for.end.loopexit.split.loop.exit33.i:             ; preds = %if.then.i
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw i64 %indvars.iv.i to i32
   br label %qed_count_contiguous_clusters.exit
 
 qed_count_contiguous_clusters.exit:               ; preds = %for.inc.i, %if.end9, %for.end.loopexit.split.loop.exit.i, %for.end.loopexit.split.loop.exit31.i, %for.end.loopexit.split.loop.exit33.i

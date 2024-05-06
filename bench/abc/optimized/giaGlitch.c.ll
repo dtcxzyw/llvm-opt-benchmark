@@ -704,7 +704,7 @@ define i32 @Gli_ManCreateNode(ptr nocapture noundef %0, ptr nocapture noundef re
   %67 = load i32, ptr %66, align 8
   %68 = lshr i32 %67, 1
   %69 = and i32 %68, 1
-  %70 = trunc i64 %indvars.iv.i to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.i to i32
   %71 = shl nuw nsw i32 %69, %70
   %72 = or i32 %71, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -784,7 +784,7 @@ define void @Gli_ManSetPiRandom(ptr nocapture noundef readonly %0, float noundef
 17:                                               ; preds = %10
   %18 = tail call i32 @Gia_ManRandom(i32 noundef 0) #23
   %19 = and i32 %18, 65535
-  %20 = uitofp i32 %19 to float
+  %20 = uitofp nneg i32 %19 to float
   %21 = fmul float %20, 0x3EF0000000000000
   %22 = fcmp olt float %21, %1
   br i1 %22, label %23, label %63
@@ -1064,7 +1064,7 @@ define void @Gli_ManSwitching(ptr nocapture noundef readonly %0) local_unnamed_a
   %22 = load i32, ptr %21, align 8
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 1
-  %25 = trunc i64 %indvars.iv.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   %26 = shl nuw nsw i32 %24, %25
   %27 = or i32 %26, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1415,7 +1415,7 @@ Vec_IntPush.exit68:                               ; preds = %.Vec_IntGrow.exit10
   %148 = load i32, ptr %147, align 8
   %149 = lshr i32 %148, 2
   %150 = and i32 %149, 1
-  %151 = trunc i64 %indvars.iv.i to i32
+  %151 = trunc nuw nsw i64 %indvars.iv.i to i32
   %152 = shl nuw nsw i32 %150, %151
   %153 = or i32 %152, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1584,7 +1584,7 @@ define i32 @Gli_ManSimulateSeqNode(ptr nocapture noundef readnone %0, ptr nocapt
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, %11
   %.not28.us = icmp eq i32 %15, 0
-  %16 = trunc i64 %indvars.iv46 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv46 to i32
   %17 = shl nuw nsw i32 1, %16
   %18 = select i1 %.not28.us, i32 0, i32 %17
   %.122.us = or i32 %18, %.02131.us
@@ -1779,7 +1779,7 @@ define void @Gli_ManSimulateSeqPref(ptr nocapture noundef %0, i32 noundef %1) lo
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, %49
   %.not28.us.i = icmp eq i32 %53, 0
-  %54 = trunc i64 %indvars.iv46.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv46.i to i32
   %55 = shl nuw nsw i32 1, %54
   %56 = select i1 %.not28.us.i, i32 0, i32 %55
   %.122.us.i = or i32 %56, %.02131.us.i
@@ -2123,7 +2123,7 @@ define void @Gli_ManSetDataSaved(ptr nocapture noundef readonly %0, i32 noundef 
   %49 = load i32, ptr %48, align 8
   %50 = lshr i32 %49, 1
   %51 = and i32 %50, 1
-  %52 = trunc i64 %indvars.iv.i to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.i to i32
   %53 = shl nuw nsw i32 %51, %52
   %54 = or i32 %53, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2255,7 +2255,7 @@ define void @Gli_ManSetPiRandomSeq(ptr nocapture noundef readonly %0, float noun
   %indvars.iv91102 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next92, %.lr.ph82 ]
   %50 = tail call i32 @Gia_ManRandom(i32 noundef 0) #23
   %51 = and i32 %50, 65535
-  %52 = uitofp i32 %51 to float
+  %52 = uitofp nneg i32 %51 to float
   %53 = fmul float %52, 0x3EF0000000000000
   %54 = fcmp olt float %53, %1
   br i1 %54, label %55, label %95
@@ -2590,7 +2590,7 @@ Gli_ManFinalize.exit:                             ; preds = %.lr.ph.i, %18, %Abc
   %52 = load i32, ptr %51, align 8
   %53 = lshr i32 %52, 1
   %54 = and i32 %53, 1
-  %55 = trunc i64 %indvars.iv.i.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %56 = shl nuw nsw i32 %54, %55
   %57 = or i32 %56, %.010.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2700,7 +2700,7 @@ Gli_ManSwitching.exit:                            ; preds = %.lr.ph.i27, %74, %.
   %109 = load i32, ptr %108, align 8
   %110 = lshr i32 %109, 1
   %111 = and i32 %110, 1
-  %112 = trunc i64 %indvars.iv.i.i42.us to i32
+  %112 = trunc nuw nsw i64 %indvars.iv.i.i42.us to i32
   %113 = shl nuw nsw i32 %111, %112
   %114 = or i32 %113, %.010.i.i43.us
   %indvars.iv.next.i.i44.us = add nuw nsw i64 %indvars.iv.i.i42.us, 1
@@ -2812,7 +2812,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #23
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #23
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2831,7 +2831,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2848,19 +2848,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #11
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #17
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #17
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
@@ -2888,8 +2888,8 @@ attributes #13 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem
 attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nofree nounwind }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind allocsize(0,1) }

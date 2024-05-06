@@ -514,7 +514,7 @@ define noundef zeroext i1 @_ZN4LIEF3DEX15is_switch_arrayEPKhS2_(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN4LIEF3DEX17switch_array_sizeEPKhS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define noundef range(i64 -1, 281470681677835) i64 @_ZN4LIEF3DEX17switch_array_sizeEPKhS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4

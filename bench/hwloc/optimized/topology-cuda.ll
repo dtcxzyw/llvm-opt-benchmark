@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.hwloc_cuda_discover.3 = private unnamed_addr constant [10 x i32] [i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 128, i32 128, i32 64, i32 128], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @hwloc_cuda_component_init(i64 noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @hwloc_cuda_component_init(i64 noundef %0) #0 {
   %.not = icmp ne i64 %0, 0
   %spec.select = sext i1 %.not to i32
   ret i32 %spec.select
@@ -55,7 +55,7 @@ define internal ptr @hwloc_cuda_component_instantiate(ptr noundef %0, ptr nounde
 declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc_cuda_discover(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
   %3 = alloca %struct.cudaDeviceProp, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -192,7 +192,7 @@ switch.lookup:                                    ; preds = %70
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
 switch.hole_check:                                ; preds = %72
-  %switch.maskindex = trunc i32 %66 to i16
+  %switch.maskindex = trunc nuw i32 %66 to i16
   %switch.shifted = lshr i16 705, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup87, label %hwloc_cuda_cores_per_MP.exit.thread60
@@ -235,7 +235,7 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %switch.hole_check, 
   br i1 %.not46, label %90, label %92
 
 90:                                               ; preds = %.thread, %85
-  %91 = call ptr @hwloc_get_obj_by_depth(ptr noundef %10, i32 noundef 0, i32 noundef 0) #11
+  %91 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef 0, i32 noundef 0) #11
   br label %92
 
 92:                                               ; preds = %90, %85

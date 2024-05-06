@@ -129,7 +129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_qsetprec(ptr nocapture noundef writeonly %ctx, i64 noundef %prec) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetprec(ptr nocapture noundef writeonly %ctx, i64 noundef %prec) local_unnamed_addr #4 {
 entry:
   %0 = add i64 %prec, -1000000000000000000
   %or.cond = icmp ult i64 %0, -999999999999999999
@@ -203,7 +203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_ieee_context(ptr nocapture noundef writeonly %ctx, i32 noundef %bits) local_unnamed_addr #4 {
+define hidden range(i32 -1, 1) i32 @mpd_ieee_context(ptr nocapture noundef writeonly %ctx, i32 noundef %bits) local_unnamed_addr #4 {
 entry:
   %0 = add i32 %bits, -1
   %or.cond = icmp ult i32 %0, 512
@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_qsetemax(ptr nocapture noundef writeonly %ctx, i64 noundef %emax) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetemax(ptr nocapture noundef writeonly %ctx, i64 noundef %emax) local_unnamed_addr #4 {
 entry:
   %or.cond = icmp ugt i64 %emax, 999999999999999999
   br i1 %or.cond, label %return, label %if.end
@@ -320,7 +320,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_qsetemin(ptr nocapture noundef writeonly %ctx, i64 noundef %emin) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetemin(ptr nocapture noundef writeonly %ctx, i64 noundef %emin) local_unnamed_addr #4 {
 entry:
   %0 = add i64 %emin, -1
   %or.cond = icmp ult i64 %0, -1000000000000000000
@@ -337,7 +337,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_qsetround(ptr nocapture noundef writeonly %ctx, i32 noundef %round) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetround(ptr nocapture noundef writeonly %ctx, i32 noundef %round) local_unnamed_addr #4 {
 entry:
   %or.cond = icmp ult i32 %round, 9
   br i1 %or.cond, label %if.end, label %return
@@ -353,7 +353,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_qsettraps(ptr nocapture noundef writeonly %ctx, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsettraps(ptr nocapture noundef writeonly %ctx, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ugt i32 %flags, 32767
   br i1 %cmp, label %return, label %if.end
@@ -369,7 +369,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_qsetstatus(ptr nocapture noundef writeonly %ctx, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetstatus(ptr nocapture noundef writeonly %ctx, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ugt i32 %flags, 32767
   br i1 %cmp, label %return, label %if.end
@@ -385,7 +385,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_qsetclamp(ptr nocapture noundef writeonly %ctx, i32 noundef %c) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetclamp(ptr nocapture noundef writeonly %ctx, i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %or.cond = icmp ugt i32 %c, 1
   br i1 %or.cond, label %return, label %if.end
@@ -401,7 +401,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mpd_qsetcr(ptr nocapture noundef writeonly %ctx, i32 noundef %c) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetcr(ptr nocapture noundef writeonly %ctx, i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %or.cond = icmp ugt i32 %c, 1
   br i1 %or.cond, label %return, label %if.end

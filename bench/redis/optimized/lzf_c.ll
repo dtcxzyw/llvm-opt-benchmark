@@ -229,7 +229,7 @@ if.end244:                                        ; preds = %if.end233
 
 if.end256:                                        ; preds = %if.end244, %if.end62
   %len.0 = phi i32 [ 18, %if.end244 ], [ 2, %if.end62 ]
-  %42 = trunc i64 %cond43 to i32
+  %42 = trunc nuw nsw i64 %cond43 to i32
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end256
@@ -272,7 +272,7 @@ if.then273:                                       ; preds = %for.end.thread191, 
   %shl275 = shl nuw nsw i32 %sub269197, 5
   %conv276 = zext nneg i32 %shl275 to i64
   %add = or disjoint i64 %shr274, %conv276
-  %conv277 = trunc i64 %add to i8
+  %conv277 = trunc nuw i64 %add to i8
   %incdec.ptr278 = getelementptr inbounds i8, ptr %add.ptr73, i64 1
   store i8 %conv277, ptr %add.ptr73, align 1
   br label %if.end286
@@ -281,7 +281,7 @@ if.else:                                          ; preds = %for.end.thread, %fo
   %incdec.ptr270188 = phi ptr [ %incdec.ptr270183, %for.end.thread ], [ %incdec.ptr270, %for.end ]
   %len.2185 = phi i32 [ %len.2.ph, %for.end.thread ], [ %inc257, %for.end ]
   %shr279 = lshr i64 %sub15, 8
-  %45 = trunc i64 %shr279 to i8
+  %45 = trunc nuw i64 %shr279 to i8
   %conv281 = or disjoint i8 %45, -32
   %incdec.ptr282 = getelementptr inbounds i8, ptr %add.ptr73, i64 1
   store i8 %conv281, ptr %add.ptr73, align 1

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden i32 @FLAC__fixed_compute_best_predictor_limit_residual_intrin_sse42(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_residual_intrin_sse42(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %prev_err0_scalar.sroa.0 = alloca <2 x i64>, align 16
   %prev_err1_scalar.sroa.0 = alloca <2 x i64>, align 16
@@ -38,7 +38,7 @@ for.body:                                         ; preds = %entry, %cond.end179
   %1 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %1 to i64
   %cond = tail call i64 @llvm.abs.i64(i64 %conv, i1 true)
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nsw i64 %indvars.iv to i32
   %cmp18 = icmp ugt i32 %2, -4
   br i1 %cmp18, label %cond.end53, label %cond.end179
 
@@ -138,7 +138,7 @@ for.body272.lr.ph:                                ; preds = %for.end260
   %div277366 = lshr i32 %data_len, 1
   %18 = zext nneg i32 %div277366 to i64
   %wide.trip.count = zext nneg i32 %div to i64
-  %invariant.gep = getelementptr i32, ptr %data, i64 %18
+  %invariant.gep = getelementptr inbounds i32, ptr %data, i64 %18
   br label %for.body272
 
 for.body272:                                      ; preds = %for.body272.lr.ph, %for.body272
@@ -161,7 +161,7 @@ for.body272:                                      ; preds = %for.body272.lr.ph, 
   %19 = load i32, ptr %arrayidx274, align 4
   %conv275 = sext i32 %19 to i64
   %data_scalar.sroa.0.0.vec.insert = insertelement <2 x i64> poison, i64 %conv275, i64 0
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv444
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv444
   %20 = load i32, ptr %gep, align 4
   %conv281 = sext i32 %20 to i64
   %data_scalar.sroa.0.8.vec.insert = insertelement <2 x i64> %data_scalar.sroa.0.0.vec.insert, i64 %conv281, i64 1

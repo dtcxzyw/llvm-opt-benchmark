@@ -689,7 +689,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13addInvokeNodeE
   %20 = getelementptr inbounds i8, ptr %18, i64 56
   %21 = trunc i64 %11 to i32
   %22 = lshr i64 %11, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   store i32 %21, ptr %20, align 4, !tbaa !98
   %24 = getelementptr inbounds i8, ptr %18, i64 60
   store i32 %23, ptr %24, align 4, !tbaa !99
@@ -767,7 +767,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
   %37 = getelementptr inbounds i8, ptr %25, i64 8
   store i32 %33, ptr %37, align 8, !tbaa !106
   %38 = getelementptr inbounds i8, ptr %25, i64 12
-  %39 = trunc i32 %34 to i8
+  %39 = trunc nuw nsw i32 %34 to i8
   store i8 %39, ptr %38, align 4, !tbaa !107
   %40 = getelementptr inbounds i8, ptr %25, i64 13
   store i8 %2, ptr %40, align 1, !tbaa !108
@@ -1048,7 +1048,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   br i1 %31, label %32, label %46
 
 32:                                               ; preds = %29
-  %33 = trunc i32 %27 to i8
+  %33 = trunc nuw i32 %27 to i8
   switch i8 %33, label %72 [
     i8 1, label %34
     i8 2, label %37
@@ -1095,7 +1095,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %50
-  %54 = trunc i32 %27 to i8
+  %54 = trunc nuw i32 %27 to i8
   switch i8 %54, label %72 [
     i8 1, label %55
     i8 2, label %56
@@ -1122,7 +1122,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
 59:                                               ; preds = %50
   %60 = getelementptr inbounds [256 x i8], ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i64 %22
   %61 = load i8, ptr %60, align 1, !tbaa !111
-  %62 = trunc i32 %27 to i8
+  %62 = trunc nuw i32 %27 to i8
   switch i8 %62, label %72 [
     i8 16, label %63
     i8 32, label %65
@@ -1291,7 +1291,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newStackEPNS0_
   %27 = load i8, ptr %26, align 1
   %28 = or i8 %27, 2
   store i8 %28, ptr %26, align 1
-  %29 = trunc i32 %23 to i8
+  %29 = trunc nuw nsw i32 %23 to i8
   %30 = getelementptr inbounds i8, ptr %24, i64 12
   store i8 %29, ptr %30, align 4, !tbaa !107
   %31 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1352,7 +1352,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler12setStackSizeEj
   br i1 %10, label %29, label %26
 
 26:                                               ; preds = %25
-  %27 = trunc i32 %16 to i8
+  %27 = trunc nuw nsw i32 %16 to i8
   %28 = getelementptr inbounds i8, ptr %21, i64 12
   store i8 %27, ptr %28, align 4, !tbaa !107
   br label %29
@@ -1675,7 +1675,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler17emitAnnotatedJ
   %37 = getelementptr inbounds i8, ptr %15, i64 56
   %38 = trunc i64 %11 to i32
   %39 = lshr i64 %11, 32
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   store i32 %38, ptr %37, align 4, !tbaa !98
   %41 = getelementptr inbounds i8, ptr %15, i64 60
   store i32 %40, ptr %41, align 4, !tbaa !99

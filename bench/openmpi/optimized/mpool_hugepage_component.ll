@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [47 x i8] c"could not find page matching page request: %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_mpool_hugepage_open() #0 {
+define internal range(i32 -2, 1) i32 @mca_mpool_hugepage_open() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i64, align 8
   %3 = alloca %struct.statfs, align 8
@@ -471,7 +471,7 @@ define internal noundef i32 @mca_mpool_hugepage_register() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_mpool_hugepage_query(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #0 {
+define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @mca_mpool_hugepage_priority, align 4
   %6 = load i32, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i64 0, i32 4), align 8
@@ -751,7 +751,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @opal_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @page_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @page_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 40

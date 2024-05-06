@@ -33,7 +33,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_generate_prime_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %cb) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @BN_generate_prime_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %cb) local_unnamed_addr #1 {
 entry:
   %mods.i = alloca [2048 x i16], align 16
   %cmp = icmp sgt i32 %bits, 1299
@@ -734,7 +734,7 @@ if.end144.us:                                     ; preds = %for.body140.us
   br i1 %tobool146.not.us, label %if.then166, label %if.end148.us
 
 if.end148.us:                                     ; preds = %if.end144.us
-  %call149.us = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.0, ptr noundef nonnull %call128), !range !16
+  %call149.us = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.0, ptr noundef nonnull %call128)
   switch i32 %call149.us, label %if.then166 [
     i32 -1, label %if.then166.loopexit
     i32 0, label %if.end156.us
@@ -743,7 +743,7 @@ if.end148.us:                                     ; preds = %if.end144.us
 if.end156.us:                                     ; preds = %if.end148.us
   %inc162.us = add nuw nsw i32 %i.183.us, 1
   %exitcond97.not = icmp eq i32 %inc162.us, %checks.addr.0
-  br i1 %exitcond97.not, label %if.then166, label %for.body140.us, !llvm.loop !17
+  br i1 %exitcond97.not, label %if.then166, label %for.body140.us, !llvm.loop !16
 
 for.body140:                                      ; preds = %for.body140.lr.ph, %for.inc161
   %i.183 = phi i32 [ %inc162, %for.inc161 ], [ 0, %for.body140.lr.ph ]
@@ -757,7 +757,7 @@ if.end144:                                        ; preds = %for.body140
   br i1 %tobool146.not, label %if.then166, label %if.end148
 
 if.end148:                                        ; preds = %if.end144
-  %call149 = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.0, ptr noundef nonnull %call128), !range !16
+  %call149 = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.0, ptr noundef nonnull %call128)
   switch i32 %call149, label %if.then166 [
     i32 -1, label %if.then166.loopexit103
     i32 0, label %if.end156
@@ -772,7 +772,7 @@ if.end156:                                        ; preds = %if.end148
 for.inc161:                                       ; preds = %if.end156
   %inc162 = add nuw nsw i32 %i.183, 1
   %exitcond96.not = icmp eq i32 %inc162, %checks.addr.0
-  br i1 %exitcond96.not, label %if.then166, label %for.body140, !llvm.loop !17
+  br i1 %exitcond96.not, label %if.then166, label %for.body140, !llvm.loop !16
 
 if.then166.loopexit:                              ; preds = %if.end148.us
   br label %if.then166
@@ -810,7 +810,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_primality_test(ptr nocapture noundef writeonly %is_probably_prime, ptr noundef %candidate, i32 noundef %checks, ptr noundef %ctx, i32 noundef %do_trial_division, ptr noundef %cb) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @BN_primality_test(ptr nocapture noundef writeonly %is_probably_prime, ptr noundef %candidate, i32 noundef %checks, ptr noundef %ctx, i32 noundef %do_trial_division, ptr noundef %cb) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @BN_is_prime_fasttest_ex(ptr noundef %candidate, i32 noundef %checks, ptr noundef %ctx, i32 noundef %do_trial_division, ptr noundef %cb)
   switch i32 %call, label %sw.default [
@@ -869,7 +869,7 @@ declare i32 @BN_pseudo_rand_range(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @witness(ptr noundef %w, ptr noundef %a, ptr noundef %a1, ptr noundef %a1_odd, i32 noundef %k, ptr noundef %ctx, ptr noundef %mont) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @witness(ptr noundef %w, ptr noundef %a, ptr noundef %a1, ptr noundef %a1_odd, i32 noundef %k, ptr noundef %ctx, ptr noundef %mont) unnamed_addr #1 {
 entry:
   %call = tail call i32 @BN_mod_exp_mont(ptr noundef %w, ptr noundef %w, ptr noundef %a1_odd, ptr noundef %a, ptr noundef %ctx, ptr noundef %mont) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -904,7 +904,7 @@ if.end12:                                         ; preds = %while.body
 if.end16:                                         ; preds = %if.end12
   %call17 = tail call i32 @BN_cmp(ptr noundef %w, ptr noundef %a1) #5
   %cmp18 = icmp eq i32 %call17, 0
-  br i1 %cmp18, label %return, label %while.cond, !llvm.loop !18
+  br i1 %cmp18, label %return, label %while.cond, !llvm.loop !17
 
 return:                                           ; preds = %while.cond, %if.end16, %if.end12, %while.body, %if.end4, %if.end, %entry
   %retval.0 = phi i32 [ -1, %entry ], [ 0, %if.end ], [ 0, %if.end4 ], [ 1, %while.cond ], [ 0, %if.end16 ], [ 1, %if.end12 ], [ -1, %while.body ]
@@ -963,6 +963,5 @@ attributes #5 = { nounwind }
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
-!16 = !{i32 -1, i32 2}
+!16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}

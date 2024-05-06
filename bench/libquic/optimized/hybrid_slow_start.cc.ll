@@ -86,7 +86,7 @@ if.then:                                          ; preds = %entry
   %current_min_rtt_.i = getelementptr inbounds i8, ptr %this, i64 32
   %rtt_sample_count_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %rtt_sample_count_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_min_rtt_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %current_min_rtt_.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %this, align 8
   br label %if.end
 

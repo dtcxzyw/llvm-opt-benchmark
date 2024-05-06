@@ -63,7 +63,7 @@ define dso_local void @_ZN6Filter7disableE10FilterKind(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK6Filter12current_kindEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK6Filter12current_kindEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN9CGOptions12random_basedEv()
   br i1 %2, label %5, label %3
 

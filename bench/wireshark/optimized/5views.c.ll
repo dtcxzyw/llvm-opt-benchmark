@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @wtap_encap = internal unnamed_addr constant [2 x i32] [i32 -1, i32 402657280], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_5views_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_5views_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.t_5VW_Capture_Header, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 32, ptr noundef %1, ptr noundef %2) #5
@@ -303,7 +303,7 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_5views_dump_can_write_encap(i32 noundef %0) #2 {
+define internal noundef range(i32 -9, 1) i32 @_5views_dump_can_write_encap(i32 noundef %0) #2 {
   %2 = icmp eq i32 %0, -1
   %or.cond.not = icmp eq i32 %0, 1
   %spec.select = select i1 %or.cond.not, i32 0, i32 -8
@@ -312,7 +312,7 @@ define internal noundef i32 @_5views_dump_can_write_encap(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_5views_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @_5views_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 56, i32 noundef 0, ptr noundef %1) #5
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %11, label %6
@@ -336,7 +336,7 @@ define internal noundef i32 @_5views_dump_open(ptr noundef %0, ptr noundef %1, p
 declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_5views_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @_5views_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.t_5VW_TimeStamped_Header, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -392,7 +392,7 @@ define internal noundef i32 @_5views_dump(ptr noundef %0, ptr nocapture noundef 
   br label %49
 
 31:                                               ; preds = %22
-  %32 = trunc i64 %29 to i32
+  %32 = trunc nuw i64 %29 to i32
   %33 = getelementptr inbounds i8, ptr %6, i64 24
   store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %1, i64 24
@@ -428,7 +428,7 @@ define internal noundef i32 @_5views_dump(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_5views_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @_5views_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.t_5VW_Capture_Header, align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8

@@ -340,7 +340,7 @@ if.end81:                                         ; preds = %if.end76
   br i1 %cmp82.not, label %if.else90, label %if.then84
 
 if.then84:                                        ; preds = %if.end81
-  %call85 = call fastcc i32 @dmg_read_resource_fork(ptr noundef nonnull %bs, ptr noundef nonnull %ds, i64 noundef %12, i64 noundef %14), !range !7
+  %call85 = call fastcc i32 @dmg_read_resource_fork(ptr noundef nonnull %bs, ptr noundef nonnull %ds, i64 noundef %12, i64 noundef %14)
   %cmp86 = icmp slt i32 %call85, 0
   br i1 %cmp86, label %fail, label %if.end101
 
@@ -349,7 +349,7 @@ if.else90:                                        ; preds = %if.end81
   br i1 %cmp91.not, label %fail, label %if.then93
 
 if.then93:                                        ; preds = %if.else90
-  %call94 = call fastcc i32 @dmg_read_plist_xml(ptr noundef nonnull %bs, ptr noundef nonnull %ds, i64 noundef %16, i64 noundef %18), !range !7
+  %call94 = call fastcc i32 @dmg_read_plist_xml(ptr noundef nonnull %bs, ptr noundef nonnull %ds, i64 noundef %16, i64 noundef %18)
   %cmp95 = icmp slt i32 %call94, 0
   br i1 %cmp95, label %fail, label %if.end101
 
@@ -462,7 +462,7 @@ entry:
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @dmg_probe(ptr nocapture readnone %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
+define internal range(i32 0, 3) i32 @dmg_probe(ptr nocapture readnone %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
 entry:
   %tobool.not = icmp eq ptr %filename, null
   br i1 %tobool.not, label %return, label %if.end
@@ -490,7 +490,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dmg_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
+define internal range(i32 -5, 1) i32 @dmg_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -530,7 +530,7 @@ for.body.lr.ph:                                   ; preds = %if.end8
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %add = add nsw i64 %shr, %indvars.iv
-  %call = tail call i32 @dmg_read_chunk(ptr noundef %bs, i64 noundef %add), !range !7
+  %call = tail call i32 @dmg_read_chunk(ptr noundef %bs, i64 noundef %add)
   %cmp12.not = icmp eq i32 %call, 0
   br i1 %cmp12.not, label %if.end15, label %fail
 
@@ -570,7 +570,7 @@ if.end27:                                         ; preds = %if.end15
 for.inc:                                          ; preds = %if.end27, %if.then24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %fail, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %fail, label %for.body, !llvm.loop !7
 
 fail:                                             ; preds = %for.body, %for.inc, %if.end8
   %ret.0 = phi i32 [ 0, %if.end8 ], [ 0, %for.inc ], [ -5, %for.body ]
@@ -594,7 +594,7 @@ declare i32 @bdrv_open_file_child(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @module_load(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @dmg_read_resource_fork(ptr nocapture noundef readonly %bs, ptr nocapture noundef %ds, i64 noundef %info_begin, i64 noundef %info_length) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @dmg_read_resource_fork(ptr nocapture noundef readonly %bs, ptr nocapture noundef %ds, i64 noundef %info_begin, i64 noundef %info_length) unnamed_addr #0 {
 entry:
   %buffer.i32 = alloca i32, align 4
   %buffer.i26 = alloca i32, align 4
@@ -653,7 +653,7 @@ if.end18:                                         ; preds = %if.else9
 while.cond:                                       ; preds = %if.end47
   %add54 = add i64 %add39, %conv33
   %cmp23 = icmp ult i64 %add54, %add22
-  br i1 %cmp23, label %while.body, label %fail, !llvm.loop !9
+  br i1 %cmp23, label %while.body, label %fail, !llvm.loop !8
 
 while.body:                                       ; preds = %if.end18, %while.cond
   %offset.055 = phi i64 [ %add54, %while.cond ], [ %add20, %if.end18 ]
@@ -690,7 +690,7 @@ if.end38:                                         ; preds = %lor.lhs.false32
   br i1 %cmp44, label %fail, label %if.end47
 
 if.end47:                                         ; preds = %if.end38
-  %call48 = call fastcc i32 @dmg_read_mish_block(ptr noundef %0, ptr noundef %ds, ptr noundef %call41, i32 noundef %7), !range !10
+  %call48 = call fastcc i32 @dmg_read_mish_block(ptr noundef %0, ptr noundef %ds, ptr noundef %call41, i32 noundef %7)
   %cmp49 = icmp slt i32 %call48, 0
   br i1 %cmp49, label %fail, label %while.cond
 
@@ -702,7 +702,7 @@ fail:                                             ; preds = %if.end38, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @dmg_read_plist_xml(ptr nocapture noundef readonly %bs, ptr nocapture noundef %ds, i64 noundef %info_begin, i64 noundef %info_length) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @dmg_read_plist_xml(ptr nocapture noundef readonly %bs, ptr nocapture noundef %ds, i64 noundef %info_begin, i64 noundef %info_length) unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -740,10 +740,10 @@ if.end11:                                         ; preds = %while.body
   %call12 = call noalias ptr @g_base64_decode(ptr noundef %add.ptr, ptr noundef nonnull %out_len) #11
   %2 = load i64, ptr %out_len, align 8
   %conv = trunc i64 %2 to i32
-  %call13 = call fastcc i32 @dmg_read_mish_block(ptr noundef %0, ptr noundef %ds, ptr noundef %call12, i32 noundef %conv), !range !10
+  %call13 = call fastcc i32 @dmg_read_mish_block(ptr noundef %0, ptr noundef %ds, ptr noundef %call12, i32 noundef %conv)
   call void @g_free(ptr noundef %call12) #11
   %cmp14 = icmp slt i32 %call13, 0
-  br i1 %cmp14, label %fail, label %while.cond, !llvm.loop !11
+  br i1 %cmp14, label %fail, label %while.cond, !llvm.loop !9
 
 fail:                                             ; preds = %while.cond, %while.body, %if.end11, %if.end, %entry
   %buffer.0 = phi ptr [ null, %entry ], [ %call, %if.end ], [ %call, %if.end11 ], [ %call, %while.body ], [ %call, %while.cond ]
@@ -776,7 +776,7 @@ declare i64 @llvm.bswap.i64(i64) #5
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @dmg_read_mish_block(ptr nocapture noundef %s, ptr nocapture noundef %ds, ptr nocapture noundef readonly %buffer, i32 noundef %count) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @dmg_read_mish_block(ptr nocapture noundef %s, ptr nocapture noundef %ds, ptr nocapture noundef readonly %buffer, i32 noundef %count) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %buffer, align 4
   %cmp = icmp ne i32 %0, 1752394093
@@ -998,7 +998,7 @@ for.inc:                                          ; preds = %if.then15.i, %if.en
   %48 = load i32, ptr %n_chunks, align 8
   %add21 = add i32 %48, %chunk_count.1
   %cmp22 = icmp ult i32 %inc, %add21
-  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end
   %add21.lcssa = phi i32 [ %add21104, %if.end ], [ %add21, %for.inc ]
@@ -1036,7 +1036,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @dmg_read_chunk(ptr nocapture noundef readonly %bs, i64 noundef %sector_num) #0 {
+define internal range(i32 -2147483648, 1) i32 @dmg_read_chunk(ptr nocapture noundef readonly %bs, i64 noundef %sector_num) #0 {
 entry:
   %qiov.i92 = alloca %struct.QEMUIOVector, align 8
   %qiov.i87 = alloca %struct.QEMUIOVector, align 8
@@ -1108,7 +1108,7 @@ if.end15.i:                                       ; preds = %if.else12.i, %if.en
   %chunk1.1.i = phi i32 [ %chunk1.015.i, %if.end.i ], [ %add13.i, %if.else12.i ]
   %chunk2.1.i = phi i32 [ %sub.i, %if.end.i ], [ %chunk2.016.i, %if.else12.i ]
   %cmp.not.i80 = icmp ugt i32 %chunk1.1.i, %chunk2.1.i
-  br i1 %cmp.not.i80, label %return, label %while.body.i, !llvm.loop !13
+  br i1 %cmp.not.i80, label %return, label %while.body.i, !llvm.loop !11
 
 search_chunk.exit:                                ; preds = %if.else.i
   %cmp.not = icmp ult i32 %div14.i, %2
@@ -1410,10 +1410,8 @@ attributes #14 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -2147483648, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -22, i32 1}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

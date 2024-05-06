@@ -158,14 +158,14 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %23
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %.02233, ptr @dissect_corosynec_totemnet.last_key_index, align 4
   store i32 %32, ptr @dissect_corosynec_totemnet.last_check_crypt_type_index, align 4
   br label %44
 
 33:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = or i32 %29, %34
   %or.cond = icmp eq i32 %35, 0
   br i1 %or.cond, label %23, label %36, !llvm.loop !4

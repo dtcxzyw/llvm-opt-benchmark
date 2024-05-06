@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @test_methods = internal global [1 x %struct.PyMethodDef] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Tuple(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Tuple(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %m, ptr noundef nonnull @test_methods) #2
   %call.lobit = ashr i32 %call, 31

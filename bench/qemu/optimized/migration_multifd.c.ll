@@ -169,7 +169,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @multifd_queue_page(ptr nocapture noundef readnone %f, ptr noundef %block, i64 noundef %offset) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @multifd_queue_page(ptr nocapture noundef readnone %f, ptr noundef %block, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -223,7 +223,7 @@ return:                                           ; preds = %if.end12, %if.end12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @multifd_send_pages() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @multifd_send_pages() unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @multifd_send_state, align 8
   %pages1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -615,7 +615,7 @@ declare ptr @migrate_get_current() local_unnamed_addr #2
 declare void @error_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @multifd_send_sync_main(ptr nocapture noundef readnone %f) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @multifd_send_sync_main(ptr nocapture noundef readnone %f) local_unnamed_addr #0 {
 entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %err.i = alloca ptr, align 8
@@ -788,7 +788,7 @@ trace_multifd_send_sync_main_signal.exit:         ; preds = %for.body, %land.lhs
   br i1 %tobool9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %trace_multifd_send_sync_main_signal.exit
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.multifd_send_sync_main, i32 noundef %27) #15
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 624) #15
   br label %return
@@ -936,7 +936,7 @@ entry:
   %local_err = alloca ptr, align 8
   %call = tail call i64 @qemu_target_page_size() #15
   %div = udiv i64 524288, %call
-  %conv = trunc i64 %div to i32
+  %conv = trunc nuw nsw i64 %div to i32
   %call1 = tail call zeroext i1 @migrate_multifd() #15
   br i1 %call1, label %if.end, label %return
 
@@ -1495,7 +1495,7 @@ entry:
   %local_err = alloca ptr, align 8
   %call = tail call i64 @qemu_target_page_size() #15
   %div = udiv i64 524288, %call
-  %conv = trunc i64 %div to i32
+  %conv = trunc nuw nsw i64 %div to i32
   %0 = load ptr, ptr @multifd_recv_state, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.lhs.false, label %return

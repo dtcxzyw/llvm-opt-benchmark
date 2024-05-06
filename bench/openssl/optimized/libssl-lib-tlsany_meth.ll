@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [6 x i8] c"CONNE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls_any_set_crypto_state(ptr nocapture readnone %rl, i32 noundef %level, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr nocapture readnone %ciph, i64 %taglen, i32 %mactype, ptr nocapture readnone %md, ptr nocapture readnone %comp) #0 {
+define internal range(i32 -2, 2) i32 @tls_any_set_crypto_state(ptr nocapture readnone %rl, i32 noundef %level, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr nocapture readnone %ciph, i64 %taglen, i32 %mactype, ptr nocapture readnone %md, ptr nocapture readnone %comp) #0 {
 entry:
   %cmp.not = icmp eq i32 %level, 0
   br i1 %cmp.not, label %return, label %if.then
@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @tls_any_set_protocol_version(ptr nocapture noundef %rl, i32 noundef %vers) #2 {
+define internal range(i32 0, 2) i32 @tls_any_set_protocol_version(ptr nocapture noundef %rl, i32 noundef %vers) #2 {
 entry:
   %version = getelementptr inbounds i8, ptr %rl, i64 20
   %0 = load i32, ptr %version, align 4
@@ -63,7 +63,7 @@ declare i32 @tls_default_read_n(ptr noundef, i64 noundef, i64 noundef, i32 nound
 declare i32 @tls_get_more_records(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls_validate_record_header(ptr noundef %rl, ptr nocapture noundef readonly %rec) #0 {
+define internal range(i32 0, 2) i32 @tls_validate_record_header(ptr noundef %rl, ptr nocapture noundef readonly %rec) #0 {
 entry:
   %0 = load i32, ptr %rec, align 8
   %cmp = icmp eq i32 %0, 2
@@ -231,7 +231,7 @@ entry:
 declare i32 @tls_post_encryption_processing_default(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @dtls_any_set_protocol_version(ptr nocapture noundef %rl, i32 noundef %vers) #2 {
+define internal range(i32 0, 2) i32 @dtls_any_set_protocol_version(ptr nocapture noundef %rl, i32 noundef %vers) #2 {
 entry:
   %version = getelementptr inbounds i8, ptr %rl, i64 20
   %0 = load i32, ptr %version, align 4

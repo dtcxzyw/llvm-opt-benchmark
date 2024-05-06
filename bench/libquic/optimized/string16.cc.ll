@@ -634,7 +634,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i, %if.end.i.thread.i
   %2 = phi ptr [ %call5.i.i.i.i4.i, %if.end.i.thread.i ], [ %0, %if.end.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %2, ptr align 2 %__svw.coerce1, i64 %add.ptr.idx.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %2, ptr readonly align 2 %__svw.coerce1, i64 %add.ptr.idx.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
@@ -691,7 +691,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
   %2 = phi ptr [ %call5.i.i.i.i4, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %2, ptr align 2 %__s, i64 %add.ptr.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %2, ptr readonly align 2 %__s, i64 %add.ptr.idx, i1 false)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1058,7 +1058,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %mul.i.i = shl i64 %__n, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %__d, ptr align 2 %__s, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %__d, ptr readonly align 2 %__s, i64 %mul.i.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1078,7 +1078,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %mul.i.i = shl i64 %__n, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %__d, ptr align 2 %__s, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %__d, ptr readonly align 2 %__s, i64 %mul.i.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1100,7 +1100,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtS5_S5_.exit
 
 if.else.i.i:                                      ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %__p, ptr align 2 %__k1.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %__p, ptr readonly align 2 %__k1.coerce, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtS5_S5_.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtS5_S5_.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -1122,7 +1122,7 @@ if.then.i:                                        ; preds = %entry
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %__p, ptr align 2 %__k1, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %__p, ptr readonly align 2 %__k1, i64 %sub.ptr.sub, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i, %if.then.i
@@ -1144,7 +1144,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtPKtS7_.exit
 
 if.else.i.i:                                      ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %__p, ptr align 2 %__k1.coerce, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %__p, ptr readonly align 2 %__k1.coerce, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtPKtS7_.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtPKtS7_.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -1166,7 +1166,7 @@ if.then.i:                                        ; preds = %entry
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %__p, ptr align 2 %__k1, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %__p, ptr readonly align 2 %__k1, i64 %sub.ptr.sub, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i, %if.then.i
@@ -1266,7 +1266,7 @@ if.then.i17:                                      ; preds = %if.then6
 
 if.else.i:                                        ; preds = %if.then6
   %mul.i.i.i15 = shl i64 %0, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %6, ptr align 2 %7, i64 %mul.i.i.i15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %6, ptr readonly align 2 %7, i64 %mul.i.i.i15, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit: ; preds = %if.then.i17, %if.else.i
@@ -1373,7 +1373,7 @@ if.then.i20:                                      ; preds = %_ZNSt7__cxx1112basi
 
 if.else.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit
   %mul.i.i.i18 = shl i64 %__pos, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i, ptr align 2 %2, i64 %mul.i.i.i18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %call5.i.i.i, ptr readonly align 2 %2, i64 %mul.i.i.i18, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit, %if.else.i, %if.then.i20
@@ -1394,7 +1394,7 @@ if.then.i25:                                      ; preds = %if.then10
 
 if.else.i22:                                      ; preds = %if.then10
   %mul.i.i.i23 = shl i64 %__len2, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr, ptr nonnull align 2 %__s, i64 %mul.i.i.i23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %add.ptr, ptr nonnull readonly align 2 %__s, i64 %mul.i.i.i23, i1 false)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else.i22, %if.then.i25, %if.end
@@ -1416,7 +1416,7 @@ if.then.i31:                                      ; preds = %if.then13
 
 if.else.i28:                                      ; preds = %if.then13
   %mul.i.i.i29 = shl i64 %sub2, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr15, ptr align 2 %add.ptr18, i64 %mul.i.i.i29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %add.ptr15, ptr readonly align 2 %add.ptr18, i64 %mul.i.i.i29, i1 false)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else.i28, %if.then.i31, %if.end11
@@ -1463,7 +1463,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.else.i:                                        ; preds = %if.then
   %mul.i.i.i = shl i64 %sub2, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr, ptr nonnull align 2 %add.ptr7, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr, ptr nonnull readonly align 2 %add.ptr7, i64 %mul.i.i.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %entry
@@ -1536,7 +1536,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
   %4 = phi ptr [ %call5.i.i.i.i4, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr align 2 %1, i64 %add.ptr.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %1, i64 %add.ptr.idx, i1 false)
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1597,7 +1597,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
   %5 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %5, ptr align 2 %add.ptr, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %5, ptr readonly align 2 %add.ptr, i64 %gepdiff, i1 false)
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1658,7 +1658,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
   %4 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr align 2 %add.ptr, i64 %add.ptr7.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %add.ptr, i64 %add.ptr7.idx, i1 false)
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1719,7 +1719,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
   %4 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr align 2 %add.ptr, i64 %add.ptr5.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %add.ptr, i64 %add.ptr5.idx, i1 false)
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1751,7 +1751,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.assume(i1 %cmp3.i)
   %add = shl nuw nsw i64 %3, 1
   %mul.i.i = add nuw nsw i64 %add, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %0, ptr noundef nonnull readonly align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
   br label %invoke.cont11
 
 if.else:                                          ; preds = %entry
@@ -1806,7 +1806,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
   %2 = phi ptr [ %call5.i.i.i.i1, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %2, ptr align 2 %__l.coerce0, i64 %add.ptr.i.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %2, ptr readonly align 2 %__l.coerce0, i64 %add.ptr.i.idx, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1856,7 +1856,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.thread, %if.end.i
   %4 = phi ptr [ %call5.i.i.i.i2, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr align 2 %1, i64 %add.ptr.i.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %1, i64 %add.ptr.i.idx, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -1902,7 +1902,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.assume(i1 %cmp3.i)
   %add = shl nuw nsw i64 %3, 1
   %mul.i.i = add nuw nsw i64 %add, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %0, ptr noundef nonnull readonly align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
   %4 = load i64, ptr %_M_string_length.i, align 8
   %_M_string_length.i13 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i13, align 8
@@ -2034,7 +2034,7 @@ if.then.i17.i.i:                                  ; preds = %if.then6.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then6.i.i
   %mul.i.i.i15.i.i = shl i64 %0, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %6, ptr align 2 %7, i64 %mul.i.i.i15.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %6, ptr readonly align 2 %7, i64 %mul.i.i.i15.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i.i
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i17.i.i
@@ -2136,7 +2136,7 @@ if.then.i17.i:                                    ; preds = %if.then6.i
 
 if.else.i.i:                                      ; preds = %if.then6.i
   %mul.i.i.i15.i = shl i64 %0, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %6, ptr align 2 %7, i64 %mul.i.i.i15.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %6, ptr readonly align 2 %7, i64 %mul.i.i.i15.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i: ; preds = %if.else.i.i, %if.then.i17.i
@@ -2218,8 +2218,8 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread.i: ; preds = %entry
   %3 = load i64, ptr %1, align 8
-  %cmp.not.i11.i = icmp eq i64 %3, 0
-  br i1 %cmp.not.i11.i, label %if.end10.i.thread.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt.exit
+  %cmp.not.i12.i = icmp eq i64 %3, 0
+  br i1 %cmp.not.i12.i, label %if.end10.i.thread.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt.exit
 
 if.end10.i.thread.i:                              ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread.i
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #20
@@ -2264,12 +2264,12 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
   %3 = load i64, ptr %2, align 8
-  %cmp.not.i11 = icmp ult i64 %3, %__n
-  br i1 %cmp.not.i11, label %land.lhs.true.i.i, label %if.end10.i
+  %cmp.not.i12 = icmp ult i64 %3, %__n
+  br i1 %cmp.not.i12, label %land.lhs.true.i.i, label %if.end10.i
 
 land.lhs.true.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread
-  %cond.i.i1214 = phi i64 [ %3, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread ], [ 7, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i ]
-  %mul.i.i = shl nuw nsw i64 %cond.i.i1214, 1
+  %cond.i.i1315 = phi i64 [ %3, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread ], [ 7, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i ]
+  %mul.i.i = shl nuw nsw i64 %cond.i.i1315, 1
   %cmp3.i.i = icmp ugt i64 %mul.i.i, %__n
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %mul.i.i, i64 2305843009213693951)
   %__new_capacity.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %__n
@@ -2368,7 +2368,7 @@ if.then.i25:                                      ; preds = %if.then14
 
 if.else.i:                                        ; preds = %if.then14
   %mul.i.i.i = shl nuw nsw i64 %8, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %0, ptr align 2 %7, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %0, ptr readonly align 2 %7, i64 %mul.i.i.i, i1 false)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then14, %if.else.i, %if.then.i25
@@ -2821,7 +2821,7 @@ if.then.i11:                                      ; preds = %if.then3
 if.else.i:                                        ; preds = %if.then3
   %add = shl nuw nsw i64 %2, 1
   %mul.i.i.i = add nuw nsw i64 %add, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 2 dereferenceable(1) %0, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %1, ptr noundef nonnull readonly align 2 dereferenceable(1) %0, i64 %mul.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit: ; preds = %if.then.i11, %if.else.i
@@ -2863,7 +2863,7 @@ _ZNSt15__new_allocatorItE8allocateEmPKv.exit.i:   ; preds = %if.then8
           to label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit unwind label %lpad
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit: ; preds = %_ZNSt15__new_allocatorItE8allocateEmPKv.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %call5.i.i13, ptr noundef nonnull align 2 dereferenceable(1) %0, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(1) %call5.i.i13, ptr noundef nonnull readonly align 2 dereferenceable(1) %0, i64 %mul.i.i, i1 false)
   tail call void @_ZdlPv(ptr noundef %0) #21
   store ptr %call5.i.i13, ptr %this, align 8
   store i64 %2, ptr %1, align 8
@@ -2961,7 +2961,7 @@ if.then.i6:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i
   %add = shl i64 %4, 1
   %mul.i.i.i4 = add i64 %add, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i, ptr align 2 %0, i64 %mul.i.i.i4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %call5.i.i.i, ptr readonly align 2 %0, i64 %mul.i.i.i4, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit: ; preds = %if.then.i6, %if.else.i
@@ -3139,7 +3139,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then3.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then3.i.i.i
   %mul.i.i.i.i.i.i = shl i64 %1, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i.i, ptr align 2 %0, i64 %mul.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i.i.i, ptr readonly align 2 %0, i64 %mul.i.i.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendERKS4_.exit
 
 if.else.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i.i
@@ -3204,7 +3204,7 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then3.i.i
   %mul.i.i.i.i.i = shl i64 %1, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i, ptr align 2 %0, i64 %mul.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i.i, ptr readonly align 2 %0, i64 %mul.i.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i
@@ -3279,7 +3279,7 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKt.exit
 
 if.else.i.i.i:                                    ; preds = %if.then3.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i, ptr align 2 %__s, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i.i, ptr readonly align 2 %__s, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKt.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i
@@ -3354,7 +3354,7 @@ if.then.i.i:                                      ; preds = %if.then3.i
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.exit
 
 if.else.i.i:                                      ; preds = %if.then3.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i, ptr align 2 %__s, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i, ptr readonly align 2 %__s, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.exit
 
 if.else.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
@@ -3492,7 +3492,7 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then3.i.i
   %mul.i.i.i.i.i = shl i64 %__l.coerce1, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i, ptr align 2 %__l.coerce0, i64 %mul.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i.i, ptr readonly align 2 %__l.coerce0, i64 %mul.i.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i
@@ -3554,7 +3554,7 @@ if.then.i.i:                                      ; preds = %if.then3.i
 
 if.else.i.i:                                      ; preds = %if.then3.i
   %mul.i.i.i.i = shl i64 %__n, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i, ptr align 2 %__s, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i, ptr readonly align 2 %__s, i64 %mul.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.exit
 
 if.else.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
@@ -3630,7 +3630,7 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then3.i.i
   %mul.i.i.i.i.i = shl i64 %spec.select.i, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i, ptr align 2 %add.ptr, i64 %mul.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i.i, ptr readonly align 2 %add.ptr, i64 %mul.i.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i
@@ -3683,7 +3683,7 @@ if.then.i:                                        ; preds = %if.then3
 
 if.else.i:                                        ; preds = %if.then3
   %mul.i.i.i = shl i64 %__n, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %__s, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr, ptr readonly align 2 %__s, i64 %mul.i.i.i, i1 false)
   br label %if.end7
 
 if.else:                                          ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit
@@ -3753,7 +3753,7 @@ if.then.i21:                                      ; preds = %if.then7
 
 if.else.i:                                        ; preds = %if.then7
   %mul.i.i.i = shl i64 %sub5, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr8, ptr align 2 %add.ptr9, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr8, ptr readonly align 2 %add.ptr9, i64 %mul.i.i.i, i1 false)
   br label %if.end10
 
 if.else:                                          ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit
@@ -3838,7 +3838,7 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then3.i.i
   %mul.i.i.i.i.i = shl i64 %__l.coerce1, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i, ptr align 2 %__l.coerce0, i64 %mul.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i.i, ptr readonly align 2 %__l.coerce0, i64 %mul.i.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i
@@ -3899,7 +3899,7 @@ if.then.i25.i:                                    ; preds = %if.then14.i
 
 if.else.i.i:                                      ; preds = %if.then14.i
   %mul.i.i.i.i = shl nuw nsw i64 %8, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %0, ptr align 2 %7, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %0, ptr readonly align 2 %7, i64 %mul.i.i.i.i, i1 false)
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i.i, %if.then.i25.i, %if.then14.i
@@ -4036,7 +4036,7 @@ if.then.i71:                                      ; preds = %if.then9
 
 if.else.i:                                        ; preds = %if.then9
   %mul.i.i.i = shl i64 %sub5, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr10, ptr align 2 %add.ptr11, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr10, ptr readonly align 2 %add.ptr11, i64 %mul.i.i.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i71, %if.then7
@@ -4052,7 +4052,7 @@ if.then.i75:                                      ; preds = %if.end
 
 if.else.i73:                                      ; preds = %if.end
   %mul.i.i.i74 = shl i64 %__len2, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %__s, i64 %mul.i.i.i74, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr, ptr readonly align 2 %__s, i64 %mul.i.i.i74, i1 false)
   br label %if.end54
 
 if.else:                                          ; preds = %if.then
@@ -4072,7 +4072,7 @@ if.then.i79:                                      ; preds = %if.then18
 
 if.else.i77:                                      ; preds = %if.then18
   %mul.i.i.i78 = shl i64 %__len2, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %__s, i64 %mul.i.i.i78, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr, ptr readonly align 2 %__s, i64 %mul.i.i.i78, i1 false)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else.i77, %if.then.i79, %if.else
@@ -4094,7 +4094,7 @@ if.then.i84:                                      ; preds = %if.then23
 
 if.else.i82:                                      ; preds = %if.then23
   %mul.i.i.i83 = shl i64 %sub5, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr24, ptr align 2 %add.ptr25, i64 %mul.i.i.i83, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr24, ptr readonly align 2 %add.ptr25, i64 %mul.i.i.i83, i1 false)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else.i82, %if.then.i84, %if.end19
@@ -4117,7 +4117,7 @@ if.then.i89:                                      ; preds = %if.then32
 
 if.else.i87:                                      ; preds = %if.then32
   %mul.i.i.i88 = shl i64 %__len2, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %__s, i64 %mul.i.i.i88, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr, ptr readonly align 2 %__s, i64 %mul.i.i.i88, i1 false)
   br label %if.end54
 
 if.else33:                                        ; preds = %if.then28
@@ -4140,7 +4140,7 @@ if.then.i94:                                      ; preds = %if.then36
 
 if.else.i92:                                      ; preds = %if.then36
   %mul.i.i.i93 = shl i64 %__len2, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %add.ptr39, i64 %mul.i.i.i93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr, ptr readonly align 2 %add.ptr39, i64 %mul.i.i.i93, i1 false)
   br label %if.end54
 
 if.else40:                                        ; preds = %if.else33
@@ -4149,39 +4149,39 @@ if.else40:                                        ; preds = %if.else33
   %sub.ptr.sub44 = sub i64 %sub.ptr.lhs.cast42, %sub.ptr.rhs.cast43
   %sub.ptr.div45 = ashr exact i64 %sub.ptr.sub44, 1
   %cmp.i96 = icmp eq i64 %sub.ptr.sub44, 2
-  br i1 %cmp.i96, label %if.then.i98, label %if.else.i97
+  br i1 %cmp.i96, label %if.then.i99, label %if.else.i97
 
-if.then.i98:                                      ; preds = %if.else40
+if.then.i99:                                      ; preds = %if.else40
   %14 = load i16, ptr %__s, align 2
   store i16 %14, ptr %add.ptr, align 2
-  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99
+  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100
 
 if.else.i97:                                      ; preds = %if.else40
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %__s, i64 %sub.ptr.sub44, i1 false)
-  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr, ptr readonly align 2 %__s, i64 %sub.ptr.sub44, i1 false)
+  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100
 
-_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99: ; preds = %if.then.i98, %if.else.i97
+_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100: ; preds = %if.then.i99, %if.else.i97
   %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.ptr.sub44
   %add.ptr47 = getelementptr inbounds i16, ptr %add.ptr, i64 %__len2
   %sub48 = sub i64 %__len2, %sub.ptr.div45
-  %cmp.i100 = icmp eq i64 %sub48, 1
-  br i1 %cmp.i100, label %if.then.i103, label %if.else.i101
+  %cmp.i101 = icmp eq i64 %sub48, 1
+  br i1 %cmp.i101, label %if.then.i104, label %if.else.i102
 
-if.then.i103:                                     ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99
+if.then.i104:                                     ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100
   %15 = load i16, ptr %add.ptr47, align 2
   store i16 %15, ptr %add.ptr46, align 2
   br label %if.end54
 
-if.else.i101:                                     ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99
-  %mul.i.i.i102 = shl i64 %sub48, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr46, ptr nonnull align 2 %add.ptr47, i64 %mul.i.i.i102, i1 false)
+if.else.i102:                                     ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100
+  %mul.i.i.i103 = shl i64 %sub48, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr46, ptr nonnull readonly align 2 %add.ptr47, i64 %mul.i.i.i103, i1 false)
   br label %if.end54
 
 if.else53:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__len1, ptr noundef %__s, i64 noundef %__len2)
   br label %if.end54
 
-if.end54:                                         ; preds = %if.end, %if.else.i101, %if.then.i103, %if.else.i92, %if.then.i94, %if.else.i87, %if.then.i89, %if.else.i73, %if.then.i75, %if.end26, %if.else53
+if.end54:                                         ; preds = %if.end, %if.else.i102, %if.then.i104, %if.else.i92, %if.then.i94, %if.else.i87, %if.then.i89, %if.else.i73, %if.then.i75, %if.end26, %if.else53
   store i64 %sub, ptr %_M_string_length.i.i, align 8
   %16 = load ptr, ptr %this, align 8
   %arrayidx.i = getelementptr inbounds i16, ptr %16, i64 %sub
@@ -4253,7 +4253,7 @@ if.then.i21.i.i:                                  ; preds = %if.then7.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then7.i.i
   %mul.i.i.i.i.i = shl i64 %sub5.i.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr8.i.i, ptr align 2 %add.ptr.i.i, i64 %mul.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr8.i.i, ptr readonly align 2 %add.ptr.i.i, i64 %mul.i.i.i.i.i, i1 false)
   br label %if.then12.i.i
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i
@@ -4355,7 +4355,7 @@ if.then.i21.i:                                    ; preds = %if.then7.i
 
 if.else.i.i:                                      ; preds = %if.then7.i
   %mul.i.i.i.i = shl i64 %sub5.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr8.i, ptr align 2 %add.ptr9.i, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr8.i, ptr readonly align 2 %add.ptr9.i, i64 %mul.i.i.i.i, i1 false)
   br label %if.end10.i
 
 if.else.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
@@ -4594,7 +4594,7 @@ if.then.i21.i:                                    ; preds = %if.then7.i
 
 if.else.i.i:                                      ; preds = %if.then7.i
   %mul.i.i.i.i = shl i64 %sub5.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr8.i, ptr align 2 %add.ptr.i, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr8.i, ptr readonly align 2 %add.ptr.i, i64 %mul.i.i.i.i, i1 false)
   br label %if.then12.i
 
 if.else.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
@@ -4684,7 +4684,7 @@ if.then.i21.i:                                    ; preds = %if.then7.i
 
 if.else.i.i:                                      ; preds = %if.then7.i
   %mul.i.i.i.i = shl i64 %sub5.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr8.i, ptr align 2 %add.ptr.i, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 2 %add.ptr8.i, ptr readonly align 2 %add.ptr.i, i64 %mul.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit
 
 if.else.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
@@ -4746,7 +4746,7 @@ if.then.i.i:                                      ; preds = %if.then.i9
 
 if.else.i.i:                                      ; preds = %if.then.i9
   %mul.i.i.i.i = shl i64 %sub2.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i, ptr nonnull align 2 %add.ptr7.i, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr.i, ptr nonnull readonly align 2 %add.ptr7.i, i64 %mul.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exit: ; preds = %if.then3, %if.then.i.i, %if.else.i.i
@@ -4794,7 +4794,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.else.i.i:                                      ; preds = %if.then.i
   %mul.i.i.i.i = shl i64 %sub2.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i, ptr nonnull align 2 %add.ptr7.i, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr.i, ptr nonnull readonly align 2 %add.ptr7.i, i64 %mul.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exit: ; preds = %entry, %if.then.i.i, %if.else.i.i
@@ -4852,7 +4852,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.else.i.i:                                      ; preds = %if.then.i
   %mul.i.i.i.i = shl i64 %sub2.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i9, ptr nonnull align 2 %add.ptr7.i, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr.i9, ptr nonnull readonly align 2 %add.ptr7.i, i64 %mul.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exit: ; preds = %if.else, %if.then.i.i, %if.else.i.i
@@ -5037,7 +5037,7 @@ if.then.i21.i:                                    ; preds = %if.then7.i
 
 if.else.i.i:                                      ; preds = %if.then7.i
   %mul.i.i.i.i = shl i64 %sub5.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr8.i, ptr align 2 %add.ptr9.i, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr8.i, ptr readonly align 2 %add.ptr9.i, i64 %mul.i.i.i.i, i1 false)
   br label %if.end10.i
 
 if.else.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
@@ -5355,7 +5355,7 @@ if.then.i8:                                       ; preds = %if.then
 
 if.else.i:                                        ; preds = %if.then
   %mul.i.i.i = shl i64 %spec.select.i, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %__s, ptr align 2 %add.ptr, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %__s, ptr readonly align 2 %add.ptr, i64 %mul.i.i.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i8, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -5400,11 +5400,11 @@ land.lhs.true:                                    ; preds = %if.then6
 if.then10:                                        ; preds = %land.lhs.true
   %add = shl nuw nsw i64 %5, 1
   %mul.i.i = add nuw nsw i64 %add, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %__tmp_data, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %mul.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %__tmp_data, ptr noundef nonnull readonly align 8 dereferenceable(1) %4, i64 %mul.i.i, i1 false)
   %add18 = shl nuw nsw i64 %2, 1
   %mul.i.i39 = add nuw nsw i64 %add18, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i39, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 16 dereferenceable(1) %__tmp_data, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %4, ptr noundef nonnull readonly align 8 dereferenceable(1) %1, i64 %mul.i.i39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %1, ptr noundef nonnull readonly align 16 dereferenceable(1) %__tmp_data, i64 %mul.i.i, i1 false)
   br label %if.end79
 
 if.else:                                          ; preds = %if.then6
@@ -5413,7 +5413,7 @@ if.else:                                          ; preds = %if.then6
 if.then29:                                        ; preds = %if.else
   %add33 = shl nuw nsw i64 %5, 1
   %mul.i.i44 = add nuw nsw i64 %add33, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %mul.i.i44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %1, ptr noundef nonnull readonly align 8 dereferenceable(1) %4, i64 %mul.i.i44, i1 false)
   %6 = load i64, ptr %_M_string_length.i32, align 8
   store i64 %6, ptr %_M_string_length.i, align 8
   store i64 0, ptr %_M_string_length.i32, align 8
@@ -5424,7 +5424,7 @@ if.then29:                                        ; preds = %if.else
 if.then41:                                        ; preds = %land.lhs.true
   %add45 = shl nuw nsw i64 %2, 1
   %mul.i.i49 = add nuw nsw i64 %add45, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i49, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %4, ptr noundef nonnull readonly align 8 dereferenceable(1) %1, i64 %mul.i.i49, i1 false)
   %8 = load i64, ptr %_M_string_length.i, align 8
   store i64 %8, ptr %_M_string_length.i32, align 8
   store i64 0, ptr %_M_string_length.i, align 8
@@ -5436,7 +5436,7 @@ if.else53:                                        ; preds = %if.then4
   %10 = load i64, ptr %4, align 8
   %add57 = shl nuw nsw i64 %2, 1
   %mul.i.i54 = add nuw nsw i64 %add57, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %4, ptr noundef nonnull readonly align 8 dereferenceable(1) %1, i64 %mul.i.i54, i1 false)
   store ptr %3, ptr %this, align 8
   store ptr %4, ptr %__s, align 8
   store i64 %10, ptr %1, align 8
@@ -5456,7 +5456,7 @@ if.then66:                                        ; preds = %if.else63
   tail call void @llvm.assume(i1 %cmp3.i58)
   %add70 = shl nuw nsw i64 %14, 1
   %mul.i.i61 = add nuw nsw i64 %add70, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %13, i64 %mul.i.i61, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %1, ptr noundef nonnull readonly align 8 dereferenceable(1) %13, i64 %mul.i.i61, i1 false)
   store ptr %0, ptr %__s, align 8
   store ptr %1, ptr %this, align 8
   br label %if.end78
@@ -6789,7 +6789,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i, %if.end.i.thread.i
   %4 = phi ptr [ %call5.i.i.i.i9.i, %if.end.i.thread.i ], [ %1, %if.end.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr align 2 %add.ptr.i, i64 %add.ptr7.idx.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %add.ptr.i, i64 %add.ptr7.idx.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mm.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i

@@ -131,7 +131,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN10aiMaterialD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10aiMaterialD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @aiGetMaterialProperty(ptr nocapture noundef readonly %pMat, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pPropOut) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr nocapture noundef readonly %pMat, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pPropOut) local_unnamed_addr #0 {
 entry:
   %mNumProperties = getelementptr inbounds i8, ptr %pMat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -258,12 +258,12 @@ return:                                           ; preds = %for.inc, %land.lhs.
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @aiGetMaterialFloatArray(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
 entry:
   %pKey.addr = alloca ptr, align 8
   %prop = alloca ptr, align 8
   store ptr %pKey, ptr %pKey.addr, align 8
-  %call = call i32 @aiGetMaterialProperty(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop), !range !6
+  %call = call i32 @aiGetMaterialProperty(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop)
   %0 = load ptr, ptr %prop, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -309,7 +309,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store float %6, ptr %arrayidx11, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond80.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %if.end8
   br i1 %tobool.not, label %return, label %if.then13
@@ -350,7 +350,7 @@ for.body29:                                       ; preds = %for.body29.lr.ph, %
   store float %conv33, ptr %arrayidx35, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %for.end38, label %for.body29, !llvm.loop !8
+  br i1 %exitcond75.not, label %for.end38, label %for.body29, !llvm.loop !7
 
 for.end38:                                        ; preds = %for.body29, %if.end25
   br i1 %tobool22.not, label %return, label %if.then40
@@ -391,7 +391,7 @@ for.body57:                                       ; preds = %for.body57.lr.ph, %
   store float %conv61, ptr %arrayidx63, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end66, label %for.body57, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end66, label %for.body57, !llvm.loop !8
 
 for.end66:                                        ; preds = %for.body57, %if.end53
   br i1 %tobool50.not, label %return, label %if.then68
@@ -441,7 +441,7 @@ for.inc87:                                        ; preds = %if.end82, %if.end82
   %arrayidx78 = getelementptr inbounds float, ptr %pOut, i64 %indvars.iv.next82
   %call79 = tail call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %call7969, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx78, i1 noundef zeroext true)
   %cmp80 = icmp eq i64 %indvars.iv.next82, %19
-  br i1 %cmp80, label %for.end89, label %if.end82, !llvm.loop !10
+  br i1 %cmp80, label %for.end89, label %if.end82, !llvm.loop !9
 
 for.end89:                                        ; preds = %for.inc87, %if.end73
   br i1 %tobool71.not, label %return, label %if.then91
@@ -733,13 +733,13 @@ lpad6:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @aiGetMaterialIntegerArray(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
 entry:
   %in.addr.i = alloca ptr, align 8
   %pKey.addr = alloca ptr, align 8
   %prop = alloca ptr, align 8
   store ptr %pKey, ptr %pKey.addr, align 8
-  %call = call i32 @aiGetMaterialProperty(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop), !range !6
+  %call = call i32 @aiGetMaterialProperty(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop)
   %0 = load ptr, ptr %prop, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -798,7 +798,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %8, ptr %arrayidx18, align 4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %if.end19, label %for.body, !llvm.loop !11
+  br i1 %exitcond68.not, label %if.end19, label %for.body, !llvm.loop !10
 
 if.end19:                                         ; preds = %for.body, %for.cond.preheader, %if.then13
   br i1 %tobool7.not, label %return, label %if.then21
@@ -839,7 +839,7 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   store i32 %conv42, ptr %arrayidx44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end47, label %for.body38, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end47, label %for.body38, !llvm.loop !11
 
 for.end47:                                        ; preds = %for.body38, %if.end34
   br i1 %tobool31.not, label %return, label %if.then49
@@ -902,7 +902,7 @@ if.end.i.i:                                       ; preds = %if.end.i, %if.end.i
   %22 = load i8, ptr %incdec.ptr.i.i, align 1
   %23 = add i8 %22, -58
   %or.cond.i.i = icmp ult i8 %23, -10
-  br i1 %or.cond.i.i, label %for.end.i.i, label %if.end.i.i, !llvm.loop !13
+  br i1 %or.cond.i.i, label %for.end.i.i, label %if.end.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.i28, label %if.then4.i, label %_ZN6Assimp8strtol10EPKcPS1_.exit
@@ -948,7 +948,7 @@ if.then65:                                        ; preds = %if.end63
 
 for.inc68:                                        ; preds = %if.end63, %if.end63
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  br label %for.cond57, !llvm.loop !14
+  br label %for.cond57, !llvm.loop !13
 
 for.end70:                                        ; preds = %_ZN6Assimp8strtol10EPKcPS1_.exit
   br i1 %tobool52.not, label %return, label %if.then72
@@ -1008,11 +1008,11 @@ lpad6:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @aiGetMaterialColor(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialColor(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut) local_unnamed_addr #2 {
 entry:
   %iMax = alloca i32, align 4
   store i32 4, ptr %iMax, align 4
-  %call = call i32 @aiGetMaterialFloatArray(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef nonnull %iMax), !range !6
+  %call = call i32 @aiGetMaterialFloatArray(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef nonnull %iMax)
   %0 = load i32, ptr %iMax, align 4
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -1027,21 +1027,21 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @aiGetMaterialUVTransform(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialUVTransform(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut) local_unnamed_addr #2 {
 entry:
   %iMax = alloca i32, align 4
   store i32 5, ptr %iMax, align 4
-  %call = call i32 @aiGetMaterialFloatArray(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef nonnull %iMax), !range !6
+  %call = call i32 @aiGetMaterialFloatArray(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef nonnull %iMax)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @aiGetMaterialString(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pOut) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialString(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pOut) local_unnamed_addr #2 {
 entry:
   %pKey.addr = alloca ptr, align 8
   %prop = alloca ptr, align 8
   store ptr %pKey, ptr %pKey.addr, align 8
-  %call = call i32 @aiGetMaterialProperty(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop), !range !6
+  %call = call i32 @aiGetMaterialProperty(ptr noundef %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop)
   %0 = load ptr, ptr %prop, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1167,7 +1167,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %max.1 = phi i32 [ %max.011, %for.body ], [ %.sroa.speculated, %if.then ], [ %max.011, %land.lhs.true2 ], [ %max.011, %land.lhs.true ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry
   %max.0.lcssa = phi i32 [ 0, %entry ], [ %max.1, %for.inc ]
@@ -1175,7 +1175,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @aiGetMaterialTexture(ptr nocapture noundef readonly %mat, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %path, ptr noundef writeonly %_mapping, ptr noundef writeonly %uvindex, ptr noundef %blend, ptr noundef writeonly %op, ptr noundef writeonly %mapmode, ptr noundef writeonly %flags) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialTexture(ptr nocapture noundef readonly %mat, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %path, ptr noundef writeonly %_mapping, ptr noundef writeonly %uvindex, ptr noundef %blend, ptr noundef writeonly %op, ptr noundef writeonly %mapmode, ptr noundef writeonly %flags) local_unnamed_addr #2 {
 entry:
   %pKey.addr.i = alloca ptr, align 8
   %prop.i = alloca ptr, align 8
@@ -1183,7 +1183,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pKey.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prop.i)
   store ptr @.str.4, ptr %pKey.addr.i, align 8
-  %call.i = call i32 @aiGetMaterialProperty(ptr noundef %mat, ptr noundef nonnull @.str.4, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop.i), !range !6
+  %call.i = call i32 @aiGetMaterialProperty(ptr noundef readonly %mat, ptr noundef nonnull @.str.4, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop.i)
   %0 = load ptr, ptr %prop.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %aiGetMaterialString.exit.thread, label %if.end.i
@@ -1214,11 +1214,11 @@ if.end:                                           ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 4
   %add.i = add i32 %3, 1
   %conv.i = zext i32 %add.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr nonnull align 1 %add.ptr.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %data.i, ptr nonnull align 1 %add.ptr.i, i64 %conv.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pKey.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %prop.i)
   store i32 0, ptr %mapping_, align 4
-  %call.i30 = call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.5, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %mapping_, ptr noundef null), !range !6
+  %call.i30 = call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.5, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %mapping_, ptr noundef null)
   %5 = load i32, ptr %mapping_, align 4
   %tobool.not = icmp eq ptr %_mapping, null
   br i1 %tobool.not, label %if.end3, label %if.then2
@@ -1234,7 +1234,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %or.cond, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end3
-  %call.i31 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.6, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %uvindex, ptr noundef null), !range !6
+  %call.i31 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.6, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %uvindex, ptr noundef null)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end3
@@ -1242,7 +1242,7 @@ if.end8:                                          ; preds = %if.then6, %if.end3
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %call.i32 = tail call i32 @aiGetMaterialFloatArray(ptr noundef %mat, ptr noundef nonnull @.str.7, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %blend, ptr noundef null), !range !6
+  %call.i32 = tail call i32 @aiGetMaterialFloatArray(ptr noundef %mat, ptr noundef nonnull @.str.7, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %blend, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
@@ -1250,7 +1250,7 @@ if.end12:                                         ; preds = %if.then10, %if.end8
   br i1 %tobool13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %call.i33 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.8, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %op, ptr noundef null), !range !6
+  %call.i33 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.8, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %op, ptr noundef null)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.end12
@@ -1258,9 +1258,9 @@ if.end16:                                         ; preds = %if.then14, %if.end1
   br i1 %tobool17.not, label %if.end22, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %call.i34 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.9, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %mapmode, ptr noundef null), !range !6
+  %call.i34 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.9, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %mapmode, ptr noundef null)
   %arrayidx20 = getelementptr inbounds i8, ptr %mapmode, i64 4
-  %call.i35 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.10, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %arrayidx20, ptr noundef null), !range !6
+  %call.i35 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.10, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %arrayidx20, ptr noundef null)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then18, %if.end16
@@ -1268,7 +1268,7 @@ if.end22:                                         ; preds = %if.then18, %if.end1
   br i1 %tobool23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %call.i36 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.11, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %flags, ptr noundef null), !range !6
+  %call.i36 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.11, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %flags, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %aiGetMaterialString.exit.thread, %if.end22, %if.then24
@@ -1329,7 +1329,7 @@ for.inc.i:                                        ; preds = %_ZN18aiMaterialProp
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = zext i32 %5 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %6
-  br i1 %cmp.i, label %for.body.i, label %_ZN10aiMaterial5ClearEv.exit, !llvm.loop !16
+  br i1 %cmp.i, label %for.body.i, label %_ZN10aiMaterial5ClearEv.exit, !llvm.loop !15
 
 _ZN10aiMaterial5ClearEv.exit:                     ; preds = %for.inc.i, %entry
   store i32 0, ptr %mNumProperties.i, align 8
@@ -1382,7 +1382,7 @@ for.inc:                                          ; preds = %for.body, %_ZN18aiM
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = zext i32 %5 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %6
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc, %entry
   store i32 0, ptr %mNumProperties, align 8
@@ -1424,7 +1424,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %data.i1 = getelementptr inbounds i8, ptr %2, i64 4
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i1, ptr noundef nonnull dereferenceable(10) @.str.12) #17
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i1, ptr noundef nonnull readonly dereferenceable(10) @.str.12) #17
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %land.lhs.true2.i, label %for.inc.i
 
@@ -1459,7 +1459,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %add.i.i = add i32 %7, 1
   %conv.i.i = zext i32 %add.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr nonnull align 1 %add.ptr.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %data.i, ptr nonnull align 1 %add.ptr.i.i, i64 %conv.i.i, i1 false)
   br label %_ZNK10aiMaterial3GetEPKcjjR8aiString.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -1476,7 +1476,7 @@ _ZNK10aiMaterial3GetEPKcjjR8aiString.exit:        ; preds = %for.inc.i, %entry, 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN10aiMaterial14RemovePropertyEPKcjj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN10aiMaterial14RemovePropertyEPKcjj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #7 align 2 {
 entry:
   %mNumProperties = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -1514,7 +1514,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true3
   br i1 %cmp6, label %delete.notnull, label %for.inc21
 
 delete.notnull:                                   ; preds = %land.lhs.true5
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %mData.i = getelementptr inbounds i8, ptr %2, i64 1048
   %6 = load ptr, ptr %mData.i, align 8
   %isnull.i = icmp eq ptr %6, null
@@ -1543,12 +1543,12 @@ for.body14:                                       ; preds = %_ZN18aiMaterialProp
   %10 = load i32, ptr %mNumProperties, align 8
   %11 = zext i32 %10 to i64
   %cmp13 = icmp ult i64 %indvars.iv.next24, %11
-  br i1 %cmp13, label %for.body14, label %return, !llvm.loop !17
+  br i1 %cmp13, label %for.body14, label %return, !llvm.loop !16
 
 for.inc21:                                        ; preds = %for.body, %land.lhs.true, %land.lhs.true3, %land.lhs.true5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
 
 return:                                           ; preds = %for.inc21, %for.body14, %entry, %_ZN18aiMaterialPropertyD2Ev.exit
   %retval.0 = phi i32 [ 0, %_ZN18aiMaterialPropertyD2Ev.exit ], [ -1, %entry ], [ 0, %for.body14 ], [ -1, %for.inc21 ]
@@ -1556,7 +1556,7 @@ return:                                           ; preds = %for.inc21, %for.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pInput, i32 noundef %pSizeInBytes, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index, i32 noundef %pType) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -3, 1) i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pInput, i32 noundef %pSizeInBytes, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index, i32 noundef %pType) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pcNew = alloca %"class.std::unique_ptr", align 8
   %cmp = icmp eq i32 %pSizeInBytes, 0
@@ -1608,7 +1608,7 @@ delete.notnull.i:                                 ; preds = %delete.notnull
 
 _ZN18aiMaterialPropertyD2Ev.exit:                 ; preds = %delete.notnull, %delete.notnull.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #21
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %.pre = load i32, ptr %mNumProperties, align 8
   br label %for.inc
 
@@ -1618,7 +1618,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = zext i32 %8 to i64
   %cmp2 = icmp ult i64 %indvars.iv.next, %9
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %.pre2931 = phi i32 [ 0, %for.cond.preheader ], [ %8, %for.inc ]
@@ -1790,11 +1790,11 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pInput, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -3, 1) i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pInput, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %pInput, align 4
   %add2 = add i32 %0, 5
-  %call = tail call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %pInput, i32 noundef %add2, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, i32 noundef 3), !range !20
+  %call = tail call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %pInput, i32 noundef %add2, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, i32 noundef 3)
   ret i32 %call
 }
 
@@ -1893,7 +1893,7 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = zext i32 %20 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %21
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %entry
   %hash.0.lcssa = phi i32 [ 1503, %entry ], [ %hash.1, %for.inc ]
@@ -1944,7 +1944,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add21 = add i32 %shr20, %xor18
   %dec = add nsw i32 %len.addr.151, -1
   %cmp4.not = icmp eq i32 %dec, 0
-  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %if.end3
   %hash.addr.0.lcssa = phi i32 [ %hash, %if.end3 ], [ %add21, %for.body ]
@@ -2050,7 +2050,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr %6, ptr %arrayidx10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !21
 
 if.end:                                           ; preds = %entry
   br i1 %tobool7, label %delete.notnull, label %if.end13
@@ -2134,9 +2134,9 @@ _ZN18aiMaterialPropertyD2Ev.exit:                 ; preds = %delete.notnull40, %
   tail call void @_ZdlPv(ptr noundef nonnull %12) #21
   %20 = load ptr, ptr %pcDest, align 8
   %arrayidx44 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv67
-  %21 = getelementptr ptr, ptr %20, i64 %indvars.iv67
-  %arrayidx48 = getelementptr i8, ptr %21, i64 8
-  %22 = trunc i64 %indvars.iv67 to i32
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv67
+  %arrayidx48 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = trunc nuw i64 %indvars.iv67 to i32
   %sub = sub i32 %i14.162, %22
   %conv49 = zext i32 %sub to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx44, ptr nonnull align 8 %arrayidx48, i64 %conv49, i1 false)
@@ -2150,7 +2150,7 @@ for.inc53:                                        ; preds = %land.lhs.true29, %f
   %i14.2 = phi i32 [ %dec, %_ZN18aiMaterialPropertyD2Ev.exit ], [ %i14.162, %land.lhs.true35 ], [ %i14.162, %land.lhs.true32 ], [ %i14.162, %_ZNK8aiStringeqERKS_.exit ], [ %i14.162, %for.body24 ], [ %i14.162, %land.lhs.true29 ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count71
-  br i1 %exitcond72.not, label %for.end55.loopexit, label %for.body24, !llvm.loop !24
+  br i1 %exitcond72.not, label %for.end55.loopexit, label %for.body24, !llvm.loop !22
 
 for.end55.loopexit:                               ; preds = %for.inc53
   %.pre73 = zext i32 %i14.2 to i64
@@ -2211,7 +2211,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %for.end55, %if.end.
   %inc77 = add i32 %i14.1.lcssa, 1
   %32 = load i32, ptr %mNumProperties, align 8
   %cmp17 = icmp ult i32 %inc77, %32
-  br i1 %cmp17, label %for.body18, label %for.end78, !llvm.loop !25
+  br i1 %cmp17, label %for.body18, label %for.end78, !llvm.loop !23
 
 for.end78:                                        ; preds = %_ZN8aiStringaSERKS_.exit, %if.end13
   ret void
@@ -2420,7 +2420,7 @@ for.body.i.i:                                     ; preds = %.noexc, %for.body.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
-  br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !26
+  br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !24
 
 cond.end.thread4:                                 ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
@@ -2509,7 +2509,7 @@ if.end12.us:                                      ; preds = %if.end18.us
   %sub.us = zext nneg i8 %narrow.us to i64
   %add.us = add i64 %mul.us, %sub.us
   %cmp15.us = icmp ult i64 %add.us, %add.us82
-  br i1 %cmp15.us, label %if.then16, label %if.end18.us, !llvm.loop !27
+  br i1 %cmp15.us, label %if.then16, label %if.end18.us, !llvm.loop !25
 
 if.end18.us:                                      ; preds = %if.end12.lr.ph, %if.end12.us
   %add.us82 = phi i64 [ %add.us, %if.end12.us ], [ %sub.us79, %if.end12.lr.ph ]
@@ -2520,7 +2520,7 @@ if.end18.us:                                      ; preds = %if.end12.lr.ph, %if
   %3 = load i8, ptr %incdec.ptr.us, align 1
   %4 = add i8 %3, -58
   %or.cond14.us = icmp ult i8 %4, -10
-  br i1 %or.cond14.us, label %for.end, label %if.end12.us, !llvm.loop !27
+  br i1 %or.cond14.us, label %for.end, label %if.end12.us, !llvm.loop !25
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
@@ -2565,7 +2565,7 @@ if.end12:                                         ; preds = %if.end29
   %sub = zext nneg i8 %narrow to i64
   %add = add i64 %mul, %sub
   %cmp15 = icmp ult i64 %add, %add77
-  br i1 %cmp15, label %if.then16, label %if.end18, !llvm.loop !27
+  br i1 %cmp15, label %if.then16, label %if.end18, !llvm.loop !25
 
 if.then16:                                        ; preds = %if.end12, %if.end12.us
   %storemerge64 = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %incdec.ptr, %if.end12 ]
@@ -2601,7 +2601,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %10 = load i8, ptr %incdec.ptr27, align 1
   %11 = add i8 %10, -48
   %or.cond15 = icmp ult i8 %11, 10
-  br i1 %or.cond15, label %while.body, label %while.end, !llvm.loop !28
+  br i1 %or.cond15, label %while.body, label %while.end, !llvm.loop !26
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %.lcssa = phi ptr [ %incdec.ptr, %while.cond.preheader ], [ %incdec.ptr27, %while.body ]
@@ -2612,7 +2612,7 @@ if.end29:                                         ; preds = %if.end18
   %12 = load i8, ptr %incdec.ptr, align 1
   %13 = add i8 %12, -58
   %or.cond14 = icmp ult i8 %13, -10
-  br i1 %or.cond14, label %for.end, label %if.end12, !llvm.loop !27
+  br i1 %or.cond14, label %for.end, label %if.end12, !llvm.loop !25
 
 for.end:                                          ; preds = %if.end29, %if.end18.us
   %storemerge = phi ptr [ %incdec.ptr.us, %if.end18.us ], [ %incdec.ptr, %if.end29 ]
@@ -3468,7 +3468,7 @@ attributes #21 = { builtin nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 1}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -3482,12 +3482,10 @@ attributes #21 = { builtin nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 -3, i32 1}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

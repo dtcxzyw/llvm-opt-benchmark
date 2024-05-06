@@ -223,7 +223,7 @@ list_length.exit:                                 ; preds = %70, %72
   store ptr %88, ptr %90, align 8
   %91 = load ptr, ptr %80, align 8
   %92 = getelementptr %struct.CteItem, ptr %91, i64 %indvars.iv197, i32 1
-  %93 = trunc i64 %indvars.iv197 to i32
+  %93 = trunc nuw nsw i64 %indvars.iv197 to i32
   store i32 %93, ptr %92, align 8
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %94 = load i32, ptr %82, align 4
@@ -250,7 +250,7 @@ list_length.exit:                                 ; preds = %70, %72
   %102 = load ptr, ptr %80, align 8
   %103 = getelementptr %struct.CteItem, ptr %102, i64 %indvars.iv.i
   %104 = load ptr, ptr %103, align 8
-  %105 = trunc i64 %indvars.iv.i to i32
+  %105 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %105, ptr %99, align 4
   store ptr null, ptr %100, align 8
   %106 = getelementptr inbounds i8, ptr %104, i64 32
@@ -411,7 +411,7 @@ makeDependencyGraph.exit:                         ; preds = %.loopexit.i.i
   unreachable
 
 184:                                              ; preds = %171
-  %185 = trunc i64 %indvars.iv.i90 to i32
+  %185 = trunc nuw nsw i64 %indvars.iv.i90 to i32
   store i32 %185, ptr %99, align 4
   store ptr null, ptr %100, align 8
   store i32 0, ptr %146, align 8
@@ -1566,7 +1566,7 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   br i1 %48, label %49, label %64
 
 49:                                               ; preds = %42
-  %50 = trunc i64 %indvars.iv170 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv170 to i32
   %51 = getelementptr inbounds i8, ptr %1, i64 20
   %52 = load i32, ptr %51, align 4
   %.not100 = icmp eq i32 %52, %50

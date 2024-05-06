@@ -87,7 +87,7 @@ define noalias noundef ptr @Gia_ManEraCreate(ptr noundef %0) local_unnamed_addr 
 
 36:                                               ; preds = %.lr.ph.i
   %37 = add nuw nsw i32 %.01116.i, 2
-  %38 = mul nsw i32 %37, %37
+  %38 = mul nuw nsw i32 %37, %37
   %.not.i = icmp ugt i32 %38, %34
   br i1 %.not.i, label %Vec_PtrPush.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -159,7 +159,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
 
 66:                                               ; preds = %.preheader26.us.us.i, %66
   %indvars.iv64.i = phi i64 [ 0, %.preheader26.us.us.i ], [ %indvars.iv.next65.i, %66 ]
-  %67 = trunc i64 %indvars.iv64.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv64.i to i32
   %68 = and i32 %76, %67
   %.not.us.us.i = icmp ne i32 %68, 0
   %spec.select.i = sext i1 %.not.us.us.i to i32
@@ -478,7 +478,7 @@ define void @Gia_ManEraHashResize(ptr nocapture noundef %0) local_unnamed_addr #
 
 10:                                               ; preds = %.lr.ph.i
   %11 = add nuw nsw i32 %.01116.i, 2
-  %12 = mul nsw i32 %11, %11
+  %12 = mul nuw nsw i32 %11, %11
   %.not.i = icmp ugt i32 %12, %8
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -577,7 +577,7 @@ Gia_ManEraStateHash.exit.i:                       ; preds = %.lr.ph.i.i, %.lr.ph
 54:                                               ; preds = %58, %.lr.ph.i43
   %.02236.i = phi ptr [ %51, %.lr.ph.i43 ], [ %61, %58 ]
   %55 = getelementptr inbounds i8, ptr %.02236.i, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %32, ptr nonnull %55, i64 %53)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %32, ptr nonnull %55, i64 %53)
   %.not29.i = icmp ne i32 %bcmp.i, 0
   tail call void @llvm.assume(i1 %.not29.i)
   %56 = getelementptr inbounds i8, ptr %.02236.i, i64 12
@@ -732,7 +732,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
 15:                                               ; preds = %8
   %.val54.i = load i32, ptr %6, align 8
   %.val55.i = load ptr, ptr %7, align 8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = mul nsw i32 %.val54.i, %16
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %.val55.i, i64 %18
@@ -743,7 +743,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i32, ptr %.val55.i, i64 %24
   %26 = lshr i64 %.val13, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 536870911
   %29 = sub nsw i32 %16, %28
   %30 = mul nsw i32 %.val54.i, %29
@@ -853,7 +853,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
 74:                                               ; preds = %73
   %.val23.i = load i32, ptr %6, align 8
   %.val24.i = load ptr, ptr %7, align 8
-  %75 = trunc i64 %indvars.iv to i32
+  %75 = trunc nuw nsw i64 %indvars.iv to i32
   %76 = mul nsw i32 %.val23.i, %75
   %77 = sext i32 %76 to i64
   %78 = getelementptr i32, ptr %.val24.i, i64 %77
@@ -1033,7 +1033,7 @@ Vec_IntPush.exit17:                               ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %49 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4
-  %51 = trunc i64 %indvars.iv.i to i32
+  %51 = trunc nuw nsw i64 %indvars.iv.i to i32
   %52 = xor i32 %51, -1
   %53 = add i32 %.pre, %52
   %54 = sext i32 %53 to i64
@@ -1102,7 +1102,7 @@ define i32 @Gia_ManCountDepth(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManAnalyzeResult(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Gia_ManAnalyzeResult(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 16
@@ -1156,7 +1156,7 @@ define noundef i32 @Gia_ManAnalyzeResult(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not.i.us, label %31, label %21
 
 21:                                               ; preds = %.lr.ph.i.us
-  %22 = trunc i64 %indvars.iv.i.us to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   %23 = shl nsw i32 %22, 5
   br label %24
 
@@ -1352,7 +1352,7 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   %118 = icmp ne i32 %117, 0
   %119 = icmp ult i64 %indvars.iv213, 32
   %or.cond = and i1 %119, %118
-  %120 = trunc i64 %indvars.iv213 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv213 to i32
   %121 = shl nuw i32 1, %120
   %122 = select i1 %or.cond, i32 %121, i32 0
   %123 = xor i32 %111, %122
@@ -1415,7 +1415,7 @@ Gia_ManEraStateHash.exit.i:                       ; preds = %.lr.ph.i.i, %.crite
 148:                                              ; preds = %153, %.lr.ph.i124
   %.02236.i = phi ptr [ %145, %.lr.ph.i124 ], [ %156, %153 ]
   %149 = getelementptr inbounds i8, ptr %.02236.i, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %126, ptr nonnull %149, i64 %147)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %126, ptr nonnull %149, i64 %147)
   %.not29.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not29.i, label %Gia_ManEraHashFind.exit.thread, label %150
 
@@ -1900,7 +1900,7 @@ Vec_IntPush.exit161:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManCollectReachable(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Gia_ManCollectReachable(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -2077,7 +2077,7 @@ Gia_ManEraStateHash.exit:                         ; preds = %.lr.ph.i, %Abc_Cloc
 
 Gia_ManInsertState.exit:                          ; preds = %78, %101, %71
   call void @Gia_ManPerformOneIter(ptr noundef nonnull %18)
-  %104 = call i32 @Gia_ManAnalyzeResult(ptr noundef nonnull %18, ptr noundef %65, i32 noundef %2, i32 noundef %3), !range !33
+  %104 = call i32 @Gia_ManAnalyzeResult(ptr noundef nonnull %18, ptr noundef %65, i32 noundef %2, i32 noundef %3)
   %105 = icmp ne i32 %104, 0
   %or.cond = and i1 %53, %105
   %106 = load i32, ptr %44, align 8
@@ -2199,7 +2199,7 @@ Abc_Clock.exit81:                                 ; preds = %Gia_ManCountDepth.e
   %.val70 = load i32, ptr %170, align 4
   %171 = add nsw i32 %.val70, -1
   %172 = icmp slt i32 %169, %171
-  br i1 %172, label %55, label %.loopexit, !llvm.loop !34
+  br i1 %172, label %55, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.backedge, %Gia_ManEraStateHash.exit, %107, %58
   %173 = phi ptr [ %56, %58 ], [ %.pre112, %107 ], [ %47, %Gia_ManEraStateHash.exit ], [ %168, %.backedge ]
@@ -2326,7 +2326,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #22
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #22
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2345,7 +2345,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2370,19 +2370,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
@@ -2413,8 +2413,8 @@ attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -2460,5 +2460,4 @@ attributes #24 = { nounwind willreturn memory(read) }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = !{i32 0, i32 2}
-!34 = distinct !{!34, !5}
+!33 = distinct !{!33, !5}

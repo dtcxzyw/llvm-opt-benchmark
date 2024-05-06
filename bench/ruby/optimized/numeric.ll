@@ -163,7 +163,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.136 = private unnamed_addr constant [8 x i8] c"numeric\00", align 1
 @.str.137 = private unnamed_addr constant [15 x i8] c"not an Integer\00", align 1
 @.str.138 = private unnamed_addr constant [26 x i8] c"coerce must return [x, y]\00", align 1
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @flo_cmp.rbimpl_id = internal unnamed_addr global i64 0, align 8
 @.str.139 = private unnamed_addr constant [7 x i8] c"%-.10g\00", align 1
 @.str.140 = private unnamed_addr constant [51 x i8] c"integer %ld too small to convert to 'unsigned int'\00", align 1
@@ -217,7 +217,7 @@ define dso_local void @rb_num_zerodiv() local_unnamed_addr #0 {
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @rb_num_get_rounding_option(i64 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @rb_num_get_rounding_option(i64 noundef %0) local_unnamed_addr #2 {
   %2 = alloca i64, align 8
   %3 = icmp eq i64 %0, 4
   br i1 %3, label %53, label %4
@@ -344,7 +344,7 @@ declare i32 @rb_memcicmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @rb_num_to_uint(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 4) i32 @rb_num_to_uint(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = and i64 %0, 1
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %11, label %4
@@ -389,7 +389,7 @@ define hidden i32 @rb_num_to_uint(i64 noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_int_positive_p(i64 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @rb_int_positive_p(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %5, label %3
@@ -429,7 +429,7 @@ int_pos_p.exit:                                   ; preds = %3, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_int_negative_p(i64 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @rb_int_negative_p(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %5, label %3
@@ -469,13 +469,13 @@ int_neg_p.exit:                                   ; preds = %3, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_num_negative_p(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %0), !range !10
+define hidden range(i32 0, 2) i32 @rb_num_negative_p(i64 noundef %0) local_unnamed_addr #2 {
+  %2 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_num_negative_int_p(i64 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @rb_num_negative_int_p(i64 noundef %0) unnamed_addr #2 {
   %2 = alloca i64, align 8
   %3 = and i64 %0, 1
   %.not25 = icmp eq i64 %3, 0
@@ -834,7 +834,7 @@ ensure_cmp.exit:                                  ; preds = %36
 declare void @rb_cmperr(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_int_zero_p(i64 noundef %0) local_unnamed_addr #2 {
+define hidden range(i64 0, 21) i64 @rb_int_zero_p(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %5, label %3
@@ -2451,7 +2451,7 @@ num_equal.exit:                                   ; preds = %52, %RB_FLOAT_TYPE_
 declare i64 @rb_integer_float_eq(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @rb_dbl_cmp(double noundef %0, double noundef %1) local_unnamed_addr #9 {
+define dso_local range(i64 -1, 5) i64 @rb_dbl_cmp(double noundef %0, double noundef %1) local_unnamed_addr #9 {
   %or.cond = fcmp uno double %0, %1
   br i1 %or.cond, label %9, label %3
 
@@ -2643,7 +2643,7 @@ RB_FLOAT_TYPE_P.exit.thread40:                    ; preds = %33, %RB_FLOAT_TYPE_
   %60 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.117, i64 noundef 9) #23
   store i64 %60, ptr @flo_cmp.rbimpl_id, align 8
   %.not.i33 = icmp eq i64 %60, 0
-  br i1 %.not.i33, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !11
+  br i1 %.not.i33, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !10
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %59
   %.lcssa.i = phi i64 [ %.pr.i, %59 ], [ %60, %.lr.ph.i ]
@@ -2792,7 +2792,7 @@ RB_FLOAT_TYPE_P.exit.thread22:                    ; preds = %32, %RB_FLOAT_TYPE_
 declare i64 @rb_integer_float_cmp(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_float_eql(i64 noundef %0, i64 noundef %1) #10 {
+define hidden range(i64 0, 21) i64 @rb_float_eql(i64 noundef %0, i64 noundef %1) #10 {
   %3 = and i64 %1, 3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %RB_FLOAT_TYPE_P.exit.thread, label %5
@@ -2939,7 +2939,7 @@ rb_float_new_inline.exit:                         ; preds = %22, %26, %28
 declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_flo_is_infinite_p(i64 noundef %0) #10 {
+define hidden range(i64 1, 0) i64 @rb_flo_is_infinite_p(i64 noundef %0) #10 {
   %2 = and i64 %0, 3
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %4, label %11
@@ -2974,7 +2974,7 @@ rb_float_value_inline.exit:                       ; preds = %4, %5, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_flo_is_finite_p(i64 noundef %0) #10 {
+define hidden range(i64 0, 21) i64 @rb_flo_is_finite_p(i64 noundef %0) #10 {
   %2 = and i64 %0, 3
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %4, label %11
@@ -4001,7 +4001,7 @@ define internal fastcc i64 @int_pow(i64 noundef %0, i64 noundef %1) unnamed_addr
   %20 = lshr exact i64 %.15089, 1
   %21 = and i64 %.15089, 2
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %18, %14
   %.253.lcssa = phi i64 [ %.152, %14 ], [ %19, %18 ]
@@ -4053,7 +4053,7 @@ define internal fastcc i64 @int_pow(i64 noundef %0, i64 noundef %1) unnamed_addr
   %43 = mul i64 %.253.lcssa, %.1
   %44 = add nsw i64 %.150.lcssa, -1
   %.not59 = icmp eq i64 %44, 0
-  br i1 %.not59, label %45, label %14, !llvm.loop !14
+  br i1 %.not59, label %45, label %14, !llvm.loop !13
 
 45:                                               ; preds = %42
   %46 = sub i64 0, %43
@@ -4380,7 +4380,7 @@ define hidden double @ruby_float_step_size(double noundef %0, double noundef %1,
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @ruby_float_step(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @ruby_float_step(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = and i64 %0, 3
   %7 = icmp eq i64 %6, 2
   br i1 %7, label %RB_FLOAT_TYPE_P.exit.thread, label %8
@@ -4604,7 +4604,7 @@ rb_float_new_inline.exit50.us:                    ; preds = %116, %112, %110
   %123 = add i64 %.03372.us, 1
   %124 = sitofp i64 %123 to double
   %125 = fcmp ogt double %97, %124
-  br i1 %125, label %.lr.ph.split.us, label %RB_FLOAT_TYPE_P.exit40.thread58, !llvm.loop !15
+  br i1 %125, label %.lr.ph.split.us, label %RB_FLOAT_TYPE_P.exit40.thread58, !llvm.loop !14
 
 126:                                              ; preds = %50
   %127 = fcmp ogt double %39, 0.000000e+00
@@ -4738,7 +4738,7 @@ rb_float_new_inline.exit50:                       ; preds = %180, %184, %186
   %193 = add i64 %.03372, 1
   %194 = sitofp i64 %193 to double
   %195 = fcmp ogt double %97, %194
-  br i1 %195, label %.lr.ph.split, label %RB_FLOAT_TYPE_P.exit40.thread58, !llvm.loop !15
+  br i1 %195, label %.lr.ph.split, label %RB_FLOAT_TYPE_P.exit40.thread58, !llvm.loop !14
 
 RB_FLOAT_TYPE_P.exit40.thread58:                  ; preds = %rb_float_new_inline.exit50, %rb_float_new_inline.exit50.us, %64, %82, %.preheader, %30, %RB_FLOAT_TYPE_P.exit40, %rb_float_new_inline.exit, %126
   %.032 = phi i32 [ 1, %126 ], [ 1, %rb_float_new_inline.exit ], [ 0, %RB_FLOAT_TYPE_P.exit40 ], [ 0, %30 ], [ 1, %.preheader ], [ 1, %82 ], [ 1, %64 ], [ 1, %rb_float_new_inline.exit50.us ], [ 1, %rb_float_new_inline.exit50 ]
@@ -6034,9 +6034,9 @@ define dso_local i64 @rb_enc_uint_chr(i32 noundef %0, ptr noundef %1) local_unna
 
 9:                                                ; preds = %2
   %10 = sext i32 %3 to i64
-  %11 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %10, ptr noundef %1) #23, !callees !16
+  %11 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %10, ptr noundef %1) #23, !callees !15
   %12 = inttoptr i64 %11 to ptr
-  %13 = load i64, ptr %12, align 8, !noalias !17
+  %13 = load i64, ptr %12, align 8, !noalias !16
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
   %15 = getelementptr inbounds i8, ptr %12, i64 24
@@ -6051,7 +6051,7 @@ RSTRING_PTR.exit:                                 ; preds = %9, %16
   %17 = getelementptr inbounds i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(i32 noundef %0, ptr noundef %.sroa.2.0.i, ptr noundef %1) #23
-  %20 = load i64, ptr %12, align 8, !noalias !20
+  %20 = load i64, ptr %12, align 8, !noalias !19
   %21 = and i64 %20, 8192
   %.not.i.i18 = icmp eq i64 %21, 0
   br i1 %.not.i.i18, label %RSTRING_END.exit, label %22
@@ -6156,7 +6156,7 @@ define dso_local i64 @rb_fix2str(i64 noundef %0, i32 noundef %1) local_unnamed_a
   store i8 %18, ptr %19, align 1
   %20 = udiv i64 %.1, %14
   %.not = icmp ult i64 %.1, %14
-  br i1 %.not, label %21, label %15, !llvm.loop !21
+  br i1 %.not, label %21, label %15, !llvm.loop !20
 
 21:                                               ; preds = %15
   %22 = icmp sgt i64 %5, -1
@@ -6220,7 +6220,7 @@ define hidden i64 @rb_fix_to_s(i64 noundef %0) local_unnamed_addr #2 {
   store i8 %16, ptr %17, align 1
   %18 = udiv i64 %.1.i, 10
   %.not.i = icmp ult i64 %.1.i, 10
-  br i1 %.not.i, label %19, label %13, !llvm.loop !21
+  br i1 %.not.i, label %19, label %13, !llvm.loop !20
 
 19:                                               ; preds = %13
   %20 = icmp sgt i64 %3, -1
@@ -6342,7 +6342,7 @@ define hidden i64 @rb_int2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr
   store i8 %20, ptr %21, align 1
   %22 = udiv i64 %.1.i, %16
   %.not.i = icmp ult i64 %.1.i, %16
-  br i1 %.not.i, label %23, label %17, !llvm.loop !21
+  br i1 %.not.i, label %23, label %17, !llvm.loop !20
 
 23:                                               ; preds = %17
   %24 = icmp sgt i64 %7, -1
@@ -7094,7 +7094,7 @@ define hidden i64 @rb_int_idiv(i64 noundef %0, i64 noundef %1) #2 {
   %25 = call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 5) #23
   store i64 %25, ptr @num_div.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %num_div.exit, !llvm.loop !11
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %num_div.exit, !llvm.loop !10
 
 num_div.exit:                                     ; preds = %.lr.ph.i.i, %21
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %21 ], [ %25, %.lr.ph.i.i ]
@@ -7235,7 +7235,7 @@ define internal i64 @num_div(i64 noundef %0, i64 noundef %1) #2 {
   %10 = call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 5) #23
   store i64 %10, ptr @num_div.rbimpl_id, align 8
   %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !10
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %6
   %.lcssa.i = phi i64 [ %.pr.i, %6 ], [ %10, %.lr.ph.i ]
@@ -7505,9 +7505,9 @@ define hidden i64 @rb_int_divmod(i64 noundef %0, i64 noundef %1) #2 {
   br label %rb_fix_divmod_fix.exit.i
 
 rb_fix_divmod_fix.exit.i:                         ; preds = %31, %18
-  %.043.i = phi i64 [ %19, %18 ], [ %33, %31 ]
+  %.044.i = phi i64 [ %19, %18 ], [ %33, %31 ]
   %.sink.i.i = phi i64 [ 1, %18 ], [ %35, %31 ]
-  %36 = tail call i64 @rb_assoc_new(i64 noundef %.043.i, i64 noundef %.sink.i.i) #23
+  %36 = tail call i64 @rb_assoc_new(i64 noundef %.044.i, i64 noundef %.sink.i.i) #23
   br label %fix_divmod.exit
 
 37:                                               ; preds = %8
@@ -7521,7 +7521,7 @@ rb_fix_divmod_fix.exit.i:                         ; preds = %31, %18
   %43 = inttoptr i64 %1 to ptr
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, 31
-  switch i64 %45, label %RB_FLOAT_TYPE_P.exit.thread45.i [
+  switch i64 %45, label %RB_FLOAT_TYPE_P.exit.thread46.i [
     i64 10, label %46
     i64 4, label %58
   ]
@@ -7534,12 +7534,12 @@ rb_fix_divmod_fix.exit.i:                         ; preds = %31, %18
 
 .critedge.i:                                      ; preds = %37
   %50 = and i64 %1, 2
-  %.not52.i = icmp eq i64 %50, 0
-  br i1 %.not52.i, label %RB_FLOAT_TYPE_P.exit.thread45.i, label %51
+  %.not53.i = icmp eq i64 %50, 0
+  br i1 %.not53.i, label %RB_FLOAT_TYPE_P.exit.thread46.i, label %51
 
 51:                                               ; preds = %.critedge.i
   %.not.i.i.i = icmp eq i64 %1, -9223372036854775806
-  br i1 %.not.i.i.i, label %.thread50.i, label %52
+  br i1 %.not.i.i.i, label %.thread51.i, label %52
 
 52:                                               ; preds = %51
   %.neg.i.i.i = ashr i64 %1, 63
@@ -7564,9 +7564,9 @@ rb_float_value_inline.exit.i:                     ; preds = %58, %52
 
 63:                                               ; preds = %rb_float_value_inline.exit.i
   %64 = fcmp oeq double %.0.i35.i, 0.000000e+00
-  br i1 %64, label %.thread50.i, label %65
+  br i1 %64, label %.thread51.i, label %65
 
-.thread50.i:                                      ; preds = %63, %51
+.thread51.i:                                      ; preds = %63, %51
   tail call void @rb_num_zerodiv() #27
   unreachable
 
@@ -7599,8 +7599,8 @@ flodivmod.exit.i:                                 ; preds = %._crit_edge.i.i, %r
   %.sink.i37.i = phi double [ %.13653.i.i, %._crit_edge.i.i ], [ %.0.i35.i, %rb_float_value_inline.exit.i ]
   %78 = fcmp olt double %.sink.i37.i, 0x43D0000000000000
   %79 = fcmp oge double %.sink.i37.i, 0xC3D0000000000000
-  %or.cond.i38.i = and i1 %78, %79
-  br i1 %or.cond.i38.i, label %80, label %84
+  %or.cond.i39.i = and i1 %78, %79
+  br i1 %or.cond.i39.i, label %80, label %84
 
 80:                                               ; preds = %flodivmod.exit.i
   %81 = fptosi double %.sink.i37.i to i64
@@ -7613,8 +7613,8 @@ flodivmod.exit.i:                                 ; preds = %._crit_edge.i.i, %r
   br label %dbl2ival.exit.i
 
 dbl2ival.exit.i:                                  ; preds = %84, %80
-  %.0.i39.i = phi i64 [ %83, %80 ], [ %85, %84 ]
-  store volatile i64 %.0.i39.i, ptr %5, align 8
+  %.0.i40.i = phi i64 [ %83, %80 ], [ %85, %84 ]
+  store volatile i64 %.0.i40.i, ptr %5, align 8
   %86 = bitcast double %.0.i to i64
   %cond.i.i = icmp eq i64 %86, 3458764513820540928
   br i1 %cond.i.i, label %98, label %87
@@ -7649,14 +7649,14 @@ dbl2ival.exit.i:                                  ; preds = %84, %80
   br label %rb_float_new_inline.exit.i
 
 rb_float_new_inline.exit.i:                       ; preds = %98, %96, %92
-  %.0.i40.i = phi i64 [ %102, %98 ], [ %95, %92 ], [ -9223372036854775806, %96 ]
-  store volatile i64 %.0.i40.i, ptr %6, align 8
+  %.0.i41.i = phi i64 [ %102, %98 ], [ %95, %92 ], [ -9223372036854775806, %96 ]
+  store volatile i64 %.0.i41.i, ptr %6, align 8
   %.0..0..0..0..0..0.1.i = load volatile i64, ptr %5, align 8
   %.0..0..0..0..0..0..i = load volatile i64, ptr %6, align 8
   %105 = tail call i64 @rb_assoc_new(i64 noundef %.0..0..0..0..0..0.1.i, i64 noundef %.0..0..0..0..0..0..i) #23
   br label %fix_divmod.exit
 
-RB_FLOAT_TYPE_P.exit.thread45.i:                  ; preds = %.critedge.i, %42
+RB_FLOAT_TYPE_P.exit.thread46.i:                  ; preds = %.critedge.i, %42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
@@ -7669,8 +7669,8 @@ RB_FLOAT_TYPE_P.exit.thread45.i:                  ; preds = %.critedge.i, %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %fix_divmod.exit
 
-fix_divmod.exit:                                  ; preds = %rb_fix_divmod_fix.exit.i, %46, %rb_float_new_inline.exit.i, %RB_FLOAT_TYPE_P.exit.thread45.i
-  %.033.i = phi i64 [ %36, %rb_fix_divmod_fix.exit.i ], [ %49, %46 ], [ %105, %rb_float_new_inline.exit.i ], [ %108, %RB_FLOAT_TYPE_P.exit.thread45.i ]
+fix_divmod.exit:                                  ; preds = %rb_fix_divmod_fix.exit.i, %46, %rb_float_new_inline.exit.i, %RB_FLOAT_TYPE_P.exit.thread46.i
+  %.033.i = phi i64 [ %36, %rb_fix_divmod_fix.exit.i ], [ %49, %46 ], [ %105, %rb_float_new_inline.exit.i ], [ %108, %RB_FLOAT_TYPE_P.exit.thread46.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.critedge
@@ -8617,7 +8617,7 @@ rb_ulong2num_inline.exit.i.i:                     ; preds = %25, %23
 declare i64 @rb_big_lshift(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_fix_aref(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden range(i64 1, 4) i64 @rb_fix_aref(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = ashr i64 %0, 1
   %4 = tail call i64 @rb_to_int(i64 noundef %1) #23
   %5 = and i64 %4, 1
@@ -8757,7 +8757,7 @@ define hidden i64 @rb_int_bit_length(i64 noundef %0) local_unnamed_addr #2 {
   %4 = ashr i64 %0, 1
   %.lobit.i = ashr i64 %0, 63
   %spec.select.i = xor i64 %4, %.lobit.i
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %spec.select.i, i1 false), !range !22
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i, i1 false)
   %6 = shl nuw nsw i64 %5, 1
   %7 = sub nuw nsw i64 129, %6
   br label %.critedge
@@ -8793,7 +8793,7 @@ define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #13 {
   br i1 %2, label %22, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 true), !range !22
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
   %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   %7 = lshr i32 %6, 1
@@ -8815,7 +8815,7 @@ define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #13 {
   %19 = lshr i64 %18, 1
   %20 = udiv i64 %0, %19
   %21 = icmp ult i64 %20, %19
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 22:                                               ; preds = %1
   %23 = uitofp i64 %0 to double
@@ -9062,7 +9062,7 @@ rb_class_of.exit:                                 ; preds = %45, %48, %49, %50, 
   tail call void @rb_gc_register_mark_object(i64 noundef %112) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %113, label %110, !llvm.loop !24
+  br i1 %exitcond.not, label %113, label %110, !llvm.loop !22
 
 113:                                              ; preds = %110
   %114 = load i64, ptr @rb_cNumeric, align 8
@@ -9403,7 +9403,7 @@ define internal i64 @num_uminus(i64 noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @num_cmp(i64 noundef %0, i64 noundef %1) #9 {
+define internal noundef range(i64 1, 5) i64 @num_cmp(i64 noundef %0, i64 noundef %1) #9 {
   %3 = icmp eq i64 %0, %1
   %. = select i1 %3, i64 1, i64 4
   ret i64 %.
@@ -9556,7 +9556,7 @@ define internal i64 @num_divmod(i64 noundef %0, i64 noundef %1) #2 {
   %11 = call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 5) #23
   store i64 %11, ptr @num_div.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %num_div.exit, !llvm.loop !11
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %num_div.exit, !llvm.loop !10
 
 num_div.exit:                                     ; preds = %.lr.ph.i.i, %7
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %7 ], [ %11, %.lr.ph.i.i ]
@@ -9608,23 +9608,23 @@ define internal i64 @num_remainder(i64 noundef %0, i64 noundef %1) #2 {
 
 16:                                               ; preds = %9
   %17 = load i64, ptr %4, align 8
-  %18 = call fastcc i32 @rb_num_negative_int_p(i64 noundef %17), !range !10
+  %18 = call fastcc i32 @rb_num_negative_int_p(i64 noundef %17)
   %.not5 = icmp eq i32 %18, 0
   br i1 %.not5, label %21, label %19
 
 19:                                               ; preds = %16
-  %20 = call fastcc i32 @rb_num_positive_int_p(i64 noundef %11), !range !10
+  %20 = call fastcc i32 @rb_num_positive_int_p(i64 noundef %11)
   %.not6 = icmp eq i32 %20, 0
   br i1 %.not6, label %21, label %26
 
 21:                                               ; preds = %19, %16
   %22 = load i64, ptr %4, align 8
-  %23 = call fastcc i32 @rb_num_positive_int_p(i64 noundef %22), !range !10
+  %23 = call fastcc i32 @rb_num_positive_int_p(i64 noundef %22)
   %.not7 = icmp eq i32 %23, 0
   br i1 %.not7, label %53, label %24
 
 24:                                               ; preds = %21
-  %25 = call fastcc i32 @rb_num_negative_int_p(i64 noundef %11), !range !10
+  %25 = call fastcc i32 @rb_num_negative_int_p(i64 noundef %11)
   %.not8 = icmp eq i32 %25, 0
   br i1 %.not8, label %53, label %26
 
@@ -9686,7 +9686,7 @@ RB_FLOAT_TYPE_P.exit.thread11:                    ; preds = %29, %rb_float_value
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @num_abs(i64 noundef %0) #2 {
-  %2 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %0), !range !10
+  %2 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -9721,7 +9721,7 @@ define internal i64 @num_nonzero_p(i64 noundef %0) #2 {
   %2 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 5) #23
   store i64 %2, ptr @num_nonzero_p.rbimpl_id, align 8
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !10
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i64 [ %.pr.i, %1 ], [ %2, %.lr.ph.i ]
@@ -10054,7 +10054,7 @@ RB_FLOAT_TYPE_P.exit.thread61:                    ; preds = %53, %RB_FLOAT_TYPE_
   %100 = call i64 @rb_yield(i64 noundef %99) #23
   %101 = add i64 %.14581, %95
   %.not58 = icmp slt i64 %101, %97
-  br i1 %.not58, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not58, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .lr.ph84:                                         ; preds = %.preheader75, %.lr.ph84
   %.283 = phi i64 [ %105, %.lr.ph84 ], [ %94, %.preheader75 ]
@@ -10063,13 +10063,13 @@ RB_FLOAT_TYPE_P.exit.thread61:                    ; preds = %53, %RB_FLOAT_TYPE_
   %104 = call i64 @rb_yield(i64 noundef %103) #23
   %105 = add i64 %.283, %95
   %.not57 = icmp sgt i64 %105, %97
-  br i1 %.not57, label %.loopexit, label %.lr.ph84, !llvm.loop !26
+  br i1 %.not57, label %.loopexit, label %.lr.ph84, !llvm.loop !24
 
 106:                                              ; preds = %.thread67.thread, %.thread63, %.thread67, %81, %RB_FLOAT_TYPE_P.exit.thread61
   %.04366 = phi i1 [ false, %.thread63 ], [ false, %.thread67 ], [ true, %81 ], [ %.043, %RB_FLOAT_TYPE_P.exit.thread61 ], [ true, %.thread67.thread ]
   %107 = load i64, ptr %4, align 8
   %108 = load i64, ptr %5, align 8
-  %109 = call i32 @ruby_float_step(i64 noundef %2, i64 noundef %107, i64 noundef %108, i32 noundef 0, i32 noundef 0), !range !10
+  %109 = call i32 @ruby_float_step(i64 noundef %2, i64 noundef %107, i64 noundef %108, i32 noundef 0, i32 noundef 0)
   %.not52 = icmp eq i32 %109, 0
   br i1 %.not52, label %110, label %.loopexit
 
@@ -10101,7 +10101,7 @@ RB_FLOAT_TYPE_P.exit.thread61:                    ; preds = %53, %RB_FLOAT_TYPE_
   %123 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %121, i64 noundef %115, i32 noundef 1, i64 noundef %122) #23
   %124 = and i64 %123, -5
   %.not74 = icmp eq i64 %124, 0
-  br i1 %.not74, label %.lr.ph87, label %.loopexit, !llvm.loop !27
+  br i1 %.not74, label %.lr.ph87, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph84, %.lr.ph87, %.preheader77, %.preheader75, %114, %106, %38, %32
   %.0 = phi i64 [ %37, %32 ], [ %44, %38 ], [ %2, %106 ], [ %2, %114 ], [ %2, %.preheader75 ], [ %2, %.preheader77 ], [ %2, %.lr.ph87 ], [ %2, %.lr.ph84 ], [ %2, %.lr.ph ]
@@ -10180,8 +10180,8 @@ rb_num_compare_with_zero.exit:                    ; preds = %.critedge
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @num_negative_p(i64 noundef %0) #2 {
-  %2 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %0), !range !10
+define internal range(i64 0, 21) i64 @num_negative_p(i64 noundef %0) #2 {
+  %2 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %0)
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, i64 0, i64 20
   ret i64 %3
@@ -10215,7 +10215,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !22
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %14 = trunc nuw nsw i64 %13 to i32
   %15 = sub nuw nsw i32 64, %14
   %16 = lshr i32 %15, 1
@@ -10237,7 +10237,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
   %28 = lshr i64 %27, 1
   %29 = udiv i64 %10, %28
   %30 = icmp ult i64 %29, %28
-  br i1 %30, label %.lr.ph.i, label %rb_ulong_isqrt.exit, !llvm.loop !23
+  br i1 %30, label %.lr.ph.i, label %rb_ulong_isqrt.exit, !llvm.loop !21
 
 31:                                               ; preds = %9
   %32 = uitofp nneg i64 %10 to double
@@ -10301,8 +10301,8 @@ BIGNUM_DIGITS.exit:                               ; preds = %51, %53
   %.0.i18 = phi ptr [ %52, %51 ], [ %55, %53 ]
   %56 = load i32, ptr %.0.i18, align 4
   %57 = uitofp i32 %56 to double
-  %sqrt.i19 = tail call double @llvm.sqrt.f64(double %57)
-  %58 = fptoui double %sqrt.i19 to i64
+  %sqrt.i22 = tail call double @llvm.sqrt.f64(double %57)
+  %58 = fptoui double %sqrt.i22 to i64
   %59 = icmp ult i64 %58, 4611686018427387904
   br i1 %59, label %60, label %63
 
@@ -10341,7 +10341,7 @@ define internal i64 @int_allbits_p(i64 noundef %0, i64 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @int_anybits_p(i64 noundef %0, i64 noundef %1) #2 {
+define internal range(i64 0, 21) i64 @int_anybits_p(i64 noundef %0, i64 noundef %1) #2 {
   %3 = tail call i64 @rb_to_int(i64 noundef %1) #23
   %4 = tail call i64 @rb_int_and(i64 noundef %0, i64 noundef %3)
   %5 = and i64 %4, 1
@@ -10364,7 +10364,7 @@ int_zero_p.exit:                                  ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @int_nobits_p(i64 noundef %0, i64 noundef %1) #2 {
+define internal range(i64 0, 21) i64 @int_nobits_p(i64 noundef %0, i64 noundef %1) #2 {
   %3 = tail call i64 @rb_to_int(i64 noundef %1) #23
   %4 = tail call i64 @rb_int_and(i64 noundef %0, i64 noundef %3)
   %5 = and i64 %4, 1
@@ -10419,7 +10419,7 @@ define internal i64 @int_upto(i64 noundef %0, i64 noundef %1) #2 {
   %17 = tail call i64 @rb_yield(i64 noundef %16) #23
   %18 = add nsw i64 %.01624, 1
   %.not18.not = icmp slt i64 %.01624, %13
-  br i1 %.not18.not, label %.lr.ph, label %ensure_cmp.exit, !llvm.loop !28
+  br i1 %.not18.not, label %.lr.ph, label %ensure_cmp.exit, !llvm.loop !26
 
 .preheader:                                       ; preds = %9, %20
   %.015 = phi i64 [ %22, %20 ], [ %0, %9 ]
@@ -10432,7 +10432,7 @@ define internal i64 @int_upto(i64 noundef %0, i64 noundef %1) #2 {
 20:                                               ; preds = %.preheader
   %21 = tail call i64 @rb_yield(i64 noundef %.015) #23
   %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.015, i64 noundef 43, i32 noundef 1, i64 noundef 3) #23
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader, !llvm.loop !27
 
 23:                                               ; preds = %.preheader
   tail call void @rb_cmperr(i64 noundef %.015, i64 noundef %1) #25
@@ -10476,7 +10476,7 @@ define internal i64 @int_downto(i64 noundef %0, i64 noundef %1) #2 {
   %17 = tail call i64 @rb_yield(i64 noundef %16) #23
   %18 = add nsw i64 %.01624, -1
   %.not18.not = icmp sgt i64 %.01624, %13
-  br i1 %.not18.not, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %.not18.not, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .preheader:                                       ; preds = %9, %20
   %.015 = phi i64 [ %22, %20 ], [ %0, %9 ]
@@ -10489,7 +10489,7 @@ define internal i64 @int_downto(i64 noundef %0, i64 noundef %1) #2 {
 20:                                               ; preds = %.preheader
   %21 = tail call i64 @rb_yield(i64 noundef %.015) #23
   %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.015, i64 noundef 45, i32 noundef 1, i64 noundef 3) #23
-  br label %.preheader, !llvm.loop !31
+  br label %.preheader, !llvm.loop !29
 
 23:                                               ; preds = %.preheader
   tail call void @rb_cmperr(i64 noundef %.015, i64 noundef %1) #25
@@ -10649,9 +10649,9 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
 
 40:                                               ; preds = %33
   %41 = sext i32 %34 to i64
-  %42 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %41, ptr noundef nonnull %.0) #23, !callees !16
+  %42 = tail call i64 @rb_enc_str_new(ptr noundef null, i64 noundef %41, ptr noundef nonnull %.0) #23, !callees !15
   %43 = inttoptr i64 %42 to ptr
-  %44 = load i64, ptr %43, align 8, !noalias !32
+  %44 = load i64, ptr %43, align 8, !noalias !30
   %45 = and i64 %44, 8192
   %.not.i.i.i = icmp eq i64 %45, 0
   %46 = getelementptr inbounds i8, ptr %43, i64 24
@@ -10666,7 +10666,7 @@ RSTRING_PTR.exit.i:                               ; preds = %47, %40
   %48 = getelementptr inbounds i8, ptr %.0, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 %49(i32 noundef %13, ptr noundef %.sroa.2.0.i.i, ptr noundef nonnull %.0) #23
-  %51 = load i64, ptr %43, align 8, !noalias !20
+  %51 = load i64, ptr %43, align 8, !noalias !19
   %52 = and i64 %51, 8192
   %.not.i.i18.i = icmp eq i64 %52, 0
   br i1 %.not.i.i18.i, label %RSTRING_END.exit.i, label %53
@@ -10971,7 +10971,7 @@ rb_num2int_inline.exit:                           ; preds = %10, %14
   %.0.i = phi i64 [ %11, %10 ], [ %15, %14 ]
   %18 = trunc i64 %.0.i to i32
   %19 = load i64, ptr %5, align 8
-  %20 = call i32 @rb_num_get_rounding_option(i64 noundef %19), !range !35
+  %20 = call i32 @rb_num_get_rounding_option(i64 noundef %19)
   %21 = icmp sgt i32 %18, -1
   br i1 %21, label %24, label %22
 
@@ -11424,7 +11424,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 28:                                               ; preds = %25
   %29 = load i64, ptr %11, align 8
-  %30 = call fastcc i32 @rb_num_negative_int_p(i64 noundef %29), !range !10
+  %30 = call fastcc i32 @rb_num_negative_int_p(i64 noundef %29)
   %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %31, label %int_aref1.exit
 
@@ -11845,7 +11845,7 @@ rb_ulong2num_inline.exit.i.i:                     ; preds = %32, %28
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_int_digits(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
-  %4 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %2), !range !10
+  %4 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -11970,7 +11970,7 @@ rb_long2num_inline.exit.i:                        ; preds = %57, %54
   %.0.i.i = phi i64 [ %56, %54 ], [ %58, %57 ]
   %59 = tail call i64 @rb_ary_push(i64 noundef %49, i64 noundef %.0.i.i) #23
   %.not.i63 = icmp ult i64 %.01316.i, %.0
-  br i1 %.not.i63, label %.critedge61, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i63, label %.critedge61, label %.lr.ph.i, !llvm.loop !33
 
 60:                                               ; preds = %41
   %61 = and i64 %2, 6
@@ -12082,7 +12082,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %15
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %45
 
 45:                                               ; preds = %37
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 1 %31, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %2, ptr readonly align 1 %31, i64 %44, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %37, %45
@@ -12123,7 +12123,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %37, %45
   %68 = add i64 %reass.sub, 2
   %69 = add i64 %68, %67
   %70 = call i64 @rb_str_resize(i64 noundef %38, i64 noundef %69) #23
-  %71 = load i64, ptr %63, align 8, !noalias !37
+  %71 = load i64, ptr %63, align 8, !noalias !34
   %72 = and i64 %71, 8192
   %.not.i.i49 = icmp eq i64 %72, 0
   %73 = getelementptr inbounds i8, ptr %63, i64 24
@@ -12169,7 +12169,7 @@ RSTRING_PTR.exit:                                 ; preds = %61, %74
   %95 = add i64 %92, %44
   %96 = sub i64 %95, %94
   %97 = call i64 @rb_str_resize(i64 noundef %38, i64 noundef %96) #23
-  %98 = load i64, ptr %90, align 8, !noalias !40
+  %98 = load i64, ptr %90, align 8, !noalias !37
   %99 = and i64 %98, 8192
   %.not.i.i50 = icmp eq i64 %99, 0
   %100 = getelementptr inbounds i8, ptr %90, i64 24
@@ -12193,7 +12193,7 @@ RSTRING_PTR.exit53:                               ; preds = %88, %101
   %108 = sext i32 %107 to i64
   %109 = sub nsw i64 0, %108
   %110 = getelementptr i8, ptr %102, i64 %109
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr nonnull align 16 %2, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %110, ptr nonnull readonly align 16 %2, i64 %44, i1 false)
   br label %ruby_nonempty_memcpy.exit55
 
 111:                                              ; preds = %86, %59
@@ -12958,7 +12958,7 @@ RB_FLOAT_TYPE_P.exit.thread22:                    ; preds = %31, %RB_FLOAT_TYPE_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @flo_hash(i64 noundef %0) #2 {
+define internal range(i64 1, 0) i64 @flo_hash(i64 noundef %0) #2 {
   %2 = and i64 %0, 3
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %4, label %11
@@ -13191,7 +13191,7 @@ rb_num2int_inline.exit:                           ; preds = %12, %16
 21:                                               ; preds = %rb_num2int_inline.exit, %3
   %.038 = phi i32 [ %20, %rb_num2int_inline.exit ], [ 0, %3 ]
   %22 = load i64, ptr %6, align 8
-  %23 = call i32 @rb_num_get_rounding_option(i64 noundef %22), !range !35
+  %23 = call i32 @rb_num_get_rounding_option(i64 noundef %22)
   %24 = and i64 %2, 3
   %25 = icmp eq i64 %24, 2
   br i1 %25, label %26, label %33
@@ -13672,7 +13672,7 @@ flo_floor.exit:                                   ; preds = %rb_check_arity.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @flo_is_nan_p(i64 noundef %0) #10 {
+define internal range(i64 0, 21) i64 @flo_is_nan_p(i64 noundef %0) #10 {
   %2 = and i64 %0, 3
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %4, label %11
@@ -13983,7 +13983,7 @@ define internal i64 @builtin_inline_class_162(ptr nocapture readnone %0, i64 nou
   %5 = ashr i64 %1, 1
   %.lobit.i.i = ashr i64 %1, 63
   %spec.select.i.i = xor i64 %5, %.lobit.i.i
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %spec.select.i.i, i1 false), !range !22
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i, i1 false)
   %7 = shl nuw nsw i64 %6, 1
   %8 = sub nuw nsw i64 129, %7
   br label %rb_int_bit_length.exit
@@ -14091,7 +14091,7 @@ define internal i64 @builtin_inline_class_234(ptr nocapture readnone %0, i64 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_266(ptr nocapture readnone %0, i64 noundef %1) #2 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_266(ptr nocapture readnone %0, i64 noundef %1) #2 {
   %3 = and i64 %1, 1
   %.not.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i, label %6, label %4
@@ -14310,7 +14310,7 @@ rb_float_uminus.exit:                             ; preds = %23, %27, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_352(ptr nocapture readnone %0, i64 noundef %1) #10 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_352(ptr nocapture readnone %0, i64 noundef %1) #10 {
   %3 = and i64 %1, 3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %12
@@ -14342,7 +14342,7 @@ FLOAT_ZERO_P.exit:                                ; preds = %5, %6, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_361(ptr nocapture readnone %0, i64 noundef %1) #10 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_361(ptr nocapture readnone %0, i64 noundef %1) #10 {
   %3 = and i64 %1, 3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %12
@@ -14374,7 +14374,7 @@ rb_float_value.exit:                              ; preds = %5, %6, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_370(ptr nocapture readnone %0, i64 noundef %1) #10 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_370(ptr nocapture readnone %0, i64 noundef %1) #10 {
   %3 = and i64 %1, 3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %12
@@ -14875,7 +14875,7 @@ declare i64 @rb_big_eql(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_num_positive_int_p(i64 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @rb_num_positive_int_p(i64 noundef %0) unnamed_addr #2 {
   %2 = alloca i64, align 8
   %3 = and i64 %0, 1
   %.not25 = icmp eq i64 %3, 0
@@ -15111,7 +15111,7 @@ rb_array_const_ptr.exit:                          ; preds = %3, %18, %rb_array_l
 declare i64 @rb_enumeratorize_with_size_kw(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store i64 36, ptr %6, align 8
@@ -15583,7 +15583,7 @@ rb_int_odd_p.exit:                                ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @int_half_p_half_up(i64 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @int_half_p_half_up(i64 noundef %0) unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %5, label %3
@@ -15623,7 +15623,7 @@ int_pos_p.exit:                                   ; preds = %3, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @int_half_p_half_down(i64 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @int_half_p_half_down(i64 noundef %0) unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %5, label %3
@@ -15836,7 +15836,7 @@ rb_long2num_inline.exit.i:                        ; preds = %50, %47
   %.0.i.i = phi i64 [ %49, %47 ], [ %51, %50 ]
   %52 = tail call i64 @rb_ary_push(i64 noundef %42, i64 noundef %.0.i.i) #23
   %.not.i103 = icmp ult i64 %.01316.i, %34
-  br i1 %.not.i103, label %rb_fix_digits.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i103, label %rb_fix_digits.exit, label %.lr.ph.i, !llvm.loop !33
 
 53:                                               ; preds = %.critedge102
   %.not147 = icmp eq i64 %31, 0
@@ -15868,7 +15868,7 @@ rb_int_bit_length.exit:                           ; preds = %54, %59, %64
   %67 = ashr i64 %.093, 1
   %.lobit.i.i106 = ashr i64 %.093, 63
   %spec.select.i.i107 = xor i64 %67, %.lobit.i.i106
-  %68 = tail call i64 @llvm.ctlz.i64(i64 %spec.select.i.i107, i1 false), !range !22
+  %68 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i107, i1 false)
   %69 = shl nuw nsw i64 %68, 1
   %70 = sub nuw nsw i64 129, %69
   br label %rb_int_bit_length.exit109
@@ -15995,7 +15995,7 @@ RARRAY_AREF.exit116:                              ; preds = %126, %128
   %133 = icmp eq i64 %132, 0
   %134 = icmp sgt i64 %131, 1
   %or.cond145 = or i1 %134, %133
-  br i1 %or.cond145, label %.critedge, label %rb_fix_digits.exit, !llvm.loop !43
+  br i1 %or.cond145, label %.critedge, label %rb_fix_digits.exit, !llvm.loop !40
 
 int_lt.exit.thread137:                            ; preds = %98, %int_lt.exit
   %135 = tail call i64 @rb_ary_new() #23
@@ -16009,7 +16009,7 @@ int_lt.exit.thread137:                            ; preds = %98, %int_lt.exit
   %139 = tail call i64 @rb_int_mul(i64 noundef %.095150, i64 noundef %.095150)
   %140 = tail call i64 @int_lt(i64 noundef %139, i64 noundef %0)
   %141 = icmp eq i64 %140, 20
-  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %int_lt.exit.thread137
   %142 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %0) #23
@@ -16021,7 +16021,7 @@ int_lt.exit.thread137:                            ; preds = %98, %int_lt.exit
   br label %148
 
 .loopexit:                                        ; preds = %RARRAY_AREF.exit130._crit_edge, %rb_array_len.exit121
-  br label %148, !llvm.loop !45
+  br label %148, !llvm.loop !42
 
 148:                                              ; preds = %.loopexit, %._crit_edge
   %149 = load i64, ptr %143, align 8
@@ -16116,7 +16116,7 @@ RARRAY_AREF.exit130._crit_edge:                   ; preds = %RARRAY_AREF.exit130
   tail call void @rb_ary_store(i64 noundef %142, i64 noundef %187, i64 noundef %184) #23
   %190 = add nsw i64 %.094151, -1
   %191 = icmp sgt i64 %.094151, 0
-  br i1 %191, label %.lr.ph152, label %.loopexit, !llvm.loop !46
+  br i1 %191, label %.lr.ph152, label %.loopexit, !llvm.loop !43
 
 rb_fix_digits.exit.sink.split:                    ; preds = %53, %39
   %.sink = phi i64 [ 1, %39 ], [ %0, %53 ]
@@ -16338,40 +16338,37 @@ attributes #28 = { memory(none) }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"rbimpl_rstring_getmem: argument 0"}
 !9 = distinct !{!9, !"rbimpl_rstring_getmem"}
-!10 = !{i32 0, i32 2}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{ptr @rb_enc_str_new, null}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"rbimpl_rstring_getmem: argument 0"}
-!19 = distinct !{!19, !"rbimpl_rstring_getmem"}
-!20 = !{}
-!21 = distinct !{!21, !12}
-!22 = !{i64 0, i64 65}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
-!25 = distinct !{!25, !12}
-!26 = distinct !{!26, !12}
-!27 = distinct !{!27, !12}
-!28 = distinct !{!28, !12}
-!29 = distinct !{!29, !12}
-!30 = distinct !{!30, !12}
-!31 = distinct !{!31, !12}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"rbimpl_rstring_getmem: argument 0"}
-!34 = distinct !{!34, !"rbimpl_rstring_getmem"}
-!35 = !{i32 0, i32 3}
-!36 = distinct !{!36, !12}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{ptr @rb_enc_str_new, null}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"rbimpl_rstring_getmem: argument 0"}
+!18 = distinct !{!18, !"rbimpl_rstring_getmem"}
+!19 = !{}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}
+!26 = distinct !{!26, !11}
+!27 = distinct !{!27, !11}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"rbimpl_rstring_getmem: argument 0"}
+!32 = distinct !{!32, !"rbimpl_rstring_getmem"}
+!33 = distinct !{!33, !11}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"rbimpl_rstring_getmem: argument 0"}
+!36 = distinct !{!36, !"rbimpl_rstring_getmem"}
 !37 = !{!38}
 !38 = distinct !{!38, !39, !"rbimpl_rstring_getmem: argument 0"}
 !39 = distinct !{!39, !"rbimpl_rstring_getmem"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"rbimpl_rstring_getmem: argument 0"}
-!42 = distinct !{!42, !"rbimpl_rstring_getmem"}
-!43 = distinct !{!43, !12}
-!44 = distinct !{!44, !12}
-!45 = distinct !{!45, !12}
-!46 = distinct !{!46, !12}
+!40 = distinct !{!40, !11}
+!41 = distinct !{!41, !11}
+!42 = distinct !{!42, !11}
+!43 = distinct !{!43, !11}

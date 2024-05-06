@@ -43,7 +43,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_nat_ipv6_
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_nf_nat_icmp_reply_translation1023, ptr @__UNIQUE_ID___addressable_nf_nat_icmpv6_reply_translation1028, ptr @__UNIQUE_ID___addressable_nf_nat_ipv4_register_fn1024, ptr @__UNIQUE_ID___addressable_nf_nat_ipv4_unregister_fn1025, ptr @__UNIQUE_ID___addressable_nf_nat_ipv6_register_fn1029, ptr @__UNIQUE_ID___addressable_nf_nat_ipv6_unregister_fn1030], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_nat_manip_pkt(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nf_nat_manip_pkt(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i16, align 2
   %6 = alloca i8, align 1
   %7 = alloca %struct.nf_conntrack_tuple, align 4
@@ -362,7 +362,7 @@ define dso_local void @nf_nat_csum_recalc(ptr noundef %0, i8 noundef zeroext %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_nat_icmp_reply_translation(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nf_nat_icmp_reply_translation(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.nf_conntrack_tuple, align 4
   %6 = icmp ult i32 %2, 3
   %7 = icmp ne i32 %3, 4
@@ -509,7 +509,7 @@ define dso_local void @nf_nat_ipv4_unregister_fn(ptr noundef %0, ptr noundef %1)
 declare dso_local void @nf_nat_unregister_fn(ptr noundef, i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_nat_icmpv6_reply_translation(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nf_nat_icmpv6_reply_translation(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca i16, align 2
   %7 = alloca i8, align 1
   %8 = alloca i16, align 2

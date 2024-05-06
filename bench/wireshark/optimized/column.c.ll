@@ -338,7 +338,7 @@ define ptr @try_convert_to_column_field(ptr noundef %0) local_unnamed_addr #1 {
 declare i32 @str_to_val_idx(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @parse_column_format(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @parse_column_format(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %5 = icmp ugt i64 %4, 4
@@ -444,7 +444,7 @@ col_format_to_string.exit.i:                      ; preds = %col_format_to_strin
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ 0, %col_format_to_string.exit.i.preheader ]
   %54 = getelementptr [46 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %55) #14
+  %56 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %55) #14
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %get_column_format_from_str.exit, label %58
 
@@ -454,7 +454,7 @@ col_format_to_string.exit.i:                      ; preds = %col_format_to_strin
   br i1 %exitcond.not.i, label %get_column_format_from_str.exit.thread, label %col_format_to_string.exit.i, !llvm.loop !6
 
 get_column_format_from_str.exit:                  ; preds = %col_format_to_string.exit.i
-  %59 = trunc i64 %indvars.iv.i to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %get_column_format_from_str.exit.thread, label %61
 
@@ -518,7 +518,7 @@ col_format_to_string.exit:                        ; preds = %1, %6
   br i1 %exitcond.not, label %.split.loop.exit, label %col_format_to_string.exit, !llvm.loop !6
 
 .split.loop.exit8:                                ; preds = %col_format_to_string.exit
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %6, %.split.loop.exit8
@@ -572,7 +572,7 @@ col_format_to_string.exit:                        ; preds = %0, %col_format_to_s
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %col_format_to_string.exit ]
   %1 = getelementptr [46 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %1, align 8
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %4 = tail call ptr @try_val_to_str(i32 noundef %3, ptr noundef nonnull @col_format_desc.dlist_vals) #13
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, ptr noundef %2, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1057,7 +1057,7 @@ define void @set_column_title(i32 noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_column_visible(i32 noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @get_column_visible(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @prefs, align 8
   %3 = tail call ptr @g_list_nth(ptr noundef %2, i32 noundef %0) #13
   %.not = icmp eq ptr %3, null
@@ -1096,7 +1096,7 @@ define void @set_column_visible(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_column_resolved(i32 noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @get_column_resolved(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @prefs, align 8
   %3 = tail call ptr @g_list_nth(ptr noundef %2, i32 noundef %0) #13
   %.not = icmp eq ptr %3, null
@@ -1642,8 +1642,8 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %128
   %indvars.iv98 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next99, %128 ]
-  %.pre = trunc i64 %indvars.iv98 to i32
-  %112 = trunc i64 %indvars.iv98 to i32
+  %.pre = trunc nuw nsw i64 %indvars.iv98 to i32
+  %112 = trunc nuw nsw i64 %indvars.iv98 to i32
   br label %113
 
 113:                                              ; preds = %.preheader, %127
@@ -1722,7 +1722,7 @@ define void @build_column_format_array(ptr noundef %0, i32 noundef %1, i32 nound
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr %struct.col_item_t, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr @prefs, align 8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call ptr @g_list_nth(ptr noundef %11, i32 noundef %12) #13
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %get_column_format.exit, label %14

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pollfd = type { i32, i16, i16 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_wait_ms(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @Curl_wait_ms(i64 noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %15, label %2
 
@@ -21,7 +21,7 @@ define dso_local noundef i32 @Curl_wait_ms(i64 noundef %0) local_unnamed_addr #0
 
 6:                                                ; preds = %2
   %7 = tail call i64 @llvm.umin.i64(i64 %0, i64 2147483647)
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %8) #5
   switch i32 %9, label %14 [
     i32 0, label %15
@@ -70,7 +70,7 @@ define dso_local i32 @Curl_socket_check(i32 noundef %0, i32 noundef %1, i32 noun
 
 13:                                               ; preds = %9
   %14 = tail call i64 @llvm.umin.i64(i64 %3, i64 2147483647)
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %16 = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %15) #5
   switch i32 %16, label %21 [
     i32 0, label %Curl_wait_ms.exit
@@ -233,7 +233,7 @@ define dso_local i32 @Curl_poll(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
 
 12:                                               ; preds = %8
   %13 = tail call i64 @llvm.umin.i64(i64 %2, i64 2147483647)
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %15 = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %14) #5
   switch i32 %15, label %20 [
     i32 0, label %Curl_wait_ms.exit
@@ -255,7 +255,7 @@ define dso_local i32 @Curl_poll(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
 
 23:                                               ; preds = %21
   %24 = tail call i64 @llvm.umin.i64(i64 %2, i64 2147483647)
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   br label %27
 
 26:                                               ; preds = %21

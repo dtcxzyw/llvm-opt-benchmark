@@ -490,11 +490,11 @@ define noundef i32 @_ZN7dtCrowd8addAgentEPKfPK18dtCrowdAgentParams(ptr noundef n
   br i1 %exitcond.not, label %.thread, label %10, !llvm.loop !9
 
 _ZN7dtCrowd21updateAgentParametersEiPK18dtCrowdAgentParams.exit: ; preds = %10
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = and i64 %indvars.iv, 4294967295
   %17 = getelementptr inbounds %struct.dtCrowdAgent, ptr %9, i64 %16
   %18 = getelementptr inbounds %struct.dtCrowdAgent, ptr %9, i64 %16, i32 14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i32 0, ptr %5, align 4
   %19 = getelementptr inbounds i8, ptr %4, i64 4
   %20 = load <2 x float>, ptr %1, align 4
@@ -1012,7 +1012,7 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i
-  %122 = trunc i64 %indvars.iv.i to i32
+  %122 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %121, %._crit_edge.loopexit.split.loop.exit.i, %.preheader.i
@@ -2040,7 +2040,7 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 ._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %.lr.ph.i.i
-  %166 = trunc i64 %indvars.iv.i.i to i32
+  %166 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %165, %._crit_edge.loopexit.split.loop.exit.i.i, %.preheader.i.i

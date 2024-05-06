@@ -276,7 +276,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sfm_NodeResubSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Sfm_NodeResubSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -878,7 +878,7 @@ declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @Sfm_NtkUpdate(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sfm_NodeResubOne(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Sfm_NodeResubOne(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca i64, align 8
@@ -1135,7 +1135,7 @@ declare i32 @Kit_TruthLitNum(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare i32 @Sfm_TruthToCnf(i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sfm_NodeResub(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Sfm_NodeResub(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 7664
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -1196,7 +1196,7 @@ Sfm_ObjIsNode.exit:                               ; preds = %20
 
 32:                                               ; preds = %28
   %33 = trunc nuw nsw i64 %indvars.iv to i32
-  %34 = tail call i32 @Sfm_NodeResubSolve(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %33, i32 noundef 0), !range !9
+  %34 = tail call i32 @Sfm_NodeResubSolve(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %33, i32 noundef 0)
   %.not49 = icmp eq i32 %34, 0
   br i1 %.not49, label %.Sfm_ObjIsNode.exit.thread_crit_edge, label %.loopexit
 
@@ -1211,7 +1211,7 @@ Sfm_ObjIsNode.exit.thread:                        ; preds = %.Sfm_ObjIsNode.exit
   %.val1.i = load i32, ptr %35, align 4
   %36 = sext i32 %.val1.i to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %20, label %.critedge, !llvm.loop !10
+  br i1 %37, label %20, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %Sfm_ObjIsNode.exit.thread
   %38 = icmp slt i32 %.val1.i, 1
@@ -1257,7 +1257,7 @@ Sfm_ObjIsNode.exit59:                             ; preds = %46
 
 Sfm_ObjIsNode.exit59.thread:                      ; preds = %46, %54, %Sfm_ObjIsNode.exit59
   %58 = trunc nuw nsw i64 %indvars.iv82 to i32
-  %59 = tail call i32 @Sfm_NodeResubSolve(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %58, i32 noundef 1), !range !9
+  %59 = tail call i32 @Sfm_NodeResubSolve(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %58, i32 noundef 1)
   %.not45 = icmp eq i32 %59, 0
   br i1 %.not45, label %Sfm_ObjIsNode.exit59.thread._crit_edge, label %.loopexit
 
@@ -1272,7 +1272,7 @@ Sfm_ObjIsNode.exit59.thread._crit_edge:           ; preds = %Sfm_ObjIsNode.exit5
   %.val1.i56 = load i32, ptr %61, align 4
   %62 = sext i32 %.val1.i56 to i64
   %63 = icmp slt i64 %indvars.iv.next83, %62
-  br i1 %63, label %46, label %.critedge2.sink.split, !llvm.loop !11
+  br i1 %63, label %46, label %.critedge2.sink.split, !llvm.loop !10
 
 .critedge2.sink.split:                            ; preds = %60, %.preheader66
   %.val.ph = phi ptr [ %.val5171, %.preheader66 ], [ %.val50, %60 ]
@@ -1294,7 +1294,7 @@ Sfm_ObjIsNode.exit59.thread._crit_edge:           ; preds = %Sfm_ObjIsNode.exit5
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %68
-  %72 = tail call i32 @Sfm_NodeResubOne(ptr noundef nonnull %0, i32 noundef %1), !range !9
+  %72 = tail call i32 @Sfm_NodeResubOne(ptr noundef nonnull %0, i32 noundef %1)
   %.not47 = icmp eq i32 %72, 0
   br i1 %.not47, label %73, label %.loopexit
 
@@ -1374,7 +1374,7 @@ define void @Sfm_NtkPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %.val.i = load i32, ptr %30, align 4
   %39 = sext i32 %.val.i to i64
   %40 = icmp slt i64 %indvars.iv.next.i, %39
-  br i1 %40, label %35, label %Vec_IntPrint.exit, !llvm.loop !12
+  br i1 %40, label %35, label %Vec_IntPrint.exit, !llvm.loop !11
 
 Vec_IntPrint.exit:                                ; preds = %35, %9
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -1382,7 +1382,7 @@ Vec_IntPrint.exit:                                ; preds = %35, %9
   %41 = load i32, ptr %2, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %9, label %._crit_edge, !llvm.loop !13
+  br i1 %43, label %9, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %Vec_IntPrint.exit, %1
   ret void
@@ -1445,7 +1445,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %30 = add nsw i32 %.08.i, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_StrSum.exit, label %26, !llvm.loop !14
+  br i1 %exitcond.not.i, label %Vec_StrSum.exit, label %26, !llvm.loop !13
 
 Vec_StrSum.exit:                                  ; preds = %26, %20, %17
   %31 = phi i32 [ 0, %17 ], [ 0, %20 ], [ %30, %26 ]
@@ -1475,7 +1475,7 @@ Vec_StrSum.exit:                                  ; preds = %26, %20, %17
   %44 = add nsw i32 %.08.i95, %43
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i93
-  br i1 %exitcond.not.i97, label %Vec_StrSum.exit98, label %40, !llvm.loop !14
+  br i1 %exitcond.not.i97, label %Vec_StrSum.exit98, label %40, !llvm.loop !13
 
 Vec_StrSum.exit98:                                ; preds = %40, %34, %Vec_StrSum.exit
   %45 = phi i32 [ 0, %Vec_StrSum.exit ], [ 0, %34 ], [ %44, %40 ]
@@ -1519,7 +1519,7 @@ Vec_StrSum.exit98:                                ; preds = %40, %34, %Vec_StrSu
   %66 = add nuw nsw i32 %.011.i, %65
   %indvars.iv.next.i103 = add nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i101
-  br i1 %exitcond.not.i104, label %Vec_WecSizeUsedLimits.exit, label %62, !llvm.loop !15
+  br i1 %exitcond.not.i104, label %Vec_WecSizeUsedLimits.exit, label %62, !llvm.loop !14
 
 Vec_WecSizeUsedLimits.exit:                       ; preds = %62, %54
   %.0.lcssa.i99 = phi i32 [ 0, %54 ], [ %66, %62 ]
@@ -1542,7 +1542,7 @@ Vec_WecSizeUsedLimits.exit:                       ; preds = %62, %54
   %72 = add nsw i32 %.val8.i, %.011.i111
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i110, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i109
-  br i1 %exitcond.not.i113, label %Vec_WecSizeSize.exit, label %70, !llvm.loop !16
+  br i1 %exitcond.not.i113, label %Vec_WecSizeSize.exit, label %70, !llvm.loop !15
 
 Vec_WecSizeSize.exit:                             ; preds = %70, %Vec_WecSizeUsedLimits.exit
   %.0.lcssa.i106 = phi i32 [ 0, %Vec_WecSizeUsedLimits.exit ], [ %72, %70 ]
@@ -1608,10 +1608,10 @@ Vec_WecSizeSize.exit:                             ; preds = %70, %Vec_WecSizeUse
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.063 = phi i32 [ %105, %.preheader ], [ 0, %.preheader.preheader ]
-  %104 = call i32 @Sfm_NodeResub(ptr noundef nonnull %0, i32 noundef %101), !range !9
+  %104 = call i32 @Sfm_NodeResub(ptr noundef nonnull %0, i32 noundef %101)
   %.not76 = icmp eq i32 %104, 0
   %105 = add nuw nsw i32 %.063, 1
-  br i1 %.not76, label %106, label %.preheader, !llvm.loop !17
+  br i1 %.not76, label %106, label %.preheader, !llvm.loop !16
 
 106:                                              ; preds = %.preheader
   %107 = icmp ne i32 %.063, 0
@@ -1637,7 +1637,7 @@ Vec_WecSizeSize.exit:                             ; preds = %70, %Vec_WecSizeUse
   %indvars = trunc i64 %indvars.iv.next to i32
   %114 = add nsw i32 %113, %indvars
   %115 = icmp slt i32 %114, %112
-  br i1 %115, label %84, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %115, label %84, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %106, %111
   %.val89.pre = phi i32 [ %113, %111 ], [ %.val89.pre.pre, %106 ]
@@ -1675,7 +1675,7 @@ Vec_WecSizeSize.exit:                             ; preds = %70, %Vec_WecSizeUse
   %123 = add nuw nsw i32 %.011.i119, %122
   %indvars.iv.next.i121 = add nsw i64 %indvars.iv.i118, 1
   %exitcond.not.i122 = icmp eq i64 %indvars.iv.next.i121, %wide.trip.count.i117
-  br i1 %exitcond.not.i122, label %Vec_WecSizeUsedLimits.exit123, label %119, !llvm.loop !15
+  br i1 %exitcond.not.i122, label %Vec_WecSizeUsedLimits.exit123, label %119, !llvm.loop !14
 
 Vec_WecSizeUsedLimits.exit123:                    ; preds = %119, %._crit_edge
   %.0.lcssa.i114 = phi i32 [ 0, %._crit_edge ], [ %123, %119 ]
@@ -1698,7 +1698,7 @@ Vec_WecSizeUsedLimits.exit123:                    ; preds = %119, %._crit_edge
   %129 = add nsw i32 %.val8.i131, %.011.i130
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i129, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i128
-  br i1 %exitcond.not.i133, label %Vec_WecSizeSize.exit134, label %127, !llvm.loop !16
+  br i1 %exitcond.not.i133, label %Vec_WecSizeSize.exit134, label %127, !llvm.loop !15
 
 Vec_WecSizeSize.exit134:                          ; preds = %127, %Vec_WecSizeUsedLimits.exit123
   %.0.lcssa.i125 = phi i32 [ 0, %Vec_WecSizeUsedLimits.exit123 ], [ %129, %127 ]
@@ -1831,7 +1831,7 @@ attributes #17 = { nounwind allocsize(0) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -1840,4 +1840,3 @@ attributes #17 = { nounwind allocsize(0) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

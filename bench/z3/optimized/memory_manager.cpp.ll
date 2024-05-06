@@ -247,7 +247,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6memory19get_max_used_memoryEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN6memory19get_max_used_memoryEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_memory_mux, align 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #22

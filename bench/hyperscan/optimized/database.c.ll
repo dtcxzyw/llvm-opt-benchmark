@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [40 x i8] c"Version: %u.%u.%u Features: %s Mode: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hs_free_database(ptr noundef %db) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hs_free_database(ptr noundef %db) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %db, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -38,7 +38,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hs_serialize_database(ptr noundef %db, ptr noundef writeonly %bytes, ptr noundef writeonly %serialized_length) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_serialize_database(ptr noundef %db, ptr noundef writeonly %bytes, ptr noundef writeonly %serialized_length) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %db, null
   %tobool1 = icmp ne ptr %bytes, null
@@ -209,7 +209,7 @@ if.end10:                                         ; preds = %if.end6
   store i32 %conv.i9, ptr %header.sroa.11.0.db.sroa_idx, align 4
   %idx.ext.i = zext nneg i32 %conv.i9 to i64
   %add.ptr.i10 = getelementptr inbounds i8, ptr %db, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i10, ptr nonnull align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i10, ptr nonnull readonly align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
   %11 = load i32, ptr %header.sroa.11.0.db.sroa_idx, align 4
   %idx.ext.i.i = zext i32 %11 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %db, i64 %idx.ext.i.i
@@ -313,7 +313,7 @@ if.end14:                                         ; preds = %hs_check_alloc.exit
   store i32 %conv.i19, ptr %header.sroa.11.0.call9.sroa_idx, align 4
   %idx.ext.i = zext nneg i32 %conv.i19 to i64
   %add.ptr.i20 = getelementptr inbounds i8, ptr %call9, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr nonnull align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr nonnull readonly align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
   %13 = load i32, ptr %header.sroa.11.0.call9.sroa_idx, align 4
   %idx.ext.i.i = zext i32 %13 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call9, i64 %idx.ext.i.i
@@ -339,7 +339,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @hs_database_size(ptr noundef readonly %db, ptr noundef writeonly %size) local_unnamed_addr #3 {
+define dso_local range(i32 -5, 1) i32 @hs_database_size(ptr noundef readonly %db, ptr noundef writeonly %size) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %size, null
   %tobool.i.not = icmp eq ptr %db, null
@@ -454,7 +454,7 @@ return:                                           ; preds = %if.end16, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hs_serialized_database_info(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef writeonly %info) local_unnamed_addr #0 {
+define dso_local i32 @hs_serialized_database_info(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef writeonly %info) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -490,7 +490,7 @@ if.end2:                                          ; preds = %if.end12.i
   %3 = load i64, ptr %incdec.ptr13.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %bytes, i64 44
   %4 = load i32, ptr %add.ptr, align 1
-  %call4 = tail call fastcc i32 @print_database_string(ptr noundef nonnull %info, i32 noundef 84148736, i64 noundef %3, i32 noundef %4), !range !5
+  %call4 = tail call fastcc i32 @print_database_string(ptr noundef nonnull %info, i32 noundef 84148736, i64 noundef %3, i32 noundef %4)
   br label %return
 
 return:                                           ; preds = %if.end12.i, %if.end6.i, %if.end2.i, %if.end, %entry, %if.end2
@@ -499,7 +499,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @print_database_string(ptr nocapture noundef writeonly %s, i32 noundef %version, i64 noundef %plat, i32 noundef %raw_mode) unnamed_addr #0 {
+define internal fastcc range(i32 -9, 1) i32 @print_database_string(ptr nocapture noundef writeonly %s, i32 noundef %version, i64 noundef %plat, i32 noundef %raw_mode) unnamed_addr #0 {
 entry:
   store ptr null, ptr %s, align 8
   %shr = lshr i32 %version, 8
@@ -583,7 +583,7 @@ return:                                           ; preds = %do.end, %if.then39,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hs_database_info(ptr noundef %db, ptr noundef writeonly %info) local_unnamed_addr #0 {
+define dso_local i32 @hs_database_info(ptr noundef %db, ptr noundef writeonly %info) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -613,7 +613,7 @@ if.end5:                                          ; preds = %lor.lhs.false3
   %4 = load i32, ptr %version, align 4
   %mode = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   %5 = load i32, ptr %mode, align 4
-  %call7 = tail call fastcc i32 @print_database_string(ptr noundef nonnull %info, i32 noundef %4, i64 noundef %2, i32 noundef %5), !range !5
+  %call7 = tail call fastcc i32 @print_database_string(ptr noundef nonnull %info, i32 noundef %4, i64 noundef %2, i32 noundef %5)
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false3, %entry, %if.end5
@@ -641,4 +641,3 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -9, i32 1}

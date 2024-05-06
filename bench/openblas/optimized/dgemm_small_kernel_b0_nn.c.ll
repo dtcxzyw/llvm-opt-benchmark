@@ -1226,7 +1226,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %777 = getelementptr double, ptr %3, i64 %584
   %778 = bitcast i8 %776 to <8 x i1>
   %779 = shufflevector <8 x i1> %778, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %780 = mul nsw i64 %2, 3
+  %780 = mul nuw nsw i64 %2, 3
   %781 = getelementptr double, ptr %767, i64 %780
   %782 = shl nuw nsw i64 %2, 1
   %783 = getelementptr double, ptr %767, i64 %782
@@ -1254,7 +1254,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %795 = phi i64 [ 0, %.split313.us ], [ %800, %794 ]
   %796 = getelementptr double, ptr %792, i64 %795
   %797 = load double, ptr %796, align 8, !tbaa !35
-  %798 = mul nsw i64 %795, %2
+  %798 = mul nuw nsw i64 %795, %2
   %799 = getelementptr double, ptr %793, i64 %798
   store double %797, ptr %799, align 8, !tbaa !35
   %800 = add nuw nsw i64 %795, 1
@@ -1351,16 +1351,16 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %851, label %860, label %.loopexit151
 
 860:                                              ; preds = %856
-  %861 = mul nsw i64 %857, %2
+  %861 = mul nuw nsw i64 %857, %2
   %862 = getelementptr double, ptr %767, i64 %861
   %863 = or disjoint i64 %857, 1
-  %864 = mul nsw i64 %863, %2
+  %864 = mul nuw nsw i64 %863, %2
   %865 = getelementptr double, ptr %767, i64 %864
   %866 = or disjoint i64 %857, 2
-  %867 = mul nsw i64 %866, %2
+  %867 = mul nuw nsw i64 %866, %2
   %868 = getelementptr double, ptr %767, i64 %867
   %869 = or disjoint i64 %857, 3
-  %870 = mul nsw i64 %869, %2
+  %870 = mul nuw nsw i64 %869, %2
   %871 = getelementptr double, ptr %767, i64 %870
   br label %899
 
@@ -1389,16 +1389,16 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %886, label %887, label %.loopexit150
 
 887:                                              ; preds = %.loopexit151
-  %888 = mul nsw i64 %857, %2
+  %888 = mul nuw nsw i64 %857, %2
   %889 = getelementptr double, ptr %767, i64 %888
   %890 = or disjoint i64 %857, 1
-  %891 = mul nsw i64 %890, %2
+  %891 = mul nuw nsw i64 %890, %2
   %892 = getelementptr double, ptr %767, i64 %891
   %893 = or disjoint i64 %857, 2
-  %894 = mul nsw i64 %893, %2
+  %894 = mul nuw nsw i64 %893, %2
   %895 = getelementptr double, ptr %767, i64 %894
   %896 = or disjoint i64 %857, 3
-  %897 = mul nsw i64 %896, %2
+  %897 = mul nuw nsw i64 %896, %2
   %898 = getelementptr double, ptr %767, i64 %897
   br label %1134
 
@@ -1655,16 +1655,16 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %1121, label %1122, label %.loopexit149
 
 1122:                                             ; preds = %.loopexit150
-  %1123 = mul nsw i64 %857, %2
+  %1123 = mul nuw nsw i64 %857, %2
   %1124 = getelementptr double, ptr %767, i64 %1123
   %1125 = or disjoint i64 %857, 1
-  %1126 = mul nsw i64 %1125, %2
+  %1126 = mul nuw nsw i64 %1125, %2
   %1127 = getelementptr double, ptr %767, i64 %1126
   %1128 = or disjoint i64 %857, 2
-  %1129 = mul nsw i64 %1128, %2
+  %1129 = mul nuw nsw i64 %1128, %2
   %1130 = getelementptr double, ptr %767, i64 %1129
   %1131 = or disjoint i64 %857, 3
-  %1132 = mul nsw i64 %1131, %2
+  %1132 = mul nuw nsw i64 %1131, %2
   %1133 = getelementptr double, ptr %767, i64 %1132
   br label %1261
 
@@ -1921,11 +1921,11 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %879, label %1347, label %.loopexit145
 
 1347:                                             ; preds = %1344
-  %1348 = mul nsw i64 %1345, %2
+  %1348 = mul nuw nsw i64 %1345, %2
   %1349 = getelementptr double, ptr %767, i64 %1348
   %1350 = and i64 %1345, 4294967294
   %1351 = or disjoint i64 %1350, 1
-  %1352 = mul nsw i64 %1351, %2
+  %1352 = mul nuw nsw i64 %1351, %2
   %1353 = getelementptr double, ptr %767, i64 %1352
   br label %1377
 
@@ -1955,11 +1955,11 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %1369, label %1370, label %.loopexit144
 
 1370:                                             ; preds = %.loopexit145
-  %1371 = mul nsw i64 %1345, %2
+  %1371 = mul nuw nsw i64 %1345, %2
   %1372 = getelementptr double, ptr %767, i64 %1371
   %1373 = and i64 %1345, 4294967294
   %1374 = or disjoint i64 %1373, 1
-  %1375 = mul nsw i64 %1374, %2
+  %1375 = mul nuw nsw i64 %1374, %2
   %1376 = getelementptr double, ptr %767, i64 %1375
   br label %1526
 
@@ -2124,11 +2124,11 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %1518, label %1519, label %.loopexit143
 
 1519:                                             ; preds = %.loopexit144
-  %1520 = mul nsw i64 %1345, %2
+  %1520 = mul nuw nsw i64 %1345, %2
   %1521 = getelementptr double, ptr %767, i64 %1520
   %1522 = and i64 %1345, 4294967294
   %1523 = or disjoint i64 %1522, 1
-  %1524 = mul nsw i64 %1523, %2
+  %1524 = mul nuw nsw i64 %1523, %2
   %1525 = getelementptr double, ptr %767, i64 %1524
   br label %1607
 
@@ -2315,7 +2315,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %1361, label %1666, label %.loopexit138
 
 1666:                                             ; preds = %1662
-  %1667 = mul nsw i64 %1663, %2
+  %1667 = mul nuw nsw i64 %1663, %2
   %1668 = getelementptr double, ptr %767, i64 %1667
   br label %1674
 
@@ -2325,7 +2325,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %1670, label %1671, label %.loopexit137
 
 1671:                                             ; preds = %.loopexit138
-  %1672 = mul nsw i64 %1663, %2
+  %1672 = mul nuw nsw i64 %1663, %2
   %1673 = getelementptr double, ptr %767, i64 %1672
   br label %1777
 
@@ -2447,7 +2447,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %1773, label %1774, label %.loopexit136
 
 1774:                                             ; preds = %.loopexit137
-  %1775 = mul nsw i64 %1663, %2
+  %1775 = mul nuw nsw i64 %1663, %2
   %1776 = getelementptr double, ptr %767, i64 %1775
   br label %1836
 

@@ -412,7 +412,7 @@ entry:
   %conv = zext i8 %3 to i64
   %add = add nuw nsw i64 %conv, 1
   %shr21.i = lshr i64 %add, 8
-  %conv23.i = trunc i64 %shr21.i to i8
+  %conv23.i = trunc nuw nsw i64 %shr21.i to i8
   %arrayidx24.i = getelementptr inbounds i8, ptr %arrayidx5, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx5, i8 0, i64 6, i1 false)
   store i8 %conv23.i, ptr %arrayidx24.i, align 1
@@ -566,7 +566,7 @@ return:                                           ; preds = %if.then9.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13zmtp_engine_t16receive_greetingEv(ptr noundef nonnull align 8 dereferenceable(1976) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN3zmq13zmtp_engine_t16receive_greetingEv(ptr noundef nonnull align 8 dereferenceable(1976) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_greeting_bytes_read = getelementptr inbounds i8, ptr %this, i64 1960
   %_greeting_size = getelementptr inbounds i8, ptr %this, i64 1824
@@ -1759,7 +1759,7 @@ declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferen
 declare void @_ZN3zmq20stream_engine_base_t9out_eventEv(ptr noundef nonnull align 8 dereferenceable(1689)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13zmtp_engine_t23process_command_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1976) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13zmtp_engine_t23process_command_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1976) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %0 = load i8, ptr %call, align 1

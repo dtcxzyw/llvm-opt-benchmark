@@ -172,7 +172,7 @@ do.end:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_table_print(ptr nocapture noundef readonly %tab) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_table_print(ptr nocapture noundef readonly %tab) local_unnamed_addr #0 {
 entry:
   %rec.i21 = alloca %struct.reftable_record, align 8
   %rec.i17 = alloca %struct.reftable_record, align 8

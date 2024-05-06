@@ -37,7 +37,7 @@ define nonnull ptr @_php_get_stream_filters_hash() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_stream_filter_register_factory(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @php_stream_filter_register_factory(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = load ptr, ptr @zend_string_init_interned, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
@@ -84,7 +84,7 @@ define i32 @php_stream_filter_unregister_factory(ptr noundef %0) local_unnamed_a
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_stream_filter_register_factory_volatile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @php_stream_filter_register_factory_volatile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 9), align 8
   %.not = icmp eq ptr %4, null
@@ -783,7 +783,7 @@ define void @_php_stream_filter_prepend(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_stream_filter_append_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @php_stream_filter_append_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._php_stream_bucket_brigade, align 8
   %4 = alloca %struct._php_stream_bucket_brigade, align 8
   %5 = alloca i64, align 8
@@ -1239,7 +1239,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define void @_php_stream_filter_append(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = tail call i32 @php_stream_filter_append_ex(ptr noundef %0, ptr noundef %1), !range !5
+  %3 = tail call i32 @php_stream_filter_append_ex(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %14, label %4
 
@@ -1267,7 +1267,7 @@ define void @_php_stream_filter_append(ptr noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_php_stream_filter_flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @_php_stream_filter_flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._php_stream_bucket_brigade, align 8
   %4 = alloca %struct._php_stream_bucket_brigade, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -1734,4 +1734,3 @@ attributes #17 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

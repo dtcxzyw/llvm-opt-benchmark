@@ -4443,12 +4443,12 @@ define noundef i32 @_ZN5Ipopt22PardisoSolverInterface10MultiSolveEbPKiS2_iPdbi(p
   br i1 %1, label %9, label %11
 
 9:                                                ; preds = %8
-  %10 = tail call noundef i32 @_ZN5Ipopt22PardisoSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %6, i32 noundef %7), !range !4
+  %10 = tail call noundef i32 @_ZN5Ipopt22PardisoSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %6, i32 noundef %7)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %9, %8
-  %12 = tail call noundef i32 @_ZN5Ipopt22PardisoSolverInterface5SolveEPKiS2_iPd(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5), !range !4
+  %12 = tail call noundef i32 @_ZN5Ipopt22PardisoSolverInterface5SolveEPKiS2_iPd(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   br label %13
 
 13:                                               ; preds = %9, %11
@@ -4457,7 +4457,7 @@ define noundef i32 @_ZN5Ipopt22PardisoSolverInterface10MultiSolveEbPKiS2_iPdbi(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt22PardisoSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt22PardisoSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -4843,7 +4843,7 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 228:                                              ; preds = %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %217
   store i8 0, ptr %21, align 8
-  br i1 %40, label %39, label %229, !llvm.loop !5
+  br i1 %40, label %39, label %229, !llvm.loop !4
 
 229:                                              ; preds = %228
   %230 = load i8, ptr %37, align 2
@@ -4954,7 +4954,7 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt22PardisoSolverInterface5SolveEPKiS2_iPd(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt22PardisoSolverInterface5SolveEPKiS2_iPd(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca %"class.std::basic_ofstream", align 8
@@ -5114,7 +5114,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
 83:                                               ; preds = %81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader71.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.preheader71.i, label %.lr.ph.i, !llvm.loop !6
 
 .loopexit62.i:                                    ; preds = %99, %.lr.ph87.i
   %lpad.loopexit64.i = landingpad { ptr, i32 }
@@ -5155,7 +5155,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
 89:                                               ; preds = %87
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count98.i
-  br i1 %exitcond99.not.i, label %.lr.ph85.i, label %.lr.ph83.i, !llvm.loop !8
+  br i1 %exitcond99.not.i, label %.lr.ph85.i, label %.lr.ph83.i, !llvm.loop !7
 
 .lr.ph85.i:                                       ; preds = %89, %95
   %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %95 ], [ 0, %89 ]
@@ -5171,7 +5171,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
 95:                                               ; preds = %93
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next101.i, %wide.trip.count98.i
-  br i1 %exitcond104.not.i, label %._crit_edge.i, label %.lr.ph85.i, !llvm.loop !9
+  br i1 %exitcond104.not.i, label %._crit_edge.i, label %.lr.ph85.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %95, %.preheader71.i
   %.not55.i = icmp ne ptr %4, null
@@ -5196,7 +5196,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
 101:                                              ; preds = %99
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %exitcond109.not.i = icmp eq i64 %indvars.iv.next106.i, %wide.trip.count108.i
-  br i1 %exitcond109.not.i, label %.loopexit61.i, label %.lr.ph87.i, !llvm.loop !10
+  br i1 %exitcond109.not.i, label %.loopexit61.i, label %.lr.ph87.i, !llvm.loop !9
 
 .loopexit61.i:                                    ; preds = %101, %._crit_edge.i
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %8) #24
@@ -5237,7 +5237,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
 .loopexit.i:                                      ; preds = %138, %.lr.ph92.i
   %112 = phi i32 [ %115, %.lr.ph92.i ], [ %139, %138 ]
   %exitcond117.not.i = icmp eq i64 %indvars.iv.next114.i, %wide.trip.count116.i
-  br i1 %exitcond117.not.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !11
+  br i1 %exitcond117.not.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !10
 
 .lr.ph92.i:                                       ; preds = %.loopexit.i, %.lr.ph92.preheader.i
   %113 = phi i32 [ %.pre.i, %.lr.ph92.preheader.i ], [ %112, %.loopexit.i ]
@@ -5251,7 +5251,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
 
 .lr.ph90.preheader.i:                             ; preds = %.lr.ph92.i
   %118 = sext i32 %113 to i64
-  %119 = trunc i64 %indvars.iv.next114.i to i32
+  %119 = trunc nuw nsw i64 %indvars.iv.next114.i to i32
   br label %.lr.ph90.i
 
 .lr.ph90.i:                                       ; preds = %138, %.lr.ph90.preheader.i
@@ -5294,7 +5294,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
   %140 = add nsw i32 %139, -1
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next111.i, %141
-  br i1 %142, label %.lr.ph90.i, label %.loopexit.i, !llvm.loop !12
+  br i1 %142, label %.lr.ph90.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit59.i:                                    ; preds = %136, %132, %130, %125, %123, %121, %.lr.ph90.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -5413,7 +5413,7 @@ _ZN5IpoptL18write_iajaa_matrixEiPKiS1_PdS2_ii.exit: ; preds = %102, %._crit_edge
   %202 = add nuw nsw i32 %.03854, 1
   store i32 0, ptr %16, align 4
   %203 = icmp slt i32 %202, %149
-  br i1 %203, label %.preheader, label %._crit_edge55, !llvm.loop !13
+  br i1 %203, label %.preheader, label %._crit_edge55, !llvm.loop !12
 
 ._crit_edge55:                                    ; preds = %._crit_edge53, %171, %_ZN5IpoptL18write_iajaa_matrixEiPKiS1_PdS2_ii.exit
   call void @_ZdaPv(ptr noundef nonnull %41) #26
@@ -5931,13 +5931,12 @@ attributes #28 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 5}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

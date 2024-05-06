@@ -1788,7 +1788,7 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 16
-  %trunc = trunc i32 %21 to i16
+  %trunc = trunc nuw i32 %21 to i16
   switch i16 %trunc, label %71 [
     i16 2, label %22
     i16 1, label %80
@@ -1977,7 +1977,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr nocapture nounde
   br i1 %69, label %74, label %70, !prof !14
 
 70:                                               ; preds = %62
-  %71 = trunc i32 %68 to i16
+  %71 = trunc nuw i32 %68 to i16
   %72 = sub i16 %66, %71
   %73 = xor i1 %30, true
   br label %74
@@ -2181,7 +2181,7 @@ define dso_local void @virtqueue_disable_cb(ptr nocapture noundef %0) #5 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtqueue_enable_cb_prepare(ptr nocapture noundef %0) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @virtqueue_enable_cb_prepare(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 82
   %3 = load i8, ptr %2, align 2, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -2619,13 +2619,13 @@ define dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %0) #0 alig
   %101 = load i32, ptr %72, align 8
   %102 = zext i32 %101 to i64
   %103 = getelementptr [0 x i16], ptr %100, i64 0, i64 %102
-  %104 = trunc i32 %93 to i16
+  %104 = trunc nuw i32 %93 to i16
   %105 = add i16 %89, %104
   %106 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %103, i16 %105, ptr elementtype(i16) %103) #17, !srcloc !55
   br label %116
 
 107:                                              ; preds = %85
-  %108 = trunc i32 %93 to i16
+  %108 = trunc nuw i32 %93 to i16
   %109 = add i16 %89, %108
   %110 = getelementptr inbounds i8, ptr %0, i64 104
   %111 = load ptr, ptr %110, align 8
@@ -2751,7 +2751,7 @@ define dso_local ptr @virtqueue_detach_unused_buf(ptr nocapture noundef %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vring_interrupt(i32 %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @vring_interrupt(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
@@ -3510,7 +3510,7 @@ define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @virtqueue_set_dma_premapped(ptr nocapture noundef %0) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @virtqueue_set_dma_premapped(ptr nocapture noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 44
@@ -4422,7 +4422,7 @@ define dso_local void @virtqueue_dma_unmap_single_attrs(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef i32 @virtqueue_dma_mapping_error(ptr nocapture noundef readonly %0, i64 noundef %1) #4 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @virtqueue_dma_mapping_error(ptr nocapture noundef readonly %0, i64 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
@@ -4978,7 +4978,7 @@ define internal fastcc void @detach_buf_split(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @vring_alloc_queue_packed(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @vring_alloc_queue_packed(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -5233,7 +5233,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @dma_free_attrs(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @vring_alloc_queue_split(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
   %8 = zext i1 %4 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17

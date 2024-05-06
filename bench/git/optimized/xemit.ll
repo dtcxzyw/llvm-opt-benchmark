@@ -140,7 +140,7 @@ return:                                           ; preds = %land.lhs.true36, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @xdl_emit_diff(ptr nocapture noundef readonly %xe, ptr noundef readonly %xscr, ptr noundef %ecb, ptr nocapture noundef readonly %xecfg) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @xdl_emit_diff(ptr nocapture noundef readonly %xe, ptr noundef readonly %xscr, ptr noundef %ecb, ptr nocapture noundef readonly %xecfg) local_unnamed_addr #1 {
 entry:
   %dummy.i272 = alloca [1 x i8], align 1
   %dummy.i200 = alloca [1 x i8], align 1
@@ -932,7 +932,7 @@ while.body.i.i.i374:                              ; preds = %land.rhs.i.i.i368
 
 match_func_rec.exit.i349.thread:                  ; preds = %land.rhs.i.i.i368, %while.body.i.i.i374
   %len.addr.1.lcssa.i.i.i378 = phi i64 [ %len.addr.115.i.i.i369, %land.rhs.i.i.i368 ], [ 0, %while.body.i.i.i374 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %buf1.i, ptr nonnull align 1 %115, i64 %len.addr.1.lcssa.i.i.i378, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %buf1.i, ptr nonnull readonly align 1 %115, i64 %len.addr.1.lcssa.i.i.i378, i1 false)
   br label %if.then.i357
 
 match_func_rec.exit.i349:                         ; preds = %for.body.i341

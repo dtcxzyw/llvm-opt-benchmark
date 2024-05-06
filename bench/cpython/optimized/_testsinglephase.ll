@@ -73,7 +73,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.end3:                                          ; preds = %if.end
   tail call fastcc void @clear_state(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @global_state, i64 0, i32 1))
-  %call4 = tail call fastcc i32 @init_state(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @global_state, i64 0, i32 1)), !range !4
+  %call4 = tail call fastcc i32 @init_state(ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @global_state, i64 0, i32 1))
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %if.then8, label %if.end10
 
@@ -94,7 +94,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %return
 
 if.end10:                                         ; preds = %if.end3
-  %call11 = tail call fastcc i32 @init_module(ptr noundef nonnull %call, ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @global_state, i64 0, i32 1)), !range !4
+  %call11 = tail call fastcc i32 @init_module(ptr noundef nonnull %call, ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @global_state, i64 0, i32 1))
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then18, label %if.end21
 
@@ -149,7 +149,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %state, i8 0, i64 32, i1 false)
-  %call1 = call fastcc i32 @init_state(ptr noundef nonnull %state), !range !4
+  %call1 = call fastcc i32 @init_state(ptr noundef nonnull %state)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then5, label %if.end7
 
@@ -288,7 +288,7 @@ declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @init_state(ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @init_state(ptr nocapture noundef %state) unnamed_addr #0 {
 entry:
   %prev.i = alloca i64, align 8
   %t.i = alloca i64, align 8
@@ -307,7 +307,7 @@ do.cond.i:                                        ; preds = %do.body.i
   %0 = load i64, ptr %t.i, align 8
   %1 = load i64, ptr %prev.i, align 8
   %cmp5.i = icmp eq i64 %0, %1
-  br i1 %cmp5.i, label %do.body.i, label %if.end, !llvm.loop !5
+  br i1 %cmp5.i, label %do.body.i, label %if.end, !llvm.loop !4
 
 _set_initialized.exit.thread:                     ; preds = %do.body.i, %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %prev.i)
@@ -348,7 +348,7 @@ return:                                           ; preds = %if.end10, %error16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @init_module(ptr noundef %module, ptr nocapture noundef readonly %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @init_module(ptr noundef %module, ptr nocapture noundef readonly %state) unnamed_addr #0 {
 entry:
   %error = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load ptr, ptr %error, align 8
@@ -484,7 +484,7 @@ if.else4.i:                                       ; preds = %if.end
 
 get_module_state.exit:                            ; preds = %if.end, %if.then3.i, %if.else4.i
   %retval.0.i = phi ptr [ null, %if.then3.i ], [ %call5.i, %if.else4.i ], [ getelementptr inbounds (%struct.anon, ptr @global_state, i64 0, i32 1), %if.end ]
-  %call2 = tail call fastcc i32 @init_state(ptr noundef %retval.0.i), !range !4
+  %call2 = tail call fastcc i32 @init_state(ptr noundef %retval.0.i)
   %cmp3 = icmp slt i32 %call2, 0
   br i1 %cmp3, label %if.then6, label %if.end8
 
@@ -501,7 +501,7 @@ if.end.i23:                                       ; preds = %if.then6
   br i1 %cmp.i25, label %return.sink.split, label %return
 
 if.end8:                                          ; preds = %get_module_state.exit
-  %call9 = tail call fastcc i32 @init_module(ptr noundef nonnull %call, ptr noundef %retval.0.i), !range !4
+  %call9 = tail call fastcc i32 @init_module(ptr noundef nonnull %call, ptr noundef %retval.0.i)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %return
 
@@ -685,6 +685,5 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

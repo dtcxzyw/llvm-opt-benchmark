@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @items_fwd_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal range(i32 0, 2) i32 @items_fwd_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %opaque, align 8
@@ -191,7 +191,7 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_srtm_add(ptr nocapture noundef %srtm, ptr noundef %opaque, i64 noundef %seq_num, ptr nocapture noundef readonly %token) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_add(ptr nocapture noundef %srtm, ptr noundef %opaque, i64 noundef %seq_num, ptr nocapture noundef readonly %token) local_unnamed_addr #0 {
 entry:
   %outl.i = alloca i32, align 4
   %key.i = alloca %struct.srtm_item_st, align 8
@@ -404,7 +404,7 @@ return:                                           ; preds = %sorted_insert_srt.e
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_srtm_remove(ptr nocapture noundef %srtm, ptr noundef %opaque, i64 noundef %seq_num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_remove(ptr nocapture noundef %srtm, ptr noundef %opaque, i64 noundef %seq_num) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.srtm_item_st, align 8
   %alloc_failed = getelementptr inbounds i8, ptr %srtm, i64 24
@@ -536,7 +536,7 @@ return:                                           ; preds = %srtm_remove_from_re
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_srtm_cull(ptr nocapture noundef %srtm, ptr noundef %opaque) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_cull(ptr nocapture noundef %srtm, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.srtm_item_st, align 8
   %opaque1 = getelementptr inbounds i8, ptr %key, i64 16
@@ -665,7 +665,7 @@ return:                                           ; preds = %if.end, %entry, %sr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_srtm_lookup(ptr nocapture noundef readonly %srtm, ptr noundef %token, i64 noundef %idx, ptr noundef writeonly %opaque, ptr noundef writeonly %seq_num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr nocapture noundef readonly %srtm, ptr noundef %token, i64 noundef %idx, ptr noundef writeonly %opaque, ptr noundef writeonly %seq_num) local_unnamed_addr #0 {
 entry:
   %outl.i = alloca i32, align 4
   %key = alloca %struct.srtm_item_st, align 8

@@ -277,7 +277,7 @@ return:                                           ; preds = %for.cond.preheader.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z30alts_grpc_record_protocol_initP25alts_grpc_record_protocolP17gsec_aead_cryptermbbb(ptr noundef %rp, ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect) local_unnamed_addr #3 {
+define noundef range(i32 0, 8) i32 @_Z30alts_grpc_record_protocol_initP25alts_grpc_record_protocolP17gsec_aead_cryptermbbb(ptr noundef %rp, ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect) local_unnamed_addr #3 {
 entry:
   %error_details = alloca ptr, align 8
   %cmp = icmp eq ptr %rp, null

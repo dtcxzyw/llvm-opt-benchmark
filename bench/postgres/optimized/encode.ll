@@ -438,13 +438,13 @@ declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @hex_enc_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
+define internal noundef range(i64 0, -1) i64 @hex_enc_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
   %3 = shl i64 %1, 1
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @hex_dec_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
+define internal noundef range(i64 0, -9223372036854775808) i64 @hex_dec_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
   %3 = lshr i64 %1, 1
   ret i64 %3
 }
@@ -460,7 +460,7 @@ define internal noundef i64 @pg_base64_enc_len(ptr nocapture readnone %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @pg_base64_dec_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
+define internal noundef range(i64 0, 4611686018427387904) i64 @pg_base64_dec_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
   %3 = mul i64 %1, 3
   %4 = lshr i64 %3, 2
   ret i64 %4

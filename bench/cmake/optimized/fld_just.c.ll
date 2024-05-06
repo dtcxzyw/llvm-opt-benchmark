@@ -21,7 +21,7 @@ define dso_local i32 @set_field_just(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not17, label %12, label %9
 
 9:                                                ; preds = %3
-  %10 = trunc i32 %1 to i16
+  %10 = trunc nuw i32 %1 to i16
   store i16 %10, ptr %6, align 2
   %11 = tail call i32 @_nc_Synchronize_Attributes(ptr noundef nonnull %5) #4
   br label %12
@@ -39,7 +39,7 @@ declare i32 @_nc_Synchronize_Attributes(ptr noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @field_just(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 -32768, 32768) i32 @field_just(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Field, align 8
   %3 = select i1 %.not, ptr %2, ptr %0

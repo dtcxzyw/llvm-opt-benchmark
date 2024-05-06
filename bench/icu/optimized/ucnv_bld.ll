@@ -111,7 +111,7 @@ entry:
 declare void @ucln_common_registerCleanup_75(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL12ucnv_cleanupv() #0 personality ptr @__gxx_personality_v0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL12ucnv_cleanupv() #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i32 @ucnv_flushCache_75()
   %0 = load ptr, ptr @_ZL21SHARED_DATA_HASHTABLE, align 8
@@ -1206,7 +1206,7 @@ return:                                           ; preds = %ucnv_unload_75.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucnv_canCreateConverter_75(ptr noundef %converterName, ptr noundef %err) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucnv_canCreateConverter_75(ptr noundef %converterName, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %myUConverter = alloca %struct.UConverter, align 8
   %stackPieces = alloca %struct.UConverterNamePieces, align 4
@@ -1499,7 +1499,7 @@ declare ptr @uhash_removeElement_75(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define zeroext i16 @ucnv_bld_countAvailableConverters_75(ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL26haveAvailableConverterListP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL26haveAvailableConverterListP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   %0 = load i16, ptr @_ZL24gAvailableConverterCount, align 2
   %retval.0 = select i1 %tobool.not, i16 0, i16 %0
@@ -1507,7 +1507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZL26haveAvailableConverterListP10UErrorCode(ptr noundef %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL26haveAvailableConverterListP10UErrorCode(ptr noundef %pErrorCode) unnamed_addr #0 {
 entry:
   %stackPieces.i.i = alloca %struct.UConverterNamePieces, align 4
   %stackArgs.i.i = alloca %struct.UConverterLoadArgs, align 8
@@ -1579,7 +1579,7 @@ for.body.i:                                       ; preds = %ucnv_loadSharedData
   %idx.015.i = phi i32 [ %inc13.i, %for.inc.i ], [ 0, %ucnv_loadSharedData_75.exit.i ]
   store i32 0, ptr %localStatus.i, align 4
   %call8.i = call ptr @uenum_next_75(ptr noundef %call.i, ptr noundef null, ptr noundef nonnull %localStatus.i)
-  %call9.i = call signext i8 @ucnv_canCreateConverter_75(ptr noundef %call8.i, ptr noundef nonnull %localStatus.i), !range !11
+  %call9.i = call signext i8 @ucnv_canCreateConverter_75(ptr noundef %call8.i, ptr noundef nonnull %localStatus.i)
   %tobool10.not.i = icmp eq i8 %call9.i, 0
   br i1 %tobool10.not.i, label %for.inc.i, label %if.then11.i
 
@@ -1596,7 +1596,7 @@ if.then11.i:                                      ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then11.i, %for.body.i
   %inc13.i = add nuw nsw i32 %idx.015.i, 1
   %exitcond.not.i = icmp eq i32 %inc13.i, %call1.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i, %ucnv_loadSharedData_75.exit.i
   call void @uenum_close_75(ptr noundef %call.i)
@@ -1630,7 +1630,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 ; Function Attrs: mustprogress uwtable
 define ptr @ucnv_bld_getAvailableConverter_75(i16 noundef zeroext %n, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc noundef signext i8 @_ZL26haveAvailableConverterListP10UErrorCode(ptr noundef %pErrorCode), !range !11
+  %call = tail call fastcc noundef signext i8 @_ZL26haveAvailableConverterListP10UErrorCode(ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -2259,7 +2259,7 @@ declare i32 @__gxx_personality_v0(...)
 declare ptr @udata_openChoice_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext i8 @_ZL15isCnvAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #8 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL15isCnvAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #8 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %3, 19
@@ -2387,5 +2387,4 @@ attributes #11 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i8 0, i8 2}
-!12 = distinct !{!12, !5}
+!11 = distinct !{!11, !5}

@@ -283,7 +283,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   switch i32 %2, label %101 [
     i32 1, label %7
     i32 2, label %28
@@ -3103,7 +3103,7 @@ RGB_tone_mapping_v4.exit:                         ; preds = %1165, %1169, %1171
 1858:                                             ; preds = %1857
   %1859 = load i32, ptr %1839, align 64, !tbaa !181, !noalias !190
   %1860 = load i32, ptr %1840, align 4, !tbaa !183, !noalias !190
-  %1861 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef %1848, ptr noundef nonnull %1836, ptr noundef nonnull %1837, ptr noundef nonnull %1838, i32 noundef %1859, i32 noundef %1860), !noalias !190
+  %1861 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef readonly %1848, ptr noundef nonnull readonly %1836, ptr noundef nonnull readonly %1837, ptr noundef nonnull readonly %1838, i32 noundef %1859, i32 noundef %1860), !noalias !190
   br label %get_pixel_norm.exit
 
 1862:                                             ; preds = %1857
@@ -3173,7 +3173,7 @@ RGB_tone_mapping_v4.exit:                         ; preds = %1165, %1169, %1171
 1916:                                             ; preds = %1915
   %1917 = load i32, ptr %1839, align 64, !tbaa !181, !noalias !190
   %1918 = load i32, ptr %1840, align 4, !tbaa !183, !noalias !190
-  %1919 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef %1848, ptr noundef nonnull %1836, ptr noundef nonnull %1837, ptr noundef nonnull %1838, i32 noundef %1917, i32 noundef %1918), !noalias !190
+  %1919 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef readonly %1848, ptr noundef nonnull readonly %1836, ptr noundef nonnull readonly %1837, ptr noundef nonnull readonly %1838, i32 noundef %1917, i32 noundef %1918), !noalias !190
   br label %get_pixel_norm.exit
 
 1920:                                             ; preds = %1915
@@ -3467,7 +3467,7 @@ get_pixel_norm.exit:                              ; preds = %1849, %1858, %1862,
 2144:                                             ; preds = %2143
   %2145 = load i32, ptr %2126, align 64, !tbaa !181, !noalias !201
   %2146 = load i32, ptr %2127, align 4, !tbaa !183, !noalias !201
-  %2147 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef %2134, ptr noundef nonnull %2123, ptr noundef nonnull %2124, ptr noundef nonnull %2125, i32 noundef %2145, i32 noundef %2146), !noalias !201
+  %2147 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef readonly %2134, ptr noundef nonnull readonly %2123, ptr noundef nonnull readonly %2124, ptr noundef nonnull readonly %2125, i32 noundef %2145, i32 noundef %2146), !noalias !201
   br label %get_pixel_norm.exit76
 
 2148:                                             ; preds = %2143
@@ -3537,7 +3537,7 @@ get_pixel_norm.exit:                              ; preds = %1849, %1858, %1862,
 2202:                                             ; preds = %2201
   %2203 = load i32, ptr %2126, align 64, !tbaa !181, !noalias !201
   %2204 = load i32, ptr %2127, align 4, !tbaa !183, !noalias !201
-  %2205 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef %2134, ptr noundef nonnull %2123, ptr noundef nonnull %2124, ptr noundef nonnull %2125, i32 noundef %2203, i32 noundef %2204), !noalias !201
+  %2205 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef readonly %2134, ptr noundef nonnull readonly %2123, ptr noundef nonnull readonly %2124, ptr noundef nonnull readonly %2125, i32 noundef %2203, i32 noundef %2204), !noalias !201
   br label %get_pixel_norm.exit76
 
 2206:                                             ; preds = %2201
@@ -3731,7 +3731,7 @@ get_pixel_norm.exit76:                            ; preds = %2135, %2144, %2148,
 2341:                                             ; preds = %2340
   %2342 = load i32, ptr %2126, align 64, !tbaa !181, !noalias !203
   %2343 = load i32, ptr %2127, align 4, !tbaa !183, !noalias !203
-  %2344 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull %16, ptr noundef nonnull %2123, ptr noundef nonnull %2124, ptr noundef nonnull %2125, i32 noundef %2342, i32 noundef %2343), !noalias !203
+  %2344 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %2123, ptr noundef nonnull readonly %2124, ptr noundef nonnull readonly %2125, i32 noundef %2342, i32 noundef %2343), !noalias !203
   br label %get_pixel_norm.exit77
 
 2345:                                             ; preds = %2340
@@ -3789,7 +3789,7 @@ get_pixel_norm.exit76:                            ; preds = %2135, %2144, %2148,
 2387:                                             ; preds = %2386
   %2388 = load i32, ptr %2126, align 64, !tbaa !181, !noalias !203
   %2389 = load i32, ptr %2127, align 4, !tbaa !183, !noalias !203
-  %2390 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull %16, ptr noundef nonnull %2123, ptr noundef nonnull %2124, ptr noundef nonnull %2125, i32 noundef %2388, i32 noundef %2389), !noalias !203
+  %2390 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %2123, ptr noundef nonnull readonly %2124, ptr noundef nonnull readonly %2125, i32 noundef %2388, i32 noundef %2389), !noalias !203
   br label %get_pixel_norm.exit77
 
 2391:                                             ; preds = %2386
@@ -4027,7 +4027,7 @@ get_pixel_norm.exit77:                            ; preds = %2337, %2341, %2345,
 2557:                                             ; preds = %2556
   %2558 = load i32, ptr %2541, align 64, !tbaa !181, !noalias !210
   %2559 = load i32, ptr %2542, align 4, !tbaa !183, !noalias !210
-  %2560 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef %2547, ptr noundef nonnull %2538, ptr noundef nonnull %2539, ptr noundef nonnull %2540, i32 noundef %2558, i32 noundef %2559), !noalias !210
+  %2560 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef readonly %2547, ptr noundef nonnull readonly %2538, ptr noundef nonnull readonly %2539, ptr noundef nonnull readonly %2540, i32 noundef %2558, i32 noundef %2559), !noalias !210
   br label %get_pixel_norm.exit78
 
 2561:                                             ; preds = %2556
@@ -4097,7 +4097,7 @@ get_pixel_norm.exit77:                            ; preds = %2337, %2341, %2345,
 2615:                                             ; preds = %2614
   %2616 = load i32, ptr %2541, align 64, !tbaa !181, !noalias !210
   %2617 = load i32, ptr %2542, align 4, !tbaa !183, !noalias !210
-  %2618 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef %2547, ptr noundef nonnull %2538, ptr noundef nonnull %2539, ptr noundef nonnull %2540, i32 noundef %2616, i32 noundef %2617), !noalias !210
+  %2618 = call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef readonly %2547, ptr noundef nonnull readonly %2538, ptr noundef nonnull readonly %2539, ptr noundef nonnull readonly %2540, i32 noundef %2616, i32 noundef %2617), !noalias !210
   br label %get_pixel_norm.exit78
 
 2619:                                             ; preds = %2614
@@ -4392,7 +4392,7 @@ declare float @llvm.maxnum.f32(float, float) #10
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef i32 @reconstruct_highlights(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float %.104.val, <2 x i32> %.144.val, float %5, ptr nocapture noundef readonly %6) unnamed_addr #12 {
+define internal fastcc noundef range(i32 0, 2) i32 @reconstruct_highlights(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float %.104.val, <2 x i32> %.144.val, float %5, ptr nocapture noundef readonly %6) unnamed_addr #12 {
   %8 = sitofp <2 x i32> %.144.val to <2 x float>
   %9 = insertelement <2 x float> poison, float %.104.val, i64 0
   %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
@@ -6633,7 +6633,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr noc
   %40 = load i32, ptr %39, align 64, !tbaa !181
   %41 = getelementptr inbounds i8, ptr %21, i64 852
   %42 = load i32, ptr %41, align 4, !tbaa !183
-  %43 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull %22, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, i32 noundef %40, i32 noundef %42)
+  %43 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull readonly %22, ptr noundef nonnull readonly %36, ptr noundef nonnull readonly %37, ptr noundef nonnull readonly %38, i32 noundef %40, i32 noundef %42)
   br label %get_pixel_norm.exit
 
 44:                                               ; preds = %33
@@ -6709,7 +6709,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr noc
   %104 = load i32, ptr %103, align 64, !tbaa !181
   %105 = getelementptr inbounds i8, ptr %21, i64 852
   %106 = load i32, ptr %105, align 4, !tbaa !183
-  %107 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull %22, ptr noundef nonnull %100, ptr noundef nonnull %101, ptr noundef nonnull %102, i32 noundef %104, i32 noundef %106)
+  %107 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull readonly %22, ptr noundef nonnull readonly %100, ptr noundef nonnull readonly %101, ptr noundef nonnull readonly %102, i32 noundef %104, i32 noundef %106)
   br label %get_pixel_norm.exit
 
 108:                                              ; preds = %97
@@ -6975,7 +6975,7 @@ get_pixel_norm.exit:                              ; preds = %25, %35, %44, %54, 
   %305 = load i32, ptr %304, align 64, !tbaa !181
   %306 = getelementptr inbounds i8, ptr %280, i64 852
   %307 = load i32, ptr %306, align 4, !tbaa !183
-  %308 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull %287, ptr noundef nonnull %301, ptr noundef nonnull %302, ptr noundef nonnull %303, i32 noundef %305, i32 noundef %307)
+  %308 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull readonly %287, ptr noundef nonnull readonly %301, ptr noundef nonnull readonly %302, ptr noundef nonnull readonly %303, i32 noundef %305, i32 noundef %307)
   br label %get_pixel_norm.exit5
 
 309:                                              ; preds = %298
@@ -7051,7 +7051,7 @@ get_pixel_norm.exit:                              ; preds = %25, %35, %44, %54, 
   %369 = load i32, ptr %368, align 64, !tbaa !181
   %370 = getelementptr inbounds i8, ptr %280, i64 852
   %371 = load i32, ptr %370, align 4, !tbaa !183
-  %372 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull %287, ptr noundef nonnull %365, ptr noundef nonnull %366, ptr noundef nonnull %367, i32 noundef %369, i32 noundef %371)
+  %372 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr noundef nonnull readonly %287, ptr noundef nonnull readonly %365, ptr noundef nonnull readonly %366, ptr noundef nonnull readonly %367, i32 noundef %369, i32 noundef %371)
   br label %get_pixel_norm.exit5
 
 373:                                              ; preds = %362
@@ -7325,7 +7325,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @dt_iop_filmic_rgb_compute_spline(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @dt_iop_filmic_rgb_compute_spline(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #6 {
   %3 = alloca [25 x double], align 16
   %4 = alloca [5 x double], align 16
   %5 = alloca [16 x double], align 16
@@ -11484,7 +11484,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @area_button_press(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @area_button_press(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !279
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !286
@@ -11626,7 +11626,7 @@ define internal noundef i32 @area_enter_leave_notify(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @area_motion_notify(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @area_motion_notify(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !279
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !286
@@ -11940,7 +11940,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !408
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -13087,7 +13087,7 @@ define internal fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @filmic_v4_prepare_matrices(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef readonly %6, ptr noundef readonly %7) unnamed_addr #25 {
+define internal fastcc noundef range(i32 0, 2) i32 @filmic_v4_prepare_matrices(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef readonly %6, ptr noundef readonly %7) unnamed_addr #25 {
   %9 = alloca [4 x [4 x float]], align 64
   %10 = alloca [4 x [4 x float]], align 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #21
@@ -13148,7 +13148,7 @@ define internal fastcc noundef i32 @filmic_v4_prepare_matrices(ptr nocapture nou
   store <8 x float> <float 0x3FFDB64C20000000, float 0xBFF4E00A80000000, float 0x3FD296DEE0000000, float 0.000000e+00, float 0x3FE3F41080000000, float 0x3FD8BDF8C0000000, float 0xBFA2E20800000000, float 0.000000e+00>, ptr %10, align 64, !tbaa !14
   store <4 x float> <float 0xBFBA5E6920000000, float 0x3FC3817380000000, float 0x3FF56C3B20000000, float 0.000000e+00>, ptr %17, align 32, !tbaa !14
   %65 = getelementptr inbounds i8, ptr %6, i64 640
-  call fastcc void @dt_colormatrix_mul(ptr noundef %1, ptr noundef nonnull %65, ptr noundef nonnull %10)
+  call fastcc void @dt_colormatrix_mul(ptr noundef writeonly %1, ptr noundef nonnull readonly %65, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #21
   %66 = getelementptr inbounds i8, ptr %0, i64 32
   %67 = getelementptr inbounds i8, ptr %0, i64 48
@@ -13307,7 +13307,7 @@ define internal fastcc noundef i32 @filmic_v4_prepare_matrices(ptr nocapture nou
   store <8 x float> <float 0x3FFDB64C20000000, float 0xBFF4E00A80000000, float 0x3FD296DEE0000000, float 0.000000e+00, float 0x3FE3F41080000000, float 0x3FD8BDF8C0000000, float 0xBFA2E20800000000, float 0.000000e+00>, ptr %9, align 64, !tbaa !14
   store <4 x float> <float 0xBFBA5E6920000000, float 0x3FC3817380000000, float 0x3FF56C3B20000000, float 0.000000e+00>, ptr %146, align 32, !tbaa !14
   %194 = getelementptr inbounds i8, ptr %7, i64 640
-  call fastcc void @dt_colormatrix_mul(ptr noundef %4, ptr noundef nonnull %194, ptr noundef nonnull %9)
+  call fastcc void @dt_colormatrix_mul(ptr noundef writeonly %4, ptr noundef nonnull readonly %194, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #21
   %195 = getelementptr inbounds i8, ptr %3, i64 32
   %196 = getelementptr inbounds i8, ptr %3, i64 48
@@ -14563,7 +14563,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
   %55 = phi i64 [ %70, %.preheader36 ], [ %22, %51 ]
   %56 = phi i32 [ %69, %.preheader36 ], [ %28, %51 ]
   %57 = phi i32 [ %71, %.preheader36 ], [ 0, %51 ]
-  %58 = mul nsw i64 %55, %4
+  %58 = mul nuw nsw i64 %55, %4
   %59 = getelementptr double, ptr %52, i64 %58
   %60 = load double, ptr %59, align 8, !tbaa !318
   %61 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %60)
@@ -14596,7 +14596,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
   %81 = getelementptr double, ptr %0, i64 %23
   %82 = getelementptr double, ptr %81, i64 %80
   %83 = load double, ptr %82, align 8, !tbaa !318
-  %84 = mul nsw i64 %23, %4
+  %84 = mul nuw nsw i64 %23, %4
   %85 = getelementptr double, ptr %0, i64 %84
   %86 = getelementptr double, ptr %85, i64 %23
   %87 = load double, ptr %86, align 8, !tbaa !318
@@ -14620,7 +14620,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
 .preheader32:                                     ; preds = %.preheader32.preheader, %.preheader32
   %94 = phi i64 [ %101, %.preheader32 ], [ %22, %.preheader32.preheader ]
   %95 = phi i32 [ %102, %.preheader32 ], [ 0, %.preheader32.preheader ]
-  %96 = mul nsw i64 %94, %4
+  %96 = mul nuw nsw i64 %94, %4
   %97 = getelementptr double, ptr %81, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !318
   %99 = fneg reassoc nsz arcp contract afn double %98
@@ -14856,7 +14856,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
 
 272:                                              ; preds = %.loopexit23, %.loopexit28
   %273 = phi i64 [ %367, %.loopexit23 ], [ %22, %.loopexit28 ]
-  %274 = mul nsw i64 %273, %4
+  %274 = mul nuw nsw i64 %273, %4
   %275 = getelementptr double, ptr %81, i64 %274
   %276 = getelementptr double, ptr %0, i64 %274
   br i1 %271, label %311, label %277

@@ -72,7 +72,7 @@ define internal void @delta_coder_end(ptr noundef %0, ptr noundef %1) #0 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_delta_coder_memusage(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 -1, 345) i64 @lzma_delta_coder_memusage(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

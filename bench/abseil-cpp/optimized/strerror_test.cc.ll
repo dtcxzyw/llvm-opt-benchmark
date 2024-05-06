@@ -4308,7 +4308,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %indvars.iv = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next, %for.inc ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call = tail call ptr @strerror(i32 noundef %0) #19
   %1 = load ptr, ptr %expected_strings, align 8
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %indvars.iv
@@ -5147,7 +5147,7 @@ invoke.cont8.i.i.i.i.i:                           ; preds = %if.end63.i.i.i.i.i,
   %1 = load ptr, ptr %_M_func, align 8
   %2 = atomicrmw add ptr %1, i32 1 seq_cst, align 4
   store i32 34, ptr %call2.i.i.i.i.i, align 4
-  %3 = trunc i64 %indvars.iv.i.i.i.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i to i32
   call void @_ZN4absl13base_internal8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %value.i.i.i.i.i, i32 noundef %3)
   %4 = load i32, ptr %call2.i.i.i.i.i, align 4
   store i32 %4, ptr %check_err.i.i.i.i.i, align 4

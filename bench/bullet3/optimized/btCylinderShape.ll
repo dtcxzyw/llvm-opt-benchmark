@@ -309,27 +309,27 @@ entry:
   %3 = load i32, ptr %m_upAxis, align 8
   switch i32 %3, label %sw.epilog [
     i32 0, label %sw.epilog.thread
-    i32 2, label %sw.epilog.thread31
+    i32 2, label %sw.epilog.thread61
   ]
 
 sw.epilog.thread:                                 ; preds = %entry
-  %mul24 = fmul float %add8.i.i, %add8.i.i
-  %mul1426 = fmul float %add.i.i, 4.000000e+00
-  %mul1827 = fmul float %add.i.i, %mul1426
-  %mul2028 = fmul float %div2, %mul24
-  %4 = tail call float @llvm.fmuladd.f32(float %div, float %mul1827, float %mul2028)
-  %mul2129 = fmul float %div5, %mul24
+  %mul55 = fmul float %add8.i.i, %add8.i.i
+  %mul1456 = fmul float %add.i.i, 4.000000e+00
+  %mul1857 = fmul float %add.i.i, %mul1456
+  %mul2058 = fmul float %div2, %mul55
+  %4 = tail call float @llvm.fmuladd.f32(float %div, float %mul1857, float %mul2058)
+  %mul2159 = fmul float %div5, %mul55
   br label %sw.epilog26
 
-sw.epilog.thread31:                               ; preds = %entry
+sw.epilog.thread61:                               ; preds = %entry
   %retval.sroa.6.8.vec.extract.i = extractelement <2 x float> %retval.sroa.6.0.copyload.i, i64 0
   %add13.i.i = fadd float %retval.sroa.6.8.vec.extract.i, %call10.i
-  %mul35 = fmul float %add.i.i, %add.i.i
-  %mul1437 = fmul float %add13.i.i, 4.000000e+00
-  %mul1838 = fmul float %add13.i.i, %mul1437
-  %mul2039 = fmul float %div2, %mul35
-  %5 = tail call float @llvm.fmuladd.f32(float %div, float %mul1838, float %mul2039)
-  %mul2140 = fmul float %div5, %mul35
+  %mul66 = fmul float %add.i.i, %add.i.i
+  %mul1467 = fmul float %add13.i.i, 4.000000e+00
+  %mul1868 = fmul float %add13.i.i, %mul1467
+  %mul2069 = fmul float %div2, %mul66
+  %5 = tail call float @llvm.fmuladd.f32(float %div, float %mul1868, float %mul2069)
+  %mul2170 = fmul float %div5, %mul66
   br label %sw.epilog26
 
 sw.epilog:                                        ; preds = %entry
@@ -341,11 +341,11 @@ sw.epilog:                                        ; preds = %entry
   %mul21 = fmul float %div5, %mul
   br label %sw.epilog26
 
-sw.epilog26:                                      ; preds = %sw.epilog, %sw.epilog.thread31, %sw.epilog.thread
-  %.sink48 = phi float [ %6, %sw.epilog ], [ %5, %sw.epilog.thread31 ], [ %mul2129, %sw.epilog.thread ]
-  %mul21.sink = phi float [ %mul21, %sw.epilog ], [ %5, %sw.epilog.thread31 ], [ %4, %sw.epilog.thread ]
-  %.sink = phi float [ %6, %sw.epilog ], [ %mul2140, %sw.epilog.thread31 ], [ %4, %sw.epilog.thread ]
-  store float %.sink48, ptr %inertia, align 4
+sw.epilog26:                                      ; preds = %sw.epilog, %sw.epilog.thread61, %sw.epilog.thread
+  %.sink72 = phi float [ %6, %sw.epilog ], [ %5, %sw.epilog.thread61 ], [ %mul2159, %sw.epilog.thread ]
+  %mul21.sink = phi float [ %mul21, %sw.epilog ], [ %5, %sw.epilog.thread61 ], [ %4, %sw.epilog.thread ]
+  %.sink = phi float [ %6, %sw.epilog ], [ %mul2170, %sw.epilog.thread61 ], [ %4, %sw.epilog.thread ]
+  store float %.sink72, ptr %inertia, align 4
   %arrayidx3.i11 = getelementptr inbounds i8, ptr %inertia, i64 4
   store float %mul21.sink, ptr %arrayidx3.i11, align 4
   %arrayidx5.i12 = getelementptr inbounds i8, ptr %inertia, i64 8

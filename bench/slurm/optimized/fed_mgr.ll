@@ -496,7 +496,7 @@ define dso_local void @fed_mgr_remove_fed_job_info(i32 noundef %0) local_unnamed
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_delete_fed_job_info_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_delete_fed_job_info_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -519,7 +519,7 @@ define dso_local ptr @fed_mgr_get_cluster_by_id(i32 noundef %0) local_unnamed_ad
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_sibling_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_find_sibling_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
@@ -655,7 +655,7 @@ declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @slurm_free_msg_data(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %union.pthread_attr_t, align 8
   %4 = alloca %union.pthread_attr_t, align 8
@@ -3932,19 +3932,19 @@ define dso_local i32 @fed_mgr_get_job_id(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @fed_mgr_get_local_id(i32 noundef %0) local_unnamed_addr #10 {
+define dso_local noundef range(i32 0, 67108864) i32 @fed_mgr_get_local_id(i32 noundef %0) local_unnamed_addr #10 {
   %2 = and i32 %0, 67108863
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @fed_mgr_get_cluster_id(i32 noundef %0) local_unnamed_addr #10 {
+define dso_local noundef range(i32 0, 64) i32 @fed_mgr_get_cluster_id(i32 noundef %0) local_unnamed_addr #10 {
   %2 = lshr i32 %0, 26
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_add_sibling_conn(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_add_sibling_conn(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._join_federation.fed_read_lock) #17
   %3 = load ptr, ptr @fed_mgr_fed_rec, align 8
   %.not = icmp eq ptr %3, null
@@ -4129,7 +4129,7 @@ fed_mgr_get_cluster_by_name.exit:                 ; preds = %6
 declare void @slurm_persist_conn_recv_thread_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_update_job(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_update_job(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.sib_msg_t, align 8
@@ -4344,7 +4344,7 @@ _is_fed_job.exit.thread:                          ; preds = %9, %12, %1, %fed_mg
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fed_mgr_is_origin_job(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @fed_mgr_is_origin_job(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_is_fed_job.exit.thread, label %3
@@ -4386,7 +4386,7 @@ _is_fed_job.exit.thread:                          ; preds = %9, %12, %1, %_is_fe
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_add_to_send_list(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_add_to_send_list(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 5
@@ -4474,7 +4474,7 @@ _get_all_sibling_bits.exit:                       ; preds = %9, %11, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_queue_rpc(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4556,7 +4556,7 @@ define internal fastcc noundef i32 @_queue_rpc(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_job_allocate(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_allocate(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   store i64 0, ptr %7, align 8
@@ -4576,7 +4576,7 @@ define dso_local noundef i32 @fed_mgr_job_allocate(ptr noundef %0, ptr noundef %
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %1, i64 112
   %17 = load ptr, ptr %16, align 8
-  %18 = call fastcc i32 @_validate_cluster_features(ptr noundef %17, ptr noundef nonnull %7), !range !30
+  %18 = call fastcc i32 @_validate_cluster_features(ptr noundef %17, ptr noundef nonnull %7)
   %.not38 = icmp eq i32 %18, 0
   br i1 %.not38, label %20, label %19
 
@@ -4820,7 +4820,7 @@ define dso_local noundef i32 @fed_mgr_job_allocate(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_validate_cluster_features(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_features(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = load ptr, ptr @fed_mgr_fed_rec, align 8
   %5 = icmp ne ptr %4, null
@@ -4954,7 +4954,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   tail call void @list_iterator_reset(ptr noundef %32) #17
   %61 = tail call ptr @list_next(ptr noundef %28) #17
   %.not62.us = icmp eq ptr %61, null
-  br i1 %.not62.us, label %.loopexit, label %.lr.ph91.split.us, !llvm.loop !31
+  br i1 %.not62.us, label %.loopexit, label %.lr.ph91.split.us, !llvm.loop !30
 
 .lr.ph.us:                                        ; preds = %.lr.ph91.split.us, %75
   %62 = phi ptr [ %76, %75 ], [ %57, %.lr.ph91.split.us ]
@@ -4985,7 +4985,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   %.1.us.us = phi i1 [ %.086.us.us, %65 ], [ %.086.us.us, %.lr.ph.us ], [ true, %67 ]
   %76 = tail call ptr @list_next(ptr noundef %32) #17
   %.not63.us.us = icmp eq ptr %76, null
-  br i1 %.not63.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !32
+  br i1 %.not63.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !31
 
 .lr.ph91.split.split:                             ; preds = %.lr.ph91, %94
   %77 = phi ptr [ %95, %94 ], [ %53, %.lr.ph91 ]
@@ -5022,7 +5022,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   %.1 = phi i1 [ %.086, %82 ], [ %.086, %.lr.ph ], [ true, %84 ]
   %92 = tail call ptr @list_next(ptr noundef %32) #17
   %.not63 = icmp eq ptr %92, null
-  br i1 %.not63, label %._crit_edge.split, label %.lr.ph, !llvm.loop !32
+  br i1 %.not63, label %._crit_edge.split, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge.split:                                ; preds = %91
   br i1 %.1, label %94, label %.split.us
@@ -5037,7 +5037,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   tail call void @list_iterator_reset(ptr noundef %32) #17
   %95 = tail call ptr @list_next(ptr noundef %28) #17
   %.not62 = icmp eq ptr %95, null
-  br i1 %.not62, label %.loopexit, label %.lr.ph91.split.split, !llvm.loop !31
+  br i1 %.not62, label %.loopexit, label %.lr.ph91.split.split, !llvm.loop !30
 
 .split96.us:                                      ; preds = %58
   %96 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.189, ptr noundef nonnull %spec.select.us) #17
@@ -5116,7 +5116,7 @@ _get_all_sibling_bits.exit:                       ; preds = %4, %7, %._crit_edge
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %_get_all_sibling_bits.exit
-  %22 = call fastcc i32 @_validate_cluster_names(ptr noundef nonnull %0, ptr noundef nonnull %5), !range !30
+  %22 = call fastcc i32 @_validate_cluster_names(ptr noundef nonnull %0, ptr noundef nonnull %5)
   br label %23
 
 23:                                               ; preds = %21, %_get_all_sibling_bits.exit
@@ -5265,7 +5265,7 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr nocapture noundef %0, ptr n
 .backedge:                                        ; preds = %49, %54, %61
   %53 = call ptr @list_next(ptr noundef %43) #17
   %.not = icmp eq ptr %53, null
-  br i1 %.not, label %.outer._crit_edge, label %49, !llvm.loop !33
+  br i1 %.not, label %.outer._crit_edge, label %49, !llvm.loop !32
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %50, i64 184
@@ -5339,7 +5339,7 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr nocapture noundef %0, ptr n
   %87 = or i32 %79, %.0.ph60
   %88 = call ptr @list_next(ptr noundef %43) #17
   %.not53 = icmp eq ptr %88, null
-  br i1 %.not53, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not53, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !32
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
   %.039.ph.lcssa = phi ptr [ %.039.ph59, %.backedge ], [ %.1, %.outer ]
@@ -5448,7 +5448,7 @@ define dso_local ptr @fed_mgr_get_cluster_name(i32 noundef %0) local_unnamed_add
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_job_lock(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_lock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.sib_msg_t, align 8
@@ -5603,7 +5603,7 @@ _is_fed_job.exit:                                 ; preds = %15
 
 83:                                               ; preds = %81
   %84 = load i32, ptr %16, align 8
-  %85 = call i32 @fed_mgr_job_lock_set(i32 noundef %84, i32 noundef %61), !range !30
+  %85 = call i32 @fed_mgr_job_lock_set(i32 noundef %84, i32 noundef %61)
   %.not39.i = icmp eq i32 %85, 0
   br i1 %.not39.i, label %86, label %.loopexit.i
 
@@ -5685,7 +5685,7 @@ _persist_fed_job_lock.exit.thread.i:              ; preds = %97, %.sink.split.i.
   %112 = lshr i64 %.02852.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i34 = icmp ult i64 %.02852.i, 2
-  br i1 %.not.i34, label %.critedge.loopexit.i, label %79, !llvm.loop !34
+  br i1 %.not.i34, label %.critedge.loopexit.i, label %79, !llvm.loop !33
 
 .critedge.loopexit.i:                             ; preds = %111
   %.pre.i35 = load ptr, ptr %13, align 8
@@ -5710,7 +5710,7 @@ _persist_fed_job_lock.exit.thread.i:              ; preds = %97, %.sink.split.i.
 
 .loopexit.i:                                      ; preds = %83, %.critedge.i, %_persist_fed_job_lock.exit.thread.i
   %.02947.i = phi i64 [ %.02951.i, %_persist_fed_job_lock.exit.thread.i ], [ %.029.lcssa.i, %.critedge.i ], [ %.02951.i, %83 ]
-  call fastcc void @_job_unlock_spec_sibs(ptr noundef nonnull %0, i64 noundef %.02947.i)
+  call fastcc void @_job_unlock_spec_sibs(ptr noundef nonnull readonly %0, i64 noundef %.02947.i)
   br label %_is_fed_job.exit.thread
 
 121:                                              ; preds = %52, %49, %47
@@ -5775,12 +5775,12 @@ _job_lock_all_sibs.exit.thread43:                 ; preds = %.critedge.i, %_job_
   %138 = phi ptr [ %113, %.critedge.i ], [ %.pre, %_job_lock_all_sibs.exit ]
   store i32 %24, ptr %138, align 8
   %139 = load i32, ptr %16, align 8
-  %140 = call i32 @fed_mgr_job_lock_set(i32 noundef %139, i32 noundef %24), !range !30
+  %140 = call i32 @fed_mgr_job_lock_set(i32 noundef %139, i32 noundef %24)
   br label %_is_fed_job.exit.thread
 
 141:                                              ; preds = %31
   %142 = load i32, ptr %16, align 8
-  %143 = tail call i32 @fed_mgr_job_lock_set(i32 noundef %142, i32 noundef %24), !range !30
+  %143 = tail call i32 @fed_mgr_job_lock_set(i32 noundef %142, i32 noundef %24)
   br label %_is_fed_job.exit.thread
 
 _is_fed_job.exit.thread:                          ; preds = %.loopexit.i, %121, %19, %22, %1, %_job_lock_all_sibs.exit.thread48, %_job_lock_all_sibs.exit.thread43, %141
@@ -5789,7 +5789,7 @@ _is_fed_job.exit.thread:                          ; preds = %.loopexit.i, %121, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_job_lock_set(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_lock_set(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fed_job_list_mutex) #17
   %.not = icmp eq i32 %4, 0
@@ -5905,7 +5905,7 @@ _find_fed_job_info.exit:                          ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %57 = icmp ult i64 %indvars.iv.i, 63
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %_job_has_pending_updates.exit, label %25, !llvm.loop !35
+  br i1 %exitcond.not.i, label %_job_has_pending_updates.exit, label %25, !llvm.loop !34
 
 _job_has_pending_updates.exit:                    ; preds = %56, %33, %37
   %58 = phi i1 [ %26, %37 ], [ %26, %33 ], [ %57, %56 ]
@@ -6023,7 +6023,7 @@ define dso_local zeroext i1 @fed_mgr_job_is_locked(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_job_lock_unset(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_lock_unset(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fed_job_list_mutex) #17
   %.not = icmp eq i32 %4, 0
@@ -6118,7 +6118,7 @@ _find_fed_job_info.exit:                          ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_job_unlock(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_unlock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.sib_msg_t, align 8
@@ -6275,12 +6275,12 @@ _is_fed_job.exit:                                 ; preds = %10
   %72 = load ptr, ptr %8, align 8
   store i32 0, ptr %72, align 8
   %73 = load i32, ptr %11, align 8
-  %74 = call i32 @fed_mgr_job_lock_unset(i32 noundef %73, i32 noundef %19), !range !30
+  %74 = call i32 @fed_mgr_job_lock_unset(i32 noundef %73, i32 noundef %19)
   br label %_is_fed_job.exit.thread
 
 75:                                               ; preds = %26
   %76 = load i32, ptr %11, align 8
-  %77 = tail call i32 @fed_mgr_job_lock_unset(i32 noundef %76, i32 noundef %19), !range !30
+  %77 = tail call i32 @fed_mgr_job_lock_unset(i32 noundef %76, i32 noundef %19)
   br label %_is_fed_job.exit.thread
 
 _is_fed_job.exit.thread:                          ; preds = %14, %17, %1, %.thread43, %71, %75
@@ -6326,7 +6326,7 @@ define internal fastcc void @_job_unlock_spec_sibs(ptr nocapture noundef readonl
 
 24:                                               ; preds = %19
   %25 = load i32, ptr %10, align 8
-  %26 = call i32 @fed_mgr_job_lock_unset(i32 noundef %25, i32 noundef %9), !range !30
+  %26 = call i32 @fed_mgr_job_lock_unset(i32 noundef %25, i32 noundef %9)
   br label %42
 
 27:                                               ; preds = %19
@@ -6385,14 +6385,14 @@ _persist_fed_job_unlock.exit:                     ; preds = %32, %39, %.sink.spl
   %43 = lshr i64 %.01015, 1
   %44 = add nuw nsw i32 %.016, 1
   %.not = icmp ult i64 %.01015, 2
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %42, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_job_start(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_start(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.sib_msg_t, align 8
@@ -6524,7 +6524,7 @@ _is_fed_job.exit:                                 ; preds = %11
   store i16 %74, ptr %75, align 2
   %76 = getelementptr inbounds i8, ptr %4, i64 192
   store ptr %5, ptr %76, align 8
-  %77 = call fastcc noundef i32 @_queue_rpc(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef %66)
+  %77 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef %66)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
   %.not61 = icmp eq i32 %77, 0
@@ -6801,7 +6801,7 @@ define internal fastcc void @_fed_job_start_revoke(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_job_complete(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_complete(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.sib_msg_t, align 8
   %6 = alloca i32, align 4
@@ -7201,7 +7201,7 @@ define dso_local ptr @fed_mgr_cluster_ids_to_names(i64 noundef %0) local_unnamed
   %22 = lshr i64 %.0817, 1
   %23 = add nuw nsw i32 %.0718, 1
   %.not12 = icmp ult i64 %.0817, 2
-  br i1 %.not12, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %.not12, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit.loopexit:                               ; preds = %21
   %.0.pre = load ptr, ptr %3, align 8
@@ -7215,7 +7215,7 @@ define dso_local ptr @fed_mgr_cluster_ids_to_names(i64 noundef %0) local_unnamed
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_job_requeue_test(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_requeue_test(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.requeue_msg, align 8
   %5 = alloca %struct.slurm_msg, align 8
@@ -7386,7 +7386,7 @@ _persist_fed_job_requeue.exit:                    ; preds = %37, %58
 
 84:                                               ; preds = %73
   %85 = load i32, ptr %14, align 8
-  %86 = call fastcc i32 @_persist_fed_job_cancel(ptr noundef nonnull %79, i32 noundef %85, i16 noundef zeroext 9, i16 noundef zeroext 16, i32 noundef 0), !range !30
+  %86 = call fastcc i32 @_persist_fed_job_cancel(ptr noundef nonnull %79, i32 noundef %85, i16 noundef zeroext 9, i16 noundef zeroext 16, i32 noundef 0)
   %.not25 = icmp eq i32 %86, 0
   br i1 %.not25, label %_is_fed_job.exit.thread, label %87
 
@@ -7400,7 +7400,7 @@ _is_fed_job.exit.thread:                          ; preds = %17, %20, %2, %69, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_persist_fed_job_cancel(ptr nocapture noundef %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_persist_fed_job_cancel(ptr nocapture noundef %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.slurm_msg, align 8
   %8 = alloca %struct.sib_msg_t, align 8
@@ -7575,7 +7575,7 @@ _find_fed_job_info.exit:                          ; preds = %27
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 56
   %48 = load ptr, ptr %47, align 8
-  %49 = call fastcc i32 @_validate_cluster_features(ptr noundef %48, ptr noundef nonnull %3), !range !30
+  %49 = call fastcc i32 @_validate_cluster_features(ptr noundef %48, ptr noundef nonnull %3)
   %50 = getelementptr inbounds i8, ptr %0, i64 136
   %51 = load ptr, ptr %50, align 8
   %52 = load i64, ptr %3, align 8
@@ -7910,7 +7910,7 @@ _is_fed_job.exit:                                 ; preds = %11
 
 48:                                               ; preds = %44
   %49 = load i32, ptr %12, align 8
-  %50 = call fastcc i32 @_persist_fed_job_cancel(ptr noundef nonnull %40, i32 noundef %49, i16 noundef zeroext %1, i16 noundef zeroext %28, i32 noundef %3), !range !30
+  %50 = call fastcc i32 @_persist_fed_job_cancel(ptr noundef nonnull %40, i32 noundef %49, i16 noundef zeroext %1, i16 noundef zeroext %28, i32 noundef %3)
   br label %53
 
 51:                                               ; preds = %36
@@ -7921,7 +7921,7 @@ _is_fed_job.exit:                                 ; preds = %11
   %54 = lshr i64 %.130.us.i, 1
   %55 = add nuw nsw i32 %.02131.us.i, 1
   %.not.us.i = icmp ult i64 %.130.us.i, 2
-  br i1 %.not.us.i, label %_cancel_sibling_jobs.exit, label %.lr.ph.split.us.i, !llvm.loop !38
+  br i1 %.not.us.i, label %_cancel_sibling_jobs.exit, label %.lr.ph.split.us.i, !llvm.loop !37
 
 .lr.ph.split.i:                                   ; preds = %71, %.lr.ph.split.preheader.i
   %.02131.i = phi i32 [ %73, %71 ], [ 1, %.lr.ph.split.preheader.i ]
@@ -7954,14 +7954,14 @@ _is_fed_job.exit:                                 ; preds = %11
 
 68:                                               ; preds = %61
   %69 = load i32, ptr %12, align 8
-  %70 = call fastcc i32 @_persist_fed_job_cancel(ptr noundef nonnull %65, i32 noundef %69, i16 noundef zeroext %1, i16 noundef zeroext %30, i32 noundef %3), !range !30
+  %70 = call fastcc i32 @_persist_fed_job_cancel(ptr noundef nonnull %65, i32 noundef %69, i16 noundef zeroext %1, i16 noundef zeroext %30, i32 noundef %3)
   br label %71
 
 71:                                               ; preds = %68, %66, %57, %.lr.ph.split.i
   %72 = lshr i64 %.130.i, 1
   %73 = add nuw nsw i32 %.02131.i, 1
   %.not.i8 = icmp ult i64 %.130.i, 2
-  br i1 %.not.i8, label %_cancel_sibling_jobs.exit, label %.lr.ph.split.i, !llvm.loop !38
+  br i1 %.not.i8, label %_cancel_sibling_jobs.exit, label %.lr.ph.split.i, !llvm.loop !37
 
 _cancel_sibling_jobs.exit:                        ; preds = %71, %53, %14, %17, %5, %.thread.i, %26
   ret i32 0
@@ -8221,7 +8221,7 @@ _is_fed_job.exit.thread:                          ; preds = %12, %15, %3, %34, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_update_job_clusters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 7105) i32 @fed_mgr_update_job_clusters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %14, label %4
@@ -8273,7 +8273,7 @@ _is_fed_job.exit:                                 ; preds = %7
   br label %47
 
 24:                                               ; preds = %21
-  %25 = tail call fastcc i32 @_validate_cluster_names(ptr noundef %1, ptr noundef null), !range !30
+  %25 = tail call fastcc i32 @_validate_cluster_names(ptr noundef %1, ptr noundef null)
   %.not17 = icmp eq i32 %25, 0
   br i1 %.not17, label %27, label %26
 
@@ -8340,7 +8340,7 @@ fed_mgr_is_origin_job.exit.thread:                ; preds = %40, %43, %34, %fed_
 declare void @sched_info(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_validate_cluster_names(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_names(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.198) #17
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
@@ -8428,7 +8428,7 @@ fed_mgr_get_cluster_by_name.exit.thread:          ; preds = %.lr.ph, %fed_mgr_ge
   %42 = or i64 %41, %.01739
   %43 = tail call ptr @list_next(ptr noundef %28) #17
   %.not27 = icmp eq ptr %43, null
-  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %36, %27, %fed_mgr_get_cluster_by_name.exit.thread
   %.01737 = phi i64 [ %.01739, %fed_mgr_get_cluster_by_name.exit.thread ], [ 0, %27 ], [ %42, %36 ]
@@ -8476,7 +8476,7 @@ define internal fastcc void @_add_remove_sibling_jobs(ptr noundef %0) unnamed_ad
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = call fastcc i32 @_validate_cluster_features(ptr noundef %14, ptr noundef nonnull %3), !range !30
+  %15 = call fastcc i32 @_validate_cluster_features(ptr noundef %14, ptr noundef nonnull %3)
   %16 = getelementptr inbounds i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr %3, align 8
@@ -8669,7 +8669,7 @@ _find_fed_job_info.exit:                          ; preds = %90
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_update_job_cluster_features(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 7104) i32 @fed_mgr_update_job_cluster_features(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %14, label %4
@@ -8721,7 +8721,7 @@ _is_fed_job.exit:                                 ; preds = %7
   br label %51
 
 24:                                               ; preds = %21
-  %25 = tail call fastcc i32 @_validate_cluster_features(ptr noundef %1, ptr noundef null), !range !30
+  %25 = tail call fastcc i32 @_validate_cluster_features(ptr noundef %1, ptr noundef null)
   %.not16 = icmp eq i32 %25, 0
   br i1 %.not16, label %27, label %26
 
@@ -8790,7 +8790,7 @@ fed_mgr_is_origin_job.exit.thread:                ; preds = %44, %47, %38, %fed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_remove_active_sibling(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 7105) i32 @fed_mgr_remove_active_sibling(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @find_job_record(i32 noundef %0) #17
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_is_fed_job.exit.thread, label %4
@@ -9458,7 +9458,7 @@ define dso_local noundef zeroext i1 @fed_mgr_sibs_synced() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_list_find_not_synced_sib(ptr noundef readonly %0, ptr nocapture readnone %1) #9 {
+define internal range(i32 0, 2) i32 @_list_find_not_synced_sib(ptr noundef readonly %0, ptr nocapture readnone %1) #9 {
   %3 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not = icmp eq ptr %3, %0
   br i1 %.not, label %15, label %4
@@ -9577,7 +9577,7 @@ define dso_local void @fed_mgr_test_remote_dependencies() local_unnamed_addr #0 
 .backedge:                                        ; preds = %_update_origin_job_dep.exit, %54, %_update_origin_job_dep.exit42, %_update_origin_job_dep.exit40, %49
   %51 = call ptr @list_next(ptr noundef %22) #17
   %.not32 = icmp eq ptr %51, null
-  br i1 %.not32, label %._crit_edge, label %33, !llvm.loop !40
+  br i1 %.not32, label %._crit_edge, label %33, !llvm.loop !39
 
 52:                                               ; preds = %33
   %53 = call i32 @test_job_dependency(ptr noundef nonnull %34, ptr noundef nonnull %8) #17
@@ -9877,7 +9877,7 @@ define internal noalias noundef ptr @_agent_thread(ptr nocapture readnone %0) #0
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._join_federation.fed_read_lock) #17
   %44 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
   %.not = icmp eq i64 %44, 0
-  br i1 %.not, label %17, label %._crit_edge129, !llvm.loop !41
+  br i1 %.not, label %17, label %._crit_edge129, !llvm.loop !40
 
 45:                                               ; preds = %41
   %46 = call ptr @list_iterator_create(ptr noundef nonnull %43) #17
@@ -9905,7 +9905,7 @@ define internal noalias noundef ptr @_agent_thread(ptr nocapture readnone %0) #0
 .backedge116:                                     ; preds = %49, %54, %162, %._crit_edge
   %57 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
   %.not96 = icmp eq i64 %57, 0
-  br i1 %.not96, label %.lr.ph124, label %.critedge, !llvm.loop !42
+  br i1 %.not96, label %.lr.ph124, label %.critedge, !llvm.loop !41
 
 58:                                               ; preds = %54
   store ptr null, ptr %5, align 8
@@ -9983,7 +9983,7 @@ define internal noalias noundef ptr @_agent_thread(ptr nocapture readnone %0) #0
 .backedge115:                                     ; preds = %.backedge115.sink.split, %63
   %94 = call ptr @list_next(ptr noundef %60) #17
   %.not98 = icmp eq ptr %94, null
-  br i1 %.not98, label %._crit_edge, label %63, !llvm.loop !43
+  br i1 %.not98, label %._crit_edge, label %63, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.backedge115, %58
   call void @list_iterator_destroy(ptr noundef %60) #17
@@ -10027,7 +10027,7 @@ define internal noalias noundef ptr @_agent_thread(ptr nocapture readnone %0) #0
   %111 = getelementptr inbounds i8, ptr %109, i64 16
   %112 = load i64, ptr %111, align 8
   %.not103 = icmp eq i64 %112, %50
-  br i1 %.not103, label %113, label %108, !llvm.loop !44
+  br i1 %.not103, label %113, label %108, !llvm.loop !43
 
 113:                                              ; preds = %110
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
@@ -10049,7 +10049,7 @@ define internal noalias noundef ptr @_agent_thread(ptr nocapture readnone %0) #0
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %119, %116
-  br label %.outer, !llvm.loop !44
+  br label %.outer, !llvm.loop !43
 
 .loopexit:                                        ; preds = %108, %114
   call void @list_iterator_destroy(ptr noundef %107) #17
@@ -10198,7 +10198,7 @@ _comm_fail_log.exit:                              ; preds = %125
   %189 = call i32 @list_delete_item(ptr noundef %174) #17
   %190 = call ptr @list_next(ptr noundef %174) #17
   %.not113 = icmp eq ptr %190, null
-  br i1 %.not113, label %._crit_edge134, label %177, !llvm.loop !45
+  br i1 %.not113, label %._crit_edge134, label %177, !llvm.loop !44
 
 ._crit_edge134:                                   ; preds = %188, %173
   call void @list_iterator_destroy(ptr noundef %174) #17
@@ -10217,7 +10217,7 @@ _comm_fail_log.exit:                              ; preds = %125
 .backedge:                                        ; preds = %193, %.lr.ph137
   %194 = call ptr @list_next(ptr noundef %167) #17
   %.not112 = icmp eq ptr %194, null
-  br i1 %.not112, label %._crit_edge138, label %.lr.ph137, !llvm.loop !46
+  br i1 %.not112, label %._crit_edge138, label %.lr.ph137, !llvm.loop !45
 
 ._crit_edge138:                                   ; preds = %.backedge, %164
   call void @list_iterator_destroy(ptr noundef %167) #17
@@ -10298,7 +10298,7 @@ define internal noalias noundef ptr @_fed_job_update_thread(ptr nocapture readno
 .loopexit:                                        ; preds = %_destroy_fed_job_update_info.exit, %.preheader
   %53 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
   %.not = icmp eq i64 %53, 0
-  br i1 %.not, label %54, label %._crit_edge, !llvm.loop !47
+  br i1 %.not, label %54, label %._crit_edge, !llvm.loop !46
 
 54:                                               ; preds = %.lr.ph84, %.loopexit
   %55 = call i32 @pthread_mutex_lock(ptr noundef nonnull @job_update_mutex) #17
@@ -11015,7 +11015,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i.i.i:    ; preds = %fed_mgr_get_cluster
   %370 = load i16, ptr %369, align 8
   store i16 %370, ptr %49, align 2
   store ptr %13, ptr %50, align 8
-  %371 = call fastcc noundef i32 @_queue_rpc(ptr noundef %.0.i3750.i.i.i, ptr noundef nonnull %12, i32 noundef %368)
+  %371 = call fastcc i32 @_queue_rpc(ptr noundef %.0.i3750.i.i.i, ptr noundef nonnull %12, i32 noundef %368)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13)
   br label %_handle_fed_job_submission.exit.i
@@ -11180,7 +11180,7 @@ fed_mgr_is_origin_job.exit.thread.i.i.i.i:        ; preds = %443, %fed_mgr_is_or
 450:                                              ; preds = %451
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %.thread.i.i.i.i, label %451, !llvm.loop !48
+  br i1 %exitcond.not.i.i.i.i, label %.thread.i.i.i.i, label %451, !llvm.loop !47
 
 451:                                              ; preds = %450, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %450 ]
@@ -11734,7 +11734,7 @@ _find_fed_job_info.exit221.i.i.i.i:               ; preds = %700
 _reconcile_fed_job.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i, %715, %443, %426, %423, %420, %413
   %724 = call ptr @list_next(ptr noundef %405) #17
   %.not12.i.i.i = icmp eq ptr %724, null
-  br i1 %.not12.i.i.i, label %._crit_edge.i.i.i, label %413, !llvm.loop !49
+  br i1 %.not12.i.i.i, label %._crit_edge.i.i.i, label %413, !llvm.loop !48
 
 ._crit_edge.i.i.i:                                ; preds = %_reconcile_fed_job.exit.i.i.i, %399
   call void @list_iterator_destroy(ptr noundef %405) #17
@@ -11792,7 +11792,7 @@ _handle_fed_job_sync.exit.i:                      ; preds = %._crit_edge.i.i.i, 
 747:                                              ; preds = %745, %741
   %748 = call i32 @sleep(i32 noundef 1) #17
   %749 = icmp eq i32 %735, 2103
-  br i1 %749, label %733, label %.loopexit.i.i, !llvm.loop !50
+  br i1 %749, label %733, label %.loopexit.i.i, !llvm.loop !49
 
 .loopexit.i.i:                                    ; preds = %747, %739, %736
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._join_federation.fed_read_lock) #17
@@ -11828,7 +11828,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i44.i:    ; preds = %fed_mgr_get_cluster
   %760 = load i16, ptr %759, align 8
   store i16 %760, ptr %43, align 2
   store ptr %8, ptr %44, align 8
-  %761 = call fastcc noundef i32 @_queue_rpc(ptr noundef nonnull %755, ptr noundef nonnull %7, i32 noundef %758)
+  %761 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %755, ptr noundef nonnull %7, i32 noundef %758)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   br label %_handle_fed_job_update.exit.i
@@ -12088,7 +12088,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i63.i:    ; preds = %fed_mgr_get_cluster
 872:                                              ; preds = %869, %865, %854, %851, %844
   %873 = call ptr @list_next(ptr noundef %839) #17
   %.not.i48.i.i = icmp eq ptr %873, null
-  br i1 %.not.i48.i.i, label %_get_sync_jobid_list.exit.i.i, label %844, !llvm.loop !51
+  br i1 %.not.i48.i.i, label %_get_sync_jobid_list.exit.i.i, label %844, !llvm.loop !50
 
 _get_sync_jobid_list.exit.i.i:                    ; preds = %872, %833
   call void @list_iterator_destroy(ptr noundef %839) #17
@@ -12173,7 +12173,7 @@ _destroy_fed_job_update_info.exit:                ; preds = %75, %78, %_handle_f
   %901 = load ptr, ptr @fed_job_update_list, align 8
   %902 = call ptr @list_pop(ptr noundef %901) #17
   %.not15 = icmp eq ptr %902, null
-  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.loopexit, %69, %26
   ret ptr null
@@ -12252,13 +12252,13 @@ define internal noalias noundef ptr @_remote_dep_recv_thread(ptr nocapture readn
 .backedge:                                        ; preds = %_handle_recv_remote_dep.exit, %.preheader, %27
   %32 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %.lr.ph29, label %._crit_edge, !llvm.loop !53
+  br i1 %.not, label %.lr.ph29, label %._crit_edge, !llvm.loop !52
 
 .preheader:                                       ; preds = %27
   %33 = load ptr, ptr @remote_dep_recv_list, align 8
   %34 = call ptr @list_pop(ptr noundef %33) #17
   %.not1627 = icmp eq ptr %34, null
-  br i1 %.not1627, label %.backedge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not1627, label %.backedge, label %.lr.ph, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %.preheader, %_handle_recv_remote_dep.exit
   %35 = phi ptr [ %128, %_handle_recv_remote_dep.exit ], [ %34, %.preheader ]
@@ -12404,7 +12404,7 @@ _destroy_dep_job.exit:                            ; preds = %81, %92
   %106 = load i32, ptr %105, align 8
   %107 = load i32, ptr %41, align 8
   %108 = icmp eq i32 %106, %107
-  br i1 %108, label %109, label %102, !llvm.loop !54
+  br i1 %108, label %109, label %102, !llvm.loop !53
 
 109:                                              ; preds = %104
   %110 = call i32 @list_delete_item(ptr noundef %101) #17
@@ -12453,7 +12453,7 @@ _handle_recv_remote_dep.exit:                     ; preds = %_destroy_dep_job.ex
   %127 = load ptr, ptr @remote_dep_recv_list, align 8
   %128 = call ptr @list_pop(ptr noundef %127) #17
   %.not16 = icmp eq ptr %128, null
-  br i1 %.not16, label %.backedge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not16, label %.backedge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.backedge, %25, %9
   ret ptr null
@@ -12528,7 +12528,7 @@ define internal noalias noundef ptr @_test_dep_job_thread(ptr nocapture readnone
 28:                                               ; preds = %22, %22, %25
   %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @test_dep_mutex) #17
   %.not18 = icmp eq i32 %29, 0
-  br i1 %.not18, label %7, label %30, !llvm.loop !56
+  br i1 %.not18, label %7, label %30, !llvm.loop !55
 
 30:                                               ; preds = %28
   %31 = tail call ptr @__errno_location() #18
@@ -12655,7 +12655,7 @@ define internal noalias noundef ptr @_origin_dep_update_thread(ptr nocapture rea
   %50 = load ptr, ptr @origin_dep_update_list, align 8
   %51 = call ptr @list_pop(ptr noundef %50) #17
   %.not24.i = icmp eq ptr %51, null
-  br i1 %.not24.i, label %.outer._crit_edge.i, label %37, !llvm.loop !57
+  br i1 %.not24.i, label %.outer._crit_edge.i, label %37, !llvm.loop !56
 
 52:                                               ; preds = %37
   %53 = getelementptr inbounds i8, ptr %41, i64 216
@@ -12714,7 +12714,7 @@ define internal noalias noundef ptr @_origin_dep_update_thread(ptr nocapture rea
   %75 = load ptr, ptr @origin_dep_update_list, align 8
   %76 = call ptr @list_pop(ptr noundef %75) #17
   %.not2435.i = icmp eq ptr %76, null
-  br i1 %.not2435.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !57
+  br i1 %.not2435.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i
   %.0.ph.lcssa.i = phi ptr [ %.0.ph38.i, %.backedge.i ], [ %.1.i, %.outer.i ]
@@ -12733,7 +12733,7 @@ define internal noalias noundef ptr @_origin_dep_update_thread(ptr nocapture rea
 .backedge:                                        ; preds = %.outer._crit_edge.thread.i, %30, %25
   %79 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
   %.not = icmp eq i64 %79, 0
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.backedge, %23, %7
   ret ptr null
@@ -13078,7 +13078,7 @@ declare i32 @job_requeue(i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroe
 declare void @delete_job_desc_files(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_list_find_jobid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_list_find_jobid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -13109,7 +13109,7 @@ declare i32 @pack_msg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @update_job_dependency(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_local_dep(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #5 {
+define internal range(i32 0, 2) i32 @_find_local_dep(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 2
@@ -13121,7 +13121,7 @@ define internal i32 @_find_local_dep(ptr nocapture noundef readonly %0, ptr noca
 declare zeroext i1 @update_job_dependency_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_job_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_find_job_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 392
   %5 = load i32, ptr %4, align 8
@@ -13455,7 +13455,7 @@ _mark_self_as_drained.exit:                       ; preds = %130, %131
   %.not17 = icmp ne i64 %133, 0
   %.b1618 = load i1, ptr @stop_job_watch_thread, align 1
   %.not19 = select i1 %.not17, i1 true, i1 %.b1618
-  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !59
+  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .loopexit.sink.split:                             ; preds = %41, %_remove_self_from_federation.exit, %_mark_self_as_drained.exit, %99
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._job_watch_thread.job_write_fed_write_lock) #17
@@ -13482,7 +13482,7 @@ _mark_self_as_drained.exit:                       ; preds = %130, %131
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_foreach_job_completed(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #5 {
+define internal range(i32 -1, 1) i32 @_foreach_job_completed(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -13646,7 +13646,7 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef %0, i16 noundef zeroe
 25:                                               ; preds = %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader.i, label %27, !llvm.loop !60
+  br i1 %exitcond.not.i, label %.preheader.i, label %27, !llvm.loop !59
 
 .preheader.i:                                     ; preds = %25
   %26 = getelementptr inbounds i8, ptr %13, i64 280
@@ -13662,7 +13662,7 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef %0, i16 noundef zeroe
 30:                                               ; preds = %31
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, 64
-  br i1 %exitcond33.not.i, label %34, label %31, !llvm.loop !61
+  br i1 %exitcond33.not.i, label %34, label %31, !llvm.loop !60
 
 31:                                               ; preds = %30, %.preheader.i
   %indvars.iv30.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next31.i, %30 ]
@@ -13677,7 +13677,7 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef %0, i16 noundef zeroe
   %35 = add nuw nsw i32 %.01227, 1
   %36 = load i32, ptr %4, align 4
   %37 = icmp ult i32 %35, %36
-  br i1 %37, label %.lr.ph, label %.thread, !llvm.loop !62
+  br i1 %37, label %.lr.ph, label %.thread, !llvm.loop !61
 
 38:                                               ; preds = %2
   %39 = zext nneg i16 %1 to i32
@@ -13800,7 +13800,7 @@ define internal fastcc ptr @_load_remote_dep_job_list(ptr noundef %0, i16 nounde
   %50 = add nuw i32 %.01225, 1
   %51 = load i32, ptr %6, align 4
   %52 = icmp ult i32 %50, %51
-  br i1 %52, label %.lr.ph, label %.thread, !llvm.loop !63
+  br i1 %52, label %.lr.ph, label %.thread, !llvm.loop !62
 
 53:                                               ; preds = %2
   %54 = zext nneg i16 %1 to i32
@@ -13835,7 +13835,7 @@ declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @unpackbool(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_list_find_fed_job_info_by_jobid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_list_find_fed_job_info_by_jobid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -14017,7 +14017,7 @@ attributes #20 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
-!30 = !{i32 -1, i32 1}
+!30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
 !33 = distinct !{!33, !8}
@@ -14050,4 +14050,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !60 = distinct !{!60, !8}
 !61 = distinct !{!61, !8}
 !62 = distinct !{!62, !8}
-!63 = distinct !{!63, !8}

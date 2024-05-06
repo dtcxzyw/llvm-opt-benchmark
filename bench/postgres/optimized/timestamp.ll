@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [3 x i8] c"%Z\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @tm2timestamp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tm2timestamp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, -4713
@@ -173,7 +173,7 @@ define i64 @PGTYPEStimestamp_from_asc(ptr noundef %0, ptr noundef %1) local_unna
 
 22:                                               ; preds = %20
   %23 = load i32, ptr %4, align 4
-  %24 = call i32 @tm2timestamp(ptr noundef nonnull %5, i32 noundef %23, ptr noundef null, ptr noundef nonnull %3), !range !4
+  %24 = call i32 @tm2timestamp(ptr noundef nonnull %5, i32 noundef %23, ptr noundef null, ptr noundef nonnull %3)
   %.not13 = icmp eq i32 %24, 0
   %.pre = load i64, ptr %3, align 8
   %spec.select = select i1 %.not13, i32 0, i32 320
@@ -290,11 +290,11 @@ define ptr @PGTYPEStimestamp_to_asc(i64 noundef %0) local_unnamed_addr #0 {
   ]
 
 7:                                                ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false) #10
   br label %EncodeSpecialTimestamp.exit
 
 8:                                                ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #10
   br label %EncodeSpecialTimestamp.exit
 
 9:                                                ; preds = %6
@@ -326,7 +326,7 @@ EncodeSpecialTimestamp.exit:                      ; preds = %8, %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @timestamp2tm(i64 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @timestamp2tm(i64 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
   %5 = sext i32 %4 to i64
   %6 = sdiv i64 %0, 86400000000
@@ -345,7 +345,7 @@ define internal fastcc noundef i32 @timestamp2tm(i64 noundef %0, ptr noundef %1,
   %10 = icmp slt i64 %.066, 0
   %11 = add nsw i64 %.066, 86400000000
   %.1 = select i1 %10, i64 %11, i64 %.066
-  %12 = trunc i64 %8 to i32
+  %12 = trunc nuw nsw i64 %8 to i32
   %13 = getelementptr inbounds i8, ptr %1, i64 20
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = getelementptr inbounds i8, ptr %1, i64 12
@@ -637,7 +637,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %75, ptr %4, align 4
   %76 = load i8, ptr %74, align 1
   %.not223 = icmp eq i8 %76, 0
-  br i1 %.not223, label %._crit_edge280, label %71, !llvm.loop !5
+  br i1 %.not223, label %._crit_edge280, label %71, !llvm.loop !4
 
 ._crit_edge280:                                   ; preds = %71, %.preheader
   %77 = load i32, ptr %9, align 8
@@ -676,7 +676,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %93, ptr %4, align 4
   %94 = load i8, ptr %92, align 1
   %.not222 = icmp eq i8 %94, 0
-  br i1 %.not222, label %._crit_edge275, label %89, !llvm.loop !7
+  br i1 %.not222, label %._crit_edge275, label %89, !llvm.loop !6
 
 ._crit_edge275:                                   ; preds = %89, %.preheader226
   %95 = load i32, ptr %9, align 8
@@ -715,7 +715,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %111, ptr %4, align 4
   %112 = load i8, ptr %110, align 1
   %.not221 = icmp eq i8 %112, 0
-  br i1 %.not221, label %._crit_edge270, label %107, !llvm.loop !8
+  br i1 %.not221, label %._crit_edge270, label %107, !llvm.loop !7
 
 ._crit_edge270:                                   ; preds = %107, %.preheader227
   %113 = load i32, ptr %9, align 8
@@ -889,7 +889,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %195, ptr %4, align 4
   %196 = load i8, ptr %194, align 1
   %.not217 = icmp eq i8 %196, 0
-  br i1 %.not217, label %._crit_edge265, label %191, !llvm.loop !9
+  br i1 %.not217, label %._crit_edge265, label %191, !llvm.loop !8
 
 ._crit_edge265:                                   ; preds = %191, %.preheader228
   %197 = load i32, ptr %9, align 8
@@ -925,7 +925,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %211, ptr %4, align 4
   %212 = load i8, ptr %210, align 1
   %.not216 = icmp eq i8 %212, 0
-  br i1 %.not216, label %.loopexit, label %207, !llvm.loop !10
+  br i1 %.not216, label %.loopexit, label %207, !llvm.loop !9
 
 213:                                              ; preds = %22
   %214 = ptrtoint ptr %.sroa.0.0 to i64
@@ -965,7 +965,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %230, ptr %4, align 4
   %231 = load i8, ptr %229, align 1
   %.not215 = icmp eq i8 %231, 0
-  br i1 %.not215, label %._crit_edge256, label %226, !llvm.loop !11
+  br i1 %.not215, label %._crit_edge256, label %226, !llvm.loop !10
 
 ._crit_edge256:                                   ; preds = %226, %.preheader230
   %232 = load i32, ptr %9, align 8
@@ -1004,7 +1004,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %248, ptr %4, align 4
   %249 = load i8, ptr %247, align 1
   %.not214 = icmp eq i8 %249, 0
-  br i1 %.not214, label %._crit_edge251, label %244, !llvm.loop !12
+  br i1 %.not214, label %._crit_edge251, label %244, !llvm.loop !11
 
 ._crit_edge251:                                   ; preds = %244, %.preheader231
   %250 = load i32, ptr %9, align 8
@@ -1043,7 +1043,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %266, ptr %4, align 4
   %267 = load i8, ptr %265, align 1
   %.not213 = icmp eq i8 %267, 0
-  br i1 %.not213, label %._crit_edge246, label %262, !llvm.loop !13
+  br i1 %.not213, label %._crit_edge246, label %262, !llvm.loop !12
 
 ._crit_edge246:                                   ; preds = %262, %.preheader232
   %268 = load i32, ptr %9, align 8
@@ -1101,7 +1101,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %293, ptr %4, align 4
   %294 = load i8, ptr %292, align 1
   %.not212 = icmp eq i8 %294, 0
-  br i1 %.not212, label %._crit_edge241, label %289, !llvm.loop !14
+  br i1 %.not212, label %._crit_edge241, label %289, !llvm.loop !13
 
 ._crit_edge241:                                   ; preds = %289, %.preheader233
   %295 = load i32, ptr %9, align 8
@@ -1140,7 +1140,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %311, ptr %4, align 4
   %312 = load i8, ptr %310, align 1
   %.not211 = icmp eq i8 %312, 0
-  br i1 %.not211, label %._crit_edge, label %307, !llvm.loop !15
+  br i1 %.not211, label %._crit_edge, label %307, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %307, %.preheader234
   %313 = load i32, ptr %9, align 8
@@ -1217,7 +1217,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %.2 = phi ptr [ %.1, %.loopexit ], [ %.0204, %339 ]
   %.sroa.0.4 = phi ptr [ %.sroa.0.3, %.loopexit ], [ %.sroa.0.0, %339 ]
   %346 = getelementptr i8, ptr %.2, i64 1
-  br label %20, !llvm.loop !16
+  br label %20, !llvm.loop !15
 
 .loopexit235:                                     ; preds = %20, %336, %.loopexit, %318, %22, %297, %279, %252, %234, %216, %199, %181, %175, %157, %154, %97, %79, %61, %57, %50, %334
   %.0 = phi i32 [ -1, %334 ], [ 0, %20 ], [ -1, %336 ], [ %335, %.loopexit ], [ -1, %318 ], [ -1, %22 ], [ -1, %297 ], [ -1, %279 ], [ -1, %252 ], [ -1, %234 ], [ -1, %216 ], [ -1, %199 ], [ -1, %181 ], [ %177, %175 ], [ %159, %157 ], [ %156, %154 ], [ -1, %97 ], [ -1, %79 ], [ -1, %61 ], [ -1, %57 ], [ %52, %50 ]
@@ -1225,7 +1225,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PGTYPEStimestamp_sub(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 322) i32 @PGTYPEStimestamp_sub(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %.off = add i64 %4, -9223372036854775807
   %switch = icmp ult i64 %.off, 2
@@ -1293,7 +1293,7 @@ declare i32 @PGTYPEStimestamp_defmt_scan(ptr noundef, ptr noundef, ptr noundef, 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca i32, align 4
   %6 = load i64, ptr %0, align 8
@@ -1491,12 +1491,12 @@ tm2timestamp.exit.thread:                         ; preds = %103, %106, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PGTYPEStimestamp_sub_interval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPEStimestamp_sub_interval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.interval, align 16
   %5 = load <2 x i64>, ptr %1, align 8
   %6 = sub <2 x i64> zeroinitializer, %5
   store <2 x i64> %6, ptr %4, align 16
-  %7 = call i32 @PGTYPEStimestamp_add_interval(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2), !range !4
+  %7 = call i32 @PGTYPEStimestamp_add_interval(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
   ret i32 %7
 }
 
@@ -1541,16 +1541,15 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

@@ -4444,8 +4444,8 @@ for.inc36.i.i:                                    ; preds = %if.then22.i.i, %for
 for.body.lr.ph:                                   ; preds = %for.body.i.i, %for.inc36.i.i, %for.body20.i.i, %for.cond18.preheader.i.i
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %13 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %13, i64 32
+  %13 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %13, i64 32
   %m_args.i.ptr = getelementptr inbounds i8, ptr %n, i64 32
   %m_bv = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body

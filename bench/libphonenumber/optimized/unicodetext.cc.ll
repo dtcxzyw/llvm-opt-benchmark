@@ -66,7 +66,7 @@ $_ZN4i18n12phonenumbers15ConvertToStringIA39_cE6DoWorkB5cxx11ERA39_Kc = comdat a
 @_ZN4i18n12phonenumbers11UnicodeText14const_iteratorC1ERKS2_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4i18n12phonenumbers11UnicodeText14const_iteratorC2ERKS2_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4i18n12phonenumbers8distanceERKNS0_11UnicodeText14const_iteratorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN4i18n12phonenumbers8distanceERKNS0_11UnicodeText14const_iteratorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %3, %4
@@ -737,7 +737,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit: ; preds = %_ZN4i18n12ph
   %41 = phi ptr [ null, %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i ], [ %.pre.i, %40 ]
   store i8 1, ptr %7, align 8
   %42 = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %3, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr readonly align 1 %3, i64 %42, i1 false)
   ret ptr %0
 }
 
@@ -772,7 +772,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeTextC2ERKNS1_14const_itera
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %sext = shl i64 %10, 32
   %18 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %6, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr readonly align 1 %6, i64 %18, i1 false)
   store i32 %11, ptr %17, align 8
   ret void
 }
@@ -912,7 +912,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit: ; preds = %_ZN4i18n12ph
   %43 = phi ptr [ null, %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i ], [ %.pre.i, %42 ]
   store i8 1, ptr %9, align 8
   %44 = sext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %1, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr readonly align 1 %1, i64 %44, i1 false)
   %45 = tail call noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeValidEPKci(ptr noundef %1, i32 noundef %2)
   %46 = icmp eq i32 %45, %2
   %47 = getelementptr inbounds i8, ptr %0, i64 17
@@ -1187,7 +1187,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit: ; preds = %_ZN4i18n12ph
   %39 = phi ptr [ null, %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i ], [ %.pre.i, %38 ]
   store i8 1, ptr %5, align 8
   %40 = sext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %1, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr readonly align 1 %1, i64 %40, i1 false)
   ret ptr %0
 }
 
@@ -1552,7 +1552,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit: ; preds = %_ZN4i18n12ph
   store i32 %2, ptr %63, align 8
   store i8 1, ptr %38, align 8
   %71 = sext i32 %2 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre.i, ptr align 1 %1, i64 %71, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre.i, ptr readonly align 1 %1, i64 %71, i1 false)
   %72 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -1785,7 +1785,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds i8, ptr %31, i64 %32
   %34 = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %3, i64 %34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %3, i64 %34, i1 false)
   %35 = load i32, ptr %6, align 8
   %36 = add nsw i32 %35, %5
   store i32 %36, ptr %6, align 8
@@ -1857,7 +1857,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %sext = shl i64 %8, 32
   %38 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %4, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr readonly align 1 %4, i64 %38, i1 false)
   %39 = load i32, ptr %10, align 8
   %40 = add nsw i32 %39, %9
   store i32 %40, ptr %10, align 8
@@ -1922,7 +1922,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
   %32 = sext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %1, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr readonly align 1 %1, i64 %32, i1 false)
   %33 = load i32, ptr %4, align 8
   %34 = add nsw i32 %33, %2
   store i32 %34, ptr %4, align 8
@@ -2193,7 +2193,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds i8, ptr %39, i64 %40
   %42 = sext i32 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr nonnull align 1 %3, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr nonnull readonly align 1 %3, i64 %42, i1 false)
   br label %105
 
 43:                                               ; preds = %9
@@ -2521,7 +2521,7 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbersltERKNS0_11UnicodeTex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText14const_iteratordeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 2097152) i32 @_ZNK4i18n12phonenumbers11UnicodeText14const_iteratordeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -2614,7 +2614,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText14const_iterator8get_utf8EPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 align 2 {
+define dso_local noundef range(i32 1, 5) i32 @_ZNK4i18n12phonenumbers11UnicodeText14const_iterator8get_utf8EPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   store i8 %4, ptr %1, align 1

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [56 x i8] c"The Jacobian routine failed in an unrecoverable manner.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -181,7 +181,7 @@ define internal noundef i32 @cvBandInit(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cvBandSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal range(i32 -1, 2) i32 @cvBandSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1696
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1272
@@ -370,7 +370,7 @@ declare void @DestroyMat(ptr noundef) local_unnamed_addr #1
 declare ptr @NewLintArray(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -431,7 +431,7 @@ define noundef i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   store ptr %26, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %.028, i64 80
   store ptr @cvBandFreeB, ptr %32, align 8
-  %33 = tail call i32 @CVBand(ptr noundef %25, i64 noundef %2, i64 noundef %3, i64 noundef %4), !range !5
+  %33 = tail call i32 @CVBand(ptr noundef %25, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %.not33 = icmp eq i32 %33, 0
   br i1 %.not33, label %35, label %34
 
@@ -494,4 +494,3 @@ attributes #8 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -4, i32 1}

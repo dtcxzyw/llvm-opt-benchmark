@@ -2035,7 +2035,7 @@ _ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_115SignalStopState18SavedSignalHandlerES
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_115SignalStopState18SavedSignalHandlerESaIS3_EE11_M_allocateEm.exit.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %cond.i12.i.i.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_115SignalStopState18SavedSignalHandlerESaIS3_EE11_M_allocateEm.exit.i.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %this.val10.i.i.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_115SignalStopState18SavedSignalHandlerESaIS3_EE11_M_allocateEm.exit.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %__first.addr.02.i.i.i.i.i.i.i, i64 160, i1 false), !alias.scope !25, !noalias !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %__cur.03.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %__first.addr.02.i.i.i.i.i.i.i, i64 160, i1 false), !alias.scope !25, !noalias !17
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i, i64 160
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i, i64 160
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %44
@@ -2813,7 +2813,7 @@ entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_115SignalStopStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %0 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %0, i8 0, i64 136, i1 false)
   store ptr %call5.i.i.i3.i.i.i.i, ptr getelementptr inbounds (%"class.std::shared_ptr.26", ptr @_ZZN5arrow12_GLOBAL__N_115SignalStopState8instanceEvE8instance, i64 0, i32 0, i32 1), align 8
   store ptr %_M_impl.i.i.i.i.i.i, ptr @_ZZN5arrow12_GLOBAL__N_115SignalStopState8instanceEvE8instance, align 8
   store ptr %_M_impl.i.i.i.i.i.i, ptr %_M_impl.i.i.i.i.i.i, align 8
@@ -2956,13 +2956,13 @@ invoke.cont.i:                                    ; preds = %call5.i.i.i3.i.i.i.
   %_M_invoker.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i6.i, i64 72
   store ptr @_ZNSt17_Function_handlerIFvSt3anyEZN5arrow12_GLOBAL__N_115SignalStopState4InitEvEUlS0_E_E9_M_invokeERKSt9_Any_dataOS0_, ptr %_M_invoker.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %_M_manager.i.i6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i6.i, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parent_after3.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %parent_after3.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !38
   store ptr @_ZNSt17_Function_handlerIFvSt3anyEZN5arrow12_GLOBAL__N_115SignalStopState4InitEvEUlS0_E_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i6.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %child_after4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i6.i, i64 80
   %_M_invoker.i7.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i6.i, i64 104
   store ptr @_ZNSt17_Function_handlerIFvSt3anyEZN5arrow12_GLOBAL__N_115SignalStopState4InitEvEUlS0_E0_E9_M_invokeERKSt9_Any_dataOS0_, ptr %_M_invoker.i7.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %_M_manager.i.i12.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i6.i, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %child_after4.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %child_after4.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !38
   store ptr @_ZNSt17_Function_handlerIFvSt3anyEZN5arrow12_GLOBAL__N_115SignalStopState4InitEvEUlS0_E0_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i12.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
   %atfork_handler_.i = getelementptr inbounds i8, ptr %_ZZN5arrow12_GLOBAL__N_115SignalStopState8instanceEvE8instance.val, i64 104
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %atfork_handler_.i, align 8

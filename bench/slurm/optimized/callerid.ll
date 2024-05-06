@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_callerid_get_own_netinfo = alias i32 (ptr), ptr @callerid_get_own_netinfo
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @callerid_get_own_netinfo(ptr noundef %0) #0 {
+define range(i32 -1, 1) i32 @callerid_get_own_netinfo(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca [4096 x i8], align 16
   %4 = alloca %struct.stat, align 8
@@ -137,7 +137,7 @@ callerid_find_conn_by_inode.exit:                 ; preds = %38
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @callerid_find_inode_by_conn(ptr noundef byval(%struct.callerid_conn_t) align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @callerid_find_inode_by_conn(ptr noundef byval(%struct.callerid_conn_t) align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = call fastcc i32 @_find_match_in_tcp_file(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef nonnull @_match_conn)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %8, label %5
@@ -248,7 +248,7 @@ define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_match_conn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @_match_conn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = icmp eq i32 %4, 2
   %7 = select i1 %6, i64 4, i64 16
   %8 = load i32, ptr %0, align 4
@@ -297,7 +297,7 @@ define internal noundef i32 @_match_conn(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @callerid_find_conn_by_inode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @callerid_find_conn_by_inode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef nonnull @_match_inode)
@@ -316,7 +316,7 @@ define i32 @callerid_find_conn_by_inode(ptr noundef %0, i64 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_match_inode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @_match_inode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = load i64, ptr %1, align 8
   %7 = icmp eq i64 %6, %3
   br i1 %7, label %8, label %21

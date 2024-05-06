@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mbedtls_md_context_t = type { ptr, ptr, ptr }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden i32 @mbedtls_ct_memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 256) i32 @mbedtls_ct_memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   store volatile i8 0, ptr %4, align 1
   %.not = icmp eq i64 %2, 0
@@ -33,28 +33,28 @@ define hidden i32 @mbedtls_ct_memcmp(ptr noundef %0, ptr noundef %1, i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @mbedtls_ct_uint_mask(i32 noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ct_uint_mask(i32 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ne i32 %0, 0
   %.neg = sext i1 %2 to i32
   ret i32 %.neg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @mbedtls_ct_size_mask(i64 noundef %0) local_unnamed_addr #1 {
+define hidden range(i64 -1, 1) i64 @mbedtls_ct_size_mask(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ne i64 %0, 0
   %.neg = sext i1 %2 to i64
   ret i64 %.neg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @mbedtls_ct_mpi_uint_mask(i64 noundef %0) local_unnamed_addr #1 {
+define hidden range(i64 -1, 1) i64 @mbedtls_ct_mpi_uint_mask(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ne i64 %0, 0
   %.neg = sext i1 %2 to i64
   ret i64 %.neg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @mbedtls_ct_size_mask_ge(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden range(i64 -1, 1) i64 @mbedtls_ct_size_mask_ge(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = sub i64 %0, %1
   %isnotneg = icmp sgt i64 %3, -1
   %4 = sext i1 %isnotneg to i64
@@ -62,14 +62,14 @@ define hidden noundef i64 @mbedtls_ct_size_mask_ge(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @mbedtls_ct_size_bool_eq(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @mbedtls_ct_size_bool_eq(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i64 %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @mbedtls_ct_mpi_uint_lt(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @mbedtls_ct_mpi_uint_lt(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = xor i64 %1, %0
   %4 = sub i64 %0, %1
   %5 = xor i64 %3, -1
@@ -77,7 +77,7 @@ define hidden i32 @mbedtls_ct_mpi_uint_lt(i64 noundef %0, i64 noundef %1) local_
   %7 = and i64 %3, %1
   %8 = or disjoint i64 %6, %7
   %9 = lshr i64 %8, 63
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   ret i32 %10
 }
 
@@ -553,7 +553,7 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
+define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -598,7 +598,7 @@ define hidden noundef i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef readonly 
   %33 = and i64 %29, %28
   %34 = or disjoint i64 %32, %33
   %35 = lshr i64 %34, 63
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   %37 = sub i32 1, %.03437
   %38 = and i32 %37, %10
   %39 = and i32 %38, %36
@@ -618,7 +618,7 @@ define hidden noundef i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef readonly 
   %52 = and i64 %48, %47
   %53 = or disjoint i64 %51, %52
   %54 = lshr i64 %53, 63
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   %56 = sub i32 1, %41
   %57 = and i32 %56, %19
   %58 = and i32 %57, %55
@@ -634,7 +634,7 @@ define hidden noundef i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden i32 @mbedtls_ct_rsaes_pkcs1_v15_unpadding(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @mbedtls_ct_rsaes_pkcs1_v15_unpadding(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = add i64 %1, -11
   %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 %3)
   %8 = load i8, ptr %0, align 1
@@ -676,7 +676,7 @@ define hidden i32 @mbedtls_ct_rsaes_pkcs1_v15_unpadding(ptr noundef %0, i64 noun
   %29 = zext i8 %28 to i32
   %30 = add i64 %.056.lcssa, -8
   %31 = lshr i64 %30, 63
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw nsw i64 %31 to i32
   %33 = or i32 %29, %32
   %34 = trunc i64 %7 to i32
   %35 = sub i64 %1, %.056.lcssa
@@ -692,7 +692,7 @@ define hidden i32 @mbedtls_ct_rsaes_pkcs1_v15_unpadding(ptr noundef %0, i64 noun
 
 .lr.ph69:                                         ; preds = %._crit_edge
   %44 = lshr i64 %41, 63
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = or i32 %33, %45
   %.fr71 = freeze i32 %46
   %47 = icmp eq i32 %.fr71, 0

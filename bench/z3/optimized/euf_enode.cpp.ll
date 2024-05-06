@@ -140,8 +140,8 @@ if.end42:                                         ; preds = %for.body39
   %10 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i = zext i32 %10 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %11 = getelementptr i8, ptr %8, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %11, i64 176
+  %11 = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %11, i64 176
   %cmp47.not90 = icmp eq i32 %10, 0
   br i1 %cmp47.not90, label %if.then60, label %for.body48.preheader
 
@@ -279,13 +279,13 @@ land.lhs.true13.i.us:                             ; preds = %land.lhs.true.i.us
   %m_root.i20.i.us = getelementptr inbounds i8, ptr %33, i64 64
   %34 = load ptr, ptr %m_root.i20.i.us, align 8
   %35 = load ptr, ptr %m_args.i16.i.us, align 8
-  %m_root.i22.i.us = getelementptr inbounds i8, ptr %35, i64 64
-  %36 = load ptr, ptr %m_root.i22.i.us, align 8
+  %m_root.i23.i.us = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = load ptr, ptr %m_root.i23.i.us, align 8
   %cmp18.i.us = icmp eq ptr %34, %36
   br i1 %cmp18.i.us, label %_ZNK3euf5enode9congruentEPS0_.exit.us, label %if.end20.i.us
 
 if.end20.i.us:                                    ; preds = %land.lhs.true13.i.us, %land.lhs.true.i.us, %if.end7.i.us
-  %m_args.i27.i.us = getelementptr inbounds i8, ptr %23, i64 176
+  %m_args.i28.i.us = getelementptr inbounds i8, ptr %23, i64 176
   %37 = zext i32 %26 to i64
   br label %for.cond.i.us
 
@@ -296,14 +296,14 @@ for.cond.i.us:                                    ; preds = %for.body.i.us, %if.
 
 for.body.i.us:                                    ; preds = %for.cond.i.us
   %38 = add nsw i64 %indvars.iv.i.us, -1
-  %arrayidx.i25.i.us = getelementptr inbounds [0 x ptr], ptr %m_args.i.i, i64 0, i64 %38
-  %39 = load ptr, ptr %arrayidx.i25.i.us, align 8
-  %m_root.i26.i.us = getelementptr inbounds i8, ptr %39, i64 64
-  %40 = load ptr, ptr %m_root.i26.i.us, align 8
-  %arrayidx.i29.i.us = getelementptr inbounds [0 x ptr], ptr %m_args.i27.i.us, i64 0, i64 %38
-  %41 = load ptr, ptr %arrayidx.i29.i.us, align 8
-  %m_root.i30.i.us = getelementptr inbounds i8, ptr %41, i64 64
-  %42 = load ptr, ptr %m_root.i30.i.us, align 8
+  %arrayidx.i26.i.us = getelementptr inbounds [0 x ptr], ptr %m_args.i.i, i64 0, i64 %38
+  %39 = load ptr, ptr %arrayidx.i26.i.us, align 8
+  %m_root.i27.i.us = getelementptr inbounds i8, ptr %39, i64 64
+  %40 = load ptr, ptr %m_root.i27.i.us, align 8
+  %arrayidx.i30.i.us = getelementptr inbounds [0 x ptr], ptr %m_args.i28.i.us, i64 0, i64 %38
+  %41 = load ptr, ptr %arrayidx.i30.i.us, align 8
+  %m_root.i31.i.us = getelementptr inbounds i8, ptr %41, i64 64
+  %42 = load ptr, ptr %m_root.i31.i.us, align 8
   %cmp27.not.i.us = icmp eq ptr %40, %42
   br i1 %cmp27.not.i.us, label %for.cond.i.us, label %_ZNK3euf5enode9congruentEPS0_.exit.us, !llvm.loop !4
 
@@ -360,13 +360,13 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true.i
   %m_root.i20.i = getelementptr inbounds i8, ptr %53, i64 64
   %54 = load ptr, ptr %m_root.i20.i, align 8
   %55 = load ptr, ptr %m_args.i16.i, align 8
-  %m_root.i22.i = getelementptr inbounds i8, ptr %55, i64 64
-  %56 = load ptr, ptr %m_root.i22.i, align 8
+  %m_root.i23.i = getelementptr inbounds i8, ptr %55, i64 64
+  %56 = load ptr, ptr %m_root.i23.i, align 8
   %cmp18.i = icmp eq ptr %54, %56
   br i1 %cmp18.i, label %_ZNK3euf5enode9congruentEPS0_.exit, label %if.end20.i
 
 if.end20.i:                                       ; preds = %land.lhs.true13.i, %land.lhs.true.i, %if.end7.i
-  %m_args.i27.i = getelementptr inbounds i8, ptr %43, i64 176
+  %m_args.i28.i = getelementptr inbounds i8, ptr %43, i64 176
   %57 = zext i32 %46 to i64
   br label %for.cond.i
 
@@ -377,14 +377,14 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
 
 for.body.i:                                       ; preds = %for.cond.i
   %58 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i25.i = getelementptr inbounds [0 x ptr], ptr %m_args.i.i, i64 0, i64 %58
-  %59 = load ptr, ptr %arrayidx.i25.i, align 8
-  %m_root.i26.i = getelementptr inbounds i8, ptr %59, i64 64
-  %60 = load ptr, ptr %m_root.i26.i, align 8
-  %arrayidx.i29.i = getelementptr inbounds [0 x ptr], ptr %m_args.i27.i, i64 0, i64 %58
-  %61 = load ptr, ptr %arrayidx.i29.i, align 8
-  %m_root.i30.i = getelementptr inbounds i8, ptr %61, i64 64
-  %62 = load ptr, ptr %m_root.i30.i, align 8
+  %arrayidx.i26.i = getelementptr inbounds [0 x ptr], ptr %m_args.i.i, i64 0, i64 %58
+  %59 = load ptr, ptr %arrayidx.i26.i, align 8
+  %m_root.i27.i = getelementptr inbounds i8, ptr %59, i64 64
+  %60 = load ptr, ptr %m_root.i27.i, align 8
+  %arrayidx.i30.i = getelementptr inbounds [0 x ptr], ptr %m_args.i28.i, i64 0, i64 %58
+  %61 = load ptr, ptr %arrayidx.i30.i, align 8
+  %m_root.i31.i = getelementptr inbounds i8, ptr %61, i64 64
+  %62 = load ptr, ptr %m_root.i31.i, align 8
   %cmp27.not.i = icmp eq ptr %60, %62
   br i1 %cmp27.not.i, label %for.cond.i, label %_ZNK3euf5enode9congruentEPS0_.exit, !llvm.loop !4
 
@@ -495,14 +495,14 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
   %m_root.i20 = getelementptr inbounds i8, ptr %11, i64 64
   %12 = load ptr, ptr %m_root.i20, align 8
   %13 = load ptr, ptr %m_args.i16, align 8
-  %m_root.i22 = getelementptr inbounds i8, ptr %13, i64 64
-  %14 = load ptr, ptr %m_root.i22, align 8
+  %m_root.i23 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = load ptr, ptr %m_root.i23, align 8
   %cmp18 = icmp eq ptr %12, %14
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %land.lhs.true13, %land.lhs.true, %if.end7
-  %m_args.i24 = getelementptr inbounds i8, ptr %this, i64 176
-  %m_args.i27 = getelementptr inbounds i8, ptr %n, i64 176
+  %m_args.i25 = getelementptr inbounds i8, ptr %this, i64 176
+  %m_args.i28 = getelementptr inbounds i8, ptr %n, i64 176
   %15 = zext i32 %4 to i64
   br label %for.cond
 
@@ -513,14 +513,14 @@ for.cond:                                         ; preds = %for.body, %if.end20
 
 for.body:                                         ; preds = %for.cond
   %16 = add nsw i64 %indvars.iv, -1
-  %arrayidx.i25 = getelementptr inbounds [0 x ptr], ptr %m_args.i24, i64 0, i64 %16
-  %17 = load ptr, ptr %arrayidx.i25, align 8
-  %m_root.i26 = getelementptr inbounds i8, ptr %17, i64 64
-  %18 = load ptr, ptr %m_root.i26, align 8
-  %arrayidx.i29 = getelementptr inbounds [0 x ptr], ptr %m_args.i27, i64 0, i64 %16
-  %19 = load ptr, ptr %arrayidx.i29, align 8
-  %m_root.i30 = getelementptr inbounds i8, ptr %19, i64 64
-  %20 = load ptr, ptr %m_root.i30, align 8
+  %arrayidx.i26 = getelementptr inbounds [0 x ptr], ptr %m_args.i25, i64 0, i64 %16
+  %17 = load ptr, ptr %arrayidx.i26, align 8
+  %m_root.i27 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = load ptr, ptr %m_root.i27, align 8
+  %arrayidx.i30 = getelementptr inbounds [0 x ptr], ptr %m_args.i28, i64 0, i64 %16
+  %19 = load ptr, ptr %arrayidx.i30, align 8
+  %m_root.i31 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = load ptr, ptr %m_root.i31, align 8
   %cmp27.not = icmp eq ptr %18, %20
   br i1 %cmp27.not, label %for.cond, label %return, !llvm.loop !4
 
@@ -718,8 +718,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 176
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 176
   %cmp.not6 = icmp eq i32 %0, 0
   br i1 %cmp.not6, label %return, label %for.body.preheader
 

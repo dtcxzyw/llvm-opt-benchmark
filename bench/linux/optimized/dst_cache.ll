@@ -287,7 +287,7 @@ define dso_local ptr @dst_cache_get_ip6(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dst_cache_init(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @dst_cache_init(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
   %3 = or i32 %1, 256
   %4 = tail call noalias dereferenceable_or_null(40) ptr @__alloc_percpu_gfp(i64 noundef 40, i64 noundef 8, i32 noundef %3) #7
   store ptr %4, ptr %0, align 8

@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [34 x i8] c"Out of memory adding file to list\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_format_cpio(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_format_cpio(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str) #13
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %11, label %4
@@ -72,7 +72,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 declare i32 @__archive_read_register_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_cpio_bid(ptr noundef %0, i32 %1) #0 {
+define internal range(i32 -20, 49) i32 @archive_read_format_cpio_bid(ptr noundef %0, i32 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2072
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -130,7 +130,7 @@ define internal noundef i32 @archive_read_format_cpio_bid(ptr noundef %0, i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_read_format_cpio_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_read_format_cpio_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -463,7 +463,7 @@ record_hardlink.exit:                             ; preds = %115, %130, %74, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_cpio_read_data(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_cpio_read_data(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 2072
   %7 = load ptr, ptr %6, align 8
@@ -528,7 +528,7 @@ define internal noundef i32 @archive_read_format_cpio_read_data(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_cpio_skip(ptr noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_read_format_cpio_skip(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2072
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -629,7 +629,7 @@ is_octal.exit.thread.i:                           ; preds = %.preheader61.i, %.l
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %is_octal.exit.thread.i
-  %23 = call fastcc i32 @is_afio_large(ptr noundef nonnull %11, i64 noundef %12), !range !9
+  %23 = call fastcc i32 @is_afio_large(ptr noundef nonnull %11, i64 noundef %12)
   %.not44.i = icmp eq i32 %23, 0
   br i1 %.not44.i, label %24, label %.thread
 
@@ -681,7 +681,7 @@ is_octal.exit55.thread.i:                         ; preds = %.preheader.i, %29
 38:                                               ; preds = %is_octal.exit55.thread.i
   %39 = ptrtoint ptr %.03976.i to i64
   %40 = sub i64 %25, %39
-  %41 = call fastcc i32 @is_afio_large(ptr noundef %.03976.i, i64 noundef %40), !range !9
+  %41 = call fastcc i32 @is_afio_large(ptr noundef %.03976.i, i64 noundef %40)
   %.not49.i = icmp eq i32 %41, 0
   br i1 %.not49.i, label %54, label %is_octal.exit55.i
 
@@ -721,7 +721,7 @@ is_octal.exit55.i:                                ; preds = %38, %is_octal.exit5
   %55 = getelementptr inbounds i8, ptr %.03976.i, i64 %.sink.i
   %56 = getelementptr inbounds i8, ptr %55, i64 76
   %.not45.i = icmp ugt ptr %56, %13
-  br i1 %.not45.i, label %._crit_edge.i, label %26, !llvm.loop !10
+  br i1 %.not45.i, label %._crit_edge.i, label %26, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %54, %24
   %.039.lcssa.i = phi ptr [ %11, %24 ], [ %55, %54 ]
@@ -798,7 +798,7 @@ find_odc_header.exit:                             ; preds = %._crit_edge.i, %5
   %88 = and i64 %.0.i.i, 4294967295
   %89 = or i64 %88, %87
   %.not.i.i47 = icmp eq i32 %70, 0
-  br i1 %.not.i.i47, label %atol16.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i47, label %atol16.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 atol16.exit.i:                                    ; preds = %85, %81
   %.016.lcssa.i.i = phi i64 [ %89, %85 ], [ %.01629.i.i, %81 ]
@@ -847,7 +847,7 @@ atol16.exit.i:                                    ; preds = %85, %81
   %109 = and i64 %.0.i39.i, 4294967295
   %110 = or i64 %109, %108
   %.not.i40.i = icmp eq i32 %91, 0
-  br i1 %.not.i40.i, label %atol16.exit41.i, label %.lr.ph.i31.i, !llvm.loop !11
+  br i1 %.not.i40.i, label %atol16.exit41.i, label %.lr.ph.i31.i, !llvm.loop !10
 
 atol16.exit41.i:                                  ; preds = %106, %102
   %.016.lcssa.i38.i = phi i64 [ %110, %106 ], [ %.01629.i33.i, %102 ]
@@ -872,7 +872,7 @@ atol16.exit41.i:                                  ; preds = %106, %102
   %118 = shl i32 %.01015.i.i, 3
   %119 = or disjoint i32 %118, %116
   %.not.i45.i = icmp eq i32 %115, 0
-  br i1 %.not.i45.i, label %atol8.exit.i, label %.lr.ph.i42.i, !llvm.loop !12
+  br i1 %.not.i45.i, label %atol8.exit.i, label %.lr.ph.i42.i, !llvm.loop !11
 
 atol8.exit.i:                                     ; preds = %114, %.lr.ph.i42.i
   %.010.lcssa.i.i = phi i32 [ %119, %114 ], [ %.01015.i.i, %.lr.ph.i42.i ]
@@ -921,7 +921,7 @@ atol8.exit.i:                                     ; preds = %114, %.lr.ph.i42.i
   %139 = and i64 %.0.i54.i, 4294967295
   %140 = or i64 %139, %138
   %.not.i55.i = icmp eq i32 %121, 0
-  br i1 %.not.i55.i, label %atol16.exit56.i, label %.lr.ph.i46.i, !llvm.loop !11
+  br i1 %.not.i55.i, label %atol16.exit56.i, label %.lr.ph.i46.i, !llvm.loop !10
 
 atol16.exit56.i:                                  ; preds = %136, %132
   %.016.lcssa.i53.i = phi i64 [ %140, %136 ], [ %.01629.i48.i, %132 ]
@@ -970,7 +970,7 @@ atol16.exit56.i:                                  ; preds = %136, %132
   %160 = and i64 %.0.i65.i, 4294967295
   %161 = or i64 %160, %159
   %.not.i66.i = icmp eq i32 %142, 0
-  br i1 %.not.i66.i, label %atol16.exit67.i, label %.lr.ph.i57.i, !llvm.loop !11
+  br i1 %.not.i66.i, label %atol16.exit67.i, label %.lr.ph.i57.i, !llvm.loop !10
 
 atol16.exit67.i:                                  ; preds = %157, %153
   %.016.lcssa.i64.i = phi i64 [ %161, %157 ], [ %.01629.i59.i, %153 ]
@@ -1018,7 +1018,7 @@ atol16.exit67.i:                                  ; preds = %157, %153
   %180 = shl i32 %.01629.i70.i, 4
   %181 = or i32 %.0.i76.i, %180
   %.not.i77.i = icmp eq i32 %163, 0
-  br i1 %.not.i77.i, label %atol16.exit78.i, label %.lr.ph.i68.i, !llvm.loop !11
+  br i1 %.not.i77.i, label %atol16.exit78.i, label %.lr.ph.i68.i, !llvm.loop !10
 
 atol16.exit78.i:                                  ; preds = %178, %174
   %.016.lcssa.i75.i = phi i32 [ %181, %178 ], [ %.01629.i70.i, %174 ]
@@ -1067,7 +1067,7 @@ atol16.exit78.i:                                  ; preds = %178, %174
   %201 = and i64 %.0.i87.i, 4294967295
   %202 = or i64 %201, %200
   %.not.i88.i = icmp eq i32 %183, 0
-  br i1 %.not.i88.i, label %atol16.exit89.i, label %.lr.ph.i79.i, !llvm.loop !11
+  br i1 %.not.i88.i, label %atol16.exit89.i, label %.lr.ph.i79.i, !llvm.loop !10
 
 atol16.exit89.i:                                  ; preds = %198, %194
   %.016.lcssa.i86.i = phi i64 [ %202, %198 ], [ %.01629.i81.i, %194 ]
@@ -1116,7 +1116,7 @@ atol16.exit89.i:                                  ; preds = %198, %194
   %222 = and i64 %.0.i98.i, 4294967295
   %223 = or i64 %222, %221
   %.not.i99.i = icmp eq i32 %204, 0
-  br i1 %.not.i99.i, label %atol16.exit100.i, label %.lr.ph.i90.i, !llvm.loop !11
+  br i1 %.not.i99.i, label %atol16.exit100.i, label %.lr.ph.i90.i, !llvm.loop !10
 
 atol16.exit100.i:                                 ; preds = %219, %215
   %.016.lcssa.i97.i = phi i64 [ %223, %219 ], [ %.01629.i92.i, %215 ]
@@ -1165,7 +1165,7 @@ atol16.exit100.i:                                 ; preds = %219, %215
   %243 = and i64 %.0.i109.i, 4294967295
   %244 = or i64 %243, %242
   %.not.i110.i = icmp eq i32 %225, 0
-  br i1 %.not.i110.i, label %atol16.exit111.i, label %.lr.ph.i101.i, !llvm.loop !11
+  br i1 %.not.i110.i, label %atol16.exit111.i, label %.lr.ph.i101.i, !llvm.loop !10
 
 atol16.exit111.i:                                 ; preds = %240, %236
   %.016.lcssa.i108.i = phi i64 [ %244, %240 ], [ %.01629.i103.i, %236 ]
@@ -1215,7 +1215,7 @@ atol16.exit111.i:                                 ; preds = %240, %236
   %264 = and i64 %.0.i120.i, 4294967295
   %265 = or i64 %264, %263
   %.not.i121.i = icmp eq i32 %246, 0
-  br i1 %.not.i121.i, label %266, label %.lr.ph.i112.i, !llvm.loop !11
+  br i1 %.not.i121.i, label %266, label %.lr.ph.i112.i, !llvm.loop !10
 
 266:                                              ; preds = %257, %261
   %.016.lcssa.i119.i = phi i64 [ %265, %261 ], [ %.01629.i114.i, %257 ]
@@ -1253,7 +1253,7 @@ atol16.exit111.i:                                 ; preds = %240, %236
   %281 = shl i64 %.01015.i, 3
   %282 = or disjoint i64 %281, %279
   %.not.i = icmp eq i32 %278, 0
-  br i1 %.not.i, label %atol8.exit, label %.lr.ph.i48, !llvm.loop !12
+  br i1 %.not.i, label %atol8.exit, label %.lr.ph.i48, !llvm.loop !11
 
 atol8.exit:                                       ; preds = %.lr.ph.i48, %277
   %.010.lcssa.i = phi i64 [ %282, %277 ], [ %.01015.i, %.lr.ph.i48 ]
@@ -1278,7 +1278,7 @@ atol8.exit:                                       ; preds = %.lr.ph.i48, %277
   %290 = shl i64 %.01015.i52, 3
   %291 = or disjoint i64 %290, %288
   %.not.i58 = icmp eq i32 %287, 0
-  br i1 %.not.i58, label %atol8.exit59, label %.lr.ph.i50, !llvm.loop !12
+  br i1 %.not.i58, label %atol8.exit59, label %.lr.ph.i50, !llvm.loop !11
 
 atol8.exit59:                                     ; preds = %.lr.ph.i50, %286
   %.010.lcssa.i56 = phi i64 [ %291, %286 ], [ %.01015.i52, %.lr.ph.i50 ]
@@ -1303,7 +1303,7 @@ atol8.exit59:                                     ; preds = %.lr.ph.i50, %286
   %299 = shl i32 %.01015.i62, 3
   %300 = or disjoint i32 %299, %297
   %.not.i68 = icmp eq i32 %296, 0
-  br i1 %.not.i68, label %atol8.exit69, label %.lr.ph.i60, !llvm.loop !12
+  br i1 %.not.i68, label %atol8.exit69, label %.lr.ph.i60, !llvm.loop !11
 
 atol8.exit69:                                     ; preds = %.lr.ph.i60, %295
   %.010.lcssa.i66 = phi i32 [ %300, %295 ], [ %.01015.i62, %.lr.ph.i60 ]
@@ -1328,7 +1328,7 @@ atol8.exit69:                                     ; preds = %.lr.ph.i60, %295
   %308 = shl i64 %.01015.i72, 3
   %309 = or disjoint i64 %308, %306
   %.not.i78 = icmp eq i32 %305, 0
-  br i1 %.not.i78, label %atol8.exit79, label %.lr.ph.i70, !llvm.loop !12
+  br i1 %.not.i78, label %atol8.exit79, label %.lr.ph.i70, !llvm.loop !11
 
 atol8.exit79:                                     ; preds = %.lr.ph.i70, %304
   %.010.lcssa.i76 = phi i64 [ %309, %304 ], [ %.01015.i72, %.lr.ph.i70 ]
@@ -1353,7 +1353,7 @@ atol8.exit79:                                     ; preds = %.lr.ph.i70, %304
   %317 = shl i64 %.01015.i82, 3
   %318 = or disjoint i64 %317, %315
   %.not.i88 = icmp eq i32 %314, 0
-  br i1 %.not.i88, label %atol8.exit89, label %.lr.ph.i80, !llvm.loop !12
+  br i1 %.not.i88, label %atol8.exit89, label %.lr.ph.i80, !llvm.loop !11
 
 atol8.exit89:                                     ; preds = %.lr.ph.i80, %313
   %.010.lcssa.i86 = phi i64 [ %318, %313 ], [ %.01015.i82, %.lr.ph.i80 ]
@@ -1378,7 +1378,7 @@ atol8.exit89:                                     ; preds = %.lr.ph.i80, %313
   %326 = shl i32 %.01015.i92, 3
   %327 = or disjoint i32 %326, %324
   %.not.i98 = icmp eq i32 %323, 0
-  br i1 %.not.i98, label %atol8.exit99, label %.lr.ph.i90, !llvm.loop !12
+  br i1 %.not.i98, label %atol8.exit99, label %.lr.ph.i90, !llvm.loop !11
 
 atol8.exit99:                                     ; preds = %.lr.ph.i90, %322
   %.010.lcssa.i96 = phi i32 [ %327, %322 ], [ %.01015.i92, %.lr.ph.i90 ]
@@ -1403,7 +1403,7 @@ atol8.exit99:                                     ; preds = %.lr.ph.i90, %322
   %335 = shl i64 %.01015.i102, 3
   %336 = or disjoint i64 %335, %333
   %.not.i108 = icmp eq i32 %332, 0
-  br i1 %.not.i108, label %atol8.exit109, label %.lr.ph.i100, !llvm.loop !12
+  br i1 %.not.i108, label %atol8.exit109, label %.lr.ph.i100, !llvm.loop !11
 
 atol8.exit109:                                    ; preds = %.lr.ph.i100, %331
   %.010.lcssa.i106 = phi i64 [ %336, %331 ], [ %.01015.i102, %.lr.ph.i100 ]
@@ -1428,7 +1428,7 @@ atol8.exit109:                                    ; preds = %.lr.ph.i100, %331
   %344 = shl i64 %.01015.i112, 3
   %345 = or disjoint i64 %344, %342
   %.not.i118 = icmp eq i32 %341, 0
-  br i1 %.not.i118, label %atol8.exit119, label %.lr.ph.i110, !llvm.loop !12
+  br i1 %.not.i118, label %atol8.exit119, label %.lr.ph.i110, !llvm.loop !11
 
 atol8.exit119:                                    ; preds = %.lr.ph.i110, %340
   %.010.lcssa.i116 = phi i64 [ %345, %340 ], [ %.01015.i112, %.lr.ph.i110 ]
@@ -1453,7 +1453,7 @@ atol8.exit119:                                    ; preds = %.lr.ph.i110, %340
   %353 = shl i64 %.01015.i122, 3
   %354 = or disjoint i64 %353, %351
   %.not.i128 = icmp eq i32 %350, 0
-  br i1 %.not.i128, label %atol8.exit129, label %.lr.ph.i120, !llvm.loop !12
+  br i1 %.not.i128, label %atol8.exit129, label %.lr.ph.i120, !llvm.loop !11
 
 atol8.exit129:                                    ; preds = %.lr.ph.i120, %349
   %.010.lcssa.i126 = phi i64 [ %354, %349 ], [ %.01015.i122, %.lr.ph.i120 ]
@@ -1479,7 +1479,7 @@ atol8.exit129:                                    ; preds = %.lr.ph.i120, %349
   %362 = shl i64 %.01015.i132, 3
   %363 = or disjoint i64 %362, %360
   %.not.i138 = icmp eq i32 %359, 0
-  br i1 %.not.i138, label %atol8.exit139, label %.lr.ph.i130, !llvm.loop !12
+  br i1 %.not.i138, label %atol8.exit139, label %.lr.ph.i130, !llvm.loop !11
 
 atol8.exit139:                                    ; preds = %.lr.ph.i130, %358
   %.010.lcssa.i136 = phi i64 [ %363, %358 ], [ %.01015.i132, %.lr.ph.i130 ]
@@ -1497,7 +1497,7 @@ header_afiol.exit:                                ; preds = %266, %65, %find_odc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @header_newc(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -30, 1) i32 @header_newc(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef nonnull %6) #13
@@ -1549,7 +1549,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
 19:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i.i
   %20 = getelementptr inbounds i8, ptr %.0818.i.i, i64 1
   %.not.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !12
 
 is_hex.exit.thread.i:                             ; preds = %switch.early.test.i.i, %13, %.lr.ph63.i
   %.not3659.i = icmp slt i64 %10, 110
@@ -1599,7 +1599,7 @@ switch.early.test.i45.i:                          ; preds = %.lr.ph.i40.i
 28:                                               ; preds = %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %switch.early.test.i45.i, %.lr.ph.i40.i
   %29 = getelementptr inbounds i8, ptr %.0818.i42.i, i64 1
   %.not.i46.i = icmp eq i64 %25, 0
-  br i1 %.not.i46.i, label %is_hex.exit48.i, label %.lr.ph.i40.i, !llvm.loop !13
+  br i1 %.not.i46.i, label %is_hex.exit48.i, label %.lr.ph.i40.i, !llvm.loop !12
 
 is_hex.exit48.i:                                  ; preds = %28
   %30 = ptrtoint ptr %.03260.i to i64
@@ -1623,7 +1623,7 @@ is_hex.exit48.thread.i:                           ; preds = %switch.early.test.i
   %38 = getelementptr inbounds i8, ptr %.03260.i, i64 %.sink.i
   %39 = getelementptr inbounds i8, ptr %38, i64 110
   %.not36.i = icmp ugt ptr %39, %11
-  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %is_hex.exit48.thread.i, %is_hex.exit.thread.i
   %.032.lcssa.i = phi ptr [ %9, %is_hex.exit.thread.i ], [ %38, %is_hex.exit48.thread.i ]
@@ -1711,7 +1711,7 @@ find_newc_header.exit:                            ; preds = %._crit_edge.i, %5
   %75 = and i64 %.0.i, 4294967295
   %76 = or i64 %75, %74
   %.not.i = icmp eq i32 %57, 0
-  br i1 %.not.i, label %atol16.exit, label %.lr.ph.i50, !llvm.loop !11
+  br i1 %.not.i, label %atol16.exit, label %.lr.ph.i50, !llvm.loop !10
 
 atol16.exit:                                      ; preds = %68, %72
   %.016.lcssa.i = phi i64 [ %76, %72 ], [ %.01629.i, %68 ]
@@ -1760,7 +1760,7 @@ atol16.exit:                                      ; preds = %68, %72
   %96 = and i64 %.0.i61, 4294967295
   %97 = or i64 %96, %95
   %.not.i62 = icmp eq i32 %78, 0
-  br i1 %.not.i62, label %atol16.exit63, label %.lr.ph.i52, !llvm.loop !11
+  br i1 %.not.i62, label %atol16.exit63, label %.lr.ph.i52, !llvm.loop !10
 
 atol16.exit63:                                    ; preds = %89, %93
   %.016.lcssa.i60 = phi i64 [ %97, %93 ], [ %.01629.i54, %89 ]
@@ -1809,7 +1809,7 @@ atol16.exit63:                                    ; preds = %89, %93
   %117 = and i64 %.0.i73, 4294967295
   %118 = or i64 %117, %116
   %.not.i74 = icmp eq i32 %99, 0
-  br i1 %.not.i74, label %atol16.exit75, label %.lr.ph.i64, !llvm.loop !11
+  br i1 %.not.i74, label %atol16.exit75, label %.lr.ph.i64, !llvm.loop !10
 
 atol16.exit75:                                    ; preds = %110, %114
   %.016.lcssa.i72 = phi i64 [ %118, %114 ], [ %.01629.i66, %110 ]
@@ -1857,7 +1857,7 @@ atol16.exit75:                                    ; preds = %110, %114
   %137 = shl i32 %.01629.i78, 4
   %138 = or i32 %.0.i85, %137
   %.not.i86 = icmp eq i32 %120, 0
-  br i1 %.not.i86, label %atol16.exit87, label %.lr.ph.i76, !llvm.loop !11
+  br i1 %.not.i86, label %atol16.exit87, label %.lr.ph.i76, !llvm.loop !10
 
 atol16.exit87:                                    ; preds = %131, %135
   %.016.lcssa.i84 = phi i32 [ %138, %135 ], [ %.01629.i78, %131 ]
@@ -1906,7 +1906,7 @@ atol16.exit87:                                    ; preds = %131, %135
   %158 = and i64 %.0.i97, 4294967295
   %159 = or i64 %158, %157
   %.not.i98 = icmp eq i32 %140, 0
-  br i1 %.not.i98, label %atol16.exit99, label %.lr.ph.i88, !llvm.loop !11
+  br i1 %.not.i98, label %atol16.exit99, label %.lr.ph.i88, !llvm.loop !10
 
 atol16.exit99:                                    ; preds = %151, %155
   %.016.lcssa.i96 = phi i64 [ %159, %155 ], [ %.01629.i90, %151 ]
@@ -1955,7 +1955,7 @@ atol16.exit99:                                    ; preds = %151, %155
   %179 = and i64 %.0.i109, 4294967295
   %180 = or i64 %179, %178
   %.not.i110 = icmp eq i32 %161, 0
-  br i1 %.not.i110, label %atol16.exit111, label %.lr.ph.i100, !llvm.loop !11
+  br i1 %.not.i110, label %atol16.exit111, label %.lr.ph.i100, !llvm.loop !10
 
 atol16.exit111:                                   ; preds = %172, %176
   %.016.lcssa.i108 = phi i64 [ %180, %176 ], [ %.01629.i102, %172 ]
@@ -2003,7 +2003,7 @@ atol16.exit111:                                   ; preds = %172, %176
   %199 = shl i32 %.01629.i114, 4
   %200 = or i32 %.0.i121, %199
   %.not.i122 = icmp eq i32 %182, 0
-  br i1 %.not.i122, label %atol16.exit123, label %.lr.ph.i112, !llvm.loop !11
+  br i1 %.not.i122, label %atol16.exit123, label %.lr.ph.i112, !llvm.loop !10
 
 atol16.exit123:                                   ; preds = %193, %197
   %.016.lcssa.i120 = phi i32 [ %200, %197 ], [ %.01629.i114, %193 ]
@@ -2052,7 +2052,7 @@ atol16.exit123:                                   ; preds = %193, %197
   %220 = and i64 %.0.i133, 4294967295
   %221 = or i64 %220, %219
   %.not.i134 = icmp eq i32 %202, 0
-  br i1 %.not.i134, label %atol16.exit135, label %.lr.ph.i124, !llvm.loop !11
+  br i1 %.not.i134, label %atol16.exit135, label %.lr.ph.i124, !llvm.loop !10
 
 atol16.exit135:                                   ; preds = %213, %217
   %.016.lcssa.i132 = phi i64 [ %221, %217 ], [ %.01629.i126, %213 ]
@@ -2101,7 +2101,7 @@ atol16.exit135:                                   ; preds = %213, %217
   %241 = and i64 %.0.i145, 4294967295
   %242 = or i64 %241, %240
   %.not.i146 = icmp eq i32 %223, 0
-  br i1 %.not.i146, label %atol16.exit147, label %.lr.ph.i136, !llvm.loop !11
+  br i1 %.not.i146, label %atol16.exit147, label %.lr.ph.i136, !llvm.loop !10
 
 atol16.exit147:                                   ; preds = %234, %238
   %.016.lcssa.i144 = phi i64 [ %242, %238 ], [ %.01629.i138, %234 ]
@@ -2150,7 +2150,7 @@ atol16.exit147:                                   ; preds = %234, %238
   %262 = and i64 %.0.i157, 4294967295
   %263 = or i64 %262, %261
   %.not.i158 = icmp eq i32 %244, 0
-  br i1 %.not.i158, label %atol16.exit159, label %.lr.ph.i148, !llvm.loop !11
+  br i1 %.not.i158, label %atol16.exit159, label %.lr.ph.i148, !llvm.loop !10
 
 atol16.exit159:                                   ; preds = %255, %259
   %.016.lcssa.i156 = phi i64 [ %263, %259 ], [ %.01629.i150, %255 ]
@@ -2199,7 +2199,7 @@ atol16.exit159:                                   ; preds = %255, %259
   %283 = and i64 %.0.i169, 4294967295
   %284 = or i64 %283, %282
   %.not.i170 = icmp eq i32 %265, 0
-  br i1 %.not.i170, label %atol16.exit171, label %.lr.ph.i160, !llvm.loop !11
+  br i1 %.not.i170, label %atol16.exit171, label %.lr.ph.i160, !llvm.loop !10
 
 atol16.exit171:                                   ; preds = %276, %280
   %.016.lcssa.i168 = phi i64 [ %284, %280 ], [ %.01629.i162, %276 ]
@@ -2261,7 +2261,7 @@ atol16.exit171:                                   ; preds = %276, %280
   %311 = and i64 %.0.i181, 4294967295
   %312 = or i64 %311, %310
   %.not.i182 = icmp eq i32 %293, 0
-  br i1 %.not.i182, label %atol16.exit183, label %.lr.ph.i172, !llvm.loop !11
+  br i1 %.not.i182, label %atol16.exit183, label %.lr.ph.i172, !llvm.loop !10
 
 atol16.exit183:                                   ; preds = %304, %308
   %.016.lcssa.i180 = phi i64 [ %312, %308 ], [ %.01629.i174, %304 ]
@@ -2282,7 +2282,7 @@ atol16.exit183:                                   ; preds = %304, %308
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @header_bin_be(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 65539, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2444,7 +2444,7 @@ define internal noundef i32 @header_bin_be(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @header_bin_le(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -30, 1) i32 @header_bin_le(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 65538, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2581,7 +2581,7 @@ declare void @archive_entry_set_size(ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @__archive_read_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @is_afio_large(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @is_afio_large(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #4 {
   %3 = icmp ult i64 %1, 116
   br i1 %3, label %is_hex.exit42, label %4
 
@@ -2642,7 +2642,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
 21:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
   %22 = getelementptr inbounds i8, ptr %.0818.i, i64 1
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %is_hex.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %is_hex.exit, label %.lr.ph.i, !llvm.loop !12
 
 is_hex.exit:                                      ; preds = %21
   %23 = getelementptr inbounds i8, ptr %0, i64 31
@@ -2677,7 +2677,7 @@ switch.early.test.i21:                            ; preds = %.lr.ph.i16
 27:                                               ; preds = %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %switch.early.test.i21, %.lr.ph.i16
   %28 = getelementptr inbounds i8, ptr %.0818.i18, i64 1
   %.not.i22 = icmp eq i64 %24, 0
-  br i1 %.not.i22, label %is_hex.exit24, label %.lr.ph.i16, !llvm.loop !13
+  br i1 %.not.i22, label %is_hex.exit24, label %.lr.ph.i16, !llvm.loop !12
 
 is_hex.exit24:                                    ; preds = %27
   %29 = getelementptr inbounds i8, ptr %0, i64 86
@@ -2712,7 +2712,7 @@ switch.early.test.i30:                            ; preds = %.lr.ph.i25
 33:                                               ; preds = %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %switch.early.test.i30, %.lr.ph.i25
   %34 = getelementptr inbounds i8, ptr %.0818.i27, i64 1
   %.not.i31 = icmp eq i64 %30, 0
-  br i1 %.not.i31, label %is_hex.exit33, label %.lr.ph.i25, !llvm.loop !13
+  br i1 %.not.i31, label %is_hex.exit33, label %.lr.ph.i25, !llvm.loop !12
 
 is_hex.exit33:                                    ; preds = %33
   %35 = getelementptr inbounds i8, ptr %0, i64 99
@@ -2747,7 +2747,7 @@ switch.early.test.i39:                            ; preds = %.lr.ph.i34
 39:                                               ; preds = %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %.lr.ph.i34
   %40 = getelementptr inbounds i8, ptr %.0818.i36, i64 1
   %.not.i40 = icmp eq i64 %36, 0
-  br i1 %.not.i40, label %is_hex.exit42, label %.lr.ph.i34, !llvm.loop !13
+  br i1 %.not.i40, label %is_hex.exit42, label %.lr.ph.i34, !llvm.loop !12
 
 is_hex.exit42:                                    ; preds = %switch.early.test.i, %switch.early.test.i21, %switch.early.test.i30, %39, %switch.early.test.i39, %4, %7, %10, %13, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %switch.early.test.i39 ], [ 1, %39 ], [ 0, %switch.early.test.i30 ], [ 0, %switch.early.test.i21 ], [ 0, %switch.early.test.i ]
@@ -2848,9 +2848,8 @@ attributes #17 = { nounwind allocsize(0) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

@@ -21,7 +21,7 @@ define void @ws_cleanup_sockets() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %union.anon, align 4
   %5 = alloca ptr, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %1) #10
@@ -123,9 +123,9 @@ define noundef i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, ptr nound
   br label %70
 
 51:                                               ; preds = %45
-  %52 = trunc i64 %42 to i16
+  %52 = trunc nuw i64 %42 to i16
   %53 = lshr i64 %42, 8
-  %54 = trunc i64 %53 to i16
+  %54 = trunc nuw i64 %53 to i16
   %55 = shl i16 %52, 8
   %56 = or disjoint i16 %55, %54
   br label %58

@@ -9284,7 +9284,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx11MttkElement12schedul
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %2, align 8
-  tail call void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr noundef nonnull align 8 dereferenceable(72) %.val, i64 noundef %.val1)
+  tail call void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr noundef nonnull readonly align 8 dereferenceable(72) %.val, i64 noundef %.val1)
   ret void
 }
 
@@ -9305,7 +9305,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx11MttkEl
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx11MttkElement12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx11MttkElement12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3gmx11MttkElement12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -9943,7 +9943,7 @@ define void @_ZN3gmx14MttkBoxScalingC2EfPNS_19StatePropagatorDataEPNS_8MttkDataE
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx14MttkBoxScaling12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #1 align 2 {
   %.val = load ptr, ptr %0, align 8
-  tail call void @_ZN3gmx14MttkBoxScaling8scaleBoxEv(ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  tail call void @_ZN3gmx14MttkBoxScaling8scaleBoxEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %.val)
   ret void
 }
 

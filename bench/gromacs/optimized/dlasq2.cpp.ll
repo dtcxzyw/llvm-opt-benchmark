@@ -158,7 +158,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %491
 
 91:                                               ; preds = %.lr.ph
-  %92 = getelementptr i8, ptr %85, i64 8
+  %92 = getelementptr inbounds i8, ptr %85, i64 8
   %93 = load double, ptr %92, align 8
   %94 = fcmp olt double %93, 0.000000e+00
   br i1 %94, label %95, label %98

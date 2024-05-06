@@ -238,7 +238,7 @@ if.else62.i:                                      ; preds = %get_keysym.exit.i, 
   %tobool77.not.i = icmp eq ptr %call76.i, null
   %or79.i = or i32 %keycode.1.i, 512
   %keycode.2.i = select i1 %tobool77.not.i, i32 %keycode.1.i, i32 %or79.i
-  call fastcc void @add_keysym(ptr noundef nonnull %line.i, i32 noundef %retval.0.i71.i, i32 noundef %keycode.2.i, ptr noundef nonnull %call)
+  call fastcc void @add_keysym(ptr noundef nonnull %line.i, i32 noundef %retval.0.i71.i, i32 noundef %keycode.2.i, ptr noundef nonnull readonly %call)
   %call82.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %gep.i, ptr noundef nonnull dereferenceable(1) @.str.10) #11
   %tobool83.not.i = icmp eq ptr %call82.i, null
   br i1 %tobool83.not.i, label %for.cond.backedge.i, label %for.cond86.preheader.i
@@ -317,7 +317,7 @@ get_keysym.exit63.i:                              ; preds = %for.body.i40.i
 if.then94.i:                                      ; preds = %get_keysym.exit63.i, %get_keysym.exit63.thread74.i
   %retval.0.i5077.i = phi i32 [ %conv10.i57.i, %get_keysym.exit63.thread74.i ], [ %26, %get_keysym.exit63.i ]
   %or96.i = or i32 %keycode.2.i, 256
-  call fastcc void @add_keysym(ptr noundef nonnull %line.i, i32 noundef %retval.0.i5077.i, i32 noundef %or96.i, ptr noundef nonnull %call)
+  call fastcc void @add_keysym(ptr noundef nonnull %line.i, i32 noundef %retval.0.i5077.i, i32 noundef %or96.i, ptr noundef nonnull readonly %call)
   br label %for.cond.backedge.i
 
 for.cond.backedge.i:                              ; preds = %if.then94.i, %get_keysym.exit63.i, %get_keysym.exit63.thread.i, %if.else62.i, %get_keysym.exit.i, %get_keysym.exit.thread.i, %while.end.i, %if.end17.i
@@ -358,7 +358,7 @@ declare void @g_hash_table_unref(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @keysym2scancode(ptr nocapture noundef readonly %k, i32 noundef %keysym, ptr noundef %kbd, i1 noundef zeroext %down) local_unnamed_addr #0 {
+define dso_local range(i32 0, 65536) i32 @keysym2scancode(ptr nocapture noundef readonly %k, i32 noundef %keysym, ptr noundef %kbd, i1 noundef zeroext %down) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %k, align 8
@@ -526,7 +526,7 @@ declare i32 @qemu_input_key_number_to_qcode(i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @qkbd_state_key_get(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @keycode_is_keypad(ptr nocapture noundef readnone %k, i32 noundef %keycode) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @keycode_is_keypad(ptr nocapture noundef readnone %k, i32 noundef %keycode) local_unnamed_addr #3 {
 entry:
   %0 = add i32 %keycode, -71
   %or.cond = icmp ult i32 %0, 13
@@ -535,7 +535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @keysym_is_numlock(ptr nocapture noundef readnone %k, i32 noundef %keysym) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @keysym_is_numlock(ptr nocapture noundef readnone %k, i32 noundef %keysym) local_unnamed_addr #3 {
 entry:
   %switch.tableidx = add i32 %keysym, -65452
   %0 = icmp ult i32 %switch.tableidx, 14

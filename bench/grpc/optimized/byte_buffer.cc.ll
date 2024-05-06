@@ -59,13 +59,13 @@ $_ZTIN9grpc_core9Timestamp12ScopedSourceE = comdat any
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic.0", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_byte_buffer.cc, ptr null }]
 
@@ -102,7 +102,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i
 
 _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i: ; preds = %if.then.i.i, %for.body.i
-  tail call void @grpc_slice_buffer_add(ptr noundef nonnull %slice_buffer.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
+  tail call void @grpc_slice_buffer_add(ptr noundef nonnull %slice_buffer.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %arrayidx.i)
   %inc.i = add nuw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %nslices
   br i1 %exitcond.not.i, label %grpc_raw_compressed_byte_buffer_create.exit, label %for.body.i, !llvm.loop !4
@@ -215,7 +215,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i
 
 _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i: ; preds = %if.then.i.i, %for.body.i
-  tail call void @grpc_slice_buffer_add(ptr noundef nonnull %slice_buffer.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
+  tail call void @grpc_slice_buffer_add(ptr noundef nonnull %slice_buffer.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %arrayidx.i)
   %inc.i = add nuw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %2
   br i1 %exitcond.not.i, label %grpc_raw_compressed_byte_buffer_create.exit, label %for.body.i, !llvm.loop !4

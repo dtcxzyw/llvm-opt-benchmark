@@ -182,7 +182,7 @@ define internal noundef i32 @expert_stat_packet(ptr nocapture noundef readonly %
   unreachable
 
 switch.hole_check:                                ; preds = %5
-  %switch.maskindex = trunc i32 %10 to i8
+  %switch.maskindex = trunc nuw i32 %10 to i8
   %switch.shifted = lshr i8 -85, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %12

@@ -590,7 +590,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @memory_region_add_coalescing(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @e1000_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @e1000_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %0 = trunc i64 %addr to i32
   %1 = lshr i32 %0, 2
@@ -675,7 +675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @get_eecd(ptr nocapture noundef readonly %s, i32 %index) #4 {
+define internal range(i32 384, 0) i32 @get_eecd(ptr nocapture noundef readonly %s, i32 %index) #4 {
 entry:
   %old_eecd = getelementptr inbounds i8, ptr %s, i64 208512
   %0 = load i32, ptr %old_eecd, align 4
@@ -1299,7 +1299,7 @@ if.then13.i.i:                                    ; preds = %if.then10.i.i
 
 if.end16.i.i:                                     ; preds = %if.then13.i.i, %if.then10.i.i
   %and17.i.i = lshr i32 %8, 26
-  %12 = trunc i32 %and17.i.i to i8
+  %12 = trunc nuw nsw i32 %and17.i.i to i8
   %frombool.i.i = and i8 %12, 1
   store i8 %frombool.i.i, ptr %cptse.i.i, align 4
   %13 = trunc i32 %and17.i.i to i1
@@ -1365,7 +1365,7 @@ if.end57.i.i:                                     ; preds = %do.body.i.i
   %sub69.i.i = sub nuw nsw i64 65536, %conv68.i.i
   %conv70.i.i = zext i32 %spec.select.i.i to i64
   %cond73.i.i = call i64 @llvm.umin.i64(i64 %sub69.i.i, i64 %conv70.i.i)
-  %conv74.i.i = trunc i64 %cond73.i.i to i32
+  %conv74.i.i = trunc nuw nsw i64 %cond73.i.i to i32
   %add.ptr78.i.i = getelementptr i8, ptr %data140.i.i, i64 %conv68.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
@@ -1416,7 +1416,7 @@ if.else127.i.i:                                   ; preds = %if.end43.i.i
   %sub130.i.i = sub nuw nsw i64 65536, %conv129.i.i
   %conv131.i.i = zext nneg i32 %and2.i.i to i64
   %cond138.i.i = call i64 @llvm.umin.i64(i64 %sub130.i.i, i64 %conv131.i.i)
-  %conv139.i.i = trunc i64 %cond138.i.i to i16
+  %conv139.i.i = trunc nuw i64 %cond138.i.i to i16
   %add.ptr145.i.i = getelementptr i8, ptr %data140.i.i, i64 %conv129.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
@@ -1881,7 +1881,7 @@ e1000x_inc_reg_if_not_full.exit98:                ; preds = %if.end147, %if.then
   %conv9.i = trunc i64 %.add5.i to i32
   store i32 %conv9.i, ptr %arrayidx.i99, align 4
   %shr.i = lshr i64 %.add5.i, 32
-  %conv12.i = trunc i64 %shr.i to i32
+  %conv12.i = trunc nuw i64 %shr.i to i32
   store i32 %conv12.i, ptr %arrayidx2.i, align 4
   %arrayidx.i100 = getelementptr i8, ptr %s, i64 27888
   %49 = load i32, ptr %arrayidx.i100, align 4
@@ -1901,7 +1901,7 @@ e1000x_inc_reg_if_not_full.exit104:               ; preds = %e1000x_inc_reg_if_n
   %conv9.i113 = trunc i64 %.add5.i112 to i32
   store i32 %conv9.i113, ptr %arrayidx.i105, align 4
   %shr.i114 = lshr i64 %.add5.i112, 32
-  %conv12.i115 = trunc i64 %shr.i114 to i32
+  %conv12.i115 = trunc nuw i64 %shr.i114 to i32
   store i32 %conv12.i115, ptr %arrayidx2.i107, align 4
   ret void
 }

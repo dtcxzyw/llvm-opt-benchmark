@@ -111,7 +111,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes11ApplySubsts13applyInternalEPNS1_17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %assertionsToPreprocess) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6passes11ApplySubsts13applyInternalEPNS1_17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %assertionsToPreprocess) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::TrustNode", align 8
   %agg.tmp28 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -160,7 +160,7 @@ cond.end25:                                       ; preds = %for.body
   store ptr %9, ptr %agg.tmp28, align 8
   %bf.load.i.i = load i64, ptr %9, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %10 = trunc i64 %bf.lshr.i.i to i32
+  %10 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %10, 1048575
   %cmp.i.i124 = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i124, label %if.then.i.i, label %if.else.i.i

@@ -739,7 +739,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -757,7 +757,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   %5 = load i32, ptr %state, align 4
   %and = and i32 %5, 128
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !21
+  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !20
 
 land.lhs.true:                                    ; preds = %while.cond
   %6 = load atomic i32, ptr %this acquire, align 4
@@ -767,20 +767,20 @@ land.lhs.true:                                    ; preds = %while.cond
   br i1 %cmp13.i, label %if.end, label %if.end.preheader.i
 
 if.end.preheader.i:                               ; preds = %land.lhs.true
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %7 = load atomic i32, ptr %this acquire, align 4
   store i32 %7, ptr %state, align 4, !tbaa !17
   %and.i = and i32 %7, 128
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %if.end, label %if.end.1.i, !llvm.loop !23
+  br i1 %cmp.i, label %if.end, label %if.end.1.i, !llvm.loop !22
 
 if.end.1.i:                                       ; preds = %if.end.preheader.i
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %8 = load atomic i32, ptr %this acquire, align 4
   store i32 %8, ptr %state, align 4, !tbaa !17
   %and.1.i = and i32 %8, 128
   %cmp.1.i = icmp eq i32 %and.1.i, 0
-  br i1 %cmp.1.i, label %if.end, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, !llvm.loop !25
+  br i1 %cmp.1.i, label %if.end, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, !llvm.loop !24
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit: ; preds = %if.end.1.i
   %call5.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20yieldWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 128, i32 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -970,13 +970,13 @@ do.cond.i:                                        ; preds = %seqcst_fail50.i.i, 
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
-  %call3.i.i = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i.i = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
   %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %38, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i, %cond.i.i
-  br i1 %cmp12.i, label %do.body.i, label %if.then88, !llvm.loop !26
+  br i1 %cmp12.i, label %do.body.i, label %if.then88, !llvm.loop !25
 
 if.then88:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
@@ -987,7 +987,7 @@ if.then88:                                        ; preds = %_ZN5folly19shared_m
   %and.i.i = and i32 %39, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i = or i1 %cmp.i162, %cmp.not.i.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !26
 
 if.then.i.i:                                      ; preds = %if.then88
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 16)
@@ -1011,7 +1011,7 @@ if.then92:                                        ; preds = %if.else
   %and.i.i169 = and i32 %43, 16
   %cmp.not.i.i170 = icmp eq i32 %and.i.i169, 0
   %or.cond.i171 = or i1 %cmp.i168, %cmp.not.i.i170
-  br i1 %or.cond.i171, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit174, label %if.then.i.i172, !prof !27
+  br i1 %or.cond.i171, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit174, label %if.then.i.i172, !prof !26
 
 if.then.i.i172:                                   ; preds = %if.then92
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i167, i32 noundef 16)
@@ -1022,7 +1022,7 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit174, %if.else, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit, %if.then53, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-  br label %while.cond, !llvm.loop !28
+  br label %while.cond, !llvm.loop !27
 
 cleanup102:                                       ; preds = %if.end75.thread, %if.then80, %if.then43, %if.then41
   ret i1 true
@@ -1051,24 +1051,24 @@ entry:
   br i1 %cmp13, label %cleanup, label %if.end.preheader
 
 if.end.preheader:                                 ; preds = %entry
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %1 = load atomic i32, ptr %this acquire, align 4
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and = and i32 %1, %goal
   %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %cleanup, label %if.end.1, !llvm.loop !29
+  br i1 %cmp, label %cleanup, label %if.end.1, !llvm.loop !28
 
 land.rhs:                                         ; preds = %if.end.1
   %call5 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20yieldWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef %goal, i32 noundef %waitMask, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
   br label %cleanup
 
 if.end.1:                                         ; preds = %if.end.preheader
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %2 = load atomic i32, ptr %this acquire, align 4
   store i32 %2, ptr %state, align 4, !tbaa !17
   %and.1 = and i32 %2, %goal
   %cmp.1 = icmp eq i32 %and.1, 0
-  br i1 %cmp.1, label %cleanup, label %land.rhs, !llvm.loop !29
+  br i1 %cmp.1, label %cleanup, label %land.rhs, !llvm.loop !28
 
 cleanup:                                          ; preds = %if.end.1, %land.rhs, %if.end.preheader, %entry
   %retval.0 = phi i1 [ %call5, %land.rhs ], [ true, %entry ], [ true, %if.end.1 ], [ true, %if.end.preheader ]
@@ -1154,13 +1154,13 @@ do.cond:                                          ; preds = %seqcst_fail50.i, %d
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %do.cond
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %do.cond
   %cond.i = phi i32 [ %call3.i, %cond.false.i ], [ %6, %do.cond ]
   %cmp12 = icmp ult i32 %inc, %cond.i
-  br i1 %cmp12, label %do.body, label %cleanup13, !llvm.loop !30
+  br i1 %cmp12, label %do.body, label %cleanup13, !llvm.loop !29
 
 cleanup13:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, %cleanup
   %retval.2 = phi i1 [ true, %cleanup ], [ false, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ]
@@ -1179,7 +1179,7 @@ entry:
   %and.i = and i32 %0, 16
   %cmp.not.i = icmp eq i32 %and.i, 0
   %or.cond = or i1 %cmp, %cmp.not.i
-  br i1 %or.cond, label %if.end, label %if.then.i, !prof !27
+  br i1 %or.cond, label %if.end, label %if.then.i, !prof !26
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 16)
@@ -1205,17 +1205,17 @@ seqcst_fail50.i:
 }
 
 ; Function Attrs: cold mustprogress optsize uwtable
-define noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %cache) local_unnamed_addr #5 {
+define noundef range(i32 0, 513) i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %cache) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN5folly13CacheLocality6systemISt6atomicEERKS0_v()
-  %0 = load i64, ptr %call, align 8, !tbaa !31
+  %0 = load i64, ptr %call, align 8, !tbaa !30
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %_ZN5folly10nextPowTwoImEET_S1_.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %sub.i = add i64 %0, -1
   %tobool.not.i.i = icmp eq i64 %sub.i, 0
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !38
+  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !37
   %add.i.i = sub nuw nsw i64 64, %1
   %2 = shl nuw i64 1, %add.i.i
   %3 = trunc i64 %2 to i32
@@ -1293,7 +1293,7 @@ seqcst_fail50.i.us.i:                             ; preds = %if.end.us.i
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i: ; preds = %seqcst_fail50.i.us.i
   %7 = extractvalue { i32, i1 } %5, 0
   store i32 %7, ptr %state, align 4
-  br label %cleanup.us.i, !llvm.loop !39
+  br label %cleanup.us.i, !llvm.loop !38
 
 if.end16.us.i:                                    ; preds = %seqcst_fail50.i.us.i, %if.end.us.i
   %call.i.i.us.i = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %after.0.us.i, ptr noundef null, ptr noundef null, i32 noundef 12)
@@ -1320,7 +1320,7 @@ seqcst_fail50.i.i:                                ; preds = %if.end.i
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %seqcst_fail50.i.i
   %12 = extractvalue { i32, i1 } %10, 0
   store i32 %12, ptr %state, align 4
-  br label %cleanup.i, !llvm.loop !40
+  br label %cleanup.i, !llvm.loop !39
 
 if.end16.i:                                       ; preds = %seqcst_fail50.i.i, %if.end.i
   %call.i.i.i = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %or10.i, ptr noundef null, ptr noundef null, i32 noundef %waitMask)
@@ -1418,7 +1418,7 @@ entry:
   %0 = load i32, ptr %state, align 4, !tbaa !17
   %and = and i32 %0, %wakeMask
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end, label %if.then, !prof !21
+  br i1 %cmp.not, label %if.end, label %if.then, !prof !20
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef %wakeMask)
@@ -1533,8 +1533,8 @@ entry:
   store ptr %0, ptr %this, align 8, !tbaa !7
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   %token_3 = getelementptr inbounds i8, ptr %rhs, i64 8
-  %1 = load i32, ptr %token_3, align 8, !tbaa.struct !41
-  store i32 %1, ptr %token_, align 8, !tbaa.struct !41
+  %1 = load i32, ptr %token_3, align 8, !tbaa.struct !40
+  store i32 %1, ptr %token_, align 8, !tbaa.struct !40
   store ptr null, ptr %rhs, align 8, !tbaa !7
   ret void
 }
@@ -1546,20 +1546,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2EONS3_13UpgradeHolderE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %upgraded) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC5EONS3_13UpgradeHolderE) align 2 {
 entry:
   %state.i.i = alloca i32, align 4
-  %0 = load ptr, ptr %upgraded, align 8, !tbaa !44
+  %0 = load ptr, ptr %upgraded, align 8, !tbaa !43
   store ptr %0, ptr %this, align 8, !tbaa !7
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
   %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
-  store ptr null, ptr %upgraded, align 8, !tbaa !44
+  store ptr null, ptr %upgraded, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #17
   %1 = atomicrmw sub ptr %0, i32 -2016 seq_cst, align 4
   %2 = add i32 %1, 2016
   store i32 %2, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i.i = and i32 %1, 14
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE30unlock_upgrade_and_lock_sharedERNS_16SharedMutexTokenE.exit, label %if.then.i.i.i, !prof !21
+  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE30unlock_upgrade_and_lock_sharedERNS_16SharedMutexTokenE.exit, label %if.then.i.i.i, !prof !20
 
 if.then.i.i.i:                                    ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i, i32 noundef 14)
@@ -1581,7 +1581,7 @@ entry:
   store i32 %1, ptr %state.i, align 4, !tbaa !17
   %and.i.i = and i32 %0, 14
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE30unlock_upgrade_and_lock_sharedEv.exit, label %if.then.i.i, !prof !21
+  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE30unlock_upgrade_and_lock_sharedEv.exit, label %if.then.i.i, !prof !20
 
 if.then.i.i:                                      ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 14)
@@ -1603,7 +1603,7 @@ entry:
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and.i = and i32 %0, 14
   %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !21
+  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !20
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 14)
@@ -1617,13 +1617,13 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRe
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2EONS3_11WriteHolderE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %writer) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC5EONS3_11WriteHolderE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %writer, align 8, !tbaa !46
+  %0 = load ptr, ptr %writer, align 8, !tbaa !45
   store ptr %0, ptr %this, align 8, !tbaa !7
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
   %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
-  store ptr null, ptr %writer, align 8, !tbaa !46
+  store ptr null, ptr %writer, align 8, !tbaa !45
   %1 = load atomic i32, ptr %0 acquire, align 4
   %and13.i.i = and i32 %1, -416
   %add14.i.i = add i32 %and13.i.i, 2048
@@ -1638,7 +1638,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %add.i.i = add i32 %and.i.i, 2048
   %6 = cmpxchg ptr %0, i32 %5, i32 %add.i.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 1
-  br i1 %7, label %do.end.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !48
+  br i1 %7, label %do.end.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !47
 
 do.end.i.i:                                       ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, %entry
   %state.0.lcssa.i.i = phi i32 [ %1, %entry ], [ %5, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i ]
@@ -1672,7 +1672,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: 
   %add.i = add i32 %and.i, 2048
   %5 = cmpxchg ptr %this, i32 %4, i32 %add.i seq_cst seq_cst, align 4
   %6 = extractvalue { i32, i1 } %5, 1
-  br i1 %6, label %do.end.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !llvm.loop !49
+  br i1 %6, label %do.end.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !llvm.loop !48
 
 do.end.i:                                         ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, %entry
   %state.0.lcssa.i = phi i32 [ %0, %entry ], [ %4, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i ]
@@ -1706,7 +1706,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
   %add = add i32 %and, 2048
   %5 = cmpxchg ptr %this, i32 %4, i32 %add seq_cst seq_cst, align 4
   %6 = extractvalue { i32, i1 } %5, 1
-  br i1 %6, label %do.end, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, !llvm.loop !50
+  br i1 %6, label %do.end, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, !llvm.loop !49
 
 do.end:                                           ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %entry
   %state.0.lcssa = phi i32 [ %0, %entry ], [ %4, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ]
@@ -1731,16 +1731,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(12) ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderaSEOS4_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(12) %rhs) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !51
-  %1 = load ptr, ptr %rhs, align 8, !tbaa !51
-  store ptr %1, ptr %this, align 8, !tbaa !51
-  store ptr %0, ptr %rhs, align 8, !tbaa !51
+  %0 = load ptr, ptr %this, align 8, !tbaa !50
+  %1 = load ptr, ptr %rhs, align 8, !tbaa !50
+  store ptr %1, ptr %this, align 8, !tbaa !50
+  store ptr %0, ptr %rhs, align 8, !tbaa !50
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   %token_3 = getelementptr inbounds i8, ptr %rhs, i64 8
-  %2 = load i32, ptr %token_, align 8, !tbaa.struct !41
-  %3 = load i32, ptr %token_3, align 8, !tbaa.struct !41
-  store i32 %3, ptr %token_, align 8, !tbaa.struct !41
-  store i32 %2, ptr %token_3, align 8, !tbaa.struct !41
+  %2 = load i32, ptr %token_, align 8, !tbaa.struct !40
+  %3 = load i32, ptr %token_3, align 8, !tbaa.struct !40
+  store i32 %3, ptr %token_, align 8, !tbaa.struct !40
+  store i32 %2, ptr %token_3, align 8, !tbaa.struct !40
   ret ptr %this
 }
 
@@ -1838,13 +1838,13 @@ do.cond.i.i:                                      ; preds = %seqcst_fail50.i.i.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i.i, !prof !19
 
 cond.false.i.i.i:                                 ; preds = %do.cond.i.i
-  %call3.i.i.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i.i.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i.i: ; preds = %cond.false.i.i.i, %do.cond.i.i
   %cond.i.i.i = phi i32 [ %call3.i.i.i, %cond.false.i.i.i ], [ %8, %do.cond.i.i ]
   %cmp12.i.i = icmp ult i32 %inc.i.i, %cond.i.i.i
-  br i1 %cmp12.i.i, label %do.body.i.i, label %if.then.i, !llvm.loop !52
+  br i1 %cmp12.i.i, label %do.body.i.i, label %if.then.i, !llvm.loop !51
 
 if.then.i:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i.i, %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #17
@@ -1855,7 +1855,7 @@ if.then.i:                                        ; preds = %_ZN5folly19shared_m
   %and.i.i.i = and i32 %9, 16
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
   %or.cond.i.i = or i1 %cmp.i4.i, %cmp.not.i.i.i
-  br i1 %or.cond.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i, label %if.then.i.i.i, !prof !27
+  br i1 %or.cond.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i, label %if.then.i.i.i, !prof !26
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i, i32 noundef 16)
@@ -1885,7 +1885,7 @@ if.then4:                                         ; preds = %lor.lhs.false, %ent
   %and.i.i = and i32 %15, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i = or i1 %cmp.i9, %cmp.not.i.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !26
 
 if.then.i.i:                                      ; preds = %if.then4
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 16)
@@ -1941,13 +1941,13 @@ do.cond.i:                                        ; preds = %seqcst_fail50.i.i, 
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
-  %call3.i.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
   %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %7, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i, %cond.i.i
-  br i1 %cmp12.i, label %do.body.i, label %if.then, !llvm.loop !53
+  br i1 %cmp12.i, label %do.body.i, label %if.then, !llvm.loop !52
 
 if.then:                                          ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
@@ -1958,7 +1958,7 @@ if.then:                                          ; preds = %_ZN5folly19shared_m
   %and.i.i = and i32 %8, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i = or i1 %cmp.i4, %cmp.not.i.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !26
 
 if.then.i.i:                                      ; preds = %if.then
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 16)
@@ -1975,7 +1975,7 @@ if.end:                                           ; preds = %_ZN5folly15SharedMu
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5Ev) align 2 {
 entry:
-  store ptr null, ptr %this, align 8, !tbaa !44
+  store ptr null, ptr %this, align 8, !tbaa !43
   ret void
 }
 
@@ -1983,7 +1983,7 @@ entry:
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %lock) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5EPS3_) align 2 {
 entry:
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<true>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !44
+  store ptr %lock, ptr %this, align 8, !tbaa !43
   %tobool.not = icmp eq ptr %lock, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2020,11 +2020,11 @@ do.body:                                          ; preds = %seqcst_fail50.i, %e
   br i1 %cmp13.i, label %seqcst_fail50.i, label %if.end.preheader.i
 
 if.end.preheader.i:                               ; preds = %do.body
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %1 = load atomic i32, ptr %this acquire, align 4
   %and.i = and i32 %1, 224
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %seqcst_fail50.i, label %if.end.1.i, !llvm.loop !54
+  br i1 %cmp.i, label %seqcst_fail50.i, label %if.end.1.i, !llvm.loop !53
 
 land.rhs.i:                                       ; preds = %if.end.1.i
   %call.i.i.i = call noundef i32 @sched_yield() #17
@@ -2064,7 +2064,7 @@ if.end.i.i:                                       ; preds = %for.end22.i, %clean
 seqcst_fail50.i.i.i:                              ; preds = %if.end.i.i
   %7 = cmpxchg ptr %this, i32 %6, i32 %or10.i.i seq_cst seq_cst, align 4
   %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %if.end16.i.i, label %cleanup.i.i, !llvm.loop !55
+  br i1 %8, label %if.end16.i.i, label %cleanup.i.i, !llvm.loop !54
 
 if.end16.i.i:                                     ; preds = %seqcst_fail50.i.i.i, %if.end.i.i
   %call.i.i.i.i = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %or10.i.i, ptr noundef null, ptr noundef null, i32 noundef 2)
@@ -2077,18 +2077,18 @@ cleanup.i.i:                                      ; preds = %if.end16.i.i, %seqc
   br i1 %cmp.i.i, label %seqcst_fail50.i, label %if.end.i.i
 
 if.end.1.i:                                       ; preds = %if.end.preheader.i
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %10 = load atomic i32, ptr %this acquire, align 4
   %and.1.i = and i32 %10, 224
   %cmp.1.i = icmp eq i32 %and.1.i, 0
-  br i1 %cmp.1.i, label %seqcst_fail50.i, label %land.rhs.i, !llvm.loop !56
+  br i1 %cmp.1.i, label %seqcst_fail50.i, label %land.rhs.i, !llvm.loop !55
 
 seqcst_fail50.i:                                  ; preds = %cleanup.i.i, %if.end.1.i, %for.end22.i, %if.end.2.i, %if.end.1.i4, %land.rhs.i, %if.end.preheader.i, %do.body
   %state.1 = phi i32 [ %0, %do.body ], [ %1, %if.end.preheader.i ], [ %10, %if.end.1.i ], [ %2, %land.rhs.i ], [ %3, %if.end.1.i4 ], [ %4, %if.end.2.i ], [ %5, %for.end22.i ], [ %9, %cleanup.i.i ]
   %or = or i32 %state.1, 32
   %11 = cmpxchg ptr %this, i32 %state.1, i32 %or seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
-  br i1 %12, label %cleanup, label %do.body, !llvm.loop !57
+  br i1 %12, label %cleanup, label %do.body, !llvm.loop !56
 
 cleanup:                                          ; preds = %seqcst_fail50.i
   ret i1 true
@@ -2098,7 +2098,7 @@ cleanup:                                          ; preds = %seqcst_fail50.i
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2ERS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(4) %lock) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5ERS3_) align 2 {
 entry:
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<true>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !44
+  store ptr %lock, ptr %this, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i) #17
   %call.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_11WaitForeverEEEbRT_(ptr noundef nonnull align 4 dereferenceable(4) %lock, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ctx.i) #17
@@ -2108,9 +2108,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2EONS3_11WriteHolderE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %writer) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5EONS3_11WriteHolderE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %writer, align 8, !tbaa !46
-  store ptr %0, ptr %this, align 8, !tbaa !44
-  store ptr null, ptr %writer, align 8, !tbaa !46
+  %0 = load ptr, ptr %writer, align 8, !tbaa !45
+  store ptr %0, ptr %this, align 8, !tbaa !43
+  store ptr null, ptr %writer, align 8, !tbaa !45
   %1 = load atomic i32, ptr %0 acquire, align 4
   %and17.i = and i32 %1, -402
   %add18.i = add nuw nsw i32 %and17.i, 32
@@ -2177,19 +2177,19 @@ cleanup7:                                         ; preds = %if.then5, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5EOS4_) align 2 {
 entry:
-  %0 = load ptr, ptr %rhs, align 8, !tbaa !44
-  store ptr %0, ptr %this, align 8, !tbaa !44
-  store ptr null, ptr %rhs, align 8, !tbaa !44
+  %0 = load ptr, ptr %rhs, align 8, !tbaa !43
+  store ptr %0, ptr %this, align 8, !tbaa !43
+  store ptr null, ptr %rhs, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !51
-  %1 = load ptr, ptr %rhs, align 8, !tbaa !51
-  store ptr %1, ptr %this, align 8, !tbaa !51
-  store ptr %0, ptr %rhs, align 8, !tbaa !51
+  %0 = load ptr, ptr %this, align 8, !tbaa !50
+  %1 = load ptr, ptr %rhs, align 8, !tbaa !50
+  store ptr %1, ptr %this, align 8, !tbaa !50
+  store ptr %0, ptr %rhs, align 8, !tbaa !50
   ret ptr %this
 }
 
@@ -2197,7 +2197,7 @@ entry:
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
-  %0 = load ptr, ptr %this, align 8, !tbaa !44
+  %0 = load ptr, ptr %this, align 8, !tbaa !43
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
@@ -2208,7 +2208,7 @@ if.then.i:                                        ; preds = %entry
   store i32 %2, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i.i = and i32 %1, 14
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit.i, label %if.then.i.i.i, !prof !21
+  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit.i, label %if.then.i.i.i, !prof !20
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   invoke void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i, i32 noundef 14)
@@ -2216,7 +2216,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit.i: ; preds = %if.then.i.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i) #17
-  store ptr null, ptr %this, align 8, !tbaa !44
+  store ptr null, ptr %this, align 8, !tbaa !43
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit.i, %entry
@@ -2234,7 +2234,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolder6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %state.i = alloca i32, align 4
-  %0 = load ptr, ptr %this, align 8, !tbaa !44
+  %0 = load ptr, ptr %this, align 8, !tbaa !43
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2245,7 +2245,7 @@ if.then:                                          ; preds = %entry
   store i32 %2, ptr %state.i, align 4, !tbaa !17
   %and.i.i = and i32 %1, 14
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit, label %if.then.i.i, !prof !21
+  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit, label %if.then.i.i, !prof !20
 
 if.then.i.i:                                      ; preds = %if.then
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 14)
@@ -2253,7 +2253,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit: ; preds = %if.then.i.i, %if.then
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i) #17
-  store ptr null, ptr %this, align 8, !tbaa !44
+  store ptr null, ptr %this, align 8, !tbaa !43
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit, %entry
@@ -2270,7 +2270,7 @@ entry:
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and.i = and i32 %0, 14
   %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !21
+  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !20
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 14)
@@ -2284,7 +2284,7 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC5Ev) align 2 {
 entry:
-  store ptr null, ptr %this, align 8, !tbaa !46
+  store ptr null, ptr %this, align 8, !tbaa !45
   ret void
 }
 
@@ -2293,7 +2293,7 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexP
 entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<true>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !46
+  store ptr %lock, ptr %this, align 8, !tbaa !45
   %tobool.not = icmp eq ptr %lock, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2304,13 +2304,13 @@ if.then:                                          ; preds = %entry
   store i32 %0, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i = and i32 %0, -1312
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !21
+  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !20
 
 seqcst_fail50.i.i.i:                              ; preds = %if.then
   %and5.i.i = or disjoint i32 %0, 128
   %1 = cmpxchg ptr %lock, i32 %0, i32 %and5.i.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i: ; preds = %seqcst_fail50.i.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -2341,13 +2341,13 @@ entry:
   store i32 %0, ptr %state.i, align 4, !tbaa !17
   %and.i = and i32 %0, -1312
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !21
+  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !20
 
 seqcst_fail50.i.i:                                ; preds = %entry
   %and5.i = or disjoint i32 %0, 128
   %1 = cmpxchg ptr %this, i32 %0, i32 %and5.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %seqcst_fail50.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -2373,7 +2373,7 @@ while.body:                                       ; preds = %cleanup50, %entry
   %0 = load i32, ptr %state, align 4
   %and = and i32 %0, %preconditionGoalMask
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !21
+  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !20
 
 land.lhs.true:                                    ; preds = %while.body
   %call = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef %preconditionGoalMask, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -2415,7 +2415,7 @@ if.then16:                                        ; preds = %seqcst_fail50.i
   store i32 %after.0, ptr %state, align 4, !tbaa !17
   %and17 = and i32 %5, 512
   %cmp18.not = icmp eq i32 %and17, 0
-  br i1 %cmp18.not, label %while.cond24.preheader, label %if.then22, !prof !21
+  br i1 %cmp18.not, label %while.cond24.preheader, label %if.then22, !prof !20
 
 if.then22:                                        ; preds = %if.then16
   tail call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20applyDeferredReadersINS3_11WaitForeverEEEvRjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -2429,7 +2429,7 @@ while.cond24.preheader:                           ; preds = %if.then22, %if.then
 while.cond24:                                     ; preds = %while.cond24.preheader, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit84
   %6 = phi i32 [ %13, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit84 ], [ %.ph, %while.cond24.preheader ]
   %cmp27.not = icmp ult i32 %6, 2048
-  br i1 %cmp27.not, label %if.end38, label %land.lhs.true31, !prof !21
+  br i1 %cmp27.not, label %if.end38, label %land.lhs.true31, !prof !20
 
 land.lhs.true31:                                  ; preds = %while.cond24
   %7 = load atomic i32, ptr %this acquire, align 4
@@ -2438,18 +2438,18 @@ land.lhs.true31:                                  ; preds = %while.cond24
   br i1 %cmp13.i, label %if.end38, label %if.end.preheader.i
 
 if.end.preheader.i:                               ; preds = %land.lhs.true31
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %8 = load atomic i32, ptr %this acquire, align 4
   store i32 %8, ptr %state, align 4, !tbaa !17
   %cmp.i = icmp ult i32 %8, 2048
-  br i1 %cmp.i, label %if.end38, label %if.end.1.i, !llvm.loop !59
+  br i1 %cmp.i, label %if.end38, label %if.end.1.i, !llvm.loop !58
 
 if.end.1.i:                                       ; preds = %if.end.preheader.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %9 = load atomic i32, ptr %this acquire, align 4
   store i32 %9, ptr %state, align 4, !tbaa !17
   %cmp.1.i = icmp ult i32 %9, 2048
-  br i1 %cmp.1.i, label %if.end38, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, !llvm.loop !60
+  br i1 %cmp.1.i, label %if.end38, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, !llvm.loop !59
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit: ; preds = %if.end.1.i
   %call5.i = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20yieldWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef -2048, i32 noundef 16, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -2472,7 +2472,7 @@ seqcst_fail50.i77:                                ; preds = %if.end38
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit84: ; preds = %seqcst_fail50.i77
   %13 = extractvalue { i32, i1 } %11, 0
   store i32 %13, ptr %state, align 4
-  br label %while.cond24, !llvm.loop !61
+  br label %while.cond24, !llvm.loop !60
 
 cleanup50:                                        ; preds = %seqcst_fail50.i77, %if.end38, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
   br i1 %3, label %return, label %while.body
@@ -2489,7 +2489,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -2511,11 +2511,11 @@ while.body6:                                      ; preds = %while.cond2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv8 = trunc i64 %indvars.iv.next to i32
   %exitcond9 = icmp eq i32 %cond.i, %lftr.wideiv8
-  br i1 %exitcond9, label %cleanup, label %while.cond2, !llvm.loop !62
+  br i1 %exitcond9, label %cleanup, label %while.cond2, !llvm.loop !61
 
 while.end:                                        ; preds = %while.cond2
   %3 = trunc i64 %indvars.iv to i32
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   br label %while.cond2.1
 
 while.cond2.1:                                    ; preds = %while.body6.1, %while.end
@@ -2531,10 +2531,10 @@ while.cond2.1:                                    ; preds = %while.body6.1, %whi
 while.body6.1:                                    ; preds = %while.cond2.1
   %inc.1 = add i32 %slot.1.1, 1
   %cmp.1 = icmp eq i32 %inc.1, %cond.i
-  br i1 %cmp.1, label %cleanup, label %while.cond2.1, !llvm.loop !62
+  br i1 %cmp.1, label %cleanup, label %while.cond2.1, !llvm.loop !61
 
 while.end.1:                                      ; preds = %while.cond2.1
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   tail call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20applyDeferredReadersINS3_11WaitForeverEEEvRjRT_j(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, ptr noundef nonnull align 1 dereferenceable(1) %ctx, i32 noundef %slot.1.1)
   br label %cleanup
 
@@ -2560,7 +2560,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %if.end, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %if.end
 
 if.end:                                           ; preds = %cond.false.i, %entry
@@ -2582,7 +2582,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 while.body:                                       ; preds = %while.cond
   %inc = add i32 %slot.addr.2, 1
   %cmp11 = icmp eq i32 %inc, %cond.i
-  br i1 %cmp11, label %cleanup45, label %while.cond, !llvm.loop !63
+  br i1 %cmp11, label %cleanup45, label %while.cond, !llvm.loop !62
 
 if.end.1:                                         ; preds = %while.cond
   %call.i.i.1 = tail call noundef i32 @sched_yield() #17
@@ -2601,7 +2601,7 @@ while.cond.1:                                     ; preds = %while.body.1, %if.e
 while.body.1:                                     ; preds = %while.cond.1
   %inc.1 = add i32 %slot.addr.2.1, 1
   %cmp11.1 = icmp eq i32 %inc.1, %cond.i
-  br i1 %cmp11.1, label %cleanup45, label %while.cond.1, !llvm.loop !63
+  br i1 %cmp11.1, label %cleanup45, label %while.cond.1, !llvm.loop !62
 
 if.end.2:                                         ; preds = %while.cond.1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %usage.i) #17
@@ -2622,7 +2622,7 @@ while.cond.2:                                     ; preds = %while.body.2, %if.e
 while.body.2:                                     ; preds = %while.cond.2
   %inc.2 = add i32 %slot.addr.2.2, 1
   %cmp11.2 = icmp eq i32 %inc.2, %cond.i
-  br i1 %cmp11.2, label %cleanup45, label %while.cond.2, !llvm.loop !63
+  br i1 %cmp11.2, label %cleanup45, label %while.cond.2, !llvm.loop !62
 
 cleanup24:                                        ; preds = %while.cond.2
   %cmp2891 = icmp ult i32 %slot.addr.2.2, %cond.i
@@ -2682,7 +2682,7 @@ if.end37.1:                                       ; preds = %seqcst_fail50.i.1, 
   %indvars.iv.next.1 = add nuw nsw i64 %indvars.iv, 2
   %niter.next.1 = add i64 %niter, 2
   %niter.ncmp.1 = icmp eq i64 %niter.next.1, %unroll_iter
-  br i1 %niter.ncmp.1, label %for.end40.unr-lcssa, label %for.body29, !llvm.loop !64
+  br i1 %niter.ncmp.1, label %for.end40.unr-lcssa, label %for.body29, !llvm.loop !63
 
 for.end40.unr-lcssa:                              ; preds = %if.end37.1, %for.body29.lr.ph
   %movedSlotCount.1.lcssa.ph = phi i32 [ undef, %for.body29.lr.ph ], [ %movedSlotCount.1.1, %if.end37.1 ]
@@ -2728,20 +2728,20 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexP
 entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<true>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !46
+  store ptr %lock, ptr %this, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #17
   %0 = load atomic i32, ptr %lock acquire, align 4
   store i32 %0, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i = and i32 %0, -1312
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !21
+  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !20
 
 seqcst_fail50.i.i.i:                              ; preds = %entry
   %and5.i.i = or disjoint i32 %0, 128
   %1 = cmpxchg ptr %lock, i32 %0, i32 %and5.i.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i: ; preds = %seqcst_fail50.i.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -2763,23 +2763,23 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexP
 entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<true>::WaitForever", align 1
-  %0 = load ptr, ptr %upgrade, align 8, !tbaa !44
-  store ptr %0, ptr %this, align 8, !tbaa !46
-  store ptr null, ptr %upgrade, align 8, !tbaa !44
+  %0 = load ptr, ptr %upgrade, align 8, !tbaa !43
+  store ptr %0, ptr %this, align 8, !tbaa !45
+  store ptr null, ptr %upgrade, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #17
   %1 = load atomic i32, ptr %0 acquire, align 4
   store i32 %1, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i = and i32 %1, -1536
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !21
+  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !20
 
 seqcst_fail50.i.i.i:                              ; preds = %entry
   %or4.i.i = and i32 %1, 1375
   %and5.i.i = or disjoint i32 %or4.i.i, 128
   %2 = cmpxchg ptr %0, i32 %1, i32 %and5.i.i seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE23unlock_upgrade_and_lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !58
+  br i1 %3, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE23unlock_upgrade_and_lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i: ; preds = %seqcst_fail50.i.i.i
   %4 = extractvalue { i32, i1 } %2, 0
@@ -2807,14 +2807,14 @@ entry:
   store i32 %0, ptr %state.i, align 4, !tbaa !17
   %and.i = and i32 %0, -1536
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !21
+  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !20
 
 seqcst_fail50.i.i:                                ; preds = %entry
   %or4.i = and i32 %0, 1375
   %and5.i = or disjoint i32 %or4.i, 128
   %1 = cmpxchg ptr %this, i32 %0, i32 %and5.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %seqcst_fail50.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -2834,19 +2834,19 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockEx
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC5EOS4_) align 2 {
 entry:
-  %0 = load ptr, ptr %rhs, align 8, !tbaa !46
-  store ptr %0, ptr %this, align 8, !tbaa !46
-  store ptr null, ptr %rhs, align 8, !tbaa !46
+  %0 = load ptr, ptr %rhs, align 8, !tbaa !45
+  store ptr %0, ptr %this, align 8, !tbaa !45
+  store ptr null, ptr %rhs, align 8, !tbaa !45
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !51
-  %1 = load ptr, ptr %rhs, align 8, !tbaa !51
-  store ptr %1, ptr %this, align 8, !tbaa !51
-  store ptr %0, ptr %rhs, align 8, !tbaa !51
+  %0 = load ptr, ptr %this, align 8, !tbaa !50
+  %1 = load ptr, ptr %rhs, align 8, !tbaa !50
+  store ptr %1, ptr %this, align 8, !tbaa !50
+  store ptr %0, ptr %rhs, align 8, !tbaa !50
   ret ptr %this
 }
 
@@ -2854,7 +2854,7 @@ entry:
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
-  %0 = load ptr, ptr %this, align 8, !tbaa !46
+  %0 = load ptr, ptr %this, align 8, !tbaa !45
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
@@ -2865,7 +2865,7 @@ if.then.i:                                        ; preds = %entry
   store i32 %2, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i.i = and i32 %1, 15
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i, label %if.then.i.i.i, !prof !21
+  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i, label %if.then.i.i.i, !prof !20
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   invoke void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i, i32 noundef 15)
@@ -2873,7 +2873,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i: ; preds = %if.then.i.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i) #17
-  store ptr null, ptr %this, align 8, !tbaa !46
+  store ptr null, ptr %this, align 8, !tbaa !45
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i, %entry
@@ -2891,7 +2891,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolder6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %state.i = alloca i32, align 4
-  %0 = load ptr, ptr %this, align 8, !tbaa !46
+  %0 = load ptr, ptr %this, align 8, !tbaa !45
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2902,7 +2902,7 @@ if.then:                                          ; preds = %entry
   store i32 %2, ptr %state.i, align 4, !tbaa !17
   %and.i.i = and i32 %1, 15
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit, label %if.then.i.i, !prof !21
+  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit, label %if.then.i.i, !prof !20
 
 if.then.i.i:                                      ; preds = %if.then
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 15)
@@ -2910,7 +2910,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit: ; preds = %if.then.i.i, %if.then
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i) #17
-  store ptr null, ptr %this, align 8, !tbaa !46
+  store ptr null, ptr %this, align 8, !tbaa !45
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit, %entry
@@ -2927,7 +2927,7 @@ entry:
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and.i = and i32 %0, 15
   %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !21
+  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !20
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 15)
@@ -2941,7 +2941,7 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEEC5Ev) align 2 {
 entry:
-  store i32 0, ptr %this, align 4, !tbaa !65
+  store i32 0, ptr %this, align 4, !tbaa !64
   ret void
 }
 
@@ -2953,7 +2953,7 @@ entry:
   %0 = load atomic i32, ptr %this monotonic, align 4
   store i32 %0, ptr %state, align 4, !tbaa !17
   %cmp.not = icmp ult i32 %0, 2048
-  br i1 %cmp.not, label %if.end, label %if.then, !prof !21
+  br i1 %cmp.not, label %if.end, label %if.then, !prof !20
 
 if.then:                                          ; preds = %entry
   invoke void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state)
@@ -2979,7 +2979,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, label %for.body.lr.ph, !prof !19
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   %cmp17.not = icmp eq i32 %call3.i, 0
   br i1 %cmp17.not, label %cleanup10, label %for.body.lr.ph
 
@@ -3016,7 +3016,7 @@ if.end8:                                          ; preds = %for.body
 
 for.body.backedge:                                ; preds = %if.end8, %if.then
   %i.018.be = phi i32 [ %inc.old, %if.end8 ], [ %inc, %if.then ]
-  br label %for.body, !llvm.loop !67
+  br label %for.body, !llvm.loop !66
 
 cleanup10:                                        ; preds = %if.end8, %if.then, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
   ret void
@@ -3066,13 +3066,13 @@ entry:
   store i32 %0, ptr %state.i, align 4, !tbaa !17
   %and.i = and i32 %0, -1312
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !21
+  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !20
 
 seqcst_fail50.i.i:                                ; preds = %entry
   %and5.i = or disjoint i32 %0, 128
   %1 = cmpxchg ptr %this, i32 %0, i32 %and5.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_9WaitNeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_9WaitNeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %seqcst_fail50.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -3106,18 +3106,18 @@ while.body:                                       ; preds = %cleanup50, %entry
   %0 = load i32, ptr %state, align 4
   %and = and i32 %0, %preconditionGoalMask
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !21
+  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !20
 
 land.lhs.true:                                    ; preds = %while.body
   %1 = load atomic i32, ptr %this acquire, align 4
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and12.i = and i32 %1, %preconditionGoalMask
   %cmp13.i = icmp eq i32 %and12.i, 0
-  br i1 %cmp13.i, label %if.end, label %if.end6.i, !prof !68
+  br i1 %cmp13.i, label %if.end, label %if.end6.i, !prof !67
 
 if.end6.i:                                        ; preds = %land.lhs.true, %if.end6.i
   %spinCount.014.i = phi i32 [ %inc.i, %if.end6.i ], [ 0, %land.lhs.true ]
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %inc.i = add nuw nsw i32 %spinCount.014.i, 1
   %2 = load atomic i32, ptr %this acquire, align 4
   store i32 %2, ptr %state, align 4, !tbaa !17
@@ -3125,7 +3125,7 @@ if.end6.i:                                        ; preds = %land.lhs.true, %if.
   %cmp.i = icmp eq i32 %and.i, 0
   %cmp2.i = icmp eq i32 %inc.i, 2
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %if.end6.i, !prof !69, !llvm.loop !70
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %if.end6.i, !prof !68, !llvm.loop !69
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit: ; preds = %if.end6.i
   br i1 %cmp.i, label %if.end, label %return
@@ -3165,7 +3165,7 @@ if.then16:                                        ; preds = %seqcst_fail50.i
   store i32 %after.0, ptr %state, align 4, !tbaa !17
   %and17 = and i32 %7, 512
   %cmp18.not = icmp eq i32 %and17, 0
-  br i1 %cmp18.not, label %while.cond24.preheader, label %if.then22, !prof !21
+  br i1 %cmp18.not, label %while.cond24.preheader, label %if.then22, !prof !20
 
 if.then22:                                        ; preds = %if.then16
   tail call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20applyDeferredReadersINS3_9WaitNeverEEEvRjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -3179,24 +3179,24 @@ while.cond24.preheader:                           ; preds = %if.then22, %if.then
 while.cond24:                                     ; preds = %while.cond24.preheader, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit84
   %8 = phi i32 [ %16, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit84 ], [ %.ph, %while.cond24.preheader ]
   %cmp27.not = icmp ult i32 %8, 2048
-  br i1 %cmp27.not, label %if.end38, label %land.lhs.true31, !prof !21
+  br i1 %cmp27.not, label %if.end38, label %land.lhs.true31, !prof !20
 
 land.lhs.true31:                                  ; preds = %while.cond24
   %9 = load atomic i32, ptr %this acquire, align 4
   store i32 %9, ptr %state, align 4, !tbaa !17
   %cmp13.i86 = icmp ult i32 %9, 2048
-  br i1 %cmp13.i86, label %if.end38, label %if.end6.i87, !prof !68
+  br i1 %cmp13.i86, label %if.end38, label %if.end6.i87, !prof !67
 
 if.end6.i87:                                      ; preds = %land.lhs.true31, %if.end6.i87
   %spinCount.014.i88 = phi i32 [ %inc.i89, %if.end6.i87 ], [ 0, %land.lhs.true31 ]
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %inc.i89 = add nuw nsw i32 %spinCount.014.i88, 1
   %10 = load atomic i32, ptr %this acquire, align 4
   store i32 %10, ptr %state, align 4, !tbaa !17
   %cmp.i91 = icmp ult i32 %10, 2048
   %cmp2.i92 = icmp eq i32 %inc.i89, 2
   %or.cond.i93 = select i1 %cmp.i91, i1 true, i1 %cmp2.i92
-  br i1 %or.cond.i93, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit95, label %if.end6.i87, !prof !69, !llvm.loop !71
+  br i1 %or.cond.i93, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit95, label %if.end6.i87, !prof !68, !llvm.loop !70
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit95: ; preds = %if.end6.i87
   br i1 %cmp.i91, label %if.end38, label %if.then35
@@ -3207,7 +3207,7 @@ if.then35:                                        ; preds = %_ZN5folly15SharedMu
   store i32 %12, ptr %state, align 4, !tbaa !17
   %and.i96 = and i32 %11, 15
   %cmp.not.i = icmp eq i32 %and.i96, 0
-  br i1 %cmp.not.i, label %cleanup50, label %if.then.i, !prof !21
+  br i1 %cmp.not.i, label %cleanup50, label %if.then.i, !prof !20
 
 if.then.i:                                        ; preds = %if.then35
   tail call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 15)
@@ -3229,7 +3229,7 @@ seqcst_fail50.i77:                                ; preds = %if.end38
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit84: ; preds = %seqcst_fail50.i77
   %16 = extractvalue { i32, i1 } %14, 0
   store i32 %16, ptr %state, align 4
-  br label %while.cond24, !llvm.loop !72
+  br label %while.cond24, !llvm.loop !71
 
 cleanup50:                                        ; preds = %seqcst_fail50.i77, %if.end38, %if.then.i, %if.then35, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
   %retval.2 = phi i1 [ %retval.0, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ false, %if.then35 ], [ false, %if.then.i ], [ true, %if.end38 ], [ true, %seqcst_fail50.i77 ]
@@ -3254,7 +3254,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -3276,11 +3276,11 @@ while.body6:                                      ; preds = %while.cond2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv8 = trunc i64 %indvars.iv.next to i32
   %exitcond9 = icmp eq i32 %cond.i, %lftr.wideiv8
-  br i1 %exitcond9, label %cleanup, label %while.cond2, !llvm.loop !73
+  br i1 %exitcond9, label %cleanup, label %while.cond2, !llvm.loop !72
 
 while.end:                                        ; preds = %while.cond2
   %3 = trunc i64 %indvars.iv to i32
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   br label %while.cond2.1
 
 while.cond2.1:                                    ; preds = %while.body6.1, %while.end
@@ -3296,10 +3296,10 @@ while.cond2.1:                                    ; preds = %while.body6.1, %whi
 while.body6.1:                                    ; preds = %while.cond2.1
   %inc.1 = add i32 %slot.1.1, 1
   %cmp.1 = icmp eq i32 %inc.1, %cond.i
-  br i1 %cmp.1, label %cleanup, label %while.cond2.1, !llvm.loop !73
+  br i1 %cmp.1, label %cleanup, label %while.cond2.1, !llvm.loop !72
 
 while.end.1:                                      ; preds = %while.cond2.1
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   tail call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20applyDeferredReadersINS3_9WaitNeverEEEvRjRT_j(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, ptr noundef nonnull align 1 dereferenceable(1) %ctx, i32 noundef %slot.1.1)
   br label %cleanup
 
@@ -3333,7 +3333,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -3372,7 +3372,7 @@ while.cond:                                       ; preds = %while.body, %_ZN5fo
 while.body:                                       ; preds = %while.cond
   %inc = add i32 %slot.addr.2, 1
   %cmp11 = icmp eq i32 %inc, %cond.i
-  br i1 %cmp11, label %cleanup45, label %while.cond, !llvm.loop !74
+  br i1 %cmp11, label %cleanup45, label %while.cond, !llvm.loop !73
 
 for.body29:                                       ; preds = %if.end37.1, %for.body29.lr.ph.new
   %indvars.iv = phi i64 [ %2, %for.body29.lr.ph.new ], [ %indvars.iv.next.1, %if.end37.1 ]
@@ -3415,7 +3415,7 @@ if.end37.1:                                       ; preds = %seqcst_fail50.i.1, 
   %indvars.iv.next.1 = add nuw nsw i64 %indvars.iv, 2
   %niter.next.1 = add i64 %niter, 2
   %niter.ncmp.1.not = icmp eq i64 %niter.next.1, %unroll_iter
-  br i1 %niter.ncmp.1.not, label %for.end40.unr-lcssa, label %for.body29, !llvm.loop !75
+  br i1 %niter.ncmp.1.not, label %for.end40.unr-lcssa, label %for.body29, !llvm.loop !74
 
 for.end40.unr-lcssa:                              ; preds = %if.end37.1, %for.body29.lr.ph
   %movedSlotCount.1.lcssa.ph = phi i32 [ undef, %for.body29.lr.ph ], [ %movedSlotCount.1.1, %if.end37.1 ]
@@ -3536,7 +3536,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -3554,18 +3554,18 @@ while.cond:                                       ; preds = %while.cond.backedge
   %5 = load i32, ptr %state, align 4
   %and = and i32 %5, 128
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !21
+  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !20
 
 land.lhs.true:                                    ; preds = %while.cond
   %6 = load atomic i32, ptr %this acquire, align 4
   store i32 %6, ptr %state, align 4, !tbaa !17
   %and12.i = and i32 %6, 128
   %cmp13.i = icmp eq i32 %and12.i, 0
-  br i1 %cmp13.i, label %if.end, label %if.end6.i, !prof !68
+  br i1 %cmp13.i, label %if.end, label %if.end6.i, !prof !67
 
 if.end6.i:                                        ; preds = %land.lhs.true, %if.end6.i
   %spinCount.014.i = phi i32 [ %inc.i, %if.end6.i ], [ 0, %land.lhs.true ]
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %inc.i = add nuw nsw i32 %spinCount.014.i, 1
   %7 = load atomic i32, ptr %this acquire, align 4
   store i32 %7, ptr %state, align 4, !tbaa !17
@@ -3573,7 +3573,7 @@ if.end6.i:                                        ; preds = %land.lhs.true, %if.
   %cmp.i = icmp eq i32 %and.i, 0
   %cmp2.i = icmp eq i32 %inc.i, 2
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %if.end6.i, !prof !69, !llvm.loop !76
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %if.end6.i, !prof !68, !llvm.loop !75
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit: ; preds = %if.end6.i
   br i1 %cmp.i, label %if.end, label %cleanup102
@@ -3761,13 +3761,13 @@ do.cond.i:                                        ; preds = %seqcst_fail50.i.i, 
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
-  %call3.i.i = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i.i = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
   %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %37, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i162, %cond.i.i
-  br i1 %cmp12.i, label %do.body.i, label %if.then88, !llvm.loop !77
+  br i1 %cmp12.i, label %do.body.i, label %if.then88, !llvm.loop !76
 
 if.then88:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
@@ -3778,7 +3778,7 @@ if.then88:                                        ; preds = %_ZN5folly19shared_m
   %and.i.i = and i32 %38, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i164 = or i1 %cmp.i163, %cmp.not.i.i
-  br i1 %or.cond.i164, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
+  br i1 %or.cond.i164, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !26
 
 if.then.i.i:                                      ; preds = %if.then88
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 16)
@@ -3802,7 +3802,7 @@ if.then92:                                        ; preds = %if.else
   %and.i.i171 = and i32 %42, 16
   %cmp.not.i.i172 = icmp eq i32 %and.i.i171, 0
   %or.cond.i173 = or i1 %cmp.i170, %cmp.not.i.i172
-  br i1 %or.cond.i173, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit176, label %if.then.i.i174, !prof !27
+  br i1 %or.cond.i173, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit176, label %if.then.i.i174, !prof !26
 
 if.then.i.i174:                                   ; preds = %if.then92
   call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i169, i32 noundef 16)
@@ -3813,7 +3813,7 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit176, %if.else, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit, %if.then53, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-  br label %while.cond, !llvm.loop !78
+  br label %while.cond, !llvm.loop !77
 
 cleanup102:                                       ; preds = %if.end75.thread, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, %if.then80, %if.then43, %if.then41
   %retval.3 = phi i1 [ true, %if.then43 ], [ true, %if.then41 ], [ true, %if.then80 ], [ false, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit ], [ true, %if.end75.thread ]
@@ -3890,18 +3890,18 @@ do.body.i:                                        ; preds = %seqcst_fail50.i.i, 
   %0 = load atomic i32, ptr %this acquire, align 4
   %and12.i.i = and i32 %0, 224
   %cmp13.i.i = icmp eq i32 %and12.i.i, 0
-  br i1 %cmp13.i.i, label %seqcst_fail50.i.i, label %if.end6.i.i, !prof !68
+  br i1 %cmp13.i.i, label %seqcst_fail50.i.i, label %if.end6.i.i, !prof !67
 
 if.end6.i.i:                                      ; preds = %do.body.i, %if.end6.i.i
   %spinCount.014.i.i = phi i32 [ %inc.i.i, %if.end6.i.i ], [ 0, %do.body.i ]
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %inc.i.i = add nuw nsw i32 %spinCount.014.i.i, 1
   %1 = load atomic i32, ptr %this acquire, align 4
   %and.i.i = and i32 %1, 224
   %cmp.i.i = icmp eq i32 %and.i.i, 0
   %cmp2.i.i = icmp eq i32 %inc.i.i, 2
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.i.i
-  br i1 %or.cond.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i, label %if.end6.i.i, !prof !69, !llvm.loop !79
+  br i1 %or.cond.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i, label %if.end6.i.i, !prof !68, !llvm.loop !78
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i: ; preds = %if.end6.i.i
   br i1 %cmp.i.i, label %seqcst_fail50.i.i, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_9WaitNeverEEEbRT_.exit
@@ -3911,7 +3911,7 @@ seqcst_fail50.i.i:                                ; preds = %_ZN5folly15SharedMu
   %or.i = or i32 %state.08.i, 32
   %2 = cmpxchg ptr %this, i32 %state.08.i, i32 %or.i seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_9WaitNeverEEEbRT_.exit, label %do.body.i, !llvm.loop !80
+  br i1 %3, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_9WaitNeverEEEbRT_.exit, label %do.body.i, !llvm.loop !79
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_9WaitNeverEEEbRT_.exit: ; preds = %seqcst_fail50.i.i, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i
   %cmp.lcssa.i9.i = phi i1 [ false, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i ], [ true, %seqcst_fail50.i.i ]
@@ -3927,7 +3927,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC5Ev) align 2 {
 entry:
-  store ptr null, ptr %this, align 8, !tbaa !81
+  store ptr null, ptr %this, align 8, !tbaa !80
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
   %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
@@ -3940,7 +3940,7 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexP
 entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !81
+  store ptr %lock, ptr %this, align 8, !tbaa !80
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
   %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
@@ -4040,7 +4040,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -4058,7 +4058,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   %5 = load i32, ptr %state, align 4
   %and = and i32 %5, 128
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !21
+  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !20
 
 land.lhs.true:                                    ; preds = %while.cond
   %6 = load atomic i32, ptr %this acquire, align 4
@@ -4068,20 +4068,20 @@ land.lhs.true:                                    ; preds = %while.cond
   br i1 %cmp13.i, label %if.end, label %if.end.preheader.i
 
 if.end.preheader.i:                               ; preds = %land.lhs.true
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %7 = load atomic i32, ptr %this acquire, align 4
   store i32 %7, ptr %state, align 4, !tbaa !17
   %and.i = and i32 %7, 128
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %if.end, label %if.end.1.i, !llvm.loop !83
+  br i1 %cmp.i, label %if.end, label %if.end.1.i, !llvm.loop !82
 
 if.end.1.i:                                       ; preds = %if.end.preheader.i
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %8 = load atomic i32, ptr %this acquire, align 4
   store i32 %8, ptr %state, align 4, !tbaa !17
   %and.1.i = and i32 %8, 128
   %cmp.1.i = icmp eq i32 %and.1.i, 0
-  br i1 %cmp.1.i, label %if.end, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, !llvm.loop !84
+  br i1 %cmp.1.i, label %if.end, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, !llvm.loop !83
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit: ; preds = %if.end.1.i
   %call5.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20yieldWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 128, i32 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -4264,13 +4264,13 @@ do.cond.i:                                        ; preds = %seqcst_fail50.i.i, 
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
-  %call3.i.i = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i.i = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
   %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %39, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i, %cond.i.i
-  br i1 %cmp12.i, label %do.body.i, label %if.then85, !llvm.loop !85
+  br i1 %cmp12.i, label %do.body.i, label %if.then85, !llvm.loop !84
 
 if.then85:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
@@ -4281,7 +4281,7 @@ if.then85:                                        ; preds = %_ZN5folly19shared_m
   %and.i.i = and i32 %40, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i = or i1 %cmp.i158, %cmp.not.i.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !26
 
 if.then.i.i:                                      ; preds = %if.then85
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 16)
@@ -4305,7 +4305,7 @@ if.then89:                                        ; preds = %if.else
   %and.i.i165 = and i32 %44, 16
   %cmp.not.i.i166 = icmp eq i32 %and.i.i165, 0
   %or.cond.i167 = or i1 %cmp.i164, %cmp.not.i.i166
-  br i1 %or.cond.i167, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit170, label %if.then.i.i168, !prof !27
+  br i1 %or.cond.i167, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit170, label %if.then.i.i168, !prof !26
 
 if.then.i.i168:                                   ; preds = %if.then89
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i163, i32 noundef 16)
@@ -4316,7 +4316,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit170, %if.else, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit, %if.then50, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-  br label %while.cond, !llvm.loop !86
+  br label %while.cond, !llvm.loop !85
 
 cleanup99:                                        ; preds = %if.end72.thread, %if.then77, %if.then40, %if.then38
   ret i1 true
@@ -4332,24 +4332,24 @@ entry:
   br i1 %cmp13, label %cleanup, label %if.end.preheader
 
 if.end.preheader:                                 ; preds = %entry
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %1 = load atomic i32, ptr %this acquire, align 4
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and = and i32 %1, %goal
   %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %cleanup, label %if.end.1, !llvm.loop !87
+  br i1 %cmp, label %cleanup, label %if.end.1, !llvm.loop !86
 
 land.rhs:                                         ; preds = %if.end.1
   %call5 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20yieldWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef %goal, i32 noundef %waitMask, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
   br label %cleanup
 
 if.end.1:                                         ; preds = %if.end.preheader
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %2 = load atomic i32, ptr %this acquire, align 4
   store i32 %2, ptr %state, align 4, !tbaa !17
   %and.1 = and i32 %2, %goal
   %cmp.1 = icmp eq i32 %and.1, 0
-  br i1 %cmp.1, label %cleanup, label %land.rhs, !llvm.loop !87
+  br i1 %cmp.1, label %cleanup, label %land.rhs, !llvm.loop !86
 
 cleanup:                                          ; preds = %if.end.1, %land.rhs, %if.end.preheader, %entry
   %retval.0 = phi i1 [ %call5, %land.rhs ], [ true, %entry ], [ true, %if.end.1 ], [ true, %if.end.preheader ]
@@ -4435,13 +4435,13 @@ do.cond:                                          ; preds = %seqcst_fail50.i, %d
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %do.cond
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %do.cond
   %cond.i = phi i32 [ %call3.i, %cond.false.i ], [ %6, %do.cond ]
   %cmp12 = icmp ult i32 %inc, %cond.i
-  br i1 %cmp12, label %do.body, label %cleanup13, !llvm.loop !88
+  br i1 %cmp12, label %do.body, label %cleanup13, !llvm.loop !87
 
 cleanup13:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, %cleanup
   %retval.2 = phi i1 [ true, %cleanup ], [ false, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ]
@@ -4460,7 +4460,7 @@ entry:
   %and.i = and i32 %0, 16
   %cmp.not.i = icmp eq i32 %and.i, 0
   %or.cond = or i1 %cmp, %cmp.not.i
-  br i1 %or.cond, label %if.end, label %if.then.i, !prof !27
+  br i1 %or.cond, label %if.end, label %if.then.i, !prof !26
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 16)
@@ -4548,7 +4548,7 @@ seqcst_fail50.i.us.i:                             ; preds = %if.end.us.i
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i: ; preds = %seqcst_fail50.i.us.i
   %7 = extractvalue { i32, i1 } %5, 0
   store i32 %7, ptr %state, align 4
-  br label %cleanup.us.i, !llvm.loop !89
+  br label %cleanup.us.i, !llvm.loop !88
 
 if.end16.us.i:                                    ; preds = %seqcst_fail50.i.us.i, %if.end.us.i
   %call.i.i.us.i = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %after.0.us.i, ptr noundef null, ptr noundef null, i32 noundef 12)
@@ -4575,7 +4575,7 @@ seqcst_fail50.i.i:                                ; preds = %if.end.i
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %seqcst_fail50.i.i
   %12 = extractvalue { i32, i1 } %10, 0
   store i32 %12, ptr %state, align 4
-  br label %cleanup.i, !llvm.loop !90
+  br label %cleanup.i, !llvm.loop !89
 
 if.end16.i:                                       ; preds = %seqcst_fail50.i.i, %if.end.i
   %call.i.i.i = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %or10.i, ptr noundef null, ptr noundef null, i32 noundef %waitMask)
@@ -4611,7 +4611,7 @@ entry:
   %0 = load i32, ptr %state, align 4, !tbaa !17
   %and = and i32 %0, %wakeMask
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end, label %if.then, !prof !21
+  br i1 %cmp.not, label %if.end, label %if.then, !prof !20
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef %wakeMask)
@@ -4679,7 +4679,7 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexP
 entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !81
+  store ptr %lock, ptr %this, align 8, !tbaa !80
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
   %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
@@ -4720,13 +4720,13 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11lock_s
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2EOS4_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(12) %rhs) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC5EOS4_) align 2 {
 entry:
-  %0 = load ptr, ptr %rhs, align 8, !tbaa !81
-  store ptr %0, ptr %this, align 8, !tbaa !81
+  %0 = load ptr, ptr %rhs, align 8, !tbaa !80
+  store ptr %0, ptr %this, align 8, !tbaa !80
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   %token_3 = getelementptr inbounds i8, ptr %rhs, i64 8
-  %1 = load i32, ptr %token_3, align 8, !tbaa.struct !41
-  store i32 %1, ptr %token_, align 8, !tbaa.struct !41
-  store ptr null, ptr %rhs, align 8, !tbaa !81
+  %1 = load i32, ptr %token_3, align 8, !tbaa.struct !40
+  store i32 %1, ptr %token_, align 8, !tbaa.struct !40
+  store ptr null, ptr %rhs, align 8, !tbaa !80
   ret void
 }
 
@@ -4734,20 +4734,20 @@ entry:
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2EONS3_13UpgradeHolderE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %upgraded) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC5EONS3_13UpgradeHolderE) align 2 {
 entry:
   %state.i.i = alloca i32, align 4
-  %0 = load ptr, ptr %upgraded, align 8, !tbaa !91
-  store ptr %0, ptr %this, align 8, !tbaa !81
+  %0 = load ptr, ptr %upgraded, align 8, !tbaa !90
+  store ptr %0, ptr %this, align 8, !tbaa !80
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
   %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
-  store ptr null, ptr %upgraded, align 8, !tbaa !91
+  store ptr null, ptr %upgraded, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #17
   %1 = atomicrmw sub ptr %0, i32 -2016 seq_cst, align 4
   %2 = add i32 %1, 2016
   store i32 %2, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i.i = and i32 %1, 14
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30unlock_upgrade_and_lock_sharedERNS_16SharedMutexTokenE.exit, label %if.then.i.i.i, !prof !21
+  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30unlock_upgrade_and_lock_sharedERNS_16SharedMutexTokenE.exit, label %if.then.i.i.i, !prof !20
 
 if.then.i.i.i:                                    ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i, i32 noundef 14)
@@ -4769,7 +4769,7 @@ entry:
   store i32 %1, ptr %state.i, align 4, !tbaa !17
   %and.i.i = and i32 %0, 14
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30unlock_upgrade_and_lock_sharedEv.exit, label %if.then.i.i, !prof !21
+  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30unlock_upgrade_and_lock_sharedEv.exit, label %if.then.i.i, !prof !20
 
 if.then.i.i:                                      ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 14)
@@ -4791,7 +4791,7 @@ entry:
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and.i = and i32 %0, 14
   %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !21
+  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !20
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 14)
@@ -4805,13 +4805,13 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRe
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2EONS3_11WriteHolderE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %writer) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC5EONS3_11WriteHolderE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %writer, align 8, !tbaa !93
-  store ptr %0, ptr %this, align 8, !tbaa !81
+  %0 = load ptr, ptr %writer, align 8, !tbaa !92
+  store ptr %0, ptr %this, align 8, !tbaa !80
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
   %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
-  store ptr null, ptr %writer, align 8, !tbaa !93
+  store ptr null, ptr %writer, align 8, !tbaa !92
   %1 = load atomic i32, ptr %0 acquire, align 4
   %and13.i.i = and i32 %1, -416
   %add14.i.i = add i32 %and13.i.i, 2048
@@ -4826,7 +4826,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %add.i.i = add i32 %and.i.i, 2048
   %6 = cmpxchg ptr %0, i32 %5, i32 %add.i.i seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 1
-  br i1 %7, label %do.end.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !95
+  br i1 %7, label %do.end.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !llvm.loop !94
 
 do.end.i.i:                                       ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, %entry
   %state.0.lcssa.i.i = phi i32 [ %1, %entry ], [ %5, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i ]
@@ -4860,7 +4860,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: 
   %add.i = add i32 %and.i, 2048
   %5 = cmpxchg ptr %this, i32 %4, i32 %add.i seq_cst seq_cst, align 4
   %6 = extractvalue { i32, i1 } %5, 1
-  br i1 %6, label %do.end.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !llvm.loop !96
+  br i1 %6, label %do.end.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !llvm.loop !95
 
 do.end.i:                                         ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, %entry
   %state.0.lcssa.i = phi i32 [ %0, %entry ], [ %4, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i ]
@@ -4894,7 +4894,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
   %add = add i32 %and, 2048
   %5 = cmpxchg ptr %this, i32 %4, i32 %add seq_cst seq_cst, align 4
   %6 = extractvalue { i32, i1 } %5, 1
-  br i1 %6, label %do.end, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, !llvm.loop !97
+  br i1 %6, label %do.end, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, !llvm.loop !96
 
 do.end:                                           ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %entry
   %state.0.lcssa = phi i32 [ %0, %entry ], [ %4, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ]
@@ -4919,23 +4919,23 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(12) ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderaSEOS4_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(12) %rhs) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !51
-  %1 = load ptr, ptr %rhs, align 8, !tbaa !51
-  store ptr %1, ptr %this, align 8, !tbaa !51
-  store ptr %0, ptr %rhs, align 8, !tbaa !51
+  %0 = load ptr, ptr %this, align 8, !tbaa !50
+  %1 = load ptr, ptr %rhs, align 8, !tbaa !50
+  store ptr %1, ptr %this, align 8, !tbaa !50
+  store ptr %0, ptr %rhs, align 8, !tbaa !50
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   %token_3 = getelementptr inbounds i8, ptr %rhs, i64 8
-  %2 = load i32, ptr %token_, align 8, !tbaa.struct !41
-  %3 = load i32, ptr %token_3, align 8, !tbaa.struct !41
-  store i32 %3, ptr %token_, align 8, !tbaa.struct !41
-  store i32 %2, ptr %token_3, align 8, !tbaa.struct !41
+  %2 = load i32, ptr %token_, align 8, !tbaa.struct !40
+  %3 = load i32, ptr %token_3, align 8, !tbaa.struct !40
+  store i32 %3, ptr %token_, align 8, !tbaa.struct !40
+  store i32 %2, ptr %token_3, align 8, !tbaa.struct !40
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !81
+  %0 = load ptr, ptr %this, align 8, !tbaa !80
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
@@ -4945,7 +4945,7 @@ if.then.i:                                        ; preds = %entry
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then.i
-  store ptr null, ptr %this, align 8, !tbaa !81
+  store ptr null, ptr %this, align 8, !tbaa !80
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %.noexc, %entry
@@ -4962,14 +4962,14 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolder6unlockEv(ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !81
+  %0 = load ptr, ptr %this, align 8, !tbaa !80
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %token_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 2 dereferenceable(4) %token_)
-  store ptr null, ptr %this, align 8, !tbaa !81
+  store ptr null, ptr %this, align 8, !tbaa !80
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5026,13 +5026,13 @@ do.cond.i.i:                                      ; preds = %seqcst_fail50.i.i.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i.i, !prof !19
 
 cond.false.i.i.i:                                 ; preds = %do.cond.i.i
-  %call3.i.i.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i.i.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i.i: ; preds = %cond.false.i.i.i, %do.cond.i.i
   %cond.i.i.i = phi i32 [ %call3.i.i.i, %cond.false.i.i.i ], [ %8, %do.cond.i.i ]
   %cmp12.i.i = icmp ult i32 %inc.i.i, %cond.i.i.i
-  br i1 %cmp12.i.i, label %do.body.i.i, label %if.then.i, !llvm.loop !98
+  br i1 %cmp12.i.i, label %do.body.i.i, label %if.then.i, !llvm.loop !97
 
 if.then.i:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i.i, %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #17
@@ -5043,7 +5043,7 @@ if.then.i:                                        ; preds = %_ZN5folly19shared_m
   %and.i.i.i = and i32 %9, 16
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
   %or.cond.i.i = or i1 %cmp.i4.i, %cmp.not.i.i.i
-  br i1 %or.cond.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i, label %if.then.i.i.i, !prof !27
+  br i1 %or.cond.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit.i, label %if.then.i.i.i, !prof !26
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i, i32 noundef 16)
@@ -5073,7 +5073,7 @@ if.then4:                                         ; preds = %lor.lhs.false, %ent
   %and.i.i = and i32 %15, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i = or i1 %cmp.i9, %cmp.not.i.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !26
 
 if.then.i.i:                                      ; preds = %if.then4
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 16)
@@ -5129,13 +5129,13 @@ do.cond.i:                                        ; preds = %seqcst_fail50.i.i, 
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
-  %call3.i.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
   %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %7, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i, %cond.i.i
-  br i1 %cmp12.i, label %do.body.i, label %if.then, !llvm.loop !99
+  br i1 %cmp12.i, label %do.body.i, label %if.then, !llvm.loop !98
 
 if.then:                                          ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
@@ -5146,7 +5146,7 @@ if.then:                                          ; preds = %_ZN5folly19shared_m
   %and.i.i = and i32 %8, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i = or i1 %cmp.i4, %cmp.not.i.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !26
 
 if.then.i.i:                                      ; preds = %if.then
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 16)
@@ -5163,7 +5163,7 @@ if.end:                                           ; preds = %_ZN5folly15SharedMu
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5Ev) align 2 {
 entry:
-  store ptr null, ptr %this, align 8, !tbaa !91
+  store ptr null, ptr %this, align 8, !tbaa !90
   ret void
 }
 
@@ -5171,7 +5171,7 @@ entry:
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %lock) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5EPS3_) align 2 {
 entry:
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !91
+  store ptr %lock, ptr %this, align 8, !tbaa !90
   %tobool.not = icmp eq ptr %lock, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -5208,11 +5208,11 @@ do.body:                                          ; preds = %seqcst_fail50.i, %e
   br i1 %cmp13.i, label %seqcst_fail50.i, label %if.end.preheader.i
 
 if.end.preheader.i:                               ; preds = %do.body
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %1 = load atomic i32, ptr %this acquire, align 4
   %and.i = and i32 %1, 224
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %seqcst_fail50.i, label %if.end.1.i, !llvm.loop !100
+  br i1 %cmp.i, label %seqcst_fail50.i, label %if.end.1.i, !llvm.loop !99
 
 land.rhs.i:                                       ; preds = %if.end.1.i
   %call.i.i.i = call noundef i32 @sched_yield() #17
@@ -5252,7 +5252,7 @@ if.end.i.i:                                       ; preds = %for.end22.i, %clean
 seqcst_fail50.i.i.i:                              ; preds = %if.end.i.i
   %7 = cmpxchg ptr %this, i32 %6, i32 %or10.i.i seq_cst seq_cst, align 4
   %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %if.end16.i.i, label %cleanup.i.i, !llvm.loop !101
+  br i1 %8, label %if.end16.i.i, label %cleanup.i.i, !llvm.loop !100
 
 if.end16.i.i:                                     ; preds = %seqcst_fail50.i.i.i, %if.end.i.i
   %call.i.i.i.i = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %or10.i.i, ptr noundef null, ptr noundef null, i32 noundef 2)
@@ -5265,18 +5265,18 @@ cleanup.i.i:                                      ; preds = %if.end16.i.i, %seqc
   br i1 %cmp.i.i, label %seqcst_fail50.i, label %if.end.i.i
 
 if.end.1.i:                                       ; preds = %if.end.preheader.i
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %10 = load atomic i32, ptr %this acquire, align 4
   %and.1.i = and i32 %10, 224
   %cmp.1.i = icmp eq i32 %and.1.i, 0
-  br i1 %cmp.1.i, label %seqcst_fail50.i, label %land.rhs.i, !llvm.loop !102
+  br i1 %cmp.1.i, label %seqcst_fail50.i, label %land.rhs.i, !llvm.loop !101
 
 seqcst_fail50.i:                                  ; preds = %cleanup.i.i, %if.end.1.i, %for.end22.i, %if.end.2.i, %if.end.1.i4, %land.rhs.i, %if.end.preheader.i, %do.body
   %state.1 = phi i32 [ %0, %do.body ], [ %1, %if.end.preheader.i ], [ %10, %if.end.1.i ], [ %2, %land.rhs.i ], [ %3, %if.end.1.i4 ], [ %4, %if.end.2.i ], [ %5, %for.end22.i ], [ %9, %cleanup.i.i ]
   %or = or i32 %state.1, 32
   %11 = cmpxchg ptr %this, i32 %state.1, i32 %or seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
-  br i1 %12, label %cleanup, label %do.body, !llvm.loop !103
+  br i1 %12, label %cleanup, label %do.body, !llvm.loop !102
 
 cleanup:                                          ; preds = %seqcst_fail50.i
   ret i1 true
@@ -5286,7 +5286,7 @@ cleanup:                                          ; preds = %seqcst_fail50.i
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2ERS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(4) %lock) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5ERS3_) align 2 {
 entry:
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !91
+  store ptr %lock, ptr %this, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i) #17
   %call.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_11WaitForeverEEEbRT_(ptr noundef nonnull align 4 dereferenceable(4) %lock, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ctx.i) #17
@@ -5296,9 +5296,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2EONS3_11WriteHolderE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %writer) unnamed_addr #1 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5EONS3_11WriteHolderE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %writer, align 8, !tbaa !93
-  store ptr %0, ptr %this, align 8, !tbaa !91
-  store ptr null, ptr %writer, align 8, !tbaa !93
+  %0 = load ptr, ptr %writer, align 8, !tbaa !92
+  store ptr %0, ptr %this, align 8, !tbaa !90
+  store ptr null, ptr %writer, align 8, !tbaa !92
   %1 = load atomic i32, ptr %0 acquire, align 4
   %and17.i = and i32 %1, -402
   %add18.i = add nuw nsw i32 %and17.i, 32
@@ -5365,19 +5365,19 @@ cleanup7:                                         ; preds = %if.then5, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderC5EOS4_) align 2 {
 entry:
-  %0 = load ptr, ptr %rhs, align 8, !tbaa !91
-  store ptr %0, ptr %this, align 8, !tbaa !91
-  store ptr null, ptr %rhs, align 8, !tbaa !91
+  %0 = load ptr, ptr %rhs, align 8, !tbaa !90
+  store ptr %0, ptr %this, align 8, !tbaa !90
+  store ptr null, ptr %rhs, align 8, !tbaa !90
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !51
-  %1 = load ptr, ptr %rhs, align 8, !tbaa !51
-  store ptr %1, ptr %this, align 8, !tbaa !51
-  store ptr %0, ptr %rhs, align 8, !tbaa !51
+  %0 = load ptr, ptr %this, align 8, !tbaa !50
+  %1 = load ptr, ptr %rhs, align 8, !tbaa !50
+  store ptr %1, ptr %this, align 8, !tbaa !50
+  store ptr %0, ptr %rhs, align 8, !tbaa !50
   ret ptr %this
 }
 
@@ -5385,7 +5385,7 @@ entry:
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
-  %0 = load ptr, ptr %this, align 8, !tbaa !91
+  %0 = load ptr, ptr %this, align 8, !tbaa !90
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
@@ -5396,7 +5396,7 @@ if.then.i:                                        ; preds = %entry
   store i32 %2, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i.i = and i32 %1, 14
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit.i, label %if.then.i.i.i, !prof !21
+  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit.i, label %if.then.i.i.i, !prof !20
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i, i32 noundef 14)
@@ -5404,7 +5404,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit.i: ; preds = %if.then.i.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i) #17
-  store ptr null, ptr %this, align 8, !tbaa !91
+  store ptr null, ptr %this, align 8, !tbaa !90
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit.i, %entry
@@ -5422,7 +5422,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolder6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %state.i = alloca i32, align 4
-  %0 = load ptr, ptr %this, align 8, !tbaa !91
+  %0 = load ptr, ptr %this, align 8, !tbaa !90
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -5433,7 +5433,7 @@ if.then:                                          ; preds = %entry
   store i32 %2, ptr %state.i, align 4, !tbaa !17
   %and.i.i = and i32 %1, 14
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit, label %if.then.i.i, !prof !21
+  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit, label %if.then.i.i, !prof !20
 
 if.then.i.i:                                      ; preds = %if.then
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 14)
@@ -5441,7 +5441,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit: ; preds = %if.then.i.i, %if.then
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i) #17
-  store ptr null, ptr %this, align 8, !tbaa !91
+  store ptr null, ptr %this, align 8, !tbaa !90
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14unlock_upgradeEv.exit, %entry
@@ -5458,7 +5458,7 @@ entry:
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and.i = and i32 %0, 14
   %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !21
+  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !20
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 14)
@@ -5472,7 +5472,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC5Ev) align 2 {
 entry:
-  store ptr null, ptr %this, align 8, !tbaa !93
+  store ptr null, ptr %this, align 8, !tbaa !92
   ret void
 }
 
@@ -5481,7 +5481,7 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexP
 entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !93
+  store ptr %lock, ptr %this, align 8, !tbaa !92
   %tobool.not = icmp eq ptr %lock, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -5492,13 +5492,13 @@ if.then:                                          ; preds = %entry
   store i32 %0, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i = and i32 %0, -1312
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !21
+  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !20
 
 seqcst_fail50.i.i.i:                              ; preds = %if.then
   %and5.i.i = or disjoint i32 %0, 128
   %1 = cmpxchg ptr %lock, i32 %0, i32 %and5.i.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i: ; preds = %seqcst_fail50.i.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -5529,13 +5529,13 @@ entry:
   store i32 %0, ptr %state.i, align 4, !tbaa !17
   %and.i = and i32 %0, -1312
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !21
+  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !20
 
 seqcst_fail50.i.i:                                ; preds = %entry
   %and5.i = or disjoint i32 %0, 128
   %1 = cmpxchg ptr %this, i32 %0, i32 %and5.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %seqcst_fail50.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -5562,7 +5562,7 @@ while.body:                                       ; preds = %cleanup33, %entry
   %0 = phi i32 [ %6, %cleanup33 ], [ %.pre, %entry ]
   %and = and i32 %0, %preconditionGoalMask
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %seqcst_fail50.i, label %land.lhs.true, !prof !21
+  br i1 %cmp.not, label %seqcst_fail50.i, label %land.lhs.true, !prof !20
 
 land.lhs.true:                                    ; preds = %while.body
   %call = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef %preconditionGoalMask, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -5585,7 +5585,7 @@ if.then9:                                         ; preds = %seqcst_fail50.i
   store i32 %or7, ptr %state, align 4, !tbaa !17
   %and10 = and i32 %4, 512
   %cmp11.not = icmp eq i32 %and10, 0
-  br i1 %cmp11.not, label %while.body18, label %if.then15, !prof !21
+  br i1 %cmp11.not, label %while.body18, label %if.then15, !prof !20
 
 if.then15:                                        ; preds = %if.then9
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20applyDeferredReadersINS3_11WaitForeverEEEvRjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -5595,7 +5595,7 @@ if.then15:                                        ; preds = %if.then9
 while.body18:                                     ; preds = %if.then15, %if.then9
   %5 = phi i32 [ %.pr, %if.then15 ], [ %or7, %if.then9 ]
   %cmp20.not = icmp ult i32 %5, 2048
-  br i1 %cmp20.not, label %return, label %land.lhs.true24, !prof !21
+  br i1 %cmp20.not, label %return, label %land.lhs.true24, !prof !20
 
 land.lhs.true24:                                  ; preds = %while.body18
   %call25 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef -2048, i32 noundef 16, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -5618,7 +5618,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -5640,11 +5640,11 @@ while.body6:                                      ; preds = %while.cond2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv8 = trunc i64 %indvars.iv.next to i32
   %exitcond9 = icmp eq i32 %cond.i, %lftr.wideiv8
-  br i1 %exitcond9, label %cleanup, label %while.cond2, !llvm.loop !104
+  br i1 %exitcond9, label %cleanup, label %while.cond2, !llvm.loop !103
 
 while.end:                                        ; preds = %while.cond2
   %3 = trunc i64 %indvars.iv to i32
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   br label %while.cond2.1
 
 while.cond2.1:                                    ; preds = %while.body6.1, %while.end
@@ -5660,10 +5660,10 @@ while.cond2.1:                                    ; preds = %while.body6.1, %whi
 while.body6.1:                                    ; preds = %while.cond2.1
   %inc.1 = add i32 %slot.1.1, 1
   %cmp.1 = icmp eq i32 %inc.1, %cond.i
-  br i1 %cmp.1, label %cleanup, label %while.cond2.1, !llvm.loop !104
+  br i1 %cmp.1, label %cleanup, label %while.cond2.1, !llvm.loop !103
 
 while.end.1:                                      ; preds = %while.cond2.1
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20applyDeferredReadersINS3_11WaitForeverEEEvRjRT_j(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, ptr noundef nonnull align 1 dereferenceable(1) %ctx, i32 noundef %slot.1.1)
   br label %cleanup
 
@@ -5689,7 +5689,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %if.end, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %if.end
 
 if.end:                                           ; preds = %cond.false.i, %entry
@@ -5711,7 +5711,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 while.body:                                       ; preds = %while.cond
   %inc = add i32 %slot.addr.2, 1
   %cmp11 = icmp eq i32 %inc, %cond.i
-  br i1 %cmp11, label %cleanup45, label %while.cond, !llvm.loop !105
+  br i1 %cmp11, label %cleanup45, label %while.cond, !llvm.loop !104
 
 if.end.1:                                         ; preds = %while.cond
   %call.i.i.1 = tail call noundef i32 @sched_yield() #17
@@ -5730,7 +5730,7 @@ while.cond.1:                                     ; preds = %while.body.1, %if.e
 while.body.1:                                     ; preds = %while.cond.1
   %inc.1 = add i32 %slot.addr.2.1, 1
   %cmp11.1 = icmp eq i32 %inc.1, %cond.i
-  br i1 %cmp11.1, label %cleanup45, label %while.cond.1, !llvm.loop !105
+  br i1 %cmp11.1, label %cleanup45, label %while.cond.1, !llvm.loop !104
 
 if.end.2:                                         ; preds = %while.cond.1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %usage.i) #17
@@ -5751,7 +5751,7 @@ while.cond.2:                                     ; preds = %while.body.2, %if.e
 while.body.2:                                     ; preds = %while.cond.2
   %inc.2 = add i32 %slot.addr.2.2, 1
   %cmp11.2 = icmp eq i32 %inc.2, %cond.i
-  br i1 %cmp11.2, label %cleanup45, label %while.cond.2, !llvm.loop !105
+  br i1 %cmp11.2, label %cleanup45, label %while.cond.2, !llvm.loop !104
 
 cleanup24:                                        ; preds = %while.cond.2
   %cmp2891 = icmp ult i32 %slot.addr.2.2, %cond.i
@@ -5811,7 +5811,7 @@ if.end37.1:                                       ; preds = %seqcst_fail50.i.1, 
   %indvars.iv.next.1 = add nuw nsw i64 %indvars.iv, 2
   %niter.next.1 = add i64 %niter, 2
   %niter.ncmp.1 = icmp eq i64 %niter.next.1, %unroll_iter
-  br i1 %niter.ncmp.1, label %for.end40.unr-lcssa, label %for.body29, !llvm.loop !106
+  br i1 %niter.ncmp.1, label %for.end40.unr-lcssa, label %for.body29, !llvm.loop !105
 
 for.end40.unr-lcssa:                              ; preds = %if.end37.1, %for.body29.lr.ph
   %movedSlotCount.1.lcssa.ph = phi i32 [ undef, %for.body29.lr.ph ], [ %movedSlotCount.1.1, %if.end37.1 ]
@@ -5857,20 +5857,20 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexP
 entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  store ptr %lock, ptr %this, align 8, !tbaa !93
+  store ptr %lock, ptr %this, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #17
   %0 = load atomic i32, ptr %lock acquire, align 4
   store i32 %0, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i = and i32 %0, -1312
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !21
+  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !20
 
 seqcst_fail50.i.i.i:                              ; preds = %entry
   %and5.i.i = or disjoint i32 %0, 128
   %1 = cmpxchg ptr %lock, i32 %0, i32 %and5.i.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i: ; preds = %seqcst_fail50.i.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -5892,23 +5892,23 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexP
 entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  %0 = load ptr, ptr %upgrade, align 8, !tbaa !91
-  store ptr %0, ptr %this, align 8, !tbaa !93
-  store ptr null, ptr %upgrade, align 8, !tbaa !91
+  %0 = load ptr, ptr %upgrade, align 8, !tbaa !90
+  store ptr %0, ptr %this, align 8, !tbaa !92
+  store ptr null, ptr %upgrade, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #17
   %1 = load atomic i32, ptr %0 acquire, align 4
   store i32 %1, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i = and i32 %1, -1536
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !21
+  br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %if.else.i.i, !prof !20
 
 seqcst_fail50.i.i.i:                              ; preds = %entry
   %or4.i.i = and i32 %1, 1375
   %and5.i.i = or disjoint i32 %or4.i.i, 128
   %2 = cmpxchg ptr %0, i32 %1, i32 %and5.i.i seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE23unlock_upgrade_and_lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !58
+  br i1 %3, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE23unlock_upgrade_and_lockEv.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i: ; preds = %seqcst_fail50.i.i.i
   %4 = extractvalue { i32, i1 } %2, 0
@@ -5936,14 +5936,14 @@ entry:
   store i32 %0, ptr %state.i, align 4, !tbaa !17
   %and.i = and i32 %0, -1536
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !21
+  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !20
 
 seqcst_fail50.i.i:                                ; preds = %entry
   %or4.i = and i32 %0, 1375
   %and5.i = or disjoint i32 %or4.i, 128
   %1 = cmpxchg ptr %this, i32 %0, i32 %and5.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %seqcst_fail50.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -5963,19 +5963,19 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockEx
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC5EOS4_) align 2 {
 entry:
-  %0 = load ptr, ptr %rhs, align 8, !tbaa !93
-  store ptr %0, ptr %this, align 8, !tbaa !93
-  store ptr null, ptr %rhs, align 8, !tbaa !93
+  %0 = load ptr, ptr %rhs, align 8, !tbaa !92
+  store ptr %0, ptr %this, align 8, !tbaa !92
+  store ptr null, ptr %rhs, align 8, !tbaa !92
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !51
-  %1 = load ptr, ptr %rhs, align 8, !tbaa !51
-  store ptr %1, ptr %this, align 8, !tbaa !51
-  store ptr %0, ptr %rhs, align 8, !tbaa !51
+  %0 = load ptr, ptr %this, align 8, !tbaa !50
+  %1 = load ptr, ptr %rhs, align 8, !tbaa !50
+  store ptr %1, ptr %this, align 8, !tbaa !50
+  store ptr %0, ptr %rhs, align 8, !tbaa !50
   ret ptr %this
 }
 
@@ -5983,7 +5983,7 @@ entry:
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
-  %0 = load ptr, ptr %this, align 8, !tbaa !93
+  %0 = load ptr, ptr %this, align 8, !tbaa !92
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
@@ -5994,7 +5994,7 @@ if.then.i:                                        ; preds = %entry
   store i32 %2, ptr %state.i.i, align 4, !tbaa !17
   %and.i.i.i = and i32 %1, 15
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i, label %if.then.i.i.i, !prof !21
+  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i, label %if.then.i.i.i, !prof !20
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i, i32 noundef 15)
@@ -6002,7 +6002,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i: ; preds = %if.then.i.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i) #17
-  store ptr null, ptr %this, align 8, !tbaa !93
+  store ptr null, ptr %this, align 8, !tbaa !92
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i, %entry
@@ -6020,7 +6020,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolder6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %state.i = alloca i32, align 4
-  %0 = load ptr, ptr %this, align 8, !tbaa !93
+  %0 = load ptr, ptr %this, align 8, !tbaa !92
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -6031,7 +6031,7 @@ if.then:                                          ; preds = %entry
   store i32 %2, ptr %state.i, align 4, !tbaa !17
   %and.i.i = and i32 %1, 15
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit, label %if.then.i.i, !prof !21
+  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit, label %if.then.i.i, !prof !20
 
 if.then.i.i:                                      ; preds = %if.then
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 15)
@@ -6039,7 +6039,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit: ; preds = %if.then.i.i, %if.then
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i) #17
-  store ptr null, ptr %this, align 8, !tbaa !93
+  store ptr null, ptr %this, align 8, !tbaa !92
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit, %entry
@@ -6056,7 +6056,7 @@ entry:
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and.i = and i32 %0, 15
   %cmp.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !21
+  br i1 %cmp.not.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, label %if.then.i, !prof !20
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 15)
@@ -6070,7 +6070,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC5Ev) align 2 {
 entry:
-  store i32 0, ptr %this, align 4, !tbaa !65
+  store i32 0, ptr %this, align 4, !tbaa !64
   ret void
 }
 
@@ -6082,7 +6082,7 @@ entry:
   %0 = load atomic i32, ptr %this monotonic, align 4
   store i32 %0, ptr %state, align 4, !tbaa !17
   %cmp.not = icmp ult i32 %0, 2048
-  br i1 %cmp.not, label %if.end, label %if.then, !prof !21
+  br i1 %cmp.not, label %if.end, label %if.then, !prof !20
 
 if.then:                                          ; preds = %entry
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state)
@@ -6108,7 +6108,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, label %for.body.lr.ph, !prof !19
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   %cmp17.not = icmp eq i32 %call3.i, 0
   br i1 %cmp17.not, label %cleanup10, label %for.body.lr.ph
 
@@ -6145,7 +6145,7 @@ if.end8:                                          ; preds = %for.body
 
 for.body.backedge:                                ; preds = %if.end8, %if.then
   %i.018.be = phi i32 [ %inc.old, %if.end8 ], [ %inc, %if.then ]
-  br label %for.body, !llvm.loop !107
+  br label %for.body, !llvm.loop !106
 
 cleanup10:                                        ; preds = %if.end8, %if.then, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
   ret void
@@ -6195,13 +6195,13 @@ entry:
   store i32 %0, ptr %state.i, align 4, !tbaa !17
   %and.i = and i32 %0, -1312
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !21
+  br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.else.i, !prof !20
 
 seqcst_fail50.i.i:                                ; preds = %entry
   %and5.i = or disjoint i32 %0, 128
   %1 = cmpxchg ptr %this, i32 %0, i32 %and5.i seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_9WaitNeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !58
+  br i1 %2, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_9WaitNeverEEEbjRT_.exit, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i, !prof !57
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %seqcst_fail50.i.i
   %3 = extractvalue { i32, i1 } %1, 0
@@ -6235,18 +6235,18 @@ while.body:                                       ; preds = %cleanup33, %entry
   %0 = load i32, ptr %state, align 4
   %and = and i32 %0, %preconditionGoalMask
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %seqcst_fail50.i, label %land.lhs.true, !prof !21
+  br i1 %cmp.not, label %seqcst_fail50.i, label %land.lhs.true, !prof !20
 
 land.lhs.true:                                    ; preds = %while.body
   %1 = load atomic i32, ptr %this acquire, align 4
   store i32 %1, ptr %state, align 4, !tbaa !17
   %and12.i = and i32 %1, %preconditionGoalMask
   %cmp13.i = icmp eq i32 %and12.i, 0
-  br i1 %cmp13.i, label %seqcst_fail50.i, label %if.end6.i, !prof !68
+  br i1 %cmp13.i, label %seqcst_fail50.i, label %if.end6.i, !prof !67
 
 if.end6.i:                                        ; preds = %land.lhs.true, %if.end6.i
   %spinCount.014.i = phi i32 [ %inc.i, %if.end6.i ], [ 0, %land.lhs.true ]
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %inc.i = add nuw nsw i32 %spinCount.014.i, 1
   %2 = load atomic i32, ptr %this acquire, align 4
   store i32 %2, ptr %state, align 4, !tbaa !17
@@ -6254,7 +6254,7 @@ if.end6.i:                                        ; preds = %land.lhs.true, %if.
   %cmp.i = icmp eq i32 %and.i, 0
   %cmp2.i = icmp eq i32 %inc.i, 2
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %if.end6.i, !prof !69, !llvm.loop !108
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %if.end6.i, !prof !68, !llvm.loop !107
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit: ; preds = %if.end6.i
   br i1 %cmp.i, label %seqcst_fail50.i, label %return
@@ -6280,7 +6280,7 @@ if.then9:                                         ; preds = %seqcst_fail50.i
   store i32 %or7, ptr %state, align 4, !tbaa !17
   %and10 = and i32 %7, 512
   %cmp11.not = icmp eq i32 %and10, 0
-  br i1 %cmp11.not, label %while.body18, label %if.then15, !prof !21
+  br i1 %cmp11.not, label %while.body18, label %if.then15, !prof !20
 
 if.then15:                                        ; preds = %if.then9
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20applyDeferredReadersINS3_9WaitNeverEEEvRjRT_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, ptr noundef nonnull align 1 dereferenceable(1) %ctx)
@@ -6290,24 +6290,24 @@ if.then15:                                        ; preds = %if.then9
 while.body18:                                     ; preds = %if.then15, %if.then9
   %8 = phi i32 [ %.pr, %if.then15 ], [ %or7, %if.then9 ]
   %cmp20.not = icmp ult i32 %8, 2048
-  br i1 %cmp20.not, label %return, label %land.lhs.true24, !prof !21
+  br i1 %cmp20.not, label %return, label %land.lhs.true24, !prof !20
 
 land.lhs.true24:                                  ; preds = %while.body18
   %9 = load atomic i32, ptr %this acquire, align 4
   store i32 %9, ptr %state, align 4, !tbaa !17
   %cmp13.i53 = icmp ult i32 %9, 2048
-  br i1 %cmp13.i53, label %return, label %if.end6.i54, !prof !68
+  br i1 %cmp13.i53, label %return, label %if.end6.i54, !prof !67
 
 if.end6.i54:                                      ; preds = %land.lhs.true24, %if.end6.i54
   %spinCount.014.i55 = phi i32 [ %inc.i56, %if.end6.i54 ], [ 0, %land.lhs.true24 ]
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %inc.i56 = add nuw nsw i32 %spinCount.014.i55, 1
   %10 = load atomic i32, ptr %this acquire, align 4
   store i32 %10, ptr %state, align 4, !tbaa !17
   %cmp.i58 = icmp ult i32 %10, 2048
   %cmp2.i59 = icmp eq i32 %inc.i56, 2
   %or.cond.i60 = select i1 %cmp.i58, i1 true, i1 %cmp2.i59
-  br i1 %or.cond.i60, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit62, label %if.end6.i54, !prof !69, !llvm.loop !109
+  br i1 %or.cond.i60, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit62, label %if.end6.i54, !prof !68, !llvm.loop !108
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit62: ; preds = %if.end6.i54
   br i1 %cmp.i58, label %cleanup33, label %if.then28
@@ -6318,7 +6318,7 @@ if.then28:                                        ; preds = %_ZN5folly15SharedMu
   store i32 %12, ptr %state, align 4, !tbaa !17
   %and.i63 = and i32 %11, 15
   %cmp.not.i = icmp eq i32 %and.i63, 0
-  br i1 %cmp.not.i, label %cleanup33, label %if.then.i, !prof !21
+  br i1 %cmp.not.i, label %cleanup33, label %if.then.i, !prof !20
 
 if.then.i:                                        ; preds = %if.then28
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, i32 noundef 15)
@@ -6347,7 +6347,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -6369,11 +6369,11 @@ while.body6:                                      ; preds = %while.cond2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv8 = trunc i64 %indvars.iv.next to i32
   %exitcond9 = icmp eq i32 %cond.i, %lftr.wideiv8
-  br i1 %exitcond9, label %cleanup, label %while.cond2, !llvm.loop !110
+  br i1 %exitcond9, label %cleanup, label %while.cond2, !llvm.loop !109
 
 while.end:                                        ; preds = %while.cond2
   %3 = trunc i64 %indvars.iv to i32
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   br label %while.cond2.1
 
 while.cond2.1:                                    ; preds = %while.body6.1, %while.end
@@ -6389,10 +6389,10 @@ while.cond2.1:                                    ; preds = %while.body6.1, %whi
 while.body6.1:                                    ; preds = %while.cond2.1
   %inc.1 = add i32 %slot.1.1, 1
   %cmp.1 = icmp eq i32 %inc.1, %cond.i
-  br i1 %cmp.1, label %cleanup, label %while.cond2.1, !llvm.loop !110
+  br i1 %cmp.1, label %cleanup, label %while.cond2.1, !llvm.loop !109
 
 while.end.1:                                      ; preds = %while.cond2.1
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20applyDeferredReadersINS3_9WaitNeverEEEvRjRT_j(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state, ptr noundef nonnull align 1 dereferenceable(1) %ctx, i32 noundef %slot.1.1)
   br label %cleanup
 
@@ -6426,7 +6426,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -6465,7 +6465,7 @@ while.cond:                                       ; preds = %while.body, %_ZN5fo
 while.body:                                       ; preds = %while.cond
   %inc = add i32 %slot.addr.2, 1
   %cmp11 = icmp eq i32 %inc, %cond.i
-  br i1 %cmp11, label %cleanup45, label %while.cond, !llvm.loop !111
+  br i1 %cmp11, label %cleanup45, label %while.cond, !llvm.loop !110
 
 for.body29:                                       ; preds = %if.end37.1, %for.body29.lr.ph.new
   %indvars.iv = phi i64 [ %2, %for.body29.lr.ph.new ], [ %indvars.iv.next.1, %if.end37.1 ]
@@ -6508,7 +6508,7 @@ if.end37.1:                                       ; preds = %seqcst_fail50.i.1, 
   %indvars.iv.next.1 = add nuw nsw i64 %indvars.iv, 2
   %niter.next.1 = add i64 %niter, 2
   %niter.ncmp.1.not = icmp eq i64 %niter.next.1, %unroll_iter
-  br i1 %niter.ncmp.1.not, label %for.end40.unr-lcssa, label %for.body29, !llvm.loop !112
+  br i1 %niter.ncmp.1.not, label %for.end40.unr-lcssa, label %for.body29, !llvm.loop !111
 
 for.end40.unr-lcssa:                              ; preds = %if.end37.1, %for.body29.lr.ph
   %movedSlotCount.1.lcssa.ph = phi i32 [ undef, %for.body29.lr.ph ], [ %movedSlotCount.1.1, %if.end37.1 ]
@@ -6629,7 +6629,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !19
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -6647,18 +6647,18 @@ while.cond:                                       ; preds = %while.cond.backedge
   %5 = load i32, ptr %state, align 4
   %and = and i32 %5, 128
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !21
+  br i1 %cmp.not, label %if.end, label %land.lhs.true, !prof !20
 
 land.lhs.true:                                    ; preds = %while.cond
   %6 = load atomic i32, ptr %this acquire, align 4
   store i32 %6, ptr %state, align 4, !tbaa !17
   %and12.i = and i32 %6, 128
   %cmp13.i = icmp eq i32 %and12.i, 0
-  br i1 %cmp13.i, label %if.end, label %if.end6.i, !prof !68
+  br i1 %cmp13.i, label %if.end, label %if.end6.i, !prof !67
 
 if.end6.i:                                        ; preds = %land.lhs.true, %if.end6.i
   %spinCount.014.i = phi i32 [ %inc.i, %if.end6.i ], [ 0, %land.lhs.true ]
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %inc.i = add nuw nsw i32 %spinCount.014.i, 1
   %7 = load atomic i32, ptr %this acquire, align 4
   store i32 %7, ptr %state, align 4, !tbaa !17
@@ -6666,7 +6666,7 @@ if.end6.i:                                        ; preds = %land.lhs.true, %if.
   %cmp.i = icmp eq i32 %and.i, 0
   %cmp2.i = icmp eq i32 %inc.i, 2
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
-  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %if.end6.i, !prof !69, !llvm.loop !113
+  br i1 %or.cond.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %if.end6.i, !prof !68, !llvm.loop !112
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit: ; preds = %if.end6.i
   br i1 %cmp.i, label %if.end, label %cleanup99
@@ -6847,13 +6847,13 @@ do.cond.i:                                        ; preds = %seqcst_fail50.i.i, 
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i, !prof !19
 
 cond.false.i.i:                                   ; preds = %do.cond.i
-  %call3.i.i = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18, !range !20
+  %call3.i.i = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #18
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i: ; preds = %cond.false.i.i, %do.cond.i
   %cond.i.i = phi i32 [ %call3.i.i, %cond.false.i.i ], [ %38, %do.cond.i ]
   %cmp12.i = icmp ult i32 %inc.i158, %cond.i.i
-  br i1 %cmp12.i, label %do.body.i, label %if.then85, !llvm.loop !114
+  br i1 %cmp12.i, label %do.body.i, label %if.then85, !llvm.loop !113
 
 if.then85:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #17
@@ -6864,7 +6864,7 @@ if.then85:                                        ; preds = %_ZN5folly19shared_m
   %and.i.i = and i32 %39, 16
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   %or.cond.i160 = or i1 %cmp.i159, %cmp.not.i.i
-  br i1 %or.cond.i160, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !27
+  br i1 %or.cond.i160, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, label %if.then.i.i, !prof !26
 
 if.then.i.i:                                      ; preds = %if.then85
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i, i32 noundef 16)
@@ -6888,7 +6888,7 @@ if.then89:                                        ; preds = %if.else
   %and.i.i167 = and i32 %43, 16
   %cmp.not.i.i168 = icmp eq i32 %and.i.i167, 0
   %or.cond.i169 = or i1 %cmp.i166, %cmp.not.i.i168
-  br i1 %or.cond.i169, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit172, label %if.then.i.i170, !prof !27
+  br i1 %or.cond.i169, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit172, label %if.then.i.i170, !prof !26
 
 if.then.i.i170:                                   ; preds = %if.then89
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %state.i165, i32 noundef 16)
@@ -6899,7 +6899,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit172, %if.else, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlockSharedInlineEv.exit, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE32tryUnlockTokenlessSharedDeferredEv.exit.thread, %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit, %if.then50, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-  br label %while.cond, !llvm.loop !115
+  br label %while.cond, !llvm.loop !114
 
 cleanup99:                                        ; preds = %if.end72.thread, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, %if.then77, %if.then40, %if.then38
   %retval.3 = phi i1 [ true, %if.then40 ], [ true, %if.then38 ], [ true, %if.then77 ], [ false, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit ], [ true, %if.end72.thread ]
@@ -6976,18 +6976,18 @@ do.body.i:                                        ; preds = %seqcst_fail50.i.i, 
   %0 = load atomic i32, ptr %this acquire, align 4
   %and12.i.i = and i32 %0, 224
   %cmp13.i.i = icmp eq i32 %and12.i.i, 0
-  br i1 %cmp13.i.i, label %seqcst_fail50.i.i, label %if.end6.i.i, !prof !68
+  br i1 %cmp13.i.i, label %seqcst_fail50.i.i, label %if.end6.i.i, !prof !67
 
 if.end6.i.i:                                      ; preds = %do.body.i, %if.end6.i.i
   %spinCount.014.i.i = phi i32 [ %inc.i.i, %if.end6.i.i ], [ 0, %do.body.i ]
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %inc.i.i = add nuw nsw i32 %spinCount.014.i.i, 1
   %1 = load atomic i32, ptr %this acquire, align 4
   %and.i.i = and i32 %1, 224
   %cmp.i.i = icmp eq i32 %and.i.i, 0
   %cmp2.i.i = icmp eq i32 %inc.i.i, 2
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.i.i
-  br i1 %or.cond.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i, label %if.end6.i.i, !prof !69, !llvm.loop !116
+  br i1 %or.cond.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i, label %if.end6.i.i, !prof !68, !llvm.loop !115
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i: ; preds = %if.end6.i.i
   br i1 %cmp.i.i, label %seqcst_fail50.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_9WaitNeverEEEbRT_.exit
@@ -6997,7 +6997,7 @@ seqcst_fail50.i.i:                                ; preds = %_ZN5folly15SharedMu
   %or.i = or i32 %state.08.i, 32
   %2 = cmpxchg ptr %this, i32 %state.08.i, i32 %or.i seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_9WaitNeverEEEbRT_.exit, label %do.body.i, !llvm.loop !117
+  br i1 %3, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_9WaitNeverEEEbRT_.exit, label %do.body.i, !llvm.loop !116
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15lockUpgradeImplINS3_9WaitNeverEEEbRT_.exit: ; preds = %seqcst_fail50.i.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i
   %cmp.lcssa.i9.i = phi i1 [ false, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit.i ], [ true, %seqcst_fail50.i.i ]
@@ -7013,9 +7013,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly19shared_mutex_detail15annotationGuardEPv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_lock") align 8 %agg.result, ptr nocapture noundef readnone %ptr) local_unnamed_addr #10 {
 entry:
-  store ptr null, ptr %agg.result, align 8, !tbaa !118
+  store ptr null, ptr %agg.result, align 8, !tbaa !117
   %_M_owns.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i8 0, ptr %_M_owns.i, align 8, !tbaa !121
+  store i8 0, ptr %_M_owns.i, align 8, !tbaa !120
   ret void
 }
 
@@ -7078,22 +7078,22 @@ define linkonce_odr void @_ZNSt12system_errorC2ESt10error_code(ptr noundef nonnu
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #17
-  %vtable.i = load ptr, ptr %__ec.coerce1, align 8, !tbaa !122, !noalias !124
+  %vtable.i = load ptr, ptr %__ec.coerce1, align 8, !tbaa !121, !noalias !123
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %0 = load ptr, ptr %vfn.i, align 8, !noalias !124
+  %0 = load ptr, ptr %vfn.i, align 8, !noalias !123
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__ec.coerce1, i32 noundef %__ec.coerce0)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !127
+  %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !126
   %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !130
+  %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !129
   %cmp3.i.i.i = icmp ult i64 %3, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -7104,24 +7104,24 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !122
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !121
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !17
   %__ec.sroa.39.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %__ec.coerce1, ptr %__ec.sroa.39.0._M_code.sroa_idx, align 8, !tbaa !51
+  store ptr %__ec.coerce1, ptr %__ec.sroa.39.0._M_code.sroa_idx, align 8, !tbaa !50
   ret void
 
 lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !127
+  %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !126
   %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i3 = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %if.then.i.i4
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %lpad
   %_M_string_length.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %7 = load i64, ptr %_M_string_length.i.i.i6, align 8, !tbaa !130
+  %7 = load i64, ptr %_M_string_length.i.i.i6, align 8, !tbaa !129
   %cmp3.i.i.i7 = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i7)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
@@ -7144,10 +7144,10 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !122
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !121
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !131
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !130
   ret void
 }
 
@@ -7227,115 +7227,114 @@ attributes #23 = { builtin nounwind }
 !17 = !{!18, !18, i64 0}
 !18 = !{!"int", !10, i64 0}
 !19 = !{!"branch_weights", i32 1, i32 2000}
-!20 = !{i32 0, i32 513}
-!21 = !{!"branch_weights", i32 2000, i32 1}
-!22 = !{i64 4541524}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
-!27 = !{!"branch_weights", i32 4001, i32 1}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = !{!32, !33, i64 0}
-!32 = !{!"_ZTSN5folly13CacheLocalityE", !33, i64 0, !34, i64 8, !34, i64 32}
-!33 = !{!"long", !10, i64 0}
-!34 = !{!"_ZTSSt6vectorImSaImEE", !35, i64 0}
-!35 = !{!"_ZTSSt12_Vector_baseImSaImEE", !36, i64 0}
-!36 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !37, i64 0}
-!37 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
-!38 = !{i64 0, i64 65}
-!39 = distinct !{!39, !24}
-!40 = distinct !{!40, !24}
-!41 = !{i64 0, i64 2, !42, i64 2, i64 2, !43}
-!42 = !{!13, !13, i64 0}
-!43 = !{!14, !14, i64 0}
-!44 = !{!45, !9, i64 0}
-!45 = !{!"_ZTSN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderE", !9, i64 0}
-!46 = !{!47, !9, i64 0}
-!47 = !{!"_ZTSN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderE", !9, i64 0}
-!48 = distinct !{!48, !24}
-!49 = distinct !{!49, !24}
-!50 = distinct !{!50, !24}
-!51 = !{!9, !9, i64 0}
-!52 = distinct !{!52, !24}
-!53 = distinct !{!53, !24}
-!54 = distinct !{!54, !24}
-!55 = distinct !{!55, !24}
-!56 = distinct !{!56, !24}
-!57 = distinct !{!57, !24}
-!58 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!59 = distinct !{!59, !24}
-!60 = distinct !{!60, !24}
-!61 = distinct !{!61, !24}
-!62 = distinct !{!62, !24}
-!63 = distinct !{!63, !24}
-!64 = distinct !{!64, !24}
-!65 = !{!66, !18, i64 0}
-!66 = !{!"_ZTSSt13__atomic_baseIjE", !18, i64 0}
-!67 = distinct !{!67, !24}
-!68 = !{!"branch_weights", i32 2, i32 2000}
-!69 = !{!"branch_weights", i32 2000, i32 0}
-!70 = distinct !{!70, !24}
-!71 = distinct !{!71, !24}
-!72 = distinct !{!72, !24}
-!73 = distinct !{!73, !24}
-!74 = distinct !{!74, !24}
-!75 = distinct !{!75, !24}
-!76 = distinct !{!76, !24}
-!77 = distinct !{!77, !24}
-!78 = distinct !{!78, !24}
-!79 = distinct !{!79, !24}
-!80 = distinct !{!80, !24}
-!81 = !{!82, !9, i64 0}
-!82 = !{!"_ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderE", !9, i64 0, !12, i64 8}
-!83 = distinct !{!83, !24}
-!84 = distinct !{!84, !24}
-!85 = distinct !{!85, !24}
-!86 = distinct !{!86, !24}
-!87 = distinct !{!87, !24}
-!88 = distinct !{!88, !24}
-!89 = distinct !{!89, !24}
-!90 = distinct !{!90, !24}
-!91 = !{!92, !9, i64 0}
-!92 = !{!"_ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderE", !9, i64 0}
-!93 = !{!94, !9, i64 0}
-!94 = !{!"_ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderE", !9, i64 0}
-!95 = distinct !{!95, !24}
-!96 = distinct !{!96, !24}
-!97 = distinct !{!97, !24}
-!98 = distinct !{!98, !24}
-!99 = distinct !{!99, !24}
-!100 = distinct !{!100, !24}
-!101 = distinct !{!101, !24}
-!102 = distinct !{!102, !24}
-!103 = distinct !{!103, !24}
-!104 = distinct !{!104, !24}
-!105 = distinct !{!105, !24}
-!106 = distinct !{!106, !24}
-!107 = distinct !{!107, !24}
-!108 = distinct !{!108, !24}
-!109 = distinct !{!109, !24}
-!110 = distinct !{!110, !24}
-!111 = distinct !{!111, !24}
-!112 = distinct !{!112, !24}
-!113 = distinct !{!113, !24}
-!114 = distinct !{!114, !24}
-!115 = distinct !{!115, !24}
-!116 = distinct !{!116, !24}
-!117 = distinct !{!117, !24}
-!118 = !{!119, !9, i64 0}
-!119 = !{!"_ZTSSt11unique_lockISt5mutexE", !9, i64 0, !120, i64 8}
-!120 = !{!"bool", !10, i64 0}
-!121 = !{!119, !120, i64 8}
-!122 = !{!123, !123, i64 0}
-!123 = !{!"vtable pointer", !11, i64 0}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZNKSt10error_code7messageB5cxx11Ev: %agg.result"}
-!126 = distinct !{!126, !"_ZNKSt10error_code7messageB5cxx11Ev"}
-!127 = !{!128, !9, i64 0}
-!128 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !129, i64 0, !33, i64 8, !10, i64 16}
-!129 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
-!130 = !{!128, !33, i64 8}
-!131 = !{i64 0, i64 4, !17, i64 8, i64 8, !51}
+!20 = !{!"branch_weights", i32 2000, i32 1}
+!21 = !{i64 4541524}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = !{!"branch_weights", i32 4001, i32 1}
+!27 = distinct !{!27, !23}
+!28 = distinct !{!28, !23}
+!29 = distinct !{!29, !23}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"_ZTSN5folly13CacheLocalityE", !32, i64 0, !33, i64 8, !33, i64 32}
+!32 = !{!"long", !10, i64 0}
+!33 = !{!"_ZTSSt6vectorImSaImEE", !34, i64 0}
+!34 = !{!"_ZTSSt12_Vector_baseImSaImEE", !35, i64 0}
+!35 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !36, i64 0}
+!36 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!37 = !{i64 0, i64 65}
+!38 = distinct !{!38, !23}
+!39 = distinct !{!39, !23}
+!40 = !{i64 0, i64 2, !41, i64 2, i64 2, !42}
+!41 = !{!13, !13, i64 0}
+!42 = !{!14, !14, i64 0}
+!43 = !{!44, !9, i64 0}
+!44 = !{!"_ZTSN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderE", !9, i64 0}
+!45 = !{!46, !9, i64 0}
+!46 = !{!"_ZTSN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderE", !9, i64 0}
+!47 = distinct !{!47, !23}
+!48 = distinct !{!48, !23}
+!49 = distinct !{!49, !23}
+!50 = !{!9, !9, i64 0}
+!51 = distinct !{!51, !23}
+!52 = distinct !{!52, !23}
+!53 = distinct !{!53, !23}
+!54 = distinct !{!54, !23}
+!55 = distinct !{!55, !23}
+!56 = distinct !{!56, !23}
+!57 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!58 = distinct !{!58, !23}
+!59 = distinct !{!59, !23}
+!60 = distinct !{!60, !23}
+!61 = distinct !{!61, !23}
+!62 = distinct !{!62, !23}
+!63 = distinct !{!63, !23}
+!64 = !{!65, !18, i64 0}
+!65 = !{!"_ZTSSt13__atomic_baseIjE", !18, i64 0}
+!66 = distinct !{!66, !23}
+!67 = !{!"branch_weights", i32 2, i32 2000}
+!68 = !{!"branch_weights", i32 2000, i32 0}
+!69 = distinct !{!69, !23}
+!70 = distinct !{!70, !23}
+!71 = distinct !{!71, !23}
+!72 = distinct !{!72, !23}
+!73 = distinct !{!73, !23}
+!74 = distinct !{!74, !23}
+!75 = distinct !{!75, !23}
+!76 = distinct !{!76, !23}
+!77 = distinct !{!77, !23}
+!78 = distinct !{!78, !23}
+!79 = distinct !{!79, !23}
+!80 = !{!81, !9, i64 0}
+!81 = !{!"_ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderE", !9, i64 0, !12, i64 8}
+!82 = distinct !{!82, !23}
+!83 = distinct !{!83, !23}
+!84 = distinct !{!84, !23}
+!85 = distinct !{!85, !23}
+!86 = distinct !{!86, !23}
+!87 = distinct !{!87, !23}
+!88 = distinct !{!88, !23}
+!89 = distinct !{!89, !23}
+!90 = !{!91, !9, i64 0}
+!91 = !{!"_ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13UpgradeHolderE", !9, i64 0}
+!92 = !{!93, !9, i64 0}
+!93 = !{!"_ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderE", !9, i64 0}
+!94 = distinct !{!94, !23}
+!95 = distinct !{!95, !23}
+!96 = distinct !{!96, !23}
+!97 = distinct !{!97, !23}
+!98 = distinct !{!98, !23}
+!99 = distinct !{!99, !23}
+!100 = distinct !{!100, !23}
+!101 = distinct !{!101, !23}
+!102 = distinct !{!102, !23}
+!103 = distinct !{!103, !23}
+!104 = distinct !{!104, !23}
+!105 = distinct !{!105, !23}
+!106 = distinct !{!106, !23}
+!107 = distinct !{!107, !23}
+!108 = distinct !{!108, !23}
+!109 = distinct !{!109, !23}
+!110 = distinct !{!110, !23}
+!111 = distinct !{!111, !23}
+!112 = distinct !{!112, !23}
+!113 = distinct !{!113, !23}
+!114 = distinct !{!114, !23}
+!115 = distinct !{!115, !23}
+!116 = distinct !{!116, !23}
+!117 = !{!118, !9, i64 0}
+!118 = !{!"_ZTSSt11unique_lockISt5mutexE", !9, i64 0, !119, i64 8}
+!119 = !{!"bool", !10, i64 0}
+!120 = !{!118, !119, i64 8}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"vtable pointer", !11, i64 0}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZNKSt10error_code7messageB5cxx11Ev: %agg.result"}
+!125 = distinct !{!125, !"_ZNKSt10error_code7messageB5cxx11Ev"}
+!126 = !{!127, !9, i64 0}
+!127 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !128, i64 0, !32, i64 8, !10, i64 16}
+!128 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
+!129 = !{!127, !32, i64 8}
+!130 = !{i64 0, i64 4, !17, i64 8, i64 8, !50}

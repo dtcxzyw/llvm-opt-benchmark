@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_aria_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
+define internal range(i32 0, 2) i32 @cipher_hw_aria_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
   %ks2 = getelementptr inbounds i8, ptr %dat, i64 192
   %enc = getelementptr inbounds i8, ptr %dat, i64 108

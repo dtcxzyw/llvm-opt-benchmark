@@ -346,7 +346,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_alc_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_alc_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @test_alc_over_slt(ptr noundef %1, ptr noundef %0, i32 noundef 0, ptr noundef %3) #2
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6

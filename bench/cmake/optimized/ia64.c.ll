@@ -48,7 +48,7 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
 18:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 5, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %.06069 = phi i64 [ 0, %.lr.ph ], [ %67, %.loopexit ]
-  %19 = trunc i64 %.06069 to i32
+  %19 = trunc nuw nsw i64 %.06069 to i32
   %20 = shl nuw nsw i32 1, %19
   %21 = and i32 %20, %13
   %22 = icmp eq i32 %21, 0
@@ -87,7 +87,7 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
   %41 = lshr i64 %36, 16
   %42 = and i64 %41, 1048576
   %43 = or disjoint i64 %40, %42
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw nsw i64 %43 to i32
   %45 = add nuw nsw i32 %17, %44
   %46 = and i64 %36, -1451698941441
   %47 = and i32 %45, 1048575
@@ -98,7 +98,7 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
   %52 = zext nneg i32 %51 to i64
   %53 = shl nuw nsw i64 %52, 16
   %54 = or disjoint i64 %50, %53
-  %55 = trunc i64 %35 to i32
+  %55 = trunc nuw nsw i64 %35 to i32
   %notmask = shl nsw i32 -1, %55
   %56 = xor i32 %notmask, -1
   %57 = zext nneg i32 %56 to i64

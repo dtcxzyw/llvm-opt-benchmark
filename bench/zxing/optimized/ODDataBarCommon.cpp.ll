@@ -259,7 +259,7 @@ define noundef zeroext i1 @_ZN5ZXing4OneD7DataBar20ReadDataCharacterRawERKNS_11P
   %8 = load ptr, ptr %0, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %5
+.lr.ph.i.i.i:                                     ; preds = %5, %.lr.ph.i.i.i
   %.08.i.i.i.idx = phi i64 [ %.08.i.i.i.add, %.lr.ph.i.i.i ], [ 0, %5 ]
   %.057.i.i.i = phi i16 [ %10, %.lr.ph.i.i.i ], [ 0, %5 ]
   %.08.i.i.i.ptr = getelementptr inbounds i8, ptr %8, i64 %.08.i.i.i.idx

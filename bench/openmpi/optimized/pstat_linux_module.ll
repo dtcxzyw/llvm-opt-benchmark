@@ -2704,7 +2704,7 @@ local_stripper.exit792._crit_edge:                ; preds = %local_stripper.exit
   %1396 = getelementptr inbounds i8, ptr %19, i64 48
   store i32 1, ptr %1396, align 8
   %1397 = getelementptr inbounds i8, ptr %19, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1397, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %1397, i8 0, i64 64, i1 false)
   %1398 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %1399 = load ptr, ptr %1398, align 8
   %.not6.i = icmp eq ptr %1399, null
@@ -3076,7 +3076,7 @@ local_getline.exit849:                            ; preds = %local_getline.exit8
   %1592 = getelementptr inbounds i8, ptr %19, i64 48
   store i32 1, ptr %1592, align 8
   %1593 = getelementptr inbounds i8, ptr %19, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1593, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %1593, i8 0, i64 64, i1 false)
   %1594 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %1595 = load ptr, ptr %1594, align 8
   %.not6.i850 = icmp eq ptr %1595, null

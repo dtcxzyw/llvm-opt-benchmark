@@ -222,7 +222,7 @@ if.end7:                                          ; preds = %if.then5, %do.end
   %granularity.addr.0 = phi i32 [ %call6, %if.then5 ], [ %granularity, %do.end ]
   %conv = zext i32 %granularity.addr.0 to i64
   %tobool.not.i = icmp ne i32 %granularity.addr.0, 0
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %conv), !range !5
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv)
   %tobool1.not.i = icmp ult i64 %0, 2
   %or.cond = select i1 %tobool.not.i, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end11, label %if.else10
@@ -496,7 +496,7 @@ cond.true.i.i139:                                 ; preds = %for.inc
 bdrv_filter_or_cow_bs.exit141:                    ; preds = %for.inc, %cond.true.i.i139
   %cond.i.i140 = phi ptr [ %12, %cond.true.i.i139 ], [ null, %for.inc ]
   %cmp148.not = icmp eq ptr %cond.i.i140, %target
-  br i1 %cmp148.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %cmp148.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %bdrv_filter_or_cow_bs.exit141, %bdrv_filter_or_cow_bs.exit
   %call162 = tail call i32 @bdrv_freeze_backing_chain(ptr noundef nonnull %call28, ptr noundef %target, ptr noundef %errp) #11
@@ -1469,7 +1469,7 @@ for.end.us:                                       ; preds = %for.inc.us.us, %whi
   %4 = load ptr, ptr %in_flight_bitmap, align 8
   %call.us = tail call i64 @find_next_bit(ptr noundef %4, i64 noundef %div4, i64 noundef %div) #11
   %cmp.us = icmp ult i64 %call.us, %div4
-  br i1 %cmp.us, label %land.rhs.us, label %while.end, !llvm.loop !8
+  br i1 %cmp.us, label %land.rhs.us, label %while.end, !llvm.loop !7
 
 if.end.us.us:                                     ; preds = %for.inc.us.us, %for.body.us.us.preheader
   %op.031.us.us = phi ptr [ %op.0.us.us, %for.inc.us.us ], [ %op.029.us, %for.body.us.us.preheader ]
@@ -1492,7 +1492,7 @@ for.inc.us.us:                                    ; preds = %if.end.us.us
   %next.us.us = getelementptr inbounds i8, ptr %op.031.us.us, i64 112
   %op.0.us.us = load ptr, ptr %next.us.us, align 8
   %tobool.not.us.us = icmp eq ptr %op.0.us.us, null
-  br i1 %tobool.not.us.us, label %for.end.us, label %if.end.us.us, !llvm.loop !9
+  br i1 %tobool.not.us.us, label %for.end.us, label %if.end.us.us, !llvm.loop !8
 
 if.then22.us.us:                                  ; preds = %if.end.us.us
   %waiting_requests.c.us = getelementptr inbounds i8, ptr %op.031.us.us, i64 80
@@ -1548,13 +1548,13 @@ for.inc:                                          ; preds = %if.end, %if.then22,
   %next = getelementptr inbounds i8, ptr %op.031, i64 112
   %op.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %op.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %while.body, %if.then32
   %12 = load ptr, ptr %in_flight_bitmap, align 8
   %call = tail call i64 @find_next_bit(ptr noundef %12, i64 noundef %div4, i64 noundef %div) #11
   %cmp = icmp ult i64 %call, %div4
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !8
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %for.end, %land.rhs.us, %for.end.us, %entry
   ret void
@@ -1713,7 +1713,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 while.body52:                                     ; preds = %land.rhs
   tail call void @job_yield(ptr noundef nonnull %job) #11
   %call51 = tail call zeroext i1 @job_cancel_requested(ptr noundef nonnull %job) #11
-  br i1 %call51, label %immediate_exit, label %land.rhs, !llvm.loop !10
+  br i1 %call51, label %immediate_exit, label %land.rhs, !llvm.loop !9
 
 if.end56:                                         ; preds = %if.end39
   %granularity = getelementptr inbounds i8, ptr %job, i64 608
@@ -1826,7 +1826,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %sub.i = sub i64 %buf_size.017.i, %conv19.i
   %add.ptr.i = getelementptr i8, ptr %buf.016.i, i64 %conv19.i
   %cmp8.not.i = icmp eq i64 %sub.i, 0
-  br i1 %cmp8.not.i, label %mirror_free_init.exit, label %while.body.i, !llvm.loop !11
+  br i1 %cmp8.not.i, label %mirror_free_init.exit, label %while.body.i, !llvm.loop !10
 
 mirror_free_init.exit:                            ; preds = %while.body.i, %do.body.i
   %call105 = call i64 @qemu_clock_get_ns(i32 noundef 0) #11
@@ -1838,7 +1838,7 @@ mirror_free_init.exit:                            ; preds = %while.body.i, %do.b
   br i1 %tobool106, label %if.end117, label %if.then107
 
 if.then107:                                       ; preds = %mirror_free_init.exit
-  %call108 = call i32 @mirror_dirty_init(ptr noundef nonnull %job), !range !12
+  %call108 = call i32 @mirror_dirty_init(ptr noundef nonnull %job)
   %cmp109 = icmp slt i32 %call108, 0
   br i1 %cmp109, label %immediate_exit, label %lor.lhs.false
 
@@ -1987,7 +1987,7 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i142 = icmp eq ptr %op.0.i, null
-  br i1 %tobool.not.i142, label %for.end.i, label %for.body.i, !llvm.loop !13
+  br i1 %tobool.not.i142, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %trace_mirror_yield.exit, %for.inc.i
   call void @abort() #12
@@ -2317,7 +2317,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i,
   %next.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 112
   %op.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i203 = icmp eq ptr %op.0.i.i, null
-  br i1 %tobool.not.i.i203, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
+  br i1 %tobool.not.i.i203, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %while.body.i202, %for.inc.i.i
   call void @abort() #12
@@ -2328,7 +2328,7 @@ mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
   %85 = load i32, ptr %in_flight284, align 8
   %cmp.not.i = icmp eq i32 %85, 0
-  br i1 %cmp.not.i, label %if.end308, label %while.body.i202, !llvm.loop !14
+  br i1 %cmp.not.i, label %if.end308, label %while.body.i202, !llvm.loop !12
 
 if.end308:                                        ; preds = %mirror_wait_for_free_in_flight_slot.exit.i, %immediate_exit, %if.end301
   %buf309 = getelementptr inbounds i8, ptr %job, i64 656
@@ -2395,7 +2395,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i,
   %next.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 112
   %op.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %op.0.i.i, null
-  br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
+  br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %while.body.i, %for.inc.i.i
   tail call void @abort() #12
@@ -2406,7 +2406,7 @@ mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
   %4 = load i32, ptr %in_flight.i, align 8
   %cmp.not.i = icmp eq i32 %4, 0
-  br i1 %cmp.not.i, label %mirror_wait_for_all_io.exit, label %while.body.i, !llvm.loop !14
+  br i1 %cmp.not.i, label %mirror_wait_for_all_io.exit, label %while.body.i, !llvm.loop !12
 
 mirror_wait_for_all_io.exit:                      ; preds = %mirror_wait_for_free_in_flight_slot.exit.i, %entry
   ret void
@@ -2660,7 +2660,7 @@ declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @mirror_dirty_init(ptr noundef %s) #0 {
+define internal range(i32 -2147483648, 1) i32 @mirror_dirty_init(ptr noundef %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %count = alloca i64, align 8
@@ -2805,7 +2805,7 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %trace_mirror_yield.exit, %for.inc.i
   tail call void @abort() #12
@@ -2816,7 +2816,7 @@ mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   %23 = load i64, ptr %bdev_length4, align 8
   %cmp = icmp slt i64 %offset.0.ph72, %23
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 if.end16:                                         ; preds = %if.end11
   %sub.le = sub i64 %9, %offset.0.ph72
@@ -2830,7 +2830,7 @@ if.end16:                                         ; preds = %if.end11
   %add = add i64 %conv18, %offset.0.ph72
   %25 = load i64, ptr %bdev_length4, align 8
   %cmp70 = icmp slt i64 %add, %25
-  br i1 %cmp70, label %for.body.lr.ph, label %for.end, !llvm.loop !15
+  br i1 %cmp70, label %for.body.lr.ph, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end16, %mirror_wait_for_free_in_flight_slot.exit, %if.end
   %in_flight.i = getelementptr inbounds i8, ptr %s, i64 704
@@ -2870,7 +2870,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i,
   %next.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 112
   %op.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %op.0.i.i, null
-  br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
+  br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %while.body.i, %for.inc.i.i
   tail call void @abort() #12
@@ -2881,7 +2881,7 @@ mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
   %30 = load i32, ptr %in_flight.i, align 8
   %cmp.not.i = icmp eq i32 %30, 0
-  br i1 %cmp.not.i, label %mirror_wait_for_all_io.exit, label %while.body.i, !llvm.loop !14
+  br i1 %cmp.not.i, label %mirror_wait_for_all_io.exit, label %while.body.i, !llvm.loop !12
 
 mirror_wait_for_all_io.exit:                      ; preds = %mirror_wait_for_free_in_flight_slot.exit.i, %for.end
   store i8 0, ptr %initial_zeroing_ongoing, align 8
@@ -2961,7 +2961,7 @@ if.end64:                                         ; preds = %if.then62, %if.end5
   %add65 = add i64 %39, %offset.174
   %40 = load i64, ptr %bdev_length22, align 8
   %cmp23 = icmp slt i64 %add65, %40
-  br i1 %cmp23, label %for.body25, label %return, !llvm.loop !16
+  br i1 %cmp23, label %for.body25, label %return, !llvm.loop !14
 
 return:                                           ; preds = %mirror_throttle.exit55, %if.end45, %if.end64, %if.end20, %if.then9, %if.then3
   %retval.0 = phi i32 [ 0, %if.then9 ], [ 0, %if.then3 ], [ 0, %if.end20 ], [ 0, %mirror_throttle.exit55 ], [ %call51, %if.end45 ], [ 0, %if.end64 ]
@@ -3010,7 +3010,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %next = getelementptr inbounds i8, ptr %op.09, i64 112
   %op.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %op.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %entry
   tail call void @abort() #12
@@ -3126,7 +3126,7 @@ while.body:                                       ; preds = %if.end50
   %div24 = sdiv i64 %add, %30
   %21 = load i64, ptr %bdev_length, align 8
   %cmp25.not = icmp slt i64 %add, %21
-  br i1 %cmp25.not, label %lor.lhs.false, label %while.end.loopexit, !llvm.loop !17
+  br i1 %cmp25.not, label %lor.lhs.false, label %while.end.loopexit, !llvm.loop !15
 
 lor.lhs.false:                                    ; preds = %lor.lhs.false.lr.ph, %while.body
   %div24171 = phi i64 [ %div24166, %lor.lhs.false.lr.ph ], [ %div24, %while.body ]
@@ -3179,7 +3179,7 @@ if.end50:                                         ; preds = %if.end45
   %mul = mul i64 %30, %conv16
   %31 = load i64, ptr %buf_size, align 8
   %cmp18 = icmp ult i64 %mul, %31
-  br i1 %cmp18, label %while.body, label %while.end.loopexit, !llvm.loop !17
+  br i1 %cmp18, label %while.body, label %while.end.loopexit, !llvm.loop !15
 
 while.end.loopexit:                               ; preds = %if.end50, %lor.lhs.false, %while.body, %if.end30, %while.body.lr.ph
   %nb_chunks.0.lcssa.ph = phi i32 [ 1, %while.body.lr.ph ], [ %inc, %if.end50 ], [ %nb_chunks.0143169, %lor.lhs.false ], [ %inc, %while.body ], [ %nb_chunks.0143169, %if.end30 ]
@@ -3390,7 +3390,7 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %trace_mirror_yield_in_flight.exit, %for.inc.i
   call void @abort() #12
@@ -3401,7 +3401,7 @@ mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   %62 = load i32, ptr %in_flight, align 8
   %cmp155 = icmp ugt i32 %62, 15
-  br i1 %cmp155, label %while.body157, label %while.end159, !llvm.loop !18
+  br i1 %cmp155, label %while.body157, label %while.end159, !llvm.loop !16
 
 while.end159:                                     ; preds = %mirror_wait_for_free_in_flight_slot.exit, %if.end153
   %63 = load i32, ptr %ret160, align 8
@@ -3438,7 +3438,7 @@ if.end180:                                        ; preds = %if.end164
   %conv189 = sub i32 %nb_chunks.1155, %66
   call void @block_job_ratelimit_processed_bytes(ptr noundef nonnull %s, i64 noundef %io_bytes_acct.0) #11
   %cmp74 = icmp sgt i32 %conv189, 0
-  br i1 %cmp74, label %land.rhs, label %do.body192, !llvm.loop !19
+  br i1 %cmp74, label %land.rhs, label %do.body192, !llvm.loop !17
 
 do.body192:                                       ; preds = %land.rhs, %if.end180, %while.end159, %while.end
   %67 = load ptr, ptr %next, align 8
@@ -3539,7 +3539,7 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %while.body, %for.inc.i
   tail call void @abort() #12
@@ -3550,7 +3550,7 @@ mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   %4 = load i32, ptr %in_flight, align 8
   %cmp.not = icmp eq i32 %4, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %mirror_wait_for_free_in_flight_slot.exit, %entry
   ret void
@@ -3640,7 +3640,7 @@ if.else23:                                        ; preds = %if.end
   unreachable
 
 if.end24:                                         ; preds = %if.end
-  %conv25 = trunc i64 %2 to i32
+  %conv25 = trunc nuw i64 %2 to i32
   ret i32 %conv25
 }
 
@@ -3707,7 +3707,7 @@ if.end17:                                         ; preds = %if.end
 
 if.then20:                                        ; preds = %if.end17
   %offset = getelementptr inbounds i8, ptr %opaque, i64 48
-  %call = tail call i32 @mirror_cow_align(ptr noundef nonnull %0, ptr noundef nonnull %offset, ptr noundef nonnull %bytes), !range !20
+  %call = tail call i32 @mirror_cow_align(ptr noundef nonnull %0, ptr noundef nonnull %offset, ptr noundef nonnull %bytes)
   %conv22 = zext nneg i32 %call to i64
   %7 = load ptr, ptr %bytes_handled, align 8
   %8 = load i64, ptr %7, align 8
@@ -3835,7 +3835,7 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %trace_mirror_yield_in_flight.exit, %for.inc.i
   tail call void @abort() #12
@@ -3846,7 +3846,7 @@ mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   %27 = load i32, ptr %buf_free_count, align 8
   %cmp57 = icmp slt i32 %27, %conv56
-  br i1 %cmp57, label %while.body, label %while.end, !llvm.loop !21
+  br i1 %cmp57, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %mirror_wait_for_free_in_flight_slot.exit, %if.end51
   %qiov = getelementptr inbounds i8, ptr %opaque, i64 8
@@ -3885,7 +3885,7 @@ if.end77:                                         ; preds = %if.then73, %while.b
   %cond90 = tail call i64 @llvm.umin.i64(i64 %33, i64 %sub66)
   tail call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %28, i64 noundef %cond90) #11
   %cmp61 = icmp ugt i32 %dec82.in, 1
-  br i1 %cmp61, label %while.body63, label %while.end91, !llvm.loop !22
+  br i1 %cmp61, label %while.body63, label %while.end91, !llvm.loop !19
 
 while.end91:                                      ; preds = %if.end77, %while.end
   %in_flight92 = getelementptr inbounds i8, ptr %0, i64 704
@@ -4077,7 +4077,7 @@ mirror_write_complete.exit:                       ; preds = %entry, %if.then.i, 
 declare void @qemu_coroutine_enter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @mirror_cow_align(ptr nocapture noundef readonly %s, ptr nocapture noundef %offset, ptr nocapture noundef %bytes) #0 {
+define internal range(i32 0, -2147483648) i32 @mirror_cow_align(ptr nocapture noundef readonly %s, ptr nocapture noundef %offset, ptr nocapture noundef %bytes) #0 {
 entry:
   %align_offset = alloca i64, align 8
   %align_bytes = alloca i64, align 8
@@ -4325,7 +4325,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %17 = load i32, ptr %niov, align 8
   %18 = sext i32 %17 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %18
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %trace_mirror_iteration_done.exit
   %19 = load i64, ptr %offset, align 8
@@ -4792,22 +4792,19 @@ attributes #14 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i32 -2147483648, i32 1}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = !{i32 0, i32 -2147483648}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}

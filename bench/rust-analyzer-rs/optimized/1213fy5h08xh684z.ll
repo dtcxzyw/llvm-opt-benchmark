@@ -541,8 +541,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.
 129:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.thread125
   %130 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.idx = shl nuw nsw i64 %125, 2
-  %131 = getelementptr i8, ptr %130, i64 %.idx
-  %.ptr132 = getelementptr i8, ptr %131, i64 132
+  %131 = getelementptr inbounds i8, ptr %130, i64 %.idx
+  %.ptr132 = getelementptr inbounds i8, ptr %131, i64 132
   %132 = icmp eq i8 %.val70, 0
   br i1 %132, label %._crit_edge, label %.lr.ph.preheader
 

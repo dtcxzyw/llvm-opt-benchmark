@@ -155,7 +155,7 @@ define dso_local void @g_make_token_header(ptr nocapture noundef readonly %0, i3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local i32 @g_verify_token_header(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, i32 noundef %3) #3 align 16 {
   %5 = add i32 %3, -1
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.thread, label %7

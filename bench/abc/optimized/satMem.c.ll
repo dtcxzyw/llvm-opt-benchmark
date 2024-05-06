@@ -558,7 +558,7 @@ Sat_MmFixedStart.exit.preheader:                  ; preds = %1
 
 Sat_MmFixedStart.exit:                            ; preds = %Sat_MmFixedStart.exit.preheader, %Sat_MmFixedStart.exit
   %indvars.iv = phi i64 [ 0, %Sat_MmFixedStart.exit.preheader ], [ %indvars.iv.next, %Sat_MmFixedStart.exit ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = shl i32 8, %8
   %calloc.i = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   store i32 %9, ptr %calloc.i, align 8
@@ -620,7 +620,7 @@ Sat_MmFixedStart.exit:                            ; preds = %Sat_MmFixedStart.ex
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %._crit_edge43
   %indvars.iv56 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next57, %._crit_edge43 ]
-  %30 = trunc i64 %indvars.iv56 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv56 to i32
   %31 = shl i32 4, %30
   %32 = shl i32 8, %30
   %.not40.not = icmp slt i32 %31, %32

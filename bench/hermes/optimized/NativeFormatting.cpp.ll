@@ -62,7 +62,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %N to i32
+  %conv = trunc nuw i64 %N to i32
   tail call fastcc void @_ZL19write_unsigned_implIjEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb(ptr noundef nonnull align 8 dereferenceable(36) %S, i32 noundef %conv, i64 noundef %MinDigits, i32 noundef %Style, i1 noundef zeroext %IsNegative)
   br label %if.end
 
@@ -76,7 +76,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.el
   %Value.addr.0.i.i = phi i64 [ %N, %if.else ], [ %div.i.i, %do.body.i.i ]
   %CurPtr.0.i.i = phi ptr [ %add.ptr.i.i.i, %if.else ], [ %incdec.ptr.i.i, %do.body.i.i ]
   %rem.i.i = urem i64 %Value.addr.0.i.i, 10
-  %conv.i.i = trunc i64 %rem.i.i to i8
+  %conv.i.i = trunc nuw nsw i64 %rem.i.i to i8
   %add.i.i = or disjoint i8 %conv.i.i, 48
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %CurPtr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1
@@ -236,7 +236,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %N to i32
+  %conv = trunc nuw i64 %N to i32
   tail call fastcc void @_ZL19write_unsigned_implIjEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb(ptr noundef nonnull align 8 dereferenceable(36) %S, i32 noundef %conv, i64 noundef %MinDigits, i32 noundef %Style, i1 noundef zeroext %IsNegative)
   br label %if.end
 
@@ -250,7 +250,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.el
   %Value.addr.0.i.i = phi i64 [ %N, %if.else ], [ %div.i.i, %do.body.i.i ]
   %CurPtr.0.i.i = phi ptr [ %add.ptr.i.i.i, %if.else ], [ %incdec.ptr.i.i, %do.body.i.i ]
   %rem.i.i = urem i64 %Value.addr.0.i.i, 10
-  %conv.i.i = trunc i64 %rem.i.i to i8
+  %conv.i.i = trunc nuw nsw i64 %rem.i.i to i8
   %add.i.i = or disjoint i8 %conv.i.i, 48
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %CurPtr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1
@@ -401,11 +401,11 @@ entry:
   %NumberBuffer = alloca [128 x i8], align 16
   %tobool.i.i = trunc i8 %Width.coerce1 to i1
   %0 = tail call i64 @llvm.umin.i64(i64 %Width.coerce0, i64 128)
-  %1 = trunc i64 %0 to i32
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %N, i1 false), !range !10
+  %1 = trunc nuw nsw i64 %0 to i32
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %N, i1 false)
   %add = sub nuw nsw i64 67, %2
   %div9 = lshr i64 %add, 2
-  %conv = trunc i64 %div9 to i32
+  %conv = trunc nuw nsw i64 %div9 to i32
   %3 = and i32 %Style, -2
   %4 = icmp eq i32 %3, 2
   %5 = and i32 %Style, -3
@@ -442,12 +442,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.i = or disjoint i32 %rem, 48
   %sub.i = add nuw nsw i32 %add1.i, %rem
   %cond2.i = select i1 %cmp.i15, i32 %add.i, i32 %sub.i
-  %conv3.i = trunc i32 %cond2.i to i8
+  %conv3.i = trunc nuw nsw i32 %cond2.i to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %CurPtr.027, i64 -1
   store i8 %conv3.i, ptr %incdec.ptr, align 1
   %div2710 = lshr i64 %N.addr.028, 4
   %tobool20.not = icmp ult i64 %N.addr.028, 16
-  br i1 %tobool20.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %tobool20.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %if.end
   %call30 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %NumberBuffer, i64 noundef %idx.ext) #12
@@ -708,7 +708,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN4llvh19getDefaultPrecisionENS_10FloatStyleE(i32 noundef %Style) local_unnamed_addr #3 {
+define hidden noundef range(i64 2, 7) i64 @_ZN4llvh19getDefaultPrecisionENS_10FloatStyleE(i32 noundef %Style) local_unnamed_addr #3 {
 entry:
   %switch = icmp ult i32 %Style, 2
   %. = select i1 %switch, i64 6, i64 2
@@ -756,13 +756,13 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %Value.addr.0.i = phi i32 [ %N, %entry ], [ %div.i, %do.body.i ]
   %CurPtr.0.i = phi ptr [ %add.ptr.i.i, %entry ], [ %incdec.ptr.i, %do.body.i ]
   %rem.i = urem i32 %Value.addr.0.i, 10
-  %0 = trunc i32 %rem.i to i8
+  %0 = trunc nuw nsw i32 %rem.i to i8
   %conv2.i = or disjoint i8 %0, 48
   %incdec.ptr.i = getelementptr inbounds i8, ptr %CurPtr.0.i, i64 -1
   store i8 %conv2.i, ptr %incdec.ptr.i, align 1
   %div.i = udiv i32 %Value.addr.0.i, 10
   %tobool.not.i = icmp ult i32 %Value.addr.0.i, 10
-  br i1 %tobool.not.i, label %_ZL16format_to_bufferIjLm128EEiT_RAT0__c.exit, label %do.body.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %_ZL16format_to_bufferIjLm128EEiT_RAT0__c.exit, label %do.body.i, !llvm.loop !11
 
 _ZL16format_to_bufferIjLm128EEiT_RAT0__c.exit:    ; preds = %do.body.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
@@ -821,7 +821,7 @@ if.end.i19:                                       ; preds = %for.body
 _ZN4llvh11raw_ostreamlsEc.exit21:                 ; preds = %if.then.i16, %if.end.i19
   %inc = add nuw i64 %I.024, 1
   %cmp4 = icmp ult i64 %inc, %MinDigits
-  br i1 %cmp4, label %for.body, label %if.end6, !llvm.loop !13
+  br i1 %cmp4, label %for.body, label %if.end6, !llvm.loop !12
 
 if.end6:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit21, %if.end
   %cmp7 = icmp eq i32 %Style, 1
@@ -925,7 +925,6 @@ attributes #13 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i64 0, i64 65}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

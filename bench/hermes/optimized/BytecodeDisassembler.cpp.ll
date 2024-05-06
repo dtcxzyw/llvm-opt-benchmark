@@ -1144,7 +1144,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %9 = load ptr, ptr %vfn, align 8
   %call23 = call i64 %9(ptr noundef nonnull align 8 dereferenceable(280) %8, i32 noundef %strID.1242) #17
   %strEntry.sroa.2.0.extract.shift = lshr i64 %call23, 32
-  %strEntry.sroa.2.0.extract.trunc = trunc i64 %strEntry.sroa.2.0.extract.shift to i32
+  %strEntry.sroa.2.0.extract.trunc = trunc nuw i64 %strEntry.sroa.2.0.extract.shift to i32
   %10 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %11 = load ptr, ptr %OutBufCur.i6.i, align 8
   %cmp.i.i41 = icmp eq ptr %10, %11
@@ -3519,7 +3519,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %vtable7.us = load ptr, ptr %this, align 8
   %vfn8.us = getelementptr inbounds i8, ptr %vtable7.us, i64 40
   %9 = load ptr, ptr %vfn8.us, align 8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %ip.020.us, i8 noundef zeroext %8, ptr noundef %operandBuf.017.us, i32 noundef %10) #17
   %call9.us = tail call noundef zeroext i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext %8) #17
   %idx.ext.us = zext i8 %call9.us to i64
@@ -3598,7 +3598,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %vtable7 = load ptr, ptr %this, align 8
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 40
   %26 = load ptr, ptr %vfn8, align 8
-  %27 = trunc i64 %indvars.iv23 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv23 to i32
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %ip.020, i8 noundef zeroext %25, ptr noundef %operandBuf.017, i32 noundef %27) #17
   %call9 = tail call noundef zeroext i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext %25) #17
   %idx.ext = zext i8 %call9 to i64
@@ -4801,7 +4801,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit71:               ; preds = %if.then.i.i69, %if.
   br label %for.inc
 
 if.end37:                                         ; preds = %if.end28
-  %conv38 = trunc i16 %8 to i8
+  %conv38 = trunc nuw i16 %8 to i8
   %16 = load ptr, ptr %OutBufEnd.i78, align 8
   %cmp.not.i79 = icmp ult ptr %9, %16
   br i1 %cmp.not.i79, label %if.end.i83, label %if.then.i80
@@ -5633,21 +5633,21 @@ _ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit:    ; preds = %for.body.i145
   ]
 
 if.then176:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
-  %50 = trunc i64 %or.i151 to i32
+  %50 = trunc nuw nsw i64 %or.i151 to i32
   %conv177 = and i32 %50, 65535
   %51 = load ptr, ptr %os_2, align 8
   tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv177, ptr noundef nonnull align 8 dereferenceable(36) %51)
   br label %sw.epilog
 
 if.then181:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
-  %52 = trunc i64 %or.i151 to i32
+  %52 = trunc nuw nsw i64 %or.i151 to i32
   %conv182 = and i32 %52, 65535
   %53 = load ptr, ptr %os_2, align 8
   tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv182, ptr noundef nonnull align 8 dereferenceable(36) %53)
   br label %sw.epilog
 
 if.then186:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
-  %54 = trunc i64 %or.i151 to i32
+  %54 = trunc nuw nsw i64 %or.i151 to i32
   %conv187 = and i32 %54, 65535
   %55 = load ptr, ptr %os_2, align 8
   tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv187, ptr noundef nonnull align 8 dereferenceable(36) %55)
@@ -11696,7 +11696,7 @@ if.then.i294:                                     ; preds = %_ZN4llvh11raw_ostre
 if.else.i296:                                     ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit291
   %bf.load.i297 = load i120, ptr %call35, align 1
   %bf.lshr.i = lshr i120 %bf.load.i297, 89
-  %128 = trunc i120 %bf.lshr.i to i32
+  %128 = trunc nuw nsw i120 %bf.lshr.i to i32
   %bf.cast.i = and i32 %128, 127
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader9frameSizeEv.exit
 
@@ -11737,7 +11737,7 @@ if.then.i317:                                     ; preds = %_ZN4llvh11raw_ostre
 if.else.i319:                                     ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit314
   %bf.load.i320 = load i120, ptr %call35, align 1
   %bf.lshr.i321 = lshr i120 %bf.load.i320, 96
-  %bf.cast.i322 = trunc i120 %bf.lshr.i321 to i32
+  %bf.cast.i322 = trunc nuw nsw i120 %bf.lshr.i321 to i32
   %conv.i323 = and i32 %bf.cast.i322, 255
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader15environmentSizeEv.exit
 
@@ -12301,7 +12301,7 @@ if.then.i.i.i.i.i37:                              ; preds = %if.then.i35
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i37
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bytecode.sroa.11.1, i64 %sub.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %bytecode.sroa.11.1, i64 %sub.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
@@ -12424,7 +12424,7 @@ for.body.us.i:                                    ; preds = %for.body.us.i, %for
   %vtable7.us.i = load ptr, ptr %this, align 8
   %vfn8.us.i = getelementptr inbounds i8, ptr %vtable7.us.i, i64 40
   %21 = load ptr, ptr %vfn8.us.i, align 8
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void %21(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %ip.020.us.i, i8 noundef zeroext %20, ptr noundef %operandBuf.017.us.i, i32 noundef %22) #17
   %call9.us.i = call noundef zeroext i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext %20) #17
   %idx.ext.us.i = zext i8 %call9.us.i to i64
@@ -12740,7 +12740,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -12850,7 +12850,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -13413,7 +13413,7 @@ for.body.i167:                                    ; preds = %_ZN6hermes3hbcL17is
   br i1 %cmp.i168, label %for.body.i167, label %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit, !llvm.loop !84
 
 _ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit:    ; preds = %for.body.i167
-  %conv2.i175 = trunc i64 %or.i174 to i32
+  %conv2.i175 = trunc nuw nsw i64 %or.i174 to i32
   %useStrings_53 = getelementptr inbounds i8, ptr %this, i64 32
   %44 = load i8, ptr %useStrings_53, align 8
   %tobool54 = trunc i8 %44 to i1

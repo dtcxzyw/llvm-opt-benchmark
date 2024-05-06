@@ -32,7 +32,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.01927.i = phi ptr [ %22, %20 ], [ %18, %8 ]
   %.02026.i = phi i64 [ %24, %20 ], [ %14, %8 ]
   %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
-  %spec.select.i = trunc i64 %spec.select24.i to i32
+  %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
   %19 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #4
   %.not22.i = icmp eq i32 %19, 0
   br i1 %.not22.i, label %20, label %ompi_datatype_copy_content_same_ddt.exit

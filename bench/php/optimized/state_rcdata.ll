@@ -375,7 +375,7 @@ lxb_html_tokenizer_temp_append_data.exit105:      ; preds = %137
 
 190:                                              ; preds = %178, %165
   %191 = phi ptr [ %183, %178 ], [ %174, %165 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %191, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %191, i8 0, i64 96, i1 false)
   %192 = load ptr, ptr %7, align 8
   store ptr %192, ptr %5, align 8
   br label %247
@@ -414,7 +414,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %198
 
 211:                                              ; preds = %193, %lxb_html_tokenizer_temp_realloc.exit.thread.i107
   %212 = phi ptr [ %208, %lxb_html_tokenizer_temp_realloc.exit.thread.i107 ], [ %154, %193 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %212, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %212, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %213 = getelementptr inbounds i8, ptr %212, i64 3
   store ptr %213, ptr %5, align 8
   %214 = load ptr, ptr %9, align 8
@@ -895,7 +895,7 @@ lxb_html_tokenizer_temp_append_data.exit163:      ; preds = %126
 
 196:                                              ; preds = %184, %171
   %197 = phi ptr [ %189, %184 ], [ %180, %171 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %197, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %197, i8 0, i64 96, i1 false)
   %198 = load ptr, ptr %147, align 8
   store ptr %198, ptr %120, align 8
   %199 = load i64, ptr %166, align 8
@@ -943,7 +943,7 @@ lxb_html_tokenizer_temp_append_data.exit163:      ; preds = %126
 
 227:                                              ; preds = %215, %196
   %228 = phi ptr [ %220, %215 ], [ %211, %196 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %228, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %228, i8 0, i64 96, i1 false)
   %229 = load ptr, ptr %147, align 8
   store ptr %229, ptr %120, align 8
   %230 = getelementptr inbounds i8, ptr %.0140193, i64 1
@@ -1114,7 +1114,7 @@ lxb_html_tokenizer_temp_append_data.exit171:      ; preds = %272
 
 323:                                              ; preds = %311, %292
   %324 = phi ptr [ %316, %311 ], [ %307, %292 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %324, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %324, i8 0, i64 96, i1 false)
   %325 = load ptr, ptr %296, align 8
   store ptr %325, ptr %301, align 8
   %326 = getelementptr inbounds i8, ptr %0, i64 120

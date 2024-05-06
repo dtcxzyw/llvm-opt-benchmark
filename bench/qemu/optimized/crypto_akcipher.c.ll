@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_akcipher_export_p8info(ptr nocapture noundef readonly %opts, ptr noundef %key, i64 noundef %keylen, ptr noundef %dst, ptr noundef %dst_len, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_akcipher_export_p8info(ptr nocapture noundef readonly %opts, ptr noundef %key, i64 noundef %keylen, ptr noundef %dst, ptr noundef %dst_len, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %opts, align 4
   %cond = icmp eq i32 %0, 0

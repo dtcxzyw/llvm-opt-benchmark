@@ -178,7 +178,7 @@ invoke.cont:                                      ; preds = %if.end
   %timestamp_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
   store ptr %call, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
   %call1 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, i32 0, i64 2), ptr %call1, align 8
@@ -271,7 +271,7 @@ invoke.cont:                                      ; preds = %entry
   %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 40
   %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timestamp_.i, i8 0, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
@@ -324,7 +324,7 @@ invoke.cont:                                      ; preds = %entry
   %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 40
   %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timestamp_.i, i8 0, i64 16, i1 false)
   invoke void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from)
           to label %invoke.cont2 unwind label %lpad
 
@@ -650,7 +650,7 @@ invoke.cont:                                      ; preds = %entry
   %timestamp_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
   %cmp.not = icmp eq ptr %arena, null
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -2334,7 +2334,7 @@ entry:
 
 for.cond.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ %3, %for.body.i ], [ %1, %entry ]
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw i64 %indvars.iv.i to i32
   %cmp.i = icmp slt i32 %2, 1
   br i1 %cmp.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_16RepeatedPtrFieldIN3net18SourceAddressTokenEEEEEbRKT_.exit, label %for.body.i
 
@@ -2605,7 +2605,7 @@ _ZN3net18SourceAddressTokenC2Ev.exit:             ; preds = %if.then.i
   %timestamp_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 40
   %_has_bits_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
   br label %_ZN6google8protobuf5Arena6CreateIN3net18SourceAddressTokenEEEPT_PS1_.exit
 
 common.resume:                                    ; preds = %lpad.i6, %lpad.i3
@@ -2637,7 +2637,7 @@ _ZN3net18SourceAddressTokenC2Ev.exit12:           ; preds = %if.else.i
   %timestamp_.i.i10 = getelementptr inbounds i8, ptr %call.i, i64 40
   %_has_bits_.i.i11 = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 0, ptr %_has_bits_.i.i11, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timestamp_.i.i10, i8 0, i64 16, i1 false)
   tail call void @_ZN6google8protobuf5Arena11AddListNodeEPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(136) %arena, ptr noundef nonnull %call.i, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectIN3net18SourceAddressTokenEEEvPv)
   br label %_ZN6google8protobuf5Arena6CreateIN3net18SourceAddressTokenEEEPT_PS1_.exit
 

@@ -1780,7 +1780,7 @@ define hidden void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 deref
   br label %385
 
 switch.hole_check:                                ; preds = %54
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 831, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %60
@@ -2718,7 +2718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = trunc i64 %.0.lcssa.i to i8
+  %55 = trunc nuw i64 %.0.lcssa.i to i8
   %56 = or disjoint i8 %55, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

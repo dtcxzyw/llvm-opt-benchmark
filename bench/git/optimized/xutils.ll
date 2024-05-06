@@ -34,7 +34,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @xdl_emit_diffrec(ptr noundef %rec, i64 noundef %size, ptr noundef %pre, i64 noundef %psize, ptr nocapture noundef readonly %ecb) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @xdl_emit_diffrec(ptr noundef %rec, i64 noundef %size, ptr noundef %pre, i64 noundef %psize, ptr nocapture noundef readonly %ecb) local_unnamed_addr #1 {
 entry:
   %mb = alloca [3 x %struct.s_mmbuffer], align 16
   store ptr %pre, ptr %mb, align 16
@@ -199,7 +199,7 @@ return:                                           ; preds = %if.then, %if.end17
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @xdl_guess_lines(ptr nocapture noundef readonly %mf, i64 noundef %sample) local_unnamed_addr #7 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @xdl_guess_lines(ptr nocapture noundef readonly %mf, i64 noundef %sample) local_unnamed_addr #7 {
 entry:
   %size1.i = getelementptr inbounds i8, ptr %mf, i64 8
   %0 = load i64, ptr %size1.i, align 8
@@ -255,7 +255,7 @@ if.end14:                                         ; preds = %if.then, %entry, %i
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @xdl_blankline(ptr nocapture noundef readonly %line, i64 noundef %size, i64 noundef %flags) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @xdl_blankline(ptr nocapture noundef readonly %line, i64 noundef %size, i64 noundef %flags) local_unnamed_addr #9 {
 entry:
   %and = and i64 %flags, 30
   %tobool.not = icmp eq i64 %and, 0
@@ -297,7 +297,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define dso_local i32 @xdl_recmatch(ptr nocapture noundef readonly %l1, i64 noundef %s1, ptr nocapture noundef readonly %l2, i64 noundef %s2, i64 noundef %flags) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr nocapture noundef readonly %l1, i64 noundef %s1, ptr nocapture noundef readonly %l2, i64 noundef %s2, i64 noundef %flags) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq i64 %s1, %s2
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -1079,7 +1079,7 @@ if.end15:                                         ; preds = %for.body9, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @xdl_emit_hunk_hdr(i64 noundef %s1, i64 noundef %c1, i64 noundef %s2, i64 noundef %c2, ptr noundef %func, i64 noundef %funclen, ptr nocapture noundef readonly %ecb) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @xdl_emit_hunk_hdr(i64 noundef %s1, i64 noundef %c1, i64 noundef %s2, i64 noundef %c2, ptr noundef %func, i64 noundef %funclen, ptr nocapture noundef readonly %ecb) local_unnamed_addr #1 {
 entry:
   %buf.i107.i = alloca [32 x i8], align 16
   %buf.i71.i = alloca [32 x i8], align 16
@@ -1393,7 +1393,7 @@ if.then45.i:                                      ; preds = %if.end38.i
   %sub47.i = sub nsw i64 127, %conv.i
   %spec.select.i = call i64 @llvm.umin.i64(i64 %sub47.i, i64 %funclen)
   %add.ptr57.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull align 1 %func, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull readonly align 1 %func, i64 %spec.select.i, i1 false)
   %13 = trunc i64 %spec.select.i to i32
   %conv60.i = add i32 %inc.i, %13
   br label %xdl_format_hunk_hdr.exit
@@ -1434,7 +1434,7 @@ return:                                           ; preds = %if.end, %xdl_format
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @xdl_fall_back_diff(ptr nocapture noundef readonly %diff_env, ptr noundef %xpp, i32 noundef %line1, i32 noundef %count1, i32 noundef %line2, i32 noundef %count2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @xdl_fall_back_diff(ptr nocapture noundef readonly %diff_env, ptr noundef %xpp, i32 noundef %line1, i32 noundef %count1, i32 noundef %line2, i32 noundef %count2) local_unnamed_addr #1 {
 entry:
   %subfile1 = alloca %struct.s_mmfile, align 8
   %subfile2 = alloca %struct.s_mmfile, align 8

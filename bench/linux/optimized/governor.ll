@@ -45,7 +45,7 @@ define dso_local noundef ptr @cpuidle_find_governor(ptr nocapture noundef readon
 declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cpuidle_switch_governor(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cpuidle_switch_governor(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -115,7 +115,7 @@ declare dso_local void @cpuidle_install_idle_handler() local_unnamed_addr #3
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cpuidle_register_governor(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_governor(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %60, label %3
 
@@ -246,7 +246,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpuidle_governor_latency_req(i32 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -2147483648000, 2147483647001) i64 @cpuidle_governor_latency_req(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call ptr @get_cpu_device(i32 noundef %0) #6
   %3 = getelementptr inbounds i8, ptr %2, i64 520
   %4 = load ptr, ptr %3, align 8

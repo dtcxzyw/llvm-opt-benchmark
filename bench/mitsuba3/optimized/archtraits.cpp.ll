@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE = external local_unnamed_addr global %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", align 1
 
 ; Function Attrs: minsize mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 60) i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = zext i8 %0 to i64
   %6 = getelementptr inbounds [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %5
   %7 = icmp ult i8 %1, 32

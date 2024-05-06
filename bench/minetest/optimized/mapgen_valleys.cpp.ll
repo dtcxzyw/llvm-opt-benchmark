@@ -5056,11 +5056,11 @@ declare void @_ZN6Mapgen12updateLiquidEP11UniqueQueueIN3irr4core8vector3dIsEEES4
 declare void @_ZN6Mapgen12calcLightingEN3irr4core8vector3dIsEES3_S3_S3_b(ptr noundef nonnull align 8 dereferenceable(200), i48, i48, i48, i48, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN13MapgenValleys20getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -32766, 32770) i32 @_ZN13MapgenValleys20getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc = trunc i32 %p.coerce to i16
   %p.sroa.7.0.extract.shift = lshr i32 %p.coerce, 16
-  %p.sroa.7.0.extract.trunc = trunc i32 %p.sroa.7.0.extract.shift to i16
+  %p.sroa.7.0.extract.trunc = trunc nuw i32 %p.sroa.7.0.extract.shift to i16
   %noise_rivers = getelementptr inbounds i8, ptr %this, i64 520
   %0 = load ptr, ptr %noise_rivers, align 8, !tbaa !63
   %conv = sitofp i16 %p.sroa.0.0.extract.trunc to float
@@ -5178,7 +5178,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #12
 declare noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef, float noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN13MapgenValleys15generateTerrainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -31007, 32768) i32 @_ZN13MapgenValleys15generateTerrainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this) unnamed_addr #5 align 2 {
 entry:
   %c_river_water_source = getelementptr inbounds i8, ptr %this, i64 244
   %0 = load i16, ptr %c_river_water_source, align 4, !tbaa !130

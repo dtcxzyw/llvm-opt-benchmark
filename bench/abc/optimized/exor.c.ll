@@ -72,7 +72,7 @@ define i32 @GetQCost(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %15 = mul i32 %0, 12
   %16 = add i32 %15, -28
   %17 = icmp sgt i32 %14, 0
-  %18 = shl nsw i32 %14, 1
+  %18 = shl nuw nsw i32 %14, 1
   %19 = select i1 %17, i32 %18, i32 0
   %20 = add nsw i32 %16, %19
   br label %21
@@ -119,7 +119,7 @@ GetQCost.exit.us:                                 ; preds = %.preheader, %GetQCo
 6:                                                ; preds = %.preheader.split.us11
   %7 = sub nsw i32 %.0810.us12, %.neg.i9
   %8 = icmp sgt i32 %7, 0
-  %9 = shl nsw i32 %7, 1
+  %9 = shl nuw nsw i32 %7, 1
   %10 = select i1 %8, i32 %9, i32 0
   %11 = add nsw i32 %2, %10
   br label %GetQCost.exit.us13
@@ -157,7 +157,7 @@ GetQCost.exit.us13:                               ; preds = %6, %5, %.preheader.
 20:                                               ; preds = %18
   %21 = sub nsw i32 %.0810.us22, %.neg.i9
   %22 = icmp sgt i32 %21, 0
-  %23 = shl nsw i32 %21, 1
+  %23 = shl nuw nsw i32 %21, 1
   %24 = select i1 %22, i32 %23, i32 0
   %25 = add nsw i32 %2, %24
   br label %GetQCost.exit.us23
@@ -173,7 +173,7 @@ GetQCost.exit:                                    ; preds = %.preheader, %GetQCo
   %.0810 = phi i32 [ %34, %GetQCost.exit ], [ 0, %.preheader ]
   %28 = sub nsw i32 %.0810, %.neg.i9
   %29 = icmp sgt i32 %28, 0
-  %30 = shl nsw i32 %28, 1
+  %30 = shl nuw nsw i32 %28, 1
   %31 = select i1 %29, i32 %30, i32 0
   %32 = add nsw i32 %2, %31
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %32)
@@ -264,7 +264,7 @@ define i32 @ComputeQCost(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %22 = mul i32 %.val, 12
   %23 = add i32 %22, -28
   %24 = icmp sgt i32 %21, 0
-  %25 = shl nsw i32 %21, 1
+  %25 = shl nuw nsw i32 %21, 1
   %26 = select i1 %24, i32 %25, i32 0
   %27 = add nsw i32 %23, %26
   br label %GetQCost.exit
@@ -353,7 +353,7 @@ define i32 @ComputeQCostBits(ptr noundef %0) local_unnamed_addr #4 {
   %26 = mul i32 %13, 12
   %27 = add i32 %26, -28
   %28 = icmp sgt i32 %25, 0
-  %29 = shl nsw i32 %25, 1
+  %29 = shl nuw nsw i32 %25, 1
   %30 = select i1 %28, i32 %29, i32 0
   %31 = add nsw i32 %27, %30
   br label %GetQCost.exit
@@ -650,7 +650,7 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -843,7 +843,7 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   %78 = mul i32 %.val.i, 12
   %79 = add i32 %78, -28
   %80 = icmp sgt i32 %77, 0
-  %81 = shl nsw i32 %77, 1
+  %81 = shl nuw nsw i32 %77, 1
   %82 = select i1 %80, i32 %81, i32 0
   %83 = add nsw i32 %79, %82
   br label %ComputeQCost.exit
@@ -938,7 +938,7 @@ ComputeQCost.exit:                                ; preds = %.critedge.i, %66, %
   %115 = mul i32 %.val.i64, 12
   %116 = add i32 %115, -28
   %117 = icmp sgt i32 %114, 0
-  %118 = shl nsw i32 %114, 1
+  %118 = shl nuw nsw i32 %114, 1
   %119 = select i1 %117, i32 %118, i32 0
   %120 = add nsw i32 %116, %119
   br label %ComputeQCost.exit76
@@ -987,7 +987,7 @@ declare i32 @CheckForCloseCubes(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Exorcism(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Exorcism(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #4 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -1236,7 +1236,7 @@ declare void @DelocateCover(...) local_unnamed_addr #5
 declare void @DelocateQueques(...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_ExorcismMain(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Abc_ExorcismMain(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @g_CoverInfo, i8 0, i64 96, i1 false)
   store i32 %4, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 14), align 8
   store i32 %5, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 13), align 4
@@ -1263,7 +1263,7 @@ define noundef i32 @Abc_ExorcismMain(ptr nocapture noundef readonly %0, i32 noun
 
 14:                                               ; preds = %11, %10
   tail call void (...) @PrepareBitSetModule() #16
-  %15 = tail call i32 @Exorcism(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3), !range !17
+  %15 = tail call i32 @Exorcism(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %18
 
@@ -1378,7 +1378,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph, %18
   %.val71.val = load i32, ptr %38, align 4
   %39 = sext i32 %.val71.val to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !18
+  br i1 %40, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !17
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.critedge ], [ 0, %.critedge.preheader ]
@@ -1396,7 +1396,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph, %18
   %.val69.val = load i32, ptr %46, align 4
   %47 = sext i32 %.val69.val to i64
   %48 = icmp slt i64 %indvars.iv.next141, %47
-  br i1 %48, label %.critedge, label %.critedge2, !llvm.loop !19
+  br i1 %48, label %.critedge, label %.critedge2, !llvm.loop !18
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %49 = add nsw i32 %.061.lcssa, 1
@@ -1482,7 +1482,7 @@ Abc_ObjFanin0Ntk.exit92:                          ; preds = %62, %73
 
 .lr.ph131:                                        ; preds = %82
   %.val81 = load i32, ptr %83, align 4
-  %87 = trunc i64 %indvars.iv146 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv146 to i32
   %88 = xor i32 %87, -1
   %89 = add nsw i32 %.val81, 3
   %90 = sext i32 %89 to i64
@@ -1746,7 +1746,7 @@ Vec_IntPush.exit108:                              ; preds = %.Vec_IntGrow.exit10
   %.val82 = load i32, ptr %83, align 4
   %205 = sext i32 %.val82 to i64
   %206 = icmp slt i64 %indvars.iv.next144, %205
-  br i1 %206, label %Abc_ObjFanin0Ntk.exit100, label %.critedge6.loopexit, !llvm.loop !20
+  br i1 %206, label %Abc_ObjFanin0Ntk.exit100, label %.critedge6.loopexit, !llvm.loop !19
 
 .critedge6.loopexit:                              ; preds = %204
   %.pre = load i32, ptr %127, align 8
@@ -1822,7 +1822,7 @@ Vec_IntPush.exit115:                              ; preds = %.Vec_IntGrow.exit10
   %238 = getelementptr inbounds i8, ptr %.063130, i64 %90
   %239 = load i8, ptr %238, align 1
   %.not65 = icmp eq i8 %239, 0
-  br i1 %.not65, label %.loopexit, label %91, !llvm.loop !21
+  br i1 %.not65, label %.loopexit, label %91, !llvm.loop !20
 
 .loopexit:                                        ; preds = %Vec_IntPush.exit115, %82, %Abc_ObjFanin0Ntk.exit92
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
@@ -1831,7 +1831,7 @@ Vec_IntPush.exit115:                              ; preds = %.Vec_IntGrow.exit10
   %.val72.val = load i32, ptr %240, align 4
   %241 = sext i32 %.val72.val to i64
   %242 = icmp slt i64 %indvars.iv.next147, %241
-  br i1 %242, label %62, label %.critedge4, !llvm.loop !22
+  br i1 %242, label %62, label %.critedge4, !llvm.loop !21
 
 .critedge4:                                       ; preds = %.loopexit, %Vec_WecAlloc.exit
   ret ptr %50
@@ -1907,9 +1907,8 @@ attributes #19 = { nounwind allocsize(1) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

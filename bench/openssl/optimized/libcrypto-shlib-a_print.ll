@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_PRINTABLE_type(ptr noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 19, 23) i32 @ASN1_PRINTABLE_type(ptr noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %if.end
@@ -58,7 +58,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_UNIVERSALSTRING_to_string(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %type, align 4
@@ -135,7 +135,7 @@ if.end.i:                                         ; preds = %for.end34
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #3
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #3
   %conv.i = trunc i64 %call.i to i32
   br label %if.end3.i
 
@@ -179,7 +179,7 @@ return:                                           ; preds = %lor.lhs.false12, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [80 x i8], align 16
   %cmp = icmp eq ptr %v, null

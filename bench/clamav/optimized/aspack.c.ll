@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.unaspack.5 = private unnamed_addr constant [3 x i64] [i64 923, i64 1025, i64 1037], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unaspack(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @unaspack(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [4 x i32], align 16
   %10 = alloca i32, align 4
   %11 = alloca %struct.ASPK, align 8
@@ -155,7 +155,7 @@ switch.lookup:                                    ; preds = %8
   %72 = zext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = getelementptr inbounds i8, ptr %11, i64 360
-  %invariant.gep.i.i = getelementptr i8, ptr %73, i64 56
+  %invariant.gep.i.i = getelementptr inbounds i8, ptr %73, i64 56
   %75 = getelementptr inbounds i8, ptr %11, i64 1128
   %76 = getelementptr inbounds i8, ptr %9, i64 4
   %77 = getelementptr inbounds i8, ptr %9, i64 8
@@ -227,7 +227,7 @@ switch.lookup:                                    ; preds = %8
   %107 = load ptr, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(757) %107, i8 0, i64 757, i1 false)
   store i32 32, ptr %11, align 8
-  %108 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef nonnull %11), !range !4
+  %108 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef nonnull %11)
   %.not.i = icmp eq i32 %108, 0
   br i1 %.not.i, label %decomp_block.exit.thread, label %109
 
@@ -272,7 +272,7 @@ switch.lookup:                                    ; preds = %8
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
-  %125 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef nonnull %11), !range !4
+  %125 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef nonnull %11)
   %.not91.i.i = icmp eq i32 %125, 0
   br i1 %.not91.i.i, label %decomp_block.exit.thread214, label %.outer.split.i.i
 
@@ -298,8 +298,8 @@ switch.lookup:                                    ; preds = %8
 
 137:                                              ; preds = %132
   %138 = zext nneg i32 %133 to i64
-  %139 = getelementptr i8, ptr %73, i64 %138
-  %140 = getelementptr i8, ptr %139, i64 28
+  %139 = getelementptr inbounds i8, ptr %73, i64 %138
+  %140 = getelementptr inbounds i8, ptr %139, i64 28
   %141 = load i8, ptr %140, align 1
   %.pr.i.i.i = load i32, ptr %11, align 8
   %142 = icmp ugt i32 %.pr.i.i.i, 7
@@ -363,7 +363,7 @@ switch.lookup:                                    ; preds = %8
   %169 = zext nneg i32 %128 to i64
   %170 = getelementptr inbounds [58 x i32], ptr %48, i64 0, i64 %169
   %171 = load i32, ptr %170, align 4
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %169
+  %gep.i.i = getelementptr inbounds i8, ptr %invariant.gep.i.i, i64 %169
   %172 = load i8, ptr %gep.i.i, align 1
   %173 = zext i8 %172 to i32
   %174 = load i32, ptr %75, align 8
@@ -730,7 +730,7 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare i32 @cli_rebuildpe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @build_decrypt_dictionaries(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @build_decrypt_dictionaries(ptr nocapture noundef %0) unnamed_addr #6 {
   %2 = alloca i32, align 4
   %.pr.i.i = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 336
@@ -858,7 +858,7 @@ getbits.exit78.thread:                            ; preds = %37
 
 .split.us:                                        ; preds = %getbits.exit78.us
   store i32 0, ptr %2, align 4
-  %60 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %33, i8 noundef zeroext 3), !range !5
+  %60 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %33, i8 noundef zeroext 3)
   %.not61 = icmp eq i8 %60, 0
   br i1 %.not61, label %.loopexit114, label %.preheader113
 
@@ -1121,19 +1121,19 @@ getbits.exit94:                                   ; preds = %readstream.exit.i93
   br i1 %169, label %63, label %.loopexit110.thread
 
 .loopexit110.thread:                              ; preds = %.preheader111, %.preheader, %.loopexit110
-  %170 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %scevgep, i8 noundef zeroext 0), !range !5
+  %170 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %scevgep, i8 noundef zeroext 0)
   %.not62 = icmp eq i8 %170, 0
   br i1 %.not62, label %.loopexit114, label %171
 
 171:                                              ; preds = %.loopexit110.thread
   %172 = getelementptr inbounds i8, ptr %0, i64 1854
-  %173 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %172, i8 noundef zeroext 1), !range !5
+  %173 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %172, i8 noundef zeroext 1)
   %.not63 = icmp eq i8 %173, 0
   br i1 %.not63, label %.loopexit114, label %174
 
 174:                                              ; preds = %171
   %175 = getelementptr inbounds i8, ptr %0, i64 1882
-  %176 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %175, i8 noundef zeroext 2), !range !5
+  %176 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %175, i8 noundef zeroext 2)
   %.not64 = icmp eq i8 %176, 0
   br i1 %.not64, label %.loopexit114, label %177
 
@@ -1170,7 +1170,7 @@ getbits.exit94:                                   ; preds = %readstream.exit.i93
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i8 @build_decrypt_array(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) unnamed_addr #7 {
+define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) unnamed_addr #7 {
   %4 = alloca [18 x i32], align 16
   %5 = alloca [18 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 360
@@ -1504,5 +1504,3 @@ attributes #12 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i8 0, i8 2}

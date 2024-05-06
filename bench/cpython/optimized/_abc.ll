@@ -2715,7 +2715,7 @@ if.end63.i:                                       ; preds = %if.then58.i
   br label %end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %Py_DECREF.exit122.i
-  %call65.i = call fastcc i32 @subclasscheck_check_registry(ptr noundef nonnull %call1.i.i, ptr noundef %1, ptr noundef nonnull %result.i), !range !10
+  %call65.i = call fastcc i32 @subclasscheck_check_registry(ptr noundef nonnull %call1.i.i, ptr noundef %1, ptr noundef nonnull %result.i)
   %tobool66.not.i = icmp eq i32 %call65.i, 0
   br i1 %tobool66.not.i, label %if.end68.i, label %end.i
 
@@ -2752,7 +2752,7 @@ for.cond78.i:                                     ; preds = %if.end92.i
   %inc97.i = add nuw nsw i64 %pos.1127.i, 1
   %call69.val68.i = load i64, ptr %38, align 8
   %cmp80.i = icmp slt i64 %inc97.i, %call69.val68.i
-  br i1 %cmp80.i, label %for.body81.i, label %for.end98.i, !llvm.loop !11
+  br i1 %cmp80.i, label %for.body81.i, label %for.end98.i, !llvm.loop !10
 
 for.body81.i:                                     ; preds = %for.cond78.i, %for.body81.lr.ph.i
   %pos.1127.i = phi i64 [ 0, %for.body81.lr.ph.i ], [ %inc97.i, %for.cond78.i ]
@@ -3114,7 +3114,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw nsw i64 %i.017, 1
   %call4.val = load i64, ptr %2, align 8
   %cmp9 = icmp slt i64 %inc, %call4.val
-  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %5 = load i64, ptr %call4, align 8
@@ -3265,7 +3265,7 @@ declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, pt
 declare ptr @_PyType_GetMRO(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @subclasscheck_check_registry(ptr nocapture noundef %impl, ptr noundef %subclass, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @subclasscheck_check_registry(ptr nocapture noundef %impl, ptr noundef %subclass, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
 entry:
   %key = alloca ptr, align 8
   %pos = alloca i64, align 8
@@ -3380,7 +3380,7 @@ _Py_NewRef.exit:                                  ; preds = %while.body, %if.end
   %8 = load ptr, ptr %_abc_registry, align 8
   %call19 = call i32 @_PySet_NextEntry(ptr noundef %8, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %hash) #4
   %tobool.not = icmp eq i32 %call19, 0
-  br i1 %tobool.not, label %for.cond.preheader, label %while.body, !llvm.loop !13
+  br i1 %tobool.not, label %for.cond.preheader, label %while.body, !llvm.loop !12
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.147 = phi i64 [ %inc41, %for.inc ], [ 0, %for.cond.preheader ]
@@ -3434,7 +3434,7 @@ if.end39:                                         ; preds = %if.then35
 for.inc:                                          ; preds = %if.end33, %if.end26
   %inc41 = add nuw nsw i64 %i.147, 1
   %exitcond.not = icmp eq i64 %inc41, %call9
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %for.body, %Py_DECREF.exit57, %if.then35, %if.end39
   %ret.0 = phi i32 [ 1, %if.end39 ], [ -1, %if.then35 ], [ 0, %for.inc ], [ -1, %for.body ], [ -1, %Py_DECREF.exit57 ]
@@ -3462,7 +3462,7 @@ if.then1.i:                                       ; preds = %if.end.i
 for.inc46:                                        ; preds = %if.end.i, %if.then1.i, %for.body44
   %inc47 = add nuw nsw i64 %i.251, 1
   %exitcond52.not = icmp eq i64 %inc47, %call9
-  br i1 %exitcond52.not, label %for.end48, label %for.body44, !llvm.loop !15
+  br i1 %exitcond52.not, label %for.end48, label %for.body44, !llvm.loop !14
 
 for.end48:                                        ; preds = %for.inc46, %for.cond.preheader, %for.end
   %ret.054 = phi i32 [ %ret.0, %for.end ], [ 0, %for.cond.preheader ], [ %ret.0, %for.inc46 ]
@@ -3489,7 +3489,7 @@ declare i32 @PyWeakref_GetRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_abcmodule_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_abcmodule_exec(ptr noundef %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -3691,9 +3691,8 @@ attributes #4 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -1, i32 2}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

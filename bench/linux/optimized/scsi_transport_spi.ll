@@ -1121,7 +1121,7 @@ define dso_local noundef i32 @spi_populate_ppr_msg(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @spi_populate_tag_msg(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local noundef range(i32 0, 3) i32 @spi_populate_tag_msg(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 256
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -1143,7 +1143,7 @@ define dso_local noundef i32 @spi_populate_tag_msg(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @spi_print_msg(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp eq i8 %2, 1
@@ -1487,7 +1487,7 @@ define dso_local noundef ptr @spi_attach_transport(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @spi_target_match(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @scsi_is_target_device(ptr noundef %1) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %40, label %5
@@ -1552,7 +1552,7 @@ define internal i32 @spi_target_match(ptr noundef readnone %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @spi_host_match(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @scsi_is_host_device(ptr noundef %1) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %25, label %.preheader
@@ -1678,7 +1678,7 @@ define internal i32 @spi_transport_init() #7 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @spi_dv_device_compare_inquiry(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.scsi_sense_hdr, align 8
   %6 = alloca %struct.scsi_exec_args, align 8
   %7 = alloca [6 x i8], align 1
@@ -1951,7 +1951,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @spi_dv_device_echo_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.scsi_sense_hdr, align 8
   %6 = alloca %struct.scsi_exec_args, align 8
   %7 = alloca %struct.scsi_exec_args, align 8
@@ -2290,7 +2290,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local i32 @sysfs_update_group(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @target_attribute_is_visible(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 %2) #0 align 16 {
+define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -2735,7 +2735,7 @@ define internal zeroext i16 @target_attribute_is_visible(ptr nocapture noundef r
 declare dso_local i32 @scsi_is_host_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_spi_transport_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -2847,7 +2847,7 @@ define internal i64 @show_spi_transport_period(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @store_spi_transport_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
@@ -2907,7 +2907,7 @@ define internal i64 @store_spi_transport_period(ptr nocapture noundef readonly %
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %.preheader
-  %45 = mul nsw i32 %42, %38
+  %45 = mul nuw nsw i32 %42, %38
   %46 = add i32 %45, %37
   %47 = udiv i32 %38, 10
   %48 = icmp ult i32 %38, 10
@@ -2964,7 +2964,7 @@ define internal i64 @store_spi_transport_period(ptr nocapture noundef readonly %
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_spi_transport_min_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3103,7 +3103,7 @@ define internal noundef i64 @store_spi_transport_min_period(ptr nocapture nounde
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %.preheader
-  %23 = mul nsw i32 %20, %16
+  %23 = mul nuw nsw i32 %20, %16
   %24 = add i32 %23, %15
   %25 = udiv i32 %16, 10
   %26 = icmp ult i32 %16, 10
@@ -3146,7 +3146,7 @@ define internal noundef i64 @store_spi_transport_min_period(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3250,7 +3250,7 @@ define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef re
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_max_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 788
@@ -3272,7 +3272,7 @@ define internal noundef i64 @store_spi_transport_max_offset(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3378,7 +3378,7 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_max_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
@@ -3408,7 +3408,7 @@ define internal noundef i64 @store_spi_transport_max_width(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3515,7 +3515,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_max_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
@@ -3545,7 +3545,7 @@ define internal noundef i64 @store_spi_transport_max_iu(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_dt(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_dt(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3646,7 +3646,7 @@ define internal noundef i64 @store_spi_transport_dt(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3753,7 +3753,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_max_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
@@ -3783,7 +3783,7 @@ define internal noundef i64 @store_spi_transport_max_qas(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_wr_flow(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_wr_flow(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3884,7 +3884,7 @@ define internal noundef i64 @store_spi_transport_wr_flow(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_rd_strm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_rd_strm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -3985,7 +3985,7 @@ define internal noundef i64 @store_spi_transport_rd_strm(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_rti(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_rti(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -4086,7 +4086,7 @@ define internal noundef i64 @store_spi_transport_rti(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_pcomp_en(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_pcomp_en(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -4187,7 +4187,7 @@ define internal noundef i64 @store_spi_transport_pcomp_en(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_transport_hold_mcs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_hold_mcs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -4299,7 +4299,7 @@ define internal noundef i64 @store_spi_revalidate(ptr nocapture noundef readonly
 declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @child_iter(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @child_iter(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = tail call i32 @scsi_is_sdev_device(ptr noundef %0) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5
@@ -4399,7 +4399,7 @@ define internal i32 @spi_host_configure(ptr nocapture readnone %0, ptr nocapture
 declare dso_local i32 @sysfs_chmod_file(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_host_signalling(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_signalling(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -4556,7 +4556,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_host_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -4589,7 +4589,7 @@ define internal noundef i64 @show_spi_host_width(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_spi_host_hba_id(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_hba_id(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -4720,7 +4720,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @spi_device_match(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @spi_device_match(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @scsi_is_sdev_device(ptr noundef %1) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %27, label %5

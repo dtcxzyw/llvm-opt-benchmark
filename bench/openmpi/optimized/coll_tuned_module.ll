@@ -128,7 +128,7 @@ opal_obj_new.exit.thread:                         ; preds = %18, %opal_obj_new.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tuned_module_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal range(i32 -1, 1) i32 @tuned_module_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 224
   %5 = load i32, ptr %4, align 8

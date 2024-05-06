@@ -334,8 +334,8 @@ cond.false25.i:                                   ; preds = %cond.false20.i
   %24 = load ptr, ptr %16, align 8
   %shr30.i = lshr i32 %call17, 11
   %25 = zext nneg i32 %shr30.i to i64
-  %26 = getelementptr i16, ptr %24, i64 %25
-  %arrayidx33.i = getelementptr i8, ptr %26, i64 4160
+  %26 = getelementptr inbounds i16, ptr %24, i64 %25
+  %arrayidx33.i = getelementptr inbounds i8, ptr %26, i64 4160
   %27 = load i16, ptr %arrayidx33.i, align 2
   %conv34.i = zext i16 %27 to i32
   %shr35.i = lshr i32 %call17, 5
@@ -471,8 +471,8 @@ cond.false25:                                     ; preds = %cond.false20
   %8 = load ptr, ptr %0, align 8
   %shr30 = lshr i32 %c, 11
   %9 = zext nneg i32 %shr30 to i64
-  %10 = getelementptr i16, ptr %8, i64 %9
-  %arrayidx33 = getelementptr i8, ptr %10, i64 4160
+  %10 = getelementptr inbounds i16, ptr %8, i64 %9
+  %arrayidx33 = getelementptr inbounds i8, ptr %10, i64 4160
   %11 = load i16, ptr %arrayidx33, align 2
   %conv34 = zext i16 %11 to i32
   %shr35 = lshr i32 %c, 5
@@ -1697,7 +1697,7 @@ declare void @utrie2_setRange32_75(ptr noundef, i32 noundef, i32 noundef, i32 no
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7520CollationDataBuilder20maybeSetPrimaryRangeEiijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %start, i32 noundef %end, i32 noundef %primary, i32 noundef %step, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7520CollationDataBuilder20maybeSetPrimaryRangeEiijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %start, i32 noundef %end, i32 noundef %primary, i32 noundef %step, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1907,7 +1907,7 @@ if.end:                                           ; preds = %entry
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %shr.i)
-  %call3 = tail call noundef signext i8 @_ZN6icu_7520CollationDataBuilder20maybeSetPrimaryRangeEiijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %start, i32 noundef %end, i32 noundef %primary, i32 noundef %step, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !12
+  %call3 = tail call noundef signext i8 @_ZN6icu_7520CollationDataBuilder20maybeSetPrimaryRangeEiijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %start, i32 noundef %end, i32 noundef %primary, i32 noundef %step, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool4.not = icmp eq i8 %call3, 0
   br i1 %tobool4.not, label %for.cond.preheader, label %if.then5
 
@@ -1932,7 +1932,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %inc = add i32 %start.addr.0, 1
   %call8 = tail call noundef i32 @_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef %primary.addr.0, i8 noundef signext %call.i, i32 noundef %step)
   %exitcond.not = icmp eq i32 %start.addr.0, %smax
-  br i1 %exitcond.not, label %return, label %for.cond, !llvm.loop !13
+  br i1 %exitcond.not, label %return, label %for.cond, !llvm.loop !12
 
 return:                                           ; preds = %for.cond, %entry, %if.then5
   %retval.0 = phi i32 [ %call6, %if.then5 ], [ 0, %entry ], [ %call8, %for.cond ]
@@ -2093,8 +2093,8 @@ cond.false25.i:                                   ; preds = %cond.false20.i
   %11 = load ptr, ptr %3, align 8
   %shr30.i = lshr i32 %c, 11
   %12 = zext nneg i32 %shr30.i to i64
-  %13 = getelementptr i16, ptr %11, i64 %12
-  %arrayidx33.i = getelementptr i8, ptr %13, i64 4160
+  %13 = getelementptr inbounds i16, ptr %11, i64 %12
+  %arrayidx33.i = getelementptr inbounds i8, ptr %13, i64 4160
   %14 = load i16, ptr %arrayidx33.i, align 2
   %conv34.i = zext i16 %14 to i32
   %shr35.i = lshr i32 %c, 5
@@ -2221,7 +2221,7 @@ sw.epilog.us:                                     ; preds = %if.then17.us, %cond
   %ce32.2.us = phi i32 [ %or.i.i.us, %sw.bb54.us ], [ %29, %if.then17.us ], [ %22, %sw.bb43.us ], [ %25, %cond.true.i58.us ]
   %and.i26.us = and i32 %ce32.2.us, 192
   %cmp.i27.not.us = icmp eq i32 %and.i26.us, 192
-  br i1 %cmp.i27.not.us, label %while.body.us, label %while.end, !llvm.loop !14
+  br i1 %cmp.i27.not.us, label %while.body.us, label %while.end, !llvm.loop !13
 
 while.body.us.unreachabledefault:                 ; preds = %while.body.us
   unreachable
@@ -2386,7 +2386,7 @@ sw.epilog:                                        ; preds = %cond.true.i66, %con
   %ce32.2 = phi i32 [ %or.i.i, %_ZNK6icu_7520CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ %33, %cond.true.i40 ], [ %43, %cond.true.i58 ], [ %46, %cond.true.i66 ]
   %and.i26 = and i32 %ce32.2, 192
   %cmp.i27.not = icmp eq i32 %and.i26, 192
-  br i1 %cmp.i27.not, label %while.body, label %while.end, !llvm.loop !14
+  br i1 %cmp.i27.not, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %sw.bb43, %sw.bb39, %if.then17, %sw.epilog, %sw.bb39.us, %sw.epilog.us, %if.end5.thread, %if.end5
   %ce32.1.lcssa = phi i32 [ %16, %if.end5 ], [ %call2, %if.end5.thread ], [ 0, %sw.bb39.us ], [ %ce32.2.us, %sw.epilog.us ], [ 0, %sw.bb43 ], [ 0, %sw.bb39 ], [ 0, %if.then17 ], [ %ce32.2, %sw.epilog ]
@@ -2433,7 +2433,7 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
 for.inc:                                          ; preds = %cond.true.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %cond.true.i, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %cond.true.i, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry
   %cmp.i.i = icmp slt i32 %0, -1
@@ -2475,7 +2475,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %ce32, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483648, 524288) i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %ce32, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cond = alloca %"class.icu_75::LocalPointer", align 8
   %0 = load i32, ptr %errorCode, align 4
@@ -2841,7 +2841,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont96
 invoke.cont100:                                   ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %cleanup132, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %cleanup132, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont100
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont100 ]
@@ -2925,7 +2925,7 @@ if.else165:                                       ; preds = %if.end154
 if.then169:                                       ; preds = %if.else165
   call void @_ZN6icu_7513UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i16 noundef zeroext 0)
   %call172 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %oldCE32.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %invoke.cont171 unwind label %lpad170, !range !17
+          to label %invoke.cont171 unwind label %lpad170
 
 invoke.cont171:                                   ; preds = %if.then169
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #17
@@ -3014,7 +3014,7 @@ for.cond198:                                      ; preds = %for.cond198.prehead
 if.then201:                                       ; preds = %for.cond198
   %next199.le261 = getelementptr inbounds i8, ptr %cond166.1, i64 88
   %call204 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %ce32, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %invoke.cont203 unwind label %lpad191.loopexit.split-lp, !range !17
+          to label %invoke.cont203 unwind label %lpad191.loopexit.split-lp
 
 invoke.cont203:                                   ; preds = %if.then201
   %61 = load i32, ptr %errorCode, align 4
@@ -3096,7 +3096,7 @@ invoke.cont216:                                   ; preds = %if.else.i.i195
 if.then220:                                       ; preds = %invoke.cont216
   %next199.le = getelementptr inbounds i8, ptr %cond166.1, i64 88
   %call223 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %ce32, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %invoke.cont222 unwind label %lpad191.loopexit.split-lp, !range !17
+          to label %invoke.cont222 unwind label %lpad191.loopexit.split-lp
 
 invoke.cont222:                                   ; preds = %if.then220
   %73 = load i32, ptr %errorCode, align 4
@@ -3116,7 +3116,7 @@ invoke.cont230:                                   ; preds = %if.end228
 if.else233:                                       ; preds = %invoke.cont216.thread, %invoke.cont216
   %retval.0.i.i194228 = phi i8 [ %conv.i.i193, %invoke.cont216.thread ], [ %call5.i.i204, %invoke.cont216 ]
   %cmp235 = icmp eq i8 %retval.0.i.i194228, 0
-  br i1 %cmp235, label %if.then236, label %for.cond198, !llvm.loop !18
+  br i1 %cmp235, label %if.then236, label %for.cond198, !llvm.loop !16
 
 if.then236:                                       ; preds = %if.else233
   %ce32237 = getelementptr inbounds i8, ptr %call.i.i188189, i64 72
@@ -3327,7 +3327,7 @@ invoke.cont30:                                    ; preds = %if.end28
 
 if.then33:                                        ; preds = %invoke.cont30
   %call35 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder28copyContractionsFromBaseCE32ERNS_13UnicodeStringEijPNS_15ConditionalCE32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %c, i32 noundef %or.i.us, ptr noundef nonnull %head, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end40 unwind label %lpad29, !range !17
+          to label %if.end40 unwind label %lpad29
 
 lpad:                                             ; preds = %if.end28
   %11 = landingpad { ptr, i32 }
@@ -3345,7 +3345,7 @@ if.else:                                          ; preds = %invoke.cont30
 
 invoke.cont36:                                    ; preds = %if.else
   %call39 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %call37, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %invoke.cont38 unwind label %lpad29, !range !17
+          to label %invoke.cont38 unwind label %lpad29
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   store i32 %call39, ptr %next.i, align 8
@@ -3370,7 +3370,7 @@ invoke.cont46:                                    ; preds = %if.end45
 
 invoke.cont51:                                    ; preds = %invoke.cont46
   %14 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #17, !srcloc !19
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #17, !srcloc !17
   %str_.i = getelementptr inbounds i8, ptr %prefixes, i64 40
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %context, i64 8
   %fLength.i.i = getelementptr inbounds i8, ptr %context, i64 12
@@ -3422,13 +3422,13 @@ invoke.cont68:                                    ; preds = %invoke.cont62
 
 if.then71:                                        ; preds = %invoke.cont68
   %call73 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder28copyContractionsFromBaseCE32ERNS_13UnicodeStringEijPNS_15ConditionalCE32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %c, i32 noundef %21, ptr noundef %cond.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end80 unwind label %lpad52.loopexit, !range !17
+          to label %if.end80 unwind label %lpad52.loopexit
 
 lpad50:                                           ; preds = %invoke.cont46
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #17, !srcloc !19
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #17, !srcloc !17
   br label %ehcleanup
 
 lpad52.loopexit:                                  ; preds = %while.cond, %while.body, %if.then71, %if.else74, %invoke.cont75, %invoke.cont58, %invoke.cont62, %if.end85
@@ -3452,7 +3452,7 @@ if.else74:                                        ; preds = %invoke.cont68
 
 invoke.cont75:                                    ; preds = %if.else74
   %call78 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %call76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %invoke.cont77 unwind label %lpad52.loopexit, !range !17
+          to label %invoke.cont77 unwind label %lpad52.loopexit
 
 invoke.cont77:                                    ; preds = %invoke.cont75
   %next79 = getelementptr inbounds i8, ptr %cond.0, i64 88
@@ -3507,7 +3507,7 @@ if.end107:                                        ; preds = %sw.bb96.us
 
 invoke.cont111:                                   ; preds = %if.end107
   %call114 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder28copyContractionsFromBaseCE32ERNS_13UnicodeStringEijPNS_15ConditionalCE32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context109, i32 noundef %c, i32 noundef %ce32.tr112.us134, ptr noundef nonnull %head108, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %invoke.cont113 unwind label %lpad112, !range !17
+          to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %invoke.cont111
   %28 = load i32, ptr %next.i94, align 8
@@ -3863,7 +3863,7 @@ if.end50:                                         ; preds = %if.else10.i, %if.th
   store i32 %retval.0.i30, ptr %arrayidx52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp42 = icmp eq i64 %indvars.iv.next, %7
-  br i1 %cmp42, label %if.then43, label %if.end45, !llvm.loop !20
+  br i1 %cmp42, label %if.then43, label %if.end45, !llvm.loop !18
 
 for.end:                                          ; preds = %if.else10.i, %_ZN6icu_7520CollationDataBuilder17encodeOneCEAsCE32El.exit
   %call53 = tail call noundef i32 @_ZN6icu_7520CollationDataBuilder15encodeExpansionEPKliR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull %ces, i32 noundef %cesLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -3931,7 +3931,7 @@ if.then6.us:                                      ; preds = %_ZNK6icu_759UVector
 for.inc22.us:                                     ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.us
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %for.end24, label %for.body.us, !llvm.loop !21
+  br i1 %exitcond66.not, label %for.end24, label %for.body.us, !llvm.loop !19
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc22
   %indvars.iv59 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next60, %for.inc22 ]
@@ -3959,7 +3959,7 @@ if.then8:                                         ; preds = %if.then6, %if.then6
 for.cond10:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp11 = icmp eq i64 %indvars.iv.next, %4
-  br i1 %cmp11, label %if.then12.loopexit, label %if.end14, !llvm.loop !22
+  br i1 %cmp11, label %if.then12.loopexit, label %if.end14, !llvm.loop !20
 
 if.then12.loopexit:                               ; preds = %for.cond10
   %12 = trunc nuw nsw i64 %indvars.iv59 to i32
@@ -3995,7 +3995,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit32:       ; preds = %if.end14, %cond.tru
 for.inc22:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit32, %_ZNK6icu_759UVector3210elementAtiEi.exit
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond.not, label %for.end24, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end24, label %for.body, !llvm.loop !19
 
 for.end24:                                        ; preds = %for.inc22, %for.inc22.us, %if.end
   %cmp28 = icmp sgt i32 %2, 524287
@@ -4050,7 +4050,7 @@ if.then.i:                                        ; preds = %_ZN6icu_759UVector3
 _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i, %if.then.i
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %for.end40, label %for.body34, !llvm.loop !23
+  br i1 %exitcond71.not, label %for.end40, label %for.body34, !llvm.loop !21
 
 for.end40:                                        ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit, %for.cond32.preheader
   %shl.i38 = shl i32 %2, 13
@@ -4121,7 +4121,7 @@ if.then6.us:                                      ; preds = %_ZNK6icu_759UVector
 for.inc22.us:                                     ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit.us
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %for.end24, label %for.body.us, !llvm.loop !24
+  br i1 %exitcond66.not, label %for.end24, label %for.body.us, !llvm.loop !22
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc22
   %indvars.iv59 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next60, %for.inc22 ]
@@ -4149,7 +4149,7 @@ if.then8:                                         ; preds = %if.then6, %if.then6
 for.cond10:                                       ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp11 = icmp eq i64 %indvars.iv.next, %4
-  br i1 %cmp11, label %if.then12.loopexit, label %if.end14, !llvm.loop !25
+  br i1 %cmp11, label %if.then12.loopexit, label %if.end14, !llvm.loop !23
 
 if.then12.loopexit:                               ; preds = %for.cond10
   %12 = trunc nuw nsw i64 %indvars.iv59 to i32
@@ -4185,7 +4185,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit32:       ; preds = %if.end14, %cond.tru
 for.inc22:                                        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit32, %_ZNK6icu_759UVector6410elementAtiEi.exit
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond.not, label %for.end24, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.end24, label %for.body, !llvm.loop !22
 
 for.end24:                                        ; preds = %for.inc22, %for.inc22.us, %if.end
   %cmp28 = icmp sgt i32 %2, 524287
@@ -4240,7 +4240,7 @@ if.then.i:                                        ; preds = %_ZN6icu_759UVector6
 _ZN6icu_759UVector6410addElementElR10UErrorCode.exit: ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i, %if.then.i
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %for.end40, label %for.body34, !llvm.loop !26
+  br i1 %exitcond71.not, label %for.end40, label %for.body34, !llvm.loop !24
 
 for.end40:                                        ; preds = %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit, %for.cond32.preheader
   %shl.i38 = shl i32 %2, 13
@@ -4255,7 +4255,7 @@ return:                                           ; preds = %entry, %for.end40, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7520CollationDataBuilder28copyContractionsFromBaseCE32ERNS_13UnicodeStringEijPNS_15ConditionalCE32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %c, i32 noundef %ce32, ptr nocapture noundef writeonly %cond, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483648, 524288) i32 @_ZN6icu_7520CollationDataBuilder28copyContractionsFromBaseCE32ERNS_13UnicodeStringEijPNS_15ConditionalCE32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %c, i32 noundef %ce32, ptr nocapture noundef writeonly %cond, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %suffixes = alloca %"class.icu_75::UCharsTrie::Iterator", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -4284,7 +4284,7 @@ if.else:                                          ; preds = %if.end
   %conv2.i = zext i16 %4 to i32
   %or.i = or disjoint i32 %shl.i, %conv2.i
   %call5 = tail call noundef i32 @_ZN6icu_7520CollationDataBuilder16copyFromBaseCE32EijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %c, i32 noundef %or.i, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %call6 = tail call noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %call5, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !17
+  %call6 = tail call noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %call5, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %next = getelementptr inbounds i8, ptr %cond, i64 88
   store i32 %call6, ptr %next, align 8
   %5 = load i32, ptr %errorCode, align 4
@@ -4314,7 +4314,7 @@ if.end12:                                         ; preds = %if.end, %if.end10
 
 invoke.cont:                                      ; preds = %if.end12
   %9 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #17, !srcloc !19
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #17, !srcloc !17
   %str_.i = getelementptr inbounds i8, ptr %suffixes, i64 40
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %suffixes, i64 48
   %fLength.i.i = getelementptr inbounds i8, ptr %suffixes, i64 52
@@ -4353,7 +4353,7 @@ invoke.cont21:                                    ; preds = %while.body
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   %call28 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %call26, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %invoke.cont27 unwind label %lpad15, !range !17
+          to label %invoke.cont27 unwind label %lpad15
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   %next29 = getelementptr inbounds i8, ptr %cond.addr.1, i64 88
@@ -4366,7 +4366,7 @@ lpad:                                             ; preds = %if.end12
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17) #17, !srcloc !19
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17) #17, !srcloc !17
   br label %eh.resume
 
 lpad15:                                           ; preds = %if.then.i, %if.end34, %while.body, %invoke.cont25, %invoke.cont21, %while.cond
@@ -4495,7 +4495,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_75L16enumRangeForCopyEPKviij(ptr noundef %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #5 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L16enumRangeForCopyEPKviij(ptr noundef %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #5 {
 entry:
   switch i32 %value, label %lor.rhs [
     i32 -1, label %lor.end
@@ -4631,8 +4631,8 @@ cond.false25.i:                                   ; preds = %cond.false20.i
   %12 = load ptr, ptr %4, align 8
   %shr30.i = lshr i32 %1, 11
   %13 = zext nneg i32 %shr30.i to i64
-  %14 = getelementptr i16, ptr %12, i64 %13
-  %arrayidx33.i = getelementptr i8, ptr %14, i64 4160
+  %14 = getelementptr inbounds i16, ptr %12, i64 %13
+  %arrayidx33.i = getelementptr inbounds i8, ptr %14, i64 4160
   %15 = load i16, ptr %arrayidx33.i, align 2
   %conv34.i = zext i16 %15 to i32
   %shr35.i = lshr i32 %1, 5
@@ -4665,7 +4665,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %while.cond.backedge unwind label %lpad
 
 while.cond.backedge:                              ; preds = %invoke.cont19, %invoke.cont11
-  br label %while.cond, !llvm.loop !27
+  br label %while.cond, !llvm.loop !25
 
 lpad:                                             ; preds = %invoke.cont19, %invoke.cont17, %_ZNK6icu_7513CollationData7getCE32Ei.exit, %while.body, %while.cond
   %19 = landingpad { ptr, i32 }
@@ -4794,8 +4794,8 @@ cond.false25.i:                                   ; preds = %cond.false20.i
   %12 = load ptr, ptr %4, align 8
   %shr30.i = lshr i32 %1, 11
   %13 = zext nneg i32 %shr30.i to i64
-  %14 = getelementptr i16, ptr %12, i64 %13
-  %arrayidx33.i = getelementptr i8, ptr %14, i64 4160
+  %14 = getelementptr inbounds i16, ptr %12, i64 %13
+  %arrayidx33.i = getelementptr inbounds i8, ptr %14, i64 4160
   %15 = load i16, ptr %arrayidx33.i, align 2
   %conv34.i = zext i16 %15 to i32
   %shr35.i = lshr i32 %1, 5
@@ -4824,7 +4824,7 @@ invoke.cont17:                                    ; preds = %_ZNK6icu_7513Collat
   br i1 %or.cond, label %if.then22, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %invoke.cont17, %invoke.cont28, %invoke.cont36, %invoke.cont23
-  br label %while.cond, !llvm.loop !28
+  br label %while.cond, !llvm.loop !26
 
 if.then22:                                        ; preds = %invoke.cont17
   %call24 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder16copyFromBaseCE32EijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %1, i32 noundef %call18, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -4875,7 +4875,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6removeEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7520CollationDataBuilder12getJamoCE32sEPjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef %jamoCE32s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7520CollationDataBuilder12getJamoCE32sEPjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef %jamoCE32s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -5000,7 +5000,7 @@ if.end26:                                         ; preds = %sw.bb18, %if.then16
   store i32 %ce32.1, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 67
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %if.end26
   %tobool27 = icmp ne i8 %or24, 0
@@ -5045,7 +5045,7 @@ if.then37:                                        ; preds = %for.body33
 for.inc46:                                        ; preds = %for.body33, %if.then37
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 67
-  br i1 %exitcond103.not, label %if.end49, label %for.body33, !llvm.loop !30
+  br i1 %exitcond103.not, label %if.end49, label %for.body33, !llvm.loop !28
 
 if.end49:                                         ; preds = %for.inc46, %for.end
   br i1 %tobool27, label %land.rhs, label %return
@@ -5079,7 +5079,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #17
   %0 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #17, !srcloc !19
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #17, !srcloc !17
   %1 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %1, 1
   br i1 %cmp.i, label %if.end, label %cleanup35
@@ -5098,7 +5098,7 @@ lpad2:                                            ; preds = %invoke.cont
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad2 ], [ %2, %lpad ]
   %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #17, !srcloc !19
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #17, !srcloc !17
   br label %eh.resume
 
 lpad4:                                            ; preds = %if.end
@@ -5140,7 +5140,7 @@ invoke.cont13:                                    ; preds = %while.body
   ]
 
 while.cond.backedge:                              ; preds = %invoke.cont13, %invoke.cont13, %invoke.cont27
-  br label %while.cond, !llvm.loop !31
+  br label %while.cond, !llvm.loop !29
 
 if.then16:                                        ; preds = %invoke.cont13
   %8 = load i32, ptr %count.i.i, align 8
@@ -5162,7 +5162,7 @@ cond.true.i.i:                                    ; preds = %for.inc.i, %cond.tr
 for.inc.i:                                        ; preds = %cond.true.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %cond.true.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %for.end.i, label %cond.true.i.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then16
   %cmp.i.i.i = icmp slt i32 %8, -1
@@ -5274,7 +5274,7 @@ for.body:                                         ; preds = %entry, %for.body
   call void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr noundef %1, i32 noundef %indvars.iv, i32 noundef %or, ptr noundef nonnull %errorCode)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 56320
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -5283,7 +5283,7 @@ for.end:                                          ; preds = %for.body
 declare void @utrie2_enumForLeadSurrogate_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext i8 @_ZN6icu_75L18enumRangeLeadValueEPKviij(ptr nocapture noundef %context, i32 %0, i32 %1, i32 noundef %value) #8 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L18enumRangeLeadValueEPKviij(ptr nocapture noundef %context, i32 %0, i32 %1, i32 noundef %value) #8 {
 entry:
   switch i32 %value, label %return.sink.split [
     i32 -1, label %if.end5
@@ -5388,7 +5388,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
 
 if.end6:                                          ; preds = %lor.lhs.false
   tail call void @_ZN6icu_7520CollationDataBuilder13buildContextsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %call7 = call noundef signext i8 @_ZN6icu_7520CollationDataBuilder12getJamoCE32sEPjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull %jamoCE32s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !12
+  %call7 = call noundef signext i8 @_ZN6icu_7520CollationDataBuilder12getJamoCE32sEPjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull %jamoCE32s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool8.not = icmp eq i8 %call7, 0
   br i1 %tobool8.not, label %for.cond43.preheader, label %if.then9
 
@@ -5439,7 +5439,7 @@ if.then.i:                                        ; preds = %_ZN6icu_759UVector3
 _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i, %if.then.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 67
-  br i1 %exitcond.not, label %for.body16.preheader, label %for.body, !llvm.loop !33
+  br i1 %exitcond.not, label %for.body16.preheader, label %for.body, !llvm.loop !31
 
 for.body16.preheader:                             ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
   %arrayidx1893 = getelementptr inbounds i8, ptr %jamoCE32s, i64 76
@@ -5455,14 +5455,14 @@ for.cond14:                                       ; preds = %for.body16.preheade
   %indvars.iv7796 = phi i64 [ %indvars.iv.next78, %for.body16 ], [ 19, %for.body16.preheader ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv7796, 1
   %exitcond79 = icmp eq i64 %indvars.iv.next78, 67
-  br i1 %exitcond79, label %for.end25, label %for.body16, !llvm.loop !34
+  br i1 %exitcond79, label %for.end25, label %for.body16, !llvm.loop !32
 
 for.body16:                                       ; preds = %for.cond14
   %arrayidx18 = getelementptr inbounds [67 x i32], ptr %jamoCE32s, i64 0, i64 %indvars.iv.next78
   %10 = load i32, ptr %arrayidx18, align 4
   %and.i = and i32 %10, 192
   %cmp.i42.not = icmp eq i32 %and.i, 192
-  br i1 %cmp.i42.not, label %for.end25, label %for.cond14, !llvm.loop !34
+  br i1 %cmp.i42.not, label %for.end25, label %for.cond14, !llvm.loop !32
 
 for.end25:                                        ; preds = %for.cond14, %for.body16
   %cmp15.le = icmp ugt i64 %indvars.iv7796, 65
@@ -5482,7 +5482,7 @@ for.body30.us:                                    ; preds = %for.end25, %for.bod
   tail call void @utrie2_setRange32_75(ptr noundef %12, i32 noundef %c.068.us, i32 noundef %sub.us, i32 noundef %spec.select.us, i8 noundef signext 1, ptr noundef nonnull %errorCode)
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 19
-  br i1 %exitcond84.not, label %if.end53, label %for.body30.us, !llvm.loop !35
+  br i1 %exitcond84.not, label %if.end53, label %for.body30.us, !llvm.loop !33
 
 for.body30:                                       ; preds = %for.body30.preheader, %for.body30
   %i27.069 = phi i32 [ %inc40, %for.body30 ], [ 0, %for.body30.preheader ]
@@ -5493,7 +5493,7 @@ for.body30:                                       ; preds = %for.body30.preheade
   tail call void @utrie2_setRange32_75(ptr noundef %13, i32 noundef %c.068, i32 noundef %sub, i32 noundef 204, i8 noundef signext 1, ptr noundef nonnull %errorCode)
   %inc40 = add nuw nsw i32 %i27.069, 1
   %exitcond80.not = icmp eq i32 %inc40, 19
-  br i1 %exitcond80.not, label %if.end53, label %for.body30, !llvm.loop !35
+  br i1 %exitcond80.not, label %if.end53, label %for.body30, !llvm.loop !33
 
 _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %for.cond43.preheader, %_ZNK6icu_7513CollationData7getCE32Ei.exit
   %c42.070 = phi i32 [ 44032, %for.cond43.preheader ], [ %add49, %_ZNK6icu_7513CollationData7getCE32Ei.exit ]
@@ -5518,7 +5518,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %for.cond43.preheade
   %sub51 = add nuw nsw i32 %c42.070, 587
   tail call void @utrie2_setRange32_75(ptr noundef %20, i32 noundef %c42.070, i32 noundef %sub51, i32 noundef %19, i8 noundef signext 1, ptr noundef nonnull %errorCode)
   %cmp44 = icmp ult i32 %c42.070, 54616
-  br i1 %cmp44, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %if.end53, !llvm.loop !36
+  br i1 %cmp44, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %if.end53, !llvm.loop !34
 
 if.end53:                                         ; preds = %for.body30.us, %for.body30, %_ZNK6icu_7513CollationData7getCE32Ei.exit
   %jamoIndex.0 = phi i32 [ -1, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %2, %for.body30 ], [ %2, %for.body30.us ]
@@ -5537,7 +5537,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   call void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr noundef %22, i32 noundef %indvars.iv.i, i32 noundef %or.i, ptr noundef nonnull %errorCode)
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, 56320
-  br i1 %exitcond.not.i, label %_ZN6icu_7520CollationDataBuilder17setLeadSurrogatesER10UErrorCode.exit, label %for.body.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %_ZN6icu_7520CollationDataBuilder17setLeadSurrogatesER10UErrorCode.exit, label %for.body.i, !llvm.loop !30
 
 _ZN6icu_7520CollationDataBuilder17setLeadSurrogatesER10UErrorCode.exit: ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -5582,7 +5582,7 @@ for.inc79:                                        ; preds = %for.body70, %if.the
   %indvars.iv.next86 = add nuw nsw i32 %indvars.iv85, 1
   %add81 = add nuw nsw i32 %c67.071, 1024
   %exitcond88.not = icmp eq i32 %indvars.iv.next86, 56320
-  br i1 %exitcond88.not, label %for.end82, label %for.body70, !llvm.loop !37
+  br i1 %exitcond88.not, label %for.end82, label %for.body70, !llvm.loop !35
 
 for.end82:                                        ; preds = %for.inc79
   %call84 = call noundef ptr @_ZN6icu_7510UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %unsafeBackwardSet)
@@ -5879,7 +5879,7 @@ invoke.cont16:                                    ; preds = %if.end15
 invoke.cont18:                                    ; preds = %invoke.cont16
   %9 = load ptr, ptr %trie, align 8
   invoke void @utrie2_set32_75(ptr noundef %9, i32 noundef %5, i32 noundef %call19, ptr noundef nonnull %errorCode)
-          to label %while.cond unwind label %lpad, !llvm.loop !38
+          to label %while.cond unwind label %lpad, !llvm.loop !36
 
 cleanup:                                          ; preds = %invoke.cont4, %while.cond, %if.then14
   call void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %iter) #17
@@ -6087,7 +6087,7 @@ lpad.i:                                           ; preds = %new.notnull.i
 
 if.end6.i:                                        ; preds = %new.cont.i, %entry
   %2 = phi ptr [ %call.i, %new.cont.i ], [ %0, %entry ]
-  %call8.i = tail call noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %2, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0, ptr noundef %ces, i32 noundef %cesLength)
+  %call8.i = tail call noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %2, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0, ptr noundef writeonly %ces, i32 noundef %cesLength)
   br label %_ZN6icu_7520CollationDataBuilder6getCEsERKNS_13UnicodeStringEiPli.exit
 
 _ZN6icu_7520CollationDataBuilder6getCEsERKNS_13UnicodeStringEiPli.exit: ; preds = %new.cont.thread.i, %if.end6.i
@@ -6186,7 +6186,7 @@ lpad.i:                                           ; preds = %new.notnull.i
 
 if.end6.i:                                        ; preds = %new.cont.i, %if.then
   %5 = phi ptr [ %call.i, %new.cont.i ], [ %3, %if.then ]
-  %call8.i = tail call noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %5, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0, ptr noundef %ces, i32 noundef %cesLength)
+  %call8.i = tail call noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %5, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0, ptr noundef writeonly %ces, i32 noundef %cesLength)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -6221,7 +6221,7 @@ lpad.i15:                                         ; preds = %new.notnull.i14
 
 if.end6.i8:                                       ; preds = %new.cont.i16, %if.else
   %8 = phi ptr [ %call.i12, %new.cont.i16 ], [ %6, %if.else ]
-  %call8.i918 = invoke noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %8, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %cond.i, ptr noundef %ces, i32 noundef %cesLength)
+  %call8.i918 = invoke noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %8, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %cond.i, ptr noundef writeonly %ces, i32 noundef %cesLength)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %new.cont.thread.i17, %if.end6.i8
@@ -6430,7 +6430,7 @@ _ZN6icu_759Collation10ceFromCE32Ej.exit87:        ; preds = %if.then.i76, %if.el
   store i64 %retval.0.i72, ptr %arrayidx38, align 8
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, %indvars.iv122
-  br i1 %exitcond121.not, label %for.inc44.sink.split, label %for.body32, !llvm.loop !39
+  br i1 %exitcond121.not, label %for.inc44.sink.split, label %for.body32, !llvm.loop !37
 
 for.inc44.sink.split:                             ; preds = %_ZN6icu_759Collation10ceFromCE32Ej.exit87, %if.else27, %if.then10.i, %if.else.i, %if.then.i
   %call18.sink = phi i64 [ %or7.i, %if.then.i ], [ %or13.i, %if.then10.i ], [ %conv11.i, %if.else.i ], [ %call18, %if.else27 ], [ %call18, %_ZN6icu_759Collation10ceFromCE32Ej.exit87 ]
@@ -6443,7 +6443,7 @@ for.inc44:                                        ; preds = %for.inc44.sink.spli
   %isModified.2 = phi i8 [ 0, %if.then20 ], [ 1, %for.inc44.sink.split ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count124
-  br i1 %exitcond125.not, label %for.end46, label %for.body, !llvm.loop !40
+  br i1 %exitcond125.not, label %for.end46, label %for.body, !llvm.loop !38
 
 for.end46:                                        ; preds = %for.inc44
   br i1 %9, label %if.else55, label %if.then48
@@ -6514,7 +6514,7 @@ for.body96:                                       ; preds = %if.else90, %for.bod
   store i64 %18, ptr %arrayidx101, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv114
-  br i1 %exitcond.not, label %for.inc110.sink.split, label %for.body96, !llvm.loop !41
+  br i1 %exitcond.not, label %for.inc110.sink.split, label %for.body96, !llvm.loop !39
 
 for.inc110.sink.split:                            ; preds = %for.body96, %if.else90, %if.then83
   %call81.sink = phi i64 [ %15, %if.then83 ], [ %call81, %if.else90 ], [ %call81, %for.body96 ]
@@ -6527,7 +6527,7 @@ for.inc110:                                       ; preds = %for.inc110.sink.spl
   %isModified70.2 = phi i8 [ 0, %if.then83 ], [ 1, %for.inc110.sink.split ]
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count116
-  br i1 %exitcond117.not, label %for.end112, label %for.body74, !llvm.loop !42
+  br i1 %exitcond117.not, label %for.end112, label %for.body74, !llvm.loop !40
 
 for.end112:                                       ; preds = %for.inc110
   br i1 %19, label %if.else122, label %if.then114
@@ -6562,7 +6562,7 @@ if.then129:                                       ; preds = %if.else
   %25 = load i32, ptr %ce32133, align 8
   %call134 = tail call noundef i32 @_ZN6icu_7510CopyHelper8copyCE32Ej(ptr noundef nonnull align 8 dereferenceable(276) %this, i32 noundef %25)
   %errorCode135 = getelementptr inbounds i8, ptr %this, i64 272
-  %call136 = tail call noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %24, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %call134, ptr noundef nonnull align 4 dereferenceable(4) %errorCode135), !range !17
+  %call136 = tail call noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %24, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %call134, ptr noundef nonnull align 4 dereferenceable(4) %errorCode135)
   %shl.i.i = shl i32 %call136, 13
   %or1.i.i = or disjoint i32 %shl.i.i, 199
   %next94 = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
@@ -6584,7 +6584,7 @@ while.body:                                       ; preds = %if.then129, %invoke
   %ce32146 = getelementptr inbounds i8, ptr %call.i.i, i64 72
   %31 = load i32, ptr %ce32146, align 8
   %call147 = call noundef i32 @_ZN6icu_7510CopyHelper8copyCE32Ej(ptr noundef nonnull align 8 dereferenceable(276) %this, i32 noundef %31)
-  %call149 = call noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %30, ptr noundef nonnull align 8 dereferenceable(64) %context145, i32 noundef %call147, ptr noundef nonnull align 4 dereferenceable(4) %errorCode135), !range !17
+  %call149 = call noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %30, ptr noundef nonnull align 8 dereferenceable(64) %context145, i32 noundef %call147, ptr noundef nonnull align 4 dereferenceable(4) %errorCode135)
   %fUnion.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %32 = load i16, ptr %fUnion.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp slt i16 %32, 0
@@ -6623,7 +6623,7 @@ invoke.cont:                                      ; preds = %_ZNK6icu_7515Condit
   %next = getelementptr inbounds i8, ptr %call.i.i, i64 88
   %40 = load i32, ptr %next, align 8
   %cmp138 = icmp sgt i32 %40, -1
-  br i1 %cmp138, label %while.body, label %if.end159, !llvm.loop !43
+  br i1 %cmp138, label %while.body, label %if.end159, !llvm.loop !41
 
 lpad:                                             ; preds = %_ZNK6icu_7515ConditionalCE3212prefixLengthEv.exit
   %41 = landingpad { ptr, i32 }
@@ -6705,14 +6705,14 @@ attributes #18 = { noreturn nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i8 0, i8 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 -2147483648, i32 524288}
+!17 = !{i64 2149778841}
 !18 = distinct !{!18, !5}
-!19 = !{i64 2149778841}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
@@ -6735,5 +6735,3 @@ attributes #18 = { noreturn nounwind }
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}

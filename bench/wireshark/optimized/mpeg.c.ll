@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mpeg_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpeg_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @mpeg_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 16, ptr noundef %1, ptr noundef %2) #7
@@ -100,7 +100,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mpeg_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @mpeg_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #7
   store i64 %8, ptr %5, align 8
@@ -112,7 +112,7 @@ define internal noundef i32 @mpeg_read(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mpeg_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @mpeg_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
@@ -159,7 +159,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mpeg_read_packet(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -451,7 +451,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
   store i64 %151, ptr %.96.val, align 8
   %152 = mul nuw nsw i64 %147, 1000000000
   %153 = udiv i64 %152, 27000000
-  %154 = trunc i64 %153 to i32
+  %154 = trunc nuw nsw i64 %153 to i32
   %155 = getelementptr inbounds i8, ptr %.96.val, i64 8
   store i32 %154, ptr %155, align 8
   br label %162

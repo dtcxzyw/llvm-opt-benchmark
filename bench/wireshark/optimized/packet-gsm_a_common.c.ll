@@ -3070,7 +3070,7 @@ define zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @elem_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define zeroext range(i16 0, 2) i16 @elem_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = alloca %struct._value_string_ext, align 8
   switch i32 %4, label %29 [
     i32 0, label %10
@@ -5998,7 +5998,7 @@ define internal void @gsm_a_bssmap_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_bssmap_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_bssmap_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6071,7 +6071,7 @@ define internal void @gsm_a_dtap_mm_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_dtap_mm_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_dtap_mm_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 1
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6113,7 +6113,7 @@ define internal void @gsm_a_dtap_rr_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_dtap_rr_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_dtap_rr_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 1
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6155,7 +6155,7 @@ define internal void @gsm_a_dtap_cc_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_dtap_cc_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_dtap_cc_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 1
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6197,7 +6197,7 @@ define internal void @gsm_a_dtap_gmm_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_dtap_gmm_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_dtap_gmm_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 1
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6239,7 +6239,7 @@ define internal void @gsm_a_dtap_sm_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_dtap_sm_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_dtap_sm_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 1
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6281,7 +6281,7 @@ define internal void @gsm_a_dtap_sms_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_dtap_sms_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_dtap_sms_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 1
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6323,7 +6323,7 @@ define internal void @gsm_a_dtap_tp_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_dtap_tp_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_dtap_tp_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 1
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6365,7 +6365,7 @@ define internal void @gsm_a_dtap_ss_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_dtap_ss_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_dtap_ss_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 1
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit
@@ -6407,7 +6407,7 @@ define internal void @gsm_a_sacch_rr_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_a_sacch_rr_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gsm_a_sacch_rr_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 4
   %.not.i = icmp eq i8 %6, 7
   br i1 %.not.i, label %7, label %gsm_a_stat_packet.exit

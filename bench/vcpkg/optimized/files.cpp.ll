@@ -10675,7 +10675,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK5vcpkg14RealFilesystem9cop
   %11 = alloca i64, align 8
   %12 = alloca [4096 x i8], align 16
   %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
-  %14 = invoke i32 (ptr, i32, ...) @open64(ptr noundef %13, i32 noundef 0)
+  %14 = invoke i32 (ptr, i32, ...) @open64(ptr noundef readonly %13, i32 noundef 0)
           to label %15 unwind label %19
 
 15:                                               ; preds = %5
@@ -10750,7 +10750,7 @@ _ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit: ; preds = %26
   %spec.select = select i1 %or.cond, i32 193, i32 65
   %43 = or i32 %36, 146
   %44 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
-  %45 = invoke i32 (ptr, i32, ...) @open64(ptr noundef %44, i32 noundef %spec.select, i32 noundef %43)
+  %45 = invoke i32 (ptr, i32, ...) @open64(ptr noundef readonly %44, i32 noundef %spec.select, i32 noundef %43)
           to label %46 unwind label %49
 
 46:                                               ; preds = %41
@@ -10982,7 +10982,7 @@ _ZNK12_GLOBAL__N_17PosixFd4readEPvm.exit:         ; preds = %127
 
 .lr.ph121:                                        ; preds = %.preheader, %137
   %.056120 = phi i64 [ %138, %137 ], [ %128, %.preheader ]
-  %140 = invoke i64 @write(i32 noundef %45, ptr noundef nonnull %12, i64 noundef %.056120)
+  %140 = invoke i64 @write(i32 noundef %45, ptr noundef nonnull readonly %12, i64 noundef %.056120)
           to label %_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.exit unwind label %141
 
 141:                                              ; preds = %.lr.ph121
@@ -11185,7 +11185,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem24take_exclusive_f
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !109
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 0, i32 0, i64 2), ptr %8, align 8, !noalias !109
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26, !noalias !109
-  %10 = invoke i32 (ptr, i32, ...) @open64(ptr noundef %9, i32 noundef 66, i32 noundef 420)
+  %10 = invoke i32 (ptr, i32, ...) @open64(ptr noundef readonly %9, i32 noundef 66, i32 noundef 420)
           to label %11 unwind label %17, !noalias !109
 
 11:                                               ; preds = %5
@@ -11350,7 +11350,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem28try_take_exclusi
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !113
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 0, i32 0, i64 2), ptr %11, align 8, !noalias !113
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26, !noalias !113
-  %13 = invoke i32 (ptr, i32, ...) @open64(ptr noundef %12, i32 noundef 66, i32 noundef 420)
+  %13 = invoke i32 (ptr, i32, ...) @open64(ptr noundef readonly %12, i32 noundef 66, i32 noundef 420)
           to label %14 unwind label %20, !noalias !113
 
 14:                                               ; preds = %5
@@ -12624,7 +12624,7 @@ define internal noundef zeroext i1 @_ZZNK5vcpkg14RealFilesystem29get_directories
 5:                                                ; preds = %switch.hole_check, %2
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %7 = call i32 @stat64(ptr noundef %6, ptr noundef nonnull %3) #26
+  %7 = call i32 @stat64(ptr noundef readonly %6, ptr noundef nonnull %3) #26
   %.not.i.i = icmp eq i32 %7, 0
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = load i32, ptr %8, align 8
@@ -12661,7 +12661,7 @@ define internal noundef zeroext i1 @_ZZNK5vcpkg14RealFilesystem31get_regular_fil
 5:                                                ; preds = %switch.hole_check, %2
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %7 = call i32 @stat64(ptr noundef %6, ptr noundef nonnull %3) #26
+  %7 = call i32 @stat64(ptr noundef readonly %6, ptr noundef nonnull %3) #26
   %.not.i.i = icmp eq i32 %7, 0
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = load i32, ptr %8, align 8

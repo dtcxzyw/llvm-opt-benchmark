@@ -972,7 +972,7 @@ define void @slurmdb_pack_wckey_rec(ptr noundef readonly %0, i16 noundef zeroext
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_user_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_user_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1013,7 +1013,7 @@ define noundef i32 @slurmdb_unpack_user_rec(ptr nocapture noundef writeonly %0, 
   %.071 = phi i32 [ %25, %slurmdb_unpack_assoc_rec.exit ], [ 0, %18 ]
   %22 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.slurmdb_unpack_assoc_rec) #6
   call void @slurmdb_init_assoc_rec(ptr noundef %22, i1 noundef zeroext false) #6
-  %23 = call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %22, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %23 = call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %22, i16 noundef zeroext %1, ptr noundef %2)
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %slurmdb_unpack_assoc_rec.exit, label %slurmdb_unpack_assoc_rec.exit.thread
 
@@ -1027,7 +1027,7 @@ slurmdb_unpack_assoc_rec.exit:                    ; preds = %.lr.ph
   %25 = add nuw nsw i32 %.071, 1
   %26 = load i32, ptr %6, align 4
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph, label %.loopexit69, !llvm.loop !7
+  br i1 %27, label %.lr.ph, label %.loopexit69, !llvm.loop !6
 
 .loopexit69:                                      ; preds = %slurmdb_unpack_assoc_rec.exit, %18, %17
   %28 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %2) #6
@@ -1075,7 +1075,7 @@ slurmdb_unpack_coord_rec.exit.thread:             ; preds = %.lr.ph73, %39
   %44 = add nuw nsw i32 %.172, 1
   %45 = load i32, ptr %6, align 4
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %.lr.ph73, label %.loopexit68, !llvm.loop !9
+  br i1 %46, label %.lr.ph73, label %.loopexit68, !llvm.loop !8
 
 .loopexit68:                                      ; preds = %42, %33, %32
   %47 = getelementptr inbounds i8, ptr %8, i64 32
@@ -1135,7 +1135,7 @@ slurmdb_unpack_coord_rec.exit.thread:             ; preds = %.lr.ph73, %39
 
 .lr.ph75:                                         ; preds = %70, %76
   %.274 = phi i32 [ %79, %76 ], [ 0, %70 ]
-  %74 = call i32 @slurmdb_unpack_wckey_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %74 = call i32 @slurmdb_unpack_wckey_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2)
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %.loopexit67, label %76
 
@@ -1146,7 +1146,7 @@ slurmdb_unpack_coord_rec.exit.thread:             ; preds = %.lr.ph73, %39
   %79 = add nuw nsw i32 %.274, 1
   %80 = load i32, ptr %6, align 4
   %81 = icmp ult i32 %79, %80
-  br i1 %81, label %.lr.ph75, label %.loopexit, !llvm.loop !10
+  br i1 %81, label %.lr.ph75, label %.loopexit, !llvm.loop !9
 
 82:                                               ; preds = %3
   %83 = zext nneg i16 %1 to i32
@@ -1174,11 +1174,11 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_destroy_assoc_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_assoc_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.slurmdb_unpack_assoc_rec) #6
   store ptr %4, ptr %0, align 8
   tail call void @slurmdb_init_assoc_rec(ptr noundef %4, i1 noundef zeroext false) #6
-  %5 = tail call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %4, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %5 = tail call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %4, i16 noundef zeroext %1, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
@@ -1196,7 +1196,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_destroy_coord_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_coord_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_coord_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.slurmdb_unpack_coord_rec) #6
   %6 = icmp ugt i16 %1, 9983
@@ -1234,7 +1234,7 @@ declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) lo
 declare void @slurmdb_destroy_wckey_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1265,7 +1265,7 @@ define noundef i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writeonly %0,
 
 .lr.ph:                                           ; preds = %15, %20
   %.02737 = phi i32 [ %23, %20 ], [ 0, %15 ]
-  %18 = call i32 @slurmdb_unpack_accounting_rec(ptr noundef nonnull %6, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %18 = call i32 @slurmdb_unpack_accounting_rec(ptr noundef nonnull %6, i16 noundef zeroext %1, ptr noundef %2)
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %.loopexit36, label %20
 
@@ -1276,7 +1276,7 @@ define noundef i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writeonly %0,
   %23 = add nuw nsw i32 %.02737, 1
   %24 = load i32, ptr %5, align 4
   %25 = icmp ult i32 %23, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %20, %15, %14
   %26 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1397,7 +1397,7 @@ define void @slurmdb_pack_used_limits(ptr noundef readonly %0, i32 noundef %1, i
 declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_used_limits(ptr nocapture noundef writeonly %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_used_limits(ptr nocapture noundef writeonly %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__func__.slurmdb_unpack_used_limits) #6
   store ptr %6, ptr %0, align 8
@@ -1551,7 +1551,7 @@ define void @slurmdb_pack_account_rec(ptr noundef readonly %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_account_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_account_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1581,7 +1581,7 @@ define noundef i32 @slurmdb_unpack_account_rec(ptr nocapture noundef writeonly %
   %.02846 = phi i32 [ %19, %slurmdb_unpack_assoc_rec.exit ], [ 0, %13 ]
   %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.slurmdb_unpack_assoc_rec) #6
   call void @slurmdb_init_assoc_rec(ptr noundef %16, i1 noundef zeroext false) #6
-  %17 = call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %16, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %17 = call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %16, i16 noundef zeroext %1, ptr noundef %2)
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %slurmdb_unpack_assoc_rec.exit, label %slurmdb_unpack_assoc_rec.exit.thread
 
@@ -1595,7 +1595,7 @@ slurmdb_unpack_assoc_rec.exit:                    ; preds = %.lr.ph
   %19 = add nuw nsw i32 %.02846, 1
   %20 = load i32, ptr %6, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %.lr.ph, label %.loopexit44, !llvm.loop !12
+  br i1 %21, label %.lr.ph, label %.loopexit44, !llvm.loop !11
 
 .loopexit44:                                      ; preds = %slurmdb_unpack_assoc_rec.exit, %13, %11
   %22 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %2) #6
@@ -1641,7 +1641,7 @@ slurmdb_unpack_coord_rec.exit.thread:             ; preds = %.lr.ph48, %31
   %36 = add nuw nsw i32 %.147, 1
   %37 = load i32, ptr %6, align 4
   %38 = icmp ult i32 %36, %37
-  br i1 %38, label %.lr.ph48, label %.loopexit, !llvm.loop !13
+  br i1 %38, label %.lr.ph48, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %34, %25, %23
   %39 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1804,7 +1804,7 @@ define void @slurmdb_pack_tres_rec(ptr noundef readonly %0, i16 zeroext %1, ptr 
 declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_cluster_accounting_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_accounting_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 104, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @__func__.slurmdb_unpack_cluster_accounting_rec) #6
   store ptr %5, ptr %0, align 8
@@ -1906,7 +1906,7 @@ slurmdb_unpack_tres_rec_noalloc.exit:             ; preds = %9, %12, %15, %18, %
 declare i32 @unpack64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_tres_rec_noalloc(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_tres_rec_noalloc(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @unpack64(ptr noundef %0, ptr noundef %2) #6
   %.not = icmp eq i32 %5, 0
@@ -1991,7 +1991,7 @@ define void @slurmdb_pack_clus_res_rec(ptr noundef readonly %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_clus_res_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_clus_res_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 628, ptr noundef nonnull @__func__.slurmdb_unpack_clus_res_rec) #6
   store ptr %5, ptr %0, align 8
@@ -2613,7 +2613,7 @@ _pack_list_of_str.exit313:                        ; preds = %.thread.i312, %202,
 declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
@@ -2650,7 +2650,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
 
 .lr.ph273:                                        ; preds = %20, %25
   %.0181272 = phi i32 [ %28, %25 ], [ 0, %20 ]
-  %23 = call i32 @slurmdb_unpack_cluster_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %23 = call i32 @slurmdb_unpack_cluster_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2)
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %.loopexit254, label %25
 
@@ -2661,7 +2661,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
   %28 = add nuw nsw i32 %.0181272, 1
   %29 = load i32, ptr %6, align 4
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %.lr.ph273, label %.loopexit255, !llvm.loop !14
+  br i1 %30, label %.lr.ph273, label %.loopexit255, !llvm.loop !13
 
 .loopexit255:                                     ; preds = %25, %20, %19
   %31 = getelementptr inbounds i8, ptr %11, i64 8
@@ -2721,7 +2721,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
   %56 = add nuw nsw i32 %.1274, 1
   %57 = load i32, ptr %6, align 4
   %58 = icmp ult i32 %56, %57
-  br i1 %58, label %.lr.ph275, label %.loopexit, !llvm.loop !15
+  br i1 %58, label %.lr.ph275, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %53, %48, %47
   %59 = getelementptr inbounds i8, ptr %11, i64 192
@@ -2781,7 +2781,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds i8, ptr %11, i64 288
-  %90 = call i32 @slurmdb_unpack_assoc_rec(ptr noundef nonnull %89, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %90 = call i32 @slurmdb_unpack_assoc_rec(ptr noundef nonnull %89, i16 noundef zeroext %1, ptr noundef %2)
   %91 = icmp eq i32 %90, -1
   br i1 %91, label %.loopexit254, label %92
 
@@ -2858,7 +2858,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
 
 .lr.ph269:                                        ; preds = %122, %127
   %.2268 = phi i32 [ %130, %127 ], [ 0, %122 ]
-  %125 = call i32 @slurmdb_unpack_cluster_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %125 = call i32 @slurmdb_unpack_cluster_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2)
   %126 = icmp eq i32 %125, -1
   br i1 %126, label %.loopexit254, label %127
 
@@ -2869,7 +2869,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
   %130 = add nuw nsw i32 %.2268, 1
   %131 = load i32, ptr %6, align 4
   %132 = icmp ult i32 %130, %131
-  br i1 %132, label %.lr.ph269, label %.loopexit259, !llvm.loop !16
+  br i1 %132, label %.lr.ph269, label %.loopexit259, !llvm.loop !15
 
 .loopexit259:                                     ; preds = %127, %122, %121
   %133 = getelementptr inbounds i8, ptr %11, i64 8
@@ -2929,7 +2929,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
   %158 = add nuw nsw i32 %.3270, 1
   %159 = load i32, ptr %6, align 4
   %160 = icmp ult i32 %158, %159
-  br i1 %160, label %.lr.ph271, label %.loopexit257, !llvm.loop !17
+  br i1 %160, label %.lr.ph271, label %.loopexit257, !llvm.loop !16
 
 .loopexit257:                                     ; preds = %155, %150, %149
   %161 = getelementptr inbounds i8, ptr %11, i64 192
@@ -2994,7 +2994,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
 
 192:                                              ; preds = %190
   %193 = getelementptr inbounds i8, ptr %11, i64 288
-  %194 = call i32 @slurmdb_unpack_assoc_rec(ptr noundef nonnull %193, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %194 = call i32 @slurmdb_unpack_assoc_rec(ptr noundef nonnull %193, i16 noundef zeroext %1, ptr noundef %2)
   %195 = icmp eq i32 %194, -1
   br i1 %195, label %.loopexit254, label %196
 
@@ -3071,7 +3071,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
 
 .lr.ph:                                           ; preds = %226, %231
   %.4265 = phi i32 [ %234, %231 ], [ 0, %226 ]
-  %229 = call i32 @slurmdb_unpack_cluster_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %229 = call i32 @slurmdb_unpack_cluster_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2)
   %230 = icmp eq i32 %229, -1
   br i1 %230, label %.loopexit254, label %231
 
@@ -3082,7 +3082,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
   %234 = add nuw nsw i32 %.4265, 1
   %235 = load i32, ptr %6, align 4
   %236 = icmp ult i32 %234, %235
-  br i1 %236, label %.lr.ph, label %.loopexit263, !llvm.loop !18
+  br i1 %236, label %.lr.ph, label %.loopexit263, !llvm.loop !17
 
 .loopexit263:                                     ; preds = %231, %226, %225
   %237 = getelementptr inbounds i8, ptr %11, i64 8
@@ -3142,7 +3142,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
   %262 = add nuw nsw i32 %.5266, 1
   %263 = load i32, ptr %6, align 4
   %264 = icmp ult i32 %262, %263
-  br i1 %264, label %.lr.ph267, label %.loopexit261, !llvm.loop !19
+  br i1 %264, label %.lr.ph267, label %.loopexit261, !llvm.loop !18
 
 .loopexit261:                                     ; preds = %259, %254, %253
   %265 = getelementptr inbounds i8, ptr %11, i64 192
@@ -3207,7 +3207,7 @@ define noundef i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %
 
 296:                                              ; preds = %294
   %297 = getelementptr inbounds i8, ptr %11, i64 288
-  %298 = call i32 @slurmdb_unpack_assoc_rec(ptr noundef nonnull %297, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %298 = call i32 @slurmdb_unpack_assoc_rec(ptr noundef nonnull %297, i16 noundef zeroext %1, ptr noundef %2)
   %299 = icmp eq i32 %298, -1
   br i1 %299, label %.loopexit254, label %300
 
@@ -3334,7 +3334,7 @@ define void @slurmdb_pack_federation_rec(ptr noundef readonly %0, i16 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_federation_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_federation_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3388,7 +3388,7 @@ define noundef i32 @slurmdb_unpack_federation_rec(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %23, %30
   %.02029 = phi i32 [ %33, %30 ], [ 0, %23 ]
-  %27 = call i32 @slurmdb_unpack_cluster_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %27 = call i32 @slurmdb_unpack_cluster_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2)
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %30, label %28
 
@@ -3403,7 +3403,7 @@ define noundef i32 @slurmdb_unpack_federation_rec(ptr nocapture noundef writeonl
   %33 = add nuw nsw i32 %.02029, 1
   %34 = load i32, ptr %6, align 4
   %35 = icmp ult i32 %33, %34
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 36:                                               ; preds = %3
   %37 = zext nneg i16 %1 to i32
@@ -3468,7 +3468,7 @@ define void @slurmdb_pack_accounting_rec(ptr noundef %0, i16 noundef zeroext %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_accounting_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_accounting_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1221, ptr noundef nonnull @__func__.slurmdb_unpack_accounting_rec) #6
   store ptr %5, ptr %0, align 8
@@ -3546,7 +3546,7 @@ slurmdb_unpack_tres_rec_noalloc.exit:             ; preds = %9, %12, %15, %18, %
 declare void @slurmdb_destroy_accounting_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -3581,7 +3581,7 @@ define noundef i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i16 noundef
 
 .lr.ph244:                                        ; preds = %18, %23
   %.0243 = phi i32 [ %26, %23 ], [ 0, %18 ]
-  %21 = call i32 @slurmdb_unpack_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %21 = call i32 @slurmdb_unpack_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2)
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %.loopexit233, label %23
 
@@ -3592,7 +3592,7 @@ define noundef i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i16 noundef
   %26 = add nuw nsw i32 %.0243, 1
   %27 = load i32, ptr %5, align 4
   %28 = icmp ult i32 %26, %27
-  br i1 %28, label %.lr.ph244, label %.loopexit234, !llvm.loop !21
+  br i1 %28, label %.lr.ph244, label %.loopexit234, !llvm.loop !20
 
 .loopexit234:                                     ; preds = %23, %18, %17
   %29 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3799,7 +3799,7 @@ define noundef i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i16 noundef
   %127 = add nuw nsw i32 %.1245, 1
   %128 = load i32, ptr %5, align 4
   %129 = icmp ult i32 %127, %128
-  br i1 %129, label %.lr.ph246, label %.loopexit, !llvm.loop !22
+  br i1 %129, label %.lr.ph246, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %124, %119, %117
   %130 = getelementptr inbounds i8, ptr %0, i64 304
@@ -3838,7 +3838,7 @@ define noundef i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i16 noundef
 
 .lr.ph:                                           ; preds = %143, %148
   %.2240 = phi i32 [ %151, %148 ], [ 0, %143 ]
-  %146 = call i32 @slurmdb_unpack_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %146 = call i32 @slurmdb_unpack_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2)
   %147 = icmp eq i32 %146, -1
   br i1 %147, label %.loopexit233, label %148
 
@@ -3849,7 +3849,7 @@ define noundef i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i16 noundef
   %151 = add nuw nsw i32 %.2240, 1
   %152 = load i32, ptr %5, align 4
   %153 = icmp ult i32 %151, %152
-  br i1 %153, label %.lr.ph, label %.loopexit238, !llvm.loop !23
+  br i1 %153, label %.lr.ph, label %.loopexit238, !llvm.loop !22
 
 .loopexit238:                                     ; preds = %148, %143, %142
   %154 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4056,7 +4056,7 @@ define noundef i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i16 noundef
   %252 = add nuw nsw i32 %.3241, 1
   %253 = load i32, ptr %5, align 4
   %254 = icmp ult i32 %252, %253
-  br i1 %254, label %.lr.ph242, label %.loopexit236, !llvm.loop !24
+  br i1 %254, label %.lr.ph242, label %.loopexit236, !llvm.loop !23
 
 .loopexit236:                                     ; preds = %249, %244, %242
   %255 = getelementptr inbounds i8, ptr %0, i64 296
@@ -4187,7 +4187,7 @@ declare i64 @bit_size(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_assoc_usage(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_usage(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -4440,7 +4440,7 @@ define noundef i32 @slurmdb_unpack_assoc_rec_with_usage(ptr nocapture noundef %0
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.slurmdb_unpack_assoc_rec) #6
   store ptr %5, ptr %0, align 8
   tail call void @slurmdb_init_assoc_rec(ptr noundef %5, i1 noundef zeroext false) #6
-  %6 = tail call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %5, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %6 = tail call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %5, i16 noundef zeroext %1, ptr noundef %2)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %slurmdb_unpack_assoc_rec.exit
 
@@ -4451,7 +4451,7 @@ slurmdb_unpack_assoc_rec.exit:                    ; preds = %3
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 312
-  %10 = tail call i32 @slurmdb_unpack_assoc_usage(ptr noundef nonnull %9, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %10 = tail call i32 @slurmdb_unpack_assoc_usage(ptr noundef nonnull %9, i16 noundef zeroext %1, ptr noundef %2)
   %.not30 = icmp eq i32 %10, 0
   br i1 %.not30, label %11, label %37
 
@@ -4638,7 +4638,7 @@ define void @slurmdb_pack_event_rec(ptr noundef readonly %0, i16 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_event_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_event_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1853, ptr noundef nonnull @__func__.slurmdb_unpack_event_rec) #6
   store ptr %5, ptr %0, align 8
@@ -4814,7 +4814,7 @@ define void @slurmdb_pack_instance_rec(ptr nocapture noundef readonly %0, i16 no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_instance_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_instance_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1917, ptr noundef nonnull @__func__.slurmdb_unpack_instance_rec) #6
   store ptr %5, ptr %0, align 8
@@ -5230,7 +5230,7 @@ _pack_list_of_str.exit:                           ; preds = %.thread.i, %143, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_qos_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -5504,7 +5504,7 @@ define noundef i32 @slurmdb_unpack_qos_rec(ptr nocapture noundef writeonly %0, i
   %132 = add nuw nsw i32 %.091137, 1
   %133 = load i32, ptr %5, align 4
   %134 = icmp ult i32 %132, %133
-  br i1 %134, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %134, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %129, %124, %123
   %135 = getelementptr inbounds i8, ptr %10, i64 280
@@ -5629,7 +5629,7 @@ define void @slurmdb_pack_qos_usage(ptr nocapture noundef readonly %0, i16 nound
   tail call void @slurmdb_pack_used_limits(ptr noundef nonnull %36, i32 noundef %37, i16 noundef zeroext %1, ptr noundef %2)
   %38 = tail call ptr @list_next(ptr noundef %34) #6
   %.not56 = icmp eq ptr %38, null
-  br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   tail call void @list_iterator_destroy(ptr noundef %34) #6
@@ -5668,7 +5668,7 @@ define void @slurmdb_pack_qos_usage(ptr nocapture noundef readonly %0, i16 nound
   tail call void @slurmdb_pack_used_limits(ptr noundef nonnull %49, i32 noundef %50, i16 noundef zeroext %1, ptr noundef %2)
   %51 = tail call ptr @list_next(ptr noundef %47) #6
   %.not60 = icmp eq ptr %51, null
-  br i1 %.not60, label %._crit_edge70, label %.lr.ph69, !llvm.loop !27
+  br i1 %.not60, label %._crit_edge70, label %.lr.ph69, !llvm.loop !26
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %45
   tail call void @list_iterator_destroy(ptr noundef %47) #6
@@ -5692,7 +5692,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_qos_usage(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_qos_usage(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2203, ptr noundef nonnull @__func__.slurmdb_unpack_qos_usage) #6
@@ -5777,7 +5777,7 @@ define noundef i32 @slurmdb_unpack_qos_usage(ptr nocapture noundef writeonly %0,
 .lr.ph:                                           ; preds = %41, %47
   %.064 = phi i32 [ %50, %47 ], [ 0, %41 ]
   %45 = load i32, ptr %18, align 16
-  %46 = call i32 @slurmdb_unpack_used_limits(ptr noundef nonnull %5, i32 noundef %45, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %46 = call i32 @slurmdb_unpack_used_limits(ptr noundef nonnull %5, i32 noundef %45, i16 noundef zeroext %1, ptr noundef %2)
   %.not60 = icmp eq i32 %46, 0
   br i1 %.not60, label %47, label %.loopexit61
 
@@ -5788,7 +5788,7 @@ define noundef i32 @slurmdb_unpack_qos_usage(ptr nocapture noundef writeonly %0,
   %50 = add nuw nsw i32 %.064, 1
   %51 = load i32, ptr %4, align 4
   %52 = icmp ult i32 %50, %51
-  br i1 %52, label %.lr.ph, label %.loopexit62, !llvm.loop !28
+  br i1 %52, label %.lr.ph, label %.loopexit62, !llvm.loop !27
 
 .loopexit62:                                      ; preds = %47, %41, %40
   %53 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %2) #6
@@ -5813,7 +5813,7 @@ define noundef i32 @slurmdb_unpack_qos_usage(ptr nocapture noundef writeonly %0,
 .lr.ph66:                                         ; preds = %58, %64
   %.165 = phi i32 [ %67, %64 ], [ 0, %58 ]
   %62 = load i32, ptr %18, align 16
-  %63 = call i32 @slurmdb_unpack_used_limits(ptr noundef nonnull %5, i32 noundef %62, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %63 = call i32 @slurmdb_unpack_used_limits(ptr noundef nonnull %5, i32 noundef %62, i16 noundef zeroext %1, ptr noundef %2)
   %.not59 = icmp eq i32 %63, 0
   br i1 %.not59, label %64, label %.loopexit61
 
@@ -5824,7 +5824,7 @@ define noundef i32 @slurmdb_unpack_qos_usage(ptr nocapture noundef writeonly %0,
   %67 = add nuw nsw i32 %.165, 1
   %68 = load i32, ptr %4, align 4
   %69 = icmp ult i32 %67, %68
-  br i1 %69, label %.lr.ph66, label %.loopexit, !llvm.loop !29
+  br i1 %69, label %.lr.ph66, label %.loopexit, !llvm.loop !28
 
 70:                                               ; preds = %3
   %71 = zext nneg i16 %1 to i32
@@ -5948,7 +5948,7 @@ define void @slurmdb_pack_qos_rec_with_usage(ptr noundef %0, i16 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_qos_usage_update(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @slurmdb_unpack_qos_usage_update(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 10239
   br i1 %4, label %5, label %7
 
@@ -5957,7 +5957,7 @@ define noundef i32 @slurmdb_unpack_qos_usage_update(ptr nocapture noundef %0, i1
   br label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @slurmdb_unpack_qos_rec(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %8 = tail call i32 @slurmdb_unpack_qos_rec(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2)
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -5966,9 +5966,9 @@ define noundef i32 @slurmdb_unpack_qos_usage_update(ptr nocapture noundef %0, i1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_qos_rec_with_usage(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @slurmdb_unpack_qos_rec_with_usage(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  %5 = tail call i32 @slurmdb_unpack_qos_rec(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %5 = tail call i32 @slurmdb_unpack_qos_rec(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %49
 
@@ -6050,7 +6050,7 @@ define noundef i32 @slurmdb_unpack_qos_rec_with_usage(ptr nocapture noundef %0, 
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds i8, ptr %7, i64 304
-  %47 = call i32 @slurmdb_unpack_qos_usage(ptr noundef nonnull %46, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %47 = call i32 @slurmdb_unpack_qos_usage(ptr noundef nonnull %46, i16 noundef zeroext %1, ptr noundef %2)
   br label %49
 
 48:                                               ; preds = %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %42
@@ -6220,7 +6220,7 @@ define void @slurmdb_pack_reservation_rec(ptr noundef readonly %0, i16 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_reservation_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -6320,7 +6320,7 @@ define noundef i32 @slurmdb_unpack_reservation_rec(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %48, %53
   %.03957 = phi i32 [ %56, %53 ], [ 0, %48 ]
-  %52 = call i32 @slurmdb_unpack_tres_rec(ptr noundef nonnull %6, i16 zeroext poison, ptr noundef %2), !range !6
+  %52 = call i32 @slurmdb_unpack_tres_rec(ptr noundef nonnull %6, i16 zeroext poison, ptr noundef %2)
   %.not55 = icmp eq i32 %52, 0
   br i1 %.not55, label %53, label %.loopexit56
 
@@ -6331,7 +6331,7 @@ define noundef i32 @slurmdb_unpack_reservation_rec(ptr nocapture noundef writeon
   %56 = add nuw nsw i32 %.03957, 1
   %57 = load i32, ptr %5, align 4
   %58 = icmp ult i32 %56, %57
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %53, %48, %46
   %59 = getelementptr inbounds i8, ptr %7, i64 96
@@ -6357,7 +6357,7 @@ define noundef i32 @slurmdb_unpack_reservation_rec(ptr nocapture noundef writeon
 declare void @slurmdb_destroy_tres_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_tres_rec(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_tres_rec(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2960, ptr noundef nonnull @__func__.slurmdb_unpack_tres_rec) #6
   store ptr %5, ptr %0, align 8
@@ -6538,7 +6538,7 @@ define void @slurmdb_pack_res_rec(ptr noundef readonly %0, i16 noundef zeroext %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -6568,7 +6568,7 @@ define noundef i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeonly %0, i
 
 .lr.ph:                                           ; preds = %13, %18
   %.04059 = phi i32 [ %21, %18 ], [ 0, %13 ]
-  %17 = call i32 @slurmdb_unpack_clus_res_rec(ptr noundef nonnull %6, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %17 = call i32 @slurmdb_unpack_clus_res_rec(ptr noundef nonnull %6, i16 noundef zeroext %1, ptr noundef %2)
   %.not57 = icmp eq i32 %17, 0
   br i1 %.not57, label %18, label %.loopexit58
 
@@ -6579,7 +6579,7 @@ define noundef i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeonly %0, i
   %21 = add nuw nsw i32 %.04059, 1
   %22 = load i32, ptr %5, align 4
   %23 = icmp ult i32 %21, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !31
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %18, %13, %11
   %24 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -6593,7 +6593,7 @@ define noundef i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeonly %0, i
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %7, i64 16
-  %29 = call i32 @slurmdb_unpack_clus_res_rec(ptr noundef nonnull %28, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %29 = call i32 @slurmdb_unpack_clus_res_rec(ptr noundef nonnull %28, i16 noundef zeroext %1, ptr noundef %2)
   %.not45 = icmp eq i32 %29, 0
   br i1 %.not45, label %30, label %.loopexit58
 
@@ -6802,7 +6802,7 @@ define void @slurmdb_pack_txn_rec(ptr noundef readonly %0, i16 noundef zeroext %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_txn_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_txn_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2645, ptr noundef nonnull @__func__.slurmdb_unpack_txn_rec) #6
   store ptr %5, ptr %0, align 8
@@ -6919,7 +6919,7 @@ define void @slurmdb_pack_archive_rec(ptr noundef readonly %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_archive_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_archive_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2792, ptr noundef nonnull @__func__.slurmdb_unpack_archive_rec) #6
   store ptr %5, ptr %0, align 8
@@ -7067,7 +7067,7 @@ _pack_list_of_str.exit28:                         ; preds = %.thread.i27, %29, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -7115,7 +7115,7 @@ define noundef i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writeonly %0,
   %25 = add nuw nsw i32 %.04367, 1
   %26 = load i32, ptr %5, align 4
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph, label %.loopexit65, !llvm.loop !32
+  br i1 %27, label %.lr.ph, label %.loopexit65, !llvm.loop !31
 
 .loopexit65:                                      ; preds = %22, %17, %16
   %28 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -7159,7 +7159,7 @@ define noundef i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writeonly %0,
   %44 = add nuw nsw i32 %.168, 1
   %45 = load i32, ptr %5, align 4
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %.lr.ph69, label %.loopexit63, !llvm.loop !33
+  br i1 %46, label %.lr.ph69, label %.loopexit63, !llvm.loop !32
 
 .loopexit63:                                      ; preds = %41, %38, %32
   %47 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -7203,7 +7203,7 @@ define noundef i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writeonly %0,
   %63 = add nuw nsw i32 %.270, 1
   %64 = load i32, ptr %5, align 4
   %65 = icmp ult i32 %63, %64
-  br i1 %65, label %.lr.ph71, label %.loopexit61, !llvm.loop !34
+  br i1 %65, label %.lr.ph71, label %.loopexit61, !llvm.loop !33
 
 .loopexit61:                                      ; preds = %60, %57, %51
   %66 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -7247,7 +7247,7 @@ define noundef i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writeonly %0,
   %82 = add nuw nsw i32 %.372, 1
   %83 = load i32, ptr %5, align 4
   %84 = icmp ult i32 %82, %83
-  br i1 %84, label %.lr.ph73, label %.loopexit, !llvm.loop !35
+  br i1 %84, label %.lr.ph73, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %79, %76, %70
   %85 = getelementptr inbounds i8, ptr %7, i64 40
@@ -7625,7 +7625,7 @@ _pack_list_of_str.exit81:                         ; preds = %.thread.i80, %63, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -7642,7 +7642,7 @@ define noundef i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writeonly %0,
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = tail call i32 @slurmdb_unpack_assoc_cond(ptr noundef nonnull %12, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %13 = tail call i32 @slurmdb_unpack_assoc_cond(ptr noundef nonnull %12, i16 noundef zeroext %1, ptr noundef %2)
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %.loopexit46, label %15
 
@@ -7688,7 +7688,7 @@ define noundef i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writeonly %0,
   %32 = add nuw nsw i32 %.03449, 1
   %33 = load i32, ptr %5, align 4
   %34 = icmp ult i32 %32, %33
-  br i1 %34, label %.lr.ph, label %.loopexit47, !llvm.loop !36
+  br i1 %34, label %.lr.ph, label %.loopexit47, !llvm.loop !35
 
 .loopexit47:                                      ; preds = %29, %26, %20
   %35 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -7723,7 +7723,7 @@ define noundef i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writeonly %0,
   %48 = add nuw nsw i32 %.150, 1
   %49 = load i32, ptr %5, align 4
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %.lr.ph51, label %.loopexit, !llvm.loop !37
+  br i1 %50, label %.lr.ph51, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %45, %40, %39
   %51 = getelementptr inbounds i8, ptr %7, i64 32
@@ -7760,7 +7760,7 @@ define noundef i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -7802,7 +7802,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %22 = add nuw nsw i32 %.095148, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %.loopexit146, !llvm.loop !38
+  br i1 %24, label %.lr.ph, label %.loopexit146, !llvm.loop !37
 
 .loopexit146:                                     ; preds = %19, %15, %14
   %25 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -7837,7 +7837,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %38 = add nuw nsw i32 %.1149, 1
   %39 = load i32, ptr %5, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph150, label %.loopexit144, !llvm.loop !39
+  br i1 %40, label %.lr.ph150, label %.loopexit144, !llvm.loop !38
 
 .loopexit144:                                     ; preds = %35, %30, %29
   %41 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -7872,7 +7872,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %54 = add nuw nsw i32 %.2151, 1
   %55 = load i32, ptr %5, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph152, label %.loopexit142, !llvm.loop !40
+  br i1 %56, label %.lr.ph152, label %.loopexit142, !llvm.loop !39
 
 .loopexit142:                                     ; preds = %51, %46, %45
   %57 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -7909,7 +7909,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %70 = add nuw nsw i32 %.3153, 1
   %71 = load i32, ptr %5, align 4
   %72 = icmp ult i32 %70, %71
-  br i1 %72, label %.lr.ph154, label %.loopexit140, !llvm.loop !41
+  br i1 %72, label %.lr.ph154, label %.loopexit140, !llvm.loop !40
 
 .loopexit140:                                     ; preds = %67, %62, %61, %61
   %73 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -7942,7 +7942,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %84 = add nuw nsw i32 %.4155, 1
   %85 = load i32, ptr %5, align 4
   %86 = icmp ult i32 %84, %85
-  br i1 %86, label %.lr.ph156, label %.loopexit138, !llvm.loop !42
+  br i1 %86, label %.lr.ph156, label %.loopexit138, !llvm.loop !41
 
 .loopexit138:                                     ; preds = %81, %76, %74
   %87 = getelementptr inbounds i8, ptr %7, i64 40
@@ -7983,7 +7983,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %103 = add nuw nsw i32 %.5157, 1
   %104 = load i32, ptr %5, align 4
   %105 = icmp ult i32 %103, %104
-  br i1 %105, label %.lr.ph158, label %.loopexit136, !llvm.loop !43
+  br i1 %105, label %.lr.ph158, label %.loopexit136, !llvm.loop !42
 
 .loopexit136:                                     ; preds = %100, %95, %94
   %106 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -8018,7 +8018,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %119 = add nuw nsw i32 %.6159, 1
   %120 = load i32, ptr %5, align 4
   %121 = icmp ult i32 %119, %120
-  br i1 %121, label %.lr.ph160, label %.loopexit134, !llvm.loop !44
+  br i1 %121, label %.lr.ph160, label %.loopexit134, !llvm.loop !43
 
 .loopexit134:                                     ; preds = %116, %111, %110
   %122 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -8053,7 +8053,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %135 = add nuw nsw i32 %.7161, 1
   %136 = load i32, ptr %5, align 4
   %137 = icmp ult i32 %135, %136
-  br i1 %137, label %.lr.ph162, label %.loopexit132, !llvm.loop !45
+  br i1 %137, label %.lr.ph162, label %.loopexit132, !llvm.loop !44
 
 .loopexit132:                                     ; preds = %132, %127, %126
   %138 = getelementptr inbounds i8, ptr %7, i64 72
@@ -8100,7 +8100,7 @@ define noundef i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0
   %157 = add nuw nsw i32 %.8163, 1
   %158 = load i32, ptr %5, align 4
   %159 = icmp ult i32 %157, %158
-  br i1 %159, label %.lr.ph164, label %.loopexit, !llvm.loop !46
+  br i1 %159, label %.lr.ph164, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %154, %149, %148
   %160 = getelementptr inbounds i8, ptr %7, i64 96
@@ -8239,7 +8239,7 @@ _pack_list_of_str.exit24:                         ; preds = %.thread.i23, %17, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_account_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_account_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -8250,7 +8250,7 @@ define noundef i32 @slurmdb_unpack_account_cond(ptr nocapture noundef writeonly 
   br i1 %8, label %9, label %49
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @slurmdb_unpack_assoc_cond(ptr noundef %7, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %10 = tail call i32 @slurmdb_unpack_assoc_cond(ptr noundef %7, i16 noundef zeroext %1, ptr noundef %2)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %.loopexit35, label %12
 
@@ -8285,7 +8285,7 @@ define noundef i32 @slurmdb_unpack_account_cond(ptr nocapture noundef writeonly 
   %24 = add nuw nsw i32 %.02638, 1
   %25 = load i32, ptr %5, align 4
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %.lr.ph, label %.loopexit36, !llvm.loop !47
+  br i1 %26, label %.lr.ph, label %.loopexit36, !llvm.loop !46
 
 .loopexit36:                                      ; preds = %21, %16, %14
   %27 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -8318,7 +8318,7 @@ define noundef i32 @slurmdb_unpack_account_cond(ptr nocapture noundef writeonly 
   %38 = add nuw nsw i32 %.139, 1
   %39 = load i32, ptr %5, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph40, label %.loopexit, !llvm.loop !48
+  br i1 %40, label %.lr.ph40, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %35, %30, %28
   %41 = getelementptr inbounds i8, ptr %7, i64 24
@@ -8617,7 +8617,7 @@ _pack_list_of_str.exit88:                         ; preds = %.thread.i87, %71, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -8668,7 +8668,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %25 = add nuw nsw i32 %.0118175, 1
   %26 = load i32, ptr %5, align 4
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph176, label %.loopexit154, !llvm.loop !49
+  br i1 %27, label %.lr.ph176, label %.loopexit154, !llvm.loop !48
 
 .loopexit154:                                     ; preds = %22, %17, %16, %16
   %28 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -8705,7 +8705,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %41 = add nuw nsw i32 %.1177, 1
   %42 = load i32, ptr %5, align 4
   %43 = icmp ult i32 %41, %42
-  br i1 %43, label %.lr.ph178, label %.loopexit152, !llvm.loop !50
+  br i1 %43, label %.lr.ph178, label %.loopexit152, !llvm.loop !49
 
 .loopexit152:                                     ; preds = %38, %33, %32, %32
   %44 = getelementptr inbounds i8, ptr %7, i64 24
@@ -8748,7 +8748,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %60 = add nuw nsw i32 %.2179, 1
   %61 = load i32, ptr %5, align 4
   %62 = icmp ult i32 %60, %61
-  br i1 %62, label %.lr.ph180, label %.loopexit150, !llvm.loop !51
+  br i1 %62, label %.lr.ph180, label %.loopexit150, !llvm.loop !50
 
 .loopexit150:                                     ; preds = %57, %52, %51, %51
   %63 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -8785,7 +8785,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %76 = add nuw nsw i32 %.3181, 1
   %77 = load i32, ptr %5, align 4
   %78 = icmp ult i32 %76, %77
-  br i1 %78, label %.lr.ph182, label %.loopexit, !llvm.loop !52
+  br i1 %78, label %.lr.ph182, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %73, %68, %67, %67
   %79 = getelementptr inbounds i8, ptr %7, i64 48
@@ -8855,7 +8855,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %108 = add nuw nsw i32 %.4166, 1
   %109 = load i32, ptr %5, align 4
   %110 = icmp ult i32 %108, %109
-  br i1 %110, label %.lr.ph, label %.loopexit164, !llvm.loop !53
+  br i1 %110, label %.lr.ph, label %.loopexit164, !llvm.loop !52
 
 .loopexit164:                                     ; preds = %105, %100, %99, %99
   %111 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -8892,7 +8892,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %124 = add nuw nsw i32 %.5167, 1
   %125 = load i32, ptr %5, align 4
   %126 = icmp ult i32 %124, %125
-  br i1 %126, label %.lr.ph168, label %.loopexit162, !llvm.loop !54
+  br i1 %126, label %.lr.ph168, label %.loopexit162, !llvm.loop !53
 
 .loopexit162:                                     ; preds = %121, %116, %115, %115
   %127 = getelementptr inbounds i8, ptr %7, i64 24
@@ -8935,7 +8935,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %143 = add nuw nsw i32 %.6169, 1
   %144 = load i32, ptr %5, align 4
   %145 = icmp ult i32 %143, %144
-  br i1 %145, label %.lr.ph170, label %.loopexit160, !llvm.loop !55
+  br i1 %145, label %.lr.ph170, label %.loopexit160, !llvm.loop !54
 
 .loopexit160:                                     ; preds = %140, %135, %134, %134
   %146 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -8962,7 +8962,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %153 = add nuw nsw i32 %.7171, 1
   %154 = load i32, ptr %5, align 4
   %155 = icmp ult i32 %153, %154
-  br i1 %155, label %.lr.ph172, label %.loopexit158, !llvm.loop !56
+  br i1 %155, label %.lr.ph172, label %.loopexit158, !llvm.loop !55
 
 .loopexit158:                                     ; preds = %152, %150, %150
   %156 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -8999,7 +8999,7 @@ define noundef i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly 
   %169 = add nuw nsw i32 %.8173, 1
   %170 = load i32, ptr %5, align 4
   %171 = icmp ult i32 %169, %170
-  br i1 %171, label %.lr.ph174, label %.loopexit156, !llvm.loop !57
+  br i1 %171, label %.lr.ph174, label %.loopexit156, !llvm.loop !56
 
 .loopexit156:                                     ; preds = %166, %161, %160, %160
   %172 = getelementptr inbounds i8, ptr %7, i64 48
@@ -9134,7 +9134,7 @@ _pack_list_of_str.exit19:                         ; preds = %.thread.i18, %21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_federation_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_federation_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -9179,7 +9179,7 @@ define noundef i32 @slurmdb_unpack_federation_cond(ptr nocapture noundef writeon
   %22 = add nuw nsw i32 %.03749, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %.loopexit47, !llvm.loop !58
+  br i1 %24, label %.lr.ph, label %.loopexit47, !llvm.loop !57
 
 .loopexit47:                                      ; preds = %19, %15, %14, %14
   %25 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -9216,7 +9216,7 @@ define noundef i32 @slurmdb_unpack_federation_cond(ptr nocapture noundef writeon
   %38 = add nuw nsw i32 %.150, 1
   %39 = load i32, ptr %5, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph51, label %.loopexit45, !llvm.loop !59
+  br i1 %40, label %.lr.ph51, label %.loopexit45, !llvm.loop !58
 
 .loopexit45:                                      ; preds = %35, %30, %29, %29
   %41 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -9253,7 +9253,7 @@ define noundef i32 @slurmdb_unpack_federation_cond(ptr nocapture noundef writeon
   %54 = add nuw nsw i32 %.252, 1
   %55 = load i32, ptr %5, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph53, label %.loopexit, !llvm.loop !60
+  br i1 %56, label %.lr.ph53, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %51, %46, %45, %45
   %57 = getelementptr inbounds i8, ptr %7, i64 24
@@ -9324,7 +9324,7 @@ define void @slurmdb_pack_add_assoc_cond(ptr noundef %0, i16 noundef zeroext %1,
 declare void @packstr_with_version(ptr noundef, i16 noundef zeroext, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_add_assoc_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_add_assoc_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 384, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3510, ptr noundef nonnull @__func__.slurmdb_unpack_add_assoc_cond) #6
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 10239
@@ -9337,7 +9337,7 @@ define noundef i32 @slurmdb_unpack_add_assoc_cond(ptr nocapture noundef writeonl
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = tail call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef nonnull %9, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %10 = tail call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef nonnull %9, i16 noundef zeroext %1, ptr noundef %2)
   %.not25 = icmp eq i32 %10, 0
   br i1 %.not25, label %11, label %26
 
@@ -9539,7 +9539,7 @@ _pack_list_of_str.exit40:                         ; preds = %52, %50, %50, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -9581,7 +9581,7 @@ define noundef i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly %0
   %22 = add nuw nsw i32 %.06090, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %.loopexit88, !llvm.loop !61
+  br i1 %24, label %.lr.ph, label %.loopexit88, !llvm.loop !60
 
 .loopexit88:                                      ; preds = %19, %15, %14
   %25 = getelementptr inbounds i8, ptr %7, i64 8
@@ -9642,7 +9642,7 @@ define noundef i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly %0
   %50 = add nuw nsw i32 %.191, 1
   %51 = load i32, ptr %5, align 4
   %52 = icmp ult i32 %50, %51
-  br i1 %52, label %.lr.ph92, label %.loopexit86, !llvm.loop !62
+  br i1 %52, label %.lr.ph92, label %.loopexit86, !llvm.loop !61
 
 .loopexit86:                                      ; preds = %47, %42, %41, %41
   %53 = getelementptr inbounds i8, ptr %7, i64 32
@@ -9695,7 +9695,7 @@ define noundef i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly %0
   %75 = add nuw nsw i32 %.293, 1
   %76 = load i32, ptr %5, align 4
   %77 = icmp ult i32 %75, %76
-  br i1 %77, label %.lr.ph94, label %.loopexit84, !llvm.loop !63
+  br i1 %77, label %.lr.ph94, label %.loopexit84, !llvm.loop !62
 
 .loopexit84:                                      ; preds = %72, %67, %66
   %78 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -9730,7 +9730,7 @@ define noundef i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly %0
   %91 = add nuw nsw i32 %.395, 1
   %92 = load i32, ptr %5, align 4
   %93 = icmp ult i32 %91, %92
-  br i1 %93, label %.lr.ph96, label %.loopexit82, !llvm.loop !64
+  br i1 %93, label %.lr.ph96, label %.loopexit82, !llvm.loop !63
 
 .loopexit82:                                      ; preds = %88, %83, %82
   %94 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -9765,7 +9765,7 @@ define noundef i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly %0
   %107 = add nuw nsw i32 %.497, 1
   %108 = load i32, ptr %5, align 4
   %109 = icmp ult i32 %107, %108
-  br i1 %109, label %.lr.ph98, label %.loopexit, !llvm.loop !65
+  br i1 %109, label %.lr.ph98, label %.loopexit, !llvm.loop !64
 
 .loopexit81:                                      ; preds = %.lr.ph, %.lr.ph92, %.lr.ph94, %.lr.ph96, %.lr.ph98, %3, %.loopexit82, %.loopexit84, %61, %58, %55, %.loopexit86, %36, %33, %30, %27, %.loopexit88, %9
   call void @slurmdb_destroy_event_cond(ptr noundef %7) #6
@@ -9831,7 +9831,7 @@ define void @slurmdb_pack_instance_cond(ptr nocapture noundef readonly %0, i16 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_instance_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_instance_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3941, ptr noundef nonnull @__func__.slurmdb_unpack_instance_cond) #6
   store ptr %5, ptr %0, align 8
@@ -10328,7 +10328,7 @@ _pack_list_of_str.exit134:                        ; preds = %127, %125, %125, %.
 declare void @slurm_pack_selected_step(ptr noundef, i16 noundef zeroext, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -10372,7 +10372,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %23 = add nuw nsw i32 %.0161252, 1
   %24 = load i32, ptr %5, align 4
   %25 = icmp ult i32 %23, %24
-  br i1 %25, label %.lr.ph, label %.loopexit250, !llvm.loop !66
+  br i1 %25, label %.lr.ph, label %.loopexit250, !llvm.loop !65
 
 .loopexit250:                                     ; preds = %20, %16, %15
   %26 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10407,7 +10407,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %39 = add nuw nsw i32 %.1253, 1
   %40 = load i32, ptr %5, align 4
   %41 = icmp ult i32 %39, %40
-  br i1 %41, label %.lr.ph254, label %.loopexit248, !llvm.loop !67
+  br i1 %41, label %.lr.ph254, label %.loopexit248, !llvm.loop !66
 
 .loopexit248:                                     ; preds = %36, %31, %30
   %42 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10442,7 +10442,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %55 = add nuw nsw i32 %.2255, 1
   %56 = load i32, ptr %5, align 4
   %57 = icmp ult i32 %55, %56
-  br i1 %57, label %.lr.ph256, label %.loopexit246, !llvm.loop !68
+  br i1 %57, label %.lr.ph256, label %.loopexit246, !llvm.loop !67
 
 .loopexit246:                                     ; preds = %52, %47, %46
   %58 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10479,7 +10479,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %71 = add nuw nsw i32 %.3257, 1
   %72 = load i32, ptr %5, align 4
   %73 = icmp ult i32 %71, %72
-  br i1 %73, label %.lr.ph258, label %.loopexit244, !llvm.loop !69
+  br i1 %73, label %.lr.ph258, label %.loopexit244, !llvm.loop !68
 
 .loopexit244:                                     ; preds = %68, %63, %62, %62
   %74 = getelementptr inbounds i8, ptr %8, i64 32
@@ -10548,7 +10548,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %103 = add nuw nsw i32 %.4259, 1
   %104 = load i32, ptr %5, align 4
   %105 = icmp ult i32 %103, %104
-  br i1 %105, label %.lr.ph260, label %.loopexit242, !llvm.loop !70
+  br i1 %105, label %.lr.ph260, label %.loopexit242, !llvm.loop !69
 
 .loopexit242:                                     ; preds = %100, %95, %94, %94
   %106 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10583,7 +10583,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %119 = add nuw nsw i32 %.5261, 1
   %120 = load i32, ptr %5, align 4
   %121 = icmp ult i32 %119, %120
-  br i1 %121, label %.lr.ph262, label %.loopexit240, !llvm.loop !71
+  br i1 %121, label %.lr.ph262, label %.loopexit240, !llvm.loop !70
 
 .loopexit240:                                     ; preds = %116, %111, %110
   %122 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10618,7 +10618,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %135 = add nuw nsw i32 %.6263, 1
   %136 = load i32, ptr %5, align 4
   %137 = icmp ult i32 %135, %136
-  br i1 %137, label %.lr.ph264, label %.loopexit238, !llvm.loop !72
+  br i1 %137, label %.lr.ph264, label %.loopexit238, !llvm.loop !71
 
 .loopexit238:                                     ; preds = %132, %127, %126
   %138 = getelementptr inbounds i8, ptr %8, i64 80
@@ -10665,7 +10665,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %157 = add nuw nsw i32 %.7265, 1
   %158 = load i32, ptr %5, align 4
   %159 = icmp ult i32 %157, %158
-  br i1 %159, label %.lr.ph266, label %.loopexit236, !llvm.loop !73
+  br i1 %159, label %.lr.ph266, label %.loopexit236, !llvm.loop !72
 
 .loopexit236:                                     ; preds = %154, %149, %148
   %160 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10700,7 +10700,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %173 = add nuw nsw i32 %.8267, 1
   %174 = load i32, ptr %5, align 4
   %175 = icmp ult i32 %173, %174
-  br i1 %175, label %.lr.ph268, label %.loopexit234, !llvm.loop !74
+  br i1 %175, label %.lr.ph268, label %.loopexit234, !llvm.loop !73
 
 .loopexit234:                                     ; preds = %170, %165, %164
   %176 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10733,7 +10733,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %187 = add nuw nsw i32 %.9269, 1
   %188 = load i32, ptr %5, align 4
   %189 = icmp ult i32 %187, %188
-  br i1 %189, label %.lr.ph270, label %.loopexit232, !llvm.loop !75
+  br i1 %189, label %.lr.ph270, label %.loopexit232, !llvm.loop !74
 
 .loopexit232:                                     ; preds = %184, %179, %177
   %190 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10766,7 +10766,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %201 = add nuw nsw i32 %.10271, 1
   %202 = load i32, ptr %5, align 4
   %203 = icmp ult i32 %201, %202
-  br i1 %203, label %.lr.ph272, label %.loopexit230, !llvm.loop !76
+  br i1 %203, label %.lr.ph272, label %.loopexit230, !llvm.loop !75
 
 .loopexit230:                                     ; preds = %198, %193, %191
   %204 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10801,7 +10801,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %217 = add nuw nsw i32 %.11273, 1
   %218 = load i32, ptr %5, align 4
   %219 = icmp ult i32 %217, %218
-  br i1 %219, label %.lr.ph274, label %.loopexit228, !llvm.loop !77
+  br i1 %219, label %.lr.ph274, label %.loopexit228, !llvm.loop !76
 
 .loopexit228:                                     ; preds = %214, %209, %208
   %220 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -10853,7 +10853,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %240 = add nuw nsw i32 %.12275, 1
   %241 = load i32, ptr %5, align 4
   %242 = icmp ult i32 %240, %241
-  br i1 %242, label %.lr.ph276, label %._crit_edge.loopexit, !llvm.loop !78
+  br i1 %242, label %.lr.ph276, label %._crit_edge.loopexit, !llvm.loop !77
 
 ._crit_edge.loopexit:                             ; preds = %239
   %.pre = load ptr, ptr %227, align 8
@@ -10911,7 +10911,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %263 = add nuw nsw i32 %.13277, 1
   %264 = load i32, ptr %5, align 4
   %265 = icmp ult i32 %263, %264
-  br i1 %265, label %.lr.ph279, label %.loopexit226, !llvm.loop !79
+  br i1 %265, label %.lr.ph279, label %.loopexit226, !llvm.loop !78
 
 .loopexit226:                                     ; preds = %260, %255, %254
   %266 = getelementptr inbounds i8, ptr %8, i64 144
@@ -10976,7 +10976,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %294 = add nuw nsw i32 %.14280, 1
   %295 = load i32, ptr %5, align 4
   %296 = icmp ult i32 %294, %295
-  br i1 %296, label %.lr.ph282, label %.loopexit224, !llvm.loop !80
+  br i1 %296, label %.lr.ph282, label %.loopexit224, !llvm.loop !79
 
 .loopexit224:                                     ; preds = %291, %286, %285
   %297 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -11011,7 +11011,7 @@ define noundef i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, 
   %310 = add nuw nsw i32 %.15283, 1
   %311 = load i32, ptr %5, align 4
   %312 = icmp ult i32 %310, %311
-  br i1 %312, label %.lr.ph285, label %.loopexit, !llvm.loop !81
+  br i1 %312, label %.lr.ph285, label %.loopexit, !llvm.loop !80
 
 .loopexit223:                                     ; preds = %.lr.ph, %.lr.ph254, %.lr.ph256, %.lr.ph258, %.lr.ph260, %.lr.ph262, %.lr.ph264, %.lr.ph266, %.lr.ph268, %.lr.ph270, %.lr.ph272, %.lr.ph274, %.lr.ph279, %.lr.ph282, %.lr.ph285, %3, %.loopexit224, %280, %277, %274, %271, %268, %.loopexit226, %249, %.loopexit228, %.loopexit230, %.loopexit232, %.loopexit234, %.loopexit236, %143, %140, %.loopexit238, %.loopexit240, %.loopexit242, %89, %84, %82, %79, %76, %.loopexit244, %.loopexit246, %.loopexit248, %.loopexit250, %10, %230
   call void @slurmdb_destroy_job_cond(ptr noundef %8) #6
@@ -11408,7 +11408,7 @@ define void @slurmdb_pack_job_rec(ptr noundef readonly %0, i16 noundef zeroext %
   tail call void @slurmdb_pack_step_rec(ptr noundef nonnull %199, i16 noundef zeroext %1, ptr noundef %2)
   %200 = tail call ptr @list_next(ptr noundef %197) #6
   %.not585 = icmp eq ptr %200, null
-  br i1 %.not585, label %._crit_edge602, label %.lr.ph601, !llvm.loop !82
+  br i1 %.not585, label %._crit_edge602, label %.lr.ph601, !llvm.loop !81
 
 ._crit_edge602:                                   ; preds = %.lr.ph601, %195
   tail call void @list_iterator_destroy(ptr noundef %197) #6
@@ -11912,7 +11912,7 @@ define void @slurmdb_pack_job_rec(ptr noundef readonly %0, i16 noundef zeroext %
   tail call void @slurmdb_pack_step_rec(ptr noundef nonnull %463, i16 noundef zeroext %1, ptr noundef %2)
   %464 = tail call ptr @list_next(ptr noundef %461) #6
   %.not556 = icmp eq ptr %464, null
-  br i1 %.not556, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %.not556, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %459
   tail call void @list_iterator_destroy(ptr noundef %461) #6
@@ -12437,7 +12437,7 @@ _pack_slurmdb_stats.exit:                         ; preds = %145, %148
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -12745,7 +12745,7 @@ define noundef i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly %0, i
 
 156:                                              ; preds = %.lr.ph414, %164
   %.0412 = phi i32 [ 0, %.lr.ph414 ], [ %166, %164 ]
-  %157 = call i32 @slurmdb_unpack_step_rec(ptr noundef nonnull %4, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %157 = call i32 @slurmdb_unpack_step_rec(ptr noundef nonnull %4, i16 noundef zeroext %1, ptr noundef %2)
   %158 = icmp eq i32 %157, -1
   br i1 %158, label %.loopexit, label %159
 
@@ -12767,7 +12767,7 @@ define noundef i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly %0, i
   %166 = add nuw nsw i32 %.0412, 1
   %167 = load i32, ptr %5, align 4
   %168 = icmp ult i32 %166, %167
-  br i1 %168, label %156, label %._crit_edge415, !llvm.loop !84
+  br i1 %168, label %156, label %._crit_edge415, !llvm.loop !83
 
 ._crit_edge415:                                   ; preds = %164, %151
   %169 = getelementptr inbounds i8, ptr %9, i64 328
@@ -13175,7 +13175,7 @@ define noundef i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly %0, i
 
 368:                                              ; preds = %.lr.ph, %376
   %.1411 = phi i32 [ 0, %.lr.ph ], [ %378, %376 ]
-  %369 = call i32 @slurmdb_unpack_step_rec(ptr noundef nonnull %4, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %369 = call i32 @slurmdb_unpack_step_rec(ptr noundef nonnull %4, i16 noundef zeroext %1, ptr noundef %2)
   %370 = icmp eq i32 %369, -1
   br i1 %370, label %.loopexit, label %371
 
@@ -13197,7 +13197,7 @@ define noundef i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly %0, i
   %378 = add nuw nsw i32 %.1411, 1
   %379 = load i32, ptr %5, align 4
   %380 = icmp ult i32 %378, %379
-  br i1 %380, label %368, label %._crit_edge, !llvm.loop !85
+  br i1 %380, label %368, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %376, %363
   %381 = getelementptr inbounds i8, ptr %9, i64 328
@@ -13324,7 +13324,7 @@ define noundef i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly %0, i
 declare void @slurmdb_destroy_step_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_step_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_step_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
   store i32 0, ptr %4, align 4
@@ -13403,7 +13403,7 @@ define noundef i32 @slurmdb_unpack_step_rec(ptr nocapture noundef writeonly %0, 
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %6, i64 104
-  %43 = call fastcc i32 @_unpack_slurmdb_stats(ptr noundef nonnull %42, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %43 = call fastcc i32 @_unpack_slurmdb_stats(ptr noundef nonnull %42, i16 noundef zeroext %1, ptr noundef %2)
   %.not71 = icmp eq i32 %43, 0
   br i1 %.not71, label %44, label %91
 
@@ -13633,7 +13633,7 @@ _pack_list_of_str.exit28:                         ; preds = %.thread.i27, %27, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -13675,7 +13675,7 @@ define noundef i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef writeonly %0, 
   %22 = add nuw nsw i32 %.04262, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %.loopexit60, !llvm.loop !86
+  br i1 %24, label %.lr.ph, label %.loopexit60, !llvm.loop !85
 
 .loopexit60:                                      ; preds = %19, %15, %14
   %25 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -13712,7 +13712,7 @@ define noundef i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef writeonly %0, 
   %38 = add nuw nsw i32 %.163, 1
   %39 = load i32, ptr %5, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph64, label %.loopexit58, !llvm.loop !87
+  br i1 %40, label %.lr.ph64, label %.loopexit58, !llvm.loop !86
 
 .loopexit58:                                      ; preds = %35, %30, %29, %29
   %41 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -13747,7 +13747,7 @@ define noundef i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef writeonly %0, 
   %54 = add nuw nsw i32 %.265, 1
   %55 = load i32, ptr %5, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph66, label %.loopexit56, !llvm.loop !88
+  br i1 %56, label %.lr.ph66, label %.loopexit56, !llvm.loop !87
 
 .loopexit56:                                      ; preds = %51, %46, %45
   %57 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -13782,7 +13782,7 @@ define noundef i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef writeonly %0, 
   %70 = add nuw nsw i32 %.367, 1
   %71 = load i32, ptr %5, align 4
   %72 = icmp ult i32 %70, %71
-  br i1 %72, label %.lr.ph68, label %.loopexit, !llvm.loop !89
+  br i1 %72, label %.lr.ph68, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %67, %62, %61
   %73 = getelementptr inbounds i8, ptr %7, i64 32
@@ -13953,7 +13953,7 @@ _pack_list_of_str.exit43:                         ; preds = %.thread.i42, %29, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_reservation_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -13995,7 +13995,7 @@ define noundef i32 @slurmdb_unpack_reservation_cond(ptr nocapture noundef writeo
   %22 = add nuw nsw i32 %.04670, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %.loopexit68, !llvm.loop !90
+  br i1 %24, label %.lr.ph, label %.loopexit68, !llvm.loop !89
 
 .loopexit68:                                      ; preds = %19, %15, %14
   %25 = getelementptr inbounds i8, ptr %7, i64 8
@@ -14036,7 +14036,7 @@ define noundef i32 @slurmdb_unpack_reservation_cond(ptr nocapture noundef writeo
   %41 = add nuw nsw i32 %.171, 1
   %42 = load i32, ptr %5, align 4
   %43 = icmp ult i32 %41, %42
-  br i1 %43, label %.lr.ph72, label %.loopexit66, !llvm.loop !91
+  br i1 %43, label %.lr.ph72, label %.loopexit66, !llvm.loop !90
 
 .loopexit66:                                      ; preds = %38, %33, %32
   %44 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14071,7 +14071,7 @@ define noundef i32 @slurmdb_unpack_reservation_cond(ptr nocapture noundef writeo
   %57 = add nuw nsw i32 %.273, 1
   %58 = load i32, ptr %5, align 4
   %59 = icmp ult i32 %57, %58
-  br i1 %59, label %.lr.ph74, label %.loopexit64, !llvm.loop !92
+  br i1 %59, label %.lr.ph74, label %.loopexit64, !llvm.loop !91
 
 .loopexit64:                                      ; preds = %54, %49, %48
   %60 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14106,7 +14106,7 @@ define noundef i32 @slurmdb_unpack_reservation_cond(ptr nocapture noundef writeo
   %73 = add nuw nsw i32 %.375, 1
   %74 = load i32, ptr %5, align 4
   %75 = icmp ult i32 %73, %74
-  br i1 %75, label %.lr.ph76, label %.loopexit, !llvm.loop !93
+  br i1 %75, label %.lr.ph76, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %70, %65, %64
   %76 = getelementptr inbounds i8, ptr %7, i64 40
@@ -14147,7 +14147,7 @@ declare void @slurmdb_destroy_reservation_cond(ptr noundef) local_unnamed_addr #
 declare void @pack_step_id(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_unpack_slurmdb_stats(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_slurmdb_stats(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp ugt i16 %1, 9983
   br i1 %5, label %6, label %59
@@ -14517,7 +14517,7 @@ _pack_list_of_str.exit61:                         ; preds = %.thread.i60, %59, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -14564,7 +14564,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %23 = add nuw nsw i32 %.0101139, 1
   %24 = load i32, ptr %5, align 4
   %25 = icmp ult i32 %23, %24
-  br i1 %25, label %.lr.ph, label %.loopexit137, !llvm.loop !94
+  br i1 %25, label %.lr.ph, label %.loopexit137, !llvm.loop !93
 
 .loopexit137:                                     ; preds = %20, %15, %14, %14
   %26 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14601,7 +14601,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %39 = add nuw nsw i32 %.1140, 1
   %40 = load i32, ptr %5, align 4
   %41 = icmp ult i32 %39, %40
-  br i1 %41, label %.lr.ph141, label %.loopexit135, !llvm.loop !95
+  br i1 %41, label %.lr.ph141, label %.loopexit135, !llvm.loop !94
 
 .loopexit135:                                     ; preds = %36, %31, %30, %30
   %42 = getelementptr inbounds i8, ptr %7, i64 24
@@ -14644,7 +14644,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %58 = add nuw nsw i32 %.2142, 1
   %59 = load i32, ptr %5, align 4
   %60 = icmp ult i32 %58, %59
-  br i1 %60, label %.lr.ph143, label %.loopexit133, !llvm.loop !96
+  br i1 %60, label %.lr.ph143, label %.loopexit133, !llvm.loop !95
 
 .loopexit133:                                     ; preds = %55, %50, %49, %49
   %61 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14681,7 +14681,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %74 = add nuw nsw i32 %.3144, 1
   %75 = load i32, ptr %5, align 4
   %76 = icmp ult i32 %74, %75
-  br i1 %76, label %.lr.ph145, label %.loopexit131, !llvm.loop !97
+  br i1 %76, label %.lr.ph145, label %.loopexit131, !llvm.loop !96
 
 .loopexit131:                                     ; preds = %71, %66, %65, %65
   %77 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14718,7 +14718,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %90 = add nuw nsw i32 %.4146, 1
   %91 = load i32, ptr %5, align 4
   %92 = icmp ult i32 %90, %91
-  br i1 %92, label %.lr.ph147, label %.loopexit129, !llvm.loop !98
+  br i1 %92, label %.lr.ph147, label %.loopexit129, !llvm.loop !97
 
 .loopexit129:                                     ; preds = %87, %82, %81, %81
   %93 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14755,7 +14755,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %106 = add nuw nsw i32 %.5148, 1
   %107 = load i32, ptr %5, align 4
   %108 = icmp ult i32 %106, %107
-  br i1 %108, label %.lr.ph149, label %.loopexit127, !llvm.loop !99
+  br i1 %108, label %.lr.ph149, label %.loopexit127, !llvm.loop !98
 
 .loopexit127:                                     ; preds = %103, %98, %97, %97
   %109 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14791,7 +14791,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %121 = add nuw nsw i32 %.6150, 1
   %122 = load i32, ptr %5, align 4
   %123 = icmp ult i32 %121, %122
-  br i1 %123, label %.lr.ph151, label %.loopexit125, !llvm.loop !100
+  br i1 %123, label %.lr.ph151, label %.loopexit125, !llvm.loop !99
 
 .loopexit125:                                     ; preds = %118, %114, %113, %113
   %124 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14828,7 +14828,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %137 = add nuw nsw i32 %.7152, 1
   %138 = load i32, ptr %5, align 4
   %139 = icmp ult i32 %137, %138
-  br i1 %139, label %.lr.ph153, label %.loopexit123, !llvm.loop !101
+  br i1 %139, label %.lr.ph153, label %.loopexit123, !llvm.loop !100
 
 .loopexit123:                                     ; preds = %134, %129, %128, %128
   %140 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -14865,7 +14865,7 @@ define noundef i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, 
   %153 = add nuw nsw i32 %.8154, 1
   %154 = load i32, ptr %5, align 4
   %155 = icmp ult i32 %153, %154
-  br i1 %155, label %.lr.ph155, label %.loopexit, !llvm.loop !102
+  br i1 %155, label %.lr.ph155, label %.loopexit, !llvm.loop !101
 
 .loopexit:                                        ; preds = %150, %145, %144, %144
   %156 = getelementptr inbounds i8, ptr %7, i64 80
@@ -15133,7 +15133,7 @@ _pack_list_of_str.exit60:                         ; preds = %.thread.i59, %61, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -15175,7 +15175,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %22 = add nuw nsw i32 %.084130, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %.loopexit128, !llvm.loop !103
+  br i1 %24, label %.lr.ph, label %.loopexit128, !llvm.loop !102
 
 .loopexit128:                                     ; preds = %19, %15, %14
   %25 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15210,7 +15210,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %38 = add nuw nsw i32 %.1131, 1
   %39 = load i32, ptr %5, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph132, label %.loopexit126, !llvm.loop !104
+  br i1 %40, label %.lr.ph132, label %.loopexit126, !llvm.loop !103
 
 .loopexit126:                                     ; preds = %35, %30, %29
   %41 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15245,7 +15245,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %54 = add nuw nsw i32 %.2133, 1
   %55 = load i32, ptr %5, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph134, label %.loopexit124, !llvm.loop !105
+  br i1 %56, label %.lr.ph134, label %.loopexit124, !llvm.loop !104
 
 .loopexit124:                                     ; preds = %51, %46, %45
   %57 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15280,7 +15280,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %70 = add nuw nsw i32 %.3135, 1
   %71 = load i32, ptr %5, align 4
   %72 = icmp ult i32 %70, %71
-  br i1 %72, label %.lr.ph136, label %.loopexit122, !llvm.loop !106
+  br i1 %72, label %.lr.ph136, label %.loopexit122, !llvm.loop !105
 
 .loopexit122:                                     ; preds = %67, %62, %61
   %73 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15317,7 +15317,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %86 = add nuw nsw i32 %.4137, 1
   %87 = load i32, ptr %5, align 4
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph138, label %.loopexit120, !llvm.loop !107
+  br i1 %88, label %.lr.ph138, label %.loopexit120, !llvm.loop !106
 
 .loopexit120:                                     ; preds = %83, %78, %77, %77
   %89 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15352,7 +15352,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %102 = add nuw nsw i32 %.5139, 1
   %103 = load i32, ptr %5, align 4
   %104 = icmp ult i32 %102, %103
-  br i1 %104, label %.lr.ph140, label %.loopexit118, !llvm.loop !108
+  br i1 %104, label %.lr.ph140, label %.loopexit118, !llvm.loop !107
 
 .loopexit118:                                     ; preds = %99, %94, %93
   %105 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15387,7 +15387,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %118 = add nuw nsw i32 %.6141, 1
   %119 = load i32, ptr %5, align 4
   %120 = icmp ult i32 %118, %119
-  br i1 %120, label %.lr.ph142, label %.loopexit116, !llvm.loop !109
+  br i1 %120, label %.lr.ph142, label %.loopexit116, !llvm.loop !108
 
 .loopexit116:                                     ; preds = %115, %110, %109
   %121 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15422,7 +15422,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %134 = add nuw nsw i32 %.7143, 1
   %135 = load i32, ptr %5, align 4
   %136 = icmp ult i32 %134, %135
-  br i1 %136, label %.lr.ph144, label %.loopexit114, !llvm.loop !110
+  br i1 %136, label %.lr.ph144, label %.loopexit114, !llvm.loop !109
 
 .loopexit114:                                     ; preds = %131, %126, %125
   %137 = getelementptr inbounds i8, ptr %7, i64 64
@@ -15469,7 +15469,7 @@ define noundef i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, 
   %156 = add nuw nsw i32 %.8145, 1
   %157 = load i32, ptr %5, align 4
   %158 = icmp ult i32 %156, %157
-  br i1 %158, label %.lr.ph146, label %.loopexit, !llvm.loop !111
+  br i1 %158, label %.lr.ph146, label %.loopexit, !llvm.loop !110
 
 .loopexit:                                        ; preds = %153, %148, %147
   %159 = getelementptr inbounds i8, ptr %7, i64 88
@@ -15646,7 +15646,7 @@ _pack_list_of_str.exit43:                         ; preds = %.thread.i42, %39, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -15688,7 +15688,7 @@ define noundef i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly %0
   %22 = add nuw nsw i32 %.05684, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %.loopexit82, !llvm.loop !112
+  br i1 %24, label %.lr.ph, label %.loopexit82, !llvm.loop !111
 
 .loopexit82:                                      ; preds = %19, %15, %14
   %25 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15725,7 +15725,7 @@ define noundef i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly %0
   %38 = add nuw nsw i32 %.185, 1
   %39 = load i32, ptr %5, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph86, label %.loopexit80, !llvm.loop !113
+  br i1 %40, label %.lr.ph86, label %.loopexit80, !llvm.loop !112
 
 .loopexit80:                                      ; preds = %35, %30, %29, %29
   %41 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15760,7 +15760,7 @@ define noundef i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly %0
   %54 = add nuw nsw i32 %.287, 1
   %55 = load i32, ptr %5, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph88, label %.loopexit78, !llvm.loop !114
+  br i1 %56, label %.lr.ph88, label %.loopexit78, !llvm.loop !113
 
 .loopexit78:                                      ; preds = %51, %46, %45
   %57 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #6
@@ -15795,7 +15795,7 @@ define noundef i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly %0
   %70 = add nuw nsw i32 %.389, 1
   %71 = load i32, ptr %5, align 4
   %72 = icmp ult i32 %70, %71
-  br i1 %72, label %.lr.ph90, label %.loopexit76, !llvm.loop !115
+  br i1 %72, label %.lr.ph90, label %.loopexit76, !llvm.loop !114
 
 .loopexit76:                                      ; preds = %67, %62, %61
   %73 = getelementptr inbounds i8, ptr %7, i64 32
@@ -15848,7 +15848,7 @@ define noundef i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly %0
   %95 = add nuw nsw i32 %.491, 1
   %96 = load i32, ptr %5, align 4
   %97 = icmp ult i32 %95, %96
-  br i1 %97, label %.lr.ph92, label %.loopexit, !llvm.loop !116
+  br i1 %97, label %.lr.ph92, label %.loopexit, !llvm.loop !115
 
 .loopexit:                                        ; preds = %92, %87, %86
   %98 = getelementptr inbounds i8, ptr %7, i64 64
@@ -15958,7 +15958,7 @@ define void @slurmdb_pack_archive_cond(ptr noundef readonly %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_archive_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_archive_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5555, ptr noundef nonnull @__func__.slurmdb_unpack_archive_cond) #6
   store ptr %5, ptr %0, align 8
@@ -15978,7 +15978,7 @@ define noundef i32 @slurmdb_unpack_archive_cond(ptr nocapture noundef writeonly 
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %5, i64 16
-  %14 = call i32 @slurmdb_unpack_job_cond(ptr noundef nonnull %13, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %14 = call i32 @slurmdb_unpack_job_cond(ptr noundef nonnull %13, i16 noundef zeroext %1, ptr noundef %2)
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %37, label %16
 
@@ -16062,7 +16062,7 @@ define void @slurmdb_pack_rpc_obj(ptr nocapture noundef readonly %0, i16 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_rpc_obj(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_rpc_obj(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5605, ptr noundef nonnull @__func__.slurmdb_unpack_rpc_obj) #6
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
@@ -16161,7 +16161,7 @@ define void @slurmdb_pack_rollup_stats(ptr nocapture noundef readonly %0, i16 no
   tail call void @pack64(i64 noundef %27, ptr noundef %2) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !117
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !116
 
 28:                                               ; preds = %3
   %29 = zext nneg i16 %1 to i32
@@ -16173,7 +16173,7 @@ define void @slurmdb_pack_rollup_stats(ptr nocapture noundef readonly %0, i16 no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_rollup_stats(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_rollup_stats(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5660, ptr noundef nonnull @__func__.slurmdb_unpack_rollup_stats) #6
@@ -16218,7 +16218,7 @@ define noundef i32 @slurmdb_unpack_rollup_stats(ptr nocapture noundef writeonly 
   %24 = load i16, ptr %5, align 2
   %25 = zext i16 %24 to i64
   %26 = icmp ult i64 %indvars.iv.next, %25
-  br i1 %26, label %27, label %.loopexit, !llvm.loop !118
+  br i1 %26, label %27, label %.loopexit, !llvm.loop !117
 
 27:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
@@ -16298,14 +16298,14 @@ define void @slurmdb_pack_stats_msg(ptr nocapture noundef readonly %0, i16 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_stats_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_stats_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5732, ptr noundef nonnull @__func__.slurmdb_unpack_stats_msg) #6
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @slurmdb_unpack_rollup_stats(ptr noundef %4, i16 noundef zeroext %1, ptr noundef %2), !range !6
+  %7 = tail call i32 @slurmdb_unpack_rollup_stats(ptr noundef %4, i16 noundef zeroext %1, ptr noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %23
 
@@ -16447,7 +16447,7 @@ define void @slurmdb_pack_update_object(ptr nocapture noundef readonly %0, i16 n
   tail call void %.0(ptr noundef nonnull %26, i16 noundef zeroext %1, ptr noundef %2) #6
   %27 = tail call ptr @list_next(ptr noundef %24) #6
   %.not22 = icmp eq ptr %27, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !119
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   tail call void @list_iterator_destroy(ptr noundef %24) #6
@@ -16458,7 +16458,7 @@ define void @slurmdb_pack_update_object(ptr nocapture noundef readonly %0, i16 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_unpack_update_object(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5861, ptr noundef nonnull @__func__.slurmdb_unpack_update_object) #6
@@ -16561,7 +16561,7 @@ define noundef i32 @slurmdb_unpack_update_object(ptr nocapture noundef writeonly
   %36 = add nuw nsw i32 %.02024, 1
   %37 = load i32, ptr %4, align 4
   %38 = icmp ult i32 %36, %37
-  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !120
+  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !119
 
 .loopexit23:                                      ; preds = %.lr.ph, %22, %3, %19
   call void @slurmdb_destroy_update_object(ptr noundef %6) #6
@@ -16625,118 +16625,117 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8}
-!36 = distinct !{!36, !8}
-!37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}
-!43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8}
-!45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}
-!47 = distinct !{!47, !8}
-!48 = distinct !{!48, !8}
-!49 = distinct !{!49, !8}
-!50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8}
-!52 = distinct !{!52, !8}
-!53 = distinct !{!53, !8}
-!54 = distinct !{!54, !8}
-!55 = distinct !{!55, !8}
-!56 = distinct !{!56, !8}
-!57 = distinct !{!57, !8}
-!58 = distinct !{!58, !8}
-!59 = distinct !{!59, !8}
-!60 = distinct !{!60, !8}
-!61 = distinct !{!61, !8}
-!62 = distinct !{!62, !8}
-!63 = distinct !{!63, !8}
-!64 = distinct !{!64, !8}
-!65 = distinct !{!65, !8}
-!66 = distinct !{!66, !8}
-!67 = distinct !{!67, !8}
-!68 = distinct !{!68, !8}
-!69 = distinct !{!69, !8}
-!70 = distinct !{!70, !8}
-!71 = distinct !{!71, !8}
-!72 = distinct !{!72, !8}
-!73 = distinct !{!73, !8}
-!74 = distinct !{!74, !8}
-!75 = distinct !{!75, !8}
-!76 = distinct !{!76, !8}
-!77 = distinct !{!77, !8}
-!78 = distinct !{!78, !8}
-!79 = distinct !{!79, !8}
-!80 = distinct !{!80, !8}
-!81 = distinct !{!81, !8}
-!82 = distinct !{!82, !8}
-!83 = distinct !{!83, !8}
-!84 = distinct !{!84, !8}
-!85 = distinct !{!85, !8}
-!86 = distinct !{!86, !8}
-!87 = distinct !{!87, !8}
-!88 = distinct !{!88, !8}
-!89 = distinct !{!89, !8}
-!90 = distinct !{!90, !8}
-!91 = distinct !{!91, !8}
-!92 = distinct !{!92, !8}
-!93 = distinct !{!93, !8}
-!94 = distinct !{!94, !8}
-!95 = distinct !{!95, !8}
-!96 = distinct !{!96, !8}
-!97 = distinct !{!97, !8}
-!98 = distinct !{!98, !8}
-!99 = distinct !{!99, !8}
-!100 = distinct !{!100, !8}
-!101 = distinct !{!101, !8}
-!102 = distinct !{!102, !8}
-!103 = distinct !{!103, !8}
-!104 = distinct !{!104, !8}
-!105 = distinct !{!105, !8}
-!106 = distinct !{!106, !8}
-!107 = distinct !{!107, !8}
-!108 = distinct !{!108, !8}
-!109 = distinct !{!109, !8}
-!110 = distinct !{!110, !8}
-!111 = distinct !{!111, !8}
-!112 = distinct !{!112, !8}
-!113 = distinct !{!113, !8}
-!114 = distinct !{!114, !8}
-!115 = distinct !{!115, !8}
-!116 = distinct !{!116, !8}
-!117 = distinct !{!117, !8}
-!118 = distinct !{!118, !8}
-!119 = distinct !{!119, !8}
-!120 = distinct !{!120, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}
+!58 = distinct !{!58, !7}
+!59 = distinct !{!59, !7}
+!60 = distinct !{!60, !7}
+!61 = distinct !{!61, !7}
+!62 = distinct !{!62, !7}
+!63 = distinct !{!63, !7}
+!64 = distinct !{!64, !7}
+!65 = distinct !{!65, !7}
+!66 = distinct !{!66, !7}
+!67 = distinct !{!67, !7}
+!68 = distinct !{!68, !7}
+!69 = distinct !{!69, !7}
+!70 = distinct !{!70, !7}
+!71 = distinct !{!71, !7}
+!72 = distinct !{!72, !7}
+!73 = distinct !{!73, !7}
+!74 = distinct !{!74, !7}
+!75 = distinct !{!75, !7}
+!76 = distinct !{!76, !7}
+!77 = distinct !{!77, !7}
+!78 = distinct !{!78, !7}
+!79 = distinct !{!79, !7}
+!80 = distinct !{!80, !7}
+!81 = distinct !{!81, !7}
+!82 = distinct !{!82, !7}
+!83 = distinct !{!83, !7}
+!84 = distinct !{!84, !7}
+!85 = distinct !{!85, !7}
+!86 = distinct !{!86, !7}
+!87 = distinct !{!87, !7}
+!88 = distinct !{!88, !7}
+!89 = distinct !{!89, !7}
+!90 = distinct !{!90, !7}
+!91 = distinct !{!91, !7}
+!92 = distinct !{!92, !7}
+!93 = distinct !{!93, !7}
+!94 = distinct !{!94, !7}
+!95 = distinct !{!95, !7}
+!96 = distinct !{!96, !7}
+!97 = distinct !{!97, !7}
+!98 = distinct !{!98, !7}
+!99 = distinct !{!99, !7}
+!100 = distinct !{!100, !7}
+!101 = distinct !{!101, !7}
+!102 = distinct !{!102, !7}
+!103 = distinct !{!103, !7}
+!104 = distinct !{!104, !7}
+!105 = distinct !{!105, !7}
+!106 = distinct !{!106, !7}
+!107 = distinct !{!107, !7}
+!108 = distinct !{!108, !7}
+!109 = distinct !{!109, !7}
+!110 = distinct !{!110, !7}
+!111 = distinct !{!111, !7}
+!112 = distinct !{!112, !7}
+!113 = distinct !{!113, !7}
+!114 = distinct !{!114, !7}
+!115 = distinct !{!115, !7}
+!116 = distinct !{!116, !7}
+!117 = distinct !{!117, !7}
+!118 = distinct !{!118, !7}
+!119 = distinct !{!119, !7}

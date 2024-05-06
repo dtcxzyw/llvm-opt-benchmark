@@ -376,7 +376,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %addr to i32
+  %conv = trunc nuw nsw i64 %addr to i32
   %cmp.i = icmp eq i32 %conv, 0
   %cmd.i = getelementptr inbounds i8, ptr %opaque, i64 272
   %0 = load i8, ptr %cmd.i, align 16
@@ -873,7 +873,7 @@ trace_ne2000_write.exit:                          ; preds = %entry, %land.lhs.tr
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %trace_ne2000_write.exit
-  %conv = trunc i64 %addr to i32
+  %conv = trunc nuw nsw i64 %addr to i32
   %conv2 = trunc i64 %data to i32
   %conv1.i = and i64 %data, 4294967295
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)

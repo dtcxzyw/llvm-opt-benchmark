@@ -1746,7 +1746,7 @@ define internal fastcc void @__tasklet_schedule_common(ptr noundef %0, ptr nound
 30:                                               ; preds = %27, %23, %10, %3
   %31 = zext nneg i32 %2 to i64
   %32 = shl nuw nsw i64 1, %31
-  %33 = trunc i64 %32 to i16
+  %33 = trunc nuw nsw i64 %32 to i16
   call void asm "orw $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 6), i16 %33, ptr nonnull elementtype(i16) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 6)) #18, !srcloc !81
   %34 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #19, !srcloc !22
   %35 = and i32 %34, 16776960
@@ -2258,7 +2258,7 @@ define internal fastcc void @tasklet_action_common(ptr noundef %0, i32 noundef %
 6:                                                ; preds = %2
   %7 = zext nneg i32 %1 to i64
   %8 = shl nuw nsw i64 1, %7
-  %9 = trunc i64 %8 to i16
+  %9 = trunc nuw nsw i64 %8 to i16
   br label %10
 
 10:                                               ; preds = %156, %6
@@ -2746,7 +2746,7 @@ declare dso_local i32 @smpboot_register_percpu_thread(ptr noundef) local_unnamed
 declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal i32 @ksoftirqd_should_run(i32 %0) #17 align 16 {
+define internal range(i32 0, 65536) i32 @ksoftirqd_should_run(i32 %0) #17 align 16 {
   %2 = tail call i16 asm "movw %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 6)) #19, !srcloc !115
   %3 = zext i16 %2 to i32
   ret i32 %3

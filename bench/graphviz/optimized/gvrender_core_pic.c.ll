@@ -303,7 +303,7 @@ tailrecurse.i:                                    ; preds = %40, %strview.exit
   br i1 %.not.i.i.i, label %31, label %30
 
 30:                                               ; preds = %26
-  %strlen.i.i.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %29)
+  %strlen.i.i.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %29)
   br label %strview_str_eq.exit.i
 
 31:                                               ; preds = %26
@@ -313,7 +313,7 @@ tailrecurse.i:                                    ; preds = %40, %strview.exit
 strview_str_eq.exit.i:                            ; preds = %31, %30
   %.sroa.3.0.i.i.i = phi i64 [ %strlen.i.i.i, %30 ], [ %32, %31 ]
   %33 = tail call i64 @llvm.umin.i64(i64 %.tr15.i, i64 %.sroa.3.0.i.i.i)
-  %34 = tail call i32 @strncmp(ptr noundef nonnull %18, ptr noundef %29, i64 noundef %33) #8
+  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef readonly %29, i64 noundef %33) #8
   %.not.i.i.i.i = icmp eq i32 %34, 0
   %35 = icmp eq i64 %.sroa.3.0.i.i.i, %.tr15.i
   %spec.select.i.i.i = and i1 %35, %.not.i.i.i.i

@@ -2479,7 +2479,7 @@ _ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %10 = phi ptr [ %9, %if.else.i.i.i.i.i.i.i ], [ %5, %invoke.cont2.i.i.i.i.i.i.i ]
   %11 = phi ptr [ %7, %if.else.i.i.i.i.i.i.i ], [ %3, %invoke.cont2.i.i.i.i.i.i.i ]
   store i64 %0, ptr %10, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i2.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
           to label %call.i.i2.i.noexc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
@@ -8826,7 +8826,7 @@ _ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %10 = phi ptr [ %9, %if.else.i.i.i.i.i.i.i ], [ %5, %invoke.cont2.i.i.i.i.i.i.i ]
   %11 = phi ptr [ %7, %if.else.i.i.i.i.i.i.i ], [ %3, %invoke.cont2.i.i.i.i.i.i.i ]
   store i64 %0, ptr %10, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i2.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
           to label %call.i.i2.i.noexc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 

@@ -1122,7 +1122,7 @@ ehcleanup479:                                     ; preds = %if.then.i.i913, %_Z
 for.body:                                         ; preds = %_Z14decode_light_ff.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827
   %130 = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827 ], [ %137, %_Z14decode_light_ff.exit ]
   %i.0942 = phi i64 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827 ], [ %inc, %_Z14decode_light_ff.exit ]
-  %conv = uitofp i64 %i.0942 to float
+  %conv = uitofp nneg i64 %i.0942 to float
   %div = fdiv nsz float %conv, 1.500000e+01
   %cmp.i = fcmp nsz ult float %div, 1.000000e+00
   br i1 %cmp.i, label %if.end.i, label %_Z14decode_light_ff.exit
@@ -1155,7 +1155,7 @@ _Z14decode_light_ff.exit:                         ; preds = %if.end10.i, %if.end
   %conv494 = fptosi float %mul to i32
   %cond506 = call i32 @llvm.smin.i32(i32 %conv494, i32 255)
   %cond508 = call i32 @llvm.smax.i32(i32 %cond506, i32 0)
-  %conv509 = trunc i32 %cond508 to i8
+  %conv509 = trunc nuw i32 %cond508 to i8
   %arrayidx = getelementptr inbounds [16 x i8], ptr @_ZL9light_LUT, i64 0, i64 %i.0942
   %conv515 = zext i8 %130 to i32
   %cmp516.not = icmp sgt i32 %cond506, %conv515

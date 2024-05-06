@@ -63,7 +63,7 @@ for.body.i:                                       ; preds = %for.body.i, %gf_wea
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv10.i = trunc i128 %shr.i to i64
+  %conv10.i = trunc nsw i128 %shr.i to i64
   br label %for.body15.i
 
 for.body15.i:                                     ; preds = %for.body15.i, %for.end.i
@@ -178,7 +178,7 @@ for.body:                                         ; preds = %gf_weak_reduce.exit
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
-  %conv10 = trunc i128 %shr to i64
+  %conv10 = trunc nsw i128 %shr to i64
   br label %for.body15
 
 for.body15:                                       ; preds = %for.end, %for.body15
@@ -206,7 +206,7 @@ for.end34:                                        ; preds = %for.body15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @gf_hibit(ptr nocapture noundef readonly %x) local_unnamed_addr #1 {
+define range(i64 -1, 1) i64 @gf_hibit(ptr nocapture noundef readonly %x) local_unnamed_addr #1 {
 entry:
   %y = alloca [1 x %struct.gf_s], align 16
   br label %for.body.i5.i
@@ -323,7 +323,7 @@ for.body.i:                                       ; preds = %for.body.i, %gf_wea
   br i1 %exitcond.not.i15, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv10.i = trunc i128 %shr.i to i64
+  %conv10.i = trunc nsw i128 %shr.i to i64
   br label %for.body15.i
 
 for.body15.i:                                     ; preds = %for.body15.i, %for.end.i
@@ -429,7 +429,7 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @gf_lobit(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define range(i64 -1, 1) i64 @gf_lobit(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %y = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %y, ptr noundef nonnull align 16 dereferenceable(64) %x, i64 64, i1 false)
@@ -483,7 +483,7 @@ for.body.i:                                       ; preds = %for.body.i, %gf_wea
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv10.i = trunc i128 %shr.i to i64
+  %conv10.i = trunc nsw i128 %shr.i to i64
   br label %for.body15.i
 
 for.body15.i:                                     ; preds = %for.body15.i, %for.end.i
@@ -555,7 +555,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %3, label %while.body, label %while.end.loopexit, !llvm.loop !10
 
 while.end.loopexit:                               ; preds = %while.body
-  %4 = trunc i64 %indvars.iv.next to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
@@ -586,7 +586,7 @@ for.end:                                          ; preds = %while.end
   br i1 %tobool.not, label %cond.false34, label %cond.end36
 
 cond.false34:                                     ; preds = %for.end
-  %call = tail call i64 @gf_hibit(ptr noundef nonnull %x), !range !12
+  %call = tail call i64 @gf_hibit(ptr noundef nonnull %x)
   %not35 = xor i64 %call, -1
   br label %cond.end36
 
@@ -595,7 +595,7 @@ cond.end36:                                       ; preds = %for.end, %cond.fals
   %conv38 = trunc i128 %shr to i64
   %isneg = icmp eq i64 %conv38, 0
   %and40 = select i1 %isneg, i64 %cond37, i64 0
-  %conv41 = trunc i128 %shr30 to i64
+  %conv41 = trunc nsw i128 %shr30 to i64
   %isnotneg.not = icmp eq i64 %conv41, 0
   %and44 = select i1 %isnotneg.not, i64 0, i64 %and40
   ret i64 %and44
@@ -620,7 +620,7 @@ for.body.i6:                                      ; preds = %entry, %for.body.i6
   store i64 %add.i10, ptr %arrayidx11.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i6, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i6, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.body.i6
   %arrayidx.i.i = getelementptr inbounds i8, ptr %d, i64 56
@@ -680,7 +680,7 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @gf_eq(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define range(i64 -1, 1) i64 @gf_eq(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
 entry:
   %c = alloca [1 x %struct.gf_s], align 16
   br label %for.body.i6.i
@@ -699,7 +699,7 @@ for.body.i6.i:                                    ; preds = %for.body.i6.i, %ent
   store i64 %add.i10.i, ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i6.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i6.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %for.body.i6.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 56
@@ -802,7 +802,7 @@ for.body.i:                                       ; preds = %for.body.i, %gf_wea
   br i1 %exitcond.not.i17, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv10.i = trunc i128 %shr.i to i64
+  %conv10.i = trunc nsw i128 %shr.i to i64
   br label %for.body15.i
 
 for.body15.i:                                     ; preds = %for.body15.i, %for.end.i
@@ -833,7 +833,7 @@ for.body:                                         ; preds = %for.body15.i, %for.
   %or = or i64 %21, %ret.019
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
   %not.i = xor i64 %or, -1
@@ -844,7 +844,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @gf_isr(ptr nocapture noundef writeonly %a, ptr noundef %x) local_unnamed_addr #2 {
+define range(i64 -1, 1) i64 @gf_isr(ptr nocapture noundef writeonly %a, ptr noundef %x) local_unnamed_addr #2 {
 entry:
   %tmp.i42 = alloca [1 x %struct.gf_s], align 16
   %tmp.i36 = alloca [1 x %struct.gf_s], align 16
@@ -883,7 +883,7 @@ for.body.i13:                                     ; preds = %entry, %for.body.i1
   call void @ossl_gf_sqr(ptr noundef nonnull %L2, ptr noundef nonnull %tmp.i12) #6
   %sub5.i15 = add nsw i32 %n.addr.110.i14, -2
   %tobool2.not.i16 = icmp eq i32 %sub5.i15, 0
-  br i1 %tobool2.not.i16, label %gf_sqrn.exit17, label %for.body.i13, !llvm.loop !15
+  br i1 %tobool2.not.i16, label %gf_sqrn.exit17, label %for.body.i13, !llvm.loop !14
 
 gf_sqrn.exit17:                                   ; preds = %for.body.i13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i12)
@@ -891,17 +891,17 @@ gf_sqrn.exit17:                                   ; preds = %for.body.i13
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #6
   call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef %x, ptr noundef nonnull %L0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i18)
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i18, ptr noundef nonnull %L2) #6, !noalias !16
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i18, ptr noundef nonnull %L2) #6, !noalias !15
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i18) #6
   br label %for.body.i19
 
-for.body.i19:                                     ; preds = %for.body.i19, %gf_sqrn.exit17
+for.body.i19:                                     ; preds = %gf_sqrn.exit17, %for.body.i19
   %n.addr.110.i20 = phi i32 [ %sub5.i21, %for.body.i19 ], [ 16, %gf_sqrn.exit17 ]
   call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i18, ptr noundef nonnull %L0) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i18) #6
   %sub5.i21 = add nsw i32 %n.addr.110.i20, -2
   %tobool2.not.i22 = icmp eq i32 %sub5.i21, 0
-  br i1 %tobool2.not.i22, label %gf_sqrn.exit23, label %for.body.i19, !llvm.loop !15
+  br i1 %tobool2.not.i22, label %gf_sqrn.exit23, label %for.body.i19, !llvm.loop !14
 
 gf_sqrn.exit23:                                   ; preds = %for.body.i19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i18)
@@ -910,13 +910,13 @@ gf_sqrn.exit23:                                   ; preds = %for.body.i19
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L2) #6
   br label %for.body.i25
 
-for.body.i25:                                     ; preds = %for.body.i25, %gf_sqrn.exit23
+for.body.i25:                                     ; preds = %gf_sqrn.exit23, %for.body.i25
   %n.addr.110.i26 = phi i32 [ %sub5.i27, %for.body.i25 ], [ 36, %gf_sqrn.exit23 ]
   call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i24, ptr noundef nonnull %L0) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i24) #6
   %sub5.i27 = add nsw i32 %n.addr.110.i26, -2
   %tobool2.not.i28 = icmp eq i32 %sub5.i27, 0
-  br i1 %tobool2.not.i28, label %gf_sqrn.exit29, label %for.body.i25, !llvm.loop !15
+  br i1 %tobool2.not.i28, label %gf_sqrn.exit29, label %for.body.i25, !llvm.loop !14
 
 gf_sqrn.exit29:                                   ; preds = %for.body.i25
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i24)
@@ -925,13 +925,13 @@ gf_sqrn.exit29:                                   ; preds = %for.body.i25
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #6
   br label %for.body.i31
 
-for.body.i31:                                     ; preds = %for.body.i31, %gf_sqrn.exit29
+for.body.i31:                                     ; preds = %gf_sqrn.exit29, %for.body.i31
   %n.addr.110.i32 = phi i32 [ %sub5.i33, %for.body.i31 ], [ 36, %gf_sqrn.exit29 ]
   call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i30, ptr noundef nonnull %L0) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i30) #6
   %sub5.i33 = add nsw i32 %n.addr.110.i32, -2
   %tobool2.not.i34 = icmp eq i32 %sub5.i33, 0
-  br i1 %tobool2.not.i34, label %gf_sqrn.exit35, label %for.body.i31, !llvm.loop !15
+  br i1 %tobool2.not.i34, label %gf_sqrn.exit35, label %for.body.i31, !llvm.loop !14
 
 gf_sqrn.exit35:                                   ; preds = %for.body.i31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i30)
@@ -940,13 +940,13 @@ gf_sqrn.exit35:                                   ; preds = %for.body.i31
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #6
   br label %for.body.i37
 
-for.body.i37:                                     ; preds = %for.body.i37, %gf_sqrn.exit35
+for.body.i37:                                     ; preds = %gf_sqrn.exit35, %for.body.i37
   %n.addr.110.i38 = phi i32 [ %sub5.i39, %for.body.i37 ], [ 110, %gf_sqrn.exit35 ]
   call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i36, ptr noundef nonnull %L0) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i36) #6
   %sub5.i39 = add nsw i32 %n.addr.110.i38, -2
   %tobool2.not.i40 = icmp eq i32 %sub5.i39, 0
-  br i1 %tobool2.not.i40, label %gf_sqrn.exit41, label %for.body.i37, !llvm.loop !15
+  br i1 %tobool2.not.i40, label %gf_sqrn.exit41, label %for.body.i37, !llvm.loop !14
 
 gf_sqrn.exit41:                                   ; preds = %for.body.i37
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i36)
@@ -957,13 +957,13 @@ gf_sqrn.exit41:                                   ; preds = %for.body.i37
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #6
   br label %for.body.i43
 
-for.body.i43:                                     ; preds = %for.body.i43, %gf_sqrn.exit41
+for.body.i43:                                     ; preds = %gf_sqrn.exit41, %for.body.i43
   %n.addr.110.i44 = phi i32 [ %sub5.i45, %for.body.i43 ], [ 222, %gf_sqrn.exit41 ]
   call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i42, ptr noundef nonnull %L0) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i42) #6
   %sub5.i45 = add nsw i32 %n.addr.110.i44, -2
   %tobool2.not.i46 = icmp eq i32 %sub5.i45, 0
-  br i1 %tobool2.not.i46, label %gf_sqrn.exit47, label %for.body.i43, !llvm.loop !15
+  br i1 %tobool2.not.i46, label %gf_sqrn.exit47, label %for.body.i43, !llvm.loop !14
 
 gf_sqrn.exit47:                                   ; preds = %for.body.i43
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i42)
@@ -971,7 +971,7 @@ gf_sqrn.exit47:                                   ; preds = %for.body.i43
   call void @ossl_gf_sqr(ptr noundef nonnull %L2, ptr noundef nonnull %L1) #6
   call void @ossl_gf_mul(ptr noundef nonnull %L0, ptr noundef nonnull %L2, ptr noundef %x) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %a, ptr noundef nonnull align 16 dereferenceable(64) %L1, i64 64, i1 false)
-  %call = call i64 @gf_eq(ptr noundef nonnull %L0, ptr noundef nonnull @ONE), !range !12
+  %call = call i64 @gf_eq(ptr noundef nonnull %L0, ptr noundef nonnull @ONE)
   ret i64 %call
 }
 
@@ -1010,10 +1010,9 @@ attributes #6 = { nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i64 -1, i64 1}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"gf_sqrn: %y"}
-!18 = distinct !{!18, !"gf_sqrn"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"gf_sqrn: %y"}
+!17 = distinct !{!17, !"gf_sqrn"}

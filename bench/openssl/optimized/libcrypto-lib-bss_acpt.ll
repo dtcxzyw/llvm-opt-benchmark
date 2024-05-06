@@ -63,9 +63,9 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %call = tail call fastcc i32 @acpt_state(ptr noundef nonnull %b, ptr noundef %0), !range !4
+  %call = tail call fastcc i32 @acpt_state(ptr noundef nonnull %b, ptr noundef %0)
   %cmp1 = icmp slt i32 %call, 1
-  br i1 %cmp1, label %return, label %while.cond, !llvm.loop !5
+  br i1 %cmp1, label %return, label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
   %call3 = tail call i32 @BIO_write(ptr noundef nonnull %1, ptr noundef %in, i32 noundef %inl) #6
@@ -94,9 +94,9 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %call = tail call fastcc i32 @acpt_state(ptr noundef nonnull %b, ptr noundef %0), !range !4
+  %call = tail call fastcc i32 @acpt_state(ptr noundef nonnull %b, ptr noundef %0)
   %cmp1 = icmp slt i32 %call, 1
-  br i1 %cmp1, label %return, label %while.cond, !llvm.loop !7
+  br i1 %cmp1, label %return, label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %while.cond
   %call3 = tail call i32 @BIO_read(ptr noundef nonnull %1, ptr noundef %out, i32 noundef %outl) #6
@@ -125,9 +125,9 @@ while.cond.i:                                     ; preds = %while.body.i, %entr
   br i1 %cmp.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %call.i = tail call fastcc i32 @acpt_state(ptr noundef nonnull %bp, ptr noundef %0), !range !4
+  %call.i = tail call fastcc i32 @acpt_state(ptr noundef nonnull %bp, ptr noundef %0)
   %cmp1.i = icmp slt i32 %call.i, 1
-  br i1 %cmp1.i, label %acpt_write.exit, label %while.cond.i, !llvm.loop !5
+  br i1 %cmp1.i, label %acpt_write.exit, label %while.cond.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.cond.i
   %call3.i = tail call i32 @BIO_write(ptr noundef nonnull %1, ptr noundef %str, i32 noundef %conv) #6
@@ -190,7 +190,7 @@ acpt_close_socket.exit:                           ; preds = %sw.bb, %if.then.i
   br label %sw.epilog169
 
 sw.bb3:                                           ; preds = %entry
-  %call = tail call fastcc i32 @acpt_state(ptr noundef nonnull %b, ptr noundef %0), !range !4
+  %call = tail call fastcc i32 @acpt_state(ptr noundef nonnull %b, ptr noundef %0)
   %conv = sext i32 %call to i64
   br label %sw.epilog169
 
@@ -464,7 +464,7 @@ sw.epilog169:                                     ; preds = %sw.bb160, %sw.bb97,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @acpt_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @acpt_new(ptr nocapture noundef writeonly %bi) #1 {
 entry:
   %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8
@@ -494,7 +494,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @acpt_free(ptr noundef %a) #1 {
+define internal range(i32 0, 2) i32 @acpt_free(ptr noundef %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -563,7 +563,7 @@ return:                                           ; preds = %if.end, %BIO_ACCEPT
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @acpt_state(ptr noundef %b, ptr noundef %c) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %b, ptr noundef %c) unnamed_addr #1 {
 entry:
   %info = alloca %union.BIO_sock_info_u, align 8
   %next_bio124 = getelementptr inbounds i8, ptr %b, i64 72
@@ -955,7 +955,6 @@ attributes #8 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

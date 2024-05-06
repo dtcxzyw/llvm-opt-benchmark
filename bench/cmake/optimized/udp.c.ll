@@ -497,7 +497,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %16
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__udp_disconnect(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr, align 2
   %3 = tail call ptr @__errno_location() #10
   %4 = getelementptr inbounds i8, ptr %0, i64 176
@@ -869,7 +869,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 .preheader86.i:                                   ; preds = %.critedge.i
   %.2104.i = load ptr, ptr %15, align 8
   %.not114.i = icmp eq ptr %.2104.i, %15
-  br i1 %.not114.i, label %.sink.split132.i, label %.lr.ph107.i
+  br i1 %.not114.i, label %.sink.split133.i, label %.lr.ph107.i
 
 .critedge.thread.loopexit89.i:                    ; preds = %.critedge.i
   %.pre.i = tail call ptr @__errno_location() #10
@@ -889,7 +889,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   %56 = icmp ne i64 %.078.lcssa.i, 0
   %57 = icmp ne ptr %.180109.i, %15
   %58 = select i1 %56, i1 %57, i1 false
-  br i1 %58, label %.lr.ph112.i, label %.sink.split132.i
+  br i1 %58, label %.lr.ph112.i, label %.sink.split133.i
 
 .lr.ph112.i:                                      ; preds = %.preheader.i, %.lr.ph112.i
   %.180111.i = phi ptr [ %.180.i, %.lr.ph112.i ], [ %.180109.i, %.preheader.i ]
@@ -916,7 +916,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   %70 = icmp ult i64 %69, %.078.lcssa.i
   %71 = icmp ne ptr %.180.i, %15
   %72 = select i1 %70, i1 %71, i1 false
-  br i1 %72, label %.lr.ph112.i, label %.sink.split132.i, !llvm.loop !12
+  br i1 %72, label %.lr.ph112.i, label %.sink.split133.i, !llvm.loop !12
 
 .lr.ph107.i:                                      ; preds = %.preheader86.i, %.lr.ph107.i
   %.2106.i = phi ptr [ %.2.i, %.lr.ph107.i ], [ %.2104.i, %.preheader86.i ]
@@ -948,16 +948,16 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge.i:                                    ; preds = %.lr.ph107.i
   %88 = icmp eq ptr %15, %.2.i
-  br i1 %88, label %.sink.split132.i, label %21
+  br i1 %88, label %.sink.split133.i, label %21
 
-.sink.split132.i:                                 ; preds = %.preheader86.i, %._crit_edge.i, %.lr.ph112.i, %.preheader.i
-  %.sink134.i = getelementptr inbounds i8, ptr %0, i64 128
+.sink.split133.i:                                 ; preds = %.preheader86.i, %._crit_edge.i, %.lr.ph112.i, %.preheader.i
+  %.sink135.i = getelementptr inbounds i8, ptr %0, i64 128
   %89 = getelementptr inbounds i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8
-  call void @uv__io_feed(ptr noundef %90, ptr noundef nonnull %.sink134.i) #9
+  call void @uv__io_feed(ptr noundef %90, ptr noundef nonnull %.sink135.i) #9
   br label %uv__udp_sendmmsg.exit
 
-uv__udp_sendmmsg.exit:                            ; preds = %14, %.critedge.thread.i, %.critedge.thread.i, %.sink.split132.i
+uv__udp_sendmmsg.exit:                            ; preds = %14, %.critedge.thread.i, %.critedge.thread.i, %.sink.split133.i
   call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %2)
   br label %.loopexit
 
@@ -1183,7 +1183,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %23
 declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__udp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @uv__udp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %5
 
@@ -1310,7 +1310,7 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   br label %41
 
 .preheader56.i.i:                                 ; preds = %41, %36
-  %40 = trunc i64 %spec.store.select.i.i to i32
+  %40 = trunc nuw nsw i64 %spec.store.select.i.i to i32
   br label %53
 
 41:                                               ; preds = %41, %.lr.ph.i.i
@@ -1518,7 +1518,7 @@ uv__udp_recvmsg.exit:                             ; preds = %114, %117, %119, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_udp_using_recvmmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @uv_udp_using_recvmmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 67108864
@@ -1771,7 +1771,7 @@ uv__udp_maybe_deferred_bind.exit21:               ; preds = %39
 
 51:                                               ; preds = %48, %44
   %52 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %52, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %52, i64 16, i1 false)
   switch i32 %3, label %uv__udp_set_membership6.exit [
     i32 1, label %54
     i32 0, label %53
@@ -1873,9 +1873,9 @@ uv__udp_maybe_deferred_bind.exit.i:               ; preds = %18
   %storemerge.i = phi i32 [ %28, %26 ], [ 0, %23 ]
   store i32 %storemerge.i, ptr %9, align 8
   %30 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %30, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %30, ptr noundef nonnull readonly align 4 dereferenceable(28) %11, i64 28, i1 false)
   %31 = getelementptr inbounds i8, ptr %9, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %31, ptr noundef nonnull align 4 dereferenceable(28) %12, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %31, ptr noundef nonnull readonly align 4 dereferenceable(28) %12, i64 28, i1 false)
   switch i32 %4, label %uv__udp_set_source_membership6.exit [
     i32 1, label %33
     i32 0, label %32
@@ -1985,7 +1985,7 @@ uv__udp_set_source_membership4.exit:              ; preds = %uv__udp_maybe_defer
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_udp_set_broadcast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_broadcast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 176
@@ -2053,7 +2053,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %15, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_udp_set_multicast_ttl(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_ttl(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
@@ -2095,7 +2095,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %2, %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_udp_set_multicast_loop(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_loop(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
@@ -2137,7 +2137,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %2, %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_udp_set_multicast_interface(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_interface(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %10

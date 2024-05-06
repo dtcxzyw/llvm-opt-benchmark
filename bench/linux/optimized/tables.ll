@@ -331,7 +331,7 @@ define dso_local i32 @acpi_table_parse_madt(i32 noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @acpi_table_parse(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_table_parse(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   store ptr null, ptr %3, align 8
@@ -744,7 +744,7 @@ define dso_local noundef i32 @acpi_os_physical_table_override(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @acpi_os_table_override(ptr noundef readnone %0, ptr noundef writeonly %1) local_unnamed_addr #8 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_table_override(ptr noundef readnone %0, ptr noundef writeonly %1) local_unnamed_addr #8 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -760,7 +760,7 @@ define dso_local noundef i32 @acpi_os_table_override(ptr noundef readnone %0, pt
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @acpi_locate_initial_tables() local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local range(i32 -22, 1) i32 @acpi_locate_initial_tables() local_unnamed_addr #3 section ".init.text" align 16 {
   %1 = load i1, ptr @acpi_verify_table_checksum, align 1
   %2 = select i1 %1, ptr @.str.17, ptr @.str.18
   %3 = zext i1 %1 to i8
@@ -937,7 +937,7 @@ define dso_local i32 @acpi_table_init() local_unnamed_addr #3 section ".init.tex
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_apic_instance(ptr noundef %0) #3 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_parse_apic_instance(ptr noundef %0) #3 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

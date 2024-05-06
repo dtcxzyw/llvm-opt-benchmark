@@ -259,7 +259,7 @@ define internal void @CleanupInvalidationState(i32 %0, i64 noundef %1) #0 {
   br i1 %26, label %27, label %18, !llvm.loop !8
 
 27:                                               ; preds = %21
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   %.not = icmp eq i32 %14, %28
   br i1 %.not, label %38, label %29
 
@@ -665,7 +665,7 @@ define dso_local i32 @SIGetDataEntries(ptr nocapture noundef writeonly %0, i32 n
   br i1 %exitcond.not, label %.critedge, label %30, !llvm.loop !17
 
 .critedge.loopexit.split.loop.exit34:             ; preds = %30
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %.critedge.loopexit.split.loop.exit34, %.preheader

@@ -635,7 +635,7 @@ while.end41.loopexit:                             ; preds = %_ZN8proxygen17HPACK
 while.end41:                                      ; preds = %while.end41.loopexit, %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit53
   %value.addr.0.lcssa = phi i64 [ %sub, %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit53 ], [ %shr, %while.end41.loopexit ]
   %count.0.lcssa = phi i32 [ 2, %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit53 ], [ %45, %while.end41.loopexit ]
-  %conv42 = trunc i64 %value.addr.0.lcssa to i8
+  %conv42 = trunc nuw nsw i64 %value.addr.0.lcssa to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.addr.i89)
   store i8 %conv42, ptr %byte.addr.i89, align 1
   %46 = load ptr, ptr %second.i.i.i.i.i, align 8

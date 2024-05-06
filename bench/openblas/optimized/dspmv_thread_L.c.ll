@@ -89,9 +89,9 @@ define noundef i32 @dspmv_thread_L(i64 noundef %0, double noundef %1, ptr nounde
   %56 = add nuw nsw i64 %34, 1
   %57 = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %56
   store i64 %55, ptr %57, align 8, !tbaa !14
-  %58 = mul nsw i64 %34, %30
+  %58 = mul nuw nsw i64 %34, %30
   %59 = getelementptr inbounds [17 x i64], ptr %13, i64 0, i64 %34
-  %60 = mul nsw i64 %34, %0
+  %60 = mul nuw nsw i64 %34, %0
   %61 = call i64 @llvm.smin.i64(i64 %58, i64 %60)
   store i64 %61, ptr %59, align 8, !tbaa !14
   %62 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %34
@@ -119,7 +119,7 @@ define noundef i32 @dspmv_thread_L(i64 noundef %0, double noundef %1, ptr nounde
   %74 = add nuw nsw i64 %0, 255
   %75 = and i64 %74, 9223372036854775552
   %76 = or disjoint i64 %75, 16
-  %77 = mul nsw i64 %56, %76
+  %77 = mul nuw nsw i64 %56, %76
   %78 = getelementptr inbounds double, ptr %7, i64 %77
   %79 = getelementptr inbounds i8, ptr %11, i64 56
   store ptr %78, ptr %79, align 8, !tbaa !27

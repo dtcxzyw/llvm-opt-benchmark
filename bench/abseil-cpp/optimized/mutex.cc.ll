@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %c, i32 noundef %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24synchronization_internal10MutexDelayEii(i32 noundef %c, i32 noundef %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %enable_rescheduling = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
@@ -740,7 +740,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit, label %if.then12
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit: ; preds = %land.lhs.true.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) %12, i64 16)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %11, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.else, label %if.then12
 
@@ -871,7 +871,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
   br i1 %cmp6.i.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i: ; preds = %land.lhs.true.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %34, ptr noundef nonnull dereferenceable(16) %35, i64 16)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %34, ptr noundef nonnull readonly dereferenceable(16) %35, i64 16)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then6.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
@@ -981,7 +981,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %cmp6.i, label %land.rhs.i, label %land.end
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %7, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %6, ptr noundef nonnull readonly dereferenceable(16) %7, i64 16)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br label %land.end
 
@@ -1941,7 +1941,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit, label %if.end190
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit: ; preds = %land.lhs.true.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %34, ptr noundef nonnull dereferenceable(16) %35, i64 16)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %34, ptr noundef nonnull readonly dereferenceable(16) %35, i64 16)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then186, label %if.end190
 
@@ -2214,7 +2214,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
   br i1 %cmp6.i.i.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i: ; preds = %land.lhs.true.i.i.i.i
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %71, ptr noundef nonnull dereferenceable(16) %72, i64 16)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %71, ptr noundef nonnull readonly dereferenceable(16) %72, i64 16)
   %tobool.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.then6.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
@@ -3818,7 +3818,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit, label %do.body68
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit: ; preds = %land.lhs.true.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %55, ptr noundef nonnull dereferenceable(16) %56, i64 16)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %55, ptr noundef nonnull readonly dereferenceable(16) %56, i64 16)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %do.end77, label %do.body68
 
@@ -3883,7 +3883,7 @@ land.lhs.true.i.i106:                             ; preds = %if.end.i.i102
   br i1 %cmp6.i.i109, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit115, label %if.end88
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit115: ; preds = %land.lhs.true.i.i106
-  %bcmp.i.i111 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %68, ptr noundef nonnull dereferenceable(16) %69, i64 16)
+  %bcmp.i.i111 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %68, ptr noundef nonnull readonly dereferenceable(16) %69, i64 16)
   %tobool.not.i.i112 = icmp eq i32 %bcmp.i.i111, 0
   br i1 %tobool.not.i.i112, label %if.then85, label %if.end88
 
@@ -3939,7 +3939,7 @@ land.lhs.true.i.i133:                             ; preds = %if.end.i.i129
   br i1 %cmp6.i.i136, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142, label %if.end141
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142: ; preds = %land.lhs.true.i.i133
-  %bcmp.i.i138 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %81, ptr noundef nonnull dereferenceable(16) %82, i64 16)
+  %bcmp.i.i138 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %81, ptr noundef nonnull readonly dereferenceable(16) %82, i64 16)
   %tobool.not.i.i139 = icmp eq i32 %bcmp.i.i138, 0
   br i1 %tobool.not.i.i139, label %if.then91, label %if.end141
 
@@ -4050,7 +4050,7 @@ land.lhs.true.i.i167:                             ; preds = %if.end.i.i163
   br i1 %cmp6.i.i170, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit176, label %if.end141
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit176: ; preds = %land.lhs.true.i.i167
-  %bcmp.i.i172 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %101, ptr noundef nonnull dereferenceable(16) %102, i64 16)
+  %bcmp.i.i172 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %101, ptr noundef nonnull readonly dereferenceable(16) %102, i64 16)
   %tobool.not.i.i173 = icmp eq i32 %bcmp.i.i172, 0
   br i1 %tobool.not.i.i173, label %if.then136, label %if.end141
 

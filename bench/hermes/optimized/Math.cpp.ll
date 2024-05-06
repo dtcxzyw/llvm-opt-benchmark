@@ -856,8 +856,8 @@ if.end:                                           ; preds = %entry
   %4 = extractvalue { i32, i64 } %call4, 1
   %5 = bitcast i64 %4 to double
   %conv.i = fptoui double %5 to i32
-  %6 = tail call i32 @llvm.ctlz.i32(i32 %conv.i, i1 false), !range !25
-  %conv.i2 = uitofp i32 %6 to double
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i, i1 false)
+  %conv.i2 = uitofp nneg i32 %6 to double
   %7 = bitcast double %conv.i2 to i64
   br label %return
 
@@ -960,7 +960,7 @@ for.body5.i.i.i.i:                                ; preds = %for.body5.i.i.i.i, 
   store i32 14, ptr %cur2.012.i.ptr.i.i.i, align 4
   %cur2.012.i.add.i.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i.i, 4
   %cmp4.not.i.i.i.i = icmp eq i64 %cur2.012.i.add.i.i.i, 40
-  br i1 %cmp4.not.i.i.i.i, label %_ZN6hermes2vm12SingleObjectILNS0_8CellKindE60EE6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit, label %for.body5.i.i.i.i, !llvm.loop !26
+  br i1 %cmp4.not.i.i.i.i, label %_ZN6hermes2vm12SingleObjectILNS0_8CellKindE60EE6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit, label %for.body5.i.i.i.i, !llvm.loop !25
 
 _ZN6hermes2vm12SingleObjectILNS0_8CellKindE60EE6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit: ; preds = %for.body5.i.i.i.i
   %3 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
@@ -1171,7 +1171,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %xor9.i = xor i64 %xor.i, %cond.i
   store i64 %xor9.i, ptr %arrayidx.i, align 8
   %exitcond.not.i = icmp eq i64 %add.i, 156
-  br i1 %exitcond.not.i, label %for.body15.preheader.i, label %for.body.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %for.body15.preheader.i, label %for.body.i, !llvm.loop !26
 
 for.body15.preheader.i:                           ; preds = %for.body.i
   %arrayidx18.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 1248
@@ -1199,7 +1199,7 @@ for.body15.i:                                     ; preds = %for.body15.i, %for.
   %xor33.i = xor i64 %xor29.i, %cond32.i
   store i64 %xor33.i, ptr %arrayidx18.i, align 8
   %exitcond16.not.i = icmp eq i64 %add21.i, 311
-  br i1 %exitcond16.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %for.body15.i, !llvm.loop !28
+  br i1 %exitcond16.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %for.body15.i, !llvm.loop !27
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit: ; preds = %for.body15.i
   %arrayidx41.i = getelementptr inbounds i8, ptr %this, i64 2488
@@ -1298,7 +1298,6 @@ attributes #10 = { nounwind }
 !22 = distinct !{!22, !23, !"_ZNK6hermes2vm10NativeArgs7handlesEv: %agg.result"}
 !23 = distinct !{!23, !"_ZNK6hermes2vm10NativeArgs7handlesEv"}
 !24 = !{!22}
-!25 = !{i32 0, i32 33}
+!25 = distinct !{!25, !17}
 !26 = distinct !{!26, !17}
 !27 = distinct !{!27, !17}
-!28 = distinct !{!28, !17}

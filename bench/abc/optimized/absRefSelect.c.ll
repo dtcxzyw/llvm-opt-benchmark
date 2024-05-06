@@ -56,7 +56,7 @@ define void @Rnm_ManPrintSelected(ptr nocapture noundef readonly %0, ptr nocaptu
 
 Gia_ObjIsPi.exit:                                 ; preds = %16
   %20 = lshr i64 %.val19, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 536870911
   %23 = getelementptr i8, ptr %11, i64 16
   %.val4.i = load i32, ptr %23, align 8
@@ -271,7 +271,7 @@ define void @Ga2_StructAnalize(ptr nocapture noundef readonly %0, ptr nocapture 
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val100, i64 %62
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %64 = trunc i64 %indvars.iv.next143 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv.next143 to i32
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %64)
   %.val106 = load ptr, ptr %5, align 8
   %66 = ptrtoint ptr %63 to i64
@@ -603,7 +603,7 @@ Rnm_ObjAddToCount.exit.thread:                    ; preds = %42, %Rnm_ObjAddToCo
 
 Gia_ObjIsRo.exit:                                 ; preds = %112
   %114 = lshr i64 %.val115, 32
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw i64 %114 to i32
   %116 = and i32 %115, 536870911
   %117 = getelementptr i8, ptr %106, i64 16
   %.val4.i116 = load i32, ptr %117, align 8
@@ -963,7 +963,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

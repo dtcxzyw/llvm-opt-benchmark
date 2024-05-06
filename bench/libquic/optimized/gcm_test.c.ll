@@ -84,7 +84,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @main() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 entry:
   %key_len.i = alloca i64, align 8
   %plaintext_len.i = alloca i64, align 8
@@ -128,43 +128,43 @@ for.body:                                         ; preds = %entry, %run_test_ca
   store ptr null, ptr %ciphertext.i, align 8
   store ptr null, ptr %tag.i, align 8
   %0 = load ptr, ptr %arrayidx, align 16
-  %1 = trunc i64 %indvars.iv to i32
-  %call.i = call fastcc i32 @decode_hex(ptr noundef nonnull %key.i, ptr noundef nonnull %key_len.i, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1), !range !7
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
+  %call.i = call fastcc i32 @decode_hex(ptr noundef nonnull %key.i, ptr noundef nonnull %key_len.i, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %run_test_case.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body
   %plaintext2.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %plaintext2.i, align 8
-  %call3.i = call fastcc i32 @decode_hex(ptr noundef nonnull %plaintext.i, ptr noundef nonnull %plaintext_len.i, ptr noundef %2, i32 noundef %1, ptr noundef nonnull @.str.2), !range !7
+  %call3.i = call fastcc i32 @decode_hex(ptr noundef nonnull %plaintext.i, ptr noundef nonnull %plaintext_len.i, ptr noundef %2, i32 noundef %1, ptr noundef nonnull @.str.2)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %run_test_case.exit, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
   %additional_data6.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %additional_data6.i, align 16
-  %call7.i = call fastcc i32 @decode_hex(ptr noundef nonnull %additional_data.i, ptr noundef nonnull %additional_data_len.i, ptr noundef %3, i32 noundef %1, ptr noundef nonnull @.str.3), !range !7
+  %call7.i = call fastcc i32 @decode_hex(ptr noundef nonnull %additional_data.i, ptr noundef nonnull %additional_data_len.i, ptr noundef %3, i32 noundef %1, ptr noundef nonnull @.str.3)
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %run_test_case.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false5.i
   %nonce10.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load ptr, ptr %nonce10.i, align 8
-  %call11.i = call fastcc i32 @decode_hex(ptr noundef nonnull %nonce.i, ptr noundef nonnull %nonce_len.i, ptr noundef %4, i32 noundef %1, ptr noundef nonnull @.str.4), !range !7
+  %call11.i = call fastcc i32 @decode_hex(ptr noundef nonnull %nonce.i, ptr noundef nonnull %nonce_len.i, ptr noundef %4, i32 noundef %1, ptr noundef nonnull @.str.4)
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %run_test_case.exit, label %lor.lhs.false13.i
 
 lor.lhs.false13.i:                                ; preds = %lor.lhs.false9.i
   %ciphertext14.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %5 = load ptr, ptr %ciphertext14.i, align 16
-  %call15.i = call fastcc i32 @decode_hex(ptr noundef nonnull %ciphertext.i, ptr noundef nonnull %ciphertext_len.i, ptr noundef %5, i32 noundef %1, ptr noundef nonnull @.str.5), !range !7
+  %call15.i = call fastcc i32 @decode_hex(ptr noundef nonnull %ciphertext.i, ptr noundef nonnull %ciphertext_len.i, ptr noundef %5, i32 noundef %1, ptr noundef nonnull @.str.5)
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %run_test_case.exit, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
   %tag18.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %6 = load ptr, ptr %tag18.i, align 8
-  %call19.i = call fastcc i32 @decode_hex(ptr noundef nonnull %tag.i, ptr noundef nonnull %tag_len.i, ptr noundef %6, i32 noundef %1, ptr noundef nonnull @.str.6), !range !7
+  %call19.i = call fastcc i32 @decode_hex(ptr noundef nonnull %tag.i, ptr noundef nonnull %tag_len.i, ptr noundef %6, i32 noundef %1, ptr noundef nonnull @.str.6)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %run_test_case.exit, label %if.end.i
 
@@ -343,7 +343,7 @@ run_test_case.exit:                               ; preds = %for.body, %lor.lhs.
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %ctx.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 21
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %run_test_case.exit
   %cmp2 = icmp eq i32 %tobool.not, 0
@@ -360,7 +360,7 @@ if.end6:                                          ; preds = %if.then4, %for.end
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_hex(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr noundef readonly %in, i32 noundef %test_num, ptr noundef %description) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr noundef readonly %in, i32 noundef %test_num, ptr noundef %description) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in, null
   br i1 %cmp, label %if.then, label %if.end
@@ -463,7 +463,7 @@ if.end17:                                         ; preds = %if.then26.i29, %if.
   store i8 %or, ptr %arrayidx21, align 1
   %add22 = add i64 %i.046, 2
   %cmp9 = icmp ult i64 %add22, %call
-  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end17, %for.cond.preheader
   store ptr %call4, ptr %out, align 8
@@ -549,7 +549,6 @@ attributes #13 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

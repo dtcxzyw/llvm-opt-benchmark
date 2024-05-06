@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @icount_align_option = external local_unnamed_addr global i32, align 4
 @.str.10 = private unnamed_addr constant [41 x i8] c"shift=auto and align=on are incompatible\00", align 1
 @.str.11 = private unnamed_addr constant [42 x i8] c"shift=auto and sleep=off are incompatible\00", align 1
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str.14 = private unnamed_addr constant [16 x i8] c"Bad icount read\00", align 1
 @qtest_allowed = external local_unnamed_addr global i8, align 1
 

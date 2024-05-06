@@ -448,7 +448,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   store i64 7, ptr %depth, align 8
-  %call2 = call fastcc i32 @ctl_lookup(ptr noundef %tsd, ptr noundef nonnull @super_root_node, ptr noundef %name, ptr noundef nonnull %node, ptr noundef nonnull %mib, ptr noundef nonnull %depth), !range !5
+  %call2 = call fastcc i32 @ctl_lookup(ptr noundef %tsd, ptr noundef nonnull @super_root_node, ptr noundef %name, ptr noundef nonnull %node, ptr noundef nonnull %mib, ptr noundef nonnull %depth)
   %cmp.not = icmp eq i32 %call2, 0
   br i1 %cmp.not, label %if.end4, label %label_return
 
@@ -700,7 +700,7 @@ for.inc:                                          ; preds = %arenas_i2a_impl.exi
   %33 = load i32, ptr %narenas24, align 8
   %34 = zext i32 %33 to i64
   %cmp25 = icmp ult i64 %indvars.iv.next, %34
-  br i1 %cmp25, label %for.body, label %do.body, !llvm.loop !6
+  br i1 %cmp25, label %for.body, label %do.body, !llvm.loop !5
 
 do.body:                                          ; preds = %for.inc, %if.end22
   %.lcssa = phi ptr [ %25, %if.end22 ], [ %32, %for.inc ]
@@ -718,7 +718,7 @@ label_return:                                     ; preds = %if.then.i30, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ctl_lookup(ptr noundef %tsdn, ptr noundef %starting_node, ptr noundef %name, ptr noundef writeonly %ending_nodep, ptr noundef %mibp, ptr nocapture noundef %depthp) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %tsdn, ptr noundef %starting_node, ptr noundef %name, ptr noundef writeonly %ending_nodep, ptr noundef %mibp, ptr nocapture noundef %depthp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 46) #15
   %cmp.not = icmp eq ptr %call, null
@@ -777,7 +777,7 @@ land.lhs.true:                                    ; preds = %for.body11
 for.inc:                                          ; preds = %for.body11, %land.lhs.true
   %inc = add nuw i64 %j.066, 1
   %exitcond.not = icmp eq i64 %inc, %5
-  br i1 %exitcond.not, label %label_return, label %for.body11, !llvm.loop !8
+  br i1 %exitcond.not, label %label_return, label %for.body11, !llvm.loop !7
 
 for.end:                                          ; preds = %land.lhs.true
   %arrayidx = getelementptr inbounds i64, ptr %mibp, i64 %i.069
@@ -846,7 +846,7 @@ cond.end56:                                       ; preds = %if.end48, %cond.fal
   %inc60 = add nuw i64 %i.069, 1
   %15 = load i64, ptr %depthp, align 8
   %cmp3 = icmp ult i64 %inc60, %15
-  br i1 %cmp3, label %do.end5, label %for.end61, !llvm.loop !9
+  br i1 %cmp3, label %do.end5, label %for.end61, !llvm.loop !8
 
 for.end61:                                        ; preds = %cond.end56, %for.cond.preheader, %if.end47
   %node.3 = phi ptr [ %node.2, %if.end47 ], [ %starting_node, %for.cond.preheader ], [ %node.2, %cond.end56 ]
@@ -863,7 +863,7 @@ label_return:                                     ; preds = %if.end28, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ctl_nametomib(ptr noundef %tsd, ptr noundef %name, ptr noundef %mibp, ptr nocapture noundef %miblenp) local_unnamed_addr #0 {
+define hidden range(i32 0, 12) i32 @ctl_nametomib(ptr noundef %tsd, ptr noundef %name, ptr noundef %mibp, ptr nocapture noundef %miblenp) local_unnamed_addr #0 {
 entry:
   %.b2 = load i1, ptr @ctl_initialized, align 1
   br i1 %.b2, label %if.end, label %land.lhs.true
@@ -873,7 +873,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %call, label %label_return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call2 = tail call fastcc i32 @ctl_lookup(ptr noundef %tsd, ptr noundef nonnull @super_root_node, ptr noundef %name, ptr noundef null, ptr noundef %mibp, ptr noundef %miblenp), !range !5
+  %call2 = tail call fastcc i32 @ctl_lookup(ptr noundef %tsd, ptr noundef nonnull @super_root_node, ptr noundef %name, ptr noundef null, ptr noundef %mibp, ptr noundef %miblenp)
   br label %label_return
 
 label_return:                                     ; preds = %land.lhs.true, %if.end
@@ -927,7 +927,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.end.
   %node.1.i = phi ptr [ %arrayidx.i.i, %if.end.i ], [ %call11.i, %if.else.i ]
   %inc.i = add nuw i64 %i.021.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %miblen
-  br i1 %exitcond.not.i, label %if.end4, label %do.end2.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %if.end4, label %do.end2.i, !llvm.loop !9
 
 if.end4:                                          ; preds = %for.inc.i
   %tobool5.not = icmp eq ptr %node.1.i, null
@@ -950,7 +950,7 @@ label_return:                                     ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ctl_mibnametomib(ptr noundef %tsd, ptr noundef %mib, i64 noundef %miblen, ptr noundef %name, ptr nocapture noundef %miblenp) local_unnamed_addr #0 {
+define hidden i32 @ctl_mibnametomib(ptr noundef %tsd, ptr noundef %mib, i64 noundef %miblen, ptr noundef %name, ptr nocapture noundef %miblenp) local_unnamed_addr #0 {
 entry:
   %.b10 = load i1, ptr @ctl_initialized, align 1
   br i1 %.b10, label %if.end, label %land.lhs.true
@@ -995,7 +995,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.end.
   %node.1.i = phi ptr [ %arrayidx.i.i, %if.end.i ], [ %call11.i, %if.else.i ]
   %inc.i = add nuw i64 %i.021.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %miblen
-  br i1 %exitcond.not.i, label %if.end4, label %do.end2.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %if.end4, label %do.end2.i, !llvm.loop !9
 
 if.end4:                                          ; preds = %for.inc.i
   %cmp5 = icmp eq ptr %node.1.i, null
@@ -1013,7 +1013,7 @@ do.end10:                                         ; preds = %lor.lhs.false
   %sub = sub i64 %6, %miblen
   store i64 %sub, ptr %miblenp, align 8
   %add.ptr = getelementptr inbounds i64, ptr %mib, i64 %miblen
-  %call12 = tail call fastcc i32 @ctl_lookup(ptr noundef %tsd, ptr noundef nonnull %node.0.ph18, ptr noundef %name, ptr noundef null, ptr noundef %add.ptr, ptr noundef nonnull %miblenp), !range !5
+  %call12 = tail call fastcc i32 @ctl_lookup(ptr noundef %tsd, ptr noundef nonnull %node.0.ph18, ptr noundef %name, ptr noundef null, ptr noundef %add.ptr, ptr noundef nonnull %miblenp)
   %7 = load i64, ptr %miblenp, align 8
   %add = add i64 %7, %miblen
   store i64 %add, ptr %miblenp, align 8
@@ -1075,7 +1075,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.end.
   %node.1.i = phi ptr [ %arrayidx.i.i, %if.end.i ], [ %call11.i, %if.else.i ]
   %inc.i = add nuw i64 %i.021.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %miblen
-  br i1 %exitcond.not.i, label %if.end4, label %do.end2.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %if.end4, label %do.end2.i, !llvm.loop !9
 
 if.end4:                                          ; preds = %for.inc.i
   store ptr %node.1.i, ptr %node, align 8
@@ -1094,7 +1094,7 @@ do.end10:                                         ; preds = %lor.lhs.false
   %sub = sub i64 %6, %miblen
   store i64 %sub, ptr %miblenp, align 8
   %add.ptr = getelementptr inbounds i64, ptr %mib, i64 %miblen
-  %call12 = call fastcc i32 @ctl_lookup(ptr noundef %tsd, ptr noundef nonnull %node.0.lcssa.i21, ptr noundef %name, ptr noundef nonnull %node, ptr noundef %add.ptr, ptr noundef nonnull %miblenp), !range !5
+  %call12 = call fastcc i32 @ctl_lookup(ptr noundef %tsd, ptr noundef nonnull %node.0.lcssa.i21, ptr noundef %name, ptr noundef nonnull %node, ptr noundef %add.ptr, ptr noundef nonnull %miblenp)
   %7 = load i64, ptr %miblenp, align 8
   %add = add i64 %7, %miblen
   store i64 %add, ptr %miblenp, align 8
@@ -1263,7 +1263,7 @@ for.body:                                         ; preds = %arenas_i.exit, %for
   %24 = load i32, ptr %narenas1, align 8
   %25 = zext i32 %24 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %25
-  br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !10
 
 for.body6:                                        ; preds = %for.cond3.preheader, %for.inc17
   %26 = phi ptr [ %35, %for.inc17 ], [ %23, %for.cond3.preheader ]
@@ -1324,7 +1324,7 @@ for.inc17:                                        ; preds = %arenas_i.exit32, %i
   %36 = load i32, ptr %narenas4, align 8
   %37 = zext i32 %36 to i64
   %cmp5 = icmp ult i64 %indvars.iv.next45, %37
-  br i1 %cmp5, label %for.body6, label %for.end19, !llvm.loop !12
+  br i1 %cmp5, label %for.body6, label %for.end19, !llvm.loop !11
 
 for.end19:                                        ; preds = %for.inc17, %arenas_i.exit, %for.cond3.preheader
   %38 = load ptr, ptr %astats.i, align 8
@@ -1380,7 +1380,7 @@ ctl_background_thread_stats_read.exit:            ; preds = %for.end19, %if.then
   %54 = load ptr, ptr @ctl_stats, align 8
   %arrayidx.i33 = getelementptr inbounds i8, ptr %54, i64 208
   %max_counter_per_bg_thd.i = getelementptr inbounds i8, ptr %41, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i33, ptr noundef nonnull align 8 dereferenceable(64) %max_counter_per_bg_thd.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i33, ptr noundef nonnull readonly align 8 dereferenceable(64) %max_counter_per_bg_thd.i, i64 64, i1 false)
   %n_waiting_thds.i.i = getelementptr inbounds i8, ptr %54, i64 244
   store atomic i32 0, ptr %n_waiting_thds.i.i monotonic, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -1410,14 +1410,14 @@ if.then.i.i:                                      ; preds = %if.end.i
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %58 = load ptr, ptr @ctl_stats, align 8
   %mutex_prof_data = getelementptr inbounds i8, ptr %58, i64 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex_prof_data, ptr noundef nonnull align 8 dereferenceable(64) @background_thread_lock, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %mutex_prof_data, ptr noundef nonnull readonly align 8 dereferenceable(64) @background_thread_lock, i64 64, i1 false)
   %n_waiting_thds.i.i35 = getelementptr inbounds i8, ptr %58, i64 180
   store atomic i32 0, ptr %n_waiting_thds.i.i35 monotonic, align 4
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
   %59 = load ptr, ptr @ctl_stats, align 8
   %arrayidx42 = getelementptr inbounds i8, ptr %59, i64 272
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx42, ptr noundef nonnull align 8 dereferenceable(64) @ctl_mtx, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx42, ptr noundef nonnull readonly align 8 dereferenceable(64) @ctl_mtx, i64 64, i1 false)
   %n_waiting_thds.i.i36 = getelementptr inbounds i8, ptr %59, i64 308
   store atomic i32 0, ptr %n_waiting_thds.i.i36 monotonic, align 4
   %60 = load ptr, ptr @ctl_arenas, align 8
@@ -1584,7 +1584,7 @@ for.body.i:                                       ; preds = %for.body.i, %arenas
   store i64 %add23.i, ptr %nflushes_small.i19, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 39
-  br i1 %exitcond.not.i, label %ctl_arena_stats_amerge.exit, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %ctl_arena_stats_amerge.exit, label %for.body.i, !llvm.loop !12
 
 ctl_arena_stats_amerge.exit:                      ; preds = %for.body.i
   br i1 %destroyed, label %if.end.thread.i, label %if.then17.i
@@ -2511,7 +2511,7 @@ for.body298.us.i:                                 ; preds = %for.cond294.prehead
   store atomic i64 %add.i.i491.us.i, ptr %nrequests317.us.i monotonic, align 8
   %indvars.iv.next505.i = add nuw nsw i64 %indvars.iv504.i, 1
   %exitcond507.not.i = icmp eq i64 %indvars.iv.next505.i, 196
-  br i1 %exitcond507.not.i, label %for.cond339.preheader.i, label %for.body298.us.i, !llvm.loop !14
+  br i1 %exitcond507.not.i, label %for.cond339.preheader.i, label %for.body298.us.i, !llvm.loop !13
 
 for.body.i34:                                     ; preds = %malloc_mutex_prof_merge.exit488.i, %if.end244.i
   %indvars.iv.i35 = phi i64 [ 0, %if.end244.i ], [ %indvars.iv.next.i41, %malloc_mutex_prof_merge.exit488.i ]
@@ -2645,7 +2645,7 @@ malloc_mutex_prof_merge.exit488.i:                ; preds = %if.then10.i486.i, %
   store i64 %add22.i485.i, ptr %n_lock_ops21.i484.i, align 8
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 39
-  br i1 %exitcond.not.i42, label %for.cond294.preheader.i, label %for.body.i34, !llvm.loop !15
+  br i1 %exitcond.not.i42, label %for.cond294.preheader.i, label %for.body.i34, !llvm.loop !14
 
 for.cond339.preheader.i:                          ; preds = %for.body298.i, %for.body298.us.i
   %estats.i44 = getelementptr inbounds i8, ptr %58, i64 25440
@@ -2680,7 +2680,7 @@ for.body298.i:                                    ; preds = %for.cond294.prehead
   store i64 %add331.i, ptr %curlextents330.i, align 8
   %indvars.iv.next501.i = add nuw nsw i64 %indvars.iv500.i, 1
   %exitcond503.not.i = icmp eq i64 %indvars.iv.next501.i, 196
-  br i1 %exitcond503.not.i, label %for.cond339.preheader.i, label %for.body298.i, !llvm.loop !14
+  br i1 %exitcond503.not.i, label %for.cond339.preheader.i, label %for.body298.i, !llvm.loop !13
 
 for.body343.i:                                    ; preds = %for.body343.i, %for.cond339.preheader.i
   %indvars.iv508.i = phi i64 [ 0, %for.cond339.preheader.i ], [ %indvars.iv.next509.i, %for.body343.i ]
@@ -2722,7 +2722,7 @@ for.body343.i:                                    ; preds = %for.body343.i, %for
   store i64 %add390.i, ptr %retained_bytes389.i, align 8
   %indvars.iv.next509.i = add nuw nsw i64 %indvars.iv508.i, 1
   %exitcond511.not.i = icmp eq i64 %indvars.iv.next509.i, 199
-  br i1 %exitcond511.not.i, label %ctl_arena_stats_sdmerge.exit, label %for.body343.i, !llvm.loop !16
+  br i1 %exitcond511.not.i, label %ctl_arena_stats_sdmerge.exit, label %for.body343.i, !llvm.loop !15
 
 ctl_arena_stats_sdmerge.exit:                     ; preds = %for.body343.i
   %hpastats.i45 = getelementptr inbounds i8, ptr %59, i64 34992
@@ -2777,7 +2777,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i64 @malloc_strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @version_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @version_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -2813,7 +2813,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @epoch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @epoch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
@@ -2883,7 +2883,7 @@ label_return:                                     ; preds = %if.end15, %do.body8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @background_thread_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @background_thread_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i8, align 1
   tail call void @background_thread_ctl_init(ptr noundef %tsd) #14
@@ -3036,7 +3036,7 @@ label_return:                                     ; preds = %if.else51, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @max_background_threads_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @max_background_threads_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   tail call void @background_thread_ctl_init(ptr noundef %tsd) #14
@@ -3192,7 +3192,7 @@ declare zeroext i1 @background_threads_enable(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @background_threads_disable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @thread_arena_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @thread_arena_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldind = alloca i32, align 4
   %call = tail call fastcc ptr @arena_choose(ptr noundef %tsd)
@@ -3297,7 +3297,7 @@ return:                                           ; preds = %if.then13, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @thread_allocated_ctl(ptr nocapture noundef readonly %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @thread_allocated_ctl(ptr nocapture noundef readonly %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -3335,7 +3335,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @thread_allocatedp_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @thread_allocatedp_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -3372,7 +3372,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @thread_deallocated_ctl(ptr nocapture noundef readonly %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @thread_deallocated_ctl(ptr nocapture noundef readonly %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -3410,7 +3410,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @thread_deallocatedp_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @thread_deallocatedp_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -3447,7 +3447,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @thread_idle_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 2) i32 @thread_idle_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
@@ -3643,7 +3643,7 @@ declare void @tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @sched_getcpu() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @thread_tcache_enabled_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @thread_tcache_enabled_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i8, align 1
   %tsd.val = load i8, ptr %tsd, align 1
@@ -3715,7 +3715,7 @@ label_return:                                     ; preds = %if.end10, %do.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @thread_tcache_flush_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 15) i32 @thread_tcache_flush_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %0 = load i8, ptr %tsd, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -3749,7 +3749,7 @@ declare void @tsd_slow_update(ptr noundef) local_unnamed_addr #1
 declare void @tcache_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @thread_peak_read_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @thread_peak_read_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %result = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -3787,7 +3787,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @thread_peak_reset_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 2) i32 @thread_peak_reset_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
@@ -3828,7 +3828,7 @@ entry:
 declare void @arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_cache_oblivious_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_cache_oblivious_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -3869,7 +3869,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_debug_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_debug_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -3910,7 +3910,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_fill_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_fill_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -3951,7 +3951,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_lazy_lock_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_lazy_lock_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -3992,7 +3992,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_malloc_conf_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_malloc_conf_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4028,7 +4028,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_opt_safety_checks_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_opt_safety_checks_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4069,7 +4069,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_prof_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_prof_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4110,7 +4110,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_prof_libgcc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_prof_libgcc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4151,7 +4151,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_prof_libunwind_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_prof_libunwind_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4192,7 +4192,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_stats_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_stats_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4233,7 +4233,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_utrace_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_utrace_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4274,7 +4274,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @config_xmalloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @config_xmalloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4315,7 +4315,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_abort_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4358,7 +4358,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_abort_conf_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4401,7 +4401,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_cache_oblivious_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4444,7 +4444,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_trust_madvise_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4487,7 +4487,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_confirm_conf_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4530,7 +4530,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -4573,7 +4573,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_slab_max_alloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_slab_max_alloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4610,7 +4610,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_hugification_threshold_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_hugification_threshold_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4647,7 +4647,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_hugify_delay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_hugify_delay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4684,7 +4684,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_min_purge_interval_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_min_purge_interval_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4721,7 +4721,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_dirty_mult_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_dirty_mult_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -4758,7 +4758,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_sec_nshards_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_nshards_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4795,7 +4795,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_sec_max_alloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_max_alloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4832,7 +4832,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_sec_max_bytes_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_max_bytes_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4869,7 +4869,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4906,7 +4906,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4943,7 +4943,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_metadata_thp_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_metadata_thp_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -4983,7 +4983,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_retain_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -5026,7 +5026,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_dss_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_dss_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5063,7 +5063,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_narenas_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_narenas_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -5100,7 +5100,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_percpu_arena_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_percpu_arena_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5140,7 +5140,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_oversize_threshold_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_oversize_threshold_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5177,7 +5177,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_mutex_max_spin_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_mutex_max_spin_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5214,7 +5214,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_background_thread_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -5257,7 +5257,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_max_background_threads_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_max_background_threads_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5294,7 +5294,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_dirty_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_dirty_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5331,7 +5331,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_muzzy_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_muzzy_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5368,7 +5368,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_stats_print_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_stats_print_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -5411,7 +5411,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @opt_stats_print_opts_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @opt_stats_print_opts_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5447,7 +5447,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_stats_interval_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_stats_interval_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5484,7 +5484,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @opt_stats_interval_opts_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @opt_stats_interval_opts_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5520,7 +5520,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_junk_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_junk_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5557,7 +5557,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_zero_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_zero_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -5618,7 +5618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_tcache_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -5661,7 +5661,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_tcache_max_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_tcache_max_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5698,7 +5698,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_tcache_nslots_small_min_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_min_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -5735,7 +5735,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_tcache_nslots_small_max_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_max_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -5772,7 +5772,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_tcache_nslots_large_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_tcache_nslots_large_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -5809,7 +5809,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_lg_tcache_nslots_mul_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_lg_tcache_nslots_mul_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5846,7 +5846,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_tcache_gc_incr_bytes_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_tcache_gc_incr_bytes_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5883,7 +5883,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_tcache_gc_delay_bytes_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_tcache_gc_delay_bytes_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -5920,7 +5920,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_lg_tcache_flush_small_div_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_small_div_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -5957,7 +5957,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_lg_tcache_flush_large_div_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_large_div_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -5994,7 +5994,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_thp_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_thp_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -6034,7 +6034,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_lg_extent_max_active_fit_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_lg_extent_max_active_fit_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -6167,7 +6167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @opt_zero_realloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @opt_zero_realloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca ptr, align 8
   %cmp = icmp ne ptr %newp, null
@@ -6207,7 +6207,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tcache_create_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @tcache_create_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %tcache_ind = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -6257,7 +6257,7 @@ label_return:                                     ; preds = %do.end10, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tcache_flush_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @tcache_flush_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
@@ -6281,7 +6281,7 @@ label_return:                                     ; preds = %do.body2, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tcache_destroy_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @tcache_destroy_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
@@ -6361,7 +6361,7 @@ label_return:                                     ; preds = %sw.default, %sw.epi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_initialized_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arena_i_initialized_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %initialized = alloca i8, align 1
   %cmp = icmp ne ptr %newp, null
@@ -6476,7 +6476,7 @@ label_return:                                     ; preds = %if.end22, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_decay_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 15) i32 @arena_i_decay_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
@@ -6504,7 +6504,7 @@ label_return:                                     ; preds = %do.body6, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_purge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 15) i32 @arena_i_purge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
@@ -6532,7 +6532,7 @@ label_return:                                     ; preds = %do.body6, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_reset_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 15) i32 @arena_i_reset_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp.i = icmp ne ptr %oldp, null
   %cmp1.i = icmp ne ptr %oldlenp, null
@@ -6625,7 +6625,7 @@ return:                                           ; preds = %lor.lhs.false15.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_destroy_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 15) i32 @arena_i_destroy_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
@@ -6845,7 +6845,7 @@ label_return:                                     ; preds = %lor.lhs.false15.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_dss_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arena_i_dss_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %dss = alloca ptr, align 8
   store ptr null, ptr %dss, align 8
@@ -6910,7 +6910,7 @@ for.body:                                         ; preds = %if.end7, %for.inc
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %label_return, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %label_return, label %for.body, !llvm.loop !16
 
 if.end23.loopexit:                                ; preds = %for.body
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6995,7 +6995,7 @@ label_return:                                     ; preds = %for.inc, %do.body4.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arena_i_oversize_threshold_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #11 {
+define internal range(i32 0, 23) i32 @arena_i_oversize_threshold_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #11 {
 entry:
   %oldval = alloca i64, align 8
   %arrayidx = getelementptr inbounds i8, ptr %mib, i64 8
@@ -7054,7 +7054,7 @@ label_return:                                     ; preds = %if.end28, %if.end35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval.i = alloca i64, align 8
   %0 = getelementptr i8, ptr %mib, i64 8
@@ -7086,7 +7086,7 @@ if.then12.i:                                      ; preds = %if.end6.i
 
 if.then23.i:                                      ; preds = %if.then12.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %3, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
   br label %arena_i_decay_ms_ctl_impl.exit
 
@@ -7132,7 +7132,7 @@ arena_i_decay_ms_ctl_impl.exit:                   ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval.i = alloca i64, align 8
   %0 = getelementptr i8, ptr %mib, i64 8
@@ -7164,7 +7164,7 @@ if.then12.i:                                      ; preds = %if.end6.i
 
 if.then23.i:                                      ; preds = %if.then12.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %3, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
   br label %arena_i_decay_ms_ctl_impl.exit
 
@@ -7210,7 +7210,7 @@ arena_i_decay_ms_ctl_impl.exit:                   ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_extent_hooks_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arena_i_extent_hooks_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %old_extent_hooks = alloca ptr, align 8
   %config = alloca %struct.arena_config_s, align 8
@@ -7366,7 +7366,7 @@ label_return:                                     ; preds = %if.end, %if.then56,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arena_i_retain_grow_limit_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arena_i_retain_grow_limit_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %old_limit = alloca i64, align 8
   %new_limit = alloca i64, align 8
@@ -7526,7 +7526,7 @@ for.body:                                         ; preds = %if.then, %for.body
   store ptr %8, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
@@ -7547,7 +7547,7 @@ if.then10:                                        ; preds = %for.body6
 for.inc13:                                        ; preds = %for.body6, %if.then10
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %5
-  br i1 %exitcond35.not, label %for.end15, label %for.body6, !llvm.loop !19
+  br i1 %exitcond35.not, label %for.end15, label %for.body6, !llvm.loop !18
 
 for.end15:                                        ; preds = %for.inc13, %for.end.thread, %for.end
   tail call void @llvm.stackrestore.p0(ptr %6)
@@ -7683,7 +7683,7 @@ declare ptr @arena_get_ehooks(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @arena_retain_grow_limit_get_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arenas_narenas_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arenas_narenas_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %narenas = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -7749,7 +7749,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arenas_dirty_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arenas_dirty_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %oldval.i)
@@ -7767,7 +7767,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then8.i:                                       ; preds = %if.then.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
   br label %arenas_decay_ms_ctl_impl.exit
 
@@ -7798,7 +7798,7 @@ arenas_decay_ms_ctl_impl.exit:                    ; preds = %if.then8.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arenas_muzzy_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arenas_muzzy_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %oldval.i)
@@ -7816,7 +7816,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then8.i:                                       ; preds = %if.then.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
   br label %arenas_decay_ms_ctl_impl.exit
 
@@ -7847,7 +7847,7 @@ arenas_decay_ms_ctl_impl.exit:                    ; preds = %if.then8.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @arenas_quantum_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @arenas_quantum_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -7883,7 +7883,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @arenas_page_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @arenas_page_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -7919,7 +7919,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arenas_tcache_max_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @arenas_tcache_max_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -7956,7 +7956,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @arenas_nbins_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @arenas_nbins_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -7992,7 +7992,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arenas_nhbins_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @arenas_nhbins_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -8029,7 +8029,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @arenas_nlextents_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @arenas_nlextents_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #9 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -8065,7 +8065,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arenas_create_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arenas_create_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %arena_ind = alloca i32, align 4
   %config = alloca %struct.arena_config_s, align 8
@@ -8151,7 +8151,7 @@ label_return:                                     ; preds = %do.end11, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arenas_lookup_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @arenas_lookup_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8
@@ -8270,7 +8270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arenas_bin_i_size_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @arenas_bin_i_size_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -8310,7 +8310,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arenas_bin_i_nregs_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -8350,7 +8350,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arenas_bin_i_slab_size_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -8390,7 +8390,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arenas_bin_i_nshards_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @arenas_bin_i_nshards_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i32, align 4
   %cmp = icmp ne ptr %newp, null
@@ -8438,7 +8438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arenas_lextent_i_size_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
+define internal range(i32 0, 23) i32 @arenas_lextent_i_size_ctl(ptr nocapture readnone %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #10 {
 entry:
   %oldval = alloca i64, align 8
   %cmp = icmp ne ptr %newp, null
@@ -8693,7 +8693,7 @@ if.then71.i:                                      ; preds = %for.body.i
 if.end137.i:                                      ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %if.end137.i
   %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8701,29 +8701,29 @@ for.end.i:                                        ; preds = %if.end137.i
 
 monotonic.i.i:                                    ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
-  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !21
+  %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !20
   %shr.i69 = lshr i64 %10, 48
   %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !24
+  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !23
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17
   %11 = trunc i64 %10 to i8
   %frombool.i73 = and i8 %11, 1
-  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !24
+  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !23
   %is_head.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %12 = lshr i8 %11, 1
   %frombool5.i = and i8 %12, 1
-  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !24
+  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !23
   %13 = trunc i64 %10 to i32
   %14 = lshr i32 %13, 2
   %conv8.i = and i32 %14, 7
   %state.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !24
+  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !23
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
   %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !24
+  store ptr %15, ptr %agg.result, align 8, !alias.scope !23
   ret void
 }
 
@@ -8804,7 +8804,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_allocated_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_allocated_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -8869,7 +8869,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_active_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_active_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -8935,7 +8935,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_metadata_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_metadata_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9001,7 +9001,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_metadata_thp_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_metadata_thp_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9067,7 +9067,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_resident_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_resident_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9133,7 +9133,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mapped_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mapped_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9199,7 +9199,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_retained_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_retained_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9265,7 +9265,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_zero_reallocs_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_zero_reallocs_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9329,7 +9329,7 @@ label_return:                                     ; preds = %if.end10, %monotoni
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_background_thread_num_threads_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_background_thread_num_threads_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9395,7 +9395,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_background_thread_num_runs_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_background_thread_num_runs_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9461,7 +9461,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_background_thread_run_interval_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_background_thread_run_interval_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -9983,24 +9983,24 @@ malloc_mutex_lock.exit246:                        ; preds = %if.end.i238, %if.th
   %44 = load i32, ptr %n_shards, align 4
   %45 = zext i32 %44 to i64
   %cmp77 = icmp ult i64 %indvars.iv.next, %45
-  br i1 %cmp77, label %for.body79, label %for.inc83, !llvm.loop !27
+  br i1 %cmp77, label %for.body79, label %for.inc83, !llvm.loop !26
 
 for.inc83:                                        ; preds = %malloc_mutex_lock.exit246, %for.cond76.preheader
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next258, 39
-  br i1 %exitcond.not, label %for.inc86, label %for.cond76.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %for.inc86, label %for.cond76.preheader, !llvm.loop !27
 
 for.inc86:                                        ; preds = %for.inc83, %for.body
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count
-  br i1 %exitcond263.not, label %for.end88, label %for.body, !llvm.loop !29
+  br i1 %exitcond263.not, label %for.end88, label %for.body, !llvm.loop !28
 
 for.end88:                                        ; preds = %for.inc86, %malloc_mutex_lock.exit82
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_background_thread_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10066,7 +10066,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_background_thread_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10132,7 +10132,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_background_thread_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10198,7 +10198,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_background_thread_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10264,7 +10264,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_background_thread_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10330,7 +10330,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_background_thread_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10396,7 +10396,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_background_thread_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10462,7 +10462,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_max_per_bg_thd_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10528,7 +10528,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_max_per_bg_thd_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10594,7 +10594,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_max_per_bg_thd_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10660,7 +10660,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_max_per_bg_thd_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10726,7 +10726,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_max_per_bg_thd_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10792,7 +10792,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_max_per_bg_thd_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10858,7 +10858,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_max_per_bg_thd_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10924,7 +10924,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_ctl_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_ctl_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -10990,7 +10990,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_ctl_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_ctl_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11056,7 +11056,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_ctl_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_ctl_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11122,7 +11122,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_ctl_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_ctl_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11188,7 +11188,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_ctl_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_ctl_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11254,7 +11254,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_ctl_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_ctl_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11320,7 +11320,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_ctl_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_ctl_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11386,7 +11386,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11452,7 +11452,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11518,7 +11518,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11584,7 +11584,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11650,7 +11650,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11716,7 +11716,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11782,7 +11782,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11848,7 +11848,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_thds_data_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11914,7 +11914,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_thds_data_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -11980,7 +11980,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_thds_data_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12046,7 +12046,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_thds_data_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12112,7 +12112,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_thds_data_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12178,7 +12178,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_thds_data_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12244,7 +12244,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_thds_data_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12310,7 +12310,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_dump_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12376,7 +12376,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_dump_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12442,7 +12442,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_dump_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12508,7 +12508,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_dump_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12574,7 +12574,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_dump_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12640,7 +12640,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_dump_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12706,7 +12706,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_dump_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12772,7 +12772,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_alloc_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12838,7 +12838,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_alloc_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12904,7 +12904,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_alloc_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -12970,7 +12970,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_alloc_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13036,7 +13036,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_alloc_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13102,7 +13102,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_alloc_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13168,7 +13168,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_alloc_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13234,7 +13234,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_dump_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13300,7 +13300,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_dump_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13366,7 +13366,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_dump_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13432,7 +13432,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_dump_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13498,7 +13498,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_dump_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13564,7 +13564,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_dump_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13630,7 +13630,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_recent_dump_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13696,7 +13696,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_stats_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_num_ops_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13762,7 +13762,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_stats_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_num_wait_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13828,7 +13828,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_stats_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13894,7 +13894,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_stats_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -13960,7 +13960,7 @@ label_return:                                     ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_stats_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14026,7 +14026,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_stats_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14092,7 +14092,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_mutexes_prof_stats_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14235,7 +14235,7 @@ ctl_arenas_i_verify.exit.thread:                  ; preds = %if.else.i.i, %ctl_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_nthreads_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_nthreads_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14339,7 +14339,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_uptime_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_uptime_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14445,7 +14445,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_dss_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_dss_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca ptr, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14549,7 +14549,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_dirty_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_dirty_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14653,7 +14653,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_muzzy_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_muzzy_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14757,7 +14757,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_pactive_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_pactive_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14861,7 +14861,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_pdirty_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_pdirty_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -14965,7 +14965,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_pmuzzy_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_pmuzzy_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15069,7 +15069,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mapped_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mapped_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15175,7 +15175,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_retained_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_retained_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15281,7 +15281,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_extent_avail_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_extent_avail_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15387,7 +15387,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_dirty_npurge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_dirty_npurge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15493,7 +15493,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_dirty_nmadvise_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_dirty_nmadvise_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15599,7 +15599,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_dirty_purged_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_dirty_purged_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15705,7 +15705,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_muzzy_npurge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_muzzy_npurge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15811,7 +15811,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_muzzy_nmadvise_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_muzzy_nmadvise_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -15917,7 +15917,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_muzzy_purged_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_muzzy_purged_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16023,7 +16023,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_base_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_base_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16128,7 +16128,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_internal_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_internal_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16234,7 +16234,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_metadata_thp_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_metadata_thp_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16340,7 +16340,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_tcache_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_tcache_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16446,7 +16446,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_tcache_stashed_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_tcache_stashed_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16552,7 +16552,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_resident_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_resident_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16658,7 +16658,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_abandoned_vm_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_abandoned_vm_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16764,7 +16764,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_sec_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_sec_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16870,7 +16870,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_small_allocated_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_small_allocated_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -16976,7 +16976,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_small_nmalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_small_nmalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17082,7 +17082,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_small_ndalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_small_ndalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17188,7 +17188,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_small_nrequests_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_small_nrequests_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17294,7 +17294,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_small_nfills_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_small_nfills_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17400,7 +17400,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_small_nflushes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_small_nflushes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17506,7 +17506,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_large_allocated_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_large_allocated_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17612,7 +17612,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_large_nmalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_large_nmalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17718,7 +17718,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_large_ndalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_large_ndalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17824,7 +17824,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_large_nrequests_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_large_nrequests_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -17930,7 +17930,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_large_nfills_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_large_nfills_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18036,7 +18036,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_large_nflushes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_large_nflushes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18150,7 +18150,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_nmalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nmalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18259,7 +18259,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_ndalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_ndalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18368,7 +18368,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_nrequests_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nrequests_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18477,7 +18477,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_curregs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_curregs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18586,7 +18586,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_nfills_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nfills_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18695,7 +18695,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_nflushes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nflushes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18804,7 +18804,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_nslabs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nslabs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -18913,7 +18913,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_nreslabs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nreslabs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19022,7 +19022,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_curslabs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_curslabs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19131,7 +19131,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_nonfull_slabs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nonfull_slabs_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19240,7 +19240,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_mutex_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19349,7 +19349,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_mutex_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19458,7 +19458,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_mutex_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19567,7 +19567,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_mutex_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19676,7 +19676,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_mutex_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19785,7 +19785,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_mutex_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -19894,7 +19894,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_bins_j_mutex_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20011,7 +20011,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_lextents_j_nmalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_lextents_j_nmalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20120,7 +20120,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_lextents_j_ndalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_lextents_j_ndalloc_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20229,7 +20229,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_lextents_j_nrequests_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_lextents_j_nrequests_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20338,7 +20338,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_lextents_j_curlextents_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_lextents_j_curlextents_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20455,7 +20455,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_extents_j_ndirty_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_ndirty_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20564,7 +20564,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_extents_j_nmuzzy_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_nmuzzy_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20673,7 +20673,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_extents_j_nretained_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_nretained_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20782,7 +20782,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_extents_j_dirty_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_dirty_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -20891,7 +20891,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_extents_j_muzzy_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_muzzy_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21000,7 +21000,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_extents_j_retained_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_retained_bytes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21109,7 +21109,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_large_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21215,7 +21215,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_large_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21321,7 +21321,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_large_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21427,7 +21427,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_large_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21533,7 +21533,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_large_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21639,7 +21639,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_large_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21745,7 +21745,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_large_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21851,7 +21851,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extent_avail_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -21957,7 +21957,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extent_avail_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22063,7 +22063,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extent_avail_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22169,7 +22169,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extent_avail_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22275,7 +22275,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extent_avail_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22381,7 +22381,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extent_avail_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22487,7 +22487,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extent_avail_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22593,7 +22593,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_dirty_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22699,7 +22699,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_dirty_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22805,7 +22805,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_dirty_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -22911,7 +22911,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_dirty_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23017,7 +23017,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_dirty_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23123,7 +23123,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_dirty_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23229,7 +23229,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_dirty_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23335,7 +23335,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_muzzy_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23441,7 +23441,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_muzzy_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23547,7 +23547,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_muzzy_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23653,7 +23653,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_muzzy_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23759,7 +23759,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_muzzy_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23865,7 +23865,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_muzzy_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -23971,7 +23971,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_muzzy_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24077,7 +24077,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_retained_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24183,7 +24183,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_retained_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24289,7 +24289,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_retained_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24395,7 +24395,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_retained_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24501,7 +24501,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_retained_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24607,7 +24607,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_retained_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24713,7 +24713,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_extents_retained_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24819,7 +24819,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_dirty_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -24925,7 +24925,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_dirty_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25031,7 +25031,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_dirty_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25137,7 +25137,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_dirty_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25243,7 +25243,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_dirty_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25349,7 +25349,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_dirty_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25455,7 +25455,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_dirty_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25561,7 +25561,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_muzzy_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25667,7 +25667,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_muzzy_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25773,7 +25773,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_muzzy_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25879,7 +25879,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_muzzy_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -25985,7 +25985,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_muzzy_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26091,7 +26091,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_muzzy_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26197,7 +26197,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_decay_muzzy_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26303,7 +26303,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_base_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26409,7 +26409,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_base_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26515,7 +26515,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_base_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26621,7 +26621,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_base_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26727,7 +26727,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_base_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26833,7 +26833,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_base_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -26939,7 +26939,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_base_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27045,7 +27045,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_tcache_list_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27151,7 +27151,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_tcache_list_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27257,7 +27257,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_tcache_list_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27363,7 +27363,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_tcache_list_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27469,7 +27469,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_tcache_list_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27575,7 +27575,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_tcache_list_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27681,7 +27681,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_tcache_list_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27787,7 +27787,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27893,7 +27893,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -27999,7 +27999,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28105,7 +28105,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28211,7 +28211,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28317,7 +28317,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28423,7 +28423,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28529,7 +28529,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28635,7 +28635,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28741,7 +28741,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28847,7 +28847,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -28953,7 +28953,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_grow_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29059,7 +29059,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_grow_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29165,7 +29165,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_shard_grow_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29271,7 +29271,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_sec_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_num_ops_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29377,7 +29377,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_sec_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_num_wait_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29483,7 +29483,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_sec_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_num_spin_acq_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29589,7 +29589,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_sec_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_num_owner_switch_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29695,7 +29695,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_sec_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_total_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29801,7 +29801,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_sec_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_max_wait_time_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -29907,7 +29907,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_mutexes_hpa_sec_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_max_num_thds_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i32, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30013,7 +30013,7 @@ label_return:                                     ; preds = %if.end12, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_npurge_passes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_npurge_passes_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30119,7 +30119,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_npurges_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_npurges_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30225,7 +30225,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_nhugifies_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nhugifies_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30331,7 +30331,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_ndehugifies_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_ndehugifies_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30437,7 +30437,7 @@ label_return:                                     ; preds = %if.end10, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_full_slabs_npageslabs_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_npageslabs_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30543,7 +30543,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_full_slabs_npageslabs_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_npageslabs_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30649,7 +30649,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_full_slabs_nactive_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_nactive_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30755,7 +30755,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_full_slabs_nactive_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_nactive_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30861,7 +30861,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_full_slabs_ndirty_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_ndirty_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -30967,7 +30967,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_full_slabs_ndirty_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_ndirty_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31073,7 +31073,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_empty_slabs_npageslabs_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_npageslabs_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31179,7 +31179,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_empty_slabs_npageslabs_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_npageslabs_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31285,7 +31285,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_empty_slabs_nactive_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_nactive_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31391,7 +31391,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_empty_slabs_nactive_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_nactive_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31497,7 +31497,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_empty_slabs_ndirty_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_ndirty_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31603,7 +31603,7 @@ label_return:                                     ; preds = %if.end11, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_empty_slabs_ndirty_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_ndirty_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31717,7 +31717,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_npageslabs_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_npageslabs_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31826,7 +31826,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_npageslabs_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_npageslabs_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -31935,7 +31935,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_nactive_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_nactive_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -32044,7 +32044,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_nactive_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_nactive_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -32153,7 +32153,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_ndirty_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_ndirty_nonhuge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -32262,7 +32262,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_ndirty_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_ndirty_huge_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
@@ -32371,7 +32371,7 @@ label_return:                                     ; preds = %if.end13, %arenas_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_arenas_create_ext_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_arenas_create_ext_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %arena_ind = alloca i32, align 4
   %config = alloca %struct.arena_config_s, align 8
@@ -32456,7 +32456,7 @@ label_return:                                     ; preds = %do.end11, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_batch_alloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_batch_alloc_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %filled = alloca i64, align 8
   %cmp = icmp eq ptr %oldp, null
@@ -32509,7 +32509,7 @@ label_return:                                     ; preds = %do.body4, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_hooks_install_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_hooks_install_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %hooks = alloca %struct.hooks_s, align 8
   %handle = alloca ptr, align 8
@@ -32550,7 +32550,7 @@ label_return:                                     ; preds = %if.end8, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_hooks_remove_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_hooks_remove_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
@@ -32578,7 +32578,7 @@ label_return:                                     ; preds = %do.end, %do.end9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_hooks_prof_backtrace_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %old_hook = alloca ptr, align 8
   %cmp = icmp eq ptr %oldp, null
@@ -32637,7 +32637,7 @@ label_return:                                     ; preds = %if.end13, %if.end28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_hooks_prof_dump_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %old_hook = alloca ptr, align 8
   %cmp = icmp eq ptr %oldp, null
@@ -32692,7 +32692,7 @@ label_return:                                     ; preds = %if.end13, %do.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_hooks_safety_check_abort_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_hooks_safety_check_abort_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef readnone %oldp, ptr noundef readnone %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
@@ -32732,7 +32732,7 @@ declare void @prof_dump_hook_set(ptr noundef) local_unnamed_addr #1
 declare void @safety_check_set_abort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_utilization_query_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef %oldp, ptr noundef readonly %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_utilization_query_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef %oldp, ptr noundef readonly %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %cmp = icmp eq ptr %oldp, null
   %cmp1 = icmp eq ptr %oldlenp, null
@@ -32764,7 +32764,7 @@ label_return:                                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_utilization_batch_query_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef %oldp, ptr noundef readonly %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_utilization_batch_query_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef %oldp, ptr noundef readonly %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %div17 = lshr i64 %newlen, 3
   %cmp = icmp ne ptr %oldp, null
@@ -32795,7 +32795,7 @@ for.body:                                         ; preds = %lor.lhs.false8, %fo
   tail call void @inspect_extent_util_stats_get(ptr noundef %tsd, ptr noundef %2, ptr noundef nonnull %arrayidx12, ptr noundef nonnull %nregs, ptr noundef nonnull %size) #14
   %inc = add nuw nsw i64 %i.023, 1
   %exitcond.not = icmp eq i64 %inc, %div17
-  br i1 %exitcond.not, label %label_return, label %for.body, !llvm.loop !30
+  br i1 %exitcond.not, label %label_return, label %for.body, !llvm.loop !29
 
 label_return:                                     ; preds = %for.body, %entry, %lor.lhs.false8
   %ret.0 = phi i32 [ 22, %lor.lhs.false8 ], [ 22, %entry ], [ 0, %for.body ]
@@ -32882,7 +32882,7 @@ ctl_arenas_i_verify.exit.thread:                  ; preds = %if.else.i.i, %ctl_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @experimental_arenas_i_pactivep_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
+define internal range(i32 0, 23) i32 @experimental_arenas_i_pactivep_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readnone %newp, i64 noundef %newlen) #0 {
 entry:
   %pactivep = alloca ptr, align 8
   %cmp = icmp eq ptr %oldp, null
@@ -32988,7 +32988,7 @@ entry:
 declare i64 @batch_alloc(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @experimental_thread_activity_callback_ctl(ptr nocapture noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #9 {
+define internal range(i32 0, 23) i32 @experimental_thread_activity_callback_ctl(ptr nocapture noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #9 {
 entry:
   %t_old.sroa.0 = alloca <2 x ptr>, align 16
   %cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i = getelementptr inbounds i8, ptr %tsd, i64 240
@@ -33066,29 +33066,28 @@ attributes #15 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"rtree_leaf_elm_read: %agg.result"}
-!23 = distinct !{!23, !"rtree_leaf_elm_read"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"rtree_leaf_elm_bits_decode: %agg.result"}
-!26 = distinct !{!26, !"rtree_leaf_elm_bits_decode"}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"rtree_leaf_elm_read: %agg.result"}
+!22 = distinct !{!22, !"rtree_leaf_elm_read"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"rtree_leaf_elm_bits_decode: %agg.result"}
+!25 = distinct !{!25, !"rtree_leaf_elm_bits_decode"}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}

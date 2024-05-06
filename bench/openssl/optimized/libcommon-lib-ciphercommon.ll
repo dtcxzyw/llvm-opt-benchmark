@@ -55,7 +55,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_get_params(ptr noundef %params, i32 noundef %md, i64 noundef %flags, i64 noundef %kbits, i64 noundef %blkbits, i64 noundef %ivbits) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_get_params(ptr noundef %params, i32 noundef %md, i64 noundef %flags, i64 noundef %kbits, i64 noundef %blkbits, i64 noundef %ivbits) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #5
   %cmp.not = icmp eq ptr %call, null
@@ -202,14 +202,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_var_keylen_set_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_var_keylen_set_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %keylen = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ossl_cipher_generic_set_ctx_params(ptr noundef %vctx, ptr noundef nonnull %params), !range !4
+  %call = tail call i32 @ossl_cipher_generic_set_ctx_params(ptr noundef %vctx, ptr noundef nonnull %params)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -250,7 +250,7 @@ return:                                           ; preds = %if.end2, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_set_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_set_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %pad = alloca i32, align 4
   %bits = alloca i32, align 4
@@ -422,14 +422,14 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @cipher_generic_init_internal(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @cipher_generic_init_internal(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cipher_generic_init_internal(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @cipher_generic_init_internal(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #1 {
 entry:
   %num = getelementptr inbounds i8, ptr %ctx, i64 160
   store i32 0, ptr %num, align 8
@@ -475,8 +475,8 @@ ossl_cipher_generic_initiv.exit:                  ; preds = %if.then7
   %bf.set.i = or i8 %bf.load.i, 4
   store i8 %bf.set.i, ptr %updated, align 4
   %iv3.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv3.i, ptr nonnull align 1 %iv, i64 %ivlen, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ctx, ptr nonnull align 1 %iv, i64 %ivlen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv3.i, ptr nonnull readonly align 1 %iv, i64 %ivlen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ctx, ptr nonnull readonly align 1 %iv, i64 %ivlen, i1 false)
   br label %if.end30
 
 land.lhs.true14:                                  ; preds = %if.end
@@ -540,7 +540,7 @@ if.end49:                                         ; preds = %if.end44
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end49, %if.end30
-  %call54 = tail call i32 @ossl_cipher_generic_set_ctx_params(ptr noundef nonnull %ctx, ptr noundef %params), !range !4
+  %call54 = tail call i32 @ossl_cipher_generic_set_ctx_params(ptr noundef nonnull %ctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %ossl_cipher_generic_initiv.exit.thread, %if.end44, %entry, %if.end53, %if.then41
@@ -549,14 +549,14 @@ return:                                           ; preds = %ossl_cipher_generic
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @cipher_generic_init_internal(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @cipher_generic_init_internal(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cipher_generic_block_update(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
 entry:
   %in.addr = alloca ptr, align 8
   %inl.addr = alloca i64, align 8
@@ -659,7 +659,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i8 %conv, ptr %arrayidx, align 1
   %inc = add nuw i64 %loop.093, 1
   %cmp39 = icmp ult i64 %inc, %add
-  br i1 %cmp39, label %for.body, label %if.end43, !llvm.loop !5
+  br i1 %cmp39, label %for.body, label %if.end43, !llvm.loop !4
 
 if.end43:                                         ; preds = %for.body, %if.end34, %for.cond.preheader, %if.end12
   %4 = phi i64 [ %inl, %if.end12 ], [ %add, %for.cond.preheader ], [ %add, %if.end34 ], [ %add, %for.body ]
@@ -902,7 +902,7 @@ declare i64 @ossl_cipher_fillblock(ptr noundef, ptr noundef, i64 noundef, ptr no
 declare i32 @ossl_cipher_trailingdata(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_block_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_block_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #1 {
 entry:
   %blocksize = getelementptr inbounds i8, ptr %vctx, i64 88
   %0 = load i64, ptr %blocksize, align 8
@@ -1086,7 +1086,7 @@ declare i32 @ossl_cipher_unpadblock(ptr noundef, ptr noundef, i64 noundef) local
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
 entry:
   %key_set = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %key_set, align 4
@@ -1202,7 +1202,7 @@ return:                                           ; preds = %if.end8, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_stream_final(ptr nocapture noundef readonly %vctx, ptr nocapture noundef readnone %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_stream_final(ptr nocapture noundef readonly %vctx, ptr nocapture noundef readnone %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1285,7 +1285,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_get_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_get_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.9) #5
   %cmp.not = icmp eq ptr %call, null
@@ -1406,7 +1406,7 @@ declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_generic_initiv(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %iv, i64 noundef %ivlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_initiv(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %iv, i64 noundef %ivlen) local_unnamed_addr #1 {
 entry:
   %ivlen1 = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load i64, ptr %ivlen1, align 8
@@ -1501,6 +1501,5 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

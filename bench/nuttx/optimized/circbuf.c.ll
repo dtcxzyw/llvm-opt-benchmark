@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @circbuf_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @circbuf_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = zext i1 %4 to i8
@@ -37,7 +37,7 @@ define noundef i32 @circbuf_init(ptr nocapture noundef writeonly %0, ptr noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @circbuf_resize(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i32 -12, 1) i32 @circbuf_resize(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, %1
@@ -82,10 +82,10 @@ define noundef i32 @circbuf_resize(ptr nocapture noundef %0, i64 noundef %1) loc
   %.028.i.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i.i, i64 %24)
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %26, i64 %.028.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %8, ptr align 1 %26, i64 %.028.i.i.i, i1 false)
   %27 = getelementptr inbounds i8, ptr %8, i64 %.028.i.i.i
   %28 = sub i64 %.029.i.i.i, %.028.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %25, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %27, ptr align 1 %25, i64 %28, i1 false)
   br label %circbuf_read.exit
 
 circbuf_read.exit:                                ; preds = %19, %21
@@ -154,11 +154,11 @@ define i64 @circbuf_read(ptr nocapture noundef %0, ptr nocapture noundef writeon
   %.028.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i, i64 %13)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %15, i64 %.028.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr align 1 %15, i64 %.028.i.i, i1 false)
   %16 = getelementptr inbounds i8, ptr %1, i64 %.028.i.i
   %17 = load ptr, ptr %0, align 8
   %18 = sub i64 %.029.i.i, %.028.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %16, ptr align 1 %17, i64 %18, i1 false)
   br label %circbuf_peek.exit
 
 circbuf_peek.exit:                                ; preds = %3, %6
@@ -308,11 +308,11 @@ define i64 @circbuf_peek(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %.028.i = tail call i64 @llvm.umin.i64(i64 %.029.i, i64 %13)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %15, i64 %.028.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr align 1 %15, i64 %.028.i, i1 false)
   %16 = getelementptr inbounds i8, ptr %1, i64 %.028.i
   %17 = load ptr, ptr %0, align 8
   %18 = sub i64 %.029.i, %.028.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %16, ptr align 1 %17, i64 %18, i1 false)
   br label %circbuf_peekat.exit
 
 circbuf_peekat.exit:                              ; preds = %3, %6

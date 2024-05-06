@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq13ipc_address_t7resolveEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(116) %this, ptr nocapture noundef readonly %path_) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13ipc_address_t7resolveEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(116) %this, ptr nocapture noundef readonly %path_) local_unnamed_addr #7 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path_) #13
   %cmp = icmp ugt i64 %call, 107
@@ -115,7 +115,7 @@ if.then12:                                        ; preds = %if.end7
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %if.end7
-  %3 = trunc i64 %call to i32
+  %3 = trunc nuw i64 %call to i32
   %conv18 = add nuw nsw i32 %3, 2
   %_addrlen = getelementptr inbounds i8, ptr %this, i64 112
   store i32 %conv18, ptr %_addrlen, align 4
@@ -133,7 +133,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3zmq13ipc_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq13ipc_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_) local_unnamed_addr #2 align 2 {
 entry:
   %buf = alloca [115 x i8], align 16
   %0 = load i16, ptr %this, align 4

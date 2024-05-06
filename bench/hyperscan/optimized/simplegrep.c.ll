@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [39 x i8] c"Match for pattern \22%s\22 at offset %llu\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %database = alloca ptr, align 8
   %compile_err = alloca ptr, align 8
@@ -202,7 +202,7 @@ if.then25:                                        ; preds = %readInputData.exit
   br label %cleanup
 
 if.end28:                                         ; preds = %readInputData.exit
-  %conv.i = trunc i64 %dataLen.0.i to i32
+  %conv.i = trunc nuw i64 %dataLen.0.i to i32
   %call29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %conv.i)
   %28 = load ptr, ptr %database, align 8
   %29 = load ptr, ptr %scratch, align 8

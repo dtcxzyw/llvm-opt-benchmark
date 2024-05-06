@@ -156,7 +156,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %6, %pmix_pointer_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_print_bool(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_bool(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -215,7 +215,7 @@ declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_print_byte(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_byte(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -267,7 +267,7 @@ define noundef i32 @pmix20_bfrop_print_byte(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_print_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -317,7 +317,7 @@ define noundef i32 @pmix20_bfrop_print_string(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_print_size(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_size(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -368,7 +368,7 @@ define noundef i32 @pmix20_bfrop_print_size(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_print_pid(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_pid(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -420,7 +420,7 @@ define noundef i32 @pmix20_bfrop_print_pid(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_print_int(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_int(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -472,7 +472,7 @@ define noundef i32 @pmix20_bfrop_print_int(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_print_uint(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -524,7 +524,7 @@ define noundef i32 @pmix20_bfrop_print_uint(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_uint8(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint8(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -573,7 +573,7 @@ define i32 @pmix20_bfrop_print_uint8(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_uint16(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint16(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -622,7 +622,7 @@ define i32 @pmix20_bfrop_print_uint16(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_uint32(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint32(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -670,7 +670,7 @@ define i32 @pmix20_bfrop_print_uint32(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_int8(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_int8(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -719,7 +719,7 @@ define i32 @pmix20_bfrop_print_int8(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_int16(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_int16(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -768,7 +768,7 @@ define i32 @pmix20_bfrop_print_int16(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_int32(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_int32(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -816,7 +816,7 @@ define i32 @pmix20_bfrop_print_int32(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_uint64(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint64(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -864,7 +864,7 @@ define i32 @pmix20_bfrop_print_uint64(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_int64(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_int64(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -912,7 +912,7 @@ define i32 @pmix20_bfrop_print_int64(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_float(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_float(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -961,7 +961,7 @@ define i32 @pmix20_bfrop_print_float(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_double(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_double(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1009,7 +1009,7 @@ define i32 @pmix20_bfrop_print_double(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1068,7 +1068,7 @@ declare ptr @ctime(ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_timeval(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_timeval(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1118,7 +1118,7 @@ define i32 @pmix20_bfrop_print_timeval(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_status(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_status(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1169,7 +1169,7 @@ define i32 @pmix20_bfrop_print_status(ptr noundef %0, ptr noundef %1, ptr nounde
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1500,10 +1500,10 @@ declare ptr @PMIx_Data_range_string(i8 noundef zeroext) local_unnamed_addr #4
 declare ptr @PMIx_Proc_state_string(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 520
-  %7 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, i16 zeroext poison), !range !4
+  %7 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, i16 zeroext poison)
   %8 = getelementptr inbounds i8, ptr %2, i64 512
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
@@ -1525,12 +1525,12 @@ define i32 @pmix20_bfrop_print_info(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_pdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_pdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = call i32 @pmix20_bfrop_print_proc(ptr noundef nonnull %5, ptr noundef null, ptr noundef %2, i16 zeroext poison), !range !4
+  %7 = call i32 @pmix20_bfrop_print_proc(ptr noundef nonnull %5, ptr noundef null, ptr noundef %2, i16 zeroext poison)
   %8 = getelementptr inbounds i8, ptr %2, i64 776
-  %9 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %8, i16 zeroext poison), !range !4
+  %9 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %8, i16 zeroext poison)
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 260
   %12 = load ptr, ptr %6, align 8
@@ -1561,7 +1561,7 @@ define i32 @pmix20_bfrop_print_pdata(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_proc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_proc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1643,7 +1643,7 @@ define noundef i32 @pmix20_bfrop_print_modex(ptr nocapture noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_persist(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_persist(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1692,7 +1692,7 @@ define i32 @pmix20_bfrop_print_persist(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_scope(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_scope(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1731,7 +1731,7 @@ define i32 @pmix20_bfrop_print_scope(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_range(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_range(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1770,7 +1770,7 @@ define i32 @pmix20_bfrop_print_range(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1811,7 +1811,7 @@ define i32 @pmix20_bfrop_print_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture
 declare ptr @pmix_command_string(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_infodirs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_infodirs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1849,7 +1849,7 @@ define i32 @pmix20_bfrop_print_infodirs(ptr noundef %0, ptr noundef %1, ptr noca
 declare ptr @PMIx_Info_directives_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_bo(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_bo(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1898,7 +1898,7 @@ define i32 @pmix20_bfrop_print_bo(ptr noundef %0, ptr noundef %1, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1935,7 +1935,7 @@ define i32 @pmix20_bfrop_print_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_pstate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_pstate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -2002,7 +2002,7 @@ define i32 @pmix20_bfrop_print_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %6, align 8
-  %19 = call i32 @pmix20_bfrop_print_proc(ptr noundef nonnull %7, ptr noundef %18, ptr noundef %2, i16 zeroext poison), !range !4
+  %19 = call i32 @pmix20_bfrop_print_proc(ptr noundef nonnull %7, ptr noundef %18, ptr noundef %2, i16 zeroext poison)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %.sink.split
 
@@ -2048,7 +2048,7 @@ define i32 @pmix20_bfrop_print_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_darray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_darray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -2167,7 +2167,7 @@ define noundef i32 @pmix20_bfrop_print_query(ptr nocapture noundef writeonly %0,
   %42 = getelementptr inbounds ptr, ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %.not25 = icmp eq ptr %43, null
-  br i1 %.not25, label %.loopexit30, label %.lr.ph, !llvm.loop !5
+  br i1 %.not25, label %.loopexit30, label %.lr.ph, !llvm.loop !4
 
 .loopexit30:                                      ; preds = %37, %.preheader29, %26
   %44 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2186,7 +2186,7 @@ define noundef i32 @pmix20_bfrop_print_query(ptr nocapture noundef writeonly %0,
   %50 = getelementptr inbounds %struct.pmix_info, ptr %49, i64 %.133
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %51 = getelementptr inbounds i8, ptr %50, i64 520
-  %52 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %51, i16 zeroext poison), !range !4
+  %52 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %51, i16 zeroext poison)
   %53 = getelementptr inbounds i8, ptr %50, i64 512
   %54 = load i32, ptr %53, align 8
   %55 = load ptr, ptr %5, align 8
@@ -2237,7 +2237,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %47, %60
   %77 = add nuw i64 %.133, 1
   %78 = load i64, ptr %44, align 8
   %79 = icmp ult i64 %77, %78
-  br i1 %79, label %47, label %.loopexit, !llvm.loop !7
+  br i1 %79, label %47, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %73, %.loopexit30
   %80 = load ptr, ptr %8, align 8
@@ -2260,7 +2260,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %47, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_rank(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_rank(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -2321,7 +2321,7 @@ define i32 @pmix20_bfrop_print_rank(ptr noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_print_alloc_directive(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_alloc_directive(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -2362,7 +2362,7 @@ define i32 @pmix20_bfrop_print_alloc_directive(ptr noundef %0, ptr noundef %1, p
 declare ptr @PMIx_Alloc_directive_string(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_print_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2402,7 +2402,7 @@ define noundef i32 @pmix20_bfrop_print_array(ptr nocapture noundef writeonly %0,
   %25 = getelementptr inbounds %struct.pmix_info, ptr %22, i64 %.01112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %26 = getelementptr inbounds i8, ptr %25, i64 520
-  %27 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %26, i16 zeroext poison), !range !4
+  %27 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %26, i16 zeroext poison)
   %28 = getelementptr inbounds i8, ptr %25, i64 512
   %29 = load i32, ptr %28, align 8
   %30 = load ptr, ptr %5, align 8
@@ -2435,7 +2435,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %.lr.ph, %35
   %44 = add nuw i64 %.01112, 1
   %45 = load i64, ptr %2, align 8
   %46 = icmp ult i64 %44, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %42, %.._crit_edge_crit_edge
   %47 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %43, %42 ]
@@ -2469,8 +2469,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -32, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

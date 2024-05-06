@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias ptr @qemu_ram_block_from_host(ptr nocapture noundef readnone %ptr, i1 noundef zeroext %round_offset, ptr nocapture noundef readnone %offset) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qemu_ram_block_from_host(ptr nocapture noundef readnone %ptr, i1 noundef zeroext %round_offset, ptr nocapture noundef readnone %offset) local_unnamed_addr #0 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_ram_get_fd(ptr nocapture noundef readnone %rb) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_ram_get_fd(ptr nocapture noundef readnone %rb) local_unnamed_addr #0 {
 entry:
   ret i32 -1
 }

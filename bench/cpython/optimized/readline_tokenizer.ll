@@ -87,7 +87,7 @@ declare ptr @_PyTokenizer_new_string(ptr noundef, i64 noundef, ptr noundef) loca
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tok_underflow_readline(ptr noundef %tok) #0 {
+define internal range(i32 0, 2) i32 @tok_underflow_readline(ptr noundef %tok) #0 {
 entry:
   %buflen.i = alloca i64, align 8
   %start = getelementptr inbounds i8, ptr %tok, i64 56

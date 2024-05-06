@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [7 x i8] c" ERROR\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @serial_client_scan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @serial_client_scan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.cli_ftw_cbdata, align 8
   %8 = alloca %struct.client_serial_data, align 4
   store i32 0, ptr %8, align 4
@@ -90,7 +90,7 @@ define dso_local noundef i32 @serial_client_scan(ptr noundef %0, i32 noundef %1,
 declare i32 @cli_ftw(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @serial_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 0, 23) i32 @serial_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %4, align 8
   store ptr null, ptr %6, align 8
@@ -229,7 +229,7 @@ define internal i32 @ftw_chkpath(ptr noundef %0, ptr nocapture readnone %1) #0 {
 declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parallel_client_scan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @parallel_client_scan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.cli_ftw_cbdata, align 8
   %8 = alloca %struct.client_parallel_data, align 8
   %9 = alloca [11 x i8], align 1
@@ -296,7 +296,7 @@ define dso_local noundef i32 @parallel_client_scan(ptr noundef %0, i32 noundef %
   br i1 %.old2.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %39, %.preheader
-  %42 = call fastcc i32 @dspresult(ptr noundef nonnull %8), !range !5
+  %42 = call fastcc i32 @dspresult(ptr noundef nonnull %8)
   %.not16 = icmp eq i32 %42, 0
   %43 = load ptr, ptr %24, align 8
   %44 = icmp ne ptr %43, null
@@ -353,7 +353,7 @@ declare i32 @sendln(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parallel_callback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.fd_set, align 8
   %8 = alloca %struct.fd_set, align 8
@@ -480,7 +480,7 @@ define internal noundef i32 @parallel_callback(ptr nocapture readnone %0, ptr no
   br i1 %.not61, label %76, label %74
 
 74:                                               ; preds = %64
-  %75 = call fastcc i32 @dspresult(ptr noundef nonnull %9), !range !5
+  %75 = call fastcc i32 @dspresult(ptr noundef nonnull %9)
   %.not65 = icmp eq i32 %75, 0
   br i1 %.not65, label %.backedge.backedge, label %.loopexit
 
@@ -578,7 +578,7 @@ define internal noundef i32 @parallel_callback(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dspresult(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.RCVLN, align 8
@@ -778,4 +778,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}

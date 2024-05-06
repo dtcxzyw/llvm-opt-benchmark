@@ -204,7 +204,7 @@ define noundef i32 @"_ZN77_$LT$span..hygiene..SyntaxContextId$u20$as$u20$salsa..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN77_$LT$span..hygiene..SyntaxContextId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17h0c7cb9b605a47201E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #4 {
+define noundef range(i32 1, 0) i32 @"_ZN77_$LT$span..hygiene..SyntaxContextId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17h0c7cb9b605a47201E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4, !range !10, !noundef !9
   ret i32 %2
 }
@@ -252,7 +252,7 @@ define noundef i32 @_ZN4span7hygiene15SyntaxContextId8into_u3217h04152274b0a6a2f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN4span7hygiene15SyntaxContextId8from_u3217h2e73e8ee06ec35afE(i32 noundef %0) unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @_ZN4span7hygiene15SyntaxContextId8from_u3217h2e73e8ee06ec35afE(i32 noundef %0) unnamed_addr #2 {
   %2 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %0), !range !10
   ret i32 %2
 }

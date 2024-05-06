@@ -239,7 +239,7 @@ if.then22.i:                                      ; preds = %if.then13.i
   %arrayidx.i = getelementptr inbounds i8, ptr %rcl.i, i64 4
   store i32 0, ptr %arrayidx.i, align 4
   store i32 0, ptr %rcl.i, align 4
-  %call25.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i299.i, ptr noundef nonnull %rcl.i, i32 noundef 0), !range !7
+  %call25.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i299.i, ptr noundef nonnull %rcl.i, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call25.i, 0
   %retref30.i = getelementptr inbounds i8, ptr %cc, i64 13
   br i1 %tobool.not.i, label %if.else29.i, label %if.then26.i
@@ -277,7 +277,7 @@ while.body.i38:                                   ; preds = %while.cond.i37
   %24 = load i32, ptr %arrayidx.i281.i, align 8
   %shr40.mask.i = and i32 %24, -268435456
   %cmp41.i = icmp eq i32 %shr40.mask.i, -2147483648
-  br i1 %cmp41.i, label %while.cond.i37, label %while.end.i, !llvm.loop !8
+  br i1 %cmp41.i, label %while.cond.i37, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i38, %while.cond.i37
   %fid.0.le.i = zext i16 %fid.0.in.i to i32
@@ -382,7 +382,7 @@ if.else98.i:                                      ; preds = %if.else84.i
 if.then103.i:                                     ; preds = %if.else98.i
   store i32 0, ptr %indvars.iv.i.i.sroa.gep145.i, align 4
   store i32 0, ptr %rcl104.i, align 4
-  %call108.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %ct.i.0.i, ptr noundef nonnull %rcl104.i, i32 noundef 0), !range !7
+  %call108.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %ct.i.0.i, ptr noundef nonnull %rcl104.i, i32 noundef 0)
   %tobool109.not.i = icmp eq i32 %call108.i, 0
   br i1 %tobool109.not.i, label %if.then110.i, label %if.else155.i
 
@@ -446,7 +446,7 @@ if.end20.i.i.i:                                   ; preds = %if.then16.i.i.i
 for.inc.i.i.i:                                    ; preds = %if.end20.i.i.i, %if.else.i.i.i, %if.end.i.i.i
   %ngpr.1.i.i.i = phi i32 [ %inc.i.i.i, %if.end.i.i.i ], [ %ngpr.03.i.i.i, %if.end20.i.i.i ], [ %ngpr.03.i.i.i, %if.else.i.i.i ]
   %nfpr.1.i.i.i = phi i32 [ %nfpr.04.i.i.i, %if.end.i.i.i ], [ %inc23.i.i.i, %if.end20.i.i.i ], [ %nfpr.04.i.i.i, %if.else.i.i.i ]
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %ccall_struct_reg.exit.i.i, !llvm.loop !9
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %ccall_struct_reg.exit.i.i, !llvm.loop !8
 
 ccall_struct_reg.exit.i.i:                        ; preds = %for.inc.i.i.i
   %conv30.i.i.i = trunc nuw i32 %ngpr.1.i.i.i to i8
@@ -644,7 +644,7 @@ for.inc.i:                                        ; preds = %if.then235.i, %land
   %inc253.i = add i32 %narg.0194.i, 1
   %o.0.i = getelementptr inbounds i8, ptr %o.0206.i, i64 8
   %cmp48.i = icmp ult ptr %o.0.i, %14
-  br i1 %cmp48.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !10
+  br i1 %cmp48.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !9
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
   %54 = trunc nuw i32 %nfpr.2.i to i8
@@ -747,7 +747,7 @@ if.then5.i:                                       ; preds = %if.then4.i
   %and.i55 = and i64 %73, 140737488355327
   store i32 0, ptr %indvars.iv.i.sroa.gep27.i, align 4
   store i32 0, ptr %rcl.i42, align 4
-  %call9.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull %rcl.i42, i32 noundef 0), !range !7
+  %call9.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull %rcl.i42, i32 noundef 0)
   %size.i56 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   %74 = load i32, ptr %size.i56, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sp.i.i)
@@ -792,13 +792,13 @@ for.inc.sink.split.i.i:                           ; preds = %if.then9.i.i, %if.t
 for.inc.i.i:                                      ; preds = %for.inc.sink.split.i.i, %if.else.i.i
   %ngpr.1.i.i = phi i32 [ %ngpr.08.i.i, %if.else.i.i ], [ %ngpr.1.ph.i.i, %for.inc.sink.split.i.i ]
   %nfpr.1.i.i = phi i32 [ %nfpr.09.i.i, %if.else.i.i ], [ %nfpr.1.ph.i.i, %for.inc.sink.split.i.i ]
-  br i1 %cmp.i25.i, label %for.body.i.i, label %ccall_struct_ret.exit.i, !llvm.loop !11
+  br i1 %cmp.i25.i, label %for.body.i.i, label %ccall_struct_ret.exit.i, !llvm.loop !10
 
 ccall_struct_ret.exit.i:                          ; preds = %for.inc.i.i
   %76 = inttoptr i64 %and.i55 to ptr
   %add.ptr6.i = getelementptr inbounds i8, ptr %76, i64 16
   %conv.i.i58 = zext i32 %74 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr6.i, ptr nonnull align 16 %sp.i.i, i64 %conv.i.i58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr6.i, ptr nonnull align 16 %sp.i.i, i64 %conv.i.i58, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sp.i.i)
   br label %ccall_get_results.exit.thread
 
@@ -873,7 +873,7 @@ if.then32:                                        ; preds = %while.body
 
 if.end34:                                         ; preds = %if.then32, %while.body
   %cmp23 = icmp ugt i32 %dec82.in, 1
-  br i1 %cmp23, label %while.body, label %return, !llvm.loop !12
+  br i1 %cmp23, label %while.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %do.body.i, %if.end34, %ccall_get_results.exit.thread93, %ccall_get_results.exit, %if.end.thread
   %retval.0 = phi i32 [ -1, %if.end.thread ], [ 1, %ccall_get_results.exit ], [ 0, %ccall_get_results.exit.thread93 ], [ 1, %if.end34 ], [ -1, %do.body.i ]
@@ -890,7 +890,7 @@ declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ccall_classify_struct(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr nocapture noundef %rcl, i32 noundef %ofs) unnamed_addr #3 {
+define internal fastcc range(i32 0, 5) i32 @ccall_classify_struct(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr nocapture noundef %rcl, i32 noundef %ofs) unnamed_addr #3 {
 entry:
   %size = getelementptr inbounds i8, ptr %ct, i64 4
   %0 = load i32, ptr %size, align 4
@@ -957,14 +957,14 @@ do.body.i:                                        ; preds = %if.else14, %do.body
   br i1 %cmp.i, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !6
 
 ctype_rawchild.exit:                              ; preds = %do.body.i
-  %call20 = tail call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %cts, ptr noundef nonnull %arrayidx.i.i49, ptr noundef %rcl, i32 noundef %add), !range !7
+  %call20 = tail call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %cts, ptr noundef nonnull %arrayidx.i.i49, ptr noundef %rcl, i32 noundef %add)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then11, %ctype_rawchild.exit, %if.else14, %ctype_rawchild.exit36
   %sib = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %11 = load i16, ptr %sib, align 8
   %tobool.not = icmp eq i16 %11, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end23, %while.cond.preheader
   %12 = load i32, ptr %rcl, align 4
@@ -1024,10 +1024,10 @@ for.body:                                         ; preds = %ctype_rawchild.exit
   tail call fastcc void @ccall_classify_ct(ptr noundef nonnull %cts, ptr noundef nonnull %arrayidx.i.i, ptr noundef %rcl, i32 noundef %add)
   %add3 = add i32 %eofs.021, %4
   %cmp2 = icmp ult i32 %add3, %5
-  br i1 %cmp2, label %for.body, label %if.end17, !llvm.loop !14
+  br i1 %cmp2, label %for.body, label %if.end17, !llvm.loop !13
 
 if.then7:                                         ; preds = %entry
-  %call8 = tail call fastcc i32 @ccall_classify_struct(ptr noundef %cts, ptr noundef nonnull %ct, ptr noundef %rcl, i32 noundef %ofs), !range !7
+  %call8 = tail call fastcc i32 @ccall_classify_struct(ptr noundef %cts, ptr noundef nonnull %ct, ptr noundef %rcl, i32 noundef %ofs)
   br label %if.end17
 
 if.else9:                                         ; preds = %entry
@@ -1082,11 +1082,10 @@ attributes #8 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

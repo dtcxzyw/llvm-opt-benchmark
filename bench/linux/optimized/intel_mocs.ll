@@ -82,7 +82,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare dso_local void @assert_forcewakes_active(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @get_mocs_settings(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 7) i32 @get_mocs_settings(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 18
   store i8 1, ptr %3, align 2
@@ -390,7 +390,7 @@ define internal fastcc void @init_l3cc_table(ptr noundef %0, ptr nocapture nound
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %42
-  %60 = trunc i64 %10 to i32
+  %60 = trunc nuw nsw i64 %10 to i32
   %61 = shl i32 %60, 2
   %62 = add i32 %61, 45088
   call void @intel_gt_mcr_multicast_write_fw(ptr noundef %0, i32 %62, i32 noundef %48) #4
@@ -398,7 +398,7 @@ define internal fastcc void @init_l3cc_table(ptr noundef %0, ptr nocapture nound
 
 63:                                               ; preds = %42
   %64 = load ptr, ptr %7, align 8
-  %65 = trunc i64 %10 to i32
+  %65 = trunc nuw nsw i64 %10 to i32
   %66 = shl i32 %65, 2
   %67 = add i32 %66, 45088
   %68 = icmp ult i32 %67, 262144
@@ -569,7 +569,7 @@ define internal fastcc void @__init_mocs_table(ptr nocapture noundef readonly %0
 43:                                               ; preds = %34, %39
   %44 = phi ptr [ %42, %39 ], [ %35, %34 ]
   %45 = load i32, ptr %44, align 4
-  %46 = trunc i64 %30 to i32
+  %46 = trunc nuw i64 %30 to i32
   %47 = shl i32 %46, 2
   %48 = add i32 %47, %2
   %49 = icmp ult i32 %48, 262144

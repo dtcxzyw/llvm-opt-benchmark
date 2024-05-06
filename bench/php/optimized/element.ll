@@ -266,7 +266,7 @@ declare void @php_libxml_node_decrement_resource(ptr noundef) local_unnamed_addr
 declare i32 @php_libxml_increment_node_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_element_tag_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_tag_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -351,7 +351,7 @@ declare ptr @xmlStrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_element_class_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_class_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -401,7 +401,7 @@ dom_element_reflected_attribute_read.exit:        ; preds = %5, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dom_element_class_name_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_class_name_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -424,7 +424,7 @@ dom_element_reflected_attribute_write.exit:       ; preds = %5, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_element_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -474,7 +474,7 @@ dom_element_reflected_attribute_read.exit:        ; preds = %5, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_element_id_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_id_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dom_element_reflected_attribute_write.exit.thread, label %dom_element_reflected_attribute_write.exit

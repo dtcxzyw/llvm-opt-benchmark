@@ -817,7 +817,7 @@ _ZN7QStringD2Ev.exit47:                           ; preds = %_ZN7QStringD2Ev.exi
   %112 = add i32 %103, 1
   %113 = sub i32 %112, %104
   %.sroa.1.0.extract.shift = lshr i64 %110, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   invoke void @_ZN7QWidget14setMinimumSizeEii(ptr noundef nonnull align 8 dereferenceable(48) %98, i32 noundef %113, i32 noundef %.sroa.1.0.extract.trunc)
           to label %114 unwind label %.loopexit.split-lp
 

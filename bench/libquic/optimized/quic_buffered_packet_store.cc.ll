@@ -683,7 +683,7 @@ _ZNSt10unique_ptrIN3net9QuicAlarmESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net23QuicBufferedPacketStore13EnqueuePacketEmRKNS_18QuicReceivedPacketENS_10IPEndPointES4_b(ptr noundef nonnull align 8 dereferenceable(200) %this, i64 noundef %connection_id, ptr noundef nonnull align 8 dereferenceable(45) %packet, ptr noundef %server_address, ptr noundef %client_address, i1 noundef zeroext %is_chlo) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN3net23QuicBufferedPacketStore13EnqueuePacketEmRKNS_18QuicReceivedPacketENS_10IPEndPointES4_b(ptr noundef nonnull align 8 dereferenceable(200) %this, i64 noundef %connection_id, ptr noundef nonnull align 8 dereferenceable(45) %packet, ptr noundef %server_address, ptr noundef %client_address, i1 noundef zeroext %is_chlo) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"struct.std::pair.48", align 8
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8

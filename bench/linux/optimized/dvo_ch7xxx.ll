@@ -289,7 +289,7 @@ define internal void @ch7xxx_dpms(ptr nocapture noundef readonly %0, i1 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ch7xxx_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 16) i32 @ch7xxx_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 165000
   %5 = select i1 %4, i32 15, i32 0
@@ -712,7 +712,7 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ch7xxx_detect(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca %struct.i2c_msg, align 8
   %4 = alloca [2 x i8], align 2

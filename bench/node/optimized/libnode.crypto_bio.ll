@@ -230,7 +230,7 @@ entry:
   br i1 %or.cond.not, label %lor.lhs.false1, label %cleanup
 
 lor.lhs.false1:                                   ; preds = %entry
-  %conv = trunc i64 %len to i32
+  %conv = trunc nuw nsw i64 %len to i32
   %call3 = tail call i32 @BIO_write(ptr noundef nonnull %0, ptr noundef %data, i32 noundef %conv) #16
   %cmp5.not = icmp eq i32 %call3, %conv
   br i1 %cmp5.not, label %lor.lhs.false6, label %cleanup.thread4
@@ -298,7 +298,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto7NodeBIO4FreeEP6bio_st(ptr noundef %bio) #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4node6crypto7NodeBIO4FreeEP6bio_st(ptr noundef %bio) #3 align 2 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end
@@ -948,7 +948,7 @@ _ZN4node6crypto7NodeBIO5WriteEP6bio_stPKci.exit:  ; preds = %entry
   %call5.i.i = tail call noundef ptr @BIO_get_data(ptr noundef %bio) #16
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  tail call void @_ZN4node6crypto7NodeBIO5WriteEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %call5.i.i, ptr noundef %str, i64 noundef %conv.i)
+  tail call void @_ZN4node6crypto7NodeBIO5WriteEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %call5.i.i, ptr noundef readonly %str, i64 noundef %conv.i)
   ret i32 %conv
 }
 

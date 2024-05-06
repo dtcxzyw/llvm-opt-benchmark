@@ -410,7 +410,7 @@ if.then36.i:                                      ; preds = %if.else31.i
   br label %if.end42.i
 
 if.else40.i:                                      ; preds = %if.else31.i
-  %call41.i = call fastcc i32 @set_vc_field(ptr noundef %filename, ptr noundef %block.0, ptr noundef nonnull %field.i, ptr noundef %needs_write, i32 noundef %raw)
+  %call41.i = call fastcc i32 @set_vc_field(ptr noundef %filename, ptr noundef %block.0, ptr noundef nonnull %field.i, ptr noundef writeonly %needs_write, i32 noundef %raw)
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.else40.i, %if.then36.i

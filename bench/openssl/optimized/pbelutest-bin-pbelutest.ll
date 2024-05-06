@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_pbelu) #2
   ret i32 1
@@ -21,7 +21,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pbelu() #0 {
+define internal range(i32 0, 2) i32 @test_pbelu() #0 {
 entry:
   %pbe_type = alloca i32, align 4
   %pbe_nid = alloca i32, align 4
@@ -41,7 +41,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = load i32, ptr %pbe_type, align 4
   %4 = load i32, ptr %pbe_nid, align 4
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.3, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2
@@ -50,7 +50,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp12.not17, label %return, label %for.body14
 
 for.inc:                                          ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call = call i32 @EVP_PBE_get(ptr noundef nonnull %pbe_type, ptr noundef nonnull %pbe_nid, i64 noundef %indvars.iv.next) #2
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !5
@@ -85,7 +85,7 @@ for.cond9:                                        ; preds = %lor.end, %lor.end.t
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.4, i32 noundef %5, i32 noundef %9, ptr noundef %call219, ptr noundef nonnull %10) #2
   %11 = load i32, ptr %pbe_type, align 4
   %12 = load i32, ptr %pbe_nid, align 4
-  %indvars.iv.next25 = add nuw i64 %indvars.iv24, 1
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %call11 = call i32 @EVP_PBE_get(ptr noundef nonnull %pbe_type, ptr noundef nonnull %pbe_nid, i64 noundef %indvars.iv.next25) #2
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %return, label %for.body14, !llvm.loop !7

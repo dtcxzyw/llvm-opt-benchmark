@@ -73,7 +73,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @SSL_is_init_finished(ptr noundef readonly %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_is_init_finished(ptr noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -111,7 +111,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @SSL_in_before(ptr noundef readonly %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_in_before(ptr noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -302,9 +302,9 @@ declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unname
 define void @ossl_statem_fatal(ptr noundef %s, i32 noundef %al, i32 noundef %reason, ptr noundef %fmt, ...) local_unnamed_addr #2 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   call void @ERR_vset_error(i32 noundef 20, i32 noundef %reason, ptr noundef %fmt, ptr noundef nonnull %args) #8
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   %statem.i = getelementptr inbounds i8, ptr %s, i64 144
   %in_init.i = getelementptr inbounds i8, ptr %s, i64 172
   %0 = load i32, ptr %in_init.i, align 4
@@ -348,16 +348,10 @@ ossl_statem_send_fatal.exit:                      ; preds = %land.lhs.true.i, %o
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare void @ERR_vset_error(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_statem_in_error(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_in_error(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %statem = getelementptr inbounds i8, ptr %s, i64 144
   %0 = load i32, ptr %statem, align 8
@@ -375,7 +369,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_statem_set_in_handshake(ptr nocapture noundef %s, i32 noundef %inhand) local_unnamed_addr #5 {
+define void @ossl_statem_set_in_handshake(ptr nocapture noundef %s, i32 noundef %inhand) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %inhand, 0
   %in_handshake2 = getelementptr inbounds i8, ptr %s, i64 180
@@ -387,7 +381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_statem_skip_early_data(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_skip_early_data(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %early_data = getelementptr inbounds i8, ptr %s, i64 2680
   %0 = load i32, ptr %early_data, align 8
@@ -588,7 +582,7 @@ ossl_statem_set_in_init.exit:                     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_statem_connect(ptr noundef %s) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @ossl_statem_connect(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -608,7 +602,7 @@ cond.end10:                                       ; preds = %cond.false
 
 if.end:                                           ; preds = %cond.false, %cond.end10
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
-  %call = tail call fastcc i32 @state_machine(ptr noundef nonnull %cond1111, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @state_machine(ptr noundef nonnull %cond1111, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -617,7 +611,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @state_machine(ptr noundef %s, i32 noundef %server) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @state_machine(ptr noundef %s, i32 noundef %server) unnamed_addr #2 {
 entry:
   %confunc.i = alloca ptr, align 8
   %mt.i103 = alloca i32, align 4
@@ -1028,13 +1022,13 @@ if.then16.i:                                      ; preds = %if.end14.i
 
 if.end22.i:                                       ; preds = %if.then16.i, %if.end14.i
   %43 = load i32, ptr %mt.i, align 4
-  %call23.i = call i32 %ossl_statem_client_read_transition.ossl_statem_server_read_transition.i(ptr noundef nonnull %s, i32 noundef %43) #8, !callees !5
+  %call23.i = call i32 %ossl_statem_client_read_transition.ossl_statem_server_read_transition.i(ptr noundef nonnull %s, i32 noundef %43) #8, !callees !4
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %read_state_machine.exit.thread, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end22.i
   %44 = load i64, ptr %message_size.i, align 8
-  %call27.i = call i64 %ossl_statem_client_max_message_size.ossl_statem_server_max_message_size.i(ptr noundef nonnull %s) #8, !callees !6
+  %call27.i = call i64 %ossl_statem_client_max_message_size.ossl_statem_server_max_message_size.i(ptr noundef nonnull %s) #8, !callees !5
   %cmp28.i = icmp ugt i64 %44, %call27.i
   br i1 %cmp28.i, label %if.then29.i, label %if.end30.i
 
@@ -1133,7 +1127,7 @@ if.end69.i:                                       ; preds = %if.end64.i
   %58 = load ptr, ptr %init_msg.i.i, align 8
   store ptr %58, ptr %pkt.i, align 8
   store i64 %57, ptr %remaining.i.i, align 8
-  %call70.i = call i32 %ossl_statem_client_process_message.ossl_statem_server_process_message.i(ptr noundef nonnull %s, ptr noundef nonnull %pkt.i) #8, !callees !7
+  %call70.i = call i32 %ossl_statem_client_process_message.ossl_statem_server_process_message.i(ptr noundef nonnull %s, ptr noundef nonnull %pkt.i) #8, !callees !6
   store i64 0, ptr %init_num.i, align 8
   switch i32 %call70.i, label %sw.default.i [
     i32 0, label %do.body.i
@@ -1179,7 +1173,7 @@ sw.default.i:                                     ; preds = %if.end69.i
 
 sw.bb93.i:                                        ; preds = %while.body.i
   %64 = load i32, ptr %read_state_work94.i, align 8
-  %call95.i = call i32 %ossl_statem_client_post_process_message.ossl_statem_server_post_process_message.i(ptr noundef nonnull %s, i32 noundef %64) #8, !callees !8
+  %call95.i = call i32 %ossl_statem_client_post_process_message.ossl_statem_server_post_process_message.i(ptr noundef nonnull %s, i32 noundef %64) #8, !callees !7
   store i32 %call95.i, ptr %read_state_work94.i, align 8
   switch i32 %call95.i, label %while.body.i.backedge [
     i32 0, label %do.body99.i
@@ -1297,7 +1291,7 @@ if.then2.i:                                       ; preds = %sw.bb.i127
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then2.i, %sw.bb.i127
-  %call9.i129 = call i32 %ossl_statem_client_write_transition.ossl_statem_server_write_transition.i(ptr noundef nonnull %s) #8, !callees !9
+  %call9.i129 = call i32 %ossl_statem_client_write_transition.ossl_statem_server_write_transition.i(ptr noundef nonnull %s) #8, !callees !8
   switch i32 %call9.i129, label %while.body.i115.backedge [
     i32 1, label %sw.bb10.i
     i32 2, label %if.then133
@@ -1322,7 +1316,7 @@ land.rhs.i132:                                    ; preds = %do.body.i130
 
 sw.bb23.i:                                        ; preds = %while.body.i115
   %78 = load i32, ptr %write_state_work24.i, align 8
-  %call25.i = call i32 %ossl_statem_client_pre_work.ossl_statem_server_pre_work.i(ptr noundef nonnull %s, i32 noundef %78) #8, !callees !10
+  %call25.i = call i32 %ossl_statem_client_pre_work.ossl_statem_server_pre_work.i(ptr noundef nonnull %s, i32 noundef %78) #8, !callees !9
   store i32 %call25.i, ptr %write_state_work24.i, align 8
   switch i32 %call25.i, label %sw.epilog54.i [
     i32 0, label %do.body28.i
@@ -1349,7 +1343,7 @@ sw.bb51.i:                                        ; preds = %sw.bb23.i
   br label %sw.epilog54.i
 
 sw.epilog54.i:                                    ; preds = %sw.bb51.i, %sw.bb23.i
-  %call55.i = call i32 %ossl_statem_client_construct_message.ossl_statem_server_construct_message.i(ptr noundef nonnull %s, ptr noundef nonnull %confunc.i, ptr noundef nonnull %mt.i103) #8, !callees !11
+  %call55.i = call i32 %ossl_statem_client_construct_message.ossl_statem_server_construct_message.i(ptr noundef nonnull %s, ptr noundef nonnull %confunc.i, ptr noundef nonnull %mt.i103) #8, !callees !10
   %tobool56.not.i122 = icmp eq i32 %call55.i, 0
   br i1 %tobool56.not.i122, label %write_state_machine.exit.thread151, label %if.end58.i
 
@@ -1491,7 +1485,7 @@ if.end132.i:                                      ; preds = %statem_do_write.exi
 
 sw.bb135.i:                                       ; preds = %if.end132.i, %while.body.sw.bb135_crit_edge.i
   %105 = phi i32 [ %.pre.i, %while.body.sw.bb135_crit_edge.i ], [ 3, %if.end132.i ]
-  %call137.i = call i32 %ossl_statem_client_post_work.ossl_statem_server_post_work.i(ptr noundef nonnull %s, i32 noundef %105) #8, !callees !12
+  %call137.i = call i32 %ossl_statem_client_post_work.ossl_statem_server_post_work.i(ptr noundef nonnull %s, i32 noundef %105) #8, !callees !11
   store i32 %call137.i, ptr %write_state_work24.i, align 8
   switch i32 %call137.i, label %while.body.i115.backedge [
     i32 0, label %do.body140.i
@@ -1562,7 +1556,7 @@ if.then137:                                       ; preds = %sw.bb23.i, %sw.bb13
 
 while.cond.backedge:                              ; preds = %if.then137, %if.then133, %if.then123
   %.be = phi i32 [ 4, %if.then137 ], [ 2, %if.then133 ], [ 3, %if.then123 ]
-  br label %while.cond, !llvm.loop !13
+  br label %while.cond, !llvm.loop !12
 
 do.body:                                          ; preds = %while.cond
   %in_init = getelementptr inbounds i8, ptr %s, i64 172
@@ -1606,7 +1600,7 @@ return:                                           ; preds = %if.then158, %end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_statem_accept(ptr noundef %s) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @ossl_statem_accept(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1626,7 +1620,7 @@ cond.end10:                                       ; preds = %cond.false
 
 if.end:                                           ; preds = %cond.false, %cond.end10
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
-  %call = tail call fastcc i32 @state_machine(ptr noundef nonnull %cond1111, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @state_machine(ptr noundef nonnull %cond1111, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -1635,7 +1629,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @statem_flush(ptr nocapture noundef %s) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @statem_flush(ptr nocapture noundef %s) local_unnamed_addr #2 {
 entry:
   %rwstate = getelementptr inbounds i8, ptr %s, i64 96
   store i32 2, ptr %rwstate, align 8
@@ -1658,7 +1652,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_statem_app_data_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_app_data_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %statem = getelementptr inbounds i8, ptr %s, i64 144
   %0 = load i32, ptr %statem, align 8
@@ -1702,7 +1696,7 @@ return:                                           ; preds = %if.else, %if.then6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_statem_export_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_export_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %previous_server_finished_len = getelementptr inbounds i8, ptr %s, i64 1072
   %0 = load i64, ptr %previous_server_finished_len, align 8
@@ -1722,7 +1716,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_statem_export_early_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_export_early_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %early_data = getelementptr inbounds i8, ptr %s, i64 2680
   %0 = load i32, ptr %early_data, align 8
@@ -1748,7 +1742,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 declare void @ERR_clear_error() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 declare i32 @SSL_clear(ptr noundef) local_unnamed_addr #3
 
@@ -1826,6 +1820,12 @@ declare i32 @dtls1_do_write(ptr noundef, i8 noundef zeroext) local_unnamed_addr 
 
 declare i32 @ssl3_do_write(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
@@ -1836,9 +1836,9 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(none) }
@@ -1849,14 +1849,13 @@ attributes #9 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = !{ptr @ossl_statem_client_read_transition, ptr @ossl_statem_server_read_transition}
-!6 = !{ptr @ossl_statem_client_max_message_size, ptr @ossl_statem_server_max_message_size}
-!7 = !{ptr @ossl_statem_client_process_message, ptr @ossl_statem_server_process_message}
-!8 = !{ptr @ossl_statem_client_post_process_message, ptr @ossl_statem_server_post_process_message}
-!9 = !{ptr @ossl_statem_client_write_transition, ptr @ossl_statem_server_write_transition}
-!10 = !{ptr @ossl_statem_client_pre_work, ptr @ossl_statem_server_pre_work}
-!11 = !{ptr @ossl_statem_client_construct_message, ptr @ossl_statem_server_construct_message}
-!12 = !{ptr @ossl_statem_client_post_work, ptr @ossl_statem_server_post_work}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
+!4 = !{ptr @ossl_statem_client_read_transition, ptr @ossl_statem_server_read_transition}
+!5 = !{ptr @ossl_statem_client_max_message_size, ptr @ossl_statem_server_max_message_size}
+!6 = !{ptr @ossl_statem_client_process_message, ptr @ossl_statem_server_process_message}
+!7 = !{ptr @ossl_statem_client_post_process_message, ptr @ossl_statem_server_post_process_message}
+!8 = !{ptr @ossl_statem_client_write_transition, ptr @ossl_statem_server_write_transition}
+!9 = !{ptr @ossl_statem_client_pre_work, ptr @ossl_statem_server_pre_work}
+!10 = !{ptr @ossl_statem_client_construct_message, ptr @ossl_statem_server_construct_message}
+!11 = !{ptr @ossl_statem_client_post_work, ptr @ossl_statem_server_post_work}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}

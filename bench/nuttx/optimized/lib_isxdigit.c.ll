@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @isxdigit(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @isxdigit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -48
   %or.cond = icmp ult i32 %2, 10
   %3 = and i32 %0, -33
@@ -16,7 +16,7 @@ define noundef i32 @isxdigit(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @isxdigit_l(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @isxdigit_l(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = add i32 %0, -48
   %or.cond.i = icmp ult i32 %3, 10
   %4 = and i32 %0, -33

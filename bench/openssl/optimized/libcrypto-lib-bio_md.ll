@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [15 x i8] c"message digest\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @BIO_f_md() local_unnamed_addr #0 {
+define noundef nonnull ptr @BIO_f_md() local_unnamed_addr #0 {
 entry:
   ret ptr @methods_md
 }
@@ -220,7 +220,7 @@ return:                                           ; preds = %sw.bb, %sw.bb16, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @md_new(ptr noundef %bi) #2 {
+define internal range(i32 0, 2) i32 @md_new(ptr noundef %bi) #2 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_new() #3
   %cmp = icmp eq ptr %call, null
@@ -237,7 +237,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @md_free(ptr noundef %a) #2 {
+define internal range(i32 0, 2) i32 @md_free(ptr noundef %a) #2 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

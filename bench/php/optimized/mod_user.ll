@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [68 x i8] c"Session callback must have a return value of type bool, %s returned\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_open_user(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca [2 x %struct._zval_struct], align 16
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -135,13 +135,13 @@ define hidden noundef i32 @ps_open_user(ptr nocapture readnone %0, ptr nocapture
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %33
   store ptr %28, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
   store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
-  %47 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %5), !range !4
+  %47 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %5)
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
   ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_close_user(ptr nocapture readnone %0) #0 {
+define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
@@ -194,7 +194,7 @@ define hidden noundef i32 @ps_close_user(ptr nocapture readnone %0) #0 {
 24:                                               ; preds = %23, %11
   store ptr %7, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 26), align 8
-  %25 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %2), !range !4
+  %25 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %2)
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
   br label %26
 
@@ -204,7 +204,7 @@ define hidden noundef i32 @ps_close_user(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_read_user(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_read_user(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 %3) #0 {
   %5 = alloca [1 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
@@ -294,7 +294,7 @@ ps_call_handler.exit:                             ; preds = %20, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_write_user(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 %3) #0 {
   %5 = alloca [2 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
@@ -378,13 +378,13 @@ define hidden noundef i32 @ps_write_user(ptr nocapture readnone %0, ptr noundef 
   br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %26
-  %40 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %6), !range !4
+  %40 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %6)
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_delete_user(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca [1 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %3, align 16
@@ -443,7 +443,7 @@ define hidden noundef i32 @ps_delete_user(ptr nocapture readnone %0, ptr noundef
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %15
-  %27 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %4), !range !4
+  %27 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   ret i32 %27
 }
@@ -658,7 +658,7 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %18
-  %30 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %4), !range !4
+  %30 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   br label %33
 
@@ -672,7 +672,7 @@ ps_call_handler.exit:                             ; preds = %.lr.ph.i, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ps_update_timestamp_user(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 %3) #0 {
   %5 = alloca [2 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
@@ -798,7 +798,7 @@ ps_call_handler.exit.sink.split:                  ; preds = %41, %28
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i20, %ps_call_handler.exit.sink.split
-  %55 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %6), !range !4
+  %55 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %6)
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   ret i32 %55
 }
@@ -812,7 +812,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @verify_bool_return_type_userland_calls(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_calls(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %15 [
@@ -908,4 +908,3 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

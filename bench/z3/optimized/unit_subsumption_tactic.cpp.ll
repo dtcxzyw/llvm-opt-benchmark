@@ -3329,7 +3329,7 @@ lpad:                                             ; preds = %_ZN7obj_refI4expr11
 
 if.else:                                          ; preds = %for.body
   %11 = load ptr, ptr %m_data.i.i, align 8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw i64 %indvars.iv to i32
   %div1.i.i = lshr i64 %indvars.iv, 5
   %arrayidx.i.i9 = getelementptr inbounds i32, ptr %11, i64 %div1.i.i
   %13 = load i32, ptr %arrayidx.i.i9, align 4

@@ -1928,7 +1928,7 @@ return:                                           ; preds = %entry, %for.end133,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dasm_encode(ptr nocapture noundef %ctx, ptr noundef %buffer) local_unnamed_addr #0 {
+define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr nocapture noundef %ctx, ptr noundef %buffer) local_unnamed_addr #0 {
 entry:
   %name.i.i = alloca [256 x i8], align 16
   %0 = load ptr, ptr %ctx, align 8
@@ -2761,7 +2761,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [80 x i8], align 16
   %name.i.i = alloca [256 x i8], align 16
@@ -2821,7 +2821,7 @@ for.body.i.i:                                     ; preds = %lor.lhs.false.i, %f
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %lor.lhs.false.i ]
   %arrayidx.i.i = getelementptr inbounds [12 x ptr], ptr @modenames, i64 0, i64 %indvars.iv.i.i
   %8 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %8) #28
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %8) #28
   %tobool3.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool3.not.i.i, label %parsemode.exit.i, label %for.inc.i.i
 
@@ -2884,9 +2884,9 @@ ok.i:                                             ; preds = %for.inc.i, %if.end.
 parseargs.exit:                                   ; preds = %ok.i
   %nglob.i = getelementptr inbounds i8, ptr %ctx_, i64 60
   store i32 158, ptr %nglob.i, align 4
-  %calloc139.i = tail call dereferenceable_or_null(1264) ptr @calloc(i64 1, i64 1264)
+  %calloc141.i = tail call dereferenceable_or_null(1264) ptr @calloc(i64 1, i64 1264)
   %glob.i = getelementptr inbounds i8, ptr %ctx_, i64 80
-  store ptr %calloc139.i, ptr %glob.i, align 8
+  store ptr %calloc141.i, ptr %glob.i, align 8
   %nreloc.i = getelementptr inbounds i8, ptr %ctx_, i64 68
   store i32 0, ptr %nreloc.i, align 4
   %globnames.i = getelementptr inbounds i8, ptr %ctx_, i64 120
@@ -2921,7 +2921,7 @@ if.then.i.i:                                      ; preds = %parseargs.exit
   %sections.i.i = getelementptr inbounds i8, ptr %malloc.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %sections.i.i, i8 0, i64 80, i1 false)
   %globals.i.i = getelementptr inbounds i8, ptr %malloc.i.i, i64 48
-  store ptr %calloc139.i, ptr %globals.i.i, align 8
+  store ptr %calloc141.i, ptr %globals.i.i, align 8
   %lglabels.i.i = getelementptr inbounds i8, ptr %malloc.i.i, i64 16
   %calloc.i = tail call dereferenceable_or_null(1024) ptr @calloc(i64 1, i64 1024)
   store ptr %calloc.i, ptr %lglabels.i.i, align 8
@@ -2990,8 +2990,8 @@ if.end.i85.i:                                     ; preds = %for.body.i83.i
   br i1 %exitcond.not.i.i, label %dasm_checkstep.exit.i, label %for.body.i83.i, !llvm.loop !21
 
 if.end22.sink.split.i.i:                          ; preds = %for.body.i83.i
-  %conv.i88.i = trunc i64 %indvars.iv.i84.i to i32
-  %or20.i.i = or i32 %conv.i88.i, 553648128
+  %conv.i90.i = trunc i64 %indvars.iv.i84.i to i32
+  %or20.i.i = or i32 %conv.i90.i, 553648128
   store i32 %or20.i.i, ptr %status.i80.i, align 4
   br label %dasm_checkstep.exit.i
 
@@ -3006,28 +3006,28 @@ if.end.i28:                                       ; preds = %dasm_checkstep.exit
   %call14.i = call noalias ptr @malloc(i64 noundef %22) #29
   %code.i = getelementptr inbounds i8, ptr %ctx_, i64 40
   store ptr %call14.i, ptr %code.i, align 8
-  %call16.i = call i32 @dasm_encode(ptr noundef nonnull %ctx_, ptr noundef %call14.i), !range !24
+  %call16.i = call i32 @dasm_encode(ptr noundef nonnull %ctx_, ptr noundef %call14.i)
   %tobool17.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool17.not.i, label %if.end19.i, label %if.then
 
 if.end19.i:                                       ; preds = %if.end.i28
   %ctx.val.i = load i32, ptr %mode.i, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %name.i.i)
-  %cmp.i89.i = icmp eq i32 %ctx.val.i, 2
-  %cond.i.i = select i1 %cmp.i89.i, ptr @.str.369, ptr @.str.368
-  %call.i90.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) @.str.370, ptr noundef nonnull %cond.i.i, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.427) #25
+  %cmp.i91.i = icmp eq i32 %ctx.val.i, 2
+  %cond.i.i = select i1 %cmp.i91.i, ptr @.str.369, ptr @.str.368
+  %call.i92.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) @.str.370, ptr noundef nonnull %cond.i.i, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.427) #25
   %call2.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.i.i, i32 noundef 64) #28
-  %tobool.not.i91.i = icmp eq ptr %call2.i.i, null
-  br i1 %tobool.not.i91.i, label %sym_decorate.exit.i, label %if.then.i92.i
+  %tobool.not.i93.i = icmp eq ptr %call2.i.i, null
+  br i1 %tobool.not.i93.i, label %sym_decorate.exit.i, label %if.then.i94.i
 
-if.then.i92.i:                                    ; preds = %if.end19.i
+if.then.i94.i:                                    ; preds = %if.end19.i
   store i8 0, ptr %call2.i.i, align 1
   br label %sym_decorate.exit.i
 
-sym_decorate.exit.i:                              ; preds = %if.then.i92.i, %if.end19.i
+sym_decorate.exit.i:                              ; preds = %if.then.i94.i, %if.end19.i
   %call4.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i.i) #28
-  %add.i94.i = add i64 %call4.i.i, 1
-  %call5.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i94.i) #29
+  %add.i96.i = add i64 %call4.i.i, 1
+  %call5.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i96.i) #29
   %call7.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call5.i.i, ptr noundef nonnull dereferenceable(1) %name.i.i) #25
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %name.i.i)
   %beginsym.i = getelementptr inbounds i8, ptr %ctx_, i64 112
@@ -3048,8 +3048,8 @@ sym_decorate.exit.i:                              ; preds = %if.then.i92.i, %if.
   %call30.i = call noalias ptr @malloc(i64 noundef %mul29.i) #29
   %bc_ofs.i = getelementptr inbounds i8, ptr %ctx_, i64 104
   store ptr %call30.i, ptr %bc_ofs.i, align 8
-  %cmp33126.i = icmp sgt i32 %23, 0
-  br i1 %cmp33126.i, label %for.body35.i, label %for.cond49.preheader.i
+  %cmp33128.i = icmp sgt i32 %23, 0
+  br i1 %cmp33128.i, label %for.body35.i, label %for.cond49.preheader.i
 
 for.cond49.preheader.loopexit.i:                  ; preds = %if.end40.i
   %.pre.i = load i32, ptr %nglob.i, align 4
@@ -3057,40 +3057,40 @@ for.cond49.preheader.loopexit.i:                  ; preds = %if.end40.i
 
 for.cond49.preheader.i:                           ; preds = %for.cond49.preheader.loopexit.i, %sym_decorate.exit.i
   %25 = phi i32 [ %.pre.i, %for.cond49.preheader.loopexit.i ], [ %24, %sym_decorate.exit.i ]
-  %cmp51128.i = icmp sgt i32 %25, 0
-  br i1 %cmp51128.i, label %for.body53.i, label %for.end90.i
+  %cmp51130.i = icmp sgt i32 %25, 0
+  br i1 %cmp51130.i, label %for.body53.i, label %for.end90.i
 
 for.body35.i:                                     ; preds = %sym_decorate.exit.i, %if.end40.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end40.i ], [ 0, %sym_decorate.exit.i ]
   %26 = load ptr, ptr %ctx_, align 8
-  %mul.i96.i = shl nuw nsw i64 %indvars.iv.i, 2
-  %pcsize.i97.i = getelementptr inbounds i8, ptr %26, i64 40
-  %27 = load i64, ptr %pcsize.i97.i, align 8
-  %cmp.i98.i = icmp ult i64 %mul.i96.i, %27
-  br i1 %cmp.i98.i, label %if.then.i99.i, label %if.then39.i
+  %mul.i98.i = shl nuw nsw i64 %indvars.iv.i, 2
+  %pcsize.i99.i = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = load i64, ptr %pcsize.i99.i, align 8
+  %cmp.i100.i = icmp ult i64 %mul.i98.i, %27
+  br i1 %cmp.i100.i, label %if.then.i101.i, label %if.then39.i
 
-if.then.i99.i:                                    ; preds = %for.body35.i
-  %pclabels.i100.i = getelementptr inbounds i8, ptr %26, i64 32
-  %28 = load ptr, ptr %pclabels.i100.i, align 8
-  %arrayidx.i101.i = getelementptr inbounds i32, ptr %28, i64 %indvars.iv.i
-  %29 = load i32, ptr %arrayidx.i101.i, align 4
-  %cmp3.i102.i = icmp slt i32 %29, 0
-  br i1 %cmp3.i102.i, label %dasm_getpclabel.exit.i, label %if.then39.i
+if.then.i101.i:                                   ; preds = %for.body35.i
+  %pclabels.i102.i = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = load ptr, ptr %pclabels.i102.i, align 8
+  %arrayidx.i103.i = getelementptr inbounds i32, ptr %28, i64 %indvars.iv.i
+  %29 = load i32, ptr %arrayidx.i103.i, align 4
+  %cmp3.i104.i = icmp slt i32 %29, 0
+  br i1 %cmp3.i104.i, label %dasm_getpclabel.exit.i, label %if.then39.i
 
-dasm_getpclabel.exit.i:                           ; preds = %if.then.i99.i
-  %sections.i104.i = getelementptr inbounds i8, ptr %26, i64 80
+dasm_getpclabel.exit.i:                           ; preds = %if.then.i101.i
+  %sections.i106.i = getelementptr inbounds i8, ptr %26, i64 80
   %sub.i.i = sub nsw i32 0, %29
   %shr.i.i = lshr i32 %sub.i.i, 24
   %idxprom6.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx7.i.i = getelementptr inbounds [1 x %struct.dasm_Section], ptr %sections.i104.i, i64 0, i64 %idxprom6.i.i
+  %arrayidx7.i.i = getelementptr inbounds [1 x %struct.dasm_Section], ptr %sections.i106.i, i64 0, i64 %idxprom6.i.i
   %30 = load ptr, ptr %arrayidx7.i.i, align 8
-  %idx.ext.i105.i = zext nneg i32 %sub.i.i to i64
-  %add.ptr.i106.i = getelementptr inbounds i32, ptr %30, i64 %idx.ext.i105.i
-  %31 = load i32, ptr %add.ptr.i106.i, align 4
+  %idx.ext.i107.i = zext nneg i32 %sub.i.i to i64
+  %add.ptr.i108.i = getelementptr inbounds i32, ptr %30, i64 %idx.ext.i107.i
+  %31 = load i32, ptr %add.ptr.i108.i, align 4
   %cmp37.i = icmp slt i32 %31, 0
   br i1 %cmp37.i, label %if.then39.i, label %if.end40.i
 
-if.then39.i:                                      ; preds = %dasm_getpclabel.exit.i, %if.then.i99.i, %for.body35.i
+if.then39.i:                                      ; preds = %dasm_getpclabel.exit.i, %if.then.i101.i, %for.body35.i
   %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   %or.i = or i32 %32, 570425344
   br label %if.then
@@ -3106,16 +3106,16 @@ if.end40.i:                                       ; preds = %dasm_getpclabel.exi
   %35 = load i32, ptr %npc.i, align 8
   %36 = sext i32 %35 to i64
   %cmp33.i = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %cmp33.i, label %for.body35.i, label %for.cond49.preheader.loopexit.i, !llvm.loop !25
+  br i1 %cmp33.i, label %for.body35.i, label %for.cond49.preheader.loopexit.i, !llvm.loop !24
 
 for.body53.i:                                     ; preds = %for.cond49.preheader.i, %for.inc88.i
   %37 = phi i32 [ %45, %for.inc88.i ], [ %25, %for.cond49.preheader.i ]
-  %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %for.inc88.i ], [ 0, %for.cond49.preheader.i ]
-  %arrayidx55.i = getelementptr inbounds [159 x ptr], ptr @globnames, i64 0, i64 %indvars.iv135.i
+  %indvars.iv137.i = phi i64 [ %indvars.iv.next138.i, %for.inc88.i ], [ 0, %for.cond49.preheader.i ]
+  %arrayidx55.i = getelementptr inbounds [159 x ptr], ptr @globnames, i64 0, i64 %indvars.iv137.i
   %38 = load ptr, ptr %arrayidx55.i, align 8
   %call56.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #28
   %39 = load ptr, ptr %glob.i, align 8
-  %arrayidx60.i = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv135.i
+  %arrayidx60.i = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv137.i
   %40 = load ptr, ptr %arrayidx60.i, align 8
   %tobool61.not.i = icmp eq ptr %40, null
   br i1 %tobool61.not.i, label %if.then62.i, label %if.end64.i
@@ -3154,15 +3154,15 @@ if.then79.i:                                      ; preds = %land.lhs.true72.i, 
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv84.i = trunc i64 %sub.ptr.sub.i to i32
   call fastcc void @sym_insert(ptr noundef nonnull %ctx_, i32 noundef %conv84.i, ptr noundef nonnull @.str.430, ptr noundef %38)
-  %.pre138.i = load i32, ptr %nglob.i, align 4
+  %.pre140.i = load i32, ptr %nglob.i, align 4
   br label %for.inc88.i
 
 for.inc88.i:                                      ; preds = %if.then79.i, %land.lhs.true72.i
-  %45 = phi i32 [ %37, %land.lhs.true72.i ], [ %.pre138.i, %if.then79.i ]
-  %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
+  %45 = phi i32 [ %37, %land.lhs.true72.i ], [ %.pre140.i, %if.then79.i ]
+  %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %46 = sext i32 %45 to i64
-  %cmp51.i = icmp slt i64 %indvars.iv.next136.i, %46
-  br i1 %cmp51.i, label %for.body53.i, label %for.end90.i, !llvm.loop !26
+  %cmp51.i = icmp slt i64 %indvars.iv.next138.i, %46
+  br i1 %cmp51.i, label %for.body53.i, label %for.end90.i, !llvm.loop !25
 
 for.end90.i:                                      ; preds = %for.inc88.i, %for.cond49.preheader.i
   %47 = load i64, ptr %codesz.i, align 8
@@ -3172,52 +3172,52 @@ for.end90.i:                                      ; preds = %for.inc88.i, %for.c
   %dec.i = add nsw i32 %48, -1
   store i32 %dec.i, ptr %nsym.i, align 8
   %49 = load ptr, ptr %ctx_, align 8
-  %maxsection.i107.i = getelementptr inbounds i8, ptr %49, i64 72
-  %50 = load i32, ptr %maxsection.i107.i, align 8
+  %maxsection.i109.i = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = load i32, ptr %maxsection.i109.i, align 8
   %cmp13.i.i = icmp sgt i32 %50, 0
   br i1 %cmp13.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i29
 
 for.body.lr.ph.i.i:                               ; preds = %for.end90.i
-  %sections.i112.i = getelementptr inbounds i8, ptr %49, i64 80
-  br label %for.body.i113.i
+  %sections.i114.i = getelementptr inbounds i8, ptr %49, i64 80
+  br label %for.body.i115.i
 
-for.body.i113.i:                                  ; preds = %for.inc.i.i30, %for.body.lr.ph.i.i
+for.body.i115.i:                                  ; preds = %for.inc.i.i30, %for.body.lr.ph.i.i
   %51 = phi i32 [ %50, %for.body.lr.ph.i.i ], [ %53, %for.inc.i.i30 ]
-  %indvars.iv.i114.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i119.i, %for.inc.i.i30 ]
-  %buf.i115.i = getelementptr inbounds [1 x %struct.dasm_Section], ptr %sections.i112.i, i64 0, i64 %indvars.iv.i114.i, i32 1
-  %52 = load ptr, ptr %buf.i115.i, align 8
-  %tobool.not.i116.i = icmp eq ptr %52, null
-  br i1 %tobool.not.i116.i, label %for.inc.i.i30, label %if.then.i117.i
+  %indvars.iv.i116.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i121.i, %for.inc.i.i30 ]
+  %buf.i117.i = getelementptr inbounds [1 x %struct.dasm_Section], ptr %sections.i114.i, i64 0, i64 %indvars.iv.i116.i, i32 1
+  %52 = load ptr, ptr %buf.i117.i, align 8
+  %tobool.not.i118.i = icmp eq ptr %52, null
+  br i1 %tobool.not.i118.i, label %for.inc.i.i30, label %if.then.i119.i
 
-if.then.i117.i:                                   ; preds = %for.body.i113.i
+if.then.i119.i:                                   ; preds = %for.body.i115.i
   call void @free(ptr noundef nonnull %52) #25
-  %.pre.i118.i = load i32, ptr %maxsection.i107.i, align 8
+  %.pre.i120.i = load i32, ptr %maxsection.i109.i, align 8
   br label %for.inc.i.i30
 
-for.inc.i.i30:                                    ; preds = %if.then.i117.i, %for.body.i113.i
-  %53 = phi i32 [ %51, %for.body.i113.i ], [ %.pre.i118.i, %if.then.i117.i ]
-  %indvars.iv.next.i119.i = add nuw nsw i64 %indvars.iv.i114.i, 1
+for.inc.i.i30:                                    ; preds = %if.then.i119.i, %for.body.i115.i
+  %53 = phi i32 [ %51, %for.body.i115.i ], [ %.pre.i120.i, %if.then.i119.i ]
+  %indvars.iv.next.i121.i = add nuw nsw i64 %indvars.iv.i116.i, 1
   %54 = sext i32 %53 to i64
-  %cmp.i120.i = icmp slt i64 %indvars.iv.next.i119.i, %54
-  br i1 %cmp.i120.i, label %for.body.i113.i, label %for.end.i.i29, !llvm.loop !6
+  %cmp.i122.i = icmp slt i64 %indvars.iv.next.i121.i, %54
+  br i1 %cmp.i122.i, label %for.body.i115.i, label %for.end.i.i29, !llvm.loop !6
 
 for.end.i.i29:                                    ; preds = %for.inc.i.i30, %for.end90.i
-  %pclabels.i108.i = getelementptr inbounds i8, ptr %49, i64 32
-  %55 = load ptr, ptr %pclabels.i108.i, align 8
+  %pclabels.i110.i = getelementptr inbounds i8, ptr %49, i64 32
+  %55 = load ptr, ptr %pclabels.i110.i, align 8
   %tobool6.not.i.i = icmp eq ptr %55, null
-  br i1 %tobool6.not.i.i, label %if.end9.i109.i, label %if.then7.i.i
+  br i1 %tobool6.not.i.i, label %if.end9.i111.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %for.end.i.i29
   call void @free(ptr noundef nonnull %55) #25
-  br label %if.end9.i109.i
+  br label %if.end9.i111.i
 
-if.end9.i109.i:                                   ; preds = %if.then7.i.i, %for.end.i.i29
-  %lglabels.i110.i = getelementptr inbounds i8, ptr %49, i64 16
-  %56 = load ptr, ptr %lglabels.i110.i, align 8
+if.end9.i111.i:                                   ; preds = %if.then7.i.i, %for.end.i.i29
+  %lglabels.i112.i = getelementptr inbounds i8, ptr %49, i64 16
+  %56 = load ptr, ptr %lglabels.i112.i, align 8
   %tobool10.not.i.i = icmp eq ptr %56, null
   br i1 %tobool10.not.i.i, label %if.end, label %if.then11.i.i
 
-if.then11.i.i:                                    ; preds = %if.end9.i109.i
+if.then11.i.i:                                    ; preds = %if.end9.i111.i
   call void @free(ptr noundef nonnull %56) #25
   br label %if.end
 
@@ -3227,7 +3227,7 @@ if.then:                                          ; preds = %if.then39.i, %dasm_
   %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.362, i32 noundef %retval.0.i.ph) #27
   br label %return
 
-if.end:                                           ; preds = %if.then11.i.i, %if.end9.i109.i
+if.end:                                           ; preds = %if.then11.i.i, %if.end9.i111.i
   call void @free(ptr noundef nonnull %49) #25
   %58 = load i32, ptr %mode.i, align 8
   %.off = add i32 %58, -3
@@ -3375,7 +3375,7 @@ for.inc.i42:                                      ; preds = %if.end41.i, %if.end
   %fcsize.1.i = phi i32 [ %fcsize.046.i, %for.body.i35 ], [ %fcsize.046.i, %if.end41.i ], [ %sub36.i, %if.end.i39 ]
   %101 = sext i32 %100 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i37, %101
-  br i1 %cmp.i, label %for.body.i35, label %for.end.i, !llvm.loop !27
+  br i1 %cmp.i, label %for.body.i35, label %for.end.i, !llvm.loop !26
 
 for.end.i:                                        ; preds = %for.inc.i42
   %tobool44.not.i = icmp eq i32 %fcsize.1.i, 0
@@ -3442,7 +3442,7 @@ if.end.i64:                                       ; preds = %if.then.i, %for.bod
   %120 = load i32, ptr %npc.i, align 8
   %121 = sext i32 %120 to i64
   %cmp.i68 = icmp slt i64 %indvars.iv.next.i67, %121
-  br i1 %cmp.i68, label %for.body.i62, label %emit_bcdef.exit, !llvm.loop !28
+  br i1 %cmp.i68, label %for.body.i62, label %emit_bcdef.exit, !llvm.loop !27
 
 emit_bcdef.exit:                                  ; preds = %if.end.i64, %sw.bb25
   call void @emit_lib(ptr noundef nonnull %ctx_) #25
@@ -3468,7 +3468,7 @@ for.body.i70:                                     ; preds = %for.body.i70, %sw.b
   %call10.i73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.615, ptr noundef %128)
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i71, 1
   %tobool.not.i75 = icmp eq i64 %indvars.iv.next.i74, 97
-  br i1 %tobool.not.i75, label %for.end.i76, label %for.body.i70, !llvm.loop !29
+  br i1 %tobool.not.i75, label %for.end.i76, label %for.body.i70, !llvm.loop !28
 
 for.end.i76:                                      ; preds = %for.body.i70
   %130 = load ptr, ptr %fp.i69, align 8
@@ -3485,7 +3485,7 @@ for.body19.i:                                     ; preds = %for.body19.i, %for.
   %call23.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.615, ptr noundef %134)
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %tobool18.not.i = icmp eq i64 %indvars.iv.next64.i, 101
-  br i1 %tobool18.not.i, label %for.end26.i, label %for.body19.i, !llvm.loop !30
+  br i1 %tobool18.not.i, label %for.end26.i, label %for.body19.i, !llvm.loop !29
 
 for.end26.i:                                      ; preds = %for.body19.i
   %136 = load ptr, ptr %fp.i69, align 8
@@ -3516,7 +3516,7 @@ while.body.i.i:                                   ; preds = %for.body35.i77, %wh
   %incdec.ptr8.i.i = getelementptr inbounds i8, ptr %s.addr.09.i.i, i64 1
   %145 = load i8, ptr %incdec.ptr8.i.i, align 1
   %tobool.not.i.i79 = icmp eq i8 %145, 0
-  br i1 %tobool.not.i.i79, label %lower.exit.i, label %while.body.i.i, !llvm.loop !31
+  br i1 %tobool.not.i.i79, label %lower.exit.i, label %while.body.i.i, !llvm.loop !30
 
 lower.exit.i:                                     ; preds = %while.body.i.i, %for.body35.i77
   %p.0.lcssa.i.i = phi ptr [ %buf.i, %for.body35.i77 ], [ %incdec.ptr.i.i, %while.body.i.i ]
@@ -3524,7 +3524,7 @@ lower.exit.i:                                     ; preds = %while.body.i.i, %fo
   %call40.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.619, ptr noundef nonnull %buf.i)
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %tobool34.not.i = icmp eq i64 %indvars.iv.next67.i, 7
-  br i1 %tobool34.not.i, label %for.end43.i, label %for.body35.i77, !llvm.loop !32
+  br i1 %tobool34.not.i, label %for.end43.i, label %for.body35.i77, !llvm.loop !31
 
 for.end43.i:                                      ; preds = %lower.exit.i
   %146 = load ptr, ptr %fp.i69, align 8
@@ -3554,7 +3554,7 @@ while.body.i45.i:                                 ; preds = %for.body52.i, %whil
   %incdec.ptr8.i52.i = getelementptr inbounds i8, ptr %s.addr.09.i47.i, i64 1
   %154 = load i8, ptr %incdec.ptr8.i52.i, align 1
   %tobool.not.i53.i = icmp eq i8 %154, 0
-  br i1 %tobool.not.i53.i, label %lower.exit55.i, label %while.body.i45.i, !llvm.loop !31
+  br i1 %tobool.not.i53.i, label %lower.exit55.i, label %while.body.i45.i, !llvm.loop !30
 
 lower.exit55.i:                                   ; preds = %while.body.i45.i, %for.body52.i
   %p.0.lcssa.i54.i = phi ptr [ %buf.i, %for.body52.i ], [ %incdec.ptr.i51.i, %while.body.i45.i ]
@@ -3572,7 +3572,7 @@ if.end.i81:                                       ; preds = %if.then.i80, %lower
   %call62.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.619, ptr noundef nonnull %buf.i)
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %tobool51.not.i = icmp eq i64 %indvars.iv.next70.i, 25
-  br i1 %tobool51.not.i, label %for.end65.i, label %for.body52.i, !llvm.loop !33
+  br i1 %tobool51.not.i, label %for.end65.i, label %for.body52.i, !llvm.loop !32
 
 for.end65.i:                                      ; preds = %if.end.i81
   %156 = load ptr, ptr %fp.i69, align 8
@@ -3589,7 +3589,7 @@ for.body74.i:                                     ; preds = %for.body74.i, %for.
   %call78.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.623, ptr noundef %160)
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %tobool73.not.i = icmp eq i64 %indvars.iv.next73.i, 113
-  br i1 %tobool73.not.i, label %for.end81.i, label %for.body74.i, !llvm.loop !34
+  br i1 %tobool73.not.i, label %for.end81.i, label %for.body74.i, !llvm.loop !33
 
 for.end81.i:                                      ; preds = %for.body74.i
   %162 = load ptr, ptr %fp.i69, align 8
@@ -3606,7 +3606,7 @@ for.body90.i:                                     ; preds = %for.body90.i, %for.
   %call94.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.623, ptr noundef %166)
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %tobool89.not.i = icmp eq i64 %indvars.iv.next76.i, 35
-  br i1 %tobool89.not.i, label %emit_vmdef.exit, label %for.body90.i, !llvm.loop !35
+  br i1 %tobool89.not.i, label %emit_vmdef.exit, label %for.body90.i, !llvm.loop !34
 
 emit_vmdef.exit:                                  ; preds = %for.body90.i
   %168 = load ptr, ptr %fp.i69, align 8
@@ -3710,7 +3710,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.424, ptr noundef %11) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.body
   tail call void @exit(i32 noundef 1) #24
@@ -3766,100 +3766,100 @@ dasm_growpc.exit:                                 ; preds = %entry.do.end_crit_e
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %1
   %sub.i = sub i64 %3, %1
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 0)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2, i32 noundef 4, i32 noundef -1, i32 noundef -65537, i32 noundef 3, i32 noundef 1, i32 noundef 3, i32 noundef -3784, i32 noundef -2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 81, i32 noundef 32, i32 noundef 40, i32 noundef 80)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 194, i32 noundef 48, i32 noundef -1, i32 noundef 40, i32 noundef 40, i32 noundef 1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 276, i32 noundef 16, i32 noundef 184, i32 noundef -2, i64 noundef -4, i32 noundef 2, i32 noundef 32, i32 noundef 16, i32 noundef 3968, i32 noundef -1, i32 noundef -32769, i32 noundef -3784, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 402, i32 noundef 20, i32 noundef -97, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef 5, i32 noundef 1, i32 noundef 16)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 557, i32 noundef 3968, i32 noundef 80, i32 noundef 11, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 11, i32 noundef 32, i32 noundef 40, i32 noundef 3, i32 noundef 5)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 668, i32 noundef 1, i32 noundef 16, i32 noundef 80, i32 noundef 3968, i32 noundef 80, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 32, i32 noundef 40, i32 noundef -9, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 830, i32 noundef 56, i32 noundef 40, i32 noundef 16, i32 noundef 3968, i32 noundef 80, i32 noundef 80, i32 noundef -3600, i32 noundef 5, i32 noundef -1, i32 noundef 32, i32 noundef -72)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 991, i32 noundef 32, i32 noundef 0, i32 noundef -163840, i32 noundef 54, i32 noundef 0, i32 noundef -393216, i32 noundef -3736)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 1107, i32 noundef 32, i32 noundef 32, i32 noundef 40, i32 noundef 2, i32 noundef 3)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 1281, i32 noundef -1, i32 noundef 0, i32 noundef -163840, i32 noundef 55, i32 noundef 0, i32 noundef -393216, i32 noundef -3736)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 1393, i32 noundef 32, i32 noundef 32, i32 noundef 40, i32 noundef 2, i32 noundef 4, i32 noundef 32, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 1605, i32 noundef 32, i32 noundef -131072, i32 noundef -2, i32 noundef -2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 1741, i32 noundef 32, i32 noundef 32, i32 noundef 32, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 1897, i32 noundef 32, i32 noundef 32, i32 noundef 2, i32 noundef 3, i32 noundef 32, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2068)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2073, i32 noundef 32, i32 noundef 32, i32 noundef 32, i32 noundef 32, i32 noundef 32, i32 noundef 1232, i32 noundef 2, i32 noundef -2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2294, i32 noundef 2, i32 noundef -14, ptr noundef nonnull inttoptr (i64 48 to ptr), i32 noundef 0, i32 noundef -163840, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2405, i32 noundef -12, i32 noundef 32, i32 noundef -1, i32 noundef 0, i32 noundef -393216, i32 noundef -3408, i32 noundef 52, i32 noundef 12, i32 noundef 0, i32 noundef -163840, i64 noundef 24)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2499, i32 noundef 40, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2557, i32 noundef -13, i32 noundef -14, i32 noundef -14, i32 noundef -3368, i32 noundef 3, i32 noundef -12, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2644, i32 noundef -12, i32 noundef 32, i32 noundef 8, i32 noundef 4, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2726, i32 noundef 3, i32 noundef -12, i32 noundef 2, i32 noundef -14, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2853, i32 noundef -5, i32 noundef -14, i32 noundef -3264, i32 noundef -3952, i32 noundef -3944)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 2927, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef -163840, i32 noundef 2, i32 noundef -12)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3024, i32 noundef -1, i32 noundef -1, i32 noundef 2, i32 noundef -12)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3130, i32 noundef 48, i32 noundef 0, i32 noundef -294912, i32 noundef -1, i32 noundef 4, i32 noundef 3, i32 noundef -12, i32 noundef -14, i32 noundef 0, i32 noundef 1072693248)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3253, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 3, i32 noundef 52)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3353, i32 noundef 1, i32 noundef 2, i32 noundef -12)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3404, i32 noundef 48, i32 noundef 0, i32 noundef -294912, i32 noundef 4, i32 noundef 2, i32 noundef 48, i32 noundef 22, i32 noundef -3823, i32 noundef 4)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3540, i32 noundef 3, i32 noundef 48, i32 noundef -9, i32 noundef 30, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3626, i32 noundef -7, i32 noundef 80, i32 noundef 11, i32 noundef 1, i32 noundef 40, i32 noundef 32, i32 noundef 48)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3731, i32 noundef 40, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3835, i32 noundef 32, i32 noundef 40, i32 noundef 40, i32 noundef 48, i32 noundef -1, i32 noundef -65537, i32 noundef 3, i32 noundef -1, i32 noundef -32769)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 3955, i32 noundef 40, i32 noundef 40, i32 noundef 3, i32 noundef 40, i32 noundef 32, i32 noundef 48, i32 noundef 80, i32 noundef 11, i32 noundef 1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4079, i32 noundef 40, i32 noundef 32, i32 noundef 48, i32 noundef 40, i32 noundef 32, i32 noundef 40)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4182, i32 noundef 32, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 1, i32 noundef 32, i32 noundef 40, i32 noundef 40, i32 noundef 48)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4272, i32 noundef 3, i32 noundef 40, i32 noundef 32, i32 noundef 80, i32 noundef 1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4384, i32 noundef 32, i32 noundef 40, i32 noundef 80, i32 noundef 1, i32 noundef 11, i32 noundef 2, i32 noundef -14, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4476, i32 noundef -14, i32 noundef 2, i32 noundef 3, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4596, i32 noundef -14, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4676, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4775, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4874, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4982, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5081, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5198, i32 noundef 2, i32 noundef -14, i32 noundef 3, i32 noundef -14, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5317, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 3, i32 noundef -14, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5428, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5537, i32 noundef -14, i32 noundef 3, i32 noundef 2, i32 noundef -14, i32 noundef 3, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5684, i32 noundef -14, i32 noundef -14, i32 noundef 2, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5796, i32 noundef -14, i32 noundef 2, i32 noundef -5, i32 noundef 20)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5907, i32 noundef 24, i32 noundef -3952, i32 noundef -3944, i32 noundef 2, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 5982, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef -163840, i32 noundef -3952, i32 noundef -3944, i32 noundef 3)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6090, i32 noundef -14, i32 noundef -5, i32 noundef -14, i32 noundef 20)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6196, i64 noundef 23)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6261, i32 noundef 2, i32 noundef -3952, i32 noundef -3944, i32 noundef -5)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6337, i32 noundef -3768, i32 noundef 32, i32 noundef 16, i32 noundef 24, i32 noundef 0, i32 noundef 2, i32 noundef -3952, i32 noundef -3944, i32 noundef -5)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6436, i32 noundef -3768, i32 noundef 32, i32 noundef 16, i32 noundef 24, i32 noundef 0, i32 noundef 2, i32 noundef -3952, i32 noundef -3944)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6513, i32 noundef -5, i32 noundef -3768, i32 noundef 32, i32 noundef 16, i32 noundef 24, i32 noundef 0, i32 noundef 2, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6625, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6733, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6871, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14, i32 noundef 2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 6987, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 2, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7076, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7176, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7306, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3, i32 noundef -14, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7432, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7568, i32 noundef 3, i32 noundef 2, i32 noundef 32, i32 noundef 160, i32 noundef 40, i32 noundef 48, i32 noundef 40, i32 noundef 32, i32 noundef 40)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7680, i32 noundef 32, i32 noundef 3, i32 noundef 20, i32 noundef 32, i32 noundef 32, i32 noundef 40, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7829, i32 noundef 40, i32 noundef -3823, i32 noundef 32, i32 noundef 16, i32 noundef 12, i32 noundef -3640, i32 noundef -3823, i32 noundef 16)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7896, i32 noundef -3823, i32 noundef 16, i32 noundef 12, i32 noundef -3640, i32 noundef 4, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 7959, i32 noundef 32, i32 noundef 1232, i32 noundef 32, i32 noundef -93, i32 noundef 32, i32 noundef 40, i32 noundef -3240, i32 noundef -3112)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 8086, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef 40, i32 noundef 104, i32 noundef 106)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 8282, i32 noundef 87, i32 noundef -220, i32 noundef 32, i32 noundef -3240, i32 noundef -3112, i32 noundef 32, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 8346, i32 noundef 32, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 8380, i32 noundef -3784, i32 noundef -3784, i32 noundef -4, i32 noundef -220, i32 noundef -224, i32 noundef 128, i32 noundef -3600, i32 noundef -3592, i32 noundef -3112, i32 noundef 32, i32 noundef -3240, i32 noundef -3592, i32 noundef 80, i64 noundef -4, i32 noundef 16, i32 noundef 32, i32 noundef 24)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 8620, i32 noundef -5, i32 noundef 32, i32 noundef -72, i32 noundef 32, i32 noundef -3592, i32 noundef -3784, i32 noundef -1, i32 noundef 89, i32 noundef 97)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 8736, i32 noundef 3, i32 noundef 32, i32 noundef -72, i32 noundef -2856, i32 noundef 80, i32 noundef 1232, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 8858, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9024, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9245, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 52, i64 noundef 24, i32 noundef 40, i32 noundef 0, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9332, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9371, i32 noundef 3968, i32 noundef 384, i32 noundef 208, i32 noundef 112, i32 noundef 120, i32 noundef 128, i32 noundef 136, i32 noundef 48, i32 noundef 56, i32 noundef 64, i32 noundef 72, i32 noundef 80, i32 noundef 144, i32 noundef 152, i32 noundef 80, i32 noundef 88, i32 noundef 96, i32 noundef 104)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9477, i32 noundef 176, i32 noundef -3784, i32 noundef -1, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef -3584, i32 noundef 16, i32 noundef 32, i32 noundef 40, i32 noundef 112, i32 noundef 48, i32 noundef 8, i32 noundef 12)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9636, i64 noundef 192, i32 noundef 0, i32 noundef 15, i32 noundef 144, i32 noundef 152, i32 noundef 160, i32 noundef 168, i32 noundef 176, i32 noundef 184, i32 noundef 16, i32 noundef 32, i32 noundef 48, i32 noundef 64)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9717, i32 noundef 80, i32 noundef 96, i32 noundef 112, i32 noundef 128, i32 noundef 0, i32 noundef 144, i32 noundef 16, i32 noundef 152, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 0)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2, i32 noundef 4, i32 noundef -1, i32 noundef -65537, i32 noundef 3, i32 noundef 1, i32 noundef 3, i32 noundef -3784, i32 noundef -2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 81, i32 noundef 32, i32 noundef 40, i32 noundef 80)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 194, i32 noundef 48, i32 noundef -1, i32 noundef 40, i32 noundef 40, i32 noundef 1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 276, i32 noundef 16, i32 noundef 184, i32 noundef -2, i64 noundef -4, i32 noundef 2, i32 noundef 32, i32 noundef 16, i32 noundef 3968, i32 noundef -1, i32 noundef -32769, i32 noundef -3784, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 402, i32 noundef 20, i32 noundef -97, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef 5, i32 noundef 1, i32 noundef 16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 557, i32 noundef 3968, i32 noundef 80, i32 noundef 11, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 11, i32 noundef 32, i32 noundef 40, i32 noundef 3, i32 noundef 5)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 668, i32 noundef 1, i32 noundef 16, i32 noundef 80, i32 noundef 3968, i32 noundef 80, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 32, i32 noundef 40, i32 noundef -9, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 830, i32 noundef 56, i32 noundef 40, i32 noundef 16, i32 noundef 3968, i32 noundef 80, i32 noundef 80, i32 noundef -3600, i32 noundef 5, i32 noundef -1, i32 noundef 32, i32 noundef -72)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 991, i32 noundef 32, i32 noundef 0, i32 noundef -163840, i32 noundef 54, i32 noundef 0, i32 noundef -393216, i32 noundef -3736)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 1107, i32 noundef 32, i32 noundef 32, i32 noundef 40, i32 noundef 2, i32 noundef 3)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 1281, i32 noundef -1, i32 noundef 0, i32 noundef -163840, i32 noundef 55, i32 noundef 0, i32 noundef -393216, i32 noundef -3736)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 1393, i32 noundef 32, i32 noundef 32, i32 noundef 40, i32 noundef 2, i32 noundef 4, i32 noundef 32, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 1605, i32 noundef 32, i32 noundef -131072, i32 noundef -2, i32 noundef -2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 1741, i32 noundef 32, i32 noundef 32, i32 noundef 32, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 1897, i32 noundef 32, i32 noundef 32, i32 noundef 2, i32 noundef 3, i32 noundef 32, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2068)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2073, i32 noundef 32, i32 noundef 32, i32 noundef 32, i32 noundef 32, i32 noundef 32, i32 noundef 1232, i32 noundef 2, i32 noundef -2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2294, i32 noundef 2, i32 noundef -14, ptr noundef nonnull inttoptr (i64 48 to ptr), i32 noundef 0, i32 noundef -163840, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2405, i32 noundef -12, i32 noundef 32, i32 noundef -1, i32 noundef 0, i32 noundef -393216, i32 noundef -3408, i32 noundef 52, i32 noundef 12, i32 noundef 0, i32 noundef -163840, i64 noundef 24)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2499, i32 noundef 40, i32 noundef 8, i32 noundef 16, i32 noundef 0, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2557, i32 noundef -13, i32 noundef -14, i32 noundef -14, i32 noundef -3368, i32 noundef 3, i32 noundef -12, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2644, i32 noundef -12, i32 noundef 32, i32 noundef 8, i32 noundef 4, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2726, i32 noundef 3, i32 noundef -12, i32 noundef 2, i32 noundef -14, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2853, i32 noundef -5, i32 noundef -14, i32 noundef -3264, i32 noundef -3952, i32 noundef -3944)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 2927, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef -163840, i32 noundef 2, i32 noundef -12)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3024, i32 noundef -1, i32 noundef -1, i32 noundef 2, i32 noundef -12)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3130, i32 noundef 48, i32 noundef 0, i32 noundef -294912, i32 noundef -1, i32 noundef 4, i32 noundef 3, i32 noundef -12, i32 noundef -14, i32 noundef 0, i32 noundef 1072693248)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3253, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 3, i32 noundef 52)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3353, i32 noundef 1, i32 noundef 2, i32 noundef -12)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3404, i32 noundef 48, i32 noundef 0, i32 noundef -294912, i32 noundef 4, i32 noundef 2, i32 noundef 48, i32 noundef 22, i32 noundef -3823, i32 noundef 4)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3540, i32 noundef 3, i32 noundef 48, i32 noundef -9, i32 noundef 30, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3626, i32 noundef -7, i32 noundef 80, i32 noundef 11, i32 noundef 1, i32 noundef 40, i32 noundef 32, i32 noundef 48)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3731, i32 noundef 40, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3835, i32 noundef 32, i32 noundef 40, i32 noundef 40, i32 noundef 48, i32 noundef -1, i32 noundef -65537, i32 noundef 3, i32 noundef -1, i32 noundef -32769)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 3955, i32 noundef 40, i32 noundef 40, i32 noundef 3, i32 noundef 40, i32 noundef 32, i32 noundef 48, i32 noundef 80, i32 noundef 11, i32 noundef 1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4079, i32 noundef 40, i32 noundef 32, i32 noundef 48, i32 noundef 40, i32 noundef 32, i32 noundef 40)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4182, i32 noundef 32, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 1, i32 noundef 32, i32 noundef 40, i32 noundef 40, i32 noundef 48)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4272, i32 noundef 3, i32 noundef 40, i32 noundef 32, i32 noundef 80, i32 noundef 1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4384, i32 noundef 32, i32 noundef 40, i32 noundef 80, i32 noundef 1, i32 noundef 11, i32 noundef 2, i32 noundef -14, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4476, i32 noundef -14, i32 noundef 2, i32 noundef 3, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4596, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4676, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4775, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4874, i32 noundef -14, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4982, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5081, i32 noundef 2, i32 noundef -14, i32 noundef 2, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5198, i32 noundef 2, i32 noundef -14, i32 noundef 3, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5317, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 3, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5428, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5537, i32 noundef -14, i32 noundef 3, i32 noundef 2, i32 noundef -14, i32 noundef 3, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5684, i32 noundef -14, i32 noundef -14, i32 noundef 2, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5796, i32 noundef -14, i32 noundef 2, i32 noundef -5, i32 noundef 20)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5907, i32 noundef 24, i32 noundef -3952, i32 noundef -3944, i32 noundef 2, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 5982, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef -163840, i32 noundef -3952, i32 noundef -3944, i32 noundef 3)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6090, i32 noundef -14, i32 noundef -5, i32 noundef -14, i32 noundef 20)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6196, i64 noundef 23)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6261, i32 noundef 2, i32 noundef -3952, i32 noundef -3944, i32 noundef -5)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6337, i32 noundef -3768, i32 noundef 32, i32 noundef 16, i32 noundef 24, i32 noundef 0, i32 noundef 2, i32 noundef -3952, i32 noundef -3944, i32 noundef -5)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6436, i32 noundef -3768, i32 noundef 32, i32 noundef 16, i32 noundef 24, i32 noundef 0, i32 noundef 2, i32 noundef -3952, i32 noundef -3944)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6513, i32 noundef -5, i32 noundef -3768, i32 noundef 32, i32 noundef 16, i32 noundef 24, i32 noundef 0, i32 noundef 2, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6625, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6733, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6871, i32 noundef 2, i32 noundef 0, i32 noundef 1127743488, i32 noundef -14, i32 noundef -14, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 6987, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 2, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7076, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7176, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7306, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7432, i32 noundef 0, i32 noundef 1127743488, i32 noundef 3, i32 noundef -14, i32 noundef -14, i32 noundef 0, i32 noundef 1127743488)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7568, i32 noundef 3, i32 noundef 2, i32 noundef 32, i32 noundef 160, i32 noundef 40, i32 noundef 48, i32 noundef 40, i32 noundef 32, i32 noundef 40)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7680, i32 noundef 32, i32 noundef 3, i32 noundef 20, i32 noundef 32, i32 noundef 32, i32 noundef 40, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7829, i32 noundef 40, i32 noundef -3823, i32 noundef 32, i32 noundef 16, i32 noundef 12, i32 noundef -3640, i32 noundef -3823, i32 noundef 16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7896, i32 noundef -3823, i32 noundef 16, i32 noundef 12, i32 noundef -3640, i32 noundef 4, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 7959, i32 noundef 32, i32 noundef 1232, i32 noundef 32, i32 noundef -93, i32 noundef 32, i32 noundef 40, i32 noundef -3240, i32 noundef -3112)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 8086, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef 40, i32 noundef 104, i32 noundef 106)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 8282, i32 noundef 87, i32 noundef -220, i32 noundef 32, i32 noundef -3240, i32 noundef -3112, i32 noundef 32, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 8346, i32 noundef 32, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 8380, i32 noundef -3784, i32 noundef -3784, i32 noundef -4, i32 noundef -220, i32 noundef -224, i32 noundef 128, i32 noundef -3600, i32 noundef -3592, i32 noundef -3112, i32 noundef 32, i32 noundef -3240, i32 noundef -3592, i32 noundef 80, i64 noundef -4, i32 noundef 16, i32 noundef 32, i32 noundef 24)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 8620, i32 noundef -5, i32 noundef 32, i32 noundef -72, i32 noundef 32, i32 noundef -3592, i32 noundef -3784, i32 noundef -1, i32 noundef 89, i32 noundef 97)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 8736, i32 noundef 3, i32 noundef 32, i32 noundef -72, i32 noundef -2856, i32 noundef 80, i32 noundef 1232, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 8858, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9024, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248, i32 noundef -1, i32 noundef 2147483647, i32 noundef 0, i32 noundef 1127219200, i32 noundef 0, i32 noundef 1072693248)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9245, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 52, i64 noundef 24, i32 noundef 40, i32 noundef 0, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9332, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9371, i32 noundef 3968, i32 noundef 384, i32 noundef 208, i32 noundef 112, i32 noundef 120, i32 noundef 128, i32 noundef 136, i32 noundef 48, i32 noundef 56, i32 noundef 64, i32 noundef 72, i32 noundef 80, i32 noundef 144, i32 noundef 152, i32 noundef 80, i32 noundef 88, i32 noundef 96, i32 noundef 104)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9477, i32 noundef 176, i32 noundef -3784, i32 noundef -1, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef -3584, i32 noundef 16, i32 noundef 32, i32 noundef 40, i32 noundef 112, i32 noundef 48, i32 noundef 8, i32 noundef 12)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9636, i64 noundef 192, i32 noundef 0, i32 noundef 15, i32 noundef 144, i32 noundef 152, i32 noundef 160, i32 noundef 168, i32 noundef 176, i32 noundef 184, i32 noundef 16, i32 noundef 32, i32 noundef 48, i32 noundef 64)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9717, i32 noundef 80, i32 noundef 96, i32 noundef 112, i32 noundef 128, i32 noundef 0, i32 noundef 144, i32 noundef 16, i32 noundef 152, i32 noundef 32)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16243)
   br label %for.body
 
 for.body:                                         ; preds = %dasm_growpc.exit, %build_ins.exit
   %op.010 = phi i32 [ 0, %dasm_growpc.exit ], [ %inc, %build_ins.exit ]
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9763, i32 noundef %op.010)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9763, i32 noundef %op.010)
   switch i32 %op.010, label %sw.default252.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb.i
@@ -3961,7 +3961,7 @@ for.body:                                         ; preds = %dasm_growpc.exit, %
   ]
 
 sw.bb.i:                                          ; preds = %for.body, %for.body, %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9765, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9765, i32 noundef -14, i32 noundef -14)
   %5 = icmp ult i32 %op.010, 4
   br i1 %5, label %switch.lookup, label %sw.epilog.i
 
@@ -3969,17 +3969,17 @@ switch.lookup:                                    ; preds = %sw.bb.i
   %6 = zext nneg i32 %op.010 to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.build_backend, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef %switch.load)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef %switch.load)
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb.i, %switch.lookup
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9846, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9846, i32 noundef -131072)
   br label %build_ins.exit
 
 iseqne_fp.i:                                      ; preds = %for.body, %for.body
   %cmp.i7 = icmp eq i32 %op.010, 4
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9881)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9910, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9881)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9910, i32 noundef -14, i32 noundef -14)
   br i1 %cmp.i7, label %if.end13.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %sw.bb32.i, %sw.bb25.i, %iseqne_fp.i
@@ -3990,66 +3990,66 @@ if.end13.i:                                       ; preds = %sw.bb32.i, %sw.bb25
   %.sink252.sink.i = phi i32 [ %.sink252.i, %if.else12.i ], [ 9952, %sw.bb25.i ], [ 9948, %sw.bb32.i ], [ 9948, %iseqne_fp.i ]
   %.sink253.i = phi i32 [ 9982, %if.else12.i ], [ 9966, %sw.bb25.i ], [ 9966, %sw.bb32.i ], [ 9966, %iseqne_fp.i ]
   %vk.1.shrunk238.i = phi i32 [ 10080, %if.else12.i ], [ 10076, %sw.bb25.i ], [ 10076, %sw.bb32.i ], [ 10076, %iseqne_fp.i ]
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef %.sink252.sink.i)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef %.sink253.i, i32 noundef -131072)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9859)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef %.sink252.sink.i)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef %.sink253.i, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9859)
   %7 = and i32 %op.010, 126
   %or.cond.i = icmp eq i32 %7, 4
   br i1 %or.cond.i, label %if.then18.i, label %if.else23.i
 
 if.then18.i:                                      ; preds = %if.end13.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10003, i32 noundef -11, i32 noundef -11, i32 noundef -12, i32 noundef 32, i32 noundef 10, i32 noundef 16)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10071)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef %vk.1.shrunk238.i)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10086)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10003, i32 noundef -11, i32 noundef -11, i32 noundef -12, i32 noundef 32, i32 noundef 10, i32 noundef 16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10071)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef %vk.1.shrunk238.i)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10086)
   br label %build_ins.exit
 
 if.else23.i:                                      ; preds = %if.end13.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10091, i32 noundef -11)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10071)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10104)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10091, i32 noundef -11)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10071)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10104)
   br label %build_ins.exit
 
 sw.bb25.i:                                        ; preds = %for.body, %for.body
   %cmp26.i = icmp eq i32 %op.010, 6
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10109, i32 noundef -5)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10109, i32 noundef -5)
   br i1 %cmp26.i, label %if.end13.i, label %if.else12.i
 
 sw.bb32.i:                                        ; preds = %for.body, %for.body
   %cmp33.i = icmp eq i32 %op.010, 8
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10153)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10162, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10153)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10162, i32 noundef -14)
   br i1 %cmp33.i, label %if.end13.i, label %if.else12.i
 
 sw.bb39.i:                                        ; preds = %for.body, %for.body
   %cmp40.i = icmp eq i32 %op.010, 10
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10199)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10199)
   br i1 %cmp40.i, label %if.then43.i, label %if.else44.i
 
 if.then43.i:                                      ; preds = %sw.bb39.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10219, i32 noundef -131072, i32 noundef -11)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10219, i32 noundef -131072, i32 noundef -11)
   br label %build_ins.exit
 
 if.else44.i:                                      ; preds = %sw.bb39.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10272, i32 noundef -11, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10272, i32 noundef -11, i32 noundef -131072)
   br label %build_ins.exit
 
 sw.bb46.i:                                        ; preds = %for.body, %for.body, %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10319)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10319)
   %8 = and i32 %op.010, 126
   %or.cond1.i = icmp eq i32 %8, 12
   br i1 %or.cond1.i, label %if.then52.i, label %if.end68.critedge.i
 
 if.then52.i:                                      ; preds = %sw.bb46.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10328)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4971, i32 noundef -2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10328)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4971, i32 noundef -2)
   %or.cond2.i = icmp eq i32 %op.010, 12
   %.257.i = select i1 %or.cond2.i, i32 9841, i32 2922
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef %.257.i)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef %.257.i)
   br label %if.end68.sink.split.i
 
 if.end68.critedge.i:                              ; preds = %sw.bb46.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 4971, i32 noundef -2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 4971, i32 noundef -2)
   %9 = and i32 %op.010, 125
   %or.cond2.c.i = icmp eq i32 %9, 12
   %.257.c.i = select i1 %or.cond2.c.i, i32 9841, i32 2922
@@ -4057,37 +4057,37 @@ if.end68.critedge.i:                              ; preds = %sw.bb46.i
 
 if.end68.sink.split.i:                            ; preds = %if.end68.critedge.i, %if.then52.i
   %.257.c.sink.i = phi i32 [ %.257.c.i, %if.end68.critedge.i ], [ 10332, %if.then52.i ]
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef %.257.c.sink.i)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9846, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef %.257.c.sink.i)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9846, i32 noundef -131072)
   br label %build_ins.exit
 
 sw.bb69.i:                                        ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10337)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10337)
   br label %build_ins.exit
 
 sw.bb70.i:                                        ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10374, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10374, i32 noundef -14)
   br label %build_ins.exit
 
 sw.bb71.i:                                        ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10414)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10414)
   br label %build_ins.exit
 
 sw.bb72.i:                                        ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10444, i32 noundef -2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10444, i32 noundef -2)
   br label %build_ins.exit
 
 sw.bb73.i:                                        ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10500, i32 noundef -14, i32 noundef 0, i32 noundef -2147483648)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10500, i32 noundef -14, i32 noundef 0, i32 noundef -2147483648)
   br label %build_ins.exit
 
 sw.bb74.i:                                        ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10555, i32 noundef -5, i32 noundef 20, i32 noundef -12)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10653)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10555, i32 noundef -5, i32 noundef 20, i32 noundef -12)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10653)
   br label %build_ins.exit
 
 sw.bb75.i:                                        ; preds = %for.body, %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10697)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10697)
   %10 = trunc nuw i32 %op.010 to i8
   %div241.lhs.trunc.i = add nsw i8 %10, -22
   %div241242.i = udiv i8 %div241.lhs.trunc.i, 5
@@ -4097,23 +4097,23 @@ sw.bb75.i:                                        ; preds = %for.body, %for.body
   ]
 
 sw.bb76.i:                                        ; preds = %sw.bb75.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10705, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10705, i32 noundef -14)
   br label %sw.epilog79.i
 
 sw.bb77.i:                                        ; preds = %sw.bb75.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10739, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10739, i32 noundef -14)
   br label %sw.epilog79.i
 
 sw.default78.i:                                   ; preds = %sw.bb75.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10773, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10773, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog79.i
 
 sw.epilog79.i:                                    ; preds = %sw.default78.i, %sw.bb77.i, %sw.bb76.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10824)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10824)
   br label %build_ins.exit
 
 sw.bb80.i:                                        ; preds = %for.body, %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10697)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10697)
   %11 = trunc nuw i32 %op.010 to i8
   %div82243.lhs.trunc.i = add nsw i8 %11, -22
   %div82243244.i = udiv i8 %div82243.lhs.trunc.i, 5
@@ -4123,23 +4123,23 @@ sw.bb80.i:                                        ; preds = %for.body, %for.body
   ]
 
 sw.bb83.i:                                        ; preds = %sw.bb80.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10852, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10852, i32 noundef -14)
   br label %sw.epilog86.i
 
 sw.bb84.i:                                        ; preds = %sw.bb80.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10886, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10886, i32 noundef -14)
   br label %sw.epilog86.i
 
 sw.default85.i:                                   ; preds = %sw.bb80.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10920, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10920, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog86.i
 
 sw.epilog86.i:                                    ; preds = %sw.default85.i, %sw.bb84.i, %sw.bb83.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10824)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10824)
   br label %build_ins.exit
 
 sw.bb87.i:                                        ; preds = %for.body, %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10697)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10697)
   %12 = trunc nuw i32 %op.010 to i8
   %div89245.lhs.trunc.i = add nsw i8 %12, -22
   %div89245246.i = udiv i8 %div89245.lhs.trunc.i, 5
@@ -4149,23 +4149,23 @@ sw.bb87.i:                                        ; preds = %for.body, %for.body
   ]
 
 sw.bb90.i:                                        ; preds = %sw.bb87.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10971, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10971, i32 noundef -14)
   br label %sw.epilog93.i
 
 sw.bb91.i:                                        ; preds = %sw.bb87.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11005, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11005, i32 noundef -14)
   br label %sw.epilog93.i
 
 sw.default92.i:                                   ; preds = %sw.bb87.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11039, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11039, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog93.i
 
 sw.epilog93.i:                                    ; preds = %sw.default92.i, %sw.bb91.i, %sw.bb90.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10824)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10824)
   br label %build_ins.exit
 
 sw.bb94.i:                                        ; preds = %for.body, %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10697)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10697)
   %13 = trunc nuw i32 %op.010 to i8
   %div96247.lhs.trunc.i = add nsw i8 %13, -22
   %div96247248.i = udiv i8 %div96247.lhs.trunc.i, 5
@@ -4175,213 +4175,213 @@ sw.bb94.i:                                        ; preds = %for.body, %for.body
   ]
 
 sw.bb97.i:                                        ; preds = %sw.bb94.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11090, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11090, i32 noundef -14)
   br label %sw.epilog100.i
 
 sw.bb98.i:                                        ; preds = %sw.bb94.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11124, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11124, i32 noundef -14)
   br label %sw.epilog100.i
 
 sw.default99.i:                                   ; preds = %sw.bb94.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11158, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11158, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog100.i
 
 sw.epilog100.i:                                   ; preds = %sw.default99.i, %sw.bb98.i, %sw.bb97.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10824)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10824)
   br label %build_ins.exit
 
 sw.bb101.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10697)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11209, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11328)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10697)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11209, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11328)
   br label %build_ins.exit
 
 sw.bb108.i:                                       ; preds = %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10697)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10697)
   %14 = trunc nuw i32 %op.010 to i8
   %div110249.lhs.trunc.off.i = add nsw i8 %14, -27
   %cond.i = icmp ult i8 %div110249.lhs.trunc.off.i, 5
   br i1 %cond.i, label %sw.bb112.i, label %sw.default113.i
 
 sw.bb112.i:                                       ; preds = %sw.bb108.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11243, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11243, i32 noundef -14)
   br label %sw.epilog114.i
 
 sw.default113.i:                                  ; preds = %sw.bb108.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
   br label %sw.epilog114.i
 
 sw.epilog114.i:                                   ; preds = %sw.default113.i, %sw.bb112.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11361)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11361)
   br label %build_ins.exit
 
 sw.bb115.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10697)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11366)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10697)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11277, i32 noundef -14, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11366)
   br label %build_ins.exit
 
 sw.bb122.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11410, i32 noundef 32, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11410, i32 noundef 32, i32 noundef 32)
   br label %build_ins.exit
 
 sw.bb123.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11502, i32 noundef 0, i32 noundef -163840)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11502, i32 noundef 0, i32 noundef -163840)
   br label %build_ins.exit
 
 sw.bb124.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11502, i32 noundef 0, i32 noundef -360448)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11502, i32 noundef 0, i32 noundef -360448)
   br label %build_ins.exit
 
 sw.bb125.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11543)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11543)
   br label %build_ins.exit
 
 sw.bb126.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11579)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11579)
   br label %build_ins.exit
 
 sw.bb127.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10466)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10466)
   br label %build_ins.exit
 
 sw.bb128.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11614, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11614, i32 noundef -1)
   br label %build_ins.exit
 
 sw.bb129.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11670, i64 noundef 40, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11670, i64 noundef 40, i32 noundef 32)
   br label %build_ins.exit
 
 sw.bb130.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11724, i64 noundef 40, i32 noundef 10, i32 noundef 32, i32 noundef -8, i32 noundef 4, i32 noundef -4, i32 noundef -10, i32 noundef 8, i32 noundef 3)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11836, i32 noundef -3968)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11724, i64 noundef 40, i32 noundef 10, i32 noundef 32, i32 noundef -8, i32 noundef 4, i32 noundef -4, i32 noundef -10, i32 noundef 8, i32 noundef 3)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11836, i32 noundef -3968)
   br label %build_ins.exit
 
 sw.bb131.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11860, i64 noundef 40, i32 noundef 32, i32 noundef 0, i32 noundef -163840, i32 noundef 8, i32 noundef 4, i32 noundef 8, i32 noundef 3, i32 noundef 10, i32 noundef -3968)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11860, i64 noundef 40, i32 noundef 32, i32 noundef 0, i32 noundef -163840, i32 noundef 8, i32 noundef 4, i32 noundef 8, i32 noundef 3, i32 noundef 10, i32 noundef -3968)
   br label %build_ins.exit
 
 sw.bb132.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 11976, i64 noundef 40, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 11976, i64 noundef 40, i32 noundef 32)
   br label %build_ins.exit
 
 sw.bb133.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12034, i64 noundef 40, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12034, i64 noundef 40, i32 noundef 32)
   br label %build_ins.exit
 
 sw.bb134.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12091, i32 noundef -131072, i32 noundef 64, i32 noundef 32, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12091, i32 noundef -131072, i32 noundef 64, i32 noundef 32, i32 noundef 32)
   br label %build_ins.exit
 
 sw.bb135.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12155, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef -294912)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12155, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef -294912)
   br label %build_ins.exit
 
 sw.bb136.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12241, i32 noundef 32, i32 noundef -3952, i32 noundef -3944, i32 noundef 32, i32 noundef 0, i32 noundef -393216)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12241, i32 noundef 32, i32 noundef -3952, i32 noundef -3944, i32 noundef 32, i32 noundef 0, i32 noundef -393216)
   br label %build_ins.exit
 
 sw.bb137.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12375, i32 noundef -3952, i32 noundef -3944, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef -393216)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12375, i32 noundef -3952, i32 noundef -3944, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef -393216)
   br label %build_ins.exit
 
 sw.bb138.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12484, i32 noundef 16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12484, i32 noundef 16)
   br label %build_ins.exit
 
 sw.bb139.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12515, i32 noundef 16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12515, i32 noundef 16)
   br label %build_ins.exit
 
 sw.bb140.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12546, i32 noundef -12, i32 noundef -14, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12696, i32 noundef 10, i32 noundef 1, i32 noundef -5)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12546, i32 noundef -12, i32 noundef -14, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12696, i32 noundef 10, i32 noundef 1, i32 noundef -5)
   br label %build_ins.exit
 
 sw.bb141.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12734, i32 noundef -12, i32 noundef 52, i32 noundef 12, i64 noundef 24, i32 noundef 40, i32 noundef 0, i32 noundef -163840, i32 noundef 8, i32 noundef 0, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12832, i32 noundef 16, i32 noundef -1, i32 noundef 32, i32 noundef 10, i32 noundef 1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12734, i32 noundef -12, i32 noundef 52, i32 noundef 12, i64 noundef 24, i32 noundef 40, i32 noundef 0, i32 noundef -163840, i32 noundef 8, i32 noundef 0, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12832, i32 noundef 16, i32 noundef -1, i32 noundef 32, i32 noundef 10, i32 noundef 1)
   br label %build_ins.exit
 
 sw.bb142.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 12902, i32 noundef -12, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 32, i32 noundef 10, i32 noundef 1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10676)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 12902, i32 noundef -12, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 32, i32 noundef 10, i32 noundef 1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10676)
   br label %build_ins.exit
 
 sw.bb143.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13018, i32 noundef 48, i32 noundef 16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13018, i32 noundef 48, i32 noundef 16)
   br label %build_ins.exit
 
 sw.bb144.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13092, i32 noundef -12, i32 noundef -14, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 8, i32 noundef 4)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13211, i32 noundef 32, i32 noundef 10, i32 noundef 2, i32 noundef -5, i32 noundef 8, i32 noundef 251)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13296, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13092, i32 noundef -12, i32 noundef -14, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 8, i32 noundef 4)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13211, i32 noundef 32, i32 noundef 10, i32 noundef 2, i32 noundef -5, i32 noundef 8, i32 noundef 251)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13296, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
   br label %build_ins.exit
 
 sw.bb145.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13313, i32 noundef -12, i32 noundef 52, i32 noundef 12, i64 noundef 24, i32 noundef 10, i32 noundef 40, i32 noundef 0, i32 noundef -163840, i32 noundef 8, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13410, i32 noundef 8, i32 noundef 4, i32 noundef 32, i32 noundef 10, i32 noundef 2, i32 noundef 16)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13490, i32 noundef 32, i32 noundef 10, i32 noundef 2, i32 noundef 32, i32 noundef 32, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13313, i32 noundef -12, i32 noundef 52, i32 noundef 12, i64 noundef 24, i32 noundef 10, i32 noundef 40, i32 noundef 0, i32 noundef -163840, i32 noundef 8, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13410, i32 noundef 8, i32 noundef 4, i32 noundef 32, i32 noundef 10, i32 noundef 2, i32 noundef 16)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13490, i32 noundef 32, i32 noundef 10, i32 noundef 2, i32 noundef 32, i32 noundef 32, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
   br label %build_ins.exit
 
 sw.bb146.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13587, i32 noundef -12, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 8, i32 noundef 4, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13703, i32 noundef 10, i32 noundef 2, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13587, i32 noundef -12, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef 8, i32 noundef 4, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13703, i32 noundef 10, i32 noundef 2, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
   br label %build_ins.exit
 
 sw.bb147.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13740, i32 noundef 8, i32 noundef 4, i32 noundef 48, i32 noundef 16, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13740, i32 noundef 8, i32 noundef 4, i32 noundef 48, i32 noundef 16, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
   br label %build_ins.exit
 
 sw.bb148.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13845, i32 noundef 8, i32 noundef 4, i32 noundef 48, i32 noundef 16, i32 noundef 32, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 13992, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13845, i32 noundef 8, i32 noundef 4, i32 noundef 48, i32 noundef 16, i32 noundef 32, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 13992, i32 noundef 8, i32 noundef 251, i32 noundef -3904, i32 noundef -3904, i32 noundef 24)
   br label %build_ins.exit
 
 sw.bb149.i:                                       ; preds = %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10701)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10701)
   %cmp150.i = icmp eq i32 %op.010, 65
   br i1 %cmp150.i, label %if.then152.i, label %if.end153.i
 
 if.then152.i:                                     ; preds = %sw.bb149.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14029)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14029)
   br label %if.end153.i
 
 if.end153.i:                                      ; preds = %if.then152.i, %sw.bb149.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14033, i32 noundef -9, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14033, i32 noundef -9, i32 noundef 32)
   br label %build_ins.exit
 
 sw.bb154.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14029)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14029)
   br label %build_ins.exit
 
 sw.bb155.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14098, i32 noundef -9, i32 noundef 3, i32 noundef 10, i32 noundef 32)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14218, i32 noundef 3, i32 noundef 32, i32 noundef -72, i32 noundef 3, i32 noundef 7, i32 noundef 3)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14098, i32 noundef -9, i32 noundef 3, i32 noundef 10, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14218, i32 noundef 3, i32 noundef 32, i32 noundef -72, i32 noundef 3, i32 noundef 7, i32 noundef 3)
   br label %build_ins.exit
 
 sw.bb156.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14322, i32 noundef 3, i32 noundef -9, i32 noundef 32)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14322, i32 noundef 3, i32 noundef -9, i32 noundef 32)
   br label %build_ins.exit
 
 sw.bb157.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14412, i64 noundef 126, i32 noundef -128, i32 noundef 2, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef -131072)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14561, i32 noundef 52, i64 noundef 24, i32 noundef 40, i32 noundef 0, i32 noundef -1, i32 noundef 8, i32 noundef 0)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14412, i64 noundef 126, i32 noundef -128, i32 noundef 2, i32 noundef 48, i32 noundef 16, i32 noundef -1, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14561, i32 noundef 52, i64 noundef 24, i32 noundef 40, i32 noundef 0, i32 noundef -1, i32 noundef 8, i32 noundef 0)
   br label %build_ins.exit
 
 sw.bb158.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14632, i32 noundef -9, i32 noundef -12, i32 noundef -1, i32 noundef 10, i32 noundef 4, i32 noundef -131072, i32 noundef 0, i32 noundef -98305, i32 noundef 88)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14751, i32 noundef -131072, i32 noundef 70, i32 noundef 69, i32 noundef -2856, i32 noundef 80, i32 noundef 69)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14632, i32 noundef -9, i32 noundef -12, i32 noundef -1, i32 noundef 10, i32 noundef 4, i32 noundef -131072, i32 noundef 0, i32 noundef -98305, i32 noundef 88)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14751, i32 noundef -131072, i32 noundef 70, i32 noundef 69, i32 noundef -2856, i32 noundef 80, i32 noundef 69)
   br label %build_ins.exit
 
 sw.bb159.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14797, i32 noundef 19, i32 noundef -1, i32 noundef 48)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14959, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef 40)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14797, i32 noundef 19, i32 noundef -1, i32 noundef 48)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14959, i32 noundef 32, i32 noundef 40, i32 noundef 32, i32 noundef 40)
   br label %build_ins.exit
 
 sw.bb160.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 14029)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 14029)
   br label %build_ins.exit
 
 sw.bb161.i:                                       ; preds = %for.body, %for.body, %for.body
@@ -4389,12 +4389,12 @@ sw.bb161.i:                                       ; preds = %for.body, %for.body
   br i1 %cmp162.not.i, label %if.end165.thread.i, label %if.end165.i
 
 if.end165.thread.i:                               ; preds = %sw.bb161.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15055, i32 noundef 3)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15055, i32 noundef 3)
   br label %if.end175.i
 
 if.end165.i:                                      ; preds = %sw.bb161.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15051)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15055, i32 noundef 3)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15051)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15055, i32 noundef 3)
   switch i32 %op.010, label %if.end175.thread.i [
     i32 74, label %sw.bb166.i
     i32 76, label %sw.bb167.i
@@ -4402,60 +4402,60 @@ if.end165.i:                                      ; preds = %sw.bb161.i
   ]
 
 sw.bb166.i:                                       ; preds = %if.end165.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15074)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15074)
   br label %if.end175.thread.i
 
 sw.bb167.i:                                       ; preds = %if.end165.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15127)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15127)
   br label %if.end175.i
 
 if.end175.thread.i:                               ; preds = %sw.bb166.i, %if.end165.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15148, i32 noundef 32, i32 noundef -72)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15209, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15227, i32 noundef -3, i32 noundef 7)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15148, i32 noundef 32, i32 noundef -72)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15209, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15227, i32 noundef -3, i32 noundef 7)
   br label %if.then178.i
 
 if.end175.i:                                      ; preds = %sw.bb167.i, %if.end165.i, %if.end165.thread.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15137)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15148, i32 noundef 32, i32 noundef -72)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15220, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15227, i32 noundef -3, i32 noundef 7)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15137)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15148, i32 noundef 32, i32 noundef -72)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15220, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15227, i32 noundef -3, i32 noundef 7)
   br i1 %cmp162.not.i, label %if.end179.i, label %if.then178.i
 
 if.then178.i:                                     ; preds = %if.end175.i, %if.end175.thread.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15254)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15254)
   br label %if.end179.i
 
 if.end179.i:                                      ; preds = %if.then178.i, %if.end175.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 10676)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10676)
   br label %build_ins.exit
 
 sw.bb180.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
   br label %build_ins.exit
 
 sw.bb181.i:                                       ; preds = %for.body, %for.body, %for.body, %for.body
   %15 = and i32 %op.010, 126
   %16 = icmp eq i32 %15, 80
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15280)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15280)
   br i1 %16, label %if.then197.i, label %if.else198.i
 
 if.then197.i:                                     ; preds = %sw.bb181.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15632)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15632)
   br label %if.end199.i
 
 if.else198.i:                                     ; preds = %sw.bb181.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15558, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15576, i32 noundef -14)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15632)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15637, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15558, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15576, i32 noundef -14)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15632)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15637, i32 noundef -14)
   br label %if.end199.i
 
 if.end199.i:                                      ; preds = %if.else198.i, %if.then197.i
   %.sink256.i = phi i32 [ 15688, %if.else198.i ], [ 15668, %if.then197.i ]
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15656)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef %.sink256.i)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15693)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15656)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef %.sink256.i)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15693)
   switch i32 %op.010, label %if.else211.i [
     i32 77, label %if.then202.i
     i32 78, label %if.then206.i
@@ -4463,112 +4463,112 @@ if.end199.i:                                      ; preds = %if.else198.i, %if.t
   ]
 
 if.then202.i:                                     ; preds = %if.end199.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15706, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15706, i32 noundef -131072)
   br label %if.end214.i
 
 if.then206.i:                                     ; preds = %if.end199.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15717, i32 noundef -131072, i32 noundef 87)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15717, i32 noundef -131072, i32 noundef 87)
   br label %if.end214.i
 
 if.then210.i:                                     ; preds = %if.end199.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15732, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15732, i32 noundef -131072)
   br label %if.end214.i
 
 if.else211.i:                                     ; preds = %if.end199.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15728, i32 noundef 87)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15728, i32 noundef 87)
   br label %if.end214.i
 
 if.end214.i:                                      ; preds = %if.else211.i, %if.then210.i, %if.then206.i, %if.then202.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15743)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15743)
   br label %build_ins.exit
 
 sw.bb215.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
   br label %build_ins.exit
 
 sw.bb216.i:                                       ; preds = %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15777, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15777, i32 noundef -1)
   %cmp217.i = icmp eq i32 %op.010, 84
   br i1 %cmp217.i, label %if.then219.i, label %if.else220.i
 
 if.then219.i:                                     ; preds = %sw.bb216.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15794, i32 noundef 87)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15794, i32 noundef 87)
   br label %if.end221.i
 
 if.else220.i:                                     ; preds = %sw.bb216.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15803, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15803, i32 noundef -131072)
   br label %if.end221.i
 
 if.end221.i:                                      ; preds = %if.else220.i, %if.then219.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9857)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9857)
   br label %build_ins.exit
 
 sw.bb222.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15259, i64 noundef 126, i32 noundef -128, i32 noundef 2)
   br label %build_ins.exit
 
 sw.bb223.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9859)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9859)
   br label %build_ins.exit
 
 sw.bb224.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15815, i32 noundef -2856, i32 noundef 88, i32 noundef -3592, i32 noundef -3744)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15815, i32 noundef -2856, i32 noundef 88, i32 noundef -3592, i32 noundef -3744)
   br label %build_ins.exit
 
 sw.bb225.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15859, i32 noundef -131072)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15859, i32 noundef -131072)
   br label %build_ins.exit
 
 sw.bb226.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15887, i64 noundef 126, i32 noundef -128, i32 noundef 1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15887, i64 noundef 126, i32 noundef -128, i32 noundef 1)
   br label %build_ins.exit
 
 sw.bb228.i:                                       ; preds = %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15908, i32 noundef -76, i32 noundef 48, i32 noundef -98)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15908, i32 noundef -76, i32 noundef 48, i32 noundef -98)
   %cmp229.i = icmp eq i32 %op.010, 91
   br i1 %cmp229.i, label %if.then231.i, label %if.else232.i
 
 if.then231.i:                                     ; preds = %sw.bb228.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15942, i32 noundef 87)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15942, i32 noundef 87)
   br label %if.end233.i
 
 if.else232.i:                                     ; preds = %sw.bb228.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9859)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9859)
   br label %if.end233.i
 
 if.end233.i:                                      ; preds = %if.else232.i, %if.then231.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15951, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15951, i32 noundef -1)
   br label %build_ins.exit
 
 sw.bb234.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 9369)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 9369)
   br label %build_ins.exit
 
 sw.bb235.i:                                       ; preds = %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 15974, i32 noundef 11, i32 noundef 48, i32 noundef -98, i32 noundef -1)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16078, i32 noundef -76)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16104, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 15974, i32 noundef 11, i32 noundef 48, i32 noundef -98, i32 noundef -1)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16078, i32 noundef -76)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16104, i32 noundef -1)
   br label %build_ins.exit
 
 sw.bb241.i:                                       ; preds = %for.body, %for.body
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16127, i32 noundef 40, i32 noundef 32, i32 noundef 160, i32 noundef 48, i32 noundef 40)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16127, i32 noundef 40, i32 noundef 32, i32 noundef 160, i32 noundef 48, i32 noundef 40)
   %cmp242.i = icmp eq i32 %op.010, 95
   br i1 %cmp242.i, label %if.then249.i, label %if.else250.i
 
 if.then249.i:                                     ; preds = %sw.bb241.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16173)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16187, i32 noundef -3784, i32 noundef -2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16197)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16173)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16187, i32 noundef -3784, i32 noundef -2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16197)
   br label %if.end251.i
 
 if.else250.i:                                     ; preds = %sw.bb241.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16178)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16187, i32 noundef -3784, i32 noundef -2)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16202, i32 noundef -3624)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16178)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16187, i32 noundef -3784, i32 noundef -2)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16202, i32 noundef -3624)
   br label %if.end251.i
 
 if.end251.i:                                      ; preds = %if.else250.i, %if.then249.i
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %ctx, i32 noundef 16208, i32 noundef 32, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 40)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 16208, i32 noundef 32, i32 noundef -3600, i32 noundef -3784, i32 noundef -1, i32 noundef 40)
   br label %build_ins.exit
 
 sw.default252.i:                                  ; preds = %for.body
@@ -4583,7 +4583,7 @@ sw.default252.i:                                  ; preds = %for.body
 build_ins.exit:                                   ; preds = %for.body, %sw.epilog.i, %if.then18.i, %if.else23.i, %if.then43.i, %if.else44.i, %if.end68.sink.split.i, %sw.bb69.i, %sw.bb70.i, %sw.bb71.i, %sw.bb72.i, %sw.bb73.i, %sw.bb74.i, %sw.epilog79.i, %sw.epilog86.i, %sw.epilog93.i, %sw.epilog100.i, %sw.bb101.i, %sw.epilog114.i, %sw.bb115.i, %sw.bb122.i, %sw.bb123.i, %sw.bb124.i, %sw.bb125.i, %sw.bb126.i, %sw.bb127.i, %sw.bb128.i, %sw.bb129.i, %sw.bb130.i, %sw.bb131.i, %sw.bb132.i, %sw.bb133.i, %sw.bb134.i, %sw.bb135.i, %sw.bb136.i, %sw.bb137.i, %sw.bb138.i, %sw.bb139.i, %sw.bb140.i, %sw.bb141.i, %sw.bb142.i, %sw.bb143.i, %sw.bb144.i, %sw.bb145.i, %sw.bb146.i, %sw.bb147.i, %sw.bb148.i, %if.end153.i, %sw.bb154.i, %sw.bb155.i, %sw.bb156.i, %sw.bb157.i, %sw.bb158.i, %sw.bb159.i, %sw.bb160.i, %if.end179.i, %sw.bb180.i, %if.end214.i, %sw.bb215.i, %if.end221.i, %sw.bb222.i, %sw.bb223.i, %sw.bb224.i, %sw.bb225.i, %sw.bb226.i, %if.end233.i, %sw.bb234.i, %sw.bb235.i, %if.end251.i
   %inc = add nuw nsw i32 %op.010, 1
   %exitcond.not = icmp eq i32 %inc, 97
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %build_ins.exit
   ret void
@@ -4616,7 +4616,7 @@ if.end:                                           ; preds = %while.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %dec = add nsw i64 %i.015, -1
   %cmp = icmp sgt i64 %i.015, 1
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !38
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !37
 
 while.end:                                        ; preds = %if.end, %while.body, %entry
   %i.0.lcssa = phi i64 [ %conv, %entry ], [ %i.015, %while.body ], [ 0, %if.end ]
@@ -4737,7 +4737,7 @@ attributes #30 = { nounwind willreturn memory(none) }
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = !{i32 0, i32 33554433}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
@@ -4751,4 +4751,3 @@ attributes #30 = { nounwind willreturn memory(none) }
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}

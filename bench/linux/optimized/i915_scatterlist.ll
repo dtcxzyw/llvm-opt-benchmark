@@ -147,7 +147,7 @@ define dso_local noundef ptr @i915_rsgt_from_mm_node(ptr nocapture noundef reado
   br label %.thread
 
 22:                                               ; preds = %8
-  %23 = trunc i64 %19 to i32
+  %23 = trunc nuw i64 %19 to i32
   %24 = tail call i32 @sg_alloc_table(ptr noundef %13, i32 noundef %23, i32 noundef 3264) #9
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %35, label %26
@@ -246,7 +246,7 @@ define dso_local noundef ptr @i915_rsgt_from_mm_node(ptr nocapture noundef reado
   %82 = sub i32 %4, %79
   %83 = zext i32 %82 to i64
   %84 = tail call i64 @llvm.umin.i64(i64 %46, i64 %83)
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw i64 %84 to i32
   %86 = add i32 %79, %85
   store i32 %86, ptr %81, align 4
   %87 = getelementptr inbounds i8, ptr %80, i64 24
@@ -454,7 +454,7 @@ define dso_local noundef ptr @i915_rsgt_from_buddy_resource(ptr noundef readonly
   %97 = sub i32 %6, %94
   %98 = zext i32 %97 to i64
   %99 = tail call i64 @llvm.umin.i64(i64 %63, i64 %98)
-  %100 = trunc i64 %99 to i32
+  %100 = trunc nuw i64 %99 to i32
   %101 = add i32 %94, %100
   store i32 %101, ptr %96, align 4
   %102 = getelementptr inbounds i8, ptr %95, i64 24

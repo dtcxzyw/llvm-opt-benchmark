@@ -209,7 +209,7 @@ define dso_local void @intel_step_init(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %82, label %89, label %75, !llvm.loop !5
 
 83:                                               ; preds = %75
-  %84 = trunc i64 %76 to i32
+  %84 = trunc nuw nsw i64 %76 to i32
   br i1 %73, label %87, label %85
 
 85:                                               ; preds = %83
@@ -270,7 +270,7 @@ define dso_local void @intel_step_init(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %115, label %122, label %108, !llvm.loop !5
 
 116:                                              ; preds = %108
-  %117 = trunc i64 %109 to i32
+  %117 = trunc nuw nsw i64 %109 to i32
   br i1 %103, label %120, label %118
 
 118:                                              ; preds = %116

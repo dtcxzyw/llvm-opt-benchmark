@@ -121238,7 +121238,7 @@ if.else56:                                        ; preds = %entry, %_ZN7testing
   %rem.i.i2305 = urem i64 %storemerge2310.neg, 1000000000
   %cmp.i.i.i.not = icmp eq i64 %rem.i.i2305, 0
   %rem.i.i2305.neg = sub nsw i64 0, %rem.i.i2305
-  %rem.tr.i.i = trunc i64 %rem.i.i2305.neg to i32
+  %rem.tr.i.i = trunc nsw i64 %rem.i.i2305.neg to i32
   %0 = shl i32 %rem.tr.i.i, 2
   %conv.i.i.i.i = add i32 %0, -294967296
   %conv.i.pn.i.i.i = select i1 %cmp.i.i.i.not, i32 0, i32 %conv.i.i.i.i
@@ -121368,7 +121368,7 @@ if.else157:                                       ; preds = %for.cond87.preheade
   %storemerge1262311 = phi i64 [ -100000, %for.cond87.preheader ], [ %inc187, %_ZN7testing15AssertionResultD2Ev.exit486 ]
   %rem.i.i372 = srem i64 %storemerge1262311, 1000000000
   %cmp.i.i.i373 = icmp slt i64 %rem.i.i372, 0
-  %rem.tr.i.i374 = trunc i64 %rem.i.i372 to i32
+  %rem.tr.i.i374 = trunc nsw i64 %rem.i.i372 to i32
   %13 = shl i32 %rem.tr.i.i374, 2
   %conv.i.i.i.i375 = add i32 %13, -294967296
   %conv.i.pn.i.i.i378 = select i1 %cmp.i.i.i373, i32 %conv.i.i.i.i375, i32 %13
@@ -121498,7 +121498,7 @@ if.else262:                                       ; preds = %for.cond192.prehead
   %storemerge1272312 = phi i64 [ 9223372036854675807, %for.cond192.preheader ], [ %inc292, %_ZN7testing15AssertionResultD2Ev.exit602 ]
   %rem.i.i488 = srem i64 %storemerge1272312, 1000000000
   %cmp.i.i.i489 = icmp slt i64 %rem.i.i488, 0
-  %rem.tr.i.i490 = trunc i64 %rem.i.i488 to i32
+  %rem.tr.i.i490 = trunc nsw i64 %rem.i.i488 to i32
   %26 = shl i32 %rem.tr.i.i490, 2
   %conv.i.i.i.i491 = add i32 %26, -294967296
   %conv.i.pn.i.i.i494 = select i1 %cmp.i.i.i489, i32 %conv.i.i.i.i491, i32 %26
@@ -134223,7 +134223,7 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %for
 for.end.i.i:                                      ; preds = %for.body6.i.i
   %arrayidx10.i.i = getelementptr inbounds [312 x i64], ptr %gen, i64 0, i64 %__i.016.i.i
   store i64 %add8.i.i, ptr %arrayidx10.i.i, align 8
-  %tobool.i.i = trunc i8 %__zero.015.i.i to i1
+  %tobool.i.i = trunc nuw i8 %__zero.015.i.i to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc24.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
@@ -134248,7 +134248,7 @@ for.inc24.i.i:                                    ; preds = %if.else.i.i, %if.th
   br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !2709
 
 for.end26.i.i:                                    ; preds = %for.inc24.i.i
-  %tobool27.i.i = trunc i8 %__zero.1.i.i to i1
+  %tobool27.i.i = trunc nuw i8 %__zero.1.i.i to i1
   br i1 %tobool27.i.i, label %if.then28.i.i, label %invoke.cont27
 
 if.then28.i.i:                                    ; preds = %for.end26.i.i

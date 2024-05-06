@@ -407,14 +407,14 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   br i1 %.not645.not706, label %.lr.ph709, label %._crit_edge710
 
 .lr.ph709:                                        ; preds = %._crit_edge704.split.us
-  %218 = mul nsw i32 %216, 3
+  %218 = mul nuw nsw i32 %216, 3
   %219 = shl i32 %216, 2
   %220 = zext nneg i32 %216 to i64
   %221 = zext nneg i32 %218 to i64
   %222 = sext i32 %219 to i64
   %wide.trip.count886 = zext nneg i32 %216 to i64
-  %invariant.gep1019 = getelementptr double, ptr %28, i64 %220
-  %invariant.gep1021 = getelementptr double, ptr %28, i64 %221
+  %invariant.gep1019 = getelementptr inbounds double, ptr %28, i64 %220
+  %invariant.gep1021 = getelementptr inbounds double, ptr %28, i64 %221
   %invariant.gep1023 = getelementptr double, ptr %28, i64 %222
   br label %223
 
@@ -422,10 +422,10 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %indvars.iv883 = phi i64 [ 1, %.lr.ph709 ], [ %indvars.iv.next884, %223 ]
   %224 = getelementptr inbounds double, ptr %28, i64 %indvars.iv883
   %225 = load double, ptr %224, align 8
-  %gep1020 = getelementptr double, ptr %invariant.gep1019, i64 %indvars.iv883
+  %gep1020 = getelementptr inbounds double, ptr %invariant.gep1019, i64 %indvars.iv883
   %226 = load double, ptr %gep1020, align 8
   %227 = fmul double %225, %226
-  %gep1022 = getelementptr double, ptr %invariant.gep1021, i64 %indvars.iv883
+  %gep1022 = getelementptr inbounds double, ptr %invariant.gep1021, i64 %indvars.iv883
   store double %227, ptr %gep1022, align 8
   %228 = fmul double %227, %226
   %gep1024 = getelementptr double, ptr %invariant.gep1023, i64 %indvars.iv883

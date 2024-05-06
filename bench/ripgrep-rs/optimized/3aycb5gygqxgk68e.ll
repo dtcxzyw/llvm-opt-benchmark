@@ -55,16 +55,16 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
   br label %5
 
 5:                                                ; preds = %2, %19
-  %.sroa.5.010 = phi i8 [ 0, %2 ], [ %6, %19 ]
-  %.not11 = icmp eq i8 %.sroa.5.010, -1
-  %6 = add nuw i8 %.sroa.5.010, 1
+  %.sroa.5.011 = phi i8 [ 0, %2 ], [ %6, %19 ]
+  %.not10 = icmp eq i8 %.sroa.5.011, -1
+  %6 = add nuw i8 %.sroa.5.011, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store i8 %.sroa.5.010, ptr %3, align 1
-  %7 = lshr i8 %.sroa.5.010, 6
+  store i8 %.sroa.5.011, ptr %3, align 1
+  %7 = lshr i8 %.sroa.5.011, 6
   %8 = zext nneg i8 %7 to i64
   %9 = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = and i8 %.sroa.5.010, 63
+  %11 = and i8 %.sroa.5.011, 63
   %12 = zext nneg i8 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = and i64 %10, %13
@@ -82,7 +82,7 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
 
 19:                                               ; preds = %5, %17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %.not11, label %15, label %5
+  br i1 %.not10, label %15, label %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @colo_incoming_co() #0 {
+define dso_local noundef i32 @colo_incoming_co() #0 {
 entry:
   ret i32 0
 }
@@ -40,13 +40,13 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @migration_in_colo_state() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migration_in_colo_state() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @migration_incoming_in_colo_state() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migration_incoming_in_colo_state() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }

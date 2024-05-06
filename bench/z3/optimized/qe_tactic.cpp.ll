@@ -1792,7 +1792,7 @@ entry:
   %bf.load.i = load i32, ptr %m_models_enabled.i, align 8
   %m_model = getelementptr inbounds i8, ptr %this, i64 763
   %2 = lshr i32 %bf.load.i, 26
-  %3 = trunc i32 %2 to i8
+  %3 = trunc nuw nsw i32 %2 to i8
   %frombool = and i8 %3, 1
   store i8 %frombool, ptr %m_model, align 1
   %4 = load ptr, ptr %this, align 8
@@ -2226,7 +2226,7 @@ _ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3re
 
 invoke.cont66:                                    ; preds = %_ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3refEj.exit.i, %if.end57
   %cond.i107 = phi ptr [ %76, %_ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3refEj.exit.i ], [ null, %if.end57 ]
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %64, i32 noundef %77, ptr noundef %65, ptr noundef %63, ptr noundef %cond.i107)
           to label %for.inc unwind label %lpad9.loopexit
 

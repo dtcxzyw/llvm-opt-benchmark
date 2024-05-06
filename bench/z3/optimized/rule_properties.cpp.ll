@@ -4382,8 +4382,8 @@ if.then.i:                                        ; preds = %_ZNK11ast_manager6i
   %22 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %22 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %23 = getelementptr i8, ptr %16, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %23, i64 32
+  %23 = getelementptr inbounds i8, ptr %16, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %23, i64 32
   %cmp.not7.i = icmp eq i32 %22, 0
   br i1 %cmp.not7.i, label %if.end7.i, label %for.body.lr.ph.i
 
@@ -4406,7 +4406,7 @@ call5.i.noexc:                                    ; preds = %for.body.i
   br i1 %call5.i42, label %cleanup247, label %for.cond.i
 
 if.end7.i:                                        ; preds = %for.cond.i, %if.then.i, %_ZNK11ast_manager6is_andEPK4expr.exit.i, %land.rhs.i.i.i, %for.body
-  %call8.i43 = invoke fastcc noundef zeroext i1 @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_3clEP4expr"(ptr noundef nonnull align 8 dereferenceable(24) %is_recognizer_base, ptr noundef %16)
+  %call8.i43 = invoke fastcc noundef zeroext i1 @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_3clEP4expr"(ptr noundef nonnull align 8 dereferenceable(24) %is_recognizer_base, ptr noundef readonly %16)
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont14:                                    ; preds = %if.end7.i
@@ -4459,7 +4459,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNK11ast_manager6i
 if.then.i45:                                      ; preds = %land.lhs.true.i.i
   %m_args.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
   %31 = load ptr, ptr %m_args.i.i.i, align 8
-  invoke fastcc void @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_2clEP4expr"(ptr noundef nonnull align 8 dereferenceable(32) %add_recognizer, ptr noundef %31)
+  invoke fastcc void @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_2clEP4expr"(ptr noundef nonnull readonly align 8 dereferenceable(32) %add_recognizer, ptr noundef %31)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %land.lhs.true.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.rhs.i.i.i.i, %if.end17, %if.then.i45
@@ -4730,8 +4730,8 @@ if.then53:                                        ; preds = %invoke.cont49
   %71 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i76 = zext i32 %71 to i64
   %add.ptr.i77.idx = shl nuw nsw i64 %idx.ext.i76, 3
-  %72 = getelementptr i8, ptr %call50, i64 %add.ptr.i77.idx
-  %add.ptr.i77.ptr = getelementptr i8, ptr %72, i64 32
+  %72 = getelementptr inbounds i8, ptr %call50, i64 %add.ptr.i77.idx
+  %add.ptr.i77.ptr = getelementptr inbounds i8, ptr %72, i64 32
   %cmp61.not574 = icmp eq i32 %71, 0
   br i1 %cmp61.not574, label %for.inc73, label %_ZN7obj_mapI4expr10ptr_vectorIS0_EE8key_dataC2EPS0_RKS2_.exit.i.preheader
 
@@ -5369,8 +5369,8 @@ if.then.i211:                                     ; preds = %_ZNK11ast_manager6i
   %155 = load i32, ptr %m_num_args.i.i212, align 8
   %idx.ext.i.i213 = zext i32 %155 to i64
   %add.ptr.i.idx.i214 = shl nuw nsw i64 %idx.ext.i.i213, 3
-  %156 = getelementptr i8, ptr %126, i64 %add.ptr.i.idx.i214
-  %add.ptr.i.ptr.i215 = getelementptr i8, ptr %156, i64 32
+  %156 = getelementptr inbounds i8, ptr %126, i64 %add.ptr.i.idx.i214
+  %add.ptr.i.ptr.i215 = getelementptr inbounds i8, ptr %156, i64 32
   %cmp.not7.i216 = icmp eq i32 %155, 0
   br i1 %cmp.not7.i216, label %if.end7.i201, label %for.body.lr.ph.i217
 
@@ -5393,7 +5393,7 @@ call5.i.noexc224:                                 ; preds = %for.body.i219
   br i1 %call5.i225, label %for.inc239, label %for.cond.i221
 
 if.end7.i201:                                     ; preds = %for.cond.i221, %if.then.i211, %_ZNK11ast_manager6is_andEPK4expr.exit.i207, %land.rhs.i.i.i203, %if.end160
-  %call8.i227 = invoke fastcc noundef zeroext i1 @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_3clEP4expr"(ptr noundef nonnull align 8 dereferenceable(24) %is_recognizer_base, ptr noundef nonnull %126)
+  %call8.i227 = invoke fastcc noundef zeroext i1 @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_3clEP4expr"(ptr noundef nonnull align 8 dereferenceable(24) %is_recognizer_base, ptr noundef nonnull readonly %126)
           to label %invoke.cont161 unwind label %lpad84.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont161:                                   ; preds = %if.end7.i201
@@ -5461,8 +5461,8 @@ if.then.i256:                                     ; preds = %_ZNK11ast_manager6i
   %171 = load i32, ptr %m_num_args.i.i257, align 8
   %idx.ext.i.i258 = zext i32 %171 to i64
   %add.ptr.i.idx.i259 = shl nuw nsw i64 %idx.ext.i.i258, 3
-  %172 = getelementptr i8, ptr %163, i64 %add.ptr.i.idx.i259
-  %add.ptr.i.ptr.i260 = getelementptr i8, ptr %172, i64 32
+  %172 = getelementptr inbounds i8, ptr %163, i64 %add.ptr.i.idx.i259
+  %add.ptr.i.ptr.i260 = getelementptr inbounds i8, ptr %172, i64 32
   %cmp.not7.i261 = icmp eq i32 %171, 0
   br i1 %cmp.not7.i261, label %if.end7.i246, label %for.body.lr.ph.i262
 
@@ -5485,7 +5485,7 @@ call5.i.noexc269:                                 ; preds = %for.body.i264
   br i1 %call5.i270, label %land.lhs.true173, label %for.cond.i266
 
 if.end7.i246:                                     ; preds = %for.cond.i266, %if.then.i256, %_ZNK11ast_manager6is_andEPK4expr.exit.i252, %land.rhs.i.i.i248, %if.then170
-  %call8.i272 = invoke fastcc noundef zeroext i1 @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_3clEP4expr"(ptr noundef nonnull align 8 dereferenceable(24) %is_recognizer_base, ptr noundef %163)
+  %call8.i272 = invoke fastcc noundef zeroext i1 @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_3clEP4expr"(ptr noundef nonnull align 8 dereferenceable(24) %is_recognizer_base, ptr noundef readonly %163)
           to label %invoke.cont171 unwind label %lpad84.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont171:                                   ; preds = %if.end7.i246
@@ -5533,8 +5533,8 @@ if.then183:                                       ; preds = %invoke.cont181
   %179 = load i32, ptr %m_num_args.i280, align 8
   %idx.ext.i281 = zext i32 %179 to i64
   %add.ptr.i282.idx = shl nuw nsw i64 %idx.ext.i281, 3
-  %180 = getelementptr i8, ptr %126, i64 %add.ptr.i282.idx
-  %add.ptr.i282.ptr = getelementptr i8, ptr %180, i64 32
+  %180 = getelementptr inbounds i8, ptr %126, i64 %add.ptr.i282.idx
+  %add.ptr.i282.ptr = getelementptr inbounds i8, ptr %180, i64 32
   %cmp194.not579 = icmp eq i32 %179, 0
   br i1 %cmp194.not579, label %if.end201, label %for.body195.preheader
 
@@ -5577,7 +5577,7 @@ land.lhs.true.i.i296:                             ; preds = %_ZNK11ast_manager6i
 if.then.i299:                                     ; preds = %land.lhs.true.i.i296
   %m_args.i.i.i300 = getelementptr inbounds i8, ptr %181, i64 32
   %188 = load ptr, ptr %m_args.i.i.i300, align 8
-  invoke fastcc void @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_2clEP4expr"(ptr noundef nonnull align 8 dereferenceable(32) %add_recognizer, ptr noundef %188)
+  invoke fastcc void @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_2clEP4expr"(ptr noundef nonnull readonly align 8 dereferenceable(32) %add_recognizer, ptr noundef %188)
           to label %for.inc198 unwind label %lpad84.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc198:                                       ; preds = %land.lhs.true.i.i296, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i292, %land.rhs.i.i.i.i288, %for.body195, %if.then.i299
@@ -5617,8 +5617,8 @@ if.then205:                                       ; preds = %invoke.cont203
   %194 = load i32, ptr %m_num_args.i317, align 8
   %idx.ext.i318 = zext i32 %194 to i64
   %add.ptr.i319.idx = shl nuw nsw i64 %idx.ext.i318, 3
-  %195 = getelementptr i8, ptr %126, i64 %add.ptr.i319.idx
-  %add.ptr.i319.ptr = getelementptr i8, ptr %195, i64 32
+  %195 = getelementptr inbounds i8, ptr %126, i64 %add.ptr.i319.idx
+  %add.ptr.i319.ptr = getelementptr inbounds i8, ptr %195, i64 32
   %cmp216.not581 = icmp eq i32 %194, 0
   br i1 %cmp216.not581, label %if.end231, label %for.body217.preheader
 
@@ -5693,8 +5693,8 @@ if.then.i350:                                     ; preds = %_ZNK11ast_manager6i
   %209 = load i32, ptr %m_num_args.i.i351, align 8
   %idx.ext.i.i352 = zext i32 %209 to i64
   %add.ptr.i.idx.i353 = shl nuw nsw i64 %idx.ext.i.i352, 3
-  %210 = getelementptr i8, ptr %203, i64 %add.ptr.i.idx.i353
-  %add.ptr.i.ptr.i354 = getelementptr i8, ptr %210, i64 32
+  %210 = getelementptr inbounds i8, ptr %203, i64 %add.ptr.i.idx.i353
+  %add.ptr.i.ptr.i354 = getelementptr inbounds i8, ptr %210, i64 32
   %cmp.not7.i355 = icmp eq i32 %209, 0
   br i1 %cmp.not7.i355, label %if.end7.i340, label %for.body.lr.ph.i356
 
@@ -5717,7 +5717,7 @@ call5.i.noexc363:                                 ; preds = %for.body.i358
   br i1 %call5.i364, label %for.inc239, label %for.cond.i360
 
 if.end7.i340:                                     ; preds = %for.cond.i360, %if.then.i350, %_ZNK11ast_manager6is_andEPK4expr.exit.i346, %land.rhs.i.i.i342, %land.lhs.true223
-  %call8.i366 = invoke fastcc noundef zeroext i1 @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_3clEP4expr"(ptr noundef nonnull align 8 dereferenceable(24) %is_recognizer_base, ptr noundef %203)
+  %call8.i366 = invoke fastcc noundef zeroext i1 @"_ZZN7datalog15rule_properties14check_accessorEP3appENK3$_3clEP4expr"(ptr noundef nonnull align 8 dereferenceable(24) %is_recognizer_base, ptr noundef readonly %203)
           to label %invoke.cont224 unwind label %lpad84.loopexit.split-lp.loopexit
 
 invoke.cont224:                                   ; preds = %if.end7.i340

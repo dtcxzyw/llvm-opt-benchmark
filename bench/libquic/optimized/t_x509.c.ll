@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.43 = private unnamed_addr constant [4 x i8] c"Dec\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_print_ex_fp(ptr noundef %fp, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_print_ex_fp(ptr noundef %fp, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #4
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #4
@@ -63,7 +63,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @BIO_set_fp(ptr noundef nonnull %call1, ptr noundef %fp, i32 noundef 0) #4
-  %call3 = tail call i32 @X509_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag), !range !7
+  %call3 = tail call i32 @X509_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #4
   br label %return
 
@@ -81,7 +81,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @BIO_set_fp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %and = and i64 %nmflags, 983040
   %cmp = icmp eq i64 %and, 262144
@@ -188,7 +188,7 @@ for.body:                                         ; preds = %for.cond
   %cond70 = select i1 %cmp68, i32 10, i32 58
   %call71 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.10, i32 noundef %conv65, i32 noundef %cond70) #4
   %cmp72 = icmp slt i32 %call71, 1
-  br i1 %cmp72, label %if.end252, label %for.cond, !llvm.loop !8
+  br i1 %cmp72, label %if.end252, label %for.cond, !llvm.loop !7
 
 if.end77:                                         ; preds = %for.cond, %if.then40, %if.end23
   %and78 = and i64 %cflag, 8
@@ -273,11 +273,11 @@ if.end120:                                        ; preds = %if.end115
   ]
 
 if.then.i:                                        ; preds = %if.end120
-  %call.i90 = tail call i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef nonnull %18), !range !7
+  %call.i90 = tail call i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef nonnull readonly %18)
   br label %ASN1_TIME_print.exit
 
 if.then3.i:                                       ; preds = %if.end120
-  %call4.i = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef nonnull %18), !range !7
+  %call4.i = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef nonnull readonly %18)
   br label %ASN1_TIME_print.exit
 
 ASN1_TIME_print.exit.thread:                      ; preds = %if.end120
@@ -300,7 +300,7 @@ if.end130:                                        ; preds = %if.end125
   %21 = load ptr, ptr %validity132, align 8
   %notAfter = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %notAfter, align 8
-  %call133 = tail call i32 @ASN1_TIME_print(ptr noundef %bp, ptr noundef %22), !range !7
+  %call133 = tail call i32 @ASN1_TIME_print(ptr noundef %bp, ptr noundef %22)
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %if.end252, label %if.end136
 
@@ -461,7 +461,7 @@ if.end252:                                        ; preds = %for.body, %land.lhs
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @BIO_s_file() #4
   %call1.i = tail call ptr @BIO_new(ptr noundef %call.i) #4
@@ -474,7 +474,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call i32 @BIO_set_fp(ptr noundef nonnull %call1.i, ptr noundef %fp, i32 noundef 0) #4
-  %call3.i = tail call i32 @X509_print_ex(ptr noundef nonnull %call1.i, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !7
+  %call3.i = tail call i32 @X509_print_ex(ptr noundef nonnull %call1.i, ptr noundef %x, i64 noundef 0, i64 noundef 0)
   %call4.i = tail call i32 @BIO_free(ptr noundef nonnull %call1.i) #4
   br label %X509_print_ex_fp.exit
 
@@ -484,9 +484,9 @@ X509_print_ex_fp.exit:                            ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !7
+  %call = tail call i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef 0, i64 noundef 0)
   ret i32 %call
 }
 
@@ -546,7 +546,7 @@ declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_TIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_TIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %tm, i64 4
   %0 = load i32, ptr %type, align 4
@@ -556,11 +556,11 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef nonnull %tm), !range !7
+  %call = tail call i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef nonnull %tm)
   br label %return
 
 if.then3:                                         ; preds = %entry
-  %call4 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef nonnull %tm), !range !7
+  %call4 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef nonnull %tm)
   br label %return
 
 if.end5:                                          ; preds = %entry
@@ -596,7 +596,7 @@ declare i32 @X509_CERT_AUX_print(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_ocspid_print(ptr noundef %bp, ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %bp, ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %dertmp = alloca ptr, align 8
   %SHA1md = alloca [20 x i8], align 16
@@ -628,7 +628,7 @@ if.end6:                                          ; preds = %if.end
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %if.end6, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.end6 ]
@@ -663,7 +663,7 @@ if.end27:                                         ; preds = %for.end
 for.cond39:                                       ; preds = %for.body42
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next27, 20
-  br i1 %exitcond29.not, label %for.end53, label %for.body42, !llvm.loop !11
+  br i1 %exitcond29.not, label %for.end53, label %for.body42, !llvm.loop !10
 
 for.body42:                                       ; preds = %if.end27, %for.cond39
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %for.cond39 ], [ 0, %if.end27 ]
@@ -701,7 +701,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 declare i32 @x509_print_rsa_pss_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [80 x i8], align 16
   %cmp = icmp eq ptr %v, null
@@ -759,7 +759,7 @@ for.inc:                                          ; preds = %if.then30.for.inc_c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = sext i32 %4 to i64
   %cmp1 = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc
   %cmp37 = icmp sgt i32 %n.1, 0
@@ -779,7 +779,7 @@ return:                                           ; preds = %if.then30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %tm, align 8
   %data = getelementptr inbounds i8, ptr %tm, i64 8
@@ -798,7 +798,7 @@ if.end:                                           ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.body:                                         ; preds = %if.end, %for.cond
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.cond ]
@@ -907,7 +907,7 @@ return:                                           ; preds = %if.end100, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %tm, align 8
   %data = getelementptr inbounds i8, ptr %tm, i64 8
@@ -926,7 +926,7 @@ if.end:                                           ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.body:                                         ; preds = %if.end, %for.cond
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.cond ]
@@ -1047,7 +1047,7 @@ land.lhs.true119:                                 ; preds = %land.lhs.true119.pr
 while.body:                                       ; preds = %land.lhs.true119
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond57.not, label %if.end132, label %land.lhs.true119, !llvm.loop !15
+  br i1 %exitcond57.not, label %if.end132, label %land.lhs.true119, !llvm.loop !14
 
 if.end132.loopexit.split.loop.exit:               ; preds = %land.lhs.true119
   %36 = trunc nuw nsw i64 %indvars.iv53 to i32
@@ -1077,7 +1077,7 @@ return:                                           ; preds = %if.end132, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_NAME_print(ptr noundef %bp, ptr noundef %name, i32 noundef %obase) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_NAME_print(ptr noundef %bp, ptr noundef %name, i32 noundef %obase) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_NAME_oneline(ptr noundef %name, ptr noundef null, i32 noundef 0) #4
   %tobool.not = icmp eq ptr %call, null
@@ -1191,12 +1191,11 @@ attributes #5 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

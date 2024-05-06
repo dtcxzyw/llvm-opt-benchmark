@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7513UnicodeFilter7matchesERKNS_11ReplaceableERiia(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %offset, i32 noundef %limit, i8 noundef signext %incremental) unnamed_addr #7 align 2 {
+define noundef range(i32 0, 3) i32 @_ZN6icu_7513UnicodeFilter7matchesERKNS_11ReplaceableERiia(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %offset, i32 noundef %limit, i8 noundef signext %incremental) unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %offset, align 4
   %cmp = icmp slt i32 %0, %limit
@@ -161,7 +161,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn8_N6icu_7513UnicodeFilter7matchesERKNS_11ReplaceableERiia(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %offset, i32 noundef %limit, i8 noundef signext %incremental) unnamed_addr #8 align 2 {
+define noundef range(i32 0, 3) i32 @_ZThn8_N6icu_7513UnicodeFilter7matchesERKNS_11ReplaceableERiia(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %offset, i32 noundef %limit, i8 noundef signext %incremental) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %1 = load i32, ptr %offset, align 4

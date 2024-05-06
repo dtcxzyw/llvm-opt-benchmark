@@ -13,7 +13,7 @@ define dso_local ptr @lzma_index_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %index_tree_append.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -154,7 +154,7 @@ define dso_local i64 @lzma_index_block_count(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_index_stream_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i64 0, 4294967296) i64 @lzma_index_stream_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -162,7 +162,7 @@ define dso_local i64 @lzma_index_stream_count(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i64 @lzma_index_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, -3) i64 @lzma_index_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -203,7 +203,7 @@ define dso_local i64 @lzma_index_stream_size(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i64 @lzma_index_file_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @lzma_index_file_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 72
@@ -284,7 +284,7 @@ define dso_local i32 @lzma_index_checks(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @lzma_index_padding_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 4) i32 @lzma_index_padding_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -328,7 +328,7 @@ declare i32 @lzma_stream_flags_compare(ptr noundef, ptr noundef) local_unnamed_a
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local i32 @lzma_index_stream_padding(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 12) i32 @lzma_index_stream_padding(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp ne ptr %0, null
   %4 = and i64 %1, -9223372036854775805
   %5 = icmp eq i64 %4, 0
@@ -399,7 +399,7 @@ lzma_index_file_size.exit:                        ; preds = %25, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_index_append(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_index_append(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = add i64 %2, -9223372036854775805
   %7 = icmp ult i64 %6, -9223372036854775800
@@ -545,14 +545,14 @@ index_file_size.exit:                             ; preds = %.thread
   store ptr %84, ptr %105, align 8
   store ptr %84, ptr %13, align 8
   %106 = load i32, ptr %97, align 8
-  %107 = tail call i32 @llvm.ctlz.i32(i32 %106, i1 true), !range !5
+  %107 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %106, i1 true)
   %108 = xor i32 %107, 31
   %109 = shl nuw i32 1, %108
   %.not.i = icmp eq i32 %106, %109
   br i1 %.not.i, label %index_tree_append.exit, label %110
 
 110:                                              ; preds = %104
-  %111 = tail call i32 @llvm.cttz.i32(i32 %106, i1 true), !range !5
+  %111 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %106, i1 true)
   %112 = add nuw nsw i32 %111, 2
   br label %113
 
@@ -563,7 +563,7 @@ index_file_size.exit:                             ; preds = %.thread
   %115 = load ptr, ptr %114, align 8
   %116 = add nsw i32 %.038.i, -1
   %.not41.i = icmp eq i32 %116, 0
-  br i1 %.not41.i, label %117, label %113, !llvm.loop !6
+  br i1 %.not41.i, label %117, label %113, !llvm.loop !5
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds i8, ptr %115, i64 32
@@ -634,7 +634,7 @@ declare i32 @lzma_vli_size(i64 noundef) local_unnamed_addr #8
 declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_index_cat(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 10) i32 @lzma_index_cat(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.index_cat_info, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -949,14 +949,14 @@ tailrecurse:                                      ; preds = %index_tree_append.e
   store ptr %.tr20, ptr %41, align 8
   store ptr %.tr20, ptr %29, align 8
   %42 = load i32, ptr %32, align 8
-  %43 = tail call i32 @llvm.ctlz.i32(i32 %42, i1 true), !range !5
+  %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
   %44 = xor i32 %43, 31
   %45 = shl nuw i32 1, %44
   %.not.i = icmp eq i32 %42, %45
   br i1 %.not.i, label %index_tree_append.exit, label %46
 
 46:                                               ; preds = %39
-  %47 = tail call i32 @llvm.cttz.i32(i32 %42, i1 true), !range !5
+  %47 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %42, i1 true)
   %48 = add nuw nsw i32 %47, 2
   br label %49
 
@@ -967,7 +967,7 @@ tailrecurse:                                      ; preds = %index_tree_append.e
   %51 = load ptr, ptr %50, align 8
   %52 = add nsw i32 %.038.i, -1
   %.not41.i = icmp eq i32 %52, 0
-  br i1 %.not41.i, label %53, label %49, !llvm.loop !6
+  br i1 %.not41.i, label %53, label %49, !llvm.loop !5
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %51, i64 32
@@ -1012,7 +1012,7 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not.i, label %index_init_plain.exit.thread, label %4
 
 4:                                                ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 32
   %6 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 512, ptr %6, align 8
@@ -1061,7 +1061,7 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   %35 = getelementptr inbounds i8, ptr %30, i64 48
   store i64 %29, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %30, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %36, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %36, i8 0, i64 28, i1 false)
   %37 = getelementptr inbounds i8, ptr %30, i64 88
   %38 = getelementptr inbounds i8, ptr %30, i64 104
   %39 = getelementptr inbounds i8, ptr %30, i64 160
@@ -1072,7 +1072,7 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   %43 = getelementptr inbounds i8, ptr %30, i64 96
   store i64 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %.02242, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull readonly align 8 dereferenceable(56) %44, i64 56, i1 false)
   %45 = getelementptr inbounds i8, ptr %.02242, i64 160
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %39, align 8
@@ -1129,7 +1129,7 @@ index_stream_end.exit.i:                          ; preds = %50
   %75 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %76 = load ptr, ptr %75, align 8
   %.not16.i.i = icmp eq ptr %76, null
-  br i1 %.not16.i.i, label %index_tree_next.exit.i, label %.preheader17.i.i, !llvm.loop !8
+  br i1 %.not16.i.i, label %index_tree_next.exit.i, label %.preheader17.i.i, !llvm.loop !7
 
 .preheader.i.i:                                   ; preds = %63, %79
   %.1.i.i = phi ptr [ %78, %79 ], [ %.041.i, %63 ]
@@ -1142,11 +1142,11 @@ index_stream_end.exit.i:                          ; preds = %50
   %80 = getelementptr inbounds i8, ptr %78, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, %.1.i.i
-  br i1 %82, label %.preheader.i.i, label %index_tree_next.exit.i, !llvm.loop !9
+  br i1 %82, label %.preheader.i.i, label %index_tree_next.exit.i, !llvm.loop !8
 
 index_tree_next.exit.i:                           ; preds = %.preheader17.i.i, %79
   %.011.i.i = phi ptr [ %78, %79 ], [ %.0.i.i, %.preheader17.i.i ]
-  br label %63, !llvm.loop !10
+  br label %63, !llvm.loop !9
 
 83:                                               ; preds = %.preheader.i.i
   %84 = getelementptr inbounds i8, ptr %53, i64 16
@@ -1193,14 +1193,14 @@ index_dup_stream.exit:                            ; preds = %83, %32
   %95 = getelementptr inbounds i8, ptr %23, i64 32
   store ptr %30, ptr %95, align 8
   store ptr %30, ptr %18, align 8
-  %96 = tail call i32 @llvm.ctlz.i32(i32 %90, i1 true), !range !5
+  %96 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %90, i1 true)
   %97 = xor i32 %96, 31
   %98 = shl nuw i32 1, %97
   %.not.i28 = icmp eq i32 %90, %98
   br i1 %.not.i28, label %index_tree_append.exit, label %99
 
 99:                                               ; preds = %94
-  %100 = tail call i32 @llvm.cttz.i32(i32 %90, i1 true), !range !5
+  %100 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %90, i1 true)
   %101 = add nuw nsw i32 %100, 2
   br label %102
 
@@ -1211,7 +1211,7 @@ index_dup_stream.exit:                            ; preds = %83, %32
   %104 = load ptr, ptr %103, align 8
   %105 = add nsw i32 %.038.i, -1
   %.not41.i = icmp eq i32 %105, 0
-  br i1 %.not41.i, label %106, label %102, !llvm.loop !6
+  br i1 %.not41.i, label %106, label %102, !llvm.loop !5
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %104, i64 32
@@ -1252,7 +1252,7 @@ index_tree_append.exit:                           ; preds = %93, %94, %119
   %122 = getelementptr inbounds i8, ptr %.0.i31, i64 24
   %123 = load ptr, ptr %122, align 8
   %.not16.i = icmp eq ptr %123, null
-  br i1 %.not16.i, label %index_tree_next.exit, label %.preheader17.i, !llvm.loop !8
+  br i1 %.not16.i, label %index_tree_next.exit, label %.preheader17.i, !llvm.loop !7
 
 .preheader.i:                                     ; preds = %index_tree_append.exit, %126
   %.1.i = phi ptr [ %125, %126 ], [ %.02242, %index_tree_append.exit ]
@@ -1265,14 +1265,14 @@ index_tree_append.exit:                           ; preds = %93, %94, %119
   %127 = getelementptr inbounds i8, ptr %125, i64 32
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, %.1.i
-  br i1 %129, label %.preheader.i, label %index_tree_next.exit, !llvm.loop !9
+  br i1 %129, label %.preheader.i, label %index_tree_next.exit, !llvm.loop !8
 
 index_tree_next.exit:                             ; preds = %.preheader17.i, %126
   %.011.i = phi ptr [ %125, %126 ], [ %.0.i31, %.preheader17.i ]
   %130 = getelementptr inbounds i8, ptr %.011.i, i64 88
   %131 = load i64, ptr %130, align 8
   %132 = icmp ugt i64 %131, 1152921504606846971
-  br i1 %132, label %.loopexit, label %21, !llvm.loop !11
+  br i1 %132, label %.loopexit, label %21, !llvm.loop !10
 
 index_init_plain.exit.thread:                     ; preds = %.preheader.i, %2, %lzma_index_end.exit
   %.0 = phi ptr [ null, %lzma_index_end.exit ], [ null, %2 ], [ %3, %.preheader.i ]
@@ -1284,7 +1284,7 @@ define dso_local void @lzma_index_iter_init(ptr nocapture noundef writeonly %0, 
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 264
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -1296,7 +1296,7 @@ define dso_local void @lzma_index_iter_rewind(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local noundef zeroext i8 @lzma_index_iter_next(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_next(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = icmp ugt i32 %1, 3
   br i1 %3, label %index_tree_next.exit82, label %4
 
@@ -1336,7 +1336,7 @@ define dso_local noundef zeroext i8 @lzma_index_iter_next(ptr nocapture noundef 
   %21 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not16.i = icmp eq ptr %22, null
-  br i1 %.not16.i, label %index_tree_next.exit, label %.preheader17.i, !llvm.loop !8
+  br i1 %.not16.i, label %index_tree_next.exit, label %.preheader17.i, !llvm.loop !7
 
 .preheader.i:                                     ; preds = %16, %25
   %.1.i = phi ptr [ %24, %25 ], [ %18, %16 ]
@@ -1349,7 +1349,7 @@ define dso_local noundef zeroext i8 @lzma_index_iter_next(ptr nocapture noundef 
   %26 = getelementptr inbounds i8, ptr %24, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %.1.i
-  br i1 %28, label %.preheader.i, label %index_tree_next.exit, !llvm.loop !9
+  br i1 %28, label %.preheader.i, label %index_tree_next.exit, !llvm.loop !8
 
 29:                                               ; preds = %11
   %30 = getelementptr inbounds i8, ptr %8, i64 64
@@ -1396,7 +1396,7 @@ index_tree_next.exit:                             ; preds = %.preheader17.i, %25
   %43 = getelementptr inbounds i8, ptr %.0.i58, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not16.i59 = icmp eq ptr %44, null
-  br i1 %.not16.i59, label %index_tree_next.exit64, label %.preheader17.i57, !llvm.loop !8
+  br i1 %.not16.i59, label %index_tree_next.exit64, label %.preheader17.i57, !llvm.loop !7
 
 .preheader.i61:                                   ; preds = %.lr.ph, %47
   %.1.i62 = phi ptr [ %46, %47 ], [ %.14697, %.lr.ph ]
@@ -1409,14 +1409,14 @@ index_tree_next.exit:                             ; preds = %.preheader17.i, %25
   %48 = getelementptr inbounds i8, ptr %46, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %.1.i62
-  br i1 %50, label %.preheader.i61, label %index_tree_next.exit64, !llvm.loop !9
+  br i1 %50, label %.preheader.i61, label %index_tree_next.exit64, !llvm.loop !8
 
 index_tree_next.exit64:                           ; preds = %.preheader17.i57, %47
   %.011.i60 = phi ptr [ %46, %47 ], [ %.0.i58, %.preheader17.i57 ]
   %51 = getelementptr inbounds i8, ptr %.011.i60, i64 64
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.lr.ph, label %.critedge55.thread, !llvm.loop !12
+  br i1 %53, label %.lr.ph, label %.critedge55.thread, !llvm.loop !11
 
 54:                                               ; preds = %.backedge
   %.not53 = icmp eq ptr %.144, null
@@ -1443,7 +1443,7 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   %64 = getelementptr inbounds i8, ptr %.0.i67, i64 24
   %65 = load ptr, ptr %64, align 8
   %.not16.i68 = icmp eq ptr %65, null
-  br i1 %.not16.i68, label %.critedge55.thread, label %.preheader17.i66, !llvm.loop !8
+  br i1 %.not16.i68, label %.critedge55.thread, label %.preheader17.i66, !llvm.loop !7
 
 .preheader.i70:                                   ; preds = %61, %68
   %.1.i71 = phi ptr [ %67, %68 ], [ %.144, %61 ]
@@ -1456,7 +1456,7 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   %69 = getelementptr inbounds i8, ptr %67, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, %.1.i71
-  br i1 %71, label %.preheader.i70, label %.critedge55.thread, !llvm.loop !9
+  br i1 %71, label %.preheader.i70, label %.critedge55.thread, !llvm.loop !8
 
 .critedge55:                                      ; preds = %.preheader.i70, %54
   br i1 %32, label %.critedge55.split.us, label %.critedge55.split
@@ -1473,7 +1473,7 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   %74 = getelementptr inbounds i8, ptr %.0.i76.us, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not16.i77.us = icmp eq ptr %75, null
-  br i1 %.not16.i77.us, label %.loopexit.us, label %.preheader17.i75.us, !llvm.loop !8
+  br i1 %.not16.i77.us, label %.loopexit.us, label %.preheader17.i75.us, !llvm.loop !7
 
 .preheader.i79.us:                                ; preds = %.critedge55.split.us, %78
   %.1.i80.us = phi ptr [ %77, %78 ], [ %.348.us, %.critedge55.split.us ]
@@ -1486,14 +1486,14 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   %79 = getelementptr inbounds i8, ptr %77, i64 32
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, %.1.i80.us
-  br i1 %81, label %.preheader.i79.us, label %.loopexit.us, !llvm.loop !9
+  br i1 %81, label %.preheader.i79.us, label %.loopexit.us, !llvm.loop !8
 
 .loopexit.us:                                     ; preds = %.preheader17.i75.us, %78
   %.011.i78.ph.us = phi ptr [ %77, %78 ], [ %.0.i76.us, %.preheader17.i75.us ]
   %82 = getelementptr inbounds i8, ptr %.011.i78.ph.us, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %.critedge55.split.us, label %.critedge, !llvm.loop !13
+  br i1 %84, label %.critedge55.split.us, label %.critedge, !llvm.loop !12
 
 .critedge55.split:                                ; preds = %.critedge55
   %85 = getelementptr inbounds i8, ptr %.045, i64 32
@@ -1506,7 +1506,7 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   %87 = getelementptr inbounds i8, ptr %.0.i76, i64 24
   %88 = load ptr, ptr %87, align 8
   %.not16.i77 = icmp eq ptr %88, null
-  br i1 %.not16.i77, label %.critedge, label %.preheader17.i75, !llvm.loop !8
+  br i1 %.not16.i77, label %.critedge, label %.preheader17.i75, !llvm.loop !7
 
 .preheader.i79:                                   ; preds = %.critedge55.split, %91
   %.1.i80 = phi ptr [ %90, %91 ], [ %.045, %.critedge55.split ]
@@ -1519,7 +1519,7 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   %92 = getelementptr inbounds i8, ptr %90, i64 32
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, %.1.i80
-  br i1 %94, label %.preheader.i79, label %.critedge, !llvm.loop !9
+  br i1 %94, label %.preheader.i79, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader17.i75, %91, %.loopexit.us
   %.us-phi = phi ptr [ %.011.i78.ph.us, %.loopexit.us ], [ %90, %91 ], [ %.0.i76, %.preheader17.i75 ]
@@ -1769,7 +1769,7 @@ define internal fastcc void @iter_set_info(ptr nocapture noundef %0) unnamed_add
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local noundef zeroext i8 @lzma_index_iter_locate(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #11 {
+define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_locate(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1792,7 +1792,7 @@ define dso_local noundef zeroext i8 @lzma_index_iter_locate(ptr nocapture nounde
   %.1.in.i = getelementptr inbounds i8, ptr %.012.i, i64 %.1.in.v.i
   %.0.i = load ptr, ptr %.1.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %index_tree_locate.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %index_tree_locate.exit, label %.lr.ph.i, !llvm.loop !13
 
 index_tree_locate.exit:                           ; preds = %.lr.ph.i, %7
   %.07.lcssa.i = phi ptr [ null, %7 ], [ %.18.i, %.lr.ph.i ]
@@ -1813,7 +1813,7 @@ index_tree_locate.exit:                           ; preds = %.lr.ph.i, %7
   %.1.in.i39 = getelementptr inbounds i8, ptr %.012.i35, i64 %.1.in.v.i38
   %.0.i40 = load ptr, ptr %.1.in.i39, align 8
   %.not.i41 = icmp eq ptr %.0.i40, null
-  br i1 %.not.i41, label %index_tree_locate.exit43, label %.lr.ph.i34, !llvm.loop !14
+  br i1 %.not.i41, label %index_tree_locate.exit43, label %.lr.ph.i34, !llvm.loop !13
 
 index_tree_locate.exit43:                         ; preds = %.lr.ph.i34, %index_tree_locate.exit
   %.07.lcssa.i42 = phi ptr [ null, %index_tree_locate.exit ], [ %.18.i37, %.lr.ph.i34 ]
@@ -1839,7 +1839,7 @@ index_tree_locate.exit43:                         ; preds = %.lr.ph.i34, %index_
   %.129 = select i1 %.not31, i64 %.02844, i64 %24
   %.1 = select i1 %.not31, i64 %21, i64 %.02745
   %25 = icmp ult i64 %.129, %.1
-  br i1 %25, label %18, label %._crit_edge, !llvm.loop !15
+  br i1 %25, label %18, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %index_tree_locate.exit43
   %.028.lcssa = phi i64 [ 0, %index_tree_locate.exit43 ], [ %.129, %18 ]
@@ -1885,7 +1885,7 @@ define internal fastcc void @index_tree_node_end(ptr noundef %0, ptr noundef %1,
   br label %11
 
 11:                                               ; preds = %10, %7
-  tail call void %2(ptr noundef nonnull %0, ptr noundef %1) #16, !callees !16
+  tail call void %2(ptr noundef nonnull %0, ptr noundef %1) #16, !callees !15
   ret void
 }
 
@@ -1924,15 +1924,14 @@ attributes #17 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = !{ptr @index_stream_end, ptr @lzma_free}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = !{ptr @index_stream_end, ptr @lzma_free}

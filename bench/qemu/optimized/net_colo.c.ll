@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @connection_key_equal(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @connection_key_equal(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) local_unnamed_addr #1 {
 entry:
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %key1, ptr noundef nonnull dereferenceable(13) %key2, i64 13)
   %cmp = icmp eq i32 %bcmp, 0
@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @parse_packet_early(ptr nocapture noundef %pkt) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @parse_packet_early(ptr nocapture noundef %pkt) local_unnamed_addr #2 {
 entry:
   %_now.i.i36 = alloca %struct.timeval, align 8
   %_now.i.i22 = alloca %struct.timeval, align 8
@@ -333,7 +333,7 @@ if.else:                                          ; preds = %entry
   %5 = load ptr, ptr %0, align 8
   %ip_dst6 = getelementptr inbounds i8, ptr %5, i64 16
   %shr7 = lshr i32 %tmp_ports, 16
-  %conv8 = trunc i32 %shr7 to i16
+  %conv8 = trunc nuw i32 %shr7 to i16
   %call9 = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv8) #16
   br label %if.end
 
@@ -414,7 +414,7 @@ if.else.i:                                        ; preds = %sw.epilog
   %10 = load ptr, ptr %0, align 8
   %ip_dst6.i = getelementptr inbounds i8, ptr %10, i64 16
   %shr7.i = lshr i32 %tmp_ports.0, 16
-  %conv8.i = trunc i32 %shr7.i to i16
+  %conv8.i = trunc nuw i32 %shr7.i to i16
   %call9.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv8.i) #16
   br label %extract_ip_and_port.exit
 

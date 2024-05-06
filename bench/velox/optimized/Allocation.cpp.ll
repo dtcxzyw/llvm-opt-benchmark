@@ -195,7 +195,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %3 = load i64, ptr %__begin2.sroa.0.09, align 8
   %shr.i = lshr i64 %3, 48
   %4 = load i32, ptr %numPages_, align 8
-  %5 = trunc i64 %shr.i to i32
+  %5 = trunc nuw nsw i64 %shr.i to i32
   %conv7 = add i32 %4, %5
   store i32 %conv7, ptr %numPages_, align 8
   %6 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -326,7 +326,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %4, ptr %index, align 4
   %conv8 = trunc i64 %sub to i32
   store i32 %conv8, ptr %offsetInRun, align 4
@@ -468,7 +468,7 @@ _ZN8facebook5velox6memory20ContiguousAllocation3setEPvmm.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8facebook5velox6memory20ContiguousAllocation8numPagesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i64 0, 4503599627370496) i64 @_ZNK8facebook5velox6memory20ContiguousAllocation8numPagesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
   %size_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %size_, align 8

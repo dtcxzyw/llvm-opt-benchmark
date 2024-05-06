@@ -960,7 +960,7 @@ Vec_IntFind.exit:                                 ; preds = %157, %153, %Vec_Int
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sbd_ManSolve2(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbd_ManSolve2(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
   %8 = alloca [2 x i32], align 4
   %9 = shl nsw i32 %1, 1
   store i32 %9, ptr %8, align 4
@@ -1648,7 +1648,7 @@ define void @Sbd_ManSolveSelect(ptr nocapture noundef readonly %0, ptr nocapture
   %26 = getelementptr i8, ptr %8, i64 4
   %.val26 = load i32, ptr %26, align 4
   %27 = add nsw i32 %25, %.val26
-  %28 = tail call i32 @Sbd_ManSolve2(ptr noundef %18, i32 noundef %22, i32 noundef %27, ptr noundef %3, ptr poison, ptr noundef nonnull %14, ptr noundef nonnull %10), !range !18
+  %28 = tail call i32 @Sbd_ManSolve2(ptr noundef %18, i32 noundef %22, i32 noundef %27, ptr noundef %3, ptr poison, ptr noundef nonnull %14, ptr noundef nonnull %10)
   %29 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %29, align 4
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %2, i32 noundef %.val)
@@ -1708,7 +1708,7 @@ define void @Sbd_ManSolveSelect(ptr nocapture noundef readonly %0, ptr nocapture
   %52 = add nuw nsw i32 %.09.i, %51
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i33, %35
-  br i1 %exitcond.not.i, label %Vec_IntCountEntry.exit, label %.lr.ph.i31, !llvm.loop !19
+  br i1 %exitcond.not.i, label %Vec_IntCountEntry.exit, label %.lr.ph.i31, !llvm.loop !18
 
 Vec_IntCountEntry.exit:                           ; preds = %.lr.ph.i31, %33
   %.0.lcssa.i38 = phi i32 [ 0, %33 ], [ %.1.i, %.lr.ph.i31 ]
@@ -1742,7 +1742,7 @@ Vec_IntFree.exit36:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sbd_ManCollectConstants(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @Sbd_ManCollectConstants(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %4, i64 4
   %.val36 = load i32, ptr %7, align 4
@@ -1799,7 +1799,7 @@ define i32 @Sbd_ManCollectConstants(ptr noundef %0, ptr nocapture noundef readon
   store i8 %33, ptr %35, align 1
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 64
-  br i1 %exitcond.not.i.us, label %..critedge_crit_edge.i.us, label %25, !llvm.loop !20
+  br i1 %exitcond.not.i.us, label %..critedge_crit_edge.i.us, label %25, !llvm.loop !19
 
 ..critedge_crit_edge.i.us:                        ; preds = %30
   %.pre.i.us = load i32, ptr %0, align 8
@@ -1810,7 +1810,7 @@ define i32 @Sbd_ManCollectConstants(ptr noundef %0, ptr nocapture noundef readon
   %.pre-phi.i.us = phi i64 [ %.pre20.i.us, %..critedge_crit_edge.i.us ], [ %28, %25 ]
   %indvars.iv.next18.i.us = add nuw nsw i64 %indvars.iv17.i.us, 64
   %36 = icmp slt i64 %indvars.iv.next18.i.us, %.pre-phi.i.us
-  br i1 %36, label %.lr.ph.i.us, label %sat_solver_random_polarity.exit.us, !llvm.loop !21
+  br i1 %36, label %.lr.ph.i.us, label %sat_solver_random_polarity.exit.us, !llvm.loop !20
 
 sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.lr.ph39.split.us
   %37 = call i32 @sat_solver_solve(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
@@ -1823,7 +1823,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.l
   %38 = add nuw nsw i32 %.02737.us, 1
   %.val.us = load i32, ptr %7, align 4
   %39 = icmp slt i32 %38, %.val.us
-  br i1 %39, label %.lr.ph39.split.us, label %.critedge, !llvm.loop !22
+  br i1 %39, label %.lr.ph39.split.us, label %.critedge, !llvm.loop !21
 
 .lr.ph39.split:                                   ; preds = %.lr.ph39.split.preheader, %._crit_edge
   %indvars.iv55 = phi i64 [ 0, %.lr.ph39.split.preheader ], [ %indvars.iv.next56, %._crit_edge ]
@@ -1865,7 +1865,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.l
   store i8 %61, ptr %63, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %53, !llvm.loop !20
+  br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %53, !llvm.loop !19
 
 ..critedge_crit_edge.i:                           ; preds = %58
   %.pre.i = load i32, ptr %0, align 8
@@ -1876,7 +1876,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.l
   %.pre-phi.i = phi i64 [ %.pre20.i, %..critedge_crit_edge.i ], [ %56, %53 ]
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 64
   %64 = icmp slt i64 %indvars.iv.next18.i, %.pre-phi.i
-  br i1 %64, label %.lr.ph.i, label %sat_solver_random_polarity.exit, !llvm.loop !21
+  br i1 %64, label %.lr.ph.i, label %sat_solver_random_polarity.exit, !llvm.loop !20
 
 sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.ph39.split
   %65 = call i32 @sat_solver_solve(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
@@ -1916,14 +1916,14 @@ sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.p
 83:                                               ; preds = %71, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %83
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %.val = load i32, ptr %7, align 4
   %84 = sext i32 %.val to i64
   %85 = icmp slt i64 %indvars.iv.next56, %84
-  br i1 %85, label %.lr.ph39.split, label %.critedge, !llvm.loop !22
+  br i1 %85, label %.lr.ph39.split, label %.critedge, !llvm.loop !21
 
 .critedge.loopexit:                               ; preds = %sat_solver_random_polarity.exit.us
   br label %.critedge
@@ -1937,7 +1937,7 @@ sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sbd_ManCollectConstantsNew(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @Sbd_ManCollectConstantsNew(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %.sroa.0 = alloca ptr, align 16
   %.sroa.2 = alloca ptr, align 8
@@ -1996,7 +1996,7 @@ define i32 @Sbd_ManCollectConstantsNew(ptr noundef %0, ptr nocapture noundef rea
   store i8 %34, ptr %36, align 1
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 64
-  br i1 %exitcond.not.i.us, label %..critedge_crit_edge.i.us, label %26, !llvm.loop !20
+  br i1 %exitcond.not.i.us, label %..critedge_crit_edge.i.us, label %26, !llvm.loop !19
 
 ..critedge_crit_edge.i.us:                        ; preds = %31
   %.pre.i.us = load i32, ptr %0, align 8
@@ -2007,7 +2007,7 @@ define i32 @Sbd_ManCollectConstantsNew(ptr noundef %0, ptr nocapture noundef rea
   %.pre-phi.i.us = phi i64 [ %.pre20.i.us, %..critedge_crit_edge.i.us ], [ %29, %26 ]
   %indvars.iv.next18.i.us = add nuw nsw i64 %indvars.iv17.i.us, 64
   %37 = icmp slt i64 %indvars.iv.next18.i.us, %.pre-phi.i.us
-  br i1 %37, label %.lr.ph.i.us, label %sat_solver_random_polarity.exit.us, !llvm.loop !21
+  br i1 %37, label %.lr.ph.i.us, label %sat_solver_random_polarity.exit.us, !llvm.loop !20
 
 sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %19
   store i32 %18, ptr %7, align 4
@@ -2031,7 +2031,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %19
 .critedge.us:                                     ; preds = %58, %39
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !23
 
 .lr.ph.us:                                        ; preds = %39, %58
   %.val.us59 = phi i32 [ %.val.us, %58 ], [ %.val40.us, %39 ]
@@ -2063,10 +2063,10 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %.val.us to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph.us, label %.critedge.us, !llvm.loop !25
+  br i1 %60, label %.lr.ph.us, label %.critedge.us, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %.critedge.us
-  br i1 %15, label %.preheader.us, label %.split46.us, !llvm.loop !26
+  br i1 %15, label %.preheader.us, label %.split46.us, !llvm.loop !25
 
 .split46.us.loopexit:                             ; preds = %sat_solver_random_polarity.exit.us
   %61 = trunc nuw nsw i64 %indvars.iv56 to i32
@@ -2136,7 +2136,7 @@ attributes #14 = { nounwind allocsize(1) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 0, i32 2}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
@@ -2144,4 +2144,3 @@ attributes #14 = { nounwind allocsize(1) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

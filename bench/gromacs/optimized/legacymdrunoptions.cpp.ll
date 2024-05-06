@@ -38,7 +38,7 @@ $__clang_call_terminate = comdat any
 @_ZN3gmx18LegacyMdrunOptionsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx18LegacyMdrunOptionsD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3gmx18LegacyMdrunOptions21updateFromCommandLineEiPPcNS_8ArrayRefIPKcEE(ptr noundef nonnull align 8 dereferenceable(2176) %0, i32 noundef %1, ptr noundef %2, ptr %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN3gmx18LegacyMdrunOptions21updateFromCommandLineEiPPcNS_8ArrayRefIPKcEE(ptr noundef nonnull align 8 dereferenceable(2176) %0, i32 noundef %1, ptr noundef %2, ptr %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8

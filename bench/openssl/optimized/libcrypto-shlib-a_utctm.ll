@@ -55,7 +55,7 @@ ossl_asn1_utctime_to_tm.exit:                     ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_UTCTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_UTCTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 ASN1_UTCTIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
   %type = getelementptr inbounds i8, ptr %t, i64 4
@@ -153,7 +153,7 @@ declare i32 @OPENSSL_gmtime_adj(ptr noundef, i32 noundef, i64 noundef) local_unn
 declare ptr @ossl_asn1_time_from_tm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_UTCTIME_cmp_time_t(ptr noundef %s, i64 noundef %t) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ASN1_UTCTIME_cmp_time_t(ptr noundef %s, i64 noundef %t) local_unnamed_addr #0 {
 entry:
   %t.addr = alloca i64, align 8
   %stm = alloca %struct.tm, align 8

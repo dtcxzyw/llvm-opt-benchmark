@@ -307,7 +307,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %134 = getelementptr inbounds i8, ptr %131, i64 24
   %135 = load i64, ptr %134, align 8
   %136 = lshr i64 %135, 32
-  %137 = trunc i64 %136 to i32
+  %137 = trunc nuw i64 %136 to i32
   %138 = and i32 %137, 16777215
   %.not276.us = icmp eq i32 %138, %.2236341
   br i1 %.not276.us, label %139, label %145
@@ -344,7 +344,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %156 = getelementptr inbounds i8, ptr %153, i64 24
   %157 = load i64, ptr %156, align 8
   %158 = lshr i64 %157, 32
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nuw i64 %158 to i32
   %160 = and i32 %159, 16777215
   %.not276 = icmp eq i32 %160, %.2236341
   br i1 %.not276, label %161, label %172

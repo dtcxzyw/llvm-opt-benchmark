@@ -99,7 +99,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cdf_info_t, align 8
   %4 = alloca %struct.cdf_header_t, align 8
   %5 = alloca %struct.cdf_sat_t, align 8
@@ -259,7 +259,7 @@ define hidden noundef i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef rea
   br i1 %87, label %.thread42, label %.thread44
 
 .thread42:                                        ; preds = %80, %83, %84
-  %88 = call fastcc i32 @cdf_file_dir_info(ptr noundef nonnull %0, ptr noundef nonnull %9), !range !4
+  %88 = call fastcc i32 @cdf_file_dir_info(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %90, label %.thread44
 
@@ -928,7 +928,7 @@ cdf_file_catalog_info.exit:                       ; preds = %cdf_file_catalog.ex
 declare i32 @cdf_read_doc_summary_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cdf_file_dir_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %._crit_edge
@@ -1100,4 +1100,3 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}

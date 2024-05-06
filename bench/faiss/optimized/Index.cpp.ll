@@ -628,7 +628,7 @@ define void @_ZNK5faiss5Index22search_and_reconstructElPKflPfPlS3_PKNS_16SearchP
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.02834.us = phi i64 [ %51, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %33 = mul nsw i64 %.02834.us, %3
+  %33 = mul nuw nsw i64 %.02834.us, %3
   br label %34
 
 34:                                               ; preds = %.preheader.us, %49

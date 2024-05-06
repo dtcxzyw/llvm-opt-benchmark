@@ -1139,7 +1139,7 @@ visit_type_uintN.exit:                            ; preds = %if.end4.i, %if.end.
   %value.0 = phi i64 [ %conv, %if.end11.i ], [ %conv, %if.end.i ], [ %8, %if.end4.i ]
   %retval.0.i = phi i1 [ false, %if.end11.i ], [ false, %if.end.i ], [ true, %if.end4.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %conv1 = trunc i64 %value.0 to i8
+  %conv1 = trunc nuw i64 %value.0 to i8
   store i8 %conv1, ptr %obj, align 1
   ret i1 %retval.0.i
 }
@@ -1217,7 +1217,7 @@ visit_type_uintN.exit:                            ; preds = %if.end4.i, %if.end.
   %value.0 = phi i64 [ %conv, %if.end11.i ], [ %conv, %if.end.i ], [ %8, %if.end4.i ]
   %retval.0.i = phi i1 [ false, %if.end11.i ], [ false, %if.end.i ], [ true, %if.end4.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %conv1 = trunc i64 %value.0 to i16
+  %conv1 = trunc nuw i64 %value.0 to i16
   store i16 %conv1, ptr %obj, align 2
   ret i1 %retval.0.i
 }
@@ -1295,7 +1295,7 @@ visit_type_uintN.exit:                            ; preds = %if.end4.i, %if.end.
   %value.0 = phi i64 [ %conv, %if.end11.i ], [ %conv, %if.end.i ], [ %8, %if.end4.i ]
   %retval.0.i = phi i1 [ false, %if.end11.i ], [ false, %if.end.i ], [ true, %if.end4.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %conv1 = trunc i64 %value.0 to i32
+  %conv1 = trunc nuw i64 %value.0 to i32
   store i32 %conv1, ptr %obj, align 4
   ret i1 %retval.0.i
 }

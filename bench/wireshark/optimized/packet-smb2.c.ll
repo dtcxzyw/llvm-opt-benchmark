@@ -3572,7 +3572,7 @@ dissect_smb2_FSCTL_SRV_COPYCHUNK.exit:            ; preds = %.lr.ph.i112, %182, 
   br i1 %.not.i116, label %204, label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 204:                                              ; preds = %203
-  %205 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0)
+  %205 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %2, i32 noundef 0)
   br label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 206:                                              ; preds = %7
@@ -3594,7 +3594,7 @@ dissect_smb2_FSCTL_SRV_COPYCHUNK.exit:            ; preds = %.lr.ph.i112, %182, 
   br i1 %.not.i119, label %dissect_smb2_FSCTL_OFFLOAD_READ.exit, label %214
 
 214:                                              ; preds = %213
-  %215 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0)
+  %215 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %2, i32 noundef 0)
   br label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 216:                                              ; preds = %7
@@ -4374,7 +4374,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @smb2stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @smb2stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
@@ -4455,7 +4455,7 @@ define internal i32 @smb2_sesid_info_hash(ptr nocapture noundef readonly %0) #2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @smb2_sesid_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @smb2_sesid_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %3, %4
@@ -4486,7 +4486,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_smb2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_smb2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #12
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %18, label %7
@@ -4880,7 +4880,7 @@ define internal fastcc void @dissect_smb2_NETWORK_INTERFACE_INFO(ptr noundef %0,
 40:                                               ; preds = %36, %34, %38, %30
   %.062.in = phi i64 [ %31, %30 ], [ %.zext, %34 ], [ %.zext72, %38 ], [ %26, %36 ]
   %.0 = phi ptr [ @.str.1499, %30 ], [ @.str.1500, %34 ], [ @.str.1501, %38 ], [ @.str.1497, %36 ]
-  %.062 = uitofp i64 %.062.in to float
+  %.062 = uitofp nneg i64 %.062.in to float
   %41 = fpext float %.062 to double
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.1502, double noundef %41, ptr noundef nonnull %.0) #12
   %42 = load ptr, ptr %4, align 8
@@ -6781,7 +6781,7 @@ define internal i32 @smb2_saved_info_hash_matched(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @smb2_saved_info_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @smb2_saved_info_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6800,7 +6800,7 @@ define internal i32 @smb2_saved_info_hash_unmatched(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @smb2_saved_info_equal_unmatched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @smb2_saved_info_equal_unmatched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6913,7 +6913,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   br i1 %33, label %34, label %29
 
 34:                                               ; preds = %30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %23, i8 0, i64 96, i1 false)
   %36 = load i32, ptr %35, align 8
@@ -6924,7 +6924,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   %38 = getelementptr inbounds i8, ptr %31, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %36 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %39, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %22, ptr align 1 %39, i64 %40, i1 false)
   br label %41
 
 41:                                               ; preds = %37, %34
@@ -6938,13 +6938,13 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
 .thread:                                          ; preds = %41
   %44 = getelementptr inbounds i8, ptr %31, i64 32
   %45 = load ptr, ptr %44, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %45, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %45, i64 16, i1 false)
   br label %49
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %31, i64 32
   %48 = load ptr, ptr %47, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %25, ptr noundef nonnull align 1 dereferenceable(32) %48, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %25, ptr noundef nonnull align 1 dereferenceable(32) %48, i64 32, i1 false)
   br label %49
 
 49:                                               ; preds = %41, %.thread, %46
@@ -6958,13 +6958,13 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
 .thread3:                                         ; preds = %49
   %52 = getelementptr inbounds i8, ptr %31, i64 48
   %53 = load ptr, ptr %52, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %24, ptr noundef nonnull align 1 dereferenceable(16) %53, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %24, ptr noundef nonnull align 1 dereferenceable(16) %53, i64 16, i1 false)
   br label %seskey_find_sid_key.exit
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %31, i64 48
   %56 = load ptr, ptr %55, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %26, ptr noundef nonnull align 1 dereferenceable(32) %56, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %26, ptr noundef nonnull align 1 dereferenceable(32) %56, i64 32, i1 false)
   br label %seskey_find_sid_key.exit
 
 seskey_find_sid_key.exit:                         ; preds = %29, %49, %.thread3, %9, %54
@@ -7135,7 +7135,7 @@ define internal i32 @smb2_tid_info_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @smb2_tid_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @smb2_tid_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -7163,7 +7163,7 @@ define internal i32 @smb2_fid_info_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @smb2_fid_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @smb2_fid_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7228,7 +7228,7 @@ define internal i32 @smb2_eo_files_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @smb2_eo_files_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @smb2_eo_files_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -11607,7 +11607,7 @@ define internal void @dissect_smb2_create_extra_info(ptr noundef %0, ptr noundef
   %.06.i = phi i64 [ 0, %48 ], [ %50, %49 ]
   %52 = getelementptr [17 x %struct.create_context_data_tag_dissectors], ptr @create_context_dissectors_array, i64 0, i64 %.06.i
   %53 = load ptr, ptr %52, align 16
-  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %53) #15
+  %54 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %53) #15
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %get_create_context_data_tag_dissectors.exit, label %49
 
@@ -14400,7 +14400,7 @@ dissect_smb2_fs_info_07.exit:                     ; preds = %112, %113
 
 dissect_smb2_FS_OBJECTID_INFO.exit:               ; preds = %121, %122
   %.0.i218 = phi ptr [ %126, %122 ], [ null, %121 ]
-  %127 = tail call noundef i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %.0.i218, i32 noundef %3)
+  %127 = tail call noundef i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %.0.i218, i32 noundef %3)
   br label %190
 
 128:                                              ; preds = %66
@@ -14655,7 +14655,7 @@ define internal fastcc i32 @dissect_smb2_file_access_info(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_rename_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 20, 131091) i32 @dissect_smb2_file_rename_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %6
@@ -14704,7 +14704,7 @@ define internal fastcc i32 @dissect_smb2_file_rename_info(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_link_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 20, 131091) i32 @dissect_smb2_file_link_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %2, null
@@ -14754,7 +14754,7 @@ define internal fastcc i32 @dissect_smb2_file_link_info(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb2_file_disposition_info(ptr noundef %0, ptr noundef %1, i32 noundef returned %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65536) i32 @dissect_smb2_file_disposition_info(ptr noundef %0, ptr noundef %1, i32 noundef returned %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -15179,7 +15179,7 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_decrypt(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [3 x i64], align 16
   store ptr null, ptr %7, align 8
@@ -15271,7 +15271,7 @@ default.unreachable:                              ; preds = %6
   br i1 %.not30, label %40, label %42
 
 40:                                               ; preds = %37
-  %41 = call fastcc i32 @is_decrypted_header_ok(ptr noundef %0, i64 noundef %1), !range !40
+  %41 = call fastcc i32 @is_decrypted_header_ok(ptr noundef %0, i64 noundef %1)
   br label %42
 
 42:                                               ; preds = %37, %12, %40, %36, %30, %22, %19
@@ -15294,7 +15294,7 @@ declare i32 @gcry_cipher_authenticate(ptr noundef, ptr noundef, i64 noundef) loc
 declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @is_decrypted_header_ok(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @is_decrypted_header_ok(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 {
   %3 = icmp ult i64 %1, 4
   br i1 %3, label %19, label %4
 
@@ -15427,4 +15427,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
-!40 = !{i32 0, i32 2}

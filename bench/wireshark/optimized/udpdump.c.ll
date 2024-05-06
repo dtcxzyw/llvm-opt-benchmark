@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.49 = private unnamed_addr constant [23 x i8] c"Can't write packet: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca ptr, align 8
@@ -218,7 +218,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %54, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = call fastcc i32 @list_config(ptr noundef %63), !range !7
+  %64 = call fastcc i32 @list_config(ptr noundef %63)
   br label %83
 
 65:                                               ; preds = %58
@@ -316,7 +316,7 @@ declare zeroext i8 @extcap_base_handle_interface(ptr noundef) local_unnamed_addr
 declare zeroext i1 @extcap_base_register_graceful_shutdown_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @list_config(ptr noundef readnone %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef readnone %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
@@ -511,16 +511,16 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %80 = trunc i64 %79 to i32
   %81 = lshr i32 %80, 16
   %.sroa.2.0.extract.shift.i = lshr i64 %79, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %82 = call i64 @g_get_real_time() #12
   store i64 0, ptr %4, align 8
-  %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
+  %83 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
   %84 = add i64 %83, 3
   %85 = and i64 %84, 4294967292
   %86 = add nuw i64 %70, 40
   %87 = add nuw i64 %86, %85
   %88 = call noalias ptr @g_malloc0(i64 noundef %87) #14
-  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
+  %89 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
   %90 = trunc i64 %89 to i16
   %91 = add i16 %90, 3
   %92 = and i16 %91, -4
@@ -529,13 +529,13 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   store i8 12, ptr %93, align 1
   %94 = getelementptr i8, ptr %88, i64 2
   %95 = lshr i16 %91, 8
-  %96 = trunc i16 %95 to i8
+  %96 = trunc nuw i16 %95 to i8
   store i8 %96, ptr %94, align 1
   %97 = trunc i16 %92 to i8
   %98 = getelementptr i8, ptr %88, i64 3
   store i8 %97, ptr %98, align 1
   %99 = getelementptr i8, ptr %88, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %2, i64 %89, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %99, ptr readonly align 1 %2, i64 %89, i1 false)
   %100 = zext i16 %92 to i32
   %101 = zext i16 %92 to i64
   %102 = getelementptr i8, ptr %88, i64 %101
@@ -562,13 +562,13 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %114 = add nuw nsw i32 %100, 40
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr i8, ptr %88, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr nonnull align 1 %65, i64 %70, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr nonnull readonly align 1 %65, i64 %70, i1 false)
   %117 = trunc i64 %70 to i32
   %118 = add i32 %114, %117
   %119 = sdiv i64 %82, 1000000
   %120 = and i64 %119, 4294967295
   %121 = srem i64 %82, 1000000
-  %122 = trunc i64 %121 to i32
+  %122 = trunc nsw i64 %121 to i32
   %123 = call zeroext i1 @libpcap_write_packet(ptr noundef %.0.ph, i64 noundef %120, i32 noundef %122, i32 noundef %118, i32 noundef %118, ptr noundef nonnull %88, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   br i1 %123, label %.critedge, label %dump_packet.exit
 
@@ -593,7 +593,7 @@ dump_packet.exit:                                 ; preds = %78
 128:                                              ; preds = %.critedge, %dump_packet.exit, %75, %72, %72
   %129 = load i8, ptr @extcap_end_application, align 1
   %130 = trunc i8 %129 to i1
-  br i1 %130, label %._crit_edge, label %69, !llvm.loop !8
+  br i1 %130, label %._crit_edge, label %69, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %128, %64
   %131 = call i32 @fclose(ptr noundef %.0.ph)
@@ -704,5 +704,4 @@ attributes #15 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

@@ -11,11 +11,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.DH_check_pub_key = private unnamed_addr constant [17 x i8] c"DH_check_pub_key\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DH_check_params_ex(ptr nocapture noundef readonly %dh) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DH_check_params_ex(ptr nocapture noundef readonly %dh) local_unnamed_addr #0 {
 entry:
   %errflags = alloca i32, align 4
   store i32 0, ptr %errflags, align 4
-  %call = call i32 @DH_check_params(ptr noundef %dh, ptr noundef nonnull %errflags), !range !4
+  %call = call i32 @DH_check_params(ptr noundef %dh, ptr noundef nonnull %errflags)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -75,7 +75,7 @@ return:                                           ; preds = %entry, %if.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DH_check_params(ptr nocapture noundef readonly %dh, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DH_check_params(ptr nocapture noundef readonly %dh, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %libctx = getelementptr inbounds i8, ptr %dh, i64 176
@@ -215,11 +215,11 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DH_check_ex(ptr noundef %dh) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DH_check_ex(ptr noundef %dh) local_unnamed_addr #0 {
 entry:
   %errflags = alloca i32, align 4
   store i32 0, ptr %errflags, align 4
-  %call = call i32 @DH_check(ptr noundef %dh, ptr noundef nonnull %errflags), !range !4
+  %call = call i32 @DH_check(ptr noundef %dh, ptr noundef nonnull %errflags)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -334,7 +334,7 @@ return:                                           ; preds = %entry, %if.end34
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DH_check(ptr noundef %dh, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DH_check(ptr noundef %dh, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @DH_get_nid(ptr noundef %dh) #2
   store i32 0, ptr %ret, align 4
@@ -356,7 +356,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call i32 @DH_check_params(ptr noundef nonnull %dh, ptr noundef nonnull %ret), !range !4
+  %call5 = tail call i32 @DH_check_params(ptr noundef nonnull %dh, ptr noundef nonnull %ret)
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %return, label %if.end7
 
@@ -535,7 +535,7 @@ declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DH_check_pub_key_ex(ptr noundef %dh, ptr noundef %pub_key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DH_check_pub_key_ex(ptr noundef %dh, ptr noundef %pub_key) local_unnamed_addr #0 {
 entry:
   %errflags = alloca i32, align 4
   store i32 0, ptr %errflags, align 4
@@ -639,7 +639,7 @@ return:                                           ; preds = %if.end10, %if.then9
 declare i32 @ossl_ffc_validate_public_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dh_check_pub_key_partial(ptr noundef %dh, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_check_pub_key_partial(ptr noundef %dh, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %dh, i64 8
   %call = tail call i32 @ossl_ffc_validate_public_key_partial(ptr noundef nonnull %params, ptr noundef %pub_key, ptr noundef %ret) #2
@@ -660,7 +660,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @ossl_ffc_validate_public_key_partial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dh_check_priv_key(ptr noundef %dh, ptr noundef %priv_key, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_check_priv_key(ptr noundef %dh, ptr noundef %priv_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %call = tail call ptr @BN_new() #2
@@ -752,7 +752,7 @@ declare i32 @ossl_ffc_validate_private_key(ptr noundef, ptr noundef, ptr noundef
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dh_check_pairwise(ptr noundef %dh) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_check_pairwise(ptr noundef %dh) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %dh, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -826,4 +826,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

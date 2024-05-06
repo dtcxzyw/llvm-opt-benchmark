@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32i_vmsle_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vmsle_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = lshr i64 %1, 20
@@ -87,12 +87,12 @@ define noundef i64 @_Z19fast_rv32i_vmsle_vvP11processor_t6insn_tm(ptr noundef %0
 ._crit_edge136:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre137 = trunc i64 %7 to i32
+  %.pre137 = trunc nuw nsw i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %5 to i32
-  %10 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %5 to i32
+  %10 = trunc nuw nsw i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 659816
   %12 = load float, ptr %11, align 8
   %13 = fptosi float %12 to i32
@@ -148,12 +148,12 @@ define noundef i64 @_Z19fast_rv32i_vmsle_vvP11processor_t6insn_tm(ptr noundef %0
   br i1 %.not99, label %._crit_edge139, label %40
 
 ._crit_edge139:                                   ; preds = %37
-  %.pre140 = trunc i64 %39 to i32
+  %.pre140 = trunc nuw nsw i64 %39 to i32
   br label %54
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %5 to i32
-  %42 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %5 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = fptosi float %25 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %45 = add nuw nsw i32 %41, 1
@@ -512,12 +512,12 @@ define noundef i64 @_Z19fast_rv64i_vmsle_vvP11processor_t6insn_tm(ptr noundef %0
 ._crit_edge136:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre137 = trunc i64 %7 to i32
+  %.pre137 = trunc nuw nsw i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %5 to i32
-  %10 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %5 to i32
+  %10 = trunc nuw nsw i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 659816
   %12 = load float, ptr %11, align 8
   %13 = fptosi float %12 to i32
@@ -573,12 +573,12 @@ define noundef i64 @_Z19fast_rv64i_vmsle_vvP11processor_t6insn_tm(ptr noundef %0
   br i1 %.not99, label %._crit_edge139, label %40
 
 ._crit_edge139:                                   ; preds = %37
-  %.pre140 = trunc i64 %39 to i32
+  %.pre140 = trunc nuw nsw i64 %39 to i32
   br label %54
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %5 to i32
-  %42 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %5 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = fptosi float %25 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %45 = add nuw nsw i32 %41, 1
@@ -893,7 +893,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32i_vmsle_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vmsle_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = lshr i64 %1, 20
@@ -904,12 +904,12 @@ define noundef i64 @_Z21logged_rv32i_vmsle_vvP11processor_t6insn_tm(ptr noundef 
 ._crit_edge136:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre137 = trunc i64 %7 to i32
+  %.pre137 = trunc nuw nsw i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %5 to i32
-  %10 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %5 to i32
+  %10 = trunc nuw nsw i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 659816
   %12 = load float, ptr %11, align 8
   %13 = fptosi float %12 to i32
@@ -965,12 +965,12 @@ define noundef i64 @_Z21logged_rv32i_vmsle_vvP11processor_t6insn_tm(ptr noundef 
   br i1 %.not99, label %._crit_edge139, label %40
 
 ._crit_edge139:                                   ; preds = %37
-  %.pre140 = trunc i64 %39 to i32
+  %.pre140 = trunc nuw nsw i64 %39 to i32
   br label %54
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %5 to i32
-  %42 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %5 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = fptosi float %25 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %45 = add nuw nsw i32 %41, 1
@@ -1298,12 +1298,12 @@ define noundef i64 @_Z21logged_rv64i_vmsle_vvP11processor_t6insn_tm(ptr noundef 
 ._crit_edge136:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre137 = trunc i64 %7 to i32
+  %.pre137 = trunc nuw nsw i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %5 to i32
-  %10 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %5 to i32
+  %10 = trunc nuw nsw i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 659816
   %12 = load float, ptr %11, align 8
   %13 = fptosi float %12 to i32
@@ -1359,12 +1359,12 @@ define noundef i64 @_Z21logged_rv64i_vmsle_vvP11processor_t6insn_tm(ptr noundef 
   br i1 %.not99, label %._crit_edge139, label %40
 
 ._crit_edge139:                                   ; preds = %37
-  %.pre140 = trunc i64 %39 to i32
+  %.pre140 = trunc nuw nsw i64 %39 to i32
   br label %54
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %5 to i32
-  %42 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %5 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = fptosi float %25 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %45 = add nuw nsw i32 %41, 1
@@ -1679,7 +1679,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32e_vmsle_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vmsle_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = lshr i64 %1, 20
@@ -1690,12 +1690,12 @@ define noundef i64 @_Z19fast_rv32e_vmsle_vvP11processor_t6insn_tm(ptr noundef %0
 ._crit_edge136:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre137 = trunc i64 %7 to i32
+  %.pre137 = trunc nuw nsw i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %5 to i32
-  %10 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %5 to i32
+  %10 = trunc nuw nsw i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 659816
   %12 = load float, ptr %11, align 8
   %13 = fptosi float %12 to i32
@@ -1751,12 +1751,12 @@ define noundef i64 @_Z19fast_rv32e_vmsle_vvP11processor_t6insn_tm(ptr noundef %0
   br i1 %.not99, label %._crit_edge139, label %40
 
 ._crit_edge139:                                   ; preds = %37
-  %.pre140 = trunc i64 %39 to i32
+  %.pre140 = trunc nuw nsw i64 %39 to i32
   br label %54
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %5 to i32
-  %42 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %5 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = fptosi float %25 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %45 = add nuw nsw i32 %41, 1
@@ -2084,12 +2084,12 @@ define noundef i64 @_Z19fast_rv64e_vmsle_vvP11processor_t6insn_tm(ptr noundef %0
 ._crit_edge136:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre137 = trunc i64 %7 to i32
+  %.pre137 = trunc nuw nsw i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %5 to i32
-  %10 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %5 to i32
+  %10 = trunc nuw nsw i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 659816
   %12 = load float, ptr %11, align 8
   %13 = fptosi float %12 to i32
@@ -2145,12 +2145,12 @@ define noundef i64 @_Z19fast_rv64e_vmsle_vvP11processor_t6insn_tm(ptr noundef %0
   br i1 %.not99, label %._crit_edge139, label %40
 
 ._crit_edge139:                                   ; preds = %37
-  %.pre140 = trunc i64 %39 to i32
+  %.pre140 = trunc nuw nsw i64 %39 to i32
   br label %54
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %5 to i32
-  %42 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %5 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = fptosi float %25 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %45 = add nuw nsw i32 %41, 1
@@ -2465,7 +2465,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32e_vmsle_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vmsle_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = lshr i64 %1, 20
@@ -2476,12 +2476,12 @@ define noundef i64 @_Z21logged_rv32e_vmsle_vvP11processor_t6insn_tm(ptr noundef 
 ._crit_edge136:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre137 = trunc i64 %7 to i32
+  %.pre137 = trunc nuw nsw i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %5 to i32
-  %10 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %5 to i32
+  %10 = trunc nuw nsw i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 659816
   %12 = load float, ptr %11, align 8
   %13 = fptosi float %12 to i32
@@ -2537,12 +2537,12 @@ define noundef i64 @_Z21logged_rv32e_vmsle_vvP11processor_t6insn_tm(ptr noundef 
   br i1 %.not99, label %._crit_edge139, label %40
 
 ._crit_edge139:                                   ; preds = %37
-  %.pre140 = trunc i64 %39 to i32
+  %.pre140 = trunc nuw nsw i64 %39 to i32
   br label %54
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %5 to i32
-  %42 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %5 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = fptosi float %25 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %45 = add nuw nsw i32 %41, 1
@@ -2870,12 +2870,12 @@ define noundef i64 @_Z21logged_rv64e_vmsle_vvP11processor_t6insn_tm(ptr noundef 
 ._crit_edge136:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre137 = trunc i64 %7 to i32
+  %.pre137 = trunc nuw nsw i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %5 to i32
-  %10 = trunc i64 %7 to i32
+  %9 = trunc nuw nsw i64 %5 to i32
+  %10 = trunc nuw nsw i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 659816
   %12 = load float, ptr %11, align 8
   %13 = fptosi float %12 to i32
@@ -2931,12 +2931,12 @@ define noundef i64 @_Z21logged_rv64e_vmsle_vvP11processor_t6insn_tm(ptr noundef 
   br i1 %.not99, label %._crit_edge139, label %40
 
 ._crit_edge139:                                   ; preds = %37
-  %.pre140 = trunc i64 %39 to i32
+  %.pre140 = trunc nuw nsw i64 %39 to i32
   br label %54
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %5 to i32
-  %42 = trunc i64 %39 to i32
+  %41 = trunc nuw nsw i64 %5 to i32
+  %42 = trunc nuw nsw i64 %39 to i32
   %43 = fptosi float %25 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %45 = add nuw nsw i32 %41, 1

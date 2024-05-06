@@ -5240,7 +5240,7 @@ define internal fastcc ptr @i915_gpu_coredump(ptr noundef %0, i32 noundef %1, i3
 
 279:                                              ; preds = %275
   %280 = getelementptr inbounds i8, ptr %273, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %280, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %280, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str, i64 6, i1 false) #15
   %281 = getelementptr inbounds i8, ptr %269, i64 56
   %282 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %281, i32 1, ptr elementtype(i32) %281) #15, !srcloc !57
   %283 = icmp eq i32 %282, 0
@@ -5294,7 +5294,7 @@ capture_vma_snapshot.exit:                        ; preds = %267, %271, %278, %2
 
 308:                                              ; preds = %304
   %309 = getelementptr inbounds i8, ptr %302, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(5) %309, ptr noundef nonnull align 1 dereferenceable(5) @.str.116, i64 5, i1 false) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(5) %309, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.116, i64 5, i1 false) #15
   %310 = getelementptr inbounds i8, ptr %298, i64 56
   %311 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %310, i32 1, ptr elementtype(i32) %310) #15, !srcloc !57
   %312 = icmp eq i32 %311, 0

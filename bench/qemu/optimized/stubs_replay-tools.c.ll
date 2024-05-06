@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [3 x i8] c"cb\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @replay_events_enabled() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_events_enabled() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local i64 @replay_save_clock(i32 noundef %kind, i64 noundef %clock, i64 noundef %raw_icount) local_unnamed_addr #1 {
+define dso_local noundef i64 @replay_save_clock(i32 noundef %kind, i64 noundef %clock, i64 noundef %raw_icount) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
@@ -22,14 +22,14 @@ entry:
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local i64 @replay_read_clock(i32 noundef %kind, i64 noundef %raw_icount) local_unnamed_addr #1 {
+define dso_local noundef i64 @replay_read_clock(i32 noundef %kind, i64 noundef %raw_icount) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @replay_get_current_icount() local_unnamed_addr #0 {
+define dso_local noundef i64 @replay_get_current_icount() local_unnamed_addr #0 {
 entry:
   ret i64 0
 }
@@ -53,7 +53,7 @@ entry:
 declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @replay_checkpoint(i32 noundef %checkpoint) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_checkpoint(i32 noundef %checkpoint) local_unnamed_addr #0 {
 entry:
   ret i1 true
 }
@@ -98,7 +98,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local i32 @replay_char_read_all_load(ptr nocapture noundef readnone %buf) local_unnamed_addr #1 {
+define dso_local noundef i32 @replay_char_read_all_load(ptr nocapture noundef readnone %buf) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable

@@ -75,7 +75,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_unref, ptr @.str.33, ptr @.str.34, i32 238, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrunlock, ptr @.str.33, ptr @.str.35, i32 130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_is_inserted, ptr @.str.33, ptr @.str.36, i32 176, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrlock, ptr @.str.33, ptr @.str.35, i32 120, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @bdrv_snapshot_find(ptr noundef %bs, ptr nocapture noundef writeonly %sn_info, ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @bdrv_snapshot_find(ptr noundef %bs, ptr nocapture noundef writeonly %sn_info, ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
 entry:
   %sn_tab = alloca ptr, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -303,7 +303,7 @@ return:                                           ; preds = %if.else7, %if.end61
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @bdrv_can_snapshot(ptr noundef %bs) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bdrv_can_snapshot(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -871,7 +871,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp), !range !11
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -953,7 +953,7 @@ if.end17.us:                                      ; preds = %if.end6.i.us, %do.e
   %next.us = getelementptr inbounds i8, ptr %iterbdrvs.028.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
-  br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !12
+  br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !11
 
 while.body:                                       ; preds = %while.body.lr.ph, %bdrv_can_snapshot.exit
   %iterbdrvs.028 = phi ptr [ %iterbdrvs.0, %bdrv_can_snapshot.exit ], [ %bdrvs.val.pre, %while.body.lr.ph ]
@@ -1005,7 +1005,7 @@ bdrv_can_snapshot.exit:                           ; preds = %if.end6.i
   %next = getelementptr inbounds i8, ptr %iterbdrvs.028, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !12
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !11
 
 if.then15:                                        ; preds = %if.then8.i, %do.end.i11, %lor.lhs.false.i12, %lor.lhs.false3.i, %do.end.i11.us, %lor.lhs.false.i12.us, %lor.lhs.false3.i.us, %if.then8.i.us
   %.us-phi = phi ptr [ %0, %if.then8.i.us ], [ %0, %lor.lhs.false3.i.us ], [ %0, %lor.lhs.false.i12.us ], [ %0, %do.end.i11.us ], [ %4, %lor.lhs.false3.i ], [ %4, %lor.lhs.false.i12 ], [ %4, %do.end.i11 ], [ %4, %if.then8.i ]
@@ -1031,7 +1031,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef readonly %devices, ptr nocapture noundef writeonly %all_bdrvs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef readonly %devices, ptr nocapture noundef writeonly %all_bdrvs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %it = alloca %struct.BdrvNextIterator, align 8
   br i1 %has_devices, label %if.then, label %if.else
@@ -1057,7 +1057,7 @@ if.end7:                                          ; preds = %while.body
   %call8 = tail call ptr @g_list_append(ptr noundef %bdrvs.019, ptr noundef nonnull %call) #6
   %1 = load ptr, ptr %devices.addr.020, align 8
   %tobool3.not = icmp eq ptr %1, null
-  br i1 %tobool3.not, label %if.end14, label %while.body, !llvm.loop !13
+  br i1 %tobool3.not, label %if.end14, label %while.body, !llvm.loop !12
 
 if.else:                                          ; preds = %entry
   %call10 = call ptr @bdrv_first(ptr noundef nonnull %it) #6
@@ -1070,7 +1070,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %call12 = call ptr @g_list_append(ptr noundef %bdrvs.117, ptr noundef nonnull %bs9.018) #6
   %call13 = call ptr @bdrv_next(ptr noundef nonnull %it) #6
   %tobool11.not = icmp eq ptr %call13, null
-  br i1 %tobool11.not, label %if.end14, label %for.body, !llvm.loop !14
+  br i1 %tobool11.not, label %if.end14, label %for.body, !llvm.loop !13
 
 if.end14:                                         ; preds = %for.body, %if.end7, %if.else
   %bdrvs.2 = phi ptr [ null, %if.else ], [ %call8, %if.end7 ], [ %call12, %for.body ]
@@ -1102,7 +1102,7 @@ declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @bdrv_all_delete_snapshot(ptr noundef %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bdrv_all_delete_snapshot(ptr noundef %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab.i = alloca ptr, align 8
   %bdrvs = alloca ptr, align 8
@@ -1117,7 +1117,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp), !range !11
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -1205,7 +1205,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i, i64 %indvars.iv.i
   %name5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 128
-  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull dereferenceable(1) %name) #8
+  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool.not.i, label %if.end15, label %for.cond.i
 
@@ -1219,7 +1219,7 @@ if.end15.thread:                                  ; preds = %bdrv_all_snapshots_
   br label %if.end19
 
 if.end15:                                         ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %sn1, ptr noundef nonnull align 8 dereferenceable(416) %arrayidx.i, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %sn1, ptr noundef nonnull align 8 dereferenceable(416) %arrayidx.i, i64 416, i1 false)
   call void @g_free(ptr noundef %.pre.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
   %call14 = call i32 @bdrv_snapshot_delete(ptr noundef %0, ptr noundef nonnull %sn1, ptr noundef nonnull %name12, ptr noundef %errp)
@@ -1236,7 +1236,7 @@ if.end19:                                         ; preds = %if.end15.thread, %i
   %next = getelementptr inbounds i8, ptr %iterbdrvs.037, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !15
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !14
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end19, %do.end, %if.then17
   %retval.0 = phi i32 [ -1, %if.then17 ], [ -1, %do.end ], [ 0, %if.end19 ]
@@ -1256,7 +1256,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @bdrv_all_goto_snapshot(ptr noundef %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bdrv_all_goto_snapshot(ptr noundef %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bdrvs = alloca ptr, align 8
   store ptr null, ptr %bdrvs, align 8
@@ -1269,7 +1269,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call1 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp), !range !11
+  %call1 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   %cmp = icmp slt i32 %call1, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
@@ -1316,7 +1316,7 @@ if.end14.us:                                      ; preds = %bdrv_all_snapshots_
   %next.us = getelementptr inbounds i8, ptr %iterbdrvs.017.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool4.not.us = icmp eq ptr %iterbdrvs.0.us, null
-  br i1 %tobool4.not.us, label %cleanup, label %while.body.us, !llvm.loop !16
+  br i1 %tobool4.not.us, label %cleanup, label %while.body.us, !llvm.loop !15
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
   %iterbdrvs.017 = phi ptr [ %iterbdrvs.0, %if.end14 ], [ %bdrvs.val.pre, %while.body.lr.ph ]
@@ -1381,7 +1381,7 @@ if.end14:                                         ; preds = %cond.end.thread, %c
   %next = getelementptr inbounds i8, ptr %iterbdrvs.017, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool4.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool4.not, label %cleanup, label %while.body, !llvm.loop !16
+  br i1 %tobool4.not, label %cleanup, label %while.body, !llvm.loop !15
 
 cleanup:                                          ; preds = %if.end14.us, %if.end14, %do.end, %if.then12
   %retval.0 = phi i32 [ -1, %if.then12 ], [ -1, %do.end ], [ 0, %if.end14 ], [ 0, %if.end14.us ]
@@ -1398,7 +1398,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %while.cond.preheade
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @bdrv_all_has_snapshot(ptr nocapture noundef readonly %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @bdrv_all_has_snapshot(ptr nocapture noundef readonly %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab.i = alloca ptr, align 8
   %bdrvs = alloca ptr, align 8
@@ -1412,7 +1412,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp), !range !11
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -1478,7 +1478,7 @@ for.body.lr.ph.i.us:                              ; preds = %for.cond.preheader.
 for.body.i.us:                                    ; preds = %for.cond.i.us, %for.body.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %for.body.lr.ph.i.us ], [ %indvars.iv.next.i.us, %for.cond.i.us ]
   %name5.i.us = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i.us, i64 %indvars.iv.i.us, i32 1
-  %call6.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i.us, ptr noundef nonnull dereferenceable(1) %name) #8
+  %call6.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i.us, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool.not.i.us = icmp eq i32 %call6.i.us, 0
   br i1 %tobool.not.i.us, label %if.end11.us, label %for.cond.i.us
 
@@ -1497,7 +1497,7 @@ if.end19.us:                                      ; preds = %do.end.i.us, %lor.l
   %next.us = getelementptr inbounds i8, ptr %iterbdrvs.040.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
-  br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !17
+  br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !16
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end11
   %iterbdrvs.040 = phi ptr [ %iterbdrvs.0, %if.end11 ], [ %bdrvs.val.pre, %while.body.lr.ph ]
@@ -1543,7 +1543,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %name5.i = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i, i64 %indvars.iv.i, i32 1
-  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull dereferenceable(1) %name) #8
+  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool.not.i, label %if.end11, label %for.cond.i
 
@@ -1554,7 +1554,7 @@ if.end11:                                         ; preds = %for.body.i
   %next = getelementptr inbounds i8, ptr %iterbdrvs.040, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !17
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !16
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge: ; preds = %for.cond.preheader.i, %for.cond.i, %for.cond.preheader.i.us, %for.cond.i.us
   %.pre.i37 = phi ptr [ %.pre.i.us, %for.cond.i.us ], [ %.pre.i.us, %for.cond.preheader.i.us ], [ %.pre.i, %for.cond.i ], [ %.pre.i, %for.cond.preheader.i ]
@@ -1584,7 +1584,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @bdrv_all_create_snapshot(ptr noundef %sn, ptr noundef readnone %vm_state_bs, i64 noundef %vm_state_size, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bdrv_all_create_snapshot(ptr noundef %sn, ptr noundef readnone %vm_state_bs, i64 noundef %vm_state_size, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bdrvs = alloca ptr, align 8
   store ptr null, ptr %bdrvs, align 8
@@ -1597,7 +1597,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp), !range !11
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -1745,7 +1745,7 @@ if.end22:                                         ; preds = %if.end18.thread46, 
   %next = getelementptr inbounds i8, ptr %iterbdrvs.069, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !18
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !17
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end22, %do.end, %if.then20
   %retval.0 = phi i32 [ -1, %if.then20 ], [ -1, %do.end ], [ 0, %if.end22 ]
@@ -1776,7 +1776,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp), !range !11
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -1858,7 +1858,7 @@ if.end26.us.us:                                   ; preds = %do.end.i20.us.us, %
   %next.us.us = getelementptr inbounds i8, ptr %iterbdrvs.036.us.us, i64 8
   %iterbdrvs.0.us.us = load ptr, ptr %next.us.us, align 8
   %tobool5.not.us.us = icmp eq ptr %iterbdrvs.0.us.us, null
-  br i1 %tobool5.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !19
+  br i1 %tobool5.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !18
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.us.split.us.critedge: ; preds = %if.end6.i.us.us
   tail call void @aio_context_release(ptr noundef %call6.us.us) #6
@@ -1936,7 +1936,7 @@ if.end26.us:                                      ; preds = %land.end.us
   %next.us = getelementptr inbounds i8, ptr %iterbdrvs.036.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
-  br i1 %tobool5.not.us, label %while.end, label %while.body.us, !llvm.loop !19
+  br i1 %tobool5.not.us, label %while.end, label %while.body.us, !llvm.loop !18
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %tobool12.not, label %while.body.us39, label %while.body
@@ -1983,7 +1983,7 @@ land.end.loopexit.us63:                           ; preds = %if.then8.i.us55, %l
   %next.us60 = getelementptr inbounds i8, ptr %iterbdrvs.036.us40, i64 8
   %iterbdrvs.0.us61 = load ptr, ptr %next.us60, align 8
   %tobool5.not.us62 = icmp eq ptr %iterbdrvs.0.us61, null
-  br i1 %tobool5.not.us62, label %while.end, label %while.body.us39, !llvm.loop !19
+  br i1 %tobool5.not.us62, label %while.end, label %while.body.us39, !llvm.loop !18
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.split.us.critedge: ; preds = %if.end6.i.us52
   tail call void @aio_context_release(ptr noundef %call6.us41) #6
@@ -2055,7 +2055,7 @@ if.end26:                                         ; preds = %land.end.loopexit
   %next = getelementptr inbounds i8, ptr %iterbdrvs.036, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %while.end, label %while.body, !llvm.loop !19
+  br i1 %tobool5.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end26, %land.end.loopexit.us63, %if.end26.us, %if.end26.us.us, %while.cond.preheader
   %tobool27.not = icmp eq ptr %vmstate_bs, null
@@ -2132,7 +2132,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -1, i32 1}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
@@ -2140,4 +2140,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

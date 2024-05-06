@@ -2539,8 +2539,8 @@ for.cond24.preheader.for.inc66_crit_edge:         ; preds = %for.cond24.preheade
   br label %for.inc66
 
 for.body28.lr.ph:                                 ; preds = %for.cond24.preheader
-  %27 = trunc i64 %indvars.iv241 to i32
-  %28 = trunc i64 %indvars.iv241 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv241 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv241 to i32
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %for.inc63
@@ -2591,7 +2591,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %for.inc.i, label %land.rhs.i, !llvm.loop !20
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i
-  %36 = trunc i64 %indvars.iv.i55 to i32
+  %36 = trunc nsw i64 %indvars.iv.i55 to i32
   %sext.i = shl i64 %indvars.iv.i55, 32
   %idxprom.i21.i = ashr exact i64 %sext.i, 32
   %arrayidx.i22.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i21.i
@@ -2659,7 +2659,7 @@ while.body.i104:                                  ; preds = %land.rhs.i86
   br i1 %exitcond.not.i107, label %for.inc.i79, label %land.rhs.i86, !llvm.loop !20
 
 land.lhs.true.i90:                                ; preds = %land.rhs.i86
-  %50 = trunc i64 %indvars.iv.i87 to i32
+  %50 = trunc nsw i64 %indvars.iv.i87 to i32
   %sext.i91 = shl i64 %indvars.iv.i87, 32
   %idxprom.i21.i92 = ashr exact i64 %sext.i91, 32
   %arrayidx.i22.i93 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i21.i92
@@ -2744,7 +2744,7 @@ while.body.i155:                                  ; preds = %land.rhs.i137
   br i1 %exitcond.not.i158, label %for.inc.i130, label %land.rhs.i137, !llvm.loop !20
 
 land.lhs.true.i141:                               ; preds = %land.rhs.i137
-  %68 = trunc i64 %indvars.iv.i138 to i32
+  %68 = trunc nsw i64 %indvars.iv.i138 to i32
   %sext.i142 = shl i64 %indvars.iv.i138, 32
   %idxprom.i21.i143 = ashr exact i64 %sext.i142, 32
   %arrayidx.i22.i144 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i21.i143
@@ -2810,7 +2810,7 @@ while.body.i206:                                  ; preds = %land.rhs.i188
   br i1 %exitcond.not.i209, label %for.inc.i181, label %land.rhs.i188, !llvm.loop !20
 
 land.lhs.true.i192:                               ; preds = %land.rhs.i188
-  %82 = trunc i64 %indvars.iv.i189 to i32
+  %82 = trunc nsw i64 %indvars.iv.i189 to i32
   %sext.i193 = shl i64 %indvars.iv.i189, 32
   %idxprom.i21.i194 = ashr exact i64 %sext.i193, 32
   %arrayidx.i22.i195 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i21.i194
@@ -2846,7 +2846,7 @@ for.inc.i181:                                     ; preds = %while.body.i206, %i
 
 _ZNK15btReducedVector3dotERKS_.exit210.loopexit:  ; preds = %for.inc.i181
   %conv59 = fpext float %ret.1.i183 to double
-  %92 = trunc i64 %indvars.iv238 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv238 to i32
   %call60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %27, i32 noundef %92, double noundef %conv59)
   br label %for.inc63
 

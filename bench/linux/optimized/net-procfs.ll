@@ -86,7 +86,7 @@ declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dev_proc_net_init(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal noundef range(i32 -12, 1) i32 @dev_proc_net_init(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @dev_seq_ops, i32 noundef 8, ptr noundef null) #9
@@ -811,7 +811,7 @@ define internal noundef i32 @ptype_seq_show(ptr noundef %0, ptr noundef readonly
 declare i16 @llvm.bswap.i16(i16) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dev_mc_net_init(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 -12, 1) i32 @dev_mc_net_init(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.11, i16 noundef zeroext 0, ptr noundef %3, ptr noundef nonnull @dev_mc_seq_ops, i32 noundef 8, ptr noundef null) #9

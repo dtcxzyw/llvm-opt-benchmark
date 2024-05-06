@@ -159,7 +159,7 @@ define hidden void @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$19
   %19 = extractvalue { ptr, i64 } %16, 1
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %14, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %14, i64 %15, i1 false)
   %21 = getelementptr inbounds i8, ptr %6, i64 24
   store i8 %12, ptr %21, align 8
   store ptr %18, ptr %6, align 8
@@ -196,7 +196,7 @@ define hidden void @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$19
   %35 = extractvalue { ptr, i64 } %32, 1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %30, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 1 %30, i64 %31, i1 false)
   %37 = getelementptr inbounds i8, ptr %5, i64 24
   store i8 %28, ptr %37, align 8
   store ptr %34, ptr %5, align 8
@@ -3975,7 +3975,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h20051abddb98edddE"(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h20051abddb98edddE"(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 31
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %4)

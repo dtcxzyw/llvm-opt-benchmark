@@ -1317,7 +1317,7 @@ entry:
   %423 = xor i32 %422, %xor207
   %xor237 = xor i32 %423, %or20.i.i707
   %shr.i713 = lshr i32 %xor237, 24
-  %conv.i714 = trunc i32 %shr.i713 to i8
+  %conv.i714 = trunc nuw i32 %shr.i713 to i8
   store i8 %conv.i714, ptr %out, align 1
   %shr1.i715 = lshr i32 %xor237, 16
   %conv2.i = trunc i32 %shr1.i715 to i8
@@ -1332,7 +1332,7 @@ entry:
   store i8 %conv7.i, ptr %arrayidx8.i717, align 1
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr.i718 = lshr i32 %xor230, 24
-  %conv.i719 = trunc i32 %shr.i718 to i8
+  %conv.i719 = trunc nuw i32 %shr.i718 to i8
   store i8 %conv.i719, ptr %add.ptr, align 1
   %shr1.i720 = lshr i32 %xor230, 16
   %conv2.i721 = trunc i32 %shr1.i720 to i8
@@ -1347,7 +1347,7 @@ entry:
   store i8 %conv7.i726, ptr %arrayidx8.i727, align 1
   %add.ptr239 = getelementptr inbounds i8, ptr %out, i64 8
   %shr.i728 = lshr i32 %xor223, 24
-  %conv.i729 = trunc i32 %shr.i728 to i8
+  %conv.i729 = trunc nuw i32 %shr.i728 to i8
   store i8 %conv.i729, ptr %add.ptr239, align 1
   %shr1.i730 = lshr i32 %xor223, 16
   %conv2.i731 = trunc i32 %shr1.i730 to i8
@@ -1362,7 +1362,7 @@ entry:
   store i8 %conv7.i736, ptr %arrayidx8.i737, align 1
   %add.ptr240 = getelementptr inbounds i8, ptr %out, i64 12
   %shr.i738 = lshr i32 %xor216, 24
-  %conv.i739 = trunc i32 %shr.i738 to i8
+  %conv.i739 = trunc nuw i32 %shr.i738 to i8
   store i8 %conv.i739, ptr %add.ptr240, align 1
   %shr1.i740 = lshr i32 %xor216, 16
   %conv2.i741 = trunc i32 %shr1.i740 to i8
@@ -2428,7 +2428,7 @@ entry:
   %423 = xor i32 %422, %xor207
   %xor237 = xor i32 %423, %or20.i.i707
   %shr.i713 = lshr i32 %xor237, 24
-  %conv.i714 = trunc i32 %shr.i713 to i8
+  %conv.i714 = trunc nuw i32 %shr.i713 to i8
   store i8 %conv.i714, ptr %out, align 1
   %shr1.i715 = lshr i32 %xor237, 16
   %conv2.i = trunc i32 %shr1.i715 to i8
@@ -2443,7 +2443,7 @@ entry:
   store i8 %conv7.i, ptr %arrayidx8.i717, align 1
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr.i718 = lshr i32 %xor230, 24
-  %conv.i719 = trunc i32 %shr.i718 to i8
+  %conv.i719 = trunc nuw i32 %shr.i718 to i8
   store i8 %conv.i719, ptr %add.ptr, align 1
   %shr1.i720 = lshr i32 %xor230, 16
   %conv2.i721 = trunc i32 %shr1.i720 to i8
@@ -2458,7 +2458,7 @@ entry:
   store i8 %conv7.i726, ptr %arrayidx8.i727, align 1
   %add.ptr239 = getelementptr inbounds i8, ptr %out, i64 8
   %shr.i728 = lshr i32 %xor223, 24
-  %conv.i729 = trunc i32 %shr.i728 to i8
+  %conv.i729 = trunc nuw i32 %shr.i728 to i8
   store i8 %conv.i729, ptr %add.ptr239, align 1
   %shr1.i730 = lshr i32 %xor223, 16
   %conv2.i731 = trunc i32 %shr1.i730 to i8
@@ -2473,7 +2473,7 @@ entry:
   store i8 %conv7.i736, ptr %arrayidx8.i737, align 1
   %add.ptr240 = getelementptr inbounds i8, ptr %out, i64 12
   %shr.i738 = lshr i32 %xor216, 24
-  %conv.i739 = trunc i32 %shr.i738 to i8
+  %conv.i739 = trunc nuw i32 %shr.i738 to i8
   store i8 %conv.i739, ptr %add.ptr240, align 1
   %shr1.i740 = lshr i32 %xor216, 16
   %conv2.i741 = trunc i32 %shr1.i740 to i8

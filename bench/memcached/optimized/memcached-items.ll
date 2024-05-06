@@ -180,7 +180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read) uwtable
-define dso_local i32 @item_is_flushed(ptr nocapture noundef readonly %it) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @item_is_flushed(ptr nocapture noundef readonly %it) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 6), align 4
   %it_flags = getelementptr inbounds i8, ptr %it, i64 38
@@ -4043,7 +4043,7 @@ declare void @slab_automove_extstore_free(ptr noundef) #6
 declare void @slab_automove_extstore_run(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @stop_lru_maintainer_thread() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @stop_lru_maintainer_thread() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_maintainer_lock) #18
   store volatile i32 0, ptr @do_run_lru_maintainer_thread, align 4
@@ -4074,7 +4074,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #6
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @start_lru_maintainer_thread(ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @start_lru_maintainer_thread(ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_maintainer_lock) #18
   store volatile i32 1, ptr @do_run_lru_maintainer_thread, align 4

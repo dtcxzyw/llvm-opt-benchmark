@@ -78,7 +78,7 @@ define internal i32 @init_v2_quota_format() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v2_check_quota_file(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @v2_check_quota_file(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = alloca %struct.v2_disk_dqheader, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store i64 0, ptr %3, align 8, !annotation !5
@@ -588,7 +588,7 @@ define internal void @v2r0_disk2memdqb(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v2r0_is_id(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @v2r0_is_id(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 116
@@ -756,7 +756,7 @@ define internal void @v2r1_disk2memdqb(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v2r1_is_id(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @v2r1_is_id(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 116

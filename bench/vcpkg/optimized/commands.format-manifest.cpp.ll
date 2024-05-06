@@ -428,7 +428,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 75:                                               ; preds = %.thread314, %.thread314.thread, %66
   %76 = phi i1 [ true, %.thread314 ], [ false, %.thread314.thread ], [ true, %66 ]
   %.not318320 = phi i1 [ true, %.thread314 ], [ %.not318319, %.thread314.thread ], [ %62, %66 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   %77 = getelementptr inbounds i8, ptr %28, i64 144
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %28, i64 152

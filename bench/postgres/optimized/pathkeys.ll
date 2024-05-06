@@ -206,7 +206,7 @@ pathkey_is_redundant.exit:                        ; preds = %21, %.lr.ph24, %.lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @compare_pathkeys(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 

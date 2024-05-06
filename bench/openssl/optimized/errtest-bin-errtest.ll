@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [20 x i8] c"goodbye cruel world\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @preserves_system_error) #5
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @vdata_appends) #5
@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @raised_error() #0 {
+define internal range(i32 0, 2) i32 @raised_error() #0 {
 entry:
   %f = alloca ptr, align 8
   %data = alloca ptr, align 8
@@ -152,7 +152,7 @@ return:                                           ; preds = %lor.lhs.false11, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_print_error_format() #0 {
+define internal range(i32 0, 2) i32 @test_print_error_format() #0 {
 entry:
   %expected = alloca [512 x i8], align 16
   %out = alloca ptr, align 8
@@ -241,7 +241,7 @@ err:                                              ; preds = %for.body, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_marks() #0 {
+define internal range(i32 0, 2) i32 @test_marks() #0 {
 entry:
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.7, i32 noundef 177, ptr noundef nonnull @.str.4) #5
@@ -576,7 +576,7 @@ return:                                           ; preds = %if.end206, %lor.lhs
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_save_restore(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_save_restore(i32 noundef %idx) #0 {
 entry:
   %flags = alloca i32, align 4
   %data = alloca ptr, align 8
@@ -744,7 +744,7 @@ err:                                              ; preds = %err.loopexit.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_clear_error() #0 {
+define internal range(i32 0, 2) i32 @test_clear_error() #0 {
 entry:
   %flags = alloca i32, align 4
   %data = alloca ptr, align 8

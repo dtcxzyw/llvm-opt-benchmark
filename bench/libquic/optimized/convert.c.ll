@@ -106,7 +106,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BN_bn2bin(ptr noundef %in, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @BN_bn2bin(ptr noundef %in, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bytes(ptr noundef %in) #8
   %conv = zext i32 %call to i64
@@ -137,7 +137,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_bn2bin_padded(ptr nocapture noundef writeonly %out, i64 noundef %len, ptr noundef %in) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr nocapture noundef writeonly %out, i64 noundef %len, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %in) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -169,14 +169,14 @@ if.then6:                                         ; preds = %if.end3
   %conv.i = sext i32 %2 to i64
   %sub.i = add nsw i32 %2, -1
   %conv2.i = sext i32 %sub.i to i64
-  %isneg14.i = icmp slt i64 %div714, %conv.i
-  %or.i.i = select i1 %isneg14.i, i64 %div714, i64 %conv2.i
+  %isneg16.i = icmp slt i64 %div714, %conv.i
+  %or.i.i = select i1 %isneg16.i, i64 %div714, i64 %conv2.i
   %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %or.i.i
   %3 = load i64, ptr %arrayidx.i, align 8
   %4 = icmp ult i64 %div714, %conv
-  %and1.i13.i = select i1 %4, i64 %3, i64 0
+  %and1.i14.i = select i1 %4, i64 %3, i64 0
   %mul = shl nuw nsw i64 %rem, 3
-  %shr = lshr i64 %and1.i13.i, %mul
+  %shr = lshr i64 %and1.i14.i, %mul
   %cmp10.not = icmp eq i64 %shr, 0
   br i1 %cmp10.not, label %while.body.lr.ph, label %return
 
@@ -198,17 +198,17 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %conv.i17 = sext i32 %6 to i64
   %sub.i18 = add nsw i32 %6, -1
   %conv2.i19 = sext i32 %sub.i18 to i64
-  %isneg14.i20 = icmp slt i64 %div1615, %conv.i17
-  %or.i.i21 = select i1 %isneg14.i20, i64 %div1615, i64 %conv2.i19
+  %isneg16.i20 = icmp slt i64 %div1615, %conv.i17
+  %or.i.i21 = select i1 %isneg16.i20, i64 %div1615, i64 %conv2.i19
   %arrayidx.i22 = getelementptr inbounds i64, ptr %5, i64 %or.i.i21
   %7 = load i64, ptr %arrayidx.i22, align 8
   %8 = load i32, ptr %top, align 8
   %conv4.i24 = sext i32 %8 to i64
   %9 = icmp slt i64 %div1615, %conv4.i24
-  %and1.i13.i25 = select i1 %9, i64 %7, i64 0
+  %and1.i14.i25 = select i1 %9, i64 %7, i64 0
   %rem18 = shl i64 %dec, 3
   %mul19 = and i64 %rem18, 56
-  %shr20 = lshr i64 %and1.i13.i25, %mul19
+  %shr20 = lshr i64 %and1.i14.i25, %mul19
   %conv21 = trunc i64 %shr20 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %out.addr.027, i64 1
   store i8 %conv21, ptr %out.addr.027, align 1
@@ -226,7 +226,7 @@ declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_bn2cbb_padded(ptr noundef %out, i64 noundef %len, ptr noundef %in) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %out, i64 noundef %len, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %ptr = alloca ptr, align 8
   %call = call i32 @CBB_add_space(ptr noundef %out, ptr noundef nonnull %ptr, i64 noundef %len) #8
@@ -240,7 +240,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs
-  call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %len, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %0, i8 0, i64 %len, i1 false)
   br label %land.end
 
 if.end.i:                                         ; preds = %land.rhs
@@ -265,14 +265,14 @@ if.then6.i:                                       ; preds = %if.end3.i
   %conv.i.i = sext i32 %3 to i64
   %sub.i.i = add nsw i32 %3, -1
   %conv2.i.i = sext i32 %sub.i.i to i64
-  %isneg14.i.i = icmp slt i64 %div714.i, %conv.i.i
-  %or.i.i.i = select i1 %isneg14.i.i, i64 %div714.i, i64 %conv2.i.i
+  %isneg16.i.i = icmp slt i64 %div714.i, %conv.i.i
+  %or.i.i.i = select i1 %isneg16.i.i, i64 %div714.i, i64 %conv2.i.i
   %arrayidx.i.i = getelementptr inbounds i64, ptr %2, i64 %or.i.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
   %5 = icmp ult i64 %div714.i, %conv.i
-  %and1.i13.i.i = select i1 %5, i64 %4, i64 0
+  %and1.i14.i.i = select i1 %5, i64 %4, i64 0
   %mul.i = shl nuw nsw i64 %rem.i, 3
-  %shr.i = lshr i64 %and1.i13.i.i, %mul.i
+  %shr.i = lshr i64 %and1.i14.i.i, %mul.i
   %cmp10.not.i = icmp eq i64 %shr.i, 0
   br i1 %cmp10.not.i, label %while.body.lr.ph.i, label %land.end
 
@@ -294,17 +294,17 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %conv.i17.i = sext i32 %7 to i64
   %sub.i18.i = add nsw i32 %7, -1
   %conv2.i19.i = sext i32 %sub.i18.i to i64
-  %isneg14.i20.i = icmp slt i64 %div1615.i, %conv.i17.i
-  %or.i.i21.i = select i1 %isneg14.i20.i, i64 %div1615.i, i64 %conv2.i19.i
+  %isneg16.i20.i = icmp slt i64 %div1615.i, %conv.i17.i
+  %or.i.i21.i = select i1 %isneg16.i20.i, i64 %div1615.i, i64 %conv2.i19.i
   %arrayidx.i22.i = getelementptr inbounds i64, ptr %6, i64 %or.i.i21.i
   %8 = load i64, ptr %arrayidx.i22.i, align 8
   %9 = load i32, ptr %top.i, align 8
   %conv4.i24.i = sext i32 %9 to i64
   %10 = icmp slt i64 %div1615.i, %conv4.i24.i
-  %and1.i13.i25.i = select i1 %10, i64 %8, i64 0
+  %and1.i14.i25.i = select i1 %10, i64 %8, i64 0
   %rem18.i = shl i64 %dec.i, 3
   %mul19.i = and i64 %rem18.i, 56
-  %shr20.i = lshr i64 %and1.i13.i25.i, %mul19.i
+  %shr20.i = lshr i64 %and1.i14.i25.i, %mul19.i
   %conv21.i = trunc i64 %shr20.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %out.addr.027.i, i64 1
   store i8 %conv21.i, ptr %out.addr.027.i, align 1
@@ -466,8 +466,8 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.end
   br i1 %4, label %for.cond.i, label %for.end.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.cond.i
-  %5 = trunc i64 %indvars.iv.i to i32
-  %6 = trunc i64 %3 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %6 = trunc nuw i64 %3 to i32
   %cmp12.i = icmp eq ptr %outp, null
   br i1 %cmp12.i, label %bn_x2bn.exit, label %if.end15.i
 
@@ -514,7 +514,7 @@ while.body.i.preheader:                           ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %while.body.i.preheader, %for.end.i8
   %indvars.iv = phi i64 [ %indvars.iv.i, %while.body.i.preheader ], [ %indvars.iv.next, %for.end.i8 ]
   %indvars.iv32.i = phi i64 [ 0, %while.body.i.preheader ], [ %indvars.iv.next33.i, %for.end.i8 ]
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 16)
   %umin.i = zext nneg i32 %11 to i64
   br label %for.body.i
@@ -779,8 +779,8 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.end
   br i1 %4, label %for.cond.i, label %for.end.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.cond.i
-  %5 = trunc i64 %indvars.iv.i to i32
-  %6 = trunc i64 %3 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %6 = trunc nuw i64 %3 to i32
   %cmp12.i = icmp eq ptr %outp, null
   br i1 %cmp12.i, label %bn_x2bn.exit, label %if.end15.i
 
@@ -872,7 +872,7 @@ bn_x2bn.exit:                                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_asc2bn(ptr noundef %outp, ptr noundef %in) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef %outp, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %in, align 1
   %cmp = icmp eq i8 %0, 45
@@ -924,7 +924,7 @@ return:                                           ; preds = %if.end20, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_print(ptr noundef %bp, ptr noundef %a) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %bp, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
@@ -999,7 +999,7 @@ end:                                              ; preds = %for.cond.loopexit, 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_print_fp(ptr noundef %fp, ptr noundef %a) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_print_fp(ptr noundef %fp, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #8
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #8
@@ -1008,7 +1008,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @BIO_set_fp(ptr noundef nonnull %call1, ptr noundef %fp, i32 noundef 0) #8
-  %call3 = tail call i32 @BN_print(ptr noundef nonnull %call1, ptr noundef %a), !range !24
+  %call3 = tail call i32 @BN_print(ptr noundef nonnull %call1, ptr noundef %a)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #8
   br label %return
 
@@ -1049,7 +1049,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BN_bn2mpi(ptr noundef %in, ptr noundef %out) local_unnamed_addr #0 {
+define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %in, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %in) #8
   %conv = zext i32 %call to i64
@@ -1066,7 +1066,7 @@ entry:
 
 if.end23:                                         ; preds = %entry
   %shr = lshr i64 %add5, 24
-  %conv24 = trunc i64 %shr to i8
+  %conv24 = trunc nuw nsw i64 %shr to i8
   store i8 %conv24, ptr %out, align 1
   %shr25 = lshr i64 %add5, 16
   %conv26 = trunc i64 %shr25 to i8
@@ -1310,4 +1310,3 @@ attributes #9 = { nounwind allocsize(0) }
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
 !23 = distinct !{!23, !8}
-!24 = !{i32 0, i32 2}

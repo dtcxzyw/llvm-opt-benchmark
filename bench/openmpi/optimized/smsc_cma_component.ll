@@ -43,7 +43,7 @@ define internal noundef i32 @mca_smsc_cma_component_register() #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_smsc_cma_component_query() #1 {
+define internal range(i32 -16, 1) i32 @mca_smsc_cma_component_query() #1 {
   %1 = alloca %struct.stat, align 8
   %2 = alloca %struct.mca_smsc_cma_modex_t, align 8
   %3 = alloca %struct.pmix_value, align 8

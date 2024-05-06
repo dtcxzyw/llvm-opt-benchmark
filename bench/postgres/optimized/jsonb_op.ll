@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.jsonb_hash_extended = private unnamed_addr constant [20 x i8] c"jsonb_hash_extended\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_exists(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_exists(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonbValue, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -79,7 +79,7 @@ declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 declare ptr @findJsonbValueFromContainer(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @jsonb_exists_any(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_exists_any(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -187,7 +187,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @jsonb_exists_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_exists_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -291,7 +291,7 @@ define dso_local noundef i64 @jsonb_exists_all(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_contains(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_contains(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -330,7 +330,7 @@ declare ptr @JsonbIteratorInit(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @JsonbDeepContains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_contained(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_contained(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -365,7 +365,7 @@ define dso_local i64 @jsonb_contained(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -407,7 +407,7 @@ declare i32 @compareJsonbContainers(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -445,7 +445,7 @@ define dso_local i64 @jsonb_lt(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -483,7 +483,7 @@ define dso_local i64 @jsonb_gt(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -521,7 +521,7 @@ define dso_local i64 @jsonb_le(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -559,7 +559,7 @@ define dso_local i64 @jsonb_ge(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -597,7 +597,7 @@ define dso_local i64 @jsonb_eq(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @jsonb_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -634,7 +634,7 @@ define dso_local i64 @jsonb_cmp(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_hash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @jsonb_hash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca i32, align 4

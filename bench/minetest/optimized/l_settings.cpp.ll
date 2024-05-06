@@ -104,10 +104,10 @@ $_ZTV13BaseException = comdat any
 @.str.23 = private unnamed_addr constant [33 x i8] c"Attempted to set secure setting.\00", align 1
 @.str.24 = private unnamed_addr constant [8 x i8] c"mg_name\00", align 1
 @.str.25 = private unnamed_addr constant [9 x i8] c"mg_flags\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.26 = private unnamed_addr constant [29 x i8] c"Tried to set global setting \00", align 1
 @.str.27 = private unnamed_addr constant [66 x i8] c", ignoring. minetest.set_mapgen_setting() should be used instead.\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.28 = private unnamed_addr constant [17 x i8] c"main_menu_script\00", align 1
 @.str.29 = private unnamed_addr constant [12 x i8] c"shader_path\00", align 1
 @.str.30 = private unnamed_addr constant [13 x i8] c"texture_path\00", align 1
@@ -1537,7 +1537,7 @@ unreachable:                                      ; preds = %invoke.cont26
 }
 
 ; Function Attrs: inlinehint uwtable
-define internal fastcc noundef i32 @_ZL20checkSettingSecurityP9lua_StateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %L, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL20checkSettingSecurityP9lua_StateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %L, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -2291,7 +2291,7 @@ declare noundef zeroext i1 @_Z16read_noiseparamsP9lua_StateiP11NoiseParams(ptr n
 declare noundef zeroext i1 @_ZN8Settings14setNoiseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK11NoiseParams(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11LuaSettings8l_removeEP9lua_State(ptr noundef %L) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11LuaSettings8l_removeEP9lua_State(ptr noundef %L) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %key = alloca %"class.std::__cxx11::basic_string", align 8

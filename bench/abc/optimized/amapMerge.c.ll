@@ -238,7 +238,7 @@ Vec_IntGrow.exit23:                               ; preds = %Vec_IntGrow.exit23t
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38, %._crit_edge.loopexit.split.loop.exit, %Vec_IntGrow.exit23
@@ -436,7 +436,7 @@ define noundef ptr @Amap_ManCutCreate3(ptr nocapture noundef readonly %0, ptr no
   %54 = lshr i32 %53, 17
   %55 = load i32, ptr %2, align 4
   %56 = lshr i32 %55, 17
-  %57 = trunc i64 %indvars.iv57 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv57 to i32
   %58 = add nuw nsw i32 %54, %57
   %59 = add nuw nsw i32 %58, %56
   %60 = zext nneg i32 %59 to i64
@@ -952,7 +952,7 @@ define void @Amap_ManMergeNodeChoice(ptr nocapture noundef %0, ptr noundef %1) l
   store i32 %29, ptr %24, align 4
   %30 = load i32, ptr %.01823, align 4
   %sh.diff = lshr i64 %20, 45
-  %tr.sh.diff = trunc i64 %sh.diff to i32
+  %tr.sh.diff = trunc nuw nsw i64 %sh.diff to i32
   %31 = xor i32 %30, %tr.sh.diff
   %32 = and i32 %31, 65536
   %33 = and i32 %29, -65537
@@ -969,7 +969,7 @@ define void @Amap_ManMergeNodeChoice(ptr nocapture noundef %0, ptr noundef %1) l
   %42 = lshr i32 %41, 15
   %43 = and i32 %42, 131068
   %44 = zext nneg i32 %43 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr nonnull align 4 %40, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr nonnull readonly align 4 %40, i64 %44, i1 false)
   %45 = lshr i32 %31, 16
   %46 = and i32 %45, 1
   %47 = shl nuw nsw i32 %26, 1
@@ -1068,7 +1068,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntGrow.exit23t
   br i1 %93, label %.lr.ph.i, label %Vec_IntPushOrder.exit, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i
-  %94 = trunc i64 %indvars.iv.i to i32
+  %94 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Vec_IntPushOrder.exit
 
 Vec_IntPushOrder.exit:                            ; preds = %91, %Vec_IntGrow.exit23.i, %._crit_edge.loopexit.split.loop.exit.i
@@ -1132,7 +1132,7 @@ Amap_ObjChoice.exit:                              ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Amap_ManFindCut(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Amap_ManFindCut(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 12
@@ -1309,7 +1309,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   %37 = getelementptr inbounds i32, ptr %.val123, i64 %indvars.iv161
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %30, align 8
-  %40 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %13, i32 noundef %24, i32 noundef %38, ptr noundef %39), !range !25
+  %40 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %13, i32 noundef %24, i32 noundef %38, ptr noundef %39)
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %41, label %.critedge
 
@@ -1319,7 +1319,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   %43 = getelementptr inbounds i32, ptr %.val122, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %31, align 8
-  %46 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %18, i32 noundef %25, i32 noundef %44, ptr noundef %45), !range !25
+  %46 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %18, i32 noundef %25, i32 noundef %44, ptr noundef %45)
   %.not100 = icmp eq i32 %46, 0
   br i1 %.not100, label %47, label %.critedge
 
@@ -1329,7 +1329,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   %49 = getelementptr inbounds i32, ptr %.val121, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %32, align 8
-  %52 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %23, i32 noundef %26, i32 noundef %50, ptr noundef %51), !range !25
+  %52 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %23, i32 noundef %26, i32 noundef %50, ptr noundef %51)
   %.not101 = icmp eq i32 %52, 0
   br i1 %.not101, label %.preheader, label %.critedge
 
@@ -1547,7 +1547,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr nocapture noundef %0, ptr nocapture no
   %171 = lshr i32 %170, 17
   %172 = load i32, ptr %79, align 4
   %173 = lshr i32 %172, 17
-  %174 = trunc i64 %indvars.iv57.i to i32
+  %174 = trunc nuw nsw i64 %indvars.iv57.i to i32
   %175 = add nuw nsw i32 %171, %174
   %176 = add nuw nsw i32 %175, %173
   %177 = zext nneg i32 %176 to i64
@@ -1655,7 +1655,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntGrow.exit23t
   br i1 %227, label %.lr.ph.i135, label %Vec_IntPushOrder.exit, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i135
-  %228 = trunc i64 %indvars.iv.i136 to i32
+  %228 = trunc nuw nsw i64 %indvars.iv.i136 to i32
   br label %Vec_IntPushOrder.exit
 
 Vec_IntPushOrder.exit:                            ; preds = %225, %Vec_IntGrow.exit23.i, %._crit_edge.loopexit.split.loop.exit.i
@@ -1744,7 +1744,7 @@ Amap_ManCutCreate3.exit:                          ; preds = %._crit_edge.i, %Vec
   %.val = load i32, ptr %273, align 4
   %274 = sext i32 %.val to i64
   %275 = icmp slt i64 %indvars.iv.next, %274
-  br i1 %275, label %83, label %.critedge4.loopexit, !llvm.loop !26
+  br i1 %275, label %83, label %.critedge4.loopexit, !llvm.loop !25
 
 .critedge4.loopexit:                              ; preds = %271
   %.pre164 = load ptr, ptr %31, align 8
@@ -1758,7 +1758,7 @@ Amap_ManCutCreate3.exit:                          ; preds = %._crit_edge.i, %Vec
   %.val113 = load i32, ptr %278, align 4
   %279 = sext i32 %.val113 to i64
   %280 = icmp slt i64 %indvars.iv.next156, %279
-  br i1 %280, label %.lr.ph143.split, label %.critedge2.loopexit, !llvm.loop !27
+  br i1 %280, label %.lr.ph143.split, label %.critedge2.loopexit, !llvm.loop !26
 
 .critedge2.loopexit:                              ; preds = %.critedge4
   %.pre165 = load ptr, ptr %30, align 8
@@ -1773,14 +1773,14 @@ Amap_ManCutCreate3.exit:                          ; preds = %._crit_edge.i, %Vec
   %.val114 = load i32, ptr %284, align 4
   %285 = sext i32 %.val114 to i64
   %286 = icmp slt i64 %indvars.iv.next159, %285
-  br i1 %286, label %.lr.ph146.split, label %.critedge, !llvm.loop !28
+  br i1 %286, label %.lr.ph146.split, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph146, %.preheader, %47, %41, %36
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 4
   %.val118 = load i32, ptr %27, align 4
-  %287 = trunc i64 %indvars.iv.next162 to i32
+  %287 = trunc nuw i64 %indvars.iv.next162 to i32
   %288 = icmp sgt i32 %.val118, %287
-  br i1 %288, label %36, label %._crit_edge, !llvm.loop !29
+  br i1 %288, label %36, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.critedge, %2
   tail call void @Amap_ManCutSaveStored(ptr noundef nonnull %0, ptr noundef %1)
@@ -1908,7 +1908,7 @@ define void @Amap_ManMergeNodeCuts(ptr nocapture noundef %0, ptr noundef %1) loc
   %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv.next
   %64 = load i32, ptr %63, align 4
   %.not99 = icmp eq i32 %64, 0
-  br i1 %.not99, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not99, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %51
   %65 = load i32, ptr %32, align 4
@@ -2117,7 +2117,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntGrow.exit23t
   br i1 %174, label %.lr.ph.i126, label %Vec_IntPushOrder.exit, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i126
-  %175 = trunc i64 %indvars.iv.i127 to i32
+  %175 = trunc nuw nsw i64 %indvars.iv.i127 to i32
   br label %Vec_IntPushOrder.exit
 
 Vec_IntPushOrder.exit:                            ; preds = %172, %Vec_IntGrow.exit23.i, %._crit_edge.loopexit.split.loop.exit.i
@@ -2292,7 +2292,7 @@ Vec_IntGrow.exit23.i129:                          ; preds = %Vec_IntGrow.exit23t
   br i1 %262, label %.lr.ph.i133, label %Vec_IntPushOrder.exit143, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit.i136:        ; preds = %.lr.ph.i133
-  %263 = trunc i64 %indvars.iv.i134 to i32
+  %263 = trunc nuw nsw i64 %indvars.iv.i134 to i32
   br label %Vec_IntPushOrder.exit143
 
 Vec_IntPushOrder.exit143:                         ; preds = %260, %Vec_IntGrow.exit23.i129, %._crit_edge.loopexit.split.loop.exit.i136
@@ -2349,7 +2349,7 @@ Amap_ManCutCreate.exit124:                        ; preds = %._crit_edge.i121, %
   %292 = getelementptr inbounds i8, ptr %291, i64 4
   %293 = load i32, ptr %32, align 4
   %294 = icmp slt i32 %288, %293
-  br i1 %294, label %69, label %._crit_edge154, !llvm.loop !31
+  br i1 %294, label %69, label %._crit_edge154, !llvm.loop !30
 
 ._crit_edge154:                                   ; preds = %286, %._crit_edge
   %295 = load i32, ptr %.0161, align 4
@@ -2384,7 +2384,7 @@ Amap_ManCutCreate.exit124:                        ; preds = %._crit_edge.i121, %
   %310 = getelementptr inbounds i32, ptr %309, i64 %indvars.iv.next169
   %311 = load i32, ptr %310, align 4
   %.not101 = icmp eq i32 %311, 0
-  br i1 %.not101, label %._crit_edge159.loopexit, label %.lr.ph158, !llvm.loop !32
+  br i1 %.not101, label %._crit_edge159.loopexit, label %.lr.ph158, !llvm.loop !31
 
 ._crit_edge159.loopexit:                          ; preds = %.lr.ph158
   %.pre = load i32, ptr %.0161, align 4
@@ -2399,7 +2399,7 @@ Amap_ManCutCreate.exit124:                        ; preds = %._crit_edge.i121, %
   %317 = getelementptr inbounds i8, ptr %316, i64 4
   %318 = load i32, ptr %25, align 4
   %319 = icmp slt i32 %313, %318
-  br i1 %319, label %36, label %._crit_edge164, !llvm.loop !33
+  br i1 %319, label %36, label %._crit_edge164, !llvm.loop !32
 
 ._crit_edge164:                                   ; preds = %._crit_edge159, %20
   tail call void @Amap_ManCutSaveStored(ptr noundef %0, ptr noundef nonnull %1)
@@ -2535,7 +2535,7 @@ Amap_ManSetupPis.exit:                            ; preds = %.lr.ph.i, %Abc_Cloc
   %.val = load i32, ptr %54, align 4
   %55 = sext i32 %.val to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !34
+  br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %52, %Amap_ManSetupPis.exit
   %57 = load ptr, ptr %0, align 8
@@ -2615,7 +2615,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #15
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #15
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2634,7 +2634,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2651,22 +2651,22 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
@@ -2691,9 +2691,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2729,13 +2729,12 @@ attributes #17 = { nounwind willreturn memory(read) }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = !{i32 0, i32 2}
-!26 = distinct !{!26, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5, !19}
 !27 = distinct !{!27, !5, !19}
-!28 = distinct !{!28, !5, !19}
+!28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

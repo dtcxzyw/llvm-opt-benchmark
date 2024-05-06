@@ -852,8 +852,8 @@ if.then.i.i.i:                                    ; preds = %if.end28.i.i.if.the
   %31 = phi i32 [ %.pre.i34, %if.end28.i.i.if.then.i.i.i_crit_edge ], [ %.pre47, %if.end13.i.i ]
   %conv.i45.i.i = zext i32 %31 to i64
   %32 = load ptr, ptr %propMap, align 8
-  %add.ptr.i65.i.idx.i = shl nuw nsw i64 %conv.i45.i.i, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 8 %32, i64 %add.ptr.i65.i.idx.i, i1 false)
+  %gepdiff.i.i = shl nuw nsw i64 %conv.i45.i.i, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 8 %32, i64 %gepdiff.i.i, i1 false)
   br label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %if.then.i.i.i, %if.end28.i.i
@@ -1970,7 +1970,7 @@ entry:
   %ref.tmp265 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp266 = alloca %"class.std::__cxx11::basic_string", align 8
   %ItemSize.i.i = getelementptr inbounds i8, ptr %propMap, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %propMap, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %propMap, i8 0, i64 20, i1 false)
   store i32 40, ptr %ItemSize.i.i, align 4
   %ItemSize.i.i94 = getelementptr inbounds i8, ptr %firstLocMap, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %firstLocMap, i8 0, i64 20, i1 false)
@@ -2223,7 +2223,7 @@ if.else57:                                        ; preds = %if.end38, %if.end.i
   %valueNode.i118 = getelementptr inbounds i8, ptr %call40, i64 8
   store ptr %26, ptr %valueNode.i118, align 8
   %getterNode.i119 = getelementptr inbounds i8, ptr %call40, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %getterNode.i119, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %getterNode.i119, i8 0, i64 16, i1 false)
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %_ZZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeEEN13PropertyValue9setGetterEPNS2_22FunctionExpressionNodeE.exit, %if.else57, %_ZZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeEEN13PropertyValue9setSetterEPNS2_22FunctionExpressionNodeE.exit
@@ -4560,8 +4560,8 @@ if.then.i.i.i:                                    ; preds = %if.end28.i.i.if.the
   %11 = phi i32 [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge ], [ %9, %if.end13.i.i ]
   %conv.i35.i.i = zext i32 %11 to i64
   %12 = load ptr, ptr %elements, align 8
-  %add.ptr.i65.i.idx.i = shl nuw nsw i64 %conv.i35.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 8 %12, i64 %add.ptr.i65.i.idx.i, i1 false)
+  %gepdiff.i.i = shl nuw nsw i64 %conv.i35.i.i, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 8 %12, i64 %gepdiff.i.i, i1 false)
   br label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %if.then.i.i.i, %if.end28.i.i
@@ -4726,8 +4726,8 @@ if.then.i.i.i58:                                  ; preds = %if.end28.i.i62.if.t
   %28 = phi i32 [ %.pre.i64, %if.end28.i.i62.if.then.i.i.i58_crit_edge ], [ %26, %if.end13.i.i56 ]
   %conv.i35.i.i59 = zext i32 %28 to i64
   %29 = load ptr, ptr %elements, align 8
-  %add.ptr.i65.i.idx.i60 = shl nuw nsw i64 %conv.i35.i.i59, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 8 %29, i64 %add.ptr.i65.i.idx.i60, i1 false)
+  %gepdiff.i.i60 = shl nuw nsw i64 %conv.i35.i.i59, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 8 %29, i64 %gepdiff.i.i60, i1 false)
   br label %return.sink.split.i.i61
 
 return.sink.split.i.i61:                          ; preds = %if.then.i.i.i58, %if.end28.i.i62
@@ -5637,13 +5637,13 @@ if.then.i.i.i.i:                                  ; preds = %if.end9.i
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i:   ; preds = %if.then.i.i.i.i, %if.end9.i
   store i64 %Key.coerce1, ptr %call.i.i.i.i, align 8
   %second.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %second.i.i.i, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   %cmp.not.i.i = icmp eq i64 %Key.coerce1, 0
   br i1 %cmp.not.i.i, label %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i, ptr align 1 %Key.coerce0, i64 %Key.coerce1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i, ptr readonly align 1 %Key.coerce0, i64 %Key.coerce1, i1 false)
   br label %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.exit.i
 
 _ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.exit.i: ; preds = %if.then.i.i, %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i
@@ -6345,7 +6345,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val4, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

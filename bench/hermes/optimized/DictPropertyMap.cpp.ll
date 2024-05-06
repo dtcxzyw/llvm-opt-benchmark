@@ -105,7 +105,7 @@ if.end:                                           ; preds = %entry
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %0 = trunc i64 %or8.i.i.i to i32
+  %0 = trunc nuw nsw i64 %or8.i.i.i to i32
   %conv1.i = add nuw nsw i32 %0, 1
   %mul.i.i.i = mul nuw nsw i32 %capacity, 12
   %mul.i.i.i.i = shl nuw nsw i32 %conv1.i, 2
@@ -218,7 +218,7 @@ return:                                           ; preds = %_ZNK6hermes2vm15Dic
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm15DictPropertyMap4growERNS0_13MutableHandleIS1_EERNS0_7RuntimeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %selfHandleRef, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %newCapacity) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm15DictPropertyMap4growERNS0_13MutableHandleIS1_EERNS0_7RuntimeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %selfHandleRef, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %newCapacity) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @_ZN6hermes2vm15DictPropertyMap6createERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %newCapacity)
   %cmp.i.i.not = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
@@ -238,8 +238,8 @@ if.end:                                           ; preds = %entry
   %3 = load atomic i32, ptr %numDescriptors_ monotonic, align 4
   %idx.ext = zext i32 %3 to i64
   %add.ptr.idx = mul nuw nsw i64 %idx.ext, 12
-  %4 = getelementptr i8, ptr %1, i64 %add.ptr.idx
-  %add.ptr.ptr = getelementptr i8, ptr %4, i64 28
+  %4 = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %4, i64 28
   %cmp.not50 = icmp eq i32 %3, 0
   br i1 %cmp.not50, label %for.end, label %for.body.lr.ph
 
@@ -466,7 +466,7 @@ if.else:                                          ; preds = %if.then10
 
 if.end26:                                         ; preds = %if.then13, %if.then16, %if.else
   %newCapacity.0 = phi i32 [ %.sroa.speculated, %if.then16 ], [ %mul, %if.then13 ], [ %add25, %if.else ]
-  %call27 = tail call noundef i32 @_ZN6hermes2vm15DictPropertyMap4growERNS0_13MutableHandleIS1_EERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8) %selfHandleRef, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %newCapacity.0), !range !18
+  %call27 = tail call noundef i32 @_ZN6hermes2vm15DictPropertyMap4growERNS0_13MutableHandleIS1_EERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8) %selfHandleRef, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %newCapacity.0)
   %cmp28 = icmp eq i32 %call27, 0
   br i1 %cmp28, label %return, label %if.end30
 
@@ -874,7 +874,7 @@ for.inc:                                          ; preds = %if.then4.i.i118, %i
   %25 = load i32, ptr %hashCapacity_, align 4
   %26 = zext i32 %25 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %26
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11raw_ostreamlsEPKc.exit58
   %27 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -1036,7 +1036,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit218:              ; preds = %if.then.i.i216, %if
   %48 = load i32, ptr %descriptorCapacity_, align 4
   %49 = zext i32 %48 to i64
   %cmp28 = icmp ult i64 %indvars.iv.next225, %49
-  br i1 %cmp28, label %for.body29, label %for.end42, !llvm.loop !20
+  br i1 %cmp28, label %for.body29, label %for.end42, !llvm.loop !19
 
 for.end42:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit218, %_ZN4llvh11raw_ostreamlsEPKc.exit155
   ret void
@@ -1096,6 +1096,5 @@ attributes #9 = { nounwind }
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = distinct !{!16, !15}
 !17 = distinct !{!17, !15}
-!18 = !{i32 0, i32 2}
+!18 = distinct !{!18, !15}
 !19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}

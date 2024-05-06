@@ -14,7 +14,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %6 = load i8, ptr %5, align 1, !range !9, !alias.scope !6, !noalias !10, !noundef !4
-  %trunc.i = trunc i8 %6 to i1
+  %trunc.i = trunc nuw i8 %6 to i1
   br i1 %trunc.i, label %13, label %7
 
 7:                                                ; preds = %2

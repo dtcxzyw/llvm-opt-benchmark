@@ -56,7 +56,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_fan_driver_init318, ptr @__UNIQUE_ID_author319, ptr @__UNIQUE_ID_description320, ptr @__UNIQUE_ID_file321, ptr @__UNIQUE_ID_license322, ptr @__exitcall_acpi_fan_driver_exit, ptr @acpi_fan_driver_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_fan_get_fst(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_fan_get_fst(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   store i64 -1, ptr %3, align 8
@@ -699,7 +699,7 @@ acpi_fan_get_fst.exit:                            ; preds = %18, %21, %24, %28
 51:                                               ; preds = %35
   %52 = getelementptr inbounds i8, ptr %8, i64 3
   %53 = load i8, ptr %52, align 1
-  %.lhs.trunc = trunc i64 %37 to i8
+  %.lhs.trunc = trunc nuw i64 %37 to i8
   %54 = udiv i8 %.lhs.trunc, %53
   %.zext = zext nneg i8 %54 to i32
   br label %68

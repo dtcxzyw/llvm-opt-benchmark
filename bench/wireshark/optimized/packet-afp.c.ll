@@ -1633,7 +1633,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #0
 declare ptr @wmem_file_scope() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @afp_hash(ptr nocapture noundef readonly %0) #2 {
+define internal range(i32 0, 65536) i32 @afp_hash(ptr nocapture noundef readonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -1641,7 +1641,7 @@ define internal i32 @afp_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @afp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @afp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -2214,11 +2214,11 @@ proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_i
   br label %280
 
 220:                                              ; preds = %213, %213
-  %221 = call fastcc i32 @reply_enumerate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, i32 noundef 1)
+  %221 = call fastcc i32 @reply_enumerate(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 1)
   br label %280
 
 222:                                              ; preds = %213
-  %223 = call fastcc i32 @reply_enumerate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, i32 noundef 0)
+  %223 = call fastcc i32 @reply_enumerate(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 0)
   br label %280
 
 224:                                              ; preds = %213
@@ -2281,11 +2281,11 @@ proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_i
   br label %280
 
 255:                                              ; preds = %213
-  %256 = call fastcc i32 @reply_catsearch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, i32 noundef 1)
+  %256 = call fastcc i32 @reply_catsearch(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 1)
   br label %280
 
 257:                                              ; preds = %213
-  %258 = call fastcc i32 @reply_catsearch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %64, i32 noundef 0)
+  %258 = call fastcc i32 @reply_catsearch(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i32 noundef 0)
   br label %280
 
 259:                                              ; preds = %213
@@ -2894,7 +2894,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #0
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @afpstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @afpstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %6
 
@@ -3017,7 +3017,7 @@ define internal fastcc void @dissect_query_afp_byte_lock_ext(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_query_afp_with_vol_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 1, 5) i32 @dissect_query_afp_with_vol_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
 
@@ -3108,7 +3108,7 @@ define internal fastcc i32 @dissect_query_afp_create_file(ptr noundef %0, ptr no
   store i32 %10, ptr @Did, align 4
   %11 = load i32, ptr @hf_afp_did, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
-  %13 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %13 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %13
 }
 
@@ -3152,7 +3152,7 @@ define internal fastcc i32 @dissect_query_afp_enumerate_ext2(ptr noundef %0, ptr
   %13 = load i32, ptr @hf_afp_max_reply_size32, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #7
   %15 = add i32 %6, 10
-  %16 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %15, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %16 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef %15, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %16
 }
 
@@ -3170,7 +3170,7 @@ define internal fastcc i32 @dissect_query_afp_enumerate(ptr noundef %0, ptr noca
   %13 = load i32, ptr @hf_afp_max_reply_size, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef 0) #7
   %15 = add i32 %6, 6
-  %16 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %15, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %16 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef %15, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %16
 }
 
@@ -3378,7 +3378,7 @@ define internal fastcc i32 @dissect_query_afp_login(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_map_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 6, 19) i32 @dissect_query_afp_map_id(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %4 = load i32, ptr @hf_afp_map_id_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
@@ -3393,7 +3393,7 @@ define internal fastcc i32 @dissect_query_afp_map_id(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_map_name(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 3, 65540) i32 @dissect_query_afp_map_name(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %4 = load i32, ptr @hf_afp_map_name_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
@@ -3443,7 +3443,7 @@ define internal fastcc i32 @dissect_query_afp_move(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_query_afp_open_vol(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 4, 269) i32 @dissect_query_afp_open_vol(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = load i32, ptr @hf_afp_vol_bitmap, align 4
@@ -3502,7 +3502,7 @@ define internal fastcc i32 @dissect_query_afp_open_fork(ptr noundef %0, ptr noca
   %17 = load i32, ptr @hf_afp_access_mode, align 4
   %18 = load i32, ptr @ett_afp_access_mode, align 4
   %19 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 10, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @dissect_query_afp_open_fork.access, i32 noundef 0) #7
-  %20 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %20 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %20
 }
 
@@ -3602,7 +3602,7 @@ define internal fastcc i32 @dissect_query_afp_set_dir_param(ptr noundef %0, ptr 
   %14 = load i32, ptr @ett_afp_dir_bitmap, align 4
   %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 8, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @decode_dir_bitmap.bitmaps, i32 noundef 0) #7
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #7
-  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
   %18 = and i32 %17, 1
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %23, label %19
@@ -3637,7 +3637,7 @@ define internal fastcc i32 @dissect_query_afp_set_file_param(ptr noundef %0, ptr
   %14 = load i32, ptr @ett_afp_file_bitmap, align 4
   %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 8, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @decode_file_bitmap.bitmaps, i32 noundef 0) #7
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #7
-  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
   %18 = and i32 %17, 1
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %23, label %19
@@ -3655,7 +3655,7 @@ define internal fastcc i32 @dissect_query_afp_set_file_param(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_query_afp_set_fork_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 10, 15) i32 @dissect_query_afp_set_fork_param(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
@@ -3780,7 +3780,7 @@ define internal fastcc i32 @dissect_query_afp_get_fldr_param(ptr noundef %0, ptr
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call fastcc i32 @decode_vol_did_file_dir_bitmap(ptr noundef %2, ptr noundef %0)
-  %7 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %7 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %7
 }
 
@@ -3801,7 +3801,7 @@ define internal fastcc i32 @dissect_query_afp_set_fldr_param(ptr noundef %0, ptr
   %14 = load i32, ptr @ett_afp_file_bitmap, align 4
   %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 8, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @decode_file_bitmap.bitmaps, i32 noundef 0) #7
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #7
-  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
   %18 = and i32 %17, 1
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %23, label %19
@@ -3843,7 +3843,7 @@ define internal fastcc i32 @dissect_query_afp_create_id(ptr noundef %0, ptr noca
   store i32 %10, ptr @Did, align 4
   %11 = load i32, ptr @hf_afp_did, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
-  %13 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %13 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %13
 }
 
@@ -3942,7 +3942,7 @@ define internal fastcc i32 @dissect_query_afp_add_appl(ptr noundef %0, ptr nocap
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %15 = load i32, ptr @hf_afp_appl_tag, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
-  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %17
 }
 
@@ -3961,7 +3961,7 @@ define internal fastcc i32 @dissect_query_afp_rmv_appl(ptr noundef %0, ptr nocap
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
   %13 = load i32, ptr @hf_afp_file_creator, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
-  %15 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %15 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %15
 }
 
@@ -3990,7 +3990,7 @@ define internal fastcc i32 @dissect_query_afp_add_cmt(ptr noundef %0, ptr nocapt
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #7
   %8 = load i32, ptr @hf_afp_did, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
-  %10 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %10 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1055, i32 noundef 1)
   %11 = and i32 %10, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %16, label %12
@@ -4020,7 +4020,7 @@ define internal fastcc i32 @dissect_query_afp_get_cmt(ptr noundef %0, ptr nocapt
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #7
   %8 = load i32, ptr @hf_afp_did, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
-  %10 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %10 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %10
 }
 
@@ -4067,7 +4067,7 @@ define internal fastcc i32 @dissect_query_afp_get_ext_attr(ptr noundef %0, ptr n
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 18, i32 noundef 8, i32 noundef 0) #7
   %20 = load i32, ptr @hf_afp_extattr_reply_size, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0) #7
-  %22 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 30, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %22 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 30, ptr noundef nonnull @.str.1055, i32 noundef 1)
   %23 = tail call fastcc i32 @decode_attr_name(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %22)
   ret i32 %23
 }
@@ -4091,7 +4091,7 @@ define internal fastcc i32 @dissect_query_afp_set_ext_attr(ptr noundef %0, ptr n
   %16 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 8, i32 noundef %14, i32 noundef %15, ptr noundef nonnull @decode_attr_bitmap.bitmaps, i32 noundef 0) #7
   %17 = load i32, ptr @hf_afp_offset64, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 10, i32 noundef 8, i32 noundef 0) #7
-  %19 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 18, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %19 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 18, ptr noundef nonnull @.str.1055, i32 noundef 1)
   %20 = tail call fastcc i32 @decode_attr_name(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %19)
   %21 = load i32, ptr @hf_afp_extattr_len, align 4
   %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #7
@@ -4126,7 +4126,7 @@ define internal fastcc i32 @dissect_query_afp_list_ext_attrs(ptr noundef %0, ptr
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
   %20 = load i32, ptr @hf_afp_extattr_reply_size, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #7
-  %22 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 20, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %22 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 20, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %22
 }
 
@@ -4146,7 +4146,7 @@ define internal fastcc i32 @dissect_query_afp_remove_ext_attr(ptr noundef %0, pt
   %13 = load i32, ptr @hf_afp_extattr_bitmap, align 4
   %14 = load i32, ptr @ett_afp_extattr_bitmap, align 4
   %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 8, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @decode_attr_bitmap.bitmaps, i32 noundef 0) #7
-  %16 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %16 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
   %17 = tail call fastcc i32 @decode_attr_name(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %16)
   ret i32 %17
 }
@@ -4170,7 +4170,7 @@ define internal fastcc i32 @dissect_query_afp_get_acl(ptr noundef %0, ptr nocapt
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #7
   %17 = load i32, ptr @hf_afp_max_reply_size32, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0) #7
-  %19 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 14, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %19 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 14, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %19
 }
 
@@ -4191,7 +4191,7 @@ define internal fastcc i32 @dissect_query_afp_set_acl(ptr noundef %0, ptr nounde
   %14 = load i32, ptr @ett_afp_acl_list_bitmap, align 4
   %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 8, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @decode_acl_list_bitmap.bitmaps, i32 noundef 0) #7
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #7
-  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %17 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @.str.1055, i32 noundef 1)
   %18 = tail call fastcc i32 @decode_uuid_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, i16 noundef zeroext %16)
   ret i32 %18
 }
@@ -4217,7 +4217,7 @@ define internal fastcc i32 @dissect_query_afp_access(ptr noundef %0, ptr nocaptu
   %18 = load i32, ptr @ett_afp_acl_access_bitmap, align 4
   %19 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 26, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @decode_acl_access_bitmap.bitmaps, i32 noundef 0) #7
   %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 26) #7
-  %21 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef 30, ptr noundef nonnull @.str.1055, i32 noundef 1)
+  %21 = tail call fastcc i32 @decode_name_label(ptr noundef %2, ptr noundef readonly %1, ptr noundef %0, i32 noundef 30, ptr noundef nonnull @.str.1055, i32 noundef 1)
   ret i32 %21
 }
 
@@ -4348,7 +4348,7 @@ define internal fastcc i32 @dissect_reply_afp_get_fork_param(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_user_info(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 2, 27) i32 @dissect_reply_afp_get_user_info(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_user_bitmap, align 4
   %4 = load i32, ptr @ett_afp_user_bitmap, align 4
   %5 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @afp_user_bitmaps, i32 noundef 0) #7
@@ -4453,7 +4453,7 @@ define internal fastcc i32 @dissect_reply_afp_get_server_param(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_server_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 5, 65542) i32 @dissect_reply_afp_get_server_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_afp_message_type, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
   %5 = load i32, ptr @hf_afp_message_bitmap, align 4
@@ -4547,7 +4547,7 @@ define internal fastcc i32 @dissect_reply_afp_map_id(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_reply_afp_map_name(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef range(i32 4, 17) i32 @dissect_reply_afp_map_name(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   %4 = icmp eq i32 %3, 16
   %. = select i1 %4, i32 16, i32 4
@@ -4637,7 +4637,7 @@ define internal fastcc void @dissect_reply_afp_get_icon_info(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reply_afp_get_cmt(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 1, 257) i32 @dissect_reply_afp_get_cmt(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #7
   %4 = load i32, ptr @hf_afp_comment, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 2) #7

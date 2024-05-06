@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [16 x i8] c"<not available>\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @wav_start_capture(ptr noundef %state, ptr nocapture noundef writeonly %s, ptr noundef %path, i32 noundef %freq, i32 noundef %bits, i32 noundef %nchannels) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @wav_start_capture(ptr noundef %state, ptr nocapture noundef writeonly %s, ptr noundef %path, i32 noundef %freq, i32 noundef %bits, i32 noundef %nchannels) local_unnamed_addr #0 {
 entry:
   %hdr = alloca [44 x i8], align 16
   %as = alloca %struct.audsettings, align 4
@@ -73,7 +73,7 @@ if.end6:                                          ; preds = %if.end
   %arrayidx = getelementptr inbounds i8, ptr %hdr, i64 34
   store i8 %conv14, ptr %arrayidx, align 2
   %add.ptr = getelementptr inbounds i8, ptr %hdr, i64 22
-  %1 = trunc i32 %shl to i8
+  %1 = trunc nuw nsw i32 %shl to i8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end6
@@ -121,7 +121,7 @@ for.body.i43:                                     ; preds = %for.body.i43, %le_s
 le_store.exit51:                                  ; preds = %for.body.i43
   %add.ptr22 = getelementptr inbounds i8, ptr %hdr, i64 32
   %shl23 = shl nuw nsw i32 1, %add
-  %2 = trunc i32 %shl23 to i8
+  %2 = trunc nuw nsw i32 %shl23 to i8
   br label %for.body.i52
 
 for.body.i52:                                     ; preds = %for.body.i52, %le_store.exit51

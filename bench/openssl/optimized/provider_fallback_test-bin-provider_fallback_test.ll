@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [27 x i8] c"OSSL_PROVIDER_unload(prov)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_fallback_provider) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_explicit_provider) #2
@@ -28,14 +28,14 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fallback_provider() #0 {
+define internal range(i32 0, 2) i32 @test_fallback_provider() #0 {
 entry:
-  %call = tail call fastcc i32 @test_provider(ptr noundef null), !range !5
+  %call = tail call fastcc i32 @test_provider(ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_provider() #0 {
+define internal range(i32 0, 2) i32 @test_explicit_provider() #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 41, ptr noundef nonnull @.str.10, ptr noundef %call) #2
@@ -49,7 +49,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %land.end, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %call6 = tail call fastcc i32 @test_provider(ptr noundef %call), !range !5
+  %call6 = tail call fastcc i32 @test_provider(ptr noundef %call)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %land.end, label %land.rhs
 
@@ -69,7 +69,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_provider(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %call = tail call i32 @OSSL_PROVIDER_available(ptr noundef %ctx, ptr noundef nonnull @.str.4) #2
   %cmp = icmp ne i32 %call, 0
@@ -139,4 +139,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

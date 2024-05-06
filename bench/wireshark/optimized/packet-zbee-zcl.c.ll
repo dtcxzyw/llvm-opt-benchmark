@@ -1297,7 +1297,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 256) i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #5
   %7 = zext i8 %6 to i32
@@ -2169,18 +2169,18 @@ define void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %461
 
 398:                                              ; preds = %5
-  %399 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_hours), !range !10
-  %400 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_mins), !range !10
-  %401 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_secs), !range !10
-  %402 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_csecs), !range !10
+  %399 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_hours)
+  %400 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_mins)
+  %401 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_secs)
+  %402 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_csecs)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.693, i32 noundef %399, i32 noundef %400, i32 noundef %401, i32 noundef %402) #5
   br label %461
 
 403:                                              ; preds = %5
-  %404 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_yy), !range !10
-  %405 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_mm), !range !10
-  %406 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_md), !range !10
-  %407 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_wd), !range !10
+  %404 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_yy)
+  %405 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_mm)
+  %406 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_md)
+  %407 = tail call i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @hf_zbee_zcl_attr_wd)
   %408 = add nuw nsw i32 %404, 1900
   %409 = tail call ptr @val_to_str_ext_const(i32 noundef %407, ptr noundef nonnull @zbee_zcl_wd_names_ext, ptr noundef nonnull @.str.695) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.694, i32 noundef %408, i32 noundef %405, i32 noundef %406, ptr noundef %409) #5
@@ -2340,7 +2340,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
   %.sink37 = select i1 %15, ptr %16, ptr getelementptr inbounds ([16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 15)
   %17 = load i32, ptr %.sink37, align 4
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.829, i32 noundef %18) #5
   %20 = load i32, ptr %2, align 4
   tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %2, i32 noundef %12, i32 noundef %5)
@@ -2358,7 +2358,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
   %26 = icmp ult i32 %21, %7
   %27 = icmp ne i16 %25, 0
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %13, label %.loopexit, !llvm.loop !11
+  br i1 %28, label %13, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %24, %6, %22
   ret void
@@ -2402,7 +2402,7 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
   %25 = icmp ult i32 %20, %7
   %26 = icmp ne i16 %24, 0
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %13, label %.loopexit, !llvm.loop !12
+  br i1 %27, label %13, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %23, %6, %21
   ret void
@@ -2470,7 +2470,7 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.preheader18, label %3, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader18, label %3, !llvm.loop !12
 
 .preheader18:                                     ; preds = %3, %.preheader18
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.preheader18 ], [ 66, %3 ]
@@ -2481,7 +2481,7 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next32, 16
-  br i1 %exitcond38.not, label %.preheader, label %.preheader18, !llvm.loop !14
+  br i1 %exitcond38.not, label %.preheader, label %.preheader18, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader18, %.preheader
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 82, %.preheader18 ]
@@ -2492,7 +2492,7 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next40, 16
-  br i1 %exitcond46.not, label %10, label %.preheader, !llvm.loop !15
+  br i1 %exitcond46.not, label %10, label %.preheader, !llvm.loop !14
 
 10:                                               ; preds = %.preheader
   %11 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.814, ptr noundef nonnull @.str.815, ptr noundef nonnull @.str.816) #5
@@ -3020,7 +3020,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %32, %22, %34, %38
   %49 = icmp ult i32 %48, %7
   %50 = icmp ult i64 %indvars.iv, 63
   %51 = and i1 %49, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %45, %6
   ret void
@@ -3238,7 +3238,7 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
   %111 = icmp ult i32 %110, %7
   %112 = icmp ult i64 %indvars.iv, 63
   %113 = and i1 %111, %112
-  br i1 %113, label %12, label %._crit_edge, !llvm.loop !17
+  br i1 %113, label %12, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_data_general.exit, %6
   ret void
@@ -3367,7 +3367,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %64, %53, %66, %70
   %77 = icmp ult i32 %76, %8
   %78 = icmp ult i64 %indvars.iv, 63
   %79 = and i1 %77, %78
-  br i1 %79, label %29, label %._crit_edge, !llvm.loop !18
+  br i1 %79, label %29, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %24
   ret void
@@ -3463,7 +3463,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %40, %29, %42, %46
   %53 = icmp ult i32 %52, %7
   %54 = icmp ult i64 %indvars.iv, 63
   %55 = and i1 %53, %54
-  br i1 %55, label %12, label %._crit_edge, !llvm.loop !19
+  br i1 %55, label %12, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %6
   ret void
@@ -3655,7 +3655,7 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
   %104 = icmp ult i32 %103, %7
   %105 = icmp ult i64 %indvars.iv, 63
   %106 = and i1 %104, %105
-  br i1 %106, label %13, label %._crit_edge, !llvm.loop !20
+  br i1 %106, label %13, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_data_general.exit, %6
   ret void
@@ -3783,7 +3783,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %33, %
   %52 = icmp ult i32 %51, %15
   %53 = icmp ult i64 %indvars.iv, 63
   %54 = and i1 %52, %53
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %6
   ret void
@@ -3802,7 +3802,7 @@ define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr no
   %11 = icmp ult i32 %10, %7
   %12 = icmp ult i64 %indvars.iv, 15
   %13 = and i1 %11, %12
-  br i1 %13, label %.lr.ph5, label %._crit_edge, !llvm.loop !22
+  br i1 %13, label %.lr.ph5, label %._crit_edge, !llvm.loop !21
 
 .lr.ph5:                                          ; preds = %6, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %6 ]
@@ -3881,7 +3881,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph5, %29, 
   %52 = add i32 %51, 2
   store i32 %52, ptr %2, align 4
   %exitcond.not = icmp eq i32 %50, %47
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   ret void
@@ -3981,7 +3981,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %30, %.lr.ph4, %32, 
   %56 = add i32 %55, 2
   store i32 %56, ptr %2, align 4
   %exitcond.not = icmp eq i32 %54, %49
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %dissect_zcl_attr_id.exit
   tail call void @dissect_zcl_attr_data_type_val(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %2, i16 noundef zeroext %20, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %8)
@@ -3989,7 +3989,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %30, %.lr.ph4, %32, 
   %58 = icmp ult i32 %57, %9
   %59 = icmp ult i64 %indvars.iv, 63
   %60 = and i1 %58, %59
-  br i1 %60, label %.lr.ph4, label %._crit_edge, !llvm.loop !25
+  br i1 %60, label %.lr.ph4, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   %.0.lcssa = phi ptr [ null, %6 ], [ %18, %.loopexit ]
@@ -4102,14 +4102,14 @@ dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %37, %41
   %60 = add i32 %59, 2
   store i32 %60, ptr %2, align 4
   %exitcond.not = icmp eq i32 %58, %53
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %48, %dissect_zcl_attr_id.exit, %.lr.ph5
   %61 = phi i32 [ %55, %48 ], [ %47, %dissect_zcl_attr_id.exit ], [ %24, %.lr.ph5 ], [ %60, %.lr.ph ]
   %62 = icmp ult i32 %61, %7
   %63 = icmp ult i64 %indvars.iv, 63
   %64 = and i1 %62, %63
-  br i1 %64, label %.lr.ph5, label %._crit_edge, !llvm.loop !27
+  br i1 %64, label %.lr.ph5, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   ret void
@@ -4175,7 +4175,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, p
   %29 = icmp ult i32 %27, %14
   %30 = icmp ult i32 %28, %15
   %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !28
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %3
   ret void
@@ -4270,7 +4270,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %37, %.lr.ph, %39, %
   %55 = icmp ult i32 %54, %19
   %56 = icmp ult i64 %indvars.iv, 63
   %57 = and i1 %55, %56
-  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !29
+  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %dissect_zcl_attr_id.exit, %18, %6
   ret void
@@ -4316,7 +4316,7 @@ attributes #6 = { nounwind allocsize(0,1) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 256}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -4335,4 +4335,3 @@ attributes #6 = { nounwind allocsize(0,1) }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

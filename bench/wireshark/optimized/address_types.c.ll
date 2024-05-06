@@ -164,7 +164,7 @@ define hidden noundef i32 @none_addr_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ether_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define hidden range(i32 -2147483648, 19) i32 @ether_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 18
   br i1 %4, label %5, label %8
 
@@ -418,7 +418,7 @@ define internal noundef i32 @fc_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fcwwn_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal range(i32 -2147483648, 25) i32 @fcwwn_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 24
   br i1 %4, label %5, label %8
 
@@ -534,7 +534,7 @@ define internal i32 @stringz_addr_str_len(ptr nocapture noundef readonly %0) #8 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eui64_addr_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal range(i32 -2147483648, 25) i32 @eui64_addr_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 24
   br i1 %4, label %5, label %8
 
@@ -797,7 +797,7 @@ define internal noundef i32 @numeric_addr_to_str(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @numeric_addr_str_len(ptr nocapture noundef readonly %0) #8 {
+define internal range(i32 4, 22) i32 @numeric_addr_str_len(ptr nocapture noundef readonly %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %switch.tableidx = add i32 %3, -2

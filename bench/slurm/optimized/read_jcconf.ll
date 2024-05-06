@@ -437,7 +437,7 @@ define internal noundef i32 @_parse_jc_conf_internal(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_jc_conf(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @_parse_jc_conf(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %21, label %7
 

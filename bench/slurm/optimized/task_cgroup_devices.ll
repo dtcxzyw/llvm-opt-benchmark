@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [50 x i8] c"Unable to set access constraint for device %s(%s)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @task_cgroup_devices_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_cgroup_devices_init() local_unnamed_addr #0 {
   %1 = alloca i16, align 2
   %2 = tail call i32 @xcpuinfo_init() #4
   %.not = icmp eq i32 %2, 0
@@ -158,7 +158,7 @@ declare ptr @gres_g_get_devices(ptr noundef, i1 noundef zeroext, i16 noundef zer
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_device_access(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca %struct.cgroup_limits_t, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -275,7 +275,7 @@ define i32 @task_cgroup_devices_add_pid(ptr noundef %0, i32 noundef %1, i32 noun
 declare i32 @cgroup_g_task_addto(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @task_cgroup_devices_constrain(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_cgroup_devices_constrain(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.handle_dev_args, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8

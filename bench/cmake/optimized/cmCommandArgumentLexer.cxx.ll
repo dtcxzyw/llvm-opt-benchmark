@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z23cmCommandArgument_yylexPN29cmCommandArgumentParserHelper10ParserTypeEPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 270) i32 @_Z23cmCommandArgument_yylexPN29cmCommandArgumentParserHelper10ParserTypeEPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -819,7 +819,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i188, %304
   br i1 %exitcond179.not.i, label %.critedge.i, label %396, !llvm.loop !14
 
 .critedge.split.loop.exit.i:                      ; preds = %396, %396
-  %409 = trunc i64 %indvars.iv.i to i32
+  %409 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %399, %.critedge.split.loop.exit.i
@@ -2362,7 +2362,7 @@ define dso_local void @_Z29cmCommandArgument_yyset_debugiPv(i32 noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z28cmCommandArgument_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #12 {
+define dso_local noundef range(i32 0, 2) i32 @_Z28cmCommandArgument_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2390,7 +2390,7 @@ declare ptr @__errno_location() local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z34cmCommandArgument_yylex_init_extraP29cmCommandArgumentParserHelperPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
+define dso_local noundef range(i32 0, 2) i32 @_Z34cmCommandArgument_yylex_init_extraP29cmCommandArgumentParserHelperPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

@@ -1128,11 +1128,11 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr nocapture noundef %0, i
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph.split.us
-  %53 = trunc i64 %indvars.iv40 to i32
+  %53 = trunc nuw i64 %indvars.iv40 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit49.split.loop.exit:           ; preds = %.lr.ph.split
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %48, %37, %._crit_edge.loopexit49.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %9
@@ -1166,7 +1166,7 @@ declare void @LockReleaseCurrentOwner(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @resource_priority_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @resource_priority_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

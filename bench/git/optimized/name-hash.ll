@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @test_lazy_init_name_hash(ptr noundef %istate, i32 noundef %try_threaded) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @test_lazy_init_name_hash(ptr noundef %istate, i32 noundef %try_threaded) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr @lazy_nr_dir_threads, align 4
   store i32 %try_threaded, ptr @lazy_try_threaded, align 4
@@ -97,7 +97,7 @@ lookup_lazy_params.exit:                          ; preds = %if.end.lookup_lazy_
   br i1 %cmp44.not, label %if.end10, label %for.body
 
 if.then5:                                         ; preds = %if.end3.i
-  %mul.i = mul nsw i32 %call.i, 2000
+  %mul.i = mul nuw nsw i32 %call.i, 2000
   %cmp10.i = icmp ult i32 %.pre48, %mul.i
   %div.i = udiv i32 %.pre48, 2000
   %nr_cpus.0.i = select i1 %cmp10.i, i32 %div.i, i32 %call.i
@@ -503,7 +503,7 @@ if.end6:                                          ; preds = %while.body.i, %land
 declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @index_dir_exists(ptr noundef %istate, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @index_dir_exists(ptr noundef %istate, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %key.i.i = alloca %struct.dir_entry, align 8
   tail call fastcc void @lazy_init_name_hash(ptr noundef %istate)
@@ -647,7 +647,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 land.lhs.true.i.us:                               ; preds = %for.body.us
   %name1.i.us = getelementptr inbounds i8, ptr %ce.018.us, i64 108
-  %bcmp.i.us = call i32 @bcmp(ptr %name, ptr nonnull %name1.i.us, i64 %conv)
+  %bcmp.i.us = call i32 @bcmp(ptr readonly %name, ptr nonnull readonly %name1.i.us, i64 %conv)
   %tobool.not.i.us = icmp eq i32 %bcmp.i.us, 0
   br i1 %tobool.not.i.us, label %return, label %for.inc.us
 
@@ -681,7 +681,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 
 land.lhs.true.i:                                  ; preds = %for.body
   %name1.i = getelementptr inbounds i8, ptr %ce.018, i64 108
-  %bcmp.i = call i32 @bcmp(ptr %name, ptr nonnull %name1.i, i64 %conv)
+  %bcmp.i = call i32 @bcmp(ptr readonly %name, ptr nonnull readonly %name1.i, i64 %conv)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %return, label %while.body.i.i
 
@@ -766,7 +766,7 @@ declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @cache_entry_cmp(ptr nocapture readnone %cmp_data, ptr noundef readnone %eptr, ptr noundef readnone %entry_or_key, ptr noundef readnone %remove) #4 {
+define internal range(i32 0, 2) i32 @cache_entry_cmp(ptr nocapture readnone %cmp_data, ptr noundef readnone %eptr, ptr noundef readnone %entry_or_key, ptr noundef readnone %remove) #4 {
 entry:
   %tobool.not = icmp ne ptr %remove, null
   %cmp = icmp ne ptr %eptr, %entry_or_key
@@ -776,7 +776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal i32 @dir_entry_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr noundef readonly %keydata) #5 {
+define internal range(i32 0, 2) i32 @dir_entry_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr noundef readonly %keydata) #5 {
 entry:
   %namelen = getelementptr inbounds i8, ptr %eptr, i64 28
   %0 = load i32, ptr %namelen, align 4
@@ -1343,7 +1343,7 @@ entry:
 
 while.cond:                                       ; preds = %land.rhs, %entry
   %indvars.iv = phi i64 [ %2, %land.rhs ], [ %0, %entry ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw i64 %indvars.iv to i32
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %land.rhs, label %return
 
@@ -1371,8 +1371,8 @@ if.end:                                           ; preds = %land.rhs
   br i1 %tobool6.not, label %do.body, label %return
 
 do.body:                                          ; preds = %if.end
-  %add.i25 = add nuw nsw i64 %conv.i23, 33
-  %call11 = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i25) #13
+  %add.i26 = add nuw nsw i64 %conv.i23, 33
+  %call11 = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i26) #13
   %name12 = getelementptr inbounds i8, ptr %call11, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %name12, ptr nonnull align 4 %name, i64 %conv.i23, i1 false)
   %call19 = call i32 @memihash(ptr noundef nonnull %name, i64 noundef %conv.i23) #13

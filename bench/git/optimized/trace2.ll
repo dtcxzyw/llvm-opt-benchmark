@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @trace2_initialize_clock() local_unnamed_addr #0 {
 entry:
-  tail call void @tr2tls_start_process_clock() #9
+  tail call void @tr2tls_start_process_clock() #10
   ret void
 }
 
@@ -48,7 +48,7 @@ entry:
   br i1 %.b, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @tr2_sysenv_load() #9
+  tail call void @tr2_sysenv_load() #10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
@@ -57,7 +57,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %tgt_j.05.i = phi ptr [ @tr2_tgt_normal, %if.end ], [ %1, %for.body.i ]
   %pfn_init.i = getelementptr inbounds i8, ptr %tgt_j.05.i, i64 8
   %0 = load ptr, ptr %pfn_init.i, align 8
-  %call.i = tail call i32 %0() #9
+  %call.i = tail call i32 %0() #10
   %tobool1.not.i = icmp ne i32 %call.i, 0
   %inc.i = zext i1 %tobool1.not.i to i32
   %spec.select.i = add nuw nsw i32 %sum.07.i, %inc.i
@@ -73,7 +73,7 @@ tr2_tgt_want_builtins.exit:                       ; preds = %for.body.i
 
 if.end3:                                          ; preds = %tr2_tgt_want_builtins.exit
   store i1 true, ptr @trace2_enabled, align 4
-  %call4 = tail call i32 @git_env_bool(ptr noundef nonnull @.str, i32 noundef 1) #9
+  %call4 = tail call i32 @git_env_bool(ptr noundef nonnull @.str, i32 noundef 1) #10
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
@@ -82,17 +82,17 @@ if.then6:                                         ; preds = %if.end3
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end3
-  %call8 = tail call ptr @tr2_sid_get() #9
-  %call9 = tail call i32 @atexit(ptr noundef nonnull @tr2main_atexit_handler) #9
-  %call10 = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull @tr2main_signal_handler) #9
-  tail call void @tr2tls_init() #9
+  %call8 = tail call ptr @tr2_sid_get() #10
+  %call9 = tail call i32 @atexit(ptr noundef nonnull @tr2main_atexit_handler) #10
+  %call10 = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull @tr2main_signal_handler) #10
+  tail call void @tr2tls_init() #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end7, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end7 ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.06 = phi ptr [ @tr2_tgt_normal, %if.end7 ], [ %4, %for.inc ]
   %2 = load ptr, ptr %tgt_j.06, align 8
-  %call12 = tail call i32 @tr2_dst_trace_want(ptr noundef %2) #9
+  %call12 = tail call i32 @tr2_dst_trace_want(ptr noundef %2) #10
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %for.inc, label %if.then14
 
@@ -103,7 +103,7 @@ if.then14:                                        ; preds = %for.body
   br i1 %tobool15.not, label %for.inc, label %if.then16
 
 if.then16:                                        ; preds = %if.then14
-  tail call void %3(ptr noundef %file, i32 noundef %line) #9
+  tail call void %3(ptr noundef %file, i32 noundef %line) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then16, %if.then14
@@ -123,31 +123,31 @@ declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @tr2_sid_get() local_unnamed_addr #1
 
-; Function Attrs: nounwind
+; Function Attrs: nofree nounwind
 declare i32 @atexit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @tr2main_atexit_handler() #0 {
 entry:
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  tail call void @tr2tls_pop_unwind_self() #9
-  tail call void @tr2_emit_per_thread_timers(ptr noundef nonnull @tr2_tgt_emit_a_timer) #9
-  tail call void @tr2_emit_per_thread_counters(ptr noundef nonnull @tr2_tgt_emit_a_counter) #9
-  tail call void @tr2tls_lock() #9
-  tail call void @tr2_update_final_timers() #9
-  tail call void @tr2_update_final_counters() #9
-  tail call void @tr2_emit_final_timers(ptr noundef nonnull @tr2_tgt_emit_a_timer) #9
-  tail call void @tr2_emit_final_counters(ptr noundef nonnull @tr2_tgt_emit_a_counter) #9
-  tail call void @tr2tls_unlock() #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
+  tail call void @tr2tls_pop_unwind_self() #10
+  tail call void @tr2_emit_per_thread_timers(ptr noundef nonnull @tr2_tgt_emit_a_timer) #10
+  tail call void @tr2_emit_per_thread_counters(ptr noundef nonnull @tr2_tgt_emit_a_counter) #10
+  tail call void @tr2tls_lock() #10
+  tail call void @tr2_update_final_timers() #10
+  tail call void @tr2_update_final_counters() #10
+  tail call void @tr2_emit_final_timers(ptr noundef nonnull @tr2_tgt_emit_a_timer) #10
+  tail call void @tr2_emit_final_counters(ptr noundef nonnull @tr2_tgt_emit_a_counter) #10
+  tail call void @tr2tls_unlock() #10
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.07 = phi ptr [ @tr2_tgt_normal, %entry ], [ %3, %for.inc ]
   %0 = load ptr, ptr %tgt_j.07, align 8
-  %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %for.inc, label %if.then
 
@@ -159,7 +159,7 @@ if.then:                                          ; preds = %for.body
 
 if.then5:                                         ; preds = %if.then
   %2 = load i32, ptr @tr2main_exit_code, align 4
-  tail call void %1(i64 noundef %call1, i32 noundef %2) #9
+  tail call void %1(i64 noundef %call1, i32 noundef %2) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then
@@ -174,7 +174,7 @@ for.body.i:                                       ; preds = %for.inc, %for.body.
   %tgt_j.04.i = phi ptr [ %5, %for.body.i ], [ @tr2_tgt_normal, %for.inc ]
   %pfn_term.i = getelementptr inbounds i8, ptr %tgt_j.04.i, i64 16
   %4 = load ptr, ptr %pfn_term.i, align 8
-  tail call void %4() #9
+  tail call void %4() #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx2.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %5 = load ptr, ptr %arrayidx2.i, align 8
@@ -182,12 +182,12 @@ for.body.i:                                       ; preds = %for.inc, %for.body.
   br i1 %tobool.not.i, label %tr2_tgt_disable_builtins.exit, label %for.body.i, !llvm.loop !9
 
 tr2_tgt_disable_builtins.exit:                    ; preds = %for.body.i
-  tail call void @tr2tls_release() #9
-  tail call void @tr2_sid_release() #9
-  tail call void @tr2_cmd_name_release() #9
-  tail call void @tr2_cfg_free_patterns() #9
-  tail call void @tr2_cfg_free_env_vars() #9
-  tail call void @tr2_sysenv_release() #9
+  tail call void @tr2tls_release() #10
+  tail call void @tr2_sid_release() #10
+  tail call void @tr2_cmd_name_release() #10
+  tail call void @tr2_cfg_free_patterns() #10
+  tail call void @tr2_cfg_free_env_vars() #10
+  tail call void @tr2_sysenv_release() #10
   store i1 false, ptr @trace2_enabled, align 4
   ret void
 }
@@ -197,16 +197,16 @@ declare i32 @sigchain_push(i32 noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @tr2main_signal_handler(i32 noundef %signo) #0 {
 entry:
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.09 = phi ptr [ @tr2_tgt_normal, %entry ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.09, align 8
-  %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %for.inc, label %if.then
 
@@ -217,7 +217,7 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  tail call void %1(i64 noundef %call1, i32 noundef %signo) #9
+  tail call void %1(i64 noundef %call1, i32 noundef %signo) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then
@@ -228,8 +228,8 @@ for.inc:                                          ; preds = %for.body, %if.then5
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
-  %call10 = tail call i32 @sigchain_pop(i32 noundef %signo) #9
-  %call11 = tail call i32 @raise(i32 noundef %signo) #9
+  %call10 = tail call i32 @sigchain_pop(i32 noundef %signo) #10
+  %call11 = tail call i32 @raise(i32 noundef %signo) #10
   ret void
 }
 
@@ -238,7 +238,7 @@ declare void @tr2tls_init() local_unnamed_addr #1
 declare i32 @tr2_dst_trace_want(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @trace2_is_enabled() local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @trace2_is_enabled() local_unnamed_addr #3 {
 entry:
   %.b = load i1, ptr @trace2_enabled, align 4
   %0 = zext i1 %.b to i32
@@ -252,9 +252,9 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   %call2 = tail call fastcc ptr @redact_argv(ptr noundef %argv)
   br label %for.body
 
@@ -262,7 +262,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.09 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.09, align 8
-  %call4 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call4 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
@@ -273,7 +273,7 @@ if.then6:                                         ; preds = %for.body
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, ptr noundef %call2) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, ptr noundef %call2) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8, %if.then6
@@ -301,7 +301,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  tail call void @free(ptr noundef %5) #9
+  tail call void @free(ptr noundef %5) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then6.i, %for.body.i
@@ -312,7 +312,7 @@ for.inc.i:                                        ; preds = %if.then6.i, %for.bo
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  tail call void @free(ptr noundef %call2) #9
+  tail call void @free(ptr noundef %call2) #10
   br label %return
 
 return:                                           ; preds = %for.end.i, %for.end, %entry
@@ -383,14 +383,14 @@ do.cond.i14.i:                                    ; preds = %do.body.i10.i
 
 if.end.i:                                         ; preds = %do.body.i.i, %do.body.i10.i
   %p.2.i = phi ptr [ %scevgep27.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
-  %call2.i = tail call i64 @strcspn(ptr noundef %p.2.i, ptr noundef nonnull @.str.11) #10
+  %call2.i = tail call i64 @strcspn(ptr noundef %p.2.i, ptr noundef nonnull @.str.11) #11
   %arrayidx.i = getelementptr inbounds i8, ptr %p.2.i, i64 %call2.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp.not.i = icmp eq i8 %6, 64
   br i1 %cmp.not.i, label %if.end5.i, label %for.inc
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = tail call ptr @memchr(ptr noundef nonnull %p.2.i, i32 noundef 58, i64 noundef %call2.i) #10
+  %call6.i = tail call ptr @memchr(ptr noundef nonnull %p.2.i, i32 noundef 58, i64 noundef %call2.i) #11
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %for.inc, label %redact_arg.exit
 
@@ -399,7 +399,7 @@ redact_arg.exit:                                  ; preds = %if.end5.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv10.i = trunc i64 %sub.ptr.sub.i to i32
-  %call11.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.12, i32 noundef %conv10.i, ptr noundef nonnull %1, ptr noundef nonnull %arrayidx.i) #9
+  %call11.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.12, i32 noundef %conv10.i, ptr noundef nonnull %1, ptr noundef nonnull %arrayidx.i) #10
   %.b.i.pre = load i1, ptr @trace2_redact, align 4
   %.pre = load ptr, ptr %arrayidx89, align 8
   %cmp.not = icmp eq ptr %call11.i, %.pre
@@ -431,7 +431,7 @@ for.end20:                                        ; preds = %for.cond13
   %add = shl i64 %indvars.iv107, 3
   %conv = add i64 %add, 8
   %mul.i = and i64 %conv, 34359738360
-  %call22 = tail call ptr @xmalloc(i64 noundef %mul.i) #9
+  %call22 = tail call ptr @xmalloc(i64 noundef %mul.i) #10
   %arrayidx24 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv107
   store ptr null, ptr %arrayidx24, align 8
   %9 = and i64 %indvars.iv, 4294967295
@@ -513,14 +513,14 @@ do.cond.i14.i56:                                  ; preds = %do.body.i10.i52
 
 if.end.i62:                                       ; preds = %do.body.i.i41, %do.body.i10.i52
   %p.2.i63 = phi ptr [ %scevgep27.i51, %do.body.i10.i52 ], [ %scevgep.i40, %do.body.i.i41 ]
-  %call2.i64 = tail call i64 @strcspn(ptr noundef %p.2.i63, ptr noundef nonnull @.str.11) #10
+  %call2.i64 = tail call i64 @strcspn(ptr noundef %p.2.i63, ptr noundef nonnull @.str.11) #11
   %arrayidx.i65 = getelementptr inbounds i8, ptr %p.2.i63, i64 %call2.i64
   %17 = load i8, ptr %arrayidx.i65, align 1
   %cmp.not.i66 = icmp eq i8 %17, 64
   br i1 %cmp.not.i66, label %if.end5.i67, label %redact_arg.exit76
 
 if.end5.i67:                                      ; preds = %if.end.i62
-  %call6.i68 = tail call ptr @memchr(ptr noundef nonnull %p.2.i63, i32 noundef 58, i64 noundef %call2.i64) #10
+  %call6.i68 = tail call ptr @memchr(ptr noundef nonnull %p.2.i63, i32 noundef 58, i64 noundef %call2.i64) #11
   %tobool7.not.i69 = icmp eq ptr %call6.i68, null
   br i1 %tobool7.not.i69, label %redact_arg.exit76, label %if.end9.i70
 
@@ -529,7 +529,7 @@ if.end9.i70:                                      ; preds = %if.end5.i67
   %sub.ptr.rhs.cast.i72 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i73 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i72
   %conv10.i74 = trunc i64 %sub.ptr.sub.i73 to i32
-  %call11.i75 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.12, i32 noundef %conv10.i74, ptr noundef nonnull %12, ptr noundef nonnull %arrayidx.i65) #9
+  %call11.i75 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.12, i32 noundef %conv10.i74, ptr noundef nonnull %12, ptr noundef nonnull %arrayidx.i65) #10
   %.b.i38.pre = load i1, ptr @trace2_redact, align 4
   br label %redact_arg.exit76
 
@@ -566,18 +566,18 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  tail call void @trace2_collect_process_info(i32 noundef 1) #9
+  tail call void @trace2_collect_process_info(i32 noundef 1) #10
   store i32 %code, ptr @tr2main_exit_code, align 4
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.08 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.08, align 8
-  %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
@@ -588,7 +588,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %code) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %code) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then7, %if.then5
@@ -614,7 +614,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %tgt_j.06 = phi ptr [ %2, %for.inc ], [ @tr2_tgt_normal, %entry ]
   %0 = load ptr, ptr %tgt_j.06, align 8
-  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
@@ -625,7 +625,7 @@ if.then3:                                         ; preds = %for.body
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef %ap) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef %ap) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
@@ -649,7 +649,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %tgt_j.06 = phi ptr [ %2, %for.inc ], [ @tr2_tgt_normal, %entry ]
   %0 = load ptr, ptr %tgt_j.06, align 8
-  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
@@ -660,7 +660,7 @@ if.then3:                                         ; preds = %for.body
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %pathname) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %pathname) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
@@ -684,7 +684,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %tgt_j.06 = phi ptr [ %2, %for.inc ], [ @tr2_tgt_normal, %entry ]
   %0 = load ptr, ptr %tgt_j.06, align 8
-  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
@@ -695,7 +695,7 @@ if.then3:                                         ; preds = %for.body
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %parent_names) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %parent_names) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
@@ -716,15 +716,15 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  tail call void @tr2_cmd_name_append_hierarchy(ptr noundef %name) #9
-  %call = tail call ptr @tr2_cmd_name_get_hierarchy() #9
+  tail call void @tr2_cmd_name_append_hierarchy(ptr noundef %name) #10
+  %call = tail call ptr @tr2_cmd_name_get_hierarchy() #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.07 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.07, align 8
-  %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
@@ -735,7 +735,7 @@ if.then4:                                         ; preds = %for.body
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %if.then4
-  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %name, ptr noundef %call) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %name, ptr noundef %call) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then6, %if.then4
@@ -763,7 +763,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %tgt_j.06 = phi ptr [ %2, %for.inc ], [ @tr2_tgt_normal, %entry ]
   %0 = load ptr, ptr %tgt_j.06, align 8
-  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
@@ -774,7 +774,7 @@ if.then3:                                         ; preds = %for.body
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %mode) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %mode) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
@@ -798,7 +798,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %tgt_j.06 = phi ptr [ %2, %for.inc ], [ @tr2_tgt_normal, %entry ]
   %0 = load ptr, ptr %tgt_j.06, align 8
-  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
@@ -809,7 +809,7 @@ if.then3:                                         ; preds = %for.body
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %alias, ptr noundef %argv) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, ptr noundef %alias, ptr noundef %argv) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
@@ -830,7 +830,7 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @tr2_cfg_list_config_fl(ptr noundef %file, i32 noundef %line) #9
+  tail call void @tr2_cfg_list_config_fl(ptr noundef %file, i32 noundef %line) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -846,7 +846,7 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @tr2_list_env_vars_fl(ptr noundef %file, i32 noundef %line) #9
+  tail call void @tr2_list_env_vars_fl(ptr noundef %file, i32 noundef %line) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -862,7 +862,7 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @tr2_cfg_set_fl(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef %value) #9
+  tail call void @tr2_cfg_set_fl(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef %value) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -879,10 +879,10 @@ entry:
   br i1 %.b, label %if.end, label %if.end24
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  %call2 = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_child_id) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
+  %call2 = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_child_id) #10
   %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
   store i32 %call2, ptr %trace2_child_id, align 4
   %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
@@ -895,7 +895,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.020 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %3, %for.inc ]
   %1 = load ptr, ptr %tgt_j.020, align 8
-  %call7 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #9
+  %call7 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #10
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
@@ -906,7 +906,7 @@ if.then9:                                         ; preds = %for.body
   br i1 %tobool10.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  tail call void %2(ptr noundef %file, i32 noundef %line, i64 noundef %call1, ptr noundef nonnull %cmd) #9
+  tail call void %2(ptr noundef %file, i32 noundef %line, i64 noundef %call1, ptr noundef nonnull %cmd) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then11, %if.then9
@@ -935,7 +935,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  tail call void @free(ptr noundef %7) #9
+  tail call void @free(ptr noundef %7) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then6.i, %for.body.i
@@ -946,7 +946,7 @@ for.inc.i:                                        ; preds = %if.then6.i, %for.bo
   br i1 %tobool.not.i, label %free_redacted_argv.exit, label %for.body.i, !llvm.loop !12
 
 free_redacted_argv.exit:                          ; preds = %for.inc.i, %for.cond.preheader.i
-  tail call void @free(ptr noundef %4) #9
+  tail call void @free(ptr noundef %4) #10
   store ptr %0, ptr %cmd, align 8
   br label %if.end24
 
@@ -963,9 +963,9 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
   %0 = load i64, ptr %trace2_child_us_start, align 8
   %tobool2.not = icmp eq i64 %0, 0
@@ -979,7 +979,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.012 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %5, %for.inc ]
   %1 = load ptr, ptr %tgt_j.012, align 8
-  %call7 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #9
+  %call7 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #10
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
@@ -992,7 +992,7 @@ if.then9:                                         ; preds = %for.body
 if.then11:                                        ; preds = %if.then9
   %3 = load i32, ptr %trace2_child_id, align 4
   %4 = load i32, ptr %pid, align 8
-  tail call void %2(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %3, i32 noundef %4, i32 noundef %child_exit_code, i64 noundef %us_elapsed_child.0) #9
+  tail call void %2(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %3, i32 noundef %4, i32 noundef %child_exit_code, i64 noundef %us_elapsed_child.0) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then11, %if.then9
@@ -1013,9 +1013,9 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
   %0 = load i64, ptr %trace2_child_us_start, align 8
   %tobool2.not = icmp eq i64 %0, 0
@@ -1029,7 +1029,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.012 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %5, %for.inc ]
   %1 = load ptr, ptr %tgt_j.012, align 8
-  %call7 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #9
+  %call7 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #10
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
@@ -1042,7 +1042,7 @@ if.then9:                                         ; preds = %for.body
 if.then11:                                        ; preds = %if.then9
   %3 = load i32, ptr %trace2_child_id, align 4
   %4 = load i32, ptr %pid, align 8
-  tail call void %2(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %3, i32 noundef %4, ptr noundef %ready, i64 noundef %us_elapsed_child.0) #9
+  tail call void %2(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %3, i32 noundef %4, ptr noundef %ready, i64 noundef %us_elapsed_child.0) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then11, %if.then9
@@ -1063,10 +1063,10 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  %call2 = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_exec_id) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
+  %call2 = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_exec_id) #10
   %call3 = tail call fastcc ptr @redact_argv(ptr noundef %argv)
   br label %for.body
 
@@ -1074,7 +1074,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.010 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.010, align 8
-  %call5 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call5 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
@@ -1085,7 +1085,7 @@ if.then7:                                         ; preds = %for.body
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %call2, ptr noundef %exe, ptr noundef %call3) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %call2, ptr noundef %exe, ptr noundef %call3) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then9, %if.then7
@@ -1113,7 +1113,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  tail call void @free(ptr noundef %5) #9
+  tail call void @free(ptr noundef %5) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then6.i, %for.body.i
@@ -1124,7 +1124,7 @@ for.inc.i:                                        ; preds = %if.then6.i, %for.bo
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  tail call void @free(ptr noundef %call3) #9
+  tail call void @free(ptr noundef %call3) #10
   br label %return
 
 return:                                           ; preds = %for.end.i, %for.end, %entry
@@ -1139,16 +1139,16 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.07 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.07, align 8
-  %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
@@ -1159,7 +1159,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %exec_id, i32 noundef %code) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i32 noundef %exec_id, i32 noundef %code) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then7, %if.then5
@@ -1180,7 +1180,7 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @tr2tls_is_main_thread() #9
+  %call = tail call i32 @tr2tls_is_main_thread() #10
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
@@ -1189,17 +1189,17 @@ if.then2:                                         ; preds = %if.end
   br label %for.end
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call i64 @getnanotime() #9
+  %call4 = tail call i64 @getnanotime() #10
   %div = udiv i64 %call4, 1000
-  %call5 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  %call6 = tail call ptr @tr2tls_create_self(ptr noundef %thread_base_name, i64 noundef %div) #9
+  %call5 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
+  %call6 = tail call ptr @tr2tls_create_self(ptr noundef %thread_base_name, i64 noundef %div) #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end3, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end3 ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.011 = phi ptr [ @tr2_tgt_normal, %if.end3 ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.011, align 8
-  %call8 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call8 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %for.inc, label %if.then10
 
@@ -1210,7 +1210,7 @@ if.then10:                                        ; preds = %for.body
   br i1 %tobool11.not, label %for.inc, label %if.then12
 
 if.then12:                                        ; preds = %if.then10
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call5) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call5) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then12, %if.then10
@@ -1230,21 +1230,21 @@ declare i32 @tr2tls_is_main_thread() local_unnamed_addr #1
 define dso_local void @trace2_region_enter_printf_fl(ptr noundef %file, i32 noundef %line, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %if.end.i, label %trace2_region_enter_printf_va_fl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i64 @getnanotime() #9
+  %call.i = call i64 @getnanotime() #10
   %div.i = udiv i64 %call.i, 1000
-  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #9
+  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %tgt_j.08.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
   %0 = load ptr, ptr %tgt_j.08.i, align 8
-  %call3.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call3.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
@@ -1255,7 +1255,7 @@ if.then5.i:                                       ; preds = %for.body.i
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then5.i
-  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef nonnull %ap) #9
+  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef nonnull %ap) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %if.then5.i, %for.body.i
@@ -1266,11 +1266,11 @@ for.inc.i:                                        ; preds = %if.then7.i, %if.the
   br i1 %tobool2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !31
 
 for.end.i:                                        ; preds = %for.inc.i
-  call void @tr2tls_push_self(i64 noundef %div.i) #9
+  call void @tr2tls_push_self(i64 noundef %div.i) #10
   br label %trace2_region_enter_printf_va_fl.exit
 
 trace2_region_enter_printf_va_fl.exit:            ; preds = %entry, %for.end.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -1283,7 +1283,7 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @tr2tls_is_main_thread() #9
+  %call = tail call i32 @tr2tls_is_main_thread() #10
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
@@ -1292,24 +1292,24 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call i64 @getnanotime() #9
+  %call4 = tail call i64 @getnanotime() #10
   %div = udiv i64 %call4, 1000
-  %call5 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  tail call void @tr2tls_pop_unwind_self() #9
-  %call6 = tail call i64 @tr2tls_region_elasped_self(i64 noundef %div) #9
-  tail call void @tr2_emit_per_thread_timers(ptr noundef nonnull @tr2_tgt_emit_a_timer) #9
-  tail call void @tr2_emit_per_thread_counters(ptr noundef nonnull @tr2_tgt_emit_a_counter) #9
-  tail call void @tr2tls_lock() #9
-  tail call void @tr2_update_final_timers() #9
-  tail call void @tr2_update_final_counters() #9
-  tail call void @tr2tls_unlock() #9
+  %call5 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
+  tail call void @tr2tls_pop_unwind_self() #10
+  %call6 = tail call i64 @tr2tls_region_elasped_self(i64 noundef %div) #10
+  tail call void @tr2_emit_per_thread_timers(ptr noundef nonnull @tr2_tgt_emit_a_timer) #10
+  tail call void @tr2_emit_per_thread_counters(ptr noundef nonnull @tr2_tgt_emit_a_counter) #10
+  tail call void @tr2tls_lock() #10
+  tail call void @tr2_update_final_timers() #10
+  tail call void @tr2_update_final_counters() #10
+  tail call void @tr2tls_unlock() #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end3, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end3 ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.010 = phi ptr [ @tr2_tgt_normal, %if.end3 ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.010, align 8
-  %call8 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call8 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %for.inc, label %if.then10
 
@@ -1320,7 +1320,7 @@ if.then10:                                        ; preds = %for.body
   br i1 %tobool11.not, label %for.inc, label %if.then12
 
 if.then12:                                        ; preds = %if.then10
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call5, i64 noundef %call6) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call5, i64 noundef %call6) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then12, %if.then10
@@ -1331,7 +1331,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !32
 
 for.end:                                          ; preds = %for.inc
-  tail call void @tr2tls_unset_self() #9
+  tail call void @tr2tls_unset_self() #10
   br label %return
 
 return:                                           ; preds = %entry, %for.end, %if.then2
@@ -1342,23 +1342,23 @@ return:                                           ; preds = %entry, %for.end, %i
 define dso_local void @trace2_region_leave_printf_fl(ptr noundef %file, i32 noundef %line, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %if.end.i, label %trace2_region_leave_printf_va_fl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i64 @getnanotime() #9
+  %call.i = call i64 @getnanotime() #10
   %div.i = udiv i64 %call.i, 1000
-  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #9
-  %call2.i = call i64 @tr2tls_region_elasped_self(i64 noundef %div.i) #9
-  call void @tr2tls_pop_self() #9
+  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #10
+  %call2.i = call i64 @tr2tls_region_elasped_self(i64 noundef %div.i) #10
+  call void @tr2tls_pop_self() #10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %tgt_j.08.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
   %0 = load ptr, ptr %tgt_j.08.i, align 8
-  %call4.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call4.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
@@ -1369,7 +1369,7 @@ if.then6.i:                                       ; preds = %for.body.i
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, i64 noundef %call2.i, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef nonnull %ap) #9
+  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, i64 noundef %call2.i, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef nonnull %ap) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then8.i, %if.then6.i, %for.body.i
@@ -1380,7 +1380,7 @@ for.inc.i:                                        ; preds = %if.then8.i, %if.the
   br i1 %tobool3.not.i, label %trace2_region_leave_printf_va_fl.exit, label %for.body.i, !llvm.loop !33
 
 trace2_region_leave_printf_va_fl.exit:            ; preds = %for.inc.i, %entry
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -1399,7 +1399,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.06 = phi ptr [ @tr2_tgt_normal, %entry ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.06, align 8
-  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %for.inc, label %if.then
 
@@ -1410,7 +1410,7 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  tail call void %1(ptr noundef %meta, ptr noundef %timer, i32 noundef %is_final_data) #9
+  tail call void %1(ptr noundef %meta, ptr noundef %timer, i32 noundef %is_final_data) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then3, %if.then
@@ -1435,7 +1435,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.06 = phi ptr [ @tr2_tgt_normal, %entry ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.06, align 8
-  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %for.inc, label %if.then
 
@@ -1446,7 +1446,7 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  tail call void %1(ptr noundef %meta, ptr noundef %counter, i32 noundef %is_final_data) #9
+  tail call void %1(ptr noundef %meta, ptr noundef %counter, i32 noundef %is_final_data) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then3, %if.then
@@ -1520,14 +1520,14 @@ do.cond.i14.i:                                    ; preds = %do.body.i10.i
 
 if.end.i:                                         ; preds = %do.body.i.i, %do.body.i10.i
   %p.2.i = phi ptr [ %scevgep27.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
-  %call2.i = tail call i64 @strcspn(ptr noundef %p.2.i, ptr noundef nonnull @.str.11) #10
+  %call2.i = tail call i64 @strcspn(ptr noundef %p.2.i, ptr noundef nonnull @.str.11) #11
   %arrayidx.i = getelementptr inbounds i8, ptr %p.2.i, i64 %call2.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %cmp.not.i = icmp eq i8 %4, 64
   br i1 %cmp.not.i, label %if.end5.i, label %redact_arg.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = tail call ptr @memchr(ptr noundef nonnull %p.2.i, i32 noundef 58, i64 noundef %call2.i) #10
+  %call6.i = tail call ptr @memchr(ptr noundef nonnull %p.2.i, i32 noundef 58, i64 noundef %call2.i) #11
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %redact_arg.exit, label %if.end9.i
 
@@ -1536,7 +1536,7 @@ if.end9.i:                                        ; preds = %if.end5.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %value to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv10.i = trunc i64 %sub.ptr.sub.i to i32
-  %call11.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.12, i32 noundef %conv10.i, ptr noundef %value, ptr noundef nonnull %arrayidx.i) #9
+  %call11.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.12, i32 noundef %conv10.i, ptr noundef %value, ptr noundef nonnull %arrayidx.i) #10
   br label %redact_arg.exit
 
 redact_arg.exit:                                  ; preds = %do.cond.i14.i, %if.end, %if.end.i, %if.end5.i, %if.end9.i
@@ -1547,7 +1547,7 @@ for.body:                                         ; preds = %redact_arg.exit, %f
   %indvars.iv = phi i64 [ 0, %redact_arg.exit ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.011 = phi ptr [ @tr2_tgt_normal, %redact_arg.exit ], [ %7, %for.inc ]
   %5 = load ptr, ptr %tgt_j.011, align 8
-  %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %5) #9
+  %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %5) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
@@ -1558,7 +1558,7 @@ if.then4:                                         ; preds = %for.body
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %if.then4
-  tail call void %6(ptr noundef %file, i32 noundef %line, ptr noundef %param, ptr noundef %retval.0.i, ptr noundef %kvi) #9
+  tail call void %6(ptr noundef %file, i32 noundef %line, ptr noundef %param, ptr noundef %retval.0.i, ptr noundef %kvi) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then6, %if.then4
@@ -1573,7 +1573,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %for.end
-  tail call void @free(ptr noundef %retval.0.i) #9
+  tail call void @free(ptr noundef %retval.0.i) #10
   br label %if.end13
 
 if.end13:                                         ; preds = %entry, %if.then12, %for.end
@@ -1596,7 +1596,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end3, label %for.end
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_repo_id) #9
+  %call = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_repo_id) #10
   store i32 %call, ptr %trace2_repo_id, align 4
   br label %for.body
 
@@ -1604,7 +1604,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end3 ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.08 = phi ptr [ @tr2_tgt_normal, %if.end3 ], [ %3, %for.inc ]
   %1 = load ptr, ptr %tgt_j.08, align 8
-  %call6 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #9
+  %call6 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #10
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
@@ -1615,7 +1615,7 @@ if.then8:                                         ; preds = %for.body
   br i1 %tobool9.not, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  tail call void %2(ptr noundef %file, i32 noundef %line, ptr noundef %repo) #9
+  tail call void %2(ptr noundef %file, i32 noundef %line, ptr noundef %repo) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then10, %if.then8
@@ -1636,16 +1636,16 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.08 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.08, align 8
-  %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
@@ -1656,7 +1656,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef %ap) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef %ap) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then7, %if.then5
@@ -1667,7 +1667,7 @@ for.inc:                                          ; preds = %for.body, %if.then7
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc
-  tail call void @tr2tls_push_self(i64 noundef %div) #9
+  tail call void @tr2tls_push_self(i64 noundef %div) #10
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -1680,21 +1680,21 @@ declare void @tr2tls_push_self(i64 noundef) local_unnamed_addr #1
 define dso_local void @trace2_region_enter_fl(ptr noundef %file, i32 noundef %line, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %if.end.i, label %trace2_region_enter_printf_va_fl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i64 @getnanotime() #9
+  %call.i = call i64 @getnanotime() #10
   %div.i = udiv i64 %call.i, 1000
-  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #9
+  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %tgt_j.08.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
   %0 = load ptr, ptr %tgt_j.08.i, align 8
-  %call3.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call3.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
@@ -1705,7 +1705,7 @@ if.then5.i:                                       ; preds = %for.body.i
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then5.i
-  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef null, ptr noundef nonnull %ap) #9
+  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef null, ptr noundef nonnull %ap) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %if.then5.i, %for.body.i
@@ -1716,19 +1716,13 @@ for.inc.i:                                        ; preds = %if.then7.i, %if.the
   br i1 %tobool2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !31
 
 for.end.i:                                        ; preds = %for.inc.i
-  call void @tr2tls_push_self(i64 noundef %div.i) #9
+  call void @tr2tls_push_self(i64 noundef %div.i) #10
   br label %trace2_region_enter_printf_va_fl.exit
 
 trace2_region_enter_printf_va_fl.exit:            ; preds = %entry, %for.end.i
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trace2_region_leave_printf_va_fl(ptr noundef %file, i32 noundef %line, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #0 {
@@ -1737,18 +1731,18 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  %call2 = tail call i64 @tr2tls_region_elasped_self(i64 noundef %div) #9
-  tail call void @tr2tls_pop_self() #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
+  %call2 = tail call i64 @tr2tls_region_elasped_self(i64 noundef %div) #10
+  tail call void @tr2tls_pop_self() #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.08 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.08, align 8
-  %call4 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call4 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
@@ -1759,7 +1753,7 @@ if.then6:                                         ; preds = %for.body
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i64 noundef %call2, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef %ap) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i64 noundef %call2, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef %fmt, ptr noundef %ap) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8, %if.then6
@@ -1779,23 +1773,23 @@ declare void @tr2tls_pop_self() local_unnamed_addr #1
 define dso_local void @trace2_region_leave_fl(ptr noundef %file, i32 noundef %line, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %if.end.i, label %trace2_region_leave_printf_va_fl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i64 @getnanotime() #9
+  %call.i = call i64 @getnanotime() #10
   %div.i = udiv i64 %call.i, 1000
-  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #9
-  %call2.i = call i64 @tr2tls_region_elasped_self(i64 noundef %div.i) #9
-  call void @tr2tls_pop_self() #9
+  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #10
+  %call2.i = call i64 @tr2tls_region_elasped_self(i64 noundef %div.i) #10
+  call void @tr2tls_pop_self() #10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %tgt_j.08.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
   %0 = load ptr, ptr %tgt_j.08.i, align 8
-  %call4.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call4.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
@@ -1806,7 +1800,7 @@ if.then6.i:                                       ; preds = %for.body.i
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, i64 noundef %call2.i, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef null, ptr noundef nonnull %ap) #9
+  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, i64 noundef %call2.i, ptr noundef %category, ptr noundef %label, ptr noundef %repo, ptr noundef null, ptr noundef nonnull %ap) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then8.i, %if.then6.i, %for.body.i
@@ -1817,7 +1811,7 @@ for.inc.i:                                        ; preds = %if.then8.i, %if.the
   br i1 %tobool3.not.i, label %trace2_region_leave_printf_va_fl.exit, label %for.body.i, !llvm.loop !33
 
 trace2_region_leave_printf_va_fl.exit:            ; preds = %for.inc.i, %entry
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -1828,17 +1822,17 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  %call2 = tail call i64 @tr2tls_region_elasped_self(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
+  %call2 = tail call i64 @tr2tls_region_elasped_self(i64 noundef %div) #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.08 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.08, align 8
-  %call4 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call4 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
@@ -1849,7 +1843,7 @@ if.then6:                                         ; preds = %for.body
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i64 noundef %call2, ptr noundef %category, ptr noundef %repo, ptr noundef %key, ptr noundef %value) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i64 noundef %call2, ptr noundef %category, ptr noundef %repo, ptr noundef %key, ptr noundef %value) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8, %if.then6
@@ -1872,24 +1866,24 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_string, ptr noundef nonnull @.str.3, i64 noundef %value) #9
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_string, ptr noundef nonnull @.str.3, i64 noundef %value) #10
   %buf = getelementptr inbounds i8, ptr %buf_string, i64 16
   %0 = load ptr, ptr %buf, align 8
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %if.end.i, label %trace2_data_string_fl.exit
 
 if.end.i:                                         ; preds = %if.end
-  %call.i = call i64 @getnanotime() #9
+  %call.i = call i64 @getnanotime() #10
   %div.i = udiv i64 %call.i, 1000
-  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #9
-  %call2.i = call i64 @tr2tls_region_elasped_self(i64 noundef %div.i) #9
+  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #10
+  %call2.i = call i64 @tr2tls_region_elasped_self(i64 noundef %div.i) #10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %tgt_j.08.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %3, %for.inc.i ]
   %1 = load ptr, ptr %tgt_j.08.i, align 8
-  %call4.i = call i32 @tr2_dst_trace_want(ptr noundef %1) #9
+  %call4.i = call i32 @tr2_dst_trace_want(ptr noundef %1) #10
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
@@ -1900,7 +1894,7 @@ if.then6.i:                                       ; preds = %for.body.i
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  call void %2(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, i64 noundef %call2.i, ptr noundef %category, ptr noundef %repo, ptr noundef %key, ptr noundef %0) #9
+  call void %2(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, i64 noundef %call2.i, ptr noundef %category, ptr noundef %repo, ptr noundef %key, ptr noundef %0) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then8.i, %if.then6.i, %for.body.i
@@ -1911,7 +1905,7 @@ for.inc.i:                                        ; preds = %if.then8.i, %if.the
   br i1 %tobool3.not.i, label %trace2_data_string_fl.exit, label %for.body.i, !llvm.loop !38
 
 trace2_data_string_fl.exit:                       ; preds = %for.inc.i, %if.end
-  call void @strbuf_release(ptr noundef nonnull %buf_string) #9
+  call void @strbuf_release(ptr noundef nonnull %buf_string) #10
   br label %return
 
 return:                                           ; preds = %entry, %trace2_data_string_fl.exit
@@ -1919,7 +1913,7 @@ return:                                           ; preds = %entry, %trace2_data
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1932,17 +1926,17 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  %call2 = tail call i64 @tr2tls_region_elasped_self(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
+  %call2 = tail call i64 @tr2tls_region_elasped_self(i64 noundef %div) #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.08 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.08, align 8
-  %call4 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call4 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
@@ -1953,7 +1947,7 @@ if.then6:                                         ; preds = %for.body
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i64 noundef %call2, ptr noundef %category, ptr noundef %repo, ptr noundef %key, ptr noundef %value) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, i64 noundef %call2, ptr noundef %category, ptr noundef %repo, ptr noundef %key, ptr noundef %value) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8, %if.then6
@@ -1974,16 +1968,16 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @getnanotime() #9
+  %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
-  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
+  %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %tgt_j.07 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
   %0 = load ptr, ptr %tgt_j.07, align 8
-  %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
@@ -1994,7 +1988,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, ptr noundef %fmt, ptr noundef %ap) #9
+  tail call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1, ptr noundef %fmt, ptr noundef %ap) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then7, %if.then5
@@ -2012,21 +2006,21 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local void @trace2_printf_fl(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %if.end.i, label %trace2_printf_va_fl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i64 @getnanotime() #9
+  %call.i = call i64 @getnanotime() #10
   %div.i = udiv i64 %call.i, 1000
-  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #9
+  %call1.i = call i64 @tr2tls_absolute_elapsed(i64 noundef %div.i) #10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %tgt_j.07.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
   %0 = load ptr, ptr %tgt_j.07.i, align 8
-  %call3.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #9
+  %call3.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
@@ -2037,7 +2031,7 @@ if.then5.i:                                       ; preds = %for.body.i
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then5.i
-  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, ptr noundef %fmt, ptr noundef nonnull %ap) #9
+  call void %1(ptr noundef %file, i32 noundef %line, i64 noundef %call1.i, ptr noundef %fmt, ptr noundef nonnull %ap) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %if.then5.i, %for.body.i
@@ -2048,7 +2042,7 @@ for.inc.i:                                        ; preds = %if.then7.i, %if.the
   br i1 %tobool2.not.i, label %trace2_printf_va_fl.exit, label %for.body.i, !llvm.loop !40
 
 trace2_printf_va_fl.exit:                         ; preds = %for.inc.i, %entry
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -2063,11 +2057,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 997, ptr noundef nonnull @.str.5, i32 noundef %tid) #11
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 997, ptr noundef nonnull @.str.5, i32 noundef %tid) #12
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  tail call void @tr2_start_timer(i32 noundef %tid) #9
+  tail call void @tr2_start_timer(i32 noundef %tid) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end3
@@ -2075,7 +2069,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 declare void @tr2_start_timer(i32 noundef) local_unnamed_addr #1
 
@@ -2090,11 +2084,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 1008, ptr noundef nonnull @.str.6, i32 noundef %tid) #11
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 1008, ptr noundef nonnull @.str.6, i32 noundef %tid) #12
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  tail call void @tr2_stop_timer(i32 noundef %tid) #9
+  tail call void @tr2_stop_timer(i32 noundef %tid) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end3
@@ -2114,11 +2108,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 1019, ptr noundef nonnull @.str.7, i32 noundef %cid) #11
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 1019, ptr noundef nonnull @.str.7, i32 noundef %cid) #12
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  tail call void @tr2_counter_increment(i32 noundef %cid, i64 noundef %value) #9
+  tail call void @tr2_counter_increment(i32 noundef %cid, i64 noundef %value) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end3
@@ -2130,7 +2124,7 @@ declare void @tr2_counter_increment(i32 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @trace2_session_id() local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @tr2_sid_get() #9
+  %call = tail call ptr @tr2_sid_get() #10
   ret ptr %call
 }
 
@@ -2153,7 +2147,7 @@ declare void @tr2_sysenv_release() local_unnamed_addr #1
 declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @raise(i32 noundef) local_unnamed_addr #2
+declare i32 @raise(i32 noundef) local_unnamed_addr #7
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
@@ -2165,18 +2159,25 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn nounwind }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

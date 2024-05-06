@@ -147,7 +147,7 @@ define noundef i32 @_Z20enumValueToNumIAtoms11BondedTypes(i32 noundef %0) local_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK13MoleculePatch4typeEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZNK13MoleculePatch4typeEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::InvalidInputError", align 8
   %3 = alloca %"class.gmx::ExceptionInitializer", align 8
   %4 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -3266,7 +3266,7 @@ _ZNSt6vectorI13MoleculePatchSaIS0_EE9push_backERKS0_.exit.i.i: ; preds = %66, %6
   br i1 %.not.i.i25, label %_Z29mergeAtomAndBondModificationsRK21MoleculePatchDatabasePS_.exit, label %60
 
 _Z29mergeAtomAndBondModificationsRK21MoleculePatchDatabasePS_.exit: ; preds = %_ZNSt6vectorI13MoleculePatchSaIS0_EE9push_backERKS0_.exit.i.i, %55
-  %68 = tail call noundef zeroext i1 @_Z26mergeBondedInteractionListN3gmx8ArrayRefIK21BondedInteractionListEENS0_IS1_EEbb(ptr nonnull %10, ptr nonnull poison, ptr nonnull %.ptr29, ptr nonnull poison, i1 noundef zeroext false, i1 noundef zeroext false)
+  %68 = tail call noundef zeroext i1 @_Z26mergeBondedInteractionListN3gmx8ArrayRefIK21BondedInteractionListEENS0_IS1_EEbb(ptr nonnull readonly %10, ptr nonnull readonly poison, ptr nonnull %.ptr29, ptr nonnull poison, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
 }
 

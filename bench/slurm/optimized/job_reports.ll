@@ -1688,7 +1688,7 @@ declare void @print_fields_header(ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_cluster_grouping_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_cluster_grouping_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1722,7 +1722,7 @@ declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @slurmdb_find_tres_in_list(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_acct_grouping_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_acct_grouping_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca [200 x i8], align 16
   %4 = alloca [200 x i8], align 16
   %5 = load ptr, ptr %0, align 8
@@ -1833,7 +1833,7 @@ declare void @combine_tres_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @list_delete_item(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_match_acct_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_match_acct_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %4) #12
@@ -1845,7 +1845,7 @@ define internal i32 @_match_acct_name(ptr nocapture noundef readonly %0, ptr noc
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_empty_acct_tres(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 {
+define internal range(i32 0, 2) i32 @_find_empty_acct_tres(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1858,7 +1858,7 @@ declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_match_job_group(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @_match_job_group(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1883,7 +1883,7 @@ define internal noundef i32 @_match_job_group(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_empty_job_tres(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 {
+define internal range(i32 0, 2) i32 @_find_empty_job_tres(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

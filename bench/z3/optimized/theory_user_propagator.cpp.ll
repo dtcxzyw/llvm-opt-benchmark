@@ -3511,7 +3511,7 @@ _ZNSt8functionIFPvS0_R11ast_managerRPN15user_propagator11context_objEEEaSERKS8_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt22theory_user_propagator14final_check_ehEv(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3smt22theory_user_propagator14final_check_ehEv(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca ptr, align 8
@@ -4304,7 +4304,7 @@ if.end6:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end6
   %bf.lshr.i = lshr i64 %bf.load.i23, 56
-  %bf.cast.i = trunc i64 %bf.lshr.i to i32
+  %bf.cast.i = trunc nuw nsw i64 %bf.lshr.i to i32
   %cmp.i27 = icmp eq i32 %bf.cast.i, 0
   br i1 %cmp.i27, label %if.end59, label %if.end.i.i
 
@@ -4348,7 +4348,7 @@ if.else:                                          ; preds = %if.end6
 if.then16:                                        ; preds = %if.else
   %bf.load.i31 = load i64, ptr %m_enode.i, align 8
   %bf.lshr.i32 = lshr i64 %bf.load.i31, 56
-  %bf.cast.i33 = trunc i64 %bf.lshr.i32 to i32
+  %bf.cast.i33 = trunc nuw nsw i64 %bf.lshr.i32 to i32
   %cmp.i34 = icmp eq i32 %bf.cast.i33, 0
   br i1 %cmp.i34, label %if.end59, label %if.end.i.i36
 
@@ -5786,7 +5786,7 @@ for.body:                                         ; preds = %_ZNK15ref_vector_co
   br label %for.cond, !llvm.loop !23
 
 for.end:                                          ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit23
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   %ctx = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %ctx, align 8
   %16 = load i32, ptr %m_to_add_qhead4, align 8
@@ -5903,7 +5903,7 @@ if.end27:                                         ; preds = %_ZN3smt22theory_use
   br label %while.cond, !llvm.loop !24
 
 while.end:                                        ; preds = %_ZNK6vectorIN3smt22theory_user_propagator9prop_infoELb1EjE4sizeEv.exit33, %land.rhs
-  %37 = trunc i64 %indvars.iv65 to i32
+  %37 = trunc nuw i64 %indvars.iv65 to i32
   %38 = load i32, ptr %m_qhead, align 8
   %m_trail_stack.i41 = getelementptr inbounds i8, ptr %.pre68, i64 10008
   %m_region.i42 = getelementptr inbounds i8, ptr %.pre68, i64 8952
@@ -5980,8 +5980,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %term, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %term, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %cmp.not26 = icmp eq i32 %0, 0
   br i1 %cmp.not26, label %for.end, label %for.body.preheader
 

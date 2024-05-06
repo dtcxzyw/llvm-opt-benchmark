@@ -5028,7 +5028,7 @@ common.resume:                                    ; preds = %_ZN5tokio7runtime4t
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h0d23ec402489ef71E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h0d23ec402489ef71E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [4 x i64] }, align 8
   %4 = alloca { [2 x i64] }, align 16
@@ -5267,7 +5267,7 @@ _ZN3std9panicking3try17hc7b067d3a2af2088E.exit.thread.i13: ; preds = %62
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h354984b5be29c157E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h354984b5be29c157E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -5524,7 +5524,7 @@ _ZN3std9panicking3try17h3f7e91f2a431bf11E.exit.thread.i15: ; preds = %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h60a78e0c3f84a417E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h60a78e0c3f84a417E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -5781,7 +5781,7 @@ _ZN3std9panicking3try17had5a18894ba602ffE.exit.thread.i15: ; preds = %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h6d2e8f4d77ebcfcdE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h6d2e8f4d77ebcfcdE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -6038,7 +6038,7 @@ _ZN3std9panicking3try17h616fafc2434d3878E.exit.thread.i15: ; preds = %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h7ef566a1b30093a7E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h7ef566a1b30093a7E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -6295,7 +6295,7 @@ _ZN3std9panicking3try17h996407052f3dec66E.exit.thread.i15: ; preds = %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h7fb341207140f05fE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h7fb341207140f05fE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [4 x i64] }, align 8
   %4 = alloca { [2 x i64] }, align 16
@@ -6534,7 +6534,7 @@ _ZN3std9panicking3try17h1239daf191c1e639E.exit.thread.i13: ; preds = %62
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h82dbbd7d2abdb9abE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h82dbbd7d2abdb9abE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -6791,7 +6791,7 @@ _ZN3std9panicking3try17h579489c48534a8abE.exit.thread.i15: ; preds = %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17ha8493add93cb9b66E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17ha8493add93cb9b66E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [7 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -7052,7 +7052,7 @@ _ZN3std9panicking3try17h5d1ceb4344211ccdE.exit.thread.i15: ; preds = %64
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17habd205ec1145c153E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17habd205ec1145c153E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { [2 x i64] }, align 16
@@ -7269,7 +7269,7 @@ _ZN3std9panicking3try17hbc482fa7ff8a608fE.exit.thread.i13: ; preds = %60
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbbc4666013aa76b5E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hbbc4666013aa76b5E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [7 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -7530,7 +7530,7 @@ _ZN3std9panicking3try17hb5585f044701d5a7E.exit.thread.i15: ; preds = %64
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hcc93a308d35cc0adE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hcc93a308d35cc0adE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -7787,7 +7787,7 @@ _ZN3std9panicking3try17h773ec5e93fffbb1aE.exit.thread.i15: ; preds = %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf77af0fad16383abE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hf77af0fad16383abE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -8044,7 +8044,7 @@ _ZN3std9panicking3try17h81bfcfc551eedfc3E.exit.thread.i15: ; preds = %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hfd5cae7d414fd87bE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hfd5cae7d414fd87bE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [2 x i64] }, align 16
   %3 = alloca { i64, [7 x i64] }, align 8
   %.sroa.5.i9 = alloca [3 x i64], align 8
@@ -9687,7 +9687,7 @@ common.resume:                                    ; preds = %21, %29
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h9a55e4ddaf9e523fE.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !1761
   %26 = load i64, ptr %1, align 8, !range !4, !alias.scope !1764, !noundef !5
   %.not.i = icmp eq i64 %26, 2
@@ -9766,7 +9766,7 @@ common.resume:                                    ; preds = %18, %27
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h9c277704443509c1E.llvm.4698933542364062918.exit": ; preds = %9
   %23 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1767
   %24 = load i64, ptr %1, align 8, !range !157, !alias.scope !1770, !noundef !5
   %.not.i = icmp eq i64 %24, 4
@@ -9847,7 +9847,7 @@ common.resume:                                    ; preds = %21, %29
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h7fc50daafa0597f6E.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !1773
   %26 = load i64, ptr %1, align 8, !range !4, !alias.scope !1776, !noundef !5
   %.not.i = icmp eq i64 %26, 2
@@ -9928,7 +9928,7 @@ common.resume:                                    ; preds = %21, %.body
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h0722b0fc98d6021eE.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1779
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1782)
   %26 = load i64, ptr %1, align 8, !range !131, !alias.scope !1782, !noundef !5
@@ -10050,7 +10050,7 @@ common.resume:                                    ; preds = %18, %27
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h2c115518959c5b71E.llvm.4698933542364062918.exit": ; preds = %9
   %23 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1802
   %24 = load i64, ptr %1, align 8, !range !157, !alias.scope !1805, !noundef !5
   %.not.i = icmp eq i64 %24, 4
@@ -10131,7 +10131,7 @@ common.resume:                                    ; preds = %21, %.body
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h9de460a2da5e18b0E.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1808
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1811)
   %26 = load i64, ptr %1, align 8, !range !131, !alias.scope !1811, !noundef !5
@@ -10255,7 +10255,7 @@ common.resume:                                    ; preds = %21, %.body
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h0f6f5c1e9088963fE.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1831
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1834)
   %26 = load i64, ptr %1, align 8, !range !131, !alias.scope !1834, !noundef !5
@@ -10379,7 +10379,7 @@ common.resume:                                    ; preds = %21, %.body
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h27e8fb1a802afdf0E.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1854
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1857)
   %26 = load i64, ptr %1, align 8, !range !689, !alias.scope !1857, !noundef !5
@@ -10503,7 +10503,7 @@ common.resume:                                    ; preds = %21, %.body
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h0a4cbe1c56989042E.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1877
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1880)
   %26 = load i64, ptr %1, align 8, !range !4, !alias.scope !1880, !noundef !5
@@ -10621,7 +10621,7 @@ common.resume:                                    ; preds = %18, %27
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h9f99afbe9b815eb9E.llvm.4698933542364062918.exit": ; preds = %9
   %23 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1900
   %24 = load i64, ptr %1, align 8, !range !157, !alias.scope !1903, !noundef !5
   %.not.i = icmp eq i64 %24, 4
@@ -10702,7 +10702,7 @@ common.resume:                                    ; preds = %21, %29
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17hb3469350a52a3c77E.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1906
   %26 = load i64, ptr %1, align 8, !range !157, !alias.scope !1909, !noundef !5
   %.not.i = icmp eq i64 %26, 4
@@ -10783,7 +10783,7 @@ common.resume:                                    ; preds = %21, %.body
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h81ba31ca51c755cbE.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1912
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1915)
   %26 = load i64, ptr %1, align 8, !range !131, !alias.scope !1915, !noundef !5
@@ -10907,7 +10907,7 @@ common.resume:                                    ; preds = %21, %.body
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h4ea453fa1c6e7118E.llvm.4698933542364062918.exit": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1935
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1938)
   %26 = load i64, ptr %1, align 8, !range !131, !alias.scope !1938, !noundef !5
@@ -14642,7 +14642,7 @@ _ZN5tokio7runtime4task5state5State22transition_to_terminal17h05f009a0c3771f5dE.e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h0a71a9b081e2598bE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h0a71a9b081e2598bE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14656,7 +14656,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h3b56144abf3e273aE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h3b56144abf3e273aE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14670,7 +14670,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h436494e2db4fc3faE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h436494e2db4fc3faE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14684,7 +14684,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h466f65bf111aa3aaE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h466f65bf111aa3aaE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14698,7 +14698,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h71c2371cbe5d6d84E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h71c2371cbe5d6d84E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14712,7 +14712,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h7a3dbb0b9ea42bf8E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h7a3dbb0b9ea42bf8E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14726,7 +14726,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h80a66730adf19cbeE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h80a66730adf19cbeE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14740,7 +14740,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h825477b532209338E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17h825477b532209338E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14754,7 +14754,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17hb5f48ce23c1437e1E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17hb5f48ce23c1437e1E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14768,7 +14768,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17hcd6baf35f868660eE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17hcd6baf35f868660eE.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14782,7 +14782,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17he5475a66ee181868E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17he5475a66ee181868E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14796,7 +14796,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17hec2141ff998515e9E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17hec2141ff998515e9E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -14810,7 +14810,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17hfda5524e48eaccd5E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 1, 3) i64 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$7release17hfda5524e48eaccd5E.llvm.4698933542364062918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5

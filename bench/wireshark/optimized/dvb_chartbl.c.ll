@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dvb_enc_to_item_enc = private unnamed_addr constant [19 x i32] [i32 10, i32 12, i32 14, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 34, i32 36, i32 38, i32 0, i32 0, i32 0, i32 0, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %6, label %29
 
@@ -74,7 +74,7 @@ define noundef i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i
 21:                                               ; preds = %19
   %22 = add i32 %1, 1
   %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %22) #3
-  %24 = tail call fastcc i32 @dvb_analyze_string_charset0_10(i16 noundef zeroext %23), !range !4
+  %24 = tail call fastcc i32 @dvb_analyze_string_charset0_10(i16 noundef zeroext %23)
   br label %29
 
 25:                                               ; preds = %17
@@ -83,7 +83,7 @@ define noundef i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i
   br i1 %or.cond, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call fastcc i32 @dvb_analyze_string_charset0(i8 noundef zeroext %7), !range !5
+  %28 = tail call fastcc i32 @dvb_analyze_string_charset0(i8 noundef zeroext %7)
   br label %29
 
 29:                                               ; preds = %4, %25, %19, %15, %11, %6, %27, %21, %12
@@ -96,7 +96,7 @@ define noundef i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @dvb_analyze_string_charset0_10(i16 noundef zeroext %0) unnamed_addr #2 {
+define internal fastcc range(i32 -2, 15) i32 @dvb_analyze_string_charset0_10(i16 noundef zeroext %0) unnamed_addr #2 {
   %2 = icmp ult i16 %0, 16
   br i1 %2, label %switch.lookup, label %4
 
@@ -114,7 +114,7 @@ switch.lookup:                                    ; preds = %1
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @dvb_analyze_string_charset0(i8 noundef zeroext %0) unnamed_addr #2 {
+define internal fastcc range(i32 -2, 20) i32 @dvb_analyze_string_charset0(i8 noundef zeroext %0) unnamed_addr #2 {
   %switch.tableidx = add i8 %0, -1
   %2 = icmp ult i8 %switch.tableidx, 21
   br i1 %2, label %switch.lookup, label %4
@@ -131,7 +131,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @dvb_enc_to_item_enc(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 39) i32 @dvb_enc_to_item_enc(i32 noundef %0) local_unnamed_addr #2 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 19
   br i1 %2, label %switch.lookup, label %4
@@ -209,5 +209,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2, i32 15}
-!5 = !{i32 -2, i32 20}

@@ -126,14 +126,14 @@ $_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state = comdat any
 @.str.20 = private unnamed_addr constant [16 x i8] c"linux-vdso.so.1\00", align 1
 @.str.21 = private unnamed_addr constant [14 x i8] c"__vdso_getcpu\00", align 1
 @_ZZN5folly18SequentialThreadId3getEvE6global = internal global { i32 } zeroinitializer, align 4
-@_ZZN5folly18SequentialThreadId3getEvE5local = internal thread_local global i32 0, align 4
+@_ZZN5folly18SequentialThreadId3getEvE5local = internal thread_local unnamed_addr global i32 0, align 4
 @_ZN5folly6detail24AccessSpreaderStaticInit8instanceE = local_unnamed_addr global %"struct.folly::detail::AccessSpreaderStaticInit" zeroinitializer, align 1
 @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state = linkonce_odr global { [257 x [256 x i8]], %"struct.std::atomic.37" } zeroinitializer, comdat, align 8
 @_ZZN5folly10coreMallocEmmmE10allocators = internal global [256 x %"class.folly::Indestructible"] zeroinitializer, align 16
 @_ZGVZN5folly10coreMallocEmmmE10allocators = internal global i64 0, align 8
 @_ZTISt9bad_alloc = external constant ptr
 @_ZTVSt9bad_alloc = external unnamed_addr constant { [5 x ptr] }, align 8
-@_ZN5folly12_GLOBAL__N_119gCoreAllocatorGuardE = internal thread_local global ptr null, align 8
+@_ZN5folly12_GLOBAL__N_119gCoreAllocatorGuardE = internal thread_local unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/folly/folly/folly/concurrency/CacheLocality.cpp\00", align 1
 @.str.24 = private unnamed_addr constant [46 x i8] c"Check failed: gCoreAllocatorGuard == nullptr \00", align 1
 @.str.25 = private unnamed_addr constant [48 x i8] c"CoreAllocator::Guard cannot be used recursively\00", align 1

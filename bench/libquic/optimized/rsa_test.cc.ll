@@ -73,7 +73,7 @@ $_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_ = c
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %key.i27 = alloca %"class.std::unique_ptr", align 8
   %e.i28 = alloca %"class.std::unique_ptr.2", align 8

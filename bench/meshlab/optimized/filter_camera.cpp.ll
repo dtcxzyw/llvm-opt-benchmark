@@ -15026,7 +15026,7 @@ _ZNSt12_Vector_baseIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17Ric
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKSE_SG_EEEEPSE_mT_SO_.exit, label %17
 
 17:                                               ; preds = %_ZNSt12_Vector_baseIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %.val, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %16, ptr align 4 %.val, i64 %7, i1 false)
   br label %_ZNSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKSE_SG_EEEEPSE_mT_SO_.exit
 
 _ZNSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKSE_SG_EEEEPSE_mT_SO_.exit: ; preds = %_ZNSt12_Vector_baseIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EE11_M_allocateEm.exit.i, %17
@@ -15056,7 +15056,7 @@ _ZNSt12_Vector_baseIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17Ric
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSt6vectorISG_SaISG_EEEENS1_IPSG_SL_EEET0_T_SQ_SP_.exit, label %25
 
 25:                                               ; preds = %24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.val32, ptr align 4 %.val, i64 %7, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %.val32, ptr align 4 %.val, i64 %7, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSt6vectorISG_SaISG_EEEENS1_IPSG_SL_EEET0_T_SQ_SP_.exit
 
 26:                                               ; preds = %20
@@ -15064,7 +15064,7 @@ _ZNSt12_Vector_baseIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17Ric
   br i1 %.not.i.i.i.i.i40, label %_ZSt4copyIPZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSF_ET0_T_SH_SG_.exit, label %27
 
 27:                                               ; preds = %26
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.val32, ptr align 4 %.val, i64 %23, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %.val32, ptr align 4 %.val, i64 %23, i1 false)
   %.pre = load ptr, ptr %1, align 8
   %.val30.pre = load ptr, ptr %0, align 8
   %.val31.pre = load ptr, ptr %21, align 8
@@ -15087,7 +15087,7 @@ _ZSt4copyIPZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParamete
   %32 = ptrtoint ptr %28 to i64
   %33 = ptrtoint ptr %30 to i64
   %34 = sub i64 %32, %33
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.val31, ptr align 4 %30, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %.val31, ptr align 4 %30, i64 %34, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSt6vectorISG_SaISG_EEEENS1_IPSG_SL_EEET0_T_SQ_SP_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSt6vectorISG_SaISG_EEEENS1_IPSG_SL_EEET0_T_SQ_SP_.exit: ; preds = %31, %_ZSt4copyIPZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSF_ET0_T_SH_SG_.exit, %25, %24, %_ZNSt12_Vector_baseIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EE13_M_deallocateEPSE_m.exit
@@ -15130,7 +15130,7 @@ define internal fastcc void @_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilter
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEmSH_ET_SJ_T0_RSaIT1_E.exit.i: ; preds = %9
   %19 = mul nuw i64 %10, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.val4, i8 0, i64 %19, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val4, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %.val4, i64 %19
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit
@@ -15151,7 +15151,7 @@ _ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichPa
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #27
   %27 = getelementptr inbounds i8, ptr %26, i64 %6
   %28 = mul nuw nsw i64 %10, 24
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %27, i8 0, i64 %28, i1 false)
   %.not1.i.i.i.i.i = icmp eq ptr %.val, %.val4
   br i1 %.not1.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -15739,7 +15739,7 @@ _ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK18FilterCameraPlugin13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 268443652) i32 @_ZNK18FilterCameraPlugin13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -15760,7 +15760,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK18FilterCameraPlugin13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 -1, 268443652) i32 @_ZThn16_NK18FilterCameraPlugin13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -15780,7 +15780,7 @@ _ZNK18FilterCameraPlugin13postConditionEPK7QAction.exit: ; preds = %2, %switch.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK18FilterCameraPlugin8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 262144, 264193) i32 @_ZNK18FilterCameraPlugin8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -15801,7 +15801,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK18FilterCameraPlugin8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 262144, 264193) i32 @_ZThn16_NK18FilterCameraPlugin8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -15821,7 +15821,7 @@ _ZNK18FilterCameraPlugin8getClassEPK7QAction.exit: ; preds = %2, %switch.lookup
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK18FilterCameraPlugin16getPreConditionsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK18FilterCameraPlugin16getPreConditionsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -15833,7 +15833,7 @@ define noundef i32 @_ZNK18FilterCameraPlugin16getPreConditionsEPK7QAction(ptr no
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK18FilterCameraPlugin16getPreConditionsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 3) i32 @_ZThn16_NK18FilterCameraPlugin16getPreConditionsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8

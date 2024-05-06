@@ -78,7 +78,7 @@ define dso_local noundef ptr @fname_create(ptr nocapture noundef readonly %0, pt
 
 35:                                               ; preds = %30, %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %37 = add i64 %36, 1
   %38 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %37, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__func__._remove_path_slashes) #8
   store ptr %38, ptr %4, align 8
@@ -185,7 +185,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   %70 = load ptr, ptr %5, align 8
   %71 = call i64 @strtoul(ptr noundef %70, ptr noundef nonnull %5, i32 noundef 10) #8
   %.17497 = call i64 @llvm.umin.i64(i64 %71, i64 10)
-  %.174 = trunc i64 %.17497 to i32
+  %.174 = trunc nuw nsw i64 %.17497 to i32
   %72 = load ptr, ptr %5, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 -1
   %74 = load i8, ptr %72, align 1
@@ -302,7 +302,7 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 113:                                              ; preds = %76, %76, %76, %76
   store i32 2, ptr %11, align 8
-  %114 = trunc i8 %.0 to i1
+  %114 = trunc nuw i8 %.0 to i1
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %113
@@ -343,7 +343,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %.outer.backedge
 
 129:                                              ; preds = %52
-  %130 = trunc i8 %.0 to i1
+  %130 = trunc nuw i8 %.0 to i1
   br i1 %130, label %131, label %150
 
 131:                                              ; preds = %129

@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_format_i
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_drm_driver_legacy_fb_format167, ptr @__UNIQUE_ID___addressable_drm_format_info170, ptr @__UNIQUE_ID___addressable_drm_format_info_block_height173, ptr @__UNIQUE_ID___addressable_drm_format_info_block_width172, ptr @__UNIQUE_ID___addressable_drm_format_info_bpp174, ptr @__UNIQUE_ID___addressable_drm_format_info_min_pitch175, ptr @__UNIQUE_ID___addressable_drm_get_format_info171, ptr @__UNIQUE_ID___addressable_drm_mode_legacy_fb_format166], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @drm_mode_legacy_fb_format(i32 noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 909199187) i32 @drm_mode_legacy_fb_format(i32 noundef %0, i32 noundef %1) #0 align 16 {
   switch i32 %0, label %27 [
     i32 1, label %3
     i32 2, label %6
@@ -93,7 +93,7 @@ define dso_local noundef i32 @drm_mode_legacy_fb_format(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @drm_driver_legacy_fb_format(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local range(i32 0, 909199187) i32 @drm_driver_legacy_fb_format(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   switch i32 %1, label %28 [
     i32 1, label %4
     i32 2, label %7
@@ -262,7 +262,7 @@ define dso_local ptr @drm_get_format_info(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @drm_format_info_block_width(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 256) i32 @drm_format_info_block_width(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %5 = or i1 %3, %4
@@ -290,7 +290,7 @@ define dso_local i32 @drm_format_info_block_width(ptr noundef readonly %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @drm_format_info_block_height(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 256) i32 @drm_format_info_block_height(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %5 = or i1 %3, %4
@@ -318,7 +318,7 @@ define dso_local i32 @drm_format_info_block_height(ptr noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @drm_format_info_bpp(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 2041) i32 @drm_format_info_bpp(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %5 = or i1 %3, %4
@@ -359,7 +359,7 @@ define dso_local i32 @drm_format_info_bpp(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @drm_format_info_min_pitch(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local range(i64 0, 1095216725250) i64 @drm_format_info_min_pitch(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %6 = or i1 %4, %5

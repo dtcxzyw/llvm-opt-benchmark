@@ -530,7 +530,7 @@ Curl_splay.exit:                                  ; preds = %18, %.critedge.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @Curl_splayremove(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Curl_tree, align 8
   %5 = alloca %struct.Curl_tree, align 8
   %6 = icmp ne ptr %0, null

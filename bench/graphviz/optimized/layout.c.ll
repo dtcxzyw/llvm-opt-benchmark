@@ -123,7 +123,7 @@ fdp_init_graph.exit:                              ; preds = %gv_alloc.exit.i, %2
   %46 = call i32 @getPackInfo(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %45) #21
   %47 = getelementptr inbounds i8, ptr %2, i64 56
   store i32 %46, ptr %47, align 8
-  %48 = call fastcc i32 @layout(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !4
+  %48 = call fastcc i32 @layout(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %49, label %fdpLayout.exit
 
@@ -405,7 +405,7 @@ clist_append.exit:                                ; preds = %6
 15:                                               ; preds = %.lr.ph, %77
   %.02439 = phi ptr [ %13, %.lr.ph ], [ %78, %77 ]
   %16 = call ptr @agnameof(ptr noundef nonnull %.02439) #21
-  %17 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str.3, i64 noundef 7) #25
+  %17 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str.3, i64 noundef 7) #25
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %76
 
@@ -681,7 +681,7 @@ gv_realloc.exit:                                  ; preds = %12, %19, %21
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @layout(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @layout(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.boxf, align 16
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
@@ -1781,7 +1781,7 @@ genPorts.exit.i:                                  ; preds = %642, %619
   br label %expandCluster.exit
 
 expandCluster.exit:                               ; preds = %492, %._crit_edge.i109
-  %658 = call fastcc i32 @layout(ptr noundef nonnull %489, ptr noundef %1), !range !4
+  %658 = call fastcc i32 @layout(ptr noundef nonnull %489, ptr noundef %1)
   %.not105 = icmp eq i32 %658, 0
   br i1 %.not105, label %659, label %.loopexit
 
@@ -2596,7 +2596,7 @@ declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 {
+define internal range(i32 -1, 2) i32 @ecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2697,4 +2697,3 @@ attributes #27 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

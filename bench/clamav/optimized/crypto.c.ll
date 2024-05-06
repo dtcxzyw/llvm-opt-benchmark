@@ -367,7 +367,7 @@ define noundef ptr @cl_sha1(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_verify_signature_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @EVP_get_digestbyname(ptr noundef %1) #11
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %20, label %7
@@ -413,7 +413,7 @@ define i32 @cl_verify_signature_hash(ptr noundef %0, ptr noundef %1, ptr noundef
 declare i32 @EVP_VerifyFinal(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_verify_signature_fd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature_fd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @EVP_get_digestbyname(ptr noundef %1) #11
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %cl_hash_file_fd.exit.thread, label %7
@@ -494,7 +494,7 @@ cl_hash_file_fd.exit.thread:                      ; preds = %26, %7, %5, %cl_has
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cl_verify_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = alloca i64, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %9
@@ -624,7 +624,7 @@ define noundef i32 @cl_verify_signature(ptr noundef %0, ptr noundef %1, ptr noun
 declare ptr @cl_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_verify_signature_hash_x509_keyfile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature_hash_x509_keyfile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %7
@@ -641,7 +641,7 @@ define i32 @cl_verify_signature_hash_x509_keyfile(ptr nocapture noundef readonly
   br i1 %.not.i, label %cl_verify_signature_hash_x509.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @cl_verify_signature_hash(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4), !range !4
+  %13 = tail call i32 @cl_verify_signature_hash(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %11) #11
   br label %cl_verify_signature_hash_x509.exit
 
@@ -664,13 +664,13 @@ declare ptr @PEM_read_X509(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_verify_signature_hash_x509(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature_hash_x509(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @X509_get_pubkey(ptr noundef %0) #11
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @cl_verify_signature_hash(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4), !range !4
+  %8 = tail call i32 @cl_verify_signature_hash(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %6) #11
   br label %9
 
@@ -682,7 +682,7 @@ define i32 @cl_verify_signature_hash_x509(ptr noundef %0, ptr noundef %1, ptr no
 declare void @X509_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_verify_signature_fd_x509_keyfile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature_fd_x509_keyfile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %7
@@ -699,7 +699,7 @@ define i32 @cl_verify_signature_fd_x509_keyfile(ptr nocapture noundef readonly %
   br i1 %.not.i, label %cl_verify_signature_fd_x509.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @cl_verify_signature_fd(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4), !range !4
+  %13 = tail call i32 @cl_verify_signature_fd(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %11) #11
   br label %cl_verify_signature_fd_x509.exit
 
@@ -714,13 +714,13 @@ cl_verify_signature_fd_x509.exit:                 ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_verify_signature_fd_x509(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature_fd_x509(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @X509_get_pubkey(ptr noundef %0) #11
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @cl_verify_signature_fd(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4), !range !4
+  %8 = tail call i32 @cl_verify_signature_fd(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %6) #11
   br label %9
 
@@ -730,7 +730,7 @@ define i32 @cl_verify_signature_fd_x509(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cl_verify_signature_x509_keyfile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature_x509_keyfile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.4)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %16, label %9
@@ -747,7 +747,7 @@ define noundef i32 @cl_verify_signature_x509_keyfile(ptr nocapture noundef reado
   br i1 %.not.i, label %cl_verify_signature_x509.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @cl_verify_signature(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6), !range !4
+  %15 = tail call i32 @cl_verify_signature(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %13) #11
   br label %cl_verify_signature_x509.exit
 
@@ -762,13 +762,13 @@ cl_verify_signature_x509.exit:                    ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cl_verify_signature_x509(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_verify_signature_x509(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = tail call ptr @X509_get_pubkey(ptr noundef %0) #11
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @cl_verify_signature(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6), !range !4
+  %10 = tail call i32 @cl_verify_signature(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %8) #11
   br label %11
 
@@ -991,7 +991,7 @@ declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @opendir(ptr noundef %0)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %57, label %.preheader72
@@ -1122,7 +1122,7 @@ define i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0, ptr noundef %1)
 51:                                               ; preds = %.outer._crit_edge
   %52 = getelementptr inbounds ptr, ptr %45, i64 %.053.ph.lcssa78
   store ptr null, ptr %52, align 8
-  %53 = tail call i32 @cl_validate_certificate_chain(ptr noundef nonnull %45, ptr noundef null, ptr noundef %1), !range !5
+  %53 = tail call i32 @cl_validate_certificate_chain(ptr noundef nonnull %45, ptr noundef null, ptr noundef %1)
   %.not6290 = icmp eq i64 %.053.ph.lcssa78, 0
   br i1 %.not6290, label %._crit_edge94, label %.lr.ph93
 
@@ -1161,7 +1161,7 @@ declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #5
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_validate_certificate_chain(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @cl_validate_certificate_chain(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @X509_STORE_new() #11
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %81, label %5
@@ -1182,7 +1182,7 @@ define i32 @cl_validate_certificate_chain(ptr nocapture noundef readonly %0, ptr
   br i1 %.not82, label %29, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.4)
+  %12 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.4)
   %.not16.i = icmp eq ptr %12, null
   br i1 %.not16.i, label %22, label %13
 
@@ -1646,7 +1646,7 @@ define ptr @cl_hash_init(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_update_hash(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_update_hash(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1664,7 +1664,7 @@ define i32 @cl_update_hash(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_finish_hash(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cl_finish_hash(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1718,5 +1718,3 @@ attributes #15 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{i32 -1, i32 2}

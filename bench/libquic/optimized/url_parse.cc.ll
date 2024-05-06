@@ -677,7 +677,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE.exit, label %land.rhs.i, !llvm.loop !5
 
 while.end.loopexit.i:                             ; preds = %land.rhs.i
-  %1 = trunc i64 %indvars.iv.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %entry
@@ -698,7 +698,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp6.i, label %if.then7.i, label %for.inc.i
 
 if.then7.i:                                       ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv20.i to i32
+  %4 = trunc nuw i64 %indvars.iv20.i to i32
   %sub.i.i = sub nsw i32 %4, %begin.0.lcssa.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -739,7 +739,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE.exit, label %land.rhs.i, !llvm.loop !8
 
 while.end.loopexit.i:                             ; preds = %land.rhs.i
-  %1 = trunc i64 %indvars.iv.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %entry
@@ -760,7 +760,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp5.i, label %if.then6.i, label %for.inc.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv20.i to i32
+  %4 = trunc nuw i64 %indvars.iv20.i to i32
   %sub.i.i = sub nsw i32 %4, %begin.0.lcssa.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -817,7 +817,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds i8, ptr %url, i64 %indvars.iv.next.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  %4 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i to i32
   switch i8 %3, label %for.inc.fold.split.i [
     i8 59, label %for.inc.i
     i8 92, label %if.then9.i
@@ -825,7 +825,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   ]
 
 if.then9.i:                                       ; preds = %for.body.i, %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nsw i64 %indvars.iv.i to i32
   %sub.i.i = sub nsw i32 %file_end.05.i, %5
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -882,7 +882,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds i16, ptr %url, i64 %indvars.iv.next.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  %4 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i to i32
   switch i16 %3, label %for.inc.fold.split.i [
     i16 59, label %for.inc.i
     i16 92, label %if.then8.i
@@ -890,7 +890,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   ]
 
 if.then8.i:                                       ; preds = %for.body.i, %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nsw i64 %indvars.iv.i to i32
   %sub.i.i = sub nsw i32 %file_end.05.i, %5
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -954,7 +954,7 @@ while.body.i:                                     ; preds = %land.lhs.true.i
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true.i, %land.lhs.true.i
   %arrayidx.i.le = getelementptr inbounds i8, ptr %url, i64 %indvars.iv.i
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nsw i64 %indvars.iv.i to i32
   %sub.i = sub nsw i32 %6, %1
   %len.i = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %sub.i, ptr %len.i, align 4
@@ -965,7 +965,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i, %l
   br label %if.end17.i
 
 if.end17.critedge.i:                              ; preds = %while.body.i
-  %8 = trunc i64 %smax to i32
+  %8 = trunc nsw i64 %smax to i32
   %sub.c.i = sub nsw i32 %8, %1
   %len.c.i = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %sub.c.i, ptr %len.c.i, align 4
@@ -996,7 +996,7 @@ while.body27.i:                                   ; preds = %land.rhs21.i
 
 land.lhs.true34.i:                                ; preds = %land.rhs21.i
   %arrayidx23.i.le = getelementptr inbounds i8, ptr %url, i64 %indvars.iv45.i
-  %11 = trunc i64 %indvars.iv45.i to i32
+  %11 = trunc nsw i64 %indvars.iv45.i to i32
   %sub31.i = sub nsw i32 %11, %cur.1.i
   %len32.i = getelementptr inbounds i8, ptr %value, i64 4
   store i32 %sub31.i, ptr %len32.i, align 4
@@ -1061,7 +1061,7 @@ while.body.i:                                     ; preds = %land.lhs.true.i
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true.i, %land.lhs.true.i
   %arrayidx.i.le = getelementptr inbounds i16, ptr %url, i64 %indvars.iv.i
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nsw i64 %indvars.iv.i to i32
   %sub.i = sub nsw i32 %6, %1
   %len.i = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %sub.i, ptr %len.i, align 4
@@ -1072,7 +1072,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i, %l
   br label %if.end17.i
 
 if.end17.critedge.i:                              ; preds = %while.body.i
-  %8 = trunc i64 %smax to i32
+  %8 = trunc nsw i64 %smax to i32
   %sub.c.i = sub nsw i32 %8, %1
   %len.c.i = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %sub.c.i, ptr %len.c.i, align 4
@@ -1103,7 +1103,7 @@ while.body27.i:                                   ; preds = %land.rhs21.i
 
 land.lhs.true34.i:                                ; preds = %land.rhs21.i
   %arrayidx23.i.le = getelementptr inbounds i16, ptr %url, i64 %indvars.iv45.i
-  %11 = trunc i64 %indvars.iv45.i to i32
+  %11 = trunc nsw i64 %indvars.iv45.i to i32
   %sub31.i = sub nsw i32 %11, %cur.1.i
   %len32.i = getelementptr inbounds i8, ptr %value, i64 4
   store i32 %sub31.i, ptr %len32.i, align 4
@@ -1186,7 +1186,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp4.not, label %while.end.split.loop.exit103, label %while.cond, !llvm.loop !16
 
 while.end.split.loop.exit103:                     ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit103
@@ -1221,7 +1221,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %if.else.i, label %land.rhs.i, !llvm.loop !17
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %ref.tmp.sroa.2.0.insert.ext.i = shl i64 %indvars.iv.i, 32
   %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %1 to i64
   %ref.tmp.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.ext.i, %ref.tmp.sroa.0.0.insert.ext.i
@@ -1289,11 +1289,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i
-  %15 = trunc i64 %indvars.iv.i38 to i32
+  %15 = trunc nsw i64 %indvars.iv.i38 to i32
   br label %for.inc.i
 
 sw.bb8.i:                                         ; preds = %for.body.i
-  %16 = trunc i64 %indvars.iv.i38 to i32
+  %16 = trunc nsw i64 %indvars.iv.i38 to i32
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb8.i, %sw.bb.i, %for.body.i
@@ -1392,11 +1392,11 @@ for.body.i77:                                     ; preds = %for.inc.i83, %for.b
   ]
 
 sw.bb.i88:                                        ; preds = %for.body.i77
-  %22 = trunc i64 %indvars.iv.i78 to i32
+  %22 = trunc nsw i64 %indvars.iv.i78 to i32
   br label %for.inc.i83
 
 sw.bb8.i82:                                       ; preds = %for.body.i77
-  %23 = trunc i64 %indvars.iv.i78 to i32
+  %23 = trunc nsw i64 %indvars.iv.i78 to i32
   br label %for.inc.i83
 
 for.inc.i83:                                      ; preds = %sw.bb8.i82, %sw.bb.i88, %for.body.i77
@@ -1506,7 +1506,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp4.not, label %while.end.split.loop.exit103, label %while.cond, !llvm.loop !19
 
 while.end.split.loop.exit103:                     ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit103
@@ -1541,7 +1541,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %if.else.i, label %land.rhs.i, !llvm.loop !20
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %ref.tmp.sroa.2.0.insert.ext.i = shl i64 %indvars.iv.i, 32
   %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %1 to i64
   %ref.tmp.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.ext.i, %ref.tmp.sroa.0.0.insert.ext.i
@@ -1609,11 +1609,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i
-  %15 = trunc i64 %indvars.iv.i38 to i32
+  %15 = trunc nsw i64 %indvars.iv.i38 to i32
   br label %for.inc.i
 
 sw.bb8.i:                                         ; preds = %for.body.i
-  %16 = trunc i64 %indvars.iv.i38 to i32
+  %16 = trunc nsw i64 %indvars.iv.i38 to i32
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb8.i, %sw.bb.i, %for.body.i
@@ -1712,11 +1712,11 @@ for.body.i77:                                     ; preds = %for.inc.i83, %for.b
   ]
 
 sw.bb.i88:                                        ; preds = %for.body.i77
-  %22 = trunc i64 %indvars.iv.i78 to i32
+  %22 = trunc nsw i64 %indvars.iv.i78 to i32
   br label %for.inc.i83
 
 sw.bb8.i82:                                       ; preds = %for.body.i77
-  %23 = trunc i64 %indvars.iv.i78 to i32
+  %23 = trunc nsw i64 %indvars.iv.i78 to i32
   br label %for.inc.i83
 
 for.inc.i83:                                      ; preds = %sw.bb8.i82, %sw.bb.i88, %for.body.i77
@@ -1775,7 +1775,7 @@ if.end18:                                         ; preds = %if.else.i56, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr nocapture noundef readonly %url, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %port) local_unnamed_addr #7 {
+define dso_local noundef range(i32 -2147483648, 65536) i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr nocapture noundef readonly %url, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %port) local_unnamed_addr #7 {
 entry:
   %digits.i = alloca [6 x i8], align 1
   %port.val = load i32, ptr %port, align 4
@@ -1806,7 +1806,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit, label %for.body.i, !llvm.loop !22
 
 for.end.i:                                        ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sub.i.i = sub nsw i32 %port.val1, %4
   %cmp14.i = icmp sgt i32 %sub.i.i, 5
   br i1 %cmp14.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit, label %for.cond18.preheader.i
@@ -1854,7 +1854,7 @@ _ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit: ; preds = %for
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr nocapture noundef readonly %url, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %port) local_unnamed_addr #7 {
+define dso_local noundef range(i32 -2147483648, 65536) i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr nocapture noundef readonly %url, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %port) local_unnamed_addr #7 {
 entry:
   %digits.i = alloca [6 x i8], align 1
   %port.val = load i32, ptr %port, align 4
@@ -1885,7 +1885,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit, label %for.body.i, !llvm.loop !24
 
 for.end.i:                                        ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sub.i.i = sub nsw i32 %port.val1, %4
   %cmp14.i = icmp sgt i32 %sub.i.i, 5
   br i1 %cmp14.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit, label %for.cond18.preheader.i
@@ -1910,7 +1910,7 @@ for.body21.i:                                     ; preds = %if.end28.i, %for.bo
   br i1 %8, label %if.end28.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit
 
 if.end28.i:                                       ; preds = %for.body21.i
-  %conv29.i = trunc i16 %6 to i8
+  %conv29.i = trunc nuw i16 %6 to i8
   %arrayidx31.i = getelementptr inbounds [6 x i8], ptr %digits.i, i64 0, i64 %indvars.iv15.i
   store i8 %conv29.i, ptr %arrayidx31.i, align 1
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
@@ -1961,7 +1961,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, label %land.rhs.i.i, !llvm.loop !26
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -1994,7 +1994,7 @@ while.body9.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, !llvm.loop !27
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i: ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %while.body.i.i, %while.body9.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i, %land.rhs3.preheader.i.i, %while.end.i.i
@@ -2020,7 +2020,7 @@ while.body.i13.i:                                 ; preds = %land.rhs.i9.i
   br i1 %exitcond.not.i.i, label %if.else.i, label %land.rhs.i9.i, !llvm.loop !5
 
 while.end.loopexit.i.i:                           ; preds = %land.rhs.i9.i
-  %11 = trunc i64 %indvars.iv.i10.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i10.i to i32
   br label %while.end.i6.i
 
 while.end.i6.i:                                   ; preds = %while.end.loopexit.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, %entry
@@ -2048,7 +2048,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond53.not.i, label %if.else.i, label %for.body.i.i, !llvm.loop !7
 
 if.then.i:                                        ; preds = %for.body.i.i
-  %14 = trunc i64 %indvars.iv20.i.i to i32
+  %14 = trunc nuw i64 %indvars.iv20.i.i to i32
   %sub.i.i.i = sub nsw i32 %14, %begin.0.lcssa.i.i
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
@@ -2068,7 +2068,7 @@ if.else.i:                                        ; preds = %while.body.i13.i, %
 _ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %if.then.i, %if.else.i
   %spec_len.addr.13135.i = phi i32 [ %spec_len.addr.130.i, %if.then.i ], [ %spec_len.addr.131.ph.i, %if.else.i ]
   %after_scheme.0.i = phi i32 [ %add.i, %if.then.i ], [ %begin.12428.ph.i, %if.else.i ]
-  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %url, i32 noundef %spec_len.addr.13135.i, i32 noundef %after_scheme.0.i, ptr noundef nonnull %parsed)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef readonly %url, i32 noundef %spec_len.addr.13135.i, i32 noundef %after_scheme.0.i, ptr noundef nonnull writeonly %parsed)
   ret void
 }
 
@@ -2101,7 +2101,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   br i1 %exitcond.not, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit, label %land.rhs.i, !llvm.loop !26
 
 while.end.i.loopexit:                             ; preds = %land.rhs.i
-  %4 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %land.rhs.i.preheader
@@ -2134,7 +2134,7 @@ while.body9.i:                                    ; preds = %while.body9.i.lr.ph
   br i1 %cmp2.i, label %land.rhs3.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit, !llvm.loop !27
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit: ; preds = %land.rhs3.i
-  %9 = trunc i64 %indvars.iv.next14.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %while.body.i, %while.body9.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit, %land.rhs3.preheader.i, %while.end.i
@@ -2160,7 +2160,7 @@ while.body.i13:                                   ; preds = %land.rhs.i9
   br i1 %exitcond.not.i, label %if.else, label %land.rhs.i9, !llvm.loop !5
 
 while.end.loopexit.i:                             ; preds = %land.rhs.i9
-  %11 = trunc i64 %indvars.iv.i10 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i10 to i32
   br label %while.end.i6
 
 while.end.i6:                                     ; preds = %entry, %while.end.loopexit.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
@@ -2188,7 +2188,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond53.not, label %if.else, label %for.body.i, !llvm.loop !7
 
 if.then:                                          ; preds = %for.body.i
-  %14 = trunc i64 %indvars.iv20.i to i32
+  %14 = trunc nuw i64 %indvars.iv20.i to i32
   %sub.i.i = sub nsw i32 %14, %begin.0.lcssa.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -2241,7 +2241,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, label %land.rhs.i.i, !llvm.loop !28
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -2274,7 +2274,7 @@ while.body8.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, !llvm.loop !29
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i: ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %while.body.i.i, %while.body8.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i, %land.rhs3.preheader.i.i, %while.end.i.i
@@ -2300,7 +2300,7 @@ while.body.i13.i:                                 ; preds = %land.rhs.i9.i
   br i1 %exitcond.not.i.i, label %if.else.i, label %land.rhs.i9.i, !llvm.loop !8
 
 while.end.loopexit.i.i:                           ; preds = %land.rhs.i9.i
-  %11 = trunc i64 %indvars.iv.i10.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i10.i to i32
   br label %while.end.i6.i
 
 while.end.i6.i:                                   ; preds = %while.end.loopexit.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, %entry
@@ -2328,7 +2328,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond53.not.i, label %if.else.i, label %for.body.i.i, !llvm.loop !9
 
 if.then.i:                                        ; preds = %for.body.i.i
-  %14 = trunc i64 %indvars.iv20.i.i to i32
+  %14 = trunc nuw i64 %indvars.iv20.i.i to i32
   %sub.i.i.i = sub nsw i32 %14, %begin.0.lcssa.i.i
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
@@ -2348,7 +2348,7 @@ if.else.i:                                        ; preds = %while.body.i13.i, %
 _ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit: ; preds = %if.then.i, %if.else.i
   %spec_len.addr.13135.i = phi i32 [ %spec_len.addr.130.i, %if.then.i ], [ %spec_len.addr.131.ph.i, %if.else.i ]
   %after_scheme.0.i = phi i32 [ %add.i, %if.then.i ], [ %begin.12428.ph.i, %if.else.i ]
-  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %url, i32 noundef %spec_len.addr.13135.i, i32 noundef %after_scheme.0.i, ptr noundef nonnull %parsed)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef readonly %url, i32 noundef %spec_len.addr.13135.i, i32 noundef %after_scheme.0.i, ptr noundef nonnull writeonly %parsed)
   ret void
 }
 
@@ -2381,7 +2381,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   br i1 %exitcond.not, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit, label %land.rhs.i, !llvm.loop !28
 
 while.end.i.loopexit:                             ; preds = %land.rhs.i
-  %4 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %land.rhs.i.preheader
@@ -2414,7 +2414,7 @@ while.body8.i:                                    ; preds = %while.body8.i.lr.ph
   br i1 %cmp2.i, label %land.rhs3.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit, !llvm.loop !29
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit: ; preds = %land.rhs3.i
-  %9 = trunc i64 %indvars.iv.next14.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %while.body.i, %while.body8.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit, %land.rhs3.preheader.i, %while.end.i
@@ -2440,7 +2440,7 @@ while.body.i13:                                   ; preds = %land.rhs.i9
   br i1 %exitcond.not.i, label %if.else, label %land.rhs.i9, !llvm.loop !8
 
 while.end.loopexit.i:                             ; preds = %land.rhs.i9
-  %11 = trunc i64 %indvars.iv.i10 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i10 to i32
   br label %while.end.i6
 
 while.end.i6:                                     ; preds = %entry, %while.end.loopexit.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
@@ -2468,7 +2468,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond53.not, label %if.else, label %for.body.i, !llvm.loop !9
 
 if.then:                                          ; preds = %for.body.i
-  %14 = trunc i64 %indvars.iv20.i to i32
+  %14 = trunc nuw i64 %indvars.iv20.i to i32
   %sub.i.i = sub nsw i32 %14, %begin.0.lcssa.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -2534,7 +2534,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !26
 
 while.end.i.loopexit.split.loop.exit65.i:         ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %while.end.i.loopexit.split.loop.exit65.i, %land.rhs.i.preheader.i, %entry
@@ -2570,7 +2570,7 @@ while.body9.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, !llvm.loop !27
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i: ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %while.body9.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i, %land.rhs3.preheader.i.i, %while.cond1.preheader.i.i, %while.end.i.i
@@ -2610,7 +2610,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.else.i, label %land.rhs.i.i.i, !llvm.loop !5
 
 while.end.loopexit.i.i.i:                         ; preds = %land.rhs.i.i.i
-  %11 = trunc i64 %indvars.iv.i.i.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %while.end.loopexit.i.i.i, %if.end.i
@@ -2636,7 +2636,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i.i, !llvm.loop !7
 
 if.then3.i:                                       ; preds = %for.body.i.i.i
-  %14 = trunc i64 %indvars.iv20.i.i.i to i32
+  %14 = trunc nuw i64 %indvars.iv20.i.i.i to i32
   %sub.i.i.i.i = sub nsw i32 %14, %begin.0.lcssa.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i = zext i32 %sub.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i, 32
@@ -2694,13 +2694,13 @@ sw.bb.i.i:                                        ; preds = %for.body.i.i
   %cmp4.i.i = icmp slt i32 %ref_separator.045.i.i, 0
   %cmp5.i.i = icmp slt i32 %query_separator.046.i.i, 0
   %or.cond.i.i = select i1 %cmp4.i.i, i1 %cmp5.i.i, i1 false
-  %18 = trunc i64 %indvars.iv.i33.i to i32
+  %18 = trunc nsw i64 %indvars.iv.i33.i to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %18, i32 %query_separator.046.i.i
   br label %for.inc.i.i
 
 sw.bb8.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp slt i32 %ref_separator.045.i.i, 0
-  %19 = trunc i64 %indvars.iv.i33.i to i32
+  %19 = trunc nsw i64 %indvars.iv.i33.i to i32
   %spec.select27.i.i = select i1 %cmp9.i.i, i32 %19, i32 %ref_separator.045.i.i
   br label %for.inc.i.i
 
@@ -2817,7 +2817,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !28
 
 while.end.i.loopexit.split.loop.exit65.i:         ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %while.end.i.loopexit.split.loop.exit65.i, %land.rhs.i.preheader.i, %entry
@@ -2853,7 +2853,7 @@ while.body8.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, !llvm.loop !29
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i: ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %while.body8.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i, %land.rhs3.preheader.i.i, %while.cond1.preheader.i.i, %while.end.i.i
@@ -2893,7 +2893,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.else.i, label %land.rhs.i.i.i, !llvm.loop !8
 
 while.end.loopexit.i.i.i:                         ; preds = %land.rhs.i.i.i
-  %11 = trunc i64 %indvars.iv.i.i.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %while.end.loopexit.i.i.i, %if.end.i
@@ -2919,7 +2919,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i.i, !llvm.loop !9
 
 if.then3.i:                                       ; preds = %for.body.i.i.i
-  %14 = trunc i64 %indvars.iv20.i.i.i to i32
+  %14 = trunc nuw i64 %indvars.iv20.i.i.i to i32
   %sub.i.i.i.i = sub nsw i32 %14, %begin.0.lcssa.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i = zext i32 %sub.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i, 32
@@ -2977,13 +2977,13 @@ sw.bb.i.i:                                        ; preds = %for.body.i.i
   %cmp4.i.i = icmp slt i32 %ref_separator.045.i.i, 0
   %cmp5.i.i = icmp slt i32 %query_separator.046.i.i, 0
   %or.cond.i.i = select i1 %cmp4.i.i, i1 %cmp5.i.i, i1 false
-  %18 = trunc i64 %indvars.iv.i33.i to i32
+  %18 = trunc nsw i64 %indvars.iv.i33.i to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %18, i32 %query_separator.046.i.i
   br label %for.inc.i.i
 
 sw.bb8.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp slt i32 %ref_separator.045.i.i, 0
-  %19 = trunc i64 %indvars.iv.i33.i to i32
+  %19 = trunc nsw i64 %indvars.iv.i33.i to i32
   %spec.select27.i.i = select i1 %cmp9.i.i, i32 %19, i32 %ref_separator.045.i.i
   br label %for.inc.i.i
 
@@ -3115,7 +3115,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !26
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %5 = trunc i64 %indvars.iv.next.i.i to i32
+  %5 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -3148,7 +3148,7 @@ while.body9.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %if.then.i, !llvm.loop !27
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
-  %10 = trunc i64 %indvars.iv.next14.i.i to i32
+  %10 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
@@ -3187,7 +3187,7 @@ while.body.i61.i:                                 ; preds = %land.rhs.i57.i
   br i1 %exitcond.not.i.i, label %if.else.i, label %land.rhs.i57.i, !llvm.loop !5
 
 while.end.loopexit.i.i:                           ; preds = %land.rhs.i57.i
-  %12 = trunc i64 %indvars.iv.i58.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.i58.i to i32
   br label %while.end.i54.i
 
 while.end.i54.i:                                  ; preds = %while.end.loopexit.i.i, %if.end.i
@@ -3208,12 +3208,12 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %15 = trunc i64 %indvars.iv.next21.i.i to i32
+  %15 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %cmp2.i55.i = icmp sgt i32 %sub.i, %15
   br i1 %cmp2.i55.i, label %for.body.i.i, label %if.else.i, !llvm.loop !7
 
 if.then2.i:                                       ; preds = %for.body.i.i
-  %16 = trunc i64 %indvars.iv20.i.i to i32
+  %16 = trunc nuw i64 %indvars.iv20.i.i to i32
   %sub.i.i.i = sub nsw i32 %16, %begin.0.lcssa.i.i
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
@@ -3251,7 +3251,7 @@ while.body.i92.i:                                 ; preds = %land.rhs.i87.i
   br i1 %exitcond.not.i94.i, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit, label %land.rhs.i87.i, !llvm.loop !5
 
 while.end.loopexit.i91.i:                         ; preds = %land.rhs.i87.i
-  %18 = trunc i64 %indvars.iv.i88.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i88.i to i32
   br label %while.end.i68.i
 
 while.end.i68.i:                                  ; preds = %while.end.loopexit.i91.i, %if.end10.i
@@ -3272,7 +3272,7 @@ for.body.i73.i:                                   ; preds = %for.inc.i77.i, %for
 
 for.inc.i77.i:                                    ; preds = %for.body.i73.i
   %indvars.iv.next21.i78.i = add nuw nsw i64 %indvars.iv20.i74.i, 1
-  %21 = trunc i64 %indvars.iv.next21.i78.i to i32
+  %21 = trunc nuw i64 %indvars.iv.next21.i78.i to i32
   %cmp2.i79.i = icmp sgt i32 %sub18.i, %21
   br i1 %cmp2.i79.i, label %for.body.i73.i, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit, !llvm.loop !7
 
@@ -3283,7 +3283,7 @@ if.else.i:                                        ; preds = %while.body.i61.i, %
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit
 
 if.then20.i:                                      ; preds = %for.body.i73.i
-  %22 = trunc i64 %indvars.iv20.i74.i to i32
+  %22 = trunc nuw i64 %indvars.iv20.i74.i to i32
   %sub.i.i81.i = sub nsw i32 %22, %begin.0.lcssa.i69.i
   %retval.sroa.2.0.insert.ext.i.i82.i = zext i32 %sub.i.i81.i to i64
   %retval.sroa.2.0.insert.shift.i.i83.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i82.i, 32
@@ -3418,7 +3418,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   ]
 
 while.end.split.loop.exit.i:                      ; preds = %land.rhs.i, %land.rhs.i
-  %41 = trunc i64 %indvars.iv.next.i to i32
+  %41 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.cond.i, %while.end.split.loop.exit.i
@@ -3499,7 +3499,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !28
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %5 = trunc i64 %indvars.iv.next.i.i to i32
+  %5 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -3532,7 +3532,7 @@ while.body8.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %if.then.i, !llvm.loop !29
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
-  %10 = trunc i64 %indvars.iv.next14.i.i to i32
+  %10 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
@@ -3571,7 +3571,7 @@ while.body.i61.i:                                 ; preds = %land.rhs.i57.i
   br i1 %exitcond.not.i.i, label %if.else.i, label %land.rhs.i57.i, !llvm.loop !8
 
 while.end.loopexit.i.i:                           ; preds = %land.rhs.i57.i
-  %12 = trunc i64 %indvars.iv.i58.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.i58.i to i32
   br label %while.end.i54.i
 
 while.end.i54.i:                                  ; preds = %while.end.loopexit.i.i, %if.end.i
@@ -3592,12 +3592,12 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %15 = trunc i64 %indvars.iv.next21.i.i to i32
+  %15 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %cmp2.i55.i = icmp sgt i32 %sub.i, %15
   br i1 %cmp2.i55.i, label %for.body.i.i, label %if.else.i, !llvm.loop !9
 
 if.then2.i:                                       ; preds = %for.body.i.i
-  %16 = trunc i64 %indvars.iv20.i.i to i32
+  %16 = trunc nuw i64 %indvars.iv20.i.i to i32
   %sub.i.i.i = sub nsw i32 %16, %begin.0.lcssa.i.i
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
@@ -3635,7 +3635,7 @@ while.body.i92.i:                                 ; preds = %land.rhs.i87.i
   br i1 %exitcond.not.i94.i, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit, label %land.rhs.i87.i, !llvm.loop !8
 
 while.end.loopexit.i91.i:                         ; preds = %land.rhs.i87.i
-  %18 = trunc i64 %indvars.iv.i88.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i88.i to i32
   br label %while.end.i68.i
 
 while.end.i68.i:                                  ; preds = %while.end.loopexit.i91.i, %if.end10.i
@@ -3656,7 +3656,7 @@ for.body.i73.i:                                   ; preds = %for.inc.i77.i, %for
 
 for.inc.i77.i:                                    ; preds = %for.body.i73.i
   %indvars.iv.next21.i78.i = add nuw nsw i64 %indvars.iv20.i74.i, 1
-  %21 = trunc i64 %indvars.iv.next21.i78.i to i32
+  %21 = trunc nuw i64 %indvars.iv.next21.i78.i to i32
   %cmp2.i79.i = icmp sgt i32 %sub18.i, %21
   br i1 %cmp2.i79.i, label %for.body.i73.i, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit, !llvm.loop !9
 
@@ -3667,7 +3667,7 @@ if.else.i:                                        ; preds = %while.body.i61.i, %
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit
 
 if.then20.i:                                      ; preds = %for.body.i73.i
-  %22 = trunc i64 %indvars.iv20.i74.i to i32
+  %22 = trunc nuw i64 %indvars.iv20.i74.i to i32
   %sub.i.i81.i = sub nsw i32 %22, %begin.0.lcssa.i69.i
   %retval.sroa.2.0.insert.ext.i.i82.i = zext i32 %sub.i.i81.i to i64
   %retval.sroa.2.0.insert.shift.i.i83.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i82.i, 32
@@ -3802,7 +3802,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   ]
 
 while.end.split.loop.exit.i:                      ; preds = %land.rhs.i, %land.rhs.i
-  %41 = trunc i64 %indvars.iv.next.i to i32
+  %41 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.cond.i, %while.end.split.loop.exit.i
@@ -3861,7 +3861,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !26
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -3894,7 +3894,7 @@ while.body9.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %if.then.i, !llvm.loop !27
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
@@ -3937,7 +3937,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.else.i, label %land.rhs.i.i.i, !llvm.loop !5
 
 while.end.loopexit.i.i.i:                         ; preds = %land.rhs.i.i.i
-  %11 = trunc i64 %indvars.iv.i.i.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %while.end.loopexit.i.i.i, %if.end.i
@@ -3963,7 +3963,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i.i, !llvm.loop !7
 
 if.then2.i:                                       ; preds = %for.body.i.i.i
-  %14 = trunc i64 %indvars.iv20.i.i.i to i32
+  %14 = trunc nuw i64 %indvars.iv20.i.i.i to i32
   %sub.i.i.i.i = sub nsw i32 %14, %begin.0.lcssa.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i = zext i32 %sub.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i, 32
@@ -4003,7 +4003,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp19.i, label %if.then20.i, label %for.inc.i
 
 if.then20.i:                                      ; preds = %for.body.i
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nsw i64 %indvars.iv.i to i32
   %add21.i = add nsw i32 %17, 1
   %sub.i.i = sub nsw i32 %path_end.0.i, %add21.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
@@ -4080,7 +4080,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
   br i1 %exitcond.not.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !28
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
@@ -4113,7 +4113,7 @@ while.body8.i.i:                                  ; preds = %land.rhs3.i.i, %whi
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %if.then.i, !llvm.loop !29
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
-  %9 = trunc i64 %indvars.iv.next14.i.i to i32
+  %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
@@ -4156,7 +4156,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.else.i, label %land.rhs.i.i.i, !llvm.loop !8
 
 while.end.loopexit.i.i.i:                         ; preds = %land.rhs.i.i.i
-  %11 = trunc i64 %indvars.iv.i.i.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %while.end.loopexit.i.i.i, %if.end.i
@@ -4182,7 +4182,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i.i, !llvm.loop !9
 
 if.then2.i:                                       ; preds = %for.body.i.i.i
-  %14 = trunc i64 %indvars.iv20.i.i.i to i32
+  %14 = trunc nuw i64 %indvars.iv20.i.i.i to i32
   %sub.i.i.i.i = sub nsw i32 %14, %begin.0.lcssa.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i = zext i32 %sub.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i, 32
@@ -4222,7 +4222,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp19.i, label %if.then20.i, label %for.inc.i
 
 if.then20.i:                                      ; preds = %for.body.i
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nsw i64 %indvars.iv.i to i32
   %add21.i = add nsw i32 %17, 1
   %sub.i.i = sub nsw i32 %path_end.0.i, %add21.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
@@ -4310,13 +4310,13 @@ sw.bb.i:                                          ; preds = %for.body.i
   %cmp4.i = icmp slt i32 %ref_separator.045.i, 0
   %cmp5.i = icmp slt i32 %query_separator.046.i, 0
   %or.cond.i = select i1 %cmp4.i, i1 %cmp5.i, i1 false
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nsw i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %or.cond.i, i32 %5, i32 %query_separator.046.i
   br label %for.inc.i
 
 sw.bb8.i:                                         ; preds = %for.body.i
   %cmp9.i = icmp slt i32 %ref_separator.045.i, 0
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nsw i64 %indvars.iv.i to i32
   %spec.select27.i = select i1 %cmp9.i, i32 %6, i32 %ref_separator.045.i
   br label %for.inc.i
 
@@ -4441,13 +4441,13 @@ sw.bb.i:                                          ; preds = %for.body.i
   %cmp4.i = icmp slt i32 %ref_separator.045.i, 0
   %cmp5.i = icmp slt i32 %query_separator.046.i, 0
   %or.cond.i = select i1 %cmp4.i, i1 %cmp5.i, i1 false
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nsw i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %or.cond.i, i32 %5, i32 %query_separator.046.i
   br label %for.inc.i
 
 sw.bb8.i:                                         ; preds = %for.body.i
   %cmp9.i = icmp slt i32 %ref_separator.045.i, 0
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nsw i64 %indvars.iv.i to i32
   %spec.select27.i = select i1 %cmp9.i, i32 %6, i32 %ref_separator.045.i
   br label %for.inc.i
 
@@ -4566,7 +4566,7 @@ while.body.i:                                     ; preds = %land.rhs.i, %land.r
   br i1 %exitcond.not.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit, label %land.rhs.i, !llvm.loop !34
 
 while.end.loopexit.split.loop.exit.i:             ; preds = %land.rhs.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit
 
 _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit: ; preds = %while.body.i, %entry, %while.end.loopexit.split.loop.exit.i
@@ -4606,7 +4606,7 @@ _ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorIcEEiPKT_ii.exit.thread: ; pre
   br label %if.then
 
 _ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorIcEEiPKT_ii.exit: ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
-  %6 = trunc i64 %indvars.iv.i21 to i32
+  %6 = trunc nsw i64 %indvars.iv.i21 to i32
   %sub = sub nsw i32 %6, %add
   %ref.tmp.sroa.2.0.insert.ext = zext i32 %sub to i64
   %ref.tmp.sroa.2.0.insert.shift = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext, 32
@@ -4633,7 +4633,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %storemerge = load i64, ptr %ref.tmp3.sink, align 4
   %full_path.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
   %full_path.sroa.4.0.extract.shift = lshr i64 %storemerge, 32
-  %full_path.sroa.4.0.extract.trunc = trunc i64 %full_path.sroa.4.0.extract.shift to i32
+  %full_path.sroa.4.0.extract.trunc = trunc nuw i64 %full_path.sroa.4.0.extract.shift to i32
   %username = getelementptr inbounds i8, ptr %parsed, i64 8
   %password = getelementptr inbounds i8, ptr %parsed, i64 16
   %host = getelementptr inbounds i8, ptr %parsed, i64 24
@@ -4678,13 +4678,13 @@ sw.bb.i:                                          ; preds = %for.body.i29
   %cmp4.i = icmp slt i32 %ref_separator.045.i, 0
   %cmp5.i34 = icmp slt i32 %query_separator.046.i, 0
   %or.cond.i = select i1 %cmp4.i, i1 %cmp5.i34, i1 false
-  %10 = trunc i64 %indvars.iv.i30 to i32
+  %10 = trunc nsw i64 %indvars.iv.i30 to i32
   %spec.select.i = select i1 %or.cond.i, i32 %10, i32 %query_separator.046.i
   br label %for.inc.i32
 
 sw.bb8.i:                                         ; preds = %for.body.i29
   %cmp9.i = icmp slt i32 %ref_separator.045.i, 0
-  %11 = trunc i64 %indvars.iv.i30 to i32
+  %11 = trunc nsw i64 %indvars.iv.i30 to i32
   %spec.select27.i = select i1 %cmp9.i, i32 %11, i32 %ref_separator.045.i
   br label %for.inc.i32
 
@@ -4802,7 +4802,7 @@ while.body.i:                                     ; preds = %land.rhs.i, %land.r
   br i1 %exitcond.not.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit, label %land.rhs.i, !llvm.loop !36
 
 while.end.loopexit.split.loop.exit.i:             ; preds = %land.rhs.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit
 
 _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit: ; preds = %while.body.i, %entry, %while.end.loopexit.split.loop.exit.i
@@ -4842,7 +4842,7 @@ _ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorItEEiPKT_ii.exit.thread: ; pre
   br label %if.then
 
 _ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorItEEiPKT_ii.exit: ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
-  %6 = trunc i64 %indvars.iv.i21 to i32
+  %6 = trunc nsw i64 %indvars.iv.i21 to i32
   %sub = sub nsw i32 %6, %add
   %ref.tmp.sroa.2.0.insert.ext = zext i32 %sub to i64
   %ref.tmp.sroa.2.0.insert.shift = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext, 32
@@ -4869,7 +4869,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %storemerge = load i64, ptr %ref.tmp3.sink, align 4
   %full_path.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
   %full_path.sroa.4.0.extract.shift = lshr i64 %storemerge, 32
-  %full_path.sroa.4.0.extract.trunc = trunc i64 %full_path.sroa.4.0.extract.shift to i32
+  %full_path.sroa.4.0.extract.trunc = trunc nuw i64 %full_path.sroa.4.0.extract.shift to i32
   %username = getelementptr inbounds i8, ptr %parsed, i64 8
   %password = getelementptr inbounds i8, ptr %parsed, i64 16
   %host = getelementptr inbounds i8, ptr %parsed, i64 24
@@ -4914,13 +4914,13 @@ sw.bb.i:                                          ; preds = %for.body.i29
   %cmp4.i = icmp slt i32 %ref_separator.045.i, 0
   %cmp5.i34 = icmp slt i32 %query_separator.046.i, 0
   %or.cond.i = select i1 %cmp4.i, i1 %cmp5.i34, i1 false
-  %10 = trunc i64 %indvars.iv.i30 to i32
+  %10 = trunc nsw i64 %indvars.iv.i30 to i32
   %spec.select.i = select i1 %or.cond.i, i32 %10, i32 %query_separator.046.i
   br label %for.inc.i32
 
 sw.bb8.i:                                         ; preds = %for.body.i29
   %cmp9.i = icmp slt i32 %ref_separator.045.i, 0
-  %11 = trunc i64 %indvars.iv.i30 to i32
+  %11 = trunc nsw i64 %indvars.iv.i30 to i32
   %spec.select27.i = select i1 %cmp9.i, i32 %11, i32 %ref_separator.045.i
   br label %for.inc.i32
 

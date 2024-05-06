@@ -62,7 +62,7 @@ define internal fastcc i32 @file_munmap_(ptr noundef %0, i64 noundef %1) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @munmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @munmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @file_munmap_(ptr noundef %0, i64 noundef %1)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8

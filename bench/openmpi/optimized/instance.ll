@@ -2464,7 +2464,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i4, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_instance_get_nth_pset(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_instance_get_nth_pset(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @ompi_mpi_instance_pmix_psets, align 8
   %6 = icmp eq ptr %5, null
   %.pre23 = sext i32 %1 to i64
@@ -3105,7 +3105,7 @@ define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr n
 39:                                               ; preds = %44, %.lr.ph.i
   %.091.i = phi i64 [ 0, %.lr.ph.i ], [ %57, %44 ]
   %40 = load i32, ptr @opal_process_info, align 8
-  %41 = trunc i64 %.091.i to i32
+  %41 = trunc nuw i64 %.091.i to i32
   %42 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %4, i32 noundef %40) #13
   store i32 %41, ptr %38, align 4
   %43 = call i32 @PMIx_Get(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #13
@@ -3116,7 +3116,7 @@ define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr n
   %45 = load ptr, ptr %5, align 8
   %46 = call i32 @PMIx_Value_unload(ptr noundef %45, ptr noundef nonnull %7, ptr noundef nonnull %6) #13
   %47 = load ptr, ptr %7, align 8
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %47) #15
+  %48 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %47) #15
   %49 = icmp eq i32 %48, 0
   %50 = zext i1 %49 to i64
   %51 = load i64, ptr %6, align 8

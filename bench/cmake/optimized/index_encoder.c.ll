@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_index_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local range(i32 0, 12) i32 @lzma_index_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, ptrtoint (ptr @lzma_index_encoder_init to i64)
@@ -313,7 +313,7 @@ declare i32 @lzma_strm_init(ptr noundef) local_unnamed_addr #1
 declare void @lzma_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_index_buffer_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_index_buffer_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.lzma_index_coder, align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null

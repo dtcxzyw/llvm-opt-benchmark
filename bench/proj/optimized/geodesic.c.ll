@@ -1126,7 +1126,7 @@ define void @geod_gensetdistance(ptr noundef %0, i32 noundef %1, double noundef 
 
 ; Function Attrs: nounwind uwtable
 define void @geod_directline(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #3 {
-  tail call void @geod_lineinit(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %6)
+  tail call void @geod_lineinit(ptr noundef %0, ptr noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %6)
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   store double %5, ptr %8, align 8
   %9 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 0, double noundef %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -2023,7 +2023,7 @@ define void @geod_direct(ptr nocapture noundef readonly %0, double noundef %1, d
   %12 = select i1 %.not.i, i32 2051, i32 2179
   %13 = or disjoint i32 %10, %12
   %14 = or disjoint i32 %13, %11
-  call void @geod_lineinit(ptr noundef nonnull %9, ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %14)
+  call void @geod_lineinit(ptr noundef nonnull %9, ptr noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %14)
   %15 = call double @geod_genposition(ptr noundef nonnull %9, i32 noundef 0, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9)
   ret void
@@ -2712,7 +2712,7 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
   %375 = load double, ptr @pi, align 8
   %376 = fadd double %373, %375
   %377 = fneg double %139
-  call fastcc void @Lengths(ptr noundef nonnull %0, double noundef %374, double noundef %376, double noundef %136, double noundef %377, double noundef %180, double noundef %.2469, double noundef %.0466, double noundef %184, double noundef %139, double noundef %.0466, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull %32)
+  call fastcc void @Lengths(ptr noundef nonnull readonly %0, double noundef %374, double noundef %376, double noundef %136, double noundef %377, double noundef %180, double noundef %.2469, double noundef %.0466, double noundef %184, double noundef %139, double noundef %.0466, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull %32)
   %378 = load double, ptr %16, align 8
   %379 = load double, ptr %17, align 8
   %380 = fmul double %298, %379
@@ -3177,7 +3177,7 @@ A3f.exit.i285:                                    ; preds = %.lr.ph.i.i115.i
   br label %Lambda12.exit
 
 698:                                              ; preds = %691
-  call fastcc void @Lengths(ptr noundef %0, double noundef %624, double noundef %603, double noundef %582, double noundef %583, double noundef %180, double noundef %594, double noundef %595, double noundef %184, double noundef %139, double noundef %.0466, ptr noundef null, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %32)
+  call fastcc void @Lengths(ptr noundef readonly %0, double noundef %624, double noundef %603, double noundef %582, double noundef %583, double noundef %180, double noundef %594, double noundef %595, double noundef %184, double noundef %139, double noundef %.0466, ptr noundef null, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %32)
   %699 = load double, ptr %132, align 8
   %700 = fdiv double %699, %592
   %701 = load double, ptr %15, align 8
@@ -3807,7 +3807,7 @@ define void @geod_polygon_init(ptr nocapture noundef writeonly %0, i32 noundef %
   store i32 0, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %11, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -3862,7 +3862,7 @@ define void @geod_polygon_addpoint(ptr nocapture noundef readonly %0, ptr nocapt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %24 = call fastcc double @geod_geninverse_int(ptr noundef %0, double noundef %19, double noundef %21, double noundef %2, double noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
+  %24 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %19, double noundef %21, double noundef %2, double noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -4066,7 +4066,7 @@ define void @geod_polygon_addedge(ptr nocapture noundef readonly %0, ptr nocaptu
   %. = select i1 %.not16.not, ptr %8, ptr null
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   %17 = select i1 %.not16.not, i32 18843, i32 2443
-  call void @geod_lineinit(ptr noundef nonnull %5, ptr noundef %0, double noundef %12, double noundef %14, double noundef %2, i32 noundef %17)
+  call void @geod_lineinit(ptr noundef nonnull %5, ptr noundef readonly %0, double noundef %12, double noundef %14, double noundef %2, i32 noundef %17)
   %18 = call double @geod_genposition(ptr noundef nonnull %5, i32 noundef 32768, double noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   %19 = getelementptr inbounds i8, ptr %1, i64 48
@@ -4203,7 +4203,7 @@ define i32 @geod_polygon_compute(ptr nocapture noundef readonly %0, ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
-  %69 = call fastcc double @geod_geninverse_int(ptr noundef %0, double noundef %62, double noundef %64, double noundef %66, double noundef %68, ptr noundef nonnull %41, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %42)
+  %69 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %62, double noundef %64, double noundef %66, double noundef %68, ptr noundef nonnull %41, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
@@ -4825,7 +4825,7 @@ define i32 @geod_polygon_testpoint(ptr nocapture noundef readonly %0, ptr nocapt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %52 = call fastcc double @geod_geninverse_int(ptr noundef %0, double noundef %49, double noundef %50, double noundef %48, double noundef %51, ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
+  %52 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %49, double noundef %50, double noundef %48, double noundef %51, ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -5062,7 +5062,7 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr nocapture noundef readonly
   %46 = getelementptr inbounds i8, ptr %1, i64 8
   %47 = load double, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13)
-  call void @geod_lineinit(ptr noundef nonnull %13, ptr noundef %0, double noundef %45, double noundef %47, double noundef %2, i32 noundef 18843)
+  call void @geod_lineinit(ptr noundef nonnull %13, ptr noundef readonly %0, double noundef %45, double noundef %47, double noundef %2, i32 noundef 18843)
   %48 = call double @geod_genposition(ptr noundef nonnull %13, i32 noundef 32768, double noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13)
   %49 = load double, ptr %17, align 8
@@ -5089,7 +5089,7 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %66 = call fastcc double @geod_geninverse_int(ptr noundef %0, double noundef %60, double noundef %61, double noundef %63, double noundef %65, ptr noundef nonnull %16, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %17)
+  %66 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %60, double noundef %61, double noundef %63, double noundef %65, ptr noundef nonnull %16, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -5237,7 +5237,7 @@ define void @geod_polygonarea(ptr nocapture noundef readonly %0, ptr nocapture n
   store i32 0, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %7, i64 72
   store i32 0, ptr %14, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %15 = icmp sgt i32 %3, 0
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 

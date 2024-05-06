@@ -340,7 +340,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   %132 = mul i64 %131, %128
   %133 = mul i64 %132, %128
   %134 = lshr i64 %133, 40
-  %135 = trunc i64 %134 to i32
+  %135 = trunc nuw nsw i64 %134 to i32
   %136 = getelementptr inbounds i8, ptr %0, i64 1280
   %137 = load i32, ptr %136, align 4
   %138 = sub nsw i32 0, %135
@@ -434,7 +434,7 @@ declare dso_local i32 @tcp_slow_start(ptr noundef, i32 noundef) local_unnamed_ad
 declare dso_local void @tcp_cong_avoid_ai(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal i32 @cubictcp_recalc_ssthresh(ptr nocapture noundef %0) #0 align 16 {
+define internal range(i32 2, 4194304) i32 @cubictcp_recalc_ssthresh(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1292
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1420
@@ -598,7 +598,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   %77 = mul nuw nsw i64 %76, 4000000
   %78 = udiv i64 %77, %71
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 1000)
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw nsw i64 %79 to i32
   br label %81
 
 81:                                               ; preds = %73, %69

@@ -555,7 +555,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.154 = private unnamed_addr constant [20 x i8] c"node_dig_prediction\00", align 1
 @.str.155 = private unnamed_addr constant [16 x i8] c"move_resistance\00", align 1
 @.str.156 = private unnamed_addr constant [20 x i8] c"liquid_move_physics\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.157 = private unnamed_addr constant [43 x i8] c"Field \22liquid_move_physics\22: Invalid type!\00", align 1
 @.str.158 = private unnamed_addr constant [17 x i8] c"has_on_construct\00", align 1
 @.str.159 = private unnamed_addr constant [16 x i8] c"has_on_destruct\00", align 1
@@ -604,7 +604,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.200 = private unnamed_addr constant [19 x i8] c"disconnected_sides\00", align 1
 @.str.201 = private unnamed_addr constant [8 x i8] c"Field \22\00", align 1
 @.str.202 = private unnamed_addr constant [4 x i8] c"\22: \00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @_ZTS18SerializationError = linkonce_odr dso_local constant [21 x i8] c"18SerializationError\00", comdat, align 1
 @_ZTI18SerializationError = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS18SerializationError, ptr @_ZTI13BaseException }, comdat, align 8
 @.str.203 = private unnamed_addr constant [38 x i8] c"unable to create item from itemstring\00", align 1
@@ -6923,7 +6923,7 @@ declare void @_ZN9PlayerSAO9setBreathEtb(ptr noundef nonnull align 8 dereference
 declare void @_Z11read_aabb3fP9lua_Stateif(ptr dead_on_unwind writable sret(%"class.irr::core::aabbox3d") align 4, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i8 @_Z22read_pointability_typeP9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext range(i8 0, 3) i8 @_Z22read_pointability_typeP9lua_Statei(ptr noundef %L, i32 noundef %index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator", align 1

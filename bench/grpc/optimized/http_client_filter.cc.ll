@@ -373,10 +373,10 @@ $_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_me
 @.str.13 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.14 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.15 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.16 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16HttpClientFilterEvEEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16HttpClientFilterEvEEEE, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16HttpClientFilterEvEEED2Ev, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16HttpClientFilterEvEEED0Ev] }, comdat, align 8
 @_ZTSN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16HttpClientFilterEvEEEE = linkonce_odr constant [102 x i8] c"N9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail11CallWrapperINS_16HttpClientFilterEvEEEE\00", comdat, align 1
 @_ZTSN9grpc_core5Arena16ManagedNewObjectE = linkonce_odr constant [37 x i8] c"N9grpc_core5Arena16ManagedNewObjectE\00", comdat, align 1
@@ -401,11 +401,11 @@ $_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_me
 @.str.18 = private unnamed_addr constant [16 x i8] c"not implemented\00", align 1
 @.str.19 = private unnamed_addr constant [65 x i8] c"nullptr == pollent_.exchange(pollent, std::memory_order_release)\00", align 1
 @.str.20 = private unnamed_addr constant [33 x i8] c"then_schedule_closure == nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @.str.21 = private unnamed_addr constant [49 x i8] c"args->is_last == ((kFlags & kFilterIsLast) != 0)\00", align 1
 @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN9grpc_core21promise_filter_detail20InvalidChannelFilterE, ptr @_ZN9grpc_core13ChannelFilter8PostInitEv, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES2_EE, ptr @_ZN9grpc_core13ChannelFilter16StartTransportOpEP17grpc_transport_op, ptr @_ZN9grpc_core13ChannelFilter14GetChannelInfoEPK17grpc_channel_info, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD2Ev, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD0Ev] }, comdat, align 8
 @_ZTSN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr constant [58 x i8] c"N9grpc_core21promise_filter_detail20InvalidChannelFilterE\00", comdat, align 1
@@ -917,7 +917,7 @@ lpad.i.i17:                                       ; preds = %invoke.cont22.i
   br label %ehcleanup.i
 
 invoke.cont24.i:                                  ; preds = %invoke.cont22.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i23.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i23.i, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #23, !noalias !30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i23.i), !noalias !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !19
@@ -3682,7 +3682,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 _ZNK9grpc_core5Slice3RefEv.exit.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i, %entry
   %ref.tmp10.sroa.0.0.copyload.i.i.i.i = phi ptr [ %8, %entry ], [ %ref.tmp10.sroa.0.0.copyload.pre.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i.i.i.i, i64 24, i1 false), !noalias !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i.i.i.i, i64 24, i1 false), !noalias !72
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 136
   %10 = load i16, ptr %2, align 2, !noalias !72
@@ -5458,7 +5458,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %if.then.i.i.i, %entry
   %ref.tmp10.sroa.0.0.copyload.i = phi ptr [ %5, %entry ], [ %ref.tmp10.sroa.0.0.copyload.pre.i, %if.then.i.i.i ]
   %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.sroa.6.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.sroa.6.0.user_agent_.sroa_idx.i, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 136
   %7 = load i16, ptr %0, align 2

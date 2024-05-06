@@ -279,7 +279,7 @@ define void @cuddGetBranches(ptr noundef %0, ptr nocapture noundef %1, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @cuddCheckCube(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @cuddCheckCube(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1

@@ -396,7 +396,7 @@ WriteTempFileBlock.exit:                          ; preds = %gistBuffersGetFreeB
   %83 = getelementptr i8, ptr %79, i64 8
   %84 = zext i32 %82 to i64
   %85 = getelementptr i8, ptr %83, i64 %84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr nonnull align 2 %2, i64 %80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr nonnull readonly align 2 %2, i64 %80, i1 false)
   %86 = load i32, ptr %6, align 4
   %87 = getelementptr inbounds i8, ptr %0, i64 60
   %88 = load i32, ptr %87, align 4
@@ -805,7 +805,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
   %77 = getelementptr [32 x i8], ptr %11, i64 0, i64 %indvars.iv134
   %78 = load i8, ptr %77, align 1
   %79 = trunc i8 %78 to i1
-  %80 = trunc i64 %indvars.iv134 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv134 to i32
   %81 = call float @gistpenalty(ptr noundef %1, i32 noundef %80, ptr noundef %72, i1 noundef zeroext %75, ptr noundef %76, i1 noundef zeroext %79) #5
   %82 = fcmp ule float %81, 0.000000e+00
   %.1.us = select i1 %82, i1 %.084112.us, i1 false
@@ -860,7 +860,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
 
 .lr.ph115.us:                                     ; preds = %50
   %103 = getelementptr inbounds i8, ptr %51, i64 1024
-  %104 = trunc i64 %indvars.iv136 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv136 to i32
   br label %71
 
 .lr.ph128.split:                                  ; preds = %._crit_edge108.thread, %.lr.ph128

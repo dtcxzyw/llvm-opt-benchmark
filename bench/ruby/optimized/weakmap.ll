@@ -119,7 +119,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @wmap_aset(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal noundef range(i64 1, 0) i64 @wmap_aset(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #9
   store i64 %1, ptr %4, align 16
@@ -236,7 +236,7 @@ define internal i64 @wmap_delete(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @wmap_has_key(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @wmap_has_key(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -627,7 +627,7 @@ define internal i64 @wkmap_getkey(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @wkmap_has_key(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @wkmap_has_key(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -761,7 +761,7 @@ define internal void @wmap_compact(ptr nocapture noundef readonly %0) #0 {
 declare i32 @rb_st_foreach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wmap_mark_weak_table_i(i64 noundef %0, i64 noundef %1, i64 %2) #0 {
+define internal range(i32 0, 3) i32 @wmap_mark_weak_table_i(i64 noundef %0, i64 noundef %1, i64 %2) #0 {
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %1 to ptr
@@ -804,7 +804,7 @@ declare i64 @rb_st_memsize(ptr noundef) local_unnamed_addr #2
 declare i64 @rb_st_table_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wmap_compact_table_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i32 0, 3) i32 @wmap_compact_table_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = inttoptr i64 %0 to ptr
   %6 = load i64, ptr %5, align 8
@@ -851,7 +851,7 @@ declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 declare i64 @rb_gc_enable() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @wmap_cmp(i64 noundef %0, i64 noundef %1) #3 {
+define internal range(i32 0, 2) i32 @wmap_cmp(i64 noundef %0, i64 noundef %1) #3 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %1 to ptr
@@ -1002,7 +1002,7 @@ wmap_inspect_append.exit15:                       ; preds = %33, %35
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wmap_foreach_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i32 0, 3) i32 @wmap_foreach_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %1 to ptr
@@ -1124,7 +1124,7 @@ define internal void @wkmap_compact(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wkmap_mark_table_i(i64 noundef %0, i64 noundef %1, i64 %2) #0 {
+define internal range(i32 0, 3) i32 @wkmap_mark_table_i(i64 noundef %0, i64 noundef %1, i64 %2) #0 {
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 36
@@ -1156,7 +1156,7 @@ define internal noundef i32 @wkmap_free_table_i(i64 noundef %0, i64 %1, i64 %2) 
 declare i32 @rb_st_foreach_with_replace(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @wkmap_compact_table_i(i64 noundef %0, i64 noundef %1, i64 %2, i32 %3) #0 {
+define internal range(i32 0, 5) i32 @wkmap_compact_table_i(i64 noundef %0, i64 noundef %1, i64 %2, i32 %3) #0 {
   %5 = inttoptr i64 %0 to ptr
   %6 = load i64, ptr %5, align 8
   %.not9 = icmp eq i64 %6, 36

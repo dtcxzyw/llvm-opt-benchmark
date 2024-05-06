@@ -234,7 +234,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   %6 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 12), align 1
   %7 = trunc i64 %6 to i32
   %8 = lshr i64 %6, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 416, i32 %7, i32 %9) #12, !srcloc !24
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %11 [label %10], !srcloc !13
@@ -247,7 +247,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   %12 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 14), align 1
   %13 = trunc i64 %12 to i32
   %14 = lshr i64 %12, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073741696, i32 %13, i32 %15) #12, !srcloc !24
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %17 [label %16], !srcloc !13
@@ -272,7 +272,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   %25 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 5), align 1
   %26 = trunc i64 %25 to i32
   %27 = lshr i64 %25, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073741567, i32 %26, i32 %28) #12, !srcloc !24
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %30 [label %29], !srcloc !13
@@ -302,7 +302,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   %48 = or disjoint i32 %47, %46
   %49 = or disjoint i32 %48, 35072
   %50 = lshr i64 %42, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   %52 = getelementptr i8, ptr %41, i64 64
   store i16 16519, ptr %52, align 1
   %53 = getelementptr i8, ptr %41, i64 66
@@ -384,7 +384,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   %88 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 7), align 1
   %89 = trunc i64 %88 to i32
   %90 = lshr i64 %88, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073741568, i32 %89, i32 %91) #12, !srcloc !24
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %93 [label %92], !srcloc !13
@@ -397,7 +397,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   %94 = load i64, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 6), align 1
   %95 = trunc i64 %94 to i32
   %96 = lshr i64 %94, 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073741566, i32 %95, i32 %97) #12, !srcloc !24
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %99 [label %98], !srcloc !13
@@ -450,7 +450,7 @@ define dso_local void @restore_processor_state() local_unnamed_addr #0 align 16 
   %124 = load i64, ptr %123, align 8
   %125 = trunc i64 %124 to i32
   %126 = lshr i64 %124, 32
-  %127 = trunc i64 %126 to i32
+  %127 = trunc nuw i64 %126 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %122, i32 %125, i32 %127) #12, !srcloc !24
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %129 [label %128], !srcloc !13
@@ -566,13 +566,13 @@ define internal noundef i32 @pm_check_save_msr() #0 align 16 {
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %22
-  %32 = call fastcc i32 @msr_build_context(ptr noundef %24), !range !48
+  %32 = call fastcc i32 @msr_build_context(ptr noundef %24)
   br label %33
 
 33:                                               ; preds = %31, %22
   %34 = add nuw nsw i64 %23, 1
   %35 = icmp eq i64 %34, 6
-  br i1 %35, label %36, label %22, !llvm.loop !49
+  br i1 %35, label %36, label %22, !llvm.loop !48
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #12
@@ -655,7 +655,7 @@ declare dso_local void @play_dead_common() local_unnamed_addr #2
 declare dso_local void @hlt_play_dead() local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bsp_pm_callback(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 1, 32789) i32 @bsp_pm_callback(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 16 {
   switch i64 %1, label %13 [
     i64 3, label %4
     i64 1, label %4
@@ -667,7 +667,7 @@ define internal noundef i32 @bsp_pm_callback(ptr nocapture readnone %0, i64 noun
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %5) #13, !srcloc !50
+  %8 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %5) #13, !srcloc !49
   %9 = and i64 %8, 4294967295
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %13, label %11
@@ -691,26 +691,26 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
 declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @msr_initialize_bdw(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @msr_initialize_bdw(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca [1 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 410, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %4) #16
-  %6 = call fastcc i32 @msr_build_context(ptr noundef nonnull %2), !range !48
+  %6 = call fastcc i32 @msr_build_context(ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @msr_build_context(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @msr_build_context(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = load i32, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13), align 8
   %3 = add i32 %2, 1
   %4 = sext i32 %3 to i64
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 40)
   %6 = extractvalue { i64, i1 } %5, 1
-  br i1 %6, label %.thread, label %7, !prof !51
+  br i1 %6, label %.thread, label %7, !prof !50
 
 7:                                                ; preds = %1
   %8 = extractvalue { i64, i1 } %5, 0
@@ -776,7 +776,7 @@ define internal fastcc noundef i32 @msr_build_context(ptr nocapture noundef read
   %44 = add nsw i64 %26, 1
   %45 = add i32 %27, 1
   %46 = icmp eq i32 %45, %24
-  br i1 %46, label %.loopexit, label %25, !llvm.loop !52
+  br i1 %46, label %.loopexit, label %25, !llvm.loop !51
 
 .loopexit:                                        ; preds = %40, %19
   store i32 %3, ptr getelementptr inbounds (%struct.saved_context, ptr @saved_context, i64 0, i32 13), align 8
@@ -801,7 +801,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local ptr @x86_match_cpu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @msr_save_cpuid_features(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @msr_save_cpuid_features(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca [1 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 -1073672188, ptr %2, align 4
@@ -809,7 +809,7 @@ define internal noundef i32 @msr_save_cpuid_features(ptr nocapture noundef reado
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %5) #16
-  %7 = call fastcc i32 @msr_build_context(ptr noundef nonnull %2), !range !48
+  %7 = call fastcc i32 @msr_build_context(ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   ret i32 %7
 }
@@ -883,8 +883,7 @@ attributes #17 = { nounwind allocsize(0) }
 !45 = !{i64 2156316723}
 !46 = distinct !{!46, !22, !23}
 !47 = !{i64 2148333805, i64 2148333879}
-!48 = !{i32 -12, i32 1}
-!49 = distinct !{!49, !22, !23}
-!50 = !{i64 831498}
-!51 = !{!"branch_weights", i32 1, i32 2000}
-!52 = distinct !{!52, !22, !23}
+!48 = distinct !{!48, !22, !23}
+!49 = !{i64 831498}
+!50 = !{!"branch_weights", i32 1, i32 2000}
+!51 = distinct !{!51, !22, !23}

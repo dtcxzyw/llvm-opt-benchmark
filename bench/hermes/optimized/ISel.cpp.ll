@@ -25829,8 +25829,8 @@ if.end22.i:                                       ; preds = %if.then.i.i.i.i.i.i
   br label %return.sink.split.i
 
 if.end24.i:                                       ; preds = %if.end12.i
-  %Capacity.i37.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 28
-  %25 = load i32, ptr %Capacity.i37.i, align 4
+  %Capacity.i38.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 28
+  %25 = load i32, ptr %Capacity.i38.i, align 4
   %cmp26.i = icmp ult i32 %25, %22
   br i1 %cmp26.i, label %if.then27.i, label %if.else.i10
 
@@ -25842,19 +25842,19 @@ if.then27.i:                                      ; preds = %if.end24.i
 
 if.else.i10:                                      ; preds = %if.end24.i
   %tobool30.not.i = icmp eq i32 %23, 0
-  br i1 %tobool30.not.i, label %if.end37.i, label %if.then.i.i.i.i.i46.i
+  br i1 %tobool30.not.i, label %if.end37.i, label %if.then.i.i.i.i.i47.i
 
-if.then.i.i.i.i.i46.i:                            ; preds = %if.else.i10
+if.then.i.i.i.i.i47.i:                            ; preds = %if.else.i10
   %add.ptr.idx.i = shl nuw nsw i64 %conv.i32.i, 3
   %26 = load ptr, ptr %coveredBlockList.i4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %26, ptr align 8 %.pre18, i64 %add.ptr.idx.i, i1 false)
   br label %if.end37.i
 
-if.end37.i:                                       ; preds = %if.then.i.i.i.i.i46.i, %if.else.i10, %if.then27.i
-  %CurSize.0.i = phi i64 [ 0, %if.then27.i ], [ 0, %if.else.i10 ], [ %conv.i32.i, %if.then.i.i.i.i.i46.i ]
+if.end37.i:                                       ; preds = %if.then.i.i.i.i.i47.i, %if.else.i10, %if.then27.i
+  %CurSize.0.i = phi i64 [ 0, %if.then27.i ], [ 0, %if.else.i10 ], [ %conv.i32.i, %if.then.i.i.i.i.i47.i ]
   %27 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i50.i = zext i32 %27 to i64
-  %cmp.not.i.i.i = icmp eq i64 %CurSize.0.i, %conv.i50.i
+  %conv.i51.i = zext i32 %27 to i64
+  %cmp.not.i.i.i = icmp eq i64 %CurSize.0.i, %conv.i51.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %if.end37.i
@@ -25863,7 +25863,7 @@ if.then.i.i.i11:                                  ; preds = %if.end37.i
   %add.ptr39.i = getelementptr inbounds i8, ptr %28, i64 %add.ptr39.idx.i
   %29 = load ptr, ptr %coveredBlockList.i4, align 8
   %add.ptr42.i = getelementptr inbounds ptr, ptr %29, i64 %CurSize.0.i
-  %30 = sub nsw i64 %conv.i50.i, %CurSize.0.i
+  %30 = sub nsw i64 %conv.i51.i, %CurSize.0.i
   %gepdiff.i = shl nsw i64 %30, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i, ptr align 8 %add.ptr39.i, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
@@ -47873,16 +47873,16 @@ _ZNKSt6vectorIPN6hermes10BasicBlockESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds 
   %mul.i.i.i.i = shl nuw nsw i64 %conv, 3
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #22
   store ptr null, ptr %call5.i.i.i.i, align 8
-  %cmp.i.i.i.i.i21.i = icmp eq i32 %conv11.i.i.i14, 1
-  br i1 %cmp.i.i.i.i.i21.i, label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit, label %if.end.i.i.i.i.i22.i
+  %cmp.i.i.i.i.i22.i = icmp eq i32 %conv11.i.i.i14, 1
+  br i1 %cmp.i.i.i.i.i22.i, label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit, label %if.end.i.i.i.i.i23.i
 
-if.end.i.i.i.i.i22.i:                             ; preds = %_ZNKSt6vectorIPN6hermes10BasicBlockESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %incdec.ptr.i.i.i20.i = getelementptr i8, ptr %call5.i.i.i.i, i64 8
+if.end.i.i.i.i.i23.i:                             ; preds = %_ZNKSt6vectorIPN6hermes10BasicBlockESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %incdec.ptr.i.i.i21.i = getelementptr i8, ptr %call5.i.i.i.i, i64 8
   %4 = add nsw i64 %mul.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i20.i, i8 0, i64 %4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i21.i, i8 0, i64 %4, i1 false)
   br label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit
 
-_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit: ; preds = %_ZNKSt6vectorIPN6hermes10BasicBlockESaIS2_EE12_M_check_lenEmPKc.exit.i, %if.end.i.i.i.i.i22.i
+_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE17_M_default_appendEm.exit: ; preds = %_ZNKSt6vectorIPN6hermes10BasicBlockESaIS2_EE12_M_check_lenEmPKc.exit.i, %if.end.i.i.i.i.i23.i
   %add.ptr34.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i, i64 %conv
   br label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE6resizeEm.exit
 
@@ -51685,8 +51685,8 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i, 
   br label %return.sink.split
 
 if.end24:                                         ; preds = %if.end12
-  %Capacity.i37 = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %Capacity.i37, align 4
+  %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
+  %8 = load i32, ptr %Capacity.i38, align 4
   %cmp26 = icmp ult i32 %8, %5
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -51698,19 +51698,19 @@ if.then27:                                        ; preds = %if.end24
 
 if.else:                                          ; preds = %if.end24
   %tobool30.not = icmp eq i32 %6, 0
-  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i46
+  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i47
 
-if.then.i.i.i.i.i46:                              ; preds = %if.else
+if.then.i.i.i.i.i47:                              ; preds = %if.else
   %add.ptr.idx = shl nuw nsw i64 %conv.i32, 3
   %9 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr align 8 %0, i64 %add.ptr.idx, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then.i.i.i.i.i46, %if.else, %if.then27
-  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i46 ]
+if.end37:                                         ; preds = %if.then.i.i.i.i.i47, %if.else, %if.then27
+  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i47 ]
   %10 = load i32, ptr %Size.i29, align 8
-  %conv.i50 = zext i32 %10 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i50
+  %conv.i51 = zext i32 %10 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i51
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
@@ -51719,7 +51719,7 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds ptr, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i50, %CurSize.0
+  %13 = sub nsw i64 %conv.i51, %CurSize.0
   %gepdiff = shl nsw i64 %13, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 8 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit

@@ -86,7 +86,7 @@ define void @Msat_SolverPrintClauses(ptr nocapture noundef readonly %0) local_un
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %8)
   %10 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -111,7 +111,7 @@ define void @Msat_SolverPrintClauses(ptr nocapture noundef readonly %0) local_un
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
   %indvars.iv33 = phi i64 [ 0, %.lr.ph26.preheader ], [ %indvars.iv.next34, %.lr.ph26 ]
-  %18 = trunc i64 %indvars.iv33 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv33 to i32
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %18)
   %20 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv33
   %21 = load ptr, ptr %20, align 8
@@ -136,7 +136,7 @@ define void @Msat_SolverPrintClauses(ptr nocapture noundef readonly %0) local_un
   %27 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds double, ptr %27, i64 %indvars.iv38
   %29 = load double, ptr %28, align 8
-  %30 = trunc i64 %indvars.iv38 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv38 to i32
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %30, double noundef %29)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %32 = load i32, ptr %22, align 8
@@ -275,7 +275,7 @@ define void @Msat_SolverWriteDimacs(ptr nocapture noundef readonly %0, ptr nocap
   %.not = icmp eq i32 %61, 0
   %62 = select i1 %.not, ptr @.str.16, ptr @.str.15
   %63 = add nuw nsw i64 %indvars.iv63, 1
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, ptr noundef nonnull %62, i32 noundef %64) #9
   %.pre = load i32, ptr %11, align 8
   br label %66

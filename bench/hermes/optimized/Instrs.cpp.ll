@@ -461,7 +461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZN6hermes17UnaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483648, 26) i32 @_ZN6hermes17UnaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %op.coerce1.fr = freeze i64 %op.coerce1
   %cmp.i9 = icmp eq i64 %op.coerce1.fr, 0
@@ -529,7 +529,7 @@ for.inc:                                          ; preds = %for.cond, %_ZN4llvh
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes17UnaryOperatorInst13getSideEffectEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZN6hermes17UnaryOperatorInst13getSideEffectEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
 entry:
   %op_.i = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %op_.i, align 4
@@ -560,7 +560,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZN6hermes18BinaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483648, 26) i32 @_ZN6hermes18BinaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %op.coerce1.fr.i = freeze i64 %op.coerce1
   %cmp.i9.i = icmp eq i64 %op.coerce1.fr.i, 0
@@ -602,7 +602,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
   br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
-  %bcmp.i = tail call i32 @bcmp(ptr %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %if.then.loopexit23.i, label %for.inc.i
 
@@ -625,7 +625,7 @@ _ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZN6hermes18BinaryOperatorInst23parseAssignmentOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483648, 26) i32 @_ZN6hermes18BinaryOperatorInst23parseAssignmentOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %op.coerce1.fr.i = freeze i64 %op.coerce1
   %cmp.i9.i = icmp eq i64 %op.coerce1.fr.i, 0
@@ -667,7 +667,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
   br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
-  %bcmp.i = tail call i32 @bcmp(ptr %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %if.then.loopexit23.i, label %for.inc.i
 
@@ -713,7 +713,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes18BinaryOperatorInst19getBinarySideEffectENS_4TypeES1_NS0_6OpKindE(i32 %leftTy.coerce, i32 %rightTy.coerce, i32 noundef %op) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZN6hermes18BinaryOperatorInst19getBinarySideEffectENS_4TypeES1_NS0_6OpKindE(i32 %leftTy.coerce, i32 %rightTy.coerce, i32 noundef %op) local_unnamed_addr #0 align 2 {
 entry:
   %leftTy.sroa.0.0.extract.trunc = trunc i32 %leftTy.coerce to i16
   %rightTy.sroa.0.0.extract.trunc = trunc i32 %rightTy.coerce to i16
@@ -916,7 +916,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK6hermes10SwitchInst14getNumCasePairEv(ptr noundef nonnull align 8 dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZNK6hermes10SwitchInst14getNumCasePairEv(ptr noundef nonnull align 8 dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
   %sub = add i32 %call, -2
@@ -1022,7 +1022,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
   %div1 = lshr i32 %call, 1
@@ -1414,8 +1414,8 @@ _ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.e
   %call.i = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineIN6hermes11Instruction7VarietyEJjEEENS_9hash_codeEmPcS8_RKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i, i64 noundef 0, ptr noundef nonnull %helper.i, ptr noundef nonnull %add.ptr.i3, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %helper.i)
   %call6 = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
-  %cmp.not29 = icmp eq i32 %call6, 0
-  br i1 %cmp.not29, label %for.end, label %for.body.lr.ph
+  %cmp.not33 = icmp eq i32 %call6, 0
+  br i1 %cmp.not33, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit
   %seed.i.i6 = getelementptr inbounds i8, ptr %helper.i4, i64 120
@@ -1425,9 +1425,9 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh12hash_comb
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit
-  %i.031 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit ]
-  %hc.sroa.0.030 = phi i64 [ %call.i, %for.body.lr.ph ], [ %call3.i.i.i, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit ]
-  %call9 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %i.031) #15
+  %i.035 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit ]
+  %hc.sroa.0.034 = phi i64 [ %call.i, %for.body.lr.ph ], [ %call3.i.i.i, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit ]
+  %call9 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %i.035) #15
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %helper.i4)
   %8 = load atomic i8, ptr @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed acquire, align 8
   %guard.uninitialized.i.i.i5 = icmp eq i8 %8, 0
@@ -1449,12 +1449,12 @@ init.i.i.i10:                                     ; preds = %init.check.i.i.i8
 _ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit: ; preds = %for.body, %init.check.i.i.i8, %init.i.i.i10
   %11 = load i64, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
   store i64 %11, ptr %seed.i.i6, align 8
-  store i64 %hc.sroa.0.030, ptr %helper.i4, align 8
+  store i64 %hc.sroa.0.034, ptr %helper.i4, align 8
   %12 = ptrtoint ptr %call9 to i64
   store i64 %12, ptr %add.ptr.i.i.i, align 8
   %call3.i.i.i = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i4, i64 noundef 0, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr.i7)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %helper.i4)
-  %inc = add nuw i32 %i.031, 1
+  %inc = add nuw i32 %i.035, 1
   %cmp.not = icmp eq i32 %inc, %call6
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !13
 
@@ -1485,9 +1485,9 @@ _ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit: ; preds = %for.end, 
   %add.ptr.i17 = getelementptr inbounds i8, ptr %helper.i14, i64 64
   %add.ptr.i.i.i18 = getelementptr inbounds i8, ptr %helper.i14, i64 8
   store i64 %hc.sroa.0.0.lcssa, ptr %helper.i14, align 8
-  %add.ptr.i.i27 = getelementptr inbounds i8, ptr %helper.i14, i64 16
+  %add.ptr.i.i29 = getelementptr inbounds i8, ptr %helper.i14, i64 16
   store i64 0, ptr %add.ptr.i.i.i18, align 8
-  %call3.i.i.i20 = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i14, i64 noundef 0, ptr noundef nonnull %add.ptr.i.i27, ptr noundef nonnull %add.ptr.i17)
+  %call3.i.i.i20 = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i14, i64 noundef 0, ptr noundef nonnull %add.ptr.i.i29, ptr noundef nonnull %add.ptr.i17)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %helper.i14)
   ret i64 %call3.i.i.i20
 }

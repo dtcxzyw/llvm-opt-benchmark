@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [41 x i8] c"reply_cb called with wrong instance data\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ipc_get_active_state(ptr noundef %path) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ipc_get_active_state(ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %options = alloca %struct.ipc_client_connect_options, align 4
   %st = alloca %struct.stat, align 8
@@ -71,7 +71,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
-  %call8 = call i32 @ipc_client_try_connect(ptr noundef %path, ptr noundef nonnull %options, ptr noundef nonnull %connection_test), !range !5
+  %call8 = call i32 @ipc_client_try_connect(ptr noundef %path, ptr noundef nonnull %options, ptr noundef nonnull %connection_test)
   %3 = load ptr, ptr %connection_test, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %return, label %if.end.i
@@ -104,7 +104,7 @@ declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture nound
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ipc_client_try_connect(ptr noundef %path, ptr nocapture noundef readonly %options, ptr nocapture noundef writeonly %p_connection) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ipc_client_try_connect(ptr noundef %path, ptr nocapture noundef readonly %options, ptr nocapture noundef writeonly %p_connection) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %p_connection, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 163, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef null) #12
@@ -152,7 +152,7 @@ sleep_and_try_again.i:                            ; preds = %if.then24.i, %if.th
   tail call void @sleep_millisec(i32 noundef 50) #12
   %add.i = add nuw nsw i32 %k.07.i, 50
   %cmp.i = icmp ult i32 %k.07.i, 950
-  br i1 %cmp.i, label %for.body.i, label %connect_to_server.exit, !llvm.loop !6
+  br i1 %cmp.i, label %for.body.i, label %connect_to_server.exit, !llvm.loop !5
 
 connect_to_server.exit:                           ; preds = %for.body.i, %if.end.i, %if.then4.i, %if.then14.i, %if.then24.i, %sleep_and_try_again.i
   %retval.0.i = phi i32 [ 0, %for.body.i ], [ 4, %if.end.i ], [ 3, %if.then4.i ], [ 1, %if.then14.i ], [ 1, %if.then24.i ], [ 1, %sleep_and_try_again.i ]
@@ -210,7 +210,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ipc_client_send_command_to_connection(ptr nocapture noundef readonly %connection, ptr noundef %message, i64 noundef %message_len, ptr noundef %answer) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ipc_client_send_command_to_connection(ptr nocapture noundef readonly %connection, ptr noundef %message, i64 noundef %message_len, ptr noundef %answer) local_unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %answer, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -296,17 +296,17 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i64 @read_packetized_to_strbuf(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ipc_client_send_command(ptr noundef %path, ptr nocapture noundef readonly %options, ptr noundef %message, i64 noundef %message_len, ptr noundef %answer) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ipc_client_send_command(ptr noundef %path, ptr nocapture noundef readonly %options, ptr noundef %message, i64 noundef %message_len, ptr noundef %answer) local_unnamed_addr #0 {
 entry:
   %connection = alloca ptr, align 8
   store ptr null, ptr %connection, align 8
-  %call = call i32 @ipc_client_try_connect(ptr noundef %path, ptr noundef %options, ptr noundef nonnull %connection), !range !5
+  %call = call i32 @ipc_client_try_connect(ptr noundef %path, ptr noundef %options, ptr noundef nonnull %connection)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %connection, align 8
-  %call1 = tail call i32 @ipc_client_send_command_to_connection(ptr noundef %0, ptr noundef %message, i64 noundef %message_len, ptr noundef %answer), !range !8
+  %call1 = tail call i32 @ipc_client_send_command_to_connection(ptr noundef %0, ptr noundef %message, i64 noundef %message_len, ptr noundef %answer)
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -441,7 +441,7 @@ if.end21:                                         ; preds = %setup_listener_sock
   %call29 = call i32 @pthread_mutex_init(ptr noundef nonnull %work_available_mutex, ptr noundef null) #12
   %work_available_cond = getelementptr inbounds i8, ptr %call22, i64 104
   %call30 = call i32 @pthread_cond_init(ptr noundef nonnull %work_available_cond, ptr noundef null) #12
-  %mul = mul nsw i32 %spec.store.select, 100
+  %mul = mul nuw nsw i32 %spec.store.select, 100
   %queue_size = getelementptr inbounds i8, ptr %call22, i64 160
   store i32 %mul, ptr %queue_size, align 8
   %conv = zext nneg i32 %mul to i64
@@ -508,7 +508,7 @@ if.end65:                                         ; preds = %for.body
   store ptr %call53, ptr %worker_thread_list, align 8
   %inc = add nuw nsw i32 %k.042, 1
   %exitcond.not = icmp eq i32 %inc, %spec.store.select
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end65, %if.then59
   store ptr %call22, ptr %returned_server_data, align 8
@@ -655,7 +655,7 @@ while.body.i:                                     ; preds = %fifo_dequeue.exit.i
   %16 = load i32, ptr %back_pos.i.i, align 4
   %17 = load i32, ptr %front_pos.i.i, align 8
   %cmp.i.i = icmp eq i32 %16, %17
-  br i1 %cmp.i.i, label %while.end.i, label %fifo_dequeue.exit.i, !llvm.loop !10
+  br i1 %cmp.i.i, label %while.end.i, label %fifo_dequeue.exit.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.body.i, %fifo_dequeue.exit.i, %if.end5.i
   %work_available_cond.i = getelementptr inbounds i8, ptr %6, i64 104
@@ -1003,7 +1003,7 @@ while.body:                                       ; preds = %fifo_dequeue.exit
   %9 = load i32, ptr %back_pos.i, align 4
   %10 = load i32, ptr %front_pos.i, align 8
   %cmp.i = icmp eq i32 %9, %10
-  br i1 %cmp.i, label %while.end, label %fifo_dequeue.exit, !llvm.loop !10
+  br i1 %cmp.i, label %while.end, label %fifo_dequeue.exit, !llvm.loop !8
 
 while.end:                                        ; preds = %fifo_dequeue.exit, %while.body, %if.end5
   %work_available_cond = getelementptr inbounds i8, ptr %server_data, i64 104
@@ -1066,7 +1066,7 @@ while.body:                                       ; preds = %while.cond.preheade
   tail call void @free(ptr noundef nonnull %5) #12
   %8 = load ptr, ptr %worker_thread_list, align 8
   %tobool1.not = icmp eq ptr %8, null
-  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %is_stopped = getelementptr inbounds i8, ptr %server_data, i64 176
@@ -1145,7 +1145,7 @@ while.body:                                       ; preds = %if.end15, %while.bo
   tail call void @free(ptr noundef nonnull %8) #12
   %10 = load ptr, ptr %worker_thread_list, align 8
   %tobool16.not = icmp eq ptr %10, null
-  br i1 %tobool16.not, label %while.end, label %while.body, !llvm.loop !12
+  br i1 %tobool16.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %if.end15
   %work_available_cond = getelementptr inbounds i8, ptr %server_data, i64 104
@@ -1264,11 +1264,9 @@ attributes #15 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 5}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -1, i32 1}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

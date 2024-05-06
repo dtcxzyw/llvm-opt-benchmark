@@ -551,7 +551,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1010CodeHolder15setErrorHandlerEPNS0_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !85
   %6 = xor i64 %5, -1
@@ -742,7 +742,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13reserveBufferEPNS0_10CodeBufferEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder13reserveBufferEPNS0_10CodeBufferEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !86
   %6 = icmp ult i64 %5, %2
@@ -1123,7 +1123,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1010CodeHolder25ensureAddressTab
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder24addAddressToAddressTableEm(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1010CodeHolder24addAddressToAddressTableEm(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.asmjit::_abi_1_10::Support::Compare", align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8, !tbaa !99
@@ -1701,7 +1701,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   br label %103
 
 103:                                              ; preds = %101, %94
-  %104 = trunc i64 %.fr to i32
+  %104 = trunc nuw nsw i64 %.fr to i32
   store i32 %104, ptr %92, align 8, !tbaa !72
   %105 = load ptr, ptr %73, align 8, !tbaa !39
   %106 = load i32, ptr %74, align 8, !tbaa !38
@@ -1731,7 +1731,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
 120:                                              ; preds = %118, %116
   %121 = phi i32 [ %66, %118 ], [ %117, %116 ]
   %122 = getelementptr inbounds i8, ptr %0, i64 272
-  %123 = trunc i64 %.fr to i32
+  %123 = trunc nuw i64 %.fr to i32
   %124 = zext i32 %121 to i64
   %125 = getelementptr inbounds i8, ptr %0, i64 296
   %126 = load i32, ptr %125, align 8, !tbaa !35
@@ -2032,7 +2032,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13labelIdByNameEPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder22resolveUnresolvedLinksEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 49) i32 @_ZN6asmjit9_abi_1_1010CodeHolder22resolveUnresolvedLinksEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load i64, ptr %2, align 8, !tbaa !126
   %4 = icmp eq i64 %3, 0
@@ -2165,7 +2165,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder22resolveUnresolve
 declare noundef zeroext i1 @_ZN6asmjit9_abi_1_1015CodeWriterUtils11writeOffsetEPvlRKNS0_12OffsetFormatE(ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder9bindLabelERKNS0_5LabelEjm(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 49) i32 @_ZN6asmjit9_abi_1_1010CodeHolder9bindLabelERKNS0_5LabelEjm(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !140
   %7 = getelementptr inbounds i8, ptr %0, i64 248
@@ -2346,7 +2346,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder7flattenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder7flattenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -3248,7 +3248,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_10L29CodeHolder_evaluateEx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder15copySectionDataEPvmjNS0_16CopySectionFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 0, 20) i32 @_ZN6asmjit9_abi_1_1010CodeHolder15copySectionDataEPvmjNS0_16CopySectionFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 216
   %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = icmp ugt i32 %7, %3
@@ -3290,7 +3290,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder15copySectionDataE
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder17copyFlattenedDataEPvmNS0_16CopySectionFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_1010CodeHolder17copyFlattenedDataEPvmNS0_16CopySectionFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds i8, ptr %0, i64 232

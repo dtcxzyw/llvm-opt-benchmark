@@ -154,7 +154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6google8protobuf4util21SimpleFieldComparator13SimpleCompareERKNS0_7MessageES5_PKNS0_15FieldDescriptorEiiPKNS1_12FieldContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %message_1, ptr noundef nonnull align 8 dereferenceable(16) %message_2, ptr noundef %field, i32 noundef %index_1, i32 noundef %index_2, ptr nocapture noundef readnone %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN6google8protobuf4util21SimpleFieldComparator13SimpleCompareERKNS0_7MessageES5_PKNS0_15FieldDescriptorEiiPKNS1_12FieldContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %message_1, ptr noundef nonnull align 8 dereferenceable(16) %message_2, ptr noundef %field, i32 noundef %index_1, i32 noundef %index_2, ptr nocapture noundef readnone %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scratch1 = alloca %"class.std::__cxx11::basic_string", align 8
   %scratch2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -579,7 +579,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %this, i1 noundef zeroext %boolean_result) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %this, i1 noundef zeroext %boolean_result) local_unnamed_addr #4 align 2 {
 entry:
   %not.boolean_result = xor i1 %boolean_result, true
   %cond = zext i1 %not.boolean_result to i32
@@ -863,7 +863,7 @@ for.body.preheader.i.i:                           ; preds = %while.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %__begin0.sroa.0.027.i.i = phi i32 [ %and.i10.i.i, %for.inc.i.i ], [ %24, %for.body.preheader.i.i ]
-  %25 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i.i, i1 true), !range !10
+  %25 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i.i, i1 true)
   %conv.i.i = zext nneg i32 %25 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %18
@@ -887,7 +887,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %while
 if.end36.i.i:                                     ; preds = %for.end.i.i
   %add.i13.i.i = add i64 %seq.sroa.10.0.i.i, 16
   %add3.i.i.i = add i64 %add.i13.i.i, %seq.sroa.4.0.i.i
-  br label %while.body.i.i, !llvm.loop !11
+  br label %while.body.i.i, !llvm.loop !10
 
 if.then.i:                                        ; preds = %for.end.i.i
   %call38.i.i = tail call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_, i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !4
@@ -956,7 +956,7 @@ if.end15:                                         ; preds = %if.else
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !13
+  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !12
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %8 = ptrtoint ptr %5 to i64
   %shr.i.i.i.i.i.i = lshr i64 %8, 12
@@ -986,7 +986,7 @@ for.body.preheader.i.i:                           ; preds = %while.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %__begin5.sroa.0.024.i.i = phi i32 [ %and.i9.i.i, %for.inc.i.i ], [ %13, %for.body.preheader.i.i ]
-  %14 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true), !range !10
+  %14 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true)
   %conv.i.i = zext nneg i32 %14 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %7
@@ -1016,7 +1016,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %while
 if.end34.i.i:                                     ; preds = %for.end.i.i
   %add.i12.i.i = add i64 %seq.sroa.10.0.i.i, 16
   %add3.i.i.i = add i64 %add.i12.i.i, %seq.sroa.4.0.i.i
-  br label %while.body.i.i, !llvm.loop !16
+  br label %while.body.i.i, !llvm.loop !15
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit: ; preds = %for.end.i.i, %if.then.i.i
   %call25.pn.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i, %if.then.i.i ], [ { ptr null, ptr undef }, %for.end.i.i ]
@@ -1131,7 +1131,7 @@ if.end15:                                         ; preds = %if.else
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !17
+  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !16
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %8 = ptrtoint ptr %5 to i64
   %shr.i.i.i.i.i.i = lshr i64 %8, 12
@@ -1161,7 +1161,7 @@ for.body.preheader.i.i:                           ; preds = %while.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %__begin5.sroa.0.024.i.i = phi i32 [ %and.i9.i.i, %for.inc.i.i ], [ %13, %for.body.preheader.i.i ]
-  %14 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true), !range !10
+  %14 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true)
   %conv.i.i = zext nneg i32 %14 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %7
@@ -1191,7 +1191,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %while
 if.end34.i.i:                                     ; preds = %for.end.i.i
   %add.i12.i.i = add i64 %seq.sroa.10.0.i.i, 16
   %add3.i.i.i = add i64 %add.i12.i.i, %seq.sroa.4.0.i.i
-  br label %while.body.i.i, !llvm.loop !16
+  br label %while.body.i.i, !llvm.loop !15
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit: ; preds = %for.end.i.i, %if.then.i.i
   %call25.pn.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i, %if.then.i.i ], [ { ptr null, ptr undef }, %for.end.i.i ]
@@ -1481,7 +1481,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !20
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !19
 
 if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -1612,14 +1612,13 @@ attributes #28 = { builtin allocsize(0) }
 !7 = !{!8, !5}
 !8 = distinct !{!8, !9, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
 !9 = distinct !{!9, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!10 = !{i32 0, i32 33}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
-!15 = distinct !{!15, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!16 = distinct !{!16, !12}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
-!19 = distinct !{!19, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!20 = distinct !{!20, !12}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
+!14 = distinct !{!14, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!15 = distinct !{!15, !11}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
+!18 = distinct !{!18, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!19 = distinct !{!19, !11}

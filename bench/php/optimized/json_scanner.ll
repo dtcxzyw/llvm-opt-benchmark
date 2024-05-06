@@ -21,7 +21,7 @@ define hidden void @php_json_scanner_init(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @php_json_scan(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 1, ptr %3, align 8
@@ -2335,7 +2335,7 @@ php_json_scanner_copy_string.exit1574:            ; preds = %php_json_ucs2_to_in
 php_json_scanner_copy_string.exit1576:            ; preds = %1056, %1069
   %1072 = phi ptr [ %.pre1744, %1056 ], [ %1071, %1069 ]
   %1073 = lshr i32 %1064, 18
-  %1074 = trunc i32 %1073 to i8
+  %1074 = trunc nuw nsw i32 %1073 to i8
   %1075 = or disjoint i8 %1074, -16
   %1076 = getelementptr inbounds i8, ptr %1072, i64 1
   store ptr %1076, ptr %1437, align 8
@@ -3028,7 +3028,7 @@ php_json_scanner_copy_string.exit1599:            ; preds = %php_json_ucs2_to_in
 php_json_scanner_copy_string.exit1601:            ; preds = %1393, %1406
   %1409 = phi ptr [ %.pre1739, %1393 ], [ %1408, %1406 ]
   %1410 = lshr i32 %1401, 18
-  %1411 = trunc i32 %1410 to i8
+  %1411 = trunc nuw nsw i32 %1410 to i8
   %1412 = or disjoint i8 %1411, -16
   %1413 = getelementptr inbounds i8, ptr %1409, i64 1
   store ptr %1413, ptr %1099, align 8

@@ -49,7 +49,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %0 = trunc i64 %call1.i.i to i32
+  %0 = trunc nuw i64 %call1.i.i to i32
   %conv.i.i = add nuw nsw i32 %0, 1
   br label %if.end.i
 
@@ -67,7 +67,7 @@ if.end11.i.i:                                     ; preds = %if.end7.i.i
 if.end20.i.i:                                     ; preds = %if.end11.i.i
   %call13.val.i.i = load i8, ptr %call13.i.i, align 1
   %1 = icmp eq i8 %call13.val.i.i, 0
-  %conv26.i.i = trunc i64 %fname_len to i32
+  %conv26.i.i = trunc nuw nsw i64 %fname_len to i32
   br i1 %1, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end20.i.i, %if.end11.i.i, %if.end7.i.i, %if.end.i.i, %if.then.i.i
@@ -319,7 +319,7 @@ if.then.i23:                                      ; preds = %sw.bb3
   br label %sw.epilog
 
 if.end.i:                                         ; preds = %sw.bb3
-  %conv.i = trunc i64 %spec.store.select to i32
+  %conv.i = trunc nuw nsw i64 %spec.store.select to i32
   %call2.i22 = tail call i32 @qemu_semihosting_console_read(ptr noundef %cs, ptr noundef nonnull %call1.i20, i32 noundef %conv.i) #12
   %conv3.i = sext i32 %call2.i22 to i64
   tail call void %complete(ptr noundef %cs, i64 noundef %conv3.i, i32 noundef 0) #12
@@ -406,7 +406,7 @@ if.then.i20:                                      ; preds = %sw.bb2
   br label %sw.epilog
 
 if.end.i17:                                       ; preds = %sw.bb2
-  %conv.i = trunc i64 %spec.store.select to i32
+  %conv.i = trunc nuw nsw i64 %spec.store.select to i32
   %call2.i18 = tail call i32 @qemu_semihosting_console_write(ptr noundef nonnull %call1.i15, i32 noundef %conv.i) #12
   %tobool3.not.i = icmp eq i32 %call2.i18, 0
   %cond.i19 = select i1 %tobool3.not.i, i32 -1, i32 %call2.i18
@@ -720,10 +720,10 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br i1 %tobool.not.i.i, label %copy_stat_to_user.exit.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
-  %conv13.i.i = trunc i64 %4 to i32
+  %conv13.i.i = trunc nuw i64 %4 to i32
   %6 = tail call noundef i32 @llvm.bswap.i32(i32 %conv13.i.i)
   store i32 %6, ptr %call9.i.i, align 1
-  %conv16.i.i = trunc i64 %5 to i32
+  %conv16.i.i = trunc nuw i64 %5 to i32
   %7 = tail call noundef i32 @llvm.bswap.i32(i32 %conv16.i.i)
   %gdb_st_ino.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 4
   store i32 %7, ptr %gdb_st_ino.i.i, align 1
@@ -852,7 +852,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %0 = trunc i64 %call1.i.i to i32
+  %0 = trunc nuw i64 %call1.i.i to i32
   %conv.i.i = add nuw nsw i32 %0, 1
   br label %if.end.i
 
@@ -870,7 +870,7 @@ if.end11.i.i:                                     ; preds = %if.end7.i.i
 if.end20.i.i:                                     ; preds = %if.end11.i.i
   %call13.val.i.i = load i8, ptr %call13.i.i, align 1
   %1 = icmp eq i8 %call13.val.i.i, 0
-  %conv26.i.i = trunc i64 %fname_len to i32
+  %conv26.i.i = trunc nuw nsw i64 %fname_len to i32
   br i1 %1, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end20.i.i, %if.end11.i.i, %if.end7.i.i, %if.end.i.i, %if.then.i.i
@@ -956,10 +956,10 @@ if.end.i.i9:                                      ; preds = %lor.lhs.false.i.i
   br i1 %tobool.not.i13.i, label %if.end10.i, label %copy_stat_to_user.exit.i
 
 copy_stat_to_user.exit.i:                         ; preds = %if.end.i.i9
-  %conv13.i.i = trunc i64 %5 to i32
+  %conv13.i.i = trunc nuw i64 %5 to i32
   %7 = tail call noundef i32 @llvm.bswap.i32(i32 %conv13.i.i)
   store i32 %7, ptr %call9.i.i, align 1
-  %conv16.i.i = trunc i64 %6 to i32
+  %conv16.i.i = trunc nuw i64 %6 to i32
   %8 = tail call noundef i32 @llvm.bswap.i32(i32 %conv16.i.i)
   %gdb_st_ino.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 4
   store i32 %8, ptr %gdb_st_ino.i.i, align 1
@@ -1060,7 +1060,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %0 = trunc i64 %call1.i.i to i32
+  %0 = trunc nuw i64 %call1.i.i to i32
   %conv.i.i = add nuw nsw i32 %0, 1
   br label %if.end.i
 
@@ -1078,7 +1078,7 @@ if.end11.i.i:                                     ; preds = %if.end7.i.i
 if.end20.i.i:                                     ; preds = %if.end11.i.i
   %call13.val.i.i = load i8, ptr %call13.i.i, align 1
   %1 = icmp eq i8 %call13.val.i.i, 0
-  %conv26.i.i = trunc i64 %fname_len to i32
+  %conv26.i.i = trunc nuw nsw i64 %fname_len to i32
   br i1 %1, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end20.i.i, %if.end11.i.i, %if.end7.i.i, %if.end.i.i, %if.then.i.i
@@ -1175,7 +1175,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %0 = trunc i64 %call1.i.i to i32
+  %0 = trunc nuw i64 %call1.i.i to i32
   %conv.i.i = add nuw nsw i32 %0, 1
   br label %if.end.i
 
@@ -1193,7 +1193,7 @@ if.end11.i.i:                                     ; preds = %if.end7.i.i
 if.end20.i.i:                                     ; preds = %if.end11.i.i
   %call13.val.i.i = load i8, ptr %call13.i.i, align 1
   %1 = icmp eq i8 %call13.val.i.i, 0
-  %conv26.i.i = trunc i64 %oname_len to i32
+  %conv26.i.i = trunc nuw nsw i64 %oname_len to i32
   br i1 %1, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end20.i.i, %if.end11.i.i, %if.end7.i.i, %if.end.i.i, %if.then.i.i
@@ -1216,7 +1216,7 @@ if.end.i28.i:                                     ; preds = %if.then.i25.i
   br i1 %cmp4.i29.i, label %if.then3.i, label %if.end6.i30.i
 
 if.end6.i30.i:                                    ; preds = %if.end.i28.i
-  %2 = trunc i64 %call1.i26.i to i32
+  %2 = trunc nuw i64 %call1.i26.i to i32
   %conv.i31.i = add nuw nsw i32 %2, 1
   br label %if.end5.i
 
@@ -1234,7 +1234,7 @@ if.end11.i15.i:                                   ; preds = %if.end7.i13.i
 if.end20.i20.i:                                   ; preds = %if.end11.i15.i
   %call13.val.i21.i = load i8, ptr %call13.i18.i, align 1
   %3 = icmp eq i8 %call13.val.i21.i, 0
-  %conv26.i22.i = trunc i64 %nname_len to i32
+  %conv26.i22.i = trunc nuw nsw i64 %nname_len to i32
   br i1 %3, label %if.end5.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end20.i20.i, %if.end11.i15.i, %if.end7.i13.i, %if.end.i28.i, %if.then.i25.i
@@ -1375,7 +1375,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %0 = trunc i64 %call1.i.i to i32
+  %0 = trunc nuw i64 %call1.i.i to i32
   %conv.i.i = add nuw nsw i32 %0, 1
   br label %if.end.i
 
@@ -1393,7 +1393,7 @@ if.end11.i.i:                                     ; preds = %if.end7.i.i
 if.end20.i.i:                                     ; preds = %if.end11.i.i
   %call13.val.i.i = load i8, ptr %call13.i.i, align 1
   %1 = icmp eq i8 %call13.val.i.i, 0
-  %conv26.i.i = trunc i64 %cmd_len to i32
+  %conv26.i.i = trunc nuw nsw i64 %cmd_len to i32
   br i1 %1, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end20.i.i, %if.end11.i.i, %if.end7.i.i, %if.end.i.i, %if.then.i.i

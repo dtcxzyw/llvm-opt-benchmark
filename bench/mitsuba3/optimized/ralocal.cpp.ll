@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newPhysToWorkMapEv(ptr noundef nonnull align 8 dereferenceable(944) %2) #10
   %4 = load ptr, ptr %0, align 8, !tbaa !3
@@ -179,7 +179,7 @@ declare noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator21makeInitialAssignmentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator21makeInitialAssignmentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %2, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !26
@@ -3317,7 +3317,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator18decideOnAssignmentENS0_8RegGroupEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 0, 255) i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator18decideOnAssignmentENS0_8RegGroupEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %6, i64 320
   %8 = zext i32 %2 to i64
@@ -3351,7 +3351,7 @@ define hidden noundef i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator18decideOnAssi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator20decideOnReassignmentENS0_8RegGroupEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 0, 256) i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator20decideOnReassignmentENS0_8RegGroupEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %6, i64 320
   %8 = zext i32 %2 to i64
@@ -3371,7 +3371,7 @@ define hidden noundef i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator20decideOnReas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator16decideOnSpillForENS0_8RegGroupEjjPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 0, 32) i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator16decideOnSpillForENS0_8RegGroupEjjPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #7 align 2 {
   %6 = tail call noundef i32 @llvm.cttz.i32(i32 %3, i1 true), !range !99
   %7 = add i32 %3, -1
   %8 = and i32 %7, %3

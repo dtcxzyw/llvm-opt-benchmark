@@ -1609,7 +1609,7 @@ _ZN6vectorIN3smt8qi_queue5entryELb0EjE9push_backERKS2_.exit: ; preds = %lor.lhs.
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then11, %_ZN6vectorIN3smt8qi_queue5entryELb0EjE9push_backERKS2_.exit, %if.then6
-  %inc = add i32 %since_last_check.015, 1
+  %inc = add nuw nsw i32 %since_last_check.015, 1
   %cmp16 = icmp ugt i32 %since_last_check.015, 100
   br i1 %cmp16, label %if.then17, label %for.inc
 
@@ -3892,7 +3892,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %i
   %12 = phi ptr [ %.pre.i, %if.then.i ], [ %8, %lor.lhs.false.i ]
   %idx.ext.i = zext i32 %11 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %12, i64 %idx.ext.i
-  %13 = trunc i64 %indvars.iv57 to i32
+  %13 = trunc nuw i64 %indvars.iv57 to i32
   store i32 %13, ptr %add.ptr.i, align 4
   %14 = load ptr, ptr %m_instantiated_trail, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %14, i64 -4
@@ -3971,7 +3971,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit41:          ; preds = %lor.lhs.false.i28, 
   %27 = phi ptr [ %.pre.i38, %if.then.i37 ], [ %23, %lor.lhs.false.i28 ]
   %idx.ext.i33 = zext i32 %26 to i64
   %add.ptr.i34 = getelementptr inbounds i32, ptr %27, i64 %idx.ext.i33
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   store i32 %28, ptr %add.ptr.i34, align 4
   %29 = load ptr, ptr %m_instantiated_trail57, align 8
   %arrayidx10.i35 = getelementptr inbounds i8, ptr %29, i64 -4

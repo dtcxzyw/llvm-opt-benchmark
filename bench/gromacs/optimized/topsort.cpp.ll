@@ -128,8 +128,8 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %52 = sub i64 %50, %51
   %53 = lshr exact i64 %52, 2
   %54 = trunc i64 %53 to i32
-  %invariant.gep = getelementptr i8, ptr %47, i64 4
-  %invariant.gep35 = getelementptr i8, ptr %47, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %47, i64 4
+  %invariant.gep35 = getelementptr inbounds i8, ptr %47, i64 8
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph41.preheader, label %._crit_edge42
 
@@ -140,7 +140,7 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %75
   %indvars.iv51 = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next52, %75 ]
   %.337 = phi i1 [ %.246, %.lr.ph41.preheader ], [ %.4, %75 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv51
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv51
   %57 = load i32, ptr %gep, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds %struct.t_atom, ptr %45, i64 %58
@@ -152,7 +152,7 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   br i1 %64, label %74, label %65
 
 65:                                               ; preds = %.lr.ph41
-  %gep36 = getelementptr i32, ptr %invariant.gep35, i64 %indvars.iv51
+  %gep36 = getelementptr inbounds i32, ptr %invariant.gep35, i64 %indvars.iv51
   %66 = load i32, ptr %gep36, align 4
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds %struct.t_atom, ptr %45, i64 %67

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Poly1305SetKey(ptr noundef writeonly %ctx, ptr noundef readonly %key, i32 noundef %keySz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_Poly1305SetKey(ptr noundef writeonly %ctx, ptr noundef readonly %key, i32 noundef %keySz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -51,7 +51,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Poly1305Final(ptr noundef %ctx, ptr noundef writeonly %mac) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef %ctx, ptr noundef writeonly %mac) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %mac, null
@@ -82,7 +82,7 @@ for.body.preheader:                               ; preds = %if.then2
 for.end:                                          ; preds = %for.body.preheader, %if.then2
   %finished = getelementptr inbounds i8, ptr %ctx, i64 88
   store i8 1, ptr %finished, align 8
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer, i64 noundef 16)
+  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer, i64 noundef 16)
   br label %if.end8
 
 if.end8:                                          ; preds = %for.end, %if.end
@@ -178,7 +178,7 @@ if.end8:                                          ; preds = %for.end, %if.end
   %arrayidx17.i = getelementptr inbounds i8, ptr %mac, i64 6
   store i8 %conv16.i, ptr %arrayidx17.i, align 1
   %shr18.i = lshr i64 %shl67, 56
-  %conv19.i = trunc i64 %shr18.i to i8
+  %conv19.i = trunc nuw i64 %shr18.i to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %mac, i64 7
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
   %add.ptr72 = getelementptr inbounds i8, ptr %mac, i64 8
@@ -208,7 +208,7 @@ if.end8:                                          ; preds = %for.end, %if.end
   %arrayidx17.i106 = getelementptr inbounds i8, ptr %mac, i64 14
   store i8 %conv16.i105, ptr %arrayidx17.i106, align 1
   %shr18.i107 = lshr i64 %shl70, 56
-  %conv19.i108 = trunc i64 %shr18.i107 to i8
+  %conv19.i108 = trunc nuw i64 %shr18.i107 to i8
   %arrayidx20.i109 = getelementptr inbounds i8, ptr %mac, i64 15
   store i8 %conv19.i108, ptr %arrayidx20.i109, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %ctx, i8 0, i64 64, i1 false)
@@ -220,7 +220,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Poly1305Update(ptr noundef %ctx, ptr noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef %ctx, ptr noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -278,10 +278,10 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.end25:                                         ; preds = %for.end
   %add.ptr = getelementptr inbounds i8, ptr %m, i64 %spec.select
-  %conv17 = trunc i64 %spec.select to i32
+  %conv17 = trunc nuw i64 %spec.select to i32
   %sub18 = sub i32 %bytes, %conv17
   %buffer26 = getelementptr inbounds i8, ptr %ctx, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer26, i64 noundef 16)
+  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer26, i64 noundef 16)
   store i64 0, ptr %leftover, align 8
   br label %if.end28
 
@@ -434,7 +434,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Poly1305_Pad(ptr noundef %ctx, i32 noundef %lenToPad) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef %ctx, i32 noundef %lenToPad) local_unnamed_addr #2 {
 entry:
   %padding = alloca [15 x i8], align 1
   %cmp = icmp eq ptr %ctx, null
@@ -452,7 +452,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
-  %call = call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %padding, i32 noundef %and), !range !8
+  %call = call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %padding, i32 noundef %and)
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then6, %if.end, %entry
@@ -464,7 +464,7 @@ return:                                           ; preds = %if.end3, %if.then6,
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Poly1305_EncodeSizes(ptr noundef %ctx, i32 noundef %aadSz, i32 noundef %dataSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef %ctx, i32 noundef %aadSz, i32 noundef %dataSz) local_unnamed_addr #1 {
 entry:
   %little64 = alloca [16 x i8], align 16
   %cmp = icmp eq ptr %ctx, null
@@ -517,10 +517,10 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 
 if.end28.i:                                       ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %little64, i64 %spec.select.i
-  %conv17.i = trunc i64 %spec.select.i to i32
+  %conv17.i = trunc nuw nsw i64 %spec.select.i to i32
   %sub18.i = sub nuw nsw i64 16, %spec.select.i
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer26.i, i64 noundef 16)
+  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer26.i, i64 noundef 16)
   store i64 0, ptr %leftover.i, align 8
   switch i32 %conv17.i, label %for.cond45.preheader.i [
     i32 0, label %if.end42.i.thread
@@ -560,7 +560,7 @@ return:                                           ; preds = %if.end28.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Poly1305_EncodeSizes64(ptr noundef %ctx, i64 noundef %aadSz, i64 noundef %dataSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef %ctx, i64 noundef %aadSz, i64 noundef %dataSz) local_unnamed_addr #1 {
 entry:
   %little64 = alloca [2 x i64], align 16
   %cmp = icmp eq ptr %ctx, null
@@ -611,10 +611,10 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 
 if.end28.i:                                       ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %little64, i64 %spec.select.i
-  %conv17.i = trunc i64 %spec.select.i to i32
+  %conv17.i = trunc nuw nsw i64 %spec.select.i to i32
   %sub18.i = sub nuw nsw i64 16, %spec.select.i
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer26.i, i64 noundef 16)
+  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer26.i, i64 noundef 16)
   store i64 0, ptr %leftover.i, align 8
   switch i32 %conv17.i, label %for.cond45.preheader.i [
     i32 0, label %if.end42.i.thread
@@ -654,7 +654,7 @@ return:                                           ; preds = %if.end28.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Poly1305_MAC(ptr noundef %ctx, ptr noundef %additional, i32 noundef %addSz, ptr noundef %input, i32 noundef %sz, ptr noundef %tag, i32 noundef %tagSz) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef %ctx, ptr noundef %additional, i32 noundef %addSz, ptr noundef %input, i32 noundef %sz, ptr noundef %tag, i32 noundef %tagSz) local_unnamed_addr #2 {
 entry:
   %padding.i22 = alloca [15 x i8], align 1
   %padding.i = alloca [15 x i8], align 1
@@ -676,7 +676,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.then7
-  %call = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %additional, i32 noundef %addSz), !range !8
+  %call = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %additional, i32 noundef %addSz)
   %cmp11.not = icmp eq i32 %call, 0
   br i1 %cmp11.not, label %if.end3.i, label %return
 
@@ -693,13 +693,13 @@ wc_Poly1305_Pad.exit.thread:                      ; preds = %if.end3.i
   br label %if.end18
 
 wc_Poly1305_Pad.exit:                             ; preds = %if.end3.i
-  %call.i = call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %padding.i, i32 noundef %and.i), !range !8
+  %call.i = call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %padding.i, i32 noundef %and.i)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %padding.i)
   %cmp15.not = icmp eq i32 %call.i, 0
   br i1 %cmp15.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %wc_Poly1305_Pad.exit.thread, %wc_Poly1305_Pad.exit, %if.end
-  %call19 = call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %input, i32 noundef %sz), !range !8
+  %call19 = call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %input, i32 noundef %sz)
   %cmp20.not = icmp eq i32 %call19, 0
   br i1 %cmp20.not, label %if.end.i24, label %return
 
@@ -720,18 +720,18 @@ wc_Poly1305_Pad.exit33.thread:                    ; preds = %if.end.i24, %if.end
   br label %if.end26
 
 wc_Poly1305_Pad.exit33:                           ; preds = %if.end3.i26
-  %call.i31 = call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %padding.i22, i32 noundef %and.i28), !range !8
+  %call.i31 = call i32 @wc_Poly1305Update(ptr noundef nonnull %ctx, ptr noundef nonnull %padding.i22, i32 noundef %and.i28)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %padding.i22)
   %cmp24.not = icmp eq i32 %call.i31, 0
   br i1 %cmp24.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %wc_Poly1305_Pad.exit33.thread, %wc_Poly1305_Pad.exit33
-  %call27 = call i32 @wc_Poly1305_EncodeSizes(ptr noundef nonnull %ctx, i32 noundef %addSz, i32 noundef %sz), !range !8
+  %call27 = call i32 @wc_Poly1305_EncodeSizes(ptr noundef nonnull %ctx, i32 noundef %addSz, i32 noundef %sz)
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp28.not, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.end26
-  %call31 = call i32 @wc_Poly1305Final(ptr noundef nonnull %ctx, ptr noundef nonnull %tag), !range !8
+  %call31 = call i32 @wc_Poly1305Final(ptr noundef nonnull %ctx, ptr noundef nonnull %tag)
   br label %return
 
 return:                                           ; preds = %if.end26, %wc_Poly1305_Pad.exit33, %if.end18, %wc_Poly1305_Pad.exit, %if.end10, %if.then7, %entry, %if.end30
@@ -771,4 +771,3 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -173, i32 1}

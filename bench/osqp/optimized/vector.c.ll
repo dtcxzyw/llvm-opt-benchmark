@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @OSQPVectorf_is_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @OSQPVectorf_is_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1258,7 +1258,7 @@ define void @OSQPVectorf_ew_prod(ptr noundef readonly %0, ptr noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @OSQPVectorf_all_leq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @OSQPVectorf_all_leq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1378,7 +1378,7 @@ define void @OSQPVectorf_project_polar_reccone(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @OSQPVectorf_in_reccone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3, double noundef %4) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @OSQPVectorf_in_reccone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3, double noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
@@ -1556,7 +1556,7 @@ define void @OSQPVectorf_ew_min_vec(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3, double noundef %4) local_unnamed_addr #7 {
+define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3, double noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8

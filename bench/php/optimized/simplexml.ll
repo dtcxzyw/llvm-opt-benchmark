@@ -2050,7 +2050,7 @@ define hidden void @zim_SimpleXMLElement___toString(ptr nocapture noundef readon
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc i32 @sxe_object_cast_ex(ptr noundef %9, ptr noundef %1, i32 noundef 6), !range !5
+  %10 = tail call fastcc i32 @sxe_object_cast_ex(ptr noundef %9, ptr noundef %1, i32 noundef 6)
   %.not8 = icmp eq i32 %10, 0
   br i1 %.not8, label %14, label %11
 
@@ -2067,7 +2067,7 @@ define hidden void @zim_SimpleXMLElement___toString(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sxe_object_cast_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @sxe_object_cast_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -96
   %5 = icmp eq i32 %2, 18
   %6 = getelementptr inbounds i8, ptr %0, i64 -44
@@ -2291,19 +2291,19 @@ match_ns.exit.i:                                  ; preds = %.thread.i.i49, %78
 
 93:                                               ; preds = %91
   %94 = icmp ult i32 %88, 4
-  br i1 %94, label %switch.lookup110, label %98
+  br i1 %94, label %switch.lookup111, label %98
 
-switch.lookup110:                                 ; preds = %93
-  %switch.tableidx111 = add nsw i32 %88, -1
-  %95 = sext i32 %switch.tableidx111 to i64
-  %switch.gep112 = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %95
-  %switch.load113 = load i64, ptr %switch.gep112, align 8
-  %96 = getelementptr inbounds i8, ptr %92, i64 %switch.load113
+switch.lookup111:                                 ; preds = %93
+  %switch.tableidx112 = add nsw i32 %88, -1
+  %95 = sext i32 %switch.tableidx112 to i64
+  %switch.gep113 = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %95
+  %switch.load114 = load i64, ptr %switch.gep113, align 8
+  %96 = getelementptr inbounds i8, ptr %92, i64 %switch.load114
   %97 = load ptr, ptr %96, align 8
   br label %98
 
-98:                                               ; preds = %93, %switch.lookup110
-  %.1.i.i101.i = phi ptr [ %92, %93 ], [ %97, %switch.lookup110 ]
+98:                                               ; preds = %93, %switch.lookup111
+  %.1.i.i101.i = phi ptr [ %92, %93 ], [ %97, %switch.lookup111 ]
   %99 = tail call fastcc ptr @php_sxe_iterator_fetch(ptr noundef nonnull %4, ptr noundef %.1.i.i101.i, i32 noundef 0)
   br label %php_sxe_get_first_node_non_destructive.exit104.i
 
@@ -2369,8 +2369,8 @@ php_sxe_get_first_node_non_destructive.exit104.i: ; preds = %98, %87
 .thread:                                          ; preds = %106
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0.i102.i, i64 24
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.not86129.i65 = icmp eq ptr %.pre.i, null
-  br i1 %.not86129.i65, label %sxe_prop_is_empty.exit, label %.lr.ph132.split.preheader.i
+  %.not86129.i66 = icmp eq ptr %.pre.i, null
+  br i1 %.not86129.i66, label %sxe_prop_is_empty.exit, label %.lr.ph132.split.preheader.i
 
 .lr.ph132.i:                                      ; preds = %125
   %127 = getelementptr inbounds i8, ptr %0, i64 -56
@@ -2570,37 +2570,37 @@ sxe_prop_is_empty.exit:                           ; preds = %.thread.i.us.i, %59
   br i1 %.not6.i, label %236, label %220
 
 220:                                              ; preds = %218
-  br i1 %.not40, label %php_sxe_get_first_node_non_destructive.exit59.thread, label %221
+  br i1 %.not40, label %php_sxe_get_first_node_non_destructive.exit60.thread, label %221
 
 221:                                              ; preds = %220
   %222 = load ptr, ptr %219, align 8
-  %.not14.i.i53 = icmp eq ptr %222, null
-  br i1 %.not14.i.i53, label %php_sxe_get_first_node_non_destructive.exit59.thread, label %223
+  %.not14.i.i54 = icmp eq ptr %222, null
+  br i1 %.not14.i.i54, label %php_sxe_get_first_node_non_destructive.exit60.thread, label %223
 
-php_sxe_get_first_node_non_destructive.exit59.thread: ; preds = %220, %221
+php_sxe_get_first_node_non_destructive.exit60.thread: ; preds = %220, %221
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #14
-  br label %.thread76
+  br label %.thread77
 
 223:                                              ; preds = %221
   %224 = icmp ult i32 %7, 4
-  br i1 %224, label %switch.lookup114, label %php_sxe_get_first_node_non_destructive.exit59
+  br i1 %224, label %switch.lookup115, label %php_sxe_get_first_node_non_destructive.exit60
 
-switch.lookup114:                                 ; preds = %223
-  %switch.tableidx115 = add nsw i32 %7, -1
-  %225 = sext i32 %switch.tableidx115 to i64
-  %switch.gep116 = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %225
-  %switch.load117 = load i64, ptr %switch.gep116, align 8
-  %226 = getelementptr inbounds i8, ptr %222, i64 %switch.load117
+switch.lookup115:                                 ; preds = %223
+  %switch.tableidx116 = add nsw i32 %7, -1
+  %225 = sext i32 %switch.tableidx116 to i64
+  %switch.gep117 = getelementptr inbounds [3 x i64], ptr @switch.table.sxe_get_prop_hash, i64 0, i64 %225
+  %switch.load118 = load i64, ptr %switch.gep117, align 8
+  %226 = getelementptr inbounds i8, ptr %222, i64 %switch.load118
   %227 = load ptr, ptr %226, align 8
-  br label %php_sxe_get_first_node_non_destructive.exit59
+  br label %php_sxe_get_first_node_non_destructive.exit60
 
-php_sxe_get_first_node_non_destructive.exit59:    ; preds = %223, %switch.lookup114
-  %.1.i.i56 = phi ptr [ %222, %223 ], [ %227, %switch.lookup114 ]
-  %228 = tail call fastcc ptr @php_sxe_iterator_fetch(ptr noundef nonnull %4, ptr noundef %.1.i.i56, i32 noundef 0)
+php_sxe_get_first_node_non_destructive.exit60:    ; preds = %223, %switch.lookup115
+  %.1.i.i57 = phi ptr [ %222, %223 ], [ %227, %switch.lookup115 ]
+  %228 = tail call fastcc ptr @php_sxe_iterator_fetch(ptr noundef nonnull %4, ptr noundef %.1.i.i57, i32 noundef 0)
   %.not45 = icmp eq ptr %228, null
-  br i1 %.not45, label %.thread76, label %229
+  br i1 %.not45, label %.thread77, label %229
 
-229:                                              ; preds = %php_sxe_get_first_node_non_destructive.exit59
+229:                                              ; preds = %php_sxe_get_first_node_non_destructive.exit60
   %230 = getelementptr inbounds i8, ptr %0, i64 -88
   %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr %231, align 8
@@ -2610,13 +2610,13 @@ php_sxe_get_first_node_non_destructive.exit59:    ; preds = %223, %switch.lookup
   br label %260
 
 236:                                              ; preds = %218
-  br i1 %.not40, label %237, label %.thread74
+  br i1 %.not40, label %237, label %.thread75
 
 237:                                              ; preds = %236
   %238 = getelementptr inbounds i8, ptr %0, i64 -88
   %239 = load ptr, ptr %238, align 8
   %.not41 = icmp eq ptr %239, null
-  br i1 %.not41, label %.thread76, label %240
+  br i1 %.not41, label %.thread77, label %240
 
 240:                                              ; preds = %237
   %241 = load ptr, ptr %239, align 8
@@ -2624,15 +2624,15 @@ php_sxe_get_first_node_non_destructive.exit59:    ; preds = %223, %switch.lookup
   %243 = tail call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %4, ptr noundef %242, ptr noundef null) #14
   %.pr.pre = load ptr, ptr %4, align 8
   %.not42 = icmp eq ptr %.pr.pre, null
-  br i1 %.not42, label %.thread76, label %.thread74
+  br i1 %.not42, label %.thread77, label %.thread75
 
-.thread74:                                        ; preds = %236, %240
+.thread75:                                        ; preds = %236, %240
   %244 = phi ptr [ %.pr.pre, %240 ], [ %219, %236 ]
   %245 = load ptr, ptr %244, align 8
   %.not43 = icmp eq ptr %245, null
-  br i1 %.not43, label %.thread76, label %246
+  br i1 %.not43, label %.thread77, label %246
 
-246:                                              ; preds = %.thread74
+246:                                              ; preds = %.thread75
   %247 = getelementptr inbounds i8, ptr %245, i64 24
   %248 = load ptr, ptr %247, align 8
   %.not44 = icmp eq ptr %248, null
@@ -2650,7 +2650,7 @@ php_sxe_get_first_node_non_destructive.exit59:    ; preds = %223, %switch.lookup
   %256 = load i32, ptr %255, align 8
   %.off = add i32 %256, -7
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %257, label %.thread76
+  br i1 %switch, label %257, label %.thread77
 
 257:                                              ; preds = %254
   %258 = getelementptr inbounds i8, ptr %245, i64 80
@@ -2661,10 +2661,10 @@ php_sxe_get_first_node_non_destructive.exit59:    ; preds = %223, %switch.lookup
   %.032 = phi ptr [ %235, %229 ], [ %253, %249 ], [ %259, %257 ]
   %.031 = phi i1 [ true, %229 ], [ true, %249 ], [ false, %257 ]
   %.not.not.i = icmp eq ptr %.032, null
-  br i1 %.not.not.i, label %.thread76, label %261
+  br i1 %.not.not.i, label %.thread77, label %261
 
 261:                                              ; preds = %260
-  %262 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.032) #16
+  %262 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.032) #16
   %263 = and i64 %262, -8
   %264 = add i64 %263, 32
   %265 = tail call noalias ptr @_emalloc(i64 noundef %264) #15
@@ -2676,17 +2676,17 @@ php_sxe_get_first_node_non_destructive.exit59:    ; preds = %223, %switch.lookup
   %268 = getelementptr inbounds i8, ptr %265, i64 16
   store i64 %262, ptr %268, align 8
   %269 = getelementptr inbounds i8, ptr %265, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %269, ptr nonnull align 1 %.032, i64 %262, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %269, ptr nonnull readonly align 1 %.032, i64 %262, i1 false)
   %270 = getelementptr inbounds [1 x i8], ptr %269, i64 0, i64 %262
   store i8 0, ptr %270, align 1
   store ptr %265, ptr %1, align 8
-  br label %.thread76
+  br label %.thread77
 
-.thread76:                                        ; preds = %237, %php_sxe_get_first_node_non_destructive.exit59.thread, %254, %240, %.thread74, %php_sxe_get_first_node_non_destructive.exit59, %261, %260
-  %.not.not.i82.not = phi i1 [ true, %261 ], [ false, %260 ], [ false, %php_sxe_get_first_node_non_destructive.exit59 ], [ false, %.thread74 ], [ false, %240 ], [ false, %254 ], [ false, %php_sxe_get_first_node_non_destructive.exit59.thread ], [ false, %237 ]
-  %.03181 = phi i1 [ %.031, %261 ], [ %.031, %260 ], [ true, %php_sxe_get_first_node_non_destructive.exit59 ], [ true, %.thread74 ], [ true, %240 ], [ true, %254 ], [ true, %php_sxe_get_first_node_non_destructive.exit59.thread ], [ true, %237 ]
-  %.03280 = phi ptr [ %.032, %261 ], [ null, %260 ], [ null, %php_sxe_get_first_node_non_destructive.exit59 ], [ null, %.thread74 ], [ null, %240 ], [ null, %254 ], [ null, %php_sxe_get_first_node_non_destructive.exit59.thread ], [ null, %237 ]
-  %.sink.i = phi i32 [ 262, %261 ], [ 1, %260 ], [ 1, %php_sxe_get_first_node_non_destructive.exit59 ], [ 1, %.thread74 ], [ 1, %240 ], [ 1, %254 ], [ 1, %php_sxe_get_first_node_non_destructive.exit59.thread ], [ 1, %237 ]
+.thread77:                                        ; preds = %237, %php_sxe_get_first_node_non_destructive.exit60.thread, %254, %240, %.thread75, %php_sxe_get_first_node_non_destructive.exit60, %261, %260
+  %.not.not.i83.not = phi i1 [ true, %261 ], [ false, %260 ], [ false, %php_sxe_get_first_node_non_destructive.exit60 ], [ false, %.thread75 ], [ false, %240 ], [ false, %254 ], [ false, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ false, %237 ]
+  %.03182 = phi i1 [ %.031, %261 ], [ %.031, %260 ], [ true, %php_sxe_get_first_node_non_destructive.exit60 ], [ true, %.thread75 ], [ true, %240 ], [ true, %254 ], [ true, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ true, %237 ]
+  %.03281 = phi ptr [ %.032, %261 ], [ null, %260 ], [ null, %php_sxe_get_first_node_non_destructive.exit60 ], [ null, %.thread75 ], [ null, %240 ], [ null, %254 ], [ null, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ null, %237 ]
+  %.sink.i = phi i32 [ 262, %261 ], [ 1, %260 ], [ 1, %php_sxe_get_first_node_non_destructive.exit60 ], [ 1, %.thread75 ], [ 1, %240 ], [ 1, %254 ], [ 1, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ 1, %237 ]
   %271 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %.sink.i, ptr %271, align 8
   switch i32 %2, label %cast_object.exit [
@@ -2696,37 +2696,37 @@ php_sxe_get_first_node_non_destructive.exit59:    ; preds = %223, %switch.lookup
     i32 19, label %275
   ]
 
-272:                                              ; preds = %.thread76
-  br i1 %.not.not.i82.not, label %cast_object.exit, label %cast_object.exit.thread
+272:                                              ; preds = %.thread77
+  br i1 %.not.not.i83.not, label %cast_object.exit, label %cast_object.exit.thread
 
 cast_object.exit.thread:                          ; preds = %272
   tail call void @_convert_to_string(ptr noundef nonnull %1) #14
   br label %278
 
-273:                                              ; preds = %.thread76
+273:                                              ; preds = %.thread77
   tail call void @convert_to_long(ptr noundef nonnull %1) #14
   br label %cast_object.exit
 
-274:                                              ; preds = %.thread76
+274:                                              ; preds = %.thread77
   tail call void @convert_to_double(ptr noundef nonnull %1) #14
   br label %cast_object.exit
 
-275:                                              ; preds = %.thread76
+275:                                              ; preds = %.thread77
   tail call void @convert_scalar_to_number(ptr noundef nonnull %1) #14
   br label %cast_object.exit
 
-cast_object.exit:                                 ; preds = %.thread76, %272, %273, %274, %275
-  %.0.i60 = phi i32 [ -1, %.thread76 ], [ 0, %272 ], [ 0, %275 ], [ 0, %274 ], [ 0, %273 ]
-  %brmerge.not = and i1 %.not.not.i82.not, %.03181
+cast_object.exit:                                 ; preds = %.thread77, %272, %273, %274, %275
+  %.0.i61 = phi i32 [ -1, %.thread77 ], [ 0, %272 ], [ 0, %275 ], [ 0, %274 ], [ 0, %273 ]
+  %brmerge.not = and i1 %.not.not.i83.not, %.03182
   br i1 %brmerge.not, label %276, label %278
 
 276:                                              ; preds = %cast_object.exit
   %277 = load ptr, ptr @xmlFree, align 8
-  tail call void %277(ptr noundef nonnull %.03280) #14
+  tail call void %277(ptr noundef nonnull %.03281) #14
   br label %278
 
 278:                                              ; preds = %cast_object.exit.thread, %276, %cast_object.exit, %19, %sxe_prop_is_empty.exit
-  %.0 = phi i32 [ 0, %sxe_prop_is_empty.exit ], [ 0, %19 ], [ %.0.i60, %cast_object.exit ], [ %.0.i60, %276 ], [ 0, %cast_object.exit.thread ]
+  %.0 = phi i32 [ 0, %sxe_prop_is_empty.exit ], [ 0, %19 ], [ %.0.i61, %cast_object.exit ], [ %.0.i61, %276 ], [ 0, %cast_object.exit.thread ]
   ret i32 %.0
 }
 
@@ -3369,7 +3369,7 @@ define dso_local noundef nonnull ptr @sxe_object_new(ptr noundef %0) #1 {
   %11 = tail call ptr @zend_hash_find(ptr noundef nonnull %7, ptr noundef %10) #14
   %.not19.i = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %.not19.i)
-  %12 = load ptr, ptr %11, align 8, !nonnull !6, !noundef !6
+  %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %5
@@ -3503,7 +3503,7 @@ define hidden void @zif_simplexml_load_file(ptr nocapture noundef readonly %0, p
   %60 = call ptr @zend_hash_find(ptr noundef nonnull %56, ptr noundef %59) #14
   %.not19.i = icmp ne ptr %60, null
   call void @llvm.assume(i1 %.not19.i)
-  %61 = load ptr, ptr %60, align 8, !nonnull !6, !noundef !6
+  %61 = load ptr, ptr %60, align 8, !nonnull !5, !noundef !5
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, %54
@@ -3712,7 +3712,7 @@ define hidden void @zif_simplexml_load_string(ptr nocapture noundef readonly %0,
   %74 = call ptr @zend_hash_find(ptr noundef nonnull %70, ptr noundef %73) #14
   %.not19.i = icmp ne ptr %74, null
   call void @llvm.assume(i1 %.not19.i)
-  %75 = load ptr, ptr %74, align 8, !nonnull !6, !noundef !6
+  %75 = load ptr, ptr %74, align 8, !nonnull !5, !noundef !5
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %68
@@ -4468,7 +4468,7 @@ define hidden void @zif_simplexml_import_dom(ptr nocapture noundef readonly %0, 
   %45 = call ptr @zend_hash_find(ptr noundef nonnull %41, ptr noundef %44) #14
   %.not19.i = icmp ne ptr %45, null
   call void @llvm.assume(i1 %.not19.i)
-  %46 = load ptr, ptr %45, align 8, !nonnull !6, !noundef !6
+  %46 = load ptr, ptr %45, align 8, !nonnull !5, !noundef !5
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %39
@@ -5109,7 +5109,7 @@ sxe_get_element_by_name.exit:                     ; preds = %84, %12, %sxe_get_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sxe_property_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @sxe_property_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
   %5 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -5119,7 +5119,7 @@ define internal noundef i32 @sxe_property_exists(ptr nocapture noundef %0, ptr n
   %9 = select i1 %.not, i32 262, i32 6
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %9, ptr %10, align 8
-  %11 = call fastcc i32 @sxe_prop_dim_exists(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, i1 noundef zeroext true, i1 noundef zeroext false), !range !7
+  %11 = call fastcc i32 @sxe_prop_dim_exists(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i32 %11
 }
 
@@ -5139,8 +5139,8 @@ define internal void @sxe_property_delete(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sxe_dimension_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #1 {
-  %4 = tail call fastcc i32 @sxe_prop_dim_exists(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext true), !range !7
+define internal range(i32 0, 2) i32 @sxe_dimension_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+  %4 = tail call fastcc i32 @sxe_prop_dim_exists(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
   ret i32 %4
 }
 
@@ -5224,7 +5224,7 @@ define internal i32 @sxe_objects_compare(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sxe_object_cast(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @sxe_object_cast(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = icmp eq i32 %2, 6
   br i1 %4, label %5, label %.sink.split
 
@@ -5235,7 +5235,7 @@ define internal noundef i32 @sxe_object_cast(ptr noundef %0, ptr noundef %1, i32
 
 .sink.split:                                      ; preds = %5, %3
   %.sink = phi i32 [ %2, %3 ], [ 6, %5 ]
-  %8 = tail call fastcc i32 @sxe_object_cast_ex(ptr noundef %0, ptr noundef %1, i32 noundef %.sink), !range !5
+  %8 = tail call fastcc i32 @sxe_object_cast_ex(ptr noundef %0, ptr noundef %1, i32 noundef %.sink)
   br label %9
 
 9:                                                ; preds = %.sink.split, %5
@@ -5244,7 +5244,7 @@ define internal noundef i32 @sxe_object_cast(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sxe_count_elements(ptr noundef %0, ptr nocapture noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @sxe_count_elements(ptr noundef %0, ptr nocapture noundef %1) #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -96
   %5 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -5444,7 +5444,7 @@ define internal void @php_sxe_iterator_dtor(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @php_sxe_iterator_valid(ptr nocapture noundef readonly %0) #11 {
+define internal range(i32 -1, 1) i32 @php_sxe_iterator_valid(ptr nocapture noundef readonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
@@ -6694,7 +6694,7 @@ php_sxe_get_first_node_non_destructive.exit375:   ; preds = %67, %89
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %127
-  %134 = call fastcc i32 @sxe_object_cast_ex(ptr noundef nonnull %128, ptr noundef nonnull %9, i32 noundef 6), !range !5
+  %134 = call fastcc i32 @sxe_object_cast_ex(ptr noundef nonnull %128, ptr noundef nonnull %9, i32 noundef 6)
   %135 = icmp eq i32 %134, -1
   br i1 %135, label %136, label %137
 
@@ -7323,7 +7323,7 @@ declare ptr @xmlEncodeEntitiesReentrant(ptr noundef, ptr noundef) local_unnamed_
 declare void @xmlNodeSetContent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sxe_prop_dim_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @sxe_prop_dim_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
@@ -8479,30 +8479,30 @@ define internal fastcc ptr @sxe_get_prop_hash(ptr nocapture noundef %0, i32 noun
   %21 = load i32, ptr %20, align 4
   %.not130 = icmp eq i32 %21, 2
   %or.cond = select i1 %.not, i1 %.not130, i1 false
-  br i1 %or.cond, label %.loopexit198, label %._crit_edge
+  br i1 %or.cond, label %.loopexit199, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 -64
   %23 = getelementptr inbounds i8, ptr %0, i64 -44
   %24 = icmp eq i32 %21, 1
-  br i1 %24, label %php_sxe_get_first_node_non_destructive.exit, label %php_sxe_get_first_node_non_destructive.exit.thread184
+  br i1 %24, label %php_sxe_get_first_node_non_destructive.exit, label %php_sxe_get_first_node_non_destructive.exit.thread185
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %._crit_edge
   %25 = getelementptr inbounds i8, ptr %18, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call fastcc ptr @php_sxe_iterator_fetch(ptr noundef nonnull %5, ptr noundef %26, i32 noundef 0)
   %.not131 = icmp eq ptr %27, null
-  br i1 %.not131, label %.loopexit198, label %php_sxe_get_first_node_non_destructive.exit.thread184
+  br i1 %.not131, label %.loopexit199, label %php_sxe_get_first_node_non_destructive.exit.thread185
 
-php_sxe_get_first_node_non_destructive.exit.thread184: ; preds = %._crit_edge, %php_sxe_get_first_node_non_destructive.exit
-  %.1187 = phi ptr [ %27, %php_sxe_get_first_node_non_destructive.exit ], [ %18, %._crit_edge ]
-  %28 = getelementptr inbounds i8, ptr %.1187, i64 8
+php_sxe_get_first_node_non_destructive.exit.thread185: ; preds = %._crit_edge, %php_sxe_get_first_node_non_destructive.exit
+  %.1188 = phi ptr [ %27, %php_sxe_get_first_node_non_destructive.exit ], [ %18, %._crit_edge ]
+  %28 = getelementptr inbounds i8, ptr %.1188, i64 8
   %29 = load i32, ptr %28, align 8
   %.not132 = icmp eq i32 %29, 17
-  br i1 %.not132, label %.loopexit198, label %30
+  br i1 %.not132, label %.loopexit199, label %30
 
-30:                                               ; preds = %php_sxe_get_first_node_non_destructive.exit.thread184
-  %31 = getelementptr inbounds i8, ptr %.1187, i64 88
+30:                                               ; preds = %php_sxe_get_first_node_non_destructive.exit.thread185
+  %31 = getelementptr inbounds i8, ptr %.1188, i64 88
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %33, align 8
@@ -8517,8 +8517,8 @@ php_sxe_get_first_node_non_destructive.exit.thread184: ; preds = %._crit_edge, %
 
 38:                                               ; preds = %35, %30
   %39 = phi i1 [ false, %30 ], [ %37, %35 ]
-  %.not134199 = icmp eq ptr %32, null
-  br i1 %.not134199, label %.loopexit198, label %.lr.ph
+  %.not134200 = icmp eq ptr %32, null
+  br i1 %.not134200, label %.loopexit199, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38
   %40 = getelementptr inbounds i8, ptr %0, i64 -56
@@ -8528,11 +8528,11 @@ php_sxe_get_first_node_non_destructive.exit.thread184: ; preds = %._crit_edge, %
   br label %44
 
 44:                                               ; preds = %.lr.ph, %match_ns.exit
-  %.0115200 = phi ptr [ %32, %.lr.ph ], [ %99, %match_ns.exit ]
+  %.0115201 = phi ptr [ %32, %.lr.ph ], [ %99, %match_ns.exit ]
   br i1 %39, label %45, label %50
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.0115200, i64 16
+  %46 = getelementptr inbounds i8, ptr %.0115201, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %22, align 8
   %49 = call i32 @xmlStrEqual(ptr noundef %47, ptr noundef %48) #14
@@ -8543,7 +8543,7 @@ php_sxe_get_first_node_non_destructive.exit.thread184: ; preds = %._crit_edge, %
   %51 = load ptr, ptr %40, align 8
   %52 = load i32, ptr %41, align 8
   %53 = icmp eq ptr %51, null
-  %54 = getelementptr inbounds i8, ptr %.0115200, i64 72
+  %54 = getelementptr inbounds i8, ptr %.0115201, i64 72
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %53, label %57, label %62
@@ -8572,7 +8572,7 @@ php_sxe_get_first_node_non_destructive.exit.thread184: ; preds = %._crit_edge, %
 65:                                               ; preds = %58, %57, %.thread.i
   %66 = load ptr, ptr %42, align 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.0115200, i64 24
+  %68 = getelementptr inbounds i8, ptr %.0115201, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr @xmlNodeListGetString(ptr noundef %67, ptr noundef %69, i32 noundef 1) #14
   %.not.i = icmp eq ptr %70, null
@@ -8611,7 +8611,7 @@ sxe_xmlNodeListGetString.exit:                    ; preds = %71, %82
   %.not157 = icmp eq i32 %86, 0
   %87 = select i1 %.not157, i32 262, i32 6
   store i32 %87, ptr %43, align 8
-  %88 = getelementptr inbounds i8, ptr %.0115200, i64 16
+  %88 = getelementptr inbounds i8, ptr %.0115201, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = call i32 @xmlStrlen(ptr noundef %89) #14
   %91 = load i8, ptr %33, align 8
@@ -8632,22 +8632,22 @@ sxe_xmlNodeListGetString.exit:                    ; preds = %71, %82
   br label %match_ns.exit
 
 match_ns.exit:                                    ; preds = %.thread.i, %62, %95, %45
-  %98 = getelementptr inbounds i8, ptr %.0115200, i64 48
+  %98 = getelementptr inbounds i8, ptr %.0115201, i64 48
   %99 = load ptr, ptr %98, align 8
   %.not134 = icmp eq ptr %99, null
-  br i1 %.not134, label %.loopexit198, label %44
+  br i1 %.not134, label %.loopexit199, label %44
 
-.loopexit198:                                     ; preds = %match_ns.exit, %19, %38, %php_sxe_get_first_node_non_destructive.exit, %php_sxe_get_first_node_non_destructive.exit.thread184
+.loopexit199:                                     ; preds = %match_ns.exit, %19, %38, %php_sxe_get_first_node_non_destructive.exit, %php_sxe_get_first_node_non_destructive.exit.thread185
   %100 = load ptr, ptr %5, align 8
   %.not135 = icmp eq ptr %100, null
   br i1 %.not135, label %103, label %101
 
-101:                                              ; preds = %.loopexit198
+101:                                              ; preds = %.loopexit199
   %102 = load ptr, ptr %100, align 8
   %.not136 = icmp eq ptr %102, null
   br i1 %.not136, label %103, label %104
 
-103:                                              ; preds = %101, %.loopexit198
+103:                                              ; preds = %101, %.loopexit199
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #14
   br label %104
 
@@ -8655,20 +8655,20 @@ match_ns.exit:                                    ; preds = %.thread.i, %62, %95
   %.2 = phi ptr [ null, %103 ], [ %102, %101 ]
   %105 = getelementptr inbounds i8, ptr %0, i64 -44
   %106 = load i32, ptr %105, align 4
-  %.not6.i160 = icmp eq i32 %106, 0
-  br i1 %.not6.i160, label %php_sxe_get_first_node_non_destructive.exit168, label %107
+  %.not6.i161 = icmp eq i32 %106, 0
+  br i1 %.not6.i161, label %php_sxe_get_first_node_non_destructive.exit169, label %107
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %5, align 8
-  %.not.i.i161 = icmp eq ptr %108, null
-  br i1 %.not.i.i161, label %php_sxe_get_first_node_non_destructive.exit168.thread, label %109
+  %.not.i.i162 = icmp eq ptr %108, null
+  br i1 %.not.i.i162, label %php_sxe_get_first_node_non_destructive.exit169.thread, label %109
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr %108, align 8
-  %.not14.i.i162 = icmp eq ptr %110, null
-  br i1 %.not14.i.i162, label %php_sxe_get_first_node_non_destructive.exit168.thread, label %111
+  %.not14.i.i163 = icmp eq ptr %110, null
+  br i1 %.not14.i.i163, label %php_sxe_get_first_node_non_destructive.exit169.thread, label %111
 
-php_sxe_get_first_node_non_destructive.exit168.thread: ; preds = %107, %109
+php_sxe_get_first_node_non_destructive.exit169.thread: ; preds = %107, %109
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #14
   br label %.loopexit
 
@@ -8686,34 +8686,34 @@ switch.lookup:                                    ; preds = %111
   br label %116
 
 116:                                              ; preds = %111, %switch.lookup
-  %.1.i.i165 = phi ptr [ %110, %111 ], [ %115, %switch.lookup ]
-  %117 = call fastcc ptr @php_sxe_iterator_fetch(ptr noundef nonnull %5, ptr noundef %.1.i.i165, i32 noundef 0)
-  br label %php_sxe_get_first_node_non_destructive.exit168
+  %.1.i.i166 = phi ptr [ %110, %111 ], [ %115, %switch.lookup ]
+  %117 = call fastcc ptr @php_sxe_iterator_fetch(ptr noundef nonnull %5, ptr noundef %.1.i.i166, i32 noundef 0)
+  br label %php_sxe_get_first_node_non_destructive.exit169
 
-php_sxe_get_first_node_non_destructive.exit168:   ; preds = %104, %116
-  %.0.i166 = phi ptr [ %.2, %104 ], [ %117, %116 ]
-  %.not137 = icmp eq ptr %.0.i166, null
+php_sxe_get_first_node_non_destructive.exit169:   ; preds = %104, %116
+  %.0.i167 = phi ptr [ %.2, %104 ], [ %117, %116 ]
+  %.not137 = icmp eq ptr %.0.i167, null
   br i1 %.not137, label %.loopexit, label %118
 
-118:                                              ; preds = %php_sxe_get_first_node_non_destructive.exit168
+118:                                              ; preds = %php_sxe_get_first_node_non_destructive.exit169
   %119 = load i32, ptr %105, align 4
   %.not138 = icmp eq i32 %119, 3
   br i1 %.not138, label %.loopexit, label %120
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %.0.i166, i64 8
+  %121 = getelementptr inbounds i8, ptr %.0.i167, i64 8
   %122 = load i32, ptr %121, align 8
   %123 = icmp eq i32 %122, 2
   br i1 %123, label %124, label %149
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %.0.i166, i64 64
+  %125 = getelementptr inbounds i8, ptr %.0.i167, i64 64
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %.0.i166, i64 24
+  %127 = getelementptr inbounds i8, ptr %.0.i167, i64 24
   %128 = load ptr, ptr %127, align 8
   %129 = call ptr @xmlNodeListGetString(ptr noundef %126, ptr noundef %128, i32 noundef 1) #14
-  %.not.i169 = icmp eq ptr %129, null
-  br i1 %.not.i169, label %141, label %130
+  %.not.i170 = icmp eq ptr %129, null
+  br i1 %.not.i170, label %141, label %130
 
 130:                                              ; preds = %124
   %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #16
@@ -8733,16 +8733,16 @@ php_sxe_get_first_node_non_destructive.exit168:   ; preds = %104, %116
   store i8 0, ptr %139, align 1
   %140 = load ptr, ptr @xmlFree, align 8
   call void %140(ptr noundef nonnull %129) #14
-  br label %sxe_xmlNodeListGetString.exit171
+  br label %sxe_xmlNodeListGetString.exit172
 
 141:                                              ; preds = %124
   %142 = load ptr, ptr @zend_empty_string, align 8
-  br label %sxe_xmlNodeListGetString.exit171
+  br label %sxe_xmlNodeListGetString.exit172
 
-sxe_xmlNodeListGetString.exit171:                 ; preds = %130, %141
-  %.0.i170 = phi ptr [ %134, %130 ], [ %142, %141 ]
-  store ptr %.0.i170, ptr %3, align 8
-  %143 = getelementptr inbounds i8, ptr %.0.i170, i64 4
+sxe_xmlNodeListGetString.exit172:                 ; preds = %130, %141
+  %.0.i171 = phi ptr [ %134, %130 ], [ %142, %141 ]
+  store ptr %.0.i171, ptr %3, align 8
+  %143 = getelementptr inbounds i8, ptr %.0.i171, i64 4
   %144 = load i32, ptr %143, align 4
   %145 = and i32 %144, 64
   %.not145 = icmp eq i32 %145, 0
@@ -8754,44 +8754,44 @@ sxe_xmlNodeListGetString.exit171:                 ; preds = %130, %141
 
 149:                                              ; preds = %120
   switch i32 %119, label %150 [
-    i32 2, label %.lr.ph204
-    i32 0, label %._crit_edge206
+    i32 2, label %.lr.ph205
+    i32 0, label %._crit_edge207
   ]
 
-._crit_edge206:                                   ; preds = %149
-  %.phi.trans.insert207 = getelementptr inbounds i8, ptr %.0.i166, i64 24
-  %.pre208 = load ptr, ptr %.phi.trans.insert207, align 8
+._crit_edge207:                                   ; preds = %149
+  %.phi.trans.insert208 = getelementptr inbounds i8, ptr %.0.i167, i64 24
+  %.pre209 = load ptr, ptr %.phi.trans.insert208, align 8
   br label %173
 
 150:                                              ; preds = %149
-  %151 = getelementptr inbounds i8, ptr %.0.i166, i64 24
+  %151 = getelementptr inbounds i8, ptr %.0.i167, i64 24
   %152 = load ptr, ptr %151, align 8
   %.not140 = icmp eq ptr %152, null
   br i1 %.not140, label %.loopexit, label %153
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %.0.i166, i64 40
+  %154 = getelementptr inbounds i8, ptr %.0.i167, i64 40
   %155 = load ptr, ptr %154, align 8
   %.not141 = icmp eq ptr %155, null
-  br i1 %.not141, label %.lr.ph204, label %156
+  br i1 %.not141, label %.lr.ph205, label %156
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %.0.i166, i64 48
+  %157 = getelementptr inbounds i8, ptr %.0.i167, i64 48
   %158 = load ptr, ptr %157, align 8
   %.not142 = icmp eq ptr %158, null
-  br i1 %.not142, label %.lr.ph204, label %159
+  br i1 %.not142, label %.lr.ph205, label %159
 
 159:                                              ; preds = %156
   %160 = getelementptr inbounds i8, ptr %152, i64 48
   %161 = load ptr, ptr %160, align 8
   %.not143 = icmp eq ptr %161, null
-  br i1 %.not143, label %162, label %.lr.ph204
+  br i1 %.not143, label %162, label %.lr.ph205
 
 162:                                              ; preds = %159
   %163 = getelementptr inbounds i8, ptr %152, i64 24
   %164 = load ptr, ptr %163, align 8
   %.not144 = icmp eq ptr %164, null
-  br i1 %.not144, label %165, label %.lr.ph204
+  br i1 %.not144, label %165, label %.lr.ph205
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds i8, ptr %155, i64 24
@@ -8799,21 +8799,21 @@ sxe_xmlNodeListGetString.exit171:                 ; preds = %130, %141
   %168 = getelementptr inbounds i8, ptr %155, i64 32
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %167, %169
-  br i1 %170, label %.lr.ph204, label %171
+  br i1 %170, label %.lr.ph205, label %171
 
 171:                                              ; preds = %165
   %172 = call fastcc ptr @php_sxe_reset_iterator_no_clear_iter_data(ptr noundef nonnull %5, i32 noundef 0)
   br label %173
 
-173:                                              ; preds = %._crit_edge206, %171
-  %.0116 = phi i1 [ true, %171 ], [ false, %._crit_edge206 ]
-  %.3 = phi ptr [ %172, %171 ], [ %.pre208, %._crit_edge206 ]
-  %.not146201 = icmp eq ptr %.3, null
-  br i1 %.not146201, label %.loopexit, label %.lr.ph204
+173:                                              ; preds = %._crit_edge207, %171
+  %.0116 = phi i1 [ true, %171 ], [ false, %._crit_edge207 ]
+  %.3 = phi ptr [ %172, %171 ], [ %.pre209, %._crit_edge207 ]
+  %.not146202 = icmp eq ptr %.3, null
+  br i1 %.not146202, label %.loopexit, label %.lr.ph205
 
-.lr.ph204:                                        ; preds = %153, %156, %159, %162, %165, %149, %173
-  %.3214 = phi ptr [ %.3, %173 ], [ %152, %153 ], [ %152, %156 ], [ %152, %159 ], [ %152, %162 ], [ %152, %165 ], [ %.0.i166, %149 ]
-  %.0116213 = phi i1 [ %.0116, %173 ], [ false, %153 ], [ false, %156 ], [ false, %159 ], [ false, %162 ], [ false, %165 ], [ false, %149 ]
+.lr.ph205:                                        ; preds = %153, %156, %159, %162, %165, %149, %173
+  %.3215 = phi ptr [ %.3, %173 ], [ %152, %153 ], [ %152, %156 ], [ %152, %159 ], [ %152, %162 ], [ %152, %165 ], [ %.0.i167, %149 ]
+  %.0116214 = phi i1 [ %.0116, %173 ], [ false, %153 ], [ false, %156 ], [ false, %159 ], [ false, %162 ], [ false, %165 ], [ false, %149 ]
   %174 = getelementptr inbounds i8, ptr %0, i64 -56
   %175 = getelementptr inbounds i8, ptr %0, i64 -48
   %176 = getelementptr inbounds i8, ptr %3, i64 8
@@ -8822,53 +8822,53 @@ sxe_xmlNodeListGetString.exit171:                 ; preds = %130, %141
   %179 = getelementptr inbounds i8, ptr %0, i64 -88
   br label %180
 
-180:                                              ; preds = %.lr.ph204, %303
-  %.4202 = phi ptr [ %.3214, %.lr.ph204 ], [ %.5, %303 ]
-  %181 = getelementptr inbounds i8, ptr %.4202, i64 24
+180:                                              ; preds = %.lr.ph205, %303
+  %.4203 = phi ptr [ %.3215, %.lr.ph205 ], [ %.5, %303 ]
+  %181 = getelementptr inbounds i8, ptr %.4203, i64 24
   %182 = load ptr, ptr %181, align 8
   %.not147 = icmp eq ptr %182, null
   br i1 %.not147, label %183, label %191
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %.4202, i64 56
+  %184 = getelementptr inbounds i8, ptr %.4203, i64 56
   %185 = load ptr, ptr %184, align 8
   %.not148 = icmp eq ptr %185, null
   br i1 %.not148, label %186, label %191
 
 186:                                              ; preds = %183
-  %187 = getelementptr inbounds i8, ptr %.4202, i64 48
+  %187 = getelementptr inbounds i8, ptr %.4203, i64 48
   %188 = load ptr, ptr %187, align 8
   %.not149 = icmp eq ptr %188, null
   br i1 %.not149, label %189, label %191
 
 189:                                              ; preds = %186
-  %190 = call i32 @xmlIsBlankNode(ptr noundef nonnull %.4202) #14
+  %190 = call i32 @xmlIsBlankNode(ptr noundef nonnull %.4203) #14
   %.not150 = icmp eq i32 %190, 0
   br i1 %.not150, label %195, label %191
 
 191:                                              ; preds = %189, %186, %183, %180
-  %192 = getelementptr inbounds i8, ptr %.4202, i64 8
+  %192 = getelementptr inbounds i8, ptr %.4203, i64 8
   %193 = load i32, ptr %192, align 8
   %194 = icmp eq i32 %193, 3
-  br i1 %194, label %match_ns.exit178, label %212
+  br i1 %194, label %match_ns.exit179, label %212
 
 195:                                              ; preds = %189
-  %196 = getelementptr inbounds i8, ptr %.4202, i64 8
+  %196 = getelementptr inbounds i8, ptr %.4203, i64 8
   %197 = load i32, ptr %196, align 8
   %198 = icmp eq i32 %197, 3
   br i1 %198, label %199, label %212
 
 199:                                              ; preds = %195
-  %200 = getelementptr inbounds i8, ptr %.4202, i64 80
+  %200 = getelementptr inbounds i8, ptr %.4203, i64 80
   %201 = load ptr, ptr %200, align 8
   %202 = load i8, ptr %201, align 1
   %.not151 = icmp eq i8 %202, 0
-  br i1 %.not151, label %match_ns.exit178, label %203
+  br i1 %.not151, label %match_ns.exit179, label %203
 
 203:                                              ; preds = %199
-  %204 = getelementptr inbounds i8, ptr %.4202, i64 64
+  %204 = getelementptr inbounds i8, ptr %.4203, i64 64
   %205 = load ptr, ptr %204, align 8
-  %206 = call fastcc ptr @sxe_xmlNodeListGetString(ptr noundef %205, ptr noundef nonnull %.4202)
+  %206 = call fastcc ptr @sxe_xmlNodeListGetString(ptr noundef %205, ptr noundef nonnull %.4203)
   store ptr %206, ptr %3, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 4
   %208 = load i32, ptr %207, align 4
@@ -8877,57 +8877,57 @@ sxe_xmlNodeListGetString.exit171:                 ; preds = %130, %141
   %210 = select i1 %.not152, i32 262, i32 6
   store i32 %210, ptr %176, align 8
   %211 = call ptr @zend_hash_next_index_insert(ptr noundef %.0113, ptr noundef nonnull %3) #14
-  br label %match_ns.exit178
+  br label %match_ns.exit179
 
 212:                                              ; preds = %195, %191
   %213 = phi i32 [ %197, %195 ], [ %193, %191 ]
-  %214 = getelementptr inbounds i8, ptr %.4202, i64 8
+  %214 = getelementptr inbounds i8, ptr %.4203, i64 8
   %215 = icmp eq i32 %213, 1
-  br i1 %215, label %216, label %match_ns.exit178.thread
+  br i1 %215, label %216, label %match_ns.exit179.thread
 
 216:                                              ; preds = %212
   %217 = load ptr, ptr %174, align 8
   %218 = load i32, ptr %175, align 8
   %219 = icmp eq ptr %217, null
-  %220 = getelementptr inbounds i8, ptr %.4202, i64 72
+  %220 = getelementptr inbounds i8, ptr %.4203, i64 72
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, null
   br i1 %219, label %223, label %228
 
 223:                                              ; preds = %216
-  br i1 %222, label %match_ns.exit178.thread, label %224
+  br i1 %222, label %match_ns.exit179.thread, label %224
 
 224:                                              ; preds = %223
   %225 = getelementptr inbounds i8, ptr %221, i64 24
   %226 = load ptr, ptr %225, align 8
   %227 = icmp eq ptr %226, null
-  br i1 %227, label %match_ns.exit178.thread, label %.thread.i172
+  br i1 %227, label %match_ns.exit179.thread, label %.thread.i173
 
 228:                                              ; preds = %216
-  br i1 %222, label %match_ns.exit178, label %.thread.i172
+  br i1 %222, label %match_ns.exit179, label %.thread.i173
 
-.thread.i172:                                     ; preds = %228, %224
-  %.not10.i173 = icmp eq i32 %218, 0
-  %.in.v.i174 = select i1 %.not10.i173, i64 16, i64 24
-  %.in.i175 = getelementptr inbounds i8, ptr %221, i64 %.in.v.i174
-  %229 = load ptr, ptr %.in.i175, align 8
+.thread.i173:                                     ; preds = %228, %224
+  %.not10.i174 = icmp eq i32 %218, 0
+  %.in.v.i175 = select i1 %.not10.i174, i64 16, i64 24
+  %.in.i176 = getelementptr inbounds i8, ptr %221, i64 %.in.v.i175
+  %229 = load ptr, ptr %.in.i176, align 8
   %230 = call i32 @xmlStrEqual(ptr noundef %229, ptr noundef %217) #14
-  %.not11.i176 = icmp eq i32 %230, 0
-  br i1 %.not11.i176, label %match_ns.exit178, label %match_ns.exit178.thread
+  %.not11.i177 = icmp eq i32 %230, 0
+  br i1 %.not11.i177, label %match_ns.exit179, label %match_ns.exit179.thread
 
-match_ns.exit178.thread:                          ; preds = %.thread.i172, %223, %224, %212
-  %231 = getelementptr inbounds i8, ptr %.4202, i64 16
+match_ns.exit179.thread:                          ; preds = %.thread.i173, %223, %224, %212
+  %231 = getelementptr inbounds i8, ptr %.4203, i64 16
   %232 = load ptr, ptr %231, align 8
   %.not154 = icmp eq ptr %232, null
-  br i1 %.not154, label %match_ns.exit178, label %233
+  br i1 %.not154, label %match_ns.exit179, label %233
 
-233:                                              ; preds = %match_ns.exit178.thread
+233:                                              ; preds = %match_ns.exit179.thread
   %234 = call i32 @xmlStrlen(ptr noundef nonnull %232) #14
   %235 = load ptr, ptr %174, align 8
   %236 = load i32, ptr %175, align 8
   %237 = load ptr, ptr %181, align 8
-  %.not.i179 = icmp eq ptr %237, null
-  br i1 %.not.i179, label %260, label %238
+  %.not.i180 = icmp eq ptr %237, null
+  br i1 %.not.i180, label %260, label %238
 
 238:                                              ; preds = %233
   %239 = getelementptr inbounds i8, ptr %237, i64 8
@@ -8941,7 +8941,7 @@ match_ns.exit178.thread:                          ; preds = %.thread.i172, %223,
   br i1 %.not87.i, label %244, label %260
 
 244:                                              ; preds = %242
-  %245 = getelementptr inbounds i8, ptr %.4202, i64 64
+  %245 = getelementptr inbounds i8, ptr %.4203, i64 64
   %246 = load ptr, ptr %245, align 8
   %247 = load ptr, ptr %181, align 8
   %248 = call ptr @xmlNodeListGetString(ptr noundef %246, ptr noundef %247, i32 noundef 1) #14
@@ -9015,52 +9015,52 @@ match_ns.exit178.thread:                          ; preds = %.thread.i172, %223,
   br label %287
 
 287:                                              ; preds = %283, %281, %260
-  %288 = call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %273, ptr noundef nonnull %.4202, ptr noundef null) #14
+  %288 = call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %273, ptr noundef nonnull %.4203, ptr noundef null) #14
   store ptr %275, ptr %3, align 8
   store i32 776, ptr %176, align 8
   br label %_get_base_node_value.exit
 
 _get_base_node_value.exit:                        ; preds = %244, %249, %287
-  br i1 %.0116213, label %match_ns.exit178.thread196, label %match_ns.exit178.thread194
+  br i1 %.0116214, label %match_ns.exit179.thread197, label %match_ns.exit179.thread195
 
-match_ns.exit178:                                 ; preds = %.thread.i172, %228, %match_ns.exit178.thread, %199, %203, %191
-  %289 = getelementptr inbounds i8, ptr %.4202, i64 8
+match_ns.exit179:                                 ; preds = %.thread.i173, %228, %match_ns.exit179.thread, %199, %203, %191
+  %289 = getelementptr inbounds i8, ptr %.4203, i64 8
   %290 = load i32, ptr %289, align 8
   %291 = icmp eq i32 %290, 17
   br i1 %291, label %.loopexit, label %297
 
-match_ns.exit178.thread196:                       ; preds = %_get_base_node_value.exit
+match_ns.exit179.thread197:                       ; preds = %_get_base_node_value.exit
   %292 = call ptr @zend_hash_next_index_insert(ptr noundef %.0113, ptr noundef nonnull %3) #14
   %293 = load i32, ptr %214, align 8
   %294 = icmp eq i32 %293, 17
-  br i1 %294, label %.loopexit, label %.thread197
+  br i1 %294, label %.loopexit, label %.thread198
 
-match_ns.exit178.thread194:                       ; preds = %_get_base_node_value.exit
+match_ns.exit179.thread195:                       ; preds = %_get_base_node_value.exit
   call fastcc void @sxe_properties_add(ptr noundef %.0113, ptr noundef nonnull %232, i32 noundef %234, ptr noundef nonnull %3)
   %295 = load i32, ptr %214, align 8
   %296 = icmp eq i32 %295, 17
-  br i1 %296, label %.loopexit, label %.thread195
+  br i1 %296, label %.loopexit, label %.thread196
 
-297:                                              ; preds = %match_ns.exit178
-  br i1 %.0116213, label %.thread197, label %.thread195
+297:                                              ; preds = %match_ns.exit179
+  br i1 %.0116214, label %.thread198, label %.thread196
 
-.thread197:                                       ; preds = %match_ns.exit178.thread196, %297
-  %298 = getelementptr inbounds i8, ptr %.4202, i64 48
+.thread198:                                       ; preds = %match_ns.exit179.thread197, %297
+  %298 = getelementptr inbounds i8, ptr %.4203, i64 48
   %299 = load ptr, ptr %298, align 8
   %300 = call fastcc ptr @php_sxe_iterator_fetch(ptr noundef nonnull %5, ptr noundef %299, i32 noundef 0)
   br label %303
 
-.thread195:                                       ; preds = %match_ns.exit178.thread194, %297
-  %301 = getelementptr inbounds i8, ptr %.4202, i64 48
+.thread196:                                       ; preds = %match_ns.exit179.thread195, %297
+  %301 = getelementptr inbounds i8, ptr %.4203, i64 48
   %302 = load ptr, ptr %301, align 8
   br label %303
 
-303:                                              ; preds = %.thread195, %.thread197
-  %.5 = phi ptr [ %300, %.thread197 ], [ %302, %.thread195 ]
+303:                                              ; preds = %.thread196, %.thread198
+  %.5 = phi ptr [ %300, %.thread198 ], [ %302, %.thread196 ]
   %.not146 = icmp eq ptr %.5, null
   br i1 %.not146, label %.loopexit, label %180
 
-.loopexit:                                        ; preds = %303, %match_ns.exit178, %match_ns.exit178.thread194, %match_ns.exit178.thread196, %150, %sxe_xmlNodeListGetString.exit171, %173, %php_sxe_get_first_node_non_destructive.exit168.thread, %.thread, %php_sxe_get_first_node_non_destructive.exit168, %118
+.loopexit:                                        ; preds = %303, %match_ns.exit179, %match_ns.exit179.thread195, %match_ns.exit179.thread197, %150, %sxe_xmlNodeListGetString.exit172, %173, %php_sxe_get_first_node_non_destructive.exit169.thread, %.thread, %php_sxe_get_first_node_non_destructive.exit169, %118
   ret ptr %.0113
 }
 
@@ -9213,6 +9213,4 @@ attributes #16 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = !{}
-!7 = !{i32 0, i32 2}
+!5 = !{}

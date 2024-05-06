@@ -266,11 +266,11 @@ _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i: ; preds = %if.end19.i, %sw
   %add.ptr44.i = getelementptr inbounds i8, ptr %12, i64 17
   %div45.i = sdiv i64 %call42.i, 100
   %rem.i = srem i64 %div45.i, 100
-  %conv46.i = trunc i64 %rem.i to i32
+  %conv46.i = trunc nsw i64 %rem.i to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv46.i, ptr noundef nonnull %add.ptr44.i)
   %add.ptr47.i = getelementptr inbounds i8, ptr %12, i64 19
   %rem48.i = srem i64 %call42.i, 100
-  %conv49.i = trunc i64 %rem48.i to i32
+  %conv49.i = trunc nsw i64 %rem48.i to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv49.i, ptr noundef nonnull %add.ptr47.i)
   %add.ptr50.i = getelementptr inbounds i8, ptr %12, i64 21
   %incdec.ptr51.i = getelementptr inbounds i8, ptr %12, i64 22

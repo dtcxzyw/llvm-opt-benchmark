@@ -62,7 +62,7 @@ declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pg_hmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %71, label %5
 
@@ -210,7 +210,7 @@ declare ptr @pg_cryptohash_error(ptr noundef) local_unnamed_addr #2
 declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pg_hmac_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -235,7 +235,7 @@ define noundef i32 @pg_hmac_update(ptr noundef %0, ptr noundef %1, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pg_hmac_final(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pg_hmac_final(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %49, label %5
 

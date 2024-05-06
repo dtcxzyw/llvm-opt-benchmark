@@ -349,7 +349,7 @@ get_rev.exit:                                     ; preds = %while.body.i, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ack(ptr nocapture noundef readonly %n, ptr noundef %c) #0 {
+define internal range(i32 0, 2) i32 @ack(ptr nocapture noundef readonly %n, ptr noundef %c) #0 {
 entry:
   %bf.load = load i32, ptr %c, align 8
   %0 = and i32 %bf.load, 256

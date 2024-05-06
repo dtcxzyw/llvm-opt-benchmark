@@ -87,7 +87,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_str
 @llvm.compiler.used = appending global [30 x ptr] [ptr @__UNIQUE_ID___addressable_snd_hdac_get_stream442, ptr @__UNIQUE_ID___addressable_snd_hdac_get_stream_stripe_ctl430, ptr @__UNIQUE_ID___addressable_snd_hdac_stop_streams434, ptr @__UNIQUE_ID___addressable_snd_hdac_stop_streams_and_chip435, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_assign439, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_cleanup438, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_drsm_enable455, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_get_spbmaxfifo454, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_init431, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_release441, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_release_locked440, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_reset436, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_set_dpibr457, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_set_lpib458, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_set_params448, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_set_spib453, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_setup437, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_setup_periods447, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_spbcap_enable452, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_start432, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_stop433, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_sync451, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_sync_trigger450, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_timecounter_init449, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_wait_drsm456, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_snd_hdac_stream_start.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace407, ptr @trace_snd_hdac_stream_start.__UNIQUE_ID___addressable___SCK__tp_func_snd_hdac_stream_start406, ptr @trace_snd_hdac_stream_stop.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace421, ptr @trace_snd_hdac_stream_stop.__UNIQUE_ID___addressable___SCK__tp_func_snd_hdac_stream_stop420], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hdac_get_stream_stripe_ctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 0, 4) i32 @snd_hdac_get_stream_stripe_ctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112
@@ -1007,7 +1007,7 @@ define dso_local ptr @snd_hdac_get_stream(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_stream_setup_periods(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -1375,7 +1375,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_stream_set_params(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
@@ -1745,7 +1745,7 @@ define dso_local void @snd_hdac_stream_spbcap_enable(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_stream_set_spib(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_spib(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1828,7 +1828,7 @@ define dso_local void @snd_hdac_stream_drsm_enable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hdac_stream_wait_drsm(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -110, 1) i32 @snd_hdac_stream_wait_drsm(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 165
   %4 = load i8, ptr %3, align 1
@@ -1878,7 +1878,7 @@ define dso_local i32 @snd_hdac_stream_wait_drsm(ptr nocapture noundef readonly %
 declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_stream_set_dpibr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_dpibr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1937,7 +1937,7 @@ declare dso_local i64 @snd_sgbuf_get_addr(ptr noundef, i64 noundef) local_unname
 declare dso_local i32 @snd_sgbuf_get_chunk_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @azx_cc_read(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i64 0, 4294967296) i64 @azx_cc_read(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -240
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32

@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.genpkey_main.1 = private unnamed_addr constant [5 x ptr] [ptr @.str.30, ptr @.str.30, ptr @.str.30, ptr @.str.30, ptr @.str.53], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @genpkey_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @genpkey_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %ctx = alloca ptr, align 8
   %pass = alloca ptr, align 8
@@ -350,7 +350,7 @@ if.end66:                                         ; preds = %init_keygen_file.ex
 
 if.then68:                                        ; preds = %if.end66
   %call69 = call ptr @app_get0_propq() #2
-  %call70 = call i32 @init_gen_str(ptr noundef nonnull %ctx, ptr noundef nonnull %algname.0, ptr noundef %e.0, i32 noundef %do_param.0, ptr noundef %call, ptr noundef %call69), !range !8
+  %call70 = call i32 @init_gen_str(ptr noundef nonnull %ctx, ptr noundef nonnull %algname.0, ptr noundef %e.0, i32 noundef %do_param.0, ptr noundef %call, ptr noundef %call69)
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %end.thread, label %if.then68.if.end74_crit_edge
 
@@ -372,7 +372,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.0127, 1
   %call79 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call2) #2
   %cmp80 = icmp slt i32 %inc, %call79
-  br i1 %cmp80, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp80, label %for.body, label %for.end, !llvm.loop !8
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.0127 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -615,7 +615,7 @@ declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
 declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @init_gen_str(ptr nocapture noundef %pctx, ptr noundef %algname, ptr noundef %e, i32 noundef %do_param, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @init_gen_str(ptr nocapture noundef %pctx, ptr noundef %algname, ptr noundef %e, i32 noundef %do_param, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pctx, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -767,5 +767,4 @@ attributes #2 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
-!9 = distinct !{!9, !6}
+!8 = distinct !{!8, !6}

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mpd_moduli = external hidden local_unnamed_addr constant [0 x i64], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @fnt_convolute(ptr noundef %c1, ptr noundef %c2, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %c1, ptr noundef %c2, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %idxprom.i = sext i32 %modnum to i64
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
@@ -36,19 +36,19 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
 
 x64_powmod.exit:                                  ; preds = %if.end.i, %entry
   %r.0.lcssa.i = phi i64 [ 1, %entry ], [ %r.1.i, %if.end.i ]
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %n), !range !6
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %n)
   %or.cond.not = icmp eq i64 %1, 1
   %cmp = icmp ugt i64 %n, 4096
   %six_step_fnt.std_fnt = select i1 %cmp, ptr @six_step_fnt, ptr @std_fnt
   %inv_six_step_fnt.std_inv_fnt = select i1 %cmp, ptr @inv_six_step_fnt, ptr @std_inv_fnt
   %2 = select i1 %or.cond.not, ptr %inv_six_step_fnt.std_inv_fnt, ptr @inv_four_step_fnt
   %3 = select i1 %or.cond.not, ptr %six_step_fnt.std_fnt, ptr @four_step_fnt
-  %call5 = tail call i32 %3(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) #4, !callees !7
+  %call5 = tail call i32 %3(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) #4, !callees !6
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %x64_powmod.exit
-  %call9 = tail call i32 %3(ptr noundef %c2, i64 noundef %n, i32 noundef %modnum) #4, !callees !7
+  %call9 = tail call i32 %3(ptr noundef %c2, i64 noundef %n, i32 noundef %modnum) #4, !callees !6
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %for.cond.preheader
 
@@ -74,10 +74,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i64 %call1.i47, ptr %arrayidx16, align 8
   %add22 = add nuw i64 %i.062, 2
   %cmp14 = icmp ult i64 %add22, %sub13
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %call23 = tail call i32 %2(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) #4, !callees !9
+  %call23 = tail call i32 %2(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) #4, !callees !8
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %return, label %for.cond27.preheader
 
@@ -109,7 +109,7 @@ for.body30:                                       ; preds = %for.cond27.preheade
   store i64 %call1.i51, ptr %arrayidx39, align 8
   %add48 = add nuw i64 %i.164, 4
   %cmp29 = icmp ult i64 %add48, %sub28
-  br i1 %cmp29, label %for.body30, label %return, !llvm.loop !10
+  br i1 %cmp29, label %for.body30, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.body30, %for.cond27.preheader, %for.end, %if.end8, %x64_powmod.exit
   %retval.0 = phi i32 [ 0, %x64_powmod.exit ], [ 0, %if.end8 ], [ 0, %for.end ], [ 1, %for.cond27.preheader ], [ 1, %for.body30 ]
@@ -129,7 +129,7 @@ declare hidden i32 @four_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_u
 declare hidden i32 @inv_four_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @fnt_autoconvolute(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %idxprom.i = sext i32 %modnum to i64
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
@@ -159,14 +159,14 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
 
 x64_powmod.exit:                                  ; preds = %if.end.i, %entry
   %r.0.lcssa.i = phi i64 [ 1, %entry ], [ %r.1.i, %if.end.i ]
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %n), !range !6
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %n)
   %or.cond.not = icmp eq i64 %1, 1
   %cmp = icmp ugt i64 %n, 4096
   %inv_six_step_fnt.std_inv_fnt = select i1 %cmp, ptr @inv_six_step_fnt, ptr @std_inv_fnt
   %six_step_fnt.std_fnt = select i1 %cmp, ptr @six_step_fnt, ptr @std_fnt
   %2 = select i1 %or.cond.not, ptr %six_step_fnt.std_fnt, ptr @four_step_fnt
   %3 = select i1 %or.cond.not, ptr %inv_six_step_fnt.std_inv_fnt, ptr @inv_four_step_fnt
-  %call5 = tail call i32 %2(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) #4, !callees !7
+  %call5 = tail call i32 %2(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) #4, !callees !6
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %for.cond.preheader
 
@@ -188,10 +188,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i64 %call1.i40, ptr %arrayidx11, align 8
   %add15 = add nuw i64 %i.055, 2
   %cmp10 = icmp ult i64 %add15, %sub9
-  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %call16 = tail call i32 %3(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) #4, !callees !9
+  %call16 = tail call i32 %3(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) #4, !callees !8
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %for.cond20.preheader
 
@@ -223,7 +223,7 @@ for.body23:                                       ; preds = %for.cond20.preheade
   store i64 %call1.i44, ptr %arrayidx32, align 8
   %add41 = add nuw i64 %i.157, 4
   %cmp22 = icmp ult i64 %add41, %sub21
-  br i1 %cmp22, label %for.body23, label %return, !llvm.loop !12
+  br i1 %cmp22, label %for.body23, label %return, !llvm.loop !11
 
 return:                                           ; preds = %for.body23, %for.cond20.preheader, %for.end, %x64_powmod.exit
   %retval.0 = phi i32 [ 0, %x64_powmod.exit ], [ 0, %for.end ], [ 1, %for.cond20.preheader ], [ 1, %for.body23 ]
@@ -237,7 +237,7 @@ entry:
   %conv1.i = zext i64 %b to i128
   %mul.i = mul nuw i128 %conv1.i, %conv.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %and = and i64 %m, 4294967296
   %tobool.not = icmp eq i64 %and, 0
@@ -358,10 +358,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 0, i64 65}
-!7 = !{ptr @four_step_fnt, ptr @six_step_fnt, ptr @std_fnt}
-!8 = distinct !{!8, !5}
-!9 = !{ptr @inv_four_step_fnt, ptr @inv_six_step_fnt, ptr @std_inv_fnt}
+!6 = !{ptr @four_step_fnt, ptr @six_step_fnt, ptr @std_fnt}
+!7 = distinct !{!7, !5}
+!8 = !{ptr @inv_four_step_fnt, ptr @inv_six_step_fnt, ptr @std_inv_fnt}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

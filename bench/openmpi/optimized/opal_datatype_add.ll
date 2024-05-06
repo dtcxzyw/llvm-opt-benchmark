@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [53 x i8] c"Too many elements in the datatype. The limit is %ud\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_datatype_add(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %388, label %7
 

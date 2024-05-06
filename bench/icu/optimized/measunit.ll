@@ -9527,7 +9527,7 @@ return:                                           ; preds = %if.end.i.i, %_ZNKSt
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7511MeasureUnit12getAvailableEPS0_iR10UErrorCode(ptr nocapture noundef %dest, i32 noundef %destCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 493) i32 @_ZN6icu_7511MeasureUnit12getAvailableEPS0_iR10UErrorCode(ptr nocapture noundef %dest, i32 noundef %destCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

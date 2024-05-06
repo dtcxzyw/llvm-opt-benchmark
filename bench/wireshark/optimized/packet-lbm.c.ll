@@ -53,7 +53,7 @@ define hidden i64 @lbm_channel_assign(i8 noundef zeroext %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @lbm_channel_is_transport(i64 noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @lbm_channel_is_transport(i64 noundef %0) local_unnamed_addr #4 {
   %2 = trunc i64 %0 to i8
   %switch = icmp ult i8 %2, 6
   %. = zext i1 %switch to i32
@@ -82,7 +82,7 @@ define hidden noundef i64 @lbm_channel_assign_unknown_stream_tcp() local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @lbm_channel_is_unknown_transport_lbttcp(i64 noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @lbm_channel_is_unknown_transport_lbttcp(i64 noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq i64 %0, -3840
   %2 = icmp eq i64 %0, -3584
   %narrow = or i1 %.not, %2
@@ -91,28 +91,28 @@ define hidden noundef i32 @lbm_channel_is_unknown_transport_lbttcp(i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @lbm_channel_is_unknown_transport_source_lbttcp(i64 noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @lbm_channel_is_unknown_transport_source_lbttcp(i64 noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq i64 %0, -3840
   %. = zext i1 %2 to i32
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @lbm_channel_is_unknown_transport_client_lbttcp(i64 noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @lbm_channel_is_unknown_transport_client_lbttcp(i64 noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq i64 %0, -3584
   %. = zext i1 %2 to i32
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @lbm_channel_is_unknown_stream_tcp(i64 noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @lbm_channel_is_unknown_stream_tcp(i64 noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq i64 %0, -4080
   %. = zext i1 %2 to i32
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @lbm_channel_is_known(i64 noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @lbm_channel_is_known(i64 noundef %0) local_unnamed_addr #4 {
   %.not.i = icmp ne i64 %0, -3840
   %2 = icmp ne i64 %0, -3584
   %narrow.i.not = and i1 %.not.i, %2
@@ -227,7 +227,7 @@ define hidden ptr @lbm_topic_find(i64 noundef %0, i32 noundef %1) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = lshr i64 %0, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   store i32 %6, ptr %3, align 4
   %7 = trunc i64 %0 to i32
   %8 = getelementptr inbounds i8, ptr %3, i64 4
@@ -267,7 +267,7 @@ define hidden void @lbm_topic_add(i64 noundef %0, i32 noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %8 = lshr i64 %0, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %4, align 4
   %10 = trunc i64 %0 to i32
   %11 = getelementptr inbounds i8, ptr %4, i64 4

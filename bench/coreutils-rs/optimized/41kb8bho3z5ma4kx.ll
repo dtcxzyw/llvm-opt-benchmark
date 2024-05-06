@@ -154,7 +154,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17h7dbe9b5229afd60f
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !19
   store i64 %6, ptr %4, align 8, !noalias !19
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -389,7 +389,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !34, !noalias !39, !nonnull !10, !noundef !10
   %55 = getelementptr inbounds i8, ptr %54, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
   %56 = load i64, ptr %43, align 8, !alias.scope !34, !noalias !39, !noundef !10
   %57 = add i64 %56, %42
   store i64 %57, ptr %43, align 8, !alias.scope !34, !noalias !39
@@ -446,7 +446,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !47, !noalias !52, !nonnull !10, !noundef !10
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = load i64, ptr %4, align 8, !alias.scope !47, !noalias !52, !noundef !10
   %18 = add i64 %17, %2
   store i64 %18, ptr %4, align 8, !alias.scope !47, !noalias !52
@@ -646,7 +646,7 @@ define hidden void @"_ZN11uu_realpath28canonicalize_relative_option28_$u7b$$u7b$
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17he96840896e708e88E.llvm.8532532497214568479.exit": ; preds = %21
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !62
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !57
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !57
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)

@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dh2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #1 {
+define internal i32 @dh2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dhx2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #1 {
+define internal i32 @dhx2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -367,7 +367,7 @@ if.end55.i:                                       ; preds = %land.lhs.true51.i, 
   br i1 %cmp56.not.i, label %if.end61.i, label %land.lhs.true57.i
 
 land.lhs.true57.i:                                ; preds = %if.end55.i
-  %call58.i = tail call fastcc i32 @ffc_params_to_text(ptr noundef nonnull %call.i, ptr noundef nonnull %params.0.i), !range !4
+  %call58.i = tail call fastcc i32 @ffc_params_to_text(ptr noundef nonnull %call.i, ptr noundef nonnull %params.0.i)
   %tobool59.not.i = icmp eq i32 %call58.i, 0
   br i1 %tobool59.not.i, label %dsa_to_text.exit, label %if.end61.i
 
@@ -645,7 +645,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #1 {
+define internal i32 @rsa2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsapss2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #1 {
+define internal i32 @rsapss2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -723,7 +723,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dh_to_text(ptr noundef %out, ptr noundef %key, i32 noundef %selection) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dh_to_text(ptr noundef %out, ptr noundef %key, i32 noundef %selection) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %out, null
   %cmp1 = icmp eq ptr %key, null
@@ -839,7 +839,7 @@ if.end55:                                         ; preds = %land.lhs.true51, %i
   br i1 %cmp56.not, label %if.end61, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.end55
-  %call58 = tail call fastcc i32 @ffc_params_to_text(ptr noundef nonnull %out, ptr noundef nonnull %params.0), !range !4
+  %call58 = tail call fastcc i32 @ffc_params_to_text(ptr noundef nonnull %out, ptr noundef nonnull %params.0)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %return, label %if.end61
 
@@ -993,7 +993,7 @@ if.end72:                                         ; preds = %if.end60.thread
   %add.ptr = getelementptr inbounds i8, ptr %p.140, i64 2
   %9 = load i8, ptr %add.ptr, align 1
   %cmp47.not = icmp eq i8 %9, 0
-  br i1 %cmp47.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %cmp47.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end72, %if.end45
   %call74 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.20) #6
@@ -1012,7 +1012,7 @@ return:                                           ; preds = %if.end17, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ffc_params_to_text(ptr noundef %out, ptr nocapture noundef readonly %ffc) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ffc_params_to_text(ptr noundef %out, ptr nocapture noundef readonly %ffc) unnamed_addr #1 {
 entry:
   %nid = getelementptr inbounds i8, ptr %ffc, i64 52
   %0 = load i32, ptr %nid, align 4
@@ -1074,7 +1074,7 @@ if.end32:                                         ; preds = %if.then26, %if.end2
 if.then34:                                        ; preds = %if.end32
   %seedlen = getelementptr inbounds i8, ptr %ffc, i64 40
   %6 = load i64, ptr %seedlen, align 8
-  %call36 = tail call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.26, ptr noundef nonnull %5, i64 noundef %6), !range !4
+  %call36 = tail call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.26, ptr noundef nonnull %5, i64 noundef %6)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %if.end40
 
@@ -1142,7 +1142,7 @@ declare ptr @ossl_ffc_uid_to_dh_named_group(i32 noundef) local_unnamed_addr #2
 declare ptr @ossl_ffc_named_group_get_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef %label, ptr nocapture noundef readonly %buf, i64 noundef %buflen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @print_labeled_buf(ptr noundef %out, ptr noundef %label, ptr nocapture noundef readonly %buf, i64 noundef %buflen) unnamed_addr #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.30, ptr noundef %label) #6
   %cmp = icmp slt i32 %call, 1
@@ -1159,7 +1159,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %if.end13
   %inc = add nuw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %buflen
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.012 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -1211,7 +1211,7 @@ declare ptr @ossl_dsa_get0_params(ptr noundef) local_unnamed_addr #2
 declare ptr @DSA_get0_p(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ec_to_text(ptr noundef %out, ptr noundef %key, i32 noundef %selection) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ec_to_text(ptr noundef %out, ptr noundef %key, i32 noundef %selection) unnamed_addr #1 {
 entry:
   %buf.i.i.i = alloca ptr, align 8
   %priv = alloca ptr, align 8
@@ -1318,7 +1318,7 @@ if.end51:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp52.not, label %if.end56, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
-  %call54 = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.36, ptr noundef nonnull %0, i64 noundef %priv_len.0), !range !4
+  %call54 = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.36, ptr noundef nonnull %0, i64 noundef %priv_len.0)
   %tobool.not = icmp eq i32 %call54, 0
   br i1 %tobool.not, label %err, label %if.end56
 
@@ -1328,7 +1328,7 @@ if.end56:                                         ; preds = %land.lhs.true53, %i
   br i1 %cmp57.not, label %if.end62, label %land.lhs.true58
 
 land.lhs.true58:                                  ; preds = %if.end56
-  %call59 = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %1, i64 noundef %pub_len.0), !range !4
+  %call59 = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %1, i64 noundef %pub_len.0)
   %tobool60.not = icmp eq i32 %call59, 0
   %and63 = and i32 %selection, 4
   %cmp64.not = icmp eq i32 %and63, 0
@@ -1475,7 +1475,7 @@ ec_param_explicit_gen_to_text.exit.thread.i.i:    ; preds = %sw.epilog.i.i.i, %i
 
 ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %sw.epilog.i.i.i
   %3 = load ptr, ptr %buf.i.i.i, align 8
-  %call8.i.i.i = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull %glabel.0.i.i.i, ptr noundef %3, i64 noundef %call4.i25.i.i), !range !4
+  %call8.i.i.i = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull %glabel.0.i.i.i, ptr noundef %3, i64 noundef %call4.i25.i.i)
   %4 = load ptr, ptr %buf.i.i.i, align 8
   call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %call4.i25.i.i, ptr noundef nonnull @.str, i32 noundef 423) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i)
@@ -1500,7 +1500,7 @@ lor.lhs.false26.i.i:                              ; preds = %land.lhs.true.i.i, 
   br i1 %cmp7.not.i.i, label %if.end32.i.i, label %land.lhs.true28.i.i
 
 land.lhs.true28.i.i:                              ; preds = %lor.lhs.false26.i.i
-  %call29.i.i = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.46, ptr noundef nonnull %call6.i.i, i64 noundef %seed_len.0.i.i), !range !4
+  %call29.i.i = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.46, ptr noundef nonnull %call6.i.i, i64 noundef %seed_len.0.i.i)
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %err.i.i, label %if.end32.i.i
 
@@ -1584,7 +1584,7 @@ declare ptr @EC_GROUP_get0_generator(ptr noundef) local_unnamed_addr #2
 declare i64 @EC_POINT_point2buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecx_to_text(ptr noundef %out, ptr noundef readonly %key, i32 noundef %selection) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ecx_to_text(ptr noundef %out, ptr noundef readonly %key, i32 noundef %selection) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %out, null
   %cmp1 = icmp eq ptr %key, null
@@ -1636,7 +1636,7 @@ if.end12:                                         ; preds = %if.end9
   %4 = load ptr, ptr %privkey, align 8
   %keylen = getelementptr inbounds i8, ptr %key, i64 88
   %5 = load i64, ptr %keylen, align 8
-  %call14 = tail call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.36, ptr noundef %4, i64 noundef %5), !range !4
+  %call14 = tail call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.36, ptr noundef %4, i64 noundef %5)
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %return, label %if.end28
 
@@ -1667,7 +1667,7 @@ if.end28:                                         ; preds = %if.else, %if.end22,
   %pubkey = getelementptr inbounds i8, ptr %key, i64 17
   %keylen29 = getelementptr inbounds i8, ptr %key, i64 88
   %6 = load i64, ptr %keylen29, align 8
-  %call30 = tail call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %pubkey, i64 noundef %6), !range !4
+  %call30 = tail call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %pubkey, i64 noundef %6)
   br label %return
 
 return:                                           ; preds = %if.end28, %if.end22, %if.end12, %if.end9, %if.then21, %if.then8, %if.then
@@ -1676,7 +1676,7 @@ return:                                           ; preds = %if.end28, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rsa_to_text(ptr noundef %out, ptr noundef %key, i32 noundef %selection) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @rsa_to_text(ptr noundef %out, ptr noundef %key, i32 noundef %selection) unnamed_addr #1 {
 entry:
   %rsa_d = alloca ptr, align 8
   %rsa_n = alloca ptr, align 8
@@ -1837,7 +1837,7 @@ if.end100:                                        ; preds = %if.end95
   %call.i80 = call ptr @OPENSSL_sk_value(ptr noundef %call.i70, i32 noundef %sub) #6
   %call102 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef null, ptr noundef %call.i80)
   %tobool103.not = icmp eq i32 %call102, 0
-  br i1 %tobool103.not, label %err, label %for.cond, !llvm.loop !8
+  br i1 %tobool103.not, label %err, label %for.cond, !llvm.loop !7
 
 if.end106:                                        ; preds = %for.cond, %if.end42
   %and107 = and i32 %selection, 128
@@ -1981,8 +1981,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

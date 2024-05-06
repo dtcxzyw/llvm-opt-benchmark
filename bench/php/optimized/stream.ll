@@ -365,7 +365,7 @@ define internal i32 @phar_stream_seek(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @phar_stream_stat(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #1 {
+define internal range(i32 -1, 1) i32 @phar_stream_stat(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %48, label %3
 
@@ -375,7 +375,7 @@ define internal noundef i32 @phar_stream_stat(ptr nocapture noundef readonly %0,
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false)
   %9 = getelementptr inbounds i8, ptr %8, i64 154
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8
@@ -443,7 +443,7 @@ phar_dostat.exit:                                 ; preds = %27, %38
   %46 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %45, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %47, i8 -1, i64 16, i1 false)
   br label %48
 
 48:                                               ; preds = %2, %phar_dostat.exit
@@ -1084,7 +1084,7 @@ phar_get_pharfp.exit209:                          ; preds = %230, %232
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phar_wrapper_stat(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 -1, 1) i32 @phar_wrapper_stat(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1171,7 +1171,7 @@ define internal noundef i32 @phar_wrapper_stat(ptr noundef %0, ptr noundef %1, i
   br i1 %49, label %51, label %69
 
 51:                                               ; preds = %47
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
   %52 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 16895, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %50, i64 248
@@ -1204,7 +1204,7 @@ phar_dostat.exit:                                 ; preds = %51, %65
   store i64 -1, ptr %67, align 8
   store i64 12, ptr %3, align 8
   %68 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %68, i8 -1, i64 16, i1 false)
   call void @php_url_free(ptr noundef nonnull %11) #14
   br label %166
 
@@ -1242,7 +1242,7 @@ phar_dostat.exit:                                 ; preds = %51, %65
   br i1 %.not106, label %105, label %87
 
 87:                                               ; preds = %82
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
   %88 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 16895, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %86, i64 248
@@ -1275,7 +1275,7 @@ phar_dostat.exit121:                              ; preds = %87, %101
   store i64 -1, ptr %103, align 8
   store i64 12, ptr %3, align 8
   %104 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %104, i8 -1, i64 16, i1 false)
   call void @php_url_free(ptr noundef nonnull %11) #14
   br label %166
 
@@ -1401,7 +1401,7 @@ phar_dostat.exit121:                              ; preds = %87, %101
 declare ptr @phar_wrapper_open_dir(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phar_wrapper_unlink(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @phar_wrapper_unlink(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.23, i32 noundef %2)
@@ -1569,7 +1569,7 @@ define internal noundef i32 @phar_wrapper_unlink(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phar_wrapper_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [41 x i8] c"Error: cuddZddSwapInPlace out of memory\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -115,7 +115,7 @@ define noundef i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %57, label %100, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call fastcc i32 @cuddZddLinearBackward(ptr noundef nonnull %0, i32 noundef %53, ptr noundef %56), !range !6
+  %59 = tail call fastcc i32 @cuddZddLinearBackward(ptr noundef nonnull %0, i32 noundef %53, ptr noundef %56)
   %.not116.i = icmp eq i32 %59, 0
   br i1 %.not116.i, label %100, label %89
 
@@ -129,7 +129,7 @@ define noundef i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %64, label %100, label %65
 
 65:                                               ; preds = %62
-  %66 = tail call fastcc i32 @cuddZddLinearBackward(ptr noundef nonnull %0, i32 noundef %53, ptr noundef %63), !range !6
+  %66 = tail call fastcc i32 @cuddZddLinearBackward(ptr noundef nonnull %0, i32 noundef %53, ptr noundef %63)
   %.not115.i = icmp eq i32 %66, 0
   br i1 %.not115.i, label %100, label %.preheader122.i
 
@@ -151,7 +151,7 @@ define noundef i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %77, label %100, label %78
 
 78:                                               ; preds = %74
-  %79 = tail call fastcc i32 @cuddZddLinearBackward(ptr noundef nonnull %0, i32 noundef %53, ptr noundef %76), !range !6
+  %79 = tail call fastcc i32 @cuddZddLinearBackward(ptr noundef nonnull %0, i32 noundef %53, ptr noundef %76)
   %.not114.i = icmp eq i32 %79, 0
   br i1 %.not114.i, label %100, label %89
 
@@ -167,7 +167,7 @@ define noundef i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %86, label %100, label %87
 
 87:                                               ; preds = %83
-  %88 = tail call fastcc i32 @cuddZddLinearBackward(ptr noundef nonnull %0, i32 noundef %53, ptr noundef %85), !range !6
+  %88 = tail call fastcc i32 @cuddZddLinearBackward(ptr noundef nonnull %0, i32 noundef %53, ptr noundef %85)
   %.not.i = icmp eq i32 %88, 0
   br i1 %.not.i, label %100, label %89
 
@@ -193,7 +193,7 @@ define noundef i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1, i32 nou
   store ptr %93, ptr %94, align 8
   store ptr %.1125.i, ptr %39, align 8
   %.not117.i = icmp eq ptr %91, null
-  br i1 %.not117.i, label %.preheader122.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not117.i, label %.preheader122.i, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph128.i:                                      ; preds = %.preheader122.i, %.lr.ph128.i
   %.195127.i = phi ptr [ %96, %.lr.ph128.i ], [ %.094133.i, %.preheader122.i ]
@@ -206,7 +206,7 @@ define noundef i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1, i32 nou
   store ptr %98, ptr %99, align 8
   store ptr %.195127.i, ptr %39, align 8
   %.not118.i = icmp eq ptr %96, null
-  br i1 %.not118.i, label %cuddZddLinearAux.exit, label %.lr.ph128.i, !llvm.loop !8
+  br i1 %.not118.i, label %cuddZddLinearAux.exit, label %.lr.ph128.i, !llvm.loop !7
 
 100:                                              ; preds = %87, %83, %80, %78, %74, %71, %65, %62, %58, %55
   %.296.i = phi ptr [ null, %55 ], [ null, %58 ], [ inttoptr (i64 -1 to ptr), %62 ], [ %63, %65 ], [ null, %71 ], [ inttoptr (i64 -1 to ptr), %74 ], [ %76, %78 ], [ inttoptr (i64 -1 to ptr), %80 ], [ %81, %83 ], [ %81, %87 ]
@@ -256,7 +256,7 @@ cuddZddLinearAux.exit:                            ; preds = %.lr.ph128.i, %.preh
   %. = tail call i32 @llvm.smin.i32(i32 %5, i32 %111)
   %112 = sext i32 %. to i64
   %113 = icmp slt i64 %indvars.iv.next79, %112
-  br i1 %113, label %40, label %._crit_edge75, !llvm.loop !9
+  br i1 %113, label %40, label %._crit_edge75, !llvm.loop !8
 
 ._crit_edge75:                                    ; preds = %40, %cuddZddLinearAux.exit, %._crit_edge
   tail call void @free(ptr noundef %14) #9
@@ -378,7 +378,7 @@ define internal fastcc ptr @cuddZddLinearDown(ptr noundef %0, i32 noundef %1, i3
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.057, i32 %.074)
   %40 = tail call i32 @cuddZddNextHigh(ptr noundef nonnull %0, i32 noundef %.05873) #9
   %.not = icmp sgt i32 %40, %2
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !9
 
 41:                                               ; preds = %16, %13, %10
   %.not6877 = icmp eq ptr %.05972, null
@@ -400,7 +400,7 @@ define internal fastcc ptr @cuddZddLinearDown(ptr noundef %0, i32 noundef %1, i3
   store ptr %47, ptr %48, align 8
   store ptr %.378, ptr %42, align 8
   %.not68 = icmp eq ptr %45, null
-  br i1 %.not68, label %.loopexit, label %43, !llvm.loop !11
+  br i1 %.not68, label %.loopexit, label %43, !llvm.loop !10
 
 .loopexit:                                        ; preds = %32, %39, %43, %4, %41
   %.061 = phi ptr [ inttoptr (i64 -1 to ptr), %41 ], [ %3, %4 ], [ inttoptr (i64 -1 to ptr), %43 ], [ %17, %39 ], [ %17, %32 ]
@@ -408,7 +408,7 @@ define internal fastcc ptr @cuddZddLinearDown(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cuddZddLinearBackward(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cuddZddLinearBackward(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not33 = icmp eq ptr %2, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
@@ -424,7 +424,7 @@ define internal fastcc noundef i32 @cuddZddLinearBackward(ptr noundef %0, i32 no
   %6 = getelementptr inbounds i8, ptr %.035, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !11
 
 .lr.ph38:                                         ; preds = %.preheader, %32
   %.137 = phi ptr [ %34, %32 ], [ %2, %.preheader ]
@@ -471,7 +471,7 @@ define internal fastcc noundef i32 @cuddZddLinearBackward(ptr noundef %0, i32 no
   %33 = getelementptr inbounds i8, ptr %.137, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not29 = icmp eq ptr %34, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph38, !llvm.loop !13
+  br i1 %.not29, label %._crit_edge, label %.lr.ph38, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph38, %15, %20, %28, %32, %3, %.preheader
   %.025 = phi i32 [ 1, %.preheader ], [ 1, %3 ], [ 1, %32 ], [ 0, %28 ], [ 0, %20 ], [ 0, %15 ], [ 1, %.lr.ph38 ]
@@ -544,7 +544,7 @@ define internal fastcc ptr @cuddZddLinearUp(ptr noundef %0, i32 noundef %1, i32 
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.052, i32 %.067)
   %35 = tail call i32 @cuddZddNextLow(ptr noundef nonnull %0, i32 noundef %.05366) #9
   %.not = icmp slt i32 %35, %2
-  br i1 %.not, label %.loopexit, label %9, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !13
 
 36:                                               ; preds = %15, %12, %9
   %.not6170 = icmp eq ptr %.05465, null
@@ -566,7 +566,7 @@ define internal fastcc ptr @cuddZddLinearUp(ptr noundef %0, i32 noundef %1, i32 
   store ptr %42, ptr %43, align 8
   store ptr %.371, ptr %37, align 8
   %.not61 = icmp eq ptr %40, null
-  br i1 %.not61, label %.loopexit, label %38, !llvm.loop !15
+  br i1 %.not61, label %.loopexit, label %38, !llvm.loop !14
 
 .loopexit:                                        ; preds = %27, %34, %38, %4, %36
   %.056 = phi ptr [ inttoptr (i64 -1 to ptr), %36 ], [ %3, %4 ], [ inttoptr (i64 -1 to ptr), %38 ], [ %16, %34 ], [ %16, %27 ]
@@ -647,7 +647,7 @@ define internal fastcc ptr @cuddZddUndoMoves(ptr noundef %0, ptr noundef readonl
   %36 = getelementptr inbounds i8, ptr %.04966, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 38:                                               ; preds = %.lr.ph
   %.not6167 = icmp eq ptr %.05065, null
@@ -669,7 +669,7 @@ define internal fastcc ptr @cuddZddUndoMoves(ptr noundef %0, ptr noundef readonl
   store ptr %44, ptr %45, align 8
   store ptr %.268, ptr %39, align 8
   %.not61 = icmp eq ptr %42, null
-  br i1 %.not61, label %.loopexit, label %40, !llvm.loop !17
+  br i1 %.not61, label %.loopexit, label %40, !llvm.loop !16
 
 .loopexit:                                        ; preds = %34, %40, %2, %38
   %.048 = phi ptr [ inttoptr (i64 -1 to ptr), %38 ], [ null, %2 ], [ inttoptr (i64 -1 to ptr), %40 ], [ %3, %34 ]
@@ -784,14 +784,14 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %.2 = phi ptr [ %.1371, %60 ], [ %.0313369, %58 ]
   store ptr %storemerge, ptr %39, align 8
   %.not345 = icmp eq ptr %40, null
-  br i1 %.not345, label %.loopexit359, label %38, !llvm.loop !18
+  br i1 %.not345, label %.loopexit359, label %38, !llvm.loop !17
 
 .loopexit359:                                     ; preds = %61, %.lr.ph
   %.3302 = phi ptr [ %.0299373, %.lr.ph ], [ %.2301, %61 ]
   %.3 = phi ptr [ %.0374, %.lr.ph ], [ %.2, %61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader358, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader358, label %.lr.ph, !llvm.loop !18
 
 .preheader357:                                    ; preds = %._crit_edge, %.preheader358
   %.not382 = icmp eq ptr %.0.lcssa, null
@@ -819,12 +819,12 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %67 = getelementptr inbounds i8, ptr %.1314378, i64 8
   %.1314 = load ptr, ptr %67, align 8
   %.not343 = icmp eq ptr %.1314, null
-  br i1 %.not343, label %._crit_edge, label %.lr.ph379, !llvm.loop !20
+  br i1 %.not343, label %._crit_edge, label %.lr.ph379, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %66, %.lr.ph381
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %exitcond439.not = icmp eq i64 %indvars.iv.next436, %wide.trip.count438
-  br i1 %exitcond439.not, label %.preheader357, label %.lr.ph381, !llvm.loop !21
+  br i1 %exitcond439.not, label %.preheader357, label %.lr.ph381, !llvm.loop !20
 
 .preheader355:                                    ; preds = %.lr.ph385, %.preheader357
   %.0320.lcssa = phi i32 [ %27, %.preheader357 ], [ %107, %.lr.ph385 ]
@@ -881,7 +881,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   store ptr %.2315384, ptr %105, align 8
   %107 = add nsw i32 %.0320383, 1
   %.not = icmp eq ptr %69, null
-  br i1 %.not, label %.preheader355, label %.lr.ph385, !llvm.loop !22
+  br i1 %.not, label %.preheader355, label %.lr.ph385, !llvm.loop !21
 
 .preheader:                                       ; preds = %.loopexit462, %.preheader355
   %.0325.lcssa = phi i32 [ 0, %.preheader355 ], [ %261, %.loopexit462 ]
@@ -990,7 +990,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %169 = getelementptr inbounds i8, ptr %.0305389, i64 8
   %.0305 = load ptr, ptr %169, align 8
   %cond = icmp eq ptr %.0305, null
-  br i1 %cond, label %._crit_edge392, label %.lr.ph391, !llvm.loop !23
+  br i1 %cond, label %._crit_edge392, label %.lr.ph391, !llvm.loop !22
 
 ._crit_edge392:                                   ; preds = %168, %133
   %170 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #9
@@ -1080,7 +1080,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %223 = getelementptr inbounds i8, ptr %.0303395, i64 8
   %.0303 = load ptr, ptr %223, align 8
   %cond351 = icmp eq ptr %.0303, null
-  br i1 %cond351, label %._crit_edge398, label %.lr.ph397, !llvm.loop !24
+  br i1 %cond351, label %._crit_edge398, label %.lr.ph397, !llvm.loop !23
 
 ._crit_edge398:                                   ; preds = %222, %187
   %224 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #9
@@ -1144,7 +1144,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   store ptr %264, ptr %109, align 8
   store ptr %.3316402, ptr %263, align 8
   %.not338 = icmp eq ptr %110, null
-  br i1 %.not338, label %.preheader, label %.lr.ph403, !llvm.loop !25
+  br i1 %.not338, label %.preheader, label %.lr.ph403, !llvm.loop !24
 
 265:                                              ; preds = %.lr.ph425, %._crit_edge419
   %indvars.iv440 = phi i64 [ 0, %.lr.ph425 ], [ %indvars.iv.next441, %._crit_edge419 ]
@@ -1263,7 +1263,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %337 = getelementptr inbounds i8, ptr %.2307408, i64 8
   %.2307 = load ptr, ptr %337, align 8
   %cond352 = icmp eq ptr %.2307, null
-  br i1 %cond352, label %._crit_edge411, label %.lr.ph410, !llvm.loop !26
+  br i1 %cond352, label %._crit_edge411, label %.lr.ph410, !llvm.loop !25
 
 ._crit_edge411:                                   ; preds = %336, %293
   %338 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #9
@@ -1342,14 +1342,14 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %.7 = phi i32 [ %285, %287 ], [ %285, %288 ], [ %381, %.loopexit461 ], [ %.5414, %290 ]
   %.3298 = phi ptr [ null, %287 ], [ %.0295416, %288 ], [ %.2297, %.loopexit461 ], [ %.4415, %290 ]
   %.not339 = icmp eq ptr %269, null
-  br i1 %.not339, label %._crit_edge419, label %.lr.ph418, !llvm.loop !27
+  br i1 %.not339, label %._crit_edge419, label %.lr.ph418, !llvm.loop !26
 
 ._crit_edge419:                                   ; preds = %385, %265
   %.2327.lcssa = phi i32 [ %.1326422, %265 ], [ %.3328, %385 ]
   %.5.lcssa = phi i32 [ %.4324423, %265 ], [ %.7, %385 ]
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond444.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count443
-  br i1 %exitcond444.not, label %._crit_edge426, label %265, !llvm.loop !28
+  br i1 %exitcond444.not, label %._crit_edge426, label %265, !llvm.loop !27
 
 ._crit_edge426:                                   ; preds = %._crit_edge419, %.preheader
   %.1326.lcssa = phi i32 [ %.0325.lcssa, %.preheader ], [ %.2327.lcssa, %._crit_edge419 ]
@@ -1421,7 +1421,7 @@ attributes #9 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -1443,4 +1443,3 @@ attributes #9 = { nounwind }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

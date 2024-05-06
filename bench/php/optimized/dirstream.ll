@@ -50,7 +50,7 @@ define internal noundef i64 @phar_dir_write(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @phar_dir_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 {
+define internal range(i64 -1, 258) i64 @phar_dir_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -110,7 +110,7 @@ define internal noundef i32 @phar_dir_flush(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phar_dir_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #1 {
+define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -646,7 +646,7 @@ declare ptr @_php_stream_opendir(ptr noundef, i32 noundef, ptr noundef) local_un
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_wrapper_mkdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #1 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -979,7 +979,7 @@ declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare void @phar_add_virtual_dirs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_wrapper_rmdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1336,7 +1336,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @phar_compare_dir_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal range(i32 -1, 2) i32 @phar_compare_dir_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24

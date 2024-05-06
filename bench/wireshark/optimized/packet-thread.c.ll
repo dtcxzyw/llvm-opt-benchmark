@@ -2345,7 +2345,7 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
   %256 = add i32 %94, 6
   %257 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %256) #7
   %258 = lshr i16 %257, 1
-  %259 = uitofp i16 %258 to double
+  %259 = uitofp nneg i16 %258 to double
   %260 = fmul double %259, 0x40DDCD6500000000
   %261 = call i64 @lround(double noundef %260) #7
   %262 = trunc i64 %261 to i32
@@ -3651,7 +3651,7 @@ define hidden void @proto_reg_handoff_thread_bcn() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_thread_bcn_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_thread_bcn_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %5
 
@@ -3684,7 +3684,7 @@ define internal noundef i32 @dissect_thread_bcn_heur(ptr noundef %0, ptr nocaptu
 declare void @register_mle_key_hash_handler(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_thread_mle_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %66 [
@@ -3738,7 +3738,7 @@ set_thread_seq_ctr_from_key_index.exit:           ; preds = %11, %15, %20
   %33 = getelementptr inbounds i8, ptr %0, i64 128
   %34 = load i32, ptr %33, align 8
   %35 = lshr i32 %34, 24
-  %36 = trunc i32 %35 to i8
+  %36 = trunc nuw i32 %35 to i8
   %37 = load ptr, ptr %32, align 8
   store i8 %36, ptr %37, align 1
   %38 = load i32, ptr %33, align 8
@@ -3794,7 +3794,7 @@ set_thread_seq_ctr_from_key_index.exit:           ; preds = %11, %15, %20
 declare void @register_ieee802154_mac_key_hash_handler(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_thread_mac_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %.thread [
@@ -3986,7 +3986,7 @@ define internal fastcc void @create_thread_temp_keys(ptr nocapture noundef reado
   %19 = load ptr, ptr %8, align 8
   store i8 %18, ptr %19, align 1
   %20 = lshr i16 %1, 8
-  %21 = trunc i16 %20 to i8
+  %21 = trunc nuw i16 %20 to i8
   %22 = load ptr, ptr %8, align 8
   %23 = getelementptr i8, ptr %22, i64 1
   store i8 %21, ptr %23, align 1

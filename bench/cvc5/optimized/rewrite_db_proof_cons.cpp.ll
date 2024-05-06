@@ -72,7 +72,7 @@ cond.end17:
   store ptr %0, ptr %agg.tmp, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %1 = trunc i64 %bf.lshr.i.i to i32
+  %1 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %1, 1048575
   %cmp.i.i138 = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i138, label %if.then.i.i, label %if.else.i.i
@@ -100,7 +100,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
   store ptr %2, ptr %agg.tmp18, align 8
   %bf.load.i.i139 = load i64, ptr %2, align 8
   %bf.lshr.i.i140 = lshr i64 %bf.load.i.i139, 40
-  %3 = trunc i64 %bf.lshr.i.i140 to i32
+  %3 = trunc nuw nsw i64 %bf.lshr.i.i140 to i32
   %bf.cast.i.i141 = and i32 %3, 1048575
   %cmp.i.i142 = icmp ult i32 %bf.cast.i.i141, 1048574
   br i1 %cmp.i.i142, label %if.then.i.i147, label %if.else.i.i143

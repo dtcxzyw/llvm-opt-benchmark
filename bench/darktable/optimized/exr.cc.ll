@@ -200,7 +200,7 @@ define hidden void @_ZNK7Imf_3_114TypedAttributeINS_4BlobEE12writeValueToERNS_7O
   %13 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 %12, ptr %13, align 1, !tbaa !17
   %14 = lshr i32 %6, 24
-  %15 = trunc i32 %14 to i8
+  %15 = trunc nuw i32 %14 to i8
   %16 = getelementptr inbounds i8, ptr %4, i64 3
   store i8 %15, ptr %16, align 1, !tbaa !17
   %17 = load ptr, ptr %1, align 8, !tbaa !18
@@ -371,7 +371,7 @@ define void @cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -2613,7 +2613,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !119
   %6 = tail call noundef i64 %5(ptr noundef %0)

@@ -24,7 +24,7 @@ entry:
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @pvpanic_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %size) #2 {
+define internal range(i64 0, 256) i64 @pvpanic_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %size) #2 {
 entry:
   %events = getelementptr inbounds i8, ptr %opaque, i64 272
   %0 = load i8, ptr %events, align 16

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net16GetAddressFamilyERKNS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) %address) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN3net16GetAddressFamilyERKNS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) %address) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK3net9IPAddress6IsIPv4Ev(ptr noundef nonnull align 8 dereferenceable(24) %address)
   br i1 %call, label %return, label %if.else
@@ -24,7 +24,7 @@ declare noundef zeroext i1 @_ZNK3net9IPAddress6IsIPv4Ev(ptr noundef nonnull alig
 declare noundef zeroext i1 @_ZNK3net9IPAddress6IsIPv6Ev(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN3net20ConvertAddressFamilyENS_13AddressFamilyE(i32 noundef %address_family) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 11) i32 @_ZN3net20ConvertAddressFamilyENS_13AddressFamilyE(i32 noundef %address_family) local_unnamed_addr #2 {
 entry:
   %switch.selectcmp = icmp eq i32 %address_family, 1
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0

@@ -284,7 +284,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.ieee_802_11_phdr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
-  %6 = tail call i32 @dissect_peekremote_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison), !range !4
+  %6 = tail call i32 @dissect_peekremote_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -461,7 +461,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_peekremote_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_peekremote_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.ieee_802_11_phdr, align 8
   %6 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_peekremote_new.magic, i64 noundef 4) #4
   %7 = icmp eq i32 %6, -1
@@ -735,4 +735,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

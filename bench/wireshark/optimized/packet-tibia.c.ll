@@ -1108,7 +1108,7 @@ ipv4tonl.exit:                                    ; preds = %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %48, ptr %4, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store i32 2, ptr %36, align 8
   %49 = call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %4, i64 noundef 4) #13
   %50 = getelementptr inbounds i8, ptr %36, i64 16
@@ -1175,7 +1175,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @rsakey_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @rsakey_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1242,7 +1242,7 @@ define internal void @rsakey_free(ptr noundef %0) #0 {
   br label %free_address_wmem.exit
 
 free_address_wmem.exit:                           ; preds = %1, %3, %7, %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   tail call void @g_free(ptr noundef nonnull %0) #13
   ret void
 }
@@ -1555,7 +1555,7 @@ declare i32 @g_ascii_xdigit_value(i8 noundef signext) local_unnamed_addr #4
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dissect_tibia_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65538) i32 @get_dissect_tibia_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %2) #13
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %6, 2
@@ -2197,7 +2197,7 @@ ipv4tonl.exit.i.i:                                ; preds = %346
   %362 = load i32, ptr @hf_tibia_worldlist_entry_preview, align 4
   %363 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %362, i32 noundef 1, i32 noundef 0) #13
   call void @ptvcursor_pop_subtree(ptr noundef %287) #13
-  call fastcc void @register_gameserv_addr(ptr noundef %.0.i, i32 noundef %353, i16 noundef zeroext %359)
+  call fastcc void @register_gameserv_addr(ptr noundef readonly %.0.i, i32 noundef %353, i16 noundef zeroext %359)
   %.not117.i.i = icmp eq i8 %352, 0
   br i1 %.not117.i.i, label %364, label %328, !llvm.loop !12
 
@@ -2271,7 +2271,7 @@ ipv4tonl.exit.i.i:                                ; preds = %346
   %410 = load i32, ptr @hf_tibia_charlist_entry_port, align 4
   %411 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %410, i32 noundef 2, i32 noundef 0) #13
   call void @ptvcursor_pop_subtree(ptr noundef %287) #13
-  call fastcc void @register_gameserv_addr(ptr noundef nonnull %.0.i, i32 noundef %405, i16 noundef zeroext %409)
+  call fastcc void @register_gameserv_addr(ptr noundef nonnull readonly %.0.i, i32 noundef %405, i16 noundef zeroext %409)
   %.not115.i.i = icmp eq i8 %393, 0
   br i1 %.not115.i.i, label %412, label %392, !llvm.loop !14
 
@@ -3425,7 +3425,7 @@ define internal fastcc void @register_gameserv_addr(ptr nocapture noundef readon
   br label %rsakey_free.exit
 
 rsakey_free.exit:                                 ; preds = %24, %26, %29, %31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @g_free(ptr noundef nonnull %9) #13
   br label %32
 

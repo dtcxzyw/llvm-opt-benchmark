@@ -165,7 +165,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_reload_framing_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_reload_framing_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %6 = icmp ne i32 %5, 0
   %. = zext i1 %6 to i32
@@ -173,7 +173,7 @@ define internal i32 @dissect_reload_framing_heur(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_reload_framing_heur_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_reload_framing_heur_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   %6 = icmp ne i32 %5, 0
   %. = zext i1 %6 to i32

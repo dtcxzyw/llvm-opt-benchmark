@@ -320,7 +320,7 @@ if.end44:                                         ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @bn_add_words(ptr noundef %rp, ptr noundef %ap, ptr noundef %bp, i32 noundef %n) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @bn_add_words(ptr noundef %rp, ptr noundef %ap, ptr noundef %bp, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 1
   br i1 %cmp, label %return, label %if.end
@@ -337,7 +337,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @bn_sub_words(ptr noundef %rp, ptr noundef %ap, ptr noundef %bp, i32 noundef %n) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @bn_sub_words(ptr noundef %rp, ptr noundef %ap, ptr noundef %bp, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 1
   br i1 %cmp, label %return, label %if.end

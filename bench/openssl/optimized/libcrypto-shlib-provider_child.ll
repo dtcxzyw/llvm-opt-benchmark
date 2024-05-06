@@ -29,7 +29,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_provider_init_as_child(ptr noundef %ctx, ptr noundef %handle, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_init_as_child(ptr noundef %ctx, ptr noundef %handle, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -158,7 +158,7 @@ declare ptr @ossl_lib_ctx_get_data(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @provider_create_child_cb(ptr noundef %prov, ptr noundef %cbdata) #0 {
+define internal range(i32 0, 2) i32 @provider_create_child_cb(ptr noundef %prov, ptr noundef %cbdata) #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %cbdata, i32 noundef 18) #2
   %cmp = icmp eq ptr %call, null
@@ -231,7 +231,7 @@ return:                                           ; preds = %if.end, %entry, %er
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @provider_remove_child_cb(ptr noundef %prov, ptr noundef %cbdata) #0 {
+define internal range(i32 0, 2) i32 @provider_remove_child_cb(ptr noundef %prov, ptr noundef %cbdata) #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %cbdata, i32 noundef 18) #2
   %cmp = icmp eq ptr %call, null
@@ -355,7 +355,7 @@ declare i32 @ossl_provider_activate(ptr noundef, i32 noundef, i32 noundef) local
 declare ptr @ossl_provider_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_child_provider_init(ptr noundef %handle, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
+define internal range(i32 0, 2) i32 @ossl_child_provider_init(ptr noundef %handle, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
 entry:
   br label %for.cond
 

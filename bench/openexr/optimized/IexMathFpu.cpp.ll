@@ -182,7 +182,7 @@ entry:
   %1 = load i32, ptr %mxcsr.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mxcsr.i.i)
   %2 = and i16 %0, -64
-  %3 = trunc i32 %mask.4 to i16
+  %3 = trunc nuw nsw i32 %mask.4 to i16
   %conv9.i = or disjoint i16 %2, %3
   %and10.i = and i32 %1, -8065
   %shl.i = shl nuw nsw i32 %mask.4, 7
@@ -208,7 +208,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Iex_3_212fpExceptionsEv() local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 32) i32 @_ZN7Iex_3_212fpExceptionsEv() local_unnamed_addr #3 {
 entry:
   %cw.i.i = alloca i16, align 2
   %mxcsr.i.i = alloca i32, align 4

@@ -432,7 +432,7 @@ define dso_local i32 @io_timeout_cancel(ptr noundef %0, ptr noundef %1) local_un
 declare dso_local void @io_req_task_queue_fail(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_timeout_remove_prep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_timeout_remove_prep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 33
@@ -775,13 +775,13 @@ define dso_local noundef i32 @io_timeout_remove(ptr nocapture noundef %0, i32 no
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_timeout_prep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_timeout_prep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = tail call fastcc i32 @__io_timeout_prep(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false), !range !27
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__io_timeout_prep(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__io_timeout_prep(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load volatile i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -938,7 +938,7 @@ define internal fastcc noundef i32 @__io_timeout_prep(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_link_timeout_prep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_link_timeout_prep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = tail call fastcc i32 @__io_timeout_prep(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true), !range !27
   ret i32 %3
 }
@@ -1409,7 +1409,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 sect
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @io_timeout_get_clock(i32 %.92.val) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 8) i32 @io_timeout_get_clock(i32 %.92.val) unnamed_addr #2 align 16 {
   %1 = and i32 %.92.val, 12
   switch i32 %1, label %3 [
     i32 4, label %5

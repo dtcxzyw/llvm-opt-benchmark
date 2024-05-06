@@ -205,7 +205,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #4 align 2 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp.i = icmp ugt i16 %3, 19
@@ -328,7 +328,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare i32 @ucptrie_getRange_75(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEi9UProperty(i32 noundef %c, i32 noundef %which) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEi9UProperty(i32 noundef %c, i32 noundef %which) local_unnamed_addr #3 align 2 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -403,7 +403,7 @@ cond.end26.i:                                     ; preds = %cond.false20.i, %co
   %conv30.i = zext i8 %12 to i32
   %conv9.i = zext nneg i8 %2 to i32
   %shr31.i = lshr i32 %conv30.i, %conv9.i
-  %13 = trunc i32 %shr31.i to i8
+  %13 = trunc nuw i32 %shr31.i to i8
   %conv33.i = and i8 %13, 1
   br label %land.end
 
@@ -413,7 +413,7 @@ land.end:                                         ; preds = %cond.end26.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %c, i32 noundef %which) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %c, i32 noundef %which) local_unnamed_addr #3 align 2 {
 entry:
   %0 = add i32 %which, -72
   %or.cond = icmp ult i32 %0, -15
@@ -482,7 +482,7 @@ cond.end26:                                       ; preds = %cond.false20, %cond
   %conv30 = zext i8 %11 to i32
   %conv9 = zext nneg i8 %1 to i32
   %shr31 = lshr i32 %conv30, %conv9
-  %12 = trunc i32 %shr31 to i8
+  %12 = trunc nuw i32 %shr31 to i8
   %conv33 = and i8 %12, 1
   br label %return
 
@@ -494,7 +494,7 @@ return:                                           ; preds = %if.end, %entry, %co
 declare i32 @ucptrie_internalSmallIndex_75(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEPKDsi9UProperty(ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEPKDsi9UProperty(ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #3 align 2 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -562,7 +562,7 @@ for.body.lr.ph:                                   ; preds = %if.end13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %sub = add nuw i64 %indvars.iv, 4294967231
   %idxprom = and i64 %sub, 4294967295
   %arrayidx = getelementptr inbounds [6 x ptr], ptr %stringTries, i64 0, i64 %idxprom
@@ -641,7 +641,7 @@ for.body.lr.ph:                                   ; preds = %if.end4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %sub = add nuw i64 %indvars.iv, 4294967231
   %idxprom = and i64 %sub, 4294967295
   %arrayidx = getelementptr inbounds [6 x ptr], ptr %stringTries, i64 0, i64 %idxprom

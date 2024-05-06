@@ -295,7 +295,7 @@ define hidden noundef nonnull ptr @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$3len17h8ea74ea9882238d0E.llvm.17232701346507961806"(ptr noalias nocapture noundef readonly align 4 dereferenceable(1764) %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$3len17h8ea74ea9882238d0E.llvm.17232701346507961806"(ptr noalias nocapture noundef readonly align 4 dereferenceable(1764) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1760
   %3 = load i32, ptr %2, align 4, !noundef !4
   %4 = zext i32 %3 to i64

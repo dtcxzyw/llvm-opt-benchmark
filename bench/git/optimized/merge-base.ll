@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [27 x i8] c"Not a valid commit name %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_merge_base(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_merge_base(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %revkey.i = alloca %struct.object_id, align 4
   %oid.i55 = alloca %struct.object_id, align 4
@@ -514,7 +514,7 @@ get_commit_reference.exit:                        ; preds = %if.end.i69
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %get_commit_reference.exit
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = load i32, ptr %show_all, align 4
   %39 = load ptr, ptr @the_repository, align 8
   %40 = load ptr, ptr %call100, align 8

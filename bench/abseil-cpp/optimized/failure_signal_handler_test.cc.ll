@@ -3771,7 +3771,7 @@ if.then49:                                        ; preds = %invoke.cont47
   %call50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %file) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %options.i)
-  %call.i45 = call noalias ptr @fopen(ptr noundef %call50, ptr noundef nonnull @.str.43)
+  %call.i45 = call noalias ptr @fopen(ptr noundef readonly %call50, ptr noundef nonnull @.str.43)
   store ptr %call.i45, ptr @_ZN12_GLOBAL__N_110error_fileE, align 8
   %cmp.not.i.i = icmp eq ptr %call.i45, null
   br i1 %cmp.not.i.i, label %while.body.i, label %while.end.i

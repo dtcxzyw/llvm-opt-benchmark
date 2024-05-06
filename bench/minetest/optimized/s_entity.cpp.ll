@@ -66,7 +66,7 @@ $_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @.str.14 = private unnamed_addr constant [5 x i8] c"core\00", align 1
 @.str.15 = private unnamed_addr constant [20 x i8] c"registered_entities\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.16 = private unnamed_addr constant [17 x i8] c"LuaEntity name \22\00", align 1
 @.str.17 = private unnamed_addr constant [14 x i8] c"\22 not defined\00", align 1
 @.str.18 = private unnamed_addr constant [10 x i8] c"ObjectRef\00", align 1

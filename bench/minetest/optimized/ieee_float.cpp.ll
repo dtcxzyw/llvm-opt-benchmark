@@ -40,7 +40,7 @@ if.then7:                                         ; preds = %if.then
 
 if.then12:                                        ; preds = %entry
   %tobool13.not = icmp eq i32 %and1, 0
-  %conv17 = uitofp i32 %0 to float
+  %conv17 = uitofp nneg i32 %0 to float
   %call18 = tail call nsz float @ldexpf(float noundef %conv17, i32 noundef -149) #10
   br i1 %tobool13.not, label %cleanup, label %cond.true
 
@@ -52,7 +52,7 @@ if.end20:                                         ; preds = %entry
   %and = and i32 %shr, 255
   %tobool21.not = icmp eq i32 %and1, 0
   %1 = or disjoint i32 %0, 8388608
-  %conv30 = uitofp i32 %1 to float
+  %conv30 = uitofp nneg i32 %1 to float
   %sub31 = add nsw i32 %and, -150
   %call32 = tail call nsz float @ldexpf(float noundef %conv30, i32 noundef %sub31) #10
   br i1 %tobool21.not, label %cleanup, label %cond.true22

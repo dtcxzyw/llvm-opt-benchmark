@@ -740,7 +740,7 @@ define hidden noundef i32 @phpdbg_do_info_constants(ptr nocapture readnone %0) #
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load i64, ptr %91, align 8
   %spec.select121 = call i64 @llvm.umin.i64(i64 %92, i64 255)
-  %spec.select = trunc i64 %spec.select121 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select121 to i32
   %93 = getelementptr inbounds i8, ptr %90, i64 24
   %94 = icmp ugt i64 %92, 255
   %95 = select i1 %94, ptr @.str.29, ptr @.str.30
@@ -1014,7 +1014,7 @@ define hidden noundef i32 @phpdbg_do_info_literal(ptr nocapture readnone %0) #0 
 
 50:                                               ; preds = %45
   %51 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 1), align 4
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
   %53 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %51, ptr noundef nonnull @.str.40, i32 noundef %52) #5
   %54 = load ptr, ptr %44, align 8
   %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i64 %indvars.iv
@@ -1063,16 +1063,16 @@ define hidden noundef i32 @phpdbg_do_info_memory(ptr nocapture readnone %0) #0 {
   %12 = tail call i64 @zend_memory_peak_usage(i1 noundef zeroext false) #5
   %13 = tail call i64 @zend_memory_peak_usage(i1 noundef zeroext true) #5
   %14 = lshr i64 %10, 10
-  %15 = uitofp i64 %14 to float
+  %15 = uitofp nneg i64 %14 to float
   %16 = fpext float %15 to double
   %17 = lshr i64 %11, 10
-  %18 = uitofp i64 %17 to float
+  %18 = uitofp nneg i64 %17 to float
   %19 = fpext float %18 to double
   %20 = lshr i64 %12, 10
-  %21 = uitofp i64 %20 to float
+  %21 = uitofp nneg i64 %20 to float
   %22 = fpext float %21 to double
   %23 = lshr i64 %13, 10
-  %24 = uitofp i64 %23 to float
+  %24 = uitofp nneg i64 %23 to float
   %25 = fpext float %24 to double
   br label %26
 
@@ -1506,7 +1506,7 @@ define internal fastcc void @phpdbg_print_symbols(i1 noundef zeroext %0) unnamed
   %228 = getelementptr inbounds i8, ptr %227, i64 16
   %229 = load i64, ptr %228, align 8
   %spec.select214 = call i64 @llvm.umin.i64(i64 %229, i64 255)
-  %spec.select = trunc i64 %spec.select214 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select214 to i32
   %230 = getelementptr inbounds i8, ptr %227, i64 24
   %231 = icmp ugt i64 %229, 255
   %232 = select i1 %231, ptr @.str.29, ptr @.str.30

@@ -287,7 +287,7 @@ nx_vopen.exit:                                    ; preds = %2, %9, %19
 declare ptr @nxsched_self() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca %struct.file, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)

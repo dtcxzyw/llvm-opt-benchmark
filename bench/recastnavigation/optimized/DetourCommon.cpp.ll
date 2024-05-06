@@ -341,7 +341,7 @@ define noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr 
 66:                                               ; preds = %55, %52, %62, %59, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = icmp uge i64 %indvars.iv.next, %20
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge, label %21, !llvm.loop !4
 
@@ -600,7 +600,7 @@ define noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr nocapture noundef rea
 33:                                               ; preds = %8, %20, %31
   %.1 = phi i1 [ %32, %31 ], [ %.02223, %20 ], [ %.02223, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !7
 
@@ -709,7 +709,7 @@ _Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit:         ; preds = %54, %.sink.split.i
   %69 = getelementptr inbounds float, ptr %3, i64 %33
   store float %68, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !8
 
@@ -760,7 +760,7 @@ define noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr nocapture noundef
 
 30:                                               ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit44.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !9
 
@@ -967,7 +967,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit58:              ; preds = %.lr.ph.i54, %_ZL11p
   %148 = fcmp uge float %147, %.192
   %not..i59 = and i1 %148, %146
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %149 = trunc i64 %indvars.iv159 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv159 to i32
   %exitcond163.not = icmp ne i64 %indvars.iv.next160, %wide.trip.count.i53
   %or.cond.not = select i1 %not..i59, i1 %exitcond163.not, i1 false
   br i1 %or.cond.not, label %104, label %.loopexit, !llvm.loop !11
@@ -994,7 +994,7 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr nocapture noundef read
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.074 = phi float [ 0.000000e+00, %.lr.ph ], [ %36, %10 ]
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = mul i32 %11, 3
   %13 = add i32 %12, -3
   %14 = sext i32 %13 to i64
@@ -1046,7 +1046,7 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr nocapture noundef read
   br i1 %or.cond, label %44, label %48
 
 44:                                               ; preds = %.lr.ph78
-  %45 = trunc i64 %indvars.iv84 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv84 to i32
   %46 = fsub float %37, %.06476
   %47 = fdiv float %46, %40
   br label %.loopexit

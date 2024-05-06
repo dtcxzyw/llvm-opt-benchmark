@@ -2600,7 +2600,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
 105:                                              ; preds = %.lr.ph.i.i.us
   %106 = getelementptr inbounds i8, ptr %101, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %83) #15
+  %108 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(1) %83) #15
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %rolename_lookup.exit.us, label %110
 

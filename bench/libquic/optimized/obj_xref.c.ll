@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sigoid_srt_xref = internal constant [37 x ptr] [ptr @sigoid_srt, ptr getelementptr (i8, ptr @sigoid_srt, i64 12), ptr getelementptr (i8, ptr @sigoid_srt, i64 84), ptr getelementptr (i8, ptr @sigoid_srt, i64 24), ptr getelementptr (i8, ptr @sigoid_srt, i64 48), ptr getelementptr (i8, ptr @sigoid_srt, i64 36), ptr getelementptr (i8, ptr @sigoid_srt, i64 108), ptr getelementptr (i8, ptr @sigoid_srt, i64 60), ptr getelementptr (i8, ptr @sigoid_srt, i64 96), ptr getelementptr (i8, ptr @sigoid_srt, i64 144), ptr getelementptr (i8, ptr @sigoid_srt, i64 360), ptr getelementptr (i8, ptr @sigoid_srt, i64 420), ptr getelementptr (i8, ptr @sigoid_srt, i64 72), ptr getelementptr (i8, ptr @sigoid_srt, i64 120), ptr getelementptr (i8, ptr @sigoid_srt, i64 132), ptr getelementptr (i8, ptr @sigoid_srt, i64 156), ptr getelementptr (i8, ptr @sigoid_srt, i64 288), ptr getelementptr (i8, ptr @sigoid_srt, i64 240), ptr getelementptr (i8, ptr @sigoid_srt, i64 384), ptr getelementptr (i8, ptr @sigoid_srt, i64 444), ptr getelementptr (i8, ptr @sigoid_srt, i64 168), ptr getelementptr (i8, ptr @sigoid_srt, i64 252), ptr getelementptr (i8, ptr @sigoid_srt, i64 396), ptr getelementptr (i8, ptr @sigoid_srt, i64 456), ptr getelementptr (i8, ptr @sigoid_srt, i64 180), ptr getelementptr (i8, ptr @sigoid_srt, i64 264), ptr getelementptr (i8, ptr @sigoid_srt, i64 408), ptr getelementptr (i8, ptr @sigoid_srt, i64 468), ptr getelementptr (i8, ptr @sigoid_srt, i64 192), ptr getelementptr (i8, ptr @sigoid_srt, i64 276), ptr getelementptr (i8, ptr @sigoid_srt, i64 228), ptr getelementptr (i8, ptr @sigoid_srt, i64 372), ptr getelementptr (i8, ptr @sigoid_srt, i64 432), ptr getelementptr (i8, ptr @sigoid_srt, i64 300), ptr getelementptr (i8, ptr @sigoid_srt, i64 312), ptr getelementptr (i8, ptr @sigoid_srt, i64 324), ptr getelementptr (i8, ptr @sigoid_srt, i64 336)], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @OBJ_find_sigid_algs(i32 noundef %sign_nid, ptr noundef writeonly %out_digest_nid, ptr noundef writeonly %out_pkey_nid) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @OBJ_find_sigid_algs(i32 noundef %sign_nid, ptr noundef writeonly %out_digest_nid, ptr noundef writeonly %out_pkey_nid) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.nid_triple, align 4
   store i32 %sign_nid, ptr %key, align 4
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @OBJ_find_sigid_by_algs(ptr noundef writeonly %out_sign_nid, i32 noundef %digest_nid, i32 noundef %pkey_nid) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @OBJ_find_sigid_by_algs(ptr noundef writeonly %out_sign_nid, i32 noundef %digest_nid, i32 noundef %pkey_nid) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.nid_triple, align 4
   %pkey = alloca ptr, align 8

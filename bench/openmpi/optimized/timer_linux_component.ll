@@ -55,7 +55,7 @@ define internal i64 @opal_timer_linux_get_usec_clock_gettime() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @opal_timer_linux_open() #0 {
+define internal range(i32 -11, 1) i32 @opal_timer_linux_open() #0 {
   %1 = alloca float, align 4
   %2 = alloca [1024 x i8], align 16
   %3 = alloca i32, align 4

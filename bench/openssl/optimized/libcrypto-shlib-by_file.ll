@@ -451,14 +451,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @by_file_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture noundef readnone %ret) #1 {
+define internal range(i32 0, 2) i32 @by_file_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture noundef readnone %ret) #1 {
 entry:
-  %call = tail call i32 @by_file_ctrl_ex(ptr noundef %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr poison, ptr noundef null, ptr noundef null), !range !6
+  %call = tail call i32 @by_file_ctrl_ex(ptr noundef %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr poison, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @by_file_ctrl_ex(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %ret, ptr noundef %libctx, ptr noundef %propq) #1 {
+define internal range(i32 0, 2) i32 @by_file_ctrl_ex(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %ret, ptr noundef %libctx, ptr noundef %propq) #1 {
 entry:
   %cond = icmp eq i32 %cmd, 1
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -531,4 +531,3 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

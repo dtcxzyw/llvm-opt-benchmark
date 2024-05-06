@@ -1718,7 +1718,7 @@ define hidden void @"_ZN89_$LT$tracing_subscriber..registry..extensions..IdHashe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17haefb416528a6cf0aE.llvm.11052903800730486598"(i64 noundef %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 4) i64 @"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17haefb416528a6cf0aE.llvm.11052903800730486598"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x { { i64, i64 }, { i64, i64 }, i64, i32, i32, i8, [7 x i8] }], align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8

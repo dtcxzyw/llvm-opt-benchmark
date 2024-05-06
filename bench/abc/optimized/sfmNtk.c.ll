@@ -188,7 +188,7 @@ Vec_IntGrow.exit:                                 ; preds = %47, %61
 
 .lr.ph76:                                         ; preds = %65
   %69 = getelementptr i8, ptr %66, i64 8
-  %70 = trunc i64 %indvars.iv90 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv90 to i32
   br label %71
 
 71:                                               ; preds = %.lr.ph76, %Vec_IntPush.exit
@@ -917,7 +917,7 @@ Vec_IntFill.exit92:                               ; preds = %124, %Vec_IntGrow.e
 
 151:                                              ; preds = %151, %.preheader20.i
   %indvars.iv.i93 = phi i64 [ 0, %.preheader20.i ], [ %indvars.iv.next.i94, %151 ]
-  %152 = trunc i64 %indvars.iv.i93 to i32
+  %152 = trunc nuw nsw i64 %indvars.iv.i93 to i32
   %153 = and i32 %143, %152
   %.not.i = icmp ne i32 %153, 0
   %154 = sext i1 %.not.i to i64
@@ -1834,7 +1834,7 @@ define void @Sfm_NtkRemoveFanin(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %12, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %12
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %3
@@ -1863,9 +1863,9 @@ define void @Sfm_NtkRemoveFanin(ptr nocapture noundef readonly %0, i32 noundef %
   store i32 %25, ptr %27, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %28 = load i32, ptr %7, align 4
-  %29 = trunc i64 %indvars.iv.next35.i to i32
+  %29 = trunc nuw i64 %indvars.iv.next35.i to i32
   %30 = icmp sgt i32 %28, %29
-  %31 = trunc i64 %indvars.iv34.i to i32
+  %31 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %30, label %22, label %._crit_edge30.i, !llvm.loop !22
 
 ._crit_edge30.i:                                  ; preds = %22, %.preheader.i
@@ -1903,7 +1903,7 @@ Vec_IntRemove.exit:                               ; preds = %16, %._crit_edge.i,
   br i1 %exitcond.not.i21, label %Vec_IntRemove.exit23, label %41, !llvm.loop !21
 
 ._crit_edge.loopexit.i22:                         ; preds = %41
-  %46 = trunc i64 %indvars.iv.i19 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i19 to i32
   br label %._crit_edge.i6
 
 ._crit_edge.i6:                                   ; preds = %._crit_edge.loopexit.i22, %Vec_IntRemove.exit
@@ -1932,9 +1932,9 @@ Vec_IntRemove.exit:                               ; preds = %16, %._crit_edge.i,
   store i32 %54, ptr %56, align 4
   %indvars.iv.next35.i16 = add nuw nsw i64 %indvars.iv34.i14, 1
   %57 = load i32, ptr %36, align 4
-  %58 = trunc i64 %indvars.iv.next35.i16 to i32
+  %58 = trunc nuw i64 %indvars.iv.next35.i16 to i32
   %59 = icmp sgt i32 %57, %58
-  %60 = trunc i64 %indvars.iv34.i14 to i32
+  %60 = trunc nuw i64 %indvars.iv34.i14 to i32
   br i1 %59, label %51, label %._crit_edge30.i10, !llvm.loop !22
 
 ._crit_edge30.i10:                                ; preds = %51, %.preheader.i8
@@ -2167,7 +2167,7 @@ define void @Sfm_NtkDeleteObj_rec(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %27, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %27
-  %32 = trunc i64 %indvars.iv.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph
@@ -2196,9 +2196,9 @@ define void @Sfm_NtkDeleteObj_rec(ptr nocapture noundef readonly %0, i32 noundef
   store i32 %40, ptr %42, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %43 = load i32, ptr %22, align 4
-  %44 = trunc i64 %indvars.iv.next35.i to i32
+  %44 = trunc nuw i64 %indvars.iv.next35.i to i32
   %45 = icmp sgt i32 %43, %44
-  %46 = trunc i64 %indvars.iv34.i to i32
+  %46 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %45, label %37, label %._crit_edge30.i, !llvm.loop !22
 
 ._crit_edge30.i:                                  ; preds = %37, %.preheader.i
@@ -2507,7 +2507,7 @@ Abc_TtIsConst0.exit.thread:                       ; preds = %21, %24, %6
   br i1 %exitcond.not.i91, label %Vec_IntRemove.exit, label %40, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %40
-  %45 = trunc i64 %indvars.iv.i89 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i89 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %29
@@ -2536,9 +2536,9 @@ Abc_TtIsConst0.exit.thread:                       ; preds = %21, %24, %6
   store i32 %53, ptr %55, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %56 = load i32, ptr %35, align 4
-  %57 = trunc i64 %indvars.iv.next35.i to i32
+  %57 = trunc nuw i64 %indvars.iv.next35.i to i32
   %58 = icmp sgt i32 %56, %57
-  %59 = trunc i64 %indvars.iv34.i to i32
+  %59 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %58, label %50, label %._crit_edge30.i, !llvm.loop !22
 
 ._crit_edge30.i:                                  ; preds = %50, %.preheader.i
@@ -2587,7 +2587,7 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i80
   br i1 %exitcond.not.i.i, label %Vec_IntRemove.exit.i, label %68, !llvm.loop !21
 
 ._crit_edge.loopexit.i.i:                         ; preds = %68
-  %73 = trunc i64 %indvars.iv.i.i to i32
+  %73 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %Abc_TtIsConst1.exit
@@ -2616,9 +2616,9 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i80
   store i32 %81, ptr %83, align 4
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
   %84 = load i32, ptr %66, align 4
-  %85 = trunc i64 %indvars.iv.next35.i.i to i32
+  %85 = trunc nuw i64 %indvars.iv.next35.i.i to i32
   %86 = icmp sgt i32 %84, %85
-  %87 = trunc i64 %indvars.iv34.i.i to i32
+  %87 = trunc nuw i64 %indvars.iv34.i.i to i32
   br i1 %86, label %78, label %._crit_edge30.i.i, !llvm.loop !22
 
 ._crit_edge30.i.i:                                ; preds = %78, %.preheader.i.i
@@ -2656,7 +2656,7 @@ Vec_IntRemove.exit.i:                             ; preds = %72, %._crit_edge30.
   br i1 %exitcond.not.i21.i, label %Sfm_NtkRemoveFanin.exit, label %97, !llvm.loop !21
 
 ._crit_edge.loopexit.i22.i:                       ; preds = %97
-  %102 = trunc i64 %indvars.iv.i19.i to i32
+  %102 = trunc nuw nsw i64 %indvars.iv.i19.i to i32
   br label %._crit_edge.i6.i
 
 ._crit_edge.i6.i:                                 ; preds = %._crit_edge.loopexit.i22.i, %Vec_IntRemove.exit.i
@@ -2685,9 +2685,9 @@ Vec_IntRemove.exit.i:                             ; preds = %72, %._crit_edge30.
   store i32 %110, ptr %112, align 4
   %indvars.iv.next35.i16.i = add nuw nsw i64 %indvars.iv34.i14.i, 1
   %113 = load i32, ptr %92, align 4
-  %114 = trunc i64 %indvars.iv.next35.i16.i to i32
+  %114 = trunc nuw i64 %indvars.iv.next35.i16.i to i32
   %115 = icmp sgt i32 %113, %114
-  %116 = trunc i64 %indvars.iv34.i14.i to i32
+  %116 = trunc nuw i64 %indvars.iv34.i14.i to i32
   br i1 %115, label %107, label %._crit_edge30.i10.i, !llvm.loop !22
 
 ._crit_edge30.i10.i:                              ; preds = %107, %.preheader.i8.i
@@ -2833,7 +2833,7 @@ define ptr @Sfm_NodeReadTruth(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Sfm_NodeReadFixed(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 -128, 128) i32 @Sfm_NodeReadFixed(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -2846,7 +2846,7 @@ define i32 @Sfm_NodeReadFixed(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Sfm_NodeReadUsed(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @Sfm_NodeReadUsed(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr i8, ptr %0, i64 64
   %.val3 = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64

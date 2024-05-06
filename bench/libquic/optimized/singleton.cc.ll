@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base8internal15WaitForInstanceEPl(ptr noundef %instance) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 2, 1) i64 @_ZN4base8internal15WaitForInstanceEPl(ptr noundef %instance) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic volatile i64, ptr %instance acquire, align 8
   %cmp.not2 = icmp eq i64 %0, 1

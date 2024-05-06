@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i8 @ioh3420_aer_vector(ptr noundef %d) #0 {
+define internal zeroext range(i8 0, 2) i8 @ioh3420_aer_vector(ptr noundef %d) #0 {
 entry:
   %call = tail call i32 @msi_nr_vectors_allocated(ptr noundef %d) #3
   switch i32 %call, label %sw.epilog [

@@ -744,7 +744,7 @@ define dso_local noundef zeroext i1 @propagation_would_overmount(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @propagate_mount_busy(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @propagate_mount_busy(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0

@@ -728,7 +728,7 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #2 {
+define hidden noundef range(i32 -1, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #2 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::allocator", align 1

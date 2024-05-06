@@ -161,7 +161,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tr2tls_is_main_thread() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tr2tls_is_main_thread() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @tr2tls_key, align 4
   %call = tail call ptr @pthread_getspecific(i32 noundef %0) #9

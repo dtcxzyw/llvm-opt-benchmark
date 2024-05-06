@@ -66,7 +66,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_eTypeError = external local_unnamed_addr global i64, align 8
 @.str.45 = private unnamed_addr constant [15 x i8] c"not an integer\00", align 1
 @.str.46 = private unnamed_addr constant [3 x i8] c"*:\00", align 1
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @f_ceil.rbimpl_id = internal unnamed_addr global i64 0, align 8
 @.str.48 = private unnamed_addr constant [32 x i8] c"can't convert nil into Rational\00", align 1
 @rb_eArgError = external local_unnamed_addr global i64, align 8
@@ -726,7 +726,7 @@ rb_float_value_inline.exit:                       ; preds = %76, %77, %83
 
 89:                                               ; preds = %rb_float_value_inline.exit
   %90 = lshr i64 %88, 60
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw nsw i64 %90 to i32
   %92 = and i32 %91, 7
   %93 = add nsw i32 %92, -3
   %.not7.i = icmp ult i32 %93, 2
@@ -1235,7 +1235,7 @@ rb_integer_type_p.exit.thread114:                 ; preds = %128, %118, %108, %9
 
 230:                                              ; preds = %rb_integer_type_p.exit.thread114
   %231 = lshr i64 %229, 60
-  %232 = trunc i64 %231 to i32
+  %232 = trunc nuw nsw i64 %231 to i32
   %233 = and i32 %232, 7
   %234 = add nsw i32 %233, -3
   %.not7.i = icmp ult i32 %234, 2
@@ -1483,7 +1483,7 @@ rb_float_value_inline.exit:                       ; preds = %76, %77, %83
 
 89:                                               ; preds = %rb_float_value_inline.exit
   %90 = lshr i64 %88, 60
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw nsw i64 %90 to i32
   %92 = and i32 %91, 7
   %93 = add nsw i32 %92, -3
   %.not7.i = icmp ult i32 %93, 2
@@ -1668,7 +1668,7 @@ rb_float_value_inline.exit:                       ; preds = %59, %60, %66
 
 72:                                               ; preds = %rb_float_value_inline.exit
   %73 = lshr i64 %71, 60
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw nsw i64 %73 to i32
   %75 = and i32 %74, 7
   %76 = add nsw i32 %75, -3
   %.not7.i = icmp ult i32 %76, 2
@@ -1817,7 +1817,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
 
 59:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
   %60 = lshr i64 %58, 60
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw nsw i64 %60 to i32
   %62 = and i32 %61, 7
   %63 = add nsw i32 %62, -3
   %.not7.i = icmp ult i32 %63, 2
@@ -2356,7 +2356,7 @@ nurat_to_double.exit:                             ; preds = %rb_integer_type_p.e
 
 34:                                               ; preds = %nurat_to_double.exit
   %35 = lshr i64 %33, 60
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   %37 = and i32 %36, 7
   %38 = add nsw i32 %37, -3
   %.not7.i = icmp ult i32 %38, 2
@@ -3008,7 +3008,7 @@ RB_FLOAT_TYPE_P.exit148.thread:                   ; preds = %RB_FLOAT_TYPE_P.exi
 
 276:                                              ; preds = %RB_FLOAT_TYPE_P.exit148.thread
   %277 = lshr i64 %275, 60
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = and i32 %278, 7
   %280 = add nsw i32 %279, -3
   %.not7.i = icmp ult i32 %280, 2
@@ -6500,7 +6500,7 @@ skip_ws.exit:                                     ; preds = %16, %22, %4
 
 read_sign.exit:                                   ; preds = %skip_ws.exit, %25, %27
   %.0.i = phi i32 [ %28, %27 ], [ 63, %25 ], [ 63, %skip_ws.exit ]
-  %30 = call fastcc i32 @read_num(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %8), !range !14
+  %30 = call fastcc i32 @read_num(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %8)
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %42
 
@@ -6537,7 +6537,7 @@ read_sign.exit:                                   ; preds = %skip_ws.exit, %25, 
 48:                                               ; preds = %45
   %49 = getelementptr i8, ptr %43, i64 1
   store ptr %49, ptr %5, align 8
-  %50 = call fastcc i32 @read_num(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %9), !range !14
+  %50 = call fastcc i32 @read_num(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %.not27 = icmp eq i32 %50, 0
   br i1 %.not27, label %51, label %53
 
@@ -7852,7 +7852,7 @@ RBASIC_SET_CLASS.exit:                            ; preds = %123, %rb_class_of.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @nurat_positive_p(i64 noundef %0) #3 {
+define internal range(i64 0, 21) i64 @nurat_positive_p(i64 noundef %0) #3 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -7878,7 +7878,7 @@ INT_POSITIVE_P.exit:                              ; preds = %6, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @nurat_negative_p(i64 noundef %0) #3 {
+define internal range(i64 0, 21) i64 @nurat_negative_p(i64 noundef %0) #3 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -8180,7 +8180,7 @@ RATIONAL_SET_DEN.exit:                            ; preds = %84, %RATIONAL_SET_N
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nurat_hash(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @nurat_hash(i64 noundef %0) #0 {
   %2 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = inttoptr i64 %0 to ptr
@@ -8237,11 +8237,11 @@ define internal noundef i64 @nurat_to_s(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = tail call i64 @rb_obj_as_string(i64 noundef %4) #16, !callees !15
+  %5 = tail call i64 @rb_obj_as_string(i64 noundef %4) #16, !callees !14
   %6 = tail call i64 @rb_str_cat(i64 noundef %5, ptr noundef nonnull @.str.17, i64 noundef 1) #16
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = tail call i64 @rb_obj_as_string(i64 noundef %8) #16, !callees !15
+  %9 = tail call i64 @rb_obj_as_string(i64 noundef %8) #16, !callees !14
   %10 = tail call i64 @rb_str_concat(i64 noundef %5, i64 noundef %9) #16
   ret i64 %5
 }
@@ -8252,11 +8252,11 @@ define internal i64 @nurat_inspect(i64 noundef %0) #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = tail call i64 @rb_inspect(i64 noundef %5) #16, !callees !15
+  %6 = tail call i64 @rb_inspect(i64 noundef %5) #16, !callees !14
   %7 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.17, i64 noundef 1) #16
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = tail call i64 @rb_inspect(i64 noundef %9) #16, !callees !15
+  %10 = tail call i64 @rb_inspect(i64 noundef %9) #16, !callees !14
   %11 = tail call i64 @rb_str_concat(i64 noundef %6, i64 noundef %10) #16
   %12 = tail call i64 @rb_str_concat(i64 noundef %2, i64 noundef %6) #16
   %13 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.55, i64 noundef 1) #16
@@ -8831,7 +8831,7 @@ rb_float_value_inline.exit:                       ; preds = %7, %13
 
 21:                                               ; preds = %18
   %22 = lshr i64 %20, 60
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %23, 7
   %25 = add nsw i32 %24, -3
   %.not7.i = icmp ult i32 %25, 2
@@ -8902,7 +8902,7 @@ RATIONAL_SET_NUM.exit:                            ; preds = %51, %42, %41
 define internal i64 @string_to_r(i64 noundef %0) #0 {
   tail call void @rb_must_asciicompat(i64 noundef %0) #16
   %2 = inttoptr i64 %0 to ptr
-  %3 = load i64, ptr %2, align 8, !noalias !16
+  %3 = load i64, ptr %2, align 8, !noalias !15
   %4 = and i64 %3, 8192
   %.not.i.i = icmp eq i64 %4, 0
   %5 = getelementptr inbounds i8, ptr %2, i64 24
@@ -9519,7 +9519,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #13
 declare i64 @rb_dbl2big(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @read_num(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_num(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store i64 1, ptr %3, align 8
@@ -9729,7 +9729,7 @@ declare i64 @rb_ull2inum(i64 noundef) local_unnamed_addr #1
 define internal fastcc i64 @string_to_r_strict(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
   tail call void @rb_must_asciicompat(i64 noundef %0) #16
   %3 = inttoptr i64 %0 to ptr
-  %4 = load i64, ptr %3, align 8, !noalias !16
+  %4 = load i64, ptr %3, align 8, !noalias !15
   %5 = and i64 %4, 8192
   %.not.i.i = icmp eq i64 %5, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
@@ -9933,6 +9933,5 @@ attributes #21 = { noreturn nounwind }
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = !{i32 0, i32 2}
-!15 = !{ptr @rb_inspect, ptr @rb_obj_as_string}
-!16 = !{}
+!14 = !{ptr @rb_inspect, ptr @rb_obj_as_string}
+!15 = !{}

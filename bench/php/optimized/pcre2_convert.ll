@@ -29,7 +29,7 @@ define i32 @pcre2_pattern_convert_8(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 14:                                               ; preds = %6
   %.not79 = icmp ult i32 %2, 128
-  %15 = tail call i32 @llvm.ctpop.i32(i32 %11), !range !4
+  %15 = tail call range(i32 0, 4) i32 @llvm.ctpop.i32(i32 %11)
   %or.cond3.not = icmp eq i32 %15, 1
   %or.cond84 = select i1 %.not79, i1 %or.cond3.not, i1 false
   br i1 %or.cond84, label %16, label %convert_posix.exit.thread.sink.split
@@ -1462,7 +1462,7 @@ convert_glob_print_separator.exit.i247.i:         ; preds = %560, %convert_glob_
 
 convert_glob_write.exit.i327.i.i:                 ; preds = %607, %.split.i.i.i
   %609 = icmp ult ptr %600, %593
-  br i1 %609, label %.split.i.i.i, label %convert_glob_parse_class.exit.i.i, !llvm.loop !5
+  br i1 %609, label %.split.i.i.i, label %convert_glob_parse_class.exit.i.i, !llvm.loop !4
 
 610:                                              ; preds = %.lr.ph.i.i.i
   %611 = getelementptr inbounds i8, ptr %.13656.i.i.i, i64 1
@@ -2135,7 +2135,7 @@ convert_glob_write.exit329.split.i.i:             ; preds = %convert_glob_write.
 
 convert_glob_write.exit330.i.i:                   ; preds = %1046, %convert_glob_write.exit329.split.i.i
   %1048 = icmp ult ptr %1039, %.8349.i.i
-  br i1 %1048, label %convert_glob_write.exit329.split.i.i, label %.backedge.i.i, !llvm.loop !7
+  br i1 %1048, label %convert_glob_write.exit329.split.i.i, label %.backedge.i.i, !llvm.loop !6
 
 1049:                                             ; preds = %104
   %1050 = icmp eq i8 %106, %60
@@ -3040,7 +3040,6 @@ attributes #8 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 4}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.partial.disable"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.unswitch.partial.disable"}
+!6 = distinct !{!6, !5}

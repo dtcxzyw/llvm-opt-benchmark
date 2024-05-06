@@ -71,7 +71,7 @@ define hidden void @mbedtls_ctr_drbg_set_entropy_len(ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_ctr_drbg_set_nonce_len(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -56, 1) i32 @mbedtls_ctr_drbg_set_nonce_len(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -82,7 +82,7 @@ define hidden noundef i32 @mbedtls_ctr_drbg_set_nonce_len(ptr nocapture noundef 
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw nsw i64 %1 to i32
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %8, ptr %9, align 8
   br label %10
@@ -203,7 +203,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture nounde
   %12 = getelementptr inbounds i8, ptr %4, i64 17
   store i8 0, ptr %12, align 1
   %13 = lshr i64 %2, 8
-  %14 = trunc i64 %13 to i8
+  %14 = trunc nuw nsw i64 %13 to i8
   %15 = getelementptr inbounds i8, ptr %4, i64 18
   store i8 %14, ptr %15, align 2
   %16 = trunc i64 %2 to i8
@@ -760,7 +760,7 @@ define hidden i32 @mbedtls_ctr_drbg_write_seed_file(ptr noundef %0, ptr nocaptur
 
 6:                                                ; preds = %2
   tail call void @setbuf(ptr noundef nonnull %4, ptr noundef null) #13
-  %7 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 256, ptr noundef null, i64 noundef 0)
+  %7 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr noundef nonnull writeonly %3, i64 noundef 256, ptr noundef null, i64 noundef 0)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %10
 
@@ -846,11 +846,11 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_ctr_drbg_self_test(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @mbedtls_ctr_drbg_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca %struct.mbedtls_ctr_drbg_context, align 8
   %4 = alloca [64 x i8], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %3, i8 0, i64 344, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(344) %3, i8 0, i64 344, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 10000, ptr %6, align 8
@@ -916,7 +916,7 @@ mbedtls_ctr_drbg_seed.exit:                       ; preds = %16
 29:                                               ; preds = %mbedtls_ctr_drbg_seed.exit
   %30 = getelementptr inbounds i8, ptr %3, i64 20
   store i32 1, ptr %30, align 4
-  %31 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
+  %31 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull writeonly %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
   %.not16 = icmp eq i32 %31, 0
   br i1 %.not16, label %34, label %32
 
@@ -928,7 +928,7 @@ mbedtls_ctr_drbg_seed.exit:                       ; preds = %16
   br label %.critedge36
 
 34:                                               ; preds = %29
-  %35 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
+  %35 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull writeonly %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
   %.not17 = icmp eq i32 %35, 0
   br i1 %.not17, label %38, label %36
 
@@ -961,7 +961,7 @@ mbedtls_ctr_drbg_seed.exit:                       ; preds = %16
   br label %mbedtls_ctr_drbg_set_nonce_len.exit41
 
 mbedtls_ctr_drbg_set_nonce_len.exit41:            ; preds = %41, %42
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %3, i8 0, i64 344, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(344) %3, i8 0, i64 344, i1 false)
   store i32 10000, ptr %6, align 8
   store i64 0, ptr @test_offset, align 8
   store i64 32, ptr %9, align 8
@@ -990,7 +990,7 @@ mbedtls_ctr_drbg_set_nonce_len.exit41:            ; preds = %41, %42
   br label %.critedge36
 
 51:                                               ; preds = %47
-  %52 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
+  %52 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull writeonly %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
   %.not21 = icmp eq i32 %52, 0
   br i1 %.not21, label %55, label %53
 
@@ -1002,7 +1002,7 @@ mbedtls_ctr_drbg_set_nonce_len.exit41:            ; preds = %41, %42
   br label %.critedge36
 
 55:                                               ; preds = %51
-  %56 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
+  %56 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull writeonly %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
   %.not22 = icmp eq i32 %56, 0
   br i1 %.not22, label %59, label %57
 

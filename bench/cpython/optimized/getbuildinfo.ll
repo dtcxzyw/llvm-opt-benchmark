@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [17 x i8] c"heads/main-dirty\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @Py_GetBuildInfo() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @Py_GetBuildInfo() local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @initialized, align 4
   br i1 %.b, label %return, label %if.end
@@ -28,13 +28,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_Py_gitversion() local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @_Py_gitversion() local_unnamed_addr #1 {
 entry:
   ret ptr @.str.6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_Py_gitidentifier() local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @_Py_gitidentifier() local_unnamed_addr #1 {
 entry:
   ret ptr @.str.7
 }

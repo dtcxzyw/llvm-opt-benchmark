@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @aegis256_aesni_implementation = hidden local_unnamed_addr global %struct.aegis256_implementation { ptr @encrypt_detached, ptr @decrypt_detached }, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal noundef i32 @encrypt_detached(ptr nocapture noundef writeonly %c, ptr nocapture noundef writeonly %mac, i64 noundef %maclen, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr nocapture noundef readonly %ad, i64 noundef %adlen, ptr nocapture noundef readonly %npub, ptr nocapture noundef readonly %k) #0 {
+define internal range(i32 -1, 1) i32 @encrypt_detached(ptr nocapture noundef writeonly %c, ptr nocapture noundef writeonly %mac, i64 noundef %maclen, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr nocapture noundef readonly %ad, i64 noundef %adlen, ptr nocapture noundef readonly %npub, ptr nocapture noundef readonly %k) #0 {
 entry:
   %src.sroa.0 = alloca <2 x i64>, align 16
   %dst.sroa.0 = alloca <2 x i64>, align 16
@@ -247,7 +247,7 @@ if.then16.i:                                      ; preds = %for.end.i
   br label %aegis256_mac.exit
 
 if.else27.i:                                      ; preds = %for.end.i
-  tail call void @llvm.memset.p0.i64(ptr align 1 %mac, i8 0, i64 %maclen, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %mac, i8 0, i64 %maclen, i1 false)
   br label %aegis256_mac.exit
 
 aegis256_mac.exit:                                ; preds = %if.then.i, %if.then16.i, %if.else27.i
@@ -477,7 +477,7 @@ if.then36:                                        ; preds = %if.end31.thread268,
   %63 = sub nuw nsw i64 16, %rem32251287
   %64 = getelementptr i8, ptr %pad.i, i64 %rem32251287
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 0, i64 %63, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr align 1 %add.ptr38, i64 %rem32251287, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr38, i64 %rem32251287, i1 false)
   %65 = load <2 x i64>, ptr %pad.i, align 16
   %and.i.i64 = and <2 x i64> %state.sroa.34.4247291, %state.sroa.53.4246292
   %66 = xor <2 x i64> %and.i.i64, %65
@@ -486,7 +486,7 @@ if.then36:                                        ; preds = %if.end31.thread268,
   %xor.i.i65 = xor <2 x i64> %68, %state.sroa.15.4248290
   store <2 x i64> %xor.i.i65, ptr %pad.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 0, i64 %63, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32251287, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32251287, i1 false)
   %69 = load <2 x i64>, ptr %pad.i, align 16
   %70 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.73.4245293, <2 x i64> %state.sroa.93.4244294)
   %71 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.53.4246292, <2 x i64> %state.sroa.73.4245293)
@@ -512,7 +512,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %76 = sub nuw nsw i64 16, %rem32251260
   %77 = getelementptr i8, ptr %pad.i67, i64 %rem32251260
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %77, i8 0, i64 %76, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i67, ptr align 1 %add.ptr43, i64 %rem32251260, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i67, ptr readonly align 1 %add.ptr43, i64 %rem32251260, i1 false)
   %78 = load <2 x i64>, ptr %pad.i67, align 16
   %and.i.i76 = and <2 x i64> %state.sroa.34.4247264, %state.sroa.53.4246265
   %79 = xor <2 x i64> %and.i.i76, %78

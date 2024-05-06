@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @whirlpool_md = internal constant %struct.evp_md_st { i32 804, i32 0, i32 64, i64 0, i32 1, ptr @wp_init, ptr @wp_update, ptr @wp_final, ptr null, ptr null, i32 64, i32 0, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_whirlpool() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_whirlpool() local_unnamed_addr #0 {
 entry:
   ret ptr @whirlpool_md
 }

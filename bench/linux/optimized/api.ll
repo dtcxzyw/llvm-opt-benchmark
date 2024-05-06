@@ -1334,7 +1334,7 @@ define dso_local void @crypto_destroy_tfm(ptr noundef %0, ptr noundef %1) #0 ali
 declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_has_alg(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @crypto_has_alg(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = tail call ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
   br i1 %5, label %20, label %6

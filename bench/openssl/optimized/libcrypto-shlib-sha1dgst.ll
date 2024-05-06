@@ -79,7 +79,7 @@ if.end38:                                         ; preds = %if.then35, %if.end3
 
 if.then41:                                        ; preds = %if.end38
   %data42 = getelementptr inbounds i8, ptr %c, i64 28
-  %conv44 = trunc i64 %len.addr.1 to i32
+  %conv44 = trunc nuw i64 %len.addr.1 to i32
   store i32 %conv44, ptr %num, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data42, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
   br label %return
@@ -132,7 +132,7 @@ if.end:                                           ; preds = %if.then, %entry
   %Nh = getelementptr inbounds i8, ptr %c, i64 24
   %1 = load i32, ptr %Nh, align 4
   %shr = lshr i32 %1, 24
-  %conv5 = trunc i32 %shr to i8
+  %conv5 = trunc nuw i32 %shr to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %c, i64 85
   store i8 %conv5, ptr %add.ptr4, align 1
   %shr7 = lshr i32 %1, 16
@@ -149,7 +149,7 @@ if.end:                                           ; preds = %if.then, %entry
   %Nl = getelementptr inbounds i8, ptr %c, i64 20
   %2 = load i32, ptr %Nl, align 4
   %shr21 = lshr i32 %2, 24
-  %conv23 = trunc i32 %shr21 to i8
+  %conv23 = trunc nuw i32 %shr21 to i8
   %incdec.ptr24 = getelementptr inbounds i8, ptr %c, i64 89
   store i8 %conv23, ptr %incdec.ptr19, align 1
   %shr26 = lshr i32 %2, 16
@@ -167,7 +167,7 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %data, i64 noundef 64) #5
   %3 = load i32, ptr %c, align 4
   %shr43 = lshr i32 %3, 24
-  %conv45 = trunc i32 %shr43 to i8
+  %conv45 = trunc nuw i32 %shr43 to i8
   %incdec.ptr46 = getelementptr inbounds i8, ptr %md, i64 1
   store i8 %conv45, ptr %md, align 1
   %shr47 = lshr i32 %3, 16
@@ -184,7 +184,7 @@ if.end:                                           ; preds = %if.then, %entry
   %h1 = getelementptr inbounds i8, ptr %c, i64 4
   %4 = load i32, ptr %h1, align 4
   %shr59 = lshr i32 %4, 24
-  %conv61 = trunc i32 %shr59 to i8
+  %conv61 = trunc nuw i32 %shr59 to i8
   %incdec.ptr62 = getelementptr inbounds i8, ptr %md, i64 5
   store i8 %conv61, ptr %incdec.ptr57, align 1
   %shr63 = lshr i32 %4, 16
@@ -201,7 +201,7 @@ if.end:                                           ; preds = %if.then, %entry
   %h2 = getelementptr inbounds i8, ptr %c, i64 8
   %5 = load i32, ptr %h2, align 4
   %shr75 = lshr i32 %5, 24
-  %conv77 = trunc i32 %shr75 to i8
+  %conv77 = trunc nuw i32 %shr75 to i8
   %incdec.ptr78 = getelementptr inbounds i8, ptr %md, i64 9
   store i8 %conv77, ptr %incdec.ptr73, align 1
   %shr79 = lshr i32 %5, 16
@@ -218,7 +218,7 @@ if.end:                                           ; preds = %if.then, %entry
   %h3 = getelementptr inbounds i8, ptr %c, i64 12
   %6 = load i32, ptr %h3, align 4
   %shr91 = lshr i32 %6, 24
-  %conv93 = trunc i32 %shr91 to i8
+  %conv93 = trunc nuw i32 %shr91 to i8
   %incdec.ptr94 = getelementptr inbounds i8, ptr %md, i64 13
   store i8 %conv93, ptr %incdec.ptr89, align 1
   %shr95 = lshr i32 %6, 16
@@ -235,7 +235,7 @@ if.end:                                           ; preds = %if.then, %entry
   %h4 = getelementptr inbounds i8, ptr %c, i64 16
   %7 = load i32, ptr %h4, align 4
   %shr107 = lshr i32 %7, 24
-  %conv109 = trunc i32 %shr107 to i8
+  %conv109 = trunc nuw i32 %shr107 to i8
   %incdec.ptr110 = getelementptr inbounds i8, ptr %md, i64 17
   store i8 %conv109, ptr %incdec.ptr105, align 1
   %shr111 = lshr i32 %7, 16
@@ -265,7 +265,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sha1_ctrl(ptr noundef %sha1, i32 noundef %cmd, i32 noundef %mslen, ptr noundef %ms) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ossl_sha1_ctrl(ptr noundef %sha1, i32 noundef %cmd, i32 noundef %mslen, ptr noundef %ms) local_unnamed_addr #0 {
 entry:
   %padtmp = alloca [40 x i8], align 16
   %sha1tmp = alloca [20 x i8], align 16
@@ -336,7 +336,7 @@ if.then41.i:                                      ; preds = %if.end6, %if.end38.
   %data.1.i166 = phi ptr [ %data.1.i, %if.end38.i ], [ %ms, %if.end6 ]
   %len.addr.1.i165 = phi i64 [ %len.addr.1.i, %if.end38.i ], [ 48, %if.end6 ]
   %data42.i = getelementptr inbounds i8, ptr %sha1, i64 28
-  %conv44.i = trunc i64 %len.addr.1.i165 to i32
+  %conv44.i = trunc nuw i64 %len.addr.1.i165 to i32
   store i32 %conv44.i, ptr %num.i, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %data42.i, ptr noundef nonnull align 1 dereferenceable(1) %data.1.i166, i64 %len.addr.1.i165, i1 false)
   br label %SHA1_Update.exit
@@ -397,7 +397,7 @@ if.then41.i44:                                    ; preds = %SHA1_Update.exit, %
   %data.1.i42174 = phi ptr [ %data.1.i42, %if.end38.i40 ], [ %padtmp, %SHA1_Update.exit ]
   %len.addr.1.i41173 = phi i64 [ %len.addr.1.i41, %if.end38.i40 ], [ 40, %SHA1_Update.exit ]
   %data42.i45 = getelementptr inbounds i8, ptr %sha1, i64 28
-  %conv44.i46 = trunc i64 %len.addr.1.i41173 to i32
+  %conv44.i46 = trunc nuw i64 %len.addr.1.i41173 to i32
   store i32 %conv44.i46, ptr %num.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %data42.i45, ptr noundef nonnull align 1 dereferenceable(1) %data.1.i42174, i64 %len.addr.1.i41173, i1 false)
   br label %SHA1_Update.exit158
@@ -405,7 +405,7 @@ if.then41.i44:                                    ; preds = %SHA1_Update.exit, %
 SHA1_Update.exit158:                              ; preds = %if.else.i25, %if.end38.i40, %if.then41.i44
   %call16 = call i32 @SHA1_Final(ptr noundef nonnull %sha1tmp, ptr noundef nonnull %sha1)
   %10 = getelementptr inbounds i8, ptr %sha1, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(96) %10, i8 0, i64 64, i1 false)
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %sha1, align 4
   %h4.i = getelementptr inbounds i8, ptr %sha1, i64 16
   store i32 -1009589776, ptr %h4.i, align 4

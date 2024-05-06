@@ -228,7 +228,7 @@ declare i16 @llvm.bswap.i16(i16) #2
 declare dso_local void @ip_send_check(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm4_rcv_encap_finish(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @xfrm4_rcv_encap_finish(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 2
@@ -297,7 +297,7 @@ define dso_local i32 @xfrm4_udp_encap_rcv(ptr noundef %0, ptr noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__xfrm4_udp_encap_rcv(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 2) i32 @__xfrm4_udp_encap_rcv(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 972
   %5 = load volatile i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -420,7 +420,7 @@ define internal fastcc noundef i32 @__xfrm4_udp_encap_rcv(ptr noundef %0, ptr no
   %83 = getelementptr inbounds i8, ptr %78, i64 2
   %84 = load i16, ptr %83, align 2
   %85 = tail call i16 @llvm.bswap.i16(i16 %84)
-  %86 = trunc i32 %56 to i16
+  %86 = trunc nuw nsw i32 %56 to i16
   %87 = sub i16 %85, %86
   %88 = tail call i16 @llvm.bswap.i16(i16 %87)
   store i16 %88, ptr %83, align 2

@@ -132,7 +132,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -460,7 +460,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @der2key_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @der2key_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %str = alloca ptr, align 8
   %propq = getelementptr inbounds i8, ptr %vctx, i64 8
@@ -500,7 +500,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -546,7 +546,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @type_specific_params_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @type_specific_params_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -592,7 +592,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @DH_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @DH_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -638,7 +638,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -684,7 +684,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -730,7 +730,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @type_specific_params_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @type_specific_params_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -776,7 +776,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @DHX_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @DHX_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -822,7 +822,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -868,7 +868,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -914,7 +914,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal noundef i32 @type_specific_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @type_specific_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -955,7 +955,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal noundef i32 @DSA_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @DSA_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -996,7 +996,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1042,7 +1042,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1088,7 +1088,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @type_specific_no_pub_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @type_specific_no_pub_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1135,7 +1135,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @EC_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @EC_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1182,7 +1182,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2x25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1228,7 +1228,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2x25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1274,7 +1274,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2x448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1320,7 +1320,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2x448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1366,7 +1366,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2ed25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1412,7 +1412,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2ed25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1458,7 +1458,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2ed448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1504,7 +1504,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2ed448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1550,7 +1550,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1596,7 +1596,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1642,7 +1642,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @type_specific_no_pub_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @type_specific_no_pub_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1689,7 +1689,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1735,7 +1735,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1781,7 +1781,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @type_specific_keypair_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @type_specific_keypair_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1827,7 +1827,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @RSA_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @RSA_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1873,7 +1873,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @PrivateKeyInfo_der2rsapss_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsapss_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -1919,7 +1919,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @SubjectPublicKeyInfo_der2rsapss_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsapss_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
@@ -2159,7 +2159,7 @@ der2key_decode_p8.exit:                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_check(ptr noundef %key, ptr nocapture noundef readonly %ctx) #0 {
+define internal range(i32 0, 2) i32 @ec_check(ptr noundef %key, ptr nocapture noundef readonly %ctx) #0 {
 entry:
   %call = tail call i32 @EC_KEY_get_flags(ptr noundef %key) #6
   %desc = getelementptr inbounds i8, ptr %ctx, i64 264
@@ -2341,7 +2341,7 @@ der2key_decode_p8.exit:                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_check(ptr noundef %key, ptr nocapture noundef readonly %ctx) #0 {
+define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %key, ptr nocapture noundef readonly %ctx) #0 {
 entry:
   %call = tail call i32 @RSA_test_flags(ptr noundef %key, i32 noundef 61440) #6
   switch i32 %call, label %return [

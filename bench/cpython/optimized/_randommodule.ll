@@ -186,7 +186,7 @@ _random_clear.exit:                               ; preds = %do.body1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_random_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_random_exec(ptr noundef %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -269,7 +269,7 @@ declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @random_init(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @random_init(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, ptr noundef %kwds) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -322,7 +322,7 @@ if.then17:                                        ; preds = %if.end14
 
 if.end18:                                         ; preds = %if.then17, %if.end14
   %arg.0 = phi ptr [ %7, %if.then17 ], [ null, %if.end14 ]
-  %call19 = tail call fastcc i32 @random_seed(ptr noundef nonnull %self, ptr noundef %arg.0), !range !4
+  %call19 = tail call fastcc i32 @random_seed(ptr noundef nonnull %self, ptr noundef %arg.0)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false8, %if.end18, %if.then13
@@ -339,8 +339,8 @@ entry:
   %shr.i = lshr i32 %call.i, 5
   %call1.i = tail call fastcc i32 @genrand_uint32(ptr noundef %self)
   %shr2.i = lshr i32 %call1.i, 6
-  %conv.i = uitofp i32 %shr.i to double
-  %conv3.i = uitofp i32 %shr2.i to double
+  %conv.i = uitofp nneg i32 %shr.i to double
+  %conv3.i = uitofp nneg i32 %shr2.i to double
   %0 = tail call double @llvm.fmuladd.f64(double %conv.i, double 0x4190000000000000, double %conv3.i)
   %mul.i = fmul double %0, 0x3CA0000000000000
   %call4.i = tail call ptr @PyFloat_FromDouble(double noundef %mul.i) #8
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_random_Random_seed(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_random_Random_seed(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -368,7 +368,7 @@ if.end4:                                          ; preds = %if.end
 
 skip_optional:                                    ; preds = %if.end, %if.end4
   %n.0 = phi ptr [ @_Py_NoneStruct, %if.end ], [ %0, %if.end4 ]
-  %call.i = tail call fastcc i32 @random_seed(ptr noundef %self, ptr noundef %n.0), !range !4
+  %call.i = tail call fastcc i32 @random_seed(ptr noundef %self, ptr noundef %n.0)
   %cmp.i = icmp slt i32 %call.i, 0
   %._Py_NoneStruct.i = select i1 %cmp.i, ptr null, ptr @_Py_NoneStruct
   br label %exit
@@ -404,7 +404,7 @@ if.end7.i:                                        ; preds = %for.body.i
   store ptr %call3.i, ptr %arrayidx.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %if.end7.i
   %index.i = getelementptr inbounds i8, ptr %self, i64 16
@@ -491,7 +491,7 @@ if.end11.i:                                       ; preds = %land.lhs.true.i, %f
   store i32 %conv.i, ptr %arrayidx13.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %if.end11.i
   %arrayidx16.i = getelementptr i8, ptr %state, i64 5016
@@ -519,7 +519,7 @@ if.end30.i:                                       ; preds = %if.end24.i
   %index32.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 %conv31.i, ptr %index32.i, align 8
   %state39.i = getelementptr inbounds i8, ptr %self, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(2496) %state39.i, ptr noundef nonnull align 16 dereferenceable(2496) %new_state.i, i64 2496, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(2496) %state39.i, ptr noundef nonnull align 16 dereferenceable(2496) %new_state.i, i64 2496, i1 false)
   br label %_random_Random_setstate_impl.exit
 
 _random_Random_setstate_impl.exit:                ; preds = %land.lhs.true.i, %if.then.i, %if.then3.i, %land.lhs.true20.i, %if.then29.i, %if.end30.i
@@ -593,7 +593,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %xor11 = xor i32 %xor, %shr
   store i32 %xor11, ptr %arrayidx, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 227
-  br i1 %exitcond.not, label %for.body16.preheader, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.body16.preheader, label %for.body, !llvm.loop !7
 
 for.body16:                                       ; preds = %for.body16.preheader, %for.body16
   %5 = phi i32 [ %.pre49, %for.body16.preheader ], [ %6, %for.body16 ]
@@ -616,7 +616,7 @@ for.body16:                                       ; preds = %for.body16.preheade
   %xor33 = xor i32 %xor29, %shr28
   store i32 %xor33, ptr %arrayidx18, align 4
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 623
-  br i1 %exitcond48.not, label %for.end38, label %for.body16, !llvm.loop !9
+  br i1 %exitcond48.not, label %for.end38, label %for.body16, !llvm.loop !8
 
 for.end38:                                        ; preds = %for.body16
   %arrayidx39 = getelementptr i8, ptr %self, i64 2512
@@ -665,7 +665,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @random_seed(ptr nocapture noundef %self, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @random_seed(ptr nocapture noundef %self, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %key.i23 = alloca [5 x i32], align 16
   %key.i = alloca [624 x i32], align 16
@@ -697,7 +697,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   store i32 %add.i.i.i, ptr %0, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 624
-  br i1 %exitcond.not.i.i.i, label %init_genrand.exit.i.i, label %for.body.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %init_genrand.exit.i.i, label %for.body.i.i.i, !llvm.loop !9
 
 init_genrand.exit.i.i:                            ; preds = %for.body.i.i.i
   %index.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
@@ -739,7 +739,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %for.b
   %spec.store.select.i.i = select i1 %cmp13.not.i.i, i64 %inc8.i.i, i64 0
   %dec.i.i = add nsw i64 %k.035.i.i, -1
   %tobool.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %tobool.not.i.i, label %for.body19.i.i, label %for.body.i.i, !llvm.loop !11
+  br i1 %tobool.not.i.i, label %for.body19.i.i, label %for.body.i.i, !llvm.loop !10
 
 for.body19.i.i:                                   ; preds = %if.end.i.i, %for.inc39.i.i
   %i.238.i.i = phi i64 [ %i.3.i.i, %for.inc39.i.i ], [ %i.1.i.i, %if.end.i.i ]
@@ -768,7 +768,7 @@ for.inc39.i.i:                                    ; preds = %if.then35.i.i, %for
   %i.3.i.i = phi i64 [ 1, %if.then35.i.i ], [ %inc32.i.i, %for.body19.i.i ]
   %dec40.i.i = add nsw i64 %k.137.i.i, -1
   %tobool18.not.i.i = icmp eq i64 %dec40.i.i, 0
-  br i1 %tobool18.not.i.i, label %random_seed_urandom.exit, label %for.body19.i.i, !llvm.loop !12
+  br i1 %tobool18.not.i.i, label %random_seed_urandom.exit, label %for.body19.i.i, !llvm.loop !11
 
 random_seed_urandom.exit:                         ; preds = %for.inc39.i.i
   store i32 -2147483648, ptr %state.i.i, align 4
@@ -813,7 +813,7 @@ for.body.i.i.i26:                                 ; preds = %for.body.i.i.i26, %
   store i32 %add.i.i.i32, ptr %9, align 4
   %indvars.iv.next.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i27, 1
   %exitcond.not.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i33, 624
-  br i1 %exitcond.not.i.i.i34, label %init_genrand.exit.i.i35, label %for.body.i.i.i26, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i34, label %init_genrand.exit.i.i35, label %for.body.i.i.i26, !llvm.loop !9
 
 init_genrand.exit.i.i35:                          ; preds = %for.body.i.i.i26
   %index.i.i.i36 = getelementptr inbounds i8, ptr %self, i64 16
@@ -855,7 +855,7 @@ if.end.i.i55:                                     ; preds = %if.then.i.i80, %for
   %spec.store.select.i.i58 = select i1 %cmp13.not.i.i57, i64 %inc8.i.i53, i64 0
   %dec.i.i59 = add nsw i64 %k.035.i.i40, -1
   %tobool.not.i.i60 = icmp eq i64 %dec.i.i59, 0
-  br i1 %tobool.not.i.i60, label %for.body19.i.i61, label %for.body.i.i38, !llvm.loop !11
+  br i1 %tobool.not.i.i60, label %for.body19.i.i61, label %for.body.i.i38, !llvm.loop !10
 
 for.body19.i.i61:                                 ; preds = %if.end.i.i55, %for.inc39.i.i74
   %i.238.i.i62 = phi i64 [ %i.3.i.i75, %for.inc39.i.i74 ], [ %i.1.i.i56, %if.end.i.i55 ]
@@ -884,7 +884,7 @@ for.inc39.i.i74:                                  ; preds = %if.then35.i.i79, %f
   %i.3.i.i75 = phi i64 [ 1, %if.then35.i.i79 ], [ %inc32.i.i72, %for.body19.i.i61 ]
   %dec40.i.i76 = add nsw i64 %k.137.i.i63, -1
   %tobool18.not.i.i77 = icmp eq i64 %dec40.i.i76, 0
-  br i1 %tobool18.not.i.i77, label %random_seed_time_pid.exit, label %for.body19.i.i61, !llvm.loop !12
+  br i1 %tobool18.not.i.i77, label %random_seed_time_pid.exit, label %for.body19.i.i61, !llvm.loop !11
 
 random_seed_time_pid.exit:                        ; preds = %for.inc39.i.i74
   store i32 -2147483648, ptr %state.i.i25, align 4
@@ -980,7 +980,7 @@ for.body.i.i85:                                   ; preds = %for.body.i.i85, %if
   store i32 %add.i.i90, ptr %24, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 624
-  br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %for.body.i.i85, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %for.body.i.i85, !llvm.loop !9
 
 init_genrand.exit.i:                              ; preds = %for.body.i.i85
   %index.i.i = getelementptr inbounds i8, ptr %self, i64 16
@@ -1023,7 +1023,7 @@ if.end.i94:                                       ; preds = %if.then.i, %for.bod
   %spec.store.select.i = select i1 %cmp13.not.i, i64 %inc8.i, i64 0
   %dec.i = add nsw i64 %k.035.i, -1
   %tobool.not.i = icmp eq i64 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body19.i, label %for.body.i, !llvm.loop !11
+  br i1 %tobool.not.i, label %for.body19.i, label %for.body.i, !llvm.loop !10
 
 for.body19.i:                                     ; preds = %if.end.i94, %for.inc39.i
   %i.238.i = phi i64 [ %i.3.i, %for.inc39.i ], [ %i.1.i, %if.end.i94 ]
@@ -1052,7 +1052,7 @@ for.inc39.i:                                      ; preds = %if.then35.i, %for.b
   %i.3.i = phi i64 [ 1, %if.then35.i ], [ %inc32.i, %for.body19.i ]
   %dec40.i = add nsw i64 %k.137.i, -1
   %tobool18.not.i = icmp eq i64 %dec40.i, 0
-  br i1 %tobool18.not.i, label %Done, label %for.body19.i, !llvm.loop !12
+  br i1 %tobool18.not.i, label %Done, label %for.body19.i, !llvm.loop !11
 
 Done:                                             ; preds = %for.inc39.i
   store i32 -2147483648, ptr %state.i, align 4
@@ -1197,7 +1197,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %sub26 = add i32 %k.addr.019, -32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body
   %call29 = tail call ptr @_PyLong_FromByteArray(ptr noundef nonnull %call11, i64 noundef %conv10, i32 noundef 1, i32 noundef 0) #8
@@ -1243,13 +1243,12 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

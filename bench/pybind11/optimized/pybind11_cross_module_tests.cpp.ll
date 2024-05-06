@@ -5697,8 +5697,8 @@ $_ZTISt6vectorIfSaIfEE = comdat any
 @_ZZN8pybind1112cpp_function10initializeIZ10bind_localI9LocalBaseILi7EELi0EJRNS_7module_ERA14_KcNS_12module_localEEENS_6class_IT_JEEEDpOT1_EUlRS4_E_iJSH_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOSC_PFT0_DpSE_EDpRKT2_E9signature = linkonce_odr hidden constant %"struct.pybind11::detail::descr.472" { [13 x i8] c"({%}) -> int\00" }, comdat, align 1
 @_ZZN8pybind1112cpp_function10initializeIZ10bind_localI9LocalBaseILi7EELi0EJRNS_7module_ERA14_KcNS_12module_localEEENS_6class_IT_JEEEDpOT1_EUlRS4_E_iJSH_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOSC_PFT0_DpSE_EDpRKT2_E5types = linkonce_odr hidden constant %"struct.std::array" { [2 x ptr] [ptr @_ZTI9LocalBaseILi7EE, ptr null] }, comdat, align 8
 @_ZZN8pybind116detail23register_exception_implI20LocalSimpleExceptionEERNS_9exceptionIT_EENS_6handleEPKcS7_bE11exc_storage = linkonce_odr hidden global { [8 x i8], %"struct.std::once_flag", i8 } zeroinitializer, comdat, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @.str.171 = private unnamed_addr constant [75 x i8] c"Error during initialization: multiple incompatible definitions with name \22\00", align 1
 @.str.172 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @_ZTS20LocalSimpleException = linkonce_odr hidden constant [23 x i8] c"20LocalSimpleException\00", comdat, align 1
@@ -134714,7 +134714,7 @@ _ZN8pybind116detail7cast_opIRKSt6vectorI9LocalBaseILi0EESaIS4_EEEENS0_11type_cas
   %47 = ptrtoint ptr %.val2.i.i22.i to i64
   %48 = ptrtoint ptr %.val.i.i21.i to i64
   %49 = sub i64 %47, %48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !3933
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !3933
   %.not.i.i.i.i.i.i.i23.i = icmp eq ptr %.val2.i.i22.i, %.val.i.i21.i
   br i1 %.not.i.i.i.i.i.i.i23.i, label %.thread.i.i.i28.i, label %52
 
@@ -151817,7 +151817,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   br label %"_ZZN8pybind1112cpp_function10initializeIZL41pybind11_init_pybind11_cross_module_testsRNS_7module_EE4$_24St6vectorIfSaIfEEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"
 
 9:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !alias.scope !4410
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !alias.scope !4410
   %10 = invoke ptr @_ZN8pybind116detail16type_caster_baseISt6vectorIfSaIfEEE4castEOS4_NS_19return_value_policyENS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext 4, ptr %.val2)
           to label %11 unwind label %14
 

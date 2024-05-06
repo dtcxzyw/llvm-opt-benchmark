@@ -486,20 +486,20 @@ if.then16.i:                                      ; preds = %if.end13.i
 
 if.else19.i:                                      ; preds = %if.end13.i
   %tobool20.not.i = icmp eq i32 %12, 0
-  br i1 %tobool20.not.i, label %if.end28.i, label %if.then.i.i.i.i.i30.i
+  br i1 %tobool20.not.i, label %if.end28.i, label %if.then.i.i.i.i.i31.i
 
-if.then.i.i.i.i.i30.i:                            ; preds = %if.else19.i
+if.then.i.i.i.i.i31.i:                            ; preds = %if.else19.i
   %16 = load ptr, ptr %dest, align 8
   %add.ptr24.idx.i = shl nuw nsw i64 %conv.i19.i, 1
   %17 = load ptr, ptr %buf, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %17, ptr align 2 %16, i64 %add.ptr24.idx.i, i1 false)
   br label %if.end28.i
 
-if.end28.i:                                       ; preds = %if.then.i.i.i.i.i30.i, %if.else19.i, %if.then16.i
-  %CurSize.0.i = phi i64 [ 0, %if.then16.i ], [ 0, %if.else19.i ], [ %conv.i19.i, %if.then.i.i.i.i.i30.i ]
+if.end28.i:                                       ; preds = %if.then.i.i.i.i.i31.i, %if.else19.i, %if.then16.i
+  %CurSize.0.i = phi i64 [ 0, %if.then16.i ], [ 0, %if.else19.i ], [ %conv.i19.i, %if.then.i.i.i.i.i31.i ]
   %18 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i34.i = zext i32 %18 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0.i, %conv.i34.i
+  %conv.i35.i = zext i32 %18 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0.i, %conv.i35.i
   br i1 %cmp.not.i.i, label %return.sink.split.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end28.i
@@ -508,7 +508,7 @@ if.then.i.i:                                      ; preds = %if.end28.i
   %add.ptr30.i = getelementptr inbounds i8, ptr %19, i64 %add.ptr30.idx.i
   %20 = load ptr, ptr %buf, align 8
   %add.ptr33.i = getelementptr inbounds i16, ptr %20, i64 %CurSize.0.i
-  %21 = sub nsw i64 %conv.i34.i, %CurSize.0.i
+  %21 = sub nsw i64 %conv.i35.i, %CurSize.0.i
   %gepdiff.i = shl nsw i64 %21, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i, ptr align 2 %add.ptr30.i, i64 %gepdiff.i, i1 false)
   br label %return.sink.split.i
@@ -698,20 +698,20 @@ if.then16.i:                                      ; preds = %if.end13.i
 
 if.else19.i:                                      ; preds = %if.end13.i
   %tobool20.not.i = icmp eq i32 %12, 0
-  br i1 %tobool20.not.i, label %if.end28.i, label %if.then.i.i.i.i.i30.i
+  br i1 %tobool20.not.i, label %if.end28.i, label %if.then.i.i.i.i.i31.i
 
-if.then.i.i.i.i.i30.i:                            ; preds = %if.else19.i
+if.then.i.i.i.i.i31.i:                            ; preds = %if.else19.i
   %16 = load ptr, ptr %dest, align 8
   %add.ptr24.idx.i = shl nuw nsw i64 %conv.i19.i, 1
   %17 = load ptr, ptr %buf, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %17, ptr align 2 %16, i64 %add.ptr24.idx.i, i1 false)
   br label %if.end28.i
 
-if.end28.i:                                       ; preds = %if.then.i.i.i.i.i30.i, %if.else19.i, %if.then16.i
-  %CurSize.0.i = phi i64 [ 0, %if.then16.i ], [ 0, %if.else19.i ], [ %conv.i19.i, %if.then.i.i.i.i.i30.i ]
+if.end28.i:                                       ; preds = %if.then.i.i.i.i.i31.i, %if.else19.i, %if.then16.i
+  %CurSize.0.i = phi i64 [ 0, %if.then16.i ], [ 0, %if.else19.i ], [ %conv.i19.i, %if.then.i.i.i.i.i31.i ]
   %18 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i34.i = zext i32 %18 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0.i, %conv.i34.i
+  %conv.i35.i = zext i32 %18 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0.i, %conv.i35.i
   br i1 %cmp.not.i.i, label %return.sink.split.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end28.i
@@ -720,7 +720,7 @@ if.then.i.i:                                      ; preds = %if.end28.i
   %add.ptr30.i = getelementptr inbounds i8, ptr %19, i64 %add.ptr30.idx.i
   %20 = load ptr, ptr %buf, align 8
   %add.ptr33.i = getelementptr inbounds i16, ptr %20, i64 %CurSize.0.i
-  %21 = sub nsw i64 %conv.i34.i, %CurSize.0.i
+  %21 = sub nsw i64 %conv.i35.i, %CurSize.0.i
   %gepdiff.i = shl nsw i64 %21, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i, ptr align 2 %add.ptr30.i, i64 %gepdiff.i, i1 false)
   br label %return.sink.split.i

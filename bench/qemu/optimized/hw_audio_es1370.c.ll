@@ -285,7 +285,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @es1370_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @es1370_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %_now.i.i43 = alloca %struct.timeval, align 8
   %_now.i.i29 = alloca %struct.timeval, align 8
@@ -857,7 +857,7 @@ if.then:                                          ; preds = %for.body
   %shr10 = lshr i32 %shr, 1
   %add = add nuw i32 %and9, %shr10
   store i32 %add, ptr %arrayidx, align 4
-  %conv = trunc i64 %i.050 to i32
+  %conv = trunc nuw nsw i64 %i.050 to i32
   %and11 = and i32 %shr, 2
   %tobool.not = icmp eq i32 %and11, 0
   %cond = select i1 %tobool.not, ptr @.str.16, ptr @.str.15
@@ -1213,7 +1213,7 @@ if.end78.i:                                       ; preds = %if.end72.i, %while.
   br i1 %cmp79.i, label %if.then81.i, label %if.else87.i
 
 if.then81.i:                                      ; preds = %if.end78.i
-  %tobool82.i = trunc i8 %frombool to i1
+  %tobool82.i = trunc nuw i8 %frombool to i1
   br i1 %tobool82.i, label %if.then83.i, label %if.end95.i
 
 if.then83.i:                                      ; preds = %if.then81.i
@@ -1345,7 +1345,7 @@ trace_es1370_transfer_audio.exit.i:               ; preds = %if.else.i.i88.i, %i
 es1370_transfer_audio.exit:                       ; preds = %land.end, %trace_es1370_transfer_audio.exit.i
   %irq.1 = phi i8 [ %frombool, %land.end ], [ %irq.0, %trace_es1370_transfer_audio.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %tmpbuf.i)
-  %tobool15 = trunc i8 %irq.1 to i1
+  %tobool15 = trunc nuw i8 %irq.1 to i1
   br i1 %tobool15, label %if.then16, label %if.end24
 
 if.then16:                                        ; preds = %es1370_transfer_audio.exit

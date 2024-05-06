@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_cvar_get_info = weak alias i32 (i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @PMPI_T_cvar_get_info
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_T_cvar_get_info(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly %8, ptr noundef writeonly %9) #0 {
+define range(i32 0, 73) i32 @PMPI_T_cvar_get_info(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly %8, ptr noundef writeonly %9) #0 {
   %11 = alloca ptr, align 8
   %12 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not37 = icmp eq i32 %12, 0

@@ -237,7 +237,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @acd_evaluate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, -2147483648) i32 @acd_evaluate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.acd::ac_decomposition_params", align 4
   %8 = alloca %"struct.acd::ac_decomposition_stats", align 4
   %9 = alloca %"class.acd::ac_decomposition_impl", align 8
@@ -595,7 +595,7 @@ _ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EED2Ev.exit9: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @acd_decompose(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @acd_decompose(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.acd::ac_decomposition_params", align 4
   %7 = alloca %"struct.acd::ac_decomposition_stats", align 4
   %8 = alloca %"class.acd::ac_decomposition_impl", align 8
@@ -9711,9 +9711,9 @@ _ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m
 
 .thread:                                          ; preds = %59
   tail call void @_ZNSt16allocator_traitsISaIN3acd23ac_decomposition_resultEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24) #17
-  br label %_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit35
+  br label %_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-63:                                               ; preds = %_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit35
+63:                                               ; preds = %_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit37
   %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -9721,9 +9721,9 @@ _ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m
 
 65:                                               ; preds = %59
   tail call void @_ZdlPv(ptr noundef nonnull %23) #18
-  br label %_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit35
+  br label %_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %65, %.thread
+_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %65, %.thread
   invoke void @__cxa_rethrow() #20
           to label %70 unwind label %63
 
@@ -9737,7 +9737,7 @@ _ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m
   tail call void @__clang_call_terminate(ptr %69) #19
   unreachable
 
-70:                                               ; preds = %_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit35
+70:                                               ; preds = %_ZNSt12_Vector_baseIN3acd23ac_decomposition_resultESaIS1_EE13_M_deallocateEPS1_m.exit37
   unreachable
 }
 

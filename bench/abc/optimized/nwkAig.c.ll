@@ -22,10 +22,10 @@ define ptr @Nwk_ManDeriveFromAig(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #12
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #13
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #11
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #11
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %7
@@ -37,10 +37,10 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %7
   br i1 %.not.i57, label %Abc_UtilStrsav.exit58, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #12
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #12
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #13
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #11
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #11
   br label %Abc_UtilStrsav.exit58
 
 Abc_UtilStrsav.exit58:                            ; preds = %Abc_UtilStrsav.exit, %15
@@ -468,10 +468,10 @@ define ptr @Nwk_ManCreateFromGia(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #12
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #12
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #13
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #11
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #11
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %5, %8
@@ -1665,7 +1665,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

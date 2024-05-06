@@ -176,7 +176,7 @@ BufferGetPage.exit.i:                             ; preds = %58, %52
 
 94:                                               ; preds = %85, %71, %68
   %95 = lshr i64 %35, 32
-  %96 = trunc i64 %95 to i32
+  %96 = trunc nuw i64 %95 to i32
   store i32 %96, ptr %.0.i.i.i, align 4
   %97 = trunc i64 %35 to i32
   %98 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -246,7 +246,7 @@ BufferGetPage.exit48.i:                           ; preds = %118, %112
   %137 = load i16, ptr %136, align 2
   call void @spgUpdateNodeLink(ptr noundef %131, i32 noundef %134, i32 noundef %135, i16 noundef zeroext %137) #6
   %138 = lshr i64 %35, 32
-  %139 = trunc i64 %138 to i32
+  %139 = trunc nuw i64 %138 to i32
   store i32 %139, ptr %.0.i.i47.i, align 4
   %140 = trunc i64 %35 to i32
   %141 = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 4
@@ -281,7 +281,7 @@ spgRedoAddLeaf.exit:                              ; preds = %103, %143, %145
   %151 = getelementptr inbounds i8, ptr %150, i64 12
   %152 = load i64, ptr %151, align 4
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %152 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false)
   %153 = getelementptr inbounds i8, ptr %18, i64 88
   store i32 %.sroa.0.0.extract.trunc.i.i, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %18, i64 92
@@ -365,7 +365,7 @@ BufferGetPage.exit.i14:                           ; preds = %191, %185
 
 203:                                              ; preds = %197
   %204 = lshr i64 %148, 32
-  %205 = trunc i64 %204 to i32
+  %205 = trunc nuw i64 %204 to i32
   store i32 %205, ptr %.0.i.i.i15, align 4
   %206 = trunc i64 %148 to i32
   %207 = getelementptr inbounds i8, ptr %.0.i.i.i15, i64 4
@@ -421,7 +421,7 @@ BufferGetPage.exit52.i:                           ; preds = %224, %218
   %237 = load i16, ptr %236, align 2
   call void @spgPageIndexMultiDelete(ptr noundef nonnull %18, ptr noundef %.0.i.i51.i, ptr noundef %166, i32 noundef %231, i32 noundef %233, i32 noundef 3, i32 noundef %234, i16 noundef zeroext %237) #6
   %238 = lshr i64 %148, 32
-  %239 = trunc i64 %238 to i32
+  %239 = trunc nuw i64 %238 to i32
   store i32 %239, ptr %.0.i.i51.i, align 4
   %240 = trunc i64 %148 to i32
   %241 = getelementptr inbounds i8, ptr %.0.i.i51.i, i64 4
@@ -486,7 +486,7 @@ BufferGetPage.exit54.i:                           ; preds = %258, %252
   %279 = load i16, ptr %278, align 2
   call void @spgUpdateNodeLink(ptr noundef %272, i32 noundef %275, i32 noundef %276, i16 noundef zeroext %279) #6
   %280 = lshr i64 %148, 32
-  %281 = trunc i64 %280 to i32
+  %281 = trunc nuw i64 %280 to i32
   store i32 %281, ptr %.0.i.i53.i, align 4
   %282 = trunc i64 %148 to i32
   %283 = getelementptr inbounds i8, ptr %.0.i.i53.i, i64 4
@@ -525,7 +525,7 @@ spgRedoMoveLeafs.exit:                            ; preds = %285, %287
   %294 = getelementptr inbounds i8, ptr %292, i64 12
   %295 = load i64, ptr %294, align 4
   %.sroa.0.0.extract.trunc.i.i18 = trunc i64 %295 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false)
   %296 = getelementptr inbounds i8, ptr %14, i64 88
   store i32 %.sroa.0.0.extract.trunc.i.i18, ptr %296, align 8
   %297 = getelementptr inbounds i8, ptr %14, i64 92
@@ -595,7 +595,7 @@ BufferGetPage.exit.i19:                           ; preds = %323, %317
 
 338:                                              ; preds = %BufferGetPage.exit.i19
   %339 = lshr i64 %290, 32
-  %340 = trunc i64 %339 to i32
+  %340 = trunc nuw i64 %339 to i32
   store i32 %340, ptr %.0.i.i.i20, align 4
   %341 = trunc i64 %290 to i32
   %342 = getelementptr inbounds i8, ptr %.0.i.i.i20, i64 4
@@ -681,7 +681,7 @@ BufferGetPage.exit73.i:                           ; preds = %363, %357
 
 390:                                              ; preds = %375, %BufferGetPage.exit73.i
   %391 = lshr i64 %290, 32
-  %392 = trunc i64 %391 to i32
+  %392 = trunc nuw i64 %391 to i32
   store i32 %392, ptr %.0.i.i72.i, align 4
   %393 = trunc i64 %290 to i32
   %394 = getelementptr inbounds i8, ptr %.0.i.i72.i, i64 4
@@ -803,7 +803,7 @@ BufferGetPage.exit75.i:                           ; preds = %411, %405
 
 468:                                              ; preds = %452, %439
   %469 = lshr i64 %290, 32
-  %470 = trunc i64 %469 to i32
+  %470 = trunc nuw i64 %469 to i32
   store i32 %470, ptr %.0.i.i74.i, align 4
   %471 = trunc i64 %290 to i32
   %472 = getelementptr inbounds i8, ptr %.0.i.i74.i, i64 4
@@ -873,7 +873,7 @@ BufferGetPage.exit77.i:                           ; preds = %493, %487
   %513 = load i16, ptr %512, align 2
   call void @spgUpdateNodeLink(ptr noundef %507, i32 noundef %510, i32 noundef %511, i16 noundef zeroext %513) #6
   %514 = lshr i64 %290, 32
-  %515 = trunc i64 %514 to i32
+  %515 = trunc nuw i64 %514 to i32
   store i32 %515, ptr %.0.i.i76.i, align 4
   %516 = trunc i64 %290 to i32
   %517 = getelementptr inbounds i8, ptr %.0.i.i76.i, i64 4
@@ -966,7 +966,7 @@ BufferGetPage.exit.i29:                           ; preds = %549, %543
   %557 = load i16, ptr %556, align 2
   call fastcc void @addOrReplaceTuple(ptr noundef %.0.i.i.i30, ptr noundef %528, i32 noundef %555, i16 noundef zeroext %557)
   %558 = lshr i64 %523, 32
-  %559 = trunc i64 %558 to i32
+  %559 = trunc nuw i64 %558 to i32
   store i32 %559, ptr %.0.i.i.i30, align 4
   %560 = trunc i64 %523 to i32
   %561 = getelementptr inbounds i8, ptr %.0.i.i.i30, i64 4
@@ -1042,7 +1042,7 @@ BufferGetPage.exit37.i:                           ; preds = %578, %572
 
 599:                                              ; preds = %595, %592
   %600 = lshr i64 %523, 32
-  %601 = trunc i64 %600 to i32
+  %601 = trunc nuw i64 %600 to i32
   store i32 %601, ptr %.0.i.i36.i, align 4
   %602 = trunc i64 %523 to i32
   %603 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 4
@@ -1079,7 +1079,7 @@ spgRedoSplitTuple.exit:                           ; preds = %605, %607
   %613 = getelementptr inbounds i8, ptr %612, i64 20
   %614 = load i64, ptr %613, align 4
   %.sroa.0.0.extract.trunc.i.i32 = trunc i64 %614 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
   %615 = getelementptr inbounds i8, ptr %7, i64 88
   store i32 %.sroa.0.0.extract.trunc.i.i32, ptr %615, align 8
   %616 = getelementptr inbounds i8, ptr %7, i64 92
@@ -1319,7 +1319,7 @@ BufferGetPage.exit101.i:                          ; preds = %735, %729, %723, %B
 
 757:                                              ; preds = %._crit_edge.i39
   %758 = lshr i64 %610, 32
-  %759 = trunc i64 %758 to i32
+  %759 = trunc nuw i64 %758 to i32
   store i32 %759, ptr %.088.i, align 4
   %760 = trunc i64 %610 to i32
   %761 = getelementptr inbounds i8, ptr %.088.i, i64 4
@@ -1334,7 +1334,7 @@ BufferGetPage.exit101.i:                          ; preds = %735, %729, %723, %B
 
 764:                                              ; preds = %763
   %765 = lshr i64 %610, 32
-  %766 = trunc i64 %765 to i32
+  %766 = trunc nuw i64 %765 to i32
   store i32 %766, ptr %.089.i, align 4
   %767 = trunc i64 %610 to i32
   %768 = getelementptr inbounds i8, ptr %.089.i, i64 4
@@ -1420,7 +1420,7 @@ BufferGetPage.exit103.i:                          ; preds = %791, %785
 
 817:                                              ; preds = %802, %BufferGetPage.exit103.i
   %818 = lshr i64 %610, 32
-  %819 = trunc i64 %818 to i32
+  %819 = trunc nuw i64 %818 to i32
   store i32 %819, ptr %.0.i.i102.i, align 4
   %820 = trunc i64 %610 to i32
   %821 = getelementptr inbounds i8, ptr %.0.i.i102.i, i64 4
@@ -1515,7 +1515,7 @@ BufferGetPage.exit105.i:                          ; preds = %853, %847
   %873 = load i16, ptr %872, align 4
   call void @spgUpdateNodeLink(ptr noundef %867, i32 noundef %870, i32 noundef %871, i16 noundef zeroext %873) #6
   %874 = lshr i64 %610, 32
-  %875 = trunc i64 %874 to i32
+  %875 = trunc nuw i64 %874 to i32
   store i32 %875, ptr %.0.i.i104.i, align 4
   %876 = trunc i64 %610 to i32
   %877 = getelementptr inbounds i8, ptr %.0.i.i104.i, i64 4
@@ -1552,7 +1552,7 @@ spgRedoPickSplit.exit:                            ; preds = %832, %837, %879, %8
   %887 = getelementptr inbounds i8, ptr %886, i64 8
   %888 = load i64, ptr %887, align 4
   %.sroa.0.0.extract.trunc.i.i45 = trunc i64 %888 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %889 = getelementptr inbounds i8, ptr %5, i64 88
   store i32 %.sroa.0.0.extract.trunc.i.i45, ptr %889, align 8
   %890 = getelementptr inbounds i8, ptr %5, i64 92
@@ -1689,7 +1689,7 @@ BufferGetPage.exit.i47:                           ; preds = %928, %922
 
 ._crit_edge62.i:                                  ; preds = %958, %._crit_edge.i53
   %975 = lshr i64 %884, 32
-  %976 = trunc i64 %975 to i32
+  %976 = trunc nuw i64 %975 to i32
   store i32 %976, ptr %.0.i.i.i48, align 4
   %977 = trunc i64 %884 to i32
   store i32 %977, ptr %invariant.gep.i, align 4
@@ -1749,7 +1749,7 @@ BufferGetPage.exit.i56:                           ; preds = %999, %993
   %1006 = zext i16 %1005 to i32
   call void @PageIndexMultiDelete(ptr noundef %.0.i.i.i57, ptr noundef nonnull %990, i32 noundef %1006) #6
   %1007 = lshr i64 %984, 32
-  %1008 = trunc i64 %1007 to i32
+  %1008 = trunc nuw i64 %1007 to i32
   store i32 %1008, ptr %.0.i.i.i57, align 4
   %1009 = trunc i64 %984 to i32
   %1010 = getelementptr inbounds i8, ptr %.0.i.i.i57, i64 4
@@ -1898,7 +1898,7 @@ BufferGetPage.exit.i58:                           ; preds = %1041, %1035
 
 .lr.ph51.i:                                       ; preds = %1079, %.lr.ph51.i
   %.149.i = phi i32 [ %1098, %.lr.ph51.i ], [ %1091, %1079 ]
-  %1092 = trunc i32 %.149.i to i16
+  %1092 = trunc nuw i32 %.149.i to i16
   %1093 = load i16, ptr %1077, align 2
   %1094 = zext i16 %1093 to i32
   %1095 = sub nsw i32 %.149.i, %1094
@@ -1928,7 +1928,7 @@ BufferGetPage.exit.i58:                           ; preds = %1041, %1035
 
 1104:                                             ; preds = %._crit_edge52.i, %._crit_edge.i63
   %1105 = lshr i64 %1017, 32
-  %1106 = trunc i64 %1105 to i32
+  %1106 = trunc nuw i64 %1105 to i32
   store i32 %1106, ptr %.0.i.i.i59, align 4
   %1107 = trunc i64 %1017 to i32
   %1108 = getelementptr inbounds i8, ptr %.0.i.i.i59, i64 4

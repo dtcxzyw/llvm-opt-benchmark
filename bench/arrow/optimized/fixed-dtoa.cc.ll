@@ -13,7 +13,7 @@ entry:
   %add.i = or disjoint i64 %and.i, 4503599627370496
   %retval.0.i = select i1 %cmp.i.i, i64 %and.i, i64 %add.i
   %and.i62 = lshr i64 %0, 52
-  %1 = trunc i64 %and.i62 to i32
+  %1 = trunc nuw nsw i64 %and.i62 to i32
   %conv.i = and i32 %1, 2047
   %sub.i = add nsw i32 %conv.i, -1075
   %retval.0.i63 = select i1 %cmp.i.i, i32 -1074, i32 %sub.i
@@ -53,7 +53,7 @@ if.else:                                          ; preds = %if.then7
 if.end20:                                         ; preds = %if.else, %if.then9
   %remainder.0 = phi i64 [ %shl11, %if.then9 ], [ %shl19, %if.else ]
   %quotient.0.in = phi i64 [ %div, %if.then9 ], [ %div15, %if.else ]
-  %quotient.0 = trunc i64 %quotient.0.in to i32
+  %quotient.0 = trunc nuw nsw i64 %quotient.0.in to i32
   %cmp.not27.i = icmp eq i32 %quotient.0, 0
   br i1 %cmp.not27.i, label %while.end.i, label %while.body.i
 
@@ -62,7 +62,7 @@ while.body.i:                                     ; preds = %if.end20, %while.bo
   %number_length.028.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.end20 ]
   %rem.i = urem i32 %number.addr.029.i, 10
   %div.i = udiv i32 %number.addr.029.i, 10
-  %2 = trunc i32 %rem.i to i8
+  %2 = trunc nuw nsw i32 %rem.i to i8
   %conv.i64 = or disjoint i8 %2, 48
   %3 = load i32, ptr %length, align 4
   %add1.i = add nsw i32 %3, %number_length.028.i
@@ -115,7 +115,7 @@ _ZN14arrow_vendored17double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit: ;
   %div.i66 = udiv i64 %remainder.0, 10000000
   %rem.i65 = urem i64 %remainder.0, 10000000
   %div3.i = udiv i64 %remainder.0, 100000000000000
-  %conv4.i = trunc i64 %div3.i to i32
+  %conv4.i = trunc nuw nsw i64 %div3.i to i32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN14arrow_vendored17double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit
@@ -123,7 +123,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN1
   %number.addr.07.i.i = phi i32 [ %div.i.i, %for.body.i.i ], [ %conv4.i, %_ZN14arrow_vendored17double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit ]
   %i.0.i.i = add nsw i32 %i.0.in8.i.i, -1
   %rem.i.i = urem i32 %number.addr.07.i.i, 10
-  %9 = trunc i32 %rem.i.i to i8
+  %9 = trunc nuw nsw i32 %rem.i.i to i8
   %conv.i.i = or disjoint i8 %9, 48
   %10 = load i32, ptr %length, align 4
   %add1.i.i = add nsw i32 %10, %i.0.i.i
@@ -136,7 +136,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN1
 
 _ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i: ; preds = %for.body.i.i
   %rem1.i = urem i64 %div.i66, 10000000
-  %conv2.i = trunc i64 %rem1.i to i32
+  %conv2.i = trunc nuw nsw i64 %rem1.i to i32
   %11 = load i32, ptr %length, align 4
   %add2.i.i = add nsw i32 %11, 3
   store i32 %add2.i.i, ptr %length, align 4
@@ -147,7 +147,7 @@ for.body.i10.i:                                   ; preds = %for.body.i10.i, %_Z
   %number.addr.07.i12.i = phi i32 [ %div.i19.i, %for.body.i10.i ], [ %conv2.i, %_ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i ]
   %i.0.i13.i = add nsw i32 %i.0.in8.i11.i, -1
   %rem.i14.i = urem i32 %number.addr.07.i12.i, 10
-  %12 = trunc i32 %rem.i14.i to i8
+  %12 = trunc nuw nsw i32 %rem.i14.i to i8
   %conv.i15.i = or disjoint i8 %12, 48
   %13 = load i32, ptr %length, align 4
   %add1.i16.i = add nsw i32 %13, %i.0.i13.i
@@ -159,7 +159,7 @@ for.body.i10.i:                                   ; preds = %for.body.i10.i, %_Z
   br i1 %cmp.i20.i, label %for.body.i10.i, label %_ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit22.i, !llvm.loop !7
 
 _ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit22.i: ; preds = %for.body.i10.i
-  %conv.i68 = trunc i64 %rem.i65 to i32
+  %conv.i68 = trunc nuw nsw i64 %rem.i65 to i32
   %14 = load i32, ptr %length, align 4
   %add2.i21.i = add nsw i32 %14, 7
   store i32 %add2.i21.i, ptr %length, align 4
@@ -170,7 +170,7 @@ for.body.i23.i:                                   ; preds = %for.body.i23.i, %_Z
   %number.addr.07.i25.i = phi i32 [ %div.i32.i, %for.body.i23.i ], [ %conv.i68, %_ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit22.i ]
   %i.0.i26.i = add nsw i32 %i.0.in8.i24.i, -1
   %rem.i27.i = urem i32 %number.addr.07.i25.i, 10
-  %15 = trunc i32 %rem.i27.i to i8
+  %15 = trunc nuw nsw i32 %rem.i27.i to i8
   %conv.i28.i = or disjoint i8 %15, 48
   %16 = load i32, ptr %length, align 4
   %add1.i29.i = add nsw i32 %16, %i.0.i26.i
@@ -219,7 +219,7 @@ if.then38:                                        ; preds = %if.then30
   br label %if.end43
 
 if.else40:                                        ; preds = %if.then30
-  %conv41 = trunc i64 %shr to i32
+  %conv41 = trunc nuw i64 %shr to i32
   %cmp.not27.i69 = icmp eq i32 %conv41, 0
   br i1 %cmp.not27.i69, label %while.end.i81, label %while.body.i70
 
@@ -228,7 +228,7 @@ while.body.i70:                                   ; preds = %if.else40, %while.b
   %number_length.028.i72 = phi i32 [ %inc.i79, %while.body.i70 ], [ 0, %if.else40 ]
   %rem.i73 = urem i32 %number.addr.029.i71, 10
   %div.i74 = udiv i32 %number.addr.029.i71, 10
-  %19 = trunc i32 %rem.i73 to i8
+  %19 = trunc nuw nsw i32 %rem.i73 to i8
   %conv.i75 = or disjoint i8 %19, 48
   %20 = load i32, ptr %length, align 4
   %add1.i76 = add nsw i32 %20, %number_length.028.i72
@@ -325,7 +325,7 @@ land.rhs.i:                                       ; preds = %while.body.i105
 while.body.i105:                                  ; preds = %land.rhs.preheader.i, %land.rhs.i
   %indvars.iv.next.i101122 = phi i64 [ %indvars.iv.next.i101, %land.rhs.i ], [ %indvars.iv.next.i101118, %land.rhs.preheader.i ]
   %indvars.iv.i100121 = phi i64 [ %indvars.iv.next.i101122, %land.rhs.i ], [ %27, %land.rhs.preheader.i ]
-  %30 = trunc i64 %indvars.iv.next.i101122 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv.next.i101122 to i32
   store i32 %30, ptr %length, align 4
   %cmp.i = icmp ugt i64 %indvars.iv.i100121, 1
   br i1 %cmp.i, label %land.rhs.i, label %_ZN14arrow_vendored17double_conversionL9TrimZerosENS0_6VectorIcEEPiS3_.exit, !llvm.loop !8
@@ -353,7 +353,7 @@ while.body9.i:                                    ; preds = %land.rhs4.i
   br i1 %exitcond.not.i, label %while.end10.i, label %land.rhs4.i, !llvm.loop !9
 
 while.end10.split.loop.exit.i:                    ; preds = %land.rhs4.i
-  %32 = trunc i64 %indvars.iv38.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv38.i to i32
   br label %while.end10.i
 
 while.end10.i:                                    ; preds = %while.body9.i, %while.end10.split.loop.exit.i
@@ -414,12 +414,12 @@ return:                                           ; preds = %_ZN14arrow_vendored
 define internal fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %number, ptr nocapture %buffer.coerce0, ptr nocapture noundef %length) unnamed_addr #0 {
 entry:
   %rem = urem i64 %number, 10000000
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nuw nsw i64 %rem to i32
   %div = udiv i64 %number, 10000000
   %rem1 = urem i64 %div, 10000000
-  %conv2 = trunc i64 %rem1 to i32
+  %conv2 = trunc nuw nsw i64 %rem1 to i32
   %div3 = udiv i64 %number, 100000000000000
-  %conv4 = trunc i64 %div3 to i32
+  %conv4 = trunc nuw nsw i64 %div3 to i32
   %cmp.not = icmp eq i32 %conv4, 0
   br i1 %cmp.not, label %if.else, label %while.body.i
 
@@ -428,7 +428,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %number_length.028.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %entry ]
   %rem.i = urem i32 %number.addr.029.i, 10
   %div.i = udiv i32 %number.addr.029.i, 10
-  %0 = trunc i32 %rem.i to i8
+  %0 = trunc nuw nsw i32 %rem.i to i8
   %conv.i = or disjoint i8 %0, 48
   %1 = load i32, ptr %length, align 4
   %add1.i = add nsw i32 %1, %number_length.028.i
@@ -479,7 +479,7 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN14a
   %number.addr.07.i = phi i32 [ %div.i29, %for.body.i ], [ %conv2, %_ZN14arrow_vendored17double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit ]
   %i.0.i = add nsw i32 %i.0.in8.i, -1
   %rem.i24 = urem i32 %number.addr.07.i, 10
-  %7 = trunc i32 %rem.i24 to i8
+  %7 = trunc nuw nsw i32 %rem.i24 to i8
   %conv.i25 = or disjoint i8 %7, 48
   %8 = load i32, ptr %length, align 4
   %add1.i26 = add nsw i32 %8, %i.0.i
@@ -501,7 +501,7 @@ for.body.i31:                                     ; preds = %for.body.i31, %_ZN1
   %number.addr.07.i33 = phi i32 [ %div.i40, %for.body.i31 ], [ %conv, %_ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit ]
   %i.0.i34 = add nsw i32 %i.0.in8.i32, -1
   %rem.i35 = urem i32 %number.addr.07.i33, 10
-  %10 = trunc i32 %rem.i35 to i8
+  %10 = trunc nuw nsw i32 %rem.i35 to i8
   %conv.i36 = or disjoint i8 %10, 48
   %11 = load i32, ptr %length, align 4
   %add1.i37 = add nsw i32 %11, %i.0.i34
@@ -521,7 +521,7 @@ while.body.i45:                                   ; preds = %if.else, %while.bod
   %number_length.028.i47 = phi i32 [ %inc.i54, %while.body.i45 ], [ 0, %if.else ]
   %rem.i48 = urem i32 %number.addr.029.i46, 10
   %div.i49 = udiv i32 %number.addr.029.i46, 10
-  %12 = trunc i32 %rem.i48 to i8
+  %12 = trunc nuw nsw i32 %rem.i48 to i8
   %conv.i50 = or disjoint i8 %12, 48
   %13 = load i32, ptr %length, align 4
   %add1.i51 = add nsw i32 %13, %number_length.028.i47
@@ -572,7 +572,7 @@ for.body.i75:                                     ; preds = %for.body.i75, %_ZN1
   %number.addr.07.i77 = phi i32 [ %div.i84, %for.body.i75 ], [ %conv, %_ZN14arrow_vendored17double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit74 ]
   %i.0.i78 = add nsw i32 %i.0.in8.i76, -1
   %rem.i79 = urem i32 %number.addr.07.i77, 10
-  %19 = trunc i32 %rem.i79 to i8
+  %19 = trunc nuw nsw i32 %rem.i79 to i8
   %conv.i80 = or disjoint i8 %19, 48
   %20 = load i32, ptr %length, align 4
   %add1.i81 = add nsw i32 %20, %i.0.i78
@@ -592,7 +592,7 @@ while.body.i89:                                   ; preds = %if.else11, %while.b
   %number_length.028.i91 = phi i32 [ %inc.i98, %while.body.i89 ], [ 0, %if.else11 ]
   %rem.i92 = urem i32 %number.addr.029.i90, 10
   %div.i93 = udiv i32 %number.addr.029.i90, 10
-  %21 = trunc i32 %rem.i92 to i8
+  %21 = trunc nuw nsw i32 %rem.i92 to i8
   %conv.i94 = or disjoint i8 %21, 48
   %22 = load i32, ptr %length, align 4
   %add1.i95 = add nsw i32 %22, %number_length.028.i91
@@ -720,8 +720,8 @@ if.end.i:                                         ; preds = %if.then15
   store i8 %inc.i, ptr %arrayidx.i.i, align 1
   %9 = load i32, ptr %length, align 4
   %invariant.gep.i = getelementptr i8, ptr %buffer.coerce0, i64 -2
-  %cmp322.i = icmp sgt i32 %9, 1
-  br i1 %cmp322.i, label %for.body.preheader.i, label %for.end.i
+  %cmp324.i = icmp sgt i32 %9, 1
+  br i1 %cmp324.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
   %10 = zext nneg i32 %9 to i64
@@ -867,8 +867,8 @@ if.end.i48:                                       ; preds = %if.then40
   store i8 %inc.i50, ptr %arrayidx.i.i49, align 1
   %25 = load i32, ptr %length, align 4
   %invariant.gep.i51 = getelementptr i8, ptr %buffer.coerce0, i64 -2
-  %cmp322.i52 = icmp sgt i32 %25, 1
-  br i1 %cmp322.i52, label %for.body.preheader.i57, label %for.end.i53
+  %cmp324.i52 = icmp sgt i32 %25, 1
+  br i1 %cmp324.i52, label %for.body.preheader.i57, label %for.end.i53
 
 for.body.preheader.i57:                           ; preds = %if.end.i48
   %26 = zext nneg i32 %25 to i64

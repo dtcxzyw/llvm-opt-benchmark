@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_misuse_handler = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @sodium_init() local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @sodium_init() local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_sodium_lock) #5
   %cmp.i = icmp eq i32 %call.i, 0
@@ -164,7 +164,7 @@ if.end4:                                          ; preds = %sodium_crit_leave.e
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @sodium_set_misuse_handler(ptr noundef %handler) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sodium_set_misuse_handler(ptr noundef %handler) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_sodium_lock) #5
   %cmp.i = icmp eq i32 %call.i, 0

@@ -90,7 +90,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_extract_power_resources(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, %1
@@ -416,7 +416,7 @@ define dso_local ptr @acpi_add_power_resource(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_device_power_add_dependent(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @acpi_device_power_add_dependent(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 116
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
@@ -836,7 +836,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_device_sleep_wake(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_device_sleep_wake(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca [3 x %union.acpi_object], align 16
   %6 = alloca %struct.acpi_object_list, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #10
@@ -973,7 +973,7 @@ define internal fastcc noundef i32 @acpi_power_on_list(ptr noundef readonly %0) 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call fastcc i32 @acpi_power_on(ptr noundef %8), !range !22
+  %9 = tail call fastcc i32 @acpi_power_on(ptr noundef %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %2, label %11, !llvm.loop !23
 
@@ -1085,7 +1085,7 @@ define internal fastcc void @acpi_power_off_list(ptr noundef readonly %0) unname
   %31 = phi ptr [ %35, %.preheader ], [ %29, %26 ]
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call fastcc i32 @acpi_power_on(ptr noundef %33), !range !22
+  %34 = tail call fastcc i32 @acpi_power_on(ptr noundef %33)
   %35 = load ptr, ptr %31, align 8
   %36 = icmp eq ptr %35, %0
   br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !25
@@ -1095,7 +1095,7 @@ define internal fastcc void @acpi_power_off_list(ptr noundef readonly %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_disable_wakeup_device_power(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @acpi_disable_wakeup_device_power(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %58, label %3
 
@@ -1628,7 +1628,7 @@ declare dso_local void @sysfs_remove_group(ptr noundef, ptr noundef) local_unnam
 declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_power_on(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_power_on(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1440
   tail call void @mutex_lock(ptr noundef %2) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 1432
@@ -1696,7 +1696,7 @@ declare dso_local void @acpi_free_pnp_ids(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @__pm_runtime_resume(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @resource_in_use_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @resource_in_use_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 816
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %5, 0

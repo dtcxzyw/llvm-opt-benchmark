@@ -433,7 +433,7 @@ if.then161:                                       ; preds = %if.else101, %if.els
 if.else172:                                       ; preds = %if.else101, %if.else155.thread.thread, %if.else155.thread
   %mySource.3115127133 = phi ptr [ %incdec.ptr, %if.else155.thread.thread ], [ %incdec.ptr, %if.else155.thread ], [ %mySource.0178, %if.else101 ]
   %mySourceChar.1113128132 = phi i32 [ %conv, %if.else155.thread.thread ], [ %or100, %if.else155.thread ], [ %and.le182, %if.else101 ]
-  %conv173 = trunc i32 %mySourceChar.1113128132 to i8
+  %conv173 = trunc nuw i32 %mySourceChar.1113128132 to i8
   %38 = load ptr, ptr %converter, align 8
   %toUBytes175 = getelementptr inbounds i8, ptr %38, i64 65
   store i8 %conv173, ptr %toUBytes175, align 1
@@ -526,7 +526,7 @@ if.then12:                                        ; preds = %while.body
   %arrayidx = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
   %11 = load i16, ptr %arrayidx, align 2
   %cmp14 = icmp eq i16 %11, 126
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   br i1 %cmp14, label %while.body18, label %if.else37
 
 while.body18:                                     ; preds = %if.then12, %if.end35
@@ -579,7 +579,7 @@ if.end35:                                         ; preds = %if.else, %if.end27
   br i1 %cmp17.not, label %while.cond.loopexit, label %while.body18, !llvm.loop !6
 
 if.else37:                                        ; preds = %if.then12
-  %18 = trunc i64 %indvars.iv.next to i32
+  %18 = trunc nsw i64 %indvars.iv.next to i32
   %conv13.le = zext i16 %11 to i32
   %cmp38 = icmp ult i16 %11, 128
   br i1 %cmp38, label %if.end58, label %if.else40
@@ -920,7 +920,7 @@ if.end242:                                        ; preds = %if.else211, %if.the
   br label %while.end248
 
 if.else246:                                       ; preds = %while.body
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nsw i64 %indvars.iv to i32
   store i32 15, ptr %err, align 4
   br label %while.end248
 
@@ -932,7 +932,7 @@ if.end247:                                        ; preds = %if.then149.thread, 
   br i1 %cmp10154, label %while.body.lr.ph, label %while.end248, !llvm.loop !9
 
 while.end248.loopexit:                            ; preds = %while.cond.loopexit
-  %53 = trunc i64 %indvars.iv.next to i32
+  %53 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end248
 
 while.end248:                                     ; preds = %if.end247, %while.end248.loopexit, %while.cond.preheader, %if.else246, %if.end242

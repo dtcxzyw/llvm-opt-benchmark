@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [11 x i8] c"TRAILER!!!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_format_cpio_pwb(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_pwb(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #9
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %archive_write_set_format_cpio_binary.exit, label %4
@@ -82,7 +82,7 @@ archive_write_set_format_cpio_binary.exit:        ; preds = %1, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_format_cpio_bin(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_bin(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #9
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %archive_write_set_format_cpio_binary.exit, label %4
@@ -141,7 +141,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_binary_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_binary_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.6) #11
@@ -177,7 +177,7 @@ define internal i32 @archive_write_binary_options(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_binary_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_binary_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = tail call i32 @archive_entry_filetype(ptr noundef %1) #9
@@ -267,7 +267,7 @@ get_sconv.exit:                                   ; preds = %11, %._crit_edge.i,
   br label %46
 
 44:                                               ; preds = %40
-  %45 = call fastcc i32 @write_header(ptr noundef nonnull %0, ptr noundef %1), !range !5
+  %45 = call fastcc i32 @write_header(ptr noundef nonnull %0, ptr noundef %1)
   br label %46
 
 46:                                               ; preds = %44, %43, %37, %28, %10
@@ -301,12 +301,12 @@ define internal i32 @archive_write_binary_finish_entry(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_binary_close(ptr noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_binary_close(ptr noundef %0) #0 {
   %2 = tail call ptr @archive_entry_new2(ptr noundef null) #9
   tail call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef 1) #9
   tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef 0) #9
   tail call void @archive_entry_set_pathname(ptr noundef %2, ptr noundef nonnull @.str.22) #9
-  %3 = tail call fastcc i32 @write_header(ptr noundef %0, ptr noundef %2), !range !5
+  %3 = tail call fastcc i32 @write_header(ptr noundef %0, ptr noundef %2)
   tail call void @archive_entry_free(ptr noundef %2) #9
   ret i32 %3
 }
@@ -342,7 +342,7 @@ declare i32 @archive_entry_size_is_set(ptr noundef) local_unnamed_addr #1
 declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @write_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.cpio_binary_header, align 2
@@ -435,7 +435,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 48:                                               ; preds = %50
   %49 = add nuw i64 %.03240.i, 1
   %exitcond.not.i = icmp eq i64 %49, %40
-  br i1 %exitcond.not.i, label %._crit_edge.i89, label %50, !llvm.loop !6
+  br i1 %exitcond.not.i, label %._crit_edge.i89, label %50, !llvm.loop !5
 
 50:                                               ; preds = %48, %.lr.ph.i
   %.03240.i = phi i64 [ 0, %.lr.ph.i ], [ %49, %48 ]
@@ -816,6 +816,5 @@ attributes #13 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -30, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

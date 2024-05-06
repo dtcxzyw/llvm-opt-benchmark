@@ -2582,12 +2582,12 @@ define internal void @finalize() #0 {
   br i1 %2, label %pmix_pointer_array_get_item.exit.preheader, label %._crit_edge
 
 pmix_pointer_array_get_item.exit.preheader:       ; preds = %0
-  %.pre22 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v3_component, i64 0, i32 2, i32 7), align 8
+  %.pre23 = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v3_component, i64 0, i32 2, i32 7), align 8
   br label %pmix_pointer_array_get_item.exit
 
 pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.preheader, %35
   %3 = phi i32 [ %1, %pmix_pointer_array_get_item.exit.preheader ], [ %36, %35 ]
-  %4 = phi ptr [ %.pre22, %pmix_pointer_array_get_item.exit.preheader ], [ %37, %35 ]
+  %4 = phi ptr [ %.pre23, %pmix_pointer_array_get_item.exit.preheader ], [ %37, %35 ]
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.preheader ], [ %indvars.iv.next, %35 ]
   %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
@@ -2649,14 +2649,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %18
   br label %32
 
 32:                                               ; preds = %29, %31, %12
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v3_component, i64 0, i32 2), i32 noundef %33, ptr noundef null) #14
   %.pre = load ptr, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v3_component, i64 0, i32 2, i32 7), align 8
-  %.pre23 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v3_component, i64 0, i32 2, i32 3), align 8
+  %.pre24 = load i32, ptr getelementptr inbounds (%struct.pmix_bfrops_base_component_t, ptr @pmix_mca_bfrops_v3_component, i64 0, i32 2, i32 3), align 8
   br label %35
 
 35:                                               ; preds = %pmix_pointer_array_get_item.exit, %32
-  %36 = phi i32 [ %3, %pmix_pointer_array_get_item.exit ], [ %.pre23, %32 ]
+  %36 = phi i32 [ %3, %pmix_pointer_array_get_item.exit ], [ %.pre24, %32 ]
   %37 = phi ptr [ %4, %pmix_pointer_array_get_item.exit ], [ %.pre, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = sext i32 %36 to i64
@@ -2980,7 +2980,7 @@ define internal i32 @pmix3_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @pmix3_bfrop_copy_modex(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 zeroext %2) #3 {
+define internal range(i32 -29, 1) i32 @pmix3_bfrop_copy_modex(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 zeroext %2) #3 {
   %4 = tail call noalias dereferenceable_or_null(280) ptr @malloc(i64 noundef 280) #13
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -3195,7 +3195,7 @@ define internal i32 @pmix3_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, pt
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %19
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @pmix_output(i32 noundef %18, ptr noundef nonnull @.str.49, i32 noundef %25) #14
   br label %26
 
@@ -3250,7 +3250,7 @@ define internal noundef i32 @pmix3_bfrop_copy_array(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pmix3_bfrop_print_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 zeroext %3) #0 {
+define internal range(i32 -32, 1) i32 @pmix3_bfrop_print_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

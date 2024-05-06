@@ -661,8 +661,8 @@ $_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE = comdat any
 @_ZN7rocksdbL18empty_operand_listE = internal global %"class.std::vector" zeroinitializer, align 8
 @__dso_handle = external hidden global i8
 @_ZTVN7rocksdb21InternalKeyComparatorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb21InternalKeyComparatorD2Ev, ptr @_ZN7rocksdb21InternalKeyComparatorD0Ev, ptr @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_] }, comdat, align 8
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
-@_ZN7rocksdb12perf_contextE = external thread_local global %"struct.rocksdb::PerfContext", align 8
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
+@_ZN7rocksdb12perf_contextE = external thread_local local_unnamed_addr global %"struct.rocksdb::PerfContext", align 8
 @.str = private unnamed_addr constant [16 x i8] c"column_families\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"Must contain entry for default column family\00", align 1
 @_ZN7rocksdb24kDefaultColumnFamilyNameB5cxx11E = external global %"class.std::__cxx11::basic_string", align 8
@@ -5326,7 +5326,7 @@ call5.i.i.i.i.i.i.noexc.i:                        ; preds = %if.end.i.i.i
   %add.ptr.i.i.i.i.i136 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i74.i, i64 8
   store i32 %column_family_id.val.i, ptr %add.ptr.i.i.i.i.i136, align 8
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i74.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %325 = load i64, ptr %_M_next_resize.i.i.i.i, align 8, !noalias !36
   %326 = load i64, ptr %_M_element_count.i.i.i.i, align 8, !noalias !36
   %call3.i21.i.i.i = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i, i64 noundef %this.val.i.i.i, i64 noundef %326, i64 noundef 1)
@@ -5594,7 +5594,7 @@ _ZNSt12_Vector_baseIPKN7rocksdb12_GLOBAL__N_18Repairer9TableInfoESaIS5_EE11_M_al
   br i1 %cmp.i.i.i.i.i.i77.i, label %if.then.i.i.i.i.i.i79.i, label %_ZNSt6vectorIPKN7rocksdb12_GLOBAL__N_18Repairer9TableInfoESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i
 
 if.then.i.i.i.i.i.i79.i:                          ; preds = %_ZNSt12_Vector_baseIPKN7rocksdb12_GLOBAL__N_18Repairer9TableInfoESaIS5_EE11_M_allocateEm.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i.i, ptr align 8 %this.val.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i.i.i, ptr align 8 %this.val.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPKN7rocksdb12_GLOBAL__N_18Repairer9TableInfoESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i
 
 _ZNSt6vectorIPKN7rocksdb12_GLOBAL__N_18Repairer9TableInfoESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i79.i, %_ZNSt12_Vector_baseIPKN7rocksdb12_GLOBAL__N_18Repairer9TableInfoESaIS5_EE11_M_allocateEm.exit.i.i.i.i

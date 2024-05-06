@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @ompi_group_calc_strided(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 13) i32 @ompi_group_calc_strided(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %0, 1
   br i1 %3, label %4, label %.preheader.i
 
@@ -136,7 +136,7 @@ define noundef i32 @ompi_group_translate_ranks_strided_reverse(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_incl_strided(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 0, 10) i32 @ompi_group_incl_strided(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %7, label %16

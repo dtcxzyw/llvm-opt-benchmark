@@ -359,7 +359,7 @@ define internal noundef zeroext i1 @_client_writable(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_client_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_client_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca %struct.io_hdr_t, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -994,7 +994,7 @@ define internal zeroext i1 @_local_file_writable(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_local_file_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_local_file_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca %struct.io_hdr_t, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1190,7 +1190,7 @@ define internal noundef zeroext i1 @_task_writable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_task_write(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_task_write(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @get_log_level() #9
@@ -3087,7 +3087,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #4
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @io_create_local_client(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4022) i32 @io_create_local_client(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = or i32 %1, 524288
   %8 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef %7, i32 noundef 438) #9
   %9 = icmp eq i32 %8, -1
@@ -3164,7 +3164,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @eio_new_initial_obj(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @io_initial_client_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @io_initial_client_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @get_log_level() #9
   %6 = icmp sgt i32 %5, 7
   br i1 %6, label %7, label %10
@@ -3343,7 +3343,7 @@ define internal fastcc void @_send_io_init_msg(i32 noundef %0, ptr nocapture nou
 declare void @fd_set_nonblocking(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @io_client_connect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @io_client_connect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #9
   %4 = icmp sgt i32 %3, 7
   br i1 %4, label %5, label %8
@@ -3426,7 +3426,7 @@ define dso_local noundef i32 @io_client_connect(ptr noundef %0, ptr noundef %1) 
 declare void @eio_new_obj(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @io_dup_stdio(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @io_dup_stdio(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @dup2(i32 noundef %3, i32 noundef 0) #9
@@ -3988,7 +3988,7 @@ thread-pre-split:                                 ; preds = %67, %.thread
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @io_get_file_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 1089, 1602) i32 @io_get_file_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 712
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %5 [

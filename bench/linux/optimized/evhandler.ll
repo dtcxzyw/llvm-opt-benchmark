@@ -188,7 +188,7 @@ define dso_local i32 @acpi_ev_install_space_handler(ptr noundef %0, i8 noundef z
 declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i8 @acpi_ev_has_default_handler(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ev_has_default_handler(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @acpi_ns_get_attached_object(ptr noundef %0) #3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5

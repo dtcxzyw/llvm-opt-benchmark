@@ -45,7 +45,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_mac_hid_init314, ptr @__UNIQUE_ID_file311, ptr @__UNIQUE_ID_license312, ptr @__exitcall_mac_hid_exit, ptr @mac_hid_exit], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @mac_hid_init() #0 section ".init.text" align 16 {
+define internal range(i32 -12, 1) i32 @mac_hid_init() #0 section ".init.text" align 16 {
   %1 = tail call ptr @register_sysctl_sz(ptr noundef nonnull @.str, ptr noundef nonnull @mac_hid_files, i64 noundef 3) #5
   store ptr %1, ptr @mac_hid_sysctl_header, align 8
   %2 = icmp eq ptr %1, null

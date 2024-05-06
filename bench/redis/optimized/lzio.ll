@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaZ_fill(ptr nocapture noundef %z) local_unnamed_addr #0 {
+define hidden range(i32 -1, 256) i32 @luaZ_fill(ptr nocapture noundef %z) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size) #7
@@ -44,7 +44,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaZ_lookahead(ptr nocapture noundef %z) local_unnamed_addr #0 {
+define hidden range(i32 -1, 256) i32 @luaZ_lookahead(ptr nocapture noundef %z) local_unnamed_addr #0 {
 entry:
   %size.i = alloca i64, align 8
   %0 = load i64, ptr %z, align 8, !tbaa !12

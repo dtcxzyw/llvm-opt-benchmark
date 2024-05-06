@@ -344,7 +344,7 @@ define i64 @clamav_stats_get_size(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @clamav_stats_get_num(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 0, 4294967296) i64 @clamav_stats_get_num(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -923,7 +923,7 @@ define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture n
 
 15:                                               ; preds = %.lr.ph68.split.us.i
   %16 = getelementptr inbounds i8, ptr %.03565.us.i, i64 8
-  %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull dereferenceable(16) %1, i64 16)
+  %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %.not42.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not42.us.i, label %find_sample.exit.thread38, label %.critedge.us.i
 
@@ -943,7 +943,7 @@ define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture n
 
 21:                                               ; preds = %.lr.ph68.split.split.us.i
   %22 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 8
-  %bcmp.us76.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %22, ptr noundef nonnull dereferenceable(16) %1, i64 16)
+  %bcmp.us76.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %22, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %.not42.us77.i = icmp eq i32 %bcmp.us76.i, 0
   br i1 %.not42.us77.i, label %.critedge52.us.i, label %.critedge.us78.i
 
@@ -963,7 +963,7 @@ define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture n
 .lr.ph62.us.i:                                    ; preds = %.critedge52.us.i, %25
   %29 = phi ptr [ %28, %25 ], [ %24, %.critedge52.us.i ]
   %.161.us.i = phi i64 [ %26, %25 ], [ 0, %.critedge52.us.i ]
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %0) #16
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %0) #16
   %.not50.us.i = icmp eq i32 %30, 0
   br i1 %.not50.us.i, label %find_sample.exit.thread38, label %25
 
@@ -1112,7 +1112,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
 
 15:                                               ; preds = %.lr.ph68.split.us.i
   %16 = getelementptr inbounds i8, ptr %.03565.us.i, i64 8
-  %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull dereferenceable(16) %1, i64 16)
+  %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %.not42.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not42.us.i, label %find_sample.exit.thread37, label %.critedge.us.i
 
@@ -1132,7 +1132,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
 
 21:                                               ; preds = %.lr.ph68.split.split.us.i
   %22 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 8
-  %bcmp.us76.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %22, ptr noundef nonnull dereferenceable(16) %1, i64 16)
+  %bcmp.us76.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %22, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %.not42.us77.i = icmp eq i32 %bcmp.us76.i, 0
   br i1 %.not42.us77.i, label %.critedge52.us.i, label %.critedge.us78.i
 
@@ -1152,7 +1152,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
 .lr.ph62.us.i:                                    ; preds = %.critedge52.us.i, %25
   %29 = phi ptr [ %28, %25 ], [ %24, %.critedge52.us.i ]
   %.161.us.i = phi i64 [ %26, %25 ], [ 0, %.critedge52.us.i ]
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %0) #16
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %0) #16
   %.not50.us.i = icmp eq i32 %30, 0
   br i1 %.not50.us.i, label %find_sample.exit.thread37, label %25
 

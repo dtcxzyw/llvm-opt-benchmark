@@ -46,7 +46,7 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
   %10 = and i32 %.promoted, -29
   %11 = or disjoint i32 %10, 24
   store i32 %11, ptr %6, align 8
-  br i1 %9, label %poll_notify.exit, label %poll_notify.exit.loopexit45
+  br i1 %9, label %poll_notify.exit, label %poll_notify.exit.loopexit48
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %5, i64 26
@@ -111,9 +111,9 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
 .lr.ph.split.i.preheader:                         ; preds = %.thread
   %.not.i = icmp eq ptr %1, null
   %32 = getelementptr inbounds i8, ptr %1, i64 24
-  br i1 %.not.i, label %poll_notify.exit, label %.lr.ph.split.i.preheader47
+  br i1 %.not.i, label %poll_notify.exit, label %.lr.ph.split.i.preheader50
 
-.lr.ph.split.i.preheader47:                       ; preds = %.lr.ph.split.i.preheader
+.lr.ph.split.i.preheader50:                       ; preds = %.lr.ph.split.i.preheader
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = getelementptr inbounds i8, ptr %1, i64 4
   %35 = load i32, ptr %34, align 4
@@ -130,7 +130,7 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
   %or.cond.i = icmp eq i32 %42, 0
   br i1 %or.cond.i, label %poll_notify.exit, label %43
 
-43:                                               ; preds = %.lr.ph.split.i.preheader47
+43:                                               ; preds = %.lr.ph.split.i.preheader50
   %44 = load ptr, ptr %32, align 8
   %.not22.i = icmp eq ptr %44, null
   br i1 %.not22.i, label %poll_notify.exit, label %45
@@ -139,12 +139,12 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
   tail call void %44(ptr noundef nonnull %1) #4
   br label %poll_notify.exit
 
-poll_notify.exit.loopexit45:                      ; preds = %.lr.ph.split.i32.preheader.split
+poll_notify.exit.loopexit48:                      ; preds = %.lr.ph.split.i32.preheader.split
   tail call void %8(ptr noundef nonnull %1) #4
   br label %poll_notify.exit
 
-poll_notify.exit:                                 ; preds = %.lr.ph.split.i32.preheader.split, %.lr.ph.split.i.preheader47, %43, %45, %.lr.ph.split.i.preheader, %.lr.ph.split.i32.preheader, %poll_notify.exit.loopexit45, %12, %24, %.thread, %22, %30
-  %.0 = phi i32 [ %23, %22 ], [ %31, %30 ], [ 0, %.thread ], [ -38, %24 ], [ -38, %12 ], [ 0, %poll_notify.exit.loopexit45 ], [ 0, %.lr.ph.split.i32.preheader ], [ 0, %.lr.ph.split.i.preheader ], [ 0, %45 ], [ 0, %43 ], [ 0, %.lr.ph.split.i.preheader47 ], [ 0, %.lr.ph.split.i32.preheader.split ]
+poll_notify.exit:                                 ; preds = %.lr.ph.split.i32.preheader.split, %.lr.ph.split.i.preheader50, %43, %45, %.lr.ph.split.i.preheader, %.lr.ph.split.i32.preheader, %poll_notify.exit.loopexit48, %12, %24, %.thread, %22, %30
+  %.0 = phi i32 [ %23, %22 ], [ %31, %30 ], [ 0, %.thread ], [ -38, %24 ], [ -38, %12 ], [ 0, %poll_notify.exit.loopexit48 ], [ 0, %.lr.ph.split.i32.preheader ], [ 0, %.lr.ph.split.i.preheader ], [ 0, %45 ], [ 0, %43 ], [ 0, %.lr.ph.split.i.preheader50 ], [ 0, %.lr.ph.split.i32.preheader.split ]
   ret i32 %.0
 }
 
@@ -312,7 +312,7 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   %37 = and i32 %.promoted.i.i, -29
   %38 = or disjoint i32 %37, 24
   store i32 %38, ptr %33, align 8
-  br i1 %36, label %poll_fdsetup.exit34.i, label %poll_notify.exit.loopexit45.i.i
+  br i1 %36, label %poll_fdsetup.exit34.i, label %poll_notify.exit.loopexit48.i.i
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds i8, ptr %32, i64 26
@@ -366,11 +366,11 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   %58 = call i32 %56(ptr noundef nonnull %30, ptr noundef nonnull %25, i1 noundef zeroext false) #4
   br label %poll_fdsetup.exit34.i
 
-poll_notify.exit.loopexit45.i.i:                  ; preds = %.lr.ph.split.i32.preheader.split.i.i
+poll_notify.exit.loopexit48.i.i:                  ; preds = %.lr.ph.split.i32.preheader.split.i.i
   call void %35(ptr noundef nonnull %25) #4
   br label %poll_fdsetup.exit34.i
 
-poll_fdsetup.exit34.i:                            ; preds = %poll_notify.exit.loopexit45.i.i, %57, %54, %52, %51, %49, %39, %.lr.ph.split.i32.preheader.split.i.i, %.lr.ph42.i
+poll_fdsetup.exit34.i:                            ; preds = %poll_notify.exit.loopexit48.i.i, %57, %54, %52, %51, %49, %39, %.lr.ph.split.i32.preheader.split.i.i, %.lr.ph42.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count53.i
@@ -444,7 +444,7 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
   %85 = and i32 %.promoted.i.i42, -29
   %86 = or disjoint i32 %85, 24
   store i32 %86, ptr %81, align 8
-  br i1 %84, label %poll_fdsetup.exit.i, label %poll_notify.exit.loopexit45.i.i43
+  br i1 %84, label %poll_fdsetup.exit.i, label %poll_notify.exit.loopexit48.i.i43
 
 87:                                               ; preds = %77
   %88 = getelementptr inbounds i8, ptr %80, i64 26
@@ -506,12 +506,12 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
 .thread.i.i:                                      ; preds = %102, %100, %99, %99, %87, %87
   br label %poll_fdsetup.exit.i
 
-poll_notify.exit.loopexit45.i.i43:                ; preds = %.lr.ph.split.i32.preheader.split.i.i41
+poll_notify.exit.loopexit48.i.i43:                ; preds = %.lr.ph.split.i32.preheader.split.i.i41
   call void %83(ptr noundef nonnull %71) #4
   br label %poll_fdsetup.exit.i
 
-poll_fdsetup.exit.i:                              ; preds = %poll_notify.exit.loopexit45.i.i43, %.thread.i.i, %105, %99, %97, %87, %.lr.ph.split.i32.preheader.split.i.i41, %74
-  %.0.i.i = phi i32 [ %75, %74 ], [ %98, %97 ], [ %106, %105 ], [ 0, %.thread.i.i ], [ -38, %99 ], [ -38, %87 ], [ 0, %poll_notify.exit.loopexit45.i.i43 ], [ 0, %.lr.ph.split.i32.preheader.split.i.i41 ]
+poll_fdsetup.exit.i:                              ; preds = %poll_notify.exit.loopexit48.i.i43, %.thread.i.i, %105, %99, %97, %87, %.lr.ph.split.i32.preheader.split.i.i41, %74
+  %.0.i.i = phi i32 [ %75, %74 ], [ %98, %97 ], [ %106, %105 ], [ 0, %.thread.i.i ], [ -38, %99 ], [ -38, %87 ], [ 0, %poll_notify.exit.loopexit48.i.i43 ], [ 0, %.lr.ph.split.i32.preheader.split.i.i41 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %107
 

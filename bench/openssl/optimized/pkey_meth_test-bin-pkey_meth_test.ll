@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [8 x i8] c"%d : %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_asn1_meths) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_pkey_meths) #2
@@ -23,7 +23,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_asn1_meths() #0 {
+define internal range(i32 0, 2) i32 @test_asn1_meths() #0 {
 entry:
   %pkey_id = alloca i32, align 4
   %info = alloca ptr, align 8
@@ -83,7 +83,7 @@ if.end18:                                         ; preds = %if.end13, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkey_meths() #0 {
+define internal range(i32 0, 2) i32 @test_pkey_meths() #0 {
 entry:
   %pkey_id = alloca i32, align 4
   %call10 = tail call i64 @EVP_PKEY_meth_get_count() #2

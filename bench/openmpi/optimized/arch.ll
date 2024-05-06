@@ -12,7 +12,7 @@ define noundef i32 @opal_arch_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @opal_arch_checkmask(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @opal_arch_checkmask(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 50331648
   %.not = icmp eq i32 %4, 0

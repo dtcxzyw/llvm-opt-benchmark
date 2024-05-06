@@ -248,10 +248,10 @@ if.end7:                                          ; preds = %if.then3, %if.end
   %call12 = tail call noalias ptr @g_strdup(ptr noundef %call11) #9
   %has_writable13 = getelementptr inbounds i8, ptr %arg, i64 24
   %4 = load i8, ptr %has_writable13, align 8
-  %5 = and i8 %4, 1
+  %frombool = and i8 %4, 1
   %writable15 = getelementptr inbounds i8, ptr %arg, i64 25
-  %6 = load i8, ptr %writable15, align 1
-  %7 = and i8 %6, 1
+  %5 = load i8, ptr %writable15, align 1
+  %frombool17 = and i8 %5, 1
   store i32 0, ptr %call8, align 8
   %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call8, i64 4
   store i32 0, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 4
@@ -262,22 +262,22 @@ if.end7:                                          ; preds = %if.then3, %if.end
   %.compoundliteral.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %call8, i64 32
   store ptr %call12, ptr %.compoundliteral.sroa.46.0..sroa_idx, align 8
   %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call8, i64 40
-  store i8 %5, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
+  store i8 %frombool, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
   %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call8, i64 41
-  store i8 %7, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 1
+  store i8 %frombool17, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 1
   %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %call8, i64 42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(46) %.compoundliteral.sroa.7.0..sroa_idx, i8 0, i64 46, i1 false)
   %u = getelementptr inbounds i8, ptr %call8, i64 48
   tail call void @qapi_clone_members(ptr noundef nonnull %u, ptr noundef nonnull %arg, i64 noundef 16, ptr noundef nonnull @visit_type_BlockExportOptionsNbdBase_members) #9
   %bitmap = getelementptr inbounds i8, ptr %arg, i64 32
-  %8 = load ptr, ptr %bitmap, align 8
-  %tobool19.not = icmp eq ptr %8, null
+  %6 = load ptr, ptr %bitmap, align 8
+  %tobool19.not = icmp eq ptr %6, null
   br i1 %tobool19.not, label %if.end32, label %if.then20
 
 if.then20:                                        ; preds = %if.end7
   %call21 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
-  %9 = load ptr, ptr %bitmap, align 8
-  %call26 = tail call noalias ptr @g_strdup(ptr noundef %9) #9
+  %7 = load ptr, ptr %bitmap, align 8
+  %call26 = tail call noalias ptr @g_strdup(ptr noundef %7) #9
   store i32 3, ptr %call21, align 8
   %.compoundliteral22.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %call26, ptr %.compoundliteral22.sroa.23.0..sroa_idx, align 8
@@ -287,8 +287,8 @@ if.then20:                                        ; preds = %if.end7
   %value = getelementptr inbounds i8, ptr %call28, i64 8
   store ptr %call21, ptr %value, align 8
   %bitmaps = getelementptr inbounds i8, ptr %call8, i64 72
-  %10 = load ptr, ptr %bitmaps, align 8
-  store ptr %10, ptr %call28, align 8
+  %8 = load ptr, ptr %bitmaps, align 8
+  store ptr %8, ptr %call28, align 8
   store ptr %call28, ptr %bitmaps, align 8
   br label %if.end32
 
@@ -307,8 +307,8 @@ if.end37:                                         ; preds = %if.then34, %if.end3
   br i1 %tobool39.not, label %fail, label %if.end41
 
 if.end41:                                         ; preds = %if.end37
-  %11 = load ptr, ptr %device, align 8
-  %call43 = tail call ptr @blk_by_name(ptr noundef %11) #9
+  %9 = load ptr, ptr %device, align 8
+  %call43 = tail call ptr @blk_by_name(ptr noundef %9) #9
   %tobool44.not = icmp eq ptr %call43, null
   br i1 %tobool44.not, label %fail, label %if.then45
 

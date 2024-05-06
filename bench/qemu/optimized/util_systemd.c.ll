@@ -88,7 +88,7 @@ if.then34:                                        ; preds = %lor.lhs.false, %for
   unreachable
 
 for.end.loopexit:                                 ; preds = %for.cond
-  %5 = trunc i64 %3 to i32
+  %5 = trunc nuw i64 %3 to i32
   br label %return
 
 return:                                           ; preds = %if.end21, %for.end.loopexit, %if.end13, %if.end8, %if.end3, %if.end, %entry

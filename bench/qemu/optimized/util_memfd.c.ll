@@ -16,14 +16,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [5 x i8] c"test\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_memfd_create(ptr noundef %name, i64 noundef %size, i1 noundef zeroext %hugetlb, i64 noundef %hugetlbsize, i32 noundef %seals, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qemu_memfd_create(ptr noundef %name, i64 noundef %size, i1 noundef zeroext %hugetlb, i64 noundef %hugetlbsize, i32 noundef %seals, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %hugetlbsize, 0
   br i1 %tobool.not, label %if.end, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %0 = tail call i64 @llvm.cttz.i64(i64 %hugetlbsize, i1 true), !range !5
-  %cast.i = trunc i64 %0 to i32
+  %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %hugetlbsize, i1 true)
+  %cast.i = trunc nuw nsw i64 %0 to i32
   %tobool1.not = icmp eq i32 %cast.i, 0
   %shl = shl nuw i64 1, %0
   %cmp.not = icmp eq i64 %shl, %hugetlbsize
@@ -106,12 +106,12 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_memfd_alloc(ptr noundef %name, i64 noundef %size, i32 noundef %seals, ptr nocapture noundef writeonly %fd, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @qemu_memfd_create(ptr noundef %name, i64 noundef %size, i1 noundef zeroext false, i64 noundef 0, i32 noundef %seals, ptr noundef null), !range !6
+  %call = tail call i32 @qemu_memfd_create(ptr noundef %name, i64 noundef %size, i1 noundef zeroext false, i64 noundef 0, i32 noundef %seals, ptr noundef null)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.end, label %if.end13
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @qemu_memfd_create(ptr noundef %name, i64 noundef %size, i1 noundef zeroext false, i64 noundef 0, i32 noundef 0, ptr noundef null), !range !6
+  %call1 = tail call i32 @qemu_memfd_create(ptr noundef %name, i64 noundef %size, i1 noundef zeroext false, i64 noundef 0, i32 noundef 0, ptr noundef null)
   %cmp2 = icmp eq i32 %call1, -1
   br i1 %cmp2, label %if.then3, label %if.end13
 
@@ -232,7 +232,7 @@ if.end:                                           ; preds = %if.then1.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_memfd_check(i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qemu_memfd_check(i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %or = or i32 %flags, 1
   %call = tail call i32 @memfd_create(ptr noundef nonnull @.str.7, i32 noundef %or) #6
@@ -266,5 +266,3 @@ attributes #7 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = !{i32 -1, i32 -2147483648}

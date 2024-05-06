@@ -80,7 +80,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @uprv_isInvariantString_75(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @uprv_isInvariantString_75(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 {
 entry:
   br label %for.cond
 
@@ -137,7 +137,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @uprv_isInvariantUString_75(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @uprv_isInvariantUString_75(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 {
 entry:
   br label %for.cond
 
@@ -186,7 +186,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uprv_ebcdicFromAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -263,7 +263,7 @@ return:                                           ; preds = %if.end19, %return.s
 declare void @udata_printError_75(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uprv_copyAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_copyAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -345,7 +345,7 @@ return:                                           ; preds = %while.cond.preheade
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uprv_asciiFromEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -425,7 +425,7 @@ return:                                           ; preds = %if.end27, %return.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uprv_copyEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -511,7 +511,7 @@ return:                                           ; preds = %while.cond.preheade
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uprv_isEbcdicAtSign_75(i8 noundef signext %c) local_unnamed_addr #5 {
+define signext range(i8 0, 2) i8 @uprv_isEbcdicAtSign_75(i8 noundef signext %c) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq i8 %c, 0
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -745,7 +745,7 @@ return:                                           ; preds = %if.end42, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @uprv_compareInvEbcdicAsAscii_75(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) local_unnamed_addr #1 {
+define range(i32 -382, 383) i32 @uprv_compareInvEbcdicAsAscii_75(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %s1, align 1
   %1 = load i8, ptr %s2, align 1

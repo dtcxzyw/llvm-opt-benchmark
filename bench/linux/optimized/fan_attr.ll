@@ -117,7 +117,7 @@ define dso_local i32 @acpi_fan_create_attributes(ptr noundef %0) local_unnamed_a
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_fine_grain_control(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_fine_grain_control(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2
@@ -129,7 +129,7 @@ define internal noundef i64 @show_fine_grain_control(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_fan_speed(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_fan_speed(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.acpi_fan_fst, align 8
   %5 = getelementptr i8, ptr %0, i64 -616
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
@@ -155,7 +155,7 @@ define internal i64 @show_fan_speed(ptr noundef %0, ptr nocapture readnone %1, p
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_state(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_state(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 -64
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, 100

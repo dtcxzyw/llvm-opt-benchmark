@@ -577,7 +577,7 @@ uv__utf8_decode1.exit158:                         ; preds = %85, %90, %92, %115,
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %138
-  %142 = trunc i32 %.0.i146 to i8
+  %142 = trunc nuw nsw i32 %.0.i146 to i8
   %143 = getelementptr inbounds i8, ptr %139, i64 1
   store ptr %143, ptr %2, align 8
   store i8 %142, ptr %139, align 1
@@ -936,7 +936,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %255, %251, %223, %2
 ._crit_edge236:                                   ; preds = %.lr.ph235, %301
   %.2112.lcssa = phi i32 [ 0, %301 ], [ %309, %.lr.ph235 ]
   %.4.lcssa = phi i32 [ %306, %301 ], [ %308, %.lr.ph235 ]
-  %311 = trunc i32 %.4.lcssa to i16
+  %311 = trunc nuw i32 %.4.lcssa to i16
   %.lhs.trunc = mul nuw i16 %311, 36
   %.rhs.trunc = add nuw nsw i16 %311, 38
   %312 = udiv i16 %.lhs.trunc, %.rhs.trunc

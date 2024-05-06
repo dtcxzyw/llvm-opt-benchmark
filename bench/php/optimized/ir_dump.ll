@@ -497,7 +497,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not152, label %149, label %100
 
 100:                                              ; preds = %.lr.ph160
-  %101 = trunc i64 %indvars.iv to i32
+  %101 = trunc nuw nsw i64 %indvars.iv to i32
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 3)
   %103 = shl nuw nsw i32 %102, 2
   %104 = or disjoint i32 %103, 16
@@ -1159,7 +1159,7 @@ define hidden void @ir_dump_cfg_map(ptr nocapture noundef readonly %0, ptr nocap
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %5 ]
   %10 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.52, i32 noundef %12, i32 noundef %11) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %7, align 8
@@ -1237,12 +1237,12 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br i1 %exitcond.not, label %._crit_edge, label %25
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %25
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30, %._crit_edge.loopexit.split.loop.exit, %.preheader
   %.0142.lcssa = phi i32 [ 1, %.preheader ], [ %31, %._crit_edge.loopexit.split.loop.exit ], [ %20, %30 ]
-  %32 = trunc i64 %indvars.iv224 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv224 to i32
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.55, i32 noundef %32, i32 noundef %.0142.lcssa) #6
   %.1143184 = add nuw nsw i32 %.0142.lcssa, 1
   %34 = load i32, ptr %11, align 8
@@ -1264,7 +1264,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %.lr.ph187
-  %44 = trunc i64 %indvars.iv221 to i32
+  %44 = trunc nuw i64 %indvars.iv221 to i32
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.56, i32 noundef %44) #6
   %.pre = load i32, ptr %11, align 8
   br label %46
@@ -1272,7 +1272,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
 46:                                               ; preds = %.lr.ph187, %43
   %47 = phi i32 [ %37, %.lr.ph187 ], [ %.pre, %43 ]
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
-  %48 = trunc i64 %indvars.iv.next222 to i32
+  %48 = trunc nuw i64 %indvars.iv.next222 to i32
   %49 = icmp sgt i32 %47, %48
   br i1 %49, label %.lr.ph187, label %._crit_edge188
 
@@ -1939,7 +1939,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %.1285373.pn = phi ptr [ %.1285373, %.lr.ph370 ], [ %.0283369, %245 ]
   %.0288366 = phi i8 [ 1, %.lr.ph370 ], [ %.1289, %245 ]
   %.0283369 = getelementptr inbounds i8, ptr %.1285373.pn, i64 4
-  %171 = trunc i64 %indvars.iv to i32
+  %171 = trunc nuw nsw i64 %indvars.iv to i32
   %172 = tail call i32 @llvm.umin.i32(i32 %171, i32 3)
   %173 = shl nuw nsw i32 %172, 2
   %174 = or disjoint i32 %173, 16
@@ -1963,7 +1963,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 179:                                              ; preds = %178
   %180 = icmp slt i32 %177, 0
-  %181 = trunc i8 %.0288366 to i1
+  %181 = trunc nuw i8 %.0288366 to i1
   %182 = select i1 %181, ptr @.str.94, ptr @.str.95
   br i1 %180, label %.thread357, label %185
 
@@ -2016,27 +2016,27 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br label %245
 
 211:                                              ; preds = %178, %178, %178
-  %212 = trunc i8 %.0288366 to i1
+  %212 = trunc nuw i8 %.0288366 to i1
   %213 = select i1 %212, ptr @.str.94, ptr @.str.95
   %214 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.98, ptr noundef nonnull %213, i32 noundef %177) #6
   br label %245
 
 215:                                              ; preds = %178
-  %216 = trunc i8 %.0288366 to i1
+  %216 = trunc nuw i8 %.0288366 to i1
   %217 = select i1 %216, ptr @.str.94, ptr @.str.95
   %218 = tail call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %177) #6
   %219 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.99, ptr noundef nonnull %217, ptr noundef %218) #6
   br label %245
 
 220:                                              ; preds = %178
-  %221 = trunc i8 %.0288366 to i1
+  %221 = trunc nuw i8 %.0288366 to i1
   %222 = select i1 %221, ptr @.str.94, ptr @.str.95
   %223 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.100, ptr noundef nonnull %222) #6
   tail call void @ir_print_proto(ptr noundef nonnull %0, i32 noundef %177, ptr noundef %1) #6
   br label %245
 
 224:                                              ; preds = %178, %178
-  %225 = trunc i8 %.0288366 to i1
+  %225 = trunc nuw i8 %.0288366 to i1
   %226 = select i1 %225, ptr @.str.94, ptr @.str.95
   %227 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.101, ptr noundef nonnull %226, i32 noundef %177) #6
   br label %245
@@ -2046,7 +2046,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %229, label %230, label %234
 
 230:                                              ; preds = %228
-  %231 = trunc i8 %.0288366 to i1
+  %231 = trunc nuw i8 %.0288366 to i1
   %232 = select i1 %231, ptr @.str.94, ptr @.str.95
   %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.101, ptr noundef nonnull %232, i32 noundef 0) #6
   br label %245
@@ -2070,7 +2070,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not347, label %245, label %241
 
 241:                                              ; preds = %235, %239
-  %242 = trunc i8 %.0288366 to i1
+  %242 = trunc nuw i8 %.0288366 to i1
   %243 = select i1 %242, ptr @.str.94, ptr @.str.95
   %244 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.102, ptr noundef nonnull %243) #6
   br label %245
@@ -2082,7 +2082,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %exitcond.not, label %._crit_edge371, label %170
 
 ._crit_edge371:                                   ; preds = %245
-  %246 = trunc i8 %.1289 to i1
+  %246 = trunc nuw i8 %.1289 to i1
   br i1 %246, label %._crit_edge371.thread, label %247
 
 ._crit_edge371.thread:                            ; preds = %.thread355.thread, %._crit_edge371

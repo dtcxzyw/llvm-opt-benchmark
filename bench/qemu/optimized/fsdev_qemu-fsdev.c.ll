@@ -60,7 +60,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.41 = private unnamed_addr constant [34 x i8] c"'%s' is invalid for fsdriver '%s'\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_fsdev_add(ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qemu_fsdev_add(ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_opts_id(ptr noundef %opts) #5
   %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str) #5
@@ -194,7 +194,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @qemu_opt_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @validate_opt(ptr nocapture noundef readonly %opaque, ptr noundef %name, ptr nocapture readnone %value, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @validate_opt(ptr nocapture noundef readonly %opaque, ptr noundef %name, ptr nocapture readnone %value, ptr noundef %errp) #0 {
 entry:
   %opts = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %opts, align 8

@@ -132,7 +132,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_item_print(ptr noundef %out, ptr noundef %ifld, i32 noundef %indent, ptr noundef %it, ptr noundef %pctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_item_print(ptr noundef %out, ptr noundef %ifld, i32 noundef %indent, ptr noundef %it, ptr noundef %pctx) local_unnamed_addr #0 {
 entry:
   %ifld.addr = alloca ptr, align 8
   store ptr %ifld, ptr %ifld.addr, align 8
@@ -150,12 +150,12 @@ if.else:                                          ; preds = %entry
 
 if.end3:                                          ; preds = %entry, %if.else
   %sname.0 = phi ptr [ %1, %if.else ], [ null, %entry ]
-  %call = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef nonnull %ifld.addr, i32 noundef %indent, ptr noundef %it, ptr noundef null, ptr noundef %sname.0, i32 noundef 0, ptr noundef nonnull %spec.store.select), !range !4
+  %call = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef nonnull %ifld.addr, i32 noundef %indent, ptr noundef %it, ptr noundef null, ptr noundef %sname.0, i32 noundef 0, ptr noundef nonnull %spec.store.select)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr noundef %it, ptr noundef %fname, ptr noundef %sname, i32 noundef %nohdr, ptr noundef %pctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr noundef %it, ptr noundef %fname, ptr noundef %sname, i32 noundef %nohdr, ptr noundef %pctx) unnamed_addr #0 {
 entry:
   %parg = alloca %struct.ASN1_PRINT_ARG_st, align 8
   %funcs = getelementptr inbounds i8, ptr %it, i64 32
@@ -206,7 +206,7 @@ if.then15:                                        ; preds = %if.then12
   br i1 %tobool16.not, label %land.lhs.true17, label %if.end20
 
 land.lhs.true17:                                  ; preds = %if.then15
-  %call = tail call fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef nonnull %pctx), !range !4
+  %call = tail call fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef nonnull %pctx)
   %tobool18.not = icmp eq i32 %call, 0
   br i1 %tobool18.not, label %return, label %if.end20
 
@@ -235,12 +235,12 @@ sw.bb:                                            ; preds = %lor.lhs.false, %if.
   br i1 %tobool30.not, label %sw.bb38, label %if.then31
 
 if.then31:                                        ; preds = %sw.bb
-  %call33 = tail call fastcc i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr noundef nonnull %6, ptr noundef %pctx), !range !4
+  %call33 = tail call fastcc i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr noundef nonnull %6, ptr noundef %pctx)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %return, label %sw.epilog
 
 sw.bb38:                                          ; preds = %sw.bb, %if.end27
-  %call.i = tail call fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef %pctx), !range !4
+  %call.i = tail call fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef %pctx)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -377,7 +377,7 @@ if.end65.i:                                       ; preds = %if.then63.i, %sw.bb
   br label %sw.epilog.i
 
 sw.bb67.i:                                        ; preds = %if.end60.i, %if.end60.i
-  %call68.i = tail call fastcc i32 @asn1_print_integer(ptr noundef %out, ptr noundef %str.1.i), !range !4
+  %call68.i = tail call fastcc i32 @asn1_print_integer(ptr noundef %out, ptr noundef %str.1.i)
   br label %sw.epilog.i
 
 sw.bb69.i:                                        ; preds = %if.end60.i
@@ -390,7 +390,7 @@ sw.bb71.i:                                        ; preds = %if.end60.i
 
 sw.bb73.i:                                        ; preds = %if.end60.i
   %19 = load ptr, ptr %fld.addr.0.i, align 8
-  %call74.i = tail call fastcc i32 @asn1_print_oid(ptr noundef %out, ptr noundef %19), !range !4
+  %call74.i = tail call fastcc i32 @asn1_print_oid(ptr noundef %out, ptr noundef %19)
   br label %sw.epilog.i
 
 sw.bb77.i:                                        ; preds = %if.end60.i, %if.end60.i, %if.end60.i
@@ -419,7 +419,7 @@ sw.epilog.i:                                      ; preds = %sw.default.i, %sw.b
   br i1 %tobool90.not.i, label %return, label %land.lhs.true94.i
 
 sw.epilog.thread.i:                               ; preds = %if.end60.i, %if.end60.i
-  %call76.i = tail call fastcc i32 @asn1_print_obstring(ptr noundef %out, ptr noundef %str.1.i, i32 noundef %indent), !range !4
+  %call76.i = tail call fastcc i32 @asn1_print_obstring(ptr noundef %out, ptr noundef %str.1.i, i32 noundef %indent)
   %tobool90.not68.i = icmp eq i32 %call76.i, 0
   br i1 %tobool90.not68.i, label %return, label %sw.epilog
 
@@ -438,7 +438,7 @@ sw.bb43:                                          ; preds = %if.end27
   br i1 %tobool44.not, label %land.lhs.true45, label %if.end49
 
 land.lhs.true45:                                  ; preds = %sw.bb43
-  %call46 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef %pctx), !range !4
+  %call46 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef %pctx)
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %return, label %land.lhs.true45.if.end49_crit_edge
 
@@ -504,7 +504,7 @@ if.end90:                                         ; preds = %lor.lhs.false80
   %26 = load ptr, ptr %templates91, align 8
   %add.ptr = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %26, i64 %conv81
   %call92 = tail call ptr @ossl_asn1_get_const_field_ptr(ptr noundef nonnull %fld, ptr noundef %add.ptr) #4
-  %call93 = tail call fastcc i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %call92, i32 noundef %indent, ptr noundef %add.ptr, ptr noundef %pctx), !range !4
+  %call93 = tail call fastcc i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %call92, i32 noundef %indent, ptr noundef %add.ptr, ptr noundef %pctx)
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %return, label %sw.epilog
 
@@ -513,7 +513,7 @@ sw.bb97:                                          ; preds = %if.end27, %if.end27
   br i1 %tobool98.not, label %land.lhs.true99, label %if.end103
 
 land.lhs.true99:                                  ; preds = %sw.bb97
-  %call100 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef %pctx), !range !4
+  %call100 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef %pctx)
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %return, label %if.end103
 
@@ -575,7 +575,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end145:                                        ; preds = %for.body
   %call146 = call ptr @ossl_asn1_get_const_field_ptr(ptr noundef nonnull %fld, ptr noundef nonnull %call142) #4
-  %call147 = call fastcc i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %call146, i32 noundef %add, ptr noundef nonnull %call142, ptr noundef %pctx), !range !4
+  %call147 = call fastcc i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %call146, i32 noundef %add, ptr noundef nonnull %call142, ptr noundef %pctx)
   %tobool148.not = icmp eq i32 %call147, 0
   br i1 %tobool148.not, label %return, label %for.inc
 
@@ -584,7 +584,7 @@ for.inc:                                          ; preds = %if.end145
   %incdec.ptr = getelementptr inbounds i8, ptr %tt.0106, i64 40
   %31 = load i64, ptr %tcount139, align 8
   %cmp140 = icmp sgt i64 %31, %indvars.iv.next
-  br i1 %cmp140, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %cmp140, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end136
   %32 = load i64, ptr %pctx, align 8
@@ -619,7 +619,7 @@ return:                                           ; preds = %if.end145, %for.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr nocapture noundef readonly %pctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr nocapture noundef readonly %pctx) unnamed_addr #0 {
 entry:
   %cmp17 = icmp sgt i32 %indent, 20
   br i1 %cmp17, label %while.body, label %while.end
@@ -633,7 +633,7 @@ while.body:                                       ; preds = %entry, %if.end
 if.end:                                           ; preds = %while.body
   %sub = add nsw i32 %indent.addr.018, -20
   %cmp = icmp sgt i32 %indent.addr.018, 40
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end, %entry
   %indent.addr.0.lcssa = phi i32 [ %indent, %entry ], [ %sub, %if.end ]
@@ -692,7 +692,7 @@ return:                                           ; preds = %while.body, %if.end
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr nocapture noundef readonly %tt, ptr noundef %pctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr nocapture noundef readonly %tt, ptr noundef %pctx) unnamed_addr #0 {
 entry:
   %tfld = alloca ptr, align 8
   %skitem = alloca ptr, align 8
@@ -790,7 +790,7 @@ if.end50:                                         ; preds = %land.lhs.true, %for
   store ptr %call.i34, ptr %skitem, align 8
   %8 = load ptr, ptr %item52, align 8
   %call53 = call ptr %8() #4
-  %call54 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef nonnull %skitem, i32 noundef %add, ptr noundef %call53, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %pctx), !range !4
+  %call54 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef nonnull %skitem, i32 noundef %add, ptr noundef %call53, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %pctx)
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %return, label %for.inc
 
@@ -798,7 +798,7 @@ for.inc:                                          ; preds = %if.end50
   %inc = add nuw nsw i32 %i.038, 1
   %call.i = call i32 @OPENSSL_sk_num(ptr noundef %7) #4
   %cmp42 = icmp slt i32 %inc, %call.i
-  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   br i1 %cmp4237, label %land.lhs.true60, label %if.end68
@@ -829,7 +829,7 @@ if.end79:                                         ; preds = %if.end13
   %item80 = getelementptr inbounds i8, ptr %tt, i64 32
   %10 = load ptr, ptr %item80, align 8
   %call81 = tail call ptr %10() #4
-  %call82 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef %fld.addr.0, i32 noundef %indent, ptr noundef %call81, ptr noundef %fname.0, ptr noundef %sname.0, i32 noundef 0, ptr noundef nonnull %pctx), !range !4
+  %call82 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef %fld.addr.0, i32 noundef %indent, ptr noundef %call81, ptr noundef %fname.0, ptr noundef %sname.0, i32 noundef 0, ptr noundef nonnull %pctx)
   br label %return
 
 return:                                           ; preds = %if.end50, %land.lhs.true, %if.then72, %land.lhs.true60, %if.else33, %if.then22, %if.end79, %if.end78
@@ -854,7 +854,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @ASN1_tag2str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_print_integer(ptr noundef %out, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_integer(ptr noundef %out, ptr noundef %str) unnamed_addr #0 {
 entry:
   %call = tail call ptr @i2s_ASN1_INTEGER(ptr noundef null, ptr noundef %str) #4
   %cmp = icmp eq ptr %call, null
@@ -877,7 +877,7 @@ declare i32 @ASN1_UTCTIME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_GENERALIZEDTIME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_print_oid(ptr noundef %out, ptr noundef %oid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_oid(ptr noundef %out, ptr noundef %oid) unnamed_addr #0 {
 entry:
   %objbuf = alloca [80 x i8], align 16
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %oid) #4
@@ -892,7 +892,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_print_obstring(ptr noundef %out, ptr nocapture noundef readonly %str, i32 noundef %indent) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_obstring(ptr noundef %out, ptr nocapture noundef readonly %str, i32 noundef %indent) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %str, i64 4
   %0 = load i32, ptr %type, align 4
@@ -959,8 +959,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

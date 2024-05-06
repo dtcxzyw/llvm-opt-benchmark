@@ -144,7 +144,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @inode_chstat(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fchmod(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @fchmod(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -209,7 +209,7 @@ fchstat.exit:                                     ; preds = %file_fchstat.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fchown(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @fchown(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -241,7 +241,7 @@ fchstat.exit:                                     ; preds = %10, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @futimens(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %1, null

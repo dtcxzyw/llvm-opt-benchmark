@@ -918,7 +918,7 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.old11.us, label %.lr.ph.us208, label %.thread173
 
 .thread173.loopexit:                              ; preds = %98
-  %104 = trunc i64 %indvars.iv267 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv267 to i32
   br label %.thread173
 
 .thread173:                                       ; preds = %91, %103, %.thread173.loopexit, %.thread164, %.loopexit183, %6
@@ -1785,7 +1785,7 @@ define dso_local i64 @translate(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ascii(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @ascii(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

@@ -6629,7 +6629,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -7531,7 +7531,7 @@ _ZN7rocksdb19ColumnFamilyOptions11OldDefaultsEii.exit: ; preds = %if.end.i
   %max_bytes_for_level_base.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i64 10485760, ptr %max_bytes_for_level_base.i, align 8
   %soft_pending_compaction_bytes_limit.i = getelementptr inbounds i8, ptr %this, i64 904
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %soft_pending_compaction_bytes_limit.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %soft_pending_compaction_bytes_limit.i, i8 0, i64 16, i1 false)
   %level0_stop_writes_trigger17.i = getelementptr inbounds i8, ptr %this, i64 832
   store i32 24, ptr %level0_stop_writes_trigger17.i, align 8
   %cmp.i3.not = icmp eq i32 %rocksdb_major_version, 4
@@ -8410,7 +8410,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7rocksdb15CompressionTypeEmS1_ET_S3_T0_RSaIT1_E.exit.i, label %for.body.preheader.i.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPN7rocksdb15CompressionTypeEmS1_ET_S3_T0_RSaIT1_E.exit.i
 

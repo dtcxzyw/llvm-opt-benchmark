@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 4
   br i1 %switch, label %3, label %54
@@ -107,12 +107,12 @@ define noundef i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
 53:                                               ; preds = %47, %50
   %.sink = phi ptr [ %49, %47 ], [ %52, %50 ]
   store i8 0, ptr %.sink, align 1
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   br label %56
 
 54:                                               ; preds = %1, %42, %40
   %.021 = phi i32 [ 3, %40 ], [ 14, %42 ], [ 22, %1 ]
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %55 = call ptr @__errno() #4
   store i32 %.021, ptr %55, align 4
   br label %56
@@ -122,23 +122,23 @@ define noundef i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
   ret i32 %.020
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
-declare ptr @nxsched_get_tcb(i32 noundef) local_unnamed_addr #2
+declare ptr @nxsched_get_tcb(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare ptr @__errno() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
+declare void @llvm.va_start.p0(ptr) #3
 
-declare ptr @__errno() local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

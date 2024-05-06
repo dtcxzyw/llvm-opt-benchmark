@@ -505,7 +505,7 @@ opal_obj_run_destructors.exit26:                  ; preds = %.lr.ph.i23, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_smcuda_progress_one_ipc_event(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @mca_btl_smcuda_progress_one_ipc_event(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = load volatile i32, ptr @accelerator_event_ipc_num_used, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %64, label %4
@@ -625,7 +625,7 @@ define noundef i32 @mca_btl_smcuda_progress_one_ipc_event(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_smcuda_memcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_btl_smcuda_memcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load i8, ptr @opal_uses_threads, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %10

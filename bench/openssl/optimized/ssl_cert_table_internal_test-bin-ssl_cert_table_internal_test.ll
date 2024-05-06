@@ -32,49 +32,49 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ssl_cert_table() #0 {
+define internal range(i32 0, 2) i32 @test_ssl_cert_table() #0 {
 entry:
   %call = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef 9, i64 noundef 9) #2
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @do_test_cert_table(i32 noundef 6, i32 noundef 1, i64 noundef 0, ptr noundef nonnull @.str.4), !range !5
+  %call1 = tail call fastcc i32 @do_test_cert_table(i32 noundef 6, i32 noundef 1, i64 noundef 0, ptr noundef nonnull @.str.4)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %land.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %call4 = tail call fastcc i32 @do_test_cert_table(i32 noundef 116, i32 noundef 2, i64 noundef 2, ptr noundef nonnull @.str.5), !range !5
+  %call4 = tail call fastcc i32 @do_test_cert_table(i32 noundef 116, i32 noundef 2, i64 noundef 2, ptr noundef nonnull @.str.5)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %land.end, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true3
-  %call7 = tail call fastcc i32 @do_test_cert_table(i32 noundef 408, i32 noundef 8, i64 noundef 3, ptr noundef nonnull @.str.6), !range !5
+  %call7 = tail call fastcc i32 @do_test_cert_table(i32 noundef 408, i32 noundef 8, i64 noundef 3, ptr noundef nonnull @.str.6)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %land.end, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true6
-  %call10 = tail call fastcc i32 @do_test_cert_table(i32 noundef 811, i32 noundef 32, i64 noundef 4, ptr noundef nonnull @.str.7), !range !5
+  %call10 = tail call fastcc i32 @do_test_cert_table(i32 noundef 811, i32 noundef 32, i64 noundef 4, ptr noundef nonnull @.str.7)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %land.end, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %land.lhs.true9
-  %call13 = tail call fastcc i32 @do_test_cert_table(i32 noundef 979, i32 noundef 128, i64 noundef 5, ptr noundef nonnull @.str.8), !range !5
+  %call13 = tail call fastcc i32 @do_test_cert_table(i32 noundef 979, i32 noundef 128, i64 noundef 5, ptr noundef nonnull @.str.8)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %land.end, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %land.lhs.true12
-  %call16 = tail call fastcc i32 @do_test_cert_table(i32 noundef 980, i32 noundef 128, i64 noundef 6, ptr noundef nonnull @.str.9), !range !5
+  %call16 = tail call fastcc i32 @do_test_cert_table(i32 noundef 980, i32 noundef 128, i64 noundef 6, ptr noundef nonnull @.str.9)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %land.end, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %land.lhs.true15
-  %call19 = tail call fastcc i32 @do_test_cert_table(i32 noundef 1087, i32 noundef 8, i64 noundef 7, ptr noundef nonnull @.str.10), !range !5
+  %call19 = tail call fastcc i32 @do_test_cert_table(i32 noundef 1087, i32 noundef 8, i64 noundef 7, ptr noundef nonnull @.str.10)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true18
-  %call21 = tail call fastcc i32 @do_test_cert_table(i32 noundef 1088, i32 noundef 8, i64 noundef 8, ptr noundef nonnull @.str.11), !range !5
+  %call21 = tail call fastcc i32 @do_test_cert_table(i32 noundef 1088, i32 noundef 8, i64 noundef 8, ptr noundef nonnull @.str.11)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true18, %land.lhs.true15, %land.lhs.true12, %land.lhs.true9, %land.lhs.true6, %land.lhs.true3, %land.lhs.true, %entry
@@ -85,7 +85,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_test_cert_table(i32 noundef %nid, i32 noundef %amask, i64 noundef %idx, ptr noundef %idxname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_test_cert_table(i32 noundef %nid, i32 noundef %amask, i64 noundef %idx, ptr noundef %idxname) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %idx
   %0 = load i32, ptr %arrayidx, align 8
@@ -142,4 +142,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

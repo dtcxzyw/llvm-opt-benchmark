@@ -59,7 +59,7 @@ declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_invcmp(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden range(i64 1, 0) i64 @rb_invcmp(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = tail call i64 @rb_exec_recursive(ptr noundef nonnull @invcmp_recursive, i64 noundef %0, i64 noundef %1) #5
   %4 = and i64 %3, -33
   %5 = icmp eq i64 %4, 4
@@ -125,7 +125,7 @@ declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #1
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cmp_equal(i64 noundef %0, i64 noundef %1) #3 {
+define internal range(i64 0, 21) i64 @cmp_equal(i64 noundef %0, i64 noundef %1) #3 {
   %3 = icmp eq i64 %0, %1
   br i1 %3, label %11, label %4
 
@@ -146,7 +146,7 @@ define internal i64 @cmp_equal(i64 noundef %0, i64 noundef %1) #3 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cmp_gt(i64 noundef %0, i64 noundef %1) #3 {
+define internal range(i64 0, 21) i64 @cmp_gt(i64 noundef %0, i64 noundef %1) #3 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %1, ptr %3, align 8
@@ -159,7 +159,7 @@ define internal i64 @cmp_gt(i64 noundef %0, i64 noundef %1) #3 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cmp_ge(i64 noundef %0, i64 noundef %1) #3 {
+define internal range(i64 0, 21) i64 @cmp_ge(i64 noundef %0, i64 noundef %1) #3 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %1, ptr %3, align 8
@@ -172,7 +172,7 @@ define internal i64 @cmp_ge(i64 noundef %0, i64 noundef %1) #3 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cmp_lt(i64 noundef %0, i64 noundef %1) #3 {
+define internal range(i64 0, 21) i64 @cmp_lt(i64 noundef %0, i64 noundef %1) #3 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %1, ptr %3, align 8
@@ -185,7 +185,7 @@ define internal i64 @cmp_lt(i64 noundef %0, i64 noundef %1) #3 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cmp_le(i64 noundef %0, i64 noundef %1) #3 {
+define internal range(i64 0, 21) i64 @cmp_le(i64 noundef %0, i64 noundef %1) #3 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %1, ptr %3, align 8
@@ -198,7 +198,7 @@ define internal i64 @cmp_le(i64 noundef %0, i64 noundef %1) #3 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cmp_between(i64 noundef %0, i64 noundef %1, i64 noundef %2) #3 {
+define internal range(i64 0, 21) i64 @cmp_between(i64 noundef %0, i64 noundef %1, i64 noundef %2) #3 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)

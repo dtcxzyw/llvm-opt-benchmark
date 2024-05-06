@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [41 x i8] c"getid: getsockopt SO_PEERCRED failed: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_util_getid(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @pmix_util_getid(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ucred, align 4
   %5 = alloca i32, align 4
   store i32 12, ptr %5, align 4

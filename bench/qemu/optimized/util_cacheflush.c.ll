@@ -28,7 +28,7 @@ entry:
   %spec.select7 = select i1 %tobool4.not.i, i32 64, i32 %dsize.0
   %isize.1 = select i1 %tobool.not.i, i32 %spec.select7, i32 %spec.select
   %dsize.1 = select i1 %tobool.not.i, i32 %spec.select7, i32 %spec.select6
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %isize.1), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %isize.1)
   %cmp = icmp ult i32 %0, 2
   br i1 %cmp, label %if.end, label %if.else
 
@@ -37,7 +37,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %dsize.1), !range !5
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %dsize.1)
   %cmp3 = icmp ult i32 %1, 2
   br i1 %cmp3, label %if.end6, label %if.else5
 
@@ -47,10 +47,10 @@ if.else5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   store i32 %isize.1, ptr @qemu_icache_linesize, align 4
-  %2 = tail call i32 @llvm.cttz.i32(i32 %isize.1, i1 false), !range !5
+  %2 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %isize.1, i1 false)
   store i32 %2, ptr @qemu_icache_linesize_log, align 4
   store i32 %dsize.1, ptr @qemu_dcache_linesize, align 4
-  %3 = tail call i32 @llvm.cttz.i32(i32 %dsize.1, i1 false), !range !5
+  %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %dsize.1, i1 false)
   store i32 %3, ptr @qemu_dcache_linesize_log, align 4
   ret void
 }
@@ -85,4 +85,3 @@ attributes #6 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}

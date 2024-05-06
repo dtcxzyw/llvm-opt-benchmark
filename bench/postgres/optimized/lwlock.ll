@@ -216,7 +216,7 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
   %.03842.i = phi ptr [ %21, %NumLWLocksForNamedTranches.exit.i ], [ %28, %22 ]
   %23 = getelementptr inbounds i8, ptr %.03842.i, i64 4
   store volatile i32 536870912, ptr %23, align 4
-  %24 = trunc i32 %.043.i to i16
+  %24 = trunc nuw i32 %.043.i to i16
   store i16 %24, ptr %.03842.i, align 4
   %25 = getelementptr inbounds i8, ptr %.03842.i, i64 8
   %26 = getelementptr inbounds i8, ptr %.03842.i, i64 12
@@ -398,9 +398,9 @@ InitializeLWLocks.exit:                           ; preds = %._crit_edge.i, %.In
 111:                                              ; preds = %108
   %112 = tail call i32 @llvm.umax.i32(i32 %104, i32 98)
   %113 = add nsw i32 %112, -90
-  %114 = tail call i32 @llvm.ctpop.i32(i32 %113), !range !16
+  %114 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %113)
   %115 = icmp ult i32 %114, 2
-  %116 = tail call i32 @llvm.ctlz.i32(i32 %113, i1 true), !range !16
+  %116 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %117 = xor i32 %116, 31
   %118 = shl nuw i32 2, %117
   %.0.i.i = select i1 %115, i32 %113, i32 %118
@@ -445,7 +445,7 @@ LWLockRegisterTranche.exit:                       ; preds = %.lr.ph, %132
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = sext i32 %136 to i64
   %139 = icmp slt i64 %indvars.iv.next, %138
-  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %LWLockRegisterTranche.exit, %56, %InitializeLWLocks.exit
   ret void
@@ -468,9 +468,9 @@ define dso_local void @LWLockRegisterTranche(i32 noundef %0, ptr noundef %1) loc
 7:                                                ; preds = %4
   %8 = tail call i32 @llvm.umax.i32(i32 %0, i32 98)
   %9 = add nsw i32 %8, -90
-  %10 = tail call i32 @llvm.ctpop.i32(i32 %9), !range !16
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
   %11 = icmp ult i32 %10, 2
-  %12 = tail call i32 @llvm.ctlz.i32(i32 %9, i1 true), !range !16
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %13 = xor i32 %12, 31
   %14 = shl nuw i32 2, %13
   %.0.i = select i1 %11, i32 %9, i32 %14
@@ -545,7 +545,7 @@ define dso_local ptr @GetNamedLWLockTranche(ptr nocapture noundef readonly %0) l
   %16 = add i32 %15, %.079
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %13, %1
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -629,9 +629,9 @@ define dso_local void @RequestNamedLWLockTranche(ptr noundef %0, i32 noundef %1)
 
 18:                                               ; preds = %14
   %19 = add i32 %16, 1
-  %20 = tail call i32 @llvm.ctpop.i32(i32 %19), !range !16
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
   %21 = icmp ult i32 %20, 2
-  %22 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !16
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %23 = xor i32 %22, 31
   %24 = shl nuw i32 2, %23
   %.0.i = select i1 %21, i32 %19, i32 %24
@@ -797,7 +797,7 @@ define dso_local noundef zeroext i1 @LWLockAcquire(ptr noundef %0, i32 noundef %
   %19 = icmp eq i32 %18, 0
   %20 = or disjoint i32 %.0.us.i, 16777216
   %spec.select.us.i = select i1 %19, i32 %20, i32 %.0.us.i
-  %21 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.us.i, i32 %spec.select.us.i, ptr nonnull elementtype(i32) %12) #15, !srcloc !19
+  %21 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.us.i, i32 %spec.select.us.i, ptr nonnull elementtype(i32) %12) #15, !srcloc !18
   %22 = extractvalue { i32, i8 } %21, 0
   %23 = extractvalue { i32, i8 } %21, 1
   %.not.us.i = icmp eq i8 %23, 0
@@ -809,7 +809,7 @@ define dso_local noundef zeroext i1 @LWLockAcquire(ptr noundef %0, i32 noundef %
   %.lobit.i = lshr exact i32 %24, 24
   %25 = xor i32 %.lobit.i, 1
   %spec.select11.i = add nuw nsw i32 %25, %.0.i
-  %26 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.i, i32 %spec.select11.i, ptr nonnull elementtype(i32) %12) #15, !srcloc !19
+  %26 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.i, i32 %spec.select11.i, ptr nonnull elementtype(i32) %12) #15, !srcloc !18
   %27 = extractvalue { i32, i8 } %26, 0
   %28 = extractvalue { i32, i8 } %26, 1
   %.not.i = icmp eq i8 %28, 0
@@ -833,7 +833,7 @@ LWLockAttemptLock.exit:                           ; preds = %.split.us.i
   %33 = icmp eq i32 %32, 0
   %34 = or disjoint i32 %.0.us.i28, 16777216
   %spec.select.us.i29 = select i1 %33, i32 %34, i32 %.0.us.i28
-  %35 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.us.i28, i32 %spec.select.us.i29, ptr nonnull elementtype(i32) %12) #15, !srcloc !19
+  %35 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.us.i28, i32 %spec.select.us.i29, ptr nonnull elementtype(i32) %12) #15, !srcloc !18
   %36 = extractvalue { i32, i8 } %35, 0
   %37 = extractvalue { i32, i8 } %35, 1
   %.not.us.i30 = icmp eq i8 %37, 0
@@ -845,7 +845,7 @@ LWLockAttemptLock.exit:                           ; preds = %.split.us.i
   %.lobit.i21 = lshr exact i32 %38, 24
   %39 = xor i32 %.lobit.i21, 1
   %spec.select11.i22 = add nuw nsw i32 %39, %.0.i20
-  %40 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.i20, i32 %spec.select11.i22, ptr nonnull elementtype(i32) %12) #15, !srcloc !19
+  %40 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.i20, i32 %spec.select11.i22, ptr nonnull elementtype(i32) %12) #15, !srcloc !18
   %41 = extractvalue { i32, i8 } %40, 0
   %42 = extractvalue { i32, i8 } %40, 1
   %.not.i23 = icmp eq i8 %42, 0
@@ -903,7 +903,7 @@ LWLockAttemptLock.exit31:                         ; preds = %.split.us.i27
   %65 = load ptr, ptr %14, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %65) #15
   %66 = icmp ugt i32 %.239, 1
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   ret i1 %.018
@@ -969,7 +969,7 @@ define internal fastcc void @LWLockQueueSelf(ptr noundef %0, i32 noundef %1) unn
   %27 = load volatile i32, ptr %16, align 4
   %28 = and i32 %27, 268435456
   %.not3.i = icmp eq i32 %28, 0
-  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
   call void @finish_spin_delay(ptr noundef nonnull %3) #15
@@ -1097,7 +1097,7 @@ define internal fastcc void @LWLockDequeueSelf(ptr noundef %0) unnamed_addr #0 {
   %14 = load volatile i32, ptr %3, align 4
   %15 = and i32 %14, 268435456
   %.not3.i = icmp eq i32 %15, 0
-  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
   call void @finish_spin_delay(ptr noundef nonnull %2) #15
@@ -1207,7 +1207,7 @@ proclist_delete_offset.exit:                      ; preds = %37, %39
   %72 = load ptr, ptr %71, align 8
   call void @PGSemaphoreUnlock(ptr noundef %72) #15
   %73 = icmp ugt i32 %.110, 1
-  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %54
   ret void
@@ -1245,7 +1245,7 @@ define dso_local noundef zeroext i1 @LWLockConditionalAcquire(ptr noundef %0, i3
   %15 = icmp eq i32 %14, 0
   %16 = or disjoint i32 %.0.us.i, 16777216
   %spec.select.us.i = select i1 %15, i32 %16, i32 %.0.us.i
-  %17 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.0.us.i, i32 %spec.select.us.i, ptr nonnull elementtype(i32) %11) #15, !srcloc !19
+  %17 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.0.us.i, i32 %spec.select.us.i, ptr nonnull elementtype(i32) %11) #15, !srcloc !18
   %18 = extractvalue { i32, i8 } %17, 0
   %19 = extractvalue { i32, i8 } %17, 1
   %.not.us.i = icmp eq i8 %19, 0
@@ -1257,7 +1257,7 @@ define dso_local noundef zeroext i1 @LWLockConditionalAcquire(ptr noundef %0, i3
   %.lobit.i = lshr exact i32 %20, 24
   %21 = xor i32 %.lobit.i, 1
   %spec.select11.i = add nuw nsw i32 %21, %.0.i
-  %22 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.0.i, i32 %spec.select11.i, ptr nonnull elementtype(i32) %11) #15, !srcloc !19
+  %22 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.0.i, i32 %spec.select11.i, ptr nonnull elementtype(i32) %11) #15, !srcloc !18
   %23 = extractvalue { i32, i8 } %22, 0
   %24 = extractvalue { i32, i8 } %22, 1
   %.not.i = icmp eq i8 %24, 0
@@ -1321,7 +1321,7 @@ define dso_local noundef zeroext i1 @LWLockAcquireOrWait(ptr noundef %0, i32 nou
   %16 = icmp eq i32 %15, 0
   %17 = or disjoint i32 %.0.us.i, 16777216
   %spec.select.us.i = select i1 %16, i32 %17, i32 %.0.us.i
-  %18 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.us.i, i32 %spec.select.us.i, ptr nonnull elementtype(i32) %12) #15, !srcloc !19
+  %18 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.us.i, i32 %spec.select.us.i, ptr nonnull elementtype(i32) %12) #15, !srcloc !18
   %19 = extractvalue { i32, i8 } %18, 0
   %20 = extractvalue { i32, i8 } %18, 1
   %.not.us.i = icmp eq i8 %20, 0
@@ -1333,7 +1333,7 @@ define dso_local noundef zeroext i1 @LWLockAcquireOrWait(ptr noundef %0, i32 nou
   %.lobit.i = lshr exact i32 %21, 24
   %22 = xor i32 %.lobit.i, 1
   %spec.select11.i = add nuw nsw i32 %22, %.0.i
-  %23 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.i, i32 %spec.select11.i, ptr nonnull elementtype(i32) %12) #15, !srcloc !19
+  %23 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.i, i32 %spec.select11.i, ptr nonnull elementtype(i32) %12) #15, !srcloc !18
   %24 = extractvalue { i32, i8 } %23, 0
   %25 = extractvalue { i32, i8 } %23, 1
   %.not.i = icmp eq i8 %25, 0
@@ -1357,7 +1357,7 @@ LWLockAttemptLock.exit:                           ; preds = %.split.us.i
   %30 = icmp eq i32 %29, 0
   %31 = or disjoint i32 %.0.us.i27, 16777216
   %spec.select.us.i28 = select i1 %30, i32 %31, i32 %.0.us.i27
-  %32 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.us.i27, i32 %spec.select.us.i28, ptr nonnull elementtype(i32) %12) #15, !srcloc !19
+  %32 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.us.i27, i32 %spec.select.us.i28, ptr nonnull elementtype(i32) %12) #15, !srcloc !18
   %33 = extractvalue { i32, i8 } %32, 0
   %34 = extractvalue { i32, i8 } %32, 1
   %.not.us.i29 = icmp eq i8 %34, 0
@@ -1369,7 +1369,7 @@ LWLockAttemptLock.exit:                           ; preds = %.split.us.i
   %.lobit.i20 = lshr exact i32 %35, 24
   %36 = xor i32 %.lobit.i20, 1
   %spec.select11.i21 = add nuw nsw i32 %36, %.0.i19
-  %37 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.i19, i32 %spec.select11.i21, ptr nonnull elementtype(i32) %12) #15, !srcloc !19
+  %37 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %.0.i19, i32 %spec.select11.i21, ptr nonnull elementtype(i32) %12) #15, !srcloc !18
   %38 = extractvalue { i32, i8 } %37, 0
   %39 = extractvalue { i32, i8 } %37, 1
   %.not.i22 = icmp eq i8 %39, 0
@@ -1421,7 +1421,7 @@ LWLockAttemptLock.exit30:                         ; preds = %.split.us.i26
   %60 = load ptr, ptr %57, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %60) #15
   %61 = icmp ugt i32 %.234, 1
-  br i1 %61, label %58, label %.loopexit, !llvm.loop !23
+  br i1 %61, label %58, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %58, %54
   %62 = load volatile i32, ptr @InterruptHoldoffCount, align 4
@@ -1534,7 +1534,7 @@ LWLockConflictsWithVar.exit.thread:               ; preds = %31, %15, %.loopexit
   %39 = load ptr, ptr %36, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %39) #15
   %40 = icmp ugt i32 %.242, 1
-  br i1 %40, label %37, label %._crit_edge, !llvm.loop !24
+  br i1 %40, label %37, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %37, %4, %LWLockConflictsWithVar.exit.thread
   %.22458 = phi i1 [ %.224, %LWLockConflictsWithVar.exit.thread ], [ true, %4 ], [ %.224, %37 ]
@@ -1582,7 +1582,7 @@ define dso_local void @LWLockUpdateVar(ptr noundef %0, ptr noundef %1, i64 nound
   %17 = load volatile i32, ptr %6, align 4
   %18 = and i32 %17, 268435456
   %.not3.i = icmp eq i32 %18, 0
-  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
   call void @finish_spin_delay(ptr noundef nonnull %4) #15
@@ -1693,7 +1693,7 @@ proclist_push_tail_offset.exit:                   ; preds = %59, %60
   %74 = getelementptr inbounds i8, ptr %73, i64 91
   %75 = load i8, ptr %74, align 1
   %.not25 = icmp eq i8 %75, 2
-  br i1 %.not25, label %36, label %._crit_edge, !llvm.loop !25
+  br i1 %.not25, label %36, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %67, %proclist_push_tail_offset.exit, %.lr.ph
   %.sroa.0.032.lcssa = phi i32 [ %.sroa.4.0..sroa.4.0..sroa.4.promoted, %.lr.ph ], [ %.sroa.0.03661, %proclist_push_tail_offset.exit ], [ %.sroa.0.03661, %67 ]
@@ -1741,14 +1741,14 @@ proclist_delete_offset.exit29:                    ; preds = %.cont, %93
   store i32 %87, ptr %.sink16.i28, align 4
   store i32 0, ptr %86, align 4
   store i32 0, ptr %85, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !25
   %98 = getelementptr inbounds i8, ptr %84, i64 90
   store i8 0, ptr %98, align 2
   %99 = getelementptr inbounds i8, ptr %84, i64 24
   %100 = load ptr, ptr %99, align 8
   call void @PGSemaphoreUnlock(ptr noundef %100) #15
   %101 = icmp eq i32 %82, -1
-  br i1 %101, label %._crit_edge47, label %.lr.ph46, !llvm.loop !27
+  br i1 %101, label %._crit_edge47, label %.lr.ph46, !llvm.loop !26
 
 ._crit_edge47:                                    ; preds = %proclist_delete_offset.exit29, %._crit_edge.thread, %._crit_edge
   ret void
@@ -1777,7 +1777,7 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %11 = load ptr, ptr %10, align 16
   %12 = icmp eq ptr %11, %0
   %indvars.iv.next30 = add i32 %indvars.iv29, -1
-  br i1 %12, label %18, label %6, !llvm.loop !28
+  br i1 %12, label %18, label %6, !llvm.loop !27
 
 13:                                               ; preds = %6
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1805,9 +1805,9 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %24 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv.next33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, ptr noundef nonnull align 16 dereferenceable(16) %24, i64 16, i1 false)
-  %25 = trunc i64 %indvars.iv.next33 to i32
+  %25 = trunc nuw i64 %indvars.iv.next33 to i32
   %26 = icmp sgt i32 %5, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %27 = icmp eq i32 %20, 0
@@ -1855,7 +1855,7 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %44 = load volatile i32, ptr %33, align 4
   %45 = and i32 %44, 268435456
   %.not3.i.i = icmp eq i32 %45, 0
-  br i1 %.not3.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %.not3.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %41
   call void @finish_spin_delay(ptr noundef nonnull %2) #15
@@ -1978,7 +1978,7 @@ proclist_push_tail_offset.exit.i:                 ; preds = %87, %86
   %100 = load ptr, ptr %97, align 8
   %101 = sext i32 %.sroa.19.058.i to i64
   %102 = getelementptr %struct.PGPROC, ptr %100, i64 %101, i32 17
-  br label %57, !llvm.loop !30
+  br label %57, !llvm.loop !29
 
 proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %96, %proclist_push_tail_offset.exit.i
   %.sroa.0.3.ph.i = phi i32 [ %.sroa.0.149.i, %proclist_push_tail_offset.exit.i ], [ %.sroa.0.2.i, %96 ]
@@ -1998,7 +1998,7 @@ proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %96, %proclist_push_
   %.047.us.i = phi i32 [ %110, %.split.us.i ], [ %107, %.split.us.preheader.i ]
   %108 = and i32 %.047.us.i, -1879048193
   %.035.us.i = or disjoint i32 %108, %.382.i
-  %109 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.047.us.i, i32 %.035.us.i, ptr nonnull elementtype(i32) %33) #15, !srcloc !19
+  %109 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.047.us.i, i32 %.035.us.i, ptr nonnull elementtype(i32) %33) #15, !srcloc !18
   %110 = extractvalue { i32, i8 } %109, 0
   %111 = extractvalue { i32, i8 } %109, 1
   %.not50.us.i = icmp eq i8 %111, 0
@@ -2008,7 +2008,7 @@ proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %96, %proclist_push_
   %.047.i = phi i32 [ %114, %.split.i ], [ %105, %proclist_push_tail_offset.exit._crit_edge.i ]
   %112 = and i32 %.047.i, -805306369
   %.035.i = or disjoint i32 %112, %104
-  %113 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.047.i, i32 %.035.i, ptr nonnull elementtype(i32) %33) #15, !srcloc !19
+  %113 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.047.i, i32 %.035.i, ptr nonnull elementtype(i32) %33) #15, !srcloc !18
   %114 = extractvalue { i32, i8 } %113, 0
   %115 = extractvalue { i32, i8 } %113, 1
   %.not50.i = icmp eq i8 %115, 0
@@ -2052,14 +2052,14 @@ proclist_delete_offset.exit44.i:                  ; preds = %128, %.cont.i
   store i32 %122, ptr %.sink16.i43.i, align 4
   store i32 0, ptr %121, align 4
   store i32 0, ptr %120, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !30
   %133 = getelementptr inbounds i8, ptr %119, i64 90
   store i8 0, ptr %133, align 2
   %134 = getelementptr inbounds i8, ptr %119, i64 24
   %135 = load ptr, ptr %134, align 8
   call void @PGSemaphoreUnlock(ptr noundef %135) #15
   %136 = icmp eq i32 %.sroa.19.170.i, -1
-  br i1 %136, label %LWLockWakeup.exit, label %.lr.ph72.i, !llvm.loop !32
+  br i1 %136, label %LWLockWakeup.exit, label %.lr.ph72.i, !llvm.loop !31
 
 LWLockWakeup.exit:                                ; preds = %proclist_delete_offset.exit44.i, %.split.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
@@ -2100,7 +2100,7 @@ define dso_local void @LWLockReleaseAll() local_unnamed_addr #0 {
   tail call void @LWLockRelease(ptr noundef %9)
   %10 = load i32, ptr @num_held_lwlocks, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -2123,13 +2123,13 @@ define dso_local zeroext i1 @LWLockHeldByMe(ptr noundef readnone %0) local_unnam
   %indvars.iv8 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv8, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.lr.ph9
   %7 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 16
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %._crit_edge.loopexit, label %.lr.ph9, !llvm.loop !34
+  br i1 %9, label %._crit_edge.loopexit, label %.lr.ph9, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph9
   %10 = icmp ult i64 %indvars.iv.next, %4
@@ -2176,7 +2176,7 @@ define dso_local zeroext i1 @LWLockAnyHeldByMe(ptr noundef %0, i32 noundef %1, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = icmp ult i64 %indvars.iv.next, %10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %16, %21, %3
   %.lcssa = phi i1 [ false, %3 ], [ %22, %21 ], [ %12, %16 ]
@@ -2212,7 +2212,7 @@ define dso_local zeroext i1 @LWLockHeldByMeInMode(ptr noundef readnone %0, i32 n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = icmp ult i64 %indvars.iv.next, %5
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %10, %14, %2
   %.lcssa = phi i1 [ false, %2 ], [ %15, %14 ], [ %6, %10 ]
@@ -2281,24 +2281,23 @@ attributes #17 = { cold nounwind }
 !13 = !{i64 2150436896}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i32 0, i32 33}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = !{i64 2249298, i64 2249315, i64 2249338}
+!18 = !{i64 2249298, i64 2249315, i64 2249338}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = !{i64 2150453370}
+!25 = !{i64 2150453370}
+!26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = !{i64 2150443334}
+!30 = !{i64 2150443334}
+!31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}

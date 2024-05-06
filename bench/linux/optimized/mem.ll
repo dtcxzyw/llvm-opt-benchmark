@@ -174,7 +174,7 @@ define internal noalias noundef ptr @mem_devnode(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @memory_lseek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define internal range(i64 -75, -4095) i64 @memory_lseek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 160
@@ -411,7 +411,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mmap_mem(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -22, 1) i32 @mmap_mem(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8

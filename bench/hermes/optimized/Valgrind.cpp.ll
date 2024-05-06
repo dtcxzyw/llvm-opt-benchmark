@@ -12,7 +12,7 @@ entry:
   %_zzq_args = alloca [6 x i64], align 16
   %_zzq_result = alloca i64, align 8
   %0 = load i8, ptr @_ZL16NotUnderValgrind, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -45,7 +45,7 @@ entry:
   %_zzq_args = alloca [6 x i64], align 16
   %_zzq_result = alloca i64, align 8
   %0 = load i8, ptr @_ZL16NotUnderValgrind, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %do.end, label %do.body
 
 do.body:                                          ; preds = %entry

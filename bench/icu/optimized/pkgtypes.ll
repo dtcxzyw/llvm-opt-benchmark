@@ -750,7 +750,7 @@ convertToNativePathSeparators.exit:               ; preds = %while.body.i, %if.e
 for.body.i:                                       ; preds = %convertToNativePathSeparators.exit, %for.inc.i
   %l.addr.04.i = phi ptr [ %2, %for.inc.i ], [ %l, %convertToNativePathSeparators.exit ]
   %1 = load ptr, ptr %l.addr.04.i, align 8
-  %call.i14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %aBuf) #11
+  %call.i14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %aBuf) #11
   %tobool2.not.i = icmp eq i32 %call.i14, 0
   br i1 %tobool2.not.i, label %return, label %for.inc.i
 
@@ -862,7 +862,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef signext i8 @pkg_listContains(ptr noundef readonly %l, ptr nocapture noundef readonly %str) local_unnamed_addr #9 {
+define dso_local signext range(i8 0, 2) i8 @pkg_listContains(ptr noundef readonly %l, ptr nocapture noundef readonly %str) local_unnamed_addr #9 {
 entry:
   %tobool.not3 = icmp eq ptr %l, null
   br i1 %tobool.not3, label %return, label %for.body

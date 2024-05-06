@@ -224,7 +224,7 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #2 {
+define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #2 {
 entry:
   %argc.addr = alloca i32, align 4
   %argv.addr = alloca ptr, align 8

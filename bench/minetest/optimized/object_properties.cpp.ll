@@ -106,7 +106,7 @@ $_ZTV13BaseException = comdat any
 @.str.36 = private unnamed_addr constant [10 x i8] c", shaded=\00", align 1
 @.str.37 = private unnamed_addr constant [19 x i8] c", show_on_minimap=\00", align 1
 @.str.38 = private unnamed_addr constant [31 x i8] c"ObjectProperties::validate(): \00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.39 = private unnamed_addr constant [9 x i8] c"texture \00", align 1
 @.str.40 = private unnamed_addr constant [36 x i8] c" has excessive length, clearing it.\00", align 1
 @.str.41 = private unnamed_addr constant [43 x i8] c"nametag has excessive length, clearing it.\00", align 1

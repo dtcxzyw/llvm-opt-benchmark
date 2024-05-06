@@ -206,7 +206,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 66:                                               ; preds = %63
   %67 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %68 = getelementptr inbounds i8, ptr %1, i64 16
   %69 = load i16, ptr %68, align 8
   %70 = and i16 %69, -256
@@ -1394,7 +1394,7 @@ declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @type_get_subarray(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cast_to_bool_kind(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1
@@ -5442,7 +5442,7 @@ define internal void @cast_retype(ptr nocapture readnone %0, ptr nocapture nound
 define internal void @cast_all_to_void(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #0 {
   %4 = load ptr, ptr @type_void, align 8
   %5 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, -256
@@ -5481,7 +5481,7 @@ define internal void @cast_bool_to_int(ptr nocapture readnone %0, ptr nocapture 
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -5573,7 +5573,7 @@ define internal void @cast_bool_to_float(ptr nocapture readnone %0, ptr nocaptur
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -5678,7 +5678,7 @@ define internal void @cast_expand_to_vec(ptr noundef %0, ptr noundef %1, ptr nou
   %.0 = phi i1 [ %14, %13 ], [ false, %3 ]
   tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i1 noundef zeroext %.0)
   %16 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, -256
@@ -5717,7 +5717,7 @@ define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr noundef %1
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -5804,7 +5804,7 @@ define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr noundef %1,
 
 .critedge:                                        ; preds = %22, %18
   %26 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %27 = load i16, ptr %5, align 8
   %28 = and i16 %27, -256
   %29 = or disjoint i16 %28, 9
@@ -5906,7 +5906,7 @@ define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr noundef %
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -6033,7 +6033,7 @@ define internal void @cast_int_to_ptr(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0 = phi i1 [ %27, %26 ], [ false, %16 ]
   tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17, i1 noundef zeroext %.0)
   %29 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %30 = load i16, ptr %4, align 8
   %31 = and i16 %30, -256
   %32 = or disjoint i16 %31, 9
@@ -6156,7 +6156,7 @@ type_flatten.exit19:                              ; preds = %type_flatten.exit
 
 47:                                               ; preds = %type_flatten.exit19, %8, %3
   %48 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %49 = load i16, ptr %4, align 8
   %50 = and i16 %49, -256
   %51 = or disjoint i16 %50, 9
@@ -6232,7 +6232,7 @@ type_flatten.exit:                                ; preds = %4
 
 .critedge:                                        ; preds = %22, %type_flatten.exit
   %26 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %27 = load i16, ptr %18, align 8
   %28 = and i16 %27, -256
   %29 = or disjoint i16 %28, 9
@@ -6287,7 +6287,7 @@ define internal void @cast_float_to_bool(ptr nocapture readnone %0, ptr nocaptur
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -6346,7 +6346,7 @@ define internal void @cast_float_to_int(ptr nocapture readnone %0, ptr nocapture
 
 .critedge:                                        ; preds = %9, %3
   %13 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %14 = load i16, ptr %5, align 8
   %15 = and i16 %14, -256
   %16 = or disjoint i16 %15, 9
@@ -6434,7 +6434,7 @@ define internal void @cast_float_to_float(ptr nocapture readnone %0, ptr nocaptu
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -6529,7 +6529,7 @@ define internal void @cast_ptr_to_bool(ptr nocapture readnone %0, ptr nocapture 
 
 .critedge:                                        ; preds = %8, %3
   %11 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %12 = load i16, ptr %4, align 8
   %13 = and i16 %12, -256
   %14 = or disjoint i16 %13, 9
@@ -6601,7 +6601,7 @@ define internal void @cast_ptr_to_int(ptr nocapture readnone %0, ptr nocapture n
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -6726,7 +6726,7 @@ define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture n
 
 .critedge:                                        ; preds = %8, %3
   %11 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %12 = load i16, ptr %4, align 8
   %13 = and i16 %12, -256
   %14 = or disjoint i16 %13, 9
@@ -6748,7 +6748,7 @@ define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture n
 
 24:                                               ; preds = %8
   %25 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %26 = load i16, ptr %4, align 8
   %27 = and i16 %26, -256
   %28 = or disjoint i16 %27, 9
@@ -6780,7 +6780,7 @@ define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture n
 ; Function Attrs: nounwind uwtable
 define internal void @cast_ptr_to_any(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -6935,7 +6935,7 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
 
 .critedge:                                        ; preds = %3, %13, %8
   %42 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %43 = load i16, ptr %4, align 8
   %44 = and i16 %43, -256
   %45 = or disjoint i16 %44, 9
@@ -6977,7 +6977,7 @@ define internal void @cast_sa_to_ptr(ptr nocapture readnone %0, ptr nocapture no
 
 .critedge2:                                       ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -7169,7 +7169,7 @@ type_flatten.exit35:                              ; preds = %45
 
 72:                                               ; preds = %69
   %73 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %74 = load i16, ptr %58, align 8
   %75 = and i16 %74, -256
   %76 = or disjoint i16 %75, 9
@@ -7224,7 +7224,7 @@ define internal void @cast_sa_to_vecarr(ptr noundef %0, ptr noundef %1, ptr noun
 
 17:                                               ; preds = %8
   %18 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %19 = load i16, ptr %4, align 8
   %20 = and i16 %19, -256
   %21 = or disjoint i16 %20, 9
@@ -7386,7 +7386,7 @@ type_flatten.exit74:                              ; preds = %22
 
 49:                                               ; preds = %47, %47, %47, %47, %47
   %50 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %51 = load i16, ptr %4, align 8
   %52 = and i16 %51, -256
   %53 = or disjoint i16 %52, 9
@@ -7412,7 +7412,7 @@ type_flatten.exit74:                              ; preds = %22
 
 64:                                               ; preds = %47, %47, %47, %47, %47, %47, %47, %47, %47, %47
   %65 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %66 = load i16, ptr %4, align 8
   %67 = and i16 %66, -256
   %68 = or disjoint i16 %67, 9
@@ -7461,7 +7461,7 @@ type_flatten.exit74:                              ; preds = %22
 
 93:                                               ; preds = %.thread, %85
   %94 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %95 = load i16, ptr %4, align 8
   %96 = and i16 %95, -256
   %97 = or disjoint i16 %96, 9
@@ -7489,7 +7489,7 @@ type_flatten.exit74:                              ; preds = %22
 
 109:                                              ; preds = %.thread76
   %110 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %111 = load i16, ptr %4, align 8
   %112 = and i16 %111, -256
   %113 = or disjoint i16 %112, 9
@@ -7555,7 +7555,7 @@ type_flatten.exit74:                              ; preds = %22
 
 134:                                              ; preds = %133, %133, %133, %133, %133
   %135 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %135, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %135, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %136 = load i16, ptr %4, align 8
   %137 = and i16 %136, -256
   %138 = or disjoint i16 %137, 9
@@ -7581,7 +7581,7 @@ type_flatten.exit74:                              ; preds = %22
 
 149:                                              ; preds = %133, %133, %133, %133, %133, %133, %133, %133, %133, %133
   %150 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %150, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %150, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %151 = load i16, ptr %4, align 8
   %152 = and i16 %151, -256
   %153 = or disjoint i16 %152, 9
@@ -7643,7 +7643,7 @@ type_flatten.exit74:                              ; preds = %22
 
 168:                                              ; preds = %165, %165, %165, %165, %165, %165, %165, %165, %165, %165
   %169 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %169, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %169, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %170 = load i16, ptr %4, align 8
   %171 = and i16 %170, -256
   %172 = or disjoint i16 %171, 9
@@ -7665,7 +7665,7 @@ type_flatten.exit74:                              ; preds = %22
 
 182:                                              ; preds = %165, %165, %165, %165
   %183 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %183, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %183, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %184 = load i16, ptr %4, align 8
   %185 = and i16 %184, -256
   %186 = or disjoint i16 %185, 9
@@ -7717,7 +7717,7 @@ define internal void @cast_vec_to_arr(ptr nocapture readnone %0, ptr nocapture n
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -7818,7 +7818,7 @@ define internal void @cast_bitstruct_to_int_arr(ptr nocapture readnone %0, ptr n
 
 19:                                               ; preds = %8, %3
   %20 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %21 = load i16, ptr %4, align 8
   %22 = and i16 %21, -256
   %23 = or disjoint i16 %22, 9
@@ -7975,7 +7975,7 @@ type_flatten.exit29:                              ; preds = %.preheader
 
 61:                                               ; preds = %51
   %62 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %63 = load i16, ptr %53, align 8
   %64 = and i16 %63, -256
   %65 = or disjoint i16 %64, 9
@@ -8016,7 +8016,7 @@ define internal void @cast_arr_to_arr(ptr nocapture readnone %0, ptr nocapture n
 ; Function Attrs: nounwind uwtable
 define internal void @cast_struct_to_inline(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -8041,7 +8041,7 @@ define internal void @cast_struct_to_inline(ptr nocapture readnone %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal void @cast_any_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -8066,7 +8066,7 @@ define internal void @cast_any_to_bool(ptr nocapture readnone %0, ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_any_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -8105,7 +8105,7 @@ define internal void @cast_anyfault_to_bool(ptr nocapture readnone %0, ptr nocap
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -8150,7 +8150,7 @@ define internal void @cast_anyfault_to_bool(ptr nocapture readnone %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal void @cast_fault_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -8175,7 +8175,7 @@ define internal void @cast_fault_to_int(ptr nocapture readnone %0, ptr nocapture
 ; Function Attrs: nounwind uwtable
 define internal void @cast_fault_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -8400,7 +8400,7 @@ define internal void @cast_typeid_to_bool(ptr nocapture readnone %0, ptr nocaptu
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -8445,7 +8445,7 @@ define internal void @cast_typeid_to_bool(ptr nocapture readnone %0, ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal void @cast_typeid_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -8470,7 +8470,7 @@ define internal void @cast_typeid_to_int(ptr nocapture readnone %0, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal void @cast_typeid_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -8509,7 +8509,7 @@ define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr noca
 
 .critedge:                                        ; preds = %8, %3
   %12 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i16, ptr %4, align 8
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
@@ -8560,7 +8560,7 @@ define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr noca
 ; Function Attrs: nounwind uwtable
 define internal void @cast_vaptr_to_sa(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -8634,7 +8634,7 @@ declare ptr @type_get_optional(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @insert_runtime_cast(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256

@@ -1296,7 +1296,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %195 = icmp ne i32 %187, 0
   %196 = xor i1 %194, %195
   tail call void @llvm.assume(i1 %196)
-  %197 = mul nsw i32 %190, %187
+  %197 = mul nuw nsw i32 %190, %187
   %198 = icmp eq i32 %181, %197
   tail call void @llvm.assume(i1 %198)
   %199 = icmp eq i32 %187, 1
@@ -1308,7 +1308,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
 
 203:                                              ; preds = %169
   %204 = ptrtoint ptr %179 to i64
-  %205 = mul nsw i32 %187, %184
+  %205 = mul nuw nsw i32 %187, %184
   %206 = load ptr, ptr %138, align 8, !tbaa !173
   %207 = zext nneg i32 %205 to i64
   %208 = zext nneg i32 %151 to i64
@@ -1561,7 +1561,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %370 = icmp ne i32 %362, 0
   %371 = xor i1 %369, %370
   tail call void @llvm.assume(i1 %371)
-  %372 = mul nsw i32 %365, %362
+  %372 = mul nuw nsw i32 %365, %362
   %373 = icmp eq i32 %356, %372
   tail call void @llvm.assume(i1 %373)
   %374 = icmp eq i32 %362, 1
@@ -1574,7 +1574,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   br i1 %379, label %.loopexit, label %380
 
 380:                                              ; preds = %344
-  %381 = mul nsw i32 %362, %359
+  %381 = mul nuw nsw i32 %362, %359
   %382 = load ptr, ptr %138, align 8, !tbaa !173
   %383 = zext nneg i32 %381 to i64
   br label %384
@@ -1844,13 +1844,13 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %522 = icmp ne i32 %514, 0
   %523 = xor i1 %521, %522
   call void @llvm.assume(i1 %523)
-  %524 = mul nsw i32 %517, %514
+  %524 = mul nuw nsw i32 %517, %514
   %525 = icmp eq i32 %508, %524
   call void @llvm.assume(i1 %525)
   %526 = icmp eq i32 %514, 1
   %527 = icmp eq i32 %517, %511
   %528 = or i1 %526, %527
-  %529 = mul nsw i32 %514, %511
+  %529 = mul nuw nsw i32 %514, %511
   call void @llvm.assume(i1 %528)
   %530 = tail call ptr @__errno_location() #32
   %531 = load ptr, ptr %452, align 8, !tbaa !141
@@ -2663,7 +2663,7 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
   %51 = phi i32 [ %42, %37 ], [ %31, %26 ]
   %52 = phi i32 [ %44, %37 ], [ %33, %26 ]
   tail call void @llvm.assume(i1 %49)
-  %53 = mul nsw i32 %50, %18
+  %53 = mul nuw nsw i32 %50, %18
   %54 = icmp eq i32 %53, %51
   tail call void @llvm.assume(i1 %54)
   %55 = icmp sgt i32 %50, -1
@@ -2797,7 +2797,7 @@ define hidden void @_ZN8rawspeed10RawDecoder9decodeRawEv(ptr dead_on_unwind noal
   %131 = phi i32 [ %122, %117 ], [ %111, %106 ]
   %132 = phi i32 [ %124, %117 ], [ %113, %106 ]
   call void @llvm.assume(i1 %129)
-  %133 = mul nsw i32 %130, %98
+  %133 = mul nuw nsw i32 %130, %98
   %134 = icmp eq i32 %133, %131
   call void @llvm.assume(i1 %134)
   %135 = icmp sgt i32 %130, -1

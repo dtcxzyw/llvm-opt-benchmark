@@ -31,7 +31,7 @@ define void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$co
   br label %15
 
 15:                                               ; preds = %14, %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   br label %_ZN4core4iter8adapters4fuse17and_then_or_clear17h03581fe48827f002E.exit
 
 _ZN4core4iter8adapters4fuse17and_then_or_clear17h03581fe48827f002E.exit: ; preds = %12, %15

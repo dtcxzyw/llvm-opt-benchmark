@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [15 x i8] c"hash_p_compute\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hash_g_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @hash_g_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -125,7 +125,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @hash_g_fini() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @hash_g_fini() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2

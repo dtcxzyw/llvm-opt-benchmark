@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.4 = private unnamed_addr constant [49 x i8] c"Abc_NtkCleanupSeq: The network check has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkFraigSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkFraigSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1637,7 +1637,7 @@ define void @Abc_NodeConstantInput(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %14, !llvm.loop !31
 
 Vec_IntFind.exit:                                 ; preds = %14
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %Vec_IntFind.exit.thread, label %25
 
@@ -3135,7 +3135,7 @@ Vec_IntFillExtra.exit:                            ; preds = %48, %._crit_edge.i
 
 113:                                              ; preds = %110
   %114 = load ptr, ptr %47, align 8
-  %115 = trunc i64 %indvars.iv to i32
+  %115 = trunc nuw nsw i64 %indvars.iv to i32
   %116 = tail call ptr @Hop_IthVar(ptr noundef %9, i32 noundef %115) #9
   %117 = ptrtoint ptr %116 to i64
   %118 = xor i64 %117, 1

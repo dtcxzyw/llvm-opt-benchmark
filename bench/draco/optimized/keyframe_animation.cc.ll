@@ -131,7 +131,7 @@ define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vect
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %40 = load i8, ptr %36, align 4
   %41 = trunc i8 %40 to i1
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw i64 %indvars.iv to i32
   br i1 %41, label %47, label %43
 
 43:                                               ; preds = %39

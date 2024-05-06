@@ -155,7 +155,7 @@ _ZN27ExtcapArgumentFileSelection2trEPKcS1_i.exit: ; preds = %21
 33:                                               ; preds = %31
   %34 = extractvalue { i64, i64 } %32, 1
   %.sroa.4.8.extract.shift = lshr i64 %34, 32
-  %.sroa.4.8.extract.trunc = trunc i64 %.sroa.4.8.extract.shift to i32
+  %.sroa.4.8.extract.trunc = trunc nuw i64 %.sroa.4.8.extract.shift to i32
   invoke void @_ZN7QLayout18setContentsMarginsEiiii(ptr noundef nonnull align 8 dereferenceable(28) %29, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.sroa.4.8.extract.trunc)
           to label %35 unwind label %81
 

@@ -36,7 +36,7 @@ define dso_local void @acpi_ds_clear_implicit_return(ptr nocapture noundef %0) l
 declare dso_local void @acpi_ut_remove_reference(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i8 @acpi_ds_do_implicit_return(ptr noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_do_implicit_return(ptr noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = load i8, ptr @acpi_gbl_enable_interpreter_slack, align 1
   %5 = icmp ne i8 %4, 0
   %6 = icmp ne ptr %0, null
@@ -75,7 +75,7 @@ define dso_local noundef zeroext i8 @acpi_ds_do_implicit_return(ptr noundef %0, 
 declare dso_local void @acpi_ut_add_reference(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i8 @acpi_ds_is_result_used(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

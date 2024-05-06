@@ -102,7 +102,7 @@ entry:
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN5folly6netops9inet_atonEPKcP7in_addr(ptr noundef %cp, ptr nocapture noundef writeonly %inp) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_ZN5folly6netops9inet_atonEPKcP7in_addr(ptr noundef %cp, ptr nocapture noundef writeonly %inp) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @inet_addr(ptr noundef %cp) #10
   store i32 %call, ptr %inp, align 4, !tbaa !8

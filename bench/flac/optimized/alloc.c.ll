@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define dso_local noalias ptr @safe_malloc_mul_2op_(i64 noundef %size1, i64 noundef %size2) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @safe_malloc_mul_2op_(i64 noundef %size1, i64 noundef %size2) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne i64 %size1, 0
   %tobool1 = icmp ne i64 %size2, 0

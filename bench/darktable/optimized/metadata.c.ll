@@ -2702,7 +2702,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %218, label %5
 

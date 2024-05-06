@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [6 x i8] c"certs\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @NETSCAPE_CERT_SEQUENCE_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @NETSCAPE_CERT_SEQUENCE_it() local_unnamed_addr #0 {
 entry:
   ret ptr @NETSCAPE_CERT_SEQUENCE_it.local_it
 }
@@ -61,7 +61,7 @@ declare ptr @ASN1_OBJECT_it() #2
 declare ptr @X509_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @nsseq_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal noundef i32 @nsseq_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
 entry:
   %cmp = icmp eq i32 %operation, 1
   br i1 %cmp, label %if.then, label %if.end

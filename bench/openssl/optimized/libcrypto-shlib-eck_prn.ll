@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [2 x i8] c":\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ECPKParameters_print_fp(ptr noundef %fp, ptr noundef %x, i32 noundef %off) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ECPKParameters_print_fp(ptr noundef %fp, ptr noundef %x, i32 noundef %off) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #4
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #4
@@ -44,7 +44,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #4
-  %call3 = tail call i32 @ECPKParameters_print(ptr noundef nonnull %call1, ptr noundef %x, i32 noundef %off), !range !4
+  %call3 = tail call i32 @ECPKParameters_print(ptr noundef nonnull %call1, ptr noundef %x, i32 noundef %off)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #4
   br label %return
 
@@ -66,7 +66,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ECPKParameters_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off) local_unnamed_addr #0 {
 entry:
   %gen_buf = alloca ptr, align 8
   store ptr null, ptr %gen_buf, align 8
@@ -228,7 +228,7 @@ land.lhs.true129:                                 ; preds = %if.end119
   %switch.selectcmp = icmp eq i32 %call61, 4
   %switch.select = select i1 %switch.selectcmp, ptr @.str.2, ptr @.str.3
   %switch.select69 = select i1 %switch.selectcmp68, ptr @.str.1, ptr %switch.select
-  %call130 = call fastcc i32 @print_bin(ptr noundef %bp, ptr noundef nonnull %switch.select69, ptr noundef nonnull %0, i64 noundef %call62, i32 noundef %off), !range !4
+  %call130 = call fastcc i32 @print_bin(ptr noundef %bp, ptr noundef nonnull %switch.select69, ptr noundef nonnull %0, i64 noundef %call62, i32 noundef %off)
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %if.then154, label %land.lhs.true135
 
@@ -250,7 +250,7 @@ if.end145:                                        ; preds = %land.lhs.true141, %
   br i1 %cmp67.not, label %if.end155, label %land.lhs.true147
 
 land.lhs.true147:                                 ; preds = %if.end145
-  %call148 = call fastcc i32 @print_bin(ptr noundef %bp, ptr noundef nonnull @.str.15, ptr noundef nonnull %call66, i64 noundef %seed_len.0, i32 noundef %off), !range !4
+  %call148 = call fastcc i32 @print_bin(ptr noundef %bp, ptr noundef nonnull @.str.15, ptr noundef nonnull %call66, i64 noundef %seed_len.0, i32 noundef %off)
   %tobool149.not = icmp eq i32 %call148, 0
   br i1 %tobool149.not, label %if.then154, label %if.end155
 
@@ -377,7 +377,7 @@ declare i32 @EC_GROUP_get_basis_type(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_bin(ptr noundef %fp, ptr noundef %name, ptr nocapture noundef readonly %buf, i64 noundef %len, i32 noundef %off) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @print_bin(ptr noundef %fp, ptr noundef %name, ptr nocapture noundef readonly %buf, i64 noundef %len, i32 noundef %off) unnamed_addr #0 {
 entry:
   %str = alloca [133 x i8], align 16
   %cmp1 = icmp sgt i32 %off, 0
@@ -430,7 +430,7 @@ if.end32:                                         ; preds = %if.then21, %for.bod
   %cond = select i1 %cmp36, ptr @.str.18, ptr @.str.19
   %call38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %fp, ptr noundef nonnull @.str.17, i32 noundef %conv34, ptr noundef nonnull %cond) #4
   %cmp39 = icmp slt i32 %call38, 1
-  br i1 %cmp39, label %return, label %for.cond, !llvm.loop !5
+  br i1 %cmp39, label %return, label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
   %call43 = call i32 @BIO_write(ptr noundef %fp, ptr noundef nonnull @.str.5, i32 noundef 1) #4
@@ -469,6 +469,5 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

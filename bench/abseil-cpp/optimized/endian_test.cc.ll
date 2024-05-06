@@ -353,7 +353,7 @@ for.body.i:                                       ; preds = %for.inc.i, %invoke.
   %i.014.i = phi i32 [ 0, %invoke.cont.i ], [ %inc.i, %for.inc.i ]
   %incdec.ptr.i.i.i1113.i = phi ptr [ %call5.i.i.i.i3.i, %invoke.cont.i ], [ %ref.tmp.sroa.7.0, %for.inc.i ]
   %0 = phi ptr [ %add.ptr21.i.i, %invoke.cont.i ], [ %2, %for.inc.i ]
-  %conv3.i = trunc i32 %i.014.i to i16
+  %conv3.i = trunc nuw i32 %i.014.i to i16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i1113.i, %0
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i6.i
 

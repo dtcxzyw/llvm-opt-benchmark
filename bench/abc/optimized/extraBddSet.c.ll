@@ -1121,7 +1121,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_zddEmptyBelongs(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Extra_zddEmptyBelongs(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 8
   %.not4 = icmp eq i32 %3, 2147483647
   br i1 %.not4, label %._crit_edge, label %.lr.ph
@@ -1144,7 +1144,7 @@ define i32 @Extra_zddEmptyBelongs(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_zddIsOneSubset(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Extra_zddIsOneSubset(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 8
   %.not9 = icmp eq i32 %3, 2147483647
   br i1 %.not9, label %._crit_edge, label %.lr.ph

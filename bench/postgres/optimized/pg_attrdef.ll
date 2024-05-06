@@ -446,7 +446,7 @@ define dso_local { i64, i32 } @GetAttrDefaultColumnAddress(i32 noundef %0) local
   %2 = alloca [1 x %struct.ScanKeyData], align 16
   %.sroa.08.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.08.sroa.3.0.extract.shift = lshr i64 %.sroa.08.0.copyload, 32
-  %.sroa.08.sroa.3.0.extract.trunc = trunc i64 %.sroa.08.sroa.3.0.extract.shift to i32
+  %.sroa.08.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.08.sroa.3.0.extract.shift to i32
   %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds (%struct.ObjectAddress, ptr @InvalidObjectAddress, i64 0, i32 2), align 4
   %3 = tail call ptr @table_open(i32 noundef 2604, i32 noundef 1) #5
   %4 = zext i32 %0 to i64

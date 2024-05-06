@@ -2211,7 +2211,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
 84:                                               ; preds = %75, %69
   %.0127 = phi ptr [ %83, %75 ], [ null, %69 ]
   %.0126 = phi ptr [ %80, %75 ], [ null, %69 ]
-  %85 = call fastcc i32 @compact_struct_type_to_generic_type(i32 noundef %72), !range !7
+  %85 = call fastcc i32 @compact_struct_type_to_generic_type(i32 noundef %72)
   %86 = getelementptr inbounds i8, ptr %9, i64 16
   %87 = load i32, ptr %86, align 8
   %.not141 = icmp eq i32 %85, %87
@@ -2231,7 +2231,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
   br label %thrift_get_varint_enc.exit.thread
 
 94:                                               ; preds = %84
-  %95 = call fastcc i32 @compact_struct_type_to_generic_type(i32 noundef %73), !range !7
+  %95 = call fastcc i32 @compact_struct_type_to_generic_type(i32 noundef %73)
   %96 = getelementptr inbounds i8, ptr %10, i64 16
   %97 = load i32, ptr %96, align 8
   %.not142 = icmp eq i32 %95, %97
@@ -2253,7 +2253,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
 104:                                              ; preds = %.lr.ph
   %105 = add nuw nsw i32 %.0128150, 1
   %exitcond.not = icmp eq i32 %105, %51
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %94, %104
   %.1151 = phi i32 [ %107, %104 ], [ %52, %94 ]
@@ -2404,7 +2404,7 @@ declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @compact_struct_type_to_generic_type(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc range(i32 0, 17) i32 @compact_struct_type_to_generic_type(i32 noundef %0) unnamed_addr #3 {
   %2 = icmp ult i32 %0, 14
   br i1 %2, label %switch.lookup, label %4
 
@@ -2801,7 +2801,7 @@ thread-pre-split:                                 ; preds = %24, %25
   %69 = getelementptr i8, ptr %.084110, i64 72
   %70 = load i32, ptr %69, align 8
   %.not96 = icmp eq i32 %70, 0
-  br i1 %.not96, label %._crit_edge, label %54, !llvm.loop !9
+  br i1 %.not96, label %._crit_edge, label %54, !llvm.loop !8
 
 71:                                               ; preds = %65
   %72 = call ptr @proto_tree_add_expert(ptr noundef %.1, ptr noundef %1, ptr noundef nonnull @ei_thrift_struct_fid_not_in_seq, ptr noundef %0, i32 noundef %55, i32 noundef 1) #7
@@ -3122,7 +3122,7 @@ is_thrift_strict_version.exit.thread:             ; preds = %40, %48, %35, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_thrift_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_thrift_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._thrift_option_data_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
@@ -4386,7 +4386,7 @@ dissect_thrift_compact_binary.exit.thread:        ; preds = %129, %140, %116, %t
   br label %dissect_thrift_compact_struct.exit.thread
 
 dissect_thrift_compact_binary.exit:               ; preds = %134
-  %142 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %135)
+  %142 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef writeonly %4, i32 noundef %135)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %143 = icmp eq i32 %142, -1
   br i1 %143, label %dissect_thrift_compact_struct.exit.thread, label %302
@@ -4540,7 +4540,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %183, %186, %172
 232:                                              ; preds = %236
   %233 = add nuw nsw i32 %.083.i108, 1
   %exitcond.not = icmp eq i32 %233, %211
-  br i1 %exitcond.not, label %dissect_thrift_compact_map.exit.loopexit, label %.lr.ph109, !llvm.loop !10
+  br i1 %exitcond.not, label %dissect_thrift_compact_map.exit.loopexit, label %.lr.ph109, !llvm.loop !9
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %232
   %.083.i108 = phi i32 [ %233, %232 ], [ 0, %.lr.ph109.preheader ]
@@ -4945,7 +4945,7 @@ dissect_thrift_binary_binary.exit.thread:         ; preds = %119, %136
   br label %dissect_thrift_binary_struct.exit.thread
 
 dissect_thrift_binary_binary.exit:                ; preds = %133
-  %138 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %134)
+  %138 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef writeonly %4, i32 noundef %134)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %139 = icmp eq i32 %138, -1
   br i1 %139, label %dissect_thrift_binary_struct.exit.thread, label %205
@@ -5298,7 +5298,7 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
   %.1 = phi i32 [ %.03964, %11 ], [ %45, %44 ], [ %51, %49 ], [ %.03964, %14 ]
   %53 = add i32 %.05059, 1
   %exitcond.not = icmp eq i32 %53, %6
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %11, %24, %25, %29, %42, %37, %46, %52, %4
   %.0 = phi i32 [ 0, %4 ], [ %.1, %52 ], [ -1, %46 ], [ -1, %37 ], [ -1, %42 ], [ -1, %29 ], [ -1, %25 ], [ -1, %24 ], [ -1, %11 ]
@@ -5467,7 +5467,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 98:                                               ; preds = %.lr.ph
   %99 = add nuw nsw i32 %.09099, 1
   %exitcond.not = icmp eq i32 %99, %.091
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %97, %98
   %.09099 = phi i32 [ %99, %98 ], [ 0, %97 ]
@@ -5656,7 +5656,7 @@ default.unreachable:                              ; preds = %6
   %62 = add nuw nsw i32 %.06871.us, 1
   %63 = load i32, ptr %9, align 4
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
+  br i1 %64, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 65:                                               ; preds = %.lr.ph.split.us
   %66 = load i32, ptr %8, align 4
@@ -5672,7 +5672,7 @@ default.unreachable:                              ; preds = %6
   %72 = add nuw nsw i32 %.06871, 1
   %73 = load i32, ptr %9, align 4
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %71
   %.06871 = phi i32 [ %72, %71 ], [ 0, %.lr.ph ]
@@ -5914,7 +5914,7 @@ is_thrift_strict_version.exit:                    ; preds = %21
 38:                                               ; preds = %34
   %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %35) #7
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %13, label %.loopexit, !llvm.loop !14
+  br i1 %40, label %13, label %.loopexit, !llvm.loop !13
 
 41:                                               ; preds = %34, %13
   %42 = getelementptr inbounds i8, ptr %1, i64 332
@@ -6359,7 +6359,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   %264 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.1, ptr noundef nonnull @ei_thrift_protocol_exception) #7
   %265 = load i32, ptr @hf_thrift_exception, align 4
   %266 = load i32, ptr @ett_thrift_exception, align 4
-  %267 = call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %239, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %265, i32 noundef %266, ptr noundef nonnull @thrift_exception, ptr noundef null)
+  %267 = call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %239, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %265, i32 noundef %266, ptr noundef nonnull readonly @thrift_exception, ptr noundef null)
   br label %268
 
 268:                                              ; preds = %257, %261, %263
@@ -6511,11 +6511,10 @@ attributes #8 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 17}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

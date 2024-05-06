@@ -211,7 +211,7 @@ define internal void @ch7017_dpms(ptr nocapture noundef readonly %0, i1 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ch7017_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 16) i32 @ch7017_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 160000
   %5 = select i1 %4, i32 15, i32 0
@@ -264,8 +264,8 @@ define internal void @ch7017_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %43 = lshr i16 %39, 5
   %44 = and i16 %43, 56
   %45 = or disjoint i16 %44, %42
-  %46 = trunc i16 %45 to i8
-  %47 = trunc i16 %42 to i8
+  %46 = trunc nuw nsw i16 %45 to i8
+  %47 = trunc nuw nsw i16 %42 to i8
   %48 = or disjoint i8 %47, 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
   store i8 0, ptr %10, align 1, !annotation !5

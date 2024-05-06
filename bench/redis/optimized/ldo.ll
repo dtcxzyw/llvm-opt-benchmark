@@ -490,7 +490,7 @@ if.end39:                                         ; preds = %if.end26, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaD_precall(ptr noundef %L, ptr noundef %func, i32 noundef %nresults) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 3) i32 @luaD_precall(ptr noundef %L, ptr noundef %func, i32 noundef %nresults) local_unnamed_addr #0 {
 entry:
   %ar.i250 = alloca %struct.lua_Debug, align 8
   %ar.i = alloca %struct.lua_Debug, align 8
@@ -1267,7 +1267,7 @@ cleanup131:                                       ; preds = %if.else125, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaD_poscall(ptr noundef %L, ptr noundef %firstResult) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @luaD_poscall(ptr noundef %L, ptr noundef %firstResult) local_unnamed_addr #0 {
 entry:
   %ar.i11.i = alloca %struct.lua_Debug, align 8
   %ar.i.i = alloca %struct.lua_Debug, align 8

@@ -565,7 +565,7 @@ define dso_local void @dmam_pool_destroy(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @dmam_pool_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #4 align 16 {
+define internal range(i32 0, 2) i32 @dmam_pool_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #4 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %2
   %6 = zext i1 %5 to i32
@@ -576,7 +576,7 @@ define internal i32 @dmam_pool_match(ptr nocapture readnone %0, ptr nocapture no
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pools_show(ptr noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 0, 4294967296) i64 @pools_show(ptr noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.5) #8
   tail call void @mutex_lock(ptr noundef nonnull @pools_lock) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 600

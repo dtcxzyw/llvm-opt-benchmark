@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @expect = internal unnamed_addr constant <{ [11 x i32], <{ i32, i32, i32, [8 x i32] }>, <{ i32, i32, i32, [8 x i32] }> }> <{ [11 x i32] [i32 4, i32 6, i32 0, i32 3, i32 5, i32 7, i32 -1, i32 0, i32 0, i32 0, i32 0], <{ i32, i32, i32, [8 x i32] }> <{ i32 1, i32 2, i32 -1, [8 x i32] zeroinitializer }>, <{ i32, i32, i32, [8 x i32] }> <{ i32 8, i32 9, i32 -1, [8 x i32] zeroinitializer }> }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_cfq) #3
   ret i32 1
@@ -38,7 +38,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cfq() #0 {
+define internal range(i32 0, 2) i32 @test_cfq() #0 {
 entry:
   %call = tail call ptr @ossl_quic_cfq_new() #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @.str.2, ptr noundef %call) #3
@@ -95,7 +95,7 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false20
   br i1 %tobool28.not, label %err, label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  %call31 = tail call fastcc i32 @check(ptr noundef %call), !range !7
+  %call31 = tail call fastcc i32 @check(ptr noundef %call)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %for.body37
 
@@ -110,17 +110,17 @@ for.body41:                                       ; preds = %for.body37, %for.bo
   %call42 = tail call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %item.055, i32 noundef %pn_space.056) #3
   tail call void @ossl_quic_cfq_mark_tx(ptr noundef %call, ptr noundef nonnull %item.055) #3
   %cmp40.not = icmp eq ptr %call42, null
-  br i1 %cmp40.not, label %for.inc45, label %for.body41, !llvm.loop !8
+  br i1 %cmp40.not, label %for.inc45, label %for.body41, !llvm.loop !7
 
 for.inc45:                                        ; preds = %for.body41, %for.body37
   %inc46 = add nuw nsw i32 %pn_space.056, 1
   %exitcond65.not = icmp eq i32 %inc46, 3
-  br i1 %exitcond65.not, label %for.body50, label %for.body37, !llvm.loop !9
+  br i1 %exitcond65.not, label %for.body50, label %for.body37, !llvm.loop !8
 
 for.cond48:                                       ; preds = %for.body50
   %inc57 = add nuw nsw i32 %pn_space.157, 1
   %exitcond66.not = icmp eq i32 %inc57, 3
-  br i1 %exitcond66.not, label %for.cond62.preheader, label %for.body50, !llvm.loop !10
+  br i1 %exitcond66.not, label %for.cond62.preheader, label %for.body50, !llvm.loop !9
 
 for.body50:                                       ; preds = %for.inc45, %for.cond48
   %pn_space.157 = phi i32 [ %inc57, %for.cond48 ], [ 0, %for.inc45 ]
@@ -147,15 +147,15 @@ if.then68:                                        ; preds = %for.body64
 for.inc73:                                        ; preds = %for.body64, %if.then68
   %inc74 = add nuw nsw i64 %i.158, 1
   %exitcond67.not = icmp eq i64 %inc74, 10
-  br i1 %exitcond67.not, label %for.inc76, label %for.body64, !llvm.loop !11
+  br i1 %exitcond67.not, label %for.inc76, label %for.body64, !llvm.loop !10
 
 for.inc76:                                        ; preds = %for.inc73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond69.not, label %for.end78, label %for.cond62.preheader, !llvm.loop !12
+  br i1 %exitcond69.not, label %for.end78, label %for.cond62.preheader, !llvm.loop !11
 
 for.end78:                                        ; preds = %for.inc76
-  %call79 = tail call fastcc i32 @check(ptr noundef %call), !range !7
+  %call79 = tail call fastcc i32 @check(ptr noundef %call)
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %err, label %for.cond86.preheader
 
@@ -177,17 +177,17 @@ if.then93:                                        ; preds = %for.body88
 for.inc98:                                        ; preds = %for.body88, %if.then93
   %inc99 = add nuw nsw i64 %i.260, 1
   %exitcond70.not = icmp eq i64 %inc99, 10
-  br i1 %exitcond70.not, label %for.inc101, label %for.body88, !llvm.loop !13
+  br i1 %exitcond70.not, label %for.inc101, label %for.body88, !llvm.loop !12
 
 for.inc101:                                       ; preds = %for.inc98
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 3
-  br i1 %exitcond74.not, label %for.body106, label %for.cond86.preheader, !llvm.loop !14
+  br i1 %exitcond74.not, label %for.body106, label %for.cond86.preheader, !llvm.loop !13
 
 for.cond104:                                      ; preds = %for.body106
   %inc113 = add nuw nsw i32 %pn_space.462, 1
   %exitcond75.not = icmp eq i32 %inc113, 3
-  br i1 %exitcond75.not, label %err, label %for.body106, !llvm.loop !15
+  br i1 %exitcond75.not, label %err, label %for.body106, !llvm.loop !14
 
 for.body106:                                      ; preds = %for.inc101, %for.cond104
   %pn_space.462 = phi i32 [ %inc113, %for.cond104 ], [ 0, %for.inc101 ]
@@ -235,18 +235,18 @@ declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check(ptr noundef %cfq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %cfq) unnamed_addr #0 {
 entry:
   br label %for.body
 
 for.cond:                                         ; preds = %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call = tail call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %cfq, i32 noundef %0) #3
   %arrayidx219 = getelementptr inbounds [3 x [11 x i32]], ptr @expect, i64 0, i64 %indvars.iv, i64 0
   %1 = load i32, ptr %arrayidx219, align 4
@@ -330,7 +330,7 @@ attributes #3 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -339,4 +339,3 @@ attributes #3 = { nounwind }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

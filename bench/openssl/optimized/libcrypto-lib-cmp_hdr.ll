@@ -31,7 +31,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_hdr_get_pvno(ptr noundef readonly %hdr) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @ossl_cmp_hdr_get_pvno(ptr noundef readonly %hdr) local_unnamed_addr #0 {
 entry:
   %pvno = alloca i64, align 8
   %cmp.not = icmp eq ptr %hdr, null
@@ -146,7 +146,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_general_name_is_NULL_DN(ptr noundef readonly %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_general_name_is_NULL_DN(ptr noundef readonly %name) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -172,7 +172,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 declare ptr @X509_NAME_get_entry(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_hdr_set1_sender(ptr noundef %hdr, ptr noundef %nm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_set1_sender(ptr noundef %hdr, ptr noundef %nm) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %hdr, null
   br i1 %cmp.not, label %return, label %if.end
@@ -217,7 +217,7 @@ return:                                           ; preds = %err.i, %if.end22.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_hdr_set1_recipient(ptr noundef %hdr, ptr noundef %nm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_set1_recipient(ptr noundef %hdr, ptr noundef %nm) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %hdr, null
   br i1 %cmp.not, label %return, label %if.end
@@ -262,7 +262,7 @@ return:                                           ; preds = %err.i, %if.end22.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_hdr_update_messageTime(ptr noundef %hdr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_update_messageTime(ptr noundef %hdr) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %hdr, null
   br i1 %cmp.not, label %return, label %if.end
@@ -407,7 +407,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @OSSL_CMP_ITAV_push0_stack_item(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_hdr_generalInfo_push1_items(ptr noundef %hdr, ptr noundef %itavs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_generalInfo_push1_items(ptr noundef %hdr, ptr noundef %itavs) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %hdr, null
   br i1 %cmp.not, label %return, label %for.cond.preheader
@@ -457,7 +457,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @OSSL_CMP_ITAV_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_hdr_set_implicitConfirm(ptr noundef %hdr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_set_implicitConfirm(ptr noundef %hdr) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %hdr, null
   br i1 %cmp.not, label %return, label %if.end
@@ -498,7 +498,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_hdr_has_implicitConfirm(ptr noundef readonly %hdr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_has_implicitConfirm(ptr noundef readonly %hdr) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %hdr, null
   br i1 %cmp.not, label %return, label %if.end
@@ -608,7 +608,7 @@ declare i32 @ossl_cmp_print_log(i32 noundef, ptr noundef, ptr noundef, ptr nound
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_hdr_init(ptr noundef %ctx, ptr noundef %hdr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_init(ptr noundef %ctx, ptr noundef %hdr) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %ctx, null
   %cmp1 = icmp ne ptr %hdr, null

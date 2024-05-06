@@ -336,7 +336,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   %194 = load ptr, ptr %193, align 8
   %195 = tail call i64 @__px_dma(ptr noundef %194) #11
   %196 = lshr i64 %195, 32
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw i64 %196 to i32
   %198 = getelementptr i8, ptr %0, i64 148
   store i32 %197, ptr %198, align 4
   %199 = trunc i64 %195 to i32
@@ -363,7 +363,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   %215 = load ptr, ptr %214, align 8
   %216 = tail call i64 @__px_dma(ptr noundef %215) #11
   %217 = lshr i64 %216, 32
-  %218 = trunc i64 %217 to i32
+  %218 = trunc nuw i64 %217 to i32
   %219 = getelementptr i8, ptr %0, i64 164
   store i32 %218, ptr %219, align 4
   %220 = trunc i64 %216 to i32
@@ -390,7 +390,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   %236 = load ptr, ptr %235, align 8
   %237 = tail call i64 @__px_dma(ptr noundef %236) #11
   %238 = lshr i64 %237, 32
-  %239 = trunc i64 %238 to i32
+  %239 = trunc nuw i64 %238 to i32
   %240 = getelementptr i8, ptr %0, i64 180
   store i32 %239, ptr %240, align 4
   %241 = trunc i64 %237 to i32
@@ -416,7 +416,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   %256 = load ptr, ptr %255, align 8
   %257 = tail call i64 @__px_dma(ptr noundef %256) #11
   %258 = lshr i64 %257, 32
-  %259 = trunc i64 %258 to i32
+  %259 = trunc nuw i64 %258 to i32
   %260 = getelementptr i8, ptr %0, i64 196
   store i32 %259, ptr %260, align 4
   %261 = trunc i64 %257 to i32
@@ -916,7 +916,7 @@ define dso_local void @lrc_reset(ptr noundef %0) local_unnamed_addr #0 align 16 
 declare dso_local void @intel_ring_reset(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @lrc_update_regs(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1184,7 +1184,7 @@ define dso_local i32 @lrc_update_regs(ptr noundef %0, ptr noundef %1, i32 nounde
   %207 = zext i32 %206 to i64
   %208 = add i64 %204, %207
   %209 = lshr i64 %208, 32
-  %210 = trunc i64 %209 to i32
+  %210 = trunc nuw i64 %209 to i32
   %211 = getelementptr i8, ptr %150, i64 4120
   store i32 %210, ptr %199, align 4
   %212 = getelementptr i8, ptr %150, i64 4148

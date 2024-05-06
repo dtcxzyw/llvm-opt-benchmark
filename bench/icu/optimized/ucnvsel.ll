@@ -180,7 +180,7 @@ for.body52.us:                                    ; preds = %for.body52.lr.ph, %
   %6 = load ptr, ptr %encodings60.us, align 8
   %arrayidx62.us = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv72
   %7 = load ptr, ptr %arrayidx62.us, align 8
-  %8 = trunc i64 %indvars.iv72 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv72 to i32
   %call69.us = invoke ptr @ucnv_getAvailableName_75(i32 noundef %8)
           to label %cond.end70.us unwind label %lpad.loopexit.split.us
 
@@ -373,7 +373,7 @@ if.then13:                                        ; preds = %if.end9
   br label %return
 
 if.end14:                                         ; preds = %if.end9
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %div1544 = lshr i32 %9, 5
   %rem = and i32 %9, 31
   %shl = shl nuw i32 1, %rem
@@ -1202,8 +1202,8 @@ if.then37:                                        ; preds = %if.else31.if.then37
   %9 = load ptr, ptr %8, align 8
   %shr42 = lshr i32 %conv20, 5
   %10 = zext nneg i32 %shr42 to i64
-  %11 = getelementptr i16, ptr %9, i64 %10
-  %arrayidx45 = getelementptr i8, ptr %11, i64 640
+  %11 = getelementptr inbounds i16, ptr %9, i64 %10
+  %arrayidx45 = getelementptr inbounds i8, ptr %11, i64 640
   %12 = load i16, ptr %arrayidx45, align 2
   %conv46 = zext i16 %12 to i32
   %shl47 = shl nuw nsw i32 %conv46, 2
@@ -1232,8 +1232,8 @@ cond.true61:                                      ; preds = %if.else52
 cond.false63:                                     ; preds = %if.else52
   %shr68 = lshr i32 %sub, 11
   %16 = zext nneg i32 %shr68 to i64
-  %17 = getelementptr i16, ptr %13, i64 %16
-  %arrayidx71 = getelementptr i8, ptr %17, i64 4160
+  %17 = getelementptr inbounds i16, ptr %13, i64 %16
+  %arrayidx71 = getelementptr inbounds i8, ptr %17, i64 4160
   %18 = load i16, ptr %arrayidx71, align 2
   %conv72 = zext i16 %18 to i32
   %shr73 = lshr i32 %sub, 5
@@ -1674,12 +1674,12 @@ if.then83:                                        ; preds = %land.lhs.true77
   %14 = load ptr, ptr %sel, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %2 to i64
-  %17 = getelementptr i16, ptr %15, i64 %16
-  %arrayidx92 = getelementptr i8, ptr %17, i64 3776
+  %17 = getelementptr inbounds i16, ptr %15, i64 %16
+  %arrayidx92 = getelementptr inbounds i8, ptr %17, i64 3776
   %18 = load i16, ptr %arrayidx92, align 2
   %conv93 = zext i16 %18 to i64
-  %19 = getelementptr i16, ptr %15, i64 %conv93
-  %arrayidx97 = getelementptr i16, ptr %19, i64 %conv81
+  %19 = getelementptr inbounds i16, ptr %15, i64 %conv93
+  %arrayidx97 = getelementptr inbounds i16, ptr %19, i64 %conv81
   br label %do.end
 
 if.else98:                                        ; preds = %land.lhs.true27, %land.lhs.true30, %land.lhs.true39, %land.lhs.true77, %if.else69
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL23ucnvsel_count_encodingsP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %enumerator, ptr nocapture noundef readonly %status) #9 {
+define internal noundef range(i32 -32768, 32768) i32 @_ZL23ucnvsel_count_encodingsP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %enumerator, ptr nocapture noundef readonly %status) #9 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

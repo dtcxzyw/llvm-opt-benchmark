@@ -39,7 +39,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca i32, align 4
   %14 = alloca %struct._GHashTableIter, align 8
   %15 = alloca ptr, align 8
@@ -730,7 +730,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i32 %2, 152
   br i1 %4, label %5, label %15
 
@@ -767,7 +767,7 @@ define i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define range(i32 256, 261) i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !17
   %4 = icmp eq i32 %3, 16

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Curl_vsetopt = private unnamed_addr constant [6 x i64] [i64 4, i64 1, i64 2, i64 3, i64 4, i64 5], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_setstropt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 44) i32 @Curl_setstropt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @Curl_cfree, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #8
@@ -51,7 +51,7 @@ define dso_local noundef i32 @Curl_setstropt(ptr nocapture noundef %0, ptr nound
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_setblobopt(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 44) i32 @Curl_setblobopt(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @Curl_cfree, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #8
@@ -463,7 +463,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 61:                                               ; preds = %57, %51
   %62 = phi ptr [ %55, %51 ], [ %59, %57 ]
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call i32 @Curl_setstropt(ptr noundef nonnull %48, ptr noundef %63), !range !5
+  %64 = tail call i32 @Curl_setstropt(ptr noundef nonnull %48, ptr noundef %63)
   br label %.critedge
 
 65:                                               ; preds = %3
@@ -491,7 +491,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 79:                                               ; preds = %75, %69
   %80 = phi ptr [ %73, %69 ], [ %77, %75 ]
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 @Curl_setstropt(ptr noundef nonnull %66, ptr noundef %81), !range !5
+  %82 = tail call i32 @Curl_setstropt(ptr noundef nonnull %66, ptr noundef %81)
   br label %.critedge
 
 83:                                               ; preds = %3
@@ -523,7 +523,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 99:                                               ; preds = %95, %89
   %100 = phi ptr [ %93, %89 ], [ %97, %95 ]
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call i32 @Curl_setstropt(ptr noundef nonnull %86, ptr noundef %101), !range !5
+  %102 = tail call i32 @Curl_setstropt(ptr noundef nonnull %86, ptr noundef %101)
   br label %.critedge
 
 103:                                              ; preds = %3
@@ -555,7 +555,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 119:                                              ; preds = %115, %109
   %120 = phi ptr [ %113, %109 ], [ %117, %115 ]
   %121 = load ptr, ptr %120, align 8
-  %122 = tail call i32 @Curl_setstropt(ptr noundef nonnull %106, ptr noundef %121), !range !5
+  %122 = tail call i32 @Curl_setstropt(ptr noundef nonnull %106, ptr noundef %121)
   br label %.critedge
 
 123:                                              ; preds = %3
@@ -946,7 +946,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 359:                                              ; preds = %355, %349
   %360 = phi ptr [ %353, %349 ], [ %357, %355 ]
   %361 = load ptr, ptr %360, align 8
-  %362 = tail call i32 @Curl_setstropt(ptr noundef nonnull %346, ptr noundef %361), !range !5
+  %362 = tail call i32 @Curl_setstropt(ptr noundef nonnull %346, ptr noundef %361)
   br label %.critedge
 
 363:                                              ; preds = %3
@@ -1107,7 +1107,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 456:                                              ; preds = %452, %446
   %457 = phi ptr [ %450, %446 ], [ %454, %452 ]
   %458 = load ptr, ptr %457, align 8
-  %459 = tail call i32 @Curl_setstropt(ptr noundef nonnull %443, ptr noundef %458), !range !5
+  %459 = tail call i32 @Curl_setstropt(ptr noundef nonnull %443, ptr noundef %458)
   br label %.critedge
 
 460:                                              ; preds = %3
@@ -1321,7 +1321,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 .split1022:                                       ; preds = %579
   %583 = getelementptr inbounds i8, ptr %0, i64 2392
-  %584 = tail call i32 @Curl_setstropt(ptr noundef nonnull %583, ptr noundef nonnull %575), !range !5
+  %584 = tail call i32 @Curl_setstropt(ptr noundef nonnull %583, ptr noundef nonnull %575)
   br label %592
 
 585:                                              ; preds = %579
@@ -1563,13 +1563,13 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 .split1024:                                       ; preds = %718
   %720 = getelementptr inbounds i8, ptr %0, i64 1832
-  %721 = tail call i32 @Curl_setstropt(ptr noundef nonnull %720, ptr noundef nonnull %714), !range !5
+  %721 = tail call i32 @Curl_setstropt(ptr noundef nonnull %720, ptr noundef nonnull %714)
   br label %.critedge
 
 722:                                              ; preds = %718
   call void @Curl_all_content_encodings(ptr noundef nonnull %4, i64 noundef 256) #8
   %723 = getelementptr inbounds i8, ptr %0, i64 1832
-  %724 = call i32 @Curl_setstropt(ptr noundef nonnull %723, ptr noundef nonnull %4), !range !5
+  %724 = call i32 @Curl_setstropt(ptr noundef nonnull %723, ptr noundef nonnull %4)
   br label %.critedge
 
 725:                                              ; preds = %3
@@ -1844,7 +1844,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 890:                                              ; preds = %886, %880
   %891 = phi ptr [ %884, %880 ], [ %888, %886 ]
   %892 = load ptr, ptr %891, align 8
-  %893 = tail call i32 @Curl_setstropt(ptr noundef nonnull %877, ptr noundef %892), !range !5
+  %893 = tail call i32 @Curl_setstropt(ptr noundef nonnull %877, ptr noundef %892)
   %894 = load ptr, ptr %877, align 8
   %.not1439 = icmp eq ptr %894, null
   br i1 %.not1439, label %.critedge, label %895
@@ -1897,7 +1897,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 921:                                              ; preds = %917, %911
   %922 = phi ptr [ %915, %911 ], [ %919, %917 ]
   %923 = load ptr, ptr %922, align 8
-  %924 = tail call i32 @Curl_setstropt(ptr noundef nonnull %908, ptr noundef %923), !range !5
+  %924 = tail call i32 @Curl_setstropt(ptr noundef nonnull %908, ptr noundef %923)
   %925 = load ptr, ptr %908, align 8
   %926 = getelementptr inbounds i8, ptr %0, i64 4600
   store ptr %925, ptr %926, align 8
@@ -1928,7 +1928,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 941:                                              ; preds = %937, %931
   %942 = phi ptr [ %935, %931 ], [ %939, %937 ]
   %943 = load ptr, ptr %942, align 8
-  %944 = tail call i32 @Curl_setstropt(ptr noundef nonnull %928, ptr noundef %943), !range !5
+  %944 = tail call i32 @Curl_setstropt(ptr noundef nonnull %928, ptr noundef %943)
   br label %.critedge
 
 945:                                              ; preds = %3
@@ -2017,7 +2017,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 998:                                              ; preds = %994, %988
   %999 = phi ptr [ %992, %988 ], [ %996, %994 ]
   %1000 = load ptr, ptr %999, align 8
-  %1001 = tail call i32 @Curl_setstropt(ptr noundef nonnull %985, ptr noundef %1000), !range !5
+  %1001 = tail call i32 @Curl_setstropt(ptr noundef nonnull %985, ptr noundef %1000)
   br label %.critedge
 
 1002:                                             ; preds = %3
@@ -2123,7 +2123,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 1056:                                             ; preds = %1052, %1046
   %1057 = phi ptr [ %1050, %1046 ], [ %1054, %1052 ]
   %1058 = load ptr, ptr %1057, align 8
-  %1059 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1043, ptr noundef %1058), !range !5
+  %1059 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1043, ptr noundef %1058)
   %1060 = getelementptr inbounds i8, ptr %0, i64 2656
   %1061 = load ptr, ptr %1060, align 8
   %1062 = getelementptr inbounds i8, ptr %0, i64 2642
@@ -2632,7 +2632,7 @@ switch.lookup:                                    ; preds = %1185
   %1351 = shl nuw nsw i64 1, %indvars.iv1481
   %1352 = and i64 %1351, %1348
   %.not1419 = icmp eq i64 %1352, 0
-  br i1 %.not1419, label %1349, label %1353, !llvm.loop !6
+  br i1 %.not1419, label %1349, label %1353, !llvm.loop !5
 
 1353:                                             ; preds = %1350
   %1354 = getelementptr inbounds i8, ptr %0, i64 464
@@ -2664,7 +2664,7 @@ switch.lookup:                                    ; preds = %1185
 1369:                                             ; preds = %1365, %1359
   %1370 = phi ptr [ %1363, %1359 ], [ %1367, %1365 ]
   %1371 = load ptr, ptr %1370, align 8
-  %1372 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1356, ptr noundef %1371), !range !5
+  %1372 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1356, ptr noundef %1371)
   br label %.critedge
 
 1373:                                             ; preds = %3
@@ -2792,7 +2792,7 @@ switch.lookup:                                    ; preds = %1185
   %1446 = shl nuw nsw i64 1, %indvars.iv
   %1447 = and i64 %1446, %1443
   %.not1416 = icmp eq i64 %1447, 0
-  br i1 %.not1416, label %1444, label %1448, !llvm.loop !8
+  br i1 %.not1416, label %1444, label %1448, !llvm.loop !7
 
 1448:                                             ; preds = %1445
   %1449 = getelementptr inbounds i8, ptr %0, i64 472
@@ -2824,7 +2824,7 @@ switch.lookup:                                    ; preds = %1185
 1464:                                             ; preds = %1460, %1454
   %1465 = phi ptr [ %1458, %1454 ], [ %1462, %1460 ]
   %1466 = load ptr, ptr %1465, align 8
-  %1467 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1451, ptr noundef %1466), !range !5
+  %1467 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1451, ptr noundef %1466)
   br label %.critedge
 
 1468:                                             ; preds = %3
@@ -2852,7 +2852,7 @@ switch.lookup:                                    ; preds = %1185
 1482:                                             ; preds = %1478, %1472
   %1483 = phi ptr [ %1476, %1472 ], [ %1480, %1478 ]
   %1484 = load ptr, ptr %1483, align 8
-  %1485 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1469, ptr noundef %1484), !range !5
+  %1485 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1469, ptr noundef %1484)
   br label %.critedge
 
 1486:                                             ; preds = %3
@@ -2988,7 +2988,7 @@ switch.lookup:                                    ; preds = %1185
 1562:                                             ; preds = %1558, %1552
   %1563 = phi ptr [ %1556, %1552 ], [ %1560, %1558 ]
   %1564 = load ptr, ptr %1563, align 8
-  %1565 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1549, ptr noundef %1564), !range !5
+  %1565 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1549, ptr noundef %1564)
   br label %.critedge
 
 1566:                                             ; preds = %3
@@ -3016,7 +3016,7 @@ switch.lookup:                                    ; preds = %1185
 1580:                                             ; preds = %1576, %1570
   %1581 = phi ptr [ %1574, %1570 ], [ %1578, %1576 ]
   %1582 = load ptr, ptr %1581, align 8
-  %1583 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1567, ptr noundef %1582), !range !5
+  %1583 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1567, ptr noundef %1582)
   br label %.critedge
 
 1584:                                             ; preds = %3
@@ -3227,7 +3227,7 @@ switch.lookup:                                    ; preds = %1185
 1710:                                             ; preds = %1706, %1700
   %1711 = phi ptr [ %1704, %1700 ], [ %1708, %1706 ]
   %1712 = load ptr, ptr %1711, align 8
-  %1713 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1697, ptr noundef %1712), !range !5
+  %1713 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1697, ptr noundef %1712)
   %1714 = load ptr, ptr %1697, align 8
   %.not1411 = icmp eq ptr %1714, null
   %1715 = getelementptr inbounds i8, ptr %0, i64 2642
@@ -3428,7 +3428,7 @@ switch.lookup:                                    ; preds = %1185
 1837:                                             ; preds = %1833, %1827
   %1838 = phi ptr [ %1831, %1827 ], [ %1835, %1833 ]
   %1839 = load ptr, ptr %1838, align 8
-  %1840 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1824, ptr noundef %1839), !range !5
+  %1840 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1824, ptr noundef %1839)
   br label %.critedge
 
 1841:                                             ; preds = %3
@@ -3456,7 +3456,7 @@ switch.lookup:                                    ; preds = %1185
 1855:                                             ; preds = %1851, %1845
   %1856 = phi ptr [ %1849, %1845 ], [ %1853, %1851 ]
   %1857 = load ptr, ptr %1856, align 8
-  %1858 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1842, ptr noundef %1857), !range !5
+  %1858 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1842, ptr noundef %1857)
   br label %.critedge
 
 1859:                                             ; preds = %3
@@ -3517,7 +3517,7 @@ switch.lookup:                                    ; preds = %1185
 1892:                                             ; preds = %1888, %1882
   %1893 = phi ptr [ %1886, %1882 ], [ %1890, %1888 ]
   %1894 = load ptr, ptr %1893, align 8
-  %1895 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1879, ptr noundef %1894), !range !5
+  %1895 = tail call i32 @Curl_setstropt(ptr noundef nonnull %1879, ptr noundef %1894)
   %1896 = load ptr, ptr %1879, align 8
   %.not1406 = icmp eq ptr %1896, null
   %1897 = getelementptr inbounds i8, ptr %0, i64 2642
@@ -3936,7 +3936,7 @@ switch.lookup:                                    ; preds = %1185
 2144:                                             ; preds = %2140, %2134
   %2145 = phi ptr [ %2138, %2134 ], [ %2142, %2140 ]
   %2146 = load ptr, ptr %2145, align 8
-  %2147 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2131, ptr noundef %2146), !range !5
+  %2147 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2131, ptr noundef %2146)
   %2148 = load ptr, ptr %2131, align 8
   %2149 = getelementptr inbounds i8, ptr %0, i64 4592
   store ptr %2148, ptr %2149, align 8
@@ -4187,7 +4187,7 @@ switch.lookup:                                    ; preds = %1185
 2296:                                             ; preds = %2292, %2286
   %2297 = phi ptr [ %2290, %2286 ], [ %2294, %2292 ]
   %2298 = load ptr, ptr %2297, align 8
-  %2299 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2283, ptr noundef %2298), !range !5
+  %2299 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2283, ptr noundef %2298)
   br label %.critedge
 
 2300:                                             ; preds = %3
@@ -4215,7 +4215,7 @@ switch.lookup:                                    ; preds = %1185
 2314:                                             ; preds = %2310, %2304
   %2315 = phi ptr [ %2308, %2304 ], [ %2312, %2310 ]
   %2316 = load ptr, ptr %2315, align 8
-  %2317 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2301, ptr noundef %2316), !range !5
+  %2317 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2301, ptr noundef %2316)
   br label %.critedge
 
 2318:                                             ; preds = %3
@@ -4243,7 +4243,7 @@ switch.lookup:                                    ; preds = %1185
 2332:                                             ; preds = %2328, %2322
   %2333 = phi ptr [ %2326, %2322 ], [ %2330, %2328 ]
   %2334 = load ptr, ptr %2333, align 8
-  %2335 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2319, ptr noundef %2334), !range !5
+  %2335 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2319, ptr noundef %2334)
   br label %.critedge
 
 2336:                                             ; preds = %3
@@ -4271,7 +4271,7 @@ switch.lookup:                                    ; preds = %1185
 2350:                                             ; preds = %2346, %2340
   %2351 = phi ptr [ %2344, %2340 ], [ %2348, %2346 ]
   %2352 = load ptr, ptr %2351, align 8
-  %2353 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2337, ptr noundef %2352), !range !5
+  %2353 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2337, ptr noundef %2352)
   br label %.critedge
 
 2354:                                             ; preds = %3
@@ -4468,7 +4468,7 @@ switch.lookup:                                    ; preds = %1185
 2468:                                             ; preds = %2464, %2458
   %2469 = phi ptr [ %2462, %2458 ], [ %2466, %2464 ]
   %2470 = load ptr, ptr %2469, align 8
-  %2471 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2455, ptr noundef %2470), !range !5
+  %2471 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2455, ptr noundef %2470)
   br label %.critedge
 
 2472:                                             ; preds = %3
@@ -4496,7 +4496,7 @@ switch.lookup:                                    ; preds = %1185
 2486:                                             ; preds = %2482, %2476
   %2487 = phi ptr [ %2480, %2476 ], [ %2484, %2482 ]
   %2488 = load ptr, ptr %2487, align 8
-  %2489 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2473, ptr noundef %2488), !range !5
+  %2489 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2473, ptr noundef %2488)
   br label %.critedge
 
 2490:                                             ; preds = %3
@@ -4524,7 +4524,7 @@ switch.lookup:                                    ; preds = %1185
 2504:                                             ; preds = %2500, %2494
   %2505 = phi ptr [ %2498, %2494 ], [ %2502, %2500 ]
   %2506 = load ptr, ptr %2505, align 8
-  %2507 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2491, ptr noundef %2506), !range !5
+  %2507 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2491, ptr noundef %2506)
   br label %.critedge
 
 2508:                                             ; preds = %3
@@ -4552,7 +4552,7 @@ switch.lookup:                                    ; preds = %1185
 2522:                                             ; preds = %2518, %2512
   %2523 = phi ptr [ %2516, %2512 ], [ %2520, %2518 ]
   %2524 = load ptr, ptr %2523, align 8
-  %2525 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2509, ptr noundef %2524), !range !5
+  %2525 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2509, ptr noundef %2524)
   br label %.critedge
 
 2526:                                             ; preds = %3
@@ -4946,7 +4946,7 @@ switch.lookup:                                    ; preds = %1185
 2756:                                             ; preds = %2752, %2746
   %2757 = phi ptr [ %2750, %2746 ], [ %2754, %2752 ]
   %2758 = load ptr, ptr %2757, align 8
-  %2759 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2743, ptr noundef %2758), !range !5
+  %2759 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2743, ptr noundef %2758)
   br label %.critedge
 
 2760:                                             ; preds = %3
@@ -4974,7 +4974,7 @@ switch.lookup:                                    ; preds = %1185
 2774:                                             ; preds = %2770, %2764
   %2775 = phi ptr [ %2768, %2764 ], [ %2772, %2770 ]
   %2776 = load ptr, ptr %2775, align 8
-  %2777 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %2761, ptr noundef %2776), !range !5
+  %2777 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %2761, ptr noundef %2776)
   br label %.critedge
 
 2778:                                             ; preds = %3
@@ -5002,7 +5002,7 @@ switch.lookup:                                    ; preds = %1185
 2792:                                             ; preds = %2788, %2782
   %2793 = phi ptr [ %2786, %2782 ], [ %2790, %2788 ]
   %2794 = load ptr, ptr %2793, align 8
-  %2795 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2779, ptr noundef %2794), !range !5
+  %2795 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2779, ptr noundef %2794)
   br label %.critedge
 
 2796:                                             ; preds = %3
@@ -5030,7 +5030,7 @@ switch.lookup:                                    ; preds = %1185
 2810:                                             ; preds = %2806, %2800
   %2811 = phi ptr [ %2804, %2800 ], [ %2808, %2806 ]
   %2812 = load ptr, ptr %2811, align 8
-  %2813 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %2797, ptr noundef %2812), !range !5
+  %2813 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %2797, ptr noundef %2812)
   br label %.critedge
 
 2814:                                             ; preds = %3
@@ -5058,7 +5058,7 @@ switch.lookup:                                    ; preds = %1185
 2828:                                             ; preds = %2824, %2818
   %2829 = phi ptr [ %2822, %2818 ], [ %2826, %2824 ]
   %2830 = load ptr, ptr %2829, align 8
-  %2831 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2815, ptr noundef %2830), !range !5
+  %2831 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2815, ptr noundef %2830)
   br label %.critedge
 
 2832:                                             ; preds = %3
@@ -5086,7 +5086,7 @@ switch.lookup:                                    ; preds = %1185
 2846:                                             ; preds = %2842, %2836
   %2847 = phi ptr [ %2840, %2836 ], [ %2844, %2842 ]
   %2848 = load ptr, ptr %2847, align 8
-  %2849 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2833, ptr noundef %2848), !range !5
+  %2849 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2833, ptr noundef %2848)
   br label %.critedge
 
 2850:                                             ; preds = %3
@@ -5114,7 +5114,7 @@ switch.lookup:                                    ; preds = %1185
 2864:                                             ; preds = %2860, %2854
   %2865 = phi ptr [ %2858, %2854 ], [ %2862, %2860 ]
   %2866 = load ptr, ptr %2865, align 8
-  %2867 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2851, ptr noundef %2866), !range !5
+  %2867 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2851, ptr noundef %2866)
   br label %.critedge
 
 2868:                                             ; preds = %3
@@ -5142,7 +5142,7 @@ switch.lookup:                                    ; preds = %1185
 2882:                                             ; preds = %2878, %2872
   %2883 = phi ptr [ %2876, %2872 ], [ %2880, %2878 ]
   %2884 = load ptr, ptr %2883, align 8
-  %2885 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %2869, ptr noundef %2884), !range !5
+  %2885 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %2869, ptr noundef %2884)
   br label %.critedge
 
 2886:                                             ; preds = %3
@@ -5170,7 +5170,7 @@ switch.lookup:                                    ; preds = %1185
 2900:                                             ; preds = %2896, %2890
   %2901 = phi ptr [ %2894, %2890 ], [ %2898, %2896 ]
   %2902 = load ptr, ptr %2901, align 8
-  %2903 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2887, ptr noundef %2902), !range !5
+  %2903 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2887, ptr noundef %2902)
   br label %.critedge
 
 2904:                                             ; preds = %3
@@ -5198,7 +5198,7 @@ switch.lookup:                                    ; preds = %1185
 2918:                                             ; preds = %2914, %2908
   %2919 = phi ptr [ %2912, %2908 ], [ %2916, %2914 ]
   %2920 = load ptr, ptr %2919, align 8
-  %2921 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %2905, ptr noundef %2920), !range !5
+  %2921 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %2905, ptr noundef %2920)
   br label %.critedge
 
 2922:                                             ; preds = %3
@@ -5226,7 +5226,7 @@ switch.lookup:                                    ; preds = %1185
 2936:                                             ; preds = %2932, %2926
   %2937 = phi ptr [ %2930, %2926 ], [ %2934, %2932 ]
   %2938 = load ptr, ptr %2937, align 8
-  %2939 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2923, ptr noundef %2938), !range !5
+  %2939 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2923, ptr noundef %2938)
   br label %.critedge
 
 2940:                                             ; preds = %3
@@ -5254,7 +5254,7 @@ switch.lookup:                                    ; preds = %1185
 2954:                                             ; preds = %2950, %2944
   %2955 = phi ptr [ %2948, %2944 ], [ %2952, %2950 ]
   %2956 = load ptr, ptr %2955, align 8
-  %2957 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2941, ptr noundef %2956), !range !5
+  %2957 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2941, ptr noundef %2956)
   br label %.critedge
 
 2958:                                             ; preds = %3
@@ -5282,7 +5282,7 @@ switch.lookup:                                    ; preds = %1185
 2972:                                             ; preds = %2968, %2962
   %2973 = phi ptr [ %2966, %2962 ], [ %2970, %2968 ]
   %2974 = load ptr, ptr %2973, align 8
-  %2975 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2959, ptr noundef %2974), !range !5
+  %2975 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2959, ptr noundef %2974)
   br label %.critedge
 
 2976:                                             ; preds = %3
@@ -5310,7 +5310,7 @@ switch.lookup:                                    ; preds = %1185
 2990:                                             ; preds = %2986, %2980
   %2991 = phi ptr [ %2984, %2980 ], [ %2988, %2986 ]
   %2992 = load ptr, ptr %2991, align 8
-  %2993 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2977, ptr noundef %2992), !range !5
+  %2993 = tail call i32 @Curl_setstropt(ptr noundef nonnull %2977, ptr noundef %2992)
   br label %.critedge
 
 2994:                                             ; preds = %3
@@ -5347,7 +5347,7 @@ switch.lookup:                                    ; preds = %1185
 
 3012:                                             ; preds = %3010
   %3013 = getelementptr inbounds i8, ptr %0, i64 2088
-  %3014 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3013, ptr noundef nonnull %3009), !range !5
+  %3014 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3013, ptr noundef nonnull %3009)
   %.not1399 = icmp eq i32 %3014, 0
   br i1 %.not1399, label %3015, label %.critedge
 
@@ -5455,7 +5455,7 @@ switch.lookup:                                    ; preds = %1185
 3078:                                             ; preds = %3074, %3068
   %3079 = phi ptr [ %3072, %3068 ], [ %3076, %3074 ]
   %3080 = load ptr, ptr %3079, align 8
-  %3081 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3065, ptr noundef %3080), !range !5
+  %3081 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3065, ptr noundef %3080)
   %3082 = getelementptr inbounds i8, ptr %0, i64 2642
   %3083 = load i64, ptr %3082, align 2
   %3084 = or i64 %3083, 70368744177664
@@ -5487,7 +5487,7 @@ switch.lookup:                                    ; preds = %1185
 3099:                                             ; preds = %3095, %3089
   %3100 = phi ptr [ %3093, %3089 ], [ %3097, %3095 ]
   %3101 = load ptr, ptr %3100, align 8
-  %3102 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3086, ptr noundef %3101), !range !5
+  %3102 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3086, ptr noundef %3101)
   br label %.critedge
 
 3103:                                             ; preds = %3
@@ -6033,7 +6033,7 @@ switch.lookup:                                    ; preds = %1185
 3437:                                             ; preds = %3433, %3427
   %3438 = phi ptr [ %3431, %3427 ], [ %3435, %3433 ]
   %3439 = load ptr, ptr %3438, align 8
-  %3440 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3424, ptr noundef %3439), !range !5
+  %3440 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3424, ptr noundef %3439)
   br label %.critedge
 
 3441:                                             ; preds = %3
@@ -6065,7 +6065,7 @@ switch.lookup:                                    ; preds = %1185
 3457:                                             ; preds = %3453, %3447
   %3458 = phi ptr [ %3451, %3447 ], [ %3455, %3453 ]
   %3459 = load ptr, ptr %3458, align 8
-  %3460 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3444, ptr noundef %3459), !range !5
+  %3460 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3444, ptr noundef %3459)
   br label %.critedge
 
 3461:                                             ; preds = %3
@@ -6093,7 +6093,7 @@ switch.lookup:                                    ; preds = %1185
 3475:                                             ; preds = %3471, %3465
   %3476 = phi ptr [ %3469, %3465 ], [ %3473, %3471 ]
   %3477 = load ptr, ptr %3476, align 8
-  %3478 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3462, ptr noundef %3477), !range !5
+  %3478 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3462, ptr noundef %3477)
   br label %.critedge
 
 3479:                                             ; preds = %3
@@ -6125,7 +6125,7 @@ switch.lookup:                                    ; preds = %1185
 3495:                                             ; preds = %3491, %3485
   %3496 = phi ptr [ %3489, %3485 ], [ %3493, %3491 ]
   %3497 = load ptr, ptr %3496, align 8
-  %3498 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %3482, ptr noundef %3497), !range !5
+  %3498 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %3482, ptr noundef %3497)
   br label %.critedge
 
 3499:                                             ; preds = %3
@@ -6153,7 +6153,7 @@ switch.lookup:                                    ; preds = %1185
 3513:                                             ; preds = %3509, %3503
   %3514 = phi ptr [ %3507, %3503 ], [ %3511, %3509 ]
   %3515 = load ptr, ptr %3514, align 8
-  %3516 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3500, ptr noundef %3515), !range !5
+  %3516 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3500, ptr noundef %3515)
   br label %.critedge
 
 3517:                                             ; preds = %3
@@ -6185,7 +6185,7 @@ switch.lookup:                                    ; preds = %1185
 3533:                                             ; preds = %3529, %3523
   %3534 = phi ptr [ %3527, %3523 ], [ %3531, %3529 ]
   %3535 = load ptr, ptr %3534, align 8
-  %3536 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %3520, ptr noundef %3535), !range !5
+  %3536 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %3520, ptr noundef %3535)
   br label %.critedge
 
 3537:                                             ; preds = %3
@@ -6217,7 +6217,7 @@ switch.lookup:                                    ; preds = %1185
 3553:                                             ; preds = %3549, %3543
   %3554 = phi ptr [ %3547, %3543 ], [ %3551, %3549 ]
   %3555 = load ptr, ptr %3554, align 8
-  %3556 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3540, ptr noundef %3555), !range !5
+  %3556 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3540, ptr noundef %3555)
   br label %.critedge
 
 3557:                                             ; preds = %3
@@ -6249,7 +6249,7 @@ switch.lookup:                                    ; preds = %1185
 3573:                                             ; preds = %3569, %3563
   %3574 = phi ptr [ %3567, %3563 ], [ %3571, %3569 ]
   %3575 = load ptr, ptr %3574, align 8
-  %3576 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3560, ptr noundef %3575), !range !5
+  %3576 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3560, ptr noundef %3575)
   br label %.critedge
 
 3577:                                             ; preds = %3
@@ -6277,7 +6277,7 @@ switch.lookup:                                    ; preds = %1185
 3591:                                             ; preds = %3587, %3581
   %3592 = phi ptr [ %3585, %3581 ], [ %3589, %3587 ]
   %3593 = load ptr, ptr %3592, align 8
-  %3594 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3578, ptr noundef %3593), !range !5
+  %3594 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3578, ptr noundef %3593)
   br label %.critedge
 
 3595:                                             ; preds = %3
@@ -6305,7 +6305,7 @@ switch.lookup:                                    ; preds = %1185
 3609:                                             ; preds = %3605, %3599
   %3610 = phi ptr [ %3603, %3599 ], [ %3607, %3605 ]
   %3611 = load ptr, ptr %3610, align 8
-  %3612 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3596, ptr noundef %3611), !range !5
+  %3612 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3596, ptr noundef %3611)
   br label %.critedge
 
 3613:                                             ; preds = %3
@@ -6333,7 +6333,7 @@ switch.lookup:                                    ; preds = %1185
 3627:                                             ; preds = %3623, %3617
   %3628 = phi ptr [ %3621, %3617 ], [ %3625, %3623 ]
   %3629 = load ptr, ptr %3628, align 8
-  %3630 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3614, ptr noundef %3629), !range !5
+  %3630 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3614, ptr noundef %3629)
   br label %.critedge
 
 3631:                                             ; preds = %3
@@ -6361,7 +6361,7 @@ switch.lookup:                                    ; preds = %1185
 3645:                                             ; preds = %3641, %3635
   %3646 = phi ptr [ %3639, %3635 ], [ %3643, %3641 ]
   %3647 = load ptr, ptr %3646, align 8
-  %3648 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %3632, ptr noundef %3647), !range !5
+  %3648 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %3632, ptr noundef %3647)
   br label %.critedge
 
 3649:                                             ; preds = %3
@@ -6389,7 +6389,7 @@ switch.lookup:                                    ; preds = %1185
 3663:                                             ; preds = %3659, %3653
   %3664 = phi ptr [ %3657, %3653 ], [ %3661, %3659 ]
   %3665 = load ptr, ptr %3664, align 8
-  %3666 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3650, ptr noundef %3665), !range !5
+  %3666 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3650, ptr noundef %3665)
   br label %.critedge
 
 3667:                                             ; preds = %3
@@ -6417,7 +6417,7 @@ switch.lookup:                                    ; preds = %1185
 3681:                                             ; preds = %3677, %3671
   %3682 = phi ptr [ %3675, %3671 ], [ %3679, %3677 ]
   %3683 = load ptr, ptr %3682, align 8
-  %3684 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %3668, ptr noundef %3683), !range !5
+  %3684 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %3668, ptr noundef %3683)
   br label %.critedge
 
 3685:                                             ; preds = %3
@@ -6898,7 +6898,7 @@ switch.lookup:                                    ; preds = %1185
 3969:                                             ; preds = %3965, %3959
   %3970 = phi ptr [ %3963, %3959 ], [ %3967, %3965 ]
   %3971 = load ptr, ptr %3970, align 8
-  %3972 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3956, ptr noundef %3971), !range !5
+  %3972 = tail call i32 @Curl_setstropt(ptr noundef nonnull %3956, ptr noundef %3971)
   br label %.critedge
 
 3973:                                             ; preds = %3
@@ -7541,7 +7541,7 @@ switch.lookup:                                    ; preds = %1185
 4366:                                             ; preds = %4362, %4356
   %4367 = phi ptr [ %4360, %4356 ], [ %4364, %4362 ]
   %4368 = load ptr, ptr %4367, align 8
-  %4369 = call fastcc i32 @protocol2num(ptr noundef %4368, ptr noundef nonnull %5), !range !5
+  %4369 = call fastcc i32 @protocol2num(ptr noundef %4368, ptr noundef nonnull %5)
   %.not1374 = icmp eq i32 %4369, 0
   br i1 %.not1374, label %4370, label %.critedge
 
@@ -7575,7 +7575,7 @@ switch.lookup:                                    ; preds = %1185
 4386:                                             ; preds = %4382, %4376
   %4387 = phi ptr [ %4380, %4376 ], [ %4384, %4382 ]
   %4388 = load ptr, ptr %4387, align 8
-  %4389 = call fastcc i32 @protocol2num(ptr noundef %4388, ptr noundef nonnull %6), !range !5
+  %4389 = call fastcc i32 @protocol2num(ptr noundef %4388, ptr noundef nonnull %6)
   %.not1373 = icmp eq i32 %4389, 0
   br i1 %.not1373, label %4390, label %.critedge
 
@@ -7610,7 +7610,7 @@ switch.lookup:                                    ; preds = %1185
 4407:                                             ; preds = %4403, %4397
   %4408 = phi ptr [ %4401, %4397 ], [ %4405, %4403 ]
   %4409 = load ptr, ptr %4408, align 8
-  %4410 = tail call i32 @Curl_setstropt(ptr noundef nonnull %4394, ptr noundef %4409), !range !5
+  %4410 = tail call i32 @Curl_setstropt(ptr noundef nonnull %4394, ptr noundef %4409)
   br label %.critedge
 
 4411:                                             ; preds = %3
@@ -7638,7 +7638,7 @@ switch.lookup:                                    ; preds = %1185
 4425:                                             ; preds = %4421, %4415
   %4426 = phi ptr [ %4419, %4415 ], [ %4423, %4421 ]
   %4427 = load ptr, ptr %4426, align 8
-  %4428 = tail call i32 @Curl_setstropt(ptr noundef nonnull %4412, ptr noundef %4427), !range !5
+  %4428 = tail call i32 @Curl_setstropt(ptr noundef nonnull %4412, ptr noundef %4427)
   br label %.critedge
 
 4429:                                             ; preds = %3
@@ -8333,7 +8333,7 @@ switch.lookup:                                    ; preds = %1185
 4855:                                             ; preds = %4851, %4845
   %4856 = phi ptr [ %4849, %4845 ], [ %4853, %4851 ]
   %4857 = load ptr, ptr %4856, align 8
-  %4858 = tail call i32 @Curl_setstropt(ptr noundef nonnull %4842, ptr noundef %4857), !range !5
+  %4858 = tail call i32 @Curl_setstropt(ptr noundef nonnull %4842, ptr noundef %4857)
   %4859 = load ptr, ptr %4842, align 8
   %.not1361.not = icmp eq ptr %4859, null
   %4860 = getelementptr inbounds i8, ptr %0, i64 2642
@@ -8649,7 +8649,7 @@ switch.lookup:                                    ; preds = %1185
 
 5045:                                             ; preds = %5042
   %5046 = getelementptr inbounds i8, ptr %0, i64 2312
-  %5047 = tail call i32 @Curl_setstropt(ptr noundef nonnull %5046, ptr noundef nonnull %5044), !range !5
+  %5047 = tail call i32 @Curl_setstropt(ptr noundef nonnull %5046, ptr noundef nonnull %5044)
   %.not1359 = icmp eq i32 %5047, 0
   br i1 %.not1359, label %5048, label %.critedge
 
@@ -8962,7 +8962,7 @@ declare zeroext i1 @Curl_ssl_false_start(ptr noundef) local_unnamed_addr #3
 declare void @Curl_hsts_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @protocol2num(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 44) i32 @protocol2num(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -9096,7 +9096,6 @@ attributes #9 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 44}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

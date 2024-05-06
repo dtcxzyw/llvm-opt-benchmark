@@ -24,10 +24,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [6 x i8] c"%4ldP\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_pgrsDone(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsDone(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2672
   store i64 0, ptr %2, align 8
-  %3 = tail call i32 @Curl_pgrsUpdate(ptr noundef %0), !range !5
+  %3 = tail call i32 @Curl_pgrsUpdate(ptr noundef %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %18
 
@@ -61,7 +61,7 @@ define dso_local i32 @Curl_pgrsDone(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_pgrsUpdate(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsUpdate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [6 x [10 x i8]], align 16
   %3 = alloca [10 x i8], align 1
   %4 = alloca [10 x i8], align 1
@@ -399,7 +399,7 @@ progress_calc.exit:                               ; preds = %trspeed.exit51.i, %
   br i1 %199, label %200, label %206
 
 200:                                              ; preds = %198
-  %.lhs.trunc.i.i = trunc i64 %195 to i32
+  %.lhs.trunc.i.i = trunc nuw i64 %195 to i32
   %201 = udiv i32 %.lhs.trunc.i.i, 3600
   %.zext.i.i = zext nneg i32 %201 to i64
   %.neg23.i.i = mul nsw i64 %.zext.i.i, -3600
@@ -441,7 +441,7 @@ time2str.exit.i:                                  ; preds = %213, %209, %200, %1
   br i1 %218, label %219, label %225
 
 219:                                              ; preds = %217
-  %.lhs.trunc.i79.i = trunc i64 %192 to i32
+  %.lhs.trunc.i79.i = trunc nuw i64 %192 to i32
   %220 = udiv i32 %.lhs.trunc.i79.i, 3600
   %.zext.i80.i = zext nneg i32 %220 to i64
   %.neg23.i81.i = mul nsw i64 %.zext.i80.i, -3600
@@ -483,7 +483,7 @@ time2str.exit85.i:                                ; preds = %232, %228, %219, %2
   br i1 %237, label %238, label %244
 
 238:                                              ; preds = %236
-  %.lhs.trunc.i87.i = trunc i64 %131 to i32
+  %.lhs.trunc.i87.i = trunc nuw i64 %131 to i32
   %239 = udiv i32 %.lhs.trunc.i87.i, 3600
   %.zext.i88.i = zext nneg i32 %239 to i64
   %.neg23.i89.i = mul nsw i64 %.zext.i88.i, -3600
@@ -983,7 +983,7 @@ define internal fastcc noundef ptr @max5data(i64 noundef %0, ptr noundef returne
 
 13:                                               ; preds = %11
   %14 = lshr i64 %0, 20
-  %15 = trunc i64 %0 to i32
+  %15 = trunc nuw i64 %0 to i32
   %.lhs.trunc = and i32 %15, 1048575
   %16 = udiv i32 %.lhs.trunc, 104857
   %.zext = zext nneg i32 %16 to i64
@@ -1077,4 +1077,3 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 268435458, i32 268435457}

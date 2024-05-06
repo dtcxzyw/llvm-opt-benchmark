@@ -459,7 +459,7 @@ define dso_local void @ibx_disable_display_interrupt(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_pipestat_enable_mask(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, -65535) i32 @i915_pipestat_enable_mask(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8040
   %4 = sext i32 %1 to i64
   %5 = getelementptr [4 x i32], ptr %3, i64 0, i64 %4
@@ -2301,7 +2301,7 @@ declare dso_local zeroext i1 @intel_encoder_can_psr(ptr noundef) local_unnamed_a
 declare dso_local void @intel_psr_irq_handler(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @gen8_de_pipe_underrun_mask(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -2147483648, -2141192191) i32 @gen8_de_pipe_underrun_mask(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2632
   %3 = load i16, ptr %2, align 8
   %4 = icmp ugt i16 %3, 12
@@ -3662,7 +3662,7 @@ define dso_local void @gen11_display_irq_reset(ptr noundef %0) local_unnamed_add
   br i1 %23, label %51, label %24
 
 24:                                               ; preds = %15
-  %25 = trunc i64 %16 to i32
+  %25 = trunc nuw nsw i64 %16 to i32
   %26 = add nuw nsw i32 %25, 9
   %27 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %0, i32 noundef %26) #8
   br i1 %27, label %28, label %51
@@ -4168,7 +4168,7 @@ define dso_local void @gen8_de_irq_postinstall(ptr noundef %0) local_unnamed_add
   br i1 %104, label %120, label %105
 
 105:                                              ; preds = %96
-  %106 = trunc i64 %97 to i32
+  %106 = trunc nuw nsw i64 %97 to i32
   %107 = add nuw nsw i32 %106, 9
   %108 = call zeroext i1 @intel_display_power_is_enabled(ptr noundef %0, i32 noundef %107) #8
   br i1 %108, label %109, label %120

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxsig_procmask(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @nxsig_procmask(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr @g_readytorun, align 8
   %6 = tail call i32 @sched_lock() #3
@@ -85,7 +85,7 @@ declare zeroext i1 @nxsig_unmask_pendingsignal() local_unnamed_addr #1
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sigprocmask(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sigprocmask(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sigset_s, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %5
@@ -99,7 +99,7 @@ define noundef i32 @sigprocmask(i32 noundef %0, ptr noundef readonly %1, ptr nou
 
 9:                                                ; preds = %5, %3
   %.07 = phi ptr [ %4, %5 ], [ null, %3 ]
-  %10 = call i32 @nxsig_procmask(i32 noundef %0, ptr noundef %.07, ptr noundef %2), !range !9
+  %10 = call i32 @nxsig_procmask(i32 noundef %0, ptr noundef %.07, ptr noundef %2)
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %15
 
@@ -140,4 +140,3 @@ attributes #3 = { nounwind }
 !6 = !{i64 285138, i64 285156}
 !7 = !{i64 285757}
 !8 = !{i64 285878}
-!9 = !{i32 -22, i32 1}

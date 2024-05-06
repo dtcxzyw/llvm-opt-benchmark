@@ -110,7 +110,7 @@ _ZN11SecPassword5CleanEv.exit:                    ; preds = %.preheader.i.i, %2
   %22 = ashr exact i64 %21, 2
   %23 = tail call i64 @llvm.umin.i64(i64 %16, i64 %22)
   %24 = shl i64 %23, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 4 %1, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull readonly align 4 %1, i64 %24, i1 false)
   %25 = tail call i32 @getpid() #13
   %.not.i.i = icmp eq ptr %18, %17
   br i1 %.not.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit, label %.lr.ph.i.i
@@ -301,7 +301,7 @@ define void @_ZN11SecPassword3GetEPwm(ptr nocapture noundef nonnull readonly ali
   %14 = ashr exact i64 %13, 2
   %15 = tail call i64 @llvm.umin.i64(i64 %14, i64 %2)
   %16 = shl i64 %15, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 4 %8, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr readonly align 4 %8, i64 %16, i1 false)
   %17 = shl i64 %2, 2
   %18 = tail call i32 @getpid() #13
   %.not.i.i = icmp eq i64 %17, 0
@@ -356,7 +356,7 @@ define noundef i64 @_ZN11SecPassword6LengthEv(ptr nocapture noundef nonnull read
   %13 = ashr exact i64 %12, 2
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 512)
   %15 = shl nuw nsw i64 %14, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 4 %7, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr readonly align 4 %7, i64 %15, i1 false)
   %16 = tail call i32 @getpid() #13
   %17 = zext i32 %16 to i64
   br label %18
@@ -384,7 +384,7 @@ _ZN11SecPassword3GetEPwm.exit:                    ; preds = %1, %_ZN11SecPasswor
   %27 = call i64 @wcslen(ptr noundef nonnull %2) #15
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i, %_ZN11SecPassword3GetEPwm.exit
+.preheader.i:                                     ; preds = %_ZN11SecPassword3GetEPwm.exit, %.preheader.i
   %.010.i = phi i64 [ %29, %.preheader.i ], [ 0, %_ZN11SecPassword3GetEPwm.exit ]
   %28 = getelementptr inbounds i8, ptr %2, i64 %.010.i
   store volatile i8 0, ptr %28, align 1
@@ -415,7 +415,7 @@ define noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr nocapture noundef nonnull 
   %15 = ashr exact i64 %14, 2
   %16 = tail call i64 @llvm.umin.i64(i64 %15, i64 512)
   %17 = shl nuw nsw i64 %16, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 4 %9, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr readonly align 4 %9, i64 %17, i1 false)
   %18 = tail call i32 @getpid() #13
   %19 = zext i32 %18 to i64
   br label %20
@@ -455,7 +455,7 @@ _ZN11SecPassword3GetEPwm.exit:                    ; preds = %2, %_ZN11SecPasswor
   %39 = ashr exact i64 %38, 2
   %40 = tail call i64 @llvm.umin.i64(i64 %39, i64 512)
   %41 = shl nuw nsw i64 %40, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 4 %33, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 4 %33, i64 %41, i1 false)
   %42 = tail call i32 @getpid() #13
   %43 = zext i32 %42 to i64
   br label %44
@@ -483,7 +483,7 @@ _ZN11SecPassword3GetEPwm.exit6:                   ; preds = %_ZN11SecPassword3Ge
   %53 = call i32 @wcscmp(ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i, %_ZN11SecPassword3GetEPwm.exit6
+.preheader.i:                                     ; preds = %_ZN11SecPassword3GetEPwm.exit6, %.preheader.i
   %.010.i = phi i64 [ %55, %.preheader.i ], [ 0, %_ZN11SecPassword3GetEPwm.exit6 ]
   %54 = getelementptr inbounds i8, ptr %3, i64 %.010.i
   store volatile i8 0, ptr %54, align 1

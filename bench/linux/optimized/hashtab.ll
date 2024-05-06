@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [13 x i8] c"hashtab_node\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hashtab_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @hashtab_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.thread, label %4
 
@@ -45,7 +45,7 @@ define dso_local noundef i32 @hashtab_init(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__hashtab_insert(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__hashtab_insert(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr @hashtab_node_cachep, align 8
   %6 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %5, i32 noundef 3520) #7
   %7 = icmp eq ptr %6, null
@@ -169,7 +169,7 @@ define dso_local i32 @hashtab_map(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hashtab_duplicate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @hashtab_duplicate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8

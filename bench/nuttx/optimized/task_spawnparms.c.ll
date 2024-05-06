@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sched_param = type { i32 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @spawn_execattrs(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @spawn_execattrs(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sched_param, align 4
   %4 = load i8, ptr %1, align 8
   %5 = and i8 %4, 32

@@ -15,7 +15,7 @@ define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17haed4c753b12b8a8fE"(ptr align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17haed4c753b12b8a8fE"(ptr align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %2, null
@@ -67,7 +67,7 @@ define void @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @_ZN4core4iter6traits8iterator8Iterator10max_by_key7compare17h7c5fdb8df4c43cf1E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator10max_by_key7compare17h7c5fdb8df4c43cf1E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$U$C$T$RP$$GT$3cmp17h18795de15511c7edE"(ptr align 8 %0, ptr align 8 %1), !range !5
   ret i8 %3
 }

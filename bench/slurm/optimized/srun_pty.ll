@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [47 x i8] c"pty: window size change notification error: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @set_winsize(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @set_winsize(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.winsize, align 4
   %4 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 21523, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0

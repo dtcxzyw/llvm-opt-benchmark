@@ -635,7 +635,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i32 @mei_cldev_enable(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mei_fwver(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca [28 x i8], align 16
   %3 = alloca %struct.mkhi_msg, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #10

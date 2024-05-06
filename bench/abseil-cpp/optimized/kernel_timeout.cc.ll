@@ -181,7 +181,7 @@ _ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit: ; preds
   %div.i.i = sdiv i64 %retval.0.i, 1000000000
   %rem.i.i = srem i64 %retval.0.i, 1000000000
   %cmp.i.i.i = icmp slt i64 %rem.i.i, 0
-  %rem.tr.i.i = trunc i64 %rem.i.i to i32
+  %rem.tr.i.i = trunc nsw i64 %rem.i.i to i32
   %1 = shl i32 %rem.tr.i.i, 2
   %conv.i.i.i.i = add i32 %1, -294967296
   %ticks.lobit.i.i.i = ashr i64 %rem.i.i, 61
@@ -223,7 +223,7 @@ _ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit:
   %retval.0.i = phi i64 [ %.sroa.speculated8.i, %if.then4.i ], [ %.sroa.speculated.i, %if.end8.i ], [ 9223372036854775807, %entry ]
   %div.i.i1 = udiv i64 %retval.0.i, 1000000000
   %rem.i.i2 = urem i64 %retval.0.i, 1000000000
-  %rem.tr.i.i = trunc i64 %rem.i.i2 to i32
+  %rem.tr.i.i = trunc nuw nsw i64 %rem.i.i2 to i32
   %1 = shl nuw i32 %rem.tr.i.i, 2
   %call3 = tail call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %div.i.i1, i32 %1) #9
   ret { i64, i64 } %call3
@@ -277,7 +277,7 @@ do.end17:                                         ; preds = %do.body
   %div.i.i = sdiv i64 %nanos.0, 1000000000
   %rem.i.i = srem i64 %nanos.0, 1000000000
   %cmp.i.i.i = icmp slt i64 %rem.i.i, 0
-  %rem.tr.i.i = trunc i64 %rem.i.i to i32
+  %rem.tr.i.i = trunc nsw i64 %rem.i.i to i32
   %1 = shl i32 %rem.tr.i.i, 2
   %conv.i.i.i.i = add i32 %1, -294967296
   %ticks.lobit.i.i.i = ashr i64 %rem.i.i, 61
@@ -320,7 +320,7 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 declare { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK4absl24synchronization_internal13KernelTimeout21InMillisecondsFromNowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 -1, 9223372036855) i64 @_ZNK4absl24synchronization_internal13KernelTimeout21InMillisecondsFromNowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1

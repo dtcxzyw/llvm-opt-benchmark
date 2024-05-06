@@ -313,7 +313,7 @@ define dso_local i32 @__register_blkdev(i32 noundef %0, ptr noundef %1, ptr noun
   %27 = getelementptr inbounds i8, ptr %22, i64 12
   %28 = tail call i64 @strscpy(ptr noundef %27, ptr noundef %1, i64 noundef 16) #17
   store ptr null, ptr %22, align 8
-  %.lhs.trunc = trunc i32 %16 to i16
+  %.lhs.trunc = trunc nuw i32 %16 to i16
   %29 = urem i16 %.lhs.trunc, 255
   tail call void @_raw_spin_lock(ptr noundef nonnull @major_names_spinlock) #17
   %30 = zext nneg i16 %29 to i64
@@ -1346,7 +1346,7 @@ declare dso_local void @invalidate_bdev(ptr noundef) local_unnamed_addr #1
 define dso_local void @blk_request_module(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = lshr i32 %0, 20
   tail call void @mutex_lock(ptr noundef nonnull @major_names_lock) #17
-  %.lhs.trunc = trunc i32 %2 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %2 to i16
   %3 = urem i16 %.lhs.trunc, 255
   %4 = zext nneg i16 %3 to i64
   %5 = getelementptr [255 x ptr], ptr @major_names, i64 0, i64 %4
@@ -1413,7 +1413,7 @@ define internal i32 @genhd_device_init() #5 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i64 @part_size_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_size_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -192
   %5 = load i64, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %5) #17
@@ -1425,7 +1425,7 @@ define dso_local noundef i64 @part_size_show(ptr nocapture noundef readonly %0, 
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @part_stat_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_stat_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.disk_stats, align 8
   %5 = getelementptr i8, ptr %0, i64 -200
   %6 = getelementptr i8, ptr %0, i64 -176
@@ -1652,7 +1652,7 @@ declare void @llvm.write_register.i64(metadata, i64) #10
 declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @part_inflight_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_inflight_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca [2 x i32], align 8
   %5 = getelementptr i8, ptr %0, i64 -176
   %6 = load ptr, ptr %5, align 8
@@ -2270,7 +2270,7 @@ declare dso_local i64 @badblocks_show(ptr noundef, ptr noundef, i32 noundef) loc
 declare dso_local i64 @badblocks_store(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @disk_range_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_range_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2281,7 +2281,7 @@ define internal noundef i64 @disk_range_show(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @disk_ext_range_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_ext_range_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 344
@@ -2295,7 +2295,7 @@ define internal noundef i64 @disk_ext_range_show(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @disk_removable_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_removable_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 344
@@ -2307,7 +2307,7 @@ define internal noundef i64 @disk_removable_show(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @disk_hidden_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_hidden_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 344
@@ -2320,7 +2320,7 @@ define internal noundef i64 @disk_hidden_show(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @disk_ro_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_ro_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -2346,7 +2346,7 @@ define internal noundef i64 @disk_ro_show(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @disk_alignment_offset_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_alignment_offset_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -2361,7 +2361,7 @@ define internal noundef i64 @disk_alignment_offset_show(ptr nocapture noundef re
 declare dso_local i32 @bdev_alignment_offset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @disk_discard_alignment_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_discard_alignment_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -2391,7 +2391,7 @@ define internal noundef i64 @disk_capability_show(ptr noundef %0, ptr nocapture 
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @diskseq_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @diskseq_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 544

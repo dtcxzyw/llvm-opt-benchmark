@@ -18152,8 +18152,8 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %87 = load ptr, ptr %m_p, align 8
   %arrayidx.i229 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %87, i64 %indvars.iv323
   %88 = sub nuw nsw i64 %indvars.iv323, %84
-  %89 = getelementptr %"struct.pb2bv_tactic::imp::monomial", ptr %87, i64 %88
-  %arrayidx.i231 = getelementptr i8, ptr %89, i64 40
+  %89 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %87, i64 %88
+  %arrayidx.i231 = getelementptr inbounds i8, ptr %89, i64 40
   %90 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_kind.i.i.i.i.i.i232 = getelementptr inbounds i8, ptr %arrayidx.i229, i64 4
   %bf.load.i.i.i.i.i.i233 = load i8, ptr %m_kind.i.i.i.i.i.i232, align 4
@@ -18164,7 +18164,7 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
 if.then.i.i.i.i.i249:                             ; preds = %for.body51
   %91 = load i32, ptr %arrayidx.i229, align 8
   store i32 %91, ptr %arrayidx.i231, align 8
-  %m_kind.i.i.i.i.i250 = getelementptr i8, ptr %89, i64 44
+  %m_kind.i.i.i.i.i250 = getelementptr inbounds i8, ptr %89, i64 44
   %bf.load.i.i.i.i.i251 = load i8, ptr %m_kind.i.i.i.i.i250, align 4
   %bf.clear.i.i.i.i.i252 = and i8 %bf.load.i.i.i.i.i251, -2
   store i8 %bf.clear.i.i.i.i.i252, ptr %m_kind.i.i.i.i.i250, align 4
@@ -18175,7 +18175,7 @@ if.else.i.i.i.i.i236:                             ; preds = %for.body51
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i237
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i237: ; preds = %if.else.i.i.i.i.i236, %if.then.i.i.i.i.i249
-  %m_den.i.i.i238 = getelementptr i8, ptr %89, i64 56
+  %m_den.i.i.i238 = getelementptr inbounds i8, ptr %89, i64 56
   %m_den3.i.i.i239 = getelementptr inbounds i8, ptr %arrayidx.i229, i64 16
   %m_kind.i.i.i3.i.i.i240 = getelementptr inbounds i8, ptr %arrayidx.i229, i64 20
   %bf.load.i.i.i4.i.i.i241 = load i8, ptr %m_kind.i.i.i3.i.i.i240, align 4
@@ -18186,7 +18186,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i237: ; preds = %if.else.i.i.i.i.
 if.then.i.i8.i.i.i246:                            ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i237
   %92 = load i32, ptr %m_den3.i.i.i239, align 8
   store i32 %92, ptr %m_den.i.i.i238, align 8
-  %m_kind.i.i9.i.i.i = getelementptr i8, ptr %89, i64 60
+  %m_kind.i.i9.i.i.i = getelementptr inbounds i8, ptr %89, i64 60
   %bf.load.i.i10.i.i.i247 = load i8, ptr %m_kind.i.i9.i.i.i, align 4
   %bf.clear.i.i11.i.i.i248 = and i8 %bf.load.i.i10.i.i.i247, -2
   store i8 %bf.clear.i.i11.i.i.i248, ptr %m_kind.i.i9.i.i.i, align 4
@@ -18197,7 +18197,7 @@ if.else.i.i7.i.i.i244:                            ; preds = %_ZN11mpq_managerILb
   br label %_ZN12pb2bv_tactic3imp8monomialaSERKS1_.exit
 
 _ZN12pb2bv_tactic3imp8monomialaSERKS1_.exit:      ; preds = %if.then.i.i8.i.i.i246, %if.else.i.i7.i.i.i244
-  %m_lit.i245 = getelementptr i8, ptr %89, i64 72
+  %m_lit.i245 = getelementptr inbounds i8, ptr %89, i64 72
   %m_lit3.i = getelementptr inbounds i8, ptr %arrayidx.i229, i64 32
   %93 = load i64, ptr %m_lit3.i, align 8
   store i64 %93, ptr %m_lit.i245, align 8

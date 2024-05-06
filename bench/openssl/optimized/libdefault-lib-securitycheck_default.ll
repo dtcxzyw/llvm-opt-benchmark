@@ -14,13 +14,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [10 x i8] c"RIPEMD160\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_securitycheck_enabled(ptr nocapture noundef readnone %libctx) local_unnamed_addr #0 {
+define noundef i32 @ossl_securitycheck_enabled(ptr nocapture noundef readnone %libctx) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_tls1_prf_ems_check_enabled(ptr nocapture noundef readnone %libctx) local_unnamed_addr #0 {
+define noundef i32 @ossl_tls1_prf_ems_check_enabled(ptr nocapture noundef readnone %libctx) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }

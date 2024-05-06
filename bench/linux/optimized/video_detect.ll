@@ -42,7 +42,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___acpi_video
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable___acpi_video_get_backlight_type446], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__acpi_video_get_backlight_type(i1 noundef zeroext %0, ptr noundef writeonly %1) #0 align 16 {
+define dso_local range(i32 0, 6) i32 @__acpi_video_get_backlight_type(i1 noundef zeroext %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = alloca %struct.wmi_brightness_args, align 4
   %4 = alloca %struct.acpi_buffer, align 8
   tail call void @mutex_lock(ptr noundef nonnull @__acpi_video_get_backlight_type.init_mutex) #6

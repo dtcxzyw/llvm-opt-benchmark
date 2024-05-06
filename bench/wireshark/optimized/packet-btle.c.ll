@@ -2402,7 +2402,7 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
 
 699:                                              ; preds = %.thread2929
   %700 = getelementptr inbounds i8, ptr %1, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %700, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %700, i8 0, i64 24, i1 false)
   %701 = getelementptr inbounds i8, ptr %1, i64 160
   store i32 7, ptr %701, align 8
   %702 = getelementptr inbounds i8, ptr %1, i64 164
@@ -4158,7 +4158,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
 1632:                                             ; preds = %.cont2666.thread
   %1633 = getelementptr inbounds i8, ptr %20, i64 8
   %1634 = load ptr, ptr %1633, align 8
-  %1635 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1634, i8 noundef zeroext 15, i32 noundef 2), !range !4
+  %1635 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1634, i8 noundef zeroext 15, i32 noundef 2)
   %.not2477 = icmp eq i32 %1635, 0
   %1636 = getelementptr inbounds i8, ptr %20, i64 16
   %1637 = load ptr, ptr %1636, align 16
@@ -4169,7 +4169,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
   br label %proto_item_set_generated.exit2572
 
 1639:                                             ; preds = %1632
-  %1640 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1637, i8 noundef zeroext 15, i32 noundef 1), !range !4
+  %1640 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1637, i8 noundef zeroext 15, i32 noundef 1)
   %.not2478 = icmp eq i32 %1640, 0
   br i1 %.not2478, label %1642, label %1641
 
@@ -4250,7 +4250,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
 1679:                                             ; preds = %.cont2670.thread
   %1680 = getelementptr inbounds i8, ptr %20, i64 16
   %1681 = load ptr, ptr %1680, align 16
-  %1682 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1681, i8 noundef zeroext 25, i32 noundef 1), !range !4
+  %1682 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1681, i8 noundef zeroext 25, i32 noundef 1)
   %.not2472 = icmp eq i32 %1682, 0
   br i1 %.not2472, label %1688, label %1683
 
@@ -4380,7 +4380,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
 1748:                                             ; preds = %.cont2678.thread
   %1749 = getelementptr inbounds i8, ptr %20, i64 8
   %1750 = load ptr, ptr %1749, align 8
-  %1751 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1750, i8 noundef zeroext 3, i32 noundef 1), !range !4
+  %1751 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1750, i8 noundef zeroext 3, i32 noundef 1)
   %.not2467 = icmp eq i32 %1751, 0
   br i1 %.not2467, label %1755, label %1752
 
@@ -4421,7 +4421,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
 1763:                                             ; preds = %.cont2682.thread
   %1764 = getelementptr inbounds i8, ptr %20, i64 8
   %1765 = load ptr, ptr %1764, align 8
-  %1766 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1765, i8 noundef zeroext 3, i32 noundef 2), !range !4
+  %1766 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1765, i8 noundef zeroext 3, i32 noundef 2)
   %.not2464 = icmp eq i32 %1766, 0
   br i1 %.not2464, label %1770, label %1767
 
@@ -4467,7 +4467,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
 1781:                                             ; preds = %1780
   %1782 = getelementptr inbounds i8, ptr %20, i64 8
   %1783 = load ptr, ptr %1782, align 8
-  %1784 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1783, i8 noundef zeroext 3, i32 noundef 3), !range !4
+  %1784 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1783, i8 noundef zeroext 3, i32 noundef 3)
   %.not2460 = icmp eq i32 %1784, 0
   br i1 %.not2460, label %1795, label %1785
 
@@ -4480,7 +4480,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
 1788:                                             ; preds = %1780
   %1789 = getelementptr inbounds i8, ptr %20, i64 8
   %1790 = load ptr, ptr %1789, align 8
-  %1791 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1790, i8 noundef zeroext 3, i32 noundef 4), !range !4
+  %1791 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1790, i8 noundef zeroext 3, i32 noundef 4)
   %.not2461 = icmp eq i32 %1791, 0
   br i1 %.not2461, label %1795, label %1792
 
@@ -4559,7 +4559,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 1827:                                             ; preds = %1568
-  %1828 = call fastcc i32 @dissect_feature_set(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !5
+  %1828 = call fastcc i32 @dissect_feature_set(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2454 = icmp eq ptr %.12273, null
   br i1 %.not2454, label %proto_item_set_generated.exit2572, label %1829
 
@@ -4592,7 +4592,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 1840:                                             ; preds = %1568
-  %1841 = call fastcc i32 @dissect_feature_set(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !5
+  %1841 = call fastcc i32 @dissect_feature_set(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2451 = icmp eq ptr %.12273, null
   br i1 %.not2451, label %proto_item_set_generated.exit2572, label %1842
 
@@ -4614,12 +4614,12 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   %1847 = zext nneg i8 %.02307 to i64
   %1848 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %1847
   %1849 = load ptr, ptr %1848, align 8
-  %1850 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1849, i8 noundef zeroext 8, i32 noundef 1), !range !4
+  %1850 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1849, i8 noundef zeroext 8, i32 noundef 1)
   %.not2452 = icmp eq i32 %1850, 0
   br i1 %.not2452, label %1851, label %1853
 
 1851:                                             ; preds = %1846
-  %1852 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1849, i8 noundef zeroext 14, i32 noundef 1), !range !4
+  %1852 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1849, i8 noundef zeroext 14, i32 noundef 1)
   %.not2453 = icmp eq i32 %1852, 0
   br i1 %.not2453, label %1857, label %1853
 
@@ -4709,7 +4709,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 1888:                                             ; preds = %1887
   %1889 = getelementptr inbounds i8, ptr %20, i64 8
   %1890 = load ptr, ptr %1889, align 8
-  %1891 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1890, i8 noundef zeroext 10, i32 noundef 1), !range !4
+  %1891 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1890, i8 noundef zeroext 10, i32 noundef 1)
   %.not2447 = icmp eq i32 %1891, 0
   br i1 %.not2447, label %1902, label %1892
 
@@ -4722,7 +4722,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 1895:                                             ; preds = %1887
   %1896 = getelementptr inbounds i8, ptr %20, i64 8
   %1897 = load ptr, ptr %1896, align 8
-  %1898 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1897, i8 noundef zeroext 10, i32 noundef 2), !range !4
+  %1898 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1897, i8 noundef zeroext 10, i32 noundef 2)
   %.not2448 = icmp eq i32 %1898, 0
   br i1 %.not2448, label %1902, label %1899
 
@@ -4767,7 +4767,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   %1919 = zext nneg i8 %.02307 to i64
   %1920 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %1919
   %1921 = load ptr, ptr %1920, align 8
-  %1922 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1921, i8 noundef zeroext 12, i32 noundef 1), !range !4
+  %1922 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1921, i8 noundef zeroext 12, i32 noundef 1)
   %.not2445 = icmp eq i32 %1922, 0
   br i1 %.not2445, label %1927, label %1923
 
@@ -4811,7 +4811,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 1939:                                             ; preds = %.cont2714.thread
   %1940 = getelementptr inbounds i8, ptr %20, i64 8
   %1941 = load ptr, ptr %1940, align 8
-  %1942 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1941, i8 noundef zeroext 3, i32 noundef 1), !range !4
+  %1942 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1941, i8 noundef zeroext 3, i32 noundef 1)
   %.not2442 = icmp eq i32 %1942, 0
   br i1 %.not2442, label %1946, label %1943
 
@@ -4822,7 +4822,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 1946:                                             ; preds = %1939
-  %1947 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1941, i8 noundef zeroext 3, i32 noundef 2), !range !4
+  %1947 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1941, i8 noundef zeroext 3, i32 noundef 2)
   %.not2443 = icmp eq i32 %1947, 0
   br i1 %.not2443, label %1951, label %1948
 
@@ -4841,7 +4841,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 1955:                                             ; preds = %1568
-  %1956 = call fastcc i32 @dissect_feature_set(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !5
+  %1956 = call fastcc i32 @dissect_feature_set(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2438 = icmp eq ptr %.12273, null
   br i1 %.not2438, label %proto_item_set_generated.exit2572, label %1957
 
@@ -4874,7 +4874,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 1968:                                             ; preds = %1568
-  %1969 = call fastcc i32 @dissect_conn_param_req_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !6
+  %1969 = call fastcc i32 @dissect_conn_param_req_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2437 = icmp eq ptr %.12273, null
   br i1 %.not2437, label %proto_item_set_generated.exit2572, label %1970
 
@@ -4904,7 +4904,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 1983:                                             ; preds = %1568
-  %1984 = call fastcc i32 @dissect_conn_param_req_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !6
+  %1984 = call fastcc i32 @dissect_conn_param_req_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2434 = icmp eq ptr %.12273, null
   br i1 %.not2434, label %proto_item_set_generated.exit2572, label %1985
 
@@ -4926,7 +4926,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 1987:                                             ; preds = %.cont2726.thread
   %1988 = getelementptr inbounds i8, ptr %20, i64 8
   %1989 = load ptr, ptr %1988, align 8
-  %1990 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1989, i8 noundef zeroext 15, i32 noundef 1), !range !4
+  %1990 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %1989, i8 noundef zeroext 15, i32 noundef 1)
   %.not2436 = icmp eq i32 %1990, 0
   br i1 %.not2436, label %1994, label %1991
 
@@ -4975,7 +4975,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 2011:                                             ; preds = %2009
   %2012 = getelementptr inbounds i8, ptr %20, i64 8
   %2013 = load ptr, ptr %2012, align 8
-  %2014 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2013, i8 noundef zeroext 3, i32 noundef 1), !range !4
+  %2014 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2013, i8 noundef zeroext 3, i32 noundef 1)
   %.not2425 = icmp eq i32 %2014, 0
   br i1 %.not2425, label %2018, label %2015
 
@@ -4986,7 +4986,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2018:                                             ; preds = %2011
-  %2019 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2013, i8 noundef zeroext 3, i32 noundef 2), !range !4
+  %2019 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2013, i8 noundef zeroext 3, i32 noundef 2)
   %.not2426 = icmp eq i32 %2019, 0
   br i1 %.not2426, label %.critedge2543, label %2020
 
@@ -5000,7 +5000,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   %2023 = zext nneg i8 %.02307 to i64
   %2024 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %2023
   %2025 = load ptr, ptr %2024, align 8
-  %2026 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2025, i8 noundef zeroext 15, i32 noundef 1), !range !4
+  %2026 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2025, i8 noundef zeroext 15, i32 noundef 1)
   %.not2427 = icmp eq i32 %2026, 0
   br i1 %.not2427, label %2031, label %2027
 
@@ -5012,7 +5012,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2031:                                             ; preds = %.critedge2543
-  %2032 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2025, i8 noundef zeroext 22, i32 noundef 1), !range !4
+  %2032 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2025, i8 noundef zeroext 22, i32 noundef 1)
   %.not2428 = icmp eq i32 %2032, 0
   br i1 %.not2428, label %2037, label %2033
 
@@ -5024,7 +5024,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2037:                                             ; preds = %2031
-  %2038 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2025, i8 noundef zeroext 26, i32 noundef 1), !range !4
+  %2038 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2025, i8 noundef zeroext 26, i32 noundef 1)
   %.not2429 = icmp eq i32 %2038, 0
   br i1 %.not2429, label %2043, label %2039
 
@@ -5038,7 +5038,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 2043:                                             ; preds = %2037
   %2044 = getelementptr inbounds i8, ptr %20, i64 8
   %2045 = load ptr, ptr %2044, align 8
-  %2046 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2045, i8 noundef zeroext 31, i32 noundef 1), !range !4
+  %2046 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2045, i8 noundef zeroext 31, i32 noundef 1)
   %.not2430 = icmp eq i32 %2046, 0
   br i1 %.not2430, label %2050, label %2047
 
@@ -5049,7 +5049,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2050:                                             ; preds = %2043
-  %2051 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2045, i8 noundef zeroext 31, i32 noundef 2), !range !4
+  %2051 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2045, i8 noundef zeroext 31, i32 noundef 2)
   %.not2431 = icmp eq i32 %2051, 0
   br i1 %.not2431, label %2055, label %2052
 
@@ -5060,7 +5060,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2055:                                             ; preds = %2050
-  %2056 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2025, i8 noundef zeroext 35, i32 noundef 1), !range !4
+  %2056 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2025, i8 noundef zeroext 35, i32 noundef 1)
   %.not2432 = icmp eq i32 %2056, 0
   br i1 %.not2432, label %2061, label %2057
 
@@ -5074,7 +5074,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 2061:                                             ; preds = %2055
   %2062 = getelementptr inbounds i8, ptr %20, i64 16
   %2063 = load ptr, ptr %2062, align 16
-  %2064 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2063, i8 noundef zeroext 38, i32 noundef 1), !range !4
+  %2064 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2063, i8 noundef zeroext 38, i32 noundef 1)
   %.not2433 = icmp eq i32 %2064, 0
   br i1 %.not2433, label %2066, label %2065
 
@@ -5139,7 +5139,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   %2090 = zext nneg i8 %.02307 to i64
   %2091 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %2090
   %2092 = load ptr, ptr %2091, align 8
-  %2093 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2092, i8 noundef zeroext 18, i32 noundef 1), !range !4
+  %2093 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2092, i8 noundef zeroext 18, i32 noundef 1)
   %.not2422 = icmp eq i32 %2093, 0
   br i1 %.not2422, label %2098, label %2094
 
@@ -5207,7 +5207,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   %2120 = zext nneg i8 %.02307 to i64
   %2121 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %2120
   %2122 = load ptr, ptr %2121, align 8
-  %2123 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2122, i8 noundef zeroext 20, i32 noundef 1), !range !4
+  %2123 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2122, i8 noundef zeroext 20, i32 noundef 1)
   %.not2419 = icmp eq i32 %2123, 0
   br i1 %.not2419, label %2128, label %2124
 
@@ -5275,7 +5275,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 2147:                                             ; preds = %.cont2754.thread
   %2148 = getelementptr inbounds i8, ptr %20, i64 8
   %2149 = load ptr, ptr %2148, align 8
-  %2150 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2149, i8 noundef zeroext 22, i32 noundef 1), !range !4
+  %2150 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2149, i8 noundef zeroext 22, i32 noundef 1)
   %.not2416 = icmp eq i32 %2150, 0
   br i1 %.not2416, label %2154, label %2151
 
@@ -5361,7 +5361,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 2189:                                             ; preds = %.cont2758.thread
   %2190 = getelementptr inbounds i8, ptr %20, i64 8
   %2191 = load ptr, ptr %2190, align 8
-  %2192 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2191, i8 noundef zeroext 22, i32 noundef 2), !range !4
+  %2192 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2191, i8 noundef zeroext 22, i32 noundef 2)
   %.not2412 = icmp eq i32 %2192, 0
   %2193 = getelementptr inbounds i8, ptr %20, i64 16
   %2194 = load ptr, ptr %2193, align 16
@@ -5374,7 +5374,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2198:                                             ; preds = %2189
-  %2199 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2194, i8 noundef zeroext 22, i32 noundef 1), !range !4
+  %2199 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2194, i8 noundef zeroext 22, i32 noundef 1)
   %.not2413 = icmp eq i32 %2199, 0
   br i1 %.not2413, label %2203, label %2200
 
@@ -5494,7 +5494,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   %2254 = zext nneg i8 %.02307 to i64
   %2255 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %2254
   %2256 = load ptr, ptr %2255, align 8
-  %2257 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2256, i8 noundef zeroext 26, i32 noundef 1), !range !4
+  %2257 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2256, i8 noundef zeroext 26, i32 noundef 1)
   %.not2405 = icmp eq i32 %2257, 0
   br i1 %.not2405, label %2262, label %2258
 
@@ -5605,7 +5605,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   %2310 = zext nneg i8 %.02307 to i64
   %2311 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %2310
   %2312 = load ptr, ptr %2311, align 8
-  %2313 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2312, i8 noundef zeroext 29, i32 noundef 1), !range !4
+  %2313 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2312, i8 noundef zeroext 29, i32 noundef 1)
   %.not2400 = icmp eq i32 %2313, 0
   br i1 %.not2400, label %2318, label %2314
 
@@ -5621,7 +5621,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2320:                                             ; preds = %1568
-  %2321 = call fastcc i32 @dissect_cis_req(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !7
+  %2321 = call fastcc i32 @dissect_cis_req(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2397 = icmp eq ptr %.12273, null
   br i1 %.not2397, label %proto_item_set_generated.exit2572, label %2322
 
@@ -5653,7 +5653,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2332:                                             ; preds = %1568
-  %2333 = call fastcc i32 @dissect_cis_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !5
+  %2333 = call fastcc i32 @dissect_cis_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2395 = icmp eq ptr %.12273, null
   br i1 %.not2395, label %proto_item_set_generated.exit2572, label %2334
 
@@ -5674,7 +5674,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 2338:                                             ; preds = %.cont2790
   %2339 = getelementptr inbounds i8, ptr %20, i64 8
   %2340 = load ptr, ptr %2339, align 8
-  %2341 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2340, i8 noundef zeroext 31, i32 noundef 1), !range !4
+  %2341 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2340, i8 noundef zeroext 31, i32 noundef 1)
   %.not2396 = icmp eq i32 %2341, 0
   br i1 %.not2396, label %2345, label %2342
 
@@ -5756,7 +5756,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %2381
 
 2381:                                             ; preds = %2369, %2347
-  %2382 = call fastcc i32 @dissect_cis_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !8
+  %2382 = call fastcc i32 @dissect_cis_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2393 = icmp eq ptr %.12273, null
   br i1 %.not2393, label %proto_item_set_generated.exit2572, label %2383
 
@@ -5777,7 +5777,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 2387:                                             ; preds = %.cont2794
   %2388 = getelementptr inbounds i8, ptr %20, i64 8
   %2389 = load ptr, ptr %2388, align 8
-  %2390 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2389, i8 noundef zeroext 31, i32 noundef 2), !range !4
+  %2390 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2389, i8 noundef zeroext 31, i32 noundef 2)
   %.not2394 = icmp eq i32 %2390, 0
   br i1 %.not2394, label %2394, label %2391
 
@@ -5792,7 +5792,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2396:                                             ; preds = %1568
-  %2397 = call fastcc i32 @dissect_cis_terminate_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !9
+  %2397 = call fastcc i32 @dissect_cis_terminate_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2389 = icmp eq ptr %.12273, null
   br i1 %.not2389, label %proto_item_set_generated.exit2572, label %2398
 
@@ -5829,7 +5829,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2414:                                             ; preds = %1568
-  %2415 = call fastcc i32 @dissect_power_control_req(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !9
+  %2415 = call fastcc i32 @dissect_power_control_req(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2388 = icmp eq ptr %.12273, null
   br i1 %.not2388, label %proto_item_set_generated.exit2572, label %2416
 
@@ -5859,7 +5859,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2429:                                             ; preds = %1568
-  %2430 = call fastcc i32 @dissect_power_control_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !10
+  %2430 = call fastcc i32 @dissect_power_control_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2386 = icmp eq ptr %.12273, null
   br i1 %.not2386, label %proto_item_set_generated.exit2572, label %2431
 
@@ -5881,7 +5881,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   %2436 = zext nneg i8 %.02307 to i64
   %2437 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %2436
   %2438 = load ptr, ptr %2437, align 8
-  %2439 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2438, i8 noundef zeroext 35, i32 noundef 1), !range !4
+  %2439 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2438, i8 noundef zeroext 35, i32 noundef 1)
   %.not2387 = icmp eq i32 %2439, 0
   br i1 %.not2387, label %2444, label %2440
 
@@ -5897,7 +5897,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2446:                                             ; preds = %1568
-  %2447 = call fastcc i32 @dissect_power_control_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !10
+  %2447 = call fastcc i32 @dissect_power_control_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2384 = icmp eq ptr %.12273, null
   br i1 %.not2384, label %proto_item_set_generated.exit2572, label %2448
 
@@ -5934,7 +5934,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2464:                                             ; preds = %1568
-  %2465 = call fastcc i32 @dissect_subrate_req(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !11
+  %2465 = call fastcc i32 @dissect_subrate_req(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2382 = icmp eq ptr %.12273, null
   br i1 %.not2382, label %proto_item_set_generated.exit2572, label %2466
 
@@ -5966,7 +5966,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2476:                                             ; preds = %1568
-  %2477 = call fastcc i32 @dissect_subrate_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !11
+  %2477 = call fastcc i32 @dissect_subrate_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2378 = icmp eq ptr %.12273, null
   br i1 %.not2378, label %proto_item_set_generated.exit2572, label %2478
 
@@ -5982,7 +5982,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
 .cont2818.thread:                                 ; preds = %2478, %.cont2818
   %2480 = getelementptr inbounds i8, ptr %20, i64 16
   %2481 = load ptr, ptr %2480, align 16
-  %2482 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2481, i8 noundef zeroext 38, i32 noundef 1), !range !4
+  %2482 = call fastcc i32 @control_proc_can_add_frame(ptr noundef nonnull %1, ptr noundef %2481, i8 noundef zeroext 38, i32 noundef 1)
   %.not2380 = icmp eq i32 %2482, 0
   br i1 %.not2380, label %2486, label %2483
 
@@ -6014,7 +6014,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820,
   br label %proto_item_set_generated.exit2572
 
 2497:                                             ; preds = %1568
-  %2498 = call fastcc i32 @dissect_channel_reporting_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572), !range !9
+  %2498 = call fastcc i32 @dissect_channel_reporting_ind(ptr noundef %0, ptr noundef %69, i32 noundef %1572)
   %.not2375 = icmp eq ptr %.12273, null
   br i1 %.not2375, label %proto_item_set_generated.exit2572, label %2499
 
@@ -6564,7 +6564,7 @@ dissect_ctrl_pdu_without_data.exit:               ; preds = %2760, %2757, %2618,
   %2795 = or i32 %2794, %2793
   %2796 = add nuw nsw i32 %.01314.i, 1
   %exitcond.not.i = icmp eq i32 %2796, 4
-  br i1 %exitcond.not.i, label %reverse_bits_per_byte.exit, label %2777, !llvm.loop !12
+  br i1 %exitcond.not.i, label %reverse_bits_per_byte.exit, label %2777, !llvm.loop !4
 
 reverse_bits_per_byte.exit:                       ; preds = %2777
   %2797 = load i32, ptr @hf_crc, align 4
@@ -6613,7 +6613,7 @@ reverse_bits_per_byte.exit:                       ; preds = %2777
   %2826 = zext i16 %2825 to i32
   %2827 = xor i32 %2822, %2826
   %.not.i2584 = icmp eq i8 %2803, 0
-  br i1 %.not.i2584, label %btle_crc.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i2584, label %btle_crc.exit, label %.lr.ph.i, !llvm.loop !6
 
 btle_crc.exit:                                    ; preds = %.lr.ph.i, %2799
   %.015.lcssa.i = phi i32 [ %.02277, %2799 ], [ %2827, %.lr.ph.i ]
@@ -6866,7 +6866,7 @@ define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr nocapture nou
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %4, ptr %1, align 8
   %9 = icmp eq i32 %6, 0
   br i1 %9, label %alloc_address_wmem.exit, label %10
@@ -6920,7 +6920,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @control_proc_can_add_frame(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @control_proc_can_add_frame(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #7 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %control_proc_can_add_frame_even_if_complete.exit.thread, label %5
 
@@ -7180,7 +7180,7 @@ control_proc_invalid_collision.exit.thread:       ; preds = %control_proc_contai
 proto_item_set_generated.exit:                    ; preds = %54, %51, %48, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
 58:                                               ; preds = %42, %40
   %59 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull @ei_control_proc_overlapping) #9
@@ -7456,7 +7456,7 @@ define internal fastcc i32 @dissect_ctrl_pdu_without_data(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_feature_set(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 15, 18) i32 @dissect_feature_set(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_feature_set, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 8, i32 noundef -2147483648) #9
   %6 = load i32, ptr @ett_features, align 4
@@ -7480,7 +7480,7 @@ define internal fastcc i32 @dissect_feature_set(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_conn_param_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 30, 33) i32 @dissect_conn_param_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_interval_min, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 2
@@ -7641,7 +7641,7 @@ define internal fastcc noundef i32 @dissect_periodic_sync_ind(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_cis_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 42, 45) i32 @dissect_cis_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_control_cig_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #9
@@ -7722,7 +7722,7 @@ define internal fastcc i32 @dissect_cis_req(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_cis_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 15, 18) i32 @dissect_cis_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_cis_offset_min, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 3, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 3
@@ -7736,7 +7736,7 @@ define internal fastcc i32 @dissect_cis_rsp(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_cis_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 22, 25) i32 @dissect_cis_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_access_address, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 4
@@ -7756,7 +7756,7 @@ define internal fastcc i32 @dissect_cis_ind(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_cis_terminate_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 10, 13) i32 @dissect_cis_terminate_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_cig_id, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #9
   %6 = add nuw nsw i32 %2, 1
@@ -7770,7 +7770,7 @@ define internal fastcc i32 @dissect_cis_terminate_ind(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_power_control_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 10, 13) i32 @dissect_power_control_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_pwr_phy, align 4
   %5 = load i32, ptr @ett_pwr_phy, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @hfx_control_pwr_phy, i32 noundef 0) #9
@@ -7785,7 +7785,7 @@ define internal fastcc i32 @dissect_power_control_req(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_power_control_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 11, 14) i32 @dissect_power_control_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_pwrflags, align 4
   %5 = load i32, ptr @ett_pwrflags, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @hfx_control_pwrflags, i32 noundef 0) #9
@@ -7803,7 +7803,7 @@ define internal fastcc i32 @dissect_power_control_rsp(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_power_control_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 11, 14) i32 @dissect_power_control_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_pwr_phy, align 4
   %5 = load i32, ptr @ett_pwr_phy, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @hfx_control_pwr_phy, i32 noundef 0) #9
@@ -7822,7 +7822,7 @@ define internal fastcc i32 @dissect_power_control_ind(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_subrate_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 17, 20) i32 @dissect_subrate_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_subrate_factor_min, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 2
@@ -7842,7 +7842,7 @@ define internal fastcc i32 @dissect_subrate_req(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_subrate_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 17, 20) i32 @dissect_subrate_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_subrate_factor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 2
@@ -7862,7 +7862,7 @@ define internal fastcc i32 @dissect_subrate_ind(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_channel_reporting_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 10, 13) i32 @dissect_channel_reporting_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_channel_reporting_enable, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #9
   %6 = add nuw nsw i32 %2, 1
@@ -7926,15 +7926,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 15, i32 18}
-!6 = !{i32 30, i32 33}
-!7 = !{i32 42, i32 45}
-!8 = !{i32 22, i32 25}
-!9 = !{i32 10, i32 13}
-!10 = !{i32 11, i32 14}
-!11 = !{i32 17, i32 20}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

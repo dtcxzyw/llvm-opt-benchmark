@@ -79,7 +79,7 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %39 = getelementptr inbounds i8, ptr %0, i64 %37
   %40 = getelementptr inbounds i8, ptr %38, i64 %37
   %41 = getelementptr inbounds i8, ptr %39, i64 %37
-  tail call fastcc void @zend_sort_4(ptr noundef %0, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @zend_sort_4(ptr noundef %0, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef readonly %3, ptr noundef readonly %4)
   %42 = tail call i32 %3(ptr noundef %40, ptr noundef %41) #1
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %zend_sort_2.exit
@@ -318,7 +318,7 @@ define void @zend_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   %17 = getelementptr inbounds i8, ptr %.0117, i64 %16
   %18 = getelementptr inbounds i8, ptr %13, i64 %16
   %19 = getelementptr inbounds i8, ptr %10, i64 %7
-  tail call fastcc void @zend_sort_4(ptr noundef %.0117, ptr noundef %17, ptr noundef %13, ptr noundef %18, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @zend_sort_4(ptr noundef %.0117, ptr noundef %17, ptr noundef %13, ptr noundef %18, ptr noundef readonly %3, ptr noundef readonly %4)
   %20 = tail call i32 %3(ptr noundef %18, ptr noundef %19) #1
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %zend_sort_5.exit

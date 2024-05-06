@@ -1535,7 +1535,7 @@ define dso_local void @estimate_rel_size(ptr noundef %0, ptr noundef %1, ptr nou
   %36 = add i32 %35, 28
   %37 = sext i32 %36 to i64
   %38 = udiv i64 8168, %37
-  %39 = uitofp i64 %38 to double
+  %39 = uitofp nneg i64 %38 to double
   br label %40
 
 40:                                               ; preds = %34, %30

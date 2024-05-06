@@ -34,7 +34,7 @@ $_ZZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEbE15internalCounter = comda
 @_ZZN6asmjit9_abi_1_107VirtMemL18hasHardenedRuntimeEvE18globalHardenedFlag.0 = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11MemoryFlagsE(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11MemoryFlagsE(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8, !tbaa !3
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %17, label %5
@@ -71,7 +71,7 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #13
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %6, label %5, !prof !7
@@ -88,7 +88,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr nound
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem7protectEPvmNS1_11MemoryFlagsE(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem7protectEPvmNS1_11MemoryFlagsE(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %2, 1
   %5 = and i32 %2, 2
   %6 = icmp eq i32 %5, 0
@@ -561,7 +561,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc noundef range(i32 1, 9) i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %0) unnamed_addr #4 {
   switch i32 %0, label %4 [
     i32 13, label %5
     i32 11, label %5
@@ -589,7 +589,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = tail call i32 @munmap(ptr noundef %3, i64 noundef %1) #13
   %5 = icmp eq i32 %4, 0
@@ -639,7 +639,7 @@ define dso_local void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @_ZN6asmjit9_abi_1_107VirtMem4infoEv() local_unnamed_addr #5 {
+define dso_local range(i64 281474976710656, 1) i64 @_ZN6asmjit9_abi_1_107VirtMem4infoEv() local_unnamed_addr #5 {
   %1 = load atomic i32, ptr @_ZZN6asmjit9_abi_1_107VirtMem4infoEvE17vmInfoInitialized.0 seq_cst, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %5, label %3
@@ -665,7 +665,7 @@ define dso_local i64 @_ZN6asmjit9_abi_1_107VirtMem4infoEv() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN6asmjit9_abi_1_107VirtMem19hardenedRuntimeInfoEv() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_107VirtMem19hardenedRuntimeInfoEv() local_unnamed_addr #0 {
   %1 = load atomic i32, ptr @_ZZN6asmjit9_abi_1_107VirtMemL18hasHardenedRuntimeEvE18globalHardenedFlag.0 seq_cst, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %12

@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.mount_read = private unnamed_addr constant [3 x ptr] [ptr @mount_entry, ptr @blocks_entry, ptr @usage_entry], align 8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mount_open(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #0 {
+define internal range(i32 -13, 1) i32 @mount_open(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #0 {
   %5 = and i32 %2, 3
   %or.cond.not = icmp eq i32 %5, 1
   br i1 %or.cond.not, label %6, label %20
@@ -117,7 +117,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @mount_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 -12, 1) i32 @mount_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #15
@@ -156,7 +156,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mount_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @mount_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @fs_gettype(ptr noundef %1) #13
   tail call void (ptr, ptr, ...) @mount_sprintf(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
@@ -169,7 +169,7 @@ define internal i32 @mount_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blocks_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @blocks_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 52
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
@@ -200,7 +200,7 @@ define internal i32 @blocks_entry(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @usage_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 52
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1

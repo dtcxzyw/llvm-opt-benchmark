@@ -269,7 +269,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @lwGetPixel(ptr nocapture noundef readonly %canvas, i32 noundef %x, i32 noundef %y) local_unnamed_addr #7 {
+define dso_local range(i32 -128, 128) i32 @lwGetPixel(ptr nocapture noundef readonly %canvas, i32 noundef %x, i32 noundef %y) local_unnamed_addr #7 {
 entry:
   %cmp = icmp slt i32 %x, 0
   br i1 %cmp, label %return, label %lor.lhs.false

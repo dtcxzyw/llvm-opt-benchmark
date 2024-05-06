@@ -940,7 +940,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__._enter_buffered_busy = private unnamed_addr constant [21 x i8] c"_enter_buffered_busy\00", align 1
 @.str.26 = private unnamed_addr constant [86 x i8] c"could not acquire lock for %s at interpreter shutdown, possibly due to daemon threads\00", align 1
 @.str.27 = private unnamed_addr constant [21 x i8] c"<ascii(self) failed>\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_Py_NoneStruct = external global %struct._object, align 8
 @.str.28 = private unnamed_addr constant [42 x i8] c"write could not complete without blocking\00", align 1
 @.str.29 = private unnamed_addr constant [77 x i8] c"raw write() returned invalid length %zd (should have been between 0 and %zd)\00", align 1
@@ -1041,7 +1041,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.75 = private unnamed_addr constant [15 x i8] c"BufferedRandom\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyIO_trap_eintr() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyIO_trap_eintr() local_unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %0 = load ptr, ptr @PyExc_OSError, align 8
@@ -1228,7 +1228,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull %buffer, i8 noundef signext 0)
+  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 0)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -1260,7 +1260,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull %buffer, i8 noundef signext 1)
+  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 1)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -1854,7 +1854,7 @@ return:                                           ; preds = %if.else11, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_BufferedReader___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_io_BufferedReader___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %0 = getelementptr i8, ptr %args, i64 16
@@ -1977,7 +1977,7 @@ Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if
   store i32 1, ptr %readable.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %self, i64 36
   store i32 0, ptr %writable.i, align 4
-  %call6.i = call fastcc i32 @_buffered_init(ptr noundef nonnull %self), !range !5
+  %call6.i = call fastcc i32 @_buffered_init(ptr noundef nonnull %self)
   %cmp7.i = icmp slt i32 %call6.i, 0
   br i1 %cmp7.i, label %exit, label %if.end9.i
 
@@ -2183,7 +2183,7 @@ if.end58:                                         ; preds = %if.end49
   br i1 %tobool60.not, label %cond.false62, label %land.lhs.true65
 
 cond.false62:                                     ; preds = %if.end58
-  %call63 = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call63 = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %return, label %land.lhs.true65
 
@@ -2315,7 +2315,7 @@ cond.true.i:                                      ; preds = %land.lhs.true8.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %land.lhs.true8.i, %land.lhs.true6.i, %lor.lhs.false.i
   %cond.neg.i = phi i64 [ %sub.neg.i, %cond.true.i ], [ 0, %land.lhs.true8.i ], [ 0, %land.lhs.true6.i ], [ 0, %lor.lhs.false.i ]
-  %call12.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i, i32 noundef 1), !range !7
+  %call12.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i, i32 noundef 1)
   store i64 -1, ptr %read_end.i, align 8
   %cmp13.i = icmp eq i64 %call12.i, -1
   br i1 %cmp13.i, label %end_unlocked.thread, label %if.end105
@@ -2342,7 +2342,7 @@ if.end106:                                        ; preds = %if.end.i219, %if.th
   store i64 -1, ptr %read_end.i135, align 8
   %37 = load i64, ptr %buffer_size.i, align 8
   %38 = load ptr, ptr %buffer, align 8
-  %call.i141188 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %38, i64 noundef %37), !range !8
+  %call.i141188 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %38, i64 noundef %37)
   %cmp2.i189 = icmp slt i64 %call.i141188, 1
   br i1 %cmp2.i189, label %_bufferedreader_fill_buffer.exit, label %if.end113.lr.ph
 
@@ -2374,7 +2374,7 @@ while.body:                                       ; preds = %while.cond
   %incdec.ptr = getelementptr i8, ptr %s.0, i64 1
   %40 = load i8, ptr %s.0, align 1
   %cmp122 = icmp eq i8 %40, 10
-  br i1 %cmp122, label %if.then124, label %while.cond, !llvm.loop !9
+  br i1 %cmp122, label %if.then124, label %while.cond, !llvm.loop !5
 
 if.then124:                                       ; preds = %while.body
   %sub.ptr.lhs.cast125 = ptrtoint ptr %incdec.ptr to i64
@@ -2434,7 +2434,7 @@ do.end168:                                        ; preds = %if.then166, %if.the
   store i64 -1, ptr %read_end.i135, align 8
   %43 = load i64, ptr %buffer_size.i, align 8
   %44 = load ptr, ptr %buffer, align 8
-  %call.i141 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %44, i64 noundef %43), !range !8
+  %call.i141 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %44, i64 noundef %43)
   %cmp2.i = icmp slt i64 %call.i141, 1
   br i1 %cmp2.i, label %_bufferedreader_fill_buffer.exit, label %if.end113
 
@@ -2530,7 +2530,7 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_enter_buffered_busy(ptr noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_enter_buffered_busy(ptr noundef %self) unnamed_addr #0 {
 entry:
   %owner = getelementptr inbounds i8, ptr %self, i64 112
   %0 = load volatile i64, ptr %owner, align 8
@@ -2652,7 +2652,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.then19:                                        ; preds = %if.end
   %sub20 = sub i64 0, %add
-  %call = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %sub20, i32 noundef 1), !range !7
+  %call = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %sub20, i32 noundef 1)
   %cmp21 = icmp slt i64 %call, 0
   br i1 %cmp21, label %return, label %if.end23
 
@@ -2676,7 +2676,7 @@ while.body:                                       ; preds = %while.cond
   %8 = load ptr, ptr %buffer, align 8
   %add.ptr = getelementptr i8, ptr %8, i64 %6
   %sub33 = sub i64 %7, %6
-  %call34 = tail call fastcc i64 @_bufferedwriter_raw_write(ptr noundef nonnull %self, ptr noundef %add.ptr, i64 noundef %sub33), !range !8
+  %call34 = tail call fastcc i64 @_bufferedwriter_raw_write(ptr noundef nonnull %self, ptr noundef %add.ptr, i64 noundef %sub33)
   switch i64 %call34, label %if.end40 [
     i64 -1, label %return
     i64 -2, label %if.then38
@@ -2716,7 +2716,7 @@ if.end40:                                         ; preds = %while.body
   store i64 %add42, ptr %raw_pos, align 8
   %call45 = tail call i32 @PyErr_CheckSignals() #10
   %cmp46 = icmp slt i32 %call45, 0
-  br i1 %cmp46, label %return, label %while.cond, !llvm.loop !11
+  br i1 %cmp46, label %return, label %while.cond, !llvm.loop !7
 
 end:                                              ; preds = %while.cond, %entry, %land.lhs.true, %lor.lhs.false
   %write_pos.i = getelementptr inbounds i8, ptr %self, i64 88
@@ -2731,7 +2731,7 @@ return:                                           ; preds = %if.end40, %while.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_buffered_raw_seek(ptr nocapture noundef %self, i64 noundef %target, i32 noundef %whence) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @_buffered_raw_seek(ptr nocapture noundef %self, i64 noundef %target, i32 noundef %whence) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %target) #10
   %cmp = icmp eq ptr %call, null
@@ -2841,7 +2841,7 @@ return:                                           ; preds = %if.then14, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_bufferedwriter_raw_write(ptr nocapture noundef %self, ptr noundef %start, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i64 -2, -9223372036854775808) i64 @_bufferedwriter_raw_write(ptr nocapture noundef %self, ptr noundef %start, i64 noundef %len) unnamed_addr #0 {
 entry:
   %args.i29 = alloca [2 x ptr], align 16
   %args.i = alloca [2 x ptr], align 16
@@ -2872,14 +2872,14 @@ if.end.split:                                     ; preds = %if.end
 
 land.rhs.lr.ph:                                   ; preds = %if.end.split
   %arrayinit.element.i30 = getelementptr inbounds i8, ptr %args.i29, i64 8
-  %call940 = call i32 @_PyIO_trap_eintr(), !range !6
+  %call940 = call i32 @_PyIO_trap_eintr()
   %tobool.not41 = icmp eq i32 %call940, 0
-  br i1 %tobool.not41, label %do.end, label %land.rhs.split, !llvm.loop !12
+  br i1 %tobool.not41, label %do.end, label %land.rhs.split, !llvm.loop !8
 
 land.rhs:                                         ; preds = %land.rhs.split
-  %call9 = call i32 @_PyIO_trap_eintr(), !range !6
+  %call9 = call i32 @_PyIO_trap_eintr()
   %tobool.not = icmp eq i32 %call9, 0
-  br i1 %tobool.not, label %do.end, label %land.rhs.split, !llvm.loop !12
+  br i1 %tobool.not, label %do.end, label %land.rhs.split, !llvm.loop !8
 
 land.rhs.split:                                   ; preds = %land.rhs.lr.ph, %land.rhs
   store i32 0, ptr %call526, align 4
@@ -3045,7 +3045,7 @@ declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unn
 declare i64 @PyNumber_AsOff_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_bufferedreader_raw_read(ptr nocapture noundef %self, ptr noundef %start, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i64 -2, -9223372036854775808) i64 @_bufferedreader_raw_read(ptr nocapture noundef %self, ptr noundef %start, i64 noundef %len) unnamed_addr #0 {
 entry:
   %args.i28 = alloca [2 x ptr], align 16
   %args.i = alloca [2 x ptr], align 16
@@ -3076,9 +3076,9 @@ land.rhs.lr.ph:                                   ; preds = %if.end.split
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %land.rhs.split
-  %call7 = call i32 @_PyIO_trap_eintr(), !range !6
+  %call7 = call i32 @_PyIO_trap_eintr()
   %tobool.not = icmp eq i32 %call7, 0
-  br i1 %tobool.not, label %do.end, label %land.rhs.split, !llvm.loop !13
+  br i1 %tobool.not, label %do.end, label %land.rhs.split, !llvm.loop !9
 
 land.rhs.split:                                   ; preds = %land.rhs
   %1 = load ptr, ptr %raw26, align 8
@@ -3309,7 +3309,7 @@ if.end2.i:                                        ; preds = %entry
   br i1 %tobool3.not.i, label %cond.false.i, label %land.lhs.true.i
 
 cond.false.i:                                     ; preds = %if.end2.i
-  %call4.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call4.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %_io__Buffered_close_impl.exit, label %land.lhs.true.i
 
@@ -3451,7 +3451,7 @@ do.body.i:                                        ; preds = %if.then1.i69.i, %if
   br i1 %tobool31.not.i, label %cond.false33.i, label %land.lhs.true36.i
 
 cond.false33.i:                                   ; preds = %do.body.i
-  %call34.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call34.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool35.not.i = icmp eq i32 %call34.i, 0
   br i1 %tobool35.not.i, label %_io__Buffered_close_impl.exit, label %land.lhs.true36.i
 
@@ -3873,7 +3873,7 @@ if.then24.i:                                      ; preds = %if.end22.i
   br i1 %tobool26.not.i, label %cond.false28.i, label %land.lhs.true31.i
 
 cond.false28.i:                                   ; preds = %if.then24.i
-  %call29.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call29.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool30.not.i = icmp eq i32 %call29.i, 0
   br i1 %tobool30.not.i, label %exit, label %land.lhs.true31.i
 
@@ -3982,7 +3982,7 @@ cond.true.i.i.i:                                  ; preds = %land.lhs.true8.i.i.
 
 cond.end.i.i.i:                                   ; preds = %cond.true.i.i.i, %land.lhs.true8.i.i.i, %land.lhs.true6.i.i.i, %lor.lhs.false.i.i.i
   %cond.neg.i.i.i = phi i64 [ %sub.neg.i.i.i, %cond.true.i.i.i ], [ 0, %land.lhs.true8.i.i.i ], [ 0, %land.lhs.true6.i.i.i ], [ 0, %lor.lhs.false.i.i.i ]
-  %call12.i.i.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i.i, i32 noundef 1), !range !7
+  %call12.i.i.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i.i, i32 noundef 1)
   store i64 -1, ptr %read_end.i.i.i, align 8
   %cmp13.i.i.i = icmp eq i64 %call12.i.i.i, -1
   br i1 %cmp13.i.i.i, label %Py_XINCREF.exit.i.i, label %if.then18.i.i
@@ -4348,7 +4348,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   br i1 %tobool43.not.i, label %cond.false45.i, label %land.lhs.true48.i
 
 cond.false45.i:                                   ; preds = %Py_DECREF.exit.i
-  %call46.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call46.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool47.not.i = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i, label %exit, label %land.lhs.true48.i
 
@@ -4491,7 +4491,7 @@ cond.true.i98.i.i:                                ; preds = %land.lhs.true8.i.i7
 
 cond.end.i96.i.i:                                 ; preds = %cond.true.i98.i.i, %land.lhs.true8.i.i78.i, %land.lhs.true6.i.i97.i, %lor.lhs.false.i.i95.i
   %cond.neg.i.i81.i = phi i64 [ %sub.neg.i.i94.i, %cond.true.i98.i.i ], [ 0, %land.lhs.true8.i.i78.i ], [ 0, %land.lhs.true6.i.i97.i ], [ 0, %lor.lhs.false.i.i95.i ]
-  %call12.i.i82.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i81.i, i32 noundef 1), !range !7
+  %call12.i.i82.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i81.i, i32 noundef 1)
   store i64 -1, ptr %read_end.i95.i.i, align 8
   %cmp13.i.i83.i = icmp eq i64 %call12.i.i82.i, -1
   br i1 %cmp13.i.i83.i, label %error.i.i, label %if.end23.i.i
@@ -4554,7 +4554,7 @@ cond.end32.i.i:                                   ; preds = %cond.false30.i.i, %
 
 if.end36.i.i:                                     ; preds = %cond.end32.i.i
   %add.ptr37.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %written.1155.i.i
-  %call38.i.i = call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr37.i.i, i64 noundef %cond33.i.i), !range !8
+  %call38.i.i = call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr37.i.i, i64 noundef %cond33.i.i)
   switch i64 %call38.i.i, label %if.end54.i.i [
     i64 -1, label %error.i.i
     i64 -2, label %if.then44.i.i
@@ -4597,7 +4597,7 @@ if.end54.i.i:                                     ; preds = %if.end36.i.i
   %sub55.i.i = sub i64 %remaining.1.fr156.i.i, %call38.i.i
   %add56.i.i = add i64 %call38.i.i, %written.1155.i.i
   %cmp25.i.i = icmp sgt i64 %sub55.i.i, 0
-  br i1 %cmp25.i.i, label %while.body.i85.i, label %while.end.thread.i.i, !llvm.loop !14
+  br i1 %cmp25.i.i, label %while.body.i85.i, label %while.end.thread.i.i, !llvm.loop !10
 
 while.end.i.i:                                    ; preds = %cond.end32.i.i
   %pos57.i.i = getelementptr inbounds i8, ptr %self, i64 64
@@ -4627,7 +4627,7 @@ while.body64.i.i:                                 ; preds = %while.end.i.i, %lan
   %sub.i108.i.i = sub i64 %106, %start.0.i.i.i
   %109 = load ptr, ptr %buffer.i, align 8
   %add.ptr.i110.i.i = getelementptr i8, ptr %109, i64 %start.0.i.i.i
-  %call.i111.i.i = call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr.i110.i.i, i64 noundef %sub.i108.i.i), !range !8
+  %call.i111.i.i = call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr.i110.i.i, i64 noundef %sub.i108.i.i)
   %cmp2.i.i.i = icmp slt i64 %call.i111.i.i, 1
   br i1 %cmp2.i.i.i, label %_bufferedreader_fill_buffer.exit.i.i, label %_bufferedreader_fill_buffer.exit.thread.i.i
 
@@ -4698,7 +4698,7 @@ if.end104.i.i:                                    ; preds = %if.end83.i87.i
   store i64 %add92.i.i, ptr %pos57.i.i, align 8
   %sub93.i.i = sub nsw i64 %remaining.2159.i.i, %call.i111.i.i
   %cmp60.i.i = icmp sgt i64 %sub93.i.i, 0
-  br i1 %cmp60.i.i, label %land.rhsthread-pre-split.i.i, label %while.end108.i.i, !llvm.loop !15
+  br i1 %cmp60.i.i, label %land.rhsthread-pre-split.i.i, label %while.end108.i.i, !llvm.loop !11
 
 while.end108.i.i:                                 ; preds = %if.end104.i.i, %land.rhsthread-pre-split.i.i, %if.end104.thread.i.i, %while.end.i.i, %while.end.thread.i.i
   %118 = load ptr, ptr %res.i.i, align 8
@@ -4888,7 +4888,7 @@ if.end19.i:                                       ; preds = %cond.true14.i, %buf
   br i1 %tobool21.not.i, label %cond.false23.i, label %land.lhs.true26.i
 
 cond.false23.i:                                   ; preds = %if.end19.i
-  %call24.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call24.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool25.not.i = icmp eq i32 %call24.i, 0
   br i1 %tobool25.not.i, label %exit, label %land.lhs.true26.i
 
@@ -4959,7 +4959,7 @@ cond.true.i.i:                                    ; preds = %land.lhs.true8.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %land.lhs.true8.i.i, %land.lhs.true6.i.i, %lor.lhs.false.i.i
   %cond.neg.i.i = phi i64 [ %sub.neg.i.i, %cond.true.i.i ], [ 0, %land.lhs.true8.i.i ], [ 0, %land.lhs.true6.i.i ], [ 0, %lor.lhs.false.i.i ]
-  %call12.i.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i, i32 noundef 1), !range !7
+  %call12.i.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i, i32 noundef 1)
   store i64 -1, ptr %read_end.i.i, align 8
   %cmp13.i.i = icmp eq i64 %call12.i.i, -1
   br i1 %cmp13.i.i, label %do.body41.i, label %if.then37.i
@@ -5013,7 +5013,7 @@ if.end.i.i40.i:                                   ; preds = %if.end.i.sink.split
   %buffer_size.i.i.i = getelementptr inbounds i8, ptr %self, i64 120
   %32 = load i64, ptr %buffer_size.i.i.i, align 8
   %33 = load ptr, ptr %buffer.i, align 8
-  %call.i.i.i = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %33, i64 noundef %32), !range !8
+  %call.i.i.i = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %33, i64 noundef %32)
   %cmp2.i.i.i = icmp slt i64 %call.i.i.i, 1
   br i1 %cmp2.i.i.i, label %_bufferedreader_fill_buffer.exit.i.i, label %_bufferedreader_fill_buffer.exit.thread.i.i
 
@@ -5265,7 +5265,7 @@ if.end54.i:                                       ; preds = %if.end50.i
   br i1 %tobool56.not.i, label %cond.false58.i, label %land.lhs.true61.i
 
 cond.false58.i:                                   ; preds = %if.end54.i
-  %call59.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call59.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %if.then63.i, label %land.lhs.true61.i
 
@@ -5276,7 +5276,7 @@ land.lhs.true61.i:                                ; preds = %cond.false58.i, %if
   %read_end.i48.i = getelementptr inbounds i8, ptr %self, i64 80
   store i64 -1, ptr %read_end.i48.i, align 8
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call51.i, i64 32
-  %call66.i = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %n.addr.0.i), !range !8
+  %call66.i = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %n.addr.0.i)
   store volatile i64 0, ptr %owner.i, align 8
   %25 = load ptr, ptr %lock.i, align 8
   tail call void @PyThread_release_lock(ptr noundef %25) #10
@@ -5350,7 +5350,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull %buffer, i8 noundef signext 0)
+  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 0)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -5382,7 +5382,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull %buffer, i8 noundef signext 1)
+  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 1)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -5636,7 +5636,7 @@ if.then50.i:                                      ; preds = %land.lhs.true47.i
   br i1 %cmp51.not.i, label %cond.end56.i, label %land.lhs.true63.i
 
 cond.end56.i:                                     ; preds = %if.then50.i
-  %call55.i = tail call fastcc i64 @_buffered_raw_tell(ptr noundef nonnull %self), !range !7
+  %call55.i = tail call fastcc i64 @_buffered_raw_tell(ptr noundef nonnull %self)
   %.pre.i = load i32, ptr %readable48.i, align 8
   %tobool59.not.i = icmp eq i32 %.pre.i, 0
   br i1 %tobool59.not.i, label %if.end111.i, label %land.lhs.true63.i
@@ -5692,7 +5692,7 @@ if.end111.i:                                      ; preds = %if.end98.i, %cond.e
   br i1 %tobool113.not.i, label %cond.false115.i, label %land.lhs.true118.i
 
 cond.false115.i:                                  ; preds = %if.end111.i
-  %call116.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call116.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool117.not.i = icmp eq i32 %call116.i, 0
   br i1 %tobool117.not.i, label %exit, label %land.lhs.true118.i
 
@@ -5730,7 +5730,7 @@ if.end132.i:                                      ; preds = %if.then1.i.i, %if.e
   br i1 %cmp46.i, label %if.then134.i, label %if.end132.split.i
 
 if.end132.split.i:                                ; preds = %if.end132.i
-  %call15879.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %call37.i, i32 noundef %whence.0912), !range !7
+  %call15879.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %call37.i, i32 noundef %whence.0912)
   br label %if.end157.i
 
 if.then134.i:                                     ; preds = %if.end132.i
@@ -5771,7 +5771,7 @@ cond.true149.i:                                   ; preds = %land.lhs.true146.i
 cond.end154.split.i:                              ; preds = %cond.true149.i, %land.lhs.true146.i, %land.lhs.true143.i, %lor.lhs.false140.i
   %cond155.neg.i = phi i64 [ %sub152.neg.i, %cond.true149.i ], [ 0, %land.lhs.true146.i ], [ 0, %land.lhs.true143.i ], [ 0, %lor.lhs.false140.i ]
   %sub156.i = add i64 %cond155.neg.i, %call37.i
-  %call15880.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %sub156.i, i32 noundef 1), !range !7
+  %call15880.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %sub156.i, i32 noundef 1)
   br label %if.end157.i
 
 if.end157.i:                                      ; preds = %cond.end154.split.i, %if.end132.split.i
@@ -5833,7 +5833,7 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_io__Buffered_tell_impl.exit
 
 if.end2.i:                                        ; preds = %entry
-  %call.i = tail call fastcc i64 @_buffered_raw_tell(ptr noundef nonnull %self), !range !7
+  %call.i = tail call fastcc i64 @_buffered_raw_tell(ptr noundef nonnull %self)
   %cmp3.i = icmp eq i64 %call.i, -1
   br i1 %cmp3.i, label %_io__Buffered_tell_impl.exit, label %if.end5.i
 
@@ -6024,7 +6024,7 @@ if.end25.i:                                       ; preds = %if.end20.i
   br i1 %tobool27.not.i, label %cond.false29.i, label %land.lhs.true32.i
 
 cond.false29.i:                                   ; preds = %if.end25.i
-  %call30.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call30.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool31.not.i = icmp eq i32 %call30.i, 0
   br i1 %tobool31.not.i, label %exit, label %land.lhs.true32.i
 
@@ -6089,7 +6089,7 @@ cond.true.i.i:                                    ; preds = %land.lhs.true8.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %land.lhs.true8.i.i, %land.lhs.true6.i.i, %lor.lhs.false.i.i
   %cond.neg.i.i = phi i64 [ %sub.neg.i.i, %cond.true.i.i ], [ 0, %land.lhs.true8.i.i ], [ 0, %land.lhs.true6.i.i ], [ 0, %lor.lhs.false.i.i ]
-  %call12.i.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i, i32 noundef 1), !range !7
+  %call12.i.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i, i32 noundef 1)
   store i64 -1, ptr %read_end.i.i, align 8
   %cmp13.i.i = icmp eq i64 %call12.i.i, -1
   br i1 %cmp13.i.i, label %do.body52.i, label %if.then41.i
@@ -6123,7 +6123,7 @@ do.end.i:                                         ; preds = %if.then1.i.i, %if.e
   br i1 %cmp45.i, label %do.body52.i, label %if.end47.i
 
 if.end47.i:                                       ; preds = %do.end.i
-  %call48.i = call fastcc i64 @_buffered_raw_tell(ptr noundef nonnull %self), !range !7
+  %call48.i = call fastcc i64 @_buffered_raw_tell(ptr noundef nonnull %self)
   %cmp49.i = icmp eq i64 %call48.i, -1
   br i1 %cmp49.i, label %if.then50.i, label %do.body52.i
 
@@ -6334,7 +6334,7 @@ if.end54:                                         ; preds = %if.end20, %land.lhs
   br i1 %tobool56.not, label %cond.false58, label %land.lhs.true61
 
 cond.false58:                                     ; preds = %if.end54
-  %call59 = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call59 = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %return, label %land.lhs.true61
 
@@ -6404,7 +6404,7 @@ cond.true.i:                                      ; preds = %land.lhs.true8.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %land.lhs.true8.i, %land.lhs.true6.i, %lor.lhs.false.i
   %cond.neg.i = phi i64 [ %sub.neg.i, %cond.true.i ], [ 0, %land.lhs.true8.i ], [ 0, %land.lhs.true6.i ], [ 0, %lor.lhs.false.i ]
-  %call12.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i, i32 noundef 1), !range !7
+  %call12.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i, i32 noundef 1)
   store i64 -1, ptr %read_end.i, align 8
   %cmp13.i = icmp eq i64 %call12.i, -1
   br i1 %cmp13.i, label %do.body134, label %if.then72
@@ -6453,7 +6453,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then80:                                        ; preds = %for.body
   %36 = load ptr, ptr %buffer, align 8
   %add.ptr82 = getelementptr i8, ptr %36, i64 %written.1120
-  %call83 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr82, i64 noundef %remaining.0121), !range !8
+  %call83 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr82, i64 noundef %remaining.0121)
   br label %if.end107
 
 if.else84:                                        ; preds = %for.body
@@ -6479,7 +6479,7 @@ if.end.i98:                                       ; preds = %if.else.i101, %land
   %sub.i = sub i64 %35, %start.0.i
   %39 = load ptr, ptr %buffer3, align 8
   %add.ptr.i = getelementptr i8, ptr %39, i64 %start.0.i
-  %call.i99 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr.i, i64 noundef %sub.i), !range !8
+  %call.i99 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %add.ptr.i, i64 noundef %sub.i)
   %cmp2.i = icmp slt i64 %call.i99, 1
   br i1 %cmp2.i, label %if.end107, label %if.then92
 
@@ -6539,7 +6539,7 @@ for.inc:                                          ; preds = %if.end126, %if.then
   %add131 = add i64 %n.2, %written.1120
   %sub132 = sub nsw i64 %remaining.0121, %n.2
   %cmp78 = icmp sgt i64 %sub132, 0
-  br i1 %cmp78, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp78, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %lor.lhs.false110, %if.end107, %if.else84, %if.end74, %if.then128
   %written.2 = phi i64 [ %add129, %if.then128 ], [ %written.0, %if.end74 ], [ %add131, %for.inc ], [ %written.1120, %lor.lhs.false110 ], [ %written.1120, %if.end107 ], [ %written.1120, %if.else84 ]
@@ -6561,7 +6561,7 @@ return:                                           ; preds = %cond.false58, %if.t
 declare ptr @_PyIOBase_check_seekable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_buffered_raw_tell(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @_buffered_raw_tell(ptr nocapture noundef %self) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %raw = getelementptr inbounds i8, ptr %self, i64 16
@@ -6722,7 +6722,7 @@ _io__Buffered_mode_get_impl.exit:                 ; preds = %if.then1.i, %if.els
 declare ptr @_PyIOBase_check_readable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_buffered_init(ptr noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_buffered_init(ptr noundef %self) unnamed_addr #0 {
 entry:
   %buffer_size = getelementptr inbounds i8, ptr %self, i64 120
   %0 = load i64, ptr %buffer_size, align 8
@@ -6789,14 +6789,14 @@ for.cond:                                         ; preds = %for.cond, %if.end20
   %and = and i64 %n.0, 1
   %tobool22.not = icmp eq i64 %and, 0
   %shr = ashr i64 %n.0, 1
-  br i1 %tobool22.not, label %for.end, label %for.cond, !llvm.loop !17
+  br i1 %tobool22.not, label %for.end, label %for.cond, !llvm.loop !13
 
 for.end:                                          ; preds = %for.cond
   %cmp23 = icmp eq i64 %n.0, 0
   %spec.select = select i1 %cmp23, i64 %sub, i64 0
   %7 = getelementptr inbounds i8, ptr %self, i64 128
   store i64 %spec.select, ptr %7, align 8
-  %call29 = tail call fastcc i64 @_buffered_raw_tell(ptr noundef nonnull %self), !range !7
+  %call29 = tail call fastcc i64 @_buffered_raw_tell(ptr noundef nonnull %self)
   %cmp30 = icmp eq i64 %call29, -1
   br i1 %cmp30, label %if.then31, label %return
 
@@ -6816,7 +6816,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_BufferedWriter___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_io_BufferedWriter___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %0 = getelementptr i8, ptr %args, i64 16
@@ -6939,7 +6939,7 @@ Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if
   store i32 1, ptr %writable.i, align 4
   %buffer_size4.i = getelementptr inbounds i8, ptr %self, i64 120
   store i64 %buffer_size.0, ptr %buffer_size4.i, align 8
-  %call5.i = call fastcc i32 @_buffered_init(ptr noundef nonnull %self), !range !5
+  %call5.i = call fastcc i32 @_buffered_init(ptr noundef nonnull %self)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %exit, label %if.end8.i
 
@@ -7053,7 +7053,7 @@ if.end2.i:                                        ; preds = %if.end
   br i1 %tobool3.not.i, label %cond.false.i, label %land.lhs.true.i
 
 cond.false.i:                                     ; preds = %if.end2.i
-  %call4.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call4.i = call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %exit, label %land.lhs.true.i
 
@@ -7370,7 +7370,7 @@ cond.end.i:                                       ; preds = %land.lhs.true144.i
 
 if.then153.i:                                     ; preds = %cond.end.i
   %sub154.i = sub i64 0, %sub150.i
-  %call155.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %sub154.i, i32 noundef 1), !range !7
+  %call155.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %sub154.i, i32 noundef 1)
   %cmp156.i = icmp slt i64 %call155.i, 0
   br i1 %cmp156.i, label %do.body244.i, label %if.end158.i
 
@@ -7396,7 +7396,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %add.ptr166.i = getelementptr i8, ptr %67, i64 %written.0.i
   %68 = load i64, ptr %len.i, align 8
   %sub168.i = sub i64 %68, %written.0.i
-  %call169.i = call fastcc i64 @_bufferedwriter_raw_write(ptr noundef nonnull %self, ptr noundef %add.ptr166.i, i64 noundef %sub168.i), !range !8
+  %call169.i = call fastcc i64 @_bufferedwriter_raw_write(ptr noundef nonnull %self, ptr noundef %add.ptr166.i, i64 noundef %sub168.i)
   switch i64 %call169.i, label %if.end206.i [
     i64 -1, label %do.body244.i
     i64 -2, label %if.then174.i
@@ -7448,7 +7448,7 @@ if.end206.i:                                      ; preds = %while.body.i
   %sub208.i = sub i64 %remaining.0.i, %call169.i
   %call209.i = call i32 @PyErr_CheckSignals() #10
   %cmp210.i = icmp slt i32 %call209.i, 0
-  br i1 %cmp210.i, label %do.body244.i, label %while.cond.i, !llvm.loop !18
+  br i1 %cmp210.i, label %do.body244.i, label %while.cond.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %while.cond.i, %if.end204.i
   %75 = load i32, ptr %readable.i, align 8
@@ -7627,7 +7627,7 @@ if.end19.i:                                       ; preds = %cond.true14.i, %buf
   br i1 %tobool21.not.i, label %cond.false23.i, label %land.lhs.true26.i
 
 cond.false23.i:                                   ; preds = %if.end19.i
-  %call24.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self), !range !6
+  %call24.i = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %self)
   %tobool25.not.i = icmp eq i32 %call24.i, 0
   br i1 %tobool25.not.i, label %_io__Buffered_flush_impl.exit, label %land.lhs.true26.i
 
@@ -7693,7 +7693,7 @@ cond.true.i.i:                                    ; preds = %land.lhs.true8.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %land.lhs.true8.i.i, %land.lhs.true6.i.i, %lor.lhs.false.i.i
   %cond.neg.i.i = phi i64 [ %sub.neg.i.i, %cond.true.i.i ], [ 0, %land.lhs.true8.i.i ], [ 0, %land.lhs.true6.i.i ], [ 0, %lor.lhs.false.i.i ]
-  %call12.i.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i, i32 noundef 1), !range !7
+  %call12.i.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i, i32 noundef 1)
   store i64 -1, ptr %read_end.i.i, align 8
   %cmp13.i.i = icmp eq i64 %call12.i.i, -1
   br i1 %cmp13.i.i, label %buffered_flush_and_rewind_unlocked.exit.i, label %if.end16.i.i
@@ -7905,7 +7905,7 @@ do.end14:                                         ; preds = %do.body8, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_BufferedRWPair___init__(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_io_BufferedRWPair___init__(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, ptr noundef %kwargs) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val17 = load ptr, ptr %0, align 8
@@ -8724,7 +8724,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_BufferedRandom___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_io_BufferedRandom___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %0 = getelementptr i8, ptr %args, i64 16
@@ -8857,7 +8857,7 @@ Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if
   store i32 1, ptr %readable.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %self, i64 36
   store i32 1, ptr %writable.i, align 4
-  %call13.i = call fastcc i32 @_buffered_init(ptr noundef nonnull %self), !range !5
+  %call13.i = call fastcc i32 @_buffered_init(ptr noundef nonnull %self)
   %cmp14.i = icmp slt i32 %call13.i, 0
   br i1 %cmp14.i, label %exit, label %if.end16.i
 
@@ -8931,17 +8931,13 @@ attributes #13 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = !{i32 0, i32 2}
-!7 = !{i64 -1, i64 -9223372036854775808}
-!8 = !{i64 -2, i64 -9223372036854775808}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

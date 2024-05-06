@@ -1869,7 +1869,7 @@ define void @Llb_ManPrintSpan(ptr nocapture noundef readonly %0) local_unnamed_a
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Llb_ManGroupHasVar(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Llb_ManGroupHasVar(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 8
@@ -1976,7 +1976,7 @@ define void @Llb_ManPrintHisto(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %24, label %79, label %25
 
 25:                                               ; preds = %19
-  %26 = trunc i64 %indvars.iv43 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv43 to i32
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %26)
   %28 = load ptr, ptr %9, align 8
   %29 = getelementptr i8, ptr %28, i64 8

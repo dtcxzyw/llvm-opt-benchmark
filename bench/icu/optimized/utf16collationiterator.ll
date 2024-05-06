@@ -681,7 +681,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZN6icu_7522UTF16CollationIterator18foundNULTerminatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522UTF16CollationIterator18foundNULTerminatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #9 align 2 {
 entry:
   %limit = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %limit, align 8
@@ -702,7 +702,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7522UTF16CollationIterator13nextCodePointER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #8 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZN6icu_7522UTF16CollationIterator13nextCodePointER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #8 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
@@ -753,7 +753,7 @@ return:                                           ; preds = %if.end9, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7522UTF16CollationIterator17previousCodePointER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #8 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZN6icu_7522UTF16CollationIterator17previousCodePointER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #8 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
@@ -1364,7 +1364,7 @@ _ZN6icu_7512CollationFCD7hasLcccEi.exit:          ; preds = %land.lhs.true.i15
 if.then16:                                        ; preds = %_ZN6icu_7512CollationFCD7hasLcccEi.exit, %if.then6
   %incdec.ptr18 = getelementptr inbounds i8, ptr %.pre40, i64 -2
   store ptr %incdec.ptr18, ptr %pos, align 8
-  %call19 = tail call noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator11nextSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !7
+  %call19 = tail call noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator11nextSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool20.not = icmp eq i8 %call19, 0
   br i1 %tobool20.not, label %if.then21, label %if.end22
 
@@ -1444,7 +1444,7 @@ return:                                           ; preds = %for.end, %if.then21
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator11nextSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7525FCDUTF16CollationIterator11nextSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1611,7 +1611,7 @@ _ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47: ; preds = %if.end.i29, %
   %c.0.i39 = phi i32 [ %conv.i15, %if.end.i29 ], [ %sub.i45, %if.then9.i42 ], [ %conv.i15, %land.lhs.true5.i34 ]
   %call13.i40 = tail call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %.pre76, i32 noundef %c.0.i39)
   %cmp24 = icmp ugt i16 %call13.i40, 255
-  br i1 %cmp24, label %do.body, label %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47.do.end_crit_edge, !llvm.loop !8
+  br i1 %cmp24, label %do.body, label %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47.do.end_crit_edge, !llvm.loop !7
 
 _ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47.do.end_crit_edge: ; preds = %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47
   %.pre75 = load ptr, ptr %nfcImpl, align 8
@@ -1680,7 +1680,7 @@ if.end31:                                         ; preds = %lor.lhs.false, %if.
   %31 = and i16 %retval.0.i, 255
   %cmp37 = icmp eq i16 %31, 0
   %or.cond = or i1 %cmp37, %cmp34
-  br i1 %or.cond, label %if.then38, label %for.cond, !llvm.loop !9
+  br i1 %or.cond, label %if.then38, label %for.cond, !llvm.loop !8
 
 if.then38:                                        ; preds = %if.end31
   %segmentLimit39 = getelementptr inbounds i8, ptr %this, i64 432
@@ -1749,7 +1749,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator18foundNULTerminatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(521) %this) unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7525FCDUTF16CollationIterator18foundNULTerminatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(521) %this) unnamed_addr #9 align 2 {
 entry:
   %limit = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %limit, align 8
@@ -1772,7 +1772,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7525FCDUTF16CollationIterator13nextCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZN6icu_7525FCDUTF16CollationIterator13nextCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
   %checkDir = getelementptr inbounds i8, ptr %this, i64 520
   %checkDir.promoted = load i8, ptr %checkDir, align 8
@@ -1871,7 +1871,7 @@ _ZN6icu_7512CollationFCD7hasLcccEi.exit:          ; preds = %land.lhs.true.i13
 
 if.then16:                                        ; preds = %_ZN6icu_7512CollationFCD7hasLcccEi.exit, %if.then6
   store ptr %4, ptr %pos, align 8
-  %call19 = tail call noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator11nextSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !7
+  %call19 = tail call noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator11nextSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool20.not = icmp eq i8 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -1975,7 +1975,7 @@ return:                                           ; preds = %land.lhs.true28, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7525FCDUTF16CollationIterator17previousCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZN6icu_7525FCDUTF16CollationIterator17previousCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
   %checkDir = getelementptr inbounds i8, ptr %this, i64 520
   %checkDir.promoted = load i8, ptr %checkDir, align 8
@@ -2071,7 +2071,7 @@ _ZN6icu_7512CollationFCD7hasTcccEi.exit:          ; preds = %land.lhs.true.i12
 
 if.then16:                                        ; preds = %_ZN6icu_7512CollationFCD7hasTcccEi.exit, %if.then6
   store ptr %4, ptr %pos, align 8
-  %call19 = tail call noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator15previousSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !7
+  %call19 = tail call noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator15previousSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool20.not = icmp eq i8 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -2157,7 +2157,7 @@ return:                                           ; preds = %for.end, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator15previousSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7525FCDUTF16CollationIterator15previousSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2335,7 +2335,7 @@ _ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50: ; preds = %if.then4
   %c.0.i36 = phi i32 [ %sub.i49, %if.then11.i46 ], [ %conv.i18, %land.lhs.true.i41 ], [ %conv.i18, %if.else.i39 ], [ %conv.i18, %if.then4.i24 ]
   %call16.i37 = tail call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %15, i32 noundef %c.0.i36)
   %cmp29.not = icmp eq i16 %call16.i37, 0
-  br i1 %cmp29.not, label %do.end, label %do.body, !llvm.loop !10
+  br i1 %cmp29.not, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %if.then4.i24, %land.rhs, %land.lhs.true22, %do.body, %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50
   %23 = load ptr, ptr %pos, align 8
@@ -2401,7 +2401,7 @@ if.end36:                                         ; preds = %lor.lhs.false, %if.
   %cmp40 = icmp eq ptr %p.2, %31
   %cmp43 = icmp ult i16 %retval.0.i, 256
   %or.cond = or i1 %cmp43, %cmp40
-  br i1 %or.cond, label %if.then44, label %for.cond, !llvm.loop !11
+  br i1 %or.cond, label %if.then44, label %for.cond, !llvm.loop !10
 
 if.then44:                                        ; preds = %if.end36
   %segmentStart45 = getelementptr inbounds i8, ptr %this, i64 424
@@ -2484,12 +2484,12 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %num.addr.04 = phi i32 [ %dec, %land.rhs ], [ %num, %entry ]
-  %call = tail call noundef i32 @_ZN6icu_7525FCDUTF16CollationIterator13nextCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !12
+  %call = tail call noundef i32 @_ZN6icu_7525FCDUTF16CollationIterator13nextCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cmp2 = icmp sgt i32 %call, -1
   %dec = add nsw i32 %num.addr.04, -1
   %cmp = icmp sgt i32 %num.addr.04, 1
   %or.cond = select i1 %cmp2, i1 %cmp, i1 false
-  br i1 %or.cond, label %land.rhs, label %while.end, !llvm.loop !13
+  br i1 %or.cond, label %land.rhs, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %land.rhs, %entry
   ret void
@@ -2503,19 +2503,19 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %num.addr.04 = phi i32 [ %dec, %land.rhs ], [ %num, %entry ]
-  %call = tail call noundef i32 @_ZN6icu_7525FCDUTF16CollationIterator17previousCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !12
+  %call = tail call noundef i32 @_ZN6icu_7525FCDUTF16CollationIterator17previousCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cmp2 = icmp sgt i32 %call, -1
   %dec = add nsw i32 %num.addr.04, -1
   %cmp = icmp sgt i32 %num.addr.04, 1
   %or.cond = select i1 %cmp2, i1 %cmp, i1 false
-  br i1 %or.cond, label %land.rhs, label %while.end, !llvm.loop !14
+  br i1 %or.cond, label %land.rhs, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %land.rhs, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7525FCDUTF16CollationIterator9normalizeEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef %from, ptr noundef %to, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7525FCDUTF16CollationIterator9normalizeEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef %from, ptr noundef %to, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %nfcImpl = getelementptr inbounds i8, ptr %this, i64 448
   %0 = load ptr, ptr %nfcImpl, align 8
@@ -2621,11 +2621,9 @@ attributes #15 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 -56613888, i32 10559488}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!12 = distinct !{!12, !5}

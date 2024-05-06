@@ -104,7 +104,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.89 = private unnamed_addr constant [26 x i8] c"../openssl/apps/ecparam.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ecparam_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ecparam_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %params_key = alloca ptr, align 8
   %key = alloca ptr, align 8
@@ -546,7 +546,7 @@ if.then216:                                       ; preds = %if.end210
   br label %if.then221
 
 end:                                              ; preds = %if.end65
-  %call68 = call fastcc i32 @list_builtin_curves(ptr noundef nonnull %call62), !range !7
+  %call68 = call fastcc i32 @list_builtin_curves(ptr noundef nonnull %call62)
   %tobool69.not.not = icmp eq i32 %call68, 0
   %spec.select40 = xor i32 %call68, 1
   br i1 %tobool69.not.not, label %if.then221, label %if.end222
@@ -612,7 +612,7 @@ declare i32 @app_RAND_load() local_unnamed_addr #1
 declare ptr @bio_open_owner(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @list_builtin_curves(ptr noundef %out) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @list_builtin_curves(ptr noundef %out) unnamed_addr #0 {
 entry:
   %call = tail call i64 @EC_get_builtin_curves(ptr noundef null, i64 noundef 0) #4
   %mul = shl i64 %call, 4
@@ -640,7 +640,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.88, ptr noundef nonnull %spec.store.select) #4
   %inc = add nuw i64 %n.014, 1
   %exitcond.not = icmp eq i64 %inc, %call
-  br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !7
 
 end:                                              ; preds = %for.body, %for.cond.preheader, %entry
   %ret.0 = phi i32 [ 0, %entry ], [ 1, %for.cond.preheader ], [ 1, %for.body ]
@@ -726,5 +726,4 @@ attributes #5 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

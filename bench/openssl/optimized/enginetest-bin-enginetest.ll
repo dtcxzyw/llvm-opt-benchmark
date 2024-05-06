@@ -117,13 +117,13 @@ entry:
 declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #2 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #8
   %tobool.not = icmp eq i32 %call, 0
@@ -159,7 +159,7 @@ declare i64 @test_get_argument_count() local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_engines() #0 {
+define internal range(i32 0, 2) i32 @test_engines() #0 {
 entry:
   %block = alloca [512 x ptr], align 16
   %eid = alloca [512 x ptr], align 16
@@ -397,7 +397,7 @@ for.cond:                                         ; preds = %lor.lhs.false180
 
 for.body:                                         ; preds = %if.end152, %for.cond
   %indvars.iv = phi i64 [ 0, %if.end152 ], [ %indvars.iv.next, %for.cond ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call156 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.51, i32 noundef %0) #8
   %call158 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %buf, ptr noundef nonnull @.str.14, i32 noundef 151) #8
   %arrayidx = getelementptr inbounds [512 x ptr], ptr %eid, i64 0, i64 %indvars.iv
@@ -441,7 +441,7 @@ for.body195:                                      ; preds = %for.cond, %for.inc2
   br i1 %tobool202.not, label %if.then203, label %for.inc211
 
 if.then203:                                       ; preds = %for.body195
-  %2 = trunc i64 %indvars.iv63 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv63 to i32
   %call206 = call ptr @ENGINE_get_id(ptr noundef %1) #8
   %call209 = call ptr @ENGINE_get_name(ptr noundef %1) #8
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.57, i32 noundef %2, ptr noundef %call206, ptr noundef %call209) #8
@@ -513,7 +513,7 @@ for.end249:                                       ; preds = %for.body243
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_redirect() #0 {
+define internal range(i32 0, 2) i32 @test_redirect() #0 {
 entry:
   %pt = alloca [13 x i8], align 1
   %len = alloca i64, align 8
@@ -747,7 +747,7 @@ err:                                              ; preds = %lor.lhs.false125, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x509_dup_w_engine() #0 {
+define internal range(i32 0, 2) i32 @test_x509_dup_w_engine() #0 {
 entry:
   %call = tail call ptr @test_get_argument(i64 noundef 0) #8
   %call1 = tail call ptr @BIO_new_file(ptr noundef %call, ptr noundef nonnull @.str.78) #8
@@ -993,7 +993,7 @@ declare ptr @EVP_PKEY_meth_new(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_pkey_meths(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal i32 @test_pkey_meths(ptr nocapture readnone %e, ptr noundef writeonly %pmeth, ptr nocapture noundef writeonly %pnids, i32 noundef %nid) #6 {
+define internal range(i32 0, 2) i32 @test_pkey_meths(ptr nocapture readnone %e, ptr noundef writeonly %pmeth, ptr nocapture noundef writeonly %pnids, i32 noundef %nid) #6 {
 entry:
   %cmp = icmp eq ptr %pmeth, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1023,7 +1023,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 declare void @EVP_PKEY_meth_set_encrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @test_encrypt(ptr nocapture readnone %ctx, ptr nocapture readnone %sig, ptr nocapture readnone %siglen, ptr nocapture readnone %tbs, i64 %tbslen) #7 {
+define internal noundef i32 @test_encrypt(ptr nocapture readnone %ctx, ptr nocapture readnone %sig, ptr nocapture readnone %siglen, ptr nocapture readnone %tbs, i64 %tbslen) #7 {
 entry:
   store i1 true, ptr @called_encrypt, align 4
   ret i32 1

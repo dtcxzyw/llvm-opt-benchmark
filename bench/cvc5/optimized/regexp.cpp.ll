@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal24RegExpRepeatHashFunctionclERKNS0_12RegExpRepeatE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK4cvc58internal24RegExpRepeatHashFunctionclERKNS0_12RegExpRepeatE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %r, align 4
   %conv = zext i32 %0 to i64
@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal22RegExpLoopHashFunctionclERKNS0_10RegExpLoopE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %r) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK4cvc58internal22RegExpLoopHashFunctionclERKNS0_10RegExpLoopE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %r) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %r, align 4
   %d_loopMaxOcc = getelementptr inbounds i8, ptr %r, i64 4

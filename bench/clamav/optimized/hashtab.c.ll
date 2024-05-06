@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.5 = private unnamed_addr constant [20 x i8] c"\09{DELETED_KEY,0,0},\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_hashtab_init(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_hashtab_init(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %.preheader
 
@@ -80,7 +80,7 @@ nearest_power.exit:                               ; preds = %.preheader, %4
 declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_htu32_init(ptr noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_htu32_init(ptr noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %.preheader
 
@@ -680,7 +680,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %57, label %4
 
@@ -981,7 +981,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %34, label %cli_hashtab_find.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %27, i64 noundef %2) #19
+  %36 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %27, i64 noundef %2) #19
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
@@ -1335,7 +1335,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_hashset_init(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_hashset_init(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = add i8 %2, -100
   %or.cond = icmp ult i8 %4, -50
   br i1 %or.cond, label %5, label %7
@@ -1407,7 +1407,7 @@ nearest_power.exit:                               ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_hashset_init_pool(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_hashset_init_pool(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = add i8 %2, -100
   %or.cond = icmp ult i8 %5, -50
   br i1 %or.cond, label %6, label %8
@@ -1890,7 +1890,7 @@ cli_hashset_addkey_internal.exit:                 ; preds = %.sink.split.i34.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_hashset_removekey(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 35) i32 @cli_hashset_removekey(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = xor i32 %1, -1
   %4 = shl i32 %1, 15
   %5 = add i32 %4, %3
@@ -2215,7 +2215,7 @@ cli_hashset_contains.exit:                        ; preds = %34, %.cli_hashset_s
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_map_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_map_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 1
   %6 = icmp slt i32 %2, 0
   %or.cond = or i1 %5, %6
@@ -2253,7 +2253,7 @@ cli_hashtab_init.exit:                            ; preds = %.preheader.i, %4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_map_addkey(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_map_addkey(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, %2
@@ -2322,7 +2322,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %30, i64 noundef %7) #19
+  %39 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %30, i64 noundef %7) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %cli_hashtab_find.exit, label %41
 
@@ -2403,7 +2403,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_map_removekey(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @cli_map_removekey(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, %2
@@ -2472,7 +2472,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %30, i64 noundef %7) #19
+  %39 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %30, i64 noundef %7) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %cli_hashtab_find.exit, label %41
 
@@ -2579,7 +2579,7 @@ hash.exit.i.i:                                    ; preds = %._crit_edge.loopexi
   br i1 %94, label %cli_hashtab_find.exit.i, label %95
 
 95:                                               ; preds = %93
-  %96 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %87, i64 noundef %7) #19
+  %96 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %87, i64 noundef %7) #19
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %cli_hashtab_find.exit.i, label %98
 
@@ -2600,7 +2600,7 @@ cli_hashtab_delete.exit:                          ; preds = %29, %41, %98, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_map_setvalue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_map_setvalue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -2665,7 +2665,7 @@ define noundef i32 @cli_map_setvalue(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_map_find(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #15 {
+define range(i32 0, 17) i32 @cli_map_find(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #15 {
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, %2
@@ -2734,7 +2734,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %30, i64 noundef %7) #19
+  %39 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %30, i64 noundef %7) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %cli_hashtab_find.exit, label %41
 

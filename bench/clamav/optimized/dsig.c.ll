@@ -260,7 +260,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_versig(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_versig(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -491,7 +491,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 declare void @BN_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16

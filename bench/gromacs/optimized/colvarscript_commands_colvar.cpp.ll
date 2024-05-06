@@ -128,7 +128,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev =
 @.str.48 = private unnamed_addr constant [13 x i8] c"colvar_width\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_addforce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_addforce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_istringstream", align 8
@@ -1695,7 +1695,7 @@ define linkonce_odr void @_ZN12colvarmodule8vector1dIdE11check_sizesERKS1_S3_(pt
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_communicateforces(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_communicateforces(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -1717,7 +1717,7 @@ define noundef i32 @cvscript_colvar_communicateforces(ptr noundef %0, i32 nounde
 declare void @_ZN6colvar18communicate_forcesEv(ptr noundef nonnull align 8 dereferenceable(4624)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_cvcflags(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_cvcflags(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_istringstream", align 8
@@ -2368,7 +2368,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_delete(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_delete(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -2420,7 +2420,7 @@ define noundef i32 @cvscript_colvar_get(ptr noundef %0, i32 noundef %1, ptr noun
 declare noundef i32 @_ZN12colvarscript13proc_featuresEP10colvardepsiPKPh(ptr noundef nonnull align 8 dereferenceable(304), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_getappliedforce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_getappliedforce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.colvarvalue, align 8
   %5 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %6 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
@@ -2505,7 +2505,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %34, %_ZNSt6vectorId
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_resetbiasforce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_resetbiasforce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -2535,7 +2535,7 @@ declare void @_ZN11colvarvalue4typeERKS_(ptr noundef nonnull align 8 dereference
 declare void @_ZN11colvarvalue5resetEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_getatomgroups(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_getatomgroups(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::vector.110", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2736,7 +2736,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_getatomids(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_getatomids(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -2759,7 +2759,7 @@ define noundef i32 @cvscript_colvar_getatomids(ptr noundef %0, i32 noundef %1, p
 declare noundef i32 @_ZN12colvarscript18set_result_int_vecERKSt6vectorIiSaIiEEPh(ptr noundef nonnull align 8 dereferenceable(304), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_getconfig(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_getconfig(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -2780,7 +2780,7 @@ define noundef i32 @cvscript_colvar_getconfig(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_getgradients(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_getgradients(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -2803,7 +2803,7 @@ define noundef i32 @cvscript_colvar_getgradients(ptr noundef %0, i32 noundef %1,
 declare noundef i32 @_ZN12colvarscript22set_result_rvector_vecERKSt6vectorIN12colvarmodule7rvectorESaIS2_EEPh(ptr noundef nonnull align 8 dereferenceable(304), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_gettotalforce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_gettotalforce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -2824,7 +2824,7 @@ define noundef i32 @cvscript_colvar_gettotalforce(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_getvolmapids(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_getvolmapids(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -2980,7 +2980,7 @@ declare void @_ZN12colvarscript24get_command_cmdline_helpENS_11Object_typeERKNSt
 declare void @_ZN12colvarscript24get_cmdline_help_summaryB5cxx11ENS_11Object_typeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(304), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_modifycvcs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_modifycvcs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -3188,7 +3188,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_run_ave(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_run_ave(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -3232,7 +3232,7 @@ define noundef i32 @cvscript_colvar_set(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_state(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_state(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -3255,7 +3255,7 @@ define noundef i32 @cvscript_colvar_state(ptr noundef %0, i32 noundef %1, ptr no
 declare void @_ZN10colvardeps11print_stateEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_type(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_type(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %6 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
@@ -3289,7 +3289,7 @@ define noundef i32 @cvscript_colvar_type(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_update(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_update(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -3316,7 +3316,7 @@ declare noundef i32 @_ZN6colvar4calcEv(ptr noundef nonnull align 8 dereferenceab
 declare noundef double @_ZN6colvar20update_forces_energyEv(ptr noundef nonnull align 8 dereferenceable(4624)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_value(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_value(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 808
@@ -3337,7 +3337,7 @@ define noundef i32 @cvscript_colvar_value(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvscript_colvar_width(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @cvscript_colvar_width(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %6 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8

@@ -553,7 +553,7 @@ if.then6.i:                                       ; preds = %for.body.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end19.i
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %conv10.i = trunc i16 %7 to i8
+  %conv10.i = trunc nuw i16 %7 to i8
   %9 = and i8 %conv10.i, 95
   %10 = add nsw i8 %9, -65
   %11 = icmp ult i8 %10, 26
@@ -1672,7 +1672,7 @@ if.else.i:                                        ; preds = %for.body.i
   br i1 %cmp9.i, label %if.then10.i, label %if.else14.i
 
 if.then10.i:                                      ; preds = %if.else.i
-  %conv13.i = trunc i16 %9 to i8
+  %conv13.i = trunc nuw i16 %9 to i8
   call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv13.i, ptr noundef nonnull %output)
   br label %for.inc.i
 
@@ -1681,7 +1681,7 @@ if.else14.i:                                      ; preds = %if.else.i
   br i1 %cmp18.i, label %if.then19.i, label %if.else23.i
 
 if.then19.i:                                      ; preds = %if.else14.i
-  %conv22.i = trunc i16 %9 to i8
+  %conv22.i = trunc nuw i16 %9 to i8
   %10 = load i32, ptr %cur_len_.i.i, align 4
   %11 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i21.i = icmp slt i32 %10, %11
@@ -1761,7 +1761,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %char_value to i8
+  %conv = trunc nuw nsw i32 %char_value to i8
   br label %if.end39.sink.split
 
 if.else:                                          ; preds = %entry
@@ -1770,7 +1770,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %char_value, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %0, -64
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv3, ptr noundef %output)
   %1 = trunc i32 %char_value to i8
@@ -1784,7 +1784,7 @@ if.else6:                                         ; preds = %if.else
 
 if.then8:                                         ; preds = %if.else6
   %shr9 = lshr i32 %char_value, 12
-  %3 = trunc i32 %shr9 to i8
+  %3 = trunc nuw i32 %shr9 to i8
   %conv11 = or disjoint i8 %3, -32
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv11, ptr noundef %output)
   %shr12 = lshr i32 %char_value, 6
@@ -1803,7 +1803,7 @@ if.else19:                                        ; preds = %if.else6
 
 if.then21:                                        ; preds = %if.else19
   %shr22 = lshr i32 %char_value, 18
-  %8 = trunc i32 %shr22 to i8
+  %8 = trunc nuw i32 %shr22 to i8
   %conv24 = or disjoint i8 %8, -16
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv24, ptr noundef %output)
   %shr25 = lshr i32 %char_value, 12
@@ -1995,7 +1995,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %char_value to i8
+  %conv = trunc nuw nsw i32 %char_value to i8
   %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
   %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
@@ -2024,7 +2024,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %char_value, 6
-  %2 = trunc i32 %shr to i8
+  %2 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %2, -64
   %cur_len_.i.i23 = getelementptr inbounds i8, ptr %output, i64 20
   %3 = load i32, ptr %cur_len_.i.i23, align 4
@@ -2099,7 +2099,7 @@ if.else6:                                         ; preds = %if.else
 
 if.then8:                                         ; preds = %if.else6
   %shr9 = lshr i32 %char_value, 12
-  %12 = trunc i32 %shr9 to i8
+  %12 = trunc nuw i32 %shr9 to i8
   %conv11 = or disjoint i8 %12, -32
   %cur_len_.i.i69 = getelementptr inbounds i8, ptr %output, i64 20
   %13 = load i32, ptr %cur_len_.i.i69, align 4
@@ -2220,7 +2220,7 @@ if.else19:                                        ; preds = %if.else6
 
 if.then21:                                        ; preds = %if.else19
   %shr22 = lshr i32 %char_value, 18
-  %29 = trunc i32 %shr22 to i8
+  %29 = trunc nuw i32 %shr22 to i8
   %conv24 = or disjoint i8 %29, -16
   %cur_len_.i.i138 = getelementptr inbounds i8, ptr %output, i64 20
   %30 = load i32, ptr %cur_len_.i.i138, align 4

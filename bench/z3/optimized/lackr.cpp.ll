@@ -6051,8 +6051,8 @@ if.then:                                          ; preds = %_ZNK17array_recogni
   %6 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %7 = getelementptr i8, ptr %a, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %7, i64 32
+  %7 = getelementptr inbounds i8, ptr %a, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %7, i64 32
   %cmp.not31 = icmp eq i32 %6, 0
   br i1 %cmp.not31, label %if.end18, label %for.body.lr.ph
 
@@ -6101,8 +6101,8 @@ if.else5:                                         ; preds = %land.rhs.i.i, %entr
   %13 = load i32, ptr %m_num_args.i13, align 8
   %idx.ext.i14 = zext i32 %13 to i64
   %add.ptr.i15.idx = shl nuw nsw i64 %idx.ext.i14, 3
-  %14 = getelementptr i8, ptr %a, i64 %add.ptr.i15.idx
-  %add.ptr.i15.ptr = getelementptr i8, ptr %14, i64 32
+  %14 = getelementptr inbounds i8, ptr %a, i64 %add.ptr.i15.idx
+  %add.ptr.i15.ptr = getelementptr inbounds i8, ptr %14, i64 32
   %cmp12.not34 = icmp eq i32 %13, 0
   br i1 %cmp12.not34, label %if.end18, label %for.body13.lr.ph
 

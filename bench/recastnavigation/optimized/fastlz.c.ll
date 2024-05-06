@@ -295,7 +295,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %143 = shl nuw nsw i32 %.1, 5
   %144 = lshr i32 %63, 8
   %145 = add nuw nsw i32 %143, %144
-  %146 = trunc i32 %145 to i8
+  %146 = trunc nuw i32 %145 to i8
   %147 = trunc i32 %63 to i8
   br label %156
 
@@ -531,7 +531,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %37 = icmp eq i32 %33, %36
   %38 = trunc i16 %35 to i8
   %39 = lshr i16 %35, 8
-  %40 = trunc i16 %39 to i8
+  %40 = trunc nuw i16 %39 to i8
   br i1 %37, label %.thread, label %43
 
 .thread:                                          ; preds = %30
@@ -765,7 +765,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %172 = shl nuw nsw i32 %167, 5
   %173 = lshr i32 %152, 8
   %174 = or disjoint i32 %172, %173
-  %175 = trunc i32 %174 to i8
+  %175 = trunc nuw i32 %174 to i8
   %176 = getelementptr inbounds i8, ptr %.2193, i64 1
   store i8 %175, ptr %.2193, align 1
   %177 = trunc i32 %152 to i8
@@ -775,7 +775,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
 
 179:                                              ; preds = %170
   %180 = lshr i32 %152, 8
-  %181 = trunc i32 %180 to i8
+  %181 = trunc nuw i32 %180 to i8
   %182 = or disjoint i8 %181, -32
   store i8 %182, ptr %.2193, align 1
   %183 = add i32 %167, -7
@@ -802,7 +802,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %.2193.pn230.lcssa = phi ptr [ %.2193, %179 ], [ %scevgep301, %.lr.ph258.preheader ]
   %.1.lcssa = phi i32 [ %183, %179 ], [ %192, %.lr.ph258.preheader ]
   %.3194.lcssa = phi ptr [ %.3194254, %179 ], [ %scevgep303, %.lr.ph258.preheader ]
-  %193 = trunc i32 %.1.lcssa to i8
+  %193 = trunc nuw i32 %.1.lcssa to i8
   %194 = getelementptr inbounds i8, ptr %.2193.pn230.lcssa, i64 2
   store i8 %193, ptr %.3194.lcssa, align 1
   %195 = trunc i32 %152 to i8
@@ -816,7 +816,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
 
 199:                                              ; preds = %197
   %.tr = trunc i64 %166 to i8
-  %200 = shl i8 %.tr, 5
+  %200 = shl nuw i8 %.tr, 5
   %201 = or disjoint i8 %200, 31
   %202 = getelementptr inbounds i8, ptr %.2193, i64 1
   store i8 %201, ptr %.2193, align 1
@@ -857,7 +857,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %.2193.pn.lcssa = phi ptr [ %.2193, %209 ], [ %scevgep297, %.lr.ph250.preheader ]
   %.2.lcssa = phi i32 [ %210, %209 ], [ %219, %.lr.ph250.preheader ]
   %.4.lcssa = phi ptr [ %.4247, %209 ], [ %scevgep299, %.lr.ph250.preheader ]
-  %220 = trunc i32 %.2.lcssa to i8
+  %220 = trunc nuw i32 %.2.lcssa to i8
   %221 = getelementptr inbounds i8, ptr %.2193.pn.lcssa, i64 2
   store i8 %220, ptr %.4.lcssa, align 1
   %222 = getelementptr inbounds i8, ptr %.2193.pn.lcssa, i64 3

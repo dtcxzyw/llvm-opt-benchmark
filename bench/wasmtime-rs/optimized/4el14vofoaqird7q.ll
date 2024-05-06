@@ -44,7 +44,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb5b3acf95f92a9dcE"(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdb491e80988efdc3E"(i64 %0, i64 %1) unnamed_addr #0 {
+define range(i8 0, 42) i8 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdb491e80988efdc3E"(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, -9223372036854775807
   br i1 %3, label %6, label %4
 

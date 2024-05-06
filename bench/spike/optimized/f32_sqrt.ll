@@ -56,7 +56,7 @@ define i32 @f32_sqrt(i32 %0) local_unnamed_addr #0 {
   %25 = and i64 %.0, 1
   %26 = shl i64 %.042, 8
   %27 = or i64 %26, 2147483648
-  %28 = trunc i64 %25 to i32
+  %28 = trunc nuw nsw i64 %25 to i32
   %29 = trunc i64 %27 to i32
   %30 = tail call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %28, i32 noundef %29) #2
   %31 = zext i32 %30 to i64

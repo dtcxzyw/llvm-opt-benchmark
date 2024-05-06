@@ -257,7 +257,7 @@ define dso_local ptr @irq_cfg(i32 noundef %0) local_unnamed_addr #0 align 16 {
 declare dso_local ptr @irq_get_irq_data(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @x86_fwspec_is_ioapic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @x86_fwspec_is_ioapic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -309,7 +309,7 @@ declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64
 declare dso_local i64 @simple_strtol(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @x86_fwspec_is_hpet(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @x86_fwspec_is_hpet(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -1033,7 +1033,7 @@ define internal fastcc void @free_moved_vector(ptr nocapture noundef %0) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @lapic_can_unplug_cpu() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @lapic_can_unplug_cpu() local_unnamed_addr #0 align 16 {
   %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #16, !srcloc !39
   tail call void @_raw_spin_lock(ptr noundef nonnull @vector_lock) #15
   %2 = load ptr, ptr @vector_matrix, align 8
@@ -1140,7 +1140,7 @@ declare dso_local ptr @__irq_domain_alloc_fwnode(i32 noundef, i32 noundef, ptr n
 declare dso_local ptr @__irq_domain_add(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @x86_vector_select(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
+define internal range(i32 0, 2) i32 @x86_vector_select(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
   %4 = load ptr, ptr @apic, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 128
   %6 = load i32, ptr %5, align 8
@@ -1903,7 +1903,7 @@ define internal i32 @x86_vector_activate(ptr nocapture readnone %0, ptr noundef 
   br label %171
 
 103:                                              ; preds = %94
-  %104 = tail call fastcc i32 @assign_managed_vector(ptr noundef %1), !range !62
+  %104 = tail call fastcc i32 @assign_managed_vector(ptr noundef %1)
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %106, label %171, !prof !12
 
@@ -2131,7 +2131,7 @@ define internal void @x86_vector_deactivate(ptr nocapture readnone %0, ptr nound
 declare dso_local noalias ptr @kmalloc_node_trace(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @apic_set_affinity(ptr noundef %0, ptr nocapture noundef readonly %1, i1 zeroext %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @apic_set_affinity(ptr noundef %0, ptr nocapture noundef readonly %1, i1 zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -2158,7 +2158,7 @@ define internal i32 @apic_set_affinity(ptr noundef %0, ptr nocapture noundef rea
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %10
-  %19 = tail call fastcc i32 @assign_managed_vector(ptr noundef %0), !range !62
+  %19 = tail call fastcc i32 @assign_managed_vector(ptr noundef %0)
   br label %22
 
 20:                                               ; preds = %10
@@ -2228,7 +2228,7 @@ define internal void @x86_vector_msi_compose_msg(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @assign_managed_vector(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @assign_managed_vector(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2333,7 +2333,7 @@ define internal fastcc i32 @assign_managed_vector(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @assign_vector_locked(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @assign_vector_locked(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %.preheader

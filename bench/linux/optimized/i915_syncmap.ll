@@ -95,7 +95,7 @@ define dso_local zeroext i1 @i915_syncmap_is_later(ptr nocapture noundef %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_syncmap_set(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @i915_syncmap_set(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %20, label %6, !prof !9
@@ -121,7 +121,7 @@ define dso_local noundef i32 @i915_syncmap_set(ptr nocapture noundef %0, i64 nou
   br label %22
 
 20:                                               ; preds = %6, %3
-  %21 = tail call fastcc i32 @__sync_set(ptr noundef %0, i64 noundef %1, i32 noundef %2), !range !10
+  %21 = tail call fastcc i32 @__sync_set(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %22
 
 22:                                               ; preds = %20, %10
@@ -130,7 +130,7 @@ define dso_local noundef i32 @i915_syncmap_set(ptr nocapture noundef %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__sync_set(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.preheader
@@ -163,7 +163,7 @@ define internal fastcc noundef i32 @__sync_set(ptr nocapture noundef %0, i64 nou
   %22 = lshr i64 %21, 4
   %23 = load i64, ptr %15, align 8
   %24 = icmp eq i64 %22, %23
-  br i1 %24, label %25, label %.preheader, !llvm.loop !11
+  br i1 %24, label %25, label %.preheader, !llvm.loop !10
 
 25:                                               ; preds = %17, %.preheader
   %26 = phi ptr [ %15, %17 ], [ %13, %.preheader ]
@@ -194,7 +194,7 @@ define internal fastcc noundef i32 @__sync_set(ptr nocapture noundef %0, i64 nou
   %45 = lshr i64 %44, 4
   %46 = load i64, ptr %29, align 8
   %47 = xor i64 %45, %46
-  %48 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %47, i32 -1) #7, !srcloc !12
+  %48 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %47, i32 -1) #7, !srcloc !11
   %49 = or i32 %48, 3
   %50 = add i32 %42, 1
   %51 = add i32 %50, %49
@@ -233,7 +233,7 @@ define internal fastcc noundef i32 @__sync_set(ptr nocapture noundef %0, i64 nou
   %75 = shl nuw nsw i64 1, %74
   %76 = getelementptr inbounds i8, ptr %39, i64 12
   %77 = load i32, ptr %76, align 4
-  %78 = trunc i64 %75 to i32
+  %78 = trunc nuw nsw i64 %75 to i32
   %79 = or i32 %77, %78
   store i32 %79, ptr %76, align 4
   %80 = getelementptr i8, ptr %39, i64 24
@@ -277,7 +277,7 @@ define internal fastcc noundef i32 @__sync_set(ptr nocapture noundef %0, i64 nou
   %100 = shl nuw nsw i64 1, %86
   %101 = getelementptr inbounds i8, ptr %85, i64 12
   %102 = load i32, ptr %101, align 4
-  %103 = trunc i64 %100 to i32
+  %103 = trunc nuw nsw i64 %100 to i32
   %104 = or i32 %102, %103
   store i32 %104, ptr %101, align 4
   store ptr %93, ptr %96, align 8
@@ -315,7 +315,7 @@ define dso_local void @i915_syncmap_free(ptr nocapture noundef %0) local_unnamed
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %.preheader, !llvm.loop !13
+  br i1 %7, label %8, label %.preheader, !llvm.loop !12
 
 8:                                                ; preds = %.preheader
   tail call fastcc void @__sync_free(ptr noundef nonnull %4)
@@ -337,7 +337,7 @@ define internal fastcc void @__sync_free(ptr noundef %0) unnamed_addr #2 align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = getelementptr i8, ptr %0, i64 24
   %8 = load i32, ptr %6, align 4
-  %9 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 -1) #7, !srcloc !15
+  %9 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 -1) #7, !srcloc !14
   %10 = add i32 %9, 1
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.loopexit, label %.lr.ph
@@ -354,10 +354,10 @@ define internal fastcc void @__sync_free(ptr noundef %0) unnamed_addr #2 align 1
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @__sync_free(ptr noundef %19)
   %20 = load i32, ptr %6, align 4
-  %21 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %20, i32 -1) #7, !srcloc !15
+  %21 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %20, i32 -1) #7, !srcloc !14
   %22 = add i32 %21, 1
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %23, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %1
   tail call void @kfree(ptr noundef %0) #8
@@ -395,10 +395,9 @@ attributes #8 = { nounwind }
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = distinct !{!8, !7}
 !9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = !{i32 -12, i32 1}
-!11 = distinct !{!11, !7}
-!12 = !{i64 908945}
-!13 = distinct !{!13, !14, !7}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = !{i64 906292}
-!16 = distinct !{!16, !14, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i64 908945}
+!12 = distinct !{!12, !13, !7}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{i64 906292}
+!15 = distinct !{!15, !13, !7}

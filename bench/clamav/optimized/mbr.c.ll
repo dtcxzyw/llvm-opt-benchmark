@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [64 x i8] c"cli_scanebr: second entry for EBR is not an extended partition\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_mbr_check(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 575) i32 @cli_mbr_check(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mbr_boot_record, align 1
   %5 = icmp ult i64 %1, 512
   br i1 %5, label %mbr_check_mbr.exit, label %6
@@ -115,7 +115,7 @@ define void @mbr_convert_to_host(ptr nocapture noundef %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_mbr_check2(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mbr_boot_record, align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
@@ -159,7 +159,7 @@ define noundef i32 @cli_mbr_check2(ptr noundef readonly %0, i64 noundef %1) loca
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %21, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %3, ptr nonnull align 1 %21, i64 %spec.select.i, i1 false)
   %.not24 = icmp ugt i64 %18, 65
   br i1 %.not24, label %22, label %fmap_readn.exit.thread
 
@@ -272,7 +272,7 @@ define i32 @cli_scanmbr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %22, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %4, ptr nonnull align 1 %22, i64 %spec.select.i, i1 false)
   %.not72 = icmp ugt i64 %19, 65
   br i1 %.not72, label %23, label %fmap_readn.exit.thread
 
@@ -439,7 +439,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   br i1 %.not26.i.i, label %fmap_readn.exit.thread.i, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %98
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %102, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %3, ptr nonnull align 1 %102, i64 %spec.select.i.i, i1 false)
   %.not.i82 = icmp ugt i64 %99, 65
   br i1 %.not.i82, label %103, label %fmap_readn.exit.thread.i
 
@@ -776,7 +776,7 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef %0, p
   br i1 %.not26.i.i, label %fmap_readn.exit.thread.i, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull align 1 %51, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %4, ptr nonnull align 1 %51, i64 %spec.select.i.i, i1 false)
   %.not.i = icmp ugt i64 %48, 65
   br i1 %.not.i, label %53, label %fmap_readn.exit.thread.i
 

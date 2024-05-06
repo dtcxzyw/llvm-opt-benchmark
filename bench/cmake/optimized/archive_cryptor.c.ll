@@ -22,7 +22,7 @@ define internal noundef i32 @pbkdf2_sha1(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ctr_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
   %4 = tail call ptr @EVP_CIPHER_CTX_new() #7
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -73,7 +73,7 @@ define internal noundef i32 @aes_ctr_init(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ctr_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #1 {
+define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 68
@@ -140,7 +140,7 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
 
 .preheader:                                       ; preds = %.preheader67, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader67 ]
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = add i32 %.1, %32
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %1, i64 %34

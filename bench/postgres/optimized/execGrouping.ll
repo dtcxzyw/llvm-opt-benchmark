@@ -34,9 +34,9 @@ define dso_local ptr @tuplehash_create(ptr noundef %0, i32 noundef %1, ptr nound
   %10 = select i1 %9, double 0x41F0000000000000, double %8
   %11 = fptoui double %10 to i64
   %12 = tail call i64 @llvm.umax.i64(i64 %11, i64 2)
-  %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !5
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
   %14 = icmp ult i64 %13, 2
-  %15 = tail call i64 @llvm.ctlz.i64(i64 %12, i1 true), !range !5
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %16 = sub nuw nsw i64 64, %15
   %17 = shl nuw i64 1, %16
   %.0.i.i = select i1 %14, i64 %12, i64 %17
@@ -56,9 +56,9 @@ tuplehash_compute_size.exit:                      ; preds = %3
   %24 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %23, ptr %24, align 8
   %25 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %26 = tail call i64 @llvm.ctpop.i64(i64 %25), !range !5
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
   %27 = icmp ult i64 %26, 2
-  %28 = tail call i64 @llvm.ctlz.i64(i64 %25, i1 true), !range !5
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
   %29 = sub nuw nsw i64 64, %28
   %30 = shl nuw i64 1, %29
   %.0.i.i.i = select i1 %27, i64 %25, i64 %30
@@ -123,9 +123,9 @@ define dso_local void @tuplehash_grow(ptr nocapture noundef %0, i64 noundef %1) 
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @llvm.umax.i64(i64 %1, i64 2)
-  %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !5
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = icmp ult i64 %7, 2
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 true), !range !5
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %10 = sub nuw nsw i64 64, %9
   %11 = shl nuw i64 1, %10
   %.0.i.i = select i1 %8, i64 %6, i64 %11
@@ -146,9 +146,9 @@ tuplehash_compute_size.exit:                      ; preds = %2
   %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #14
   store ptr %18, ptr %4, align 8
   %19 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %20 = tail call i64 @llvm.ctpop.i64(i64 %19), !range !5
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
   %21 = icmp ult i64 %20, 2
-  %22 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !5
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %23 = sub nuw nsw i64 64, %22
   %24 = shl nuw i64 1, %23
   %.0.i.i.i = select i1 %21, i64 %19, i64 %24
@@ -199,7 +199,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   %47 = add i32 %.058, 1
   %48 = zext i32 %47 to i64
   %49 = icmp ugt i64 %3, %48
-  br i1 %49, label %.lr.ph, label %.lr.ph66.preheader, !llvm.loop !6
+  br i1 %49, label %.lr.ph, label %.lr.ph66.preheader, !llvm.loop !5
 
 .lr.ph66.preheader:                               ; preds = %46, %.lr.ph, %42
   %.04963.ph = phi i32 [ %.058, %42 ], [ %.058, %.lr.ph ], [ 0, %46 ]
@@ -244,7 +244,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   %68 = add i32 %.164, 1
   %69 = zext i32 %68 to i64
   %70 = icmp ugt i64 %3, %69
-  br i1 %70, label %.lr.ph66, label %._crit_edge67, !llvm.loop !8
+  br i1 %70, label %.lr.ph66, label %._crit_edge67, !llvm.loop !7
 
 ._crit_edge67:                                    ; preds = %65, %tuplehash_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #14
@@ -342,7 +342,7 @@ slot_getattr.exit:                                ; preds = %23, %slot_getsomeat
   %.1 = phi i32 [ %26, %slot_getattr.exit ], [ %46, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %47, %16
   %.0.lcssa = phi i32 [ %7, %16 ], [ %.1, %47 ]
@@ -549,7 +549,7 @@ tuplehash_distance.exit:                          ; preds = %61, %63
   %97 = getelementptr %struct.TupleHashEntryData, ptr %23, i64 %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.080161, ptr noundef nonnull align 8 dereferenceable(24) %97, i64 24, i1 false)
   %.not82 = icmp eq i32 %95, %.076132
-  br i1 %.not82, label %._crit_edge164, label %.lr.ph163, !llvm.loop !10
+  br i1 %.not82, label %._crit_edge164, label %.lr.ph163, !llvm.loop !9
 
 ._crit_edge164:                                   ; preds = %.lr.ph163, %.preheader
   %98 = load i32, ptr %6, align 8
@@ -925,7 +925,7 @@ define dso_local void @tuplehash_start_iterate(ptr nocapture noundef readonly %0
   %11 = add i32 %.01113, 1
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i64 %3, %12
-  br i1 %13, label %6, label %._crit_edge, !llvm.loop !11
+  br i1 %13, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %10, %6, %2
   %.0 = phi i32 [ -1, %2 ], [ %.01113, %6 ], [ -1, %10 ]
@@ -989,7 +989,7 @@ define dso_local ptr @tuplehash_iterate(ptr nocapture noundef readonly %0, ptr n
   %26 = getelementptr inbounds i8, ptr %14, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 1
-  br i1 %28, label %29, label %7, !llvm.loop !12
+  br i1 %28, label %29, label %7, !llvm.loop !11
 
 29:                                               ; preds = %7, %24
   %.0 = phi ptr [ %14, %24 ], [ null, %7 ]
@@ -1054,7 +1054,7 @@ tuplehash_distance.exit:                          ; preds = %8
   %26 = add i32 %.05769, 1
   %27 = zext i32 %26 to i64
   %28 = icmp ugt i64 %25, %27
-  br i1 %28, label %8, label %.preheader, !llvm.loop !13
+  br i1 %28, label %8, label %.preheader, !llvm.loop !12
 
 .lr.ph77:                                         ; preds = %.preheader, %.lr.ph77
   %29 = phi i64 [ %36, %.lr.ph77 ], [ 0, %.preheader ]
@@ -1072,7 +1072,7 @@ tuplehash_distance.exit:                          ; preds = %8
   %35 = add i32 %.15874, 1
   %36 = zext i32 %35 to i64
   %37 = icmp ugt i64 %25, %36
-  br i1 %37, label %.lr.ph77, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %37, label %.lr.ph77, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph77
   %38 = uitofp i64 %25 to double
@@ -1152,7 +1152,7 @@ define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %16 = tail call ptr @ExecBuildGroupingEqual(ptr noundef %0, ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5) #14
@@ -1212,7 +1212,7 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr nocapture nound
   call void @fmgr_info(i32 noundef %23, ptr noundef %25) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %20, %4
   ret void
@@ -1388,7 +1388,7 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %.1.i = phi i32 [ %32, %slot_getattr.exit.i ], [ %52, %42 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit.loopexit, label %29, !llvm.loop !9
+  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit.loopexit, label %29, !llvm.loop !8
 
 TupleHashTableHash_internal.exit.loopexit:        ; preds = %53
   %.pre = load ptr, ptr %0, align 8
@@ -1410,7 +1410,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %TupleHashTableHash_
   br i1 %.not.i, label %77, label %63
 
 63:                                               ; preds = %TupleHashTableHash_internal.exit
-  %64 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %54, ptr noundef null, i32 noundef %62, ptr noundef nonnull %5)
+  %64 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %54, ptr noundef null, i32 noundef %62, ptr noundef nonnull writeonly %5)
   %65 = load i8, ptr %5, align 1
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %68
@@ -1435,7 +1435,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %TupleHashTableHash_
   br label %LookupTupleHashEntry_internal.exit
 
 77:                                               ; preds = %TupleHashTableHash_internal.exit
-  %78 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %54, i32 noundef %62)
+  %78 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %54, i32 noundef %62)
   br label %LookupTupleHashEntry_internal.exit
 
 LookupTupleHashEntry_internal.exit:               ; preds = %67, %68, %77
@@ -1530,7 +1530,7 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %.1.i = phi i32 [ %29, %slot_getattr.exit.i ], [ %49, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit, label %26, !llvm.loop !8
 
 TupleHashTableHash_internal.exit:                 ; preds = %50, %2
   %.0.lcssa.i = phi i32 [ %17, %2 ], [ %.1.i, %50 ]
@@ -1565,7 +1565,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef %0, ptr nou
   br i1 %.not.i, label %28, label %14
 
 14:                                               ; preds = %4
-  %15 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %13, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5)
+  %15 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %13, ptr noundef null, i32 noundef %3, ptr noundef nonnull writeonly %5)
   %16 = load i8, ptr %5, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %19
@@ -1590,7 +1590,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef %0, ptr nou
   br label %LookupTupleHashEntry_internal.exit
 
 28:                                               ; preds = %4
-  %29 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %13, i32 noundef %3)
+  %29 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %13, i32 noundef %3)
   br label %LookupTupleHashEntry_internal.exit
 
 LookupTupleHashEntry_internal.exit:               ; preds = %18, %19, %28
@@ -1677,7 +1677,7 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %.1.i = phi i32 [ %30, %slot_getattr.exit.i ], [ %50, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %TupleHashTableHash_internal.exit, label %27, !llvm.loop !8
 
 TupleHashTableHash_internal.exit:                 ; preds = %51, %4
   %.0.lcssa.i = phi i32 [ %18, %4 ], [ %.1.i, %51 ]
@@ -1689,7 +1689,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %51, %4
   %57 = mul i32 %56, -1028477387
   %58 = lshr i32 %57, 16
   %59 = xor i32 %58, %57
-  %60 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %11, i32 noundef %59)
+  %60 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %11, i32 noundef %59)
   store ptr %7, ptr @CurrentMemoryContext, align 8
   ret ptr %60
 }
@@ -1758,15 +1758,14 @@ attributes #15 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}

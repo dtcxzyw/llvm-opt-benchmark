@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @psql_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -2934,7 +2934,7 @@ psqlscan_extract_substring.exit:                  ; preds = %1381, %1365, %1367
   br i1 %.not9.i, label %1397, label %1394
 
 1394:                                             ; preds = %.lr.ph.i1143
-  %1395 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1393, ptr noundef nonnull dereferenceable(1) %1362) #28
+  %1395 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1393, ptr noundef nonnull readonly dereferenceable(1) %1362) #28
   %1396 = icmp eq i32 %1395, 0
   br i1 %1396, label %psqlscan_var_is_current_source.exit, label %1397
 
@@ -3434,7 +3434,7 @@ psqlscan_emit.exit1161:                           ; preds = %1463, %1449, %1447,
 
 1623:                                             ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %1624 = trunc i64 %indvars.iv to i32
+  %1624 = trunc nuw i64 %indvars.iv to i32
   %1625 = icmp sgt i32 %1624, 0
   br i1 %1625, label %.lr.ph, label %.critedge30.preheader, !llvm.loop !10
 
@@ -3449,7 +3449,7 @@ psqlscan_emit.exit1161:                           ; preds = %1463, %1449, %1447,
   ]
 
 .critedge30.backedge:                             ; preds = %.lr.ph1936, %.lr.ph1936
-  %1627 = trunc i64 %indvars.iv2322 to i32
+  %1627 = trunc nuw i64 %indvars.iv2322 to i32
   %1628 = icmp sgt i32 %1627, 3
   br i1 %1628, label %.lr.ph1936, label %.critedge
 
@@ -4958,7 +4958,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   br i1 %exitcond179.not.i, label %.critedge.i, label %2370, !llvm.loop !14
 
 .critedge.split.loop.exit.i:                      ; preds = %2370, %2370
-  %2383 = trunc i64 %indvars.iv.i1385 to i32
+  %2383 = trunc nuw nsw i64 %indvars.iv.i1385 to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %2373, %.critedge.split.loop.exit.i
@@ -7048,7 +7048,7 @@ define dso_local void @psql_yyset_lval(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @psql_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @psql_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -7073,7 +7073,7 @@ define dso_local noundef i32 @psql_yylex_init(ptr noundef writeonly %0) local_un
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @psql_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @psql_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #14 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -7559,7 +7559,7 @@ define dso_local noundef ptr @psqlscan_prepare_buffer(ptr nocapture noundef read
   br label %.loopexit31
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %20 = trunc i64 %indvars.iv.next to i32
+  %20 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %22
@@ -7662,7 +7662,7 @@ psql_yy_scan_buffer.exit:                         ; preds = %.loopexit31, %45, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @psql_scan(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @psql_scan(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7674,7 +7674,7 @@ define dso_local i32 @psql_scan(ptr nocapture noundef %0, ptr noundef %1, ptr no
   %9 = load ptr, ptr %0, align 8
   tail call void @psql_yy_switch_to_buffer(ptr noundef %8, ptr noundef %9)
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call i32 @psql_yylex(ptr noundef null, ptr noundef %10), !range !20
+  %11 = tail call i32 @psql_yylex(ptr noundef null, ptr noundef %10)
   switch i32 %11, label %default.unreachable30 [
     i32 0, label %12
     i32 1, label %34
@@ -7856,4 +7856,3 @@ attributes #30 = { noreturn nounwind }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i32 0, i32 3}

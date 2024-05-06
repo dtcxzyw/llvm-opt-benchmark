@@ -97,7 +97,7 @@ define internal i32 @compare_format(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @pack_8_8(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i64 0, 65536) i64 @pack_8_8(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = icmp eq i32 %0, 2
   br i1 %4, label %5, label %.sink.split
 
@@ -135,7 +135,7 @@ define internal i64 @pack_8_8(i32 noundef %0, ptr nocapture noundef readonly %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @pack_bsdos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i64 0, 4294967296) i64 @pack_bsdos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
   switch i32 %0, label %.sink.split [
     i32 2, label %4
     i32 3, label %16
@@ -212,7 +212,7 @@ define internal i64 @pack_bsdos(i32 noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @pack_freebsd(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i64 0, 4294967296) i64 @pack_freebsd(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = icmp eq i32 %0, 2
   br i1 %4, label %5, label %.sink.split
 
@@ -252,7 +252,7 @@ define internal i64 @pack_freebsd(i32 noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @pack_8_24(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i64 0, 4294967296) i64 @pack_8_24(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = icmp eq i32 %0, 2
   br i1 %4, label %5, label %.sink.split
 
@@ -290,7 +290,7 @@ define internal i64 @pack_8_24(i32 noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @pack_netbsd(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i64 0, 4294967296) i64 @pack_netbsd(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = icmp eq i32 %0, 2
   br i1 %4, label %5, label %.sink.split
 
@@ -327,7 +327,7 @@ define internal i64 @pack_netbsd(i32 noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @pack_12_20(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i64 0, 4294967296) i64 @pack_12_20(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = icmp eq i32 %0, 2
   br i1 %4, label %5, label %.sink.split
 
@@ -365,7 +365,7 @@ define internal i64 @pack_12_20(i32 noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @pack_14_18(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i64 0, 4294967296) i64 @pack_14_18(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = icmp eq i32 %0, 2
   br i1 %4, label %5, label %.sink.split
 

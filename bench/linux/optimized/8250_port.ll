@@ -238,7 +238,7 @@ declare dso_local i32 @hrtimer_cancel(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @serial8250_em485_config(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @serial8250_em485_config(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = load i32, ptr %2, align 4
   %5 = lshr i32 %4, 1
   %6 = lshr i32 %4, 2
@@ -694,7 +694,7 @@ define dso_local void @serial8250_read_char(ptr noundef %0, i16 noundef zeroext 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @uart_handle_break(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @uart_handle_break(ptr noundef %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1235,7 +1235,7 @@ declare dso_local void @uart_handle_cts_change(ptr noundef, i1 noundef zeroext) 
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @serial8250_handle_irq(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @serial8250_handle_irq(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
   %5 = and i32 %1, 1
@@ -1434,7 +1434,7 @@ define dso_local noundef i32 @serial8250_handle_irq(ptr noundef %0, i32 noundef 
 declare dso_local ptr @irq_get_irq_data(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @serial8250_do_get_mctrl(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 0, 512) i32 @serial8250_do_get_mctrl(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 584
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 32768
@@ -2202,7 +2202,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial8250_tx_threshold_handle_irq(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @serial8250_tx_threshold_handle_irq(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 %3(ptr noundef %0, i32 noundef 2) #14
@@ -4381,7 +4381,7 @@ declare dso_local void @serial8250_rx_dma_flush(ptr noundef) local_unnamed_addr 
 declare dso_local void @handle_sysrq(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @default_serial_dl_read(ptr noundef %0) #0 align 16 {
+define internal range(i32 0, 65536) i32 @default_serial_dl_read(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 %3(ptr noundef %0, i32 noundef 0) #14
@@ -4408,7 +4408,7 @@ define internal void @default_serial_dl_write(ptr noundef %0, i32 noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hub6_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 0, 256) i32 @hub6_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 193
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %4 to i32
@@ -4456,7 +4456,7 @@ define internal void @hub6_serial_out(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mem_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 0, 256) i32 @mem_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 193
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %4 to i32
@@ -4486,7 +4486,7 @@ define internal void @mem_serial_out(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mem16_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 0, 65536) i32 @mem16_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 193
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %4 to i32
@@ -4572,7 +4572,7 @@ define internal void @mem32be_serial_out(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @io_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 0, 256) i32 @io_serial_in(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 193
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %4 to i32
@@ -4604,7 +4604,7 @@ define internal void @io_serial_out(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial8250_default_handle_irq(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @serial8250_default_handle_irq(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 584
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 32768
@@ -4672,7 +4672,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #1 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @serial8250_tx_empty(ptr noundef %0) #0 align 16 {
+define internal range(i32 0, 2) i32 @serial8250_tx_empty(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 584
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 32768
@@ -5205,7 +5205,7 @@ define internal void @serial8250_release_port(ptr nocapture noundef %0) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @serial8250_request_port(ptr nocapture noundef %0) #0 align 16 {
+define internal range(i32 -22, 1) i32 @serial8250_request_port(ptr nocapture noundef %0) #0 align 16 {
   %2 = tail call fastcc i32 @serial8250_request_std_resource(ptr noundef %0), !range !37
   ret i32 %2
 }
@@ -6150,7 +6150,7 @@ define internal void @serial8250_config_port(ptr noundef %0, i32 noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @serial8250_verify_port(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #11 align 16 {
+define internal range(i32 -22, 1) i32 @serial8250_verify_port(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr @nr_irqs, align 4
@@ -6190,7 +6190,7 @@ declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__release_region(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @serial8250_request_std_resource(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @serial8250_request_std_resource(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -6368,7 +6368,7 @@ declare dso_local i64 @probe_irq_on() local_unnamed_addr #1
 declare dso_local void @console_unlock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rx_trig_bytes_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rx_trig_bytes_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 256

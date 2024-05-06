@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qcrypto_afsplit_hash = private unnamed_addr constant [76 x i8] c"int qcrypto_afsplit_hash(QCryptoHashAlgorithm, size_t, uint8_t *, Error **)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_afsplit_encode(i32 noundef %hash, i64 noundef %blocklen, i32 noundef %stripes, ptr nocapture noundef readonly %in, ptr noundef %out, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_afsplit_encode(i32 noundef %hash, i64 noundef %blocklen, i32 noundef %stripes, ptr nocapture noundef readonly %in, ptr noundef %out, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_malloc0_n(i64 noundef %blocklen, i64 noundef 1) #6
   %sub = add i32 %stripes, -1
@@ -204,7 +204,7 @@ return:                                           ; preds = %for.inc.us, %for.in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_afsplit_decode(i32 noundef %hash, i64 noundef %blocklen, i32 noundef %stripes, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_afsplit_decode(i32 noundef %hash, i64 noundef %blocklen, i32 noundef %stripes, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_malloc0_n(i64 noundef %blocklen, i64 noundef 1) #6
   %sub = add i32 %stripes, -1

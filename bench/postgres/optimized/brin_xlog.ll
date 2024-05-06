@@ -71,7 +71,7 @@ brin_xlog_createidx.exit:                         ; preds = %23, %29
   %37 = load i16, ptr %36, align 4
   tail call void @brin_metapage_init(ptr noundef %.0.i.i.i, i32 noundef %35, i16 noundef zeroext %37) #5
   %38 = lshr i64 %18, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   store i32 %39, ptr %.0.i.i.i, align 4
   %40 = trunc i64 %18 to i32
   %41 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -122,7 +122,7 @@ BufferGetPage.exit.i:                             ; preds = %61, %55
   %67 = load i16, ptr %49, align 4
   call void @PageIndexTupleDeleteNoCompact(ptr noundef %.0.i.i.i8, i16 noundef zeroext %67) #5
   %68 = lshr i64 %47, 32
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw i64 %68 to i32
   store i32 %69, ptr %.0.i.i.i8, align 4
   %70 = trunc i64 %47 to i32
   %71 = getelementptr inbounds i8, ptr %.0.i.i.i8, i64 4
@@ -195,7 +195,7 @@ BufferGetPage.exit.i10:                           ; preds = %94, %88
 
 106:                                              ; preds = %BufferGetPage.exit.i10
   %107 = lshr i64 %79, 32
-  %108 = trunc i64 %107 to i32
+  %108 = trunc nuw i64 %107 to i32
   store i32 %108, ptr %.0.i.i.i11, align 4
   %109 = trunc i64 %79 to i32
   %110 = getelementptr inbounds i8, ptr %.0.i.i.i11, i64 4
@@ -257,7 +257,7 @@ BufferGetPage.exit.i13:                           ; preds = %131, %125
   %138 = getelementptr i8, ptr %.0.i.i.i14, i64 36
   store i32 %137, ptr %138, align 4
   %139 = lshr i64 %117, 32
-  %140 = trunc i64 %139 to i32
+  %140 = trunc nuw i64 %139 to i32
   store i32 %140, ptr %.0.i.i.i14, align 4
   %141 = trunc i64 %117 to i32
   %142 = getelementptr inbounds i8, ptr %.0.i.i.i14, i64 4
@@ -293,7 +293,7 @@ BufferGetPage.exit20.i:                           ; preds = %154, %148
   %.0.i.i19.i = phi ptr [ %153, %148 ], [ %159, %154 ]
   call void @brin_page_init(ptr noundef %.0.i.i19.i, i16 noundef zeroext -3950) #5
   %160 = lshr i64 %117, 32
-  %161 = trunc i64 %160 to i32
+  %161 = trunc nuw i64 %160 to i32
   store i32 %161, ptr %.0.i.i19.i, align 4
   %162 = trunc i64 %117 to i32
   %163 = getelementptr inbounds i8, ptr %.0.i.i19.i, i64 4
@@ -352,7 +352,7 @@ brin_xlog_revmap_extend.exit:                     ; preds = %BufferGetPage.exit2
 BufferGetPage.exit.i16:                           ; preds = %186, %180
   %.0.i.i.i17 = phi ptr [ %185, %180 ], [ %191, %186 ]
   %192 = lshr i64 %168, 32
-  %193 = trunc i64 %192 to i32
+  %193 = trunc nuw i64 %192 to i32
   store i32 %193, ptr %.0.i.i.i17, align 4
   %194 = trunc i64 %168 to i32
   %195 = getelementptr inbounds i8, ptr %.0.i.i.i17, i64 4
@@ -402,7 +402,7 @@ BufferGetPage.exit14.i:                           ; preds = %212, %206
   %219 = load i16, ptr %218, align 4
   call void @PageIndexTupleDeleteNoCompact(ptr noundef %.0.i.i13.i, i16 noundef zeroext %219) #5
   %220 = lshr i64 %168, 32
-  %221 = trunc i64 %220 to i32
+  %221 = trunc nuw i64 %220 to i32
   store i32 %221, ptr %.0.i.i13.i, align 4
   %222 = trunc i64 %168 to i32
   %223 = getelementptr inbounds i8, ptr %.0.i.i13.i, i64 4
@@ -603,7 +603,7 @@ BufferGetPage.exit25:                             ; preds = %37, %43
 
 71:                                               ; preds = %64
   %72 = lshr i64 %6, 32
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw i64 %72 to i32
   store i32 %73, ptr %.0.i.i24, align 4
   %74 = trunc i64 %6 to i32
   %75 = getelementptr inbounds i8, ptr %.0.i.i24, i64 4
@@ -665,7 +665,7 @@ BufferGetPage.exit27:                             ; preds = %90, %96
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   call void @brinSetHeapBlockItemptr(i32 noundef %88, i32 noundef %103, i32 noundef %104, i48 %.sroa.0.0.insert.insert) #5
   %106 = lshr i64 %6, 32
-  %107 = trunc i64 %106 to i32
+  %107 = trunc nuw i64 %106 to i32
   store i32 %107, ptr %.0.i.i26, align 4
   %108 = trunc i64 %6 to i32
   %109 = getelementptr inbounds i8, ptr %.0.i.i26, i64 4

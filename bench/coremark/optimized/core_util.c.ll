@@ -80,7 +80,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 crcu8.exit:                                       ; preds = %for.body.i
   %4 = lshr i16 %newval, 8
-  %conv2 = trunc i16 %4 to i8
+  %conv2 = trunc nuw i16 %4 to i8
   br label %for.body.i4
 
 for.body.i4:                                      ; preds = %for.body.i4, %crcu8.exit
@@ -169,7 +169,7 @@ for.body.i.i.i5:                                  ; preds = %for.body.i.i.i5, %c
 
 crcu8.exit.i.i15:                                 ; preds = %for.body.i.i.i5
   %sum.shift = lshr i32 %newval, 24
-  %conv2.i.i16 = trunc i32 %sum.shift to i8
+  %conv2.i.i16 = trunc nuw i32 %sum.shift to i8
   br label %for.body.i4.i.i17
 
 for.body.i4.i.i17:                                ; preds = %for.body.i4.i.i17, %crcu8.exit.i.i15
@@ -216,7 +216,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
 
 crcu8.exit.i:                                     ; preds = %for.body.i.i
   %4 = lshr i16 %newval, 8
-  %conv2.i = trunc i16 %4 to i8
+  %conv2.i = trunc nuw i16 %4 to i8
   br label %for.body.i4.i
 
 for.body.i4.i:                                    ; preds = %for.body.i4.i, %crcu8.exit.i
@@ -240,7 +240,7 @@ crcu16.exit:                                      ; preds = %for.body.i4.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local zeroext i8 @check_data_types() local_unnamed_addr #2 {
+define dso_local noundef zeroext i8 @check_data_types() local_unnamed_addr #2 {
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts3 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)

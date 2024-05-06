@@ -48,7 +48,7 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %spec.select = and i1 %has_force, %force
-  %call = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %spec.select, ptr noundef nonnull %local_err), !range !5
+  %call = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %spec.select, ptr noundef nonnull %local_err)
   switch i32 %call, label %if.then6 [
     i32 -38, label %if.end7
     i32 -115, label %if.end7
@@ -70,7 +70,7 @@ return:                                           ; preds = %if.end7, %if.then6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @do_open_tray(ptr noundef %blk_name, ptr noundef %qdev_id, i1 noundef zeroext %force, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -115, 1) i32 @do_open_tray(ptr noundef %blk_name, ptr noundef %qdev_id, i1 noundef zeroext %force, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %qdev_id, null
   %cond = select i1 %tobool.not, ptr %blk_name, ptr %qdev_id
@@ -456,7 +456,7 @@ if.end20:                                         ; preds = %if.then19, %sw.epil
   br i1 %tobool24.not, label %fail, label %if.end26
 
 if.end26:                                         ; preds = %if.end20
-  %call28 = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %force, ptr noundef nonnull %err), !range !5
+  %call28 = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %force, ptr noundef nonnull %err)
   switch i32 %call28, label %if.then30 [
     i32 -38, label %if.end31
     i32 0, label %if.end31
@@ -596,7 +596,7 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %spec.select = and i1 %has_force, %force
-  %call = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %spec.select, ptr noundef nonnull %local_err), !range !5
+  %call = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %spec.select, ptr noundef nonnull %local_err)
   switch i32 %call, label %if.then4 [
     i32 -38, label %if.end5
     i32 0, label %if.end5
@@ -1071,4 +1071,3 @@ attributes #4 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -115, i32 1}

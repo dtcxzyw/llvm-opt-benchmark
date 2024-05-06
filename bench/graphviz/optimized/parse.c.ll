@@ -45,7 +45,7 @@ define noundef ptr @parseProg(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 6:                                                ; preds = %2
   tail call void (i32, ptr, ...) @_err_msg(i32 noundef 2, ptr noundef nonnull @.str) #15
-  br label %191
+  br label %192
 
 7:                                                ; preds = %2
   %.not84 = icmp eq i32 %1, 0
@@ -54,9 +54,9 @@ define noundef ptr @parseProg(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 8:                                                ; preds = %7
   %9 = tail call noalias ptr @tmpfile()
   %.not85 = icmp eq ptr %9, null
-  br i1 %.not85, label %14, label %.thread172
+  br i1 %.not85, label %14, label %.thread171
 
-.thread172:                                       ; preds = %8
+.thread171:                                       ; preds = %8
   %10 = tail call i32 @fputs(ptr noundef %0, ptr noundef nonnull %9)
   tail call void @rewind(ptr noundef nonnull %9)
   br label %16
@@ -77,10 +77,10 @@ define noundef ptr @parseProg(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 15:                                               ; preds = %14, %13
   tail call void @free(ptr noundef nonnull %5) #15
-  br label %191
+  br label %192
 
-16:                                               ; preds = %.thread172, %11
-  %.080176 = phi ptr [ %9, %.thread172 ], [ %12, %11 ]
+16:                                               ; preds = %.thread171, %11
+  %.080175 = phi ptr [ %9, %.thread171 ], [ %12, %11 ]
   %.0.ptr21.i.i.i = getelementptr inbounds i8, ptr %3, i64 1
   %17 = getelementptr inbounds i8, ptr %4, i64 31
   %18 = getelementptr inbounds i8, ptr %5, i64 48
@@ -92,28 +92,28 @@ define noundef ptr @parseProg(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %bindAction.exit
 
 bindAction.exit:                                  ; preds = %bindAction.exit.backedge, %16
-  %.058262 = phi i64 [ 0, %16 ], [ %.058262.be, %bindAction.exit.backedge ]
-  %.059261 = phi ptr [ null, %16 ], [ %.059261.be, %bindAction.exit.backedge ]
-  %.062260 = phi ptr [ null, %16 ], [ %.062260.be, %bindAction.exit.backedge ]
-  %.065259 = phi ptr [ null, %16 ], [ %.065259.be, %bindAction.exit.backedge ]
-  %.068258 = phi ptr [ null, %16 ], [ %.068258.be, %bindAction.exit.backedge ]
-  %.071257 = phi ptr [ null, %16 ], [ %.071257.be, %bindAction.exit.backedge ]
-  %.074256 = phi ptr [ null, %16 ], [ %.074256.be, %bindAction.exit.backedge ]
-  %.0254 = phi ptr [ null, %16 ], [ %.0254.be, %bindAction.exit.backedge ]
-  %.0148253 = phi i32 [ 0, %16 ], [ %.0148253.be, %bindAction.exit.backedge ]
-  %.0151252 = phi i32 [ 0, %16 ], [ %.1152, %bindAction.exit.backedge ]
-  %.0153251 = phi i32 [ 0, %16 ], [ %.2155, %bindAction.exit.backedge ]
-  %.0156250 = phi i64 [ 0, %16 ], [ %.0156250.be, %bindAction.exit.backedge ]
-  %.0160249 = phi i64 [ 0, %16 ], [ %.0160249.be, %bindAction.exit.backedge ]
-  %.0164248 = phi ptr [ null, %16 ], [ %.2166, %bindAction.exit.backedge ]
-  %.0167247 = phi ptr [ null, %16 ], [ %.1168, %bindAction.exit.backedge ]
+  %.058261 = phi i64 [ 0, %16 ], [ %.058261.be, %bindAction.exit.backedge ]
+  %.059260 = phi ptr [ null, %16 ], [ %.059260.be, %bindAction.exit.backedge ]
+  %.062259 = phi ptr [ null, %16 ], [ %.062259.be, %bindAction.exit.backedge ]
+  %.065258 = phi ptr [ null, %16 ], [ %.065258.be, %bindAction.exit.backedge ]
+  %.068257 = phi ptr [ null, %16 ], [ %.068257.be, %bindAction.exit.backedge ]
+  %.071256 = phi ptr [ null, %16 ], [ %.071256.be, %bindAction.exit.backedge ]
+  %.074255 = phi ptr [ null, %16 ], [ %.074255.be, %bindAction.exit.backedge ]
+  %.0253 = phi ptr [ null, %16 ], [ %.0253.be, %bindAction.exit.backedge ]
+  %.0147252 = phi i32 [ 0, %16 ], [ %.0147252.be, %bindAction.exit.backedge ]
+  %.0150251 = phi i32 [ 0, %16 ], [ %.1151, %bindAction.exit.backedge ]
+  %.0152250 = phi i32 [ 0, %16 ], [ %.2154, %bindAction.exit.backedge ]
+  %.0155249 = phi i64 [ 0, %16 ], [ %.0155249.be, %bindAction.exit.backedge ]
+  %.0159248 = phi i64 [ 0, %16 ], [ %.0159248.be, %bindAction.exit.backedge ]
+  %.0163247 = phi ptr [ null, %16 ], [ %.2165, %bindAction.exit.backedge ]
+  %.0166246 = phi ptr [ null, %16 ], [ %.1167, %bindAction.exit.backedge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   br label %gv_isspace.exit.i.i.i
 
 gv_isspace.exit.i.i.i:                            ; preds = %gv_isspace.exit.i.i.i.backedge, %bindAction.exit
-  %24 = call fastcc i32 @readc(ptr noundef nonnull %.080176, ptr noundef null)
+  %24 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
   switch i32 %24, label %skipWS.exit.i.i [
     i32 9, label %gv_isspace.exit.i.i.i.backedge
     i32 10, label %gv_isspace.exit.i.i.i.backedge
@@ -145,7 +145,7 @@ skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i
   store i32 %30, ptr @kwLine, align 4
   %33 = trunc i32 %24 to i8
   store i8 %33, ptr %3, align 1
-  %34 = call fastcc i32 @readc(ptr noundef nonnull %.080176, ptr noundef null)
+  %34 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %parseID.exit.i.i, label %.lr.ph.i.i.i
 
@@ -169,12 +169,12 @@ skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx22.i.i.i, 1
   store i8 %44, ptr %.0.ptr23.i.i.i, align 1
   %.0.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
-  %45 = call fastcc i32 @readc(ptr noundef nonnull %.080176, ptr noundef null)
+  %45 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %parseID.exit.i.i, label %.lr.ph.i.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i
-  %48 = call i32 @ungetc(i32 noundef %36, ptr noundef nonnull %.080176)
+  %48 = call i32 @ungetc(i32 noundef %36, ptr noundef nonnull %.080175)
   %49 = icmp eq i32 %36, 10
   br i1 %49, label %50, label %parseID.exit.i.i
 
@@ -229,7 +229,7 @@ parseKind.exit.thread19.i:                        ; preds = %63, %31, %skipWS.ex
 65:                                               ; preds = %60, %58, %54, %parseID.exit.i.i
   %.08.i.ph.i = phi i32 [ 0, %parseID.exit.i.i ], [ 2, %54 ], [ 1, %58 ], [ 3, %60 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %66 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080176, ptr noundef nonnull %4, i32 noundef 123, i32 noundef 125)
+  %66 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 123, i32 noundef 125)
   %67 = load i32, ptr @startLine, align 4
   %68 = call i32 @getErrorErrors() #15
   %.not12.i = icmp eq i32 %68, 0
@@ -239,30 +239,30 @@ parseKind.exit.thread19.i:                        ; preds = %63, %31, %skipWS.ex
 69:                                               ; preds = %62, %56
   %.08.i.i = phi i32 [ 4, %62 ], [ 5, %56 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %70 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080176, ptr noundef nonnull %4, i32 noundef 91, i32 noundef 93)
+  %70 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 91, i32 noundef 93)
   %71 = load i32, ptr @startLine, align 4
   %72 = call i32 @getErrorErrors() #15
   %.not.i = icmp eq i32 %72, 0
   br i1 %.not.i, label %73, label %76
 
 73:                                               ; preds = %69
-  %74 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080176, ptr noundef nonnull %4, i32 noundef 123, i32 noundef 125)
+  %74 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 123, i32 noundef 125)
   %75 = load i32, ptr @startLine, align 4
   br label %76
 
 76:                                               ; preds = %73, %69
-  %.1165 = phi ptr [ %74, %73 ], [ %.0164248, %69 ]
-  %.1154 = phi i32 [ %75, %73 ], [ %.0153251, %69 ]
+  %.1164 = phi ptr [ %74, %73 ], [ %.0163247, %69 ]
+  %.1153 = phi i32 [ %75, %73 ], [ %.0152250, %69 ]
   %77 = call i32 @getErrorErrors() #15
   %.not11.i = icmp eq i32 %77, 0
   %spec.select13.i = select i1 %.not11.i, i32 %.08.i.i, i32 7
   br label %78
 
 78:                                               ; preds = %76, %65, %parseKind.exit.thread19.i
-  %.1168 = phi ptr [ %.0167247, %parseKind.exit.thread19.i ], [ %.0167247, %65 ], [ %70, %76 ]
-  %.2166 = phi ptr [ %.0164248, %parseKind.exit.thread19.i ], [ %66, %65 ], [ %.1165, %76 ]
-  %.2155 = phi i32 [ %.0153251, %parseKind.exit.thread19.i ], [ %67, %65 ], [ %.1154, %76 ]
-  %.1152 = phi i32 [ %.0151252, %parseKind.exit.thread19.i ], [ %.0151252, %65 ], [ %71, %76 ]
+  %.1167 = phi ptr [ %.0166246, %parseKind.exit.thread19.i ], [ %.0166246, %65 ], [ %70, %76 ]
+  %.2165 = phi ptr [ %.0163247, %parseKind.exit.thread19.i ], [ %66, %65 ], [ %.1164, %76 ]
+  %.2154 = phi i32 [ %.0152250, %parseKind.exit.thread19.i ], [ %67, %65 ], [ %.1153, %76 ]
+  %.1151 = phi i32 [ %.0150251, %parseKind.exit.thread19.i ], [ %.0150251, %65 ], [ %71, %76 ]
   %.0.i = phi i32 [ %.08.i.ph18.i, %parseKind.exit.thread19.i ], [ %spec.select.i, %65 ], [ %spec.select13.i, %76 ]
   %.val14.i = load i8, ptr %17, align 1
   %79 = icmp eq i8 %.val14.i, -1
@@ -275,20 +275,20 @@ parseKind.exit.thread19.i:                        ; preds = %63, %31, %skipWS.ex
 
 parseCase.exit:                                   ; preds = %78, %80
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  switch i32 %.0.i, label %default.unreachable266 [
+  switch i32 %.0.i, label %default.unreachable265 [
     i32 0, label %81
     i32 2, label %89
     i32 1, label %110
     i32 3, label %118
-    i32 6, label %bindAction.exit.thread
+    i32 6, label %168
     i32 4, label %126
     i32 5, label %147
-    i32 7, label %bindAction.exit.thread
+    i32 7, label %168
   ]
 
 81:                                               ; preds = %parseCase.exit
-  %.not.i97 = icmp eq ptr %.2166, null
-  br i1 %.not.i97, label %82, label %84
+  %.not.i96 = icmp eq ptr %.2165, null
+  br i1 %.not.i96, label %82, label %84
 
 82:                                               ; preds = %81
   %83 = load i32, ptr @kwLine, align 4
@@ -306,19 +306,19 @@ parseCase.exit:                                   ; preds = %78, %80
   br label %bindAction.exit.backedge
 
 88:                                               ; preds = %84
-  store ptr %.2166, ptr %22, align 8
-  store i32 %.2155, ptr %23, align 4
+  store ptr %.2165, ptr %22, align 8
+  store i32 %.2154, ptr %23, align 4
   br label %bindAction.exit.backedge
 
 89:                                               ; preds = %parseCase.exit
-  %.not92 = icmp eq ptr %.2166, null
-  br i1 %.not92, label %108, label %90
+  %.not91 = icmp eq ptr %.2165, null
+  br i1 %.not91, label %108, label %90
 
 90:                                               ; preds = %89
-  %91 = icmp ne ptr %.0254, null
-  %92 = icmp ne ptr %.068258, null
+  %91 = icmp ne ptr %.0253, null
+  %92 = icmp ne ptr %.068257, null
   %or.cond = select i1 %91, i1 true, i1 %92
-  %93 = icmp ne ptr %.071257, null
+  %93 = icmp ne ptr %.071256, null
   %or.cond3 = select i1 %or.cond, i1 true, i1 %93
   br i1 %or.cond3, label %94, label %bindAction.exit.backedge
 
@@ -334,29 +334,29 @@ parseCase.exit:                                   ; preds = %78, %80
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %94
-  store i32 %.0148253, ptr %95, align 8
+  store i32 %.0147252, ptr %95, align 8
   %100 = getelementptr inbounds i8, ptr %95, i64 8
-  store ptr %.0254, ptr %100, align 8
+  store ptr %.0253, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %95, i64 16
-  store i64 %.0160249, ptr %101, align 8
+  store i64 %.0159248, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %95, i64 24
-  store i64 %.0156250, ptr %102, align 8
+  store i64 %.0155249, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %95, i64 32
-  store ptr %.068258, ptr %103, align 8
+  store ptr %.068257, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %95, i64 40
-  store ptr %.071257, ptr %104, align 8
-  %.not.i98 = icmp eq ptr %.065259, null
-  br i1 %.not.i98, label %addBlock.exit, label %105
+  store ptr %.071256, ptr %104, align 8
+  %.not.i97 = icmp eq ptr %.065258, null
+  br i1 %.not.i97, label %addBlock.exit, label %105
 
 105:                                              ; preds = %gv_alloc.exit.i
-  %106 = getelementptr inbounds i8, ptr %.065259, i64 48
+  %106 = getelementptr inbounds i8, ptr %.065258, i64 48
   store ptr %95, ptr %106, align 8
   br label %addBlock.exit
 
 addBlock.exit:                                    ; preds = %gv_alloc.exit.i, %105
-  %.not93 = icmp eq ptr %.074256, null
-  %spec.select = select i1 %.not93, ptr %95, ptr %.074256
-  %107 = add i64 %.058262, 1
+  %.not92 = icmp eq ptr %.074255, null
+  %spec.select = select i1 %.not92, ptr %95, ptr %.074255
+  %107 = add i64 %.058261, 1
   br label %bindAction.exit.backedge
 
 108:                                              ; preds = %89
@@ -365,8 +365,8 @@ addBlock.exit:                                    ; preds = %gv_alloc.exit.i, %1
   br label %bindAction.exit.backedge
 
 110:                                              ; preds = %parseCase.exit
-  %.not.i102 = icmp eq ptr %.2166, null
-  br i1 %.not.i102, label %111, label %113
+  %.not.i101 = icmp eq ptr %.2165, null
+  br i1 %.not.i101, label %111, label %113
 
 111:                                              ; preds = %110
   %112 = load i32, ptr @kwLine, align 4
@@ -375,8 +375,8 @@ addBlock.exit:                                    ; preds = %gv_alloc.exit.i, %1
 
 113:                                              ; preds = %110
   %114 = load ptr, ptr %20, align 8
-  %.not7.i103 = icmp eq ptr %114, null
-  br i1 %.not7.i103, label %117, label %115
+  %.not7.i102 = icmp eq ptr %114, null
+  br i1 %.not7.i102, label %117, label %115
 
 115:                                              ; preds = %113
   %116 = load i32, ptr @kwLine, align 4
@@ -384,13 +384,13 @@ addBlock.exit:                                    ; preds = %gv_alloc.exit.i, %1
   br label %bindAction.exit.backedge
 
 117:                                              ; preds = %113
-  store ptr %.2166, ptr %20, align 8
-  store i32 %.2155, ptr %21, align 4
+  store ptr %.2165, ptr %20, align 8
+  store i32 %.2154, ptr %21, align 4
   br label %bindAction.exit.backedge
 
 118:                                              ; preds = %parseCase.exit
-  %.not.i105 = icmp eq ptr %.2166, null
-  br i1 %.not.i105, label %119, label %121
+  %.not.i104 = icmp eq ptr %.2165, null
+  br i1 %.not.i104, label %119, label %121
 
 119:                                              ; preds = %118
   %120 = load i32, ptr @kwLine, align 4
@@ -399,8 +399,8 @@ addBlock.exit:                                    ; preds = %gv_alloc.exit.i, %1
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr %18, align 8
-  %.not7.i106 = icmp eq ptr %122, null
-  br i1 %.not7.i106, label %125, label %123
+  %.not7.i105 = icmp eq ptr %122, null
+  br i1 %.not7.i105, label %125, label %123
 
 123:                                              ; preds = %121
   %124 = load i32, ptr @kwLine, align 4
@@ -408,27 +408,27 @@ addBlock.exit:                                    ; preds = %gv_alloc.exit.i, %1
   br label %bindAction.exit.backedge
 
 125:                                              ; preds = %121
-  store ptr %.2166, ptr %18, align 8
-  store i32 %.2155, ptr %19, align 4
+  store ptr %.2165, ptr %18, align 8
+  store i32 %.2154, ptr %19, align 4
   br label %bindAction.exit.backedge
 
-bindAction.exit.backedge:                         ; preds = %125, %123, %119, %117, %115, %111, %108, %addBlock.exit, %90, %88, %86, %82, %addCase.exit115, %addCase.exit
-  %.058262.be = phi i64 [ %.058262, %addCase.exit115 ], [ %.058262, %addCase.exit ], [ %.058262, %82 ], [ %.058262, %86 ], [ %.058262, %88 ], [ %.058262, %108 ], [ %.058262, %90 ], [ %107, %addBlock.exit ], [ %.058262, %111 ], [ %.058262, %115 ], [ %.058262, %117 ], [ %.058262, %119 ], [ %.058262, %123 ], [ %.058262, %125 ]
-  %.059261.be = phi ptr [ %.059261, %addCase.exit115 ], [ %.0.i108, %addCase.exit ], [ %.059261, %82 ], [ %.059261, %86 ], [ %.059261, %88 ], [ %.059261, %108 ], [ %.059261, %90 ], [ null, %addBlock.exit ], [ %.059261, %111 ], [ %.059261, %115 ], [ %.059261, %117 ], [ %.059261, %119 ], [ %.059261, %123 ], [ %.059261, %125 ]
-  %.062260.be = phi ptr [ %.0.i112, %addCase.exit115 ], [ %.062260, %addCase.exit ], [ %.062260, %82 ], [ %.062260, %86 ], [ %.062260, %88 ], [ %.062260, %108 ], [ %.062260, %90 ], [ null, %addBlock.exit ], [ %.062260, %111 ], [ %.062260, %115 ], [ %.062260, %117 ], [ %.062260, %119 ], [ %.062260, %123 ], [ %.062260, %125 ]
-  %.065259.be = phi ptr [ %.065259, %addCase.exit115 ], [ %.065259, %addCase.exit ], [ %.065259, %82 ], [ %.065259, %86 ], [ %.065259, %88 ], [ %.065259, %108 ], [ %.065259, %90 ], [ %95, %addBlock.exit ], [ %.065259, %111 ], [ %.065259, %115 ], [ %.065259, %117 ], [ %.065259, %119 ], [ %.065259, %123 ], [ %.065259, %125 ]
-  %.068258.be = phi ptr [ %.068258, %addCase.exit115 ], [ %spec.select94, %addCase.exit ], [ %.068258, %82 ], [ %.068258, %86 ], [ %.068258, %88 ], [ %.068258, %108 ], [ null, %90 ], [ null, %addBlock.exit ], [ %.068258, %111 ], [ %.068258, %115 ], [ %.068258, %117 ], [ %.068258, %119 ], [ %.068258, %123 ], [ %.068258, %125 ]
-  %.071257.be = phi ptr [ %spec.select95, %addCase.exit115 ], [ %.071257, %addCase.exit ], [ %.071257, %82 ], [ %.071257, %86 ], [ %.071257, %88 ], [ %.071257, %108 ], [ null, %90 ], [ null, %addBlock.exit ], [ %.071257, %111 ], [ %.071257, %115 ], [ %.071257, %117 ], [ %.071257, %119 ], [ %.071257, %123 ], [ %.071257, %125 ]
-  %.074256.be = phi ptr [ %.074256, %addCase.exit115 ], [ %.074256, %addCase.exit ], [ %.074256, %82 ], [ %.074256, %86 ], [ %.074256, %88 ], [ %.074256, %108 ], [ %.074256, %90 ], [ %spec.select, %addBlock.exit ], [ %.074256, %111 ], [ %.074256, %115 ], [ %.074256, %117 ], [ %.074256, %119 ], [ %.074256, %123 ], [ %.074256, %125 ]
-  %.0254.be = phi ptr [ %.0254, %addCase.exit115 ], [ %.0254, %addCase.exit ], [ %.0254, %82 ], [ %.0254, %86 ], [ %.0254, %88 ], [ %.0254, %108 ], [ %.2166, %90 ], [ %.2166, %addBlock.exit ], [ %.0254, %111 ], [ %.0254, %115 ], [ %.0254, %117 ], [ %.0254, %119 ], [ %.0254, %123 ], [ %.0254, %125 ]
-  %.0148253.be = phi i32 [ %.0148253, %addCase.exit115 ], [ %.0148253, %addCase.exit ], [ %.0148253, %82 ], [ %.0148253, %86 ], [ %.0148253, %88 ], [ %.0148253, %108 ], [ %.2155, %90 ], [ %.2155, %addBlock.exit ], [ %.0148253, %111 ], [ %.0148253, %115 ], [ %.0148253, %117 ], [ %.0148253, %119 ], [ %.0148253, %123 ], [ %.0148253, %125 ]
-  %.0156250.be = phi i64 [ %.2158, %addCase.exit115 ], [ %.0156250, %addCase.exit ], [ %.0156250, %82 ], [ %.0156250, %86 ], [ %.0156250, %88 ], [ %.0156250, %108 ], [ %.0156250, %90 ], [ 0, %addBlock.exit ], [ %.0156250, %111 ], [ %.0156250, %115 ], [ %.0156250, %117 ], [ %.0156250, %119 ], [ %.0156250, %123 ], [ %.0156250, %125 ]
-  %.0160249.be = phi i64 [ %.0160249, %addCase.exit115 ], [ %.2162, %addCase.exit ], [ %.0160249, %82 ], [ %.0160249, %86 ], [ %.0160249, %88 ], [ %.0160249, %108 ], [ %.0160249, %90 ], [ 0, %addBlock.exit ], [ %.0160249, %111 ], [ %.0160249, %115 ], [ %.0160249, %117 ], [ %.0160249, %119 ], [ %.0160249, %123 ], [ %.0160249, %125 ]
+bindAction.exit.backedge:                         ; preds = %125, %123, %119, %117, %115, %111, %108, %addBlock.exit, %90, %88, %86, %82, %addCase.exit114, %addCase.exit
+  %.058261.be = phi i64 [ %.058261, %addCase.exit114 ], [ %.058261, %addCase.exit ], [ %.058261, %82 ], [ %.058261, %86 ], [ %.058261, %88 ], [ %.058261, %108 ], [ %.058261, %90 ], [ %107, %addBlock.exit ], [ %.058261, %111 ], [ %.058261, %115 ], [ %.058261, %117 ], [ %.058261, %119 ], [ %.058261, %123 ], [ %.058261, %125 ]
+  %.059260.be = phi ptr [ %.059260, %addCase.exit114 ], [ %.0.i107, %addCase.exit ], [ %.059260, %82 ], [ %.059260, %86 ], [ %.059260, %88 ], [ %.059260, %108 ], [ %.059260, %90 ], [ null, %addBlock.exit ], [ %.059260, %111 ], [ %.059260, %115 ], [ %.059260, %117 ], [ %.059260, %119 ], [ %.059260, %123 ], [ %.059260, %125 ]
+  %.062259.be = phi ptr [ %.0.i111, %addCase.exit114 ], [ %.062259, %addCase.exit ], [ %.062259, %82 ], [ %.062259, %86 ], [ %.062259, %88 ], [ %.062259, %108 ], [ %.062259, %90 ], [ null, %addBlock.exit ], [ %.062259, %111 ], [ %.062259, %115 ], [ %.062259, %117 ], [ %.062259, %119 ], [ %.062259, %123 ], [ %.062259, %125 ]
+  %.065258.be = phi ptr [ %.065258, %addCase.exit114 ], [ %.065258, %addCase.exit ], [ %.065258, %82 ], [ %.065258, %86 ], [ %.065258, %88 ], [ %.065258, %108 ], [ %.065258, %90 ], [ %95, %addBlock.exit ], [ %.065258, %111 ], [ %.065258, %115 ], [ %.065258, %117 ], [ %.065258, %119 ], [ %.065258, %123 ], [ %.065258, %125 ]
+  %.068257.be = phi ptr [ %.068257, %addCase.exit114 ], [ %spec.select93, %addCase.exit ], [ %.068257, %82 ], [ %.068257, %86 ], [ %.068257, %88 ], [ %.068257, %108 ], [ null, %90 ], [ null, %addBlock.exit ], [ %.068257, %111 ], [ %.068257, %115 ], [ %.068257, %117 ], [ %.068257, %119 ], [ %.068257, %123 ], [ %.068257, %125 ]
+  %.071256.be = phi ptr [ %spec.select94, %addCase.exit114 ], [ %.071256, %addCase.exit ], [ %.071256, %82 ], [ %.071256, %86 ], [ %.071256, %88 ], [ %.071256, %108 ], [ null, %90 ], [ null, %addBlock.exit ], [ %.071256, %111 ], [ %.071256, %115 ], [ %.071256, %117 ], [ %.071256, %119 ], [ %.071256, %123 ], [ %.071256, %125 ]
+  %.074255.be = phi ptr [ %.074255, %addCase.exit114 ], [ %.074255, %addCase.exit ], [ %.074255, %82 ], [ %.074255, %86 ], [ %.074255, %88 ], [ %.074255, %108 ], [ %.074255, %90 ], [ %spec.select, %addBlock.exit ], [ %.074255, %111 ], [ %.074255, %115 ], [ %.074255, %117 ], [ %.074255, %119 ], [ %.074255, %123 ], [ %.074255, %125 ]
+  %.0253.be = phi ptr [ %.0253, %addCase.exit114 ], [ %.0253, %addCase.exit ], [ %.0253, %82 ], [ %.0253, %86 ], [ %.0253, %88 ], [ %.0253, %108 ], [ %.2165, %90 ], [ %.2165, %addBlock.exit ], [ %.0253, %111 ], [ %.0253, %115 ], [ %.0253, %117 ], [ %.0253, %119 ], [ %.0253, %123 ], [ %.0253, %125 ]
+  %.0147252.be = phi i32 [ %.0147252, %addCase.exit114 ], [ %.0147252, %addCase.exit ], [ %.0147252, %82 ], [ %.0147252, %86 ], [ %.0147252, %88 ], [ %.0147252, %108 ], [ %.2154, %90 ], [ %.2154, %addBlock.exit ], [ %.0147252, %111 ], [ %.0147252, %115 ], [ %.0147252, %117 ], [ %.0147252, %119 ], [ %.0147252, %123 ], [ %.0147252, %125 ]
+  %.0155249.be = phi i64 [ %.2157, %addCase.exit114 ], [ %.0155249, %addCase.exit ], [ %.0155249, %82 ], [ %.0155249, %86 ], [ %.0155249, %88 ], [ %.0155249, %108 ], [ %.0155249, %90 ], [ 0, %addBlock.exit ], [ %.0155249, %111 ], [ %.0155249, %115 ], [ %.0155249, %117 ], [ %.0155249, %119 ], [ %.0155249, %123 ], [ %.0155249, %125 ]
+  %.0159248.be = phi i64 [ %.0159248, %addCase.exit114 ], [ %.2161, %addCase.exit ], [ %.0159248, %82 ], [ %.0159248, %86 ], [ %.0159248, %88 ], [ %.0159248, %108 ], [ %.0159248, %90 ], [ 0, %addBlock.exit ], [ %.0159248, %111 ], [ %.0159248, %115 ], [ %.0159248, %117 ], [ %.0159248, %119 ], [ %.0159248, %123 ], [ %.0159248, %125 ]
   br label %bindAction.exit
 
 126:                                              ; preds = %parseCase.exit
-  %127 = icmp ne ptr %.1168, null
-  %128 = icmp ne ptr %.2166, null
+  %127 = icmp ne ptr %.1167, null
+  %128 = icmp ne ptr %.2165, null
   %or.cond.i = or i1 %127, %128
   br i1 %or.cond.i, label %131, label %129
 
@@ -438,10 +438,10 @@ bindAction.exit.backedge:                         ; preds = %125, %123, %119, %1
   br label %addCase.exit
 
 131:                                              ; preds = %126
-  %132 = add i64 %.0160249, 1
+  %132 = add i64 %.0159248, 1
   %133 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %135, label %gv_alloc.exit.i109
+  br i1 %134, label %135, label %gv_alloc.exit.i108
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr @stderr, align 8
@@ -449,57 +449,57 @@ bindAction.exit.backedge:                         ; preds = %125, %123, %119, %1
   call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_alloc.exit.i109:                               ; preds = %131
+gv_alloc.exit.i108:                               ; preds = %131
   %138 = getelementptr inbounds i8, ptr %133, i64 8
-  store ptr %.1168, ptr %138, align 8
+  store ptr %.1167, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %133, i64 24
-  store ptr %.2166, ptr %139, align 8
+  store ptr %.2165, ptr %139, align 8
   br i1 %127, label %140, label %141
 
-140:                                              ; preds = %gv_alloc.exit.i109
-  store i32 %.1152, ptr %133, align 8
+140:                                              ; preds = %gv_alloc.exit.i108
+  store i32 %.1151, ptr %133, align 8
   br label %141
 
-141:                                              ; preds = %140, %gv_alloc.exit.i109
+141:                                              ; preds = %140, %gv_alloc.exit.i108
   br i1 %128, label %142, label %144
 
 142:                                              ; preds = %141
   %143 = getelementptr inbounds i8, ptr %133, i64 16
-  store i32 %.2155, ptr %143, align 8
+  store i32 %.2154, ptr %143, align 8
   br label %144
 
 144:                                              ; preds = %142, %141
-  %.not.i110 = icmp eq ptr %.059261, null
-  br i1 %.not.i110, label %addCase.exit, label %145
+  %.not.i109 = icmp eq ptr %.059260, null
+  br i1 %.not.i109, label %addCase.exit, label %145
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %.059261, i64 32
+  %146 = getelementptr inbounds i8, ptr %.059260, i64 32
   store ptr %133, ptr %146, align 8
   br label %addCase.exit
 
 addCase.exit:                                     ; preds = %129, %144, %145
-  %.2162 = phi i64 [ %132, %144 ], [ %132, %145 ], [ %.0160249, %129 ]
-  %.0.i108 = phi ptr [ %133, %144 ], [ %133, %145 ], [ %.059261, %129 ]
-  %.not91 = icmp eq ptr %.068258, null
-  %spec.select94 = select i1 %.not91, ptr %.0.i108, ptr %.068258
+  %.2161 = phi i64 [ %132, %144 ], [ %132, %145 ], [ %.0159248, %129 ]
+  %.0.i107 = phi ptr [ %133, %144 ], [ %133, %145 ], [ %.059260, %129 ]
+  %.not90 = icmp eq ptr %.068257, null
+  %spec.select93 = select i1 %.not90, ptr %.0.i107, ptr %.068257
   br label %bindAction.exit.backedge
 
 147:                                              ; preds = %parseCase.exit
-  %148 = icmp ne ptr %.1168, null
-  %149 = icmp ne ptr %.2166, null
-  %or.cond.i111 = or i1 %148, %149
-  br i1 %or.cond.i111, label %152, label %150
+  %148 = icmp ne ptr %.1167, null
+  %149 = icmp ne ptr %.2165, null
+  %or.cond.i110 = or i1 %148, %149
+  br i1 %or.cond.i110, label %152, label %150
 
 150:                                              ; preds = %147
   %151 = load i32, ptr @kwLine, align 4
   call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.22, i32 noundef %151) #15
-  br label %addCase.exit115
+  br label %addCase.exit114
 
 152:                                              ; preds = %147
-  %153 = add i64 %.0156250, 1
+  %153 = add i64 %.0155249, 1
   %154 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %gv_alloc.exit.i113
+  br i1 %155, label %156, label %gv_alloc.exit.i112
 
 156:                                              ; preds = %152
   %157 = load ptr, ptr @stderr, align 8
@@ -507,107 +507,107 @@ addCase.exit:                                     ; preds = %129, %144, %145
   call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_alloc.exit.i113:                               ; preds = %152
+gv_alloc.exit.i112:                               ; preds = %152
   %159 = getelementptr inbounds i8, ptr %154, i64 8
-  store ptr %.1168, ptr %159, align 8
+  store ptr %.1167, ptr %159, align 8
   %160 = getelementptr inbounds i8, ptr %154, i64 24
-  store ptr %.2166, ptr %160, align 8
+  store ptr %.2165, ptr %160, align 8
   br i1 %148, label %161, label %162
 
-161:                                              ; preds = %gv_alloc.exit.i113
-  store i32 %.1152, ptr %154, align 8
+161:                                              ; preds = %gv_alloc.exit.i112
+  store i32 %.1151, ptr %154, align 8
   br label %162
 
-162:                                              ; preds = %161, %gv_alloc.exit.i113
+162:                                              ; preds = %161, %gv_alloc.exit.i112
   br i1 %149, label %163, label %165
 
 163:                                              ; preds = %162
   %164 = getelementptr inbounds i8, ptr %154, i64 16
-  store i32 %.2155, ptr %164, align 8
+  store i32 %.2154, ptr %164, align 8
   br label %165
 
 165:                                              ; preds = %163, %162
-  %.not.i114 = icmp eq ptr %.062260, null
-  br i1 %.not.i114, label %addCase.exit115, label %166
+  %.not.i113 = icmp eq ptr %.062259, null
+  br i1 %.not.i113, label %addCase.exit114, label %166
 
 166:                                              ; preds = %165
-  %167 = getelementptr inbounds i8, ptr %.062260, i64 32
+  %167 = getelementptr inbounds i8, ptr %.062259, i64 32
   store ptr %154, ptr %167, align 8
-  br label %addCase.exit115
+  br label %addCase.exit114
 
-addCase.exit115:                                  ; preds = %150, %165, %166
-  %.2158 = phi i64 [ %153, %165 ], [ %153, %166 ], [ %.0156250, %150 ]
-  %.0.i112 = phi ptr [ %154, %165 ], [ %154, %166 ], [ %.062260, %150 ]
-  %.not90 = icmp eq ptr %.071257, null
-  %spec.select95 = select i1 %.not90, ptr %.0.i112, ptr %.071257
+addCase.exit114:                                  ; preds = %150, %165, %166
+  %.2157 = phi i64 [ %153, %165 ], [ %153, %166 ], [ %.0155249, %150 ]
+  %.0.i111 = phi ptr [ %154, %165 ], [ %154, %166 ], [ %.062259, %150 ]
+  %.not89 = icmp eq ptr %.071256, null
+  %spec.select94 = select i1 %.not89, ptr %.0.i111, ptr %.071256
   br label %bindAction.exit.backedge
 
-default.unreachable266:                           ; preds = %parseCase.exit
+default.unreachable265:                           ; preds = %parseCase.exit
   unreachable
 
-bindAction.exit.thread:                           ; preds = %parseCase.exit, %parseCase.exit
-  %168 = icmp ne ptr %.0254, null
-  %169 = icmp ne ptr %.068258, null
-  %or.cond5 = select i1 %168, i1 true, i1 %169
-  %170 = icmp ne ptr %.071257, null
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %170
-  br i1 %or.cond7, label %171, label %185
+168:                                              ; preds = %parseCase.exit, %parseCase.exit
+  %169 = icmp ne ptr %.0253, null
+  %170 = icmp ne ptr %.068257, null
+  %or.cond5 = select i1 %169, i1 true, i1 %170
+  %171 = icmp ne ptr %.071256, null
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %171
+  br i1 %or.cond7, label %172, label %186
 
-171:                                              ; preds = %bindAction.exit.thread
-  %172 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %gv_alloc.exit.i116
+172:                                              ; preds = %168
+  %173 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %175, label %gv_alloc.exit.i115
 
-174:                                              ; preds = %171
-  %175 = load ptr, ptr @stderr, align 8
-  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.15, i64 noundef 56) #16
+175:                                              ; preds = %172
+  %176 = load ptr, ptr @stderr, align 8
+  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.15, i64 noundef 56) #16
   call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_alloc.exit.i116:                               ; preds = %171
-  store i32 %.0148253, ptr %172, align 8
-  %177 = getelementptr inbounds i8, ptr %172, i64 8
-  store ptr %.0254, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %172, i64 16
-  store i64 %.0160249, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %172, i64 24
-  store i64 %.0156250, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %172, i64 32
-  store ptr %.068258, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %172, i64 40
-  store ptr %.071257, ptr %181, align 8
-  %.not.i117 = icmp eq ptr %.065259, null
-  br i1 %.not.i117, label %addBlock.exit118, label %182
+gv_alloc.exit.i115:                               ; preds = %172
+  store i32 %.0147252, ptr %173, align 8
+  %178 = getelementptr inbounds i8, ptr %173, i64 8
+  store ptr %.0253, ptr %178, align 8
+  %179 = getelementptr inbounds i8, ptr %173, i64 16
+  store i64 %.0159248, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %173, i64 24
+  store i64 %.0155249, ptr %180, align 8
+  %181 = getelementptr inbounds i8, ptr %173, i64 32
+  store ptr %.068257, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %173, i64 40
+  store ptr %.071256, ptr %182, align 8
+  %.not.i116 = icmp eq ptr %.065258, null
+  br i1 %.not.i116, label %addBlock.exit117, label %183
 
-182:                                              ; preds = %gv_alloc.exit.i116
-  %183 = getelementptr inbounds i8, ptr %.065259, i64 48
-  store ptr %172, ptr %183, align 8
-  br label %addBlock.exit118
+183:                                              ; preds = %gv_alloc.exit.i115
+  %184 = getelementptr inbounds i8, ptr %.065258, i64 48
+  store ptr %173, ptr %184, align 8
+  br label %addBlock.exit117
 
-addBlock.exit118:                                 ; preds = %gv_alloc.exit.i116, %182
-  %.not88 = icmp eq ptr %.074256, null
-  %spec.select96 = select i1 %.not88, ptr %172, ptr %.074256
-  %184 = add i64 %.058262, 1
-  br label %185
+addBlock.exit117:                                 ; preds = %gv_alloc.exit.i115, %183
+  %.not87 = icmp eq ptr %.074255, null
+  %spec.select95 = select i1 %.not87, ptr %173, ptr %.074255
+  %185 = add i64 %.058261, 1
+  br label %186
 
-185:                                              ; preds = %bindAction.exit.thread, %addBlock.exit118
-  %.5 = phi ptr [ %spec.select96, %addBlock.exit118 ], [ %.074256, %bindAction.exit.thread ]
-  %.3 = phi i64 [ %184, %addBlock.exit118 ], [ %.058262, %bindAction.exit.thread ]
-  %186 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 %.3, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %.5, ptr %187, align 8
-  %188 = call i32 @fclose(ptr noundef nonnull %.080176)
-  %189 = call i32 @getErrorErrors() #15
-  %.not89 = icmp eq i32 %189, 0
-  br i1 %.not89, label %191, label %190
+186:                                              ; preds = %168, %addBlock.exit117
+  %.5 = phi ptr [ %spec.select95, %addBlock.exit117 ], [ %.074255, %168 ]
+  %.3 = phi i64 [ %185, %addBlock.exit117 ], [ %.058261, %168 ]
+  %187 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 %.3, ptr %187, align 8
+  %188 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr %.5, ptr %188, align 8
+  %189 = call i32 @fclose(ptr noundef nonnull %.080175)
+  %190 = call i32 @getErrorErrors() #15
+  %.not88 = icmp eq i32 %190, 0
+  br i1 %.not88, label %192, label %191
 
-190:                                              ; preds = %185
+191:                                              ; preds = %186
   call void @freeParseProg(ptr noundef nonnull %5)
-  br label %191
+  br label %192
 
-191:                                              ; preds = %185, %190, %15, %6
-  %.081 = phi ptr [ null, %15 ], [ null, %6 ], [ null, %190 ], [ %5, %185 ]
+192:                                              ; preds = %186, %191, %15, %6
+  %.081 = phi ptr [ null, %15 ], [ null, %6 ], [ null, %191 ], [ %5, %186 ]
   ret ptr %.081
 }
 
@@ -1053,8 +1053,8 @@ skipWS.exit:                                      ; preds = %gv_isspace.exit.i
 14:                                               ; preds = %7
   %15 = load i32, ptr @lineno, align 4
   store i32 %15, ptr @startLine, align 4
-  %16 = trunc i32 %2 to i8
-  %17 = trunc i32 %3 to i8
+  %16 = trunc nuw nsw i32 %2 to i8
+  %17 = trunc nuw nsw i32 %3 to i8
   %18 = tail call fastcc i32 @endBracket(ptr noundef %0, ptr noundef %1, i8 noundef signext %16, i8 noundef signext %17)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %24
@@ -1077,7 +1077,7 @@ skipWS.exit:                                      ; preds = %gv_isspace.exit.i
 
 agxblen.exit.i:                                   ; preds = %24
   %26 = zext i8 %.val.i to i64
-  %27 = tail call noalias ptr @strndup(ptr noundef nonnull %1, i64 noundef %26) #15
+  %27 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %1, i64 noundef %26) #15
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %agxbdisown.exit
 
@@ -1134,7 +1134,7 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef %0, ptr noundef %1,
   ]
 
 17:                                               ; preds = %16, %16
-  %18 = trunc i32 %11 to i8
+  %18 = trunc nuw i32 %11 to i8
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %18)
   %19 = load i32, ptr @lineno, align 4
   %20 = tail call i32 @getc(ptr noundef %0)

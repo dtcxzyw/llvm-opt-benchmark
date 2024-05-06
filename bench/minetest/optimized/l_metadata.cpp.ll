@@ -357,7 +357,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11MetaDataRef10l_containsEP9lua_State(ptr noundef %L) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11MetaDataRef10l_containsEP9lua_State(ptr noundef %L) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -500,7 +500,7 @@ declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11MetaDataRef5l_getEP9lua_State(ptr noundef %L) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11MetaDataRef5l_getEP9lua_State(ptr noundef %L) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1519,7 +1519,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %14 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %14 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %14, 48
   br label %_Z4itosB5cxx11i.exit
 

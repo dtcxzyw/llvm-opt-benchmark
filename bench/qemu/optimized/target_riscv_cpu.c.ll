@@ -575,7 +575,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 do.end.i:                                         ; preds = %entry
-  %0 = tail call i32 @llvm.cttz.i32(i32 %bit, i1 true), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %bit, i1 true)
   %cmp2.i = icmp ult i32 %0, 22
   br i1 %cmp2.i, label %riscv_validate_misa_info_idx.exit, label %if.else5.i
 
@@ -609,7 +609,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 do.end.i:                                         ; preds = %entry
-  %0 = tail call i32 @llvm.cttz.i32(i32 %bit, i1 true), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %bit, i1 true)
   %cmp2.i = icmp ult i32 %0, 22
   br i1 %cmp2.i, label %riscv_validate_misa_info_idx.exit, label %if.else5.i
 
@@ -641,8 +641,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
   %pmu_mask = getelementptr inbounds i8, ptr %call.i, i64 15428
   %0 = load i32, ptr %pmu_mask, align 4
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %0), !range !5
-  %conv = trunc i32 %1 to i8
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %conv = trunc nuw nsw i32 %1 to i8
   store i8 %conv, ptr %pmu_num, align 1
   %call2 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %pmu_num, ptr noundef %errp) #14
   ret void
@@ -716,7 +716,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %p.1 = phi ptr [ %incdec.ptr, %if.then ], [ %p.09, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
   store i8 0, ptr %p.1, align 1
@@ -1260,7 +1260,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   %and8 = and i32 %flags, 131072
@@ -1289,7 +1289,7 @@ if.then20:                                        ; preds = %for.body12
 for.inc23:                                        ; preds = %for.body12, %if.then20
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 32
-  br i1 %exitcond47.not, label %if.end26, label %for.body12, !llvm.loop !9
+  br i1 %exitcond47.not, label %if.end26, label %for.body12, !llvm.loop !8
 
 if.end26:                                         ; preds = %for.inc23, %for.end
   %5 = getelementptr i8, ptr %call.i, i64 15192
@@ -1321,7 +1321,7 @@ if.then41:                                        ; preds = %for.body35
 for.inc46:                                        ; preds = %for.body35, %if.then41
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 7
-  br i1 %exitcond51.not, label %for.end48, label %for.body35, !llvm.loop !10
+  br i1 %exitcond51.not, label %for.end48, label %for.body35, !llvm.loop !9
 
 for.end48:                                        ; preds = %for.inc46
   %vlen = getelementptr inbounds i8, ptr %call.i, i64 15464
@@ -1355,13 +1355,13 @@ for.body62.us:                                    ; preds = %for.body54.us, %for
   %conv66.us = zext i8 %17 to i32
   %call67.us = call i32 (ptr, ptr, ...) @qemu_fprintf(ptr noundef %f, ptr noundef nonnull @.str.345, i32 noundef %conv66.us) #14
   %cmp60.us = icmp sgt i64 %indvars.iv56, 1
-  br i1 %cmp60.us, label %for.body62.us, label %for.cond59.for.end69_crit_edge.us, !llvm.loop !11
+  br i1 %cmp60.us, label %for.body62.us, label %for.cond59.for.end69_crit_edge.us, !llvm.loop !10
 
 for.cond59.for.end69_crit_edge.us:                ; preds = %for.body62.us
   %call70.us = call i32 (ptr, ptr, ...) @qemu_fprintf(ptr noundef %f, ptr noundef nonnull @.str.342) #14
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, 32
-  br i1 %exitcond62.not, label %if.end74, label %for.body54.us, !llvm.loop !12
+  br i1 %exitcond62.not, label %if.end74, label %for.body54.us, !llvm.loop !11
 
 for.body54:                                       ; preds = %for.end48, %for.body54
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %for.body54 ], [ 0, %for.end48 ]
@@ -1371,7 +1371,7 @@ for.body54:                                       ; preds = %for.end48, %for.bod
   %call70 = call i32 (ptr, ptr, ...) @qemu_fprintf(ptr noundef %f, ptr noundef nonnull @.str.342) #14
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 32
-  br i1 %exitcond55.not, label %if.end74, label %for.body54, !llvm.loop !12
+  br i1 %exitcond55.not, label %if.end74, label %for.body54, !llvm.loop !11
 
 if.end74:                                         ; preds = %for.body54, %for.cond59.for.end69_crit_edge.us, %if.end26
   ret void
@@ -1729,11 +1729,10 @@ attributes #17 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

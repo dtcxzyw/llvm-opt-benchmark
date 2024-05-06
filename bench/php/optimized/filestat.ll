@@ -249,7 +249,7 @@ thread-pre-split:                                 ; preds = %15
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
-  %35 = call i32 @statvfs(ptr noundef nonnull %5, ptr noundef nonnull %3) #16
+  %35 = call i32 @statvfs(ptr noundef nonnull readonly %5, ptr noundef nonnull %3) #16
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %36, label %47
 
@@ -375,7 +375,7 @@ thread-pre-split:                                 ; preds = %15
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
-  %35 = call i32 @statvfs(ptr noundef nonnull %5, ptr noundef nonnull %3) #16
+  %35 = call i32 @statvfs(ptr noundef nonnull readonly %5, ptr noundef nonnull %3) #16
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %36, label %47
 
@@ -413,7 +413,7 @@ thread-pre-split:                                 ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_get_gid_by_name(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @php_get_gid_by_name(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = tail call ptr @getgrnam(ptr noundef %0) #16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -646,7 +646,7 @@ define hidden void @zif_lchgrp(ptr noundef %0, ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @php_get_uid_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @php_get_uid_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = tail call ptr @getpwnam(ptr noundef %0)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -805,7 +805,7 @@ thread-pre-split:                                 ; preds = %16
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %54, i64 24
-  %57 = call ptr @getpwnam(ptr noundef nonnull %56)
+  %57 = call ptr @getpwnam(ptr noundef nonnull readonly %56)
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %php_get_uid_by_name.exit, label %php_get_uid_by_name.exit.thread
 

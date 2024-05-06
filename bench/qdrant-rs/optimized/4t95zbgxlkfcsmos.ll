@@ -98,7 +98,7 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds i8, ptr %.sroa.055.066, i64 %.0.sroa.speculated.i.i
   %35 = sub i64 %.sroa.5.067, %.0.sroa.speculated.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.055.066, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.055.066, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !11
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %.critedge35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
 

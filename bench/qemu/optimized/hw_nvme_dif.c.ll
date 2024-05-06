@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.34, ptr @.str.35, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.36, ptr @.str.35, i32 135, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @nvme_check_prinfo(ptr nocapture noundef readonly %ns, i8 noundef zeroext %prinfo, i64 noundef %slba, i64 noundef %reftag) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, 16770) i16 @nvme_check_prinfo(ptr nocapture noundef readonly %ns, i8 noundef zeroext %prinfo, i64 noundef %slba, i64 noundef %reftag) local_unnamed_addr #0 {
 entry:
   %pif = getelementptr inbounds i8, ptr %ns, i64 8496
   %0 = load i8, ptr %pif, align 8
@@ -1274,7 +1274,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i16 @nvme_dif_mangle_mdata(ptr nocapture noundef readonly %ns, ptr noundef writeonly %mbuf, i64 noundef %mlen, i64 noundef %slba) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 0, 7) i16 @nvme_dif_mangle_mdata(ptr nocapture noundef readonly %ns, ptr noundef writeonly %mbuf, i64 noundef %mlen, i64 noundef %slba) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pnum = alloca i64, align 8
@@ -2150,7 +2150,7 @@ if.end:                                           ; preds = %trace_pci_nvme_dif_
   %17 = load ptr, ptr %bounce, align 8
   %size = getelementptr inbounds i8, ptr %opaque, i64 88
   %18 = load i64, ptr %size, align 8
-  %call20 = tail call zeroext i16 @nvme_dif_mangle_mdata(ptr noundef %1, ptr noundef %17, i64 noundef %18, i64 noundef %2), !range !14
+  %call20 = tail call zeroext i16 @nvme_dif_mangle_mdata(ptr noundef %1, ptr noundef %17, i64 noundef %18, i64 noundef %2)
   %tobool21.not = icmp eq i16 %call20, 0
   br i1 %tobool21.not, label %if.end24, label %out.sink.split
 
@@ -2248,4 +2248,3 @@ attributes #14 = { nounwind allocsize(0,1) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i16 0, i16 7}

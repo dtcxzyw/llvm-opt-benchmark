@@ -1895,7 +1895,7 @@ lpad46:                                           ; preds = %invoke.cont45
 if.end50:                                         ; preds = %invoke.cont47, %if.then38, %invoke.cont33
   %pluralRulesWrapper = getelementptr inbounds i8, ptr %this, i64 696
   %call54 = invoke noundef i32 @_ZN6icu_7512PluralFormat14findSubMessageERKNS_14MessagePatternEiRKNS0_14PluralSelectorEPvdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %pluralRulesWrapper, ptr noundef nonnull %quantity.i, double noundef %number, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont53 unwind label %lpad17.loopexit.split-lp, !range !4
+          to label %invoke.cont53 unwind label %lpad17.loopexit.split-lp
 
 invoke.cont53:                                    ; preds = %if.end50
   %16 = load i32, ptr %status, align 4
@@ -2015,7 +2015,7 @@ if.end115:                                        ; preds = %invoke.cont84, %inv
   %index.i61 = getelementptr inbounds i8, ptr %arrayidx.i60, i64 4
   %36 = load i32, ptr %index.i61, align 4
   %cmp75 = icmp eq i32 %35, 1
-  br i1 %cmp75, label %if.then76, label %if.else80, !llvm.loop !5
+  br i1 %cmp75, label %if.then76, label %if.else80, !llvm.loop !4
 
 cleanup:                                          ; preds = %if.then76, %invoke.cont53, %invoke.cont25, %invoke.cont18
   %retval.0 = phi ptr [ %appendTo, %invoke.cont18 ], [ %appendTo, %invoke.cont25 ], [ %appendTo, %invoke.cont53 ], [ %call.i62, %if.then76 ]
@@ -2214,7 +2214,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_756Format6formatERKNS_11FormattableERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(322), ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7512PluralFormat14findSubMessageERKNS_14MessagePatternEiRKNS0_14PluralSelectorEPvdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %pattern, i32 noundef %partIndex, ptr noundef nonnull align 8 dereferenceable(8) %selector, ptr noundef %context, double noundef %number, ptr noundef nonnull align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7512PluralFormat14findSubMessageERKNS_14MessagePatternEiRKNS0_14PluralSelectorEPvdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %pattern, i32 noundef %partIndex, ptr noundef nonnull align 8 dereferenceable(8) %selector, ptr noundef %context, double noundef %number, ptr noundef nonnull align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keyword = alloca %"class.icu_75::UnicodeString", align 8
   %other = alloca %"class.icu_75::UnicodeString", align 8
@@ -2253,7 +2253,7 @@ if.end8:                                          ; preds = %if.end, %if.then6
 
 invoke.cont10:                                    ; preds = %if.end8
   %5 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #15, !srcloc !7
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #15, !srcloc !6
   %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %fUnion.i3.i.i.i = getelementptr inbounds i8, ptr %pattern, i64 24
   %msg.i = getelementptr inbounds i8, ptr %pattern, i64 16
@@ -2283,7 +2283,7 @@ lpad9:                                            ; preds = %if.end8
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #15, !srcloc !7
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #15, !srcloc !6
   br label %ehcleanup
 
 lpad12:                                           ; preds = %if.else.i.i.i85, %if.else.i.i55, %if.else.i.i, %if.else.i.i.i, %if.then52, %if.then24
@@ -2521,7 +2521,7 @@ if.end72:                                         ; preds = %invoke.cont28.if.en
   %start..i = call noundef i32 @llvm.smax.i32(i32 %55, i32 %partIndex.addr.2)
   %inc75 = add nsw i32 %start..i, 1
   %cmp76 = icmp slt i32 %inc75, %1
-  br i1 %cmp76, label %do.body, label %cleanup, !llvm.loop !8
+  br i1 %cmp76, label %do.body, label %cleanup, !llvm.loop !7
 
 cleanup:                                          ; preds = %if.end72, %do.body, %invoke.cont28
   %retval.0 = phi i32 [ %inc25, %invoke.cont28 ], [ %msgStart.0, %do.body ], [ %msgStart.1, %if.end72 ]
@@ -2966,7 +2966,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 while.cond.backedge:                              ; preds = %while.body, %if.end20, %if.end29
   %partIndex.0.be = phi i32 [ %inc, %while.body ], [ %inc22, %if.end20 ], [ %inc31, %if.end29 ]
   %cmp12 = icmp slt i32 %partIndex.0.be, %0
-  br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !9
+  br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !8
 
 lpad9.loopexit:                                   ; preds = %if.end38
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3131,7 +3131,7 @@ if.end80:                                         ; preds = %if.then.i.i64, %if.
   %matchedIndex.1 = phi i32 [ %currMatchIndex.0, %invoke.cont78 ], [ %matchedIndex.0.ph113, %invoke.cont65 ], [ %matchedIndex.0.ph113, %if.end59 ], [ %matchedIndex.0.ph113, %if.else7.i.i.i67 ], [ %matchedIndex.0.ph113, %if.else56 ], [ %matchedIndex.0.ph113, %if.then.i.i64 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currArg) #15
   %cmp12109 = icmp slt i32 %inc31, %0
-  br i1 %cmp12109, label %while.body.lr.ph, label %while.end, !llvm.loop !9
+  br i1 %cmp12109, label %while.body.lr.ph, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end80, %while.cond.backedge
   %matchedIndex.0.ph.lcssa108 = phi i32 [ %matchedIndex.0.ph113, %while.cond.backedge ], [ %matchedIndex.1, %if.end80 ]
@@ -3302,9 +3302,8 @@ attributes #17 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483647, i32 -2147483648}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 2150427207}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i64 2150427207}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

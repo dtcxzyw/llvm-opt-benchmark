@@ -3068,7 +3068,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %8, i64 1
-  %40 = call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %39), !range !22
+  %40 = call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %39)
   %.not.i.not = icmp eq i32 %40, 0
   br i1 %.not.i.not, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %41
 
@@ -3122,7 +3122,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %54, i64 1
-  %62 = call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %61), !range !22
+  %62 = call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %61)
   %.not.i40 = icmp eq i32 %62, 0
   br i1 %.not.i40, label %64, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit42
 
@@ -3138,7 +3138,7 @@ _ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit42: ; preds = %60
   %67 = sext i8 %66 to i32
   %68 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %65, i32 noundef %67) #16
   %.not35 = icmp eq ptr %68, null
-  br i1 %.not35, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %52, !llvm.loop !23
+  br i1 %.not35, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %52, !llvm.loop !22
 
 69:                                               ; preds = %.preheader, %80
   %.2 = phi ptr [ %81, %80 ], [ %1, %.preheader ]
@@ -3162,7 +3162,7 @@ _ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit42: ; preds = %60
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds i8, ptr %70, i64 1
-  %78 = call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %77), !range !22
+  %78 = call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %77)
   %.not.i46 = icmp eq i32 %78, 0
   br i1 %.not.i46, label %80, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit48
 
@@ -3176,7 +3176,7 @@ _ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit48: ; preds = %76
   %81 = getelementptr inbounds i8, ptr %.2, i64 1
   %82 = load i8, ptr %.2, align 1
   %.not34 = icmp eq i8 %82, 0
-  br i1 %.not34, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %69, !llvm.loop !24
+  br i1 %.not34, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %69, !llvm.loop !23
 
 _ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit:  ; preds = %20, %64, %80, %.preheader55, %.preheader53, %41, %38, %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit48, %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit42, %3, %11
   %.024 = phi i1 [ false, %11 ], [ false, %3 ], [ true, %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit42 ], [ true, %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit48 ], [ false, %38 ], [ true, %41 ], [ false, %.preheader53 ], [ false, %.preheader55 ], [ false, %80 ], [ false, %64 ], [ false, %20 ]
@@ -3190,7 +3190,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %6, align 8
@@ -3212,7 +3212,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_(ptr nou
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %4, i64 1
-  %15 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14), !range !22
+  %15 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %18, label %16
 
@@ -3228,7 +3228,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %.not90 = icmp eq ptr %1, null
   br i1 %.not90, label %._crit_edge, label %.lr.ph
 
@@ -3434,7 +3434,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
   br label %139
 
 66:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit
-  %67 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.0.i), !range !22
+  %67 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.0.i)
   %.not59 = icmp eq i32 %67, 0
   br i1 %.not59, label %.critedge, label %68
 
@@ -3453,7 +3453,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
   br label %.critedge
 
 77:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit
-  %78 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.0.i), !range !22
+  %78 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.0.i)
   %.not58 = icmp eq i32 %78, 0
   br i1 %.not58, label %.critedge, label %79
 
@@ -3483,7 +3483,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 .preheader:                                       ; preds = %88, %_ZN5cmsysL7regnextEPKc.exit67
   %.1 = phi ptr [ %.0.i66, %_ZN5cmsysL7regnextEPKc.exit67 ], [ %.04491, %88 ]
   %92 = getelementptr inbounds i8, ptr %.1, i64 3
-  %93 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %92), !range !22
+  %93 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %92)
   %.not56 = icmp eq i32 %93, 0
   br i1 %.not56, label %94, label %.critedge
 
@@ -3513,7 +3513,7 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   %.0.i66 = getelementptr inbounds i8, ptr %.1, i64 %.0.i66.v
   %110 = load i8, ptr %.0.i66, align 1
   %111 = icmp eq i8 %110, 6
-  br i1 %111, label %.preheader, label %.critedge, !llvm.loop !25
+  br i1 %111, label %.preheader, label %.critedge, !llvm.loop !24
 
 112:                                              ; preds = %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit
   %113 = load i8, ptr %.0.i, align 1
@@ -3547,7 +3547,7 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
 
 .lr.ph95.split.us:                                ; preds = %.lr.ph95, %128
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %128 ], [ %125, %.lr.ph95 ]
-  %127 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.0.i), !range !22
+  %127 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.0.i)
   %.not54.us = icmp eq i32 %127, 0
   br i1 %.not54.us, label %128, label %.critedge
 
@@ -3556,7 +3556,7 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   %129 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next125
   store ptr %129, ptr %0, align 8
   %.not53.us.not = icmp sgt i64 %indvars.iv124, %126
-  br i1 %.not53.us.not, label %.lr.ph95.split.us, label %.critedge, !llvm.loop !26
+  br i1 %.not53.us.not, label %.lr.ph95.split.us, label %.critedge, !llvm.loop !25
 
 .lr.ph95.split:                                   ; preds = %.lr.ph95.split.preheader, %136
   %130 = phi ptr [ %.pre, %.lr.ph95.split.preheader ], [ %137, %136 ]
@@ -3567,7 +3567,7 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %.lr.ph95.split
-  %135 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.0.i), !range !22
+  %135 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.0.i)
   %.not54 = icmp eq i32 %135, 0
   br i1 %.not54, label %136, label %.critedge
 
@@ -3576,7 +3576,7 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   %137 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next
   store ptr %137, ptr %0, align 8
   %.not53.not = icmp sgt i64 %indvars.iv, %126
-  br i1 %.not53.not, label %.lr.ph95.split, label %.critedge, !llvm.loop !26
+  br i1 %.not53.not, label %.lr.ph95.split, label %.critedge, !llvm.loop !25
 
 138:                                              ; preds = %_ZN5cmsysL7regnextEPKc.exit
   %puts65 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.17)
@@ -3586,7 +3586,7 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   %140 = phi ptr [ %6, %90 ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %65, %64 ], [ %56, %55 ], [ %46, %45 ], [ %35, %34 ], [ %6, %29 ], [ %6, %28 ]
   %.047 = phi ptr [ %91, %90 ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %64 ], [ %.0.i, %55 ], [ %.0.i, %45 ], [ %.0.i, %34 ], [ %.0.i, %29 ], [ %.0.i, %28 ]
   %.not = icmp eq ptr %.047, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %139, %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.16)
@@ -3640,7 +3640,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
   %17 = getelementptr inbounds i8, ptr %.02454, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %8, %18
-  br i1 %19, label %.lr.ph55, label %.critedge, !llvm.loop !28
+  br i1 %19, label %.lr.ph55, label %.critedge, !llvm.loop !27
 
 .lr.ph47:                                         ; preds = %.preheader33, %23
   %20 = phi i8 [ %26, %23 ], [ %7, %.preheader33 ]
@@ -3656,7 +3656,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
   %25 = getelementptr inbounds i8, ptr %.146, i64 1
   %26 = load i8, ptr %25, align 1
   %.not31 = icmp eq i8 %26, 0
-  br i1 %.not31, label %.critedge, label %.lr.ph47, !llvm.loop !29
+  br i1 %.not31, label %.critedge, label %.lr.ph47, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.preheader35, %31
   %27 = phi i8 [ %34, %31 ], [ %6, %.preheader35 ]
@@ -3672,7 +3672,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
   %33 = getelementptr inbounds i8, ptr %.239, i64 1
   %34 = load i8, ptr %33, align 1
   %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !29
 
 35:                                               ; preds = %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.18)
@@ -3749,7 +3749,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !19 = distinct !{!19, !6, !17}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = !{i32 0, i32 2}
+!22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
@@ -3757,4 +3757,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}

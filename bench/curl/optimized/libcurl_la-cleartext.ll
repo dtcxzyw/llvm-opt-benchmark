@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_cmalloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_auth_create_plain_message(ptr noundef readonly %authzid, ptr nocapture noundef readonly %authcid, ptr nocapture noundef readonly %passwd, ptr noundef %out) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_auth_create_plain_message(ptr noundef readonly %authzid, ptr nocapture noundef readonly %authcid, ptr nocapture noundef readonly %passwd, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %authzid, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -49,8 +49,8 @@ if.end15:                                         ; preds = %if.then14, %if.end1
   store i8 0, ptr %arrayidx, align 1
   %add.ptr16 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr16, ptr align 1 %authcid, i64 %call1, i1 false)
-  %1 = getelementptr i8, ptr %call10, i64 %add
-  %arrayidx19 = getelementptr i8, ptr %1, i64 1
+  %1 = getelementptr inbounds i8, ptr %call10, i64 %add
+  %arrayidx19 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 0, ptr %arrayidx19, align 1
   %add.ptr21 = getelementptr inbounds i8, ptr %arrayidx, i64 %call1
   %add.ptr22 = getelementptr inbounds i8, ptr %add.ptr21, i64 2

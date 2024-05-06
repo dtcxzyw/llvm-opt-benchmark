@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.file = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define i32 @file_dup3(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @file_dup3(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.file, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %63, label %6
@@ -144,8 +144,8 @@ declare i32 @file_close(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @file_dup2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @file_dup3(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !6
+define range(i32 -2147483648, 1) i32 @file_dup2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @file_dup3(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
@@ -162,4 +162,3 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -2147483648, i32 1}

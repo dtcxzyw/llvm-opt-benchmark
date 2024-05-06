@@ -3759,8 +3759,8 @@ invoke.cont17:                                    ; preds = %_ZNK6vectorIPN3euf5
 
 if.end24:                                         ; preds = %invoke.cont12
   %add.ptr.i34.idx = shl nuw nsw i64 %idx.ext.i.i.i22, 3
-  %21 = getelementptr i8, ptr %2, i64 %add.ptr.i34.idx
-  %add.ptr.i34.ptr = getelementptr i8, ptr %21, i64 32
+  %21 = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i34.idx
+  %add.ptr.i34.ptr = getelementptr inbounds i8, ptr %21, i64 32
   br i1 %cmp.i.i.i, label %while.condthread-pre-splitthread-pre-split, label %for.body.preheader, !llvm.loop !15
 
 for.body.preheader:                               ; preds = %if.end24

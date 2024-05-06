@@ -63,7 +63,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @hpa_hooks_ms_since(ptr noundef %past_nstime) #0 {
+define internal range(i64 0, 18446744073710) i64 @hpa_hooks_ms_since(ptr noundef %past_nstime) #0 {
 entry:
   %call = tail call i64 @nstime_ns_since(ptr noundef %past_nstime) #2
   %div1 = udiv i64 %call, 1000000

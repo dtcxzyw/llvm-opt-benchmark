@@ -104,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.65 = private unnamed_addr constant [14 x i8] c"hwloc/hwloc.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_hwloc_base_register() local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @prte_hwloc_base_register() local_unnamed_addr #0 {
   %1 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef nonnull @verbosity) #9
   %2 = tail call i32 @pmix_mca_base_var_register_synonym(i32 noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1) #9
   %3 = load i32, ptr @verbosity, align 4
@@ -289,7 +289,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_hwloc_base_open() local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_hwloc_base_open() local_unnamed_addr #0 {
   %1 = load i8, ptr @prte_hwloc_base_inited, align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %6, label %3
@@ -297,7 +297,7 @@ define noundef i32 @prte_hwloc_base_open() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   store i8 1, ptr @prte_hwloc_base_inited, align 1
   %4 = load ptr, ptr @prte_hwloc_base_binding_policy, align 8
-  %5 = tail call i32 @prte_hwloc_base_set_binding_policy(ptr noundef null, ptr noundef %4), !range !4
+  %5 = tail call i32 @prte_hwloc_base_set_binding_policy(ptr noundef null, ptr noundef %4)
   br label %6
 
 6:                                                ; preds = %3, %0
@@ -306,7 +306,7 @@ define noundef i32 @prte_hwloc_base_open() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %96, label %4
 
@@ -371,7 +371,7 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   %33 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next80
   %34 = load ptr, ptr %33, align 8
   %.not65.us = icmp eq ptr %34, null
-  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
+  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
@@ -431,7 +431,7 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   %60 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
   %61 = load ptr, ptr %60, align 8
   %.not65 = icmp eq ptr %61, null
-  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %59, %32, %7
   %.058.lcssa = phi i16 [ 0, %7 ], [ %.1.us, %32 ], [ %.1, %59 ]
@@ -1382,7 +1382,7 @@ define ptr @prte_hwloc_get_print_buffer() local_unnamed_addr #0 {
   store ptr %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %13, label %10, !llvm.loop !7
+  br i1 %exitcond.not, label %13, label %10, !llvm.loop !6
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %9, i64 128
@@ -1410,7 +1410,7 @@ define internal void @buffer_cleanup(ptr noundef %0) #0 {
   tail call void @free(ptr noundef %3) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %4, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %4, label %.preheader, !llvm.loop !7
 
 4:                                                ; preds = %.preheader
   tail call void @free(ptr noundef nonnull %0) #9
@@ -1454,7 +1454,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   store ptr %12, ptr %13, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %14, label %11, !llvm.loop !7
+  br i1 %exitcond.not.i, label %14, label %11, !llvm.loop !6
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %10, i64 128
@@ -1518,16 +1518,16 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %51
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr i8, ptr %53, i64 %48
-  %55 = getelementptr i8, ptr %54, i64 1
+  %54 = getelementptr inbounds i8, ptr %53, i64 %48
+  %55 = getelementptr inbounds i8, ptr %54, i64 1
   store i8 85, ptr %55, align 1
   %56 = load i32, ptr %19, align 8
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = add nuw nsw i32 %.0, 3
-  %61 = getelementptr i8, ptr %59, i64 %48
-  %62 = getelementptr i8, ptr %61, i64 2
+  %61 = getelementptr inbounds i8, ptr %59, i64 %48
+  %62 = getelementptr inbounds i8, ptr %61, i64 2
   store i8 58, ptr %62, align 1
   br label %63
 
@@ -1899,7 +1899,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   %25 = getelementptr inbounds ptr, ptr %7, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not47 = icmp eq ptr %26, null
-  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !8
 
 27:                                               ; preds = %17
   tail call void @PMIx_Argv_free(ptr noundef nonnull %7) #9
@@ -1971,9 +1971,8 @@ attributes #11 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -43, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

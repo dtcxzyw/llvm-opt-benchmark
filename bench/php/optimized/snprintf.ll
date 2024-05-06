@@ -20,7 +20,7 @@ define noundef nonnull ptr @ap_php_conv_10(i64 noundef %0, i1 noundef zeroext %1
 
 6:                                                ; preds = %5
   %.lobit = lshr i64 %0, 63
-  %7 = trunc i64 %.lobit to i8
+  %7 = trunc nuw nsw i64 %.lobit to i8
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
   br label %8
 
@@ -1095,7 +1095,7 @@ thread-pre-split.i:                               ; preds = %151, %145, %143, %1
 
 362:                                              ; preds = %360
   %.lobit.i.i = lshr i64 %.2286.ph.i, 63
-  %363 = trunc i64 %.lobit.i.i to i8
+  %363 = trunc nuw nsw i64 %.lobit.i.i to i8
   %spec.select.i.i = call i64 @llvm.abs.i64(i64 %.2286.ph.i, i1 false)
   br label %.thread427.i
 
@@ -1153,11 +1153,11 @@ ap_php_conv_10.exit.i:                            ; preds = %364
   br i1 %381, label %.thread450.i, label %382
 
 382:                                              ; preds = %379
-  %383 = trunc i8 %.2272.i to i1
+  %383 = trunc nuw i8 %.2272.i to i1
   br i1 %383, label %.thread450.i, label %384
 
 384:                                              ; preds = %382
-  %385 = trunc i8 %.2269.i to i1
+  %385 = trunc nuw i8 %.2269.i to i1
   br i1 %385, label %.thread450.i, label %.thread431.i
 
 386:                                              ; preds = %156
@@ -1358,7 +1358,7 @@ ap_php_conv_p2.exit.i:                            ; preds = %476
 .loopexit471.i:                                   ; preds = %.lr.ph753.i, %.preheader470.i, %ap_php_conv_p2.exit.i
   %.pre10391043.i = phi i64 [ %483, %ap_php_conv_p2.exit.i ], [ %483, %.preheader470.i ], [ %488, %.lr.ph753.i ]
   %.3322.i = phi ptr [ %480, %ap_php_conv_p2.exit.i ], [ %480, %.preheader470.i ], [ %486, %.lr.ph753.i ]
-  %490 = trunc i8 %.2275.i to i1
+  %490 = trunc nuw i8 %.2275.i to i1
   br i1 %490, label %491, label %.thread431.i
 
 491:                                              ; preds = %.loopexit471.i
@@ -1572,7 +1572,7 @@ ap_php_conv_p2.exit416.i:                         ; preds = %587
 .loopexit473.i:                                   ; preds = %.lr.ph750.i, %.preheader472.i, %ap_php_conv_p2.exit416.i
   %.pre10391044.i = phi i64 [ %594, %ap_php_conv_p2.exit416.i ], [ %594, %.preheader472.i ], [ %599, %.lr.ph750.i ]
   %.5324.i = phi ptr [ %591, %ap_php_conv_p2.exit416.i ], [ %591, %.preheader472.i ], [ %597, %.lr.ph750.i ]
-  %601 = trunc i8 %.2275.i to i1
+  %601 = trunc nuw i8 %.2275.i to i1
   %602 = icmp ne i64 %.0284.ph.i, 0
   %or.cond10.i = select i1 %601, i1 %602, i1 false
   br i1 %or.cond10.i, label %603, label %.thread431.i
@@ -1702,7 +1702,7 @@ ap_php_conv_p2.exit416.i:                         ; preds = %587
   %663 = load i8, ptr %.7.i, align 1
   %664 = icmp eq i8 %663, 102
   %spec.select405.i = select i1 %664, i8 70, i8 %663
-  %665 = trunc i8 %.2275.i to i1
+  %665 = trunc nuw i8 %.2275.i to i1
   %666 = select i1 %.0266.i, i32 %.2305.i, i32 6
   br i1 %664, label %667, label %670
 
@@ -1719,11 +1719,11 @@ ap_php_conv_p2.exit416.i:                         ; preds = %587
   br i1 %674, label %.thread450.i, label %675
 
 675:                                              ; preds = %670
-  %676 = trunc i8 %.2272.i to i1
+  %676 = trunc nuw i8 %.2272.i to i1
   br i1 %676, label %.thread450.i, label %677
 
 677:                                              ; preds = %675
-  %678 = trunc i8 %.2269.i to i1
+  %678 = trunc nuw i8 %.2269.i to i1
   br i1 %678, label %.thread450.i, label %..thread431_crit_edge.i
 
 ..thread431_crit_edge.i:                          ; preds = %677
@@ -1834,11 +1834,11 @@ ap_php_conv_p2.exit416.i:                         ; preds = %587
   br label %732
 
 728:                                              ; preds = %719
-  %729 = trunc i8 %.2272.i to i1
+  %729 = trunc nuw i8 %.2272.i to i1
   br i1 %729, label %732, label %730
 
 730:                                              ; preds = %728
-  %731 = trunc i8 %.2269.i to i1
+  %731 = trunc nuw i8 %.2269.i to i1
   %spec.select408.i = select i1 %731, i8 32, i8 0
   br label %732
 
@@ -1847,7 +1847,7 @@ ap_php_conv_p2.exit416.i:                         ; preds = %587
   %.0293.i = phi i8 [ 45, %726 ], [ 43, %728 ], [ %spec.select408.i, %730 ]
   %733 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.7326.i) #18
   store i64 %733, ptr %5, align 8
-  %734 = trunc i8 %.2275.i to i1
+  %734 = trunc nuw i8 %.2275.i to i1
   br i1 %734, label %735, label %802
 
 735:                                              ; preds = %732
@@ -2084,7 +2084,7 @@ ap_php_conv_p2.exit420.i:                         ; preds = %786
   br i1 %834, label %826, label %.loopexit467.loopexit.i
 
 .loopexit467.loopexit.i:                          ; preds = %831
-  %835 = trunc i64 %indvars.iv.next.i to i32
+  %835 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %.loopexit467.i
 
 .loopexit467.i:                                   ; preds = %.loopexit467.loopexit.i, %808, %.thread431.i
@@ -2156,7 +2156,7 @@ ap_php_conv_p2.exit420.i:                         ; preds = %786
   br i1 %857, label %.preheader.i, label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %854
-  %858 = trunc i64 %indvars.iv.next1032.i to i32
+  %858 = trunc nsw i64 %indvars.iv.next1032.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %846, %._crit_edge.i

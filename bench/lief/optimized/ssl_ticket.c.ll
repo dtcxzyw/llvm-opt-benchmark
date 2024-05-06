@@ -415,7 +415,7 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
   %27 = phi i1 [ false, %26 ], [ true, %17 ]
   %indvars.iv.i = phi i64 [ 1, %26 ], [ 0, %17 ]
   %28 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %indvars.iv.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %2, ptr noundef nonnull dereferenceable(4) %28, i64 4)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %2, ptr noundef nonnull readonly dereferenceable(4) %28, i64 4)
   %29 = icmp eq i32 %bcmp.i, 0
   br i1 %29, label %ssl_ticket_select_key.exit, label %26
 

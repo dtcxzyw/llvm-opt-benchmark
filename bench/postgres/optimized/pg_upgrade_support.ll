@@ -545,7 +545,7 @@ define dso_local noundef i64 @binary_upgrade_set_missing_value(ptr nocapture nou
 declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @binary_upgrade_logical_slot_has_caught_up(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @binary_upgrade_logical_slot_has_caught_up(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4

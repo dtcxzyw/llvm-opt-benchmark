@@ -248,7 +248,7 @@ define noundef i32 @ompi_group_translate_ranks_bmap_reverse(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 0, 10) i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %7, label %16
@@ -312,7 +312,7 @@ define noundef i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr noc
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %33, i64 %35
   %37 = load i8, ptr %36, align 1
-  %38 = trunc i32 %32 to i8
+  %38 = trunc nuw i32 %32 to i8
   %39 = or i8 %37, %38
   store i8 %39, ptr %36, align 1
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1

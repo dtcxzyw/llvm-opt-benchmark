@@ -399,7 +399,7 @@ define internal fastcc zeroext i1 @x86_should_return_type_in_reg(ptr noundef %0)
   %5 = load i8, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 16), align 8
   %6 = and i8 %5, 4
   %.not = icmp ne i8 %6, 0
-  %7 = tail call i32 @llvm.ctpop.i32(i32 %4), !range !7
+  %7 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %4)
   %or.cond = icmp eq i32 %7, 1
   %or.cond26 = select i1 %.not, i1 true, i1 %or.cond
   br i1 %or.cond26, label %8, label %is_power_of_two.exit.thread
@@ -496,7 +496,7 @@ tailrecurse:                                      ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond109.not = select i1 %31, i1 %exitcond.not, i1 false
-  br i1 %or.cond109.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !8
+  br i1 %or.cond109.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !7
 
 is_power_of_two.exit.thread:                      ; preds = %tailrecurse, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %.lr.ph, %.lr.ph76, %17, %1, %22, %10
   %.019 = phi i1 [ %11, %10 ], [ true, %22 ], [ false, %1 ], [ true, %17 ], [ %31, %.lr.ph76 ], [ false, %tailrecurse ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ false, %.lr.ph ]
@@ -591,7 +591,7 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   store ptr %42, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %36
-  br i1 %exitcond.not.i, label %x86_create_params.exit, label %39, !llvm.loop !10
+  br i1 %exitcond.not.i, label %x86_create_params.exit, label %39, !llvm.loop !9
 
 x86_create_params.exit:                           ; preds = %39, %29, %32
   %.018.i = phi ptr [ null, %29 ], [ null, %32 ], [ %38, %39 ]
@@ -623,7 +623,7 @@ x86_create_params.exit:                           ; preds = %39, %29, %32
   store ptr %57, ptr %58, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %51
-  br i1 %exitcond.not.i19, label %x86_create_params.exit21, label %54, !llvm.loop !10
+  br i1 %exitcond.not.i19, label %x86_create_params.exit21, label %54, !llvm.loop !9
 
 x86_create_params.exit21:                         ; preds = %54, %x86_create_params.exit, %47
   %.018.i20 = phi ptr [ null, %47 ], [ null, %x86_create_params.exit ], [ %53, %54 ]
@@ -886,7 +886,7 @@ type_is_simd_vector.exit.i.i.i:                   ; preds = %104
   br i1 %109, label %x86_stack_alignment.exit.i.i, label %type_is_simd_vector.exit.thread.i.i.i
 
 type_is_simd_vector.exit.thread.i.i.i:            ; preds = %type_is_simd_vector.exit.i.i.i, %104
-  %110 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull %3)
+  %110 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull readonly %3)
   br i1 %110, label %x86_stack_alignment.exit.i.i, label %111
 
 111:                                              ; preds = %type_is_simd_vector.exit.thread.i.i.i, %102
@@ -1061,7 +1061,7 @@ x86_try_use_free_regs.exit.thread.i:              ; preds = %x86_try_use_free_re
 191:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %x86_can_expand_indirect_aggregate_arg.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %x86_can_expand_indirect_aggregate_arg.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 x86_can_expand_indirect_aggregate_arg.exit.i:     ; preds = %191, %182, %177
   %192 = tail call i32 @type_size(ptr noundef nonnull %3) #4
@@ -1094,7 +1094,7 @@ type_is_simd_vector.exit.i.i38.i:                 ; preds = %200
   br i1 %205, label %x86_stack_alignment.exit.i32.i, label %type_is_simd_vector.exit.thread.i.i37.i
 
 type_is_simd_vector.exit.thread.i.i37.i:          ; preds = %type_is_simd_vector.exit.i.i38.i, %200
-  %206 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull %3)
+  %206 = tail call fastcc zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef nonnull readonly %3)
   br i1 %206, label %x86_stack_alignment.exit.i32.i, label %207
 
 207:                                              ; preds = %type_is_simd_vector.exit.thread.i.i37.i, %198
@@ -1183,7 +1183,7 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
 19:                                               ; preds = %type_is_simd_vector.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
@@ -1236,9 +1236,8 @@ attributes #5 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 5}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

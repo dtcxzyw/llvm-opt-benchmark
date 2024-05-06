@@ -187,7 +187,7 @@ common.resume.i:                                  ; preds = %35, %26
   %51 = getelementptr inbounds i8, ptr %50, i64 %49
   %52 = load i8, ptr %51, align 1, !noalias !20, !noundef !4
   %53 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %54 = trunc i64 %53 to i8
+  %54 = trunc nuw nsw i64 %53 to i8
   %55 = add i64 %49, -16
   %56 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %57 = load i64, ptr %56, align 8, !alias.scope !26, !noalias !20, !noundef !4
@@ -338,7 +338,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %48 = getelementptr inbounds i8, ptr %47, i64 %46
   %49 = load i8, ptr %48, align 1, !noalias !46, !noundef !4
   %50 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %51 = trunc i64 %50 to i8
+  %51 = trunc nuw nsw i64 %50 to i8
   %52 = add i64 %46, -16
   %53 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !52, !noalias !46, !noundef !4
@@ -522,7 +522,7 @@ common.resume.i:                                  ; preds = %41, %26, %21
   %57 = getelementptr inbounds i8, ptr %56, i64 %55
   %58 = load i8, ptr %57, align 1, !noalias !79, !noundef !4
   %59 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %60 = trunc i64 %59 to i8
+  %60 = trunc nuw nsw i64 %59 to i8
   %61 = add i64 %55, -16
   %62 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %63 = load i64, ptr %62, align 8, !alias.scope !85, !noalias !79, !noundef !4
@@ -619,7 +619,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %27 = getelementptr inbounds i8, ptr %26, i64 %25
   %28 = load i8, ptr %27, align 1, !noalias !101, !noundef !4
   %29 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %30 = trunc i64 %29 to i8
+  %30 = trunc nuw nsw i64 %29 to i8
   %31 = add i64 %25, -16
   %32 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %33 = load i64, ptr %32, align 8, !alias.scope !107, !noalias !101, !noundef !4
@@ -748,7 +748,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %38 = getelementptr inbounds i8, ptr %37, i64 %36
   %39 = load i8, ptr %38, align 1, !noalias !134, !noundef !4
   %40 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %41 = trunc i64 %40 to i8
+  %41 = trunc nuw nsw i64 %40 to i8
   %42 = add i64 %36, -16
   %43 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %44 = load i64, ptr %43, align 8, !alias.scope !140, !noalias !134, !noundef !4
@@ -860,7 +860,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %30 = getelementptr inbounds i8, ptr %29, i64 %28
   %31 = load i8, ptr %30, align 1, !noalias !161, !noundef !4
   %32 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %33 = trunc i64 %32 to i8
+  %33 = trunc nuw nsw i64 %32 to i8
   %34 = add i64 %28, -16
   %35 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %36 = load i64, ptr %35, align 8, !alias.scope !156, !noalias !161, !noundef !4
@@ -951,7 +951,7 @@ switch.lookup:                                    ; preds = %2
   %9 = load i64, ptr %8, align 8, !noalias !180, !noundef !4
   %10 = load i128, ptr %.sroa.59.0.copyload, align 16, !noalias !180, !noundef !4
   %11 = load i64, ptr %.sroa.7.0.copyload, align 8, !range !10, !alias.scope !184, !noalias !187, !noundef !4
-  %switch.idx.cast = trunc i64 %11 to i8
+  %switch.idx.cast = trunc nuw nsw i64 %11 to i8
   %.sroa.01.48..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.01.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.01.48..sroa_idx.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.610.0.copyload, i64 32, i1 false), !noalias !180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.01.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0.copyload, i64 48, i1 false), !noalias !180
@@ -989,7 +989,7 @@ switch.lookup:                                    ; preds = %2
   %27 = getelementptr inbounds i8, ptr %26, i64 %25
   %28 = load i8, ptr %27, align 1, !noalias !196, !noundef !4
   %29 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %30 = trunc i64 %29 to i8
+  %30 = trunc nuw nsw i64 %29 to i8
   %31 = add i64 %25, -16
   %32 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %33 = load i64, ptr %32, align 8, !alias.scope !202, !noalias !196, !noundef !4
@@ -1190,7 +1190,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %64 = getelementptr inbounds i8, ptr %63, i64 %62
   %65 = load i8, ptr %64, align 1, !noalias !234, !noundef !4
   %66 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %67 = trunc i64 %66 to i8
+  %67 = trunc nuw nsw i64 %66 to i8
   %68 = add i64 %62, -16
   %69 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %70 = load i64, ptr %69, align 8, !alias.scope !229, !noalias !234, !noundef !4
@@ -1342,7 +1342,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %39 = getelementptr inbounds i8, ptr %38, i64 %37
   %40 = load i8, ptr %39, align 1, !noalias !261, !noundef !4
   %41 = lshr i64 %.sroa.01.sroa.4.0.copyload, 57
-  %42 = trunc i64 %41 to i8
+  %42 = trunc nuw nsw i64 %41 to i8
   %43 = add i64 %37, -16
   %44 = getelementptr inbounds i8, ptr %.sroa.01.sroa.5.0.copyload, i64 8
   %45 = load i64, ptr %44, align 8, !alias.scope !267, !noalias !261, !noundef !4
@@ -1383,7 +1383,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.llvm.13846770185197118408(ptr noalias noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !275, !noundef !4
-  %trunc.i = trunc i64 %2 to i1
+  %trunc.i = trunc nuw i64 %2 to i1
   br i1 %trunc.i, label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h327933f79673d7fdE.exit", label %3
 
 3:                                                ; preds = %1
@@ -1766,7 +1766,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfcd361936b0948c7E.llvm.13846770185197118408"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = load i64, ptr %0, align 8, !range !274, !noundef !4
-  %trunc = trunc i64 %6 to i1
+  %trunc = trunc nuw i64 %6 to i1
   br i1 %trunc, label %14, label %7
 
 7:                                                ; preds = %4
@@ -1815,7 +1815,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h79c194c208b61acc
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !448, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
@@ -1877,7 +1877,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h7b4a0e3500c205df
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !457, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
@@ -1939,7 +1939,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h83227d805056b24e
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !466, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
@@ -2001,7 +2001,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h991c62f1dc1a95a7
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !475, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
@@ -2063,7 +2063,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hbb2c26315a092f4f
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !484, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
@@ -2125,7 +2125,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hcc92cf9116842f8b
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !493, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
@@ -2187,7 +2187,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hd47b527f80d84611
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   %7 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !274, !noalias !502, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %.noexc.thread, label %8
 
 8:                                                ; preds = %2
@@ -2387,7 +2387,7 @@ switch.lookup:                                    ; preds = %4
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noalias !520, !noundef !4
   %16 = load i64, ptr %.sroa.10.24.copyload18, align 8, !range !10, !alias.scope !527, !noalias !530, !noundef !4
-  %switch.idx.cast = trunc i64 %16 to i8
+  %switch.idx.cast = trunc nuw nsw i64 %16 to i8
   %.sroa.01.48..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.01.i.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.01.48..sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.8.24.copyload16, i64 32, i1 false), !noalias !520
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.01.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.11.24.copyload20, i64 48, i1 false), !noalias !520
@@ -2422,7 +2422,7 @@ switch.lookup:                                    ; preds = %4
   %30 = getelementptr inbounds i8, ptr %29, i64 %28
   %31 = load i8, ptr %30, align 1, !noalias !539, !noundef !4
   %32 = lshr i64 %.sroa.49.0.copyload, 57
-  %33 = trunc i64 %32 to i8
+  %33 = trunc nuw nsw i64 %32 to i8
   %34 = add i64 %28, -16
   %35 = getelementptr inbounds i8, ptr %.sroa.510.0.copyload, i64 8
   %36 = load i64, ptr %35, align 8, !alias.scope !545, !noalias !539, !noundef !4
@@ -2765,7 +2765,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with17hdb7faee
   %30 = getelementptr inbounds i8, ptr %29, i64 %28
   %31 = load i8, ptr %30, align 1, !noalias !573, !noundef !4
   %32 = lshr i64 %.sroa.49.0.copyload, 57
-  %33 = trunc i64 %32 to i8
+  %33 = trunc nuw nsw i64 %32 to i8
   %34 = add i64 %28, -16
   %35 = getelementptr inbounds i8, ptr %.sroa.510.0.copyload, i64 8
   %36 = load i64, ptr %35, align 8, !alias.scope !579, !noalias !573, !noundef !4

@@ -1075,7 +1075,7 @@ define internal fastcc void @e1000_validate_option(ptr nocapture noundef %0, ptr
   br i1 %52, label %53, label %.preheader, !llvm.loop !14
 
 53:                                               ; preds = %49
-  %54 = trunc i64 %indvars.iv.next to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.next to i32
   %55 = icmp sgt i32 %13, %54
   br label %56
 

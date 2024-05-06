@@ -86,7 +86,7 @@ entry:
   %num.i = getelementptr inbounds i8, ptr %ctx, i64 208
   store i32 0, ptr %num.i, align 8
   %md_len.i = getelementptr inbounds i8, ptr %ctx, i64 212
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
   store i32 48, ptr %md_len.i, align 4
   %u.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %cmp.i.i = icmp eq i64 %len, 0
@@ -115,14 +115,14 @@ return.sink.split.i.i:                            ; preds = %if.end26.i.i, %if.e
   %data.1.i.i7 = phi ptr [ %add.ptr33.i.i, %if.end34.i.i ], [ %data, %if.end26.i.i ]
   %len.addr.1.i.i6 = phi i64 [ %rem.i.i, %if.end34.i.i ], [ %len, %if.end26.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %u.i.i, ptr align 1 %data.1.i.i7, i64 %len.addr.1.i.i6, i1 false)
-  %conv38.i.i = trunc i64 %len.addr.1.i.i6 to i32
+  %conv38.i.i = trunc nuw nsw i64 %len.addr.1.i.i6 to i32
   store i32 %conv38.i.i, ptr %num.i, align 8
   br label %SHA384_Update.exit
 
 SHA384_Update.exit:                               ; preds = %entry, %if.end34.i.i, %return.sink.split.i.i
   %cmp = icmp eq ptr %out, null
   %spec.store.select = select i1 %cmp, ptr @SHA384.buf, ptr %out
-  %call.i = call noundef i32 @SHA512_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %ctx), !range !7
+  %call.i = call i32 @SHA512_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %ctx)
   call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 216) #5
   ret ptr %spec.store.select
 }
@@ -198,7 +198,7 @@ if.end34.i:                                       ; preds = %if.then29.i, %if.en
 
 if.then37.i:                                      ; preds = %if.end34.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %u.i, ptr align 1 %data.1.i, i64 %len.addr.1.i, i1 false)
-  %conv38.i = trunc i64 %len.addr.1.i to i32
+  %conv38.i = trunc nuw nsw i64 %len.addr.1.i to i32
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then37.i, %if.then13.i
@@ -211,9 +211,9 @@ SHA512_Update.exit:                               ; preds = %entry, %if.end34.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SHA384_Final(ptr noundef %md, ptr noundef %sha) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @SHA384_Final(ptr noundef %md, ptr noundef %sha) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @SHA512_Final(ptr noundef %md, ptr noundef %sha), !range !7
+  %call = tail call i32 @SHA512_Final(ptr noundef %md, ptr noundef %sha)
   ret i32 %call
 }
 
@@ -242,7 +242,7 @@ entry:
   %num.i = getelementptr inbounds i8, ptr %ctx, i64 208
   store i32 0, ptr %num.i, align 8
   %md_len.i = getelementptr inbounds i8, ptr %ctx, i64 212
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
   store i32 64, ptr %md_len.i, align 4
   %u.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %cmp.i = icmp eq i64 %len, 0
@@ -271,14 +271,14 @@ return.sink.split.i:                              ; preds = %if.end26.i, %if.end
   %data.1.i9 = phi ptr [ %add.ptr33.i, %if.end34.i ], [ %data, %if.end26.i ]
   %len.addr.1.i8 = phi i64 [ %rem.i, %if.end34.i ], [ %len, %if.end26.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %u.i, ptr align 1 %data.1.i9, i64 %len.addr.1.i8, i1 false)
-  %conv38.i = trunc i64 %len.addr.1.i8 to i32
+  %conv38.i = trunc nuw nsw i64 %len.addr.1.i8 to i32
   store i32 %conv38.i, ptr %num.i, align 8
   br label %SHA512_Update.exit
 
 SHA512_Update.exit:                               ; preds = %entry, %if.end34.i, %return.sink.split.i
   %cmp = icmp eq ptr %out, null
   %spec.store.select = select i1 %cmp, ptr @SHA512.buf, ptr %out
-  %call2 = call i32 @SHA512_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %ctx), !range !7
+  %call2 = call i32 @SHA512_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %ctx)
   call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 216) #5
   ret ptr %spec.store.select
 }
@@ -355,7 +355,7 @@ if.end34:                                         ; preds = %if.then29, %if.end2
 
 if.then37:                                        ; preds = %if.end34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %u, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
-  %conv38 = trunc i64 %len.addr.1 to i32
+  %conv38 = trunc nuw nsw i64 %len.addr.1 to i32
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then13, %if.then37
@@ -368,7 +368,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SHA512_Final(ptr noundef writeonly %md, ptr noundef %sha) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly %md, ptr noundef %sha) local_unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %sha, i64 80
   %num = getelementptr inbounds i8, ptr %sha, i64 208
@@ -422,7 +422,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx29 = getelementptr inbounds i8, ptr %sha, i64 201
   store i8 %conv28, ptr %arrayidx29, align 1
   %shr31 = lshr i64 %1, 56
-  %conv32 = trunc i64 %shr31 to i8
+  %conv32 = trunc nuw i64 %shr31 to i8
   %arrayidx33 = getelementptr inbounds i8, ptr %sha, i64 200
   store i8 %conv32, ptr %arrayidx33, align 1
   %Nh = getelementptr inbounds i8, ptr %sha, i64 72
@@ -455,7 +455,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx59 = getelementptr inbounds i8, ptr %sha, i64 193
   store i8 %conv58, ptr %arrayidx59, align 1
   %shr61 = lshr i64 %2, 56
-  %conv62 = trunc i64 %shr61 to i8
+  %conv62 = trunc nuw i64 %shr61 to i8
   %arrayidx63 = getelementptr inbounds i8, ptr %sha, i64 192
   store i8 %conv62, ptr %arrayidx63, align 1
   tail call void @sha512_block_data_order(ptr noundef nonnull %sha, ptr noundef nonnull %u, i64 noundef 1) #5
@@ -476,7 +476,7 @@ for.body:                                         ; preds = %if.end69, %for.body
   %arrayidx73 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 %n.188
   %4 = load i64, ptr %arrayidx73, align 8
   %shr74 = lshr i64 %4, 56
-  %conv75 = trunc i64 %shr74 to i8
+  %conv75 = trunc nuw i64 %shr74 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %md.addr.089, i64 1
   store i8 %conv75, ptr %md.addr.089, align 1
   %shr76 = lshr i64 %4, 48
@@ -508,7 +508,7 @@ for.body:                                         ; preds = %if.end69, %for.body
   store i8 %conv94, ptr %incdec.ptr93, align 1
   %inc96 = add nuw nsw i64 %n.188, 1
   %exitcond91.not = icmp eq i64 %inc96, 6
-  br i1 %exitcond91.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %exitcond91.not, label %return, label %for.body, !llvm.loop !7
 
 for.body101:                                      ; preds = %if.end69, %for.body101
   %md.addr.187 = phi ptr [ %incdec.ptr127, %for.body101 ], [ %md, %if.end69 ]
@@ -516,7 +516,7 @@ for.body101:                                      ; preds = %if.end69, %for.body
   %arrayidx104 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 %n.286
   %5 = load i64, ptr %arrayidx104, align 8
   %shr105 = lshr i64 %5, 56
-  %conv106 = trunc i64 %shr105 to i8
+  %conv106 = trunc nuw i64 %shr105 to i8
   %incdec.ptr107 = getelementptr inbounds i8, ptr %md.addr.187, i64 1
   store i8 %conv106, ptr %md.addr.187, align 1
   %shr108 = lshr i64 %5, 48
@@ -548,7 +548,7 @@ for.body101:                                      ; preds = %if.end69, %for.body
   store i8 %conv126, ptr %incdec.ptr125, align 1
   %inc129 = add nuw nsw i64 %n.286, 1
   %exitcond.not = icmp eq i64 %inc129, 8
-  br i1 %exitcond.not, label %return, label %for.body101, !llvm.loop !10
+  br i1 %exitcond.not, label %return, label %for.body101, !llvm.loop !9
 
 return:                                           ; preds = %for.body101, %for.body, %if.end69, %if.end
   %retval.0 = phi i32 [ 0, %if.end ], [ 0, %if.end69 ], [ 1, %for.body ], [ 1, %for.body101 ]
@@ -586,7 +586,6 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

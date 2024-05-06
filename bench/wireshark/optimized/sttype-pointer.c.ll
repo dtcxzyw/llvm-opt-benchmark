@@ -185,7 +185,7 @@ define internal noalias ptr @charconst_tostr(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %34, label %31
 
 31:                                               ; preds = %26
-  %32 = trunc i64 %3 to i32
+  %32 = trunc nuw nsw i64 %3 to i32
   %33 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %32) #2
   br label %36
 

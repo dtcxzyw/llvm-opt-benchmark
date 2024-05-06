@@ -23,7 +23,7 @@ entry:
   call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx.i) #5
   %md_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i) #5
-  %call = call i32 @HMAC_Init_ex(ptr noundef nonnull %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %evp_md, ptr noundef null), !range !7
+  %call = call i32 @HMAC_Init_ex(ptr noundef nonnull %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %evp_md, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end7, label %lor.lhs.false
 
@@ -90,7 +90,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %md, ptr noundef %impl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %md, ptr noundef %impl) local_unnamed_addr #0 {
 entry:
   %pad = alloca [128 x i8], align 16
   %key_block = alloca [128 x i8], align 16
@@ -158,7 +158,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %2, ptr %arrayidx31, align 1
   %inc = add nuw nsw i64 %i.034, 1
   %exitcond.not = icmp eq i64 %inc, 128
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   %i_ctx = getelementptr inbounds i8, ptr %ctx, i64 40
@@ -181,7 +181,7 @@ for.body45:                                       ; preds = %lor.lhs.false34, %f
   store i8 %4, ptr %arrayidx50, align 1
   %inc52 = add nuw nsw i64 %i.135, 1
   %exitcond36.not = icmp eq i64 %inc52, 128
-  br i1 %exitcond36.not, label %for.end53, label %for.body45, !llvm.loop !10
+  br i1 %exitcond36.not, label %for.end53, label %for.body45, !llvm.loop !9
 
 for.end53:                                        ; preds = %for.body45
   %o_ctx = getelementptr inbounds i8, ptr %ctx, i64 72
@@ -221,7 +221,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @HMAC_Final(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @HMAC_Final(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %buf = alloca [64 x i8], align 16
@@ -303,7 +303,7 @@ entry:
 declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @HMAC_CTX_copy_ex(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @HMAC_CTX_copy_ex(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   %i_ctx = getelementptr inbounds i8, ptr %dest, i64 40
   %i_ctx1 = getelementptr inbounds i8, ptr %src, i64 40
@@ -336,7 +336,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_Init(ptr noundef %ctx, ptr noundef %key, i32 noundef %key_len, ptr noundef %md) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @HMAC_Init(ptr noundef %ctx, ptr noundef %key, i32 noundef %key_len, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %key, null
   %tobool1 = icmp ne ptr %md, null
@@ -355,12 +355,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %conv = sext i32 %key_len to i64
-  %call = tail call i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i64 noundef %conv, ptr noundef %md, ptr noundef null), !range !7
+  %call = tail call i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i64 noundef %conv, ptr noundef %md, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @HMAC_CTX_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @HMAC_CTX_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %dest, align 8
   %i_ctx.i = getelementptr inbounds i8, ptr %dest, i64 40
@@ -418,7 +418,6 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

@@ -113,7 +113,7 @@ land.lhs.true:                                    ; preds = %_ZNK11ast_manager6i
   br i1 %call7, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
-  %tobool = trunc i8 %found_ite.08 to i1
+  %tobool = trunc nuw i8 %found_ite.08 to i1
   br i1 %tobool, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %if.then8
@@ -128,7 +128,7 @@ for.inc:                                          ; preds = %land.rhs.i.i, %for.
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %11 = trunc i8 %found_ite.1 to i1
+  %11 = trunc nuw i8 %found_ite.1 to i1
   br label %return
 
 return:                                           ; preds = %if.then9, %for.cond.preheader, %for.end.loopexit, %cond.false.i4.i.i
@@ -139,7 +139,7 @@ return:                                           ; preds = %if.then9, %for.cond
 declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN16push_app_ite_cfg10reduce_appEP9func_decljPKP4exprR7obj_refIS2_11ast_managerERS6_I3appS7_E(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef %f, i32 noundef %num, ptr noundef %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result_pr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 6) i32 @_ZN16push_app_ite_cfg10reduce_appEP9func_decljPKP4exprR7obj_refIS2_11ast_managerERS6_I3appS7_E(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef %f, i32 noundef %num, ptr noundef %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result_pr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t_new = alloca %class.obj_ref, align 8
   %e_new = alloca %class.obj_ref, align 8
@@ -531,7 +531,7 @@ land.lhs.true.i:                                  ; preds = %_ZNK11ast_manager6i
   br i1 %call7.i, label %for.inc.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %land.lhs.true.i
-  %tobool.i = trunc i8 %found_ite.08.i to i1
+  %tobool.i = trunc nuw i8 %found_ite.08.i to i1
   br i1 %tobool.i, label %if.then9.i, label %for.inc.i
 
 if.then9.i:                                       ; preds = %if.then8.i
@@ -546,7 +546,7 @@ for.inc.i:                                        ; preds = %if.then9.i, %if.the
   br i1 %exitcond.not.i, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit, label %for.body.i, !llvm.loop !4
 
 _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit: ; preds = %for.inc.i
-  %11 = trunc i8 %found_ite.1.i to i1
+  %11 = trunc nuw i8 %found_ite.1.i to i1
   %cmp8 = icmp ne i32 %num_args, 0
   %or.cond = and i1 %cmp8, %11
   br i1 %or.cond, label %for.body, label %return

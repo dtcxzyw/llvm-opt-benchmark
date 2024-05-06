@@ -75,7 +75,7 @@ $_ZNSt12system_errorC2ESt10error_codePKc = comdat any
 @_ZTISt12system_error = external constant ptr
 @_ZTVSt12system_error = external unnamed_addr constant { [5 x ptr] }, align 8
 @.str.3 = private unnamed_addr constant [3 x i8] c": \00", align 1
-@_ZN5folly12_GLOBAL__N_118SkipAtForkHandlers5valueE = internal thread_local global i8 0, align 1
+@_ZN5folly12_GLOBAL__N_118SkipAtForkHandlers5valueE = internal thread_local unnamed_addr global i8 0, align 1
 @_ZN5folly6AtFork5init_E = local_unnamed_addr global i8 0, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_AtFork.cpp, ptr null }]
 

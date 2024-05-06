@@ -147,11 +147,11 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %exitcond, label %.split.loop.exit172, label %.preheader162, !llvm.loop !4
 
 .split.loop.exit:                                 ; preds = %17
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit172
 
 .split.loop.exit169:                              ; preds = %.preheader162
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit172
 
 .split.loop.exit172:                              ; preds = %21, %.split.loop.exit169, %.split.loop.exit

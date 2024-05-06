@@ -167,14 +167,14 @@ if.end:                                           ; preds = %land.lhs.true
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_read_snapshots(ptr nocapture noundef readonly %bs, ptr noundef %errp) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_read_snapshots(ptr nocapture noundef readonly %bs, ptr noundef %errp) #0 {
 entry:
-  %call = tail call i32 @qcow2_do_read_snapshots(ptr noundef %bs, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef %errp), !range !7
+  %call = tail call i32 @qcow2_do_read_snapshots(ptr noundef %bs, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_do_read_snapshots(ptr nocapture noundef readonly %bs, i1 noundef zeroext %repair, ptr nocapture noundef %nb_clusters_reduced, ptr nocapture noundef %extra_data_dropped, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_do_read_snapshots(ptr nocapture noundef readonly %bs, i1 noundef zeroext %repair, ptr nocapture noundef %nb_clusters_reduced, ptr nocapture noundef %extra_data_dropped, ptr noundef %errp) #0 {
 entry:
   %qiov.i132 = alloca %struct.QEMUIOVector, align 8
   %qiov.i127 = alloca %struct.QEMUIOVector, align 8
@@ -541,7 +541,7 @@ for.inc:                                          ; preds = %lor.lhs.false
   %inc191 = add nuw i32 %i.0177, 1
   %57 = load i32, ptr %nb_snapshots, align 4
   %cmp = icmp ult i32 %inc191, %57
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end, %if.end182
   %offset.0156 = phi i64 [ %offset.0176, %if.end182 ], [ %2, %if.end ], [ %add149, %for.inc ]
@@ -555,7 +555,7 @@ if.else197:                                       ; preds = %for.end
   unreachable
 
 if.end198:                                        ; preds = %for.end
-  %conv201 = trunc i64 %sub193 to i32
+  %conv201 = trunc nuw nsw i64 %sub193 to i32
   %snapshots_size202 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 %conv201, ptr %snapshots_size202, align 8
   br label %return
@@ -591,7 +591,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i32 %i.0108, 1
   %exitcond.not = icmp eq i32 %inc, %1
-  br i1 %exitcond.not, label %if.end13, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %if.end13, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.0108 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -680,7 +680,7 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   br i1 %cmp45, label %if.then47, label %if.end52
 
 if.then47:                                        ; preds = %for.body37
-  %conv49 = trunc i64 %13 to i32
+  %conv49 = trunc nuw i64 %13 to i32
   %14 = call noundef i32 @llvm.bswap.i32(i32 %conv49)
   store i32 %14, ptr %vm_state_size51, align 8
   br label %if.end52
@@ -814,7 +814,7 @@ if.end154:                                        ; preds = %if.end144
   %inc158 = add nuw i32 %i.1111, 1
   %43 = load i32, ptr %nb_snapshots, align 4
   %cmp35 = icmp ult i32 %inc158, %43
-  br i1 %cmp35, label %for.body37, label %for.end159, !llvm.loop !10
+  br i1 %cmp35, label %for.body37, label %for.end159, !llvm.loop !9
 
 for.end159:                                       ; preds = %if.end154, %for.cond33.preheader
   %call160 = call i32 @bdrv_flush(ptr noundef %bs) #16
@@ -881,7 +881,7 @@ declare i32 @bdrv_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noundef
 declare void @qcow2_free_clusters(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_check_read_snapshot_table(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_check_read_snapshot_table(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %local_err = alloca ptr, align 8
@@ -983,7 +983,7 @@ if.end35:                                         ; preds = %if.end16
   %lock = getelementptr inbounds i8, ptr %0, i64 160
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #16
   %tobool37 = icmp ne i32 %and, 0
-  %call38 = call i32 @qcow2_do_read_snapshots(ptr noundef nonnull %bs, i1 noundef zeroext %tobool37, ptr noundef nonnull %nb_clusters_reduced, ptr noundef nonnull %extra_data_dropped, ptr noundef nonnull %local_err), !range !7
+  %call38 = call i32 @qcow2_do_read_snapshots(ptr noundef nonnull %bs, i1 noundef zeroext %tobool37, ptr noundef nonnull %nb_clusters_reduced, ptr noundef nonnull %extra_data_dropped, ptr noundef nonnull %local_err)
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #16
   %cmp40 = icmp slt i32 %call38, 0
   br i1 %cmp40, label %if.then42, label %if.end47
@@ -1085,7 +1085,7 @@ for.inc:                                          ; preds = %for.body, %if.then8
   %36 = phi i32 [ %31, %for.body ], [ %.pre48, %if.then84 ]
   %inc91 = add nuw i32 %i.047, 1
   %cmp79 = icmp ult i32 %inc91, %36
-  br i1 %cmp79, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp79, label %for.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.end74, %if.then64, %if.then42, %if.end32, %if.then
   %retval.0 = phi i32 [ %call.i, %if.then ], [ %call19, %if.end32 ], [ %call38, %if.then42 ], [ %call61, %if.then64 ], [ 0, %if.end74 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
@@ -1127,7 +1127,7 @@ declare void @qemu_co_mutex_lock(ptr noundef) #1
 declare i32 @bdrv_co_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_check_fix_snapshot_table(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_check_fix_snapshot_table(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
 entry:
   %0 = load i32, ptr %result, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -1209,7 +1209,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %inc.i = add nuw i32 %i.02.i, 1
   %6 = load i32, ptr %nb_snapshots, align 4
   %cmp.i81 = icmp ult i32 %inc.i, %6
-  br i1 %cmp.i81, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !12
+  br i1 %cmp.i81, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !11
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %7 = add i64 %spec.select.i, 1
@@ -1217,7 +1217,7 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 
 find_new_snapshot_id.exit:                        ; preds = %if.end2, %for.end.loopexit.i
   %id_max.0.lcssa.i = phi i64 [ 1, %if.end2 ], [ %7, %for.end.loopexit.i ]
-  %call3.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sn_info, i64 noundef 128, ptr noundef nonnull @.str.34, i64 noundef %id_max.0.lcssa.i) #16
+  %call3.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %sn_info, i64 noundef 128, ptr noundef nonnull @.str.34, i64 noundef %id_max.0.lcssa.i) #16
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %sn_info) #16
   %name = getelementptr inbounds i8, ptr %sn_info, i64 128
   %call8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %name) #16
@@ -1275,7 +1275,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %17, ptr %arrayidx39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp34 = icmp ult i64 %indvars.iv.next, %15
-  br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader.for.end_crit_edge
   %conv42.pre-phi = phi i64 [ %.pre87, %for.cond.preheader.for.end_crit_edge ], [ %15, %for.body ]
@@ -1408,7 +1408,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @qcow2_cluster_discard(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_snapshot_goto(ptr noundef %bs, ptr noundef readonly %snapshot_id) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_goto(ptr noundef %bs, ptr noundef readonly %snapshot_id) local_unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -1441,14 +1441,14 @@ for.body16.i.i:                                   ; preds = %for.inc25.i.i, %for
   %idxprom18.i.i = sext i32 %i.19.i.i to i64
   %id_str20.i.i = getelementptr %struct.QCowSnapshot, ptr %4, i64 %idxprom18.i.i, i32 2
   %5 = load ptr, ptr %id_str20.i.i, align 8
-  %call21.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %snapshot_id) #20
+  %call21.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %snapshot_id) #20
   %tobool22.not.i.i = icmp eq i32 %call21.i.i, 0
   br i1 %tobool22.not.i.i, label %find_snapshot_by_id_and_name.exit.i, label %for.inc25.i.i
 
 for.inc25.i.i:                                    ; preds = %for.body16.i.i
   %inc26.i.i = add nuw i32 %i.19.i.i, 1
   %exitcond20.not.i.i = icmp eq i32 %inc26.i.i, %3
-  br i1 %exitcond20.not.i.i, label %for.body34.i.i.preheader, label %for.body16.i.i, !llvm.loop !14
+  br i1 %exitcond20.not.i.i, label %for.body34.i.i.preheader, label %for.body16.i.i, !llvm.loop !13
 
 find_snapshot_by_id_and_name.exit.i:              ; preds = %for.body16.i.i
   %cmp.i55 = icmp sgt i32 %i.19.i.i, -1
@@ -1462,14 +1462,14 @@ for.body34.i.i:                                   ; preds = %for.body34.i.i.preh
   %idxprom36.i.i = sext i32 %i.26.i.i to i64
   %name38.i.i = getelementptr %struct.QCowSnapshot, ptr %4, i64 %idxprom36.i.i, i32 3
   %6 = load ptr, ptr %name38.i.i, align 8
-  %call39.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %snapshot_id) #20
+  %call39.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %snapshot_id) #20
   %tobool40.not.i.i = icmp eq i32 %call39.i.i, 0
   br i1 %tobool40.not.i.i, label %find_snapshot_by_id_or_name.exit, label %for.inc43.i.i
 
 for.inc43.i.i:                                    ; preds = %for.body34.i.i
   %inc44.i.i = add nuw i32 %i.26.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc44.i.i, %3
-  br i1 %exitcond.not.i.i, label %return, label %for.body34.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %return, label %for.body34.i.i, !llvm.loop !14
 
 find_snapshot_by_id_or_name.exit:                 ; preds = %for.body34.i.i
   %cmp = icmp slt i32 %i.26.i.i, 0
@@ -1581,7 +1581,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %28 = load i32, ptr %l1_size29, align 8
   %29 = sext i32 %28 to i64
   %cmp77 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %cmp77, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp77, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %if.end72
   %cmp84 = icmp slt i32 %call75, 0
@@ -1628,7 +1628,7 @@ declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #9
 declare i32 @bdrv_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_snapshot_delete(ptr noundef %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_delete(ptr noundef %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1763,7 +1763,7 @@ land.lhs.true3:                                   ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %land.lhs.true3
   %inc = add nuw i32 %i.013, 1
   %exitcond21.not = icmp eq i32 %inc, %0
-  br i1 %exitcond21.not, label %return, label %for.body, !llvm.loop !17
+  br i1 %exitcond21.not, label %return, label %for.body, !llvm.loop !16
 
 if.else:                                          ; preds = %entry
   br i1 %tobool, label %for.cond13.preheader, label %if.else28
@@ -1791,7 +1791,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
 for.inc25:                                        ; preds = %for.body16
   %inc26 = add nuw i32 %i.19, 1
   %exitcond20.not = icmp eq i32 %inc26, %4
-  br i1 %exitcond20.not, label %return, label %for.body16, !llvm.loop !14
+  br i1 %exitcond20.not, label %return, label %for.body16, !llvm.loop !13
 
 if.else28:                                        ; preds = %if.else
   br i1 %tobool1, label %for.cond31.preheader, label %return
@@ -1819,7 +1819,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
 for.inc43:                                        ; preds = %for.body34
   %inc44 = add nuw i32 %i.26, 1
   %exitcond.not = icmp eq i32 %inc44, %7
-  br i1 %exitcond.not, label %return, label %for.body34, !llvm.loop !15
+  br i1 %exitcond.not, label %return, label %for.body34, !llvm.loop !14
 
 return:                                           ; preds = %for.body34, %for.inc43, %for.body16, %for.inc25, %land.lhs.true3, %for.inc, %for.cond31.preheader, %for.cond13.preheader, %for.cond.preheader, %if.else28
   %retval.0 = phi i32 [ -1, %if.else28 ], [ -1, %for.cond.preheader ], [ -1, %for.cond13.preheader ], [ -1, %for.cond31.preheader ], [ %i.013, %land.lhs.true3 ], [ -1, %for.inc ], [ %i.19, %for.body16 ], [ -1, %for.inc25 ], [ %i.26, %for.body34 ], [ -1, %for.inc43 ]
@@ -1898,7 +1898,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i32 %i.026, 1
   %13 = load i32, ptr %nb_snapshots, align 4
   %cmp = icmp ult i32 %inc, %13
-  br i1 %cmp, label %for.body, label %return.sink.split, !llvm.loop !18
+  br i1 %cmp, label %for.body, label %return.sink.split, !llvm.loop !17
 
 return.sink.split:                                ; preds = %for.body, %if.end3, %if.end
   %call5.sink = phi ptr [ null, %if.end ], [ %call5, %if.end3 ], [ %call5, %for.body ]
@@ -1917,7 +1917,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_snapshot_load_tmp(ptr noundef %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_load_tmp(ptr noundef %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1999,7 +1999,7 @@ for.body:                                         ; preds = %if.end26, %for.body
   %15 = load i32, ptr %l1_size28, align 8
   %16 = sext i32 %15 to i64
   %cmp33 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %cmp33, label %for.body, label %return, !llvm.loop !19
+  br i1 %cmp33, label %for.body, label %return, !llvm.loop !18
 
 return:                                           ; preds = %for.body, %if.end26, %if.end8, %if.end3, %if.then25, %if.then2
   %retval.0 = phi i32 [ -2, %if.then2 ], [ %call22, %if.then25 ], [ %call4, %if.end3 ], [ -12, %if.end8 ], [ 0, %if.end26 ], [ 0, %for.body ]
@@ -2085,7 +2085,7 @@ attributes #20 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -2147483648, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -2097,4 +2097,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

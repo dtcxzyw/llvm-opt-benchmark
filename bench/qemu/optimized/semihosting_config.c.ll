@@ -208,7 +208,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_semihosting_config_options(ptr noundef %optstr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @qemu_semihosting_config_options(ptr noundef %optstr) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str) #8
   %call1 = tail call ptr @qemu_opts_parse_noisily(ptr noundef %call, ptr noundef %optstr, i1 noundef zeroext false) #8

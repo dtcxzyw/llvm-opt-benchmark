@@ -532,7 +532,7 @@ define noundef ptr @register_tap_listener(ptr noundef %0, ptr noundef %1, ptr no
   %.011.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   %11 = getelementptr inbounds i8, ptr %.0612.i, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %0) #9
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #9
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %find_tap_id.exit, label %14
 
@@ -826,7 +826,7 @@ free_tap_listener.exit:                           ; preds = %.loopexit, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @tap_listeners_require_dissection() local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @tap_listeners_require_dissection() local_unnamed_addr #7 {
   br label %1
 
 1:                                                ; preds = %2, %0
@@ -848,7 +848,7 @@ define noundef i32 @tap_listeners_require_dissection() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tap_listeners_require_columns() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tap_listeners_require_columns() local_unnamed_addr #0 {
   br label %1
 
 1:                                                ; preds = %6, %0
@@ -878,7 +878,7 @@ define noundef i32 @tap_listeners_require_columns() local_unnamed_addr #0 {
 declare zeroext i1 @dfilter_requires_columns(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @have_tap_listener(i32 noundef %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @have_tap_listener(i32 noundef %0) local_unnamed_addr #7 {
   br label %2
 
 2:                                                ; preds = %3, %1
@@ -899,7 +899,7 @@ define noundef i32 @have_tap_listener(i32 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @have_filtering_tap_listeners() local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @have_filtering_tap_listeners() local_unnamed_addr #7 {
   br label %1
 
 1:                                                ; preds = %2, %0

@@ -106,7 +106,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.legacy_query = private unnamed_addr constant [4 x ptr] [ptr @legacy_digests, ptr @legacy_ciphers, ptr null, ptr @legacy_kdfs], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
 entry:
   %c_pop_error_to_mark.promoted = load ptr, ptr @c_pop_error_to_mark, align 8
   %c_clear_last_error_mark.promoted = load ptr, ptr @c_clear_last_error_mark, align 8
@@ -359,7 +359,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @legacy_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @legacy_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #5
   %cmp.not = icmp eq ptr %call, null

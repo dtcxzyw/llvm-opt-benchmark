@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4absl16strings_internal10memcasecmpEPKcS2_m(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -255, 256) i32 @_ZN4absl16strings_internal10memcasecmpEPKcS2_m(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp16.not = icmp eq i64 %len, 0
   br i1 %cmp16.not, label %return, label %for.body

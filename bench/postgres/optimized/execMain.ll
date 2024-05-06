@@ -1347,7 +1347,7 @@ define dso_local void @standard_ExecutorEnd(ptr nocapture noundef %0) local_unna
   %21 = getelementptr inbounds i8, ptr %3, i64 168
   %22 = load ptr, ptr %21, align 8
   tail call void @ExecResetTupleTable(ptr noundef %22, i1 noundef zeroext false) #10
-  tail call void @ExecCloseResultRelations(ptr noundef %3)
+  tail call void @ExecCloseResultRelations(ptr noundef readonly %3)
   %23 = getelementptr inbounds i8, ptr %3, i64 32
   %24 = load i32, ptr %23, align 8
   %.not8.i.i = icmp eq i32 %24, 0
@@ -2440,7 +2440,7 @@ slot_getallattrs.exit:                            ; preds = %15, %23
 
 .lr.ph:                                           ; preds = %slot_getallattrs.exit
   %26 = getelementptr inbounds i8, ptr %2, i64 24
-  %27 = trunc i8 %.041 to i1
+  %27 = trunc nuw i8 %.041 to i1
   %28 = getelementptr inbounds i8, ptr %1, i64 32
   %29 = getelementptr inbounds i8, ptr %1, i64 24
   br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split
@@ -2591,12 +2591,12 @@ slot_getallattrs.exit:                            ; preds = %15, %23
 
 ._crit_edge:                                      ; preds = %97, %55, %slot_getallattrs.exit
   %.1.lcssa = phi i8 [ %.041, %slot_getallattrs.exit ], [ %.041, %55 ], [ %.3, %97 ]
-  %101 = trunc i8 %.1.lcssa to i1
+  %101 = trunc nuw i8 %.1.lcssa to i1
   br i1 %101, label %102, label %111
 
 102:                                              ; preds = %._crit_edge
   call void @appendStringInfoChar(ptr noundef nonnull %5, i8 noundef signext 41) #10
-  %103 = trunc i8 %.041 to i1
+  %103 = trunc nuw i8 %.041 to i1
   br i1 %103, label %109, label %104
 
 104:                                              ; preds = %102
@@ -3175,7 +3175,7 @@ ExecQual.exit:                                    ; preds = %47
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ExecUpdateLockMode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 2, 4) i32 @ExecUpdateLockMode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ExecGetAllUpdatedCols(ptr noundef %1, ptr noundef %0) #10
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8

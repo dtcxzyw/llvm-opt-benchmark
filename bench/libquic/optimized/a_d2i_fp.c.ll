@@ -26,7 +26,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   store ptr null, ptr %b.i, align 8
-  %call.i = call fastcc i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i), !range !7
+  %call.i = call fastcc i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i)
   %cmp.i = icmp slt i32 %call.i, 0
   %.pre.i = load ptr, ptr %b.i, align 8
   br i1 %cmp.i, label %err.i, label %err.thread.i
@@ -74,7 +74,7 @@ entry:
   %b = alloca ptr, align 8
   %p = alloca ptr, align 8
   store ptr null, ptr %b, align 8
-  %call = call fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef nonnull %b), !range !7
+  %call = call fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef nonnull %b)
   %cmp = icmp slt i32 %call, 0
   %.pre = load ptr, ptr %b, align 8
   br i1 %cmp, label %err, label %err.thread
@@ -104,7 +104,7 @@ if.end5:                                          ; preds = %if.then4, %err
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr nocapture noundef writeonly %pb) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %in, ptr nocapture noundef writeonly %pb) unnamed_addr #0 {
 entry:
   %c = alloca %struct.asn1_const_ctx_st, align 8
   %call = tail call ptr @BUF_MEM_new() #4
@@ -157,7 +157,7 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
 if.end9:                                          ; preds = %lor.lhs.false
   %0 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %len.0
-  %conv = trunc i64 %sub4 to i32
+  %conv = trunc nuw nsw i64 %sub4 to i32
   %call10 = call i32 @BIO_read(ptr noundef %in, ptr noundef %arrayidx, i32 noundef %conv) #4
   %cmp11 = icmp slt i32 %call10, 0
   %cmp14 = icmp eq i64 %len.0, %off.0
@@ -305,14 +305,14 @@ if.end112:                                        ; preds = %while.body104
   %add114 = add i64 %len.377, %conv113
   %sub116 = sub i64 %chunk.078, %conv113
   %cmp102.not = icmp eq i64 %sub116, 0
-  br i1 %cmp102.not, label %while.end, label %while.body104, !llvm.loop !8
+  br i1 %cmp102.not, label %while.end, label %while.body104, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end112
   %cmp117 = icmp ult i64 %chunk_max.082, 1073741823
   %mul = zext i1 %cmp117 to i64
   %spec.select = shl nuw nsw i64 %chunk_max.082, %mul
   %cmp91.not = icmp eq i64 %sub100, 0
-  br i1 %cmp91.not, label %if.end122.loopexit, label %while.body, !llvm.loop !10
+  br i1 %cmp91.not, label %if.end122.loopexit, label %while.body, !llvm.loop !9
 
 if.end122.loopexit:                               ; preds = %while.end
   %.pre83 = load i64, ptr %slen, align 8
@@ -343,7 +343,7 @@ if.then140:                                       ; preds = %for.end
 
 if.end141:                                        ; preds = %for.end
   store ptr %call, ptr %pb, align 8
-  %conv142 = trunc i64 %off.2 to i32
+  %conv142 = trunc nuw nsw i64 %off.2 to i32
   br label %return
 
 if.then145:                                       ; preds = %if.then39, %if.then8, %if.then16, %if.then25, %if.then89, %if.then98, %if.then111, %if.then127, %if.then140
@@ -363,7 +363,7 @@ entry:
   %b = alloca ptr, align 8
   %p = alloca ptr, align 8
   store ptr null, ptr %b, align 8
-  %call = call fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef nonnull %b), !range !7
+  %call = call fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef nonnull %b)
   %cmp = icmp slt i32 %call, 0
   %.pre = load ptr, ptr %b, align 8
   br i1 %cmp, label %err, label %err.thread
@@ -411,7 +411,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   store ptr null, ptr %b.i, align 8
-  %call.i = call fastcc i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i), !range !7
+  %call.i = call fastcc i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i)
   %cmp.i = icmp slt i32 %call.i, 0
   %.pre.i = load ptr, ptr %b.i, align 8
   br i1 %cmp.i, label %err.i, label %err.thread.i
@@ -481,7 +481,6 @@ attributes #4 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 -1, i32 -2147483648}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

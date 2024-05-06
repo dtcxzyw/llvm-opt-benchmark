@@ -929,7 +929,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)

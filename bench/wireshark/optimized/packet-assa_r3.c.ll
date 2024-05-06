@@ -2985,7 +2985,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_r3_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 257) i32 @get_r3_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #5
   %7 = zext i8 %6 to i32
@@ -3924,7 +3924,7 @@ define internal void @dissect_r3_cmd_definecalendar(ptr noundef %0, i32 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = getelementptr [13 x i32], ptr @ett_r3definecalendarmonth, i64 0, i64 %indvars.iv.next
   %24 = load i32, ptr %23, align 4
-  %25 = trunc i64 %indvars.iv.next to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.next to i32
   %26 = tail call ptr @val_to_str_ext_const(i32 noundef %25, ptr noundef nonnull @r3_monthnames_ext, ptr noundef nonnull @.str.2107) #5
   %27 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %11, i32 noundef %21, i32 noundef 4, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.2106, ptr noundef %26, i32 noundef %22) #5
   br label %28
@@ -5842,7 +5842,7 @@ define internal void @dissect_r3_upstreammfgfield_adcs(ptr noundef %0, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = getelementptr [8 x i32], ptr @hf_r3_adc, i64 0, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef -2147483648) #5
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #5
   %17 = uitofp i8 %16 to double

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [16 x i8] c"%s: close error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @copy_fd(i32 noundef %ifd, i32 noundef %ofd) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @copy_fd(i32 noundef %ifd, i32 noundef %ofd) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [8192 x i8], align 16
   br label %while.body
@@ -41,7 +41,7 @@ declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @copy_file(ptr noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @copy_file(ptr noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [8192 x i8], align 16
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %src, i32 noundef 0) #5
@@ -129,18 +129,18 @@ declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @adjust_shared_perm(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @copy_file_with_time(ptr noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @copy_file_with_time(ptr noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %times.i = alloca %struct.utimbuf, align 8
-  %call = tail call i32 @copy_file(ptr noundef %dst, ptr noundef %src, i32 noundef %mode), !range !5
+  %call = tail call i32 @copy_file(ptr noundef %dst, ptr noundef %src, i32 noundef %mode)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %times.i)
-  %call.i = call i32 @stat64(ptr noundef %src, ptr noundef nonnull %st.i) #5
+  %call.i = call i32 @stat64(ptr noundef readonly %src, ptr noundef nonnull %st.i) #5
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %copy_times.exit, label %if.end.i
 
@@ -152,7 +152,7 @@ if.end.i:                                         ; preds = %if.then
   %1 = load i64, ptr %st_mtim.i, align 8
   %modtime.i = getelementptr inbounds i8, ptr %times.i, i64 8
   store i64 %1, ptr %modtime.i, align 8
-  %call2.i = call i32 @utime(ptr noundef %dst, ptr noundef nonnull %times.i) #5
+  %call2.i = call i32 @utime(ptr noundef readonly %dst, ptr noundef nonnull %times.i) #5
   %call2.lobit.i = ashr i32 %call2.i, 31
   br label %copy_times.exit
 
@@ -193,4 +193,3 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}

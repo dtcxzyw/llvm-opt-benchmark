@@ -208,7 +208,7 @@ if.end24:                                         ; preds = %if.then23, %do.body
   br i1 %cmp.i, label %vu_gpio_realize_connect.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
-  %call3.i = call fastcc i32 @vu_gpio_connect(ptr noundef %call.i28, ptr noundef nonnull %spec.select), !range !5
+  %call3.i = call fastcc i32 @vu_gpio_connect(ptr noundef %call.i28, ptr noundef nonnull %spec.select)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %do.body.i
 
@@ -238,7 +238,7 @@ if.then12.i:                                      ; preds = %do.end.i
 
 vu_gpio_realize_connect.exit:                     ; preds = %if.end24, %if.then5.i, %if.then12.i
   %tobool28.not = icmp eq i32 %retries.0, 0
-  br i1 %tobool28.not, label %if.then31, label %do.body21thread-pre-split, !llvm.loop !6
+  br i1 %tobool28.not, label %if.then31, label %do.body21thread-pre-split, !llvm.loop !5
 
 if.then31:                                        ; preds = %vu_gpio_realize_connect.exit
   %5 = load ptr, ptr %command_vq, align 8
@@ -458,7 +458,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call2 = call fastcc i32 @vu_gpio_connect(ptr noundef %opaque, ptr noundef nonnull %local_err), !range !5
+  %call2 = call fastcc i32 @vu_gpio_connect(ptr noundef %opaque, ptr noundef nonnull %local_err)
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then, label %sw.epilog
 
@@ -487,7 +487,7 @@ declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vu_gpio_connect(ptr noundef %dev, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vu_gpio_connect(ptr noundef %dev, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #7
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_USER_GPIO) #7
@@ -639,7 +639,7 @@ for.body:                                         ; preds = %if.end19, %for.body
   %inc = add nuw i32 %i.039, 1
   %6 = load i32, ptr %nvqs, align 8
   %cmp22 = icmp ult i32 %inc, %6
-  br i1 %cmp22, label %for.body, label %do.body, !llvm.loop !8
+  br i1 %cmp22, label %for.body, label %do.body, !llvm.loop !7
 
 do.body:                                          ; preds = %for.body, %if.end19
   %vhost_ops = getelementptr inbounds i8, ptr %call.i37, i64 1120
@@ -794,7 +794,6 @@ attributes #9 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

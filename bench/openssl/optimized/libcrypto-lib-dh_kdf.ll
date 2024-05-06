@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [7 x i8] c"cekalg\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dh_kdf_X9_42_asn1(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %cek_alg, ptr noundef %ukm, i64 noundef %ukmlen, ptr noundef %md, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_kdf_X9_42_asn1(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %cek_alg, ptr noundef %ukm, i64 noundef %ukmlen, ptr noundef %md, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %params = alloca [5 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -91,7 +91,7 @@ declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DH_KDF_X9_42(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %key_oid, ptr noundef %ukm, i64 noundef %ukmlen, ptr noundef %md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DH_KDF_X9_42(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef %key_oid, ptr noundef %ukm, i64 noundef %ukmlen, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %key_alg = alloca [50 x i8], align 16
   %call = tail call ptr @EVP_MD_get0_provider(ptr noundef %md) #3
@@ -101,7 +101,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call4 = call i32 @ossl_dh_kdf_X9_42_asn1(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef nonnull %key_alg, ptr noundef %ukm, i64 noundef %ukmlen, ptr noundef %md, ptr noundef %call1, ptr noundef null), !range !4
+  %call4 = call i32 @ossl_dh_kdf_X9_42_asn1(ptr noundef %out, i64 noundef %outlen, ptr noundef %Z, i64 noundef %Zlen, ptr noundef nonnull %key_alg, ptr noundef %ukm, i64 noundef %ukmlen, ptr noundef %md, ptr noundef %call1, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -126,4 +126,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

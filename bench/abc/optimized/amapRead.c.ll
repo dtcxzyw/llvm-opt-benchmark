@@ -401,11 +401,11 @@ define i32 @Amap_GateCollectNames(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %20, label %Amap_ParseStrsav.exit, label %29
 
 Amap_ParseStrsav.exit:                            ; preds = %18, %._crit_edge
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.12836) #19
+  %21 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.12836) #19
   %22 = trunc i64 %21 to i32
   %23 = add i32 %22, 1
   %24 = call ptr @Aig_MmFlexEntryFetch(ptr noundef %0, i32 noundef %23) #16
-  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %.12836) #16
+  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %.12836) #16
   %26 = add nsw i32 %.02637, 1
   %27 = sext i32 %.02637 to i64
   %28 = getelementptr inbounds ptr, ptr %2, i64 %27
@@ -696,11 +696,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 73:                                               ; preds = %Vec_PtrPush.exit
   %74 = load ptr, ptr %8, align 8
-  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #19
+  %75 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %72) #19
   %76 = trunc i64 %75 to i32
   %77 = add i32 %76, 1
   %78 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %74, i32 noundef %77) #16
-  %79 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %72) #16
+  %79 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(1) %72) #16
   br label %Amap_ParseStrsav.exit
 
 Amap_ParseStrsav.exit:                            ; preds = %Vec_PtrPush.exit, %73
@@ -723,11 +723,11 @@ Amap_ParseStrsav.exit:                            ; preds = %Vec_PtrPush.exit, %
 
 90:                                               ; preds = %Amap_ParseStrsav.exit
   %91 = load ptr, ptr %8, align 8
-  %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #19
+  %92 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %89) #19
   %93 = trunc i64 %92 to i32
   %94 = add i32 %93, 1
   %95 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %91, i32 noundef %94) #16
-  %96 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) %89) #16
+  %96 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull readonly dereferenceable(1) %89) #16
   br label %Amap_ParseStrsav.exit160
 
 Amap_ParseStrsav.exit160:                         ; preds = %Amap_ParseStrsav.exit, %90
@@ -795,11 +795,11 @@ Amap_CollectFormulaTokens.exit:                   ; preds = %.loopexit.i
 119:                                              ; preds = %Amap_CollectFormulaTokens.exit.thread, %Amap_CollectFormulaTokens.exit
   %.011.lcssa.i185 = phi i32 [ %99, %Amap_CollectFormulaTokens.exit.thread ], [ %118, %Amap_CollectFormulaTokens.exit ]
   %120 = load ptr, ptr %8, align 8
-  %121 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #19
+  %121 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %102) #19
   %122 = trunc i64 %121 to i32
   %123 = add i32 %122, 1
   %124 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %120, i32 noundef %123) #16
-  %125 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %102) #16
+  %125 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull readonly dereferenceable(1) %102) #16
   br label %Amap_ParseStrsav.exit170
 
 Amap_ParseStrsav.exit170:                         ; preds = %Amap_CollectFormulaTokens.exit, %119
@@ -842,11 +842,11 @@ Amap_ParseStrsav.exit170:                         ; preds = %Amap_CollectFormula
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr %8, align 8
-  %143 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %140) #19
+  %143 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %140) #19
   %144 = trunc i64 %143 to i32
   %145 = add i32 %144, 1
   %146 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %142, i32 noundef %145) #16
-  %147 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(1) %140) #16
+  %147 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull readonly dereferenceable(1) %140) #16
   br label %Amap_ParseStrsav.exit172
 
 Amap_ParseStrsav.exit172:                         ; preds = %138, %141
@@ -979,7 +979,7 @@ sub_1:                                            ; preds = %sub_0
   %224 = mul i32 %220, 72
   %225 = add i32 %224, 64
   %226 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %223, i32 noundef %225) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %226, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %226, ptr noundef nonnull readonly align 8 dereferenceable(64) %29, i64 64, i1 false)
   %227 = getelementptr inbounds i8, ptr %226, i64 56
   %228 = load i32, ptr %227, align 8
   %229 = shl i32 %220, 24
@@ -997,7 +997,7 @@ sub_1:                                            ; preds = %sub_0
 
 234:                                              ; preds = %234, %.lr.ph.i174
   %.018.i = phi ptr [ %.ptr.i, %.lr.ph.i174 ], [ %240, %234 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.018.i, ptr noundef nonnull align 8 dereferenceable(72) %.ptr, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.018.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %.ptr, i64 72, i1 false)
   %235 = ptrtoint ptr %.018.i to i64
   %236 = sub i64 %235, %233
   %237 = sdiv exact i64 %236, 72
@@ -1274,10 +1274,10 @@ define ptr @Amap_LibReadFile(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #17
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %0) #16
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %0) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %7, %8

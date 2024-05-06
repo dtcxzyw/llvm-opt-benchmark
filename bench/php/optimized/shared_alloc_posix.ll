@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [5 x i8] c"mmap\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @create_segments(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca [38 x i8], align 16
   store i32 1, ptr %2, align 4
   %6 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #6

@@ -393,7 +393,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
 213:                                              ; preds = %207
   %214 = load i64, ptr %3, align 8
   %215 = lshr i64 %214, 62
-  %216 = trunc i64 %215 to i32
+  %216 = trunc nuw nsw i64 %215 to i32
   %217 = getelementptr inbounds i8, ptr %201, i64 24
   store i32 %216, ptr %217, align 8
   %218 = getelementptr [3 x i32], ptr @num_discovered_types, i64 0, i64 %215
@@ -1331,7 +1331,7 @@ define internal void @intel_generic_uncore_msr_enable_event(ptr nocapture readno
   %7 = load i64, ptr %3, align 8
   %8 = trunc i64 %7 to i32
   %9 = lshr i64 %7, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %6, i32 %8, i32 %10) #9, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #9
           to label %12 [label %11], !srcloc !18

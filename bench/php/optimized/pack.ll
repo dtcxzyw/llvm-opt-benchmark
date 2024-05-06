@@ -1282,51 +1282,51 @@ php_pack.exit645:                                 ; preds = %.lr.ph.i641
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph793
-  %525 = trunc i64 %indvars.iv.next909 to i32
-  %526 = trunc i64 %indvars.iv.next907 to i32
+  %525 = trunc nsw i64 %indvars.iv.next909 to i32
+  %526 = trunc nsw i64 %indvars.iv.next907 to i32
   br label %.loopexit
 
 .loopexit.loopexit820:                            ; preds = %504
-  %527 = trunc i64 %indvars.iv.next904 to i32
+  %527 = trunc nsw i64 %indvars.iv.next904 to i32
   br label %.loopexit
 
 .loopexit.loopexit821:                            ; preds = %php_pack.exit635
-  %528 = trunc i64 %indvars.iv.next901 to i32
+  %528 = trunc nsw i64 %indvars.iv.next901 to i32
   br label %.loopexit
 
 .loopexit.loopexit822:                            ; preds = %php_pack.exit630
-  %529 = trunc i64 %indvars.iv.next896 to i32
-  %530 = trunc i64 %indvars.iv.next894 to i32
+  %529 = trunc nsw i64 %indvars.iv.next896 to i32
+  %530 = trunc nsw i64 %indvars.iv.next894 to i32
   br label %.loopexit
 
 .loopexit.loopexit823:                            ; preds = %php_pack.exit640
-  %531 = trunc i64 %indvars.iv.next889 to i32
-  %532 = trunc i64 %indvars.iv.next887 to i32
+  %531 = trunc nsw i64 %indvars.iv.next889 to i32
+  %532 = trunc nsw i64 %indvars.iv.next887 to i32
   br label %.loopexit
 
 .loopexit.loopexit824:                            ; preds = %424
-  %533 = trunc i64 %indvars.iv.next884 to i32
+  %533 = trunc nsw i64 %indvars.iv.next884 to i32
   br label %.loopexit
 
 .loopexit.loopexit825:                            ; preds = %440
-  %534 = trunc i64 %indvars.iv.next881 to i32
+  %534 = trunc nsw i64 %indvars.iv.next881 to i32
   br label %.loopexit
 
 .loopexit.loopexit826:                            ; preds = %456
-  %535 = trunc i64 %indvars.iv.next878 to i32
+  %535 = trunc nsw i64 %indvars.iv.next878 to i32
   br label %.loopexit
 
 .loopexit.loopexit827:                            ; preds = %474
-  %536 = trunc i64 %indvars.iv.next875 to i32
+  %536 = trunc nsw i64 %indvars.iv.next875 to i32
   br label %.loopexit
 
 .loopexit.loopexit828:                            ; preds = %489
-  %537 = trunc i64 %indvars.iv.next872 to i32
+  %537 = trunc nsw i64 %indvars.iv.next872 to i32
   br label %.loopexit
 
 .loopexit.loopexit829:                            ; preds = %php_pack.exit645
-  %538 = trunc i64 %indvars.iv.next867 to i32
-  %539 = trunc i64 %indvars.iv.next to i32
+  %538 = trunc nsw i64 %indvars.iv.next867 to i32
+  %539 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit829, %.loopexit.loopexit828, %.loopexit.loopexit827, %.loopexit.loopexit826, %.loopexit.loopexit825, %.loopexit.loopexit824, %.loopexit.loopexit823, %.loopexit.loopexit822, %.loopexit.loopexit821, %.loopexit.loopexit820, %.loopexit.loopexit, %400, %.preheader682, %.preheader680, %.preheader678, %.preheader676, %.preheader674, %384, %352, %367, %.preheader, %342, %518, %520, %221, %511, %516, %267, %276, %271, %255, %332, %341, %336, %._crit_edge802
@@ -1544,7 +1544,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br label %.loopexit1135
 
 .lr.ph.preheader:                                 ; preds = %79
-  %89 = trunc i64 %81 to i32
+  %89 = trunc nsw i64 %81 to i32
   %scevgep = getelementptr i8, ptr %.09591193, i64 %.09621192
   br label %.lr.ph
 
@@ -1772,7 +1772,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %.0953 = phi i64 [ %171, %169 ], [ %177, %172 ]
   %.0952 = phi ptr [ %69, %169 ], [ %176, %172 ]
   %173 = urem i64 %.0953, 10
-  %174 = trunc i64 %173 to i8
+  %174 = trunc nuw nsw i64 %173 to i8
   %175 = or disjoint i8 %174, 48
   %176 = getelementptr inbounds i8, ptr %.0952, i64 -1
   store i8 %175, ptr %176, align 1
@@ -2081,7 +2081,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %317 = ashr i32 %316, %.09341165
   %318 = and i32 %317, 15
   %319 = icmp ult i32 %318, 10
-  %320 = trunc i32 %318 to i8
+  %320 = trunc nuw nsw i32 %318 to i8
   %321 = or disjoint i8 %320, 48
   %322 = add nuw nsw i8 %320, 87
   %.0928 = select i1 %319, i8 %321, i8 %322
@@ -2639,7 +2639,7 @@ define hidden noundef i32 @zm_startup_pack(i32 noundef %0, i32 noundef %1) local
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %4 = getelementptr inbounds [4 x i32], ptr @int_map, i64 0, i64 %indvars.iv
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %5, ptr %4, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

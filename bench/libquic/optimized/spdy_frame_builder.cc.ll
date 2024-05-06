@@ -346,7 +346,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i:   ; preds = %if.end32
   %conv21 = trunc i64 %sub to i32
   %13 = tail call noundef i32 @llvm.bswap.i32(i32 %conv21)
   %flags_length.sroa.3.0.extract.shift = lshr i32 %13, 8
-  %flags_length.sroa.3.0.extract.trunc = trunc i32 %flags_length.sroa.3.0.extract.shift to i24
+  %flags_length.sroa.3.0.extract.trunc = trunc nuw i32 %flags_length.sroa.3.0.extract.shift to i24
   %14 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 %10
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %11
@@ -430,7 +430,7 @@ if.end27.sink.split.i:                            ; preds = %_ZNK3net16SpdyFrame
   %.sink.i = phi i32 [ %8, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i.i ], [ %retval.sroa.3.0.extract.shift.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ]
   %add.ptr.i.i.i.sink.i = phi ptr [ %add.ptr.i.i.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i.i ], [ %add.ptr3.i.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ]
   %value.addr.1.extract.shift.i.i = lshr i32 %.sink.i, 8
-  %value.addr.1.extract.trunc.i.i = trunc i32 %value.addr.1.extract.shift.i.i to i24
+  %value.addr.1.extract.trunc.i.i = trunc nuw i32 %value.addr.1.extract.shift.i.i to i24
   store i24 %value.addr.1.extract.trunc.i.i, ptr %add.ptr.i.i.i.sink.i, align 1
   br label %_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit
 
@@ -491,7 +491,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i18: ; preds = %if.end39
   %18 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i19 = getelementptr inbounds i8, ptr %18, i64 %add
   %value.addr.1.extract.shift.i = lshr i32 %17, 8
-  %value.addr.1.extract.trunc.i = trunc i32 %value.addr.1.extract.shift.i to i24
+  %value.addr.1.extract.trunc.i = trunc nuw i32 %value.addr.1.extract.shift.i to i24
   store i24 %value.addr.1.extract.trunc.i, ptr %add.ptr.i.i.i19, align 1
   %19 = load i64, ptr %offset_, align 8
   %20 = load i64, ptr %length_, align 8
@@ -647,7 +647,7 @@ if.end27.sink.split:                              ; preds = %_ZNK3net16SpdyFrame
   %.sink = phi i32 [ %8, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ], [ %retval.sroa.3.0.extract.shift.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i ]
   %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ], [ %add.ptr3.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i ]
   %value.addr.1.extract.shift.i = lshr i32 %.sink, 8
-  %value.addr.1.extract.trunc.i = trunc i32 %value.addr.1.extract.shift.i to i24
+  %value.addr.1.extract.trunc.i = trunc nuw i32 %value.addr.1.extract.shift.i to i24
   store i24 %value.addr.1.extract.trunc.i, ptr %add.ptr.i.i.i.sink, align 1
   br label %if.end27
 
@@ -722,7 +722,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i:   ; preds = %if.end5
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %8
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3.i.i, ptr align 1 %call6, i64 %conv9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3.i.i, ptr readonly align 1 %call6, i64 %conv9, i1 false)
   %12 = load i64, ptr %offset_.i.i.i, align 8
   %13 = load i64, ptr %length_.i.i.i, align 8
   %add.i.i10.i = add i64 %13, %conv9
@@ -799,7 +799,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i:   ; preds = %_ZNK3net16SpdyFrame
   %12 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %9
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3.i.i, ptr align 1 %call3, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3.i.i, ptr readonly align 1 %call3, i64 %conv.i, i1 false)
   %13 = load i64, ptr %offset_.i.i.i, align 8
   %14 = load i64, ptr %length_.i.i.i, align 8
   %add.i.i10.i = add i64 %14, %conv.i
@@ -866,7 +866,7 @@ if.end27.sink.split.i:                            ; preds = %_ZNK3net16SpdyFrame
   %.sink.i = phi i32 [ %6, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i.i ], [ %retval.sroa.3.0.extract.shift.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ]
   %add.ptr.i.i.i.sink.i = phi ptr [ %add.ptr.i.i.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i.i ], [ %add.ptr3.i.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ]
   %value.addr.1.extract.shift.i.i = lshr i32 %.sink.i, 8
-  %value.addr.1.extract.trunc.i.i = trunc i32 %value.addr.1.extract.shift.i.i to i24
+  %value.addr.1.extract.trunc.i.i = trunc nuw i32 %value.addr.1.extract.shift.i.i to i24
   store i24 %value.addr.1.extract.trunc.i.i, ptr %add.ptr.i.i.i.sink.i, align 1
   br label %_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit
 

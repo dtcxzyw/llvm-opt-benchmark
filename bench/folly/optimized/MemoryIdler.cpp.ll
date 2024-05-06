@@ -62,8 +62,8 @@ $_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr = comdat any
 @.str.10 = private unnamed_addr constant [28 x i8] c"mallctl: not using jemalloc\00", align 1
 @.str.11 = private unnamed_addr constant [8 x i8] c"mallctl\00", align 1
 @_ZTISt11logic_error = external constant ptr
-@_ZN5folly6detailL13tls_stackSizeE = internal thread_local global i64 0, align 8
-@_ZN5folly6detailL14tls_stackLimitE = internal thread_local global i64 0, align 8
+@_ZN5folly6detailL13tls_stackSizeE = internal thread_local unnamed_addr global i64 0, align 8
+@_ZN5folly6detailL14tls_stackLimitE = internal thread_local unnamed_addr global i64 0, align 8
 @_ZZN5folly6detailL16fetchStackLimitsEvE26__folly_detail_glog_logged = internal global %"struct.std::atomic.4" zeroinitializer, align 1
 @.str.12 = private unnamed_addr constant [33 x i8] c"pthread_getaddr_np failed errno=\00", align 1
 @_ZZN5folly6detailL16fetchStackLimitsEvE26__folly_detail_glog_logged_0 = internal global %"struct.std::atomic.4" zeroinitializer, align 1

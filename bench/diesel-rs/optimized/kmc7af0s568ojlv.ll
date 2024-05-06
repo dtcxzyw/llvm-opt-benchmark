@@ -266,7 +266,7 @@ define nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h
   %12 = sub i64 %11, %9
   store i64 %12, ptr %10, align 8
   %13 = lshr i64 %1, 57
-  %14 = trunc i64 %13 to i8
+  %14 = trunc nuw nsw i64 %13 to i8
   %15 = add i64 %2, -16
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !3
@@ -622,7 +622,7 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hdf4b4bb5ce484760E"(
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
   %17 = lshr i64 %1, 57
-  %18 = trunc i64 %17 to i8
+  %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !noundef !3
   %21 = and i64 %20, %1

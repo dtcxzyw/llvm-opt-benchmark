@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h92adbeff2db6c127E(ptr align 8 %0) unnamed_addr #0 {
+define hidden range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h92adbeff2db6c127E(ptr align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call i8 @_ZN4core4sync6atomic11atomic_load17h7c87fcf425c275e2E(ptr nonnull %2, i8 0)
   %4 = icmp ult i8 %3, 3

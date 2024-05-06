@@ -465,7 +465,7 @@ define void @Amap_ManMatchNode(ptr nocapture noundef readonly %0, ptr nocapture 
 57:                                               ; preds = %.lr.ph, %Amap_CutCompareArea.exit
   %58 = phi i32 [ %48, %.lr.ph ], [ %199, %Amap_CutCompareArea.exit ]
   %.093141 = phi ptr [ %.093139, %.lr.ph ], [ %.093, %Amap_CutCompareArea.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %36, i8 0, i64 16, i1 false)
   store ptr %.094142, ptr %7, align 8
   store ptr %.093141, ptr %37, align 8
   %59 = load ptr, ptr %35, align 8
@@ -629,7 +629,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %161 = getelementptr inbounds i8, ptr %160, i64 4
   store i32 0, ptr %161, align 4
   %162 = load ptr, ptr %41, align 8
-  %163 = call fastcc float @Amap_CutAreaRef2(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %162, i32 noundef 8)
+  %163 = call fastcc float @Amap_CutAreaRef2(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7, ptr noundef %162, i32 noundef 8)
   %164 = load ptr, ptr %41, align 8
   %165 = getelementptr i8, ptr %164, i64 4
   %.val21.i.i = load i32, ptr %165, align 4
@@ -849,7 +849,7 @@ Amap_CutCompareArea.exit:                         ; preds = %238, %231, %223, %A
   %295 = load ptr, ptr %294, align 8
   %296 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %295, i32 noundef %narrow.i) #17
   %297 = zext nneg i32 %narrow.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %296, ptr noundef nonnull align 4 dereferenceable(1) %290, i64 %297, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %296, ptr noundef nonnull readonly align 4 dereferenceable(1) %290, i64 %297, i1 false)
   store ptr %296, ptr %289, align 8
   br i1 %.not, label %305, label %298
 
@@ -1241,7 +1241,7 @@ Amap_ManCleanRefs.exit.i:                         ; preds = %49, %.critedge
   %67 = getelementptr inbounds ptr, ptr %.val13.val.i, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = and i32 %.val14.i, 1
-  %70 = call float @Amap_ManComputeMapping_rec(ptr noundef nonnull %0, ptr noundef %68, i32 noundef %69)
+  %70 = call float @Amap_ManComputeMapping_rec(ptr noundef nonnull readonly %0, ptr noundef %68, i32 noundef %69)
   %71 = fadd float %.01117.i, %70
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %72 = load ptr, ptr %55, align 8

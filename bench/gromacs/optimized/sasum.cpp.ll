@@ -19,7 +19,7 @@ define float @sasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %9
-  %11 = mul nsw i32 %5, %.fr
+  %11 = mul nuw nsw i32 %5, %.fr
   %.not6365 = icmp slt i32 %11, 1
   br i1 %.not6365, label %.loopexit, label %.lr.ph.preheader
 
@@ -82,23 +82,23 @@ define float @sasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %32 = load float, ptr %31, align 4
   %33 = tail call noundef float @llvm.fabs.f32(float %32)
   %34 = fadd float %.372, %33
-  %35 = getelementptr i8, ptr %31, i64 4
+  %35 = getelementptr inbounds i8, ptr %31, i64 4
   %36 = load float, ptr %35, align 4
   %37 = tail call noundef float @llvm.fabs.f32(float %36)
   %38 = fadd float %34, %37
-  %39 = getelementptr i8, ptr %31, i64 8
+  %39 = getelementptr inbounds i8, ptr %31, i64 8
   %40 = load float, ptr %39, align 4
   %41 = tail call noundef float @llvm.fabs.f32(float %40)
   %42 = fadd float %38, %41
-  %43 = getelementptr i8, ptr %31, i64 12
+  %43 = getelementptr inbounds i8, ptr %31, i64 12
   %44 = load float, ptr %43, align 4
   %45 = tail call noundef float @llvm.fabs.f32(float %44)
   %46 = fadd float %42, %45
-  %47 = getelementptr i8, ptr %31, i64 16
+  %47 = getelementptr inbounds i8, ptr %31, i64 16
   %48 = load float, ptr %47, align 4
   %49 = tail call noundef float @llvm.fabs.f32(float %48)
   %50 = fadd float %46, %49
-  %51 = getelementptr i8, ptr %31, i64 20
+  %51 = getelementptr inbounds i8, ptr %31, i64 20
   %52 = load float, ptr %51, align 4
   %53 = tail call noundef float @llvm.fabs.f32(float %52)
   %54 = fadd float %50, %53

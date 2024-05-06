@@ -97,7 +97,7 @@ define dso_local void @bxt_port_to_phy_channel(ptr nocapture noundef readonly %0
 
 .loopexit.loopexit:                               ; preds = %11, %19
   %.ph = phi i32 [ 0, %11 ], [ 1, %19 ]
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35
@@ -787,7 +787,7 @@ define internal noundef zeroext i1 @__phy_reg_verify_state(ptr noundef %0, i32 n
 
 15:                                               ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false), !annotation !15
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   store ptr %5, ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %8, ptr %16, align 8
@@ -805,7 +805,7 @@ define internal noundef zeroext i1 @__phy_reg_verify_state(ptr noundef %0, i32 n
   %24 = and i32 %12, %23
   %25 = or i32 %24, %4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %22, i32 noundef 1, ptr noundef nonnull @.str.21, i32 noundef %1, ptr noundef nonnull %7, i32 noundef %2, i32 noundef %12, i32 noundef %25, i32 noundef %3) #6
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   br label %26
 
 26:                                               ; preds = %21, %6
@@ -815,7 +815,7 @@ define internal noundef zeroext i1 @__phy_reg_verify_state(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i8 @bxt_ddi_phy_calc_lane_lat_optim_mask(i8 noundef zeroext %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 14) i8 @bxt_ddi_phy_calc_lane_lat_optim_mask(i8 noundef zeroext %0) local_unnamed_addr #0 align 16 {
   switch i8 %0, label %4 [
     i8 1, label %6
     i8 2, label %2
@@ -1055,7 +1055,7 @@ bxt_port_to_phy_channel.exit:                     ; preds = %11, %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vlv_dig_port_to_channel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @vlv_dig_port_to_channel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [
@@ -1084,7 +1084,7 @@ define dso_local noundef i32 @vlv_dig_port_to_channel(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vlv_dig_port_to_phy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @vlv_dig_port_to_phy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [
@@ -1113,7 +1113,7 @@ define dso_local noundef i32 @vlv_dig_port_to_phy(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vlv_pipe_to_phy(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @vlv_pipe_to_phy(i32 noundef %0) local_unnamed_addr #0 align 16 {
   switch i32 %0, label %2 [
     i32 0, label %5
     i32 1, label %5
@@ -1139,7 +1139,7 @@ define dso_local noundef i32 @vlv_pipe_to_phy(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vlv_pipe_to_channel(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @vlv_pipe_to_channel(i32 noundef %0) local_unnamed_addr #0 align 16 {
   switch i32 %0, label %2 [
     i32 0, label %5
     i32 2, label %5
@@ -2249,17 +2249,17 @@ declare dso_local i32 @__intel_wait_for_register(ptr noundef, i32, i32 noundef, 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @vlv_iosf_sb_get(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @vlv_iosf_sb_put(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

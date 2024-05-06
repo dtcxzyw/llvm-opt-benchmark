@@ -188,7 +188,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.96 = private unnamed_addr constant [23 x i8] c"index %zd out of range\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_Heaptype(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Heaptype(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyModule_GetDef(ptr noundef %m) #7
   store ptr %call, ptr @_testcapimodule, align 8
@@ -2161,7 +2161,7 @@ return:                                           ; preds = %Py_SIZE.exit, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @HeapCCollection_clear(ptr noundef %self) #0 {
+define internal range(i32 -1, 1) i32 @HeapCCollection_clear(ptr noundef %self) #0 {
 entry:
   %call = tail call ptr @PyObject_GetItemData(ptr noundef %self) #7
   %tobool.not = icmp eq ptr %call, null
@@ -2231,7 +2231,7 @@ define internal void @HeapCCollection_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %call1 = tail call i32 @HeapCCollection_clear(ptr noundef %self), !range !8
+  %call1 = tail call i32 @HeapCCollection_clear(ptr noundef %self)
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #7
   %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
@@ -2278,4 +2278,3 @@ attributes #9 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 1}

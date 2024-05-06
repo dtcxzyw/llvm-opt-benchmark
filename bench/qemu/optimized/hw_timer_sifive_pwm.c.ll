@@ -129,7 +129,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sifive_pwm_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @sifive_pwm_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6

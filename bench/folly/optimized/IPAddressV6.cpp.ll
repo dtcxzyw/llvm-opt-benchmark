@@ -3366,7 +3366,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN5folly11IPAddressV616trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this, ptr %bytes.coerce0, ptr %bytes.coerce1) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, 3) i64 @_ZN5folly11IPAddressV616trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this, ptr %bytes.coerce0, ptr %bytes.coerce1) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %bytes.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %bytes.coerce0 to i64
@@ -8030,7 +8030,7 @@ declare void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_trait
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK5folly11IPAddressV64typeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #25 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK5folly11IPAddressV64typeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #25 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %arrayidx.i, align 1, !tbaa !25
@@ -8771,22 +8771,22 @@ define noundef zeroext i1 @_ZNK5folly11IPAddressV610isLoopbackEv(ptr nocapture n
 entry:
   %ref.tmp = alloca %"class.folly::IPAddressV4", align 4
   %0 = load <8 x i8>, ptr %this, align 4
-  %.fr = freeze <8 x i8> %0
+  %1 = freeze <8 x i8> %0
   %arrayidx.8.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load i8, ptr %arrayidx.8.i, align 4
-  %.fr27 = freeze i8 %1
+  %2 = load i8, ptr %arrayidx.8.i, align 4
+  %.fr27 = freeze i8 %2
   %arrayidx.9.i = getelementptr inbounds i8, ptr %this, i64 9
-  %2 = load i8, ptr %arrayidx.9.i, align 1
-  %.fr26 = freeze i8 %2
+  %3 = load i8, ptr %arrayidx.9.i, align 1
+  %.fr26 = freeze i8 %3
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 10
-  %3 = load i8, ptr %arrayidx3.i, align 2
-  %cmp5.i = icmp eq i8 %3, -1
-  %.fr.scalar = bitcast <8 x i8> %.fr to i64
-  %4 = icmp eq i64 %.fr.scalar, 0
-  %5 = or i8 %.fr26, %.fr27
-  %6 = icmp eq i8 %5, 0
-  %7 = and i1 %4, %6
-  %op.rdx25 = select i1 %7, i1 %cmp5.i, i1 false
+  %4 = load i8, ptr %arrayidx3.i, align 2
+  %cmp5.i = icmp eq i8 %4, -1
+  %.fr.scalar = bitcast <8 x i8> %1 to i64
+  %5 = icmp eq i64 %.fr.scalar, 0
+  %6 = or i8 %.fr26, %.fr27
+  %7 = icmp eq i8 %6, 0
+  %8 = and i1 %5, %7
+  %op.rdx25 = select i1 %8, i1 %cmp5.i, i1 false
   br i1 %op.rdx25, label %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit, label %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread
 
 _ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread: ; preds = %entry
@@ -8795,17 +8795,17 @@ _ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread: ; preds = %entry
 
 _ZNK5folly11IPAddressV612isIPv4MappedEv.exit:     ; preds = %entry
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 11
-  %8 = load i8, ptr %arrayidx6.i, align 1, !tbaa !25
-  %cmp8.i = icmp eq i8 %8, -1
+  %9 = load i8, ptr %arrayidx6.i, align 1, !tbaa !25
+  %cmp8.i = icmp eq i8 %9, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #32
   br i1 %cmp8.i, label %land.rhs, label %if.end.critedge
 
 land.rhs:                                         ; preds = %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit
-  %9 = load <4 x i8>, ptr %arrayidx.8.i, align 4
-  %.fr10.i = freeze <4 x i8> %9
+  %10 = load <4 x i8>, ptr %arrayidx.8.i, align 4
+  %.fr10.i = freeze <4 x i8> %10
   %.fr10.scalar.i = bitcast <4 x i8> %.fr10.i to i32
-  %10 = icmp eq i32 %.fr10.scalar.i, -65536
-  br i1 %10, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit, label %if.then.i
+  %11 = icmp eq i32 %.fr10.scalar.i, -65536
+  br i1 %11, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #32
@@ -8817,10 +8817,10 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i) #32
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %12
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit:       ; preds = %land.rhs
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -8831,21 +8831,21 @@ _ZNK5folly11IPAddressV610createIPv4Ev.exit:       ; preds = %land.rhs
   br i1 %call5, label %return, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge: ; preds = %_ZNK5folly11IPAddressV610createIPv4Ev.exit
-  %12 = load <2 x i32>, ptr %this, align 4
+  %13 = load <2 x i32>, ptr %this, align 4
   br label %if.end
 
 if.end.critedge:                                  ; preds = %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit, %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp) #32
-  %13 = bitcast <8 x i8> %.fr to <2 x i32>
+  %14 = bitcast <8 x i8> %1 to <2 x i32>
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge, %if.end.critedge
-  %14 = phi <2 x i32> [ %12, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge ], [ %13, %if.end.critedge ]
+  %15 = phi <2 x i32> [ %13, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge ], [ %14, %if.end.critedge ]
   %socka.sroa.7.8.copyload = load i32, ptr %arrayidx.8.i, align 4
-  %15 = icmp eq <2 x i32> %14, zeroinitializer
-  %16 = extractelement <2 x i1> %15, i64 0
-  %17 = extractelement <2 x i1> %15, i64 1
-  %or.cond = select i1 %16, i1 %17, i1 false
+  %16 = icmp eq <2 x i32> %15, zeroinitializer
+  %17 = extractelement <2 x i1> %16, i64 0
+  %18 = extractelement <2 x i1> %16, i64 1
+  %or.cond = select i1 %17, i1 %18, i1 false
   %cmp12 = icmp eq i32 %socka.sroa.7.8.copyload, 0
   %or.cond22 = select i1 %or.cond, i1 %cmp12, i1 false
   br i1 %or.cond22, label %land.rhs13, label %return
@@ -8921,7 +8921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZNK5folly11IPAddressV617getMulticastScopeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 16) i8 @_ZNK5folly11IPAddressV617getMulticastScopeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !25
@@ -9162,7 +9162,7 @@ return:                                           ; preds = %if.end.i, %_ZNK5fol
 declare noundef zeroext i1 @_ZNK5folly11IPAddressV49isPrivateEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZNK5folly11IPAddressV617getMulticastFlagsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 16) i8 @_ZNK5folly11IPAddressV617getMulticastFlagsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !25
@@ -9213,7 +9213,7 @@ _ZN5folly11IPAddressV610fromBinaryENS_5RangeIPKhEE.exit: ; preds = %entry
   %maybeIp.sroa.0.0.copyload.i = load i32, ptr %addr.i.i, align 4, !tbaa.struct !56, !noalias !281
   %maybeIp.sroa.7.0.addr.i.sroa_idx.i = getelementptr inbounds i8, ptr %addr.i.i, i64 4
   %maybeIp.sroa.7.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %maybeIp.sroa.7.0.agg.result.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %maybeIp.sroa.7.0.addr.i.sroa_idx.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %maybeIp.sroa.7.0.agg.result.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %maybeIp.sroa.7.0.addr.i.sroa_idx.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %addr.i.i) #32, !noalias !284
   store i32 %maybeIp.sroa.0.0.copyload.i, ptr %agg.result, align 4, !tbaa.struct !56, !alias.scope !281
   ret void

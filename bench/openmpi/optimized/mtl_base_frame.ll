@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"ompi\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @ompi_mtl_base_select(i1 noundef zeroext %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4

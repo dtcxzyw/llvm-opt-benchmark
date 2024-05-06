@@ -262,7 +262,7 @@ testchar.exit379:                                 ; preds = %61
   br i1 %69, label %testchar.exit382, label %testchar.exit379.thread
 
 testchar.exit382:                                 ; preds = %66
-  %70 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %70 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %.not312 = icmp eq i32 %70, 0
   br i1 %.not312, label %testchar.exit379.thread, label %71
 
@@ -358,7 +358,7 @@ testchar.exit385:                                 ; preds = %107
   br i1 %115, label %testchar.exit388, label %testchar.exit385.thread
 
 testchar.exit388:                                 ; preds = %112
-  %116 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %116 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %117 = icmp ne i32 %116, 0
   %118 = icmp ne i8 %41, 80
   %or.cond11 = select i1 %117, i1 %118, i1 false
@@ -397,12 +397,12 @@ testchar.exit385.thread:                          ; preds = %testchar.exit385.th
   br label %testchar.exit391.thread
 
 testchar.exit391:                                 ; preds = %127
-  %133 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 2, ptr noundef null), !range !4
+  %133 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 2, ptr noundef null)
   %.not316 = icmp eq i32 %133, 0
   br i1 %.not316, label %testchar.exit391.thread, label %134
 
 134:                                              ; preds = %testchar.exit391
-  %135 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %135 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %.not317 = icmp eq i32 %135, 0
   br i1 %.not317, label %testchar.exit391.thread, label %136
 
@@ -417,17 +417,17 @@ testchar.exit391:                                 ; preds = %127
   br label %testchar.exit364.thread
 
 testchar.exit391.thread:                          ; preds = %127, %131, %134, %testchar.exit391
-  %142 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null), !range !4
+  %142 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null)
   %.not318 = icmp eq i32 %142, 0
   br i1 %.not318, label %153, label %143
 
 143:                                              ; preds = %testchar.exit391.thread
-  %144 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 49, ptr noundef null), !range !4
+  %144 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 49, ptr noundef null)
   %.not319 = icmp eq i32 %144, 0
   br i1 %.not319, label %153, label %145
 
 145:                                              ; preds = %143
-  %146 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 2, ptr noundef null), !range !4
+  %146 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 2, ptr noundef null)
   %.not320 = icmp eq i32 %146, 0
   br i1 %.not320, label %153, label %147
 
@@ -442,7 +442,7 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
   br label %testchar.exit364.thread
 
 153:                                              ; preds = %145, %143, %testchar.exit391.thread
-  %154 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 2, ptr noundef null), !range !4
+  %154 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 2, ptr noundef null)
   %.not321 = icmp eq i32 %154, 0
   br i1 %.not321, label %168, label %155
 
@@ -469,17 +469,17 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
   br label %testchar.exit364.thread
 
 168:                                              ; preds = %153
-  %169 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null), !range !4
+  %169 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null)
   %.not322 = icmp eq i32 %169, 0
   br i1 %.not322, label %180, label %170
 
 170:                                              ; preds = %168
-  %171 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 5, ptr noundef null), !range !4
+  %171 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 5, ptr noundef null)
   %.not323 = icmp eq i32 %171, 0
   br i1 %.not323, label %180, label %172
 
 172:                                              ; preds = %170
-  %173 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %173 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %.not324 = icmp eq i32 %173, 0
   br i1 %.not324, label %180, label %174
 
@@ -494,17 +494,17 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
   br label %testchar.exit364.thread
 
 180:                                              ; preds = %172, %170, %168
-  %181 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null), !range !4
+  %181 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null)
   %.not325 = icmp eq i32 %181, 0
   br i1 %.not325, label %192, label %182
 
 182:                                              ; preds = %180
-  %183 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 63, ptr noundef null), !range !4
+  %183 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 63, ptr noundef null)
   %.not326 = icmp eq i32 %183, 0
   br i1 %.not326, label %192, label %184
 
 184:                                              ; preds = %182
-  %185 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %185 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %.not327 = icmp eq i32 %185, 0
   br i1 %.not327, label %192, label %186
 
@@ -519,17 +519,17 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
   br label %testchar.exit364.thread
 
 192:                                              ; preds = %184, %182, %180
-  %193 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null), !range !4
+  %193 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null)
   %.not328 = icmp eq i32 %193, 0
   br i1 %.not328, label %204, label %194
 
 194:                                              ; preds = %192
-  %195 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 59, ptr noundef null), !range !4
+  %195 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 59, ptr noundef null)
   %.not329 = icmp eq i32 %195, 0
   br i1 %.not329, label %204, label %196
 
 196:                                              ; preds = %194
-  %197 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %197 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %.not330 = icmp eq i32 %197, 0
   br i1 %.not330, label %204, label %198
 
@@ -544,27 +544,27 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
   br label %testchar.exit364.thread
 
 204:                                              ; preds = %196, %194, %192
-  %205 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null), !range !4
+  %205 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null)
   %.not331 = icmp eq i32 %205, 0
   br i1 %.not331, label %220, label %206
 
 206:                                              ; preds = %204
-  %207 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 49, ptr noundef null), !range !4
+  %207 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 49, ptr noundef null)
   %.not332 = icmp eq i32 %207, 0
   br i1 %.not332, label %220, label %208
 
 208:                                              ; preds = %206
-  %209 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 16, ptr noundef null), !range !4
+  %209 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1, i8 noundef signext 16, ptr noundef null)
   %.not333 = icmp eq i32 %209, 0
   br i1 %.not333, label %220, label %210
 
 210:                                              ; preds = %208
-  %211 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 7, i32 noundef 1, i8 noundef signext 59, ptr noundef null), !range !4
+  %211 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 7, i32 noundef 1, i8 noundef signext 59, ptr noundef null)
   %.not334 = icmp eq i32 %211, 0
   br i1 %.not334, label %220, label %212
 
 212:                                              ; preds = %210
-  %213 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %213 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %.not335 = icmp eq i32 %213, 0
   br i1 %.not335, label %220, label %214
 
@@ -579,22 +579,22 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
   br label %testchar.exit364.thread
 
 220:                                              ; preds = %212, %210, %208, %206, %204
-  %221 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null), !range !4
+  %221 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i8 noundef signext 16, ptr noundef null)
   %.not336 = icmp eq i32 %221, 0
   br i1 %.not336, label %236, label %222
 
 222:                                              ; preds = %220
-  %223 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 49, ptr noundef null), !range !4
+  %223 = tail call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 49, ptr noundef null)
   %.not337 = icmp eq i32 %223, 0
   br i1 %.not337, label %236, label %224
 
 224:                                              ; preds = %222
-  %225 = call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 2, i8 noundef signext 0, ptr noundef nonnull %5), !range !4
+  %225 = call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef 2, i8 noundef signext 0, ptr noundef nonnull %5)
   %.not338 = icmp eq i32 %225, 0
   br i1 %.not338, label %236, label %226
 
 226:                                              ; preds = %224
-  %227 = call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 7, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %227 = call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 7, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %.not339 = icmp eq i32 %227, 0
   br i1 %.not339, label %236, label %228
 
@@ -611,12 +611,12 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
   br label %testchar.exit364.thread
 
 236:                                              ; preds = %226, %224, %222, %220
-  %237 = call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i8 noundef signext 0, ptr noundef nonnull %5), !range !4
+  %237 = call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i8 noundef signext 0, ptr noundef nonnull %5)
   %.not340 = icmp eq i32 %237, 0
   br i1 %.not340, label %testchar.exit364.thread, label %238
 
 238:                                              ; preds = %236
-  %239 = call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 3, ptr noundef null), !range !4
+  %239 = call fastcc i32 @testchar(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, i32 noundef 1, i8 noundef signext 3, ptr noundef null)
   %.not341 = icmp eq i32 %239, 0
   br i1 %.not341, label %testchar.exit364.thread, label %240
 
@@ -676,7 +676,7 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
   %258 = add i32 %.1293483, 1
   %259 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %258) #2
   %260 = icmp sgt i32 %259, 0
-  br i1 %260, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %260, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %257, %testchar.exit364.thread, %255
   %.2294 = phi i32 [ %256, %255 ], [ %.0292, %testchar.exit364.thread ], [ %258, %257 ]
@@ -855,7 +855,7 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @testchar(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i8 noundef signext %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @testchar(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i8 noundef signext %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %2, i32 noundef 1) #2
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %15, label %8
@@ -925,6 +925,5 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

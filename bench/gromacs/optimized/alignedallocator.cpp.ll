@@ -116,7 +116,7 @@ _ZN3gmx27PageAlignedAllocationPolicy9alignmentEv.exit: ; preds = %1, %5, %7
   br label %_ZN3gmx12_GLOBAL__N_110mallocImplEmm.exit
 
 15:                                               ; preds = %_ZN3gmx27PageAlignedAllocationPolicy9alignmentEv.exit
-  %16 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !6
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %11)
   %17 = icmp ult i64 %16, 2
   %18 = tail call i64 @llvm.umax.i64(i64 %11, i64 8)
   %spec.store.select.i = select i1 %17, i64 %18, i64 %11
@@ -181,4 +181,3 @@ attributes #13 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", i32 1, i32 1048575}
-!6 = !{i64 0, i64 65}

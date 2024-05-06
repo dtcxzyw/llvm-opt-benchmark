@@ -3662,7 +3662,7 @@ define void @_ZN15ExpertInfoModel8tapResetEPv(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN15ExpertInfoModel9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN15ExpertInfoModel9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %0, null
@@ -4701,7 +4701,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeI7QStringP16Expe
 9:                                                ; preds = %8
   %10 = shl nuw i64 %1, 1
   %11 = add i64 %10, -1
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %11, i1 true), !range !47
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
   %14 = shl i64 2, %13
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
@@ -4893,7 +4893,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QStringP16ExpertPacke
 17:                                               ; preds = %16
   %18 = shl nuw i64 %.sroa.speculated, 1
   %19 = add i64 %18, -1
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !47
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %21 = xor i64 %20, 63
   %22 = shl i64 2, %21
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -5125,12 +5125,12 @@ _ZN12QHashPrivate4NodeI7QStringP16ExpertPacketItemEC2ERKS4_.exit: ; preds = %_ZN
 147:                                              ; preds = %54, %_ZN12QHashPrivate4NodeI7QStringP16ExpertPacketItemEC2ERKS4_.exit
   %148 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %148, 128
-  br i1 %exitcond.not, label %149, label %54, !llvm.loop !48
+  br i1 %exitcond.not, label %149, label %54, !llvm.loop !47
 
 149:                                              ; preds = %147
   %150 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %150, %47
-  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !49
+  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %149, %.loopexit
   ret void
@@ -5170,7 +5170,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QStringP16ExpertPacke
 8:                                                ; preds = %7
   %9 = shl nuw i64 %.0, 1
   %10 = add i64 %9, -1
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !47
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
   %13 = shl i64 2, %12
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -5388,7 +5388,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringP16ExpertPacketItemEEE6insertEm.exit: ; 
 128:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP16ExpertPacketItemEEE6insertEm.exit
   %129 = add nuw nsw i64 %.02333, 1
   %exitcond.not = icmp eq i64 %129, 128
-  br i1 %exitcond.not, label %130, label %43, !llvm.loop !50
+  br i1 %exitcond.not, label %130, label %43, !llvm.loop !49
 
 130:                                              ; preds = %128
   %131 = load ptr, ptr %42, align 8
@@ -5440,7 +5440,7 @@ _ZN12QHashPrivate4NodeI7QStringP16ExpertPacketItemED2Ev.exit.i: ; preds = %139, 
 _ZN12QHashPrivate4SpanINS_4NodeI7QStringP16ExpertPacketItemEEE8freeDataEv.exit: ; preds = %130, %146
   %147 = add nuw nsw i64 %.02234, 1
   %exitcond36.not = icmp eq i64 %147, %38
-  br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !51
+  br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.loopexit32
   %148 = icmp eq ptr %15, null
@@ -5578,7 +5578,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14Ex
   %44 = getelementptr [128 x i8], ptr %43, i64 0, i64 %42
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, -1
-  br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !52
+  br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !51
 
 _ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit: ; preds = %38, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit.loopexit_crit_edge, %6
   %.pre-phi20 = phi i64 [ %24, %6 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit.loopexit_crit_edge ], [ %41, %38 ]
@@ -5658,7 +5658,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERK
   %95 = getelementptr [128 x i8], ptr %94, i64 0, i64 %93
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, -1
-  br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit11, label %.lr.ph.i5, !llvm.loop !52
+  br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit11, label %.lr.ph.i5, !llvm.loop !51
 
 _ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit11: ; preds = %89, %.lr.ph.i5, %._ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit11_crit_edge, %56
   %98 = phi ptr [ %.pre18, %._ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit11_crit_edge ], [ %74, %56 ], [ %74, %.lr.ph.i5 ], [ %74, %89 ]
@@ -5707,7 +5707,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERK
   %119 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<ExpertInfoModel::ExpertSeverity, int>>::Entry", ptr %111, i64 %.011.i.i
   store i8 %118, ptr %119, align 1
   %exitcond.not.i.i = icmp eq i64 %117, %109
-  br i1 %exitcond.not.i.i, label %120, label %116, !llvm.loop !53
+  br i1 %exitcond.not.i.i, label %120, label %116, !llvm.loop !52
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds i8, ptr %100, i64 128
@@ -5781,7 +5781,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIN15ExpertInfoMo
 9:                                                ; preds = %8
   %10 = shl nuw i64 %1, 1
   %11 = add i64 %10, -1
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %11, i1 true), !range !47
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
   %14 = shl i64 2, %13
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
@@ -5936,7 +5936,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14Ex
 17:                                               ; preds = %16
   %18 = shl nuw i64 %.sroa.speculated, 1
   %19 = add i64 %18, -1
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !47
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %21 = xor i64 %20, 63
   %22 = shl i64 2, %21
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -6060,7 +6060,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %98 = getelementptr [128 x i8], ptr %97, i64 0, i64 %96
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, -1
-  br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !52
+  br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !51
 
 101:                                              ; preds = %57
   %102 = add nuw nsw i64 %.02331, %53
@@ -6110,7 +6110,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERK
   %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<ExpertInfoModel::ExpertSeverity, int>>::Entry", ptr %116, i64 %.011.i.i
   store i8 %123, ptr %124, align 1
   %exitcond.not.i.i = icmp eq i64 %122, %114
-  br i1 %exitcond.not.i.i, label %125, label %121, !llvm.loop !53
+  br i1 %exitcond.not.i.i, label %125, label %121, !llvm.loop !52
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds i8, ptr %105, i64 128
@@ -6146,12 +6146,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE6insertEm
 138:                                              ; preds = %54, %_ZN12QHashPrivate4SpanINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE6insertEm.exit
   %139 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %139, 128
-  br i1 %exitcond.not, label %140, label %54, !llvm.loop !54
+  br i1 %exitcond.not, label %140, label %54, !llvm.loop !53
 
 140:                                              ; preds = %138
   %141 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %141, %47
-  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !55
+  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %140, %.loopexit
   ret void
@@ -6173,7 +6173,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14Ex
 8:                                                ; preds = %7
   %9 = shl nuw i64 %.0, 1
   %10 = add i64 %9, -1
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !47
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
   %13 = shl i64 2, %12
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -6294,7 +6294,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   %86 = getelementptr [128 x i8], ptr %85, i64 0, i64 %84
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, -1
-  br i1 %88, label %_ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !52
+  br i1 %88, label %_ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !51
 
 _ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit: ; preds = %80, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit.loopexit_crit_edge, %46
   %.pre-phi37 = phi i64 [ %67, %46 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERKS3_.exit.loopexit_crit_edge ], [ %84, %80 ]
@@ -6337,7 +6337,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE4findERK
   %107 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<ExpertInfoModel::ExpertSeverity, int>>::Entry", ptr %99, i64 %.011.i.i
   store i8 %106, ptr %107, align 1
   %exitcond.not.i.i = icmp eq i64 %105, %97
-  br i1 %exitcond.not.i.i, label %108, label %104, !llvm.loop !53
+  br i1 %exitcond.not.i.i, label %108, label %104, !llvm.loop !52
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %89, i64 128
@@ -6373,7 +6373,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE6insertEm
 121:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE6insertEm.exit
   %122 = add nuw nsw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %122, 128
-  br i1 %exitcond.not, label %123, label %43, !llvm.loop !56
+  br i1 %exitcond.not, label %123, label %43, !llvm.loop !55
 
 123:                                              ; preds = %121
   %124 = load ptr, ptr %42, align 8
@@ -6388,7 +6388,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE6insertEm
 _ZN12QHashPrivate4SpanINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE8freeDataEv.exit: ; preds = %123, %125
   %126 = add nuw nsw i64 %.02233, 1
   %exitcond35.not = icmp eq i64 %126, %38
-  br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !57
+  br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.loopexit31
   %127 = icmp eq ptr %15, null
@@ -6522,7 +6522,7 @@ attributes #27 = { nounwind willreturn memory(read) }
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
-!47 = !{i64 0, i64 65}
+!47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
@@ -6532,4 +6532,3 @@ attributes #27 = { nounwind willreturn memory(read) }
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5}

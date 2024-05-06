@@ -4600,8 +4600,8 @@ if.then.i45:                                      ; preds = %invoke.cont44
   %44 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i46 = zext i32 %44 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i46, 3
-  %45 = getelementptr i8, ptr %43, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %45, i64 32
+  %45 = getelementptr inbounds i8, ptr %43, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %45, i64 32
   %cmp.not7.i = icmp eq i32 %44, 0
   br i1 %cmp.not7.i, label %while.cond.backedge, label %for.body.lr.ph.i
 
@@ -4635,8 +4635,8 @@ if.then.i53:                                      ; preds = %if.else46
   %47 = load i32, ptr %m_num_args.i.i54, align 8
   %idx.ext.i.i55 = zext i32 %47 to i64
   %add.ptr.i.idx.i56 = shl nuw nsw i64 %idx.ext.i.i55, 3
-  %48 = getelementptr i8, ptr %7, i64 %add.ptr.i.idx.i56
-  %add.ptr.i.ptr.i57 = getelementptr i8, ptr %48, i64 32
+  %48 = getelementptr inbounds i8, ptr %7, i64 %add.ptr.i.idx.i56
+  %add.ptr.i.ptr.i57 = getelementptr inbounds i8, ptr %48, i64 32
   %cmp.not7.i58 = icmp eq i32 %47, 0
   br i1 %cmp.not7.i58, label %while.cond.backedge, label %for.body.lr.ph.i59
 

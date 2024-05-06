@@ -560,7 +560,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #7 {
   switch i32 %2, label %34 [
     i32 1, label %7
     i32 2, label %10
@@ -9271,7 +9271,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr noundef readnone
 
 27:                                               ; preds = %25
   %28 = tail call ptr @dt_alloc_aligned(i64 noundef 1088) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1088) %28, ptr noundef nonnull align 64 dereferenceable(1088) %11, i64 1088, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1088) %28, ptr noundef nonnull readonly align 64 dereferenceable(1088) %11, i64 1088, i1 false)
   %29 = getelementptr inbounds i8, ptr %11, i64 576
   %30 = getelementptr inbounds i8, ptr %11, i64 608
   %31 = getelementptr inbounds i8, ptr %11, i64 640
@@ -10065,7 +10065,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
 
 29:                                               ; preds = %27
   %30 = tail call ptr @dt_alloc_aligned(i64 noundef 1088) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1088) %30, ptr noundef nonnull align 64 dereferenceable(1088) %22, i64 1088, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1088) %30, ptr noundef nonnull readonly align 64 dereferenceable(1088) %22, i64 1088, i1 false)
   %31 = getelementptr inbounds i8, ptr %22, i64 576
   %32 = getelementptr inbounds i8, ptr %22, i64 608
   %33 = getelementptr inbounds i8, ptr %22, i64 640
@@ -11925,7 +11925,7 @@ define internal i32 @_area_button_press_callback(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_area_button_release_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #18 {
+define internal noundef range(i32 0, 2) i32 @_area_button_release_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #18 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !421
   %6 = icmp eq i32 %5, 1
@@ -12210,7 +12210,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !429
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

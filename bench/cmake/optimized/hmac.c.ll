@@ -172,7 +172,7 @@ define dso_local noundef i32 @Curl_HMAC_final(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_hmacit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_hmacit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @curlx_uztoui(i64 noundef %2) #2
   %8 = tail call ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef %7)
   %.not = icmp eq ptr %8, null

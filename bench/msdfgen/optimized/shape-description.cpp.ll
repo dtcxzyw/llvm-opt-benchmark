@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [13 x i8] c"%.12g, %.12g\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN7msdfgen9readCharFEP8_IO_FILE(ptr nocapture noundef %input) local_unnamed_addr #0 {
+define dso_local noundef range(i32 33, 32) i32 @_ZN7msdfgen9readCharFEP8_IO_FILE(ptr nocapture noundef %input) local_unnamed_addr #0 {
 entry:
   br label %do.body
 
@@ -45,7 +45,7 @@ do.end:                                           ; preds = %do.body
 declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN7msdfgen9readCharSEPPKc(ptr nocapture noundef %input) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -128, 128) i32 @_ZN7msdfgen9readCharSEPPKc(ptr nocapture noundef %input) local_unnamed_addr #2 {
 entry:
   %input.promoted = load ptr, ptr %input, align 8
   br label %do.body
@@ -86,7 +86,7 @@ entry:
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E(ptr nocapture noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %coord) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E(ptr nocapture noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %coord) local_unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   store ptr null, ptr %end, align 8

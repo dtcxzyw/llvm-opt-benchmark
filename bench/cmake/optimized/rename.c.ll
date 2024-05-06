@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @Curl_rename(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @Curl_rename(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @rename(ptr noundef %0, ptr noundef %1) #2
   %.not = icmp ne i32 %3, 0
   %. = zext i1 %.not to i32

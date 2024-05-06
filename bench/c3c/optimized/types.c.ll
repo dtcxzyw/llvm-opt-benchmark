@@ -655,7 +655,7 @@ define dso_local i32 @type_size(ptr nocapture noundef readonly %0) local_unnamed
   %22 = getelementptr inbounds i8, ptr %.019, i64 64
   %23 = load i32, ptr %22, align 8
   %24 = mul i32 %23, %21
-  %25 = tail call i32 @llvm.ctpop.i32(i32 %24), !range !9
+  %25 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
   %.not = icmp ult i32 %25, 2
   br i1 %.not, label %common.ret82, label %26
 
@@ -1110,7 +1110,7 @@ define dso_local ptr @type_find_largest_union_element(ptr nocapture noundef read
   %.1 = phi i64 [ %16, %14 ], [ %.01419, %10 ]
   %19 = add nuw i32 %.01320, 1
   %exitcond.not = icmp eq i32 %19, %8
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %18, %1, %6
   %.015.lcssa = phi ptr [ null, %6 ], [ null, %1 ], [ %.116, %18 ]
@@ -1510,7 +1510,7 @@ tailrecurse.backedge:                             ; preds = %8, %10, %12, %14, %
 57:                                               ; preds = %56, %55, %54
   %58 = add nuw i64 %.040, 1
   %exitcond.not = icmp eq i64 %58, %50
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 59:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   %60 = getelementptr inbounds i8, ptr %.tr, i64 56
@@ -1634,7 +1634,7 @@ define dso_local noundef zeroext i1 @type_func_match(ptr nocapture noundef reado
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not33, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %35, label %.sink.split, !llvm.loop !12
+  br i1 %or.cond.not, label %35, label %.sink.split, !llvm.loop !11
 
 .sink.split:                                      ; preds = %47, %29, %27
   %.026.ph = phi i1 [ true, %27 ], [ true, %29 ], [ %.not33, %47 ]
@@ -1731,7 +1731,7 @@ define dso_local i32 @type_abi_alignment(ptr nocapture noundef readonly %0) loca
   %15 = load ptr, ptr %12, align 8
   %16 = tail call i32 @type_size(ptr noundef %15)
   %17 = mul i32 %16, %spec.store.select
-  %18 = tail call i32 @llvm.ctpop.i32(i32 %17), !range !9
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
   %.not = icmp ult i32 %18, 2
   br i1 %.not, label %32, label %19
 
@@ -1941,7 +1941,7 @@ define internal fastcc ptr @type_generate_ptr(ptr noundef %0, i1 noundef zeroext
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
   %.pre = load ptr, ptr %7, align 8
-  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !12
 
 create_type_cache.exit:                           ; preds = %33, %6
   %42 = phi ptr [ %8, %6 ], [ %.pre, %33 ]
@@ -2061,7 +2061,7 @@ define internal fastcc ptr @type_generate_optional(ptr noundef %0, i1 noundef ze
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
   %.pre = load ptr, ptr %7, align 8
-  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !12
 
 create_type_cache.exit:                           ; preds = %33, %6
   %42 = phi ptr [ %8, %6 ], [ %.pre, %33 ]
@@ -2186,7 +2186,7 @@ define internal fastcc ptr @type_generate_subarray(ptr noundef %0, i1 noundef ze
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
   %.pre = load ptr, ptr %7, align 8
-  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !12
 
 create_type_cache.exit:                           ; preds = %33, %6
   %42 = phi ptr [ %8, %6 ], [ %.pre, %33 ]
@@ -2311,7 +2311,7 @@ define internal fastcc ptr @type_generate_inferred_array(ptr noundef %0, i1 noun
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
   %.pre = load ptr, ptr %7, align 8
-  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !12
 
 create_type_cache.exit:                           ; preds = %33, %6
   %42 = phi ptr [ %8, %6 ], [ %.pre, %33 ]
@@ -2436,7 +2436,7 @@ define internal fastcc ptr @type_generate_inferred_vector(ptr noundef %0, i1 nou
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
   %.pre = load ptr, ptr %7, align 8
-  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !12
 
 create_type_cache.exit:                           ; preds = %33, %6
   %42 = phi ptr [ %8, %6 ], [ %.pre, %33 ]
@@ -2561,7 +2561,7 @@ define internal fastcc ptr @type_generate_flexible_array(ptr noundef %0, i1 noun
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
   %.pre = load ptr, ptr %7, align 8
-  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !12
 
 create_type_cache.exit:                           ; preds = %33, %6
   %42 = phi ptr [ %8, %6 ], [ %.pre, %33 ]
@@ -2710,7 +2710,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   %or.cond = select i1 %45, i1 true, i1 %exitcond139.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph111, !llvm.loop !14
+  br i1 %or.cond, label %.loopexit, label %.lr.ph111, !llvm.loop !13
 
 46:                                               ; preds = %31
   %47 = icmp eq i32 %6, 33
@@ -2784,7 +2784,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond171 = select i1 %82, i1 true, i1 %exitcond.not
-  br i1 %or.cond171, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %or.cond171, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 83:                                               ; preds = %68, %.thread88
   %84 = phi ptr [ %67, %.thread88 ], [ %72, %68 ]
@@ -2813,7 +2813,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
 95:                                               ; preds = %105
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %.loopexit, label %.lr.ph104, !llvm.loop !16
+  br i1 %exitcond134.not, label %.loopexit, label %.lr.ph104, !llvm.loop !15
 
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %95
   %indvars.iv130 = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next131, %95 ]
@@ -2924,7 +2924,7 @@ define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr n
   %43 = add i32 %.03541, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %42, %22, %29, %19, %9, %6
   %.034 = phi i1 [ %8, %6 ], [ true, %9 ], [ false, %19 ], [ true, %29 ], [ true, %22 ], [ false, %.lr.ph ], [ false, %37 ], [ true, %42 ]
@@ -3084,7 +3084,7 @@ define internal fastcc noundef ptr @type_create_array(ptr noundef %0, i32 nounde
   %43 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %43, 6
   %.pr77 = load ptr, ptr %9, align 8
-  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i, label %create_type_cache.exit, label %.preheader, !llvm.loop !12
 
 create_type_cache.exit:                           ; preds = %35
   %.not74 = icmp eq ptr %.pr77, null
@@ -3118,7 +3118,7 @@ create_type_cache.exit:                           ; preds = %35
 56:                                               ; preds = %52, %.lr.ph.split.us
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 6, %.lr.ph ]
@@ -3137,7 +3137,7 @@ create_type_cache.exit:                           ; preds = %35
 65:                                               ; preds = %61, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count90
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %65, %56, %create_type_cache.exit, %44
   %66 = getelementptr inbounds i8, ptr %.071, i64 16
@@ -3542,7 +3542,7 @@ define dso_local ptr @type_get_func(ptr nocapture noundef readonly %0, i32 nound
   %30 = add i64 %23, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %hash_function.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %hash_function.exit, label %.lr.ph.i, !llvm.loop !18
 
 hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %.017.lcssa.i = phi i64 [ %15, %18 ], [ %15, %2 ], [ %30, %.lr.ph.i ]
@@ -3675,7 +3675,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %105 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv.i20
   %106 = load ptr, ptr %105, align 8
   %107 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %107, ptr noundef nonnull align 8 dereferenceable(136) %106, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %107, ptr noundef nonnull readonly align 8 dereferenceable(136) %106, i64 136, i1 false)
   %108 = getelementptr inbounds i8, ptr %107, i64 72
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 8
@@ -3759,7 +3759,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   store ptr %107, ptr %158, align 8
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %94
-  br i1 %exitcond.not.i22, label %159, label %103, !llvm.loop !20
+  br i1 %exitcond.not.i22, label %159, label %103, !llvm.loop !19
 
 159:                                              ; preds = %153
   %160 = getelementptr inbounds i8, ptr %46, i64 16
@@ -3804,7 +3804,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %.1172.i)
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond187.not.i = icmp eq i64 %indvars.iv.next184.i, %wide.trip.count186.i
-  br i1 %exitcond187.not.i, label %._crit_edge.i, label %.lr.ph.i24, !llvm.loop !21
+  br i1 %exitcond187.not.i, label %._crit_edge.i, label %.lr.ph.i24, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %169, %.thread.i, %162
   tail call void @scratch_buffer_append_char(i8 noundef signext 41) #14
@@ -3815,7 +3815,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   store ptr %170, ptr %172, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %171) #14
   %173 = tail call ptr @calloc_arena(i64 noundef 24) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i8 0, ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %46, i64 24
   %175 = load ptr, ptr %174, align 8
@@ -3889,7 +3889,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
 207:                                              ; preds = %203, %.lr.ph176.i
   %indvars.iv.next189.i = add nuw nsw i64 %indvars.iv188.i, 1
   %exitcond192.not.i = icmp eq i64 %indvars.iv.next189.i, %wide.trip.count191.i
-  br i1 %exitcond192.not.i, label %._crit_edge177.i, label %.lr.ph176.i, !llvm.loop !22
+  br i1 %exitcond192.not.i, label %._crit_edge177.i, label %.lr.ph176.i, !llvm.loop !21
 
 ._crit_edge177.i:                                 ; preds = %207, %186
   store ptr %195, ptr getelementptr inbounds (%struct.FuncMap, ptr @map, i64 0, i32 3), align 8
@@ -4091,7 +4091,7 @@ compare_func_param.exit52.i:                      ; preds = %287
 compare_func_param.exit52.thread.i:               ; preds = %tailrecurse.backedge.i46.i, %.lr.ph.i41.i, %compare_func_param.exit52.i, %.lr.ph.i29
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, %wide.trip.count.i28
-  br i1 %exitcond.not.i32, label %func_create_new_func_proto.exit, label %.lr.ph.i29, !llvm.loop !23
+  br i1 %exitcond.not.i32, label %func_create_new_func_proto.exit, label %.lr.ph.i29, !llvm.loop !22
 
 compare_function.exit:                            ; preds = %compare_func_param.exit.i
   br i1 %266, label %compare_function.exit.thread, label %func_create_new_func_proto.exit
@@ -4540,7 +4540,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   store ptr null, ptr %196, align 8
   %197 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %197, 6
-  br i1 %exitcond.not.i, label %create_type_cache.exit, label %164, !llvm.loop !13
+  br i1 %exitcond.not.i, label %create_type_cache.exit, label %164, !llvm.loop !12
 
 create_type_cache.exit:                           ; preds = %189
   %198 = load ptr, ptr @type_void, align 8
@@ -4643,7 +4643,7 @@ create_type_cache.exit:                           ; preds = %189
   store ptr null, ptr %251, align 8
   %252 = add nuw nsw i32 %.01012.i105, 1
   %exitcond.not.i111 = icmp eq i32 %252, 6
-  br i1 %exitcond.not.i111, label %create_type_cache.exit113, label %219, !llvm.loop !13
+  br i1 %exitcond.not.i111, label %create_type_cache.exit113, label %219, !llvm.loop !12
 
 create_type_cache.exit113:                        ; preds = %244
   %253 = load ptr, ptr @type_any, align 8
@@ -4871,7 +4871,7 @@ declare void @global_context_add_type(ptr noundef) local_unnamed_addr #2
 declare void @global_context_add_decl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @type_kind_bitsize(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 8, 129) i32 @type_kind_bitsize(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -3
   %2 = icmp ult i32 %switch.tableidx, 15
   br i1 %2, label %switch.hole_check, label %3
@@ -5087,7 +5087,7 @@ type_find_parent_type.exit:                       ; preds = %14, %22
   %26 = getelementptr inbounds i8, ptr %25, i64 %.sink10.i
   %27 = load ptr, ptr %26, align 8
   %.not.not = icmp eq ptr %27, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %6, %16, %8, %.lr.ph, %type_find_parent_type.exit, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ %5, %type_find_parent_type.exit ], [ %5, %.lr.ph ], [ %5, %8 ], [ %5, %16 ], [ %5, %6 ]
@@ -5507,7 +5507,7 @@ type_find_parent_type.exit.i:                     ; preds = %93, %85
   %97 = getelementptr inbounds i8, ptr %96, i64 %.sink10.i.i
   %98 = load ptr, ptr %97, align 8
   %.not.not.i = icmp eq ptr %98, null
-  br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
 
 .loopexit:                                        ; preds = %77, %87, %79, %type_find_parent_type.exit.i, %73
   %99 = load i32, ptr %.054, align 8
@@ -5923,7 +5923,7 @@ define dso_local ptr @type_find_max_type(ptr nocapture noundef readonly %0, ptr 
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 32
-  br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !25
+  br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph, %22, %.preheader128
   %.0104.lcssa = phi ptr [ %11, %.preheader128 ], [ %26, %22 ], [ %.0104163, %.lr.ph ]
@@ -5949,7 +5949,7 @@ define dso_local ptr @type_find_max_type(ptr nocapture noundef readonly %0, ptr 
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 32
-  br i1 %42, label %.lr.ph169, label %.critedge2, !llvm.loop !26
+  br i1 %42, label %.lr.ph169, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %.lr.ph169, %36, %.critedge
   %.0103.lcssa = phi ptr [ %10, %.critedge ], [ %40, %36 ], [ %.0103168, %.lr.ph169 ]
@@ -6395,7 +6395,7 @@ type_find_parent_type.exit.i:                     ; preds = %58, %50
   %62 = getelementptr inbounds i8, ptr %61, i64 %.sink10.i.i
   %63 = load ptr, ptr %62, align 8
   %.not.not.i = icmp eq ptr %63, null
-  br i1 %.not.not.i, label %.loopexit50, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.not.i, label %.loopexit50, label %.lr.ph.i, !llvm.loop !23
 
 .loopexit50:                                      ; preds = %42, %52, %44, %type_find_parent_type.exit.i, %35
   %.not8.not.i36 = icmp eq ptr %36, null
@@ -6449,7 +6449,7 @@ type_find_parent_type.exit.i40:                   ; preds = %83, %75
   %87 = getelementptr inbounds i8, ptr %86, i64 %.sink10.i.i42
   %88 = load ptr, ptr %87, align 8
   %.not.not.i43 = icmp eq ptr %88, null
-  br i1 %.not.not.i43, label %.loopexit, label %.lr.ph.i37, !llvm.loop !24
+  br i1 %.not.not.i43, label %.loopexit, label %.lr.ph.i37, !llvm.loop !23
 
 .loopexit:                                        ; preds = %67, %77, %69, %type_find_parent_type.exit.i40, %.loopexit50
   %89 = tail call ptr @type_find_max_type(ptr noundef nonnull %spec.select35, ptr noundef %.1)
@@ -6534,7 +6534,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly %0, ptr nou
   %38 = getelementptr inbounds [512 x ptr], ptr @type_find_common_ancestor.left_types, i64 0, i64 %indvars.iv
   store ptr %35, ptr %38, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %.thread, label %.preheader60, !llvm.loop !27
+  br i1 %exitcond.not, label %.thread, label %.preheader60, !llvm.loop !26
 
 39:                                               ; preds = %26, %.preheader60
   %40 = trunc i64 %indvars.iv to i32
@@ -6576,7 +6576,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly %0, ptr nou
 55:                                               ; preds = %56
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
-  br i1 %exitcond77.not, label %..loopexit_crit_edge.us, label %56, !llvm.loop !28
+  br i1 %exitcond77.not, label %..loopexit_crit_edge.us, label %56, !llvm.loop !27
 
 56:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next75, %55 ]
@@ -6624,7 +6624,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @type_get_introspection_kind(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 21) i32 @type_get_introspection_kind(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %24 [
     i32 0, label %25
     i32 1, label %25
@@ -7146,7 +7146,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 33}
+!9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
@@ -7165,4 +7165,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}

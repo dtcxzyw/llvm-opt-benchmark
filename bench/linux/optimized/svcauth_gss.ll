@@ -1950,7 +1950,7 @@ gss_svc_searchbyctx.exit.thread:                  ; preds = %596, %.thread.i29, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @svcauth_gss_release(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @svcauth_gss_release(ptr noundef %0) #2 align 16 {
   %2 = alloca %struct.xdr_buf, align 8
   %3 = alloca %struct.xdr_netobj, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2640,7 +2640,7 @@ define internal fastcc noundef ptr @get_group_info(ptr noundef returned %0) unna
 declare dso_local ptr @xdr_reserve_space(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @svcauth_gss_unwrap_integ(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @svcauth_gss_unwrap_integ(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca %struct.xdr_buf, align 8
   %5 = alloca %struct.xdr_netobj, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 11320
@@ -2818,7 +2818,7 @@ define internal fastcc void @svcxdr_set_auth_slack(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @svcauth_gss_unwrap_priv(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @svcauth_gss_unwrap_priv(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 496
   %5 = getelementptr inbounds i8, ptr %0, i64 504
   %6 = load ptr, ptr %5, align 8
@@ -3087,7 +3087,7 @@ declare i32 @llvm.bswap.i32(i32) #10
 declare dso_local i64 @xdr_stream_decode_opaque_auth(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @set_gss_proxy(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -16, 1) i32 @set_gss_proxy(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = load i32, ptr @sunrpc_net_id, align 4
   tail call void @__rcu_read_lock() #24
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
@@ -3274,7 +3274,7 @@ declare dso_local i32 @full_name_hash(ptr noundef, ptr noundef, i32 noundef) loc
 declare dso_local i64 @xdr_stream_encode_opaque_auth(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @xdr_stream_encode_opaque(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 align 16 {
+define internal fastcc noundef range(i64 -90, 4294967303) i64 @xdr_stream_encode_opaque(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 align 16 {
   %4 = add nuw nsw i64 %2, 3
   %5 = and i64 %4, -4
   %6 = add nuw nsw i64 %5, 4
@@ -3978,7 +3978,7 @@ define internal noalias noundef ptr @rsc_alloc() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @rsc_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #18 align 16 {
+define internal range(i32 0, 2) i32 @rsc_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #18 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %3, align 8
@@ -4056,7 +4056,7 @@ define internal void @rsc_free_rcu(ptr noundef %0) #2 align 16 {
 declare dso_local i32 @qword_get(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @get_int(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @get_int(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 align 16 {
   %3 = alloca [50 x i8], align 16
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #24
@@ -4154,7 +4154,7 @@ define internal void @rsi_request(ptr nocapture readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rsi_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @rsi_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = alloca [50 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca %struct.timespec64, align 8
@@ -4416,7 +4416,7 @@ define internal noalias noundef ptr @rsi_alloc() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @rsi_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #18 align 16 {
+define internal range(i32 0, 2) i32 @rsi_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #18 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %3, align 8
@@ -4598,7 +4598,7 @@ declare dso_local void @init_gssp_clnt(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @nonseekable_open(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @read_gssp(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #2 align 16 {
+define internal range(i64 -14, 2147483648) i64 @read_gssp(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #2 align 16 {
   %5 = alloca [10 x i8], align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -4653,7 +4653,7 @@ define internal i64 @read_gssp(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @write_gssp(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @write_gssp(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #2 align 16 {
   %5 = alloca [20 x i8], align 16
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 168

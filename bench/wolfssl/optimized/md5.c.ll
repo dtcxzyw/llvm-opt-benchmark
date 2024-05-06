@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitMd5_ex(ptr noundef writeonly %md5, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitMd5_ex(ptr noundef writeonly %md5, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %md5, null
   br i1 %cmp, label %return, label %if.end
@@ -29,7 +29,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Md5Update(ptr noundef %md5, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Md5Update(ptr noundef %md5, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %md5, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -675,7 +675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Md5Final(ptr noundef %md5, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define range(i32 -173, 1) i32 @wc_Md5Final(ptr noundef %md5, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %md5, null
   %cmp1 = icmp eq ptr %hash, null
@@ -745,7 +745,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitMd5(ptr noundef writeonly %md5) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitMd5(ptr noundef writeonly %md5) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %md5, null
   br i1 %cmp, label %return, label %wc_InitMd5_ex.exit
@@ -780,16 +780,16 @@ entry:
   %cmp = icmp eq ptr %md5, null
   %cmp1 = icmp eq ptr %hash, null
   %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end.i4
+  br i1 %or.cond, label %return, label %if.end.i5
 
-if.end.i4:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %tmpMd5, ptr noundef nonnull align 8 dereferenceable(104) %md5, i64 104, i1 false)
+if.end.i5:                                        ; preds = %entry
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %tmpMd5, ptr noundef nonnull readonly align 8 dereferenceable(104) %md5, i64 104, i1 false)
   %buffer.i = getelementptr inbounds i8, ptr %tmpMd5, i64 12
   %0 = load i32, ptr %tmpMd5, align 8
   %cmp2.i = icmp ugt i32 %0, 63
   br i1 %cmp2.i, label %return, label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.end.i4
+if.end4.i:                                        ; preds = %if.end.i5
   %inc.i = add nuw nsw i32 %0, 1
   store i32 %inc.i, ptr %tmpMd5, align 8
   %idxprom.i = zext nneg i32 %0 to i64
@@ -830,16 +830,16 @@ if.end17.i:                                       ; preds = %if.then8.i, %if.end
   store i32 %add24.i, ptr %arrayidx31.i, align 8
   call fastcc void @Transform(ptr noundef nonnull %tmpMd5, ptr noundef nonnull %buffer.i)
   %digest.i = getelementptr inbounds i8, ptr %tmpMd5, i64 76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hash, ptr noundef nonnull align 4 dereferenceable(16) %digest.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %hash, ptr noundef nonnull align 4 dereferenceable(16) %digest.i, i64 16, i1 false)
   br label %return
 
-return:                                           ; preds = %if.end17.i, %if.end.i4, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end17.i ], [ -132, %if.end.i4 ]
+return:                                           ; preds = %if.end17.i, %if.end.i5, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end17.i ], [ -132, %if.end.i5 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Md5Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
+define range(i32 -173, 1) i32 @wc_Md5Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dst, null

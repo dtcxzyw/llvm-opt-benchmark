@@ -141,7 +141,7 @@ if.end7:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN6hermes2vm11testhelpers11DummyObject15_mallocSizeImplEPNS0_6GCCellE(ptr nocapture noundef readonly %cell) #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN6hermes2vm11testhelpers11DummyObject15_mallocSizeImplEPNS0_6GCCellE(ptr nocapture noundef readonly %cell) #1 align 2 {
 entry:
   %extraBytes = getelementptr inbounds i8, ptr %cell, i64 84
   %0 = load i32, ptr %extraBytes, align 4

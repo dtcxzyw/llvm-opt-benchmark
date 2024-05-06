@@ -2638,7 +2638,7 @@ entry:
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread.i: ; preds = %entry
   %_M_manager.i.i.i.i40 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %plainHF_.i7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %plainHF_.i7.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %plainHF_.i7.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8functionIFNS3_5ValueES5_RKS7_PS8_mEERNS1_12RuntimeStatsE.exit
 
 _ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit.i: ; preds = %entry
@@ -2660,7 +2660,7 @@ _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8funct
   store ptr %1, ptr %3, align 8
   %rts_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %rts_42, ptr %rts_.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i4 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %call.i.i2.i.noexc unwind label %lpad3
 
@@ -2668,7 +2668,7 @@ call.i.i2.i.noexc:                                ; preds = %_ZN8facebook6hermes
   store ptr %this, ptr %call.i.i2.i4, align 8
   %plainHF_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4, i64 8
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %plainHF_.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %plainHF_.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %1, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -2677,7 +2677,7 @@ call.i.i2.i.noexc:                                ; preds = %_ZN8facebook6hermes
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.noexc
   %plainHF_3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_3.i.i.i.i.i, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i

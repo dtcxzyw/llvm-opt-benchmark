@@ -332,12 +332,12 @@ while.body.i.i.i:                                 ; preds = %invoke.cont29, %whi
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i: ; preds = %while.body.i.i.i
   %cmp2.i.i.i = icmp eq ptr %0, %__x.07.i.i.i
-  %spec.select13.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
+  %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE15_M_insert_equalIRKiEESt17_Rb_tree_iteratorIiEOT_.exit.i
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE15_M_insert_equalIRKiEESt17_Rb_tree_iteratorIiEOT_.exit.i: ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i, %invoke.cont29
   %__y.0.lcssa.i11.i.i = phi ptr [ %0, %invoke.cont29 ], [ %__x.07.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i ]
-  %7 = phi i1 [ true, %invoke.cont29 ], [ %spec.select13.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i ]
+  %7 = phi i1 [ true, %invoke.cont29 ], [ %spec.select.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i ]
   %call5.i.i.i.i.i.i.i.i21 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
           to label %_ZNSt8multisetIiSt4lessIiESaIiEE6insertERKi.exit unwind label %lpad.loopexit
 
@@ -481,12 +481,12 @@ while.body.i.i.i:                                 ; preds = %_ZN4base12LazyInsta
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i: ; preds = %while.body.i.i.i
   %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %__x.07.i.i.i
-  %spec.select13.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
+  %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8multisetIiSt4lessIiESaIiEE6insertERKi.exit
 
 _ZNSt8multisetIiSt4lessIiESaIiEE6insertERKi.exit: ; preds = %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i
   %__y.0.lcssa.i11.i.i = phi ptr [ %add.ptr.i.i.i.i, %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit ], [ %__x.07.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i ]
-  %4 = phi i1 [ true, %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit ], [ %spec.select13.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i ]
+  %4 = phi i1 [ true, %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit ], [ %spec.select.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i32 %port, ptr %_M_storage.i.i.i.i.i.i.i, align 4

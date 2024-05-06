@@ -421,7 +421,7 @@ BufferGetPage.exit42.i:                           ; preds = %149, %143
   br i1 %.not4344.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %BufferGetPage.exit42.i, %.lr.ph.i
-  call fastcc void @_hash_readnext(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @_hash_readnext(ptr noundef readonly %0, ptr noundef nonnull %3, ptr noundef nonnull writeonly %4, ptr noundef nonnull %5)
   %161 = load ptr, ptr %5, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 4
   %163 = load i32, ptr %162, align 4
@@ -1068,7 +1068,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 .outer:                                           ; preds = %77
   %79 = sext i32 %.048.ph127 to i64
   %80 = getelementptr [408 x %struct.HashScanPosItem], ptr %23, i64 0, i64 %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %80, ptr noundef nonnull align 2 dereferenceable(6) %.us-phi107, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %80, ptr noundef nonnull readonly align 2 dereferenceable(6) %.us-phi107, i64 6, i1 false)
   %81 = getelementptr inbounds i8, ptr %80, i64 6
   store i16 %.us-phi108, ptr %81, align 2
   %82 = add i32 %.048.ph127, 1
@@ -1115,7 +1115,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   %99 = add i32 %.1.ph96, -1
   %100 = sext i32 %99 to i64
   %101 = getelementptr [408 x %struct.HashScanPosItem], ptr %18, i64 0, i64 %100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %101, ptr noundef nonnull align 2 dereferenceable(6) %.us-phi, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %101, ptr noundef nonnull readonly align 2 dereferenceable(6) %.us-phi, i64 6, i1 false)
   %102 = getelementptr inbounds i8, ptr %101, i64 6
   store i16 %.us-phi76, ptr %102, align 2
   %103 = add i16 %.us-phi76, -1

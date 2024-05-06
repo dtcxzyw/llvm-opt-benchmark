@@ -2031,7 +2031,7 @@ define dso_local void @i915_active_module_exit() local_unnamed_addr #0 align 16 
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @i915_active_module_init() local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @i915_active_module_init() local_unnamed_addr #5 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.2, i32 noundef 72, i32 noundef 8, i32 noundef 8192, ptr noundef null) #8
   store ptr %1, ptr @slab_cache, align 8
   %2 = icmp eq ptr %1, null

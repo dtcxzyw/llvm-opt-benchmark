@@ -129,7 +129,7 @@ define internal fastcc void @init_rs() unnamed_addr #1 {
   store i32 %.027.i, ptr %2, align 4
   %3 = sext i32 %.027.i to i64
   %4 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %3
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %5, ptr %4, align 4
   %6 = getelementptr [9 x i32], ptr @Pp, i64 0, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4
@@ -178,7 +178,7 @@ define internal fastcc void @init_rs() unnamed_addr #1 {
   store i32 %.sink.i, ptr %27, align 4
   %28 = sext i32 %.sink.i to i64
   %29 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %28
-  %30 = trunc i64 %indvars.iv30.i to i32
+  %30 = trunc nuw nsw i64 %indvars.iv30.i to i32
   store i32 %30, ptr %29, align 4
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, 255
@@ -200,7 +200,7 @@ generate_gf.exit:                                 ; preds = %26
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %31
-  %33 = trunc i64 %indvars.iv.next.i2 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.next.i2 to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55, %.lr.ph.preheader.i
@@ -339,7 +339,7 @@ define hidden i32 @eras_dec_rs(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %indvars.iv401 = phi i64 [ 1, %23 ], [ %indvars.iv.next402, %modnn.exit ]
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %28 = mul nuw nsw i64 %indvars.iv401, %indvars.iv405
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = add i32 %26, %29
   %31 = icmp sgt i32 %30, 254
   br i1 %31, label %.lr.ph.i, label %modnn.exit
@@ -648,7 +648,7 @@ modnn.exit265:                                    ; preds = %.lr.ph.i263, %141
   br label %.loopexit308
 
 158:                                              ; preds = %155
-  %159 = trunc i64 %indvars.iv459 to i32
+  %159 = trunc nsw i64 %indvars.iv459 to i32
   %160 = add i32 %159, %2
   br label %161
 
@@ -697,7 +697,7 @@ modnn.exit269:                                    ; preds = %.lr.ph.i267, %165, 
 .loopexit306:                                     ; preds = %.loopexit308, %.preheader305.preheader
   %.2199 = phi i32 [ %.0197348, %.preheader305.preheader ], [ %.1198, %.loopexit308 ]
   %indvars.iv.next460 = add nsw i64 %indvars.iv459, 1
-  %180 = trunc i64 %indvars.iv459 to i32
+  %180 = trunc nsw i64 %indvars.iv459 to i32
   %181 = and i64 %indvars.iv.next460, 4294967295
   %exitcond463.not = icmp eq i64 %181, 49
   br i1 %exitcond463.not, label %.preheader304.preheader, label %.preheader309, !llvm.loop !23
@@ -719,7 +719,7 @@ modnn.exit269:                                    ; preds = %.lr.ph.i267, %165, 
   %189 = load i32, ptr %188, align 4
   store i32 %189, ptr %185, align 4
   %.not239 = icmp eq i32 %189, 255
-  %190 = trunc i64 %indvars.iv464 to i32
+  %190 = trunc nuw nsw i64 %indvars.iv464 to i32
   %spec.select = select i1 %.not239, i32 %.0189350, i32 %190
   %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 1
   %exitcond468.not = icmp eq i64 %indvars.iv.next465, 49
@@ -740,7 +740,7 @@ modnn.exit269:                                    ; preds = %.lr.ph.i267, %165, 
   br i1 %.not238, label %206, label %193
 
 193:                                              ; preds = %.lr.ph354
-  %194 = trunc i64 %indvars.iv473 to i32
+  %194 = trunc nuw nsw i64 %indvars.iv473 to i32
   %195 = add i32 %192, %194
   %196 = icmp sgt i32 %195, 254
   br i1 %196, label %.lr.ph.i271, label %modnn.exit273
@@ -815,7 +815,7 @@ modnn.exit277:                                    ; preds = %.lr.ph.i275, %._cri
 .preheader300:                                    ; preds = %.preheader300.preheader, %250
   %indvars.iv478 = phi i64 [ 0, %.preheader300.preheader ], [ %indvars.iv.next479.pre-phi509, %250 ]
   %.0211366 = phi i32 [ 0, %.preheader300.preheader ], [ %251, %250 ]
-  %224 = trunc i64 %indvars.iv478 to i32
+  %224 = trunc nuw nsw i64 %indvars.iv478 to i32
   %225 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %224)
   %226 = icmp sgt i32 %225, -1
   br i1 %226, label %.lr.ph363, label %._crit_edge364.thread
@@ -930,7 +930,7 @@ modnn.exit281:                                    ; preds = %.lr.ph.i279, %236
 
 273:                                              ; preds = %270
   %274 = load i32, ptr %269, align 4
-  %275 = trunc i64 %indvars.iv485 to i32
+  %275 = trunc nuw nsw i64 %indvars.iv485 to i32
   %276 = mul i32 %274, %275
   %277 = add i32 %276, %272
   %278 = icmp sgt i32 %277, 254
@@ -975,7 +975,7 @@ modnn.exit285:                                    ; preds = %.lr.ph.i283, %273
 
 294:                                              ; preds = %.lr.ph375
   %295 = load i32, ptr %290, align 4
-  %296 = trunc i64 %indvars.iv489 to i32
+  %296 = trunc nuw nsw i64 %indvars.iv489 to i32
   %297 = mul i32 %295, %296
   %298 = add i32 %297, %293
   %299 = icmp sgt i32 %298, 254

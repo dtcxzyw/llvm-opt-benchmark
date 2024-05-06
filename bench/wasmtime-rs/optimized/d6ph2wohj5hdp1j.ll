@@ -25,7 +25,7 @@ define void @_ZN3std2io16append_to_string17h1941600c0aa1f631E(ptr nocapture writ
   %11 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8
-  invoke void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nonnull sret({ i64, [1 x i64] }) align 8 %6, ptr align 4 %2, ptr nonnull align 8 %1, i64 %11, i64 %13)
+  invoke void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nonnull writeonly sret({ i64, [1 x i64] }) align 8 %6, ptr align 4 %2, ptr nonnull align 8 %1, i64 %11, i64 %13)
           to label %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h8e437b5a26392326E.exit" unwind label %15
 
 14:                                               ; preds = %25, %15

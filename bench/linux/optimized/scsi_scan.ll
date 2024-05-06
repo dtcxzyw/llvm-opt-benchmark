@@ -218,7 +218,7 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #4
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @scsi_is_target_device(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local range(i32 0, 2) i32 @scsi_is_target_device(ptr nocapture noundef readonly %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @scsi_target_type
@@ -349,7 +349,7 @@ define dso_local ptr @__scsi_add_device(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
-  %28 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %11, i64 noundef %3, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %4), !range !15
+  %28 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %11, i64 noundef %3, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %4)
   call void @scsi_autopm_put_host(ptr noundef %0) #17
   br label %29
 
@@ -424,7 +424,7 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
   %9 = getelementptr inbounds i8, ptr %5, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit12, label %4, !llvm.loop !16
+  br i1 %11, label %.loopexit12, label %4, !llvm.loop !15
 
 12:                                               ; preds = %4
   %13 = getelementptr i8, ptr %5, i64 -592
@@ -516,7 +516,7 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
   %64 = getelementptr inbounds i8, ptr %60, i64 64
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit, label %59, !llvm.loop !16
+  br i1 %66, label %.loopexit, label %59, !llvm.loop !15
 
 67:                                               ; preds = %59
   %68 = getelementptr i8, ptr %60, i64 -592
@@ -545,7 +545,7 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
 81:                                               ; preds = %77, %.preheader10
   %82 = load ptr, ptr %73, align 8
   %83 = icmp eq ptr %82, %70
-  br i1 %83, label %.thread, label %.preheader10, !llvm.loop !17
+  br i1 %83, label %.thread, label %.preheader10, !llvm.loop !16
 
 84:                                               ; preds = %77
   %85 = getelementptr i8, ptr %73, i64 -8
@@ -600,7 +600,7 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
 .preheader:                                       ; preds = %87, %113
   %108 = phi i32 [ %114, %113 ], [ %91, %87 ]
   %109 = add i32 %108, 1
-  %110 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %90, i32 %109, ptr elementtype(i32) %90, i32 %108) #17, !srcloc !18
+  %110 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %90, i32 %109, ptr elementtype(i32) %90, i32 %108) #17, !srcloc !17
   %111 = extractvalue { i8, i32 } %110, 0
   %112 = icmp ult i8 %111, 2
   tail call void @llvm.assume(i1 %112)
@@ -610,7 +610,7 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
 113:                                              ; preds = %.preheader
   %114 = extractvalue { i8, i32 } %110, 1
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.thread9, label %.preheader, !llvm.loop !19
+  br i1 %115, label %.thread9, label %.preheader, !llvm.loop !18
 
 .thread9:                                         ; preds = %.preheader, %113, %87
   %116 = phi i32 [ 0, %87 ], [ %108, %.preheader ], [ 0, %113 ]
@@ -653,7 +653,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @scsi_autopm_get_host(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 align 16 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca i32, align 4
   %9 = alloca %struct.scsi_sense_hdr, align 8
@@ -672,7 +672,7 @@ define internal fastcc noundef i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 n
   %18 = getelementptr inbounds i8, ptr %14, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit29, label %13, !llvm.loop !16
+  br i1 %20, label %.loopexit29, label %13, !llvm.loop !15
 
 21:                                               ; preds = %13
   %22 = getelementptr i8, ptr %14, i64 -592
@@ -738,11 +738,11 @@ define internal fastcc noundef i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 n
 
 53:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
-  store i32 0, ptr %8, align 4, !annotation !20
+  store i32 0, ptr %8, align 4, !annotation !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
-  store i64 0, ptr %9, align 8, !annotation !20
+  store i64 0, ptr %9, align 8, !annotation !19
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
   %54 = getelementptr inbounds i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 16, i1 false)
@@ -828,7 +828,7 @@ define internal fastcc noundef i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 n
 
 110:                                              ; preds = %106, %95
   %111 = add nuw nsw i32 %79, 1
-  br label %78, !llvm.loop !21
+  br label %78, !llvm.loop !20
 
 .loopexit:                                        ; preds = %106, %123
   %112 = phi i32 [ %117, %123 ], [ 0, %106 ]
@@ -1513,9 +1513,9 @@ define internal fastcc noundef i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 n
   br i1 %519, label %520, label %521, !prof !8
 
 520:                                              ; preds = %512
-  call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #17, !srcloc !22
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1093, i32 2307, i64 12) #17, !srcloc !23
-  call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #17, !srcloc !24
+  call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #17, !srcloc !21
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1093, i32 2307, i64 12) #17, !srcloc !22
+  call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #17, !srcloc !23
   br label %521
 
 521:                                              ; preds = %520, %512
@@ -1618,7 +1618,7 @@ define dso_local i32 @scsi_add_device(ptr noundef %0, i32 noundef %1, i32 nounde
 declare dso_local void @scsi_device_put(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_rescan_device(ptr noundef %0) #2 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @scsi_rescan_device(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   tail call void @mutex_lock(ptr noundef %3) #17
@@ -1716,7 +1716,7 @@ define dso_local void @scsi_scan_target(ptr noundef %0, i32 noundef %1, i32 noun
   %11 = getelementptr inbounds i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %6, !llvm.loop !16
+  br i1 %13, label %.loopexit, label %6, !llvm.loop !15
 
 14:                                               ; preds = %6
   %15 = getelementptr i8, ptr %7, i64 -592
@@ -1794,7 +1794,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   %15 = getelementptr inbounds i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit18, label %10, !llvm.loop !16
+  br i1 %17, label %.loopexit18, label %10, !llvm.loop !15
 
 18:                                               ; preds = %10
   %19 = getelementptr i8, ptr %11, i64 -592
@@ -1820,11 +1820,11 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %25, i64 noundef %3, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef null), !range !15
+  %30 = tail call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %25, i64 noundef %3, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef null)
   br label %.loopexit
 
 31:                                               ; preds = %27
-  %32 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %25, i64 noundef 0, ptr noundef nonnull %9, ptr noundef null, i32 noundef %4, ptr noundef null), !range !15
+  %32 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %25, i64 noundef 0, ptr noundef nonnull %9, ptr noundef null, i32 noundef %4, ptr noundef null)
   %33 = add nsw i32 %32, -1
   %34 = icmp ult i32 %33, 2
   br i1 %34, label %35, label %.loopexit
@@ -1832,9 +1832,9 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 35:                                               ; preds = %31
   %36 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  store i64 0, ptr %7, align 8, !annotation !20
+  store i64 0, ptr %7, align 8, !annotation !19
   %37 = getelementptr inbounds i8, ptr %25, i64 40
   br label %38
 
@@ -1848,7 +1848,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   %43 = getelementptr inbounds i8, ptr %39, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.loopexit17, label %38, !llvm.loop !16
+  br i1 %45, label %.loopexit17, label %38, !llvm.loop !15
 
 46:                                               ; preds = %38
   %47 = getelementptr i8, ptr %39, i64 -592
@@ -1960,7 +1960,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   %109 = add nuw nsw i32 %99, 1
   %110 = icmp eq i32 %109, 3
   %111 = select i1 %108, i1 true, i1 %110
-  br i1 %111, label %.loopexit15, label %98, !llvm.loop !25
+  br i1 %111, label %.loopexit15, label %98, !llvm.loop !24
 
 112:                                              ; preds = %98
   %113 = load i32, ptr %94, align 8
@@ -2000,7 +2000,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br label %140
 
 136:                                              ; preds = %.preheader14
-  %137 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %25, i64 noundef %130, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef null), !range !15
+  %137 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %25, i64 noundef %130, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef null)
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %139, label %140
 
@@ -2011,7 +2011,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 140:                                              ; preds = %136, %135
   %141 = getelementptr i8, ptr %129, i64 8
   %142 = icmp ugt ptr %141, %126
-  br i1 %142, label %.loopexit15, label %.preheader14, !llvm.loop !26
+  br i1 %142, label %.loopexit15, label %.preheader14, !llvm.loop !25
 
 .loopexit15:                                      ; preds = %102, %140, %139, %123
   call void @kfree(ptr noundef nonnull %94) #17
@@ -2060,7 +2060,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   %163 = getelementptr inbounds i8, ptr %159, i64 64
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %.loopexit13, label %158, !llvm.loop !16
+  br i1 %165, label %.loopexit13, label %158, !llvm.loop !15
 
 166:                                              ; preds = %158
   %167 = getelementptr i8, ptr %159, i64 -592
@@ -2104,13 +2104,13 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 .preheader:                                       ; preds = %191, %.preheader
   %195 = phi i64 [ %199, %.preheader ], [ 1, %191 ]
-  %196 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %25, i64 noundef %195, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef null), !range !15
+  %196 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %25, i64 noundef %195, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef null)
   %197 = icmp ne i32 %196, 2
   %198 = and i1 %172, %197
   %199 = add nuw nsw i64 %195, 1
   %200 = icmp eq i64 %199, %193
   %201 = select i1 %198, i1 true, i1 %200
-  br i1 %201, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %201, label %.loopexit, label %.preheader, !llvm.loop !26
 
 202:                                              ; preds = %83, %77, %66
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
@@ -2173,7 +2173,7 @@ scsi_target_reap.exit:                            ; preds = %211, %213, %218
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_scan_host_selected(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = icmp eq i32 %1, -1
   br i1 %6, label %11, label %7
 
@@ -2262,14 +2262,14 @@ define dso_local noundef i32 @scsi_scan_host_selected(ptr noundef %0, i32 nounde
   %55 = add nuw i32 %48, 1
   %56 = load i32, ptr %41, align 4
   %57 = icmp ult i32 %55, %56
-  br i1 %57, label %.preheader.us, label %.loopexit.us, !llvm.loop !28
+  br i1 %57, label %.preheader.us, label %.loopexit.us, !llvm.loop !27
 
 .loopexit.us:                                     ; preds = %.preheader.us, %.split.us.split
   %58 = phi i32 [ 0, %.split.us.split ], [ %56, %.preheader.us ]
   %59 = add i32 %45, 1
   %60 = load i32, ptr %39, align 8
   %61 = icmp ugt i32 %59, %60
-  br i1 %61, label %.loopexit7, label %.split.us.split, !llvm.loop !29
+  br i1 %61, label %.loopexit7, label %.split.us.split, !llvm.loop !28
 
 .split:                                           ; preds = %38, %.split
   %62 = phi i32 [ %63, %.split ], [ 0, %38 ]
@@ -2277,7 +2277,7 @@ define dso_local noundef i32 @scsi_scan_host_selected(ptr noundef %0, i32 nounde
   %63 = add i32 %62, 1
   %64 = load i32, ptr %39, align 8
   %65 = icmp ugt i32 %63, %64
-  br i1 %65, label %.loopexit7, label %.split, !llvm.loop !31
+  br i1 %65, label %.loopexit7, label %.split, !llvm.loop !30
 
 66:                                               ; preds = %37
   br i1 %12, label %67, label %85
@@ -2305,7 +2305,7 @@ define dso_local noundef i32 @scsi_scan_host_selected(ptr noundef %0, i32 nounde
   %82 = add nuw i32 %75, 1
   %83 = load i32, ptr %68, align 4
   %84 = icmp ult i32 %82, %83
-  br i1 %84, label %73, label %.loopexit7, !llvm.loop !28
+  br i1 %84, label %73, label %.loopexit7, !llvm.loop !27
 
 85:                                               ; preds = %66
   %86 = getelementptr inbounds i8, ptr %0, i64 592
@@ -2441,10 +2441,10 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   %65 = sub i64 %64, %50
   %66 = tail call i32 %63(ptr noundef %0, i64 noundef %65) #17
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !31
 
 68:                                               ; preds = %43
-  %69 = tail call i32 @scsi_scan_host_selected(ptr noundef %0, i32 noundef -1, i32 noundef -1, i64 noundef -1, i32 noundef 0), !range !33
+  %69 = tail call i32 @scsi_scan_host_selected(ptr noundef %0, i32 noundef -1, i32 noundef -1, i64 noundef -1, i32 noundef 0), !range !32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %68, %55
@@ -2508,10 +2508,10 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
   %26 = sub i64 %25, %11
   %27 = tail call i32 %24(ptr noundef %4, i64 noundef %26) #17
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.preheader, label %.loopexit5, !llvm.loop !32
+  br i1 %28, label %.preheader, label %.loopexit5, !llvm.loop !31
 
 29:                                               ; preds = %2
-  %30 = tail call i32 @scsi_scan_host_selected(ptr noundef %4, i32 noundef -1, i32 noundef -1, i64 noundef -1, i32 noundef 0), !range !33
+  %30 = tail call i32 @scsi_scan_host_selected(ptr noundef %4, i32 noundef -1, i32 noundef -1, i64 noundef -1, i32 noundef 0), !range !32
   br label %.loopexit5
 
 .loopexit5:                                       ; preds = %.preheader, %29, %16
@@ -2579,7 +2579,7 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
 63:                                               ; preds = %62, %59, %52, %47
   %64 = tail call ptr @__scsi_iterate_devices(ptr noundef %33, ptr noundef nonnull %48) #17
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit, label %47, !llvm.loop !34
+  br i1 %65, label %.loopexit, label %47, !llvm.loop !33
 
 .loopexit:                                        ; preds = %63, %41
   %66 = getelementptr inbounds i8, ptr %33, i64 56
@@ -2640,7 +2640,7 @@ define dso_local void @scsi_forget_host(ptr noundef readonly %0) local_unnamed_a
   %11 = getelementptr i8, ptr %8, i64 2000
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %6, label %14, !llvm.loop !35
+  br i1 %13, label %6, label %14, !llvm.loop !34
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %8, i64 -16
@@ -2712,7 +2712,7 @@ define internal fastcc void @scsi_target_destroy(ptr noundef %0) unnamed_addr #2
   %10 = getelementptr inbounds i8, ptr %6, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %5, !llvm.loop !16
+  br i1 %12, label %.loopexit, label %5, !llvm.loop !15
 
 13:                                               ; preds = %5
   %14 = getelementptr i8, ptr %6, i64 -592
@@ -2726,8 +2726,8 @@ define internal fastcc void @scsi_target_destroy(ptr noundef %0) unnamed_addr #2
   br i1 %18, label %19, label %20, !prof !8
 
 19:                                               ; preds = %.loopexit
-  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #17, !srcloc !36
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 395, i32 0, i64 12) #17, !srcloc !37
+  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #17, !srcloc !35
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 395, i32 0, i64 12) #17, !srcloc !36
   unreachable
 
 20:                                               ; preds = %.loopexit
@@ -2807,7 +2807,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   %12 = getelementptr inbounds i8, ptr %8, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %7, !llvm.loop !16
+  br i1 %14, label %.loopexit, label %7, !llvm.loop !15
 
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %8, i64 -592
@@ -2911,7 +2911,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
 72:                                               ; preds = %26
   %73 = load ptr, ptr %24, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 184
-  %75 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74, i32 1, ptr elementtype(i32) %74) #17, !srcloc !38
+  %75 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74, i32 1, ptr elementtype(i32) %74) #17, !srcloc !37
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %81, label %77, !prof !8
 
@@ -2979,7 +2979,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
 define internal fastcc void @scsi_unlock_floptical(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !19
   tail call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.31) #17
   store i8 26, ptr %3, align 16
   %4 = getelementptr inbounds i8, ptr %3, i64 1
@@ -3029,7 +3029,7 @@ define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %0, i32 nou
   %6 = shl i32 4, %5
   %7 = icmp ugt i32 %6, %1
   %8 = add i32 %5, -1
-  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !39
+  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.preheader, %2
   %9 = phi i32 [ 6, %2 ], [ %5, %.preheader ]
@@ -3245,28 +3245,27 @@ attributes #20 = { nounwind allocsize(1) }
 !12 = !{!"branch_weights", i32 2000, i32 1}
 !13 = !{i64 2150403462}
 !14 = distinct !{!14, !6, !7}
-!15 = !{i32 0, i32 3}
+!15 = distinct !{!15, !6, !7}
 !16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = !{i64 2148886880, i64 2148886919, i64 2148886940, i64 2148886977, i64 2148887000, i64 2148887009, i64 2148887307}
-!19 = distinct !{!19, !6, !7}
-!20 = !{!"auto-init"}
-!21 = distinct !{!21, !6, !7}
-!22 = !{i64 2156422082, i64 2156421891, i64 2156421943, i64 2156421989, i64 2156422017}
-!23 = !{i64 2156422156, i64 2156422185, i64 2156422231, i64 2156422289, i64 2156422343, i64 2156422397, i64 2156422452, i64 2156422483, i64 2156422791, i64 2156422797, i64 2156422844, i64 2156422867, i64 2156422893}
-!24 = !{i64 2156423351, i64 2156423162, i64 2156423212, i64 2156423258, i64 2156423286}
+!17 = !{i64 2148886880, i64 2148886919, i64 2148886940, i64 2148886977, i64 2148887000, i64 2148887009, i64 2148887307}
+!18 = distinct !{!18, !6, !7}
+!19 = !{!"auto-init"}
+!20 = distinct !{!20, !6, !7}
+!21 = !{i64 2156422082, i64 2156421891, i64 2156421943, i64 2156421989, i64 2156422017}
+!22 = !{i64 2156422156, i64 2156422185, i64 2156422231, i64 2156422289, i64 2156422343, i64 2156422397, i64 2156422452, i64 2156422483, i64 2156422791, i64 2156422797, i64 2156422844, i64 2156422867, i64 2156422893}
+!23 = !{i64 2156423351, i64 2156423162, i64 2156423212, i64 2156423258, i64 2156423286}
+!24 = distinct !{!24, !6, !7}
 !25 = distinct !{!25, !6, !7}
 !26 = distinct !{!26, !6, !7}
 !27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7, !30}
-!30 = !{!"llvm.loop.unswitch.partial.disable"}
+!28 = distinct !{!28, !6, !7, !29}
+!29 = !{!"llvm.loop.unswitch.partial.disable"}
+!30 = distinct !{!30, !6, !7}
 !31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = !{i32 -22, i32 1}
+!32 = !{i32 -22, i32 1}
+!33 = distinct !{!33, !6, !7}
 !34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = !{i64 2156380975, i64 2156380784, i64 2156380836, i64 2156380882, i64 2156380910}
-!37 = !{i64 2156381049, i64 2156381078, i64 2156381124, i64 2156381182, i64 2156381236, i64 2156381290, i64 2156381345, i64 2156381376}
-!38 = !{i64 2148874927, i64 2148874966, i64 2148874987, i64 2148875024, i64 2148875047, i64 2148875056}
-!39 = distinct !{!39, !6, !7}
+!35 = !{i64 2156380975, i64 2156380784, i64 2156380836, i64 2156380882, i64 2156380910}
+!36 = !{i64 2156381049, i64 2156381078, i64 2156381124, i64 2156381182, i64 2156381236, i64 2156381290, i64 2156381345, i64 2156381376}
+!37 = !{i64 2148874927, i64 2148874966, i64 2148874987, i64 2148875024, i64 2148875047, i64 2148875056}
+!38 = distinct !{!38, !6, !7}

@@ -156,7 +156,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @reftable_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_writer_add_ref(ptr noundef %w, ptr noundef %ref) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_writer_add_ref(ptr noundef %w, ptr noundef %ref) local_unnamed_addr #0 {
 entry:
   %rec = alloca %struct.reftable_record, align 8
   %h = alloca %struct.strbuf, align 8
@@ -316,7 +316,7 @@ if.end5:                                          ; preds = %writer_reinit_block
   br i1 %cmp8, label %done, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %call11 = call fastcc i32 @writer_flush_block(ptr noundef nonnull %w), !range !5
+  %call11 = call fastcc i32 @writer_flush_block(ptr noundef nonnull %w)
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %done, label %if.end14
 
@@ -455,7 +455,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 declare ptr @reftable_ref_record_val2(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_writer_add_refs(ptr noundef %w, ptr noundef %refs, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_writer_add_refs(ptr noundef %w, ptr noundef %refs, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %n, 1
   br i1 %cmp.i, label %if.then.i, label %sane_qsort.exit
@@ -476,12 +476,12 @@ for.body.preheader:                               ; preds = %sane_qsort.exit
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds %struct.reftable_ref_record, ptr %refs, i64 %indvars.iv
-  %call = tail call i32 @reftable_writer_add_ref(ptr noundef %w, ptr noundef %arrayidx), !range !5
+  %call = tail call i32 @reftable_writer_add_ref(ptr noundef %w, ptr noundef %arrayidx)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp eq i32 %call, 0
   %cmp2 = icmp ult i64 %indvars.iv.next, %0
   %1 = select i1 %cmp, i1 %cmp2, i1 false
-  br i1 %1, label %for.body, label %for.end, !llvm.loop !6
+  br i1 %1, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %sane_qsort.exit
   %err.0.lcssa = phi i32 [ 0, %sane_qsort.exit ], [ %call, %for.body ]
@@ -506,7 +506,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i)
   store i8 103, ptr %rec.i, align 8
   %u.i = getelementptr inbounds i8, ptr %rec.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i, ptr noundef nonnull align 8 dereferenceable(80) %log, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %log, i64 80, i1 false)
   %block_writer.i = getelementptr inbounds i8, ptr %w, i64 112
   %1 = load ptr, ptr %block_writer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -518,7 +518,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call fastcc i32 @writer_finish_public_section(ptr noundef nonnull %w), !range !5
+  %call3.i = tail call fastcc i32 @writer_finish_public_section(ptr noundef nonnull %w)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %reftable_writer_add_log_verbatim.exit, label %if.end7.i
 
@@ -599,7 +599,7 @@ if.then4.i:                                       ; preds = %if.end.i
 strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
   %12 = phi i64 [ %sub, %if.end.i ], [ %.pre, %if.then4.i ]
   %tobool10.not = icmp eq i64 %12, 0
-  br i1 %tobool10.not, label %while.end, label %land.rhs, !llvm.loop !8
+  br i1 %tobool10.not, label %while.end, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %strbuf_setlen.exit, %if.then7
   %buf16 = getelementptr inbounds i8, ptr %cleaned_message, i64 16
@@ -618,7 +618,7 @@ if.end24:                                         ; preds = %if.end20, %if.end2
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i16)
   store i8 103, ptr %rec.i16, align 8
   %u.i17 = getelementptr inbounds i8, ptr %rec.i16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i17, ptr noundef nonnull align 8 dereferenceable(80) %log, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i17, ptr noundef nonnull readonly align 8 dereferenceable(80) %log, i64 80, i1 false)
   %block_writer.i18 = getelementptr inbounds i8, ptr %w, i64 112
   %15 = load ptr, ptr %block_writer.i18, align 8
   %tobool.not.i19 = icmp eq ptr %15, null
@@ -630,7 +630,7 @@ land.lhs.true.i20:                                ; preds = %if.end24
   br i1 %cmp.i22, label %if.then.i30, label %if.end7.i23
 
 if.then.i30:                                      ; preds = %land.lhs.true.i20
-  %call3.i31 = call fastcc i32 @writer_finish_public_section(ptr noundef nonnull %w), !range !5
+  %call3.i31 = call fastcc i32 @writer_finish_public_section(ptr noundef nonnull %w)
   %cmp4.i32 = icmp slt i32 %call3.i31, 0
   br i1 %cmp4.i32, label %reftable_writer_add_log_verbatim.exit33, label %if.end7.i23
 
@@ -692,7 +692,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp = icmp eq i32 %call, 0
   %cmp2 = icmp ult i64 %indvars.iv.next, %0
   %1 = select i1 %cmp, i1 %cmp2, i1 false
-  br i1 %1, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %1, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %sane_qsort.exit
   %err.0.lcssa = phi i32 [ 0, %sane_qsort.exit ], [ %call, %for.body ]
@@ -702,11 +702,11 @@ for.end:                                          ; preds = %for.body, %sane_qso
 declare i32 @reftable_log_record_compare_key(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_writer_close(ptr noundef %w) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_writer_close(ptr noundef %w) local_unnamed_addr #0 {
 entry:
   %footer = alloca [72 x i8], align 16
   %header = alloca [28 x i8], align 16
-  %call = tail call fastcc i32 @writer_finish_public_section(ptr noundef %w), !range !5
+  %call = tail call fastcc i32 @writer_finish_public_section(ptr noundef %w)
   %next = getelementptr inbounds i8, ptr %w, i64 48
   %0 = load i64, ptr %next, align 8
   %cmp = icmp eq i64 %0, 0
@@ -760,7 +760,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %index_offset = getelementptr inbounds i8, ptr %w, i64 272
   %7 = load i64, ptr %index_offset, align 8
   %shr.i = lshr i64 %7, 56
-  %conv.i34 = trunc i64 %shr.i to i8
+  %conv.i34 = trunc nuw i64 %shr.i to i8
   store i8 %conv.i34, ptr %add.ptr, align 1
   %shr1.i = lshr i64 %7, 48
   %conv2.i = trunc i64 %shr1.i to i8
@@ -798,7 +798,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %conv19 = sext i32 %9 to i64
   %or = or i64 %shl, %conv19
   %shr.i35 = lshr i64 %or, 56
-  %conv.i36 = trunc i64 %shr.i35 to i8
+  %conv.i36 = trunc nuw i64 %shr.i35 to i8
   store i8 %conv.i36, ptr %add.ptr16, align 1
   %shr1.i37 = lshr i64 %or, 48
   %conv2.i38 = trunc i64 %shr1.i37 to i8
@@ -831,7 +831,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %index_offset23 = getelementptr inbounds i8, ptr %w, i64 312
   %10 = load i64, ptr %index_offset23, align 8
   %shr.i57 = lshr i64 %10, 56
-  %conv.i58 = trunc i64 %shr.i57 to i8
+  %conv.i58 = trunc nuw i64 %shr.i57 to i8
   store i8 %conv.i58, ptr %add.ptr20, align 1
   %shr1.i59 = lshr i64 %10, 48
   %conv2.i60 = trunc i64 %shr1.i59 to i8
@@ -864,7 +864,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %offset26 = getelementptr inbounds i8, ptr %w, i64 384
   %11 = load i64, ptr %offset26, align 8
   %shr.i79 = lshr i64 %11, 56
-  %conv.i80 = trunc i64 %shr.i79 to i8
+  %conv.i80 = trunc nuw i64 %shr.i79 to i8
   store i8 %conv.i80, ptr %add.ptr24, align 1
   %shr1.i81 = lshr i64 %11, 48
   %conv2.i82 = trunc i64 %shr1.i81 to i8
@@ -897,7 +897,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %index_offset30 = getelementptr inbounds i8, ptr %w, i64 392
   %12 = load i64, ptr %index_offset30, align 8
   %shr.i101 = lshr i64 %12, 56
-  %conv.i102 = trunc i64 %shr.i101 to i8
+  %conv.i102 = trunc nuw i64 %shr.i101 to i8
   store i8 %conv.i102, ptr %add.ptr27, align 1
   %shr1.i103 = lshr i64 %12, 48
   %conv2.i104 = trunc i64 %shr1.i103 to i8
@@ -1014,7 +1014,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = load i64, ptr %index_len.i, align 8
   %cmp.i152 = icmp ugt i64 %23, %indvars.iv.next.i
-  br i1 %cmp.i152, label %for.body.i, label %writer_clear_index.exit, !llvm.loop !10
+  br i1 %cmp.i152, label %for.body.i, label %writer_clear_index.exit, !llvm.loop !9
 
 writer_clear_index.exit:                          ; preds = %for.body.i, %done
   %index2.i = getelementptr inbounds i8, ptr %w, i64 200
@@ -1027,7 +1027,7 @@ writer_clear_index.exit:                          ; preds = %for.body.i, %done
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @writer_finish_public_section(ptr noundef %w) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @writer_finish_public_section(ptr noundef %w) unnamed_addr #0 {
 entry:
   %closure.i = alloca %struct.write_record_arg, align 8
   %common.i = alloca %struct.common_prefix_arg, align 8
@@ -1038,7 +1038,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call zeroext i8 @block_writer_type(ptr noundef nonnull %0) #13
-  %call2 = tail call fastcc i32 @writer_finish_section(ptr noundef nonnull %w), !range !5
+  %call2 = tail call fastcc i32 @writer_finish_section(ptr noundef nonnull %w)
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %return, label %if.end4
 
@@ -1131,7 +1131,7 @@ writer_dump_object_index.exit.thread:             ; preds = %if.end7.i
   br label %return
 
 writer_dump_object_index.exit:                    ; preds = %writer_reinit_block_writer.exit.i, %if.end7.i
-  %call.i = call fastcc i32 @writer_finish_section(ptr noundef nonnull %w), !range !5
+  %call.i = call fastcc i32 @writer_finish_section(ptr noundef nonnull %w)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %closure.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %common.i)
   %cmp13 = icmp slt i32 %call.i, 0
@@ -1179,7 +1179,7 @@ entry:
   %min_update_index = getelementptr inbounds i8, ptr %w, i64 56
   %3 = load i64, ptr %min_update_index, align 8
   %shr.i = lshr i64 %3, 56
-  %conv.i = trunc i64 %shr.i to i8
+  %conv.i = trunc nuw i64 %shr.i to i8
   store i8 %conv.i, ptr %add.ptr1, align 1
   %shr1.i = lshr i64 %3, 48
   %conv2.i = trunc i64 %shr1.i to i8
@@ -1212,7 +1212,7 @@ entry:
   %max_update_index = getelementptr inbounds i8, ptr %w, i64 64
   %4 = load i64, ptr %max_update_index, align 8
   %shr.i14 = lshr i64 %4, 56
-  %conv.i15 = trunc i64 %shr.i14 to i8
+  %conv.i15 = trunc nuw i64 %shr.i14 to i8
   store i8 %conv.i15, ptr %add.ptr2, align 1
   %shr1.i16 = lshr i64 %4, 48
   %conv2.i17 = trunc i64 %shr1.i16 to i8
@@ -1250,7 +1250,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr5 = getelementptr inbounds i8, ptr %dest, i64 24
   %shr.i39 = lshr i32 %w.val12, 24
-  %conv.i40 = trunc i32 %shr.i39 to i8
+  %conv.i40 = trunc nuw i32 %shr.i39 to i8
   store i8 %conv.i40, ptr %add.ptr5, align 1
   %shr1.i41 = lshr i32 %w.val12, 16
   %conv2.i42 = trunc i32 %shr1.i41 to i8
@@ -1304,7 +1304,7 @@ declare zeroext i8 @reftable_record_type(ptr noundef) local_unnamed_addr #1
 declare i32 @block_writer_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @writer_flush_block(ptr nocapture noundef %w) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @writer_flush_block(ptr nocapture noundef %w) unnamed_addr #0 {
 entry:
   %ir.i = alloca %struct.reftable_index_record, align 8
   %block_writer = getelementptr inbounds i8, ptr %w, i64 112
@@ -1535,7 +1535,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @writer_finish_section(ptr noundef %w) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @writer_finish_section(ptr noundef %w) unnamed_addr #0 {
 entry:
   %rec = alloca %struct.reftable_record, align 8
   %block_writer = getelementptr inbounds i8, ptr %w, i64 112
@@ -1545,7 +1545,7 @@ entry:
   %bf.load = load i8, ptr %opts, align 8
   %blocks = getelementptr inbounds i8, ptr %w, i64 328
   %1 = load i32, ptr %blocks, align 8
-  %call1 = tail call fastcc i32 @writer_flush_block(ptr noundef %w), !range !5
+  %call1 = tail call fastcc i32 @writer_flush_block(ptr noundef %w)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %while.cond.preheader
 
@@ -1627,7 +1627,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp12, label %for.inc, label %if.end15
 
 if.end15:                                         ; preds = %for.body
-  %call16 = call fastcc i32 @writer_flush_block(ptr noundef nonnull %w), !range !5
+  %call16 = call fastcc i32 @writer_flush_block(ptr noundef nonnull %w)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end20
 
@@ -1667,7 +1667,7 @@ if.then25:                                        ; preds = %writer_reinit_block
 for.inc:                                          ; preds = %writer_reinit_block_writer.exit56, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond28.preheader, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.cond28.preheader, label %for.body, !llvm.loop !10
 
 for.body31:                                       ; preds = %for.body31.preheader, %for.body31
   %indvars.iv80 = phi i64 [ 0, %for.body31.preheader ], [ %indvars.iv.next81, %for.body31 ]
@@ -1675,18 +1675,18 @@ for.body31:                                       ; preds = %for.body31.preheade
   call void @strbuf_release(ptr noundef nonnull %last_key) #13
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %for.end36, label %for.body31, !llvm.loop !12
+  br i1 %exitcond84.not, label %for.end36, label %for.body31, !llvm.loop !11
 
 for.end36:                                        ; preds = %for.body31, %writer_reinit_block_writer.exit, %for.cond28.preheader
   call void @reftable_free(ptr noundef %10) #13
   %19 = load i64, ptr %index_len, align 8
   %cmp2 = icmp ugt i64 %19, %conv
-  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %for.end36, %while.cond.preheader
   %max_level.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %inc, %for.end36 ]
   %index_start.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %4, %for.end36 ]
-  %call37 = call fastcc i32 @writer_flush_block(ptr noundef nonnull %w), !range !5
+  %call37 = call fastcc i32 @writer_flush_block(ptr noundef nonnull %w)
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %return, label %if.end41
 
@@ -1707,7 +1707,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i64, ptr %index_len, align 8
   %cmp.i58 = icmp ugt i64 %22, %indvars.iv.next.i
-  br i1 %cmp.i58, label %for.body.i, label %writer_clear_index.exit, !llvm.loop !10
+  br i1 %cmp.i58, label %for.body.i, label %writer_clear_index.exit, !llvm.loop !9
 
 writer_clear_index.exit:                          ; preds = %for.body.i, %if.end41
   %index2.i = getelementptr inbounds i8, ptr %w, i64 200
@@ -1831,7 +1831,7 @@ if.end:                                           ; preds = %entry
 
 if.end11:                                         ; preds = %if.end
   %7 = load ptr, ptr %void_arg, align 8
-  %call13 = call fastcc i32 @writer_flush_block(ptr noundef %7), !range !5
+  %call13 = call fastcc i32 @writer_flush_block(ptr noundef %7)
   store i32 %call13, ptr %err, align 8
   %cmp16 = icmp slt i32 %call13, 0
   br i1 %cmp16, label %done, label %if.end19
@@ -1939,12 +1939,11 @@ attributes #15 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}

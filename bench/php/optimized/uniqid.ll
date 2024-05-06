@@ -105,7 +105,7 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
   store i64 %37, ptr @prev_tv.1, align 8
   %42 = trunc i64 %34 to i32
   %43 = srem i64 %37, 1048576
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nsw i64 %43 to i32
   %45 = load i8, ptr %4, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %58

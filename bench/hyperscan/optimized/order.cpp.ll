@@ -15817,7 +15817,7 @@ for.body189:                                      ; preds = %for.inc, %cleanup.c
   %add.ptr = getelementptr inbounds i8, ptr @.str.22, i64 %conv1507
   %sub = sub nuw nsw i64 32, %conv1507
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %storemerge1508)
-  %conv194 = trunc i64 %.sroa.speculated to i32
+  %conv194 = trunc nuw nsw i64 %.sroa.speculated to i32
   %191 = load ptr, ptr %scratch, align 8
   %call197 = invoke i32 @hs_scan_stream(ptr noundef %190, ptr noundef nonnull %add.ptr, i32 noundef %conv194, i32 noundef 0, ptr noundef %191, ptr noundef nonnull @_Z9record_cbjyyjPv, ptr noundef nonnull %c)
           to label %invoke.cont196 unwind label %lpad195
@@ -19349,7 +19349,7 @@ for.body175:                                      ; preds = %for.inc, %cleanup.c
   %add.ptr = getelementptr inbounds i8, ptr @.str.22, i64 %conv1423
   %sub = sub nuw nsw i64 32, %conv1423
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %storemerge1424)
-  %conv180 = trunc i64 %.sroa.speculated to i32
+  %conv180 = trunc nuw nsw i64 %.sroa.speculated to i32
   %173 = load ptr, ptr %scratch, align 8
   %call183 = invoke i32 @hs_scan_stream(ptr noundef %172, ptr noundef nonnull %add.ptr, i32 noundef %conv180, i32 noundef 0, ptr noundef %173, ptr noundef nonnull @_Z9record_cbjyyjPv, ptr noundef nonnull %c)
           to label %invoke.cont182 unwind label %lpad181
@@ -22736,7 +22736,7 @@ for.body161:                                      ; preds = %for.inc, %cleanup.c
   %add.ptr = getelementptr inbounds i8, ptr @.str.22, i64 %conv1340
   %sub = sub nuw nsw i64 32, %conv1340
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %storemerge1341)
-  %conv166 = trunc i64 %.sroa.speculated to i32
+  %conv166 = trunc nuw nsw i64 %.sroa.speculated to i32
   %155 = load ptr, ptr %scratch, align 8
   %call169 = invoke i32 @hs_scan_stream(ptr noundef %154, ptr noundef nonnull %add.ptr, i32 noundef %conv166, i32 noundef 0, ptr noundef %155, ptr noundef nonnull @_Z9record_cbjyyjPv, ptr noundef nonnull %c)
           to label %invoke.cont168 unwind label %lpad167
@@ -26132,7 +26132,7 @@ for.body161:                                      ; preds = %for.inc, %cleanup.c
   %add.ptr = getelementptr inbounds i8, ptr @.str.22, i64 %conv1340
   %sub = sub nuw nsw i64 32, %conv1340
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %storemerge1341)
-  %conv166 = trunc i64 %.sroa.speculated to i32
+  %conv166 = trunc nuw nsw i64 %.sroa.speculated to i32
   %155 = load ptr, ptr %scratch, align 8
   %call169 = invoke i32 @hs_scan_stream(ptr noundef %154, ptr noundef nonnull %add.ptr, i32 noundef %conv166, i32 noundef 0, ptr noundef %155, ptr noundef nonnull @_Z9record_cbjyyjPv, ptr noundef nonnull %c)
           to label %invoke.cont168 unwind label %lpad167

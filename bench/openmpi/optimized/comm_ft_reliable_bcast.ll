@@ -55,7 +55,7 @@ define i32 @ompi_comm_rbcast_register_cb_type(ptr noundef %0) local_unnamed_addr
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds [8 x ptr], ptr @ompi_comm_rbcast_cb, i64 0, i64 %indvars.iv
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   store ptr %0, ptr %7, align 8
   br label %.loopexit
 
@@ -70,7 +70,7 @@ define i32 @ompi_comm_rbcast_register_cb_type(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @ompi_comm_rbcast_unregister_cb_type(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 -5, 1) i32 @ompi_comm_rbcast_unregister_cb_type(i32 noundef %0) local_unnamed_addr #2 {
   %or.cond = icmp ugt i32 %0, 7
   br i1 %or.cond, label %5, label %2
 
@@ -86,7 +86,7 @@ define noundef i32 @ompi_comm_rbcast_unregister_cb_type(i32 noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_rbcast_send_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_send_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -275,7 +275,7 @@ define i32 @ompi_comm_rbcast_init() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ompi_comm_rbcast_bmg(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
+define internal range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_bmg(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -464,7 +464,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %100, %98, %84, %76,
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %ompi_group_peer_lookup.exit
-  %107 = tail call i32 @ompi_comm_rbcast_send_msg(ptr noundef nonnull %.048, ptr noundef %1, i64 noundef %2), !range !6
+  %107 = tail call i32 @ompi_comm_rbcast_send_msg(ptr noundef nonnull %.048, ptr noundef %1, i64 noundef %2)
   switch i32 %107, label %.loopexit [
     i32 0, label %._crit_edge
     i32 -12, label %108
@@ -482,12 +482,12 @@ ompi_group_peer_lookup.exit:                      ; preds = %100, %98, %84, %76,
 ._crit_edge:                                      ; preds = %109, %108, %106, %42
   %112 = add nsw i32 %.05277, -2
   %113 = icmp sgt i32 %.05277, 0
-  br i1 %113, label %42, label %114, !llvm.loop !7
+  br i1 %113, label %42, label %114, !llvm.loop !6
 
 114:                                              ; preds = %._crit_edge
   %115 = shl nsw i32 %.05379, 1
   %.not59 = icmp sgt i32 %115, %36
-  br i1 %.not59, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %.not59, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %114, %106, %35
   %.049 = phi i32 [ 0, %35 ], [ %107, %106 ], [ 0, %114 ]
@@ -495,7 +495,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %100, %98, %84, %76,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ompi_comm_rbcast_n2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
+define internal range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_n2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %.not28 = icmp eq ptr %5, null
@@ -563,7 +563,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %10, %16, %30, %32
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %ompi_group_peer_lookup.exit
-  %39 = tail call i32 @ompi_comm_rbcast_send_msg(ptr noundef %.0.i.i.i, ptr noundef %1, i64 noundef %2), !range !6
+  %39 = tail call i32 @ompi_comm_rbcast_send_msg(ptr noundef %.0.i.i.i, ptr noundef %1, i64 noundef %2)
   switch i32 %39, label %.loopexit [
     i32 0, label %40
     i32 -12, label %40
@@ -574,7 +574,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %10, %16, %30, %32
   %.017.val = load i32, ptr %7, align 8
   %41 = sext i32 %.017.val to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %10, label %select.unfold, !llvm.loop !9
+  br i1 %42, label %10, label %select.unfold, !llvm.loop !8
 
 select.unfold:                                    ; preds = %40, %.preheader
   %43 = load ptr, ptr %6, align 8
@@ -661,7 +661,7 @@ ompi_comm_lookup.exit:                            ; preds = %16, %23
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8
-  %47 = tail call i32 %43(ptr noundef nonnull %21, ptr noundef nonnull %5, i64 noundef %46) #7, !callees !10
+  %47 = tail call i32 %43(ptr noundef nonnull %21, ptr noundef nonnull %5, i64 noundef %46) #7, !callees !9
   br label %ompi_comm_lookup.exit.thread
 
 ompi_comm_lookup.exit.thread:                     ; preds = %2, %34, %40, %42, %29, %26, %ompi_comm_lookup.exit
@@ -700,8 +700,7 @@ attributes #7 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -2147483648, i32 1}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{ptr @ompi_comm_rbcast_bmg, ptr @ompi_comm_rbcast_n2, ptr @ompi_comm_rbcast_null}
+!9 = !{ptr @ompi_comm_rbcast_bmg, ptr @ompi_comm_rbcast_n2, ptr @ompi_comm_rbcast_null}

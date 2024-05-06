@@ -15515,7 +15515,7 @@ _ZNSt6vectorImSaImEED2Ev.exit7:                   ; preds = %if.then.i.i.i6, %lp
 declare void @_ZN6duckdb18RowGroupCollection24InitializeScanWithOffsetERNS_19CollectionScanStateERKNS_6vectorImLb1EEEmm(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb9DataTable10MaxThreadsERNS_13ClientContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
+define noundef range(i64 1, 9007199254740993) i64 @_ZN6duckdb9DataTable10MaxThreadsERNS_13ClientContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %verify_parallelism = getelementptr inbounds i8, ptr %call, i64 117
@@ -35523,7 +35523,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb10MagicBytes15CheckMagicBytesEPNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %fs_p, ptr noundef nonnull align 8 dereferenceable(32) %path) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 4) i8 @_ZN6duckdb10MagicBytes15CheckMagicBytesEPNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %fs_p, ptr noundef nonnull align 8 dereferenceable(32) %path) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lfs = alloca %"class.duckdb::LocalFileSystem", align 8
   %handle = alloca %"class.duckdb::unique_ptr.1431", align 8
@@ -46039,7 +46039,7 @@ cleanup11:                                        ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb14TableIndexList5CountEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN6duckdb14TableIndexList5CountEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #35
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0

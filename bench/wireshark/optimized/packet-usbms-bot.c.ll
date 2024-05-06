@@ -239,7 +239,7 @@ usbms_bot_bulk_is_cbw.exit96:                     ; preds = %65
 
 usbms_bot_bulk_is_cbw.exit96.thread:              ; preds = %.usbms_bot_bulk_is_cbw.exit96.thread_crit_edge, %60, %usbms_bot_bulk_is_cbw.exit96
   %74 = phi i32 [ %.pre, %.usbms_bot_bulk_is_cbw.exit96.thread_crit_edge ], [ %64, %60 ], [ %.pre104, %usbms_bot_bulk_is_cbw.exit96 ]
-  %75 = tail call fastcc i32 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %74, i32 noundef %25), !range !4
+  %75 = tail call fastcc i32 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %74, i32 noundef %25)
   %.not93 = icmp eq i32 %75, 0
   br i1 %.not93, label %81, label %76
 
@@ -288,13 +288,13 @@ define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, p
   %18 = getelementptr i8, ptr %.0334246, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.thread, label %20, !llvm.loop !5
+  br i1 %.not, label %.thread, label %20, !llvm.loop !4
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr i8, ptr %.0334246, i64 16
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, %16
-  br i1 %23, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %23, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %20, %10
   %.lcssa = phi ptr [ @dissect_usbms_bot_reset, %10 ], [ %19, %20 ]
@@ -345,7 +345,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usbms_bot_bulk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_usbms_bot_bulk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
   store i32 1128420181, ptr %5, align 4
@@ -497,7 +497,7 @@ define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %12
 
@@ -670,6 +670,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

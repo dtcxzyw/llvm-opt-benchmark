@@ -657,7 +657,7 @@ declare dso_local void @free_vm_area(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @walk_mem_res(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @__ioremap_collect_map_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = and i32 %3, 1
   %5 = icmp eq i32 %4, 0

@@ -99,7 +99,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMAC_CTX_copy(ptr nocapture noundef %out, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMAC_CTX_copy(ptr nocapture noundef %out, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
 entry:
   %nlast_block = getelementptr inbounds i8, ptr %in, i64 136
   %0 = load i32, ptr %nlast_block, align 8
@@ -151,7 +151,7 @@ declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMAC_Init(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %cipher, ptr noundef %impl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMAC_Init(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %cipher, ptr noundef %impl) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %key, null
   %tobool1 = icmp ne ptr %cipher, null
@@ -328,7 +328,7 @@ declare i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef, i32 noundef) local_unnam
 declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMAC_Update(ptr noundef %ctx, ptr noundef %in, i64 noundef %dlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %ctx, ptr noundef %in, i64 noundef %dlen) local_unnamed_addr #0 {
 entry:
   %buf = alloca [2048 x i8], align 16
   %nlast_block = getelementptr inbounds i8, ptr %ctx, i64 136
@@ -392,7 +392,7 @@ while.cond57.preheader:                           ; preds = %if.end34
 
 while.body60.lr.ph:                               ; preds = %while.cond57.preheader
   %mul = mul nuw nsw i64 %conv35, %conv37
-  %conv64 = trunc i64 %mul to i32
+  %conv64 = trunc nuw i64 %mul to i32
   br label %while.body60
 
 while.cond.preheader:                             ; preds = %if.end34
@@ -473,7 +473,7 @@ return:                                           ; preds = %while.body60, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMAC_Final(ptr nocapture noundef %ctx, ptr noundef %out, ptr noundef writeonly %poutlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMAC_Final(ptr nocapture noundef %ctx, ptr noundef %out, ptr noundef writeonly %poutlen) local_unnamed_addr #0 {
 entry:
   %nlast_block = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load i32, ptr %nlast_block, align 8

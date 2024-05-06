@@ -752,7 +752,7 @@ sw.epilog246:                                     ; preds = %if.then66, %sw.bb19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @conn_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @conn_new(ptr nocapture noundef writeonly %bi) #1 {
 entry:
   %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8
@@ -780,7 +780,7 @@ BIO_CONNECT_new.exit:                             ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @conn_free(ptr noundef %a) #1 {
+define internal range(i32 0, 2) i32 @conn_free(ptr noundef %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -843,7 +843,7 @@ return:                                           ; preds = %if.end, %BIO_CONNEC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @conn_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #3 {
+define internal range(i64 0, 2) i64 @conn_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #3 {
 entry:
   %cond = icmp eq i32 %cmd, 14
   br i1 %cond, label %sw.bb, label %sw.epilog

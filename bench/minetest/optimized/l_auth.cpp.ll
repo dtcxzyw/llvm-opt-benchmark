@@ -371,7 +371,7 @@ declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiAuth11l_auth_readEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10ModApiAuth11l_auth_readEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %authEntry = alloca %struct.AuthEntry, align 8
@@ -713,7 +713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiAuth11l_auth_saveEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10ModApiAuth11l_auth_saveEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %authEntry = alloca %struct.AuthEntry, align 8
   %ref.tmp = alloca ptr, align 8
@@ -1077,7 +1077,7 @@ declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiAuth13l_auth_createEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10ModApiAuth13l_auth_createEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %authEntry = alloca %struct.AuthEntry, align 8
   %ref.tmp = alloca ptr, align 8
@@ -1322,7 +1322,7 @@ cleanup42:                                        ; preds = %_ZN9AuthEntryD2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiAuth13l_auth_deleteEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10ModApiAuth13l_auth_deleteEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1452,7 +1452,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10ModApiAuth17l_auth_list_namesEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN10ModApiAuth17l_auth_list_namesEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %names = alloca %"class.std::vector.91", align 8
   %call.i = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)

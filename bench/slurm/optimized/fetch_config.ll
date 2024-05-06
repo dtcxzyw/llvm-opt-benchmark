@@ -590,7 +590,7 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
 
 _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   %11 = load ptr, ptr %3, align 8
-  %12 = call i32 @dump_to_memfd(ptr noundef nonnull @.str.26, ptr noundef %11, ptr noundef nonnull %4), !range !10
+  %12 = call i32 @dump_to_memfd(ptr noundef nonnull @.str.26, ptr noundef %11, ptr noundef nonnull %4)
   call void @slurm_xfree(ptr noundef nonnull %3) #13
   %13 = load ptr, ptr %4, align 8
   call void @slurm_init(ptr noundef %13) #13
@@ -658,7 +658,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   br label %.lr.ph102.split.us.backedge
 
 .lr.ph102.split.us.backedge:                      ; preds = %40, %37
-  br label %.lr.ph102.split.us, !llvm.loop !11
+  br label %.lr.ph102.split.us, !llvm.loop !10
 
 .outer._crit_edge:                                ; preds = %.split105.us
   call void @_exit(i32 noundef 1) #16
@@ -723,7 +723,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %66, %63
-  br label %.lr.ph.split.us, !llvm.loop !12
+  br label %.lr.ph.split.us, !llvm.loop !11
 
 .outer55._crit_edge:                              ; preds = %.split.us
   %67 = icmp sgt i32 %43, 0
@@ -786,7 +786,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   br label %.lr.ph83.split.us.backedge
 
 .lr.ph83.split.us.backedge:                       ; preds = %90, %87
-  br label %.lr.ph83.split.us, !llvm.loop !13
+  br label %.lr.ph83.split.us, !llvm.loop !12
 
 .outer54._crit_edge:                              ; preds = %.split86.us, %.outer55._crit_edge
   call void @_exit(i32 noundef 0) #16
@@ -864,7 +864,7 @@ declare void @slurm_free_return_code_msg(ptr noundef) local_unnamed_addr #2
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @dump_to_memfd(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @dump_to_memfd(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @getpid() #13
   %5 = tail call i32 @memfd_create(ptr noundef %0, i32 noundef 1) #13
   %6 = icmp slt i32 %5, 0
@@ -945,7 +945,7 @@ define i32 @dump_to_memfd(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %37, %34
-  br label %.lr.ph.split.us, !llvm.loop !14
+  br label %.lr.ph.split.us, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.split.us, %10, %8
   ret i32 %5
@@ -980,7 +980,7 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @find_conf_by_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @find_conf_by_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %4, ptr noundef %1) #13
@@ -992,7 +992,7 @@ define i32 @find_conf_by_name(ptr nocapture noundef readonly %0, ptr noundef %1)
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @write_one_config(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define range(i32 -1, 1) i32 @write_one_config(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1034,7 +1034,7 @@ define noundef i32 @write_one_config(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not.i, label %.loopexit.i, label %26
 
 26:                                               ; preds = %25
-  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
+  %27 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
   %28 = trunc i64 %27 to i32
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph.split.us.i, label %.loopexit.i
@@ -1071,7 +1071,7 @@ define noundef i32 @write_one_config(ptr nocapture noundef readonly %0, ptr noun
   br i1 %42, label %43, label %60
 
 43:                                               ; preds = %.split42.us.i
-  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
+  %44 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
   %45 = trunc i64 %44 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 375, ptr noundef nonnull @__func__._write_conf, i32 noundef %.028.ph49.i, i32 noundef %45) #13
   br label %60
@@ -1091,13 +1091,13 @@ define noundef i32 @write_one_config(ptr nocapture noundef readonly %0, ptr noun
   br i1 %52, label %53, label %.lr.ph.split.us.i.backedge
 
 53:                                               ; preds = %50
-  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
+  %54 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
   %55 = trunc i64 %54 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.2, i32 noundef 375, ptr noundef nonnull @__func__._write_conf, i32 noundef %48, i32 noundef %55) #13
   br label %.lr.ph.split.us.i.backedge
 
 .lr.ph.split.us.i.backedge:                       ; preds = %53, %50
-  br label %.lr.ph.split.us.i, !llvm.loop !15
+  br label %.lr.ph.split.us.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.split.us.i, %26, %25
   %56 = call i32 @close(i32 noundef %20) #13
@@ -1149,7 +1149,7 @@ define noundef i32 @write_config_to_memfd(ptr noundef %0, ptr nocapture noundef 
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = tail call i32 @dump_to_memfd(ptr noundef %7, ptr noundef %9, ptr noundef nonnull %10), !range !10
+  %11 = tail call i32 @dump_to_memfd(ptr noundef %7, ptr noundef %9, ptr noundef nonnull %10)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %11, ptr %12, align 8
   br label %13
@@ -1159,7 +1159,7 @@ define noundef i32 @write_config_to_memfd(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @write_configs_to_conf_cache(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @write_configs_to_conf_cache(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @list_for_each(ptr noundef %3, ptr noundef nonnull @write_one_config, ptr noundef %1) #13
   %.lobit = ashr i32 %4, 31
@@ -1169,7 +1169,7 @@ define i32 @write_configs_to_conf_cache(ptr nocapture noundef readonly %0, ptr n
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @find_map_conf_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define range(i32 0, 2) i32 @find_map_conf_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %1) #13
   %.not = icmp eq i32 %4, 0
@@ -1215,7 +1215,7 @@ define ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds ptr, ptr %spec.store.select, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %14, %1
   br i1 %0, label %17, label %27
@@ -1394,7 +1394,7 @@ define void @grab_include_directives() local_unnamed_addr #0 {
   %15 = getelementptr inbounds [14 x ptr], ptr @slurmd_config_files, i64 0, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %.not, label %17, label %3, !llvm.loop !17
+  br i1 %.not, label %17, label %3, !llvm.loop !16
 
 17:                                               ; preds = %14
   ret void
@@ -1487,11 +1487,10 @@ attributes #16 = { noreturn nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = !{i32 0, i32 -2147483648}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

@@ -269,7 +269,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @DH_compute_key_padded(ptr noundef %key, ptr noundef %pub_key, ptr noundef %dh) local_unnamed_addr #0 {
+define range(i32 -2147483648, 268435456) i32 @DH_compute_key_padded(ptr noundef %key, ptr noundef %pub_key, ptr noundef %dh) local_unnamed_addr #0 {
 entry:
   %meth = getelementptr inbounds i8, ptr %dh, i64 184
   %0 = load ptr, ptr %meth, align 8
@@ -334,7 +334,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dh_generate_public_key(ptr noundef %ctx, ptr noundef %dh, ptr noundef %priv_key, ptr noundef %pub_key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_generate_public_key(ptr noundef %ctx, ptr noundef %dh, ptr noundef %priv_key, ptr noundef %pub_key) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_new() #8
   %cmp = icmp eq ptr %call, null
@@ -390,7 +390,7 @@ declare void @BN_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dh_buf2key(ptr noundef %dh, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dh_buf2key(ptr noundef %dh, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %ret = alloca i32, align 4
@@ -445,7 +445,7 @@ declare i32 @DH_set0_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_dh_key2buf(ptr noundef %dh, ptr noundef %pbuf_out, i64 noundef %size, i32 noundef %alloc) local_unnamed_addr #0 {
+define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %dh, ptr noundef %pbuf_out, i64 noundef %size, i32 noundef %alloc) local_unnamed_addr #0 {
 entry:
   %pubkey = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -552,7 +552,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @generate_key(ptr noundef %dh) #0 {
+define internal range(i32 0, 2) i32 @generate_key(ptr noundef %dh) #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %dh, i64 8
   %0 = load ptr, ptr %params, align 8

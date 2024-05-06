@@ -4206,7 +4206,7 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ansi_map_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @ansi_map_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = load i8, ptr %3, align 2
   %7 = zext i8 %6 to i32
   %8 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @ansi_map_opr_code_strings) #5
@@ -4989,7 +4989,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
 
 344:                                              ; preds = %343
   %345 = load i32, ptr @OperationCode, align 4
-  %346 = trunc i32 %345 to i8
+  %346 = trunc nuw i32 %345 to i8
   %347 = load ptr, ptr @dissect_invokeData.tap_p, align 8
   store i8 %346, ptr %347, align 2
   %348 = getelementptr inbounds i8, ptr %347, i64 2
@@ -5582,7 +5582,7 @@ find_saved_invokedata.exit:                       ; preds = %418, %422
 
 655:                                              ; preds = %654
   %656 = load i32, ptr @OperationCode, align 4
-  %657 = trunc i32 %656 to i8
+  %657 = trunc nuw i32 %656 to i8
   %658 = load ptr, ptr @dissect_returnData.tap_p, align 8
   store i8 %657, ptr %658, align 2
   %659 = getelementptr inbounds i8, ptr %658, i64 2

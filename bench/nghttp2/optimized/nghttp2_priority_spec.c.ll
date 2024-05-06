@@ -28,7 +28,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nghttp2_priority_spec_check_default(ptr nocapture noundef readonly %pri_spec) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @nghttp2_priority_spec_check_default(ptr nocapture noundef readonly %pri_spec) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %pri_spec, align 4
   %cmp = icmp eq i32 %0, 0

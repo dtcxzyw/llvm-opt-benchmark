@@ -1425,15 +1425,15 @@ for.body.i:                                       ; preds = %call.i.noexc, %for.
   %conv13.i = sitofp i64 %rem12.i to float
   %mul14.i = fmul float %div.i, %conv13.i
   %2 = load ptr, ptr %m_data.i.i, align 8
-  %3 = getelementptr float, ptr %2, i64 %mul9.i
-  %add.ptr.i23.i = getelementptr i8, ptr %3, i64 4
+  %3 = getelementptr inbounds float, ptr %2, i64 %mul9.i
+  %add.ptr.i23.i = getelementptr inbounds i8, ptr %3, i64 4
   store float %mul14.i, ptr %add.ptr.i23.i, align 4
   %rem18.i = srem i64 %idx.026.i, %call.i1
   %conv19.i = uitofp nneg i64 %rem18.i to float
   %mul20.i = fmul float %div.i, %conv19.i
   %4 = load ptr, ptr %m_data.i.i, align 8
-  %5 = getelementptr float, ptr %4, i64 %mul9.i
-  %add.ptr.i24.i = getelementptr i8, ptr %5, i64 8
+  %5 = getelementptr inbounds float, ptr %4, i64 %mul9.i
+  %add.ptr.i24.i = getelementptr inbounds i8, ptr %5, i64 8
   store float %mul20.i, ptr %add.ptr.i24.i, align 4
   %inc.i = add nuw nsw i64 %idx.026.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %mul4.i
@@ -1490,15 +1490,15 @@ for.body:                                         ; preds = %entry, %for.body
   %conv13 = sitofp i64 %rem12 to float
   %mul14 = fmul float %div, %conv13
   %2 = load ptr, ptr %m_data.i, align 8
-  %3 = getelementptr float, ptr %2, i64 %mul9
-  %add.ptr.i23 = getelementptr i8, ptr %3, i64 4
+  %3 = getelementptr inbounds float, ptr %2, i64 %mul9
+  %add.ptr.i23 = getelementptr inbounds i8, ptr %3, i64 4
   store float %mul14, ptr %add.ptr.i23, align 4
   %rem18 = srem i64 %idx.026, %call
   %conv19 = uitofp nneg i64 %rem18 to float
   %mul20 = fmul float %div, %conv19
   %4 = load ptr, ptr %m_data.i, align 8
-  %5 = getelementptr float, ptr %4, i64 %mul9
-  %add.ptr.i24 = getelementptr i8, ptr %5, i64 8
+  %5 = getelementptr inbounds float, ptr %4, i64 %mul9
+  %add.ptr.i24 = getelementptr inbounds i8, ptr %5, i64 8
   store float %mul20, ptr %add.ptr.i24, align 4
   %inc = add nuw nsw i64 %idx.026, 1
   %exitcond.not = icmp eq i64 %inc, %mul4
@@ -1914,15 +1914,15 @@ for.body.i.i:                                     ; preds = %call.i.noexc.i, %fo
   %conv13.i.i = sitofp i64 %rem12.i.i to float
   %mul14.i.i = fmul float %div.i.i, %conv13.i.i
   %2 = load ptr, ptr %m_data.i.i.i, align 8
-  %3 = getelementptr float, ptr %2, i64 %mul9.i.i
-  %add.ptr.i23.i.i = getelementptr i8, ptr %3, i64 4
+  %3 = getelementptr inbounds float, ptr %2, i64 %mul9.i.i
+  %add.ptr.i23.i.i = getelementptr inbounds i8, ptr %3, i64 4
   store float %mul14.i.i, ptr %add.ptr.i23.i.i, align 4
   %rem18.i.i = srem i64 %idx.026.i.i, %call.i1.i
   %conv19.i.i = uitofp nneg i64 %rem18.i.i to float
   %mul20.i.i = fmul float %div.i.i, %conv19.i.i
   %4 = load ptr, ptr %m_data.i.i.i, align 8
-  %5 = getelementptr float, ptr %4, i64 %mul9.i.i
-  %add.ptr.i24.i.i = getelementptr i8, ptr %5, i64 8
+  %5 = getelementptr inbounds float, ptr %4, i64 %mul9.i.i
+  %add.ptr.i24.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store float %mul20.i.i, ptr %add.ptr.i24.i.i, align 4
   %inc.i.i = add nuw nsw i64 %idx.026.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul4.i.i
@@ -2003,15 +2003,15 @@ for.body.i.i:                                     ; preds = %call.i.noexc.i, %fo
   %conv13.i.i = sitofp i64 %rem12.i.i to float
   %mul14.i.i = fmul float %div.i.i, %conv13.i.i
   %2 = load ptr, ptr %m_data.i.i.i, align 8
-  %3 = getelementptr float, ptr %2, i64 %mul9.i.i
-  %add.ptr.i23.i.i = getelementptr i8, ptr %3, i64 4
+  %3 = getelementptr inbounds float, ptr %2, i64 %mul9.i.i
+  %add.ptr.i23.i.i = getelementptr inbounds i8, ptr %3, i64 4
   store float %mul14.i.i, ptr %add.ptr.i23.i.i, align 4
   %rem18.i.i = srem i64 %idx.026.i.i, %call.i1.i
   %conv19.i.i = uitofp nneg i64 %rem18.i.i to float
   %mul20.i.i = fmul float %div.i.i, %conv19.i.i
   %4 = load ptr, ptr %m_data.i.i.i, align 8
-  %5 = getelementptr float, ptr %4, i64 %mul9.i.i
-  %add.ptr.i24.i.i = getelementptr i8, ptr %5, i64 8
+  %5 = getelementptr inbounds float, ptr %4, i64 %mul9.i.i
+  %add.ptr.i24.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store float %mul20.i.i, ptr %add.ptr.i24.i.i, align 4
   %inc.i.i = add nuw nsw i64 %idx.026.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul4.i.i
@@ -2090,15 +2090,15 @@ for.body.i.i:                                     ; preds = %call.i.noexc.i, %fo
   %conv13.i.i = sitofp i64 %rem12.i.i to float
   %mul14.i.i = fmul float %div.i.i, %conv13.i.i
   %2 = load ptr, ptr %m_data.i.i.i, align 8
-  %3 = getelementptr float, ptr %2, i64 %mul9.i.i
-  %add.ptr.i23.i.i = getelementptr i8, ptr %3, i64 4
+  %3 = getelementptr inbounds float, ptr %2, i64 %mul9.i.i
+  %add.ptr.i23.i.i = getelementptr inbounds i8, ptr %3, i64 4
   store float %mul14.i.i, ptr %add.ptr.i23.i.i, align 4
   %rem18.i.i = srem i64 %idx.026.i.i, %call.i1.i
   %conv19.i.i = uitofp nneg i64 %rem18.i.i to float
   %mul20.i.i = fmul float %div.i.i, %conv19.i.i
   %4 = load ptr, ptr %m_data.i.i.i, align 8
-  %5 = getelementptr float, ptr %4, i64 %mul9.i.i
-  %add.ptr.i24.i.i = getelementptr i8, ptr %5, i64 8
+  %5 = getelementptr inbounds float, ptr %4, i64 %mul9.i.i
+  %add.ptr.i24.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store float %mul20.i.i, ptr %add.ptr.i24.i.i, align 4
   %inc.i.i = add nuw nsw i64 %idx.026.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul4.i.i
@@ -2185,7 +2185,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData24getConcreteInterpolationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 2, 4) i32 @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData24getConcreteInterpolationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_interpolation = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %m_interpolation, align 8
@@ -2197,7 +2197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev11Lut3DOpData24GetConcreteInterpolationENS_13InterpolationE(i32 noundef %interp) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 2, 4) i32 @_ZN19OpenColorIO_v2_4dev11Lut3DOpData24GetConcreteInterpolationENS_13InterpolationE(i32 noundef %interp) local_unnamed_addr #9 align 2 {
 entry:
   %switch.selectcmp.case1 = icmp eq i32 %interp, 255
   %switch.selectcmp.case2 = icmp eq i32 %interp, 3
@@ -3667,17 +3667,17 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store float 0.000000e+00, ptr %add.ptr, align 4
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 4
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i23 = getelementptr i8, ptr %add.ptr, i64 4
   %6 = shl nuw nsw i64 %__n, 2
   %7 = add nsw i64 %6, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
@@ -3686,14 +3686,14 @@ if.then.i.i.i.i:                                  ; preds = %try.cont
   br label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i29 = icmp eq ptr %1, null
-  br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31, label %if.then.i30
+  %tobool.not.i30 = icmp eq ptr %1, null
+  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32, label %if.then.i31
 
-if.then.i30:                                      ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
+if.then.i31:                                      ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #26
-  br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31
+  br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32
 
-_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i30
+_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i31
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds float, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -3701,7 +3701,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31: ; preds = %_ZNSt6vectorIf
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32, %entry
   ret void
 }
 

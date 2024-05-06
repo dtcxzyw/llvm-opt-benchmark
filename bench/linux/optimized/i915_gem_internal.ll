@@ -127,7 +127,7 @@ define internal noundef i32 @i915_gem_object_get_pages_internal(ptr noundef %0) 
 24:                                               ; preds = %5
   %25 = add i32 %15, 1
   %26 = lshr i64 %3, 12
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = tail call i32 @llvm.smin.i32(i32 %25, i32 10)
   br label %29
 

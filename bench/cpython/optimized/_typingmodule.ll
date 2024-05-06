@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [8 x i8] c"Generic\00", align 1
 @.str.8 = private unnamed_addr constant [14 x i8] c"TypeAliasType\00", align 1
 @_PyTypeAlias_Type = external global %struct._typeobject, align 8
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyInit__typing() local_unnamed_addr #0 {
@@ -55,7 +55,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_typing_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @_typing_exec(ptr noundef %m) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8

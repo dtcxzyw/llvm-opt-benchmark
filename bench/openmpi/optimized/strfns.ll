@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [21 x i8] c"adio/common/strfns.c\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ADIOI_Strncpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ADIOI_Strncpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = trunc i64 %2 to i32
   %5 = load i8, ptr %1, align 1
   %.not15 = icmp eq i8 %5, 0

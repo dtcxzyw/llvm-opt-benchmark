@@ -8302,7 +8302,7 @@ dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %561, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @dissect_japan_chg_inf_type(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc zeroext range(i16 0, 256) i16 @dissect_japan_chg_inf_type(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %4 = zext i8 %3 to i16
   %5 = load i32, ptr @hf_japan_isup_charge_info_type, align 4

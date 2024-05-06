@@ -107,7 +107,7 @@ return:                                           ; preds = %if.end17, %if.then5
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @qdist_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #3 {
+define internal range(i32 -1, 2) i32 @qdist_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #3 {
 entry:
   %0 = load double, ptr %ap, align 8
   %1 = load double, ptr %bp, align 8

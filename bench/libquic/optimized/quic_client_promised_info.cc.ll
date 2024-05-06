@@ -483,7 +483,7 @@ _ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EE5resetEPS1_.exi
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EE5resetEPS1_.exit
-  %call2 = tail call noundef i32 @_ZN3net22QuicClientPromisedInfo15FinalValidationEv(ptr noundef nonnull align 8 dereferenceable(96) %this), !range !5
+  %call2 = tail call noundef i32 @_ZN3net22QuicClientPromisedInfo15FinalValidationEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
   br label %if.end
 
 lpad:                                             ; preds = %entry
@@ -497,7 +497,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt10un
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net22QuicClientPromisedInfo15FinalValidationEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN3net22QuicClientPromisedInfo15FinalValidationEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.logging::LogMessage", align 8
   %client_request_delegate_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -608,7 +608,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net22QuicClientPromisedInfo19HandleClientRequestERKNS_15SpdyHeaderBlockEPNS_26QuicClientPushPromiseIndex8DelegateE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(88) %request_headers, ptr noundef %delegate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN3net22QuicClientPromisedInfo19HandleClientRequestERKNS_15SpdyHeaderBlockEPNS_26QuicClientPushPromiseIndex8DelegateE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(88) %request_headers, ptr noundef %delegate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_, align 8
@@ -657,7 +657,7 @@ lpad:                                             ; preds = %if.end
   resume { ptr, i32 } %6
 
 if.end6:                                          ; preds = %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EE5resetEPS1_.exit
-  %call7 = tail call noundef i32 @_ZN3net22QuicClientPromisedInfo15FinalValidationEv(ptr noundef nonnull align 8 dereferenceable(96) %this), !range !5
+  %call7 = tail call noundef i32 @_ZN3net22QuicClientPromisedInfo15FinalValidationEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EE5resetEPS1_.exit, %if.end6, %if.then
@@ -722,7 +722,7 @@ for.cond:                                         ; preds = %for.body, %if.then
 for.body:                                         ; preds = %for.cond
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.0, i64 8
   %call.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
-  br i1 %call.i.i, label %return, label %for.cond, !llvm.loop !6
+  br i1 %call.i.i, label %return, label %for.cond, !llvm.loop !5
 
 if.end15:                                         ; preds = %entry
   %call.i.i4 = tail call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %__k)
@@ -740,7 +740,7 @@ for.body.i.i:                                     ; preds = %if.end15, %for.body
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %i.08.i.i, i64 1
   %call2.i.i = tail call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %__k)
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %call2.i.i
-  br i1 %cmp.not.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit, label %for.body.i.i, !llvm.loop !7
 
 _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit: ; preds = %for.body.i.i, %if.end15
   %result.0.lcssa.i.i = phi i64 [ 0, %if.end15 ], [ %add.i.i, %for.body.i.i ]
@@ -782,7 +782,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %9 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %9, %8
   %cmp.not.i.i5 = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i.i5, label %for.cond.i.i, label %return, !llvm.loop !9
+  br i1 %cmp.not.i.i5, label %for.cond.i.i, label %return, !llvm.loop !8
 
 if.then.i:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.i.i
   %10 = load ptr, ptr %__prev_p.0.i.i, align 8
@@ -825,8 +825,7 @@ attributes #10 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

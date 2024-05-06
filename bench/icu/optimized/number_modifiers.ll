@@ -804,7 +804,7 @@ declare noundef i32 @_ZN6icu_7522FormattedStringBuilder6spliceEiiRKNS_13UnicodeS
 declare noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, i8, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_756number4impl14SimpleModifier19formatTwoArgPatternERKNS_15SimpleFormatterERNS_22FormattedStringBuilderEiPiS8_NS6_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %compiled, ptr noundef nonnull align 8 dereferenceable(136) %result, i32 noundef %index, ptr nocapture noundef writeonly %outPrefixLength, ptr nocapture noundef writeonly %outSuffixLength, i8 %field.coerce, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -256, 195838) i32 @_ZN6icu_756number4impl14SimpleModifier19formatTwoArgPatternERKNS_15SimpleFormatterERNS_22FormattedStringBuilderEiPiS8_NS6_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %compiled, ptr noundef nonnull align 8 dereferenceable(136) %result, i32 noundef %index, ptr nocapture noundef writeonly %outPrefixLength, ptr nocapture noundef writeonly %outSuffixLength, i8 %field.coerce, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #7 align 2 {
 entry:
   %compiledPattern1 = getelementptr inbounds i8, ptr %compiled, i64 8
   %fUnion.i = getelementptr inbounds i8, ptr %compiled, i64 16
@@ -1334,11 +1334,11 @@ invoke.cont56:                                    ; preds = %invoke.cont51
   %cond.i.i30 = select i1 %tobool.i.i28, ptr %11, ptr %fFields.i.i29
   %fZero.i31 = getelementptr inbounds i8, ptr %suffix, i64 128
   %12 = load i32, ptr %fZero.i31, align 8
-  %idxprom.i32 = sext i32 %12 to i64
-  %arrayidx.i33 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i30, i64 %idxprom.i32
-  %retval.sroa.0.0.copyload.i34 = load i8, ptr %arrayidx.i33, align 1
-  %cmp.i35 = icmp eq i8 %retval.sroa.0.0.copyload.i34, 39
-  br i1 %cmp.i35, label %if.then64, label %if.else94
+  %idxprom.i33 = sext i32 %12 to i64
+  %arrayidx.i34 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i30, i64 %idxprom.i33
+  %retval.sroa.0.0.copyload.i35 = load i8, ptr %arrayidx.i34, align 1
+  %cmp.i36 = icmp eq i8 %retval.sroa.0.0.copyload.i35, 39
+  br i1 %cmp.i36, label %if.then64, label %if.else94
 
 if.then64:                                        ; preds = %invoke.cont56
   %call66 = invoke noundef i32 @_ZNK6icu_7522FormattedStringBuilder17getFirstCodePointEv(ptr noundef nonnull align 8 dereferenceable(136) %suffix)
@@ -1370,19 +1370,19 @@ invoke.cont77:                                    ; preds = %invoke.cont74
           to label %invoke.cont81 unwind label %lpad68
 
 invoke.cont81:                                    ; preds = %invoke.cont77
-  %call.i37 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7520DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %symbols, i32 noundef 2, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %call.i.noexc36 unwind label %lpad68
+  %call.i38 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7520DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %symbols, i32 noundef 2, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+          to label %call.i.noexc37 unwind label %lpad68
 
-call.i.noexc36:                                   ; preds = %invoke.cont81
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(64) %call.i37)
+call.i.noexc37:                                   ; preds = %invoke.cont81
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(64) %call.i38)
           to label %invoke.cont84 unwind label %lpad68
 
-invoke.cont84:                                    ; preds = %call.i.noexc36
+invoke.cont84:                                    ; preds = %call.i.noexc37
   %call86 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fBeforeSuffixInsert, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp83) #18
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp83) #18
   br label %if.end92
 
-lpad68:                                           ; preds = %call.i.noexc36, %invoke.cont81, %invoke.cont89, %if.else87, %invoke.cont77, %if.then72, %invoke.cont67
+lpad68:                                           ; preds = %call.i.noexc37, %invoke.cont81, %invoke.cont89, %if.else87, %invoke.cont77, %if.then72, %invoke.cont67
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup93

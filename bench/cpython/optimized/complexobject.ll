@@ -884,7 +884,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [47 x i8] c"__complex__ returned non-complex (type %.200s)\00", align 1
 @PyExc_DeprecationWarning = external local_unnamed_addr global ptr, align 8
 @.str.2 = private unnamed_addr constant [180 x i8] c"__complex__ returned non-complex (type %.200s).  The ability to return an instance of a strict subclass of complex is deprecated, and may be removed in a future version of Python.\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.4 = private unnamed_addr constant [2 x i8] c"(\00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c")\00", align 1
@@ -1737,7 +1737,7 @@ if.then37:                                        ; preds = %if.else30, %if.then
   br label %if.end44
 
 if.else39:                                        ; preds = %PyObject_TypeCheck.exit34
-  %call40 = call fastcc i32 @to_complex(ptr noundef nonnull %w.addr, ptr noundef nonnull %j34), !range !5
+  %call40 = call fastcc i32 @to_complex(ptr noundef nonnull %w.addr, ptr noundef nonnull %j34)
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %if.then42, label %if.end44
 
@@ -2894,7 +2894,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %cmp.i.i = icmp sgt i64 %shl.i.i, 0
   %cmp1.i.i = icmp sle i64 %shl.i.i, %conv
   %32 = and i1 %cmp.i.i, %cmp1.i.i
-  br i1 %32, label %while.body.i.i, label %c_powi.exit, !llvm.loop !6
+  br i1 %32, label %while.body.i.i, label %c_powi.exit, !llvm.loop !5
 
 if.else.i:                                        ; preds = %if.then24
   %sub.i = sub i64 0, %conv
@@ -2936,7 +2936,7 @@ if.end.i22.i:                                     ; preds = %if.then.i19.i, %whi
   %cmp.i28.i = icmp sgt i64 %shl.i25.i, 0
   %cmp1.i29.i = icmp sle i64 %shl.i25.i, %sub.i
   %51 = and i1 %cmp.i28.i, %cmp1.i29.i
-  br i1 %51, label %while.body.i11.i, label %c_powu.exit30.i, !llvm.loop !6
+  br i1 %51, label %while.body.i11.i, label %c_powu.exit30.i, !llvm.loop !5
 
 c_powu.exit30.i:                                  ; preds = %if.end.i22.i, %if.else.i
   %52 = phi <2 x double> [ <double 0.000000e+00, double 1.000000e+00>, %if.else.i ], [ %43, %if.end.i22.i ]
@@ -3252,7 +3252,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @complex_bool(ptr nocapture noundef readonly %v) #9 {
+define internal range(i32 0, 2) i32 @complex_bool(ptr nocapture noundef readonly %v) #9 {
 entry:
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -3490,7 +3490,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @to_complex(ptr nocapture noundef %pobj, ptr nocapture noundef writeonly %pc) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr nocapture noundef %pobj, ptr nocapture noundef writeonly %pc) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %pobj, align 8
   %1 = getelementptr i8, ptr %0, i64 8
@@ -3759,7 +3759,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %and2 = and i32 %1, 8
   %tobool.not = icmp eq i32 %and2, 0
   %incdec.ptr = getelementptr i8, ptr %s.addr.0, i64 1
-  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !8
+  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
   %cmp.not = icmp eq i8 %0, 40
@@ -3774,7 +3774,7 @@ while.cond6:                                      ; preds = %while.end, %while.c
   %3 = load i32, ptr %arrayidx11, align 4
   %and12 = and i32 %3, 8
   %tobool13.not = icmp eq i32 %and12, 0
-  br i1 %tobool13.not, label %if.end, label %while.cond6, !llvm.loop !9
+  br i1 %tobool13.not, label %if.end, label %while.cond6, !llvm.loop !8
 
 if.end:                                           ; preds = %while.cond6, %while.end
   %s.addr.2 = phi ptr [ %s.addr.0, %while.end ], [ %s.addr.1, %while.cond6 ]
@@ -3902,7 +3902,7 @@ while.cond109:                                    ; preds = %while.cond109, %if.
   %and115 = and i32 %14, 8
   %tobool116.not = icmp eq i32 %and115, 0
   %incdec.ptr118 = getelementptr i8, ptr %s.addr.6, i64 1
-  br i1 %tobool116.not, label %while.end119, label %while.cond109, !llvm.loop !10
+  br i1 %tobool116.not, label %while.end119, label %while.cond109, !llvm.loop !9
 
 while.end119:                                     ; preds = %while.cond109
   br i1 %cmp.not, label %if.then121, label %if.end139
@@ -3920,7 +3920,7 @@ while.cond128:                                    ; preds = %if.then121, %while.
   %16 = load i32, ptr %arrayidx133, align 4
   %and134 = and i32 %16, 8
   %tobool135.not = icmp eq i32 %and134, 0
-  br i1 %tobool135.not, label %if.end139, label %while.cond128, !llvm.loop !11
+  br i1 %tobool135.not, label %if.end139, label %while.cond128, !llvm.loop !10
 
 if.end139:                                        ; preds = %while.cond128, %while.end119
   %s.addr.8 = phi ptr [ %s.addr.6, %while.end119 ], [ %s.addr.7, %while.cond128 ]
@@ -3998,10 +3998,9 @@ attributes #14 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

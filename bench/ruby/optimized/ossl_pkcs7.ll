@@ -957,7 +957,7 @@ define internal noundef i64 @ossl_pkcs7_set_detached(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkcs7_get_detached(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_pkcs7_get_detached(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_pkcs7_type) #7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -975,7 +975,7 @@ define internal i64 @ossl_pkcs7_get_detached(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkcs7_detached_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_pkcs7_detached_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_pkcs7_type) #7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1636,7 +1636,7 @@ define internal i64 @ossl_pkcs7_add_data(i64 noundef %0, i64 noundef %1) #0 {
 declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_pkcs7_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_pkcs7_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

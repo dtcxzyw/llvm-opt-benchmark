@@ -259,7 +259,7 @@ define dso_local zeroext i1 @acpi_duplicate_processor_id(i32 noundef %0) local_u
   br i1 %12, label %.split.loop.exit, label %.preheader, !llvm.loop !6
 
 .split.loop.exit:                                 ; preds = %9
-  %13 = trunc i64 %indvars.iv.next to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.split.loop.exit2
 
 .split.loop.exit2:                                ; preds = %.preheader, %.split.loop.exit
@@ -368,7 +368,7 @@ define dso_local noundef zeroext i1 @acpi_processor_claim_cst_control() #6 align
 declare dso_local i32 @acpi_os_write_port(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_processor_evaluate_cst(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_evaluate_cst(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   %5 = alloca %struct.acpi_processor_cx, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14

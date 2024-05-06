@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [55 x i8] c"Unknown Target type ID 0x%X AmlOpcode 0x%X DestType %s\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_convert_to_integer(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %44 [
@@ -107,7 +107,7 @@ declare dso_local zeroext i8 @acpi_ex_truncate_for32bit_table(ptr noundef) local
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_convert_to_buffer(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 9) i32 @acpi_ex_convert_to_buffer(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %38 [
@@ -179,7 +179,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_convert_to_string(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 9
@@ -605,7 +605,7 @@ define internal fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %0, i16 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_convert_to_target_type(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
   store ptr %1, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 1040
   %6 = load ptr, ptr %5, align 8

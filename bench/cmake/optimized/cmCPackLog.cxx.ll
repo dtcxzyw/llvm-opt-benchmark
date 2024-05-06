@@ -440,7 +440,7 @@ define dso_local void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 2
   %63 = load i8, ptr %62, align 2
   %64 = trunc i8 %63 to i1
-  %65 = trunc i8 %.4 to i1
+  %65 = trunc nuw i8 %.4 to i1
   %66 = load ptr, ptr %10, align 8
   %.not57 = icmp eq ptr %66, null
   br i1 %.not57, label %85, label %67
@@ -514,7 +514,7 @@ define dso_local void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8
   br i1 %98, label %99, label %.invoke78
 
 99:                                               ; preds = %96, %95
-  %100 = trunc i8 %.0 to i1
+  %100 = trunc nuw i8 %.0 to i1
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %99

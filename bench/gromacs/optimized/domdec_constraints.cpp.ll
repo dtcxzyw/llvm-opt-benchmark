@@ -1616,19 +1616,19 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i.us: ; preds = %131
   %147 = load ptr, ptr %34, align 8
   %148 = getelementptr inbounds %struct.gmx_moltype_t, ptr %147, i64 %139, i32 2, i32 0, i64 64
   %149 = load ptr, ptr %148, align 8
-  %150 = mul nsw i32 %144, %103
+  %150 = mul nuw nsw i32 %144, %103
   %151 = load i8, ptr %104, align 8
   %152 = trunc i8 %151 to i1
   %153 = zext nneg i32 %150 to i64
-  %invariant.gep.i.us = getelementptr i32, ptr %149, i64 %153
-  %invariant.gep121.i.us = getelementptr i8, ptr %invariant.gep.i.us, i64 4
+  %invariant.gep.i.us = getelementptr inbounds i32, ptr %149, i64 %153
+  %invariant.gep121.i.us = getelementptr inbounds i8, ptr %invariant.gep.i.us, i64 4
   br label %154
 
 154:                                              ; preds = %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i.us ]
   %.04990.i.us = phi i1 [ false, %.lr.ph.i.us ], [ %.2.i.us, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i.us ]
   %.05089.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %.151.i.us, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i.us ]
-  %gep122.i.us = getelementptr i32, ptr %invariant.gep121.i.us, i64 %indvars.iv.i.us
+  %gep122.i.us = getelementptr inbounds i32, ptr %invariant.gep121.i.us, i64 %indvars.iv.i.us
   %155 = load i32, ptr %gep122.i.us, align 4
   %156 = add nsw i32 %155, %146
   %157 = getelementptr inbounds [3 x i32], ptr %14, i64 0, i64 %indvars.iv.i.us

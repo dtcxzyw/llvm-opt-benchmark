@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_pvar_get_index = weak alias i32 (ptr, i32, ptr), ptr @PMPI_T_pvar_get_index
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_T_pvar_get_index(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define range(i32 0, 74) i32 @PMPI_T_pvar_get_index(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not8 = icmp eq i32 %4, 0
   br i1 %.not8, label %13, label %5

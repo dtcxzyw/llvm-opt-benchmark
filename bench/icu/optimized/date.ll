@@ -585,7 +585,7 @@ if.end130:                                        ; preds = %if.end127
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.end130
-  %call.i69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %millis.0.lcssa, ptr noundef nonnull @.str.56, ptr noundef nonnull %when.i) #9
+  %call.i69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %millis.0.lcssa, ptr noundef nonnull @.str.56, ptr noundef nonnull %when.i) #9
   %117 = load double, ptr %when.i, align 8
   br label %getWhen.exit
 
@@ -594,7 +594,7 @@ if.else.i:                                        ; preds = %if.end130
   br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %call3.i70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %seconds.0.lcssa, ptr noundef nonnull @.str.56, ptr noundef nonnull %when.i) #9
+  %call3.i70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %seconds.0.lcssa, ptr noundef nonnull @.str.56, ptr noundef nonnull %when.i) #9
   %118 = load double, ptr %when.i, align 8
   %mul.i = fmul double %118, 1.000000e+03
   br label %getWhen.exit

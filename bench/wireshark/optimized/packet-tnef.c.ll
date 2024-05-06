@@ -673,7 +673,7 @@ dissect_mapiprops.exit:                           ; preds = %185, %64
 
 209:                                              ; preds = %26
   %210 = lshr i32 %38, 16
-  %trunc = trunc i32 %210 to i16
+  %trunc = trunc nuw i32 %210 to i16
   switch i16 %trunc, label %236 [
     i16 3, label %211
     i16 1, label %231

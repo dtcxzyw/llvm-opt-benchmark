@@ -151,7 +151,7 @@ define dso_local zeroext i1 @trace_event_dyn_busy(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dyn_event_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dyn_event_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 
@@ -568,7 +568,7 @@ define dso_local i32 @dynevent_arg_pair_add(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dynevent_str_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -7, 1) i32 @dynevent_str_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @seq_buf_puts(ptr noundef %0, ptr noundef %1) #9
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5

@@ -45,9 +45,9 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %and.i = and i64 %add.i5, 281474976710655
   store i64 %and.i, ptr %this, align 8
   %shr = lshr i64 %and.i, 22
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw nsw i64 %shr to i32
   %4 = add nuw nsw i32 %conv, 1
-  %add = uitofp i32 %4 to double
+  %add = uitofp nneg i32 %4 to double
   %bias_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load double, ptr %bias_, align 8
   %call4 = tail call double @log2(double noundef %add) #4
@@ -106,7 +106,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare double @llvm.rint.f64(double) #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local noundef i64 @_ZN4absl18profiling_internal17ExponentialBiased9GetStrideEl(ptr noundef nonnull align 8 dereferenceable(17) %this, i64 noundef %mean) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZN4absl18profiling_internal17ExponentialBiased9GetStrideEl(ptr noundef nonnull align 8 dereferenceable(17) %this, i64 noundef %mean) local_unnamed_addr #0 align 2 {
 entry:
   %sub = add nsw i64 %mean, -1
   %initialized_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -145,9 +145,9 @@ if.end.i:                                         ; preds = %_ZN4absl18profiling
   %and.i.i = and i64 %add.i5.i, 281474976710655
   store i64 %and.i.i, ptr %this, align 8
   %shr.i = lshr i64 %and.i.i, 22
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nuw nsw i64 %shr.i to i32
   %4 = add nuw nsw i32 %conv.i, 1
-  %add.i = uitofp i32 %4 to double
+  %add.i = uitofp nneg i32 %4 to double
   %bias_.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load double, ptr %bias_.i, align 8
   %call4.i = tail call double @log2(double noundef %add.i) #4

@@ -7905,7 +7905,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4llvh7AArch6416checkArchVersionENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #6 {
+define hidden noundef range(i32 -176, 80) i32 @_ZN4llvh7AArch6416checkArchVersionENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ugt i64 %Arch.coerce1, 1
   br i1 %cmp, label %land.lhs.true, label %return
@@ -8677,7 +8677,7 @@ _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E7DefaultES2_.exit: ; preds = %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.i133 = icmp ugt i64 %Arch.coerce1, 4
   br i1 %cmp.i133, label %if.end.i154, label %_ZN4llvh9StringRefC2EPKc.exit49
@@ -8749,7 +8749,7 @@ return:                                           ; preds = %land.rhs.i144, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh3ARM16parseArchProfileENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh3ARM16parseArchProfileENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #3 {
 entry:
   %call = tail call { ptr, i64 } @_ZN4llvh3ARM20getCanonicalArchNameENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -8804,7 +8804,7 @@ return:                                           ; preds = %for.inc.i, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh3ARM16parseArchVersionENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 9) i32 @_ZN4llvh3ARM16parseArchVersionENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #3 {
 entry:
   %call = tail call { ptr, i64 } @_ZN4llvh3ARM20getCanonicalArchNameENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -8878,7 +8878,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %for.body.i
   %C.sroa.0.0.copyload.i = load ptr, ptr %__begin1.0.ptr.i, align 16
-  %bcmp.i = tail call i32 @bcmp(ptr %CPU.coerce0, ptr %C.sroa.0.0.copyload.i, i64 %CPU.coerce1)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %CPU.coerce0, ptr %C.sroa.0.0.copyload.i, i64 %CPU.coerce1)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %return.sink.split.i, label %for.inc.i
 
@@ -8923,7 +8923,7 @@ if.then:                                          ; preds = %cond.end
   br i1 %or.cond, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.then
-  %call10 = tail call noundef i32 @_ZN4llvh3ARM16parseArchProfileENS_9StringRefE(ptr %ArchName.sroa.0.0, i64 %ArchName.sroa.3.0), !range !266
+  %call10 = tail call noundef i32 @_ZN4llvh3ARM16parseArchProfileENS_9StringRefE(ptr %ArchName.sroa.0.0, i64 %ArchName.sroa.3.0)
   %cmp11 = icmp eq i32 %call10, 3
   br i1 %cmp11, label %return, label %if.end
 
@@ -9080,7 +9080,7 @@ entry:
   br i1 %cmp.i.i72.not.i, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81.i, label %if.end.i89.i
 
 if.end.i89.i:                                     ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %Arch.coerce0, ptr noundef nonnull dereferenceable(7) @.str.139, i64 7)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %Arch.coerce0, ptr noundef nonnull dereferenceable(7) @.str.139, i64 7)
   %0 = icmp eq i32 %bcmp.i, 0
   br i1 %0, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i97.i
 
@@ -9089,12 +9089,12 @@ _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.e
   br i1 %cmp.i.i49.not.i, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i, label %if.end.i97.i
 
 if.end.i97.i:                                     ; preds = %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81.i, %if.end.i89.i
-  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %Arch.coerce0, ptr noundef nonnull dereferenceable(5) @.str.136, i64 5)
+  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %Arch.coerce0, ptr noundef nonnull dereferenceable(5) @.str.136, i64 5)
   %1 = icmp eq i32 %bcmp12.i, 0
   br i1 %1, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i106.i
 
 if.end.i106.i:                                    ; preds = %if.end.i97.i
-  %bcmp13.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %Arch.coerce0, ptr noundef nonnull dereferenceable(5) @.str.138, i64 5)
+  %bcmp13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %Arch.coerce0, ptr noundef nonnull dereferenceable(5) @.str.138, i64 5)
   %2 = icmp eq i32 %bcmp13.i, 0
   br i1 %2, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i115.i
 
@@ -9103,7 +9103,7 @@ _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.e
   br i1 %cmp.i.i.not.i, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i115.i
 
 if.end.i115.i:                                    ; preds = %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i, %if.end.i106.i
-  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %Arch.coerce0, ptr noundef nonnull dereferenceable(3) @.str.137, i64 3)
+  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %Arch.coerce0, ptr noundef nonnull dereferenceable(3) @.str.137, i64 3)
   %3 = icmp eq i32 %bcmp14.i, 0
   %spec.select.i = zext i1 %3 to i32
   br label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit
@@ -9114,23 +9114,23 @@ _ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit:   ; preds = %if.end.i89.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4llvh7AArch6415parseArchEndianENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4llvh7AArch6415parseArchEndianENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
 entry:
-  %call = tail call noundef i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1), !range !267
+  %call = tail call noundef i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh7AArch6416parseArchProfileENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh7AArch6416parseArchProfileENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #3 {
 entry:
-  %call = tail call noundef i32 @_ZN4llvh3ARM16parseArchProfileENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1), !range !266
+  %call = tail call noundef i32 @_ZN4llvh3ARM16parseArchProfileENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh7AArch6416parseArchVersionENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 9) i32 @_ZN4llvh7AArch6416parseArchVersionENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #3 {
 entry:
-  %call = tail call noundef i32 @_ZN4llvh3ARM16parseArchVersionENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1), !range !268
+  %call = tail call noundef i32 @_ZN4llvh3ARM16parseArchVersionENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1)
   ret i32 %call
 }
 
@@ -9183,7 +9183,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
   %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.05.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !269
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([32 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1, i64 0, i32 0, i32 0)
@@ -9225,7 +9225,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
   %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.05.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !269
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([26 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1, i64 0, i32 0, i32 0)
@@ -9343,7 +9343,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
   %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.05.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !269
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([32 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1, i64 0, i32 0, i32 0)
@@ -9380,7 +9380,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
   %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.05.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !269
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds ([26 x { { ptr, i64 }, { ptr, i64 }, i32, i32 }], ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1, i64 0, i32 0, i32 0)
@@ -9515,7 +9515,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 land.rhs.i.i:                                     ; preds = %for.body.i
   %C.sroa.0.0.copyload.i = load ptr, ptr %__begin1.0.ptr.i, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %GPU.coerce0, ptr %C.sroa.0.0.copyload.i, i64 %GPU.coerce1.fr)
+  %bcmp.i = tail call i32 @bcmp(ptr readonly %GPU.coerce0, ptr %C.sroa.0.0.copyload.i, i64 %GPU.coerce1.fr)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, label %for.inc.i
 
@@ -9866,7 +9866,4 @@ attributes #18 = { nounwind }
 !263 = distinct !{!263, !264, !"_ZSt19__relocate_object_aIN4llvh9StringRefES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
 !264 = distinct !{!264, !"_ZSt19__relocate_object_aIN4llvh9StringRefES1_SaIS1_EEvPT_PT0_RT1_"}
 !265 = distinct !{!265, !264, !"_ZSt19__relocate_object_aIN4llvh9StringRefES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!266 = !{i32 0, i32 4}
-!267 = !{i32 0, i32 3}
-!268 = !{i32 0, i32 9}
-!269 = distinct !{!269, !9}
+!266 = distinct !{!266, !9}

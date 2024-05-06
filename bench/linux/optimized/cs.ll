@@ -891,7 +891,7 @@ define dso_local void @pcmcia_parse_uevents(ptr noundef %0, i32 noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pccard_register_pcmcia(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @pccard_register_pcmcia(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   tail call void @mutex_lock(ptr noundef %3) #6
   %4 = icmp eq ptr %1, null
@@ -928,7 +928,7 @@ define dso_local noundef i32 @pccard_register_pcmcia(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pcmcia_reset_card(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @pcmcia_reset_card(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 448
   tail call void @mutex_lock(ptr noundef %2) #6
   %3 = getelementptr inbounds i8, ptr %0, i64 20
@@ -985,7 +985,7 @@ define dso_local noundef i32 @pcmcia_reset_card(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @socket_reset(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @socket_reset(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
   store i32 0, ptr %2, align 4, !annotation !10
@@ -1164,7 +1164,7 @@ define internal void @pcmcia_socket_dev_complete(ptr noundef %0) #0 align 16 {
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pcmcia_socket_uevent(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -12, 1) i32 @pcmcia_socket_uevent(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -248
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.23, i32 noundef %4) #6
@@ -1576,7 +1576,7 @@ declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #2
 declare dso_local i32 @add_uevent_var(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pcmcia_socket_dev_suspend_noirq(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -16, 1) i32 @pcmcia_socket_dev_suspend_noirq(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -560
   %3 = getelementptr i8, ptr %0, i64 -112
   tail call void @mutex_lock(ptr noundef %3) #6

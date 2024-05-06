@@ -2090,7 +2090,7 @@ process_block_length.exit:                        ; preds = %69, %73, %75
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.38, i32 noundef %101) #8
   %.0..0..0..0.26 = load volatile ptr, ptr %7, align 8
   %.0..0..0..0.23 = load volatile i32, ptr %10, align 4
-  %102 = call fastcc i32 @dissect_shb_data(ptr noundef %.1, ptr noundef %1, ptr noundef %.0..0..0..0.26, i32 noundef %.0..0..0..0.23, ptr noundef nonnull %8), !range !7
+  %102 = call fastcc i32 @dissect_shb_data(ptr noundef %.1, ptr noundef %1, ptr noundef %.0..0..0..0.26, i32 noundef %.0..0..0..0.23, ptr noundef nonnull %8)
   %.not113 = icmp eq i32 %102, 0
   br i1 %.not113, label %103, label %116
 
@@ -2254,7 +2254,7 @@ declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_shb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_shb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_pcapng_section_header_byte_order_magic, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #8
   %.not = icmp eq i32 %3, 0
@@ -3048,7 +3048,7 @@ define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, pt
   %.neg124 = sub i32 0, %85
   %86 = add i32 %84, -4
   %87 = icmp ult i32 %85, %86
-  br i1 %87, label %.lr.ph133, label %._crit_edge134, !llvm.loop !8
+  br i1 %87, label %.lr.ph133, label %._crit_edge134, !llvm.loop !7
 
 ._crit_edge134:                                   ; preds = %83, %53
   %.1113.lcssa = phi i32 [ %57, %53 ], [ %.2, %83 ]
@@ -3122,7 +3122,7 @@ define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, pt
   %.neg = sub i32 0, %129
   %130 = add i32 %128, -16
   %131 = icmp ult i32 %129, %130
-  br i1 %131, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %131, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %127, %97
   %.3.lcssa = phi i32 [ %101, %97 ], [ %.4, %127 ]
@@ -3180,7 +3180,7 @@ define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, pt
 157:                                              ; preds = %156, %155
   %158 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.6) #8
   %159 = icmp sgt i32 %158, 0
-  br i1 %159, label %19, label %.loopexit, !llvm.loop !10
+  br i1 %159, label %19, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %157, %4, %44
   %.7 = phi i32 [ %37, %44 ], [ 0, %4 ], [ %.6, %157 ]
@@ -3653,7 +3653,7 @@ define internal noundef i32 @dissect_pcapng(ptr noundef %0, ptr noundef %1, ptr 
   %26 = add i32 %56, %.03137
   %27 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %26) #8
   %28 = icmp sgt i32 %27, 8
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %8, %25
   %.03137 = phi i32 [ %26, %25 ], [ 0, %8 ]
@@ -3766,7 +3766,7 @@ define hidden void @proto_reg_handoff_pcapng() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pcapng_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_pcapng_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @dissect_pcapng(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -3903,8 +3903,7 @@ attributes #10 = { nounwind returns_twice }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

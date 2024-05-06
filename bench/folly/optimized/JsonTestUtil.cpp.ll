@@ -868,7 +868,7 @@ sw.bb4.i.i106:                                    ; preds = %_ZNK5folly7dynamic5
 sw.bb7.i.i103:                                    ; preds = %_ZNK5folly7dynamic5asIntEv.exit
   %u_.i.i.i19.i.i104 = getelementptr inbounds i8, ptr %cond-lvalue10, i64 8
   %10 = load i8, ptr %u_.i.i.i19.i.i104, align 8, !tbaa !53, !range !55, !noundef !56
-  %conv.i.i.i.i.i105 = uitofp i8 %10 to double
+  %conv.i.i.i.i.i105 = uitofp nneg i8 %10 to double
   br label %_ZNK5folly7dynamic8asDoubleEv.exit
 
 sw.bb10.i.i99:                                    ; preds = %_ZNK5folly7dynamic5asIntEv.exit
@@ -1756,7 +1756,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !36
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 

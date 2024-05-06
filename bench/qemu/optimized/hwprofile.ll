@@ -533,7 +533,7 @@ if.then10:                                        ; preds = %if.end
 if.then14:                                        ; preds = %if.then10
   %call.i22 = tail call ptr @g_string_new(ptr noundef nonnull @.str.16) #6
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call.i22, ptr noundef nonnull @.str.17, i64 noundef %call3) #6
-  tail call fastcc void @fmt_dev_record(ptr noundef %call.i22, ptr noundef nonnull %counts.0)
+  tail call fastcc void @fmt_dev_record(ptr noundef %call.i22, ptr noundef nonnull readonly %counts.0)
   %6 = load ptr, ptr %call.i22, align 8
   tail call void @qemu_plugin_outs(ptr noundef %6) #6
   %call.i.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call.i22, i32 noundef 1) #6
@@ -742,7 +742,7 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #1
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @sort_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @sort_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
   %reads = getelementptr inbounds i8, ptr %a, i64 32
   %0 = load i64, ptr %reads, align 8
@@ -760,7 +760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @sort_loc(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 0, 2) i32 @sort_loc(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8

@@ -200,8 +200,8 @@ define void @dsytrd_sy2sb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 115:                                              ; preds = %68
   store i32 %45, ptr %19, align 4, !tbaa !3
   store i32 %45, ptr %21, align 4, !tbaa !3
-  %116 = mul nsw i32 %45, %45
-  %117 = mul nsw i32 %45, %42
+  %116 = mul nuw nsw i32 %45, %45
+  %117 = mul nuw nsw i32 %45, %42
   %118 = shl nuw i32 %116, 1
   %119 = add i32 %117, %118
   %120 = sub i32 %36, %119

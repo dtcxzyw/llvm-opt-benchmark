@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN5folly13MicroLockCore12lockSlowPathEjPSt6atomicIjEjjj(i32 noundef %oldWord, ptr noundef %wordPtr, i32 noundef %baseShift, i32 noundef %maxSpins, i32 noundef %maxYields) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 64) i8 @_ZN5folly13MicroLockCore12lockSlowPathEjPSt6atomicIjEjjj(i32 noundef %oldWord, ptr noundef %wordPtr, i32 noundef %baseShift, i32 noundef %maxSpins, i32 noundef %maxYields) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %shl = shl nuw i32 1, %baseShift
   %shl1 = shl i32 2, %baseShift

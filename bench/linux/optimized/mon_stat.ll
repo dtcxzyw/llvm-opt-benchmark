@@ -21,7 +21,7 @@ define internal i64 @mon_stat_read(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mon_stat_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @mon_stat_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(84) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 84) #4
   %5 = icmp eq ptr %4, null

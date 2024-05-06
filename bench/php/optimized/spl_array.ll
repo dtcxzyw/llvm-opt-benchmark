@@ -332,7 +332,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_edge.i.i, %37, %46, %54, %55, %64
   %.0.i.i = phi ptr [ %35, %37 ], [ %35, %tailrecurse._crit_edge.i.i ], [ %.tr31.i.i, %46 ], [ %52, %55 ], [ %52, %64 ], [ %52, %54 ]
   %67 = load ptr, ptr %.0.i.i, align 8
-  %68 = call fastcc i32 @get_hash_key(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %2), !range !4
+  %68 = call fastcc i32 @get_hash_key(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %2)
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %70, label %75
 
@@ -725,7 +725,7 @@ spl_array_set_refcount.exit:                      ; preds = %spl_array_get_hash_
   br label %spl_array_set_refcount.exit64
 
 81:                                               ; preds = %30
-  %82 = call fastcc i32 @get_hash_key(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %2), !range !4
+  %82 = call fastcc i32 @get_hash_key(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %2)
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %84, label %89
 
@@ -1062,7 +1062,7 @@ define internal fastcc void @spl_array_unset_dimension_ex(i32 noundef %0, ptr no
   br label %spl_array_set_refcount.exit58
 
 17:                                               ; preds = %13
-  %18 = call fastcc i32 @get_hash_key(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2), !range !4
+  %18 = call fastcc i32 @get_hash_key(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %25
 
@@ -1239,7 +1239,7 @@ spl_array_is_object.exit:                         ; preds = %._crit_edge.i
   br i1 %103, label %spl_array_is_object.exit.thread, label %108
 
 spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl_array_is_object.exit
-  %104 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %61), !range !4
+  %104 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %61)
   br label %108
 
 105:                                              ; preds = %70
@@ -2159,7 +2159,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %98 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.31, i64 noundef 9) #11
   %.not137 = icmp ne ptr %98, null
   tail call void @llvm.assume(i1 %.not137)
-  %99 = load ptr, ptr %98, align 8, !nonnull !5, !noundef !5
+  %99 = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %99, i64 16
@@ -2170,7 +2170,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %104 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.32, i64 noundef 9) #11
   %.not138 = icmp ne ptr %104, null
   tail call void @llvm.assume(i1 %.not138)
-  %105 = load ptr, ptr %104, align 8, !nonnull !5, !noundef !5
+  %105 = load ptr, ptr %104, align 8, !nonnull !4, !noundef !4
   %106 = getelementptr inbounds i8, ptr %14, i64 48
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %105, i64 16
@@ -2181,7 +2181,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %110 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.33, i64 noundef 12) #11
   %.not139 = icmp ne ptr %110, null
   tail call void @llvm.assume(i1 %.not139)
-  %111 = load ptr, ptr %110, align 8, !nonnull !5, !noundef !5
+  %111 = load ptr, ptr %110, align 8, !nonnull !4, !noundef !4
   %112 = getelementptr inbounds i8, ptr %14, i64 56
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %111, i64 16
@@ -2192,7 +2192,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %116 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.34, i64 noundef 11) #11
   %.not140 = icmp ne ptr %116, null
   tail call void @llvm.assume(i1 %.not140)
-  %117 = load ptr, ptr %116, align 8, !nonnull !5, !noundef !5
+  %117 = load ptr, ptr %116, align 8, !nonnull !4, !noundef !4
   %118 = getelementptr inbounds i8, ptr %14, i64 64
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %117, i64 16
@@ -2206,7 +2206,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %125 = tail call ptr @zend_hash_find(ptr noundef nonnull %97, ptr noundef %124) #11
   %.not141 = icmp ne ptr %125, null
   tail call void @llvm.assume(i1 %.not141)
-  %126 = load ptr, ptr %125, align 8, !nonnull !5, !noundef !5
+  %126 = load ptr, ptr %125, align 8, !nonnull !4, !noundef !4
   %127 = getelementptr inbounds i8, ptr %14, i64 72
   store ptr %126, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %126, i64 16
@@ -3839,7 +3839,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %46 = zext i32 %.sink to i64
   %47 = getelementptr inbounds %struct._HashTableIterator, ptr %45, i64 %46, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %37, ptr noundef nonnull %47) #11
-  %48 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %0, ptr noundef %37), !range !4
+  %48 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %0, ptr noundef %37)
   ret void
 }
 
@@ -4033,7 +4033,7 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i.i.i
 spl_array_next.exit:                              ; preds = %tailrecurse._crit_edge.i.i.i, %63, %72, %80, %81, %90
   %.0.i.i.i = phi ptr [ %61, %63 ], [ %61, %tailrecurse._crit_edge.i.i.i ], [ %.tr31.i.i.i, %72 ], [ %78, %81 ], [ %78, %90 ], [ %78, %80 ]
   %93 = load ptr, ptr %.0.i.i.i, align 8
-  %94 = call fastcc i32 @spl_array_next_ex(ptr noundef nonnull %6, ptr noundef %93), !range !4
+  %94 = call fastcc i32 @spl_array_next_ex(ptr noundef nonnull %6, ptr noundef %93)
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %54, label %.critedge
 
@@ -4051,7 +4051,7 @@ spl_array_next.exit:                              ; preds = %tailrecurse._crit_e
   %103 = zext i32 %101 to i64
   %104 = getelementptr inbounds %struct._HashTableIterator, ptr %102, i64 %103, i32 1
   call void @zend_hash_internal_pointer_reset_ex(ptr noundef %42, ptr noundef nonnull %104) #11
-  %105 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef %42), !range !4
+  %105 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef %42)
   %.pre = load i32, ptr %96, align 8
   br label %106
 
@@ -4182,7 +4182,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds %struct._HashTableIterator, ptr %53, i64 %54, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %55) #11
-  %56 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41), !range !4
+  %56 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41)
   %.pre = load i32, ptr %47, align 8
   br label %57
 
@@ -4363,7 +4363,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds %struct._HashTableIterator, ptr %47, i64 %48, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %40, ptr noundef nonnull %49) #11
-  %50 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %4, ptr noundef %40), !range !4
+  %50 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %4, ptr noundef %40)
   %.pre = load i32, ptr %41, align 8
   br label %51
 
@@ -4497,7 +4497,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 .critedge:                                        ; preds = %spl_array_get_hash_table.exit
   %46 = load ptr, ptr %.0.i.i, align 8
-  %47 = tail call fastcc i32 @spl_array_next_ex(ptr noundef nonnull %5, ptr noundef %46), !range !4
+  %47 = tail call fastcc i32 @spl_array_next_ex(ptr noundef nonnull %5, ptr noundef %46)
   br label %48
 
 48:                                               ; preds = %.critedge, %43
@@ -4505,7 +4505,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @spl_array_next_ex(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_array_next_ex(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
@@ -4519,7 +4519,7 @@ define internal fastcc i32 @spl_array_next_ex(ptr nocapture noundef %0, ptr noun
   %10 = zext i32 %8 to i64
   %11 = getelementptr inbounds %struct._HashTableIterator, ptr %9, i64 %10, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %1, ptr noundef nonnull %11) #11
-  %12 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %0, ptr noundef %1), !range !4
+  %12 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %0, ptr noundef %1)
   %.pre = load i32, ptr %3, align 8
   br label %13
 
@@ -4559,7 +4559,7 @@ spl_array_is_object.exit:                         ; preds = %._crit_edge.i
   br i1 %30, label %spl_array_is_object.exit.thread, label %32
 
 spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl_array_is_object.exit
-  %31 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef %0, ptr noundef %1), !range !4
+  %31 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef %0, ptr noundef %1)
   br label %36
 
 32:                                               ; preds = %spl_array_is_object.exit
@@ -4682,7 +4682,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds %struct._HashTableIterator, ptr %53, i64 %54, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %55) #11
-  %56 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41), !range !4
+  %56 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41)
   %.pre = load i32, ptr %47, align 8
   br label %57
 
@@ -4811,7 +4811,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds %struct._HashTableIterator, ptr %53, i64 %54, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %55) #11
-  %56 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41), !range !4
+  %56 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41)
   %.pre = load i32, ptr %47, align 8
   br label %57
 
@@ -4990,7 +4990,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %55 = zext i32 %53 to i64
   %56 = getelementptr inbounds %struct._HashTableIterator, ptr %54, i64 %55, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %42, ptr noundef nonnull %56) #11
-  %57 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef %42), !range !4
+  %57 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef %42)
   %.pre = load i32, ptr %48, align 8
   br label %58
 
@@ -5542,14 +5542,14 @@ define internal void @spl_array_unset_dimension(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @spl_array_has_dimension(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @spl_array_has_dimension(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = tail call fastcc zeroext i1 @spl_array_has_dimension_ex(i1 noundef zeroext true, ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %5 = zext i1 %4 to i32
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spl_array_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @spl_array_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load ptr, ptr %4, align 8
@@ -6170,7 +6170,7 @@ define internal noundef ptr @spl_array_get_iterator(ptr nocapture readnone %0, p
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_hash_key(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %4, align 8
   br label %5
@@ -6471,7 +6471,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   br label %spl_hash_key_release.exit
 
 55:                                               ; preds = %49, %51
-  %56 = call fastcc i32 @get_hash_key(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %2), !range !4
+  %56 = call fastcc i32 @get_hash_key(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %2)
   %57 = icmp eq i32 %56, -1
   br i1 %57, label %58, label %60
 
@@ -6644,7 +6644,7 @@ declare ptr @zend_hash_update_ind(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @zend_hash_move_forward_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_array_skip_protected(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_array_skip_protected(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -6690,7 +6690,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   %24 = zext i32 %22 to i64
   %25 = getelementptr inbounds %struct._HashTableIterator, ptr %23, i64 %24, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %1, ptr noundef nonnull %25) #11
-  %26 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %0, ptr noundef %1), !range !4
+  %26 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %0, ptr noundef %1)
   %.pre = load i32, ptr %17, align 8
   br label %27
 
@@ -6802,7 +6802,7 @@ define internal fastcc void @spl_array_create_ht_iter(ptr noundef %0, ptr nocapt
   %7 = zext i32 %4 to i64
   %8 = getelementptr inbounds %struct._HashTableIterator, ptr %6, i64 %7, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %0, ptr noundef nonnull %8) #11
-  %9 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef %1, ptr noundef %0), !range !4
+  %9 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef %1, ptr noundef %0)
   ret void
 }
 
@@ -6852,7 +6852,7 @@ define internal void @spl_array_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @spl_array_it_valid(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @spl_array_it_valid(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -88
@@ -6947,7 +6947,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds %struct._HashTableIterator, ptr %47, i64 %48, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %40, ptr noundef nonnull %49) #11
-  %50 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %4, ptr noundef %40), !range !4
+  %50 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %4, ptr noundef %40)
   %.pre = load i32, ptr %41, align 8
   br label %51
 
@@ -7059,7 +7059,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %49 = zext i32 %47 to i64
   %50 = getelementptr inbounds %struct._HashTableIterator, ptr %48, i64 %49, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %50) #11
-  %51 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41), !range !4
+  %51 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41)
   %.pre = load i32, ptr %42, align 8
   br label %52
 
@@ -7277,7 +7277,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %49 = zext i32 %47 to i64
   %50 = getelementptr inbounds %struct._HashTableIterator, ptr %48, i64 %49, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %50) #11
-  %51 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41), !range !4
+  %51 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %41)
   %.pre = load i32, ptr %42, align 8
   br label %52
 
@@ -7373,7 +7373,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_edge.i.i, %10, %19, %27, %28, %37
   %.0.i.i = phi ptr [ %8, %10 ], [ %8, %tailrecurse._crit_edge.i.i ], [ %.tr31.i.i, %19 ], [ %25, %28 ], [ %25, %37 ], [ %25, %27 ]
   %40 = load ptr, ptr %.0.i.i, align 8
-  %41 = tail call fastcc i32 @spl_array_next_ex(ptr noundef nonnull %4, ptr noundef %40), !range !4
+  %41 = tail call fastcc i32 @spl_array_next_ex(ptr noundef nonnull %4, ptr noundef %40)
   ret void
 }
 
@@ -7431,5 +7431,4 @@ attributes #13 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{}
+!4 = !{}

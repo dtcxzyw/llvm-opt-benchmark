@@ -82,7 +82,7 @@ define void @PHP_MURMUR3AFinal(ptr nocapture noundef writeonly %0, ptr nocapture
   %8 = tail call i32 @PMurHash32_Result(i32 noundef %3, i32 noundef %5, i32 noundef %7) #5
   store i32 %8, ptr %1, align 4
   %9 = lshr i32 %8, 24
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   store i8 %10, ptr %0, align 1
   %11 = load i32, ptr %1, align 4
   %12 = lshr i32 %11, 16
@@ -197,7 +197,7 @@ define void @PHP_MURMUR3CFinal(ptr nocapture noundef writeonly %0, ptr noundef %
   call void @PMurHash128x86_Result(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %3) #5
   %7 = load i32, ptr %3, align 16
   %8 = lshr i32 %7, 24
-  %9 = trunc i32 %8 to i8
+  %9 = trunc nuw i32 %8 to i8
   store i8 %9, ptr %0, align 1
   %10 = lshr i32 %7, 16
   %11 = trunc i32 %10 to i8
@@ -213,7 +213,7 @@ define void @PHP_MURMUR3CFinal(ptr nocapture noundef writeonly %0, ptr noundef %
   %18 = getelementptr inbounds i8, ptr %3, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = lshr i32 %19, 24
-  %21 = trunc i32 %20 to i8
+  %21 = trunc nuw i32 %20 to i8
   %22 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %21, ptr %22, align 1
   %23 = lshr i32 %19, 16
@@ -230,7 +230,7 @@ define void @PHP_MURMUR3CFinal(ptr nocapture noundef writeonly %0, ptr noundef %
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = lshr i32 %32, 24
-  %34 = trunc i32 %33 to i8
+  %34 = trunc nuw i32 %33 to i8
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %34, ptr %35, align 1
   %36 = lshr i32 %32, 16
@@ -247,7 +247,7 @@ define void @PHP_MURMUR3CFinal(ptr nocapture noundef writeonly %0, ptr noundef %
   %44 = getelementptr inbounds i8, ptr %3, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = lshr i32 %45, 24
-  %47 = trunc i32 %46 to i8
+  %47 = trunc nuw i32 %46 to i8
   %48 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 %47, ptr %48, align 1
   %49 = lshr i32 %45, 16
@@ -359,7 +359,7 @@ define void @PHP_MURMUR3FFinal(ptr nocapture noundef writeonly %0, ptr noundef %
   call void @PMurHash128x64_Result(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %3) #5
   %7 = load i64, ptr %3, align 16
   %8 = lshr i64 %7, 56
-  %9 = trunc i64 %8 to i8
+  %9 = trunc nuw i64 %8 to i8
   store i8 %9, ptr %0, align 1
   %10 = lshr i64 %7, 48
   %11 = trunc i64 %10 to i8
@@ -391,7 +391,7 @@ define void @PHP_MURMUR3FFinal(ptr nocapture noundef writeonly %0, ptr noundef %
   %30 = getelementptr inbounds i8, ptr %3, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = lshr i64 %31, 56
-  %33 = trunc i64 %32 to i8
+  %33 = trunc nuw i64 %32 to i8
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %33, ptr %34, align 1
   %35 = lshr i64 %31, 48

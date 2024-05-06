@@ -73,7 +73,7 @@ define noundef i32 @PMPI_Get_count(ptr nocapture noundef readonly %0, ptr nounde
   br label %32
 
 30:                                               ; preds = %22
-  %31 = trunc i64 %25 to i32
+  %31 = trunc nuw nsw i64 %25 to i32
   store i32 %31, ptr %2, align 4
   br label %32
 

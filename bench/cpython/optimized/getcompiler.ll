@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [19 x i8] c"[Clang 18.0.0git ]\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @Py_GetCompiler() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @Py_GetCompiler() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }

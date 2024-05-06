@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS5_PBKDF2_HMAC(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, ptr noundef %digest, i64 noundef %key_len, ptr nocapture noundef %out_key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS5_PBKDF2_HMAC(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, ptr noundef %digest, i64 noundef %key_len, ptr nocapture noundef %out_key) local_unnamed_addr #0 {
 entry:
   %digest_tmp = alloca [64 x i8], align 16
   %itmp = alloca [4 x i8], align 1
@@ -41,7 +41,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   %p.027.us = phi ptr [ %add.ptr.us, %for.cond.for.end57_crit_edge.us ], [ %out_key, %while.body.us.preheader ]
   %call.tkeylen.0.us = call i64 @llvm.umin.i64(i64 %tkeylen.029.us, i64 %call.fr)
   %shr.us = lshr i32 %i.030.us, 24
-  %conv.us = trunc i32 %shr.us to i8
+  %conv.us = trunc nuw i32 %shr.us to i8
   store i8 %conv.us, ptr %itmp, align 1
   %shr5.us = lshr i32 %i.030.us, 16
   %conv7.us = trunc i32 %shr5.us to i8
@@ -155,7 +155,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %p.027 = phi ptr [ %add.ptr, %if.end29 ], [ %out_key, %while.body.lr.ph ]
   %call.tkeylen.0 = call i64 @llvm.umin.i64(i64 %tkeylen.029, i64 %call.fr)
   %shr = lshr i32 %i.030, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   store i8 %conv, ptr %itmp, align 1
   %shr5 = lshr i32 %i.030, 16
   %conv7 = trunc i32 %shr5 to i8
@@ -240,10 +240,10 @@ declare i32 @HMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS5_PBKDF2_HMAC_SHA1(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, i64 noundef %key_len, ptr nocapture noundef %out_key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS5_PBKDF2_HMAC_SHA1(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, i64 noundef %key_len, ptr nocapture noundef %out_key) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_sha1() #4
-  %call1 = tail call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, ptr noundef %call, i64 noundef %key_len, ptr noundef %out_key), !range !11
+  %call1 = tail call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, ptr noundef %call, i64 noundef %key_len, ptr noundef %out_key)
   ret i32 %call1
 }
 
@@ -274,4 +274,3 @@ attributes #4 = { nounwind }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = !{i32 0, i32 2}

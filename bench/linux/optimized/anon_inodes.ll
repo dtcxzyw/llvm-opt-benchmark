@@ -325,7 +325,7 @@ declare dso_local ptr @kern_mount(ptr noundef) local_unnamed_addr #3
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @anon_inodefs_init_fs_context(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @anon_inodefs_init_fs_context(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 151263540) #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4

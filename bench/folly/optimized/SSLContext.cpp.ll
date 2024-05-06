@@ -535,7 +535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK5folly10SSLContext19getVerificationModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZNK5folly10SSLContext19getVerificationModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1.i = alloca %"class.google::LogMessageFatal", align 8
   %verifyPeer_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3328,7 +3328,7 @@ _ZN5folly12_GLOBAL__N_114getExDataIndexEv.exit:   ; preds = %invoke.cont.i, %ini
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly10SSLContext29baseServerNameOpenSSLCallbackEP6ssl_stPiPv(ptr noundef %ssl, ptr nocapture noundef writeonly %al, ptr noundef %data) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext29baseServerNameOpenSSLCallbackEP6ssl_stPiPv(ptr noundef %ssl, ptr nocapture noundef writeonly %al, ptr noundef %data) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i26 = alloca ptr, align 8
   %__args.addr.i = alloca ptr, align 8
@@ -4188,7 +4188,7 @@ if.then.i4.i:                                     ; preds = %while.end.i.i
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %22 = lshr i16 %21, 8
-  %conv8.i.i = trunc i16 %22 to i8
+  %conv8.i.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i.i, ptr %out, align 1, !tbaa !80
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit
 
@@ -5520,7 +5520,7 @@ declare i32 @SSL_CTX_set_cipher_list(ptr noundef, ptr noundef) local_unnamed_add
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_23VerifyClientCertificateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyClient) local_unnamed_addr #18 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_23VerifyClientCertificateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyClient) local_unnamed_addr #18 align 2 {
 entry:
   %0 = load i32, ptr %verifyClient, align 4, !tbaa !75
   %switch.selectcmp = icmp eq i32 %0, 1
@@ -5531,7 +5531,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_23VerifyServerCertificateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyServer) local_unnamed_addr #18 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_23VerifyServerCertificateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyServer) local_unnamed_addr #18 align 2 {
 entry:
   %0 = load i32, ptr %verifyServer, align 4, !tbaa !77
   %switch.selectcmp2 = icmp eq i32 %0, 0
@@ -5540,7 +5540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_17SSLVerifyPeerEnumE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyPeer) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_17SSLVerifyPeerEnumE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyPeer) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load i32, ptr %verifyPeer, align 4, !tbaa !72
@@ -6278,7 +6278,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #16
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly10SSLContext18alpnSelectCallbackEP6ssl_stPPKhPhS4_jPv(ptr nocapture readnone %0, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef %data) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext18alpnSelectCallbackEP6ssl_stPPKhPhS4_jPv(ptr nocapture readnone %0, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef %data) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %tobool.not = icmp eq ptr %data, null
@@ -6341,7 +6341,7 @@ cleanup26:                                        ; preds = %cleanup, %if.else, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5folly10SSLContext17pickNextProtocolsEv(ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN5folly10SSLContext17pickNextProtocolsEv(ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   %rng = alloca %"class.folly::ThreadLocalPRNG", align 1
@@ -6751,7 +6751,7 @@ delete.end.i:                                     ; preds = %delete.notnull.i, %
 
 cleanup.thread:                                   ; preds = %for.body18
   %inc = add i32 %advertised_item.sroa.5.0228, 1
-  %conv = trunc i64 %8 to i32
+  %conv = trunc nuw nsw i64 %8 to i32
   %add = add i32 %inc, %conv
   %13 = load ptr, ptr %__begin2.sroa.0.0229, align 8, !tbaa !204
   %cmp.i135.not = icmp eq ptr %13, %protocols

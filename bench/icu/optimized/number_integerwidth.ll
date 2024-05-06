@@ -30,7 +30,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %minInt to i16
+  %conv = trunc nuw nsw i32 %minInt to i16
   call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %conv, i16 noundef signext -1, i1 noundef zeroext false)
   %retval.coerce.sroa.2.0.retval.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %retval.coerce.sroa.2.0.copyload.pre = load i8, ptr %retval.coerce.sroa.2.0.retval.sroa_idx.phi.trans.insert, align 8
@@ -73,7 +73,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond7, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %conv6 = trunc i32 %maxInt to i16
+  %conv6 = trunc nuw nsw i32 %maxInt to i16
   call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %1, i16 noundef signext %conv6, i1 noundef zeroext false)
   br label %return
 

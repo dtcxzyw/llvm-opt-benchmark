@@ -2149,11 +2149,11 @@ define dso_local void @zend_fetch_dimension_const(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %12, ptr noundef nonnull %.0290, ptr noundef nonnull %6, ptr noundef null), !range !6
+  %90 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %12, ptr noundef nonnull %.0290, ptr noundef nonnull %6, ptr noundef null)
   br label %93
 
 91:                                               ; preds = %87
-  %92 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %12, ptr noundef nonnull %.0290, ptr noundef nonnull %6, ptr noundef null), !range !6
+  %92 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %12, ptr noundef nonnull %.0290, ptr noundef nonnull %6, ptr noundef null)
   br label %93
 
 93:                                               ; preds = %91, %89
@@ -6243,7 +6243,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #3
 declare ptr @zend_hash_add_empty_element(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @zend_handle_undef_args(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @zend_handle_undef_args(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6929,7 +6929,7 @@ zend_interrupt_helper_SPEC.exit18.backedge:       ; preds = %57, %54, %54, %54, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_interrupt_helper_SPEC(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @zend_interrupt_helper_SPEC(ptr noundef %0) unnamed_addr #1 {
   fence seq_cst
   store volatile i8 0, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 27), align 2
   fence seq_cst
@@ -7285,7 +7285,7 @@ define internal noundef i32 @ZEND_ADD_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   callbr void asm sideeffect "movq\09($1), %rax\0A\09addq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr %6, ptr nonnull %10, i32 4, i64 8) #27
-          to label %28 [label %21], !srcloc !7
+          to label %28 [label %21], !srcloc !6
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %6, align 8
@@ -7405,7 +7405,7 @@ define internal noundef i32 @ZEND_ADD_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   callbr void asm sideeffect "movq\09($1), %rax\0A\09addq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr nonnull %6, ptr %10, i32 4, i64 8) #27
-          to label %28 [label %21], !srcloc !7
+          to label %28 [label %21], !srcloc !6
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %6, align 8
@@ -7509,7 +7509,7 @@ define internal noundef i32 @ZEND_ADD_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   callbr void asm sideeffect "movq\09($1), %rax\0A\09addq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr nonnull %6, ptr nonnull %10, i32 4, i64 8) #27
-          to label %28 [label %21], !srcloc !7
+          to label %28 [label %21], !srcloc !6
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %6, align 8
@@ -7628,7 +7628,7 @@ define internal noundef i32 @ZEND_SUB_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr %6, ptr nonnull %10, i32 4, i64 8) #27
-          to label %28 [label %21], !srcloc !8
+          to label %28 [label %21], !srcloc !7
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %6, align 8
@@ -7732,7 +7732,7 @@ define internal noundef i32 @ZEND_SUB_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr nonnull %6, ptr %10, i32 4, i64 8) #27
-          to label %28 [label %21], !srcloc !8
+          to label %28 [label %21], !srcloc !7
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %6, align 8
@@ -7836,7 +7836,7 @@ define internal noundef i32 @ZEND_SUB_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr nonnull %6, ptr nonnull %10, i32 4, i64 8) #27
-          to label %28 [label %21], !srcloc !8
+          to label %28 [label %21], !srcloc !7
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %6, align 8
@@ -12610,7 +12610,7 @@ zval_undefined_cv.exit27:                         ; preds = %33, %30, %zval_unde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -12815,7 +12815,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %83, %80, %80, %80, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -13045,7 +13045,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %94, %91, %91, %91, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_TMP_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_TMP_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -13299,7 +13299,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %107, %104, %104, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -13542,7 +13542,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %100, %97, %97, %97,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_VAR_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_VAR_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -13809,7 +13809,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %113, %110, %110, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_VAR_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_VAR_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -14088,7 +14088,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %120, %117, %117, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -14325,7 +14325,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %101, %98, %98, %98,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_CV_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_CV_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -14587,7 +14587,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %112, %109, %109, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_CV_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_CV_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -14862,7 +14862,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %118, %115, %115, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -15131,7 +15131,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %119, %116, %116, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -15337,7 +15337,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %84, %81, %81, %81, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -15568,7 +15568,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %95, %92, %92, %92, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_TMP_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_TMP_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -15823,7 +15823,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %108, %105, %105, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -16067,7 +16067,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %101, %98, %98, %98,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_VAR_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_VAR_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -16335,7 +16335,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %114, %111, %111, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_VAR_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_VAR_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -16615,7 +16615,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %121, %118, %118, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -16853,7 +16853,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %102, %99, %99, %99,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CV_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CV_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -17116,7 +17116,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %113, %110, %110, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CV_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CV_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -17392,7 +17392,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %119, %116, %116, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -17662,7 +17662,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %120, %117, %117, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -17672,12 +17672,12 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CONST_CONST_HANDLER(ptr noundef 
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  %11 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0), !range !9
+  %11 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -17834,7 +17834,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_HANDLER(ptr noundef
   br i1 %.0, label %20, label %28
 
 89:                                               ; preds = %1, %40, %13, %52
-  %90 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %90 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %91
 
 91:                                               ; preds = %89, %28, %20
@@ -17843,7 +17843,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_HANDLER(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -18043,7 +18043,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_JMPZ_HANDLER(ptr no
   br i1 %.0, label %20, label %22
 
 105:                                              ; preds = %1, %56, %13, %68
-  %106 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %106 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, %42, %38, %36, %34, %32, %22, %105, %20
@@ -18052,7 +18052,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -18252,7 +18252,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_CONST_JMPNZ_HANDLER(ptr n
   br i1 %.0, label %20, label %50
 
 105:                                              ; preds = %1, %56, %13, %68
-  %106 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %106 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, %40, %36, %34, %32, %30, %20, %105, %50
@@ -18261,7 +18261,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -18439,7 +18439,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_HANDLER(ptr nounde
   br i1 %.0, label %20, label %28
 
 99:                                               ; preds = %1, %40, %13, %52
-  %100 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %100 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %101
 
 101:                                              ; preds = %99, %28, %20
@@ -18448,7 +18448,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_HANDLER(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -18669,7 +18669,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_JMPZ_HANDLER(ptr n
   br i1 %.0, label %20, label %22
 
 115:                                              ; preds = %1, %56, %13, %68
-  %116 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %116 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, %42, %38, %36, %34, %32, %22, %115, %20
@@ -18678,7 +18678,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -18899,7 +18899,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_TMPVAR_TMPVAR_JMPNZ_HANDLER(ptr 
   br i1 %.0, label %20, label %50
 
 115:                                              ; preds = %1, %56, %13, %68
-  %116 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %116 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, %40, %36, %34, %32, %30, %20, %115, %50
@@ -18908,7 +18908,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -19040,7 +19040,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_HANDLER(ptr noundef %0)
   br i1 %75, label %.critedge, label %.critedge68
 
 76:                                               ; preds = %1, %38, %13, %50
-  %77 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %77 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %78
 
 78:                                               ; preds = %76, %.critedge68, %.critedge
@@ -19049,7 +19049,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_HANDLER(ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -19224,7 +19224,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_JMPZ_HANDLER(ptr nounde
   br i1 %91, label %.critedge, label %.critedge66
 
 92:                                               ; preds = %1, %54, %13, %66
-  %93 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %93 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, %40, %36, %34, %32, %30, %.critedge66, %92, %.critedge
@@ -19233,7 +19233,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -19408,7 +19408,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CONST_JMPNZ_HANDLER(ptr nound
   br i1 %91, label %.critedge, label %.critedge66
 
 92:                                               ; preds = %1, %54, %13, %66
-  %93 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %93 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %.critedge, %92, %.critedge66
@@ -19417,7 +19417,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -19574,7 +19574,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0
   br i1 %.0, label %20, label %28
 
 89:                                               ; preds = %1, %40, %13, %52
-  %90 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %90 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %91
 
 91:                                               ; preds = %89, %28, %20
@@ -19583,7 +19583,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -19783,7 +19783,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_JMPZ_HANDLER(ptr nound
   br i1 %.0, label %20, label %22
 
 105:                                              ; preds = %1, %56, %13, %68
-  %106 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %106 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, %42, %38, %36, %34, %32, %22, %105, %20
@@ -19792,7 +19792,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -19992,7 +19992,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_TMPVAR_JMPNZ_HANDLER(ptr noun
   br i1 %.0, label %20, label %50
 
 105:                                              ; preds = %1, %56, %13, %68
-  %106 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %106 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, %40, %36, %34, %32, %30, %20, %105, %50
@@ -20001,7 +20001,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -20133,7 +20133,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1
   br i1 %75, label %.critedge, label %.critedge68
 
 76:                                               ; preds = %1, %38, %13, %50
-  %77 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %77 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %78
 
 78:                                               ; preds = %76, %.critedge68, %.critedge
@@ -20142,7 +20142,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_CV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -20317,7 +20317,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CV_JMPZ_HANDLER(ptr noundef %
   br i1 %91, label %.critedge, label %.critedge66
 
 92:                                               ; preds = %1, %54, %13, %66
-  %93 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %93 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, %40, %36, %34, %32, %30, %.critedge66, %92, %.critedge
@@ -20326,7 +20326,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_SPEC_CV_CV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -20501,7 +20501,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_SPEC_CV_CV_JMPNZ_HANDLER(ptr noundef 
   br i1 %91, label %.critedge, label %.critedge66
 
 92:                                               ; preds = %1, %54, %13, %66
-  %93 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %93 = tail call fastcc i32 @zend_is_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %.critedge, %92, %.critedge66
@@ -20510,7 +20510,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -20520,12 +20520,12 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CONST_CONST_HANDLER(ptr noun
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  %11 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0), !range !9
+  %11 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -20682,7 +20682,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_HANDLER(ptr nou
   br i1 %.0, label %27, label %19
 
 88:                                               ; preds = %1, %39, %13, %51
-  %89 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %89 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %90
 
 90:                                               ; preds = %88, %27, %19
@@ -20691,7 +20691,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_HANDLER(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -20891,7 +20891,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_JMPZ_HANDLER(pt
   br i1 %.0, label %21, label %19
 
 104:                                              ; preds = %1, %55, %13, %67
-  %105 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %105 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, %41, %37, %35, %33, %31, %21, %104, %19
@@ -20900,7 +20900,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -21100,7 +21100,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_CONST_JMPNZ_HANDLER(p
   br i1 %.0, label %49, label %19
 
 104:                                              ; preds = %1, %55, %13, %67
-  %105 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %105 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %19, %104, %49
@@ -21109,7 +21109,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -21287,7 +21287,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_HANDLER(ptr no
   br i1 %.0, label %27, label %19
 
 98:                                               ; preds = %1, %39, %13, %51
-  %99 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %99 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %100
 
 100:                                              ; preds = %98, %27, %19
@@ -21296,7 +21296,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_HANDLER(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -21517,7 +21517,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_JMPZ_HANDLER(p
   br i1 %.0, label %21, label %19
 
 114:                                              ; preds = %1, %55, %13, %67
-  %115 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %115 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, %41, %37, %35, %33, %31, %21, %114, %19
@@ -21526,7 +21526,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -21747,7 +21747,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_TMPVAR_TMPVAR_JMPNZ_HANDLER(
   br i1 %.0, label %49, label %19
 
 114:                                              ; preds = %1, %55, %13, %67
-  %115 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %115 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %19, %114, %49
@@ -21756,7 +21756,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -21888,7 +21888,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_HANDLER(ptr noundef
   br i1 %74, label %.critedge, label %.critedge69
 
 75:                                               ; preds = %1, %37, %13, %49
-  %76 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %76 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %77
 
 77:                                               ; preds = %75, %.critedge, %.critedge69
@@ -21897,7 +21897,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_HANDLER(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -22072,7 +22072,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_JMPZ_HANDLER(ptr no
   br i1 %90, label %.critedge, label %.critedge67
 
 91:                                               ; preds = %1, %53, %13, %65
-  %92 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %92 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %.critedge, %91, %.critedge67
@@ -22081,7 +22081,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -22256,7 +22256,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CONST_JMPNZ_HANDLER(ptr n
   br i1 %90, label %.critedge, label %.critedge67
 
 91:                                               ; preds = %1, %53, %13, %65
-  %92 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %92 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %41, %38, %38, %38, %38, %34, %32, %30, %28, %.critedge67, %91, %.critedge
@@ -22265,7 +22265,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %41, %38, %38, %38, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -22422,7 +22422,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_HANDLER(ptr nounde
   br i1 %.0, label %27, label %19
 
 88:                                               ; preds = %1, %39, %13, %51
-  %89 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %89 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %90
 
 90:                                               ; preds = %88, %27, %19
@@ -22431,7 +22431,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_HANDLER(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -22631,7 +22631,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_JMPZ_HANDLER(ptr n
   br i1 %.0, label %21, label %19
 
 104:                                              ; preds = %1, %55, %13, %67
-  %105 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %105 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, %41, %37, %35, %33, %31, %21, %104, %19
@@ -22640,7 +22640,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -22840,7 +22840,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_TMPVAR_JMPNZ_HANDLER(ptr 
   br i1 %.0, label %49, label %19
 
 104:                                              ; preds = %1, %55, %13, %67
-  %105 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %105 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %19, %104, %49
@@ -22849,7 +22849,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -22981,7 +22981,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_HANDLER(ptr noundef %0
   br i1 %74, label %.critedge, label %.critedge69
 
 75:                                               ; preds = %1, %37, %13, %49
-  %76 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %76 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %77
 
 77:                                               ; preds = %75, %.critedge, %.critedge69
@@ -22990,7 +22990,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_HANDLER(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -23165,7 +23165,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_JMPZ_HANDLER(ptr nound
   br i1 %90, label %.critedge, label %.critedge67
 
 91:                                               ; preds = %1, %53, %13, %65
-  %92 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %92 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %.critedge, %91, %.critedge67
@@ -23174,7 +23174,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -23349,7 +23349,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_SPEC_CV_CV_JMPNZ_HANDLER(ptr noun
   br i1 %90, label %.critedge, label %.critedge67
 
 91:                                               ; preds = %1, %53, %13, %65
-  %92 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %92 = tail call fastcc i32 @zend_is_not_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %41, %38, %38, %38, %38, %34, %32, %30, %28, %.critedge67, %91, %.critedge
@@ -23358,7 +23358,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %41, %38, %38, %38, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -23368,12 +23368,12 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_CONST_HANDLER(ptr nounde
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  %11 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0), !range !9
+  %11 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -23464,7 +23464,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_HANDLER(ptr nou
   br label %46
 
 52:                                               ; preds = %40, %1, %13
-  %53 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %53 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %54
 
 54:                                               ; preds = %52, %28, %20
@@ -23473,7 +23473,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_HANDLER(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -23607,7 +23607,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(pt
   br label %62
 
 68:                                               ; preds = %56, %1, %13
-  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, %42, %38, %36, %34, %32, %22, %68, %20
@@ -23616,7 +23616,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -23750,7 +23750,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(p
   br label %62
 
 68:                                               ; preds = %56, %1, %13
-  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, %40, %36, %34, %32, %30, %20, %68, %50
@@ -23759,7 +23759,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -23850,7 +23850,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_HANDLER(ptr nou
   br label %46
 
 52:                                               ; preds = %40, %1, %13
-  %53 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %53 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %54
 
 54:                                               ; preds = %52, %28, %20
@@ -23859,7 +23859,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_HANDLER(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -23993,7 +23993,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(pt
   br label %62
 
 68:                                               ; preds = %56, %1, %13
-  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, %42, %38, %36, %34, %32, %22, %68, %20
@@ -24002,7 +24002,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -24136,7 +24136,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(p
   br label %62
 
 68:                                               ; preds = %56, %1, %13
-  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, %40, %36, %34, %32, %30, %20, %68, %50
@@ -24145,7 +24145,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -24236,7 +24236,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr 
   br label %46
 
 52:                                               ; preds = %40, %1, %13
-  %53 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %53 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %54
 
 54:                                               ; preds = %52, %28, %20
@@ -24245,7 +24245,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -24379,7 +24379,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER
   br label %62
 
 68:                                               ; preds = %56, %1, %13
-  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, %42, %38, %36, %34, %32, %22, %68, %20
@@ -24388,7 +24388,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %42, %42, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -24522,7 +24522,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLE
   br label %62
 
 68:                                               ; preds = %56, %1, %13
-  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %69 = tail call fastcc i32 @zend_is_smaller_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, %40, %36, %34, %32, %30, %20, %68, %50
@@ -24531,7 +24531,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %40, %40, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -24541,12 +24541,12 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_CONST_HANDLER(p
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  %11 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0), !range !9
+  %11 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -24637,7 +24637,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_HANDLE
   br label %45
 
 51:                                               ; preds = %39, %1, %13
-  %52 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %52 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %53
 
 53:                                               ; preds = %51, %27, %19
@@ -24646,7 +24646,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_HANDLE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -24780,7 +24780,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_JMPZ_H
   br label %61
 
 67:                                               ; preds = %55, %1, %13
-  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, %41, %37, %35, %33, %31, %21, %67, %19
@@ -24789,7 +24789,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -24923,7 +24923,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_CONST_TMPVARCV_JMPNZ_
   br label %61
 
 67:                                               ; preds = %55, %1, %13
-  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %19, %67, %49
@@ -24932,7 +24932,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -25023,7 +25023,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_HANDLE
   br label %45
 
 51:                                               ; preds = %39, %1, %13
-  %52 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %52 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %53
 
 53:                                               ; preds = %51, %27, %19
@@ -25032,7 +25032,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_HANDLE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -25166,7 +25166,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_JMPZ_H
   br label %61
 
 67:                                               ; preds = %55, %1, %13
-  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, %41, %37, %35, %33, %31, %21, %67, %19
@@ -25175,7 +25175,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -25309,7 +25309,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_CONST_JMPNZ_
   br label %61
 
 67:                                               ; preds = %55, %1, %13
-  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %19, %67, %49
@@ -25318,7 +25318,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -25409,7 +25409,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_HAN
   br label %45
 
 51:                                               ; preds = %39, %1, %13
-  %52 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %52 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %53
 
 53:                                               ; preds = %51, %27, %19
@@ -25418,7 +25418,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_HAN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -25552,7 +25552,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_JMP
   br label %61
 
 67:                                               ; preds = %55, %1, %13
-  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, %41, %37, %35, %33, %31, %21, %67, %19
@@ -25561,7 +25561,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %41, %41, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -25695,7 +25695,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_SPEC_TMPVARCV_TMPVARCV_JMP
   br label %61
 
 67:                                               ; preds = %55, %1, %13
-  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %68 = tail call fastcc i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %42, %39, %39, %39, %39, %35, %33, %31, %29, %19, %67, %49
@@ -26266,7 +26266,7 @@ define internal noundef i32 @ZEND_ASSIGN_SPEC_VAR_TMP_RETVAL_UNUSED_HANDLER(ptr 
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %34 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %.0151, ptr noundef nonnull %7, i8 noundef zeroext 2, i1 noundef zeroext %22, ptr noundef nonnull %2)
+  %34 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull readonly %.0151, ptr noundef nonnull %7, i8 noundef zeroext 2, i1 noundef zeroext %22, ptr noundef nonnull %2)
   %35 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %zend_assign_to_typed_ref.exit, label %36
@@ -26591,7 +26591,7 @@ define internal noundef i32 @ZEND_ASSIGN_SPEC_VAR_VAR_RETVAL_UNUSED_HANDLER(ptr 
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %34 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %.0151, ptr noundef nonnull %7, i8 noundef zeroext 4, i1 noundef zeroext %22, ptr noundef nonnull %2)
+  %34 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull readonly %.0151, ptr noundef nonnull %7, i8 noundef zeroext 4, i1 noundef zeroext %22, ptr noundef nonnull %2)
   %35 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %zend_assign_to_typed_ref.exit, label %36
@@ -28074,7 +28074,7 @@ define internal noundef i32 @ZEND_ASSIGN_SPEC_CV_TMP_RETVAL_UNUSED_HANDLER(ptr n
 27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %28 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %11, ptr noundef nonnull %7, i8 noundef zeroext 2, i1 noundef zeroext %16, ptr noundef nonnull %2)
+  %28 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull readonly %11, ptr noundef nonnull %7, i8 noundef zeroext 2, i1 noundef zeroext %16, ptr noundef nonnull %2)
   %29 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %zend_assign_to_typed_ref.exit, label %30
@@ -28329,7 +28329,7 @@ define internal noundef i32 @ZEND_ASSIGN_SPEC_CV_VAR_RETVAL_UNUSED_HANDLER(ptr n
 27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %28 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %11, ptr noundef nonnull %7, i8 noundef zeroext 4, i1 noundef zeroext %16, ptr noundef nonnull %2)
+  %28 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull readonly %11, ptr noundef nonnull %7, i8 noundef zeroext 4, i1 noundef zeroext %16, ptr noundef nonnull %2)
   %29 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %zend_assign_to_typed_ref.exit, label %30
@@ -55562,16 +55562,16 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_CONST_HANDLER(
   br i1 %.not, label %29, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr i8, ptr %22, i64 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %4, align 8
-  %27 = getelementptr i8, ptr %22, i64 16
+  %27 = getelementptr inbounds i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %3, align 8
   br label %44
 
 29:                                               ; preds = %15, %12, %18, %1
-  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %0), !range !10
+  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %0)
   %.not140 = icmp eq i32 %30, 0
   br i1 %.not140, label %._crit_edge, label %31
 
@@ -55867,16 +55867,16 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_TMP_HANDLER(pt
   br i1 %.not, label %28, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr i8, ptr %21, i64 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %3, align 8
-  %26 = getelementptr i8, ptr %21, i64 16
+  %26 = getelementptr inbounds i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %2, align 8
   br label %57
 
 28:                                               ; preds = %14, %11, %17, %1
-  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0), !range !10
+  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
   %.not161 = icmp eq i32 %29, 0
   br i1 %.not161, label %._crit_edge, label %30
 
@@ -56128,16 +56128,16 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_VAR_HANDLER(pt
   br i1 %.not, label %28, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr i8, ptr %21, i64 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %3, align 8
-  %26 = getelementptr i8, ptr %21, i64 16
+  %26 = getelementptr inbounds i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %2, align 8
   br label %57
 
 28:                                               ; preds = %14, %11, %17, %1
-  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0), !range !10
+  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
   %.not161 = icmp eq i32 %29, 0
   br i1 %.not161, label %._crit_edge, label %30
 
@@ -56431,16 +56431,16 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_CV_HANDLER(ptr
   br i1 %.not, label %29, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr i8, ptr %22, i64 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %4, align 8
-  %27 = getelementptr i8, ptr %22, i64 16
+  %27 = getelementptr inbounds i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %3, align 8
   br label %44
 
 29:                                               ; preds = %15, %12, %18, %1
-  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %0), !range !10
+  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %0)
   %.not149 = icmp eq i32 %30, 0
   br i1 %.not149, label %._crit_edge, label %31
 
@@ -63912,10 +63912,10 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_OP_SPEC_HANDLER(ptr noundef
   br i1 %.not, label %48, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr i8, ptr %24, i64 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %6, align 8
-  %29 = getelementptr i8, ptr %24, i64 16
+  %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 8
@@ -63944,7 +63944,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_OP_SPEC_HANDLER(ptr noundef
   br label %50
 
 48:                                               ; preds = %17, %14, %20, %1
-  %49 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %10, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %0), !range !10
+  %49 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %10, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %0)
   %.not119 = icmp eq i32 %49, 0
   br i1 %.not119, label %._crit_edge, label %50
 
@@ -64304,7 +64304,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_VAR_HANDLER(ptr noundef %0
   br i1 %.not77.i, label %57, label %55
 
 55:                                               ; preds = %51
-  %56 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %23, ptr noundef nonnull %.0, i8 noundef zeroext 2, i1 noundef zeroext %44, ptr noundef nonnull %2)
+  %56 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %23, ptr noundef nonnull %.0, i8 noundef zeroext 2, i1 noundef zeroext %44, ptr noundef nonnull writeonly %2)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 57:                                               ; preds = %51
@@ -64798,7 +64798,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_CV_VAR_HANDLER(ptr noundef %0)
   br i1 %.not77.i, label %51, label %49
 
 49:                                               ; preds = %45
-  %50 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %17, ptr noundef nonnull %.0, i8 noundef zeroext 2, i1 noundef zeroext %38, ptr noundef nonnull %2)
+  %50 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %17, ptr noundef nonnull %.0, i8 noundef zeroext 2, i1 noundef zeroext %38, ptr noundef nonnull writeonly %2)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 51:                                               ; preds = %45
@@ -66703,16 +66703,16 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_REF_SPEC_HANDLER(ptr nounde
   br i1 %.not, label %29, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr i8, ptr %22, i64 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %3, align 8
-  %27 = getelementptr i8, ptr %22, i64 16
+  %27 = getelementptr inbounds i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %2, align 8
   br label %62
 
 29:                                               ; preds = %15, %12, %18, %1
-  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0), !range !10
+  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
   %.not102 = icmp eq i32 %30, 0
   br i1 %.not102, label %._crit_edge, label %31
 
@@ -66869,7 +66869,7 @@ _get_zval_ptr_ptr.exit.thread:                    ; preds = %75, %82, %_get_zval
   br i1 %.not77.i, label %118, label %116
 
 116:                                              ; preds = %112
-  %117 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %91, ptr noundef nonnull %.025.i127, i8 noundef zeroext 2, i1 noundef zeroext %105, ptr noundef nonnull %4)
+  %117 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %91, ptr noundef nonnull %.025.i127, i8 noundef zeroext 2, i1 noundef zeroext %105, ptr noundef nonnull writeonly %4)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 118:                                              ; preds = %112
@@ -67109,7 +67109,7 @@ define internal noundef i32 @ZEND_PRE_INC_SPEC_VAR_RETVAL_UNUSED_HANDLER(ptr nou
 
 16:                                               ; preds = %12
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0) #27
-          to label %18 [label %17], !srcloc !11
+          to label %18 [label %17], !srcloc !8
 
 17:                                               ; preds = %16
   store double 0x43E0000000000000, ptr %.0, align 8
@@ -67159,7 +67159,7 @@ define internal noundef i32 @ZEND_PRE_INC_SPEC_VAR_RETVAL_USED_HANDLER(ptr nound
 
 16:                                               ; preds = %12
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0) #27
-          to label %._crit_edge [label %17], !srcloc !11
+          to label %._crit_edge [label %17], !srcloc !8
 
 ._crit_edge:                                      ; preds = %16
   %.pre29 = load ptr, ptr %.0, align 8
@@ -67210,7 +67210,7 @@ define internal noundef i32 @ZEND_PRE_INC_SPEC_CV_RETVAL_UNUSED_HANDLER(ptr noun
 
 10:                                               ; preds = %1
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %12 [label %11], !srcloc !11
+          to label %12 [label %11], !srcloc !8
 
 11:                                               ; preds = %10
   store double 0x43E0000000000000, ptr %6, align 8
@@ -67247,7 +67247,7 @@ define internal noundef i32 @ZEND_PRE_INC_SPEC_CV_RETVAL_USED_HANDLER(ptr nounde
 
 10:                                               ; preds = %1
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %._crit_edge [label %11], !srcloc !11
+          to label %._crit_edge [label %11], !srcloc !8
 
 ._crit_edge:                                      ; preds = %10
   %.pre = load ptr, ptr %6, align 8
@@ -67311,7 +67311,7 @@ define internal noundef i32 @ZEND_PRE_DEC_SPEC_VAR_RETVAL_UNUSED_HANDLER(ptr nou
 
 16:                                               ; preds = %12
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0) #27
-          to label %18 [label %17], !srcloc !12
+          to label %18 [label %17], !srcloc !9
 
 17:                                               ; preds = %16
   store double 0xC3E0000000000000, ptr %.0, align 8
@@ -67361,7 +67361,7 @@ define internal noundef i32 @ZEND_PRE_DEC_SPEC_VAR_RETVAL_USED_HANDLER(ptr nound
 
 16:                                               ; preds = %12
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0) #27
-          to label %._crit_edge [label %17], !srcloc !12
+          to label %._crit_edge [label %17], !srcloc !9
 
 ._crit_edge:                                      ; preds = %16
   %.pre29 = load ptr, ptr %.0, align 8
@@ -67412,7 +67412,7 @@ define internal noundef i32 @ZEND_PRE_DEC_SPEC_CV_RETVAL_UNUSED_HANDLER(ptr noun
 
 10:                                               ; preds = %1
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %12 [label %11], !srcloc !12
+          to label %12 [label %11], !srcloc !9
 
 11:                                               ; preds = %10
   store double 0xC3E0000000000000, ptr %6, align 8
@@ -67449,7 +67449,7 @@ define internal noundef i32 @ZEND_PRE_DEC_SPEC_CV_RETVAL_USED_HANDLER(ptr nounde
 
 10:                                               ; preds = %1
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %._crit_edge [label %11], !srcloc !12
+          to label %._crit_edge [label %11], !srcloc !9
 
 ._crit_edge:                                      ; preds = %10
   %.pre = load ptr, ptr %6, align 8
@@ -67519,7 +67519,7 @@ define internal noundef i32 @ZEND_POST_INC_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %21 = getelementptr inbounds i8, ptr %19, i64 8
   store i32 4, ptr %21, align 8
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.026) #27
-          to label %23 [label %22], !srcloc !11
+          to label %23 [label %22], !srcloc !8
 
 22:                                               ; preds = %14
   store double 0x43E0000000000000, ptr %.026, align 8
@@ -67640,7 +67640,7 @@ define internal noundef i32 @ZEND_POST_INC_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 4, ptr %15, align 8
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %17 [label %16], !srcloc !11
+          to label %17 [label %16], !srcloc !8
 
 16:                                               ; preds = %9
   store double 0x43E0000000000000, ptr %6, align 8
@@ -67761,7 +67761,7 @@ define internal noundef i32 @ZEND_POST_DEC_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %21 = getelementptr inbounds i8, ptr %19, i64 8
   store i32 4, ptr %21, align 8
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.026) #27
-          to label %23 [label %22], !srcloc !12
+          to label %23 [label %22], !srcloc !9
 
 22:                                               ; preds = %14
   store double 0xC3E0000000000000, ptr %.026, align 8
@@ -67882,7 +67882,7 @@ define internal noundef i32 @ZEND_POST_DEC_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 4, ptr %15, align 8
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %17 [label %16], !srcloc !12
+          to label %17 [label %16], !srcloc !9
 
 16:                                               ; preds = %9
   store double 0xC3E0000000000000, ptr %6, align 8
@@ -68009,9 +68009,9 @@ define internal noundef i32 @ZEND_PRE_INC_STATIC_PROP_SPEC_HANDLER(ptr noundef %
   br i1 %.not, label %46, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr i8, ptr %22, i64 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr i8, ptr %22, i64 16
+  %27 = getelementptr inbounds i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 8
   %30 = load i8, ptr %29, align 8
@@ -68039,7 +68039,7 @@ define internal noundef i32 @ZEND_PRE_INC_STATIC_PROP_SPEC_HANDLER(ptr noundef %
   br label %48
 
 46:                                               ; preds = %15, %12, %18, %1
-  %47 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %0), !range !10
+  %47 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %0)
   %.not46 = icmp eq i32 %47, 0
   br i1 %.not46, label %._crit_edge, label %48
 
@@ -68127,9 +68127,9 @@ define internal noundef i32 @ZEND_POST_INC_STATIC_PROP_SPEC_HANDLER(ptr noundef 
   br i1 %.not, label %46, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr i8, ptr %22, i64 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr i8, ptr %22, i64 16
+  %27 = getelementptr inbounds i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 8
   %30 = load i8, ptr %29, align 8
@@ -68157,7 +68157,7 @@ define internal noundef i32 @ZEND_POST_INC_STATIC_PROP_SPEC_HANDLER(ptr noundef 
   br label %48
 
 46:                                               ; preds = %15, %12, %18, %1
-  %47 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %0), !range !10
+  %47 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %0)
   %.not46 = icmp eq i32 %47, 0
   br i1 %.not46, label %._crit_edge, label %48
 
@@ -68207,7 +68207,7 @@ define internal noundef i32 @ZEND_POST_INC_STATIC_PROP_SPEC_HANDLER(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_SPEC_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_SPEC_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -68279,7 +68279,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %24, %21, %21, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPZ_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPZ_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -68526,7 +68526,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %103, %100, %100, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPZ_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPZ_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -68794,7 +68794,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %113, %110, %110, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPZ_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPZ_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -69065,7 +69065,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %18, %117, %114, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPNZ_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPNZ_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -69312,7 +69312,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %103, %100, %100, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPNZ_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPNZ_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -69580,7 +69580,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %113, %110, %110, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPNZ_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPNZ_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -69851,7 +69851,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %44, %116, %113, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPZ_EX_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPZ_EX_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -70125,7 +70125,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %124, %121, %121, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPZ_EX_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPZ_EX_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -70432,7 +70432,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %134, %131, %131, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPZ_EX_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPZ_EX_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -70734,7 +70734,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %29, %142, %139, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPNZ_EX_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPNZ_EX_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -71008,7 +71008,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %124, %121, %121, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPNZ_EX_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPNZ_EX_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -71315,7 +71315,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %134, %131, %131, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMPNZ_EX_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMPNZ_EX_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -71618,7 +71618,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %144, %141, %141, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -71902,7 +71902,7 @@ define internal noundef i32 @ZEND_CASE_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0)
   br i1 %143, label %.critedge, label %.critedge91
 
 144:                                              ; preds = %1, %106, %13, %118
-  %145 = tail call fastcc i32 @zend_case_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %145 = tail call fastcc i32 @zend_case_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %88, %85, %85, %85, %85, %81, %79, %77, %75, %45, %42, %42, %42, %42, %38, %36, %34, %32, %63, %65, %95, %22, %54, %52, %144
@@ -71911,7 +71911,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %88, %85, %85, %85, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -72223,7 +72223,7 @@ define internal noundef i32 @ZEND_CASE_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0
   br i1 %.0, label %20, label %62
 
 160:                                              ; preds = %1, %108, %13, %120
-  %161 = tail call fastcc i32 @zend_case_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %161 = tail call fastcc i32 @zend_case_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %90, %87, %87, %87, %87, %83, %81, %79, %77, %46, %43, %43, %43, %43, %39, %37, %35, %33, %65, %67, %97, %23, %55, %53, %160
@@ -72232,7 +72232,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %90, %87, %87, %87, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -72516,7 +72516,7 @@ define internal noundef i32 @ZEND_CASE_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1
   br i1 %143, label %.critedge, label %.critedge91
 
 144:                                              ; preds = %1, %106, %13, %118
-  %145 = tail call fastcc i32 @zend_case_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0), !range !9
+  %145 = tail call fastcc i32 @zend_case_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %88, %85, %85, %85, %85, %81, %79, %77, %75, %45, %42, %42, %42, %42, %38, %36, %34, %32, %63, %65, %95, %22, %54, %52, %144
@@ -78875,7 +78875,7 @@ zend_vm_stack_extend.exit:                        ; preds = %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_FCALL_SPEC_RETVAL_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_FCALL_SPEC_RETVAL_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -79406,7 +79406,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %262, %259, %259, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_FCALL_SPEC_RETVAL_USED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_FCALL_SPEC_RETVAL_USED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -79890,7 +79890,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %243, %240, %240, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_FCALL_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_FCALL_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -80663,7 +80663,7 @@ zend_vm_stack_extend.exit:                        ; preds = %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -80695,12 +80695,12 @@ define internal noundef i32 @ZEND_RETURN_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   br label %20
 
 20:                                               ; preds = %4, %15, %1
-  %21 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %21 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 29
@@ -80965,12 +80965,12 @@ _zval_undefined_op1.exit:                         ; preds = %30, %33
   br label %125
 
 125:                                              ; preds = %118, %123, %114
-  %126 = call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %126 = call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %126
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -81012,12 +81012,12 @@ define internal noundef i32 @ZEND_RETURN_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
   br label %24
 
 24:                                               ; preds = %9, %12, %17, %19
-  %25 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %25 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -81100,12 +81100,12 @@ define internal noundef i32 @ZEND_RETURN_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   br label %47
 
 47:                                               ; preds = %44, %35, %38, %34, %9, %12, %17
-  %48 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %48 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -81217,7 +81217,7 @@ _zval_undefined_op1.exit:                         ; preds = %12, %15
   br label %61
 
 61:                                               ; preds = %27, %56, %44, %_zval_undefined_op1.exit, %25
-  %62 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %62 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %62
 }
 
@@ -81233,7 +81233,7 @@ define internal noundef i32 @ZEND_RECV_SPEC_UNUSED_HANDLER(ptr noundef %0) #1 {
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
-  tail call void @zend_missing_arg_error(ptr noundef nonnull %0)
+  tail call void @zend_missing_arg_error(ptr noundef nonnull readonly %0)
   %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
@@ -88930,7 +88930,7 @@ _zval_undefined_op2.exit:                         ; preds = %127, %130
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INCLUDE_OR_EVAL_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -89354,7 +89354,7 @@ zend_vm_stack_extend.exit:                        ; preds = %110
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INCLUDE_OR_EVAL_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 29
   %4 = load i8, ptr %3, align 1
@@ -89948,7 +89948,7 @@ zend_vm_stack_extend.exit:                        ; preds = %153
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INCLUDE_OR_EVAL_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -90469,7 +90469,7 @@ zend_vm_stack_extend.exit:                        ; preds = %123
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INCLUDE_OR_EVAL_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -93746,7 +93746,7 @@ _zval_undefined_op1.exit:                         ; preds = %37, %34, %29, %zval
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_RESET_R_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_RESET_R_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -93881,7 +93881,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %64, %61, %61, %61, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_RESET_R_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_RESET_R_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -93992,7 +93992,7 @@ define internal noundef i32 @ZEND_FE_RESET_R_SPEC_TMP_HANDLER(ptr noundef %0) #1
   br i1 %.not110, label %zend_interrupt_helper_SPEC.exit, label %66
 
 66:                                               ; preds = %60
-  %67 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %67 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 68:                                               ; preds = %46
@@ -94220,7 +94220,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %168, %165, %165, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_RESET_R_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_RESET_R_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -94417,7 +94417,7 @@ define internal noundef i32 @ZEND_FE_RESET_R_SPEC_VAR_HANDLER(ptr noundef %0) #1
   br i1 %.not154, label %zend_interrupt_helper_SPEC.exit, label %114
 
 114:                                              ; preds = %108
-  %115 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %115 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 116:                                              ; preds = %75
@@ -94669,7 +94669,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %229, %226, %226, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_RESET_R_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_RESET_R_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -94836,7 +94836,7 @@ zval_undefined_cv.exit:                           ; preds = %12, %9, %22, %1
   br i1 %.not110, label %zend_interrupt_helper_SPEC.exit, label %99
 
 99:                                               ; preds = %93
-  %100 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %100 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 101:                                              ; preds = %73
@@ -95016,7 +95016,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %175, %172, %172, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_FETCH_R_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_FETCH_R_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
@@ -96577,7 +96577,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
   br label %16
 
 44:                                               ; preds = %16
-  %45 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %15, ptr noundef nonnull %.0135, ptr noundef nonnull %2, ptr noundef nonnull %0), !range !6
+  %45 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %15, ptr noundef nonnull %.0135, ptr noundef nonnull %2, ptr noundef nonnull %0)
   switch i8 %45, label %46 [
     i8 6, label %.loopexit156
     i8 4, label %.loopexit
@@ -96805,7 +96805,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_TMPVAR_HANDLER(ptr nou
   br label %17
 
 66:                                               ; preds = %17
-  %67 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0145, ptr noundef nonnull %3, ptr noundef nonnull %0), !range !6
+  %67 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0145, ptr noundef nonnull %3, ptr noundef nonnull %0)
   switch i8 %67, label %72 [
     i8 6, label %68
     i8 4, label %70
@@ -97061,7 +97061,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CV_HANDLER(ptr noundef
   br label %17
 
 66:                                               ; preds = %17
-  %67 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0133, ptr noundef nonnull %3, ptr noundef nonnull %0), !range !6
+  %67 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0133, ptr noundef nonnull %3, ptr noundef nonnull %0)
   switch i8 %67, label %72 [
     i8 6, label %68
     i8 4, label %70
@@ -97256,7 +97256,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CONST_HANDLER(ptr noundef 
   br label %16
 
 44:                                               ; preds = %16
-  %45 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %15, ptr noundef nonnull %.0123, ptr noundef nonnull %2, ptr noundef nonnull %0), !range !6
+  %45 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %15, ptr noundef nonnull %.0123, ptr noundef nonnull %2, ptr noundef nonnull %0)
   switch i8 %45, label %46 [
     i8 6, label %.loopexit142
     i8 4, label %.loopexit
@@ -97460,7 +97460,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_TMPVAR_HANDLER(ptr noundef
   br label %17
 
 66:                                               ; preds = %17
-  %67 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0133, ptr noundef nonnull %3, ptr noundef nonnull %0), !range !6
+  %67 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0133, ptr noundef nonnull %3, ptr noundef nonnull %0)
   switch i8 %67, label %72 [
     i8 6, label %68
     i8 4, label %70
@@ -97692,7 +97692,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CV_HANDLER(ptr noundef %0)
   br label %17
 
 66:                                               ; preds = %17
-  %67 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0121, ptr noundef nonnull %3, ptr noundef nonnull %0), !range !6
+  %67 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0121, ptr noundef nonnull %3, ptr noundef nonnull %0)
   switch i8 %67, label %72 [
     i8 6, label %68
     i8 4, label %70
@@ -113557,7 +113557,7 @@ define internal noundef i32 @ZEND_SEND_VAR_NO_REF_SPEC_VAR_UNUSED_HANDLER(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CATCH_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CATCH_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = load ptr, ptr %0, align 8
@@ -113807,7 +113807,7 @@ define internal noundef i32 @ZEND_CATCH_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
 126:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %127 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %115, ptr noundef nonnull %3, i8 noundef zeroext 2, i1 noundef zeroext true, ptr noundef nonnull %2)
+  %127 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull readonly %115, ptr noundef nonnull %3, i8 noundef zeroext 2, i1 noundef zeroext true, ptr noundef nonnull %2)
   %128 = load ptr, ptr %2, align 8
   %.not.i192 = icmp eq ptr %128, null
   br i1 %.not.i192, label %zend_assign_to_typed_ref.exit, label %129
@@ -114919,7 +114919,7 @@ _zval_undefined_op1.exit.thread:                  ; preds = %24, %_zval_undefine
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -114961,12 +114961,12 @@ define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_CONST_HANDLER(ptr noundef %
   br label %25
 
 25:                                               ; preds = %1, %9, %21
-  %26 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %26 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -115271,12 +115271,12 @@ _get_zval_ptr_ptr.exit.thread217:                 ; preds = %78, %_get_zval_ptr_
   br label %159
 
 159:                                              ; preds = %152, %157, %148
-  %160 = call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %160 = call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %160
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -115329,12 +115329,12 @@ define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_TMP_HANDLER(ptr noundef %0)
   br label %29
 
 29:                                               ; preds = %19, %17, %12, %9
-  %30 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %30 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -115551,12 +115551,12 @@ define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_VAR_HANDLER(ptr noundef %0)
   br label %114
 
 114:                                              ; preds = %103, %107, %112, %58, %78, %73, %67, %31, %21, %16, %13, %27
-  %115 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %115 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %115
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -115619,7 +115619,7 @@ define internal noundef i32 @ZEND_RETURN_BY_REF_SPEC_CV_HANDLER(ptr noundef %0) 
   br label %32
 
 32:                                               ; preds = %.thread, %12, %29
-  %33 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %33 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   ret i32 %33
 }
 
@@ -115903,7 +115903,7 @@ define internal noundef i32 @ZEND_INIT_METHOD_CALL_SPEC_TMPVAR_CONST_HANDLER(ptr
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %53
-  %66 = getelementptr i8, ptr %62, i64 8
+  %66 = getelementptr inbounds i8, ptr %62, i64 8
   %67 = load ptr, ptr %66, align 8
   br label %166
 
@@ -117243,7 +117243,7 @@ define internal noundef i32 @ZEND_INIT_METHOD_CALL_SPEC_UNUSED_CONST_HANDLER(ptr
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %1
-  %17 = getelementptr i8, ptr %13, i64 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   br label %101
 
@@ -118232,7 +118232,7 @@ _zval_undefined_op1.exit:                         ; preds = %18
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %39
-  %51 = getelementptr i8, ptr %47, i64 8
+  %51 = getelementptr inbounds i8, ptr %47, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %135
 
@@ -119365,8 +119365,8 @@ define internal noundef i32 @ZEND_INIT_STATIC_METHOD_CALL_SPEC_CONST_CONST_HANDL
   %.pre-phi = phi i64 [ %.pre145, %._crit_edge ], [ %7, %1 ]
   %25 = phi ptr [ %.pre, %._crit_edge ], [ %4, %1 ]
   %.0115 = phi ptr [ %19, %._crit_edge ], [ %9, %1 ]
-  %26 = getelementptr i8, ptr %25, i64 %.pre-phi
-  %27 = getelementptr i8, ptr %26, i64 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 %.pre-phi
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %29, label %114
@@ -120821,7 +120821,7 @@ define internal noundef i32 @ZEND_INIT_STATIC_METHOD_CALL_SPEC_VAR_CONST_HANDLER
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %1
-  %17 = getelementptr i8, ptr %13, i64 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   br label %104
 
@@ -122156,7 +122156,7 @@ define internal noundef i32 @ZEND_INIT_STATIC_METHOD_CALL_SPEC_UNUSED_CONST_HAND
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %10
-  %20 = getelementptr i8, ptr %16, i64 8
+  %20 = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %107
 
@@ -123595,7 +123595,7 @@ _zval_undefined_op2.exit.thread:                  ; preds = %23, %_zval_undefine
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_VAR_SPEC_CONST_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_VAR_SPEC_CONST_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -123942,7 +123942,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %149, %146, %146, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_VAR_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_VAR_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -124352,7 +124352,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %180, %177, %177, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_VAR_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_VAR_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -124738,7 +124738,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %167, %164, %164, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -125263,7 +125263,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %24, %234, %231, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -125878,7 +125878,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %279, %276, %276, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CONST_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CONST_CV_HANDLER(ptr noundef %0) #1 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -126445,7 +126445,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %45, %252, %249, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -126837,7 +126837,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %175, %172, %172, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -127295,7 +127295,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %206, %203, %203, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -127729,7 +127729,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %193, %190, %190, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -128266,7 +128266,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %23, %239, %236, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -128893,7 +128893,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %284, %281, %281, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_DIM_OBJ_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -133720,7 +133720,7 @@ _zval_undefined_op1.exit:                         ; preds = %42, %39, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DEFINED_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DEFINED_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -133976,7 +133976,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %90, %87, %87, %87, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_TYPE_CHECK_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_TYPE_CHECK_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -134180,7 +134180,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %81, %78, %78, %78, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_TYPE_CHECK_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_TYPE_CHECK_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -134429,7 +134429,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %106, %103, %103, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_TYPE_CHECK_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_TYPE_CHECK_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -136219,7 +136219,7 @@ _zval_undefined_op1.exit.thread:                  ; preds = %32, %_zval_undefine
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_RESET_RW_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_RESET_RW_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -136355,7 +136355,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %65, %62, %62, %62, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_RESET_RW_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_RESET_RW_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -136508,7 +136508,7 @@ define internal noundef i32 @ZEND_FE_RESET_RW_SPEC_TMP_HANDLER(ptr noundef %0) #
   br i1 %.not132, label %zend_interrupt_helper_SPEC.exit, label %92
 
 92:                                               ; preds = %86
-  %93 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %93 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 94:                                               ; preds = %70
@@ -136739,7 +136739,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %197, %194, %194, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_RESET_RW_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_RESET_RW_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -137033,7 +137033,7 @@ define internal noundef i32 @ZEND_FE_RESET_RW_SPEC_VAR_HANDLER(ptr noundef %0) #
   br i1 %.not206, label %zend_interrupt_helper_SPEC.exit, label %159
 
 159:                                              ; preds = %153
-  %160 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %160 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 161:                                              ; preds = %124
@@ -137288,7 +137288,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %277, %274, %274, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_RESET_RW_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_RESET_RW_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -137546,7 +137546,7 @@ zval_undefined_cv.exit:                           ; preds = %13, %10, %1
   br i1 %.not157, label %zend_interrupt_helper_SPEC.exit, label %143
 
 143:                                              ; preds = %137
-  %144 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %144 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 145:                                              ; preds = %121
@@ -137729,7 +137729,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %222, %219, %219, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_FETCH_RW_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_FETCH_RW_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
@@ -138969,7 +138969,7 @@ _zval_undefined_op2.exit.thread:                  ; preds = %28, %_zval_undefine
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -139231,7 +139231,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %113, %110, %110, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_ICALL_SPEC_RETVAL_USED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_ICALL_SPEC_RETVAL_USED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -139445,7 +139445,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %91, %88, %88, %88, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_ICALL_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_ICALL_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -140239,7 +140239,7 @@ zend_copy_extra_args.exit:                        ; preds = %65, %.loopexit.sink
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_FCALL_BY_NAME_SPEC_RETVAL_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_FCALL_BY_NAME_SPEC_RETVAL_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -140719,7 +140719,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %234, %231, %231, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_FCALL_BY_NAME_SPEC_RETVAL_USED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_FCALL_BY_NAME_SPEC_RETVAL_USED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -141152,7 +141152,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %215, %212, %212, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_DO_FCALL_BY_NAME_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_DO_FCALL_BY_NAME_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -145072,7 +145072,7 @@ _zval_undefined_op1.exit:                         ; preds = %31, %26, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INSTANCEOF_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INSTANCEOF_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -145341,7 +145341,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %119, %116, %116, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INSTANCEOF_SPEC_TMPVAR_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INSTANCEOF_SPEC_TMPVAR_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -145588,7 +145588,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %100, %97, %97, %97,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INSTANCEOF_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INSTANCEOF_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -145868,7 +145868,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %122, %119, %119, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INSTANCEOF_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INSTANCEOF_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -146132,7 +146132,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %43, %118, %115, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INSTANCEOF_SPEC_CV_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INSTANCEOF_SPEC_CV_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -146373,7 +146373,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %26, %101, %98, %98,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_INSTANCEOF_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_INSTANCEOF_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -146624,7 +146624,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %33, %108, %105, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_GENERATOR_CREATE_SPEC_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_GENERATOR_CREATE_SPEC_HANDLER(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -146784,7 +146784,7 @@ define internal noundef i32 @ZEND_GENERATOR_CREATE_SPEC_HANDLER(ptr noundef %0) 
   br label %99
 
 97:                                               ; preds = %1
-  %98 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %98 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   br label %99
 
 99:                                               ; preds = %80, %97, %94, %76
@@ -147905,7 +147905,7 @@ _get_zval_cv_lookup.exit:                         ; preds = %26, %23, %13, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 20
   %4 = load i32, ptr %3, align 4
@@ -148090,7 +148090,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %69, %66, %66, %66, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
@@ -148300,7 +148300,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %83, %80, %80, %80, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CONST_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CONST_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
@@ -148513,7 +148513,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %10, %88, %85, %85, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -148776,7 +148776,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %118, %115, %115, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -149094,7 +149094,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %144, %141, %141, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -149413,7 +149413,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %147, %144, %144, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_UNUSED_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_UNUSED_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %2, i64 12
@@ -149614,7 +149614,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %86, %83, %83, %83, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_UNUSED_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_UNUSED_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %2, i64 12
@@ -149876,7 +149876,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %112, %109, %109, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_UNUSED_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_UNUSED_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %2, i64 12
@@ -150139,7 +150139,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %115, %112, %112, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -150377,7 +150377,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %107, %104, %104, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -150671,7 +150671,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %131, %128, %128, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -150966,7 +150966,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %134, %131, %131, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_HANDLE_EXCEPTION_SPEC_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_HANDLE_EXCEPTION_SPEC_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 52), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %20
@@ -151007,7 +151007,7 @@ define internal noundef i32 @ZEND_HANDLE_EXCEPTION_SPEC_HANDLER(ptr noundef %0) 
   br label %18
 
 18:                                               ; preds = %16, %15
-  %19 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %19 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_dispatch_try_catch_finally_helper_SPEC.exit
 
 20:                                               ; preds = %1
@@ -151213,7 +151213,7 @@ find_live_range.exit:                             ; preds = %52, %56, %36
   br label %118
 
 118:                                              ; preds = %100, %100, %100, %100, %100, %100, %104, %111, %116, %102, %._crit_edge
-  %119 = tail call fastcc i32 @zend_dispatch_try_catch_finally_helper_SPEC(i32 noundef %.056.lcssa, i32 noundef %.055, ptr noundef nonnull %0), !range !13
+  %119 = tail call fastcc i32 @zend_dispatch_try_catch_finally_helper_SPEC(i32 noundef %.056.lcssa, i32 noundef %.055, ptr noundef nonnull %0)
   br label %zend_dispatch_try_catch_finally_helper_SPEC.exit
 
 zend_dispatch_try_catch_finally_helper_SPEC.exit: ; preds = %18, %12, %118
@@ -151256,7 +151256,7 @@ define internal i32 @ZEND_USER_OPCODE_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %48
 
 19:                                               ; preds = %10
-  %20 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0), !range !13
+  %20 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %0)
   br label %48
 
 21:                                               ; preds = %1
@@ -151273,7 +151273,7 @@ define internal i32 @ZEND_USER_OPCODE_SPEC_HANDLER(ptr noundef %0) #1 {
   %28 = zext i8 %25 to i64
   %29 = getelementptr inbounds i32, ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4
-  %31 = tail call fastcc i32 @zend_vm_get_opcode_handler_idx(i32 noundef %30, ptr noundef %9)
+  %31 = tail call fastcc i32 @zend_vm_get_opcode_handler_idx(i32 noundef %30, ptr noundef readonly %9)
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %26, i64 %32
   %34 = load ptr, ptr %33, align 8
@@ -151287,7 +151287,7 @@ define internal i32 @ZEND_USER_OPCODE_SPEC_HANDLER(ptr noundef %0) #1 {
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds i32, ptr %38, i64 %40
   %42 = load i32, ptr %41, align 4
-  %43 = tail call fastcc i32 @zend_vm_get_opcode_handler_idx(i32 noundef %42, ptr noundef %9)
+  %43 = tail call fastcc i32 @zend_vm_get_opcode_handler_idx(i32 noundef %42, ptr noundef readonly %9)
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds ptr, ptr %37, i64 %44
   %46 = load ptr, ptr %45, align 8
@@ -151300,7 +151300,7 @@ define internal i32 @ZEND_USER_OPCODE_SPEC_HANDLER(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ASSERT_CHECK_SPEC_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ASSERT_CHECK_SPEC_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 57), align 8
   %4 = icmp slt i64 %3, 1
@@ -151400,7 +151400,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %36, %33, %33, %33, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_SET_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_SET_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -151612,7 +151612,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %93, %90, %90, %90, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_SET_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_SET_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -151861,7 +151861,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %99, %96, %96, %96, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_SET_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_SET_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -152156,7 +152156,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %122, %119, %119, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_SET_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_SET_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -152482,7 +152482,7 @@ define internal noundef i32 @ZEND_UNSET_CV_SPEC_CV_UNUSED_HANDLER(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_CV_SPEC_CV_UNUSED_SET_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_CV_SPEC_CV_UNUSED_SET_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -152690,7 +152690,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %86, %83, %83, %83, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_CV_SPEC_CV_UNUSED_EMPTY_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_CV_SPEC_CV_UNUSED_EMPTY_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -153542,7 +153542,7 @@ zval_undefined_cv.exit:                           ; preds = %13, %10, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CALL_TRAMPOLINE_SPEC_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_CALL_TRAMPOLINE_SPEC_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -154138,7 +154138,7 @@ zend_free_extra_named_params.exit:                ; preds = %260, %255, %249, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CALL_TRAMPOLINE_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_CALL_TRAMPOLINE_SPEC_OBSERVER_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -154814,7 +154814,7 @@ define internal noundef i32 @ZEND_DISCARD_EXCEPTION_SPEC_HANDLER(ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -154956,7 +154956,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_CONST_CONST_HANDLER(ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -155132,7 +155132,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_CONST_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CONST_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -155242,7 +155242,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_CONST_UNUSED_HANDLER(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_CONST_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CONST_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -155420,7 +155420,7 @@ zval_undefined_cv.exit:                           ; preds = %52, %49, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -155534,7 +155534,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_TMP_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_TMP_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -155682,7 +155682,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_TMP_TMPVAR_HANDLER(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_TMP_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_TMP_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -155764,7 +155764,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_TMP_UNUSED_HANDLER(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_TMP_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_TMP_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -155914,7 +155914,7 @@ zval_undefined_cv.exit:                           ; preds = %30, %27, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -156178,7 +156178,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_VAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_VAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -156476,7 +156476,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_VAR_TMPVAR_HANDLER(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_VAR_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_VAR_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -156708,7 +156708,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_VAR_UNUSED_HANDLER(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_VAR_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_VAR_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -157008,7 +157008,7 @@ zval_undefined_cv.exit:                           ; preds = %116, %113, %105
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_UNUSED_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_UNUSED_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -157101,7 +157101,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_UNUSED_CONST_HANDLER(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_UNUSED_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_UNUSED_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -157228,7 +157228,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_UNUSED_TMPVAR_HANDLER(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_UNUSED_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_UNUSED_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -157289,7 +157289,7 @@ define internal noundef i32 @ZEND_YIELD_SPEC_UNUSED_UNUSED_HANDLER(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_UNUSED_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_UNUSED_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -157419,7 +157419,7 @@ zval_undefined_cv.exit:                           ; preds = %23, %20, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -157637,7 +157637,7 @@ zval_undefined_cv.exit:                           ; preds = %47, %44, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -157889,7 +157889,7 @@ zval_undefined_cv.exit:                           ; preds = %47, %44, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -158075,7 +158075,7 @@ zval_undefined_cv.exit:                           ; preds = %47, %44, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -158742,7 +158742,7 @@ zval_undefined_cv.exit:                           ; preds = %15, %12, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FAST_CALL_SPEC_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FAST_CALL_SPEC_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -158830,7 +158830,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %38, %35, %35, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FAST_RET_SPEC_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 3) i32 @ZEND_FAST_RET_SPEC_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -158924,7 +158924,7 @@ define internal noundef i32 @ZEND_FAST_RET_SPEC_HANDLER(ptr noundef %0) #1 {
   %51 = sub i64 %49, %50
   %52 = lshr exact i64 %51, 5
   %53 = trunc i64 %52 to i32
-  %54 = tail call fastcc i32 @zend_dispatch_try_catch_finally_helper_SPEC(i32 noundef %44, i32 noundef %53, ptr noundef nonnull %0), !range !13
+  %54 = tail call fastcc i32 @zend_dispatch_try_catch_finally_helper_SPEC(i32 noundef %44, i32 noundef %53, ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %34, %31, %31, %31, %31, %27, %25, %23, %21, %9, %41
@@ -161062,7 +161062,7 @@ _zval_undefined_op1.exit:                         ; preds = %556, %551
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_FROM_SPEC_CONST_HANDLER(ptr nocapture noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_FROM_SPEC_CONST_HANDLER(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -161181,7 +161181,7 @@ define internal noundef i32 @ZEND_YIELD_FROM_SPEC_CONST_HANDLER(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_FROM_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_FROM_SPEC_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -161694,7 +161694,7 @@ define internal noundef i32 @ZEND_YIELD_FROM_SPEC_TMPVAR_HANDLER(ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_YIELD_FROM_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 -1, 1) i32 @ZEND_YIELD_FROM_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -162379,7 +162379,7 @@ define internal noundef i32 @ZEND_BIND_GLOBAL_SPEC_CV_CONST_HANDLER(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_COALESCE_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_COALESCE_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -162492,7 +162492,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %46, %43, %43, %43, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_COALESCE_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_COALESCE_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -162591,7 +162591,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_COALESCE_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_COALESCE_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -162756,7 +162756,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %68, %65, %65, %65, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_COALESCE_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_COALESCE_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -164198,7 +164198,7 @@ _zval_undefined_op1.exit:                         ; preds = %101, %98, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ISSET_ISEMPTY_STATIC_PROP_SPEC_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_STATIC_PROP_SPEC_HANDLER(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
@@ -164235,16 +164235,16 @@ define internal noundef i32 @ZEND_ISSET_ISEMPTY_STATIC_PROP_SPEC_HANDLER(ptr nou
   br i1 %.not, label %28, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr i8, ptr %21, i64 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %3, align 8
-  %26 = getelementptr i8, ptr %21, i64 16
+  %26 = getelementptr inbounds i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %2, align 8
   br label %30
 
 28:                                               ; preds = %14, %11, %17, %1
-  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %0), !range !10
+  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %0)
   %.not89 = icmp eq i32 %29, 0
   %.pre = load i32, ptr %5, align 4
   br i1 %.not89, label %30, label %.thread
@@ -164548,8 +164548,8 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_CONST_CONST_HANDLER(
   %5 = getelementptr inbounds i8, ptr %2, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %186
@@ -165636,7 +165636,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_VAR_CONST_HANDLER(pt
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %1
-  %17 = getelementptr i8, ptr %13, i64 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   br label %169
 
@@ -166627,7 +166627,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_UNUSED_CONST_HANDLER
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %15
-  %25 = getelementptr i8, ptr %21, i64 8
+  %25 = getelementptr inbounds i8, ptr %21, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %177
 
@@ -168579,7 +168579,7 @@ define internal noundef i32 @ZEND_ISSET_ISEMPTY_THIS_SPEC_UNUSED_UNUSED_HANDLER(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_SWITCH_LONG_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_SWITCH_LONG_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -168761,7 +168761,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %75, %72, %72, %72, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_SWITCH_LONG_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_SWITCH_LONG_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -168943,7 +168943,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %75, %72, %72, %72, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_SWITCH_STRING_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_SWITCH_STRING_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -169109,7 +169109,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %70, %67, %67, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_SWITCH_STRING_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_SWITCH_STRING_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -169291,7 +169291,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %75, %72, %72, %72, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IN_ARRAY_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
@@ -169520,7 +169520,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CONST_CONST_HANDLER(ptr noundef 
   br i1 %.not165, label %zend_interrupt_helper_SPEC.exit, label %115
 
 115:                                              ; preds = %108
-  %116 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %116 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 117:                                              ; preds = %100
@@ -169644,7 +169644,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CONST_CONST_HANDLER(ptr noundef 
   br i1 %.not158, label %zend_interrupt_helper_SPEC.exit, label %175
 
 175:                                              ; preds = %168
-  %176 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %176 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 177:                                              ; preds = %160
@@ -169667,7 +169667,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CONST_CONST_HANDLER(ptr noundef 
   br i1 %.not156, label %zend_interrupt_helper_SPEC.exit, label %187
 
 187:                                              ; preds = %180
-  %188 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %188 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 189:                                              ; preds = %160
@@ -169752,7 +169752,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CONST_CONST_HANDLER(ptr noundef 
   br i1 %.not153, label %zend_interrupt_helper_SPEC.exit, label %235
 
 235:                                              ; preds = %228
-  %236 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %236 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 237:                                              ; preds = %223
@@ -169796,7 +169796,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CONST_CONST_HANDLER(ptr noundef 
   br i1 %.not160, label %zend_interrupt_helper_SPEC.exit, label %257
 
 257:                                              ; preds = %250
-  %258 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %258 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 259:                                              ; preds = %247
@@ -169821,7 +169821,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %143, %140, %140, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IN_ARRAY_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IN_ARRAY_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
@@ -170071,7 +170071,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_TMP_CONST_HANDLER(ptr noundef %0
   br i1 %.not198, label %zend_interrupt_helper_SPEC.exit, label %125
 
 125:                                              ; preds = %118
-  %126 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %126 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 127:                                              ; preds = %110
@@ -170195,7 +170195,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_TMP_CONST_HANDLER(ptr noundef %0
   br i1 %.not189, label %zend_interrupt_helper_SPEC.exit, label %185
 
 185:                                              ; preds = %178
-  %186 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %186 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 187:                                              ; preds = %170
@@ -170218,7 +170218,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_TMP_CONST_HANDLER(ptr noundef %0
   br i1 %.not187, label %zend_interrupt_helper_SPEC.exit, label %197
 
 197:                                              ; preds = %190
-  %198 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %198 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 199:                                              ; preds = %170
@@ -170327,7 +170327,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_TMP_CONST_HANDLER(ptr noundef %0
   br i1 %.not184, label %zend_interrupt_helper_SPEC.exit, label %258
 
 258:                                              ; preds = %251
-  %259 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %259 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 260:                                              ; preds = %246
@@ -170399,7 +170399,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_TMP_CONST_HANDLER(ptr noundef %0
   br i1 %.not193, label %zend_interrupt_helper_SPEC.exit, label %291
 
 291:                                              ; preds = %284
-  %292 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %292 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 293:                                              ; preds = %281
@@ -170424,7 +170424,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %153, %150, %150, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
@@ -170676,7 +170676,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not338, label %zend_interrupt_helper_SPEC.exit, label %124
 
 124:                                              ; preds = %117
-  %125 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %125 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 126:                                              ; preds = %109
@@ -170699,7 +170699,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not336, label %zend_interrupt_helper_SPEC.exit, label %136
 
 136:                                              ; preds = %129
-  %137 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %137 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 138:                                              ; preds = %109
@@ -170779,7 +170779,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not333, label %zend_interrupt_helper_SPEC.exit, label %179
 
 179:                                              ; preds = %172
-  %180 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %180 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 181:                                              ; preds = %166
@@ -170802,7 +170802,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not331, label %zend_interrupt_helper_SPEC.exit, label %191
 
 191:                                              ; preds = %184
-  %192 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %192 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 193:                                              ; preds = %166
@@ -170872,7 +170872,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not326, label %zend_interrupt_helper_SPEC.exit, label %229
 
 229:                                              ; preds = %222
-  %230 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %230 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 231:                                              ; preds = %216
@@ -170895,7 +170895,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not324, label %zend_interrupt_helper_SPEC.exit, label %241
 
 241:                                              ; preds = %234
-  %242 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %242 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 243:                                              ; preds = %216
@@ -170945,7 +170945,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not315, label %zend_interrupt_helper_SPEC.exit, label %268
 
 268:                                              ; preds = %261
-  %269 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %269 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 270:                                              ; preds = %253
@@ -170968,7 +170968,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not313, label %zend_interrupt_helper_SPEC.exit, label %280
 
 280:                                              ; preds = %273
-  %281 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %281 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 282:                                              ; preds = %253
@@ -171050,7 +171050,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not310, label %zend_interrupt_helper_SPEC.exit, label %326
 
 326:                                              ; preds = %319
-  %327 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %327 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 328:                                              ; preds = %313
@@ -171073,7 +171073,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not308, label %zend_interrupt_helper_SPEC.exit, label %338
 
 338:                                              ; preds = %331
-  %339 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %339 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 340:                                              ; preds = %313
@@ -171183,7 +171183,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not303, label %zend_interrupt_helper_SPEC.exit, label %399
 
 399:                                              ; preds = %392
-  %400 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %400 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 401:                                              ; preds = %387
@@ -171255,7 +171255,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_VAR_CONST_HANDLER(ptr noundef %0
   br i1 %.not319, label %zend_interrupt_helper_SPEC.exit, label %432
 
 432:                                              ; preds = %425
-  %433 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %433 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 434:                                              ; preds = %422
@@ -171280,7 +171280,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %90, %87, %87, %87, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IN_ARRAY_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
@@ -171512,7 +171512,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CV_CONST_HANDLER(ptr noundef %0)
   br i1 %.not279, label %zend_interrupt_helper_SPEC.exit, label %114
 
 114:                                              ; preds = %107
-  %115 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %115 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 116:                                              ; preds = %99
@@ -171535,7 +171535,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CV_CONST_HANDLER(ptr noundef %0)
   br i1 %.not277, label %zend_interrupt_helper_SPEC.exit, label %126
 
 126:                                              ; preds = %119
-  %127 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %127 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 128:                                              ; preds = %99
@@ -171591,7 +171591,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CV_CONST_HANDLER(ptr noundef %0)
   br i1 %.not274, label %zend_interrupt_helper_SPEC.exit, label %156
 
 156:                                              ; preds = %149
-  %157 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %157 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 158:                                              ; preds = %141
@@ -171614,7 +171614,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CV_CONST_HANDLER(ptr noundef %0)
   br i1 %.not272, label %zend_interrupt_helper_SPEC.exit, label %168
 
 168:                                              ; preds = %161
-  %169 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %169 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 170:                                              ; preds = %141
@@ -171660,7 +171660,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CV_CONST_HANDLER(ptr noundef %0)
   br i1 %.not269, label %zend_interrupt_helper_SPEC.exit, label %193
 
 193:                                              ; preds = %186
-  %194 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %194 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 195:                                              ; preds = %178
@@ -171683,7 +171683,7 @@ define internal noundef i32 @ZEND_IN_ARRAY_SPEC_CV_CONST_HANDLER(ptr noundef %0)
   br i1 %.not267, label %zend_interrupt_helper_SPEC.exit, label %205
 
 205:                                              ; preds = %198
-  %206 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %206 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 207:                                              ; preds = %178
@@ -171775,7 +171775,7 @@ _zval_undefined_op1.exit292:                      ; preds = %232
   br i1 %.not262, label %zend_interrupt_helper_SPEC.exit, label %259
 
 259:                                              ; preds = %252
-  %260 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %260 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 261:                                              ; preds = %244
@@ -171798,7 +171798,7 @@ _zval_undefined_op1.exit292:                      ; preds = %232
   br i1 %.not260, label %zend_interrupt_helper_SPEC.exit, label %271
 
 271:                                              ; preds = %264
-  %272 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %272 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 273:                                              ; preds = %244
@@ -171856,7 +171856,7 @@ _zval_undefined_op1.exit292:                      ; preds = %232
   br i1 %.not256, label %zend_interrupt_helper_SPEC.exit, label %304
 
 304:                                              ; preds = %297
-  %305 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %305 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 306:                                              ; preds = %289
@@ -171879,7 +171879,7 @@ _zval_undefined_op1.exit292:                      ; preds = %232
   br i1 %.not254, label %zend_interrupt_helper_SPEC.exit, label %316
 
 316:                                              ; preds = %309
-  %317 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %317 = tail call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 318:                                              ; preds = %289
@@ -171965,7 +171965,7 @@ _zval_undefined_op1.exit292:                      ; preds = %232
   br i1 %.not251, label %zend_interrupt_helper_SPEC.exit, label %364
 
 364:                                              ; preds = %357
-  %365 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %365 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 366:                                              ; preds = %352
@@ -172009,7 +172009,7 @@ _zval_undefined_op1.exit:                         ; preds = %373, %326, %218, %9
   br i1 %.not264, label %zend_interrupt_helper_SPEC.exit, label %385
 
 385:                                              ; preds = %378
-  %386 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0), !range !9
+  %386 = call fastcc i32 @zend_interrupt_helper_SPEC(ptr noundef nonnull %0)
   br label %zend_interrupt_helper_SPEC.exit
 
 387:                                              ; preds = %375
@@ -173086,7 +173086,7 @@ zval_undefined_cv.exit:                           ; preds = %12, %9, %22, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -173292,7 +173292,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %83, %80, %80, %80, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -173534,7 +173534,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %101, %98, %98, %98,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -173752,7 +173752,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %88, %85, %85, %85, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -173982,7 +173982,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %96, %93, %93, %93, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -174248,7 +174248,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %114, %111, %111, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -174490,7 +174490,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %101, %98, %98, %98,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -174696,7 +174696,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %83, %80, %80, %80, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_TMPVAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -174938,7 +174938,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %101, %98, %98, %98,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -175156,7 +175156,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %88, %85, %85, %85, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_MATCH_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_MATCH_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -175326,7 +175326,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %zend_interrupt_help
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_MATCH_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_MATCH_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -175525,7 +175525,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %25, %_zval_undefine
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_STRICT_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_STRICT_SPEC_TMP_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -175730,7 +175730,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %83, %80, %80, %80, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_STRICT_SPEC_TMP_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_STRICT_SPEC_TMP_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -175960,7 +175960,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %94, %91, %91, %91, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_STRICT_SPEC_TMP_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_STRICT_SPEC_TMP_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -176203,7 +176203,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %100, %97, %97, %97,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_STRICT_SPEC_TMP_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_STRICT_SPEC_TMP_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -176440,7 +176440,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %101, %98, %98, %98,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_STRICT_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_STRICT_SPEC_VAR_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -176658,7 +176658,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %89, %86, %86, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_STRICT_SPEC_VAR_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_STRICT_SPEC_VAR_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -176901,7 +176901,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %100, %97, %97, %97,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_STRICT_SPEC_VAR_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_STRICT_SPEC_VAR_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -177156,7 +177156,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %107, %104, %104, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_CASE_STRICT_SPEC_VAR_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_CASE_STRICT_SPEC_VAR_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -177433,7 +177433,7 @@ define internal noundef i32 @ZEND_MATCH_ERROR_SPEC_TMPVARCV_UNUSED_HANDLER(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_NULL_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_NULL_SPEC_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -177547,7 +177547,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %47, %44, %44, %44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_NULL_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_NULL_SPEC_TMP_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -177661,7 +177661,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %47, %44, %44, %44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_NULL_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_NULL_SPEC_VAR_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -177806,7 +177806,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %63, %60, %60, %60, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_JMP_NULL_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_JMP_NULL_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -177986,7 +177986,7 @@ define internal noundef i32 @ZEND_CHECK_UNDEF_ARGS_SPEC_UNUSED_UNUSED_HANDLER(pt
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call i32 @zend_handle_undef_args(ptr noundef nonnull %3), !range !10
+  %10 = tail call i32 @zend_handle_undef_args(ptr noundef nonnull %3)
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -178142,7 +178142,7 @@ define internal noundef i32 @ZEND_CALLABLE_CONVERT_SPEC_UNUSED_UNUSED_HANDLER(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_BIND_INIT_STATIC_OR_JMP_SPEC_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_BIND_INIT_STATIC_OR_JMP_SPEC_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -179370,7 +179370,7 @@ define internal noundef i32 @ZEND_RECV_NOTYPE_SPEC_HANDLER(ptr nocapture noundef
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  tail call void @zend_missing_arg_error(ptr noundef nonnull %0)
+  tail call void @zend_missing_arg_error(ptr noundef nonnull readonly %0)
   %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
@@ -179550,7 +179550,7 @@ define internal noundef i32 @ZEND_ADD_LONG_SPEC_TMPVARCV_CONST_HANDLER(ptr nound
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   callbr void asm sideeffect "movq\09($1), %rax\0A\09addq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr nonnull %6, ptr %10, i32 4, i64 8) #27
-          to label %22 [label %15], !srcloc !7
+          to label %22 [label %15], !srcloc !6
 
 15:                                               ; preds = %1
   %16 = load i64, ptr %6, align 8
@@ -179588,7 +179588,7 @@ define internal noundef i32 @ZEND_ADD_LONG_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr no
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   callbr void asm sideeffect "movq\09($1), %rax\0A\09addq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr nonnull %6, ptr nonnull %10, i32 4, i64 8) #27
-          to label %22 [label %15], !srcloc !7
+          to label %22 [label %15], !srcloc !6
 
 15:                                               ; preds = %1
   %16 = load i64, ptr %6, align 8
@@ -179771,7 +179771,7 @@ define internal noundef i32 @ZEND_SUB_LONG_SPEC_CONST_TMPVARCV_HANDLER(ptr nound
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr %6, ptr nonnull %10, i32 4, i64 8) #27
-          to label %22 [label %15], !srcloc !8
+          to label %22 [label %15], !srcloc !7
 
 15:                                               ; preds = %1
   %16 = load i64, ptr %6, align 8
@@ -179809,7 +179809,7 @@ define internal noundef i32 @ZEND_SUB_LONG_SPEC_TMPVARCV_CONST_HANDLER(ptr nound
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr nonnull %6, ptr %10, i32 4, i64 8) #27
-          to label %22 [label %15], !srcloc !8
+          to label %22 [label %15], !srcloc !7
 
 15:                                               ; preds = %1
   %16 = load i64, ptr %6, align 8
@@ -179847,7 +179847,7 @@ define internal noundef i32 @ZEND_SUB_LONG_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr no
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr nonnull %6, ptr nonnull %10, i32 4, i64 8) #27
-          to label %22 [label %15], !srcloc !8
+          to label %22 [label %15], !srcloc !7
 
 15:                                               ; preds = %1
   %16 = load i64, ptr %6, align 8
@@ -180176,7 +180176,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_CONST_HANDLER(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -180268,7 +180268,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -180389,7 +180389,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_HANDLER(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -180481,7 +180481,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -180602,7 +180602,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_HANDLER(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -180694,7 +180694,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -180815,7 +180815,7 @@ define internal noundef i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_HANDLER
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -180907,7 +180907,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181028,7 +181028,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_CONST_HANDLER(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181120,7 +181120,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %38, %35, %35, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181241,7 +181241,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_HANDL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181333,7 +181333,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %38, %35, %35, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181454,7 +181454,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_HANDLE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181546,7 +181546,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181667,7 +181667,7 @@ define internal noundef i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_HAN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181759,7 +181759,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -181851,7 +181851,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_NOTHROW_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_NOTHROW_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -182051,7 +182051,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %81, %78, %78, %78, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_IDENTICAL_NOTHROW_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_IDENTICAL_NOTHROW_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -182251,7 +182251,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %81, %78, %78, %78, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_NOTHROW_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_NOTHROW_SPEC_CV_CONST_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -182451,7 +182451,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %81, %78, %78, %78, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_NOT_IDENTICAL_NOTHROW_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_NOT_IDENTICAL_NOTHROW_SPEC_CV_CV_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -182680,7 +182680,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_CONST_TMPVARCV_HANDLER(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_LONG_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -182772,7 +182772,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_LONG_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -182893,7 +182893,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_CONST_HANDLER(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -182985,7 +182985,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183106,7 +183106,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_TMPVARCV_HANDLER
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183198,7 +183198,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183319,7 +183319,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_CONST_TMPVARCV_HANDLER(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183411,7 +183411,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183532,7 +183532,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_CONST_HANDLER(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183624,7 +183624,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183745,7 +183745,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_TMPVARCV_HANDL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183837,7 +183837,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -183958,7 +183958,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_CONST_TMPVARCV_H
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184050,7 +184050,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %38, %35, %35, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184171,7 +184171,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_CONST_H
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184263,7 +184263,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %38, %35, %35, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184384,7 +184384,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_TMPVARC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184476,7 +184476,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %38, %35, %35, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_LONG_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184597,7 +184597,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_CONST_TMPVARCV
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_CONST_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184689,7 +184689,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_CONST_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184810,7 +184810,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -184902,7 +184902,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_CONST_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -185023,7 +185023,7 @@ define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVA
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -185115,7 +185115,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %39, %36, %36, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_IS_SMALLER_OR_EQUAL_DOUBLE_SPEC_TMPVARCV_TMPVARCV_JMPNZ_HANDLER(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -185257,7 +185257,7 @@ define internal noundef i32 @ZEND_PRE_INC_LONG_SPEC_CV_RETVAL_UNUSED_HANDLER(ptr
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %9 [label %7], !srcloc !11
+          to label %9 [label %7], !srcloc !8
 
 7:                                                ; preds = %1
   store double 0x43E0000000000000, ptr %6, align 8
@@ -185282,7 +185282,7 @@ define internal noundef i32 @ZEND_PRE_INC_LONG_SPEC_CV_RETVAL_USED_HANDLER(ptr n
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %._crit_edge [label %7], !srcloc !11
+          to label %._crit_edge [label %7], !srcloc !8
 
 ._crit_edge:                                      ; preds = %1
   %.pre = load ptr, ptr %6, align 8
@@ -185365,7 +185365,7 @@ define internal noundef i32 @ZEND_PRE_DEC_LONG_SPEC_CV_RETVAL_UNUSED_HANDLER(ptr
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %9 [label %7], !srcloc !12
+          to label %9 [label %7], !srcloc !9
 
 7:                                                ; preds = %1
   store double 0xC3E0000000000000, ptr %6, align 8
@@ -185390,7 +185390,7 @@ define internal noundef i32 @ZEND_PRE_DEC_LONG_SPEC_CV_RETVAL_USED_HANDLER(ptr n
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %._crit_edge [label %7], !srcloc !12
+          to label %._crit_edge [label %7], !srcloc !9
 
 ._crit_edge:                                      ; preds = %1
   %.pre = load ptr, ptr %6, align 8
@@ -185464,7 +185464,7 @@ define internal noundef i32 @ZEND_POST_INC_LONG_SPEC_CV_HANDLER(ptr noundef %0) 
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 4, ptr %12, align 8
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %15 [label %13], !srcloc !11
+          to label %15 [label %13], !srcloc !8
 
 13:                                               ; preds = %1
   store double 0x43E0000000000000, ptr %6, align 8
@@ -185523,7 +185523,7 @@ define internal noundef i32 @ZEND_POST_DEC_LONG_SPEC_CV_HANDLER(ptr noundef %0) 
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 4, ptr %12, align 8
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #27
-          to label %15 [label %13], !srcloc !12
+          to label %15 [label %13], !srcloc !9
 
 13:                                               ; preds = %1
   store double 0xC3E0000000000000, ptr %6, align 8
@@ -186954,7 +186954,7 @@ zend_cannot_pass_by_ref_helper_SPEC.exit:         ; preds = %18, %22, %29, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_FETCH_R_SIMPLE_SPEC_VAR_CV_RETVAL_UNUSED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_FETCH_R_SIMPLE_SPEC_VAR_CV_RETVAL_UNUSED_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -187412,7 +187412,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %81, %78, %78, %78, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_FE_FETCH_R_SIMPLE_SPEC_VAR_CV_RETVAL_USED_HANDLER(ptr noundef %0) #1 {
+define internal range(i32 0, 2) i32 @ZEND_FE_FETCH_R_SIMPLE_SPEC_VAR_CV_RETVAL_USED_HANDLER(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -188997,7 +188997,7 @@ define dso_local i32 @zend_vm_call_opcode_handler(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @zend_set_user_opcode_handler(i8 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 -1, 1) i32 @zend_set_user_opcode_handler(i8 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq i8 %0, -106
   br i1 %.not, label %8, label %3
 
@@ -189566,7 +189566,7 @@ declare ptr @zend_hash_index_lookup(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @zend_hash_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @slow_index_convert(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 1, 7) i8 @slow_index_convert(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %101 [
@@ -189782,7 +189782,7 @@ _zval_undefined_op2.exit:                         ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 1, 7) i8 @slow_index_convert_w(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %101 [
@@ -191220,7 +191220,7 @@ declare zeroext i1 @zend_object_is_true(ptr noundef) local_unnamed_addr #3
 declare i32 @boolean_xor_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_is_equal_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @zend_is_equal_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -191517,7 +191517,7 @@ declare zeroext i1 @zendi_smart_streq(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @zend_compare(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_is_not_equal_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @zend_is_not_equal_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -191810,7 +191810,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %134, %131, %131, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_is_smaller_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @zend_is_smaller_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -192103,7 +192103,7 @@ zend_interrupt_helper_SPEC.exit:                  ; preds = %135, %132, %132, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @zend_is_smaller_or_equal_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -192453,7 +192453,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_W_CONST(ptr nound
   br label %5
 
 28:                                               ; preds = %5
-  %29 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %4, ptr noundef %2), !range !6
+  %29 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %4, ptr noundef %2)
   switch i8 %29, label %30 [
     i8 6, label %.loopexit93
     i8 4, label %.loopexit
@@ -193114,7 +193114,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_W(ptr noundef %0,
   br label %6
 
 48:                                               ; preds = %6
-  %49 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %5, ptr noundef %2), !range !6
+  %49 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %5, ptr noundef %2)
   switch i8 %49, label %54 [
     i8 6, label %50
     i8 4, label %52
@@ -193413,7 +193413,7 @@ declare void @rebuild_object_properties(ptr noundef) local_unnamed_addr #3
 declare ptr @zval_get_string_func(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_fetch_static_property_address_ex(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @zend_fetch_static_property_address_ex(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 29
   %9 = load i8, ptr %8, align 1
@@ -193544,12 +193544,12 @@ define internal fastcc noundef i32 @zend_fetch_static_property_address_ex(ptr no
   br i1 %80, label %81, label %148
 
 81:                                               ; preds = %74
-  %82 = getelementptr i8, ptr %78, i64 8
+  %82 = getelementptr inbounds i8, ptr %78, i64 8
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr %0, align 8
   %84 = load ptr, ptr %75, align 8
-  %85 = getelementptr i8, ptr %84, i64 %77
-  %86 = getelementptr i8, ptr %85, i64 16
+  %85 = getelementptr inbounds i8, ptr %84, i64 %77
+  %86 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
   store ptr %87, ptr %1, align 8
   br label %176
@@ -193718,8 +193718,8 @@ zval_undefined_cv.exit.thread:                    ; preds = %105, %zval_undefine
   store ptr %170, ptr %171, align 8
   %172 = load ptr, ptr %7, align 8
   %173 = load ptr, ptr %166, align 8
-  %174 = getelementptr i8, ptr %173, i64 %168
-  %175 = getelementptr i8, ptr %174, i64 16
+  %174 = getelementptr inbounds i8, ptr %173, i64 %168
+  %175 = getelementptr inbounds i8, ptr %174, i64 16
   store ptr %172, ptr %175, align 8
   br label %176
 
@@ -194099,7 +194099,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_RW_CONST(ptr noun
   br label %5
 
 51:                                               ; preds = %5
-  %52 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %4, ptr noundef %2), !range !6
+  %52 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %4, ptr noundef %2)
   switch i8 %52, label %zend_undefined_offset_write.exit [
     i8 6, label %.loopexit93
     i8 4, label %.loopexit
@@ -194541,7 +194541,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_RW(ptr noundef %0
   br label %6
 
 73:                                               ; preds = %6
-  %74 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %5, ptr noundef %2), !range !6
+  %74 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %5, ptr noundef %2)
   switch i8 %74, label %zend_undefined_offset_write.exit [
     i8 6, label %75
     i8 4, label %77
@@ -194654,7 +194654,7 @@ zend_verify_scalar_type_hint.exit.i:              ; preds = %46, %49
   br label %58
 
 57:                                               ; preds = %zend_verify_scalar_type_hint.exit.i, %49, %46
-  call void @zend_verify_property_type_error(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  call void @zend_verify_property_type_error(ptr noundef nonnull readonly %0, ptr noundef nonnull %5)
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #27
   br label %58
 
@@ -195087,7 +195087,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
   br i1 %.not77.i, label %162, label %160
 
 160:                                              ; preds = %156
-  %161 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %129, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %149, ptr noundef nonnull %7)
+  %161 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %129, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %149, ptr noundef nonnull writeonly %7)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 162:                                              ; preds = %156
@@ -195268,7 +195268,7 @@ zend_wrong_assign_to_variable_reference.exit:     ; preds = %201, %190, %168, %1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @zend_assign_to_typed_property_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 %.24.val.4.val) unnamed_addr #1 {
   %5 = icmp slt i32 %.24.val.4.val, 0
-  %6 = tail call noundef zeroext i1 @zend_verify_prop_assignable_by_ref_ex(ptr noundef %0, ptr noundef %2, i1 noundef zeroext %5, i32 noundef 0)
+  %6 = tail call noundef zeroext i1 @zend_verify_prop_assignable_by_ref_ex(ptr noundef readonly %0, ptr noundef %2, i1 noundef zeroext %5, i32 noundef 0)
   br i1 %6, label %7, label %109
 
 7:                                                ; preds = %4
@@ -195687,7 +195687,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_var(ptr nound
   br i1 %.not77.i, label %114, label %112
 
 112:                                              ; preds = %108
-  %113 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %80, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %101, ptr noundef nonnull %7)
+  %113 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %80, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %101, ptr noundef nonnull writeonly %7)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 114:                                              ; preds = %108
@@ -196176,7 +196176,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_const(ptr %.
   br i1 %.not77.i, label %147, label %145
 
 145:                                              ; preds = %141
-  %146 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %114, ptr noundef nonnull %1, i8 noundef zeroext 2, i1 noundef zeroext %134, ptr noundef nonnull %6)
+  %146 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %114, ptr noundef nonnull %1, i8 noundef zeroext 2, i1 noundef zeroext %134, ptr noundef nonnull writeonly %6)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 147:                                              ; preds = %141
@@ -196532,7 +196532,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_var(ptr noca
   br i1 %.not77.i, label %102, label %100
 
 100:                                              ; preds = %96
-  %101 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %68, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %89, ptr noundef nonnull %7)
+  %101 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %68, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %89, ptr noundef nonnull writeonly %7)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 102:                                              ; preds = %96
@@ -197382,11 +197382,11 @@ define internal fastcc void @zend_pre_incdec_property_zval(ptr noundef %0, ptr n
 
 12:                                               ; preds = %7
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #27
-          to label %14 [label %.sink.split], !srcloc !11
+          to label %14 [label %.sink.split], !srcloc !8
 
 13:                                               ; preds = %7
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #27
-          to label %14 [label %.sink.split], !srcloc !12
+          to label %14 [label %.sink.split], !srcloc !9
 
 .sink.split:                                      ; preds = %13, %12
   %.sink = phi double [ 0x43E0000000000000, %12 ], [ 0xC3E0000000000000, %13 ]
@@ -197409,7 +197409,7 @@ define internal fastcc void @zend_pre_incdec_property_zval(ptr noundef %0, ptr n
   br i1 %.not56, label %22, label %41
 
 22:                                               ; preds = %18
-  %23 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %1, ptr noundef nonnull %2), !range !14
+  %23 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %1, ptr noundef nonnull %2)
   store i64 %23, ptr %0, align 8
   store i32 4, ptr %5, align 8
   br label %41
@@ -197483,7 +197483,7 @@ define internal fastcc void @zend_pre_incdec_property_zval(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @zend_throw_incdec_prop_error(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc range(i64 9223372036854775807, -9223372036854775807) i64 @zend_throw_incdec_prop_error(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -197630,7 +197630,7 @@ define internal fastcc void @zend_incdec_typed_prop(ptr nocapture noundef readon
   br i1 %.not40, label %33, label %75
 
 33:                                               ; preds = %29
-  %34 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %0, ptr noundef nonnull %3), !range !14
+  %34 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %0, ptr noundef nonnull %3)
   store i64 %34, ptr %1, align 8
   store i32 4, ptr %8, align 8
   br label %75
@@ -197698,7 +197698,7 @@ zend_verify_scalar_type_hint.exit.i:              ; preds = %65, %63
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %zend_verify_scalar_type_hint.exit.i, %65, %63, %61
-  tail call void @zend_verify_property_type_error(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call void @zend_verify_property_type_error(ptr noundef nonnull readonly %0, ptr noundef nonnull %1)
   tail call void @zval_ptr_dtor(ptr noundef nonnull %1) #27
   %70 = load ptr, ptr %spec.store.select, align 8
   %71 = load i32, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
@@ -197745,11 +197745,11 @@ define internal fastcc void @zend_post_incdec_property_zval(ptr noundef %0, ptr 
 
 18:                                               ; preds = %7
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0) #27
-          to label %20 [label %.sink.split], !srcloc !11
+          to label %20 [label %.sink.split], !srcloc !8
 
 19:                                               ; preds = %7
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0) #27
-          to label %20 [label %.sink.split], !srcloc !12
+          to label %20 [label %.sink.split], !srcloc !9
 
 .sink.split:                                      ; preds = %19, %18
   %.sink = phi double [ 0x43E0000000000000, %18 ], [ 0xC3E0000000000000, %19 ]
@@ -197772,7 +197772,7 @@ define internal fastcc void @zend_post_incdec_property_zval(ptr noundef %0, ptr 
   br i1 %.not64, label %28, label %64
 
 28:                                               ; preds = %24
-  %29 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %1, ptr noundef nonnull %2), !range !14
+  %29 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %1, ptr noundef nonnull %2)
   store i64 %29, ptr %0, align 8
   store i32 4, ptr %5, align 8
   br label %64
@@ -197843,7 +197843,7 @@ define internal fastcc void @zend_post_incdec_property_zval(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_case_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @zend_case_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -198128,7 +198128,7 @@ declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @zend_observer_fcall_end(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_leave_helper_SPEC(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 3) i32 @zend_leave_helper_SPEC(ptr noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -201258,7 +201258,7 @@ define internal fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %0,
   br label %15
 
 64:                                               ; preds = %15
-  %65 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %14, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3), !range !6
+  %65 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %14, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3)
   switch i8 %65, label %70 [
     i8 6, label %66
     i8 4, label %68
@@ -201894,7 +201894,7 @@ define internal fastcc void @zend_fetch_dimension_address_W(ptr nocapture nounde
   br label %.preheader
 
 73:                                               ; preds = %.preheader
-  %74 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3), !range !6
+  %74 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3)
   switch i8 %74, label %.thread [
     i8 6, label %75
     i8 4, label %77
@@ -202432,7 +202432,7 @@ define internal fastcc void @zend_fetch_dimension_address_RW(ptr nocapture nound
   br label %.preheader
 
 98:                                               ; preds = %.preheader
-  %99 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3), !range !6
+  %99 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3)
   switch i8 %99, label %zend_undefined_offset_write.exit.thread [
     i8 6, label %100
     i8 4, label %102
@@ -202907,7 +202907,7 @@ define internal fastcc void @zend_fetch_dimension_address_read_IS(ptr nocapture 
   br label %15
 
 60:                                               ; preds = %15
-  %61 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %14, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3), !range !6
+  %61 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %14, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3)
   switch i8 %61, label %66 [
     i8 6, label %62
     i8 4, label %64
@@ -203488,7 +203488,7 @@ define internal fastcc void @zend_fetch_dimension_address_UNSET(ptr nocapture no
   br label %.preheader
 
 76:                                               ; preds = %.preheader
-  %77 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3), !range !6
+  %77 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3)
   switch i8 %77, label %82 [
     i8 6, label %78
     i8 4, label %80
@@ -203952,7 +203952,7 @@ define internal fastcc void @zend_fetch_dimension_address_LIST_r(ptr nocapture n
   br label %13
 
 62:                                               ; preds = %13
-  %63 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %12, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3), !range !6
+  %63 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %12, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3)
   switch i8 %63, label %68 [
     i8 6, label %64
     i8 4, label %66
@@ -206164,7 +206164,7 @@ declare void @zend_hash_extend(ptr noundef, i32 noundef, i1 noundef zeroext) loc
 declare void @zend_iterator_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_dispatch_try_catch_finally_helper_SPEC(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 3) i32 @zend_dispatch_try_catch_finally_helper_SPEC(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
   %.not105 = icmp eq i32 %0, -1
   br i1 %.not105, label %._crit_edge, label %.lr.ph
 
@@ -206493,7 +206493,7 @@ split:                                            ; preds = %split.loopexit, %._
   br label %164
 
 164:                                              ; preds = %162, %161
-  %165 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %2), !range !13
+  %165 = tail call fastcc i32 @zend_leave_helper_SPEC(ptr noundef nonnull %2)
   br label %zend_interrupt_helper_SPEC.exit
 
 zend_interrupt_helper_SPEC.exit:                  ; preds = %94, %91, %91, %91, %91, %87, %85, %83, %81, %41, %38, %38, %38, %38, %34, %32, %30, %28, %split, %16, %164, %158
@@ -206655,10 +206655,10 @@ define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef %0, 
   br i1 %.not, label %50, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr i8, ptr %24, i64 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %6, align 8
-  %29 = getelementptr i8, ptr %24, i64 16
+  %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %5, align 8
   %31 = and i32 %0, -3
@@ -206692,7 +206692,7 @@ define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef %0, 
   br label %.critedge
 
 50:                                               ; preds = %17, %14, %20, %2
-  %51 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %10, i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1), !range !10
+  %51 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %10, i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1)
   %.not72 = icmp eq i32 %51, 0
   br i1 %.not72, label %52, label %.critedge
 
@@ -207131,12 +207131,7 @@ attributes #30 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{}
-!6 = !{i8 1, i8 7}
-!7 = !{i64 2818711, i64 2818730, i64 2818757, i64 2818776, i64 2818803}
-!8 = !{i64 2821361, i64 2821380, i64 2821407, i64 2821426, i64 2821453}
-!9 = !{i32 0, i32 2}
-!10 = !{i32 -1, i32 1}
-!11 = !{i64 2815155, i64 2815170}
-!12 = !{i64 2816818, i64 2816833}
-!13 = !{i32 -1, i32 3}
-!14 = !{i64 9223372036854775807, i64 -9223372036854775807}
+!6 = !{i64 2818711, i64 2818730, i64 2818757, i64 2818776, i64 2818803}
+!7 = !{i64 2821361, i64 2821380, i64 2821407, i64 2821426, i64 2821453}
+!8 = !{i64 2815155, i64 2815170}
+!9 = !{i64 2816818, i64 2816833}

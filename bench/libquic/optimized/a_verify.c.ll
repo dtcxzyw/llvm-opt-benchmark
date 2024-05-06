@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/a_verify.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_item_verify(ptr noundef %it, ptr noundef %a, ptr nocapture noundef readonly %signature, ptr noundef %asn, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_item_verify(ptr noundef %it, ptr noundef %a, ptr nocapture noundef readonly %signature, ptr noundef %asn, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %buf_in = alloca ptr, align 8

@@ -37,7 +37,7 @@ define noundef ptr @gvContextPlugins(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gvLayout(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @gvLayout(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = tail call i32 @gvlayout_select(ptr noundef %0, ptr noundef %2) #8
   %6 = icmp eq i32 %5, 999

@@ -112,7 +112,7 @@ _ZN10tokio_util4sync18cancellation_token9tree_node8TreeNode3new17hb337ed5d1fb84f
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 1, ptr %12, align 8, !noalias !8
   %13 = getelementptr inbounds i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull readonly align 8 dereferenceable(96) %4, i64 96, i1 false)
   %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11
   %15 = tail call noundef align 8 dereferenceable_or_null(112) ptr @__rust_alloc(i64 noundef 112, i64 noundef 8) #14, !noalias !11
   %16 = icmp eq ptr %15, null
@@ -209,7 +209,7 @@ _ZN10tokio_util4sync18cancellation_token30WaitForCancellationFutureOwned3new17h3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !14
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, i64 64, i1 false)
   store ptr %1, ptr %0, align 8, !alias.scope !14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

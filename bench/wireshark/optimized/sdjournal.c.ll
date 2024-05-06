@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.57 = private unnamed_addr constant [22 x i8] c"Can't write event: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -243,7 +243,7 @@ list_config.exit:                                 ; preds = %57, %60, %61
 66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %51, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = call fastcc i32 @sdj_start_export(i32 noundef %.0.ph, i1 noundef zeroext %.027.ph, ptr noundef %68), !range !7
+  %69 = call fastcc i32 @sdj_start_export(i32 noundef %.0.ph, i1 noundef zeroext %.027.ph, ptr noundef %68)
   br label %70
 
 70:                                               ; preds = %63, %48, %66, %list_config.exit, %42, %26, %19, %18, %16
@@ -299,7 +299,7 @@ declare void @extcap_cmdline_debug(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i8 @extcap_base_handle_interface(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sdj_start_export(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -479,7 +479,7 @@ define internal fastcc noundef i32 @sdj_start_export(i32 noundef %0, i1 noundef 
 .backedge.i:                                      ; preds = %203, %98
   %.077.be.i = phi i32 [ 0, %98 ], [ %122, %203 ]
   %100 = icmp eq i32 %.077.be.i, 0
-  br i1 %100, label %91, label %sdj_dump_entries.exit.thread, !llvm.loop !8
+  br i1 %100, label %91, label %sdj_dump_entries.exit.thread, !llvm.loop !7
 
 101:                                              ; preds = %96
   %102 = call i32 @sd_journal_get_cursor(ptr noundef %85, ptr noundef nonnull %4) #14
@@ -616,7 +616,7 @@ define internal fastcc noundef i32 @sdj_start_export(i32 noundef %0, i1 noundef 
   %.1.i = phi i32 [ %159, %151 ], [ %187, %164 ]
   %189 = call i32 @sd_journal_enumerate_available_data(ptr noundef %85, ptr noundef nonnull %9, ptr noundef nonnull %10) #14
   %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %190, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %188, %160, %147, %126
   %.078.lcssa.i = phi i32 [ %137, %126 ], [ %.1.i, %188 ], [ %.078109.i, %147 ], [ %.078109.i, %160 ]
@@ -820,6 +820,5 @@ attributes #16 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

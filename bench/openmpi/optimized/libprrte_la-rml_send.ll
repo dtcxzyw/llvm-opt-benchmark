@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_rml_send_buffer_nb(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @prte_rml_send_buffer_nb(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @prte_rml_base, align 8
   %or.cond = icmp ult i32 %4, 64
   br i1 %or.cond, label %5, label %13

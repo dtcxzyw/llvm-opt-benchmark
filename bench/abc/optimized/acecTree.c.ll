@@ -2938,8 +2938,8 @@ Vec_WecPushLevel.exit:                            ; preds = %.Vec_WecGrow.exit12
 
 Acec_TreeWhichPoint.exit.i:                       ; preds = %96, %.split.loop.exit10.i.i
   %.07.i.i = phi i32 [ %99, %.split.loop.exit10.i.i ], [ 0, %96 ]
-  tail call void @Acec_TreeFindTrees2_rec(ptr noundef %1, ptr noundef %10, i32 noundef %85, i32 noundef %.07.i.i, ptr noundef nonnull %83, ptr noundef nonnull %18) #25
-  tail call void @Acec_TreeFindTrees2_rec(ptr noundef %1, ptr noundef %10, i32 noundef %86, i32 noundef 0, ptr noundef nonnull %83, ptr noundef nonnull %18) #25
+  tail call void @Acec_TreeFindTrees2_rec(ptr noundef readonly %1, ptr noundef readonly %10, i32 noundef %85, i32 noundef %.07.i.i, ptr noundef nonnull %83, ptr noundef nonnull readonly %18) #25
+  tail call void @Acec_TreeFindTrees2_rec(ptr noundef readonly %1, ptr noundef readonly %10, i32 noundef %86, i32 noundef 0, ptr noundef nonnull %83, ptr noundef nonnull readonly %18) #25
   br label %Acec_TreeFindTrees_rec.exit
 
 Acec_TreeFindTrees_rec.exit:                      ; preds = %Vec_WecPushLevel.exit, %Acec_TreeWhichPoint.exit.i
@@ -3038,7 +3038,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_BitFree.exit, %
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %130 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val77.pre108, i64 %indvars.iv.i
-  tail call void @Acec_TreeFilterOne2(ptr noundef %0, ptr noundef %1, ptr noundef %130)
+  tail call void @Acec_TreeFilterOne2(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %130)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %129
   br i1 %exitcond.not, label %Acec_TreeFilterTrees2.exit, label %.lr.ph.i, !llvm.loop !17
@@ -3064,7 +3064,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_BitFree.exit, %
 .lr.ph.i81:                                       ; preds = %.lr.ph.i81.preheader, %.lr.ph.i81
   %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.i81 ], [ 0, %.lr.ph.i81.preheader ]
   %135 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val77.pre107, i64 %indvars.iv.i82
-  tail call void @Acec_TreeFilterOne(ptr noundef %0, ptr noundef %1, ptr noundef %135)
+  tail call void @Acec_TreeFilterOne(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %135)
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next.i84, %134
   br i1 %exitcond105.not, label %Acec_TreeFilterTrees2.exit, label %.lr.ph.i81, !llvm.loop !12
@@ -3971,7 +3971,7 @@ Acec_TreeCarryMap.exit:                           ; preds = %.critedge2.i
   %.val17.i = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i32, ptr %.val17.i, i64 %indvars.iv.i218
   %211 = load i32, ptr %210, align 4
-  tail call void @Acec_TreeVerifyPhaseOne(ptr noundef %0, ptr noundef %1, i32 noundef %211)
+  tail call void @Acec_TreeVerifyPhaseOne(ptr noundef %0, ptr noundef readonly %1, i32 noundef %211)
   %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i218, 1
   %.val16.i = load i32, ptr %206, align 4
   %212 = sext i32 %.val16.i to i64

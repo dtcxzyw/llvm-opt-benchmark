@@ -173,7 +173,7 @@ entry:
   %arrayidx = getelementptr inbounds double, ptr %data, i64 %idxprom
   %0 = load double, ptr %arrayidx, align 8
   %mul7 = fmul double %sub6, %0
-  %arrayidx9 = getelementptr i8, ptr %arrayidx, i64 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load double, ptr %arrayidx9, align 8
   %mul10 = fmul double %sub5, %1
   %add11 = fadd double %mul7, %mul10
@@ -181,7 +181,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_Z12LUPDecomposePPdidPi(ptr nocapture noundef %A, i32 noundef %N, double noundef %Tol, ptr nocapture noundef %P) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr nocapture noundef %A, i32 noundef %N, double noundef %Tol, ptr nocapture noundef %P) local_unnamed_addr #4 {
 entry:
   %cmp.not57 = icmp slt i32 %N, 0
   br i1 %cmp.not57, label %return, label %for.body.preheader
@@ -644,7 +644,7 @@ for.body:                                         ; preds = %sw.epilog, %for.inc
   %arrayidx.i = getelementptr inbounds double, ptr @_ZL5cie_x, i64 %idxprom.i
   %2 = load double, ptr %arrayidx.i, align 8
   %mul7.i = fmul double %sub6.i, %2
-  %arrayidx9.i = getelementptr i8, ptr %arrayidx.i, i64 8
+  %arrayidx9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %3 = load double, ptr %arrayidx9.i, align 8
   %mul10.i = fmul double %sub5.i, %3
   %add11.i = fadd double %mul7.i, %mul10.i
@@ -652,7 +652,7 @@ for.body:                                         ; preds = %sw.epilog, %for.inc
   %arrayidx.i35 = getelementptr inbounds double, ptr @_ZL5cie_y, i64 %idxprom.i
   %4 = load double, ptr %arrayidx.i35, align 8
   %mul7.i36 = fmul double %sub6.i, %4
-  %arrayidx9.i37 = getelementptr i8, ptr %arrayidx.i35, i64 8
+  %arrayidx9.i37 = getelementptr inbounds i8, ptr %arrayidx.i35, i64 8
   %5 = load double, ptr %arrayidx9.i37, align 8
   %mul10.i38 = fmul double %sub5.i, %5
   %add11.i39 = fadd double %mul7.i36, %mul10.i38
@@ -660,7 +660,7 @@ for.body:                                         ; preds = %sw.epilog, %for.inc
   %arrayidx.i49 = getelementptr inbounds double, ptr @_ZL5cie_z, i64 %idxprom.i
   %6 = load double, ptr %arrayidx.i49, align 8
   %mul7.i50 = fmul double %sub6.i, %6
-  %arrayidx9.i51 = getelementptr i8, ptr %arrayidx.i49, i64 8
+  %arrayidx9.i51 = getelementptr inbounds i8, ptr %arrayidx.i49, i64 8
   %7 = load double, ptr %arrayidx9.i51, align 8
   %mul10.i52 = fmul double %sub5.i, %7
   %add11.i53 = fadd double %mul7.i50, %mul10.i52
@@ -668,7 +668,7 @@ for.body:                                         ; preds = %sw.epilog, %for.inc
   %arrayidx.i63 = getelementptr inbounds double, ptr %illuminant.0, i64 %idxprom.i
   %8 = load double, ptr %arrayidx.i63, align 8
   %mul7.i64 = fmul double %sub6.i, %8
-  %arrayidx9.i65 = getelementptr i8, ptr %arrayidx.i63, i64 8
+  %arrayidx9.i65 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 8
   %9 = load double, ptr %arrayidx9.i65, align 8
   %mul10.i66 = fmul double %sub5.i, %9
   %add11.i67 = fadd double %mul7.i64, %mul10.i66
@@ -904,7 +904,7 @@ for.inc21.i:                                      ; preds = %for.body9.i
 
 for.end23.i:                                      ; preds = %for.inc21.i
   call void @_Z7cie_labPd(ptr noundef nonnull %out.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %r0, ptr noundef nonnull align 8 dereferenceable(24) %rgb, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %r0, ptr noundef nonnull readonly align 8 dereferenceable(24) %rgb, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %r0)
   br label %for.body27.i
 
@@ -978,7 +978,7 @@ for.inc21.i40:                                    ; preds = %for.body9.i32
 
 for.end23.i43:                                    ; preds = %for.inc21.i40
   call void @_Z7cie_labPd(ptr noundef nonnull %out.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %r1, ptr noundef nonnull align 8 dereferenceable(24) %rgb, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %r1, ptr noundef nonnull readonly align 8 dereferenceable(24) %rgb, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %r1)
   br label %for.body27.i44
 
@@ -1102,7 +1102,7 @@ for.inc21.i:                                      ; preds = %for.body9.i
 
 for.end23.i:                                      ; preds = %for.inc21.i
   call void @_Z7cie_labPd(ptr noundef nonnull %out.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %residual, ptr noundef nonnull align 8 dereferenceable(24) %rgb, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %residual, ptr noundef nonnull readonly align 8 dereferenceable(24) %rgb, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %residual)
   br label %for.body27.i
 
@@ -2355,37 +2355,37 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 24
   %0 = load ptr, ptr %arrayidx, align 8
-  %call.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.24) #36
+  %call.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.24) #36
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end9, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
-  %call1.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.25) #36
+  %call1.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.25) #36
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end9, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.26) #36
+  %call5.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.26) #36
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end9, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %call9.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.27) #36
+  %call9.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.27) #36
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end9, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  %call13.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.28) #36
+  %call13.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.28) #36
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %if.end9, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %call17.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.29) #36
+  %call17.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.29) #36
   %tobool18.not.i = icmp eq i32 %call17.i, 0
   br i1 %tobool18.not.i, label %if.end9, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
-  %call21.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.30) #36
+  %call21.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.30) #36
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.end9, label %if.then6
 
@@ -3210,7 +3210,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

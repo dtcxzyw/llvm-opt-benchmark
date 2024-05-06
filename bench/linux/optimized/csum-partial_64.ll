@@ -130,7 +130,7 @@ define dso_local i32 @csum_partial(ptr noundef %0, i32 noundef %1, i32 noundef %
 86:                                               ; preds = %82, %39
   %87 = phi i64 [ %85, %82 ], [ %41, %39 ]
   %88 = lshr i64 %87, 32
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw i64 %88 to i32
   ret i32 %89
 }
 
@@ -142,7 +142,7 @@ define dso_local zeroext i16 @ip_compute_csum(ptr noundef %0, i32 noundef %1) #0
   %6 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %4, i32 %5) #3, !srcloc !16
   %7 = xor i32 %6, -1
   %8 = lshr i32 %7, 16
-  %9 = trunc i32 %8 to i16
+  %9 = trunc nuw i32 %8 to i16
   ret i16 %9
 }
 

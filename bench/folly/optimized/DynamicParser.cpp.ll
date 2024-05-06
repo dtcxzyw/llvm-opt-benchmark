@@ -2652,7 +2652,7 @@ if.then.i19.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont95:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i238, align 1, !tbaa !42
   %control_.i.i240 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %27 = load i8, ptr %control_.i.i240, align 2, !tbaa !126
@@ -3590,7 +3590,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !42
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 

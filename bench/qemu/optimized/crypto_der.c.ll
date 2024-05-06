@@ -15,14 +15,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [28 x i8] c"Invalid content length: %zu\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_der_decode_int(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_int(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 2, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 2, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext %expected_tag, ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef readonly %cb, ptr noundef %ctx, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @qcrypto_der_decode_tlv(i8 noundef zeroext %expected_tag, ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef readonly %cb, ptr noundef %ctx, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %dlen, align 8
@@ -141,7 +141,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
   %conv30.i.i = zext i8 %data.val.val.i40.i.i to i64
   %add.i.i = or disjoint i64 %shl.i.i, %conv30.i.i
   %tobool28.not.i.i = icmp eq i8 %dec.i.i, 0
-  br i1 %tobool28.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !6
+  br i1 %tobool28.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !5
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %cmp31.i.i = icmp ugt i64 %add.i.i, %sub.i.i42.i.i
@@ -187,39 +187,39 @@ return:                                           ; preds = %qcrypto_der_invoke_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_der_decode_seq(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_seq(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 48, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 48, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_der_decode_octet_str(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_octet_str(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 4, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 4, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_der_decode_bit_str(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_bit_str(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 3, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 3, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_der_decode_oid(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_oid(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 6, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 6, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_der_decode_ctx_tag(ptr nocapture noundef %data, ptr nocapture noundef %dlen, i32 noundef %tag_id, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_ctx_tag(ptr nocapture noundef %data, ptr nocapture noundef %dlen, i32 noundef %tag_id, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = trunc i32 %tag_id to i8
   %conv = or i8 %0, -96
-  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext %conv, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext %conv, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
@@ -275,7 +275,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %add.i.i = mul i64 %max_length.016.i.i, 257
   %inc.i.i = add i8 %length_bytes.017.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %1
-  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !8
+  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
 if.end.i.loopexit.i:                              ; preds = %for.body.i.i
   %2 = zext i8 %inc.i.i to i64
@@ -322,7 +322,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %add.i.i = mul i64 %max_length.016.i.i, 257
   %inc.i.i = add i8 %length_bytes.017.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %src_len
-  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !8
+  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
 if.end.i.loopexit.i:                              ; preds = %for.body.i.i
   %1 = zext i8 %inc.i.i to i64
@@ -370,7 +370,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %add.i.i = mul i64 %max_length.016.i.i, 257
   %inc.i.i = add i8 %length_bytes.017.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %src_len
-  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !8
+  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
 if.end.i.loopexit.i:                              ; preds = %for.body.i.i
   %1 = zext i8 %inc.i.i to i64
@@ -441,7 +441,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %add.i.i = mul i64 %max_length.016.i.i, 257
   %inc.i.i = add i8 %length_bytes.017.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %src_len
-  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !8
+  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
 if.end.i.loopexit.i:                              ; preds = %for.body.i.i
   %1 = zext i8 %inc.i.i to i64
@@ -501,7 +501,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %add.i.i = mul i64 %max_length.016.i.i, 257
   %inc.i.i = add i8 %length_bytes.017.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %1
-  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !8
+  br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
 if.end.i.loopexit.i:                              ; preds = %for.body.i.i
   %2 = zext i8 %inc.i.i to i64
@@ -562,7 +562,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %add.i = mul i64 %max_length.016.i, 257
   %inc.i = add i8 %length_bytes.017.i, 1
   %cmp1.i = icmp ult i64 %add.i, %4
-  br i1 %cmp1.i, label %for.body.i, label %if.end.i, !llvm.loop !8
+  br i1 %cmp1.i, label %for.body.i, label %if.end.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %for.body.i
   %conv3.i = zext i8 %inc.i to i64
@@ -583,7 +583,7 @@ if.end.thread.i:                                  ; preds = %land.rhs
   br i1 %tobool.not25.i, label %qcrypto_der_encode_length.exit, label %if.end9.thread.i
 
 if.end9.thread.i:                                 ; preds = %if.end.thread.i
-  %conv.i = trunc i64 %4 to i8
+  %conv.i = trunc nuw nsw i64 %4 to i8
   store i8 %conv.i, ptr %incdec.ptr, align 1
   br label %qcrypto_der_encode_length.exit
 
@@ -611,7 +611,7 @@ for.body14.i:                                     ; preds = %for.body14.i, %for.
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %5 = and i64 %indvars.iv.next.i, 255
   %cmp12.not.i = icmp eq i64 %5, 0
-  br i1 %cmp12.not.i, label %qcrypto_der_encode_length.exit, label %for.body14.i, !llvm.loop !9
+  br i1 %cmp12.not.i, label %qcrypto_der_encode_length.exit, label %for.body14.i, !llvm.loop !8
 
 qcrypto_der_encode_length.exit:                   ; preds = %for.body14.i, %if.end.i.thread, %if.end.i, %if.end.thread.i, %if.end9.thread.i, %if.end9.i
   %len.0 = phi i64 [ 1, %if.end.thread.i ], [ 1, %if.end9.thread.i ], [ %add6.i, %if.end.i ], [ %add6.i, %if.end9.i ], [ 2, %if.end.i.thread ], [ %add6.i2127, %for.body14.i ]
@@ -633,7 +633,7 @@ if.end:                                           ; preds = %if.then, %qcrypto_d
   tail call void @g_free(ptr noundef nonnull %1) #7
   %9 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %9, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !10
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end, %entry
   tail call void @g_free(ptr noundef nonnull %ctx) #7
@@ -667,9 +667,8 @@ attributes #8 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 -2147483648}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

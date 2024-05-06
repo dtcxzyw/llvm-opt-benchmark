@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbvox_get_uniform_info(ptr nocapture noundef writeonly %info, i32 noundef %uniform) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbvox_get_uniform_info(ptr nocapture noundef writeonly %info, i32 noundef %uniform) local_unnamed_addr #2 {
 entry:
   %or.cond = icmp ugt i32 %uniform, 8
   br i1 %or.cond, label %return, label %if.end
@@ -2922,7 +2922,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbvox_make_mesh(ptr noundef %mm) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbvox_make_mesh(ptr noundef %mm) local_unnamed_addr #7 {
 entry:
   %config_dirty.i = getelementptr inbounds i8, ptr %mm, i64 388
   %0 = load i32, ptr %config_dirty.i, align 4

@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ev_system_memory_region_setup(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ev_system_memory_region_setup(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = icmp eq i32 %1, 1
   br i1 %6, label %7, label %23
@@ -266,7 +266,7 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i8 @acpi_ev_is_pci_root_bridge(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ev_is_pci_root_bridge(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
@@ -368,7 +368,7 @@ define dso_local noundef i32 @acpi_ev_cmos_region_setup(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ev_data_table_region_setup(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ev_data_table_region_setup(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = icmp eq i32 %1, 1
   br i1 %6, label %7, label %11
@@ -421,7 +421,7 @@ define dso_local noundef i32 @acpi_ev_default_region_setup(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ev_initialize_region(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_ev_initialize_region(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

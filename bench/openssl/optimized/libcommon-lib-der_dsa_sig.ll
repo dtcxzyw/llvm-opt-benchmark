@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ossl_der_oid_id_dsa_with_sha3_512 = external constant [11 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_DER_w_algorithmIdentifier_DSA_with_MD(ptr noundef %pkt, i32 noundef %tag, ptr nocapture noundef readnone %dsa, i32 noundef %mdnid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_DSA_with_MD(ptr noundef %pkt, i32 noundef %tag, ptr nocapture noundef readnone %dsa, i32 noundef %mdnid) local_unnamed_addr #0 {
 entry:
   switch i32 %mdnid, label %return [
     i32 64, label %sw.epilog

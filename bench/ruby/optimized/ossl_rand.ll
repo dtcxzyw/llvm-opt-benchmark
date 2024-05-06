@@ -214,7 +214,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_num2int_inline.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_rand_status(i64 %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_rand_status(i64 %0) #0 {
   %2 = tail call i32 @RAND_status() #4
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, i64 0, i64 20

@@ -903,17 +903,17 @@ define dso_local ptr @dentry_path(ptr noundef %0, ptr noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_getcwd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getcwd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_getcwd(i64 noundef %3, i64 noundef %5), !range !22
+  %6 = tail call fastcc i64 @__se_sys_getcwd(i64 noundef %3, i64 noundef %5)
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_getcwd(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_getcwd(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.path, align 8
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.prepend_buffer, align 8
@@ -947,17 +947,17 @@ define internal fastcc i64 @__se_sys_getcwd(i64 noundef %0, i64 noundef %1) unna
   %22 = load volatile i32, ptr %15, align 4
   %23 = and i32 %22, 1
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %18
   %25 = phi i32 [ %19, %18 ], [ %22, %.preheader ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef align 8 dereferenceable(16) %16, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %17, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   %26 = load volatile i32, ptr %15, align 4
   %27 = icmp eq i32 %26, %25
-  br i1 %27, label %28, label %18, !llvm.loop !25
+  br i1 %27, label %28, label %18, !llvm.loop !24
 
 28:                                               ; preds = %.loopexit
   %29 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1033,14 +1033,14 @@ define internal fastcc i64 @__se_sys_getcwd(i64 noundef %0, i64 noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_getcwd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getcwd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_getcwd(i64 noundef %4, i64 noundef %7), !range !22
+  %8 = tail call fastcc i64 @__se_sys_getcwd(i64 noundef %4, i64 noundef %7)
   ret i64 %8
 }
 
@@ -1113,7 +1113,6 @@ attributes #10 = { nounwind memory(none) }
 !19 = distinct !{!19, !10, !11}
 !20 = !{!"branch_weights", i32 -2147483648, i32 0}
 !21 = !{!"branch_weights", i32 2146410445, i32 1073203}
-!22 = !{i64 -2147483648, i64 2147483648}
-!23 = distinct !{!23, !10, !11}
-!24 = !{i64 2155695161}
-!25 = distinct !{!25, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = !{i64 2155695161}
+!24 = distinct !{!24, !10, !11}

@@ -50,13 +50,13 @@ if.end29:                                         ; preds = %if.end18
   %spec.select = tail call i8 @llvm.usub.sat.i8(i8 %conv2, i8 1)
   %5 = and i64 %uiA, 32768
   %.lobit = lshr exact i64 %5, 15
-  %frombool = trunc i64 %.lobit to i8
+  %frombool = trunc nuw nsw i64 %.lobit to i8
   %cmp37 = icmp slt i64 %sub19, 0
   %tobool36.not = icmp eq i64 %5, 0
   %frombool41 = zext i1 %tobool36.not to i8
   %sigDiff.0 = tail call i64 @llvm.abs.i64(i64 %sub19, i1 true)
   %signZ.0 = select i1 %cmp37, i8 %frombool41, i8 %frombool
-  %conv44 = trunc i64 %sigDiff.0 to i16
+  %conv44 = trunc nuw nsw i64 %sigDiff.0 to i16
   %cmp.i = icmp ugt i16 %conv44, 255
   %6 = lshr i16 %conv44, 8
   %spec.select.i = select i1 %cmp.i, i16 %6, i16 %conv44
@@ -77,7 +77,7 @@ if.end29:                                         ; preds = %if.end18
 if.else:                                          ; preds = %entry
   %8 = and i64 %uiA, 32768
   %.lobit69 = lshr exact i64 %8, 15
-  %frombool63 = trunc i64 %.lobit69 to i8
+  %frombool63 = trunc nuw nsw i64 %.lobit69 to i8
   %cmp65 = icmp slt i8 %sub, 0
   br i1 %cmp65, label %if.then67, label %if.else116
 
@@ -193,7 +193,7 @@ if.then174:                                       ; preds = %if.else168
 
 if.end177:                                        ; preds = %if.else168, %if.then166
   %sigZ.0 = phi i64 [ %or167, %if.then166 ], [ %shr163, %if.else168 ]
-  %tobool178 = trunc i8 %signZ.1 to i1
+  %tobool178 = trunc nuw i8 %signZ.1 to i1
   %conv179 = sext i8 %sub161 to i64
   %call180 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %tobool178, i64 noundef %conv179, i64 noundef %sigZ.0) #3
   br label %return

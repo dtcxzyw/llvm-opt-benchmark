@@ -208,7 +208,7 @@ define dso_local void @snd_pcm_timer_done(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i64 @snd_pcm_timer_resolution(ptr nocapture noundef readonly %0) #8 align 16 {
+define internal range(i64 0, 4294967296) i64 @snd_pcm_timer_resolution(ptr nocapture noundef readonly %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 192

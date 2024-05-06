@@ -867,21 +867,21 @@ do.end190.i:                                      ; preds = %do.body184.i
   ]
 
 if.then196.i:                                     ; preds = %do.end190.i
-  %conv197.i = trunc i64 %62 to i32
+  %conv197.i = trunc nuw nsw i64 %62 to i32
   %65 = load i64, ptr %value.i, align 8
   %conv198.i = trunc i64 %65 to i8
   call void @cpu_outb(i32 noundef %conv197.i, i8 noundef zeroext %conv198.i) #18
   br label %if.end219.i
 
 if.then205.i:                                     ; preds = %do.end190.i
-  %conv206.i = trunc i64 %62 to i32
+  %conv206.i = trunc nuw nsw i64 %62 to i32
   %66 = load i64, ptr %value.i, align 8
   %conv207.i = trunc i64 %66 to i16
   call void @cpu_outw(i32 noundef %conv206.i, i16 noundef zeroext %conv207.i) #18
   br label %if.end219.i
 
 if.then214.i:                                     ; preds = %do.end190.i
-  %conv215.i = trunc i64 %62 to i32
+  %conv215.i = trunc nuw nsw i64 %62 to i32
   %67 = load i64, ptr %value.i, align 8
   %conv216.i = trunc i64 %67 to i32
   call void @cpu_outl(i32 noundef %conv215.i, i32 noundef %conv216.i) #18
@@ -962,19 +962,19 @@ do.end261.i:                                      ; preds = %do.body255.i
   ]
 
 if.then267.i:                                     ; preds = %do.end261.i
-  %conv268.i = trunc i64 %73 to i32
+  %conv268.i = trunc nuw nsw i64 %73 to i32
   %call269.i = call zeroext i8 @cpu_inb(i32 noundef %conv268.i) #18
   %conv270.i = zext i8 %call269.i to i32
   br label %if.end292.i
 
 if.then277.i:                                     ; preds = %do.end261.i
-  %conv278.i = trunc i64 %73 to i32
+  %conv278.i = trunc nuw nsw i64 %73 to i32
   %call279.i = call zeroext i16 @cpu_inw(i32 noundef %conv278.i) #18
   %conv280.i = zext i16 %call279.i to i32
   br label %if.end292.i
 
 if.then287.i:                                     ; preds = %do.end261.i
-  %conv288.i = trunc i64 %73 to i32
+  %conv288.i = trunc nuw nsw i64 %73 to i32
   %call289.i = call i32 @cpu_inl(i32 noundef %conv288.i) #18
   br label %if.end292.i
 

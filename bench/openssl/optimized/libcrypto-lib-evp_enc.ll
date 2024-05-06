@@ -46,7 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.evp_cipher_from_algorithm = private unnamed_addr constant [26 x i8] c"evp_cipher_from_algorithm\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -241,7 +241,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef nonnull %ctx), !range !4
+  %call = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef nonnull %ctx)
   tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str, i32 noundef 89) #8
   br label %return
 
@@ -446,7 +446,7 @@ land.lhs.true73:                                  ; preds = %land.lhs.true61.lan
 if.then77:                                        ; preds = %land.lhs.true73
   %flags78 = getelementptr inbounds i8, ptr %ctx, i64 112
   %21 = load i64, ptr %flags78, align 8
-  %call79 = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef nonnull %ctx), !range !4
+  %call79 = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef nonnull %ctx)
   %encrypt80 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %enc.addr.0, ptr %encrypt80, align 8
   store i64 %21, ptr %flags78, align 8
@@ -822,7 +822,7 @@ if.then229:                                       ; preds = %EVP_CIPHER_free.exi
 if.then232:                                       ; preds = %if.then229
   %flags234 = getelementptr inbounds i8, ptr %ctx, i64 112
   %58 = load i64, ptr %flags234, align 8
-  %call235 = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef nonnull %ctx), !range !4
+  %call235 = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef nonnull %ctx)
   %encrypt236 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %enc.addr.0, ptr %encrypt236, align 8
   store i64 %58, ptr %flags234, align 8
@@ -1092,7 +1092,7 @@ entry.split:                                      ; preds = %entry
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx), !range !4
+  %call = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx)
   %call14 = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef %enc, ptr noundef null)
   br label %if.end
 
@@ -1217,7 +1217,7 @@ if.end66:                                         ; preds = %if.then62
   br label %return
 
 legacy:                                           ; preds = %if.end24
-  %call69 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl), !range !4
+  %call69 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl)
   br label %return
 
 return:                                           ; preds = %if.end49, %if.end66, %legacy, %if.then65, %if.then48, %if.then23, %if.then13, %if.else
@@ -1430,7 +1430,7 @@ if.end96:                                         ; preds = %if.end90
   br i1 %tobool99.not, label %if.end102, label %if.then100
 
 if.then100:                                       ; preds = %if.end96
-  %call101 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl), !range !4
+  %call101 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl)
   br label %return
 
 if.end102:                                        ; preds = %if.end96
@@ -1491,7 +1491,7 @@ if.end123:                                        ; preds = %if.end117
 
 if.end126:                                        ; preds = %cond.end108, %if.end123
   %out.addr.0 = phi ptr [ %add.ptr, %if.end123 ], [ %out, %cond.end108 ]
-  %call127 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out.addr.0, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl), !range !4
+  %call127 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out.addr.0, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl)
   %tobool128.not = icmp eq i32 %call127, 0
   br i1 %tobool128.not, label %return, label %if.end130
 
@@ -1907,7 +1907,7 @@ if.then69:                                        ; preds = %cond.end61
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.052, 1
   %exitcond.not = icmp eq i32 %inc, %conv63
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %cond.end61, %for.cond
   %i.052 = phi i32 [ %inc, %for.cond ], [ 0, %cond.end61 ]
@@ -1942,7 +1942,7 @@ for.body87:                                       ; preds = %for.body87.preheade
   store i8 %17, ptr %arrayidx92, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond56.not, label %if.end97, label %for.body87, !llvm.loop !7
+  br i1 %exitcond56.not, label %if.end97, label %for.body87, !llvm.loop !6
 
 if.end97:                                         ; preds = %for.body87, %for.end, %if.end46
   %storemerge = phi i32 [ 0, %if.end46 ], [ %sub83, %for.end ], [ %sub83, %for.body87 ]
@@ -2000,7 +2000,7 @@ entry.split.i:                                    ; preds = %entry
   br label %EVP_CipherInit.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx), !range !4
+  %call.i = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx)
   %call14.i = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef 1, ptr noundef null)
   br label %EVP_CipherInit.exit
 
@@ -2034,7 +2034,7 @@ entry.split.i:                                    ; preds = %entry
   br label %EVP_CipherInit.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx), !range !4
+  %call.i = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx)
   %call14.i = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef 0, ptr noundef null)
   br label %EVP_CipherInit.exit
 
@@ -2058,7 +2058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_is_partially_overlapping(ptr noundef %ptr1, ptr noundef %ptr2, i32 noundef %len) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_is_partially_overlapping(ptr noundef %ptr1, ptr noundef %ptr2, i32 noundef %len) local_unnamed_addr #3 {
 entry:
   %0 = ptrtoint ptr %ptr1 to i64
   %1 = ptrtoint ptr %ptr2 to i64
@@ -2083,7 +2083,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @evp_EncryptDecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %outl, ptr noundef %in, i32 noundef %inl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evp_EncryptDecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %outl, ptr noundef %in, i32 noundef %inl) unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_test_flags(ptr noundef %ctx, i32 noundef 8192) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -2907,7 +2907,7 @@ return:                                           ; preds = %end, %sw.bb196, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_CTX_set_padding(ptr nocapture noundef %ctx, i32 noundef %pad) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_padding(ptr nocapture noundef %ctx, i32 noundef %pad) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %pd = alloca i32, align 4
@@ -3212,12 +3212,12 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %iv_len.i = getelementptr inbounds i8, ptr %call.i, i64 108
   store i32 -1, ptr %iv_len.i, align 4
-  %call1 = tail call i32 @EVP_CIPHER_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %in), !range !4
+  %call1 = tail call i32 @EVP_CIPHER_CTX_copy(ptr noundef nonnull %call.i, ptr noundef %in)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %EVP_CIPHER_CTX_free.exit, label %if.end
 
 EVP_CIPHER_CTX_free.exit:                         ; preds = %land.lhs.true
-  %call.i6 = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef nonnull %call.i), !range !4
+  %call.i6 = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef nonnull %call.i)
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 89) #8
   br label %if.end
 
@@ -3227,7 +3227,7 @@ if.end:                                           ; preds = %entry, %EVP_CIPHER_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_CIPHER_CTX_copy(ptr noundef %out, ptr noundef %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_CIPHER_CTX_copy(ptr noundef %out, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -3262,7 +3262,7 @@ if.then8:                                         ; preds = %if.end5
   br label %return
 
 if.end9:                                          ; preds = %if.end5
-  %call = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %out), !range !4
+  %call = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %out)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %out, ptr noundef nonnull align 8 dereferenceable(184) %in, i64 184, i1 false)
   %algctx = getelementptr inbounds i8, ptr %out, i64 168
   store ptr null, ptr %algctx, align 8
@@ -3317,7 +3317,7 @@ if.then30:                                        ; preds = %land.lhs.true26
   br label %return
 
 if.end31:                                         ; preds = %land.lhs.true26, %legacy
-  %call32 = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %out), !range !4
+  %call32 = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %out)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %out, ptr noundef nonnull align 8 dereferenceable(184) %in, i64 184, i1 false)
   %cipher_data = getelementptr inbounds i8, ptr %in, i64 120
   %10 = load ptr, ptr %cipher_data, align 8
@@ -3731,7 +3731,7 @@ for.inc:                                          ; preds = %for.cond, %if.end16
   %fnciphcnt.1 = phi i32 [ %fnciphcnt.0, %sw.bb96 ], [ %fnciphcnt.0, %if.end99 ], [ %fnciphcnt.0, %sw.bb90 ], [ %fnciphcnt.0, %if.end93 ], [ %fnciphcnt.0, %sw.bb84 ], [ %fnciphcnt.0, %if.end87 ], [ %fnciphcnt.0, %sw.bb78 ], [ %fnciphcnt.0, %if.end81 ], [ %fnciphcnt.0, %sw.bb72 ], [ %fnciphcnt.0, %if.end75 ], [ %fnciphcnt.0, %sw.bb66 ], [ %fnciphcnt.0, %if.end69 ], [ %fnciphcnt.0, %sw.bb60 ], [ %fnciphcnt.0, %if.end63 ], [ %fnciphcnt.0, %sw.bb53 ], [ %fnciphcnt.0, %if.end56 ], [ %fnciphcnt.0, %sw.bb47 ], [ %fnciphcnt.0, %if.end50 ], [ %fnciphcnt.0, %sw.bb40 ], [ %inc46, %if.end43 ], [ %fnciphcnt.0, %sw.bb33 ], [ %inc39, %if.end36 ], [ %fnciphcnt.0, %sw.bb26 ], [ %inc32, %if.end29 ], [ %fnciphcnt.0, %sw.bb19 ], [ %inc25, %if.end22 ], [ %fnciphcnt.0, %sw.bb ], [ %fnciphcnt.0, %if.end16 ], [ %fnciphcnt.0, %for.cond ]
   %fnctxcnt.1 = phi i32 [ %fnctxcnt.0, %sw.bb96 ], [ %fnctxcnt.0, %if.end99 ], [ %fnctxcnt.0, %sw.bb90 ], [ %fnctxcnt.0, %if.end93 ], [ %fnctxcnt.0, %sw.bb84 ], [ %fnctxcnt.0, %if.end87 ], [ %fnctxcnt.0, %sw.bb78 ], [ %fnctxcnt.0, %if.end81 ], [ %fnctxcnt.0, %sw.bb72 ], [ %fnctxcnt.0, %if.end75 ], [ %fnctxcnt.0, %sw.bb66 ], [ %fnctxcnt.0, %if.end69 ], [ %fnctxcnt.0, %sw.bb60 ], [ %fnctxcnt.0, %if.end63 ], [ %fnctxcnt.0, %sw.bb53 ], [ %inc59, %if.end56 ], [ %fnctxcnt.0, %sw.bb47 ], [ %fnctxcnt.0, %if.end50 ], [ %fnctxcnt.0, %sw.bb40 ], [ %fnctxcnt.0, %if.end43 ], [ %fnctxcnt.0, %sw.bb33 ], [ %fnctxcnt.0, %if.end36 ], [ %fnctxcnt.0, %sw.bb26 ], [ %fnctxcnt.0, %if.end29 ], [ %fnctxcnt.0, %sw.bb19 ], [ %fnctxcnt.0, %if.end22 ], [ %fnctxcnt.0, %sw.bb ], [ %inc, %if.end16 ], [ %fnctxcnt.0, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
-  br label %for.cond, !llvm.loop !8
+  br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
   switch i32 %fnciphcnt.0, label %lor.lhs.false.i105 [
@@ -3997,8 +3997,7 @@ attributes #9 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

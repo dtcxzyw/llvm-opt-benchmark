@@ -213,7 +213,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !19
   call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5), !noalias !20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !15
   br label %13
@@ -226,7 +226,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a
   %11 = extractvalue { i64, ptr } %9, 1
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %10, ptr %0, align 8, !alias.scope !30, !noalias !31
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %11, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !30, !noalias !31
@@ -500,7 +500,7 @@ define hidden void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.78765022111351
 11:                                               ; preds = %2, %17, %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !45
   call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !46
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !39
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a15271E.llvm.7876502211135180945.exit"
@@ -515,7 +515,7 @@ define hidden void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.78765022111351
   %15 = extractvalue { i64, ptr } %13, 1
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %.sroa.0.0.ph, i64 %.sroa.6.0.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %.sroa.0.0.ph, i64 %.sroa.6.0.ph, i1 false)
   store i64 %14, ptr %0, align 8, !alias.scope !56, !noalias !57
   %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %.sroa.42.0..sroa_idx.i.i.i, align 8, !alias.scope !56, !noalias !57
@@ -1147,13 +1147,13 @@ define void @"_ZN13wasmtime_wasi8preview1175_$LT$impl$u20$core..convert..TryFrom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi8preview1126_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stdio..IsATTY$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Filetype$GT$4from17h8d04c28d60419765E"(i1 noundef zeroext %0) unnamed_addr #5 {
+define noundef range(i8 0, 3) i8 @"_ZN13wasmtime_wasi8preview1126_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stdio..IsATTY$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Filetype$GT$4from17h8d04c28d60419765E"(i1 noundef zeroext %0) unnamed_addr #5 {
   %. = select i1 %0, i8 0, i8 2
   ret i8 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Errno$GT$4from17ha393994d6f558195E"(i8 noundef %0) unnamed_addr #5 {
+define noundef range(i8 2, 76) i8 @"_ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Errno$GT$4from17ha393994d6f558195E"(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
   %switch.gep = getelementptr inbounds [37 x i8], ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 0, i64 %1
@@ -1261,17 +1261,17 @@ define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1159_$LT$impl$u20$core..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi8preview0136_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Clockid$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Clockid$GT$4from17h2c1a0af677f697fbE"(i8 noundef returned %0) unnamed_addr #5 {
+define noundef range(i8 0, 4) i8 @"_ZN13wasmtime_wasi8preview0136_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Clockid$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Clockid$GT$4from17h2c1a0af677f697fbE"(i8 noundef returned %0) unnamed_addr #5 {
   ret i8 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Advice$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Advice$GT$4from17h7fd3b5f0deff73c4E"(i8 noundef returned %0) unnamed_addr #5 {
+define noundef range(i8 0, 6) i8 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Advice$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Advice$GT$4from17h7fd3b5f0deff73c4E"(i8 noundef returned %0) unnamed_addr #5 {
   ret i8 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Whence$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Whence$GT$4from17h940f2629f38b95fbE"(i8 noundef %0) unnamed_addr #5 {
+define noundef range(i8 0, 3) i8 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Whence$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Whence$GT$4from17h940f2629f38b95fbE"(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %switch.cast = zext i8 %0 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
@@ -1281,7 +1281,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Signal$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Signal$GT$4from17hbc851f47fe4f4d81E"(i8 noundef returned %0) unnamed_addr #5 {
+define noundef range(i8 0, 31) i8 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Signal$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Signal$GT$4from17hbc851f47fe4f4d81E"(i8 noundef returned %0) unnamed_addr #5 {
   ret i8 %0
 }
 
@@ -1308,37 +1308,37 @@ define noundef i32 @"_ZN13wasmtime_wasi8preview0168_$LT$impl$u20$core..convert..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN13wasmtime_wasi8preview0136_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Fdflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Fdflags$GT$4from17haafb7499149f234dE"(i16 noundef %0) unnamed_addr #5 {
+define noundef range(i16 0, 32) i16 @"_ZN13wasmtime_wasi8preview0136_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Fdflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Fdflags$GT$4from17haafb7499149f234dE"(i16 noundef %0) unnamed_addr #5 {
   %.4 = and i16 %0, 31
   ret i16 %.4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN13wasmtime_wasi8preview0144_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Lookupflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Lookupflags$GT$4from17h4ee7b151d93522e5E"(i32 noundef %0) unnamed_addr #5 {
+define noundef range(i32 0, 2) i32 @"_ZN13wasmtime_wasi8preview0144_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Lookupflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Lookupflags$GT$4from17h4ee7b151d93522e5E"(i32 noundef %0) unnamed_addr #5 {
   %2 = and i32 %0, 1
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN13wasmtime_wasi8preview0138_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Fstflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Fstflags$GT$4from17h1d48a55afc64a16aE"(i16 noundef %0) unnamed_addr #5 {
+define noundef range(i16 0, 16) i16 @"_ZN13wasmtime_wasi8preview0138_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Fstflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Fstflags$GT$4from17h1d48a55afc64a16aE"(i16 noundef %0) unnamed_addr #5 {
   %.3 = and i16 %0, 15
   ret i16 %.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Oflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Oflags$GT$4from17he67bef2588b9a811E"(i16 noundef %0) unnamed_addr #5 {
+define noundef range(i16 0, 16) i16 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Oflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Oflags$GT$4from17he67bef2588b9a811E"(i16 noundef %0) unnamed_addr #5 {
   %.3 = and i16 %0, 15
   ret i16 %.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Rights$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Rights$GT$4from17h0108490235f75603E"(i64 noundef %0) unnamed_addr #5 {
+define noundef range(i64 0, 536870912) i64 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Rights$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Rights$GT$4from17h0108490235f75603E"(i64 noundef %0) unnamed_addr #5 {
   %.28 = and i64 %0, 536870911
   ret i64 %.28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN13wasmtime_wasi8preview0148_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Subclockflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Subclockflags$GT$4from17hf13f92735cb0173fE"(i16 noundef %0) unnamed_addr #5 {
+define noundef range(i16 0, 2) i16 @"_ZN13wasmtime_wasi8preview0148_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Subclockflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Subclockflags$GT$4from17hf13f92735cb0173fE"(i16 noundef %0) unnamed_addr #5 {
   %2 = and i16 %0, 1
   ret i16 %2
 }
@@ -5241,7 +5241,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !157, !noalias !162
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !157, !noalias !162
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !162
   br label %"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E.exit"
 
 16:                                               ; preds = %12
@@ -8554,7 +8554,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggl
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !313, !noalias !318
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !313, !noalias !318
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !318
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !318
   br label %"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE.exit"
 
 16:                                               ; preds = %12
@@ -9290,7 +9290,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wigg
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !340, !noalias !345
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !340, !noalias !345
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !345
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !345
   br label %"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE.exit"
 
 16:                                               ; preds = %12
@@ -9521,7 +9521,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$w
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !353, !noalias !358
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !353, !noalias !358
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !358
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !358
   br label %"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h2479e97c234e59ebE.exit"
 
 16:                                               ; preds = %12
@@ -9758,7 +9758,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !366, !noalias !371
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !366, !noalias !371
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !371
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !371
   br label %"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE.exit"
 
 16:                                               ; preds = %12
@@ -11407,7 +11407,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !411, !noalias !416
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !411, !noalias !416
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !416
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !416
   br label %"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE.exit"
 
 16:                                               ; preds = %12
@@ -12521,7 +12521,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !455, !noalias !460
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !455, !noalias !460
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !460
   br label %"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE.exit"
 
 16:                                               ; preds = %12
@@ -17315,7 +17315,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggl
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !689, !noalias !694
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !689, !noalias !694
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !694
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !694
   br label %"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE.exit"
 
 16:                                               ; preds = %12
@@ -17552,7 +17552,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggl
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !702, !noalias !707
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !702, !noalias !707
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !707
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !707
   br label %"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE.exit"
 
 16:                                               ; preds = %12
@@ -17789,7 +17789,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggl
   store i64 %.sroa.633.0.copyload.i, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !715, !noalias !720
   store <2 x i32> %15, ptr %.sroa.541.0..sroa_idx.i, align 8, !alias.scope !715, !noalias !720
   %.sroa.743.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !720
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.743.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.743.i, i64 32, i1 false), !noalias !720
   br label %"_ZN52_$LT$u8$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h725b14d7f79077b4E.exit"
 
 16:                                               ; preds = %12
@@ -18638,7 +18638,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33da8e3a7a56c442E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !770
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !770
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33da8e3a7a56c442E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h33da8e3a7a56c442E.exit": ; preds = %7, %11
@@ -18835,7 +18835,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h329b14becfb03b6dE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !781
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !781
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h329b14becfb03b6dE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h329b14becfb03b6dE.exit": ; preds = %7, %11
@@ -19032,7 +19032,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hca9fdb10c8cfe7adE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !792
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !792
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hca9fdb10c8cfe7adE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hca9fdb10c8cfe7adE.exit": ; preds = %7, %11
@@ -19229,7 +19229,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h984a842a3a141073E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !803
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !803
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h984a842a3a141073E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h984a842a3a141073E.exit": ; preds = %7, %11
@@ -19426,7 +19426,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h14a27e7b6ca69c03E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !814
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !814
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h14a27e7b6ca69c03E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h14a27e7b6ca69c03E.exit": ; preds = %7, %11
@@ -19623,7 +19623,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd069739f244f75e0E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !825
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !825
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd069739f244f75e0E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hd069739f244f75e0E.exit": ; preds = %7, %11
@@ -19820,7 +19820,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h20b0dff67ab51e7cE.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !836
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !836
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h20b0dff67ab51e7cE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h20b0dff67ab51e7cE.exit": ; preds = %7, %11
@@ -20017,7 +20017,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf61097ee0d7b3533E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !847
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !847
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf61097ee0d7b3533E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hf61097ee0d7b3533E.exit": ; preds = %7, %11
@@ -20214,7 +20214,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf3a4e0e25cdbd584E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !858
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !858
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf3a4e0e25cdbd584E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hf3a4e0e25cdbd584E.exit": ; preds = %7, %11
@@ -20411,7 +20411,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fe7d3d257b93560E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !869
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !869
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fe7d3d257b93560E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fe7d3d257b93560E.exit": ; preds = %7, %11

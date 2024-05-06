@@ -928,7 +928,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call noundef signext i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this), !range !5
+  %call2 = tail call noundef signext i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this)
   %tobool.not = icmp eq i8 %call2, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false.if.then_crit_edge
 
@@ -947,7 +947,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %segment = alloca %"class.icu_75::UnicodeString", align 8
   %errorCode = alloca i32, align 4
@@ -1045,7 +1045,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 if.end32:                                         ; preds = %invoke.cont23
   %call34 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %segment, i32 noundef %call20)
-          to label %while.cond unwind label %lpad.loopexit, !llvm.loop !6
+          to label %while.cond unwind label %lpad.loopexit, !llvm.loop !5
 
 while.end:                                        ; preds = %invoke.cont, %if.then26
   %17 = load ptr, ptr %text, align 8
@@ -1096,7 +1096,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call noundef signext i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this), !range !5
+  %call2 = tail call noundef signext i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this)
   %tobool.not = icmp eq i8 %call2, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false.if.then_crit_edge
 
@@ -1128,7 +1128,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call noundef signext i8 @_ZN6icu_7510Normalizer17previousNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this), !range !5
+  %call = tail call noundef signext i8 @_ZN6icu_7510Normalizer17previousNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false.if.then_crit_edge
 
@@ -1154,7 +1154,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510Normalizer17previousNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Normalizer17previousNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %segment = alloca %"class.icu_75::UnicodeString", align 8
   %errorCode = alloca i32, align 4
@@ -1226,7 +1226,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
 
 invoke.cont21:                                    ; preds = %invoke.cont17
   %tobool23.not = icmp eq i8 %call22, 0
-  br i1 %tobool23.not, label %while.cond, label %while.end, !llvm.loop !8
+  br i1 %tobool23.not, label %while.cond, label %while.end, !llvm.loop !7
 
 lpad.loopexit:                                    ; preds = %while.cond, %while.body, %invoke.cont17, %invoke.cont15
   %lpad.loopexit4 = landingpad { ptr, i32 }
@@ -1369,7 +1369,7 @@ entry:
   store i16 %storemerge.i.i.i, ptr %fUnion.i.i.i.i, align 8
   %bufferPos.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %bufferPos.i.i, align 8
-  %call2.i = tail call noundef signext i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this), !range !5
+  %call2.i = tail call noundef signext i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this)
   %tobool.not.i = icmp eq i8 %call2.i, 0
   br i1 %tobool.not.i, label %_ZN6icu_7510Normalizer4nextEv.exit, label %lor.lhs.false.if.then_crit_edge.i
 
@@ -1411,7 +1411,7 @@ lor.lhs.false.i:
   store i16 %storemerge.i.i, ptr %fUnion.i.i.i, align 8
   %bufferPos.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %bufferPos.i, align 8
-  %call.i2 = tail call noundef signext i8 @_ZN6icu_7510Normalizer17previousNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this), !range !5
+  %call.i2 = tail call noundef signext i8 @_ZN6icu_7510Normalizer17previousNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this)
   %tobool.not.i = icmp eq i8 %call.i2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7510Normalizer8previousEv.exit, label %if.then.i
 
@@ -1516,7 +1516,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7510Normalizer9getOptionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %option) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510Normalizer9getOptionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %option) local_unnamed_addr #7 align 2 {
 entry:
   %fOptions = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %fOptions, align 4
@@ -1758,7 +1758,6 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{i64 2148288218}
-!5 = !{i8 0, i8 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

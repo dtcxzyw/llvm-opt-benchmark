@@ -335,7 +335,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_websocket_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_websocket_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 2
   br i1 %6, label %test_websocket.exit.thread, label %7
@@ -1068,7 +1068,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   br i1 %.not87.i.i, label %343, label %341
 
 341:                                              ; preds = %334
-  %342 = call fastcc i32 @websocket_uncompress(ptr noundef %.05975.i, ptr noundef nonnull %1, ptr noundef nonnull %.075.i.i, ptr noundef nonnull %6, i32 noundef %228), !range !6
+  %342 = call fastcc i32 @websocket_uncompress(ptr noundef %.05975.i, ptr noundef nonnull %1, ptr noundef nonnull %.075.i.i, ptr noundef nonnull %6, i32 noundef %228)
   br label %364
 
 343:                                              ; preds = %334
@@ -1084,7 +1084,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   br i1 %349, label %350, label %352
 
 350:                                              ; preds = %343
-  %351 = call fastcc i32 @websocket_uncompress(ptr noundef %.05975.i, ptr noundef nonnull %1, ptr noundef %346, ptr noundef nonnull %6, i32 noundef %228), !range !6
+  %351 = call fastcc i32 @websocket_uncompress(ptr noundef %.05975.i, ptr noundef nonnull %1, ptr noundef %346, ptr noundef nonnull %6, i32 noundef %228)
   br label %352
 
 352:                                              ; preds = %350, %343
@@ -1298,7 +1298,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @websocket_uncompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @websocket_uncompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %7 = add i32 %6, 4
   %8 = getelementptr inbounds i8, ptr %1, i64 408
@@ -1457,4 +1457,3 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

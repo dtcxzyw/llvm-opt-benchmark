@@ -2401,7 +2401,7 @@ _ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6ObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6ObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2419,7 +2419,7 @@ entry:
 declare noundef i32 @_ZN6hermes2vm6GCBase11getObjectIDEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(741), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6BigIntE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6BigIntE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2435,7 +2435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6StringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6StringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2451,7 +2451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi10PropNameIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pni) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi10PropNameIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pni) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2468,7 +2468,7 @@ entry:
 declare noundef i32 @_ZN6hermes2vm6GCBase11getObjectIDENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(741), i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6SymbolE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6SymbolE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2483,7 +2483,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %val) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %val) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %val, align 8
   switch i32 %0, label %lor.lhs.false23.i [
@@ -8242,7 +8242,7 @@ declare ptr @_ZN6hermes2vm13JSArrayBuffer6createERNS0_7RuntimeENS0_6HandleINS0_8
 declare noundef i32 @_ZN6hermes2vm13JSArrayBuffer20setExternalDataBlockERNS0_7RuntimeENS0_6HandleIS1_EEPhjPvPFvRNS0_7HadesGCEPNS0_11NativeStateEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN8facebook6hermes17HermesRuntimeImpl4sizeERKNS_3jsi5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr) unnamed_addr #13 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN8facebook6hermes17HermesRuntimeImpl4sizeERKNS_3jsi5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr) unnamed_addr #13 align 2 {
 entry:
   %0 = load ptr, ptr %arr, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8280,7 +8280,7 @@ _ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN8facebook6hermes17HermesRuntimeImpl4sizeERKNS_3jsi11ArrayBufferE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN8facebook6hermes17HermesRuntimeImpl4sizeERKNS_3jsi11ArrayBufferE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -10437,7 +10437,7 @@ lpad.i.i:                                         ; preds = %entry
   br label %common.resume
 
 _ZSt11make_uniqueIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEEJRKN6hermes2vm13RuntimeConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i, i8 0, i64 40, i1 false), !noalias !173
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i, i8 0, i64 40, i1 false), !noalias !173
   %__kind.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   store i32 1, ptr %__kind.i.i.i.i.i.i, align 8, !noalias !173
   store ptr %call.i, ptr %ret, align 8, !alias.scope !173
@@ -19908,7 +19908,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
   %1 = load ptr, ptr %plain_.i.i, align 8, !noalias !257
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !257
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i8 0, i64 16, i1 false), !noalias !260
-  invoke void @_ZN8facebook6hermes13HermesRuntime31evaluateJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL)
+  invoke void @_ZN8facebook6hermes13HermesRuntime31evaluateJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
@@ -20443,7 +20443,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 invoke.cont9.i.i:                                 ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
   %8 = extractvalue { ptr, i64 } %call10.i.i, 0
   %9 = extractvalue { ptr, i64 } %call10.i.i, 1
-  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull align 8 poison, ptr %8, i64 %9)
+  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readonly align 8 poison, ptr %8, i64 %9)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %invoke.cont9.i.i, %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
@@ -20681,7 +20681,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 call6.i.i.noexc:                                  ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
   %5 = extractvalue { ptr, i64 } %call6.i.i2, 0
   %6 = extractvalue { ptr, i64 } %call6.i.i2, 1
-  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull align 8 poison, ptr %5, i64 %6)
+  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readonly align 8 poison, ptr %5, i64 %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call6.i.i.noexc
@@ -22982,7 +22982,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i, !noalias !388
 
 invoke.cont.i:                                    ; preds = %entry
-  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl30prepareJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::shared_ptr.296") align 8 %agg.result, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull %agg.tmp.i)
+  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl30prepareJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr writeonly sret(%"class.std::shared_ptr.296") align 8 %agg.result, ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont unwind label %lpad2.i
 
 lpad.i:                                           ; preds = %entry

@@ -27,7 +27,7 @@ entry:
   %0 = load ptr, ptr %pkcs8, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #12
-  %call1 = call fastcc i32 @pass_to_pass_raw(i32 noundef %call, ptr noundef %pass, i32 noundef %pass_len, ptr noundef nonnull %pass_raw, ptr noundef nonnull %pass_raw_len), !range !7
+  %call1 = call fastcc i32 @pass_to_pass_raw(i32 noundef %call, ptr noundef %pass, i32 noundef %pass_len, ptr noundef nonnull %pass_raw, ptr noundef nonnull %pass_raw_len)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -49,7 +49,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pass_to_pass_raw(i32 noundef %pbe_nid, ptr noundef %pass, i32 noundef %pass_len, ptr nocapture noundef writeonly %out_pass_raw, ptr nocapture noundef writeonly %out_pass_raw_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pass_to_pass_raw(i32 noundef %pbe_nid, ptr noundef %pass, i32 noundef %pass_len, ptr nocapture noundef writeonly %out_pass_raw, ptr nocapture noundef writeonly %out_pass_raw_len) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pass, null
   br i1 %cmp, label %if.then, label %if.end
@@ -83,7 +83,7 @@ if.end9:                                          ; preds = %if.else, %if.then2
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %if.else19, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %if.else19, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end9
   %indvars.iv.i = phi i64 [ 0, %if.end9 ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -127,7 +127,7 @@ for.body.i15:                                     ; preds = %for.cond.preheader.
   store i8 %2, ptr %arrayidx7.i, align 1
   %add8.i = add nuw i64 %i.017.i, 2
   %cmp4.i = icmp ult i64 %add8.i, %mul.i
-  br i1 %cmp4.i, label %for.body.i15, label %ascii_to_ucs2.exit, !llvm.loop !10
+  br i1 %cmp4.i, label %for.body.i15, label %ascii_to_ucs2.exit, !llvm.loop !9
 
 ascii_to_ucs2.exit:                               ; preds = %for.body.i15, %for.cond.preheader.i
   %arrayidx10.i = getelementptr inbounds i8, ptr %call.i, i64 %mul.i
@@ -181,7 +181,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out_len.i)
   %conv.i = sext i32 %.val to i64
-  %call.i = call fastcc i32 @pbe_crypt(ptr noundef %0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %.val2, i64 noundef %conv.i, ptr noundef nonnull %out.i, ptr noundef nonnull %out_len.i, i32 noundef 0), !range !7
+  %call.i = call fastcc i32 @pbe_crypt(ptr noundef readonly %0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %.val2, i64 noundef %conv.i, ptr noundef nonnull %out.i, ptr noundef nonnull %out_len.i, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -226,7 +226,7 @@ entry:
   %pass_raw_len = alloca i64, align 8
   store ptr null, ptr %pass_raw, align 8
   store i64 0, ptr %pass_raw_len, align 8
-  %call = call fastcc i32 @pass_to_pass_raw(i32 noundef %pbe_nid, ptr noundef %pass, i32 noundef %pass_len, ptr noundef nonnull %pass_raw, ptr noundef nonnull %pass_raw_len), !range !7
+  %call = call fastcc i32 @pass_to_pass_raw(i32 noundef %pbe_nid, ptr noundef %pass, i32 noundef %pass_len, ptr noundef nonnull %pass_raw, ptr noundef nonnull %pass_raw_len)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -313,7 +313,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end3.i:                                        ; preds = %if.end.i
   %conv.i = sext i32 %call1.i to i64
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %call4.i = call fastcc i32 @pbe_crypt(ptr noundef nonnull %pbe.0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef nonnull %data.i, ptr noundef nonnull %crypt_len.i, i32 noundef 1), !range !7
+  %call4.i = call fastcc i32 @pbe_crypt(ptr noundef nonnull readonly %pbe.0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef nonnull %data.i, ptr noundef nonnull %crypt_len.i, i32 noundef 1)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %pkcs12_item_i2d_encrypt.exit
 
@@ -489,7 +489,7 @@ declare ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef, i64 noundef) loca
 declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS12_get_key_and_certs(ptr noundef %out_key, ptr noundef %out_certs, ptr noundef %ber_in, ptr noundef readonly %password) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_get_key_and_certs(ptr noundef %out_key, ptr noundef %out_certs, ptr noundef %ber_in, ptr noundef readonly %password) local_unnamed_addr #0 {
 entry:
   %der_bytes = alloca ptr, align 8
   %der_len = alloca i64, align 8
@@ -652,7 +652,7 @@ cond.end:                                         ; preds = %if.end44
   %call48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %password) #13
   %password4916 = getelementptr inbounds i8, ptr %ctx, i64 16
   %password_len17 = getelementptr inbounds i8, ptr %ctx, i64 24
-  %call5018 = call fastcc i32 @ascii_to_ucs2(ptr noundef nonnull %password, i64 noundef %call48, ptr noundef nonnull %password4916, ptr noundef nonnull %password_len17), !range !7
+  %call5018 = call fastcc i32 @ascii_to_ucs2(ptr noundef nonnull %password, i64 noundef %call48, ptr noundef nonnull %password4916, ptr noundef nonnull %password_len17)
   %tobool51.not = icmp eq i32 %call5018, 0
   br i1 %tobool51.not, label %if.then52, label %if.end53
 
@@ -731,7 +731,7 @@ if.end86:                                         ; preds = %lor.lhs.false82
   %8 = load i64, ptr %iterations, align 8
   %conv = trunc i64 %8 to i32
   %call91 = call i64 @EVP_MD_size(ptr noundef nonnull %call83) #12
-  %call92 = call fastcc i32 @pkcs12_key_gen_raw(ptr noundef %6, i64 noundef %7, ptr noundef %call89, i64 noundef %call90, i8 noundef zeroext 3, i32 noundef %conv, i64 noundef %call91, ptr noundef nonnull %hmac_key, ptr noundef nonnull %call83), !range !7
+  %call92 = call fastcc i32 @pkcs12_key_gen_raw(ptr noundef %6, i64 noundef %7, ptr noundef %call89, i64 noundef %call90, i8 noundef zeroext 3, i32 noundef %conv, i64 noundef %call91, ptr noundef nonnull %hmac_key, ptr noundef nonnull %call83)
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %err, label %if.end95
 
@@ -755,7 +755,7 @@ if.then110:                                       ; preds = %if.end105
   br label %err
 
 if.end111:                                        ; preds = %if.end105
-  %call112 = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef nonnull %authsafes, i32 noundef 0, ptr noundef nonnull %ctx), !range !7
+  %call112 = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef nonnull %authsafes, i32 noundef 0, ptr noundef nonnull %ctx)
   %tobool113.not = icmp eq i32 %call112, 0
   %not.tobool113.not = xor i1 %tobool113.not, true
   %spec.select22 = zext i1 %not.tobool113.not to i32
@@ -784,7 +784,7 @@ while.body:                                       ; preds = %if.then118, %while.
   call void @X509_free(ptr noundef %call122) #12
   %call119 = call i64 @sk_num(ptr noundef %out_certs) #12
   %cmp120 = icmp ugt i64 %call119, %call
-  br i1 %cmp120, label %while.body, label %return, !llvm.loop !11
+  br i1 %cmp120, label %while.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %while.body, %if.then118, %err, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ %ret.0, %err ], [ %ret.0, %if.then118 ], [ %ret.0, %while.body ]
@@ -807,7 +807,7 @@ declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @OBJ_cbs2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i32 @ascii_to_ucs2(ptr nocapture noundef readonly %ascii, i64 noundef %ascii_len, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ascii_to_ucs2(ptr nocapture noundef readonly %ascii, i64 noundef %ascii_len, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len) unnamed_addr #4 {
 entry:
   %mul = shl i64 %ascii_len, 1
   %add = add i64 %mul, 2
@@ -835,7 +835,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i8 %0, ptr %arrayidx7, align 1
   %add8 = add nuw i64 %i.017, 2
   %cmp4 = icmp ult i64 %add8, %mul
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %arrayidx10 = getelementptr inbounds i8, ptr %call, i64 %mul
@@ -858,7 +858,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare ptr @EVP_get_digestbynid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pkcs12_key_gen_raw(ptr nocapture noundef readonly %pass_raw, i64 noundef %pass_raw_len, ptr nocapture noundef readonly %salt, i64 noundef %salt_len, i8 noundef zeroext %id, i32 noundef %iterations, i64 noundef %out_len, ptr nocapture noundef writeonly %out, ptr noundef %md) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr nocapture noundef readonly %pass_raw, i64 noundef %pass_raw_len, ptr nocapture noundef readonly %salt, i64 noundef %salt_len, i8 noundef zeroext %id, i32 noundef %iterations, i64 noundef %out_len, ptr nocapture noundef writeonly %out, ptr noundef %md) unnamed_addr #0 {
 entry:
   %D = alloca [128 x i8], align 16
   %ctx = alloca %struct.env_md_ctx_st, align 8
@@ -933,7 +933,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i8 %2, ptr %arrayidx29, align 1
   %inc = add nuw i64 %i.070, 1
   %cmp27 = icmp ult i64 %inc, %mul
-  br i1 %cmp27, label %for.body, label %for.cond30.preheader, !llvm.loop !12
+  br i1 %cmp27, label %for.body, label %for.cond30.preheader, !llvm.loop !11
 
 for.body33:                                       ; preds = %for.cond30.preheader, %for.body33
   %i.172 = phi i64 [ %inc39, %for.body33 ], [ 0, %for.cond30.preheader ]
@@ -944,7 +944,7 @@ for.body33:                                       ; preds = %for.cond30.preheade
   store i8 %3, ptr %gep, align 1
   %inc39 = add nuw i64 %i.172, 1
   %cmp31 = icmp ult i64 %inc39, %mul14
-  br i1 %cmp31, label %for.body33, label %for.end40, !llvm.loop !13
+  br i1 %cmp31, label %for.body33, label %for.end40, !llvm.loop !12
 
 for.end40:                                        ; preds = %for.body33, %for.cond30.preheader
   call void @EVP_MD_CTX_init(ptr noundef nonnull %ctx) #12
@@ -989,7 +989,7 @@ for.cond57.preheader:                             ; preds = %lor.lhs.false51
 for.cond57:                                       ; preds = %lor.lhs.false68
   %inc75 = add nuw nsw i32 %iter.074, 1
   %exitcond.not = icmp eq i32 %inc75, %smax
-  br i1 %exitcond.not, label %for.end76, label %for.body60, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end76, label %for.body60, !llvm.loop !13
 
 for.body60:                                       ; preds = %for.cond57.preheader, %for.cond57
   %iter.074 = phi i32 [ %inc75, %for.cond57 ], [ 1, %for.cond57.preheader ]
@@ -1043,12 +1043,12 @@ for.body106.us:                                   ; preds = %for.cond103.prehead
   %shr.us = lshr i32 %add113.us, 8
   %j.0.us = add i64 %j.079.us, -1
   %cmp104.us = icmp ult i64 %j.0.us, %call.fr
-  br i1 %cmp104.us, label %for.body106.us, label %for.cond103.for.inc119_crit_edge.us, !llvm.loop !15
+  br i1 %cmp104.us, label %for.body106.us, label %for.cond103.for.inc119_crit_edge.us, !llvm.loop !14
 
 for.cond103.for.inc119_crit_edge.us:              ; preds = %for.body106.us
   %add120.us = add i64 %i.381.us, %call.fr
   %cmp99.us = icmp ult i64 %add120.us, %add15
-  br i1 %cmp99.us, label %for.cond103.preheader.us, label %while.cond.loopexit, !llvm.loop !16
+  br i1 %cmp99.us, label %for.cond103.preheader.us, label %while.cond.loopexit, !llvm.loop !15
 
 for.body90:                                       ; preds = %for.end76, %for.body90
   %i.275 = phi i64 [ %inc96, %for.body90 ], [ 0, %for.end76 ]
@@ -1059,7 +1059,7 @@ for.body90:                                       ; preds = %for.end76, %for.bod
   store i8 %9, ptr %arrayidx94, align 1
   %inc96 = add nuw i64 %i.275, 1
   %exitcond92.not = icmp eq i64 %inc96, %umax
-  br i1 %exitcond92.not, label %for.cond98.preheader, label %for.body90, !llvm.loop !17
+  br i1 %exitcond92.not, label %for.cond98.preheader, label %for.body90, !llvm.loop !16
 
 err:                                              ; preds = %for.end76, %while.cond.loopexit, %lor.lhs.false44, %lor.lhs.false48, %lor.lhs.false51, %for.body60, %lor.lhs.false63, %lor.lhs.false68, %while.body.lr.ph, %for.end40
   %ret.0 = phi i32 [ 1, %for.end40 ], [ 0, %while.body.lr.ph ], [ 0, %lor.lhs.false68 ], [ 0, %lor.lhs.false63 ], [ 0, %for.body60 ], [ 0, %lor.lhs.false51 ], [ 0, %lor.lhs.false48 ], [ 0, %lor.lhs.false44 ], [ 0, %while.cond.loopexit ], [ 1, %for.end76 ]
@@ -1080,7 +1080,7 @@ declare ptr @HMAC(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 nounde
 declare i32 @CBS_mem_equal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @PKCS12_handle_content_infos(ptr noundef %content_infos, i32 noundef %depth, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PKCS12_handle_content_infos(ptr noundef %content_infos, i32 noundef %depth, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %content_type.i = alloca %struct.cbs_st, align 8
   %wrapped_contents.i = alloca %struct.cbs_st, align 8
@@ -1287,7 +1287,7 @@ if.end41.i:                                       ; preds = %if.end36.i
   %4 = load i64, ptr %password_len81.i, align 8
   %call42.i = call ptr @CBS_data(ptr noundef nonnull %encrypted_contents.i) #12
   %call43.i = call i64 @CBS_len(ptr noundef nonnull %encrypted_contents.i) #12
-  %call44.i = call fastcc i32 @pbe_crypt(ptr noundef nonnull %call33.i, ptr noundef %3, i64 noundef %4, ptr noundef %call42.i, i64 noundef %call43.i, ptr noundef nonnull %out.i, ptr noundef nonnull %out_len.i, i32 noundef 0), !range !7
+  %call44.i = call fastcc i32 @pbe_crypt(ptr noundef nonnull %call33.i, ptr noundef %3, i64 noundef %4, ptr noundef %call42.i, i64 noundef %call43.i, ptr noundef nonnull %out.i, ptr noundef nonnull %out_len.i, i32 noundef 0)
   %tobool45.not.i = icmp eq i32 %call44.i, 0
   call void @X509_ALGOR_free(ptr noundef nonnull %call33.i) #12
   br i1 %tobool45.not.i, label %PKCS12_handle_content_info.exit.thread, label %if.end47.i
@@ -1296,7 +1296,7 @@ if.end47.i:                                       ; preds = %if.end41.i
   %5 = load ptr, ptr %out.i, align 8
   %6 = load i64, ptr %out_len.i, align 8
   call void @CBS_init(ptr noundef nonnull %content_infos.i, ptr noundef %5, i64 noundef %6) #12
-  %call48.i = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef nonnull %content_infos.i, i32 noundef %add55.i, ptr noundef nonnull %ctx), !range !7
+  %call48.i = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef nonnull %content_infos.i, i32 noundef %add55.i, ptr noundef nonnull %ctx)
   call void @free(ptr noundef %5) #12
   br label %PKCS12_handle_content_info.exit
 
@@ -1310,7 +1310,7 @@ if.then53.i:                                      ; preds = %if.then50.i
   br label %PKCS12_handle_content_info.exit.thread
 
 if.end54.i:                                       ; preds = %if.then50.i
-  %call56.i = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef nonnull %octet_string_contents.i, i32 noundef %add55.i, ptr noundef %ctx), !range !7
+  %call56.i = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef nonnull %octet_string_contents.i, i32 noundef %add55.i, ptr noundef %ctx)
   br label %PKCS12_handle_content_info.exit
 
 if.then59.i:                                      ; preds = %if.end.i
@@ -1497,7 +1497,7 @@ PKCS12_handle_content_info.exit:                  ; preds = %if.end85.i, %if.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cert.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %inp115.i)
   %tobool19.not = icmp eq i32 %ret.0.i, 0
-  br i1 %tobool19.not, label %err, label %while.cond, !llvm.loop !18
+  br i1 %tobool19.not, label %err, label %while.cond, !llvm.loop !17
 
 err:                                              ; preds = %while.cond, %PKCS12_handle_content_info.exit, %PKCS12_handle_content_info.exit.thread, %if.then16, %if.then10
   %ret.0 = phi i32 [ 0, %if.then16 ], [ 0, %if.then10 ], [ 0, %PKCS12_handle_content_info.exit.thread ], [ 1, %while.cond ], [ 0, %PKCS12_handle_content_info.exit ]
@@ -1730,7 +1730,7 @@ declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS12_parse(ptr nocapture noundef readonly %p12, ptr noundef %password, ptr noundef %out_pkey, ptr nocapture noundef writeonly %out_cert, ptr noundef %out_ca_certs) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr nocapture noundef readonly %p12, ptr noundef %password, ptr noundef %out_pkey, ptr nocapture noundef writeonly %out_cert, ptr noundef %out_ca_certs) local_unnamed_addr #0 {
 entry:
   %ber_bytes = alloca %struct.cbs_st, align 8
   %cmp.not = icmp eq ptr %out_ca_certs, null
@@ -1757,7 +1757,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
   %ber_len = getelementptr inbounds i8, ptr %p12, i64 8
   %2 = load i64, ptr %ber_len, align 8
   call void @CBS_init(ptr noundef nonnull %ber_bytes, ptr noundef %1, i64 noundef %2) #12
-  %call8 = call i32 @PKCS12_get_key_and_certs(ptr noundef %out_pkey, ptr noundef nonnull %ca_certs.1, ptr noundef nonnull %ber_bytes, ptr noundef %password), !range !7
+  %call8 = call i32 @PKCS12_get_key_and_certs(ptr noundef %out_pkey, ptr noundef nonnull %ca_certs.1, ptr noundef nonnull %ber_bytes, ptr noundef %password)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end14
 
@@ -1804,7 +1804,7 @@ declare ptr @sk_shift(ptr noundef) local_unnamed_addr #1
 declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS12_verify_mac(ptr nocapture noundef readonly %p12, ptr noundef %password, i32 noundef %password_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr nocapture noundef readonly %p12, ptr noundef %password, i32 noundef %password_len) local_unnamed_addr #0 {
 entry:
   %pkey = alloca ptr, align 8
   %cert = alloca ptr, align 8
@@ -1834,7 +1834,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 if.end11:                                         ; preds = %if.else, %lor.lhs.false, %if.then
   store ptr null, ptr %pkey, align 8
   store ptr null, ptr %cert, align 8
-  %call12 = call i32 @PKCS12_parse(ptr noundef %p12, ptr noundef %password, ptr noundef nonnull %pkey, ptr noundef nonnull %cert, ptr noundef null), !range !7
+  %call12 = call i32 @PKCS12_parse(ptr noundef %p12, ptr noundef %password, ptr noundef nonnull %pkey, ptr noundef nonnull %cert, ptr noundef null)
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %if.then13, label %if.end14
 
@@ -1923,7 +1923,7 @@ if.end14:                                         ; preds = %if.end9, %if.else
   %conv19 = sext i32 %7 to i64
   %call20 = call i32 @EVP_CIPHER_key_length(ptr noundef %cipher) #12
   %conv21 = zext i32 %call20 to i64
-  %call22 = call fastcc i32 @pkcs12_key_gen_raw(ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %6, i64 noundef %conv19, i8 noundef zeroext 1, i32 noundef %iterations.0, i64 noundef %conv21, ptr noundef nonnull %key, ptr noundef %md), !range !7
+  %call22 = call fastcc i32 @pkcs12_key_gen_raw(ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %6, i64 noundef %conv19, i8 noundef zeroext 1, i32 noundef %iterations.0, i64 noundef %conv21, ptr noundef nonnull %key, ptr noundef %md)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.then24, label %if.end25
 
@@ -1935,7 +1935,7 @@ if.then24:                                        ; preds = %if.end14
 if.end25:                                         ; preds = %if.end14
   %call27 = call i32 @EVP_CIPHER_iv_length(ptr noundef %cipher) #12
   %conv28 = zext i32 %call27 to i64
-  %call30 = call fastcc i32 @pkcs12_key_gen_raw(ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %6, i64 noundef %conv19, i8 noundef zeroext 2, i32 noundef %iterations.0, i64 noundef %conv28, ptr noundef nonnull %iv, ptr noundef %md), !range !7
+  %call30 = call fastcc i32 @pkcs12_key_gen_raw(ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %6, i64 noundef %conv19, i8 noundef zeroext 2, i32 noundef %iterations.0, i64 noundef %conv28, ptr noundef nonnull %iv, ptr noundef %md)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.then32, label %if.end33
 
@@ -1975,7 +1975,7 @@ declare i32 @EVP_CIPHER_iv_length(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pbe_crypt(ptr nocapture noundef readonly %algor, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %in, i64 noundef %in_len, ptr nocapture noundef writeonly %out, ptr nocapture noundef %out_len, i32 noundef %is_encrypt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pbe_crypt(ptr nocapture noundef readonly %algor, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %in, i64 noundef %in_len, ptr nocapture noundef writeonly %out, ptr nocapture noundef %out_len, i32 noundef %is_encrypt) unnamed_addr #0 {
 entry:
   %obj_str.i = alloca [80 x i8], align 16
   %n = alloca i32, align 4
@@ -1991,7 +1991,7 @@ entry:
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %if.then.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %if.then.i, label %for.body.i.i, !llvm.loop !7
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %entry
   %indvars.iv.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
@@ -2214,15 +2214,14 @@ attributes #14 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

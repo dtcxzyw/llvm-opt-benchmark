@@ -59,7 +59,7 @@ define void @BraState_Free(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @BraState_SetProps(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3) #2 {
+define range(i32 0, 5) i32 @BraState_SetProps(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 36
@@ -146,7 +146,7 @@ define void @BraState_Init(ptr noundef %0) #1 {
 declare void @Delta_Init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BraState_SetFromMethod(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @BraState_SetFromMethod(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = add i64 %1, -10
   %or.cond11 = icmp ult i64 %4, -7
   br i1 %or.cond11, label %16, label %5
@@ -179,7 +179,7 @@ define noundef i32 @BraState_SetFromMethod(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @BraState_Code(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, i32 noundef %5, i32 %6, ptr nocapture noundef writeonly %7) #1 {
+define internal range(i32 0, 5) i32 @BraState_Code(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, i32 noundef %5, i32 %6, ptr nocapture noundef writeonly %7) #1 {
   %9 = load i64, ptr %2, align 8
   %10 = load i64, ptr %4, align 8
   store i64 0, ptr %2, align 8
@@ -500,7 +500,7 @@ define void @MixCoder_Init(ptr nocapture noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MixCoder_SetFromMethod(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @MixCoder_SetFromMethod(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %4, i64 0, i64 %5
@@ -766,7 +766,7 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Xz_ParseHeader(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 18) i32 @Xz_ParseHeader(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 6
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i16
@@ -796,7 +796,7 @@ define i32 @Xz_ParseHeader(ptr nocapture noundef %0, ptr noundef %1) local_unnam
 declare i32 @CrcCalc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @XzBlock_Parse(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 17) i32 @XzBlock_Parse(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw nsw i32 %4, 2
@@ -1680,7 +1680,7 @@ Xz_ParseHeader.exit:                              ; preds = %117
   br label %thread-pre-split
 
 164:                                              ; preds = %149
-  %165 = call i32 @XzBlock_Parse(ptr noundef nonnull %34, ptr noundef nonnull %17), !range !7
+  %165 = call i32 @XzBlock_Parse(ptr noundef nonnull %34, ptr noundef nonnull %17)
   %.not270 = icmp eq i32 %165, 0
   br i1 %.not270, label %166, label %Xz_ParseHeader.exit.thread
 
@@ -2007,7 +2007,7 @@ declare i32 @XzCheck_Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @XzUnpacker_IsStreamWasFinished(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @XzUnpacker_IsStreamWasFinished(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 4
   br i1 %3, label %4, label %10
@@ -2123,4 +2123,3 @@ attributes #10 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.unswitch.partial.disable"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 17}

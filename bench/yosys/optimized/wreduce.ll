@@ -27455,7 +27455,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M
   br i1 %1250, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i.i:             ; preds = %1247
-  %1251 = getelementptr inbounds i8, ptr %.sroa.24.0.i, i64 %1241
+  %1251 = getelementptr i8, ptr %.sroa.24.0.i, i64 %1241
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %1248, i8 0, i64 %1249, i1 false)
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm.exit.i
 
@@ -27684,7 +27684,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5count
   br i1 %1353, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm.exit373.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i360.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i360.i:          ; preds = %1350
-  %1354 = getelementptr inbounds i8, ptr %.sroa.24.0.i, i64 %1344
+  %1354 = getelementptr i8, ptr %.sroa.24.0.i, i64 %1344
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %1351, i8 0, i64 %1352, i1 false)
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm.exit373.i
 

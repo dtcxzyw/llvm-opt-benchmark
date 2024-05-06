@@ -1907,7 +1907,7 @@ if.end35.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end35.i.i
-  %conv.i.i.i = trunc i32 %add13.i.i.i to i8
+  %conv.i.i.i = trunc nuw nsw i32 %add13.i.i.i to i8
   store i8 %conv.i.i.i, ptr %utf8.sroa.0.i.i, align 4, !tbaa !13
   br label %json_append_unicode_escape.exit.i
 
@@ -1917,7 +1917,7 @@ if.end.i.i.i:                                     ; preds = %if.end35.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %shr.i.i.i = lshr i32 %add13.i.i.i, 6
-  %40 = trunc i32 %shr.i.i.i to i8
+  %40 = trunc nuw nsw i32 %shr.i.i.i to i8
   %conv4.i.i.i = or disjoint i8 %40, -64
   store i8 %conv4.i.i.i, ptr %utf8.sroa.0.i.i, align 4, !tbaa !13
   %41 = trunc i32 %add13.i.i.i to i8
@@ -1932,7 +1932,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   %shr13.i.i.i = lshr i32 %add13.i.i.i, 12
-  %43 = trunc i32 %shr13.i.i.i to i8
+  %43 = trunc nuw nsw i32 %shr13.i.i.i to i8
   %conv15.i.i.i = or disjoint i8 %43, -32
   store i8 %conv15.i.i.i, ptr %utf8.sroa.0.i.i, align 4, !tbaa !13
   %shr17.i.i.i = lshr i32 %add13.i.i.i, 6
@@ -1954,7 +1954,7 @@ if.then29.i.i.i:                                  ; preds = %if.end26.i.i.i, %if
   %codepoint.0137144148154.i.i = phi i32 [ %add.i.i, %if.end26.i.thread.i.i ], [ %add13.i.i.i, %if.end26.i.i.i ]
   %escape_len.0139143149153.i.i = phi i64 [ 12, %if.end26.i.thread.i.i ], [ 6, %if.end26.i.i.i ]
   %shr30.i.i.i = lshr i32 %codepoint.0137144148154.i.i, 18
-  %48 = trunc i32 %shr30.i.i.i to i8
+  %48 = trunc nuw nsw i32 %shr30.i.i.i to i8
   %conv32.i.i.i = or disjoint i8 %48, -16
   store i8 %conv32.i.i.i, ptr %utf8.sroa.0.i.i, align 4, !tbaa !13
   %shr34.i.i.i = lshr i32 %codepoint.0137144148154.i.i, 12
@@ -2475,7 +2475,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @json_is_invalid_number(ptr nocapture readonly %json.8.val) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @json_is_invalid_number(ptr nocapture readonly %json.8.val) unnamed_addr #7 {
 entry:
   %0 = load i8, ptr %json.8.val, align 1, !tbaa !13
   switch i8 %0, label %if.end6 [

@@ -62,7 +62,7 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %46, label %55, label %47
 
 47:                                               ; preds = %44
-  %48 = mul nsw i32 %31, %25
+  %48 = mul nuw nsw i32 %31, %25
   %49 = icmp sge i32 %23, %48
   %50 = or i1 %24, %49
   br i1 %50, label %51, label %55

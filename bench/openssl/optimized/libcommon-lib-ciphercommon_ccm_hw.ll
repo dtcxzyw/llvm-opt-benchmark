@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ccm_generic_setiv(ptr noundef %ctx, ptr noundef %nonce, i64 noundef %nlen, i64 noundef %mlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ccm_generic_setiv(ptr noundef %ctx, ptr noundef %nonce, i64 noundef %nlen, i64 noundef %mlen) local_unnamed_addr #0 {
 entry:
   %ccm_ctx = getelementptr inbounds i8, ptr %ctx, i64 80
   %call = tail call i32 @CRYPTO_ccm128_setiv(ptr noundef nonnull %ccm_ctx, ptr noundef %nonce, i64 noundef %nlen, i64 noundef %mlen) #2
@@ -26,7 +26,7 @@ entry:
 declare void @CRYPTO_ccm128_aad(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ccm_generic_gettag(ptr noundef %ctx, ptr noundef %tag, i64 noundef %tlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ccm_generic_gettag(ptr noundef %ctx, ptr noundef %tag, i64 noundef %tlen) local_unnamed_addr #0 {
 entry:
   %ccm_ctx = getelementptr inbounds i8, ptr %ctx, i64 80
   %call = tail call i64 @CRYPTO_ccm128_tag(ptr noundef nonnull %ccm_ctx, ptr noundef %tag, i64 noundef %tlen) #2
@@ -38,7 +38,7 @@ entry:
 declare i64 @CRYPTO_ccm128_tag(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ccm_generic_auth_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %tag, i64 noundef %taglen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ccm_generic_auth_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %tag, i64 noundef %taglen) local_unnamed_addr #0 {
 entry:
   %str = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %str, align 8
@@ -78,7 +78,7 @@ declare i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @CRYPTO_ccm128_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ccm_generic_auth_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %expected_tag, i64 noundef %taglen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ccm_generic_auth_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %expected_tag, i64 noundef %taglen) local_unnamed_addr #0 {
 entry:
   %tag = alloca [16 x i8], align 16
   %str = getelementptr inbounds i8, ptr %ctx, i64 136

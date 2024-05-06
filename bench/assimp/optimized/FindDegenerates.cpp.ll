@@ -248,7 +248,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i.i
 call5.i.i.i.i.i.i.noexc:                          ; preds = %if.end.i.i
   store ptr null, ptr %call5.i.i.i.i.i.i16, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i16, i64 8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   store i32 %16, ptr %add.ptr.i.i.i.i, align 4
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i16, i64 12
   store i32 0, ptr %second.i.i.i.i.i.i.i.i, align 4
@@ -430,7 +430,7 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %f
   %9 = phi i32 [ %7, %for.body5.lr.ph ], [ %41, %for.inc86 ]
   %first.0127 = phi i1 [ true, %for.body5.lr.ph ], [ %first.1.lcssa, %for.inc86 ]
   %cmp8 = icmp ugt i32 %9, 4
-  %10 = trunc i64 %indvars.iv138 to i32
+  %10 = trunc nuw i64 %indvars.iv138 to i32
   %add = add i32 %10, 2
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %add, i32 %9)
   %limit.0 = select i1 %cmp8, i32 %.sroa.speculated, i32 %9
@@ -440,7 +440,7 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %f
   br i1 %cmp14120, label %for.body15.lr.ph, label %for.end63
 
 for.body15.lr.ph:                                 ; preds = %for.body5
-  %12 = trunc i64 %indvars.iv.next139 to i32
+  %12 = trunc nuw i64 %indvars.iv.next139 to i32
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.inc61

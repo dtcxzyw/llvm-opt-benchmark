@@ -2657,7 +2657,7 @@ define internal noundef zeroext i1 @"_ZN76_$LT$core..ffi..c_str..FromBytesWithNu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @"_ZN78_$LT$core..ffi..c_str..FromBytesWithNulError$u20$as$u20$core..error..Error$GT$11description17h46b1aef94b295923E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !220, !noundef !4
-  %trunc = trunc i64 %2 to i1
+  %trunc = trunc nuw i64 %2 to i1
   %. = select i1 %trunc, i64 35, i64 43
   %anon.9a3a17f5c830402e59ce66ac5de2c364.49.anon.9a3a17f5c830402e59ce66ac5de2c364.50 = select i1 %trunc, ptr @anon.9a3a17f5c830402e59ce66ac5de2c364.50, ptr @anon.9a3a17f5c830402e59ce66ac5de2c364.49
   %3 = insertvalue { ptr, i64 } poison, ptr %anon.9a3a17f5c830402e59ce66ac5de2c364.49.anon.9a3a17f5c830402e59ce66ac5de2c364.50, 0

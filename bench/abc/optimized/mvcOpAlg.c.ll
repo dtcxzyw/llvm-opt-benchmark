@@ -332,7 +332,7 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef rea
 declare ptr @Mvc_CubeDup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Mvc_CoverAlgebraicEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %.02648 = load ptr, ptr %3, align 8
   %.not49 = icmp eq ptr %.02648, null

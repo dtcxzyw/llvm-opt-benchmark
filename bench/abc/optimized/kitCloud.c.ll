@@ -451,7 +451,7 @@ define ptr @Kit_CloudToTruth(ptr nocapture noundef readonly %0, i32 noundef %1, 
 select.unfold.preheader.i:                        ; preds = %4
   %11 = zext nneg i32 %spec.select.i to i64
   %12 = shl nuw nsw i64 %11, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %6, i8 -1, i64 %12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %6, i8 -1, i64 %12, i1 false)
   br label %Kit_TruthFill.exit
 
 Kit_TruthFill.exit:                               ; preds = %4, %select.unfold.preheader.i
@@ -585,7 +585,7 @@ Kit_TruthFill.exit:                               ; preds = %12
 Kit_TruthFill.exit.thread:                        ; preds = %12
   %21 = zext nneg i32 %spec.select.i to i64
   %22 = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %14, i8 -1, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %14, i8 -1, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %6, i64 4
   %.val394957 = load i32, ptr %23, align 4
   %24 = icmp sgt i32 %.val394957, 1

@@ -665,7 +665,7 @@ define noundef i32 @decContextTestEndian(i8 noundef zeroext %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @decContextTestSavedStatus(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @decContextTestSavedStatus(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = and i32 %1, %0
   %4 = icmp ne i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -673,7 +673,7 @@ define noundef i32 @decContextTestSavedStatus(i32 noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @decContextTestStatus(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @decContextTestStatus(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, %1

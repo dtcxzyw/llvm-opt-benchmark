@@ -48470,7 +48470,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix5flake4Nod
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix5flake8LockFileC1ESt17basic_string_viewIcSt11char_traitsIcEES7_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -53229,7 +53229,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basi
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile6toJSONB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
@@ -55647,7 +55647,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN3nix3refIKNS0_5
   br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile10isUnlockedEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile10isUnlockedEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile10isUnlockedEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -60190,7 +60190,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt6vectorINSt7
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZNK3nix5flake8LockFile12getAllInputsB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 

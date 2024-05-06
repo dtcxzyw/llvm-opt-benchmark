@@ -85,7 +85,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %57, label %65, label %58
 
 58:                                               ; preds = %56
-  %59 = mul nsw i32 %44, 5
+  %59 = mul nuw nsw i32 %44, 5
   %60 = add nuw nsw i32 %59, 3
   %61 = shl nuw i32 %44, 1
   %62 = add i32 %61, 6

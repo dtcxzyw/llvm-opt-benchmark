@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @boot_yyparse() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @boot_yyparse() local_unnamed_addr #0 {
   %1 = alloca [200 x i8], align 16
   %2 = alloca [200 x %union.YYSTYPE], align 16
   %3 = alloca i32, align 4
@@ -73,7 +73,7 @@ define dso_local noundef i32 @boot_yyparse() local_unnamed_addr #0 {
   %.0292 = phi i64 [ 200, %0 ], [ %.1293, %5 ]
   %.1290 = phi i32 [ 0, %0 ], [ %.0289, %5 ]
   %.1 = phi i32 [ 0, %0 ], [ %.0, %5 ]
-  %8 = trunc i32 %.1 to i8
+  %8 = trunc nsw i32 %.1 to i8
   store i8 %8, ptr %.1298, align 1
   %9 = getelementptr i8, ptr %.0294, i64 %.0292
   %10 = getelementptr i8, ptr %9, i64 -1

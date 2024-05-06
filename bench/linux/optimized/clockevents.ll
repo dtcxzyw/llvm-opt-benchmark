@@ -85,7 +85,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_clockevent_delta2ns316, ptr @__UNIQUE_ID___addressable_clockevents_config_and_register341, ptr @__UNIQUE_ID___addressable_clockevents_init_sysfs345, ptr @__UNIQUE_ID___addressable_clockevents_register_device340, ptr @__UNIQUE_ID___addressable_clockevents_unbind_device333], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @clockevent_delta2ns(i64 noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local range(i64 1000, 0) i64 @clockevent_delta2ns(i64 noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -391,7 +391,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @clockevents_program_min_delta(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -62, 1) i32 @clockevents_program_min_delta(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -1296,7 +1296,7 @@ define internal fastcc i32 @tick_broadcast_init_sysfs() unnamed_addr #4 section 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @current_device_show(ptr noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @current_device_show(ptr noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @clockevents_lock) #11
   %4 = icmp eq ptr %0, @tick_bc_dev
   br i1 %4, label %5, label %7

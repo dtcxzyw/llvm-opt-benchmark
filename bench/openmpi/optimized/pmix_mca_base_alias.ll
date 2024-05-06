@@ -35,7 +35,7 @@ define internal void @pmix_mca_base_alias_init(ptr noundef %0) #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
@@ -143,19 +143,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %26
   %46 = getelementptr inbounds i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
-  %.not6.i17 = icmp eq ptr %48, null
-  br i1 %.not6.i17, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18
+  %.not6.i18 = icmp eq ptr %48, null
+  br i1 %.not6.i18, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19
 
-.lr.ph.i18:                                       ; preds = %._crit_edge, %.lr.ph.i18
-  %49 = phi ptr [ %51, %.lr.ph.i18 ], [ %48, %._crit_edge ]
-  %.07.i19 = phi ptr [ %50, %.lr.ph.i18 ], [ %47, %._crit_edge ]
+.lr.ph.i19:                                       ; preds = %._crit_edge, %.lr.ph.i19
+  %49 = phi ptr [ %51, %.lr.ph.i19 ], [ %48, %._crit_edge ]
+  %.07.i20 = phi ptr [ %50, %.lr.ph.i19 ], [ %47, %._crit_edge ]
   tail call void %49(ptr noundef nonnull %43) #17
-  %50 = getelementptr inbounds i8, ptr %.07.i19, i64 8
+  %50 = getelementptr inbounds i8, ptr %.07.i20, i64 8
   %51 = load ptr, ptr %50, align 8
-  %.not.i20 = icmp eq ptr %51, null
-  br i1 %.not.i20, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18, !llvm.loop !6
+  %.not.i21 = icmp eq ptr %51, null
+  br i1 %.not.i21, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19, !llvm.loop !6
 
-pmix_obj_run_destructors.exit21:                  ; preds = %.lr.ph.i18, %._crit_edge
+pmix_obj_run_destructors.exit22:                  ; preds = %.lr.ph.i19, %._crit_edge
   ret void
 }
 
@@ -286,31 +286,31 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %20
   %56 = getelementptr inbounds i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %57, align 8
-  %.not6.i24 = icmp eq ptr %58, null
-  br i1 %.not6.i24, label %pmix_obj_run_destructors.exit28, label %.lr.ph.i25
+  %.not6.i25 = icmp eq ptr %58, null
+  br i1 %.not6.i25, label %pmix_obj_run_destructors.exit29, label %.lr.ph.i26
 
-.lr.ph.i25:                                       ; preds = %53, %.lr.ph.i25
-  %59 = phi ptr [ %61, %.lr.ph.i25 ], [ %58, %53 ]
-  %.07.i26 = phi ptr [ %60, %.lr.ph.i25 ], [ %57, %53 ]
+.lr.ph.i26:                                       ; preds = %53, %.lr.ph.i26
+  %59 = phi ptr [ %61, %.lr.ph.i26 ], [ %58, %53 ]
+  %.07.i27 = phi ptr [ %60, %.lr.ph.i26 ], [ %57, %53 ]
   call void %59(ptr noundef %42) #17
-  %60 = getelementptr inbounds i8, ptr %.07.i26, i64 8
+  %60 = getelementptr inbounds i8, ptr %.07.i27, i64 8
   %61 = load ptr, ptr %60, align 8
-  %.not.i27 = icmp eq ptr %61, null
-  br i1 %.not.i27, label %pmix_obj_run_destructors.exit28, label %.lr.ph.i25, !llvm.loop !6
+  %.not.i28 = icmp eq ptr %61, null
+  br i1 %.not.i28, label %pmix_obj_run_destructors.exit29, label %.lr.ph.i26, !llvm.loop !6
 
-pmix_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %53
+pmix_obj_run_destructors.exit29:                  ; preds = %.lr.ph.i26, %53
   %62 = getelementptr inbounds i8, ptr %42, i64 96
   %63 = load ptr, ptr %62, align 8
   %.not22 = icmp eq ptr %63, null
   br i1 %.not22, label %67, label %64
 
-64:                                               ; preds = %pmix_obj_run_destructors.exit28
+64:                                               ; preds = %pmix_obj_run_destructors.exit29
   %65 = getelementptr inbounds i8, ptr %42, i64 56
   %66 = load ptr, ptr @alias_hash_table, align 8
   call void %63(ptr noundef nonnull %65, ptr noundef %66) #17
   br label %69
 
-67:                                               ; preds = %pmix_obj_run_destructors.exit28
+67:                                               ; preds = %pmix_obj_run_destructors.exit29
   %68 = load ptr, ptr @alias_hash_table, align 8
   call void @free(ptr noundef %68) #17
   br label %69
@@ -368,7 +368,7 @@ define i32 @pmix_mca_base_alias_register(ptr noundef %0, ptr noundef %1, ptr nou
   %23 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_hash_table_t_class, i64 0, i32 6), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i.i.i = icmp eq ptr %24, null
-  br i1 %.not6.i.i.i, label %pmix_obj_new_tma.exit.thread19.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %pmix_obj_new_tma.exit.thread20.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %17, %.lr.ph.i.i.i
   %25 = phi ptr [ %27, %.lr.ph.i.i.i ], [ %24, %17 ]
@@ -377,15 +377,15 @@ define i32 @pmix_mca_base_alias_register(ptr noundef %0, ptr noundef %1, ptr nou
   %26 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %pmix_obj_new_tma.exit.thread19.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %pmix_obj_new_tma.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit.thread19.i:                 ; preds = %.lr.ph.i.i.i, %17
+pmix_obj_new_tma.exit.thread20.i:                 ; preds = %.lr.ph.i.i.i, %17
   store ptr %12, ptr @alias_hash_table, align 8
   %28 = tail call i32 @pmix_hash_table_init(ptr noundef nonnull %12, i64 noundef 32) #17
   %.not16.i = icmp eq i32 %28, 0
   br i1 %.not16.i, label %pmix_mca_base_alias_setup.exit.thread, label %29
 
-29:                                               ; preds = %pmix_obj_new_tma.exit.thread19.i
+29:                                               ; preds = %pmix_obj_new_tma.exit.thread20.i
   %30 = load ptr, ptr @alias_hash_table, align 8
   %31 = tail call i32 @pthread_mutex_lock(ptr noundef %30) #17
   %32 = icmp eq i32 %31, 35
@@ -451,7 +451,7 @@ pmix_mca_base_alias_setup.exit:                   ; preds = %52, %55
   store ptr null, ptr @alias_hash_table, align 8
   br label %117
 
-pmix_mca_base_alias_setup.exit.thread:            ; preds = %pmix_obj_new_tma.exit.thread19.i, %8
+pmix_mca_base_alias_setup.exit.thread:            ; preds = %pmix_obj_new_tma.exit.thread20.i, %8
   %57 = tail call fastcc ptr @pmix_mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8

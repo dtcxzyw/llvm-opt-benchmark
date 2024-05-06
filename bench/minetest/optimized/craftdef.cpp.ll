@@ -402,7 +402,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.16 = private unnamed_addr constant [16 x i8] c", replacements=\00", align 1
 @_ZTV24CraftDefinitionShapeless = dso_local unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTI24CraftDefinitionShapeless, ptr @_ZN24CraftDefinitionShapelessD2Ev, ptr @_ZN24CraftDefinitionShapelessD0Ev, ptr @_ZNK24CraftDefinitionShapeless7getNameB5cxx11Ev, ptr @_ZNK24CraftDefinitionShapeless5checkERK10CraftInputP8IGameDef, ptr @_ZNK24CraftDefinitionShapeless9getOutputERK10CraftInputP8IGameDef, ptr @_ZNK24CraftDefinitionShapeless8getInputERK11CraftOutputP8IGameDef, ptr @_ZNK24CraftDefinitionShapeless14decrementInputER10CraftInputRSt6vectorI9ItemStackSaIS3_EEP8IGameDef, ptr @_ZNK24CraftDefinitionShapeless7getHashE13CraftHashType, ptr @_ZN24CraftDefinitionShapeless8initHashEP8IGameDef, ptr @_ZNK24CraftDefinitionShapeless4dumpB5cxx11Ev] }, align 8
 @.str.17 = private unnamed_addr constant [10 x i8] c"shapeless\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.18 = private unnamed_addr constant [35 x i8] c"Too many groups in shapless craft.\00", align 1
 @.str.19 = private unnamed_addr constant [21 x i8] c"(shapeless, output=\22\00", align 1
 @_ZTV25CraftDefinitionToolRepair = dso_local unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTI25CraftDefinitionToolRepair, ptr @_ZN15CraftDefinitionD2Ev, ptr @_ZN25CraftDefinitionToolRepairD0Ev, ptr @_ZNK25CraftDefinitionToolRepair7getNameB5cxx11Ev, ptr @_ZNK25CraftDefinitionToolRepair5checkERK10CraftInputP8IGameDef, ptr @_ZNK25CraftDefinitionToolRepair9getOutputERK10CraftInputP8IGameDef, ptr @_ZNK25CraftDefinitionToolRepair8getInputERK11CraftOutputP8IGameDef, ptr @_ZNK25CraftDefinitionToolRepair14decrementInputER10CraftInputRSt6vectorI9ItemStackSaIS3_EEP8IGameDef, ptr @_ZNK25CraftDefinitionToolRepair7getHashE13CraftHashType, ptr @_ZN25CraftDefinitionToolRepair8initHashEP8IGameDef, ptr @_ZNK25CraftDefinitionToolRepair4dumpB5cxx11Ev] }, align 8
@@ -451,7 +451,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZTI24IWritableCraftDefManager = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS24IWritableCraftDefManager, ptr @_ZTI16ICraftDefManager }, comdat, align 8
 @_ZTI16CCraftDefManager = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS16CCraftDefManager, ptr @_ZTI24IWritableCraftDefManager }, comdat, align 8
 @.str.40 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.41 = private unnamed_addr constant [30 x i8] c"trying to craft non-existent \00", align 1
 @.str.42 = private unnamed_addr constant [18 x i8] c", ignoring recipe\00", align 1
 @.str.43 = private unnamed_addr constant [23 x i8] c"Crafting definitions:\0A\00", align 1
@@ -459,7 +459,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.45 = private unnamed_addr constant [7 x i8] c" hash \00", align 1
 @.str.46 = private unnamed_addr constant [6 x i8] c" def \00", align 1
 @_ZSt19piecewise_construct = linkonce_odr dso_local constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
-@tracestream = external thread_local global %class.LogStream, align 8
+@tracestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.47 = private unnamed_addr constant [46 x i8] c"registerCraft: registering craft definition: \00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_craftdef.cpp, ptr null }]
 

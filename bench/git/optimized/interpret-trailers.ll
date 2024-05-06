@@ -399,7 +399,7 @@ do.end5:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @option_parse_trailer(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @option_parse_trailer(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8

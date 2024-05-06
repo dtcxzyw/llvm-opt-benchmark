@@ -46,7 +46,7 @@ define void @nxtask_start() local_unnamed_addr #0 {
   unreachable
 
 19:                                               ; preds = %14
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = load i16, ptr %2, align 16
   %22 = and i16 %21, 3
   %23 = icmp eq i16 %22, 2

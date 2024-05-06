@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_hash_digestv(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_hash_digestv(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result = alloca ptr, align 8
   %resultlen = alloca i64, align 8
@@ -129,7 +129,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_hash_digest(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_hash_digest(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result.i = alloca ptr, align 8
   %resultlen.i = alloca i64, align 8
@@ -207,7 +207,7 @@ qcrypto_hash_digestv.exit:                        ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_hash_base64v(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_hash_base64v(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result = alloca ptr, align 8
   %resultlen = alloca i64, align 8
@@ -235,7 +235,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @g_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_hash_base64(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_hash_base64(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result.i = alloca ptr, align 8
   %resultlen.i = alloca i64, align 8

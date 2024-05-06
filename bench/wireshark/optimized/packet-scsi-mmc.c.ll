@@ -2486,7 +2486,7 @@ define internal void @dissect_mmc4_reportkey(ptr noundef %0, ptr noundef %1, ptr
   %36 = shl nuw nsw i32 %28, 8
   %37 = zext i8 %18 to i32
   %38 = or disjoint i32 %36, %37
-  %39 = trunc i32 %38 to i16
+  %39 = trunc nuw nsw i32 %38 to i16
   %40 = getelementptr inbounds i8, ptr %7, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 12
